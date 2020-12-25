@@ -21,40 +21,38 @@ module Network.AWS.Lambda.Types.OnSuccess
   )
 where
 
+import qualified Network.AWS.Lambda.Types.Destination as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A destination for events that were processed successfully.
 --
 -- /See:/ 'mkOnSuccess' smart constructor.
 newtype OnSuccess = OnSuccess'
   { -- | The Amazon Resource Name (ARN) of the destination resource.
-    destination :: Lude.Maybe Lude.Text
+    destination :: Core.Maybe Types.Destination
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OnSuccess' with the minimum fields required to make a request.
---
--- * 'destination' - The Amazon Resource Name (ARN) of the destination resource.
+-- | Creates a 'OnSuccess' value with any optional fields omitted.
 mkOnSuccess ::
   OnSuccess
-mkOnSuccess = OnSuccess' {destination = Lude.Nothing}
+mkOnSuccess = OnSuccess' {destination = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the destination resource.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osDestination :: Lens.Lens' OnSuccess (Lude.Maybe Lude.Text)
-osDestination = Lens.lens (destination :: OnSuccess -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: OnSuccess)
+osDestination :: Lens.Lens' OnSuccess (Core.Maybe Types.Destination)
+osDestination = Lens.field @"destination"
 {-# DEPRECATED osDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance Lude.FromJSON OnSuccess where
-  parseJSON =
-    Lude.withObject
-      "OnSuccess"
-      (\x -> OnSuccess' Lude.<$> (x Lude..:? "Destination"))
+instance Core.FromJSON OnSuccess where
+  toJSON OnSuccess {..} =
+    Core.object
+      (Core.catMaybes [("Destination" Core..=) Core.<$> destination])
 
-instance Lude.ToJSON OnSuccess where
-  toJSON OnSuccess' {..} =
-    Lude.object
-      (Lude.catMaybes [("Destination" Lude..=) Lude.<$> destination])
+instance Core.FromJSON OnSuccess where
+  parseJSON =
+    Core.withObject "OnSuccess" Core.$
+      \x -> OnSuccess' Core.<$> (x Core..:? "Destination")

@@ -31,10 +31,10 @@ module Network.AWS.CertificateManagerPCA.CreatePermission
     mkCreatePermission,
 
     -- ** Request lenses
-    cpSourceAccount,
-    cpActions,
+    cpCertificateAuthorityArn,
     cpPrincipal,
-    cpCertificateAuthorityARN,
+    cpActions,
+    cpSourceAccount,
 
     -- * Destructuring the response
     CreatePermissionResponse (..),
@@ -42,122 +42,108 @@ module Network.AWS.CertificateManagerPCA.CreatePermission
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreatePermission' smart constructor.
 data CreatePermission = CreatePermission'
-  { -- | The ID of the calling account.
-    sourceAccount :: Lude.Maybe Lude.Text,
-    -- | The actions that the specified AWS service principal can use. These include @IssueCertificate@ , @GetCertificate@ , and @ListPermissions@ .
-    actions :: Lude.NonEmpty ActionType,
-    -- | The AWS service or identity that receives the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
-    principal :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must have the following form:
+  { -- | The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must have the following form:
     --
     -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-    certificateAuthorityARN :: Lude.Text
+    certificateAuthorityArn :: Types.Arn,
+    -- | The AWS service or identity that receives the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
+    principal :: Types.Principal,
+    -- | The actions that the specified AWS service principal can use. These include @IssueCertificate@ , @GetCertificate@ , and @ListPermissions@ .
+    actions :: Core.NonEmpty Types.ActionType,
+    -- | The ID of the calling account.
+    sourceAccount :: Core.Maybe Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePermission' with the minimum fields required to make a request.
---
--- * 'sourceAccount' - The ID of the calling account.
--- * 'actions' - The actions that the specified AWS service principal can use. These include @IssueCertificate@ , @GetCertificate@ , and @ListPermissions@ .
--- * 'principal' - The AWS service or identity that receives the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
--- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must have the following form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+-- | Creates a 'CreatePermission' value with any optional fields omitted.
 mkCreatePermission ::
-  -- | 'actions'
-  Lude.NonEmpty ActionType ->
+  -- | 'certificateAuthorityArn'
+  Types.Arn ->
   -- | 'principal'
-  Lude.Text ->
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
+  Types.Principal ->
+  -- | 'actions'
+  Core.NonEmpty Types.ActionType ->
   CreatePermission
-mkCreatePermission pActions_ pPrincipal_ pCertificateAuthorityARN_ =
+mkCreatePermission certificateAuthorityArn principal actions =
   CreatePermission'
-    { sourceAccount = Lude.Nothing,
-      actions = pActions_,
-      principal = pPrincipal_,
-      certificateAuthorityARN = pCertificateAuthorityARN_
+    { certificateAuthorityArn,
+      principal,
+      actions,
+      sourceAccount = Core.Nothing
     }
-
--- | The ID of the calling account.
---
--- /Note:/ Consider using 'sourceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpSourceAccount :: Lens.Lens' CreatePermission (Lude.Maybe Lude.Text)
-cpSourceAccount = Lens.lens (sourceAccount :: CreatePermission -> Lude.Maybe Lude.Text) (\s a -> s {sourceAccount = a} :: CreatePermission)
-{-# DEPRECATED cpSourceAccount "Use generic-lens or generic-optics with 'sourceAccount' instead." #-}
-
--- | The actions that the specified AWS service principal can use. These include @IssueCertificate@ , @GetCertificate@ , and @ListPermissions@ .
---
--- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpActions :: Lens.Lens' CreatePermission (Lude.NonEmpty ActionType)
-cpActions = Lens.lens (actions :: CreatePermission -> Lude.NonEmpty ActionType) (\s a -> s {actions = a} :: CreatePermission)
-{-# DEPRECATED cpActions "Use generic-lens or generic-optics with 'actions' instead." #-}
-
--- | The AWS service or identity that receives the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
---
--- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPrincipal :: Lens.Lens' CreatePermission Lude.Text
-cpPrincipal = Lens.lens (principal :: CreatePermission -> Lude.Text) (\s a -> s {principal = a} :: CreatePermission)
-{-# DEPRECATED cpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must have the following form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
 --
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpCertificateAuthorityARN :: Lens.Lens' CreatePermission Lude.Text
-cpCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: CreatePermission -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: CreatePermission)
-{-# DEPRECATED cpCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpCertificateAuthorityArn :: Lens.Lens' CreatePermission Types.Arn
+cpCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED cpCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
-instance Lude.AWSRequest CreatePermission where
+-- | The AWS service or identity that receives the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPrincipal :: Lens.Lens' CreatePermission Types.Principal
+cpPrincipal = Lens.field @"principal"
+{-# DEPRECATED cpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+
+-- | The actions that the specified AWS service principal can use. These include @IssueCertificate@ , @GetCertificate@ , and @ListPermissions@ .
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpActions :: Lens.Lens' CreatePermission (Core.NonEmpty Types.ActionType)
+cpActions = Lens.field @"actions"
+{-# DEPRECATED cpActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+
+-- | The ID of the calling account.
+--
+-- /Note:/ Consider using 'sourceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpSourceAccount :: Lens.Lens' CreatePermission (Core.Maybe Types.AccountId)
+cpSourceAccount = Lens.field @"sourceAccount"
+{-# DEPRECATED cpSourceAccount "Use generic-lens or generic-optics with 'sourceAccount' instead." #-}
+
+instance Core.FromJSON CreatePermission where
+  toJSON CreatePermission {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateAuthorityArn" Core..= certificateAuthorityArn),
+            Core.Just ("Principal" Core..= principal),
+            Core.Just ("Actions" Core..= actions),
+            ("SourceAccount" Core..=) Core.<$> sourceAccount
+          ]
+      )
+
+instance Core.AWSRequest CreatePermission where
   type Rs CreatePermission = CreatePermissionResponse
-  request = Req.postJSON certificateManagerPCAService
-  response = Res.receiveNull CreatePermissionResponse'
-
-instance Lude.ToHeaders CreatePermission where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.CreatePermission" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreatePermission where
-  toJSON CreatePermission' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SourceAccount" Lude..=) Lude.<$> sourceAccount,
-            Lude.Just ("Actions" Lude..= actions),
-            Lude.Just ("Principal" Lude..= principal),
-            Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
-          ]
-      )
-
-instance Lude.ToPath CreatePermission where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreatePermission where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ACMPrivateCA.CreatePermission")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull CreatePermissionResponse'
 
 -- | /See:/ 'mkCreatePermissionResponse' smart constructor.
 data CreatePermissionResponse = CreatePermissionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePermissionResponse' with the minimum fields required to make a request.
+-- | Creates a 'CreatePermissionResponse' value with any optional fields omitted.
 mkCreatePermissionResponse ::
   CreatePermissionResponse
 mkCreatePermissionResponse = CreatePermissionResponse'

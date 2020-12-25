@@ -22,134 +22,128 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     mkPurchaseReservedNodeOffering,
 
     -- ** Request lenses
-    prnoNodeCount,
     prnoReservedNodeOfferingId,
+    prnoNodeCount,
 
     -- * Destructuring the response
     PurchaseReservedNodeOfferingResponse (..),
     mkPurchaseReservedNodeOfferingResponse,
 
     -- ** Response lenses
-    prnorsReservedNode,
-    prnorsResponseStatus,
+    prnorrsReservedNode,
+    prnorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkPurchaseReservedNodeOffering' smart constructor.
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
-  { -- | The number of reserved nodes that you want to purchase.
+  { -- | The unique identifier of the reserved node offering you want to purchase.
+    reservedNodeOfferingId :: Types.ReservedNodeOfferingId,
+    -- | The number of reserved nodes that you want to purchase.
     --
     -- Default: @1@
-    nodeCount :: Lude.Maybe Lude.Int,
-    -- | The unique identifier of the reserved node offering you want to purchase.
-    reservedNodeOfferingId :: Lude.Text
+    nodeCount :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PurchaseReservedNodeOffering' with the minimum fields required to make a request.
---
--- * 'nodeCount' - The number of reserved nodes that you want to purchase.
---
--- Default: @1@
--- * 'reservedNodeOfferingId' - The unique identifier of the reserved node offering you want to purchase.
+-- | Creates a 'PurchaseReservedNodeOffering' value with any optional fields omitted.
 mkPurchaseReservedNodeOffering ::
   -- | 'reservedNodeOfferingId'
-  Lude.Text ->
+  Types.ReservedNodeOfferingId ->
   PurchaseReservedNodeOffering
-mkPurchaseReservedNodeOffering pReservedNodeOfferingId_ =
+mkPurchaseReservedNodeOffering reservedNodeOfferingId =
   PurchaseReservedNodeOffering'
-    { nodeCount = Lude.Nothing,
-      reservedNodeOfferingId = pReservedNodeOfferingId_
+    { reservedNodeOfferingId,
+      nodeCount = Core.Nothing
     }
+
+-- | The unique identifier of the reserved node offering you want to purchase.
+--
+-- /Note:/ Consider using 'reservedNodeOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prnoReservedNodeOfferingId :: Lens.Lens' PurchaseReservedNodeOffering Types.ReservedNodeOfferingId
+prnoReservedNodeOfferingId = Lens.field @"reservedNodeOfferingId"
+{-# DEPRECATED prnoReservedNodeOfferingId "Use generic-lens or generic-optics with 'reservedNodeOfferingId' instead." #-}
 
 -- | The number of reserved nodes that you want to purchase.
 --
 -- Default: @1@
 --
 -- /Note:/ Consider using 'nodeCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prnoNodeCount :: Lens.Lens' PurchaseReservedNodeOffering (Lude.Maybe Lude.Int)
-prnoNodeCount = Lens.lens (nodeCount :: PurchaseReservedNodeOffering -> Lude.Maybe Lude.Int) (\s a -> s {nodeCount = a} :: PurchaseReservedNodeOffering)
+prnoNodeCount :: Lens.Lens' PurchaseReservedNodeOffering (Core.Maybe Core.Int)
+prnoNodeCount = Lens.field @"nodeCount"
 {-# DEPRECATED prnoNodeCount "Use generic-lens or generic-optics with 'nodeCount' instead." #-}
 
--- | The unique identifier of the reserved node offering you want to purchase.
---
--- /Note:/ Consider using 'reservedNodeOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prnoReservedNodeOfferingId :: Lens.Lens' PurchaseReservedNodeOffering Lude.Text
-prnoReservedNodeOfferingId = Lens.lens (reservedNodeOfferingId :: PurchaseReservedNodeOffering -> Lude.Text) (\s a -> s {reservedNodeOfferingId = a} :: PurchaseReservedNodeOffering)
-{-# DEPRECATED prnoReservedNodeOfferingId "Use generic-lens or generic-optics with 'reservedNodeOfferingId' instead." #-}
-
-instance Lude.AWSRequest PurchaseReservedNodeOffering where
+instance Core.AWSRequest PurchaseReservedNodeOffering where
   type
     Rs PurchaseReservedNodeOffering =
       PurchaseReservedNodeOfferingResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PurchaseReservedNodeOffering")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ReservedNodeOfferingId" reservedNodeOfferingId)
+                Core.<> (Core.toQueryValue "NodeCount" Core.<$> nodeCount)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "PurchaseReservedNodeOfferingResult"
       ( \s h x ->
           PurchaseReservedNodeOfferingResponse'
-            Lude.<$> (x Lude..@? "ReservedNode") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ReservedNode") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PurchaseReservedNodeOffering where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PurchaseReservedNodeOffering where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PurchaseReservedNodeOffering where
-  toQuery PurchaseReservedNodeOffering' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("PurchaseReservedNodeOffering" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "NodeCount" Lude.=: nodeCount,
-        "ReservedNodeOfferingId" Lude.=: reservedNodeOfferingId
-      ]
 
 -- | /See:/ 'mkPurchaseReservedNodeOfferingResponse' smart constructor.
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
-  { reservedNode :: Lude.Maybe ReservedNode,
+  { reservedNode :: Core.Maybe Types.ReservedNode,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PurchaseReservedNodeOfferingResponse' with the minimum fields required to make a request.
---
--- * 'reservedNode' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PurchaseReservedNodeOfferingResponse' value with any optional fields omitted.
 mkPurchaseReservedNodeOfferingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PurchaseReservedNodeOfferingResponse
-mkPurchaseReservedNodeOfferingResponse pResponseStatus_ =
+mkPurchaseReservedNodeOfferingResponse responseStatus =
   PurchaseReservedNodeOfferingResponse'
     { reservedNode =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'reservedNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prnorsReservedNode :: Lens.Lens' PurchaseReservedNodeOfferingResponse (Lude.Maybe ReservedNode)
-prnorsReservedNode = Lens.lens (reservedNode :: PurchaseReservedNodeOfferingResponse -> Lude.Maybe ReservedNode) (\s a -> s {reservedNode = a} :: PurchaseReservedNodeOfferingResponse)
-{-# DEPRECATED prnorsReservedNode "Use generic-lens or generic-optics with 'reservedNode' instead." #-}
+prnorrsReservedNode :: Lens.Lens' PurchaseReservedNodeOfferingResponse (Core.Maybe Types.ReservedNode)
+prnorrsReservedNode = Lens.field @"reservedNode"
+{-# DEPRECATED prnorrsReservedNode "Use generic-lens or generic-optics with 'reservedNode' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prnorsResponseStatus :: Lens.Lens' PurchaseReservedNodeOfferingResponse Lude.Int
-prnorsResponseStatus = Lens.lens (responseStatus :: PurchaseReservedNodeOfferingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseReservedNodeOfferingResponse)
-{-# DEPRECATED prnorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prnorrsResponseStatus :: Lens.Lens' PurchaseReservedNodeOfferingResponse Core.Int
+prnorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prnorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

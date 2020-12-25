@@ -20,7 +20,7 @@ module Network.AWS.AlexaBusiness.UpdateDevice
     mkUpdateDevice,
 
     -- ** Request lenses
-    udDeviceARN,
+    udDeviceArn,
     udDeviceName,
 
     -- * Destructuring the response
@@ -28,108 +28,96 @@ module Network.AWS.AlexaBusiness.UpdateDevice
     mkUpdateDeviceResponse,
 
     -- ** Response lenses
-    udrsResponseStatus,
+    udrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateDevice' smart constructor.
 data UpdateDevice = UpdateDevice'
   { -- | The ARN of the device to update. Required.
-    deviceARN :: Lude.Maybe Lude.Text,
+    deviceArn :: Core.Maybe Types.Arn,
     -- | The updated device name. Required.
-    deviceName :: Lude.Maybe Lude.Text
+    deviceName :: Core.Maybe Types.DeviceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDevice' with the minimum fields required to make a request.
---
--- * 'deviceARN' - The ARN of the device to update. Required.
--- * 'deviceName' - The updated device name. Required.
+-- | Creates a 'UpdateDevice' value with any optional fields omitted.
 mkUpdateDevice ::
   UpdateDevice
 mkUpdateDevice =
   UpdateDevice'
-    { deviceARN = Lude.Nothing,
-      deviceName = Lude.Nothing
+    { deviceArn = Core.Nothing,
+      deviceName = Core.Nothing
     }
 
 -- | The ARN of the device to update. Required.
 --
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDeviceARN :: Lens.Lens' UpdateDevice (Lude.Maybe Lude.Text)
-udDeviceARN = Lens.lens (deviceARN :: UpdateDevice -> Lude.Maybe Lude.Text) (\s a -> s {deviceARN = a} :: UpdateDevice)
-{-# DEPRECATED udDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
+-- /Note:/ Consider using 'deviceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDeviceArn :: Lens.Lens' UpdateDevice (Core.Maybe Types.Arn)
+udDeviceArn = Lens.field @"deviceArn"
+{-# DEPRECATED udDeviceArn "Use generic-lens or generic-optics with 'deviceArn' instead." #-}
 
 -- | The updated device name. Required.
 --
 -- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDeviceName :: Lens.Lens' UpdateDevice (Lude.Maybe Lude.Text)
-udDeviceName = Lens.lens (deviceName :: UpdateDevice -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: UpdateDevice)
+udDeviceName :: Lens.Lens' UpdateDevice (Core.Maybe Types.DeviceName)
+udDeviceName = Lens.field @"deviceName"
 {-# DEPRECATED udDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
-instance Lude.AWSRequest UpdateDevice where
+instance Core.FromJSON UpdateDevice where
+  toJSON UpdateDevice {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DeviceArn" Core..=) Core.<$> deviceArn,
+            ("DeviceName" Core..=) Core.<$> deviceName
+          ]
+      )
+
+instance Core.AWSRequest UpdateDevice where
   type Rs UpdateDevice = UpdateDeviceResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.UpdateDevice")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateDeviceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateDeviceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateDevice where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.UpdateDevice" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateDevice where
-  toJSON UpdateDevice' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeviceArn" Lude..=) Lude.<$> deviceARN,
-            ("DeviceName" Lude..=) Lude.<$> deviceName
-          ]
-      )
-
-instance Lude.ToPath UpdateDevice where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateDevice where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateDeviceResponse' smart constructor.
 newtype UpdateDeviceResponse = UpdateDeviceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDeviceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDeviceResponse' value with any optional fields omitted.
 mkUpdateDeviceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDeviceResponse
-mkUpdateDeviceResponse pResponseStatus_ =
-  UpdateDeviceResponse' {responseStatus = pResponseStatus_}
+mkUpdateDeviceResponse responseStatus =
+  UpdateDeviceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsResponseStatus :: Lens.Lens' UpdateDeviceResponse Lude.Int
-udrsResponseStatus = Lens.lens (responseStatus :: UpdateDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDeviceResponse)
-{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udrrsResponseStatus :: Lens.Lens' UpdateDeviceResponse Core.Int
+udrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

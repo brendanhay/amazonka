@@ -24,35 +24,31 @@ module Network.AWS.Lambda.ListFunctionEventInvokeConfigs
     mkListFunctionEventInvokeConfigs,
 
     -- ** Request lenses
+    lfeicFunctionName,
     lfeicMarker,
     lfeicMaxItems,
-    lfeicFunctionName,
 
     -- * Destructuring the response
     ListFunctionEventInvokeConfigsResponse (..),
     mkListFunctionEventInvokeConfigsResponse,
 
     -- ** Response lenses
-    lfeicrsFunctionEventInvokeConfigs,
-    lfeicrsNextMarker,
-    lfeicrsResponseStatus,
+    lfeicrrsFunctionEventInvokeConfigs,
+    lfeicrrsNextMarker,
+    lfeicrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListFunctionEventInvokeConfigs' smart constructor.
 data ListFunctionEventInvokeConfigs = ListFunctionEventInvokeConfigs'
-  { -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The maximum number of configurations to return.
-    maxItems :: Lude.Maybe Lude.Natural,
-    -- | The name of the Lambda function.
+  { -- | The name of the Lambda function.
     --
     -- __Name formats__
     --
@@ -66,53 +62,26 @@ data ListFunctionEventInvokeConfigs = ListFunctionEventInvokeConfigs'
     --
     --
     -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Lude.Text
+    functionName :: Types.FunctionName,
+    -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+    marker :: Core.Maybe Types.String,
+    -- | The maximum number of configurations to return.
+    maxItems :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFunctionEventInvokeConfigs' with the minimum fields required to make a request.
---
--- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
--- * 'maxItems' - The maximum number of configurations to return.
--- * 'functionName' - The name of the Lambda function.
---
--- __Name formats__
---
---     * __Function name__ - @my-function@ .
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
---
---
---     * __Partial ARN__ - @123456789012:function:my-function@ .
---
---
--- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | Creates a 'ListFunctionEventInvokeConfigs' value with any optional fields omitted.
 mkListFunctionEventInvokeConfigs ::
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
   ListFunctionEventInvokeConfigs
-mkListFunctionEventInvokeConfigs pFunctionName_ =
+mkListFunctionEventInvokeConfigs functionName =
   ListFunctionEventInvokeConfigs'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      functionName = pFunctionName_
+    { functionName,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
-
--- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfeicMarker :: Lens.Lens' ListFunctionEventInvokeConfigs (Lude.Maybe Lude.Text)
-lfeicMarker = Lens.lens (marker :: ListFunctionEventInvokeConfigs -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListFunctionEventInvokeConfigs)
-{-# DEPRECATED lfeicMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The maximum number of configurations to return.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfeicMaxItems :: Lens.Lens' ListFunctionEventInvokeConfigs (Lude.Maybe Lude.Natural)
-lfeicMaxItems = Lens.lens (maxItems :: ListFunctionEventInvokeConfigs -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListFunctionEventInvokeConfigs)
-{-# DEPRECATED lfeicMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -130,96 +99,108 @@ lfeicMaxItems = Lens.lens (maxItems :: ListFunctionEventInvokeConfigs -> Lude.Ma
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfeicFunctionName :: Lens.Lens' ListFunctionEventInvokeConfigs Lude.Text
-lfeicFunctionName = Lens.lens (functionName :: ListFunctionEventInvokeConfigs -> Lude.Text) (\s a -> s {functionName = a} :: ListFunctionEventInvokeConfigs)
+lfeicFunctionName :: Lens.Lens' ListFunctionEventInvokeConfigs Types.FunctionName
+lfeicFunctionName = Lens.field @"functionName"
 {-# DEPRECATED lfeicFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance Page.AWSPager ListFunctionEventInvokeConfigs where
-  page rq rs
-    | Page.stop (rs Lens.^. lfeicrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lfeicrsFunctionEventInvokeConfigs) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lfeicMarker Lens..~ rs Lens.^. lfeicrsNextMarker
+-- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfeicMarker :: Lens.Lens' ListFunctionEventInvokeConfigs (Core.Maybe Types.String)
+lfeicMarker = Lens.field @"marker"
+{-# DEPRECATED lfeicMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListFunctionEventInvokeConfigs where
+-- | The maximum number of configurations to return.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfeicMaxItems :: Lens.Lens' ListFunctionEventInvokeConfigs (Core.Maybe Core.Natural)
+lfeicMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED lfeicMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+instance Core.AWSRequest ListFunctionEventInvokeConfigs where
   type
     Rs ListFunctionEventInvokeConfigs =
       ListFunctionEventInvokeConfigsResponse
-  request = Req.get lambdaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2019-09-25/functions/" Core.<> (Core.toText functionName)
+                Core.<> ("/event-invoke-config/list")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListFunctionEventInvokeConfigsResponse'
-            Lude.<$> (x Lude..?> "FunctionEventInvokeConfigs" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FunctionEventInvokeConfigs")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListFunctionEventInvokeConfigs where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListFunctionEventInvokeConfigs where
-  toPath ListFunctionEventInvokeConfigs' {..} =
-    Lude.mconcat
-      [ "/2019-09-25/functions/",
-        Lude.toBS functionName,
-        "/event-invoke-config/list"
-      ]
-
-instance Lude.ToQuery ListFunctionEventInvokeConfigs where
-  toQuery ListFunctionEventInvokeConfigs' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
+instance Pager.AWSPager ListFunctionEventInvokeConfigs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"functionEventInvokeConfigs" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListFunctionEventInvokeConfigsResponse' smart constructor.
 data ListFunctionEventInvokeConfigsResponse = ListFunctionEventInvokeConfigsResponse'
   { -- | A list of configurations.
-    functionEventInvokeConfigs :: Lude.Maybe [FunctionEventInvokeConfig],
+    functionEventInvokeConfigs :: Core.Maybe [Types.FunctionEventInvokeConfig],
     -- | The pagination token that's included if more results are available.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListFunctionEventInvokeConfigsResponse' with the minimum fields required to make a request.
---
--- * 'functionEventInvokeConfigs' - A list of configurations.
--- * 'nextMarker' - The pagination token that's included if more results are available.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListFunctionEventInvokeConfigsResponse' value with any optional fields omitted.
 mkListFunctionEventInvokeConfigsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListFunctionEventInvokeConfigsResponse
-mkListFunctionEventInvokeConfigsResponse pResponseStatus_ =
+mkListFunctionEventInvokeConfigsResponse responseStatus =
   ListFunctionEventInvokeConfigsResponse'
     { functionEventInvokeConfigs =
-        Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of configurations.
 --
 -- /Note:/ Consider using 'functionEventInvokeConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfeicrsFunctionEventInvokeConfigs :: Lens.Lens' ListFunctionEventInvokeConfigsResponse (Lude.Maybe [FunctionEventInvokeConfig])
-lfeicrsFunctionEventInvokeConfigs = Lens.lens (functionEventInvokeConfigs :: ListFunctionEventInvokeConfigsResponse -> Lude.Maybe [FunctionEventInvokeConfig]) (\s a -> s {functionEventInvokeConfigs = a} :: ListFunctionEventInvokeConfigsResponse)
-{-# DEPRECATED lfeicrsFunctionEventInvokeConfigs "Use generic-lens or generic-optics with 'functionEventInvokeConfigs' instead." #-}
+lfeicrrsFunctionEventInvokeConfigs :: Lens.Lens' ListFunctionEventInvokeConfigsResponse (Core.Maybe [Types.FunctionEventInvokeConfig])
+lfeicrrsFunctionEventInvokeConfigs = Lens.field @"functionEventInvokeConfigs"
+{-# DEPRECATED lfeicrrsFunctionEventInvokeConfigs "Use generic-lens or generic-optics with 'functionEventInvokeConfigs' instead." #-}
 
 -- | The pagination token that's included if more results are available.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfeicrsNextMarker :: Lens.Lens' ListFunctionEventInvokeConfigsResponse (Lude.Maybe Lude.Text)
-lfeicrsNextMarker = Lens.lens (nextMarker :: ListFunctionEventInvokeConfigsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListFunctionEventInvokeConfigsResponse)
-{-# DEPRECATED lfeicrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lfeicrrsNextMarker :: Lens.Lens' ListFunctionEventInvokeConfigsResponse (Core.Maybe Types.String)
+lfeicrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lfeicrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfeicrsResponseStatus :: Lens.Lens' ListFunctionEventInvokeConfigsResponse Lude.Int
-lfeicrsResponseStatus = Lens.lens (responseStatus :: ListFunctionEventInvokeConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFunctionEventInvokeConfigsResponse)
-{-# DEPRECATED lfeicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lfeicrrsResponseStatus :: Lens.Lens' ListFunctionEventInvokeConfigsResponse Core.Int
+lfeicrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lfeicrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

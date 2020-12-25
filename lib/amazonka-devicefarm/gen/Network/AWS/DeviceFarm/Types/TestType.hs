@@ -13,141 +13,143 @@
 module Network.AWS.DeviceFarm.Types.TestType
   ( TestType
       ( TestType',
-        BuiltinFuzz,
-        BuiltinExplorer,
-        WebPerformanceProfile,
-        AppiumJavaJunit,
-        AppiumJavaTestng,
-        AppiumPython,
-        AppiumNode,
-        AppiumRuby,
-        AppiumWebJavaJunit,
-        AppiumWebJavaTestng,
-        AppiumWebPython,
-        AppiumWebNode,
-        AppiumWebRuby,
-        Calabash,
-        Instrumentation,
-        Uiautomation,
-        Uiautomator,
-        Xctest,
-        XctestUi,
-        RemoteAccessRecord,
-        RemoteAccessReplay
+        TestTypeBuiltinFuzz,
+        TestTypeBuiltinExplorer,
+        TestTypeWebPerformanceProfile,
+        TestTypeAppiumJavaJunit,
+        TestTypeAppiumJavaTestng,
+        TestTypeAppiumPython,
+        TestTypeAppiumNode,
+        TestTypeAppiumRuby,
+        TestTypeAppiumWebJavaJunit,
+        TestTypeAppiumWebJavaTestng,
+        TestTypeAppiumWebPython,
+        TestTypeAppiumWebNode,
+        TestTypeAppiumWebRuby,
+        TestTypeCalabash,
+        TestTypeInstrumentation,
+        TestTypeUiautomation,
+        TestTypeUiautomator,
+        TestTypeXctest,
+        TestTypeXctestUi,
+        TestTypeRemoteAccessRecord,
+        TestTypeRemoteAccessReplay,
+        fromTestType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TestType = TestType' Lude.Text
+newtype TestType = TestType' {fromTestType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BuiltinFuzz :: TestType
-pattern BuiltinFuzz = TestType' "BUILTIN_FUZZ"
+pattern TestTypeBuiltinFuzz :: TestType
+pattern TestTypeBuiltinFuzz = TestType' "BUILTIN_FUZZ"
 
-pattern BuiltinExplorer :: TestType
-pattern BuiltinExplorer = TestType' "BUILTIN_EXPLORER"
+pattern TestTypeBuiltinExplorer :: TestType
+pattern TestTypeBuiltinExplorer = TestType' "BUILTIN_EXPLORER"
 
-pattern WebPerformanceProfile :: TestType
-pattern WebPerformanceProfile = TestType' "WEB_PERFORMANCE_PROFILE"
+pattern TestTypeWebPerformanceProfile :: TestType
+pattern TestTypeWebPerformanceProfile = TestType' "WEB_PERFORMANCE_PROFILE"
 
-pattern AppiumJavaJunit :: TestType
-pattern AppiumJavaJunit = TestType' "APPIUM_JAVA_JUNIT"
+pattern TestTypeAppiumJavaJunit :: TestType
+pattern TestTypeAppiumJavaJunit = TestType' "APPIUM_JAVA_JUNIT"
 
-pattern AppiumJavaTestng :: TestType
-pattern AppiumJavaTestng = TestType' "APPIUM_JAVA_TESTNG"
+pattern TestTypeAppiumJavaTestng :: TestType
+pattern TestTypeAppiumJavaTestng = TestType' "APPIUM_JAVA_TESTNG"
 
-pattern AppiumPython :: TestType
-pattern AppiumPython = TestType' "APPIUM_PYTHON"
+pattern TestTypeAppiumPython :: TestType
+pattern TestTypeAppiumPython = TestType' "APPIUM_PYTHON"
 
-pattern AppiumNode :: TestType
-pattern AppiumNode = TestType' "APPIUM_NODE"
+pattern TestTypeAppiumNode :: TestType
+pattern TestTypeAppiumNode = TestType' "APPIUM_NODE"
 
-pattern AppiumRuby :: TestType
-pattern AppiumRuby = TestType' "APPIUM_RUBY"
+pattern TestTypeAppiumRuby :: TestType
+pattern TestTypeAppiumRuby = TestType' "APPIUM_RUBY"
 
-pattern AppiumWebJavaJunit :: TestType
-pattern AppiumWebJavaJunit = TestType' "APPIUM_WEB_JAVA_JUNIT"
+pattern TestTypeAppiumWebJavaJunit :: TestType
+pattern TestTypeAppiumWebJavaJunit = TestType' "APPIUM_WEB_JAVA_JUNIT"
 
-pattern AppiumWebJavaTestng :: TestType
-pattern AppiumWebJavaTestng = TestType' "APPIUM_WEB_JAVA_TESTNG"
+pattern TestTypeAppiumWebJavaTestng :: TestType
+pattern TestTypeAppiumWebJavaTestng = TestType' "APPIUM_WEB_JAVA_TESTNG"
 
-pattern AppiumWebPython :: TestType
-pattern AppiumWebPython = TestType' "APPIUM_WEB_PYTHON"
+pattern TestTypeAppiumWebPython :: TestType
+pattern TestTypeAppiumWebPython = TestType' "APPIUM_WEB_PYTHON"
 
-pattern AppiumWebNode :: TestType
-pattern AppiumWebNode = TestType' "APPIUM_WEB_NODE"
+pattern TestTypeAppiumWebNode :: TestType
+pattern TestTypeAppiumWebNode = TestType' "APPIUM_WEB_NODE"
 
-pattern AppiumWebRuby :: TestType
-pattern AppiumWebRuby = TestType' "APPIUM_WEB_RUBY"
+pattern TestTypeAppiumWebRuby :: TestType
+pattern TestTypeAppiumWebRuby = TestType' "APPIUM_WEB_RUBY"
 
-pattern Calabash :: TestType
-pattern Calabash = TestType' "CALABASH"
+pattern TestTypeCalabash :: TestType
+pattern TestTypeCalabash = TestType' "CALABASH"
 
-pattern Instrumentation :: TestType
-pattern Instrumentation = TestType' "INSTRUMENTATION"
+pattern TestTypeInstrumentation :: TestType
+pattern TestTypeInstrumentation = TestType' "INSTRUMENTATION"
 
-pattern Uiautomation :: TestType
-pattern Uiautomation = TestType' "UIAUTOMATION"
+pattern TestTypeUiautomation :: TestType
+pattern TestTypeUiautomation = TestType' "UIAUTOMATION"
 
-pattern Uiautomator :: TestType
-pattern Uiautomator = TestType' "UIAUTOMATOR"
+pattern TestTypeUiautomator :: TestType
+pattern TestTypeUiautomator = TestType' "UIAUTOMATOR"
 
-pattern Xctest :: TestType
-pattern Xctest = TestType' "XCTEST"
+pattern TestTypeXctest :: TestType
+pattern TestTypeXctest = TestType' "XCTEST"
 
-pattern XctestUi :: TestType
-pattern XctestUi = TestType' "XCTEST_UI"
+pattern TestTypeXctestUi :: TestType
+pattern TestTypeXctestUi = TestType' "XCTEST_UI"
 
-pattern RemoteAccessRecord :: TestType
-pattern RemoteAccessRecord = TestType' "REMOTE_ACCESS_RECORD"
+pattern TestTypeRemoteAccessRecord :: TestType
+pattern TestTypeRemoteAccessRecord = TestType' "REMOTE_ACCESS_RECORD"
 
-pattern RemoteAccessReplay :: TestType
-pattern RemoteAccessReplay = TestType' "REMOTE_ACCESS_REPLAY"
+pattern TestTypeRemoteAccessReplay :: TestType
+pattern TestTypeRemoteAccessReplay = TestType' "REMOTE_ACCESS_REPLAY"
 
 {-# COMPLETE
-  BuiltinFuzz,
-  BuiltinExplorer,
-  WebPerformanceProfile,
-  AppiumJavaJunit,
-  AppiumJavaTestng,
-  AppiumPython,
-  AppiumNode,
-  AppiumRuby,
-  AppiumWebJavaJunit,
-  AppiumWebJavaTestng,
-  AppiumWebPython,
-  AppiumWebNode,
-  AppiumWebRuby,
-  Calabash,
-  Instrumentation,
-  Uiautomation,
-  Uiautomator,
-  Xctest,
-  XctestUi,
-  RemoteAccessRecord,
-  RemoteAccessReplay,
+  TestTypeBuiltinFuzz,
+  TestTypeBuiltinExplorer,
+  TestTypeWebPerformanceProfile,
+  TestTypeAppiumJavaJunit,
+  TestTypeAppiumJavaTestng,
+  TestTypeAppiumPython,
+  TestTypeAppiumNode,
+  TestTypeAppiumRuby,
+  TestTypeAppiumWebJavaJunit,
+  TestTypeAppiumWebJavaTestng,
+  TestTypeAppiumWebPython,
+  TestTypeAppiumWebNode,
+  TestTypeAppiumWebRuby,
+  TestTypeCalabash,
+  TestTypeInstrumentation,
+  TestTypeUiautomation,
+  TestTypeUiautomator,
+  TestTypeXctest,
+  TestTypeXctestUi,
+  TestTypeRemoteAccessRecord,
+  TestTypeRemoteAccessReplay,
   TestType'
   #-}

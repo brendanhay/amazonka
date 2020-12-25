@@ -17,57 +17,53 @@ module Network.AWS.CloudTrail.Types.Resource
     mkResource,
 
     -- * Lenses
-    rResourceType,
     rResourceName,
+    rResourceType,
   )
 where
 
+import qualified Network.AWS.CloudTrail.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the type and name of a resource referenced by an event.
 --
 -- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { -- | The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. To learn more about how to look up and filter events by the resource types supported for a service, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events> .
-    resourceType :: Lude.Maybe Lude.Text,
-    -- | The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
-    resourceName :: Lude.Maybe Lude.Text
+  { -- | The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
+    resourceName :: Core.Maybe Types.String,
+    -- | The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. To learn more about how to look up and filter events by the resource types supported for a service, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events> .
+    resourceType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Resource' with the minimum fields required to make a request.
---
--- * 'resourceType' - The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. To learn more about how to look up and filter events by the resource types supported for a service, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events> .
--- * 'resourceName' - The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
+-- | Creates a 'Resource' value with any optional fields omitted.
 mkResource ::
   Resource
 mkResource =
   Resource'
-    { resourceType = Lude.Nothing,
-      resourceName = Lude.Nothing
+    { resourceName = Core.Nothing,
+      resourceType = Core.Nothing
     }
-
--- | The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. To learn more about how to look up and filter events by the resource types supported for a service, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events> .
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rResourceType :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
-rResourceType = Lens.lens (resourceType :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: Resource)
-{-# DEPRECATED rResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rResourceName :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
-rResourceName = Lens.lens (resourceName :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: Resource)
+rResourceName :: Lens.Lens' Resource (Core.Maybe Types.String)
+rResourceName = Lens.field @"resourceName"
 {-# DEPRECATED rResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
-instance Lude.FromJSON Resource where
+-- | The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. To learn more about how to look up and filter events by the resource types supported for a service, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events> .
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResourceType :: Lens.Lens' Resource (Core.Maybe Types.String)
+rResourceType = Lens.field @"resourceType"
+{-# DEPRECATED rResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+instance Core.FromJSON Resource where
   parseJSON =
-    Lude.withObject
-      "Resource"
-      ( \x ->
-          Resource'
-            Lude.<$> (x Lude..:? "ResourceType") Lude.<*> (x Lude..:? "ResourceName")
-      )
+    Core.withObject "Resource" Core.$
+      \x ->
+        Resource'
+          Core.<$> (x Core..:? "ResourceName") Core.<*> (x Core..:? "ResourceType")

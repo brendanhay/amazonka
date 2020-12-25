@@ -20,349 +20,325 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     mkDescribeInstanceAttribute,
 
     -- ** Request lenses
-    diafInstanceId,
-    diafAttribute,
-    diafDryRun,
+    diaAttribute,
+    diaInstanceId,
+    diaDryRun,
 
     -- * Destructuring the response
     DescribeInstanceAttributeResponse (..),
     mkDescribeInstanceAttributeResponse,
 
     -- ** Response lenses
-    diarsInstanceId,
-    diarsGroups,
-    diarsEnaSupport,
-    diarsSourceDestCheck,
-    diarsDisableAPITermination,
-    diarsEnclaveOptions,
-    diarsRAMDiskId,
-    diarsKernelId,
-    diarsRootDeviceName,
-    diarsInstanceType,
-    diarsSRIOVNetSupport,
-    diarsEBSOptimized,
-    diarsUserData,
-    diarsInstanceInitiatedShutdownBehavior,
-    diarsProductCodes,
-    diarsBlockDeviceMappings,
-    diarsResponseStatus,
+    diarrsBlockDeviceMappings,
+    diarrsDisableApiTermination,
+    diarrsEbsOptimized,
+    diarrsEnaSupport,
+    diarrsEnclaveOptions,
+    diarrsGroups,
+    diarrsInstanceId,
+    diarrsInstanceInitiatedShutdownBehavior,
+    diarrsInstanceType,
+    diarrsKernelId,
+    diarrsProductCodes,
+    diarrsRamdiskId,
+    diarrsRootDeviceName,
+    diarrsSourceDestCheck,
+    diarrsSriovNetSupport,
+    diarrsUserData,
+    diarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Text,
-    -- | The instance attribute.
+  { -- | The instance attribute.
     --
     -- Note: The @enaSupport@ attribute is not supported at this time.
-    attribute :: InstanceAttributeName,
+    attribute :: Types.InstanceAttributeName,
+    -- | The ID of the instance.
+    instanceId :: Types.InstanceId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInstanceAttribute' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'attribute' - The instance attribute.
---
--- Note: The @enaSupport@ attribute is not supported at this time.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DescribeInstanceAttribute' value with any optional fields omitted.
 mkDescribeInstanceAttribute ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'attribute'
-  InstanceAttributeName ->
+  Types.InstanceAttributeName ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   DescribeInstanceAttribute
-mkDescribeInstanceAttribute pInstanceId_ pAttribute_ =
+mkDescribeInstanceAttribute attribute instanceId =
   DescribeInstanceAttribute'
-    { instanceId = pInstanceId_,
-      attribute = pAttribute_,
-      dryRun = Lude.Nothing
+    { attribute,
+      instanceId,
+      dryRun = Core.Nothing
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diafInstanceId :: Lens.Lens' DescribeInstanceAttribute Lude.Text
-diafInstanceId = Lens.lens (instanceId :: DescribeInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstanceAttribute)
-{-# DEPRECATED diafInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The instance attribute.
 --
 -- Note: The @enaSupport@ attribute is not supported at this time.
 --
 -- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diafAttribute :: Lens.Lens' DescribeInstanceAttribute InstanceAttributeName
-diafAttribute = Lens.lens (attribute :: DescribeInstanceAttribute -> InstanceAttributeName) (\s a -> s {attribute = a} :: DescribeInstanceAttribute)
-{-# DEPRECATED diafAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
+diaAttribute :: Lens.Lens' DescribeInstanceAttribute Types.InstanceAttributeName
+diaAttribute = Lens.field @"attribute"
+{-# DEPRECATED diaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaInstanceId :: Lens.Lens' DescribeInstanceAttribute Types.InstanceId
+diaInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED diaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diafDryRun :: Lens.Lens' DescribeInstanceAttribute (Lude.Maybe Lude.Bool)
-diafDryRun = Lens.lens (dryRun :: DescribeInstanceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInstanceAttribute)
-{-# DEPRECATED diafDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+diaDryRun :: Lens.Lens' DescribeInstanceAttribute (Core.Maybe Core.Bool)
+diaDryRun = Lens.field @"dryRun"
+{-# DEPRECATED diaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DescribeInstanceAttribute where
+instance Core.AWSRequest DescribeInstanceAttribute where
   type
     Rs DescribeInstanceAttribute =
       DescribeInstanceAttributeResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeInstanceAttribute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Attribute" attribute)
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeInstanceAttributeResponse'
-            Lude.<$> (x Lude..@? "instanceId")
-            Lude.<*> ( x Lude..@? "groupSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "blockDeviceMapping"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (x Lude..@? "enaSupport")
-            Lude.<*> (x Lude..@? "sourceDestCheck")
-            Lude.<*> (x Lude..@? "disableApiTermination")
-            Lude.<*> (x Lude..@? "enclaveOptions")
-            Lude.<*> (x Lude..@? "ramdisk")
-            Lude.<*> (x Lude..@? "kernel")
-            Lude.<*> (x Lude..@? "rootDeviceName")
-            Lude.<*> (x Lude..@? "instanceType")
-            Lude.<*> (x Lude..@? "sriovNetSupport")
-            Lude.<*> (x Lude..@? "ebsOptimized")
-            Lude.<*> (x Lude..@? "userData")
-            Lude.<*> (x Lude..@? "instanceInitiatedShutdownBehavior")
-            Lude.<*> ( x Lude..@? "productCodes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> ( x Lude..@? "blockDeviceMapping" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "disableApiTermination")
+            Core.<*> (x Core..@? "ebsOptimized")
+            Core.<*> (x Core..@? "enaSupport")
+            Core.<*> (x Core..@? "enclaveOptions")
+            Core.<*> (x Core..@? "groupSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "instanceId")
+            Core.<*> (x Core..@? "instanceInitiatedShutdownBehavior")
+            Core.<*> (x Core..@? "instanceType")
+            Core.<*> (x Core..@? "kernel")
+            Core.<*> (x Core..@? "productCodes" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "ramdisk")
+            Core.<*> (x Core..@? "rootDeviceName")
+            Core.<*> (x Core..@? "sourceDestCheck")
+            Core.<*> (x Core..@? "sriovNetSupport")
+            Core.<*> (x Core..@? "userData")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeInstanceAttribute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeInstanceAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeInstanceAttribute where
-  toQuery DescribeInstanceAttribute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeInstanceAttribute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "Attribute" Lude.=: attribute,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Describes an instance attribute.
 --
 -- /See:/ 'mkDescribeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The security groups associated with the instance.
-    groups :: Lude.Maybe [GroupIdentifier],
-    -- | Indicates whether enhanced networking with ENA is enabled.
-    enaSupport :: Lude.Maybe AttributeBooleanValue,
-    -- | Indicates whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
-    sourceDestCheck :: Lude.Maybe AttributeBooleanValue,
+  { -- | The block device mapping of the instance.
+    blockDeviceMappings :: Core.Maybe [Types.InstanceBlockDeviceMapping],
     -- | If the value is @true@ , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
-    disableAPITermination :: Lude.Maybe AttributeBooleanValue,
-    -- | To enable the instance for AWS Nitro Enclaves, set this parameter to @true@ ; otherwise, set it to @false@ .
-    enclaveOptions :: Lude.Maybe EnclaveOptions,
-    -- | The RAM disk ID.
-    ramdiskId :: Lude.Maybe AttributeValue,
-    -- | The kernel ID.
-    kernelId :: Lude.Maybe AttributeValue,
-    -- | The device name of the root device volume (for example, @/dev/sda1@ ).
-    rootDeviceName :: Lude.Maybe AttributeValue,
-    -- | The instance type.
-    instanceType :: Lude.Maybe AttributeValue,
-    -- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
-    sriovNetSupport :: Lude.Maybe AttributeValue,
+    disableApiTermination :: Core.Maybe Types.AttributeBooleanValue,
     -- | Indicates whether the instance is optimized for Amazon EBS I/O.
-    ebsOptimized :: Lude.Maybe AttributeBooleanValue,
-    -- | The user data.
-    userData :: Lude.Maybe AttributeValue,
+    ebsOptimized :: Core.Maybe Types.AttributeBooleanValue,
+    -- | Indicates whether enhanced networking with ENA is enabled.
+    enaSupport :: Core.Maybe Types.AttributeBooleanValue,
+    -- | To enable the instance for AWS Nitro Enclaves, set this parameter to @true@ ; otherwise, set it to @false@ .
+    enclaveOptions :: Core.Maybe Types.EnclaveOptions,
+    -- | The security groups associated with the instance.
+    groups :: Core.Maybe [Types.GroupIdentifier],
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.String,
     -- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
-    instanceInitiatedShutdownBehavior :: Lude.Maybe AttributeValue,
+    instanceInitiatedShutdownBehavior :: Core.Maybe Types.AttributeValue,
+    -- | The instance type.
+    instanceType :: Core.Maybe Types.AttributeValue,
+    -- | The kernel ID.
+    kernelId :: Core.Maybe Types.AttributeValue,
     -- | A list of product codes.
-    productCodes :: Lude.Maybe [ProductCode],
-    -- | The block device mapping of the instance.
-    blockDeviceMappings :: Lude.Maybe [InstanceBlockDeviceMapping],
+    productCodes :: Core.Maybe [Types.ProductCode],
+    -- | The RAM disk ID.
+    ramdiskId :: Core.Maybe Types.AttributeValue,
+    -- | The device name of the root device volume (for example, @/dev/sda1@ ).
+    rootDeviceName :: Core.Maybe Types.AttributeValue,
+    -- | Indicates whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+    sourceDestCheck :: Core.Maybe Types.AttributeBooleanValue,
+    -- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
+    sriovNetSupport :: Core.Maybe Types.AttributeValue,
+    -- | The user data.
+    userData :: Core.Maybe Types.AttributeValue,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeInstanceAttributeResponse' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'groups' - The security groups associated with the instance.
--- * 'enaSupport' - Indicates whether enhanced networking with ENA is enabled.
--- * 'sourceDestCheck' - Indicates whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
--- * 'disableAPITermination' - If the value is @true@ , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
--- * 'enclaveOptions' - To enable the instance for AWS Nitro Enclaves, set this parameter to @true@ ; otherwise, set it to @false@ .
--- * 'ramdiskId' - The RAM disk ID.
--- * 'kernelId' - The kernel ID.
--- * 'rootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
--- * 'instanceType' - The instance type.
--- * 'sriovNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
--- * 'ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O.
--- * 'userData' - The user data.
--- * 'instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
--- * 'productCodes' - A list of product codes.
--- * 'blockDeviceMappings' - The block device mapping of the instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInstanceAttributeResponse' value with any optional fields omitted.
 mkDescribeInstanceAttributeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInstanceAttributeResponse
-mkDescribeInstanceAttributeResponse pResponseStatus_ =
+mkDescribeInstanceAttributeResponse responseStatus =
   DescribeInstanceAttributeResponse'
-    { instanceId = Lude.Nothing,
-      groups = Lude.Nothing,
-      enaSupport = Lude.Nothing,
-      sourceDestCheck = Lude.Nothing,
-      disableAPITermination = Lude.Nothing,
-      enclaveOptions = Lude.Nothing,
-      ramdiskId = Lude.Nothing,
-      kernelId = Lude.Nothing,
-      rootDeviceName = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      sriovNetSupport = Lude.Nothing,
-      ebsOptimized = Lude.Nothing,
-      userData = Lude.Nothing,
-      instanceInitiatedShutdownBehavior = Lude.Nothing,
-      productCodes = Lude.Nothing,
-      blockDeviceMappings = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { blockDeviceMappings =
+        Core.Nothing,
+      disableApiTermination = Core.Nothing,
+      ebsOptimized = Core.Nothing,
+      enaSupport = Core.Nothing,
+      enclaveOptions = Core.Nothing,
+      groups = Core.Nothing,
+      instanceId = Core.Nothing,
+      instanceInitiatedShutdownBehavior = Core.Nothing,
+      instanceType = Core.Nothing,
+      kernelId = Core.Nothing,
+      productCodes = Core.Nothing,
+      ramdiskId = Core.Nothing,
+      rootDeviceName = Core.Nothing,
+      sourceDestCheck = Core.Nothing,
+      sriovNetSupport = Core.Nothing,
+      userData = Core.Nothing,
+      responseStatus
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsInstanceId :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe Lude.Text)
-diarsInstanceId = Lens.lens (instanceId :: DescribeInstanceAttributeResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The security groups associated with the instance.
---
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsGroups :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe [GroupIdentifier])
-diarsGroups = Lens.lens (groups :: DescribeInstanceAttributeResponse -> Lude.Maybe [GroupIdentifier]) (\s a -> s {groups = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
-
--- | Indicates whether enhanced networking with ENA is enabled.
---
--- /Note:/ Consider using 'enaSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsEnaSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeBooleanValue)
-diarsEnaSupport = Lens.lens (enaSupport :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeBooleanValue) (\s a -> s {enaSupport = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsEnaSupport "Use generic-lens or generic-optics with 'enaSupport' instead." #-}
-
--- | Indicates whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
---
--- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsSourceDestCheck :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeBooleanValue)
-diarsSourceDestCheck = Lens.lens (sourceDestCheck :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeBooleanValue) (\s a -> s {sourceDestCheck = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
-
--- | If the value is @true@ , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
---
--- /Note:/ Consider using 'disableAPITermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsDisableAPITermination :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeBooleanValue)
-diarsDisableAPITermination = Lens.lens (disableAPITermination :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeBooleanValue) (\s a -> s {disableAPITermination = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsDisableAPITermination "Use generic-lens or generic-optics with 'disableAPITermination' instead." #-}
-
--- | To enable the instance for AWS Nitro Enclaves, set this parameter to @true@ ; otherwise, set it to @false@ .
---
--- /Note:/ Consider using 'enclaveOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsEnclaveOptions :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe EnclaveOptions)
-diarsEnclaveOptions = Lens.lens (enclaveOptions :: DescribeInstanceAttributeResponse -> Lude.Maybe EnclaveOptions) (\s a -> s {enclaveOptions = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsEnclaveOptions "Use generic-lens or generic-optics with 'enclaveOptions' instead." #-}
-
--- | The RAM disk ID.
---
--- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsRAMDiskId :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeValue)
-diarsRAMDiskId = Lens.lens (ramdiskId :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {ramdiskId = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsRAMDiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
-
--- | The kernel ID.
---
--- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsKernelId :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeValue)
-diarsKernelId = Lens.lens (kernelId :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {kernelId = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
-
--- | The device name of the root device volume (for example, @/dev/sda1@ ).
---
--- /Note:/ Consider using 'rootDeviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsRootDeviceName :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeValue)
-diarsRootDeviceName = Lens.lens (rootDeviceName :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {rootDeviceName = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsRootDeviceName "Use generic-lens or generic-optics with 'rootDeviceName' instead." #-}
-
--- | The instance type.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsInstanceType :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeValue)
-diarsInstanceType = Lens.lens (instanceType :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {instanceType = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
---
--- /Note:/ Consider using 'sriovNetSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsSRIOVNetSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeValue)
-diarsSRIOVNetSupport = Lens.lens (sriovNetSupport :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {sriovNetSupport = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsSRIOVNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
-
--- | Indicates whether the instance is optimized for Amazon EBS I/O.
---
--- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsEBSOptimized :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeBooleanValue)
-diarsEBSOptimized = Lens.lens (ebsOptimized :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeBooleanValue) (\s a -> s {ebsOptimized = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
-
--- | The user data.
---
--- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsUserData :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeValue)
-diarsUserData = Lens.lens (userData :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {userData = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
-
--- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
---
--- /Note:/ Consider using 'instanceInitiatedShutdownBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsInstanceInitiatedShutdownBehavior :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe AttributeValue)
-diarsInstanceInitiatedShutdownBehavior = Lens.lens (instanceInitiatedShutdownBehavior :: DescribeInstanceAttributeResponse -> Lude.Maybe AttributeValue) (\s a -> s {instanceInitiatedShutdownBehavior = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsInstanceInitiatedShutdownBehavior "Use generic-lens or generic-optics with 'instanceInitiatedShutdownBehavior' instead." #-}
-
--- | A list of product codes.
---
--- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsProductCodes :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe [ProductCode])
-diarsProductCodes = Lens.lens (productCodes :: DescribeInstanceAttributeResponse -> Lude.Maybe [ProductCode]) (\s a -> s {productCodes = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
 
 -- | The block device mapping of the instance.
 --
 -- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsBlockDeviceMappings :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe [InstanceBlockDeviceMapping])
-diarsBlockDeviceMappings = Lens.lens (blockDeviceMappings :: DescribeInstanceAttributeResponse -> Lude.Maybe [InstanceBlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
+diarrsBlockDeviceMappings :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe [Types.InstanceBlockDeviceMapping])
+diarrsBlockDeviceMappings = Lens.field @"blockDeviceMappings"
+{-# DEPRECATED diarrsBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
+
+-- | If the value is @true@ , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
+--
+-- /Note:/ Consider using 'disableApiTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsDisableApiTermination :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeBooleanValue)
+diarrsDisableApiTermination = Lens.field @"disableApiTermination"
+{-# DEPRECATED diarrsDisableApiTermination "Use generic-lens or generic-optics with 'disableApiTermination' instead." #-}
+
+-- | Indicates whether the instance is optimized for Amazon EBS I/O.
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsEbsOptimized :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeBooleanValue)
+diarrsEbsOptimized = Lens.field @"ebsOptimized"
+{-# DEPRECATED diarrsEbsOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
+
+-- | Indicates whether enhanced networking with ENA is enabled.
+--
+-- /Note:/ Consider using 'enaSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsEnaSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeBooleanValue)
+diarrsEnaSupport = Lens.field @"enaSupport"
+{-# DEPRECATED diarrsEnaSupport "Use generic-lens or generic-optics with 'enaSupport' instead." #-}
+
+-- | To enable the instance for AWS Nitro Enclaves, set this parameter to @true@ ; otherwise, set it to @false@ .
+--
+-- /Note:/ Consider using 'enclaveOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsEnclaveOptions :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.EnclaveOptions)
+diarrsEnclaveOptions = Lens.field @"enclaveOptions"
+{-# DEPRECATED diarrsEnclaveOptions "Use generic-lens or generic-optics with 'enclaveOptions' instead." #-}
+
+-- | The security groups associated with the instance.
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsGroups :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe [Types.GroupIdentifier])
+diarrsGroups = Lens.field @"groups"
+{-# DEPRECATED diarrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsInstanceId :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.String)
+diarrsInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED diarrsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+--
+-- /Note:/ Consider using 'instanceInitiatedShutdownBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsInstanceInitiatedShutdownBehavior :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeValue)
+diarrsInstanceInitiatedShutdownBehavior = Lens.field @"instanceInitiatedShutdownBehavior"
+{-# DEPRECATED diarrsInstanceInitiatedShutdownBehavior "Use generic-lens or generic-optics with 'instanceInitiatedShutdownBehavior' instead." #-}
+
+-- | The instance type.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsInstanceType :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeValue)
+diarrsInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED diarrsInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The kernel ID.
+--
+-- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsKernelId :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeValue)
+diarrsKernelId = Lens.field @"kernelId"
+{-# DEPRECATED diarrsKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
+
+-- | A list of product codes.
+--
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsProductCodes :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe [Types.ProductCode])
+diarrsProductCodes = Lens.field @"productCodes"
+{-# DEPRECATED diarrsProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
+
+-- | The RAM disk ID.
+--
+-- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsRamdiskId :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeValue)
+diarrsRamdiskId = Lens.field @"ramdiskId"
+{-# DEPRECATED diarrsRamdiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
+
+-- | The device name of the root device volume (for example, @/dev/sda1@ ).
+--
+-- /Note:/ Consider using 'rootDeviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsRootDeviceName :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeValue)
+diarrsRootDeviceName = Lens.field @"rootDeviceName"
+{-# DEPRECATED diarrsRootDeviceName "Use generic-lens or generic-optics with 'rootDeviceName' instead." #-}
+
+-- | Indicates whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+--
+-- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsSourceDestCheck :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeBooleanValue)
+diarrsSourceDestCheck = Lens.field @"sourceDestCheck"
+{-# DEPRECATED diarrsSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
+
+-- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
+--
+-- /Note:/ Consider using 'sriovNetSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsSriovNetSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeValue)
+diarrsSriovNetSupport = Lens.field @"sriovNetSupport"
+{-# DEPRECATED diarrsSriovNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
+
+-- | The user data.
+--
+-- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarrsUserData :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Types.AttributeValue)
+diarrsUserData = Lens.field @"userData"
+{-# DEPRECATED diarrsUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diarsResponseStatus :: Lens.Lens' DescribeInstanceAttributeResponse Lude.Int
-diarsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceAttributeResponse)
-{-# DEPRECATED diarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+diarrsResponseStatus :: Lens.Lens' DescribeInstanceAttributeResponse Core.Int
+diarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED diarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

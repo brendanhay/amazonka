@@ -21,35 +21,33 @@ module Network.AWS.GuardDuty.Types.City
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the city associated with the IP address.
 --
 -- /See:/ 'mkCity' smart constructor.
 newtype City = City'
   { -- | The city name of the remote IP address.
-    cityName :: Lude.Maybe Lude.Text
+    cityName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'City' with the minimum fields required to make a request.
---
--- * 'cityName' - The city name of the remote IP address.
+-- | Creates a 'City' value with any optional fields omitted.
 mkCity ::
   City
-mkCity = City' {cityName = Lude.Nothing}
+mkCity = City' {cityName = Core.Nothing}
 
 -- | The city name of the remote IP address.
 --
 -- /Note:/ Consider using 'cityName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCityName :: Lens.Lens' City (Lude.Maybe Lude.Text)
-cCityName = Lens.lens (cityName :: City -> Lude.Maybe Lude.Text) (\s a -> s {cityName = a} :: City)
+cCityName :: Lens.Lens' City (Core.Maybe Types.String)
+cCityName = Lens.field @"cityName"
 {-# DEPRECATED cCityName "Use generic-lens or generic-optics with 'cityName' instead." #-}
 
-instance Lude.FromJSON City where
+instance Core.FromJSON City where
   parseJSON =
-    Lude.withObject
-      "City"
-      (\x -> City' Lude.<$> (x Lude..:? "cityName"))
+    Core.withObject "City" Core.$
+      \x -> City' Core.<$> (x Core..:? "cityName")

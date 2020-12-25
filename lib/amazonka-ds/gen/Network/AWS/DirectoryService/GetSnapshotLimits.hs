@@ -27,113 +27,101 @@ module Network.AWS.DirectoryService.GetSnapshotLimits
     mkGetSnapshotLimitsResponse,
 
     -- ** Response lenses
-    gslrsSnapshotLimits,
-    gslrsResponseStatus,
+    gslrrsSnapshotLimits,
+    gslrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the inputs for the 'GetSnapshotLimits' operation.
 --
 -- /See:/ 'mkGetSnapshotLimits' smart constructor.
 newtype GetSnapshotLimits = GetSnapshotLimits'
   { -- | Contains the identifier of the directory to obtain the limits for.
-    directoryId :: Lude.Text
+    directoryId :: Types.DirectoryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSnapshotLimits' with the minimum fields required to make a request.
---
--- * 'directoryId' - Contains the identifier of the directory to obtain the limits for.
+-- | Creates a 'GetSnapshotLimits' value with any optional fields omitted.
 mkGetSnapshotLimits ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   GetSnapshotLimits
-mkGetSnapshotLimits pDirectoryId_ =
-  GetSnapshotLimits' {directoryId = pDirectoryId_}
+mkGetSnapshotLimits directoryId = GetSnapshotLimits' {directoryId}
 
 -- | Contains the identifier of the directory to obtain the limits for.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gslDirectoryId :: Lens.Lens' GetSnapshotLimits Lude.Text
-gslDirectoryId = Lens.lens (directoryId :: GetSnapshotLimits -> Lude.Text) (\s a -> s {directoryId = a} :: GetSnapshotLimits)
+gslDirectoryId :: Lens.Lens' GetSnapshotLimits Types.DirectoryId
+gslDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED gslDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance Lude.AWSRequest GetSnapshotLimits where
+instance Core.FromJSON GetSnapshotLimits where
+  toJSON GetSnapshotLimits {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DirectoryId" Core..= directoryId)])
+
+instance Core.AWSRequest GetSnapshotLimits where
   type Rs GetSnapshotLimits = GetSnapshotLimitsResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.GetSnapshotLimits")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSnapshotLimitsResponse'
-            Lude.<$> (x Lude..?> "SnapshotLimits")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SnapshotLimits")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSnapshotLimits where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.GetSnapshotLimits" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetSnapshotLimits where
-  toJSON GetSnapshotLimits' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DirectoryId" Lude..= directoryId)])
-
-instance Lude.ToPath GetSnapshotLimits where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSnapshotLimits where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'GetSnapshotLimits' operation.
 --
 -- /See:/ 'mkGetSnapshotLimitsResponse' smart constructor.
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
   { -- | A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
-    snapshotLimits :: Lude.Maybe SnapshotLimits,
+    snapshotLimits :: Core.Maybe Types.SnapshotLimits,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSnapshotLimitsResponse' with the minimum fields required to make a request.
---
--- * 'snapshotLimits' - A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSnapshotLimitsResponse' value with any optional fields omitted.
 mkGetSnapshotLimitsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSnapshotLimitsResponse
-mkGetSnapshotLimitsResponse pResponseStatus_ =
+mkGetSnapshotLimitsResponse responseStatus =
   GetSnapshotLimitsResponse'
-    { snapshotLimits = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { snapshotLimits = Core.Nothing,
+      responseStatus
     }
 
 -- | A 'SnapshotLimits' object that contains the manual snapshot limits for the specified directory.
 --
 -- /Note:/ Consider using 'snapshotLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gslrsSnapshotLimits :: Lens.Lens' GetSnapshotLimitsResponse (Lude.Maybe SnapshotLimits)
-gslrsSnapshotLimits = Lens.lens (snapshotLimits :: GetSnapshotLimitsResponse -> Lude.Maybe SnapshotLimits) (\s a -> s {snapshotLimits = a} :: GetSnapshotLimitsResponse)
-{-# DEPRECATED gslrsSnapshotLimits "Use generic-lens or generic-optics with 'snapshotLimits' instead." #-}
+gslrrsSnapshotLimits :: Lens.Lens' GetSnapshotLimitsResponse (Core.Maybe Types.SnapshotLimits)
+gslrrsSnapshotLimits = Lens.field @"snapshotLimits"
+{-# DEPRECATED gslrrsSnapshotLimits "Use generic-lens or generic-optics with 'snapshotLimits' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gslrsResponseStatus :: Lens.Lens' GetSnapshotLimitsResponse Lude.Int
-gslrsResponseStatus = Lens.lens (responseStatus :: GetSnapshotLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSnapshotLimitsResponse)
-{-# DEPRECATED gslrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gslrrsResponseStatus :: Lens.Lens' GetSnapshotLimitsResponse Core.Int
+gslrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gslrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

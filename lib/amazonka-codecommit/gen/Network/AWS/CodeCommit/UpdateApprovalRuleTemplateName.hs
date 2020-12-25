@@ -28,146 +28,132 @@ module Network.AWS.CodeCommit.UpdateApprovalRuleTemplateName
     mkUpdateApprovalRuleTemplateNameResponse,
 
     -- ** Response lenses
-    uartnrsApprovalRuleTemplate,
-    uartnrsResponseStatus,
+    uartnrrsApprovalRuleTemplate,
+    uartnrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateApprovalRuleTemplateName' smart constructor.
 data UpdateApprovalRuleTemplateName = UpdateApprovalRuleTemplateName'
   { -- | The current name of the approval rule template.
-    oldApprovalRuleTemplateName :: Lude.Text,
+    oldApprovalRuleTemplateName :: Types.ApprovalRuleTemplateName,
     -- | The new name you want to apply to the approval rule template.
-    newApprovalRuleTemplateName :: Lude.Text
+    newApprovalRuleTemplateName :: Types.ApprovalRuleTemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApprovalRuleTemplateName' with the minimum fields required to make a request.
---
--- * 'oldApprovalRuleTemplateName' - The current name of the approval rule template.
--- * 'newApprovalRuleTemplateName' - The new name you want to apply to the approval rule template.
+-- | Creates a 'UpdateApprovalRuleTemplateName' value with any optional fields omitted.
 mkUpdateApprovalRuleTemplateName ::
   -- | 'oldApprovalRuleTemplateName'
-  Lude.Text ->
+  Types.ApprovalRuleTemplateName ->
   -- | 'newApprovalRuleTemplateName'
-  Lude.Text ->
+  Types.ApprovalRuleTemplateName ->
   UpdateApprovalRuleTemplateName
 mkUpdateApprovalRuleTemplateName
-  pOldApprovalRuleTemplateName_
-  pNewApprovalRuleTemplateName_ =
+  oldApprovalRuleTemplateName
+  newApprovalRuleTemplateName =
     UpdateApprovalRuleTemplateName'
-      { oldApprovalRuleTemplateName =
-          pOldApprovalRuleTemplateName_,
-        newApprovalRuleTemplateName = pNewApprovalRuleTemplateName_
+      { oldApprovalRuleTemplateName,
+        newApprovalRuleTemplateName
       }
 
 -- | The current name of the approval rule template.
 --
 -- /Note:/ Consider using 'oldApprovalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartnOldApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateName Lude.Text
-uartnOldApprovalRuleTemplateName = Lens.lens (oldApprovalRuleTemplateName :: UpdateApprovalRuleTemplateName -> Lude.Text) (\s a -> s {oldApprovalRuleTemplateName = a} :: UpdateApprovalRuleTemplateName)
+uartnOldApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateName Types.ApprovalRuleTemplateName
+uartnOldApprovalRuleTemplateName = Lens.field @"oldApprovalRuleTemplateName"
 {-# DEPRECATED uartnOldApprovalRuleTemplateName "Use generic-lens or generic-optics with 'oldApprovalRuleTemplateName' instead." #-}
 
 -- | The new name you want to apply to the approval rule template.
 --
 -- /Note:/ Consider using 'newApprovalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartnNewApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateName Lude.Text
-uartnNewApprovalRuleTemplateName = Lens.lens (newApprovalRuleTemplateName :: UpdateApprovalRuleTemplateName -> Lude.Text) (\s a -> s {newApprovalRuleTemplateName = a} :: UpdateApprovalRuleTemplateName)
+uartnNewApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateName Types.ApprovalRuleTemplateName
+uartnNewApprovalRuleTemplateName = Lens.field @"newApprovalRuleTemplateName"
 {-# DEPRECATED uartnNewApprovalRuleTemplateName "Use generic-lens or generic-optics with 'newApprovalRuleTemplateName' instead." #-}
 
-instance Lude.AWSRequest UpdateApprovalRuleTemplateName where
-  type
-    Rs UpdateApprovalRuleTemplateName =
-      UpdateApprovalRuleTemplateNameResponse
-  request = Req.postJSON codeCommitService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateApprovalRuleTemplateNameResponse'
-            Lude.<$> (x Lude..:> "approvalRuleTemplate")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateApprovalRuleTemplateName where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.UpdateApprovalRuleTemplateName" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateApprovalRuleTemplateName where
-  toJSON UpdateApprovalRuleTemplateName' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON UpdateApprovalRuleTemplateName where
+  toJSON UpdateApprovalRuleTemplateName {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "oldApprovalRuleTemplateName"
-                  Lude..= oldApprovalRuleTemplateName
+                  Core..= oldApprovalRuleTemplateName
               ),
-            Lude.Just
+            Core.Just
               ( "newApprovalRuleTemplateName"
-                  Lude..= newApprovalRuleTemplateName
+                  Core..= newApprovalRuleTemplateName
               )
           ]
       )
 
-instance Lude.ToPath UpdateApprovalRuleTemplateName where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateApprovalRuleTemplateName where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateApprovalRuleTemplateName where
+  type
+    Rs UpdateApprovalRuleTemplateName =
+      UpdateApprovalRuleTemplateNameResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeCommit_20150413.UpdateApprovalRuleTemplateName"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateApprovalRuleTemplateNameResponse'
+            Core.<$> (x Core..: "approvalRuleTemplate")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateApprovalRuleTemplateNameResponse' smart constructor.
 data UpdateApprovalRuleTemplateNameResponse = UpdateApprovalRuleTemplateNameResponse'
   { -- | The structure and content of the updated approval rule template.
-    approvalRuleTemplate :: ApprovalRuleTemplate,
+    approvalRuleTemplate :: Types.ApprovalRuleTemplate,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateApprovalRuleTemplateNameResponse' with the minimum fields required to make a request.
---
--- * 'approvalRuleTemplate' - The structure and content of the updated approval rule template.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateApprovalRuleTemplateNameResponse' value with any optional fields omitted.
 mkUpdateApprovalRuleTemplateNameResponse ::
   -- | 'approvalRuleTemplate'
-  ApprovalRuleTemplate ->
+  Types.ApprovalRuleTemplate ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateApprovalRuleTemplateNameResponse
 mkUpdateApprovalRuleTemplateNameResponse
-  pApprovalRuleTemplate_
-  pResponseStatus_ =
+  approvalRuleTemplate
+  responseStatus =
     UpdateApprovalRuleTemplateNameResponse'
-      { approvalRuleTemplate =
-          pApprovalRuleTemplate_,
-        responseStatus = pResponseStatus_
+      { approvalRuleTemplate,
+        responseStatus
       }
 
 -- | The structure and content of the updated approval rule template.
 --
 -- /Note:/ Consider using 'approvalRuleTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartnrsApprovalRuleTemplate :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse ApprovalRuleTemplate
-uartnrsApprovalRuleTemplate = Lens.lens (approvalRuleTemplate :: UpdateApprovalRuleTemplateNameResponse -> ApprovalRuleTemplate) (\s a -> s {approvalRuleTemplate = a} :: UpdateApprovalRuleTemplateNameResponse)
-{-# DEPRECATED uartnrsApprovalRuleTemplate "Use generic-lens or generic-optics with 'approvalRuleTemplate' instead." #-}
+uartnrrsApprovalRuleTemplate :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse Types.ApprovalRuleTemplate
+uartnrrsApprovalRuleTemplate = Lens.field @"approvalRuleTemplate"
+{-# DEPRECATED uartnrrsApprovalRuleTemplate "Use generic-lens or generic-optics with 'approvalRuleTemplate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartnrsResponseStatus :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse Lude.Int
-uartnrsResponseStatus = Lens.lens (responseStatus :: UpdateApprovalRuleTemplateNameResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApprovalRuleTemplateNameResponse)
-{-# DEPRECATED uartnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uartnrrsResponseStatus :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse Core.Int
+uartnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uartnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

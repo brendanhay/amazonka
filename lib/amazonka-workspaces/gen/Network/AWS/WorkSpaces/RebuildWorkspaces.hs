@@ -31,116 +31,101 @@ module Network.AWS.WorkSpaces.RebuildWorkspaces
     mkRebuildWorkspacesResponse,
 
     -- ** Response lenses
-    rwsrsFailedRequests,
-    rwsrsResponseStatus,
+    rwrrsFailedRequests,
+    rwrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkRebuildWorkspaces' smart constructor.
 newtype RebuildWorkspaces = RebuildWorkspaces'
   { -- | The WorkSpace to rebuild. You can specify a single WorkSpace.
-    rebuildWorkspaceRequests :: Lude.NonEmpty RebuildRequest
+    rebuildWorkspaceRequests :: Core.NonEmpty Types.RebuildRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebuildWorkspaces' with the minimum fields required to make a request.
---
--- * 'rebuildWorkspaceRequests' - The WorkSpace to rebuild. You can specify a single WorkSpace.
+-- | Creates a 'RebuildWorkspaces' value with any optional fields omitted.
 mkRebuildWorkspaces ::
   -- | 'rebuildWorkspaceRequests'
-  Lude.NonEmpty RebuildRequest ->
+  Core.NonEmpty Types.RebuildRequest ->
   RebuildWorkspaces
-mkRebuildWorkspaces pRebuildWorkspaceRequests_ =
-  RebuildWorkspaces'
-    { rebuildWorkspaceRequests =
-        pRebuildWorkspaceRequests_
-    }
+mkRebuildWorkspaces rebuildWorkspaceRequests =
+  RebuildWorkspaces' {rebuildWorkspaceRequests}
 
 -- | The WorkSpace to rebuild. You can specify a single WorkSpace.
 --
 -- /Note:/ Consider using 'rebuildWorkspaceRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwRebuildWorkspaceRequests :: Lens.Lens' RebuildWorkspaces (Lude.NonEmpty RebuildRequest)
-rwRebuildWorkspaceRequests = Lens.lens (rebuildWorkspaceRequests :: RebuildWorkspaces -> Lude.NonEmpty RebuildRequest) (\s a -> s {rebuildWorkspaceRequests = a} :: RebuildWorkspaces)
+rwRebuildWorkspaceRequests :: Lens.Lens' RebuildWorkspaces (Core.NonEmpty Types.RebuildRequest)
+rwRebuildWorkspaceRequests = Lens.field @"rebuildWorkspaceRequests"
 {-# DEPRECATED rwRebuildWorkspaceRequests "Use generic-lens or generic-optics with 'rebuildWorkspaceRequests' instead." #-}
 
-instance Lude.AWSRequest RebuildWorkspaces where
+instance Core.FromJSON RebuildWorkspaces where
+  toJSON RebuildWorkspaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RebuildWorkspaceRequests" Core..= rebuildWorkspaceRequests)
+          ]
+      )
+
+instance Core.AWSRequest RebuildWorkspaces where
   type Rs RebuildWorkspaces = RebuildWorkspacesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkspacesService.RebuildWorkspaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RebuildWorkspacesResponse'
-            Lude.<$> (x Lude..?> "FailedRequests" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedRequests")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RebuildWorkspaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.RebuildWorkspaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RebuildWorkspaces where
-  toJSON RebuildWorkspaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("RebuildWorkspaceRequests" Lude..= rebuildWorkspaceRequests)
-          ]
-      )
-
-instance Lude.ToPath RebuildWorkspaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RebuildWorkspaces where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRebuildWorkspacesResponse' smart constructor.
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
   { -- | Information about the WorkSpace that could not be rebuilt.
-    failedRequests :: Lude.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Core.Maybe [Types.FailedWorkspaceChangeRequest],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebuildWorkspacesResponse' with the minimum fields required to make a request.
---
--- * 'failedRequests' - Information about the WorkSpace that could not be rebuilt.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RebuildWorkspacesResponse' value with any optional fields omitted.
 mkRebuildWorkspacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RebuildWorkspacesResponse
-mkRebuildWorkspacesResponse pResponseStatus_ =
+mkRebuildWorkspacesResponse responseStatus =
   RebuildWorkspacesResponse'
-    { failedRequests = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedRequests = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the WorkSpace that could not be rebuilt.
 --
 -- /Note:/ Consider using 'failedRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwsrsFailedRequests :: Lens.Lens' RebuildWorkspacesResponse (Lude.Maybe [FailedWorkspaceChangeRequest])
-rwsrsFailedRequests = Lens.lens (failedRequests :: RebuildWorkspacesResponse -> Lude.Maybe [FailedWorkspaceChangeRequest]) (\s a -> s {failedRequests = a} :: RebuildWorkspacesResponse)
-{-# DEPRECATED rwsrsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
+rwrrsFailedRequests :: Lens.Lens' RebuildWorkspacesResponse (Core.Maybe [Types.FailedWorkspaceChangeRequest])
+rwrrsFailedRequests = Lens.field @"failedRequests"
+{-# DEPRECATED rwrrsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwsrsResponseStatus :: Lens.Lens' RebuildWorkspacesResponse Lude.Int
-rwsrsResponseStatus = Lens.lens (responseStatus :: RebuildWorkspacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebuildWorkspacesResponse)
-{-# DEPRECATED rwsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rwrrsResponseStatus :: Lens.Lens' RebuildWorkspacesResponse Core.Int
+rwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

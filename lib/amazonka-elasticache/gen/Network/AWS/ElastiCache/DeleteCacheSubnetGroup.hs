@@ -28,11 +28,11 @@ module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeleteCacheSubnetGroup@ operation.
 --
@@ -41,60 +41,56 @@ newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
   { -- | The name of the cache subnet group to delete.
     --
     -- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
-    cacheSubnetGroupName :: Lude.Text
+    cacheSubnetGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCacheSubnetGroup' with the minimum fields required to make a request.
---
--- * 'cacheSubnetGroupName' - The name of the cache subnet group to delete.
---
--- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
+-- | Creates a 'DeleteCacheSubnetGroup' value with any optional fields omitted.
 mkDeleteCacheSubnetGroup ::
   -- | 'cacheSubnetGroupName'
-  Lude.Text ->
+  Types.String ->
   DeleteCacheSubnetGroup
-mkDeleteCacheSubnetGroup pCacheSubnetGroupName_ =
-  DeleteCacheSubnetGroup'
-    { cacheSubnetGroupName =
-        pCacheSubnetGroupName_
-    }
+mkDeleteCacheSubnetGroup cacheSubnetGroupName =
+  DeleteCacheSubnetGroup' {cacheSubnetGroupName}
 
 -- | The name of the cache subnet group to delete.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 --
 -- /Note:/ Consider using 'cacheSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCacheSubnetGroupName :: Lens.Lens' DeleteCacheSubnetGroup Lude.Text
-dCacheSubnetGroupName = Lens.lens (cacheSubnetGroupName :: DeleteCacheSubnetGroup -> Lude.Text) (\s a -> s {cacheSubnetGroupName = a} :: DeleteCacheSubnetGroup)
+dCacheSubnetGroupName :: Lens.Lens' DeleteCacheSubnetGroup Types.String
+dCacheSubnetGroupName = Lens.field @"cacheSubnetGroupName"
 {-# DEPRECATED dCacheSubnetGroupName "Use generic-lens or generic-optics with 'cacheSubnetGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteCacheSubnetGroup where
+instance Core.AWSRequest DeleteCacheSubnetGroup where
   type Rs DeleteCacheSubnetGroup = DeleteCacheSubnetGroupResponse
-  request = Req.postQuery elastiCacheService
-  response = Res.receiveNull DeleteCacheSubnetGroupResponse'
-
-instance Lude.ToHeaders DeleteCacheSubnetGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteCacheSubnetGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCacheSubnetGroup where
-  toQuery DeleteCacheSubnetGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteCacheSubnetGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheSubnetGroupName" Lude.=: cacheSubnetGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteCacheSubnetGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "CacheSubnetGroupName" cacheSubnetGroupName)
+            )
+      }
+  response = Response.receiveNull DeleteCacheSubnetGroupResponse'
 
 -- | /See:/ 'mkDeleteCacheSubnetGroupResponse' smart constructor.
 data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCacheSubnetGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteCacheSubnetGroupResponse' value with any optional fields omitted.
 mkDeleteCacheSubnetGroupResponse ::
   DeleteCacheSubnetGroupResponse
 mkDeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'

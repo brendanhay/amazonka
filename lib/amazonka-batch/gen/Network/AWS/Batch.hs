@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,16 @@
 -- As a fully managed service, AWS Batch enables developers, scientists, and engineers to run batch computing workloads of any scale. AWS Batch automatically provisions compute resources and optimizes the workload distribution based on the quantity and scale of the workloads. With AWS Batch, there is no need to install or manage batch computing software, which allows you to focus on analyzing results and solving problems. AWS Batch reduces operational complexities, saves time, and reduces costs, which makes it easy for developers, scientists, and engineers to run their batch jobs in the AWS Cloud.
 module Network.AWS.Batch
   ( -- * Service configuration
-    batchService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ServerException
+    _ServerException,
+
+    -- ** ClientException
+    _ClientException,
 
     -- * Waiters
     -- $waiters
@@ -86,238 +91,49 @@ module Network.AWS.Batch
 
     -- * Types
 
-    -- ** ArrayJobDependency
-    ArrayJobDependency (..),
+    -- ** AttemptDetail
+    AttemptDetail (..),
+    mkAttemptDetail,
+    adContainer,
+    adStartedAt,
+    adStatusReason,
+    adStoppedAt,
 
-    -- ** CEState
-    CEState (..),
-
-    -- ** CEStatus
-    CEStatus (..),
-
-    -- ** CEType
-    CEType (..),
-
-    -- ** CRAllocationStrategy
-    CRAllocationStrategy (..),
-
-    -- ** CRType
-    CRType (..),
-
-    -- ** DeviceCgroupPermission
-    DeviceCgroupPermission (..),
-
-    -- ** JQState
-    JQState (..),
+    -- ** NodeOverrides
+    NodeOverrides (..),
+    mkNodeOverrides,
+    noNodePropertyOverrides,
+    noNumNodes,
 
     -- ** JQStatus
     JQStatus (..),
 
+    -- ** CRAllocationStrategy
+    CRAllocationStrategy (..),
+
     -- ** JobDefinitionType
     JobDefinitionType (..),
-
-    -- ** JobStatus
-    JobStatus (..),
-
-    -- ** LogDriver
-    LogDriver (..),
 
     -- ** ResourceType
     ResourceType (..),
 
-    -- ** RetryAction
-    RetryAction (..),
-
-    -- ** ArrayProperties
-    ArrayProperties (..),
-    mkArrayProperties,
-    apSize,
-
-    -- ** ArrayPropertiesDetail
-    ArrayPropertiesDetail (..),
-    mkArrayPropertiesDetail,
-    apdSize,
-    apdStatusSummary,
-    apdIndex,
-
-    -- ** ArrayPropertiesSummary
-    ArrayPropertiesSummary (..),
-    mkArrayPropertiesSummary,
-    apsSize,
-    apsIndex,
-
-    -- ** AttemptContainerDetail
-    AttemptContainerDetail (..),
-    mkAttemptContainerDetail,
-    acdNetworkInterfaces,
-    acdTaskARN,
-    acdContainerInstanceARN,
-    acdReason,
-    acdLogStreamName,
-    acdExitCode,
-
-    -- ** AttemptDetail
-    AttemptDetail (..),
-    mkAttemptDetail,
-    adStoppedAt,
-    adStartedAt,
-    adContainer,
-    adStatusReason,
-
-    -- ** ComputeEnvironmentDetail
-    ComputeEnvironmentDetail (..),
-    mkComputeEnvironmentDetail,
-    cedStatus,
-    cedComputeEnvironmentName,
-    cedState,
-    cedEcsClusterARN,
-    cedComputeResources,
-    cedComputeEnvironmentARN,
-    cedStatusReason,
-    cedType,
-    cedServiceRole,
-    cedTags,
-
-    -- ** ComputeEnvironmentOrder
-    ComputeEnvironmentOrder (..),
-    mkComputeEnvironmentOrder,
-    ceoComputeEnvironment,
-    ceoOrder,
-
-    -- ** ComputeResource
-    ComputeResource (..),
-    mkComputeResource,
-    crSecurityGroupIds,
-    crInstanceTypes,
-    crInstanceRole,
-    crSubnets,
-    crEc2KeyPair,
-    crMinvCPUs,
-    crEc2Configuration,
-    crMaxvCPUs,
-    crBidPercentage,
-    crSpotIAMFleetRole,
-    crImageId,
-    crLaunchTemplate,
-    crType,
-    crDesiredvCPUs,
-    crAllocationStrategy,
-    crPlacementGroup,
-    crTags,
-
-    -- ** ComputeResourceUpdate
-    ComputeResourceUpdate (..),
-    mkComputeResourceUpdate,
-    cruMinvCPUs,
-    cruMaxvCPUs,
-    cruDesiredvCPUs,
-
-    -- ** ContainerDetail
-    ContainerDetail (..),
-    mkContainerDetail,
-    cdImage,
-    cdCommand,
-    cdSecrets,
-    cdEnvironment,
-    cdNetworkInterfaces,
-    cdTaskARN,
-    cdUlimits,
-    cdContainerInstanceARN,
-    cdExecutionRoleARN,
-    cdPrivileged,
-    cdJobRoleARN,
-    cdResourceRequirements,
-    cdInstanceType,
-    cdMemory,
-    cdUser,
-    cdLogConfiguration,
-    cdLinuxParameters,
-    cdReason,
-    cdLogStreamName,
-    cdMountPoints,
-    cdExitCode,
-    cdVcpus,
-    cdReadonlyRootFilesystem,
-    cdVolumes,
-
-    -- ** ContainerOverrides
-    ContainerOverrides (..),
-    mkContainerOverrides,
-    coCommand,
-    coEnvironment,
-    coResourceRequirements,
-    coInstanceType,
-    coMemory,
-    coVcpus,
-
-    -- ** ContainerProperties
-    ContainerProperties (..),
-    mkContainerProperties,
-    cpImage,
-    cpCommand,
-    cpSecrets,
-    cpEnvironment,
-    cpUlimits,
-    cpExecutionRoleARN,
-    cpPrivileged,
-    cpJobRoleARN,
-    cpResourceRequirements,
-    cpInstanceType,
-    cpMemory,
-    cpUser,
-    cpLogConfiguration,
-    cpLinuxParameters,
-    cpMountPoints,
-    cpVcpus,
-    cpReadonlyRootFilesystem,
-    cpVolumes,
-
-    -- ** ContainerSummary
-    ContainerSummary (..),
-    mkContainerSummary,
-    csReason,
-    csExitCode,
-
-    -- ** Device
-    Device (..),
-    mkDevice,
-    dContainerPath,
-    dHostPath,
-    dPermissions,
-
-    -- ** EC2Configuration
-    EC2Configuration (..),
-    mkEC2Configuration,
-    ecImageType,
-    ecImageIdOverride,
-
     -- ** EvaluateOnExit
     EvaluateOnExit (..),
     mkEvaluateOnExit,
+    eoeAction,
     eoeOnExitCode,
     eoeOnReason,
-    eoeAction,
     eoeOnStatusReason,
 
-    -- ** Host
-    Host (..),
-    mkHost,
-    hSourcePath,
+    -- ** NodePropertiesSummary
+    NodePropertiesSummary (..),
+    mkNodePropertiesSummary,
+    npsIsMainNode,
+    npsNodeIndex,
+    npsNumNodes,
 
-    -- ** JobDefinition
-    JobDefinition (..),
-    mkJobDefinition,
-    jdfStatus,
-    jdfJobDefinitionName,
-    jdfRetryStrategy,
-    jdfJobDefinitionARN,
-    jdfParameters,
-    jdfType,
-    jdfTimeout,
-    jdfRevision,
-    jdfContainerProperties,
-    jdfNodeProperties,
-    jdfTags,
+    -- ** String
+    String (..),
 
     -- ** JobDependency
     JobDependency (..),
@@ -325,84 +141,137 @@ module Network.AWS.Batch
     jJobId,
     jType,
 
-    -- ** JobDetail
-    JobDetail (..),
-    mkJobDetail,
-    jdStoppedAt,
-    jdStatus,
-    jdJobId,
-    jdJobARN,
-    jdCreatedAt,
-    jdJobName,
-    jdRetryStrategy,
-    jdAttempts,
-    jdStartedAt,
-    jdDependsOn,
-    jdContainer,
-    jdJobDefinition,
-    jdNodeDetails,
-    jdParameters,
-    jdStatusReason,
-    jdArrayProperties,
-    jdTimeout,
-    jdJobQueue,
-    jdNodeProperties,
-    jdTags,
+    -- ** ContainerOverrides
+    ContainerOverrides (..),
+    mkContainerOverrides,
+    coCommand,
+    coEnvironment,
+    coInstanceType,
+    coMemory,
+    coResourceRequirements,
+    coVcpus,
 
-    -- ** JobQueueDetail
-    JobQueueDetail (..),
-    mkJobQueueDetail,
-    jqdStatus,
-    jqdState,
-    jqdPriority,
-    jqdJobQueueARN,
-    jqdComputeEnvironmentOrder,
-    jqdStatusReason,
-    jqdJobQueueName,
-    jqdTags,
+    -- ** Device
+    Device (..),
+    mkDevice,
+    dHostPath,
+    dContainerPath,
+    dPermissions,
+
+    -- ** Volume
+    Volume (..),
+    mkVolume,
+    vHost,
+    vName,
+
+    -- ** ContainerSummary
+    ContainerSummary (..),
+    mkContainerSummary,
+    csExitCode,
+    csReason,
+
+    -- ** NetworkInterface
+    NetworkInterface (..),
+    mkNetworkInterface,
+    niAttachmentId,
+    niIpv6Address,
+    niPrivateIpv4Address,
+
+    -- ** RetryStrategy
+    RetryStrategy (..),
+    mkRetryStrategy,
+    rsAttempts,
+    rsEvaluateOnExit,
+
+    -- ** AttemptContainerDetail
+    AttemptContainerDetail (..),
+    mkAttemptContainerDetail,
+    acdContainerInstanceArn,
+    acdExitCode,
+    acdLogStreamName,
+    acdNetworkInterfaces,
+    acdReason,
+    acdTaskArn,
 
     -- ** JobSummary
     JobSummary (..),
     mkJobSummary,
-    jsStoppedAt,
-    jsStatus,
     jsJobId,
-    jsJobARN,
-    jsCreatedAt,
     jsJobName,
-    jsStartedAt,
-    jsContainer,
-    jsStatusReason,
     jsArrayProperties,
+    jsContainer,
+    jsCreatedAt,
+    jsJobArn,
     jsNodeProperties,
-
-    -- ** JobTimeout
-    JobTimeout (..),
-    mkJobTimeout,
-    jtAttemptDurationSeconds,
+    jsStartedAt,
+    jsStatus,
+    jsStatusReason,
+    jsStoppedAt,
 
     -- ** KeyValuePair
     KeyValuePair (..),
     mkKeyValuePair,
-    kvpValue,
     kvpName,
+    kvpValue,
 
-    -- ** LaunchTemplateSpecification
-    LaunchTemplateSpecification (..),
-    mkLaunchTemplateSpecification,
-    ltsLaunchTemplateName,
-    ltsLaunchTemplateId,
-    ltsVersion,
+    -- ** ComputeEnvironmentOrder
+    ComputeEnvironmentOrder (..),
+    mkComputeEnvironmentOrder,
+    ceoOrder,
+    ceoComputeEnvironment,
+
+    -- ** Secret
+    Secret (..),
+    mkSecret,
+    sName,
+    sValueFrom,
+
+    -- ** RetryAction
+    RetryAction (..),
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** ComputeEnvironmentDetail
+    ComputeEnvironmentDetail (..),
+    mkComputeEnvironmentDetail,
+    cedComputeEnvironmentName,
+    cedComputeEnvironmentArn,
+    cedEcsClusterArn,
+    cedComputeResources,
+    cedServiceRole,
+    cedState,
+    cedStatus,
+    cedStatusReason,
+    cedTags,
+    cedType,
+
+    -- ** CRType
+    CRType (..),
+
+    -- ** ArrayPropertiesDetail
+    ArrayPropertiesDetail (..),
+    mkArrayPropertiesDetail,
+    apdIndex,
+    apdSize,
+    apdStatusSummary,
 
     -- ** LinuxParameters
     LinuxParameters (..),
     mkLinuxParameters,
-    lpSharedMemorySize,
-    lpInitProcessEnabled,
-    lpTmpfs,
-    lpSwappiness,
     lpDevices,
+    lpInitProcessEnabled,
     lpMaxSwap,
+    lpSharedMemorySize,
+    lpSwappiness,
+    lpTmpfs,
+
+    -- ** Tmpfs
+    Tmpfs (..),
+    mkTmpfs,
+    tContainerPath,
+    tSize,
+    tMountOptions,
 
     -- ** LogConfiguration
     LogConfiguration (..),
@@ -411,31 +280,226 @@ module Network.AWS.Batch
     lcOptions,
     lcSecretOptions,
 
-    -- ** MountPoint
-    MountPoint (..),
-    mkMountPoint,
-    mpContainerPath,
-    mpSourceVolume,
-    mpReadOnly,
+    -- ** JobTimeout
+    JobTimeout (..),
+    mkJobTimeout,
+    jtAttemptDurationSeconds,
 
-    -- ** NetworkInterface
-    NetworkInterface (..),
-    mkNetworkInterface,
-    niIpv6Address,
-    niPrivateIPv4Address,
-    niAttachmentId,
+    -- ** JQState
+    JQState (..),
+
+    -- ** Ec2Configuration
+    Ec2Configuration (..),
+    mkEc2Configuration,
+    ecImageType,
+    ecImageIdOverride,
+
+    -- ** ArrayPropertiesSummary
+    ArrayPropertiesSummary (..),
+    mkArrayPropertiesSummary,
+    apsIndex,
+    apsSize,
+
+    -- ** JobQueueDetail
+    JobQueueDetail (..),
+    mkJobQueueDetail,
+    jqdJobQueueName,
+    jqdJobQueueArn,
+    jqdState,
+    jqdPriority,
+    jqdComputeEnvironmentOrder,
+    jqdStatus,
+    jqdStatusReason,
+    jqdTags,
+
+    -- ** ComputeResource
+    ComputeResource (..),
+    mkComputeResource,
+    crType,
+    crMinvCpus,
+    crMaxvCpus,
+    crInstanceTypes,
+    crSubnets,
+    crInstanceRole,
+    crAllocationStrategy,
+    crBidPercentage,
+    crDesiredvCpus,
+    crEc2Configuration,
+    crEc2KeyPair,
+    crImageId,
+    crLaunchTemplate,
+    crPlacementGroup,
+    crSecurityGroupIds,
+    crSpotIamFleetRole,
+    crTags,
+
+    -- ** ImageType
+    ImageType (..),
+
+    -- ** DeviceCgroupPermission
+    DeviceCgroupPermission (..),
+
+    -- ** CEStatus
+    CEStatus (..),
 
     -- ** NodeDetails
     NodeDetails (..),
     mkNodeDetails,
-    ndNodeIndex,
     ndIsMainNode,
+    ndNodeIndex,
 
-    -- ** NodeOverrides
-    NodeOverrides (..),
-    mkNodeOverrides,
-    noNumNodes,
-    noNodePropertyOverrides,
+    -- ** LogDriver
+    LogDriver (..),
+
+    -- ** JobDefinition
+    JobDefinition (..),
+    mkJobDefinition,
+    jdfJobDefinitionName,
+    jdfJobDefinitionArn,
+    jdfRevision,
+    jdfType,
+    jdfContainerProperties,
+    jdfNodeProperties,
+    jdfParameters,
+    jdfRetryStrategy,
+    jdfStatus,
+    jdfTags,
+    jdfTimeout,
+
+    -- ** ResourceRequirement
+    ResourceRequirement (..),
+    mkResourceRequirement,
+    rrValue,
+    rrType,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Ulimit
+    Ulimit (..),
+    mkUlimit,
+    uHardLimit,
+    uName,
+    uSoftLimit,
+
+    -- ** LaunchTemplateSpecification
+    LaunchTemplateSpecification (..),
+    mkLaunchTemplateSpecification,
+    ltsLaunchTemplateId,
+    ltsLaunchTemplateName,
+    ltsVersion,
+
+    -- ** Host
+    Host (..),
+    mkHost,
+    hSourcePath,
+
+    -- ** NodeRangeProperty
+    NodeRangeProperty (..),
+    mkNodeRangeProperty,
+    nrpTargetNodes,
+    nrpContainer,
+
+    -- ** ArrayProperties
+    ArrayProperties (..),
+    mkArrayProperties,
+    apSize,
+
+    -- ** JobStatus
+    JobStatus (..),
+
+    -- ** NodePropertyOverride
+    NodePropertyOverride (..),
+    mkNodePropertyOverride,
+    npoTargetNodes,
+    npoContainerOverrides,
+
+    -- ** ContainerProperties
+    ContainerProperties (..),
+    mkContainerProperties,
+    cpCommand,
+    cpEnvironment,
+    cpExecutionRoleArn,
+    cpImage,
+    cpInstanceType,
+    cpJobRoleArn,
+    cpLinuxParameters,
+    cpLogConfiguration,
+    cpMemory,
+    cpMountPoints,
+    cpPrivileged,
+    cpReadonlyRootFilesystem,
+    cpResourceRequirements,
+    cpSecrets,
+    cpUlimits,
+    cpUser,
+    cpVcpus,
+    cpVolumes,
+
+    -- ** ContainerDetail
+    ContainerDetail (..),
+    mkContainerDetail,
+    cdCommand,
+    cdContainerInstanceArn,
+    cdEnvironment,
+    cdExecutionRoleArn,
+    cdExitCode,
+    cdImage,
+    cdInstanceType,
+    cdJobRoleArn,
+    cdLinuxParameters,
+    cdLogConfiguration,
+    cdLogStreamName,
+    cdMemory,
+    cdMountPoints,
+    cdNetworkInterfaces,
+    cdPrivileged,
+    cdReadonlyRootFilesystem,
+    cdReason,
+    cdResourceRequirements,
+    cdSecrets,
+    cdTaskArn,
+    cdUlimits,
+    cdUser,
+    cdVcpus,
+    cdVolumes,
+
+    -- ** CEType
+    CEType (..),
+
+    -- ** JobDetail
+    JobDetail (..),
+    mkJobDetail,
+    jdJobName,
+    jdJobId,
+    jdJobQueue,
+    jdStatus,
+    jdStartedAt,
+    jdJobDefinition,
+    jdArrayProperties,
+    jdAttempts,
+    jdContainer,
+    jdCreatedAt,
+    jdDependsOn,
+    jdJobArn,
+    jdNodeDetails,
+    jdNodeProperties,
+    jdParameters,
+    jdRetryStrategy,
+    jdStatusReason,
+    jdStoppedAt,
+    jdTags,
+    jdTimeout,
+
+    -- ** ComputeResourceUpdate
+    ComputeResourceUpdate (..),
+    mkComputeResourceUpdate,
+    cruDesiredvCpus,
+    cruMaxvCpus,
+    cruMinvCpus,
+
+    -- ** ImageIdOverride
+    ImageIdOverride (..),
 
     -- ** NodeProperties
     NodeProperties (..),
@@ -444,72 +508,68 @@ module Network.AWS.Batch
     npMainNode,
     npNodeRangeProperties,
 
-    -- ** NodePropertiesSummary
-    NodePropertiesSummary (..),
-    mkNodePropertiesSummary,
-    npsNumNodes,
-    npsNodeIndex,
-    npsIsMainNode,
+    -- ** ArrayJobDependency
+    ArrayJobDependency (..),
 
-    -- ** NodePropertyOverride
-    NodePropertyOverride (..),
-    mkNodePropertyOverride,
-    npoContainerOverrides,
-    npoTargetNodes,
+    -- ** CEState
+    CEState (..),
 
-    -- ** NodeRangeProperty
-    NodeRangeProperty (..),
-    mkNodeRangeProperty,
-    nrpContainer,
-    nrpTargetNodes,
+    -- ** MountPoint
+    MountPoint (..),
+    mkMountPoint,
+    mpContainerPath,
+    mpReadOnly,
+    mpSourceVolume,
 
-    -- ** ResourceRequirement
-    ResourceRequirement (..),
-    mkResourceRequirement,
-    rrValue,
-    rrType,
+    -- ** StatusReason
+    StatusReason (..),
 
-    -- ** RetryStrategy
-    RetryStrategy (..),
-    mkRetryStrategy,
-    rsEvaluateOnExit,
-    rsAttempts,
+    -- ** ComputeEnvironmentArn
+    ComputeEnvironmentArn (..),
 
-    -- ** Secret
-    Secret (..),
-    mkSecret,
-    sName,
-    sValueFrom,
+    -- ** ComputeEnvironmentName
+    ComputeEnvironmentName (..),
 
-    -- ** Tmpfs
-    Tmpfs (..),
-    mkTmpfs,
-    tSize,
-    tContainerPath,
-    tMountOptions,
+    -- ** JobId
+    JobId (..),
 
-    -- ** Ulimit
-    Ulimit (..),
-    mkUlimit,
-    uName,
-    uHardLimit,
-    uSoftLimit,
+    -- ** Reason
+    Reason (..),
 
-    -- ** Volume
-    Volume (..),
-    mkVolume,
-    vName,
-    vHost,
+    -- ** ArrayJobId
+    ArrayJobId (..),
+
+    -- ** JobQueue
+    JobQueue (..),
+
+    -- ** MultiNodeJobId
+    MultiNodeJobId (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** JobName
+    JobName (..),
+
+    -- ** JobDefinitionName
+    JobDefinitionName (..),
+
+    -- ** OnExitCode
+    OnExitCode (..),
+
+    -- ** OnReason
+    OnReason (..),
+
+    -- ** OnStatusReason
+    OnStatusReason (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

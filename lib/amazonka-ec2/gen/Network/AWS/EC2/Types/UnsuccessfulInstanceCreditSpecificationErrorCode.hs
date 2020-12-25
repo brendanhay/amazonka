@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationErrorCode
   ( UnsuccessfulInstanceCreditSpecificationErrorCode
       ( UnsuccessfulInstanceCreditSpecificationErrorCode',
-        InvalidInstanceId_Malformed,
-        InvalidInstanceId_NotFound,
-        IncorrectInstanceState,
-        InstanceCreditSpecification_NotSupported
+        UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceID_Malformed,
+        UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceID_NotFound,
+        UnsuccessfulInstanceCreditSpecificationErrorCodeIncorrectInstanceState,
+        UnsuccessfulInstanceCreditSpecificationErrorCodeInstanceCreditSpecification_NotSupported,
+        fromUnsuccessfulInstanceCreditSpecificationErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UnsuccessfulInstanceCreditSpecificationErrorCode = UnsuccessfulInstanceCreditSpecificationErrorCode' Lude.Text
+newtype UnsuccessfulInstanceCreditSpecificationErrorCode = UnsuccessfulInstanceCreditSpecificationErrorCode'
+  { fromUnsuccessfulInstanceCreditSpecificationErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InvalidInstanceId_Malformed :: UnsuccessfulInstanceCreditSpecificationErrorCode
-pattern InvalidInstanceId_Malformed = UnsuccessfulInstanceCreditSpecificationErrorCode' "InvalidInstanceID.Malformed"
+pattern UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceID_Malformed :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceID_Malformed = UnsuccessfulInstanceCreditSpecificationErrorCode' "InvalidInstanceID.Malformed"
 
-pattern InvalidInstanceId_NotFound :: UnsuccessfulInstanceCreditSpecificationErrorCode
-pattern InvalidInstanceId_NotFound = UnsuccessfulInstanceCreditSpecificationErrorCode' "InvalidInstanceID.NotFound"
+pattern UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceID_NotFound :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceID_NotFound = UnsuccessfulInstanceCreditSpecificationErrorCode' "InvalidInstanceID.NotFound"
 
-pattern IncorrectInstanceState :: UnsuccessfulInstanceCreditSpecificationErrorCode
-pattern IncorrectInstanceState = UnsuccessfulInstanceCreditSpecificationErrorCode' "IncorrectInstanceState"
+pattern UnsuccessfulInstanceCreditSpecificationErrorCodeIncorrectInstanceState :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern UnsuccessfulInstanceCreditSpecificationErrorCodeIncorrectInstanceState = UnsuccessfulInstanceCreditSpecificationErrorCode' "IncorrectInstanceState"
 
-pattern InstanceCreditSpecification_NotSupported :: UnsuccessfulInstanceCreditSpecificationErrorCode
-pattern InstanceCreditSpecification_NotSupported = UnsuccessfulInstanceCreditSpecificationErrorCode' "InstanceCreditSpecification.NotSupported"
+pattern UnsuccessfulInstanceCreditSpecificationErrorCodeInstanceCreditSpecification_NotSupported :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern UnsuccessfulInstanceCreditSpecificationErrorCodeInstanceCreditSpecification_NotSupported = UnsuccessfulInstanceCreditSpecificationErrorCode' "InstanceCreditSpecification.NotSupported"
 
 {-# COMPLETE
-  InvalidInstanceId_Malformed,
-  InvalidInstanceId_NotFound,
-  IncorrectInstanceState,
-  InstanceCreditSpecification_NotSupported,
+  UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceID_Malformed,
+  UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceID_NotFound,
+  UnsuccessfulInstanceCreditSpecificationErrorCodeIncorrectInstanceState,
+  UnsuccessfulInstanceCreditSpecificationErrorCodeInstanceCreditSpecification_NotSupported,
   UnsuccessfulInstanceCreditSpecificationErrorCode'
   #-}

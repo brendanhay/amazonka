@@ -17,68 +17,63 @@ module Network.AWS.SageMaker.Types.ModelClientConfig
     mkModelClientConfig,
 
     -- * Lenses
-    mccInvocationsTimeoutInSeconds,
     mccInvocationsMaxRetries,
+    mccInvocationsTimeoutInSeconds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configures the timeout and maximum number of retries for processing a transform job invocation.
 --
 -- /See:/ 'mkModelClientConfig' smart constructor.
 data ModelClientConfig = ModelClientConfig'
-  { -- | The timeout value in seconds for an invocation request.
-    invocationsTimeoutInSeconds :: Lude.Maybe Lude.Natural,
-    -- | The maximum number of retries when invocation requests are failing.
-    invocationsMaxRetries :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of retries when invocation requests are failing.
+    invocationsMaxRetries :: Core.Maybe Core.Natural,
+    -- | The timeout value in seconds for an invocation request.
+    invocationsTimeoutInSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModelClientConfig' with the minimum fields required to make a request.
---
--- * 'invocationsTimeoutInSeconds' - The timeout value in seconds for an invocation request.
--- * 'invocationsMaxRetries' - The maximum number of retries when invocation requests are failing.
+-- | Creates a 'ModelClientConfig' value with any optional fields omitted.
 mkModelClientConfig ::
   ModelClientConfig
 mkModelClientConfig =
   ModelClientConfig'
-    { invocationsTimeoutInSeconds = Lude.Nothing,
-      invocationsMaxRetries = Lude.Nothing
+    { invocationsMaxRetries = Core.Nothing,
+      invocationsTimeoutInSeconds = Core.Nothing
     }
-
--- | The timeout value in seconds for an invocation request.
---
--- /Note:/ Consider using 'invocationsTimeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mccInvocationsTimeoutInSeconds :: Lens.Lens' ModelClientConfig (Lude.Maybe Lude.Natural)
-mccInvocationsTimeoutInSeconds = Lens.lens (invocationsTimeoutInSeconds :: ModelClientConfig -> Lude.Maybe Lude.Natural) (\s a -> s {invocationsTimeoutInSeconds = a} :: ModelClientConfig)
-{-# DEPRECATED mccInvocationsTimeoutInSeconds "Use generic-lens or generic-optics with 'invocationsTimeoutInSeconds' instead." #-}
 
 -- | The maximum number of retries when invocation requests are failing.
 --
 -- /Note:/ Consider using 'invocationsMaxRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mccInvocationsMaxRetries :: Lens.Lens' ModelClientConfig (Lude.Maybe Lude.Natural)
-mccInvocationsMaxRetries = Lens.lens (invocationsMaxRetries :: ModelClientConfig -> Lude.Maybe Lude.Natural) (\s a -> s {invocationsMaxRetries = a} :: ModelClientConfig)
+mccInvocationsMaxRetries :: Lens.Lens' ModelClientConfig (Core.Maybe Core.Natural)
+mccInvocationsMaxRetries = Lens.field @"invocationsMaxRetries"
 {-# DEPRECATED mccInvocationsMaxRetries "Use generic-lens or generic-optics with 'invocationsMaxRetries' instead." #-}
 
-instance Lude.FromJSON ModelClientConfig where
-  parseJSON =
-    Lude.withObject
-      "ModelClientConfig"
-      ( \x ->
-          ModelClientConfig'
-            Lude.<$> (x Lude..:? "InvocationsTimeoutInSeconds")
-            Lude.<*> (x Lude..:? "InvocationsMaxRetries")
-      )
+-- | The timeout value in seconds for an invocation request.
+--
+-- /Note:/ Consider using 'invocationsTimeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mccInvocationsTimeoutInSeconds :: Lens.Lens' ModelClientConfig (Core.Maybe Core.Natural)
+mccInvocationsTimeoutInSeconds = Lens.field @"invocationsTimeoutInSeconds"
+{-# DEPRECATED mccInvocationsTimeoutInSeconds "Use generic-lens or generic-optics with 'invocationsTimeoutInSeconds' instead." #-}
 
-instance Lude.ToJSON ModelClientConfig where
-  toJSON ModelClientConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("InvocationsTimeoutInSeconds" Lude..=)
-              Lude.<$> invocationsTimeoutInSeconds,
-            ("InvocationsMaxRetries" Lude..=) Lude.<$> invocationsMaxRetries
+instance Core.FromJSON ModelClientConfig where
+  toJSON ModelClientConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("InvocationsMaxRetries" Core..=) Core.<$> invocationsMaxRetries,
+            ("InvocationsTimeoutInSeconds" Core..=)
+              Core.<$> invocationsTimeoutInSeconds
           ]
       )
+
+instance Core.FromJSON ModelClientConfig where
+  parseJSON =
+    Core.withObject "ModelClientConfig" Core.$
+      \x ->
+        ModelClientConfig'
+          Core.<$> (x Core..:? "InvocationsMaxRetries")
+          Core.<*> (x Core..:? "InvocationsTimeoutInSeconds")

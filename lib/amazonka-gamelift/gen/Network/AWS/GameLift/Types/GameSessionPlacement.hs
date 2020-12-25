@@ -17,33 +17,40 @@ module Network.AWS.GameLift.Types.GameSessionPlacement
     mkGameSessionPlacement,
 
     -- * Lenses
-    gspStatus,
-    gspPlacementId,
+    gspDnsName,
+    gspEndTime,
     gspGameProperties,
-    gspIPAddress,
-    gspGameSessionName,
-    gspStartTime,
+    gspGameSessionArn,
+    gspGameSessionData,
     gspGameSessionId,
+    gspGameSessionName,
+    gspGameSessionQueueName,
     gspGameSessionRegion,
+    gspIpAddress,
     gspMatchmakerData,
     gspMaximumPlayerSessionCount,
-    gspEndTime,
-    gspGameSessionARN,
-    gspPlayerLatencies,
-    gspGameSessionData,
-    gspDNSName,
-    gspGameSessionQueueName,
     gspPlacedPlayerSessions,
+    gspPlacementId,
+    gspPlayerLatencies,
     gspPort,
+    gspStartTime,
+    gspStatus,
   )
 where
 
-import Network.AWS.GameLift.Types.GameProperty
-import Network.AWS.GameLift.Types.GameSessionPlacementState
-import Network.AWS.GameLift.Types.PlacedPlayerSession
-import Network.AWS.GameLift.Types.PlayerLatency
+import qualified Network.AWS.GameLift.Types.DnsName as Types
+import qualified Network.AWS.GameLift.Types.GameProperty as Types
+import qualified Network.AWS.GameLift.Types.GameSessionData as Types
+import qualified Network.AWS.GameLift.Types.GameSessionPlacementState as Types
+import qualified Network.AWS.GameLift.Types.GameSessionQueueName as Types
+import qualified Network.AWS.GameLift.Types.IdStringModel as Types
+import qualified Network.AWS.GameLift.Types.IpAddress as Types
+import qualified Network.AWS.GameLift.Types.MatchmakerData as Types
+import qualified Network.AWS.GameLift.Types.NonZeroAndMaxString as Types
+import qualified Network.AWS.GameLift.Types.PlacedPlayerSession as Types
+import qualified Network.AWS.GameLift.Types.PlayerLatency as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Object that describes a 'StartGameSessionPlacement' request. This object includes the full details of the original request plus the current status and start/end time stamps.
 --
@@ -61,7 +68,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameSessionPlacement' smart constructor.
 data GameSessionPlacement = GameSessionPlacement'
-  { -- | Current status of the game session placement request.
+  { -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+    --
+    --
+    --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+    --
+    --
+    --     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+    --
+    --
+    -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
+    dnsName :: Core.Maybe Types.DnsName,
+    -- | Time stamp indicating when this request was completed, canceled, or timed out.
+    endTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+    gameProperties :: Core.Maybe [Types.GameProperty],
+    -- | Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all Regions. You can use this value as a @GameSessionId@ value as needed.
+    gameSessionArn :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+    gameSessionData :: Core.Maybe Types.GameSessionData,
+    -- | A unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+    gameSessionId :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | A descriptive label that is associated with a game session. Session names do not need to be unique.
+    gameSessionName :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+    gameSessionQueueName :: Core.Maybe Types.GameSessionQueueName,
+    -- | Name of the Region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+    gameSessionRegion :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+    ipAddress :: Core.Maybe Types.IpAddress,
+    -- | Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
+    matchmakerData :: Core.Maybe Types.MatchmakerData,
+    -- | The maximum number of players that can be connected simultaneously to the game session.
+    maximumPlayerSessionCount :: Core.Maybe Core.Natural,
+    -- | A collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
+    placedPlayerSessions :: Core.Maybe [Types.PlacedPlayerSession],
+    -- | A unique identifier for a game session placement.
+    placementId :: Core.Maybe Types.IdStringModel,
+    -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.
+    playerLatencies :: Core.Maybe [Types.PlayerLatency],
+    -- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+    port :: Core.Maybe Core.Natural,
+    -- | Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Current status of the game session placement request.
     --
     --
     --     * __PENDING__ -- The placement request is currently in the queue waiting to be processed.
@@ -77,88 +127,37 @@ data GameSessionPlacement = GameSessionPlacement'
     --
     --
     --     * __FAILED__ -- GameLift is not able to complete the process of placing the game session. Common reasons are the game session terminated before the placement process was completed, or an unexpected internal error.
-    status :: Lude.Maybe GameSessionPlacementState,
-    -- | A unique identifier for a game session placement.
-    placementId :: Lude.Maybe Lude.Text,
-    -- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
-    gameProperties :: Lude.Maybe [GameProperty],
-    -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
-    ipAddress :: Lude.Maybe Lude.Text,
-    -- | A descriptive label that is associated with a game session. Session names do not need to be unique.
-    gameSessionName :: Lude.Maybe Lude.Text,
-    -- | Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-    startTime :: Lude.Maybe Lude.Timestamp,
-    -- | A unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
-    gameSessionId :: Lude.Maybe Lude.Text,
-    -- | Name of the Region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
-    gameSessionRegion :: Lude.Maybe Lude.Text,
-    -- | Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
-    matchmakerData :: Lude.Maybe Lude.Text,
-    -- | The maximum number of players that can be connected simultaneously to the game session.
-    maximumPlayerSessionCount :: Lude.Maybe Lude.Natural,
-    -- | Time stamp indicating when this request was completed, canceled, or timed out.
-    endTime :: Lude.Maybe Lude.Timestamp,
-    -- | Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all Regions. You can use this value as a @GameSessionId@ value as needed.
-    gameSessionARN :: Lude.Maybe Lude.Text,
-    -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.
-    playerLatencies :: Lude.Maybe [PlayerLatency],
-    -- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
-    gameSessionData :: Lude.Maybe Lude.Text,
-    -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
-    --
-    --
-    --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
-    --
-    --
-    --     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
-    --
-    --
-    -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
-    dnsName :: Lude.Maybe Lude.Text,
-    -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
-    gameSessionQueueName :: Lude.Maybe Lude.Text,
-    -- | A collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
-    placedPlayerSessions :: Lude.Maybe [PlacedPlayerSession],
-    -- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
-    port :: Lude.Maybe Lude.Natural
+    status :: Core.Maybe Types.GameSessionPlacementState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GameSessionPlacement' with the minimum fields required to make a request.
---
--- * 'status' - Current status of the game session placement request.
---
---
---     * __PENDING__ -- The placement request is currently in the queue waiting to be processed.
---
---
---     * __FULFILLED__ -- A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.
---
---
---     * __CANCELLED__ -- The placement request was canceled with a call to 'StopGameSessionPlacement' .
---
---
---     * __TIMED_OUT__ -- A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
---
---
---     * __FAILED__ -- GameLift is not able to complete the process of placing the game session. Common reasons are the game session terminated before the placement process was completed, or an unexpected internal error.
---
---
--- * 'placementId' - A unique identifier for a game session placement.
--- * 'gameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
--- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
--- * 'gameSessionName' - A descriptive label that is associated with a game session. Session names do not need to be unique.
--- * 'startTime' - Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'gameSessionId' - A unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
--- * 'gameSessionRegion' - Name of the Region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
--- * 'matchmakerData' - Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
--- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
--- * 'endTime' - Time stamp indicating when this request was completed, canceled, or timed out.
--- * 'gameSessionARN' - Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all Regions. You can use this value as a @GameSessionId@ value as needed.
--- * 'playerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.
--- * 'gameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
--- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
+-- | Creates a 'GameSessionPlacement' value with any optional fields omitted.
+mkGameSessionPlacement ::
+  GameSessionPlacement
+mkGameSessionPlacement =
+  GameSessionPlacement'
+    { dnsName = Core.Nothing,
+      endTime = Core.Nothing,
+      gameProperties = Core.Nothing,
+      gameSessionArn = Core.Nothing,
+      gameSessionData = Core.Nothing,
+      gameSessionId = Core.Nothing,
+      gameSessionName = Core.Nothing,
+      gameSessionQueueName = Core.Nothing,
+      gameSessionRegion = Core.Nothing,
+      ipAddress = Core.Nothing,
+      matchmakerData = Core.Nothing,
+      maximumPlayerSessionCount = Core.Nothing,
+      placedPlayerSessions = Core.Nothing,
+      placementId = Core.Nothing,
+      playerLatencies = Core.Nothing,
+      port = Core.Nothing,
+      startTime = Core.Nothing,
+      status = Core.Nothing
+    }
+
+-- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
 --
 --
 --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
@@ -168,32 +167,123 @@ data GameSessionPlacement = GameSessionPlacement'
 --
 --
 -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
--- * 'gameSessionQueueName' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
--- * 'placedPlayerSessions' - A collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
--- * 'port' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
-mkGameSessionPlacement ::
-  GameSessionPlacement
-mkGameSessionPlacement =
-  GameSessionPlacement'
-    { status = Lude.Nothing,
-      placementId = Lude.Nothing,
-      gameProperties = Lude.Nothing,
-      ipAddress = Lude.Nothing,
-      gameSessionName = Lude.Nothing,
-      startTime = Lude.Nothing,
-      gameSessionId = Lude.Nothing,
-      gameSessionRegion = Lude.Nothing,
-      matchmakerData = Lude.Nothing,
-      maximumPlayerSessionCount = Lude.Nothing,
-      endTime = Lude.Nothing,
-      gameSessionARN = Lude.Nothing,
-      playerLatencies = Lude.Nothing,
-      gameSessionData = Lude.Nothing,
-      dnsName = Lude.Nothing,
-      gameSessionQueueName = Lude.Nothing,
-      placedPlayerSessions = Lude.Nothing,
-      port = Lude.Nothing
-    }
+--
+-- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspDnsName :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.DnsName)
+gspDnsName = Lens.field @"dnsName"
+{-# DEPRECATED gspDnsName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
+
+-- | Time stamp indicating when this request was completed, canceled, or timed out.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspEndTime :: Lens.Lens' GameSessionPlacement (Core.Maybe Core.NominalDiffTime)
+gspEndTime = Lens.field @"endTime"
+{-# DEPRECATED gspEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+--
+-- /Note:/ Consider using 'gameProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspGameProperties :: Lens.Lens' GameSessionPlacement (Core.Maybe [Types.GameProperty])
+gspGameProperties = Lens.field @"gameProperties"
+{-# DEPRECATED gspGameProperties "Use generic-lens or generic-optics with 'gameProperties' instead." #-}
+
+-- | Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all Regions. You can use this value as a @GameSessionId@ value as needed.
+--
+-- /Note:/ Consider using 'gameSessionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspGameSessionArn :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.NonZeroAndMaxString)
+gspGameSessionArn = Lens.field @"gameSessionArn"
+{-# DEPRECATED gspGameSessionArn "Use generic-lens or generic-optics with 'gameSessionArn' instead." #-}
+
+-- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+--
+-- /Note:/ Consider using 'gameSessionData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspGameSessionData :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.GameSessionData)
+gspGameSessionData = Lens.field @"gameSessionData"
+{-# DEPRECATED gspGameSessionData "Use generic-lens or generic-optics with 'gameSessionData' instead." #-}
+
+-- | A unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+--
+-- /Note:/ Consider using 'gameSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspGameSessionId :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.NonZeroAndMaxString)
+gspGameSessionId = Lens.field @"gameSessionId"
+{-# DEPRECATED gspGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
+
+-- | A descriptive label that is associated with a game session. Session names do not need to be unique.
+--
+-- /Note:/ Consider using 'gameSessionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspGameSessionName :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.NonZeroAndMaxString)
+gspGameSessionName = Lens.field @"gameSessionName"
+{-# DEPRECATED gspGameSessionName "Use generic-lens or generic-optics with 'gameSessionName' instead." #-}
+
+-- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+--
+-- /Note:/ Consider using 'gameSessionQueueName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspGameSessionQueueName :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.GameSessionQueueName)
+gspGameSessionQueueName = Lens.field @"gameSessionQueueName"
+{-# DEPRECATED gspGameSessionQueueName "Use generic-lens or generic-optics with 'gameSessionQueueName' instead." #-}
+
+-- | Name of the Region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+--
+-- /Note:/ Consider using 'gameSessionRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspGameSessionRegion :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.NonZeroAndMaxString)
+gspGameSessionRegion = Lens.field @"gameSessionRegion"
+{-# DEPRECATED gspGameSessionRegion "Use generic-lens or generic-optics with 'gameSessionRegion' instead." #-}
+
+-- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspIpAddress :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.IpAddress)
+gspIpAddress = Lens.field @"ipAddress"
+{-# DEPRECATED gspIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
+
+-- | Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
+--
+-- /Note:/ Consider using 'matchmakerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspMatchmakerData :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.MatchmakerData)
+gspMatchmakerData = Lens.field @"matchmakerData"
+{-# DEPRECATED gspMatchmakerData "Use generic-lens or generic-optics with 'matchmakerData' instead." #-}
+
+-- | The maximum number of players that can be connected simultaneously to the game session.
+--
+-- /Note:/ Consider using 'maximumPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspMaximumPlayerSessionCount :: Lens.Lens' GameSessionPlacement (Core.Maybe Core.Natural)
+gspMaximumPlayerSessionCount = Lens.field @"maximumPlayerSessionCount"
+{-# DEPRECATED gspMaximumPlayerSessionCount "Use generic-lens or generic-optics with 'maximumPlayerSessionCount' instead." #-}
+
+-- | A collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
+--
+-- /Note:/ Consider using 'placedPlayerSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspPlacedPlayerSessions :: Lens.Lens' GameSessionPlacement (Core.Maybe [Types.PlacedPlayerSession])
+gspPlacedPlayerSessions = Lens.field @"placedPlayerSessions"
+{-# DEPRECATED gspPlacedPlayerSessions "Use generic-lens or generic-optics with 'placedPlayerSessions' instead." #-}
+
+-- | A unique identifier for a game session placement.
+--
+-- /Note:/ Consider using 'placementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspPlacementId :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.IdStringModel)
+gspPlacementId = Lens.field @"placementId"
+{-# DEPRECATED gspPlacementId "Use generic-lens or generic-optics with 'placementId' instead." #-}
+
+-- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.
+--
+-- /Note:/ Consider using 'playerLatencies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspPlayerLatencies :: Lens.Lens' GameSessionPlacement (Core.Maybe [Types.PlayerLatency])
+gspPlayerLatencies = Lens.field @"playerLatencies"
+{-# DEPRECATED gspPlayerLatencies "Use generic-lens or generic-optics with 'playerLatencies' instead." #-}
+
+-- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspPort :: Lens.Lens' GameSessionPlacement (Core.Maybe Core.Natural)
+gspPort = Lens.field @"port"
+{-# DEPRECATED gspPort "Use generic-lens or generic-optics with 'port' instead." #-}
+
+-- | Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspStartTime :: Lens.Lens' GameSessionPlacement (Core.Maybe Core.NominalDiffTime)
+gspStartTime = Lens.field @"startTime"
+{-# DEPRECATED gspStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Current status of the game session placement request.
 --
@@ -215,160 +305,30 @@ mkGameSessionPlacement =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspStatus :: Lens.Lens' GameSessionPlacement (Lude.Maybe GameSessionPlacementState)
-gspStatus = Lens.lens (status :: GameSessionPlacement -> Lude.Maybe GameSessionPlacementState) (\s a -> s {status = a} :: GameSessionPlacement)
+gspStatus :: Lens.Lens' GameSessionPlacement (Core.Maybe Types.GameSessionPlacementState)
+gspStatus = Lens.field @"status"
 {-# DEPRECATED gspStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | A unique identifier for a game session placement.
---
--- /Note:/ Consider using 'placementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspPlacementId :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspPlacementId = Lens.lens (placementId :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {placementId = a} :: GameSessionPlacement)
-{-# DEPRECATED gspPlacementId "Use generic-lens or generic-optics with 'placementId' instead." #-}
-
--- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
---
--- /Note:/ Consider using 'gameProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspGameProperties :: Lens.Lens' GameSessionPlacement (Lude.Maybe [GameProperty])
-gspGameProperties = Lens.lens (gameProperties :: GameSessionPlacement -> Lude.Maybe [GameProperty]) (\s a -> s {gameProperties = a} :: GameSessionPlacement)
-{-# DEPRECATED gspGameProperties "Use generic-lens or generic-optics with 'gameProperties' instead." #-}
-
--- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
---
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspIPAddress :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspIPAddress = Lens.lens (ipAddress :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: GameSessionPlacement)
-{-# DEPRECATED gspIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
-
--- | A descriptive label that is associated with a game session. Session names do not need to be unique.
---
--- /Note:/ Consider using 'gameSessionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspGameSessionName :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspGameSessionName = Lens.lens (gameSessionName :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionName = a} :: GameSessionPlacement)
-{-# DEPRECATED gspGameSessionName "Use generic-lens or generic-optics with 'gameSessionName' instead." #-}
-
--- | Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspStartTime :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Timestamp)
-gspStartTime = Lens.lens (startTime :: GameSessionPlacement -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GameSessionPlacement)
-{-# DEPRECATED gspStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | A unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
---
--- /Note:/ Consider using 'gameSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspGameSessionId :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspGameSessionId = Lens.lens (gameSessionId :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionId = a} :: GameSessionPlacement)
-{-# DEPRECATED gspGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
-
--- | Name of the Region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
---
--- /Note:/ Consider using 'gameSessionRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspGameSessionRegion :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspGameSessionRegion = Lens.lens (gameSessionRegion :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionRegion = a} :: GameSessionPlacement)
-{-# DEPRECATED gspGameSessionRegion "Use generic-lens or generic-optics with 'gameSessionRegion' instead." #-}
-
--- | Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
---
--- /Note:/ Consider using 'matchmakerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspMatchmakerData :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspMatchmakerData = Lens.lens (matchmakerData :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {matchmakerData = a} :: GameSessionPlacement)
-{-# DEPRECATED gspMatchmakerData "Use generic-lens or generic-optics with 'matchmakerData' instead." #-}
-
--- | The maximum number of players that can be connected simultaneously to the game session.
---
--- /Note:/ Consider using 'maximumPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspMaximumPlayerSessionCount :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Natural)
-gspMaximumPlayerSessionCount = Lens.lens (maximumPlayerSessionCount :: GameSessionPlacement -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPlayerSessionCount = a} :: GameSessionPlacement)
-{-# DEPRECATED gspMaximumPlayerSessionCount "Use generic-lens or generic-optics with 'maximumPlayerSessionCount' instead." #-}
-
--- | Time stamp indicating when this request was completed, canceled, or timed out.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspEndTime :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Timestamp)
-gspEndTime = Lens.lens (endTime :: GameSessionPlacement -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: GameSessionPlacement)
-{-# DEPRECATED gspEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all Regions. You can use this value as a @GameSessionId@ value as needed.
---
--- /Note:/ Consider using 'gameSessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspGameSessionARN :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspGameSessionARN = Lens.lens (gameSessionARN :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionARN = a} :: GameSessionPlacement)
-{-# DEPRECATED gspGameSessionARN "Use generic-lens or generic-optics with 'gameSessionARN' instead." #-}
-
--- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.
---
--- /Note:/ Consider using 'playerLatencies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspPlayerLatencies :: Lens.Lens' GameSessionPlacement (Lude.Maybe [PlayerLatency])
-gspPlayerLatencies = Lens.lens (playerLatencies :: GameSessionPlacement -> Lude.Maybe [PlayerLatency]) (\s a -> s {playerLatencies = a} :: GameSessionPlacement)
-{-# DEPRECATED gspPlayerLatencies "Use generic-lens or generic-optics with 'playerLatencies' instead." #-}
-
--- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
---
--- /Note:/ Consider using 'gameSessionData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspGameSessionData :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspGameSessionData = Lens.lens (gameSessionData :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionData = a} :: GameSessionPlacement)
-{-# DEPRECATED gspGameSessionData "Use generic-lens or generic-optics with 'gameSessionData' instead." #-}
-
--- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
---
---
---     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
---
---
---     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
---
---
--- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
---
--- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspDNSName :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspDNSName = Lens.lens (dnsName :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: GameSessionPlacement)
-{-# DEPRECATED gspDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
-
--- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
---
--- /Note:/ Consider using 'gameSessionQueueName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspGameSessionQueueName :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Text)
-gspGameSessionQueueName = Lens.lens (gameSessionQueueName :: GameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionQueueName = a} :: GameSessionPlacement)
-{-# DEPRECATED gspGameSessionQueueName "Use generic-lens or generic-optics with 'gameSessionQueueName' instead." #-}
-
--- | A collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
---
--- /Note:/ Consider using 'placedPlayerSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspPlacedPlayerSessions :: Lens.Lens' GameSessionPlacement (Lude.Maybe [PlacedPlayerSession])
-gspPlacedPlayerSessions = Lens.lens (placedPlayerSessions :: GameSessionPlacement -> Lude.Maybe [PlacedPlayerSession]) (\s a -> s {placedPlayerSessions = a} :: GameSessionPlacement)
-{-# DEPRECATED gspPlacedPlayerSessions "Use generic-lens or generic-optics with 'placedPlayerSessions' instead." #-}
-
--- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
---
--- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspPort :: Lens.Lens' GameSessionPlacement (Lude.Maybe Lude.Natural)
-gspPort = Lens.lens (port :: GameSessionPlacement -> Lude.Maybe Lude.Natural) (\s a -> s {port = a} :: GameSessionPlacement)
-{-# DEPRECATED gspPort "Use generic-lens or generic-optics with 'port' instead." #-}
-
-instance Lude.FromJSON GameSessionPlacement where
+instance Core.FromJSON GameSessionPlacement where
   parseJSON =
-    Lude.withObject
-      "GameSessionPlacement"
-      ( \x ->
-          GameSessionPlacement'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "PlacementId")
-            Lude.<*> (x Lude..:? "GameProperties" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "IpAddress")
-            Lude.<*> (x Lude..:? "GameSessionName")
-            Lude.<*> (x Lude..:? "StartTime")
-            Lude.<*> (x Lude..:? "GameSessionId")
-            Lude.<*> (x Lude..:? "GameSessionRegion")
-            Lude.<*> (x Lude..:? "MatchmakerData")
-            Lude.<*> (x Lude..:? "MaximumPlayerSessionCount")
-            Lude.<*> (x Lude..:? "EndTime")
-            Lude.<*> (x Lude..:? "GameSessionArn")
-            Lude.<*> (x Lude..:? "PlayerLatencies" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "GameSessionData")
-            Lude.<*> (x Lude..:? "DnsName")
-            Lude.<*> (x Lude..:? "GameSessionQueueName")
-            Lude.<*> (x Lude..:? "PlacedPlayerSessions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Port")
-      )
+    Core.withObject "GameSessionPlacement" Core.$
+      \x ->
+        GameSessionPlacement'
+          Core.<$> (x Core..:? "DnsName")
+          Core.<*> (x Core..:? "EndTime")
+          Core.<*> (x Core..:? "GameProperties")
+          Core.<*> (x Core..:? "GameSessionArn")
+          Core.<*> (x Core..:? "GameSessionData")
+          Core.<*> (x Core..:? "GameSessionId")
+          Core.<*> (x Core..:? "GameSessionName")
+          Core.<*> (x Core..:? "GameSessionQueueName")
+          Core.<*> (x Core..:? "GameSessionRegion")
+          Core.<*> (x Core..:? "IpAddress")
+          Core.<*> (x Core..:? "MatchmakerData")
+          Core.<*> (x Core..:? "MaximumPlayerSessionCount")
+          Core.<*> (x Core..:? "PlacedPlayerSessions")
+          Core.<*> (x Core..:? "PlacementId")
+          Core.<*> (x Core..:? "PlayerLatencies")
+          Core.<*> (x Core..:? "Port")
+          Core.<*> (x Core..:? "StartTime")
+          Core.<*> (x Core..:? "Status")

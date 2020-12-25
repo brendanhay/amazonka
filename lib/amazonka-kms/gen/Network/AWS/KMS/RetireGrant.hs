@@ -32,9 +32,9 @@ module Network.AWS.KMS.RetireGrant
     mkRetireGrant,
 
     -- ** Request lenses
-    rgKeyId,
     rgGrantId,
     rgGrantToken,
+    rgKeyId,
 
     -- * Destructuring the response
     RetireGrantResponse (..),
@@ -42,58 +42,38 @@ module Network.AWS.KMS.RetireGrant
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRetireGrant' smart constructor.
 data RetireGrant = RetireGrant'
-  { -- | The Amazon Resource Name (ARN) of the CMK associated with the grant.
-    --
-    -- For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
-    keyId :: Lude.Maybe Lude.Text,
-    -- | Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.
+  { -- | Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.
     --
     --
     --     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
-    grantId :: Lude.Maybe Lude.Text,
+    grantId :: Core.Maybe Types.GrantId,
     -- | Token that identifies the grant to be retired.
-    grantToken :: Lude.Maybe Lude.Text
+    grantToken :: Core.Maybe Types.GrantToken,
+    -- | The Amazon Resource Name (ARN) of the CMK associated with the grant.
+    --
+    -- For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    keyId :: Core.Maybe Types.KeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetireGrant' with the minimum fields required to make a request.
---
--- * 'keyId' - The Amazon Resource Name (ARN) of the CMK associated with the grant.
---
--- For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
--- * 'grantId' - Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.
---
---
---     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
---
---
--- * 'grantToken' - Token that identifies the grant to be retired.
+-- | Creates a 'RetireGrant' value with any optional fields omitted.
 mkRetireGrant ::
   RetireGrant
 mkRetireGrant =
   RetireGrant'
-    { keyId = Lude.Nothing,
-      grantId = Lude.Nothing,
-      grantToken = Lude.Nothing
+    { grantId = Core.Nothing,
+      grantToken = Core.Nothing,
+      keyId = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the CMK associated with the grant.
---
--- For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
--- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgKeyId :: Lens.Lens' RetireGrant (Lude.Maybe Lude.Text)
-rgKeyId = Lens.lens (keyId :: RetireGrant -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: RetireGrant)
-{-# DEPRECATED rgKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.
 --
@@ -103,55 +83,57 @@ rgKeyId = Lens.lens (keyId :: RetireGrant -> Lude.Maybe Lude.Text) (\s a -> s {k
 --
 --
 -- /Note:/ Consider using 'grantId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgGrantId :: Lens.Lens' RetireGrant (Lude.Maybe Lude.Text)
-rgGrantId = Lens.lens (grantId :: RetireGrant -> Lude.Maybe Lude.Text) (\s a -> s {grantId = a} :: RetireGrant)
+rgGrantId :: Lens.Lens' RetireGrant (Core.Maybe Types.GrantId)
+rgGrantId = Lens.field @"grantId"
 {-# DEPRECATED rgGrantId "Use generic-lens or generic-optics with 'grantId' instead." #-}
 
 -- | Token that identifies the grant to be retired.
 --
 -- /Note:/ Consider using 'grantToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgGrantToken :: Lens.Lens' RetireGrant (Lude.Maybe Lude.Text)
-rgGrantToken = Lens.lens (grantToken :: RetireGrant -> Lude.Maybe Lude.Text) (\s a -> s {grantToken = a} :: RetireGrant)
+rgGrantToken :: Lens.Lens' RetireGrant (Core.Maybe Types.GrantToken)
+rgGrantToken = Lens.field @"grantToken"
 {-# DEPRECATED rgGrantToken "Use generic-lens or generic-optics with 'grantToken' instead." #-}
 
-instance Lude.AWSRequest RetireGrant where
+-- | The Amazon Resource Name (ARN) of the CMK associated with the grant.
+--
+-- For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgKeyId :: Lens.Lens' RetireGrant (Core.Maybe Types.KeyId)
+rgKeyId = Lens.field @"keyId"
+{-# DEPRECATED rgKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+instance Core.FromJSON RetireGrant where
+  toJSON RetireGrant {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("GrantId" Core..=) Core.<$> grantId,
+            ("GrantToken" Core..=) Core.<$> grantToken,
+            ("KeyId" Core..=) Core.<$> keyId
+          ]
+      )
+
+instance Core.AWSRequest RetireGrant where
   type Rs RetireGrant = RetireGrantResponse
-  request = Req.postJSON kmsService
-  response = Res.receiveNull RetireGrantResponse'
-
-instance Lude.ToHeaders RetireGrant where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.RetireGrant" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RetireGrant where
-  toJSON RetireGrant' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KeyId" Lude..=) Lude.<$> keyId,
-            ("GrantId" Lude..=) Lude.<$> grantId,
-            ("GrantToken" Lude..=) Lude.<$> grantToken
-          ]
-      )
-
-instance Lude.ToPath RetireGrant where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RetireGrant where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.RetireGrant")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RetireGrantResponse'
 
 -- | /See:/ 'mkRetireGrantResponse' smart constructor.
 data RetireGrantResponse = RetireGrantResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetireGrantResponse' with the minimum fields required to make a request.
+-- | Creates a 'RetireGrantResponse' value with any optional fields omitted.
 mkRetireGrantResponse ::
   RetireGrantResponse
 mkRetireGrantResponse = RetireGrantResponse'

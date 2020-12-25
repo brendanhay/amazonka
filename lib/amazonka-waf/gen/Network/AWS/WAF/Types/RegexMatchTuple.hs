@@ -24,9 +24,10 @@ module Network.AWS.WAF.Types.RegexMatchTuple
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.FieldToMatch
-import Network.AWS.WAF.Types.TextTransformation
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.FieldToMatch as Types
+import qualified Network.AWS.WAF.Types.ResourceId as Types
+import qualified Network.AWS.WAF.Types.TextTransformation as Types
 
 -- | The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. Each @RegexMatchTuple@ object contains:
 --
@@ -44,7 +45,7 @@ import Network.AWS.WAF.Types.TextTransformation
 -- /See:/ 'mkRegexMatchTuple' smart constructor.
 data RegexMatchTuple = RegexMatchTuple'
   { -- | Specifies where in a web request to look for the @RegexPatternSet@ .
-    fieldToMatch :: FieldToMatch,
+    fieldToMatch :: Types.FieldToMatch,
     -- | Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on @RegexPatternSet@ before inspecting a request for a match.
     --
     -- You can only specify a single type of TextTransformation.
@@ -115,114 +116,36 @@ data RegexMatchTuple = RegexMatchTuple'
     -- Use this option to decode a URL-encoded value.
     -- __NONE__
     -- Specify @NONE@ if you don't want to perform any text transformations.
-    textTransformation :: TextTransformation,
+    textTransformation :: Types.TextTransformation,
     -- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ (see 'GetRegexPatternSet' ), update a @RegexPatternSet@ (see 'UpdateRegexPatternSet' ), insert a @RegexPatternSet@ into a @RegexMatchSet@ or delete one from a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), and delete an @RegexPatternSet@ from AWS WAF (see 'DeleteRegexPatternSet' ).
     --
     -- @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
-    regexPatternSetId :: Lude.Text
+    regexPatternSetId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegexMatchTuple' with the minimum fields required to make a request.
---
--- * 'fieldToMatch' - Specifies where in a web request to look for the @RegexPatternSet@ .
--- * 'textTransformation' - Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on @RegexPatternSet@ before inspecting a request for a match.
---
--- You can only specify a single type of TextTransformation.
--- __CMD_LINE__
--- When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:
---
---     * Delete the following characters: \ " ' ^
---
---
---     * Delete spaces before the following characters: / (
---
---
---     * Replace the following characters with a space: , ;
---
---
---     * Replace multiple spaces with one space
---
---
---     * Convert uppercase letters (A-Z) to lowercase (a-z)
---
---
--- __COMPRESS_WHITE_SPACE__
--- Use this option to replace the following characters with a space character (decimal 32):
---
---     * \f, formfeed, decimal 12
---
---
---     * \t, tab, decimal 9
---
---
---     * \n, newline, decimal 10
---
---
---     * \r, carriage return, decimal 13
---
---
---     * \v, vertical tab, decimal 11
---
---
---     * non-breaking space, decimal 160
---
---
--- @COMPRESS_WHITE_SPACE@ also replaces multiple spaces with one space.
--- __HTML_ENTITY_DECODE__
--- Use this option to replace HTML-encoded characters with unencoded characters. @HTML_ENTITY_DECODE@ performs the following operations:
---
---     * Replaces @(ampersand)quot;@ with @"@
---
---
---     * Replaces @(ampersand)nbsp;@ with a non-breaking space, decimal 160
---
---
---     * Replaces @(ampersand)lt;@ with a "less than" symbol
---
---
---     * Replaces @(ampersand)gt;@ with @>@
---
---
---     * Replaces characters that are represented in hexadecimal format, @(ampersand)#xhhhh;@ , with the corresponding characters
---
---
---     * Replaces characters that are represented in decimal format, @(ampersand)#nnnn;@ , with the corresponding characters
---
---
--- __LOWERCASE__
--- Use this option to convert uppercase letters (A-Z) to lowercase (a-z).
--- __URL_DECODE__
--- Use this option to decode a URL-encoded value.
--- __NONE__
--- Specify @NONE@ if you don't want to perform any text transformations.
--- * 'regexPatternSetId' - The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ (see 'GetRegexPatternSet' ), update a @RegexPatternSet@ (see 'UpdateRegexPatternSet' ), insert a @RegexPatternSet@ into a @RegexMatchSet@ or delete one from a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), and delete an @RegexPatternSet@ from AWS WAF (see 'DeleteRegexPatternSet' ).
---
--- @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+-- | Creates a 'RegexMatchTuple' value with any optional fields omitted.
 mkRegexMatchTuple ::
   -- | 'fieldToMatch'
-  FieldToMatch ->
+  Types.FieldToMatch ->
   -- | 'textTransformation'
-  TextTransformation ->
+  Types.TextTransformation ->
   -- | 'regexPatternSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   RegexMatchTuple
-mkRegexMatchTuple
-  pFieldToMatch_
-  pTextTransformation_
-  pRegexPatternSetId_ =
-    RegexMatchTuple'
-      { fieldToMatch = pFieldToMatch_,
-        textTransformation = pTextTransformation_,
-        regexPatternSetId = pRegexPatternSetId_
-      }
+mkRegexMatchTuple fieldToMatch textTransformation regexPatternSetId =
+  RegexMatchTuple'
+    { fieldToMatch,
+      textTransformation,
+      regexPatternSetId
+    }
 
 -- | Specifies where in a web request to look for the @RegexPatternSet@ .
 --
 -- /Note:/ Consider using 'fieldToMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmtFieldToMatch :: Lens.Lens' RegexMatchTuple FieldToMatch
-rmtFieldToMatch = Lens.lens (fieldToMatch :: RegexMatchTuple -> FieldToMatch) (\s a -> s {fieldToMatch = a} :: RegexMatchTuple)
+rmtFieldToMatch :: Lens.Lens' RegexMatchTuple Types.FieldToMatch
+rmtFieldToMatch = Lens.field @"fieldToMatch"
 {-# DEPRECATED rmtFieldToMatch "Use generic-lens or generic-optics with 'fieldToMatch' instead." #-}
 
 -- | Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on @RegexPatternSet@ before inspecting a request for a match.
@@ -297,8 +220,8 @@ rmtFieldToMatch = Lens.lens (fieldToMatch :: RegexMatchTuple -> FieldToMatch) (\
 -- Specify @NONE@ if you don't want to perform any text transformations.
 --
 -- /Note:/ Consider using 'textTransformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmtTextTransformation :: Lens.Lens' RegexMatchTuple TextTransformation
-rmtTextTransformation = Lens.lens (textTransformation :: RegexMatchTuple -> TextTransformation) (\s a -> s {textTransformation = a} :: RegexMatchTuple)
+rmtTextTransformation :: Lens.Lens' RegexMatchTuple Types.TextTransformation
+rmtTextTransformation = Lens.field @"textTransformation"
 {-# DEPRECATED rmtTextTransformation "Use generic-lens or generic-optics with 'textTransformation' instead." #-}
 
 -- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ (see 'GetRegexPatternSet' ), update a @RegexPatternSet@ (see 'UpdateRegexPatternSet' ), insert a @RegexPatternSet@ into a @RegexMatchSet@ or delete one from a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), and delete an @RegexPatternSet@ from AWS WAF (see 'DeleteRegexPatternSet' ).
@@ -306,27 +229,25 @@ rmtTextTransformation = Lens.lens (textTransformation :: RegexMatchTuple -> Text
 -- @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
 --
 -- /Note:/ Consider using 'regexPatternSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmtRegexPatternSetId :: Lens.Lens' RegexMatchTuple Lude.Text
-rmtRegexPatternSetId = Lens.lens (regexPatternSetId :: RegexMatchTuple -> Lude.Text) (\s a -> s {regexPatternSetId = a} :: RegexMatchTuple)
+rmtRegexPatternSetId :: Lens.Lens' RegexMatchTuple Types.ResourceId
+rmtRegexPatternSetId = Lens.field @"regexPatternSetId"
 {-# DEPRECATED rmtRegexPatternSetId "Use generic-lens or generic-optics with 'regexPatternSetId' instead." #-}
 
-instance Lude.FromJSON RegexMatchTuple where
-  parseJSON =
-    Lude.withObject
-      "RegexMatchTuple"
-      ( \x ->
-          RegexMatchTuple'
-            Lude.<$> (x Lude..: "FieldToMatch")
-            Lude.<*> (x Lude..: "TextTransformation")
-            Lude.<*> (x Lude..: "RegexPatternSetId")
-      )
-
-instance Lude.ToJSON RegexMatchTuple where
-  toJSON RegexMatchTuple' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("FieldToMatch" Lude..= fieldToMatch),
-            Lude.Just ("TextTransformation" Lude..= textTransformation),
-            Lude.Just ("RegexPatternSetId" Lude..= regexPatternSetId)
+instance Core.FromJSON RegexMatchTuple where
+  toJSON RegexMatchTuple {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
+            Core.Just ("TextTransformation" Core..= textTransformation),
+            Core.Just ("RegexPatternSetId" Core..= regexPatternSetId)
           ]
       )
+
+instance Core.FromJSON RegexMatchTuple where
+  parseJSON =
+    Core.withObject "RegexMatchTuple" Core.$
+      \x ->
+        RegexMatchTuple'
+          Core.<$> (x Core..: "FieldToMatch")
+          Core.<*> (x Core..: "TextTransformation")
+          Core.<*> (x Core..: "RegexPatternSetId")

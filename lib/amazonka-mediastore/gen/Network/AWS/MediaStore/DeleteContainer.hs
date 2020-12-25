@@ -20,102 +20,90 @@ module Network.AWS.MediaStore.DeleteContainer
     mkDeleteContainer,
 
     -- ** Request lenses
-    dContainerName,
+    dcContainerName,
 
     -- * Destructuring the response
     DeleteContainerResponse (..),
     mkDeleteContainerResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteContainer' smart constructor.
 newtype DeleteContainer = DeleteContainer'
   { -- | The name of the container to delete.
-    containerName :: Lude.Text
+    containerName :: Types.ContainerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteContainer' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of the container to delete.
+-- | Creates a 'DeleteContainer' value with any optional fields omitted.
 mkDeleteContainer ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.ContainerName ->
   DeleteContainer
-mkDeleteContainer pContainerName_ =
-  DeleteContainer' {containerName = pContainerName_}
+mkDeleteContainer containerName = DeleteContainer' {containerName}
 
 -- | The name of the container to delete.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dContainerName :: Lens.Lens' DeleteContainer Lude.Text
-dContainerName = Lens.lens (containerName :: DeleteContainer -> Lude.Text) (\s a -> s {containerName = a} :: DeleteContainer)
-{-# DEPRECATED dContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
+dcContainerName :: Lens.Lens' DeleteContainer Types.ContainerName
+dcContainerName = Lens.field @"containerName"
+{-# DEPRECATED dcContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance Lude.AWSRequest DeleteContainer where
+instance Core.FromJSON DeleteContainer where
+  toJSON DeleteContainer {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ContainerName" Core..= containerName)]
+      )
+
+instance Core.AWSRequest DeleteContainer where
   type Rs DeleteContainer = DeleteContainerResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "MediaStore_20170901.DeleteContainer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteContainerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteContainerResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteContainer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.DeleteContainer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteContainer where
-  toJSON DeleteContainer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ContainerName" Lude..= containerName)]
-      )
-
-instance Lude.ToPath DeleteContainer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteContainer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteContainerResponse' smart constructor.
 newtype DeleteContainerResponse = DeleteContainerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteContainerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteContainerResponse' value with any optional fields omitted.
 mkDeleteContainerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteContainerResponse
-mkDeleteContainerResponse pResponseStatus_ =
-  DeleteContainerResponse' {responseStatus = pResponseStatus_}
+mkDeleteContainerResponse responseStatus =
+  DeleteContainerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteContainerResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteContainerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteContainerResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DeleteContainerResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

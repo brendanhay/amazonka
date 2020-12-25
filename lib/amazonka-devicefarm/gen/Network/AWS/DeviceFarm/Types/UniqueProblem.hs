@@ -17,56 +17,51 @@ module Network.AWS.DeviceFarm.Types.UniqueProblem
     mkUniqueProblem,
 
     -- * Lenses
-    upProblems,
     upMessage,
+    upProblems,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.Problem
+import qualified Network.AWS.DeviceFarm.Types.Message as Types
+import qualified Network.AWS.DeviceFarm.Types.Problem as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A collection of one or more problems, grouped by their result.
 --
 -- /See:/ 'mkUniqueProblem' smart constructor.
 data UniqueProblem = UniqueProblem'
-  { -- | Information about the problems.
-    problems :: Lude.Maybe [Problem],
-    -- | A message about the unique problems' result.
-    message :: Lude.Maybe Lude.Text
+  { -- | A message about the unique problems' result.
+    message :: Core.Maybe Types.Message,
+    -- | Information about the problems.
+    problems :: Core.Maybe [Types.Problem]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UniqueProblem' with the minimum fields required to make a request.
---
--- * 'problems' - Information about the problems.
--- * 'message' - A message about the unique problems' result.
+-- | Creates a 'UniqueProblem' value with any optional fields omitted.
 mkUniqueProblem ::
   UniqueProblem
 mkUniqueProblem =
-  UniqueProblem' {problems = Lude.Nothing, message = Lude.Nothing}
-
--- | Information about the problems.
---
--- /Note:/ Consider using 'problems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upProblems :: Lens.Lens' UniqueProblem (Lude.Maybe [Problem])
-upProblems = Lens.lens (problems :: UniqueProblem -> Lude.Maybe [Problem]) (\s a -> s {problems = a} :: UniqueProblem)
-{-# DEPRECATED upProblems "Use generic-lens or generic-optics with 'problems' instead." #-}
+  UniqueProblem' {message = Core.Nothing, problems = Core.Nothing}
 
 -- | A message about the unique problems' result.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upMessage :: Lens.Lens' UniqueProblem (Lude.Maybe Lude.Text)
-upMessage = Lens.lens (message :: UniqueProblem -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: UniqueProblem)
+upMessage :: Lens.Lens' UniqueProblem (Core.Maybe Types.Message)
+upMessage = Lens.field @"message"
 {-# DEPRECATED upMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON UniqueProblem where
+-- | Information about the problems.
+--
+-- /Note:/ Consider using 'problems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upProblems :: Lens.Lens' UniqueProblem (Core.Maybe [Types.Problem])
+upProblems = Lens.field @"problems"
+{-# DEPRECATED upProblems "Use generic-lens or generic-optics with 'problems' instead." #-}
+
+instance Core.FromJSON UniqueProblem where
   parseJSON =
-    Lude.withObject
-      "UniqueProblem"
-      ( \x ->
-          UniqueProblem'
-            Lude.<$> (x Lude..:? "problems" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "UniqueProblem" Core.$
+      \x ->
+        UniqueProblem'
+          Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "problems")

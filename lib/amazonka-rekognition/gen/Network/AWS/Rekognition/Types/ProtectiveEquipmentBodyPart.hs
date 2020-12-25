@@ -17,73 +17,67 @@ module Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart
     mkProtectiveEquipmentBodyPart,
 
     -- * Lenses
-    pebpEquipmentDetections,
     pebpConfidence,
+    pebpEquipmentDetections,
     pebpName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BodyPart
-import Network.AWS.Rekognition.Types.EquipmentDetection
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BodyPart as Types
+import qualified Network.AWS.Rekognition.Types.EquipmentDetection as Types
 
 -- | Information about a body part detected by 'DetectProtectiveEquipment' that contains PPE. An array of @ProtectiveEquipmentBodyPart@ objects is returned for each person detected by @DetectProtectiveEquipment@ .
 --
 -- /See:/ 'mkProtectiveEquipmentBodyPart' smart constructor.
 data ProtectiveEquipmentBodyPart = ProtectiveEquipmentBodyPart'
-  { -- | An array of Personal Protective Equipment items detected around a body part.
-    equipmentDetections :: Lude.Maybe [EquipmentDetection],
-    -- | The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
-    confidence :: Lude.Maybe Lude.Double,
+  { -- | The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
+    confidence :: Core.Maybe Core.Double,
+    -- | An array of Personal Protective Equipment items detected around a body part.
+    equipmentDetections :: Core.Maybe [Types.EquipmentDetection],
     -- | The detected body part.
-    name :: Lude.Maybe BodyPart
+    name :: Core.Maybe Types.BodyPart
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProtectiveEquipmentBodyPart' with the minimum fields required to make a request.
---
--- * 'equipmentDetections' - An array of Personal Protective Equipment items detected around a body part.
--- * 'confidence' - The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
--- * 'name' - The detected body part.
+-- | Creates a 'ProtectiveEquipmentBodyPart' value with any optional fields omitted.
 mkProtectiveEquipmentBodyPart ::
   ProtectiveEquipmentBodyPart
 mkProtectiveEquipmentBodyPart =
   ProtectiveEquipmentBodyPart'
-    { equipmentDetections = Lude.Nothing,
-      confidence = Lude.Nothing,
-      name = Lude.Nothing
+    { confidence = Core.Nothing,
+      equipmentDetections = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | An array of Personal Protective Equipment items detected around a body part.
---
--- /Note:/ Consider using 'equipmentDetections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pebpEquipmentDetections :: Lens.Lens' ProtectiveEquipmentBodyPart (Lude.Maybe [EquipmentDetection])
-pebpEquipmentDetections = Lens.lens (equipmentDetections :: ProtectiveEquipmentBodyPart -> Lude.Maybe [EquipmentDetection]) (\s a -> s {equipmentDetections = a} :: ProtectiveEquipmentBodyPart)
-{-# DEPRECATED pebpEquipmentDetections "Use generic-lens or generic-optics with 'equipmentDetections' instead." #-}
 
 -- | The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pebpConfidence :: Lens.Lens' ProtectiveEquipmentBodyPart (Lude.Maybe Lude.Double)
-pebpConfidence = Lens.lens (confidence :: ProtectiveEquipmentBodyPart -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: ProtectiveEquipmentBodyPart)
+pebpConfidence :: Lens.Lens' ProtectiveEquipmentBodyPart (Core.Maybe Core.Double)
+pebpConfidence = Lens.field @"confidence"
 {-# DEPRECATED pebpConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
+
+-- | An array of Personal Protective Equipment items detected around a body part.
+--
+-- /Note:/ Consider using 'equipmentDetections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pebpEquipmentDetections :: Lens.Lens' ProtectiveEquipmentBodyPart (Core.Maybe [Types.EquipmentDetection])
+pebpEquipmentDetections = Lens.field @"equipmentDetections"
+{-# DEPRECATED pebpEquipmentDetections "Use generic-lens or generic-optics with 'equipmentDetections' instead." #-}
 
 -- | The detected body part.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pebpName :: Lens.Lens' ProtectiveEquipmentBodyPart (Lude.Maybe BodyPart)
-pebpName = Lens.lens (name :: ProtectiveEquipmentBodyPart -> Lude.Maybe BodyPart) (\s a -> s {name = a} :: ProtectiveEquipmentBodyPart)
+pebpName :: Lens.Lens' ProtectiveEquipmentBodyPart (Core.Maybe Types.BodyPart)
+pebpName = Lens.field @"name"
 {-# DEPRECATED pebpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ProtectiveEquipmentBodyPart where
+instance Core.FromJSON ProtectiveEquipmentBodyPart where
   parseJSON =
-    Lude.withObject
-      "ProtectiveEquipmentBodyPart"
-      ( \x ->
-          ProtectiveEquipmentBodyPart'
-            Lude.<$> (x Lude..:? "EquipmentDetections" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Confidence")
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "ProtectiveEquipmentBodyPart" Core.$
+      \x ->
+        ProtectiveEquipmentBodyPart'
+          Core.<$> (x Core..:? "Confidence")
+          Core.<*> (x Core..:? "EquipmentDetections")
+          Core.<*> (x Core..:? "Name")

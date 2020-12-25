@@ -17,61 +17,54 @@ module Network.AWS.Translate.Types.ParallelDataDataLocation
     mkParallelDataDataLocation,
 
     -- * Lenses
-    pddlLocation,
     pddlRepositoryType,
+    pddlLocation,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Translate.Types.String as Types
 
 -- | The location of the most recent parallel data input file that was successfully imported into Amazon Translate.
 --
 -- /See:/ 'mkParallelDataDataLocation' smart constructor.
 data ParallelDataDataLocation = ParallelDataDataLocation'
-  { -- | The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.
-    location :: Lude.Text,
-    -- | Describes the repository that contains the parallel data input file.
-    repositoryType :: Lude.Text
+  { -- | Describes the repository that contains the parallel data input file.
+    repositoryType :: Types.String,
+    -- | The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.
+    location :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParallelDataDataLocation' with the minimum fields required to make a request.
---
--- * 'location' - The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.
--- * 'repositoryType' - Describes the repository that contains the parallel data input file.
+-- | Creates a 'ParallelDataDataLocation' value with any optional fields omitted.
 mkParallelDataDataLocation ::
-  -- | 'location'
-  Lude.Text ->
   -- | 'repositoryType'
-  Lude.Text ->
+  Types.String ->
+  -- | 'location'
+  Types.String ->
   ParallelDataDataLocation
-mkParallelDataDataLocation pLocation_ pRepositoryType_ =
-  ParallelDataDataLocation'
-    { location = pLocation_,
-      repositoryType = pRepositoryType_
-    }
-
--- | The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pddlLocation :: Lens.Lens' ParallelDataDataLocation Lude.Text
-pddlLocation = Lens.lens (location :: ParallelDataDataLocation -> Lude.Text) (\s a -> s {location = a} :: ParallelDataDataLocation)
-{-# DEPRECATED pddlLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+mkParallelDataDataLocation repositoryType location =
+  ParallelDataDataLocation' {repositoryType, location}
 
 -- | Describes the repository that contains the parallel data input file.
 --
 -- /Note:/ Consider using 'repositoryType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pddlRepositoryType :: Lens.Lens' ParallelDataDataLocation Lude.Text
-pddlRepositoryType = Lens.lens (repositoryType :: ParallelDataDataLocation -> Lude.Text) (\s a -> s {repositoryType = a} :: ParallelDataDataLocation)
+pddlRepositoryType :: Lens.Lens' ParallelDataDataLocation Types.String
+pddlRepositoryType = Lens.field @"repositoryType"
 {-# DEPRECATED pddlRepositoryType "Use generic-lens or generic-optics with 'repositoryType' instead." #-}
 
-instance Lude.FromJSON ParallelDataDataLocation where
+-- | The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pddlLocation :: Lens.Lens' ParallelDataDataLocation Types.String
+pddlLocation = Lens.field @"location"
+{-# DEPRECATED pddlLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+instance Core.FromJSON ParallelDataDataLocation where
   parseJSON =
-    Lude.withObject
-      "ParallelDataDataLocation"
-      ( \x ->
-          ParallelDataDataLocation'
-            Lude.<$> (x Lude..: "Location") Lude.<*> (x Lude..: "RepositoryType")
-      )
+    Core.withObject "ParallelDataDataLocation" Core.$
+      \x ->
+        ParallelDataDataLocation'
+          Core.<$> (x Core..: "RepositoryType") Core.<*> (x Core..: "Location")

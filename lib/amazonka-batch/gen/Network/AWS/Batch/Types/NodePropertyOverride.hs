@@ -17,60 +17,58 @@ module Network.AWS.Batch.Types.NodePropertyOverride
     mkNodePropertyOverride,
 
     -- * Lenses
-    npoContainerOverrides,
     npoTargetNodes,
+    npoContainerOverrides,
   )
 where
 
-import Network.AWS.Batch.Types.ContainerOverrides
+import qualified Network.AWS.Batch.Types.ContainerOverrides as Types
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Object representing any node overrides to a job definition that is used in a 'SubmitJob' API operation.
 --
 -- /See:/ 'mkNodePropertyOverride' smart constructor.
 data NodePropertyOverride = NodePropertyOverride'
-  { -- | The overrides that should be sent to a node range.
-    containerOverrides :: Lude.Maybe ContainerOverrides,
-    -- | The range of nodes, using node index values, with which to override. A range of @0:3@ indicates nodes with index values of @0@ through @3@ . If the starting range value is omitted (@:n@ ), then @0@ is used to start the range. If the ending range value is omitted (@n:@ ), then the highest possible node index is used to end the range.
-    targetNodes :: Lude.Text
+  { -- | The range of nodes, using node index values, with which to override. A range of @0:3@ indicates nodes with index values of @0@ through @3@ . If the starting range value is omitted (@:n@ ), then @0@ is used to start the range. If the ending range value is omitted (@n:@ ), then the highest possible node index is used to end the range.
+    targetNodes :: Types.String,
+    -- | The overrides that should be sent to a node range.
+    containerOverrides :: Core.Maybe Types.ContainerOverrides
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NodePropertyOverride' with the minimum fields required to make a request.
---
--- * 'containerOverrides' - The overrides that should be sent to a node range.
--- * 'targetNodes' - The range of nodes, using node index values, with which to override. A range of @0:3@ indicates nodes with index values of @0@ through @3@ . If the starting range value is omitted (@:n@ ), then @0@ is used to start the range. If the ending range value is omitted (@n:@ ), then the highest possible node index is used to end the range.
+-- | Creates a 'NodePropertyOverride' value with any optional fields omitted.
 mkNodePropertyOverride ::
   -- | 'targetNodes'
-  Lude.Text ->
+  Types.String ->
   NodePropertyOverride
-mkNodePropertyOverride pTargetNodes_ =
+mkNodePropertyOverride targetNodes =
   NodePropertyOverride'
-    { containerOverrides = Lude.Nothing,
-      targetNodes = pTargetNodes_
+    { targetNodes,
+      containerOverrides = Core.Nothing
     }
-
--- | The overrides that should be sent to a node range.
---
--- /Note:/ Consider using 'containerOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-npoContainerOverrides :: Lens.Lens' NodePropertyOverride (Lude.Maybe ContainerOverrides)
-npoContainerOverrides = Lens.lens (containerOverrides :: NodePropertyOverride -> Lude.Maybe ContainerOverrides) (\s a -> s {containerOverrides = a} :: NodePropertyOverride)
-{-# DEPRECATED npoContainerOverrides "Use generic-lens or generic-optics with 'containerOverrides' instead." #-}
 
 -- | The range of nodes, using node index values, with which to override. A range of @0:3@ indicates nodes with index values of @0@ through @3@ . If the starting range value is omitted (@:n@ ), then @0@ is used to start the range. If the ending range value is omitted (@n:@ ), then the highest possible node index is used to end the range.
 --
 -- /Note:/ Consider using 'targetNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-npoTargetNodes :: Lens.Lens' NodePropertyOverride Lude.Text
-npoTargetNodes = Lens.lens (targetNodes :: NodePropertyOverride -> Lude.Text) (\s a -> s {targetNodes = a} :: NodePropertyOverride)
+npoTargetNodes :: Lens.Lens' NodePropertyOverride Types.String
+npoTargetNodes = Lens.field @"targetNodes"
 {-# DEPRECATED npoTargetNodes "Use generic-lens or generic-optics with 'targetNodes' instead." #-}
 
-instance Lude.ToJSON NodePropertyOverride where
-  toJSON NodePropertyOverride' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("containerOverrides" Lude..=) Lude.<$> containerOverrides,
-            Lude.Just ("targetNodes" Lude..= targetNodes)
+-- | The overrides that should be sent to a node range.
+--
+-- /Note:/ Consider using 'containerOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npoContainerOverrides :: Lens.Lens' NodePropertyOverride (Core.Maybe Types.ContainerOverrides)
+npoContainerOverrides = Lens.field @"containerOverrides"
+{-# DEPRECATED npoContainerOverrides "Use generic-lens or generic-optics with 'containerOverrides' instead." #-}
+
+instance Core.FromJSON NodePropertyOverride where
+  toJSON NodePropertyOverride {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("targetNodes" Core..= targetNodes),
+            ("containerOverrides" Core..=) Core.<$> containerOverrides
           ]
       )

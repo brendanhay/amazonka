@@ -17,67 +17,65 @@ module Network.AWS.SageMaker.Types.CollectionConfiguration
     mkCollectionConfiguration,
 
     -- * Lenses
-    ccCollectionParameters,
     ccCollectionName,
+    ccCollectionParameters,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.CollectionName as Types
+import qualified Network.AWS.SageMaker.Types.ConfigKey as Types
+import qualified Network.AWS.SageMaker.Types.ConfigValue as Types
 
 -- | Configuration information for tensor collections.
 --
 -- /See:/ 'mkCollectionConfiguration' smart constructor.
 data CollectionConfiguration = CollectionConfiguration'
-  { -- | Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
-    collectionParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The name of the tensor collection. The name must be unique relative to other rule configuration names.
-    collectionName :: Lude.Maybe Lude.Text
+  { -- | The name of the tensor collection. The name must be unique relative to other rule configuration names.
+    collectionName :: Core.Maybe Types.CollectionName,
+    -- | Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
+    collectionParameters :: Core.Maybe (Core.HashMap Types.ConfigKey Types.ConfigValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CollectionConfiguration' with the minimum fields required to make a request.
---
--- * 'collectionParameters' - Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
--- * 'collectionName' - The name of the tensor collection. The name must be unique relative to other rule configuration names.
+-- | Creates a 'CollectionConfiguration' value with any optional fields omitted.
 mkCollectionConfiguration ::
   CollectionConfiguration
 mkCollectionConfiguration =
   CollectionConfiguration'
-    { collectionParameters = Lude.Nothing,
-      collectionName = Lude.Nothing
+    { collectionName = Core.Nothing,
+      collectionParameters = Core.Nothing
     }
-
--- | Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
---
--- /Note:/ Consider using 'collectionParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCollectionParameters :: Lens.Lens' CollectionConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ccCollectionParameters = Lens.lens (collectionParameters :: CollectionConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {collectionParameters = a} :: CollectionConfiguration)
-{-# DEPRECATED ccCollectionParameters "Use generic-lens or generic-optics with 'collectionParameters' instead." #-}
 
 -- | The name of the tensor collection. The name must be unique relative to other rule configuration names.
 --
 -- /Note:/ Consider using 'collectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCollectionName :: Lens.Lens' CollectionConfiguration (Lude.Maybe Lude.Text)
-ccCollectionName = Lens.lens (collectionName :: CollectionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {collectionName = a} :: CollectionConfiguration)
+ccCollectionName :: Lens.Lens' CollectionConfiguration (Core.Maybe Types.CollectionName)
+ccCollectionName = Lens.field @"collectionName"
 {-# DEPRECATED ccCollectionName "Use generic-lens or generic-optics with 'collectionName' instead." #-}
 
-instance Lude.FromJSON CollectionConfiguration where
-  parseJSON =
-    Lude.withObject
-      "CollectionConfiguration"
-      ( \x ->
-          CollectionConfiguration'
-            Lude.<$> (x Lude..:? "CollectionParameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CollectionName")
-      )
+-- | Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
+--
+-- /Note:/ Consider using 'collectionParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCollectionParameters :: Lens.Lens' CollectionConfiguration (Core.Maybe (Core.HashMap Types.ConfigKey Types.ConfigValue))
+ccCollectionParameters = Lens.field @"collectionParameters"
+{-# DEPRECATED ccCollectionParameters "Use generic-lens or generic-optics with 'collectionParameters' instead." #-}
 
-instance Lude.ToJSON CollectionConfiguration where
-  toJSON CollectionConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CollectionParameters" Lude..=) Lude.<$> collectionParameters,
-            ("CollectionName" Lude..=) Lude.<$> collectionName
+instance Core.FromJSON CollectionConfiguration where
+  toJSON CollectionConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CollectionName" Core..=) Core.<$> collectionName,
+            ("CollectionParameters" Core..=) Core.<$> collectionParameters
           ]
       )
+
+instance Core.FromJSON CollectionConfiguration where
+  parseJSON =
+    Core.withObject "CollectionConfiguration" Core.$
+      \x ->
+        CollectionConfiguration'
+          Core.<$> (x Core..:? "CollectionName")
+          Core.<*> (x Core..:? "CollectionParameters")

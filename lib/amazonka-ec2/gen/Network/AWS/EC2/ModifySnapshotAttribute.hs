@@ -23,13 +23,13 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     mkModifySnapshotAttribute,
 
     -- ** Request lenses
+    msaSnapshotId,
     msaAttribute,
     msaCreateVolumePermission,
-    msaUserIds,
+    msaDryRun,
     msaGroupNames,
     msaOperationType,
-    msaDryRun,
-    msaSnapshotId,
+    msaUserIds,
 
     -- * Destructuring the response
     ModifySnapshotAttributeResponse (..),
@@ -37,136 +37,133 @@ module Network.AWS.EC2.ModifySnapshotAttribute
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-  { -- | The snapshot attribute to modify. Only volume creation permissions can be modified.
-    attribute :: Lude.Maybe SnapshotAttributeName,
+  { -- | The ID of the snapshot.
+    snapshotId :: Types.SnapshotId,
+    -- | The snapshot attribute to modify. Only volume creation permissions can be modified.
+    attribute :: Core.Maybe Types.SnapshotAttributeName,
     -- | A JSON representation of the snapshot attribute modification.
-    createVolumePermission :: Lude.Maybe CreateVolumePermissionModifications,
-    -- | The account ID to modify for the snapshot.
-    userIds :: Lude.Maybe [Lude.Text],
-    -- | The group to modify for the snapshot.
-    groupNames :: Lude.Maybe [Lude.Text],
-    -- | The type of operation to perform to the attribute.
-    operationType :: Lude.Maybe OperationType,
+    createVolumePermission :: Core.Maybe Types.CreateVolumePermissionModifications,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The ID of the snapshot.
-    snapshotId :: Lude.Text
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The group to modify for the snapshot.
+    groupNames :: Core.Maybe [Types.SecurityGroupName],
+    -- | The type of operation to perform to the attribute.
+    operationType :: Core.Maybe Types.OperationType,
+    -- | The account ID to modify for the snapshot.
+    userIds :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifySnapshotAttribute' with the minimum fields required to make a request.
---
--- * 'attribute' - The snapshot attribute to modify. Only volume creation permissions can be modified.
--- * 'createVolumePermission' - A JSON representation of the snapshot attribute modification.
--- * 'userIds' - The account ID to modify for the snapshot.
--- * 'groupNames' - The group to modify for the snapshot.
--- * 'operationType' - The type of operation to perform to the attribute.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'snapshotId' - The ID of the snapshot.
+-- | Creates a 'ModifySnapshotAttribute' value with any optional fields omitted.
 mkModifySnapshotAttribute ::
   -- | 'snapshotId'
-  Lude.Text ->
+  Types.SnapshotId ->
   ModifySnapshotAttribute
-mkModifySnapshotAttribute pSnapshotId_ =
+mkModifySnapshotAttribute snapshotId =
   ModifySnapshotAttribute'
-    { attribute = Lude.Nothing,
-      createVolumePermission = Lude.Nothing,
-      userIds = Lude.Nothing,
-      groupNames = Lude.Nothing,
-      operationType = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      snapshotId = pSnapshotId_
+    { snapshotId,
+      attribute = Core.Nothing,
+      createVolumePermission = Core.Nothing,
+      dryRun = Core.Nothing,
+      groupNames = Core.Nothing,
+      operationType = Core.Nothing,
+      userIds = Core.Nothing
     }
+
+-- | The ID of the snapshot.
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaSnapshotId :: Lens.Lens' ModifySnapshotAttribute Types.SnapshotId
+msaSnapshotId = Lens.field @"snapshotId"
+{-# DEPRECATED msaSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
 -- | The snapshot attribute to modify. Only volume creation permissions can be modified.
 --
 -- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaAttribute :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe SnapshotAttributeName)
-msaAttribute = Lens.lens (attribute :: ModifySnapshotAttribute -> Lude.Maybe SnapshotAttributeName) (\s a -> s {attribute = a} :: ModifySnapshotAttribute)
+msaAttribute :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe Types.SnapshotAttributeName)
+msaAttribute = Lens.field @"attribute"
 {-# DEPRECATED msaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | A JSON representation of the snapshot attribute modification.
 --
 -- /Note:/ Consider using 'createVolumePermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaCreateVolumePermission :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe CreateVolumePermissionModifications)
-msaCreateVolumePermission = Lens.lens (createVolumePermission :: ModifySnapshotAttribute -> Lude.Maybe CreateVolumePermissionModifications) (\s a -> s {createVolumePermission = a} :: ModifySnapshotAttribute)
+msaCreateVolumePermission :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe Types.CreateVolumePermissionModifications)
+msaCreateVolumePermission = Lens.field @"createVolumePermission"
 {-# DEPRECATED msaCreateVolumePermission "Use generic-lens or generic-optics with 'createVolumePermission' instead." #-}
 
--- | The account ID to modify for the snapshot.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaUserIds :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe [Lude.Text])
-msaUserIds = Lens.lens (userIds :: ModifySnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {userIds = a} :: ModifySnapshotAttribute)
-{-# DEPRECATED msaUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaDryRun :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe Core.Bool)
+msaDryRun = Lens.field @"dryRun"
+{-# DEPRECATED msaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The group to modify for the snapshot.
 --
 -- /Note:/ Consider using 'groupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaGroupNames :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe [Lude.Text])
-msaGroupNames = Lens.lens (groupNames :: ModifySnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {groupNames = a} :: ModifySnapshotAttribute)
+msaGroupNames :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe [Types.SecurityGroupName])
+msaGroupNames = Lens.field @"groupNames"
 {-# DEPRECATED msaGroupNames "Use generic-lens or generic-optics with 'groupNames' instead." #-}
 
 -- | The type of operation to perform to the attribute.
 --
 -- /Note:/ Consider using 'operationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaOperationType :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe OperationType)
-msaOperationType = Lens.lens (operationType :: ModifySnapshotAttribute -> Lude.Maybe OperationType) (\s a -> s {operationType = a} :: ModifySnapshotAttribute)
+msaOperationType :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe Types.OperationType)
+msaOperationType = Lens.field @"operationType"
 {-# DEPRECATED msaOperationType "Use generic-lens or generic-optics with 'operationType' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The account ID to modify for the snapshot.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaDryRun :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe Lude.Bool)
-msaDryRun = Lens.lens (dryRun :: ModifySnapshotAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifySnapshotAttribute)
-{-# DEPRECATED msaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaUserIds :: Lens.Lens' ModifySnapshotAttribute (Core.Maybe [Types.String])
+msaUserIds = Lens.field @"userIds"
+{-# DEPRECATED msaUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
 
--- | The ID of the snapshot.
---
--- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaSnapshotId :: Lens.Lens' ModifySnapshotAttribute Lude.Text
-msaSnapshotId = Lens.lens (snapshotId :: ModifySnapshotAttribute -> Lude.Text) (\s a -> s {snapshotId = a} :: ModifySnapshotAttribute)
-{-# DEPRECATED msaSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
-
-instance Lude.AWSRequest ModifySnapshotAttribute where
+instance Core.AWSRequest ModifySnapshotAttribute where
   type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull ModifySnapshotAttributeResponse'
-
-instance Lude.ToHeaders ModifySnapshotAttribute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifySnapshotAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifySnapshotAttribute where
-  toQuery ModifySnapshotAttribute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifySnapshotAttribute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Attribute" Lude.=: attribute,
-        "CreateVolumePermission" Lude.=: createVolumePermission,
-        Lude.toQuery (Lude.toQueryList "UserId" Lude.<$> userIds),
-        Lude.toQuery (Lude.toQueryList "UserGroup" Lude.<$> groupNames),
-        "OperationType" Lude.=: operationType,
-        "DryRun" Lude.=: dryRun,
-        "SnapshotId" Lude.=: snapshotId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifySnapshotAttribute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "SnapshotId" snapshotId)
+                Core.<> (Core.toQueryValue "Attribute" Core.<$> attribute)
+                Core.<> ( Core.toQueryValue "CreateVolumePermission"
+                            Core.<$> createVolumePermission
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "UserGroup" Core.<$> groupNames)
+                Core.<> (Core.toQueryValue "OperationType" Core.<$> operationType)
+                Core.<> (Core.toQueryList "UserId" Core.<$> userIds)
+            )
+      }
+  response = Response.receiveNull ModifySnapshotAttributeResponse'
 
 -- | /See:/ 'mkModifySnapshotAttributeResponse' smart constructor.
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifySnapshotAttributeResponse' with the minimum fields required to make a request.
+-- | Creates a 'ModifySnapshotAttributeResponse' value with any optional fields omitted.
 mkModifySnapshotAttributeResponse ::
   ModifySnapshotAttributeResponse
 mkModifySnapshotAttributeResponse =

@@ -17,81 +17,79 @@ module Network.AWS.Glue.Types.SerDeInfo
     mkSerDeInfo,
 
     -- * Lenses
-    sdiSerializationLibrary,
     sdiName,
     sdiParameters,
+    sdiSerializationLibrary,
   )
 where
 
+import qualified Network.AWS.Glue.Types.KeyString as Types
+import qualified Network.AWS.Glue.Types.Name as Types
+import qualified Network.AWS.Glue.Types.ParametersMapValue as Types
+import qualified Network.AWS.Glue.Types.SerializationLibrary as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a serialization/deserialization program (SerDe) that serves as an extractor and loader.
 --
 -- /See:/ 'mkSerDeInfo' smart constructor.
 data SerDeInfo = SerDeInfo'
-  { -- | Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
-    serializationLibrary :: Lude.Maybe Lude.Text,
-    -- | Name of the SerDe.
-    name :: Lude.Maybe Lude.Text,
+  { -- | Name of the SerDe.
+    name :: Core.Maybe Types.Name,
     -- | These key-value pairs define initialization parameters for the SerDe.
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    parameters :: Core.Maybe (Core.HashMap Types.KeyString Types.ParametersMapValue),
+    -- | Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
+    serializationLibrary :: Core.Maybe Types.SerializationLibrary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SerDeInfo' with the minimum fields required to make a request.
---
--- * 'serializationLibrary' - Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
--- * 'name' - Name of the SerDe.
--- * 'parameters' - These key-value pairs define initialization parameters for the SerDe.
+-- | Creates a 'SerDeInfo' value with any optional fields omitted.
 mkSerDeInfo ::
   SerDeInfo
 mkSerDeInfo =
   SerDeInfo'
-    { serializationLibrary = Lude.Nothing,
-      name = Lude.Nothing,
-      parameters = Lude.Nothing
+    { name = Core.Nothing,
+      parameters = Core.Nothing,
+      serializationLibrary = Core.Nothing
     }
-
--- | Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
---
--- /Note:/ Consider using 'serializationLibrary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdiSerializationLibrary :: Lens.Lens' SerDeInfo (Lude.Maybe Lude.Text)
-sdiSerializationLibrary = Lens.lens (serializationLibrary :: SerDeInfo -> Lude.Maybe Lude.Text) (\s a -> s {serializationLibrary = a} :: SerDeInfo)
-{-# DEPRECATED sdiSerializationLibrary "Use generic-lens or generic-optics with 'serializationLibrary' instead." #-}
 
 -- | Name of the SerDe.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdiName :: Lens.Lens' SerDeInfo (Lude.Maybe Lude.Text)
-sdiName = Lens.lens (name :: SerDeInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SerDeInfo)
+sdiName :: Lens.Lens' SerDeInfo (Core.Maybe Types.Name)
+sdiName = Lens.field @"name"
 {-# DEPRECATED sdiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | These key-value pairs define initialization parameters for the SerDe.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdiParameters :: Lens.Lens' SerDeInfo (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-sdiParameters = Lens.lens (parameters :: SerDeInfo -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: SerDeInfo)
+sdiParameters :: Lens.Lens' SerDeInfo (Core.Maybe (Core.HashMap Types.KeyString Types.ParametersMapValue))
+sdiParameters = Lens.field @"parameters"
 {-# DEPRECATED sdiParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance Lude.FromJSON SerDeInfo where
-  parseJSON =
-    Lude.withObject
-      "SerDeInfo"
-      ( \x ->
-          SerDeInfo'
-            Lude.<$> (x Lude..:? "SerializationLibrary")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-      )
+-- | Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
+--
+-- /Note:/ Consider using 'serializationLibrary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiSerializationLibrary :: Lens.Lens' SerDeInfo (Core.Maybe Types.SerializationLibrary)
+sdiSerializationLibrary = Lens.field @"serializationLibrary"
+{-# DEPRECATED sdiSerializationLibrary "Use generic-lens or generic-optics with 'serializationLibrary' instead." #-}
 
-instance Lude.ToJSON SerDeInfo where
-  toJSON SerDeInfo' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SerializationLibrary" Lude..=) Lude.<$> serializationLibrary,
-            ("Name" Lude..=) Lude.<$> name,
-            ("Parameters" Lude..=) Lude.<$> parameters
+instance Core.FromJSON SerDeInfo where
+  toJSON SerDeInfo {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("Parameters" Core..=) Core.<$> parameters,
+            ("SerializationLibrary" Core..=) Core.<$> serializationLibrary
           ]
       )
+
+instance Core.FromJSON SerDeInfo where
+  parseJSON =
+    Core.withObject "SerDeInfo" Core.$
+      \x ->
+        SerDeInfo'
+          Core.<$> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Parameters")
+          Core.<*> (x Core..:? "SerializationLibrary")

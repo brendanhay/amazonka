@@ -17,88 +17,82 @@ module Network.AWS.MediaLive.Types.ScheduleActionStartSettings
     mkScheduleActionStartSettings,
 
     -- * Lenses
-    sassImmediateModeScheduleActionStartSettings,
-    sassFollowModeScheduleActionStartSettings,
     sassFixedModeScheduleActionStartSettings,
+    sassFollowModeScheduleActionStartSettings,
+    sassImmediateModeScheduleActionStartSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings
-import Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
-import Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings as Types
+import qualified Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings as Types
+import qualified Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings to specify when an action should occur. Only one of the options must be selected.
 --
 -- /See:/ 'mkScheduleActionStartSettings' smart constructor.
 data ScheduleActionStartSettings = ScheduleActionStartSettings'
-  { -- | Option for specifying an action that should be applied immediately.
-    immediateModeScheduleActionStartSettings :: Lude.Maybe ImmediateModeScheduleActionStartSettings,
+  { -- | Option for specifying the start time for an action.
+    fixedModeScheduleActionStartSettings :: Core.Maybe Types.FixedModeScheduleActionStartSettings,
     -- | Option for specifying an action as relative to another action.
-    followModeScheduleActionStartSettings :: Lude.Maybe FollowModeScheduleActionStartSettings,
-    -- | Option for specifying the start time for an action.
-    fixedModeScheduleActionStartSettings :: Lude.Maybe FixedModeScheduleActionStartSettings
+    followModeScheduleActionStartSettings :: Core.Maybe Types.FollowModeScheduleActionStartSettings,
+    -- | Option for specifying an action that should be applied immediately.
+    immediateModeScheduleActionStartSettings :: Core.Maybe Types.ImmediateModeScheduleActionStartSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduleActionStartSettings' with the minimum fields required to make a request.
---
--- * 'immediateModeScheduleActionStartSettings' - Option for specifying an action that should be applied immediately.
--- * 'followModeScheduleActionStartSettings' - Option for specifying an action as relative to another action.
--- * 'fixedModeScheduleActionStartSettings' - Option for specifying the start time for an action.
+-- | Creates a 'ScheduleActionStartSettings' value with any optional fields omitted.
 mkScheduleActionStartSettings ::
   ScheduleActionStartSettings
 mkScheduleActionStartSettings =
   ScheduleActionStartSettings'
-    { immediateModeScheduleActionStartSettings =
-        Lude.Nothing,
-      followModeScheduleActionStartSettings = Lude.Nothing,
-      fixedModeScheduleActionStartSettings = Lude.Nothing
+    { fixedModeScheduleActionStartSettings =
+        Core.Nothing,
+      followModeScheduleActionStartSettings = Core.Nothing,
+      immediateModeScheduleActionStartSettings = Core.Nothing
     }
-
--- | Option for specifying an action that should be applied immediately.
---
--- /Note:/ Consider using 'immediateModeScheduleActionStartSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sassImmediateModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Lude.Maybe ImmediateModeScheduleActionStartSettings)
-sassImmediateModeScheduleActionStartSettings = Lens.lens (immediateModeScheduleActionStartSettings :: ScheduleActionStartSettings -> Lude.Maybe ImmediateModeScheduleActionStartSettings) (\s a -> s {immediateModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
-{-# DEPRECATED sassImmediateModeScheduleActionStartSettings "Use generic-lens or generic-optics with 'immediateModeScheduleActionStartSettings' instead." #-}
-
--- | Option for specifying an action as relative to another action.
---
--- /Note:/ Consider using 'followModeScheduleActionStartSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sassFollowModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Lude.Maybe FollowModeScheduleActionStartSettings)
-sassFollowModeScheduleActionStartSettings = Lens.lens (followModeScheduleActionStartSettings :: ScheduleActionStartSettings -> Lude.Maybe FollowModeScheduleActionStartSettings) (\s a -> s {followModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
-{-# DEPRECATED sassFollowModeScheduleActionStartSettings "Use generic-lens or generic-optics with 'followModeScheduleActionStartSettings' instead." #-}
 
 -- | Option for specifying the start time for an action.
 --
 -- /Note:/ Consider using 'fixedModeScheduleActionStartSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sassFixedModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Lude.Maybe FixedModeScheduleActionStartSettings)
-sassFixedModeScheduleActionStartSettings = Lens.lens (fixedModeScheduleActionStartSettings :: ScheduleActionStartSettings -> Lude.Maybe FixedModeScheduleActionStartSettings) (\s a -> s {fixedModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
+sassFixedModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Core.Maybe Types.FixedModeScheduleActionStartSettings)
+sassFixedModeScheduleActionStartSettings = Lens.field @"fixedModeScheduleActionStartSettings"
 {-# DEPRECATED sassFixedModeScheduleActionStartSettings "Use generic-lens or generic-optics with 'fixedModeScheduleActionStartSettings' instead." #-}
 
-instance Lude.FromJSON ScheduleActionStartSettings where
-  parseJSON =
-    Lude.withObject
-      "ScheduleActionStartSettings"
-      ( \x ->
-          ScheduleActionStartSettings'
-            Lude.<$> (x Lude..:? "immediateModeScheduleActionStartSettings")
-            Lude.<*> (x Lude..:? "followModeScheduleActionStartSettings")
-            Lude.<*> (x Lude..:? "fixedModeScheduleActionStartSettings")
-      )
+-- | Option for specifying an action as relative to another action.
+--
+-- /Note:/ Consider using 'followModeScheduleActionStartSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sassFollowModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Core.Maybe Types.FollowModeScheduleActionStartSettings)
+sassFollowModeScheduleActionStartSettings = Lens.field @"followModeScheduleActionStartSettings"
+{-# DEPRECATED sassFollowModeScheduleActionStartSettings "Use generic-lens or generic-optics with 'followModeScheduleActionStartSettings' instead." #-}
 
-instance Lude.ToJSON ScheduleActionStartSettings where
-  toJSON ScheduleActionStartSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("immediateModeScheduleActionStartSettings" Lude..=)
-              Lude.<$> immediateModeScheduleActionStartSettings,
-            ("followModeScheduleActionStartSettings" Lude..=)
-              Lude.<$> followModeScheduleActionStartSettings,
-            ("fixedModeScheduleActionStartSettings" Lude..=)
-              Lude.<$> fixedModeScheduleActionStartSettings
+-- | Option for specifying an action that should be applied immediately.
+--
+-- /Note:/ Consider using 'immediateModeScheduleActionStartSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sassImmediateModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Core.Maybe Types.ImmediateModeScheduleActionStartSettings)
+sassImmediateModeScheduleActionStartSettings = Lens.field @"immediateModeScheduleActionStartSettings"
+{-# DEPRECATED sassImmediateModeScheduleActionStartSettings "Use generic-lens or generic-optics with 'immediateModeScheduleActionStartSettings' instead." #-}
+
+instance Core.FromJSON ScheduleActionStartSettings where
+  toJSON ScheduleActionStartSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("fixedModeScheduleActionStartSettings" Core..=)
+              Core.<$> fixedModeScheduleActionStartSettings,
+            ("followModeScheduleActionStartSettings" Core..=)
+              Core.<$> followModeScheduleActionStartSettings,
+            ("immediateModeScheduleActionStartSettings" Core..=)
+              Core.<$> immediateModeScheduleActionStartSettings
           ]
       )
+
+instance Core.FromJSON ScheduleActionStartSettings where
+  parseJSON =
+    Core.withObject "ScheduleActionStartSettings" Core.$
+      \x ->
+        ScheduleActionStartSettings'
+          Core.<$> (x Core..:? "fixedModeScheduleActionStartSettings")
+          Core.<*> (x Core..:? "followModeScheduleActionStartSettings")
+          Core.<*> (x Core..:? "immediateModeScheduleActionStartSettings")

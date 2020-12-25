@@ -27,102 +27,86 @@ module Network.AWS.AlexaBusiness.PutConferencePreference
     mkPutConferencePreferenceResponse,
 
     -- ** Response lenses
-    pcprsResponseStatus,
+    pcprrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutConferencePreference' smart constructor.
 newtype PutConferencePreference = PutConferencePreference'
   { -- | The conference preference of a specific conference provider.
-    conferencePreference :: ConferencePreference
+    conferencePreference :: Types.ConferencePreference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutConferencePreference' with the minimum fields required to make a request.
---
--- * 'conferencePreference' - The conference preference of a specific conference provider.
+-- | Creates a 'PutConferencePreference' value with any optional fields omitted.
 mkPutConferencePreference ::
   -- | 'conferencePreference'
-  ConferencePreference ->
+  Types.ConferencePreference ->
   PutConferencePreference
-mkPutConferencePreference pConferencePreference_ =
-  PutConferencePreference'
-    { conferencePreference =
-        pConferencePreference_
-    }
+mkPutConferencePreference conferencePreference =
+  PutConferencePreference' {conferencePreference}
 
 -- | The conference preference of a specific conference provider.
 --
 -- /Note:/ Consider using 'conferencePreference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcpConferencePreference :: Lens.Lens' PutConferencePreference ConferencePreference
-pcpConferencePreference = Lens.lens (conferencePreference :: PutConferencePreference -> ConferencePreference) (\s a -> s {conferencePreference = a} :: PutConferencePreference)
+pcpConferencePreference :: Lens.Lens' PutConferencePreference Types.ConferencePreference
+pcpConferencePreference = Lens.field @"conferencePreference"
 {-# DEPRECATED pcpConferencePreference "Use generic-lens or generic-optics with 'conferencePreference' instead." #-}
 
-instance Lude.AWSRequest PutConferencePreference where
+instance Core.FromJSON PutConferencePreference where
+  toJSON PutConferencePreference {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ConferencePreference" Core..= conferencePreference)]
+      )
+
+instance Core.AWSRequest PutConferencePreference where
   type Rs PutConferencePreference = PutConferencePreferenceResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.PutConferencePreference")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutConferencePreferenceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutConferencePreference where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.PutConferencePreference" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutConferencePreference where
-  toJSON PutConferencePreference' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ConferencePreference" Lude..= conferencePreference)]
-      )
-
-instance Lude.ToPath PutConferencePreference where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutConferencePreference where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutConferencePreferenceResponse' smart constructor.
 newtype PutConferencePreferenceResponse = PutConferencePreferenceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutConferencePreferenceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutConferencePreferenceResponse' value with any optional fields omitted.
 mkPutConferencePreferenceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutConferencePreferenceResponse
-mkPutConferencePreferenceResponse pResponseStatus_ =
-  PutConferencePreferenceResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkPutConferencePreferenceResponse responseStatus =
+  PutConferencePreferenceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcprsResponseStatus :: Lens.Lens' PutConferencePreferenceResponse Lude.Int
-pcprsResponseStatus = Lens.lens (responseStatus :: PutConferencePreferenceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutConferencePreferenceResponse)
-{-# DEPRECATED pcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pcprrsResponseStatus :: Lens.Lens' PutConferencePreferenceResponse Core.Int
+pcprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

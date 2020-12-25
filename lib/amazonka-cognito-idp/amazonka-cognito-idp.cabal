@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CognitoIdentityProvider
     Network.AWS.CognitoIdentityProvider.AddCustomAttributes
@@ -131,7 +137,7 @@ library
     Network.AWS.CognitoIdentityProvider.GetUICustomization
     Network.AWS.CognitoIdentityProvider.GetUser
     Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
-    Network.AWS.CognitoIdentityProvider.GetUserPoolMFAConfig
+    Network.AWS.CognitoIdentityProvider.GetUserPoolMfaConfig
     Network.AWS.CognitoIdentityProvider.GlobalSignOut
     Network.AWS.CognitoIdentityProvider.InitiateAuth
     Network.AWS.CognitoIdentityProvider.ListDevices
@@ -149,7 +155,7 @@ library
     Network.AWS.CognitoIdentityProvider.SetRiskConfiguration
     Network.AWS.CognitoIdentityProvider.SetUICustomization
     Network.AWS.CognitoIdentityProvider.SetUserMFAPreference
-    Network.AWS.CognitoIdentityProvider.SetUserPoolMFAConfig
+    Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig
     Network.AWS.CognitoIdentityProvider.SetUserSettings
     Network.AWS.CognitoIdentityProvider.SignUp
     Network.AWS.CognitoIdentityProvider.StartUserImportJob
@@ -171,6 +177,7 @@ library
     Network.AWS.CognitoIdentityProvider.Waiters
 
   other-modules:
+    Network.AWS.CognitoIdentityProvider.Types.AccessToken
     Network.AWS.CognitoIdentityProvider.Types.AccountRecoverySettingType
     Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionsType
     Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionType
@@ -181,95 +188,218 @@ library
     Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType
     Network.AWS.CognitoIdentityProvider.Types.AnalyticsConfigurationType
     Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType
+    Network.AWS.CognitoIdentityProvider.Types.ApplicationArn
+    Network.AWS.CognitoIdentityProvider.Types.ApplicationId
+    Network.AWS.CognitoIdentityProvider.Types.Arn
+    Network.AWS.CognitoIdentityProvider.Types.ArnType
     Network.AWS.CognitoIdentityProvider.Types.AttributeDataType
+    Network.AWS.CognitoIdentityProvider.Types.AttributeMappingKeyType
+    Network.AWS.CognitoIdentityProvider.Types.AttributeName
+    Network.AWS.CognitoIdentityProvider.Types.AttributeNameType
     Network.AWS.CognitoIdentityProvider.Types.AttributeType
     Network.AWS.CognitoIdentityProvider.Types.AuthenticationResultType
     Network.AWS.CognitoIdentityProvider.Types.AuthEventType
     Network.AWS.CognitoIdentityProvider.Types.AuthFlowType
+    Network.AWS.CognitoIdentityProvider.Types.AWSAccountId
     Network.AWS.CognitoIdentityProvider.Types.ChallengeName
     Network.AWS.CognitoIdentityProvider.Types.ChallengeNameType
     Network.AWS.CognitoIdentityProvider.Types.ChallengeResponse
     Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType
+    Network.AWS.CognitoIdentityProvider.Types.ClientId
+    Network.AWS.CognitoIdentityProvider.Types.ClientIdType
+    Network.AWS.CognitoIdentityProvider.Types.ClientName
+    Network.AWS.CognitoIdentityProvider.Types.ClientNameType
+    Network.AWS.CognitoIdentityProvider.Types.ClientPermissionType
+    Network.AWS.CognitoIdentityProvider.Types.ClientSecret
+    Network.AWS.CognitoIdentityProvider.Types.CloudFrontDistribution
+    Network.AWS.CognitoIdentityProvider.Types.CloudFrontDomain
+    Network.AWS.CognitoIdentityProvider.Types.CloudWatchLogsRoleArn
     Network.AWS.CognitoIdentityProvider.Types.CodeDeliveryDetailsType
+    Network.AWS.CognitoIdentityProvider.Types.CompletionMessageType
     Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsType
     Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType
     Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType
+    Network.AWS.CognitoIdentityProvider.Types.ConfigurationSet
+    Network.AWS.CognitoIdentityProvider.Types.ConfirmationCode
+    Network.AWS.CognitoIdentityProvider.Types.ConfirmationCodeType
     Network.AWS.CognitoIdentityProvider.Types.ContextDataType
+    Network.AWS.CognitoIdentityProvider.Types.CreateAuthChallenge
+    Network.AWS.CognitoIdentityProvider.Types.CSS
+    Network.AWS.CognitoIdentityProvider.Types.CSSType
+    Network.AWS.CognitoIdentityProvider.Types.CSSVersion
+    Network.AWS.CognitoIdentityProvider.Types.CustomDomain
     Network.AWS.CognitoIdentityProvider.Types.CustomDomainConfigType
     Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType
     Network.AWS.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
+    Network.AWS.CognitoIdentityProvider.Types.CustomMessage
     Network.AWS.CognitoIdentityProvider.Types.CustomSMSLambdaVersionConfigType
     Network.AWS.CognitoIdentityProvider.Types.CustomSMSSenderLambdaVersionType
     Network.AWS.CognitoIdentityProvider.Types.DefaultEmailOptionType
+    Network.AWS.CognitoIdentityProvider.Types.DefineAuthChallenge
     Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
+    Network.AWS.CognitoIdentityProvider.Types.DescriptionType
+    Network.AWS.CognitoIdentityProvider.Types.Destination
     Network.AWS.CognitoIdentityProvider.Types.DeviceConfigurationType
+    Network.AWS.CognitoIdentityProvider.Types.DeviceKeyType
+    Network.AWS.CognitoIdentityProvider.Types.DeviceNameType
     Network.AWS.CognitoIdentityProvider.Types.DeviceRememberedStatusType
     Network.AWS.CognitoIdentityProvider.Types.DeviceSecretVerifierConfigType
     Network.AWS.CognitoIdentityProvider.Types.DeviceType
+    Network.AWS.CognitoIdentityProvider.Types.Domain
     Network.AWS.CognitoIdentityProvider.Types.DomainDescriptionType
     Network.AWS.CognitoIdentityProvider.Types.DomainStatusType
+    Network.AWS.CognitoIdentityProvider.Types.DomainType
+    Network.AWS.CognitoIdentityProvider.Types.DomainVersionType
+    Network.AWS.CognitoIdentityProvider.Types.EmailConfigurationFailure
     Network.AWS.CognitoIdentityProvider.Types.EmailConfigurationType
+    Network.AWS.CognitoIdentityProvider.Types.EmailMessage
+    Network.AWS.CognitoIdentityProvider.Types.EmailNotificationSubjectType
     Network.AWS.CognitoIdentityProvider.Types.EmailSendingAccountType
+    Network.AWS.CognitoIdentityProvider.Types.EmailSubject
+    Network.AWS.CognitoIdentityProvider.Types.EmailVerificationMessage
+    Network.AWS.CognitoIdentityProvider.Types.EmailVerificationMessageByLinkType
+    Network.AWS.CognitoIdentityProvider.Types.EmailVerificationSubject
+    Network.AWS.CognitoIdentityProvider.Types.EmailVerificationSubjectByLinkType
+    Network.AWS.CognitoIdentityProvider.Types.EncodedData
     Network.AWS.CognitoIdentityProvider.Types.EventContextDataType
     Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType
     Network.AWS.CognitoIdentityProvider.Types.EventFilterType
+    Network.AWS.CognitoIdentityProvider.Types.EventId
     Network.AWS.CognitoIdentityProvider.Types.EventResponseType
     Network.AWS.CognitoIdentityProvider.Types.EventRiskType
     Network.AWS.CognitoIdentityProvider.Types.EventType
     Network.AWS.CognitoIdentityProvider.Types.ExplicitAuthFlowsType
+    Network.AWS.CognitoIdentityProvider.Types.ExternalId
+    Network.AWS.CognitoIdentityProvider.Types.FeedbackToken
     Network.AWS.CognitoIdentityProvider.Types.FeedbackValueType
+    Network.AWS.CognitoIdentityProvider.Types.FriendlyDeviceName
+    Network.AWS.CognitoIdentityProvider.Types.From
+    Network.AWS.CognitoIdentityProvider.Types.GroupNameType
     Network.AWS.CognitoIdentityProvider.Types.GroupType
-    Network.AWS.CognitoIdentityProvider.Types.HTTPHeader
+    Network.AWS.CognitoIdentityProvider.Types.HeaderName
+    Network.AWS.CognitoIdentityProvider.Types.HeaderValue
+    Network.AWS.CognitoIdentityProvider.Types.HtmlBody
+    Network.AWS.CognitoIdentityProvider.Types.HttpHeader
+    Network.AWS.CognitoIdentityProvider.Types.Id
+    Network.AWS.CognitoIdentityProvider.Types.Identifier
     Network.AWS.CognitoIdentityProvider.Types.IdentityProviderType
     Network.AWS.CognitoIdentityProvider.Types.IdentityProviderTypeType
+    Network.AWS.CognitoIdentityProvider.Types.IdpIdentifier
+    Network.AWS.CognitoIdentityProvider.Types.IdpIdentifierType
+    Network.AWS.CognitoIdentityProvider.Types.ImageUrlType
+    Network.AWS.CognitoIdentityProvider.Types.IpAddress
+    Network.AWS.CognitoIdentityProvider.Types.JobId
+    Network.AWS.CognitoIdentityProvider.Types.KMSKeyID
+    Network.AWS.CognitoIdentityProvider.Types.LambdaArn
     Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType
+    Network.AWS.CognitoIdentityProvider.Types.MaxLength
     Network.AWS.CognitoIdentityProvider.Types.MessageActionType
     Network.AWS.CognitoIdentityProvider.Types.MessageTemplateType
     Network.AWS.CognitoIdentityProvider.Types.MFAOptionType
+    Network.AWS.CognitoIdentityProvider.Types.MinLength
+    Network.AWS.CognitoIdentityProvider.Types.Name
     Network.AWS.CognitoIdentityProvider.Types.NewDeviceMetadataType
+    Network.AWS.CognitoIdentityProvider.Types.NextToken
     Network.AWS.CognitoIdentityProvider.Types.NotifyConfigurationType
     Network.AWS.CognitoIdentityProvider.Types.NotifyEmailType
     Network.AWS.CognitoIdentityProvider.Types.NumberAttributeConstraintsType
     Network.AWS.CognitoIdentityProvider.Types.OAuthFlowType
+    Network.AWS.CognitoIdentityProvider.Types.PaginationKey
+    Network.AWS.CognitoIdentityProvider.Types.PaginationKeyType
+    Network.AWS.CognitoIdentityProvider.Types.PaginationToken
     Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType
+    Network.AWS.CognitoIdentityProvider.Types.PasswordType
+    Network.AWS.CognitoIdentityProvider.Types.PasswordVerifier
+    Network.AWS.CognitoIdentityProvider.Types.PoolName
+    Network.AWS.CognitoIdentityProvider.Types.PostAuthentication
+    Network.AWS.CognitoIdentityProvider.Types.PostConfirmation
+    Network.AWS.CognitoIdentityProvider.Types.PreAuthentication
+    Network.AWS.CognitoIdentityProvider.Types.PreferredMfaSetting
+    Network.AWS.CognitoIdentityProvider.Types.PreSignedUrl
+    Network.AWS.CognitoIdentityProvider.Types.PreSignUp
+    Network.AWS.CognitoIdentityProvider.Types.PreTokenGeneration
     Network.AWS.CognitoIdentityProvider.Types.PreventUserExistenceErrorTypes
+    Network.AWS.CognitoIdentityProvider.Types.Provider
+    Network.AWS.CognitoIdentityProvider.Types.ProviderAttributeName
+    Network.AWS.CognitoIdentityProvider.Types.ProviderAttributeValue
     Network.AWS.CognitoIdentityProvider.Types.ProviderDescription
+    Network.AWS.CognitoIdentityProvider.Types.ProviderName
+    Network.AWS.CognitoIdentityProvider.Types.ProviderNameType
     Network.AWS.CognitoIdentityProvider.Types.ProviderUserIdentifierType
     Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType
     Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType
+    Network.AWS.CognitoIdentityProvider.Types.RedirectUrlType
+    Network.AWS.CognitoIdentityProvider.Types.ReplyTo
+    Network.AWS.CognitoIdentityProvider.Types.ReplyToEmailAddress
+    Network.AWS.CognitoIdentityProvider.Types.ResourceArn
+    Network.AWS.CognitoIdentityProvider.Types.ResourceServerIdentifierType
+    Network.AWS.CognitoIdentityProvider.Types.ResourceServerNameType
+    Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeDescriptionType
+    Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeNameType
     Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType
     Network.AWS.CognitoIdentityProvider.Types.ResourceServerType
     Network.AWS.CognitoIdentityProvider.Types.RiskConfigurationType
     Network.AWS.CognitoIdentityProvider.Types.RiskDecisionType
     Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
     Network.AWS.CognitoIdentityProvider.Types.RiskLevelType
+    Network.AWS.CognitoIdentityProvider.Types.RoleArn
+    Network.AWS.CognitoIdentityProvider.Types.S3BucketType
+    Network.AWS.CognitoIdentityProvider.Types.Salt
     Network.AWS.CognitoIdentityProvider.Types.SchemaAttributeType
+    Network.AWS.CognitoIdentityProvider.Types.ScopeType
+    Network.AWS.CognitoIdentityProvider.Types.SearchPaginationTokenType
+    Network.AWS.CognitoIdentityProvider.Types.SecretCode
+    Network.AWS.CognitoIdentityProvider.Types.SecretHashType
+    Network.AWS.CognitoIdentityProvider.Types.ServerName
+    Network.AWS.CognitoIdentityProvider.Types.ServerPath
+    Network.AWS.CognitoIdentityProvider.Types.Session
+    Network.AWS.CognitoIdentityProvider.Types.SessionType
+    Network.AWS.CognitoIdentityProvider.Types.SmsConfigurationFailure
     Network.AWS.CognitoIdentityProvider.Types.SmsConfigurationType
-    Network.AWS.CognitoIdentityProvider.Types.SmsMFAConfigType
-    Network.AWS.CognitoIdentityProvider.Types.SMSMFASettingsType
-    Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMFAConfigType
-    Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMFASettingsType
+    Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType
+    Network.AWS.CognitoIdentityProvider.Types.SMSMfaSettingsType
+    Network.AWS.CognitoIdentityProvider.Types.SmsVerificationMessageType
+    Network.AWS.CognitoIdentityProvider.Types.SnsCallerArn
+    Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType
+    Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaSettingsType
+    Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMFAUserCodeType
+    Network.AWS.CognitoIdentityProvider.Types.SourceArn
     Network.AWS.CognitoIdentityProvider.Types.StatusType
     Network.AWS.CognitoIdentityProvider.Types.StringAttributeConstraintsType
+    Network.AWS.CognitoIdentityProvider.Types.StringType
+    Network.AWS.CognitoIdentityProvider.Types.TagKeysType
+    Network.AWS.CognitoIdentityProvider.Types.TagValueType
+    Network.AWS.CognitoIdentityProvider.Types.TextBody
     Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType
+    Network.AWS.CognitoIdentityProvider.Types.TokenModelType
     Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType
     Network.AWS.CognitoIdentityProvider.Types.UICustomizationType
     Network.AWS.CognitoIdentityProvider.Types.UserContextDataType
+    Network.AWS.CognitoIdentityProvider.Types.UserFilterType
+    Network.AWS.CognitoIdentityProvider.Types.UserImportJobNameType
     Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType
     Network.AWS.CognitoIdentityProvider.Types.UserImportJobType
+    Network.AWS.CognitoIdentityProvider.Types.UserMigration
+    Network.AWS.CognitoIdentityProvider.Types.Username
     Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType
     Network.AWS.CognitoIdentityProvider.Types.UsernameConfigurationType
+    Network.AWS.CognitoIdentityProvider.Types.UsernameType
     Network.AWS.CognitoIdentityProvider.Types.UserPoolAddOnsType
     Network.AWS.CognitoIdentityProvider.Types.UserPoolClientDescription
     Network.AWS.CognitoIdentityProvider.Types.UserPoolClientType
     Network.AWS.CognitoIdentityProvider.Types.UserPoolDescriptionType
-    Network.AWS.CognitoIdentityProvider.Types.UserPoolMFAType
+    Network.AWS.CognitoIdentityProvider.Types.UserPoolId
+    Network.AWS.CognitoIdentityProvider.Types.UserPoolIdType
+    Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType
+    Network.AWS.CognitoIdentityProvider.Types.UserPoolNameType
     Network.AWS.CognitoIdentityProvider.Types.UserPoolPolicyType
     Network.AWS.CognitoIdentityProvider.Types.UserPoolType
     Network.AWS.CognitoIdentityProvider.Types.UserStatusType
     Network.AWS.CognitoIdentityProvider.Types.UserType
+    Network.AWS.CognitoIdentityProvider.Types.Value
     Network.AWS.CognitoIdentityProvider.Types.VerificationMessageTemplateType
     Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType
+    Network.AWS.CognitoIdentityProvider.Types.VerifyAuthChallengeResponse
     Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType
 
   build-depends:   amazonka-core ==2.0.0.0.*

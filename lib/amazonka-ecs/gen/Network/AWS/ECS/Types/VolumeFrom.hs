@@ -17,66 +17,62 @@ module Network.AWS.ECS.Types.VolumeFrom
     mkVolumeFrom,
 
     -- * Lenses
-    vfSourceContainer,
     vfReadOnly,
+    vfSourceContainer,
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on a data volume from another container in the same task definition.
 --
 -- /See:/ 'mkVolumeFrom' smart constructor.
 data VolumeFrom = VolumeFrom'
-  { -- | The name of another container within the same task definition from which to mount volumes.
-    sourceContainer :: Lude.Maybe Lude.Text,
-    -- | If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
-    readOnly :: Lude.Maybe Lude.Bool
+  { -- | If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
+    readOnly :: Core.Maybe Core.Bool,
+    -- | The name of another container within the same task definition from which to mount volumes.
+    sourceContainer :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VolumeFrom' with the minimum fields required to make a request.
---
--- * 'sourceContainer' - The name of another container within the same task definition from which to mount volumes.
--- * 'readOnly' - If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
+-- | Creates a 'VolumeFrom' value with any optional fields omitted.
 mkVolumeFrom ::
   VolumeFrom
 mkVolumeFrom =
   VolumeFrom'
-    { sourceContainer = Lude.Nothing,
-      readOnly = Lude.Nothing
+    { readOnly = Core.Nothing,
+      sourceContainer = Core.Nothing
     }
-
--- | The name of another container within the same task definition from which to mount volumes.
---
--- /Note:/ Consider using 'sourceContainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vfSourceContainer :: Lens.Lens' VolumeFrom (Lude.Maybe Lude.Text)
-vfSourceContainer = Lens.lens (sourceContainer :: VolumeFrom -> Lude.Maybe Lude.Text) (\s a -> s {sourceContainer = a} :: VolumeFrom)
-{-# DEPRECATED vfSourceContainer "Use generic-lens or generic-optics with 'sourceContainer' instead." #-}
 
 -- | If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
 --
 -- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vfReadOnly :: Lens.Lens' VolumeFrom (Lude.Maybe Lude.Bool)
-vfReadOnly = Lens.lens (readOnly :: VolumeFrom -> Lude.Maybe Lude.Bool) (\s a -> s {readOnly = a} :: VolumeFrom)
+vfReadOnly :: Lens.Lens' VolumeFrom (Core.Maybe Core.Bool)
+vfReadOnly = Lens.field @"readOnly"
 {-# DEPRECATED vfReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
-instance Lude.FromJSON VolumeFrom where
-  parseJSON =
-    Lude.withObject
-      "VolumeFrom"
-      ( \x ->
-          VolumeFrom'
-            Lude.<$> (x Lude..:? "sourceContainer") Lude.<*> (x Lude..:? "readOnly")
-      )
+-- | The name of another container within the same task definition from which to mount volumes.
+--
+-- /Note:/ Consider using 'sourceContainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfSourceContainer :: Lens.Lens' VolumeFrom (Core.Maybe Types.String)
+vfSourceContainer = Lens.field @"sourceContainer"
+{-# DEPRECATED vfSourceContainer "Use generic-lens or generic-optics with 'sourceContainer' instead." #-}
 
-instance Lude.ToJSON VolumeFrom where
-  toJSON VolumeFrom' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("sourceContainer" Lude..=) Lude.<$> sourceContainer,
-            ("readOnly" Lude..=) Lude.<$> readOnly
+instance Core.FromJSON VolumeFrom where
+  toJSON VolumeFrom {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("readOnly" Core..=) Core.<$> readOnly,
+            ("sourceContainer" Core..=) Core.<$> sourceContainer
           ]
       )
+
+instance Core.FromJSON VolumeFrom where
+  parseJSON =
+    Core.withObject "VolumeFrom" Core.$
+      \x ->
+        VolumeFrom'
+          Core.<$> (x Core..:? "readOnly") Core.<*> (x Core..:? "sourceContainer")

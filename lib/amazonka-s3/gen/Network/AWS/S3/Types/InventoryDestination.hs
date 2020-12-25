@@ -22,44 +22,39 @@ module Network.AWS.S3.Types.InventoryDestination
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.InventoryS3BucketDestination
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.InventoryS3BucketDestination as Types
 
 -- | Specifies the inventory configuration for an Amazon S3 bucket.
 --
 -- /See:/ 'mkInventoryDestination' smart constructor.
 newtype InventoryDestination = InventoryDestination'
   { -- | Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
-    s3BucketDestination :: InventoryS3BucketDestination
+    s3BucketDestination :: Types.InventoryS3BucketDestination
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryDestination' with the minimum fields required to make a request.
---
--- * 's3BucketDestination' - Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
+-- | Creates a 'InventoryDestination' value with any optional fields omitted.
 mkInventoryDestination ::
   -- | 's3BucketDestination'
-  InventoryS3BucketDestination ->
+  Types.InventoryS3BucketDestination ->
   InventoryDestination
-mkInventoryDestination pS3BucketDestination_ =
-  InventoryDestination'
-    { s3BucketDestination =
-        pS3BucketDestination_
-    }
+mkInventoryDestination s3BucketDestination =
+  InventoryDestination' {s3BucketDestination}
 
 -- | Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
 --
 -- /Note:/ Consider using 's3BucketDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idS3BucketDestination :: Lens.Lens' InventoryDestination InventoryS3BucketDestination
-idS3BucketDestination = Lens.lens (s3BucketDestination :: InventoryDestination -> InventoryS3BucketDestination) (\s a -> s {s3BucketDestination = a} :: InventoryDestination)
+idS3BucketDestination :: Lens.Lens' InventoryDestination Types.InventoryS3BucketDestination
+idS3BucketDestination = Lens.field @"s3BucketDestination"
 {-# DEPRECATED idS3BucketDestination "Use generic-lens or generic-optics with 's3BucketDestination' instead." #-}
 
-instance Lude.FromXML InventoryDestination where
-  parseXML x =
-    InventoryDestination' Lude.<$> (x Lude..@ "S3BucketDestination")
+instance Core.ToXML InventoryDestination where
+  toXML InventoryDestination {..} =
+    Core.toXMLNode "S3BucketDestination" s3BucketDestination
 
-instance Lude.ToXML InventoryDestination where
-  toXML InventoryDestination' {..} =
-    Lude.mconcat ["S3BucketDestination" Lude.@= s3BucketDestination]
+instance Core.FromXML InventoryDestination where
+  parseXML x =
+    InventoryDestination' Core.<$> (x Core..@ "S3BucketDestination")

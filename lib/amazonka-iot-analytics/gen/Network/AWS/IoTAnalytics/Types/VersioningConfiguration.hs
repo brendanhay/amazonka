@@ -17,66 +17,61 @@ module Network.AWS.IoTAnalytics.Types.VersioningConfiguration
     mkVersioningConfiguration,
 
     -- * Lenses
-    vcUnlimited,
     vcMaxVersions,
+    vcUnlimited,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the versioning of dataset contents.
 --
 -- /See:/ 'mkVersioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'
-  { -- | If true, unlimited versions of dataset contents are kept.
-    unlimited :: Lude.Maybe Lude.Bool,
-    -- | How many versions of dataset contents are kept. The @unlimited@ parameter must be @false@ .
-    maxVersions :: Lude.Maybe Lude.Natural
+  { -- | How many versions of dataset contents are kept. The @unlimited@ parameter must be @false@ .
+    maxVersions :: Core.Maybe Core.Natural,
+    -- | If true, unlimited versions of dataset contents are kept.
+    unlimited :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VersioningConfiguration' with the minimum fields required to make a request.
---
--- * 'unlimited' - If true, unlimited versions of dataset contents are kept.
--- * 'maxVersions' - How many versions of dataset contents are kept. The @unlimited@ parameter must be @false@ .
+-- | Creates a 'VersioningConfiguration' value with any optional fields omitted.
 mkVersioningConfiguration ::
   VersioningConfiguration
 mkVersioningConfiguration =
   VersioningConfiguration'
-    { unlimited = Lude.Nothing,
-      maxVersions = Lude.Nothing
+    { maxVersions = Core.Nothing,
+      unlimited = Core.Nothing
     }
-
--- | If true, unlimited versions of dataset contents are kept.
---
--- /Note:/ Consider using 'unlimited' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcUnlimited :: Lens.Lens' VersioningConfiguration (Lude.Maybe Lude.Bool)
-vcUnlimited = Lens.lens (unlimited :: VersioningConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {unlimited = a} :: VersioningConfiguration)
-{-# DEPRECATED vcUnlimited "Use generic-lens or generic-optics with 'unlimited' instead." #-}
 
 -- | How many versions of dataset contents are kept. The @unlimited@ parameter must be @false@ .
 --
 -- /Note:/ Consider using 'maxVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcMaxVersions :: Lens.Lens' VersioningConfiguration (Lude.Maybe Lude.Natural)
-vcMaxVersions = Lens.lens (maxVersions :: VersioningConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {maxVersions = a} :: VersioningConfiguration)
+vcMaxVersions :: Lens.Lens' VersioningConfiguration (Core.Maybe Core.Natural)
+vcMaxVersions = Lens.field @"maxVersions"
 {-# DEPRECATED vcMaxVersions "Use generic-lens or generic-optics with 'maxVersions' instead." #-}
 
-instance Lude.FromJSON VersioningConfiguration where
-  parseJSON =
-    Lude.withObject
-      "VersioningConfiguration"
-      ( \x ->
-          VersioningConfiguration'
-            Lude.<$> (x Lude..:? "unlimited") Lude.<*> (x Lude..:? "maxVersions")
-      )
+-- | If true, unlimited versions of dataset contents are kept.
+--
+-- /Note:/ Consider using 'unlimited' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcUnlimited :: Lens.Lens' VersioningConfiguration (Core.Maybe Core.Bool)
+vcUnlimited = Lens.field @"unlimited"
+{-# DEPRECATED vcUnlimited "Use generic-lens or generic-optics with 'unlimited' instead." #-}
 
-instance Lude.ToJSON VersioningConfiguration where
-  toJSON VersioningConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("unlimited" Lude..=) Lude.<$> unlimited,
-            ("maxVersions" Lude..=) Lude.<$> maxVersions
+instance Core.FromJSON VersioningConfiguration where
+  toJSON VersioningConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxVersions" Core..=) Core.<$> maxVersions,
+            ("unlimited" Core..=) Core.<$> unlimited
           ]
       )
+
+instance Core.FromJSON VersioningConfiguration where
+  parseJSON =
+    Core.withObject "VersioningConfiguration" Core.$
+      \x ->
+        VersioningConfiguration'
+          Core.<$> (x Core..:? "maxVersions") Core.<*> (x Core..:? "unlimited")

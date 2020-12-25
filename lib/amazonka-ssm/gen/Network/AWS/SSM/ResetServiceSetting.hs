@@ -30,113 +30,100 @@ module Network.AWS.SSM.ResetServiceSetting
     mkResetServiceSettingResponse,
 
     -- ** Response lenses
-    rssrsServiceSetting,
-    rssrsResponseStatus,
+    rssrrsServiceSetting,
+    rssrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | The request body of the ResetServiceSetting API action.
 --
 -- /See:/ 'mkResetServiceSetting' smart constructor.
 newtype ResetServiceSetting = ResetServiceSetting'
   { -- | The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ . For example, @arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled@ .
-    settingId :: Lude.Text
+    settingId :: Types.SettingId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetServiceSetting' with the minimum fields required to make a request.
---
--- * 'settingId' - The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ . For example, @arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled@ .
+-- | Creates a 'ResetServiceSetting' value with any optional fields omitted.
 mkResetServiceSetting ::
   -- | 'settingId'
-  Lude.Text ->
+  Types.SettingId ->
   ResetServiceSetting
-mkResetServiceSetting pSettingId_ =
-  ResetServiceSetting' {settingId = pSettingId_}
+mkResetServiceSetting settingId = ResetServiceSetting' {settingId}
 
 -- | The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ . For example, @arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled@ .
 --
 -- /Note:/ Consider using 'settingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rssSettingId :: Lens.Lens' ResetServiceSetting Lude.Text
-rssSettingId = Lens.lens (settingId :: ResetServiceSetting -> Lude.Text) (\s a -> s {settingId = a} :: ResetServiceSetting)
+rssSettingId :: Lens.Lens' ResetServiceSetting Types.SettingId
+rssSettingId = Lens.field @"settingId"
 {-# DEPRECATED rssSettingId "Use generic-lens or generic-optics with 'settingId' instead." #-}
 
-instance Lude.AWSRequest ResetServiceSetting where
+instance Core.FromJSON ResetServiceSetting where
+  toJSON ResetServiceSetting {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SettingId" Core..= settingId)])
+
+instance Core.AWSRequest ResetServiceSetting where
   type Rs ResetServiceSetting = ResetServiceSettingResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.ResetServiceSetting")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ResetServiceSettingResponse'
-            Lude.<$> (x Lude..?> "ServiceSetting")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ServiceSetting")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResetServiceSetting where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.ResetServiceSetting" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResetServiceSetting where
-  toJSON ResetServiceSetting' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SettingId" Lude..= settingId)])
-
-instance Lude.ToPath ResetServiceSetting where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResetServiceSetting where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result body of the ResetServiceSetting API action.
 --
 -- /See:/ 'mkResetServiceSettingResponse' smart constructor.
 data ResetServiceSettingResponse = ResetServiceSettingResponse'
   { -- | The current, effective service setting after calling the ResetServiceSetting API action.
-    serviceSetting :: Lude.Maybe ServiceSetting,
+    serviceSetting :: Core.Maybe Types.ServiceSetting,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ResetServiceSettingResponse' with the minimum fields required to make a request.
---
--- * 'serviceSetting' - The current, effective service setting after calling the ResetServiceSetting API action.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResetServiceSettingResponse' value with any optional fields omitted.
 mkResetServiceSettingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResetServiceSettingResponse
-mkResetServiceSettingResponse pResponseStatus_ =
+mkResetServiceSettingResponse responseStatus =
   ResetServiceSettingResponse'
-    { serviceSetting = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { serviceSetting = Core.Nothing,
+      responseStatus
     }
 
 -- | The current, effective service setting after calling the ResetServiceSetting API action.
 --
 -- /Note:/ Consider using 'serviceSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rssrsServiceSetting :: Lens.Lens' ResetServiceSettingResponse (Lude.Maybe ServiceSetting)
-rssrsServiceSetting = Lens.lens (serviceSetting :: ResetServiceSettingResponse -> Lude.Maybe ServiceSetting) (\s a -> s {serviceSetting = a} :: ResetServiceSettingResponse)
-{-# DEPRECATED rssrsServiceSetting "Use generic-lens or generic-optics with 'serviceSetting' instead." #-}
+rssrrsServiceSetting :: Lens.Lens' ResetServiceSettingResponse (Core.Maybe Types.ServiceSetting)
+rssrrsServiceSetting = Lens.field @"serviceSetting"
+{-# DEPRECATED rssrrsServiceSetting "Use generic-lens or generic-optics with 'serviceSetting' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rssrsResponseStatus :: Lens.Lens' ResetServiceSettingResponse Lude.Int
-rssrsResponseStatus = Lens.lens (responseStatus :: ResetServiceSettingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetServiceSettingResponse)
-{-# DEPRECATED rssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rssrrsResponseStatus :: Lens.Lens' ResetServiceSettingResponse Core.Int
+rssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

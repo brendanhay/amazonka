@@ -13,71 +13,73 @@
 module Network.AWS.SageMaker.Types.ImageStatus
   ( ImageStatus
       ( ImageStatus',
-        ISCreating,
-        ISCreated,
-        ISCreateFailed,
-        ISUpdating,
-        ISUpdateFailed,
-        ISDeleting,
-        ISDeleteFailed
+        ImageStatusCreating,
+        ImageStatusCreated,
+        ImageStatusCreateFailed,
+        ImageStatusUpdating,
+        ImageStatusUpdateFailed,
+        ImageStatusDeleting,
+        ImageStatusDeleteFailed,
+        fromImageStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ImageStatus = ImageStatus' Lude.Text
+newtype ImageStatus = ImageStatus' {fromImageStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISCreating :: ImageStatus
-pattern ISCreating = ImageStatus' "CREATING"
+pattern ImageStatusCreating :: ImageStatus
+pattern ImageStatusCreating = ImageStatus' "CREATING"
 
-pattern ISCreated :: ImageStatus
-pattern ISCreated = ImageStatus' "CREATED"
+pattern ImageStatusCreated :: ImageStatus
+pattern ImageStatusCreated = ImageStatus' "CREATED"
 
-pattern ISCreateFailed :: ImageStatus
-pattern ISCreateFailed = ImageStatus' "CREATE_FAILED"
+pattern ImageStatusCreateFailed :: ImageStatus
+pattern ImageStatusCreateFailed = ImageStatus' "CREATE_FAILED"
 
-pattern ISUpdating :: ImageStatus
-pattern ISUpdating = ImageStatus' "UPDATING"
+pattern ImageStatusUpdating :: ImageStatus
+pattern ImageStatusUpdating = ImageStatus' "UPDATING"
 
-pattern ISUpdateFailed :: ImageStatus
-pattern ISUpdateFailed = ImageStatus' "UPDATE_FAILED"
+pattern ImageStatusUpdateFailed :: ImageStatus
+pattern ImageStatusUpdateFailed = ImageStatus' "UPDATE_FAILED"
 
-pattern ISDeleting :: ImageStatus
-pattern ISDeleting = ImageStatus' "DELETING"
+pattern ImageStatusDeleting :: ImageStatus
+pattern ImageStatusDeleting = ImageStatus' "DELETING"
 
-pattern ISDeleteFailed :: ImageStatus
-pattern ISDeleteFailed = ImageStatus' "DELETE_FAILED"
+pattern ImageStatusDeleteFailed :: ImageStatus
+pattern ImageStatusDeleteFailed = ImageStatus' "DELETE_FAILED"
 
 {-# COMPLETE
-  ISCreating,
-  ISCreated,
-  ISCreateFailed,
-  ISUpdating,
-  ISUpdateFailed,
-  ISDeleting,
-  ISDeleteFailed,
+  ImageStatusCreating,
+  ImageStatusCreated,
+  ImageStatusCreateFailed,
+  ImageStatusUpdating,
+  ImageStatusUpdateFailed,
+  ImageStatusDeleting,
+  ImageStatusDeleteFailed,
   ImageStatus'
   #-}

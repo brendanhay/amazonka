@@ -17,57 +17,56 @@ module Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
     mkInputLambdaProcessorUpdate,
 
     -- * Lenses
-    ilpuRoleARNUpdate,
     ilpuResourceARNUpdate,
+    ilpuRoleARNUpdate,
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.ResourceARNUpdate as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARNUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an update to the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> that is used to preprocess the records in the stream.
 --
 -- /See:/ 'mkInputLambdaProcessorUpdate' smart constructor.
 data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
-  { -- | The ARN of the new IAM role that is used to access the AWS Lambda function.
-    roleARNUpdate :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
-    resourceARNUpdate :: Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+    resourceARNUpdate :: Core.Maybe Types.ResourceARNUpdate,
+    -- | The ARN of the new IAM role that is used to access the AWS Lambda function.
+    roleARNUpdate :: Core.Maybe Types.RoleARNUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputLambdaProcessorUpdate' with the minimum fields required to make a request.
---
--- * 'roleARNUpdate' - The ARN of the new IAM role that is used to access the AWS Lambda function.
--- * 'resourceARNUpdate' - The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+-- | Creates a 'InputLambdaProcessorUpdate' value with any optional fields omitted.
 mkInputLambdaProcessorUpdate ::
   InputLambdaProcessorUpdate
 mkInputLambdaProcessorUpdate =
   InputLambdaProcessorUpdate'
-    { roleARNUpdate = Lude.Nothing,
-      resourceARNUpdate = Lude.Nothing
+    { resourceARNUpdate = Core.Nothing,
+      roleARNUpdate = Core.Nothing
     }
-
--- | The ARN of the new IAM role that is used to access the AWS Lambda function.
---
--- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilpuRoleARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Lude.Maybe Lude.Text)
-ilpuRoleARNUpdate = Lens.lens (roleARNUpdate :: InputLambdaProcessorUpdate -> Lude.Maybe Lude.Text) (\s a -> s {roleARNUpdate = a} :: InputLambdaProcessorUpdate)
-{-# DEPRECATED ilpuRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
 --
 -- /Note:/ Consider using 'resourceARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilpuResourceARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Lude.Maybe Lude.Text)
-ilpuResourceARNUpdate = Lens.lens (resourceARNUpdate :: InputLambdaProcessorUpdate -> Lude.Maybe Lude.Text) (\s a -> s {resourceARNUpdate = a} :: InputLambdaProcessorUpdate)
+ilpuResourceARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Core.Maybe Types.ResourceARNUpdate)
+ilpuResourceARNUpdate = Lens.field @"resourceARNUpdate"
 {-# DEPRECATED ilpuResourceARNUpdate "Use generic-lens or generic-optics with 'resourceARNUpdate' instead." #-}
 
-instance Lude.ToJSON InputLambdaProcessorUpdate where
-  toJSON InputLambdaProcessorUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RoleARNUpdate" Lude..=) Lude.<$> roleARNUpdate,
-            ("ResourceARNUpdate" Lude..=) Lude.<$> resourceARNUpdate
+-- | The ARN of the new IAM role that is used to access the AWS Lambda function.
+--
+-- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilpuRoleARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Core.Maybe Types.RoleARNUpdate)
+ilpuRoleARNUpdate = Lens.field @"roleARNUpdate"
+{-# DEPRECATED ilpuRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
+
+instance Core.FromJSON InputLambdaProcessorUpdate where
+  toJSON InputLambdaProcessorUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceARNUpdate" Core..=) Core.<$> resourceARNUpdate,
+            ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate
           ]
       )

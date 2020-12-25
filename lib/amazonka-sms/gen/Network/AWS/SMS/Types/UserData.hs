@@ -22,40 +22,37 @@ module Network.AWS.SMS.Types.UserData
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.S3Location
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.S3Location as Types
 
 -- | A script that runs on first launch of an Amazon EC2 instance. Used for configuring the server during launch.
 --
 -- /See:/ 'mkUserData' smart constructor.
 newtype UserData = UserData'
   { -- | Amazon S3 location of the user-data script.
-    s3Location :: Lude.Maybe S3Location
+    s3Location :: Core.Maybe Types.S3Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserData' with the minimum fields required to make a request.
---
--- * 's3Location' - Amazon S3 location of the user-data script.
+-- | Creates a 'UserData' value with any optional fields omitted.
 mkUserData ::
   UserData
-mkUserData = UserData' {s3Location = Lude.Nothing}
+mkUserData = UserData' {s3Location = Core.Nothing}
 
 -- | Amazon S3 location of the user-data script.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udS3Location :: Lens.Lens' UserData (Lude.Maybe S3Location)
-udS3Location = Lens.lens (s3Location :: UserData -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: UserData)
+udS3Location :: Lens.Lens' UserData (Core.Maybe Types.S3Location)
+udS3Location = Lens.field @"s3Location"
 {-# DEPRECATED udS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
-instance Lude.FromJSON UserData where
-  parseJSON =
-    Lude.withObject
-      "UserData"
-      (\x -> UserData' Lude.<$> (x Lude..:? "s3Location"))
+instance Core.FromJSON UserData where
+  toJSON UserData {..} =
+    Core.object
+      (Core.catMaybes [("s3Location" Core..=) Core.<$> s3Location])
 
-instance Lude.ToJSON UserData where
-  toJSON UserData' {..} =
-    Lude.object
-      (Lude.catMaybes [("s3Location" Lude..=) Lude.<$> s3Location])
+instance Core.FromJSON UserData where
+  parseJSON =
+    Core.withObject "UserData" Core.$
+      \x -> UserData' Core.<$> (x Core..:? "s3Location")

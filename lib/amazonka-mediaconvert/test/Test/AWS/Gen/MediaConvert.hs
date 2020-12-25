@@ -342,7 +342,7 @@ responseDeletePreset =
   res
     "DeletePresetResponse"
     "fixture/DeletePresetResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy DeletePreset)
 
 responseUpdatePreset :: UpdatePresetResponse -> TestTree
@@ -350,7 +350,7 @@ responseUpdatePreset =
   res
     "UpdatePresetResponse"
     "fixture/UpdatePresetResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePreset)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -358,7 +358,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseListQueues :: ListQueuesResponse -> TestTree
@@ -366,7 +366,7 @@ responseListQueues =
   res
     "ListQueuesResponse"
     "fixture/ListQueuesResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy ListQueues)
 
 responseDeleteQueue :: DeleteQueueResponse -> TestTree
@@ -374,7 +374,7 @@ responseDeleteQueue =
   res
     "DeleteQueueResponse"
     "fixture/DeleteQueueResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy DeleteQueue)
 
 responseUpdateQueue :: UpdateQueueResponse -> TestTree
@@ -382,7 +382,7 @@ responseUpdateQueue =
   res
     "UpdateQueueResponse"
     "fixture/UpdateQueueResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy UpdateQueue)
 
 responseGetPreset :: GetPresetResponse -> TestTree
@@ -390,7 +390,7 @@ responseGetPreset =
   res
     "GetPresetResponse"
     "fixture/GetPresetResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy GetPreset)
 
 responseCreateJob :: CreateJobResponse -> TestTree
@@ -398,7 +398,7 @@ responseCreateJob =
   res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy CreateJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
@@ -406,7 +406,7 @@ responseListJobs =
   res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy ListJobs)
 
 responseGetJob :: GetJobResponse -> TestTree
@@ -414,7 +414,7 @@ responseGetJob =
   res
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy GetJob)
 
 responseCreatePreset :: CreatePresetResponse -> TestTree
@@ -422,7 +422,7 @@ responseCreatePreset =
   res
     "CreatePresetResponse"
     "fixture/CreatePresetResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy CreatePreset)
 
 responseListPresets :: ListPresetsResponse -> TestTree
@@ -430,7 +430,7 @@ responseListPresets =
   res
     "ListPresetsResponse"
     "fixture/ListPresetsResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy ListPresets)
 
 responseDisassociateCertificate :: DisassociateCertificateResponse -> TestTree
@@ -438,7 +438,7 @@ responseDisassociateCertificate =
   res
     "DisassociateCertificateResponse"
     "fixture/DisassociateCertificateResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateCertificate)
 
 responseGetQueue :: GetQueueResponse -> TestTree
@@ -446,7 +446,7 @@ responseGetQueue =
   res
     "GetQueueResponse"
     "fixture/GetQueueResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy GetQueue)
 
 responseDescribeEndpoints :: DescribeEndpointsResponse -> TestTree
@@ -454,7 +454,7 @@ responseDescribeEndpoints =
   res
     "DescribeEndpointsResponse"
     "fixture/DescribeEndpointsResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEndpoints)
 
 responseCreateQueue :: CreateQueueResponse -> TestTree
@@ -462,7 +462,7 @@ responseCreateQueue =
   res
     "CreateQueueResponse"
     "fixture/CreateQueueResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy CreateQueue)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -470,7 +470,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseCreateJobTemplate :: CreateJobTemplateResponse -> TestTree
@@ -478,7 +478,7 @@ responseCreateJobTemplate =
   res
     "CreateJobTemplateResponse"
     "fixture/CreateJobTemplateResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy CreateJobTemplate)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -486,7 +486,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDeleteJobTemplate :: DeleteJobTemplateResponse -> TestTree
@@ -494,7 +494,7 @@ responseDeleteJobTemplate =
   res
     "DeleteJobTemplateResponse"
     "fixture/DeleteJobTemplateResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy DeleteJobTemplate)
 
 responseUpdateJobTemplate :: UpdateJobTemplateResponse -> TestTree
@@ -502,7 +502,7 @@ responseUpdateJobTemplate =
   res
     "UpdateJobTemplateResponse"
     "fixture/UpdateJobTemplateResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy UpdateJobTemplate)
 
 responseListJobTemplates :: ListJobTemplatesResponse -> TestTree
@@ -510,7 +510,7 @@ responseListJobTemplates =
   res
     "ListJobTemplatesResponse"
     "fixture/ListJobTemplatesResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy ListJobTemplates)
 
 responseGetJobTemplate :: GetJobTemplateResponse -> TestTree
@@ -518,7 +518,7 @@ responseGetJobTemplate =
   res
     "GetJobTemplateResponse"
     "fixture/GetJobTemplateResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy GetJobTemplate)
 
 responseAssociateCertificate :: AssociateCertificateResponse -> TestTree
@@ -526,7 +526,7 @@ responseAssociateCertificate =
   res
     "AssociateCertificateResponse"
     "fixture/AssociateCertificateResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy AssociateCertificate)
 
 responseCancelJob :: CancelJobResponse -> TestTree
@@ -534,5 +534,5 @@ responseCancelJob =
   res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
-    mediaConvertService
+    mkServiceConfig
     (Proxy :: Proxy CancelJob)

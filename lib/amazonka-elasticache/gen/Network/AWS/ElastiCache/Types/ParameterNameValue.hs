@@ -17,55 +17,47 @@ module Network.AWS.ElastiCache.Types.ParameterNameValue
     mkParameterNameValue,
 
     -- * Lenses
-    pnvParameterValue,
     pnvParameterName,
+    pnvParameterValue,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.ParameterName as Types
+import qualified Network.AWS.ElastiCache.Types.ParameterValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a name-value pair that is used to update the value of a parameter.
 --
 -- /See:/ 'mkParameterNameValue' smart constructor.
 data ParameterNameValue = ParameterNameValue'
-  { -- | The value of the parameter.
-    parameterValue :: Lude.Maybe Lude.Text,
-    -- | The name of the parameter.
-    parameterName :: Lude.Maybe Lude.Text
+  { -- | The name of the parameter.
+    parameterName :: Core.Maybe Types.ParameterName,
+    -- | The value of the parameter.
+    parameterValue :: Core.Maybe Types.ParameterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterNameValue' with the minimum fields required to make a request.
---
--- * 'parameterValue' - The value of the parameter.
--- * 'parameterName' - The name of the parameter.
+-- | Creates a 'ParameterNameValue' value with any optional fields omitted.
 mkParameterNameValue ::
   ParameterNameValue
 mkParameterNameValue =
   ParameterNameValue'
-    { parameterValue = Lude.Nothing,
-      parameterName = Lude.Nothing
+    { parameterName = Core.Nothing,
+      parameterValue = Core.Nothing
     }
-
--- | The value of the parameter.
---
--- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pnvParameterValue :: Lens.Lens' ParameterNameValue (Lude.Maybe Lude.Text)
-pnvParameterValue = Lens.lens (parameterValue :: ParameterNameValue -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: ParameterNameValue)
-{-# DEPRECATED pnvParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
 -- | The name of the parameter.
 --
 -- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pnvParameterName :: Lens.Lens' ParameterNameValue (Lude.Maybe Lude.Text)
-pnvParameterName = Lens.lens (parameterName :: ParameterNameValue -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: ParameterNameValue)
+pnvParameterName :: Lens.Lens' ParameterNameValue (Core.Maybe Types.ParameterName)
+pnvParameterName = Lens.field @"parameterName"
 {-# DEPRECATED pnvParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
-instance Lude.ToQuery ParameterNameValue where
-  toQuery ParameterNameValue' {..} =
-    Lude.mconcat
-      [ "ParameterValue" Lude.=: parameterValue,
-        "ParameterName" Lude.=: parameterName
-      ]
+-- | The value of the parameter.
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnvParameterValue :: Lens.Lens' ParameterNameValue (Core.Maybe Types.ParameterValue)
+pnvParameterValue = Lens.field @"parameterValue"
+{-# DEPRECATED pnvParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}

@@ -13,66 +13,71 @@
 module Network.AWS.IoT.Types.AuditMitigationActionsExecutionStatus
   ( AuditMitigationActionsExecutionStatus
       ( AuditMitigationActionsExecutionStatus',
-        AMAESInProgress,
-        AMAESCompleted,
-        AMAESFailed,
-        AMAESCanceled,
-        AMAESSkipped,
-        AMAESPending
+        AuditMitigationActionsExecutionStatusInProgress,
+        AuditMitigationActionsExecutionStatusCompleted,
+        AuditMitigationActionsExecutionStatusFailed,
+        AuditMitigationActionsExecutionStatusCanceled,
+        AuditMitigationActionsExecutionStatusSkipped,
+        AuditMitigationActionsExecutionStatusPending,
+        fromAuditMitigationActionsExecutionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuditMitigationActionsExecutionStatus = AuditMitigationActionsExecutionStatus' Lude.Text
+newtype AuditMitigationActionsExecutionStatus = AuditMitigationActionsExecutionStatus'
+  { fromAuditMitigationActionsExecutionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AMAESInProgress :: AuditMitigationActionsExecutionStatus
-pattern AMAESInProgress = AuditMitigationActionsExecutionStatus' "IN_PROGRESS"
+pattern AuditMitigationActionsExecutionStatusInProgress :: AuditMitigationActionsExecutionStatus
+pattern AuditMitigationActionsExecutionStatusInProgress = AuditMitigationActionsExecutionStatus' "IN_PROGRESS"
 
-pattern AMAESCompleted :: AuditMitigationActionsExecutionStatus
-pattern AMAESCompleted = AuditMitigationActionsExecutionStatus' "COMPLETED"
+pattern AuditMitigationActionsExecutionStatusCompleted :: AuditMitigationActionsExecutionStatus
+pattern AuditMitigationActionsExecutionStatusCompleted = AuditMitigationActionsExecutionStatus' "COMPLETED"
 
-pattern AMAESFailed :: AuditMitigationActionsExecutionStatus
-pattern AMAESFailed = AuditMitigationActionsExecutionStatus' "FAILED"
+pattern AuditMitigationActionsExecutionStatusFailed :: AuditMitigationActionsExecutionStatus
+pattern AuditMitigationActionsExecutionStatusFailed = AuditMitigationActionsExecutionStatus' "FAILED"
 
-pattern AMAESCanceled :: AuditMitigationActionsExecutionStatus
-pattern AMAESCanceled = AuditMitigationActionsExecutionStatus' "CANCELED"
+pattern AuditMitigationActionsExecutionStatusCanceled :: AuditMitigationActionsExecutionStatus
+pattern AuditMitigationActionsExecutionStatusCanceled = AuditMitigationActionsExecutionStatus' "CANCELED"
 
-pattern AMAESSkipped :: AuditMitigationActionsExecutionStatus
-pattern AMAESSkipped = AuditMitigationActionsExecutionStatus' "SKIPPED"
+pattern AuditMitigationActionsExecutionStatusSkipped :: AuditMitigationActionsExecutionStatus
+pattern AuditMitigationActionsExecutionStatusSkipped = AuditMitigationActionsExecutionStatus' "SKIPPED"
 
-pattern AMAESPending :: AuditMitigationActionsExecutionStatus
-pattern AMAESPending = AuditMitigationActionsExecutionStatus' "PENDING"
+pattern AuditMitigationActionsExecutionStatusPending :: AuditMitigationActionsExecutionStatus
+pattern AuditMitigationActionsExecutionStatusPending = AuditMitigationActionsExecutionStatus' "PENDING"
 
 {-# COMPLETE
-  AMAESInProgress,
-  AMAESCompleted,
-  AMAESFailed,
-  AMAESCanceled,
-  AMAESSkipped,
-  AMAESPending,
+  AuditMitigationActionsExecutionStatusInProgress,
+  AuditMitigationActionsExecutionStatusCompleted,
+  AuditMitigationActionsExecutionStatusFailed,
+  AuditMitigationActionsExecutionStatusCanceled,
+  AuditMitigationActionsExecutionStatusSkipped,
+  AuditMitigationActionsExecutionStatusPending,
   AuditMitigationActionsExecutionStatus'
   #-}

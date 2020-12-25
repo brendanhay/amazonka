@@ -22,130 +22,129 @@ module Network.AWS.EC2.RegisterInstanceEventNotificationAttributes
     mkRegisterInstanceEventNotificationAttributes,
 
     -- ** Request lenses
-    rienaInstanceTagAttribute,
     rienaDryRun,
+    rienaInstanceTagAttribute,
 
     -- * Destructuring the response
     RegisterInstanceEventNotificationAttributesResponse (..),
     mkRegisterInstanceEventNotificationAttributesResponse,
 
     -- ** Response lenses
-    rienarsInstanceTagAttribute,
-    rienarsResponseStatus,
+    rienarrsInstanceTagAttribute,
+    rienarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterInstanceEventNotificationAttributes' smart constructor.
 data RegisterInstanceEventNotificationAttributes = RegisterInstanceEventNotificationAttributes'
-  { -- | Information about the tag keys to register.
-    instanceTagAttribute :: Lude.Maybe RegisterInstanceTagAttributeRequest,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | Information about the tag keys to register.
+    instanceTagAttribute :: Core.Maybe Types.RegisterInstanceTagAttributeRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterInstanceEventNotificationAttributes' with the minimum fields required to make a request.
---
--- * 'instanceTagAttribute' - Information about the tag keys to register.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'RegisterInstanceEventNotificationAttributes' value with any optional fields omitted.
 mkRegisterInstanceEventNotificationAttributes ::
   RegisterInstanceEventNotificationAttributes
 mkRegisterInstanceEventNotificationAttributes =
   RegisterInstanceEventNotificationAttributes'
-    { instanceTagAttribute =
-        Lude.Nothing,
-      dryRun = Lude.Nothing
+    { dryRun =
+        Core.Nothing,
+      instanceTagAttribute = Core.Nothing
     }
-
--- | Information about the tag keys to register.
---
--- /Note:/ Consider using 'instanceTagAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rienaInstanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Lude.Maybe RegisterInstanceTagAttributeRequest)
-rienaInstanceTagAttribute = Lens.lens (instanceTagAttribute :: RegisterInstanceEventNotificationAttributes -> Lude.Maybe RegisterInstanceTagAttributeRequest) (\s a -> s {instanceTagAttribute = a} :: RegisterInstanceEventNotificationAttributes)
-{-# DEPRECATED rienaInstanceTagAttribute "Use generic-lens or generic-optics with 'instanceTagAttribute' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rienaDryRun :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Lude.Maybe Lude.Bool)
-rienaDryRun = Lens.lens (dryRun :: RegisterInstanceEventNotificationAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RegisterInstanceEventNotificationAttributes)
+rienaDryRun :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Core.Maybe Core.Bool)
+rienaDryRun = Lens.field @"dryRun"
 {-# DEPRECATED rienaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
+-- | Information about the tag keys to register.
+--
+-- /Note:/ Consider using 'instanceTagAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rienaInstanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Core.Maybe Types.RegisterInstanceTagAttributeRequest)
+rienaInstanceTagAttribute = Lens.field @"instanceTagAttribute"
+{-# DEPRECATED rienaInstanceTagAttribute "Use generic-lens or generic-optics with 'instanceTagAttribute' instead." #-}
+
 instance
-  Lude.AWSRequest
+  Core.AWSRequest
     RegisterInstanceEventNotificationAttributes
   where
   type
     Rs RegisterInstanceEventNotificationAttributes =
       RegisterInstanceEventNotificationAttributesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure
+                ("Action", "RegisterInstanceEventNotificationAttributes")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> ( Core.toQueryValue "InstanceTagAttribute"
+                            Core.<$> instanceTagAttribute
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           RegisterInstanceEventNotificationAttributesResponse'
-            Lude.<$> (x Lude..@? "instanceTagAttribute")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "instanceTagAttribute")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterInstanceEventNotificationAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RegisterInstanceEventNotificationAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterInstanceEventNotificationAttributes where
-  toQuery RegisterInstanceEventNotificationAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("RegisterInstanceEventNotificationAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceTagAttribute" Lude.=: instanceTagAttribute,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkRegisterInstanceEventNotificationAttributesResponse' smart constructor.
 data RegisterInstanceEventNotificationAttributesResponse = RegisterInstanceEventNotificationAttributesResponse'
   { -- | The resulting set of tag keys.
-    instanceTagAttribute :: Lude.Maybe InstanceTagNotificationAttribute,
+    instanceTagAttribute :: Core.Maybe Types.InstanceTagNotificationAttribute,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterInstanceEventNotificationAttributesResponse' with the minimum fields required to make a request.
---
--- * 'instanceTagAttribute' - The resulting set of tag keys.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterInstanceEventNotificationAttributesResponse' value with any optional fields omitted.
 mkRegisterInstanceEventNotificationAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterInstanceEventNotificationAttributesResponse
 mkRegisterInstanceEventNotificationAttributesResponse
-  pResponseStatus_ =
+  responseStatus =
     RegisterInstanceEventNotificationAttributesResponse'
       { instanceTagAttribute =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
+          Core.Nothing,
+        responseStatus
       }
 
 -- | The resulting set of tag keys.
 --
 -- /Note:/ Consider using 'instanceTagAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rienarsInstanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributesResponse (Lude.Maybe InstanceTagNotificationAttribute)
-rienarsInstanceTagAttribute = Lens.lens (instanceTagAttribute :: RegisterInstanceEventNotificationAttributesResponse -> Lude.Maybe InstanceTagNotificationAttribute) (\s a -> s {instanceTagAttribute = a} :: RegisterInstanceEventNotificationAttributesResponse)
-{-# DEPRECATED rienarsInstanceTagAttribute "Use generic-lens or generic-optics with 'instanceTagAttribute' instead." #-}
+rienarrsInstanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributesResponse (Core.Maybe Types.InstanceTagNotificationAttribute)
+rienarrsInstanceTagAttribute = Lens.field @"instanceTagAttribute"
+{-# DEPRECATED rienarrsInstanceTagAttribute "Use generic-lens or generic-optics with 'instanceTagAttribute' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rienarsResponseStatus :: Lens.Lens' RegisterInstanceEventNotificationAttributesResponse Lude.Int
-rienarsResponseStatus = Lens.lens (responseStatus :: RegisterInstanceEventNotificationAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterInstanceEventNotificationAttributesResponse)
-{-# DEPRECATED rienarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rienarrsResponseStatus :: Lens.Lens' RegisterInstanceEventNotificationAttributesResponse Core.Int
+rienarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rienarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

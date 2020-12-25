@@ -20,115 +20,103 @@ module Network.AWS.GuardDuty.CreateSampleFindings
     mkCreateSampleFindings,
 
     -- ** Request lenses
-    csfFindingTypes,
     csfDetectorId,
+    csfFindingTypes,
 
     -- * Destructuring the response
     CreateSampleFindingsResponse (..),
     mkCreateSampleFindingsResponse,
 
     -- ** Response lenses
-    csfrsResponseStatus,
+    csfrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateSampleFindings' smart constructor.
 data CreateSampleFindings = CreateSampleFindings'
-  { -- | The types of sample findings to generate.
-    findingTypes :: Lude.Maybe [Lude.Text],
-    -- | The ID of the detector to create sample findings for.
-    detectorId :: Lude.Text
+  { -- | The ID of the detector to create sample findings for.
+    detectorId :: Types.DetectorId,
+    -- | The types of sample findings to generate.
+    findingTypes :: Core.Maybe [Types.FindingType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSampleFindings' with the minimum fields required to make a request.
---
--- * 'findingTypes' - The types of sample findings to generate.
--- * 'detectorId' - The ID of the detector to create sample findings for.
+-- | Creates a 'CreateSampleFindings' value with any optional fields omitted.
 mkCreateSampleFindings ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   CreateSampleFindings
-mkCreateSampleFindings pDetectorId_ =
-  CreateSampleFindings'
-    { findingTypes = Lude.Nothing,
-      detectorId = pDetectorId_
-    }
-
--- | The types of sample findings to generate.
---
--- /Note:/ Consider using 'findingTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfFindingTypes :: Lens.Lens' CreateSampleFindings (Lude.Maybe [Lude.Text])
-csfFindingTypes = Lens.lens (findingTypes :: CreateSampleFindings -> Lude.Maybe [Lude.Text]) (\s a -> s {findingTypes = a} :: CreateSampleFindings)
-{-# DEPRECATED csfFindingTypes "Use generic-lens or generic-optics with 'findingTypes' instead." #-}
+mkCreateSampleFindings detectorId =
+  CreateSampleFindings' {detectorId, findingTypes = Core.Nothing}
 
 -- | The ID of the detector to create sample findings for.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfDetectorId :: Lens.Lens' CreateSampleFindings Lude.Text
-csfDetectorId = Lens.lens (detectorId :: CreateSampleFindings -> Lude.Text) (\s a -> s {detectorId = a} :: CreateSampleFindings)
+csfDetectorId :: Lens.Lens' CreateSampleFindings Types.DetectorId
+csfDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED csfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest CreateSampleFindings where
+-- | The types of sample findings to generate.
+--
+-- /Note:/ Consider using 'findingTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfFindingTypes :: Lens.Lens' CreateSampleFindings (Core.Maybe [Types.FindingType])
+csfFindingTypes = Lens.field @"findingTypes"
+{-# DEPRECATED csfFindingTypes "Use generic-lens or generic-optics with 'findingTypes' instead." #-}
+
+instance Core.FromJSON CreateSampleFindings where
+  toJSON CreateSampleFindings {..} =
+    Core.object
+      (Core.catMaybes [("findingTypes" Core..=) Core.<$> findingTypes])
+
+instance Core.AWSRequest CreateSampleFindings where
   type Rs CreateSampleFindings = CreateSampleFindingsResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/findings/create")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CreateSampleFindingsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSampleFindings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateSampleFindings where
-  toJSON CreateSampleFindings' {..} =
-    Lude.object
-      (Lude.catMaybes [("findingTypes" Lude..=) Lude.<$> findingTypes])
-
-instance Lude.ToPath CreateSampleFindings where
-  toPath CreateSampleFindings' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/findings/create"]
-
-instance Lude.ToQuery CreateSampleFindings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateSampleFindingsResponse' smart constructor.
 newtype CreateSampleFindingsResponse = CreateSampleFindingsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSampleFindingsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSampleFindingsResponse' value with any optional fields omitted.
 mkCreateSampleFindingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSampleFindingsResponse
-mkCreateSampleFindingsResponse pResponseStatus_ =
-  CreateSampleFindingsResponse' {responseStatus = pResponseStatus_}
+mkCreateSampleFindingsResponse responseStatus =
+  CreateSampleFindingsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfrsResponseStatus :: Lens.Lens' CreateSampleFindingsResponse Lude.Int
-csfrsResponseStatus = Lens.lens (responseStatus :: CreateSampleFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSampleFindingsResponse)
-{-# DEPRECATED csfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csfrrsResponseStatus :: Lens.Lens' CreateSampleFindingsResponse Core.Int
+csfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

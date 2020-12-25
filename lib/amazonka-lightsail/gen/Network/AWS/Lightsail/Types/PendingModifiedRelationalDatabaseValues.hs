@@ -17,72 +17,67 @@ module Network.AWS.Lightsail.Types.PendingModifiedRelationalDatabaseValues
     mkPendingModifiedRelationalDatabaseValues,
 
     -- * Lenses
+    pmrdvBackupRetentionEnabled,
     pmrdvEngineVersion,
     pmrdvMasterUserPassword,
-    pmrdvBackupRetentionEnabled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a pending database value modification.
 --
 -- /See:/ 'mkPendingModifiedRelationalDatabaseValues' smart constructor.
 data PendingModifiedRelationalDatabaseValues = PendingModifiedRelationalDatabaseValues'
-  { -- | The database engine version.
-    engineVersion :: Lude.Maybe Lude.Text,
+  { -- | A Boolean value indicating whether automated backup retention is enabled.
+    backupRetentionEnabled :: Core.Maybe Core.Bool,
+    -- | The database engine version.
+    engineVersion :: Core.Maybe Types.String,
     -- | The password for the master user of the database.
-    masterUserPassword :: Lude.Maybe Lude.Text,
-    -- | A Boolean value indicating whether automated backup retention is enabled.
-    backupRetentionEnabled :: Lude.Maybe Lude.Bool
+    masterUserPassword :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PendingModifiedRelationalDatabaseValues' with the minimum fields required to make a request.
---
--- * 'engineVersion' - The database engine version.
--- * 'masterUserPassword' - The password for the master user of the database.
--- * 'backupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled.
+-- | Creates a 'PendingModifiedRelationalDatabaseValues' value with any optional fields omitted.
 mkPendingModifiedRelationalDatabaseValues ::
   PendingModifiedRelationalDatabaseValues
 mkPendingModifiedRelationalDatabaseValues =
   PendingModifiedRelationalDatabaseValues'
-    { engineVersion =
-        Lude.Nothing,
-      masterUserPassword = Lude.Nothing,
-      backupRetentionEnabled = Lude.Nothing
+    { backupRetentionEnabled =
+        Core.Nothing,
+      engineVersion = Core.Nothing,
+      masterUserPassword = Core.Nothing
     }
+
+-- | A Boolean value indicating whether automated backup retention is enabled.
+--
+-- /Note:/ Consider using 'backupRetentionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmrdvBackupRetentionEnabled :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Core.Maybe Core.Bool)
+pmrdvBackupRetentionEnabled = Lens.field @"backupRetentionEnabled"
+{-# DEPRECATED pmrdvBackupRetentionEnabled "Use generic-lens or generic-optics with 'backupRetentionEnabled' instead." #-}
 
 -- | The database engine version.
 --
 -- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmrdvEngineVersion :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Lude.Maybe Lude.Text)
-pmrdvEngineVersion = Lens.lens (engineVersion :: PendingModifiedRelationalDatabaseValues -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: PendingModifiedRelationalDatabaseValues)
+pmrdvEngineVersion :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Core.Maybe Types.String)
+pmrdvEngineVersion = Lens.field @"engineVersion"
 {-# DEPRECATED pmrdvEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The password for the master user of the database.
 --
 -- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmrdvMasterUserPassword :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Lude.Maybe Lude.Text)
-pmrdvMasterUserPassword = Lens.lens (masterUserPassword :: PendingModifiedRelationalDatabaseValues -> Lude.Maybe Lude.Text) (\s a -> s {masterUserPassword = a} :: PendingModifiedRelationalDatabaseValues)
+pmrdvMasterUserPassword :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Core.Maybe Types.String)
+pmrdvMasterUserPassword = Lens.field @"masterUserPassword"
 {-# DEPRECATED pmrdvMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
 
--- | A Boolean value indicating whether automated backup retention is enabled.
---
--- /Note:/ Consider using 'backupRetentionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmrdvBackupRetentionEnabled :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Lude.Maybe Lude.Bool)
-pmrdvBackupRetentionEnabled = Lens.lens (backupRetentionEnabled :: PendingModifiedRelationalDatabaseValues -> Lude.Maybe Lude.Bool) (\s a -> s {backupRetentionEnabled = a} :: PendingModifiedRelationalDatabaseValues)
-{-# DEPRECATED pmrdvBackupRetentionEnabled "Use generic-lens or generic-optics with 'backupRetentionEnabled' instead." #-}
-
-instance Lude.FromJSON PendingModifiedRelationalDatabaseValues where
+instance Core.FromJSON PendingModifiedRelationalDatabaseValues where
   parseJSON =
-    Lude.withObject
-      "PendingModifiedRelationalDatabaseValues"
-      ( \x ->
-          PendingModifiedRelationalDatabaseValues'
-            Lude.<$> (x Lude..:? "engineVersion")
-            Lude.<*> (x Lude..:? "masterUserPassword")
-            Lude.<*> (x Lude..:? "backupRetentionEnabled")
-      )
+    Core.withObject "PendingModifiedRelationalDatabaseValues" Core.$
+      \x ->
+        PendingModifiedRelationalDatabaseValues'
+          Core.<$> (x Core..:? "backupRetentionEnabled")
+          Core.<*> (x Core..:? "engineVersion")
+          Core.<*> (x Core..:? "masterUserPassword")

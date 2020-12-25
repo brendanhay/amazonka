@@ -20,171 +20,154 @@ module Network.AWS.CostExplorer.UpdateCostCategoryDefinition
     mkUpdateCostCategoryDefinition,
 
     -- ** Request lenses
+    uccdCostCategoryArn,
     uccdRuleVersion,
     uccdRules,
-    uccdCostCategoryARN,
 
     -- * Destructuring the response
     UpdateCostCategoryDefinitionResponse (..),
     mkUpdateCostCategoryDefinitionResponse,
 
     -- ** Response lenses
-    uccdrsEffectiveStart,
-    uccdrsCostCategoryARN,
-    uccdrsResponseStatus,
+    uccdrrsCostCategoryArn,
+    uccdrrsEffectiveStart,
+    uccdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CostExplorer.Types
+import qualified Network.AWS.CostExplorer.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateCostCategoryDefinition' smart constructor.
 data UpdateCostCategoryDefinition = UpdateCostCategoryDefinition'
-  { ruleVersion :: CostCategoryRuleVersion,
+  { -- | The unique identifier for your Cost Category.
+    costCategoryArn :: Types.Arn,
+    ruleVersion :: Types.CostCategoryRuleVersion,
     -- | The @Expression@ object used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule > .
-    rules :: Lude.NonEmpty CostCategoryRule,
-    -- | The unique identifier for your Cost Category.
-    costCategoryARN :: Lude.Text
+    rules :: Core.NonEmpty Types.CostCategoryRule
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCostCategoryDefinition' with the minimum fields required to make a request.
---
--- * 'ruleVersion' -
--- * 'rules' - The @Expression@ object used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule > .
--- * 'costCategoryARN' - The unique identifier for your Cost Category.
+-- | Creates a 'UpdateCostCategoryDefinition' value with any optional fields omitted.
 mkUpdateCostCategoryDefinition ::
+  -- | 'costCategoryArn'
+  Types.Arn ->
   -- | 'ruleVersion'
-  CostCategoryRuleVersion ->
+  Types.CostCategoryRuleVersion ->
   -- | 'rules'
-  Lude.NonEmpty CostCategoryRule ->
-  -- | 'costCategoryARN'
-  Lude.Text ->
+  Core.NonEmpty Types.CostCategoryRule ->
   UpdateCostCategoryDefinition
-mkUpdateCostCategoryDefinition
-  pRuleVersion_
-  pRules_
-  pCostCategoryARN_ =
-    UpdateCostCategoryDefinition'
-      { ruleVersion = pRuleVersion_,
-        rules = pRules_,
-        costCategoryARN = pCostCategoryARN_
-      }
+mkUpdateCostCategoryDefinition costCategoryArn ruleVersion rules =
+  UpdateCostCategoryDefinition'
+    { costCategoryArn,
+      ruleVersion,
+      rules
+    }
+
+-- | The unique identifier for your Cost Category.
+--
+-- /Note:/ Consider using 'costCategoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccdCostCategoryArn :: Lens.Lens' UpdateCostCategoryDefinition Types.Arn
+uccdCostCategoryArn = Lens.field @"costCategoryArn"
+{-# DEPRECATED uccdCostCategoryArn "Use generic-lens or generic-optics with 'costCategoryArn' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'ruleVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccdRuleVersion :: Lens.Lens' UpdateCostCategoryDefinition CostCategoryRuleVersion
-uccdRuleVersion = Lens.lens (ruleVersion :: UpdateCostCategoryDefinition -> CostCategoryRuleVersion) (\s a -> s {ruleVersion = a} :: UpdateCostCategoryDefinition)
+uccdRuleVersion :: Lens.Lens' UpdateCostCategoryDefinition Types.CostCategoryRuleVersion
+uccdRuleVersion = Lens.field @"ruleVersion"
 {-# DEPRECATED uccdRuleVersion "Use generic-lens or generic-optics with 'ruleVersion' instead." #-}
 
 -- | The @Expression@ object used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule > .
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccdRules :: Lens.Lens' UpdateCostCategoryDefinition (Lude.NonEmpty CostCategoryRule)
-uccdRules = Lens.lens (rules :: UpdateCostCategoryDefinition -> Lude.NonEmpty CostCategoryRule) (\s a -> s {rules = a} :: UpdateCostCategoryDefinition)
+uccdRules :: Lens.Lens' UpdateCostCategoryDefinition (Core.NonEmpty Types.CostCategoryRule)
+uccdRules = Lens.field @"rules"
 {-# DEPRECATED uccdRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
--- | The unique identifier for your Cost Category.
---
--- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccdCostCategoryARN :: Lens.Lens' UpdateCostCategoryDefinition Lude.Text
-uccdCostCategoryARN = Lens.lens (costCategoryARN :: UpdateCostCategoryDefinition -> Lude.Text) (\s a -> s {costCategoryARN = a} :: UpdateCostCategoryDefinition)
-{-# DEPRECATED uccdCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
+instance Core.FromJSON UpdateCostCategoryDefinition where
+  toJSON UpdateCostCategoryDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CostCategoryArn" Core..= costCategoryArn),
+            Core.Just ("RuleVersion" Core..= ruleVersion),
+            Core.Just ("Rules" Core..= rules)
+          ]
+      )
 
-instance Lude.AWSRequest UpdateCostCategoryDefinition where
+instance Core.AWSRequest UpdateCostCategoryDefinition where
   type
     Rs UpdateCostCategoryDefinition =
       UpdateCostCategoryDefinitionResponse
-  request = Req.postJSON costExplorerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSInsightsIndexService.UpdateCostCategoryDefinition"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateCostCategoryDefinitionResponse'
-            Lude.<$> (x Lude..?> "EffectiveStart")
-            Lude.<*> (x Lude..?> "CostCategoryArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CostCategoryArn")
+            Core.<*> (x Core..:? "EffectiveStart")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateCostCategoryDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSInsightsIndexService.UpdateCostCategoryDefinition" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateCostCategoryDefinition where
-  toJSON UpdateCostCategoryDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RuleVersion" Lude..= ruleVersion),
-            Lude.Just ("Rules" Lude..= rules),
-            Lude.Just ("CostCategoryArn" Lude..= costCategoryARN)
-          ]
-      )
-
-instance Lude.ToPath UpdateCostCategoryDefinition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateCostCategoryDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateCostCategoryDefinitionResponse' smart constructor.
 data UpdateCostCategoryDefinitionResponse = UpdateCostCategoryDefinitionResponse'
-  { -- | The Cost Category's effective start date.
-    effectiveStart :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for your Cost Category.
-    costCategoryARN :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier for your Cost Category.
+    costCategoryArn :: Core.Maybe Types.Arn,
+    -- | The Cost Category's effective start date.
+    effectiveStart :: Core.Maybe Types.EffectiveStart,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCostCategoryDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'effectiveStart' - The Cost Category's effective start date.
--- * 'costCategoryARN' - The unique identifier for your Cost Category.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateCostCategoryDefinitionResponse' value with any optional fields omitted.
 mkUpdateCostCategoryDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateCostCategoryDefinitionResponse
-mkUpdateCostCategoryDefinitionResponse pResponseStatus_ =
+mkUpdateCostCategoryDefinitionResponse responseStatus =
   UpdateCostCategoryDefinitionResponse'
-    { effectiveStart =
-        Lude.Nothing,
-      costCategoryARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { costCategoryArn =
+        Core.Nothing,
+      effectiveStart = Core.Nothing,
+      responseStatus
     }
+
+-- | The unique identifier for your Cost Category.
+--
+-- /Note:/ Consider using 'costCategoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccdrrsCostCategoryArn :: Lens.Lens' UpdateCostCategoryDefinitionResponse (Core.Maybe Types.Arn)
+uccdrrsCostCategoryArn = Lens.field @"costCategoryArn"
+{-# DEPRECATED uccdrrsCostCategoryArn "Use generic-lens or generic-optics with 'costCategoryArn' instead." #-}
 
 -- | The Cost Category's effective start date.
 --
 -- /Note:/ Consider using 'effectiveStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccdrsEffectiveStart :: Lens.Lens' UpdateCostCategoryDefinitionResponse (Lude.Maybe Lude.Text)
-uccdrsEffectiveStart = Lens.lens (effectiveStart :: UpdateCostCategoryDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {effectiveStart = a} :: UpdateCostCategoryDefinitionResponse)
-{-# DEPRECATED uccdrsEffectiveStart "Use generic-lens or generic-optics with 'effectiveStart' instead." #-}
-
--- | The unique identifier for your Cost Category.
---
--- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccdrsCostCategoryARN :: Lens.Lens' UpdateCostCategoryDefinitionResponse (Lude.Maybe Lude.Text)
-uccdrsCostCategoryARN = Lens.lens (costCategoryARN :: UpdateCostCategoryDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {costCategoryARN = a} :: UpdateCostCategoryDefinitionResponse)
-{-# DEPRECATED uccdrsCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
+uccdrrsEffectiveStart :: Lens.Lens' UpdateCostCategoryDefinitionResponse (Core.Maybe Types.EffectiveStart)
+uccdrrsEffectiveStart = Lens.field @"effectiveStart"
+{-# DEPRECATED uccdrrsEffectiveStart "Use generic-lens or generic-optics with 'effectiveStart' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccdrsResponseStatus :: Lens.Lens' UpdateCostCategoryDefinitionResponse Lude.Int
-uccdrsResponseStatus = Lens.lens (responseStatus :: UpdateCostCategoryDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCostCategoryDefinitionResponse)
-{-# DEPRECATED uccdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uccdrrsResponseStatus :: Lens.Lens' UpdateCostCategoryDefinitionResponse Core.Int
+uccdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uccdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

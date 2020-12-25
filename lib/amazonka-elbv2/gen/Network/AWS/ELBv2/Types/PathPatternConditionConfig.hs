@@ -21,8 +21,9 @@ module Network.AWS.ELBv2.Types.PathPatternConditionConfig
   )
 where
 
+import qualified Network.AWS.ELBv2.Types.StringValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a path pattern condition.
 --
@@ -31,40 +32,27 @@ newtype PathPatternConditionConfig = PathPatternConditionConfig'
   { -- | One or more path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
     --
     -- If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use 'QueryStringConditionConfig' .
-    values :: Lude.Maybe [Lude.Text]
+    values :: Core.Maybe [Types.StringValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PathPatternConditionConfig' with the minimum fields required to make a request.
---
--- * 'values' - One or more path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
---
--- If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use 'QueryStringConditionConfig' .
+-- | Creates a 'PathPatternConditionConfig' value with any optional fields omitted.
 mkPathPatternConditionConfig ::
   PathPatternConditionConfig
 mkPathPatternConditionConfig =
-  PathPatternConditionConfig' {values = Lude.Nothing}
+  PathPatternConditionConfig' {values = Core.Nothing}
 
 -- | One or more path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 --
 -- If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use 'QueryStringConditionConfig' .
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppccValues :: Lens.Lens' PathPatternConditionConfig (Lude.Maybe [Lude.Text])
-ppccValues = Lens.lens (values :: PathPatternConditionConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: PathPatternConditionConfig)
+ppccValues :: Lens.Lens' PathPatternConditionConfig (Core.Maybe [Types.StringValue])
+ppccValues = Lens.field @"values"
 {-# DEPRECATED ppccValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.FromXML PathPatternConditionConfig where
+instance Core.FromXML PathPatternConditionConfig where
   parseXML x =
     PathPatternConditionConfig'
-      Lude.<$> ( x Lude..@? "Values" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-
-instance Lude.ToQuery PathPatternConditionConfig where
-  toQuery PathPatternConditionConfig' {..} =
-    Lude.mconcat
-      [ "Values"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> values)
-      ]
+      Core.<$> (x Core..@? "Values" Core..<@> Core.parseXMLList "member")

@@ -22,8 +22,8 @@ module Network.AWS.Route53.ListTrafficPolicyVersions
     mkListTrafficPolicyVersions,
 
     -- ** Request lenses
-    ltpvMaxItems,
     ltpvId,
+    ltpvMaxItems,
     ltpvTrafficPolicyVersionMarker,
 
     -- * Destructuring the response
@@ -31,195 +31,182 @@ module Network.AWS.Route53.ListTrafficPolicyVersions
     mkListTrafficPolicyVersionsResponse,
 
     -- ** Response lenses
-    ltpvrsMaxItems,
-    ltpvrsTrafficPolicyVersionMarker,
-    ltpvrsIsTruncated,
-    ltpvrsTrafficPolicies,
-    ltpvrsResponseStatus,
+    ltpvrrsTrafficPolicies,
+    ltpvrrsIsTruncated,
+    ltpvrrsTrafficPolicyVersionMarker,
+    ltpvrrsMaxItems,
+    ltpvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains the information about the request to list your traffic policies.
 --
 -- /See:/ 'mkListTrafficPolicyVersions' smart constructor.
 data ListTrafficPolicyVersions = ListTrafficPolicyVersions'
-  { -- | The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of @IsTruncated@ in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version that Route 53 will return if you submit another request.
-    maxItems :: Lude.Maybe Lude.Text,
-    -- | Specify the value of @Id@ of the traffic policy for which you want to list all versions.
-    id :: Lude.Text,
+  { -- | Specify the value of @Id@ of the traffic policy for which you want to list all versions.
+    id :: Types.Id,
+    -- | The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of @IsTruncated@ in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version that Route 53 will return if you submit another request.
+    maxItems :: Core.Maybe Types.MaxItems,
     -- | For your first request to @ListTrafficPolicyVersions@ , don't include the @TrafficPolicyVersionMarker@ parameter.
     --
     -- If you have more traffic policy versions than the value of @MaxItems@ , @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@ versions. To get more traffic policy versions, submit another @ListTrafficPolicyVersions@ request. For the value of @TrafficPolicyVersionMarker@ , specify the value of @TrafficPolicyVersionMarker@ in the previous response.
-    trafficPolicyVersionMarker :: Lude.Maybe Lude.Text
+    trafficPolicyVersionMarker :: Core.Maybe Types.TrafficPolicyVersionMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTrafficPolicyVersions' with the minimum fields required to make a request.
---
--- * 'maxItems' - The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of @IsTruncated@ in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version that Route 53 will return if you submit another request.
--- * 'id' - Specify the value of @Id@ of the traffic policy for which you want to list all versions.
--- * 'trafficPolicyVersionMarker' - For your first request to @ListTrafficPolicyVersions@ , don't include the @TrafficPolicyVersionMarker@ parameter.
---
--- If you have more traffic policy versions than the value of @MaxItems@ , @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@ versions. To get more traffic policy versions, submit another @ListTrafficPolicyVersions@ request. For the value of @TrafficPolicyVersionMarker@ , specify the value of @TrafficPolicyVersionMarker@ in the previous response.
+-- | Creates a 'ListTrafficPolicyVersions' value with any optional fields omitted.
 mkListTrafficPolicyVersions ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   ListTrafficPolicyVersions
-mkListTrafficPolicyVersions pId_ =
+mkListTrafficPolicyVersions id =
   ListTrafficPolicyVersions'
-    { maxItems = Lude.Nothing,
-      id = pId_,
-      trafficPolicyVersionMarker = Lude.Nothing
+    { id,
+      maxItems = Core.Nothing,
+      trafficPolicyVersionMarker = Core.Nothing
     }
-
--- | The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of @IsTruncated@ in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version that Route 53 will return if you submit another request.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpvMaxItems :: Lens.Lens' ListTrafficPolicyVersions (Lude.Maybe Lude.Text)
-ltpvMaxItems = Lens.lens (maxItems :: ListTrafficPolicyVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListTrafficPolicyVersions)
-{-# DEPRECATED ltpvMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | Specify the value of @Id@ of the traffic policy for which you want to list all versions.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpvId :: Lens.Lens' ListTrafficPolicyVersions Lude.Text
-ltpvId = Lens.lens (id :: ListTrafficPolicyVersions -> Lude.Text) (\s a -> s {id = a} :: ListTrafficPolicyVersions)
+ltpvId :: Lens.Lens' ListTrafficPolicyVersions Types.Id
+ltpvId = Lens.field @"id"
 {-# DEPRECATED ltpvId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of @IsTruncated@ in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version that Route 53 will return if you submit another request.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpvMaxItems :: Lens.Lens' ListTrafficPolicyVersions (Core.Maybe Types.MaxItems)
+ltpvMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED ltpvMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | For your first request to @ListTrafficPolicyVersions@ , don't include the @TrafficPolicyVersionMarker@ parameter.
 --
 -- If you have more traffic policy versions than the value of @MaxItems@ , @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@ versions. To get more traffic policy versions, submit another @ListTrafficPolicyVersions@ request. For the value of @TrafficPolicyVersionMarker@ , specify the value of @TrafficPolicyVersionMarker@ in the previous response.
 --
 -- /Note:/ Consider using 'trafficPolicyVersionMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpvTrafficPolicyVersionMarker :: Lens.Lens' ListTrafficPolicyVersions (Lude.Maybe Lude.Text)
-ltpvTrafficPolicyVersionMarker = Lens.lens (trafficPolicyVersionMarker :: ListTrafficPolicyVersions -> Lude.Maybe Lude.Text) (\s a -> s {trafficPolicyVersionMarker = a} :: ListTrafficPolicyVersions)
+ltpvTrafficPolicyVersionMarker :: Lens.Lens' ListTrafficPolicyVersions (Core.Maybe Types.TrafficPolicyVersionMarker)
+ltpvTrafficPolicyVersionMarker = Lens.field @"trafficPolicyVersionMarker"
 {-# DEPRECATED ltpvTrafficPolicyVersionMarker "Use generic-lens or generic-optics with 'trafficPolicyVersionMarker' instead." #-}
 
-instance Lude.AWSRequest ListTrafficPolicyVersions where
+instance Core.AWSRequest ListTrafficPolicyVersions where
   type
     Rs ListTrafficPolicyVersions =
       ListTrafficPolicyVersionsResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2013-04-01/trafficpolicies/" Core.<> (Core.toText id)
+                Core.<> ("/versions")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxitems" Core.<$> maxItems
+            Core.<> ( Core.toQueryValue "trafficpolicyversion"
+                        Core.<$> trafficPolicyVersionMarker
+                    ),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListTrafficPolicyVersionsResponse'
-            Lude.<$> (x Lude..@ "MaxItems")
-            Lude.<*> (x Lude..@ "TrafficPolicyVersionMarker")
-            Lude.<*> (x Lude..@ "IsTruncated")
-            Lude.<*> ( x Lude..@? "TrafficPolicies" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "TrafficPolicy"
+            Core.<$> ( x Core..@? "TrafficPolicies" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "TrafficPolicy"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@ "IsTruncated")
+            Core.<*> (x Core..@ "TrafficPolicyVersionMarker")
+            Core.<*> (x Core..@ "MaxItems")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTrafficPolicyVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListTrafficPolicyVersions where
-  toPath ListTrafficPolicyVersions' {..} =
-    Lude.mconcat
-      ["/2013-04-01/trafficpolicies/", Lude.toBS id, "/versions"]
-
-instance Lude.ToQuery ListTrafficPolicyVersions where
-  toQuery ListTrafficPolicyVersions' {..} =
-    Lude.mconcat
-      [ "maxitems" Lude.=: maxItems,
-        "trafficpolicyversion" Lude.=: trafficPolicyVersionMarker
-      ]
 
 -- | A complex type that contains the response information for the request.
 --
 -- /See:/ 'mkListTrafficPolicyVersionsResponse' smart constructor.
 data ListTrafficPolicyVersionsResponse = ListTrafficPolicyVersionsResponse'
-  { -- | The value that you specified for the @maxitems@ parameter in the @ListTrafficPolicyVersions@ request that produced the current response.
-    maxItems :: Lude.Text,
+  { -- | A list that contains one @TrafficPolicy@ element for each traffic policy version that is associated with the specified traffic policy.
+    trafficPolicies :: [Types.TrafficPolicy],
+    -- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicyVersions@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
+    isTruncated :: Core.Bool,
     -- | If @IsTruncated@ is @true@ , the value of @TrafficPolicyVersionMarker@ identifies the first traffic policy that Amazon Route 53 will return if you submit another request. Call @ListTrafficPolicyVersions@ again and specify the value of @TrafficPolicyVersionMarker@ in the @TrafficPolicyVersionMarker@ request parameter.
     --
     -- This element is present only if @IsTruncated@ is @true@ .
-    trafficPolicyVersionMarker :: Lude.Text,
-    -- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicyVersions@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
-    isTruncated :: Lude.Bool,
-    -- | A list that contains one @TrafficPolicy@ element for each traffic policy version that is associated with the specified traffic policy.
-    trafficPolicies :: [TrafficPolicy],
+    trafficPolicyVersionMarker :: Types.TrafficPolicyVersionMarker,
+    -- | The value that you specified for the @maxitems@ parameter in the @ListTrafficPolicyVersions@ request that produced the current response.
+    maxItems :: Types.MaxItems,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTrafficPolicyVersionsResponse' with the minimum fields required to make a request.
---
--- * 'maxItems' - The value that you specified for the @maxitems@ parameter in the @ListTrafficPolicyVersions@ request that produced the current response.
--- * 'trafficPolicyVersionMarker' - If @IsTruncated@ is @true@ , the value of @TrafficPolicyVersionMarker@ identifies the first traffic policy that Amazon Route 53 will return if you submit another request. Call @ListTrafficPolicyVersions@ again and specify the value of @TrafficPolicyVersionMarker@ in the @TrafficPolicyVersionMarker@ request parameter.
---
--- This element is present only if @IsTruncated@ is @true@ .
--- * 'isTruncated' - A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicyVersions@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
--- * 'trafficPolicies' - A list that contains one @TrafficPolicy@ element for each traffic policy version that is associated with the specified traffic policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTrafficPolicyVersionsResponse' value with any optional fields omitted.
 mkListTrafficPolicyVersionsResponse ::
-  -- | 'maxItems'
-  Lude.Text ->
-  -- | 'trafficPolicyVersionMarker'
-  Lude.Text ->
   -- | 'isTruncated'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'trafficPolicyVersionMarker'
+  Types.TrafficPolicyVersionMarker ->
+  -- | 'maxItems'
+  Types.MaxItems ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTrafficPolicyVersionsResponse
 mkListTrafficPolicyVersionsResponse
-  pMaxItems_
-  pTrafficPolicyVersionMarker_
-  pIsTruncated_
-  pResponseStatus_ =
+  isTruncated
+  trafficPolicyVersionMarker
+  maxItems
+  responseStatus =
     ListTrafficPolicyVersionsResponse'
-      { maxItems = pMaxItems_,
-        trafficPolicyVersionMarker = pTrafficPolicyVersionMarker_,
-        isTruncated = pIsTruncated_,
-        trafficPolicies = Lude.mempty,
-        responseStatus = pResponseStatus_
+      { trafficPolicies = Core.mempty,
+        isTruncated,
+        trafficPolicyVersionMarker,
+        maxItems,
+        responseStatus
       }
 
--- | The value that you specified for the @maxitems@ parameter in the @ListTrafficPolicyVersions@ request that produced the current response.
+-- | A list that contains one @TrafficPolicy@ element for each traffic policy version that is associated with the specified traffic policy.
 --
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpvrsMaxItems :: Lens.Lens' ListTrafficPolicyVersionsResponse Lude.Text
-ltpvrsMaxItems = Lens.lens (maxItems :: ListTrafficPolicyVersionsResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListTrafficPolicyVersionsResponse)
-{-# DEPRECATED ltpvrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+-- /Note:/ Consider using 'trafficPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpvrrsTrafficPolicies :: Lens.Lens' ListTrafficPolicyVersionsResponse [Types.TrafficPolicy]
+ltpvrrsTrafficPolicies = Lens.field @"trafficPolicies"
+{-# DEPRECATED ltpvrrsTrafficPolicies "Use generic-lens or generic-optics with 'trafficPolicies' instead." #-}
+
+-- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicyVersions@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpvrrsIsTruncated :: Lens.Lens' ListTrafficPolicyVersionsResponse Core.Bool
+ltpvrrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED ltpvrrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | If @IsTruncated@ is @true@ , the value of @TrafficPolicyVersionMarker@ identifies the first traffic policy that Amazon Route 53 will return if you submit another request. Call @ListTrafficPolicyVersions@ again and specify the value of @TrafficPolicyVersionMarker@ in the @TrafficPolicyVersionMarker@ request parameter.
 --
 -- This element is present only if @IsTruncated@ is @true@ .
 --
 -- /Note:/ Consider using 'trafficPolicyVersionMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpvrsTrafficPolicyVersionMarker :: Lens.Lens' ListTrafficPolicyVersionsResponse Lude.Text
-ltpvrsTrafficPolicyVersionMarker = Lens.lens (trafficPolicyVersionMarker :: ListTrafficPolicyVersionsResponse -> Lude.Text) (\s a -> s {trafficPolicyVersionMarker = a} :: ListTrafficPolicyVersionsResponse)
-{-# DEPRECATED ltpvrsTrafficPolicyVersionMarker "Use generic-lens or generic-optics with 'trafficPolicyVersionMarker' instead." #-}
+ltpvrrsTrafficPolicyVersionMarker :: Lens.Lens' ListTrafficPolicyVersionsResponse Types.TrafficPolicyVersionMarker
+ltpvrrsTrafficPolicyVersionMarker = Lens.field @"trafficPolicyVersionMarker"
+{-# DEPRECATED ltpvrrsTrafficPolicyVersionMarker "Use generic-lens or generic-optics with 'trafficPolicyVersionMarker' instead." #-}
 
--- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicyVersions@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
+-- | The value that you specified for the @maxitems@ parameter in the @ListTrafficPolicyVersions@ request that produced the current response.
 --
--- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpvrsIsTruncated :: Lens.Lens' ListTrafficPolicyVersionsResponse Lude.Bool
-ltpvrsIsTruncated = Lens.lens (isTruncated :: ListTrafficPolicyVersionsResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListTrafficPolicyVersionsResponse)
-{-# DEPRECATED ltpvrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
-
--- | A list that contains one @TrafficPolicy@ element for each traffic policy version that is associated with the specified traffic policy.
---
--- /Note:/ Consider using 'trafficPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpvrsTrafficPolicies :: Lens.Lens' ListTrafficPolicyVersionsResponse [TrafficPolicy]
-ltpvrsTrafficPolicies = Lens.lens (trafficPolicies :: ListTrafficPolicyVersionsResponse -> [TrafficPolicy]) (\s a -> s {trafficPolicies = a} :: ListTrafficPolicyVersionsResponse)
-{-# DEPRECATED ltpvrsTrafficPolicies "Use generic-lens or generic-optics with 'trafficPolicies' instead." #-}
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltpvrrsMaxItems :: Lens.Lens' ListTrafficPolicyVersionsResponse Types.MaxItems
+ltpvrrsMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED ltpvrrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltpvrsResponseStatus :: Lens.Lens' ListTrafficPolicyVersionsResponse Lude.Int
-ltpvrsResponseStatus = Lens.lens (responseStatus :: ListTrafficPolicyVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTrafficPolicyVersionsResponse)
-{-# DEPRECATED ltpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltpvrrsResponseStatus :: Lens.Lens' ListTrafficPolicyVersionsResponse Core.Int
+ltpvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltpvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

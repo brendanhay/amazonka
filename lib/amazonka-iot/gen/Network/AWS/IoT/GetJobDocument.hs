@@ -27,95 +27,87 @@ module Network.AWS.IoT.GetJobDocument
     mkGetJobDocumentResponse,
 
     -- ** Response lenses
-    gjdrsDocument,
-    gjdrsResponseStatus,
+    gjdrrsDocument,
+    gjdrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetJobDocument' smart constructor.
 newtype GetJobDocument = GetJobDocument'
   { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetJobDocument' with the minimum fields required to make a request.
---
--- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- | Creates a 'GetJobDocument' value with any optional fields omitted.
 mkGetJobDocument ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   GetJobDocument
-mkGetJobDocument pJobId_ = GetJobDocument' {jobId = pJobId_}
+mkGetJobDocument jobId = GetJobDocument' {jobId}
 
 -- | The unique identifier you assigned to this job when it was created.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjdJobId :: Lens.Lens' GetJobDocument Lude.Text
-gjdJobId = Lens.lens (jobId :: GetJobDocument -> Lude.Text) (\s a -> s {jobId = a} :: GetJobDocument)
+gjdJobId :: Lens.Lens' GetJobDocument Types.JobId
+gjdJobId = Lens.field @"jobId"
 {-# DEPRECATED gjdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest GetJobDocument where
+instance Core.AWSRequest GetJobDocument where
   type Rs GetJobDocument = GetJobDocumentResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/jobs/" Core.<> (Core.toText jobId) Core.<> ("/job-document")),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetJobDocumentResponse'
-            Lude.<$> (x Lude..?> "document") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "document") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetJobDocument where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetJobDocument where
-  toPath GetJobDocument' {..} =
-    Lude.mconcat ["/jobs/", Lude.toBS jobId, "/job-document"]
-
-instance Lude.ToQuery GetJobDocument where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetJobDocumentResponse' smart constructor.
 data GetJobDocumentResponse = GetJobDocumentResponse'
   { -- | The job document content.
-    document :: Lude.Maybe Lude.Text,
+    document :: Core.Maybe Types.JobDocument,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetJobDocumentResponse' with the minimum fields required to make a request.
---
--- * 'document' - The job document content.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetJobDocumentResponse' value with any optional fields omitted.
 mkGetJobDocumentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetJobDocumentResponse
-mkGetJobDocumentResponse pResponseStatus_ =
-  GetJobDocumentResponse'
-    { document = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetJobDocumentResponse responseStatus =
+  GetJobDocumentResponse' {document = Core.Nothing, responseStatus}
 
 -- | The job document content.
 --
 -- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjdrsDocument :: Lens.Lens' GetJobDocumentResponse (Lude.Maybe Lude.Text)
-gjdrsDocument = Lens.lens (document :: GetJobDocumentResponse -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: GetJobDocumentResponse)
-{-# DEPRECATED gjdrsDocument "Use generic-lens or generic-optics with 'document' instead." #-}
+gjdrrsDocument :: Lens.Lens' GetJobDocumentResponse (Core.Maybe Types.JobDocument)
+gjdrrsDocument = Lens.field @"document"
+{-# DEPRECATED gjdrrsDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjdrsResponseStatus :: Lens.Lens' GetJobDocumentResponse Lude.Int
-gjdrsResponseStatus = Lens.lens (responseStatus :: GetJobDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJobDocumentResponse)
-{-# DEPRECATED gjdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gjdrrsResponseStatus :: Lens.Lens' GetJobDocumentResponse Core.Int
+gjdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gjdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -29,114 +29,111 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     mkCancelReservedInstancesListingResponse,
 
     -- ** Response lenses
-    crilrsReservedInstancesListings,
-    crilrsResponseStatus,
+    crilrrsReservedInstancesListings,
+    crilrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CancelReservedInstancesListing.
 --
 -- /See:/ 'mkCancelReservedInstancesListing' smart constructor.
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
   { -- | The ID of the Reserved Instance listing.
-    reservedInstancesListingId :: Lude.Text
+    reservedInstancesListingId :: Types.ReservedInstancesListingId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelReservedInstancesListing' with the minimum fields required to make a request.
---
--- * 'reservedInstancesListingId' - The ID of the Reserved Instance listing.
+-- | Creates a 'CancelReservedInstancesListing' value with any optional fields omitted.
 mkCancelReservedInstancesListing ::
   -- | 'reservedInstancesListingId'
-  Lude.Text ->
+  Types.ReservedInstancesListingId ->
   CancelReservedInstancesListing
-mkCancelReservedInstancesListing pReservedInstancesListingId_ =
-  CancelReservedInstancesListing'
-    { reservedInstancesListingId =
-        pReservedInstancesListingId_
-    }
+mkCancelReservedInstancesListing reservedInstancesListingId =
+  CancelReservedInstancesListing' {reservedInstancesListingId}
 
 -- | The ID of the Reserved Instance listing.
 --
 -- /Note:/ Consider using 'reservedInstancesListingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilReservedInstancesListingId :: Lens.Lens' CancelReservedInstancesListing Lude.Text
-crilReservedInstancesListingId = Lens.lens (reservedInstancesListingId :: CancelReservedInstancesListing -> Lude.Text) (\s a -> s {reservedInstancesListingId = a} :: CancelReservedInstancesListing)
+crilReservedInstancesListingId :: Lens.Lens' CancelReservedInstancesListing Types.ReservedInstancesListingId
+crilReservedInstancesListingId = Lens.field @"reservedInstancesListingId"
 {-# DEPRECATED crilReservedInstancesListingId "Use generic-lens or generic-optics with 'reservedInstancesListingId' instead." #-}
 
-instance Lude.AWSRequest CancelReservedInstancesListing where
+instance Core.AWSRequest CancelReservedInstancesListing where
   type
     Rs CancelReservedInstancesListing =
       CancelReservedInstancesListingResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CancelReservedInstancesListing")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue
+                            "ReservedInstancesListingId"
+                            reservedInstancesListingId
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CancelReservedInstancesListingResponse'
-            Lude.<$> ( x Lude..@? "reservedInstancesListingsSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "reservedInstancesListingsSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelReservedInstancesListing where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelReservedInstancesListing where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelReservedInstancesListing where
-  toQuery CancelReservedInstancesListing' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CancelReservedInstancesListing" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ReservedInstancesListingId" Lude.=: reservedInstancesListingId
-      ]
 
 -- | Contains the output of CancelReservedInstancesListing.
 --
 -- /See:/ 'mkCancelReservedInstancesListingResponse' smart constructor.
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
   { -- | The Reserved Instance listing.
-    reservedInstancesListings :: Lude.Maybe [ReservedInstancesListing],
+    reservedInstancesListings :: Core.Maybe [Types.ReservedInstancesListing],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CancelReservedInstancesListingResponse' with the minimum fields required to make a request.
---
--- * 'reservedInstancesListings' - The Reserved Instance listing.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelReservedInstancesListingResponse' value with any optional fields omitted.
 mkCancelReservedInstancesListingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelReservedInstancesListingResponse
-mkCancelReservedInstancesListingResponse pResponseStatus_ =
+mkCancelReservedInstancesListingResponse responseStatus =
   CancelReservedInstancesListingResponse'
     { reservedInstancesListings =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The Reserved Instance listing.
 --
 -- /Note:/ Consider using 'reservedInstancesListings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilrsReservedInstancesListings :: Lens.Lens' CancelReservedInstancesListingResponse (Lude.Maybe [ReservedInstancesListing])
-crilrsReservedInstancesListings = Lens.lens (reservedInstancesListings :: CancelReservedInstancesListingResponse -> Lude.Maybe [ReservedInstancesListing]) (\s a -> s {reservedInstancesListings = a} :: CancelReservedInstancesListingResponse)
-{-# DEPRECATED crilrsReservedInstancesListings "Use generic-lens or generic-optics with 'reservedInstancesListings' instead." #-}
+crilrrsReservedInstancesListings :: Lens.Lens' CancelReservedInstancesListingResponse (Core.Maybe [Types.ReservedInstancesListing])
+crilrrsReservedInstancesListings = Lens.field @"reservedInstancesListings"
+{-# DEPRECATED crilrrsReservedInstancesListings "Use generic-lens or generic-optics with 'reservedInstancesListings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilrsResponseStatus :: Lens.Lens' CancelReservedInstancesListingResponse Lude.Int
-crilrsResponseStatus = Lens.lens (responseStatus :: CancelReservedInstancesListingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelReservedInstancesListingResponse)
-{-# DEPRECATED crilrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crilrrsResponseStatus :: Lens.Lens' CancelReservedInstancesListingResponse Core.Int
+crilrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crilrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

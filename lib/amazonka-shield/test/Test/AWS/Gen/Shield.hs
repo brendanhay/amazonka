@@ -390,7 +390,7 @@ responseAssociateDRTLogBucket =
   res
     "AssociateDRTLogBucketResponse"
     "fixture/AssociateDRTLogBucketResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy AssociateDRTLogBucket)
 
 responseDisassociateDRTRole :: DisassociateDRTRoleResponse -> TestTree
@@ -398,7 +398,7 @@ responseDisassociateDRTRole =
   res
     "DisassociateDRTRoleResponse"
     "fixture/DisassociateDRTRoleResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateDRTRole)
 
 responseCreateSubscription :: CreateSubscriptionResponse -> TestTree
@@ -406,7 +406,7 @@ responseCreateSubscription =
   res
     "CreateSubscriptionResponse"
     "fixture/CreateSubscriptionResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy CreateSubscription)
 
 responseListProtections :: ListProtectionsResponse -> TestTree
@@ -414,7 +414,7 @@ responseListProtections =
   res
     "ListProtectionsResponse"
     "fixture/ListProtectionsResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy ListProtections)
 
 responseAssociateDRTRole :: AssociateDRTRoleResponse -> TestTree
@@ -422,7 +422,7 @@ responseAssociateDRTRole =
   res
     "AssociateDRTRoleResponse"
     "fixture/AssociateDRTRoleResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy AssociateDRTRole)
 
 responseUpdateSubscription :: UpdateSubscriptionResponse -> TestTree
@@ -430,7 +430,7 @@ responseUpdateSubscription =
   res
     "UpdateSubscriptionResponse"
     "fixture/UpdateSubscriptionResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSubscription)
 
 responseDisassociateDRTLogBucket :: DisassociateDRTLogBucketResponse -> TestTree
@@ -438,7 +438,7 @@ responseDisassociateDRTLogBucket =
   res
     "DisassociateDRTLogBucketResponse"
     "fixture/DisassociateDRTLogBucketResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateDRTLogBucket)
 
 responseAssociateProactiveEngagementDetails :: AssociateProactiveEngagementDetailsResponse -> TestTree
@@ -446,7 +446,7 @@ responseAssociateProactiveEngagementDetails =
   res
     "AssociateProactiveEngagementDetailsResponse"
     "fixture/AssociateProactiveEngagementDetailsResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy AssociateProactiveEngagementDetails)
 
 responseDescribeAttack :: DescribeAttackResponse -> TestTree
@@ -454,7 +454,7 @@ responseDescribeAttack =
   res
     "DescribeAttackResponse"
     "fixture/DescribeAttackResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAttack)
 
 responseListProtectionGroups :: ListProtectionGroupsResponse -> TestTree
@@ -462,7 +462,7 @@ responseListProtectionGroups =
   res
     "ListProtectionGroupsResponse"
     "fixture/ListProtectionGroupsResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy ListProtectionGroups)
 
 responseEnableProactiveEngagement :: EnableProactiveEngagementResponse -> TestTree
@@ -470,7 +470,7 @@ responseEnableProactiveEngagement =
   res
     "EnableProactiveEngagementResponse"
     "fixture/EnableProactiveEngagementResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy EnableProactiveEngagement)
 
 responseUpdateEmergencyContactSettings :: UpdateEmergencyContactSettingsResponse -> TestTree
@@ -478,7 +478,7 @@ responseUpdateEmergencyContactSettings =
   res
     "UpdateEmergencyContactSettingsResponse"
     "fixture/UpdateEmergencyContactSettingsResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy UpdateEmergencyContactSettings)
 
 responseCreateProtectionGroup :: CreateProtectionGroupResponse -> TestTree
@@ -486,7 +486,7 @@ responseCreateProtectionGroup =
   res
     "CreateProtectionGroupResponse"
     "fixture/CreateProtectionGroupResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy CreateProtectionGroup)
 
 responseDisableProactiveEngagement :: DisableProactiveEngagementResponse -> TestTree
@@ -494,7 +494,7 @@ responseDisableProactiveEngagement =
   res
     "DisableProactiveEngagementResponse"
     "fixture/DisableProactiveEngagementResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DisableProactiveEngagement)
 
 responseDisassociateHealthCheck :: DisassociateHealthCheckResponse -> TestTree
@@ -502,7 +502,7 @@ responseDisassociateHealthCheck =
   res
     "DisassociateHealthCheckResponse"
     "fixture/DisassociateHealthCheckResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateHealthCheck)
 
 responseListResourcesInProtectionGroup :: ListResourcesInProtectionGroupResponse -> TestTree
@@ -510,7 +510,7 @@ responseListResourcesInProtectionGroup =
   res
     "ListResourcesInProtectionGroupResponse"
     "fixture/ListResourcesInProtectionGroupResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy ListResourcesInProtectionGroup)
 
 responseDescribeProtection :: DescribeProtectionResponse -> TestTree
@@ -518,7 +518,7 @@ responseDescribeProtection =
   res
     "DescribeProtectionResponse"
     "fixture/DescribeProtectionResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProtection)
 
 responseListAttacks :: ListAttacksResponse -> TestTree
@@ -526,7 +526,7 @@ responseListAttacks =
   res
     "ListAttacksResponse"
     "fixture/ListAttacksResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy ListAttacks)
 
 responseDescribeEmergencyContactSettings :: DescribeEmergencyContactSettingsResponse -> TestTree
@@ -534,7 +534,7 @@ responseDescribeEmergencyContactSettings =
   res
     "DescribeEmergencyContactSettingsResponse"
     "fixture/DescribeEmergencyContactSettingsResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEmergencyContactSettings)
 
 responseCreateProtection :: CreateProtectionResponse -> TestTree
@@ -542,7 +542,7 @@ responseCreateProtection =
   res
     "CreateProtectionResponse"
     "fixture/CreateProtectionResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy CreateProtection)
 
 responseDeleteProtection :: DeleteProtectionResponse -> TestTree
@@ -550,7 +550,7 @@ responseDeleteProtection =
   res
     "DeleteProtectionResponse"
     "fixture/DeleteProtectionResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProtection)
 
 responseGetSubscriptionState :: GetSubscriptionStateResponse -> TestTree
@@ -558,7 +558,7 @@ responseGetSubscriptionState =
   res
     "GetSubscriptionStateResponse"
     "fixture/GetSubscriptionStateResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy GetSubscriptionState)
 
 responseDeleteProtectionGroup :: DeleteProtectionGroupResponse -> TestTree
@@ -566,7 +566,7 @@ responseDeleteProtectionGroup =
   res
     "DeleteProtectionGroupResponse"
     "fixture/DeleteProtectionGroupResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProtectionGroup)
 
 responseUpdateProtectionGroup :: UpdateProtectionGroupResponse -> TestTree
@@ -574,7 +574,7 @@ responseUpdateProtectionGroup =
   res
     "UpdateProtectionGroupResponse"
     "fixture/UpdateProtectionGroupResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy UpdateProtectionGroup)
 
 responseDescribeAttackStatistics :: DescribeAttackStatisticsResponse -> TestTree
@@ -582,7 +582,7 @@ responseDescribeAttackStatistics =
   res
     "DescribeAttackStatisticsResponse"
     "fixture/DescribeAttackStatisticsResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAttackStatistics)
 
 responseDescribeDRTAccess :: DescribeDRTAccessResponse -> TestTree
@@ -590,7 +590,7 @@ responseDescribeDRTAccess =
   res
     "DescribeDRTAccessResponse"
     "fixture/DescribeDRTAccessResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDRTAccess)
 
 responseDescribeSubscription :: DescribeSubscriptionResponse -> TestTree
@@ -598,7 +598,7 @@ responseDescribeSubscription =
   res
     "DescribeSubscriptionResponse"
     "fixture/DescribeSubscriptionResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSubscription)
 
 responseAssociateHealthCheck :: AssociateHealthCheckResponse -> TestTree
@@ -606,7 +606,7 @@ responseAssociateHealthCheck =
   res
     "AssociateHealthCheckResponse"
     "fixture/AssociateHealthCheckResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy AssociateHealthCheck)
 
 responseDescribeProtectionGroup :: DescribeProtectionGroupResponse -> TestTree
@@ -614,5 +614,5 @@ responseDescribeProtectionGroup =
   res
     "DescribeProtectionGroupResponse"
     "fixture/DescribeProtectionGroupResponse.proto"
-    shieldService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProtectionGroup)

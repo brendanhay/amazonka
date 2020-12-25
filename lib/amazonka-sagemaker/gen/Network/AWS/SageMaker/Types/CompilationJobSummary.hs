@@ -17,192 +17,180 @@ module Network.AWS.SageMaker.Types.CompilationJobSummary
     mkCompilationJobSummary,
 
     -- * Lenses
-    cjsCompilationStartTime,
-    cjsCreationTime,
-    cjsCompilationTargetPlatformAccelerator,
-    cjsCompilationTargetDevice,
-    cjsLastModifiedTime,
     cjsCompilationJobName,
-    cjsCompilationTargetPlatformArch,
+    cjsCompilationJobArn,
+    cjsCreationTime,
     cjsCompilationJobStatus,
     cjsCompilationEndTime,
-    cjsCompilationJobARN,
-    cjsCompilationTargetPlatformOS,
+    cjsCompilationStartTime,
+    cjsCompilationTargetDevice,
+    cjsCompilationTargetPlatformAccelerator,
+    cjsCompilationTargetPlatformArch,
+    cjsCompilationTargetPlatformOs,
+    cjsLastModifiedTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.CompilationJobStatus
-import Network.AWS.SageMaker.Types.TargetDevice
-import Network.AWS.SageMaker.Types.TargetPlatformAccelerator
-import Network.AWS.SageMaker.Types.TargetPlatformArch
-import Network.AWS.SageMaker.Types.TargetPlatformOS
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.CompilationJobArn as Types
+import qualified Network.AWS.SageMaker.Types.CompilationJobStatus as Types
+import qualified Network.AWS.SageMaker.Types.EntityName as Types
+import qualified Network.AWS.SageMaker.Types.TargetDevice as Types
+import qualified Network.AWS.SageMaker.Types.TargetPlatformAccelerator as Types
+import qualified Network.AWS.SageMaker.Types.TargetPlatformArch as Types
+import qualified Network.AWS.SageMaker.Types.TargetPlatformOs as Types
 
 -- | A summary of a model compilation job.
 --
 -- /See:/ 'mkCompilationJobSummary' smart constructor.
 data CompilationJobSummary = CompilationJobSummary'
-  { -- | The time when the model compilation job started.
-    compilationStartTime :: Lude.Maybe Lude.Timestamp,
-    -- | The time when the model compilation job was created.
-    creationTime :: Lude.Timestamp,
-    -- | The type of accelerator that the model will run on after the compilation job has completed.
-    compilationTargetPlatformAccelerator :: Lude.Maybe TargetPlatformAccelerator,
-    -- | The type of device that the model will run on after the compilation job has completed.
-    compilationTargetDevice :: Lude.Maybe TargetDevice,
-    -- | The time when the model compilation job was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the model compilation job that you want a summary for.
-    compilationJobName :: Lude.Text,
-    -- | The type of architecture that the model will run on after the compilation job has completed.
-    compilationTargetPlatformArch :: Lude.Maybe TargetPlatformArch,
-    -- | The status of the model compilation job.
-    compilationJobStatus :: CompilationJobStatus,
-    -- | The time when the model compilation job completed.
-    compilationEndTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The name of the model compilation job that you want a summary for.
+    compilationJobName :: Types.EntityName,
     -- | The Amazon Resource Name (ARN) of the model compilation job.
-    compilationJobARN :: Lude.Text,
+    compilationJobArn :: Types.CompilationJobArn,
+    -- | The time when the model compilation job was created.
+    creationTime :: Core.NominalDiffTime,
+    -- | The status of the model compilation job.
+    compilationJobStatus :: Types.CompilationJobStatus,
+    -- | The time when the model compilation job completed.
+    compilationEndTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The time when the model compilation job started.
+    compilationStartTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The type of device that the model will run on after the compilation job has completed.
+    compilationTargetDevice :: Core.Maybe Types.TargetDevice,
+    -- | The type of accelerator that the model will run on after the compilation job has completed.
+    compilationTargetPlatformAccelerator :: Core.Maybe Types.TargetPlatformAccelerator,
+    -- | The type of architecture that the model will run on after the compilation job has completed.
+    compilationTargetPlatformArch :: Core.Maybe Types.TargetPlatformArch,
     -- | The type of OS that the model will run on after the compilation job has completed.
-    compilationTargetPlatformOS :: Lude.Maybe TargetPlatformOS
+    compilationTargetPlatformOs :: Core.Maybe Types.TargetPlatformOs,
+    -- | The time when the model compilation job was last modified.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CompilationJobSummary' with the minimum fields required to make a request.
---
--- * 'compilationStartTime' - The time when the model compilation job started.
--- * 'creationTime' - The time when the model compilation job was created.
--- * 'compilationTargetPlatformAccelerator' - The type of accelerator that the model will run on after the compilation job has completed.
--- * 'compilationTargetDevice' - The type of device that the model will run on after the compilation job has completed.
--- * 'lastModifiedTime' - The time when the model compilation job was last modified.
--- * 'compilationJobName' - The name of the model compilation job that you want a summary for.
--- * 'compilationTargetPlatformArch' - The type of architecture that the model will run on after the compilation job has completed.
--- * 'compilationJobStatus' - The status of the model compilation job.
--- * 'compilationEndTime' - The time when the model compilation job completed.
--- * 'compilationJobARN' - The Amazon Resource Name (ARN) of the model compilation job.
--- * 'compilationTargetPlatformOS' - The type of OS that the model will run on after the compilation job has completed.
+-- | Creates a 'CompilationJobSummary' value with any optional fields omitted.
 mkCompilationJobSummary ::
-  -- | 'creationTime'
-  Lude.Timestamp ->
   -- | 'compilationJobName'
-  Lude.Text ->
+  Types.EntityName ->
+  -- | 'compilationJobArn'
+  Types.CompilationJobArn ->
+  -- | 'creationTime'
+  Core.NominalDiffTime ->
   -- | 'compilationJobStatus'
-  CompilationJobStatus ->
-  -- | 'compilationJobARN'
-  Lude.Text ->
+  Types.CompilationJobStatus ->
   CompilationJobSummary
 mkCompilationJobSummary
-  pCreationTime_
-  pCompilationJobName_
-  pCompilationJobStatus_
-  pCompilationJobARN_ =
+  compilationJobName
+  compilationJobArn
+  creationTime
+  compilationJobStatus =
     CompilationJobSummary'
-      { compilationStartTime = Lude.Nothing,
-        creationTime = pCreationTime_,
-        compilationTargetPlatformAccelerator = Lude.Nothing,
-        compilationTargetDevice = Lude.Nothing,
-        lastModifiedTime = Lude.Nothing,
-        compilationJobName = pCompilationJobName_,
-        compilationTargetPlatformArch = Lude.Nothing,
-        compilationJobStatus = pCompilationJobStatus_,
-        compilationEndTime = Lude.Nothing,
-        compilationJobARN = pCompilationJobARN_,
-        compilationTargetPlatformOS = Lude.Nothing
+      { compilationJobName,
+        compilationJobArn,
+        creationTime,
+        compilationJobStatus,
+        compilationEndTime = Core.Nothing,
+        compilationStartTime = Core.Nothing,
+        compilationTargetDevice = Core.Nothing,
+        compilationTargetPlatformAccelerator = Core.Nothing,
+        compilationTargetPlatformArch = Core.Nothing,
+        compilationTargetPlatformOs = Core.Nothing,
+        lastModifiedTime = Core.Nothing
       }
-
--- | The time when the model compilation job started.
---
--- /Note:/ Consider using 'compilationStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationStartTime :: Lens.Lens' CompilationJobSummary (Lude.Maybe Lude.Timestamp)
-cjsCompilationStartTime = Lens.lens (compilationStartTime :: CompilationJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {compilationStartTime = a} :: CompilationJobSummary)
-{-# DEPRECATED cjsCompilationStartTime "Use generic-lens or generic-optics with 'compilationStartTime' instead." #-}
-
--- | The time when the model compilation job was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCreationTime :: Lens.Lens' CompilationJobSummary Lude.Timestamp
-cjsCreationTime = Lens.lens (creationTime :: CompilationJobSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: CompilationJobSummary)
-{-# DEPRECATED cjsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The type of accelerator that the model will run on after the compilation job has completed.
---
--- /Note:/ Consider using 'compilationTargetPlatformAccelerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationTargetPlatformAccelerator :: Lens.Lens' CompilationJobSummary (Lude.Maybe TargetPlatformAccelerator)
-cjsCompilationTargetPlatformAccelerator = Lens.lens (compilationTargetPlatformAccelerator :: CompilationJobSummary -> Lude.Maybe TargetPlatformAccelerator) (\s a -> s {compilationTargetPlatformAccelerator = a} :: CompilationJobSummary)
-{-# DEPRECATED cjsCompilationTargetPlatformAccelerator "Use generic-lens or generic-optics with 'compilationTargetPlatformAccelerator' instead." #-}
-
--- | The type of device that the model will run on after the compilation job has completed.
---
--- /Note:/ Consider using 'compilationTargetDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationTargetDevice :: Lens.Lens' CompilationJobSummary (Lude.Maybe TargetDevice)
-cjsCompilationTargetDevice = Lens.lens (compilationTargetDevice :: CompilationJobSummary -> Lude.Maybe TargetDevice) (\s a -> s {compilationTargetDevice = a} :: CompilationJobSummary)
-{-# DEPRECATED cjsCompilationTargetDevice "Use generic-lens or generic-optics with 'compilationTargetDevice' instead." #-}
-
--- | The time when the model compilation job was last modified.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsLastModifiedTime :: Lens.Lens' CompilationJobSummary (Lude.Maybe Lude.Timestamp)
-cjsLastModifiedTime = Lens.lens (lastModifiedTime :: CompilationJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: CompilationJobSummary)
-{-# DEPRECATED cjsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The name of the model compilation job that you want a summary for.
 --
 -- /Note:/ Consider using 'compilationJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationJobName :: Lens.Lens' CompilationJobSummary Lude.Text
-cjsCompilationJobName = Lens.lens (compilationJobName :: CompilationJobSummary -> Lude.Text) (\s a -> s {compilationJobName = a} :: CompilationJobSummary)
+cjsCompilationJobName :: Lens.Lens' CompilationJobSummary Types.EntityName
+cjsCompilationJobName = Lens.field @"compilationJobName"
 {-# DEPRECATED cjsCompilationJobName "Use generic-lens or generic-optics with 'compilationJobName' instead." #-}
 
--- | The type of architecture that the model will run on after the compilation job has completed.
+-- | The Amazon Resource Name (ARN) of the model compilation job.
 --
--- /Note:/ Consider using 'compilationTargetPlatformArch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationTargetPlatformArch :: Lens.Lens' CompilationJobSummary (Lude.Maybe TargetPlatformArch)
-cjsCompilationTargetPlatformArch = Lens.lens (compilationTargetPlatformArch :: CompilationJobSummary -> Lude.Maybe TargetPlatformArch) (\s a -> s {compilationTargetPlatformArch = a} :: CompilationJobSummary)
-{-# DEPRECATED cjsCompilationTargetPlatformArch "Use generic-lens or generic-optics with 'compilationTargetPlatformArch' instead." #-}
+-- /Note:/ Consider using 'compilationJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjsCompilationJobArn :: Lens.Lens' CompilationJobSummary Types.CompilationJobArn
+cjsCompilationJobArn = Lens.field @"compilationJobArn"
+{-# DEPRECATED cjsCompilationJobArn "Use generic-lens or generic-optics with 'compilationJobArn' instead." #-}
+
+-- | The time when the model compilation job was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjsCreationTime :: Lens.Lens' CompilationJobSummary Core.NominalDiffTime
+cjsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED cjsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status of the model compilation job.
 --
 -- /Note:/ Consider using 'compilationJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationJobStatus :: Lens.Lens' CompilationJobSummary CompilationJobStatus
-cjsCompilationJobStatus = Lens.lens (compilationJobStatus :: CompilationJobSummary -> CompilationJobStatus) (\s a -> s {compilationJobStatus = a} :: CompilationJobSummary)
+cjsCompilationJobStatus :: Lens.Lens' CompilationJobSummary Types.CompilationJobStatus
+cjsCompilationJobStatus = Lens.field @"compilationJobStatus"
 {-# DEPRECATED cjsCompilationJobStatus "Use generic-lens or generic-optics with 'compilationJobStatus' instead." #-}
 
 -- | The time when the model compilation job completed.
 --
 -- /Note:/ Consider using 'compilationEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationEndTime :: Lens.Lens' CompilationJobSummary (Lude.Maybe Lude.Timestamp)
-cjsCompilationEndTime = Lens.lens (compilationEndTime :: CompilationJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {compilationEndTime = a} :: CompilationJobSummary)
+cjsCompilationEndTime :: Lens.Lens' CompilationJobSummary (Core.Maybe Core.NominalDiffTime)
+cjsCompilationEndTime = Lens.field @"compilationEndTime"
 {-# DEPRECATED cjsCompilationEndTime "Use generic-lens or generic-optics with 'compilationEndTime' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the model compilation job.
+-- | The time when the model compilation job started.
 --
--- /Note:/ Consider using 'compilationJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationJobARN :: Lens.Lens' CompilationJobSummary Lude.Text
-cjsCompilationJobARN = Lens.lens (compilationJobARN :: CompilationJobSummary -> Lude.Text) (\s a -> s {compilationJobARN = a} :: CompilationJobSummary)
-{-# DEPRECATED cjsCompilationJobARN "Use generic-lens or generic-optics with 'compilationJobARN' instead." #-}
+-- /Note:/ Consider using 'compilationStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjsCompilationStartTime :: Lens.Lens' CompilationJobSummary (Core.Maybe Core.NominalDiffTime)
+cjsCompilationStartTime = Lens.field @"compilationStartTime"
+{-# DEPRECATED cjsCompilationStartTime "Use generic-lens or generic-optics with 'compilationStartTime' instead." #-}
+
+-- | The type of device that the model will run on after the compilation job has completed.
+--
+-- /Note:/ Consider using 'compilationTargetDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjsCompilationTargetDevice :: Lens.Lens' CompilationJobSummary (Core.Maybe Types.TargetDevice)
+cjsCompilationTargetDevice = Lens.field @"compilationTargetDevice"
+{-# DEPRECATED cjsCompilationTargetDevice "Use generic-lens or generic-optics with 'compilationTargetDevice' instead." #-}
+
+-- | The type of accelerator that the model will run on after the compilation job has completed.
+--
+-- /Note:/ Consider using 'compilationTargetPlatformAccelerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjsCompilationTargetPlatformAccelerator :: Lens.Lens' CompilationJobSummary (Core.Maybe Types.TargetPlatformAccelerator)
+cjsCompilationTargetPlatformAccelerator = Lens.field @"compilationTargetPlatformAccelerator"
+{-# DEPRECATED cjsCompilationTargetPlatformAccelerator "Use generic-lens or generic-optics with 'compilationTargetPlatformAccelerator' instead." #-}
+
+-- | The type of architecture that the model will run on after the compilation job has completed.
+--
+-- /Note:/ Consider using 'compilationTargetPlatformArch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjsCompilationTargetPlatformArch :: Lens.Lens' CompilationJobSummary (Core.Maybe Types.TargetPlatformArch)
+cjsCompilationTargetPlatformArch = Lens.field @"compilationTargetPlatformArch"
+{-# DEPRECATED cjsCompilationTargetPlatformArch "Use generic-lens or generic-optics with 'compilationTargetPlatformArch' instead." #-}
 
 -- | The type of OS that the model will run on after the compilation job has completed.
 --
--- /Note:/ Consider using 'compilationTargetPlatformOS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjsCompilationTargetPlatformOS :: Lens.Lens' CompilationJobSummary (Lude.Maybe TargetPlatformOS)
-cjsCompilationTargetPlatformOS = Lens.lens (compilationTargetPlatformOS :: CompilationJobSummary -> Lude.Maybe TargetPlatformOS) (\s a -> s {compilationTargetPlatformOS = a} :: CompilationJobSummary)
-{-# DEPRECATED cjsCompilationTargetPlatformOS "Use generic-lens or generic-optics with 'compilationTargetPlatformOS' instead." #-}
+-- /Note:/ Consider using 'compilationTargetPlatformOs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjsCompilationTargetPlatformOs :: Lens.Lens' CompilationJobSummary (Core.Maybe Types.TargetPlatformOs)
+cjsCompilationTargetPlatformOs = Lens.field @"compilationTargetPlatformOs"
+{-# DEPRECATED cjsCompilationTargetPlatformOs "Use generic-lens or generic-optics with 'compilationTargetPlatformOs' instead." #-}
 
-instance Lude.FromJSON CompilationJobSummary where
+-- | The time when the model compilation job was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjsLastModifiedTime :: Lens.Lens' CompilationJobSummary (Core.Maybe Core.NominalDiffTime)
+cjsLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED cjsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+instance Core.FromJSON CompilationJobSummary where
   parseJSON =
-    Lude.withObject
-      "CompilationJobSummary"
-      ( \x ->
-          CompilationJobSummary'
-            Lude.<$> (x Lude..:? "CompilationStartTime")
-            Lude.<*> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..:? "CompilationTargetPlatformAccelerator")
-            Lude.<*> (x Lude..:? "CompilationTargetDevice")
-            Lude.<*> (x Lude..:? "LastModifiedTime")
-            Lude.<*> (x Lude..: "CompilationJobName")
-            Lude.<*> (x Lude..:? "CompilationTargetPlatformArch")
-            Lude.<*> (x Lude..: "CompilationJobStatus")
-            Lude.<*> (x Lude..:? "CompilationEndTime")
-            Lude.<*> (x Lude..: "CompilationJobArn")
-            Lude.<*> (x Lude..:? "CompilationTargetPlatformOs")
-      )
+    Core.withObject "CompilationJobSummary" Core.$
+      \x ->
+        CompilationJobSummary'
+          Core.<$> (x Core..: "CompilationJobName")
+          Core.<*> (x Core..: "CompilationJobArn")
+          Core.<*> (x Core..: "CreationTime")
+          Core.<*> (x Core..: "CompilationJobStatus")
+          Core.<*> (x Core..:? "CompilationEndTime")
+          Core.<*> (x Core..:? "CompilationStartTime")
+          Core.<*> (x Core..:? "CompilationTargetDevice")
+          Core.<*> (x Core..:? "CompilationTargetPlatformAccelerator")
+          Core.<*> (x Core..:? "CompilationTargetPlatformArch")
+          Core.<*> (x Core..:? "CompilationTargetPlatformOs")
+          Core.<*> (x Core..:? "LastModifiedTime")

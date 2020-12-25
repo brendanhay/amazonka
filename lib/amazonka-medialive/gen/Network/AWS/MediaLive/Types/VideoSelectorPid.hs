@@ -22,38 +22,35 @@ module Network.AWS.MediaLive.Types.VideoSelectorPid
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Video Selector Pid
 --
 -- /See:/ 'mkVideoSelectorPid' smart constructor.
 newtype VideoSelectorPid = VideoSelectorPid'
   { -- | Selects a specific PID from within a video source.
-    pid :: Lude.Maybe Lude.Natural
+    pid :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VideoSelectorPid' with the minimum fields required to make a request.
---
--- * 'pid' - Selects a specific PID from within a video source.
+-- | Creates a 'VideoSelectorPid' value with any optional fields omitted.
 mkVideoSelectorPid ::
   VideoSelectorPid
-mkVideoSelectorPid = VideoSelectorPid' {pid = Lude.Nothing}
+mkVideoSelectorPid = VideoSelectorPid' {pid = Core.Nothing}
 
 -- | Selects a specific PID from within a video source.
 --
 -- /Note:/ Consider using 'pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vspPid :: Lens.Lens' VideoSelectorPid (Lude.Maybe Lude.Natural)
-vspPid = Lens.lens (pid :: VideoSelectorPid -> Lude.Maybe Lude.Natural) (\s a -> s {pid = a} :: VideoSelectorPid)
+vspPid :: Lens.Lens' VideoSelectorPid (Core.Maybe Core.Natural)
+vspPid = Lens.field @"pid"
 {-# DEPRECATED vspPid "Use generic-lens or generic-optics with 'pid' instead." #-}
 
-instance Lude.FromJSON VideoSelectorPid where
-  parseJSON =
-    Lude.withObject
-      "VideoSelectorPid"
-      (\x -> VideoSelectorPid' Lude.<$> (x Lude..:? "pid"))
+instance Core.FromJSON VideoSelectorPid where
+  toJSON VideoSelectorPid {..} =
+    Core.object (Core.catMaybes [("pid" Core..=) Core.<$> pid])
 
-instance Lude.ToJSON VideoSelectorPid where
-  toJSON VideoSelectorPid' {..} =
-    Lude.object (Lude.catMaybes [("pid" Lude..=) Lude.<$> pid])
+instance Core.FromJSON VideoSelectorPid where
+  parseJSON =
+    Core.withObject "VideoSelectorPid" Core.$
+      \x -> VideoSelectorPid' Core.<$> (x Core..:? "pid")

@@ -20,157 +20,137 @@ module Network.AWS.Glue.UpdateUserDefinedFunction
     mkUpdateUserDefinedFunction,
 
     -- ** Request lenses
-    uudfCatalogId,
-    uudfFunctionInput,
     uudfDatabaseName,
     uudfFunctionName,
+    uudfFunctionInput,
+    uudfCatalogId,
 
     -- * Destructuring the response
     UpdateUserDefinedFunctionResponse (..),
     mkUpdateUserDefinedFunctionResponse,
 
     -- ** Response lenses
-    uudfrsResponseStatus,
+    uudfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateUserDefinedFunction' smart constructor.
 data UpdateUserDefinedFunction = UpdateUserDefinedFunction'
-  { -- | The ID of the Data Catalog where the function to be updated is located. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | A @FunctionInput@ object that redefines the function in the Data Catalog.
-    functionInput :: UserDefinedFunctionInput,
-    -- | The name of the catalog database where the function to be updated is located.
-    databaseName :: Lude.Text,
+  { -- | The name of the catalog database where the function to be updated is located.
+    databaseName :: Types.DatabaseName,
     -- | The name of the function.
-    functionName :: Lude.Text
+    functionName :: Types.FunctionName,
+    -- | A @FunctionInput@ object that redefines the function in the Data Catalog.
+    functionInput :: Types.UserDefinedFunctionInput,
+    -- | The ID of the Data Catalog where the function to be updated is located. If none is provided, the AWS account ID is used by default.
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserDefinedFunction' with the minimum fields required to make a request.
---
--- * 'catalogId' - The ID of the Data Catalog where the function to be updated is located. If none is provided, the AWS account ID is used by default.
--- * 'functionInput' - A @FunctionInput@ object that redefines the function in the Data Catalog.
--- * 'databaseName' - The name of the catalog database where the function to be updated is located.
--- * 'functionName' - The name of the function.
+-- | Creates a 'UpdateUserDefinedFunction' value with any optional fields omitted.
 mkUpdateUserDefinedFunction ::
-  -- | 'functionInput'
-  UserDefinedFunctionInput ->
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
+  -- | 'functionInput'
+  Types.UserDefinedFunctionInput ->
   UpdateUserDefinedFunction
-mkUpdateUserDefinedFunction
-  pFunctionInput_
-  pDatabaseName_
-  pFunctionName_ =
-    UpdateUserDefinedFunction'
-      { catalogId = Lude.Nothing,
-        functionInput = pFunctionInput_,
-        databaseName = pDatabaseName_,
-        functionName = pFunctionName_
-      }
-
--- | The ID of the Data Catalog where the function to be updated is located. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uudfCatalogId :: Lens.Lens' UpdateUserDefinedFunction (Lude.Maybe Lude.Text)
-uudfCatalogId = Lens.lens (catalogId :: UpdateUserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: UpdateUserDefinedFunction)
-{-# DEPRECATED uudfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
-
--- | A @FunctionInput@ object that redefines the function in the Data Catalog.
---
--- /Note:/ Consider using 'functionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uudfFunctionInput :: Lens.Lens' UpdateUserDefinedFunction UserDefinedFunctionInput
-uudfFunctionInput = Lens.lens (functionInput :: UpdateUserDefinedFunction -> UserDefinedFunctionInput) (\s a -> s {functionInput = a} :: UpdateUserDefinedFunction)
-{-# DEPRECATED uudfFunctionInput "Use generic-lens or generic-optics with 'functionInput' instead." #-}
+mkUpdateUserDefinedFunction databaseName functionName functionInput =
+  UpdateUserDefinedFunction'
+    { databaseName,
+      functionName,
+      functionInput,
+      catalogId = Core.Nothing
+    }
 
 -- | The name of the catalog database where the function to be updated is located.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uudfDatabaseName :: Lens.Lens' UpdateUserDefinedFunction Lude.Text
-uudfDatabaseName = Lens.lens (databaseName :: UpdateUserDefinedFunction -> Lude.Text) (\s a -> s {databaseName = a} :: UpdateUserDefinedFunction)
+uudfDatabaseName :: Lens.Lens' UpdateUserDefinedFunction Types.DatabaseName
+uudfDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED uudfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the function.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uudfFunctionName :: Lens.Lens' UpdateUserDefinedFunction Lude.Text
-uudfFunctionName = Lens.lens (functionName :: UpdateUserDefinedFunction -> Lude.Text) (\s a -> s {functionName = a} :: UpdateUserDefinedFunction)
+uudfFunctionName :: Lens.Lens' UpdateUserDefinedFunction Types.FunctionName
+uudfFunctionName = Lens.field @"functionName"
 {-# DEPRECATED uudfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance Lude.AWSRequest UpdateUserDefinedFunction where
+-- | A @FunctionInput@ object that redefines the function in the Data Catalog.
+--
+-- /Note:/ Consider using 'functionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uudfFunctionInput :: Lens.Lens' UpdateUserDefinedFunction Types.UserDefinedFunctionInput
+uudfFunctionInput = Lens.field @"functionInput"
+{-# DEPRECATED uudfFunctionInput "Use generic-lens or generic-optics with 'functionInput' instead." #-}
+
+-- | The ID of the Data Catalog where the function to be updated is located. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uudfCatalogId :: Lens.Lens' UpdateUserDefinedFunction (Core.Maybe Types.CatalogId)
+uudfCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED uudfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON UpdateUserDefinedFunction where
+  toJSON UpdateUserDefinedFunction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("FunctionName" Core..= functionName),
+            Core.Just ("FunctionInput" Core..= functionInput),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest UpdateUserDefinedFunction where
   type
     Rs UpdateUserDefinedFunction =
       UpdateUserDefinedFunctionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.UpdateUserDefinedFunction")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateUserDefinedFunctionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateUserDefinedFunction where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.UpdateUserDefinedFunction" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateUserDefinedFunction where
-  toJSON UpdateUserDefinedFunction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("FunctionInput" Lude..= functionInput),
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("FunctionName" Lude..= functionName)
-          ]
-      )
-
-instance Lude.ToPath UpdateUserDefinedFunction where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateUserDefinedFunction where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateUserDefinedFunctionResponse' smart constructor.
 newtype UpdateUserDefinedFunctionResponse = UpdateUserDefinedFunctionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserDefinedFunctionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateUserDefinedFunctionResponse' value with any optional fields omitted.
 mkUpdateUserDefinedFunctionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateUserDefinedFunctionResponse
-mkUpdateUserDefinedFunctionResponse pResponseStatus_ =
-  UpdateUserDefinedFunctionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateUserDefinedFunctionResponse responseStatus =
+  UpdateUserDefinedFunctionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uudfrsResponseStatus :: Lens.Lens' UpdateUserDefinedFunctionResponse Lude.Int
-uudfrsResponseStatus = Lens.lens (responseStatus :: UpdateUserDefinedFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateUserDefinedFunctionResponse)
-{-# DEPRECATED uudfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uudfrrsResponseStatus :: Lens.Lens' UpdateUserDefinedFunctionResponse Core.Int
+uudfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uudfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,142 @@
 -- __AWS Organizations__
 module Network.AWS.Organizations
   ( -- * Service configuration
-    organizationsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** PolicyNotFoundException
+    _PolicyNotFoundException,
+
+    -- ** PolicyTypeAlreadyEnabledException
+    _PolicyTypeAlreadyEnabledException,
+
+    -- ** HandshakeConstraintViolationException
+    _HandshakeConstraintViolationException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** RootNotFoundException
+    _RootNotFoundException,
+
+    -- ** MasterCannotLeaveOrganizationException
+    _MasterCannotLeaveOrganizationException,
+
+    -- ** AccountNotFoundException
+    _AccountNotFoundException,
+
+    -- ** AccountAlreadyRegisteredException
+    _AccountAlreadyRegisteredException,
+
+    -- ** DuplicatePolicyException
+    _DuplicatePolicyException,
+
+    -- ** ConstraintViolationException
+    _ConstraintViolationException,
+
+    -- ** AccountNotRegisteredException
+    _AccountNotRegisteredException,
+
+    -- ** FinalizingOrganizationException
+    _FinalizingOrganizationException,
+
+    -- ** HandshakeNotFoundException
+    _HandshakeNotFoundException,
+
+    -- ** PolicyTypeNotAvailableForOrganizationException
+    _PolicyTypeNotAvailableForOrganizationException,
+
+    -- ** ChildNotFoundException
+    _ChildNotFoundException,
+
+    -- ** UnsupportedAPIEndpointException
+    _UnsupportedAPIEndpointException,
+
+    -- ** EffectivePolicyNotFoundException
+    _EffectivePolicyNotFoundException,
+
+    -- ** OrganizationalUnitNotFoundException
+    _OrganizationalUnitNotFoundException,
+
+    -- ** DestinationParentNotFoundException
+    _DestinationParentNotFoundException,
+
+    -- ** OrganizationNotEmptyException
+    _OrganizationNotEmptyException,
+
+    -- ** AccountOwnerNotVerifiedException
+    _AccountOwnerNotVerifiedException,
+
+    -- ** PolicyTypeNotEnabledException
+    _PolicyTypeNotEnabledException,
+
+    -- ** DuplicateHandshakeException
+    _DuplicateHandshakeException,
+
+    -- ** OrganizationalUnitNotEmptyException
+    _OrganizationalUnitNotEmptyException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** SourceParentNotFoundException
+    _SourceParentNotFoundException,
+
+    -- ** TargetNotFoundException
+    _TargetNotFoundException,
+
+    -- ** CreateAccountStatusNotFoundException
+    _CreateAccountStatusNotFoundException,
+
+    -- ** AlreadyInOrganizationException
+    _AlreadyInOrganizationException,
+
+    -- ** DuplicateOrganizationalUnitException
+    _DuplicateOrganizationalUnitException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** PolicyChangesInProgressException
+    _PolicyChangesInProgressException,
+
+    -- ** PolicyNotAttachedException
+    _PolicyNotAttachedException,
+
+    -- ** ParentNotFoundException
+    _ParentNotFoundException,
+
+    -- ** AccessDeniedForDependencyException
+    _AccessDeniedForDependencyException,
+
+    -- ** AWSOrganizationsNotInUseException
+    _AWSOrganizationsNotInUseException,
+
+    -- ** PolicyInUseException
+    _PolicyInUseException,
+
+    -- ** InvalidHandshakeTransitionException
+    _InvalidHandshakeTransitionException,
+
+    -- ** HandshakeAlreadyInStateException
+    _HandshakeAlreadyInStateException,
+
+    -- ** DuplicateAccountException
+    _DuplicateAccountException,
+
+    -- ** DuplicatePolicyAttachmentException
+    _DuplicatePolicyAttachmentException,
 
     -- * Waiters
     -- $waiters
@@ -180,193 +311,14 @@ module Network.AWS.Organizations
 
     -- * Types
 
-    -- ** AccountJoinedMethod
-    AccountJoinedMethod (..),
-
-    -- ** AccountStatus
-    AccountStatus (..),
-
-    -- ** ActionType
-    ActionType (..),
-
-    -- ** ChildType
-    ChildType (..),
-
-    -- ** CreateAccountFailureReason
-    CreateAccountFailureReason (..),
-
-    -- ** CreateAccountState
-    CreateAccountState (..),
-
-    -- ** EffectivePolicyType
-    EffectivePolicyType (..),
-
-    -- ** HandshakePartyType
-    HandshakePartyType (..),
-
-    -- ** HandshakeResourceType
-    HandshakeResourceType (..),
-
-    -- ** HandshakeState
-    HandshakeState (..),
-
-    -- ** IAMUserAccessToBilling
-    IAMUserAccessToBilling (..),
-
-    -- ** OrganizationFeatureSet
-    OrganizationFeatureSet (..),
-
-    -- ** ParentType
-    ParentType (..),
-
-    -- ** PolicyType
-    PolicyType (..),
-
-    -- ** PolicyTypeStatus
-    PolicyTypeStatus (..),
-
-    -- ** TargetType
-    TargetType (..),
-
-    -- ** Account
-    Account (..),
-    mkAccount,
-    aStatus,
-    aJoinedMethod,
-    aEmail,
-    aARN,
-    aJoinedTimestamp,
-    aName,
-    aId,
-
-    -- ** Child
-    Child (..),
-    mkChild,
-    cId,
-    cType,
-
-    -- ** CreateAccountStatus
-    CreateAccountStatus (..),
-    mkCreateAccountStatus,
-    casFailureReason,
-    casState,
-    casCompletedTimestamp,
-    casAccountName,
-    casAccountId,
-    casId,
-    casGovCloudAccountId,
-    casRequestedTimestamp,
-
-    -- ** DelegatedAdministrator
-    DelegatedAdministrator (..),
-    mkDelegatedAdministrator,
-    daStatus,
-    daJoinedMethod,
-    daEmail,
-    daARN,
-    daJoinedTimestamp,
-    daDelegationEnabledDate,
-    daName,
-    daId,
-
-    -- ** DelegatedService
-    DelegatedService (..),
-    mkDelegatedService,
-    dsServicePrincipal,
-    dsDelegationEnabledDate,
-
-    -- ** EffectivePolicy
-    EffectivePolicy (..),
-    mkEffectivePolicy,
-    epTargetId,
-    epPolicyType,
-    epLastUpdatedTimestamp,
-    epPolicyContent,
-
-    -- ** EnabledServicePrincipal
-    EnabledServicePrincipal (..),
-    mkEnabledServicePrincipal,
-    espServicePrincipal,
-    espDateEnabled,
-
-    -- ** Handshake
-    Handshake (..),
-    mkHandshake,
-    hState,
-    hARN,
-    hAction,
-    hResources,
-    hId,
-    hExpirationTimestamp,
-    hParties,
-    hRequestedTimestamp,
-
-    -- ** HandshakeFilter
-    HandshakeFilter (..),
-    mkHandshakeFilter,
-    hfParentHandshakeId,
-    hfActionType,
-
-    -- ** HandshakeParty
-    HandshakeParty (..),
-    mkHandshakeParty,
-    hpId,
-    hpType,
-
-    -- ** HandshakeResource
-    HandshakeResource (..),
-    mkHandshakeResource,
-    hrValue,
-    hrResources,
-    hrType,
-
-    -- ** Organization
-    Organization (..),
-    mkOrganization,
-    oARN,
-    oMasterAccountId,
-    oMasterAccountARN,
-    oMasterAccountEmail,
-    oAvailablePolicyTypes,
-    oId,
-    oFeatureSet,
-
-    -- ** OrganizationalUnit
-    OrganizationalUnit (..),
-    mkOrganizationalUnit,
-    ouARN,
-    ouName,
-    ouId,
-
     -- ** Parent
     Parent (..),
     mkParent,
     pId,
     pType,
 
-    -- ** Policy
-    Policy (..),
-    mkPolicy,
-    pContent,
-    pPolicySummary,
-
-    -- ** PolicySummary
-    PolicySummary (..),
-    mkPolicySummary,
-    psARN,
-    psName,
-    psId,
-    psAWSManaged,
-    psType,
-    psDescription,
-
-    -- ** PolicyTargetSummary
-    PolicyTargetSummary (..),
-    mkPolicyTargetSummary,
-    ptsfTargetId,
-    ptsfARN,
-    ptsfName,
-    ptsfType,
+    -- ** HandshakePartyId
+    HandshakePartyId (..),
 
     -- ** PolicyTypeSummary
     PolicyTypeSummary (..),
@@ -374,29 +326,317 @@ module Network.AWS.Organizations
     ptsStatus,
     ptsType,
 
-    -- ** Root
-    Root (..),
-    mkRoot,
-    rARN,
-    rName,
-    rId,
-    rPolicyTypes,
+    -- ** GenericArn
+    GenericArn (..),
+
+    -- ** HandshakeNotes
+    HandshakeNotes (..),
+
+    -- ** Email
+    Email (..),
+
+    -- ** PolicyTypeStatus
+    PolicyTypeStatus (..),
+
+    -- ** Handshake
+    Handshake (..),
+    mkHandshake,
+    hAction,
+    hArn,
+    hExpirationTimestamp,
+    hId,
+    hParties,
+    hRequestedTimestamp,
+    hResources,
+    hState,
+
+    -- ** ServicePrincipal
+    ServicePrincipal (..),
+
+    -- ** PolicyName
+    PolicyName (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** EnabledServicePrincipal
+    EnabledServicePrincipal (..),
+    mkEnabledServicePrincipal,
+    espDateEnabled,
+    espServicePrincipal,
+
+    -- ** Child
+    Child (..),
+    mkChild,
+    cId,
+    cType,
+
+    -- ** CreateAccountState
+    CreateAccountState (..),
+
+    -- ** EffectivePolicy
+    EffectivePolicy (..),
+    mkEffectivePolicy,
+    epLastUpdatedTimestamp,
+    epPolicyContent,
+    epPolicyType,
+    epTargetId,
+
+    -- ** AccountJoinedMethod
+    AccountJoinedMethod (..),
+
+    -- ** AccountStatus
+    AccountStatus (..),
+
+    -- ** PolicyId
+    PolicyId (..),
+
+    -- ** HandshakeResourceType
+    HandshakeResourceType (..),
+
+    -- ** OrganizationalUnitArn
+    OrganizationalUnitArn (..),
+
+    -- ** OrganizationalUnit
+    OrganizationalUnit (..),
+    mkOrganizationalUnit,
+    ouArn,
+    ouId,
+    ouName,
+
+    -- ** IAMUserAccessToBilling
+    IAMUserAccessToBilling (..),
+
+    -- ** PolicyType
+    PolicyType (..),
+
+    -- ** RootId
+    RootId (..),
+
+    -- ** RoleName
+    RoleName (..),
+
+    -- ** AccountName
+    AccountName (..),
+
+    -- ** Root
+    Root (..),
+    mkRoot,
+    rArn,
+    rId,
+    rName,
+    rPolicyTypes,
+
+    -- ** DelegatedService
+    DelegatedService (..),
+    mkDelegatedService,
+    dsDelegationEnabledDate,
+    dsServicePrincipal,
+
+    -- ** PolicyDescription
+    PolicyDescription (..),
+
+    -- ** HandshakePartyType
+    HandshakePartyType (..),
+
+    -- ** CreateAccountRequestId
+    CreateAccountRequestId (..),
+
+    -- ** TargetType
+    TargetType (..),
+
+    -- ** CreateAccountFailureReason
+    CreateAccountFailureReason (..),
+
+    -- ** Account
+    Account (..),
+    mkAccount,
+    aArn,
+    aEmail,
+    aId,
+    aJoinedMethod,
+    aJoinedTimestamp,
+    aName,
+    aStatus,
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** PolicyTargetId
+    PolicyTargetId (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ParentType
+    ParentType (..),
+
+    -- ** AccountArn
+    AccountArn (..),
+
+    -- ** PolicySummary
+    PolicySummary (..),
+    mkPolicySummary,
+    psArn,
+    psAwsManaged,
+    psDescription,
+    psId,
+    psName,
+    psType,
+
+    -- ** HandshakeFilter
+    HandshakeFilter (..),
+    mkHandshakeFilter,
+    hfActionType,
+    hfParentHandshakeId,
+
+    -- ** OrganizationalUnitName
+    OrganizationalUnitName (..),
+
+    -- ** ChildId
+    ChildId (..),
+
+    -- ** ChildType
+    ChildType (..),
+
+    -- ** HandshakeId
+    HandshakeId (..),
+
+    -- ** PolicyTargetSummary
+    PolicyTargetSummary (..),
+    mkPolicyTargetSummary,
+    ptsfArn,
+    ptsfName,
+    ptsfTargetId,
+    ptsfType,
+
+    -- ** HandshakeResource
+    HandshakeResource (..),
+    mkHandshakeResource,
+    hrResources,
+    hrType,
+    hrValue,
+
+    -- ** EffectivePolicyType
+    EffectivePolicyType (..),
+
+    -- ** OrganizationalUnitId
+    OrganizationalUnitId (..),
+
+    -- ** OrganizationFeatureSet
+    OrganizationFeatureSet (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Policy
+    Policy (..),
+    mkPolicy,
+    pContent,
+    pPolicySummary,
+
+    -- ** DelegatedAdministrator
+    DelegatedAdministrator (..),
+    mkDelegatedAdministrator,
+    daArn,
+    daDelegationEnabledDate,
+    daEmail,
+    daId,
+    daJoinedMethod,
+    daJoinedTimestamp,
+    daName,
+    daStatus,
+
+    -- ** HandshakeState
+    HandshakeState (..),
+
+    -- ** TaggableResourceId
+    TaggableResourceId (..),
+
+    -- ** Organization
+    Organization (..),
+    mkOrganization,
+    oArn,
+    oAvailablePolicyTypes,
+    oFeatureSet,
+    oId,
+    oMasterAccountArn,
+    oMasterAccountEmail,
+    oMasterAccountId,
+
+    -- ** ActionType
+    ActionType (..),
+
+    -- ** HandshakeParty
+    HandshakeParty (..),
+    mkHandshakeParty,
+    hpId,
+    hpType,
+
+    -- ** ParentId
+    ParentId (..),
+
+    -- ** PolicyContent
+    PolicyContent (..),
+
+    -- ** CreateAccountStatus
+    CreateAccountStatus (..),
+    mkCreateAccountStatus,
+    casAccountId,
+    casAccountName,
+    casCompletedTimestamp,
+    casFailureReason,
+    casGovCloudAccountId,
+    casId,
+    casRequestedTimestamp,
+    casState,
+
+    -- ** Id
+    Id (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** TargetId
+    TargetId (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Content
+    Content (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** ParentHandshakeId
+    ParentHandshakeId (..),
+
+    -- ** SourceParentId
+    SourceParentId (..),
+
+    -- ** DestinationParentId
+    DestinationParentId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

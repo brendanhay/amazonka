@@ -24,88 +24,80 @@ module Network.AWS.Route53.GetHealthCheckCount
     mkGetHealthCheckCountResponse,
 
     -- ** Response lenses
-    ghccrsHealthCheckCount,
-    ghccrsResponseStatus,
+    ghccrrsHealthCheckCount,
+    ghccrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A request for the number of health checks that are associated with the current AWS account.
 --
 -- /See:/ 'mkGetHealthCheckCount' smart constructor.
 data GetHealthCheckCount = GetHealthCheckCount'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHealthCheckCount' with the minimum fields required to make a request.
+-- | Creates a 'GetHealthCheckCount' value with any optional fields omitted.
 mkGetHealthCheckCount ::
   GetHealthCheckCount
 mkGetHealthCheckCount = GetHealthCheckCount'
 
-instance Lude.AWSRequest GetHealthCheckCount where
+instance Core.AWSRequest GetHealthCheckCount where
   type Rs GetHealthCheckCount = GetHealthCheckCountResponse
-  request = Req.get route53Service
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2013-04-01/healthcheckcount",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetHealthCheckCountResponse'
-            Lude.<$> (x Lude..@ "HealthCheckCount")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "HealthCheckCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetHealthCheckCount where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetHealthCheckCount where
-  toPath = Lude.const "/2013-04-01/healthcheckcount"
-
-instance Lude.ToQuery GetHealthCheckCount where
-  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains the response to a @GetHealthCheckCount@ request.
 --
 -- /See:/ 'mkGetHealthCheckCountResponse' smart constructor.
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
   { -- | The number of health checks associated with the current AWS account.
-    healthCheckCount :: Lude.Integer,
+    healthCheckCount :: Core.Integer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHealthCheckCountResponse' with the minimum fields required to make a request.
---
--- * 'healthCheckCount' - The number of health checks associated with the current AWS account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetHealthCheckCountResponse' value with any optional fields omitted.
 mkGetHealthCheckCountResponse ::
   -- | 'healthCheckCount'
-  Lude.Integer ->
+  Core.Integer ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetHealthCheckCountResponse
-mkGetHealthCheckCountResponse pHealthCheckCount_ pResponseStatus_ =
-  GetHealthCheckCountResponse'
-    { healthCheckCount =
-        pHealthCheckCount_,
-      responseStatus = pResponseStatus_
-    }
+mkGetHealthCheckCountResponse healthCheckCount responseStatus =
+  GetHealthCheckCountResponse' {healthCheckCount, responseStatus}
 
 -- | The number of health checks associated with the current AWS account.
 --
 -- /Note:/ Consider using 'healthCheckCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghccrsHealthCheckCount :: Lens.Lens' GetHealthCheckCountResponse Lude.Integer
-ghccrsHealthCheckCount = Lens.lens (healthCheckCount :: GetHealthCheckCountResponse -> Lude.Integer) (\s a -> s {healthCheckCount = a} :: GetHealthCheckCountResponse)
-{-# DEPRECATED ghccrsHealthCheckCount "Use generic-lens or generic-optics with 'healthCheckCount' instead." #-}
+ghccrrsHealthCheckCount :: Lens.Lens' GetHealthCheckCountResponse Core.Integer
+ghccrrsHealthCheckCount = Lens.field @"healthCheckCount"
+{-# DEPRECATED ghccrrsHealthCheckCount "Use generic-lens or generic-optics with 'healthCheckCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghccrsResponseStatus :: Lens.Lens' GetHealthCheckCountResponse Lude.Int
-ghccrsResponseStatus = Lens.lens (responseStatus :: GetHealthCheckCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHealthCheckCountResponse)
-{-# DEPRECATED ghccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ghccrrsResponseStatus :: Lens.Lens' GetHealthCheckCountResponse Core.Int
+ghccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ghccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,34 +22,33 @@ module Network.AWS.Redshift.Types.AttributeValueTarget
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes an attribute value.
 --
 -- /See:/ 'mkAttributeValueTarget' smart constructor.
 newtype AttributeValueTarget = AttributeValueTarget'
   { -- | The value of the attribute.
-    attributeValue :: Lude.Maybe Lude.Text
+    attributeValue :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributeValueTarget' with the minimum fields required to make a request.
---
--- * 'attributeValue' - The value of the attribute.
+-- | Creates a 'AttributeValueTarget' value with any optional fields omitted.
 mkAttributeValueTarget ::
   AttributeValueTarget
 mkAttributeValueTarget =
-  AttributeValueTarget' {attributeValue = Lude.Nothing}
+  AttributeValueTarget' {attributeValue = Core.Nothing}
 
 -- | The value of the attribute.
 --
 -- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avtAttributeValue :: Lens.Lens' AttributeValueTarget (Lude.Maybe Lude.Text)
-avtAttributeValue = Lens.lens (attributeValue :: AttributeValueTarget -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: AttributeValueTarget)
+avtAttributeValue :: Lens.Lens' AttributeValueTarget (Core.Maybe Types.String)
+avtAttributeValue = Lens.field @"attributeValue"
 {-# DEPRECATED avtAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
-instance Lude.FromXML AttributeValueTarget where
+instance Core.FromXML AttributeValueTarget where
   parseXML x =
-    AttributeValueTarget' Lude.<$> (x Lude..@? "AttributeValue")
+    AttributeValueTarget' Core.<$> (x Core..@? "AttributeValue")

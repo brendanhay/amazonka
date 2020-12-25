@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +19,22 @@
 --     * cur.us-east-1.amazonaws.com
 module Network.AWS.CostAndUsageReport
   ( -- * Service configuration
-    costAndUsageReportService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** DuplicateReportNameException
+    _DuplicateReportNameException,
+
+    -- ** ReportLimitReachedException
+    _ReportLimitReachedException,
 
     -- * Waiters
     -- $waiters
@@ -45,8 +56,20 @@ module Network.AWS.CostAndUsageReport
 
     -- * Types
 
-    -- ** AWSRegion
-    AWSRegion (..),
+    -- ** ReportVersioning
+    ReportVersioning (..),
+
+    -- ** TimeUnit
+    TimeUnit (..),
+
+    -- ** ReportName
+    ReportName (..),
+
+    -- ** GenericString
+    GenericString (..),
+
+    -- ** SchemaElement
+    SchemaElement (..),
 
     -- ** AdditionalArtifact
     AdditionalArtifact (..),
@@ -54,42 +77,46 @@ module Network.AWS.CostAndUsageReport
     -- ** CompressionFormat
     CompressionFormat (..),
 
+    -- ** AWSRegion
+    AWSRegion (..),
+
     -- ** ReportFormat
     ReportFormat (..),
 
-    -- ** ReportVersioning
-    ReportVersioning (..),
-
-    -- ** SchemaElement
-    SchemaElement (..),
-
-    -- ** TimeUnit
-    TimeUnit (..),
+    -- ** S3Prefix
+    S3Prefix (..),
 
     -- ** ReportDefinition
     ReportDefinition (..),
     mkReportDefinition,
-    rdReportVersioning,
-    rdS3Region,
-    rdFormat,
-    rdTimeUnit,
-    rdCompression,
     rdReportName,
+    rdTimeUnit,
+    rdFormat,
+    rdCompression,
+    rdAdditionalSchemaElements,
+    rdS3Bucket,
+    rdS3Prefix,
+    rdS3Region,
     rdAdditionalArtifacts,
     rdRefreshClosedReports,
-    rdAdditionalSchemaElements,
-    rdS3Prefix,
-    rdS3Bucket,
+    rdReportVersioning,
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ResponseMessage
+    ResponseMessage (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

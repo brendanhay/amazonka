@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ResourceGroupsTagging
     Network.AWS.ResourceGroupsTagging.DescribeReportCreation
@@ -79,15 +85,30 @@ library
     Network.AWS.ResourceGroupsTagging.Waiters
 
   other-modules:
+    Network.AWS.ResourceGroupsTagging.Types.AmazonResourceType
     Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails
+    Network.AWS.ResourceGroupsTagging.Types.ErrorMessage
     Network.AWS.ResourceGroupsTagging.Types.FailureInfo
     Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute
+    Network.AWS.ResourceGroupsTagging.Types.Key
+    Network.AWS.ResourceGroupsTagging.Types.LastUpdated
+    Network.AWS.ResourceGroupsTagging.Types.PaginationToken
+    Network.AWS.ResourceGroupsTagging.Types.Region
+    Network.AWS.ResourceGroupsTagging.Types.ResourceARN
     Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
     Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping
+    Network.AWS.ResourceGroupsTagging.Types.ResourceType
+    Network.AWS.ResourceGroupsTagging.Types.S3Bucket
+    Network.AWS.ResourceGroupsTagging.Types.S3Location
+    Network.AWS.ResourceGroupsTagging.Types.Status
     Network.AWS.ResourceGroupsTagging.Types.Summary
     Network.AWS.ResourceGroupsTagging.Types.Tag
     Network.AWS.ResourceGroupsTagging.Types.TagFilter
+    Network.AWS.ResourceGroupsTagging.Types.TagKey
+    Network.AWS.ResourceGroupsTagging.Types.TagValue
+    Network.AWS.ResourceGroupsTagging.Types.TargetId
     Network.AWS.ResourceGroupsTagging.Types.TargetIdType
+    Network.AWS.ResourceGroupsTagging.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

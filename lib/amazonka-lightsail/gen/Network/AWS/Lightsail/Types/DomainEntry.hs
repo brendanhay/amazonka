@@ -17,30 +17,39 @@ module Network.AWS.Lightsail.Types.DomainEntry
     mkDomainEntry,
 
     -- * Lenses
+    deId,
     deIsAlias,
     deName,
-    deId,
     deOptions,
-    deType,
     deTarget,
+    deType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.DomainEntryOptionsKeys as Types
+import qualified Network.AWS.Lightsail.Types.DomainEntryType as Types
+import qualified Network.AWS.Lightsail.Types.Id as Types
+import qualified Network.AWS.Lightsail.Types.Name as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a domain recordset entry.
 --
 -- /See:/ 'mkDomainEntry' smart constructor.
 data DomainEntry = DomainEntry'
-  { -- | When @true@ , specifies whether the domain entry is an alias used by the Lightsail load balancer. You can include an alias (A type) record in your request, which points to a load balancer DNS name and routes traffic to your load balancer.
-    isAlias :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the domain recordset entry.
+    id :: Core.Maybe Types.Id,
+    -- | When @true@ , specifies whether the domain entry is an alias used by the Lightsail load balancer. You can include an alias (A type) record in your request, which points to a load balancer DNS name and routes traffic to your load balancer.
+    isAlias :: Core.Maybe Core.Bool,
     -- | The name of the domain.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID of the domain recordset entry.
-    id :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | (Deprecated) The options for the domain entry.
-    options :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    options :: Core.Maybe (Core.HashMap Types.DomainEntryOptionsKeys Types.String),
+    -- | The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ).
+    --
+    -- For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
+    target :: Core.Maybe Types.String,
     -- | The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).
     --
     -- The following domain entry types can be used:
@@ -64,88 +73,60 @@ data DomainEntry = DomainEntry'
     --
     --
     --     * @TXT@
-    type' :: Lude.Maybe Lude.Text,
-    -- | The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ).
-    --
-    -- For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
-    target :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.DomainEntryType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainEntry' with the minimum fields required to make a request.
---
--- * 'isAlias' - When @true@ , specifies whether the domain entry is an alias used by the Lightsail load balancer. You can include an alias (A type) record in your request, which points to a load balancer DNS name and routes traffic to your load balancer.
--- * 'name' - The name of the domain.
--- * 'id' - The ID of the domain recordset entry.
--- * 'options' - (Deprecated) The options for the domain entry.
--- * 'type'' - The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).
---
--- The following domain entry types can be used:
---
---     * @A@
---
---
---     * @CNAME@
---
---
---     * @MX@
---
---
---     * @NS@
---
---
---     * @SOA@
---
---
---     * @SRV@
---
---
---     * @TXT@
---
---
--- * 'target' - The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ).
---
--- For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
+-- | Creates a 'DomainEntry' value with any optional fields omitted.
 mkDomainEntry ::
   DomainEntry
 mkDomainEntry =
   DomainEntry'
-    { isAlias = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      options = Lude.Nothing,
-      type' = Lude.Nothing,
-      target = Lude.Nothing
+    { id = Core.Nothing,
+      isAlias = Core.Nothing,
+      name = Core.Nothing,
+      options = Core.Nothing,
+      target = Core.Nothing,
+      type' = Core.Nothing
     }
+
+-- | The ID of the domain recordset entry.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deId :: Lens.Lens' DomainEntry (Core.Maybe Types.Id)
+deId = Lens.field @"id"
+{-# DEPRECATED deId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | When @true@ , specifies whether the domain entry is an alias used by the Lightsail load balancer. You can include an alias (A type) record in your request, which points to a load balancer DNS name and routes traffic to your load balancer.
 --
 -- /Note:/ Consider using 'isAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deIsAlias :: Lens.Lens' DomainEntry (Lude.Maybe Lude.Bool)
-deIsAlias = Lens.lens (isAlias :: DomainEntry -> Lude.Maybe Lude.Bool) (\s a -> s {isAlias = a} :: DomainEntry)
+deIsAlias :: Lens.Lens' DomainEntry (Core.Maybe Core.Bool)
+deIsAlias = Lens.field @"isAlias"
 {-# DEPRECATED deIsAlias "Use generic-lens or generic-optics with 'isAlias' instead." #-}
 
 -- | The name of the domain.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deName :: Lens.Lens' DomainEntry (Lude.Maybe Lude.Text)
-deName = Lens.lens (name :: DomainEntry -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DomainEntry)
+deName :: Lens.Lens' DomainEntry (Core.Maybe Types.Name)
+deName = Lens.field @"name"
 {-# DEPRECATED deName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ID of the domain recordset entry.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deId :: Lens.Lens' DomainEntry (Lude.Maybe Lude.Text)
-deId = Lens.lens (id :: DomainEntry -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DomainEntry)
-{-# DEPRECATED deId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | (Deprecated) The options for the domain entry.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deOptions :: Lens.Lens' DomainEntry (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-deOptions = Lens.lens (options :: DomainEntry -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {options = a} :: DomainEntry)
+deOptions :: Lens.Lens' DomainEntry (Core.Maybe (Core.HashMap Types.DomainEntryOptionsKeys Types.String))
+deOptions = Lens.field @"options"
 {-# DEPRECATED deOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
+-- | The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ).
+--
+-- For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deTarget :: Lens.Lens' DomainEntry (Core.Maybe Types.String)
+deTarget = Lens.field @"target"
+{-# DEPRECATED deTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
 -- | The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).
 --
@@ -174,42 +155,31 @@ deOptions = Lens.lens (options :: DomainEntry -> Lude.Maybe (Lude.HashMap Lude.T
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deType :: Lens.Lens' DomainEntry (Lude.Maybe Lude.Text)
-deType = Lens.lens (type' :: DomainEntry -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: DomainEntry)
+deType :: Lens.Lens' DomainEntry (Core.Maybe Types.DomainEntryType)
+deType = Lens.field @"type'"
 {-# DEPRECATED deType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ).
---
--- For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
---
--- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deTarget :: Lens.Lens' DomainEntry (Lude.Maybe Lude.Text)
-deTarget = Lens.lens (target :: DomainEntry -> Lude.Maybe Lude.Text) (\s a -> s {target = a} :: DomainEntry)
-{-# DEPRECATED deTarget "Use generic-lens or generic-optics with 'target' instead." #-}
-
-instance Lude.FromJSON DomainEntry where
-  parseJSON =
-    Lude.withObject
-      "DomainEntry"
-      ( \x ->
-          DomainEntry'
-            Lude.<$> (x Lude..:? "isAlias")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "options" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "target")
-      )
-
-instance Lude.ToJSON DomainEntry where
-  toJSON DomainEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("isAlias" Lude..=) Lude.<$> isAlias,
-            ("name" Lude..=) Lude.<$> name,
-            ("id" Lude..=) Lude.<$> id,
-            ("options" Lude..=) Lude.<$> options,
-            ("type" Lude..=) Lude.<$> type',
-            ("target" Lude..=) Lude.<$> target
+instance Core.FromJSON DomainEntry where
+  toJSON DomainEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("id" Core..=) Core.<$> id,
+            ("isAlias" Core..=) Core.<$> isAlias,
+            ("name" Core..=) Core.<$> name,
+            ("options" Core..=) Core.<$> options,
+            ("target" Core..=) Core.<$> target,
+            ("type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON DomainEntry where
+  parseJSON =
+    Core.withObject "DomainEntry" Core.$
+      \x ->
+        DomainEntry'
+          Core.<$> (x Core..:? "id")
+          Core.<*> (x Core..:? "isAlias")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "options")
+          Core.<*> (x Core..:? "target")
+          Core.<*> (x Core..:? "type")

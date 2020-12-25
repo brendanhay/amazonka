@@ -13,47 +13,49 @@
 module Network.AWS.CostAndUsageReport.Types.ReportFormat
   ( ReportFormat
       ( ReportFormat',
-        TextORcsv,
-        Parquet
+        ReportFormatTextORcsv,
+        ReportFormatParquet,
+        fromReportFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The format that AWS saves the report in.
-newtype ReportFormat = ReportFormat' Lude.Text
+newtype ReportFormat = ReportFormat' {fromReportFormat :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TextORcsv :: ReportFormat
-pattern TextORcsv = ReportFormat' "textORcsv"
+pattern ReportFormatTextORcsv :: ReportFormat
+pattern ReportFormatTextORcsv = ReportFormat' "textORcsv"
 
-pattern Parquet :: ReportFormat
-pattern Parquet = ReportFormat' "Parquet"
+pattern ReportFormatParquet :: ReportFormat
+pattern ReportFormatParquet = ReportFormat' "Parquet"
 
 {-# COMPLETE
-  TextORcsv,
-  Parquet,
+  ReportFormatTextORcsv,
+  ReportFormatParquet,
   ReportFormat'
   #-}

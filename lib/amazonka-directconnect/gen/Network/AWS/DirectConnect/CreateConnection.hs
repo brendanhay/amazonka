@@ -24,161 +24,147 @@ module Network.AWS.DirectConnect.CreateConnection
     mkCreateConnection,
 
     -- ** Request lenses
-    ccLagId,
     ccLocation,
-    ccConnectionName,
     ccBandwidth,
+    ccConnectionName,
+    ccLagId,
     ccProviderName,
     ccTags,
 
     -- * Destructuring the response
-    Connection (..),
-    mkConnection,
+    Types.Connection (..),
+    Types.mkConnection,
 
     -- ** Response lenses
-    cLagId,
-    cVlan,
-    cLocation,
-    cAwsDevice,
-    cHasLogicalRedundancy,
-    cConnectionId,
-    cLoaIssueTime,
-    cPartnerName,
-    cConnectionName,
-    cBandwidth,
-    cJumboFrameCapable,
-    cOwnerAccount,
-    cRegion,
-    cProviderName,
-    cAwsDeviceV2,
-    cConnectionState,
-    cTags,
+    Types.cAwsDevice,
+    Types.cAwsDeviceV2,
+    Types.cBandwidth,
+    Types.cConnectionId,
+    Types.cConnectionName,
+    Types.cConnectionState,
+    Types.cHasLogicalRedundancy,
+    Types.cJumboFrameCapable,
+    Types.cLagId,
+    Types.cLoaIssueTime,
+    Types.cLocation,
+    Types.cOwnerAccount,
+    Types.cPartnerName,
+    Types.cProviderName,
+    Types.cRegion,
+    Types.cTags,
+    Types.cVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { -- | The ID of the LAG.
-    lagId :: Lude.Maybe Lude.Text,
-    -- | The location of the connection.
-    location :: Lude.Text,
-    -- | The name of the connection.
-    connectionName :: Lude.Text,
+  { -- | The location of the connection.
+    location :: Types.LocationCode,
     -- | The bandwidth of the connection.
-    bandwidth :: Lude.Text,
+    bandwidth :: Types.Bandwidth,
+    -- | The name of the connection.
+    connectionName :: Types.ConnectionName,
+    -- | The ID of the LAG.
+    lagId :: Core.Maybe Types.LagId,
     -- | The name of the service provider associated with the requested connection.
-    providerName :: Lude.Maybe Lude.Text,
+    providerName :: Core.Maybe Types.ProviderName,
     -- | The tags to associate with the lag.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
---
--- * 'lagId' - The ID of the LAG.
--- * 'location' - The location of the connection.
--- * 'connectionName' - The name of the connection.
--- * 'bandwidth' - The bandwidth of the connection.
--- * 'providerName' - The name of the service provider associated with the requested connection.
--- * 'tags' - The tags to associate with the lag.
+-- | Creates a 'CreateConnection' value with any optional fields omitted.
 mkCreateConnection ::
   -- | 'location'
-  Lude.Text ->
-  -- | 'connectionName'
-  Lude.Text ->
+  Types.LocationCode ->
   -- | 'bandwidth'
-  Lude.Text ->
+  Types.Bandwidth ->
+  -- | 'connectionName'
+  Types.ConnectionName ->
   CreateConnection
-mkCreateConnection pLocation_ pConnectionName_ pBandwidth_ =
+mkCreateConnection location bandwidth connectionName =
   CreateConnection'
-    { lagId = Lude.Nothing,
-      location = pLocation_,
-      connectionName = pConnectionName_,
-      bandwidth = pBandwidth_,
-      providerName = Lude.Nothing,
-      tags = Lude.Nothing
+    { location,
+      bandwidth,
+      connectionName,
+      lagId = Core.Nothing,
+      providerName = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The ID of the LAG.
---
--- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccLagId :: Lens.Lens' CreateConnection (Lude.Maybe Lude.Text)
-ccLagId = Lens.lens (lagId :: CreateConnection -> Lude.Maybe Lude.Text) (\s a -> s {lagId = a} :: CreateConnection)
-{-# DEPRECATED ccLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
 -- | The location of the connection.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccLocation :: Lens.Lens' CreateConnection Lude.Text
-ccLocation = Lens.lens (location :: CreateConnection -> Lude.Text) (\s a -> s {location = a} :: CreateConnection)
+ccLocation :: Lens.Lens' CreateConnection Types.LocationCode
+ccLocation = Lens.field @"location"
 {-# DEPRECATED ccLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | The name of the connection.
---
--- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccConnectionName :: Lens.Lens' CreateConnection Lude.Text
-ccConnectionName = Lens.lens (connectionName :: CreateConnection -> Lude.Text) (\s a -> s {connectionName = a} :: CreateConnection)
-{-# DEPRECATED ccConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
 
 -- | The bandwidth of the connection.
 --
 -- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccBandwidth :: Lens.Lens' CreateConnection Lude.Text
-ccBandwidth = Lens.lens (bandwidth :: CreateConnection -> Lude.Text) (\s a -> s {bandwidth = a} :: CreateConnection)
+ccBandwidth :: Lens.Lens' CreateConnection Types.Bandwidth
+ccBandwidth = Lens.field @"bandwidth"
 {-# DEPRECATED ccBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
+
+-- | The name of the connection.
+--
+-- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccConnectionName :: Lens.Lens' CreateConnection Types.ConnectionName
+ccConnectionName = Lens.field @"connectionName"
+{-# DEPRECATED ccConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
+
+-- | The ID of the LAG.
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLagId :: Lens.Lens' CreateConnection (Core.Maybe Types.LagId)
+ccLagId = Lens.field @"lagId"
+{-# DEPRECATED ccLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
 -- | The name of the service provider associated with the requested connection.
 --
 -- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccProviderName :: Lens.Lens' CreateConnection (Lude.Maybe Lude.Text)
-ccProviderName = Lens.lens (providerName :: CreateConnection -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: CreateConnection)
+ccProviderName :: Lens.Lens' CreateConnection (Core.Maybe Types.ProviderName)
+ccProviderName = Lens.field @"providerName"
 {-# DEPRECATED ccProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | The tags to associate with the lag.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTags :: Lens.Lens' CreateConnection (Lude.Maybe (Lude.NonEmpty Tag))
-ccTags = Lens.lens (tags :: CreateConnection -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateConnection)
+ccTags :: Lens.Lens' CreateConnection (Core.Maybe (Core.NonEmpty Types.Tag))
+ccTags = Lens.field @"tags"
 {-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateConnection where
-  type Rs CreateConnection = Connection
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders CreateConnection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.CreateConnection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON CreateConnection where
+  toJSON CreateConnection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("location" Core..= location),
+            Core.Just ("bandwidth" Core..= bandwidth),
+            Core.Just ("connectionName" Core..= connectionName),
+            ("lagId" Core..=) Core.<$> lagId,
+            ("providerName" Core..=) Core.<$> providerName,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToJSON CreateConnection where
-  toJSON CreateConnection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("lagId" Lude..=) Lude.<$> lagId,
-            Lude.Just ("location" Lude..= location),
-            Lude.Just ("connectionName" Lude..= connectionName),
-            Lude.Just ("bandwidth" Lude..= bandwidth),
-            ("providerName" Lude..=) Lude.<$> providerName,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateConnection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateConnection where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateConnection where
+  type Rs CreateConnection = Types.Connection
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.CreateConnection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

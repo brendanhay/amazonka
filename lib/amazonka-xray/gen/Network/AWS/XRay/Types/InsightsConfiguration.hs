@@ -17,67 +17,62 @@ module Network.AWS.XRay.Types.InsightsConfiguration
     mkInsightsConfiguration,
 
     -- * Lenses
-    icNotificationsEnabled,
     icInsightsEnabled,
+    icNotificationsEnabled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The structure containing configurations related to insights.
 --
 -- /See:/ 'mkInsightsConfiguration' smart constructor.
 data InsightsConfiguration = InsightsConfiguration'
-  { -- | Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
-    notificationsEnabled :: Lude.Maybe Lude.Bool,
-    -- | Set the InsightsEnabled value to true to enable insights or false to disable insights.
-    insightsEnabled :: Lude.Maybe Lude.Bool
+  { -- | Set the InsightsEnabled value to true to enable insights or false to disable insights.
+    insightsEnabled :: Core.Maybe Core.Bool,
+    -- | Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+    notificationsEnabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InsightsConfiguration' with the minimum fields required to make a request.
---
--- * 'notificationsEnabled' - Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
--- * 'insightsEnabled' - Set the InsightsEnabled value to true to enable insights or false to disable insights.
+-- | Creates a 'InsightsConfiguration' value with any optional fields omitted.
 mkInsightsConfiguration ::
   InsightsConfiguration
 mkInsightsConfiguration =
   InsightsConfiguration'
-    { notificationsEnabled = Lude.Nothing,
-      insightsEnabled = Lude.Nothing
+    { insightsEnabled = Core.Nothing,
+      notificationsEnabled = Core.Nothing
     }
-
--- | Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
---
--- /Note:/ Consider using 'notificationsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icNotificationsEnabled :: Lens.Lens' InsightsConfiguration (Lude.Maybe Lude.Bool)
-icNotificationsEnabled = Lens.lens (notificationsEnabled :: InsightsConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {notificationsEnabled = a} :: InsightsConfiguration)
-{-# DEPRECATED icNotificationsEnabled "Use generic-lens or generic-optics with 'notificationsEnabled' instead." #-}
 
 -- | Set the InsightsEnabled value to true to enable insights or false to disable insights.
 --
 -- /Note:/ Consider using 'insightsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icInsightsEnabled :: Lens.Lens' InsightsConfiguration (Lude.Maybe Lude.Bool)
-icInsightsEnabled = Lens.lens (insightsEnabled :: InsightsConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {insightsEnabled = a} :: InsightsConfiguration)
+icInsightsEnabled :: Lens.Lens' InsightsConfiguration (Core.Maybe Core.Bool)
+icInsightsEnabled = Lens.field @"insightsEnabled"
 {-# DEPRECATED icInsightsEnabled "Use generic-lens or generic-optics with 'insightsEnabled' instead." #-}
 
-instance Lude.FromJSON InsightsConfiguration where
-  parseJSON =
-    Lude.withObject
-      "InsightsConfiguration"
-      ( \x ->
-          InsightsConfiguration'
-            Lude.<$> (x Lude..:? "NotificationsEnabled")
-            Lude.<*> (x Lude..:? "InsightsEnabled")
-      )
+-- | Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+--
+-- /Note:/ Consider using 'notificationsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icNotificationsEnabled :: Lens.Lens' InsightsConfiguration (Core.Maybe Core.Bool)
+icNotificationsEnabled = Lens.field @"notificationsEnabled"
+{-# DEPRECATED icNotificationsEnabled "Use generic-lens or generic-optics with 'notificationsEnabled' instead." #-}
 
-instance Lude.ToJSON InsightsConfiguration where
-  toJSON InsightsConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NotificationsEnabled" Lude..=) Lude.<$> notificationsEnabled,
-            ("InsightsEnabled" Lude..=) Lude.<$> insightsEnabled
+instance Core.FromJSON InsightsConfiguration where
+  toJSON InsightsConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("InsightsEnabled" Core..=) Core.<$> insightsEnabled,
+            ("NotificationsEnabled" Core..=) Core.<$> notificationsEnabled
           ]
       )
+
+instance Core.FromJSON InsightsConfiguration where
+  parseJSON =
+    Core.withObject "InsightsConfiguration" Core.$
+      \x ->
+        InsightsConfiguration'
+          Core.<$> (x Core..:? "InsightsEnabled")
+          Core.<*> (x Core..:? "NotificationsEnabled")

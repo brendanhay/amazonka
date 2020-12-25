@@ -13,46 +13,51 @@
 module Network.AWS.StepFunctions.Types.StateMachineType
   ( StateMachineType
       ( StateMachineType',
-        Standard,
-        Express
+        StateMachineTypeStandard,
+        StateMachineTypeExpress,
+        fromStateMachineType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StateMachineType = StateMachineType' Lude.Text
+newtype StateMachineType = StateMachineType'
+  { fromStateMachineType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standard :: StateMachineType
-pattern Standard = StateMachineType' "STANDARD"
+pattern StateMachineTypeStandard :: StateMachineType
+pattern StateMachineTypeStandard = StateMachineType' "STANDARD"
 
-pattern Express :: StateMachineType
-pattern Express = StateMachineType' "EXPRESS"
+pattern StateMachineTypeExpress :: StateMachineType
+pattern StateMachineTypeExpress = StateMachineType' "EXPRESS"
 
 {-# COMPLETE
-  Standard,
-  Express,
+  StateMachineTypeStandard,
+  StateMachineTypeExpress,
   StateMachineType'
   #-}

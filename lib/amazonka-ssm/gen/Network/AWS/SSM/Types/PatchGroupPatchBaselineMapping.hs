@@ -23,52 +23,48 @@ module Network.AWS.SSM.Types.PatchGroupPatchBaselineMapping
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.PatchBaselineIdentity
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.PatchBaselineIdentity as Types
+import qualified Network.AWS.SSM.Types.PatchGroup as Types
 
 -- | The mapping between a patch group and the patch baseline the patch group is registered with.
 --
 -- /See:/ 'mkPatchGroupPatchBaselineMapping' smart constructor.
 data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
   { -- | The patch baseline the patch group is registered with.
-    baselineIdentity :: Lude.Maybe PatchBaselineIdentity,
+    baselineIdentity :: Core.Maybe Types.PatchBaselineIdentity,
     -- | The name of the patch group registered with the patch baseline.
-    patchGroup :: Lude.Maybe Lude.Text
+    patchGroup :: Core.Maybe Types.PatchGroup
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PatchGroupPatchBaselineMapping' with the minimum fields required to make a request.
---
--- * 'baselineIdentity' - The patch baseline the patch group is registered with.
--- * 'patchGroup' - The name of the patch group registered with the patch baseline.
+-- | Creates a 'PatchGroupPatchBaselineMapping' value with any optional fields omitted.
 mkPatchGroupPatchBaselineMapping ::
   PatchGroupPatchBaselineMapping
 mkPatchGroupPatchBaselineMapping =
   PatchGroupPatchBaselineMapping'
-    { baselineIdentity = Lude.Nothing,
-      patchGroup = Lude.Nothing
+    { baselineIdentity = Core.Nothing,
+      patchGroup = Core.Nothing
     }
 
 -- | The patch baseline the patch group is registered with.
 --
 -- /Note:/ Consider using 'baselineIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgpbmBaselineIdentity :: Lens.Lens' PatchGroupPatchBaselineMapping (Lude.Maybe PatchBaselineIdentity)
-pgpbmBaselineIdentity = Lens.lens (baselineIdentity :: PatchGroupPatchBaselineMapping -> Lude.Maybe PatchBaselineIdentity) (\s a -> s {baselineIdentity = a} :: PatchGroupPatchBaselineMapping)
+pgpbmBaselineIdentity :: Lens.Lens' PatchGroupPatchBaselineMapping (Core.Maybe Types.PatchBaselineIdentity)
+pgpbmBaselineIdentity = Lens.field @"baselineIdentity"
 {-# DEPRECATED pgpbmBaselineIdentity "Use generic-lens or generic-optics with 'baselineIdentity' instead." #-}
 
 -- | The name of the patch group registered with the patch baseline.
 --
 -- /Note:/ Consider using 'patchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgpbmPatchGroup :: Lens.Lens' PatchGroupPatchBaselineMapping (Lude.Maybe Lude.Text)
-pgpbmPatchGroup = Lens.lens (patchGroup :: PatchGroupPatchBaselineMapping -> Lude.Maybe Lude.Text) (\s a -> s {patchGroup = a} :: PatchGroupPatchBaselineMapping)
+pgpbmPatchGroup :: Lens.Lens' PatchGroupPatchBaselineMapping (Core.Maybe Types.PatchGroup)
+pgpbmPatchGroup = Lens.field @"patchGroup"
 {-# DEPRECATED pgpbmPatchGroup "Use generic-lens or generic-optics with 'patchGroup' instead." #-}
 
-instance Lude.FromJSON PatchGroupPatchBaselineMapping where
+instance Core.FromJSON PatchGroupPatchBaselineMapping where
   parseJSON =
-    Lude.withObject
-      "PatchGroupPatchBaselineMapping"
-      ( \x ->
-          PatchGroupPatchBaselineMapping'
-            Lude.<$> (x Lude..:? "BaselineIdentity") Lude.<*> (x Lude..:? "PatchGroup")
-      )
+    Core.withObject "PatchGroupPatchBaselineMapping" Core.$
+      \x ->
+        PatchGroupPatchBaselineMapping'
+          Core.<$> (x Core..:? "BaselineIdentity") Core.<*> (x Core..:? "PatchGroup")

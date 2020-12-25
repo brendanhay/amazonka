@@ -24,122 +24,118 @@ module Network.AWS.Discovery.StartContinuousExport
     mkStartContinuousExportResponse,
 
     -- ** Response lenses
-    scersStartTime,
-    scersSchemaStorageConfig,
-    scersDataSource,
-    scersS3Bucket,
-    scersExportId,
-    scersResponseStatus,
+    scerrsDataSource,
+    scerrsExportId,
+    scerrsS3Bucket,
+    scerrsSchemaStorageConfig,
+    scerrsStartTime,
+    scerrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartContinuousExport' smart constructor.
 data StartContinuousExport = StartContinuousExport'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartContinuousExport' with the minimum fields required to make a request.
+-- | Creates a 'StartContinuousExport' value with any optional fields omitted.
 mkStartContinuousExport ::
   StartContinuousExport
 mkStartContinuousExport = StartContinuousExport'
 
-instance Lude.AWSRequest StartContinuousExport where
+instance Core.FromJSON StartContinuousExport where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest StartContinuousExport where
   type Rs StartContinuousExport = StartContinuousExportResponse
-  request = Req.postJSON discoveryService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSPoseidonService_V2015_11_01.StartContinuousExport"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartContinuousExportResponse'
-            Lude.<$> (x Lude..?> "startTime")
-            Lude.<*> (x Lude..?> "schemaStorageConfig" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "dataSource")
-            Lude.<*> (x Lude..?> "s3Bucket")
-            Lude.<*> (x Lude..?> "exportId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "dataSource")
+            Core.<*> (x Core..:? "exportId")
+            Core.<*> (x Core..:? "s3Bucket")
+            Core.<*> (x Core..:? "schemaStorageConfig")
+            Core.<*> (x Core..:? "startTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartContinuousExport where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.StartContinuousExport" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartContinuousExport where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath StartContinuousExport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartContinuousExport where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartContinuousExportResponse' smart constructor.
 data StartContinuousExportResponse = StartContinuousExportResponse'
-  { -- | The timestamp representing when the continuous export was started.
-    startTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The type of data collector used to gather this data (currently only offered for AGENT).
+    dataSource :: Core.Maybe Types.DataSource,
+    -- | The unique ID assigned to this export.
+    exportId :: Core.Maybe Types.ExportId,
+    -- | The name of the s3 bucket where the export data parquet files are stored.
+    s3Bucket :: Core.Maybe Types.S3Bucket,
     -- | A dictionary which describes how the data is stored.
     --
     --
     --     * @databaseName@ - the name of the Glue database used to store the schema.
-    schemaStorageConfig :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The type of data collector used to gather this data (currently only offered for AGENT).
-    dataSource :: Lude.Maybe DataSource,
-    -- | The name of the s3 bucket where the export data parquet files are stored.
-    s3Bucket :: Lude.Maybe Lude.Text,
-    -- | The unique ID assigned to this export.
-    exportId :: Lude.Maybe Lude.Text,
+    schemaStorageConfig :: Core.Maybe (Core.HashMap Types.DatabaseName Types.String),
+    -- | The timestamp representing when the continuous export was started.
+    startTime :: Core.Maybe Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartContinuousExportResponse' with the minimum fields required to make a request.
---
--- * 'startTime' - The timestamp representing when the continuous export was started.
--- * 'schemaStorageConfig' - A dictionary which describes how the data is stored.
---
---
---     * @databaseName@ - the name of the Glue database used to store the schema.
---
---
--- * 'dataSource' - The type of data collector used to gather this data (currently only offered for AGENT).
--- * 's3Bucket' - The name of the s3 bucket where the export data parquet files are stored.
--- * 'exportId' - The unique ID assigned to this export.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartContinuousExportResponse' value with any optional fields omitted.
 mkStartContinuousExportResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartContinuousExportResponse
-mkStartContinuousExportResponse pResponseStatus_ =
+mkStartContinuousExportResponse responseStatus =
   StartContinuousExportResponse'
-    { startTime = Lude.Nothing,
-      schemaStorageConfig = Lude.Nothing,
-      dataSource = Lude.Nothing,
-      s3Bucket = Lude.Nothing,
-      exportId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dataSource = Core.Nothing,
+      exportId = Core.Nothing,
+      s3Bucket = Core.Nothing,
+      schemaStorageConfig = Core.Nothing,
+      startTime = Core.Nothing,
+      responseStatus
     }
 
--- | The timestamp representing when the continuous export was started.
+-- | The type of data collector used to gather this data (currently only offered for AGENT).
 --
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scersStartTime :: Lens.Lens' StartContinuousExportResponse (Lude.Maybe Lude.Timestamp)
-scersStartTime = Lens.lens (startTime :: StartContinuousExportResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: StartContinuousExportResponse)
-{-# DEPRECATED scersStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+-- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scerrsDataSource :: Lens.Lens' StartContinuousExportResponse (Core.Maybe Types.DataSource)
+scerrsDataSource = Lens.field @"dataSource"
+{-# DEPRECATED scerrsDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
+
+-- | The unique ID assigned to this export.
+--
+-- /Note:/ Consider using 'exportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scerrsExportId :: Lens.Lens' StartContinuousExportResponse (Core.Maybe Types.ExportId)
+scerrsExportId = Lens.field @"exportId"
+{-# DEPRECATED scerrsExportId "Use generic-lens or generic-optics with 'exportId' instead." #-}
+
+-- | The name of the s3 bucket where the export data parquet files are stored.
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scerrsS3Bucket :: Lens.Lens' StartContinuousExportResponse (Core.Maybe Types.S3Bucket)
+scerrsS3Bucket = Lens.field @"s3Bucket"
+{-# DEPRECATED scerrsS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
 -- | A dictionary which describes how the data is stored.
 --
@@ -149,34 +145,20 @@ scersStartTime = Lens.lens (startTime :: StartContinuousExportResponse -> Lude.M
 --
 --
 -- /Note:/ Consider using 'schemaStorageConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scersSchemaStorageConfig :: Lens.Lens' StartContinuousExportResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-scersSchemaStorageConfig = Lens.lens (schemaStorageConfig :: StartContinuousExportResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {schemaStorageConfig = a} :: StartContinuousExportResponse)
-{-# DEPRECATED scersSchemaStorageConfig "Use generic-lens or generic-optics with 'schemaStorageConfig' instead." #-}
+scerrsSchemaStorageConfig :: Lens.Lens' StartContinuousExportResponse (Core.Maybe (Core.HashMap Types.DatabaseName Types.String))
+scerrsSchemaStorageConfig = Lens.field @"schemaStorageConfig"
+{-# DEPRECATED scerrsSchemaStorageConfig "Use generic-lens or generic-optics with 'schemaStorageConfig' instead." #-}
 
--- | The type of data collector used to gather this data (currently only offered for AGENT).
+-- | The timestamp representing when the continuous export was started.
 --
--- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scersDataSource :: Lens.Lens' StartContinuousExportResponse (Lude.Maybe DataSource)
-scersDataSource = Lens.lens (dataSource :: StartContinuousExportResponse -> Lude.Maybe DataSource) (\s a -> s {dataSource = a} :: StartContinuousExportResponse)
-{-# DEPRECATED scersDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
-
--- | The name of the s3 bucket where the export data parquet files are stored.
---
--- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scersS3Bucket :: Lens.Lens' StartContinuousExportResponse (Lude.Maybe Lude.Text)
-scersS3Bucket = Lens.lens (s3Bucket :: StartContinuousExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: StartContinuousExportResponse)
-{-# DEPRECATED scersS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
-
--- | The unique ID assigned to this export.
---
--- /Note:/ Consider using 'exportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scersExportId :: Lens.Lens' StartContinuousExportResponse (Lude.Maybe Lude.Text)
-scersExportId = Lens.lens (exportId :: StartContinuousExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {exportId = a} :: StartContinuousExportResponse)
-{-# DEPRECATED scersExportId "Use generic-lens or generic-optics with 'exportId' instead." #-}
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scerrsStartTime :: Lens.Lens' StartContinuousExportResponse (Core.Maybe Core.NominalDiffTime)
+scerrsStartTime = Lens.field @"startTime"
+{-# DEPRECATED scerrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scersResponseStatus :: Lens.Lens' StartContinuousExportResponse Lude.Int
-scersResponseStatus = Lens.lens (responseStatus :: StartContinuousExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartContinuousExportResponse)
-{-# DEPRECATED scersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scerrsResponseStatus :: Lens.Lens' StartContinuousExportResponse Core.Int
+scerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

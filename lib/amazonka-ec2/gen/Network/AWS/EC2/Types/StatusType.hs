@@ -13,56 +13,58 @@
 module Network.AWS.EC2.Types.StatusType
   ( StatusType
       ( StatusType',
-        STPassed,
-        STFailed,
-        STInsufficientData,
-        STInitializing
+        StatusTypePassed,
+        StatusTypeFailed,
+        StatusTypeInsufficientData,
+        StatusTypeInitializing,
+        fromStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StatusType = StatusType' Lude.Text
+newtype StatusType = StatusType' {fromStatusType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern STPassed :: StatusType
-pattern STPassed = StatusType' "passed"
+pattern StatusTypePassed :: StatusType
+pattern StatusTypePassed = StatusType' "passed"
 
-pattern STFailed :: StatusType
-pattern STFailed = StatusType' "failed"
+pattern StatusTypeFailed :: StatusType
+pattern StatusTypeFailed = StatusType' "failed"
 
-pattern STInsufficientData :: StatusType
-pattern STInsufficientData = StatusType' "insufficient-data"
+pattern StatusTypeInsufficientData :: StatusType
+pattern StatusTypeInsufficientData = StatusType' "insufficient-data"
 
-pattern STInitializing :: StatusType
-pattern STInitializing = StatusType' "initializing"
+pattern StatusTypeInitializing :: StatusType
+pattern StatusTypeInitializing = StatusType' "initializing"
 
 {-# COMPLETE
-  STPassed,
-  STFailed,
-  STInsufficientData,
-  STInitializing,
+  StatusTypePassed,
+  StatusTypeFailed,
+  StatusTypeInsufficientData,
+  StatusTypeInitializing,
   StatusType'
   #-}

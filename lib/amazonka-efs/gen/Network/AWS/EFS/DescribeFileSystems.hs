@@ -27,8 +27,8 @@ module Network.AWS.EFS.DescribeFileSystems
     mkDescribeFileSystems,
 
     -- ** Request lenses
-    dfsFileSystemId,
     dfsCreationToken,
+    dfsFileSystemId,
     dfsMarker,
     dfsMaxItems,
 
@@ -37,173 +37,163 @@ module Network.AWS.EFS.DescribeFileSystems
     mkDescribeFileSystemsResponse,
 
     -- ** Response lenses
-    dfsrsFileSystems,
-    dfsrsMarker,
-    dfsrsNextMarker,
-    dfsrsResponseStatus,
+    dfsrrsFileSystems,
+    dfsrrsMarker,
+    dfsrrsNextMarker,
+    dfsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeFileSystems' smart constructor.
 data DescribeFileSystems = DescribeFileSystems'
-  { -- | (Optional) ID of the file system whose description you want to retrieve (String).
-    fileSystemId :: Lude.Maybe Lude.Text,
-    -- | (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
-    creationToken :: Lude.Maybe Lude.Text,
+  { -- | (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
+    creationToken :: Core.Maybe Types.CreationToken,
+    -- | (Optional) ID of the file system whose description you want to retrieve (String).
+    fileSystemId :: Core.Maybe Types.FileSystemId,
     -- | (Optional) Opaque pagination token returned from a previous @DescribeFileSystems@ operation (String). If present, specifies to continue the list from where the returning call had left off.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | (Optional) Specifies the maximum number of file systems to return in the response (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems.
-    maxItems :: Lude.Maybe Lude.Natural
+    maxItems :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFileSystems' with the minimum fields required to make a request.
---
--- * 'fileSystemId' - (Optional) ID of the file system whose description you want to retrieve (String).
--- * 'creationToken' - (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
--- * 'marker' - (Optional) Opaque pagination token returned from a previous @DescribeFileSystems@ operation (String). If present, specifies to continue the list from where the returning call had left off.
--- * 'maxItems' - (Optional) Specifies the maximum number of file systems to return in the response (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems.
+-- | Creates a 'DescribeFileSystems' value with any optional fields omitted.
 mkDescribeFileSystems ::
   DescribeFileSystems
 mkDescribeFileSystems =
   DescribeFileSystems'
-    { fileSystemId = Lude.Nothing,
-      creationToken = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { creationToken = Core.Nothing,
+      fileSystemId = Core.Nothing,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
-
--- | (Optional) ID of the file system whose description you want to retrieve (String).
---
--- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsFileSystemId :: Lens.Lens' DescribeFileSystems (Lude.Maybe Lude.Text)
-dfsFileSystemId = Lens.lens (fileSystemId :: DescribeFileSystems -> Lude.Maybe Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeFileSystems)
-{-# DEPRECATED dfsFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
 --
 -- /Note:/ Consider using 'creationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsCreationToken :: Lens.Lens' DescribeFileSystems (Lude.Maybe Lude.Text)
-dfsCreationToken = Lens.lens (creationToken :: DescribeFileSystems -> Lude.Maybe Lude.Text) (\s a -> s {creationToken = a} :: DescribeFileSystems)
+dfsCreationToken :: Lens.Lens' DescribeFileSystems (Core.Maybe Types.CreationToken)
+dfsCreationToken = Lens.field @"creationToken"
 {-# DEPRECATED dfsCreationToken "Use generic-lens or generic-optics with 'creationToken' instead." #-}
+
+-- | (Optional) ID of the file system whose description you want to retrieve (String).
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsFileSystemId :: Lens.Lens' DescribeFileSystems (Core.Maybe Types.FileSystemId)
+dfsFileSystemId = Lens.field @"fileSystemId"
+{-# DEPRECATED dfsFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | (Optional) Opaque pagination token returned from a previous @DescribeFileSystems@ operation (String). If present, specifies to continue the list from where the returning call had left off.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsMarker :: Lens.Lens' DescribeFileSystems (Lude.Maybe Lude.Text)
-dfsMarker = Lens.lens (marker :: DescribeFileSystems -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeFileSystems)
+dfsMarker :: Lens.Lens' DescribeFileSystems (Core.Maybe Types.Marker)
+dfsMarker = Lens.field @"marker"
 {-# DEPRECATED dfsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | (Optional) Specifies the maximum number of file systems to return in the response (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsMaxItems :: Lens.Lens' DescribeFileSystems (Lude.Maybe Lude.Natural)
-dfsMaxItems = Lens.lens (maxItems :: DescribeFileSystems -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: DescribeFileSystems)
+dfsMaxItems :: Lens.Lens' DescribeFileSystems (Core.Maybe Core.Natural)
+dfsMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED dfsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Page.AWSPager DescribeFileSystems where
-  page rq rs
-    | Page.stop (rs Lens.^. dfsrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dfsrsFileSystems) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dfsMarker Lens..~ rs Lens.^. dfsrsNextMarker
-
-instance Lude.AWSRequest DescribeFileSystems where
+instance Core.AWSRequest DescribeFileSystems where
   type Rs DescribeFileSystems = DescribeFileSystemsResponse
-  request = Req.get efsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2015-02-01/file-systems",
+        Core._rqQuery =
+          Core.toQueryValue "CreationToken" Core.<$> creationToken
+            Core.<> (Core.toQueryValue "FileSystemId" Core.<$> fileSystemId)
+            Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemsResponse'
-            Lude.<$> (x Lude..?> "FileSystems" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FileSystems")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeFileSystems where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeFileSystems where
-  toPath = Lude.const "/2015-02-01/file-systems"
-
-instance Lude.ToQuery DescribeFileSystems where
-  toQuery DescribeFileSystems' {..} =
-    Lude.mconcat
-      [ "FileSystemId" Lude.=: fileSystemId,
-        "CreationToken" Lude.=: creationToken,
-        "Marker" Lude.=: marker,
-        "MaxItems" Lude.=: maxItems
-      ]
+instance Pager.AWSPager DescribeFileSystems where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"fileSystems" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkDescribeFileSystemsResponse' smart constructor.
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
   { -- | An array of file system descriptions.
-    fileSystems :: Lude.Maybe [FileSystemDescription],
+    fileSystems :: Core.Maybe [Types.FileSystemDescription],
     -- | Present if provided by caller in the request (String).
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | Present if there are more file systems than returned in the response (String). You can use the @NextMarker@ in the subsequent request to fetch the descriptions.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeFileSystemsResponse' with the minimum fields required to make a request.
---
--- * 'fileSystems' - An array of file system descriptions.
--- * 'marker' - Present if provided by caller in the request (String).
--- * 'nextMarker' - Present if there are more file systems than returned in the response (String). You can use the @NextMarker@ in the subsequent request to fetch the descriptions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeFileSystemsResponse' value with any optional fields omitted.
 mkDescribeFileSystemsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeFileSystemsResponse
-mkDescribeFileSystemsResponse pResponseStatus_ =
+mkDescribeFileSystemsResponse responseStatus =
   DescribeFileSystemsResponse'
-    { fileSystems = Lude.Nothing,
-      marker = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fileSystems = Core.Nothing,
+      marker = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of file system descriptions.
 --
 -- /Note:/ Consider using 'fileSystems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsFileSystems :: Lens.Lens' DescribeFileSystemsResponse (Lude.Maybe [FileSystemDescription])
-dfsrsFileSystems = Lens.lens (fileSystems :: DescribeFileSystemsResponse -> Lude.Maybe [FileSystemDescription]) (\s a -> s {fileSystems = a} :: DescribeFileSystemsResponse)
-{-# DEPRECATED dfsrsFileSystems "Use generic-lens or generic-optics with 'fileSystems' instead." #-}
+dfsrrsFileSystems :: Lens.Lens' DescribeFileSystemsResponse (Core.Maybe [Types.FileSystemDescription])
+dfsrrsFileSystems = Lens.field @"fileSystems"
+{-# DEPRECATED dfsrrsFileSystems "Use generic-lens or generic-optics with 'fileSystems' instead." #-}
 
 -- | Present if provided by caller in the request (String).
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsMarker :: Lens.Lens' DescribeFileSystemsResponse (Lude.Maybe Lude.Text)
-dfsrsMarker = Lens.lens (marker :: DescribeFileSystemsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeFileSystemsResponse)
-{-# DEPRECATED dfsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dfsrrsMarker :: Lens.Lens' DescribeFileSystemsResponse (Core.Maybe Types.Marker)
+dfsrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dfsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Present if there are more file systems than returned in the response (String). You can use the @NextMarker@ in the subsequent request to fetch the descriptions.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsNextMarker :: Lens.Lens' DescribeFileSystemsResponse (Lude.Maybe Lude.Text)
-dfsrsNextMarker = Lens.lens (nextMarker :: DescribeFileSystemsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeFileSystemsResponse)
-{-# DEPRECATED dfsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+dfsrrsNextMarker :: Lens.Lens' DescribeFileSystemsResponse (Core.Maybe Types.Marker)
+dfsrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED dfsrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsResponseStatus :: Lens.Lens' DescribeFileSystemsResponse Lude.Int
-dfsrsResponseStatus = Lens.lens (responseStatus :: DescribeFileSystemsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFileSystemsResponse)
-{-# DEPRECATED dfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfsrrsResponseStatus :: Lens.Lens' DescribeFileSystemsResponse Core.Int
+dfsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

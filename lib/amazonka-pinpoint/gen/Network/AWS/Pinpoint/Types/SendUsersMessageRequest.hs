@@ -17,101 +17,95 @@ module Network.AWS.Pinpoint.Types.SendUsersMessageRequest
     mkSendUsersMessageRequest,
 
     -- * Lenses
-    sumrTraceId,
-    sumrContext,
-    sumrUsers,
-    sumrTemplateConfiguration,
     sumrMessageConfiguration,
+    sumrUsers,
+    sumrContext,
+    sumrTemplateConfiguration,
+    sumrTraceId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.DirectMessageConfiguration
-import Network.AWS.Pinpoint.Types.EndpointSendConfiguration
-import Network.AWS.Pinpoint.Types.TemplateConfiguration
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.DirectMessageConfiguration as Types
+import qualified Network.AWS.Pinpoint.Types.EndpointSendConfiguration as Types
+import qualified Network.AWS.Pinpoint.Types.TemplateConfiguration as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the configuration and other settings for a message to send to all the endpoints that are associated with a list of users.
 --
 -- /See:/ 'mkSendUsersMessageRequest' smart constructor.
 data SendUsersMessageRequest = SendUsersMessageRequest'
-  { -- | The unique identifier for tracing the message. This identifier is visible to message recipients.
-    traceId :: Lude.Maybe Lude.Text,
-    -- | A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
-    context :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The settings and content for the default message and any default messages that you defined for specific channels.
+    messageConfiguration :: Types.DirectMessageConfiguration,
     -- | A map that associates user IDs with <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> objects. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for a user by specifying settings such as content overrides and message variables.
-    users :: Lude.HashMap Lude.Text (EndpointSendConfiguration),
+    users :: Core.HashMap Core.Text Types.EndpointSendConfiguration,
+    -- | A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
+    context :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The message template to use for the message.
-    templateConfiguration :: Lude.Maybe TemplateConfiguration,
-    -- | The settings and content for the default message and any default messages that you defined for specific channels.
-    messageConfiguration :: DirectMessageConfiguration
+    templateConfiguration :: Core.Maybe Types.TemplateConfiguration,
+    -- | The unique identifier for tracing the message. This identifier is visible to message recipients.
+    traceId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendUsersMessageRequest' with the minimum fields required to make a request.
---
--- * 'traceId' - The unique identifier for tracing the message. This identifier is visible to message recipients.
--- * 'context' - A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
--- * 'users' - A map that associates user IDs with <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> objects. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for a user by specifying settings such as content overrides and message variables.
--- * 'templateConfiguration' - The message template to use for the message.
--- * 'messageConfiguration' - The settings and content for the default message and any default messages that you defined for specific channels.
+-- | Creates a 'SendUsersMessageRequest' value with any optional fields omitted.
 mkSendUsersMessageRequest ::
   -- | 'messageConfiguration'
-  DirectMessageConfiguration ->
+  Types.DirectMessageConfiguration ->
   SendUsersMessageRequest
-mkSendUsersMessageRequest pMessageConfiguration_ =
+mkSendUsersMessageRequest messageConfiguration =
   SendUsersMessageRequest'
-    { traceId = Lude.Nothing,
-      context = Lude.Nothing,
-      users = Lude.mempty,
-      templateConfiguration = Lude.Nothing,
-      messageConfiguration = pMessageConfiguration_
+    { messageConfiguration,
+      users = Core.mempty,
+      context = Core.Nothing,
+      templateConfiguration = Core.Nothing,
+      traceId = Core.Nothing
     }
-
--- | The unique identifier for tracing the message. This identifier is visible to message recipients.
---
--- /Note:/ Consider using 'traceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumrTraceId :: Lens.Lens' SendUsersMessageRequest (Lude.Maybe Lude.Text)
-sumrTraceId = Lens.lens (traceId :: SendUsersMessageRequest -> Lude.Maybe Lude.Text) (\s a -> s {traceId = a} :: SendUsersMessageRequest)
-{-# DEPRECATED sumrTraceId "Use generic-lens or generic-optics with 'traceId' instead." #-}
-
--- | A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
---
--- /Note:/ Consider using 'context' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumrContext :: Lens.Lens' SendUsersMessageRequest (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-sumrContext = Lens.lens (context :: SendUsersMessageRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {context = a} :: SendUsersMessageRequest)
-{-# DEPRECATED sumrContext "Use generic-lens or generic-optics with 'context' instead." #-}
-
--- | A map that associates user IDs with <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> objects. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for a user by specifying settings such as content overrides and message variables.
---
--- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumrUsers :: Lens.Lens' SendUsersMessageRequest (Lude.HashMap Lude.Text (EndpointSendConfiguration))
-sumrUsers = Lens.lens (users :: SendUsersMessageRequest -> Lude.HashMap Lude.Text (EndpointSendConfiguration)) (\s a -> s {users = a} :: SendUsersMessageRequest)
-{-# DEPRECATED sumrUsers "Use generic-lens or generic-optics with 'users' instead." #-}
-
--- | The message template to use for the message.
---
--- /Note:/ Consider using 'templateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumrTemplateConfiguration :: Lens.Lens' SendUsersMessageRequest (Lude.Maybe TemplateConfiguration)
-sumrTemplateConfiguration = Lens.lens (templateConfiguration :: SendUsersMessageRequest -> Lude.Maybe TemplateConfiguration) (\s a -> s {templateConfiguration = a} :: SendUsersMessageRequest)
-{-# DEPRECATED sumrTemplateConfiguration "Use generic-lens or generic-optics with 'templateConfiguration' instead." #-}
 
 -- | The settings and content for the default message and any default messages that you defined for specific channels.
 --
 -- /Note:/ Consider using 'messageConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumrMessageConfiguration :: Lens.Lens' SendUsersMessageRequest DirectMessageConfiguration
-sumrMessageConfiguration = Lens.lens (messageConfiguration :: SendUsersMessageRequest -> DirectMessageConfiguration) (\s a -> s {messageConfiguration = a} :: SendUsersMessageRequest)
+sumrMessageConfiguration :: Lens.Lens' SendUsersMessageRequest Types.DirectMessageConfiguration
+sumrMessageConfiguration = Lens.field @"messageConfiguration"
 {-# DEPRECATED sumrMessageConfiguration "Use generic-lens or generic-optics with 'messageConfiguration' instead." #-}
 
-instance Lude.ToJSON SendUsersMessageRequest where
-  toJSON SendUsersMessageRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TraceId" Lude..=) Lude.<$> traceId,
-            ("Context" Lude..=) Lude.<$> context,
-            Lude.Just ("Users" Lude..= users),
-            ("TemplateConfiguration" Lude..=) Lude.<$> templateConfiguration,
-            Lude.Just ("MessageConfiguration" Lude..= messageConfiguration)
+-- | A map that associates user IDs with <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> objects. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for a user by specifying settings such as content overrides and message variables.
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumrUsers :: Lens.Lens' SendUsersMessageRequest (Core.HashMap Core.Text Types.EndpointSendConfiguration)
+sumrUsers = Lens.field @"users"
+{-# DEPRECATED sumrUsers "Use generic-lens or generic-optics with 'users' instead." #-}
+
+-- | A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
+--
+-- /Note:/ Consider using 'context' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumrContext :: Lens.Lens' SendUsersMessageRequest (Core.Maybe (Core.HashMap Core.Text Core.Text))
+sumrContext = Lens.field @"context"
+{-# DEPRECATED sumrContext "Use generic-lens or generic-optics with 'context' instead." #-}
+
+-- | The message template to use for the message.
+--
+-- /Note:/ Consider using 'templateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumrTemplateConfiguration :: Lens.Lens' SendUsersMessageRequest (Core.Maybe Types.TemplateConfiguration)
+sumrTemplateConfiguration = Lens.field @"templateConfiguration"
+{-# DEPRECATED sumrTemplateConfiguration "Use generic-lens or generic-optics with 'templateConfiguration' instead." #-}
+
+-- | The unique identifier for tracing the message. This identifier is visible to message recipients.
+--
+-- /Note:/ Consider using 'traceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumrTraceId :: Lens.Lens' SendUsersMessageRequest (Core.Maybe Core.Text)
+sumrTraceId = Lens.field @"traceId"
+{-# DEPRECATED sumrTraceId "Use generic-lens or generic-optics with 'traceId' instead." #-}
+
+instance Core.FromJSON SendUsersMessageRequest where
+  toJSON SendUsersMessageRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MessageConfiguration" Core..= messageConfiguration),
+            Core.Just ("Users" Core..= users),
+            ("Context" Core..=) Core.<$> context,
+            ("TemplateConfiguration" Core..=) Core.<$> templateConfiguration,
+            ("TraceId" Core..=) Core.<$> traceId
           ]
       )

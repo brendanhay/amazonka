@@ -13,46 +13,51 @@
 module Network.AWS.ResourceGroups.Types.GroupFilterName
   ( GroupFilterName
       ( GroupFilterName',
-        GFNResourceType,
-        GFNConfigurationType
+        GroupFilterNameResourceType,
+        GroupFilterNameConfigurationType,
+        fromGroupFilterName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype GroupFilterName = GroupFilterName' Lude.Text
+newtype GroupFilterName = GroupFilterName'
+  { fromGroupFilterName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern GFNResourceType :: GroupFilterName
-pattern GFNResourceType = GroupFilterName' "resource-type"
+pattern GroupFilterNameResourceType :: GroupFilterName
+pattern GroupFilterNameResourceType = GroupFilterName' "resource-type"
 
-pattern GFNConfigurationType :: GroupFilterName
-pattern GFNConfigurationType = GroupFilterName' "configuration-type"
+pattern GroupFilterNameConfigurationType :: GroupFilterName
+pattern GroupFilterNameConfigurationType = GroupFilterName' "configuration-type"
 
 {-# COMPLETE
-  GFNResourceType,
-  GFNConfigurationType,
+  GroupFilterNameResourceType,
+  GroupFilterNameConfigurationType,
   GroupFilterName'
   #-}

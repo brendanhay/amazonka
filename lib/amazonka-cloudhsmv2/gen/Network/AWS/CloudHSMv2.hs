@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,28 @@
 -- For more information about AWS CloudHSM, see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> and the <https://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> .
 module Network.AWS.CloudHSMv2
   ( -- * Service configuration
-    cloudHSMv2Service,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** CloudHsmInternalFailureException
+    _CloudHsmInternalFailureException,
+
+    -- ** CloudHsmServiceException
+    _CloudHsmServiceException,
+
+    -- ** CloudHsmInvalidRequestException
+    _CloudHsmInvalidRequestException,
+
+    -- ** CloudHsmAccessDeniedException
+    _CloudHsmAccessDeniedException,
+
+    -- ** CloudHsmResourceNotFoundException
+    _CloudHsmResourceNotFoundException,
+
+    -- ** CloudHsmTagException
+    _CloudHsmTagException,
 
     -- * Waiters
     -- $waiters
@@ -34,8 +51,8 @@ module Network.AWS.CloudHSMv2
     -- ** InitializeCluster
     module Network.AWS.CloudHSMv2.InitializeCluster,
 
-    -- ** CreateHSM
-    module Network.AWS.CloudHSMv2.CreateHSM,
+    -- ** CreateHsm
+    module Network.AWS.CloudHSMv2.CreateHsm,
 
     -- ** DescribeBackups (Paginated)
     module Network.AWS.CloudHSMv2.DescribeBackups,
@@ -52,8 +69,8 @@ module Network.AWS.CloudHSMv2
     -- ** RestoreBackup
     module Network.AWS.CloudHSMv2.RestoreBackup,
 
-    -- ** DeleteHSM
-    module Network.AWS.CloudHSMv2.DeleteHSM,
+    -- ** DeleteHsm
+    module Network.AWS.CloudHSMv2.DeleteHsm,
 
     -- ** ModifyCluster
     module Network.AWS.CloudHSMv2.ModifyCluster,
@@ -72,114 +89,202 @@ module Network.AWS.CloudHSMv2
 
     -- * Types
 
-    -- ** BackupPolicy
-    BackupPolicy (..),
+    -- ** PreCoPassword
+    PreCoPassword (..),
 
-    -- ** BackupRetentionType
-    BackupRetentionType (..),
+    -- ** StateMessage
+    StateMessage (..),
 
-    -- ** BackupState
-    BackupState (..),
+    -- ** IpAddress
+    IpAddress (..),
 
-    -- ** ClusterState
-    ClusterState (..),
+    -- ** EniId
+    EniId (..),
 
-    -- ** HSMState
-    HSMState (..),
-
-    -- ** Backup
-    Backup (..),
-    mkBackup,
-    bDeleteTimestamp,
-    bSourceCluster,
-    bNeverExpires,
-    bSourceRegion,
-    bTagList,
-    bBackupId,
-    bSourceBackup,
-    bClusterId,
-    bCreateTimestamp,
-    bCopyTimestamp,
-    bBackupState,
-
-    -- ** BackupRetentionPolicy
-    BackupRetentionPolicy (..),
-    mkBackupRetentionPolicy,
-    brpValue,
-    brpType,
-
-    -- ** Certificates
-    Certificates (..),
-    mkCertificates,
-    cManufacturerHardwareCertificate,
-    cClusterCSR,
-    cHSMCertificate,
-    cClusterCertificate,
-    cAWSHardwareCertificate,
-
-    -- ** Cluster
-    Cluster (..),
-    mkCluster,
-    cPreCoPassword,
-    cStateMessage,
-    cState,
-    cSubnetMapping,
-    cBackupRetentionPolicy,
-    cHSMs,
-    cVPCId,
-    cTagList,
-    cSourceBackupId,
-    cCertificates,
-    cSecurityGroup,
-    cClusterId,
-    cCreateTimestamp,
-    cBackupPolicy,
-    cHSMType,
-
-    -- ** DestinationBackup
-    DestinationBackup (..),
-    mkDestinationBackup,
-    dbSourceCluster,
-    dbSourceRegion,
-    dbSourceBackup,
-    dbCreateTimestamp,
-
-    -- ** HSM
-    HSM (..),
-    mkHSM,
-    hsmStateMessage,
-    hsmState,
-    hsmEniId,
-    hsmHSMId,
-    hsmSubnetId,
-    hsmAvailabilityZone,
-    hsmClusterId,
-    hsmEniIP,
+    -- ** ResourceId
+    ResourceId (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** Field
+    Field (..),
+
+    -- ** Cluster
+    Cluster (..),
+    mkCluster,
+    cBackupPolicy,
+    cBackupRetentionPolicy,
+    cCertificates,
+    cClusterId,
+    cCreateTimestamp,
+    cHsmType,
+    cHsms,
+    cPreCoPassword,
+    cSecurityGroup,
+    cSourceBackupId,
+    cState,
+    cStateMessage,
+    cSubnetMapping,
+    cTagList,
+    cVpcId,
+
+    -- ** BackupRetentionPolicy
+    BackupRetentionPolicy (..),
+    mkBackupRetentionPolicy,
+    brpType,
+    brpValue,
+
+    -- ** BackupRetentionType
+    BackupRetentionType (..),
+
+    -- ** ClusterState
+    ClusterState (..),
+
+    -- ** String
+    String (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** BackupId
+    BackupId (..),
+
+    -- ** HsmId
+    HsmId (..),
+
+    -- ** Hsm
+    Hsm (..),
+    mkHsm,
+    hHsmId,
+    hAvailabilityZone,
+    hClusterId,
+    hEniId,
+    hEniIp,
+    hState,
+    hStateMessage,
+    hSubnetId,
+
+    -- ** ExternalAz
+    ExternalAz (..),
+
+    -- ** Backup
+    Backup (..),
+    mkBackup,
+    bBackupId,
+    bBackupState,
+    bClusterId,
+    bCopyTimestamp,
+    bCreateTimestamp,
+    bDeleteTimestamp,
+    bNeverExpires,
+    bSourceBackup,
+    bSourceCluster,
+    bSourceRegion,
+    bTagList,
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** Certificates
+    Certificates (..),
+    mkCertificates,
+    cAwsHardwareCertificate,
+    cClusterCertificate,
+    cClusterCsr,
+    cHsmCertificate,
+    cManufacturerHardwareCertificate,
+
+    -- ** SecurityGroup
+    SecurityGroup (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ClusterId
+    ClusterId (..),
+
+    -- ** DestinationBackup
+    DestinationBackup (..),
+    mkDestinationBackup,
+    dbCreateTimestamp,
+    dbSourceBackup,
+    dbSourceCluster,
+    dbSourceRegion,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** Cert
+    Cert (..),
+
+    -- ** BackupPolicy
+    BackupPolicy (..),
+
+    -- ** HsmType
+    HsmType (..),
+
+    -- ** BackupState
+    BackupState (..),
+
+    -- ** HsmState
+    HsmState (..),
+
+    -- ** SourceBackupId
+    SourceBackupId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+
+    -- ** SourceCluster
+    SourceCluster (..),
+
+    -- ** SourceRegion
+    SourceRegion (..),
+
+    -- ** AwsHardwareCertificate
+    AwsHardwareCertificate (..),
+
+    -- ** ClusterCertificate
+    ClusterCertificate (..),
+
+    -- ** ClusterCsr
+    ClusterCsr (..),
+
+    -- ** HsmCertificate
+    HsmCertificate (..),
+
+    -- ** ManufacturerHardwareCertificate
+    ManufacturerHardwareCertificate (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
 import Network.AWS.CloudHSMv2.CopyBackupToRegion
 import Network.AWS.CloudHSMv2.CreateCluster
-import Network.AWS.CloudHSMv2.CreateHSM
+import Network.AWS.CloudHSMv2.CreateHsm
 import Network.AWS.CloudHSMv2.DeleteBackup
 import Network.AWS.CloudHSMv2.DeleteCluster
-import Network.AWS.CloudHSMv2.DeleteHSM
+import Network.AWS.CloudHSMv2.DeleteHsm
 import Network.AWS.CloudHSMv2.DescribeBackups
 import Network.AWS.CloudHSMv2.DescribeClusters
 import Network.AWS.CloudHSMv2.InitializeCluster

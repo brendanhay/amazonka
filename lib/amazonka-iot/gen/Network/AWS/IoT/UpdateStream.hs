@@ -20,191 +20,179 @@ module Network.AWS.IoT.UpdateStream
     mkUpdateStream,
 
     -- ** Request lenses
-    usFiles,
-    usDescription,
     usStreamId,
-    usRoleARN,
+    usDescription,
+    usFiles,
+    usRoleArn,
 
     -- * Destructuring the response
     UpdateStreamResponse (..),
     mkUpdateStreamResponse,
 
     -- ** Response lenses
-    usrsStreamVersion,
-    usrsStreamARN,
-    usrsDescription,
-    usrsStreamId,
-    usrsResponseStatus,
+    usrrsDescription,
+    usrrsStreamArn,
+    usrrsStreamId,
+    usrrsStreamVersion,
+    usrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateStream' smart constructor.
 data UpdateStream = UpdateStream'
-  { -- | The files associated with the stream.
-    files :: Lude.Maybe (Lude.NonEmpty StreamFile),
+  { -- | The stream ID.
+    streamId :: Types.StreamId,
     -- | The description of the stream.
-    description :: Lude.Maybe Lude.Text,
-    -- | The stream ID.
-    streamId :: Lude.Text,
+    description :: Core.Maybe Types.StreamDescription,
+    -- | The files associated with the stream.
+    files :: Core.Maybe (Core.NonEmpty Types.StreamFile),
     -- | An IAM role that allows the IoT service principal assumes to access your S3 files.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateStream' with the minimum fields required to make a request.
---
--- * 'files' - The files associated with the stream.
--- * 'description' - The description of the stream.
--- * 'streamId' - The stream ID.
--- * 'roleARN' - An IAM role that allows the IoT service principal assumes to access your S3 files.
+-- | Creates a 'UpdateStream' value with any optional fields omitted.
 mkUpdateStream ::
   -- | 'streamId'
-  Lude.Text ->
+  Types.StreamId ->
   UpdateStream
-mkUpdateStream pStreamId_ =
+mkUpdateStream streamId =
   UpdateStream'
-    { files = Lude.Nothing,
-      description = Lude.Nothing,
-      streamId = pStreamId_,
-      roleARN = Lude.Nothing
+    { streamId,
+      description = Core.Nothing,
+      files = Core.Nothing,
+      roleArn = Core.Nothing
     }
 
--- | The files associated with the stream.
+-- | The stream ID.
 --
--- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usFiles :: Lens.Lens' UpdateStream (Lude.Maybe (Lude.NonEmpty StreamFile))
-usFiles = Lens.lens (files :: UpdateStream -> Lude.Maybe (Lude.NonEmpty StreamFile)) (\s a -> s {files = a} :: UpdateStream)
-{-# DEPRECATED usFiles "Use generic-lens or generic-optics with 'files' instead." #-}
+-- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usStreamId :: Lens.Lens' UpdateStream Types.StreamId
+usStreamId = Lens.field @"streamId"
+{-# DEPRECATED usStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
 -- | The description of the stream.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usDescription :: Lens.Lens' UpdateStream (Lude.Maybe Lude.Text)
-usDescription = Lens.lens (description :: UpdateStream -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateStream)
+usDescription :: Lens.Lens' UpdateStream (Core.Maybe Types.StreamDescription)
+usDescription = Lens.field @"description"
 {-# DEPRECATED usDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The stream ID.
+-- | The files associated with the stream.
 --
--- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usStreamId :: Lens.Lens' UpdateStream Lude.Text
-usStreamId = Lens.lens (streamId :: UpdateStream -> Lude.Text) (\s a -> s {streamId = a} :: UpdateStream)
-{-# DEPRECATED usStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
+-- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usFiles :: Lens.Lens' UpdateStream (Core.Maybe (Core.NonEmpty Types.StreamFile))
+usFiles = Lens.field @"files"
+{-# DEPRECATED usFiles "Use generic-lens or generic-optics with 'files' instead." #-}
 
 -- | An IAM role that allows the IoT service principal assumes to access your S3 files.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usRoleARN :: Lens.Lens' UpdateStream (Lude.Maybe Lude.Text)
-usRoleARN = Lens.lens (roleARN :: UpdateStream -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateStream)
-{-# DEPRECATED usRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usRoleArn :: Lens.Lens' UpdateStream (Core.Maybe Types.RoleArn)
+usRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED usRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest UpdateStream where
-  type Rs UpdateStream = UpdateStreamResponse
-  request = Req.putJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateStreamResponse'
-            Lude.<$> (x Lude..?> "streamVersion")
-            Lude.<*> (x Lude..?> "streamArn")
-            Lude.<*> (x Lude..?> "description")
-            Lude.<*> (x Lude..?> "streamId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateStream where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateStream where
-  toJSON UpdateStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("files" Lude..=) Lude.<$> files,
-            ("description" Lude..=) Lude.<$> description,
-            ("roleArn" Lude..=) Lude.<$> roleARN
+instance Core.FromJSON UpdateStream where
+  toJSON UpdateStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("description" Core..=) Core.<$> description,
+            ("files" Core..=) Core.<$> files,
+            ("roleArn" Core..=) Core.<$> roleArn
           ]
       )
 
-instance Lude.ToPath UpdateStream where
-  toPath UpdateStream' {..} =
-    Lude.mconcat ["/streams/", Lude.toBS streamId]
-
-instance Lude.ToQuery UpdateStream where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateStream where
+  type Rs UpdateStream = UpdateStreamResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath ("/streams/" Core.<> (Core.toText streamId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateStreamResponse'
+            Core.<$> (x Core..:? "description")
+            Core.<*> (x Core..:? "streamArn")
+            Core.<*> (x Core..:? "streamId")
+            Core.<*> (x Core..:? "streamVersion")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateStreamResponse' smart constructor.
 data UpdateStreamResponse = UpdateStreamResponse'
-  { -- | The stream version.
-    streamVersion :: Lude.Maybe Lude.Natural,
+  { -- | A description of the stream.
+    description :: Core.Maybe Types.StreamDescription,
     -- | The stream ARN.
-    streamARN :: Lude.Maybe Lude.Text,
-    -- | A description of the stream.
-    description :: Lude.Maybe Lude.Text,
+    streamArn :: Core.Maybe Types.StreamArn,
     -- | The stream ID.
-    streamId :: Lude.Maybe Lude.Text,
+    streamId :: Core.Maybe Types.StreamId,
+    -- | The stream version.
+    streamVersion :: Core.Maybe Core.Natural,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateStreamResponse' with the minimum fields required to make a request.
---
--- * 'streamVersion' - The stream version.
--- * 'streamARN' - The stream ARN.
--- * 'description' - A description of the stream.
--- * 'streamId' - The stream ID.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateStreamResponse' value with any optional fields omitted.
 mkUpdateStreamResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateStreamResponse
-mkUpdateStreamResponse pResponseStatus_ =
+mkUpdateStreamResponse responseStatus =
   UpdateStreamResponse'
-    { streamVersion = Lude.Nothing,
-      streamARN = Lude.Nothing,
-      description = Lude.Nothing,
-      streamId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { description = Core.Nothing,
+      streamArn = Core.Nothing,
+      streamId = Core.Nothing,
+      streamVersion = Core.Nothing,
+      responseStatus
     }
-
--- | The stream version.
---
--- /Note:/ Consider using 'streamVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsStreamVersion :: Lens.Lens' UpdateStreamResponse (Lude.Maybe Lude.Natural)
-usrsStreamVersion = Lens.lens (streamVersion :: UpdateStreamResponse -> Lude.Maybe Lude.Natural) (\s a -> s {streamVersion = a} :: UpdateStreamResponse)
-{-# DEPRECATED usrsStreamVersion "Use generic-lens or generic-optics with 'streamVersion' instead." #-}
-
--- | The stream ARN.
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsStreamARN :: Lens.Lens' UpdateStreamResponse (Lude.Maybe Lude.Text)
-usrsStreamARN = Lens.lens (streamARN :: UpdateStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: UpdateStreamResponse)
-{-# DEPRECATED usrsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | A description of the stream.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsDescription :: Lens.Lens' UpdateStreamResponse (Lude.Maybe Lude.Text)
-usrsDescription = Lens.lens (description :: UpdateStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateStreamResponse)
-{-# DEPRECATED usrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+usrrsDescription :: Lens.Lens' UpdateStreamResponse (Core.Maybe Types.StreamDescription)
+usrrsDescription = Lens.field @"description"
+{-# DEPRECATED usrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The stream ARN.
+--
+-- /Note:/ Consider using 'streamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrrsStreamArn :: Lens.Lens' UpdateStreamResponse (Core.Maybe Types.StreamArn)
+usrrsStreamArn = Lens.field @"streamArn"
+{-# DEPRECATED usrrsStreamArn "Use generic-lens or generic-optics with 'streamArn' instead." #-}
 
 -- | The stream ID.
 --
 -- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsStreamId :: Lens.Lens' UpdateStreamResponse (Lude.Maybe Lude.Text)
-usrsStreamId = Lens.lens (streamId :: UpdateStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamId = a} :: UpdateStreamResponse)
-{-# DEPRECATED usrsStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
+usrrsStreamId :: Lens.Lens' UpdateStreamResponse (Core.Maybe Types.StreamId)
+usrrsStreamId = Lens.field @"streamId"
+{-# DEPRECATED usrrsStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
+
+-- | The stream version.
+--
+-- /Note:/ Consider using 'streamVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrrsStreamVersion :: Lens.Lens' UpdateStreamResponse (Core.Maybe Core.Natural)
+usrrsStreamVersion = Lens.field @"streamVersion"
+{-# DEPRECATED usrrsStreamVersion "Use generic-lens or generic-optics with 'streamVersion' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsResponseStatus :: Lens.Lens' UpdateStreamResponse Lude.Int
-usrsResponseStatus = Lens.lens (responseStatus :: UpdateStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateStreamResponse)
-{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usrrsResponseStatus :: Lens.Lens' UpdateStreamResponse Core.Int
+usrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -24,182 +24,179 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     mkDescribeSpotFleetRequests,
 
     -- ** Request lenses
-    dsfrSpotFleetRequestIds,
-    dsfrNextToken,
     dsfrDryRun,
     dsfrMaxResults,
+    dsfrNextToken,
+    dsfrSpotFleetRequestIds,
 
     -- * Destructuring the response
     DescribeSpotFleetRequestsResponse (..),
     mkDescribeSpotFleetRequestsResponse,
 
     -- ** Response lenses
-    dsfrrsNextToken,
-    dsfrrsSpotFleetRequestConfigs,
-    dsfrrsResponseStatus,
+    dsfrrrsNextToken,
+    dsfrrrsSpotFleetRequestConfigs,
+    dsfrrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeSpotFleetRequests.
 --
 -- /See:/ 'mkDescribeSpotFleetRequests' smart constructor.
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
-  { -- | The IDs of the Spot Fleet requests.
-    spotFleetRequestIds :: Lude.Maybe [Lude.Text],
-    -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.String,
+    -- | The IDs of the Spot Fleet requests.
+    spotFleetRequestIds :: Core.Maybe [Types.SpotFleetRequestId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSpotFleetRequests' with the minimum fields required to make a request.
---
--- * 'spotFleetRequestIds' - The IDs of the Spot Fleet requests.
--- * 'nextToken' - The token for the next set of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- | Creates a 'DescribeSpotFleetRequests' value with any optional fields omitted.
 mkDescribeSpotFleetRequests ::
   DescribeSpotFleetRequests
 mkDescribeSpotFleetRequests =
   DescribeSpotFleetRequests'
-    { spotFleetRequestIds = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      spotFleetRequestIds = Core.Nothing
     }
-
--- | The IDs of the Spot Fleet requests.
---
--- /Note:/ Consider using 'spotFleetRequestIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrSpotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Lude.Maybe [Lude.Text])
-dsfrSpotFleetRequestIds = Lens.lens (spotFleetRequestIds :: DescribeSpotFleetRequests -> Lude.Maybe [Lude.Text]) (\s a -> s {spotFleetRequestIds = a} :: DescribeSpotFleetRequests)
-{-# DEPRECATED dsfrSpotFleetRequestIds "Use generic-lens or generic-optics with 'spotFleetRequestIds' instead." #-}
-
--- | The token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrNextToken :: Lens.Lens' DescribeSpotFleetRequests (Lude.Maybe Lude.Text)
-dsfrNextToken = Lens.lens (nextToken :: DescribeSpotFleetRequests -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSpotFleetRequests)
-{-# DEPRECATED dsfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrDryRun :: Lens.Lens' DescribeSpotFleetRequests (Lude.Maybe Lude.Bool)
-dsfrDryRun = Lens.lens (dryRun :: DescribeSpotFleetRequests -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSpotFleetRequests)
+dsfrDryRun :: Lens.Lens' DescribeSpotFleetRequests (Core.Maybe Core.Bool)
+dsfrDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dsfrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrMaxResults :: Lens.Lens' DescribeSpotFleetRequests (Lude.Maybe Lude.Int)
-dsfrMaxResults = Lens.lens (maxResults :: DescribeSpotFleetRequests -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeSpotFleetRequests)
+dsfrMaxResults :: Lens.Lens' DescribeSpotFleetRequests (Core.Maybe Core.Int)
+dsfrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dsfrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeSpotFleetRequests where
-  page rq rs
-    | Page.stop (rs Lens.^. dsfrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsfrrsSpotFleetRequestConfigs) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsfrNextToken Lens..~ rs Lens.^. dsfrrsNextToken
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfrNextToken :: Lens.Lens' DescribeSpotFleetRequests (Core.Maybe Types.String)
+dsfrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeSpotFleetRequests where
+-- | The IDs of the Spot Fleet requests.
+--
+-- /Note:/ Consider using 'spotFleetRequestIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfrSpotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Core.Maybe [Types.SpotFleetRequestId])
+dsfrSpotFleetRequestIds = Lens.field @"spotFleetRequestIds"
+{-# DEPRECATED dsfrSpotFleetRequestIds "Use generic-lens or generic-optics with 'spotFleetRequestIds' instead." #-}
+
+instance Core.AWSRequest DescribeSpotFleetRequests where
   type
     Rs DescribeSpotFleetRequests =
       DescribeSpotFleetRequestsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeSpotFleetRequests")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryList "SpotFleetRequestId"
+                            Core.<$> spotFleetRequestIds
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeSpotFleetRequestsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "spotFleetRequestConfigSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "spotFleetRequestConfigSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSpotFleetRequests where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeSpotFleetRequests where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSpotFleetRequests where
-  toQuery DescribeSpotFleetRequests' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeSpotFleetRequests" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          ( Lude.toQueryList "SpotFleetRequestId"
-              Lude.<$> spotFleetRequestIds
-          ),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeSpotFleetRequests where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"spotFleetRequestConfigs" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Contains the output of DescribeSpotFleetRequests.
 --
 -- /See:/ 'mkDescribeSpotFleetRequestsResponse' smart constructor.
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
   { -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Information about the configuration of your Spot Fleet.
-    spotFleetRequestConfigs :: Lude.Maybe [SpotFleetRequestConfig],
+    spotFleetRequestConfigs :: Core.Maybe [Types.SpotFleetRequestConfig],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSpotFleetRequestsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
--- * 'spotFleetRequestConfigs' - Information about the configuration of your Spot Fleet.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSpotFleetRequestsResponse' value with any optional fields omitted.
 mkDescribeSpotFleetRequestsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSpotFleetRequestsResponse
-mkDescribeSpotFleetRequestsResponse pResponseStatus_ =
+mkDescribeSpotFleetRequestsResponse responseStatus =
   DescribeSpotFleetRequestsResponse'
-    { nextToken = Lude.Nothing,
-      spotFleetRequestConfigs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      spotFleetRequestConfigs = Core.Nothing,
+      responseStatus
     }
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrrsNextToken :: Lens.Lens' DescribeSpotFleetRequestsResponse (Lude.Maybe Lude.Text)
-dsfrrsNextToken = Lens.lens (nextToken :: DescribeSpotFleetRequestsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSpotFleetRequestsResponse)
-{-# DEPRECATED dsfrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsfrrrsNextToken :: Lens.Lens' DescribeSpotFleetRequestsResponse (Core.Maybe Types.NextToken)
+dsfrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsfrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the configuration of your Spot Fleet.
 --
 -- /Note:/ Consider using 'spotFleetRequestConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrrsSpotFleetRequestConfigs :: Lens.Lens' DescribeSpotFleetRequestsResponse (Lude.Maybe [SpotFleetRequestConfig])
-dsfrrsSpotFleetRequestConfigs = Lens.lens (spotFleetRequestConfigs :: DescribeSpotFleetRequestsResponse -> Lude.Maybe [SpotFleetRequestConfig]) (\s a -> s {spotFleetRequestConfigs = a} :: DescribeSpotFleetRequestsResponse)
-{-# DEPRECATED dsfrrsSpotFleetRequestConfigs "Use generic-lens or generic-optics with 'spotFleetRequestConfigs' instead." #-}
+dsfrrrsSpotFleetRequestConfigs :: Lens.Lens' DescribeSpotFleetRequestsResponse (Core.Maybe [Types.SpotFleetRequestConfig])
+dsfrrrsSpotFleetRequestConfigs = Lens.field @"spotFleetRequestConfigs"
+{-# DEPRECATED dsfrrrsSpotFleetRequestConfigs "Use generic-lens or generic-optics with 'spotFleetRequestConfigs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrrsResponseStatus :: Lens.Lens' DescribeSpotFleetRequestsResponse Lude.Int
-dsfrrsResponseStatus = Lens.lens (responseStatus :: DescribeSpotFleetRequestsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSpotFleetRequestsResponse)
-{-# DEPRECATED dsfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsfrrrsResponseStatus :: Lens.Lens' DescribeSpotFleetRequestsResponse Core.Int
+dsfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

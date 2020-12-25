@@ -21,220 +21,199 @@ module Network.AWS.Translate.TranslateText
 
     -- ** Request lenses
     ttText,
+    ttSourceLanguageCode,
     ttTargetLanguageCode,
     ttTerminologyNames,
-    ttSourceLanguageCode,
 
     -- * Destructuring the response
     TranslateTextResponse (..),
     mkTranslateTextResponse,
 
     -- ** Response lenses
-    ttrsTargetLanguageCode,
-    ttrsTranslatedText,
-    ttrsSourceLanguageCode,
-    ttrsAppliedTerminologies,
-    ttrsResponseStatus,
+    ttrrsTranslatedText,
+    ttrrsSourceLanguageCode,
+    ttrrsTargetLanguageCode,
+    ttrrsAppliedTerminologies,
+    ttrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkTranslateText' smart constructor.
 data TranslateText = TranslateText'
   { -- | The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set, this may be fewer than 5,000 characters.
-    text :: Lude.Text,
-    -- | The language code requested for the language of the target text. The language must be a language supported by Amazon Translate.
-    targetLanguageCode :: Lude.Text,
-    -- | The name of the terminology list file to be used in the TranslateText request. You can use 1 terminology list at most in a @TranslateText@ request. Terminology lists can contain a maximum of 256 terms.
-    terminologyNames :: Lude.Maybe [Lude.Text],
+    text :: Types.Text,
     -- | The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see 'what-is-languages' .
     --
     -- To have Amazon Translate determine the source language of your text, you can specify @auto@ in the @SourceLanguageCode@ field. If you specify @auto@ , Amazon Translate will call <https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html Amazon Comprehend> to determine the source language.
-    sourceLanguageCode :: Lude.Text
+    sourceLanguageCode :: Types.SourceLanguageCode,
+    -- | The language code requested for the language of the target text. The language must be a language supported by Amazon Translate.
+    targetLanguageCode :: Types.TargetLanguageCode,
+    -- | The name of the terminology list file to be used in the TranslateText request. You can use 1 terminology list at most in a @TranslateText@ request. Terminology lists can contain a maximum of 256 terms.
+    terminologyNames :: Core.Maybe [Types.ResourceName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TranslateText' with the minimum fields required to make a request.
---
--- * 'text' - The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set, this may be fewer than 5,000 characters.
--- * 'targetLanguageCode' - The language code requested for the language of the target text. The language must be a language supported by Amazon Translate.
--- * 'terminologyNames' - The name of the terminology list file to be used in the TranslateText request. You can use 1 terminology list at most in a @TranslateText@ request. Terminology lists can contain a maximum of 256 terms.
--- * 'sourceLanguageCode' - The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see 'what-is-languages' .
---
--- To have Amazon Translate determine the source language of your text, you can specify @auto@ in the @SourceLanguageCode@ field. If you specify @auto@ , Amazon Translate will call <https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html Amazon Comprehend> to determine the source language.
+-- | Creates a 'TranslateText' value with any optional fields omitted.
 mkTranslateText ::
   -- | 'text'
-  Lude.Text ->
-  -- | 'targetLanguageCode'
-  Lude.Text ->
+  Types.Text ->
   -- | 'sourceLanguageCode'
-  Lude.Text ->
+  Types.SourceLanguageCode ->
+  -- | 'targetLanguageCode'
+  Types.TargetLanguageCode ->
   TranslateText
-mkTranslateText pText_ pTargetLanguageCode_ pSourceLanguageCode_ =
+mkTranslateText text sourceLanguageCode targetLanguageCode =
   TranslateText'
-    { text = pText_,
-      targetLanguageCode = pTargetLanguageCode_,
-      terminologyNames = Lude.Nothing,
-      sourceLanguageCode = pSourceLanguageCode_
+    { text,
+      sourceLanguageCode,
+      targetLanguageCode,
+      terminologyNames = Core.Nothing
     }
 
 -- | The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on your character set, this may be fewer than 5,000 characters.
 --
 -- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttText :: Lens.Lens' TranslateText Lude.Text
-ttText = Lens.lens (text :: TranslateText -> Lude.Text) (\s a -> s {text = a} :: TranslateText)
+ttText :: Lens.Lens' TranslateText Types.Text
+ttText = Lens.field @"text"
 {-# DEPRECATED ttText "Use generic-lens or generic-optics with 'text' instead." #-}
-
--- | The language code requested for the language of the target text. The language must be a language supported by Amazon Translate.
---
--- /Note:/ Consider using 'targetLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttTargetLanguageCode :: Lens.Lens' TranslateText Lude.Text
-ttTargetLanguageCode = Lens.lens (targetLanguageCode :: TranslateText -> Lude.Text) (\s a -> s {targetLanguageCode = a} :: TranslateText)
-{-# DEPRECATED ttTargetLanguageCode "Use generic-lens or generic-optics with 'targetLanguageCode' instead." #-}
-
--- | The name of the terminology list file to be used in the TranslateText request. You can use 1 terminology list at most in a @TranslateText@ request. Terminology lists can contain a maximum of 256 terms.
---
--- /Note:/ Consider using 'terminologyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttTerminologyNames :: Lens.Lens' TranslateText (Lude.Maybe [Lude.Text])
-ttTerminologyNames = Lens.lens (terminologyNames :: TranslateText -> Lude.Maybe [Lude.Text]) (\s a -> s {terminologyNames = a} :: TranslateText)
-{-# DEPRECATED ttTerminologyNames "Use generic-lens or generic-optics with 'terminologyNames' instead." #-}
 
 -- | The language code for the language of the source text. The language must be a language supported by Amazon Translate. For a list of language codes, see 'what-is-languages' .
 --
 -- To have Amazon Translate determine the source language of your text, you can specify @auto@ in the @SourceLanguageCode@ field. If you specify @auto@ , Amazon Translate will call <https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html Amazon Comprehend> to determine the source language.
 --
 -- /Note:/ Consider using 'sourceLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttSourceLanguageCode :: Lens.Lens' TranslateText Lude.Text
-ttSourceLanguageCode = Lens.lens (sourceLanguageCode :: TranslateText -> Lude.Text) (\s a -> s {sourceLanguageCode = a} :: TranslateText)
+ttSourceLanguageCode :: Lens.Lens' TranslateText Types.SourceLanguageCode
+ttSourceLanguageCode = Lens.field @"sourceLanguageCode"
 {-# DEPRECATED ttSourceLanguageCode "Use generic-lens or generic-optics with 'sourceLanguageCode' instead." #-}
 
-instance Lude.AWSRequest TranslateText where
+-- | The language code requested for the language of the target text. The language must be a language supported by Amazon Translate.
+--
+-- /Note:/ Consider using 'targetLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttTargetLanguageCode :: Lens.Lens' TranslateText Types.TargetLanguageCode
+ttTargetLanguageCode = Lens.field @"targetLanguageCode"
+{-# DEPRECATED ttTargetLanguageCode "Use generic-lens or generic-optics with 'targetLanguageCode' instead." #-}
+
+-- | The name of the terminology list file to be used in the TranslateText request. You can use 1 terminology list at most in a @TranslateText@ request. Terminology lists can contain a maximum of 256 terms.
+--
+-- /Note:/ Consider using 'terminologyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttTerminologyNames :: Lens.Lens' TranslateText (Core.Maybe [Types.ResourceName])
+ttTerminologyNames = Lens.field @"terminologyNames"
+{-# DEPRECATED ttTerminologyNames "Use generic-lens or generic-optics with 'terminologyNames' instead." #-}
+
+instance Core.FromJSON TranslateText where
+  toJSON TranslateText {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Text" Core..= text),
+            Core.Just ("SourceLanguageCode" Core..= sourceLanguageCode),
+            Core.Just ("TargetLanguageCode" Core..= targetLanguageCode),
+            ("TerminologyNames" Core..=) Core.<$> terminologyNames
+          ]
+      )
+
+instance Core.AWSRequest TranslateText where
   type Rs TranslateText = TranslateTextResponse
-  request = Req.postJSON translateService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSShineFrontendService_20170701.TranslateText")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TranslateTextResponse'
-            Lude.<$> (x Lude..:> "TargetLanguageCode")
-            Lude.<*> (x Lude..:> "TranslatedText")
-            Lude.<*> (x Lude..:> "SourceLanguageCode")
-            Lude.<*> (x Lude..?> "AppliedTerminologies" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "TranslatedText")
+            Core.<*> (x Core..: "SourceLanguageCode")
+            Core.<*> (x Core..: "TargetLanguageCode")
+            Core.<*> (x Core..:? "AppliedTerminologies")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TranslateText where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.TranslateText" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TranslateText where
-  toJSON TranslateText' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Text" Lude..= text),
-            Lude.Just ("TargetLanguageCode" Lude..= targetLanguageCode),
-            ("TerminologyNames" Lude..=) Lude.<$> terminologyNames,
-            Lude.Just ("SourceLanguageCode" Lude..= sourceLanguageCode)
-          ]
-      )
-
-instance Lude.ToPath TranslateText where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TranslateText where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTranslateTextResponse' smart constructor.
 data TranslateTextResponse = TranslateTextResponse'
-  { -- | The language code for the language of the target text.
-    targetLanguageCode :: Lude.Text,
-    -- | The translated text.
-    translatedText :: Lude.Text,
+  { -- | The translated text.
+    translatedText :: Types.String,
     -- | The language code for the language of the source text.
-    sourceLanguageCode :: Lude.Text,
+    sourceLanguageCode :: Types.LanguageCodeString,
+    -- | The language code for the language of the target text.
+    targetLanguageCode :: Types.LanguageCodeString,
     -- | The names of the custom terminologies applied to the input text by Amazon Translate for the translated text response.
-    appliedTerminologies :: Lude.Maybe [AppliedTerminology],
+    appliedTerminologies :: Core.Maybe [Types.AppliedTerminology],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TranslateTextResponse' with the minimum fields required to make a request.
---
--- * 'targetLanguageCode' - The language code for the language of the target text.
--- * 'translatedText' - The translated text.
--- * 'sourceLanguageCode' - The language code for the language of the source text.
--- * 'appliedTerminologies' - The names of the custom terminologies applied to the input text by Amazon Translate for the translated text response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TranslateTextResponse' value with any optional fields omitted.
 mkTranslateTextResponse ::
-  -- | 'targetLanguageCode'
-  Lude.Text ->
   -- | 'translatedText'
-  Lude.Text ->
+  Types.String ->
   -- | 'sourceLanguageCode'
-  Lude.Text ->
+  Types.LanguageCodeString ->
+  -- | 'targetLanguageCode'
+  Types.LanguageCodeString ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TranslateTextResponse
 mkTranslateTextResponse
-  pTargetLanguageCode_
-  pTranslatedText_
-  pSourceLanguageCode_
-  pResponseStatus_ =
+  translatedText
+  sourceLanguageCode
+  targetLanguageCode
+  responseStatus =
     TranslateTextResponse'
-      { targetLanguageCode = pTargetLanguageCode_,
-        translatedText = pTranslatedText_,
-        sourceLanguageCode = pSourceLanguageCode_,
-        appliedTerminologies = Lude.Nothing,
-        responseStatus = pResponseStatus_
+      { translatedText,
+        sourceLanguageCode,
+        targetLanguageCode,
+        appliedTerminologies = Core.Nothing,
+        responseStatus
       }
-
--- | The language code for the language of the target text.
---
--- /Note:/ Consider using 'targetLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttrsTargetLanguageCode :: Lens.Lens' TranslateTextResponse Lude.Text
-ttrsTargetLanguageCode = Lens.lens (targetLanguageCode :: TranslateTextResponse -> Lude.Text) (\s a -> s {targetLanguageCode = a} :: TranslateTextResponse)
-{-# DEPRECATED ttrsTargetLanguageCode "Use generic-lens or generic-optics with 'targetLanguageCode' instead." #-}
 
 -- | The translated text.
 --
 -- /Note:/ Consider using 'translatedText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttrsTranslatedText :: Lens.Lens' TranslateTextResponse Lude.Text
-ttrsTranslatedText = Lens.lens (translatedText :: TranslateTextResponse -> Lude.Text) (\s a -> s {translatedText = a} :: TranslateTextResponse)
-{-# DEPRECATED ttrsTranslatedText "Use generic-lens or generic-optics with 'translatedText' instead." #-}
+ttrrsTranslatedText :: Lens.Lens' TranslateTextResponse Types.String
+ttrrsTranslatedText = Lens.field @"translatedText"
+{-# DEPRECATED ttrrsTranslatedText "Use generic-lens or generic-optics with 'translatedText' instead." #-}
 
 -- | The language code for the language of the source text.
 --
 -- /Note:/ Consider using 'sourceLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttrsSourceLanguageCode :: Lens.Lens' TranslateTextResponse Lude.Text
-ttrsSourceLanguageCode = Lens.lens (sourceLanguageCode :: TranslateTextResponse -> Lude.Text) (\s a -> s {sourceLanguageCode = a} :: TranslateTextResponse)
-{-# DEPRECATED ttrsSourceLanguageCode "Use generic-lens or generic-optics with 'sourceLanguageCode' instead." #-}
+ttrrsSourceLanguageCode :: Lens.Lens' TranslateTextResponse Types.LanguageCodeString
+ttrrsSourceLanguageCode = Lens.field @"sourceLanguageCode"
+{-# DEPRECATED ttrrsSourceLanguageCode "Use generic-lens or generic-optics with 'sourceLanguageCode' instead." #-}
+
+-- | The language code for the language of the target text.
+--
+-- /Note:/ Consider using 'targetLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttrrsTargetLanguageCode :: Lens.Lens' TranslateTextResponse Types.LanguageCodeString
+ttrrsTargetLanguageCode = Lens.field @"targetLanguageCode"
+{-# DEPRECATED ttrrsTargetLanguageCode "Use generic-lens or generic-optics with 'targetLanguageCode' instead." #-}
 
 -- | The names of the custom terminologies applied to the input text by Amazon Translate for the translated text response.
 --
 -- /Note:/ Consider using 'appliedTerminologies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttrsAppliedTerminologies :: Lens.Lens' TranslateTextResponse (Lude.Maybe [AppliedTerminology])
-ttrsAppliedTerminologies = Lens.lens (appliedTerminologies :: TranslateTextResponse -> Lude.Maybe [AppliedTerminology]) (\s a -> s {appliedTerminologies = a} :: TranslateTextResponse)
-{-# DEPRECATED ttrsAppliedTerminologies "Use generic-lens or generic-optics with 'appliedTerminologies' instead." #-}
+ttrrsAppliedTerminologies :: Lens.Lens' TranslateTextResponse (Core.Maybe [Types.AppliedTerminology])
+ttrrsAppliedTerminologies = Lens.field @"appliedTerminologies"
+{-# DEPRECATED ttrrsAppliedTerminologies "Use generic-lens or generic-optics with 'appliedTerminologies' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttrsResponseStatus :: Lens.Lens' TranslateTextResponse Lude.Int
-ttrsResponseStatus = Lens.lens (responseStatus :: TranslateTextResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TranslateTextResponse)
-{-# DEPRECATED ttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ttrrsResponseStatus :: Lens.Lens' TranslateTextResponse Core.Int
+ttrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ttrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,97 +13,99 @@
 module Network.AWS.Route53.Types.RecordType
   ( RecordType
       ( RecordType',
-        Soa,
-        A,
-        Txt,
-        NS,
-        Cname,
-        MX,
-        Naptr,
-        Ptr,
-        Srv,
-        Spf,
-        Aaaa,
-        Caa
+        RecordTypeSoa,
+        RecordTypeA,
+        RecordTypeTxt,
+        RecordTypeNS,
+        RecordTypeCname,
+        RecordTypeMX,
+        RecordTypeNaptr,
+        RecordTypePtr,
+        RecordTypeSrv,
+        RecordTypeSpf,
+        RecordTypeAaaa,
+        RecordTypeCaa,
+        fromRecordType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
 
-newtype RecordType = RecordType' Lude.Text
+newtype RecordType = RecordType' {fromRecordType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Soa :: RecordType
-pattern Soa = RecordType' "SOA"
+pattern RecordTypeSoa :: RecordType
+pattern RecordTypeSoa = RecordType' "SOA"
 
-pattern A :: RecordType
-pattern A = RecordType' "A"
+pattern RecordTypeA :: RecordType
+pattern RecordTypeA = RecordType' "A"
 
-pattern Txt :: RecordType
-pattern Txt = RecordType' "TXT"
+pattern RecordTypeTxt :: RecordType
+pattern RecordTypeTxt = RecordType' "TXT"
 
-pattern NS :: RecordType
-pattern NS = RecordType' "NS"
+pattern RecordTypeNS :: RecordType
+pattern RecordTypeNS = RecordType' "NS"
 
-pattern Cname :: RecordType
-pattern Cname = RecordType' "CNAME"
+pattern RecordTypeCname :: RecordType
+pattern RecordTypeCname = RecordType' "CNAME"
 
-pattern MX :: RecordType
-pattern MX = RecordType' "MX"
+pattern RecordTypeMX :: RecordType
+pattern RecordTypeMX = RecordType' "MX"
 
-pattern Naptr :: RecordType
-pattern Naptr = RecordType' "NAPTR"
+pattern RecordTypeNaptr :: RecordType
+pattern RecordTypeNaptr = RecordType' "NAPTR"
 
-pattern Ptr :: RecordType
-pattern Ptr = RecordType' "PTR"
+pattern RecordTypePtr :: RecordType
+pattern RecordTypePtr = RecordType' "PTR"
 
-pattern Srv :: RecordType
-pattern Srv = RecordType' "SRV"
+pattern RecordTypeSrv :: RecordType
+pattern RecordTypeSrv = RecordType' "SRV"
 
-pattern Spf :: RecordType
-pattern Spf = RecordType' "SPF"
+pattern RecordTypeSpf :: RecordType
+pattern RecordTypeSpf = RecordType' "SPF"
 
-pattern Aaaa :: RecordType
-pattern Aaaa = RecordType' "AAAA"
+pattern RecordTypeAaaa :: RecordType
+pattern RecordTypeAaaa = RecordType' "AAAA"
 
-pattern Caa :: RecordType
-pattern Caa = RecordType' "CAA"
+pattern RecordTypeCaa :: RecordType
+pattern RecordTypeCaa = RecordType' "CAA"
 
 {-# COMPLETE
-  Soa,
-  A,
-  Txt,
-  NS,
-  Cname,
-  MX,
-  Naptr,
-  Ptr,
-  Srv,
-  Spf,
-  Aaaa,
-  Caa,
+  RecordTypeSoa,
+  RecordTypeA,
+  RecordTypeTxt,
+  RecordTypeNS,
+  RecordTypeCname,
+  RecordTypeMX,
+  RecordTypeNaptr,
+  RecordTypePtr,
+  RecordTypeSrv,
+  RecordTypeSpf,
+  RecordTypeAaaa,
+  RecordTypeCaa,
   RecordType'
   #-}

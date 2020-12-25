@@ -13,47 +13,52 @@
 module Network.AWS.Redshift.Types.UsageLimitFeatureType
   ( UsageLimitFeatureType
       ( UsageLimitFeatureType',
-        Spectrum,
-        ConcurrencyScaling
+        UsageLimitFeatureTypeSpectrum,
+        UsageLimitFeatureTypeConcurrencyScaling,
+        fromUsageLimitFeatureType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype UsageLimitFeatureType = UsageLimitFeatureType' Lude.Text
+newtype UsageLimitFeatureType = UsageLimitFeatureType'
+  { fromUsageLimitFeatureType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Spectrum :: UsageLimitFeatureType
-pattern Spectrum = UsageLimitFeatureType' "spectrum"
+pattern UsageLimitFeatureTypeSpectrum :: UsageLimitFeatureType
+pattern UsageLimitFeatureTypeSpectrum = UsageLimitFeatureType' "spectrum"
 
-pattern ConcurrencyScaling :: UsageLimitFeatureType
-pattern ConcurrencyScaling = UsageLimitFeatureType' "concurrency-scaling"
+pattern UsageLimitFeatureTypeConcurrencyScaling :: UsageLimitFeatureType
+pattern UsageLimitFeatureTypeConcurrencyScaling = UsageLimitFeatureType' "concurrency-scaling"
 
 {-# COMPLETE
-  Spectrum,
-  ConcurrencyScaling,
+  UsageLimitFeatureTypeSpectrum,
+  UsageLimitFeatureTypeConcurrencyScaling,
   UsageLimitFeatureType'
   #-}

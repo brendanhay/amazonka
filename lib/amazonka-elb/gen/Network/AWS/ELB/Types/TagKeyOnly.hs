@@ -21,33 +21,29 @@ module Network.AWS.ELB.Types.TagKeyOnly
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.TagKey as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The key of a tag.
 --
 -- /See:/ 'mkTagKeyOnly' smart constructor.
 newtype TagKeyOnly = TagKeyOnly'
   { -- | The name of the key.
-    key :: Lude.Maybe Lude.Text
+    key :: Core.Maybe Types.TagKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagKeyOnly' with the minimum fields required to make a request.
---
--- * 'key' - The name of the key.
+-- | Creates a 'TagKeyOnly' value with any optional fields omitted.
 mkTagKeyOnly ::
   TagKeyOnly
-mkTagKeyOnly = TagKeyOnly' {key = Lude.Nothing}
+mkTagKeyOnly = TagKeyOnly' {key = Core.Nothing}
 
 -- | The name of the key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tkoKey :: Lens.Lens' TagKeyOnly (Lude.Maybe Lude.Text)
-tkoKey = Lens.lens (key :: TagKeyOnly -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagKeyOnly)
+tkoKey :: Lens.Lens' TagKeyOnly (Core.Maybe Types.TagKey)
+tkoKey = Lens.field @"key"
 {-# DEPRECATED tkoKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
-instance Lude.ToQuery TagKeyOnly where
-  toQuery TagKeyOnly' {..} = Lude.mconcat ["Key" Lude.=: key]

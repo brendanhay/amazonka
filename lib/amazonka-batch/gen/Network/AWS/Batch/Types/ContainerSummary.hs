@@ -17,54 +17,50 @@ module Network.AWS.Batch.Types.ContainerSummary
     mkContainerSummary,
 
     -- * Lenses
-    csReason,
     csExitCode,
+    csReason,
   )
 where
 
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing summary details of a container within a job.
 --
 -- /See:/ 'mkContainerSummary' smart constructor.
 data ContainerSummary = ContainerSummary'
-  { -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
-    reason :: Lude.Maybe Lude.Text,
-    -- | The exit code to return upon completion.
-    exitCode :: Lude.Maybe Lude.Int
+  { -- | The exit code to return upon completion.
+    exitCode :: Core.Maybe Core.Int,
+    -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+    reason :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContainerSummary' with the minimum fields required to make a request.
---
--- * 'reason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
--- * 'exitCode' - The exit code to return upon completion.
+-- | Creates a 'ContainerSummary' value with any optional fields omitted.
 mkContainerSummary ::
   ContainerSummary
 mkContainerSummary =
-  ContainerSummary' {reason = Lude.Nothing, exitCode = Lude.Nothing}
-
--- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csReason :: Lens.Lens' ContainerSummary (Lude.Maybe Lude.Text)
-csReason = Lens.lens (reason :: ContainerSummary -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: ContainerSummary)
-{-# DEPRECATED csReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+  ContainerSummary' {exitCode = Core.Nothing, reason = Core.Nothing}
 
 -- | The exit code to return upon completion.
 --
 -- /Note:/ Consider using 'exitCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csExitCode :: Lens.Lens' ContainerSummary (Lude.Maybe Lude.Int)
-csExitCode = Lens.lens (exitCode :: ContainerSummary -> Lude.Maybe Lude.Int) (\s a -> s {exitCode = a} :: ContainerSummary)
+csExitCode :: Lens.Lens' ContainerSummary (Core.Maybe Core.Int)
+csExitCode = Lens.field @"exitCode"
 {-# DEPRECATED csExitCode "Use generic-lens or generic-optics with 'exitCode' instead." #-}
 
-instance Lude.FromJSON ContainerSummary where
+-- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csReason :: Lens.Lens' ContainerSummary (Core.Maybe Types.String)
+csReason = Lens.field @"reason"
+{-# DEPRECATED csReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromJSON ContainerSummary where
   parseJSON =
-    Lude.withObject
-      "ContainerSummary"
-      ( \x ->
-          ContainerSummary'
-            Lude.<$> (x Lude..:? "reason") Lude.<*> (x Lude..:? "exitCode")
-      )
+    Core.withObject "ContainerSummary" Core.$
+      \x ->
+        ContainerSummary'
+          Core.<$> (x Core..:? "exitCode") Core.<*> (x Core..:? "reason")

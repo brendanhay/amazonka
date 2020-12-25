@@ -22,153 +22,146 @@ module Network.AWS.CloudFormation.ListChangeSets
     mkListChangeSets,
 
     -- ** Request lenses
-    lcsNextToken,
     lcsStackName,
+    lcsNextToken,
 
     -- * Destructuring the response
     ListChangeSetsResponse (..),
     mkListChangeSetsResponse,
 
     -- ** Response lenses
-    lcsrsNextToken,
-    lcsrsSummaries,
-    lcsrsResponseStatus,
+    lcsrrsNextToken,
+    lcsrrsSummaries,
+    lcsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'ListChangeSets' action.
 --
 -- /See:/ 'mkListChangeSets' smart constructor.
 data ListChangeSets = ListChangeSets'
-  { -- | A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
-    stackName :: Lude.Text
+  { -- | The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
+    stackName :: Types.StackName,
+    -- | A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListChangeSets' with the minimum fields required to make a request.
---
--- * 'nextToken' - A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
--- * 'stackName' - The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
+-- | Creates a 'ListChangeSets' value with any optional fields omitted.
 mkListChangeSets ::
   -- | 'stackName'
-  Lude.Text ->
+  Types.StackName ->
   ListChangeSets
-mkListChangeSets pStackName_ =
-  ListChangeSets'
-    { nextToken = Lude.Nothing,
-      stackName = pStackName_
-    }
-
--- | A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsNextToken :: Lens.Lens' ListChangeSets (Lude.Maybe Lude.Text)
-lcsNextToken = Lens.lens (nextToken :: ListChangeSets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListChangeSets)
-{-# DEPRECATED lcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+mkListChangeSets stackName =
+  ListChangeSets' {stackName, nextToken = Core.Nothing}
 
 -- | The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsStackName :: Lens.Lens' ListChangeSets Lude.Text
-lcsStackName = Lens.lens (stackName :: ListChangeSets -> Lude.Text) (\s a -> s {stackName = a} :: ListChangeSets)
+lcsStackName :: Lens.Lens' ListChangeSets Types.StackName
+lcsStackName = Lens.field @"stackName"
 {-# DEPRECATED lcsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Page.AWSPager ListChangeSets where
-  page rq rs
-    | Page.stop (rs Lens.^. lcsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcsrsSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lcsNextToken Lens..~ rs Lens.^. lcsrsNextToken
+-- | A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsNextToken :: Lens.Lens' ListChangeSets (Core.Maybe Types.NextToken)
+lcsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListChangeSets where
+instance Core.AWSRequest ListChangeSets where
   type Rs ListChangeSets = ListChangeSetsResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListChangeSets")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "StackName" stackName)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListChangeSetsResult"
       ( \s h x ->
           ListChangeSetsResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "Summaries" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (x Core..@? "Summaries" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListChangeSets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListChangeSets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListChangeSets where
-  toQuery ListChangeSets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListChangeSets" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "StackName" Lude.=: stackName
-      ]
+instance Pager.AWSPager ListChangeSets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"summaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | The output for the 'ListChangeSets' action.
 --
 -- /See:/ 'mkListChangeSetsResponse' smart constructor.
 data ListChangeSetsResponse = ListChangeSetsResponse'
   { -- | If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of @ChangeSetSummary@ structures that provides the ID and status of each change set for the specified stack.
-    summaries :: Lude.Maybe [ChangeSetSummary],
+    summaries :: Core.Maybe [Types.ChangeSetSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListChangeSetsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
--- * 'summaries' - A list of @ChangeSetSummary@ structures that provides the ID and status of each change set for the specified stack.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListChangeSetsResponse' value with any optional fields omitted.
 mkListChangeSetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListChangeSetsResponse
-mkListChangeSetsResponse pResponseStatus_ =
+mkListChangeSetsResponse responseStatus =
   ListChangeSetsResponse'
-    { nextToken = Lude.Nothing,
-      summaries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      summaries = Core.Nothing,
+      responseStatus
     }
 
 -- | If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsrsNextToken :: Lens.Lens' ListChangeSetsResponse (Lude.Maybe Lude.Text)
-lcsrsNextToken = Lens.lens (nextToken :: ListChangeSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListChangeSetsResponse)
-{-# DEPRECATED lcsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcsrrsNextToken :: Lens.Lens' ListChangeSetsResponse (Core.Maybe Types.NextToken)
+lcsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @ChangeSetSummary@ structures that provides the ID and status of each change set for the specified stack.
 --
 -- /Note:/ Consider using 'summaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsrsSummaries :: Lens.Lens' ListChangeSetsResponse (Lude.Maybe [ChangeSetSummary])
-lcsrsSummaries = Lens.lens (summaries :: ListChangeSetsResponse -> Lude.Maybe [ChangeSetSummary]) (\s a -> s {summaries = a} :: ListChangeSetsResponse)
-{-# DEPRECATED lcsrsSummaries "Use generic-lens or generic-optics with 'summaries' instead." #-}
+lcsrrsSummaries :: Lens.Lens' ListChangeSetsResponse (Core.Maybe [Types.ChangeSetSummary])
+lcsrrsSummaries = Lens.field @"summaries"
+{-# DEPRECATED lcsrrsSummaries "Use generic-lens or generic-optics with 'summaries' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsrsResponseStatus :: Lens.Lens' ListChangeSetsResponse Lude.Int
-lcsrsResponseStatus = Lens.lens (responseStatus :: ListChangeSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListChangeSetsResponse)
-{-# DEPRECATED lcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcsrrsResponseStatus :: Lens.Lens' ListChangeSetsResponse Core.Int
+lcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

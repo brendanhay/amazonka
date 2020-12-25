@@ -44,105 +44,121 @@ module Network.AWS.S3.ListMultipartUploads
     mkListMultipartUploads,
 
     -- ** Request lenses
-    lmuKeyMarker,
-    lmuPrefix,
-    lmuEncodingType,
     lmuBucket,
-    lmuUploadIdMarker,
-    lmuMaxUploads,
     lmuDelimiter,
+    lmuEncodingType,
     lmuExpectedBucketOwner,
+    lmuKeyMarker,
+    lmuMaxUploads,
+    lmuPrefix,
+    lmuUploadIdMarker,
 
     -- * Destructuring the response
     ListMultipartUploadsResponse (..),
     mkListMultipartUploadsResponse,
 
     -- ** Response lenses
-    lmursKeyMarker,
-    lmursPrefix,
-    lmursCommonPrefixes,
-    lmursEncodingType,
-    lmursBucket,
-    lmursUploadIdMarker,
-    lmursMaxUploads,
-    lmursNextKeyMarker,
-    lmursUploads,
-    lmursIsTruncated,
-    lmursNextUploadIdMarker,
-    lmursDelimiter,
-    lmursResponseStatus,
+    lmurrsBucket,
+    lmurrsCommonPrefixes,
+    lmurrsDelimiter,
+    lmurrsEncodingType,
+    lmurrsIsTruncated,
+    lmurrsKeyMarker,
+    lmurrsMaxUploads,
+    lmurrsNextKeyMarker,
+    lmurrsNextUploadIdMarker,
+    lmurrsPrefix,
+    lmurrsUploadIdMarker,
+    lmurrsUploads,
+    lmurrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkListMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
-  { -- | Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
-    --
-    -- If @upload-id-marker@ is not specified, only the keys lexicographically greater than the specified @key-marker@ will be included in the list.
-    -- If @upload-id-marker@ is specified, any multipart uploads for a key equal to the @key-marker@ might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified @upload-id-marker@ .
-    keyMarker :: Lude.Maybe Lude.Text,
-    -- | Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
-    prefix :: Lude.Maybe Lude.Text,
-    encodingType :: Lude.Maybe EncodingType,
-    -- | The name of the bucket to which the multipart upload was initiated.
+  { -- | The name of the bucket to which the multipart upload was initiated.
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
-    -- | Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified @upload-id-marker@ .
-    uploadIdMarker :: Lude.Maybe Lude.Text,
-    -- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
-    maxUploads :: Lude.Maybe Lude.Int,
+    bucket :: Types.BucketName,
     -- | Character you use to group keys.
     --
     -- All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, @CommonPrefixes@ . If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under @CommonPrefixes@ result element are not returned elsewhere in the response.
-    delimiter :: Lude.Maybe Delimiter,
+    delimiter :: Core.Maybe Types.Delimiter,
+    encodingType :: Core.Maybe Types.EncodingType,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    -- | Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
+    --
+    -- If @upload-id-marker@ is not specified, only the keys lexicographically greater than the specified @key-marker@ will be included in the list.
+    -- If @upload-id-marker@ is specified, any multipart uploads for a key equal to the @key-marker@ might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified @upload-id-marker@ .
+    keyMarker :: Core.Maybe Types.KeyMarker,
+    -- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
+    maxUploads :: Core.Maybe Core.Int,
+    -- | Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
+    prefix :: Core.Maybe Types.Prefix,
+    -- | Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified @upload-id-marker@ .
+    uploadIdMarker :: Core.Maybe Types.UploadIdMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMultipartUploads' with the minimum fields required to make a request.
---
--- * 'keyMarker' - Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
---
--- If @upload-id-marker@ is not specified, only the keys lexicographically greater than the specified @key-marker@ will be included in the list.
--- If @upload-id-marker@ is specified, any multipart uploads for a key equal to the @key-marker@ might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified @upload-id-marker@ .
--- * 'prefix' - Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
--- * 'encodingType' -
--- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
+-- | Creates a 'ListMultipartUploads' value with any optional fields omitted.
+mkListMultipartUploads ::
+  -- | 'bucket'
+  Types.BucketName ->
+  ListMultipartUploads
+mkListMultipartUploads bucket =
+  ListMultipartUploads'
+    { bucket,
+      delimiter = Core.Nothing,
+      encodingType = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      keyMarker = Core.Nothing,
+      maxUploads = Core.Nothing,
+      prefix = Core.Nothing,
+      uploadIdMarker = Core.Nothing
+    }
+
+-- | The name of the bucket to which the multipart upload was initiated.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'uploadIdMarker' - Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified @upload-id-marker@ .
--- * 'maxUploads' - Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
--- * 'delimiter' - Character you use to group keys.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuBucket :: Lens.Lens' ListMultipartUploads Types.BucketName
+lmuBucket = Lens.field @"bucket"
+{-# DEPRECATED lmuBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Character you use to group keys.
 --
 -- All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, @CommonPrefixes@ . If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under @CommonPrefixes@ result element are not returned elsewhere in the response.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-mkListMultipartUploads ::
-  -- | 'bucket'
-  BucketName ->
-  ListMultipartUploads
-mkListMultipartUploads pBucket_ =
-  ListMultipartUploads'
-    { keyMarker = Lude.Nothing,
-      prefix = Lude.Nothing,
-      encodingType = Lude.Nothing,
-      bucket = pBucket_,
-      uploadIdMarker = Lude.Nothing,
-      maxUploads = Lude.Nothing,
-      delimiter = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing
-    }
+--
+-- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuDelimiter :: Lens.Lens' ListMultipartUploads (Core.Maybe Types.Delimiter)
+lmuDelimiter = Lens.field @"delimiter"
+{-# DEPRECATED lmuDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuEncodingType :: Lens.Lens' ListMultipartUploads (Core.Maybe Types.EncodingType)
+lmuEncodingType = Lens.field @"encodingType"
+{-# DEPRECATED lmuEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuExpectedBucketOwner :: Lens.Lens' ListMultipartUploads (Core.Maybe Types.ExpectedBucketOwner)
+lmuExpectedBucketOwner = Lens.field @"expectedBucketOwner"
+{-# DEPRECATED lmuExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
 --
@@ -150,213 +166,161 @@ mkListMultipartUploads pBucket_ =
 -- If @upload-id-marker@ is specified, any multipart uploads for a key equal to the @key-marker@ might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified @upload-id-marker@ .
 --
 -- /Note:/ Consider using 'keyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuKeyMarker :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Text)
-lmuKeyMarker = Lens.lens (keyMarker :: ListMultipartUploads -> Lude.Maybe Lude.Text) (\s a -> s {keyMarker = a} :: ListMultipartUploads)
+lmuKeyMarker :: Lens.Lens' ListMultipartUploads (Core.Maybe Types.KeyMarker)
+lmuKeyMarker = Lens.field @"keyMarker"
 {-# DEPRECATED lmuKeyMarker "Use generic-lens or generic-optics with 'keyMarker' instead." #-}
-
--- | Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuPrefix :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Text)
-lmuPrefix = Lens.lens (prefix :: ListMultipartUploads -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuEncodingType :: Lens.Lens' ListMultipartUploads (Lude.Maybe EncodingType)
-lmuEncodingType = Lens.lens (encodingType :: ListMultipartUploads -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
-
--- | The name of the bucket to which the multipart upload was initiated.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuBucket :: Lens.Lens' ListMultipartUploads BucketName
-lmuBucket = Lens.lens (bucket :: ListMultipartUploads -> BucketName) (\s a -> s {bucket = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified @upload-id-marker@ .
---
--- /Note:/ Consider using 'uploadIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuUploadIdMarker :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Text)
-lmuUploadIdMarker = Lens.lens (uploadIdMarker :: ListMultipartUploads -> Lude.Maybe Lude.Text) (\s a -> s {uploadIdMarker = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuUploadIdMarker "Use generic-lens or generic-optics with 'uploadIdMarker' instead." #-}
 
 -- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
 --
 -- /Note:/ Consider using 'maxUploads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuMaxUploads :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Int)
-lmuMaxUploads = Lens.lens (maxUploads :: ListMultipartUploads -> Lude.Maybe Lude.Int) (\s a -> s {maxUploads = a} :: ListMultipartUploads)
+lmuMaxUploads :: Lens.Lens' ListMultipartUploads (Core.Maybe Core.Int)
+lmuMaxUploads = Lens.field @"maxUploads"
 {-# DEPRECATED lmuMaxUploads "Use generic-lens or generic-optics with 'maxUploads' instead." #-}
 
--- | Character you use to group keys.
+-- | Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
 --
--- All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, @CommonPrefixes@ . If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under @CommonPrefixes@ result element are not returned elsewhere in the response.
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuPrefix :: Lens.Lens' ListMultipartUploads (Core.Maybe Types.Prefix)
+lmuPrefix = Lens.field @"prefix"
+{-# DEPRECATED lmuPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified @upload-id-marker@ .
 --
--- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuDelimiter :: Lens.Lens' ListMultipartUploads (Lude.Maybe Delimiter)
-lmuDelimiter = Lens.lens (delimiter :: ListMultipartUploads -> Lude.Maybe Delimiter) (\s a -> s {delimiter = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
+-- /Note:/ Consider using 'uploadIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuUploadIdMarker :: Lens.Lens' ListMultipartUploads (Core.Maybe Types.UploadIdMarker)
+lmuUploadIdMarker = Lens.field @"uploadIdMarker"
+{-# DEPRECATED lmuUploadIdMarker "Use generic-lens or generic-optics with 'uploadIdMarker' instead." #-}
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuExpectedBucketOwner :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Text)
-lmuExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListMultipartUploads -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
-instance Page.AWSPager ListMultipartUploads where
-  page rq rs
-    | Page.stop (rs Lens.^. lmursIsTruncated) = Lude.Nothing
-    | Lude.isNothing (rs Lens.^. lmursNextKeyMarker)
-        Lude.&& Lude.isNothing (rs Lens.^. lmursNextUploadIdMarker) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lmuKeyMarker Lens..~ rs Lens.^. lmursNextKeyMarker
-          Lude.& lmuUploadIdMarker Lens..~ rs Lens.^. lmursNextUploadIdMarker
-
-instance Lude.AWSRequest ListMultipartUploads where
+instance Core.AWSRequest ListMultipartUploads where
   type Rs ListMultipartUploads = ListMultipartUploadsResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "delimiter" Core.<$> delimiter
+            Core.<> (Core.toQueryValue "encoding-type" Core.<$> encodingType)
+            Core.<> (Core.toQueryValue "key-marker" Core.<$> keyMarker)
+            Core.<> (Core.toQueryValue "max-uploads" Core.<$> maxUploads)
+            Core.<> (Core.toQueryValue "prefix" Core.<$> prefix)
+            Core.<> (Core.toQueryValue "upload-id-marker" Core.<$> uploadIdMarker)
+            Core.<> (Core.pure ("uploads", "")),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListMultipartUploadsResponse'
-            Lude.<$> (x Lude..@? "KeyMarker")
-            Lude.<*> (x Lude..@? "Prefix")
-            Lude.<*> (Lude.may (Lude.parseXMLList "CommonPrefixes") x)
-            Lude.<*> (x Lude..@? "EncodingType")
-            Lude.<*> (x Lude..@? "Bucket")
-            Lude.<*> (x Lude..@? "UploadIdMarker")
-            Lude.<*> (x Lude..@? "MaxUploads")
-            Lude.<*> (x Lude..@? "NextKeyMarker")
-            Lude.<*> (Lude.may (Lude.parseXMLList "Upload") x)
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (x Lude..@? "NextUploadIdMarker")
-            Lude.<*> (x Lude..@? "Delimiter")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Bucket")
+            Core.<*> (x Core..@? "CommonPrefixes")
+            Core.<*> (x Core..@? "Delimiter")
+            Core.<*> (x Core..@? "EncodingType")
+            Core.<*> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "KeyMarker")
+            Core.<*> (x Core..@? "MaxUploads")
+            Core.<*> (x Core..@? "NextKeyMarker")
+            Core.<*> (x Core..@? "NextUploadIdMarker")
+            Core.<*> (x Core..@? "Prefix")
+            Core.<*> (x Core..@? "UploadIdMarker")
+            Core.<*> (x Core..@? "Upload")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListMultipartUploads where
-  toHeaders ListMultipartUploads' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath ListMultipartUploads where
-  toPath ListMultipartUploads' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery ListMultipartUploads where
-  toQuery ListMultipartUploads' {..} =
-    Lude.mconcat
-      [ "key-marker" Lude.=: keyMarker,
-        "prefix" Lude.=: prefix,
-        "encoding-type" Lude.=: encodingType,
-        "upload-id-marker" Lude.=: uploadIdMarker,
-        "max-uploads" Lude.=: maxUploads,
-        "delimiter" Lude.=: delimiter,
-        "uploads"
-      ]
+instance Pager.AWSPager ListMultipartUploads where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"isTruncated") = Core.Nothing
+    | Core.isNothing (rs Lens.^. Lens.field @"nextKeyMarker")
+        Core.&& Core.isNothing (rs Lens.^. Lens.field @"nextUploadIdMarker") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"keyMarker"
+            Lens..~ rs Lens.^. Lens.field @"nextKeyMarker"
+            Core.& Lens.field @"uploadIdMarker"
+            Lens..~ rs Lens.^. Lens.field @"nextUploadIdMarker"
+        )
 
 -- | /See:/ 'mkListMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-  { -- | The key at or after which the listing began.
-    keyMarker :: Lude.Maybe Lude.Text,
-    -- | When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
-    prefix :: Lude.Maybe Lude.Text,
+  { -- | The name of the bucket to which the multipart upload was initiated.
+    bucket :: Core.Maybe Types.BucketName,
     -- | If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a @CommonPrefixes@ element. The distinct key prefixes are returned in the @Prefix@ child element.
-    commonPrefixes :: Lude.Maybe [CommonPrefix],
+    commonPrefixes :: Core.Maybe [Types.CommonPrefix],
+    -- | Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
+    delimiter :: Core.Maybe Types.Delimiter,
     -- | Encoding type used by Amazon S3 to encode object keys in the response.
     --
     -- If you specify @encoding-type@ request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:
     -- @Delimiter@ , @KeyMarker@ , @Prefix@ , @NextKeyMarker@ , @Key@ .
-    encodingType :: Lude.Maybe EncodingType,
-    -- | The name of the bucket to which the multipart upload was initiated.
-    bucket :: Lude.Maybe BucketName,
-    -- | Upload ID after which listing began.
-    uploadIdMarker :: Lude.Maybe Lude.Text,
-    -- | Maximum number of multipart uploads that could have been included in the response.
-    maxUploads :: Lude.Maybe Lude.Int,
-    -- | When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
-    nextKeyMarker :: Lude.Maybe Lude.Text,
-    -- | Container for elements related to a particular multipart upload. A response can contain zero or more @Upload@ elements.
-    uploads :: Lude.Maybe [MultipartUpload],
+    encodingType :: Core.Maybe Types.EncodingType,
     -- | Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
-    isTruncated :: Lude.Maybe Lude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
+    -- | The key at or after which the listing began.
+    keyMarker :: Core.Maybe Types.KeyMarker,
+    -- | Maximum number of multipart uploads that could have been included in the response.
+    maxUploads :: Core.Maybe Core.Int,
+    -- | When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
+    nextKeyMarker :: Core.Maybe Types.NextKeyMarker,
     -- | When a list is truncated, this element specifies the value that should be used for the @upload-id-marker@ request parameter in a subsequent request.
-    nextUploadIdMarker :: Lude.Maybe Lude.Text,
-    -- | Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
-    delimiter :: Lude.Maybe Delimiter,
+    nextUploadIdMarker :: Core.Maybe Types.NextUploadIdMarker,
+    -- | When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
+    prefix :: Core.Maybe Types.Prefix,
+    -- | Upload ID after which listing began.
+    uploadIdMarker :: Core.Maybe Types.UploadIdMarker,
+    -- | Container for elements related to a particular multipart upload. A response can contain zero or more @Upload@ elements.
+    uploads :: Core.Maybe [Types.MultipartUpload],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
---
--- * 'keyMarker' - The key at or after which the listing began.
--- * 'prefix' - When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
--- * 'commonPrefixes' - If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a @CommonPrefixes@ element. The distinct key prefixes are returned in the @Prefix@ child element.
--- * 'encodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
---
--- If you specify @encoding-type@ request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:
--- @Delimiter@ , @KeyMarker@ , @Prefix@ , @NextKeyMarker@ , @Key@ .
--- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
--- * 'uploadIdMarker' - Upload ID after which listing began.
--- * 'maxUploads' - Maximum number of multipart uploads that could have been included in the response.
--- * 'nextKeyMarker' - When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
--- * 'uploads' - Container for elements related to a particular multipart upload. A response can contain zero or more @Upload@ elements.
--- * 'isTruncated' - Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
--- * 'nextUploadIdMarker' - When a list is truncated, this element specifies the value that should be used for the @upload-id-marker@ request parameter in a subsequent request.
--- * 'delimiter' - Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListMultipartUploadsResponse' value with any optional fields omitted.
 mkListMultipartUploadsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListMultipartUploadsResponse
-mkListMultipartUploadsResponse pResponseStatus_ =
+mkListMultipartUploadsResponse responseStatus =
   ListMultipartUploadsResponse'
-    { keyMarker = Lude.Nothing,
-      prefix = Lude.Nothing,
-      commonPrefixes = Lude.Nothing,
-      encodingType = Lude.Nothing,
-      bucket = Lude.Nothing,
-      uploadIdMarker = Lude.Nothing,
-      maxUploads = Lude.Nothing,
-      nextKeyMarker = Lude.Nothing,
-      uploads = Lude.Nothing,
-      isTruncated = Lude.Nothing,
-      nextUploadIdMarker = Lude.Nothing,
-      delimiter = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { bucket = Core.Nothing,
+      commonPrefixes = Core.Nothing,
+      delimiter = Core.Nothing,
+      encodingType = Core.Nothing,
+      isTruncated = Core.Nothing,
+      keyMarker = Core.Nothing,
+      maxUploads = Core.Nothing,
+      nextKeyMarker = Core.Nothing,
+      nextUploadIdMarker = Core.Nothing,
+      prefix = Core.Nothing,
+      uploadIdMarker = Core.Nothing,
+      uploads = Core.Nothing,
+      responseStatus
     }
 
--- | The key at or after which the listing began.
+-- | The name of the bucket to which the multipart upload was initiated.
 --
--- /Note:/ Consider using 'keyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursKeyMarker :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Lude.Text)
-lmursKeyMarker = Lens.lens (keyMarker :: ListMultipartUploadsResponse -> Lude.Maybe Lude.Text) (\s a -> s {keyMarker = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursKeyMarker "Use generic-lens or generic-optics with 'keyMarker' instead." #-}
-
--- | When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursPrefix :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Lude.Text)
-lmursPrefix = Lens.lens (prefix :: ListMultipartUploadsResponse -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsBucket :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.BucketName)
+lmurrsBucket = Lens.field @"bucket"
+{-# DEPRECATED lmurrsBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a @CommonPrefixes@ element. The distinct key prefixes are returned in the @Prefix@ child element.
 --
 -- /Note:/ Consider using 'commonPrefixes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursCommonPrefixes :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe [CommonPrefix])
-lmursCommonPrefixes = Lens.lens (commonPrefixes :: ListMultipartUploadsResponse -> Lude.Maybe [CommonPrefix]) (\s a -> s {commonPrefixes = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursCommonPrefixes "Use generic-lens or generic-optics with 'commonPrefixes' instead." #-}
+lmurrsCommonPrefixes :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe [Types.CommonPrefix])
+lmurrsCommonPrefixes = Lens.field @"commonPrefixes"
+{-# DEPRECATED lmurrsCommonPrefixes "Use generic-lens or generic-optics with 'commonPrefixes' instead." #-}
+
+-- | Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
+--
+-- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsDelimiter :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.Delimiter)
+lmurrsDelimiter = Lens.field @"delimiter"
+{-# DEPRECATED lmurrsDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 --
@@ -364,69 +328,69 @@ lmursCommonPrefixes = Lens.lens (commonPrefixes :: ListMultipartUploadsResponse 
 -- @Delimiter@ , @KeyMarker@ , @Prefix@ , @NextKeyMarker@ , @Key@ .
 --
 -- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursEncodingType :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe EncodingType)
-lmursEncodingType = Lens.lens (encodingType :: ListMultipartUploadsResponse -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
-
--- | The name of the bucket to which the multipart upload was initiated.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursBucket :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe BucketName)
-lmursBucket = Lens.lens (bucket :: ListMultipartUploadsResponse -> Lude.Maybe BucketName) (\s a -> s {bucket = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Upload ID after which listing began.
---
--- /Note:/ Consider using 'uploadIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursUploadIdMarker :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Lude.Text)
-lmursUploadIdMarker = Lens.lens (uploadIdMarker :: ListMultipartUploadsResponse -> Lude.Maybe Lude.Text) (\s a -> s {uploadIdMarker = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursUploadIdMarker "Use generic-lens or generic-optics with 'uploadIdMarker' instead." #-}
-
--- | Maximum number of multipart uploads that could have been included in the response.
---
--- /Note:/ Consider using 'maxUploads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursMaxUploads :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Lude.Int)
-lmursMaxUploads = Lens.lens (maxUploads :: ListMultipartUploadsResponse -> Lude.Maybe Lude.Int) (\s a -> s {maxUploads = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursMaxUploads "Use generic-lens or generic-optics with 'maxUploads' instead." #-}
-
--- | When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
---
--- /Note:/ Consider using 'nextKeyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursNextKeyMarker :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Lude.Text)
-lmursNextKeyMarker = Lens.lens (nextKeyMarker :: ListMultipartUploadsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextKeyMarker = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursNextKeyMarker "Use generic-lens or generic-optics with 'nextKeyMarker' instead." #-}
-
--- | Container for elements related to a particular multipart upload. A response can contain zero or more @Upload@ elements.
---
--- /Note:/ Consider using 'uploads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursUploads :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe [MultipartUpload])
-lmursUploads = Lens.lens (uploads :: ListMultipartUploadsResponse -> Lude.Maybe [MultipartUpload]) (\s a -> s {uploads = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursUploads "Use generic-lens or generic-optics with 'uploads' instead." #-}
+lmurrsEncodingType :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.EncodingType)
+lmurrsEncodingType = Lens.field @"encodingType"
+{-# DEPRECATED lmurrsEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
 
 -- | Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursIsTruncated :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Lude.Bool)
-lmursIsTruncated = Lens.lens (isTruncated :: ListMultipartUploadsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+lmurrsIsTruncated :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Core.Bool)
+lmurrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED lmurrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
+-- | The key at or after which the listing began.
+--
+-- /Note:/ Consider using 'keyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsKeyMarker :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.KeyMarker)
+lmurrsKeyMarker = Lens.field @"keyMarker"
+{-# DEPRECATED lmurrsKeyMarker "Use generic-lens or generic-optics with 'keyMarker' instead." #-}
+
+-- | Maximum number of multipart uploads that could have been included in the response.
+--
+-- /Note:/ Consider using 'maxUploads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsMaxUploads :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Core.Int)
+lmurrsMaxUploads = Lens.field @"maxUploads"
+{-# DEPRECATED lmurrsMaxUploads "Use generic-lens or generic-optics with 'maxUploads' instead." #-}
+
+-- | When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
+--
+-- /Note:/ Consider using 'nextKeyMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsNextKeyMarker :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.NextKeyMarker)
+lmurrsNextKeyMarker = Lens.field @"nextKeyMarker"
+{-# DEPRECATED lmurrsNextKeyMarker "Use generic-lens or generic-optics with 'nextKeyMarker' instead." #-}
 
 -- | When a list is truncated, this element specifies the value that should be used for the @upload-id-marker@ request parameter in a subsequent request.
 --
 -- /Note:/ Consider using 'nextUploadIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursNextUploadIdMarker :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Lude.Text)
-lmursNextUploadIdMarker = Lens.lens (nextUploadIdMarker :: ListMultipartUploadsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextUploadIdMarker = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursNextUploadIdMarker "Use generic-lens or generic-optics with 'nextUploadIdMarker' instead." #-}
+lmurrsNextUploadIdMarker :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.NextUploadIdMarker)
+lmurrsNextUploadIdMarker = Lens.field @"nextUploadIdMarker"
+{-# DEPRECATED lmurrsNextUploadIdMarker "Use generic-lens or generic-optics with 'nextUploadIdMarker' instead." #-}
 
--- | Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
+-- | When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
 --
--- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursDelimiter :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Delimiter)
-lmursDelimiter = Lens.lens (delimiter :: ListMultipartUploadsResponse -> Lude.Maybe Delimiter) (\s a -> s {delimiter = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsPrefix :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.Prefix)
+lmurrsPrefix = Lens.field @"prefix"
+{-# DEPRECATED lmurrsPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | Upload ID after which listing began.
+--
+-- /Note:/ Consider using 'uploadIdMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsUploadIdMarker :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.UploadIdMarker)
+lmurrsUploadIdMarker = Lens.field @"uploadIdMarker"
+{-# DEPRECATED lmurrsUploadIdMarker "Use generic-lens or generic-optics with 'uploadIdMarker' instead." #-}
+
+-- | Container for elements related to a particular multipart upload. A response can contain zero or more @Upload@ elements.
+--
+-- /Note:/ Consider using 'uploads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsUploads :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe [Types.MultipartUpload])
+lmurrsUploads = Lens.field @"uploads"
+{-# DEPRECATED lmurrsUploads "Use generic-lens or generic-optics with 'uploads' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursResponseStatus :: Lens.Lens' ListMultipartUploadsResponse Lude.Int
-lmursResponseStatus = Lens.lens (responseStatus :: ListMultipartUploadsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmurrsResponseStatus :: Lens.Lens' ListMultipartUploadsResponse Core.Int
+lmurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -24,8 +24,8 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     mkDescribeTapeArchives,
 
     -- ** Request lenses
-    dtaMarker,
     dtaLimit,
+    dtaMarker,
     dtaTapeARNs,
 
     -- * Destructuring the response
@@ -33,165 +33,152 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     mkDescribeTapeArchivesResponse,
 
     -- ** Response lenses
-    dtasrsTapeArchives,
-    dtasrsMarker,
-    dtasrsResponseStatus,
+    dtarrsMarker,
+    dtarrsTapeArchives,
+    dtarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | DescribeTapeArchivesInput
 --
 -- /See:/ 'mkDescribeTapeArchives' smart constructor.
 data DescribeTapeArchives = DescribeTapeArchives'
-  { -- | An opaque string that indicates the position at which to begin describing virtual tapes.
-    marker :: Lude.Maybe Lude.Text,
-    -- | Specifies that the number of virtual tapes described be limited to the specified number.
-    limit :: Lude.Maybe Lude.Natural,
+  { -- | Specifies that the number of virtual tapes described be limited to the specified number.
+    limit :: Core.Maybe Core.Natural,
+    -- | An opaque string that indicates the position at which to begin describing virtual tapes.
+    marker :: Core.Maybe Types.Marker,
     -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe.
-    tapeARNs :: Lude.Maybe [Lude.Text]
+    tapeARNs :: Core.Maybe [Types.TapeARN]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTapeArchives' with the minimum fields required to make a request.
---
--- * 'marker' - An opaque string that indicates the position at which to begin describing virtual tapes.
--- * 'limit' - Specifies that the number of virtual tapes described be limited to the specified number.
--- * 'tapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe.
+-- | Creates a 'DescribeTapeArchives' value with any optional fields omitted.
 mkDescribeTapeArchives ::
   DescribeTapeArchives
 mkDescribeTapeArchives =
   DescribeTapeArchives'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      tapeARNs = Lude.Nothing
+    { limit = Core.Nothing,
+      marker = Core.Nothing,
+      tapeARNs = Core.Nothing
     }
-
--- | An opaque string that indicates the position at which to begin describing virtual tapes.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtaMarker :: Lens.Lens' DescribeTapeArchives (Lude.Maybe Lude.Text)
-dtaMarker = Lens.lens (marker :: DescribeTapeArchives -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTapeArchives)
-{-# DEPRECATED dtaMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies that the number of virtual tapes described be limited to the specified number.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtaLimit :: Lens.Lens' DescribeTapeArchives (Lude.Maybe Lude.Natural)
-dtaLimit = Lens.lens (limit :: DescribeTapeArchives -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeTapeArchives)
+dtaLimit :: Lens.Lens' DescribeTapeArchives (Core.Maybe Core.Natural)
+dtaLimit = Lens.field @"limit"
 {-# DEPRECATED dtaLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | An opaque string that indicates the position at which to begin describing virtual tapes.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtaMarker :: Lens.Lens' DescribeTapeArchives (Core.Maybe Types.Marker)
+dtaMarker = Lens.field @"marker"
+{-# DEPRECATED dtaMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe.
 --
 -- /Note:/ Consider using 'tapeARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtaTapeARNs :: Lens.Lens' DescribeTapeArchives (Lude.Maybe [Lude.Text])
-dtaTapeARNs = Lens.lens (tapeARNs :: DescribeTapeArchives -> Lude.Maybe [Lude.Text]) (\s a -> s {tapeARNs = a} :: DescribeTapeArchives)
+dtaTapeARNs :: Lens.Lens' DescribeTapeArchives (Core.Maybe [Types.TapeARN])
+dtaTapeARNs = Lens.field @"tapeARNs"
 {-# DEPRECATED dtaTapeARNs "Use generic-lens or generic-optics with 'tapeARNs' instead." #-}
 
-instance Page.AWSPager DescribeTapeArchives where
-  page rq rs
-    | Page.stop (rs Lens.^. dtasrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtasrsTapeArchives) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dtaMarker Lens..~ rs Lens.^. dtasrsMarker
+instance Core.FromJSON DescribeTapeArchives where
+  toJSON DescribeTapeArchives {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker,
+            ("TapeARNs" Core..=) Core.<$> tapeARNs
+          ]
+      )
 
-instance Lude.AWSRequest DescribeTapeArchives where
+instance Core.AWSRequest DescribeTapeArchives where
   type Rs DescribeTapeArchives = DescribeTapeArchivesResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.DescribeTapeArchives")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTapeArchivesResponse'
-            Lude.<$> (x Lude..?> "TapeArchives" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "TapeArchives")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeTapeArchives where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.DescribeTapeArchives" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTapeArchives where
-  toJSON DescribeTapeArchives' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("TapeARNs" Lude..=) Lude.<$> tapeARNs
-          ]
-      )
-
-instance Lude.ToPath DescribeTapeArchives where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTapeArchives where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeTapeArchives where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"tapeArchives" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | DescribeTapeArchivesOutput
 --
 -- /See:/ 'mkDescribeTapeArchivesResponse' smart constructor.
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
-  { -- | An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name (ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description, and tape barcode.
-    tapeArchives :: Lude.Maybe [TapeArchive],
-    -- | An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response.
+    marker :: Core.Maybe Types.Marker,
+    -- | An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name (ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description, and tape barcode.
+    tapeArchives :: Core.Maybe [Types.TapeArchive],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTapeArchivesResponse' with the minimum fields required to make a request.
---
--- * 'tapeArchives' - An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name (ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description, and tape barcode.
--- * 'marker' - An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTapeArchivesResponse' value with any optional fields omitted.
 mkDescribeTapeArchivesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTapeArchivesResponse
-mkDescribeTapeArchivesResponse pResponseStatus_ =
+mkDescribeTapeArchivesResponse responseStatus =
   DescribeTapeArchivesResponse'
-    { tapeArchives = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      tapeArchives = Core.Nothing,
+      responseStatus
     }
-
--- | An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name (ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description, and tape barcode.
---
--- /Note:/ Consider using 'tapeArchives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtasrsTapeArchives :: Lens.Lens' DescribeTapeArchivesResponse (Lude.Maybe [TapeArchive])
-dtasrsTapeArchives = Lens.lens (tapeArchives :: DescribeTapeArchivesResponse -> Lude.Maybe [TapeArchive]) (\s a -> s {tapeArchives = a} :: DescribeTapeArchivesResponse)
-{-# DEPRECATED dtasrsTapeArchives "Use generic-lens or generic-optics with 'tapeArchives' instead." #-}
 
 -- | An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtasrsMarker :: Lens.Lens' DescribeTapeArchivesResponse (Lude.Maybe Lude.Text)
-dtasrsMarker = Lens.lens (marker :: DescribeTapeArchivesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTapeArchivesResponse)
-{-# DEPRECATED dtasrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dtarrsMarker :: Lens.Lens' DescribeTapeArchivesResponse (Core.Maybe Types.Marker)
+dtarrsMarker = Lens.field @"marker"
+{-# DEPRECATED dtarrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name (ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description, and tape barcode.
+--
+-- /Note:/ Consider using 'tapeArchives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtarrsTapeArchives :: Lens.Lens' DescribeTapeArchivesResponse (Core.Maybe [Types.TapeArchive])
+dtarrsTapeArchives = Lens.field @"tapeArchives"
+{-# DEPRECATED dtarrsTapeArchives "Use generic-lens or generic-optics with 'tapeArchives' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtasrsResponseStatus :: Lens.Lens' DescribeTapeArchivesResponse Lude.Int
-dtasrsResponseStatus = Lens.lens (responseStatus :: DescribeTapeArchivesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTapeArchivesResponse)
-{-# DEPRECATED dtasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtarrsResponseStatus :: Lens.Lens' DescribeTapeArchivesResponse Core.Int
+dtarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

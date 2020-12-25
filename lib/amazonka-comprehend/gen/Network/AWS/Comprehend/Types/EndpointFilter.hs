@@ -17,84 +17,80 @@ module Network.AWS.Comprehend.Types.EndpointFilter
     mkEndpointFilter,
 
     -- * Lenses
-    efStatus,
-    efModelARN,
     efCreationTimeAfter,
     efCreationTimeBefore,
+    efModelArn,
+    efStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types.EndpointStatus
+import qualified Network.AWS.Comprehend.Types.ComprehendModelArn as Types
+import qualified Network.AWS.Comprehend.Types.EndpointStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The filter used to determine which endpoints are returned. You can filter jobs on their name, model, status, or the date and time that they were created. You can only set one filter at a time.
 --
 -- /See:/ 'mkEndpointFilter' smart constructor.
 data EndpointFilter = EndpointFilter'
-  { -- | Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.
-    status :: Lude.Maybe EndpointStatus,
-    -- | The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
-    modelARN :: Lude.Maybe Lude.Text,
-    -- | Specifies a date after which the returned endpoint or endpoints were created.
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+  { -- | Specifies a date after which the returned endpoint or endpoints were created.
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | Specifies a date before which the returned endpoint or endpoints were created.
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
+    modelArn :: Core.Maybe Types.ComprehendModelArn,
+    -- | Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.
+    status :: Core.Maybe Types.EndpointStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EndpointFilter' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.
--- * 'modelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
--- * 'creationTimeAfter' - Specifies a date after which the returned endpoint or endpoints were created.
--- * 'creationTimeBefore' - Specifies a date before which the returned endpoint or endpoints were created.
+-- | Creates a 'EndpointFilter' value with any optional fields omitted.
 mkEndpointFilter ::
   EndpointFilter
 mkEndpointFilter =
   EndpointFilter'
-    { status = Lude.Nothing,
-      modelARN = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing
+    { creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      modelArn = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efStatus :: Lens.Lens' EndpointFilter (Lude.Maybe EndpointStatus)
-efStatus = Lens.lens (status :: EndpointFilter -> Lude.Maybe EndpointStatus) (\s a -> s {status = a} :: EndpointFilter)
-{-# DEPRECATED efStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
---
--- /Note:/ Consider using 'modelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efModelARN :: Lens.Lens' EndpointFilter (Lude.Maybe Lude.Text)
-efModelARN = Lens.lens (modelARN :: EndpointFilter -> Lude.Maybe Lude.Text) (\s a -> s {modelARN = a} :: EndpointFilter)
-{-# DEPRECATED efModelARN "Use generic-lens or generic-optics with 'modelARN' instead." #-}
 
 -- | Specifies a date after which the returned endpoint or endpoints were created.
 --
 -- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efCreationTimeAfter :: Lens.Lens' EndpointFilter (Lude.Maybe Lude.Timestamp)
-efCreationTimeAfter = Lens.lens (creationTimeAfter :: EndpointFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: EndpointFilter)
+efCreationTimeAfter :: Lens.Lens' EndpointFilter (Core.Maybe Core.NominalDiffTime)
+efCreationTimeAfter = Lens.field @"creationTimeAfter"
 {-# DEPRECATED efCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | Specifies a date before which the returned endpoint or endpoints were created.
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efCreationTimeBefore :: Lens.Lens' EndpointFilter (Lude.Maybe Lude.Timestamp)
-efCreationTimeBefore = Lens.lens (creationTimeBefore :: EndpointFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: EndpointFilter)
+efCreationTimeBefore :: Lens.Lens' EndpointFilter (Core.Maybe Core.NominalDiffTime)
+efCreationTimeBefore = Lens.field @"creationTimeBefore"
 {-# DEPRECATED efCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
-instance Lude.ToJSON EndpointFilter where
-  toJSON EndpointFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Status" Lude..=) Lude.<$> status,
-            ("ModelArn" Lude..=) Lude.<$> modelARN,
-            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore
+-- | The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
+--
+-- /Note:/ Consider using 'modelArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efModelArn :: Lens.Lens' EndpointFilter (Core.Maybe Types.ComprehendModelArn)
+efModelArn = Lens.field @"modelArn"
+{-# DEPRECATED efModelArn "Use generic-lens or generic-optics with 'modelArn' instead." #-}
+
+-- | Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efStatus :: Lens.Lens' EndpointFilter (Core.Maybe Types.EndpointStatus)
+efStatus = Lens.field @"status"
+{-# DEPRECATED efStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON EndpointFilter where
+  toJSON EndpointFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CreationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("CreationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("ModelArn" Core..=) Core.<$> modelArn,
+            ("Status" Core..=) Core.<$> status
           ]
       )

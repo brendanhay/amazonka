@@ -30,147 +30,135 @@ module Network.AWS.EMR.ListInstanceFleets
     mkListInstanceFleetsResponse,
 
     -- ** Response lenses
-    lifrsInstanceFleets,
-    lifrsMarker,
-    lifrsResponseStatus,
+    lifrrsInstanceFleets,
+    lifrrsMarker,
+    lifrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListInstanceFleets' smart constructor.
 data ListInstanceFleets = ListInstanceFleets'
   { -- | The unique identifier of the cluster.
-    clusterId :: Lude.Text,
+    clusterId :: Types.ClusterId,
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInstanceFleets' with the minimum fields required to make a request.
---
--- * 'clusterId' - The unique identifier of the cluster.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- | Creates a 'ListInstanceFleets' value with any optional fields omitted.
 mkListInstanceFleets ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   ListInstanceFleets
-mkListInstanceFleets pClusterId_ =
-  ListInstanceFleets'
-    { clusterId = pClusterId_,
-      marker = Lude.Nothing
-    }
+mkListInstanceFleets clusterId =
+  ListInstanceFleets' {clusterId, marker = Core.Nothing}
 
 -- | The unique identifier of the cluster.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lifClusterId :: Lens.Lens' ListInstanceFleets Lude.Text
-lifClusterId = Lens.lens (clusterId :: ListInstanceFleets -> Lude.Text) (\s a -> s {clusterId = a} :: ListInstanceFleets)
+lifClusterId :: Lens.Lens' ListInstanceFleets Types.ClusterId
+lifClusterId = Lens.field @"clusterId"
 {-# DEPRECATED lifClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lifMarker :: Lens.Lens' ListInstanceFleets (Lude.Maybe Lude.Text)
-lifMarker = Lens.lens (marker :: ListInstanceFleets -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceFleets)
+lifMarker :: Lens.Lens' ListInstanceFleets (Core.Maybe Types.Marker)
+lifMarker = Lens.field @"marker"
 {-# DEPRECATED lifMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Page.AWSPager ListInstanceFleets where
-  page rq rs
-    | Page.stop (rs Lens.^. lifrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lifrsInstanceFleets) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lifMarker Lens..~ rs Lens.^. lifrsMarker
+instance Core.FromJSON ListInstanceFleets where
+  toJSON ListInstanceFleets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
 
-instance Lude.AWSRequest ListInstanceFleets where
+instance Core.AWSRequest ListInstanceFleets where
   type Rs ListInstanceFleets = ListInstanceFleetsResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ListInstanceFleets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListInstanceFleetsResponse'
-            Lude.<$> (x Lude..?> "InstanceFleets" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InstanceFleets")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListInstanceFleets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ListInstanceFleets" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListInstanceFleets where
-  toJSON ListInstanceFleets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClusterId" Lude..= clusterId),
-            ("Marker" Lude..=) Lude.<$> marker
-          ]
-      )
-
-instance Lude.ToPath ListInstanceFleets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListInstanceFleets where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListInstanceFleets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"instanceFleets" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkListInstanceFleetsResponse' smart constructor.
 data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
   { -- | The list of instance fleets for the cluster and given filters.
-    instanceFleets :: Lude.Maybe [InstanceFleet],
+    instanceFleets :: Core.Maybe [Types.InstanceFleet],
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListInstanceFleetsResponse' with the minimum fields required to make a request.
---
--- * 'instanceFleets' - The list of instance fleets for the cluster and given filters.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListInstanceFleetsResponse' value with any optional fields omitted.
 mkListInstanceFleetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListInstanceFleetsResponse
-mkListInstanceFleetsResponse pResponseStatus_ =
+mkListInstanceFleetsResponse responseStatus =
   ListInstanceFleetsResponse'
-    { instanceFleets = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceFleets = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of instance fleets for the cluster and given filters.
 --
 -- /Note:/ Consider using 'instanceFleets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lifrsInstanceFleets :: Lens.Lens' ListInstanceFleetsResponse (Lude.Maybe [InstanceFleet])
-lifrsInstanceFleets = Lens.lens (instanceFleets :: ListInstanceFleetsResponse -> Lude.Maybe [InstanceFleet]) (\s a -> s {instanceFleets = a} :: ListInstanceFleetsResponse)
-{-# DEPRECATED lifrsInstanceFleets "Use generic-lens or generic-optics with 'instanceFleets' instead." #-}
+lifrrsInstanceFleets :: Lens.Lens' ListInstanceFleetsResponse (Core.Maybe [Types.InstanceFleet])
+lifrrsInstanceFleets = Lens.field @"instanceFleets"
+{-# DEPRECATED lifrrsInstanceFleets "Use generic-lens or generic-optics with 'instanceFleets' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lifrsMarker :: Lens.Lens' ListInstanceFleetsResponse (Lude.Maybe Lude.Text)
-lifrsMarker = Lens.lens (marker :: ListInstanceFleetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceFleetsResponse)
-{-# DEPRECATED lifrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lifrrsMarker :: Lens.Lens' ListInstanceFleetsResponse (Core.Maybe Types.Marker)
+lifrrsMarker = Lens.field @"marker"
+{-# DEPRECATED lifrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lifrsResponseStatus :: Lens.Lens' ListInstanceFleetsResponse Lude.Int
-lifrsResponseStatus = Lens.lens (responseStatus :: ListInstanceFleetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstanceFleetsResponse)
-{-# DEPRECATED lifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lifrrsResponseStatus :: Lens.Lens' ListInstanceFleetsResponse Core.Int
+lifrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lifrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

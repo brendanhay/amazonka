@@ -20,123 +20,110 @@ module Network.AWS.SageMaker.DescribeSubscribedWorkteam
     mkDescribeSubscribedWorkteam,
 
     -- ** Request lenses
-    dswWorkteamARN,
+    dswWorkteamArn,
 
     -- * Destructuring the response
     DescribeSubscribedWorkteamResponse (..),
     mkDescribeSubscribedWorkteamResponse,
 
     -- ** Response lenses
-    dswrsSubscribedWorkteam,
-    dswrsResponseStatus,
+    dswrrsSubscribedWorkteam,
+    dswrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDescribeSubscribedWorkteam' smart constructor.
 newtype DescribeSubscribedWorkteam = DescribeSubscribedWorkteam'
   { -- | The Amazon Resource Name (ARN) of the subscribed work team to describe.
-    workteamARN :: Lude.Text
+    workteamArn :: Types.WorkteamArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSubscribedWorkteam' with the minimum fields required to make a request.
---
--- * 'workteamARN' - The Amazon Resource Name (ARN) of the subscribed work team to describe.
+-- | Creates a 'DescribeSubscribedWorkteam' value with any optional fields omitted.
 mkDescribeSubscribedWorkteam ::
-  -- | 'workteamARN'
-  Lude.Text ->
+  -- | 'workteamArn'
+  Types.WorkteamArn ->
   DescribeSubscribedWorkteam
-mkDescribeSubscribedWorkteam pWorkteamARN_ =
-  DescribeSubscribedWorkteam' {workteamARN = pWorkteamARN_}
+mkDescribeSubscribedWorkteam workteamArn =
+  DescribeSubscribedWorkteam' {workteamArn}
 
 -- | The Amazon Resource Name (ARN) of the subscribed work team to describe.
 --
--- /Note:/ Consider using 'workteamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dswWorkteamARN :: Lens.Lens' DescribeSubscribedWorkteam Lude.Text
-dswWorkteamARN = Lens.lens (workteamARN :: DescribeSubscribedWorkteam -> Lude.Text) (\s a -> s {workteamARN = a} :: DescribeSubscribedWorkteam)
-{-# DEPRECATED dswWorkteamARN "Use generic-lens or generic-optics with 'workteamARN' instead." #-}
+-- /Note:/ Consider using 'workteamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dswWorkteamArn :: Lens.Lens' DescribeSubscribedWorkteam Types.WorkteamArn
+dswWorkteamArn = Lens.field @"workteamArn"
+{-# DEPRECATED dswWorkteamArn "Use generic-lens or generic-optics with 'workteamArn' instead." #-}
 
-instance Lude.AWSRequest DescribeSubscribedWorkteam where
+instance Core.FromJSON DescribeSubscribedWorkteam where
+  toJSON DescribeSubscribedWorkteam {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("WorkteamArn" Core..= workteamArn)])
+
+instance Core.AWSRequest DescribeSubscribedWorkteam where
   type
     Rs DescribeSubscribedWorkteam =
       DescribeSubscribedWorkteamResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DescribeSubscribedWorkteam")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeSubscribedWorkteamResponse'
-            Lude.<$> (x Lude..:> "SubscribedWorkteam")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "SubscribedWorkteam")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeSubscribedWorkteam where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DescribeSubscribedWorkteam" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeSubscribedWorkteam where
-  toJSON DescribeSubscribedWorkteam' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("WorkteamArn" Lude..= workteamARN)])
-
-instance Lude.ToPath DescribeSubscribedWorkteam where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSubscribedWorkteam where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeSubscribedWorkteamResponse' smart constructor.
 data DescribeSubscribedWorkteamResponse = DescribeSubscribedWorkteamResponse'
   { -- | A @Workteam@ instance that contains information about the work team.
-    subscribedWorkteam :: SubscribedWorkteam,
+    subscribedWorkteam :: Types.SubscribedWorkteam,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSubscribedWorkteamResponse' with the minimum fields required to make a request.
---
--- * 'subscribedWorkteam' - A @Workteam@ instance that contains information about the work team.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSubscribedWorkteamResponse' value with any optional fields omitted.
 mkDescribeSubscribedWorkteamResponse ::
   -- | 'subscribedWorkteam'
-  SubscribedWorkteam ->
+  Types.SubscribedWorkteam ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSubscribedWorkteamResponse
 mkDescribeSubscribedWorkteamResponse
-  pSubscribedWorkteam_
-  pResponseStatus_ =
+  subscribedWorkteam
+  responseStatus =
     DescribeSubscribedWorkteamResponse'
-      { subscribedWorkteam =
-          pSubscribedWorkteam_,
-        responseStatus = pResponseStatus_
+      { subscribedWorkteam,
+        responseStatus
       }
 
 -- | A @Workteam@ instance that contains information about the work team.
 --
 -- /Note:/ Consider using 'subscribedWorkteam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dswrsSubscribedWorkteam :: Lens.Lens' DescribeSubscribedWorkteamResponse SubscribedWorkteam
-dswrsSubscribedWorkteam = Lens.lens (subscribedWorkteam :: DescribeSubscribedWorkteamResponse -> SubscribedWorkteam) (\s a -> s {subscribedWorkteam = a} :: DescribeSubscribedWorkteamResponse)
-{-# DEPRECATED dswrsSubscribedWorkteam "Use generic-lens or generic-optics with 'subscribedWorkteam' instead." #-}
+dswrrsSubscribedWorkteam :: Lens.Lens' DescribeSubscribedWorkteamResponse Types.SubscribedWorkteam
+dswrrsSubscribedWorkteam = Lens.field @"subscribedWorkteam"
+{-# DEPRECATED dswrrsSubscribedWorkteam "Use generic-lens or generic-optics with 'subscribedWorkteam' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dswrsResponseStatus :: Lens.Lens' DescribeSubscribedWorkteamResponse Lude.Int
-dswrsResponseStatus = Lens.lens (responseStatus :: DescribeSubscribedWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSubscribedWorkteamResponse)
-{-# DEPRECATED dswrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dswrrsResponseStatus :: Lens.Lens' DescribeSubscribedWorkteamResponse Core.Int
+dswrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dswrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

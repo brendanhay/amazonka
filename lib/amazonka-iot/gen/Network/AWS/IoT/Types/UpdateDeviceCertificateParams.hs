@@ -21,46 +21,41 @@ module Network.AWS.IoT.Types.UpdateDeviceCertificateParams
   )
 where
 
-import Network.AWS.IoT.Types.DeviceCertificateUpdateAction
+import qualified Network.AWS.IoT.Types.DeviceCertificateUpdateAction as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 --
 -- /See:/ 'mkUpdateDeviceCertificateParams' smart constructor.
 newtype UpdateDeviceCertificateParams = UpdateDeviceCertificateParams'
   { -- | The action that you want to apply to the device cerrtificate. The only supported value is @DEACTIVATE@ .
-    action :: DeviceCertificateUpdateAction
+    action :: Types.DeviceCertificateUpdateAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDeviceCertificateParams' with the minimum fields required to make a request.
---
--- * 'action' - The action that you want to apply to the device cerrtificate. The only supported value is @DEACTIVATE@ .
+-- | Creates a 'UpdateDeviceCertificateParams' value with any optional fields omitted.
 mkUpdateDeviceCertificateParams ::
   -- | 'action'
-  DeviceCertificateUpdateAction ->
+  Types.DeviceCertificateUpdateAction ->
   UpdateDeviceCertificateParams
-mkUpdateDeviceCertificateParams pAction_ =
-  UpdateDeviceCertificateParams' {action = pAction_}
+mkUpdateDeviceCertificateParams action =
+  UpdateDeviceCertificateParams' {action}
 
 -- | The action that you want to apply to the device cerrtificate. The only supported value is @DEACTIVATE@ .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcpAction :: Lens.Lens' UpdateDeviceCertificateParams DeviceCertificateUpdateAction
-udcpAction = Lens.lens (action :: UpdateDeviceCertificateParams -> DeviceCertificateUpdateAction) (\s a -> s {action = a} :: UpdateDeviceCertificateParams)
+udcpAction :: Lens.Lens' UpdateDeviceCertificateParams Types.DeviceCertificateUpdateAction
+udcpAction = Lens.field @"action"
 {-# DEPRECATED udcpAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance Lude.FromJSON UpdateDeviceCertificateParams where
-  parseJSON =
-    Lude.withObject
-      "UpdateDeviceCertificateParams"
-      ( \x ->
-          UpdateDeviceCertificateParams' Lude.<$> (x Lude..: "action")
-      )
+instance Core.FromJSON UpdateDeviceCertificateParams where
+  toJSON UpdateDeviceCertificateParams {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("action" Core..= action)])
 
-instance Lude.ToJSON UpdateDeviceCertificateParams where
-  toJSON UpdateDeviceCertificateParams' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("action" Lude..= action)])
+instance Core.FromJSON UpdateDeviceCertificateParams where
+  parseJSON =
+    Core.withObject "UpdateDeviceCertificateParams" Core.$
+      \x -> UpdateDeviceCertificateParams' Core.<$> (x Core..: "action")

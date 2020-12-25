@@ -17,79 +17,67 @@ module Network.AWS.Redshift.Types.ScheduledActionType
     mkScheduledActionType,
 
     -- * Lenses
+    satPauseCluster,
     satResizeCluster,
     satResumeCluster,
-    satPauseCluster,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.PauseClusterMessage
-import Network.AWS.Redshift.Types.ResizeClusterMessage
-import Network.AWS.Redshift.Types.ResumeClusterMessage
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.PauseClusterMessage as Types
+import qualified Network.AWS.Redshift.Types.ResizeClusterMessage as Types
+import qualified Network.AWS.Redshift.Types.ResumeClusterMessage as Types
 
 -- | The action type that specifies an Amazon Redshift API operation that is supported by the Amazon Redshift scheduler.
 --
 -- /See:/ 'mkScheduledActionType' smart constructor.
 data ScheduledActionType = ScheduledActionType'
-  { -- | An action that runs a @ResizeCluster@ API operation.
-    resizeCluster :: Lude.Maybe ResizeClusterMessage,
+  { -- | An action that runs a @PauseCluster@ API operation.
+    pauseCluster :: Core.Maybe Types.PauseClusterMessage,
+    -- | An action that runs a @ResizeCluster@ API operation.
+    resizeCluster :: Core.Maybe Types.ResizeClusterMessage,
     -- | An action that runs a @ResumeCluster@ API operation.
-    resumeCluster :: Lude.Maybe ResumeClusterMessage,
-    -- | An action that runs a @PauseCluster@ API operation.
-    pauseCluster :: Lude.Maybe PauseClusterMessage
+    resumeCluster :: Core.Maybe Types.ResumeClusterMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduledActionType' with the minimum fields required to make a request.
---
--- * 'resizeCluster' - An action that runs a @ResizeCluster@ API operation.
--- * 'resumeCluster' - An action that runs a @ResumeCluster@ API operation.
--- * 'pauseCluster' - An action that runs a @PauseCluster@ API operation.
+-- | Creates a 'ScheduledActionType' value with any optional fields omitted.
 mkScheduledActionType ::
   ScheduledActionType
 mkScheduledActionType =
   ScheduledActionType'
-    { resizeCluster = Lude.Nothing,
-      resumeCluster = Lude.Nothing,
-      pauseCluster = Lude.Nothing
+    { pauseCluster = Core.Nothing,
+      resizeCluster = Core.Nothing,
+      resumeCluster = Core.Nothing
     }
+
+-- | An action that runs a @PauseCluster@ API operation.
+--
+-- /Note:/ Consider using 'pauseCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satPauseCluster :: Lens.Lens' ScheduledActionType (Core.Maybe Types.PauseClusterMessage)
+satPauseCluster = Lens.field @"pauseCluster"
+{-# DEPRECATED satPauseCluster "Use generic-lens or generic-optics with 'pauseCluster' instead." #-}
 
 -- | An action that runs a @ResizeCluster@ API operation.
 --
 -- /Note:/ Consider using 'resizeCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satResizeCluster :: Lens.Lens' ScheduledActionType (Lude.Maybe ResizeClusterMessage)
-satResizeCluster = Lens.lens (resizeCluster :: ScheduledActionType -> Lude.Maybe ResizeClusterMessage) (\s a -> s {resizeCluster = a} :: ScheduledActionType)
+satResizeCluster :: Lens.Lens' ScheduledActionType (Core.Maybe Types.ResizeClusterMessage)
+satResizeCluster = Lens.field @"resizeCluster"
 {-# DEPRECATED satResizeCluster "Use generic-lens or generic-optics with 'resizeCluster' instead." #-}
 
 -- | An action that runs a @ResumeCluster@ API operation.
 --
 -- /Note:/ Consider using 'resumeCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satResumeCluster :: Lens.Lens' ScheduledActionType (Lude.Maybe ResumeClusterMessage)
-satResumeCluster = Lens.lens (resumeCluster :: ScheduledActionType -> Lude.Maybe ResumeClusterMessage) (\s a -> s {resumeCluster = a} :: ScheduledActionType)
+satResumeCluster :: Lens.Lens' ScheduledActionType (Core.Maybe Types.ResumeClusterMessage)
+satResumeCluster = Lens.field @"resumeCluster"
 {-# DEPRECATED satResumeCluster "Use generic-lens or generic-optics with 'resumeCluster' instead." #-}
 
--- | An action that runs a @PauseCluster@ API operation.
---
--- /Note:/ Consider using 'pauseCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satPauseCluster :: Lens.Lens' ScheduledActionType (Lude.Maybe PauseClusterMessage)
-satPauseCluster = Lens.lens (pauseCluster :: ScheduledActionType -> Lude.Maybe PauseClusterMessage) (\s a -> s {pauseCluster = a} :: ScheduledActionType)
-{-# DEPRECATED satPauseCluster "Use generic-lens or generic-optics with 'pauseCluster' instead." #-}
-
-instance Lude.FromXML ScheduledActionType where
+instance Core.FromXML ScheduledActionType where
   parseXML x =
     ScheduledActionType'
-      Lude.<$> (x Lude..@? "ResizeCluster")
-      Lude.<*> (x Lude..@? "ResumeCluster")
-      Lude.<*> (x Lude..@? "PauseCluster")
-
-instance Lude.ToQuery ScheduledActionType where
-  toQuery ScheduledActionType' {..} =
-    Lude.mconcat
-      [ "ResizeCluster" Lude.=: resizeCluster,
-        "ResumeCluster" Lude.=: resumeCluster,
-        "PauseCluster" Lude.=: pauseCluster
-      ]
+      Core.<$> (x Core..@? "PauseCluster")
+      Core.<*> (x Core..@? "ResizeCluster")
+      Core.<*> (x Core..@? "ResumeCluster")

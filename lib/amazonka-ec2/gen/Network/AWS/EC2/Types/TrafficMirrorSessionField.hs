@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.TrafficMirrorSessionField
   ( TrafficMirrorSessionField
       ( TrafficMirrorSessionField',
-        TMSFPacketLength,
-        TMSFDescription,
-        TMSFVirtualNetworkId
+        TrafficMirrorSessionFieldPacketLength,
+        TrafficMirrorSessionFieldDescription,
+        TrafficMirrorSessionFieldVirtualNetworkId,
+        fromTrafficMirrorSessionField
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TrafficMirrorSessionField = TrafficMirrorSessionField' Lude.Text
+newtype TrafficMirrorSessionField = TrafficMirrorSessionField'
+  { fromTrafficMirrorSessionField ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TMSFPacketLength :: TrafficMirrorSessionField
-pattern TMSFPacketLength = TrafficMirrorSessionField' "packet-length"
+pattern TrafficMirrorSessionFieldPacketLength :: TrafficMirrorSessionField
+pattern TrafficMirrorSessionFieldPacketLength = TrafficMirrorSessionField' "packet-length"
 
-pattern TMSFDescription :: TrafficMirrorSessionField
-pattern TMSFDescription = TrafficMirrorSessionField' "description"
+pattern TrafficMirrorSessionFieldDescription :: TrafficMirrorSessionField
+pattern TrafficMirrorSessionFieldDescription = TrafficMirrorSessionField' "description"
 
-pattern TMSFVirtualNetworkId :: TrafficMirrorSessionField
-pattern TMSFVirtualNetworkId = TrafficMirrorSessionField' "virtual-network-id"
+pattern TrafficMirrorSessionFieldVirtualNetworkId :: TrafficMirrorSessionField
+pattern TrafficMirrorSessionFieldVirtualNetworkId = TrafficMirrorSessionField' "virtual-network-id"
 
 {-# COMPLETE
-  TMSFPacketLength,
-  TMSFDescription,
-  TMSFVirtualNetworkId,
+  TrafficMirrorSessionFieldPacketLength,
+  TrafficMirrorSessionFieldDescription,
+  TrafficMirrorSessionFieldVirtualNetworkId,
   TrafficMirrorSessionField'
   #-}

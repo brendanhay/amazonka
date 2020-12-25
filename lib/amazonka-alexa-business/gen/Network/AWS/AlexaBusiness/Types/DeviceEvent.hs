@@ -17,72 +17,67 @@ module Network.AWS.AlexaBusiness.Types.DeviceEvent
     mkDeviceEvent,
 
     -- * Lenses
-    deValue,
-    deType,
     deTimestamp,
+    deType,
+    deValue,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.DeviceEventType
+import qualified Network.AWS.AlexaBusiness.Types.DeviceEventType as Types
+import qualified Network.AWS.AlexaBusiness.Types.DeviceEventValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The list of device events.
 --
 -- /See:/ 'mkDeviceEvent' smart constructor.
 data DeviceEvent = DeviceEvent'
-  { -- | The value of the event.
-    value :: Lude.Maybe Lude.Text,
+  { -- | The time (in epoch) when the event occurred.
+    timestamp :: Core.Maybe Core.NominalDiffTime,
     -- | The type of device event.
-    type' :: Lude.Maybe DeviceEventType,
-    -- | The time (in epoch) when the event occurred.
-    timestamp :: Lude.Maybe Lude.Timestamp
+    type' :: Core.Maybe Types.DeviceEventType,
+    -- | The value of the event.
+    value :: Core.Maybe Types.DeviceEventValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeviceEvent' with the minimum fields required to make a request.
---
--- * 'value' - The value of the event.
--- * 'type'' - The type of device event.
--- * 'timestamp' - The time (in epoch) when the event occurred.
+-- | Creates a 'DeviceEvent' value with any optional fields omitted.
 mkDeviceEvent ::
   DeviceEvent
 mkDeviceEvent =
   DeviceEvent'
-    { value = Lude.Nothing,
-      type' = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { timestamp = Core.Nothing,
+      type' = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The value of the event.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deValue :: Lens.Lens' DeviceEvent (Lude.Maybe Lude.Text)
-deValue = Lens.lens (value :: DeviceEvent -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: DeviceEvent)
-{-# DEPRECATED deValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | The type of device event.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deType :: Lens.Lens' DeviceEvent (Lude.Maybe DeviceEventType)
-deType = Lens.lens (type' :: DeviceEvent -> Lude.Maybe DeviceEventType) (\s a -> s {type' = a} :: DeviceEvent)
-{-# DEPRECATED deType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The time (in epoch) when the event occurred.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deTimestamp :: Lens.Lens' DeviceEvent (Lude.Maybe Lude.Timestamp)
-deTimestamp = Lens.lens (timestamp :: DeviceEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: DeviceEvent)
+deTimestamp :: Lens.Lens' DeviceEvent (Core.Maybe Core.NominalDiffTime)
+deTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED deTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON DeviceEvent where
+-- | The type of device event.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deType :: Lens.Lens' DeviceEvent (Core.Maybe Types.DeviceEventType)
+deType = Lens.field @"type'"
+{-# DEPRECATED deType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The value of the event.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deValue :: Lens.Lens' DeviceEvent (Core.Maybe Types.DeviceEventValue)
+deValue = Lens.field @"value"
+{-# DEPRECATED deValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON DeviceEvent where
   parseJSON =
-    Lude.withObject
-      "DeviceEvent"
-      ( \x ->
-          DeviceEvent'
-            Lude.<$> (x Lude..:? "Value")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "Timestamp")
-      )
+    Core.withObject "DeviceEvent" Core.$
+      \x ->
+        DeviceEvent'
+          Core.<$> (x Core..:? "Timestamp")
+          Core.<*> (x Core..:? "Type")
+          Core.<*> (x Core..:? "Value")

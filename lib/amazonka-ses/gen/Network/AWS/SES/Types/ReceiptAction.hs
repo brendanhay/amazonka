@@ -18,24 +18,24 @@ module Network.AWS.SES.Types.ReceiptAction
 
     -- * Lenses
     raAddHeaderAction,
-    raSNSAction,
-    raWorkmailAction,
     raBounceAction,
     raLambdaAction,
-    raStopAction,
     raS3Action,
+    raSNSAction,
+    raStopAction,
+    raWorkmailAction,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.AddHeaderAction
-import Network.AWS.SES.Types.BounceAction
-import Network.AWS.SES.Types.LambdaAction
-import Network.AWS.SES.Types.S3Action
-import Network.AWS.SES.Types.SNSAction
-import Network.AWS.SES.Types.StopAction
-import Network.AWS.SES.Types.WorkmailAction
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.AddHeaderAction as Types
+import qualified Network.AWS.SES.Types.BounceAction as Types
+import qualified Network.AWS.SES.Types.LambdaAction as Types
+import qualified Network.AWS.SES.Types.S3Action as Types
+import qualified Network.AWS.SES.Types.SNSAction as Types
+import qualified Network.AWS.SES.Types.StopAction as Types
+import qualified Network.AWS.SES.Types.WorkmailAction as Types
 
 -- | An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
 --
@@ -44,113 +44,93 @@ import Network.AWS.SES.Types.WorkmailAction
 -- /See:/ 'mkReceiptAction' smart constructor.
 data ReceiptAction = ReceiptAction'
   { -- | Adds a header to the received email.
-    addHeaderAction :: Lude.Maybe AddHeaderAction,
-    -- | Publishes the email content within a notification to Amazon SNS.
-    snsAction :: Lude.Maybe SNSAction,
-    -- | Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
-    workmailAction :: Lude.Maybe WorkmailAction,
+    addHeaderAction :: Core.Maybe Types.AddHeaderAction,
     -- | Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
-    bounceAction :: Lude.Maybe BounceAction,
+    bounceAction :: Core.Maybe Types.BounceAction,
     -- | Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
-    lambdaAction :: Lude.Maybe LambdaAction,
-    -- | Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
-    stopAction :: Lude.Maybe StopAction,
+    lambdaAction :: Core.Maybe Types.LambdaAction,
     -- | Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
-    s3Action :: Lude.Maybe S3Action
+    s3Action :: Core.Maybe Types.S3Action,
+    -- | Publishes the email content within a notification to Amazon SNS.
+    sNSAction :: Core.Maybe Types.SNSAction,
+    -- | Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+    stopAction :: Core.Maybe Types.StopAction,
+    -- | Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
+    workmailAction :: Core.Maybe Types.WorkmailAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReceiptAction' with the minimum fields required to make a request.
---
--- * 'addHeaderAction' - Adds a header to the received email.
--- * 'snsAction' - Publishes the email content within a notification to Amazon SNS.
--- * 'workmailAction' - Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
--- * 'bounceAction' - Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
--- * 'lambdaAction' - Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
--- * 'stopAction' - Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
--- * 's3Action' - Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
+-- | Creates a 'ReceiptAction' value with any optional fields omitted.
 mkReceiptAction ::
   ReceiptAction
 mkReceiptAction =
   ReceiptAction'
-    { addHeaderAction = Lude.Nothing,
-      snsAction = Lude.Nothing,
-      workmailAction = Lude.Nothing,
-      bounceAction = Lude.Nothing,
-      lambdaAction = Lude.Nothing,
-      stopAction = Lude.Nothing,
-      s3Action = Lude.Nothing
+    { addHeaderAction = Core.Nothing,
+      bounceAction = Core.Nothing,
+      lambdaAction = Core.Nothing,
+      s3Action = Core.Nothing,
+      sNSAction = Core.Nothing,
+      stopAction = Core.Nothing,
+      workmailAction = Core.Nothing
     }
 
 -- | Adds a header to the received email.
 --
 -- /Note:/ Consider using 'addHeaderAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raAddHeaderAction :: Lens.Lens' ReceiptAction (Lude.Maybe AddHeaderAction)
-raAddHeaderAction = Lens.lens (addHeaderAction :: ReceiptAction -> Lude.Maybe AddHeaderAction) (\s a -> s {addHeaderAction = a} :: ReceiptAction)
+raAddHeaderAction :: Lens.Lens' ReceiptAction (Core.Maybe Types.AddHeaderAction)
+raAddHeaderAction = Lens.field @"addHeaderAction"
 {-# DEPRECATED raAddHeaderAction "Use generic-lens or generic-optics with 'addHeaderAction' instead." #-}
-
--- | Publishes the email content within a notification to Amazon SNS.
---
--- /Note:/ Consider using 'snsAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raSNSAction :: Lens.Lens' ReceiptAction (Lude.Maybe SNSAction)
-raSNSAction = Lens.lens (snsAction :: ReceiptAction -> Lude.Maybe SNSAction) (\s a -> s {snsAction = a} :: ReceiptAction)
-{-# DEPRECATED raSNSAction "Use generic-lens or generic-optics with 'snsAction' instead." #-}
-
--- | Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
---
--- /Note:/ Consider using 'workmailAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raWorkmailAction :: Lens.Lens' ReceiptAction (Lude.Maybe WorkmailAction)
-raWorkmailAction = Lens.lens (workmailAction :: ReceiptAction -> Lude.Maybe WorkmailAction) (\s a -> s {workmailAction = a} :: ReceiptAction)
-{-# DEPRECATED raWorkmailAction "Use generic-lens or generic-optics with 'workmailAction' instead." #-}
 
 -- | Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
 -- /Note:/ Consider using 'bounceAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raBounceAction :: Lens.Lens' ReceiptAction (Lude.Maybe BounceAction)
-raBounceAction = Lens.lens (bounceAction :: ReceiptAction -> Lude.Maybe BounceAction) (\s a -> s {bounceAction = a} :: ReceiptAction)
+raBounceAction :: Lens.Lens' ReceiptAction (Core.Maybe Types.BounceAction)
+raBounceAction = Lens.field @"bounceAction"
 {-# DEPRECATED raBounceAction "Use generic-lens or generic-optics with 'bounceAction' instead." #-}
 
 -- | Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
 --
 -- /Note:/ Consider using 'lambdaAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raLambdaAction :: Lens.Lens' ReceiptAction (Lude.Maybe LambdaAction)
-raLambdaAction = Lens.lens (lambdaAction :: ReceiptAction -> Lude.Maybe LambdaAction) (\s a -> s {lambdaAction = a} :: ReceiptAction)
+raLambdaAction :: Lens.Lens' ReceiptAction (Core.Maybe Types.LambdaAction)
+raLambdaAction = Lens.field @"lambdaAction"
 {-# DEPRECATED raLambdaAction "Use generic-lens or generic-optics with 'lambdaAction' instead." #-}
-
--- | Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
---
--- /Note:/ Consider using 'stopAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raStopAction :: Lens.Lens' ReceiptAction (Lude.Maybe StopAction)
-raStopAction = Lens.lens (stopAction :: ReceiptAction -> Lude.Maybe StopAction) (\s a -> s {stopAction = a} :: ReceiptAction)
-{-# DEPRECATED raStopAction "Use generic-lens or generic-optics with 'stopAction' instead." #-}
 
 -- | Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
 --
 -- /Note:/ Consider using 's3Action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raS3Action :: Lens.Lens' ReceiptAction (Lude.Maybe S3Action)
-raS3Action = Lens.lens (s3Action :: ReceiptAction -> Lude.Maybe S3Action) (\s a -> s {s3Action = a} :: ReceiptAction)
+raS3Action :: Lens.Lens' ReceiptAction (Core.Maybe Types.S3Action)
+raS3Action = Lens.field @"s3Action"
 {-# DEPRECATED raS3Action "Use generic-lens or generic-optics with 's3Action' instead." #-}
 
-instance Lude.FromXML ReceiptAction where
+-- | Publishes the email content within a notification to Amazon SNS.
+--
+-- /Note:/ Consider using 'sNSAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raSNSAction :: Lens.Lens' ReceiptAction (Core.Maybe Types.SNSAction)
+raSNSAction = Lens.field @"sNSAction"
+{-# DEPRECATED raSNSAction "Use generic-lens or generic-optics with 'sNSAction' instead." #-}
+
+-- | Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+--
+-- /Note:/ Consider using 'stopAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raStopAction :: Lens.Lens' ReceiptAction (Core.Maybe Types.StopAction)
+raStopAction = Lens.field @"stopAction"
+{-# DEPRECATED raStopAction "Use generic-lens or generic-optics with 'stopAction' instead." #-}
+
+-- | Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
+--
+-- /Note:/ Consider using 'workmailAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raWorkmailAction :: Lens.Lens' ReceiptAction (Core.Maybe Types.WorkmailAction)
+raWorkmailAction = Lens.field @"workmailAction"
+{-# DEPRECATED raWorkmailAction "Use generic-lens or generic-optics with 'workmailAction' instead." #-}
+
+instance Core.FromXML ReceiptAction where
   parseXML x =
     ReceiptAction'
-      Lude.<$> (x Lude..@? "AddHeaderAction")
-      Lude.<*> (x Lude..@? "SNSAction")
-      Lude.<*> (x Lude..@? "WorkmailAction")
-      Lude.<*> (x Lude..@? "BounceAction")
-      Lude.<*> (x Lude..@? "LambdaAction")
-      Lude.<*> (x Lude..@? "StopAction")
-      Lude.<*> (x Lude..@? "S3Action")
-
-instance Lude.ToQuery ReceiptAction where
-  toQuery ReceiptAction' {..} =
-    Lude.mconcat
-      [ "AddHeaderAction" Lude.=: addHeaderAction,
-        "SNSAction" Lude.=: snsAction,
-        "WorkmailAction" Lude.=: workmailAction,
-        "BounceAction" Lude.=: bounceAction,
-        "LambdaAction" Lude.=: lambdaAction,
-        "StopAction" Lude.=: stopAction,
-        "S3Action" Lude.=: s3Action
-      ]
+      Core.<$> (x Core..@? "AddHeaderAction")
+      Core.<*> (x Core..@? "BounceAction")
+      Core.<*> (x Core..@? "LambdaAction")
+      Core.<*> (x Core..@? "S3Action")
+      Core.<*> (x Core..@? "SNSAction")
+      Core.<*> (x Core..@? "StopAction")
+      Core.<*> (x Core..@? "WorkmailAction")

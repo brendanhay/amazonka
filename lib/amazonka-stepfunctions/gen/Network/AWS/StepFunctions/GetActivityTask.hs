@@ -23,7 +23,7 @@ module Network.AWS.StepFunctions.GetActivityTask
     mkGetActivityTask,
 
     -- ** Request lenses
-    gatActivityARN,
+    gatActivityArn,
     gatWorkerName,
 
     -- * Destructuring the response
@@ -31,139 +31,122 @@ module Network.AWS.StepFunctions.GetActivityTask
     mkGetActivityTaskResponse,
 
     -- ** Response lenses
-    gatrsInput,
-    gatrsTaskToken,
-    gatrsResponseStatus,
+    gatrrsInput,
+    gatrrsTaskToken,
+    gatrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StepFunctions.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StepFunctions.Types as Types
 
 -- | /See:/ 'mkGetActivityTask' smart constructor.
 data GetActivityTask = GetActivityTask'
   { -- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
-    activityARN :: Lude.Text,
+    activityArn :: Types.Arn,
     -- | You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.
-    workerName :: Lude.Maybe Lude.Text
+    workerName :: Core.Maybe Types.WorkerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetActivityTask' with the minimum fields required to make a request.
---
--- * 'activityARN' - The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
--- * 'workerName' - You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.
+-- | Creates a 'GetActivityTask' value with any optional fields omitted.
 mkGetActivityTask ::
-  -- | 'activityARN'
-  Lude.Text ->
+  -- | 'activityArn'
+  Types.Arn ->
   GetActivityTask
-mkGetActivityTask pActivityARN_ =
-  GetActivityTask'
-    { activityARN = pActivityARN_,
-      workerName = Lude.Nothing
-    }
+mkGetActivityTask activityArn =
+  GetActivityTask' {activityArn, workerName = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
 --
--- /Note:/ Consider using 'activityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatActivityARN :: Lens.Lens' GetActivityTask Lude.Text
-gatActivityARN = Lens.lens (activityARN :: GetActivityTask -> Lude.Text) (\s a -> s {activityARN = a} :: GetActivityTask)
-{-# DEPRECATED gatActivityARN "Use generic-lens or generic-optics with 'activityARN' instead." #-}
+-- /Note:/ Consider using 'activityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gatActivityArn :: Lens.Lens' GetActivityTask Types.Arn
+gatActivityArn = Lens.field @"activityArn"
+{-# DEPRECATED gatActivityArn "Use generic-lens or generic-optics with 'activityArn' instead." #-}
 
 -- | You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.
 --
 -- /Note:/ Consider using 'workerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatWorkerName :: Lens.Lens' GetActivityTask (Lude.Maybe Lude.Text)
-gatWorkerName = Lens.lens (workerName :: GetActivityTask -> Lude.Maybe Lude.Text) (\s a -> s {workerName = a} :: GetActivityTask)
+gatWorkerName :: Lens.Lens' GetActivityTask (Core.Maybe Types.WorkerName)
+gatWorkerName = Lens.field @"workerName"
 {-# DEPRECATED gatWorkerName "Use generic-lens or generic-optics with 'workerName' instead." #-}
 
-instance Lude.AWSRequest GetActivityTask where
+instance Core.FromJSON GetActivityTask where
+  toJSON GetActivityTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("activityArn" Core..= activityArn),
+            ("workerName" Core..=) Core.<$> workerName
+          ]
+      )
+
+instance Core.AWSRequest GetActivityTask where
   type Rs GetActivityTask = GetActivityTaskResponse
-  request = Req.postJSON stepFunctionsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSStepFunctions.GetActivityTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetActivityTaskResponse'
-            Lude.<$> (x Lude..?> "input")
-            Lude.<*> (x Lude..?> "taskToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "input")
+            Core.<*> (x Core..:? "taskToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetActivityTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSStepFunctions.GetActivityTask" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetActivityTask where
-  toJSON GetActivityTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("activityArn" Lude..= activityARN),
-            ("workerName" Lude..=) Lude.<$> workerName
-          ]
-      )
-
-instance Lude.ToPath GetActivityTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetActivityTask where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetActivityTaskResponse' smart constructor.
 data GetActivityTaskResponse = GetActivityTaskResponse'
   { -- | The string that contains the JSON input data for the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    input :: Core.Maybe Types.Input,
     -- | A token that identifies the scheduled task. This token must be copied and included in subsequent calls to 'SendTaskHeartbeat' , 'SendTaskSuccess' or 'SendTaskFailure' in order to report the progress or completion of the task.
-    taskToken :: Lude.Maybe Lude.Text,
+    taskToken :: Core.Maybe Types.TaskToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetActivityTaskResponse' with the minimum fields required to make a request.
---
--- * 'input' - The string that contains the JSON input data for the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
--- * 'taskToken' - A token that identifies the scheduled task. This token must be copied and included in subsequent calls to 'SendTaskHeartbeat' , 'SendTaskSuccess' or 'SendTaskFailure' in order to report the progress or completion of the task.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetActivityTaskResponse' value with any optional fields omitted.
 mkGetActivityTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetActivityTaskResponse
-mkGetActivityTaskResponse pResponseStatus_ =
+mkGetActivityTaskResponse responseStatus =
   GetActivityTaskResponse'
-    { input = Lude.Nothing,
-      taskToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { input = Core.Nothing,
+      taskToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The string that contains the JSON input data for the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatrsInput :: Lens.Lens' GetActivityTaskResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-gatrsInput = Lens.lens (input :: GetActivityTaskResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {input = a} :: GetActivityTaskResponse)
-{-# DEPRECATED gatrsInput "Use generic-lens or generic-optics with 'input' instead." #-}
+gatrrsInput :: Lens.Lens' GetActivityTaskResponse (Core.Maybe Types.Input)
+gatrrsInput = Lens.field @"input"
+{-# DEPRECATED gatrrsInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | A token that identifies the scheduled task. This token must be copied and included in subsequent calls to 'SendTaskHeartbeat' , 'SendTaskSuccess' or 'SendTaskFailure' in order to report the progress or completion of the task.
 --
 -- /Note:/ Consider using 'taskToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatrsTaskToken :: Lens.Lens' GetActivityTaskResponse (Lude.Maybe Lude.Text)
-gatrsTaskToken = Lens.lens (taskToken :: GetActivityTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskToken = a} :: GetActivityTaskResponse)
-{-# DEPRECATED gatrsTaskToken "Use generic-lens or generic-optics with 'taskToken' instead." #-}
+gatrrsTaskToken :: Lens.Lens' GetActivityTaskResponse (Core.Maybe Types.TaskToken)
+gatrrsTaskToken = Lens.field @"taskToken"
+{-# DEPRECATED gatrrsTaskToken "Use generic-lens or generic-optics with 'taskToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatrsResponseStatus :: Lens.Lens' GetActivityTaskResponse Lude.Int
-gatrsResponseStatus = Lens.lens (responseStatus :: GetActivityTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetActivityTaskResponse)
-{-# DEPRECATED gatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gatrrsResponseStatus :: Lens.Lens' GetActivityTaskResponse Core.Int
+gatrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gatrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

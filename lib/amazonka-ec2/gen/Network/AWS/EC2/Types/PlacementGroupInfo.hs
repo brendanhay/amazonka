@@ -21,38 +21,36 @@ module Network.AWS.EC2.Types.PlacementGroupInfo
   )
 where
 
-import Network.AWS.EC2.Types.PlacementGroupStrategy
+import qualified Network.AWS.EC2.Types.PlacementGroupStrategy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the placement group support of the instance type.
 --
 -- /See:/ 'mkPlacementGroupInfo' smart constructor.
 newtype PlacementGroupInfo = PlacementGroupInfo'
   { -- | The supported placement group types.
-    supportedStrategies :: Lude.Maybe [PlacementGroupStrategy]
+    supportedStrategies :: Core.Maybe [Types.PlacementGroupStrategy]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlacementGroupInfo' with the minimum fields required to make a request.
---
--- * 'supportedStrategies' - The supported placement group types.
+-- | Creates a 'PlacementGroupInfo' value with any optional fields omitted.
 mkPlacementGroupInfo ::
   PlacementGroupInfo
 mkPlacementGroupInfo =
-  PlacementGroupInfo' {supportedStrategies = Lude.Nothing}
+  PlacementGroupInfo' {supportedStrategies = Core.Nothing}
 
 -- | The supported placement group types.
 --
 -- /Note:/ Consider using 'supportedStrategies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgiSupportedStrategies :: Lens.Lens' PlacementGroupInfo (Lude.Maybe [PlacementGroupStrategy])
-pgiSupportedStrategies = Lens.lens (supportedStrategies :: PlacementGroupInfo -> Lude.Maybe [PlacementGroupStrategy]) (\s a -> s {supportedStrategies = a} :: PlacementGroupInfo)
+pgiSupportedStrategies :: Lens.Lens' PlacementGroupInfo (Core.Maybe [Types.PlacementGroupStrategy])
+pgiSupportedStrategies = Lens.field @"supportedStrategies"
 {-# DEPRECATED pgiSupportedStrategies "Use generic-lens or generic-optics with 'supportedStrategies' instead." #-}
 
-instance Lude.FromXML PlacementGroupInfo where
+instance Core.FromXML PlacementGroupInfo where
   parseXML x =
     PlacementGroupInfo'
-      Lude.<$> ( x Lude..@? "supportedStrategies" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> ( x Core..@? "supportedStrategies"
+                   Core..<@> Core.parseXMLList "item"
                )

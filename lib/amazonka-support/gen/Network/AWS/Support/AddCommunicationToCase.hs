@@ -21,160 +21,146 @@ module Network.AWS.Support.AddCommunicationToCase
 
     -- ** Request lenses
     actcCommunicationBody,
+    actcAttachmentSetId,
     actcCaseId,
     actcCcEmailAddresses,
-    actcAttachmentSetId,
 
     -- * Destructuring the response
     AddCommunicationToCaseResponse (..),
     mkAddCommunicationToCaseResponse,
 
     -- ** Response lenses
-    actcrsResult,
-    actcrsResponseStatus,
+    actcrrsResult,
+    actcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Support.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Support.Types as Types
 
 -- | /See:/ 'mkAddCommunicationToCase' smart constructor.
 data AddCommunicationToCase = AddCommunicationToCase'
   { -- | The body of an email communication to add to the support case.
-    communicationBody :: Lude.Text,
-    -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
-    caseId :: Lude.Maybe Lude.Text,
-    -- | The email addresses in the CC line of an email to be added to the support case.
-    ccEmailAddresses :: Lude.Maybe [Lude.Text],
+    communicationBody :: Types.CommunicationBody,
     -- | The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling 'AddAttachmentsToSet'
-    attachmentSetId :: Lude.Maybe Lude.Text
+    attachmentSetId :: Core.Maybe Types.AttachmentSetId,
+    -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
+    caseId :: Core.Maybe Types.CaseId,
+    -- | The email addresses in the CC line of an email to be added to the support case.
+    ccEmailAddresses :: Core.Maybe [Types.CcEmailAddress]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddCommunicationToCase' with the minimum fields required to make a request.
---
--- * 'communicationBody' - The body of an email communication to add to the support case.
--- * 'caseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
--- * 'ccEmailAddresses' - The email addresses in the CC line of an email to be added to the support case.
--- * 'attachmentSetId' - The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling 'AddAttachmentsToSet'
+-- | Creates a 'AddCommunicationToCase' value with any optional fields omitted.
 mkAddCommunicationToCase ::
   -- | 'communicationBody'
-  Lude.Text ->
+  Types.CommunicationBody ->
   AddCommunicationToCase
-mkAddCommunicationToCase pCommunicationBody_ =
+mkAddCommunicationToCase communicationBody =
   AddCommunicationToCase'
-    { communicationBody = pCommunicationBody_,
-      caseId = Lude.Nothing,
-      ccEmailAddresses = Lude.Nothing,
-      attachmentSetId = Lude.Nothing
+    { communicationBody,
+      attachmentSetId = Core.Nothing,
+      caseId = Core.Nothing,
+      ccEmailAddresses = Core.Nothing
     }
 
 -- | The body of an email communication to add to the support case.
 --
 -- /Note:/ Consider using 'communicationBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actcCommunicationBody :: Lens.Lens' AddCommunicationToCase Lude.Text
-actcCommunicationBody = Lens.lens (communicationBody :: AddCommunicationToCase -> Lude.Text) (\s a -> s {communicationBody = a} :: AddCommunicationToCase)
+actcCommunicationBody :: Lens.Lens' AddCommunicationToCase Types.CommunicationBody
+actcCommunicationBody = Lens.field @"communicationBody"
 {-# DEPRECATED actcCommunicationBody "Use generic-lens or generic-optics with 'communicationBody' instead." #-}
+
+-- | The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling 'AddAttachmentsToSet'
+--
+-- /Note:/ Consider using 'attachmentSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+actcAttachmentSetId :: Lens.Lens' AddCommunicationToCase (Core.Maybe Types.AttachmentSetId)
+actcAttachmentSetId = Lens.field @"attachmentSetId"
+{-# DEPRECATED actcAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
 -- /Note:/ Consider using 'caseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actcCaseId :: Lens.Lens' AddCommunicationToCase (Lude.Maybe Lude.Text)
-actcCaseId = Lens.lens (caseId :: AddCommunicationToCase -> Lude.Maybe Lude.Text) (\s a -> s {caseId = a} :: AddCommunicationToCase)
+actcCaseId :: Lens.Lens' AddCommunicationToCase (Core.Maybe Types.CaseId)
+actcCaseId = Lens.field @"caseId"
 {-# DEPRECATED actcCaseId "Use generic-lens or generic-optics with 'caseId' instead." #-}
 
 -- | The email addresses in the CC line of an email to be added to the support case.
 --
 -- /Note:/ Consider using 'ccEmailAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actcCcEmailAddresses :: Lens.Lens' AddCommunicationToCase (Lude.Maybe [Lude.Text])
-actcCcEmailAddresses = Lens.lens (ccEmailAddresses :: AddCommunicationToCase -> Lude.Maybe [Lude.Text]) (\s a -> s {ccEmailAddresses = a} :: AddCommunicationToCase)
+actcCcEmailAddresses :: Lens.Lens' AddCommunicationToCase (Core.Maybe [Types.CcEmailAddress])
+actcCcEmailAddresses = Lens.field @"ccEmailAddresses"
 {-# DEPRECATED actcCcEmailAddresses "Use generic-lens or generic-optics with 'ccEmailAddresses' instead." #-}
 
--- | The ID of a set of one or more attachments for the communication to add to the case. Create the set by calling 'AddAttachmentsToSet'
---
--- /Note:/ Consider using 'attachmentSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actcAttachmentSetId :: Lens.Lens' AddCommunicationToCase (Lude.Maybe Lude.Text)
-actcAttachmentSetId = Lens.lens (attachmentSetId :: AddCommunicationToCase -> Lude.Maybe Lude.Text) (\s a -> s {attachmentSetId = a} :: AddCommunicationToCase)
-{-# DEPRECATED actcAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
+instance Core.FromJSON AddCommunicationToCase where
+  toJSON AddCommunicationToCase {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("communicationBody" Core..= communicationBody),
+            ("attachmentSetId" Core..=) Core.<$> attachmentSetId,
+            ("caseId" Core..=) Core.<$> caseId,
+            ("ccEmailAddresses" Core..=) Core.<$> ccEmailAddresses
+          ]
+      )
 
-instance Lude.AWSRequest AddCommunicationToCase where
+instance Core.AWSRequest AddCommunicationToCase where
   type Rs AddCommunicationToCase = AddCommunicationToCaseResponse
-  request = Req.postJSON supportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSSupport_20130415.AddCommunicationToCase")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AddCommunicationToCaseResponse'
-            Lude.<$> (x Lude..?> "result") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "result") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddCommunicationToCase where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSSupport_20130415.AddCommunicationToCase" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddCommunicationToCase where
-  toJSON AddCommunicationToCase' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("communicationBody" Lude..= communicationBody),
-            ("caseId" Lude..=) Lude.<$> caseId,
-            ("ccEmailAddresses" Lude..=) Lude.<$> ccEmailAddresses,
-            ("attachmentSetId" Lude..=) Lude.<$> attachmentSetId
-          ]
-      )
-
-instance Lude.ToPath AddCommunicationToCase where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddCommunicationToCase where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result of the 'AddCommunicationToCase' operation.
 --
 -- /See:/ 'mkAddCommunicationToCaseResponse' smart constructor.
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
   { -- | True if 'AddCommunicationToCase' succeeds. Otherwise, returns an error.
-    result :: Lude.Maybe Lude.Bool,
+    result :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddCommunicationToCaseResponse' with the minimum fields required to make a request.
---
--- * 'result' - True if 'AddCommunicationToCase' succeeds. Otherwise, returns an error.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddCommunicationToCaseResponse' value with any optional fields omitted.
 mkAddCommunicationToCaseResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddCommunicationToCaseResponse
-mkAddCommunicationToCaseResponse pResponseStatus_ =
+mkAddCommunicationToCaseResponse responseStatus =
   AddCommunicationToCaseResponse'
-    { result = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { result = Core.Nothing,
+      responseStatus
     }
 
 -- | True if 'AddCommunicationToCase' succeeds. Otherwise, returns an error.
 --
 -- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actcrsResult :: Lens.Lens' AddCommunicationToCaseResponse (Lude.Maybe Lude.Bool)
-actcrsResult = Lens.lens (result :: AddCommunicationToCaseResponse -> Lude.Maybe Lude.Bool) (\s a -> s {result = a} :: AddCommunicationToCaseResponse)
-{-# DEPRECATED actcrsResult "Use generic-lens or generic-optics with 'result' instead." #-}
+actcrrsResult :: Lens.Lens' AddCommunicationToCaseResponse (Core.Maybe Core.Bool)
+actcrrsResult = Lens.field @"result"
+{-# DEPRECATED actcrrsResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actcrsResponseStatus :: Lens.Lens' AddCommunicationToCaseResponse Lude.Int
-actcrsResponseStatus = Lens.lens (responseStatus :: AddCommunicationToCaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddCommunicationToCaseResponse)
-{-# DEPRECATED actcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+actcrrsResponseStatus :: Lens.Lens' AddCommunicationToCaseResponse Core.Int
+actcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED actcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

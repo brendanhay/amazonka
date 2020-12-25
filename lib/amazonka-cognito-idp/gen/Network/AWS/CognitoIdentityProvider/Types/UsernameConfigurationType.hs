@@ -22,7 +22,7 @@ module Network.AWS.CognitoIdentityProvider.Types.UsernameConfigurationType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The username configuration type.
 --
@@ -36,27 +36,18 @@ newtype UsernameConfigurationType = UsernameConfigurationType'
     --
     --
     --     * __@False@ __ : Enables case insensitivity for all username input. For example, when this option is set to @False@ , users will be able to sign in using either "username" or "Username". This option also enables both @preferred_username@ and @email@ alias to be case insensitive, in addition to the @username@ attribute.
-    caseSensitive :: Lude.Bool
+    caseSensitive :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UsernameConfigurationType' with the minimum fields required to make a request.
---
--- * 'caseSensitive' - Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
---
--- Valid values include:
---
---     * __@True@ __ : Enables case sensitivity for all username input. When this option is set to @True@ , users must sign in using the exact capitalization of their given username. For example, “UserName”. This is the default value.
---
---
---     * __@False@ __ : Enables case insensitivity for all username input. For example, when this option is set to @False@ , users will be able to sign in using either "username" or "Username". This option also enables both @preferred_username@ and @email@ alias to be case insensitive, in addition to the @username@ attribute.
+-- | Creates a 'UsernameConfigurationType' value with any optional fields omitted.
 mkUsernameConfigurationType ::
   -- | 'caseSensitive'
-  Lude.Bool ->
+  Core.Bool ->
   UsernameConfigurationType
-mkUsernameConfigurationType pCaseSensitive_ =
-  UsernameConfigurationType' {caseSensitive = pCaseSensitive_}
+mkUsernameConfigurationType caseSensitive =
+  UsernameConfigurationType' {caseSensitive}
 
 -- | Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
 --
@@ -70,21 +61,19 @@ mkUsernameConfigurationType pCaseSensitive_ =
 --
 --
 -- /Note:/ Consider using 'caseSensitive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uctCaseSensitive :: Lens.Lens' UsernameConfigurationType Lude.Bool
-uctCaseSensitive = Lens.lens (caseSensitive :: UsernameConfigurationType -> Lude.Bool) (\s a -> s {caseSensitive = a} :: UsernameConfigurationType)
+uctCaseSensitive :: Lens.Lens' UsernameConfigurationType Core.Bool
+uctCaseSensitive = Lens.field @"caseSensitive"
 {-# DEPRECATED uctCaseSensitive "Use generic-lens or generic-optics with 'caseSensitive' instead." #-}
 
-instance Lude.FromJSON UsernameConfigurationType where
-  parseJSON =
-    Lude.withObject
-      "UsernameConfigurationType"
-      ( \x ->
-          UsernameConfigurationType' Lude.<$> (x Lude..: "CaseSensitive")
+instance Core.FromJSON UsernameConfigurationType where
+  toJSON UsernameConfigurationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CaseSensitive" Core..= caseSensitive)]
       )
 
-instance Lude.ToJSON UsernameConfigurationType where
-  toJSON UsernameConfigurationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("CaseSensitive" Lude..= caseSensitive)]
-      )
+instance Core.FromJSON UsernameConfigurationType where
+  parseJSON =
+    Core.withObject "UsernameConfigurationType" Core.$
+      \x ->
+        UsernameConfigurationType' Core.<$> (x Core..: "CaseSensitive")

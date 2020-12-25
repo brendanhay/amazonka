@@ -22,53 +22,48 @@ module Network.AWS.ApplicationAutoScaling.Types.Alarm
   )
 where
 
+import qualified Network.AWS.ApplicationAutoScaling.Types.ResourceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a CloudWatch alarm associated with a scaling policy.
 --
 -- /See:/ 'mkAlarm' smart constructor.
 data Alarm = Alarm'
   { -- | The name of the alarm.
-    alarmName :: Lude.Text,
+    alarmName :: Types.ResourceId,
     -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmARN :: Lude.Text
+    alarmARN :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Alarm' with the minimum fields required to make a request.
---
--- * 'alarmName' - The name of the alarm.
--- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
+-- | Creates a 'Alarm' value with any optional fields omitted.
 mkAlarm ::
   -- | 'alarmName'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'alarmARN'
-  Lude.Text ->
+  Types.ResourceId ->
   Alarm
-mkAlarm pAlarmName_ pAlarmARN_ =
-  Alarm' {alarmName = pAlarmName_, alarmARN = pAlarmARN_}
+mkAlarm alarmName alarmARN = Alarm' {alarmName, alarmARN}
 
 -- | The name of the alarm.
 --
 -- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAlarmName :: Lens.Lens' Alarm Lude.Text
-aAlarmName = Lens.lens (alarmName :: Alarm -> Lude.Text) (\s a -> s {alarmName = a} :: Alarm)
+aAlarmName :: Lens.Lens' Alarm Types.ResourceId
+aAlarmName = Lens.field @"alarmName"
 {-# DEPRECATED aAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the alarm.
 --
 -- /Note:/ Consider using 'alarmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAlarmARN :: Lens.Lens' Alarm Lude.Text
-aAlarmARN = Lens.lens (alarmARN :: Alarm -> Lude.Text) (\s a -> s {alarmARN = a} :: Alarm)
+aAlarmARN :: Lens.Lens' Alarm Types.ResourceId
+aAlarmARN = Lens.field @"alarmARN"
 {-# DEPRECATED aAlarmARN "Use generic-lens or generic-optics with 'alarmARN' instead." #-}
 
-instance Lude.FromJSON Alarm where
+instance Core.FromJSON Alarm where
   parseJSON =
-    Lude.withObject
-      "Alarm"
-      ( \x ->
-          Alarm'
-            Lude.<$> (x Lude..: "AlarmName") Lude.<*> (x Lude..: "AlarmARN")
-      )
+    Core.withObject "Alarm" Core.$
+      \x ->
+        Alarm'
+          Core.<$> (x Core..: "AlarmName") Core.<*> (x Core..: "AlarmARN")

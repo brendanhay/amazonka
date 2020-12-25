@@ -17,29 +17,26 @@ module Network.AWS.GameLift.Types.GameSessionConnectionInfo
     mkGameSessionConnectionInfo,
 
     -- * Lenses
+    gsciDnsName,
+    gsciGameSessionArn,
+    gsciIpAddress,
     gsciMatchedPlayerSessions,
-    gsciIPAddress,
-    gsciGameSessionARN,
-    gsciDNSName,
     gsciPort,
   )
 where
 
-import Network.AWS.GameLift.Types.MatchedPlayerSession
+import qualified Network.AWS.GameLift.Types.DnsName as Types
+import qualified Network.AWS.GameLift.Types.GameSessionArn as Types
+import qualified Network.AWS.GameLift.Types.MatchedPlayerSession as Types
+import qualified Network.AWS.GameLift.Types.StringModel as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Connection information for a new game session that is created in response to a 'StartMatchmaking' request. Once a match is made, the FlexMatch engine creates a new game session for it. This information, including the game session endpoint and player sessions for each player in the original matchmaking request, is added to the 'MatchmakingTicket' , which can be retrieved by calling 'DescribeMatchmaking' .
 --
 -- /See:/ 'mkGameSessionConnectionInfo' smart constructor.
 data GameSessionConnectionInfo = GameSessionConnectionInfo'
-  { -- | A collection of player session IDs, one for each player ID that was included in the original matchmaking request.
-    matchedPlayerSessions :: Lude.Maybe [MatchedPlayerSession],
-    -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
-    ipAddress :: Lude.Maybe Lude.Text,
-    -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it.
-    gameSessionARN :: Lude.Maybe Lude.Text,
-    -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+  { -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
     --
     --
     --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
@@ -49,60 +46,30 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
     --
     --
     -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
-    dnsName :: Lude.Maybe Lude.Text,
+    dnsName :: Core.Maybe Types.DnsName,
+    -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it.
+    gameSessionArn :: Core.Maybe Types.GameSessionArn,
+    -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
+    ipAddress :: Core.Maybe Types.StringModel,
+    -- | A collection of player session IDs, one for each player ID that was included in the original matchmaking request.
+    matchedPlayerSessions :: Core.Maybe [Types.MatchedPlayerSession],
     -- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
-    port :: Lude.Maybe Lude.Natural
+    port :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GameSessionConnectionInfo' with the minimum fields required to make a request.
---
--- * 'matchedPlayerSessions' - A collection of player session IDs, one for each player ID that was included in the original matchmaking request.
--- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
--- * 'gameSessionARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it.
--- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
---
---
---     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
---
---
---     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
---
---
--- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
--- * 'port' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
+-- | Creates a 'GameSessionConnectionInfo' value with any optional fields omitted.
 mkGameSessionConnectionInfo ::
   GameSessionConnectionInfo
 mkGameSessionConnectionInfo =
   GameSessionConnectionInfo'
-    { matchedPlayerSessions = Lude.Nothing,
-      ipAddress = Lude.Nothing,
-      gameSessionARN = Lude.Nothing,
-      dnsName = Lude.Nothing,
-      port = Lude.Nothing
+    { dnsName = Core.Nothing,
+      gameSessionArn = Core.Nothing,
+      ipAddress = Core.Nothing,
+      matchedPlayerSessions = Core.Nothing,
+      port = Core.Nothing
     }
-
--- | A collection of player session IDs, one for each player ID that was included in the original matchmaking request.
---
--- /Note:/ Consider using 'matchedPlayerSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsciMatchedPlayerSessions :: Lens.Lens' GameSessionConnectionInfo (Lude.Maybe [MatchedPlayerSession])
-gsciMatchedPlayerSessions = Lens.lens (matchedPlayerSessions :: GameSessionConnectionInfo -> Lude.Maybe [MatchedPlayerSession]) (\s a -> s {matchedPlayerSessions = a} :: GameSessionConnectionInfo)
-{-# DEPRECATED gsciMatchedPlayerSessions "Use generic-lens or generic-optics with 'matchedPlayerSessions' instead." #-}
-
--- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
---
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsciIPAddress :: Lens.Lens' GameSessionConnectionInfo (Lude.Maybe Lude.Text)
-gsciIPAddress = Lens.lens (ipAddress :: GameSessionConnectionInfo -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: GameSessionConnectionInfo)
-{-# DEPRECATED gsciIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
-
--- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it.
---
--- /Note:/ Consider using 'gameSessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsciGameSessionARN :: Lens.Lens' GameSessionConnectionInfo (Lude.Maybe Lude.Text)
-gsciGameSessionARN = Lens.lens (gameSessionARN :: GameSessionConnectionInfo -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionARN = a} :: GameSessionConnectionInfo)
-{-# DEPRECATED gsciGameSessionARN "Use generic-lens or generic-optics with 'gameSessionARN' instead." #-}
 
 -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
 --
@@ -116,26 +83,45 @@ gsciGameSessionARN = Lens.lens (gameSessionARN :: GameSessionConnectionInfo -> L
 -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
 --
 -- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsciDNSName :: Lens.Lens' GameSessionConnectionInfo (Lude.Maybe Lude.Text)
-gsciDNSName = Lens.lens (dnsName :: GameSessionConnectionInfo -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: GameSessionConnectionInfo)
-{-# DEPRECATED gsciDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
+gsciDnsName :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe Types.DnsName)
+gsciDnsName = Lens.field @"dnsName"
+{-# DEPRECATED gsciDnsName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
+
+-- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it.
+--
+-- /Note:/ Consider using 'gameSessionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsciGameSessionArn :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe Types.GameSessionArn)
+gsciGameSessionArn = Lens.field @"gameSessionArn"
+{-# DEPRECATED gsciGameSessionArn "Use generic-lens or generic-optics with 'gameSessionArn' instead." #-}
+
+-- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsciIpAddress :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe Types.StringModel)
+gsciIpAddress = Lens.field @"ipAddress"
+{-# DEPRECATED gsciIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
+
+-- | A collection of player session IDs, one for each player ID that was included in the original matchmaking request.
+--
+-- /Note:/ Consider using 'matchedPlayerSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsciMatchedPlayerSessions :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe [Types.MatchedPlayerSession])
+gsciMatchedPlayerSessions = Lens.field @"matchedPlayerSessions"
+{-# DEPRECATED gsciMatchedPlayerSessions "Use generic-lens or generic-optics with 'matchedPlayerSessions' instead." #-}
 
 -- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsciPort :: Lens.Lens' GameSessionConnectionInfo (Lude.Maybe Lude.Natural)
-gsciPort = Lens.lens (port :: GameSessionConnectionInfo -> Lude.Maybe Lude.Natural) (\s a -> s {port = a} :: GameSessionConnectionInfo)
+gsciPort :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe Core.Natural)
+gsciPort = Lens.field @"port"
 {-# DEPRECATED gsciPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.FromJSON GameSessionConnectionInfo where
+instance Core.FromJSON GameSessionConnectionInfo where
   parseJSON =
-    Lude.withObject
-      "GameSessionConnectionInfo"
-      ( \x ->
-          GameSessionConnectionInfo'
-            Lude.<$> (x Lude..:? "MatchedPlayerSessions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "IpAddress")
-            Lude.<*> (x Lude..:? "GameSessionArn")
-            Lude.<*> (x Lude..:? "DnsName")
-            Lude.<*> (x Lude..:? "Port")
-      )
+    Core.withObject "GameSessionConnectionInfo" Core.$
+      \x ->
+        GameSessionConnectionInfo'
+          Core.<$> (x Core..:? "DnsName")
+          Core.<*> (x Core..:? "GameSessionArn")
+          Core.<*> (x Core..:? "IpAddress")
+          Core.<*> (x Core..:? "MatchedPlayerSessions")
+          Core.<*> (x Core..:? "Port")

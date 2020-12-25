@@ -20,178 +20,160 @@ module Network.AWS.Glue.PutResourcePolicy
     mkPutResourcePolicy,
 
     -- ** Request lenses
-    prpPolicyInJSON,
+    prpPolicyInJson,
+    prpEnableHybrid,
     prpPolicyExistsCondition,
     prpPolicyHashCondition,
-    prpResourceARN,
-    prpEnableHybrid,
+    prpResourceArn,
 
     -- * Destructuring the response
     PutResourcePolicyResponse (..),
     mkPutResourcePolicyResponse,
 
     -- ** Response lenses
-    prprsPolicyHash,
-    prprsResponseStatus,
+    prprrsPolicyHash,
+    prprrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
   { -- | Contains the policy document to set, in JSON format.
-    policyInJSON :: Lude.Text,
-    -- | A value of @MUST_EXIST@ is used to update a policy. A value of @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a null value is used, the call will not depend on the existence of a policy.
-    policyExistsCondition :: Lude.Maybe ExistCondition,
-    -- | The hash value returned when the previous policy was set using @PutResourcePolicy@ . Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.
-    policyHashCondition :: Lude.Maybe Lude.Text,
-    -- | The ARN of the AWS Glue resource for the resource policy to be set. For more information about AWS Glue resource ARNs, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
-    resourceARN :: Lude.Maybe Lude.Text,
+    policyInJson :: Types.PolicyInJson,
     -- | Allows you to specify if you want to use both resource-level and account/catalog-level resource policies. A resource-level policy is a policy attached to an individual resource such as a database or a table.
     --
     -- The default value of @NO@ indicates that resource-level policies cannot co-exist with an account-level policy. A value of @YES@ means the use of both resource-level and account/catalog-level resource policies is allowed.
-    enableHybrid :: Lude.Maybe EnableHybridValues
+    enableHybrid :: Core.Maybe Types.EnableHybridValues,
+    -- | A value of @MUST_EXIST@ is used to update a policy. A value of @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a null value is used, the call will not depend on the existence of a policy.
+    policyExistsCondition :: Core.Maybe Types.ExistCondition,
+    -- | The hash value returned when the previous policy was set using @PutResourcePolicy@ . Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.
+    policyHashCondition :: Core.Maybe Types.HashString,
+    -- | The ARN of the AWS Glue resource for the resource policy to be set. For more information about AWS Glue resource ARNs, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+    resourceArn :: Core.Maybe Types.GlueResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutResourcePolicy' with the minimum fields required to make a request.
---
--- * 'policyInJSON' - Contains the policy document to set, in JSON format.
--- * 'policyExistsCondition' - A value of @MUST_EXIST@ is used to update a policy. A value of @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a null value is used, the call will not depend on the existence of a policy.
--- * 'policyHashCondition' - The hash value returned when the previous policy was set using @PutResourcePolicy@ . Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.
--- * 'resourceARN' - The ARN of the AWS Glue resource for the resource policy to be set. For more information about AWS Glue resource ARNs, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
--- * 'enableHybrid' - Allows you to specify if you want to use both resource-level and account/catalog-level resource policies. A resource-level policy is a policy attached to an individual resource such as a database or a table.
---
--- The default value of @NO@ indicates that resource-level policies cannot co-exist with an account-level policy. A value of @YES@ means the use of both resource-level and account/catalog-level resource policies is allowed.
+-- | Creates a 'PutResourcePolicy' value with any optional fields omitted.
 mkPutResourcePolicy ::
-  -- | 'policyInJSON'
-  Lude.Text ->
+  -- | 'policyInJson'
+  Types.PolicyInJson ->
   PutResourcePolicy
-mkPutResourcePolicy pPolicyInJSON_ =
+mkPutResourcePolicy policyInJson =
   PutResourcePolicy'
-    { policyInJSON = pPolicyInJSON_,
-      policyExistsCondition = Lude.Nothing,
-      policyHashCondition = Lude.Nothing,
-      resourceARN = Lude.Nothing,
-      enableHybrid = Lude.Nothing
+    { policyInJson,
+      enableHybrid = Core.Nothing,
+      policyExistsCondition = Core.Nothing,
+      policyHashCondition = Core.Nothing,
+      resourceArn = Core.Nothing
     }
 
 -- | Contains the policy document to set, in JSON format.
 --
--- /Note:/ Consider using 'policyInJSON' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpPolicyInJSON :: Lens.Lens' PutResourcePolicy Lude.Text
-prpPolicyInJSON = Lens.lens (policyInJSON :: PutResourcePolicy -> Lude.Text) (\s a -> s {policyInJSON = a} :: PutResourcePolicy)
-{-# DEPRECATED prpPolicyInJSON "Use generic-lens or generic-optics with 'policyInJSON' instead." #-}
-
--- | A value of @MUST_EXIST@ is used to update a policy. A value of @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a null value is used, the call will not depend on the existence of a policy.
---
--- /Note:/ Consider using 'policyExistsCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpPolicyExistsCondition :: Lens.Lens' PutResourcePolicy (Lude.Maybe ExistCondition)
-prpPolicyExistsCondition = Lens.lens (policyExistsCondition :: PutResourcePolicy -> Lude.Maybe ExistCondition) (\s a -> s {policyExistsCondition = a} :: PutResourcePolicy)
-{-# DEPRECATED prpPolicyExistsCondition "Use generic-lens or generic-optics with 'policyExistsCondition' instead." #-}
-
--- | The hash value returned when the previous policy was set using @PutResourcePolicy@ . Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.
---
--- /Note:/ Consider using 'policyHashCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpPolicyHashCondition :: Lens.Lens' PutResourcePolicy (Lude.Maybe Lude.Text)
-prpPolicyHashCondition = Lens.lens (policyHashCondition :: PutResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyHashCondition = a} :: PutResourcePolicy)
-{-# DEPRECATED prpPolicyHashCondition "Use generic-lens or generic-optics with 'policyHashCondition' instead." #-}
-
--- | The ARN of the AWS Glue resource for the resource policy to be set. For more information about AWS Glue resource ARNs, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpResourceARN :: Lens.Lens' PutResourcePolicy (Lude.Maybe Lude.Text)
-prpResourceARN = Lens.lens (resourceARN :: PutResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: PutResourcePolicy)
-{-# DEPRECATED prpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'policyInJson' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpPolicyInJson :: Lens.Lens' PutResourcePolicy Types.PolicyInJson
+prpPolicyInJson = Lens.field @"policyInJson"
+{-# DEPRECATED prpPolicyInJson "Use generic-lens or generic-optics with 'policyInJson' instead." #-}
 
 -- | Allows you to specify if you want to use both resource-level and account/catalog-level resource policies. A resource-level policy is a policy attached to an individual resource such as a database or a table.
 --
 -- The default value of @NO@ indicates that resource-level policies cannot co-exist with an account-level policy. A value of @YES@ means the use of both resource-level and account/catalog-level resource policies is allowed.
 --
 -- /Note:/ Consider using 'enableHybrid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpEnableHybrid :: Lens.Lens' PutResourcePolicy (Lude.Maybe EnableHybridValues)
-prpEnableHybrid = Lens.lens (enableHybrid :: PutResourcePolicy -> Lude.Maybe EnableHybridValues) (\s a -> s {enableHybrid = a} :: PutResourcePolicy)
+prpEnableHybrid :: Lens.Lens' PutResourcePolicy (Core.Maybe Types.EnableHybridValues)
+prpEnableHybrid = Lens.field @"enableHybrid"
 {-# DEPRECATED prpEnableHybrid "Use generic-lens or generic-optics with 'enableHybrid' instead." #-}
 
-instance Lude.AWSRequest PutResourcePolicy where
+-- | A value of @MUST_EXIST@ is used to update a policy. A value of @NOT_EXIST@ is used to create a new policy. If a value of @NONE@ or a null value is used, the call will not depend on the existence of a policy.
+--
+-- /Note:/ Consider using 'policyExistsCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpPolicyExistsCondition :: Lens.Lens' PutResourcePolicy (Core.Maybe Types.ExistCondition)
+prpPolicyExistsCondition = Lens.field @"policyExistsCondition"
+{-# DEPRECATED prpPolicyExistsCondition "Use generic-lens or generic-optics with 'policyExistsCondition' instead." #-}
+
+-- | The hash value returned when the previous policy was set using @PutResourcePolicy@ . Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter if no previous policy has been set.
+--
+-- /Note:/ Consider using 'policyHashCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpPolicyHashCondition :: Lens.Lens' PutResourcePolicy (Core.Maybe Types.HashString)
+prpPolicyHashCondition = Lens.field @"policyHashCondition"
+{-# DEPRECATED prpPolicyHashCondition "Use generic-lens or generic-optics with 'policyHashCondition' instead." #-}
+
+-- | The ARN of the AWS Glue resource for the resource policy to be set. For more information about AWS Glue resource ARNs, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpResourceArn :: Lens.Lens' PutResourcePolicy (Core.Maybe Types.GlueResourceArn)
+prpResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED prpResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+
+instance Core.FromJSON PutResourcePolicy where
+  toJSON PutResourcePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyInJson" Core..= policyInJson),
+            ("EnableHybrid" Core..=) Core.<$> enableHybrid,
+            ("PolicyExistsCondition" Core..=) Core.<$> policyExistsCondition,
+            ("PolicyHashCondition" Core..=) Core.<$> policyHashCondition,
+            ("ResourceArn" Core..=) Core.<$> resourceArn
+          ]
+      )
+
+instance Core.AWSRequest PutResourcePolicy where
   type Rs PutResourcePolicy = PutResourcePolicyResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.PutResourcePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Lude.<$> (x Lude..?> "PolicyHash") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PolicyHash") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutResourcePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.PutResourcePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutResourcePolicy where
-  toJSON PutResourcePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyInJson" Lude..= policyInJSON),
-            ("PolicyExistsCondition" Lude..=) Lude.<$> policyExistsCondition,
-            ("PolicyHashCondition" Lude..=) Lude.<$> policyHashCondition,
-            ("ResourceArn" Lude..=) Lude.<$> resourceARN,
-            ("EnableHybrid" Lude..=) Lude.<$> enableHybrid
-          ]
-      )
-
-instance Lude.ToPath PutResourcePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutResourcePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
   { -- | A hash of the policy that has just been set. This must be included in a subsequent call that overwrites or updates this policy.
-    policyHash :: Lude.Maybe Lude.Text,
+    policyHash :: Core.Maybe Types.HashString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutResourcePolicyResponse' with the minimum fields required to make a request.
---
--- * 'policyHash' - A hash of the policy that has just been set. This must be included in a subsequent call that overwrites or updates this policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutResourcePolicyResponse' value with any optional fields omitted.
 mkPutResourcePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutResourcePolicyResponse
-mkPutResourcePolicyResponse pResponseStatus_ =
+mkPutResourcePolicyResponse responseStatus =
   PutResourcePolicyResponse'
-    { policyHash = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { policyHash = Core.Nothing,
+      responseStatus
     }
 
 -- | A hash of the policy that has just been set. This must be included in a subsequent call that overwrites or updates this policy.
 --
 -- /Note:/ Consider using 'policyHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prprsPolicyHash :: Lens.Lens' PutResourcePolicyResponse (Lude.Maybe Lude.Text)
-prprsPolicyHash = Lens.lens (policyHash :: PutResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyHash = a} :: PutResourcePolicyResponse)
-{-# DEPRECATED prprsPolicyHash "Use generic-lens or generic-optics with 'policyHash' instead." #-}
+prprrsPolicyHash :: Lens.Lens' PutResourcePolicyResponse (Core.Maybe Types.HashString)
+prprrsPolicyHash = Lens.field @"policyHash"
+{-# DEPRECATED prprrsPolicyHash "Use generic-lens or generic-optics with 'policyHash' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prprsResponseStatus :: Lens.Lens' PutResourcePolicyResponse Lude.Int
-prprsResponseStatus = Lens.lens (responseStatus :: PutResourcePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutResourcePolicyResponse)
-{-# DEPRECATED prprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prprrsResponseStatus :: Lens.Lens' PutResourcePolicyResponse Core.Int
+prprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

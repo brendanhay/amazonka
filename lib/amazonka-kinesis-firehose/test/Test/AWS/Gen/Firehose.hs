@@ -186,7 +186,7 @@ responsePutRecord =
   res
     "PutRecordResponse"
     "fixture/PutRecordResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy PutRecord)
 
 responseStopDeliveryStreamEncryption :: StopDeliveryStreamEncryptionResponse -> TestTree
@@ -194,7 +194,7 @@ responseStopDeliveryStreamEncryption =
   res
     "StopDeliveryStreamEncryptionResponse"
     "fixture/StopDeliveryStreamEncryptionResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy StopDeliveryStreamEncryption)
 
 responseTagDeliveryStream :: TagDeliveryStreamResponse -> TestTree
@@ -202,7 +202,7 @@ responseTagDeliveryStream =
   res
     "TagDeliveryStreamResponse"
     "fixture/TagDeliveryStreamResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy TagDeliveryStream)
 
 responseUpdateDestination :: UpdateDestinationResponse -> TestTree
@@ -210,7 +210,7 @@ responseUpdateDestination =
   res
     "UpdateDestinationResponse"
     "fixture/UpdateDestinationResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDestination)
 
 responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
@@ -218,7 +218,7 @@ responsePutRecordBatch =
   res
     "PutRecordBatchResponse"
     "fixture/PutRecordBatchResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy PutRecordBatch)
 
 responseUntagDeliveryStream :: UntagDeliveryStreamResponse -> TestTree
@@ -226,7 +226,7 @@ responseUntagDeliveryStream =
   res
     "UntagDeliveryStreamResponse"
     "fixture/UntagDeliveryStreamResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy UntagDeliveryStream)
 
 responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
@@ -234,7 +234,7 @@ responseCreateDeliveryStream =
   res
     "CreateDeliveryStreamResponse"
     "fixture/CreateDeliveryStreamResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy CreateDeliveryStream)
 
 responseStartDeliveryStreamEncryption :: StartDeliveryStreamEncryptionResponse -> TestTree
@@ -242,7 +242,7 @@ responseStartDeliveryStreamEncryption =
   res
     "StartDeliveryStreamEncryptionResponse"
     "fixture/StartDeliveryStreamEncryptionResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy StartDeliveryStreamEncryption)
 
 responseDescribeDeliveryStream :: DescribeDeliveryStreamResponse -> TestTree
@@ -250,7 +250,7 @@ responseDescribeDeliveryStream =
   res
     "DescribeDeliveryStreamResponse"
     "fixture/DescribeDeliveryStreamResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDeliveryStream)
 
 responseListTagsForDeliveryStream :: ListTagsForDeliveryStreamResponse -> TestTree
@@ -258,7 +258,7 @@ responseListTagsForDeliveryStream =
   res
     "ListTagsForDeliveryStreamResponse"
     "fixture/ListTagsForDeliveryStreamResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForDeliveryStream)
 
 responseListDeliveryStreams :: ListDeliveryStreamsResponse -> TestTree
@@ -266,7 +266,7 @@ responseListDeliveryStreams =
   res
     "ListDeliveryStreamsResponse"
     "fixture/ListDeliveryStreamsResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy ListDeliveryStreams)
 
 responseDeleteDeliveryStream :: DeleteDeliveryStreamResponse -> TestTree
@@ -274,5 +274,5 @@ responseDeleteDeliveryStream =
   res
     "DeleteDeliveryStreamResponse"
     "fixture/DeleteDeliveryStreamResponse.proto"
-    firehoseService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDeliveryStream)

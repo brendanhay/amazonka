@@ -17,69 +17,66 @@ module Network.AWS.Redshift.Types.Subnet
     mkSubnet,
 
     -- * Lenses
-    sSubnetStatus,
-    sSubnetIdentifier,
     sSubnetAvailabilityZone,
+    sSubnetIdentifier,
+    sSubnetStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.AvailabilityZone
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.AvailabilityZone as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes a subnet.
 --
 -- /See:/ 'mkSubnet' smart constructor.
 data Subnet = Subnet'
-  { -- | The status of the subnet.
-    subnetStatus :: Lude.Maybe Lude.Text,
+  { -- |
+    subnetAvailabilityZone :: Core.Maybe Types.AvailabilityZone,
     -- | The identifier of the subnet.
-    subnetIdentifier :: Lude.Maybe Lude.Text,
-    -- |
-    subnetAvailabilityZone :: Lude.Maybe AvailabilityZone
+    subnetIdentifier :: Core.Maybe Types.String,
+    -- | The status of the subnet.
+    subnetStatus :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Subnet' with the minimum fields required to make a request.
---
--- * 'subnetStatus' - The status of the subnet.
--- * 'subnetIdentifier' - The identifier of the subnet.
--- * 'subnetAvailabilityZone' -
+-- | Creates a 'Subnet' value with any optional fields omitted.
 mkSubnet ::
   Subnet
 mkSubnet =
   Subnet'
-    { subnetStatus = Lude.Nothing,
-      subnetIdentifier = Lude.Nothing,
-      subnetAvailabilityZone = Lude.Nothing
+    { subnetAvailabilityZone = Core.Nothing,
+      subnetIdentifier = Core.Nothing,
+      subnetStatus = Core.Nothing
     }
-
--- | The status of the subnet.
---
--- /Note:/ Consider using 'subnetStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubnetStatus :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
-sSubnetStatus = Lens.lens (subnetStatus :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {subnetStatus = a} :: Subnet)
-{-# DEPRECATED sSubnetStatus "Use generic-lens or generic-optics with 'subnetStatus' instead." #-}
-
--- | The identifier of the subnet.
---
--- /Note:/ Consider using 'subnetIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubnetIdentifier :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
-sSubnetIdentifier = Lens.lens (subnetIdentifier :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {subnetIdentifier = a} :: Subnet)
-{-# DEPRECATED sSubnetIdentifier "Use generic-lens or generic-optics with 'subnetIdentifier' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'subnetAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubnetAvailabilityZone :: Lens.Lens' Subnet (Lude.Maybe AvailabilityZone)
-sSubnetAvailabilityZone = Lens.lens (subnetAvailabilityZone :: Subnet -> Lude.Maybe AvailabilityZone) (\s a -> s {subnetAvailabilityZone = a} :: Subnet)
+sSubnetAvailabilityZone :: Lens.Lens' Subnet (Core.Maybe Types.AvailabilityZone)
+sSubnetAvailabilityZone = Lens.field @"subnetAvailabilityZone"
 {-# DEPRECATED sSubnetAvailabilityZone "Use generic-lens or generic-optics with 'subnetAvailabilityZone' instead." #-}
 
-instance Lude.FromXML Subnet where
+-- | The identifier of the subnet.
+--
+-- /Note:/ Consider using 'subnetIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetIdentifier :: Lens.Lens' Subnet (Core.Maybe Types.String)
+sSubnetIdentifier = Lens.field @"subnetIdentifier"
+{-# DEPRECATED sSubnetIdentifier "Use generic-lens or generic-optics with 'subnetIdentifier' instead." #-}
+
+-- | The status of the subnet.
+--
+-- /Note:/ Consider using 'subnetStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetStatus :: Lens.Lens' Subnet (Core.Maybe Types.String)
+sSubnetStatus = Lens.field @"subnetStatus"
+{-# DEPRECATED sSubnetStatus "Use generic-lens or generic-optics with 'subnetStatus' instead." #-}
+
+instance Core.FromXML Subnet where
   parseXML x =
     Subnet'
-      Lude.<$> (x Lude..@? "SubnetStatus")
-      Lude.<*> (x Lude..@? "SubnetIdentifier")
-      Lude.<*> (x Lude..@? "SubnetAvailabilityZone")
+      Core.<$> (x Core..@? "SubnetAvailabilityZone")
+      Core.<*> (x Core..@? "SubnetIdentifier")
+      Core.<*> (x Core..@? "SubnetStatus")

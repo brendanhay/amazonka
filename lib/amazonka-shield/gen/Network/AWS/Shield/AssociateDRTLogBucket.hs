@@ -29,94 +29,84 @@ module Network.AWS.Shield.AssociateDRTLogBucket
     mkAssociateDRTLogBucketResponse,
 
     -- ** Response lenses
-    adrtlbrsResponseStatus,
+    adrtlbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkAssociateDRTLogBucket' smart constructor.
 newtype AssociateDRTLogBucket = AssociateDRTLogBucket'
   { -- | The Amazon S3 bucket that contains your AWS WAF logs.
-    logBucket :: Lude.Text
+    logBucket :: Types.LogBucket
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateDRTLogBucket' with the minimum fields required to make a request.
---
--- * 'logBucket' - The Amazon S3 bucket that contains your AWS WAF logs.
+-- | Creates a 'AssociateDRTLogBucket' value with any optional fields omitted.
 mkAssociateDRTLogBucket ::
   -- | 'logBucket'
-  Lude.Text ->
+  Types.LogBucket ->
   AssociateDRTLogBucket
-mkAssociateDRTLogBucket pLogBucket_ =
-  AssociateDRTLogBucket' {logBucket = pLogBucket_}
+mkAssociateDRTLogBucket logBucket =
+  AssociateDRTLogBucket' {logBucket}
 
 -- | The Amazon S3 bucket that contains your AWS WAF logs.
 --
 -- /Note:/ Consider using 'logBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adrtlbLogBucket :: Lens.Lens' AssociateDRTLogBucket Lude.Text
-adrtlbLogBucket = Lens.lens (logBucket :: AssociateDRTLogBucket -> Lude.Text) (\s a -> s {logBucket = a} :: AssociateDRTLogBucket)
+adrtlbLogBucket :: Lens.Lens' AssociateDRTLogBucket Types.LogBucket
+adrtlbLogBucket = Lens.field @"logBucket"
 {-# DEPRECATED adrtlbLogBucket "Use generic-lens or generic-optics with 'logBucket' instead." #-}
 
-instance Lude.AWSRequest AssociateDRTLogBucket where
+instance Core.FromJSON AssociateDRTLogBucket where
+  toJSON AssociateDRTLogBucket {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("LogBucket" Core..= logBucket)])
+
+instance Core.AWSRequest AssociateDRTLogBucket where
   type Rs AssociateDRTLogBucket = AssociateDRTLogBucketResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSShield_20160616.AssociateDRTLogBucket")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AssociateDRTLogBucketResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateDRTLogBucket where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.AssociateDRTLogBucket" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateDRTLogBucket where
-  toJSON AssociateDRTLogBucket' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("LogBucket" Lude..= logBucket)])
-
-instance Lude.ToPath AssociateDRTLogBucket where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateDRTLogBucket where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateDRTLogBucketResponse' smart constructor.
 newtype AssociateDRTLogBucketResponse = AssociateDRTLogBucketResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateDRTLogBucketResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateDRTLogBucketResponse' value with any optional fields omitted.
 mkAssociateDRTLogBucketResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateDRTLogBucketResponse
-mkAssociateDRTLogBucketResponse pResponseStatus_ =
-  AssociateDRTLogBucketResponse' {responseStatus = pResponseStatus_}
+mkAssociateDRTLogBucketResponse responseStatus =
+  AssociateDRTLogBucketResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adrtlbrsResponseStatus :: Lens.Lens' AssociateDRTLogBucketResponse Lude.Int
-adrtlbrsResponseStatus = Lens.lens (responseStatus :: AssociateDRTLogBucketResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateDRTLogBucketResponse)
-{-# DEPRECATED adrtlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+adrtlbrrsResponseStatus :: Lens.Lens' AssociateDRTLogBucketResponse Core.Int
+adrtlbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED adrtlbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

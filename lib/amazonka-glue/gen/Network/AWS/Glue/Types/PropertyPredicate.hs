@@ -17,71 +17,69 @@ module Network.AWS.Glue.Types.PropertyPredicate
     mkPropertyPredicate,
 
     -- * Lenses
-    ppValue,
-    ppKey,
     ppComparator,
+    ppKey,
+    ppValue,
   )
 where
 
-import Network.AWS.Glue.Types.Comparator
+import qualified Network.AWS.Glue.Types.Comparator as Types
+import qualified Network.AWS.Glue.Types.Key as Types
+import qualified Network.AWS.Glue.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Defines a property predicate.
 --
 -- /See:/ 'mkPropertyPredicate' smart constructor.
 data PropertyPredicate = PropertyPredicate'
-  { -- | The value of the property.
-    value :: Lude.Maybe Lude.Text,
+  { -- | The comparator used to compare this property to others.
+    comparator :: Core.Maybe Types.Comparator,
     -- | The key of the property.
-    key :: Lude.Maybe Lude.Text,
-    -- | The comparator used to compare this property to others.
-    comparator :: Lude.Maybe Comparator
+    key :: Core.Maybe Types.Key,
+    -- | The value of the property.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PropertyPredicate' with the minimum fields required to make a request.
---
--- * 'value' - The value of the property.
--- * 'key' - The key of the property.
--- * 'comparator' - The comparator used to compare this property to others.
+-- | Creates a 'PropertyPredicate' value with any optional fields omitted.
 mkPropertyPredicate ::
   PropertyPredicate
 mkPropertyPredicate =
   PropertyPredicate'
-    { value = Lude.Nothing,
-      key = Lude.Nothing,
-      comparator = Lude.Nothing
+    { comparator = Core.Nothing,
+      key = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The value of the property.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppValue :: Lens.Lens' PropertyPredicate (Lude.Maybe Lude.Text)
-ppValue = Lens.lens (value :: PropertyPredicate -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: PropertyPredicate)
-{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | The key of the property.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppKey :: Lens.Lens' PropertyPredicate (Lude.Maybe Lude.Text)
-ppKey = Lens.lens (key :: PropertyPredicate -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: PropertyPredicate)
-{-# DEPRECATED ppKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The comparator used to compare this property to others.
 --
 -- /Note:/ Consider using 'comparator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppComparator :: Lens.Lens' PropertyPredicate (Lude.Maybe Comparator)
-ppComparator = Lens.lens (comparator :: PropertyPredicate -> Lude.Maybe Comparator) (\s a -> s {comparator = a} :: PropertyPredicate)
+ppComparator :: Lens.Lens' PropertyPredicate (Core.Maybe Types.Comparator)
+ppComparator = Lens.field @"comparator"
 {-# DEPRECATED ppComparator "Use generic-lens or generic-optics with 'comparator' instead." #-}
 
-instance Lude.ToJSON PropertyPredicate where
-  toJSON PropertyPredicate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Value" Lude..=) Lude.<$> value,
-            ("Key" Lude..=) Lude.<$> key,
-            ("Comparator" Lude..=) Lude.<$> comparator
+-- | The key of the property.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppKey :: Lens.Lens' PropertyPredicate (Core.Maybe Types.Key)
+ppKey = Lens.field @"key"
+{-# DEPRECATED ppKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The value of the property.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppValue :: Lens.Lens' PropertyPredicate (Core.Maybe Types.Value)
+ppValue = Lens.field @"value"
+{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON PropertyPredicate where
+  toJSON PropertyPredicate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Comparator" Core..=) Core.<$> comparator,
+            ("Key" Core..=) Core.<$> key,
+            ("Value" Core..=) Core.<$> value
           ]
       )

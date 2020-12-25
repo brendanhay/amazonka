@@ -27,127 +27,120 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     mkGetAccessKeyLastUsedResponse,
 
     -- ** Response lenses
-    gaklursUserName,
-    gaklursAccessKeyLastUsed,
-    gaklursResponseStatus,
+    gaklurrsAccessKeyLastUsed,
+    gaklurrsUserName,
+    gaklurrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAccessKeyLastUsed' smart constructor.
 newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
   { -- | The identifier of an access key.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-    accessKeyId :: AccessKey
+    accessKeyId :: Types.AccessKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccessKeyLastUsed' with the minimum fields required to make a request.
---
--- * 'accessKeyId' - The identifier of an access key.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- | Creates a 'GetAccessKeyLastUsed' value with any optional fields omitted.
 mkGetAccessKeyLastUsed ::
   -- | 'accessKeyId'
-  AccessKey ->
+  Types.AccessKey ->
   GetAccessKeyLastUsed
-mkGetAccessKeyLastUsed pAccessKeyId_ =
-  GetAccessKeyLastUsed' {accessKeyId = pAccessKeyId_}
+mkGetAccessKeyLastUsed accessKeyId =
+  GetAccessKeyLastUsed' {accessKeyId}
 
 -- | The identifier of an access key.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
 -- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gakluAccessKeyId :: Lens.Lens' GetAccessKeyLastUsed AccessKey
-gakluAccessKeyId = Lens.lens (accessKeyId :: GetAccessKeyLastUsed -> AccessKey) (\s a -> s {accessKeyId = a} :: GetAccessKeyLastUsed)
+gakluAccessKeyId :: Lens.Lens' GetAccessKeyLastUsed Types.AccessKey
+gakluAccessKeyId = Lens.field @"accessKeyId"
 {-# DEPRECATED gakluAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
-instance Lude.AWSRequest GetAccessKeyLastUsed where
+instance Core.AWSRequest GetAccessKeyLastUsed where
   type Rs GetAccessKeyLastUsed = GetAccessKeyLastUsedResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetAccessKeyLastUsed")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "AccessKeyId" accessKeyId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetAccessKeyLastUsedResult"
       ( \s h x ->
           GetAccessKeyLastUsedResponse'
-            Lude.<$> (x Lude..@? "UserName")
-            Lude.<*> (x Lude..@? "AccessKeyLastUsed")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "AccessKeyLastUsed")
+            Core.<*> (x Core..@? "UserName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAccessKeyLastUsed where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetAccessKeyLastUsed where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAccessKeyLastUsed where
-  toQuery GetAccessKeyLastUsed' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetAccessKeyLastUsed" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "AccessKeyId" Lude.=: accessKeyId
-      ]
 
 -- | Contains the response to a successful 'GetAccessKeyLastUsed' request. It is also returned as a member of the 'AccessKeyMetaData' structure returned by the 'ListAccessKeys' action.
 --
 -- /See:/ 'mkGetAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-  { -- | The name of the AWS IAM user that owns this access key.
-    userName :: Lude.Maybe Lude.Text,
-    -- | Contains information about the last time the access key was used.
-    accessKeyLastUsed :: Lude.Maybe AccessKeyLastUsed,
+  { -- | Contains information about the last time the access key was used.
+    accessKeyLastUsed :: Core.Maybe Types.AccessKeyLastUsed,
+    -- | The name of the AWS IAM user that owns this access key.
+    userName :: Core.Maybe Types.ExistingUserNameType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetAccessKeyLastUsedResponse' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the AWS IAM user that owns this access key.
---
---
--- * 'accessKeyLastUsed' - Contains information about the last time the access key was used.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAccessKeyLastUsedResponse' value with any optional fields omitted.
 mkGetAccessKeyLastUsedResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAccessKeyLastUsedResponse
-mkGetAccessKeyLastUsedResponse pResponseStatus_ =
+mkGetAccessKeyLastUsedResponse responseStatus =
   GetAccessKeyLastUsedResponse'
-    { userName = Lude.Nothing,
-      accessKeyLastUsed = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { accessKeyLastUsed = Core.Nothing,
+      userName = Core.Nothing,
+      responseStatus
     }
+
+-- | Contains information about the last time the access key was used.
+--
+-- /Note:/ Consider using 'accessKeyLastUsed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaklurrsAccessKeyLastUsed :: Lens.Lens' GetAccessKeyLastUsedResponse (Core.Maybe Types.AccessKeyLastUsed)
+gaklurrsAccessKeyLastUsed = Lens.field @"accessKeyLastUsed"
+{-# DEPRECATED gaklurrsAccessKeyLastUsed "Use generic-lens or generic-optics with 'accessKeyLastUsed' instead." #-}
 
 -- | The name of the AWS IAM user that owns this access key.
 --
 --
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaklursUserName :: Lens.Lens' GetAccessKeyLastUsedResponse (Lude.Maybe Lude.Text)
-gaklursUserName = Lens.lens (userName :: GetAccessKeyLastUsedResponse -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: GetAccessKeyLastUsedResponse)
-{-# DEPRECATED gaklursUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
--- | Contains information about the last time the access key was used.
---
--- /Note:/ Consider using 'accessKeyLastUsed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaklursAccessKeyLastUsed :: Lens.Lens' GetAccessKeyLastUsedResponse (Lude.Maybe AccessKeyLastUsed)
-gaklursAccessKeyLastUsed = Lens.lens (accessKeyLastUsed :: GetAccessKeyLastUsedResponse -> Lude.Maybe AccessKeyLastUsed) (\s a -> s {accessKeyLastUsed = a} :: GetAccessKeyLastUsedResponse)
-{-# DEPRECATED gaklursAccessKeyLastUsed "Use generic-lens or generic-optics with 'accessKeyLastUsed' instead." #-}
+gaklurrsUserName :: Lens.Lens' GetAccessKeyLastUsedResponse (Core.Maybe Types.ExistingUserNameType)
+gaklurrsUserName = Lens.field @"userName"
+{-# DEPRECATED gaklurrsUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaklursResponseStatus :: Lens.Lens' GetAccessKeyLastUsedResponse Lude.Int
-gaklursResponseStatus = Lens.lens (responseStatus :: GetAccessKeyLastUsedResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccessKeyLastUsedResponse)
-{-# DEPRECATED gaklursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gaklurrsResponseStatus :: Lens.Lens' GetAccessKeyLastUsedResponse Core.Int
+gaklurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gaklurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

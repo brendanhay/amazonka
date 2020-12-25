@@ -13,56 +13,61 @@
 module Network.AWS.CodeDeploy.Types.RevisionLocationType
   ( RevisionLocationType
       ( RevisionLocationType',
-        S3,
-        GitHub,
-        String,
-        AppSpecContent
+        RevisionLocationTypeS3,
+        RevisionLocationTypeGitHub,
+        RevisionLocationTypeString,
+        RevisionLocationTypeAppSpecContent,
+        fromRevisionLocationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RevisionLocationType = RevisionLocationType' Lude.Text
+newtype RevisionLocationType = RevisionLocationType'
+  { fromRevisionLocationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern S3 :: RevisionLocationType
-pattern S3 = RevisionLocationType' "S3"
+pattern RevisionLocationTypeS3 :: RevisionLocationType
+pattern RevisionLocationTypeS3 = RevisionLocationType' "S3"
 
-pattern GitHub :: RevisionLocationType
-pattern GitHub = RevisionLocationType' "GitHub"
+pattern RevisionLocationTypeGitHub :: RevisionLocationType
+pattern RevisionLocationTypeGitHub = RevisionLocationType' "GitHub"
 
-pattern String :: RevisionLocationType
-pattern String = RevisionLocationType' "String"
+pattern RevisionLocationTypeString :: RevisionLocationType
+pattern RevisionLocationTypeString = RevisionLocationType' "String"
 
-pattern AppSpecContent :: RevisionLocationType
-pattern AppSpecContent = RevisionLocationType' "AppSpecContent"
+pattern RevisionLocationTypeAppSpecContent :: RevisionLocationType
+pattern RevisionLocationTypeAppSpecContent = RevisionLocationType' "AppSpecContent"
 
 {-# COMPLETE
-  S3,
-  GitHub,
-  String,
-  AppSpecContent,
+  RevisionLocationTypeS3,
+  RevisionLocationTypeGitHub,
+  RevisionLocationTypeString,
+  RevisionLocationTypeAppSpecContent,
   RevisionLocationType'
   #-}

@@ -21,40 +21,37 @@ module Network.AWS.CloudFront.Types.Restrictions
   )
 where
 
-import Network.AWS.CloudFront.Types.GeoRestriction
+import qualified Network.AWS.CloudFront.Types.GeoRestriction as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that identifies ways in which you want to restrict distribution of your content.
 --
 -- /See:/ 'mkRestrictions' smart constructor.
 newtype Restrictions = Restrictions'
   { -- | A complex type that controls the countries in which your content is distributed. CloudFront determines the location of your users using @MaxMind@ GeoIP databases.
-    geoRestriction :: GeoRestriction
+    geoRestriction :: Types.GeoRestriction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Restrictions' with the minimum fields required to make a request.
---
--- * 'geoRestriction' - A complex type that controls the countries in which your content is distributed. CloudFront determines the location of your users using @MaxMind@ GeoIP databases.
+-- | Creates a 'Restrictions' value with any optional fields omitted.
 mkRestrictions ::
   -- | 'geoRestriction'
-  GeoRestriction ->
+  Types.GeoRestriction ->
   Restrictions
-mkRestrictions pGeoRestriction_ =
-  Restrictions' {geoRestriction = pGeoRestriction_}
+mkRestrictions geoRestriction = Restrictions' {geoRestriction}
 
 -- | A complex type that controls the countries in which your content is distributed. CloudFront determines the location of your users using @MaxMind@ GeoIP databases.
 --
 -- /Note:/ Consider using 'geoRestriction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rGeoRestriction :: Lens.Lens' Restrictions GeoRestriction
-rGeoRestriction = Lens.lens (geoRestriction :: Restrictions -> GeoRestriction) (\s a -> s {geoRestriction = a} :: Restrictions)
+rGeoRestriction :: Lens.Lens' Restrictions Types.GeoRestriction
+rGeoRestriction = Lens.field @"geoRestriction"
 {-# DEPRECATED rGeoRestriction "Use generic-lens or generic-optics with 'geoRestriction' instead." #-}
 
-instance Lude.FromXML Restrictions where
-  parseXML x = Restrictions' Lude.<$> (x Lude..@ "GeoRestriction")
+instance Core.ToXML Restrictions where
+  toXML Restrictions {..} =
+    Core.toXMLNode "GeoRestriction" geoRestriction
 
-instance Lude.ToXML Restrictions where
-  toXML Restrictions' {..} =
-    Lude.mconcat ["GeoRestriction" Lude.@= geoRestriction]
+instance Core.FromXML Restrictions where
+  parseXML x = Restrictions' Core.<$> (x Core..@ "GeoRestriction")

@@ -17,85 +17,77 @@ module Network.AWS.IoT.Types.SqsAction
     mkSqsAction,
 
     -- * Lenses
+    saRoleArn,
+    saQueueUrl,
     saUseBase64,
-    saQueueURL,
-    saRoleARN,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.QueueUrl as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action to publish data to an Amazon SQS queue.
 --
 -- /See:/ 'mkSqsAction' smart constructor.
 data SqsAction = SqsAction'
-  { -- | Specifies whether to use Base64 encoding.
-    useBase64 :: Lude.Maybe Lude.Bool,
+  { -- | The ARN of the IAM role that grants access.
+    roleArn :: Types.AwsArn,
     -- | The URL of the Amazon SQS queue.
-    queueURL :: Lude.Text,
-    -- | The ARN of the IAM role that grants access.
-    roleARN :: Lude.Text
+    queueUrl :: Types.QueueUrl,
+    -- | Specifies whether to use Base64 encoding.
+    useBase64 :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SqsAction' with the minimum fields required to make a request.
---
--- * 'useBase64' - Specifies whether to use Base64 encoding.
--- * 'queueURL' - The URL of the Amazon SQS queue.
--- * 'roleARN' - The ARN of the IAM role that grants access.
+-- | Creates a 'SqsAction' value with any optional fields omitted.
 mkSqsAction ::
-  -- | 'queueURL'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  -- | 'roleArn'
+  Types.AwsArn ->
+  -- | 'queueUrl'
+  Types.QueueUrl ->
   SqsAction
-mkSqsAction pQueueURL_ pRoleARN_ =
-  SqsAction'
-    { useBase64 = Lude.Nothing,
-      queueURL = pQueueURL_,
-      roleARN = pRoleARN_
-    }
+mkSqsAction roleArn queueUrl =
+  SqsAction' {roleArn, queueUrl, useBase64 = Core.Nothing}
+
+-- | The ARN of the IAM role that grants access.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saRoleArn :: Lens.Lens' SqsAction Types.AwsArn
+saRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED saRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | The URL of the Amazon SQS queue.
+--
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saQueueUrl :: Lens.Lens' SqsAction Types.QueueUrl
+saQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED saQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
 -- | Specifies whether to use Base64 encoding.
 --
 -- /Note:/ Consider using 'useBase64' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saUseBase64 :: Lens.Lens' SqsAction (Lude.Maybe Lude.Bool)
-saUseBase64 = Lens.lens (useBase64 :: SqsAction -> Lude.Maybe Lude.Bool) (\s a -> s {useBase64 = a} :: SqsAction)
+saUseBase64 :: Lens.Lens' SqsAction (Core.Maybe Core.Bool)
+saUseBase64 = Lens.field @"useBase64"
 {-# DEPRECATED saUseBase64 "Use generic-lens or generic-optics with 'useBase64' instead." #-}
 
--- | The URL of the Amazon SQS queue.
---
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saQueueURL :: Lens.Lens' SqsAction Lude.Text
-saQueueURL = Lens.lens (queueURL :: SqsAction -> Lude.Text) (\s a -> s {queueURL = a} :: SqsAction)
-{-# DEPRECATED saQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
-
--- | The ARN of the IAM role that grants access.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saRoleARN :: Lens.Lens' SqsAction Lude.Text
-saRoleARN = Lens.lens (roleARN :: SqsAction -> Lude.Text) (\s a -> s {roleARN = a} :: SqsAction)
-{-# DEPRECATED saRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.FromJSON SqsAction where
-  parseJSON =
-    Lude.withObject
-      "SqsAction"
-      ( \x ->
-          SqsAction'
-            Lude.<$> (x Lude..:? "useBase64")
-            Lude.<*> (x Lude..: "queueUrl")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON SqsAction where
-  toJSON SqsAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("useBase64" Lude..=) Lude.<$> useBase64,
-            Lude.Just ("queueUrl" Lude..= queueURL),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON SqsAction where
+  toJSON SqsAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("queueUrl" Core..= queueUrl),
+            ("useBase64" Core..=) Core.<$> useBase64
           ]
       )
+
+instance Core.FromJSON SqsAction where
+  parseJSON =
+    Core.withObject "SqsAction" Core.$
+      \x ->
+        SqsAction'
+          Core.<$> (x Core..: "roleArn")
+          Core.<*> (x Core..: "queueUrl")
+          Core.<*> (x Core..:? "useBase64")

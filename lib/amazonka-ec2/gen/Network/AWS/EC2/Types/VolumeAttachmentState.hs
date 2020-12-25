@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.VolumeAttachmentState
   ( VolumeAttachmentState
       ( VolumeAttachmentState',
-        VAttaching,
-        VAttached,
-        VDetaching,
-        VDetached,
-        VBusy
+        VolumeAttachmentStateVAttaching,
+        VolumeAttachmentStateVAttached,
+        VolumeAttachmentStateVDetaching,
+        VolumeAttachmentStateVDetached,
+        VolumeAttachmentStateVBusy,
+        fromVolumeAttachmentState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VolumeAttachmentState = VolumeAttachmentState' Lude.Text
+newtype VolumeAttachmentState = VolumeAttachmentState'
+  { fromVolumeAttachmentState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VAttaching :: VolumeAttachmentState
-pattern VAttaching = VolumeAttachmentState' "attaching"
+pattern VolumeAttachmentStateVAttaching :: VolumeAttachmentState
+pattern VolumeAttachmentStateVAttaching = VolumeAttachmentState' "attaching"
 
-pattern VAttached :: VolumeAttachmentState
-pattern VAttached = VolumeAttachmentState' "attached"
+pattern VolumeAttachmentStateVAttached :: VolumeAttachmentState
+pattern VolumeAttachmentStateVAttached = VolumeAttachmentState' "attached"
 
-pattern VDetaching :: VolumeAttachmentState
-pattern VDetaching = VolumeAttachmentState' "detaching"
+pattern VolumeAttachmentStateVDetaching :: VolumeAttachmentState
+pattern VolumeAttachmentStateVDetaching = VolumeAttachmentState' "detaching"
 
-pattern VDetached :: VolumeAttachmentState
-pattern VDetached = VolumeAttachmentState' "detached"
+pattern VolumeAttachmentStateVDetached :: VolumeAttachmentState
+pattern VolumeAttachmentStateVDetached = VolumeAttachmentState' "detached"
 
-pattern VBusy :: VolumeAttachmentState
-pattern VBusy = VolumeAttachmentState' "busy"
+pattern VolumeAttachmentStateVBusy :: VolumeAttachmentState
+pattern VolumeAttachmentStateVBusy = VolumeAttachmentState' "busy"
 
 {-# COMPLETE
-  VAttaching,
-  VAttached,
-  VDetaching,
-  VDetached,
-  VBusy,
+  VolumeAttachmentStateVAttaching,
+  VolumeAttachmentStateVAttached,
+  VolumeAttachmentStateVDetaching,
+  VolumeAttachmentStateVDetached,
+  VolumeAttachmentStateVBusy,
   VolumeAttachmentState'
   #-}

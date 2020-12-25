@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -72,10 +71,49 @@
 --     * @UpdateUserProfile@ , which updates the profile for a user.
 module Network.AWS.CodeStar
   ( -- * Service configuration
-    codeStarService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** TeamMemberAlreadyAssociatedException
+    _TeamMemberAlreadyAssociatedException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InvalidServiceRoleException
+    _InvalidServiceRoleException,
+
+    -- ** ProjectCreationFailedException
+    _ProjectCreationFailedException,
+
+    -- ** UserProfileAlreadyExistsException
+    _UserProfileAlreadyExistsException,
+
+    -- ** ProjectNotFoundException
+    _ProjectNotFoundException,
+
+    -- ** TeamMemberNotFoundException
+    _TeamMemberNotFoundException,
+
+    -- ** ProjectAlreadyExistsException
+    _ProjectAlreadyExistsException,
+
+    -- ** ProjectConfigurationException
+    _ProjectConfigurationException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** UserProfileNotFoundException
+    _UserProfileNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -139,38 +177,70 @@ module Network.AWS.CodeStar
 
     -- * Types
 
-    -- ** Code
-    Code (..),
-    mkCode,
-    cDestination,
-    cSource,
+    -- ** GitHubCodeDestination
+    GitHubCodeDestination (..),
+    mkGitHubCodeDestination,
+    ghcdName,
+    ghcdType,
+    ghcdOwner,
+    ghcdPrivateRepository,
+    ghcdIssuesEnabled,
+    ghcdToken,
+    ghcdDescription,
+
+    -- ** Email
+    Email (..),
+
+    -- ** PaginationToken
+    PaginationToken (..),
+
+    -- ** State
+    State (..),
+
+    -- ** UserProfileDisplayName
+    UserProfileDisplayName (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** TeamMember
+    TeamMember (..),
+    mkTeamMember,
+    tmUserArn,
+    tmProjectRole,
+    tmRemoteAccessAllowed,
 
     -- ** CodeCommitCodeDestination
     CodeCommitCodeDestination (..),
     mkCodeCommitCodeDestination,
     cccdName,
 
-    -- ** CodeDestination
-    CodeDestination (..),
-    mkCodeDestination,
-    cdCodeCommit,
-    cdGitHub,
+    -- ** ToolchainSource
+    ToolchainSource (..),
+    mkToolchainSource,
+    tsS3,
 
     -- ** CodeSource
     CodeSource (..),
     mkCodeSource,
     csS3,
 
-    -- ** GitHubCodeDestination
-    GitHubCodeDestination (..),
-    mkGitHubCodeDestination,
-    ghcdPrivateRepository,
-    ghcdToken,
-    ghcdOwner,
-    ghcdName,
-    ghcdIssuesEnabled,
-    ghcdType,
-    ghcdDescription,
+    -- ** ProjectTemplateId
+    ProjectTemplateId (..),
+
+    -- ** UserProfileSummary
+    UserProfileSummary (..),
+    mkUserProfileSummary,
+    upsDisplayName,
+    upsEmailAddress,
+    upsSshPublicKey,
+    upsUserArn,
+
+    -- ** SshPublicKey
+    SshPublicKey (..),
+
+    -- ** BucketKey
+    BucketKey (..),
 
     -- ** ProjectStatus
     ProjectStatus (..),
@@ -178,16 +248,53 @@ module Network.AWS.CodeStar
     psState,
     psReason,
 
-    -- ** ProjectSummary
-    ProjectSummary (..),
-    mkProjectSummary,
-    psProjectARN,
-    psProjectId,
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** CodeDestination
+    CodeDestination (..),
+    mkCodeDestination,
+    cdCodeCommit,
+    cdGitHub,
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** Reason
+    Reason (..),
+
+    -- ** UserArn
+    UserArn (..),
+
+    -- ** Role
+    Role (..),
+
+    -- ** TemplateParameterValue
+    TemplateParameterValue (..),
 
     -- ** Resource
     Resource (..),
     mkResource,
     rId,
+
+    -- ** ProjectName
+    ProjectName (..),
+
+    -- ** Toolchain
+    Toolchain (..),
+    mkToolchain,
+    tSource,
+    tRoleArn,
+    tStackParameters,
+
+    -- ** Code
+    Code (..),
+    mkCode,
+    cSource,
+    cDestination,
+
+    -- ** TagKey
+    TagKey (..),
 
     -- ** S3Location
     S3Location (..),
@@ -195,42 +302,64 @@ module Network.AWS.CodeStar
     slBucketKey,
     slBucketName,
 
-    -- ** TeamMember
-    TeamMember (..),
-    mkTeamMember,
-    tmUserARN,
-    tmRemoteAccessAllowed,
-    tmProjectRole,
+    -- ** ProjectId
+    ProjectId (..),
 
-    -- ** Toolchain
-    Toolchain (..),
-    mkToolchain,
-    tStackParameters,
-    tSource,
-    tRoleARN,
+    -- ** ProjectArn
+    ProjectArn (..),
 
-    -- ** ToolchainSource
-    ToolchainSource (..),
-    mkToolchainSource,
-    tsS3,
+    -- ** StackId
+    StackId (..),
 
-    -- ** UserProfileSummary
-    UserProfileSummary (..),
-    mkUserProfileSummary,
-    upsSshPublicKey,
-    upsUserARN,
-    upsEmailAddress,
-    upsDisplayName,
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** TemplateParameterKey
+    TemplateParameterKey (..),
+
+    -- ** ProjectSummary
+    ProjectSummary (..),
+    mkProjectSummary,
+    psProjectArn,
+    psProjectId,
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** Owner
+    Owner (..),
+
+    -- ** Token
+    Token (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** DisplayName
+    DisplayName (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** ProjectRole
+    ProjectRole (..),
+
+    -- ** Arn
+    Arn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

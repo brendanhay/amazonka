@@ -20,137 +20,120 @@ module Network.AWS.DirectoryService.DescribeCertificate
     mkDescribeCertificate,
 
     -- ** Request lenses
-    dcgDirectoryId,
-    dcgCertificateId,
+    dchDirectoryId,
+    dchCertificateId,
 
     -- * Destructuring the response
     DescribeCertificateResponse (..),
     mkDescribeCertificateResponse,
 
     -- ** Response lenses
-    dcgrsCertificate,
-    dcgrsResponseStatus,
+    dcrfrsCertificate,
+    dcrfrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeCertificate' smart constructor.
 data DescribeCertificate = DescribeCertificate'
   { -- | The identifier of the directory.
-    directoryId :: Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The identifier of the certificate.
-    certificateId :: Lude.Text
+    certificateId :: Types.CertificateId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeCertificate' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory.
--- * 'certificateId' - The identifier of the certificate.
+-- | Creates a 'DescribeCertificate' value with any optional fields omitted.
 mkDescribeCertificate ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'certificateId'
-  Lude.Text ->
+  Types.CertificateId ->
   DescribeCertificate
-mkDescribeCertificate pDirectoryId_ pCertificateId_ =
-  DescribeCertificate'
-    { directoryId = pDirectoryId_,
-      certificateId = pCertificateId_
-    }
+mkDescribeCertificate directoryId certificateId =
+  DescribeCertificate' {directoryId, certificateId}
 
 -- | The identifier of the directory.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgDirectoryId :: Lens.Lens' DescribeCertificate Lude.Text
-dcgDirectoryId = Lens.lens (directoryId :: DescribeCertificate -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeCertificate)
-{-# DEPRECATED dcgDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+dchDirectoryId :: Lens.Lens' DescribeCertificate Types.DirectoryId
+dchDirectoryId = Lens.field @"directoryId"
+{-# DEPRECATED dchDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifier of the certificate.
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgCertificateId :: Lens.Lens' DescribeCertificate Lude.Text
-dcgCertificateId = Lens.lens (certificateId :: DescribeCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DescribeCertificate)
-{-# DEPRECATED dcgCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+dchCertificateId :: Lens.Lens' DescribeCertificate Types.CertificateId
+dchCertificateId = Lens.field @"certificateId"
+{-# DEPRECATED dchCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
-instance Lude.AWSRequest DescribeCertificate where
+instance Core.FromJSON DescribeCertificate where
+  toJSON DescribeCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("CertificateId" Core..= certificateId)
+          ]
+      )
+
+instance Core.AWSRequest DescribeCertificate where
   type Rs DescribeCertificate = DescribeCertificateResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.DescribeCertificate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeCertificateResponse'
-            Lude.<$> (x Lude..?> "Certificate") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Certificate") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeCertificate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.DescribeCertificate" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeCertificate where
-  toJSON DescribeCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("CertificateId" Lude..= certificateId)
-          ]
-      )
-
-instance Lude.ToPath DescribeCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeCertificate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
   { -- | Information about the certificate, including registered date time, certificate state, the reason for the state, expiration date time, and certificate common name.
-    certificate :: Lude.Maybe Certificate,
+    certificate :: Core.Maybe Types.Certificate,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeCertificateResponse' with the minimum fields required to make a request.
---
--- * 'certificate' - Information about the certificate, including registered date time, certificate state, the reason for the state, expiration date time, and certificate common name.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeCertificateResponse' value with any optional fields omitted.
 mkDescribeCertificateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeCertificateResponse
-mkDescribeCertificateResponse pResponseStatus_ =
+mkDescribeCertificateResponse responseStatus =
   DescribeCertificateResponse'
-    { certificate = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { certificate = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the certificate, including registered date time, certificate state, the reason for the state, expiration date time, and certificate common name.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgrsCertificate :: Lens.Lens' DescribeCertificateResponse (Lude.Maybe Certificate)
-dcgrsCertificate = Lens.lens (certificate :: DescribeCertificateResponse -> Lude.Maybe Certificate) (\s a -> s {certificate = a} :: DescribeCertificateResponse)
-{-# DEPRECATED dcgrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
+dcrfrsCertificate :: Lens.Lens' DescribeCertificateResponse (Core.Maybe Types.Certificate)
+dcrfrsCertificate = Lens.field @"certificate"
+{-# DEPRECATED dcrfrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgrsResponseStatus :: Lens.Lens' DescribeCertificateResponse Lude.Int
-dcgrsResponseStatus = Lens.lens (responseStatus :: DescribeCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCertificateResponse)
-{-# DEPRECATED dcgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrfrsResponseStatus :: Lens.Lens' DescribeCertificateResponse Core.Int
+dcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

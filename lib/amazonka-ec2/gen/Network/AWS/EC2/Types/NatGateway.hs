@@ -17,52 +17,38 @@ module Network.AWS.EC2.Types.NatGateway
     mkNatGateway,
 
     -- * Lenses
-    ngState,
-    ngFailureCode,
-    ngVPCId,
-    ngFailureMessage,
-    ngNatGatewayId,
-    ngSubnetId,
-    ngDeleteTime,
-    ngProvisionedBandwidth,
-    ngNatGatewayAddresses,
     ngCreateTime,
+    ngDeleteTime,
+    ngFailureCode,
+    ngFailureMessage,
+    ngNatGatewayAddresses,
+    ngNatGatewayId,
+    ngProvisionedBandwidth,
+    ngState,
+    ngSubnetId,
     ngTags,
+    ngVpcId,
   )
 where
 
-import Network.AWS.EC2.Types.NatGatewayAddress
-import Network.AWS.EC2.Types.NatGatewayState
-import Network.AWS.EC2.Types.ProvisionedBandwidth
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.NatGatewayAddress as Types
+import qualified Network.AWS.EC2.Types.NatGatewayState as Types
+import qualified Network.AWS.EC2.Types.ProvisionedBandwidth as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a NAT gateway.
 --
 -- /See:/ 'mkNatGateway' smart constructor.
 data NatGateway = NatGateway'
-  { -- | The state of the NAT gateway.
-    --
-    --
-    --     * @pending@ : The NAT gateway is being created and is not ready to process traffic.
-    --
-    --
-    --     * @failed@ : The NAT gateway could not be created. Check the @failureCode@ and @failureMessage@ fields for the reason.
-    --
-    --
-    --     * @available@ : The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
-    --
-    --
-    --     * @deleting@ : The NAT gateway is in the process of being terminated and may still be processing traffic.
-    --
-    --
-    --     * @deleted@ : The NAT gateway has been terminated and is no longer processing traffic.
-    state :: Lude.Maybe NatGatewayState,
+  { -- | The date and time the NAT gateway was created.
+    createTime :: Core.Maybe Core.UTCTime,
+    -- | The date and time the NAT gateway was deleted, if applicable.
+    deleteTime :: Core.Maybe Core.UTCTime,
     -- | If the NAT gateway could not be created, specifies the error code for the failure. (@InsufficientFreeAddressesInSubnet@ | @Gateway.NotAttached@ | @InvalidAllocationID.NotFound@ | @Resource.AlreadyAssociated@ | @InternalError@ | @InvalidSubnetID.NotFound@ )
-    failureCode :: Lude.Maybe Lude.Text,
-    -- | The ID of the VPC in which the NAT gateway is located.
-    vpcId :: Lude.Maybe Lude.Text,
+    failureCode :: Core.Maybe Types.String,
     -- | If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
     --
     --
@@ -82,129 +68,78 @@ data NatGateway = NatGateway'
     --
     --
     --     * For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."
-    failureMessage :: Lude.Maybe Lude.Text,
-    -- | The ID of the NAT gateway.
-    natGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of the subnet in which the NAT gateway is located.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The date and time the NAT gateway was deleted, if applicable.
-    deleteTime :: Lude.Maybe Lude.DateTime,
-    -- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
-    provisionedBandwidth :: Lude.Maybe ProvisionedBandwidth,
+    failureMessage :: Core.Maybe Types.String,
     -- | Information about the IP addresses and network interface associated with the NAT gateway.
-    natGatewayAddresses :: Lude.Maybe [NatGatewayAddress],
-    -- | The date and time the NAT gateway was created.
-    createTime :: Lude.Maybe Lude.DateTime,
+    natGatewayAddresses :: Core.Maybe [Types.NatGatewayAddress],
+    -- | The ID of the NAT gateway.
+    natGatewayId :: Core.Maybe Types.String,
+    -- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+    provisionedBandwidth :: Core.Maybe Types.ProvisionedBandwidth,
+    -- | The state of the NAT gateway.
+    --
+    --
+    --     * @pending@ : The NAT gateway is being created and is not ready to process traffic.
+    --
+    --
+    --     * @failed@ : The NAT gateway could not be created. Check the @failureCode@ and @failureMessage@ fields for the reason.
+    --
+    --
+    --     * @available@ : The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
+    --
+    --
+    --     * @deleting@ : The NAT gateway is in the process of being terminated and may still be processing traffic.
+    --
+    --
+    --     * @deleted@ : The NAT gateway has been terminated and is no longer processing traffic.
+    state :: Core.Maybe Types.NatGatewayState,
+    -- | The ID of the subnet in which the NAT gateway is located.
+    subnetId :: Core.Maybe Types.String,
     -- | The tags for the NAT gateway.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The ID of the VPC in which the NAT gateway is located.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'NatGateway' with the minimum fields required to make a request.
---
--- * 'state' - The state of the NAT gateway.
---
---
---     * @pending@ : The NAT gateway is being created and is not ready to process traffic.
---
---
---     * @failed@ : The NAT gateway could not be created. Check the @failureCode@ and @failureMessage@ fields for the reason.
---
---
---     * @available@ : The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
---
---
---     * @deleting@ : The NAT gateway is in the process of being terminated and may still be processing traffic.
---
---
---     * @deleted@ : The NAT gateway has been terminated and is no longer processing traffic.
---
---
--- * 'failureCode' - If the NAT gateway could not be created, specifies the error code for the failure. (@InsufficientFreeAddressesInSubnet@ | @Gateway.NotAttached@ | @InvalidAllocationID.NotFound@ | @Resource.AlreadyAssociated@ | @InternalError@ | @InvalidSubnetID.NotFound@ )
--- * 'vpcId' - The ID of the VPC in which the NAT gateway is located.
--- * 'failureMessage' - If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
---
---
---     * For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway"
---
---
---     * For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached"
---
---
---     * For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway"
---
---
---     * For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated"
---
---
---     * For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again."
---
---
---     * For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."
---
---
--- * 'natGatewayId' - The ID of the NAT gateway.
--- * 'subnetId' - The ID of the subnet in which the NAT gateway is located.
--- * 'deleteTime' - The date and time the NAT gateway was deleted, if applicable.
--- * 'provisionedBandwidth' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
--- * 'natGatewayAddresses' - Information about the IP addresses and network interface associated with the NAT gateway.
--- * 'createTime' - The date and time the NAT gateway was created.
--- * 'tags' - The tags for the NAT gateway.
+-- | Creates a 'NatGateway' value with any optional fields omitted.
 mkNatGateway ::
   NatGateway
 mkNatGateway =
   NatGateway'
-    { state = Lude.Nothing,
-      failureCode = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      failureMessage = Lude.Nothing,
-      natGatewayId = Lude.Nothing,
-      subnetId = Lude.Nothing,
-      deleteTime = Lude.Nothing,
-      provisionedBandwidth = Lude.Nothing,
-      natGatewayAddresses = Lude.Nothing,
-      createTime = Lude.Nothing,
-      tags = Lude.Nothing
+    { createTime = Core.Nothing,
+      deleteTime = Core.Nothing,
+      failureCode = Core.Nothing,
+      failureMessage = Core.Nothing,
+      natGatewayAddresses = Core.Nothing,
+      natGatewayId = Core.Nothing,
+      provisionedBandwidth = Core.Nothing,
+      state = Core.Nothing,
+      subnetId = Core.Nothing,
+      tags = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
--- | The state of the NAT gateway.
+-- | The date and time the NAT gateway was created.
 --
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngCreateTime :: Lens.Lens' NatGateway (Core.Maybe Core.UTCTime)
+ngCreateTime = Lens.field @"createTime"
+{-# DEPRECATED ngCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
+
+-- | The date and time the NAT gateway was deleted, if applicable.
 --
---     * @pending@ : The NAT gateway is being created and is not ready to process traffic.
---
---
---     * @failed@ : The NAT gateway could not be created. Check the @failureCode@ and @failureMessage@ fields for the reason.
---
---
---     * @available@ : The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
---
---
---     * @deleting@ : The NAT gateway is in the process of being terminated and may still be processing traffic.
---
---
---     * @deleted@ : The NAT gateway has been terminated and is no longer processing traffic.
---
---
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngState :: Lens.Lens' NatGateway (Lude.Maybe NatGatewayState)
-ngState = Lens.lens (state :: NatGateway -> Lude.Maybe NatGatewayState) (\s a -> s {state = a} :: NatGateway)
-{-# DEPRECATED ngState "Use generic-lens or generic-optics with 'state' instead." #-}
+-- /Note:/ Consider using 'deleteTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngDeleteTime :: Lens.Lens' NatGateway (Core.Maybe Core.UTCTime)
+ngDeleteTime = Lens.field @"deleteTime"
+{-# DEPRECATED ngDeleteTime "Use generic-lens or generic-optics with 'deleteTime' instead." #-}
 
 -- | If the NAT gateway could not be created, specifies the error code for the failure. (@InsufficientFreeAddressesInSubnet@ | @Gateway.NotAttached@ | @InvalidAllocationID.NotFound@ | @Resource.AlreadyAssociated@ | @InternalError@ | @InvalidSubnetID.NotFound@ )
 --
 -- /Note:/ Consider using 'failureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngFailureCode :: Lens.Lens' NatGateway (Lude.Maybe Lude.Text)
-ngFailureCode = Lens.lens (failureCode :: NatGateway -> Lude.Maybe Lude.Text) (\s a -> s {failureCode = a} :: NatGateway)
+ngFailureCode :: Lens.Lens' NatGateway (Core.Maybe Types.String)
+ngFailureCode = Lens.field @"failureCode"
 {-# DEPRECATED ngFailureCode "Use generic-lens or generic-optics with 'failureCode' instead." #-}
-
--- | The ID of the VPC in which the NAT gateway is located.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngVPCId :: Lens.Lens' NatGateway (Lude.Maybe Lude.Text)
-ngVPCId = Lens.lens (vpcId :: NatGateway -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: NatGateway)
-{-# DEPRECATED ngVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
 --
@@ -229,74 +164,89 @@ ngVPCId = Lens.lens (vpcId :: NatGateway -> Lude.Maybe Lude.Text) (\s a -> s {vp
 --
 --
 -- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngFailureMessage :: Lens.Lens' NatGateway (Lude.Maybe Lude.Text)
-ngFailureMessage = Lens.lens (failureMessage :: NatGateway -> Lude.Maybe Lude.Text) (\s a -> s {failureMessage = a} :: NatGateway)
+ngFailureMessage :: Lens.Lens' NatGateway (Core.Maybe Types.String)
+ngFailureMessage = Lens.field @"failureMessage"
 {-# DEPRECATED ngFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
-
--- | The ID of the NAT gateway.
---
--- /Note:/ Consider using 'natGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngNatGatewayId :: Lens.Lens' NatGateway (Lude.Maybe Lude.Text)
-ngNatGatewayId = Lens.lens (natGatewayId :: NatGateway -> Lude.Maybe Lude.Text) (\s a -> s {natGatewayId = a} :: NatGateway)
-{-# DEPRECATED ngNatGatewayId "Use generic-lens or generic-optics with 'natGatewayId' instead." #-}
-
--- | The ID of the subnet in which the NAT gateway is located.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngSubnetId :: Lens.Lens' NatGateway (Lude.Maybe Lude.Text)
-ngSubnetId = Lens.lens (subnetId :: NatGateway -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: NatGateway)
-{-# DEPRECATED ngSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The date and time the NAT gateway was deleted, if applicable.
---
--- /Note:/ Consider using 'deleteTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngDeleteTime :: Lens.Lens' NatGateway (Lude.Maybe Lude.DateTime)
-ngDeleteTime = Lens.lens (deleteTime :: NatGateway -> Lude.Maybe Lude.DateTime) (\s a -> s {deleteTime = a} :: NatGateway)
-{-# DEPRECATED ngDeleteTime "Use generic-lens or generic-optics with 'deleteTime' instead." #-}
-
--- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
---
--- /Note:/ Consider using 'provisionedBandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngProvisionedBandwidth :: Lens.Lens' NatGateway (Lude.Maybe ProvisionedBandwidth)
-ngProvisionedBandwidth = Lens.lens (provisionedBandwidth :: NatGateway -> Lude.Maybe ProvisionedBandwidth) (\s a -> s {provisionedBandwidth = a} :: NatGateway)
-{-# DEPRECATED ngProvisionedBandwidth "Use generic-lens or generic-optics with 'provisionedBandwidth' instead." #-}
 
 -- | Information about the IP addresses and network interface associated with the NAT gateway.
 --
 -- /Note:/ Consider using 'natGatewayAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngNatGatewayAddresses :: Lens.Lens' NatGateway (Lude.Maybe [NatGatewayAddress])
-ngNatGatewayAddresses = Lens.lens (natGatewayAddresses :: NatGateway -> Lude.Maybe [NatGatewayAddress]) (\s a -> s {natGatewayAddresses = a} :: NatGateway)
+ngNatGatewayAddresses :: Lens.Lens' NatGateway (Core.Maybe [Types.NatGatewayAddress])
+ngNatGatewayAddresses = Lens.field @"natGatewayAddresses"
 {-# DEPRECATED ngNatGatewayAddresses "Use generic-lens or generic-optics with 'natGatewayAddresses' instead." #-}
 
--- | The date and time the NAT gateway was created.
+-- | The ID of the NAT gateway.
 --
--- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngCreateTime :: Lens.Lens' NatGateway (Lude.Maybe Lude.DateTime)
-ngCreateTime = Lens.lens (createTime :: NatGateway -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: NatGateway)
-{-# DEPRECATED ngCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
+-- /Note:/ Consider using 'natGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngNatGatewayId :: Lens.Lens' NatGateway (Core.Maybe Types.String)
+ngNatGatewayId = Lens.field @"natGatewayId"
+{-# DEPRECATED ngNatGatewayId "Use generic-lens or generic-optics with 'natGatewayId' instead." #-}
+
+-- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+--
+-- /Note:/ Consider using 'provisionedBandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngProvisionedBandwidth :: Lens.Lens' NatGateway (Core.Maybe Types.ProvisionedBandwidth)
+ngProvisionedBandwidth = Lens.field @"provisionedBandwidth"
+{-# DEPRECATED ngProvisionedBandwidth "Use generic-lens or generic-optics with 'provisionedBandwidth' instead." #-}
+
+-- | The state of the NAT gateway.
+--
+--
+--     * @pending@ : The NAT gateway is being created and is not ready to process traffic.
+--
+--
+--     * @failed@ : The NAT gateway could not be created. Check the @failureCode@ and @failureMessage@ fields for the reason.
+--
+--
+--     * @available@ : The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
+--
+--
+--     * @deleting@ : The NAT gateway is in the process of being terminated and may still be processing traffic.
+--
+--
+--     * @deleted@ : The NAT gateway has been terminated and is no longer processing traffic.
+--
+--
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngState :: Lens.Lens' NatGateway (Core.Maybe Types.NatGatewayState)
+ngState = Lens.field @"state"
+{-# DEPRECATED ngState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The ID of the subnet in which the NAT gateway is located.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngSubnetId :: Lens.Lens' NatGateway (Core.Maybe Types.String)
+ngSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED ngSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The tags for the NAT gateway.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngTags :: Lens.Lens' NatGateway (Lude.Maybe [Tag])
-ngTags = Lens.lens (tags :: NatGateway -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: NatGateway)
+ngTags :: Lens.Lens' NatGateway (Core.Maybe [Types.Tag])
+ngTags = Lens.field @"tags"
 {-# DEPRECATED ngTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML NatGateway where
+-- | The ID of the VPC in which the NAT gateway is located.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngVpcId :: Lens.Lens' NatGateway (Core.Maybe Types.String)
+ngVpcId = Lens.field @"vpcId"
+{-# DEPRECATED ngVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromXML NatGateway where
   parseXML x =
     NatGateway'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "failureCode")
-      Lude.<*> (x Lude..@? "vpcId")
-      Lude.<*> (x Lude..@? "failureMessage")
-      Lude.<*> (x Lude..@? "natGatewayId")
-      Lude.<*> (x Lude..@? "subnetId")
-      Lude.<*> (x Lude..@? "deleteTime")
-      Lude.<*> (x Lude..@? "provisionedBandwidth")
-      Lude.<*> ( x Lude..@? "natGatewayAddressSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@? "createTime")
+      Core.<*> (x Core..@? "deleteTime")
+      Core.<*> (x Core..@? "failureCode")
+      Core.<*> (x Core..@? "failureMessage")
+      Core.<*> ( x Core..@? "natGatewayAddressSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "createTime")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<*> (x Core..@? "natGatewayId")
+      Core.<*> (x Core..@? "provisionedBandwidth")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "subnetId")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "vpcId")

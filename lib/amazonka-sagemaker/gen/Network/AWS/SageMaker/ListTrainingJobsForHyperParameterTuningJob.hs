@@ -23,226 +23,206 @@ module Network.AWS.SageMaker.ListTrainingJobsForHyperParameterTuningJob
 
     -- ** Request lenses
     ltjfhptjHyperParameterTuningJobName,
+    ltjfhptjMaxResults,
     ltjfhptjNextToken,
+    ltjfhptjSortBy,
     ltjfhptjSortOrder,
     ltjfhptjStatusEquals,
-    ltjfhptjMaxResults,
-    ltjfhptjSortBy,
 
     -- * Destructuring the response
     ListTrainingJobsForHyperParameterTuningJobResponse (..),
     mkListTrainingJobsForHyperParameterTuningJobResponse,
 
     -- ** Response lenses
-    ltjfhptjrsTrainingJobSummaries,
-    ltjfhptjrsNextToken,
-    ltjfhptjrsResponseStatus,
+    ltjfhptjrrsTrainingJobSummaries,
+    ltjfhptjrrsNextToken,
+    ltjfhptjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListTrainingJobsForHyperParameterTuningJob' smart constructor.
 data ListTrainingJobsForHyperParameterTuningJob = ListTrainingJobsForHyperParameterTuningJob'
   { -- | The name of the tuning job whose training jobs you want to list.
-    hyperParameterTuningJobName :: Lude.Text,
-    -- | If the result of the previous @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for results. The default is @Ascending@ .
-    sortOrder :: Lude.Maybe SortOrder,
-    -- | A filter that returns only training jobs with the specified status.
-    statusEquals :: Lude.Maybe TrainingJobStatus,
+    hyperParameterTuningJobName :: Types.HyperParameterTuningJobName,
     -- | The maximum number of training jobs to return. The default value is 10.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the result of the previous @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The field to sort results by. The default is @Name@ .
     --
     -- If the value of this field is @FinalObjectiveMetricValue@ , any training jobs that did not return an objective metric are not listed.
-    sortBy :: Lude.Maybe TrainingJobSortByOptions
+    sortBy :: Core.Maybe Types.TrainingJobSortByOptions,
+    -- | The sort order for results. The default is @Ascending@ .
+    sortOrder :: Core.Maybe Types.SortOrder,
+    -- | A filter that returns only training jobs with the specified status.
+    statusEquals :: Core.Maybe Types.TrainingJobStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTrainingJobsForHyperParameterTuningJob' with the minimum fields required to make a request.
---
--- * 'hyperParameterTuningJobName' - The name of the tuning job whose training jobs you want to list.
--- * 'nextToken' - If the result of the previous @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
--- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
--- * 'statusEquals' - A filter that returns only training jobs with the specified status.
--- * 'maxResults' - The maximum number of training jobs to return. The default value is 10.
--- * 'sortBy' - The field to sort results by. The default is @Name@ .
---
--- If the value of this field is @FinalObjectiveMetricValue@ , any training jobs that did not return an objective metric are not listed.
+-- | Creates a 'ListTrainingJobsForHyperParameterTuningJob' value with any optional fields omitted.
 mkListTrainingJobsForHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
-  Lude.Text ->
+  Types.HyperParameterTuningJobName ->
   ListTrainingJobsForHyperParameterTuningJob
 mkListTrainingJobsForHyperParameterTuningJob
-  pHyperParameterTuningJobName_ =
+  hyperParameterTuningJobName =
     ListTrainingJobsForHyperParameterTuningJob'
-      { hyperParameterTuningJobName =
-          pHyperParameterTuningJobName_,
-        nextToken = Lude.Nothing,
-        sortOrder = Lude.Nothing,
-        statusEquals = Lude.Nothing,
-        maxResults = Lude.Nothing,
-        sortBy = Lude.Nothing
+      { hyperParameterTuningJobName,
+        maxResults = Core.Nothing,
+        nextToken = Core.Nothing,
+        sortBy = Core.Nothing,
+        sortOrder = Core.Nothing,
+        statusEquals = Core.Nothing
       }
 
 -- | The name of the tuning job whose training jobs you want to list.
 --
 -- /Note:/ Consider using 'hyperParameterTuningJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjHyperParameterTuningJobName :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob Lude.Text
-ltjfhptjHyperParameterTuningJobName = Lens.lens (hyperParameterTuningJobName :: ListTrainingJobsForHyperParameterTuningJob -> Lude.Text) (\s a -> s {hyperParameterTuningJobName = a} :: ListTrainingJobsForHyperParameterTuningJob)
+ltjfhptjHyperParameterTuningJobName :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob Types.HyperParameterTuningJobName
+ltjfhptjHyperParameterTuningJobName = Lens.field @"hyperParameterTuningJobName"
 {-# DEPRECATED ltjfhptjHyperParameterTuningJobName "Use generic-lens or generic-optics with 'hyperParameterTuningJobName' instead." #-}
-
--- | If the result of the previous @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjNextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Lude.Maybe Lude.Text)
-ltjfhptjNextToken = Lens.lens (nextToken :: ListTrainingJobsForHyperParameterTuningJob -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrainingJobsForHyperParameterTuningJob)
-{-# DEPRECATED ltjfhptjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for results. The default is @Ascending@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjSortOrder :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Lude.Maybe SortOrder)
-ltjfhptjSortOrder = Lens.lens (sortOrder :: ListTrainingJobsForHyperParameterTuningJob -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListTrainingJobsForHyperParameterTuningJob)
-{-# DEPRECATED ltjfhptjSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | A filter that returns only training jobs with the specified status.
---
--- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjStatusEquals :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Lude.Maybe TrainingJobStatus)
-ltjfhptjStatusEquals = Lens.lens (statusEquals :: ListTrainingJobsForHyperParameterTuningJob -> Lude.Maybe TrainingJobStatus) (\s a -> s {statusEquals = a} :: ListTrainingJobsForHyperParameterTuningJob)
-{-# DEPRECATED ltjfhptjStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
 
 -- | The maximum number of training jobs to return. The default value is 10.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjMaxResults :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Lude.Maybe Lude.Natural)
-ltjfhptjMaxResults = Lens.lens (maxResults :: ListTrainingJobsForHyperParameterTuningJob -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTrainingJobsForHyperParameterTuningJob)
+ltjfhptjMaxResults :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe Core.Natural)
+ltjfhptjMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ltjfhptjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | If the result of the previous @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjfhptjNextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe Types.NextToken)
+ltjfhptjNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltjfhptjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The field to sort results by. The default is @Name@ .
 --
 -- If the value of this field is @FinalObjectiveMetricValue@ , any training jobs that did not return an objective metric are not listed.
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjSortBy :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Lude.Maybe TrainingJobSortByOptions)
-ltjfhptjSortBy = Lens.lens (sortBy :: ListTrainingJobsForHyperParameterTuningJob -> Lude.Maybe TrainingJobSortByOptions) (\s a -> s {sortBy = a} :: ListTrainingJobsForHyperParameterTuningJob)
+ltjfhptjSortBy :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe Types.TrainingJobSortByOptions)
+ltjfhptjSortBy = Lens.field @"sortBy"
 {-# DEPRECATED ltjfhptjSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListTrainingJobsForHyperParameterTuningJob where
-  page rq rs
-    | Page.stop (rs Lens.^. ltjfhptjrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltjfhptjrsTrainingJobSummaries) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltjfhptjNextToken Lens..~ rs Lens.^. ltjfhptjrsNextToken
+-- | The sort order for results. The default is @Ascending@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjfhptjSortOrder :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe Types.SortOrder)
+ltjfhptjSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED ltjfhptjSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListTrainingJobsForHyperParameterTuningJob where
+-- | A filter that returns only training jobs with the specified status.
+--
+-- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjfhptjStatusEquals :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Core.Maybe Types.TrainingJobStatus)
+ltjfhptjStatusEquals = Lens.field @"statusEquals"
+{-# DEPRECATED ltjfhptjStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+
+instance Core.FromJSON ListTrainingJobsForHyperParameterTuningJob where
+  toJSON ListTrainingJobsForHyperParameterTuningJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ( "HyperParameterTuningJobName"
+                  Core..= hyperParameterTuningJobName
+              ),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("StatusEquals" Core..=) Core.<$> statusEquals
+          ]
+      )
+
+instance Core.AWSRequest ListTrainingJobsForHyperParameterTuningJob where
   type
     Rs ListTrainingJobsForHyperParameterTuningJob =
       ListTrainingJobsForHyperParameterTuningJobResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "SageMaker.ListTrainingJobsForHyperParameterTuningJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTrainingJobsForHyperParameterTuningJobResponse'
-            Lude.<$> (x Lude..?> "TrainingJobSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TrainingJobSummaries" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListTrainingJobsForHyperParameterTuningJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SageMaker.ListTrainingJobsForHyperParameterTuningJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTrainingJobsForHyperParameterTuningJob where
-  toJSON ListTrainingJobsForHyperParameterTuningJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ( "HyperParameterTuningJobName"
-                  Lude..= hyperParameterTuningJobName
-              ),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("StatusEquals" Lude..=) Lude.<$> statusEquals,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListTrainingJobsForHyperParameterTuningJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTrainingJobsForHyperParameterTuningJob where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListTrainingJobsForHyperParameterTuningJob where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"trainingJobSummaries") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListTrainingJobsForHyperParameterTuningJobResponse' smart constructor.
 data ListTrainingJobsForHyperParameterTuningJobResponse = ListTrainingJobsForHyperParameterTuningJobResponse'
   { -- | A list of 'TrainingJobSummary' objects that describe the training jobs that the @ListTrainingJobsForHyperParameterTuningJob@ request returned.
-    trainingJobSummaries :: [HyperParameterTrainingJobSummary],
+    trainingJobSummaries :: [Types.HyperParameterTrainingJobSummary],
     -- | If the result of this @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListTrainingJobsForHyperParameterTuningJobResponse' with the minimum fields required to make a request.
---
--- * 'trainingJobSummaries' - A list of 'TrainingJobSummary' objects that describe the training jobs that the @ListTrainingJobsForHyperParameterTuningJob@ request returned.
--- * 'nextToken' - If the result of this @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTrainingJobsForHyperParameterTuningJobResponse' value with any optional fields omitted.
 mkListTrainingJobsForHyperParameterTuningJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTrainingJobsForHyperParameterTuningJobResponse
-mkListTrainingJobsForHyperParameterTuningJobResponse
-  pResponseStatus_ =
-    ListTrainingJobsForHyperParameterTuningJobResponse'
-      { trainingJobSummaries =
-          Lude.mempty,
-        nextToken = Lude.Nothing,
-        responseStatus = pResponseStatus_
-      }
+mkListTrainingJobsForHyperParameterTuningJobResponse responseStatus =
+  ListTrainingJobsForHyperParameterTuningJobResponse'
+    { trainingJobSummaries =
+        Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | A list of 'TrainingJobSummary' objects that describe the training jobs that the @ListTrainingJobsForHyperParameterTuningJob@ request returned.
 --
 -- /Note:/ Consider using 'trainingJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjrsTrainingJobSummaries :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse [HyperParameterTrainingJobSummary]
-ltjfhptjrsTrainingJobSummaries = Lens.lens (trainingJobSummaries :: ListTrainingJobsForHyperParameterTuningJobResponse -> [HyperParameterTrainingJobSummary]) (\s a -> s {trainingJobSummaries = a} :: ListTrainingJobsForHyperParameterTuningJobResponse)
-{-# DEPRECATED ltjfhptjrsTrainingJobSummaries "Use generic-lens or generic-optics with 'trainingJobSummaries' instead." #-}
+ltjfhptjrrsTrainingJobSummaries :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse [Types.HyperParameterTrainingJobSummary]
+ltjfhptjrrsTrainingJobSummaries = Lens.field @"trainingJobSummaries"
+{-# DEPRECATED ltjfhptjrrsTrainingJobSummaries "Use generic-lens or generic-optics with 'trainingJobSummaries' instead." #-}
 
 -- | If the result of this @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjrsNextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse (Lude.Maybe Lude.Text)
-ltjfhptjrsNextToken = Lens.lens (nextToken :: ListTrainingJobsForHyperParameterTuningJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrainingJobsForHyperParameterTuningJobResponse)
-{-# DEPRECATED ltjfhptjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltjfhptjrrsNextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse (Core.Maybe Types.NextToken)
+ltjfhptjrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltjfhptjrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjfhptjrsResponseStatus :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse Lude.Int
-ltjfhptjrsResponseStatus = Lens.lens (responseStatus :: ListTrainingJobsForHyperParameterTuningJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTrainingJobsForHyperParameterTuningJobResponse)
-{-# DEPRECATED ltjfhptjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltjfhptjrrsResponseStatus :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJobResponse Core.Int
+ltjfhptjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltjfhptjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

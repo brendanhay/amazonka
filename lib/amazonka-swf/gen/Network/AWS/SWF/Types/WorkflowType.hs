@@ -23,61 +23,57 @@ module Network.AWS.SWF.Types.WorkflowType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Name as Types
+import qualified Network.AWS.SWF.Types.Version as Types
 
 -- | Represents a workflow type.
 --
 -- /See:/ 'mkWorkflowType' smart constructor.
 data WorkflowType = WorkflowType'
   { -- | The name of the workflow type.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The version of the workflow type.
-    version :: Lude.Text
+    version :: Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkflowType' with the minimum fields required to make a request.
---
--- * 'name' - The name of the workflow type.
--- * 'version' - The version of the workflow type.
+-- | Creates a 'WorkflowType' value with any optional fields omitted.
 mkWorkflowType ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   -- | 'version'
-  Lude.Text ->
+  Types.Version ->
   WorkflowType
-mkWorkflowType pName_ pVersion_ =
-  WorkflowType' {name = pName_, version = pVersion_}
+mkWorkflowType name version = WorkflowType' {name, version}
 
 -- | The name of the workflow type.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wtName :: Lens.Lens' WorkflowType Lude.Text
-wtName = Lens.lens (name :: WorkflowType -> Lude.Text) (\s a -> s {name = a} :: WorkflowType)
+wtName :: Lens.Lens' WorkflowType Types.Name
+wtName = Lens.field @"name"
 {-# DEPRECATED wtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the workflow type.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wtVersion :: Lens.Lens' WorkflowType Lude.Text
-wtVersion = Lens.lens (version :: WorkflowType -> Lude.Text) (\s a -> s {version = a} :: WorkflowType)
+wtVersion :: Lens.Lens' WorkflowType Types.Version
+wtVersion = Lens.field @"version"
 {-# DEPRECATED wtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON WorkflowType where
-  parseJSON =
-    Lude.withObject
-      "WorkflowType"
-      ( \x ->
-          WorkflowType'
-            Lude.<$> (x Lude..: "name") Lude.<*> (x Lude..: "version")
-      )
-
-instance Lude.ToJSON WorkflowType where
-  toJSON WorkflowType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            Lude.Just ("version" Lude..= version)
+instance Core.FromJSON WorkflowType where
+  toJSON WorkflowType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("version" Core..= version)
           ]
       )
+
+instance Core.FromJSON WorkflowType where
+  parseJSON =
+    Core.withObject "WorkflowType" Core.$
+      \x ->
+        WorkflowType'
+          Core.<$> (x Core..: "name") Core.<*> (x Core..: "version")

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,88 @@
 -- DAX is a managed caching service engineered for Amazon DynamoDB. DAX dramatically speeds up database reads by caching frequently-accessed data from DynamoDB, so applications can access that data with sub-millisecond latency. You can create a DAX cluster easily, using the AWS Management Console. With a few simple modifications to your code, your application can begin taking advantage of the DAX cluster and realize significant improvements in read performance.
 module Network.AWS.DAX
   ( -- * Service configuration
-    daxService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** SubnetQuotaExceededFault
+    _SubnetQuotaExceededFault,
+
+    -- ** ParameterGroupNotFoundFault
+    _ParameterGroupNotFoundFault,
+
+    -- ** InvalidParameterGroupStateFault
+    _InvalidParameterGroupStateFault,
+
+    -- ** SubnetGroupInUseFault
+    _SubnetGroupInUseFault,
+
+    -- ** ParameterGroupAlreadyExistsFault
+    _ParameterGroupAlreadyExistsFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
+
+    -- ** ClusterNotFoundFault
+    _ClusterNotFoundFault,
+
+    -- ** TagNotFoundFault
+    _TagNotFoundFault,
+
+    -- ** NodeQuotaForClusterExceededFault
+    _NodeQuotaForClusterExceededFault,
+
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
+
+    -- ** ServiceLinkedRoleNotFoundFault
+    _ServiceLinkedRoleNotFoundFault,
+
+    -- ** InsufficientClusterCapacityFault
+    _InsufficientClusterCapacityFault,
+
+    -- ** NodeNotFoundFault
+    _NodeNotFoundFault,
+
+    -- ** ParameterGroupQuotaExceededFault
+    _ParameterGroupQuotaExceededFault,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** SubnetInUse
+    _SubnetInUse,
+
+    -- ** ClusterQuotaForCustomerExceededFault
+    _ClusterQuotaForCustomerExceededFault,
+
+    -- ** SubnetGroupNotFoundFault
+    _SubnetGroupNotFoundFault,
+
+    -- ** SubnetGroupAlreadyExistsFault
+    _SubnetGroupAlreadyExistsFault,
+
+    -- ** NodeQuotaForCustomerExceededFault
+    _NodeQuotaForCustomerExceededFault,
+
+    -- ** SubnetGroupQuotaExceededFault
+    _SubnetGroupQuotaExceededFault,
+
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
+
+    -- ** InvalidARNFault
+    _InvalidARNFault,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
 
     -- * Waiters
     -- $waiters
@@ -90,97 +167,40 @@ module Network.AWS.DAX
 
     -- * Types
 
-    -- ** ChangeType
-    ChangeType (..),
+    -- ** Event
+    Event (..),
+    mkEvent,
+    eDate,
+    eMessage,
+    eSourceName,
+    eSourceType,
 
-    -- ** IsModifiable
-    IsModifiable (..),
-
-    -- ** ParameterType
-    ParameterType (..),
-
-    -- ** SSEStatus
-    SSEStatus (..),
-
-    -- ** SourceType
-    SourceType (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** Cluster
     Cluster (..),
     mkCluster,
-    cStatus,
-    cIAMRoleARN,
-    cClusterARN,
     cActiveNodes,
-    cSecurityGroups,
-    cNotificationConfiguration,
-    cNodeIdsToRemove,
-    cTotalNodes,
-    cPreferredMaintenanceWindow,
-    cSubnetGroup,
+    cClusterArn,
+    cClusterDiscoveryEndpoint,
     cClusterName,
+    cDescription,
+    cIamRoleArn,
+    cNodeIdsToRemove,
     cNodeType,
     cNodes,
-    cClusterDiscoveryEndpoint,
-    cSSEDescription,
-    cDescription,
+    cNotificationConfiguration,
     cParameterGroup,
-
-    -- ** Endpoint
-    Endpoint (..),
-    mkEndpoint,
-    eAddress,
-    ePort,
-
-    -- ** Event
-    Event (..),
-    mkEvent,
-    eSourceName,
-    eSourceType,
-    eDate,
-    eMessage,
-
-    -- ** Node
-    Node (..),
-    mkNode,
-    nNodeStatus,
-    nParameterGroupStatus,
-    nAvailabilityZone,
-    nNodeId,
-    nEndpoint,
-    nNodeCreateTime,
-
-    -- ** NodeTypeSpecificValue
-    NodeTypeSpecificValue (..),
-    mkNodeTypeSpecificValue,
-    ntsvValue,
-    ntsvNodeType,
-
-    -- ** NotificationConfiguration
-    NotificationConfiguration (..),
-    mkNotificationConfiguration,
-    ncTopicStatus,
-    ncTopicARN,
-
-    -- ** Parameter
-    Parameter (..),
-    mkParameter,
-    pParameterValue,
-    pParameterType,
-    pSource,
-    pIsModifiable,
-    pDataType,
-    pNodeTypeSpecificValues,
-    pAllowedValues,
-    pParameterName,
-    pDescription,
-    pChangeType,
-
-    -- ** ParameterGroup
-    ParameterGroup (..),
-    mkParameterGroup,
-    pgDescription,
-    pgParameterGroupName,
+    cPreferredMaintenanceWindow,
+    cSSEDescription,
+    cSecurityGroups,
+    cStatus,
+    cSubnetGroup,
+    cTotalNodes,
 
     -- ** ParameterGroupStatus
     ParameterGroupStatus (..),
@@ -189,57 +209,178 @@ module Network.AWS.DAX
     pgsParameterApplyStatus,
     pgsParameterGroupName,
 
+    -- ** NotificationConfiguration
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
+    ncTopicArn,
+    ncTopicStatus,
+
     -- ** ParameterNameValue
     ParameterNameValue (..),
     mkParameterNameValue,
-    pnvParameterValue,
     pnvParameterName,
+    pnvParameterValue,
 
-    -- ** SSEDescription
-    SSEDescription (..),
-    mkSSEDescription,
-    ssedStatus,
+    -- ** String
+    String (..),
+
+    -- ** SourceType
+    SourceType (..),
+
+    -- ** Node
+    Node (..),
+    mkNode,
+    nAvailabilityZone,
+    nEndpoint,
+    nNodeCreateTime,
+    nNodeId,
+    nNodeStatus,
+    nParameterGroupStatus,
 
     -- ** SSESpecification
     SSESpecification (..),
     mkSSESpecification,
     ssesEnabled,
 
-    -- ** SecurityGroupMembership
-    SecurityGroupMembership (..),
-    mkSecurityGroupMembership,
-    sgmStatus,
-    sgmSecurityGroupIdentifier,
-
     -- ** Subnet
     Subnet (..),
     mkSubnet,
-    sSubnetIdentifier,
     sSubnetAvailabilityZone,
+    sSubnetIdentifier,
+
+    -- ** SecurityGroupMembership
+    SecurityGroupMembership (..),
+    mkSecurityGroupMembership,
+    sgmSecurityGroupIdentifier,
+    sgmStatus,
+
+    -- ** SSEStatus
+    SSEStatus (..),
+
+    -- ** ParameterType
+    ParameterType (..),
 
     -- ** SubnetGroup
     SubnetGroup (..),
     mkSubnetGroup,
-    sgVPCId,
-    sgSubnets,
-    sgSubnetGroupName,
     sgDescription,
+    sgSubnetGroupName,
+    sgSubnets,
+    sgVpcId,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** IsModifiable
+    IsModifiable (..),
+
+    -- ** NodeTypeSpecificValue
+    NodeTypeSpecificValue (..),
+    mkNodeTypeSpecificValue,
+    ntsvNodeType,
+    ntsvValue,
+
+    -- ** SSEDescription
+    SSEDescription (..),
+    mkSSEDescription,
+    ssedStatus,
+
+    -- ** Endpoint
+    Endpoint (..),
+    mkEndpoint,
+    eAddress,
+    ePort,
+
+    -- ** ParameterGroup
+    ParameterGroup (..),
+    mkParameterGroup,
+    pgDescription,
+    pgParameterGroupName,
+
+    -- ** ChangeType
+    ChangeType (..),
+
+    -- ** Parameter
+    Parameter (..),
+    mkParameter,
+    pAllowedValues,
+    pChangeType,
+    pDataType,
+    pDescription,
+    pIsModifiable,
+    pNodeTypeSpecificValues,
+    pParameterName,
+    pParameterType,
+    pParameterValue,
+    pSource,
+
+    -- ** ClusterName
+    ClusterName (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** SourceName
+    SourceName (..),
+
+    -- ** NodeType
+    NodeType (..),
+
+    -- ** IamRoleArn
+    IamRoleArn (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** NotificationTopicArn
+    NotificationTopicArn (..),
+
+    -- ** ParameterGroupName
+    ParameterGroupName (..),
+
+    -- ** PreferredMaintenanceWindow
+    PreferredMaintenanceWindow (..),
+
+    -- ** SubnetGroupName
+    SubnetGroupName (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** NotificationTopicStatus
+    NotificationTopicStatus (..),
+
+    -- ** ClusterArn
+    ClusterArn (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** ParameterApplyStatus
+    ParameterApplyStatus (..),
+
+    -- ** TopicArn
+    TopicArn (..),
+
+    -- ** TopicStatus
+    TopicStatus (..),
+
+    -- ** ParameterName
+    ParameterName (..),
+
+    -- ** ParameterValue
+    ParameterValue (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

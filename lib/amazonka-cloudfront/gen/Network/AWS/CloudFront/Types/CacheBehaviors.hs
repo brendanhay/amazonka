@@ -22,59 +22,53 @@ module Network.AWS.CloudFront.Types.CacheBehaviors
   )
 where
 
-import Network.AWS.CloudFront.Types.CacheBehavior
+import qualified Network.AWS.CloudFront.Types.CacheBehavior as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains zero or more @CacheBehavior@ elements.
 --
 -- /See:/ 'mkCacheBehaviors' smart constructor.
 data CacheBehaviors = CacheBehaviors'
   { -- | The number of cache behaviors for this distribution.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | Optional: A complex type that contains cache behaviors for this distribution. If @Quantity@ is @0@ , you can omit @Items@ .
-    items :: Lude.Maybe [CacheBehavior]
+    items :: Core.Maybe [Types.CacheBehavior]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CacheBehaviors' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of cache behaviors for this distribution.
--- * 'items' - Optional: A complex type that contains cache behaviors for this distribution. If @Quantity@ is @0@ , you can omit @Items@ .
+-- | Creates a 'CacheBehaviors' value with any optional fields omitted.
 mkCacheBehaviors ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   CacheBehaviors
-mkCacheBehaviors pQuantity_ =
-  CacheBehaviors' {quantity = pQuantity_, items = Lude.Nothing}
+mkCacheBehaviors quantity =
+  CacheBehaviors' {quantity, items = Core.Nothing}
 
 -- | The number of cache behaviors for this distribution.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbQuantity :: Lens.Lens' CacheBehaviors Lude.Int
-cbQuantity = Lens.lens (quantity :: CacheBehaviors -> Lude.Int) (\s a -> s {quantity = a} :: CacheBehaviors)
+cbQuantity :: Lens.Lens' CacheBehaviors Core.Int
+cbQuantity = Lens.field @"quantity"
 {-# DEPRECATED cbQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | Optional: A complex type that contains cache behaviors for this distribution. If @Quantity@ is @0@ , you can omit @Items@ .
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbItems :: Lens.Lens' CacheBehaviors (Lude.Maybe [CacheBehavior])
-cbItems = Lens.lens (items :: CacheBehaviors -> Lude.Maybe [CacheBehavior]) (\s a -> s {items = a} :: CacheBehaviors)
+cbItems :: Lens.Lens' CacheBehaviors (Core.Maybe [Types.CacheBehavior])
+cbItems = Lens.field @"items"
 {-# DEPRECATED cbItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML CacheBehaviors where
+instance Core.ToXML CacheBehaviors where
+  toXML CacheBehaviors {..} =
+    Core.toXMLNode "Quantity" quantity
+      Core.<> Core.toXMLNode
+        "Items"
+        (Core.toXMLList "CacheBehavior" Core.<$> items)
+
+instance Core.FromXML CacheBehaviors where
   parseXML x =
     CacheBehaviors'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "CacheBehavior")
-               )
-
-instance Lude.ToXML CacheBehaviors where
-  toXML CacheBehaviors' {..} =
-    Lude.mconcat
-      [ "Quantity" Lude.@= quantity,
-        "Items"
-          Lude.@= Lude.toXML (Lude.toXMLList "CacheBehavior" Lude.<$> items)
-      ]
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "CacheBehavior")

@@ -47,61 +47,54 @@ module Network.AWS.S3.PutPublicAccessBlock
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutPublicAccessBlock' smart constructor.
 data PutPublicAccessBlock = PutPublicAccessBlock'
   { -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to set.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The @PublicAccessBlock@ configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status The Meaning of "Public"> in the /Amazon Simple Storage Service Developer Guide/ .
-    publicAccessBlockConfiguration :: PublicAccessBlockConfiguration,
+    publicAccessBlockConfiguration :: Types.PublicAccessBlockConfiguration,
     -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
-    contentMD5 :: Lude.Maybe Lude.Text,
+    contentMD5 :: Core.Maybe Types.ContentMD5,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPublicAccessBlock' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to set.
--- * 'publicAccessBlockConfiguration' - The @PublicAccessBlock@ configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status The Meaning of "Public"> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'contentMD5' - The MD5 hash of the @PutPublicAccessBlock@ request body.
---
--- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'PutPublicAccessBlock' value with any optional fields omitted.
 mkPutPublicAccessBlock ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'publicAccessBlockConfiguration'
-  PublicAccessBlockConfiguration ->
+  Types.PublicAccessBlockConfiguration ->
   PutPublicAccessBlock
-mkPutPublicAccessBlock pBucket_ pPublicAccessBlockConfiguration_ =
+mkPutPublicAccessBlock bucket publicAccessBlockConfiguration =
   PutPublicAccessBlock'
-    { bucket = pBucket_,
-      publicAccessBlockConfiguration = pPublicAccessBlockConfiguration_,
-      contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      publicAccessBlockConfiguration,
+      contentMD5 = Core.Nothing,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to set.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppabBucket :: Lens.Lens' PutPublicAccessBlock BucketName
-ppabBucket = Lens.lens (bucket :: PutPublicAccessBlock -> BucketName) (\s a -> s {bucket = a} :: PutPublicAccessBlock)
+ppabBucket :: Lens.Lens' PutPublicAccessBlock Types.BucketName
+ppabBucket = Lens.field @"bucket"
 {-# DEPRECATED ppabBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The @PublicAccessBlock@ configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status The Meaning of "Public"> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'publicAccessBlockConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppabPublicAccessBlockConfiguration :: Lens.Lens' PutPublicAccessBlock PublicAccessBlockConfiguration
-ppabPublicAccessBlockConfiguration = Lens.lens (publicAccessBlockConfiguration :: PutPublicAccessBlock -> PublicAccessBlockConfiguration) (\s a -> s {publicAccessBlockConfiguration = a} :: PutPublicAccessBlock)
+ppabPublicAccessBlockConfiguration :: Lens.Lens' PutPublicAccessBlock Types.PublicAccessBlockConfiguration
+ppabPublicAccessBlockConfiguration = Lens.field @"publicAccessBlockConfiguration"
 {-# DEPRECATED ppabPublicAccessBlockConfiguration "Use generic-lens or generic-optics with 'publicAccessBlockConfiguration' instead." #-}
 
 -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
@@ -109,48 +102,38 @@ ppabPublicAccessBlockConfiguration = Lens.lens (publicAccessBlockConfiguration :
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 --
 -- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppabContentMD5 :: Lens.Lens' PutPublicAccessBlock (Lude.Maybe Lude.Text)
-ppabContentMD5 = Lens.lens (contentMD5 :: PutPublicAccessBlock -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutPublicAccessBlock)
+ppabContentMD5 :: Lens.Lens' PutPublicAccessBlock (Core.Maybe Types.ContentMD5)
+ppabContentMD5 = Lens.field @"contentMD5"
 {-# DEPRECATED ppabContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppabExpectedBucketOwner :: Lens.Lens' PutPublicAccessBlock (Lude.Maybe Lude.Text)
-ppabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutPublicAccessBlock -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutPublicAccessBlock)
+ppabExpectedBucketOwner :: Lens.Lens' PutPublicAccessBlock (Core.Maybe Types.ExpectedBucketOwner)
+ppabExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED ppabExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest PutPublicAccessBlock where
+instance Core.AWSRequest PutPublicAccessBlock where
   type Rs PutPublicAccessBlock = PutPublicAccessBlockResponse
-  request = Req.putXML s3Service
-  response = Res.receiveNull PutPublicAccessBlockResponse'
-
-instance Lude.ToElement PutPublicAccessBlock where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}PublicAccessBlockConfiguration"
-      Lude.. publicAccessBlockConfiguration
-
-instance Lude.ToHeaders PutPublicAccessBlock where
-  toHeaders PutPublicAccessBlock' {..} =
-    Lude.mconcat
-      [ "Content-MD5" Lude.=# contentMD5,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath PutPublicAccessBlock where
-  toPath PutPublicAccessBlock' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutPublicAccessBlock where
-  toQuery = Lude.const (Lude.mconcat ["publicAccessBlock"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("publicAccessBlock", ""),
+        Core._rqHeaders =
+          Core.toHeaders "Content-MD5" contentMD5
+            Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner),
+        Core._rqBody = Core.toXMLBody x
+      }
+  response = Response.receiveNull PutPublicAccessBlockResponse'
 
 -- | /See:/ 'mkPutPublicAccessBlockResponse' smart constructor.
 data PutPublicAccessBlockResponse = PutPublicAccessBlockResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPublicAccessBlockResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutPublicAccessBlockResponse' value with any optional fields omitted.
 mkPutPublicAccessBlockResponse ::
   PutPublicAccessBlockResponse
 mkPutPublicAccessBlockResponse = PutPublicAccessBlockResponse'

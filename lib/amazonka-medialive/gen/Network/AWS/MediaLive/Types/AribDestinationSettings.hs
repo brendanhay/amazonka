@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.AribDestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Arib Destination Settings
 --
 -- /See:/ 'mkAribDestinationSettings' smart constructor.
 data AribDestinationSettings = AribDestinationSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AribDestinationSettings' with the minimum fields required to make a request.
+-- | Creates a 'AribDestinationSettings' value with any optional fields omitted.
 mkAribDestinationSettings ::
   AribDestinationSettings
 mkAribDestinationSettings = AribDestinationSettings'
 
-instance Lude.FromJSON AribDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "AribDestinationSettings"
-      (\x -> Lude.pure AribDestinationSettings')
+instance Core.FromJSON AribDestinationSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON AribDestinationSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON AribDestinationSettings where
+  parseJSON =
+    Core.withObject "AribDestinationSettings" Core.$
+      \x -> Core.pure AribDestinationSettings'

@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.SpotAllocationStrategy
   ( SpotAllocationStrategy
       ( SpotAllocationStrategy',
-        LowestPrice,
-        Diversified,
-        CapacityOptimized
+        SpotAllocationStrategyLowestPrice,
+        SpotAllocationStrategyDiversified,
+        SpotAllocationStrategyCapacityOptimized,
+        fromSpotAllocationStrategy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SpotAllocationStrategy = SpotAllocationStrategy' Lude.Text
+newtype SpotAllocationStrategy = SpotAllocationStrategy'
+  { fromSpotAllocationStrategy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LowestPrice :: SpotAllocationStrategy
-pattern LowestPrice = SpotAllocationStrategy' "lowest-price"
+pattern SpotAllocationStrategyLowestPrice :: SpotAllocationStrategy
+pattern SpotAllocationStrategyLowestPrice = SpotAllocationStrategy' "lowest-price"
 
-pattern Diversified :: SpotAllocationStrategy
-pattern Diversified = SpotAllocationStrategy' "diversified"
+pattern SpotAllocationStrategyDiversified :: SpotAllocationStrategy
+pattern SpotAllocationStrategyDiversified = SpotAllocationStrategy' "diversified"
 
-pattern CapacityOptimized :: SpotAllocationStrategy
-pattern CapacityOptimized = SpotAllocationStrategy' "capacity-optimized"
+pattern SpotAllocationStrategyCapacityOptimized :: SpotAllocationStrategy
+pattern SpotAllocationStrategyCapacityOptimized = SpotAllocationStrategy' "capacity-optimized"
 
 {-# COMPLETE
-  LowestPrice,
-  Diversified,
-  CapacityOptimized,
+  SpotAllocationStrategyLowestPrice,
+  SpotAllocationStrategyDiversified,
+  SpotAllocationStrategyCapacityOptimized,
   SpotAllocationStrategy'
   #-}

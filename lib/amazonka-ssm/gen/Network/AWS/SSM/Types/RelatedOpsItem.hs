@@ -22,42 +22,39 @@ module Network.AWS.SSM.Types.RelatedOpsItem
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.String as Types
 
 -- | An OpsItems that shares something in common with the current OpsItem. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
 --
 -- /See:/ 'mkRelatedOpsItem' smart constructor.
 newtype RelatedOpsItem = RelatedOpsItem'
   { -- | The ID of an OpsItem related to the current OpsItem.
-    opsItemId :: Lude.Text
+    opsItemId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RelatedOpsItem' with the minimum fields required to make a request.
---
--- * 'opsItemId' - The ID of an OpsItem related to the current OpsItem.
+-- | Creates a 'RelatedOpsItem' value with any optional fields omitted.
 mkRelatedOpsItem ::
   -- | 'opsItemId'
-  Lude.Text ->
+  Types.String ->
   RelatedOpsItem
-mkRelatedOpsItem pOpsItemId_ =
-  RelatedOpsItem' {opsItemId = pOpsItemId_}
+mkRelatedOpsItem opsItemId = RelatedOpsItem' {opsItemId}
 
 -- | The ID of an OpsItem related to the current OpsItem.
 --
 -- /Note:/ Consider using 'opsItemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roiOpsItemId :: Lens.Lens' RelatedOpsItem Lude.Text
-roiOpsItemId = Lens.lens (opsItemId :: RelatedOpsItem -> Lude.Text) (\s a -> s {opsItemId = a} :: RelatedOpsItem)
+roiOpsItemId :: Lens.Lens' RelatedOpsItem Types.String
+roiOpsItemId = Lens.field @"opsItemId"
 {-# DEPRECATED roiOpsItemId "Use generic-lens or generic-optics with 'opsItemId' instead." #-}
 
-instance Lude.FromJSON RelatedOpsItem where
-  parseJSON =
-    Lude.withObject
-      "RelatedOpsItem"
-      (\x -> RelatedOpsItem' Lude.<$> (x Lude..: "OpsItemId"))
+instance Core.FromJSON RelatedOpsItem where
+  toJSON RelatedOpsItem {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("OpsItemId" Core..= opsItemId)])
 
-instance Lude.ToJSON RelatedOpsItem where
-  toJSON RelatedOpsItem' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("OpsItemId" Lude..= opsItemId)])
+instance Core.FromJSON RelatedOpsItem where
+  parseJSON =
+    Core.withObject "RelatedOpsItem" Core.$
+      \x -> RelatedOpsItem' Core.<$> (x Core..: "OpsItemId")

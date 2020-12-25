@@ -20,141 +20,122 @@ module Network.AWS.CognitoIdentityProvider.DescribeResourceServer
     mkDescribeResourceServer,
 
     -- ** Request lenses
-    dUserPoolId,
-    dIdentifier,
+    drsfUserPoolId,
+    drsfIdentifier,
 
     -- * Destructuring the response
     DescribeResourceServerResponse (..),
     mkDescribeResourceServerResponse,
 
     -- ** Response lenses
-    drsrsResourceServer,
-    drsrsResponseStatus,
+    drsrrsResourceServer,
+    drsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeResourceServer' smart constructor.
 data DescribeResourceServer = DescribeResourceServer'
   { -- | The user pool ID for the user pool that hosts the resource server.
-    userPoolId :: Lude.Text,
+    userPoolId :: Types.UserPoolId,
     -- | The identifier for the resource server
-    identifier :: Lude.Text
+    identifier :: Types.Identifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeResourceServer' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool that hosts the resource server.
--- * 'identifier' - The identifier for the resource server
+-- | Creates a 'DescribeResourceServer' value with any optional fields omitted.
 mkDescribeResourceServer ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'identifier'
-  Lude.Text ->
+  Types.Identifier ->
   DescribeResourceServer
-mkDescribeResourceServer pUserPoolId_ pIdentifier_ =
-  DescribeResourceServer'
-    { userPoolId = pUserPoolId_,
-      identifier = pIdentifier_
-    }
+mkDescribeResourceServer userPoolId identifier =
+  DescribeResourceServer' {userPoolId, identifier}
 
 -- | The user pool ID for the user pool that hosts the resource server.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dUserPoolId :: Lens.Lens' DescribeResourceServer Lude.Text
-dUserPoolId = Lens.lens (userPoolId :: DescribeResourceServer -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeResourceServer)
-{-# DEPRECATED dUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+drsfUserPoolId :: Lens.Lens' DescribeResourceServer Types.UserPoolId
+drsfUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED drsfUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identifier for the resource server
 --
 -- /Note:/ Consider using 'identifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dIdentifier :: Lens.Lens' DescribeResourceServer Lude.Text
-dIdentifier = Lens.lens (identifier :: DescribeResourceServer -> Lude.Text) (\s a -> s {identifier = a} :: DescribeResourceServer)
-{-# DEPRECATED dIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
+drsfIdentifier :: Lens.Lens' DescribeResourceServer Types.Identifier
+drsfIdentifier = Lens.field @"identifier"
+{-# DEPRECATED drsfIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
 
-instance Lude.AWSRequest DescribeResourceServer where
+instance Core.FromJSON DescribeResourceServer where
+  toJSON DescribeResourceServer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Identifier" Core..= identifier)
+          ]
+      )
+
+instance Core.AWSRequest DescribeResourceServer where
   type Rs DescribeResourceServer = DescribeResourceServerResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.DescribeResourceServer"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeResourceServerResponse'
-            Lude.<$> (x Lude..:> "ResourceServer")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "ResourceServer")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeResourceServer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.DescribeResourceServer" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeResourceServer where
-  toJSON DescribeResourceServer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Identifier" Lude..= identifier)
-          ]
-      )
-
-instance Lude.ToPath DescribeResourceServer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeResourceServer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeResourceServerResponse' smart constructor.
 data DescribeResourceServerResponse = DescribeResourceServerResponse'
   { -- | The resource server.
-    resourceServer :: ResourceServerType,
+    resourceServer :: Types.ResourceServerType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeResourceServerResponse' with the minimum fields required to make a request.
---
--- * 'resourceServer' - The resource server.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeResourceServerResponse' value with any optional fields omitted.
 mkDescribeResourceServerResponse ::
   -- | 'resourceServer'
-  ResourceServerType ->
+  Types.ResourceServerType ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeResourceServerResponse
-mkDescribeResourceServerResponse pResourceServer_ pResponseStatus_ =
-  DescribeResourceServerResponse'
-    { resourceServer =
-        pResourceServer_,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeResourceServerResponse resourceServer responseStatus =
+  DescribeResourceServerResponse' {resourceServer, responseStatus}
 
 -- | The resource server.
 --
 -- /Note:/ Consider using 'resourceServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsrsResourceServer :: Lens.Lens' DescribeResourceServerResponse ResourceServerType
-drsrsResourceServer = Lens.lens (resourceServer :: DescribeResourceServerResponse -> ResourceServerType) (\s a -> s {resourceServer = a} :: DescribeResourceServerResponse)
-{-# DEPRECATED drsrsResourceServer "Use generic-lens or generic-optics with 'resourceServer' instead." #-}
+drsrrsResourceServer :: Lens.Lens' DescribeResourceServerResponse Types.ResourceServerType
+drsrrsResourceServer = Lens.field @"resourceServer"
+{-# DEPRECATED drsrrsResourceServer "Use generic-lens or generic-optics with 'resourceServer' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsrsResponseStatus :: Lens.Lens' DescribeResourceServerResponse Lude.Int
-drsrsResponseStatus = Lens.lens (responseStatus :: DescribeResourceServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeResourceServerResponse)
-{-# DEPRECATED drsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsrrsResponseStatus :: Lens.Lens' DescribeResourceServerResponse Core.Int
+drsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

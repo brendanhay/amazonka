@@ -13,71 +13,76 @@
 module Network.AWS.ECR.Types.ImageFailureCode
   ( ImageFailureCode
       ( ImageFailureCode',
-        InvalidImageDigest,
-        InvalidImageTag,
-        ImageTagDoesNotMatchDigest,
-        ImageNotFound,
-        MissingDigestAndTag,
-        ImageReferencedByManifestList,
-        KMSError
+        ImageFailureCodeInvalidImageDigest,
+        ImageFailureCodeInvalidImageTag,
+        ImageFailureCodeImageTagDoesNotMatchDigest,
+        ImageFailureCodeImageNotFound,
+        ImageFailureCodeMissingDigestAndTag,
+        ImageFailureCodeImageReferencedByManifestList,
+        ImageFailureCodeKmsError,
+        fromImageFailureCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ImageFailureCode = ImageFailureCode' Lude.Text
+newtype ImageFailureCode = ImageFailureCode'
+  { fromImageFailureCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InvalidImageDigest :: ImageFailureCode
-pattern InvalidImageDigest = ImageFailureCode' "InvalidImageDigest"
+pattern ImageFailureCodeInvalidImageDigest :: ImageFailureCode
+pattern ImageFailureCodeInvalidImageDigest = ImageFailureCode' "InvalidImageDigest"
 
-pattern InvalidImageTag :: ImageFailureCode
-pattern InvalidImageTag = ImageFailureCode' "InvalidImageTag"
+pattern ImageFailureCodeInvalidImageTag :: ImageFailureCode
+pattern ImageFailureCodeInvalidImageTag = ImageFailureCode' "InvalidImageTag"
 
-pattern ImageTagDoesNotMatchDigest :: ImageFailureCode
-pattern ImageTagDoesNotMatchDigest = ImageFailureCode' "ImageTagDoesNotMatchDigest"
+pattern ImageFailureCodeImageTagDoesNotMatchDigest :: ImageFailureCode
+pattern ImageFailureCodeImageTagDoesNotMatchDigest = ImageFailureCode' "ImageTagDoesNotMatchDigest"
 
-pattern ImageNotFound :: ImageFailureCode
-pattern ImageNotFound = ImageFailureCode' "ImageNotFound"
+pattern ImageFailureCodeImageNotFound :: ImageFailureCode
+pattern ImageFailureCodeImageNotFound = ImageFailureCode' "ImageNotFound"
 
-pattern MissingDigestAndTag :: ImageFailureCode
-pattern MissingDigestAndTag = ImageFailureCode' "MissingDigestAndTag"
+pattern ImageFailureCodeMissingDigestAndTag :: ImageFailureCode
+pattern ImageFailureCodeMissingDigestAndTag = ImageFailureCode' "MissingDigestAndTag"
 
-pattern ImageReferencedByManifestList :: ImageFailureCode
-pattern ImageReferencedByManifestList = ImageFailureCode' "ImageReferencedByManifestList"
+pattern ImageFailureCodeImageReferencedByManifestList :: ImageFailureCode
+pattern ImageFailureCodeImageReferencedByManifestList = ImageFailureCode' "ImageReferencedByManifestList"
 
-pattern KMSError :: ImageFailureCode
-pattern KMSError = ImageFailureCode' "KmsError"
+pattern ImageFailureCodeKmsError :: ImageFailureCode
+pattern ImageFailureCodeKmsError = ImageFailureCode' "KmsError"
 
 {-# COMPLETE
-  InvalidImageDigest,
-  InvalidImageTag,
-  ImageTagDoesNotMatchDigest,
-  ImageNotFound,
-  MissingDigestAndTag,
-  ImageReferencedByManifestList,
-  KMSError,
+  ImageFailureCodeInvalidImageDigest,
+  ImageFailureCodeInvalidImageTag,
+  ImageFailureCodeImageTagDoesNotMatchDigest,
+  ImageFailureCodeImageNotFound,
+  ImageFailureCodeMissingDigestAndTag,
+  ImageFailureCodeImageReferencedByManifestList,
+  ImageFailureCodeKmsError,
   ImageFailureCode'
   #-}

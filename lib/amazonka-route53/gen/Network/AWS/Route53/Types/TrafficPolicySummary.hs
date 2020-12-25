@@ -17,110 +17,106 @@ module Network.AWS.Route53.Types.TrafficPolicySummary
     mkTrafficPolicySummary,
 
     -- * Lenses
-    tpsTrafficPolicyCount,
-    tpsName,
     tpsId,
+    tpsName,
     tpsType,
     tpsLatestVersion,
+    tpsTrafficPolicyCount,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
-import Network.AWS.Route53.Types.RecordType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
+import qualified Network.AWS.Route53.Types.RecordType as Types
+import qualified Network.AWS.Route53.Types.TrafficPolicyId as Types
+import qualified Network.AWS.Route53.Types.TrafficPolicyName as Types
 
 -- | A complex type that contains information about the latest version of one traffic policy that is associated with the current AWS account.
 --
 -- /See:/ 'mkTrafficPolicySummary' smart constructor.
 data TrafficPolicySummary = TrafficPolicySummary'
-  { -- | The number of traffic policies that are associated with the current AWS account.
-    trafficPolicyCount :: Lude.Natural,
+  { -- | The ID that Amazon Route 53 assigned to the traffic policy when you created it.
+    id :: Types.TrafficPolicyId,
     -- | The name that you specified for the traffic policy when you created it.
-    name :: Lude.Text,
-    -- | The ID that Amazon Route 53 assigned to the traffic policy when you created it.
-    id :: Lude.Text,
+    name :: Types.TrafficPolicyName,
     -- | The DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
-    type' :: RecordType,
+    type' :: Types.RecordType,
     -- | The version number of the latest version of the traffic policy.
-    latestVersion :: Lude.Natural
+    latestVersion :: Core.Natural,
+    -- | The number of traffic policies that are associated with the current AWS account.
+    trafficPolicyCount :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrafficPolicySummary' with the minimum fields required to make a request.
---
--- * 'trafficPolicyCount' - The number of traffic policies that are associated with the current AWS account.
--- * 'name' - The name that you specified for the traffic policy when you created it.
--- * 'id' - The ID that Amazon Route 53 assigned to the traffic policy when you created it.
--- * 'type'' - The DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
--- * 'latestVersion' - The version number of the latest version of the traffic policy.
+-- | Creates a 'TrafficPolicySummary' value with any optional fields omitted.
 mkTrafficPolicySummary ::
-  -- | 'trafficPolicyCount'
-  Lude.Natural ->
-  -- | 'name'
-  Lude.Text ->
   -- | 'id'
-  Lude.Text ->
-  -- | 'type''
-  RecordType ->
+  Types.TrafficPolicyId ->
+  -- | 'name'
+  Types.TrafficPolicyName ->
+  -- | 'type\''
+  Types.RecordType ->
   -- | 'latestVersion'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'trafficPolicyCount'
+  Core.Natural ->
   TrafficPolicySummary
 mkTrafficPolicySummary
-  pTrafficPolicyCount_
-  pName_
-  pId_
-  pType_
-  pLatestVersion_ =
+  id
+  name
+  type'
+  latestVersion
+  trafficPolicyCount =
     TrafficPolicySummary'
-      { trafficPolicyCount = pTrafficPolicyCount_,
-        name = pName_,
-        id = pId_,
-        type' = pType_,
-        latestVersion = pLatestVersion_
+      { id,
+        name,
+        type',
+        latestVersion,
+        trafficPolicyCount
       }
-
--- | The number of traffic policies that are associated with the current AWS account.
---
--- /Note:/ Consider using 'trafficPolicyCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpsTrafficPolicyCount :: Lens.Lens' TrafficPolicySummary Lude.Natural
-tpsTrafficPolicyCount = Lens.lens (trafficPolicyCount :: TrafficPolicySummary -> Lude.Natural) (\s a -> s {trafficPolicyCount = a} :: TrafficPolicySummary)
-{-# DEPRECATED tpsTrafficPolicyCount "Use generic-lens or generic-optics with 'trafficPolicyCount' instead." #-}
-
--- | The name that you specified for the traffic policy when you created it.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpsName :: Lens.Lens' TrafficPolicySummary Lude.Text
-tpsName = Lens.lens (name :: TrafficPolicySummary -> Lude.Text) (\s a -> s {name = a} :: TrafficPolicySummary)
-{-# DEPRECATED tpsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID that Amazon Route 53 assigned to the traffic policy when you created it.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpsId :: Lens.Lens' TrafficPolicySummary Lude.Text
-tpsId = Lens.lens (id :: TrafficPolicySummary -> Lude.Text) (\s a -> s {id = a} :: TrafficPolicySummary)
+tpsId :: Lens.Lens' TrafficPolicySummary Types.TrafficPolicyId
+tpsId = Lens.field @"id"
 {-# DEPRECATED tpsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name that you specified for the traffic policy when you created it.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpsName :: Lens.Lens' TrafficPolicySummary Types.TrafficPolicyName
+tpsName = Lens.field @"name"
+{-# DEPRECATED tpsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpsType :: Lens.Lens' TrafficPolicySummary RecordType
-tpsType = Lens.lens (type' :: TrafficPolicySummary -> RecordType) (\s a -> s {type' = a} :: TrafficPolicySummary)
+tpsType :: Lens.Lens' TrafficPolicySummary Types.RecordType
+tpsType = Lens.field @"type'"
 {-# DEPRECATED tpsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The version number of the latest version of the traffic policy.
 --
 -- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpsLatestVersion :: Lens.Lens' TrafficPolicySummary Lude.Natural
-tpsLatestVersion = Lens.lens (latestVersion :: TrafficPolicySummary -> Lude.Natural) (\s a -> s {latestVersion = a} :: TrafficPolicySummary)
+tpsLatestVersion :: Lens.Lens' TrafficPolicySummary Core.Natural
+tpsLatestVersion = Lens.field @"latestVersion"
 {-# DEPRECATED tpsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
-instance Lude.FromXML TrafficPolicySummary where
+-- | The number of traffic policies that are associated with the current AWS account.
+--
+-- /Note:/ Consider using 'trafficPolicyCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpsTrafficPolicyCount :: Lens.Lens' TrafficPolicySummary Core.Natural
+tpsTrafficPolicyCount = Lens.field @"trafficPolicyCount"
+{-# DEPRECATED tpsTrafficPolicyCount "Use generic-lens or generic-optics with 'trafficPolicyCount' instead." #-}
+
+instance Core.FromXML TrafficPolicySummary where
   parseXML x =
     TrafficPolicySummary'
-      Lude.<$> (x Lude..@ "TrafficPolicyCount")
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "Type")
-      Lude.<*> (x Lude..@ "LatestVersion")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "Type")
+      Core.<*> (x Core..@ "LatestVersion")
+      Core.<*> (x Core..@ "TrafficPolicyCount")

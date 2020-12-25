@@ -22,184 +22,170 @@ module Network.AWS.Budgets.DescribeBudgetPerformanceHistory
     mkDescribeBudgetPerformanceHistory,
 
     -- ** Request lenses
-    dbphTimePeriod,
     dbphAccountId,
-    dbphNextToken,
     dbphBudgetName,
     dbphMaxResults,
+    dbphNextToken,
+    dbphTimePeriod,
 
     -- * Destructuring the response
     DescribeBudgetPerformanceHistoryResponse (..),
     mkDescribeBudgetPerformanceHistoryResponse,
 
     -- ** Response lenses
-    dbphrsBudgetPerformanceHistory,
-    dbphrsNextToken,
-    dbphrsResponseStatus,
+    dbphrrsBudgetPerformanceHistory,
+    dbphrrsNextToken,
+    dbphrrsResponseStatus,
   )
 where
 
-import Network.AWS.Budgets.Types
+import qualified Network.AWS.Budgets.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeBudgetPerformanceHistory' smart constructor.
 data DescribeBudgetPerformanceHistory = DescribeBudgetPerformanceHistory'
-  { -- | Retrieves how often the budget went into an @ALARM@ state for the specified time period.
-    timePeriod :: Lude.Maybe TimePeriod,
-    accountId :: Lude.Text,
-    nextToken :: Lude.Maybe Lude.Text,
-    budgetName :: Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural
+  { accountId :: Types.AccountId,
+    budgetName :: Types.BudgetName,
+    maxResults :: Core.Maybe Core.Natural,
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Retrieves how often the budget went into an @ALARM@ state for the specified time period.
+    timePeriod :: Core.Maybe Types.TimePeriod
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeBudgetPerformanceHistory' with the minimum fields required to make a request.
---
--- * 'timePeriod' - Retrieves how often the budget went into an @ALARM@ state for the specified time period.
--- * 'accountId' -
--- * 'nextToken' -
--- * 'budgetName' -
--- * 'maxResults' -
+-- | Creates a 'DescribeBudgetPerformanceHistory' value with any optional fields omitted.
 mkDescribeBudgetPerformanceHistory ::
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
   -- | 'budgetName'
-  Lude.Text ->
+  Types.BudgetName ->
   DescribeBudgetPerformanceHistory
-mkDescribeBudgetPerformanceHistory pAccountId_ pBudgetName_ =
+mkDescribeBudgetPerformanceHistory accountId budgetName =
   DescribeBudgetPerformanceHistory'
-    { timePeriod = Lude.Nothing,
-      accountId = pAccountId_,
-      nextToken = Lude.Nothing,
-      budgetName = pBudgetName_,
-      maxResults = Lude.Nothing
+    { accountId,
+      budgetName,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      timePeriod = Core.Nothing
     }
-
--- | Retrieves how often the budget went into an @ALARM@ state for the specified time period.
---
--- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphTimePeriod :: Lens.Lens' DescribeBudgetPerformanceHistory (Lude.Maybe TimePeriod)
-dbphTimePeriod = Lens.lens (timePeriod :: DescribeBudgetPerformanceHistory -> Lude.Maybe TimePeriod) (\s a -> s {timePeriod = a} :: DescribeBudgetPerformanceHistory)
-{-# DEPRECATED dbphTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphAccountId :: Lens.Lens' DescribeBudgetPerformanceHistory Lude.Text
-dbphAccountId = Lens.lens (accountId :: DescribeBudgetPerformanceHistory -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgetPerformanceHistory)
+dbphAccountId :: Lens.Lens' DescribeBudgetPerformanceHistory Types.AccountId
+dbphAccountId = Lens.field @"accountId"
 {-# DEPRECATED dbphAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphNextToken :: Lens.Lens' DescribeBudgetPerformanceHistory (Lude.Maybe Lude.Text)
-dbphNextToken = Lens.lens (nextToken :: DescribeBudgetPerformanceHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetPerformanceHistory)
-{-# DEPRECATED dbphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphBudgetName :: Lens.Lens' DescribeBudgetPerformanceHistory Lude.Text
-dbphBudgetName = Lens.lens (budgetName :: DescribeBudgetPerformanceHistory -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeBudgetPerformanceHistory)
+dbphBudgetName :: Lens.Lens' DescribeBudgetPerformanceHistory Types.BudgetName
+dbphBudgetName = Lens.field @"budgetName"
 {-# DEPRECATED dbphBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphMaxResults :: Lens.Lens' DescribeBudgetPerformanceHistory (Lude.Maybe Lude.Natural)
-dbphMaxResults = Lens.lens (maxResults :: DescribeBudgetPerformanceHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgetPerformanceHistory)
+dbphMaxResults :: Lens.Lens' DescribeBudgetPerformanceHistory (Core.Maybe Core.Natural)
+dbphMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dbphMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeBudgetPerformanceHistory where
-  page rq rs
-    | Page.stop (rs Lens.^. dbphrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dbphrsBudgetPerformanceHistory) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dbphNextToken Lens..~ rs Lens.^. dbphrsNextToken
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbphNextToken :: Lens.Lens' DescribeBudgetPerformanceHistory (Core.Maybe Types.NextToken)
+dbphNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dbphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeBudgetPerformanceHistory where
+-- | Retrieves how often the budget went into an @ALARM@ state for the specified time period.
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbphTimePeriod :: Lens.Lens' DescribeBudgetPerformanceHistory (Core.Maybe Types.TimePeriod)
+dbphTimePeriod = Lens.field @"timePeriod"
+{-# DEPRECATED dbphTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
+
+instance Core.FromJSON DescribeBudgetPerformanceHistory where
+  toJSON DescribeBudgetPerformanceHistory {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("BudgetName" Core..= budgetName),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("TimePeriod" Core..=) Core.<$> timePeriod
+          ]
+      )
+
+instance Core.AWSRequest DescribeBudgetPerformanceHistory where
   type
     Rs DescribeBudgetPerformanceHistory =
       DescribeBudgetPerformanceHistoryResponse
-  request = Req.postJSON budgetsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeBudgetPerformanceHistoryResponse'
-            Lude.<$> (x Lude..?> "BudgetPerformanceHistory")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "BudgetPerformanceHistory")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeBudgetPerformanceHistory where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeBudgetPerformanceHistory where
-  toJSON DescribeBudgetPerformanceHistory' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TimePeriod" Lude..=) Lude.<$> timePeriod,
-            Lude.Just ("AccountId" Lude..= accountId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("BudgetName" Lude..= budgetName),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeBudgetPerformanceHistory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeBudgetPerformanceHistory where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeBudgetPerformanceHistory where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"budgetPerformanceHistory" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeBudgetPerformanceHistoryResponse' smart constructor.
 data DescribeBudgetPerformanceHistoryResponse = DescribeBudgetPerformanceHistoryResponse'
   { -- | The history of how often the budget has gone into an @ALARM@ state.
     --
     -- For @DAILY@ budgets, the history saves the state of the budget for the last 60 days. For @MONTHLY@ budgets, the history saves the state of the budget for the current month plus the last 12 months. For @QUARTERLY@ budgets, the history saves the state of the budget for the last four quarters.
-    budgetPerformanceHistory :: Lude.Maybe BudgetPerformanceHistory,
-    nextToken :: Lude.Maybe Lude.Text,
+    budgetPerformanceHistory :: Core.Maybe Types.BudgetPerformanceHistory,
+    nextToken :: Core.Maybe Types.GenericString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeBudgetPerformanceHistoryResponse' with the minimum fields required to make a request.
---
--- * 'budgetPerformanceHistory' - The history of how often the budget has gone into an @ALARM@ state.
---
--- For @DAILY@ budgets, the history saves the state of the budget for the last 60 days. For @MONTHLY@ budgets, the history saves the state of the budget for the current month plus the last 12 months. For @QUARTERLY@ budgets, the history saves the state of the budget for the last four quarters.
--- * 'nextToken' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeBudgetPerformanceHistoryResponse' value with any optional fields omitted.
 mkDescribeBudgetPerformanceHistoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeBudgetPerformanceHistoryResponse
-mkDescribeBudgetPerformanceHistoryResponse pResponseStatus_ =
+mkDescribeBudgetPerformanceHistoryResponse responseStatus =
   DescribeBudgetPerformanceHistoryResponse'
     { budgetPerformanceHistory =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The history of how often the budget has gone into an @ALARM@ state.
@@ -207,20 +193,20 @@ mkDescribeBudgetPerformanceHistoryResponse pResponseStatus_ =
 -- For @DAILY@ budgets, the history saves the state of the budget for the last 60 days. For @MONTHLY@ budgets, the history saves the state of the budget for the current month plus the last 12 months. For @QUARTERLY@ budgets, the history saves the state of the budget for the last four quarters.
 --
 -- /Note:/ Consider using 'budgetPerformanceHistory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphrsBudgetPerformanceHistory :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse (Lude.Maybe BudgetPerformanceHistory)
-dbphrsBudgetPerformanceHistory = Lens.lens (budgetPerformanceHistory :: DescribeBudgetPerformanceHistoryResponse -> Lude.Maybe BudgetPerformanceHistory) (\s a -> s {budgetPerformanceHistory = a} :: DescribeBudgetPerformanceHistoryResponse)
-{-# DEPRECATED dbphrsBudgetPerformanceHistory "Use generic-lens or generic-optics with 'budgetPerformanceHistory' instead." #-}
+dbphrrsBudgetPerformanceHistory :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse (Core.Maybe Types.BudgetPerformanceHistory)
+dbphrrsBudgetPerformanceHistory = Lens.field @"budgetPerformanceHistory"
+{-# DEPRECATED dbphrrsBudgetPerformanceHistory "Use generic-lens or generic-optics with 'budgetPerformanceHistory' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphrsNextToken :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse (Lude.Maybe Lude.Text)
-dbphrsNextToken = Lens.lens (nextToken :: DescribeBudgetPerformanceHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetPerformanceHistoryResponse)
-{-# DEPRECATED dbphrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dbphrrsNextToken :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse (Core.Maybe Types.GenericString)
+dbphrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dbphrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphrsResponseStatus :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse Lude.Int
-dbphrsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetPerformanceHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetPerformanceHistoryResponse)
-{-# DEPRECATED dbphrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbphrrsResponseStatus :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse Core.Int
+dbphrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbphrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

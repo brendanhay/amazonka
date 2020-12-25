@@ -22,10 +22,10 @@ module Network.AWS.WorkDocs.DescribeGroups
     mkDescribeGroups,
 
     -- ** Request lenses
-    dgAuthenticationToken,
     dgSearchQuery,
-    dgMarker,
+    dgAuthenticationToken,
     dgLimit,
+    dgMarker,
     dgOrganizationId,
 
     -- * Destructuring the response
@@ -33,174 +33,162 @@ module Network.AWS.WorkDocs.DescribeGroups
     mkDescribeGroupsResponse,
 
     -- ** Response lenses
-    dgrsGroups,
-    dgrsMarker,
-    dgrsResponseStatus,
+    dgrrsGroups,
+    dgrrsMarker,
+    dgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDescribeGroups' smart constructor.
 data DescribeGroups = DescribeGroups'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A query to describe groups by group name.
-    searchQuery :: Lude.Sensitive Lude.Text,
-    -- | The marker for the next set of results. (You received this marker from a previous call.)
-    marker :: Lude.Maybe Lude.Text,
+  { -- | A query to describe groups by group name.
+    searchQuery :: Types.SearchQueryType,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
     -- | The maximum number of items to return with this call.
-    limit :: Lude.Maybe Lude.Natural,
+    limit :: Core.Maybe Core.Natural,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Core.Maybe Types.MarkerType,
     -- | The ID of the organization.
-    organizationId :: Lude.Maybe Lude.Text
+    organizationId :: Core.Maybe Types.IdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeGroups' with the minimum fields required to make a request.
---
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'searchQuery' - A query to describe groups by group name.
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'limit' - The maximum number of items to return with this call.
--- * 'organizationId' - The ID of the organization.
+-- | Creates a 'DescribeGroups' value with any optional fields omitted.
 mkDescribeGroups ::
   -- | 'searchQuery'
-  Lude.Sensitive Lude.Text ->
+  Types.SearchQueryType ->
   DescribeGroups
-mkDescribeGroups pSearchQuery_ =
+mkDescribeGroups searchQuery =
   DescribeGroups'
-    { authenticationToken = Lude.Nothing,
-      searchQuery = pSearchQuery_,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      organizationId = Lude.Nothing
+    { searchQuery,
+      authenticationToken = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
+      organizationId = Core.Nothing
     }
-
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgAuthenticationToken :: Lens.Lens' DescribeGroups (Lude.Maybe (Lude.Sensitive Lude.Text))
-dgAuthenticationToken = Lens.lens (authenticationToken :: DescribeGroups -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DescribeGroups)
-{-# DEPRECATED dgAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | A query to describe groups by group name.
 --
 -- /Note:/ Consider using 'searchQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgSearchQuery :: Lens.Lens' DescribeGroups (Lude.Sensitive Lude.Text)
-dgSearchQuery = Lens.lens (searchQuery :: DescribeGroups -> Lude.Sensitive Lude.Text) (\s a -> s {searchQuery = a} :: DescribeGroups)
+dgSearchQuery :: Lens.Lens' DescribeGroups Types.SearchQueryType
+dgSearchQuery = Lens.field @"searchQuery"
 {-# DEPRECATED dgSearchQuery "Use generic-lens or generic-optics with 'searchQuery' instead." #-}
 
--- | The marker for the next set of results. (You received this marker from a previous call.)
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgMarker :: Lens.Lens' DescribeGroups (Lude.Maybe Lude.Text)
-dgMarker = Lens.lens (marker :: DescribeGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeGroups)
-{-# DEPRECATED dgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgAuthenticationToken :: Lens.Lens' DescribeGroups (Core.Maybe Types.AuthenticationHeaderType)
+dgAuthenticationToken = Lens.field @"authenticationToken"
+{-# DEPRECATED dgAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgLimit :: Lens.Lens' DescribeGroups (Lude.Maybe Lude.Natural)
-dgLimit = Lens.lens (limit :: DescribeGroups -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeGroups)
+dgLimit :: Lens.Lens' DescribeGroups (Core.Maybe Core.Natural)
+dgLimit = Lens.field @"limit"
 {-# DEPRECATED dgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The marker for the next set of results. (You received this marker from a previous call.)
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgMarker :: Lens.Lens' DescribeGroups (Core.Maybe Types.MarkerType)
+dgMarker = Lens.field @"marker"
+{-# DEPRECATED dgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The ID of the organization.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgOrganizationId :: Lens.Lens' DescribeGroups (Lude.Maybe Lude.Text)
-dgOrganizationId = Lens.lens (organizationId :: DescribeGroups -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: DescribeGroups)
+dgOrganizationId :: Lens.Lens' DescribeGroups (Core.Maybe Types.IdType)
+dgOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED dgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Page.AWSPager DescribeGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. dgrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dgrsGroups) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dgMarker Lens..~ rs Lens.^. dgrsMarker
-
-instance Lude.AWSRequest DescribeGroups where
+instance Core.AWSRequest DescribeGroups where
   type Rs DescribeGroups = DescribeGroupsResponse
-  request = Req.get workDocsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/api/v1/groups",
+        Core._rqQuery =
+          Core.toQueryValue "searchQuery" searchQuery
+            Core.<> (Core.toQueryValue "limit" Core.<$> limit)
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "organizationId" Core.<$> organizationId),
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeGroupsResponse'
-            Lude.<$> (x Lude..?> "Groups" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Groups")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeGroups where
-  toHeaders DescribeGroups' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DescribeGroups where
-  toPath = Lude.const "/api/v1/groups"
-
-instance Lude.ToQuery DescribeGroups where
-  toQuery DescribeGroups' {..} =
-    Lude.mconcat
-      [ "searchQuery" Lude.=: searchQuery,
-        "marker" Lude.=: marker,
-        "limit" Lude.=: limit,
-        "organizationId" Lude.=: organizationId
-      ]
+instance Pager.AWSPager DescribeGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"groups" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeGroupsResponse' smart constructor.
 data DescribeGroupsResponse = DescribeGroupsResponse'
   { -- | The list of groups.
-    groups :: Lude.Maybe [GroupMetadata],
+    groups :: Core.Maybe [Types.GroupMetadata],
     -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.MarkerType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeGroupsResponse' with the minimum fields required to make a request.
---
--- * 'groups' - The list of groups.
--- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeGroupsResponse' value with any optional fields omitted.
 mkDescribeGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeGroupsResponse
-mkDescribeGroupsResponse pResponseStatus_ =
+mkDescribeGroupsResponse responseStatus =
   DescribeGroupsResponse'
-    { groups = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { groups = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of groups.
 --
 -- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsGroups :: Lens.Lens' DescribeGroupsResponse (Lude.Maybe [GroupMetadata])
-dgrsGroups = Lens.lens (groups :: DescribeGroupsResponse -> Lude.Maybe [GroupMetadata]) (\s a -> s {groups = a} :: DescribeGroupsResponse)
-{-# DEPRECATED dgrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+dgrrsGroups :: Lens.Lens' DescribeGroupsResponse (Core.Maybe [Types.GroupMetadata])
+dgrrsGroups = Lens.field @"groups"
+{-# DEPRECATED dgrrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsMarker :: Lens.Lens' DescribeGroupsResponse (Lude.Maybe Lude.Text)
-dgrsMarker = Lens.lens (marker :: DescribeGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeGroupsResponse)
-{-# DEPRECATED dgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dgrrsMarker :: Lens.Lens' DescribeGroupsResponse (Core.Maybe Types.MarkerType)
+dgrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dgrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsResponseStatus :: Lens.Lens' DescribeGroupsResponse Lude.Int
-dgrsResponseStatus = Lens.lens (responseStatus :: DescribeGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGroupsResponse)
-{-# DEPRECATED dgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgrrsResponseStatus :: Lens.Lens' DescribeGroupsResponse Core.Int
+dgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

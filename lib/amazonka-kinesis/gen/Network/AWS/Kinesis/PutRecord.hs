@@ -30,10 +30,10 @@ module Network.AWS.Kinesis.PutRecord
     mkPutRecord,
 
     -- ** Request lenses
-    prPartitionKey,
-    prData,
-    prExplicitHashKey,
     prStreamName,
+    prData,
+    prPartitionKey,
+    prExplicitHashKey,
     prSequenceNumberForOrdering,
 
     -- * Destructuring the response
@@ -41,67 +41,61 @@ module Network.AWS.Kinesis.PutRecord
     mkPutRecordResponse,
 
     -- ** Response lenses
-    prsSequenceNumber,
-    prsEncryptionType,
-    prsShardId,
-    prsResponseStatus,
+    prrrsShardId,
+    prrrsSequenceNumber,
+    prrrsEncryptionType,
+    prrrsResponseStatus,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for @PutRecord@ .
 --
 -- /See:/ 'mkPutRecord' smart constructor.
 data PutRecord = PutRecord'
-  { -- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
-    partitionKey :: Lude.Text,
+  { -- | The name of the stream to put the data record into.
+    streamName :: Types.StreamName,
     -- | The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
-    data' :: Lude.Base64,
+    data' :: Core.Base64,
+    -- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+    partitionKey :: Types.PartitionKey,
     -- | The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.
-    explicitHashKey :: Lude.Maybe Lude.Text,
-    -- | The name of the stream to put the data record into.
-    streamName :: Lude.Text,
+    explicitHashKey :: Core.Maybe Types.ExplicitHashKey,
     -- | Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the @SequenceNumberForOrdering@ of record /n/ to the sequence number of record /n-1/ (as returned in the result when putting record /n-1/ ). If this parameter is not set, records are coarsely ordered based on arrival time.
-    sequenceNumberForOrdering :: Lude.Maybe Lude.Text
+    sequenceNumberForOrdering :: Core.Maybe Types.SequenceNumber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecord' with the minimum fields required to make a request.
---
--- * 'partitionKey' - Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
--- * 'data'' - The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
--- * 'explicitHashKey' - The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.
--- * 'streamName' - The name of the stream to put the data record into.
--- * 'sequenceNumberForOrdering' - Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the @SequenceNumberForOrdering@ of record /n/ to the sequence number of record /n-1/ (as returned in the result when putting record /n-1/ ). If this parameter is not set, records are coarsely ordered based on arrival time.
+-- | Creates a 'PutRecord' value with any optional fields omitted.
 mkPutRecord ::
-  -- | 'partitionKey'
-  Lude.Text ->
-  -- | 'data''
-  Lude.Base64 ->
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
+  -- | 'data\''
+  Core.Base64 ->
+  -- | 'partitionKey'
+  Types.PartitionKey ->
   PutRecord
-mkPutRecord pPartitionKey_ pData_ pStreamName_ =
+mkPutRecord streamName data' partitionKey =
   PutRecord'
-    { partitionKey = pPartitionKey_,
-      data' = pData_,
-      explicitHashKey = Lude.Nothing,
-      streamName = pStreamName_,
-      sequenceNumberForOrdering = Lude.Nothing
+    { streamName,
+      data',
+      partitionKey,
+      explicitHashKey = Core.Nothing,
+      sequenceNumberForOrdering = Core.Nothing
     }
 
--- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+-- | The name of the stream to put the data record into.
 --
--- /Note:/ Consider using 'partitionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prPartitionKey :: Lens.Lens' PutRecord Lude.Text
-prPartitionKey = Lens.lens (partitionKey :: PutRecord -> Lude.Text) (\s a -> s {partitionKey = a} :: PutRecord)
-{-# DEPRECATED prPartitionKey "Use generic-lens or generic-optics with 'partitionKey' instead." #-}
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prStreamName :: Lens.Lens' PutRecord Types.StreamName
+prStreamName = Lens.field @"streamName"
+{-# DEPRECATED prStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -110,80 +104,75 @@ prPartitionKey = Lens.lens (partitionKey :: PutRecord -> Lude.Text) (\s a -> s {
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prData :: Lens.Lens' PutRecord Lude.Base64
-prData = Lens.lens (data' :: PutRecord -> Lude.Base64) (\s a -> s {data' = a} :: PutRecord)
+prData :: Lens.Lens' PutRecord Core.Base64
+prData = Lens.field @"data'"
 {-# DEPRECATED prData "Use generic-lens or generic-optics with 'data'' instead." #-}
+
+-- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+--
+-- /Note:/ Consider using 'partitionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prPartitionKey :: Lens.Lens' PutRecord Types.PartitionKey
+prPartitionKey = Lens.field @"partitionKey"
+{-# DEPRECATED prPartitionKey "Use generic-lens or generic-optics with 'partitionKey' instead." #-}
 
 -- | The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.
 --
 -- /Note:/ Consider using 'explicitHashKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prExplicitHashKey :: Lens.Lens' PutRecord (Lude.Maybe Lude.Text)
-prExplicitHashKey = Lens.lens (explicitHashKey :: PutRecord -> Lude.Maybe Lude.Text) (\s a -> s {explicitHashKey = a} :: PutRecord)
+prExplicitHashKey :: Lens.Lens' PutRecord (Core.Maybe Types.ExplicitHashKey)
+prExplicitHashKey = Lens.field @"explicitHashKey"
 {-# DEPRECATED prExplicitHashKey "Use generic-lens or generic-optics with 'explicitHashKey' instead." #-}
-
--- | The name of the stream to put the data record into.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prStreamName :: Lens.Lens' PutRecord Lude.Text
-prStreamName = Lens.lens (streamName :: PutRecord -> Lude.Text) (\s a -> s {streamName = a} :: PutRecord)
-{-# DEPRECATED prStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the @SequenceNumberForOrdering@ of record /n/ to the sequence number of record /n-1/ (as returned in the result when putting record /n-1/ ). If this parameter is not set, records are coarsely ordered based on arrival time.
 --
 -- /Note:/ Consider using 'sequenceNumberForOrdering' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prSequenceNumberForOrdering :: Lens.Lens' PutRecord (Lude.Maybe Lude.Text)
-prSequenceNumberForOrdering = Lens.lens (sequenceNumberForOrdering :: PutRecord -> Lude.Maybe Lude.Text) (\s a -> s {sequenceNumberForOrdering = a} :: PutRecord)
+prSequenceNumberForOrdering :: Lens.Lens' PutRecord (Core.Maybe Types.SequenceNumber)
+prSequenceNumberForOrdering = Lens.field @"sequenceNumberForOrdering"
 {-# DEPRECATED prSequenceNumberForOrdering "Use generic-lens or generic-optics with 'sequenceNumberForOrdering' instead." #-}
 
-instance Lude.AWSRequest PutRecord where
+instance Core.FromJSON PutRecord where
+  toJSON PutRecord {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("Data" Core..= data'),
+            Core.Just ("PartitionKey" Core..= partitionKey),
+            ("ExplicitHashKey" Core..=) Core.<$> explicitHashKey,
+            ("SequenceNumberForOrdering" Core..=)
+              Core.<$> sequenceNumberForOrdering
+          ]
+      )
+
+instance Core.AWSRequest PutRecord where
   type Rs PutRecord = PutRecordResponse
-  request = Req.postJSON kinesisService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.PutRecord")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutRecordResponse'
-            Lude.<$> (x Lude..:> "SequenceNumber")
-            Lude.<*> (x Lude..?> "EncryptionType")
-            Lude.<*> (x Lude..:> "ShardId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "ShardId")
+            Core.<*> (x Core..: "SequenceNumber")
+            Core.<*> (x Core..:? "EncryptionType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRecord where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.PutRecord" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRecord where
-  toJSON PutRecord' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PartitionKey" Lude..= partitionKey),
-            Lude.Just ("Data" Lude..= data'),
-            ("ExplicitHashKey" Lude..=) Lude.<$> explicitHashKey,
-            Lude.Just ("StreamName" Lude..= streamName),
-            ("SequenceNumberForOrdering" Lude..=)
-              Lude.<$> sequenceNumberForOrdering
-          ]
-      )
-
-instance Lude.ToPath PutRecord where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRecord where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output for @PutRecord@ .
 --
 -- /See:/ 'mkPutRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
-  { -- | The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.
-    sequenceNumber :: Lude.Text,
+  { -- | The shard ID of the shard where the data record was placed.
+    shardId :: Types.ShardId,
+    -- | The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.
+    sequenceNumber :: Types.SequenceNumber,
     -- | The encryption type to use on the record. This parameter can be one of the following values:
     --
     --
@@ -191,51 +180,43 @@ data PutRecordResponse = PutRecordResponse'
     --
     --
     --     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.
-    encryptionType :: Lude.Maybe EncryptionType,
-    -- | The shard ID of the shard where the data record was placed.
-    shardId :: Lude.Text,
+    encryptionType :: Core.Maybe Types.EncryptionType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecordResponse' with the minimum fields required to make a request.
---
--- * 'sequenceNumber' - The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.
--- * 'encryptionType' - The encryption type to use on the record. This parameter can be one of the following values:
---
---
---     * @NONE@ : Do not encrypt the records in the stream.
---
---
---     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.
---
---
--- * 'shardId' - The shard ID of the shard where the data record was placed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRecordResponse' value with any optional fields omitted.
 mkPutRecordResponse ::
-  -- | 'sequenceNumber'
-  Lude.Text ->
   -- | 'shardId'
-  Lude.Text ->
+  Types.ShardId ->
+  -- | 'sequenceNumber'
+  Types.SequenceNumber ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRecordResponse
-mkPutRecordResponse pSequenceNumber_ pShardId_ pResponseStatus_ =
+mkPutRecordResponse shardId sequenceNumber responseStatus =
   PutRecordResponse'
-    { sequenceNumber = pSequenceNumber_,
-      encryptionType = Lude.Nothing,
-      shardId = pShardId_,
-      responseStatus = pResponseStatus_
+    { shardId,
+      sequenceNumber,
+      encryptionType = Core.Nothing,
+      responseStatus
     }
+
+-- | The shard ID of the shard where the data record was placed.
+--
+-- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrrsShardId :: Lens.Lens' PutRecordResponse Types.ShardId
+prrrsShardId = Lens.field @"shardId"
+{-# DEPRECATED prrrsShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
 -- | The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.
 --
 -- /Note:/ Consider using 'sequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsSequenceNumber :: Lens.Lens' PutRecordResponse Lude.Text
-prsSequenceNumber = Lens.lens (sequenceNumber :: PutRecordResponse -> Lude.Text) (\s a -> s {sequenceNumber = a} :: PutRecordResponse)
-{-# DEPRECATED prsSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
+prrrsSequenceNumber :: Lens.Lens' PutRecordResponse Types.SequenceNumber
+prrrsSequenceNumber = Lens.field @"sequenceNumber"
+{-# DEPRECATED prrrsSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
 
 -- | The encryption type to use on the record. This parameter can be one of the following values:
 --
@@ -248,20 +229,13 @@ prsSequenceNumber = Lens.lens (sequenceNumber :: PutRecordResponse -> Lude.Text)
 --
 --
 -- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsEncryptionType :: Lens.Lens' PutRecordResponse (Lude.Maybe EncryptionType)
-prsEncryptionType = Lens.lens (encryptionType :: PutRecordResponse -> Lude.Maybe EncryptionType) (\s a -> s {encryptionType = a} :: PutRecordResponse)
-{-# DEPRECATED prsEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
-
--- | The shard ID of the shard where the data record was placed.
---
--- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsShardId :: Lens.Lens' PutRecordResponse Lude.Text
-prsShardId = Lens.lens (shardId :: PutRecordResponse -> Lude.Text) (\s a -> s {shardId = a} :: PutRecordResponse)
-{-# DEPRECATED prsShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
+prrrsEncryptionType :: Lens.Lens' PutRecordResponse (Core.Maybe Types.EncryptionType)
+prrrsEncryptionType = Lens.field @"encryptionType"
+{-# DEPRECATED prrrsEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsResponseStatus :: Lens.Lens' PutRecordResponse Lude.Int
-prsResponseStatus = Lens.lens (responseStatus :: PutRecordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRecordResponse)
-{-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prrrsResponseStatus :: Lens.Lens' PutRecordResponse Core.Int
+prrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

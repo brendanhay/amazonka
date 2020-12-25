@@ -20,160 +20,146 @@ module Network.AWS.ECS.DescribeTasks
     mkDescribeTasks,
 
     -- ** Request lenses
-    dtInclude,
-    dtCluster,
     dtTasks,
+    dtCluster,
+    dtInclude,
 
     -- * Destructuring the response
     DescribeTasksResponse (..),
     mkDescribeTasksResponse,
 
     -- ** Response lenses
-    dtrsFailures,
-    dtrsTasks,
-    dtrsResponseStatus,
+    dtrrsFailures,
+    dtrrsTasks,
+    dtrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTasks' smart constructor.
 data DescribeTasks = DescribeTasks'
-  { -- | Specifies whether you want to see the resource tags for the task. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
-    include :: Lude.Maybe [TaskField],
+  { -- | A list of up to 100 task IDs or full ARN entries.
+    tasks :: [Types.String],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you are describing were launched in any cluster other than the default cluster.
-    cluster :: Lude.Maybe Lude.Text,
-    -- | A list of up to 100 task IDs or full ARN entries.
-    tasks :: [Lude.Text]
+    cluster :: Core.Maybe Types.String,
+    -- | Specifies whether you want to see the resource tags for the task. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+    include :: Core.Maybe [Types.TaskField]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTasks' with the minimum fields required to make a request.
---
--- * 'include' - Specifies whether you want to see the resource tags for the task. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you are describing were launched in any cluster other than the default cluster.
--- * 'tasks' - A list of up to 100 task IDs or full ARN entries.
+-- | Creates a 'DescribeTasks' value with any optional fields omitted.
 mkDescribeTasks ::
   DescribeTasks
 mkDescribeTasks =
   DescribeTasks'
-    { include = Lude.Nothing,
-      cluster = Lude.Nothing,
-      tasks = Lude.mempty
+    { tasks = Core.mempty,
+      cluster = Core.Nothing,
+      include = Core.Nothing
     }
-
--- | Specifies whether you want to see the resource tags for the task. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
---
--- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtInclude :: Lens.Lens' DescribeTasks (Lude.Maybe [TaskField])
-dtInclude = Lens.lens (include :: DescribeTasks -> Lude.Maybe [TaskField]) (\s a -> s {include = a} :: DescribeTasks)
-{-# DEPRECATED dtInclude "Use generic-lens or generic-optics with 'include' instead." #-}
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you are describing were launched in any cluster other than the default cluster.
---
--- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtCluster :: Lens.Lens' DescribeTasks (Lude.Maybe Lude.Text)
-dtCluster = Lens.lens (cluster :: DescribeTasks -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DescribeTasks)
-{-# DEPRECATED dtCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | A list of up to 100 task IDs or full ARN entries.
 --
 -- /Note:/ Consider using 'tasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTasks :: Lens.Lens' DescribeTasks [Lude.Text]
-dtTasks = Lens.lens (tasks :: DescribeTasks -> [Lude.Text]) (\s a -> s {tasks = a} :: DescribeTasks)
+dtTasks :: Lens.Lens' DescribeTasks [Types.String]
+dtTasks = Lens.field @"tasks"
 {-# DEPRECATED dtTasks "Use generic-lens or generic-optics with 'tasks' instead." #-}
 
-instance Lude.AWSRequest DescribeTasks where
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you are describing were launched in any cluster other than the default cluster.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtCluster :: Lens.Lens' DescribeTasks (Core.Maybe Types.String)
+dtCluster = Lens.field @"cluster"
+{-# DEPRECATED dtCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+
+-- | Specifies whether you want to see the resource tags for the task. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+--
+-- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtInclude :: Lens.Lens' DescribeTasks (Core.Maybe [Types.TaskField])
+dtInclude = Lens.field @"include"
+{-# DEPRECATED dtInclude "Use generic-lens or generic-optics with 'include' instead." #-}
+
+instance Core.FromJSON DescribeTasks where
+  toJSON DescribeTasks {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("tasks" Core..= tasks),
+            ("cluster" Core..=) Core.<$> cluster,
+            ("include" Core..=) Core.<$> include
+          ]
+      )
+
+instance Core.AWSRequest DescribeTasks where
   type Rs DescribeTasks = DescribeTasksResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.DescribeTasks"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTasksResponse'
-            Lude.<$> (x Lude..?> "failures" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "tasks" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "failures")
+            Core.<*> (x Core..:? "tasks")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTasks where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTasks" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTasks where
-  toJSON DescribeTasks' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("include" Lude..=) Lude.<$> include,
-            ("cluster" Lude..=) Lude.<$> cluster,
-            Lude.Just ("tasks" Lude..= tasks)
-          ]
-      )
-
-instance Lude.ToPath DescribeTasks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTasks where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeTasksResponse' smart constructor.
 data DescribeTasksResponse = DescribeTasksResponse'
   { -- | Any failures associated with the call.
-    failures :: Lude.Maybe [Failure],
+    failures :: Core.Maybe [Types.Failure],
     -- | The list of tasks.
-    tasks :: Lude.Maybe [Task],
+    tasks :: Core.Maybe [Types.Task],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTasksResponse' with the minimum fields required to make a request.
---
--- * 'failures' - Any failures associated with the call.
--- * 'tasks' - The list of tasks.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTasksResponse' value with any optional fields omitted.
 mkDescribeTasksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTasksResponse
-mkDescribeTasksResponse pResponseStatus_ =
+mkDescribeTasksResponse responseStatus =
   DescribeTasksResponse'
-    { failures = Lude.Nothing,
-      tasks = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failures = Core.Nothing,
+      tasks = Core.Nothing,
+      responseStatus
     }
 
 -- | Any failures associated with the call.
 --
 -- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsFailures :: Lens.Lens' DescribeTasksResponse (Lude.Maybe [Failure])
-dtrsFailures = Lens.lens (failures :: DescribeTasksResponse -> Lude.Maybe [Failure]) (\s a -> s {failures = a} :: DescribeTasksResponse)
-{-# DEPRECATED dtrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
+dtrrsFailures :: Lens.Lens' DescribeTasksResponse (Core.Maybe [Types.Failure])
+dtrrsFailures = Lens.field @"failures"
+{-# DEPRECATED dtrrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The list of tasks.
 --
 -- /Note:/ Consider using 'tasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTasks :: Lens.Lens' DescribeTasksResponse (Lude.Maybe [Task])
-dtrsTasks = Lens.lens (tasks :: DescribeTasksResponse -> Lude.Maybe [Task]) (\s a -> s {tasks = a} :: DescribeTasksResponse)
-{-# DEPRECATED dtrsTasks "Use generic-lens or generic-optics with 'tasks' instead." #-}
+dtrrsTasks :: Lens.Lens' DescribeTasksResponse (Core.Maybe [Types.Task])
+dtrrsTasks = Lens.field @"tasks"
+{-# DEPRECATED dtrrsTasks "Use generic-lens or generic-optics with 'tasks' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeTasksResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTasksResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrrsResponseStatus :: Lens.Lens' DescribeTasksResponse Core.Int
+dtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

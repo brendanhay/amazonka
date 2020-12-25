@@ -24,176 +24,163 @@ module Network.AWS.LexModels.GetBotAliases
     mkGetBotAliases,
 
     -- ** Request lenses
-    gbasNameContains,
-    gbasBotName,
-    gbasNextToken,
-    gbasMaxResults,
+    gbaBotName,
+    gbaMaxResults,
+    gbaNameContains,
+    gbaNextToken,
 
     -- * Destructuring the response
     GetBotAliasesResponse (..),
     mkGetBotAliasesResponse,
 
     -- ** Response lenses
-    gbarsNextToken,
-    gbarsBotAliases,
-    gbarsResponseStatus,
+    gbarrsBotAliases,
+    gbarrsNextToken,
+    gbarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetBotAliases' smart constructor.
 data GetBotAliases = GetBotAliases'
-  { -- | Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
-    nameContains :: Lude.Maybe Lude.Text,
-    -- | The name of the bot.
-    botName :: Lude.Text,
-    -- | A pagination token for fetching the next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The name of the bot.
+    botName :: Types.BotName,
     -- | The maximum number of aliases to return in the response. The default is 50. .
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+    nameContains :: Core.Maybe Types.AliasName,
+    -- | A pagination token for fetching the next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBotAliases' with the minimum fields required to make a request.
---
--- * 'nameContains' - Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
--- * 'botName' - The name of the bot.
--- * 'nextToken' - A pagination token for fetching the next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
--- * 'maxResults' - The maximum number of aliases to return in the response. The default is 50. .
+-- | Creates a 'GetBotAliases' value with any optional fields omitted.
 mkGetBotAliases ::
   -- | 'botName'
-  Lude.Text ->
+  Types.BotName ->
   GetBotAliases
-mkGetBotAliases pBotName_ =
+mkGetBotAliases botName =
   GetBotAliases'
-    { nameContains = Lude.Nothing,
-      botName = pBotName_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { botName,
+      maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
---
--- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbasNameContains :: Lens.Lens' GetBotAliases (Lude.Maybe Lude.Text)
-gbasNameContains = Lens.lens (nameContains :: GetBotAliases -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: GetBotAliases)
-{-# DEPRECATED gbasNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | The name of the bot.
 --
 -- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbasBotName :: Lens.Lens' GetBotAliases Lude.Text
-gbasBotName = Lens.lens (botName :: GetBotAliases -> Lude.Text) (\s a -> s {botName = a} :: GetBotAliases)
-{-# DEPRECATED gbasBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
-
--- | A pagination token for fetching the next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbasNextToken :: Lens.Lens' GetBotAliases (Lude.Maybe Lude.Text)
-gbasNextToken = Lens.lens (nextToken :: GetBotAliases -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBotAliases)
-{-# DEPRECATED gbasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gbaBotName :: Lens.Lens' GetBotAliases Types.BotName
+gbaBotName = Lens.field @"botName"
+{-# DEPRECATED gbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The maximum number of aliases to return in the response. The default is 50. .
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbasMaxResults :: Lens.Lens' GetBotAliases (Lude.Maybe Lude.Natural)
-gbasMaxResults = Lens.lens (maxResults :: GetBotAliases -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBotAliases)
-{-# DEPRECATED gbasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+gbaMaxResults :: Lens.Lens' GetBotAliases (Core.Maybe Core.Natural)
+gbaMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gbaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager GetBotAliases where
-  page rq rs
-    | Page.stop (rs Lens.^. gbarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gbarsBotAliases) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gbasNextToken Lens..~ rs Lens.^. gbarsNextToken
+-- | Substring to match in bot alias names. An alias will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbaNameContains :: Lens.Lens' GetBotAliases (Core.Maybe Types.AliasName)
+gbaNameContains = Lens.field @"nameContains"
+{-# DEPRECATED gbaNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
-instance Lude.AWSRequest GetBotAliases where
+-- | A pagination token for fetching the next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbaNextToken :: Lens.Lens' GetBotAliases (Core.Maybe Types.NextToken)
+gbaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gbaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest GetBotAliases where
   type Rs GetBotAliases = GetBotAliasesResponse
-  request = Req.get lexModelsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/bots/" Core.<> (Core.toText botName) Core.<> ("/aliases/")),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nameContains" Core.<$> nameContains)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetBotAliasesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "BotAliases" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "BotAliases")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetBotAliases where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetBotAliases where
-  toPath GetBotAliases' {..} =
-    Lude.mconcat ["/bots/", Lude.toBS botName, "/aliases/"]
-
-instance Lude.ToQuery GetBotAliases where
-  toQuery GetBotAliases' {..} =
-    Lude.mconcat
-      [ "nameContains" Lude.=: nameContains,
-        "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager GetBotAliases where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"botAliases" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetBotAliasesResponse' smart constructor.
 data GetBotAliasesResponse = GetBotAliasesResponse'
-  { -- | A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of @BotAliasMetadata@ objects, each describing a bot alias.
-    botAliases :: Lude.Maybe [BotAliasMetadata],
+  { -- | An array of @BotAliasMetadata@ objects, each describing a bot alias.
+    botAliases :: Core.Maybe [Types.BotAliasMetadata],
+    -- | A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetBotAliasesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
--- * 'botAliases' - An array of @BotAliasMetadata@ objects, each describing a bot alias.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBotAliasesResponse' value with any optional fields omitted.
 mkGetBotAliasesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBotAliasesResponse
-mkGetBotAliasesResponse pResponseStatus_ =
+mkGetBotAliasesResponse responseStatus =
   GetBotAliasesResponse'
-    { nextToken = Lude.Nothing,
-      botAliases = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { botAliases = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbarsNextToken :: Lens.Lens' GetBotAliasesResponse (Lude.Maybe Lude.Text)
-gbarsNextToken = Lens.lens (nextToken :: GetBotAliasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBotAliasesResponse)
-{-# DEPRECATED gbarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @BotAliasMetadata@ objects, each describing a bot alias.
 --
 -- /Note:/ Consider using 'botAliases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbarsBotAliases :: Lens.Lens' GetBotAliasesResponse (Lude.Maybe [BotAliasMetadata])
-gbarsBotAliases = Lens.lens (botAliases :: GetBotAliasesResponse -> Lude.Maybe [BotAliasMetadata]) (\s a -> s {botAliases = a} :: GetBotAliasesResponse)
-{-# DEPRECATED gbarsBotAliases "Use generic-lens or generic-optics with 'botAliases' instead." #-}
+gbarrsBotAliases :: Lens.Lens' GetBotAliasesResponse (Core.Maybe [Types.BotAliasMetadata])
+gbarrsBotAliases = Lens.field @"botAliases"
+{-# DEPRECATED gbarrsBotAliases "Use generic-lens or generic-optics with 'botAliases' instead." #-}
+
+-- | A pagination token for fetching next page of aliases. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of aliases, specify the pagination token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbarrsNextToken :: Lens.Lens' GetBotAliasesResponse (Core.Maybe Types.NextToken)
+gbarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gbarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbarsResponseStatus :: Lens.Lens' GetBotAliasesResponse Lude.Int
-gbarsResponseStatus = Lens.lens (responseStatus :: GetBotAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBotAliasesResponse)
-{-# DEPRECATED gbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbarrsResponseStatus :: Lens.Lens' GetBotAliasesResponse Core.Int
+gbarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

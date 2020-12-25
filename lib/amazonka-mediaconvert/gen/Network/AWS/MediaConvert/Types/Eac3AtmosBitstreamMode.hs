@@ -13,42 +13,47 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode
   ( Eac3AtmosBitstreamMode
       ( Eac3AtmosBitstreamMode',
-        CompleteMain
+        Eac3AtmosBitstreamModeCompleteMain,
+        fromEac3AtmosBitstreamMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify the bitstream mode for the E-AC-3 stream that the encoder emits. For more information about the EAC3 bitstream mode, see ATSC A/52-2012 (Annex E).
-newtype Eac3AtmosBitstreamMode = Eac3AtmosBitstreamMode' Lude.Text
+newtype Eac3AtmosBitstreamMode = Eac3AtmosBitstreamMode'
+  { fromEac3AtmosBitstreamMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CompleteMain :: Eac3AtmosBitstreamMode
-pattern CompleteMain = Eac3AtmosBitstreamMode' "COMPLETE_MAIN"
+pattern Eac3AtmosBitstreamModeCompleteMain :: Eac3AtmosBitstreamMode
+pattern Eac3AtmosBitstreamModeCompleteMain = Eac3AtmosBitstreamMode' "COMPLETE_MAIN"
 
 {-# COMPLETE
-  CompleteMain,
+  Eac3AtmosBitstreamModeCompleteMain,
   Eac3AtmosBitstreamMode'
   #-}

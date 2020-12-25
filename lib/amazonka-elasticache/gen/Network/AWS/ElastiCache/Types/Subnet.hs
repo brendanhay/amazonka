@@ -17,69 +17,66 @@ module Network.AWS.ElastiCache.Types.Subnet
     mkSubnet,
 
     -- * Lenses
-    sSubnetIdentifier,
     sSubnetAvailabilityZone,
+    sSubnetIdentifier,
     sSubnetOutpost,
   )
 where
 
-import Network.AWS.ElastiCache.Types.AvailabilityZone
-import Network.AWS.ElastiCache.Types.SubnetOutpost
+import qualified Network.AWS.ElastiCache.Types.AvailabilityZone as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
+import qualified Network.AWS.ElastiCache.Types.SubnetOutpost as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the subnet associated with a cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with ElastiCache.
 --
 -- /See:/ 'mkSubnet' smart constructor.
 data Subnet = Subnet'
-  { -- | The unique identifier for the subnet.
-    subnetIdentifier :: Lude.Maybe Lude.Text,
-    -- | The Availability Zone associated with the subnet.
-    subnetAvailabilityZone :: Lude.Maybe AvailabilityZone,
+  { -- | The Availability Zone associated with the subnet.
+    subnetAvailabilityZone :: Core.Maybe Types.AvailabilityZone,
+    -- | The unique identifier for the subnet.
+    subnetIdentifier :: Core.Maybe Types.String,
     -- | The outpost ARN of the subnet.
-    subnetOutpost :: Lude.Maybe SubnetOutpost
+    subnetOutpost :: Core.Maybe Types.SubnetOutpost
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Subnet' with the minimum fields required to make a request.
---
--- * 'subnetIdentifier' - The unique identifier for the subnet.
--- * 'subnetAvailabilityZone' - The Availability Zone associated with the subnet.
--- * 'subnetOutpost' - The outpost ARN of the subnet.
+-- | Creates a 'Subnet' value with any optional fields omitted.
 mkSubnet ::
   Subnet
 mkSubnet =
   Subnet'
-    { subnetIdentifier = Lude.Nothing,
-      subnetAvailabilityZone = Lude.Nothing,
-      subnetOutpost = Lude.Nothing
+    { subnetAvailabilityZone = Core.Nothing,
+      subnetIdentifier = Core.Nothing,
+      subnetOutpost = Core.Nothing
     }
-
--- | The unique identifier for the subnet.
---
--- /Note:/ Consider using 'subnetIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubnetIdentifier :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
-sSubnetIdentifier = Lens.lens (subnetIdentifier :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {subnetIdentifier = a} :: Subnet)
-{-# DEPRECATED sSubnetIdentifier "Use generic-lens or generic-optics with 'subnetIdentifier' instead." #-}
 
 -- | The Availability Zone associated with the subnet.
 --
 -- /Note:/ Consider using 'subnetAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubnetAvailabilityZone :: Lens.Lens' Subnet (Lude.Maybe AvailabilityZone)
-sSubnetAvailabilityZone = Lens.lens (subnetAvailabilityZone :: Subnet -> Lude.Maybe AvailabilityZone) (\s a -> s {subnetAvailabilityZone = a} :: Subnet)
+sSubnetAvailabilityZone :: Lens.Lens' Subnet (Core.Maybe Types.AvailabilityZone)
+sSubnetAvailabilityZone = Lens.field @"subnetAvailabilityZone"
 {-# DEPRECATED sSubnetAvailabilityZone "Use generic-lens or generic-optics with 'subnetAvailabilityZone' instead." #-}
+
+-- | The unique identifier for the subnet.
+--
+-- /Note:/ Consider using 'subnetIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetIdentifier :: Lens.Lens' Subnet (Core.Maybe Types.String)
+sSubnetIdentifier = Lens.field @"subnetIdentifier"
+{-# DEPRECATED sSubnetIdentifier "Use generic-lens or generic-optics with 'subnetIdentifier' instead." #-}
 
 -- | The outpost ARN of the subnet.
 --
 -- /Note:/ Consider using 'subnetOutpost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubnetOutpost :: Lens.Lens' Subnet (Lude.Maybe SubnetOutpost)
-sSubnetOutpost = Lens.lens (subnetOutpost :: Subnet -> Lude.Maybe SubnetOutpost) (\s a -> s {subnetOutpost = a} :: Subnet)
+sSubnetOutpost :: Lens.Lens' Subnet (Core.Maybe Types.SubnetOutpost)
+sSubnetOutpost = Lens.field @"subnetOutpost"
 {-# DEPRECATED sSubnetOutpost "Use generic-lens or generic-optics with 'subnetOutpost' instead." #-}
 
-instance Lude.FromXML Subnet where
+instance Core.FromXML Subnet where
   parseXML x =
     Subnet'
-      Lude.<$> (x Lude..@? "SubnetIdentifier")
-      Lude.<*> (x Lude..@? "SubnetAvailabilityZone")
-      Lude.<*> (x Lude..@? "SubnetOutpost")
+      Core.<$> (x Core..@? "SubnetAvailabilityZone")
+      Core.<*> (x Core..@? "SubnetIdentifier")
+      Core.<*> (x Core..@? "SubnetOutpost")

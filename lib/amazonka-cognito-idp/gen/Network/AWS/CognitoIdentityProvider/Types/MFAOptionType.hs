@@ -17,68 +17,63 @@ module Network.AWS.CognitoIdentityProvider.Types.MFAOptionType
     mkMFAOptionType,
 
     -- * Lenses
-    motDeliveryMedium,
-    motAttributeName,
+    mfaotAttributeName,
+    mfaotDeliveryMedium,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
+import qualified Network.AWS.CognitoIdentityProvider.Types.AttributeNameType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /This data type is no longer supported./ You can use it only for SMS MFA configurations. You can't use it for TOTP software token MFA configurations.
 --
 -- /See:/ 'mkMFAOptionType' smart constructor.
 data MFAOptionType = MFAOptionType'
-  { -- | The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
-    deliveryMedium :: Lude.Maybe DeliveryMediumType,
-    -- | The attribute name of the MFA option type. The only valid value is @phone_number@ .
-    attributeName :: Lude.Maybe Lude.Text
+  { -- | The attribute name of the MFA option type. The only valid value is @phone_number@ .
+    attributeName :: Core.Maybe Types.AttributeNameType,
+    -- | The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
+    deliveryMedium :: Core.Maybe Types.DeliveryMediumType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MFAOptionType' with the minimum fields required to make a request.
---
--- * 'deliveryMedium' - The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
--- * 'attributeName' - The attribute name of the MFA option type. The only valid value is @phone_number@ .
+-- | Creates a 'MFAOptionType' value with any optional fields omitted.
 mkMFAOptionType ::
   MFAOptionType
 mkMFAOptionType =
   MFAOptionType'
-    { deliveryMedium = Lude.Nothing,
-      attributeName = Lude.Nothing
+    { attributeName = Core.Nothing,
+      deliveryMedium = Core.Nothing
     }
-
--- | The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
---
--- /Note:/ Consider using 'deliveryMedium' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-motDeliveryMedium :: Lens.Lens' MFAOptionType (Lude.Maybe DeliveryMediumType)
-motDeliveryMedium = Lens.lens (deliveryMedium :: MFAOptionType -> Lude.Maybe DeliveryMediumType) (\s a -> s {deliveryMedium = a} :: MFAOptionType)
-{-# DEPRECATED motDeliveryMedium "Use generic-lens or generic-optics with 'deliveryMedium' instead." #-}
 
 -- | The attribute name of the MFA option type. The only valid value is @phone_number@ .
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-motAttributeName :: Lens.Lens' MFAOptionType (Lude.Maybe Lude.Text)
-motAttributeName = Lens.lens (attributeName :: MFAOptionType -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: MFAOptionType)
-{-# DEPRECATED motAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
+mfaotAttributeName :: Lens.Lens' MFAOptionType (Core.Maybe Types.AttributeNameType)
+mfaotAttributeName = Lens.field @"attributeName"
+{-# DEPRECATED mfaotAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.FromJSON MFAOptionType where
-  parseJSON =
-    Lude.withObject
-      "MFAOptionType"
-      ( \x ->
-          MFAOptionType'
-            Lude.<$> (x Lude..:? "DeliveryMedium")
-            Lude.<*> (x Lude..:? "AttributeName")
-      )
+-- | The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
+--
+-- /Note:/ Consider using 'deliveryMedium' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfaotDeliveryMedium :: Lens.Lens' MFAOptionType (Core.Maybe Types.DeliveryMediumType)
+mfaotDeliveryMedium = Lens.field @"deliveryMedium"
+{-# DEPRECATED mfaotDeliveryMedium "Use generic-lens or generic-optics with 'deliveryMedium' instead." #-}
 
-instance Lude.ToJSON MFAOptionType where
-  toJSON MFAOptionType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeliveryMedium" Lude..=) Lude.<$> deliveryMedium,
-            ("AttributeName" Lude..=) Lude.<$> attributeName
+instance Core.FromJSON MFAOptionType where
+  toJSON MFAOptionType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeName" Core..=) Core.<$> attributeName,
+            ("DeliveryMedium" Core..=) Core.<$> deliveryMedium
           ]
       )
+
+instance Core.FromJSON MFAOptionType where
+  parseJSON =
+    Core.withObject "MFAOptionType" Core.$
+      \x ->
+        MFAOptionType'
+          Core.<$> (x Core..:? "AttributeName") Core.<*> (x Core..:? "DeliveryMedium")

@@ -17,48 +17,47 @@ module Network.AWS.CloudFront.Types.InvalidationBatch
     mkInvalidationBatch,
 
     -- * Lenses
-    ibCallerReference,
     ibPaths,
+    ibCallerReference,
   )
 where
 
-import Network.AWS.CloudFront.Types.Paths
+import qualified Network.AWS.CloudFront.Types.Paths as Types
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An invalidation batch.
 --
 -- /See:/ 'mkInvalidationBatch' smart constructor.
 data InvalidationBatch = InvalidationBatch'
-  { -- | A value that you specify to uniquely identify an invalidation request. CloudFront uses the value to prevent you from accidentally resubmitting an identical request. Whenever you create a new invalidation request, you must specify a new value for @CallerReference@ and change other values in the request as applicable. One way to ensure that the value of @CallerReference@ is unique is to use a @timestamp@ , for example, @20120301090000@ .
+  { -- | A complex type that contains information about the objects that you want to invalidate. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate> in the /Amazon CloudFront Developer Guide/ .
+    paths :: Types.Paths,
+    -- | A value that you specify to uniquely identify an invalidation request. CloudFront uses the value to prevent you from accidentally resubmitting an identical request. Whenever you create a new invalidation request, you must specify a new value for @CallerReference@ and change other values in the request as applicable. One way to ensure that the value of @CallerReference@ is unique is to use a @timestamp@ , for example, @20120301090000@ .
     --
     -- If you make a second invalidation request with the same value for @CallerReference@ , and if the rest of the request is the same, CloudFront doesn't create a new invalidation request. Instead, CloudFront returns information about the invalidation request that you previously created with the same @CallerReference@ .
     -- If @CallerReference@ is a value you already sent in a previous invalidation batch request but the content of any @Path@ is different from the original request, CloudFront returns an @InvalidationBatchAlreadyExists@ error.
-    callerReference :: Lude.Text,
-    -- | A complex type that contains information about the objects that you want to invalidate. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate> in the /Amazon CloudFront Developer Guide/ .
-    paths :: Paths
+    callerReference :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InvalidationBatch' with the minimum fields required to make a request.
---
--- * 'callerReference' - A value that you specify to uniquely identify an invalidation request. CloudFront uses the value to prevent you from accidentally resubmitting an identical request. Whenever you create a new invalidation request, you must specify a new value for @CallerReference@ and change other values in the request as applicable. One way to ensure that the value of @CallerReference@ is unique is to use a @timestamp@ , for example, @20120301090000@ .
---
--- If you make a second invalidation request with the same value for @CallerReference@ , and if the rest of the request is the same, CloudFront doesn't create a new invalidation request. Instead, CloudFront returns information about the invalidation request that you previously created with the same @CallerReference@ .
--- If @CallerReference@ is a value you already sent in a previous invalidation batch request but the content of any @Path@ is different from the original request, CloudFront returns an @InvalidationBatchAlreadyExists@ error.
--- * 'paths' - A complex type that contains information about the objects that you want to invalidate. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate> in the /Amazon CloudFront Developer Guide/ .
+-- | Creates a 'InvalidationBatch' value with any optional fields omitted.
 mkInvalidationBatch ::
-  -- | 'callerReference'
-  Lude.Text ->
   -- | 'paths'
-  Paths ->
+  Types.Paths ->
+  -- | 'callerReference'
+  Types.String ->
   InvalidationBatch
-mkInvalidationBatch pCallerReference_ pPaths_ =
-  InvalidationBatch'
-    { callerReference = pCallerReference_,
-      paths = pPaths_
-    }
+mkInvalidationBatch paths callerReference =
+  InvalidationBatch' {paths, callerReference}
+
+-- | A complex type that contains information about the objects that you want to invalidate. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate> in the /Amazon CloudFront Developer Guide/ .
+--
+-- /Note:/ Consider using 'paths' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibPaths :: Lens.Lens' InvalidationBatch Types.Paths
+ibPaths = Lens.field @"paths"
+{-# DEPRECATED ibPaths "Use generic-lens or generic-optics with 'paths' instead." #-}
 
 -- | A value that you specify to uniquely identify an invalidation request. CloudFront uses the value to prevent you from accidentally resubmitting an identical request. Whenever you create a new invalidation request, you must specify a new value for @CallerReference@ and change other values in the request as applicable. One way to ensure that the value of @CallerReference@ is unique is to use a @timestamp@ , for example, @20120301090000@ .
 --
@@ -66,23 +65,16 @@ mkInvalidationBatch pCallerReference_ pPaths_ =
 -- If @CallerReference@ is a value you already sent in a previous invalidation batch request but the content of any @Path@ is different from the original request, CloudFront returns an @InvalidationBatchAlreadyExists@ error.
 --
 -- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibCallerReference :: Lens.Lens' InvalidationBatch Lude.Text
-ibCallerReference = Lens.lens (callerReference :: InvalidationBatch -> Lude.Text) (\s a -> s {callerReference = a} :: InvalidationBatch)
+ibCallerReference :: Lens.Lens' InvalidationBatch Types.String
+ibCallerReference = Lens.field @"callerReference"
 {-# DEPRECATED ibCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
--- | A complex type that contains information about the objects that you want to invalidate. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate> in the /Amazon CloudFront Developer Guide/ .
---
--- /Note:/ Consider using 'paths' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibPaths :: Lens.Lens' InvalidationBatch Paths
-ibPaths = Lens.lens (paths :: InvalidationBatch -> Paths) (\s a -> s {paths = a} :: InvalidationBatch)
-{-# DEPRECATED ibPaths "Use generic-lens or generic-optics with 'paths' instead." #-}
+instance Core.ToXML InvalidationBatch where
+  toXML InvalidationBatch {..} =
+    Core.toXMLNode "Paths" paths
+      Core.<> Core.toXMLNode "CallerReference" callerReference
 
-instance Lude.FromXML InvalidationBatch where
+instance Core.FromXML InvalidationBatch where
   parseXML x =
     InvalidationBatch'
-      Lude.<$> (x Lude..@ "CallerReference") Lude.<*> (x Lude..@ "Paths")
-
-instance Lude.ToXML InvalidationBatch where
-  toXML InvalidationBatch' {..} =
-    Lude.mconcat
-      ["CallerReference" Lude.@= callerReference, "Paths" Lude.@= paths]
+      Core.<$> (x Core..@ "Paths") Core.<*> (x Core..@ "CallerReference")

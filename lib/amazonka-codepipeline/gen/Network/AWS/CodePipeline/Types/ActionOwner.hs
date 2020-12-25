@@ -13,51 +13,53 @@
 module Network.AWS.CodePipeline.Types.ActionOwner
   ( ActionOwner
       ( ActionOwner',
-        AWS,
-        ThirdParty,
-        Custom
+        ActionOwnerAws,
+        ActionOwnerThirdParty,
+        ActionOwnerCustom,
+        fromActionOwner
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionOwner = ActionOwner' Lude.Text
+newtype ActionOwner = ActionOwner' {fromActionOwner :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AWS :: ActionOwner
-pattern AWS = ActionOwner' "AWS"
+pattern ActionOwnerAws :: ActionOwner
+pattern ActionOwnerAws = ActionOwner' "AWS"
 
-pattern ThirdParty :: ActionOwner
-pattern ThirdParty = ActionOwner' "ThirdParty"
+pattern ActionOwnerThirdParty :: ActionOwner
+pattern ActionOwnerThirdParty = ActionOwner' "ThirdParty"
 
-pattern Custom :: ActionOwner
-pattern Custom = ActionOwner' "Custom"
+pattern ActionOwnerCustom :: ActionOwner
+pattern ActionOwnerCustom = ActionOwner' "Custom"
 
 {-# COMPLETE
-  AWS,
-  ThirdParty,
-  Custom,
+  ActionOwnerAws,
+  ActionOwnerThirdParty,
+  ActionOwnerCustom,
   ActionOwner'
   #-}

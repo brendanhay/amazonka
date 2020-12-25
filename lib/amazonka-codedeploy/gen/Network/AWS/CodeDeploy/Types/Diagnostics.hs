@@ -17,26 +17,25 @@ module Network.AWS.CodeDeploy.Types.Diagnostics
     mkDiagnostics,
 
     -- * Lenses
-    dLogTail,
     dErrorCode,
-    dScriptName,
+    dLogTail,
     dMessage,
+    dScriptName,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.LifecycleErrorCode
+import qualified Network.AWS.CodeDeploy.Types.LifecycleErrorCode as Types
+import qualified Network.AWS.CodeDeploy.Types.LifecycleMessage as Types
+import qualified Network.AWS.CodeDeploy.Types.LogTail as Types
+import qualified Network.AWS.CodeDeploy.Types.ScriptName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Diagnostic information about executable scripts that are part of a deployment.
 --
 -- /See:/ 'mkDiagnostics' smart constructor.
 data Diagnostics = Diagnostics'
-  { -- | The last portion of the diagnostic log.
-    --
-    -- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
-    logTail :: Lude.Maybe Lude.Text,
-    -- | The associated error code:
+  { -- | The associated error code:
     --
     --
     --     * Success: The specified script ran.
@@ -55,61 +54,29 @@ data Diagnostics = Diagnostics'
     --
     --
     --     * UnknownError: The specified script did not run for an unknown reason.
-    errorCode :: Lude.Maybe LifecycleErrorCode,
-    -- | The name of the script.
-    scriptName :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.LifecycleErrorCode,
+    -- | The last portion of the diagnostic log.
+    --
+    -- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
+    logTail :: Core.Maybe Types.LogTail,
     -- | The message associated with the error.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.LifecycleMessage,
+    -- | The name of the script.
+    scriptName :: Core.Maybe Types.ScriptName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Diagnostics' with the minimum fields required to make a request.
---
--- * 'logTail' - The last portion of the diagnostic log.
---
--- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
--- * 'errorCode' - The associated error code:
---
---
---     * Success: The specified script ran.
---
---
---     * ScriptMissing: The specified script was not found in the specified location.
---
---
---     * ScriptNotExecutable: The specified script is not a recognized executable file type.
---
---
---     * ScriptTimedOut: The specified script did not finish running in the specified time period.
---
---
---     * ScriptFailed: The specified script failed to run as expected.
---
---
---     * UnknownError: The specified script did not run for an unknown reason.
---
---
--- * 'scriptName' - The name of the script.
--- * 'message' - The message associated with the error.
+-- | Creates a 'Diagnostics' value with any optional fields omitted.
 mkDiagnostics ::
   Diagnostics
 mkDiagnostics =
   Diagnostics'
-    { logTail = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      scriptName = Lude.Nothing,
-      message = Lude.Nothing
+    { errorCode = Core.Nothing,
+      logTail = Core.Nothing,
+      message = Core.Nothing,
+      scriptName = Core.Nothing
     }
-
--- | The last portion of the diagnostic log.
---
--- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
---
--- /Note:/ Consider using 'logTail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLogTail :: Lens.Lens' Diagnostics (Lude.Maybe Lude.Text)
-dLogTail = Lens.lens (logTail :: Diagnostics -> Lude.Maybe Lude.Text) (\s a -> s {logTail = a} :: Diagnostics)
-{-# DEPRECATED dLogTail "Use generic-lens or generic-optics with 'logTail' instead." #-}
 
 -- | The associated error code:
 --
@@ -134,32 +101,39 @@ dLogTail = Lens.lens (logTail :: Diagnostics -> Lude.Maybe Lude.Text) (\s a -> s
 --
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dErrorCode :: Lens.Lens' Diagnostics (Lude.Maybe LifecycleErrorCode)
-dErrorCode = Lens.lens (errorCode :: Diagnostics -> Lude.Maybe LifecycleErrorCode) (\s a -> s {errorCode = a} :: Diagnostics)
+dErrorCode :: Lens.Lens' Diagnostics (Core.Maybe Types.LifecycleErrorCode)
+dErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED dErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
--- | The name of the script.
+-- | The last portion of the diagnostic log.
 --
--- /Note:/ Consider using 'scriptName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dScriptName :: Lens.Lens' Diagnostics (Lude.Maybe Lude.Text)
-dScriptName = Lens.lens (scriptName :: Diagnostics -> Lude.Maybe Lude.Text) (\s a -> s {scriptName = a} :: Diagnostics)
-{-# DEPRECATED dScriptName "Use generic-lens or generic-optics with 'scriptName' instead." #-}
+-- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
+--
+-- /Note:/ Consider using 'logTail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLogTail :: Lens.Lens' Diagnostics (Core.Maybe Types.LogTail)
+dLogTail = Lens.field @"logTail"
+{-# DEPRECATED dLogTail "Use generic-lens or generic-optics with 'logTail' instead." #-}
 
 -- | The message associated with the error.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMessage :: Lens.Lens' Diagnostics (Lude.Maybe Lude.Text)
-dMessage = Lens.lens (message :: Diagnostics -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Diagnostics)
+dMessage :: Lens.Lens' Diagnostics (Core.Maybe Types.LifecycleMessage)
+dMessage = Lens.field @"message"
 {-# DEPRECATED dMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON Diagnostics where
+-- | The name of the script.
+--
+-- /Note:/ Consider using 'scriptName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dScriptName :: Lens.Lens' Diagnostics (Core.Maybe Types.ScriptName)
+dScriptName = Lens.field @"scriptName"
+{-# DEPRECATED dScriptName "Use generic-lens or generic-optics with 'scriptName' instead." #-}
+
+instance Core.FromJSON Diagnostics where
   parseJSON =
-    Lude.withObject
-      "Diagnostics"
-      ( \x ->
-          Diagnostics'
-            Lude.<$> (x Lude..:? "logTail")
-            Lude.<*> (x Lude..:? "errorCode")
-            Lude.<*> (x Lude..:? "scriptName")
-            Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "Diagnostics" Core.$
+      \x ->
+        Diagnostics'
+          Core.<$> (x Core..:? "errorCode")
+          Core.<*> (x Core..:? "logTail")
+          Core.<*> (x Core..:? "message")
+          Core.<*> (x Core..:? "scriptName")

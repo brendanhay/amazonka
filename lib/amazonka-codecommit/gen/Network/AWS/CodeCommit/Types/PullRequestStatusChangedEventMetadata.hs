@@ -21,43 +21,39 @@ module Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata
   )
 where
 
-import Network.AWS.CodeCommit.Types.PullRequestStatusEnum
+import qualified Network.AWS.CodeCommit.Types.PullRequestStatusEnum as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a change to the status of a pull request.
 --
 -- /See:/ 'mkPullRequestStatusChangedEventMetadata' smart constructor.
 newtype PullRequestStatusChangedEventMetadata = PullRequestStatusChangedEventMetadata'
   { -- | The changed status of the pull request.
-    pullRequestStatus :: Lude.Maybe PullRequestStatusEnum
+    pullRequestStatus :: Core.Maybe Types.PullRequestStatusEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PullRequestStatusChangedEventMetadata' with the minimum fields required to make a request.
---
--- * 'pullRequestStatus' - The changed status of the pull request.
+-- | Creates a 'PullRequestStatusChangedEventMetadata' value with any optional fields omitted.
 mkPullRequestStatusChangedEventMetadata ::
   PullRequestStatusChangedEventMetadata
 mkPullRequestStatusChangedEventMetadata =
   PullRequestStatusChangedEventMetadata'
     { pullRequestStatus =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The changed status of the pull request.
 --
 -- /Note:/ Consider using 'pullRequestStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prscemPullRequestStatus :: Lens.Lens' PullRequestStatusChangedEventMetadata (Lude.Maybe PullRequestStatusEnum)
-prscemPullRequestStatus = Lens.lens (pullRequestStatus :: PullRequestStatusChangedEventMetadata -> Lude.Maybe PullRequestStatusEnum) (\s a -> s {pullRequestStatus = a} :: PullRequestStatusChangedEventMetadata)
+prscemPullRequestStatus :: Lens.Lens' PullRequestStatusChangedEventMetadata (Core.Maybe Types.PullRequestStatusEnum)
+prscemPullRequestStatus = Lens.field @"pullRequestStatus"
 {-# DEPRECATED prscemPullRequestStatus "Use generic-lens or generic-optics with 'pullRequestStatus' instead." #-}
 
-instance Lude.FromJSON PullRequestStatusChangedEventMetadata where
+instance Core.FromJSON PullRequestStatusChangedEventMetadata where
   parseJSON =
-    Lude.withObject
-      "PullRequestStatusChangedEventMetadata"
-      ( \x ->
-          PullRequestStatusChangedEventMetadata'
-            Lude.<$> (x Lude..:? "pullRequestStatus")
-      )
+    Core.withObject "PullRequestStatusChangedEventMetadata" Core.$
+      \x ->
+        PullRequestStatusChangedEventMetadata'
+          Core.<$> (x Core..:? "pullRequestStatus")

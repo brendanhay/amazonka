@@ -20,238 +20,211 @@ module Network.AWS.Glue.CreateTrigger
     mkCreateTrigger,
 
     -- ** Request lenses
-    ctWorkflowName,
-    ctActions,
-    ctSchedule,
-    ctPredicate,
     ctName,
     ctType,
-    ctStartOnCreation,
+    ctActions,
     ctDescription,
+    ctPredicate,
+    ctSchedule,
+    ctStartOnCreation,
     ctTags,
+    ctWorkflowName,
 
     -- * Destructuring the response
     CreateTriggerResponse (..),
     mkCreateTriggerResponse,
 
     -- ** Response lenses
-    ctrsName,
-    ctrsResponseStatus,
+    ctrrsName,
+    ctrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTrigger' smart constructor.
 data CreateTrigger = CreateTrigger'
-  { -- | The name of the workflow associated with the trigger.
-    workflowName :: Lude.Maybe Lude.Text,
+  { -- | The name of the trigger.
+    name :: Types.NameString,
+    -- | The type of the new trigger.
+    type' :: Types.TriggerType,
     -- | The actions initiated by this trigger when it fires.
-    actions :: [Action],
-    -- | A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
-    --
-    -- This field is required when the trigger type is SCHEDULED.
-    schedule :: Lude.Maybe Lude.Text,
+    actions :: [Types.Action],
+    -- | A description of the new trigger.
+    description :: Core.Maybe Types.DescriptionString,
     -- | A predicate to specify when the new trigger should fire.
     --
     -- This field is required when the trigger type is @CONDITIONAL@ .
-    predicate :: Lude.Maybe Predicate,
-    -- | The name of the trigger.
-    name :: Lude.Text,
-    -- | The type of the new trigger.
-    type' :: TriggerType,
+    predicate :: Core.Maybe Types.Predicate,
+    -- | A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+    --
+    -- This field is required when the trigger type is SCHEDULED.
+    schedule :: Core.Maybe Types.GenericString,
     -- | Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when created. True is not supported for @ON_DEMAND@ triggers.
-    startOnCreation :: Lude.Maybe Lude.Bool,
-    -- | A description of the new trigger.
-    description :: Lude.Maybe Lude.Text,
+    startOnCreation :: Core.Maybe Core.Bool,
     -- | The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue),
+    -- | The name of the workflow associated with the trigger.
+    workflowName :: Core.Maybe Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrigger' with the minimum fields required to make a request.
---
--- * 'workflowName' - The name of the workflow associated with the trigger.
--- * 'actions' - The actions initiated by this trigger when it fires.
--- * 'schedule' - A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
---
--- This field is required when the trigger type is SCHEDULED.
--- * 'predicate' - A predicate to specify when the new trigger should fire.
---
--- This field is required when the trigger type is @CONDITIONAL@ .
--- * 'name' - The name of the trigger.
--- * 'type'' - The type of the new trigger.
--- * 'startOnCreation' - Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when created. True is not supported for @ON_DEMAND@ triggers.
--- * 'description' - A description of the new trigger.
--- * 'tags' - The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
+-- | Creates a 'CreateTrigger' value with any optional fields omitted.
 mkCreateTrigger ::
   -- | 'name'
-  Lude.Text ->
-  -- | 'type''
-  TriggerType ->
+  Types.NameString ->
+  -- | 'type\''
+  Types.TriggerType ->
   CreateTrigger
-mkCreateTrigger pName_ pType_ =
+mkCreateTrigger name type' =
   CreateTrigger'
-    { workflowName = Lude.Nothing,
-      actions = Lude.mempty,
-      schedule = Lude.Nothing,
-      predicate = Lude.Nothing,
-      name = pName_,
-      type' = pType_,
-      startOnCreation = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { name,
+      type',
+      actions = Core.mempty,
+      description = Core.Nothing,
+      predicate = Core.Nothing,
+      schedule = Core.Nothing,
+      startOnCreation = Core.Nothing,
+      tags = Core.Nothing,
+      workflowName = Core.Nothing
     }
 
--- | The name of the workflow associated with the trigger.
+-- | The name of the trigger.
 --
--- /Note:/ Consider using 'workflowName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctWorkflowName :: Lens.Lens' CreateTrigger (Lude.Maybe Lude.Text)
-ctWorkflowName = Lens.lens (workflowName :: CreateTrigger -> Lude.Maybe Lude.Text) (\s a -> s {workflowName = a} :: CreateTrigger)
-{-# DEPRECATED ctWorkflowName "Use generic-lens or generic-optics with 'workflowName' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctName :: Lens.Lens' CreateTrigger Types.NameString
+ctName = Lens.field @"name"
+{-# DEPRECATED ctName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The type of the new trigger.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctType :: Lens.Lens' CreateTrigger Types.TriggerType
+ctType = Lens.field @"type'"
+{-# DEPRECATED ctType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The actions initiated by this trigger when it fires.
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctActions :: Lens.Lens' CreateTrigger [Action]
-ctActions = Lens.lens (actions :: CreateTrigger -> [Action]) (\s a -> s {actions = a} :: CreateTrigger)
+ctActions :: Lens.Lens' CreateTrigger [Types.Action]
+ctActions = Lens.field @"actions"
 {-# DEPRECATED ctActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
--- | A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+-- | A description of the new trigger.
 --
--- This field is required when the trigger type is SCHEDULED.
---
--- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctSchedule :: Lens.Lens' CreateTrigger (Lude.Maybe Lude.Text)
-ctSchedule = Lens.lens (schedule :: CreateTrigger -> Lude.Maybe Lude.Text) (\s a -> s {schedule = a} :: CreateTrigger)
-{-# DEPRECATED ctSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctDescription :: Lens.Lens' CreateTrigger (Core.Maybe Types.DescriptionString)
+ctDescription = Lens.field @"description"
+{-# DEPRECATED ctDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A predicate to specify when the new trigger should fire.
 --
 -- This field is required when the trigger type is @CONDITIONAL@ .
 --
 -- /Note:/ Consider using 'predicate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctPredicate :: Lens.Lens' CreateTrigger (Lude.Maybe Predicate)
-ctPredicate = Lens.lens (predicate :: CreateTrigger -> Lude.Maybe Predicate) (\s a -> s {predicate = a} :: CreateTrigger)
+ctPredicate :: Lens.Lens' CreateTrigger (Core.Maybe Types.Predicate)
+ctPredicate = Lens.field @"predicate"
 {-# DEPRECATED ctPredicate "Use generic-lens or generic-optics with 'predicate' instead." #-}
 
--- | The name of the trigger.
+-- | A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctName :: Lens.Lens' CreateTrigger Lude.Text
-ctName = Lens.lens (name :: CreateTrigger -> Lude.Text) (\s a -> s {name = a} :: CreateTrigger)
-{-# DEPRECATED ctName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The type of the new trigger.
+-- This field is required when the trigger type is SCHEDULED.
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctType :: Lens.Lens' CreateTrigger TriggerType
-ctType = Lens.lens (type' :: CreateTrigger -> TriggerType) (\s a -> s {type' = a} :: CreateTrigger)
-{-# DEPRECATED ctType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctSchedule :: Lens.Lens' CreateTrigger (Core.Maybe Types.GenericString)
+ctSchedule = Lens.field @"schedule"
+{-# DEPRECATED ctSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when created. True is not supported for @ON_DEMAND@ triggers.
 --
 -- /Note:/ Consider using 'startOnCreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctStartOnCreation :: Lens.Lens' CreateTrigger (Lude.Maybe Lude.Bool)
-ctStartOnCreation = Lens.lens (startOnCreation :: CreateTrigger -> Lude.Maybe Lude.Bool) (\s a -> s {startOnCreation = a} :: CreateTrigger)
+ctStartOnCreation :: Lens.Lens' CreateTrigger (Core.Maybe Core.Bool)
+ctStartOnCreation = Lens.field @"startOnCreation"
 {-# DEPRECATED ctStartOnCreation "Use generic-lens or generic-optics with 'startOnCreation' instead." #-}
-
--- | A description of the new trigger.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctDescription :: Lens.Lens' CreateTrigger (Lude.Maybe Lude.Text)
-ctDescription = Lens.lens (description :: CreateTrigger -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateTrigger)
-{-# DEPRECATED ctDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags to use with this trigger. You may use tags to limit access to the trigger. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTags :: Lens.Lens' CreateTrigger (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ctTags = Lens.lens (tags :: CreateTrigger -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateTrigger)
+ctTags :: Lens.Lens' CreateTrigger (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+ctTags = Lens.field @"tags"
 {-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateTrigger where
+-- | The name of the workflow associated with the trigger.
+--
+-- /Note:/ Consider using 'workflowName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctWorkflowName :: Lens.Lens' CreateTrigger (Core.Maybe Types.NameString)
+ctWorkflowName = Lens.field @"workflowName"
+{-# DEPRECATED ctWorkflowName "Use generic-lens or generic-optics with 'workflowName' instead." #-}
+
+instance Core.FromJSON CreateTrigger where
+  toJSON CreateTrigger {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Type" Core..= type'),
+            Core.Just ("Actions" Core..= actions),
+            ("Description" Core..=) Core.<$> description,
+            ("Predicate" Core..=) Core.<$> predicate,
+            ("Schedule" Core..=) Core.<$> schedule,
+            ("StartOnCreation" Core..=) Core.<$> startOnCreation,
+            ("Tags" Core..=) Core.<$> tags,
+            ("WorkflowName" Core..=) Core.<$> workflowName
+          ]
+      )
+
+instance Core.AWSRequest CreateTrigger where
   type Rs CreateTrigger = CreateTriggerResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.CreateTrigger")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateTriggerResponse'
-            Lude.<$> (x Lude..?> "Name") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Name") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTrigger where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.CreateTrigger" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateTrigger where
-  toJSON CreateTrigger' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("WorkflowName" Lude..=) Lude.<$> workflowName,
-            Lude.Just ("Actions" Lude..= actions),
-            ("Schedule" Lude..=) Lude.<$> schedule,
-            ("Predicate" Lude..=) Lude.<$> predicate,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Type" Lude..= type'),
-            ("StartOnCreation" Lude..=) Lude.<$> startOnCreation,
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateTrigger where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTrigger where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateTriggerResponse' smart constructor.
 data CreateTriggerResponse = CreateTriggerResponse'
   { -- | The name of the trigger.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTriggerResponse' with the minimum fields required to make a request.
---
--- * 'name' - The name of the trigger.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTriggerResponse' value with any optional fields omitted.
 mkCreateTriggerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTriggerResponse
-mkCreateTriggerResponse pResponseStatus_ =
-  CreateTriggerResponse'
-    { name = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateTriggerResponse responseStatus =
+  CreateTriggerResponse' {name = Core.Nothing, responseStatus}
 
 -- | The name of the trigger.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrsName :: Lens.Lens' CreateTriggerResponse (Lude.Maybe Lude.Text)
-ctrsName = Lens.lens (name :: CreateTriggerResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateTriggerResponse)
-{-# DEPRECATED ctrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+ctrrsName :: Lens.Lens' CreateTriggerResponse (Core.Maybe Types.Name)
+ctrrsName = Lens.field @"name"
+{-# DEPRECATED ctrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrsResponseStatus :: Lens.Lens' CreateTriggerResponse Lude.Int
-ctrsResponseStatus = Lens.lens (responseStatus :: CreateTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTriggerResponse)
-{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctrrsResponseStatus :: Lens.Lens' CreateTriggerResponse Core.Int
+ctrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,29 +21,29 @@ module Network.AWS.StorageGateway.ActivateGateway
 
     -- ** Request lenses
     agActivationKey,
-    agMediumChangerType,
-    agTapeDriveType,
     agGatewayName,
+    agGatewayTimezone,
     agGatewayRegion,
     agGatewayType,
-    agGatewayTimezone,
+    agMediumChangerType,
     agTags,
+    agTapeDriveType,
 
     -- * Destructuring the response
     ActivateGatewayResponse (..),
     mkActivateGatewayResponse,
 
     -- ** Response lenses
-    agrsGatewayARN,
-    agrsResponseStatus,
+    agrrsGatewayARN,
+    agrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -75,77 +75,58 @@ data ActivateGateway = ActivateGateway'
   { -- | Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter @activationKey@ . It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the @ActivateGateway@ API call determine the actual configuration of your gateway.
     --
     -- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key> in the /AWS Storage Gateway User Guide/ .
-    activationKey :: Lude.Text,
-    -- | The value that indicates the type of medium changer to use for tape gateway. This field is optional.
-    --
-    -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-    mediumChangerType :: Lude.Maybe Lude.Text,
-    -- | The value that indicates the type of tape drive to use for tape gateway. This field is optional.
-    --
-    -- Valid Values: @IBM-ULT3580-TD5@
-    tapeDriveType :: Lude.Maybe Lude.Text,
+    activationKey :: Types.ActivationKey,
     -- | The name you configured for your gateway.
-    gatewayName :: Lude.Text,
+    gatewayName :: Types.GatewayName,
+    -- | A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
+    gatewayTimezone :: Types.GatewayTimezone,
     -- | A value that indicates the AWS Region where you want to store your data. The gateway AWS Region specified must be the same AWS Region as the AWS Region in your @Host@ header in the request. For more information about available AWS Regions and endpoints for AWS Storage Gateway, see <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas> in the /AWS General Reference/ .
     --
     -- Valid Values: See <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas> in the /AWS General Reference/ .
-    gatewayRegion :: Lude.Text,
+    gatewayRegion :: Types.RegionId,
     -- | A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @CACHED@ .
     --
     -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
-    gatewayType :: Lude.Maybe Lude.Text,
-    -- | A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
-    gatewayTimezone :: Lude.Text,
+    gatewayType :: Core.Maybe Types.GatewayType,
+    -- | The value that indicates the type of medium changer to use for tape gateway. This field is optional.
+    --
+    -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+    mediumChangerType :: Core.Maybe Types.MediumChangerType,
     -- | A list of up to 50 tags that you can assign to the gateway. Each tag is a key-value pair.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The value that indicates the type of tape drive to use for tape gateway. This field is optional.
+    --
+    -- Valid Values: @IBM-ULT3580-TD5@
+    tapeDriveType :: Core.Maybe Types.TapeDriveType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivateGateway' with the minimum fields required to make a request.
---
--- * 'activationKey' - Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter @activationKey@ . It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the @ActivateGateway@ API call determine the actual configuration of your gateway.
---
--- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key> in the /AWS Storage Gateway User Guide/ .
--- * 'mediumChangerType' - The value that indicates the type of medium changer to use for tape gateway. This field is optional.
---
--- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
--- * 'tapeDriveType' - The value that indicates the type of tape drive to use for tape gateway. This field is optional.
---
--- Valid Values: @IBM-ULT3580-TD5@
--- * 'gatewayName' - The name you configured for your gateway.
--- * 'gatewayRegion' - A value that indicates the AWS Region where you want to store your data. The gateway AWS Region specified must be the same AWS Region as the AWS Region in your @Host@ header in the request. For more information about available AWS Regions and endpoints for AWS Storage Gateway, see <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas> in the /AWS General Reference/ .
---
--- Valid Values: See <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas> in the /AWS General Reference/ .
--- * 'gatewayType' - A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @CACHED@ .
---
--- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
--- * 'gatewayTimezone' - A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
--- * 'tags' - A list of up to 50 tags that you can assign to the gateway. Each tag is a key-value pair.
+-- | Creates a 'ActivateGateway' value with any optional fields omitted.
 mkActivateGateway ::
   -- | 'activationKey'
-  Lude.Text ->
+  Types.ActivationKey ->
   -- | 'gatewayName'
-  Lude.Text ->
-  -- | 'gatewayRegion'
-  Lude.Text ->
+  Types.GatewayName ->
   -- | 'gatewayTimezone'
-  Lude.Text ->
+  Types.GatewayTimezone ->
+  -- | 'gatewayRegion'
+  Types.RegionId ->
   ActivateGateway
 mkActivateGateway
-  pActivationKey_
-  pGatewayName_
-  pGatewayRegion_
-  pGatewayTimezone_ =
+  activationKey
+  gatewayName
+  gatewayTimezone
+  gatewayRegion =
     ActivateGateway'
-      { activationKey = pActivationKey_,
-        mediumChangerType = Lude.Nothing,
-        tapeDriveType = Lude.Nothing,
-        gatewayName = pGatewayName_,
-        gatewayRegion = pGatewayRegion_,
-        gatewayType = Lude.Nothing,
-        gatewayTimezone = pGatewayTimezone_,
-        tags = Lude.Nothing
+      { activationKey,
+        gatewayName,
+        gatewayTimezone,
+        gatewayRegion,
+        gatewayType = Core.Nothing,
+        mediumChangerType = Core.Nothing,
+        tags = Core.Nothing,
+        tapeDriveType = Core.Nothing
       }
 
 -- | Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter @activationKey@ . It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the @ActivateGateway@ API call determine the actual configuration of your gateway.
@@ -153,42 +134,31 @@ mkActivateGateway
 -- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key> in the /AWS Storage Gateway User Guide/ .
 --
 -- /Note:/ Consider using 'activationKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agActivationKey :: Lens.Lens' ActivateGateway Lude.Text
-agActivationKey = Lens.lens (activationKey :: ActivateGateway -> Lude.Text) (\s a -> s {activationKey = a} :: ActivateGateway)
+agActivationKey :: Lens.Lens' ActivateGateway Types.ActivationKey
+agActivationKey = Lens.field @"activationKey"
 {-# DEPRECATED agActivationKey "Use generic-lens or generic-optics with 'activationKey' instead." #-}
-
--- | The value that indicates the type of medium changer to use for tape gateway. This field is optional.
---
--- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
---
--- /Note:/ Consider using 'mediumChangerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agMediumChangerType :: Lens.Lens' ActivateGateway (Lude.Maybe Lude.Text)
-agMediumChangerType = Lens.lens (mediumChangerType :: ActivateGateway -> Lude.Maybe Lude.Text) (\s a -> s {mediumChangerType = a} :: ActivateGateway)
-{-# DEPRECATED agMediumChangerType "Use generic-lens or generic-optics with 'mediumChangerType' instead." #-}
-
--- | The value that indicates the type of tape drive to use for tape gateway. This field is optional.
---
--- Valid Values: @IBM-ULT3580-TD5@
---
--- /Note:/ Consider using 'tapeDriveType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agTapeDriveType :: Lens.Lens' ActivateGateway (Lude.Maybe Lude.Text)
-agTapeDriveType = Lens.lens (tapeDriveType :: ActivateGateway -> Lude.Maybe Lude.Text) (\s a -> s {tapeDriveType = a} :: ActivateGateway)
-{-# DEPRECATED agTapeDriveType "Use generic-lens or generic-optics with 'tapeDriveType' instead." #-}
 
 -- | The name you configured for your gateway.
 --
 -- /Note:/ Consider using 'gatewayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agGatewayName :: Lens.Lens' ActivateGateway Lude.Text
-agGatewayName = Lens.lens (gatewayName :: ActivateGateway -> Lude.Text) (\s a -> s {gatewayName = a} :: ActivateGateway)
+agGatewayName :: Lens.Lens' ActivateGateway Types.GatewayName
+agGatewayName = Lens.field @"gatewayName"
 {-# DEPRECATED agGatewayName "Use generic-lens or generic-optics with 'gatewayName' instead." #-}
+
+-- | A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
+--
+-- /Note:/ Consider using 'gatewayTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agGatewayTimezone :: Lens.Lens' ActivateGateway Types.GatewayTimezone
+agGatewayTimezone = Lens.field @"gatewayTimezone"
+{-# DEPRECATED agGatewayTimezone "Use generic-lens or generic-optics with 'gatewayTimezone' instead." #-}
 
 -- | A value that indicates the AWS Region where you want to store your data. The gateway AWS Region specified must be the same AWS Region as the AWS Region in your @Host@ header in the request. For more information about available AWS Regions and endpoints for AWS Storage Gateway, see <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas> in the /AWS General Reference/ .
 --
 -- Valid Values: See <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas> in the /AWS General Reference/ .
 --
 -- /Note:/ Consider using 'gatewayRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agGatewayRegion :: Lens.Lens' ActivateGateway Lude.Text
-agGatewayRegion = Lens.lens (gatewayRegion :: ActivateGateway -> Lude.Text) (\s a -> s {gatewayRegion = a} :: ActivateGateway)
+agGatewayRegion :: Lens.Lens' ActivateGateway Types.RegionId
+agGatewayRegion = Lens.field @"gatewayRegion"
 {-# DEPRECATED agGatewayRegion "Use generic-lens or generic-optics with 'gatewayRegion' instead." #-}
 
 -- | A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @CACHED@ .
@@ -196,101 +166,103 @@ agGatewayRegion = Lens.lens (gatewayRegion :: ActivateGateway -> Lude.Text) (\s 
 -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
 --
 -- /Note:/ Consider using 'gatewayType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agGatewayType :: Lens.Lens' ActivateGateway (Lude.Maybe Lude.Text)
-agGatewayType = Lens.lens (gatewayType :: ActivateGateway -> Lude.Maybe Lude.Text) (\s a -> s {gatewayType = a} :: ActivateGateway)
+agGatewayType :: Lens.Lens' ActivateGateway (Core.Maybe Types.GatewayType)
+agGatewayType = Lens.field @"gatewayType"
 {-# DEPRECATED agGatewayType "Use generic-lens or generic-optics with 'gatewayType' instead." #-}
 
--- | A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
+-- | The value that indicates the type of medium changer to use for tape gateway. This field is optional.
 --
--- /Note:/ Consider using 'gatewayTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agGatewayTimezone :: Lens.Lens' ActivateGateway Lude.Text
-agGatewayTimezone = Lens.lens (gatewayTimezone :: ActivateGateway -> Lude.Text) (\s a -> s {gatewayTimezone = a} :: ActivateGateway)
-{-# DEPRECATED agGatewayTimezone "Use generic-lens or generic-optics with 'gatewayTimezone' instead." #-}
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+--
+-- /Note:/ Consider using 'mediumChangerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agMediumChangerType :: Lens.Lens' ActivateGateway (Core.Maybe Types.MediumChangerType)
+agMediumChangerType = Lens.field @"mediumChangerType"
+{-# DEPRECATED agMediumChangerType "Use generic-lens or generic-optics with 'mediumChangerType' instead." #-}
 
 -- | A list of up to 50 tags that you can assign to the gateway. Each tag is a key-value pair.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agTags :: Lens.Lens' ActivateGateway (Lude.Maybe [Tag])
-agTags = Lens.lens (tags :: ActivateGateway -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ActivateGateway)
+agTags :: Lens.Lens' ActivateGateway (Core.Maybe [Types.Tag])
+agTags = Lens.field @"tags"
 {-# DEPRECATED agTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest ActivateGateway where
+-- | The value that indicates the type of tape drive to use for tape gateway. This field is optional.
+--
+-- Valid Values: @IBM-ULT3580-TD5@
+--
+-- /Note:/ Consider using 'tapeDriveType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agTapeDriveType :: Lens.Lens' ActivateGateway (Core.Maybe Types.TapeDriveType)
+agTapeDriveType = Lens.field @"tapeDriveType"
+{-# DEPRECATED agTapeDriveType "Use generic-lens or generic-optics with 'tapeDriveType' instead." #-}
+
+instance Core.FromJSON ActivateGateway where
+  toJSON ActivateGateway {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ActivationKey" Core..= activationKey),
+            Core.Just ("GatewayName" Core..= gatewayName),
+            Core.Just ("GatewayTimezone" Core..= gatewayTimezone),
+            Core.Just ("GatewayRegion" Core..= gatewayRegion),
+            ("GatewayType" Core..=) Core.<$> gatewayType,
+            ("MediumChangerType" Core..=) Core.<$> mediumChangerType,
+            ("Tags" Core..=) Core.<$> tags,
+            ("TapeDriveType" Core..=) Core.<$> tapeDriveType
+          ]
+      )
+
+instance Core.AWSRequest ActivateGateway where
   type Rs ActivateGateway = ActivateGatewayResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.ActivateGateway")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ActivateGatewayResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ActivateGateway where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.ActivateGateway" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ActivateGateway where
-  toJSON ActivateGateway' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ActivationKey" Lude..= activationKey),
-            ("MediumChangerType" Lude..=) Lude.<$> mediumChangerType,
-            ("TapeDriveType" Lude..=) Lude.<$> tapeDriveType,
-            Lude.Just ("GatewayName" Lude..= gatewayName),
-            Lude.Just ("GatewayRegion" Lude..= gatewayRegion),
-            ("GatewayType" Lude..=) Lude.<$> gatewayType,
-            Lude.Just ("GatewayTimezone" Lude..= gatewayTimezone),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath ActivateGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ActivateGateway where
-  toQuery = Lude.const Lude.mempty
 
 -- | AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and AWS Region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.
 --
 -- /See:/ 'mkActivateGatewayResponse' smart constructor.
 data ActivateGatewayResponse = ActivateGatewayResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivateGatewayResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ActivateGatewayResponse' value with any optional fields omitted.
 mkActivateGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ActivateGatewayResponse
-mkActivateGatewayResponse pResponseStatus_ =
+mkActivateGatewayResponse responseStatus =
   ActivateGatewayResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agrsGatewayARN :: Lens.Lens' ActivateGatewayResponse (Lude.Maybe Lude.Text)
-agrsGatewayARN = Lens.lens (gatewayARN :: ActivateGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ActivateGatewayResponse)
-{-# DEPRECATED agrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+agrrsGatewayARN :: Lens.Lens' ActivateGatewayResponse (Core.Maybe Types.GatewayARN)
+agrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED agrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agrsResponseStatus :: Lens.Lens' ActivateGatewayResponse Lude.Int
-agrsResponseStatus = Lens.lens (responseStatus :: ActivateGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ActivateGatewayResponse)
-{-# DEPRECATED agrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+agrrsResponseStatus :: Lens.Lens' ActivateGatewayResponse Core.Int
+agrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED agrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

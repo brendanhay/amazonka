@@ -13,46 +13,51 @@
 module Network.AWS.CloudFormation.Types.PermissionModels
   ( PermissionModels
       ( PermissionModels',
-        ServiceManaged,
-        SelfManaged
+        PermissionModelsServiceManaged,
+        PermissionModelsSelfManaged,
+        fromPermissionModels
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PermissionModels = PermissionModels' Lude.Text
+newtype PermissionModels = PermissionModels'
+  { fromPermissionModels ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ServiceManaged :: PermissionModels
-pattern ServiceManaged = PermissionModels' "SERVICE_MANAGED"
+pattern PermissionModelsServiceManaged :: PermissionModels
+pattern PermissionModelsServiceManaged = PermissionModels' "SERVICE_MANAGED"
 
-pattern SelfManaged :: PermissionModels
-pattern SelfManaged = PermissionModels' "SELF_MANAGED"
+pattern PermissionModelsSelfManaged :: PermissionModels
+pattern PermissionModelsSelfManaged = PermissionModels' "SELF_MANAGED"
 
 {-# COMPLETE
-  ServiceManaged,
-  SelfManaged,
+  PermissionModelsServiceManaged,
+  PermissionModelsSelfManaged,
   PermissionModels'
   #-}

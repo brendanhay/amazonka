@@ -29,114 +29,99 @@ module Network.AWS.Lightsail.DeleteInstanceSnapshot
     mkDeleteInstanceSnapshotResponse,
 
     -- ** Response lenses
-    disrsOperations,
-    disrsResponseStatus,
+    disrrsOperations,
+    disrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteInstanceSnapshot' smart constructor.
 newtype DeleteInstanceSnapshot = DeleteInstanceSnapshot'
   { -- | The name of the snapshot to delete.
-    instanceSnapshotName :: Lude.Text
+    instanceSnapshotName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInstanceSnapshot' with the minimum fields required to make a request.
---
--- * 'instanceSnapshotName' - The name of the snapshot to delete.
+-- | Creates a 'DeleteInstanceSnapshot' value with any optional fields omitted.
 mkDeleteInstanceSnapshot ::
   -- | 'instanceSnapshotName'
-  Lude.Text ->
+  Types.ResourceName ->
   DeleteInstanceSnapshot
-mkDeleteInstanceSnapshot pInstanceSnapshotName_ =
-  DeleteInstanceSnapshot'
-    { instanceSnapshotName =
-        pInstanceSnapshotName_
-    }
+mkDeleteInstanceSnapshot instanceSnapshotName =
+  DeleteInstanceSnapshot' {instanceSnapshotName}
 
 -- | The name of the snapshot to delete.
 --
 -- /Note:/ Consider using 'instanceSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disInstanceSnapshotName :: Lens.Lens' DeleteInstanceSnapshot Lude.Text
-disInstanceSnapshotName = Lens.lens (instanceSnapshotName :: DeleteInstanceSnapshot -> Lude.Text) (\s a -> s {instanceSnapshotName = a} :: DeleteInstanceSnapshot)
+disInstanceSnapshotName :: Lens.Lens' DeleteInstanceSnapshot Types.ResourceName
+disInstanceSnapshotName = Lens.field @"instanceSnapshotName"
 {-# DEPRECATED disInstanceSnapshotName "Use generic-lens or generic-optics with 'instanceSnapshotName' instead." #-}
 
-instance Lude.AWSRequest DeleteInstanceSnapshot where
+instance Core.FromJSON DeleteInstanceSnapshot where
+  toJSON DeleteInstanceSnapshot {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("instanceSnapshotName" Core..= instanceSnapshotName)]
+      )
+
+instance Core.AWSRequest DeleteInstanceSnapshot where
   type Rs DeleteInstanceSnapshot = DeleteInstanceSnapshotResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.DeleteInstanceSnapshot")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteInstanceSnapshotResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteInstanceSnapshot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.DeleteInstanceSnapshot" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteInstanceSnapshot where
-  toJSON DeleteInstanceSnapshot' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("instanceSnapshotName" Lude..= instanceSnapshotName)]
-      )
-
-instance Lude.ToPath DeleteInstanceSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteInstanceSnapshot where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteInstanceSnapshotResponse' smart constructor.
 data DeleteInstanceSnapshotResponse = DeleteInstanceSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteInstanceSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteInstanceSnapshotResponse' value with any optional fields omitted.
 mkDeleteInstanceSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteInstanceSnapshotResponse
-mkDeleteInstanceSnapshotResponse pResponseStatus_ =
+mkDeleteInstanceSnapshotResponse responseStatus =
   DeleteInstanceSnapshotResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsOperations :: Lens.Lens' DeleteInstanceSnapshotResponse (Lude.Maybe [Operation])
-disrsOperations = Lens.lens (operations :: DeleteInstanceSnapshotResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteInstanceSnapshotResponse)
-{-# DEPRECATED disrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+disrrsOperations :: Lens.Lens' DeleteInstanceSnapshotResponse (Core.Maybe [Types.Operation])
+disrrsOperations = Lens.field @"operations"
+{-# DEPRECATED disrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DeleteInstanceSnapshotResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DeleteInstanceSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInstanceSnapshotResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+disrrsResponseStatus :: Lens.Lens' DeleteInstanceSnapshotResponse Core.Int
+disrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED disrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

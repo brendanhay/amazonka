@@ -17,140 +17,135 @@ module Network.AWS.Glue.Types.Database
     mkDatabase,
 
     -- * Lenses
-    dLocationURI,
-    dCatalogId,
-    dTargetDatabase,
     dName,
-    dParameters,
-    dDescription,
-    dCreateTime,
+    dCatalogId,
     dCreateTableDefaultPermissions,
+    dCreateTime,
+    dDescription,
+    dLocationUri,
+    dParameters,
+    dTargetDatabase,
   )
 where
 
-import Network.AWS.Glue.Types.DatabaseIdentifier
-import Network.AWS.Glue.Types.PrincipalPermissions
+import qualified Network.AWS.Glue.Types.CatalogId as Types
+import qualified Network.AWS.Glue.Types.DatabaseIdentifier as Types
+import qualified Network.AWS.Glue.Types.Description as Types
+import qualified Network.AWS.Glue.Types.KeyString as Types
+import qualified Network.AWS.Glue.Types.LocationUri as Types
+import qualified Network.AWS.Glue.Types.Name as Types
+import qualified Network.AWS.Glue.Types.ParametersMapValue as Types
+import qualified Network.AWS.Glue.Types.PrincipalPermissions as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The @Database@ object represents a logical grouping of tables that might reside in a Hive metastore or an RDBMS.
 --
 -- /See:/ 'mkDatabase' smart constructor.
 data Database = Database'
-  { -- | The location of the database (for example, an HDFS path).
-    locationURI :: Lude.Maybe Lude.Text,
+  { -- | The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
+    name :: Types.Name,
     -- | The ID of the Data Catalog in which the database resides.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | A @DatabaseIdentifier@ structure that describes a target database for resource linking.
-    targetDatabase :: Lude.Maybe DatabaseIdentifier,
-    -- | The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
-    name :: Lude.Text,
-    -- | These key-value pairs define parameters and properties of the database.
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | A description of the database.
-    description :: Lude.Maybe Lude.Text,
-    -- | The time at which the metadata database was created in the catalog.
-    createTime :: Lude.Maybe Lude.Timestamp,
+    catalogId :: Core.Maybe Types.CatalogId,
     -- | Creates a set of default permissions on the table for principals.
-    createTableDefaultPermissions :: Lude.Maybe [PrincipalPermissions]
+    createTableDefaultPermissions :: Core.Maybe [Types.PrincipalPermissions],
+    -- | The time at which the metadata database was created in the catalog.
+    createTime :: Core.Maybe Core.NominalDiffTime,
+    -- | A description of the database.
+    description :: Core.Maybe Types.Description,
+    -- | The location of the database (for example, an HDFS path).
+    locationUri :: Core.Maybe Types.LocationUri,
+    -- | These key-value pairs define parameters and properties of the database.
+    parameters :: Core.Maybe (Core.HashMap Types.KeyString Types.ParametersMapValue),
+    -- | A @DatabaseIdentifier@ structure that describes a target database for resource linking.
+    targetDatabase :: Core.Maybe Types.DatabaseIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Database' with the minimum fields required to make a request.
---
--- * 'locationURI' - The location of the database (for example, an HDFS path).
--- * 'catalogId' - The ID of the Data Catalog in which the database resides.
--- * 'targetDatabase' - A @DatabaseIdentifier@ structure that describes a target database for resource linking.
--- * 'name' - The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
--- * 'parameters' - These key-value pairs define parameters and properties of the database.
--- * 'description' - A description of the database.
--- * 'createTime' - The time at which the metadata database was created in the catalog.
--- * 'createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
+-- | Creates a 'Database' value with any optional fields omitted.
 mkDatabase ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   Database
-mkDatabase pName_ =
+mkDatabase name =
   Database'
-    { locationURI = Lude.Nothing,
-      catalogId = Lude.Nothing,
-      targetDatabase = Lude.Nothing,
-      name = pName_,
-      parameters = Lude.Nothing,
-      description = Lude.Nothing,
-      createTime = Lude.Nothing,
-      createTableDefaultPermissions = Lude.Nothing
+    { name,
+      catalogId = Core.Nothing,
+      createTableDefaultPermissions = Core.Nothing,
+      createTime = Core.Nothing,
+      description = Core.Nothing,
+      locationUri = Core.Nothing,
+      parameters = Core.Nothing,
+      targetDatabase = Core.Nothing
     }
-
--- | The location of the database (for example, an HDFS path).
---
--- /Note:/ Consider using 'locationURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLocationURI :: Lens.Lens' Database (Lude.Maybe Lude.Text)
-dLocationURI = Lens.lens (locationURI :: Database -> Lude.Maybe Lude.Text) (\s a -> s {locationURI = a} :: Database)
-{-# DEPRECATED dLocationURI "Use generic-lens or generic-optics with 'locationURI' instead." #-}
-
--- | The ID of the Data Catalog in which the database resides.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCatalogId :: Lens.Lens' Database (Lude.Maybe Lude.Text)
-dCatalogId = Lens.lens (catalogId :: Database -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: Database)
-{-# DEPRECATED dCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
-
--- | A @DatabaseIdentifier@ structure that describes a target database for resource linking.
---
--- /Note:/ Consider using 'targetDatabase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTargetDatabase :: Lens.Lens' Database (Lude.Maybe DatabaseIdentifier)
-dTargetDatabase = Lens.lens (targetDatabase :: Database -> Lude.Maybe DatabaseIdentifier) (\s a -> s {targetDatabase = a} :: Database)
-{-# DEPRECATED dTargetDatabase "Use generic-lens or generic-optics with 'targetDatabase' instead." #-}
 
 -- | The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' Database Lude.Text
-dName = Lens.lens (name :: Database -> Lude.Text) (\s a -> s {name = a} :: Database)
+dName :: Lens.Lens' Database Types.Name
+dName = Lens.field @"name"
 {-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | These key-value pairs define parameters and properties of the database.
+-- | The ID of the Data Catalog in which the database resides.
 --
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dParameters :: Lens.Lens' Database (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-dParameters = Lens.lens (parameters :: Database -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: Database)
-{-# DEPRECATED dParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | A description of the database.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDescription :: Lens.Lens' Database (Lude.Maybe Lude.Text)
-dDescription = Lens.lens (description :: Database -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Database)
-{-# DEPRECATED dDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The time at which the metadata database was created in the catalog.
---
--- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCreateTime :: Lens.Lens' Database (Lude.Maybe Lude.Timestamp)
-dCreateTime = Lens.lens (createTime :: Database -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: Database)
-{-# DEPRECATED dCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCatalogId :: Lens.Lens' Database (Core.Maybe Types.CatalogId)
+dCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED dCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | Creates a set of default permissions on the table for principals.
 --
 -- /Note:/ Consider using 'createTableDefaultPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCreateTableDefaultPermissions :: Lens.Lens' Database (Lude.Maybe [PrincipalPermissions])
-dCreateTableDefaultPermissions = Lens.lens (createTableDefaultPermissions :: Database -> Lude.Maybe [PrincipalPermissions]) (\s a -> s {createTableDefaultPermissions = a} :: Database)
+dCreateTableDefaultPermissions :: Lens.Lens' Database (Core.Maybe [Types.PrincipalPermissions])
+dCreateTableDefaultPermissions = Lens.field @"createTableDefaultPermissions"
 {-# DEPRECATED dCreateTableDefaultPermissions "Use generic-lens or generic-optics with 'createTableDefaultPermissions' instead." #-}
 
-instance Lude.FromJSON Database where
+-- | The time at which the metadata database was created in the catalog.
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCreateTime :: Lens.Lens' Database (Core.Maybe Core.NominalDiffTime)
+dCreateTime = Lens.field @"createTime"
+{-# DEPRECATED dCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
+
+-- | A description of the database.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDescription :: Lens.Lens' Database (Core.Maybe Types.Description)
+dDescription = Lens.field @"description"
+{-# DEPRECATED dDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The location of the database (for example, an HDFS path).
+--
+-- /Note:/ Consider using 'locationUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLocationUri :: Lens.Lens' Database (Core.Maybe Types.LocationUri)
+dLocationUri = Lens.field @"locationUri"
+{-# DEPRECATED dLocationUri "Use generic-lens or generic-optics with 'locationUri' instead." #-}
+
+-- | These key-value pairs define parameters and properties of the database.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dParameters :: Lens.Lens' Database (Core.Maybe (Core.HashMap Types.KeyString Types.ParametersMapValue))
+dParameters = Lens.field @"parameters"
+{-# DEPRECATED dParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | A @DatabaseIdentifier@ structure that describes a target database for resource linking.
+--
+-- /Note:/ Consider using 'targetDatabase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTargetDatabase :: Lens.Lens' Database (Core.Maybe Types.DatabaseIdentifier)
+dTargetDatabase = Lens.field @"targetDatabase"
+{-# DEPRECATED dTargetDatabase "Use generic-lens or generic-optics with 'targetDatabase' instead." #-}
+
+instance Core.FromJSON Database where
   parseJSON =
-    Lude.withObject
-      "Database"
-      ( \x ->
-          Database'
-            Lude.<$> (x Lude..:? "LocationUri")
-            Lude.<*> (x Lude..:? "CatalogId")
-            Lude.<*> (x Lude..:? "TargetDatabase")
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "CreateTime")
-            Lude.<*> (x Lude..:? "CreateTableDefaultPermissions" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Database" Core.$
+      \x ->
+        Database'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..:? "CatalogId")
+          Core.<*> (x Core..:? "CreateTableDefaultPermissions")
+          Core.<*> (x Core..:? "CreateTime")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "LocationUri")
+          Core.<*> (x Core..:? "Parameters")
+          Core.<*> (x Core..:? "TargetDatabase")

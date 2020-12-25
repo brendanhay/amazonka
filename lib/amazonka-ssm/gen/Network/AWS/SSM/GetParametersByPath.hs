@@ -22,215 +22,198 @@ module Network.AWS.SSM.GetParametersByPath
     mkGetParametersByPath,
 
     -- ** Request lenses
-    gpbpWithDecryption,
-    gpbpParameterFilters,
     gpbpPath,
-    gpbpNextToken,
-    gpbpRecursive,
     gpbpMaxResults,
+    gpbpNextToken,
+    gpbpParameterFilters,
+    gpbpRecursive,
+    gpbpWithDecryption,
 
     -- * Destructuring the response
     GetParametersByPathResponse (..),
     mkGetParametersByPathResponse,
 
     -- ** Response lenses
-    gpbprsNextToken,
-    gpbprsParameters,
-    gpbprsResponseStatus,
+    gpbprrsNextToken,
+    gpbprrsParameters,
+    gpbprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkGetParametersByPath' smart constructor.
 data GetParametersByPath = GetParametersByPath'
-  { -- | Retrieve all parameters in a hierarchy with their value decrypted.
-    withDecryption :: Lude.Maybe Lude.Bool,
-    -- | Filters to limit the request results.
-    parameterFilters :: Lude.Maybe [ParameterStringFilter],
-    -- | The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: @/Finance/Prod/IAD/WinServ2016/license33@
-    path :: Lude.Text,
+  { -- | The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: @/Finance/Prod/IAD/WinServ2016/license33@
+    path :: Types.PSParameterName,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Core.Maybe Core.Natural,
     -- | A token to start the list. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Filters to limit the request results.
+    parameterFilters :: Core.Maybe [Types.ParameterStringFilter],
     -- | Retrieve all parameters within a hierarchy.
     --
     -- /Important:/ If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path @/a@ , then the user can also access @/a/b@ . Even if a user has explicitly been denied access in IAM for parameter @/a/b@ , they can still call the GetParametersByPath API action recursively for @/a@ and view @/a/b@ .
-    recursive :: Lude.Maybe Lude.Bool,
-    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    recursive :: Core.Maybe Core.Bool,
+    -- | Retrieve all parameters in a hierarchy with their value decrypted.
+    withDecryption :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetParametersByPath' with the minimum fields required to make a request.
---
--- * 'withDecryption' - Retrieve all parameters in a hierarchy with their value decrypted.
--- * 'parameterFilters' - Filters to limit the request results.
--- * 'path' - The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: @/Finance/Prod/IAD/WinServ2016/license33@
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
--- * 'recursive' - Retrieve all parameters within a hierarchy.
---
--- /Important:/ If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path @/a@ , then the user can also access @/a/b@ . Even if a user has explicitly been denied access in IAM for parameter @/a/b@ , they can still call the GetParametersByPath API action recursively for @/a@ and view @/a/b@ .
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'GetParametersByPath' value with any optional fields omitted.
 mkGetParametersByPath ::
   -- | 'path'
-  Lude.Text ->
+  Types.PSParameterName ->
   GetParametersByPath
-mkGetParametersByPath pPath_ =
+mkGetParametersByPath path =
   GetParametersByPath'
-    { withDecryption = Lude.Nothing,
-      parameterFilters = Lude.Nothing,
-      path = pPath_,
-      nextToken = Lude.Nothing,
-      recursive = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { path,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      parameterFilters = Core.Nothing,
+      recursive = Core.Nothing,
+      withDecryption = Core.Nothing
     }
-
--- | Retrieve all parameters in a hierarchy with their value decrypted.
---
--- /Note:/ Consider using 'withDecryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbpWithDecryption :: Lens.Lens' GetParametersByPath (Lude.Maybe Lude.Bool)
-gpbpWithDecryption = Lens.lens (withDecryption :: GetParametersByPath -> Lude.Maybe Lude.Bool) (\s a -> s {withDecryption = a} :: GetParametersByPath)
-{-# DEPRECATED gpbpWithDecryption "Use generic-lens or generic-optics with 'withDecryption' instead." #-}
-
--- | Filters to limit the request results.
---
--- /Note:/ Consider using 'parameterFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbpParameterFilters :: Lens.Lens' GetParametersByPath (Lude.Maybe [ParameterStringFilter])
-gpbpParameterFilters = Lens.lens (parameterFilters :: GetParametersByPath -> Lude.Maybe [ParameterStringFilter]) (\s a -> s {parameterFilters = a} :: GetParametersByPath)
-{-# DEPRECATED gpbpParameterFilters "Use generic-lens or generic-optics with 'parameterFilters' instead." #-}
 
 -- | The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: @/Finance/Prod/IAD/WinServ2016/license33@
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbpPath :: Lens.Lens' GetParametersByPath Lude.Text
-gpbpPath = Lens.lens (path :: GetParametersByPath -> Lude.Text) (\s a -> s {path = a} :: GetParametersByPath)
+gpbpPath :: Lens.Lens' GetParametersByPath Types.PSParameterName
+gpbpPath = Lens.field @"path"
 {-# DEPRECATED gpbpPath "Use generic-lens or generic-optics with 'path' instead." #-}
+
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbpMaxResults :: Lens.Lens' GetParametersByPath (Core.Maybe Core.Natural)
+gpbpMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gpbpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A token to start the list. Use this token to get the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbpNextToken :: Lens.Lens' GetParametersByPath (Lude.Maybe Lude.Text)
-gpbpNextToken = Lens.lens (nextToken :: GetParametersByPath -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetParametersByPath)
+gpbpNextToken :: Lens.Lens' GetParametersByPath (Core.Maybe Types.NextToken)
+gpbpNextToken = Lens.field @"nextToken"
 {-# DEPRECATED gpbpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Filters to limit the request results.
+--
+-- /Note:/ Consider using 'parameterFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbpParameterFilters :: Lens.Lens' GetParametersByPath (Core.Maybe [Types.ParameterStringFilter])
+gpbpParameterFilters = Lens.field @"parameterFilters"
+{-# DEPRECATED gpbpParameterFilters "Use generic-lens or generic-optics with 'parameterFilters' instead." #-}
 
 -- | Retrieve all parameters within a hierarchy.
 --
 -- /Important:/ If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path @/a@ , then the user can also access @/a/b@ . Even if a user has explicitly been denied access in IAM for parameter @/a/b@ , they can still call the GetParametersByPath API action recursively for @/a@ and view @/a/b@ .
 --
 -- /Note:/ Consider using 'recursive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbpRecursive :: Lens.Lens' GetParametersByPath (Lude.Maybe Lude.Bool)
-gpbpRecursive = Lens.lens (recursive :: GetParametersByPath -> Lude.Maybe Lude.Bool) (\s a -> s {recursive = a} :: GetParametersByPath)
+gpbpRecursive :: Lens.Lens' GetParametersByPath (Core.Maybe Core.Bool)
+gpbpRecursive = Lens.field @"recursive"
 {-# DEPRECATED gpbpRecursive "Use generic-lens or generic-optics with 'recursive' instead." #-}
 
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Retrieve all parameters in a hierarchy with their value decrypted.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbpMaxResults :: Lens.Lens' GetParametersByPath (Lude.Maybe Lude.Natural)
-gpbpMaxResults = Lens.lens (maxResults :: GetParametersByPath -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetParametersByPath)
-{-# DEPRECATED gpbpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'withDecryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbpWithDecryption :: Lens.Lens' GetParametersByPath (Core.Maybe Core.Bool)
+gpbpWithDecryption = Lens.field @"withDecryption"
+{-# DEPRECATED gpbpWithDecryption "Use generic-lens or generic-optics with 'withDecryption' instead." #-}
 
-instance Page.AWSPager GetParametersByPath where
-  page rq rs
-    | Page.stop (rs Lens.^. gpbprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gpbprsParameters) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gpbpNextToken Lens..~ rs Lens.^. gpbprsNextToken
+instance Core.FromJSON GetParametersByPath where
+  toJSON GetParametersByPath {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Path" Core..= path),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("ParameterFilters" Core..=) Core.<$> parameterFilters,
+            ("Recursive" Core..=) Core.<$> recursive,
+            ("WithDecryption" Core..=) Core.<$> withDecryption
+          ]
+      )
 
-instance Lude.AWSRequest GetParametersByPath where
+instance Core.AWSRequest GetParametersByPath where
   type Rs GetParametersByPath = GetParametersByPathResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.GetParametersByPath")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetParametersByPathResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Parameters" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Parameters")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetParametersByPath where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.GetParametersByPath" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetParametersByPath where
-  toJSON GetParametersByPath' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("WithDecryption" Lude..=) Lude.<$> withDecryption,
-            ("ParameterFilters" Lude..=) Lude.<$> parameterFilters,
-            Lude.Just ("Path" Lude..= path),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Recursive" Lude..=) Lude.<$> recursive,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetParametersByPath where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetParametersByPath where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetParametersByPath where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"parameters" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetParametersByPathResponse' smart constructor.
 data GetParametersByPathResponse = GetParametersByPathResponse'
   { -- | The token for the next set of items to return. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of parameters found in the specified hierarchy.
-    parameters :: Lude.Maybe [Parameter],
+    parameters :: Core.Maybe [Types.Parameter],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetParametersByPathResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
--- * 'parameters' - A list of parameters found in the specified hierarchy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetParametersByPathResponse' value with any optional fields omitted.
 mkGetParametersByPathResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetParametersByPathResponse
-mkGetParametersByPathResponse pResponseStatus_ =
+mkGetParametersByPathResponse responseStatus =
   GetParametersByPathResponse'
-    { nextToken = Lude.Nothing,
-      parameters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      parameters = Core.Nothing,
+      responseStatus
     }
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbprsNextToken :: Lens.Lens' GetParametersByPathResponse (Lude.Maybe Lude.Text)
-gpbprsNextToken = Lens.lens (nextToken :: GetParametersByPathResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetParametersByPathResponse)
-{-# DEPRECATED gpbprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gpbprrsNextToken :: Lens.Lens' GetParametersByPathResponse (Core.Maybe Types.NextToken)
+gpbprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gpbprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of parameters found in the specified hierarchy.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbprsParameters :: Lens.Lens' GetParametersByPathResponse (Lude.Maybe [Parameter])
-gpbprsParameters = Lens.lens (parameters :: GetParametersByPathResponse -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: GetParametersByPathResponse)
-{-# DEPRECATED gpbprsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+gpbprrsParameters :: Lens.Lens' GetParametersByPathResponse (Core.Maybe [Types.Parameter])
+gpbprrsParameters = Lens.field @"parameters"
+{-# DEPRECATED gpbprrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbprsResponseStatus :: Lens.Lens' GetParametersByPathResponse Lude.Int
-gpbprsResponseStatus = Lens.lens (responseStatus :: GetParametersByPathResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetParametersByPathResponse)
-{-# DEPRECATED gpbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpbprrsResponseStatus :: Lens.Lens' GetParametersByPathResponse Core.Int
+gpbprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpbprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

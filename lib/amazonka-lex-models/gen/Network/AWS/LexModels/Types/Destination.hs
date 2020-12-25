@@ -13,46 +13,48 @@
 module Network.AWS.LexModels.Types.Destination
   ( Destination
       ( Destination',
-        CloudwatchLogs,
-        S3
+        DestinationCloudwatchLogs,
+        DestinationS3,
+        fromDestination
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Destination = Destination' Lude.Text
+newtype Destination = Destination' {fromDestination :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CloudwatchLogs :: Destination
-pattern CloudwatchLogs = Destination' "CLOUDWATCH_LOGS"
+pattern DestinationCloudwatchLogs :: Destination
+pattern DestinationCloudwatchLogs = Destination' "CLOUDWATCH_LOGS"
 
-pattern S3 :: Destination
-pattern S3 = Destination' "S3"
+pattern DestinationS3 :: Destination
+pattern DestinationS3 = Destination' "S3"
 
 {-# COMPLETE
-  CloudwatchLogs,
-  S3,
+  DestinationCloudwatchLogs,
+  DestinationS3,
   Destination'
   #-}

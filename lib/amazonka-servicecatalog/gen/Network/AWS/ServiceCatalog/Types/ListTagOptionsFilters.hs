@@ -17,70 +17,68 @@ module Network.AWS.ServiceCatalog.Types.ListTagOptionsFilters
     mkListTagOptionsFilters,
 
     -- * Lenses
-    ltofValue,
     ltofActive,
     ltofKey,
+    ltofValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.TagOptionKey as Types
+import qualified Network.AWS.ServiceCatalog.Types.TagOptionValue as Types
 
 -- | Filters to use when listing TagOptions.
 --
 -- /See:/ 'mkListTagOptionsFilters' smart constructor.
 data ListTagOptionsFilters = ListTagOptionsFilters'
-  { -- | The TagOption value.
-    value :: Lude.Maybe Lude.Text,
-    -- | The active state.
-    active :: Lude.Maybe Lude.Bool,
+  { -- | The active state.
+    active :: Core.Maybe Core.Bool,
     -- | The TagOption key.
-    key :: Lude.Maybe Lude.Text
+    key :: Core.Maybe Types.TagOptionKey,
+    -- | The TagOption value.
+    value :: Core.Maybe Types.TagOptionValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagOptionsFilters' with the minimum fields required to make a request.
---
--- * 'value' - The TagOption value.
--- * 'active' - The active state.
--- * 'key' - The TagOption key.
+-- | Creates a 'ListTagOptionsFilters' value with any optional fields omitted.
 mkListTagOptionsFilters ::
   ListTagOptionsFilters
 mkListTagOptionsFilters =
   ListTagOptionsFilters'
-    { value = Lude.Nothing,
-      active = Lude.Nothing,
-      key = Lude.Nothing
+    { active = Core.Nothing,
+      key = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The TagOption value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltofValue :: Lens.Lens' ListTagOptionsFilters (Lude.Maybe Lude.Text)
-ltofValue = Lens.lens (value :: ListTagOptionsFilters -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ListTagOptionsFilters)
-{-# DEPRECATED ltofValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The active state.
 --
 -- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltofActive :: Lens.Lens' ListTagOptionsFilters (Lude.Maybe Lude.Bool)
-ltofActive = Lens.lens (active :: ListTagOptionsFilters -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: ListTagOptionsFilters)
+ltofActive :: Lens.Lens' ListTagOptionsFilters (Core.Maybe Core.Bool)
+ltofActive = Lens.field @"active"
 {-# DEPRECATED ltofActive "Use generic-lens or generic-optics with 'active' instead." #-}
 
 -- | The TagOption key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltofKey :: Lens.Lens' ListTagOptionsFilters (Lude.Maybe Lude.Text)
-ltofKey = Lens.lens (key :: ListTagOptionsFilters -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ListTagOptionsFilters)
+ltofKey :: Lens.Lens' ListTagOptionsFilters (Core.Maybe Types.TagOptionKey)
+ltofKey = Lens.field @"key"
 {-# DEPRECATED ltofKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON ListTagOptionsFilters where
-  toJSON ListTagOptionsFilters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Value" Lude..=) Lude.<$> value,
-            ("Active" Lude..=) Lude.<$> active,
-            ("Key" Lude..=) Lude.<$> key
+-- | The TagOption value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltofValue :: Lens.Lens' ListTagOptionsFilters (Core.Maybe Types.TagOptionValue)
+ltofValue = Lens.field @"value"
+{-# DEPRECATED ltofValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ListTagOptionsFilters where
+  toJSON ListTagOptionsFilters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Active" Core..=) Core.<$> active,
+            ("Key" Core..=) Core.<$> key,
+            ("Value" Core..=) Core.<$> value
           ]
       )

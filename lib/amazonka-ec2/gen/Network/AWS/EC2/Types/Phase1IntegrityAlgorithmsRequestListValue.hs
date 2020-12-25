@@ -21,34 +21,29 @@ module Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsRequestListValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.
 --
 -- /See:/ 'mkPhase1IntegrityAlgorithmsRequestListValue' smart constructor.
 newtype Phase1IntegrityAlgorithmsRequestListValue = Phase1IntegrityAlgorithmsRequestListValue'
   { -- | The value for the integrity algorithm.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Phase1IntegrityAlgorithmsRequestListValue' with the minimum fields required to make a request.
---
--- * 'value' - The value for the integrity algorithm.
+-- | Creates a 'Phase1IntegrityAlgorithmsRequestListValue' value with any optional fields omitted.
 mkPhase1IntegrityAlgorithmsRequestListValue ::
   Phase1IntegrityAlgorithmsRequestListValue
 mkPhase1IntegrityAlgorithmsRequestListValue =
-  Phase1IntegrityAlgorithmsRequestListValue' {value = Lude.Nothing}
+  Phase1IntegrityAlgorithmsRequestListValue' {value = Core.Nothing}
 
 -- | The value for the integrity algorithm.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piarlvfValue :: Lens.Lens' Phase1IntegrityAlgorithmsRequestListValue (Lude.Maybe Lude.Text)
-piarlvfValue = Lens.lens (value :: Phase1IntegrityAlgorithmsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase1IntegrityAlgorithmsRequestListValue)
+piarlvfValue :: Lens.Lens' Phase1IntegrityAlgorithmsRequestListValue (Core.Maybe Types.String)
+piarlvfValue = Lens.field @"value"
 {-# DEPRECATED piarlvfValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
-instance Lude.ToQuery Phase1IntegrityAlgorithmsRequestListValue where
-  toQuery Phase1IntegrityAlgorithmsRequestListValue' {..} =
-    Lude.mconcat ["Value" Lude.=: value]

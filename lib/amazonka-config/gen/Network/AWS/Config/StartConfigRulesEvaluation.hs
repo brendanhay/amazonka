@@ -45,105 +45,90 @@ module Network.AWS.Config.StartConfigRulesEvaluation
     mkStartConfigRulesEvaluationResponse,
 
     -- ** Response lenses
-    scrersResponseStatus,
+    screrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkStartConfigRulesEvaluation' smart constructor.
 newtype StartConfigRulesEvaluation = StartConfigRulesEvaluation'
   { -- | The list of names of AWS Config rules that you want to run evaluations for.
-    configRuleNames :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    configRuleNames :: Core.Maybe (Core.NonEmpty Types.ConfigRuleName)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartConfigRulesEvaluation' with the minimum fields required to make a request.
---
--- * 'configRuleNames' - The list of names of AWS Config rules that you want to run evaluations for.
+-- | Creates a 'StartConfigRulesEvaluation' value with any optional fields omitted.
 mkStartConfigRulesEvaluation ::
   StartConfigRulesEvaluation
 mkStartConfigRulesEvaluation =
-  StartConfigRulesEvaluation' {configRuleNames = Lude.Nothing}
+  StartConfigRulesEvaluation' {configRuleNames = Core.Nothing}
 
 -- | The list of names of AWS Config rules that you want to run evaluations for.
 --
 -- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-screConfigRuleNames :: Lens.Lens' StartConfigRulesEvaluation (Lude.Maybe (Lude.NonEmpty Lude.Text))
-screConfigRuleNames = Lens.lens (configRuleNames :: StartConfigRulesEvaluation -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {configRuleNames = a} :: StartConfigRulesEvaluation)
+screConfigRuleNames :: Lens.Lens' StartConfigRulesEvaluation (Core.Maybe (Core.NonEmpty Types.ConfigRuleName))
+screConfigRuleNames = Lens.field @"configRuleNames"
 {-# DEPRECATED screConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
 
-instance Lude.AWSRequest StartConfigRulesEvaluation where
+instance Core.FromJSON StartConfigRulesEvaluation where
+  toJSON StartConfigRulesEvaluation {..} =
+    Core.object
+      ( Core.catMaybes
+          [("ConfigRuleNames" Core..=) Core.<$> configRuleNames]
+      )
+
+instance Core.AWSRequest StartConfigRulesEvaluation where
   type
     Rs StartConfigRulesEvaluation =
       StartConfigRulesEvaluationResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.StartConfigRulesEvaluation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           StartConfigRulesEvaluationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartConfigRulesEvaluation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.StartConfigRulesEvaluation" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartConfigRulesEvaluation where
-  toJSON StartConfigRulesEvaluation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("ConfigRuleNames" Lude..=) Lude.<$> configRuleNames]
-      )
-
-instance Lude.ToPath StartConfigRulesEvaluation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartConfigRulesEvaluation where
-  toQuery = Lude.const Lude.mempty
 
 -- | The output when you start the evaluation for the specified AWS Config rule.
 --
 -- /See:/ 'mkStartConfigRulesEvaluationResponse' smart constructor.
 newtype StartConfigRulesEvaluationResponse = StartConfigRulesEvaluationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartConfigRulesEvaluationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartConfigRulesEvaluationResponse' value with any optional fields omitted.
 mkStartConfigRulesEvaluationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartConfigRulesEvaluationResponse
-mkStartConfigRulesEvaluationResponse pResponseStatus_ =
-  StartConfigRulesEvaluationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkStartConfigRulesEvaluationResponse responseStatus =
+  StartConfigRulesEvaluationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrersResponseStatus :: Lens.Lens' StartConfigRulesEvaluationResponse Lude.Int
-scrersResponseStatus = Lens.lens (responseStatus :: StartConfigRulesEvaluationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartConfigRulesEvaluationResponse)
-{-# DEPRECATED scrersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+screrrsResponseStatus :: Lens.Lens' StartConfigRulesEvaluationResponse Core.Int
+screrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED screrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

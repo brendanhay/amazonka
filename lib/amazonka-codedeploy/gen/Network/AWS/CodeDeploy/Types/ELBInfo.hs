@@ -21,39 +21,37 @@ module Network.AWS.CodeDeploy.Types.ELBInfo
   )
 where
 
+import qualified Network.AWS.CodeDeploy.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a load balancer in Elastic Load Balancing to use in a deployment. Instances are registered directly with a load balancer, and traffic is routed to the load balancer.
 --
 -- /See:/ 'mkELBInfo' smart constructor.
 newtype ELBInfo = ELBInfo'
   { -- | For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ELBInfo' with the minimum fields required to make a request.
---
--- * 'name' - For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
+-- | Creates a 'ELBInfo' value with any optional fields omitted.
 mkELBInfo ::
   ELBInfo
-mkELBInfo = ELBInfo' {name = Lude.Nothing}
+mkELBInfo = ELBInfo' {name = Core.Nothing}
 
 -- | For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbiName :: Lens.Lens' ELBInfo (Lude.Maybe Lude.Text)
-elbiName = Lens.lens (name :: ELBInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ELBInfo)
+elbiName :: Lens.Lens' ELBInfo (Core.Maybe Types.Name)
+elbiName = Lens.field @"name"
 {-# DEPRECATED elbiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ELBInfo where
-  parseJSON =
-    Lude.withObject
-      "ELBInfo"
-      (\x -> ELBInfo' Lude.<$> (x Lude..:? "name"))
+instance Core.FromJSON ELBInfo where
+  toJSON ELBInfo {..} =
+    Core.object (Core.catMaybes [("name" Core..=) Core.<$> name])
 
-instance Lude.ToJSON ELBInfo where
-  toJSON ELBInfo' {..} =
-    Lude.object (Lude.catMaybes [("name" Lude..=) Lude.<$> name])
+instance Core.FromJSON ELBInfo where
+  parseJSON =
+    Core.withObject "ELBInfo" Core.$
+      \x -> ELBInfo' Core.<$> (x Core..:? "name")

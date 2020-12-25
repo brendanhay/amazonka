@@ -17,73 +17,62 @@ module Network.AWS.SWF.Types.TimerStartedEventAttributes
     mkTimerStartedEventAttributes,
 
     -- * Lenses
-    tseaControl,
     tseaTimerId,
     tseaStartToFireTimeout,
     tseaDecisionTaskCompletedEventId,
+    tseaControl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.DurationInSeconds as Types
+import qualified Network.AWS.SWF.Types.TimerId as Types
 
 -- | Provides the details of the @TimerStarted@ event.
 --
 -- /See:/ 'mkTimerStartedEventAttributes' smart constructor.
 data TimerStartedEventAttributes = TimerStartedEventAttributes'
-  { -- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
-    control :: Lude.Maybe Lude.Text,
-    -- | The unique ID of the timer that was started.
-    timerId :: Lude.Text,
+  { -- | The unique ID of the timer that was started.
+    timerId :: Types.TimerId,
     -- | The duration of time after which the timer fires.
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ .
-    startToFireTimeout :: Lude.Text,
+    startToFireTimeout :: Types.DurationInSeconds,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Lude.Integer
+    decisionTaskCompletedEventId :: Core.Integer,
+    -- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
+    control :: Core.Maybe Types.Data
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimerStartedEventAttributes' with the minimum fields required to make a request.
---
--- * 'control' - Data attached to the event that can be used by the decider in subsequent workflow tasks.
--- * 'timerId' - The unique ID of the timer that was started.
--- * 'startToFireTimeout' - The duration of time after which the timer fires.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ .
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | Creates a 'TimerStartedEventAttributes' value with any optional fields omitted.
 mkTimerStartedEventAttributes ::
   -- | 'timerId'
-  Lude.Text ->
+  Types.TimerId ->
   -- | 'startToFireTimeout'
-  Lude.Text ->
+  Types.DurationInSeconds ->
   -- | 'decisionTaskCompletedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   TimerStartedEventAttributes
 mkTimerStartedEventAttributes
-  pTimerId_
-  pStartToFireTimeout_
-  pDecisionTaskCompletedEventId_ =
+  timerId
+  startToFireTimeout
+  decisionTaskCompletedEventId =
     TimerStartedEventAttributes'
-      { control = Lude.Nothing,
-        timerId = pTimerId_,
-        startToFireTimeout = pStartToFireTimeout_,
-        decisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
+      { timerId,
+        startToFireTimeout,
+        decisionTaskCompletedEventId,
+        control = Core.Nothing
       }
-
--- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
---
--- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tseaControl :: Lens.Lens' TimerStartedEventAttributes (Lude.Maybe Lude.Text)
-tseaControl = Lens.lens (control :: TimerStartedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: TimerStartedEventAttributes)
-{-# DEPRECATED tseaControl "Use generic-lens or generic-optics with 'control' instead." #-}
 
 -- | The unique ID of the timer that was started.
 --
 -- /Note:/ Consider using 'timerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tseaTimerId :: Lens.Lens' TimerStartedEventAttributes Lude.Text
-tseaTimerId = Lens.lens (timerId :: TimerStartedEventAttributes -> Lude.Text) (\s a -> s {timerId = a} :: TimerStartedEventAttributes)
+tseaTimerId :: Lens.Lens' TimerStartedEventAttributes Types.TimerId
+tseaTimerId = Lens.field @"timerId"
 {-# DEPRECATED tseaTimerId "Use generic-lens or generic-optics with 'timerId' instead." #-}
 
 -- | The duration of time after which the timer fires.
@@ -91,25 +80,30 @@ tseaTimerId = Lens.lens (timerId :: TimerStartedEventAttributes -> Lude.Text) (\
 -- The duration is specified in seconds, an integer greater than or equal to @0@ .
 --
 -- /Note:/ Consider using 'startToFireTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tseaStartToFireTimeout :: Lens.Lens' TimerStartedEventAttributes Lude.Text
-tseaStartToFireTimeout = Lens.lens (startToFireTimeout :: TimerStartedEventAttributes -> Lude.Text) (\s a -> s {startToFireTimeout = a} :: TimerStartedEventAttributes)
+tseaStartToFireTimeout :: Lens.Lens' TimerStartedEventAttributes Types.DurationInSeconds
+tseaStartToFireTimeout = Lens.field @"startToFireTimeout"
 {-# DEPRECATED tseaStartToFireTimeout "Use generic-lens or generic-optics with 'startToFireTimeout' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tseaDecisionTaskCompletedEventId :: Lens.Lens' TimerStartedEventAttributes Lude.Integer
-tseaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: TimerStartedEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: TimerStartedEventAttributes)
+tseaDecisionTaskCompletedEventId :: Lens.Lens' TimerStartedEventAttributes Core.Integer
+tseaDecisionTaskCompletedEventId = Lens.field @"decisionTaskCompletedEventId"
 {-# DEPRECATED tseaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
-instance Lude.FromJSON TimerStartedEventAttributes where
+-- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
+--
+-- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tseaControl :: Lens.Lens' TimerStartedEventAttributes (Core.Maybe Types.Data)
+tseaControl = Lens.field @"control"
+{-# DEPRECATED tseaControl "Use generic-lens or generic-optics with 'control' instead." #-}
+
+instance Core.FromJSON TimerStartedEventAttributes where
   parseJSON =
-    Lude.withObject
-      "TimerStartedEventAttributes"
-      ( \x ->
-          TimerStartedEventAttributes'
-            Lude.<$> (x Lude..:? "control")
-            Lude.<*> (x Lude..: "timerId")
-            Lude.<*> (x Lude..: "startToFireTimeout")
-            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
-      )
+    Core.withObject "TimerStartedEventAttributes" Core.$
+      \x ->
+        TimerStartedEventAttributes'
+          Core.<$> (x Core..: "timerId")
+          Core.<*> (x Core..: "startToFireTimeout")
+          Core.<*> (x Core..: "decisionTaskCompletedEventId")
+          Core.<*> (x Core..:? "control")

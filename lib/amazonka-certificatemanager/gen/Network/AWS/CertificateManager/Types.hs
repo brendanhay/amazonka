@@ -9,99 +9,97 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CertificateManager.Types
   ( -- * Service configuration
-    certificateManagerService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * CertificateStatus
-    CertificateStatus (..),
-
-    -- * CertificateTransparencyLoggingPreference
-    CertificateTransparencyLoggingPreference (..),
-
-    -- * CertificateType
-    CertificateType (..),
+    _InvalidTagException,
+    _InvalidParameterException,
+    _InvalidDomainValidationOptionsException,
+    _TooManyTagsException,
+    _InvalidArgsException,
+    _RequestInProgressException,
+    _TagPolicyException,
+    _InvalidArnException,
+    _ResourceNotFoundException,
+    _InvalidStateException,
+    _LimitExceededException,
+    _ResourceInUseException,
 
     -- * DomainStatus
     DomainStatus (..),
 
-    -- * ExtendedKeyUsageName
-    ExtendedKeyUsageName (..),
+    -- * IdempotencyToken
+    IdempotencyToken (..),
 
     -- * FailureReason
     FailureReason (..),
 
-    -- * KeyAlgorithm
-    KeyAlgorithm (..),
-
-    -- * KeyUsageName
-    KeyUsageName (..),
-
-    -- * RecordType
-    RecordType (..),
-
-    -- * RenewalEligibility
-    RenewalEligibility (..),
-
-    -- * RenewalStatus
-    RenewalStatus (..),
-
-    -- * RevocationReason
-    RevocationReason (..),
+    -- * CertificateDetail
+    CertificateDetail (..),
+    mkCertificateDetail,
+    cdCertificateArn,
+    cdCertificateAuthorityArn,
+    cdCreatedAt,
+    cdDomainName,
+    cdDomainValidationOptions,
+    cdExtendedKeyUsages,
+    cdFailureReason,
+    cdImportedAt,
+    cdInUseBy,
+    cdIssuedAt,
+    cdIssuer,
+    cdKeyAlgorithm,
+    cdKeyUsages,
+    cdNotAfter,
+    cdNotBefore,
+    cdOptions,
+    cdRenewalEligibility,
+    cdRenewalSummary,
+    cdRevocationReason,
+    cdRevokedAt,
+    cdSerial,
+    cdSignatureAlgorithm,
+    cdStatus,
+    cdSubject,
+    cdSubjectAlternativeNames,
+    cdType,
 
     -- * ValidationMethod
     ValidationMethod (..),
 
-    -- * CertificateDetail
-    CertificateDetail (..),
-    mkCertificateDetail,
-    cdSubject,
-    cdStatus,
-    cdFailureReason,
-    cdSubjectAlternativeNames,
-    cdInUseBy,
-    cdCreatedAt,
-    cdCertificateARN,
-    cdSerial,
-    cdRenewalEligibility,
-    cdExtendedKeyUsages,
-    cdImportedAt,
-    cdKeyUsages,
-    cdRevokedAt,
-    cdNotBefore,
-    cdRevocationReason,
-    cdDomainName,
-    cdRenewalSummary,
-    cdKeyAlgorithm,
-    cdType,
-    cdOptions,
-    cdIssuedAt,
-    cdSignatureAlgorithm,
-    cdDomainValidationOptions,
-    cdIssuer,
-    cdNotAfter,
-    cdCertificateAuthorityARN,
+    -- * ResourceRecord
+    ResourceRecord (..),
+    mkResourceRecord,
+    rrName,
+    rrType,
+    rrValue,
 
-    -- * CertificateOptions
-    CertificateOptions (..),
-    mkCertificateOptions,
-    coCertificateTransparencyLoggingPreference,
+    -- * Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- * CertificateSummary
-    CertificateSummary (..),
-    mkCertificateSummary,
-    csCertificateARN,
-    csDomainName,
+    -- * PrivateKey
+    PrivateKey (..),
 
-    -- * DomainValidation
-    DomainValidation (..),
-    mkDomainValidation,
-    dvValidationEmails,
-    dvValidationMethod,
-    dvResourceRecord,
-    dvValidationStatus,
-    dvDomainName,
-    dvValidationDomain,
+    -- * ExtendedKeyUsageName
+    ExtendedKeyUsageName (..),
+
+    -- * Arn
+    Arn (..),
+
+    -- * String
+    String (..),
+
+    -- * CertificateType
+    CertificateType (..),
+
+    -- * RecordType
+    RecordType (..),
+
+    -- * KeyUsageName
+    KeyUsageName (..),
 
     -- * DomainValidationOption
     DomainValidationOption (..),
@@ -109,53 +107,131 @@ module Network.AWS.CertificateManager.Types
     dvoDomainName,
     dvoValidationDomain,
 
-    -- * ExtendedKeyUsage
-    ExtendedKeyUsage (..),
-    mkExtendedKeyUsage,
-    ekuOId,
-    ekuName,
-
     -- * Filters
     Filters (..),
     mkFilters,
+    fExtendedKeyUsage,
     fKeyTypes,
     fKeyUsage,
-    fExtendedKeyUsage,
+
+    -- * RenewalEligibility
+    RenewalEligibility (..),
+
+    -- * CertificateSummary
+    CertificateSummary (..),
+    mkCertificateSummary,
+    csCertificateArn,
+    csDomainName,
+
+    -- * NextToken
+    NextToken (..),
+
+    -- * RevocationReason
+    RevocationReason (..),
+
+    -- * RenewalStatus
+    RenewalStatus (..),
+
+    -- * DomainNameString
+    DomainNameString (..),
+
+    -- * RenewalSummary
+    RenewalSummary (..),
+    mkRenewalSummary,
+    rsRenewalStatus,
+    rsDomainValidationOptions,
+    rsUpdatedAt,
+    rsRenewalStatusReason,
 
     -- * KeyUsage
     KeyUsage (..),
     mkKeyUsage,
     kuName,
 
-    -- * RenewalSummary
-    RenewalSummary (..),
-    mkRenewalSummary,
-    rsRenewalStatus,
-    rsUpdatedAt,
-    rsDomainValidationOptions,
-    rsRenewalStatusReason,
+    -- * CertificateOptions
+    CertificateOptions (..),
+    mkCertificateOptions,
+    coCertificateTransparencyLoggingPreference,
 
-    -- * ResourceRecord
-    ResourceRecord (..),
-    mkResourceRecord,
-    rrValue,
-    rrName,
-    rrType,
+    -- * ExtendedKeyUsage
+    ExtendedKeyUsage (..),
+    mkExtendedKeyUsage,
+    ekuName,
+    ekuOID,
 
-    -- * Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- * CertificateTransparencyLoggingPreference
+    CertificateTransparencyLoggingPreference (..),
+
+    -- * KeyAlgorithm
+    KeyAlgorithm (..),
+
+    -- * CertificateChain
+    CertificateChain (..),
+
+    -- * DomainValidation
+    DomainValidation (..),
+    mkDomainValidation,
+    dvDomainName,
+    dvResourceRecord,
+    dvValidationDomain,
+    dvValidationEmails,
+    dvValidationMethod,
+    dvValidationStatus,
+
+    -- * CertificateStatus
+    CertificateStatus (..),
+
+    -- * CertificateArn
+    CertificateArn (..),
+
+    -- * CertificateAuthorityArn
+    CertificateAuthorityArn (..),
+
+    -- * DomainName
+    DomainName (..),
+
+    -- * Issuer
+    Issuer (..),
+
+    -- * Serial
+    Serial (..),
+
+    -- * SignatureAlgorithm
+    SignatureAlgorithm (..),
+
+    -- * Subject
+    Subject (..),
+
+    -- * Name
+    Name (..),
+
+    -- * Value
+    Value (..),
+
+    -- * Key
+    Key (..),
+
+    -- * ValidationDomain
+    ValidationDomain (..),
+
+    -- * Certificate
+    Certificate (..),
   )
 where
 
+import Network.AWS.CertificateManager.Types.Arn
+import Network.AWS.CertificateManager.Types.Certificate
+import Network.AWS.CertificateManager.Types.CertificateArn
+import Network.AWS.CertificateManager.Types.CertificateAuthorityArn
+import Network.AWS.CertificateManager.Types.CertificateChain
 import Network.AWS.CertificateManager.Types.CertificateDetail
 import Network.AWS.CertificateManager.Types.CertificateOptions
 import Network.AWS.CertificateManager.Types.CertificateStatus
 import Network.AWS.CertificateManager.Types.CertificateSummary
 import Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
 import Network.AWS.CertificateManager.Types.CertificateType
+import Network.AWS.CertificateManager.Types.DomainName
+import Network.AWS.CertificateManager.Types.DomainNameString
 import Network.AWS.CertificateManager.Types.DomainStatus
 import Network.AWS.CertificateManager.Types.DomainValidation
 import Network.AWS.CertificateManager.Types.DomainValidationOption
@@ -163,71 +239,163 @@ import Network.AWS.CertificateManager.Types.ExtendedKeyUsage
 import Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
 import Network.AWS.CertificateManager.Types.FailureReason
 import Network.AWS.CertificateManager.Types.Filters
+import Network.AWS.CertificateManager.Types.IdempotencyToken
+import Network.AWS.CertificateManager.Types.Issuer
+import Network.AWS.CertificateManager.Types.Key
 import Network.AWS.CertificateManager.Types.KeyAlgorithm
 import Network.AWS.CertificateManager.Types.KeyUsage
 import Network.AWS.CertificateManager.Types.KeyUsageName
+import Network.AWS.CertificateManager.Types.Name
+import Network.AWS.CertificateManager.Types.NextToken
+import Network.AWS.CertificateManager.Types.PrivateKey
 import Network.AWS.CertificateManager.Types.RecordType
 import Network.AWS.CertificateManager.Types.RenewalEligibility
 import Network.AWS.CertificateManager.Types.RenewalStatus
 import Network.AWS.CertificateManager.Types.RenewalSummary
 import Network.AWS.CertificateManager.Types.ResourceRecord
 import Network.AWS.CertificateManager.Types.RevocationReason
+import Network.AWS.CertificateManager.Types.Serial
+import Network.AWS.CertificateManager.Types.SignatureAlgorithm
+import Network.AWS.CertificateManager.Types.String
+import Network.AWS.CertificateManager.Types.Subject
 import Network.AWS.CertificateManager.Types.Tag
+import Network.AWS.CertificateManager.Types.ValidationDomain
 import Network.AWS.CertificateManager.Types.ValidationMethod
+import Network.AWS.CertificateManager.Types.Value
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-12-08@ of the Amazon Certificate Manager SDK configuration.
-certificateManagerService :: Lude.Service
-certificateManagerService =
-  Lude.Service
-    { Lude._svcAbbrev = "CertificateManager",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "acm",
-      Lude._svcVersion = "2015-12-08",
-      Lude._svcEndpoint = Lude.defaultEndpoint certificateManagerService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "CertificateManager",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "CertificateManager",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "acm",
+      Core._svcVersion = "2015-12-08",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "CertificateManager",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with @aws:@ .
+_InvalidTagException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidTagException =
+  Core._MatchServiceError mkServiceConfig "InvalidTagException"
+{-# DEPRECATED _InvalidTagException "Use generic-lens or generic-optics instead." #-}
+
+-- | An input parameter was invalid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidParameterException"
+{-# DEPRECATED _InvalidParameterException "Use generic-lens or generic-optics instead." #-}
+
+-- | One or more values in the 'DomainValidationOption' structure is incorrect.
+_InvalidDomainValidationOptionsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidDomainValidationOptionsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidDomainValidationOptionsException"
+{-# DEPRECATED _InvalidDomainValidationOptionsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The request contains too many tags. Try the request again with fewer tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError mkServiceConfig "TooManyTagsException"
+{-# DEPRECATED _TooManyTagsException "Use generic-lens or generic-optics instead." #-}
+
+-- | One or more of of request parameters specified is not valid.
+_InvalidArgsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidArgsException =
+  Core._MatchServiceError mkServiceConfig "InvalidArgsException"
+{-# DEPRECATED _InvalidArgsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The certificate request is in process and the certificate in your account has not yet been issued.
+_RequestInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RequestInProgressException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "RequestInProgressException"
+{-# DEPRECATED _RequestInProgressException "Use generic-lens or generic-optics instead." #-}
+
+-- | A specified tag did not comply with an existing tag policy and was rejected.
+_TagPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TagPolicyException =
+  Core._MatchServiceError mkServiceConfig "TagPolicyException"
+{-# DEPRECATED _TagPolicyException "Use generic-lens or generic-optics instead." #-}
+
+-- | The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+_InvalidArnException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidArnException =
+  Core._MatchServiceError mkServiceConfig "InvalidArnException"
+{-# DEPRECATED _InvalidArnException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ResourceNotFoundException"
+{-# DEPRECATED _ResourceNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | Processing has reached an invalid state.
+_InvalidStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidStateException =
+  Core._MatchServiceError mkServiceConfig "InvalidStateException"
+{-# DEPRECATED _InvalidStateException "Use generic-lens or generic-optics instead." #-}
+
+-- | An ACM quota has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError mkServiceConfig "LimitExceededException"
+{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | The certificate is in use by another AWS service in the caller's account. Remove the association and try again.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError mkServiceConfig "ResourceInUseException"
+{-# DEPRECATED _ResourceInUseException "Use generic-lens or generic-optics instead." #-}

@@ -17,14 +17,15 @@ module Network.AWS.SSM.Types.PatchFilter
     mkPatchFilter,
 
     -- * Lenses
-    pfValues,
     pfKey,
+    pfValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.PatchFilterKey
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.PatchFilterKey as Types
+import qualified Network.AWS.SSM.Types.PatchFilterValue as Types
 
 -- | Defines which patches should be included in a patch baseline.
 --
@@ -33,67 +34,57 @@ import Network.AWS.SSM.Types.PatchFilterKey
 --
 -- /See:/ 'mkPatchFilter' smart constructor.
 data PatchFilter = PatchFilter'
-  { -- | The value for the filter key.
-    --
-    -- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
-    values :: Lude.NonEmpty Lude.Text,
-    -- | The key for the filter.
+  { -- | The key for the filter.
     --
     -- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
-    key :: PatchFilterKey
+    key :: Types.PatchFilterKey,
+    -- | The value for the filter key.
+    --
+    -- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
+    values :: Core.NonEmpty Types.PatchFilterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PatchFilter' with the minimum fields required to make a request.
---
--- * 'values' - The value for the filter key.
---
--- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
--- * 'key' - The key for the filter.
---
--- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
+-- | Creates a 'PatchFilter' value with any optional fields omitted.
 mkPatchFilter ::
-  -- | 'values'
-  Lude.NonEmpty Lude.Text ->
   -- | 'key'
-  PatchFilterKey ->
+  Types.PatchFilterKey ->
+  -- | 'values'
+  Core.NonEmpty Types.PatchFilterValue ->
   PatchFilter
-mkPatchFilter pValues_ pKey_ =
-  PatchFilter' {values = pValues_, key = pKey_}
-
--- | The value for the filter key.
---
--- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfValues :: Lens.Lens' PatchFilter (Lude.NonEmpty Lude.Text)
-pfValues = Lens.lens (values :: PatchFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: PatchFilter)
-{-# DEPRECATED pfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkPatchFilter key values = PatchFilter' {key, values}
 
 -- | The key for the filter.
 --
 -- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfKey :: Lens.Lens' PatchFilter PatchFilterKey
-pfKey = Lens.lens (key :: PatchFilter -> PatchFilterKey) (\s a -> s {key = a} :: PatchFilter)
+pfKey :: Lens.Lens' PatchFilter Types.PatchFilterKey
+pfKey = Lens.field @"key"
 {-# DEPRECATED pfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON PatchFilter where
-  parseJSON =
-    Lude.withObject
-      "PatchFilter"
-      ( \x ->
-          PatchFilter'
-            Lude.<$> (x Lude..: "Values") Lude.<*> (x Lude..: "Key")
-      )
+-- | The value for the filter key.
+--
+-- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfValues :: Lens.Lens' PatchFilter (Core.NonEmpty Types.PatchFilterValue)
+pfValues = Lens.field @"values"
+{-# DEPRECATED pfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.ToJSON PatchFilter where
-  toJSON PatchFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Key" Lude..= key)
+instance Core.FromJSON PatchFilter where
+  toJSON PatchFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )
+
+instance Core.FromJSON PatchFilter where
+  parseJSON =
+    Core.withObject "PatchFilter" Core.$
+      \x ->
+        PatchFilter'
+          Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Values")

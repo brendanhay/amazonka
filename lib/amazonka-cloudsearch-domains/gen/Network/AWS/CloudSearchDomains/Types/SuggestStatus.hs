@@ -22,49 +22,45 @@ module Network.AWS.CloudSearchDomains.Types.SuggestStatus
   )
 where
 
+import qualified Network.AWS.CloudSearchDomains.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the resource id (@rid@ ) and the time it took to process the request (@timems@ ).
 --
 -- /See:/ 'mkSuggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
   { -- | The encrypted resource ID for the request.
-    rid :: Lude.Maybe Lude.Text,
+    rid :: Core.Maybe Types.String,
     -- | How long it took to process the request, in milliseconds.
-    timems :: Lude.Maybe Lude.Integer
+    timems :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuggestStatus' with the minimum fields required to make a request.
---
--- * 'rid' - The encrypted resource ID for the request.
--- * 'timems' - How long it took to process the request, in milliseconds.
+-- | Creates a 'SuggestStatus' value with any optional fields omitted.
 mkSuggestStatus ::
   SuggestStatus
 mkSuggestStatus =
-  SuggestStatus' {rid = Lude.Nothing, timems = Lude.Nothing}
+  SuggestStatus' {rid = Core.Nothing, timems = Core.Nothing}
 
 -- | The encrypted resource ID for the request.
 --
 -- /Note:/ Consider using 'rid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssRid :: Lens.Lens' SuggestStatus (Lude.Maybe Lude.Text)
-ssRid = Lens.lens (rid :: SuggestStatus -> Lude.Maybe Lude.Text) (\s a -> s {rid = a} :: SuggestStatus)
+ssRid :: Lens.Lens' SuggestStatus (Core.Maybe Types.String)
+ssRid = Lens.field @"rid"
 {-# DEPRECATED ssRid "Use generic-lens or generic-optics with 'rid' instead." #-}
 
 -- | How long it took to process the request, in milliseconds.
 --
 -- /Note:/ Consider using 'timems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssTimems :: Lens.Lens' SuggestStatus (Lude.Maybe Lude.Integer)
-ssTimems = Lens.lens (timems :: SuggestStatus -> Lude.Maybe Lude.Integer) (\s a -> s {timems = a} :: SuggestStatus)
+ssTimems :: Lens.Lens' SuggestStatus (Core.Maybe Core.Integer)
+ssTimems = Lens.field @"timems"
 {-# DEPRECATED ssTimems "Use generic-lens or generic-optics with 'timems' instead." #-}
 
-instance Lude.FromJSON SuggestStatus where
+instance Core.FromJSON SuggestStatus where
   parseJSON =
-    Lude.withObject
-      "SuggestStatus"
-      ( \x ->
-          SuggestStatus'
-            Lude.<$> (x Lude..:? "rid") Lude.<*> (x Lude..:? "timems")
-      )
+    Core.withObject "SuggestStatus" Core.$
+      \x ->
+        SuggestStatus'
+          Core.<$> (x Core..:? "rid") Core.<*> (x Core..:? "timems")

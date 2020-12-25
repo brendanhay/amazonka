@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,28 @@
 -- Some API actions require explicit resource permissions. For information, see the developer guide topic <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions> .
 module Network.AWS.FMS
   ( -- * Service configuration
-    fmsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** InvalidTypeException
+    _InvalidTypeException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -108,72 +125,136 @@ module Network.AWS.FMS
 
     -- * Types
 
-    -- ** AccountRoleStatus
-    AccountRoleStatus (..),
+    -- ** AppsListDataSummary
+    AppsListDataSummary (..),
+    mkAppsListDataSummary,
+    aldsAppsList,
+    aldsListArn,
+    aldsListId,
+    aldsListName,
 
-    -- ** CustomerPolicyScopeIdType
-    CustomerPolicyScopeIdType (..),
+    -- ** PolicyComplianceDetail
+    PolicyComplianceDetail (..),
+    mkPolicyComplianceDetail,
+    pcdEvaluationLimitExceeded,
+    pcdExpiredAt,
+    pcdIssueInfoMap,
+    pcdMemberAccount,
+    pcdPolicyId,
+    pcdPolicyOwner,
+    pcdViolators,
 
-    -- ** DependentServiceName
-    DependentServiceName (..),
+    -- ** PaginationToken
+    PaginationToken (..),
 
-    -- ** PolicyComplianceStatusType
-    PolicyComplianceStatusType (..),
+    -- ** ResourceTagKey
+    ResourceTagKey (..),
 
-    -- ** RemediationActionType
-    RemediationActionType (..),
+    -- ** EvaluationResult
+    EvaluationResult (..),
+    mkEvaluationResult,
+    erComplianceStatus,
+    erEvaluationLimitExceeded,
+    erViolatorCount,
 
-    -- ** SecurityServiceType
-    SecurityServiceType (..),
+    -- ** ProtocolsListData
+    ProtocolsListData (..),
+    mkProtocolsListData,
+    pldListName,
+    pldProtocolsList,
+    pldCreateTime,
+    pldLastUpdateTime,
+    pldListId,
+    pldListUpdateToken,
+    pldPreviousProtocolsList,
 
-    -- ** ViolationReason
-    ViolationReason (..),
+    -- ** ResourceId
+    ResourceId (..),
 
-    -- ** AWSEC2InstanceViolation
-    AWSEC2InstanceViolation (..),
-    mkAWSEC2InstanceViolation,
-    aeivViolationTarget,
-    aeivAWSEC2NetworkInterfaceViolations,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** AWSEC2NetworkInterfaceViolation
-    AWSEC2NetworkInterfaceViolation (..),
-    mkAWSEC2NetworkInterfaceViolation,
-    aenivViolatingSecurityGroups,
-    aenivViolationTarget,
+    -- ** UpdateToken
+    UpdateToken (..),
 
-    -- ** AWSVPCSecurityGroupViolation
-    AWSVPCSecurityGroupViolation (..),
-    mkAWSVPCSecurityGroupViolation,
-    avsgvViolationTargetDescription,
-    avsgvPossibleSecurityGroupRemediationActions,
-    avsgvViolationTarget,
-    avsgvPartialMatches,
+    -- ** ResourceType
+    ResourceType (..),
 
-    -- ** App
-    App (..),
-    mkApp,
-    aAppName,
-    aProtocol,
-    aPort,
+    -- ** NetworkFirewallMissingExpectedRTViolation
+    NetworkFirewallMissingExpectedRTViolation (..),
+    mkNetworkFirewallMissingExpectedRTViolation,
+    nfmertvAvailabilityZone,
+    nfmertvCurrentRouteTable,
+    nfmertvExpectedRouteTable,
+    nfmertvVPC,
+    nfmertvViolationTarget,
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** PolicyId
+    PolicyId (..),
 
     -- ** AppsListData
     AppsListData (..),
     mkAppsListData,
-    aldListUpdateToken,
-    aldAppsList,
-    aldListId,
     aldListName,
-    aldLastUpdateTime,
-    aldPreviousAppsList,
+    aldAppsList,
     aldCreateTime,
+    aldLastUpdateTime,
+    aldListId,
+    aldListUpdateToken,
+    aldPreviousAppsList,
 
-    -- ** AppsListDataSummary
-    AppsListDataSummary (..),
-    mkAppsListDataSummary,
-    aldsListARN,
-    aldsAppsList,
-    aldsListId,
-    aldsListName,
+    -- ** DependentServiceName
+    DependentServiceName (..),
+
+    -- ** ProtectionData
+    ProtectionData (..),
+
+    -- ** NetworkFirewallMissingFirewallViolation
+    NetworkFirewallMissingFirewallViolation (..),
+    mkNetworkFirewallMissingFirewallViolation,
+    nfmfvAvailabilityZone,
+    nfmfvTargetViolationReason,
+    nfmfvVPC,
+    nfmfvViolationTarget,
+
+    -- ** CustomerPolicyScopeId
+    CustomerPolicyScopeId (..),
+
+    -- ** Protocol
+    Protocol (..),
+
+    -- ** NetworkFirewallMissingSubnetViolation
+    NetworkFirewallMissingSubnetViolation (..),
+    mkNetworkFirewallMissingSubnetViolation,
+    nfmsvAvailabilityZone,
+    nfmsvTargetViolationReason,
+    nfmsvVPC,
+    nfmsvViolationTarget,
+
+    -- ** SecurityGroupRuleDescription
+    SecurityGroupRuleDescription (..),
+    mkSecurityGroupRuleDescription,
+    sgrdFromPort,
+    sgrdIPV4Range,
+    sgrdIPV6Range,
+    sgrdPrefixListId,
+    sgrdProtocol,
+    sgrdToPort,
+
+    -- ** AWSAccountId
+    AWSAccountId (..),
+
+    -- ** AwsEc2InstanceViolation
+    AwsEc2InstanceViolation (..),
+    mkAwsEc2InstanceViolation,
+    aeivAwsEc2NetworkInterfaceViolations,
+    aeivViolationTarget,
 
     -- ** ComplianceViolator
     ComplianceViolator (..),
@@ -182,166 +263,15 @@ module Network.AWS.FMS
     cvResourceType,
     cvViolationReason,
 
-    -- ** EvaluationResult
-    EvaluationResult (..),
-    mkEvaluationResult,
-    erViolatorCount,
-    erComplianceStatus,
-    erEvaluationLimitExceeded,
+    -- ** PolicyComplianceStatusType
+    PolicyComplianceStatusType (..),
 
-    -- ** NetworkFirewallMissingExpectedRTViolation
-    NetworkFirewallMissingExpectedRTViolation (..),
-    mkNetworkFirewallMissingExpectedRTViolation,
-    nfmertvCurrentRouteTable,
-    nfmertvAvailabilityZone,
-    nfmertvVPC,
-    nfmertvViolationTarget,
-    nfmertvExpectedRouteTable,
-
-    -- ** NetworkFirewallMissingFirewallViolation
-    NetworkFirewallMissingFirewallViolation (..),
-    mkNetworkFirewallMissingFirewallViolation,
-    nfmfvTargetViolationReason,
-    nfmfvAvailabilityZone,
-    nfmfvVPC,
-    nfmfvViolationTarget,
-
-    -- ** NetworkFirewallMissingSubnetViolation
-    NetworkFirewallMissingSubnetViolation (..),
-    mkNetworkFirewallMissingSubnetViolation,
-    nfmsvTargetViolationReason,
-    nfmsvAvailabilityZone,
-    nfmsvVPC,
-    nfmsvViolationTarget,
-
-    -- ** NetworkFirewallPolicyDescription
-    NetworkFirewallPolicyDescription (..),
-    mkNetworkFirewallPolicyDescription,
-    nfpdStatefulRuleGroups,
-    nfpdStatelessRuleGroups,
-    nfpdStatelessFragmentDefaultActions,
-    nfpdStatelessCustomActions,
-    nfpdStatelessDefaultActions,
-
-    -- ** NetworkFirewallPolicyModifiedViolation
-    NetworkFirewallPolicyModifiedViolation (..),
-    mkNetworkFirewallPolicyModifiedViolation,
-    nfpmvCurrentPolicyDescription,
-    nfpmvViolationTarget,
-    nfpmvExpectedPolicyDescription,
-
-    -- ** PartialMatch
-    PartialMatch (..),
-    mkPartialMatch,
-    pmTargetViolationReasons,
-    pmReference,
-
-    -- ** Policy
-    Policy (..),
-    mkPolicy,
-    pPolicyName,
-    pRemediationEnabled,
-    pResourceType,
-    pExcludeResourceTags,
-    pPolicyId,
-    pResourceTypeList,
-    pResourceTags,
-    pPolicyUpdateToken,
-    pExcludeMap,
-    pIncludeMap,
-    pSecurityServicePolicyData,
-
-    -- ** PolicyComplianceDetail
-    PolicyComplianceDetail (..),
-    mkPolicyComplianceDetail,
-    pcdExpiredAt,
-    pcdPolicyId,
-    pcdViolators,
-    pcdEvaluationLimitExceeded,
-    pcdIssueInfoMap,
-    pcdPolicyOwner,
-    pcdMemberAccount,
-
-    -- ** PolicyComplianceStatus
-    PolicyComplianceStatus (..),
-    mkPolicyComplianceStatus,
-    pcsEvaluationResults,
-    pcsLastUpdated,
-    pcsPolicyName,
-    pcsPolicyId,
-    pcsIssueInfoMap,
-    pcsPolicyOwner,
-    pcsMemberAccount,
-
-    -- ** PolicySummary
-    PolicySummary (..),
-    mkPolicySummary,
-    psPolicyName,
-    psRemediationEnabled,
-    psResourceType,
-    psPolicyId,
-    psPolicyARN,
-    psSecurityServiceType,
-
-    -- ** ProtocolsListData
-    ProtocolsListData (..),
-    mkProtocolsListData,
-    pldProtocolsList,
-    pldListUpdateToken,
-    pldListId,
-    pldListName,
-    pldLastUpdateTime,
-    pldPreviousProtocolsList,
-    pldCreateTime,
-
-    -- ** ProtocolsListDataSummary
-    ProtocolsListDataSummary (..),
-    mkProtocolsListDataSummary,
-    pldsProtocolsList,
-    pldsListARN,
-    pldsListId,
-    pldsListName,
-
-    -- ** ResourceTag
-    ResourceTag (..),
-    mkResourceTag,
-    rtValue,
-    rtKey,
-
-    -- ** ResourceViolation
-    ResourceViolation (..),
-    mkResourceViolation,
-    rvNetworkFirewallMissingExpectedRTViolation,
-    rvNetworkFirewallMissingFirewallViolation,
-    rvNetworkFirewallMissingSubnetViolation,
-    rvAWSEC2InstanceViolation,
-    rvAWSVPCSecurityGroupViolation,
-    rvNetworkFirewallPolicyModifiedViolation,
-    rvAWSEC2NetworkInterfaceViolation,
-
-    -- ** SecurityGroupRemediationAction
-    SecurityGroupRemediationAction (..),
-    mkSecurityGroupRemediationAction,
-    sgraIsDefaultAction,
-    sgraRemediationResult,
-    sgraDescription,
-    sgraRemediationActionType,
-
-    -- ** SecurityGroupRuleDescription
-    SecurityGroupRuleDescription (..),
-    mkSecurityGroupRuleDescription,
-    sgrdFromPort,
-    sgrdProtocol,
-    sgrdIPV4Range,
-    sgrdPrefixListId,
-    sgrdToPort,
-    sgrdIPV6Range,
-
-    -- ** SecurityServicePolicyData
-    SecurityServicePolicyData (..),
-    mkSecurityServicePolicyData,
-    sspdManagedServiceData,
-    sspdType,
+    -- ** App
+    App (..),
+    mkApp,
+    aAppName,
+    aProtocol,
+    aPort,
 
     -- ** StatefulRuleGroup
     StatefulRuleGroup (..),
@@ -349,39 +279,244 @@ module Network.AWS.FMS
     srgResourceId,
     srgRuleGroupName,
 
+    -- ** TargetViolationReason
+    TargetViolationReason (..),
+
+    -- ** PolicySummary
+    PolicySummary (..),
+    mkPolicySummary,
+    psPolicyArn,
+    psPolicyId,
+    psPolicyName,
+    psRemediationEnabled,
+    psResourceType,
+    psSecurityServiceType,
+
+    -- ** ListId
+    ListId (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
     -- ** StatelessRuleGroup
     StatelessRuleGroup (..),
     mkStatelessRuleGroup,
-    sResourceId,
     sPriority,
+    sResourceId,
     sRuleGroupName,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** RemediationActionDescription
+    RemediationActionDescription (..),
+
+    -- ** LengthBoundedString
+    LengthBoundedString (..),
+
+    -- ** PolicyUpdateToken
+    PolicyUpdateToken (..),
+
+    -- ** ViolationReason
+    ViolationReason (..),
+
+    -- ** ReferenceRule
+    ReferenceRule (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** AwsVPCSecurityGroupViolation
+    AwsVPCSecurityGroupViolation (..),
+    mkAwsVPCSecurityGroupViolation,
+    avpcsgvPartialMatches,
+    avpcsgvPossibleSecurityGroupRemediationActions,
+    avpcsgvViolationTarget,
+    avpcsgvViolationTargetDescription,
+
+    -- ** ViolationTarget
+    ViolationTarget (..),
+
+    -- ** NetworkFirewallPolicyModifiedViolation
+    NetworkFirewallPolicyModifiedViolation (..),
+    mkNetworkFirewallPolicyModifiedViolation,
+    nfpmvCurrentPolicyDescription,
+    nfpmvExpectedPolicyDescription,
+    nfpmvViolationTarget,
+
+    -- ** ResourceTag
+    ResourceTag (..),
+    mkResourceTag,
+    rtKey,
+    rtValue,
+
+    -- ** ManagedServiceData
+    ManagedServiceData (..),
+
+    -- ** Policy
+    Policy (..),
+    mkPolicy,
+    pPolicyName,
+    pSecurityServicePolicyData,
+    pResourceType,
+    pExcludeResourceTags,
+    pRemediationEnabled,
+    pExcludeMap,
+    pIncludeMap,
+    pPolicyId,
+    pPolicyUpdateToken,
+    pResourceTags,
+    pResourceTypeList,
+
+    -- ** SecurityGroupRemediationAction
+    SecurityGroupRemediationAction (..),
+    mkSecurityGroupRemediationAction,
+    sgraDescription,
+    sgraIsDefaultAction,
+    sgraRemediationActionType,
+    sgraRemediationResult,
+
+    -- ** PartialMatch
+    PartialMatch (..),
+    mkPartialMatch,
+    pmReference,
+    pmTargetViolationReasons,
 
     -- ** ViolationDetail
     ViolationDetail (..),
     mkViolationDetail,
+    vdPolicyId,
+    vdMemberAccount,
     vdResourceId,
     vdResourceType,
-    vdPolicyId,
-    vdResourceTags,
-    vdResourceDescription,
     vdResourceViolations,
-    vdMemberAccount,
+    vdResourceDescription,
+    vdResourceTags,
+
+    -- ** ProtocolsListDataSummary
+    ProtocolsListDataSummary (..),
+    mkProtocolsListDataSummary,
+    pldsListArn,
+    pldsListId,
+    pldsListName,
+    pldsProtocolsList,
+
+    -- ** AwsEc2NetworkInterfaceViolation
+    AwsEc2NetworkInterfaceViolation (..),
+    mkAwsEc2NetworkInterfaceViolation,
+    aenivViolatingSecurityGroups,
+    aenivViolationTarget,
+
+    -- ** SecurityServiceType
+    SecurityServiceType (..),
+
+    -- ** CustomerPolicyScopeIdType
+    CustomerPolicyScopeIdType (..),
+
+    -- ** ResourceViolation
+    ResourceViolation (..),
+    mkResourceViolation,
+    rvAwsEc2InstanceViolation,
+    rvAwsEc2NetworkInterfaceViolation,
+    rvAwsVPCSecurityGroupViolation,
+    rvNetworkFirewallMissingExpectedRTViolation,
+    rvNetworkFirewallMissingFirewallViolation,
+    rvNetworkFirewallMissingSubnetViolation,
+    rvNetworkFirewallPolicyModifiedViolation,
+
+    -- ** SecurityServicePolicyData
+    SecurityServicePolicyData (..),
+    mkSecurityServicePolicyData,
+    sspdType,
+    sspdManagedServiceData,
+
+    -- ** DetailedInfo
+    DetailedInfo (..),
+
+    -- ** NetworkFirewallAction
+    NetworkFirewallAction (..),
+
+    -- ** NetworkFirewallPolicyDescription
+    NetworkFirewallPolicyDescription (..),
+    mkNetworkFirewallPolicyDescription,
+    nfpdStatefulRuleGroups,
+    nfpdStatelessCustomActions,
+    nfpdStatelessDefaultActions,
+    nfpdStatelessFragmentDefaultActions,
+    nfpdStatelessRuleGroups,
+
+    -- ** PolicyComplianceStatus
+    PolicyComplianceStatus (..),
+    mkPolicyComplianceStatus,
+    pcsEvaluationResults,
+    pcsIssueInfoMap,
+    pcsLastUpdated,
+    pcsMemberAccount,
+    pcsPolicyId,
+    pcsPolicyName,
+    pcsPolicyOwner,
+
+    -- ** RemediationActionType
+    RemediationActionType (..),
+
+    -- ** PreviousListVersion
+    PreviousListVersion (..),
+
+    -- ** AccountRoleStatus
+    AccountRoleStatus (..),
+
+    -- ** ListArn
+    ListArn (..),
+
+    -- ** ListName
+    ListName (..),
+
+    -- ** MemberAccount
+    MemberAccount (..),
+
+    -- ** PolicyOwner
+    PolicyOwner (..),
+
+    -- ** ListUpdateToken
+    ListUpdateToken (..),
+
+    -- ** PolicyArn
+    PolicyArn (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ProtocolsListArn
+    ProtocolsListArn (..),
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+
+    -- ** SnsRoleName
+    SnsRoleName (..),
+
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
+
+    -- ** AdminAccount
+    AdminAccount (..),
+
+    -- ** IPV4Range
+    IPV4Range (..),
+
+    -- ** IPV6Range
+    IPV6Range (..),
+
+    -- ** RuleGroupName
+    RuleGroupName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

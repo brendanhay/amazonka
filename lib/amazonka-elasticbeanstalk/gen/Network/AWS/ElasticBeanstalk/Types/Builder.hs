@@ -21,32 +21,31 @@ module Network.AWS.ElasticBeanstalk.Types.Builder
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.ARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The builder used to build the custom platform.
 --
 -- /See:/ 'mkBuilder' smart constructor.
 newtype Builder = Builder'
   { -- | The ARN of the builder.
-    arn :: Lude.Maybe Lude.Text
+    arn :: Core.Maybe Types.ARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Builder' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the builder.
+-- | Creates a 'Builder' value with any optional fields omitted.
 mkBuilder ::
   Builder
-mkBuilder = Builder' {arn = Lude.Nothing}
+mkBuilder = Builder' {arn = Core.Nothing}
 
 -- | The ARN of the builder.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bARN :: Lens.Lens' Builder (Lude.Maybe Lude.Text)
-bARN = Lens.lens (arn :: Builder -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Builder)
+bARN :: Lens.Lens' Builder (Core.Maybe Types.ARN)
+bARN = Lens.field @"arn"
 {-# DEPRECATED bARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.FromXML Builder where
-  parseXML x = Builder' Lude.<$> (x Lude..@? "ARN")
+instance Core.FromXML Builder where
+  parseXML x = Builder' Core.<$> (x Core..@? "ARN")

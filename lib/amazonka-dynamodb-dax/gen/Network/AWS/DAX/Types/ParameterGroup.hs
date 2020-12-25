@@ -22,53 +22,49 @@ module Network.AWS.DAX.Types.ParameterGroup
   )
 where
 
+import qualified Network.AWS.DAX.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A named set of parameters that are applied to all of the nodes in a DAX cluster.
 --
 -- /See:/ 'mkParameterGroup' smart constructor.
 data ParameterGroup = ParameterGroup'
   { -- | A description of the parameter group.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
     -- | The name of the parameter group.
-    parameterGroupName :: Lude.Maybe Lude.Text
+    parameterGroupName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterGroup' with the minimum fields required to make a request.
---
--- * 'description' - A description of the parameter group.
--- * 'parameterGroupName' - The name of the parameter group.
+-- | Creates a 'ParameterGroup' value with any optional fields omitted.
 mkParameterGroup ::
   ParameterGroup
 mkParameterGroup =
   ParameterGroup'
-    { description = Lude.Nothing,
-      parameterGroupName = Lude.Nothing
+    { description = Core.Nothing,
+      parameterGroupName = Core.Nothing
     }
 
 -- | A description of the parameter group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgDescription :: Lens.Lens' ParameterGroup (Lude.Maybe Lude.Text)
-pgDescription = Lens.lens (description :: ParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ParameterGroup)
+pgDescription :: Lens.Lens' ParameterGroup (Core.Maybe Types.String)
+pgDescription = Lens.field @"description"
 {-# DEPRECATED pgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the parameter group.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgParameterGroupName :: Lens.Lens' ParameterGroup (Lude.Maybe Lude.Text)
-pgParameterGroupName = Lens.lens (parameterGroupName :: ParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: ParameterGroup)
+pgParameterGroupName :: Lens.Lens' ParameterGroup (Core.Maybe Types.String)
+pgParameterGroupName = Lens.field @"parameterGroupName"
 {-# DEPRECATED pgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance Lude.FromJSON ParameterGroup where
+instance Core.FromJSON ParameterGroup where
   parseJSON =
-    Lude.withObject
-      "ParameterGroup"
-      ( \x ->
-          ParameterGroup'
-            Lude.<$> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "ParameterGroupName")
-      )
+    Core.withObject "ParameterGroup" Core.$
+      \x ->
+        ParameterGroup'
+          Core.<$> (x Core..:? "Description")
+          Core.<*> (x Core..:? "ParameterGroupName")

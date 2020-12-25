@@ -13,81 +13,86 @@
 module Network.AWS.Config.Types.OrganizationRuleStatus
   ( OrganizationRuleStatus
       ( OrganizationRuleStatus',
-        OCreateSuccessful,
-        OCreateInProgress,
-        OCreateFailed,
-        ODeleteSuccessful,
-        ODeleteFailed,
-        ODeleteInProgress,
-        OUpdateSuccessful,
-        OUpdateInProgress,
-        OUpdateFailed
+        OrganizationRuleStatusCreateSuccessful,
+        OrganizationRuleStatusCreateInProgress,
+        OrganizationRuleStatusCreateFailed,
+        OrganizationRuleStatusDeleteSuccessful,
+        OrganizationRuleStatusDeleteFailed,
+        OrganizationRuleStatusDeleteInProgress,
+        OrganizationRuleStatusUpdateSuccessful,
+        OrganizationRuleStatusUpdateInProgress,
+        OrganizationRuleStatusUpdateFailed,
+        fromOrganizationRuleStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OrganizationRuleStatus = OrganizationRuleStatus' Lude.Text
+newtype OrganizationRuleStatus = OrganizationRuleStatus'
+  { fromOrganizationRuleStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OCreateSuccessful :: OrganizationRuleStatus
-pattern OCreateSuccessful = OrganizationRuleStatus' "CREATE_SUCCESSFUL"
+pattern OrganizationRuleStatusCreateSuccessful :: OrganizationRuleStatus
+pattern OrganizationRuleStatusCreateSuccessful = OrganizationRuleStatus' "CREATE_SUCCESSFUL"
 
-pattern OCreateInProgress :: OrganizationRuleStatus
-pattern OCreateInProgress = OrganizationRuleStatus' "CREATE_IN_PROGRESS"
+pattern OrganizationRuleStatusCreateInProgress :: OrganizationRuleStatus
+pattern OrganizationRuleStatusCreateInProgress = OrganizationRuleStatus' "CREATE_IN_PROGRESS"
 
-pattern OCreateFailed :: OrganizationRuleStatus
-pattern OCreateFailed = OrganizationRuleStatus' "CREATE_FAILED"
+pattern OrganizationRuleStatusCreateFailed :: OrganizationRuleStatus
+pattern OrganizationRuleStatusCreateFailed = OrganizationRuleStatus' "CREATE_FAILED"
 
-pattern ODeleteSuccessful :: OrganizationRuleStatus
-pattern ODeleteSuccessful = OrganizationRuleStatus' "DELETE_SUCCESSFUL"
+pattern OrganizationRuleStatusDeleteSuccessful :: OrganizationRuleStatus
+pattern OrganizationRuleStatusDeleteSuccessful = OrganizationRuleStatus' "DELETE_SUCCESSFUL"
 
-pattern ODeleteFailed :: OrganizationRuleStatus
-pattern ODeleteFailed = OrganizationRuleStatus' "DELETE_FAILED"
+pattern OrganizationRuleStatusDeleteFailed :: OrganizationRuleStatus
+pattern OrganizationRuleStatusDeleteFailed = OrganizationRuleStatus' "DELETE_FAILED"
 
-pattern ODeleteInProgress :: OrganizationRuleStatus
-pattern ODeleteInProgress = OrganizationRuleStatus' "DELETE_IN_PROGRESS"
+pattern OrganizationRuleStatusDeleteInProgress :: OrganizationRuleStatus
+pattern OrganizationRuleStatusDeleteInProgress = OrganizationRuleStatus' "DELETE_IN_PROGRESS"
 
-pattern OUpdateSuccessful :: OrganizationRuleStatus
-pattern OUpdateSuccessful = OrganizationRuleStatus' "UPDATE_SUCCESSFUL"
+pattern OrganizationRuleStatusUpdateSuccessful :: OrganizationRuleStatus
+pattern OrganizationRuleStatusUpdateSuccessful = OrganizationRuleStatus' "UPDATE_SUCCESSFUL"
 
-pattern OUpdateInProgress :: OrganizationRuleStatus
-pattern OUpdateInProgress = OrganizationRuleStatus' "UPDATE_IN_PROGRESS"
+pattern OrganizationRuleStatusUpdateInProgress :: OrganizationRuleStatus
+pattern OrganizationRuleStatusUpdateInProgress = OrganizationRuleStatus' "UPDATE_IN_PROGRESS"
 
-pattern OUpdateFailed :: OrganizationRuleStatus
-pattern OUpdateFailed = OrganizationRuleStatus' "UPDATE_FAILED"
+pattern OrganizationRuleStatusUpdateFailed :: OrganizationRuleStatus
+pattern OrganizationRuleStatusUpdateFailed = OrganizationRuleStatus' "UPDATE_FAILED"
 
 {-# COMPLETE
-  OCreateSuccessful,
-  OCreateInProgress,
-  OCreateFailed,
-  ODeleteSuccessful,
-  ODeleteFailed,
-  ODeleteInProgress,
-  OUpdateSuccessful,
-  OUpdateInProgress,
-  OUpdateFailed,
+  OrganizationRuleStatusCreateSuccessful,
+  OrganizationRuleStatusCreateInProgress,
+  OrganizationRuleStatusCreateFailed,
+  OrganizationRuleStatusDeleteSuccessful,
+  OrganizationRuleStatusDeleteFailed,
+  OrganizationRuleStatusDeleteInProgress,
+  OrganizationRuleStatusUpdateSuccessful,
+  OrganizationRuleStatusUpdateInProgress,
+  OrganizationRuleStatusUpdateFailed,
   OrganizationRuleStatus'
   #-}

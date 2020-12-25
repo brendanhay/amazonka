@@ -13,61 +13,63 @@
 module Network.AWS.AlexaBusiness.Types.DeviceStatus
   ( DeviceStatus
       ( DeviceStatus',
-        Ready,
-        Pending,
-        WasOffline,
-        Deregistered,
-        Failed
+        DeviceStatusReady,
+        DeviceStatusPending,
+        DeviceStatusWasOffline,
+        DeviceStatusDeregistered,
+        DeviceStatusFailed,
+        fromDeviceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeviceStatus = DeviceStatus' Lude.Text
+newtype DeviceStatus = DeviceStatus' {fromDeviceStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ready :: DeviceStatus
-pattern Ready = DeviceStatus' "READY"
+pattern DeviceStatusReady :: DeviceStatus
+pattern DeviceStatusReady = DeviceStatus' "READY"
 
-pattern Pending :: DeviceStatus
-pattern Pending = DeviceStatus' "PENDING"
+pattern DeviceStatusPending :: DeviceStatus
+pattern DeviceStatusPending = DeviceStatus' "PENDING"
 
-pattern WasOffline :: DeviceStatus
-pattern WasOffline = DeviceStatus' "WAS_OFFLINE"
+pattern DeviceStatusWasOffline :: DeviceStatus
+pattern DeviceStatusWasOffline = DeviceStatus' "WAS_OFFLINE"
 
-pattern Deregistered :: DeviceStatus
-pattern Deregistered = DeviceStatus' "DEREGISTERED"
+pattern DeviceStatusDeregistered :: DeviceStatus
+pattern DeviceStatusDeregistered = DeviceStatus' "DEREGISTERED"
 
-pattern Failed :: DeviceStatus
-pattern Failed = DeviceStatus' "FAILED"
+pattern DeviceStatusFailed :: DeviceStatus
+pattern DeviceStatusFailed = DeviceStatus' "FAILED"
 
 {-# COMPLETE
-  Ready,
-  Pending,
-  WasOffline,
-  Deregistered,
-  Failed,
+  DeviceStatusReady,
+  DeviceStatusPending,
+  DeviceStatusWasOffline,
+  DeviceStatusDeregistered,
+  DeviceStatusFailed,
   DeviceStatus'
   #-}

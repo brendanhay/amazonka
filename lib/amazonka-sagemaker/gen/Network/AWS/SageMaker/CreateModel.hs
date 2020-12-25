@@ -28,201 +28,180 @@ module Network.AWS.SageMaker.CreateModel
 
     -- ** Request lenses
     cmModelName,
-    cmPrimaryContainer,
-    cmExecutionRoleARN,
-    cmEnableNetworkIsolation,
+    cmExecutionRoleArn,
     cmContainers,
-    cmVPCConfig,
+    cmEnableNetworkIsolation,
+    cmPrimaryContainer,
     cmTags,
+    cmVpcConfig,
 
     -- * Destructuring the response
     CreateModelResponse (..),
     mkCreateModelResponse,
 
     -- ** Response lenses
-    cmrsModelARN,
-    cmrsResponseStatus,
+    cmrrsModelArn,
+    cmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateModel' smart constructor.
 data CreateModel = CreateModel'
   { -- | The name of the new model.
-    modelName :: Lude.Text,
-    -- | The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
-    primaryContainer :: Lude.Maybe ContainerDefinition,
+    modelName :: Types.ModelName,
     -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
-    executionRoleARN :: Lude.Text,
-    -- | Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-    enableNetworkIsolation :: Lude.Maybe Lude.Bool,
+    executionRoleArn :: Types.ExecutionRoleArn,
     -- | Specifies the containers in the inference pipeline.
-    containers :: Lude.Maybe [ContainerDefinition],
-    -- | A 'VpcConfig' object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. @VpcConfig@ is used in hosting services and in batch transform. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud> and <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud> .
-    vpcConfig :: Lude.Maybe VPCConfig,
+    containers :: Core.Maybe [Types.ContainerDefinition],
+    -- | Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
+    enableNetworkIsolation :: Core.Maybe Core.Bool,
+    -- | The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
+    primaryContainer :: Core.Maybe Types.ContainerDefinition,
     -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | A 'VpcConfig' object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. @VpcConfig@ is used in hosting services and in batch transform. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud> and <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud> .
+    vpcConfig :: Core.Maybe Types.VpcConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateModel' with the minimum fields required to make a request.
---
--- * 'modelName' - The name of the new model.
--- * 'primaryContainer' - The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
--- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
--- * 'enableNetworkIsolation' - Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
--- * 'containers' - Specifies the containers in the inference pipeline.
--- * 'vpcConfig' - A 'VpcConfig' object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. @VpcConfig@ is used in hosting services and in batch transform. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud> and <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud> .
--- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- | Creates a 'CreateModel' value with any optional fields omitted.
 mkCreateModel ::
   -- | 'modelName'
-  Lude.Text ->
-  -- | 'executionRoleARN'
-  Lude.Text ->
+  Types.ModelName ->
+  -- | 'executionRoleArn'
+  Types.ExecutionRoleArn ->
   CreateModel
-mkCreateModel pModelName_ pExecutionRoleARN_ =
+mkCreateModel modelName executionRoleArn =
   CreateModel'
-    { modelName = pModelName_,
-      primaryContainer = Lude.Nothing,
-      executionRoleARN = pExecutionRoleARN_,
-      enableNetworkIsolation = Lude.Nothing,
-      containers = Lude.Nothing,
-      vpcConfig = Lude.Nothing,
-      tags = Lude.Nothing
+    { modelName,
+      executionRoleArn,
+      containers = Core.Nothing,
+      enableNetworkIsolation = Core.Nothing,
+      primaryContainer = Core.Nothing,
+      tags = Core.Nothing,
+      vpcConfig = Core.Nothing
     }
 
 -- | The name of the new model.
 --
 -- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmModelName :: Lens.Lens' CreateModel Lude.Text
-cmModelName = Lens.lens (modelName :: CreateModel -> Lude.Text) (\s a -> s {modelName = a} :: CreateModel)
+cmModelName :: Lens.Lens' CreateModel Types.ModelName
+cmModelName = Lens.field @"modelName"
 {-# DEPRECATED cmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
-
--- | The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
---
--- /Note:/ Consider using 'primaryContainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmPrimaryContainer :: Lens.Lens' CreateModel (Lude.Maybe ContainerDefinition)
-cmPrimaryContainer = Lens.lens (primaryContainer :: CreateModel -> Lude.Maybe ContainerDefinition) (\s a -> s {primaryContainer = a} :: CreateModel)
-{-# DEPRECATED cmPrimaryContainer "Use generic-lens or generic-optics with 'primaryContainer' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
 --
--- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmExecutionRoleARN :: Lens.Lens' CreateModel Lude.Text
-cmExecutionRoleARN = Lens.lens (executionRoleARN :: CreateModel -> Lude.Text) (\s a -> s {executionRoleARN = a} :: CreateModel)
-{-# DEPRECATED cmExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
-
--- | Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
---
--- /Note:/ Consider using 'enableNetworkIsolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmEnableNetworkIsolation :: Lens.Lens' CreateModel (Lude.Maybe Lude.Bool)
-cmEnableNetworkIsolation = Lens.lens (enableNetworkIsolation :: CreateModel -> Lude.Maybe Lude.Bool) (\s a -> s {enableNetworkIsolation = a} :: CreateModel)
-{-# DEPRECATED cmEnableNetworkIsolation "Use generic-lens or generic-optics with 'enableNetworkIsolation' instead." #-}
+-- /Note:/ Consider using 'executionRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmExecutionRoleArn :: Lens.Lens' CreateModel Types.ExecutionRoleArn
+cmExecutionRoleArn = Lens.field @"executionRoleArn"
+{-# DEPRECATED cmExecutionRoleArn "Use generic-lens or generic-optics with 'executionRoleArn' instead." #-}
 
 -- | Specifies the containers in the inference pipeline.
 --
 -- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmContainers :: Lens.Lens' CreateModel (Lude.Maybe [ContainerDefinition])
-cmContainers = Lens.lens (containers :: CreateModel -> Lude.Maybe [ContainerDefinition]) (\s a -> s {containers = a} :: CreateModel)
+cmContainers :: Lens.Lens' CreateModel (Core.Maybe [Types.ContainerDefinition])
+cmContainers = Lens.field @"containers"
 {-# DEPRECATED cmContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
 
--- | A 'VpcConfig' object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. @VpcConfig@ is used in hosting services and in batch transform. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud> and <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud> .
+-- | Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 --
--- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmVPCConfig :: Lens.Lens' CreateModel (Lude.Maybe VPCConfig)
-cmVPCConfig = Lens.lens (vpcConfig :: CreateModel -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: CreateModel)
-{-# DEPRECATED cmVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+-- /Note:/ Consider using 'enableNetworkIsolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmEnableNetworkIsolation :: Lens.Lens' CreateModel (Core.Maybe Core.Bool)
+cmEnableNetworkIsolation = Lens.field @"enableNetworkIsolation"
+{-# DEPRECATED cmEnableNetworkIsolation "Use generic-lens or generic-optics with 'enableNetworkIsolation' instead." #-}
+
+-- | The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
+--
+-- /Note:/ Consider using 'primaryContainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmPrimaryContainer :: Lens.Lens' CreateModel (Core.Maybe Types.ContainerDefinition)
+cmPrimaryContainer = Lens.field @"primaryContainer"
+{-# DEPRECATED cmPrimaryContainer "Use generic-lens or generic-optics with 'primaryContainer' instead." #-}
 
 -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmTags :: Lens.Lens' CreateModel (Lude.Maybe [Tag])
-cmTags = Lens.lens (tags :: CreateModel -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateModel)
+cmTags :: Lens.Lens' CreateModel (Core.Maybe [Types.Tag])
+cmTags = Lens.field @"tags"
 {-# DEPRECATED cmTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateModel where
+-- | A 'VpcConfig' object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. @VpcConfig@ is used in hosting services and in batch transform. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud> and <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud> .
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmVpcConfig :: Lens.Lens' CreateModel (Core.Maybe Types.VpcConfig)
+cmVpcConfig = Lens.field @"vpcConfig"
+{-# DEPRECATED cmVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+
+instance Core.FromJSON CreateModel where
+  toJSON CreateModel {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ModelName" Core..= modelName),
+            Core.Just ("ExecutionRoleArn" Core..= executionRoleArn),
+            ("Containers" Core..=) Core.<$> containers,
+            ("EnableNetworkIsolation" Core..=) Core.<$> enableNetworkIsolation,
+            ("PrimaryContainer" Core..=) Core.<$> primaryContainer,
+            ("Tags" Core..=) Core.<$> tags,
+            ("VpcConfig" Core..=) Core.<$> vpcConfig
+          ]
+      )
+
+instance Core.AWSRequest CreateModel where
   type Rs CreateModel = CreateModelResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateModel")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateModelResponse'
-            Lude.<$> (x Lude..:> "ModelArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "ModelArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateModel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateModel" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateModel where
-  toJSON CreateModel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ModelName" Lude..= modelName),
-            ("PrimaryContainer" Lude..=) Lude.<$> primaryContainer,
-            Lude.Just ("ExecutionRoleArn" Lude..= executionRoleARN),
-            ("EnableNetworkIsolation" Lude..=) Lude.<$> enableNetworkIsolation,
-            ("Containers" Lude..=) Lude.<$> containers,
-            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateModel where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateModel where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateModelResponse' smart constructor.
 data CreateModelResponse = CreateModelResponse'
   { -- | The ARN of the model created in Amazon SageMaker.
-    modelARN :: Lude.Text,
+    modelArn :: Types.ModelArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateModelResponse' with the minimum fields required to make a request.
---
--- * 'modelARN' - The ARN of the model created in Amazon SageMaker.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateModelResponse' value with any optional fields omitted.
 mkCreateModelResponse ::
-  -- | 'modelARN'
-  Lude.Text ->
+  -- | 'modelArn'
+  Types.ModelArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateModelResponse
-mkCreateModelResponse pModelARN_ pResponseStatus_ =
-  CreateModelResponse'
-    { modelARN = pModelARN_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateModelResponse modelArn responseStatus =
+  CreateModelResponse' {modelArn, responseStatus}
 
 -- | The ARN of the model created in Amazon SageMaker.
 --
--- /Note:/ Consider using 'modelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsModelARN :: Lens.Lens' CreateModelResponse Lude.Text
-cmrsModelARN = Lens.lens (modelARN :: CreateModelResponse -> Lude.Text) (\s a -> s {modelARN = a} :: CreateModelResponse)
-{-# DEPRECATED cmrsModelARN "Use generic-lens or generic-optics with 'modelARN' instead." #-}
+-- /Note:/ Consider using 'modelArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrrsModelArn :: Lens.Lens' CreateModelResponse Types.ModelArn
+cmrrsModelArn = Lens.field @"modelArn"
+{-# DEPRECATED cmrrsModelArn "Use generic-lens or generic-optics with 'modelArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsResponseStatus :: Lens.Lens' CreateModelResponse Lude.Int
-cmrsResponseStatus = Lens.lens (responseStatus :: CreateModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateModelResponse)
-{-# DEPRECATED cmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmrrsResponseStatus :: Lens.Lens' CreateModelResponse Core.Int
+cmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

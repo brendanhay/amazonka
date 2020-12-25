@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MarketplaceEntitlement
     Network.AWS.MarketplaceEntitlement.GetEntitlements
@@ -74,7 +80,12 @@ library
   other-modules:
     Network.AWS.MarketplaceEntitlement.Types.Entitlement
     Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
+    Network.AWS.MarketplaceEntitlement.Types.FilterValue
     Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName
+    Network.AWS.MarketplaceEntitlement.Types.NextToken
+    Network.AWS.MarketplaceEntitlement.Types.NonEmptyString
+    Network.AWS.MarketplaceEntitlement.Types.ProductCode
+    Network.AWS.MarketplaceEntitlement.Types.StringValue
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

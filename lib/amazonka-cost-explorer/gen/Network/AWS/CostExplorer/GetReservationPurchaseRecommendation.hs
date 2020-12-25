@@ -23,257 +23,235 @@ module Network.AWS.CostExplorer.GetReservationPurchaseRecommendation
     mkGetReservationPurchaseRecommendation,
 
     -- ** Request lenses
-    grprNextPageToken,
-    grprTermInYears,
     grprService,
-    grprServiceSpecification,
-    grprAccountScope,
     grprAccountId,
-    grprPageSize,
+    grprAccountScope,
     grprLookbackPeriodInDays,
+    grprNextPageToken,
+    grprPageSize,
     grprPaymentOption,
+    grprServiceSpecification,
+    grprTermInYears,
 
     -- * Destructuring the response
     GetReservationPurchaseRecommendationResponse (..),
     mkGetReservationPurchaseRecommendationResponse,
 
     -- ** Response lenses
-    grprrsNextPageToken,
-    grprrsRecommendations,
-    grprrsMetadata,
-    grprrsResponseStatus,
+    grprrrsMetadata,
+    grprrrsNextPageToken,
+    grprrrsRecommendations,
+    grprrrsResponseStatus,
   )
 where
 
-import Network.AWS.CostExplorer.Types
+import qualified Network.AWS.CostExplorer.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetReservationPurchaseRecommendation' smart constructor.
 data GetReservationPurchaseRecommendation = GetReservationPurchaseRecommendation'
-  { -- | The pagination token that indicates the next set of results that you want to retrieve.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | The reservation term that you want recommendations for.
-    termInYears :: Lude.Maybe TermInYears,
-    -- | The specific service that you want recommendations for.
-    service :: Lude.Text,
-    -- | The hardware specifications for the service instances that you want recommendations for, such as standard or convertible Amazon EC2 instances.
-    serviceSpecification :: Lude.Maybe ServiceSpecification,
-    -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
-    accountScope :: Lude.Maybe AccountScope,
+  { -- | The specific service that you want recommendations for.
+    service :: Types.Service,
     -- | The account ID that is associated with the recommendation.
-    accountId :: Lude.Maybe Lude.Text,
-    -- | The number of recommendations that you want returned in a single response object.
-    pageSize :: Lude.Maybe Lude.Natural,
+    accountId :: Core.Maybe Types.AccountId,
+    -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
+    accountScope :: Core.Maybe Types.AccountScope,
     -- | The number of previous days that you want AWS to consider when it calculates your recommendations.
-    lookbackPeriodInDays :: Lude.Maybe LookbackPeriodInDays,
+    lookbackPeriodInDays :: Core.Maybe Types.LookbackPeriodInDays,
+    -- | The pagination token that indicates the next set of results that you want to retrieve.
+    nextPageToken :: Core.Maybe Types.NextPageToken,
+    -- | The number of recommendations that you want returned in a single response object.
+    pageSize :: Core.Maybe Core.Natural,
     -- | The reservation purchase option that you want recommendations for.
-    paymentOption :: Lude.Maybe PaymentOption
+    paymentOption :: Core.Maybe Types.PaymentOption,
+    -- | The hardware specifications for the service instances that you want recommendations for, such as standard or convertible Amazon EC2 instances.
+    serviceSpecification :: Core.Maybe Types.ServiceSpecification,
+    -- | The reservation term that you want recommendations for.
+    termInYears :: Core.Maybe Types.TermInYears
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetReservationPurchaseRecommendation' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The pagination token that indicates the next set of results that you want to retrieve.
--- * 'termInYears' - The reservation term that you want recommendations for.
--- * 'service' - The specific service that you want recommendations for.
--- * 'serviceSpecification' - The hardware specifications for the service instances that you want recommendations for, such as standard or convertible Amazon EC2 instances.
--- * 'accountScope' - The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
--- * 'accountId' - The account ID that is associated with the recommendation.
--- * 'pageSize' - The number of recommendations that you want returned in a single response object.
--- * 'lookbackPeriodInDays' - The number of previous days that you want AWS to consider when it calculates your recommendations.
--- * 'paymentOption' - The reservation purchase option that you want recommendations for.
+-- | Creates a 'GetReservationPurchaseRecommendation' value with any optional fields omitted.
 mkGetReservationPurchaseRecommendation ::
   -- | 'service'
-  Lude.Text ->
+  Types.Service ->
   GetReservationPurchaseRecommendation
-mkGetReservationPurchaseRecommendation pService_ =
+mkGetReservationPurchaseRecommendation service =
   GetReservationPurchaseRecommendation'
-    { nextPageToken =
-        Lude.Nothing,
-      termInYears = Lude.Nothing,
-      service = pService_,
-      serviceSpecification = Lude.Nothing,
-      accountScope = Lude.Nothing,
-      accountId = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      lookbackPeriodInDays = Lude.Nothing,
-      paymentOption = Lude.Nothing
+    { service,
+      accountId = Core.Nothing,
+      accountScope = Core.Nothing,
+      lookbackPeriodInDays = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      pageSize = Core.Nothing,
+      paymentOption = Core.Nothing,
+      serviceSpecification = Core.Nothing,
+      termInYears = Core.Nothing
     }
-
--- | The pagination token that indicates the next set of results that you want to retrieve.
---
--- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprNextPageToken :: Lens.Lens' GetReservationPurchaseRecommendation (Lude.Maybe Lude.Text)
-grprNextPageToken = Lens.lens (nextPageToken :: GetReservationPurchaseRecommendation -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetReservationPurchaseRecommendation)
-{-# DEPRECATED grprNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | The reservation term that you want recommendations for.
---
--- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprTermInYears :: Lens.Lens' GetReservationPurchaseRecommendation (Lude.Maybe TermInYears)
-grprTermInYears = Lens.lens (termInYears :: GetReservationPurchaseRecommendation -> Lude.Maybe TermInYears) (\s a -> s {termInYears = a} :: GetReservationPurchaseRecommendation)
-{-# DEPRECATED grprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
 
 -- | The specific service that you want recommendations for.
 --
 -- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprService :: Lens.Lens' GetReservationPurchaseRecommendation Lude.Text
-grprService = Lens.lens (service :: GetReservationPurchaseRecommendation -> Lude.Text) (\s a -> s {service = a} :: GetReservationPurchaseRecommendation)
+grprService :: Lens.Lens' GetReservationPurchaseRecommendation Types.Service
+grprService = Lens.field @"service"
 {-# DEPRECATED grprService "Use generic-lens or generic-optics with 'service' instead." #-}
-
--- | The hardware specifications for the service instances that you want recommendations for, such as standard or convertible Amazon EC2 instances.
---
--- /Note:/ Consider using 'serviceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprServiceSpecification :: Lens.Lens' GetReservationPurchaseRecommendation (Lude.Maybe ServiceSpecification)
-grprServiceSpecification = Lens.lens (serviceSpecification :: GetReservationPurchaseRecommendation -> Lude.Maybe ServiceSpecification) (\s a -> s {serviceSpecification = a} :: GetReservationPurchaseRecommendation)
-{-# DEPRECATED grprServiceSpecification "Use generic-lens or generic-optics with 'serviceSpecification' instead." #-}
-
--- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
---
--- /Note:/ Consider using 'accountScope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprAccountScope :: Lens.Lens' GetReservationPurchaseRecommendation (Lude.Maybe AccountScope)
-grprAccountScope = Lens.lens (accountScope :: GetReservationPurchaseRecommendation -> Lude.Maybe AccountScope) (\s a -> s {accountScope = a} :: GetReservationPurchaseRecommendation)
-{-# DEPRECATED grprAccountScope "Use generic-lens or generic-optics with 'accountScope' instead." #-}
 
 -- | The account ID that is associated with the recommendation.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprAccountId :: Lens.Lens' GetReservationPurchaseRecommendation (Lude.Maybe Lude.Text)
-grprAccountId = Lens.lens (accountId :: GetReservationPurchaseRecommendation -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: GetReservationPurchaseRecommendation)
+grprAccountId :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Types.AccountId)
+grprAccountId = Lens.field @"accountId"
 {-# DEPRECATED grprAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | The number of recommendations that you want returned in a single response object.
+-- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
 --
--- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprPageSize :: Lens.Lens' GetReservationPurchaseRecommendation (Lude.Maybe Lude.Natural)
-grprPageSize = Lens.lens (pageSize :: GetReservationPurchaseRecommendation -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: GetReservationPurchaseRecommendation)
-{-# DEPRECATED grprPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+-- /Note:/ Consider using 'accountScope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprAccountScope :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Types.AccountScope)
+grprAccountScope = Lens.field @"accountScope"
+{-# DEPRECATED grprAccountScope "Use generic-lens or generic-optics with 'accountScope' instead." #-}
 
 -- | The number of previous days that you want AWS to consider when it calculates your recommendations.
 --
 -- /Note:/ Consider using 'lookbackPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprLookbackPeriodInDays :: Lens.Lens' GetReservationPurchaseRecommendation (Lude.Maybe LookbackPeriodInDays)
-grprLookbackPeriodInDays = Lens.lens (lookbackPeriodInDays :: GetReservationPurchaseRecommendation -> Lude.Maybe LookbackPeriodInDays) (\s a -> s {lookbackPeriodInDays = a} :: GetReservationPurchaseRecommendation)
+grprLookbackPeriodInDays :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Types.LookbackPeriodInDays)
+grprLookbackPeriodInDays = Lens.field @"lookbackPeriodInDays"
 {-# DEPRECATED grprLookbackPeriodInDays "Use generic-lens or generic-optics with 'lookbackPeriodInDays' instead." #-}
+
+-- | The pagination token that indicates the next set of results that you want to retrieve.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprNextPageToken :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Types.NextPageToken)
+grprNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED grprNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+
+-- | The number of recommendations that you want returned in a single response object.
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprPageSize :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Core.Natural)
+grprPageSize = Lens.field @"pageSize"
+{-# DEPRECATED grprPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The reservation purchase option that you want recommendations for.
 --
 -- /Note:/ Consider using 'paymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprPaymentOption :: Lens.Lens' GetReservationPurchaseRecommendation (Lude.Maybe PaymentOption)
-grprPaymentOption = Lens.lens (paymentOption :: GetReservationPurchaseRecommendation -> Lude.Maybe PaymentOption) (\s a -> s {paymentOption = a} :: GetReservationPurchaseRecommendation)
+grprPaymentOption :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Types.PaymentOption)
+grprPaymentOption = Lens.field @"paymentOption"
 {-# DEPRECATED grprPaymentOption "Use generic-lens or generic-optics with 'paymentOption' instead." #-}
 
-instance Lude.AWSRequest GetReservationPurchaseRecommendation where
+-- | The hardware specifications for the service instances that you want recommendations for, such as standard or convertible Amazon EC2 instances.
+--
+-- /Note:/ Consider using 'serviceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprServiceSpecification :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Types.ServiceSpecification)
+grprServiceSpecification = Lens.field @"serviceSpecification"
+{-# DEPRECATED grprServiceSpecification "Use generic-lens or generic-optics with 'serviceSpecification' instead." #-}
+
+-- | The reservation term that you want recommendations for.
+--
+-- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprTermInYears :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Types.TermInYears)
+grprTermInYears = Lens.field @"termInYears"
+{-# DEPRECATED grprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
+
+instance Core.FromJSON GetReservationPurchaseRecommendation where
+  toJSON GetReservationPurchaseRecommendation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Service" Core..= service),
+            ("AccountId" Core..=) Core.<$> accountId,
+            ("AccountScope" Core..=) Core.<$> accountScope,
+            ("LookbackPeriodInDays" Core..=) Core.<$> lookbackPeriodInDays,
+            ("NextPageToken" Core..=) Core.<$> nextPageToken,
+            ("PageSize" Core..=) Core.<$> pageSize,
+            ("PaymentOption" Core..=) Core.<$> paymentOption,
+            ("ServiceSpecification" Core..=) Core.<$> serviceSpecification,
+            ("TermInYears" Core..=) Core.<$> termInYears
+          ]
+      )
+
+instance Core.AWSRequest GetReservationPurchaseRecommendation where
   type
     Rs GetReservationPurchaseRecommendation =
       GetReservationPurchaseRecommendationResponse
-  request = Req.postJSON costExplorerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSInsightsIndexService.GetReservationPurchaseRecommendation"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetReservationPurchaseRecommendationResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "Recommendations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Metadata")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Metadata")
+            Core.<*> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "Recommendations")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetReservationPurchaseRecommendation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSInsightsIndexService.GetReservationPurchaseRecommendation" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetReservationPurchaseRecommendation where
-  toJSON GetReservationPurchaseRecommendation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
-            ("TermInYears" Lude..=) Lude.<$> termInYears,
-            Lude.Just ("Service" Lude..= service),
-            ("ServiceSpecification" Lude..=) Lude.<$> serviceSpecification,
-            ("AccountScope" Lude..=) Lude.<$> accountScope,
-            ("AccountId" Lude..=) Lude.<$> accountId,
-            ("PageSize" Lude..=) Lude.<$> pageSize,
-            ("LookbackPeriodInDays" Lude..=) Lude.<$> lookbackPeriodInDays,
-            ("PaymentOption" Lude..=) Lude.<$> paymentOption
-          ]
-      )
-
-instance Lude.ToPath GetReservationPurchaseRecommendation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetReservationPurchaseRecommendation where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetReservationPurchaseRecommendationResponse' smart constructor.
 data GetReservationPurchaseRecommendationResponse = GetReservationPurchaseRecommendationResponse'
-  { -- | The pagination token for the next set of retrievable results.
-    nextPageToken :: Lude.Maybe Lude.Text,
+  { -- | Information about this specific recommendation call, such as the time stamp for when Cost Explorer generated this recommendation.
+    metadata :: Core.Maybe Types.ReservationPurchaseRecommendationMetadata,
+    -- | The pagination token for the next set of retrievable results.
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | Recommendations for reservations to purchase.
-    recommendations :: Lude.Maybe [ReservationPurchaseRecommendation],
-    -- | Information about this specific recommendation call, such as the time stamp for when Cost Explorer generated this recommendation.
-    metadata :: Lude.Maybe ReservationPurchaseRecommendationMetadata,
+    recommendations :: Core.Maybe [Types.ReservationPurchaseRecommendation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetReservationPurchaseRecommendationResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The pagination token for the next set of retrievable results.
--- * 'recommendations' - Recommendations for reservations to purchase.
--- * 'metadata' - Information about this specific recommendation call, such as the time stamp for when Cost Explorer generated this recommendation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetReservationPurchaseRecommendationResponse' value with any optional fields omitted.
 mkGetReservationPurchaseRecommendationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetReservationPurchaseRecommendationResponse
-mkGetReservationPurchaseRecommendationResponse pResponseStatus_ =
+mkGetReservationPurchaseRecommendationResponse responseStatus =
   GetReservationPurchaseRecommendationResponse'
-    { nextPageToken =
-        Lude.Nothing,
-      recommendations = Lude.Nothing,
-      metadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { metadata =
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
+      recommendations = Core.Nothing,
+      responseStatus
     }
-
--- | The pagination token for the next set of retrievable results.
---
--- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprrsNextPageToken :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Lude.Maybe Lude.Text)
-grprrsNextPageToken = Lens.lens (nextPageToken :: GetReservationPurchaseRecommendationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetReservationPurchaseRecommendationResponse)
-{-# DEPRECATED grprrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | Recommendations for reservations to purchase.
---
--- /Note:/ Consider using 'recommendations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprrsRecommendations :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Lude.Maybe [ReservationPurchaseRecommendation])
-grprrsRecommendations = Lens.lens (recommendations :: GetReservationPurchaseRecommendationResponse -> Lude.Maybe [ReservationPurchaseRecommendation]) (\s a -> s {recommendations = a} :: GetReservationPurchaseRecommendationResponse)
-{-# DEPRECATED grprrsRecommendations "Use generic-lens or generic-optics with 'recommendations' instead." #-}
 
 -- | Information about this specific recommendation call, such as the time stamp for when Cost Explorer generated this recommendation.
 --
 -- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprrsMetadata :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Lude.Maybe ReservationPurchaseRecommendationMetadata)
-grprrsMetadata = Lens.lens (metadata :: GetReservationPurchaseRecommendationResponse -> Lude.Maybe ReservationPurchaseRecommendationMetadata) (\s a -> s {metadata = a} :: GetReservationPurchaseRecommendationResponse)
-{-# DEPRECATED grprrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+grprrrsMetadata :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Core.Maybe Types.ReservationPurchaseRecommendationMetadata)
+grprrrsMetadata = Lens.field @"metadata"
+{-# DEPRECATED grprrrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | The pagination token for the next set of retrievable results.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprrrsNextPageToken :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Core.Maybe Types.NextPageToken)
+grprrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED grprrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+
+-- | Recommendations for reservations to purchase.
+--
+-- /Note:/ Consider using 'recommendations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprrrsRecommendations :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Core.Maybe [Types.ReservationPurchaseRecommendation])
+grprrrsRecommendations = Lens.field @"recommendations"
+{-# DEPRECATED grprrrsRecommendations "Use generic-lens or generic-optics with 'recommendations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprrsResponseStatus :: Lens.Lens' GetReservationPurchaseRecommendationResponse Lude.Int
-grprrsResponseStatus = Lens.lens (responseStatus :: GetReservationPurchaseRecommendationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReservationPurchaseRecommendationResponse)
-{-# DEPRECATED grprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grprrrsResponseStatus :: Lens.Lens' GetReservationPurchaseRecommendationResponse Core.Int
+grprrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grprrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

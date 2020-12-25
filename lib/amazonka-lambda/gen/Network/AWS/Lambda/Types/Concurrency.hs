@@ -22,35 +22,31 @@ module Network.AWS.Lambda.Types.Concurrency
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkConcurrency' smart constructor.
 newtype Concurrency = Concurrency'
   { -- | The number of concurrent executions that are reserved for this function. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency> .
-    reservedConcurrentExecutions :: Lude.Maybe Lude.Natural
+    reservedConcurrentExecutions :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Concurrency' with the minimum fields required to make a request.
---
--- * 'reservedConcurrentExecutions' - The number of concurrent executions that are reserved for this function. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency> .
+-- | Creates a 'Concurrency' value with any optional fields omitted.
 mkConcurrency ::
   Concurrency
 mkConcurrency =
-  Concurrency' {reservedConcurrentExecutions = Lude.Nothing}
+  Concurrency' {reservedConcurrentExecutions = Core.Nothing}
 
 -- | The number of concurrent executions that are reserved for this function. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency> .
 --
 -- /Note:/ Consider using 'reservedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cReservedConcurrentExecutions :: Lens.Lens' Concurrency (Lude.Maybe Lude.Natural)
-cReservedConcurrentExecutions = Lens.lens (reservedConcurrentExecutions :: Concurrency -> Lude.Maybe Lude.Natural) (\s a -> s {reservedConcurrentExecutions = a} :: Concurrency)
+cReservedConcurrentExecutions :: Lens.Lens' Concurrency (Core.Maybe Core.Natural)
+cReservedConcurrentExecutions = Lens.field @"reservedConcurrentExecutions"
 {-# DEPRECATED cReservedConcurrentExecutions "Use generic-lens or generic-optics with 'reservedConcurrentExecutions' instead." #-}
 
-instance Lude.FromJSON Concurrency where
+instance Core.FromJSON Concurrency where
   parseJSON =
-    Lude.withObject
-      "Concurrency"
-      ( \x ->
-          Concurrency' Lude.<$> (x Lude..:? "ReservedConcurrentExecutions")
-      )
+    Core.withObject "Concurrency" Core.$
+      \x ->
+        Concurrency' Core.<$> (x Core..:? "ReservedConcurrentExecutions")

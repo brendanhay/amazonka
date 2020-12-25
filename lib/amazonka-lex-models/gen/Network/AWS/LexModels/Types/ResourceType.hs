@@ -13,51 +13,53 @@
 module Network.AWS.LexModels.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        Bot,
-        Intent,
-        SlotType
+        ResourceTypeBot,
+        ResourceTypeIntent,
+        ResourceTypeSlotType,
+        fromResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceType = ResourceType' Lude.Text
+newtype ResourceType = ResourceType' {fromResourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Bot :: ResourceType
-pattern Bot = ResourceType' "BOT"
+pattern ResourceTypeBot :: ResourceType
+pattern ResourceTypeBot = ResourceType' "BOT"
 
-pattern Intent :: ResourceType
-pattern Intent = ResourceType' "INTENT"
+pattern ResourceTypeIntent :: ResourceType
+pattern ResourceTypeIntent = ResourceType' "INTENT"
 
-pattern SlotType :: ResourceType
-pattern SlotType = ResourceType' "SLOT_TYPE"
+pattern ResourceTypeSlotType :: ResourceType
+pattern ResourceTypeSlotType = ResourceType' "SLOT_TYPE"
 
 {-# COMPLETE
-  Bot,
-  Intent,
-  SlotType,
+  ResourceTypeBot,
+  ResourceTypeIntent,
+  ResourceTypeSlotType,
   ResourceType'
   #-}

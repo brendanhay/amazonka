@@ -33,61 +33,53 @@ module Network.AWS.LexModels.DeleteBot
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteBot' smart constructor.
 newtype DeleteBot = DeleteBot'
   { -- | The name of the bot. The name is case sensitive.
-    name :: Lude.Text
+    name :: Types.BotName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBot' with the minimum fields required to make a request.
---
--- * 'name' - The name of the bot. The name is case sensitive.
+-- | Creates a 'DeleteBot' value with any optional fields omitted.
 mkDeleteBot ::
   -- | 'name'
-  Lude.Text ->
+  Types.BotName ->
   DeleteBot
-mkDeleteBot pName_ = DeleteBot' {name = pName_}
+mkDeleteBot name = DeleteBot' {name}
 
 -- | The name of the bot. The name is case sensitive.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbName :: Lens.Lens' DeleteBot Lude.Text
-dbName = Lens.lens (name :: DeleteBot -> Lude.Text) (\s a -> s {name = a} :: DeleteBot)
+dbName :: Lens.Lens' DeleteBot Types.BotName
+dbName = Lens.field @"name"
 {-# DEPRECATED dbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteBot where
+instance Core.AWSRequest DeleteBot where
   type Rs DeleteBot = DeleteBotResponse
-  request = Req.delete lexModelsService
-  response = Res.receiveNull DeleteBotResponse'
-
-instance Lude.ToHeaders DeleteBot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteBot where
-  toPath DeleteBot' {..} = Lude.mconcat ["/bots/", Lude.toBS name]
-
-instance Lude.ToQuery DeleteBot where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/bots/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteBotResponse'
 
 -- | /See:/ 'mkDeleteBotResponse' smart constructor.
 data DeleteBotResponse = DeleteBotResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBotResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBotResponse' value with any optional fields omitted.
 mkDeleteBotResponse ::
   DeleteBotResponse
 mkDeleteBotResponse = DeleteBotResponse'

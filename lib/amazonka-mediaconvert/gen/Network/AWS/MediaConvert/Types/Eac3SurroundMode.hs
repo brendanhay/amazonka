@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.Eac3SurroundMode
   ( Eac3SurroundMode
       ( Eac3SurroundMode',
-        ESMNotIndicated,
-        ESMEnabled,
-        ESMDisabled
+        Eac3SurroundModeNotIndicated,
+        Eac3SurroundModeEnabled,
+        Eac3SurroundModeDisabled,
+        fromEac3SurroundMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-newtype Eac3SurroundMode = Eac3SurroundMode' Lude.Text
+newtype Eac3SurroundMode = Eac3SurroundMode'
+  { fromEac3SurroundMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESMNotIndicated :: Eac3SurroundMode
-pattern ESMNotIndicated = Eac3SurroundMode' "NOT_INDICATED"
+pattern Eac3SurroundModeNotIndicated :: Eac3SurroundMode
+pattern Eac3SurroundModeNotIndicated = Eac3SurroundMode' "NOT_INDICATED"
 
-pattern ESMEnabled :: Eac3SurroundMode
-pattern ESMEnabled = Eac3SurroundMode' "ENABLED"
+pattern Eac3SurroundModeEnabled :: Eac3SurroundMode
+pattern Eac3SurroundModeEnabled = Eac3SurroundMode' "ENABLED"
 
-pattern ESMDisabled :: Eac3SurroundMode
-pattern ESMDisabled = Eac3SurroundMode' "DISABLED"
+pattern Eac3SurroundModeDisabled :: Eac3SurroundMode
+pattern Eac3SurroundModeDisabled = Eac3SurroundMode' "DISABLED"
 
 {-# COMPLETE
-  ESMNotIndicated,
-  ESMEnabled,
-  ESMDisabled,
+  Eac3SurroundModeNotIndicated,
+  Eac3SurroundModeEnabled,
+  Eac3SurroundModeDisabled,
   Eac3SurroundMode'
   #-}

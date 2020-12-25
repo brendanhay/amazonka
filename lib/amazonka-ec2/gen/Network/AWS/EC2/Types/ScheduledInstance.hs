@@ -17,224 +17,209 @@ module Network.AWS.EC2.Types.ScheduledInstance
     mkScheduledInstance,
 
     -- * Lenses
-    siPreviousSlotEndTime,
-    siPlatform,
-    siTermStartDate,
-    siInstanceCount,
-    siScheduledInstanceId,
-    siHourlyPrice,
-    siCreateDate,
-    siSlotDurationInHours,
-    siTotalScheduledInstanceHours,
-    siInstanceType,
-    siRecurrence,
     siAvailabilityZone,
-    siTermEndDate,
-    siNextSlotStartTime,
+    siCreateDate,
+    siHourlyPrice,
+    siInstanceCount,
+    siInstanceType,
     siNetworkPlatform,
+    siNextSlotStartTime,
+    siPlatform,
+    siPreviousSlotEndTime,
+    siRecurrence,
+    siScheduledInstanceId,
+    siSlotDurationInHours,
+    siTermEndDate,
+    siTermStartDate,
+    siTotalScheduledInstanceHours,
   )
 where
 
-import Network.AWS.EC2.Types.ScheduledInstanceRecurrence
+import qualified Network.AWS.EC2.Types.ScheduledInstanceRecurrence as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Scheduled Instance.
 --
 -- /See:/ 'mkScheduledInstance' smart constructor.
 data ScheduledInstance = ScheduledInstance'
-  { -- | The time that the previous schedule ended or will end.
-    previousSlotEndTime :: Lude.Maybe Lude.DateTime,
-    -- | The platform (@Linux/UNIX@ or @Windows@ ).
-    platform :: Lude.Maybe Lude.Text,
-    -- | The start date for the Scheduled Instance.
-    termStartDate :: Lude.Maybe Lude.DateTime,
-    -- | The number of instances.
-    instanceCount :: Lude.Maybe Lude.Int,
-    -- | The Scheduled Instance ID.
-    scheduledInstanceId :: Lude.Maybe Lude.Text,
-    -- | The hourly price for a single instance.
-    hourlyPrice :: Lude.Maybe Lude.Text,
+  { -- | The Availability Zone.
+    availabilityZone :: Core.Maybe Types.String,
     -- | The date when the Scheduled Instance was purchased.
-    createDate :: Lude.Maybe Lude.DateTime,
-    -- | The number of hours in the schedule.
-    slotDurationInHours :: Lude.Maybe Lude.Int,
-    -- | The total number of hours for a single instance for the entire term.
-    totalScheduledInstanceHours :: Lude.Maybe Lude.Int,
+    createDate :: Core.Maybe Core.UTCTime,
+    -- | The hourly price for a single instance.
+    hourlyPrice :: Core.Maybe Types.String,
+    -- | The number of instances.
+    instanceCount :: Core.Maybe Core.Int,
     -- | The instance type.
-    instanceType :: Lude.Maybe Lude.Text,
-    -- | The schedule recurrence.
-    recurrence :: Lude.Maybe ScheduledInstanceRecurrence,
-    -- | The Availability Zone.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The end date for the Scheduled Instance.
-    termEndDate :: Lude.Maybe Lude.DateTime,
-    -- | The time for the next schedule to start.
-    nextSlotStartTime :: Lude.Maybe Lude.DateTime,
+    instanceType :: Core.Maybe Types.String,
     -- | The network platform (@EC2-Classic@ or @EC2-VPC@ ).
-    networkPlatform :: Lude.Maybe Lude.Text
+    networkPlatform :: Core.Maybe Types.String,
+    -- | The time for the next schedule to start.
+    nextSlotStartTime :: Core.Maybe Core.UTCTime,
+    -- | The platform (@Linux/UNIX@ or @Windows@ ).
+    platform :: Core.Maybe Types.String,
+    -- | The time that the previous schedule ended or will end.
+    previousSlotEndTime :: Core.Maybe Core.UTCTime,
+    -- | The schedule recurrence.
+    recurrence :: Core.Maybe Types.ScheduledInstanceRecurrence,
+    -- | The Scheduled Instance ID.
+    scheduledInstanceId :: Core.Maybe Types.String,
+    -- | The number of hours in the schedule.
+    slotDurationInHours :: Core.Maybe Core.Int,
+    -- | The end date for the Scheduled Instance.
+    termEndDate :: Core.Maybe Core.UTCTime,
+    -- | The start date for the Scheduled Instance.
+    termStartDate :: Core.Maybe Core.UTCTime,
+    -- | The total number of hours for a single instance for the entire term.
+    totalScheduledInstanceHours :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ScheduledInstance' with the minimum fields required to make a request.
---
--- * 'previousSlotEndTime' - The time that the previous schedule ended or will end.
--- * 'platform' - The platform (@Linux/UNIX@ or @Windows@ ).
--- * 'termStartDate' - The start date for the Scheduled Instance.
--- * 'instanceCount' - The number of instances.
--- * 'scheduledInstanceId' - The Scheduled Instance ID.
--- * 'hourlyPrice' - The hourly price for a single instance.
--- * 'createDate' - The date when the Scheduled Instance was purchased.
--- * 'slotDurationInHours' - The number of hours in the schedule.
--- * 'totalScheduledInstanceHours' - The total number of hours for a single instance for the entire term.
--- * 'instanceType' - The instance type.
--- * 'recurrence' - The schedule recurrence.
--- * 'availabilityZone' - The Availability Zone.
--- * 'termEndDate' - The end date for the Scheduled Instance.
--- * 'nextSlotStartTime' - The time for the next schedule to start.
--- * 'networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
+-- | Creates a 'ScheduledInstance' value with any optional fields omitted.
 mkScheduledInstance ::
   ScheduledInstance
 mkScheduledInstance =
   ScheduledInstance'
-    { previousSlotEndTime = Lude.Nothing,
-      platform = Lude.Nothing,
-      termStartDate = Lude.Nothing,
-      instanceCount = Lude.Nothing,
-      scheduledInstanceId = Lude.Nothing,
-      hourlyPrice = Lude.Nothing,
-      createDate = Lude.Nothing,
-      slotDurationInHours = Lude.Nothing,
-      totalScheduledInstanceHours = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      recurrence = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      termEndDate = Lude.Nothing,
-      nextSlotStartTime = Lude.Nothing,
-      networkPlatform = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      createDate = Core.Nothing,
+      hourlyPrice = Core.Nothing,
+      instanceCount = Core.Nothing,
+      instanceType = Core.Nothing,
+      networkPlatform = Core.Nothing,
+      nextSlotStartTime = Core.Nothing,
+      platform = Core.Nothing,
+      previousSlotEndTime = Core.Nothing,
+      recurrence = Core.Nothing,
+      scheduledInstanceId = Core.Nothing,
+      slotDurationInHours = Core.Nothing,
+      termEndDate = Core.Nothing,
+      termStartDate = Core.Nothing,
+      totalScheduledInstanceHours = Core.Nothing
     }
-
--- | The time that the previous schedule ended or will end.
---
--- /Note:/ Consider using 'previousSlotEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siPreviousSlotEndTime :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
-siPreviousSlotEndTime = Lens.lens (previousSlotEndTime :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {previousSlotEndTime = a} :: ScheduledInstance)
-{-# DEPRECATED siPreviousSlotEndTime "Use generic-lens or generic-optics with 'previousSlotEndTime' instead." #-}
-
--- | The platform (@Linux/UNIX@ or @Windows@ ).
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siPlatform :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Text)
-siPlatform = Lens.lens (platform :: ScheduledInstance -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: ScheduledInstance)
-{-# DEPRECATED siPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | The start date for the Scheduled Instance.
---
--- /Note:/ Consider using 'termStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siTermStartDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
-siTermStartDate = Lens.lens (termStartDate :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {termStartDate = a} :: ScheduledInstance)
-{-# DEPRECATED siTermStartDate "Use generic-lens or generic-optics with 'termStartDate' instead." #-}
-
--- | The number of instances.
---
--- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siInstanceCount :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Int)
-siInstanceCount = Lens.lens (instanceCount :: ScheduledInstance -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: ScheduledInstance)
-{-# DEPRECATED siInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
-
--- | The Scheduled Instance ID.
---
--- /Note:/ Consider using 'scheduledInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siScheduledInstanceId :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Text)
-siScheduledInstanceId = Lens.lens (scheduledInstanceId :: ScheduledInstance -> Lude.Maybe Lude.Text) (\s a -> s {scheduledInstanceId = a} :: ScheduledInstance)
-{-# DEPRECATED siScheduledInstanceId "Use generic-lens or generic-optics with 'scheduledInstanceId' instead." #-}
-
--- | The hourly price for a single instance.
---
--- /Note:/ Consider using 'hourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siHourlyPrice :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Text)
-siHourlyPrice = Lens.lens (hourlyPrice :: ScheduledInstance -> Lude.Maybe Lude.Text) (\s a -> s {hourlyPrice = a} :: ScheduledInstance)
-{-# DEPRECATED siHourlyPrice "Use generic-lens or generic-optics with 'hourlyPrice' instead." #-}
-
--- | The date when the Scheduled Instance was purchased.
---
--- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siCreateDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
-siCreateDate = Lens.lens (createDate :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: ScheduledInstance)
-{-# DEPRECATED siCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
-
--- | The number of hours in the schedule.
---
--- /Note:/ Consider using 'slotDurationInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siSlotDurationInHours :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Int)
-siSlotDurationInHours = Lens.lens (slotDurationInHours :: ScheduledInstance -> Lude.Maybe Lude.Int) (\s a -> s {slotDurationInHours = a} :: ScheduledInstance)
-{-# DEPRECATED siSlotDurationInHours "Use generic-lens or generic-optics with 'slotDurationInHours' instead." #-}
-
--- | The total number of hours for a single instance for the entire term.
---
--- /Note:/ Consider using 'totalScheduledInstanceHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siTotalScheduledInstanceHours :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Int)
-siTotalScheduledInstanceHours = Lens.lens (totalScheduledInstanceHours :: ScheduledInstance -> Lude.Maybe Lude.Int) (\s a -> s {totalScheduledInstanceHours = a} :: ScheduledInstance)
-{-# DEPRECATED siTotalScheduledInstanceHours "Use generic-lens or generic-optics with 'totalScheduledInstanceHours' instead." #-}
-
--- | The instance type.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siInstanceType :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Text)
-siInstanceType = Lens.lens (instanceType :: ScheduledInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: ScheduledInstance)
-{-# DEPRECATED siInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | The schedule recurrence.
---
--- /Note:/ Consider using 'recurrence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siRecurrence :: Lens.Lens' ScheduledInstance (Lude.Maybe ScheduledInstanceRecurrence)
-siRecurrence = Lens.lens (recurrence :: ScheduledInstance -> Lude.Maybe ScheduledInstanceRecurrence) (\s a -> s {recurrence = a} :: ScheduledInstance)
-{-# DEPRECATED siRecurrence "Use generic-lens or generic-optics with 'recurrence' instead." #-}
 
 -- | The Availability Zone.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siAvailabilityZone :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Text)
-siAvailabilityZone = Lens.lens (availabilityZone :: ScheduledInstance -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ScheduledInstance)
+siAvailabilityZone :: Lens.Lens' ScheduledInstance (Core.Maybe Types.String)
+siAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED siAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | The end date for the Scheduled Instance.
+-- | The date when the Scheduled Instance was purchased.
 --
--- /Note:/ Consider using 'termEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siTermEndDate :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
-siTermEndDate = Lens.lens (termEndDate :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {termEndDate = a} :: ScheduledInstance)
-{-# DEPRECATED siTermEndDate "Use generic-lens or generic-optics with 'termEndDate' instead." #-}
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siCreateDate :: Lens.Lens' ScheduledInstance (Core.Maybe Core.UTCTime)
+siCreateDate = Lens.field @"createDate"
+{-# DEPRECATED siCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
--- | The time for the next schedule to start.
+-- | The hourly price for a single instance.
 --
--- /Note:/ Consider using 'nextSlotStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siNextSlotStartTime :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.DateTime)
-siNextSlotStartTime = Lens.lens (nextSlotStartTime :: ScheduledInstance -> Lude.Maybe Lude.DateTime) (\s a -> s {nextSlotStartTime = a} :: ScheduledInstance)
-{-# DEPRECATED siNextSlotStartTime "Use generic-lens or generic-optics with 'nextSlotStartTime' instead." #-}
+-- /Note:/ Consider using 'hourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siHourlyPrice :: Lens.Lens' ScheduledInstance (Core.Maybe Types.String)
+siHourlyPrice = Lens.field @"hourlyPrice"
+{-# DEPRECATED siHourlyPrice "Use generic-lens or generic-optics with 'hourlyPrice' instead." #-}
+
+-- | The number of instances.
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siInstanceCount :: Lens.Lens' ScheduledInstance (Core.Maybe Core.Int)
+siInstanceCount = Lens.field @"instanceCount"
+{-# DEPRECATED siInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
+
+-- | The instance type.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siInstanceType :: Lens.Lens' ScheduledInstance (Core.Maybe Types.String)
+siInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED siInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The network platform (@EC2-Classic@ or @EC2-VPC@ ).
 --
 -- /Note:/ Consider using 'networkPlatform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siNetworkPlatform :: Lens.Lens' ScheduledInstance (Lude.Maybe Lude.Text)
-siNetworkPlatform = Lens.lens (networkPlatform :: ScheduledInstance -> Lude.Maybe Lude.Text) (\s a -> s {networkPlatform = a} :: ScheduledInstance)
+siNetworkPlatform :: Lens.Lens' ScheduledInstance (Core.Maybe Types.String)
+siNetworkPlatform = Lens.field @"networkPlatform"
 {-# DEPRECATED siNetworkPlatform "Use generic-lens or generic-optics with 'networkPlatform' instead." #-}
 
-instance Lude.FromXML ScheduledInstance where
+-- | The time for the next schedule to start.
+--
+-- /Note:/ Consider using 'nextSlotStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siNextSlotStartTime :: Lens.Lens' ScheduledInstance (Core.Maybe Core.UTCTime)
+siNextSlotStartTime = Lens.field @"nextSlotStartTime"
+{-# DEPRECATED siNextSlotStartTime "Use generic-lens or generic-optics with 'nextSlotStartTime' instead." #-}
+
+-- | The platform (@Linux/UNIX@ or @Windows@ ).
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siPlatform :: Lens.Lens' ScheduledInstance (Core.Maybe Types.String)
+siPlatform = Lens.field @"platform"
+{-# DEPRECATED siPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+
+-- | The time that the previous schedule ended or will end.
+--
+-- /Note:/ Consider using 'previousSlotEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siPreviousSlotEndTime :: Lens.Lens' ScheduledInstance (Core.Maybe Core.UTCTime)
+siPreviousSlotEndTime = Lens.field @"previousSlotEndTime"
+{-# DEPRECATED siPreviousSlotEndTime "Use generic-lens or generic-optics with 'previousSlotEndTime' instead." #-}
+
+-- | The schedule recurrence.
+--
+-- /Note:/ Consider using 'recurrence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siRecurrence :: Lens.Lens' ScheduledInstance (Core.Maybe Types.ScheduledInstanceRecurrence)
+siRecurrence = Lens.field @"recurrence"
+{-# DEPRECATED siRecurrence "Use generic-lens or generic-optics with 'recurrence' instead." #-}
+
+-- | The Scheduled Instance ID.
+--
+-- /Note:/ Consider using 'scheduledInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siScheduledInstanceId :: Lens.Lens' ScheduledInstance (Core.Maybe Types.String)
+siScheduledInstanceId = Lens.field @"scheduledInstanceId"
+{-# DEPRECATED siScheduledInstanceId "Use generic-lens or generic-optics with 'scheduledInstanceId' instead." #-}
+
+-- | The number of hours in the schedule.
+--
+-- /Note:/ Consider using 'slotDurationInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siSlotDurationInHours :: Lens.Lens' ScheduledInstance (Core.Maybe Core.Int)
+siSlotDurationInHours = Lens.field @"slotDurationInHours"
+{-# DEPRECATED siSlotDurationInHours "Use generic-lens or generic-optics with 'slotDurationInHours' instead." #-}
+
+-- | The end date for the Scheduled Instance.
+--
+-- /Note:/ Consider using 'termEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siTermEndDate :: Lens.Lens' ScheduledInstance (Core.Maybe Core.UTCTime)
+siTermEndDate = Lens.field @"termEndDate"
+{-# DEPRECATED siTermEndDate "Use generic-lens or generic-optics with 'termEndDate' instead." #-}
+
+-- | The start date for the Scheduled Instance.
+--
+-- /Note:/ Consider using 'termStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siTermStartDate :: Lens.Lens' ScheduledInstance (Core.Maybe Core.UTCTime)
+siTermStartDate = Lens.field @"termStartDate"
+{-# DEPRECATED siTermStartDate "Use generic-lens or generic-optics with 'termStartDate' instead." #-}
+
+-- | The total number of hours for a single instance for the entire term.
+--
+-- /Note:/ Consider using 'totalScheduledInstanceHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siTotalScheduledInstanceHours :: Lens.Lens' ScheduledInstance (Core.Maybe Core.Int)
+siTotalScheduledInstanceHours = Lens.field @"totalScheduledInstanceHours"
+{-# DEPRECATED siTotalScheduledInstanceHours "Use generic-lens or generic-optics with 'totalScheduledInstanceHours' instead." #-}
+
+instance Core.FromXML ScheduledInstance where
   parseXML x =
     ScheduledInstance'
-      Lude.<$> (x Lude..@? "previousSlotEndTime")
-      Lude.<*> (x Lude..@? "platform")
-      Lude.<*> (x Lude..@? "termStartDate")
-      Lude.<*> (x Lude..@? "instanceCount")
-      Lude.<*> (x Lude..@? "scheduledInstanceId")
-      Lude.<*> (x Lude..@? "hourlyPrice")
-      Lude.<*> (x Lude..@? "createDate")
-      Lude.<*> (x Lude..@? "slotDurationInHours")
-      Lude.<*> (x Lude..@? "totalScheduledInstanceHours")
-      Lude.<*> (x Lude..@? "instanceType")
-      Lude.<*> (x Lude..@? "recurrence")
-      Lude.<*> (x Lude..@? "availabilityZone")
-      Lude.<*> (x Lude..@? "termEndDate")
-      Lude.<*> (x Lude..@? "nextSlotStartTime")
-      Lude.<*> (x Lude..@? "networkPlatform")
+      Core.<$> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "createDate")
+      Core.<*> (x Core..@? "hourlyPrice")
+      Core.<*> (x Core..@? "instanceCount")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "networkPlatform")
+      Core.<*> (x Core..@? "nextSlotStartTime")
+      Core.<*> (x Core..@? "platform")
+      Core.<*> (x Core..@? "previousSlotEndTime")
+      Core.<*> (x Core..@? "recurrence")
+      Core.<*> (x Core..@? "scheduledInstanceId")
+      Core.<*> (x Core..@? "slotDurationInHours")
+      Core.<*> (x Core..@? "termEndDate")
+      Core.<*> (x Core..@? "termStartDate")
+      Core.<*> (x Core..@? "totalScheduledInstanceHours")

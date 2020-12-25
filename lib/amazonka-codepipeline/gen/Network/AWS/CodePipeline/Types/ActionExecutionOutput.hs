@@ -17,73 +17,69 @@ module Network.AWS.CodePipeline.Types.ActionExecutionOutput
     mkActionExecutionOutput,
 
     -- * Lenses
-    aeoOutputVariables,
-    aeoOutputArtifacts,
     aeoExecutionResult,
+    aeoOutputArtifacts,
+    aeoOutputVariables,
   )
 where
 
-import Network.AWS.CodePipeline.Types.ActionExecutionResult
-import Network.AWS.CodePipeline.Types.ArtifactDetail
+import qualified Network.AWS.CodePipeline.Types.ActionExecutionResult as Types
+import qualified Network.AWS.CodePipeline.Types.ArtifactDetail as Types
+import qualified Network.AWS.CodePipeline.Types.OutputVariablesKey as Types
+import qualified Network.AWS.CodePipeline.Types.OutputVariablesValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Output details listed for an action execution, such as the action execution result.
 --
 -- /See:/ 'mkActionExecutionOutput' smart constructor.
 data ActionExecutionOutput = ActionExecutionOutput'
-  { -- | The outputVariables field shows the key-value pairs that were output as part of that execution.
-    outputVariables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | Execution result information listed in the output details for an action execution.
+    executionResult :: Core.Maybe Types.ActionExecutionResult,
     -- | Details of output artifacts of the action that correspond to the action execution.
-    outputArtifacts :: Lude.Maybe [ArtifactDetail],
-    -- | Execution result information listed in the output details for an action execution.
-    executionResult :: Lude.Maybe ActionExecutionResult
+    outputArtifacts :: Core.Maybe [Types.ArtifactDetail],
+    -- | The outputVariables field shows the key-value pairs that were output as part of that execution.
+    outputVariables :: Core.Maybe (Core.HashMap Types.OutputVariablesKey Types.OutputVariablesValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActionExecutionOutput' with the minimum fields required to make a request.
---
--- * 'outputVariables' - The outputVariables field shows the key-value pairs that were output as part of that execution.
--- * 'outputArtifacts' - Details of output artifacts of the action that correspond to the action execution.
--- * 'executionResult' - Execution result information listed in the output details for an action execution.
+-- | Creates a 'ActionExecutionOutput' value with any optional fields omitted.
 mkActionExecutionOutput ::
   ActionExecutionOutput
 mkActionExecutionOutput =
   ActionExecutionOutput'
-    { outputVariables = Lude.Nothing,
-      outputArtifacts = Lude.Nothing,
-      executionResult = Lude.Nothing
+    { executionResult = Core.Nothing,
+      outputArtifacts = Core.Nothing,
+      outputVariables = Core.Nothing
     }
-
--- | The outputVariables field shows the key-value pairs that were output as part of that execution.
---
--- /Note:/ Consider using 'outputVariables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeoOutputVariables :: Lens.Lens' ActionExecutionOutput (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-aeoOutputVariables = Lens.lens (outputVariables :: ActionExecutionOutput -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {outputVariables = a} :: ActionExecutionOutput)
-{-# DEPRECATED aeoOutputVariables "Use generic-lens or generic-optics with 'outputVariables' instead." #-}
-
--- | Details of output artifacts of the action that correspond to the action execution.
---
--- /Note:/ Consider using 'outputArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeoOutputArtifacts :: Lens.Lens' ActionExecutionOutput (Lude.Maybe [ArtifactDetail])
-aeoOutputArtifacts = Lens.lens (outputArtifacts :: ActionExecutionOutput -> Lude.Maybe [ArtifactDetail]) (\s a -> s {outputArtifacts = a} :: ActionExecutionOutput)
-{-# DEPRECATED aeoOutputArtifacts "Use generic-lens or generic-optics with 'outputArtifacts' instead." #-}
 
 -- | Execution result information listed in the output details for an action execution.
 --
 -- /Note:/ Consider using 'executionResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeoExecutionResult :: Lens.Lens' ActionExecutionOutput (Lude.Maybe ActionExecutionResult)
-aeoExecutionResult = Lens.lens (executionResult :: ActionExecutionOutput -> Lude.Maybe ActionExecutionResult) (\s a -> s {executionResult = a} :: ActionExecutionOutput)
+aeoExecutionResult :: Lens.Lens' ActionExecutionOutput (Core.Maybe Types.ActionExecutionResult)
+aeoExecutionResult = Lens.field @"executionResult"
 {-# DEPRECATED aeoExecutionResult "Use generic-lens or generic-optics with 'executionResult' instead." #-}
 
-instance Lude.FromJSON ActionExecutionOutput where
+-- | Details of output artifacts of the action that correspond to the action execution.
+--
+-- /Note:/ Consider using 'outputArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeoOutputArtifacts :: Lens.Lens' ActionExecutionOutput (Core.Maybe [Types.ArtifactDetail])
+aeoOutputArtifacts = Lens.field @"outputArtifacts"
+{-# DEPRECATED aeoOutputArtifacts "Use generic-lens or generic-optics with 'outputArtifacts' instead." #-}
+
+-- | The outputVariables field shows the key-value pairs that were output as part of that execution.
+--
+-- /Note:/ Consider using 'outputVariables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeoOutputVariables :: Lens.Lens' ActionExecutionOutput (Core.Maybe (Core.HashMap Types.OutputVariablesKey Types.OutputVariablesValue))
+aeoOutputVariables = Lens.field @"outputVariables"
+{-# DEPRECATED aeoOutputVariables "Use generic-lens or generic-optics with 'outputVariables' instead." #-}
+
+instance Core.FromJSON ActionExecutionOutput where
   parseJSON =
-    Lude.withObject
-      "ActionExecutionOutput"
-      ( \x ->
-          ActionExecutionOutput'
-            Lude.<$> (x Lude..:? "outputVariables" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "outputArtifacts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "executionResult")
-      )
+    Core.withObject "ActionExecutionOutput" Core.$
+      \x ->
+        ActionExecutionOutput'
+          Core.<$> (x Core..:? "executionResult")
+          Core.<*> (x Core..:? "outputArtifacts")
+          Core.<*> (x Core..:? "outputVariables")

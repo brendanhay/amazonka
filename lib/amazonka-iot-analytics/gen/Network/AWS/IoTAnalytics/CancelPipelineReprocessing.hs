@@ -28,107 +28,94 @@ module Network.AWS.IoTAnalytics.CancelPipelineReprocessing
     mkCancelPipelineReprocessingResponse,
 
     -- ** Response lenses
-    cprrsResponseStatus,
+    cprrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelPipelineReprocessing' smart constructor.
 data CancelPipelineReprocessing = CancelPipelineReprocessing'
   { -- | The name of pipeline for which data reprocessing is canceled.
-    pipelineName :: Lude.Text,
+    pipelineName :: Types.PipelineName,
     -- | The ID of the reprocessing task (returned by @StartPipelineReprocessing@ ).
-    reprocessingId :: Lude.Text
+    reprocessingId :: Types.ReprocessingId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelPipelineReprocessing' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of pipeline for which data reprocessing is canceled.
--- * 'reprocessingId' - The ID of the reprocessing task (returned by @StartPipelineReprocessing@ ).
+-- | Creates a 'CancelPipelineReprocessing' value with any optional fields omitted.
 mkCancelPipelineReprocessing ::
   -- | 'pipelineName'
-  Lude.Text ->
+  Types.PipelineName ->
   -- | 'reprocessingId'
-  Lude.Text ->
+  Types.ReprocessingId ->
   CancelPipelineReprocessing
-mkCancelPipelineReprocessing pPipelineName_ pReprocessingId_ =
-  CancelPipelineReprocessing'
-    { pipelineName = pPipelineName_,
-      reprocessingId = pReprocessingId_
-    }
+mkCancelPipelineReprocessing pipelineName reprocessingId =
+  CancelPipelineReprocessing' {pipelineName, reprocessingId}
 
 -- | The name of pipeline for which data reprocessing is canceled.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprPipelineName :: Lens.Lens' CancelPipelineReprocessing Lude.Text
-cprPipelineName = Lens.lens (pipelineName :: CancelPipelineReprocessing -> Lude.Text) (\s a -> s {pipelineName = a} :: CancelPipelineReprocessing)
+cprPipelineName :: Lens.Lens' CancelPipelineReprocessing Types.PipelineName
+cprPipelineName = Lens.field @"pipelineName"
 {-# DEPRECATED cprPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The ID of the reprocessing task (returned by @StartPipelineReprocessing@ ).
 --
 -- /Note:/ Consider using 'reprocessingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprReprocessingId :: Lens.Lens' CancelPipelineReprocessing Lude.Text
-cprReprocessingId = Lens.lens (reprocessingId :: CancelPipelineReprocessing -> Lude.Text) (\s a -> s {reprocessingId = a} :: CancelPipelineReprocessing)
+cprReprocessingId :: Lens.Lens' CancelPipelineReprocessing Types.ReprocessingId
+cprReprocessingId = Lens.field @"reprocessingId"
 {-# DEPRECATED cprReprocessingId "Use generic-lens or generic-optics with 'reprocessingId' instead." #-}
 
-instance Lude.AWSRequest CancelPipelineReprocessing where
+instance Core.AWSRequest CancelPipelineReprocessing where
   type
     Rs CancelPipelineReprocessing =
       CancelPipelineReprocessingResponse
-  request = Req.delete ioTAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/pipelines/" Core.<> (Core.toText pipelineName)
+                Core.<> ("/reprocessing/")
+                Core.<> (Core.toText reprocessingId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CancelPipelineReprocessingResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelPipelineReprocessing where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelPipelineReprocessing where
-  toPath CancelPipelineReprocessing' {..} =
-    Lude.mconcat
-      [ "/pipelines/",
-        Lude.toBS pipelineName,
-        "/reprocessing/",
-        Lude.toBS reprocessingId
-      ]
-
-instance Lude.ToQuery CancelPipelineReprocessing where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCancelPipelineReprocessingResponse' smart constructor.
 newtype CancelPipelineReprocessingResponse = CancelPipelineReprocessingResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelPipelineReprocessingResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelPipelineReprocessingResponse' value with any optional fields omitted.
 mkCancelPipelineReprocessingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelPipelineReprocessingResponse
-mkCancelPipelineReprocessingResponse pResponseStatus_ =
-  CancelPipelineReprocessingResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCancelPipelineReprocessingResponse responseStatus =
+  CancelPipelineReprocessingResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprrsResponseStatus :: Lens.Lens' CancelPipelineReprocessingResponse Lude.Int
-cprrsResponseStatus = Lens.lens (responseStatus :: CancelPipelineReprocessingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelPipelineReprocessingResponse)
-{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cprrrsResponseStatus :: Lens.Lens' CancelPipelineReprocessingResponse Core.Int
+cprrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cprrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,47 +22,44 @@ module Network.AWS.CloudFormation.Types.Change
   )
 where
 
-import Network.AWS.CloudFormation.Types.ChangeType
-import Network.AWS.CloudFormation.Types.ResourceChange
+import qualified Network.AWS.CloudFormation.Types.ChangeType as Types
+import qualified Network.AWS.CloudFormation.Types.ResourceChange as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The @Change@ structure describes the changes AWS CloudFormation will perform if you execute the change set.
 --
 -- /See:/ 'mkChange' smart constructor.
 data Change = Change'
   { -- | A @ResourceChange@ structure that describes the resource and action that AWS CloudFormation will perform.
-    resourceChange :: Lude.Maybe ResourceChange,
+    resourceChange :: Core.Maybe Types.ResourceChange,
     -- | The type of entity that AWS CloudFormation changes. Currently, the only entity type is @Resource@ .
-    type' :: Lude.Maybe ChangeType
+    type' :: Core.Maybe Types.ChangeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Change' with the minimum fields required to make a request.
---
--- * 'resourceChange' - A @ResourceChange@ structure that describes the resource and action that AWS CloudFormation will perform.
--- * 'type'' - The type of entity that AWS CloudFormation changes. Currently, the only entity type is @Resource@ .
+-- | Creates a 'Change' value with any optional fields omitted.
 mkChange ::
   Change
 mkChange =
-  Change' {resourceChange = Lude.Nothing, type' = Lude.Nothing}
+  Change' {resourceChange = Core.Nothing, type' = Core.Nothing}
 
 -- | A @ResourceChange@ structure that describes the resource and action that AWS CloudFormation will perform.
 --
 -- /Note:/ Consider using 'resourceChange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cResourceChange :: Lens.Lens' Change (Lude.Maybe ResourceChange)
-cResourceChange = Lens.lens (resourceChange :: Change -> Lude.Maybe ResourceChange) (\s a -> s {resourceChange = a} :: Change)
+cResourceChange :: Lens.Lens' Change (Core.Maybe Types.ResourceChange)
+cResourceChange = Lens.field @"resourceChange"
 {-# DEPRECATED cResourceChange "Use generic-lens or generic-optics with 'resourceChange' instead." #-}
 
 -- | The type of entity that AWS CloudFormation changes. Currently, the only entity type is @Resource@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cType :: Lens.Lens' Change (Lude.Maybe ChangeType)
-cType = Lens.lens (type' :: Change -> Lude.Maybe ChangeType) (\s a -> s {type' = a} :: Change)
+cType :: Lens.Lens' Change (Core.Maybe Types.ChangeType)
+cType = Lens.field @"type'"
 {-# DEPRECATED cType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromXML Change where
+instance Core.FromXML Change where
   parseXML x =
     Change'
-      Lude.<$> (x Lude..@? "ResourceChange") Lude.<*> (x Lude..@? "Type")
+      Core.<$> (x Core..@? "ResourceChange") Core.<*> (x Core..@? "Type")

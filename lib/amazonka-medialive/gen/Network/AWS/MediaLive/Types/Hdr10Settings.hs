@@ -17,56 +17,37 @@ module Network.AWS.MediaLive.Types.Hdr10Settings
     mkHdr10Settings,
 
     -- * Lenses
-    hsMaxFall,
     hsMaxCll,
+    hsMaxFall,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hdr10 Settings
 --
 -- /See:/ 'mkHdr10Settings' smart constructor.
 data Hdr10Settings = Hdr10Settings'
-  { -- | Maximum Frame Average Light Level
-    --
-    -- An integer metadata value defining the maximum average light level, in nits,
-    -- for any single frame within an encoded HDR video stream or file.
-    maxFall :: Lude.Maybe Lude.Natural,
-    -- | Maximum Content Light Level
+  { -- | Maximum Content Light Level
     --
     -- An integer metadata value defining the maximum light level, in nits,
     -- of any single pixel within an encoded HDR video stream or file.
-    maxCll :: Lude.Maybe Lude.Natural
+    maxCll :: Core.Maybe Core.Natural,
+    -- | Maximum Frame Average Light Level
+    --
+    -- An integer metadata value defining the maximum average light level, in nits,
+    -- for any single frame within an encoded HDR video stream or file.
+    maxFall :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Hdr10Settings' with the minimum fields required to make a request.
---
--- * 'maxFall' - Maximum Frame Average Light Level
---
--- An integer metadata value defining the maximum average light level, in nits,
--- for any single frame within an encoded HDR video stream or file.
--- * 'maxCll' - Maximum Content Light Level
---
--- An integer metadata value defining the maximum light level, in nits,
--- of any single pixel within an encoded HDR video stream or file.
+-- | Creates a 'Hdr10Settings' value with any optional fields omitted.
 mkHdr10Settings ::
   Hdr10Settings
 mkHdr10Settings =
-  Hdr10Settings' {maxFall = Lude.Nothing, maxCll = Lude.Nothing}
-
--- | Maximum Frame Average Light Level
---
--- An integer metadata value defining the maximum average light level, in nits,
--- for any single frame within an encoded HDR video stream or file.
---
--- /Note:/ Consider using 'maxFall' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsMaxFall :: Lens.Lens' Hdr10Settings (Lude.Maybe Lude.Natural)
-hsMaxFall = Lens.lens (maxFall :: Hdr10Settings -> Lude.Maybe Lude.Natural) (\s a -> s {maxFall = a} :: Hdr10Settings)
-{-# DEPRECATED hsMaxFall "Use generic-lens or generic-optics with 'maxFall' instead." #-}
+  Hdr10Settings' {maxCll = Core.Nothing, maxFall = Core.Nothing}
 
 -- | Maximum Content Light Level
 --
@@ -74,24 +55,32 @@ hsMaxFall = Lens.lens (maxFall :: Hdr10Settings -> Lude.Maybe Lude.Natural) (\s 
 -- of any single pixel within an encoded HDR video stream or file.
 --
 -- /Note:/ Consider using 'maxCll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsMaxCll :: Lens.Lens' Hdr10Settings (Lude.Maybe Lude.Natural)
-hsMaxCll = Lens.lens (maxCll :: Hdr10Settings -> Lude.Maybe Lude.Natural) (\s a -> s {maxCll = a} :: Hdr10Settings)
+hsMaxCll :: Lens.Lens' Hdr10Settings (Core.Maybe Core.Natural)
+hsMaxCll = Lens.field @"maxCll"
 {-# DEPRECATED hsMaxCll "Use generic-lens or generic-optics with 'maxCll' instead." #-}
 
-instance Lude.FromJSON Hdr10Settings where
-  parseJSON =
-    Lude.withObject
-      "Hdr10Settings"
-      ( \x ->
-          Hdr10Settings'
-            Lude.<$> (x Lude..:? "maxFall") Lude.<*> (x Lude..:? "maxCll")
-      )
+-- | Maximum Frame Average Light Level
+--
+-- An integer metadata value defining the maximum average light level, in nits,
+-- for any single frame within an encoded HDR video stream or file.
+--
+-- /Note:/ Consider using 'maxFall' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsMaxFall :: Lens.Lens' Hdr10Settings (Core.Maybe Core.Natural)
+hsMaxFall = Lens.field @"maxFall"
+{-# DEPRECATED hsMaxFall "Use generic-lens or generic-optics with 'maxFall' instead." #-}
 
-instance Lude.ToJSON Hdr10Settings where
-  toJSON Hdr10Settings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("maxFall" Lude..=) Lude.<$> maxFall,
-            ("maxCll" Lude..=) Lude.<$> maxCll
+instance Core.FromJSON Hdr10Settings where
+  toJSON Hdr10Settings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxCll" Core..=) Core.<$> maxCll,
+            ("maxFall" Core..=) Core.<$> maxFall
           ]
       )
+
+instance Core.FromJSON Hdr10Settings where
+  parseJSON =
+    Core.withObject "Hdr10Settings" Core.$
+      \x ->
+        Hdr10Settings'
+          Core.<$> (x Core..:? "maxCll") Core.<*> (x Core..:? "maxFall")

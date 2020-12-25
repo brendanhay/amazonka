@@ -23,67 +23,63 @@ module Network.AWS.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
   )
 where
 
-import Network.AWS.CodeCommit.Types.MergeMetadata
+import qualified Network.AWS.CodeCommit.Types.DestinationReference as Types
+import qualified Network.AWS.CodeCommit.Types.MergeMetadata as Types
+import qualified Network.AWS.CodeCommit.Types.RepositoryName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about the change in the merge state for a pull request event.
 --
 -- /See:/ 'mkPullRequestMergedStateChangedEventMetadata' smart constructor.
 data PullRequestMergedStateChangedEventMetadata = PullRequestMergedStateChangedEventMetadata'
   { -- | The name of the branch that the pull request is merged into.
-    destinationReference :: Lude.Maybe Lude.Text,
+    destinationReference :: Core.Maybe Types.DestinationReference,
     -- | Information about the merge state change event.
-    mergeMetadata :: Lude.Maybe MergeMetadata,
+    mergeMetadata :: Core.Maybe Types.MergeMetadata,
     -- | The name of the repository where the pull request was created.
-    repositoryName :: Lude.Maybe Lude.Text
+    repositoryName :: Core.Maybe Types.RepositoryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PullRequestMergedStateChangedEventMetadata' with the minimum fields required to make a request.
---
--- * 'destinationReference' - The name of the branch that the pull request is merged into.
--- * 'mergeMetadata' - Information about the merge state change event.
--- * 'repositoryName' - The name of the repository where the pull request was created.
+-- | Creates a 'PullRequestMergedStateChangedEventMetadata' value with any optional fields omitted.
 mkPullRequestMergedStateChangedEventMetadata ::
   PullRequestMergedStateChangedEventMetadata
 mkPullRequestMergedStateChangedEventMetadata =
   PullRequestMergedStateChangedEventMetadata'
     { destinationReference =
-        Lude.Nothing,
-      mergeMetadata = Lude.Nothing,
-      repositoryName = Lude.Nothing
+        Core.Nothing,
+      mergeMetadata = Core.Nothing,
+      repositoryName = Core.Nothing
     }
 
 -- | The name of the branch that the pull request is merged into.
 --
 -- /Note:/ Consider using 'destinationReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prmscemDestinationReference :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Lude.Maybe Lude.Text)
-prmscemDestinationReference = Lens.lens (destinationReference :: PullRequestMergedStateChangedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {destinationReference = a} :: PullRequestMergedStateChangedEventMetadata)
+prmscemDestinationReference :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Core.Maybe Types.DestinationReference)
+prmscemDestinationReference = Lens.field @"destinationReference"
 {-# DEPRECATED prmscemDestinationReference "Use generic-lens or generic-optics with 'destinationReference' instead." #-}
 
 -- | Information about the merge state change event.
 --
 -- /Note:/ Consider using 'mergeMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prmscemMergeMetadata :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Lude.Maybe MergeMetadata)
-prmscemMergeMetadata = Lens.lens (mergeMetadata :: PullRequestMergedStateChangedEventMetadata -> Lude.Maybe MergeMetadata) (\s a -> s {mergeMetadata = a} :: PullRequestMergedStateChangedEventMetadata)
+prmscemMergeMetadata :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Core.Maybe Types.MergeMetadata)
+prmscemMergeMetadata = Lens.field @"mergeMetadata"
 {-# DEPRECATED prmscemMergeMetadata "Use generic-lens or generic-optics with 'mergeMetadata' instead." #-}
 
 -- | The name of the repository where the pull request was created.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prmscemRepositoryName :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Lude.Maybe Lude.Text)
-prmscemRepositoryName = Lens.lens (repositoryName :: PullRequestMergedStateChangedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: PullRequestMergedStateChangedEventMetadata)
+prmscemRepositoryName :: Lens.Lens' PullRequestMergedStateChangedEventMetadata (Core.Maybe Types.RepositoryName)
+prmscemRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED prmscemRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance Lude.FromJSON PullRequestMergedStateChangedEventMetadata where
+instance Core.FromJSON PullRequestMergedStateChangedEventMetadata where
   parseJSON =
-    Lude.withObject
-      "PullRequestMergedStateChangedEventMetadata"
-      ( \x ->
-          PullRequestMergedStateChangedEventMetadata'
-            Lude.<$> (x Lude..:? "destinationReference")
-            Lude.<*> (x Lude..:? "mergeMetadata")
-            Lude.<*> (x Lude..:? "repositoryName")
-      )
+    Core.withObject "PullRequestMergedStateChangedEventMetadata" Core.$
+      \x ->
+        PullRequestMergedStateChangedEventMetadata'
+          Core.<$> (x Core..:? "destinationReference")
+          Core.<*> (x Core..:? "mergeMetadata")
+          Core.<*> (x Core..:? "repositoryName")

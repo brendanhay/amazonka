@@ -13,51 +13,56 @@
 module Network.AWS.WorkSpaces.Types.ModificationResourceEnum
   ( ModificationResourceEnum
       ( ModificationResourceEnum',
-        RootVolume,
-        UserVolume,
-        ComputeType
+        ModificationResourceEnumRootVolume,
+        ModificationResourceEnumUserVolume,
+        ModificationResourceEnumComputeType,
+        fromModificationResourceEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ModificationResourceEnum = ModificationResourceEnum' Lude.Text
+newtype ModificationResourceEnum = ModificationResourceEnum'
+  { fromModificationResourceEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RootVolume :: ModificationResourceEnum
-pattern RootVolume = ModificationResourceEnum' "ROOT_VOLUME"
+pattern ModificationResourceEnumRootVolume :: ModificationResourceEnum
+pattern ModificationResourceEnumRootVolume = ModificationResourceEnum' "ROOT_VOLUME"
 
-pattern UserVolume :: ModificationResourceEnum
-pattern UserVolume = ModificationResourceEnum' "USER_VOLUME"
+pattern ModificationResourceEnumUserVolume :: ModificationResourceEnum
+pattern ModificationResourceEnumUserVolume = ModificationResourceEnum' "USER_VOLUME"
 
-pattern ComputeType :: ModificationResourceEnum
-pattern ComputeType = ModificationResourceEnum' "COMPUTE_TYPE"
+pattern ModificationResourceEnumComputeType :: ModificationResourceEnum
+pattern ModificationResourceEnumComputeType = ModificationResourceEnum' "COMPUTE_TYPE"
 
 {-# COMPLETE
-  RootVolume,
-  UserVolume,
-  ComputeType,
+  ModificationResourceEnumRootVolume,
+  ModificationResourceEnumUserVolume,
+  ModificationResourceEnumComputeType,
   ModificationResourceEnum'
   #-}

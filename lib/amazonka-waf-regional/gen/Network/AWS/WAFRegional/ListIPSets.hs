@@ -20,142 +20,128 @@ module Network.AWS.WAFRegional.ListIPSets
     mkListIPSets,
 
     -- ** Request lenses
-    lisNextMarker,
-    lisLimit,
+    lipsLimit,
+    lipsNextMarker,
 
     -- * Destructuring the response
     ListIPSetsResponse (..),
     mkListIPSetsResponse,
 
     -- ** Response lenses
-    lisrsNextMarker,
-    lisrsIPSets,
-    lisrsResponseStatus,
+    lipsrrsIPSets,
+    lipsrrsNextMarker,
+    lipsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkListIPSets' smart constructor.
 data ListIPSets = ListIPSets'
-  { -- | AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @IPSets@ .
-    nextMarker :: Lude.Maybe Lude.Text,
-    -- | Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
-    limit :: Lude.Maybe Lude.Natural
+  { -- | Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
+    limit :: Core.Maybe Core.Natural,
+    -- | AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @IPSets@ .
+    nextMarker :: Core.Maybe Types.NextMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListIPSets' with the minimum fields required to make a request.
---
--- * 'nextMarker' - AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @IPSets@ .
--- * 'limit' - Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
+-- | Creates a 'ListIPSets' value with any optional fields omitted.
 mkListIPSets ::
   ListIPSets
 mkListIPSets =
-  ListIPSets' {nextMarker = Lude.Nothing, limit = Lude.Nothing}
-
--- | AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @IPSets@ .
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lisNextMarker :: Lens.Lens' ListIPSets (Lude.Maybe Lude.Text)
-lisNextMarker = Lens.lens (nextMarker :: ListIPSets -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListIPSets)
-{-# DEPRECATED lisNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+  ListIPSets' {limit = Core.Nothing, nextMarker = Core.Nothing}
 
 -- | Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lisLimit :: Lens.Lens' ListIPSets (Lude.Maybe Lude.Natural)
-lisLimit = Lens.lens (limit :: ListIPSets -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListIPSets)
-{-# DEPRECATED lisLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+lipsLimit :: Lens.Lens' ListIPSets (Core.Maybe Core.Natural)
+lipsLimit = Lens.field @"limit"
+{-# DEPRECATED lipsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListIPSets where
+-- | AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @IPSets@ .
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipsNextMarker :: Lens.Lens' ListIPSets (Core.Maybe Types.NextMarker)
+lipsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lipsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+instance Core.FromJSON ListIPSets where
+  toJSON ListIPSets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NextMarker" Core..=) Core.<$> nextMarker
+          ]
+      )
+
+instance Core.AWSRequest ListIPSets where
   type Rs ListIPSets = ListIPSetsResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_Regional_20161128.ListIPSets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListIPSetsResponse'
-            Lude.<$> (x Lude..?> "NextMarker")
-            Lude.<*> (x Lude..?> "IPSets" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "IPSets")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListIPSets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.ListIPSets" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListIPSets where
-  toJSON ListIPSets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListIPSets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListIPSets where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListIPSetsResponse' smart constructor.
 data ListIPSetsResponse = ListIPSetsResponse'
-  { -- | To list more @IPSet@ objects, submit another @ListIPSets@ request, and in the next request use the @NextMarker@ response value as the @NextMarker@ value.
-    nextMarker :: Lude.Maybe Lude.Text,
-    -- | An array of 'IPSetSummary' objects.
-    ipSets :: Lude.Maybe [IPSetSummary],
+  { -- | An array of 'IPSetSummary' objects.
+    iPSets :: Core.Maybe [Types.IPSetSummary],
+    -- | To list more @IPSet@ objects, submit another @ListIPSets@ request, and in the next request use the @NextMarker@ response value as the @NextMarker@ value.
+    nextMarker :: Core.Maybe Types.NextMarker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListIPSetsResponse' with the minimum fields required to make a request.
---
--- * 'nextMarker' - To list more @IPSet@ objects, submit another @ListIPSets@ request, and in the next request use the @NextMarker@ response value as the @NextMarker@ value.
--- * 'ipSets' - An array of 'IPSetSummary' objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListIPSetsResponse' value with any optional fields omitted.
 mkListIPSetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListIPSetsResponse
-mkListIPSetsResponse pResponseStatus_ =
+mkListIPSetsResponse responseStatus =
   ListIPSetsResponse'
-    { nextMarker = Lude.Nothing,
-      ipSets = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { iPSets = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
+
+-- | An array of 'IPSetSummary' objects.
+--
+-- /Note:/ Consider using 'iPSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipsrrsIPSets :: Lens.Lens' ListIPSetsResponse (Core.Maybe [Types.IPSetSummary])
+lipsrrsIPSets = Lens.field @"iPSets"
+{-# DEPRECATED lipsrrsIPSets "Use generic-lens or generic-optics with 'iPSets' instead." #-}
 
 -- | To list more @IPSet@ objects, submit another @ListIPSets@ request, and in the next request use the @NextMarker@ response value as the @NextMarker@ value.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lisrsNextMarker :: Lens.Lens' ListIPSetsResponse (Lude.Maybe Lude.Text)
-lisrsNextMarker = Lens.lens (nextMarker :: ListIPSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListIPSetsResponse)
-{-# DEPRECATED lisrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
-
--- | An array of 'IPSetSummary' objects.
---
--- /Note:/ Consider using 'ipSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lisrsIPSets :: Lens.Lens' ListIPSetsResponse (Lude.Maybe [IPSetSummary])
-lisrsIPSets = Lens.lens (ipSets :: ListIPSetsResponse -> Lude.Maybe [IPSetSummary]) (\s a -> s {ipSets = a} :: ListIPSetsResponse)
-{-# DEPRECATED lisrsIPSets "Use generic-lens or generic-optics with 'ipSets' instead." #-}
+lipsrrsNextMarker :: Lens.Lens' ListIPSetsResponse (Core.Maybe Types.NextMarker)
+lipsrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lipsrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lisrsResponseStatus :: Lens.Lens' ListIPSetsResponse Lude.Int
-lisrsResponseStatus = Lens.lens (responseStatus :: ListIPSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIPSetsResponse)
-{-# DEPRECATED lisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lipsrrsResponseStatus :: Lens.Lens' ListIPSetsResponse Core.Int
+lipsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lipsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -18,58 +18,53 @@ module Network.AWS.IoT.Types.JobExecutionSummaryForJob
 
     -- * Lenses
     jesfjJobExecutionSummary,
-    jesfjThingARN,
+    jesfjThingArn,
   )
 where
 
-import Network.AWS.IoT.Types.JobExecutionSummary
+import qualified Network.AWS.IoT.Types.JobExecutionSummary as Types
+import qualified Network.AWS.IoT.Types.ThingArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains a summary of information about job executions for a specific job.
 --
 -- /See:/ 'mkJobExecutionSummaryForJob' smart constructor.
 data JobExecutionSummaryForJob = JobExecutionSummaryForJob'
   { -- | Contains a subset of information about a job execution.
-    jobExecutionSummary :: Lude.Maybe JobExecutionSummary,
+    jobExecutionSummary :: Core.Maybe Types.JobExecutionSummary,
     -- | The ARN of the thing on which the job execution is running.
-    thingARN :: Lude.Maybe Lude.Text
+    thingArn :: Core.Maybe Types.ThingArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'JobExecutionSummaryForJob' with the minimum fields required to make a request.
---
--- * 'jobExecutionSummary' - Contains a subset of information about a job execution.
--- * 'thingARN' - The ARN of the thing on which the job execution is running.
+-- | Creates a 'JobExecutionSummaryForJob' value with any optional fields omitted.
 mkJobExecutionSummaryForJob ::
   JobExecutionSummaryForJob
 mkJobExecutionSummaryForJob =
   JobExecutionSummaryForJob'
-    { jobExecutionSummary = Lude.Nothing,
-      thingARN = Lude.Nothing
+    { jobExecutionSummary = Core.Nothing,
+      thingArn = Core.Nothing
     }
 
 -- | Contains a subset of information about a job execution.
 --
 -- /Note:/ Consider using 'jobExecutionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesfjJobExecutionSummary :: Lens.Lens' JobExecutionSummaryForJob (Lude.Maybe JobExecutionSummary)
-jesfjJobExecutionSummary = Lens.lens (jobExecutionSummary :: JobExecutionSummaryForJob -> Lude.Maybe JobExecutionSummary) (\s a -> s {jobExecutionSummary = a} :: JobExecutionSummaryForJob)
+jesfjJobExecutionSummary :: Lens.Lens' JobExecutionSummaryForJob (Core.Maybe Types.JobExecutionSummary)
+jesfjJobExecutionSummary = Lens.field @"jobExecutionSummary"
 {-# DEPRECATED jesfjJobExecutionSummary "Use generic-lens or generic-optics with 'jobExecutionSummary' instead." #-}
 
 -- | The ARN of the thing on which the job execution is running.
 --
--- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesfjThingARN :: Lens.Lens' JobExecutionSummaryForJob (Lude.Maybe Lude.Text)
-jesfjThingARN = Lens.lens (thingARN :: JobExecutionSummaryForJob -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: JobExecutionSummaryForJob)
-{-# DEPRECATED jesfjThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
+-- /Note:/ Consider using 'thingArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesfjThingArn :: Lens.Lens' JobExecutionSummaryForJob (Core.Maybe Types.ThingArn)
+jesfjThingArn = Lens.field @"thingArn"
+{-# DEPRECATED jesfjThingArn "Use generic-lens or generic-optics with 'thingArn' instead." #-}
 
-instance Lude.FromJSON JobExecutionSummaryForJob where
+instance Core.FromJSON JobExecutionSummaryForJob where
   parseJSON =
-    Lude.withObject
-      "JobExecutionSummaryForJob"
-      ( \x ->
-          JobExecutionSummaryForJob'
-            Lude.<$> (x Lude..:? "jobExecutionSummary")
-            Lude.<*> (x Lude..:? "thingArn")
-      )
+    Core.withObject "JobExecutionSummaryForJob" Core.$
+      \x ->
+        JobExecutionSummaryForJob'
+          Core.<$> (x Core..:? "jobExecutionSummary") Core.<*> (x Core..:? "thingArn")

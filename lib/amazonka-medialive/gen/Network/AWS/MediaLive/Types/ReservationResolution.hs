@@ -13,57 +13,62 @@
 module Network.AWS.MediaLive.Types.ReservationResolution
   ( ReservationResolution
       ( ReservationResolution',
-        RRSD,
-        RRHD,
-        RRFhd,
-        RRUhd
+        ReservationResolutionSD,
+        ReservationResolutionHD,
+        ReservationResolutionFhd,
+        ReservationResolutionUhd,
+        fromReservationResolution
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Resolution based on lines of vertical resolution; SD is less than 720 lines, HD is 720 to 1080 lines, FHD is 1080 lines, UHD is greater than 1080 lines
-newtype ReservationResolution = ReservationResolution' Lude.Text
+newtype ReservationResolution = ReservationResolution'
+  { fromReservationResolution ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RRSD :: ReservationResolution
-pattern RRSD = ReservationResolution' "SD"
+pattern ReservationResolutionSD :: ReservationResolution
+pattern ReservationResolutionSD = ReservationResolution' "SD"
 
-pattern RRHD :: ReservationResolution
-pattern RRHD = ReservationResolution' "HD"
+pattern ReservationResolutionHD :: ReservationResolution
+pattern ReservationResolutionHD = ReservationResolution' "HD"
 
-pattern RRFhd :: ReservationResolution
-pattern RRFhd = ReservationResolution' "FHD"
+pattern ReservationResolutionFhd :: ReservationResolution
+pattern ReservationResolutionFhd = ReservationResolution' "FHD"
 
-pattern RRUhd :: ReservationResolution
-pattern RRUhd = ReservationResolution' "UHD"
+pattern ReservationResolutionUhd :: ReservationResolution
+pattern ReservationResolutionUhd = ReservationResolution' "UHD"
 
 {-# COMPLETE
-  RRSD,
-  RRHD,
-  RRFhd,
-  RRUhd,
+  ReservationResolutionSD,
+  ReservationResolutionHD,
+  ReservationResolutionFhd,
+  ReservationResolutionUhd,
   ReservationResolution'
   #-}

@@ -17,76 +17,69 @@ module Network.AWS.SSM.Types.OpsItemFilter
     mkOpsItemFilter,
 
     -- * Lenses
+    oifKey,
     oifValues,
     oifOperator,
-    oifKey,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.OpsItemFilterKey
-import Network.AWS.SSM.Types.OpsItemFilterOperator
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.OpsItemFilterKey as Types
+import qualified Network.AWS.SSM.Types.OpsItemFilterOperator as Types
+import qualified Network.AWS.SSM.Types.OpsItemFilterValue as Types
 
 -- | Describes an OpsItem filter.
 --
 -- /See:/ 'mkOpsItemFilter' smart constructor.
 data OpsItemFilter = OpsItemFilter'
-  { -- | The filter value.
-    values :: [Lude.Text],
+  { -- | The name of the filter.
+    key :: Types.OpsItemFilterKey,
+    -- | The filter value.
+    values :: [Types.OpsItemFilterValue],
     -- | The operator used by the filter call.
-    operator :: OpsItemFilterOperator,
-    -- | The name of the filter.
-    key :: OpsItemFilterKey
+    operator :: Types.OpsItemFilterOperator
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OpsItemFilter' with the minimum fields required to make a request.
---
--- * 'values' - The filter value.
--- * 'operator' - The operator used by the filter call.
--- * 'key' - The name of the filter.
+-- | Creates a 'OpsItemFilter' value with any optional fields omitted.
 mkOpsItemFilter ::
-  -- | 'operator'
-  OpsItemFilterOperator ->
   -- | 'key'
-  OpsItemFilterKey ->
+  Types.OpsItemFilterKey ->
+  -- | 'operator'
+  Types.OpsItemFilterOperator ->
   OpsItemFilter
-mkOpsItemFilter pOperator_ pKey_ =
-  OpsItemFilter'
-    { values = Lude.mempty,
-      operator = pOperator_,
-      key = pKey_
-    }
+mkOpsItemFilter key operator =
+  OpsItemFilter' {key, values = Core.mempty, operator}
+
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oifKey :: Lens.Lens' OpsItemFilter Types.OpsItemFilterKey
+oifKey = Lens.field @"key"
+{-# DEPRECATED oifKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The filter value.
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oifValues :: Lens.Lens' OpsItemFilter [Lude.Text]
-oifValues = Lens.lens (values :: OpsItemFilter -> [Lude.Text]) (\s a -> s {values = a} :: OpsItemFilter)
+oifValues :: Lens.Lens' OpsItemFilter [Types.OpsItemFilterValue]
+oifValues = Lens.field @"values"
 {-# DEPRECATED oifValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The operator used by the filter call.
 --
 -- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oifOperator :: Lens.Lens' OpsItemFilter OpsItemFilterOperator
-oifOperator = Lens.lens (operator :: OpsItemFilter -> OpsItemFilterOperator) (\s a -> s {operator = a} :: OpsItemFilter)
+oifOperator :: Lens.Lens' OpsItemFilter Types.OpsItemFilterOperator
+oifOperator = Lens.field @"operator"
 {-# DEPRECATED oifOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
 
--- | The name of the filter.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oifKey :: Lens.Lens' OpsItemFilter OpsItemFilterKey
-oifKey = Lens.lens (key :: OpsItemFilter -> OpsItemFilterKey) (\s a -> s {key = a} :: OpsItemFilter)
-{-# DEPRECATED oifKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
-instance Lude.ToJSON OpsItemFilter where
-  toJSON OpsItemFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Operator" Lude..= operator),
-            Lude.Just ("Key" Lude..= key)
+instance Core.FromJSON OpsItemFilter where
+  toJSON OpsItemFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values),
+            Core.Just ("Operator" Core..= operator)
           ]
       )

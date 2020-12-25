@@ -13,61 +13,63 @@
 module Network.AWS.WorkMail.Types.FolderName
   ( FolderName
       ( FolderName',
-        Inbox,
-        DeletedItems,
-        SentItems,
-        Drafts,
-        JunkEmail
+        FolderNameInbox,
+        FolderNameDeletedItems,
+        FolderNameSentItems,
+        FolderNameDrafts,
+        FolderNameJunkEmail,
+        fromFolderName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FolderName = FolderName' Lude.Text
+newtype FolderName = FolderName' {fromFolderName :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Inbox :: FolderName
-pattern Inbox = FolderName' "INBOX"
+pattern FolderNameInbox :: FolderName
+pattern FolderNameInbox = FolderName' "INBOX"
 
-pattern DeletedItems :: FolderName
-pattern DeletedItems = FolderName' "DELETED_ITEMS"
+pattern FolderNameDeletedItems :: FolderName
+pattern FolderNameDeletedItems = FolderName' "DELETED_ITEMS"
 
-pattern SentItems :: FolderName
-pattern SentItems = FolderName' "SENT_ITEMS"
+pattern FolderNameSentItems :: FolderName
+pattern FolderNameSentItems = FolderName' "SENT_ITEMS"
 
-pattern Drafts :: FolderName
-pattern Drafts = FolderName' "DRAFTS"
+pattern FolderNameDrafts :: FolderName
+pattern FolderNameDrafts = FolderName' "DRAFTS"
 
-pattern JunkEmail :: FolderName
-pattern JunkEmail = FolderName' "JUNK_EMAIL"
+pattern FolderNameJunkEmail :: FolderName
+pattern FolderNameJunkEmail = FolderName' "JUNK_EMAIL"
 
 {-# COMPLETE
-  Inbox,
-  DeletedItems,
-  SentItems,
-  Drafts,
-  JunkEmail,
+  FolderNameInbox,
+  FolderNameDeletedItems,
+  FolderNameSentItems,
+  FolderNameDrafts,
+  FolderNameJunkEmail,
   FolderName'
   #-}

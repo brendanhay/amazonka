@@ -17,103 +17,88 @@ module Network.AWS.CloudSearch.Types.DoubleArrayOptions
     mkDoubleArrayOptions,
 
     -- * Lenses
-    daoSourceFields,
-    daoReturnEnabled,
-    daoFacetEnabled,
-    daoSearchEnabled,
     daoDefaultValue,
+    daoFacetEnabled,
+    daoReturnEnabled,
+    daoSearchEnabled,
+    daoSourceFields,
   )
 where
 
+import qualified Network.AWS.CloudSearch.Types.SourceFields as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Options for a field that contains an array of double-precision 64-bit floating point values. Present if @IndexFieldType@ specifies the field is of type @double-array@ . All options are enabled by default.
 --
 -- /See:/ 'mkDoubleArrayOptions' smart constructor.
 data DoubleArrayOptions = DoubleArrayOptions'
-  { -- | A list of source fields to map to the field.
-    sourceFields :: Lude.Maybe Lude.Text,
-    -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Lude.Maybe Lude.Bool,
+  { -- | A value to use for the field if the field isn't specified for a document.
+    defaultValue :: Core.Maybe Core.Double,
     -- | Whether facet information can be returned for the field.
-    facetEnabled :: Lude.Maybe Lude.Bool,
+    facetEnabled :: Core.Maybe Core.Bool,
+    -- | Whether the contents of the field can be returned in the search results.
+    returnEnabled :: Core.Maybe Core.Bool,
     -- | Whether the contents of the field are searchable.
-    searchEnabled :: Lude.Maybe Lude.Bool,
-    -- | A value to use for the field if the field isn't specified for a document.
-    defaultValue :: Lude.Maybe Lude.Double
+    searchEnabled :: Core.Maybe Core.Bool,
+    -- | A list of source fields to map to the field.
+    sourceFields :: Core.Maybe Types.SourceFields
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DoubleArrayOptions' with the minimum fields required to make a request.
---
--- * 'sourceFields' - A list of source fields to map to the field.
--- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
--- * 'facetEnabled' - Whether facet information can be returned for the field.
--- * 'searchEnabled' - Whether the contents of the field are searchable.
--- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
+-- | Creates a 'DoubleArrayOptions' value with any optional fields omitted.
 mkDoubleArrayOptions ::
   DoubleArrayOptions
 mkDoubleArrayOptions =
   DoubleArrayOptions'
-    { sourceFields = Lude.Nothing,
-      returnEnabled = Lude.Nothing,
-      facetEnabled = Lude.Nothing,
-      searchEnabled = Lude.Nothing,
-      defaultValue = Lude.Nothing
+    { defaultValue = Core.Nothing,
+      facetEnabled = Core.Nothing,
+      returnEnabled = Core.Nothing,
+      searchEnabled = Core.Nothing,
+      sourceFields = Core.Nothing
     }
-
--- | A list of source fields to map to the field.
---
--- /Note:/ Consider using 'sourceFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoSourceFields :: Lens.Lens' DoubleArrayOptions (Lude.Maybe Lude.Text)
-daoSourceFields = Lens.lens (sourceFields :: DoubleArrayOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceFields = a} :: DoubleArrayOptions)
-{-# DEPRECATED daoSourceFields "Use generic-lens or generic-optics with 'sourceFields' instead." #-}
-
--- | Whether the contents of the field can be returned in the search results.
---
--- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoReturnEnabled :: Lens.Lens' DoubleArrayOptions (Lude.Maybe Lude.Bool)
-daoReturnEnabled = Lens.lens (returnEnabled :: DoubleArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: DoubleArrayOptions)
-{-# DEPRECATED daoReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
-
--- | Whether facet information can be returned for the field.
---
--- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoFacetEnabled :: Lens.Lens' DoubleArrayOptions (Lude.Maybe Lude.Bool)
-daoFacetEnabled = Lens.lens (facetEnabled :: DoubleArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {facetEnabled = a} :: DoubleArrayOptions)
-{-# DEPRECATED daoFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
-
--- | Whether the contents of the field are searchable.
---
--- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoSearchEnabled :: Lens.Lens' DoubleArrayOptions (Lude.Maybe Lude.Bool)
-daoSearchEnabled = Lens.lens (searchEnabled :: DoubleArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {searchEnabled = a} :: DoubleArrayOptions)
-{-# DEPRECATED daoSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 --
 -- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoDefaultValue :: Lens.Lens' DoubleArrayOptions (Lude.Maybe Lude.Double)
-daoDefaultValue = Lens.lens (defaultValue :: DoubleArrayOptions -> Lude.Maybe Lude.Double) (\s a -> s {defaultValue = a} :: DoubleArrayOptions)
+daoDefaultValue :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Double)
+daoDefaultValue = Lens.field @"defaultValue"
 {-# DEPRECATED daoDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance Lude.FromXML DoubleArrayOptions where
+-- | Whether facet information can be returned for the field.
+--
+-- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoFacetEnabled :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Bool)
+daoFacetEnabled = Lens.field @"facetEnabled"
+{-# DEPRECATED daoFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
+
+-- | Whether the contents of the field can be returned in the search results.
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoReturnEnabled :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Bool)
+daoReturnEnabled = Lens.field @"returnEnabled"
+{-# DEPRECATED daoReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
+
+-- | Whether the contents of the field are searchable.
+--
+-- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoSearchEnabled :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Bool)
+daoSearchEnabled = Lens.field @"searchEnabled"
+{-# DEPRECATED daoSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
+
+-- | A list of source fields to map to the field.
+--
+-- /Note:/ Consider using 'sourceFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoSourceFields :: Lens.Lens' DoubleArrayOptions (Core.Maybe Types.SourceFields)
+daoSourceFields = Lens.field @"sourceFields"
+{-# DEPRECATED daoSourceFields "Use generic-lens or generic-optics with 'sourceFields' instead." #-}
+
+instance Core.FromXML DoubleArrayOptions where
   parseXML x =
     DoubleArrayOptions'
-      Lude.<$> (x Lude..@? "SourceFields")
-      Lude.<*> (x Lude..@? "ReturnEnabled")
-      Lude.<*> (x Lude..@? "FacetEnabled")
-      Lude.<*> (x Lude..@? "SearchEnabled")
-      Lude.<*> (x Lude..@? "DefaultValue")
-
-instance Lude.ToQuery DoubleArrayOptions where
-  toQuery DoubleArrayOptions' {..} =
-    Lude.mconcat
-      [ "SourceFields" Lude.=: sourceFields,
-        "ReturnEnabled" Lude.=: returnEnabled,
-        "FacetEnabled" Lude.=: facetEnabled,
-        "SearchEnabled" Lude.=: searchEnabled,
-        "DefaultValue" Lude.=: defaultValue
-      ]
+      Core.<$> (x Core..@? "DefaultValue")
+      Core.<*> (x Core..@? "FacetEnabled")
+      Core.<*> (x Core..@? "ReturnEnabled")
+      Core.<*> (x Core..@? "SearchEnabled")
+      Core.<*> (x Core..@? "SourceFields")

@@ -31,71 +31,62 @@ module Network.AWS.SageMaker.StopTrainingJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkStopTrainingJob' smart constructor.
 newtype StopTrainingJob = StopTrainingJob'
   { -- | The name of the training job to stop.
-    trainingJobName :: Lude.Text
+    trainingJobName :: Types.TrainingJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTrainingJob' with the minimum fields required to make a request.
---
--- * 'trainingJobName' - The name of the training job to stop.
+-- | Creates a 'StopTrainingJob' value with any optional fields omitted.
 mkStopTrainingJob ::
   -- | 'trainingJobName'
-  Lude.Text ->
+  Types.TrainingJobName ->
   StopTrainingJob
-mkStopTrainingJob pTrainingJobName_ =
-  StopTrainingJob' {trainingJobName = pTrainingJobName_}
+mkStopTrainingJob trainingJobName =
+  StopTrainingJob' {trainingJobName}
 
 -- | The name of the training job to stop.
 --
 -- /Note:/ Consider using 'trainingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stjTrainingJobName :: Lens.Lens' StopTrainingJob Lude.Text
-stjTrainingJobName = Lens.lens (trainingJobName :: StopTrainingJob -> Lude.Text) (\s a -> s {trainingJobName = a} :: StopTrainingJob)
+stjTrainingJobName :: Lens.Lens' StopTrainingJob Types.TrainingJobName
+stjTrainingJobName = Lens.field @"trainingJobName"
 {-# DEPRECATED stjTrainingJobName "Use generic-lens or generic-optics with 'trainingJobName' instead." #-}
 
-instance Lude.AWSRequest StopTrainingJob where
+instance Core.FromJSON StopTrainingJob where
+  toJSON StopTrainingJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TrainingJobName" Core..= trainingJobName)]
+      )
+
+instance Core.AWSRequest StopTrainingJob where
   type Rs StopTrainingJob = StopTrainingJobResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull StopTrainingJobResponse'
-
-instance Lude.ToHeaders StopTrainingJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.StopTrainingJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopTrainingJob where
-  toJSON StopTrainingJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("TrainingJobName" Lude..= trainingJobName)]
-      )
-
-instance Lude.ToPath StopTrainingJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopTrainingJob where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.StopTrainingJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopTrainingJobResponse'
 
 -- | /See:/ 'mkStopTrainingJobResponse' smart constructor.
 data StopTrainingJobResponse = StopTrainingJobResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTrainingJobResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopTrainingJobResponse' value with any optional fields omitted.
 mkStopTrainingJobResponse ::
   StopTrainingJobResponse
 mkStopTrainingJobResponse = StopTrainingJobResponse'

@@ -22,8 +22,8 @@ module Network.AWS.Organizations.MoveAccount
     mkMoveAccount,
 
     -- ** Request lenses
-    maSourceParentId,
     maAccountId,
+    maSourceParentId,
     maDestinationParentId,
 
     -- * Destructuring the response
@@ -33,14 +33,18 @@ module Network.AWS.Organizations.MoveAccount
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkMoveAccount' smart constructor.
 data MoveAccount = MoveAccount'
-  { -- | The unique identifier (ID) of the root or organizational unit that you want to move the account from.
+  { -- | The unique identifier (ID) of the account that you want to move.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+    accountId :: Types.AccountId,
+    -- | The unique identifier (ID) of the root or organizational unit that you want to move the account from.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
     --
@@ -48,11 +52,7 @@ data MoveAccount = MoveAccount'
     --
     --
     --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-    sourceParentId :: Lude.Text,
-    -- | The unique identifier (ID) of the account that you want to move.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
-    accountId :: Lude.Text,
+    sourceParentId :: Types.SourceParentId,
     -- | The unique identifier (ID) of the root or organizational unit that you want to move the account to.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
@@ -61,48 +61,31 @@ data MoveAccount = MoveAccount'
     --
     --
     --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-    destinationParentId :: Lude.Text
+    destinationParentId :: Types.DestinationParentId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MoveAccount' with the minimum fields required to make a request.
---
--- * 'sourceParentId' - The unique identifier (ID) of the root or organizational unit that you want to move the account from.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
---
---     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
---
---
---     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
---
---
--- * 'accountId' - The unique identifier (ID) of the account that you want to move.
+-- | Creates a 'MoveAccount' value with any optional fields omitted.
+mkMoveAccount ::
+  -- | 'accountId'
+  Types.AccountId ->
+  -- | 'sourceParentId'
+  Types.SourceParentId ->
+  -- | 'destinationParentId'
+  Types.DestinationParentId ->
+  MoveAccount
+mkMoveAccount accountId sourceParentId destinationParentId =
+  MoveAccount' {accountId, sourceParentId, destinationParentId}
+
+-- | The unique identifier (ID) of the account that you want to move.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
--- * 'destinationParentId' - The unique identifier (ID) of the root or organizational unit that you want to move the account to.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
---
---     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
---
---
---     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-mkMoveAccount ::
-  -- | 'sourceParentId'
-  Lude.Text ->
-  -- | 'accountId'
-  Lude.Text ->
-  -- | 'destinationParentId'
-  Lude.Text ->
-  MoveAccount
-mkMoveAccount pSourceParentId_ pAccountId_ pDestinationParentId_ =
-  MoveAccount'
-    { sourceParentId = pSourceParentId_,
-      accountId = pAccountId_,
-      destinationParentId = pDestinationParentId_
-    }
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maAccountId :: Lens.Lens' MoveAccount Types.AccountId
+maAccountId = Lens.field @"accountId"
+{-# DEPRECATED maAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The unique identifier (ID) of the root or organizational unit that you want to move the account from.
 --
@@ -116,18 +99,9 @@ mkMoveAccount pSourceParentId_ pAccountId_ pDestinationParentId_ =
 --
 --
 -- /Note:/ Consider using 'sourceParentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maSourceParentId :: Lens.Lens' MoveAccount Lude.Text
-maSourceParentId = Lens.lens (sourceParentId :: MoveAccount -> Lude.Text) (\s a -> s {sourceParentId = a} :: MoveAccount)
+maSourceParentId :: Lens.Lens' MoveAccount Types.SourceParentId
+maSourceParentId = Lens.field @"sourceParentId"
 {-# DEPRECATED maSourceParentId "Use generic-lens or generic-optics with 'sourceParentId' instead." #-}
-
--- | The unique identifier (ID) of the account that you want to move.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maAccountId :: Lens.Lens' MoveAccount Lude.Text
-maAccountId = Lens.lens (accountId :: MoveAccount -> Lude.Text) (\s a -> s {accountId = a} :: MoveAccount)
-{-# DEPRECATED maAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The unique identifier (ID) of the root or organizational unit that you want to move the account to.
 --
@@ -141,48 +115,41 @@ maAccountId = Lens.lens (accountId :: MoveAccount -> Lude.Text) (\s a -> s {acco
 --
 --
 -- /Note:/ Consider using 'destinationParentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maDestinationParentId :: Lens.Lens' MoveAccount Lude.Text
-maDestinationParentId = Lens.lens (destinationParentId :: MoveAccount -> Lude.Text) (\s a -> s {destinationParentId = a} :: MoveAccount)
+maDestinationParentId :: Lens.Lens' MoveAccount Types.DestinationParentId
+maDestinationParentId = Lens.field @"destinationParentId"
 {-# DEPRECATED maDestinationParentId "Use generic-lens or generic-optics with 'destinationParentId' instead." #-}
 
-instance Lude.AWSRequest MoveAccount where
+instance Core.FromJSON MoveAccount where
+  toJSON MoveAccount {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("SourceParentId" Core..= sourceParentId),
+            Core.Just ("DestinationParentId" Core..= destinationParentId)
+          ]
+      )
+
+instance Core.AWSRequest MoveAccount where
   type Rs MoveAccount = MoveAccountResponse
-  request = Req.postJSON organizationsService
-  response = Res.receiveNull MoveAccountResponse'
-
-instance Lude.ToHeaders MoveAccount where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSOrganizationsV20161128.MoveAccount" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON MoveAccount where
-  toJSON MoveAccount' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SourceParentId" Lude..= sourceParentId),
-            Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("DestinationParentId" Lude..= destinationParentId)
-          ]
-      )
-
-instance Lude.ToPath MoveAccount where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery MoveAccount where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSOrganizationsV20161128.MoveAccount")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull MoveAccountResponse'
 
 -- | /See:/ 'mkMoveAccountResponse' smart constructor.
 data MoveAccountResponse = MoveAccountResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MoveAccountResponse' with the minimum fields required to make a request.
+-- | Creates a 'MoveAccountResponse' value with any optional fields omitted.
 mkMoveAccountResponse ::
   MoveAccountResponse
 mkMoveAccountResponse = MoveAccountResponse'

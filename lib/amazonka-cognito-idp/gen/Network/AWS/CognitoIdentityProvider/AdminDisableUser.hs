@@ -22,126 +22,112 @@ module Network.AWS.CognitoIdentityProvider.AdminDisableUser
     mkAdminDisableUser,
 
     -- ** Request lenses
-    aUserPoolId,
-    aUsername,
+    aduUserPoolId,
+    aduUsername,
 
     -- * Destructuring the response
     AdminDisableUserResponse (..),
     mkAdminDisableUserResponse,
 
     -- ** Response lenses
-    adursResponseStatus,
+    adurrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to disable any user as an administrator.
 --
 -- /See:/ 'mkAdminDisableUser' smart constructor.
 data AdminDisableUser = AdminDisableUser'
   { -- | The user pool ID for the user pool where you want to disable the user.
-    userPoolId :: Lude.Text,
+    userPoolId :: Types.UserPoolIdType,
     -- | The user name of the user you wish to disable.
-    username :: Lude.Sensitive Lude.Text
+    username :: Types.Username
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminDisableUser' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool where you want to disable the user.
--- * 'username' - The user name of the user you wish to disable.
+-- | Creates a 'AdminDisableUser' value with any optional fields omitted.
 mkAdminDisableUser ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolIdType ->
   -- | 'username'
-  Lude.Sensitive Lude.Text ->
+  Types.Username ->
   AdminDisableUser
-mkAdminDisableUser pUserPoolId_ pUsername_ =
-  AdminDisableUser'
-    { userPoolId = pUserPoolId_,
-      username = pUsername_
-    }
+mkAdminDisableUser userPoolId username =
+  AdminDisableUser' {userPoolId, username}
 
 -- | The user pool ID for the user pool where you want to disable the user.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aUserPoolId :: Lens.Lens' AdminDisableUser Lude.Text
-aUserPoolId = Lens.lens (userPoolId :: AdminDisableUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminDisableUser)
-{-# DEPRECATED aUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+aduUserPoolId :: Lens.Lens' AdminDisableUser Types.UserPoolIdType
+aduUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED aduUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name of the user you wish to disable.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aUsername :: Lens.Lens' AdminDisableUser (Lude.Sensitive Lude.Text)
-aUsername = Lens.lens (username :: AdminDisableUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminDisableUser)
-{-# DEPRECATED aUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+aduUsername :: Lens.Lens' AdminDisableUser Types.Username
+aduUsername = Lens.field @"username"
+{-# DEPRECATED aduUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance Lude.AWSRequest AdminDisableUser where
+instance Core.FromJSON AdminDisableUser where
+  toJSON AdminDisableUser {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username)
+          ]
+      )
+
+instance Core.AWSRequest AdminDisableUser where
   type Rs AdminDisableUser = AdminDisableUserResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminDisableUser"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          AdminDisableUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AdminDisableUserResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AdminDisableUser where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminDisableUser" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminDisableUser where
-  toJSON AdminDisableUser' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Username" Lude..= username)
-          ]
-      )
-
-instance Lude.ToPath AdminDisableUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminDisableUser where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response received from the server to disable the user as an administrator.
 --
 -- /See:/ 'mkAdminDisableUserResponse' smart constructor.
 newtype AdminDisableUserResponse = AdminDisableUserResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminDisableUserResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AdminDisableUserResponse' value with any optional fields omitted.
 mkAdminDisableUserResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AdminDisableUserResponse
-mkAdminDisableUserResponse pResponseStatus_ =
-  AdminDisableUserResponse' {responseStatus = pResponseStatus_}
+mkAdminDisableUserResponse responseStatus =
+  AdminDisableUserResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adursResponseStatus :: Lens.Lens' AdminDisableUserResponse Lude.Int
-adursResponseStatus = Lens.lens (responseStatus :: AdminDisableUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminDisableUserResponse)
-{-# DEPRECATED adursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+adurrsResponseStatus :: Lens.Lens' AdminDisableUserResponse Core.Int
+adurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED adurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

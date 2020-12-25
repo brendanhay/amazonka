@@ -740,17 +740,32 @@ parseXMLE protocol' field =
         Just {} -> Exts.infixApp parseField (Exts.opQ "Core..<@>") rhs
 
     parseField
-      | fieldMaybe field =
-        Exts.infixApp bind (Exts.opQ "Core..@?") name
+      -- Precedence of guards is intentional.
+      | isMaybe = Exts.infixApp bind (Exts.opQ operator) name
       --
-      | fieldMonoid field && not (fieldMaybe field) =
+      | isMonoid =
         Exts.infixApp
-          (Exts.infixApp bind (Exts.opQ "Core..@?") name)
+          (Exts.infixApp bind (Exts.opQ operator) name)
           (Exts.opQ "Core..@!")
           Exts.memptyE
       --
-      | otherwise =
-        Exts.infixApp bind (Exts.opQ "Core..@") name
+      | otherwise = Exts.infixApp bind (Exts.opQ operator) name
+      where
+        operator
+          | isAttribute && isMaybe = "Core..@@?"
+          | isMaybe = "Core..@?"
+          | isAttribute = "Core..@@"
+          | otherwise = "Core..@"
+
+        isAttribute = field ^. fieldRef . refXMLAttribute
+        isMaybe = fieldMaybe field
+        isMonoid = fieldMonoid field
+
+    -- parseOp field =
+    --   Exts.varE $
+    --     if
+    --       then "Core.toXMLAttribute"
+    --       else "Core.toXMLNode"
 
     name = Exts.strE (memberName protocol' Output field)
     bind = Exts.varE "x"
@@ -843,7 +858,7 @@ toXMLE protocol' = \case
     toNode field =
       Exts.varE $
         if field ^. fieldRef . refXMLAttribute
-          then "Core.toXMLAttr"
+          then "Core.toXMLAttribute"
           else "Core.toXMLNode"
 
 toJSONE :: Protocol -> [Field] -> Exts.Exp

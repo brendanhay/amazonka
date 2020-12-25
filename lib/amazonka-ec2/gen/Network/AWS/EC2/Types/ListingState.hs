@@ -13,56 +13,58 @@
 module Network.AWS.EC2.Types.ListingState
   ( ListingState
       ( ListingState',
-        LAvailable,
-        LSold,
-        LCancelled,
-        LPending
+        ListingStateAvailable,
+        ListingStateSold,
+        ListingStateCancelled,
+        ListingStatePending,
+        fromListingState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ListingState = ListingState' Lude.Text
+newtype ListingState = ListingState' {fromListingState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LAvailable :: ListingState
-pattern LAvailable = ListingState' "available"
+pattern ListingStateAvailable :: ListingState
+pattern ListingStateAvailable = ListingState' "available"
 
-pattern LSold :: ListingState
-pattern LSold = ListingState' "sold"
+pattern ListingStateSold :: ListingState
+pattern ListingStateSold = ListingState' "sold"
 
-pattern LCancelled :: ListingState
-pattern LCancelled = ListingState' "cancelled"
+pattern ListingStateCancelled :: ListingState
+pattern ListingStateCancelled = ListingState' "cancelled"
 
-pattern LPending :: ListingState
-pattern LPending = ListingState' "pending"
+pattern ListingStatePending :: ListingState
+pattern ListingStatePending = ListingState' "pending"
 
 {-# COMPLETE
-  LAvailable,
-  LSold,
-  LCancelled,
-  LPending,
+  ListingStateAvailable,
+  ListingStateSold,
+  ListingStateCancelled,
+  ListingStatePending,
   ListingState'
   #-}

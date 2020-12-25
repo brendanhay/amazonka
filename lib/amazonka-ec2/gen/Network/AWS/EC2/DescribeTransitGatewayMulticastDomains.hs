@@ -22,34 +22,34 @@ module Network.AWS.EC2.DescribeTransitGatewayMulticastDomains
     mkDescribeTransitGatewayMulticastDomains,
 
     -- ** Request lenses
-    dtgmdsTransitGatewayMulticastDomainIds,
-    dtgmdsFilters,
-    dtgmdsNextToken,
     dtgmdsDryRun,
+    dtgmdsFilters,
     dtgmdsMaxResults,
+    dtgmdsNextToken,
+    dtgmdsTransitGatewayMulticastDomainIds,
 
     -- * Destructuring the response
     DescribeTransitGatewayMulticastDomainsResponse (..),
     mkDescribeTransitGatewayMulticastDomainsResponse,
 
     -- ** Response lenses
-    dtgmdsrsTransitGatewayMulticastDomains,
-    dtgmdsrsNextToken,
-    dtgmdsrsResponseStatus,
+    dtgmdrgrsNextToken,
+    dtgmdrgrsTransitGatewayMulticastDomains,
+    dtgmdrgrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTransitGatewayMulticastDomains' smart constructor.
 data DescribeTransitGatewayMulticastDomains = DescribeTransitGatewayMulticastDomains'
-  { -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainIds :: Lude.Maybe [Lude.Text],
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters. The possible values are:
     --
     --
@@ -60,53 +60,35 @@ data DescribeTransitGatewayMulticastDomains = DescribeTransitGatewayMulticastDom
     --
     --
     --     * @transit-gateway-multicast-domain-id@ - The ID of the transit gateway multicast domain.
-    filters :: Lude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.String,
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainIds :: Core.Maybe [Types.TransitGatewayMulticastDomainId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTransitGatewayMulticastDomains' with the minimum fields required to make a request.
---
--- * 'transitGatewayMulticastDomainIds' - The ID of the transit gateway multicast domain.
--- * 'filters' - One or more filters. The possible values are:
---
---
---     * @state@ - The state of the transit gateway multicast domain. Valid values are @pending@ | @available@ | @deleting@ | @deleted@ .
---
---
---     * @transit-gateway-id@ - The ID of the transit gateway.
---
---
---     * @transit-gateway-multicast-domain-id@ - The ID of the transit gateway multicast domain.
---
---
--- * 'nextToken' - The token for the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'DescribeTransitGatewayMulticastDomains' value with any optional fields omitted.
 mkDescribeTransitGatewayMulticastDomains ::
   DescribeTransitGatewayMulticastDomains
 mkDescribeTransitGatewayMulticastDomains =
   DescribeTransitGatewayMulticastDomains'
-    { transitGatewayMulticastDomainIds =
-        Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      transitGatewayMulticastDomainIds = Core.Nothing
     }
 
--- | The ID of the transit gateway multicast domain.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'transitGatewayMulticastDomainIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgmdsTransitGatewayMulticastDomainIds :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Lude.Maybe [Lude.Text])
-dtgmdsTransitGatewayMulticastDomainIds = Lens.lens (transitGatewayMulticastDomainIds :: DescribeTransitGatewayMulticastDomains -> Lude.Maybe [Lude.Text]) (\s a -> s {transitGatewayMulticastDomainIds = a} :: DescribeTransitGatewayMulticastDomains)
-{-# DEPRECATED dtgmdsTransitGatewayMulticastDomainIds "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainIds' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdsDryRun :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Core.Maybe Core.Bool)
+dtgmdsDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dtgmdsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters. The possible values are:
 --
@@ -122,125 +104,126 @@ dtgmdsTransitGatewayMulticastDomainIds = Lens.lens (transitGatewayMulticastDomai
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgmdsFilters :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Lude.Maybe [Filter])
-dtgmdsFilters = Lens.lens (filters :: DescribeTransitGatewayMulticastDomains -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeTransitGatewayMulticastDomains)
+dtgmdsFilters :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Core.Maybe [Types.Filter])
+dtgmdsFilters = Lens.field @"filters"
 {-# DEPRECATED dtgmdsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgmdsNextToken :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Lude.Maybe Lude.Text)
-dtgmdsNextToken = Lens.lens (nextToken :: DescribeTransitGatewayMulticastDomains -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTransitGatewayMulticastDomains)
-{-# DEPRECATED dtgmdsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgmdsDryRun :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Lude.Maybe Lude.Bool)
-dtgmdsDryRun = Lens.lens (dryRun :: DescribeTransitGatewayMulticastDomains -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeTransitGatewayMulticastDomains)
-{-# DEPRECATED dtgmdsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgmdsMaxResults :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Lude.Maybe Lude.Natural)
-dtgmdsMaxResults = Lens.lens (maxResults :: DescribeTransitGatewayMulticastDomains -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeTransitGatewayMulticastDomains)
+dtgmdsMaxResults :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Core.Maybe Core.Natural)
+dtgmdsMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dtgmdsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeTransitGatewayMulticastDomains where
-  page rq rs
-    | Page.stop (rs Lens.^. dtgmdsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtgmdsrsTransitGatewayMulticastDomains) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dtgmdsNextToken Lens..~ rs Lens.^. dtgmdsrsNextToken
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdsNextToken :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Core.Maybe Types.String)
+dtgmdsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtgmdsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeTransitGatewayMulticastDomains where
+-- | The ID of the transit gateway multicast domain.
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomainIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdsTransitGatewayMulticastDomainIds :: Lens.Lens' DescribeTransitGatewayMulticastDomains (Core.Maybe [Types.TransitGatewayMulticastDomainId])
+dtgmdsTransitGatewayMulticastDomainIds = Lens.field @"transitGatewayMulticastDomainIds"
+{-# DEPRECATED dtgmdsTransitGatewayMulticastDomainIds "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainIds' instead." #-}
+
+instance Core.AWSRequest DescribeTransitGatewayMulticastDomains where
   type
     Rs DescribeTransitGatewayMulticastDomains =
       DescribeTransitGatewayMulticastDomainsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeTransitGatewayMulticastDomains")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryList "TransitGatewayMulticastDomainIds"
+                            Core.<$> transitGatewayMulticastDomainIds
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewayMulticastDomainsResponse'
-            Lude.<$> ( x Lude..@? "transitGatewayMulticastDomains" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "transitGatewayMulticastDomains"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeTransitGatewayMulticastDomains where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeTransitGatewayMulticastDomains where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTransitGatewayMulticastDomains where
-  toQuery DescribeTransitGatewayMulticastDomains' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeTransitGatewayMulticastDomains" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          ( Lude.toQueryList "TransitGatewayMulticastDomainIds"
-              Lude.<$> transitGatewayMulticastDomainIds
-          ),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeTransitGatewayMulticastDomains where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"transitGatewayMulticastDomains" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeTransitGatewayMulticastDomainsResponse' smart constructor.
 data DescribeTransitGatewayMulticastDomainsResponse = DescribeTransitGatewayMulticastDomainsResponse'
-  { -- | Information about the transit gateway multicast domains.
-    transitGatewayMulticastDomains :: Lude.Maybe [TransitGatewayMulticastDomain],
-    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
+    -- | Information about the transit gateway multicast domains.
+    transitGatewayMulticastDomains :: Core.Maybe [Types.TransitGatewayMulticastDomain],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTransitGatewayMulticastDomainsResponse' with the minimum fields required to make a request.
---
--- * 'transitGatewayMulticastDomains' - Information about the transit gateway multicast domains.
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTransitGatewayMulticastDomainsResponse' value with any optional fields omitted.
 mkDescribeTransitGatewayMulticastDomainsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTransitGatewayMulticastDomainsResponse
-mkDescribeTransitGatewayMulticastDomainsResponse pResponseStatus_ =
+mkDescribeTransitGatewayMulticastDomainsResponse responseStatus =
   DescribeTransitGatewayMulticastDomainsResponse'
-    { transitGatewayMulticastDomains =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken =
+        Core.Nothing,
+      transitGatewayMulticastDomains = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the transit gateway multicast domains.
---
--- /Note:/ Consider using 'transitGatewayMulticastDomains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgmdsrsTransitGatewayMulticastDomains :: Lens.Lens' DescribeTransitGatewayMulticastDomainsResponse (Lude.Maybe [TransitGatewayMulticastDomain])
-dtgmdsrsTransitGatewayMulticastDomains = Lens.lens (transitGatewayMulticastDomains :: DescribeTransitGatewayMulticastDomainsResponse -> Lude.Maybe [TransitGatewayMulticastDomain]) (\s a -> s {transitGatewayMulticastDomains = a} :: DescribeTransitGatewayMulticastDomainsResponse)
-{-# DEPRECATED dtgmdsrsTransitGatewayMulticastDomains "Use generic-lens or generic-optics with 'transitGatewayMulticastDomains' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgmdsrsNextToken :: Lens.Lens' DescribeTransitGatewayMulticastDomainsResponse (Lude.Maybe Lude.Text)
-dtgmdsrsNextToken = Lens.lens (nextToken :: DescribeTransitGatewayMulticastDomainsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTransitGatewayMulticastDomainsResponse)
-{-# DEPRECATED dtgmdsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dtgmdrgrsNextToken :: Lens.Lens' DescribeTransitGatewayMulticastDomainsResponse (Core.Maybe Types.String)
+dtgmdrgrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtgmdrgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about the transit gateway multicast domains.
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdrgrsTransitGatewayMulticastDomains :: Lens.Lens' DescribeTransitGatewayMulticastDomainsResponse (Core.Maybe [Types.TransitGatewayMulticastDomain])
+dtgmdrgrsTransitGatewayMulticastDomains = Lens.field @"transitGatewayMulticastDomains"
+{-# DEPRECATED dtgmdrgrsTransitGatewayMulticastDomains "Use generic-lens or generic-optics with 'transitGatewayMulticastDomains' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgmdsrsResponseStatus :: Lens.Lens' DescribeTransitGatewayMulticastDomainsResponse Lude.Int
-dtgmdsrsResponseStatus = Lens.lens (responseStatus :: DescribeTransitGatewayMulticastDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTransitGatewayMulticastDomainsResponse)
-{-# DEPRECATED dtgmdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgmdrgrsResponseStatus :: Lens.Lens' DescribeTransitGatewayMulticastDomainsResponse Core.Int
+dtgmdrgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtgmdrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

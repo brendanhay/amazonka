@@ -29,49 +29,40 @@ module Network.AWS.IoTAnalytics.UpdatePipeline
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
   { -- | The name of the pipeline to update.
-    pipelineName :: Lude.Text,
+    pipelineName :: Types.PipelineName,
     -- | A list of @PipelineActivity@ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
     --
     -- The list can be 2-25 @PipelineActivity@ objects and must contain both a @channel@ and a @datastore@ activity. Each entry in the list must contain only one activity. For example:
     -- @pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]@
-    pipelineActivities :: Lude.NonEmpty PipelineActivity
+    pipelineActivities :: Core.NonEmpty Types.PipelineActivity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePipeline' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of the pipeline to update.
--- * 'pipelineActivities' - A list of @PipelineActivity@ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
---
--- The list can be 2-25 @PipelineActivity@ objects and must contain both a @channel@ and a @datastore@ activity. Each entry in the list must contain only one activity. For example:
--- @pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]@
+-- | Creates a 'UpdatePipeline' value with any optional fields omitted.
 mkUpdatePipeline ::
   -- | 'pipelineName'
-  Lude.Text ->
+  Types.PipelineName ->
   -- | 'pipelineActivities'
-  Lude.NonEmpty PipelineActivity ->
+  Core.NonEmpty Types.PipelineActivity ->
   UpdatePipeline
-mkUpdatePipeline pPipelineName_ pPipelineActivities_ =
-  UpdatePipeline'
-    { pipelineName = pPipelineName_,
-      pipelineActivities = pPipelineActivities_
-    }
+mkUpdatePipeline pipelineName pipelineActivities =
+  UpdatePipeline' {pipelineName, pipelineActivities}
 
 -- | The name of the pipeline to update.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPipelineName :: Lens.Lens' UpdatePipeline Lude.Text
-upPipelineName = Lens.lens (pipelineName :: UpdatePipeline -> Lude.Text) (\s a -> s {pipelineName = a} :: UpdatePipeline)
+upPipelineName :: Lens.Lens' UpdatePipeline Types.PipelineName
+upPipelineName = Lens.field @"pipelineName"
 {-# DEPRECATED upPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | A list of @PipelineActivity@ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
@@ -80,38 +71,37 @@ upPipelineName = Lens.lens (pipelineName :: UpdatePipeline -> Lude.Text) (\s a -
 -- @pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]@
 --
 -- /Note:/ Consider using 'pipelineActivities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPipelineActivities :: Lens.Lens' UpdatePipeline (Lude.NonEmpty PipelineActivity)
-upPipelineActivities = Lens.lens (pipelineActivities :: UpdatePipeline -> Lude.NonEmpty PipelineActivity) (\s a -> s {pipelineActivities = a} :: UpdatePipeline)
+upPipelineActivities :: Lens.Lens' UpdatePipeline (Core.NonEmpty Types.PipelineActivity)
+upPipelineActivities = Lens.field @"pipelineActivities"
 {-# DEPRECATED upPipelineActivities "Use generic-lens or generic-optics with 'pipelineActivities' instead." #-}
 
-instance Lude.AWSRequest UpdatePipeline where
-  type Rs UpdatePipeline = UpdatePipelineResponse
-  request = Req.putJSON ioTAnalyticsService
-  response = Res.receiveNull UpdatePipelineResponse'
-
-instance Lude.ToHeaders UpdatePipeline where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdatePipeline where
-  toJSON UpdatePipeline' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("pipelineActivities" Lude..= pipelineActivities)]
+instance Core.FromJSON UpdatePipeline where
+  toJSON UpdatePipeline {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("pipelineActivities" Core..= pipelineActivities)]
       )
 
-instance Lude.ToPath UpdatePipeline where
-  toPath UpdatePipeline' {..} =
-    Lude.mconcat ["/pipelines/", Lude.toBS pipelineName]
-
-instance Lude.ToQuery UpdatePipeline where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdatePipeline where
+  type Rs UpdatePipeline = UpdatePipelineResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath ("/pipelines/" Core.<> (Core.toText pipelineName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdatePipelineResponse'
 
 -- | /See:/ 'mkUpdatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdatePipelineResponse' value with any optional fields omitted.
 mkUpdatePipelineResponse ::
   UpdatePipelineResponse
 mkUpdatePipelineResponse = UpdatePipelineResponse'

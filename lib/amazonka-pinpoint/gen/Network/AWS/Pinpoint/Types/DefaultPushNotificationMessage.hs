@@ -17,35 +17,25 @@ module Network.AWS.Pinpoint.Types.DefaultPushNotificationMessage
     mkDefaultPushNotificationMessage,
 
     -- * Lenses
-    dpnmSubstitutions,
-    dpnmSilentPush,
-    dpnmData,
-    dpnmBody,
-    dpnmURL,
     dpnmAction,
+    dpnmBody,
+    dpnmData,
+    dpnmSilentPush,
+    dpnmSubstitutions,
     dpnmTitle,
+    dpnmUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.Action
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.Action as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the default settings and content for a push notification that's sent directly to an endpoint.
 --
 -- /See:/ 'mkDefaultPushNotificationMessage' smart constructor.
 data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
-  { -- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
-    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.
-    silentPush :: Lude.Maybe Lude.Bool,
-    -- | The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
-    data' :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The default body of the notification message.
-    body :: Lude.Maybe Lude.Text,
-    -- | The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
-    url :: Lude.Maybe Lude.Text,
-    -- | The default action to occur if a recipient taps the push notification. Valid values are:
+  { -- | The default action to occur if a recipient taps the push notification. Valid values are:
     --
     --
     --     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
@@ -55,80 +45,36 @@ data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
     --
     --
     --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
-    action :: Lude.Maybe Action,
+    action :: Core.Maybe Types.Action,
+    -- | The default body of the notification message.
+    body :: Core.Maybe Core.Text,
+    -- | The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
+    data' :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    -- | Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.
+    silentPush :: Core.Maybe Core.Bool,
+    -- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The default title to display above the notification message on a recipient's device.
-    title :: Lude.Maybe Lude.Text
+    title :: Core.Maybe Core.Text,
+    -- | The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
+    url :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DefaultPushNotificationMessage' with the minimum fields required to make a request.
---
--- * 'substitutions' - The default message variables to use in the notification message. You can override the default variables with individual address variables.
--- * 'silentPush' - Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.
--- * 'data'' - The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
--- * 'body' - The default body of the notification message.
--- * 'url' - The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
--- * 'action' - The default action to occur if a recipient taps the push notification. Valid values are:
---
---
---     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
---
---
---     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.
---
---
---     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
---
---
--- * 'title' - The default title to display above the notification message on a recipient's device.
+-- | Creates a 'DefaultPushNotificationMessage' value with any optional fields omitted.
 mkDefaultPushNotificationMessage ::
   DefaultPushNotificationMessage
 mkDefaultPushNotificationMessage =
   DefaultPushNotificationMessage'
-    { substitutions = Lude.Nothing,
-      silentPush = Lude.Nothing,
-      data' = Lude.Nothing,
-      body = Lude.Nothing,
-      url = Lude.Nothing,
-      action = Lude.Nothing,
-      title = Lude.Nothing
+    { action = Core.Nothing,
+      body = Core.Nothing,
+      data' = Core.Nothing,
+      silentPush = Core.Nothing,
+      substitutions = Core.Nothing,
+      title = Core.Nothing,
+      url = Core.Nothing
     }
-
--- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
---
--- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpnmSubstitutions :: Lens.Lens' DefaultPushNotificationMessage (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-dpnmSubstitutions = Lens.lens (substitutions :: DefaultPushNotificationMessage -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: DefaultPushNotificationMessage)
-{-# DEPRECATED dpnmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
-
--- | Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.
---
--- /Note:/ Consider using 'silentPush' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpnmSilentPush :: Lens.Lens' DefaultPushNotificationMessage (Lude.Maybe Lude.Bool)
-dpnmSilentPush = Lens.lens (silentPush :: DefaultPushNotificationMessage -> Lude.Maybe Lude.Bool) (\s a -> s {silentPush = a} :: DefaultPushNotificationMessage)
-{-# DEPRECATED dpnmSilentPush "Use generic-lens or generic-optics with 'silentPush' instead." #-}
-
--- | The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
---
--- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpnmData :: Lens.Lens' DefaultPushNotificationMessage (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-dpnmData = Lens.lens (data' :: DefaultPushNotificationMessage -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {data' = a} :: DefaultPushNotificationMessage)
-{-# DEPRECATED dpnmData "Use generic-lens or generic-optics with 'data'' instead." #-}
-
--- | The default body of the notification message.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpnmBody :: Lens.Lens' DefaultPushNotificationMessage (Lude.Maybe Lude.Text)
-dpnmBody = Lens.lens (body :: DefaultPushNotificationMessage -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: DefaultPushNotificationMessage)
-{-# DEPRECATED dpnmBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpnmURL :: Lens.Lens' DefaultPushNotificationMessage (Lude.Maybe Lude.Text)
-dpnmURL = Lens.lens (url :: DefaultPushNotificationMessage -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: DefaultPushNotificationMessage)
-{-# DEPRECATED dpnmURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The default action to occur if a recipient taps the push notification. Valid values are:
 --
@@ -144,27 +90,62 @@ dpnmURL = Lens.lens (url :: DefaultPushNotificationMessage -> Lude.Maybe Lude.Te
 --
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpnmAction :: Lens.Lens' DefaultPushNotificationMessage (Lude.Maybe Action)
-dpnmAction = Lens.lens (action :: DefaultPushNotificationMessage -> Lude.Maybe Action) (\s a -> s {action = a} :: DefaultPushNotificationMessage)
+dpnmAction :: Lens.Lens' DefaultPushNotificationMessage (Core.Maybe Types.Action)
+dpnmAction = Lens.field @"action"
 {-# DEPRECATED dpnmAction "Use generic-lens or generic-optics with 'action' instead." #-}
+
+-- | The default body of the notification message.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpnmBody :: Lens.Lens' DefaultPushNotificationMessage (Core.Maybe Core.Text)
+dpnmBody = Lens.field @"body"
+{-# DEPRECATED dpnmBody "Use generic-lens or generic-optics with 'body' instead." #-}
+
+-- | The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpnmData :: Lens.Lens' DefaultPushNotificationMessage (Core.Maybe (Core.HashMap Core.Text Core.Text))
+dpnmData = Lens.field @"data'"
+{-# DEPRECATED dpnmData "Use generic-lens or generic-optics with 'data'' instead." #-}
+
+-- | Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.
+--
+-- /Note:/ Consider using 'silentPush' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpnmSilentPush :: Lens.Lens' DefaultPushNotificationMessage (Core.Maybe Core.Bool)
+dpnmSilentPush = Lens.field @"silentPush"
+{-# DEPRECATED dpnmSilentPush "Use generic-lens or generic-optics with 'silentPush' instead." #-}
+
+-- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
+--
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpnmSubstitutions :: Lens.Lens' DefaultPushNotificationMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+dpnmSubstitutions = Lens.field @"substitutions"
+{-# DEPRECATED dpnmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
 
 -- | The default title to display above the notification message on a recipient's device.
 --
 -- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpnmTitle :: Lens.Lens' DefaultPushNotificationMessage (Lude.Maybe Lude.Text)
-dpnmTitle = Lens.lens (title :: DefaultPushNotificationMessage -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: DefaultPushNotificationMessage)
+dpnmTitle :: Lens.Lens' DefaultPushNotificationMessage (Core.Maybe Core.Text)
+dpnmTitle = Lens.field @"title"
 {-# DEPRECATED dpnmTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
-instance Lude.ToJSON DefaultPushNotificationMessage where
-  toJSON DefaultPushNotificationMessage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
-            ("SilentPush" Lude..=) Lude.<$> silentPush,
-            ("Data" Lude..=) Lude.<$> data',
-            ("Body" Lude..=) Lude.<$> body,
-            ("Url" Lude..=) Lude.<$> url,
-            ("Action" Lude..=) Lude.<$> action,
-            ("Title" Lude..=) Lude.<$> title
+-- | The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpnmUrl :: Lens.Lens' DefaultPushNotificationMessage (Core.Maybe Core.Text)
+dpnmUrl = Lens.field @"url"
+{-# DEPRECATED dpnmUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+
+instance Core.FromJSON DefaultPushNotificationMessage where
+  toJSON DefaultPushNotificationMessage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Action" Core..=) Core.<$> action,
+            ("Body" Core..=) Core.<$> body,
+            ("Data" Core..=) Core.<$> data',
+            ("SilentPush" Core..=) Core.<$> silentPush,
+            ("Substitutions" Core..=) Core.<$> substitutions,
+            ("Title" Core..=) Core.<$> title,
+            ("Url" Core..=) Core.<$> url
           ]
       )

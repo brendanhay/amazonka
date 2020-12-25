@@ -17,102 +17,94 @@ module Network.AWS.Pinpoint.Types.EndpointSendConfiguration
     mkEndpointSendConfiguration,
 
     -- * Lenses
-    escSubstitutions,
-    escTitleOverride,
+    escBodyOverride,
     escContext,
     escRawContent,
-    escBodyOverride,
+    escSubstitutions,
+    escTitleOverride,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the content, including message variables and attributes, to use in a message that's sent directly to an endpoint.
 --
 -- /See:/ 'mkEndpointSendConfiguration' smart constructor.
 data EndpointSendConfiguration = EndpointSendConfiguration'
-  { -- | A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.
-    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | The title or subject line of the message. If specified, this value overrides the default message title or subject line.
-    titleOverride :: Lude.Maybe Lude.Text,
+  { -- | The body of the message. If specified, this value overrides the default message body.
+    bodyOverride :: Core.Maybe Core.Text,
     -- | A map of custom attributes to attach to the message for the address. Attribute names are case sensitive.
     --
     -- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
-    context :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    context :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
-    rawContent :: Lude.Maybe Lude.Text,
-    -- | The body of the message. If specified, this value overrides the default message body.
-    bodyOverride :: Lude.Maybe Lude.Text
+    rawContent :: Core.Maybe Core.Text,
+    -- | A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    -- | The title or subject line of the message. If specified, this value overrides the default message title or subject line.
+    titleOverride :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointSendConfiguration' with the minimum fields required to make a request.
---
--- * 'substitutions' - A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.
--- * 'titleOverride' - The title or subject line of the message. If specified, this value overrides the default message title or subject line.
--- * 'context' - A map of custom attributes to attach to the message for the address. Attribute names are case sensitive.
---
--- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
--- * 'rawContent' - The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
--- * 'bodyOverride' - The body of the message. If specified, this value overrides the default message body.
+-- | Creates a 'EndpointSendConfiguration' value with any optional fields omitted.
 mkEndpointSendConfiguration ::
   EndpointSendConfiguration
 mkEndpointSendConfiguration =
   EndpointSendConfiguration'
-    { substitutions = Lude.Nothing,
-      titleOverride = Lude.Nothing,
-      context = Lude.Nothing,
-      rawContent = Lude.Nothing,
-      bodyOverride = Lude.Nothing
+    { bodyOverride = Core.Nothing,
+      context = Core.Nothing,
+      rawContent = Core.Nothing,
+      substitutions = Core.Nothing,
+      titleOverride = Core.Nothing
     }
 
--- | A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.
+-- | The body of the message. If specified, this value overrides the default message body.
 --
--- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escSubstitutions :: Lens.Lens' EndpointSendConfiguration (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-escSubstitutions = Lens.lens (substitutions :: EndpointSendConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: EndpointSendConfiguration)
-{-# DEPRECATED escSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
-
--- | The title or subject line of the message. If specified, this value overrides the default message title or subject line.
---
--- /Note:/ Consider using 'titleOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escTitleOverride :: Lens.Lens' EndpointSendConfiguration (Lude.Maybe Lude.Text)
-escTitleOverride = Lens.lens (titleOverride :: EndpointSendConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {titleOverride = a} :: EndpointSendConfiguration)
-{-# DEPRECATED escTitleOverride "Use generic-lens or generic-optics with 'titleOverride' instead." #-}
+-- /Note:/ Consider using 'bodyOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+escBodyOverride :: Lens.Lens' EndpointSendConfiguration (Core.Maybe Core.Text)
+escBodyOverride = Lens.field @"bodyOverride"
+{-# DEPRECATED escBodyOverride "Use generic-lens or generic-optics with 'bodyOverride' instead." #-}
 
 -- | A map of custom attributes to attach to the message for the address. Attribute names are case sensitive.
 --
 -- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
 --
 -- /Note:/ Consider using 'context' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escContext :: Lens.Lens' EndpointSendConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-escContext = Lens.lens (context :: EndpointSendConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {context = a} :: EndpointSendConfiguration)
+escContext :: Lens.Lens' EndpointSendConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
+escContext = Lens.field @"context"
 {-# DEPRECATED escContext "Use generic-lens or generic-optics with 'context' instead." #-}
 
 -- | The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
 --
 -- /Note:/ Consider using 'rawContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escRawContent :: Lens.Lens' EndpointSendConfiguration (Lude.Maybe Lude.Text)
-escRawContent = Lens.lens (rawContent :: EndpointSendConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {rawContent = a} :: EndpointSendConfiguration)
+escRawContent :: Lens.Lens' EndpointSendConfiguration (Core.Maybe Core.Text)
+escRawContent = Lens.field @"rawContent"
 {-# DEPRECATED escRawContent "Use generic-lens or generic-optics with 'rawContent' instead." #-}
 
--- | The body of the message. If specified, this value overrides the default message body.
+-- | A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.
 --
--- /Note:/ Consider using 'bodyOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escBodyOverride :: Lens.Lens' EndpointSendConfiguration (Lude.Maybe Lude.Text)
-escBodyOverride = Lens.lens (bodyOverride :: EndpointSendConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {bodyOverride = a} :: EndpointSendConfiguration)
-{-# DEPRECATED escBodyOverride "Use generic-lens or generic-optics with 'bodyOverride' instead." #-}
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+escSubstitutions :: Lens.Lens' EndpointSendConfiguration (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+escSubstitutions = Lens.field @"substitutions"
+{-# DEPRECATED escSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
 
-instance Lude.ToJSON EndpointSendConfiguration where
-  toJSON EndpointSendConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
-            ("TitleOverride" Lude..=) Lude.<$> titleOverride,
-            ("Context" Lude..=) Lude.<$> context,
-            ("RawContent" Lude..=) Lude.<$> rawContent,
-            ("BodyOverride" Lude..=) Lude.<$> bodyOverride
+-- | The title or subject line of the message. If specified, this value overrides the default message title or subject line.
+--
+-- /Note:/ Consider using 'titleOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+escTitleOverride :: Lens.Lens' EndpointSendConfiguration (Core.Maybe Core.Text)
+escTitleOverride = Lens.field @"titleOverride"
+{-# DEPRECATED escTitleOverride "Use generic-lens or generic-optics with 'titleOverride' instead." #-}
+
+instance Core.FromJSON EndpointSendConfiguration where
+  toJSON EndpointSendConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BodyOverride" Core..=) Core.<$> bodyOverride,
+            ("Context" Core..=) Core.<$> context,
+            ("RawContent" Core..=) Core.<$> rawContent,
+            ("Substitutions" Core..=) Core.<$> substitutions,
+            ("TitleOverride" Core..=) Core.<$> titleOverride
           ]
       )

@@ -29,101 +29,93 @@ module Network.AWS.Route53.GetQueryLoggingConfig
     mkGetQueryLoggingConfigResponse,
 
     -- ** Response lenses
-    gqlcrsQueryLoggingConfig,
-    gqlcrsResponseStatus,
+    gqlcrrsQueryLoggingConfig,
+    gqlcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | /See:/ 'mkGetQueryLoggingConfig' smart constructor.
 newtype GetQueryLoggingConfig = GetQueryLoggingConfig'
   { -- | The ID of the configuration for DNS query logging that you want to get information about.
-    id :: Lude.Text
+    id :: Types.QueryLoggingConfigId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetQueryLoggingConfig' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the configuration for DNS query logging that you want to get information about.
+-- | Creates a 'GetQueryLoggingConfig' value with any optional fields omitted.
 mkGetQueryLoggingConfig ::
   -- | 'id'
-  Lude.Text ->
+  Types.QueryLoggingConfigId ->
   GetQueryLoggingConfig
-mkGetQueryLoggingConfig pId_ = GetQueryLoggingConfig' {id = pId_}
+mkGetQueryLoggingConfig id = GetQueryLoggingConfig' {id}
 
 -- | The ID of the configuration for DNS query logging that you want to get information about.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gqlcId :: Lens.Lens' GetQueryLoggingConfig Lude.Text
-gqlcId = Lens.lens (id :: GetQueryLoggingConfig -> Lude.Text) (\s a -> s {id = a} :: GetQueryLoggingConfig)
+gqlcId :: Lens.Lens' GetQueryLoggingConfig Types.QueryLoggingConfigId
+gqlcId = Lens.field @"id"
 {-# DEPRECATED gqlcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetQueryLoggingConfig where
+instance Core.AWSRequest GetQueryLoggingConfig where
   type Rs GetQueryLoggingConfig = GetQueryLoggingConfigResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/2013-04-01/queryloggingconfig/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetQueryLoggingConfigResponse'
-            Lude.<$> (x Lude..@ "QueryLoggingConfig")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "QueryLoggingConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetQueryLoggingConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetQueryLoggingConfig where
-  toPath GetQueryLoggingConfig' {..} =
-    Lude.mconcat ["/2013-04-01/queryloggingconfig/", Lude.toBS id]
-
-instance Lude.ToQuery GetQueryLoggingConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetQueryLoggingConfigResponse' smart constructor.
 data GetQueryLoggingConfigResponse = GetQueryLoggingConfigResponse'
   { -- | A complex type that contains information about the query logging configuration that you specified in a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html GetQueryLoggingConfig> request.
-    queryLoggingConfig :: QueryLoggingConfig,
+    queryLoggingConfig :: Types.QueryLoggingConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetQueryLoggingConfigResponse' with the minimum fields required to make a request.
---
--- * 'queryLoggingConfig' - A complex type that contains information about the query logging configuration that you specified in a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html GetQueryLoggingConfig> request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetQueryLoggingConfigResponse' value with any optional fields omitted.
 mkGetQueryLoggingConfigResponse ::
   -- | 'queryLoggingConfig'
-  QueryLoggingConfig ->
+  Types.QueryLoggingConfig ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetQueryLoggingConfigResponse
-mkGetQueryLoggingConfigResponse
-  pQueryLoggingConfig_
-  pResponseStatus_ =
-    GetQueryLoggingConfigResponse'
-      { queryLoggingConfig =
-          pQueryLoggingConfig_,
-        responseStatus = pResponseStatus_
-      }
+mkGetQueryLoggingConfigResponse queryLoggingConfig responseStatus =
+  GetQueryLoggingConfigResponse'
+    { queryLoggingConfig,
+      responseStatus
+    }
 
 -- | A complex type that contains information about the query logging configuration that you specified in a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html GetQueryLoggingConfig> request.
 --
 -- /Note:/ Consider using 'queryLoggingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gqlcrsQueryLoggingConfig :: Lens.Lens' GetQueryLoggingConfigResponse QueryLoggingConfig
-gqlcrsQueryLoggingConfig = Lens.lens (queryLoggingConfig :: GetQueryLoggingConfigResponse -> QueryLoggingConfig) (\s a -> s {queryLoggingConfig = a} :: GetQueryLoggingConfigResponse)
-{-# DEPRECATED gqlcrsQueryLoggingConfig "Use generic-lens or generic-optics with 'queryLoggingConfig' instead." #-}
+gqlcrrsQueryLoggingConfig :: Lens.Lens' GetQueryLoggingConfigResponse Types.QueryLoggingConfig
+gqlcrrsQueryLoggingConfig = Lens.field @"queryLoggingConfig"
+{-# DEPRECATED gqlcrrsQueryLoggingConfig "Use generic-lens or generic-optics with 'queryLoggingConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gqlcrsResponseStatus :: Lens.Lens' GetQueryLoggingConfigResponse Lude.Int
-gqlcrsResponseStatus = Lens.lens (responseStatus :: GetQueryLoggingConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetQueryLoggingConfigResponse)
-{-# DEPRECATED gqlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gqlcrrsResponseStatus :: Lens.Lens' GetQueryLoggingConfigResponse Core.Int
+gqlcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gqlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

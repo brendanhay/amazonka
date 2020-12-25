@@ -29,95 +29,84 @@ module Network.AWS.SageMaker.DeleteHumanTaskUi
     mkDeleteHumanTaskUiResponse,
 
     -- ** Response lenses
-    dhtursResponseStatus,
+    dhturrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteHumanTaskUi' smart constructor.
 newtype DeleteHumanTaskUi = DeleteHumanTaskUi'
   { -- | The name of the human task user interface (work task template) you want to delete.
-    humanTaskUiName :: Lude.Text
+    humanTaskUiName :: Types.HumanTaskUiName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteHumanTaskUi' with the minimum fields required to make a request.
---
--- * 'humanTaskUiName' - The name of the human task user interface (work task template) you want to delete.
+-- | Creates a 'DeleteHumanTaskUi' value with any optional fields omitted.
 mkDeleteHumanTaskUi ::
   -- | 'humanTaskUiName'
-  Lude.Text ->
+  Types.HumanTaskUiName ->
   DeleteHumanTaskUi
-mkDeleteHumanTaskUi pHumanTaskUiName_ =
-  DeleteHumanTaskUi' {humanTaskUiName = pHumanTaskUiName_}
+mkDeleteHumanTaskUi humanTaskUiName =
+  DeleteHumanTaskUi' {humanTaskUiName}
 
 -- | The name of the human task user interface (work task template) you want to delete.
 --
 -- /Note:/ Consider using 'humanTaskUiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhtuHumanTaskUiName :: Lens.Lens' DeleteHumanTaskUi Lude.Text
-dhtuHumanTaskUiName = Lens.lens (humanTaskUiName :: DeleteHumanTaskUi -> Lude.Text) (\s a -> s {humanTaskUiName = a} :: DeleteHumanTaskUi)
+dhtuHumanTaskUiName :: Lens.Lens' DeleteHumanTaskUi Types.HumanTaskUiName
+dhtuHumanTaskUiName = Lens.field @"humanTaskUiName"
 {-# DEPRECATED dhtuHumanTaskUiName "Use generic-lens or generic-optics with 'humanTaskUiName' instead." #-}
 
-instance Lude.AWSRequest DeleteHumanTaskUi where
+instance Core.FromJSON DeleteHumanTaskUi where
+  toJSON DeleteHumanTaskUi {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("HumanTaskUiName" Core..= humanTaskUiName)]
+      )
+
+instance Core.AWSRequest DeleteHumanTaskUi where
   type Rs DeleteHumanTaskUi = DeleteHumanTaskUiResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteHumanTaskUi")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteHumanTaskUiResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteHumanTaskUiResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteHumanTaskUi where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteHumanTaskUi" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteHumanTaskUi where
-  toJSON DeleteHumanTaskUi' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("HumanTaskUiName" Lude..= humanTaskUiName)]
-      )
-
-instance Lude.ToPath DeleteHumanTaskUi where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteHumanTaskUi where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteHumanTaskUiResponse' smart constructor.
 newtype DeleteHumanTaskUiResponse = DeleteHumanTaskUiResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteHumanTaskUiResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteHumanTaskUiResponse' value with any optional fields omitted.
 mkDeleteHumanTaskUiResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteHumanTaskUiResponse
-mkDeleteHumanTaskUiResponse pResponseStatus_ =
-  DeleteHumanTaskUiResponse' {responseStatus = pResponseStatus_}
+mkDeleteHumanTaskUiResponse responseStatus =
+  DeleteHumanTaskUiResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhtursResponseStatus :: Lens.Lens' DeleteHumanTaskUiResponse Lude.Int
-dhtursResponseStatus = Lens.lens (responseStatus :: DeleteHumanTaskUiResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHumanTaskUiResponse)
-{-# DEPRECATED dhtursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dhturrsResponseStatus :: Lens.Lens' DeleteHumanTaskUiResponse Core.Int
+dhturrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dhturrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

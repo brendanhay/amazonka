@@ -17,60 +17,44 @@ module Network.AWS.EC2.Types.LaunchTemplateCapacityReservationSpecificationRespo
     mkLaunchTemplateCapacityReservationSpecificationResponse,
 
     -- * Lenses
-    ltcrsCapacityReservationTarget,
-    ltcrsCapacityReservationPreference,
+    lCapacityReservationPreference,
+    lCapacityReservationTarget,
   )
 where
 
-import Network.AWS.EC2.Types.CapacityReservationPreference
-import Network.AWS.EC2.Types.CapacityReservationTargetResponse
+import qualified Network.AWS.EC2.Types.CapacityReservationPreference as Types
+import qualified Network.AWS.EC2.Types.CapacityReservationTargetResponse as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the Capacity Reservation targeting option.
 --
 -- /See:/ 'mkLaunchTemplateCapacityReservationSpecificationResponse' smart constructor.
 data LaunchTemplateCapacityReservationSpecificationResponse = LaunchTemplateCapacityReservationSpecificationResponse'
-  { -- | Information about the target Capacity Reservation or Capacity Reservation group.
-    capacityReservationTarget :: Lude.Maybe CapacityReservationTargetResponse,
-    -- | Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+  { -- | Indicates the instance's Capacity Reservation preferences. Possible preferences include:
     --
     --
     --     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
     --
     --
     --     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
-    capacityReservationPreference :: Lude.Maybe CapacityReservationPreference
+    capacityReservationPreference :: Core.Maybe Types.CapacityReservationPreference,
+    -- | Information about the target Capacity Reservation or Capacity Reservation group.
+    capacityReservationTarget :: Core.Maybe Types.CapacityReservationTargetResponse
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplateCapacityReservationSpecificationResponse' with the minimum fields required to make a request.
---
--- * 'capacityReservationTarget' - Information about the target Capacity Reservation or Capacity Reservation group.
--- * 'capacityReservationPreference' - Indicates the instance's Capacity Reservation preferences. Possible preferences include:
---
---
---     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
---
---
---     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+-- | Creates a 'LaunchTemplateCapacityReservationSpecificationResponse' value with any optional fields omitted.
 mkLaunchTemplateCapacityReservationSpecificationResponse ::
   LaunchTemplateCapacityReservationSpecificationResponse
 mkLaunchTemplateCapacityReservationSpecificationResponse =
   LaunchTemplateCapacityReservationSpecificationResponse'
-    { capacityReservationTarget =
-        Lude.Nothing,
-      capacityReservationPreference =
-        Lude.Nothing
+    { capacityReservationPreference =
+        Core.Nothing,
+      capacityReservationTarget =
+        Core.Nothing
     }
-
--- | Information about the target Capacity Reservation or Capacity Reservation group.
---
--- /Note:/ Consider using 'capacityReservationTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltcrsCapacityReservationTarget :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationResponse (Lude.Maybe CapacityReservationTargetResponse)
-ltcrsCapacityReservationTarget = Lens.lens (capacityReservationTarget :: LaunchTemplateCapacityReservationSpecificationResponse -> Lude.Maybe CapacityReservationTargetResponse) (\s a -> s {capacityReservationTarget = a} :: LaunchTemplateCapacityReservationSpecificationResponse)
-{-# DEPRECATED ltcrsCapacityReservationTarget "Use generic-lens or generic-optics with 'capacityReservationTarget' instead." #-}
 
 -- | Indicates the instance's Capacity Reservation preferences. Possible preferences include:
 --
@@ -83,15 +67,22 @@ ltcrsCapacityReservationTarget = Lens.lens (capacityReservationTarget :: LaunchT
 --
 --
 -- /Note:/ Consider using 'capacityReservationPreference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltcrsCapacityReservationPreference :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationResponse (Lude.Maybe CapacityReservationPreference)
-ltcrsCapacityReservationPreference = Lens.lens (capacityReservationPreference :: LaunchTemplateCapacityReservationSpecificationResponse -> Lude.Maybe CapacityReservationPreference) (\s a -> s {capacityReservationPreference = a} :: LaunchTemplateCapacityReservationSpecificationResponse)
-{-# DEPRECATED ltcrsCapacityReservationPreference "Use generic-lens or generic-optics with 'capacityReservationPreference' instead." #-}
+lCapacityReservationPreference :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationResponse (Core.Maybe Types.CapacityReservationPreference)
+lCapacityReservationPreference = Lens.field @"capacityReservationPreference"
+{-# DEPRECATED lCapacityReservationPreference "Use generic-lens or generic-optics with 'capacityReservationPreference' instead." #-}
+
+-- | Information about the target Capacity Reservation or Capacity Reservation group.
+--
+-- /Note:/ Consider using 'capacityReservationTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lCapacityReservationTarget :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationResponse (Core.Maybe Types.CapacityReservationTargetResponse)
+lCapacityReservationTarget = Lens.field @"capacityReservationTarget"
+{-# DEPRECATED lCapacityReservationTarget "Use generic-lens or generic-optics with 'capacityReservationTarget' instead." #-}
 
 instance
-  Lude.FromXML
+  Core.FromXML
     LaunchTemplateCapacityReservationSpecificationResponse
   where
   parseXML x =
     LaunchTemplateCapacityReservationSpecificationResponse'
-      Lude.<$> (x Lude..@? "capacityReservationTarget")
-      Lude.<*> (x Lude..@? "capacityReservationPreference")
+      Core.<$> (x Core..@? "capacityReservationPreference")
+      Core.<*> (x Core..@? "capacityReservationTarget")

@@ -69,172 +69,160 @@ module Network.AWS.GameLift.DescribeFleetCapacity
     mkDescribeFleetCapacity,
 
     -- ** Request lenses
-    dfcNextToken,
-    dfcLimit,
     dfcFleetIds,
+    dfcLimit,
+    dfcNextToken,
 
     -- * Destructuring the response
     DescribeFleetCapacityResponse (..),
     mkDescribeFleetCapacityResponse,
 
     -- ** Response lenses
-    dfcrsNextToken,
-    dfcrsFleetCapacity,
-    dfcrsResponseStatus,
+    dfcrrsFleetCapacity,
+    dfcrrsNextToken,
+    dfcrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribeFleetCapacity' smart constructor.
 data DescribeFleetCapacity = DescribeFleetCapacity'
-  { -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A unique identifier for a fleet(s) to retrieve capacity information for. You can use either the fleet ID or ARN value.
+    fleetIds :: Core.Maybe (Core.NonEmpty Types.FleetIdOrArn),
     -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | A unique identifier for a fleet(s) to retrieve capacity information for. You can use either the fleet ID or ARN value.
-    fleetIds :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    limit :: Core.Maybe Core.Natural,
+    -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+    nextToken :: Core.Maybe Types.NonZeroAndMaxString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFleetCapacity' with the minimum fields required to make a request.
---
--- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
--- * 'fleetIds' - A unique identifier for a fleet(s) to retrieve capacity information for. You can use either the fleet ID or ARN value.
+-- | Creates a 'DescribeFleetCapacity' value with any optional fields omitted.
 mkDescribeFleetCapacity ::
   DescribeFleetCapacity
 mkDescribeFleetCapacity =
   DescribeFleetCapacity'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      fleetIds = Lude.Nothing
+    { fleetIds = Core.Nothing,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcNextToken :: Lens.Lens' DescribeFleetCapacity (Lude.Maybe Lude.Text)
-dfcNextToken = Lens.lens (nextToken :: DescribeFleetCapacity -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetCapacity)
-{-# DEPRECATED dfcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcLimit :: Lens.Lens' DescribeFleetCapacity (Lude.Maybe Lude.Natural)
-dfcLimit = Lens.lens (limit :: DescribeFleetCapacity -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeFleetCapacity)
-{-# DEPRECATED dfcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | A unique identifier for a fleet(s) to retrieve capacity information for. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcFleetIds :: Lens.Lens' DescribeFleetCapacity (Lude.Maybe (Lude.NonEmpty Lude.Text))
-dfcFleetIds = Lens.lens (fleetIds :: DescribeFleetCapacity -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {fleetIds = a} :: DescribeFleetCapacity)
+dfcFleetIds :: Lens.Lens' DescribeFleetCapacity (Core.Maybe (Core.NonEmpty Types.FleetIdOrArn))
+dfcFleetIds = Lens.field @"fleetIds"
 {-# DEPRECATED dfcFleetIds "Use generic-lens or generic-optics with 'fleetIds' instead." #-}
 
-instance Page.AWSPager DescribeFleetCapacity where
-  page rq rs
-    | Page.stop (rs Lens.^. dfcrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dfcrsFleetCapacity) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dfcNextToken Lens..~ rs Lens.^. dfcrsNextToken
+-- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcLimit :: Lens.Lens' DescribeFleetCapacity (Core.Maybe Core.Natural)
+dfcLimit = Lens.field @"limit"
+{-# DEPRECATED dfcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest DescribeFleetCapacity where
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcNextToken :: Lens.Lens' DescribeFleetCapacity (Core.Maybe Types.NonZeroAndMaxString)
+dfcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dfcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON DescribeFleetCapacity where
+  toJSON DescribeFleetCapacity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("FleetIds" Core..=) Core.<$> fleetIds,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeFleetCapacity where
   type Rs DescribeFleetCapacity = DescribeFleetCapacityResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribeFleetCapacity")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeFleetCapacityResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "FleetCapacity" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FleetCapacity")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeFleetCapacity where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribeFleetCapacity" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeFleetCapacity where
-  toJSON DescribeFleetCapacity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("FleetIds" Lude..=) Lude.<$> fleetIds
-          ]
-      )
-
-instance Lude.ToPath DescribeFleetCapacity where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeFleetCapacity where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeFleetCapacity where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"fleetCapacity" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkDescribeFleetCapacityResponse' smart constructor.
 data DescribeFleetCapacityResponse = DescribeFleetCapacityResponse'
-  { -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
-    fleetCapacity :: Lude.Maybe [FleetCapacity],
+  { -- | A collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
+    fleetCapacity :: Core.Maybe [Types.FleetCapacity],
+    -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Core.Maybe Types.NonZeroAndMaxString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFleetCapacityResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
--- * 'fleetCapacity' - A collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeFleetCapacityResponse' value with any optional fields omitted.
 mkDescribeFleetCapacityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeFleetCapacityResponse
-mkDescribeFleetCapacityResponse pResponseStatus_ =
+mkDescribeFleetCapacityResponse responseStatus =
   DescribeFleetCapacityResponse'
-    { nextToken = Lude.Nothing,
-      fleetCapacity = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fleetCapacity = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcrsNextToken :: Lens.Lens' DescribeFleetCapacityResponse (Lude.Maybe Lude.Text)
-dfcrsNextToken = Lens.lens (nextToken :: DescribeFleetCapacityResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetCapacityResponse)
-{-# DEPRECATED dfcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
 --
 -- /Note:/ Consider using 'fleetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcrsFleetCapacity :: Lens.Lens' DescribeFleetCapacityResponse (Lude.Maybe [FleetCapacity])
-dfcrsFleetCapacity = Lens.lens (fleetCapacity :: DescribeFleetCapacityResponse -> Lude.Maybe [FleetCapacity]) (\s a -> s {fleetCapacity = a} :: DescribeFleetCapacityResponse)
-{-# DEPRECATED dfcrsFleetCapacity "Use generic-lens or generic-optics with 'fleetCapacity' instead." #-}
+dfcrrsFleetCapacity :: Lens.Lens' DescribeFleetCapacityResponse (Core.Maybe [Types.FleetCapacity])
+dfcrrsFleetCapacity = Lens.field @"fleetCapacity"
+{-# DEPRECATED dfcrrsFleetCapacity "Use generic-lens or generic-optics with 'fleetCapacity' instead." #-}
+
+-- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcrrsNextToken :: Lens.Lens' DescribeFleetCapacityResponse (Core.Maybe Types.NonZeroAndMaxString)
+dfcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dfcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcrsResponseStatus :: Lens.Lens' DescribeFleetCapacityResponse Lude.Int
-dfcrsResponseStatus = Lens.lens (responseStatus :: DescribeFleetCapacityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFleetCapacityResponse)
-{-# DEPRECATED dfcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfcrrsResponseStatus :: Lens.Lens' DescribeFleetCapacityResponse Core.Int
+dfcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

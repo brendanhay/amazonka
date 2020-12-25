@@ -17,98 +17,93 @@ module Network.AWS.Discovery.Types.ConfigurationTag
     mkConfigurationTag,
 
     -- * Lenses
-    ctTimeOfCreation,
     ctConfigurationId,
     ctConfigurationType,
-    ctValue,
     ctKey,
+    ctTimeOfCreation,
+    ctValue,
   )
 where
 
-import Network.AWS.Discovery.Types.ConfigurationItemType
+import qualified Network.AWS.Discovery.Types.ConfigurationId as Types
+import qualified Network.AWS.Discovery.Types.ConfigurationItemType as Types
+import qualified Network.AWS.Discovery.Types.Key as Types
+import qualified Network.AWS.Discovery.Types.TagValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Tags for a configuration item. Tags are metadata that help you categorize IT assets.
 --
 -- /See:/ 'mkConfigurationTag' smart constructor.
 data ConfigurationTag = ConfigurationTag'
-  { -- | The time the configuration tag was created in Coordinated Universal Time (UTC).
-    timeOfCreation :: Lude.Maybe Lude.Timestamp,
-    -- | The configuration ID for the item to tag. You can specify a list of keys and values.
-    configurationId :: Lude.Maybe Lude.Text,
+  { -- | The configuration ID for the item to tag. You can specify a list of keys and values.
+    configurationId :: Core.Maybe Types.ConfigurationId,
     -- | A type of IT asset to tag.
-    configurationType :: Lude.Maybe ConfigurationItemType,
-    -- | A value on which to filter. For example /key = serverType/ and /value = web server/ .
-    value :: Lude.Maybe Lude.Text,
+    configurationType :: Core.Maybe Types.ConfigurationItemType,
     -- | A type of tag on which to filter. For example, /serverType/ .
-    key :: Lude.Maybe Lude.Text
+    key :: Core.Maybe Types.Key,
+    -- | The time the configuration tag was created in Coordinated Universal Time (UTC).
+    timeOfCreation :: Core.Maybe Core.NominalDiffTime,
+    -- | A value on which to filter. For example /key = serverType/ and /value = web server/ .
+    value :: Core.Maybe Types.TagValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ConfigurationTag' with the minimum fields required to make a request.
---
--- * 'timeOfCreation' - The time the configuration tag was created in Coordinated Universal Time (UTC).
--- * 'configurationId' - The configuration ID for the item to tag. You can specify a list of keys and values.
--- * 'configurationType' - A type of IT asset to tag.
--- * 'value' - A value on which to filter. For example /key = serverType/ and /value = web server/ .
--- * 'key' - A type of tag on which to filter. For example, /serverType/ .
+-- | Creates a 'ConfigurationTag' value with any optional fields omitted.
 mkConfigurationTag ::
   ConfigurationTag
 mkConfigurationTag =
   ConfigurationTag'
-    { timeOfCreation = Lude.Nothing,
-      configurationId = Lude.Nothing,
-      configurationType = Lude.Nothing,
-      value = Lude.Nothing,
-      key = Lude.Nothing
+    { configurationId = Core.Nothing,
+      configurationType = Core.Nothing,
+      key = Core.Nothing,
+      timeOfCreation = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The time the configuration tag was created in Coordinated Universal Time (UTC).
---
--- /Note:/ Consider using 'timeOfCreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTimeOfCreation :: Lens.Lens' ConfigurationTag (Lude.Maybe Lude.Timestamp)
-ctTimeOfCreation = Lens.lens (timeOfCreation :: ConfigurationTag -> Lude.Maybe Lude.Timestamp) (\s a -> s {timeOfCreation = a} :: ConfigurationTag)
-{-# DEPRECATED ctTimeOfCreation "Use generic-lens or generic-optics with 'timeOfCreation' instead." #-}
 
 -- | The configuration ID for the item to tag. You can specify a list of keys and values.
 --
 -- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctConfigurationId :: Lens.Lens' ConfigurationTag (Lude.Maybe Lude.Text)
-ctConfigurationId = Lens.lens (configurationId :: ConfigurationTag -> Lude.Maybe Lude.Text) (\s a -> s {configurationId = a} :: ConfigurationTag)
+ctConfigurationId :: Lens.Lens' ConfigurationTag (Core.Maybe Types.ConfigurationId)
+ctConfigurationId = Lens.field @"configurationId"
 {-# DEPRECATED ctConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | A type of IT asset to tag.
 --
 -- /Note:/ Consider using 'configurationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctConfigurationType :: Lens.Lens' ConfigurationTag (Lude.Maybe ConfigurationItemType)
-ctConfigurationType = Lens.lens (configurationType :: ConfigurationTag -> Lude.Maybe ConfigurationItemType) (\s a -> s {configurationType = a} :: ConfigurationTag)
+ctConfigurationType :: Lens.Lens' ConfigurationTag (Core.Maybe Types.ConfigurationItemType)
+ctConfigurationType = Lens.field @"configurationType"
 {-# DEPRECATED ctConfigurationType "Use generic-lens or generic-optics with 'configurationType' instead." #-}
-
--- | A value on which to filter. For example /key = serverType/ and /value = web server/ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctValue :: Lens.Lens' ConfigurationTag (Lude.Maybe Lude.Text)
-ctValue = Lens.lens (value :: ConfigurationTag -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ConfigurationTag)
-{-# DEPRECATED ctValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | A type of tag on which to filter. For example, /serverType/ .
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctKey :: Lens.Lens' ConfigurationTag (Lude.Maybe Lude.Text)
-ctKey = Lens.lens (key :: ConfigurationTag -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ConfigurationTag)
+ctKey :: Lens.Lens' ConfigurationTag (Core.Maybe Types.Key)
+ctKey = Lens.field @"key"
 {-# DEPRECATED ctKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON ConfigurationTag where
+-- | The time the configuration tag was created in Coordinated Universal Time (UTC).
+--
+-- /Note:/ Consider using 'timeOfCreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTimeOfCreation :: Lens.Lens' ConfigurationTag (Core.Maybe Core.NominalDiffTime)
+ctTimeOfCreation = Lens.field @"timeOfCreation"
+{-# DEPRECATED ctTimeOfCreation "Use generic-lens or generic-optics with 'timeOfCreation' instead." #-}
+
+-- | A value on which to filter. For example /key = serverType/ and /value = web server/ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctValue :: Lens.Lens' ConfigurationTag (Core.Maybe Types.TagValue)
+ctValue = Lens.field @"value"
+{-# DEPRECATED ctValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ConfigurationTag where
   parseJSON =
-    Lude.withObject
-      "ConfigurationTag"
-      ( \x ->
-          ConfigurationTag'
-            Lude.<$> (x Lude..:? "timeOfCreation")
-            Lude.<*> (x Lude..:? "configurationId")
-            Lude.<*> (x Lude..:? "configurationType")
-            Lude.<*> (x Lude..:? "value")
-            Lude.<*> (x Lude..:? "key")
-      )
+    Core.withObject "ConfigurationTag" Core.$
+      \x ->
+        ConfigurationTag'
+          Core.<$> (x Core..:? "configurationId")
+          Core.<*> (x Core..:? "configurationType")
+          Core.<*> (x Core..:? "key")
+          Core.<*> (x Core..:? "timeOfCreation")
+          Core.<*> (x Core..:? "value")

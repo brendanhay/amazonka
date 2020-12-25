@@ -20,129 +20,111 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     mkCheckDNSAvailability,
 
     -- ** Request lenses
-    cdaCNAMEPrefix,
+    cdnsaCNAMEPrefix,
 
     -- * Destructuring the response
     CheckDNSAvailabilityResponse (..),
     mkCheckDNSAvailabilityResponse,
 
     -- ** Response lenses
-    cdarsFullyQualifiedCNAME,
-    cdarsAvailable,
-    cdarsResponseStatus,
+    cdnsarrsAvailable,
+    cdnsarrsFullyQualifiedCNAME,
+    cdnsarrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Results message indicating whether a CNAME is available.
 --
 -- /See:/ 'mkCheckDNSAvailability' smart constructor.
 newtype CheckDNSAvailability = CheckDNSAvailability'
   { -- | The prefix used when this CNAME is reserved.
-    cNAMEPrefix :: Lude.Text
+    cNAMEPrefix :: Types.DNSCnamePrefix
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CheckDNSAvailability' with the minimum fields required to make a request.
---
--- * 'cNAMEPrefix' - The prefix used when this CNAME is reserved.
+-- | Creates a 'CheckDNSAvailability' value with any optional fields omitted.
 mkCheckDNSAvailability ::
   -- | 'cNAMEPrefix'
-  Lude.Text ->
+  Types.DNSCnamePrefix ->
   CheckDNSAvailability
-mkCheckDNSAvailability pCNAMEPrefix_ =
-  CheckDNSAvailability' {cNAMEPrefix = pCNAMEPrefix_}
+mkCheckDNSAvailability cNAMEPrefix =
+  CheckDNSAvailability' {cNAMEPrefix}
 
 -- | The prefix used when this CNAME is reserved.
 --
 -- /Note:/ Consider using 'cNAMEPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdaCNAMEPrefix :: Lens.Lens' CheckDNSAvailability Lude.Text
-cdaCNAMEPrefix = Lens.lens (cNAMEPrefix :: CheckDNSAvailability -> Lude.Text) (\s a -> s {cNAMEPrefix = a} :: CheckDNSAvailability)
-{-# DEPRECATED cdaCNAMEPrefix "Use generic-lens or generic-optics with 'cNAMEPrefix' instead." #-}
+cdnsaCNAMEPrefix :: Lens.Lens' CheckDNSAvailability Types.DNSCnamePrefix
+cdnsaCNAMEPrefix = Lens.field @"cNAMEPrefix"
+{-# DEPRECATED cdnsaCNAMEPrefix "Use generic-lens or generic-optics with 'cNAMEPrefix' instead." #-}
 
-instance Lude.AWSRequest CheckDNSAvailability where
+instance Core.AWSRequest CheckDNSAvailability where
   type Rs CheckDNSAvailability = CheckDNSAvailabilityResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CheckDNSAvailability")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "CNAMEPrefix" cNAMEPrefix)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CheckDNSAvailabilityResult"
       ( \s h x ->
           CheckDNSAvailabilityResponse'
-            Lude.<$> (x Lude..@? "FullyQualifiedCNAME")
-            Lude.<*> (x Lude..@? "Available")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Available")
+            Core.<*> (x Core..@? "FullyQualifiedCNAME")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CheckDNSAvailability where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CheckDNSAvailability where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CheckDNSAvailability where
-  toQuery CheckDNSAvailability' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CheckDNSAvailability" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "CNAMEPrefix" Lude.=: cNAMEPrefix
-      ]
 
 -- | Indicates if the specified CNAME is available.
 --
 -- /See:/ 'mkCheckDNSAvailabilityResponse' smart constructor.
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
-  { -- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
-    fullyQualifiedCNAME :: Lude.Maybe Lude.Text,
-    -- | Indicates if the specified CNAME is available:
+  { -- | Indicates if the specified CNAME is available:
     --
     --
     --     * @true@ : The CNAME is available.
     --
     --
     --     * @false@ : The CNAME is not available.
-    available :: Lude.Maybe Lude.Bool,
+    available :: Core.Maybe Core.Bool,
+    -- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
+    fullyQualifiedCNAME :: Core.Maybe Types.FullyQualifiedCNAME,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CheckDNSAvailabilityResponse' with the minimum fields required to make a request.
---
--- * 'fullyQualifiedCNAME' - The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
--- * 'available' - Indicates if the specified CNAME is available:
---
---
---     * @true@ : The CNAME is available.
---
---
---     * @false@ : The CNAME is not available.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CheckDNSAvailabilityResponse' value with any optional fields omitted.
 mkCheckDNSAvailabilityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CheckDNSAvailabilityResponse
-mkCheckDNSAvailabilityResponse pResponseStatus_ =
+mkCheckDNSAvailabilityResponse responseStatus =
   CheckDNSAvailabilityResponse'
-    { fullyQualifiedCNAME = Lude.Nothing,
-      available = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { available = Core.Nothing,
+      fullyQualifiedCNAME = Core.Nothing,
+      responseStatus
     }
-
--- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
---
--- /Note:/ Consider using 'fullyQualifiedCNAME' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdarsFullyQualifiedCNAME :: Lens.Lens' CheckDNSAvailabilityResponse (Lude.Maybe Lude.Text)
-cdarsFullyQualifiedCNAME = Lens.lens (fullyQualifiedCNAME :: CheckDNSAvailabilityResponse -> Lude.Maybe Lude.Text) (\s a -> s {fullyQualifiedCNAME = a} :: CheckDNSAvailabilityResponse)
-{-# DEPRECATED cdarsFullyQualifiedCNAME "Use generic-lens or generic-optics with 'fullyQualifiedCNAME' instead." #-}
 
 -- | Indicates if the specified CNAME is available:
 --
@@ -155,13 +137,20 @@ cdarsFullyQualifiedCNAME = Lens.lens (fullyQualifiedCNAME :: CheckDNSAvailabilit
 --
 --
 -- /Note:/ Consider using 'available' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdarsAvailable :: Lens.Lens' CheckDNSAvailabilityResponse (Lude.Maybe Lude.Bool)
-cdarsAvailable = Lens.lens (available :: CheckDNSAvailabilityResponse -> Lude.Maybe Lude.Bool) (\s a -> s {available = a} :: CheckDNSAvailabilityResponse)
-{-# DEPRECATED cdarsAvailable "Use generic-lens or generic-optics with 'available' instead." #-}
+cdnsarrsAvailable :: Lens.Lens' CheckDNSAvailabilityResponse (Core.Maybe Core.Bool)
+cdnsarrsAvailable = Lens.field @"available"
+{-# DEPRECATED cdnsarrsAvailable "Use generic-lens or generic-optics with 'available' instead." #-}
+
+-- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
+--
+-- /Note:/ Consider using 'fullyQualifiedCNAME' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnsarrsFullyQualifiedCNAME :: Lens.Lens' CheckDNSAvailabilityResponse (Core.Maybe Types.FullyQualifiedCNAME)
+cdnsarrsFullyQualifiedCNAME = Lens.field @"fullyQualifiedCNAME"
+{-# DEPRECATED cdnsarrsFullyQualifiedCNAME "Use generic-lens or generic-optics with 'fullyQualifiedCNAME' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdarsResponseStatus :: Lens.Lens' CheckDNSAvailabilityResponse Lude.Int
-cdarsResponseStatus = Lens.lens (responseStatus :: CheckDNSAvailabilityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CheckDNSAvailabilityResponse)
-{-# DEPRECATED cdarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdnsarrsResponseStatus :: Lens.Lens' CheckDNSAvailabilityResponse Core.Int
+cdnsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdnsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

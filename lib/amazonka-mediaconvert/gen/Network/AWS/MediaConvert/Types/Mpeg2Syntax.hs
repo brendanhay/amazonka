@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.Mpeg2Syntax
   ( Mpeg2Syntax
       ( Mpeg2Syntax',
-        Default,
-        D10
+        Mpeg2SyntaxDefault,
+        Mpeg2SyntaxD10,
+        fromMpeg2Syntax
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify whether this output's video uses the D10 syntax. Keep the default value to  not use the syntax. Related settings: When you choose D10 (D_10) for your MXF  profile (profile), you must also set this value to to D10 (D_10).
-newtype Mpeg2Syntax = Mpeg2Syntax' Lude.Text
+newtype Mpeg2Syntax = Mpeg2Syntax' {fromMpeg2Syntax :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Default :: Mpeg2Syntax
-pattern Default = Mpeg2Syntax' "DEFAULT"
+pattern Mpeg2SyntaxDefault :: Mpeg2Syntax
+pattern Mpeg2SyntaxDefault = Mpeg2Syntax' "DEFAULT"
 
-pattern D10 :: Mpeg2Syntax
-pattern D10 = Mpeg2Syntax' "D_10"
+pattern Mpeg2SyntaxD10 :: Mpeg2Syntax
+pattern Mpeg2SyntaxD10 = Mpeg2Syntax' "D_10"
 
 {-# COMPLETE
-  Default,
-  D10,
+  Mpeg2SyntaxDefault,
+  Mpeg2SyntaxD10,
   Mpeg2Syntax'
   #-}

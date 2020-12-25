@@ -13,46 +13,48 @@
 module Network.AWS.DirectoryService.Types.TrustType
   ( TrustType
       ( TrustType',
-        Forest,
-        External
+        TrustTypeForest,
+        TrustTypeExternal,
+        fromTrustType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TrustType = TrustType' Lude.Text
+newtype TrustType = TrustType' {fromTrustType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Forest :: TrustType
-pattern Forest = TrustType' "Forest"
+pattern TrustTypeForest :: TrustType
+pattern TrustTypeForest = TrustType' "Forest"
 
-pattern External :: TrustType
-pattern External = TrustType' "External"
+pattern TrustTypeExternal :: TrustType
+pattern TrustTypeExternal = TrustType' "External"
 
 {-# COMPLETE
-  Forest,
-  External,
+  TrustTypeForest,
+  TrustTypeExternal,
   TrustType'
   #-}

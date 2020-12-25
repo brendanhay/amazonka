@@ -27,117 +27,114 @@ module Network.AWS.EC2.DisassociateSubnetCidrBlock
     mkDisassociateSubnetCidrBlockResponse,
 
     -- ** Response lenses
-    dscbrsSubnetId,
-    dscbrsIPv6CidrBlockAssociation,
-    dscbrsResponseStatus,
+    dscbrrsIpv6CidrBlockAssociation,
+    dscbrrsSubnetId,
+    dscbrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateSubnetCidrBlock' smart constructor.
 newtype DisassociateSubnetCidrBlock = DisassociateSubnetCidrBlock'
   { -- | The association ID for the CIDR block.
-    associationId :: Lude.Text
+    associationId :: Types.SubnetCidrAssociationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateSubnetCidrBlock' with the minimum fields required to make a request.
---
--- * 'associationId' - The association ID for the CIDR block.
+-- | Creates a 'DisassociateSubnetCidrBlock' value with any optional fields omitted.
 mkDisassociateSubnetCidrBlock ::
   -- | 'associationId'
-  Lude.Text ->
+  Types.SubnetCidrAssociationId ->
   DisassociateSubnetCidrBlock
-mkDisassociateSubnetCidrBlock pAssociationId_ =
-  DisassociateSubnetCidrBlock' {associationId = pAssociationId_}
+mkDisassociateSubnetCidrBlock associationId =
+  DisassociateSubnetCidrBlock' {associationId}
 
 -- | The association ID for the CIDR block.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscbAssociationId :: Lens.Lens' DisassociateSubnetCidrBlock Lude.Text
-dscbAssociationId = Lens.lens (associationId :: DisassociateSubnetCidrBlock -> Lude.Text) (\s a -> s {associationId = a} :: DisassociateSubnetCidrBlock)
+dscbAssociationId :: Lens.Lens' DisassociateSubnetCidrBlock Types.SubnetCidrAssociationId
+dscbAssociationId = Lens.field @"associationId"
 {-# DEPRECATED dscbAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
-instance Lude.AWSRequest DisassociateSubnetCidrBlock where
+instance Core.AWSRequest DisassociateSubnetCidrBlock where
   type
     Rs DisassociateSubnetCidrBlock =
       DisassociateSubnetCidrBlockResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DisassociateSubnetCidrBlock")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AssociationId" associationId)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DisassociateSubnetCidrBlockResponse'
-            Lude.<$> (x Lude..@? "subnetId")
-            Lude.<*> (x Lude..@? "ipv6CidrBlockAssociation")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ipv6CidrBlockAssociation")
+            Core.<*> (x Core..@? "subnetId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateSubnetCidrBlock where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DisassociateSubnetCidrBlock where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateSubnetCidrBlock where
-  toQuery DisassociateSubnetCidrBlock' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DisassociateSubnetCidrBlock" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "AssociationId" Lude.=: associationId
-      ]
 
 -- | /See:/ 'mkDisassociateSubnetCidrBlockResponse' smart constructor.
 data DisassociateSubnetCidrBlockResponse = DisassociateSubnetCidrBlockResponse'
-  { -- | The ID of the subnet.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | Information about the IPv6 CIDR block association.
-    ipv6CidrBlockAssociation :: Lude.Maybe SubnetIPv6CidrBlockAssociation,
+  { -- | Information about the IPv6 CIDR block association.
+    ipv6CidrBlockAssociation :: Core.Maybe Types.SubnetIpv6CidrBlockAssociation,
+    -- | The ID of the subnet.
+    subnetId :: Core.Maybe Types.SubnetId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateSubnetCidrBlockResponse' with the minimum fields required to make a request.
---
--- * 'subnetId' - The ID of the subnet.
--- * 'ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateSubnetCidrBlockResponse' value with any optional fields omitted.
 mkDisassociateSubnetCidrBlockResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateSubnetCidrBlockResponse
-mkDisassociateSubnetCidrBlockResponse pResponseStatus_ =
+mkDisassociateSubnetCidrBlockResponse responseStatus =
   DisassociateSubnetCidrBlockResponse'
-    { subnetId = Lude.Nothing,
-      ipv6CidrBlockAssociation = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { ipv6CidrBlockAssociation =
+        Core.Nothing,
+      subnetId = Core.Nothing,
+      responseStatus
     }
-
--- | The ID of the subnet.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscbrsSubnetId :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Lude.Maybe Lude.Text)
-dscbrsSubnetId = Lens.lens (subnetId :: DisassociateSubnetCidrBlockResponse -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: DisassociateSubnetCidrBlockResponse)
-{-# DEPRECATED dscbrsSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | Information about the IPv6 CIDR block association.
 --
 -- /Note:/ Consider using 'ipv6CidrBlockAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscbrsIPv6CidrBlockAssociation :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Lude.Maybe SubnetIPv6CidrBlockAssociation)
-dscbrsIPv6CidrBlockAssociation = Lens.lens (ipv6CidrBlockAssociation :: DisassociateSubnetCidrBlockResponse -> Lude.Maybe SubnetIPv6CidrBlockAssociation) (\s a -> s {ipv6CidrBlockAssociation = a} :: DisassociateSubnetCidrBlockResponse)
-{-# DEPRECATED dscbrsIPv6CidrBlockAssociation "Use generic-lens or generic-optics with 'ipv6CidrBlockAssociation' instead." #-}
+dscbrrsIpv6CidrBlockAssociation :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Core.Maybe Types.SubnetIpv6CidrBlockAssociation)
+dscbrrsIpv6CidrBlockAssociation = Lens.field @"ipv6CidrBlockAssociation"
+{-# DEPRECATED dscbrrsIpv6CidrBlockAssociation "Use generic-lens or generic-optics with 'ipv6CidrBlockAssociation' instead." #-}
+
+-- | The ID of the subnet.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscbrrsSubnetId :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Core.Maybe Types.SubnetId)
+dscbrrsSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED dscbrrsSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscbrsResponseStatus :: Lens.Lens' DisassociateSubnetCidrBlockResponse Lude.Int
-dscbrsResponseStatus = Lens.lens (responseStatus :: DisassociateSubnetCidrBlockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateSubnetCidrBlockResponse)
-{-# DEPRECATED dscbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscbrrsResponseStatus :: Lens.Lens' DisassociateSubnetCidrBlockResponse Core.Int
+dscbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dscbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

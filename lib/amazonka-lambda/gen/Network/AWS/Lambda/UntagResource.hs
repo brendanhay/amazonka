@@ -20,8 +20,8 @@ module Network.AWS.Lambda.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
-    urTagKeys,
     urResource,
+    urTagKeys,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
@@ -29,70 +29,65 @@ module Network.AWS.Lambda.UntagResource
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | A list of tag keys to remove from the function.
-    tagKeys :: [Lude.Text],
-    -- | The function's Amazon Resource Name (ARN).
-    resource :: Lude.Text
+  { -- | The function's Amazon Resource Name (ARN).
+    resource :: Types.FunctionArn,
+    -- | A list of tag keys to remove from the function.
+    tagKeys :: [Types.TagKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
---
--- * 'tagKeys' - A list of tag keys to remove from the function.
--- * 'resource' - The function's Amazon Resource Name (ARN).
+-- | Creates a 'UntagResource' value with any optional fields omitted.
 mkUntagResource ::
   -- | 'resource'
-  Lude.Text ->
+  Types.FunctionArn ->
   UntagResource
-mkUntagResource pResource_ =
-  UntagResource' {tagKeys = Lude.mempty, resource = pResource_}
-
--- | A list of tag keys to remove from the function.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
-urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
-{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+mkUntagResource resource =
+  UntagResource' {resource, tagKeys = Core.mempty}
 
 -- | The function's Amazon Resource Name (ARN).
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResource :: Lens.Lens' UntagResource Lude.Text
-urResource = Lens.lens (resource :: UntagResource -> Lude.Text) (\s a -> s {resource = a} :: UntagResource)
+urResource :: Lens.Lens' UntagResource Types.FunctionArn
+urResource = Lens.field @"resource"
 {-# DEPRECATED urResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.AWSRequest UntagResource where
+-- | A list of tag keys to remove from the function.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTagKeys :: Lens.Lens' UntagResource [Types.TagKey]
+urTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+instance Core.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = Req.delete lambdaService
-  response = Res.receiveNull UntagResourceResponse'
-
-instance Lude.ToHeaders UntagResource where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UntagResource where
-  toPath UntagResource' {..} =
-    Lude.mconcat ["/2017-03-31/tags/", Lude.toBS resource]
-
-instance Lude.ToQuery UntagResource where
-  toQuery UntagResource' {..} =
-    Lude.mconcat
-      ["tagKeys" Lude.=: Lude.toQueryList "member" tagKeys]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/2017-03-31/tags/" Core.<> (Core.toText resource)),
+        Core._rqQuery =
+          Core.toQueryValue "tagKeys" (Core.toQueryList "member" tagKeys),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull UntagResourceResponse'
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
 mkUntagResourceResponse ::
   UntagResourceResponse
 mkUntagResourceResponse = UntagResourceResponse'

@@ -13,46 +13,51 @@
 module Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
   ( FragmentSelectorType
       ( FragmentSelectorType',
-        FSTProducerTimestamp,
-        FSTServerTimestamp
+        FragmentSelectorTypeProducerTimestamp,
+        FragmentSelectorTypeServerTimestamp,
+        fromFragmentSelectorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FragmentSelectorType = FragmentSelectorType' Lude.Text
+newtype FragmentSelectorType = FragmentSelectorType'
+  { fromFragmentSelectorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FSTProducerTimestamp :: FragmentSelectorType
-pattern FSTProducerTimestamp = FragmentSelectorType' "PRODUCER_TIMESTAMP"
+pattern FragmentSelectorTypeProducerTimestamp :: FragmentSelectorType
+pattern FragmentSelectorTypeProducerTimestamp = FragmentSelectorType' "PRODUCER_TIMESTAMP"
 
-pattern FSTServerTimestamp :: FragmentSelectorType
-pattern FSTServerTimestamp = FragmentSelectorType' "SERVER_TIMESTAMP"
+pattern FragmentSelectorTypeServerTimestamp :: FragmentSelectorType
+pattern FragmentSelectorTypeServerTimestamp = FragmentSelectorType' "SERVER_TIMESTAMP"
 
 {-# COMPLETE
-  FSTProducerTimestamp,
-  FSTServerTimestamp,
+  FragmentSelectorTypeProducerTimestamp,
+  FragmentSelectorTypeServerTimestamp,
   FragmentSelectorType'
   #-}

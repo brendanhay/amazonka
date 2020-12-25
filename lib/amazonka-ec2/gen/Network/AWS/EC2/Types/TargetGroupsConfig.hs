@@ -21,45 +21,34 @@ module Network.AWS.EC2.Types.TargetGroupsConfig
   )
 where
 
-import Network.AWS.EC2.Types.TargetGroup
+import qualified Network.AWS.EC2.Types.TargetGroup as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
 --
 -- /See:/ 'mkTargetGroupsConfig' smart constructor.
 newtype TargetGroupsConfig = TargetGroupsConfig'
   { -- | One or more target groups.
-    targetGroups :: Lude.Maybe (Lude.NonEmpty TargetGroup)
+    targetGroups :: Core.Maybe (Core.NonEmpty Types.TargetGroup)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetGroupsConfig' with the minimum fields required to make a request.
---
--- * 'targetGroups' - One or more target groups.
+-- | Creates a 'TargetGroupsConfig' value with any optional fields omitted.
 mkTargetGroupsConfig ::
   TargetGroupsConfig
 mkTargetGroupsConfig =
-  TargetGroupsConfig' {targetGroups = Lude.Nothing}
+  TargetGroupsConfig' {targetGroups = Core.Nothing}
 
 -- | One or more target groups.
 --
 -- /Note:/ Consider using 'targetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgcTargetGroups :: Lens.Lens' TargetGroupsConfig (Lude.Maybe (Lude.NonEmpty TargetGroup))
-tgcTargetGroups = Lens.lens (targetGroups :: TargetGroupsConfig -> Lude.Maybe (Lude.NonEmpty TargetGroup)) (\s a -> s {targetGroups = a} :: TargetGroupsConfig)
+tgcTargetGroups :: Lens.Lens' TargetGroupsConfig (Core.Maybe (Core.NonEmpty Types.TargetGroup))
+tgcTargetGroups = Lens.field @"targetGroups"
 {-# DEPRECATED tgcTargetGroups "Use generic-lens or generic-optics with 'targetGroups' instead." #-}
 
-instance Lude.FromXML TargetGroupsConfig where
+instance Core.FromXML TargetGroupsConfig where
   parseXML x =
     TargetGroupsConfig'
-      Lude.<$> ( x Lude..@? "targetGroups" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLNonEmpty "item")
-               )
-
-instance Lude.ToQuery TargetGroupsConfig where
-  toQuery TargetGroupsConfig' {..} =
-    Lude.mconcat
-      [ Lude.toQuery
-          (Lude.toQueryList "TargetGroups" Lude.<$> targetGroups)
-      ]
+      Core.<$> (x Core..@? "targetGroups" Core..<@> Core.parseXMLNonEmpty "item")

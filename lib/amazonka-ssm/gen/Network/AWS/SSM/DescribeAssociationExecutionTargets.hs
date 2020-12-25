@@ -25,86 +25,75 @@ module Network.AWS.SSM.DescribeAssociationExecutionTargets
     daetAssociationId,
     daetExecutionId,
     daetFilters,
-    daetNextToken,
     daetMaxResults,
+    daetNextToken,
 
     -- * Destructuring the response
     DescribeAssociationExecutionTargetsResponse (..),
     mkDescribeAssociationExecutionTargetsResponse,
 
     -- ** Response lenses
-    daetrsNextToken,
-    daetrsAssociationExecutionTargets,
-    daetrsResponseStatus,
+    daetrrsAssociationExecutionTargets,
+    daetrrsNextToken,
+    daetrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribeAssociationExecutionTargets' smart constructor.
 data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
   { -- | The association ID that includes the execution for which you want to view details.
-    associationId :: Lude.Text,
+    associationId :: Types.AssociationId,
     -- | The execution ID for which you want to view details.
-    executionId :: Lude.Text,
+    executionId :: Types.ExecutionId,
     -- | Filters for the request. You can specify the following filters and values.
     --
     -- Status (EQUAL)
     -- ResourceId (EQUAL)
     -- ResourceType (EQUAL)
-    filters :: Lude.Maybe (Lude.NonEmpty AssociationExecutionTargetsFilter),
-    -- | A token to start the list. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe (Core.NonEmpty Types.AssociationExecutionTargetsFilter),
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token to start the list. Use this token to get the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAssociationExecutionTargets' with the minimum fields required to make a request.
---
--- * 'associationId' - The association ID that includes the execution for which you want to view details.
--- * 'executionId' - The execution ID for which you want to view details.
--- * 'filters' - Filters for the request. You can specify the following filters and values.
---
--- Status (EQUAL)
--- ResourceId (EQUAL)
--- ResourceType (EQUAL)
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'DescribeAssociationExecutionTargets' value with any optional fields omitted.
 mkDescribeAssociationExecutionTargets ::
   -- | 'associationId'
-  Lude.Text ->
+  Types.AssociationId ->
   -- | 'executionId'
-  Lude.Text ->
+  Types.ExecutionId ->
   DescribeAssociationExecutionTargets
-mkDescribeAssociationExecutionTargets pAssociationId_ pExecutionId_ =
+mkDescribeAssociationExecutionTargets associationId executionId =
   DescribeAssociationExecutionTargets'
-    { associationId =
-        pAssociationId_,
-      executionId = pExecutionId_,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { associationId,
+      executionId,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The association ID that includes the execution for which you want to view details.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetAssociationId :: Lens.Lens' DescribeAssociationExecutionTargets Lude.Text
-daetAssociationId = Lens.lens (associationId :: DescribeAssociationExecutionTargets -> Lude.Text) (\s a -> s {associationId = a} :: DescribeAssociationExecutionTargets)
+daetAssociationId :: Lens.Lens' DescribeAssociationExecutionTargets Types.AssociationId
+daetAssociationId = Lens.field @"associationId"
 {-# DEPRECATED daetAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The execution ID for which you want to view details.
 --
 -- /Note:/ Consider using 'executionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetExecutionId :: Lens.Lens' DescribeAssociationExecutionTargets Lude.Text
-daetExecutionId = Lens.lens (executionId :: DescribeAssociationExecutionTargets -> Lude.Text) (\s a -> s {executionId = a} :: DescribeAssociationExecutionTargets)
+daetExecutionId :: Lens.Lens' DescribeAssociationExecutionTargets Types.ExecutionId
+daetExecutionId = Lens.field @"executionId"
 {-# DEPRECATED daetExecutionId "Use generic-lens or generic-optics with 'executionId' instead." #-}
 
 -- | Filters for the request. You can specify the following filters and values.
@@ -114,125 +103,117 @@ daetExecutionId = Lens.lens (executionId :: DescribeAssociationExecutionTargets 
 -- ResourceType (EQUAL)
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetFilters :: Lens.Lens' DescribeAssociationExecutionTargets (Lude.Maybe (Lude.NonEmpty AssociationExecutionTargetsFilter))
-daetFilters = Lens.lens (filters :: DescribeAssociationExecutionTargets -> Lude.Maybe (Lude.NonEmpty AssociationExecutionTargetsFilter)) (\s a -> s {filters = a} :: DescribeAssociationExecutionTargets)
+daetFilters :: Lens.Lens' DescribeAssociationExecutionTargets (Core.Maybe (Core.NonEmpty Types.AssociationExecutionTargetsFilter))
+daetFilters = Lens.field @"filters"
 {-# DEPRECATED daetFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | A token to start the list. Use this token to get the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetNextToken :: Lens.Lens' DescribeAssociationExecutionTargets (Lude.Maybe Lude.Text)
-daetNextToken = Lens.lens (nextToken :: DescribeAssociationExecutionTargets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAssociationExecutionTargets)
-{-# DEPRECATED daetNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetMaxResults :: Lens.Lens' DescribeAssociationExecutionTargets (Lude.Maybe Lude.Natural)
-daetMaxResults = Lens.lens (maxResults :: DescribeAssociationExecutionTargets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAssociationExecutionTargets)
+daetMaxResults :: Lens.Lens' DescribeAssociationExecutionTargets (Core.Maybe Core.Natural)
+daetMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED daetMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeAssociationExecutionTargets where
-  page rq rs
-    | Page.stop (rs Lens.^. daetrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. daetrsAssociationExecutionTargets) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& daetNextToken Lens..~ rs Lens.^. daetrsNextToken
+-- | A token to start the list. Use this token to get the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daetNextToken :: Lens.Lens' DescribeAssociationExecutionTargets (Core.Maybe Types.NextToken)
+daetNextToken = Lens.field @"nextToken"
+{-# DEPRECATED daetNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeAssociationExecutionTargets where
+instance Core.FromJSON DescribeAssociationExecutionTargets where
+  toJSON DescribeAssociationExecutionTargets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AssociationId" Core..= associationId),
+            Core.Just ("ExecutionId" Core..= executionId),
+            ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeAssociationExecutionTargets where
   type
     Rs DescribeAssociationExecutionTargets =
       DescribeAssociationExecutionTargetsResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonSSM.DescribeAssociationExecutionTargets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAssociationExecutionTargetsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "AssociationExecutionTargets" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AssociationExecutionTargets")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeAssociationExecutionTargets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonSSM.DescribeAssociationExecutionTargets" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAssociationExecutionTargets where
-  toJSON DescribeAssociationExecutionTargets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AssociationId" Lude..= associationId),
-            Lude.Just ("ExecutionId" Lude..= executionId),
-            ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeAssociationExecutionTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAssociationExecutionTargets where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeAssociationExecutionTargets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"associationExecutionTargets" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeAssociationExecutionTargetsResponse' smart constructor.
 data DescribeAssociationExecutionTargetsResponse = DescribeAssociationExecutionTargetsResponse'
-  { -- | The token for the next set of items to return. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about the execution.
-    associationExecutionTargets :: Lude.Maybe [AssociationExecutionTarget],
+  { -- | Information about the execution.
+    associationExecutionTargets :: Core.Maybe [Types.AssociationExecutionTarget],
+    -- | The token for the next set of items to return. Use this token to get the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAssociationExecutionTargetsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
--- * 'associationExecutionTargets' - Information about the execution.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAssociationExecutionTargetsResponse' value with any optional fields omitted.
 mkDescribeAssociationExecutionTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAssociationExecutionTargetsResponse
-mkDescribeAssociationExecutionTargetsResponse pResponseStatus_ =
+mkDescribeAssociationExecutionTargetsResponse responseStatus =
   DescribeAssociationExecutionTargetsResponse'
-    { nextToken =
-        Lude.Nothing,
-      associationExecutionTargets = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { associationExecutionTargets =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token for the next set of items to return. Use this token to get the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetrsNextToken :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Lude.Maybe Lude.Text)
-daetrsNextToken = Lens.lens (nextToken :: DescribeAssociationExecutionTargetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAssociationExecutionTargetsResponse)
-{-# DEPRECATED daetrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the execution.
 --
 -- /Note:/ Consider using 'associationExecutionTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetrsAssociationExecutionTargets :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Lude.Maybe [AssociationExecutionTarget])
-daetrsAssociationExecutionTargets = Lens.lens (associationExecutionTargets :: DescribeAssociationExecutionTargetsResponse -> Lude.Maybe [AssociationExecutionTarget]) (\s a -> s {associationExecutionTargets = a} :: DescribeAssociationExecutionTargetsResponse)
-{-# DEPRECATED daetrsAssociationExecutionTargets "Use generic-lens or generic-optics with 'associationExecutionTargets' instead." #-}
+daetrrsAssociationExecutionTargets :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Core.Maybe [Types.AssociationExecutionTarget])
+daetrrsAssociationExecutionTargets = Lens.field @"associationExecutionTargets"
+{-# DEPRECATED daetrrsAssociationExecutionTargets "Use generic-lens or generic-optics with 'associationExecutionTargets' instead." #-}
+
+-- | The token for the next set of items to return. Use this token to get the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daetrrsNextToken :: Lens.Lens' DescribeAssociationExecutionTargetsResponse (Core.Maybe Types.NextToken)
+daetrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED daetrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetrsResponseStatus :: Lens.Lens' DescribeAssociationExecutionTargetsResponse Lude.Int
-daetrsResponseStatus = Lens.lens (responseStatus :: DescribeAssociationExecutionTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAssociationExecutionTargetsResponse)
-{-# DEPRECATED daetrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daetrrsResponseStatus :: Lens.Lens' DescribeAssociationExecutionTargetsResponse Core.Int
+daetrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daetrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

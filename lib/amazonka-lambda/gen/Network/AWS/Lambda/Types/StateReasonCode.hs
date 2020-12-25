@@ -13,86 +13,91 @@
 module Network.AWS.Lambda.Types.StateReasonCode
   ( StateReasonCode
       ( StateReasonCode',
-        Idle,
-        Creating,
-        Restoring,
-        EniLimitExceeded,
-        InsufficientRolePermissions,
-        InvalidConfiguration,
-        InternalError,
-        SubnetOutOfIPAddresses,
-        InvalidSubnet,
-        InvalidSecurityGroup
+        StateReasonCodeIdle,
+        StateReasonCodeCreating,
+        StateReasonCodeRestoring,
+        StateReasonCodeEniLimitExceeded,
+        StateReasonCodeInsufficientRolePermissions,
+        StateReasonCodeInvalidConfiguration,
+        StateReasonCodeInternalError,
+        StateReasonCodeSubnetOutOfIPAddresses,
+        StateReasonCodeInvalidSubnet,
+        StateReasonCodeInvalidSecurityGroup,
+        fromStateReasonCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StateReasonCode = StateReasonCode' Lude.Text
+newtype StateReasonCode = StateReasonCode'
+  { fromStateReasonCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Idle :: StateReasonCode
-pattern Idle = StateReasonCode' "Idle"
+pattern StateReasonCodeIdle :: StateReasonCode
+pattern StateReasonCodeIdle = StateReasonCode' "Idle"
 
-pattern Creating :: StateReasonCode
-pattern Creating = StateReasonCode' "Creating"
+pattern StateReasonCodeCreating :: StateReasonCode
+pattern StateReasonCodeCreating = StateReasonCode' "Creating"
 
-pattern Restoring :: StateReasonCode
-pattern Restoring = StateReasonCode' "Restoring"
+pattern StateReasonCodeRestoring :: StateReasonCode
+pattern StateReasonCodeRestoring = StateReasonCode' "Restoring"
 
-pattern EniLimitExceeded :: StateReasonCode
-pattern EniLimitExceeded = StateReasonCode' "EniLimitExceeded"
+pattern StateReasonCodeEniLimitExceeded :: StateReasonCode
+pattern StateReasonCodeEniLimitExceeded = StateReasonCode' "EniLimitExceeded"
 
-pattern InsufficientRolePermissions :: StateReasonCode
-pattern InsufficientRolePermissions = StateReasonCode' "InsufficientRolePermissions"
+pattern StateReasonCodeInsufficientRolePermissions :: StateReasonCode
+pattern StateReasonCodeInsufficientRolePermissions = StateReasonCode' "InsufficientRolePermissions"
 
-pattern InvalidConfiguration :: StateReasonCode
-pattern InvalidConfiguration = StateReasonCode' "InvalidConfiguration"
+pattern StateReasonCodeInvalidConfiguration :: StateReasonCode
+pattern StateReasonCodeInvalidConfiguration = StateReasonCode' "InvalidConfiguration"
 
-pattern InternalError :: StateReasonCode
-pattern InternalError = StateReasonCode' "InternalError"
+pattern StateReasonCodeInternalError :: StateReasonCode
+pattern StateReasonCodeInternalError = StateReasonCode' "InternalError"
 
-pattern SubnetOutOfIPAddresses :: StateReasonCode
-pattern SubnetOutOfIPAddresses = StateReasonCode' "SubnetOutOfIPAddresses"
+pattern StateReasonCodeSubnetOutOfIPAddresses :: StateReasonCode
+pattern StateReasonCodeSubnetOutOfIPAddresses = StateReasonCode' "SubnetOutOfIPAddresses"
 
-pattern InvalidSubnet :: StateReasonCode
-pattern InvalidSubnet = StateReasonCode' "InvalidSubnet"
+pattern StateReasonCodeInvalidSubnet :: StateReasonCode
+pattern StateReasonCodeInvalidSubnet = StateReasonCode' "InvalidSubnet"
 
-pattern InvalidSecurityGroup :: StateReasonCode
-pattern InvalidSecurityGroup = StateReasonCode' "InvalidSecurityGroup"
+pattern StateReasonCodeInvalidSecurityGroup :: StateReasonCode
+pattern StateReasonCodeInvalidSecurityGroup = StateReasonCode' "InvalidSecurityGroup"
 
 {-# COMPLETE
-  Idle,
-  Creating,
-  Restoring,
-  EniLimitExceeded,
-  InsufficientRolePermissions,
-  InvalidConfiguration,
-  InternalError,
-  SubnetOutOfIPAddresses,
-  InvalidSubnet,
-  InvalidSecurityGroup,
+  StateReasonCodeIdle,
+  StateReasonCodeCreating,
+  StateReasonCodeRestoring,
+  StateReasonCodeEniLimitExceeded,
+  StateReasonCodeInsufficientRolePermissions,
+  StateReasonCodeInvalidConfiguration,
+  StateReasonCodeInternalError,
+  StateReasonCodeSubnetOutOfIPAddresses,
+  StateReasonCodeInvalidSubnet,
+  StateReasonCodeInvalidSecurityGroup,
   StateReasonCode'
   #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,79 @@
 -- For more information about AWS DMS, see <https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html What Is AWS Database Migration Service?> in the /AWS Database Migration User Guide./
 module Network.AWS.DMS
   ( -- * Service configuration
-    dmsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** KMSAccessDeniedFault
+    _KMSAccessDeniedFault,
+
+    -- ** KMSDisabledFault
+    _KMSDisabledFault,
+
+    -- ** KMSFault
+    _KMSFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** KMSKeyNotAccessibleFault
+    _KMSKeyNotAccessibleFault,
+
+    -- ** ReplicationSubnetGroupDoesNotCoverEnoughAZs
+    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
+
+    -- ** S3ResourceNotFoundFault
+    _S3ResourceNotFoundFault,
+
+    -- ** InvalidResourceStateFault
+    _InvalidResourceStateFault,
+
+    -- ** InvalidCertificateFault
+    _InvalidCertificateFault,
+
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
+
+    -- ** ResourceAlreadyExistsFault
+    _ResourceAlreadyExistsFault,
+
+    -- ** InsufficientResourceCapacityFault
+    _InsufficientResourceCapacityFault,
+
+    -- ** S3AccessDeniedFault
+    _S3AccessDeniedFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** KMSNotFoundFault
+    _KMSNotFoundFault,
+
+    -- ** KMSThrottlingFault
+    _KMSThrottlingFault,
+
+    -- ** ResourceQuotaExceededFault
+    _ResourceQuotaExceededFault,
+
+    -- ** UpgradeDependencyFailureFault
+    _UpgradeDependencyFailureFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** StorageQuotaExceededFault
+    _StorageQuotaExceededFault,
+
+    -- ** AccessDeniedFault
+    _AccessDeniedFault,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** KMSInvalidStateFault
+    _KMSInvalidStateFault,
 
     -- * Waiters
     -- $waiters
@@ -216,550 +284,119 @@ module Network.AWS.DMS
 
     -- * Types
 
-    -- ** AuthMechanismValue
-    AuthMechanismValue (..),
-
-    -- ** AuthTypeValue
-    AuthTypeValue (..),
-
-    -- ** CharLengthSemantics
-    CharLengthSemantics (..),
-
-    -- ** CompressionTypeValue
-    CompressionTypeValue (..),
-
-    -- ** DataFormatValue
-    DataFormatValue (..),
-
-    -- ** DatePartitionDelimiterValue
-    DatePartitionDelimiterValue (..),
-
-    -- ** DatePartitionSequenceValue
-    DatePartitionSequenceValue (..),
-
-    -- ** DmsSSLModeValue
-    DmsSSLModeValue (..),
-
-    -- ** EncodingTypeValue
-    EncodingTypeValue (..),
-
-    -- ** EncryptionModeValue
-    EncryptionModeValue (..),
-
-    -- ** MessageFormatValue
-    MessageFormatValue (..),
-
-    -- ** MigrationTypeValue
-    MigrationTypeValue (..),
-
-    -- ** NestingLevelValue
-    NestingLevelValue (..),
-
-    -- ** ParquetVersionValue
-    ParquetVersionValue (..),
-
-    -- ** RefreshSchemasStatusTypeValue
-    RefreshSchemasStatusTypeValue (..),
-
-    -- ** ReleaseStatusValues
-    ReleaseStatusValues (..),
-
-    -- ** ReloadOptionValue
-    ReloadOptionValue (..),
-
     -- ** ReplicationEndpointTypeValue
     ReplicationEndpointTypeValue (..),
 
-    -- ** SafeguardPolicy
-    SafeguardPolicy (..),
-
-    -- ** SourceType
-    SourceType (..),
-
-    -- ** StartReplicationTaskTypeValue
-    StartReplicationTaskTypeValue (..),
-
-    -- ** TargetDBType
-    TargetDBType (..),
-
-    -- ** AccountQuota
-    AccountQuota (..),
-    mkAccountQuota,
-    aqMax,
-    aqUsed,
-    aqAccountQuotaName,
-
-    -- ** AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azName,
-
-    -- ** Certificate
-    Certificate (..),
-    mkCertificate,
-    cCertificateOwner,
-    cSigningAlgorithm,
-    cValidFromDate,
-    cCertificatePem,
-    cCertificateARN,
-    cCertificateCreationDate,
-    cCertificateIdentifier,
-    cCertificateWallet,
-    cKeyLength,
-    cValidToDate,
-
-    -- ** Connection
-    Connection (..),
-    mkConnection,
-    cStatus,
-    cReplicationInstanceARN,
-    cEndpointIdentifier,
-    cReplicationInstanceIdentifier,
-    cEndpointARN,
-    cLastFailureMessage,
+    -- ** PendingMaintenanceAction
+    PendingMaintenanceAction (..),
+    mkPendingMaintenanceAction,
+    pmaAction,
+    pmaAutoAppliedAfterDate,
+    pmaCurrentApplyDate,
+    pmaDescription,
+    pmaForcedApplyDate,
+    pmaOptInStatus,
 
     -- ** DmsTransferSettings
     DmsTransferSettings (..),
     mkDmsTransferSettings,
-    dtsServiceAccessRoleARN,
     dtsBucketName,
-
-    -- ** DocDBSettings
-    DocDBSettings (..),
-    mkDocDBSettings,
-    ddsServerName,
-    ddsUsername,
-    ddsKMSKeyId,
-    ddsPassword,
-    ddsNestingLevel,
-    ddsDatabaseName,
-    ddsDocsToInvestigate,
-    ddsExtractDocId,
-    ddsPort,
-
-    -- ** DynamoDBSettings
-    DynamoDBSettings (..),
-    mkDynamoDBSettings,
-    ddsServiceAccessRoleARN,
-
-    -- ** ElasticsearchSettings
-    ElasticsearchSettings (..),
-    mkElasticsearchSettings,
-    esFullLoadErrorPercentage,
-    esServiceAccessRoleARN,
-    esEndpointURI,
-    esErrorRetryDuration,
-
-    -- ** Endpoint
-    Endpoint (..),
-    mkEndpoint,
-    eStatus,
-    eDmsTransferSettings,
-    eMySQLSettings,
-    eServerName,
-    eMicrosoftSQLServerSettings,
-    eCertificateARN,
-    eServiceAccessRoleARN,
-    eDocDBSettings,
-    eEngineDisplayName,
-    ePostgreSQLSettings,
-    eExtraConnectionAttributes,
-    eKafkaSettings,
-    eOracleSettings,
-    eEndpointType,
-    eRedshiftSettings,
-    eElasticsearchSettings,
-    eUsername,
-    eExternalTableDefinition,
-    eEngineName,
-    eNeptuneSettings,
-    eIBMDB2Settings,
-    eKMSKeyId,
-    eMongoDBSettings,
-    eSSLMode,
-    eSybaseSettings,
-    eDatabaseName,
-    eS3Settings,
-    eKinesisSettings,
-    eEndpointIdentifier,
-    eExternalId,
-    eDynamoDBSettings,
-    eEndpointARN,
-    ePort,
+    dtsServiceAccessRoleArn,
 
     -- ** Event
     Event (..),
     mkEvent,
-    eSourceType,
-    eSourceIdentifier,
     eDate,
     eEventCategories,
     eMessage,
+    eSourceIdentifier,
+    eSourceType,
 
-    -- ** EventCategoryGroup
-    EventCategoryGroup (..),
-    mkEventCategoryGroup,
-    ecgSourceType,
-    ecgEventCategories,
+    -- ** ParquetVersionValue
+    ParquetVersionValue (..),
 
-    -- ** EventSubscription
-    EventSubscription (..),
-    mkEventSubscription,
-    esStatus,
-    esCustomerAWSId,
-    esCustSubscriptionId,
-    esSNSTopicARN,
-    esEnabled,
-    esSourceType,
-    esSubscriptionCreationTime,
-    esEventCategoriesList,
-    esSourceIdsList,
+    -- ** MySQLSettings
+    MySQLSettings (..),
+    mkMySQLSettings,
+    msqlsAfterConnectScript,
+    msqlsDatabaseName,
+    msqlsEventsPollInterval,
+    msqlsMaxFileSize,
+    msqlsParallelLoadThreads,
+    msqlsPassword,
+    msqlsPort,
+    msqlsServerName,
+    msqlsServerTimezone,
+    msqlsTargetDbType,
+    msqlsUsername,
 
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fName,
+    -- ** TargetDbType
+    TargetDbType (..),
 
-    -- ** IBMDB2Settings
-    IBMDB2Settings (..),
-    mkIBMDB2Settings,
-    ibmdsServerName,
-    ibmdsCurrentLsn,
-    ibmdsSetDataCaptureChanges,
-    ibmdsUsername,
-    ibmdsPassword,
-    ibmdsDatabaseName,
-    ibmdsMaxKBytesPerRead,
-    ibmdsPort,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** KafkaSettings
-    KafkaSettings (..),
-    mkKafkaSettings,
-    ksIncludeTransactionDetails,
-    ksIncludeTableAlterOperations,
-    ksPartitionIncludeSchemaTable,
-    ksTopic,
-    ksIncludeControlDetails,
-    ksIncludePartitionValue,
-    ksMessageFormat,
-    ksBroker,
-    ksMessageMaxBytes,
-    ksIncludeNullAndEmpty,
+    -- ** DatePartitionSequenceValue
+    DatePartitionSequenceValue (..),
 
-    -- ** KinesisSettings
-    KinesisSettings (..),
-    mkKinesisSettings,
-    kIncludeTransactionDetails,
-    kIncludeTableAlterOperations,
-    kServiceAccessRoleARN,
-    kPartitionIncludeSchemaTable,
-    kStreamARN,
-    kIncludeControlDetails,
-    kIncludePartitionValue,
-    kMessageFormat,
-    kIncludeNullAndEmpty,
+    -- ** StartReplicationTaskTypeValue
+    StartReplicationTaskTypeValue (..),
 
     -- ** MicrosoftSQLServerSettings
     MicrosoftSQLServerSettings (..),
     mkMicrosoftSQLServerSettings,
     msqlssBcpPacketSize,
-    msqlssUseBcpFullLoad,
-    msqlssServerName,
-    msqlssUsername,
-    msqlssSafeguardPolicy,
-    msqlssPassword,
-    msqlssDatabaseName,
-    msqlssReadBackupOnly,
     msqlssControlTablesFileGroup,
+    msqlssDatabaseName,
+    msqlssPassword,
     msqlssPort,
+    msqlssReadBackupOnly,
+    msqlssSafeguardPolicy,
+    msqlssServerName,
+    msqlssUseBcpFullLoad,
+    msqlssUsername,
 
-    -- ** MongoDBSettings
-    MongoDBSettings (..),
-    mkMongoDBSettings,
-    mdsServerName,
-    mdsAuthMechanism,
-    mdsUsername,
-    mdsKMSKeyId,
-    mdsPassword,
-    mdsNestingLevel,
-    mdsDatabaseName,
-    mdsDocsToInvestigate,
-    mdsAuthSource,
-    mdsExtractDocId,
-    mdsAuthType,
-    mdsPort,
+    -- ** ReleaseStatusValues
+    ReleaseStatusValues (..),
 
-    -- ** MySQLSettings
-    MySQLSettings (..),
-    mkMySQLSettings,
-    msqlsMaxFileSize,
-    msqlsTargetDBType,
-    msqlsServerName,
-    msqlsParallelLoadThreads,
-    msqlsUsername,
-    msqlsPassword,
-    msqlsEventsPollInterval,
-    msqlsDatabaseName,
-    msqlsAfterConnectScript,
-    msqlsServerTimezone,
-    msqlsPort,
+    -- ** String
+    String (..),
 
-    -- ** NeptuneSettings
-    NeptuneSettings (..),
-    mkNeptuneSettings,
-    nsMaxFileSize,
-    nsMaxRetryCount,
-    nsServiceAccessRoleARN,
-    nsS3BucketFolder,
-    nsIAMAuthEnabled,
-    nsErrorRetryDuration,
-    nsS3BucketName,
-
-    -- ** OracleSettings
-    OracleSettings (..),
-    mkOracleSettings,
-    osFailTasksOnLobTruncation,
-    osServerName,
-    osDirectPathNoLog,
-    osSecurityDBEncryptionName,
-    osOraclePathPrefix,
-    osUsername,
-    osAllowSelectNestedTables,
-    osReadAheadBlocks,
-    osArchivedLogDestId,
-    osReplacePathPrefix,
-    osAccessAlternateDirectly,
-    osSecurityDBEncryption,
-    osReadTableSpaceName,
-    osRetryInterval,
-    osPassword,
-    osDatabaseName,
-    osAddSupplementalLogging,
-    osAsmServer,
-    osCharLengthSemantics,
-    osArchivedLogsOnly,
-    osDirectPathParallelLoad,
-    osAdditionalArchivedLogDestId,
-    osAsmPassword,
-    osEnableHomogenousTablespace,
-    osParallelAsmReadThreads,
-    osNumberDatatypeScale,
-    osUsePathPrefix,
-    osAsmUser,
-    osUseAlternateFolderForOnline,
-    osPort,
-
-    -- ** OrderableReplicationInstance
-    OrderableReplicationInstance (..),
-    mkOrderableReplicationInstance,
-    oriEngineVersion,
-    oriMinAllocatedStorage,
-    oriReleaseStatus,
-    oriIncludedAllocatedStorage,
-    oriAvailabilityZones,
-    oriMaxAllocatedStorage,
-    oriReplicationInstanceClass,
-    oriDefaultAllocatedStorage,
-    oriStorageType,
-
-    -- ** PendingMaintenanceAction
-    PendingMaintenanceAction (..),
-    mkPendingMaintenanceAction,
-    pmaAutoAppliedAfterDate,
-    pmaAction,
-    pmaOptInStatus,
-    pmaDescription,
-    pmaForcedApplyDate,
-    pmaCurrentApplyDate,
-
-    -- ** PostgreSQLSettings
-    PostgreSQLSettings (..),
-    mkPostgreSQLSettings,
-    psqlsExecuteTimeout,
-    psqlsMaxFileSize,
-    psqlsFailTasksOnLobTruncation,
-    psqlsServerName,
-    psqlsDdlArtifactsSchema,
-    psqlsSlotName,
-    psqlsUsername,
-    psqlsPassword,
-    psqlsDatabaseName,
-    psqlsAfterConnectScript,
-    psqlsCaptureDdls,
-    psqlsPort,
-
-    -- ** RedshiftSettings
-    RedshiftSettings (..),
-    mkRedshiftSettings,
-    rsEmptyAsNull,
-    rsCaseSensitiveNames,
-    rsMaxFileSize,
-    rsReplaceChars,
-    rsServerName,
-    rsConnectionTimeout,
-    rsLoadTimeout,
-    rsServiceAccessRoleARN,
-    rsExplicitIds,
-    rsBucketFolder,
-    rsTruncateColumns,
-    rsReplaceInvalidChars,
-    rsUsername,
-    rsBucketName,
-    rsEncryptionMode,
-    rsDateFormat,
-    rsRemoveQuotes,
-    rsPassword,
-    rsDatabaseName,
-    rsAcceptAnyDate,
-    rsAfterConnectScript,
-    rsWriteBufferSize,
-    rsCompUpdate,
-    rsTrimBlanks,
-    rsTimeFormat,
-    rsServerSideEncryptionKMSKeyId,
-    rsPort,
-    rsFileTransferUploadStreams,
-
-    -- ** RefreshSchemasStatus
-    RefreshSchemasStatus (..),
-    mkRefreshSchemasStatus,
-    rssStatus,
-    rssLastRefreshDate,
-    rssReplicationInstanceARN,
-    rssEndpointARN,
-    rssLastFailureMessage,
+    -- ** SourceType
+    SourceType (..),
 
     -- ** ReplicationInstance
     ReplicationInstance (..),
     mkReplicationInstance,
-    riEngineVersion,
-    riPubliclyAccessible,
-    riAutoMinorVersionUpgrade,
-    riReplicationInstancePublicIPAddresses,
-    riReplicationSubnetGroup,
-    riInstanceCreateTime,
-    riFreeUntil,
-    riReplicationInstanceStatus,
-    riReplicationInstancePrivateIPAddresses,
-    riPreferredMaintenanceWindow,
-    riReplicationInstancePrivateIPAddress,
-    riKMSKeyId,
-    riAvailabilityZone,
-    riVPCSecurityGroups,
-    riMultiAZ,
-    riSecondaryAvailabilityZone,
-    riReplicationInstanceARN,
     riAllocatedStorage,
-    riDNSNameServers,
-    riReplicationInstancePublicIPAddress,
+    riAutoMinorVersionUpgrade,
+    riAvailabilityZone,
+    riDnsNameServers,
+    riEngineVersion,
+    riFreeUntil,
+    riInstanceCreateTime,
+    riKmsKeyId,
+    riMultiAZ,
+    riPendingModifiedValues,
+    riPreferredMaintenanceWindow,
+    riPubliclyAccessible,
+    riReplicationInstanceArn,
     riReplicationInstanceClass,
     riReplicationInstanceIdentifier,
-    riPendingModifiedValues,
+    riReplicationInstancePrivateIpAddress,
+    riReplicationInstancePrivateIpAddresses,
+    riReplicationInstancePublicIpAddress,
+    riReplicationInstancePublicIpAddresses,
+    riReplicationInstanceStatus,
+    riReplicationSubnetGroup,
+    riSecondaryAvailabilityZone,
+    riVpcSecurityGroups,
 
-    -- ** ReplicationInstanceTaskLog
-    ReplicationInstanceTaskLog (..),
-    mkReplicationInstanceTaskLog,
-    ritlReplicationTaskName,
-    ritlReplicationTaskARN,
-    ritlReplicationInstanceTaskLogSize,
-
-    -- ** ReplicationPendingModifiedValues
-    ReplicationPendingModifiedValues (..),
-    mkReplicationPendingModifiedValues,
-    rpmvEngineVersion,
-    rpmvMultiAZ,
-    rpmvAllocatedStorage,
-    rpmvReplicationInstanceClass,
-
-    -- ** ReplicationSubnetGroup
-    ReplicationSubnetGroup (..),
-    mkReplicationSubnetGroup,
-    rsgVPCId,
-    rsgSubnets,
-    rsgReplicationSubnetGroupIdentifier,
-    rsgSubnetGroupStatus,
-    rsgReplicationSubnetGroupDescription,
-
-    -- ** ReplicationTask
-    ReplicationTask (..),
-    mkReplicationTask,
-    rtReplicationTaskSettings,
-    rtStatus,
-    rtStopReason,
-    rtTargetEndpointARN,
-    rtReplicationTaskIdentifier,
-    rtCdcStartPosition,
-    rtReplicationTaskStartDate,
-    rtSourceEndpointARN,
-    rtRecoveryCheckpoint,
-    rtTableMappings,
-    rtTargetReplicationInstanceARN,
-    rtReplicationTaskCreationDate,
-    rtMigrationType,
-    rtReplicationTaskARN,
-    rtTaskData,
-    rtCdcStopPosition,
-    rtReplicationTaskStats,
-    rtReplicationInstanceARN,
-    rtLastFailureMessage,
-
-    -- ** ReplicationTaskAssessmentResult
-    ReplicationTaskAssessmentResult (..),
-    mkReplicationTaskAssessmentResult,
-    rAssessmentResults,
-    rAssessmentResultsFile,
-    rReplicationTaskIdentifier,
-    rAssessmentStatus,
-    rS3ObjectURL,
-    rReplicationTaskLastAssessmentDate,
-    rReplicationTaskARN,
-
-    -- ** ReplicationTaskAssessmentRun
-    ReplicationTaskAssessmentRun (..),
-    mkReplicationTaskAssessmentRun,
-    rtarStatus,
-    rtarServiceAccessRoleARN,
-    rtarReplicationTaskAssessmentRunCreationDate,
-    rtarAssessmentProgress,
-    rtarResultKMSKeyARN,
-    rtarReplicationTaskARN,
-    rtarResultLocationBucket,
-    rtarResultLocationFolder,
-    rtarResultEncryptionMode,
-    rtarAssessmentRunName,
-    rtarReplicationTaskAssessmentRunARN,
-    rtarLastFailureMessage,
-
-    -- ** ReplicationTaskAssessmentRunProgress
-    ReplicationTaskAssessmentRunProgress (..),
-    mkReplicationTaskAssessmentRunProgress,
-    rtarpIndividualAssessmentCount,
-    rtarpIndividualAssessmentCompletedCount,
-
-    -- ** ReplicationTaskIndividualAssessment
-    ReplicationTaskIndividualAssessment (..),
-    mkReplicationTaskIndividualAssessment,
-    rtiaStatus,
-    rtiaReplicationTaskIndividualAssessmentStartDate,
-    rtiaIndividualAssessmentName,
-    rtiaReplicationTaskIndividualAssessmentARN,
-    rtiaReplicationTaskAssessmentRunARN,
-
-    -- ** ReplicationTaskStats
-    ReplicationTaskStats (..),
-    mkReplicationTaskStats,
-    rtsStopDate,
-    rtsFullLoadProgressPercent,
-    rtsFullLoadStartDate,
-    rtsElapsedTimeMillis,
-    rtsStartDate,
-    rtsTablesErrored,
-    rtsFullLoadFinishDate,
-    rtsTablesLoaded,
-    rtsTablesQueued,
-    rtsTablesLoading,
-    rtsFreshStartDate,
+    -- ** CompressionTypeValue
+    CompressionTypeValue (..),
 
     -- ** ResourcePendingMaintenanceActions
     ResourcePendingMaintenanceActions (..),
@@ -767,81 +404,215 @@ module Network.AWS.DMS
     rpmaPendingMaintenanceActionDetails,
     rpmaResourceIdentifier,
 
-    -- ** S3Settings
-    S3Settings (..),
-    mkS3Settings,
-    ssParquetVersion,
-    ssParquetTimestampInMillisecond,
-    ssIncludeOpForFullLoad,
-    ssCSVDelimiter,
-    ssServiceAccessRoleARN,
-    ssBucketFolder,
-    ssDataFormat,
-    ssDatePartitionEnabled,
-    ssEncodingType,
-    ssExternalTableDefinition,
-    ssDictPageSizeLimit,
-    ssBucketName,
-    ssEncryptionMode,
-    ssEnableStatistics,
-    ssCdcInsertsOnly,
-    ssTimestampColumnName,
-    ssCSVRowDelimiter,
-    ssDatePartitionDelimiter,
-    ssCompressionType,
-    ssServerSideEncryptionKMSKeyId,
-    ssDataPageSize,
-    ssCdcInsertsAndUpdates,
-    ssDatePartitionSequence,
-    ssRowGroupLength,
+    -- ** ReplicationSubnetGroup
+    ReplicationSubnetGroup (..),
+    mkReplicationSubnetGroup,
+    rsgReplicationSubnetGroupDescription,
+    rsgReplicationSubnetGroupIdentifier,
+    rsgSubnetGroupStatus,
+    rsgSubnets,
+    rsgVpcId,
 
     -- ** Subnet
     Subnet (..),
     mkSubnet,
-    sSubnetStatus,
-    sSubnetIdentifier,
     sSubnetAvailabilityZone,
+    sSubnetIdentifier,
+    sSubnetStatus,
 
-    -- ** SupportedEndpointType
-    SupportedEndpointType (..),
-    mkSupportedEndpointType,
-    setEngineDisplayName,
-    setEndpointType,
-    setEngineName,
-    setReplicationInstanceEngineMinimumVersion,
-    setSupportsCDC,
+    -- ** DocDbSettings
+    DocDbSettings (..),
+    mkDocDbSettings,
+    ddsDatabaseName,
+    ddsDocsToInvestigate,
+    ddsExtractDocId,
+    ddsKmsKeyId,
+    ddsNestingLevel,
+    ddsPassword,
+    ddsPort,
+    ddsServerName,
+    ddsUsername,
 
-    -- ** SybaseSettings
-    SybaseSettings (..),
-    mkSybaseSettings,
-    ssServerName,
-    ssUsername,
-    ssPassword,
-    ssDatabaseName,
-    ssPort,
+    -- ** EventCategoryGroup
+    EventCategoryGroup (..),
+    mkEventCategoryGroup,
+    ecgEventCategories,
+    ecgSourceType,
 
-    -- ** TableStatistics
-    TableStatistics (..),
-    mkTableStatistics,
-    tsValidationState,
-    tsFullLoadRows,
-    tsInserts,
-    tsFullLoadEndTime,
-    tsFullLoadCondtnlChkFailedRows,
-    tsFullLoadReloaded,
-    tsValidationFailedRecords,
-    tsValidationSuspendedRecords,
-    tsSchemaName,
-    tsValidationStateDetails,
-    tsTableState,
-    tsFullLoadErrorRows,
-    tsDdls,
-    tsDeletes,
-    tsUpdates,
-    tsValidationPendingRecords,
-    tsFullLoadStartTime,
-    tsLastUpdateTime,
-    tsTableName,
+    -- ** PostgreSQLSettings
+    PostgreSQLSettings (..),
+    mkPostgreSQLSettings,
+    psqlsAfterConnectScript,
+    psqlsCaptureDdls,
+    psqlsDatabaseName,
+    psqlsDdlArtifactsSchema,
+    psqlsExecuteTimeout,
+    psqlsFailTasksOnLobTruncation,
+    psqlsMaxFileSize,
+    psqlsPassword,
+    psqlsPort,
+    psqlsServerName,
+    psqlsSlotName,
+    psqlsUsername,
+
+    -- ** KafkaSettings
+    KafkaSettings (..),
+    mkKafkaSettings,
+    ksBroker,
+    ksIncludeControlDetails,
+    ksIncludeNullAndEmpty,
+    ksIncludePartitionValue,
+    ksIncludeTableAlterOperations,
+    ksIncludeTransactionDetails,
+    ksMessageFormat,
+    ksMessageMaxBytes,
+    ksPartitionIncludeSchemaTable,
+    ksTopic,
+
+    -- ** OracleSettings
+    OracleSettings (..),
+    mkOracleSettings,
+    osAccessAlternateDirectly,
+    osAddSupplementalLogging,
+    osAdditionalArchivedLogDestId,
+    osAllowSelectNestedTables,
+    osArchivedLogDestId,
+    osArchivedLogsOnly,
+    osAsmPassword,
+    osAsmServer,
+    osAsmUser,
+    osCharLengthSemantics,
+    osDatabaseName,
+    osDirectPathNoLog,
+    osDirectPathParallelLoad,
+    osEnableHomogenousTablespace,
+    osFailTasksOnLobTruncation,
+    osNumberDatatypeScale,
+    osOraclePathPrefix,
+    osParallelAsmReadThreads,
+    osPassword,
+    osPort,
+    osReadAheadBlocks,
+    osReadTableSpaceName,
+    osReplacePathPrefix,
+    osRetryInterval,
+    osSecurityDbEncryption,
+    osSecurityDbEncryptionName,
+    osServerName,
+    osUseAlternateFolderForOnline,
+    osUsePathPrefix,
+    osUsername,
+
+    -- ** RedshiftSettings
+    RedshiftSettings (..),
+    mkRedshiftSettings,
+    rsAcceptAnyDate,
+    rsAfterConnectScript,
+    rsBucketFolder,
+    rsBucketName,
+    rsCaseSensitiveNames,
+    rsCompUpdate,
+    rsConnectionTimeout,
+    rsDatabaseName,
+    rsDateFormat,
+    rsEmptyAsNull,
+    rsEncryptionMode,
+    rsExplicitIds,
+    rsFileTransferUploadStreams,
+    rsLoadTimeout,
+    rsMaxFileSize,
+    rsPassword,
+    rsPort,
+    rsRemoveQuotes,
+    rsReplaceChars,
+    rsReplaceInvalidChars,
+    rsServerName,
+    rsServerSideEncryptionKmsKeyId,
+    rsServiceAccessRoleArn,
+    rsTimeFormat,
+    rsTrimBlanks,
+    rsTruncateColumns,
+    rsUsername,
+    rsWriteBufferSize,
+
+    -- ** ElasticsearchSettings
+    ElasticsearchSettings (..),
+    mkElasticsearchSettings,
+    esServiceAccessRoleArn,
+    esEndpointUri,
+    esErrorRetryDuration,
+    esFullLoadErrorPercentage,
+
+    -- ** DmsSslModeValue
+    DmsSslModeValue (..),
+
+    -- ** ReplicationTaskIndividualAssessment
+    ReplicationTaskIndividualAssessment (..),
+    mkReplicationTaskIndividualAssessment,
+    rtiaIndividualAssessmentName,
+    rtiaReplicationTaskAssessmentRunArn,
+    rtiaReplicationTaskIndividualAssessmentArn,
+    rtiaReplicationTaskIndividualAssessmentStartDate,
+    rtiaStatus,
+
+    -- ** ReplicationTaskAssessmentRun
+    ReplicationTaskAssessmentRun (..),
+    mkReplicationTaskAssessmentRun,
+    rtarAssessmentProgress,
+    rtarAssessmentRunName,
+    rtarLastFailureMessage,
+    rtarReplicationTaskArn,
+    rtarReplicationTaskAssessmentRunArn,
+    rtarReplicationTaskAssessmentRunCreationDate,
+    rtarResultEncryptionMode,
+    rtarResultKmsKeyArn,
+    rtarResultLocationBucket,
+    rtarResultLocationFolder,
+    rtarServiceAccessRoleArn,
+    rtarStatus,
+
+    -- ** Connection
+    Connection (..),
+    mkConnection,
+    cEndpointArn,
+    cEndpointIdentifier,
+    cLastFailureMessage,
+    cReplicationInstanceArn,
+    cReplicationInstanceIdentifier,
+    cStatus,
+
+    -- ** ReplicationTask
+    ReplicationTask (..),
+    mkReplicationTask,
+    rtCdcStartPosition,
+    rtCdcStopPosition,
+    rtLastFailureMessage,
+    rtMigrationType,
+    rtRecoveryCheckpoint,
+    rtReplicationInstanceArn,
+    rtReplicationTaskArn,
+    rtReplicationTaskCreationDate,
+    rtReplicationTaskIdentifier,
+    rtReplicationTaskSettings,
+    rtReplicationTaskStartDate,
+    rtReplicationTaskStats,
+    rtSourceEndpointArn,
+    rtStatus,
+    rtStopReason,
+    rtTableMappings,
+    rtTargetEndpointArn,
+    rtTargetReplicationInstanceArn,
+    rtTaskData,
+
+    -- ** ReloadOptionValue
+    ReloadOptionValue (..),
+
+    -- ** ReplicationInstanceTaskLog
+    ReplicationInstanceTaskLog (..),
+    mkReplicationInstanceTaskLog,
+    ritlReplicationInstanceTaskLogSize,
+    ritlReplicationTaskArn,
+    ritlReplicationTaskName,
 
     -- ** TableToReload
     TableToReload (..),
@@ -849,27 +620,442 @@ module Network.AWS.DMS
     ttrSchemaName,
     ttrTableName,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** SafeguardPolicy
+    SafeguardPolicy (..),
 
-    -- ** VPCSecurityGroupMembership
-    VPCSecurityGroupMembership (..),
-    mkVPCSecurityGroupMembership,
+    -- ** NeptuneSettings
+    NeptuneSettings (..),
+    mkNeptuneSettings,
+    nsS3BucketName,
+    nsS3BucketFolder,
+    nsErrorRetryDuration,
+    nsIamAuthEnabled,
+    nsMaxFileSize,
+    nsMaxRetryCount,
+    nsServiceAccessRoleArn,
+
+    -- ** IBMDb2Settings
+    IBMDb2Settings (..),
+    mkIBMDb2Settings,
+    ibmdsCurrentLsn,
+    ibmdsDatabaseName,
+    ibmdsMaxKBytesPerRead,
+    ibmdsPassword,
+    ibmdsPort,
+    ibmdsServerName,
+    ibmdsSetDataCaptureChanges,
+    ibmdsUsername,
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** MongoDbSettings
+    MongoDbSettings (..),
+    mkMongoDbSettings,
+    mdsAuthMechanism,
+    mdsAuthSource,
+    mdsAuthType,
+    mdsDatabaseName,
+    mdsDocsToInvestigate,
+    mdsExtractDocId,
+    mdsKmsKeyId,
+    mdsNestingLevel,
+    mdsPassword,
+    mdsPort,
+    mdsServerName,
+    mdsUsername,
+
+    -- ** AccountQuota
+    AccountQuota (..),
+    mkAccountQuota,
+    aqAccountQuotaName,
+    aqMax,
+    aqUsed,
+
+    -- ** MigrationTypeValue
+    MigrationTypeValue (..),
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azName,
+
+    -- ** EncryptionModeValue
+    EncryptionModeValue (..),
+
+    -- ** EventSubscription
+    EventSubscription (..),
+    mkEventSubscription,
+    esCustSubscriptionId,
+    esCustomerAwsId,
+    esEnabled,
+    esEventCategoriesList,
+    esSnsTopicArn,
+    esSourceIdsList,
+    esSourceType,
+    esStatus,
+    esSubscriptionCreationTime,
+
+    -- ** SybaseSettings
+    SybaseSettings (..),
+    mkSybaseSettings,
+    ssDatabaseName,
+    ssPassword,
+    ssPort,
+    ssServerName,
+    ssUsername,
+
+    -- ** ReplicationPendingModifiedValues
+    ReplicationPendingModifiedValues (..),
+    mkReplicationPendingModifiedValues,
+    rpmvAllocatedStorage,
+    rpmvEngineVersion,
+    rpmvMultiAZ,
+    rpmvReplicationInstanceClass,
+
+    -- ** Certificate
+    Certificate (..),
+    mkCertificate,
+    cCertificateArn,
+    cCertificateCreationDate,
+    cCertificateIdentifier,
+    cCertificateOwner,
+    cCertificatePem,
+    cCertificateWallet,
+    cKeyLength,
+    cSigningAlgorithm,
+    cValidFromDate,
+    cValidToDate,
+
+    -- ** CharLengthSemantics
+    CharLengthSemantics (..),
+
+    -- ** S3Settings
+    S3Settings (..),
+    mkS3Settings,
+    ssBucketFolder,
+    ssBucketName,
+    ssCdcInsertsAndUpdates,
+    ssCdcInsertsOnly,
+    ssCompressionType,
+    ssCsvDelimiter,
+    ssCsvRowDelimiter,
+    ssDataFormat,
+    ssDataPageSize,
+    ssDatePartitionDelimiter,
+    ssDatePartitionEnabled,
+    ssDatePartitionSequence,
+    ssDictPageSizeLimit,
+    ssEnableStatistics,
+    ssEncodingType,
+    ssEncryptionMode,
+    ssExternalTableDefinition,
+    ssIncludeOpForFullLoad,
+    ssParquetTimestampInMillisecond,
+    ssParquetVersion,
+    ssRowGroupLength,
+    ssServerSideEncryptionKmsKeyId,
+    ssServiceAccessRoleArn,
+    ssTimestampColumnName,
+
+    -- ** SupportedEndpointType
+    SupportedEndpointType (..),
+    mkSupportedEndpointType,
+    setEndpointType,
+    setEngineDisplayName,
+    setEngineName,
+    setReplicationInstanceEngineMinimumVersion,
+    setSupportsCDC,
+
+    -- ** KinesisSettings
+    KinesisSettings (..),
+    mkKinesisSettings,
+    kIncludeControlDetails,
+    kIncludeNullAndEmpty,
+    kIncludePartitionValue,
+    kIncludeTableAlterOperations,
+    kIncludeTransactionDetails,
+    kMessageFormat,
+    kPartitionIncludeSchemaTable,
+    kServiceAccessRoleArn,
+    kStreamArn,
+
+    -- ** EncodingTypeValue
+    EncodingTypeValue (..),
+
+    -- ** ReplicationTaskStats
+    ReplicationTaskStats (..),
+    mkReplicationTaskStats,
+    rtsElapsedTimeMillis,
+    rtsFreshStartDate,
+    rtsFullLoadFinishDate,
+    rtsFullLoadProgressPercent,
+    rtsFullLoadStartDate,
+    rtsStartDate,
+    rtsStopDate,
+    rtsTablesErrored,
+    rtsTablesLoaded,
+    rtsTablesLoading,
+    rtsTablesQueued,
+
+    -- ** DataFormatValue
+    DataFormatValue (..),
+
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fName,
+    fValues,
+
+    -- ** AuthMechanismValue
+    AuthMechanismValue (..),
+
+    -- ** RefreshSchemasStatusTypeValue
+    RefreshSchemasStatusTypeValue (..),
+
+    -- ** AuthTypeValue
+    AuthTypeValue (..),
+
+    -- ** TableStatistics
+    TableStatistics (..),
+    mkTableStatistics,
+    tsDdls,
+    tsDeletes,
+    tsFullLoadCondtnlChkFailedRows,
+    tsFullLoadEndTime,
+    tsFullLoadErrorRows,
+    tsFullLoadReloaded,
+    tsFullLoadRows,
+    tsFullLoadStartTime,
+    tsInserts,
+    tsLastUpdateTime,
+    tsSchemaName,
+    tsTableName,
+    tsTableState,
+    tsUpdates,
+    tsValidationFailedRecords,
+    tsValidationPendingRecords,
+    tsValidationState,
+    tsValidationStateDetails,
+    tsValidationSuspendedRecords,
+
+    -- ** ReplicationTaskAssessmentRunProgress
+    ReplicationTaskAssessmentRunProgress (..),
+    mkReplicationTaskAssessmentRunProgress,
+    rtarpIndividualAssessmentCompletedCount,
+    rtarpIndividualAssessmentCount,
+
+    -- ** DynamoDbSettings
+    DynamoDbSettings (..),
+    mkDynamoDbSettings,
+    ddsServiceAccessRoleArn,
+
+    -- ** RefreshSchemasStatus
+    RefreshSchemasStatus (..),
+    mkRefreshSchemasStatus,
+    rssEndpointArn,
+    rssLastFailureMessage,
+    rssLastRefreshDate,
+    rssReplicationInstanceArn,
+    rssStatus,
+
+    -- ** Endpoint
+    Endpoint (..),
+    mkEndpoint,
+    eCertificateArn,
+    eDatabaseName,
+    eDmsTransferSettings,
+    eDocDbSettings,
+    eDynamoDbSettings,
+    eElasticsearchSettings,
+    eEndpointArn,
+    eEndpointIdentifier,
+    eEndpointType,
+    eEngineDisplayName,
+    eEngineName,
+    eExternalId,
+    eExternalTableDefinition,
+    eExtraConnectionAttributes,
+    eIBMDb2Settings,
+    eKafkaSettings,
+    eKinesisSettings,
+    eKmsKeyId,
+    eMicrosoftSQLServerSettings,
+    eMongoDbSettings,
+    eMySQLSettings,
+    eNeptuneSettings,
+    eOracleSettings,
+    ePort,
+    ePostgreSQLSettings,
+    eRedshiftSettings,
+    eS3Settings,
+    eServerName,
+    eServiceAccessRoleArn,
+    eSslMode,
+    eStatus,
+    eSybaseSettings,
+    eUsername,
+
+    -- ** MessageFormatValue
+    MessageFormatValue (..),
+
+    -- ** ReplicationTaskAssessmentResult
+    ReplicationTaskAssessmentResult (..),
+    mkReplicationTaskAssessmentResult,
+    rAssessmentResults,
+    rAssessmentResultsFile,
+    rAssessmentStatus,
+    rReplicationTaskArn,
+    rReplicationTaskIdentifier,
+    rReplicationTaskLastAssessmentDate,
+    rS3ObjectUrl,
+
+    -- ** VpcSecurityGroupMembership
+    VpcSecurityGroupMembership (..),
+    mkVpcSecurityGroupMembership,
     vsgmStatus,
-    vsgmVPCSecurityGroupId,
+    vsgmVpcSecurityGroupId,
+
+    -- ** DatePartitionDelimiterValue
+    DatePartitionDelimiterValue (..),
+
+    -- ** OrderableReplicationInstance
+    OrderableReplicationInstance (..),
+    mkOrderableReplicationInstance,
+    oriAvailabilityZones,
+    oriDefaultAllocatedStorage,
+    oriEngineVersion,
+    oriIncludedAllocatedStorage,
+    oriMaxAllocatedStorage,
+    oriMinAllocatedStorage,
+    oriReleaseStatus,
+    oriReplicationInstanceClass,
+    oriStorageType,
+
+    -- ** NestingLevelValue
+    NestingLevelValue (..),
+
+    -- ** EndpointArn
+    EndpointArn (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** ReplicationTaskArn
+    ReplicationTaskArn (..),
+
+    -- ** SubscriptionName
+    SubscriptionName (..),
+
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
+
+    -- ** ReplicationInstanceArn
+    ReplicationInstanceArn (..),
+
+    -- ** ReplicationTaskAssessmentRunArn
+    ReplicationTaskAssessmentRunArn (..),
+
+    -- ** Action
+    Action (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** OptInStatus
+    OptInStatus (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** ServiceAccessRoleArn
+    ServiceAccessRoleArn (..),
+
+    -- ** EndpointIdentifier
+    EndpointIdentifier (..),
+
+    -- ** EngineName
+    EngineName (..),
+
+    -- ** CertificateArn
+    CertificateArn (..),
+
+    -- ** DatabaseName
+    DatabaseName (..),
+
+    -- ** ExternalTableDefinition
+    ExternalTableDefinition (..),
+
+    -- ** ExtraConnectionAttributes
+    ExtraConnectionAttributes (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** Password
+    Password (..),
+
+    -- ** ResourceIdentifier
+    ResourceIdentifier (..),
+
+    -- ** ServerName
+    ServerName (..),
+
+    -- ** Username
+    Username (..),
+
+    -- ** SourceIdentifier
+    SourceIdentifier (..),
+
+    -- ** ReplicationSubnetGroupIdentifier
+    ReplicationSubnetGroupIdentifier (..),
+
+    -- ** ReplicationSubnetGroupDescription
+    ReplicationSubnetGroupDescription (..),
+
+    -- ** AfterConnectScript
+    AfterConnectScript (..),
+
+    -- ** ServerTimezone
+    ServerTimezone (..),
+
+    -- ** SourceEngineName
+    SourceEngineName (..),
+
+    -- ** TargetEngineName
+    TargetEngineName (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** CdcStartPosition
+    CdcStartPosition (..),
+
+    -- ** CdcStopPosition
+    CdcStopPosition (..),
+
+    -- ** ControlTablesFileGroup
+    ControlTablesFileGroup (..),
+
+    -- ** AsmPassword
+    AsmPassword (..),
+
+    -- ** SecurityDbEncryption
+    SecurityDbEncryption (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

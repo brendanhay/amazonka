@@ -138,7 +138,7 @@ responseGetComplianceSummary =
   res
     "GetComplianceSummaryResponse"
     "fixture/GetComplianceSummaryResponse.proto"
-    resourceGroupsTaggingService
+    mkServiceConfig
     (Proxy :: Proxy GetComplianceSummary)
 
 responseDescribeReportCreation :: DescribeReportCreationResponse -> TestTree
@@ -146,7 +146,7 @@ responseDescribeReportCreation =
   res
     "DescribeReportCreationResponse"
     "fixture/DescribeReportCreationResponse.proto"
-    resourceGroupsTaggingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReportCreation)
 
 responseGetTagKeys :: GetTagKeysResponse -> TestTree
@@ -154,7 +154,7 @@ responseGetTagKeys =
   res
     "GetTagKeysResponse"
     "fixture/GetTagKeysResponse.proto"
-    resourceGroupsTaggingService
+    mkServiceConfig
     (Proxy :: Proxy GetTagKeys)
 
 responseTagResources :: TagResourcesResponse -> TestTree
@@ -162,7 +162,7 @@ responseTagResources =
   res
     "TagResourcesResponse"
     "fixture/TagResourcesResponse.proto"
-    resourceGroupsTaggingService
+    mkServiceConfig
     (Proxy :: Proxy TagResources)
 
 responseGetTagValues :: GetTagValuesResponse -> TestTree
@@ -170,7 +170,7 @@ responseGetTagValues =
   res
     "GetTagValuesResponse"
     "fixture/GetTagValuesResponse.proto"
-    resourceGroupsTaggingService
+    mkServiceConfig
     (Proxy :: Proxy GetTagValues)
 
 responseStartReportCreation :: StartReportCreationResponse -> TestTree
@@ -178,7 +178,7 @@ responseStartReportCreation =
   res
     "StartReportCreationResponse"
     "fixture/StartReportCreationResponse.proto"
-    resourceGroupsTaggingService
+    mkServiceConfig
     (Proxy :: Proxy StartReportCreation)
 
 responseGetResources :: GetResourcesResponse -> TestTree
@@ -186,7 +186,7 @@ responseGetResources =
   res
     "GetResourcesResponse"
     "fixture/GetResourcesResponse.proto"
-    resourceGroupsTaggingService
+    mkServiceConfig
     (Proxy :: Proxy GetResources)
 
 responseUntagResources :: UntagResourcesResponse -> TestTree
@@ -194,5 +194,5 @@ responseUntagResources =
   res
     "UntagResourcesResponse"
     "fixture/UntagResourcesResponse.proto"
-    resourceGroupsTaggingService
+    mkServiceConfig
     (Proxy :: Proxy UntagResources)

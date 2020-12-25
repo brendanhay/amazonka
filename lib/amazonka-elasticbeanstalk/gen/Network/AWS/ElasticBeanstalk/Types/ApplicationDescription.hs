@@ -17,137 +17,131 @@ module Network.AWS.ElasticBeanstalk.Types.ApplicationDescription
     mkApplicationDescription,
 
     -- * Lenses
-    adApplicationARN,
-    adVersions,
-    adDateUpdated,
-    adDateCreated,
+    adApplicationArn,
     adApplicationName,
     adConfigurationTemplates,
-    adResourceLifecycleConfig,
+    adDateCreated,
+    adDateUpdated,
     adDescription,
+    adResourceLifecycleConfig,
+    adVersions,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationArn as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ConfigurationTemplateName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Description as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.VersionLabel as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the properties of an application.
 --
 -- /See:/ 'mkApplicationDescription' smart constructor.
 data ApplicationDescription = ApplicationDescription'
   { -- | The Amazon Resource Name (ARN) of the application.
-    applicationARN :: Lude.Maybe Lude.Text,
-    -- | The names of the versions for this application.
-    versions :: Lude.Maybe [Lude.Text],
-    -- | The date when the application was last modified.
-    dateUpdated :: Lude.Maybe Lude.DateTime,
-    -- | The date when the application was created.
-    dateCreated :: Lude.Maybe Lude.DateTime,
+    applicationArn :: Core.Maybe Types.ApplicationArn,
     -- | The name of the application.
-    applicationName :: Lude.Maybe Lude.Text,
+    applicationName :: Core.Maybe Types.ApplicationName,
     -- | The names of the configuration templates associated with this application.
-    configurationTemplates :: Lude.Maybe [Lude.Text],
-    -- | The lifecycle settings for the application.
-    resourceLifecycleConfig :: Lude.Maybe ApplicationResourceLifecycleConfig,
+    configurationTemplates :: Core.Maybe [Types.ConfigurationTemplateName],
+    -- | The date when the application was created.
+    dateCreated :: Core.Maybe Core.UTCTime,
+    -- | The date when the application was last modified.
+    dateUpdated :: Core.Maybe Core.UTCTime,
     -- | User-defined description of the application.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The lifecycle settings for the application.
+    resourceLifecycleConfig :: Core.Maybe Types.ApplicationResourceLifecycleConfig,
+    -- | The names of the versions for this application.
+    versions :: Core.Maybe [Types.VersionLabel]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ApplicationDescription' with the minimum fields required to make a request.
---
--- * 'applicationARN' - The Amazon Resource Name (ARN) of the application.
--- * 'versions' - The names of the versions for this application.
--- * 'dateUpdated' - The date when the application was last modified.
--- * 'dateCreated' - The date when the application was created.
--- * 'applicationName' - The name of the application.
--- * 'configurationTemplates' - The names of the configuration templates associated with this application.
--- * 'resourceLifecycleConfig' - The lifecycle settings for the application.
--- * 'description' - User-defined description of the application.
+-- | Creates a 'ApplicationDescription' value with any optional fields omitted.
 mkApplicationDescription ::
   ApplicationDescription
 mkApplicationDescription =
   ApplicationDescription'
-    { applicationARN = Lude.Nothing,
-      versions = Lude.Nothing,
-      dateUpdated = Lude.Nothing,
-      dateCreated = Lude.Nothing,
-      applicationName = Lude.Nothing,
-      configurationTemplates = Lude.Nothing,
-      resourceLifecycleConfig = Lude.Nothing,
-      description = Lude.Nothing
+    { applicationArn = Core.Nothing,
+      applicationName = Core.Nothing,
+      configurationTemplates = Core.Nothing,
+      dateCreated = Core.Nothing,
+      dateUpdated = Core.Nothing,
+      description = Core.Nothing,
+      resourceLifecycleConfig = Core.Nothing,
+      versions = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the application.
 --
--- /Note:/ Consider using 'applicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adApplicationARN :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.Text)
-adApplicationARN = Lens.lens (applicationARN :: ApplicationDescription -> Lude.Maybe Lude.Text) (\s a -> s {applicationARN = a} :: ApplicationDescription)
-{-# DEPRECATED adApplicationARN "Use generic-lens or generic-optics with 'applicationARN' instead." #-}
-
--- | The names of the versions for this application.
---
--- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adVersions :: Lens.Lens' ApplicationDescription (Lude.Maybe [Lude.Text])
-adVersions = Lens.lens (versions :: ApplicationDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {versions = a} :: ApplicationDescription)
-{-# DEPRECATED adVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
-
--- | The date when the application was last modified.
---
--- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adDateUpdated :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.DateTime)
-adDateUpdated = Lens.lens (dateUpdated :: ApplicationDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateUpdated = a} :: ApplicationDescription)
-{-# DEPRECATED adDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
-
--- | The date when the application was created.
---
--- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adDateCreated :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.DateTime)
-adDateCreated = Lens.lens (dateCreated :: ApplicationDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateCreated = a} :: ApplicationDescription)
-{-# DEPRECATED adDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
+-- /Note:/ Consider using 'applicationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adApplicationArn :: Lens.Lens' ApplicationDescription (Core.Maybe Types.ApplicationArn)
+adApplicationArn = Lens.field @"applicationArn"
+{-# DEPRECATED adApplicationArn "Use generic-lens or generic-optics with 'applicationArn' instead." #-}
 
 -- | The name of the application.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adApplicationName :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.Text)
-adApplicationName = Lens.lens (applicationName :: ApplicationDescription -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: ApplicationDescription)
+adApplicationName :: Lens.Lens' ApplicationDescription (Core.Maybe Types.ApplicationName)
+adApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED adApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The names of the configuration templates associated with this application.
 --
 -- /Note:/ Consider using 'configurationTemplates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adConfigurationTemplates :: Lens.Lens' ApplicationDescription (Lude.Maybe [Lude.Text])
-adConfigurationTemplates = Lens.lens (configurationTemplates :: ApplicationDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {configurationTemplates = a} :: ApplicationDescription)
+adConfigurationTemplates :: Lens.Lens' ApplicationDescription (Core.Maybe [Types.ConfigurationTemplateName])
+adConfigurationTemplates = Lens.field @"configurationTemplates"
 {-# DEPRECATED adConfigurationTemplates "Use generic-lens or generic-optics with 'configurationTemplates' instead." #-}
 
--- | The lifecycle settings for the application.
+-- | The date when the application was created.
 --
--- /Note:/ Consider using 'resourceLifecycleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adResourceLifecycleConfig :: Lens.Lens' ApplicationDescription (Lude.Maybe ApplicationResourceLifecycleConfig)
-adResourceLifecycleConfig = Lens.lens (resourceLifecycleConfig :: ApplicationDescription -> Lude.Maybe ApplicationResourceLifecycleConfig) (\s a -> s {resourceLifecycleConfig = a} :: ApplicationDescription)
-{-# DEPRECATED adResourceLifecycleConfig "Use generic-lens or generic-optics with 'resourceLifecycleConfig' instead." #-}
+-- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adDateCreated :: Lens.Lens' ApplicationDescription (Core.Maybe Core.UTCTime)
+adDateCreated = Lens.field @"dateCreated"
+{-# DEPRECATED adDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
+
+-- | The date when the application was last modified.
+--
+-- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adDateUpdated :: Lens.Lens' ApplicationDescription (Core.Maybe Core.UTCTime)
+adDateUpdated = Lens.field @"dateUpdated"
+{-# DEPRECATED adDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
 
 -- | User-defined description of the application.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adDescription :: Lens.Lens' ApplicationDescription (Lude.Maybe Lude.Text)
-adDescription = Lens.lens (description :: ApplicationDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ApplicationDescription)
+adDescription :: Lens.Lens' ApplicationDescription (Core.Maybe Types.Description)
+adDescription = Lens.field @"description"
 {-# DEPRECATED adDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML ApplicationDescription where
+-- | The lifecycle settings for the application.
+--
+-- /Note:/ Consider using 'resourceLifecycleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adResourceLifecycleConfig :: Lens.Lens' ApplicationDescription (Core.Maybe Types.ApplicationResourceLifecycleConfig)
+adResourceLifecycleConfig = Lens.field @"resourceLifecycleConfig"
+{-# DEPRECATED adResourceLifecycleConfig "Use generic-lens or generic-optics with 'resourceLifecycleConfig' instead." #-}
+
+-- | The names of the versions for this application.
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adVersions :: Lens.Lens' ApplicationDescription (Core.Maybe [Types.VersionLabel])
+adVersions = Lens.field @"versions"
+{-# DEPRECATED adVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
+
+instance Core.FromXML ApplicationDescription where
   parseXML x =
     ApplicationDescription'
-      Lude.<$> (x Lude..@? "ApplicationArn")
-      Lude.<*> ( x Lude..@? "Versions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "ApplicationArn")
+      Core.<*> (x Core..@? "ApplicationName")
+      Core.<*> ( x Core..@? "ConfigurationTemplates"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "DateUpdated")
-      Lude.<*> (x Lude..@? "DateCreated")
-      Lude.<*> (x Lude..@? "ApplicationName")
-      Lude.<*> ( x Lude..@? "ConfigurationTemplates" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "ResourceLifecycleConfig")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<*> (x Core..@? "DateCreated")
+      Core.<*> (x Core..@? "DateUpdated")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "ResourceLifecycleConfig")
+      Core.<*> (x Core..@? "Versions" Core..<@> Core.parseXMLList "member")

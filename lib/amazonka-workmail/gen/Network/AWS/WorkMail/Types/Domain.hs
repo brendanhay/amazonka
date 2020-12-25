@@ -17,13 +17,15 @@ module Network.AWS.WorkMail.Types.Domain
     mkDomain,
 
     -- * Lenses
-    dHostedZoneId,
     dDomainName,
+    dHostedZoneId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkMail.Types.DomainName as Types
+import qualified Network.AWS.WorkMail.Types.HostedZoneId as Types
 
 -- | The domain to associate with an Amazon WorkMail organization.
 --
@@ -31,42 +33,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomain' smart constructor.
 data Domain = Domain'
-  { -- | The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
-    hostedZoneId :: Lude.Maybe Lude.Text,
-    -- | The fully qualified domain name.
-    domainName :: Lude.Maybe Lude.Text
+  { -- | The fully qualified domain name.
+    domainName :: Core.Maybe Types.DomainName,
+    -- | The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
+    hostedZoneId :: Core.Maybe Types.HostedZoneId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Domain' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
--- * 'domainName' - The fully qualified domain name.
+-- | Creates a 'Domain' value with any optional fields omitted.
 mkDomain ::
   Domain
 mkDomain =
-  Domain' {hostedZoneId = Lude.Nothing, domainName = Lude.Nothing}
-
--- | The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
---
--- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dHostedZoneId :: Lens.Lens' Domain (Lude.Maybe Lude.Text)
-dHostedZoneId = Lens.lens (hostedZoneId :: Domain -> Lude.Maybe Lude.Text) (\s a -> s {hostedZoneId = a} :: Domain)
-{-# DEPRECATED dHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
+  Domain' {domainName = Core.Nothing, hostedZoneId = Core.Nothing}
 
 -- | The fully qualified domain name.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDomainName :: Lens.Lens' Domain (Lude.Maybe Lude.Text)
-dDomainName = Lens.lens (domainName :: Domain -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: Domain)
+dDomainName :: Lens.Lens' Domain (Core.Maybe Types.DomainName)
+dDomainName = Lens.field @"domainName"
 {-# DEPRECATED dDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.ToJSON Domain where
-  toJSON Domain' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("HostedZoneId" Lude..=) Lude.<$> hostedZoneId,
-            ("DomainName" Lude..=) Lude.<$> domainName
+-- | The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dHostedZoneId :: Lens.Lens' Domain (Core.Maybe Types.HostedZoneId)
+dHostedZoneId = Lens.field @"hostedZoneId"
+{-# DEPRECATED dHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
+
+instance Core.FromJSON Domain where
+  toJSON Domain {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DomainName" Core..=) Core.<$> domainName,
+            ("HostedZoneId" Core..=) Core.<$> hostedZoneId
           ]
       )

@@ -13,51 +13,53 @@
 module Network.AWS.AppStream.Types.PlatformType
   ( PlatformType
       ( PlatformType',
-        Windows,
-        WindowsServer2016,
-        WindowsServer2019
+        PlatformTypeWindows,
+        PlatformTypeWindowsServer2016,
+        PlatformTypeWindowsServer2019,
+        fromPlatformType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PlatformType = PlatformType' Lude.Text
+newtype PlatformType = PlatformType' {fromPlatformType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Windows :: PlatformType
-pattern Windows = PlatformType' "WINDOWS"
+pattern PlatformTypeWindows :: PlatformType
+pattern PlatformTypeWindows = PlatformType' "WINDOWS"
 
-pattern WindowsServer2016 :: PlatformType
-pattern WindowsServer2016 = PlatformType' "WINDOWS_SERVER_2016"
+pattern PlatformTypeWindowsServer2016 :: PlatformType
+pattern PlatformTypeWindowsServer2016 = PlatformType' "WINDOWS_SERVER_2016"
 
-pattern WindowsServer2019 :: PlatformType
-pattern WindowsServer2019 = PlatformType' "WINDOWS_SERVER_2019"
+pattern PlatformTypeWindowsServer2019 :: PlatformType
+pattern PlatformTypeWindowsServer2019 = PlatformType' "WINDOWS_SERVER_2019"
 
 {-# COMPLETE
-  Windows,
-  WindowsServer2016,
-  WindowsServer2019,
+  PlatformTypeWindows,
+  PlatformTypeWindowsServer2016,
+  PlatformTypeWindowsServer2019,
   PlatformType'
   #-}

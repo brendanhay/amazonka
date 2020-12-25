@@ -17,229 +17,214 @@ module Network.AWS.Config.Types.RemediationConfiguration
     mkRemediationConfiguration,
 
     -- * Lenses
-    rcTargetId,
-    rcResourceType,
-    rcARN,
-    rcAutomatic,
     rcConfigRuleName,
-    rcCreatedByService,
-    rcRetryAttemptSeconds,
-    rcExecutionControls,
     rcTargetType,
-    rcParameters,
+    rcTargetId,
+    rcArn,
+    rcAutomatic,
+    rcCreatedByService,
+    rcExecutionControls,
     rcMaximumAutomaticAttempts,
+    rcParameters,
+    rcResourceType,
+    rcRetryAttemptSeconds,
     rcTargetVersion,
   )
 where
 
-import Network.AWS.Config.Types.ExecutionControls
-import Network.AWS.Config.Types.RemediationParameterValue
-import Network.AWS.Config.Types.RemediationTargetType
+import qualified Network.AWS.Config.Types.ConfigRuleName as Types
+import qualified Network.AWS.Config.Types.ExecutionControls as Types
+import qualified Network.AWS.Config.Types.RemediationParameterValue as Types
+import qualified Network.AWS.Config.Types.RemediationTargetType as Types
+import qualified Network.AWS.Config.Types.String as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit1024 as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
 --
 -- /See:/ 'mkRemediationConfiguration' smart constructor.
 data RemediationConfiguration = RemediationConfiguration'
-  { -- | Target ID is the name of the public document.
-    targetId :: Lude.Text,
-    -- | The type of a resource.
-    resourceType :: Lude.Maybe Lude.Text,
-    -- | Amazon Resource Name (ARN) of remediation configuration.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The remediation is triggered automatically.
-    automatic :: Lude.Maybe Lude.Bool,
-    -- | The name of the AWS Config rule.
-    configRuleName :: Lude.Text,
-    -- | Name of the service that owns the service linked rule, if applicable.
-    createdByService :: Lude.Maybe Lude.Text,
-    -- | Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-    --
-    -- For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
-    retryAttemptSeconds :: Lude.Maybe Lude.Natural,
-    -- | An ExecutionControls object.
-    executionControls :: Lude.Maybe ExecutionControls,
+  { -- | The name of the AWS Config rule.
+    configRuleName :: Types.ConfigRuleName,
     -- | The type of the target. Target executes remediation. For example, SSM document.
-    targetType :: RemediationTargetType,
-    -- | An object of the RemediationParameterValue.
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (RemediationParameterValue)),
+    targetType :: Types.RemediationTargetType,
+    -- | Target ID is the name of the public document.
+    targetId :: Types.StringWithCharLimit256,
+    -- | Amazon Resource Name (ARN) of remediation configuration.
+    arn :: Core.Maybe Types.StringWithCharLimit1024,
+    -- | The remediation is triggered automatically.
+    automatic :: Core.Maybe Core.Bool,
+    -- | Name of the service that owns the service linked rule, if applicable.
+    createdByService :: Core.Maybe Types.StringWithCharLimit1024,
+    -- | An ExecutionControls object.
+    executionControls :: Core.Maybe Types.ExecutionControls,
     -- | The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
     --
     -- For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
-    maximumAutomaticAttempts :: Lude.Maybe Lude.Natural,
+    maximumAutomaticAttempts :: Core.Maybe Core.Natural,
+    -- | An object of the RemediationParameterValue.
+    parameters :: Core.Maybe (Core.HashMap Types.StringWithCharLimit256 Types.RemediationParameterValue),
+    -- | The type of a resource.
+    resourceType :: Core.Maybe Types.String,
+    -- | Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+    --
+    -- For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
+    retryAttemptSeconds :: Core.Maybe Core.Natural,
     -- | Version of the target. For example, version of the SSM document.
-    targetVersion :: Lude.Maybe Lude.Text
+    targetVersion :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemediationConfiguration' with the minimum fields required to make a request.
---
--- * 'targetId' - Target ID is the name of the public document.
--- * 'resourceType' - The type of a resource.
--- * 'arn' - Amazon Resource Name (ARN) of remediation configuration.
--- * 'automatic' - The remediation is triggered automatically.
--- * 'configRuleName' - The name of the AWS Config rule.
--- * 'createdByService' - Name of the service that owns the service linked rule, if applicable.
--- * 'retryAttemptSeconds' - Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
---
--- For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
--- * 'executionControls' - An ExecutionControls object.
--- * 'targetType' - The type of the target. Target executes remediation. For example, SSM document.
--- * 'parameters' - An object of the RemediationParameterValue.
--- * 'maximumAutomaticAttempts' - The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
---
--- For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
--- * 'targetVersion' - Version of the target. For example, version of the SSM document.
+-- | Creates a 'RemediationConfiguration' value with any optional fields omitted.
 mkRemediationConfiguration ::
-  -- | 'targetId'
-  Lude.Text ->
   -- | 'configRuleName'
-  Lude.Text ->
+  Types.ConfigRuleName ->
   -- | 'targetType'
-  RemediationTargetType ->
+  Types.RemediationTargetType ->
+  -- | 'targetId'
+  Types.StringWithCharLimit256 ->
   RemediationConfiguration
-mkRemediationConfiguration pTargetId_ pConfigRuleName_ pTargetType_ =
+mkRemediationConfiguration configRuleName targetType targetId =
   RemediationConfiguration'
-    { targetId = pTargetId_,
-      resourceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      automatic = Lude.Nothing,
-      configRuleName = pConfigRuleName_,
-      createdByService = Lude.Nothing,
-      retryAttemptSeconds = Lude.Nothing,
-      executionControls = Lude.Nothing,
-      targetType = pTargetType_,
-      parameters = Lude.Nothing,
-      maximumAutomaticAttempts = Lude.Nothing,
-      targetVersion = Lude.Nothing
+    { configRuleName,
+      targetType,
+      targetId,
+      arn = Core.Nothing,
+      automatic = Core.Nothing,
+      createdByService = Core.Nothing,
+      executionControls = Core.Nothing,
+      maximumAutomaticAttempts = Core.Nothing,
+      parameters = Core.Nothing,
+      resourceType = Core.Nothing,
+      retryAttemptSeconds = Core.Nothing,
+      targetVersion = Core.Nothing
     }
-
--- | Target ID is the name of the public document.
---
--- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcTargetId :: Lens.Lens' RemediationConfiguration Lude.Text
-rcTargetId = Lens.lens (targetId :: RemediationConfiguration -> Lude.Text) (\s a -> s {targetId = a} :: RemediationConfiguration)
-{-# DEPRECATED rcTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
-
--- | The type of a resource.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcResourceType :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Text)
-rcResourceType = Lens.lens (resourceType :: RemediationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: RemediationConfiguration)
-{-# DEPRECATED rcResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | Amazon Resource Name (ARN) of remediation configuration.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcARN :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Text)
-rcARN = Lens.lens (arn :: RemediationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: RemediationConfiguration)
-{-# DEPRECATED rcARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The remediation is triggered automatically.
---
--- /Note:/ Consider using 'automatic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcAutomatic :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Bool)
-rcAutomatic = Lens.lens (automatic :: RemediationConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {automatic = a} :: RemediationConfiguration)
-{-# DEPRECATED rcAutomatic "Use generic-lens or generic-optics with 'automatic' instead." #-}
 
 -- | The name of the AWS Config rule.
 --
 -- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcConfigRuleName :: Lens.Lens' RemediationConfiguration Lude.Text
-rcConfigRuleName = Lens.lens (configRuleName :: RemediationConfiguration -> Lude.Text) (\s a -> s {configRuleName = a} :: RemediationConfiguration)
+rcConfigRuleName :: Lens.Lens' RemediationConfiguration Types.ConfigRuleName
+rcConfigRuleName = Lens.field @"configRuleName"
 {-# DEPRECATED rcConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
-
--- | Name of the service that owns the service linked rule, if applicable.
---
--- /Note:/ Consider using 'createdByService' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCreatedByService :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Text)
-rcCreatedByService = Lens.lens (createdByService :: RemediationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {createdByService = a} :: RemediationConfiguration)
-{-# DEPRECATED rcCreatedByService "Use generic-lens or generic-optics with 'createdByService' instead." #-}
-
--- | Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
---
--- For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
---
--- /Note:/ Consider using 'retryAttemptSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRetryAttemptSeconds :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Natural)
-rcRetryAttemptSeconds = Lens.lens (retryAttemptSeconds :: RemediationConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {retryAttemptSeconds = a} :: RemediationConfiguration)
-{-# DEPRECATED rcRetryAttemptSeconds "Use generic-lens or generic-optics with 'retryAttemptSeconds' instead." #-}
-
--- | An ExecutionControls object.
---
--- /Note:/ Consider using 'executionControls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcExecutionControls :: Lens.Lens' RemediationConfiguration (Lude.Maybe ExecutionControls)
-rcExecutionControls = Lens.lens (executionControls :: RemediationConfiguration -> Lude.Maybe ExecutionControls) (\s a -> s {executionControls = a} :: RemediationConfiguration)
-{-# DEPRECATED rcExecutionControls "Use generic-lens or generic-optics with 'executionControls' instead." #-}
 
 -- | The type of the target. Target executes remediation. For example, SSM document.
 --
 -- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcTargetType :: Lens.Lens' RemediationConfiguration RemediationTargetType
-rcTargetType = Lens.lens (targetType :: RemediationConfiguration -> RemediationTargetType) (\s a -> s {targetType = a} :: RemediationConfiguration)
+rcTargetType :: Lens.Lens' RemediationConfiguration Types.RemediationTargetType
+rcTargetType = Lens.field @"targetType"
 {-# DEPRECATED rcTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
--- | An object of the RemediationParameterValue.
+-- | Target ID is the name of the public document.
 --
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcParameters :: Lens.Lens' RemediationConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (RemediationParameterValue)))
-rcParameters = Lens.lens (parameters :: RemediationConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (RemediationParameterValue))) (\s a -> s {parameters = a} :: RemediationConfiguration)
-{-# DEPRECATED rcParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcTargetId :: Lens.Lens' RemediationConfiguration Types.StringWithCharLimit256
+rcTargetId = Lens.field @"targetId"
+{-# DEPRECATED rcTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+
+-- | Amazon Resource Name (ARN) of remediation configuration.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcArn :: Lens.Lens' RemediationConfiguration (Core.Maybe Types.StringWithCharLimit1024)
+rcArn = Lens.field @"arn"
+{-# DEPRECATED rcArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The remediation is triggered automatically.
+--
+-- /Note:/ Consider using 'automatic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcAutomatic :: Lens.Lens' RemediationConfiguration (Core.Maybe Core.Bool)
+rcAutomatic = Lens.field @"automatic"
+{-# DEPRECATED rcAutomatic "Use generic-lens or generic-optics with 'automatic' instead." #-}
+
+-- | Name of the service that owns the service linked rule, if applicable.
+--
+-- /Note:/ Consider using 'createdByService' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcCreatedByService :: Lens.Lens' RemediationConfiguration (Core.Maybe Types.StringWithCharLimit1024)
+rcCreatedByService = Lens.field @"createdByService"
+{-# DEPRECATED rcCreatedByService "Use generic-lens or generic-optics with 'createdByService' instead." #-}
+
+-- | An ExecutionControls object.
+--
+-- /Note:/ Consider using 'executionControls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcExecutionControls :: Lens.Lens' RemediationConfiguration (Core.Maybe Types.ExecutionControls)
+rcExecutionControls = Lens.field @"executionControls"
+{-# DEPRECATED rcExecutionControls "Use generic-lens or generic-optics with 'executionControls' instead." #-}
 
 -- | The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
 --
 -- For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
 --
 -- /Note:/ Consider using 'maximumAutomaticAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcMaximumAutomaticAttempts :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Natural)
-rcMaximumAutomaticAttempts = Lens.lens (maximumAutomaticAttempts :: RemediationConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {maximumAutomaticAttempts = a} :: RemediationConfiguration)
+rcMaximumAutomaticAttempts :: Lens.Lens' RemediationConfiguration (Core.Maybe Core.Natural)
+rcMaximumAutomaticAttempts = Lens.field @"maximumAutomaticAttempts"
 {-# DEPRECATED rcMaximumAutomaticAttempts "Use generic-lens or generic-optics with 'maximumAutomaticAttempts' instead." #-}
+
+-- | An object of the RemediationParameterValue.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcParameters :: Lens.Lens' RemediationConfiguration (Core.Maybe (Core.HashMap Types.StringWithCharLimit256 Types.RemediationParameterValue))
+rcParameters = Lens.field @"parameters"
+{-# DEPRECATED rcParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | The type of a resource.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcResourceType :: Lens.Lens' RemediationConfiguration (Core.Maybe Types.String)
+rcResourceType = Lens.field @"resourceType"
+{-# DEPRECATED rcResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+--
+-- For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
+--
+-- /Note:/ Consider using 'retryAttemptSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRetryAttemptSeconds :: Lens.Lens' RemediationConfiguration (Core.Maybe Core.Natural)
+rcRetryAttemptSeconds = Lens.field @"retryAttemptSeconds"
+{-# DEPRECATED rcRetryAttemptSeconds "Use generic-lens or generic-optics with 'retryAttemptSeconds' instead." #-}
 
 -- | Version of the target. For example, version of the SSM document.
 --
 -- /Note:/ Consider using 'targetVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcTargetVersion :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Text)
-rcTargetVersion = Lens.lens (targetVersion :: RemediationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {targetVersion = a} :: RemediationConfiguration)
+rcTargetVersion :: Lens.Lens' RemediationConfiguration (Core.Maybe Types.String)
+rcTargetVersion = Lens.field @"targetVersion"
 {-# DEPRECATED rcTargetVersion "Use generic-lens or generic-optics with 'targetVersion' instead." #-}
 
-instance Lude.FromJSON RemediationConfiguration where
-  parseJSON =
-    Lude.withObject
-      "RemediationConfiguration"
-      ( \x ->
-          RemediationConfiguration'
-            Lude.<$> (x Lude..: "TargetId")
-            Lude.<*> (x Lude..:? "ResourceType")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Automatic")
-            Lude.<*> (x Lude..: "ConfigRuleName")
-            Lude.<*> (x Lude..:? "CreatedByService")
-            Lude.<*> (x Lude..:? "RetryAttemptSeconds")
-            Lude.<*> (x Lude..:? "ExecutionControls")
-            Lude.<*> (x Lude..: "TargetType")
-            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "MaximumAutomaticAttempts")
-            Lude.<*> (x Lude..:? "TargetVersion")
-      )
-
-instance Lude.ToJSON RemediationConfiguration where
-  toJSON RemediationConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TargetId" Lude..= targetId),
-            ("ResourceType" Lude..=) Lude.<$> resourceType,
-            ("Arn" Lude..=) Lude.<$> arn,
-            ("Automatic" Lude..=) Lude.<$> automatic,
-            Lude.Just ("ConfigRuleName" Lude..= configRuleName),
-            ("CreatedByService" Lude..=) Lude.<$> createdByService,
-            ("RetryAttemptSeconds" Lude..=) Lude.<$> retryAttemptSeconds,
-            ("ExecutionControls" Lude..=) Lude.<$> executionControls,
-            Lude.Just ("TargetType" Lude..= targetType),
-            ("Parameters" Lude..=) Lude.<$> parameters,
-            ("MaximumAutomaticAttempts" Lude..=)
-              Lude.<$> maximumAutomaticAttempts,
-            ("TargetVersion" Lude..=) Lude.<$> targetVersion
+instance Core.FromJSON RemediationConfiguration where
+  toJSON RemediationConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConfigRuleName" Core..= configRuleName),
+            Core.Just ("TargetType" Core..= targetType),
+            Core.Just ("TargetId" Core..= targetId),
+            ("Arn" Core..=) Core.<$> arn,
+            ("Automatic" Core..=) Core.<$> automatic,
+            ("CreatedByService" Core..=) Core.<$> createdByService,
+            ("ExecutionControls" Core..=) Core.<$> executionControls,
+            ("MaximumAutomaticAttempts" Core..=)
+              Core.<$> maximumAutomaticAttempts,
+            ("Parameters" Core..=) Core.<$> parameters,
+            ("ResourceType" Core..=) Core.<$> resourceType,
+            ("RetryAttemptSeconds" Core..=) Core.<$> retryAttemptSeconds,
+            ("TargetVersion" Core..=) Core.<$> targetVersion
           ]
       )
+
+instance Core.FromJSON RemediationConfiguration where
+  parseJSON =
+    Core.withObject "RemediationConfiguration" Core.$
+      \x ->
+        RemediationConfiguration'
+          Core.<$> (x Core..: "ConfigRuleName")
+          Core.<*> (x Core..: "TargetType")
+          Core.<*> (x Core..: "TargetId")
+          Core.<*> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Automatic")
+          Core.<*> (x Core..:? "CreatedByService")
+          Core.<*> (x Core..:? "ExecutionControls")
+          Core.<*> (x Core..:? "MaximumAutomaticAttempts")
+          Core.<*> (x Core..:? "Parameters")
+          Core.<*> (x Core..:? "ResourceType")
+          Core.<*> (x Core..:? "RetryAttemptSeconds")
+          Core.<*> (x Core..:? "TargetVersion")

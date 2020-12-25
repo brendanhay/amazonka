@@ -13,56 +13,61 @@
 module Network.AWS.GuardDuty.Types.PublishingStatus
   ( PublishingStatus
       ( PublishingStatus',
-        PendingVerification,
-        Publishing,
-        UnableToPublishFixDestinationProperty,
-        Stopped
+        PublishingStatusPendingVerification,
+        PublishingStatusPublishing,
+        PublishingStatusUnableToPublishFixDestinationProperty,
+        PublishingStatusStopped,
+        fromPublishingStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PublishingStatus = PublishingStatus' Lude.Text
+newtype PublishingStatus = PublishingStatus'
+  { fromPublishingStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PendingVerification :: PublishingStatus
-pattern PendingVerification = PublishingStatus' "PENDING_VERIFICATION"
+pattern PublishingStatusPendingVerification :: PublishingStatus
+pattern PublishingStatusPendingVerification = PublishingStatus' "PENDING_VERIFICATION"
 
-pattern Publishing :: PublishingStatus
-pattern Publishing = PublishingStatus' "PUBLISHING"
+pattern PublishingStatusPublishing :: PublishingStatus
+pattern PublishingStatusPublishing = PublishingStatus' "PUBLISHING"
 
-pattern UnableToPublishFixDestinationProperty :: PublishingStatus
-pattern UnableToPublishFixDestinationProperty = PublishingStatus' "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY"
+pattern PublishingStatusUnableToPublishFixDestinationProperty :: PublishingStatus
+pattern PublishingStatusUnableToPublishFixDestinationProperty = PublishingStatus' "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY"
 
-pattern Stopped :: PublishingStatus
-pattern Stopped = PublishingStatus' "STOPPED"
+pattern PublishingStatusStopped :: PublishingStatus
+pattern PublishingStatusStopped = PublishingStatus' "STOPPED"
 
 {-# COMPLETE
-  PendingVerification,
-  Publishing,
-  UnableToPublishFixDestinationProperty,
-  Stopped,
+  PublishingStatusPendingVerification,
+  PublishingStatusPublishing,
+  PublishingStatusUnableToPublishFixDestinationProperty,
+  PublishingStatusStopped,
   PublishingStatus'
   #-}

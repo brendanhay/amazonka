@@ -21,38 +21,37 @@ module Network.AWS.EC2.Types.SuccessfulQueuedPurchaseDeletion
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Reserved Instance whose queued purchase was successfully deleted.
 --
 -- /See:/ 'mkSuccessfulQueuedPurchaseDeletion' smart constructor.
 newtype SuccessfulQueuedPurchaseDeletion = SuccessfulQueuedPurchaseDeletion'
   { -- | The ID of the Reserved Instance.
-    reservedInstancesId :: Lude.Maybe Lude.Text
+    reservedInstancesId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuccessfulQueuedPurchaseDeletion' with the minimum fields required to make a request.
---
--- * 'reservedInstancesId' - The ID of the Reserved Instance.
+-- | Creates a 'SuccessfulQueuedPurchaseDeletion' value with any optional fields omitted.
 mkSuccessfulQueuedPurchaseDeletion ::
   SuccessfulQueuedPurchaseDeletion
 mkSuccessfulQueuedPurchaseDeletion =
   SuccessfulQueuedPurchaseDeletion'
     { reservedInstancesId =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the Reserved Instance.
 --
 -- /Note:/ Consider using 'reservedInstancesId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqpdReservedInstancesId :: Lens.Lens' SuccessfulQueuedPurchaseDeletion (Lude.Maybe Lude.Text)
-sqpdReservedInstancesId = Lens.lens (reservedInstancesId :: SuccessfulQueuedPurchaseDeletion -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesId = a} :: SuccessfulQueuedPurchaseDeletion)
+sqpdReservedInstancesId :: Lens.Lens' SuccessfulQueuedPurchaseDeletion (Core.Maybe Types.String)
+sqpdReservedInstancesId = Lens.field @"reservedInstancesId"
 {-# DEPRECATED sqpdReservedInstancesId "Use generic-lens or generic-optics with 'reservedInstancesId' instead." #-}
 
-instance Lude.FromXML SuccessfulQueuedPurchaseDeletion where
+instance Core.FromXML SuccessfulQueuedPurchaseDeletion where
   parseXML x =
     SuccessfulQueuedPurchaseDeletion'
-      Lude.<$> (x Lude..@? "reservedInstancesId")
+      Core.<$> (x Core..@? "reservedInstancesId")

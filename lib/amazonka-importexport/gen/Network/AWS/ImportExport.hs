@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,70 @@
 -- __AWS Import/Export Service__
 module Network.AWS.ImportExport
   ( -- * Service configuration
-    importExportService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidJobIdException
+    _InvalidJobIdException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** ExpiredJobIdException
+    _ExpiredJobIdException,
+
+    -- ** InvalidFileSystemException
+    _InvalidFileSystemException,
+
+    -- ** InvalidAccessKeyIdException
+    _InvalidAccessKeyIdException,
+
+    -- ** UnableToUpdateJobIdException
+    _UnableToUpdateJobIdException,
+
+    -- ** UnableToCancelJobIdException
+    _UnableToCancelJobIdException,
+
+    -- ** MultipleRegionsException
+    _MultipleRegionsException,
+
+    -- ** InvalidVersionException
+    _InvalidVersionException,
+
+    -- ** MalformedManifestException
+    _MalformedManifestException,
+
+    -- ** MissingParameterException
+    _MissingParameterException,
+
+    -- ** CanceledJobIdException
+    _CanceledJobIdException,
+
+    -- ** BucketPermissionException
+    _BucketPermissionException,
+
+    -- ** NoSuchBucketException
+    _NoSuchBucketException,
+
+    -- ** InvalidAddressException
+    _InvalidAddressException,
+
+    -- ** MissingCustomsException
+    _MissingCustomsException,
+
+    -- ** InvalidManifestFieldException
+    _InvalidManifestFieldException,
+
+    -- ** InvalidCustomsException
+    _InvalidCustomsException,
+
+    -- ** MissingManifestFieldException
+    _MissingManifestFieldException,
+
+    -- ** CreateJobQuotaExceededException
+    _CreateJobQuotaExceededException,
 
     -- * Waiters
     -- $waiters
@@ -45,32 +104,120 @@ module Network.AWS.ImportExport
 
     -- * Types
 
+    -- ** Carrier
+    Carrier (..),
+
+    -- ** TrackingNumber
+    TrackingNumber (..),
+
+    -- ** Signature
+    Signature (..),
+
     -- ** JobType
     JobType (..),
+
+    -- ** Street3
+    Street3 (..),
+
+    -- ** APIVersion
+    APIVersion (..),
+
+    -- ** JobId
+    JobId (..),
+
+    -- ** Country
+    Country (..),
+
+    -- ** StateOrProvince
+    StateOrProvince (..),
+
+    -- ** SignatureFileContents
+    SignatureFileContents (..),
+
+    -- ** PostalCode
+    PostalCode (..),
+
+    -- ** URL
+    URL (..),
+
+    -- ** Street2
+    Street2 (..),
 
     -- ** Artifact
     Artifact (..),
     mkArtifact,
-    aURL,
     aDescription,
+    aURL,
+
+    -- ** CurrentManifest
+    CurrentManifest (..),
+
+    -- ** WarningMessage
+    WarningMessage (..),
+
+    -- ** GenericString
+    GenericString (..),
 
     -- ** Job
     Job (..),
     mkJob,
-    jJobType,
-    jJobId,
-    jIsCanceled,
     jCreationDate,
+    jIsCanceled,
+    jJobId,
+    jJobType,
+
+    -- ** Manifest
+    Manifest (..),
+
+    -- ** LogBucket
+    LogBucket (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** ProgressCode
+    ProgressCode (..),
+
+    -- ** LocationCode
+    LocationCode (..),
+
+    -- ** LogKey
+    LogKey (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** LocationMessage
+    LocationMessage (..),
+
+    -- ** ProgressMessage
+    ProgressMessage (..),
+
+    -- ** ManifestAddendum
+    ManifestAddendum (..),
+
+    -- ** City
+    City (..),
+
+    -- ** Company
+    Company (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** PhoneNumber
+    PhoneNumber (..),
+
+    -- ** Street1
+    Street1 (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

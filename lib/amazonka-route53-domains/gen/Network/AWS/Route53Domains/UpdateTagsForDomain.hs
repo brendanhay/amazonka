@@ -22,123 +22,107 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
     mkUpdateTagsForDomain,
 
     -- ** Request lenses
-    utfdTagsToUpdate,
     utfdDomainName,
+    utfdTagsToUpdate,
 
     -- * Destructuring the response
     UpdateTagsForDomainResponse (..),
     mkUpdateTagsForDomainResponse,
 
     -- ** Response lenses
-    utfdrsResponseStatus,
+    utfdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | The UpdateTagsForDomainRequest includes the following elements.
 --
 -- /See:/ 'mkUpdateTagsForDomain' smart constructor.
 data UpdateTagsForDomain = UpdateTagsForDomain'
-  { -- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
-    tagsToUpdate :: Lude.Maybe [Tag],
-    -- | The domain for which you want to add or update tags.
-    domainName :: Lude.Text
+  { -- | The domain for which you want to add or update tags.
+    domainName :: Types.DomainName,
+    -- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
+    tagsToUpdate :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTagsForDomain' with the minimum fields required to make a request.
---
--- * 'tagsToUpdate' - A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
--- * 'domainName' - The domain for which you want to add or update tags.
+-- | Creates a 'UpdateTagsForDomain' value with any optional fields omitted.
 mkUpdateTagsForDomain ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   UpdateTagsForDomain
-mkUpdateTagsForDomain pDomainName_ =
-  UpdateTagsForDomain'
-    { tagsToUpdate = Lude.Nothing,
-      domainName = pDomainName_
-    }
-
--- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
---
--- /Note:/ Consider using 'tagsToUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utfdTagsToUpdate :: Lens.Lens' UpdateTagsForDomain (Lude.Maybe [Tag])
-utfdTagsToUpdate = Lens.lens (tagsToUpdate :: UpdateTagsForDomain -> Lude.Maybe [Tag]) (\s a -> s {tagsToUpdate = a} :: UpdateTagsForDomain)
-{-# DEPRECATED utfdTagsToUpdate "Use generic-lens or generic-optics with 'tagsToUpdate' instead." #-}
+mkUpdateTagsForDomain domainName =
+  UpdateTagsForDomain' {domainName, tagsToUpdate = Core.Nothing}
 
 -- | The domain for which you want to add or update tags.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utfdDomainName :: Lens.Lens' UpdateTagsForDomain Lude.Text
-utfdDomainName = Lens.lens (domainName :: UpdateTagsForDomain -> Lude.Text) (\s a -> s {domainName = a} :: UpdateTagsForDomain)
+utfdDomainName :: Lens.Lens' UpdateTagsForDomain Types.DomainName
+utfdDomainName = Lens.field @"domainName"
 {-# DEPRECATED utfdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest UpdateTagsForDomain where
+-- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
+--
+-- /Note:/ Consider using 'tagsToUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utfdTagsToUpdate :: Lens.Lens' UpdateTagsForDomain (Core.Maybe [Types.Tag])
+utfdTagsToUpdate = Lens.field @"tagsToUpdate"
+{-# DEPRECATED utfdTagsToUpdate "Use generic-lens or generic-optics with 'tagsToUpdate' instead." #-}
+
+instance Core.FromJSON UpdateTagsForDomain where
+  toJSON UpdateTagsForDomain {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainName" Core..= domainName),
+            ("TagsToUpdate" Core..=) Core.<$> tagsToUpdate
+          ]
+      )
+
+instance Core.AWSRequest UpdateTagsForDomain where
   type Rs UpdateTagsForDomain = UpdateTagsForDomainResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53Domains_v20140515.UpdateTagsForDomain")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateTagsForDomainResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTagsForDomain where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Route53Domains_v20140515.UpdateTagsForDomain" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTagsForDomain where
-  toJSON UpdateTagsForDomain' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TagsToUpdate" Lude..=) Lude.<$> tagsToUpdate,
-            Lude.Just ("DomainName" Lude..= domainName)
-          ]
-      )
-
-instance Lude.ToPath UpdateTagsForDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTagsForDomain where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTagsForDomainResponse' smart constructor.
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTagsForDomainResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTagsForDomainResponse' value with any optional fields omitted.
 mkUpdateTagsForDomainResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTagsForDomainResponse
-mkUpdateTagsForDomainResponse pResponseStatus_ =
-  UpdateTagsForDomainResponse' {responseStatus = pResponseStatus_}
+mkUpdateTagsForDomainResponse responseStatus =
+  UpdateTagsForDomainResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utfdrsResponseStatus :: Lens.Lens' UpdateTagsForDomainResponse Lude.Int
-utfdrsResponseStatus = Lens.lens (responseStatus :: UpdateTagsForDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTagsForDomainResponse)
-{-# DEPRECATED utfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utfdrrsResponseStatus :: Lens.Lens' UpdateTagsForDomainResponse Core.Int
+utfdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utfdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

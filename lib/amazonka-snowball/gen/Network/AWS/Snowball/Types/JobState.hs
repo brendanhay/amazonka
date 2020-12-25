@@ -13,101 +13,103 @@
 module Network.AWS.Snowball.Types.JobState
   ( JobState
       ( JobState',
-        New,
-        PreparingAppliance,
-        PreparingShipment,
-        InTransitToCustomer,
-        WithCustomer,
-        InTransitToAWS,
-        WithAWSSortingFacility,
-        WithAWS,
-        InProgress,
-        Complete,
-        Cancelled,
-        Listing,
-        Pending
+        JobStateNew,
+        JobStatePreparingAppliance,
+        JobStatePreparingShipment,
+        JobStateInTransitToCustomer,
+        JobStateWithCustomer,
+        JobStateInTransitToAWS,
+        JobStateWithAWSSortingFacility,
+        JobStateWithAWS,
+        JobStateInProgress,
+        JobStateComplete,
+        JobStateCancelled,
+        JobStateListing,
+        JobStatePending,
+        fromJobState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobState = JobState' Lude.Text
+newtype JobState = JobState' {fromJobState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern New :: JobState
-pattern New = JobState' "New"
+pattern JobStateNew :: JobState
+pattern JobStateNew = JobState' "New"
 
-pattern PreparingAppliance :: JobState
-pattern PreparingAppliance = JobState' "PreparingAppliance"
+pattern JobStatePreparingAppliance :: JobState
+pattern JobStatePreparingAppliance = JobState' "PreparingAppliance"
 
-pattern PreparingShipment :: JobState
-pattern PreparingShipment = JobState' "PreparingShipment"
+pattern JobStatePreparingShipment :: JobState
+pattern JobStatePreparingShipment = JobState' "PreparingShipment"
 
-pattern InTransitToCustomer :: JobState
-pattern InTransitToCustomer = JobState' "InTransitToCustomer"
+pattern JobStateInTransitToCustomer :: JobState
+pattern JobStateInTransitToCustomer = JobState' "InTransitToCustomer"
 
-pattern WithCustomer :: JobState
-pattern WithCustomer = JobState' "WithCustomer"
+pattern JobStateWithCustomer :: JobState
+pattern JobStateWithCustomer = JobState' "WithCustomer"
 
-pattern InTransitToAWS :: JobState
-pattern InTransitToAWS = JobState' "InTransitToAWS"
+pattern JobStateInTransitToAWS :: JobState
+pattern JobStateInTransitToAWS = JobState' "InTransitToAWS"
 
-pattern WithAWSSortingFacility :: JobState
-pattern WithAWSSortingFacility = JobState' "WithAWSSortingFacility"
+pattern JobStateWithAWSSortingFacility :: JobState
+pattern JobStateWithAWSSortingFacility = JobState' "WithAWSSortingFacility"
 
-pattern WithAWS :: JobState
-pattern WithAWS = JobState' "WithAWS"
+pattern JobStateWithAWS :: JobState
+pattern JobStateWithAWS = JobState' "WithAWS"
 
-pattern InProgress :: JobState
-pattern InProgress = JobState' "InProgress"
+pattern JobStateInProgress :: JobState
+pattern JobStateInProgress = JobState' "InProgress"
 
-pattern Complete :: JobState
-pattern Complete = JobState' "Complete"
+pattern JobStateComplete :: JobState
+pattern JobStateComplete = JobState' "Complete"
 
-pattern Cancelled :: JobState
-pattern Cancelled = JobState' "Cancelled"
+pattern JobStateCancelled :: JobState
+pattern JobStateCancelled = JobState' "Cancelled"
 
-pattern Listing :: JobState
-pattern Listing = JobState' "Listing"
+pattern JobStateListing :: JobState
+pattern JobStateListing = JobState' "Listing"
 
-pattern Pending :: JobState
-pattern Pending = JobState' "Pending"
+pattern JobStatePending :: JobState
+pattern JobStatePending = JobState' "Pending"
 
 {-# COMPLETE
-  New,
-  PreparingAppliance,
-  PreparingShipment,
-  InTransitToCustomer,
-  WithCustomer,
-  InTransitToAWS,
-  WithAWSSortingFacility,
-  WithAWS,
-  InProgress,
-  Complete,
-  Cancelled,
-  Listing,
-  Pending,
+  JobStateNew,
+  JobStatePreparingAppliance,
+  JobStatePreparingShipment,
+  JobStateInTransitToCustomer,
+  JobStateWithCustomer,
+  JobStateInTransitToAWS,
+  JobStateWithAWSSortingFacility,
+  JobStateWithAWS,
+  JobStateInProgress,
+  JobStateComplete,
+  JobStateCancelled,
+  JobStateListing,
+  JobStatePending,
   JobState'
   #-}

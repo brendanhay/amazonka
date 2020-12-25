@@ -25,148 +25,142 @@ module Network.AWS.EC2.CreateTransitGateway
     mkCreateTransitGateway,
 
     -- ** Request lenses
-    ctgTagSpecifications,
-    ctgOptions,
     ctgDescription,
     ctgDryRun,
+    ctgOptions,
+    ctgTagSpecifications,
 
     -- * Destructuring the response
     CreateTransitGatewayResponse (..),
     mkCreateTransitGatewayResponse,
 
     -- ** Response lenses
-    ctgrsTransitGateway,
-    ctgrsResponseStatus,
+    ctgrrsTransitGateway,
+    ctgrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTransitGateway' smart constructor.
 data CreateTransitGateway = CreateTransitGateway'
-  { -- | The tags to apply to the transit gateway.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    -- | The transit gateway options.
-    options :: Lude.Maybe TransitGatewayRequestOptions,
-    -- | A description of the transit gateway.
-    description :: Lude.Maybe Lude.Text,
+  { -- | A description of the transit gateway.
+    description :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The transit gateway options.
+    options :: Core.Maybe Types.TransitGatewayRequestOptions,
+    -- | The tags to apply to the transit gateway.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTransitGateway' with the minimum fields required to make a request.
---
--- * 'tagSpecifications' - The tags to apply to the transit gateway.
--- * 'options' - The transit gateway options.
--- * 'description' - A description of the transit gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateTransitGateway' value with any optional fields omitted.
 mkCreateTransitGateway ::
   CreateTransitGateway
 mkCreateTransitGateway =
   CreateTransitGateway'
-    { tagSpecifications = Lude.Nothing,
-      options = Lude.Nothing,
-      description = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { description = Core.Nothing,
+      dryRun = Core.Nothing,
+      options = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
-
--- | The tags to apply to the transit gateway.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgTagSpecifications :: Lens.Lens' CreateTransitGateway (Lude.Maybe [TagSpecification])
-ctgTagSpecifications = Lens.lens (tagSpecifications :: CreateTransitGateway -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTransitGateway)
-{-# DEPRECATED ctgTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | The transit gateway options.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgOptions :: Lens.Lens' CreateTransitGateway (Lude.Maybe TransitGatewayRequestOptions)
-ctgOptions = Lens.lens (options :: CreateTransitGateway -> Lude.Maybe TransitGatewayRequestOptions) (\s a -> s {options = a} :: CreateTransitGateway)
-{-# DEPRECATED ctgOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | A description of the transit gateway.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgDescription :: Lens.Lens' CreateTransitGateway (Lude.Maybe Lude.Text)
-ctgDescription = Lens.lens (description :: CreateTransitGateway -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateTransitGateway)
+ctgDescription :: Lens.Lens' CreateTransitGateway (Core.Maybe Types.String)
+ctgDescription = Lens.field @"description"
 {-# DEPRECATED ctgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgDryRun :: Lens.Lens' CreateTransitGateway (Lude.Maybe Lude.Bool)
-ctgDryRun = Lens.lens (dryRun :: CreateTransitGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGateway)
+ctgDryRun :: Lens.Lens' CreateTransitGateway (Core.Maybe Core.Bool)
+ctgDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ctgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateTransitGateway where
+-- | The transit gateway options.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgOptions :: Lens.Lens' CreateTransitGateway (Core.Maybe Types.TransitGatewayRequestOptions)
+ctgOptions = Lens.field @"options"
+{-# DEPRECATED ctgOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
+-- | The tags to apply to the transit gateway.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgTagSpecifications :: Lens.Lens' CreateTransitGateway (Core.Maybe [Types.TagSpecification])
+ctgTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ctgTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateTransitGateway where
   type Rs CreateTransitGateway = CreateTransitGatewayResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateTransitGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "Options" Core.<$> options)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayResponse'
-            Lude.<$> (x Lude..@? "transitGateway")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "transitGateway")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTransitGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTransitGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTransitGateway where
-  toQuery CreateTransitGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateTransitGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "Options" Lude.=: options,
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateTransitGatewayResponse' smart constructor.
 data CreateTransitGatewayResponse = CreateTransitGatewayResponse'
   { -- | Information about the transit gateway.
-    transitGateway :: Lude.Maybe TransitGateway,
+    transitGateway :: Core.Maybe Types.TransitGateway,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateTransitGatewayResponse' with the minimum fields required to make a request.
---
--- * 'transitGateway' - Information about the transit gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTransitGatewayResponse' value with any optional fields omitted.
 mkCreateTransitGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTransitGatewayResponse
-mkCreateTransitGatewayResponse pResponseStatus_ =
+mkCreateTransitGatewayResponse responseStatus =
   CreateTransitGatewayResponse'
-    { transitGateway = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { transitGateway = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the transit gateway.
 --
 -- /Note:/ Consider using 'transitGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrsTransitGateway :: Lens.Lens' CreateTransitGatewayResponse (Lude.Maybe TransitGateway)
-ctgrsTransitGateway = Lens.lens (transitGateway :: CreateTransitGatewayResponse -> Lude.Maybe TransitGateway) (\s a -> s {transitGateway = a} :: CreateTransitGatewayResponse)
-{-# DEPRECATED ctgrsTransitGateway "Use generic-lens or generic-optics with 'transitGateway' instead." #-}
+ctgrrsTransitGateway :: Lens.Lens' CreateTransitGatewayResponse (Core.Maybe Types.TransitGateway)
+ctgrrsTransitGateway = Lens.field @"transitGateway"
+{-# DEPRECATED ctgrrsTransitGateway "Use generic-lens or generic-optics with 'transitGateway' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrsResponseStatus :: Lens.Lens' CreateTransitGatewayResponse Lude.Int
-ctgrsResponseStatus = Lens.lens (responseStatus :: CreateTransitGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTransitGatewayResponse)
-{-# DEPRECATED ctgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctgrrsResponseStatus :: Lens.Lens' CreateTransitGatewayResponse Core.Int
+ctgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

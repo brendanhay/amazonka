@@ -23,163 +23,147 @@ module Network.AWS.Rekognition.StartCelebrityRecognition
     mkStartCelebrityRecognition,
 
     -- ** Request lenses
-    scrJobTag,
-    scrNotificationChannel,
     scrVideo,
     scrClientRequestToken,
+    scrJobTag,
+    scrNotificationChannel,
 
     -- * Destructuring the response
     StartCelebrityRecognitionResponse (..),
     mkStartCelebrityRecognitionResponse,
 
     -- ** Response lenses
-    scrrsJobId,
-    scrrsResponseStatus,
+    scrrrsJobId,
+    scrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartCelebrityRecognition' smart constructor.
 data StartCelebrityRecognition = StartCelebrityRecognition'
-  { -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
-    jobTag :: Lude.Maybe Lude.Text,
-    -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.
-    notificationChannel :: Lude.Maybe NotificationChannel,
-    -- | The video in which you want to recognize celebrities. The video must be stored in an Amazon S3 bucket.
-    video :: Video,
+  { -- | The video in which you want to recognize celebrities. The video must be stored in an Amazon S3 bucket.
+    video :: Types.Video,
     -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartCelebrityRecognition@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
-    clientRequestToken :: Lude.Maybe Lude.Text
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken,
+    -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+    jobTag :: Core.Maybe Types.JobTag,
+    -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.
+    notificationChannel :: Core.Maybe Types.NotificationChannel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartCelebrityRecognition' with the minimum fields required to make a request.
---
--- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
--- * 'notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.
--- * 'video' - The video in which you want to recognize celebrities. The video must be stored in an Amazon S3 bucket.
--- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartCelebrityRecognition@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+-- | Creates a 'StartCelebrityRecognition' value with any optional fields omitted.
 mkStartCelebrityRecognition ::
   -- | 'video'
-  Video ->
+  Types.Video ->
   StartCelebrityRecognition
-mkStartCelebrityRecognition pVideo_ =
+mkStartCelebrityRecognition video =
   StartCelebrityRecognition'
-    { jobTag = Lude.Nothing,
-      notificationChannel = Lude.Nothing,
-      video = pVideo_,
-      clientRequestToken = Lude.Nothing
+    { video,
+      clientRequestToken = Core.Nothing,
+      jobTag = Core.Nothing,
+      notificationChannel = Core.Nothing
     }
-
--- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
---
--- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrJobTag :: Lens.Lens' StartCelebrityRecognition (Lude.Maybe Lude.Text)
-scrJobTag = Lens.lens (jobTag :: StartCelebrityRecognition -> Lude.Maybe Lude.Text) (\s a -> s {jobTag = a} :: StartCelebrityRecognition)
-{-# DEPRECATED scrJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
-
--- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.
---
--- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrNotificationChannel :: Lens.Lens' StartCelebrityRecognition (Lude.Maybe NotificationChannel)
-scrNotificationChannel = Lens.lens (notificationChannel :: StartCelebrityRecognition -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartCelebrityRecognition)
-{-# DEPRECATED scrNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
 
 -- | The video in which you want to recognize celebrities. The video must be stored in an Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrVideo :: Lens.Lens' StartCelebrityRecognition Video
-scrVideo = Lens.lens (video :: StartCelebrityRecognition -> Video) (\s a -> s {video = a} :: StartCelebrityRecognition)
+scrVideo :: Lens.Lens' StartCelebrityRecognition Types.Video
+scrVideo = Lens.field @"video"
 {-# DEPRECATED scrVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
 -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartCelebrityRecognition@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrClientRequestToken :: Lens.Lens' StartCelebrityRecognition (Lude.Maybe Lude.Text)
-scrClientRequestToken = Lens.lens (clientRequestToken :: StartCelebrityRecognition -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartCelebrityRecognition)
+scrClientRequestToken :: Lens.Lens' StartCelebrityRecognition (Core.Maybe Types.ClientRequestToken)
+scrClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED scrClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
-instance Lude.AWSRequest StartCelebrityRecognition where
+-- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+--
+-- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrJobTag :: Lens.Lens' StartCelebrityRecognition (Core.Maybe Types.JobTag)
+scrJobTag = Lens.field @"jobTag"
+{-# DEPRECATED scrJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
+
+-- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.
+--
+-- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrNotificationChannel :: Lens.Lens' StartCelebrityRecognition (Core.Maybe Types.NotificationChannel)
+scrNotificationChannel = Lens.field @"notificationChannel"
+{-# DEPRECATED scrNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
+
+instance Core.FromJSON StartCelebrityRecognition where
+  toJSON StartCelebrityRecognition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Video" Core..= video),
+            ("ClientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("JobTag" Core..=) Core.<$> jobTag,
+            ("NotificationChannel" Core..=) Core.<$> notificationChannel
+          ]
+      )
+
+instance Core.AWSRequest StartCelebrityRecognition where
   type
     Rs StartCelebrityRecognition =
       StartCelebrityRecognitionResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.StartCelebrityRecognition")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartCelebrityRecognitionResponse'
-            Lude.<$> (x Lude..?> "JobId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartCelebrityRecognition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "RekognitionService.StartCelebrityRecognition" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartCelebrityRecognition where
-  toJSON StartCelebrityRecognition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("JobTag" Lude..=) Lude.<$> jobTag,
-            ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
-            Lude.Just ("Video" Lude..= video),
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
-          ]
-      )
-
-instance Lude.ToPath StartCelebrityRecognition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartCelebrityRecognition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartCelebrityRecognitionResponse' smart constructor.
 data StartCelebrityRecognitionResponse = StartCelebrityRecognitionResponse'
   { -- | The identifier for the celebrity recognition analysis job. Use @JobId@ to identify the job in a subsequent call to @GetCelebrityRecognition@ .
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartCelebrityRecognitionResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier for the celebrity recognition analysis job. Use @JobId@ to identify the job in a subsequent call to @GetCelebrityRecognition@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartCelebrityRecognitionResponse' value with any optional fields omitted.
 mkStartCelebrityRecognitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartCelebrityRecognitionResponse
-mkStartCelebrityRecognitionResponse pResponseStatus_ =
+mkStartCelebrityRecognitionResponse responseStatus =
   StartCelebrityRecognitionResponse'
-    { jobId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier for the celebrity recognition analysis job. Use @JobId@ to identify the job in a subsequent call to @GetCelebrityRecognition@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrrsJobId :: Lens.Lens' StartCelebrityRecognitionResponse (Lude.Maybe Lude.Text)
-scrrsJobId = Lens.lens (jobId :: StartCelebrityRecognitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartCelebrityRecognitionResponse)
-{-# DEPRECATED scrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+scrrrsJobId :: Lens.Lens' StartCelebrityRecognitionResponse (Core.Maybe Types.JobId)
+scrrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED scrrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrrsResponseStatus :: Lens.Lens' StartCelebrityRecognitionResponse Lude.Int
-scrrsResponseStatus = Lens.lens (responseStatus :: StartCelebrityRecognitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartCelebrityRecognitionResponse)
-{-# DEPRECATED scrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scrrrsResponseStatus :: Lens.Lens' StartCelebrityRecognitionResponse Core.Int
+scrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,58 +17,52 @@ module Network.AWS.CloudWatch.Types.Dimension
     mkDimension,
 
     -- * Lenses
-    dValue,
     dName,
+    dValue,
   )
 where
 
+import qualified Network.AWS.CloudWatch.Types.Name as Types
+import qualified Network.AWS.CloudWatch.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A dimension is a name/value pair that is part of the identity of a metric. You can assign up to 10 dimensions to a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric.
 --
 -- /See:/ 'mkDimension' smart constructor.
 data Dimension = Dimension'
-  { -- | The value of the dimension. Dimension values cannot contain blank spaces or non-ASCII characters.
-    value :: Lude.Text,
-    -- | The name of the dimension. Dimension names cannot contain blank spaces or non-ASCII characters.
-    name :: Lude.Text
+  { -- | The name of the dimension. Dimension names cannot contain blank spaces or non-ASCII characters.
+    name :: Types.Name,
+    -- | The value of the dimension. Dimension values cannot contain blank spaces or non-ASCII characters.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Dimension' with the minimum fields required to make a request.
---
--- * 'value' - The value of the dimension. Dimension values cannot contain blank spaces or non-ASCII characters.
--- * 'name' - The name of the dimension. Dimension names cannot contain blank spaces or non-ASCII characters.
+-- | Creates a 'Dimension' value with any optional fields omitted.
 mkDimension ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'value'
+  Types.Value ->
   Dimension
-mkDimension pValue_ pName_ =
-  Dimension' {value = pValue_, name = pName_}
-
--- | The value of the dimension. Dimension values cannot contain blank spaces or non-ASCII characters.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dValue :: Lens.Lens' Dimension Lude.Text
-dValue = Lens.lens (value :: Dimension -> Lude.Text) (\s a -> s {value = a} :: Dimension)
-{-# DEPRECATED dValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkDimension name value = Dimension' {name, value}
 
 -- | The name of the dimension. Dimension names cannot contain blank spaces or non-ASCII characters.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' Dimension Lude.Text
-dName = Lens.lens (name :: Dimension -> Lude.Text) (\s a -> s {name = a} :: Dimension)
+dName :: Lens.Lens' Dimension Types.Name
+dName = Lens.field @"name"
 {-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML Dimension where
+-- | The value of the dimension. Dimension values cannot contain blank spaces or non-ASCII characters.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dValue :: Lens.Lens' Dimension Types.Value
+dValue = Lens.field @"value"
+{-# DEPRECATED dValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromXML Dimension where
   parseXML x =
     Dimension'
-      Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Name")
-
-instance Lude.ToQuery Dimension where
-  toQuery Dimension' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Name" Lude.=: name]
+      Core.<$> (x Core..@ "Name") Core.<*> (x Core..@ "Value")

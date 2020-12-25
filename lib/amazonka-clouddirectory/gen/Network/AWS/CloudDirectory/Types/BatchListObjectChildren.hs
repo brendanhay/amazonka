@@ -17,73 +17,70 @@ module Network.AWS.CloudDirectory.Types.BatchListObjectChildren
     mkBatchListObjectChildren,
 
     -- * Lenses
-    blocfNextToken,
-    blocfObjectReference,
-    blocfMaxResults,
+    blocObjectReference,
+    blocMaxResults,
+    blocNextToken,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'ListObjectChildren' operation.
 --
 -- /See:/ 'mkBatchListObjectChildren' smart constructor.
 data BatchListObjectChildren = BatchListObjectChildren'
-  { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Reference of the object for which child objects are being listed.
-    objectReference :: ObjectReference,
+  { -- | Reference of the object for which child objects are being listed.
+    objectReference :: Types.ObjectReference,
     -- | Maximum number of items to be retrieved in a single call. This is an approximate number.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchListObjectChildren' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'objectReference' - Reference of the object for which child objects are being listed.
--- * 'maxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | Creates a 'BatchListObjectChildren' value with any optional fields omitted.
 mkBatchListObjectChildren ::
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchListObjectChildren
-mkBatchListObjectChildren pObjectReference_ =
+mkBatchListObjectChildren objectReference =
   BatchListObjectChildren'
-    { nextToken = Lude.Nothing,
-      objectReference = pObjectReference_,
-      maxResults = Lude.Nothing
+    { objectReference,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blocfNextToken :: Lens.Lens' BatchListObjectChildren (Lude.Maybe Lude.Text)
-blocfNextToken = Lens.lens (nextToken :: BatchListObjectChildren -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListObjectChildren)
-{-# DEPRECATED blocfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Reference of the object for which child objects are being listed.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blocfObjectReference :: Lens.Lens' BatchListObjectChildren ObjectReference
-blocfObjectReference = Lens.lens (objectReference :: BatchListObjectChildren -> ObjectReference) (\s a -> s {objectReference = a} :: BatchListObjectChildren)
-{-# DEPRECATED blocfObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+blocObjectReference :: Lens.Lens' BatchListObjectChildren Types.ObjectReference
+blocObjectReference = Lens.field @"objectReference"
+{-# DEPRECATED blocObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
 -- | Maximum number of items to be retrieved in a single call. This is an approximate number.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blocfMaxResults :: Lens.Lens' BatchListObjectChildren (Lude.Maybe Lude.Natural)
-blocfMaxResults = Lens.lens (maxResults :: BatchListObjectChildren -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListObjectChildren)
-{-# DEPRECATED blocfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+blocMaxResults :: Lens.Lens' BatchListObjectChildren (Core.Maybe Core.Natural)
+blocMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED blocMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.ToJSON BatchListObjectChildren where
-  toJSON BatchListObjectChildren' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("ObjectReference" Lude..= objectReference),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+-- | The pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blocNextToken :: Lens.Lens' BatchListObjectChildren (Core.Maybe Types.NextToken)
+blocNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blocNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON BatchListObjectChildren where
+  toJSON BatchListObjectChildren {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ObjectReference" Core..= objectReference),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )

@@ -17,67 +17,62 @@ module Network.AWS.MediaLive.Types.InputChannelLevel
     mkInputChannelLevel,
 
     -- * Lenses
-    iclGain,
     iclInputChannel,
+    iclGain,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Input Channel Level
 --
 -- /See:/ 'mkInputChannelLevel' smart constructor.
 data InputChannelLevel = InputChannelLevel'
-  { -- | Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
-    gain :: Lude.Int,
-    -- | The index of the input channel used as a source.
-    inputChannel :: Lude.Natural
+  { -- | The index of the input channel used as a source.
+    inputChannel :: Core.Natural,
+    -- | Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
+    gain :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputChannelLevel' with the minimum fields required to make a request.
---
--- * 'gain' - Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
--- * 'inputChannel' - The index of the input channel used as a source.
+-- | Creates a 'InputChannelLevel' value with any optional fields omitted.
 mkInputChannelLevel ::
-  -- | 'gain'
-  Lude.Int ->
   -- | 'inputChannel'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'gain'
+  Core.Int ->
   InputChannelLevel
-mkInputChannelLevel pGain_ pInputChannel_ =
-  InputChannelLevel' {gain = pGain_, inputChannel = pInputChannel_}
-
--- | Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
---
--- /Note:/ Consider using 'gain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iclGain :: Lens.Lens' InputChannelLevel Lude.Int
-iclGain = Lens.lens (gain :: InputChannelLevel -> Lude.Int) (\s a -> s {gain = a} :: InputChannelLevel)
-{-# DEPRECATED iclGain "Use generic-lens or generic-optics with 'gain' instead." #-}
+mkInputChannelLevel inputChannel gain =
+  InputChannelLevel' {inputChannel, gain}
 
 -- | The index of the input channel used as a source.
 --
 -- /Note:/ Consider using 'inputChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iclInputChannel :: Lens.Lens' InputChannelLevel Lude.Natural
-iclInputChannel = Lens.lens (inputChannel :: InputChannelLevel -> Lude.Natural) (\s a -> s {inputChannel = a} :: InputChannelLevel)
+iclInputChannel :: Lens.Lens' InputChannelLevel Core.Natural
+iclInputChannel = Lens.field @"inputChannel"
 {-# DEPRECATED iclInputChannel "Use generic-lens or generic-optics with 'inputChannel' instead." #-}
 
-instance Lude.FromJSON InputChannelLevel where
-  parseJSON =
-    Lude.withObject
-      "InputChannelLevel"
-      ( \x ->
-          InputChannelLevel'
-            Lude.<$> (x Lude..: "gain") Lude.<*> (x Lude..: "inputChannel")
-      )
+-- | Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
+--
+-- /Note:/ Consider using 'gain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iclGain :: Lens.Lens' InputChannelLevel Core.Int
+iclGain = Lens.field @"gain"
+{-# DEPRECATED iclGain "Use generic-lens or generic-optics with 'gain' instead." #-}
 
-instance Lude.ToJSON InputChannelLevel where
-  toJSON InputChannelLevel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("gain" Lude..= gain),
-            Lude.Just ("inputChannel" Lude..= inputChannel)
+instance Core.FromJSON InputChannelLevel where
+  toJSON InputChannelLevel {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("inputChannel" Core..= inputChannel),
+            Core.Just ("gain" Core..= gain)
           ]
       )
+
+instance Core.FromJSON InputChannelLevel where
+  parseJSON =
+    Core.withObject "InputChannelLevel" Core.$
+      \x ->
+        InputChannelLevel'
+          Core.<$> (x Core..: "inputChannel") Core.<*> (x Core..: "gain")

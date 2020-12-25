@@ -17,71 +17,66 @@ module Network.AWS.Batch.Types.ArrayPropertiesDetail
     mkArrayPropertiesDetail,
 
     -- * Lenses
+    apdIndex,
     apdSize,
     apdStatusSummary,
-    apdIndex,
   )
 where
 
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing the array properties of a job.
 --
 -- /See:/ 'mkArrayPropertiesDetail' smart constructor.
 data ArrayPropertiesDetail = ArrayPropertiesDetail'
-  { -- | The size of the array job. This parameter is returned for parent array jobs.
-    size :: Lude.Maybe Lude.Int,
+  { -- | The job index within the array that is associated with this job. This parameter is returned for array job children.
+    index :: Core.Maybe Core.Int,
+    -- | The size of the array job. This parameter is returned for parent array jobs.
+    size :: Core.Maybe Core.Int,
     -- | A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.
-    statusSummary :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)),
-    -- | The job index within the array that is associated with this job. This parameter is returned for array job children.
-    index :: Lude.Maybe Lude.Int
+    statusSummary :: Core.Maybe (Core.HashMap Types.String Core.Int)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArrayPropertiesDetail' with the minimum fields required to make a request.
---
--- * 'size' - The size of the array job. This parameter is returned for parent array jobs.
--- * 'statusSummary' - A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.
--- * 'index' - The job index within the array that is associated with this job. This parameter is returned for array job children.
+-- | Creates a 'ArrayPropertiesDetail' value with any optional fields omitted.
 mkArrayPropertiesDetail ::
   ArrayPropertiesDetail
 mkArrayPropertiesDetail =
   ArrayPropertiesDetail'
-    { size = Lude.Nothing,
-      statusSummary = Lude.Nothing,
-      index = Lude.Nothing
+    { index = Core.Nothing,
+      size = Core.Nothing,
+      statusSummary = Core.Nothing
     }
+
+-- | The job index within the array that is associated with this job. This parameter is returned for array job children.
+--
+-- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdIndex :: Lens.Lens' ArrayPropertiesDetail (Core.Maybe Core.Int)
+apdIndex = Lens.field @"index"
+{-# DEPRECATED apdIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
 -- | The size of the array job. This parameter is returned for parent array jobs.
 --
 -- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apdSize :: Lens.Lens' ArrayPropertiesDetail (Lude.Maybe Lude.Int)
-apdSize = Lens.lens (size :: ArrayPropertiesDetail -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: ArrayPropertiesDetail)
+apdSize :: Lens.Lens' ArrayPropertiesDetail (Core.Maybe Core.Int)
+apdSize = Lens.field @"size"
 {-# DEPRECATED apdSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.
 --
 -- /Note:/ Consider using 'statusSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apdStatusSummary :: Lens.Lens' ArrayPropertiesDetail (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)))
-apdStatusSummary = Lens.lens (statusSummary :: ArrayPropertiesDetail -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))) (\s a -> s {statusSummary = a} :: ArrayPropertiesDetail)
+apdStatusSummary :: Lens.Lens' ArrayPropertiesDetail (Core.Maybe (Core.HashMap Types.String Core.Int))
+apdStatusSummary = Lens.field @"statusSummary"
 {-# DEPRECATED apdStatusSummary "Use generic-lens or generic-optics with 'statusSummary' instead." #-}
 
--- | The job index within the array that is associated with this job. This parameter is returned for array job children.
---
--- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apdIndex :: Lens.Lens' ArrayPropertiesDetail (Lude.Maybe Lude.Int)
-apdIndex = Lens.lens (index :: ArrayPropertiesDetail -> Lude.Maybe Lude.Int) (\s a -> s {index = a} :: ArrayPropertiesDetail)
-{-# DEPRECATED apdIndex "Use generic-lens or generic-optics with 'index' instead." #-}
-
-instance Lude.FromJSON ArrayPropertiesDetail where
+instance Core.FromJSON ArrayPropertiesDetail where
   parseJSON =
-    Lude.withObject
-      "ArrayPropertiesDetail"
-      ( \x ->
-          ArrayPropertiesDetail'
-            Lude.<$> (x Lude..:? "size")
-            Lude.<*> (x Lude..:? "statusSummary" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "index")
-      )
+    Core.withObject "ArrayPropertiesDetail" Core.$
+      \x ->
+        ArrayPropertiesDetail'
+          Core.<$> (x Core..:? "index")
+          Core.<*> (x Core..:? "size")
+          Core.<*> (x Core..:? "statusSummary")

@@ -17,84 +17,81 @@ module Network.AWS.Kinesis.Types.PutRecordsResultEntry
     mkPutRecordsResultEntry,
 
     -- * Lenses
-    prreSequenceNumber,
     prreErrorCode,
     prreErrorMessage,
+    prreSequenceNumber,
     prreShardId,
   )
 where
 
+import qualified Network.AWS.Kinesis.Types.ErrorCode as Types
+import qualified Network.AWS.Kinesis.Types.ErrorMessage as Types
+import qualified Network.AWS.Kinesis.Types.SequenceNumber as Types
+import qualified Network.AWS.Kinesis.Types.ShardId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the result of an individual record from a @PutRecords@ request. A record that is successfully added to a stream includes @SequenceNumber@ and @ShardId@ in the result. A record that fails to be added to the stream includes @ErrorCode@ and @ErrorMessage@ in the result.
 --
 -- /See:/ 'mkPutRecordsResultEntry' smart constructor.
 data PutRecordsResultEntry = PutRecordsResultEntry'
-  { -- | The sequence number for an individual record result.
-    sequenceNumber :: Lude.Maybe Lude.Text,
-    -- | The error code for an individual record result. @ErrorCodes@ can be either @ProvisionedThroughputExceededException@ or @InternalFailure@ .
-    errorCode :: Lude.Maybe Lude.Text,
+  { -- | The error code for an individual record result. @ErrorCodes@ can be either @ProvisionedThroughputExceededException@ or @InternalFailure@ .
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | The error message for an individual record result. An @ErrorCode@ value of @ProvisionedThroughputExceededException@ has an error message that includes the account ID, stream name, and shard ID. An @ErrorCode@ value of @InternalFailure@ has the error message @"Internal Service Failure"@ .
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ErrorMessage,
+    -- | The sequence number for an individual record result.
+    sequenceNumber :: Core.Maybe Types.SequenceNumber,
     -- | The shard ID for an individual record result.
-    shardId :: Lude.Maybe Lude.Text
+    shardId :: Core.Maybe Types.ShardId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecordsResultEntry' with the minimum fields required to make a request.
---
--- * 'sequenceNumber' - The sequence number for an individual record result.
--- * 'errorCode' - The error code for an individual record result. @ErrorCodes@ can be either @ProvisionedThroughputExceededException@ or @InternalFailure@ .
--- * 'errorMessage' - The error message for an individual record result. An @ErrorCode@ value of @ProvisionedThroughputExceededException@ has an error message that includes the account ID, stream name, and shard ID. An @ErrorCode@ value of @InternalFailure@ has the error message @"Internal Service Failure"@ .
--- * 'shardId' - The shard ID for an individual record result.
+-- | Creates a 'PutRecordsResultEntry' value with any optional fields omitted.
 mkPutRecordsResultEntry ::
   PutRecordsResultEntry
 mkPutRecordsResultEntry =
   PutRecordsResultEntry'
-    { sequenceNumber = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      shardId = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      sequenceNumber = Core.Nothing,
+      shardId = Core.Nothing
     }
-
--- | The sequence number for an individual record result.
---
--- /Note:/ Consider using 'sequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prreSequenceNumber :: Lens.Lens' PutRecordsResultEntry (Lude.Maybe Lude.Text)
-prreSequenceNumber = Lens.lens (sequenceNumber :: PutRecordsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {sequenceNumber = a} :: PutRecordsResultEntry)
-{-# DEPRECATED prreSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
 
 -- | The error code for an individual record result. @ErrorCodes@ can be either @ProvisionedThroughputExceededException@ or @InternalFailure@ .
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prreErrorCode :: Lens.Lens' PutRecordsResultEntry (Lude.Maybe Lude.Text)
-prreErrorCode = Lens.lens (errorCode :: PutRecordsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: PutRecordsResultEntry)
+prreErrorCode :: Lens.Lens' PutRecordsResultEntry (Core.Maybe Types.ErrorCode)
+prreErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED prreErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message for an individual record result. An @ErrorCode@ value of @ProvisionedThroughputExceededException@ has an error message that includes the account ID, stream name, and shard ID. An @ErrorCode@ value of @InternalFailure@ has the error message @"Internal Service Failure"@ .
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prreErrorMessage :: Lens.Lens' PutRecordsResultEntry (Lude.Maybe Lude.Text)
-prreErrorMessage = Lens.lens (errorMessage :: PutRecordsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: PutRecordsResultEntry)
+prreErrorMessage :: Lens.Lens' PutRecordsResultEntry (Core.Maybe Types.ErrorMessage)
+prreErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED prreErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
+
+-- | The sequence number for an individual record result.
+--
+-- /Note:/ Consider using 'sequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prreSequenceNumber :: Lens.Lens' PutRecordsResultEntry (Core.Maybe Types.SequenceNumber)
+prreSequenceNumber = Lens.field @"sequenceNumber"
+{-# DEPRECATED prreSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
 
 -- | The shard ID for an individual record result.
 --
 -- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prreShardId :: Lens.Lens' PutRecordsResultEntry (Lude.Maybe Lude.Text)
-prreShardId = Lens.lens (shardId :: PutRecordsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {shardId = a} :: PutRecordsResultEntry)
+prreShardId :: Lens.Lens' PutRecordsResultEntry (Core.Maybe Types.ShardId)
+prreShardId = Lens.field @"shardId"
 {-# DEPRECATED prreShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
-instance Lude.FromJSON PutRecordsResultEntry where
+instance Core.FromJSON PutRecordsResultEntry where
   parseJSON =
-    Lude.withObject
-      "PutRecordsResultEntry"
-      ( \x ->
-          PutRecordsResultEntry'
-            Lude.<$> (x Lude..:? "SequenceNumber")
-            Lude.<*> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "ShardId")
-      )
+    Core.withObject "PutRecordsResultEntry" Core.$
+      \x ->
+        PutRecordsResultEntry'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "SequenceNumber")
+          Core.<*> (x Core..:? "ShardId")

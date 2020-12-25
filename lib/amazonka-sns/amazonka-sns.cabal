@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.SNS
     Network.AWS.SNS.AddPermission
@@ -104,12 +110,41 @@ library
     Network.AWS.SNS.Waiters
 
   other-modules:
+    Network.AWS.SNS.Types.Account
+    Network.AWS.SNS.Types.Action
+    Network.AWS.SNS.Types.AmazonResourceName
+    Network.AWS.SNS.Types.AttributeName
+    Network.AWS.SNS.Types.AttributeValue
+    Network.AWS.SNS.Types.AuthenticateOnUnsubscribe
+    Network.AWS.SNS.Types.Delegate
     Network.AWS.SNS.Types.Endpoint
+    Network.AWS.SNS.Types.EndpointArn
+    Network.AWS.SNS.Types.Key
+    Network.AWS.SNS.Types.Label
+    Network.AWS.SNS.Types.Message
     Network.AWS.SNS.Types.MessageAttributeValue
+    Network.AWS.SNS.Types.MessageId
+    Network.AWS.SNS.Types.MessageStructure
+    Network.AWS.SNS.Types.Name
+    Network.AWS.SNS.Types.NextToken
+    Network.AWS.SNS.Types.PhoneNumber
+    Network.AWS.SNS.Types.Platform
     Network.AWS.SNS.Types.PlatformApplication
+    Network.AWS.SNS.Types.PlatformApplicationArn
+    Network.AWS.SNS.Types.Protocol
+    Network.AWS.SNS.Types.ResourceArn
+    Network.AWS.SNS.Types.String
+    Network.AWS.SNS.Types.Subject
     Network.AWS.SNS.Types.Subscription
+    Network.AWS.SNS.Types.SubscriptionArn
     Network.AWS.SNS.Types.Tag
+    Network.AWS.SNS.Types.TagKey
+    Network.AWS.SNS.Types.Token
     Network.AWS.SNS.Types.Topic
+    Network.AWS.SNS.Types.TopicARN
+    Network.AWS.SNS.Types.TopicArn
+    Network.AWS.SNS.Types.TopicName
+    Network.AWS.SNS.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

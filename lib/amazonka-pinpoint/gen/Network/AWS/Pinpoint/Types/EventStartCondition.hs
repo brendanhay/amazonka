@@ -23,59 +23,54 @@ module Network.AWS.Pinpoint.Types.EventStartCondition
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EventFilter
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EventFilter as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the settings for an event that causes a journey activity to start.
 --
 -- /See:/ 'mkEventStartCondition' smart constructor.
 data EventStartCondition = EventStartCondition'
-  { eventFilter :: Lude.Maybe EventFilter,
-    segmentId :: Lude.Maybe Lude.Text
+  { eventFilter :: Core.Maybe Types.EventFilter,
+    segmentId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventStartCondition' with the minimum fields required to make a request.
---
--- * 'eventFilter' -
--- * 'segmentId' -
+-- | Creates a 'EventStartCondition' value with any optional fields omitted.
 mkEventStartCondition ::
   EventStartCondition
 mkEventStartCondition =
   EventStartCondition'
-    { eventFilter = Lude.Nothing,
-      segmentId = Lude.Nothing
+    { eventFilter = Core.Nothing,
+      segmentId = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'eventFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escEventFilter :: Lens.Lens' EventStartCondition (Lude.Maybe EventFilter)
-escEventFilter = Lens.lens (eventFilter :: EventStartCondition -> Lude.Maybe EventFilter) (\s a -> s {eventFilter = a} :: EventStartCondition)
+escEventFilter :: Lens.Lens' EventStartCondition (Core.Maybe Types.EventFilter)
+escEventFilter = Lens.field @"eventFilter"
 {-# DEPRECATED escEventFilter "Use generic-lens or generic-optics with 'eventFilter' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escSegmentId :: Lens.Lens' EventStartCondition (Lude.Maybe Lude.Text)
-escSegmentId = Lens.lens (segmentId :: EventStartCondition -> Lude.Maybe Lude.Text) (\s a -> s {segmentId = a} :: EventStartCondition)
+escSegmentId :: Lens.Lens' EventStartCondition (Core.Maybe Core.Text)
+escSegmentId = Lens.field @"segmentId"
 {-# DEPRECATED escSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
-instance Lude.FromJSON EventStartCondition where
-  parseJSON =
-    Lude.withObject
-      "EventStartCondition"
-      ( \x ->
-          EventStartCondition'
-            Lude.<$> (x Lude..:? "EventFilter") Lude.<*> (x Lude..:? "SegmentId")
-      )
-
-instance Lude.ToJSON EventStartCondition where
-  toJSON EventStartCondition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EventFilter" Lude..=) Lude.<$> eventFilter,
-            ("SegmentId" Lude..=) Lude.<$> segmentId
+instance Core.FromJSON EventStartCondition where
+  toJSON EventStartCondition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EventFilter" Core..=) Core.<$> eventFilter,
+            ("SegmentId" Core..=) Core.<$> segmentId
           ]
       )
+
+instance Core.FromJSON EventStartCondition where
+  parseJSON =
+    Core.withObject "EventStartCondition" Core.$
+      \x ->
+        EventStartCondition'
+          Core.<$> (x Core..:? "EventFilter") Core.<*> (x Core..:? "SegmentId")

@@ -13,66 +13,68 @@
 module Network.AWS.EC2.Types.VolumeState
   ( VolumeState
       ( VolumeState',
-        VCreating,
-        VAvailable,
-        VInUse,
-        VDeleting,
-        VDeleted,
-        VError
+        VolumeStateCreating,
+        VolumeStateAvailable,
+        VolumeStateInUse,
+        VolumeStateDeleting,
+        VolumeStateDeleted,
+        VolumeStateError,
+        fromVolumeState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VolumeState = VolumeState' Lude.Text
+newtype VolumeState = VolumeState' {fromVolumeState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VCreating :: VolumeState
-pattern VCreating = VolumeState' "creating"
+pattern VolumeStateCreating :: VolumeState
+pattern VolumeStateCreating = VolumeState' "creating"
 
-pattern VAvailable :: VolumeState
-pattern VAvailable = VolumeState' "available"
+pattern VolumeStateAvailable :: VolumeState
+pattern VolumeStateAvailable = VolumeState' "available"
 
-pattern VInUse :: VolumeState
-pattern VInUse = VolumeState' "in-use"
+pattern VolumeStateInUse :: VolumeState
+pattern VolumeStateInUse = VolumeState' "in-use"
 
-pattern VDeleting :: VolumeState
-pattern VDeleting = VolumeState' "deleting"
+pattern VolumeStateDeleting :: VolumeState
+pattern VolumeStateDeleting = VolumeState' "deleting"
 
-pattern VDeleted :: VolumeState
-pattern VDeleted = VolumeState' "deleted"
+pattern VolumeStateDeleted :: VolumeState
+pattern VolumeStateDeleted = VolumeState' "deleted"
 
-pattern VError :: VolumeState
-pattern VError = VolumeState' "error"
+pattern VolumeStateError :: VolumeState
+pattern VolumeStateError = VolumeState' "error"
 
 {-# COMPLETE
-  VCreating,
-  VAvailable,
-  VInUse,
-  VDeleting,
-  VDeleted,
-  VError,
+  VolumeStateCreating,
+  VolumeStateAvailable,
+  VolumeStateInUse,
+  VolumeStateDeleting,
+  VolumeStateDeleted,
+  VolumeStateError,
   VolumeState'
   #-}

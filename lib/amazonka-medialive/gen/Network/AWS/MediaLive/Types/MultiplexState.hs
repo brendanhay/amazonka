@@ -13,82 +13,87 @@
 module Network.AWS.MediaLive.Types.MultiplexState
   ( MultiplexState
       ( MultiplexState',
-        MSCreating,
-        MSCreateFailed,
-        MSIdle,
-        MSStarting,
-        MSRunning,
-        MSRecovering,
-        MSStopping,
-        MSDeleting,
-        MSDeleted
+        MultiplexStateCreating,
+        MultiplexStateCreateFailed,
+        MultiplexStateIdle,
+        MultiplexStateStarting,
+        MultiplexStateRunning,
+        MultiplexStateRecovering,
+        MultiplexStateStopping,
+        MultiplexStateDeleting,
+        MultiplexStateDeleted,
+        fromMultiplexState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The current state of the multiplex.
-newtype MultiplexState = MultiplexState' Lude.Text
+newtype MultiplexState = MultiplexState'
+  { fromMultiplexState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MSCreating :: MultiplexState
-pattern MSCreating = MultiplexState' "CREATING"
+pattern MultiplexStateCreating :: MultiplexState
+pattern MultiplexStateCreating = MultiplexState' "CREATING"
 
-pattern MSCreateFailed :: MultiplexState
-pattern MSCreateFailed = MultiplexState' "CREATE_FAILED"
+pattern MultiplexStateCreateFailed :: MultiplexState
+pattern MultiplexStateCreateFailed = MultiplexState' "CREATE_FAILED"
 
-pattern MSIdle :: MultiplexState
-pattern MSIdle = MultiplexState' "IDLE"
+pattern MultiplexStateIdle :: MultiplexState
+pattern MultiplexStateIdle = MultiplexState' "IDLE"
 
-pattern MSStarting :: MultiplexState
-pattern MSStarting = MultiplexState' "STARTING"
+pattern MultiplexStateStarting :: MultiplexState
+pattern MultiplexStateStarting = MultiplexState' "STARTING"
 
-pattern MSRunning :: MultiplexState
-pattern MSRunning = MultiplexState' "RUNNING"
+pattern MultiplexStateRunning :: MultiplexState
+pattern MultiplexStateRunning = MultiplexState' "RUNNING"
 
-pattern MSRecovering :: MultiplexState
-pattern MSRecovering = MultiplexState' "RECOVERING"
+pattern MultiplexStateRecovering :: MultiplexState
+pattern MultiplexStateRecovering = MultiplexState' "RECOVERING"
 
-pattern MSStopping :: MultiplexState
-pattern MSStopping = MultiplexState' "STOPPING"
+pattern MultiplexStateStopping :: MultiplexState
+pattern MultiplexStateStopping = MultiplexState' "STOPPING"
 
-pattern MSDeleting :: MultiplexState
-pattern MSDeleting = MultiplexState' "DELETING"
+pattern MultiplexStateDeleting :: MultiplexState
+pattern MultiplexStateDeleting = MultiplexState' "DELETING"
 
-pattern MSDeleted :: MultiplexState
-pattern MSDeleted = MultiplexState' "DELETED"
+pattern MultiplexStateDeleted :: MultiplexState
+pattern MultiplexStateDeleted = MultiplexState' "DELETED"
 
 {-# COMPLETE
-  MSCreating,
-  MSCreateFailed,
-  MSIdle,
-  MSStarting,
-  MSRunning,
-  MSRecovering,
-  MSStopping,
-  MSDeleting,
-  MSDeleted,
+  MultiplexStateCreating,
+  MultiplexStateCreateFailed,
+  MultiplexStateIdle,
+  MultiplexStateStarting,
+  MultiplexStateRunning,
+  MultiplexStateRecovering,
+  MultiplexStateStopping,
+  MultiplexStateDeleting,
+  MultiplexStateDeleted,
   MultiplexState'
   #-}

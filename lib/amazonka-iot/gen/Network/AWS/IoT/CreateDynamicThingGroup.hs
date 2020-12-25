@@ -20,92 +20,76 @@ module Network.AWS.IoT.CreateDynamicThingGroup
     mkCreateDynamicThingGroup,
 
     -- ** Request lenses
-    cdtgQueryVersion,
     cdtgThingGroupName,
     cdtgQueryString,
-    cdtgThingGroupProperties,
     cdtgIndexName,
+    cdtgQueryVersion,
     cdtgTags,
+    cdtgThingGroupProperties,
 
     -- * Destructuring the response
     CreateDynamicThingGroupResponse (..),
     mkCreateDynamicThingGroupResponse,
 
     -- ** Response lenses
-    cdtgrsQueryVersion,
-    cdtgrsThingGroupARN,
-    cdtgrsThingGroupId,
-    cdtgrsThingGroupName,
-    cdtgrsQueryString,
-    cdtgrsIndexName,
-    cdtgrsResponseStatus,
+    cdtgrrsIndexName,
+    cdtgrrsQueryString,
+    cdtgrrsQueryVersion,
+    cdtgrrsThingGroupArn,
+    cdtgrrsThingGroupId,
+    cdtgrrsThingGroupName,
+    cdtgrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDynamicThingGroup' smart constructor.
 data CreateDynamicThingGroup = CreateDynamicThingGroup'
-  { -- | The dynamic thing group query version.
-    queryVersion :: Lude.Maybe Lude.Text,
-    -- | The dynamic thing group name to create.
-    thingGroupName :: Lude.Text,
+  { -- | The dynamic thing group name to create.
+    thingGroupName :: Types.ThingGroupName,
     -- | The dynamic thing group search query string.
     --
     -- See <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query Syntax> for information about query string syntax.
-    queryString :: Lude.Text,
-    -- | The dynamic thing group properties.
-    thingGroupProperties :: Lude.Maybe ThingGroupProperties,
+    queryString :: Types.QueryString,
     -- | The dynamic thing group index name.
-    indexName :: Lude.Maybe Lude.Text,
+    indexName :: Core.Maybe Types.IndexName,
+    -- | The dynamic thing group query version.
+    queryVersion :: Core.Maybe Types.QueryVersion,
     -- | Metadata which can be used to manage the dynamic thing group.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The dynamic thing group properties.
+    thingGroupProperties :: Core.Maybe Types.ThingGroupProperties
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDynamicThingGroup' with the minimum fields required to make a request.
---
--- * 'queryVersion' - The dynamic thing group query version.
--- * 'thingGroupName' - The dynamic thing group name to create.
--- * 'queryString' - The dynamic thing group search query string.
---
--- See <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query Syntax> for information about query string syntax.
--- * 'thingGroupProperties' - The dynamic thing group properties.
--- * 'indexName' - The dynamic thing group index name.
--- * 'tags' - Metadata which can be used to manage the dynamic thing group.
+-- | Creates a 'CreateDynamicThingGroup' value with any optional fields omitted.
 mkCreateDynamicThingGroup ::
   -- | 'thingGroupName'
-  Lude.Text ->
+  Types.ThingGroupName ->
   -- | 'queryString'
-  Lude.Text ->
+  Types.QueryString ->
   CreateDynamicThingGroup
-mkCreateDynamicThingGroup pThingGroupName_ pQueryString_ =
+mkCreateDynamicThingGroup thingGroupName queryString =
   CreateDynamicThingGroup'
-    { queryVersion = Lude.Nothing,
-      thingGroupName = pThingGroupName_,
-      queryString = pQueryString_,
-      thingGroupProperties = Lude.Nothing,
-      indexName = Lude.Nothing,
-      tags = Lude.Nothing
+    { thingGroupName,
+      queryString,
+      indexName = Core.Nothing,
+      queryVersion = Core.Nothing,
+      tags = Core.Nothing,
+      thingGroupProperties = Core.Nothing
     }
-
--- | The dynamic thing group query version.
---
--- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgQueryVersion :: Lens.Lens' CreateDynamicThingGroup (Lude.Maybe Lude.Text)
-cdtgQueryVersion = Lens.lens (queryVersion :: CreateDynamicThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {queryVersion = a} :: CreateDynamicThingGroup)
-{-# DEPRECATED cdtgQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
 
 -- | The dynamic thing group name to create.
 --
 -- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgThingGroupName :: Lens.Lens' CreateDynamicThingGroup Lude.Text
-cdtgThingGroupName = Lens.lens (thingGroupName :: CreateDynamicThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: CreateDynamicThingGroup)
+cdtgThingGroupName :: Lens.Lens' CreateDynamicThingGroup Types.ThingGroupName
+cdtgThingGroupName = Lens.field @"thingGroupName"
 {-# DEPRECATED cdtgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The dynamic thing group search query string.
@@ -113,158 +97,157 @@ cdtgThingGroupName = Lens.lens (thingGroupName :: CreateDynamicThingGroup -> Lud
 -- See <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query Syntax> for information about query string syntax.
 --
 -- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgQueryString :: Lens.Lens' CreateDynamicThingGroup Lude.Text
-cdtgQueryString = Lens.lens (queryString :: CreateDynamicThingGroup -> Lude.Text) (\s a -> s {queryString = a} :: CreateDynamicThingGroup)
+cdtgQueryString :: Lens.Lens' CreateDynamicThingGroup Types.QueryString
+cdtgQueryString = Lens.field @"queryString"
 {-# DEPRECATED cdtgQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
-
--- | The dynamic thing group properties.
---
--- /Note:/ Consider using 'thingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgThingGroupProperties :: Lens.Lens' CreateDynamicThingGroup (Lude.Maybe ThingGroupProperties)
-cdtgThingGroupProperties = Lens.lens (thingGroupProperties :: CreateDynamicThingGroup -> Lude.Maybe ThingGroupProperties) (\s a -> s {thingGroupProperties = a} :: CreateDynamicThingGroup)
-{-# DEPRECATED cdtgThingGroupProperties "Use generic-lens or generic-optics with 'thingGroupProperties' instead." #-}
 
 -- | The dynamic thing group index name.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgIndexName :: Lens.Lens' CreateDynamicThingGroup (Lude.Maybe Lude.Text)
-cdtgIndexName = Lens.lens (indexName :: CreateDynamicThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: CreateDynamicThingGroup)
+cdtgIndexName :: Lens.Lens' CreateDynamicThingGroup (Core.Maybe Types.IndexName)
+cdtgIndexName = Lens.field @"indexName"
 {-# DEPRECATED cdtgIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
-
--- | Metadata which can be used to manage the dynamic thing group.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgTags :: Lens.Lens' CreateDynamicThingGroup (Lude.Maybe [Tag])
-cdtgTags = Lens.lens (tags :: CreateDynamicThingGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDynamicThingGroup)
-{-# DEPRECATED cdtgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
-instance Lude.AWSRequest CreateDynamicThingGroup where
-  type Rs CreateDynamicThingGroup = CreateDynamicThingGroupResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateDynamicThingGroupResponse'
-            Lude.<$> (x Lude..?> "queryVersion")
-            Lude.<*> (x Lude..?> "thingGroupArn")
-            Lude.<*> (x Lude..?> "thingGroupId")
-            Lude.<*> (x Lude..?> "thingGroupName")
-            Lude.<*> (x Lude..?> "queryString")
-            Lude.<*> (x Lude..?> "indexName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateDynamicThingGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateDynamicThingGroup where
-  toJSON CreateDynamicThingGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("queryVersion" Lude..=) Lude.<$> queryVersion,
-            Lude.Just ("queryString" Lude..= queryString),
-            ("thingGroupProperties" Lude..=) Lude.<$> thingGroupProperties,
-            ("indexName" Lude..=) Lude.<$> indexName,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateDynamicThingGroup where
-  toPath CreateDynamicThingGroup' {..} =
-    Lude.mconcat ["/dynamic-thing-groups/", Lude.toBS thingGroupName]
-
-instance Lude.ToQuery CreateDynamicThingGroup where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkCreateDynamicThingGroupResponse' smart constructor.
-data CreateDynamicThingGroupResponse = CreateDynamicThingGroupResponse'
-  { -- | The dynamic thing group query version.
-    queryVersion :: Lude.Maybe Lude.Text,
-    -- | The dynamic thing group ARN.
-    thingGroupARN :: Lude.Maybe Lude.Text,
-    -- | The dynamic thing group ID.
-    thingGroupId :: Lude.Maybe Lude.Text,
-    -- | The dynamic thing group name.
-    thingGroupName :: Lude.Maybe Lude.Text,
-    -- | The dynamic thing group search query string.
-    queryString :: Lude.Maybe Lude.Text,
-    -- | The dynamic thing group index name.
-    indexName :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'CreateDynamicThingGroupResponse' with the minimum fields required to make a request.
---
--- * 'queryVersion' - The dynamic thing group query version.
--- * 'thingGroupARN' - The dynamic thing group ARN.
--- * 'thingGroupId' - The dynamic thing group ID.
--- * 'thingGroupName' - The dynamic thing group name.
--- * 'queryString' - The dynamic thing group search query string.
--- * 'indexName' - The dynamic thing group index name.
--- * 'responseStatus' - The response status code.
-mkCreateDynamicThingGroupResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  CreateDynamicThingGroupResponse
-mkCreateDynamicThingGroupResponse pResponseStatus_ =
-  CreateDynamicThingGroupResponse'
-    { queryVersion = Lude.Nothing,
-      thingGroupARN = Lude.Nothing,
-      thingGroupId = Lude.Nothing,
-      thingGroupName = Lude.Nothing,
-      queryString = Lude.Nothing,
-      indexName = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | The dynamic thing group query version.
 --
 -- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgrsQueryVersion :: Lens.Lens' CreateDynamicThingGroupResponse (Lude.Maybe Lude.Text)
-cdtgrsQueryVersion = Lens.lens (queryVersion :: CreateDynamicThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {queryVersion = a} :: CreateDynamicThingGroupResponse)
-{-# DEPRECATED cdtgrsQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
+cdtgQueryVersion :: Lens.Lens' CreateDynamicThingGroup (Core.Maybe Types.QueryVersion)
+cdtgQueryVersion = Lens.field @"queryVersion"
+{-# DEPRECATED cdtgQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
 
--- | The dynamic thing group ARN.
+-- | Metadata which can be used to manage the dynamic thing group.
 --
--- /Note:/ Consider using 'thingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgrsThingGroupARN :: Lens.Lens' CreateDynamicThingGroupResponse (Lude.Maybe Lude.Text)
-cdtgrsThingGroupARN = Lens.lens (thingGroupARN :: CreateDynamicThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupARN = a} :: CreateDynamicThingGroupResponse)
-{-# DEPRECATED cdtgrsThingGroupARN "Use generic-lens or generic-optics with 'thingGroupARN' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgTags :: Lens.Lens' CreateDynamicThingGroup (Core.Maybe [Types.Tag])
+cdtgTags = Lens.field @"tags"
+{-# DEPRECATED cdtgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The dynamic thing group ID.
+-- | The dynamic thing group properties.
 --
--- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgrsThingGroupId :: Lens.Lens' CreateDynamicThingGroupResponse (Lude.Maybe Lude.Text)
-cdtgrsThingGroupId = Lens.lens (thingGroupId :: CreateDynamicThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupId = a} :: CreateDynamicThingGroupResponse)
-{-# DEPRECATED cdtgrsThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
+-- /Note:/ Consider using 'thingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgThingGroupProperties :: Lens.Lens' CreateDynamicThingGroup (Core.Maybe Types.ThingGroupProperties)
+cdtgThingGroupProperties = Lens.field @"thingGroupProperties"
+{-# DEPRECATED cdtgThingGroupProperties "Use generic-lens or generic-optics with 'thingGroupProperties' instead." #-}
 
--- | The dynamic thing group name.
---
--- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgrsThingGroupName :: Lens.Lens' CreateDynamicThingGroupResponse (Lude.Maybe Lude.Text)
-cdtgrsThingGroupName = Lens.lens (thingGroupName :: CreateDynamicThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupName = a} :: CreateDynamicThingGroupResponse)
-{-# DEPRECATED cdtgrsThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
+instance Core.FromJSON CreateDynamicThingGroup where
+  toJSON CreateDynamicThingGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("queryString" Core..= queryString),
+            ("indexName" Core..=) Core.<$> indexName,
+            ("queryVersion" Core..=) Core.<$> queryVersion,
+            ("tags" Core..=) Core.<$> tags,
+            ("thingGroupProperties" Core..=) Core.<$> thingGroupProperties
+          ]
+      )
 
--- | The dynamic thing group search query string.
---
--- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgrsQueryString :: Lens.Lens' CreateDynamicThingGroupResponse (Lude.Maybe Lude.Text)
-cdtgrsQueryString = Lens.lens (queryString :: CreateDynamicThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {queryString = a} :: CreateDynamicThingGroupResponse)
-{-# DEPRECATED cdtgrsQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+instance Core.AWSRequest CreateDynamicThingGroup where
+  type Rs CreateDynamicThingGroup = CreateDynamicThingGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/dynamic-thing-groups/" Core.<> (Core.toText thingGroupName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDynamicThingGroupResponse'
+            Core.<$> (x Core..:? "indexName")
+            Core.<*> (x Core..:? "queryString")
+            Core.<*> (x Core..:? "queryVersion")
+            Core.<*> (x Core..:? "thingGroupArn")
+            Core.<*> (x Core..:? "thingGroupId")
+            Core.<*> (x Core..:? "thingGroupName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkCreateDynamicThingGroupResponse' smart constructor.
+data CreateDynamicThingGroupResponse = CreateDynamicThingGroupResponse'
+  { -- | The dynamic thing group index name.
+    indexName :: Core.Maybe Types.IndexName,
+    -- | The dynamic thing group search query string.
+    queryString :: Core.Maybe Types.QueryString,
+    -- | The dynamic thing group query version.
+    queryVersion :: Core.Maybe Types.QueryVersion,
+    -- | The dynamic thing group ARN.
+    thingGroupArn :: Core.Maybe Types.ThingGroupArn,
+    -- | The dynamic thing group ID.
+    thingGroupId :: Core.Maybe Types.ThingGroupId,
+    -- | The dynamic thing group name.
+    thingGroupName :: Core.Maybe Types.ThingGroupName,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'CreateDynamicThingGroupResponse' value with any optional fields omitted.
+mkCreateDynamicThingGroupResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  CreateDynamicThingGroupResponse
+mkCreateDynamicThingGroupResponse responseStatus =
+  CreateDynamicThingGroupResponse'
+    { indexName = Core.Nothing,
+      queryString = Core.Nothing,
+      queryVersion = Core.Nothing,
+      thingGroupArn = Core.Nothing,
+      thingGroupId = Core.Nothing,
+      thingGroupName = Core.Nothing,
+      responseStatus
+    }
 
 -- | The dynamic thing group index name.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgrsIndexName :: Lens.Lens' CreateDynamicThingGroupResponse (Lude.Maybe Lude.Text)
-cdtgrsIndexName = Lens.lens (indexName :: CreateDynamicThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: CreateDynamicThingGroupResponse)
-{-# DEPRECATED cdtgrsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+cdtgrrsIndexName :: Lens.Lens' CreateDynamicThingGroupResponse (Core.Maybe Types.IndexName)
+cdtgrrsIndexName = Lens.field @"indexName"
+{-# DEPRECATED cdtgrrsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+
+-- | The dynamic thing group search query string.
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgrrsQueryString :: Lens.Lens' CreateDynamicThingGroupResponse (Core.Maybe Types.QueryString)
+cdtgrrsQueryString = Lens.field @"queryString"
+{-# DEPRECATED cdtgrrsQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+
+-- | The dynamic thing group query version.
+--
+-- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgrrsQueryVersion :: Lens.Lens' CreateDynamicThingGroupResponse (Core.Maybe Types.QueryVersion)
+cdtgrrsQueryVersion = Lens.field @"queryVersion"
+{-# DEPRECATED cdtgrrsQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
+
+-- | The dynamic thing group ARN.
+--
+-- /Note:/ Consider using 'thingGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgrrsThingGroupArn :: Lens.Lens' CreateDynamicThingGroupResponse (Core.Maybe Types.ThingGroupArn)
+cdtgrrsThingGroupArn = Lens.field @"thingGroupArn"
+{-# DEPRECATED cdtgrrsThingGroupArn "Use generic-lens or generic-optics with 'thingGroupArn' instead." #-}
+
+-- | The dynamic thing group ID.
+--
+-- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgrrsThingGroupId :: Lens.Lens' CreateDynamicThingGroupResponse (Core.Maybe Types.ThingGroupId)
+cdtgrrsThingGroupId = Lens.field @"thingGroupId"
+{-# DEPRECATED cdtgrrsThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
+
+-- | The dynamic thing group name.
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgrrsThingGroupName :: Lens.Lens' CreateDynamicThingGroupResponse (Core.Maybe Types.ThingGroupName)
+cdtgrrsThingGroupName = Lens.field @"thingGroupName"
+{-# DEPRECATED cdtgrrsThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgrsResponseStatus :: Lens.Lens' CreateDynamicThingGroupResponse Lude.Int
-cdtgrsResponseStatus = Lens.lens (responseStatus :: CreateDynamicThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDynamicThingGroupResponse)
-{-# DEPRECATED cdtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdtgrrsResponseStatus :: Lens.Lens' CreateDynamicThingGroupResponse Core.Int
+cdtgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdtgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

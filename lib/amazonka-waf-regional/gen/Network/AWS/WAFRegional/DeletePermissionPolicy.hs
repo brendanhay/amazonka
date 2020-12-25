@@ -22,112 +22,95 @@ module Network.AWS.WAFRegional.DeletePermissionPolicy
     mkDeletePermissionPolicy,
 
     -- ** Request lenses
-    dppResourceARN,
+    dppResourceArn,
 
     -- * Destructuring the response
     DeletePermissionPolicyResponse (..),
     mkDeletePermissionPolicyResponse,
 
     -- ** Response lenses
-    dpprsResponseStatus,
+    dpprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkDeletePermissionPolicy' smart constructor.
 newtype DeletePermissionPolicy = DeletePermissionPolicy'
   { -- | The Amazon Resource Name (ARN) of the RuleGroup from which you want to delete the policy.
     --
     -- The user making the request must be the owner of the RuleGroup.
-    resourceARN :: Lude.Text
+    resourceArn :: Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePermissionPolicy' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the RuleGroup from which you want to delete the policy.
---
--- The user making the request must be the owner of the RuleGroup.
+-- | Creates a 'DeletePermissionPolicy' value with any optional fields omitted.
 mkDeletePermissionPolicy ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   DeletePermissionPolicy
-mkDeletePermissionPolicy pResourceARN_ =
-  DeletePermissionPolicy' {resourceARN = pResourceARN_}
+mkDeletePermissionPolicy resourceArn =
+  DeletePermissionPolicy' {resourceArn}
 
 -- | The Amazon Resource Name (ARN) of the RuleGroup from which you want to delete the policy.
 --
 -- The user making the request must be the owner of the RuleGroup.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppResourceARN :: Lens.Lens' DeletePermissionPolicy Lude.Text
-dppResourceARN = Lens.lens (resourceARN :: DeletePermissionPolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: DeletePermissionPolicy)
-{-# DEPRECATED dppResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dppResourceArn :: Lens.Lens' DeletePermissionPolicy Types.ResourceArn
+dppResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED dppResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest DeletePermissionPolicy where
+instance Core.FromJSON DeletePermissionPolicy where
+  toJSON DeletePermissionPolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ResourceArn" Core..= resourceArn)])
+
+instance Core.AWSRequest DeletePermissionPolicy where
   type Rs DeletePermissionPolicy = DeletePermissionPolicyResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.DeletePermissionPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeletePermissionPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePermissionPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSWAF_Regional_20161128.DeletePermissionPolicy" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeletePermissionPolicy where
-  toJSON DeletePermissionPolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ResourceArn" Lude..= resourceARN)])
-
-instance Lude.ToPath DeletePermissionPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePermissionPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeletePermissionPolicyResponse' smart constructor.
 newtype DeletePermissionPolicyResponse = DeletePermissionPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePermissionPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePermissionPolicyResponse' value with any optional fields omitted.
 mkDeletePermissionPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePermissionPolicyResponse
-mkDeletePermissionPolicyResponse pResponseStatus_ =
-  DeletePermissionPolicyResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeletePermissionPolicyResponse responseStatus =
+  DeletePermissionPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpprsResponseStatus :: Lens.Lens' DeletePermissionPolicyResponse Lude.Int
-dpprsResponseStatus = Lens.lens (responseStatus :: DeletePermissionPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePermissionPolicyResponse)
-{-# DEPRECATED dpprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpprrsResponseStatus :: Lens.Lens' DeletePermissionPolicyResponse Core.Int
+dpprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

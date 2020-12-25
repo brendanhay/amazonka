@@ -17,420 +17,400 @@ module Network.AWS.Lambda.Types.FunctionConfiguration
     mkFunctionConfiguration,
 
     -- * Lenses
-    fcMemorySize,
-    fcRuntime,
-    fcState,
-    fcSigningProfileVersionARN,
-    fcLastUpdateStatus,
-    fcFunctionARN,
-    fcKMSKeyARN,
-    fcFileSystemConfigs,
-    fcEnvironment,
-    fcDeadLetterConfig,
-    fcSigningJobARN,
-    fcRole,
-    fcVPCConfig,
-    fcVersion,
-    fcFunctionName,
-    fcLayers,
-    fcCodeSize,
-    fcHandler,
-    fcTimeout,
-    fcLastUpdateStatusReason,
-    fcStateReason,
-    fcLastModified,
     fcCodeSha256,
-    fcTracingConfig,
-    fcStateReasonCode,
+    fcCodeSize,
+    fcDeadLetterConfig,
     fcDescription,
+    fcEnvironment,
+    fcFileSystemConfigs,
+    fcFunctionArn,
+    fcFunctionName,
+    fcHandler,
+    fcKMSKeyArn,
+    fcLastModified,
+    fcLastUpdateStatus,
+    fcLastUpdateStatusReason,
     fcLastUpdateStatusReasonCode,
+    fcLayers,
+    fcMasterArn,
+    fcMemorySize,
     fcRevisionId,
-    fcMasterARN,
+    fcRole,
+    fcRuntime,
+    fcSigningJobArn,
+    fcSigningProfileVersionArn,
+    fcState,
+    fcStateReason,
+    fcStateReasonCode,
+    fcTimeout,
+    fcTracingConfig,
+    fcVersion,
+    fcVpcConfig,
   )
 where
 
-import Network.AWS.Lambda.Types.DeadLetterConfig
-import Network.AWS.Lambda.Types.EnvironmentResponse
-import Network.AWS.Lambda.Types.FileSystemConfig
-import Network.AWS.Lambda.Types.LastUpdateStatus
-import Network.AWS.Lambda.Types.LastUpdateStatusReasonCode
-import Network.AWS.Lambda.Types.Layer
-import Network.AWS.Lambda.Types.Runtime
-import Network.AWS.Lambda.Types.State
-import Network.AWS.Lambda.Types.StateReasonCode
-import Network.AWS.Lambda.Types.TracingConfigResponse
-import Network.AWS.Lambda.Types.VPCConfigResponse
+import qualified Network.AWS.Lambda.Types.Arn as Types
+import qualified Network.AWS.Lambda.Types.DeadLetterConfig as Types
+import qualified Network.AWS.Lambda.Types.Description as Types
+import qualified Network.AWS.Lambda.Types.EnvironmentResponse as Types
+import qualified Network.AWS.Lambda.Types.FileSystemConfig as Types
+import qualified Network.AWS.Lambda.Types.FunctionArn as Types
+import qualified Network.AWS.Lambda.Types.Handler as Types
+import qualified Network.AWS.Lambda.Types.KMSKeyArn as Types
+import qualified Network.AWS.Lambda.Types.LastModified as Types
+import qualified Network.AWS.Lambda.Types.LastUpdateStatus as Types
+import qualified Network.AWS.Lambda.Types.LastUpdateStatusReason as Types
+import qualified Network.AWS.Lambda.Types.LastUpdateStatusReasonCode as Types
+import qualified Network.AWS.Lambda.Types.Layer as Types
+import qualified Network.AWS.Lambda.Types.NamespacedFunctionName as Types
+import qualified Network.AWS.Lambda.Types.Role as Types
+import qualified Network.AWS.Lambda.Types.Runtime as Types
+import qualified Network.AWS.Lambda.Types.State as Types
+import qualified Network.AWS.Lambda.Types.StateReason as Types
+import qualified Network.AWS.Lambda.Types.StateReasonCode as Types
+import qualified Network.AWS.Lambda.Types.String as Types
+import qualified Network.AWS.Lambda.Types.TracingConfigResponse as Types
+import qualified Network.AWS.Lambda.Types.Version as Types
+import qualified Network.AWS.Lambda.Types.VpcConfigResponse as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about a function's configuration.
 --
 -- /See:/ 'mkFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { -- | The memory that's allocated to the function.
-    memorySize :: Lude.Maybe Lude.Natural,
-    -- | The runtime environment for the Lambda function.
-    runtime :: Lude.Maybe Runtime,
-    -- | The current state of the function. When the state is @Inactive@ , you can reactivate the function by invoking it.
-    state :: Lude.Maybe State,
-    -- | The ARN of the signing profile version.
-    signingProfileVersionARN :: Lude.Maybe Lude.Text,
-    -- | The status of the last update that was performed on the function. This is first set to @Successful@ after function creation completes.
-    lastUpdateStatus :: Lude.Maybe LastUpdateStatus,
-    -- | The function's Amazon Resource Name (ARN).
-    functionARN :: Lude.Maybe Lude.Text,
-    -- | The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.
-    kmsKeyARN :: Lude.Maybe Lude.Text,
-    -- | Connection settings for an Amazon EFS file system.
-    fileSystemConfigs :: Lude.Maybe [FileSystemConfig],
-    -- | The function's environment variables.
-    environment :: Lude.Maybe EnvironmentResponse,
-    -- | The function's dead letter queue.
-    deadLetterConfig :: Lude.Maybe DeadLetterConfig,
-    -- | The ARN of the signing job.
-    signingJobARN :: Lude.Maybe Lude.Text,
-    -- | The function's execution role.
-    role' :: Lude.Maybe Lude.Text,
-    -- | The function's networking configuration.
-    vpcConfig :: Lude.Maybe VPCConfigResponse,
-    -- | The version of the Lambda function.
-    version :: Lude.Maybe Lude.Text,
-    -- | The name of the function.
-    functionName :: Lude.Maybe Lude.Text,
-    -- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers> .
-    layers :: Lude.Maybe [Layer],
+  { -- | The SHA256 hash of the function's deployment package.
+    codeSha256 :: Core.Maybe Types.String,
     -- | The size of the function's deployment package, in bytes.
-    codeSize :: Lude.Maybe Lude.Integer,
-    -- | The function that Lambda calls to begin executing your function.
-    handler :: Lude.Maybe Lude.Text,
-    -- | The amount of time in seconds that Lambda allows a function to run before stopping it.
-    timeout :: Lude.Maybe Lude.Natural,
-    -- | The reason for the last update that was performed on the function.
-    lastUpdateStatusReason :: Lude.Maybe Lude.Text,
-    -- | The reason for the function's current state.
-    stateReason :: Lude.Maybe Lude.Text,
-    -- | The date and time that the function was last updated, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
-    lastModified :: Lude.Maybe Lude.Text,
-    -- | The SHA256 hash of the function's deployment package.
-    codeSha256 :: Lude.Maybe Lude.Text,
-    -- | The function's AWS X-Ray tracing configuration.
-    tracingConfig :: Lude.Maybe TracingConfigResponse,
-    -- | The reason code for the function's current state. When the code is @Creating@ , you can't invoke or modify the function.
-    stateReasonCode :: Lude.Maybe StateReasonCode,
+    codeSize :: Core.Maybe Core.Integer,
+    -- | The function's dead letter queue.
+    deadLetterConfig :: Core.Maybe Types.DeadLetterConfig,
     -- | The function's description.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The function's environment variables.
+    environment :: Core.Maybe Types.EnvironmentResponse,
+    -- | Connection settings for an Amazon EFS file system.
+    fileSystemConfigs :: Core.Maybe [Types.FileSystemConfig],
+    -- | The function's Amazon Resource Name (ARN).
+    functionArn :: Core.Maybe Types.FunctionArn,
+    -- | The name of the function.
+    functionName :: Core.Maybe Types.NamespacedFunctionName,
+    -- | The function that Lambda calls to begin executing your function.
+    handler :: Core.Maybe Types.Handler,
+    -- | The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.
+    kMSKeyArn :: Core.Maybe Types.KMSKeyArn,
+    -- | The date and time that the function was last updated, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
+    lastModified :: Core.Maybe Types.LastModified,
+    -- | The status of the last update that was performed on the function. This is first set to @Successful@ after function creation completes.
+    lastUpdateStatus :: Core.Maybe Types.LastUpdateStatus,
+    -- | The reason for the last update that was performed on the function.
+    lastUpdateStatusReason :: Core.Maybe Types.LastUpdateStatusReason,
     -- | The reason code for the last update that was performed on the function.
-    lastUpdateStatusReasonCode :: Lude.Maybe LastUpdateStatusReasonCode,
-    -- | The latest updated revision of the function or alias.
-    revisionId :: Lude.Maybe Lude.Text,
+    lastUpdateStatusReasonCode :: Core.Maybe Types.LastUpdateStatusReasonCode,
+    -- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers> .
+    layers :: Core.Maybe [Types.Layer],
     -- | For Lambda@Edge functions, the ARN of the master function.
-    masterARN :: Lude.Maybe Lude.Text
+    masterArn :: Core.Maybe Types.FunctionArn,
+    -- | The memory that's allocated to the function.
+    memorySize :: Core.Maybe Core.Natural,
+    -- | The latest updated revision of the function or alias.
+    revisionId :: Core.Maybe Types.String,
+    -- | The function's execution role.
+    role' :: Core.Maybe Types.Role,
+    -- | The runtime environment for the Lambda function.
+    runtime :: Core.Maybe Types.Runtime,
+    -- | The ARN of the signing job.
+    signingJobArn :: Core.Maybe Types.Arn,
+    -- | The ARN of the signing profile version.
+    signingProfileVersionArn :: Core.Maybe Types.Arn,
+    -- | The current state of the function. When the state is @Inactive@ , you can reactivate the function by invoking it.
+    state :: Core.Maybe Types.State,
+    -- | The reason for the function's current state.
+    stateReason :: Core.Maybe Types.StateReason,
+    -- | The reason code for the function's current state. When the code is @Creating@ , you can't invoke or modify the function.
+    stateReasonCode :: Core.Maybe Types.StateReasonCode,
+    -- | The amount of time in seconds that Lambda allows a function to run before stopping it.
+    timeout :: Core.Maybe Core.Natural,
+    -- | The function's AWS X-Ray tracing configuration.
+    tracingConfig :: Core.Maybe Types.TracingConfigResponse,
+    -- | The version of the Lambda function.
+    version :: Core.Maybe Types.Version,
+    -- | The function's networking configuration.
+    vpcConfig :: Core.Maybe Types.VpcConfigResponse
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
---
--- * 'memorySize' - The memory that's allocated to the function.
--- * 'runtime' - The runtime environment for the Lambda function.
--- * 'state' - The current state of the function. When the state is @Inactive@ , you can reactivate the function by invoking it.
--- * 'signingProfileVersionARN' - The ARN of the signing profile version.
--- * 'lastUpdateStatus' - The status of the last update that was performed on the function. This is first set to @Successful@ after function creation completes.
--- * 'functionARN' - The function's Amazon Resource Name (ARN).
--- * 'kmsKeyARN' - The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.
--- * 'fileSystemConfigs' - Connection settings for an Amazon EFS file system.
--- * 'environment' - The function's environment variables.
--- * 'deadLetterConfig' - The function's dead letter queue.
--- * 'signingJobARN' - The ARN of the signing job.
--- * 'role'' - The function's execution role.
--- * 'vpcConfig' - The function's networking configuration.
--- * 'version' - The version of the Lambda function.
--- * 'functionName' - The name of the function.
--- * 'layers' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers> .
--- * 'codeSize' - The size of the function's deployment package, in bytes.
--- * 'handler' - The function that Lambda calls to begin executing your function.
--- * 'timeout' - The amount of time in seconds that Lambda allows a function to run before stopping it.
--- * 'lastUpdateStatusReason' - The reason for the last update that was performed on the function.
--- * 'stateReason' - The reason for the function's current state.
--- * 'lastModified' - The date and time that the function was last updated, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
--- * 'codeSha256' - The SHA256 hash of the function's deployment package.
--- * 'tracingConfig' - The function's AWS X-Ray tracing configuration.
--- * 'stateReasonCode' - The reason code for the function's current state. When the code is @Creating@ , you can't invoke or modify the function.
--- * 'description' - The function's description.
--- * 'lastUpdateStatusReasonCode' - The reason code for the last update that was performed on the function.
--- * 'revisionId' - The latest updated revision of the function or alias.
--- * 'masterARN' - For Lambda@Edge functions, the ARN of the master function.
+-- | Creates a 'FunctionConfiguration' value with any optional fields omitted.
 mkFunctionConfiguration ::
   FunctionConfiguration
 mkFunctionConfiguration =
   FunctionConfiguration'
-    { memorySize = Lude.Nothing,
-      runtime = Lude.Nothing,
-      state = Lude.Nothing,
-      signingProfileVersionARN = Lude.Nothing,
-      lastUpdateStatus = Lude.Nothing,
-      functionARN = Lude.Nothing,
-      kmsKeyARN = Lude.Nothing,
-      fileSystemConfigs = Lude.Nothing,
-      environment = Lude.Nothing,
-      deadLetterConfig = Lude.Nothing,
-      signingJobARN = Lude.Nothing,
-      role' = Lude.Nothing,
-      vpcConfig = Lude.Nothing,
-      version = Lude.Nothing,
-      functionName = Lude.Nothing,
-      layers = Lude.Nothing,
-      codeSize = Lude.Nothing,
-      handler = Lude.Nothing,
-      timeout = Lude.Nothing,
-      lastUpdateStatusReason = Lude.Nothing,
-      stateReason = Lude.Nothing,
-      lastModified = Lude.Nothing,
-      codeSha256 = Lude.Nothing,
-      tracingConfig = Lude.Nothing,
-      stateReasonCode = Lude.Nothing,
-      description = Lude.Nothing,
-      lastUpdateStatusReasonCode = Lude.Nothing,
-      revisionId = Lude.Nothing,
-      masterARN = Lude.Nothing
+    { codeSha256 = Core.Nothing,
+      codeSize = Core.Nothing,
+      deadLetterConfig = Core.Nothing,
+      description = Core.Nothing,
+      environment = Core.Nothing,
+      fileSystemConfigs = Core.Nothing,
+      functionArn = Core.Nothing,
+      functionName = Core.Nothing,
+      handler = Core.Nothing,
+      kMSKeyArn = Core.Nothing,
+      lastModified = Core.Nothing,
+      lastUpdateStatus = Core.Nothing,
+      lastUpdateStatusReason = Core.Nothing,
+      lastUpdateStatusReasonCode = Core.Nothing,
+      layers = Core.Nothing,
+      masterArn = Core.Nothing,
+      memorySize = Core.Nothing,
+      revisionId = Core.Nothing,
+      role' = Core.Nothing,
+      runtime = Core.Nothing,
+      signingJobArn = Core.Nothing,
+      signingProfileVersionArn = Core.Nothing,
+      state = Core.Nothing,
+      stateReason = Core.Nothing,
+      stateReasonCode = Core.Nothing,
+      timeout = Core.Nothing,
+      tracingConfig = Core.Nothing,
+      version = Core.Nothing,
+      vpcConfig = Core.Nothing
     }
-
--- | The memory that's allocated to the function.
---
--- /Note:/ Consider using 'memorySize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcMemorySize :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Natural)
-fcMemorySize = Lens.lens (memorySize :: FunctionConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {memorySize = a} :: FunctionConfiguration)
-{-# DEPRECATED fcMemorySize "Use generic-lens or generic-optics with 'memorySize' instead." #-}
-
--- | The runtime environment for the Lambda function.
---
--- /Note:/ Consider using 'runtime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcRuntime :: Lens.Lens' FunctionConfiguration (Lude.Maybe Runtime)
-fcRuntime = Lens.lens (runtime :: FunctionConfiguration -> Lude.Maybe Runtime) (\s a -> s {runtime = a} :: FunctionConfiguration)
-{-# DEPRECATED fcRuntime "Use generic-lens or generic-optics with 'runtime' instead." #-}
-
--- | The current state of the function. When the state is @Inactive@ , you can reactivate the function by invoking it.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcState :: Lens.Lens' FunctionConfiguration (Lude.Maybe State)
-fcState = Lens.lens (state :: FunctionConfiguration -> Lude.Maybe State) (\s a -> s {state = a} :: FunctionConfiguration)
-{-# DEPRECATED fcState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The ARN of the signing profile version.
---
--- /Note:/ Consider using 'signingProfileVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcSigningProfileVersionARN :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcSigningProfileVersionARN = Lens.lens (signingProfileVersionARN :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {signingProfileVersionARN = a} :: FunctionConfiguration)
-{-# DEPRECATED fcSigningProfileVersionARN "Use generic-lens or generic-optics with 'signingProfileVersionARN' instead." #-}
-
--- | The status of the last update that was performed on the function. This is first set to @Successful@ after function creation completes.
---
--- /Note:/ Consider using 'lastUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcLastUpdateStatus :: Lens.Lens' FunctionConfiguration (Lude.Maybe LastUpdateStatus)
-fcLastUpdateStatus = Lens.lens (lastUpdateStatus :: FunctionConfiguration -> Lude.Maybe LastUpdateStatus) (\s a -> s {lastUpdateStatus = a} :: FunctionConfiguration)
-{-# DEPRECATED fcLastUpdateStatus "Use generic-lens or generic-optics with 'lastUpdateStatus' instead." #-}
-
--- | The function's Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcFunctionARN :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcFunctionARN = Lens.lens (functionARN :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {functionARN = a} :: FunctionConfiguration)
-{-# DEPRECATED fcFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
-
--- | The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.
---
--- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcKMSKeyARN :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcKMSKeyARN = Lens.lens (kmsKeyARN :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: FunctionConfiguration)
-{-# DEPRECATED fcKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
-
--- | Connection settings for an Amazon EFS file system.
---
--- /Note:/ Consider using 'fileSystemConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcFileSystemConfigs :: Lens.Lens' FunctionConfiguration (Lude.Maybe [FileSystemConfig])
-fcFileSystemConfigs = Lens.lens (fileSystemConfigs :: FunctionConfiguration -> Lude.Maybe [FileSystemConfig]) (\s a -> s {fileSystemConfigs = a} :: FunctionConfiguration)
-{-# DEPRECATED fcFileSystemConfigs "Use generic-lens or generic-optics with 'fileSystemConfigs' instead." #-}
-
--- | The function's environment variables.
---
--- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcEnvironment :: Lens.Lens' FunctionConfiguration (Lude.Maybe EnvironmentResponse)
-fcEnvironment = Lens.lens (environment :: FunctionConfiguration -> Lude.Maybe EnvironmentResponse) (\s a -> s {environment = a} :: FunctionConfiguration)
-{-# DEPRECATED fcEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
-
--- | The function's dead letter queue.
---
--- /Note:/ Consider using 'deadLetterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcDeadLetterConfig :: Lens.Lens' FunctionConfiguration (Lude.Maybe DeadLetterConfig)
-fcDeadLetterConfig = Lens.lens (deadLetterConfig :: FunctionConfiguration -> Lude.Maybe DeadLetterConfig) (\s a -> s {deadLetterConfig = a} :: FunctionConfiguration)
-{-# DEPRECATED fcDeadLetterConfig "Use generic-lens or generic-optics with 'deadLetterConfig' instead." #-}
-
--- | The ARN of the signing job.
---
--- /Note:/ Consider using 'signingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcSigningJobARN :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcSigningJobARN = Lens.lens (signingJobARN :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {signingJobARN = a} :: FunctionConfiguration)
-{-# DEPRECATED fcSigningJobARN "Use generic-lens or generic-optics with 'signingJobARN' instead." #-}
-
--- | The function's execution role.
---
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcRole :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcRole = Lens.lens (role' :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: FunctionConfiguration)
-{-# DEPRECATED fcRole "Use generic-lens or generic-optics with 'role'' instead." #-}
-
--- | The function's networking configuration.
---
--- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcVPCConfig :: Lens.Lens' FunctionConfiguration (Lude.Maybe VPCConfigResponse)
-fcVPCConfig = Lens.lens (vpcConfig :: FunctionConfiguration -> Lude.Maybe VPCConfigResponse) (\s a -> s {vpcConfig = a} :: FunctionConfiguration)
-{-# DEPRECATED fcVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
-
--- | The version of the Lambda function.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcVersion :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcVersion = Lens.lens (version :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: FunctionConfiguration)
-{-# DEPRECATED fcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The name of the function.
---
--- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcFunctionName :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcFunctionName = Lens.lens (functionName :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {functionName = a} :: FunctionConfiguration)
-{-# DEPRECATED fcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
-
--- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers> .
---
--- /Note:/ Consider using 'layers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcLayers :: Lens.Lens' FunctionConfiguration (Lude.Maybe [Layer])
-fcLayers = Lens.lens (layers :: FunctionConfiguration -> Lude.Maybe [Layer]) (\s a -> s {layers = a} :: FunctionConfiguration)
-{-# DEPRECATED fcLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
-
--- | The size of the function's deployment package, in bytes.
---
--- /Note:/ Consider using 'codeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcCodeSize :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Integer)
-fcCodeSize = Lens.lens (codeSize :: FunctionConfiguration -> Lude.Maybe Lude.Integer) (\s a -> s {codeSize = a} :: FunctionConfiguration)
-{-# DEPRECATED fcCodeSize "Use generic-lens or generic-optics with 'codeSize' instead." #-}
-
--- | The function that Lambda calls to begin executing your function.
---
--- /Note:/ Consider using 'handler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcHandler :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcHandler = Lens.lens (handler :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {handler = a} :: FunctionConfiguration)
-{-# DEPRECATED fcHandler "Use generic-lens or generic-optics with 'handler' instead." #-}
-
--- | The amount of time in seconds that Lambda allows a function to run before stopping it.
---
--- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcTimeout :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Natural)
-fcTimeout = Lens.lens (timeout :: FunctionConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {timeout = a} :: FunctionConfiguration)
-{-# DEPRECATED fcTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
-
--- | The reason for the last update that was performed on the function.
---
--- /Note:/ Consider using 'lastUpdateStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcLastUpdateStatusReason :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcLastUpdateStatusReason = Lens.lens (lastUpdateStatusReason :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdateStatusReason = a} :: FunctionConfiguration)
-{-# DEPRECATED fcLastUpdateStatusReason "Use generic-lens or generic-optics with 'lastUpdateStatusReason' instead." #-}
-
--- | The reason for the function's current state.
---
--- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcStateReason :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcStateReason = Lens.lens (stateReason :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: FunctionConfiguration)
-{-# DEPRECATED fcStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
-
--- | The date and time that the function was last updated, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
---
--- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcLastModified :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcLastModified = Lens.lens (lastModified :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {lastModified = a} :: FunctionConfiguration)
-{-# DEPRECATED fcLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | The SHA256 hash of the function's deployment package.
 --
 -- /Note:/ Consider using 'codeSha256' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcCodeSha256 :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcCodeSha256 = Lens.lens (codeSha256 :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {codeSha256 = a} :: FunctionConfiguration)
+fcCodeSha256 :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.String)
+fcCodeSha256 = Lens.field @"codeSha256"
 {-# DEPRECATED fcCodeSha256 "Use generic-lens or generic-optics with 'codeSha256' instead." #-}
 
--- | The function's AWS X-Ray tracing configuration.
+-- | The size of the function's deployment package, in bytes.
 --
--- /Note:/ Consider using 'tracingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcTracingConfig :: Lens.Lens' FunctionConfiguration (Lude.Maybe TracingConfigResponse)
-fcTracingConfig = Lens.lens (tracingConfig :: FunctionConfiguration -> Lude.Maybe TracingConfigResponse) (\s a -> s {tracingConfig = a} :: FunctionConfiguration)
-{-# DEPRECATED fcTracingConfig "Use generic-lens or generic-optics with 'tracingConfig' instead." #-}
+-- /Note:/ Consider using 'codeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcCodeSize :: Lens.Lens' FunctionConfiguration (Core.Maybe Core.Integer)
+fcCodeSize = Lens.field @"codeSize"
+{-# DEPRECATED fcCodeSize "Use generic-lens or generic-optics with 'codeSize' instead." #-}
 
--- | The reason code for the function's current state. When the code is @Creating@ , you can't invoke or modify the function.
+-- | The function's dead letter queue.
 --
--- /Note:/ Consider using 'stateReasonCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcStateReasonCode :: Lens.Lens' FunctionConfiguration (Lude.Maybe StateReasonCode)
-fcStateReasonCode = Lens.lens (stateReasonCode :: FunctionConfiguration -> Lude.Maybe StateReasonCode) (\s a -> s {stateReasonCode = a} :: FunctionConfiguration)
-{-# DEPRECATED fcStateReasonCode "Use generic-lens or generic-optics with 'stateReasonCode' instead." #-}
+-- /Note:/ Consider using 'deadLetterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcDeadLetterConfig :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.DeadLetterConfig)
+fcDeadLetterConfig = Lens.field @"deadLetterConfig"
+{-# DEPRECATED fcDeadLetterConfig "Use generic-lens or generic-optics with 'deadLetterConfig' instead." #-}
 
 -- | The function's description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcDescription :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcDescription = Lens.lens (description :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: FunctionConfiguration)
+fcDescription :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.Description)
+fcDescription = Lens.field @"description"
 {-# DEPRECATED fcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The function's environment variables.
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcEnvironment :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.EnvironmentResponse)
+fcEnvironment = Lens.field @"environment"
+{-# DEPRECATED fcEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
+
+-- | Connection settings for an Amazon EFS file system.
+--
+-- /Note:/ Consider using 'fileSystemConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcFileSystemConfigs :: Lens.Lens' FunctionConfiguration (Core.Maybe [Types.FileSystemConfig])
+fcFileSystemConfigs = Lens.field @"fileSystemConfigs"
+{-# DEPRECATED fcFileSystemConfigs "Use generic-lens or generic-optics with 'fileSystemConfigs' instead." #-}
+
+-- | The function's Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'functionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcFunctionArn :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.FunctionArn)
+fcFunctionArn = Lens.field @"functionArn"
+{-# DEPRECATED fcFunctionArn "Use generic-lens or generic-optics with 'functionArn' instead." #-}
+
+-- | The name of the function.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcFunctionName :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.NamespacedFunctionName)
+fcFunctionName = Lens.field @"functionName"
+{-# DEPRECATED fcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | The function that Lambda calls to begin executing your function.
+--
+-- /Note:/ Consider using 'handler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcHandler :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.Handler)
+fcHandler = Lens.field @"handler"
+{-# DEPRECATED fcHandler "Use generic-lens or generic-optics with 'handler' instead." #-}
+
+-- | The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.
+--
+-- /Note:/ Consider using 'kMSKeyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcKMSKeyArn :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.KMSKeyArn)
+fcKMSKeyArn = Lens.field @"kMSKeyArn"
+{-# DEPRECATED fcKMSKeyArn "Use generic-lens or generic-optics with 'kMSKeyArn' instead." #-}
+
+-- | The date and time that the function was last updated, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcLastModified :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.LastModified)
+fcLastModified = Lens.field @"lastModified"
+{-# DEPRECATED fcLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
+
+-- | The status of the last update that was performed on the function. This is first set to @Successful@ after function creation completes.
+--
+-- /Note:/ Consider using 'lastUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcLastUpdateStatus :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.LastUpdateStatus)
+fcLastUpdateStatus = Lens.field @"lastUpdateStatus"
+{-# DEPRECATED fcLastUpdateStatus "Use generic-lens or generic-optics with 'lastUpdateStatus' instead." #-}
+
+-- | The reason for the last update that was performed on the function.
+--
+-- /Note:/ Consider using 'lastUpdateStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcLastUpdateStatusReason :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.LastUpdateStatusReason)
+fcLastUpdateStatusReason = Lens.field @"lastUpdateStatusReason"
+{-# DEPRECATED fcLastUpdateStatusReason "Use generic-lens or generic-optics with 'lastUpdateStatusReason' instead." #-}
 
 -- | The reason code for the last update that was performed on the function.
 --
 -- /Note:/ Consider using 'lastUpdateStatusReasonCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcLastUpdateStatusReasonCode :: Lens.Lens' FunctionConfiguration (Lude.Maybe LastUpdateStatusReasonCode)
-fcLastUpdateStatusReasonCode = Lens.lens (lastUpdateStatusReasonCode :: FunctionConfiguration -> Lude.Maybe LastUpdateStatusReasonCode) (\s a -> s {lastUpdateStatusReasonCode = a} :: FunctionConfiguration)
+fcLastUpdateStatusReasonCode :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.LastUpdateStatusReasonCode)
+fcLastUpdateStatusReasonCode = Lens.field @"lastUpdateStatusReasonCode"
 {-# DEPRECATED fcLastUpdateStatusReasonCode "Use generic-lens or generic-optics with 'lastUpdateStatusReasonCode' instead." #-}
+
+-- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers> .
+--
+-- /Note:/ Consider using 'layers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcLayers :: Lens.Lens' FunctionConfiguration (Core.Maybe [Types.Layer])
+fcLayers = Lens.field @"layers"
+{-# DEPRECATED fcLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
+
+-- | For Lambda@Edge functions, the ARN of the master function.
+--
+-- /Note:/ Consider using 'masterArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcMasterArn :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.FunctionArn)
+fcMasterArn = Lens.field @"masterArn"
+{-# DEPRECATED fcMasterArn "Use generic-lens or generic-optics with 'masterArn' instead." #-}
+
+-- | The memory that's allocated to the function.
+--
+-- /Note:/ Consider using 'memorySize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcMemorySize :: Lens.Lens' FunctionConfiguration (Core.Maybe Core.Natural)
+fcMemorySize = Lens.field @"memorySize"
+{-# DEPRECATED fcMemorySize "Use generic-lens or generic-optics with 'memorySize' instead." #-}
 
 -- | The latest updated revision of the function or alias.
 --
 -- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcRevisionId :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcRevisionId = Lens.lens (revisionId :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: FunctionConfiguration)
+fcRevisionId :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.String)
+fcRevisionId = Lens.field @"revisionId"
 {-# DEPRECATED fcRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
--- | For Lambda@Edge functions, the ARN of the master function.
+-- | The function's execution role.
 --
--- /Note:/ Consider using 'masterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcMasterARN :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
-fcMasterARN = Lens.lens (masterARN :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {masterARN = a} :: FunctionConfiguration)
-{-# DEPRECATED fcMasterARN "Use generic-lens or generic-optics with 'masterARN' instead." #-}
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcRole :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.Role)
+fcRole = Lens.field @"role'"
+{-# DEPRECATED fcRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
-instance Lude.FromJSON FunctionConfiguration where
+-- | The runtime environment for the Lambda function.
+--
+-- /Note:/ Consider using 'runtime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcRuntime :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.Runtime)
+fcRuntime = Lens.field @"runtime"
+{-# DEPRECATED fcRuntime "Use generic-lens or generic-optics with 'runtime' instead." #-}
+
+-- | The ARN of the signing job.
+--
+-- /Note:/ Consider using 'signingJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcSigningJobArn :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.Arn)
+fcSigningJobArn = Lens.field @"signingJobArn"
+{-# DEPRECATED fcSigningJobArn "Use generic-lens or generic-optics with 'signingJobArn' instead." #-}
+
+-- | The ARN of the signing profile version.
+--
+-- /Note:/ Consider using 'signingProfileVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcSigningProfileVersionArn :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.Arn)
+fcSigningProfileVersionArn = Lens.field @"signingProfileVersionArn"
+{-# DEPRECATED fcSigningProfileVersionArn "Use generic-lens or generic-optics with 'signingProfileVersionArn' instead." #-}
+
+-- | The current state of the function. When the state is @Inactive@ , you can reactivate the function by invoking it.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcState :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.State)
+fcState = Lens.field @"state"
+{-# DEPRECATED fcState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The reason for the function's current state.
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcStateReason :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.StateReason)
+fcStateReason = Lens.field @"stateReason"
+{-# DEPRECATED fcStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
+
+-- | The reason code for the function's current state. When the code is @Creating@ , you can't invoke or modify the function.
+--
+-- /Note:/ Consider using 'stateReasonCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcStateReasonCode :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.StateReasonCode)
+fcStateReasonCode = Lens.field @"stateReasonCode"
+{-# DEPRECATED fcStateReasonCode "Use generic-lens or generic-optics with 'stateReasonCode' instead." #-}
+
+-- | The amount of time in seconds that Lambda allows a function to run before stopping it.
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcTimeout :: Lens.Lens' FunctionConfiguration (Core.Maybe Core.Natural)
+fcTimeout = Lens.field @"timeout"
+{-# DEPRECATED fcTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
+
+-- | The function's AWS X-Ray tracing configuration.
+--
+-- /Note:/ Consider using 'tracingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcTracingConfig :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.TracingConfigResponse)
+fcTracingConfig = Lens.field @"tracingConfig"
+{-# DEPRECATED fcTracingConfig "Use generic-lens or generic-optics with 'tracingConfig' instead." #-}
+
+-- | The version of the Lambda function.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcVersion :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.Version)
+fcVersion = Lens.field @"version"
+{-# DEPRECATED fcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The function's networking configuration.
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcVpcConfig :: Lens.Lens' FunctionConfiguration (Core.Maybe Types.VpcConfigResponse)
+fcVpcConfig = Lens.field @"vpcConfig"
+{-# DEPRECATED fcVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+
+instance Core.FromJSON FunctionConfiguration where
   parseJSON =
-    Lude.withObject
-      "FunctionConfiguration"
-      ( \x ->
-          FunctionConfiguration'
-            Lude.<$> (x Lude..:? "MemorySize")
-            Lude.<*> (x Lude..:? "Runtime")
-            Lude.<*> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "SigningProfileVersionArn")
-            Lude.<*> (x Lude..:? "LastUpdateStatus")
-            Lude.<*> (x Lude..:? "FunctionArn")
-            Lude.<*> (x Lude..:? "KMSKeyArn")
-            Lude.<*> (x Lude..:? "FileSystemConfigs" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Environment")
-            Lude.<*> (x Lude..:? "DeadLetterConfig")
-            Lude.<*> (x Lude..:? "SigningJobArn")
-            Lude.<*> (x Lude..:? "Role")
-            Lude.<*> (x Lude..:? "VpcConfig")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "FunctionName")
-            Lude.<*> (x Lude..:? "Layers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CodeSize")
-            Lude.<*> (x Lude..:? "Handler")
-            Lude.<*> (x Lude..:? "Timeout")
-            Lude.<*> (x Lude..:? "LastUpdateStatusReason")
-            Lude.<*> (x Lude..:? "StateReason")
-            Lude.<*> (x Lude..:? "LastModified")
-            Lude.<*> (x Lude..:? "CodeSha256")
-            Lude.<*> (x Lude..:? "TracingConfig")
-            Lude.<*> (x Lude..:? "StateReasonCode")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "LastUpdateStatusReasonCode")
-            Lude.<*> (x Lude..:? "RevisionId")
-            Lude.<*> (x Lude..:? "MasterArn")
-      )
+    Core.withObject "FunctionConfiguration" Core.$
+      \x ->
+        FunctionConfiguration'
+          Core.<$> (x Core..:? "CodeSha256")
+          Core.<*> (x Core..:? "CodeSize")
+          Core.<*> (x Core..:? "DeadLetterConfig")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Environment")
+          Core.<*> (x Core..:? "FileSystemConfigs")
+          Core.<*> (x Core..:? "FunctionArn")
+          Core.<*> (x Core..:? "FunctionName")
+          Core.<*> (x Core..:? "Handler")
+          Core.<*> (x Core..:? "KMSKeyArn")
+          Core.<*> (x Core..:? "LastModified")
+          Core.<*> (x Core..:? "LastUpdateStatus")
+          Core.<*> (x Core..:? "LastUpdateStatusReason")
+          Core.<*> (x Core..:? "LastUpdateStatusReasonCode")
+          Core.<*> (x Core..:? "Layers")
+          Core.<*> (x Core..:? "MasterArn")
+          Core.<*> (x Core..:? "MemorySize")
+          Core.<*> (x Core..:? "RevisionId")
+          Core.<*> (x Core..:? "Role")
+          Core.<*> (x Core..:? "Runtime")
+          Core.<*> (x Core..:? "SigningJobArn")
+          Core.<*> (x Core..:? "SigningProfileVersionArn")
+          Core.<*> (x Core..:? "State")
+          Core.<*> (x Core..:? "StateReason")
+          Core.<*> (x Core..:? "StateReasonCode")
+          Core.<*> (x Core..:? "Timeout")
+          Core.<*> (x Core..:? "TracingConfig")
+          Core.<*> (x Core..:? "Version")
+          Core.<*> (x Core..:? "VpcConfig")

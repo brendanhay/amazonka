@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,7 +15,7 @@
 -- Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.
 module Network.AWS.Kinesis
   ( -- * Service configuration
-    kinesisService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
@@ -27,11 +26,23 @@ module Network.AWS.Kinesis
     -- ** KMSThrottlingException
     _KMSThrottlingException,
 
+    -- ** ExpiredIteratorException
+    _ExpiredIteratorException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
     -- ** KMSOptInRequired
     _KMSOptInRequired,
 
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
     -- ** KMSNotFoundException
     _KMSNotFoundException,
+
+    -- ** ExpiredNextTokenException
+    _ExpiredNextTokenException,
 
     -- ** KMSDisabledException
     _KMSDisabledException,
@@ -44,6 +55,9 @@ module Network.AWS.Kinesis
 
     -- ** KMSAccessDeniedException
     _KMSAccessDeniedException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
@@ -146,92 +160,152 @@ module Network.AWS.Kinesis
 
     -- * Types
 
-    -- ** ConsumerStatus
-    ConsumerStatus (..),
+    -- ** ShardFilterType
+    ShardFilterType (..),
+
+    -- ** SequenceNumber
+    SequenceNumber (..),
+
+    -- ** Shard
+    Shard (..),
+    mkShard,
+    sShardId,
+    sHashKeyRange,
+    sSequenceNumberRange,
+    sAdjacentParentShardId,
+    sParentShardId,
 
     -- ** EncryptionType
     EncryptionType (..),
 
-    -- ** MetricsName
-    MetricsName (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** ScalingType
-    ScalingType (..),
+    -- ** ConsumerStatus
+    ConsumerStatus (..),
 
-    -- ** ShardFilterType
-    ShardFilterType (..),
-
-    -- ** ShardIteratorType
-    ShardIteratorType (..),
-
-    -- ** StreamStatus
-    StreamStatus (..),
-
-    -- ** ChildShard
-    ChildShard (..),
-    mkChildShard,
-    csHashKeyRange,
-    csParentShards,
-    csShardId,
-
-    -- ** Consumer
-    Consumer (..),
-    mkConsumer,
-    cConsumerStatus,
-    cConsumerARN,
-    cConsumerName,
-    cConsumerCreationTimestamp,
-
-    -- ** ConsumerDescription
-    ConsumerDescription (..),
-    mkConsumerDescription,
-    cdConsumerStatus,
-    cdConsumerARN,
-    cdStreamARN,
-    cdConsumerName,
-    cdConsumerCreationTimestamp,
-
-    -- ** EnhancedMetrics
-    EnhancedMetrics (..),
-    mkEnhancedMetrics,
-    emShardLevelMetrics,
-
-    -- ** EnhancedMonitoringOutput
-    EnhancedMonitoringOutput (..),
-    mkEnhancedMonitoringOutput,
-    emoDesiredShardLevelMetrics,
-    emoCurrentShardLevelMetrics,
-    emoStreamName,
-
-    -- ** HashKeyRange
-    HashKeyRange (..),
-    mkHashKeyRange,
-    hkrEndingHashKey,
-    hkrStartingHashKey,
-
-    -- ** PutRecordsRequestEntry
-    PutRecordsRequestEntry (..),
-    mkPutRecordsRequestEntry,
-    prrePartitionKey,
-    prreData,
-    prreExplicitHashKey,
+    -- ** StreamDescription
+    StreamDescription (..),
+    mkStreamDescription,
+    sdStreamName,
+    sdStreamARN,
+    sdStreamStatus,
+    sdShards,
+    sdHasMoreShards,
+    sdRetentionPeriodHours,
+    sdStreamCreationTimestamp,
+    sdEnhancedMonitoring,
+    sdEncryptionType,
+    sdKeyId,
 
     -- ** PutRecordsResultEntry
     PutRecordsResultEntry (..),
     mkPutRecordsResultEntry,
-    prreSequenceNumber,
     prreErrorCode,
     prreErrorMessage,
+    prreSequenceNumber,
     prreShardId,
+
+    -- ** KeyId
+    KeyId (..),
+
+    -- ** PutRecordsRequestEntry
+    PutRecordsRequestEntry (..),
+    mkPutRecordsRequestEntry,
+    prreData,
+    prrePartitionKey,
+    prreExplicitHashKey,
+
+    -- ** PartitionKey
+    PartitionKey (..),
+
+    -- ** ScalingType
+    ScalingType (..),
+
+    -- ** StreamStatus
+    StreamStatus (..),
+
+    -- ** ConsumerDescription
+    ConsumerDescription (..),
+    mkConsumerDescription,
+    cdConsumerName,
+    cdConsumerARN,
+    cdConsumerStatus,
+    cdConsumerCreationTimestamp,
+    cdStreamARN,
+
+    -- ** ConsumerARN
+    ConsumerARN (..),
+
+    -- ** ShardIterator
+    ShardIterator (..),
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** StreamARN
+    StreamARN (..),
+
+    -- ** ShardFilter
+    ShardFilter (..),
+    mkShardFilter,
+    sfType,
+    sfShardId,
+    sfTimestamp,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** SubscribeToShardEventStream
+    SubscribeToShardEventStream (..),
+    mkSubscribeToShardEventStream,
+    stsesSubscribeToShardEvent,
+    stsesInternalFailureException,
+    stsesKMSAccessDeniedException,
+    stsesKMSDisabledException,
+    stsesKMSInvalidStateException,
+    stsesKMSNotFoundException,
+    stsesKMSOptInRequired,
+    stsesKMSThrottlingException,
+    stsesResourceInUseException,
+    stsesResourceNotFoundException,
+
+    -- ** HashKeyRange
+    HashKeyRange (..),
+    mkHashKeyRange,
+    hkrStartingHashKey,
+    hkrEndingHashKey,
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** HashKey
+    HashKey (..),
+
+    -- ** EnhancedMonitoringOutput
+    EnhancedMonitoringOutput (..),
+    mkEnhancedMonitoringOutput,
+    emoCurrentShardLevelMetrics,
+    emoDesiredShardLevelMetrics,
+    emoStreamName,
+
+    -- ** TagKey
+    TagKey (..),
 
     -- ** Record
     Record (..),
     mkRecord,
     rSequenceNumber,
-    rEncryptionType,
-    rPartitionKey,
     rData,
+    rPartitionKey,
     rApproximateArrivalTimestamp,
+    rEncryptionType,
+
+    -- ** MetricsName
+    MetricsName (..),
 
     -- ** SequenceNumberRange
     SequenceNumberRange (..),
@@ -239,94 +313,119 @@ module Network.AWS.Kinesis
     snrStartingSequenceNumber,
     snrEndingSequenceNumber,
 
-    -- ** Shard
-    Shard (..),
-    mkShard,
-    sAdjacentParentShardId,
-    sHashKeyRange,
-    sParentShardId,
-    sSequenceNumberRange,
-    sShardId,
+    -- ** ErrorMessage
+    ErrorMessage (..),
 
-    -- ** ShardFilter
-    ShardFilter (..),
-    mkShardFilter,
-    sfType,
-    sfTimestamp,
-    sfShardId,
-
-    -- ** StartingPosition
-    StartingPosition (..),
-    mkStartingPosition,
-    spSequenceNumber,
-    spType,
-    spTimestamp,
-
-    -- ** StreamDescription
-    StreamDescription (..),
-    mkStreamDescription,
-    sdEncryptionType,
-    sdEnhancedMonitoring,
-    sdKeyId,
-    sdStreamStatus,
-    sdHasMoreShards,
-    sdStreamARN,
-    sdShards,
-    sdRetentionPeriodHours,
-    sdStreamCreationTimestamp,
-    sdStreamName,
-
-    -- ** StreamDescriptionSummary
-    StreamDescriptionSummary (..),
-    mkStreamDescriptionSummary,
-    sdsEncryptionType,
-    sdsEnhancedMonitoring,
-    sdsKeyId,
-    sdsConsumerCount,
-    sdsStreamStatus,
-    sdsStreamARN,
-    sdsRetentionPeriodHours,
-    sdsStreamCreationTimestamp,
-    sdsStreamName,
-    sdsOpenShardCount,
+    -- ** StreamName
+    StreamName (..),
 
     -- ** SubscribeToShardEvent
     SubscribeToShardEvent (..),
     mkSubscribeToShardEvent,
     stseRecords,
-    stseMillisBehindLatest,
     stseContinuationSequenceNumber,
+    stseMillisBehindLatest,
     stseChildShards,
 
-    -- ** SubscribeToShardEventStream
-    SubscribeToShardEventStream (..),
-    mkSubscribeToShardEventStream,
-    stsesKMSInvalidStateException,
-    stsesKMSThrottlingException,
-    stsesKMSOptInRequired,
-    stsesKMSNotFoundException,
-    stsesKMSDisabledException,
-    stsesInternalFailureException,
-    stsesSubscribeToShardEvent,
-    stsesResourceNotFoundException,
-    stsesKMSAccessDeniedException,
-    stsesResourceInUseException,
+    -- ** ChildShard
+    ChildShard (..),
+    mkChildShard,
+    csShardId,
+    csParentShards,
+    csHashKeyRange,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ShardIteratorType
+    ShardIteratorType (..),
+
+    -- ** StreamDescriptionSummary
+    StreamDescriptionSummary (..),
+    mkStreamDescriptionSummary,
+    sdsStreamName,
+    sdsStreamARN,
+    sdsStreamStatus,
+    sdsRetentionPeriodHours,
+    sdsStreamCreationTimestamp,
+    sdsEnhancedMonitoring,
+    sdsOpenShardCount,
+    sdsConsumerCount,
+    sdsEncryptionType,
+    sdsKeyId,
+
+    -- ** Consumer
+    Consumer (..),
+    mkConsumer,
+    cConsumerName,
+    cConsumerARN,
+    cConsumerStatus,
+    cConsumerCreationTimestamp,
+
+    -- ** StartingPosition
+    StartingPosition (..),
+    mkStartingPosition,
+    spType,
+    spSequenceNumber,
+    spTimestamp,
+
+    -- ** ConsumerName
+    ConsumerName (..),
+
+    -- ** ShardId
+    ShardId (..),
+
+    -- ** EnhancedMetrics
+    EnhancedMetrics (..),
+    mkEnhancedMetrics,
+    emShardLevelMetrics,
+
+    -- ** Message
+    Message (..),
+
+    -- ** AdjacentParentShardId
+    AdjacentParentShardId (..),
+
+    -- ** ParentShardId
+    ParentShardId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ExclusiveStartTagKey
+    ExclusiveStartTagKey (..),
+
+    -- ** ExplicitHashKey
+    ExplicitHashKey (..),
+
+    -- ** ShardToMerge
+    ShardToMerge (..),
+
+    -- ** AdjacentShardToMerge
+    AdjacentShardToMerge (..),
+
+    -- ** ExclusiveStartShardId
+    ExclusiveStartShardId (..),
+
+    -- ** StartingHashKey
+    StartingHashKey (..),
+
+    -- ** EndingHashKey
+    EndingHashKey (..),
+
+    -- ** ShardToSplit
+    ShardToSplit (..),
+
+    -- ** ExclusiveStartStreamName
+    ExclusiveStartStreamName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

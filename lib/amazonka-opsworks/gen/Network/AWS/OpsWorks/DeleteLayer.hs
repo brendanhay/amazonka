@@ -31,68 +31,59 @@ module Network.AWS.OpsWorks.DeleteLayer
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLayer' smart constructor.
 newtype DeleteLayer = DeleteLayer'
   { -- | The layer ID.
-    layerId :: Lude.Text
+    layerId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLayer' with the minimum fields required to make a request.
---
--- * 'layerId' - The layer ID.
+-- | Creates a 'DeleteLayer' value with any optional fields omitted.
 mkDeleteLayer ::
   -- | 'layerId'
-  Lude.Text ->
+  Types.String ->
   DeleteLayer
-mkDeleteLayer pLayerId_ = DeleteLayer' {layerId = pLayerId_}
+mkDeleteLayer layerId = DeleteLayer' {layerId}
 
 -- | The layer ID.
 --
 -- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlLayerId :: Lens.Lens' DeleteLayer Lude.Text
-dlLayerId = Lens.lens (layerId :: DeleteLayer -> Lude.Text) (\s a -> s {layerId = a} :: DeleteLayer)
+dlLayerId :: Lens.Lens' DeleteLayer Types.String
+dlLayerId = Lens.field @"layerId"
 {-# DEPRECATED dlLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
-instance Lude.AWSRequest DeleteLayer where
+instance Core.FromJSON DeleteLayer where
+  toJSON DeleteLayer {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("LayerId" Core..= layerId)])
+
+instance Core.AWSRequest DeleteLayer where
   type Rs DeleteLayer = DeleteLayerResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull DeleteLayerResponse'
-
-instance Lude.ToHeaders DeleteLayer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DeleteLayer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteLayer where
-  toJSON DeleteLayer' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("LayerId" Lude..= layerId)])
-
-instance Lude.ToPath DeleteLayer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLayer where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DeleteLayer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteLayerResponse'
 
 -- | /See:/ 'mkDeleteLayerResponse' smart constructor.
 data DeleteLayerResponse = DeleteLayerResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLayerResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteLayerResponse' value with any optional fields omitted.
 mkDeleteLayerResponse ::
   DeleteLayerResponse
 mkDeleteLayerResponse = DeleteLayerResponse'

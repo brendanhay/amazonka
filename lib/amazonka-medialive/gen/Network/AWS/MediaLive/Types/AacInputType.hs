@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.AacInputType
   ( AacInputType
       ( AacInputType',
-        BroadcasterMixedAd,
-        Normal
+        AacInputTypeBroadcasterMixedAd,
+        AacInputTypeNormal,
+        fromAacInputType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Aac Input Type
-newtype AacInputType = AacInputType' Lude.Text
+newtype AacInputType = AacInputType' {fromAacInputType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BroadcasterMixedAd :: AacInputType
-pattern BroadcasterMixedAd = AacInputType' "BROADCASTER_MIXED_AD"
+pattern AacInputTypeBroadcasterMixedAd :: AacInputType
+pattern AacInputTypeBroadcasterMixedAd = AacInputType' "BROADCASTER_MIXED_AD"
 
-pattern Normal :: AacInputType
-pattern Normal = AacInputType' "NORMAL"
+pattern AacInputTypeNormal :: AacInputType
+pattern AacInputTypeNormal = AacInputType' "NORMAL"
 
 {-# COMPLETE
-  BroadcasterMixedAd,
-  Normal,
+  AacInputTypeBroadcasterMixedAd,
+  AacInputTypeNormal,
   AacInputType'
   #-}

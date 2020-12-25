@@ -13,51 +13,56 @@
 module Network.AWS.ELBv2.Types.TargetTypeEnum
   ( TargetTypeEnum
       ( TargetTypeEnum',
-        Instance,
-        IP,
-        Lambda
+        TargetTypeEnumInstance,
+        TargetTypeEnumIP,
+        TargetTypeEnumLambda,
+        fromTargetTypeEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetTypeEnum = TargetTypeEnum' Lude.Text
+newtype TargetTypeEnum = TargetTypeEnum'
+  { fromTargetTypeEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Instance :: TargetTypeEnum
-pattern Instance = TargetTypeEnum' "instance"
+pattern TargetTypeEnumInstance :: TargetTypeEnum
+pattern TargetTypeEnumInstance = TargetTypeEnum' "instance"
 
-pattern IP :: TargetTypeEnum
-pattern IP = TargetTypeEnum' "ip"
+pattern TargetTypeEnumIP :: TargetTypeEnum
+pattern TargetTypeEnumIP = TargetTypeEnum' "ip"
 
-pattern Lambda :: TargetTypeEnum
-pattern Lambda = TargetTypeEnum' "lambda"
+pattern TargetTypeEnumLambda :: TargetTypeEnum
+pattern TargetTypeEnumLambda = TargetTypeEnum' "lambda"
 
 {-# COMPLETE
-  Instance,
-  IP,
-  Lambda,
+  TargetTypeEnumInstance,
+  TargetTypeEnumIP,
+  TargetTypeEnumLambda,
   TargetTypeEnum'
   #-}

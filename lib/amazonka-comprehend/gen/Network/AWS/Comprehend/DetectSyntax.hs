@@ -20,133 +20,119 @@ module Network.AWS.Comprehend.DetectSyntax
     mkDetectSyntax,
 
     -- ** Request lenses
-    dsLanguageCode,
-    dsText,
+    dsfText,
+    dsfLanguageCode,
 
     -- * Destructuring the response
     DetectSyntaxResponse (..),
     mkDetectSyntaxResponse,
 
     -- ** Response lenses
-    dsrsSyntaxTokens,
-    dsrsResponseStatus,
+    dsrrsSyntaxTokens,
+    dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectSyntax' smart constructor.
 data DetectSyntax = DetectSyntax'
-  { -- | The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").
-    languageCode :: SyntaxLanguageCode,
-    -- | A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.
-    text :: Lude.Sensitive Lude.Text
+  { -- | A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.
+    text :: Types.CustomerInputString,
+    -- | The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").
+    languageCode :: Types.SyntaxLanguageCode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectSyntax' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").
--- * 'text' - A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.
+-- | Creates a 'DetectSyntax' value with any optional fields omitted.
 mkDetectSyntax ::
-  -- | 'languageCode'
-  SyntaxLanguageCode ->
   -- | 'text'
-  Lude.Sensitive Lude.Text ->
+  Types.CustomerInputString ->
+  -- | 'languageCode'
+  Types.SyntaxLanguageCode ->
   DetectSyntax
-mkDetectSyntax pLanguageCode_ pText_ =
-  DetectSyntax' {languageCode = pLanguageCode_, text = pText_}
-
--- | The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsLanguageCode :: Lens.Lens' DetectSyntax SyntaxLanguageCode
-dsLanguageCode = Lens.lens (languageCode :: DetectSyntax -> SyntaxLanguageCode) (\s a -> s {languageCode = a} :: DetectSyntax)
-{-# DEPRECATED dsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+mkDetectSyntax text languageCode =
+  DetectSyntax' {text, languageCode}
 
 -- | A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.
 --
 -- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsText :: Lens.Lens' DetectSyntax (Lude.Sensitive Lude.Text)
-dsText = Lens.lens (text :: DetectSyntax -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectSyntax)
-{-# DEPRECATED dsText "Use generic-lens or generic-optics with 'text' instead." #-}
+dsfText :: Lens.Lens' DetectSyntax Types.CustomerInputString
+dsfText = Lens.field @"text"
+{-# DEPRECATED dsfText "Use generic-lens or generic-optics with 'text' instead." #-}
 
-instance Lude.AWSRequest DetectSyntax where
+-- | The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfLanguageCode :: Lens.Lens' DetectSyntax Types.SyntaxLanguageCode
+dsfLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED dsfLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+instance Core.FromJSON DetectSyntax where
+  toJSON DetectSyntax {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Text" Core..= text),
+            Core.Just ("LanguageCode" Core..= languageCode)
+          ]
+      )
+
+instance Core.AWSRequest DetectSyntax where
   type Rs DetectSyntax = DetectSyntaxResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Comprehend_20171127.DetectSyntax")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetectSyntaxResponse'
-            Lude.<$> (x Lude..?> "SyntaxTokens" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SyntaxTokens") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetectSyntax where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Comprehend_20171127.DetectSyntax" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetectSyntax where
-  toJSON DetectSyntax' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LanguageCode" Lude..= languageCode),
-            Lude.Just ("Text" Lude..= text)
-          ]
-      )
-
-instance Lude.ToPath DetectSyntax where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetectSyntax where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetectSyntaxResponse' smart constructor.
 data DetectSyntaxResponse = DetectSyntaxResponse'
   { -- | A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see 'how-syntax' .
-    syntaxTokens :: Lude.Maybe [SyntaxToken],
+    syntaxTokens :: Core.Maybe [Types.SyntaxToken],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectSyntaxResponse' with the minimum fields required to make a request.
---
--- * 'syntaxTokens' - A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see 'how-syntax' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetectSyntaxResponse' value with any optional fields omitted.
 mkDetectSyntaxResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetectSyntaxResponse
-mkDetectSyntaxResponse pResponseStatus_ =
+mkDetectSyntaxResponse responseStatus =
   DetectSyntaxResponse'
-    { syntaxTokens = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { syntaxTokens = Core.Nothing,
+      responseStatus
     }
 
 -- | A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see 'how-syntax' .
 --
 -- /Note:/ Consider using 'syntaxTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSyntaxTokens :: Lens.Lens' DetectSyntaxResponse (Lude.Maybe [SyntaxToken])
-dsrsSyntaxTokens = Lens.lens (syntaxTokens :: DetectSyntaxResponse -> Lude.Maybe [SyntaxToken]) (\s a -> s {syntaxTokens = a} :: DetectSyntaxResponse)
-{-# DEPRECATED dsrsSyntaxTokens "Use generic-lens or generic-optics with 'syntaxTokens' instead." #-}
+dsrrsSyntaxTokens :: Lens.Lens' DetectSyntaxResponse (Core.Maybe [Types.SyntaxToken])
+dsrrsSyntaxTokens = Lens.field @"syntaxTokens"
+{-# DEPRECATED dsrrsSyntaxTokens "Use generic-lens or generic-optics with 'syntaxTokens' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DetectSyntaxResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DetectSyntaxResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectSyntaxResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DetectSyntaxResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

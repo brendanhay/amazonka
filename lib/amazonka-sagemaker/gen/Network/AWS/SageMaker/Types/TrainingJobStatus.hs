@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.TrainingJobStatus
   ( TrainingJobStatus
       ( TrainingJobStatus',
-        TJSInProgress,
-        TJSCompleted,
-        TJSFailed,
-        TJSStopping,
-        TJSStopped
+        TrainingJobStatusInProgress,
+        TrainingJobStatusCompleted,
+        TrainingJobStatusFailed,
+        TrainingJobStatusStopping,
+        TrainingJobStatusStopped,
+        fromTrainingJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TrainingJobStatus = TrainingJobStatus' Lude.Text
+newtype TrainingJobStatus = TrainingJobStatus'
+  { fromTrainingJobStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TJSInProgress :: TrainingJobStatus
-pattern TJSInProgress = TrainingJobStatus' "InProgress"
+pattern TrainingJobStatusInProgress :: TrainingJobStatus
+pattern TrainingJobStatusInProgress = TrainingJobStatus' "InProgress"
 
-pattern TJSCompleted :: TrainingJobStatus
-pattern TJSCompleted = TrainingJobStatus' "Completed"
+pattern TrainingJobStatusCompleted :: TrainingJobStatus
+pattern TrainingJobStatusCompleted = TrainingJobStatus' "Completed"
 
-pattern TJSFailed :: TrainingJobStatus
-pattern TJSFailed = TrainingJobStatus' "Failed"
+pattern TrainingJobStatusFailed :: TrainingJobStatus
+pattern TrainingJobStatusFailed = TrainingJobStatus' "Failed"
 
-pattern TJSStopping :: TrainingJobStatus
-pattern TJSStopping = TrainingJobStatus' "Stopping"
+pattern TrainingJobStatusStopping :: TrainingJobStatus
+pattern TrainingJobStatusStopping = TrainingJobStatus' "Stopping"
 
-pattern TJSStopped :: TrainingJobStatus
-pattern TJSStopped = TrainingJobStatus' "Stopped"
+pattern TrainingJobStatusStopped :: TrainingJobStatus
+pattern TrainingJobStatusStopped = TrainingJobStatus' "Stopped"
 
 {-# COMPLETE
-  TJSInProgress,
-  TJSCompleted,
-  TJSFailed,
-  TJSStopping,
-  TJSStopped,
+  TrainingJobStatusInProgress,
+  TrainingJobStatusCompleted,
+  TrainingJobStatusFailed,
+  TrainingJobStatusStopping,
+  TrainingJobStatusStopped,
   TrainingJobStatus'
   #-}

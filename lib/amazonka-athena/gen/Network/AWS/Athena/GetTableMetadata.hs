@@ -29,142 +29,124 @@ module Network.AWS.Athena.GetTableMetadata
     mkGetTableMetadataResponse,
 
     -- ** Response lenses
-    gtmrsTableMetadata,
-    gtmrsResponseStatus,
+    gtmrrsTableMetadata,
+    gtmrrsResponseStatus,
   )
 where
 
-import Network.AWS.Athena.Types
+import qualified Network.AWS.Athena.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetTableMetadata' smart constructor.
 data GetTableMetadata = GetTableMetadata'
   { -- | The name of the data catalog that contains the database and table metadata to return.
-    catalogName :: Lude.Text,
+    catalogName :: Types.CatalogName,
     -- | The name of the database that contains the table metadata to return.
-    databaseName :: Lude.Text,
+    databaseName :: Types.DatabaseName,
     -- | The name of the table for which metadata is returned.
-    tableName :: Lude.Text
+    tableName :: Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTableMetadata' with the minimum fields required to make a request.
---
--- * 'catalogName' - The name of the data catalog that contains the database and table metadata to return.
--- * 'databaseName' - The name of the database that contains the table metadata to return.
--- * 'tableName' - The name of the table for which metadata is returned.
+-- | Creates a 'GetTableMetadata' value with any optional fields omitted.
 mkGetTableMetadata ::
   -- | 'catalogName'
-  Lude.Text ->
+  Types.CatalogName ->
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   GetTableMetadata
-mkGetTableMetadata pCatalogName_ pDatabaseName_ pTableName_ =
-  GetTableMetadata'
-    { catalogName = pCatalogName_,
-      databaseName = pDatabaseName_,
-      tableName = pTableName_
-    }
+mkGetTableMetadata catalogName databaseName tableName =
+  GetTableMetadata' {catalogName, databaseName, tableName}
 
 -- | The name of the data catalog that contains the database and table metadata to return.
 --
 -- /Note:/ Consider using 'catalogName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmCatalogName :: Lens.Lens' GetTableMetadata Lude.Text
-gtmCatalogName = Lens.lens (catalogName :: GetTableMetadata -> Lude.Text) (\s a -> s {catalogName = a} :: GetTableMetadata)
+gtmCatalogName :: Lens.Lens' GetTableMetadata Types.CatalogName
+gtmCatalogName = Lens.field @"catalogName"
 {-# DEPRECATED gtmCatalogName "Use generic-lens or generic-optics with 'catalogName' instead." #-}
 
 -- | The name of the database that contains the table metadata to return.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmDatabaseName :: Lens.Lens' GetTableMetadata Lude.Text
-gtmDatabaseName = Lens.lens (databaseName :: GetTableMetadata -> Lude.Text) (\s a -> s {databaseName = a} :: GetTableMetadata)
+gtmDatabaseName :: Lens.Lens' GetTableMetadata Types.DatabaseName
+gtmDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED gtmDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table for which metadata is returned.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmTableName :: Lens.Lens' GetTableMetadata Lude.Text
-gtmTableName = Lens.lens (tableName :: GetTableMetadata -> Lude.Text) (\s a -> s {tableName = a} :: GetTableMetadata)
+gtmTableName :: Lens.Lens' GetTableMetadata Types.TableName
+gtmTableName = Lens.field @"tableName"
 {-# DEPRECATED gtmTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest GetTableMetadata where
+instance Core.FromJSON GetTableMetadata where
+  toJSON GetTableMetadata {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CatalogName" Core..= catalogName),
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName)
+          ]
+      )
+
+instance Core.AWSRequest GetTableMetadata where
   type Rs GetTableMetadata = GetTableMetadataResponse
-  request = Req.postJSON athenaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonAthena.GetTableMetadata")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTableMetadataResponse'
-            Lude.<$> (x Lude..?> "TableMetadata")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TableMetadata")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTableMetadata where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonAthena.GetTableMetadata" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetTableMetadata where
-  toJSON GetTableMetadata' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CatalogName" Lude..= catalogName),
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath GetTableMetadata where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTableMetadata where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetTableMetadataResponse' smart constructor.
 data GetTableMetadataResponse = GetTableMetadataResponse'
   { -- | An object that contains table metadata.
-    tableMetadata :: Lude.Maybe TableMetadata,
+    tableMetadata :: Core.Maybe Types.TableMetadata,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetTableMetadataResponse' with the minimum fields required to make a request.
---
--- * 'tableMetadata' - An object that contains table metadata.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTableMetadataResponse' value with any optional fields omitted.
 mkGetTableMetadataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTableMetadataResponse
-mkGetTableMetadataResponse pResponseStatus_ =
+mkGetTableMetadataResponse responseStatus =
   GetTableMetadataResponse'
-    { tableMetadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { tableMetadata = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains table metadata.
 --
 -- /Note:/ Consider using 'tableMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmrsTableMetadata :: Lens.Lens' GetTableMetadataResponse (Lude.Maybe TableMetadata)
-gtmrsTableMetadata = Lens.lens (tableMetadata :: GetTableMetadataResponse -> Lude.Maybe TableMetadata) (\s a -> s {tableMetadata = a} :: GetTableMetadataResponse)
-{-# DEPRECATED gtmrsTableMetadata "Use generic-lens or generic-optics with 'tableMetadata' instead." #-}
+gtmrrsTableMetadata :: Lens.Lens' GetTableMetadataResponse (Core.Maybe Types.TableMetadata)
+gtmrrsTableMetadata = Lens.field @"tableMetadata"
+{-# DEPRECATED gtmrrsTableMetadata "Use generic-lens or generic-optics with 'tableMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmrsResponseStatus :: Lens.Lens' GetTableMetadataResponse Lude.Int
-gtmrsResponseStatus = Lens.lens (responseStatus :: GetTableMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTableMetadataResponse)
-{-# DEPRECATED gtmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtmrrsResponseStatus :: Lens.Lens' GetTableMetadataResponse Core.Int
+gtmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,65 +22,59 @@ module Network.AWS.AppStream.Types.ServiceAccountCredentials
   )
 where
 
+import qualified Network.AWS.AppStream.Types.AccountName as Types
+import qualified Network.AWS.AppStream.Types.AccountPassword as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the credentials for the service account used by the fleet or image builder to connect to the directory.
 --
 -- /See:/ 'mkServiceAccountCredentials' smart constructor.
 data ServiceAccountCredentials = ServiceAccountCredentials'
   { -- | The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-    accountName :: Lude.Sensitive Lude.Text,
+    accountName :: Types.AccountName,
     -- | The password for the account.
-    accountPassword :: Lude.Sensitive Lude.Text
+    accountPassword :: Types.AccountPassword
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceAccountCredentials' with the minimum fields required to make a request.
---
--- * 'accountName' - The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
--- * 'accountPassword' - The password for the account.
+-- | Creates a 'ServiceAccountCredentials' value with any optional fields omitted.
 mkServiceAccountCredentials ::
   -- | 'accountName'
-  Lude.Sensitive Lude.Text ->
+  Types.AccountName ->
   -- | 'accountPassword'
-  Lude.Sensitive Lude.Text ->
+  Types.AccountPassword ->
   ServiceAccountCredentials
-mkServiceAccountCredentials pAccountName_ pAccountPassword_ =
-  ServiceAccountCredentials'
-    { accountName = pAccountName_,
-      accountPassword = pAccountPassword_
-    }
+mkServiceAccountCredentials accountName accountPassword =
+  ServiceAccountCredentials' {accountName, accountPassword}
 
 -- | The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 --
 -- /Note:/ Consider using 'accountName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sacAccountName :: Lens.Lens' ServiceAccountCredentials (Lude.Sensitive Lude.Text)
-sacAccountName = Lens.lens (accountName :: ServiceAccountCredentials -> Lude.Sensitive Lude.Text) (\s a -> s {accountName = a} :: ServiceAccountCredentials)
+sacAccountName :: Lens.Lens' ServiceAccountCredentials Types.AccountName
+sacAccountName = Lens.field @"accountName"
 {-# DEPRECATED sacAccountName "Use generic-lens or generic-optics with 'accountName' instead." #-}
 
 -- | The password for the account.
 --
 -- /Note:/ Consider using 'accountPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sacAccountPassword :: Lens.Lens' ServiceAccountCredentials (Lude.Sensitive Lude.Text)
-sacAccountPassword = Lens.lens (accountPassword :: ServiceAccountCredentials -> Lude.Sensitive Lude.Text) (\s a -> s {accountPassword = a} :: ServiceAccountCredentials)
+sacAccountPassword :: Lens.Lens' ServiceAccountCredentials Types.AccountPassword
+sacAccountPassword = Lens.field @"accountPassword"
 {-# DEPRECATED sacAccountPassword "Use generic-lens or generic-optics with 'accountPassword' instead." #-}
 
-instance Lude.FromJSON ServiceAccountCredentials where
-  parseJSON =
-    Lude.withObject
-      "ServiceAccountCredentials"
-      ( \x ->
-          ServiceAccountCredentials'
-            Lude.<$> (x Lude..: "AccountName") Lude.<*> (x Lude..: "AccountPassword")
-      )
-
-instance Lude.ToJSON ServiceAccountCredentials where
-  toJSON ServiceAccountCredentials' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccountName" Lude..= accountName),
-            Lude.Just ("AccountPassword" Lude..= accountPassword)
+instance Core.FromJSON ServiceAccountCredentials where
+  toJSON ServiceAccountCredentials {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountName" Core..= accountName),
+            Core.Just ("AccountPassword" Core..= accountPassword)
           ]
       )
+
+instance Core.FromJSON ServiceAccountCredentials where
+  parseJSON =
+    Core.withObject "ServiceAccountCredentials" Core.$
+      \x ->
+        ServiceAccountCredentials'
+          Core.<$> (x Core..: "AccountName") Core.<*> (x Core..: "AccountPassword")

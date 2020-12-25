@@ -31,129 +31,114 @@ module Network.AWS.CloudHSM.CreateLunaClient
     mkCreateLunaClientResponse,
 
     -- ** Response lenses
-    clcrsClientARN,
-    clcrsResponseStatus,
+    clcrrsClientArn,
+    clcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.CloudHSM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the inputs for the 'CreateLunaClient' action.
 --
 -- /See:/ 'mkCreateLunaClient' smart constructor.
 data CreateLunaClient = CreateLunaClient'
   { -- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.
-    certificate :: Lude.Text,
+    certificate :: Types.Certificate,
     -- | The label for the client.
-    label :: Lude.Maybe Lude.Text
+    label :: Core.Maybe Types.ClientLabel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLunaClient' with the minimum fields required to make a request.
---
--- * 'certificate' - The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.
--- * 'label' - The label for the client.
+-- | Creates a 'CreateLunaClient' value with any optional fields omitted.
 mkCreateLunaClient ::
   -- | 'certificate'
-  Lude.Text ->
+  Types.Certificate ->
   CreateLunaClient
-mkCreateLunaClient pCertificate_ =
-  CreateLunaClient'
-    { certificate = pCertificate_,
-      label = Lude.Nothing
-    }
+mkCreateLunaClient certificate =
+  CreateLunaClient' {certificate, label = Core.Nothing}
 
 -- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clcCertificate :: Lens.Lens' CreateLunaClient Lude.Text
-clcCertificate = Lens.lens (certificate :: CreateLunaClient -> Lude.Text) (\s a -> s {certificate = a} :: CreateLunaClient)
+clcCertificate :: Lens.Lens' CreateLunaClient Types.Certificate
+clcCertificate = Lens.field @"certificate"
 {-# DEPRECATED clcCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The label for the client.
 --
 -- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clcLabel :: Lens.Lens' CreateLunaClient (Lude.Maybe Lude.Text)
-clcLabel = Lens.lens (label :: CreateLunaClient -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: CreateLunaClient)
+clcLabel :: Lens.Lens' CreateLunaClient (Core.Maybe Types.ClientLabel)
+clcLabel = Lens.field @"label"
 {-# DEPRECATED clcLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
-instance Lude.AWSRequest CreateLunaClient where
+instance Core.FromJSON CreateLunaClient where
+  toJSON CreateLunaClient {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Certificate" Core..= certificate),
+            ("Label" Core..=) Core.<$> label
+          ]
+      )
+
+instance Core.AWSRequest CreateLunaClient where
   type Rs CreateLunaClient = CreateLunaClientResponse
-  request = Req.postJSON cloudHSMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CloudHsmFrontendService.CreateLunaClient")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateLunaClientResponse'
-            Lude.<$> (x Lude..?> "ClientArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ClientArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLunaClient where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CloudHsmFrontendService.CreateLunaClient" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateLunaClient where
-  toJSON CreateLunaClient' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Certificate" Lude..= certificate),
-            ("Label" Lude..=) Lude.<$> label
-          ]
-      )
-
-instance Lude.ToPath CreateLunaClient where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLunaClient where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of the 'CreateLunaClient' action.
 --
 -- /See:/ 'mkCreateLunaClientResponse' smart constructor.
 data CreateLunaClientResponse = CreateLunaClientResponse'
   { -- | The ARN of the client.
-    clientARN :: Lude.Maybe Lude.Text,
+    clientArn :: Core.Maybe Types.ClientArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLunaClientResponse' with the minimum fields required to make a request.
---
--- * 'clientARN' - The ARN of the client.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLunaClientResponse' value with any optional fields omitted.
 mkCreateLunaClientResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLunaClientResponse
-mkCreateLunaClientResponse pResponseStatus_ =
+mkCreateLunaClientResponse responseStatus =
   CreateLunaClientResponse'
-    { clientARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clientArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the client.
 --
--- /Note:/ Consider using 'clientARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clcrsClientARN :: Lens.Lens' CreateLunaClientResponse (Lude.Maybe Lude.Text)
-clcrsClientARN = Lens.lens (clientARN :: CreateLunaClientResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientARN = a} :: CreateLunaClientResponse)
-{-# DEPRECATED clcrsClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
+-- /Note:/ Consider using 'clientArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clcrrsClientArn :: Lens.Lens' CreateLunaClientResponse (Core.Maybe Types.ClientArn)
+clcrrsClientArn = Lens.field @"clientArn"
+{-# DEPRECATED clcrrsClientArn "Use generic-lens or generic-optics with 'clientArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clcrsResponseStatus :: Lens.Lens' CreateLunaClientResponse Lude.Int
-clcrsResponseStatus = Lens.lens (responseStatus :: CreateLunaClientResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLunaClientResponse)
-{-# DEPRECATED clcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clcrrsResponseStatus :: Lens.Lens' CreateLunaClientResponse Core.Int
+clcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

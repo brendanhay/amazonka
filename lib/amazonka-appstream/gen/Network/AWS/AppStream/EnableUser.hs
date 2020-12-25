@@ -28,112 +28,97 @@ module Network.AWS.AppStream.EnableUser
     mkEnableUserResponse,
 
     -- ** Response lenses
-    eursResponseStatus,
+    eurrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableUser' smart constructor.
 data EnableUser = EnableUser'
   { -- | The email address of the user.
-    userName :: Lude.Sensitive Lude.Text,
+    userName :: Types.Username,
     -- | The authentication type for the user. You must specify USERPOOL.
-    authenticationType :: AuthenticationType
+    authenticationType :: Types.AuthenticationType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableUser' with the minimum fields required to make a request.
---
--- * 'userName' - The email address of the user.
--- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
+-- | Creates a 'EnableUser' value with any optional fields omitted.
 mkEnableUser ::
   -- | 'userName'
-  Lude.Sensitive Lude.Text ->
+  Types.Username ->
   -- | 'authenticationType'
-  AuthenticationType ->
+  Types.AuthenticationType ->
   EnableUser
-mkEnableUser pUserName_ pAuthenticationType_ =
-  EnableUser'
-    { userName = pUserName_,
-      authenticationType = pAuthenticationType_
-    }
+mkEnableUser userName authenticationType =
+  EnableUser' {userName, authenticationType}
 
 -- | The email address of the user.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-euUserName :: Lens.Lens' EnableUser (Lude.Sensitive Lude.Text)
-euUserName = Lens.lens (userName :: EnableUser -> Lude.Sensitive Lude.Text) (\s a -> s {userName = a} :: EnableUser)
+euUserName :: Lens.Lens' EnableUser Types.Username
+euUserName = Lens.field @"userName"
 {-# DEPRECATED euUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The authentication type for the user. You must specify USERPOOL.
 --
 -- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-euAuthenticationType :: Lens.Lens' EnableUser AuthenticationType
-euAuthenticationType = Lens.lens (authenticationType :: EnableUser -> AuthenticationType) (\s a -> s {authenticationType = a} :: EnableUser)
+euAuthenticationType :: Lens.Lens' EnableUser Types.AuthenticationType
+euAuthenticationType = Lens.field @"authenticationType"
 {-# DEPRECATED euAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
-instance Lude.AWSRequest EnableUser where
+instance Core.FromJSON EnableUser where
+  toJSON EnableUser {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserName" Core..= userName),
+            Core.Just ("AuthenticationType" Core..= authenticationType)
+          ]
+      )
+
+instance Core.AWSRequest EnableUser where
   type Rs EnableUser = EnableUserResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "PhotonAdminProxyService.EnableUser")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          EnableUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          EnableUserResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnableUser where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.EnableUser" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON EnableUser where
-  toJSON EnableUser' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserName" Lude..= userName),
-            Lude.Just ("AuthenticationType" Lude..= authenticationType)
-          ]
-      )
-
-instance Lude.ToPath EnableUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableUser where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkEnableUserResponse' smart constructor.
 newtype EnableUserResponse = EnableUserResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableUserResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnableUserResponse' value with any optional fields omitted.
 mkEnableUserResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnableUserResponse
-mkEnableUserResponse pResponseStatus_ =
-  EnableUserResponse' {responseStatus = pResponseStatus_}
+mkEnableUserResponse responseStatus =
+  EnableUserResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eursResponseStatus :: Lens.Lens' EnableUserResponse Lude.Int
-eursResponseStatus = Lens.lens (responseStatus :: EnableUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableUserResponse)
-{-# DEPRECATED eursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+eurrsResponseStatus :: Lens.Lens' EnableUserResponse Core.Int
+eurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED eurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

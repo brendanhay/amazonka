@@ -17,125 +17,122 @@ module Network.AWS.EC2.Types.NetworkInterfaceAssociation
     mkNetworkInterfaceAssociation,
 
     -- * Lenses
-    niaAssociationId,
-    niaPublicDNSName,
     niaAllocationId,
-    niaCarrierIP,
-    niaIPOwnerId,
-    niaCustomerOwnedIP,
-    niaPublicIP,
+    niaAssociationId,
+    niaCarrierIp,
+    niaCustomerOwnedIp,
+    niaIpOwnerId,
+    niaPublicDnsName,
+    niaPublicIp,
   )
 where
 
+import qualified Network.AWS.EC2.Types.AllocationId as Types
+import qualified Network.AWS.EC2.Types.AssociationId as Types
+import qualified Network.AWS.EC2.Types.CarrierIp as Types
+import qualified Network.AWS.EC2.Types.CustomerOwnedIp as Types
+import qualified Network.AWS.EC2.Types.IpOwnerId as Types
+import qualified Network.AWS.EC2.Types.PublicDnsName as Types
+import qualified Network.AWS.EC2.Types.PublicIp as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes association information for an Elastic IP address (IPv4 only), or a Carrier IP address (for a network interface which resides in a subnet in a Wavelength Zone).
 --
 -- /See:/ 'mkNetworkInterfaceAssociation' smart constructor.
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation'
-  { -- | The association ID.
-    associationId :: Lude.Maybe Lude.Text,
-    -- | The public DNS name.
-    publicDNSName :: Lude.Maybe Lude.Text,
-    -- | The allocation ID.
-    allocationId :: Lude.Maybe Lude.Text,
+  { -- | The allocation ID.
+    allocationId :: Core.Maybe Types.AllocationId,
+    -- | The association ID.
+    associationId :: Core.Maybe Types.AssociationId,
     -- | The carrier IP address associated with the network interface.
     --
     -- This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.
-    carrierIP :: Lude.Maybe Lude.Text,
-    -- | The ID of the Elastic IP address owner.
-    ipOwnerId :: Lude.Maybe Lude.Text,
+    carrierIp :: Core.Maybe Types.CarrierIp,
     -- | The customer-owned IP address associated with the network interface.
-    customerOwnedIP :: Lude.Maybe Lude.Text,
+    customerOwnedIp :: Core.Maybe Types.CustomerOwnedIp,
+    -- | The ID of the Elastic IP address owner.
+    ipOwnerId :: Core.Maybe Types.IpOwnerId,
+    -- | The public DNS name.
+    publicDnsName :: Core.Maybe Types.PublicDnsName,
     -- | The address of the Elastic IP address bound to the network interface.
-    publicIP :: Lude.Maybe Lude.Text
+    publicIp :: Core.Maybe Types.PublicIp
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkInterfaceAssociation' with the minimum fields required to make a request.
---
--- * 'associationId' - The association ID.
--- * 'publicDNSName' - The public DNS name.
--- * 'allocationId' - The allocation ID.
--- * 'carrierIP' - The carrier IP address associated with the network interface.
---
--- This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.
--- * 'ipOwnerId' - The ID of the Elastic IP address owner.
--- * 'customerOwnedIP' - The customer-owned IP address associated with the network interface.
--- * 'publicIP' - The address of the Elastic IP address bound to the network interface.
+-- | Creates a 'NetworkInterfaceAssociation' value with any optional fields omitted.
 mkNetworkInterfaceAssociation ::
   NetworkInterfaceAssociation
 mkNetworkInterfaceAssociation =
   NetworkInterfaceAssociation'
-    { associationId = Lude.Nothing,
-      publicDNSName = Lude.Nothing,
-      allocationId = Lude.Nothing,
-      carrierIP = Lude.Nothing,
-      ipOwnerId = Lude.Nothing,
-      customerOwnedIP = Lude.Nothing,
-      publicIP = Lude.Nothing
+    { allocationId = Core.Nothing,
+      associationId = Core.Nothing,
+      carrierIp = Core.Nothing,
+      customerOwnedIp = Core.Nothing,
+      ipOwnerId = Core.Nothing,
+      publicDnsName = Core.Nothing,
+      publicIp = Core.Nothing
     }
-
--- | The association ID.
---
--- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaAssociationId :: Lens.Lens' NetworkInterfaceAssociation (Lude.Maybe Lude.Text)
-niaAssociationId = Lens.lens (associationId :: NetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: NetworkInterfaceAssociation)
-{-# DEPRECATED niaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
-
--- | The public DNS name.
---
--- /Note:/ Consider using 'publicDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaPublicDNSName :: Lens.Lens' NetworkInterfaceAssociation (Lude.Maybe Lude.Text)
-niaPublicDNSName = Lens.lens (publicDNSName :: NetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {publicDNSName = a} :: NetworkInterfaceAssociation)
-{-# DEPRECATED niaPublicDNSName "Use generic-lens or generic-optics with 'publicDNSName' instead." #-}
 
 -- | The allocation ID.
 --
 -- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaAllocationId :: Lens.Lens' NetworkInterfaceAssociation (Lude.Maybe Lude.Text)
-niaAllocationId = Lens.lens (allocationId :: NetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: NetworkInterfaceAssociation)
+niaAllocationId :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Types.AllocationId)
+niaAllocationId = Lens.field @"allocationId"
 {-# DEPRECATED niaAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
+
+-- | The association ID.
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaAssociationId :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Types.AssociationId)
+niaAssociationId = Lens.field @"associationId"
+{-# DEPRECATED niaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The carrier IP address associated with the network interface.
 --
 -- This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.
 --
--- /Note:/ Consider using 'carrierIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaCarrierIP :: Lens.Lens' NetworkInterfaceAssociation (Lude.Maybe Lude.Text)
-niaCarrierIP = Lens.lens (carrierIP :: NetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {carrierIP = a} :: NetworkInterfaceAssociation)
-{-# DEPRECATED niaCarrierIP "Use generic-lens or generic-optics with 'carrierIP' instead." #-}
+-- /Note:/ Consider using 'carrierIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaCarrierIp :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Types.CarrierIp)
+niaCarrierIp = Lens.field @"carrierIp"
+{-# DEPRECATED niaCarrierIp "Use generic-lens or generic-optics with 'carrierIp' instead." #-}
+
+-- | The customer-owned IP address associated with the network interface.
+--
+-- /Note:/ Consider using 'customerOwnedIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaCustomerOwnedIp :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Types.CustomerOwnedIp)
+niaCustomerOwnedIp = Lens.field @"customerOwnedIp"
+{-# DEPRECATED niaCustomerOwnedIp "Use generic-lens or generic-optics with 'customerOwnedIp' instead." #-}
 
 -- | The ID of the Elastic IP address owner.
 --
 -- /Note:/ Consider using 'ipOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaIPOwnerId :: Lens.Lens' NetworkInterfaceAssociation (Lude.Maybe Lude.Text)
-niaIPOwnerId = Lens.lens (ipOwnerId :: NetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {ipOwnerId = a} :: NetworkInterfaceAssociation)
-{-# DEPRECATED niaIPOwnerId "Use generic-lens or generic-optics with 'ipOwnerId' instead." #-}
+niaIpOwnerId :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Types.IpOwnerId)
+niaIpOwnerId = Lens.field @"ipOwnerId"
+{-# DEPRECATED niaIpOwnerId "Use generic-lens or generic-optics with 'ipOwnerId' instead." #-}
 
--- | The customer-owned IP address associated with the network interface.
+-- | The public DNS name.
 --
--- /Note:/ Consider using 'customerOwnedIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaCustomerOwnedIP :: Lens.Lens' NetworkInterfaceAssociation (Lude.Maybe Lude.Text)
-niaCustomerOwnedIP = Lens.lens (customerOwnedIP :: NetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIP = a} :: NetworkInterfaceAssociation)
-{-# DEPRECATED niaCustomerOwnedIP "Use generic-lens or generic-optics with 'customerOwnedIP' instead." #-}
+-- /Note:/ Consider using 'publicDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaPublicDnsName :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Types.PublicDnsName)
+niaPublicDnsName = Lens.field @"publicDnsName"
+{-# DEPRECATED niaPublicDnsName "Use generic-lens or generic-optics with 'publicDnsName' instead." #-}
 
 -- | The address of the Elastic IP address bound to the network interface.
 --
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niaPublicIP :: Lens.Lens' NetworkInterfaceAssociation (Lude.Maybe Lude.Text)
-niaPublicIP = Lens.lens (publicIP :: NetworkInterfaceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: NetworkInterfaceAssociation)
-{-# DEPRECATED niaPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niaPublicIp :: Lens.Lens' NetworkInterfaceAssociation (Core.Maybe Types.PublicIp)
+niaPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED niaPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
 
-instance Lude.FromXML NetworkInterfaceAssociation where
+instance Core.FromXML NetworkInterfaceAssociation where
   parseXML x =
     NetworkInterfaceAssociation'
-      Lude.<$> (x Lude..@? "associationId")
-      Lude.<*> (x Lude..@? "publicDnsName")
-      Lude.<*> (x Lude..@? "allocationId")
-      Lude.<*> (x Lude..@? "carrierIp")
-      Lude.<*> (x Lude..@? "ipOwnerId")
-      Lude.<*> (x Lude..@? "customerOwnedIp")
-      Lude.<*> (x Lude..@? "publicIp")
+      Core.<$> (x Core..@? "allocationId")
+      Core.<*> (x Core..@? "associationId")
+      Core.<*> (x Core..@? "carrierIp")
+      Core.<*> (x Core..@? "customerOwnedIp")
+      Core.<*> (x Core..@? "ipOwnerId")
+      Core.<*> (x Core..@? "publicDnsName")
+      Core.<*> (x Core..@? "publicIp")

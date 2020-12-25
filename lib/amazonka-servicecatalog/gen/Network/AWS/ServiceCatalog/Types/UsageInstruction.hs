@@ -17,54 +17,51 @@ module Network.AWS.ServiceCatalog.Types.UsageInstruction
     mkUsageInstruction,
 
     -- * Lenses
-    uiValue,
     uiType,
+    uiValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.InstructionType as Types
+import qualified Network.AWS.ServiceCatalog.Types.Value as Types
 
 -- | Additional information provided by the administrator.
 --
 -- /See:/ 'mkUsageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
-  { -- | The usage instruction value for this type.
-    value :: Lude.Maybe Lude.Text,
-    -- | The usage instruction type for the value.
-    type' :: Lude.Maybe Lude.Text
+  { -- | The usage instruction type for the value.
+    type' :: Core.Maybe Types.InstructionType,
+    -- | The usage instruction value for this type.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UsageInstruction' with the minimum fields required to make a request.
---
--- * 'value' - The usage instruction value for this type.
--- * 'type'' - The usage instruction type for the value.
+-- | Creates a 'UsageInstruction' value with any optional fields omitted.
 mkUsageInstruction ::
   UsageInstruction
 mkUsageInstruction =
-  UsageInstruction' {value = Lude.Nothing, type' = Lude.Nothing}
-
--- | The usage instruction value for this type.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiValue :: Lens.Lens' UsageInstruction (Lude.Maybe Lude.Text)
-uiValue = Lens.lens (value :: UsageInstruction -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: UsageInstruction)
-{-# DEPRECATED uiValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  UsageInstruction' {type' = Core.Nothing, value = Core.Nothing}
 
 -- | The usage instruction type for the value.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiType :: Lens.Lens' UsageInstruction (Lude.Maybe Lude.Text)
-uiType = Lens.lens (type' :: UsageInstruction -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: UsageInstruction)
+uiType :: Lens.Lens' UsageInstruction (Core.Maybe Types.InstructionType)
+uiType = Lens.field @"type'"
 {-# DEPRECATED uiType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON UsageInstruction where
+-- | The usage instruction value for this type.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiValue :: Lens.Lens' UsageInstruction (Core.Maybe Types.Value)
+uiValue = Lens.field @"value"
+{-# DEPRECATED uiValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON UsageInstruction where
   parseJSON =
-    Lude.withObject
-      "UsageInstruction"
-      ( \x ->
-          UsageInstruction'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "UsageInstruction" Core.$
+      \x ->
+        UsageInstruction'
+          Core.<$> (x Core..:? "Type") Core.<*> (x Core..:? "Value")

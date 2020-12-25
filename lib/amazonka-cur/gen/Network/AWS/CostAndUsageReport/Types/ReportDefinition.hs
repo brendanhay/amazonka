@@ -17,215 +17,204 @@ module Network.AWS.CostAndUsageReport.Types.ReportDefinition
     mkReportDefinition,
 
     -- * Lenses
-    rdReportVersioning,
-    rdS3Region,
-    rdFormat,
-    rdTimeUnit,
-    rdCompression,
     rdReportName,
+    rdTimeUnit,
+    rdFormat,
+    rdCompression,
+    rdAdditionalSchemaElements,
+    rdS3Bucket,
+    rdS3Prefix,
+    rdS3Region,
     rdAdditionalArtifacts,
     rdRefreshClosedReports,
-    rdAdditionalSchemaElements,
-    rdS3Prefix,
-    rdS3Bucket,
+    rdReportVersioning,
   )
 where
 
-import Network.AWS.CostAndUsageReport.Types.AWSRegion
-import Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
-import Network.AWS.CostAndUsageReport.Types.CompressionFormat
-import Network.AWS.CostAndUsageReport.Types.ReportFormat
-import Network.AWS.CostAndUsageReport.Types.ReportVersioning
-import Network.AWS.CostAndUsageReport.Types.SchemaElement
-import Network.AWS.CostAndUsageReport.Types.TimeUnit
+import qualified Network.AWS.CostAndUsageReport.Types.AWSRegion as Types
+import qualified Network.AWS.CostAndUsageReport.Types.AdditionalArtifact as Types
+import qualified Network.AWS.CostAndUsageReport.Types.CompressionFormat as Types
+import qualified Network.AWS.CostAndUsageReport.Types.ReportFormat as Types
+import qualified Network.AWS.CostAndUsageReport.Types.ReportName as Types
+import qualified Network.AWS.CostAndUsageReport.Types.ReportVersioning as Types
+import qualified Network.AWS.CostAndUsageReport.Types.S3Bucket as Types
+import qualified Network.AWS.CostAndUsageReport.Types.S3Prefix as Types
+import qualified Network.AWS.CostAndUsageReport.Types.SchemaElement as Types
+import qualified Network.AWS.CostAndUsageReport.Types.TimeUnit as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The definition of AWS Cost and Usage Report. You can specify the report name, time unit, report format, compression format, S3 bucket, additional artifacts, and schema elements in the definition.
 --
 -- /See:/ 'mkReportDefinition' smart constructor.
 data ReportDefinition = ReportDefinition'
-  { -- | Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
-    reportVersioning :: Lude.Maybe ReportVersioning,
-    s3Region :: AWSRegion,
-    format :: ReportFormat,
-    timeUnit :: TimeUnit,
-    compression :: CompressionFormat,
-    reportName :: Lude.Text,
-    -- | A list of manifests that you want Amazon Web Services to create for this report.
-    additionalArtifacts :: Lude.Maybe [AdditionalArtifact],
-    -- | Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.
-    refreshClosedReports :: Lude.Maybe Lude.Bool,
+  { reportName :: Types.ReportName,
+    timeUnit :: Types.TimeUnit,
+    format :: Types.ReportFormat,
+    compression :: Types.CompressionFormat,
     -- | A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
-    additionalSchemaElements :: [SchemaElement],
-    s3Prefix :: Lude.Text,
-    s3Bucket :: Lude.Text
+    additionalSchemaElements :: [Types.SchemaElement],
+    s3Bucket :: Types.S3Bucket,
+    s3Prefix :: Types.S3Prefix,
+    s3Region :: Types.AWSRegion,
+    -- | A list of manifests that you want Amazon Web Services to create for this report.
+    additionalArtifacts :: Core.Maybe [Types.AdditionalArtifact],
+    -- | Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.
+    refreshClosedReports :: Core.Maybe Core.Bool,
+    -- | Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+    reportVersioning :: Core.Maybe Types.ReportVersioning
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportDefinition' with the minimum fields required to make a request.
---
--- * 'reportVersioning' - Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
--- * 's3Region' -
--- * 'format' -
--- * 'timeUnit' -
--- * 'compression' -
--- * 'reportName' -
--- * 'additionalArtifacts' - A list of manifests that you want Amazon Web Services to create for this report.
--- * 'refreshClosedReports' - Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.
--- * 'additionalSchemaElements' - A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
--- * 's3Prefix' -
--- * 's3Bucket' -
+-- | Creates a 'ReportDefinition' value with any optional fields omitted.
 mkReportDefinition ::
-  -- | 's3Region'
-  AWSRegion ->
-  -- | 'format'
-  ReportFormat ->
-  -- | 'timeUnit'
-  TimeUnit ->
-  -- | 'compression'
-  CompressionFormat ->
   -- | 'reportName'
-  Lude.Text ->
-  -- | 's3Prefix'
-  Lude.Text ->
+  Types.ReportName ->
+  -- | 'timeUnit'
+  Types.TimeUnit ->
+  -- | 'format'
+  Types.ReportFormat ->
+  -- | 'compression'
+  Types.CompressionFormat ->
   -- | 's3Bucket'
-  Lude.Text ->
+  Types.S3Bucket ->
+  -- | 's3Prefix'
+  Types.S3Prefix ->
+  -- | 's3Region'
+  Types.AWSRegion ->
   ReportDefinition
 mkReportDefinition
-  pS3Region_
-  pFormat_
-  pTimeUnit_
-  pCompression_
-  pReportName_
-  pS3Prefix_
-  pS3Bucket_ =
+  reportName
+  timeUnit
+  format
+  compression
+  s3Bucket
+  s3Prefix
+  s3Region =
     ReportDefinition'
-      { reportVersioning = Lude.Nothing,
-        s3Region = pS3Region_,
-        format = pFormat_,
-        timeUnit = pTimeUnit_,
-        compression = pCompression_,
-        reportName = pReportName_,
-        additionalArtifacts = Lude.Nothing,
-        refreshClosedReports = Lude.Nothing,
-        additionalSchemaElements = Lude.mempty,
-        s3Prefix = pS3Prefix_,
-        s3Bucket = pS3Bucket_
+      { reportName,
+        timeUnit,
+        format,
+        compression,
+        additionalSchemaElements = Core.mempty,
+        s3Bucket,
+        s3Prefix,
+        s3Region,
+        additionalArtifacts = Core.Nothing,
+        refreshClosedReports = Core.Nothing,
+        reportVersioning = Core.Nothing
       }
-
--- | Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
---
--- /Note:/ Consider using 'reportVersioning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdReportVersioning :: Lens.Lens' ReportDefinition (Lude.Maybe ReportVersioning)
-rdReportVersioning = Lens.lens (reportVersioning :: ReportDefinition -> Lude.Maybe ReportVersioning) (\s a -> s {reportVersioning = a} :: ReportDefinition)
-{-# DEPRECATED rdReportVersioning "Use generic-lens or generic-optics with 'reportVersioning' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 's3Region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdS3Region :: Lens.Lens' ReportDefinition AWSRegion
-rdS3Region = Lens.lens (s3Region :: ReportDefinition -> AWSRegion) (\s a -> s {s3Region = a} :: ReportDefinition)
-{-# DEPRECATED rdS3Region "Use generic-lens or generic-optics with 's3Region' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdFormat :: Lens.Lens' ReportDefinition ReportFormat
-rdFormat = Lens.lens (format :: ReportDefinition -> ReportFormat) (\s a -> s {format = a} :: ReportDefinition)
-{-# DEPRECATED rdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'timeUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdTimeUnit :: Lens.Lens' ReportDefinition TimeUnit
-rdTimeUnit = Lens.lens (timeUnit :: ReportDefinition -> TimeUnit) (\s a -> s {timeUnit = a} :: ReportDefinition)
-{-# DEPRECATED rdTimeUnit "Use generic-lens or generic-optics with 'timeUnit' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'compression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdCompression :: Lens.Lens' ReportDefinition CompressionFormat
-rdCompression = Lens.lens (compression :: ReportDefinition -> CompressionFormat) (\s a -> s {compression = a} :: ReportDefinition)
-{-# DEPRECATED rdCompression "Use generic-lens or generic-optics with 'compression' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'reportName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdReportName :: Lens.Lens' ReportDefinition Lude.Text
-rdReportName = Lens.lens (reportName :: ReportDefinition -> Lude.Text) (\s a -> s {reportName = a} :: ReportDefinition)
+rdReportName :: Lens.Lens' ReportDefinition Types.ReportName
+rdReportName = Lens.field @"reportName"
 {-# DEPRECATED rdReportName "Use generic-lens or generic-optics with 'reportName' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'timeUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdTimeUnit :: Lens.Lens' ReportDefinition Types.TimeUnit
+rdTimeUnit = Lens.field @"timeUnit"
+{-# DEPRECATED rdTimeUnit "Use generic-lens or generic-optics with 'timeUnit' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdFormat :: Lens.Lens' ReportDefinition Types.ReportFormat
+rdFormat = Lens.field @"format"
+{-# DEPRECATED rdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'compression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdCompression :: Lens.Lens' ReportDefinition Types.CompressionFormat
+rdCompression = Lens.field @"compression"
+{-# DEPRECATED rdCompression "Use generic-lens or generic-optics with 'compression' instead." #-}
+
+-- | A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
+--
+-- /Note:/ Consider using 'additionalSchemaElements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdAdditionalSchemaElements :: Lens.Lens' ReportDefinition [Types.SchemaElement]
+rdAdditionalSchemaElements = Lens.field @"additionalSchemaElements"
+{-# DEPRECATED rdAdditionalSchemaElements "Use generic-lens or generic-optics with 'additionalSchemaElements' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdS3Bucket :: Lens.Lens' ReportDefinition Types.S3Bucket
+rdS3Bucket = Lens.field @"s3Bucket"
+{-# DEPRECATED rdS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdS3Prefix :: Lens.Lens' ReportDefinition Types.S3Prefix
+rdS3Prefix = Lens.field @"s3Prefix"
+{-# DEPRECATED rdS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 's3Region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdS3Region :: Lens.Lens' ReportDefinition Types.AWSRegion
+rdS3Region = Lens.field @"s3Region"
+{-# DEPRECATED rdS3Region "Use generic-lens or generic-optics with 's3Region' instead." #-}
 
 -- | A list of manifests that you want Amazon Web Services to create for this report.
 --
 -- /Note:/ Consider using 'additionalArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdAdditionalArtifacts :: Lens.Lens' ReportDefinition (Lude.Maybe [AdditionalArtifact])
-rdAdditionalArtifacts = Lens.lens (additionalArtifacts :: ReportDefinition -> Lude.Maybe [AdditionalArtifact]) (\s a -> s {additionalArtifacts = a} :: ReportDefinition)
+rdAdditionalArtifacts :: Lens.Lens' ReportDefinition (Core.Maybe [Types.AdditionalArtifact])
+rdAdditionalArtifacts = Lens.field @"additionalArtifacts"
 {-# DEPRECATED rdAdditionalArtifacts "Use generic-lens or generic-optics with 'additionalArtifacts' instead." #-}
 
 -- | Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.
 --
 -- /Note:/ Consider using 'refreshClosedReports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdRefreshClosedReports :: Lens.Lens' ReportDefinition (Lude.Maybe Lude.Bool)
-rdRefreshClosedReports = Lens.lens (refreshClosedReports :: ReportDefinition -> Lude.Maybe Lude.Bool) (\s a -> s {refreshClosedReports = a} :: ReportDefinition)
+rdRefreshClosedReports :: Lens.Lens' ReportDefinition (Core.Maybe Core.Bool)
+rdRefreshClosedReports = Lens.field @"refreshClosedReports"
 {-# DEPRECATED rdRefreshClosedReports "Use generic-lens or generic-optics with 'refreshClosedReports' instead." #-}
 
--- | A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
+-- | Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
 --
--- /Note:/ Consider using 'additionalSchemaElements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdAdditionalSchemaElements :: Lens.Lens' ReportDefinition [SchemaElement]
-rdAdditionalSchemaElements = Lens.lens (additionalSchemaElements :: ReportDefinition -> [SchemaElement]) (\s a -> s {additionalSchemaElements = a} :: ReportDefinition)
-{-# DEPRECATED rdAdditionalSchemaElements "Use generic-lens or generic-optics with 'additionalSchemaElements' instead." #-}
+-- /Note:/ Consider using 'reportVersioning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdReportVersioning :: Lens.Lens' ReportDefinition (Core.Maybe Types.ReportVersioning)
+rdReportVersioning = Lens.field @"reportVersioning"
+{-# DEPRECATED rdReportVersioning "Use generic-lens or generic-optics with 'reportVersioning' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdS3Prefix :: Lens.Lens' ReportDefinition Lude.Text
-rdS3Prefix = Lens.lens (s3Prefix :: ReportDefinition -> Lude.Text) (\s a -> s {s3Prefix = a} :: ReportDefinition)
-{-# DEPRECATED rdS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdS3Bucket :: Lens.Lens' ReportDefinition Lude.Text
-rdS3Bucket = Lens.lens (s3Bucket :: ReportDefinition -> Lude.Text) (\s a -> s {s3Bucket = a} :: ReportDefinition)
-{-# DEPRECATED rdS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
-
-instance Lude.FromJSON ReportDefinition where
-  parseJSON =
-    Lude.withObject
-      "ReportDefinition"
-      ( \x ->
-          ReportDefinition'
-            Lude.<$> (x Lude..:? "ReportVersioning")
-            Lude.<*> (x Lude..: "S3Region")
-            Lude.<*> (x Lude..: "Format")
-            Lude.<*> (x Lude..: "TimeUnit")
-            Lude.<*> (x Lude..: "Compression")
-            Lude.<*> (x Lude..: "ReportName")
-            Lude.<*> (x Lude..:? "AdditionalArtifacts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "RefreshClosedReports")
-            Lude.<*> (x Lude..:? "AdditionalSchemaElements" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "S3Prefix")
-            Lude.<*> (x Lude..: "S3Bucket")
-      )
-
-instance Lude.ToJSON ReportDefinition where
-  toJSON ReportDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ReportVersioning" Lude..=) Lude.<$> reportVersioning,
-            Lude.Just ("S3Region" Lude..= s3Region),
-            Lude.Just ("Format" Lude..= format),
-            Lude.Just ("TimeUnit" Lude..= timeUnit),
-            Lude.Just ("Compression" Lude..= compression),
-            Lude.Just ("ReportName" Lude..= reportName),
-            ("AdditionalArtifacts" Lude..=) Lude.<$> additionalArtifacts,
-            ("RefreshClosedReports" Lude..=) Lude.<$> refreshClosedReports,
-            Lude.Just
-              ("AdditionalSchemaElements" Lude..= additionalSchemaElements),
-            Lude.Just ("S3Prefix" Lude..= s3Prefix),
-            Lude.Just ("S3Bucket" Lude..= s3Bucket)
+instance Core.FromJSON ReportDefinition where
+  toJSON ReportDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ReportName" Core..= reportName),
+            Core.Just ("TimeUnit" Core..= timeUnit),
+            Core.Just ("Format" Core..= format),
+            Core.Just ("Compression" Core..= compression),
+            Core.Just
+              ("AdditionalSchemaElements" Core..= additionalSchemaElements),
+            Core.Just ("S3Bucket" Core..= s3Bucket),
+            Core.Just ("S3Prefix" Core..= s3Prefix),
+            Core.Just ("S3Region" Core..= s3Region),
+            ("AdditionalArtifacts" Core..=) Core.<$> additionalArtifacts,
+            ("RefreshClosedReports" Core..=) Core.<$> refreshClosedReports,
+            ("ReportVersioning" Core..=) Core.<$> reportVersioning
           ]
       )
+
+instance Core.FromJSON ReportDefinition where
+  parseJSON =
+    Core.withObject "ReportDefinition" Core.$
+      \x ->
+        ReportDefinition'
+          Core.<$> (x Core..: "ReportName")
+          Core.<*> (x Core..: "TimeUnit")
+          Core.<*> (x Core..: "Format")
+          Core.<*> (x Core..: "Compression")
+          Core.<*> (x Core..:? "AdditionalSchemaElements" Core..!= Core.mempty)
+          Core.<*> (x Core..: "S3Bucket")
+          Core.<*> (x Core..: "S3Prefix")
+          Core.<*> (x Core..: "S3Region")
+          Core.<*> (x Core..:? "AdditionalArtifacts")
+          Core.<*> (x Core..:? "RefreshClosedReports")
+          Core.<*> (x Core..:? "ReportVersioning")

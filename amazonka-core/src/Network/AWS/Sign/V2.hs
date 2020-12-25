@@ -1,9 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V2
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -31,9 +25,9 @@ import qualified Network.HTTP.Conduit as Client
 import Network.HTTP.Types hiding (toQuery)
 
 data V2 = V2
-  { metaTime :: !UTCTime,
-    metaEndpoint :: !Endpoint,
-    metaSignature :: !ByteString
+  { metaTime :: UTCTime,
+    metaEndpoint :: Endpoint,
+    metaSignature :: ByteString
   }
 
 instance ToLog V2 where

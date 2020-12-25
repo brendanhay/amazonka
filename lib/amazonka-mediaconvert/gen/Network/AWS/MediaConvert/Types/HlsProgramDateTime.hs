@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsProgramDateTime
   ( HlsProgramDateTime
       ( HlsProgramDateTime',
-        HPDTInclude,
-        HPDTExclude
+        HlsProgramDateTimeInclude,
+        HlsProgramDateTimeExclude,
+        fromHlsProgramDateTime
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
-newtype HlsProgramDateTime = HlsProgramDateTime' Lude.Text
+newtype HlsProgramDateTime = HlsProgramDateTime'
+  { fromHlsProgramDateTime ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HPDTInclude :: HlsProgramDateTime
-pattern HPDTInclude = HlsProgramDateTime' "INCLUDE"
+pattern HlsProgramDateTimeInclude :: HlsProgramDateTime
+pattern HlsProgramDateTimeInclude = HlsProgramDateTime' "INCLUDE"
 
-pattern HPDTExclude :: HlsProgramDateTime
-pattern HPDTExclude = HlsProgramDateTime' "EXCLUDE"
+pattern HlsProgramDateTimeExclude :: HlsProgramDateTime
+pattern HlsProgramDateTimeExclude = HlsProgramDateTime' "EXCLUDE"
 
 {-# COMPLETE
-  HPDTInclude,
-  HPDTExclude,
+  HlsProgramDateTimeInclude,
+  HlsProgramDateTimeExclude,
   HlsProgramDateTime'
   #-}

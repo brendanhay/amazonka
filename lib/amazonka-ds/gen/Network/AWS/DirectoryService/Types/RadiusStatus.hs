@@ -13,51 +13,53 @@
 module Network.AWS.DirectoryService.Types.RadiusStatus
   ( RadiusStatus
       ( RadiusStatus',
-        RSCreating,
-        RSCompleted,
-        RSFailed
+        RadiusStatusCreating,
+        RadiusStatusCompleted,
+        RadiusStatusFailed,
+        fromRadiusStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RadiusStatus = RadiusStatus' Lude.Text
+newtype RadiusStatus = RadiusStatus' {fromRadiusStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSCreating :: RadiusStatus
-pattern RSCreating = RadiusStatus' "Creating"
+pattern RadiusStatusCreating :: RadiusStatus
+pattern RadiusStatusCreating = RadiusStatus' "Creating"
 
-pattern RSCompleted :: RadiusStatus
-pattern RSCompleted = RadiusStatus' "Completed"
+pattern RadiusStatusCompleted :: RadiusStatus
+pattern RadiusStatusCompleted = RadiusStatus' "Completed"
 
-pattern RSFailed :: RadiusStatus
-pattern RSFailed = RadiusStatus' "Failed"
+pattern RadiusStatusFailed :: RadiusStatus
+pattern RadiusStatusFailed = RadiusStatus' "Failed"
 
 {-# COMPLETE
-  RSCreating,
-  RSCompleted,
-  RSFailed,
+  RadiusStatusCreating,
+  RadiusStatusCompleted,
+  RadiusStatusFailed,
   RadiusStatus'
   #-}

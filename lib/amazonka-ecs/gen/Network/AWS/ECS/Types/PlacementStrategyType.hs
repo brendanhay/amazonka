@@ -13,51 +13,56 @@
 module Network.AWS.ECS.Types.PlacementStrategyType
   ( PlacementStrategyType
       ( PlacementStrategyType',
-        Random,
-        Spread,
-        Binpack
+        PlacementStrategyTypeRandom,
+        PlacementStrategyTypeSpread,
+        PlacementStrategyTypeBinpack,
+        fromPlacementStrategyType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PlacementStrategyType = PlacementStrategyType' Lude.Text
+newtype PlacementStrategyType = PlacementStrategyType'
+  { fromPlacementStrategyType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Random :: PlacementStrategyType
-pattern Random = PlacementStrategyType' "random"
+pattern PlacementStrategyTypeRandom :: PlacementStrategyType
+pattern PlacementStrategyTypeRandom = PlacementStrategyType' "random"
 
-pattern Spread :: PlacementStrategyType
-pattern Spread = PlacementStrategyType' "spread"
+pattern PlacementStrategyTypeSpread :: PlacementStrategyType
+pattern PlacementStrategyTypeSpread = PlacementStrategyType' "spread"
 
-pattern Binpack :: PlacementStrategyType
-pattern Binpack = PlacementStrategyType' "binpack"
+pattern PlacementStrategyTypeBinpack :: PlacementStrategyType
+pattern PlacementStrategyTypeBinpack = PlacementStrategyType' "binpack"
 
 {-# COMPLETE
-  Random,
-  Spread,
-  Binpack,
+  PlacementStrategyTypeRandom,
+  PlacementStrategyTypeSpread,
+  PlacementStrategyTypeBinpack,
   PlacementStrategyType'
   #-}

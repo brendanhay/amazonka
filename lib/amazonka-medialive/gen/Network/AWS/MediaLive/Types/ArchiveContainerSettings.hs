@@ -23,60 +23,55 @@ module Network.AWS.MediaLive.Types.ArchiveContainerSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.M2tsSettings
-import Network.AWS.MediaLive.Types.RawSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.M2tsSettings as Types
+import qualified Network.AWS.MediaLive.Types.RawSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Archive Container Settings
 --
 -- /See:/ 'mkArchiveContainerSettings' smart constructor.
 data ArchiveContainerSettings = ArchiveContainerSettings'
-  { m2tsSettings :: Lude.Maybe M2tsSettings,
-    rawSettings :: Lude.Maybe RawSettings
+  { m2tsSettings :: Core.Maybe Types.M2tsSettings,
+    rawSettings :: Core.Maybe Types.RawSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArchiveContainerSettings' with the minimum fields required to make a request.
---
--- * 'm2tsSettings' -
--- * 'rawSettings' -
+-- | Creates a 'ArchiveContainerSettings' value with any optional fields omitted.
 mkArchiveContainerSettings ::
   ArchiveContainerSettings
 mkArchiveContainerSettings =
   ArchiveContainerSettings'
-    { m2tsSettings = Lude.Nothing,
-      rawSettings = Lude.Nothing
+    { m2tsSettings = Core.Nothing,
+      rawSettings = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'm2tsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsM2tsSettings :: Lens.Lens' ArchiveContainerSettings (Lude.Maybe M2tsSettings)
-acsM2tsSettings = Lens.lens (m2tsSettings :: ArchiveContainerSettings -> Lude.Maybe M2tsSettings) (\s a -> s {m2tsSettings = a} :: ArchiveContainerSettings)
+acsM2tsSettings :: Lens.Lens' ArchiveContainerSettings (Core.Maybe Types.M2tsSettings)
+acsM2tsSettings = Lens.field @"m2tsSettings"
 {-# DEPRECATED acsM2tsSettings "Use generic-lens or generic-optics with 'm2tsSettings' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'rawSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsRawSettings :: Lens.Lens' ArchiveContainerSettings (Lude.Maybe RawSettings)
-acsRawSettings = Lens.lens (rawSettings :: ArchiveContainerSettings -> Lude.Maybe RawSettings) (\s a -> s {rawSettings = a} :: ArchiveContainerSettings)
+acsRawSettings :: Lens.Lens' ArchiveContainerSettings (Core.Maybe Types.RawSettings)
+acsRawSettings = Lens.field @"rawSettings"
 {-# DEPRECATED acsRawSettings "Use generic-lens or generic-optics with 'rawSettings' instead." #-}
 
-instance Lude.FromJSON ArchiveContainerSettings where
-  parseJSON =
-    Lude.withObject
-      "ArchiveContainerSettings"
-      ( \x ->
-          ArchiveContainerSettings'
-            Lude.<$> (x Lude..:? "m2tsSettings") Lude.<*> (x Lude..:? "rawSettings")
-      )
-
-instance Lude.ToJSON ArchiveContainerSettings where
-  toJSON ArchiveContainerSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("m2tsSettings" Lude..=) Lude.<$> m2tsSettings,
-            ("rawSettings" Lude..=) Lude.<$> rawSettings
+instance Core.FromJSON ArchiveContainerSettings where
+  toJSON ArchiveContainerSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("m2tsSettings" Core..=) Core.<$> m2tsSettings,
+            ("rawSettings" Core..=) Core.<$> rawSettings
           ]
       )
+
+instance Core.FromJSON ArchiveContainerSettings where
+  parseJSON =
+    Core.withObject "ArchiveContainerSettings" Core.$
+      \x ->
+        ArchiveContainerSettings'
+          Core.<$> (x Core..:? "m2tsSettings") Core.<*> (x Core..:? "rawSettings")

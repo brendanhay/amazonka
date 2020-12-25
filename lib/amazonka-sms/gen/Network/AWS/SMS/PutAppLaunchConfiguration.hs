@@ -20,152 +20,135 @@ module Network.AWS.SMS.PutAppLaunchConfiguration
     mkPutAppLaunchConfiguration,
 
     -- ** Request lenses
-    palcServerGroupLaunchConfigurations,
+    palcAppId,
     palcAutoLaunch,
     palcRoleName,
-    palcAppId,
+    palcServerGroupLaunchConfigurations,
 
     -- * Destructuring the response
     PutAppLaunchConfigurationResponse (..),
     mkPutAppLaunchConfigurationResponse,
 
     -- ** Response lenses
-    palcrsResponseStatus,
+    palcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkPutAppLaunchConfiguration' smart constructor.
 data PutAppLaunchConfiguration = PutAppLaunchConfiguration'
-  { -- | Information about the launch configurations for server groups in the application.
-    serverGroupLaunchConfigurations :: Lude.Maybe [ServerGroupLaunchConfiguration],
+  { -- | The ID of the application.
+    appId :: Core.Maybe Types.AppId,
     -- | Indicates whether the application is configured to launch automatically after replication is complete.
-    autoLaunch :: Lude.Maybe Lude.Bool,
+    autoLaunch :: Core.Maybe Core.Bool,
     -- | The name of service role in the customer's account that AWS CloudFormation uses to launch the application.
-    roleName :: Lude.Maybe Lude.Text,
-    -- | The ID of the application.
-    appId :: Lude.Maybe Lude.Text
+    roleName :: Core.Maybe Types.RoleName,
+    -- | Information about the launch configurations for server groups in the application.
+    serverGroupLaunchConfigurations :: Core.Maybe [Types.ServerGroupLaunchConfiguration]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutAppLaunchConfiguration' with the minimum fields required to make a request.
---
--- * 'serverGroupLaunchConfigurations' - Information about the launch configurations for server groups in the application.
--- * 'autoLaunch' - Indicates whether the application is configured to launch automatically after replication is complete.
--- * 'roleName' - The name of service role in the customer's account that AWS CloudFormation uses to launch the application.
--- * 'appId' - The ID of the application.
+-- | Creates a 'PutAppLaunchConfiguration' value with any optional fields omitted.
 mkPutAppLaunchConfiguration ::
   PutAppLaunchConfiguration
 mkPutAppLaunchConfiguration =
   PutAppLaunchConfiguration'
-    { serverGroupLaunchConfigurations =
-        Lude.Nothing,
-      autoLaunch = Lude.Nothing,
-      roleName = Lude.Nothing,
-      appId = Lude.Nothing
+    { appId = Core.Nothing,
+      autoLaunch = Core.Nothing,
+      roleName = Core.Nothing,
+      serverGroupLaunchConfigurations = Core.Nothing
     }
 
--- | Information about the launch configurations for server groups in the application.
+-- | The ID of the application.
 --
--- /Note:/ Consider using 'serverGroupLaunchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-palcServerGroupLaunchConfigurations :: Lens.Lens' PutAppLaunchConfiguration (Lude.Maybe [ServerGroupLaunchConfiguration])
-palcServerGroupLaunchConfigurations = Lens.lens (serverGroupLaunchConfigurations :: PutAppLaunchConfiguration -> Lude.Maybe [ServerGroupLaunchConfiguration]) (\s a -> s {serverGroupLaunchConfigurations = a} :: PutAppLaunchConfiguration)
-{-# DEPRECATED palcServerGroupLaunchConfigurations "Use generic-lens or generic-optics with 'serverGroupLaunchConfigurations' instead." #-}
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+palcAppId :: Lens.Lens' PutAppLaunchConfiguration (Core.Maybe Types.AppId)
+palcAppId = Lens.field @"appId"
+{-# DEPRECATED palcAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
 -- | Indicates whether the application is configured to launch automatically after replication is complete.
 --
 -- /Note:/ Consider using 'autoLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-palcAutoLaunch :: Lens.Lens' PutAppLaunchConfiguration (Lude.Maybe Lude.Bool)
-palcAutoLaunch = Lens.lens (autoLaunch :: PutAppLaunchConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {autoLaunch = a} :: PutAppLaunchConfiguration)
+palcAutoLaunch :: Lens.Lens' PutAppLaunchConfiguration (Core.Maybe Core.Bool)
+palcAutoLaunch = Lens.field @"autoLaunch"
 {-# DEPRECATED palcAutoLaunch "Use generic-lens or generic-optics with 'autoLaunch' instead." #-}
 
 -- | The name of service role in the customer's account that AWS CloudFormation uses to launch the application.
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-palcRoleName :: Lens.Lens' PutAppLaunchConfiguration (Lude.Maybe Lude.Text)
-palcRoleName = Lens.lens (roleName :: PutAppLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: PutAppLaunchConfiguration)
+palcRoleName :: Lens.Lens' PutAppLaunchConfiguration (Core.Maybe Types.RoleName)
+palcRoleName = Lens.field @"roleName"
 {-# DEPRECATED palcRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
--- | The ID of the application.
+-- | Information about the launch configurations for server groups in the application.
 --
--- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-palcAppId :: Lens.Lens' PutAppLaunchConfiguration (Lude.Maybe Lude.Text)
-palcAppId = Lens.lens (appId :: PutAppLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: PutAppLaunchConfiguration)
-{-# DEPRECATED palcAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
+-- /Note:/ Consider using 'serverGroupLaunchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+palcServerGroupLaunchConfigurations :: Lens.Lens' PutAppLaunchConfiguration (Core.Maybe [Types.ServerGroupLaunchConfiguration])
+palcServerGroupLaunchConfigurations = Lens.field @"serverGroupLaunchConfigurations"
+{-# DEPRECATED palcServerGroupLaunchConfigurations "Use generic-lens or generic-optics with 'serverGroupLaunchConfigurations' instead." #-}
 
-instance Lude.AWSRequest PutAppLaunchConfiguration where
+instance Core.FromJSON PutAppLaunchConfiguration where
+  toJSON PutAppLaunchConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("appId" Core..=) Core.<$> appId,
+            ("autoLaunch" Core..=) Core.<$> autoLaunch,
+            ("roleName" Core..=) Core.<$> roleName,
+            ("serverGroupLaunchConfigurations" Core..=)
+              Core.<$> serverGroupLaunchConfigurations
+          ]
+      )
+
+instance Core.AWSRequest PutAppLaunchConfiguration where
   type
     Rs PutAppLaunchConfiguration =
       PutAppLaunchConfigurationResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutAppLaunchConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutAppLaunchConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutAppLaunchConfiguration where
-  toJSON PutAppLaunchConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serverGroupLaunchConfigurations" Lude..=)
-              Lude.<$> serverGroupLaunchConfigurations,
-            ("autoLaunch" Lude..=) Lude.<$> autoLaunch,
-            ("roleName" Lude..=) Lude.<$> roleName,
-            ("appId" Lude..=) Lude.<$> appId
-          ]
-      )
-
-instance Lude.ToPath PutAppLaunchConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutAppLaunchConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutAppLaunchConfigurationResponse' smart constructor.
 newtype PutAppLaunchConfigurationResponse = PutAppLaunchConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutAppLaunchConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutAppLaunchConfigurationResponse' value with any optional fields omitted.
 mkPutAppLaunchConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutAppLaunchConfigurationResponse
-mkPutAppLaunchConfigurationResponse pResponseStatus_ =
-  PutAppLaunchConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkPutAppLaunchConfigurationResponse responseStatus =
+  PutAppLaunchConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-palcrsResponseStatus :: Lens.Lens' PutAppLaunchConfigurationResponse Lude.Int
-palcrsResponseStatus = Lens.lens (responseStatus :: PutAppLaunchConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAppLaunchConfigurationResponse)
-{-# DEPRECATED palcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+palcrrsResponseStatus :: Lens.Lens' PutAppLaunchConfigurationResponse Core.Int
+palcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED palcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

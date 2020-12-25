@@ -20,8 +20,8 @@ module Network.AWS.Route53.CreateTrafficPolicy
     mkCreateTrafficPolicy,
 
     -- ** Request lenses
-    ctpDocument,
     ctpName,
+    ctpDocument,
     ctpComment,
 
     -- * Destructuring the response
@@ -29,159 +29,139 @@ module Network.AWS.Route53.CreateTrafficPolicy
     mkCreateTrafficPolicyResponse,
 
     -- ** Response lenses
-    ctprsLocation,
-    ctprsTrafficPolicy,
-    ctprsResponseStatus,
+    ctprrsTrafficPolicy,
+    ctprrsLocation,
+    ctprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains information about the traffic policy that you want to create.
 --
 -- /See:/ 'mkCreateTrafficPolicy' smart constructor.
 data CreateTrafficPolicy = CreateTrafficPolicy'
-  { -- | The definition of this traffic policy in JSON format. For more information, see <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
-    document :: Lude.Text,
-    -- | The name of the traffic policy.
-    name :: Lude.Text,
+  { -- | The name of the traffic policy.
+    name :: Types.TrafficPolicyName,
+    -- | The definition of this traffic policy in JSON format. For more information, see <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
+    document :: Types.TrafficPolicyDocument,
     -- | (Optional) Any comments that you want to include about the traffic policy.
-    comment :: Lude.Maybe Lude.Text
+    comment :: Core.Maybe Types.Comment
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrafficPolicy' with the minimum fields required to make a request.
---
--- * 'document' - The definition of this traffic policy in JSON format. For more information, see <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
--- * 'name' - The name of the traffic policy.
--- * 'comment' - (Optional) Any comments that you want to include about the traffic policy.
+-- | Creates a 'CreateTrafficPolicy' value with any optional fields omitted.
 mkCreateTrafficPolicy ::
-  -- | 'document'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.TrafficPolicyName ->
+  -- | 'document'
+  Types.TrafficPolicyDocument ->
   CreateTrafficPolicy
-mkCreateTrafficPolicy pDocument_ pName_ =
-  CreateTrafficPolicy'
-    { document = pDocument_,
-      name = pName_,
-      comment = Lude.Nothing
-    }
-
--- | The definition of this traffic policy in JSON format. For more information, see <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
---
--- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpDocument :: Lens.Lens' CreateTrafficPolicy Lude.Text
-ctpDocument = Lens.lens (document :: CreateTrafficPolicy -> Lude.Text) (\s a -> s {document = a} :: CreateTrafficPolicy)
-{-# DEPRECATED ctpDocument "Use generic-lens or generic-optics with 'document' instead." #-}
+mkCreateTrafficPolicy name document =
+  CreateTrafficPolicy' {name, document, comment = Core.Nothing}
 
 -- | The name of the traffic policy.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpName :: Lens.Lens' CreateTrafficPolicy Lude.Text
-ctpName = Lens.lens (name :: CreateTrafficPolicy -> Lude.Text) (\s a -> s {name = a} :: CreateTrafficPolicy)
+ctpName :: Lens.Lens' CreateTrafficPolicy Types.TrafficPolicyName
+ctpName = Lens.field @"name"
 {-# DEPRECATED ctpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The definition of this traffic policy in JSON format. For more information, see <https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
+--
+-- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpDocument :: Lens.Lens' CreateTrafficPolicy Types.TrafficPolicyDocument
+ctpDocument = Lens.field @"document"
+{-# DEPRECATED ctpDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
 -- | (Optional) Any comments that you want to include about the traffic policy.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpComment :: Lens.Lens' CreateTrafficPolicy (Lude.Maybe Lude.Text)
-ctpComment = Lens.lens (comment :: CreateTrafficPolicy -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: CreateTrafficPolicy)
+ctpComment :: Lens.Lens' CreateTrafficPolicy (Core.Maybe Types.Comment)
+ctpComment = Lens.field @"comment"
 {-# DEPRECATED ctpComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.AWSRequest CreateTrafficPolicy where
-  type Rs CreateTrafficPolicy = CreateTrafficPolicyResponse
-  request = Req.postXML route53Service
-  response =
-    Res.receiveXML
-      ( \s h x ->
-          CreateTrafficPolicyResponse'
-            Lude.<$> (h Lude..# "Location")
-            Lude.<*> (x Lude..@ "TrafficPolicy")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToElement CreateTrafficPolicy where
-  toElement =
-    Lude.mkElement
+instance Core.ToXML CreateTrafficPolicy where
+  toXML CreateTrafficPolicy {..} =
+    Core.toXMLNode "Name" name
+      Core.<> Core.toXMLNode "Document" document
+      Core.<> Core.toXMLNode "Comment" Core.<$> comment
+  toXMLDocument =
+    Core.mkXMLElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyRequest"
 
-instance Lude.ToHeaders CreateTrafficPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTrafficPolicy where
-  toPath = Lude.const "/2013-04-01/trafficpolicy"
-
-instance Lude.ToQuery CreateTrafficPolicy where
-  toQuery = Lude.const Lude.mempty
-
-instance Lude.ToXML CreateTrafficPolicy where
-  toXML CreateTrafficPolicy' {..} =
-    Lude.mconcat
-      [ "Document" Lude.@= document,
-        "Name" Lude.@= name,
-        "Comment" Lude.@= comment
-      ]
+instance Core.AWSRequest CreateTrafficPolicy where
+  type Rs CreateTrafficPolicy = CreateTrafficPolicyResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2013-04-01/trafficpolicy",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CreateTrafficPolicyResponse'
+            Core.<$> (x Core..@ "TrafficPolicy")
+            Core.<*> (Core.parseHeader "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | A complex type that contains the response information for the @CreateTrafficPolicy@ request.
 --
 -- /See:/ 'mkCreateTrafficPolicyResponse' smart constructor.
 data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'
-  { -- | A unique URL that represents a new traffic policy.
-    location :: Lude.Text,
-    -- | A complex type that contains settings for the new traffic policy.
-    trafficPolicy :: TrafficPolicy,
+  { -- | A complex type that contains settings for the new traffic policy.
+    trafficPolicy :: Types.TrafficPolicy,
+    -- | A unique URL that represents a new traffic policy.
+    location :: Types.ResourceURI,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrafficPolicyResponse' with the minimum fields required to make a request.
---
--- * 'location' - A unique URL that represents a new traffic policy.
--- * 'trafficPolicy' - A complex type that contains settings for the new traffic policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTrafficPolicyResponse' value with any optional fields omitted.
 mkCreateTrafficPolicyResponse ::
-  -- | 'location'
-  Lude.Text ->
   -- | 'trafficPolicy'
-  TrafficPolicy ->
+  Types.TrafficPolicy ->
+  -- | 'location'
+  Types.ResourceURI ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTrafficPolicyResponse
-mkCreateTrafficPolicyResponse
-  pLocation_
-  pTrafficPolicy_
-  pResponseStatus_ =
-    CreateTrafficPolicyResponse'
-      { location = pLocation_,
-        trafficPolicy = pTrafficPolicy_,
-        responseStatus = pResponseStatus_
-      }
-
--- | A unique URL that represents a new traffic policy.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctprsLocation :: Lens.Lens' CreateTrafficPolicyResponse Lude.Text
-ctprsLocation = Lens.lens (location :: CreateTrafficPolicyResponse -> Lude.Text) (\s a -> s {location = a} :: CreateTrafficPolicyResponse)
-{-# DEPRECATED ctprsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+mkCreateTrafficPolicyResponse trafficPolicy location responseStatus =
+  CreateTrafficPolicyResponse'
+    { trafficPolicy,
+      location,
+      responseStatus
+    }
 
 -- | A complex type that contains settings for the new traffic policy.
 --
 -- /Note:/ Consider using 'trafficPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctprsTrafficPolicy :: Lens.Lens' CreateTrafficPolicyResponse TrafficPolicy
-ctprsTrafficPolicy = Lens.lens (trafficPolicy :: CreateTrafficPolicyResponse -> TrafficPolicy) (\s a -> s {trafficPolicy = a} :: CreateTrafficPolicyResponse)
-{-# DEPRECATED ctprsTrafficPolicy "Use generic-lens or generic-optics with 'trafficPolicy' instead." #-}
+ctprrsTrafficPolicy :: Lens.Lens' CreateTrafficPolicyResponse Types.TrafficPolicy
+ctprrsTrafficPolicy = Lens.field @"trafficPolicy"
+{-# DEPRECATED ctprrsTrafficPolicy "Use generic-lens or generic-optics with 'trafficPolicy' instead." #-}
+
+-- | A unique URL that represents a new traffic policy.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctprrsLocation :: Lens.Lens' CreateTrafficPolicyResponse Types.ResourceURI
+ctprrsLocation = Lens.field @"location"
+{-# DEPRECATED ctprrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctprsResponseStatus :: Lens.Lens' CreateTrafficPolicyResponse Lude.Int
-ctprsResponseStatus = Lens.lens (responseStatus :: CreateTrafficPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTrafficPolicyResponse)
-{-# DEPRECATED ctprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctprrsResponseStatus :: Lens.Lens' CreateTrafficPolicyResponse Core.Int
+ctprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

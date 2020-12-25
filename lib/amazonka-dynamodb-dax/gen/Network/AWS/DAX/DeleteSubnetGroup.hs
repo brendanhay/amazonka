@@ -27,111 +27,99 @@ module Network.AWS.DAX.DeleteSubnetGroup
     mkDeleteSubnetGroupResponse,
 
     -- ** Response lenses
-    dsgrsDeletionMessage,
-    dsgrsResponseStatus,
+    dsgrrsDeletionMessage,
+    dsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.DAX.Types
+import qualified Network.AWS.DAX.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSubnetGroup' smart constructor.
 newtype DeleteSubnetGroup = DeleteSubnetGroup'
   { -- | The name of the subnet group to delete.
-    subnetGroupName :: Lude.Text
+    subnetGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSubnetGroup' with the minimum fields required to make a request.
---
--- * 'subnetGroupName' - The name of the subnet group to delete.
+-- | Creates a 'DeleteSubnetGroup' value with any optional fields omitted.
 mkDeleteSubnetGroup ::
   -- | 'subnetGroupName'
-  Lude.Text ->
+  Types.String ->
   DeleteSubnetGroup
-mkDeleteSubnetGroup pSubnetGroupName_ =
-  DeleteSubnetGroup' {subnetGroupName = pSubnetGroupName_}
+mkDeleteSubnetGroup subnetGroupName =
+  DeleteSubnetGroup' {subnetGroupName}
 
 -- | The name of the subnet group to delete.
 --
 -- /Note:/ Consider using 'subnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgSubnetGroupName :: Lens.Lens' DeleteSubnetGroup Lude.Text
-dsgSubnetGroupName = Lens.lens (subnetGroupName :: DeleteSubnetGroup -> Lude.Text) (\s a -> s {subnetGroupName = a} :: DeleteSubnetGroup)
+dsgSubnetGroupName :: Lens.Lens' DeleteSubnetGroup Types.String
+dsgSubnetGroupName = Lens.field @"subnetGroupName"
 {-# DEPRECATED dsgSubnetGroupName "Use generic-lens or generic-optics with 'subnetGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteSubnetGroup where
+instance Core.FromJSON DeleteSubnetGroup where
+  toJSON DeleteSubnetGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SubnetGroupName" Core..= subnetGroupName)]
+      )
+
+instance Core.AWSRequest DeleteSubnetGroup where
   type Rs DeleteSubnetGroup = DeleteSubnetGroupResponse
-  request = Req.postJSON daxService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonDAXV3.DeleteSubnetGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteSubnetGroupResponse'
-            Lude.<$> (x Lude..?> "DeletionMessage")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DeletionMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSubnetGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDAXV3.DeleteSubnetGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteSubnetGroup where
-  toJSON DeleteSubnetGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("SubnetGroupName" Lude..= subnetGroupName)]
-      )
-
-instance Lude.ToPath DeleteSubnetGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSubnetGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSubnetGroupResponse' smart constructor.
 data DeleteSubnetGroupResponse = DeleteSubnetGroupResponse'
   { -- | A user-specified message for this action (i.e., a reason for deleting the subnet group).
-    deletionMessage :: Lude.Maybe Lude.Text,
+    deletionMessage :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSubnetGroupResponse' with the minimum fields required to make a request.
---
--- * 'deletionMessage' - A user-specified message for this action (i.e., a reason for deleting the subnet group).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSubnetGroupResponse' value with any optional fields omitted.
 mkDeleteSubnetGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSubnetGroupResponse
-mkDeleteSubnetGroupResponse pResponseStatus_ =
+mkDeleteSubnetGroupResponse responseStatus =
   DeleteSubnetGroupResponse'
-    { deletionMessage = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deletionMessage = Core.Nothing,
+      responseStatus
     }
 
 -- | A user-specified message for this action (i.e., a reason for deleting the subnet group).
 --
 -- /Note:/ Consider using 'deletionMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgrsDeletionMessage :: Lens.Lens' DeleteSubnetGroupResponse (Lude.Maybe Lude.Text)
-dsgrsDeletionMessage = Lens.lens (deletionMessage :: DeleteSubnetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {deletionMessage = a} :: DeleteSubnetGroupResponse)
-{-# DEPRECATED dsgrsDeletionMessage "Use generic-lens or generic-optics with 'deletionMessage' instead." #-}
+dsgrrsDeletionMessage :: Lens.Lens' DeleteSubnetGroupResponse (Core.Maybe Types.String)
+dsgrrsDeletionMessage = Lens.field @"deletionMessage"
+{-# DEPRECATED dsgrrsDeletionMessage "Use generic-lens or generic-optics with 'deletionMessage' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgrsResponseStatus :: Lens.Lens' DeleteSubnetGroupResponse Lude.Int
-dsgrsResponseStatus = Lens.lens (responseStatus :: DeleteSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSubnetGroupResponse)
-{-# DEPRECATED dsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsgrrsResponseStatus :: Lens.Lens' DeleteSubnetGroupResponse Core.Int
+dsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

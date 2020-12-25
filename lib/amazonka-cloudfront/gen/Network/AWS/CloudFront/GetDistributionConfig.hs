@@ -27,114 +27,109 @@ module Network.AWS.CloudFront.GetDistributionConfig
     mkGetDistributionConfigResponse,
 
     -- ** Response lenses
-    gdcrsETag,
-    gdcrsDistributionConfig,
-    gdcrsResponseStatus,
+    gdcrrsDistributionConfig,
+    gdcrrsETag,
+    gdcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to get a distribution configuration.
 --
 -- /See:/ 'mkGetDistributionConfig' smart constructor.
 newtype GetDistributionConfig = GetDistributionConfig'
   { -- | The distribution's ID. If the ID is empty, an empty distribution configuration is returned.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDistributionConfig' with the minimum fields required to make a request.
---
--- * 'id' - The distribution's ID. If the ID is empty, an empty distribution configuration is returned.
+-- | Creates a 'GetDistributionConfig' value with any optional fields omitted.
 mkGetDistributionConfig ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   GetDistributionConfig
-mkGetDistributionConfig pId_ = GetDistributionConfig' {id = pId_}
+mkGetDistributionConfig id = GetDistributionConfig' {id}
 
 -- | The distribution's ID. If the ID is empty, an empty distribution configuration is returned.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcId :: Lens.Lens' GetDistributionConfig Lude.Text
-gdcId = Lens.lens (id :: GetDistributionConfig -> Lude.Text) (\s a -> s {id = a} :: GetDistributionConfig)
+gdcId :: Lens.Lens' GetDistributionConfig Types.Id
+gdcId = Lens.field @"id"
 {-# DEPRECATED gdcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetDistributionConfig where
+instance Core.AWSRequest GetDistributionConfig where
   type Rs GetDistributionConfig = GetDistributionConfigResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/distribution/" Core.<> (Core.toText id)
+                Core.<> ("/config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetDistributionConfigResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDistributionConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetDistributionConfig where
-  toPath GetDistributionConfig' {..} =
-    Lude.mconcat
-      ["/2020-05-31/distribution/", Lude.toBS id, "/config"]
-
-instance Lude.ToQuery GetDistributionConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'mkGetDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-    eTag :: Lude.Maybe Lude.Text,
-    -- | The distribution's configuration information.
-    distributionConfig :: Lude.Maybe DistributionConfig,
+  { -- | The distribution's configuration information.
+    distributionConfig :: Core.Maybe Types.DistributionConfig,
+    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDistributionConfigResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
--- * 'distributionConfig' - The distribution's configuration information.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDistributionConfigResponse' value with any optional fields omitted.
 mkGetDistributionConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDistributionConfigResponse
-mkGetDistributionConfigResponse pResponseStatus_ =
+mkGetDistributionConfigResponse responseStatus =
   GetDistributionConfigResponse'
-    { eTag = Lude.Nothing,
-      distributionConfig = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { distributionConfig = Core.Nothing,
+      eTag = Core.Nothing,
+      responseStatus
     }
-
--- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
---
--- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcrsETag :: Lens.Lens' GetDistributionConfigResponse (Lude.Maybe Lude.Text)
-gdcrsETag = Lens.lens (eTag :: GetDistributionConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetDistributionConfigResponse)
-{-# DEPRECATED gdcrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The distribution's configuration information.
 --
 -- /Note:/ Consider using 'distributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcrsDistributionConfig :: Lens.Lens' GetDistributionConfigResponse (Lude.Maybe DistributionConfig)
-gdcrsDistributionConfig = Lens.lens (distributionConfig :: GetDistributionConfigResponse -> Lude.Maybe DistributionConfig) (\s a -> s {distributionConfig = a} :: GetDistributionConfigResponse)
-{-# DEPRECATED gdcrsDistributionConfig "Use generic-lens or generic-optics with 'distributionConfig' instead." #-}
+gdcrrsDistributionConfig :: Lens.Lens' GetDistributionConfigResponse (Core.Maybe Types.DistributionConfig)
+gdcrrsDistributionConfig = Lens.field @"distributionConfig"
+{-# DEPRECATED gdcrrsDistributionConfig "Use generic-lens or generic-optics with 'distributionConfig' instead." #-}
+
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcrrsETag :: Lens.Lens' GetDistributionConfigResponse (Core.Maybe Types.String)
+gdcrrsETag = Lens.field @"eTag"
+{-# DEPRECATED gdcrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcrsResponseStatus :: Lens.Lens' GetDistributionConfigResponse Lude.Int
-gdcrsResponseStatus = Lens.lens (responseStatus :: GetDistributionConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDistributionConfigResponse)
-{-# DEPRECATED gdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdcrrsResponseStatus :: Lens.Lens' GetDistributionConfigResponse Core.Int
+gdcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -28,8 +28,8 @@ module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     mkModifyMountTargetSecurityGroups,
 
     -- ** Request lenses
-    mmtsgSecurityGroups,
     mmtsgMountTargetId,
+    mmtsgSecurityGroups,
 
     -- * Destructuring the response
     ModifyMountTargetSecurityGroupsResponse (..),
@@ -37,86 +37,82 @@ module Network.AWS.EFS.ModifyMountTargetSecurityGroups
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkModifyMountTargetSecurityGroups' smart constructor.
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
-  { -- | An array of up to five VPC security group IDs.
-    securityGroups :: Lude.Maybe [Lude.Text],
-    -- | The ID of the mount target whose security groups you want to modify.
-    mountTargetId :: Lude.Text
+  { -- | The ID of the mount target whose security groups you want to modify.
+    mountTargetId :: Types.MountTargetId,
+    -- | An array of up to five VPC security group IDs.
+    securityGroups :: Core.Maybe [Types.SecurityGroup]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyMountTargetSecurityGroups' with the minimum fields required to make a request.
---
--- * 'securityGroups' - An array of up to five VPC security group IDs.
--- * 'mountTargetId' - The ID of the mount target whose security groups you want to modify.
+-- | Creates a 'ModifyMountTargetSecurityGroups' value with any optional fields omitted.
 mkModifyMountTargetSecurityGroups ::
   -- | 'mountTargetId'
-  Lude.Text ->
+  Types.MountTargetId ->
   ModifyMountTargetSecurityGroups
-mkModifyMountTargetSecurityGroups pMountTargetId_ =
+mkModifyMountTargetSecurityGroups mountTargetId =
   ModifyMountTargetSecurityGroups'
-    { securityGroups = Lude.Nothing,
-      mountTargetId = pMountTargetId_
+    { mountTargetId,
+      securityGroups = Core.Nothing
     }
-
--- | An array of up to five VPC security group IDs.
---
--- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mmtsgSecurityGroups :: Lens.Lens' ModifyMountTargetSecurityGroups (Lude.Maybe [Lude.Text])
-mmtsgSecurityGroups = Lens.lens (securityGroups :: ModifyMountTargetSecurityGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: ModifyMountTargetSecurityGroups)
-{-# DEPRECATED mmtsgSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The ID of the mount target whose security groups you want to modify.
 --
 -- /Note:/ Consider using 'mountTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mmtsgMountTargetId :: Lens.Lens' ModifyMountTargetSecurityGroups Lude.Text
-mmtsgMountTargetId = Lens.lens (mountTargetId :: ModifyMountTargetSecurityGroups -> Lude.Text) (\s a -> s {mountTargetId = a} :: ModifyMountTargetSecurityGroups)
+mmtsgMountTargetId :: Lens.Lens' ModifyMountTargetSecurityGroups Types.MountTargetId
+mmtsgMountTargetId = Lens.field @"mountTargetId"
 {-# DEPRECATED mmtsgMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
 
-instance Lude.AWSRequest ModifyMountTargetSecurityGroups where
+-- | An array of up to five VPC security group IDs.
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmtsgSecurityGroups :: Lens.Lens' ModifyMountTargetSecurityGroups (Core.Maybe [Types.SecurityGroup])
+mmtsgSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED mmtsgSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+instance Core.FromJSON ModifyMountTargetSecurityGroups where
+  toJSON ModifyMountTargetSecurityGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [("SecurityGroups" Core..=) Core.<$> securityGroups]
+      )
+
+instance Core.AWSRequest ModifyMountTargetSecurityGroups where
   type
     Rs ModifyMountTargetSecurityGroups =
       ModifyMountTargetSecurityGroupsResponse
-  request = Req.putJSON efsService
-  response = Res.receiveNull ModifyMountTargetSecurityGroupsResponse'
-
-instance Lude.ToHeaders ModifyMountTargetSecurityGroups where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON ModifyMountTargetSecurityGroups where
-  toJSON ModifyMountTargetSecurityGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("SecurityGroups" Lude..=) Lude.<$> securityGroups]
-      )
-
-instance Lude.ToPath ModifyMountTargetSecurityGroups where
-  toPath ModifyMountTargetSecurityGroups' {..} =
-    Lude.mconcat
-      [ "/2015-02-01/mount-targets/",
-        Lude.toBS mountTargetId,
-        "/security-groups"
-      ]
-
-instance Lude.ToQuery ModifyMountTargetSecurityGroups where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-02-01/mount-targets/" Core.<> (Core.toText mountTargetId)
+                Core.<> ("/security-groups")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull ModifyMountTargetSecurityGroupsResponse'
 
 -- | /See:/ 'mkModifyMountTargetSecurityGroupsResponse' smart constructor.
 data ModifyMountTargetSecurityGroupsResponse = ModifyMountTargetSecurityGroupsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
+-- | Creates a 'ModifyMountTargetSecurityGroupsResponse' value with any optional fields omitted.
 mkModifyMountTargetSecurityGroupsResponse ::
   ModifyMountTargetSecurityGroupsResponse
 mkModifyMountTargetSecurityGroupsResponse =

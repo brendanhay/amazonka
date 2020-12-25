@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.DeviceUpdateStatus
   ( DeviceUpdateStatus
       ( DeviceUpdateStatus',
-        UpToDate,
-        NotUpToDate
+        DeviceUpdateStatusUpToDate,
+        DeviceUpdateStatusNotUpToDate,
+        fromDeviceUpdateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of software on the input device.
-newtype DeviceUpdateStatus = DeviceUpdateStatus' Lude.Text
+newtype DeviceUpdateStatus = DeviceUpdateStatus'
+  { fromDeviceUpdateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UpToDate :: DeviceUpdateStatus
-pattern UpToDate = DeviceUpdateStatus' "UP_TO_DATE"
+pattern DeviceUpdateStatusUpToDate :: DeviceUpdateStatus
+pattern DeviceUpdateStatusUpToDate = DeviceUpdateStatus' "UP_TO_DATE"
 
-pattern NotUpToDate :: DeviceUpdateStatus
-pattern NotUpToDate = DeviceUpdateStatus' "NOT_UP_TO_DATE"
+pattern DeviceUpdateStatusNotUpToDate :: DeviceUpdateStatus
+pattern DeviceUpdateStatusNotUpToDate = DeviceUpdateStatus' "NOT_UP_TO_DATE"
 
 {-# COMPLETE
-  UpToDate,
-  NotUpToDate,
+  DeviceUpdateStatusUpToDate,
+  DeviceUpdateStatusNotUpToDate,
   DeviceUpdateStatus'
   #-}

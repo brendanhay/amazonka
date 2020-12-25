@@ -17,20 +17,25 @@ module Network.AWS.DynamoDB.Types.Projection
     mkProjection,
 
     -- * Lenses
-    pProjectionType,
     pNonKeyAttributes,
+    pProjectionType,
   )
 where
 
-import Network.AWS.DynamoDB.Types.ProjectionType
+import qualified Network.AWS.DynamoDB.Types.NonKeyAttributeName as Types
+import qualified Network.AWS.DynamoDB.Types.ProjectionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 --
 -- /See:/ 'mkProjection' smart constructor.
 data Projection = Projection'
-  { -- | The set of attributes that are projected into the index:
+  { -- | Represents the non-key attribute names which will be projected into the index.
+    --
+    -- For local secondary indexes, the total count of @NonKeyAttributes@ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+    nonKeyAttributes :: Core.Maybe (Core.NonEmpty Types.NonKeyAttributeName),
+    -- | The set of attributes that are projected into the index:
     --
     --
     --     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
@@ -40,39 +45,28 @@ data Projection = Projection'
     --
     --
     --     * @ALL@ - All of the table attributes are projected into the index.
-    projectionType :: Lude.Maybe ProjectionType,
-    -- | Represents the non-key attribute names which will be projected into the index.
-    --
-    -- For local secondary indexes, the total count of @NonKeyAttributes@ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
-    nonKeyAttributes :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    projectionType :: Core.Maybe Types.ProjectionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Projection' with the minimum fields required to make a request.
---
--- * 'projectionType' - The set of attributes that are projected into the index:
---
---
---     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
---
---
---     * @INCLUDE@ - In addition to the attributes described in @KEYS_ONLY@ , the secondary index will include other non-key attributes that you specify.
---
---
---     * @ALL@ - All of the table attributes are projected into the index.
---
---
--- * 'nonKeyAttributes' - Represents the non-key attribute names which will be projected into the index.
---
--- For local secondary indexes, the total count of @NonKeyAttributes@ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+-- | Creates a 'Projection' value with any optional fields omitted.
 mkProjection ::
   Projection
 mkProjection =
   Projection'
-    { projectionType = Lude.Nothing,
-      nonKeyAttributes = Lude.Nothing
+    { nonKeyAttributes = Core.Nothing,
+      projectionType = Core.Nothing
     }
+
+-- | Represents the non-key attribute names which will be projected into the index.
+--
+-- For local secondary indexes, the total count of @NonKeyAttributes@ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+--
+-- /Note:/ Consider using 'nonKeyAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pNonKeyAttributes :: Lens.Lens' Projection (Core.Maybe (Core.NonEmpty Types.NonKeyAttributeName))
+pNonKeyAttributes = Lens.field @"nonKeyAttributes"
+{-# DEPRECATED pNonKeyAttributes "Use generic-lens or generic-optics with 'nonKeyAttributes' instead." #-}
 
 -- | The set of attributes that are projected into the index:
 --
@@ -88,34 +82,23 @@ mkProjection =
 --
 --
 -- /Note:/ Consider using 'projectionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pProjectionType :: Lens.Lens' Projection (Lude.Maybe ProjectionType)
-pProjectionType = Lens.lens (projectionType :: Projection -> Lude.Maybe ProjectionType) (\s a -> s {projectionType = a} :: Projection)
+pProjectionType :: Lens.Lens' Projection (Core.Maybe Types.ProjectionType)
+pProjectionType = Lens.field @"projectionType"
 {-# DEPRECATED pProjectionType "Use generic-lens or generic-optics with 'projectionType' instead." #-}
 
--- | Represents the non-key attribute names which will be projected into the index.
---
--- For local secondary indexes, the total count of @NonKeyAttributes@ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
---
--- /Note:/ Consider using 'nonKeyAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pNonKeyAttributes :: Lens.Lens' Projection (Lude.Maybe (Lude.NonEmpty Lude.Text))
-pNonKeyAttributes = Lens.lens (nonKeyAttributes :: Projection -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {nonKeyAttributes = a} :: Projection)
-{-# DEPRECATED pNonKeyAttributes "Use generic-lens or generic-optics with 'nonKeyAttributes' instead." #-}
-
-instance Lude.FromJSON Projection where
-  parseJSON =
-    Lude.withObject
-      "Projection"
-      ( \x ->
-          Projection'
-            Lude.<$> (x Lude..:? "ProjectionType")
-            Lude.<*> (x Lude..:? "NonKeyAttributes")
-      )
-
-instance Lude.ToJSON Projection where
-  toJSON Projection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProjectionType" Lude..=) Lude.<$> projectionType,
-            ("NonKeyAttributes" Lude..=) Lude.<$> nonKeyAttributes
+instance Core.FromJSON Projection where
+  toJSON Projection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("NonKeyAttributes" Core..=) Core.<$> nonKeyAttributes,
+            ("ProjectionType" Core..=) Core.<$> projectionType
           ]
       )
+
+instance Core.FromJSON Projection where
+  parseJSON =
+    Core.withObject "Projection" Core.$
+      \x ->
+        Projection'
+          Core.<$> (x Core..:? "NonKeyAttributes")
+          Core.<*> (x Core..:? "ProjectionType")

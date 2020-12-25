@@ -20,7 +20,7 @@ module Network.AWS.CloudDirectory.AttachPolicy
     mkAttachPolicy,
 
     -- ** Request lenses
-    apDirectoryARN,
+    apDirectoryArn,
     apPolicyReference,
     apObjectReference,
 
@@ -29,119 +29,108 @@ module Network.AWS.CloudDirectory.AttachPolicy
     mkAttachPolicyResponse,
 
     -- ** Response lenses
-    aprsResponseStatus,
+    aprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAttachPolicy' smart constructor.
 data AttachPolicy = AttachPolicy'
   { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
-    directoryARN :: Lude.Text,
+    directoryArn :: Types.Arn,
     -- | The reference that is associated with the policy object.
-    policyReference :: ObjectReference,
+    policyReference :: Types.ObjectReference,
     -- | The reference that identifies the object to which the policy will be attached.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachPolicy' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
--- * 'policyReference' - The reference that is associated with the policy object.
--- * 'objectReference' - The reference that identifies the object to which the policy will be attached.
+-- | Creates a 'AttachPolicy' value with any optional fields omitted.
 mkAttachPolicy ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'policyReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   AttachPolicy
-mkAttachPolicy pDirectoryARN_ pPolicyReference_ pObjectReference_ =
-  AttachPolicy'
-    { directoryARN = pDirectoryARN_,
-      policyReference = pPolicyReference_,
-      objectReference = pObjectReference_
-    }
+mkAttachPolicy directoryArn policyReference objectReference =
+  AttachPolicy' {directoryArn, policyReference, objectReference}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apDirectoryARN :: Lens.Lens' AttachPolicy Lude.Text
-apDirectoryARN = Lens.lens (directoryARN :: AttachPolicy -> Lude.Text) (\s a -> s {directoryARN = a} :: AttachPolicy)
-{-# DEPRECATED apDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apDirectoryArn :: Lens.Lens' AttachPolicy Types.Arn
+apDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED apDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | The reference that is associated with the policy object.
 --
 -- /Note:/ Consider using 'policyReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apPolicyReference :: Lens.Lens' AttachPolicy ObjectReference
-apPolicyReference = Lens.lens (policyReference :: AttachPolicy -> ObjectReference) (\s a -> s {policyReference = a} :: AttachPolicy)
+apPolicyReference :: Lens.Lens' AttachPolicy Types.ObjectReference
+apPolicyReference = Lens.field @"policyReference"
 {-# DEPRECATED apPolicyReference "Use generic-lens or generic-optics with 'policyReference' instead." #-}
 
 -- | The reference that identifies the object to which the policy will be attached.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apObjectReference :: Lens.Lens' AttachPolicy ObjectReference
-apObjectReference = Lens.lens (objectReference :: AttachPolicy -> ObjectReference) (\s a -> s {objectReference = a} :: AttachPolicy)
+apObjectReference :: Lens.Lens' AttachPolicy Types.ObjectReference
+apObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED apObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.AWSRequest AttachPolicy where
-  type Rs AttachPolicy = AttachPolicyResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          AttachPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders AttachPolicy where
-  toHeaders AttachPolicy' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON AttachPolicy where
-  toJSON AttachPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyReference" Lude..= policyReference),
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+instance Core.FromJSON AttachPolicy where
+  toJSON AttachPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyReference" Core..= policyReference),
+            Core.Just ("ObjectReference" Core..= objectReference)
           ]
       )
 
-instance Lude.ToPath AttachPolicy where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/policy/attach"
-
-instance Lude.ToQuery AttachPolicy where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest AttachPolicy where
+  type Rs AttachPolicy = AttachPolicyResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/policy/attach",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AttachPolicyResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkAttachPolicyResponse' smart constructor.
 newtype AttachPolicyResponse = AttachPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AttachPolicyResponse' value with any optional fields omitted.
 mkAttachPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AttachPolicyResponse
-mkAttachPolicyResponse pResponseStatus_ =
-  AttachPolicyResponse' {responseStatus = pResponseStatus_}
+mkAttachPolicyResponse responseStatus =
+  AttachPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aprsResponseStatus :: Lens.Lens' AttachPolicyResponse Lude.Int
-aprsResponseStatus = Lens.lens (responseStatus :: AttachPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachPolicyResponse)
-{-# DEPRECATED aprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aprrsResponseStatus :: Lens.Lens' AttachPolicyResponse Core.Int
+aprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

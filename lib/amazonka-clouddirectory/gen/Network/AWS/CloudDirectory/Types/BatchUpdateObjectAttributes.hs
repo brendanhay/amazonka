@@ -17,61 +17,58 @@ module Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributes
     mkBatchUpdateObjectAttributes,
 
     -- * Lenses
-    buoaAttributeUpdates,
     buoaObjectReference,
+    buoaAttributeUpdates,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a @BatchUpdate@ operation.
 --
 -- /See:/ 'mkBatchUpdateObjectAttributes' smart constructor.
 data BatchUpdateObjectAttributes = BatchUpdateObjectAttributes'
-  { -- | Attributes update structure.
-    attributeUpdates :: [ObjectAttributeUpdate],
-    -- | Reference that identifies the object.
-    objectReference :: ObjectReference
+  { -- | Reference that identifies the object.
+    objectReference :: Types.ObjectReference,
+    -- | Attributes update structure.
+    attributeUpdates :: [Types.ObjectAttributeUpdate]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchUpdateObjectAttributes' with the minimum fields required to make a request.
---
--- * 'attributeUpdates' - Attributes update structure.
--- * 'objectReference' - Reference that identifies the object.
+-- | Creates a 'BatchUpdateObjectAttributes' value with any optional fields omitted.
 mkBatchUpdateObjectAttributes ::
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchUpdateObjectAttributes
-mkBatchUpdateObjectAttributes pObjectReference_ =
+mkBatchUpdateObjectAttributes objectReference =
   BatchUpdateObjectAttributes'
-    { attributeUpdates = Lude.mempty,
-      objectReference = pObjectReference_
+    { objectReference,
+      attributeUpdates = Core.mempty
     }
-
--- | Attributes update structure.
---
--- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-buoaAttributeUpdates :: Lens.Lens' BatchUpdateObjectAttributes [ObjectAttributeUpdate]
-buoaAttributeUpdates = Lens.lens (attributeUpdates :: BatchUpdateObjectAttributes -> [ObjectAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: BatchUpdateObjectAttributes)
-{-# DEPRECATED buoaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
 
 -- | Reference that identifies the object.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-buoaObjectReference :: Lens.Lens' BatchUpdateObjectAttributes ObjectReference
-buoaObjectReference = Lens.lens (objectReference :: BatchUpdateObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: BatchUpdateObjectAttributes)
+buoaObjectReference :: Lens.Lens' BatchUpdateObjectAttributes Types.ObjectReference
+buoaObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED buoaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.ToJSON BatchUpdateObjectAttributes where
-  toJSON BatchUpdateObjectAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AttributeUpdates" Lude..= attributeUpdates),
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+-- | Attributes update structure.
+--
+-- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+buoaAttributeUpdates :: Lens.Lens' BatchUpdateObjectAttributes [Types.ObjectAttributeUpdate]
+buoaAttributeUpdates = Lens.field @"attributeUpdates"
+{-# DEPRECATED buoaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
+
+instance Core.FromJSON BatchUpdateObjectAttributes where
+  toJSON BatchUpdateObjectAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ObjectReference" Core..= objectReference),
+            Core.Just ("AttributeUpdates" Core..= attributeUpdates)
           ]
       )

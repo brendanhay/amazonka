@@ -27,16 +27,16 @@ module Network.AWS.Config.GetComplianceSummaryByResourceType
     mkGetComplianceSummaryByResourceTypeResponse,
 
     -- ** Response lenses
-    gcsbrtrsComplianceSummariesByResourceType,
-    gcsbrtrsResponseStatus,
+    gcsbrtrrsComplianceSummariesByResourceType,
+    gcsbrtrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -45,106 +45,91 @@ newtype GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
   { -- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.
     --
     -- For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ . You can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
-    resourceTypes :: Lude.Maybe [Lude.Text]
+    resourceTypes :: Core.Maybe [Types.StringWithCharLimit256]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetComplianceSummaryByResourceType' with the minimum fields required to make a request.
---
--- * 'resourceTypes' - Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.
---
--- For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ . You can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+-- | Creates a 'GetComplianceSummaryByResourceType' value with any optional fields omitted.
 mkGetComplianceSummaryByResourceType ::
   GetComplianceSummaryByResourceType
 mkGetComplianceSummaryByResourceType =
-  GetComplianceSummaryByResourceType' {resourceTypes = Lude.Nothing}
+  GetComplianceSummaryByResourceType' {resourceTypes = Core.Nothing}
 
 -- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.
 --
 -- For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ . You can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 --
 -- /Note:/ Consider using 'resourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsbrtResourceTypes :: Lens.Lens' GetComplianceSummaryByResourceType (Lude.Maybe [Lude.Text])
-gcsbrtResourceTypes = Lens.lens (resourceTypes :: GetComplianceSummaryByResourceType -> Lude.Maybe [Lude.Text]) (\s a -> s {resourceTypes = a} :: GetComplianceSummaryByResourceType)
+gcsbrtResourceTypes :: Lens.Lens' GetComplianceSummaryByResourceType (Core.Maybe [Types.StringWithCharLimit256])
+gcsbrtResourceTypes = Lens.field @"resourceTypes"
 {-# DEPRECATED gcsbrtResourceTypes "Use generic-lens or generic-optics with 'resourceTypes' instead." #-}
 
-instance Lude.AWSRequest GetComplianceSummaryByResourceType where
+instance Core.FromJSON GetComplianceSummaryByResourceType where
+  toJSON GetComplianceSummaryByResourceType {..} =
+    Core.object
+      (Core.catMaybes [("ResourceTypes" Core..=) Core.<$> resourceTypes])
+
+instance Core.AWSRequest GetComplianceSummaryByResourceType where
   type
     Rs GetComplianceSummaryByResourceType =
       GetComplianceSummaryByResourceTypeResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.GetComplianceSummaryByResourceType"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetComplianceSummaryByResourceTypeResponse'
-            Lude.<$> ( x Lude..?> "ComplianceSummariesByResourceType"
-                         Lude..!@ Lude.mempty
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ComplianceSummariesByResourceType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetComplianceSummaryByResourceType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.GetComplianceSummaryByResourceType" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetComplianceSummaryByResourceType where
-  toJSON GetComplianceSummaryByResourceType' {..} =
-    Lude.object
-      (Lude.catMaybes [("ResourceTypes" Lude..=) Lude.<$> resourceTypes])
-
-instance Lude.ToPath GetComplianceSummaryByResourceType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetComplianceSummaryByResourceType where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkGetComplianceSummaryByResourceTypeResponse' smart constructor.
 data GetComplianceSummaryByResourceTypeResponse = GetComplianceSummaryByResourceTypeResponse'
   { -- | The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
-    complianceSummariesByResourceType :: Lude.Maybe [ComplianceSummaryByResourceType],
+    complianceSummariesByResourceType :: Core.Maybe [Types.ComplianceSummaryByResourceType],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetComplianceSummaryByResourceTypeResponse' with the minimum fields required to make a request.
---
--- * 'complianceSummariesByResourceType' - The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetComplianceSummaryByResourceTypeResponse' value with any optional fields omitted.
 mkGetComplianceSummaryByResourceTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetComplianceSummaryByResourceTypeResponse
-mkGetComplianceSummaryByResourceTypeResponse pResponseStatus_ =
+mkGetComplianceSummaryByResourceTypeResponse responseStatus =
   GetComplianceSummaryByResourceTypeResponse'
     { complianceSummariesByResourceType =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
 --
 -- /Note:/ Consider using 'complianceSummariesByResourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsbrtrsComplianceSummariesByResourceType :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse (Lude.Maybe [ComplianceSummaryByResourceType])
-gcsbrtrsComplianceSummariesByResourceType = Lens.lens (complianceSummariesByResourceType :: GetComplianceSummaryByResourceTypeResponse -> Lude.Maybe [ComplianceSummaryByResourceType]) (\s a -> s {complianceSummariesByResourceType = a} :: GetComplianceSummaryByResourceTypeResponse)
-{-# DEPRECATED gcsbrtrsComplianceSummariesByResourceType "Use generic-lens or generic-optics with 'complianceSummariesByResourceType' instead." #-}
+gcsbrtrrsComplianceSummariesByResourceType :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse (Core.Maybe [Types.ComplianceSummaryByResourceType])
+gcsbrtrrsComplianceSummariesByResourceType = Lens.field @"complianceSummariesByResourceType"
+{-# DEPRECATED gcsbrtrrsComplianceSummariesByResourceType "Use generic-lens or generic-optics with 'complianceSummariesByResourceType' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsbrtrsResponseStatus :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse Lude.Int
-gcsbrtrsResponseStatus = Lens.lens (responseStatus :: GetComplianceSummaryByResourceTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetComplianceSummaryByResourceTypeResponse)
-{-# DEPRECATED gcsbrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcsbrtrrsResponseStatus :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse Core.Int
+gcsbrtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcsbrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

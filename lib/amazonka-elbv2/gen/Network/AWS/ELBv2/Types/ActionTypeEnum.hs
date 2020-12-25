@@ -13,61 +13,66 @@
 module Network.AWS.ELBv2.Types.ActionTypeEnum
   ( ActionTypeEnum
       ( ActionTypeEnum',
-        Forward,
-        AuthenticateOidc,
-        AuthenticateCognito,
-        Redirect,
-        FixedResponse
+        ActionTypeEnumForward,
+        ActionTypeEnumAuthenticateOidc,
+        ActionTypeEnumAuthenticateCognito,
+        ActionTypeEnumRedirect,
+        ActionTypeEnumFixedResponse,
+        fromActionTypeEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionTypeEnum = ActionTypeEnum' Lude.Text
+newtype ActionTypeEnum = ActionTypeEnum'
+  { fromActionTypeEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Forward :: ActionTypeEnum
-pattern Forward = ActionTypeEnum' "forward"
+pattern ActionTypeEnumForward :: ActionTypeEnum
+pattern ActionTypeEnumForward = ActionTypeEnum' "forward"
 
-pattern AuthenticateOidc :: ActionTypeEnum
-pattern AuthenticateOidc = ActionTypeEnum' "authenticate-oidc"
+pattern ActionTypeEnumAuthenticateOidc :: ActionTypeEnum
+pattern ActionTypeEnumAuthenticateOidc = ActionTypeEnum' "authenticate-oidc"
 
-pattern AuthenticateCognito :: ActionTypeEnum
-pattern AuthenticateCognito = ActionTypeEnum' "authenticate-cognito"
+pattern ActionTypeEnumAuthenticateCognito :: ActionTypeEnum
+pattern ActionTypeEnumAuthenticateCognito = ActionTypeEnum' "authenticate-cognito"
 
-pattern Redirect :: ActionTypeEnum
-pattern Redirect = ActionTypeEnum' "redirect"
+pattern ActionTypeEnumRedirect :: ActionTypeEnum
+pattern ActionTypeEnumRedirect = ActionTypeEnum' "redirect"
 
-pattern FixedResponse :: ActionTypeEnum
-pattern FixedResponse = ActionTypeEnum' "fixed-response"
+pattern ActionTypeEnumFixedResponse :: ActionTypeEnum
+pattern ActionTypeEnumFixedResponse = ActionTypeEnum' "fixed-response"
 
 {-# COMPLETE
-  Forward,
-  AuthenticateOidc,
-  AuthenticateCognito,
-  Redirect,
-  FixedResponse,
+  ActionTypeEnumForward,
+  ActionTypeEnumAuthenticateOidc,
+  ActionTypeEnumAuthenticateCognito,
+  ActionTypeEnumRedirect,
+  ActionTypeEnumFixedResponse,
   ActionTypeEnum'
   #-}

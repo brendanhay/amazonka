@@ -9,76 +9,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServerlessApplicationRepository.Types
   ( -- * Service configuration
-    serverlessApplicationRepositoryService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * Capability
-    Capability (..),
+    _ConflictException,
+    _ForbiddenException,
+    _NotFoundException,
+    _TooManyRequestsException,
+    _InternalServerErrorException,
+    _BadRequestException,
 
     -- * Status
     Status (..),
-
-    -- * ApplicationDependencySummary
-    ApplicationDependencySummary (..),
-    mkApplicationDependencySummary,
-    adsSemanticVersion,
-    adsApplicationId,
-
-    -- * ApplicationPolicyStatement
-    ApplicationPolicyStatement (..),
-    mkApplicationPolicyStatement,
-    apsActions,
-    apsPrincipals,
-    apsStatementId,
-    apsPrincipalOrgIds,
-
-    -- * ApplicationSummary
-    ApplicationSummary (..),
-    mkApplicationSummary,
-    asCreationTime,
-    asHomePageURL,
-    asApplicationId,
-    asName,
-    asAuthor,
-    asLabels,
-    asDescription,
-    asSpdxLicenseId,
-
-    -- * ParameterDefinition
-    ParameterDefinition (..),
-    mkParameterDefinition,
-    pdMaxValue,
-    pdReferencedByResources,
-    pdMaxLength,
-    pdConstraintDescription,
-    pdMinLength,
-    pdName,
-    pdDefaultValue,
-    pdAllowedPattern,
-    pdNoEcho,
-    pdType,
-    pdAllowedValues,
-    pdDescription,
-    pdMinValue,
-
-    -- * ParameterValue
-    ParameterValue (..),
-    mkParameterValue,
-    pvValue,
-    pvName,
-
-    -- * RollbackConfiguration
-    RollbackConfiguration (..),
-    mkRollbackConfiguration,
-    rcRollbackTriggers,
-    rcMonitoringTimeInMinutes,
-
-    -- * RollbackTrigger
-    RollbackTrigger (..),
-    mkRollbackTrigger,
-    rtARN,
-    rtType,
 
     -- * Tag
     Tag (..),
@@ -86,31 +28,95 @@ module Network.AWS.ServerlessApplicationRepository.Types
     tValue,
     tKey,
 
-    -- * Version
-    Version (..),
-    mkVersion,
-    vCreationTime,
-    vResourcesSupported,
-    vRequiredCapabilities,
-    vParameterDefinitions,
-    vSemanticVersion,
-    vSourceCodeURL,
-    vApplicationId,
-    vTemplateURL,
-    vSourceCodeArchiveURL,
+    -- * ParameterValue
+    ParameterValue (..),
+    mkParameterValue,
+    pvValue,
+    pvName,
 
     -- * VersionSummary
     VersionSummary (..),
     mkVersionSummary,
     vsCreationTime,
-    vsSemanticVersion,
-    vsSourceCodeURL,
     vsApplicationId,
+    vsSemanticVersion,
+    vsSourceCodeUrl,
+
+    -- * ApplicationDependencySummary
+    ApplicationDependencySummary (..),
+    mkApplicationDependencySummary,
+    adsApplicationId,
+    adsSemanticVersion,
+
+    -- * ParameterDefinition
+    ParameterDefinition (..),
+    mkParameterDefinition,
+    pdReferencedByResources,
+    pdName,
+    pdAllowedPattern,
+    pdAllowedValues,
+    pdConstraintDescription,
+    pdDefaultValue,
+    pdDescription,
+    pdMaxLength,
+    pdMaxValue,
+    pdMinLength,
+    pdMinValue,
+    pdNoEcho,
+    pdType,
+
+    -- * ApplicationPolicyStatement
+    ApplicationPolicyStatement (..),
+    mkApplicationPolicyStatement,
+    apsPrincipals,
+    apsActions,
+    apsPrincipalOrgIDs,
+    apsStatementId,
+
+    -- * Version
+    Version (..),
+    mkVersion,
+    vTemplateUrl,
+    vParameterDefinitions,
+    vResourcesSupported,
+    vCreationTime,
+    vRequiredCapabilities,
+    vApplicationId,
+    vSemanticVersion,
+    vSourceCodeArchiveUrl,
+    vSourceCodeUrl,
+
+    -- * Capability
+    Capability (..),
+
+    -- * ApplicationSummary
+    ApplicationSummary (..),
+    mkApplicationSummary,
+    asDescription,
+    asAuthor,
+    asApplicationId,
+    asName,
+    asCreationTime,
+    asHomePageUrl,
+    asLabels,
+    asSpdxLicenseId,
+
+    -- * RollbackConfiguration
+    RollbackConfiguration (..),
+    mkRollbackConfiguration,
+    rcMonitoringTimeInMinutes,
+    rcRollbackTriggers,
+
+    -- * RollbackTrigger
+    RollbackTrigger (..),
+    mkRollbackTrigger,
+    rtType,
+    rtArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import Network.AWS.ServerlessApplicationRepository.Types.ApplicationDependencySummary
 import Network.AWS.ServerlessApplicationRepository.Types.ApplicationPolicyStatement
 import Network.AWS.ServerlessApplicationRepository.Types.ApplicationSummary
@@ -126,57 +132,102 @@ import Network.AWS.ServerlessApplicationRepository.Types.VersionSummary
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-08@ of the Amazon ServerlessApplicationRepository SDK configuration.
-serverlessApplicationRepositoryService :: Lude.Service
-serverlessApplicationRepositoryService =
-  Lude.Service
-    { Lude._svcAbbrev = "ServerlessApplicationRepository",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "serverlessrepo",
-      Lude._svcVersion = "2017-09-08",
-      Lude._svcEndpoint =
-        Lude.defaultEndpoint serverlessApplicationRepositoryService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError =
-        Lude.parseJSONError "ServerlessApplicationRepository",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "ServerlessApplicationRepository",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "serverlessrepo",
+      Core._svcVersion = "2017-09-08",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError =
+        Core.parseJSONError "ServerlessApplicationRepository",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | The resource already exists.
+_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError mkServiceConfig "ConflictException"
+    Core.. Core.hasStatues 409
+{-# DEPRECATED _ConflictException "Use generic-lens or generic-optics instead." #-}
+
+-- | The client is not authenticated.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError mkServiceConfig "ForbiddenException"
+    Core.. Core.hasStatues 403
+{-# DEPRECATED _ForbiddenException "Use generic-lens or generic-optics instead." #-}
+
+-- | The resource (for example, an access policy statement) specified in the request doesn't exist.
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError mkServiceConfig "NotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _NotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The client is sending more than the allowed number of requests per unit of time.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "TooManyRequestsException"
+    Core.. Core.hasStatues 429
+{-# DEPRECATED _TooManyRequestsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The AWS Serverless Application Repository service encountered an internal error.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalServerErrorException"
+    Core.. Core.hasStatues 500
+{-# DEPRECATED _InternalServerErrorException "Use generic-lens or generic-optics instead." #-}
+
+-- | One of the parameters in the request is invalid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError mkServiceConfig "BadRequestException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _BadRequestException "Use generic-lens or generic-optics instead." #-}

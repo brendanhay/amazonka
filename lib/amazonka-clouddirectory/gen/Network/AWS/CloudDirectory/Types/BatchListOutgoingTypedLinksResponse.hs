@@ -17,60 +17,55 @@ module Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
     mkBatchListOutgoingTypedLinksResponse,
 
     -- * Lenses
-    blotlTypedLinkSpecifiers,
-    blotlNextToken,
+    blotlrNextToken,
+    blotlrTypedLinkSpecifiers,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedLinkSpecifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'ListOutgoingTypedLinks' response operation.
 --
 -- /See:/ 'mkBatchListOutgoingTypedLinksResponse' smart constructor.
 data BatchListOutgoingTypedLinksResponse = BatchListOutgoingTypedLinksResponse'
-  { -- | Returns a typed link specifier as output.
-    typedLinkSpecifiers :: Lude.Maybe [TypedLinkSpecifier],
-    -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text
+  { -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Returns a typed link specifier as output.
+    typedLinkSpecifiers :: Core.Maybe [Types.TypedLinkSpecifier]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchListOutgoingTypedLinksResponse' with the minimum fields required to make a request.
---
--- * 'typedLinkSpecifiers' - Returns a typed link specifier as output.
--- * 'nextToken' - The pagination token.
+-- | Creates a 'BatchListOutgoingTypedLinksResponse' value with any optional fields omitted.
 mkBatchListOutgoingTypedLinksResponse ::
   BatchListOutgoingTypedLinksResponse
 mkBatchListOutgoingTypedLinksResponse =
   BatchListOutgoingTypedLinksResponse'
-    { typedLinkSpecifiers =
-        Lude.Nothing,
-      nextToken = Lude.Nothing
+    { nextToken = Core.Nothing,
+      typedLinkSpecifiers = Core.Nothing
     }
-
--- | Returns a typed link specifier as output.
---
--- /Note:/ Consider using 'typedLinkSpecifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blotlTypedLinkSpecifiers :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Lude.Maybe [TypedLinkSpecifier])
-blotlTypedLinkSpecifiers = Lens.lens (typedLinkSpecifiers :: BatchListOutgoingTypedLinksResponse -> Lude.Maybe [TypedLinkSpecifier]) (\s a -> s {typedLinkSpecifiers = a} :: BatchListOutgoingTypedLinksResponse)
-{-# DEPRECATED blotlTypedLinkSpecifiers "Use generic-lens or generic-optics with 'typedLinkSpecifiers' instead." #-}
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blotlNextToken :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Lude.Maybe Lude.Text)
-blotlNextToken = Lens.lens (nextToken :: BatchListOutgoingTypedLinksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListOutgoingTypedLinksResponse)
-{-# DEPRECATED blotlNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+blotlrNextToken :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Core.Maybe Types.NextToken)
+blotlrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blotlrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.FromJSON BatchListOutgoingTypedLinksResponse where
+-- | Returns a typed link specifier as output.
+--
+-- /Note:/ Consider using 'typedLinkSpecifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blotlrTypedLinkSpecifiers :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Core.Maybe [Types.TypedLinkSpecifier])
+blotlrTypedLinkSpecifiers = Lens.field @"typedLinkSpecifiers"
+{-# DEPRECATED blotlrTypedLinkSpecifiers "Use generic-lens or generic-optics with 'typedLinkSpecifiers' instead." #-}
+
+instance Core.FromJSON BatchListOutgoingTypedLinksResponse where
   parseJSON =
-    Lude.withObject
-      "BatchListOutgoingTypedLinksResponse"
-      ( \x ->
-          BatchListOutgoingTypedLinksResponse'
-            Lude.<$> (x Lude..:? "TypedLinkSpecifiers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NextToken")
-      )
+    Core.withObject "BatchListOutgoingTypedLinksResponse" Core.$
+      \x ->
+        BatchListOutgoingTypedLinksResponse'
+          Core.<$> (x Core..:? "NextToken")
+          Core.<*> (x Core..:? "TypedLinkSpecifiers")

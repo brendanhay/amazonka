@@ -13,56 +13,58 @@
 module Network.AWS.CloudHSMv2.Types.BackupState
   ( BackupState
       ( BackupState',
-        CreateInProgress,
-        Ready,
-        Deleted,
-        PendingDeletion
+        BackupStateCreateInProgress,
+        BackupStateReady,
+        BackupStateDeleted,
+        BackupStatePendingDeletion,
+        fromBackupState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BackupState = BackupState' Lude.Text
+newtype BackupState = BackupState' {fromBackupState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CreateInProgress :: BackupState
-pattern CreateInProgress = BackupState' "CREATE_IN_PROGRESS"
+pattern BackupStateCreateInProgress :: BackupState
+pattern BackupStateCreateInProgress = BackupState' "CREATE_IN_PROGRESS"
 
-pattern Ready :: BackupState
-pattern Ready = BackupState' "READY"
+pattern BackupStateReady :: BackupState
+pattern BackupStateReady = BackupState' "READY"
 
-pattern Deleted :: BackupState
-pattern Deleted = BackupState' "DELETED"
+pattern BackupStateDeleted :: BackupState
+pattern BackupStateDeleted = BackupState' "DELETED"
 
-pattern PendingDeletion :: BackupState
-pattern PendingDeletion = BackupState' "PENDING_DELETION"
+pattern BackupStatePendingDeletion :: BackupState
+pattern BackupStatePendingDeletion = BackupState' "PENDING_DELETION"
 
 {-# COMPLETE
-  CreateInProgress,
-  Ready,
-  Deleted,
-  PendingDeletion,
+  BackupStateCreateInProgress,
+  BackupStateReady,
+  BackupStateDeleted,
+  BackupStatePendingDeletion,
   BackupState'
   #-}

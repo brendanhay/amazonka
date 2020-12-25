@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.DMS
     Network.AWS.DMS.AddTagsToResource
@@ -126,41 +132,62 @@ library
 
   other-modules:
     Network.AWS.DMS.Types.AccountQuota
+    Network.AWS.DMS.Types.Action
+    Network.AWS.DMS.Types.AfterConnectScript
+    Network.AWS.DMS.Types.AsmPassword
     Network.AWS.DMS.Types.AuthMechanismValue
     Network.AWS.DMS.Types.AuthTypeValue
     Network.AWS.DMS.Types.AvailabilityZone
+    Network.AWS.DMS.Types.BucketName
+    Network.AWS.DMS.Types.CdcStartPosition
+    Network.AWS.DMS.Types.CdcStopPosition
     Network.AWS.DMS.Types.Certificate
+    Network.AWS.DMS.Types.CertificateArn
     Network.AWS.DMS.Types.CharLengthSemantics
     Network.AWS.DMS.Types.CompressionTypeValue
     Network.AWS.DMS.Types.Connection
+    Network.AWS.DMS.Types.ControlTablesFileGroup
+    Network.AWS.DMS.Types.DatabaseName
     Network.AWS.DMS.Types.DataFormatValue
     Network.AWS.DMS.Types.DatePartitionDelimiterValue
     Network.AWS.DMS.Types.DatePartitionSequenceValue
-    Network.AWS.DMS.Types.DmsSSLModeValue
+    Network.AWS.DMS.Types.Description
+    Network.AWS.DMS.Types.DmsSslModeValue
     Network.AWS.DMS.Types.DmsTransferSettings
-    Network.AWS.DMS.Types.DocDBSettings
-    Network.AWS.DMS.Types.DynamoDBSettings
+    Network.AWS.DMS.Types.DocDbSettings
+    Network.AWS.DMS.Types.DynamoDbSettings
     Network.AWS.DMS.Types.ElasticsearchSettings
     Network.AWS.DMS.Types.EncodingTypeValue
     Network.AWS.DMS.Types.EncryptionModeValue
     Network.AWS.DMS.Types.Endpoint
+    Network.AWS.DMS.Types.EndpointArn
+    Network.AWS.DMS.Types.EndpointIdentifier
+    Network.AWS.DMS.Types.EngineName
     Network.AWS.DMS.Types.Event
     Network.AWS.DMS.Types.EventCategoryGroup
     Network.AWS.DMS.Types.EventSubscription
+    Network.AWS.DMS.Types.ExternalTableDefinition
+    Network.AWS.DMS.Types.ExtraConnectionAttributes
     Network.AWS.DMS.Types.Filter
-    Network.AWS.DMS.Types.IBMDB2Settings
+    Network.AWS.DMS.Types.IBMDb2Settings
     Network.AWS.DMS.Types.KafkaSettings
+    Network.AWS.DMS.Types.Key
     Network.AWS.DMS.Types.KinesisSettings
+    Network.AWS.DMS.Types.KmsKeyId
+    Network.AWS.DMS.Types.Marker
+    Network.AWS.DMS.Types.Message
     Network.AWS.DMS.Types.MessageFormatValue
     Network.AWS.DMS.Types.MicrosoftSQLServerSettings
     Network.AWS.DMS.Types.MigrationTypeValue
-    Network.AWS.DMS.Types.MongoDBSettings
+    Network.AWS.DMS.Types.MongoDbSettings
     Network.AWS.DMS.Types.MySQLSettings
     Network.AWS.DMS.Types.NeptuneSettings
     Network.AWS.DMS.Types.NestingLevelValue
+    Network.AWS.DMS.Types.OptInStatus
     Network.AWS.DMS.Types.OracleSettings
     Network.AWS.DMS.Types.OrderableReplicationInstance
     Network.AWS.DMS.Types.ParquetVersionValue
+    Network.AWS.DMS.Types.Password
     Network.AWS.DMS.Types.PendingMaintenanceAction
     Network.AWS.DMS.Types.PostgreSQLSettings
     Network.AWS.DMS.Types.RedshiftSettings
@@ -170,28 +197,47 @@ library
     Network.AWS.DMS.Types.ReloadOptionValue
     Network.AWS.DMS.Types.ReplicationEndpointTypeValue
     Network.AWS.DMS.Types.ReplicationInstance
+    Network.AWS.DMS.Types.ReplicationInstanceArn
     Network.AWS.DMS.Types.ReplicationInstanceTaskLog
     Network.AWS.DMS.Types.ReplicationPendingModifiedValues
     Network.AWS.DMS.Types.ReplicationSubnetGroup
+    Network.AWS.DMS.Types.ReplicationSubnetGroupDescription
+    Network.AWS.DMS.Types.ReplicationSubnetGroupIdentifier
     Network.AWS.DMS.Types.ReplicationTask
+    Network.AWS.DMS.Types.ReplicationTaskArn
     Network.AWS.DMS.Types.ReplicationTaskAssessmentResult
     Network.AWS.DMS.Types.ReplicationTaskAssessmentRun
+    Network.AWS.DMS.Types.ReplicationTaskAssessmentRunArn
     Network.AWS.DMS.Types.ReplicationTaskAssessmentRunProgress
     Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment
     Network.AWS.DMS.Types.ReplicationTaskStats
+    Network.AWS.DMS.Types.ResourceArn
+    Network.AWS.DMS.Types.ResourceIdentifier
     Network.AWS.DMS.Types.ResourcePendingMaintenanceActions
     Network.AWS.DMS.Types.S3Settings
     Network.AWS.DMS.Types.SafeguardPolicy
+    Network.AWS.DMS.Types.SecurityDbEncryption
+    Network.AWS.DMS.Types.ServerName
+    Network.AWS.DMS.Types.ServerTimezone
+    Network.AWS.DMS.Types.ServiceAccessRoleArn
+    Network.AWS.DMS.Types.SnsTopicArn
+    Network.AWS.DMS.Types.SourceEngineName
+    Network.AWS.DMS.Types.SourceIdentifier
     Network.AWS.DMS.Types.SourceType
     Network.AWS.DMS.Types.StartReplicationTaskTypeValue
+    Network.AWS.DMS.Types.String
     Network.AWS.DMS.Types.Subnet
+    Network.AWS.DMS.Types.SubscriptionName
     Network.AWS.DMS.Types.SupportedEndpointType
     Network.AWS.DMS.Types.SybaseSettings
     Network.AWS.DMS.Types.TableStatistics
     Network.AWS.DMS.Types.TableToReload
     Network.AWS.DMS.Types.Tag
-    Network.AWS.DMS.Types.TargetDBType
-    Network.AWS.DMS.Types.VPCSecurityGroupMembership
+    Network.AWS.DMS.Types.TargetDbType
+    Network.AWS.DMS.Types.TargetEngineName
+    Network.AWS.DMS.Types.Username
+    Network.AWS.DMS.Types.Value
+    Network.AWS.DMS.Types.VpcSecurityGroupMembership
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

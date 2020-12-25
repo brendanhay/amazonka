@@ -27,113 +27,102 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     mkBatchGetDeploymentsResponse,
 
     -- ** Response lenses
-    bgdrsDeploymentsInfo,
-    bgdrsResponseStatus,
+    bgdrrsDeploymentsInfo,
+    bgdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @BatchGetDeployments@ operation.
 --
 -- /See:/ 'mkBatchGetDeployments' smart constructor.
 newtype BatchGetDeployments = BatchGetDeployments'
   { -- | A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.
-    deploymentIds :: [Lude.Text]
+    deploymentIds :: [Types.DeploymentId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetDeployments' with the minimum fields required to make a request.
---
--- * 'deploymentIds' - A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.
+-- | Creates a 'BatchGetDeployments' value with any optional fields omitted.
 mkBatchGetDeployments ::
   BatchGetDeployments
 mkBatchGetDeployments =
-  BatchGetDeployments' {deploymentIds = Lude.mempty}
+  BatchGetDeployments' {deploymentIds = Core.mempty}
 
 -- | A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.
 --
 -- /Note:/ Consider using 'deploymentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdDeploymentIds :: Lens.Lens' BatchGetDeployments [Lude.Text]
-bgdDeploymentIds = Lens.lens (deploymentIds :: BatchGetDeployments -> [Lude.Text]) (\s a -> s {deploymentIds = a} :: BatchGetDeployments)
+bgdDeploymentIds :: Lens.Lens' BatchGetDeployments [Types.DeploymentId]
+bgdDeploymentIds = Lens.field @"deploymentIds"
 {-# DEPRECATED bgdDeploymentIds "Use generic-lens or generic-optics with 'deploymentIds' instead." #-}
 
-instance Lude.AWSRequest BatchGetDeployments where
+instance Core.FromJSON BatchGetDeployments where
+  toJSON BatchGetDeployments {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("deploymentIds" Core..= deploymentIds)]
+      )
+
+instance Core.AWSRequest BatchGetDeployments where
   type Rs BatchGetDeployments = BatchGetDeploymentsResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.BatchGetDeployments")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentsResponse'
-            Lude.<$> (x Lude..?> "deploymentsInfo" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deploymentsInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetDeployments where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.BatchGetDeployments" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetDeployments where
-  toJSON BatchGetDeployments' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("deploymentIds" Lude..= deploymentIds)]
-      )
-
-instance Lude.ToPath BatchGetDeployments where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetDeployments where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @BatchGetDeployments@ operation.
 --
 -- /See:/ 'mkBatchGetDeploymentsResponse' smart constructor.
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
   { -- | Information about the deployments.
-    deploymentsInfo :: Lude.Maybe [DeploymentInfo],
+    deploymentsInfo :: Core.Maybe [Types.DeploymentInfo],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetDeploymentsResponse' with the minimum fields required to make a request.
---
--- * 'deploymentsInfo' - Information about the deployments.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetDeploymentsResponse' value with any optional fields omitted.
 mkBatchGetDeploymentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetDeploymentsResponse
-mkBatchGetDeploymentsResponse pResponseStatus_ =
+mkBatchGetDeploymentsResponse responseStatus =
   BatchGetDeploymentsResponse'
-    { deploymentsInfo = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deploymentsInfo = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the deployments.
 --
 -- /Note:/ Consider using 'deploymentsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdrsDeploymentsInfo :: Lens.Lens' BatchGetDeploymentsResponse (Lude.Maybe [DeploymentInfo])
-bgdrsDeploymentsInfo = Lens.lens (deploymentsInfo :: BatchGetDeploymentsResponse -> Lude.Maybe [DeploymentInfo]) (\s a -> s {deploymentsInfo = a} :: BatchGetDeploymentsResponse)
-{-# DEPRECATED bgdrsDeploymentsInfo "Use generic-lens or generic-optics with 'deploymentsInfo' instead." #-}
+bgdrrsDeploymentsInfo :: Lens.Lens' BatchGetDeploymentsResponse (Core.Maybe [Types.DeploymentInfo])
+bgdrrsDeploymentsInfo = Lens.field @"deploymentsInfo"
+{-# DEPRECATED bgdrrsDeploymentsInfo "Use generic-lens or generic-optics with 'deploymentsInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdrsResponseStatus :: Lens.Lens' BatchGetDeploymentsResponse Lude.Int
-bgdrsResponseStatus = Lens.lens (responseStatus :: BatchGetDeploymentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetDeploymentsResponse)
-{-# DEPRECATED bgdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgdrrsResponseStatus :: Lens.Lens' BatchGetDeploymentsResponse Core.Int
+bgdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

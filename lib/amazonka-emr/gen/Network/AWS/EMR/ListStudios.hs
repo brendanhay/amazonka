@@ -22,133 +22,124 @@ module Network.AWS.EMR.ListStudios
     mkListStudios,
 
     -- ** Request lenses
-    lsMarker,
+    lMarker,
 
     -- * Destructuring the response
     ListStudiosResponse (..),
     mkListStudiosResponse,
 
     -- ** Response lenses
-    lsrsStudios,
-    lsrsMarker,
-    lsrsResponseStatus,
+    lrsMarker,
+    lrsStudios,
+    lrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListStudios' smart constructor.
 newtype ListStudios = ListStudios'
   { -- | The pagination token that indicates the set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStudios' with the minimum fields required to make a request.
---
--- * 'marker' - The pagination token that indicates the set of results to retrieve.
+-- | Creates a 'ListStudios' value with any optional fields omitted.
 mkListStudios ::
   ListStudios
-mkListStudios = ListStudios' {marker = Lude.Nothing}
+mkListStudios = ListStudios' {marker = Core.Nothing}
 
 -- | The pagination token that indicates the set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsMarker :: Lens.Lens' ListStudios (Lude.Maybe Lude.Text)
-lsMarker = Lens.lens (marker :: ListStudios -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListStudios)
-{-# DEPRECATED lsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lMarker :: Lens.Lens' ListStudios (Core.Maybe Types.Marker)
+lMarker = Lens.field @"marker"
+{-# DEPRECATED lMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Page.AWSPager ListStudios where
-  page rq rs
-    | Page.stop (rs Lens.^. lsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsrsStudios) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lsMarker Lens..~ rs Lens.^. lsrsMarker
+instance Core.FromJSON ListStudios where
+  toJSON ListStudios {..} =
+    Core.object (Core.catMaybes [("Marker" Core..=) Core.<$> marker])
 
-instance Lude.AWSRequest ListStudios where
+instance Core.AWSRequest ListStudios where
   type Rs ListStudios = ListStudiosResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ListStudios")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListStudiosResponse'
-            Lude.<$> (x Lude..?> "Studios" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "Studios")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListStudios where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ListStudios" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListStudios where
-  toJSON ListStudios' {..} =
-    Lude.object (Lude.catMaybes [("Marker" Lude..=) Lude.<$> marker])
-
-instance Lude.ToPath ListStudios where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListStudios where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListStudios where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"studios" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkListStudiosResponse' smart constructor.
 data ListStudiosResponse = ListStudiosResponse'
-  { -- | The list of Studio summary objects.
-    studios :: Lude.Maybe [StudioSummary],
-    -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Core.Maybe Types.Marker,
+    -- | The list of Studio summary objects.
+    studios :: Core.Maybe [Types.StudioSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListStudiosResponse' with the minimum fields required to make a request.
---
--- * 'studios' - The list of Studio summary objects.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListStudiosResponse' value with any optional fields omitted.
 mkListStudiosResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListStudiosResponse
-mkListStudiosResponse pResponseStatus_ =
+mkListStudiosResponse responseStatus =
   ListStudiosResponse'
-    { studios = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      studios = Core.Nothing,
+      responseStatus
     }
-
--- | The list of Studio summary objects.
---
--- /Note:/ Consider using 'studios' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsStudios :: Lens.Lens' ListStudiosResponse (Lude.Maybe [StudioSummary])
-lsrsStudios = Lens.lens (studios :: ListStudiosResponse -> Lude.Maybe [StudioSummary]) (\s a -> s {studios = a} :: ListStudiosResponse)
-{-# DEPRECATED lsrsStudios "Use generic-lens or generic-optics with 'studios' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsMarker :: Lens.Lens' ListStudiosResponse (Lude.Maybe Lude.Text)
-lsrsMarker = Lens.lens (marker :: ListStudiosResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListStudiosResponse)
-{-# DEPRECATED lsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lrsMarker :: Lens.Lens' ListStudiosResponse (Core.Maybe Types.Marker)
+lrsMarker = Lens.field @"marker"
+{-# DEPRECATED lrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The list of Studio summary objects.
+--
+-- /Note:/ Consider using 'studios' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsStudios :: Lens.Lens' ListStudiosResponse (Core.Maybe [Types.StudioSummary])
+lrsStudios = Lens.field @"studios"
+{-# DEPRECATED lrsStudios "Use generic-lens or generic-optics with 'studios' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsResponseStatus :: Lens.Lens' ListStudiosResponse Lude.Int
-lsrsResponseStatus = Lens.lens (responseStatus :: ListStudiosResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStudiosResponse)
-{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrsResponseStatus :: Lens.Lens' ListStudiosResponse Core.Int
+lrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

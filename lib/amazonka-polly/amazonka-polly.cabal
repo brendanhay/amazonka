@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Polly
     Network.AWS.Polly.DeleteLexicon
@@ -80,16 +86,32 @@ library
     Network.AWS.Polly.Waiters
 
   other-modules:
+    Network.AWS.Polly.Types.Alphabet
+    Network.AWS.Polly.Types.Content
+    Network.AWS.Polly.Types.ContentType
     Network.AWS.Polly.Types.Engine
     Network.AWS.Polly.Types.Gender
     Network.AWS.Polly.Types.LanguageCode
+    Network.AWS.Polly.Types.LanguageName
     Network.AWS.Polly.Types.Lexicon
+    Network.AWS.Polly.Types.LexiconArn
     Network.AWS.Polly.Types.LexiconAttributes
     Network.AWS.Polly.Types.LexiconDescription
+    Network.AWS.Polly.Types.LexiconName
+    Network.AWS.Polly.Types.Name
+    Network.AWS.Polly.Types.NextToken
     Network.AWS.Polly.Types.OutputFormat
+    Network.AWS.Polly.Types.OutputS3BucketName
+    Network.AWS.Polly.Types.OutputS3KeyPrefix
+    Network.AWS.Polly.Types.OutputUri
+    Network.AWS.Polly.Types.SampleRate
+    Network.AWS.Polly.Types.SnsTopicArn
     Network.AWS.Polly.Types.SpeechMarkType
     Network.AWS.Polly.Types.SynthesisTask
+    Network.AWS.Polly.Types.TaskId
     Network.AWS.Polly.Types.TaskStatus
+    Network.AWS.Polly.Types.TaskStatusReason
+    Network.AWS.Polly.Types.Text
     Network.AWS.Polly.Types.TextType
     Network.AWS.Polly.Types.Voice
     Network.AWS.Polly.Types.VoiceId

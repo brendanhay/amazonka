@@ -17,54 +17,51 @@ module Network.AWS.CloudSearch.Types.ScalingParametersStatus
     mkScalingParametersStatus,
 
     -- * Lenses
-    spsStatus,
     spsOptions,
+    spsStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types.OptionStatus
-import Network.AWS.CloudSearch.Types.ScalingParameters
+import qualified Network.AWS.CloudSearch.Types.OptionStatus as Types
+import qualified Network.AWS.CloudSearch.Types.ScalingParameters as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status and configuration of a search domain's scaling parameters.
 --
 -- /See:/ 'mkScalingParametersStatus' smart constructor.
 data ScalingParametersStatus = ScalingParametersStatus'
-  { status :: OptionStatus,
-    options :: ScalingParameters
+  { options :: Types.ScalingParameters,
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ScalingParametersStatus' with the minimum fields required to make a request.
---
--- * 'status' -
--- * 'options' -
+-- | Creates a 'ScalingParametersStatus' value with any optional fields omitted.
 mkScalingParametersStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  ScalingParameters ->
+  Types.ScalingParameters ->
+  -- | 'status'
+  Types.OptionStatus ->
   ScalingParametersStatus
-mkScalingParametersStatus pStatus_ pOptions_ =
-  ScalingParametersStatus' {status = pStatus_, options = pOptions_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spsStatus :: Lens.Lens' ScalingParametersStatus OptionStatus
-spsStatus = Lens.lens (status :: ScalingParametersStatus -> OptionStatus) (\s a -> s {status = a} :: ScalingParametersStatus)
-{-# DEPRECATED spsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkScalingParametersStatus options status =
+  ScalingParametersStatus' {options, status}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spsOptions :: Lens.Lens' ScalingParametersStatus ScalingParameters
-spsOptions = Lens.lens (options :: ScalingParametersStatus -> ScalingParameters) (\s a -> s {options = a} :: ScalingParametersStatus)
+spsOptions :: Lens.Lens' ScalingParametersStatus Types.ScalingParameters
+spsOptions = Lens.field @"options"
 {-# DEPRECATED spsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromXML ScalingParametersStatus where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spsStatus :: Lens.Lens' ScalingParametersStatus Types.OptionStatus
+spsStatus = Lens.field @"status"
+{-# DEPRECATED spsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML ScalingParametersStatus where
   parseXML x =
     ScalingParametersStatus'
-      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")

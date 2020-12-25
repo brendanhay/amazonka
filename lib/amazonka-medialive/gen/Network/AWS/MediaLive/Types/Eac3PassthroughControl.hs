@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Eac3PassthroughControl
   ( Eac3PassthroughControl
       ( Eac3PassthroughControl',
-        NoPassthrough,
-        WhenPossible
+        Eac3PassthroughControlNoPassthrough,
+        Eac3PassthroughControlWhenPossible,
+        fromEac3PassthroughControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Eac3 Passthrough Control
-newtype Eac3PassthroughControl = Eac3PassthroughControl' Lude.Text
+newtype Eac3PassthroughControl = Eac3PassthroughControl'
+  { fromEac3PassthroughControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NoPassthrough :: Eac3PassthroughControl
-pattern NoPassthrough = Eac3PassthroughControl' "NO_PASSTHROUGH"
+pattern Eac3PassthroughControlNoPassthrough :: Eac3PassthroughControl
+pattern Eac3PassthroughControlNoPassthrough = Eac3PassthroughControl' "NO_PASSTHROUGH"
 
-pattern WhenPossible :: Eac3PassthroughControl
-pattern WhenPossible = Eac3PassthroughControl' "WHEN_POSSIBLE"
+pattern Eac3PassthroughControlWhenPossible :: Eac3PassthroughControl
+pattern Eac3PassthroughControlWhenPossible = Eac3PassthroughControl' "WHEN_POSSIBLE"
 
 {-# COMPLETE
-  NoPassthrough,
-  WhenPossible,
+  Eac3PassthroughControlNoPassthrough,
+  Eac3PassthroughControlWhenPossible,
   Eac3PassthroughControl'
   #-}

@@ -27,175 +27,159 @@ module Network.AWS.SageMaker.DescribeHumanTaskUi
     mkDescribeHumanTaskUiResponse,
 
     -- ** Response lenses
-    dhtufrsCreationTime,
-    dhtufrsUiTemplate,
-    dhtufrsHumanTaskUiName,
-    dhtufrsHumanTaskUiStatus,
-    dhtufrsHumanTaskUiARN,
-    dhtufrsResponseStatus,
+    dhturfrsHumanTaskUiArn,
+    dhturfrsHumanTaskUiName,
+    dhturfrsCreationTime,
+    dhturfrsUiTemplate,
+    dhturfrsHumanTaskUiStatus,
+    dhturfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDescribeHumanTaskUi' smart constructor.
 newtype DescribeHumanTaskUi = DescribeHumanTaskUi'
   { -- | The name of the human task user interface (worker task template) you want information about.
-    humanTaskUiName :: Lude.Text
+    humanTaskUiName :: Types.HumanTaskUiName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeHumanTaskUi' with the minimum fields required to make a request.
---
--- * 'humanTaskUiName' - The name of the human task user interface (worker task template) you want information about.
+-- | Creates a 'DescribeHumanTaskUi' value with any optional fields omitted.
 mkDescribeHumanTaskUi ::
   -- | 'humanTaskUiName'
-  Lude.Text ->
+  Types.HumanTaskUiName ->
   DescribeHumanTaskUi
-mkDescribeHumanTaskUi pHumanTaskUiName_ =
-  DescribeHumanTaskUi' {humanTaskUiName = pHumanTaskUiName_}
+mkDescribeHumanTaskUi humanTaskUiName =
+  DescribeHumanTaskUi' {humanTaskUiName}
 
 -- | The name of the human task user interface (worker task template) you want information about.
 --
 -- /Note:/ Consider using 'humanTaskUiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dHumanTaskUiName :: Lens.Lens' DescribeHumanTaskUi Lude.Text
-dHumanTaskUiName = Lens.lens (humanTaskUiName :: DescribeHumanTaskUi -> Lude.Text) (\s a -> s {humanTaskUiName = a} :: DescribeHumanTaskUi)
+dHumanTaskUiName :: Lens.Lens' DescribeHumanTaskUi Types.HumanTaskUiName
+dHumanTaskUiName = Lens.field @"humanTaskUiName"
 {-# DEPRECATED dHumanTaskUiName "Use generic-lens or generic-optics with 'humanTaskUiName' instead." #-}
 
-instance Lude.AWSRequest DescribeHumanTaskUi where
+instance Core.FromJSON DescribeHumanTaskUi where
+  toJSON DescribeHumanTaskUi {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("HumanTaskUiName" Core..= humanTaskUiName)]
+      )
+
+instance Core.AWSRequest DescribeHumanTaskUi where
   type Rs DescribeHumanTaskUi = DescribeHumanTaskUiResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DescribeHumanTaskUi")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeHumanTaskUiResponse'
-            Lude.<$> (x Lude..:> "CreationTime")
-            Lude.<*> (x Lude..:> "UiTemplate")
-            Lude.<*> (x Lude..:> "HumanTaskUiName")
-            Lude.<*> (x Lude..?> "HumanTaskUiStatus")
-            Lude.<*> (x Lude..:> "HumanTaskUiArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "HumanTaskUiArn")
+            Core.<*> (x Core..: "HumanTaskUiName")
+            Core.<*> (x Core..: "CreationTime")
+            Core.<*> (x Core..: "UiTemplate")
+            Core.<*> (x Core..:? "HumanTaskUiStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeHumanTaskUi where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DescribeHumanTaskUi" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeHumanTaskUi where
-  toJSON DescribeHumanTaskUi' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("HumanTaskUiName" Lude..= humanTaskUiName)]
-      )
-
-instance Lude.ToPath DescribeHumanTaskUi where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeHumanTaskUi where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeHumanTaskUiResponse' smart constructor.
 data DescribeHumanTaskUiResponse = DescribeHumanTaskUiResponse'
-  { -- | The timestamp when the human task user interface was created.
-    creationTime :: Lude.Timestamp,
-    uiTemplate :: UiTemplateInfo,
+  { -- | The Amazon Resource Name (ARN) of the human task user interface (worker task template).
+    humanTaskUiArn :: Types.HumanTaskUiArn,
     -- | The name of the human task user interface (worker task template).
-    humanTaskUiName :: Lude.Text,
+    humanTaskUiName :: Types.HumanTaskUiName,
+    -- | The timestamp when the human task user interface was created.
+    creationTime :: Core.NominalDiffTime,
+    uiTemplate :: Types.UiTemplateInfo,
     -- | The status of the human task user interface (worker task template). Valid values are listed below.
-    humanTaskUiStatus :: Lude.Maybe HumanTaskUiStatus,
-    -- | The Amazon Resource Name (ARN) of the human task user interface (worker task template).
-    humanTaskUiARN :: Lude.Text,
+    humanTaskUiStatus :: Core.Maybe Types.HumanTaskUiStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeHumanTaskUiResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - The timestamp when the human task user interface was created.
--- * 'uiTemplate' -
--- * 'humanTaskUiName' - The name of the human task user interface (worker task template).
--- * 'humanTaskUiStatus' - The status of the human task user interface (worker task template). Valid values are listed below.
--- * 'humanTaskUiARN' - The Amazon Resource Name (ARN) of the human task user interface (worker task template).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeHumanTaskUiResponse' value with any optional fields omitted.
 mkDescribeHumanTaskUiResponse ::
-  -- | 'creationTime'
-  Lude.Timestamp ->
-  -- | 'uiTemplate'
-  UiTemplateInfo ->
+  -- | 'humanTaskUiArn'
+  Types.HumanTaskUiArn ->
   -- | 'humanTaskUiName'
-  Lude.Text ->
-  -- | 'humanTaskUiARN'
-  Lude.Text ->
+  Types.HumanTaskUiName ->
+  -- | 'creationTime'
+  Core.NominalDiffTime ->
+  -- | 'uiTemplate'
+  Types.UiTemplateInfo ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeHumanTaskUiResponse
 mkDescribeHumanTaskUiResponse
-  pCreationTime_
-  pUiTemplate_
-  pHumanTaskUiName_
-  pHumanTaskUiARN_
-  pResponseStatus_ =
+  humanTaskUiArn
+  humanTaskUiName
+  creationTime
+  uiTemplate
+  responseStatus =
     DescribeHumanTaskUiResponse'
-      { creationTime = pCreationTime_,
-        uiTemplate = pUiTemplate_,
-        humanTaskUiName = pHumanTaskUiName_,
-        humanTaskUiStatus = Lude.Nothing,
-        humanTaskUiARN = pHumanTaskUiARN_,
-        responseStatus = pResponseStatus_
+      { humanTaskUiArn,
+        humanTaskUiName,
+        creationTime,
+        uiTemplate,
+        humanTaskUiStatus = Core.Nothing,
+        responseStatus
       }
 
--- | The timestamp when the human task user interface was created.
+-- | The Amazon Resource Name (ARN) of the human task user interface (worker task template).
 --
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhtufrsCreationTime :: Lens.Lens' DescribeHumanTaskUiResponse Lude.Timestamp
-dhtufrsCreationTime = Lens.lens (creationTime :: DescribeHumanTaskUiResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeHumanTaskUiResponse)
-{-# DEPRECATED dhtufrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'uiTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhtufrsUiTemplate :: Lens.Lens' DescribeHumanTaskUiResponse UiTemplateInfo
-dhtufrsUiTemplate = Lens.lens (uiTemplate :: DescribeHumanTaskUiResponse -> UiTemplateInfo) (\s a -> s {uiTemplate = a} :: DescribeHumanTaskUiResponse)
-{-# DEPRECATED dhtufrsUiTemplate "Use generic-lens or generic-optics with 'uiTemplate' instead." #-}
+-- /Note:/ Consider using 'humanTaskUiArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhturfrsHumanTaskUiArn :: Lens.Lens' DescribeHumanTaskUiResponse Types.HumanTaskUiArn
+dhturfrsHumanTaskUiArn = Lens.field @"humanTaskUiArn"
+{-# DEPRECATED dhturfrsHumanTaskUiArn "Use generic-lens or generic-optics with 'humanTaskUiArn' instead." #-}
 
 -- | The name of the human task user interface (worker task template).
 --
 -- /Note:/ Consider using 'humanTaskUiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhtufrsHumanTaskUiName :: Lens.Lens' DescribeHumanTaskUiResponse Lude.Text
-dhtufrsHumanTaskUiName = Lens.lens (humanTaskUiName :: DescribeHumanTaskUiResponse -> Lude.Text) (\s a -> s {humanTaskUiName = a} :: DescribeHumanTaskUiResponse)
-{-# DEPRECATED dhtufrsHumanTaskUiName "Use generic-lens or generic-optics with 'humanTaskUiName' instead." #-}
+dhturfrsHumanTaskUiName :: Lens.Lens' DescribeHumanTaskUiResponse Types.HumanTaskUiName
+dhturfrsHumanTaskUiName = Lens.field @"humanTaskUiName"
+{-# DEPRECATED dhturfrsHumanTaskUiName "Use generic-lens or generic-optics with 'humanTaskUiName' instead." #-}
+
+-- | The timestamp when the human task user interface was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhturfrsCreationTime :: Lens.Lens' DescribeHumanTaskUiResponse Core.NominalDiffTime
+dhturfrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED dhturfrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'uiTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhturfrsUiTemplate :: Lens.Lens' DescribeHumanTaskUiResponse Types.UiTemplateInfo
+dhturfrsUiTemplate = Lens.field @"uiTemplate"
+{-# DEPRECATED dhturfrsUiTemplate "Use generic-lens or generic-optics with 'uiTemplate' instead." #-}
 
 -- | The status of the human task user interface (worker task template). Valid values are listed below.
 --
 -- /Note:/ Consider using 'humanTaskUiStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhtufrsHumanTaskUiStatus :: Lens.Lens' DescribeHumanTaskUiResponse (Lude.Maybe HumanTaskUiStatus)
-dhtufrsHumanTaskUiStatus = Lens.lens (humanTaskUiStatus :: DescribeHumanTaskUiResponse -> Lude.Maybe HumanTaskUiStatus) (\s a -> s {humanTaskUiStatus = a} :: DescribeHumanTaskUiResponse)
-{-# DEPRECATED dhtufrsHumanTaskUiStatus "Use generic-lens or generic-optics with 'humanTaskUiStatus' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the human task user interface (worker task template).
---
--- /Note:/ Consider using 'humanTaskUiARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhtufrsHumanTaskUiARN :: Lens.Lens' DescribeHumanTaskUiResponse Lude.Text
-dhtufrsHumanTaskUiARN = Lens.lens (humanTaskUiARN :: DescribeHumanTaskUiResponse -> Lude.Text) (\s a -> s {humanTaskUiARN = a} :: DescribeHumanTaskUiResponse)
-{-# DEPRECATED dhtufrsHumanTaskUiARN "Use generic-lens or generic-optics with 'humanTaskUiARN' instead." #-}
+dhturfrsHumanTaskUiStatus :: Lens.Lens' DescribeHumanTaskUiResponse (Core.Maybe Types.HumanTaskUiStatus)
+dhturfrsHumanTaskUiStatus = Lens.field @"humanTaskUiStatus"
+{-# DEPRECATED dhturfrsHumanTaskUiStatus "Use generic-lens or generic-optics with 'humanTaskUiStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhtufrsResponseStatus :: Lens.Lens' DescribeHumanTaskUiResponse Lude.Int
-dhtufrsResponseStatus = Lens.lens (responseStatus :: DescribeHumanTaskUiResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHumanTaskUiResponse)
-{-# DEPRECATED dhtufrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dhturfrsResponseStatus :: Lens.Lens' DescribeHumanTaskUiResponse Core.Int
+dhturfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dhturfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,105 +27,93 @@ module Network.AWS.CodeBuild.StopBuildBatch
     mkStopBuildBatchResponse,
 
     -- ** Response lenses
-    srsBuildBatch,
-    srsResponseStatus,
+    sbbrrsBuildBatch,
+    sbbrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopBuildBatch' smart constructor.
 newtype StopBuildBatch = StopBuildBatch'
   { -- | The identifier of the batch build to stop.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopBuildBatch' with the minimum fields required to make a request.
---
--- * 'id' - The identifier of the batch build to stop.
+-- | Creates a 'StopBuildBatch' value with any optional fields omitted.
 mkStopBuildBatch ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   StopBuildBatch
-mkStopBuildBatch pId_ = StopBuildBatch' {id = pId_}
+mkStopBuildBatch id = StopBuildBatch' {id}
 
 -- | The identifier of the batch build to stop.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbbId :: Lens.Lens' StopBuildBatch Lude.Text
-sbbId = Lens.lens (id :: StopBuildBatch -> Lude.Text) (\s a -> s {id = a} :: StopBuildBatch)
+sbbId :: Lens.Lens' StopBuildBatch Types.Id
+sbbId = Lens.field @"id"
 {-# DEPRECATED sbbId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest StopBuildBatch where
+instance Core.FromJSON StopBuildBatch where
+  toJSON StopBuildBatch {..} =
+    Core.object (Core.catMaybes [Core.Just ("id" Core..= id)])
+
+instance Core.AWSRequest StopBuildBatch where
   type Rs StopBuildBatch = StopBuildBatchResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.StopBuildBatch")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopBuildBatchResponse'
-            Lude.<$> (x Lude..?> "buildBatch") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "buildBatch") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopBuildBatch where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.StopBuildBatch" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopBuildBatch where
-  toJSON StopBuildBatch' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("id" Lude..= id)])
-
-instance Lude.ToPath StopBuildBatch where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopBuildBatch where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopBuildBatchResponse' smart constructor.
 data StopBuildBatchResponse = StopBuildBatchResponse'
-  { buildBatch :: Lude.Maybe BuildBatch,
+  { buildBatch :: Core.Maybe Types.BuildBatch,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StopBuildBatchResponse' with the minimum fields required to make a request.
---
--- * 'buildBatch' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopBuildBatchResponse' value with any optional fields omitted.
 mkStopBuildBatchResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopBuildBatchResponse
-mkStopBuildBatchResponse pResponseStatus_ =
+mkStopBuildBatchResponse responseStatus =
   StopBuildBatchResponse'
-    { buildBatch = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { buildBatch = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'buildBatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsBuildBatch :: Lens.Lens' StopBuildBatchResponse (Lude.Maybe BuildBatch)
-srsBuildBatch = Lens.lens (buildBatch :: StopBuildBatchResponse -> Lude.Maybe BuildBatch) (\s a -> s {buildBatch = a} :: StopBuildBatchResponse)
-{-# DEPRECATED srsBuildBatch "Use generic-lens or generic-optics with 'buildBatch' instead." #-}
+sbbrrsBuildBatch :: Lens.Lens' StopBuildBatchResponse (Core.Maybe Types.BuildBatch)
+sbbrrsBuildBatch = Lens.field @"buildBatch"
+{-# DEPRECATED sbbrrsBuildBatch "Use generic-lens or generic-optics with 'buildBatch' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopBuildBatchResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopBuildBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopBuildBatchResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sbbrrsResponseStatus :: Lens.Lens' StopBuildBatchResponse Core.Int
+sbbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sbbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

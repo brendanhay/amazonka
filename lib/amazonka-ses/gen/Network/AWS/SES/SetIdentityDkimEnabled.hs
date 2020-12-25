@@ -32,110 +32,102 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     mkSetIdentityDkimEnabledResponse,
 
     -- ** Response lenses
-    sidersResponseStatus,
+    siderrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkSetIdentityDkimEnabled' smart constructor.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
   { -- | The identity for which DKIM signing should be enabled or disabled.
-    identity :: Lude.Text,
+    identity :: Types.Identity,
     -- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
-    dkimEnabled :: Lude.Bool
+    dkimEnabled :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetIdentityDkimEnabled' with the minimum fields required to make a request.
---
--- * 'identity' - The identity for which DKIM signing should be enabled or disabled.
--- * 'dkimEnabled' - Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
+-- | Creates a 'SetIdentityDkimEnabled' value with any optional fields omitted.
 mkSetIdentityDkimEnabled ::
   -- | 'identity'
-  Lude.Text ->
+  Types.Identity ->
   -- | 'dkimEnabled'
-  Lude.Bool ->
+  Core.Bool ->
   SetIdentityDkimEnabled
-mkSetIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
-  SetIdentityDkimEnabled'
-    { identity = pIdentity_,
-      dkimEnabled = pDkimEnabled_
-    }
+mkSetIdentityDkimEnabled identity dkimEnabled =
+  SetIdentityDkimEnabled' {identity, dkimEnabled}
 
 -- | The identity for which DKIM signing should be enabled or disabled.
 --
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sideIdentity :: Lens.Lens' SetIdentityDkimEnabled Lude.Text
-sideIdentity = Lens.lens (identity :: SetIdentityDkimEnabled -> Lude.Text) (\s a -> s {identity = a} :: SetIdentityDkimEnabled)
+sideIdentity :: Lens.Lens' SetIdentityDkimEnabled Types.Identity
+sideIdentity = Lens.field @"identity"
 {-# DEPRECATED sideIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
 --
 -- /Note:/ Consider using 'dkimEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sideDkimEnabled :: Lens.Lens' SetIdentityDkimEnabled Lude.Bool
-sideDkimEnabled = Lens.lens (dkimEnabled :: SetIdentityDkimEnabled -> Lude.Bool) (\s a -> s {dkimEnabled = a} :: SetIdentityDkimEnabled)
+sideDkimEnabled :: Lens.Lens' SetIdentityDkimEnabled Core.Bool
+sideDkimEnabled = Lens.field @"dkimEnabled"
 {-# DEPRECATED sideDkimEnabled "Use generic-lens or generic-optics with 'dkimEnabled' instead." #-}
 
-instance Lude.AWSRequest SetIdentityDkimEnabled where
+instance Core.AWSRequest SetIdentityDkimEnabled where
   type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetIdentityDkimEnabled")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Identity" identity)
+                Core.<> (Core.toQueryValue "DkimEnabled" dkimEnabled)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SetIdentityDkimEnabledResult"
       ( \s h x ->
           SetIdentityDkimEnabledResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetIdentityDkimEnabled where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetIdentityDkimEnabled where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetIdentityDkimEnabled where
-  toQuery SetIdentityDkimEnabled' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetIdentityDkimEnabled" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Identity" Lude.=: identity,
-        "DkimEnabled" Lude.=: dkimEnabled
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkSetIdentityDkimEnabledResponse' smart constructor.
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetIdentityDkimEnabledResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetIdentityDkimEnabledResponse' value with any optional fields omitted.
 mkSetIdentityDkimEnabledResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetIdentityDkimEnabledResponse
-mkSetIdentityDkimEnabledResponse pResponseStatus_ =
-  SetIdentityDkimEnabledResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkSetIdentityDkimEnabledResponse responseStatus =
+  SetIdentityDkimEnabledResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sidersResponseStatus :: Lens.Lens' SetIdentityDkimEnabledResponse Lude.Int
-sidersResponseStatus = Lens.lens (responseStatus :: SetIdentityDkimEnabledResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetIdentityDkimEnabledResponse)
-{-# DEPRECATED sidersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+siderrsResponseStatus :: Lens.Lens' SetIdentityDkimEnabledResponse Core.Int
+siderrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED siderrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

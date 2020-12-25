@@ -17,168 +17,158 @@ module Network.AWS.Inspector.Types.AssessmentTemplate
     mkAssessmentTemplate,
 
     -- * Lenses
-    atAssessmentTargetARN,
     atArn,
-    atCreatedAt,
-    atLastAssessmentRunARN,
-    atUserAttributesForFindings,
-    atRulesPackageARNs,
-    atAssessmentRunCount,
     atName,
+    atAssessmentTargetArn,
     atDurationInSeconds,
+    atRulesPackageArns,
+    atUserAttributesForFindings,
+    atAssessmentRunCount,
+    atCreatedAt,
+    atLastAssessmentRunArn,
   )
 where
 
-import Network.AWS.Inspector.Types.Attribute
+import qualified Network.AWS.Inspector.Types.Arn as Types
+import qualified Network.AWS.Inspector.Types.Attribute as Types
+import qualified Network.AWS.Inspector.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an Amazon Inspector assessment template. This data type is used as the response element in the 'DescribeAssessmentTemplates' action.
 --
 -- /See:/ 'mkAssessmentTemplate' smart constructor.
 data AssessmentTemplate = AssessmentTemplate'
-  { -- | The ARN of the assessment target that corresponds to this assessment template.
-    assessmentTargetARN :: Lude.Text,
-    -- | The ARN of the assessment template.
-    arn :: Lude.Text,
-    -- | The time at which the assessment template is created.
-    createdAt :: Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greaterpa than zero.
-    lastAssessmentRunARN :: Lude.Maybe Lude.Text,
-    -- | The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template.
-    userAttributesForFindings :: [Attribute],
-    -- | The rules packages that are specified for this assessment template.
-    rulesPackageARNs :: [Lude.Text],
-    -- | The number of existing assessment runs associated with this assessment template. This value can be zero or a positive integer.
-    assessmentRunCount :: Lude.Int,
+  { -- | The ARN of the assessment template.
+    arn :: Types.Arn,
     -- | The name of the assessment template.
-    name :: Lude.Text,
+    name :: Types.Name,
+    -- | The ARN of the assessment target that corresponds to this assessment template.
+    assessmentTargetArn :: Types.Arn,
     -- | The duration in seconds specified for this assessment template. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
-    durationInSeconds :: Lude.Natural
+    durationInSeconds :: Core.Natural,
+    -- | The rules packages that are specified for this assessment template.
+    rulesPackageArns :: [Types.Arn],
+    -- | The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template.
+    userAttributesForFindings :: [Types.Attribute],
+    -- | The number of existing assessment runs associated with this assessment template. This value can be zero or a positive integer.
+    assessmentRunCount :: Core.Int,
+    -- | The time at which the assessment template is created.
+    createdAt :: Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greaterpa than zero.
+    lastAssessmentRunArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AssessmentTemplate' with the minimum fields required to make a request.
---
--- * 'assessmentTargetARN' - The ARN of the assessment target that corresponds to this assessment template.
--- * 'arn' - The ARN of the assessment template.
--- * 'createdAt' - The time at which the assessment template is created.
--- * 'lastAssessmentRunARN' - The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greaterpa than zero.
--- * 'userAttributesForFindings' - The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template.
--- * 'rulesPackageARNs' - The rules packages that are specified for this assessment template.
--- * 'assessmentRunCount' - The number of existing assessment runs associated with this assessment template. This value can be zero or a positive integer.
--- * 'name' - The name of the assessment template.
--- * 'durationInSeconds' - The duration in seconds specified for this assessment template. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
+-- | Creates a 'AssessmentTemplate' value with any optional fields omitted.
 mkAssessmentTemplate ::
-  -- | 'assessmentTargetARN'
-  Lude.Text ->
   -- | 'arn'
-  Lude.Text ->
-  -- | 'createdAt'
-  Lude.Timestamp ->
-  -- | 'assessmentRunCount'
-  Lude.Int ->
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'assessmentTargetArn'
+  Types.Arn ->
   -- | 'durationInSeconds'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'assessmentRunCount'
+  Core.Int ->
+  -- | 'createdAt'
+  Core.NominalDiffTime ->
   AssessmentTemplate
 mkAssessmentTemplate
-  pAssessmentTargetARN_
-  pArn_
-  pCreatedAt_
-  pAssessmentRunCount_
-  pName_
-  pDurationInSeconds_ =
+  arn
+  name
+  assessmentTargetArn
+  durationInSeconds
+  assessmentRunCount
+  createdAt =
     AssessmentTemplate'
-      { assessmentTargetARN = pAssessmentTargetARN_,
-        arn = pArn_,
-        createdAt = pCreatedAt_,
-        lastAssessmentRunARN = Lude.Nothing,
-        userAttributesForFindings = Lude.mempty,
-        rulesPackageARNs = Lude.mempty,
-        assessmentRunCount = pAssessmentRunCount_,
-        name = pName_,
-        durationInSeconds = pDurationInSeconds_
+      { arn,
+        name,
+        assessmentTargetArn,
+        durationInSeconds,
+        rulesPackageArns = Core.mempty,
+        userAttributesForFindings = Core.mempty,
+        assessmentRunCount,
+        createdAt,
+        lastAssessmentRunArn = Core.Nothing
       }
-
--- | The ARN of the assessment target that corresponds to this assessment template.
---
--- /Note:/ Consider using 'assessmentTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atAssessmentTargetARN :: Lens.Lens' AssessmentTemplate Lude.Text
-atAssessmentTargetARN = Lens.lens (assessmentTargetARN :: AssessmentTemplate -> Lude.Text) (\s a -> s {assessmentTargetARN = a} :: AssessmentTemplate)
-{-# DEPRECATED atAssessmentTargetARN "Use generic-lens or generic-optics with 'assessmentTargetARN' instead." #-}
 
 -- | The ARN of the assessment template.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atArn :: Lens.Lens' AssessmentTemplate Lude.Text
-atArn = Lens.lens (arn :: AssessmentTemplate -> Lude.Text) (\s a -> s {arn = a} :: AssessmentTemplate)
+atArn :: Lens.Lens' AssessmentTemplate Types.Arn
+atArn = Lens.field @"arn"
 {-# DEPRECATED atArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The time at which the assessment template is created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atCreatedAt :: Lens.Lens' AssessmentTemplate Lude.Timestamp
-atCreatedAt = Lens.lens (createdAt :: AssessmentTemplate -> Lude.Timestamp) (\s a -> s {createdAt = a} :: AssessmentTemplate)
-{-# DEPRECATED atCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greaterpa than zero.
---
--- /Note:/ Consider using 'lastAssessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atLastAssessmentRunARN :: Lens.Lens' AssessmentTemplate (Lude.Maybe Lude.Text)
-atLastAssessmentRunARN = Lens.lens (lastAssessmentRunARN :: AssessmentTemplate -> Lude.Maybe Lude.Text) (\s a -> s {lastAssessmentRunARN = a} :: AssessmentTemplate)
-{-# DEPRECATED atLastAssessmentRunARN "Use generic-lens or generic-optics with 'lastAssessmentRunARN' instead." #-}
-
--- | The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template.
---
--- /Note:/ Consider using 'userAttributesForFindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atUserAttributesForFindings :: Lens.Lens' AssessmentTemplate [Attribute]
-atUserAttributesForFindings = Lens.lens (userAttributesForFindings :: AssessmentTemplate -> [Attribute]) (\s a -> s {userAttributesForFindings = a} :: AssessmentTemplate)
-{-# DEPRECATED atUserAttributesForFindings "Use generic-lens or generic-optics with 'userAttributesForFindings' instead." #-}
-
--- | The rules packages that are specified for this assessment template.
---
--- /Note:/ Consider using 'rulesPackageARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atRulesPackageARNs :: Lens.Lens' AssessmentTemplate [Lude.Text]
-atRulesPackageARNs = Lens.lens (rulesPackageARNs :: AssessmentTemplate -> [Lude.Text]) (\s a -> s {rulesPackageARNs = a} :: AssessmentTemplate)
-{-# DEPRECATED atRulesPackageARNs "Use generic-lens or generic-optics with 'rulesPackageARNs' instead." #-}
-
--- | The number of existing assessment runs associated with this assessment template. This value can be zero or a positive integer.
---
--- /Note:/ Consider using 'assessmentRunCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atAssessmentRunCount :: Lens.Lens' AssessmentTemplate Lude.Int
-atAssessmentRunCount = Lens.lens (assessmentRunCount :: AssessmentTemplate -> Lude.Int) (\s a -> s {assessmentRunCount = a} :: AssessmentTemplate)
-{-# DEPRECATED atAssessmentRunCount "Use generic-lens or generic-optics with 'assessmentRunCount' instead." #-}
 
 -- | The name of the assessment template.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atName :: Lens.Lens' AssessmentTemplate Lude.Text
-atName = Lens.lens (name :: AssessmentTemplate -> Lude.Text) (\s a -> s {name = a} :: AssessmentTemplate)
+atName :: Lens.Lens' AssessmentTemplate Types.Name
+atName = Lens.field @"name"
 {-# DEPRECATED atName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The ARN of the assessment target that corresponds to this assessment template.
+--
+-- /Note:/ Consider using 'assessmentTargetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atAssessmentTargetArn :: Lens.Lens' AssessmentTemplate Types.Arn
+atAssessmentTargetArn = Lens.field @"assessmentTargetArn"
+{-# DEPRECATED atAssessmentTargetArn "Use generic-lens or generic-optics with 'assessmentTargetArn' instead." #-}
 
 -- | The duration in seconds specified for this assessment template. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
 --
 -- /Note:/ Consider using 'durationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atDurationInSeconds :: Lens.Lens' AssessmentTemplate Lude.Natural
-atDurationInSeconds = Lens.lens (durationInSeconds :: AssessmentTemplate -> Lude.Natural) (\s a -> s {durationInSeconds = a} :: AssessmentTemplate)
+atDurationInSeconds :: Lens.Lens' AssessmentTemplate Core.Natural
+atDurationInSeconds = Lens.field @"durationInSeconds"
 {-# DEPRECATED atDurationInSeconds "Use generic-lens or generic-optics with 'durationInSeconds' instead." #-}
 
-instance Lude.FromJSON AssessmentTemplate where
+-- | The rules packages that are specified for this assessment template.
+--
+-- /Note:/ Consider using 'rulesPackageArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atRulesPackageArns :: Lens.Lens' AssessmentTemplate [Types.Arn]
+atRulesPackageArns = Lens.field @"rulesPackageArns"
+{-# DEPRECATED atRulesPackageArns "Use generic-lens or generic-optics with 'rulesPackageArns' instead." #-}
+
+-- | The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template.
+--
+-- /Note:/ Consider using 'userAttributesForFindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atUserAttributesForFindings :: Lens.Lens' AssessmentTemplate [Types.Attribute]
+atUserAttributesForFindings = Lens.field @"userAttributesForFindings"
+{-# DEPRECATED atUserAttributesForFindings "Use generic-lens or generic-optics with 'userAttributesForFindings' instead." #-}
+
+-- | The number of existing assessment runs associated with this assessment template. This value can be zero or a positive integer.
+--
+-- /Note:/ Consider using 'assessmentRunCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atAssessmentRunCount :: Lens.Lens' AssessmentTemplate Core.Int
+atAssessmentRunCount = Lens.field @"assessmentRunCount"
+{-# DEPRECATED atAssessmentRunCount "Use generic-lens or generic-optics with 'assessmentRunCount' instead." #-}
+
+-- | The time at which the assessment template is created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atCreatedAt :: Lens.Lens' AssessmentTemplate Core.NominalDiffTime
+atCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED atCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greaterpa than zero.
+--
+-- /Note:/ Consider using 'lastAssessmentRunArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atLastAssessmentRunArn :: Lens.Lens' AssessmentTemplate (Core.Maybe Types.Arn)
+atLastAssessmentRunArn = Lens.field @"lastAssessmentRunArn"
+{-# DEPRECATED atLastAssessmentRunArn "Use generic-lens or generic-optics with 'lastAssessmentRunArn' instead." #-}
+
+instance Core.FromJSON AssessmentTemplate where
   parseJSON =
-    Lude.withObject
-      "AssessmentTemplate"
-      ( \x ->
-          AssessmentTemplate'
-            Lude.<$> (x Lude..: "assessmentTargetArn")
-            Lude.<*> (x Lude..: "arn")
-            Lude.<*> (x Lude..: "createdAt")
-            Lude.<*> (x Lude..:? "lastAssessmentRunArn")
-            Lude.<*> (x Lude..:? "userAttributesForFindings" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "rulesPackageArns" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "assessmentRunCount")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "durationInSeconds")
-      )
+    Core.withObject "AssessmentTemplate" Core.$
+      \x ->
+        AssessmentTemplate'
+          Core.<$> (x Core..: "arn")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..: "assessmentTargetArn")
+          Core.<*> (x Core..: "durationInSeconds")
+          Core.<*> (x Core..:? "rulesPackageArns" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "userAttributesForFindings" Core..!= Core.mempty)
+          Core.<*> (x Core..: "assessmentRunCount")
+          Core.<*> (x Core..: "createdAt")
+          Core.<*> (x Core..:? "lastAssessmentRunArn")

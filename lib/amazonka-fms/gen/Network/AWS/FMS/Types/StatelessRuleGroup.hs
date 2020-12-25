@@ -17,71 +17,67 @@ module Network.AWS.FMS.Types.StatelessRuleGroup
     mkStatelessRuleGroup,
 
     -- * Lenses
-    sResourceId,
     sPriority,
+    sResourceId,
     sRuleGroupName,
   )
 where
 
+import qualified Network.AWS.FMS.Types.ResourceId as Types
+import qualified Network.AWS.FMS.Types.RuleGroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | AWS Network Firewall stateless rule group, used in a 'NetworkFirewallPolicyDescription' .
 --
 -- /See:/ 'mkStatelessRuleGroup' smart constructor.
 data StatelessRuleGroup = StatelessRuleGroup'
-  { -- | The resource ID of the rule group.
-    resourceId :: Lude.Maybe Lude.Text,
-    -- | The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting.
-    priority :: Lude.Maybe Lude.Natural,
+  { -- | The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting.
+    priority :: Core.Maybe Core.Natural,
+    -- | The resource ID of the rule group.
+    resourceId :: Core.Maybe Types.ResourceId,
     -- | The name of the rule group.
-    ruleGroupName :: Lude.Maybe Lude.Text
+    ruleGroupName :: Core.Maybe Types.RuleGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StatelessRuleGroup' with the minimum fields required to make a request.
---
--- * 'resourceId' - The resource ID of the rule group.
--- * 'priority' - The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting.
--- * 'ruleGroupName' - The name of the rule group.
+-- | Creates a 'StatelessRuleGroup' value with any optional fields omitted.
 mkStatelessRuleGroup ::
   StatelessRuleGroup
 mkStatelessRuleGroup =
   StatelessRuleGroup'
-    { resourceId = Lude.Nothing,
-      priority = Lude.Nothing,
-      ruleGroupName = Lude.Nothing
+    { priority = Core.Nothing,
+      resourceId = Core.Nothing,
+      ruleGroupName = Core.Nothing
     }
-
--- | The resource ID of the rule group.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sResourceId :: Lens.Lens' StatelessRuleGroup (Lude.Maybe Lude.Text)
-sResourceId = Lens.lens (resourceId :: StatelessRuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: StatelessRuleGroup)
-{-# DEPRECATED sResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting.
 --
 -- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sPriority :: Lens.Lens' StatelessRuleGroup (Lude.Maybe Lude.Natural)
-sPriority = Lens.lens (priority :: StatelessRuleGroup -> Lude.Maybe Lude.Natural) (\s a -> s {priority = a} :: StatelessRuleGroup)
+sPriority :: Lens.Lens' StatelessRuleGroup (Core.Maybe Core.Natural)
+sPriority = Lens.field @"priority"
 {-# DEPRECATED sPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
+
+-- | The resource ID of the rule group.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sResourceId :: Lens.Lens' StatelessRuleGroup (Core.Maybe Types.ResourceId)
+sResourceId = Lens.field @"resourceId"
+{-# DEPRECATED sResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The name of the rule group.
 --
 -- /Note:/ Consider using 'ruleGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sRuleGroupName :: Lens.Lens' StatelessRuleGroup (Lude.Maybe Lude.Text)
-sRuleGroupName = Lens.lens (ruleGroupName :: StatelessRuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {ruleGroupName = a} :: StatelessRuleGroup)
+sRuleGroupName :: Lens.Lens' StatelessRuleGroup (Core.Maybe Types.RuleGroupName)
+sRuleGroupName = Lens.field @"ruleGroupName"
 {-# DEPRECATED sRuleGroupName "Use generic-lens or generic-optics with 'ruleGroupName' instead." #-}
 
-instance Lude.FromJSON StatelessRuleGroup where
+instance Core.FromJSON StatelessRuleGroup where
   parseJSON =
-    Lude.withObject
-      "StatelessRuleGroup"
-      ( \x ->
-          StatelessRuleGroup'
-            Lude.<$> (x Lude..:? "ResourceId")
-            Lude.<*> (x Lude..:? "Priority")
-            Lude.<*> (x Lude..:? "RuleGroupName")
-      )
+    Core.withObject "StatelessRuleGroup" Core.$
+      \x ->
+        StatelessRuleGroup'
+          Core.<$> (x Core..:? "Priority")
+          Core.<*> (x Core..:? "ResourceId")
+          Core.<*> (x Core..:? "RuleGroupName")

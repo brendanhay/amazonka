@@ -31,129 +31,121 @@ module Network.AWS.KinesisVideo.GetDataEndpoint
     mkGetDataEndpointResponse,
 
     -- ** Response lenses
-    gdersDataEndpoint,
-    gdersResponseStatus,
+    gderrsDataEndpoint,
+    gderrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideo.Types
+import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDataEndpoint' smart constructor.
 data GetDataEndpoint = GetDataEndpoint'
   { -- | The name of the API action for which to get an endpoint.
-    apiName :: APIName,
+    aPIName :: Types.APIName,
     -- | The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamName@ in the request.
-    streamARN :: Lude.Maybe Lude.Text,
+    streamARN :: Core.Maybe Types.StreamARN,
     -- | The name of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamARN@ in the request.
-    streamName :: Lude.Maybe Lude.Text
+    streamName :: Core.Maybe Types.StreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDataEndpoint' with the minimum fields required to make a request.
---
--- * 'apiName' - The name of the API action for which to get an endpoint.
--- * 'streamARN' - The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamName@ in the request.
--- * 'streamName' - The name of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamARN@ in the request.
+-- | Creates a 'GetDataEndpoint' value with any optional fields omitted.
 mkGetDataEndpoint ::
-  -- | 'apiName'
-  APIName ->
+  -- | 'aPIName'
+  Types.APIName ->
   GetDataEndpoint
-mkGetDataEndpoint pAPIName_ =
+mkGetDataEndpoint aPIName =
   GetDataEndpoint'
-    { apiName = pAPIName_,
-      streamARN = Lude.Nothing,
-      streamName = Lude.Nothing
+    { aPIName,
+      streamARN = Core.Nothing,
+      streamName = Core.Nothing
     }
 
 -- | The name of the API action for which to get an endpoint.
 --
--- /Note:/ Consider using 'apiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdeAPIName :: Lens.Lens' GetDataEndpoint APIName
-gdeAPIName = Lens.lens (apiName :: GetDataEndpoint -> APIName) (\s a -> s {apiName = a} :: GetDataEndpoint)
-{-# DEPRECATED gdeAPIName "Use generic-lens or generic-optics with 'apiName' instead." #-}
+-- /Note:/ Consider using 'aPIName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdeAPIName :: Lens.Lens' GetDataEndpoint Types.APIName
+gdeAPIName = Lens.field @"aPIName"
+{-# DEPRECATED gdeAPIName "Use generic-lens or generic-optics with 'aPIName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamName@ in the request.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdeStreamARN :: Lens.Lens' GetDataEndpoint (Lude.Maybe Lude.Text)
-gdeStreamARN = Lens.lens (streamARN :: GetDataEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: GetDataEndpoint)
+gdeStreamARN :: Lens.Lens' GetDataEndpoint (Core.Maybe Types.StreamARN)
+gdeStreamARN = Lens.field @"streamARN"
 {-# DEPRECATED gdeStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamARN@ in the request.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdeStreamName :: Lens.Lens' GetDataEndpoint (Lude.Maybe Lude.Text)
-gdeStreamName = Lens.lens (streamName :: GetDataEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: GetDataEndpoint)
+gdeStreamName :: Lens.Lens' GetDataEndpoint (Core.Maybe Types.StreamName)
+gdeStreamName = Lens.field @"streamName"
 {-# DEPRECATED gdeStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest GetDataEndpoint where
-  type Rs GetDataEndpoint = GetDataEndpointResponse
-  request = Req.postJSON kinesisVideoService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetDataEndpointResponse'
-            Lude.<$> (x Lude..?> "DataEndpoint") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetDataEndpoint where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetDataEndpoint where
-  toJSON GetDataEndpoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("APIName" Lude..= apiName),
-            ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("StreamName" Lude..=) Lude.<$> streamName
+instance Core.FromJSON GetDataEndpoint where
+  toJSON GetDataEndpoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("APIName" Core..= aPIName),
+            ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName
           ]
       )
 
-instance Lude.ToPath GetDataEndpoint where
-  toPath = Lude.const "/getDataEndpoint"
-
-instance Lude.ToQuery GetDataEndpoint where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetDataEndpoint where
+  type Rs GetDataEndpoint = GetDataEndpointResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/getDataEndpoint",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDataEndpointResponse'
+            Core.<$> (x Core..:? "DataEndpoint") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetDataEndpointResponse' smart constructor.
 data GetDataEndpointResponse = GetDataEndpointResponse'
   { -- | The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application.
-    dataEndpoint :: Lude.Maybe Lude.Text,
+    dataEndpoint :: Core.Maybe Types.DataEndpoint,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDataEndpointResponse' with the minimum fields required to make a request.
---
--- * 'dataEndpoint' - The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDataEndpointResponse' value with any optional fields omitted.
 mkGetDataEndpointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDataEndpointResponse
-mkGetDataEndpointResponse pResponseStatus_ =
+mkGetDataEndpointResponse responseStatus =
   GetDataEndpointResponse'
-    { dataEndpoint = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dataEndpoint = Core.Nothing,
+      responseStatus
     }
 
 -- | The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application.
 --
 -- /Note:/ Consider using 'dataEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdersDataEndpoint :: Lens.Lens' GetDataEndpointResponse (Lude.Maybe Lude.Text)
-gdersDataEndpoint = Lens.lens (dataEndpoint :: GetDataEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {dataEndpoint = a} :: GetDataEndpointResponse)
-{-# DEPRECATED gdersDataEndpoint "Use generic-lens or generic-optics with 'dataEndpoint' instead." #-}
+gderrsDataEndpoint :: Lens.Lens' GetDataEndpointResponse (Core.Maybe Types.DataEndpoint)
+gderrsDataEndpoint = Lens.field @"dataEndpoint"
+{-# DEPRECATED gderrsDataEndpoint "Use generic-lens or generic-optics with 'dataEndpoint' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdersResponseStatus :: Lens.Lens' GetDataEndpointResponse Lude.Int
-gdersResponseStatus = Lens.lens (responseStatus :: GetDataEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDataEndpointResponse)
-{-# DEPRECATED gdersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gderrsResponseStatus :: Lens.Lens' GetDataEndpointResponse Core.Int
+gderrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gderrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

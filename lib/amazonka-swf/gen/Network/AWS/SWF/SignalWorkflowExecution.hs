@@ -34,11 +34,11 @@ module Network.AWS.SWF.SignalWorkflowExecution
     mkSignalWorkflowExecution,
 
     -- ** Request lenses
-    sDomain,
-    sInput,
-    sRunId,
-    sWorkflowId,
-    sSignalName,
+    sweDomain,
+    sweWorkflowId,
+    sweSignalName,
+    sweInput,
+    sweRunId,
 
     -- * Destructuring the response
     SignalWorkflowExecutionResponse (..),
@@ -47,128 +47,114 @@ module Network.AWS.SWF.SignalWorkflowExecution
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkSignalWorkflowExecution' smart constructor.
 data SignalWorkflowExecution = SignalWorkflowExecution'
   { -- | The name of the domain containing the workflow execution to signal.
-    domain :: Lude.Text,
-    -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target workflow execution's history.
-    input :: Lude.Maybe Lude.Text,
-    -- | The runId of the workflow execution to signal.
-    runId :: Lude.Maybe Lude.Text,
+    domain :: Types.DomainName,
     -- | The workflowId of the workflow execution to signal.
-    workflowId :: Lude.Text,
+    workflowId :: Types.WorkflowId,
     -- | The name of the signal. This name must be meaningful to the target workflow.
-    signalName :: Lude.Text
+    signalName :: Types.SignalName,
+    -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target workflow execution's history.
+    input :: Core.Maybe Types.Data,
+    -- | The runId of the workflow execution to signal.
+    runId :: Core.Maybe Types.RunId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SignalWorkflowExecution' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain containing the workflow execution to signal.
--- * 'input' - Data to attach to the @WorkflowExecutionSignaled@ event in the target workflow execution's history.
--- * 'runId' - The runId of the workflow execution to signal.
--- * 'workflowId' - The workflowId of the workflow execution to signal.
--- * 'signalName' - The name of the signal. This name must be meaningful to the target workflow.
+-- | Creates a 'SignalWorkflowExecution' value with any optional fields omitted.
 mkSignalWorkflowExecution ::
   -- | 'domain'
-  Lude.Text ->
+  Types.DomainName ->
   -- | 'workflowId'
-  Lude.Text ->
+  Types.WorkflowId ->
   -- | 'signalName'
-  Lude.Text ->
+  Types.SignalName ->
   SignalWorkflowExecution
-mkSignalWorkflowExecution pDomain_ pWorkflowId_ pSignalName_ =
+mkSignalWorkflowExecution domain workflowId signalName =
   SignalWorkflowExecution'
-    { domain = pDomain_,
-      input = Lude.Nothing,
-      runId = Lude.Nothing,
-      workflowId = pWorkflowId_,
-      signalName = pSignalName_
+    { domain,
+      workflowId,
+      signalName,
+      input = Core.Nothing,
+      runId = Core.Nothing
     }
 
 -- | The name of the domain containing the workflow execution to signal.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDomain :: Lens.Lens' SignalWorkflowExecution Lude.Text
-sDomain = Lens.lens (domain :: SignalWorkflowExecution -> Lude.Text) (\s a -> s {domain = a} :: SignalWorkflowExecution)
-{-# DEPRECATED sDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
--- | Data to attach to the @WorkflowExecutionSignaled@ event in the target workflow execution's history.
---
--- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sInput :: Lens.Lens' SignalWorkflowExecution (Lude.Maybe Lude.Text)
-sInput = Lens.lens (input :: SignalWorkflowExecution -> Lude.Maybe Lude.Text) (\s a -> s {input = a} :: SignalWorkflowExecution)
-{-# DEPRECATED sInput "Use generic-lens or generic-optics with 'input' instead." #-}
-
--- | The runId of the workflow execution to signal.
---
--- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sRunId :: Lens.Lens' SignalWorkflowExecution (Lude.Maybe Lude.Text)
-sRunId = Lens.lens (runId :: SignalWorkflowExecution -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: SignalWorkflowExecution)
-{-# DEPRECATED sRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+sweDomain :: Lens.Lens' SignalWorkflowExecution Types.DomainName
+sweDomain = Lens.field @"domain"
+{-# DEPRECATED sweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The workflowId of the workflow execution to signal.
 --
 -- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sWorkflowId :: Lens.Lens' SignalWorkflowExecution Lude.Text
-sWorkflowId = Lens.lens (workflowId :: SignalWorkflowExecution -> Lude.Text) (\s a -> s {workflowId = a} :: SignalWorkflowExecution)
-{-# DEPRECATED sWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
+sweWorkflowId :: Lens.Lens' SignalWorkflowExecution Types.WorkflowId
+sweWorkflowId = Lens.field @"workflowId"
+{-# DEPRECATED sweWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
 -- | The name of the signal. This name must be meaningful to the target workflow.
 --
 -- /Note:/ Consider using 'signalName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSignalName :: Lens.Lens' SignalWorkflowExecution Lude.Text
-sSignalName = Lens.lens (signalName :: SignalWorkflowExecution -> Lude.Text) (\s a -> s {signalName = a} :: SignalWorkflowExecution)
-{-# DEPRECATED sSignalName "Use generic-lens or generic-optics with 'signalName' instead." #-}
+sweSignalName :: Lens.Lens' SignalWorkflowExecution Types.SignalName
+sweSignalName = Lens.field @"signalName"
+{-# DEPRECATED sweSignalName "Use generic-lens or generic-optics with 'signalName' instead." #-}
 
-instance Lude.AWSRequest SignalWorkflowExecution where
+-- | Data to attach to the @WorkflowExecutionSignaled@ event in the target workflow execution's history.
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sweInput :: Lens.Lens' SignalWorkflowExecution (Core.Maybe Types.Data)
+sweInput = Lens.field @"input"
+{-# DEPRECATED sweInput "Use generic-lens or generic-optics with 'input' instead." #-}
+
+-- | The runId of the workflow execution to signal.
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sweRunId :: Lens.Lens' SignalWorkflowExecution (Core.Maybe Types.RunId)
+sweRunId = Lens.field @"runId"
+{-# DEPRECATED sweRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+
+instance Core.FromJSON SignalWorkflowExecution where
+  toJSON SignalWorkflowExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("workflowId" Core..= workflowId),
+            Core.Just ("signalName" Core..= signalName),
+            ("input" Core..=) Core.<$> input,
+            ("runId" Core..=) Core.<$> runId
+          ]
+      )
+
+instance Core.AWSRequest SignalWorkflowExecution where
   type Rs SignalWorkflowExecution = SignalWorkflowExecutionResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull SignalWorkflowExecutionResponse'
-
-instance Lude.ToHeaders SignalWorkflowExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SimpleWorkflowService.SignalWorkflowExecution" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SignalWorkflowExecution where
-  toJSON SignalWorkflowExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            ("input" Lude..=) Lude.<$> input,
-            ("runId" Lude..=) Lude.<$> runId,
-            Lude.Just ("workflowId" Lude..= workflowId),
-            Lude.Just ("signalName" Lude..= signalName)
-          ]
-      )
-
-instance Lude.ToPath SignalWorkflowExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SignalWorkflowExecution where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.SignalWorkflowExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SignalWorkflowExecutionResponse'
 
 -- | /See:/ 'mkSignalWorkflowExecutionResponse' smart constructor.
 data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SignalWorkflowExecutionResponse' with the minimum fields required to make a request.
+-- | Creates a 'SignalWorkflowExecutionResponse' value with any optional fields omitted.
 mkSignalWorkflowExecutionResponse ::
   SignalWorkflowExecutionResponse
 mkSignalWorkflowExecutionResponse =

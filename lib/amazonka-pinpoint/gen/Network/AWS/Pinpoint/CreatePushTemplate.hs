@@ -28,134 +28,121 @@ module Network.AWS.Pinpoint.CreatePushTemplate
     mkCreatePushTemplateResponse,
 
     -- ** Response lenses
-    cptrsCreateTemplateMessageBody,
-    cptrsResponseStatus,
+    cptrrsCreateTemplateMessageBody,
+    cptrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreatePushTemplate' smart constructor.
 data CreatePushTemplate = CreatePushTemplate'
   { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-    templateName :: Lude.Text,
-    pushNotificationTemplateRequest :: PushNotificationTemplateRequest
+    templateName :: Core.Text,
+    pushNotificationTemplateRequest :: Types.PushNotificationTemplateRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePushTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
--- * 'pushNotificationTemplateRequest' -
+-- | Creates a 'CreatePushTemplate' value with any optional fields omitted.
 mkCreatePushTemplate ::
   -- | 'templateName'
-  Lude.Text ->
+  Core.Text ->
   -- | 'pushNotificationTemplateRequest'
-  PushNotificationTemplateRequest ->
+  Types.PushNotificationTemplateRequest ->
   CreatePushTemplate
-mkCreatePushTemplate
-  pTemplateName_
-  pPushNotificationTemplateRequest_ =
-    CreatePushTemplate'
-      { templateName = pTemplateName_,
-        pushNotificationTemplateRequest =
-          pPushNotificationTemplateRequest_
-      }
+mkCreatePushTemplate templateName pushNotificationTemplateRequest =
+  CreatePushTemplate'
+    { templateName,
+      pushNotificationTemplateRequest
+    }
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptTemplateName :: Lens.Lens' CreatePushTemplate Lude.Text
-cptTemplateName = Lens.lens (templateName :: CreatePushTemplate -> Lude.Text) (\s a -> s {templateName = a} :: CreatePushTemplate)
+cptTemplateName :: Lens.Lens' CreatePushTemplate Core.Text
+cptTemplateName = Lens.field @"templateName"
 {-# DEPRECATED cptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'pushNotificationTemplateRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptPushNotificationTemplateRequest :: Lens.Lens' CreatePushTemplate PushNotificationTemplateRequest
-cptPushNotificationTemplateRequest = Lens.lens (pushNotificationTemplateRequest :: CreatePushTemplate -> PushNotificationTemplateRequest) (\s a -> s {pushNotificationTemplateRequest = a} :: CreatePushTemplate)
+cptPushNotificationTemplateRequest :: Lens.Lens' CreatePushTemplate Types.PushNotificationTemplateRequest
+cptPushNotificationTemplateRequest = Lens.field @"pushNotificationTemplateRequest"
 {-# DEPRECATED cptPushNotificationTemplateRequest "Use generic-lens or generic-optics with 'pushNotificationTemplateRequest' instead." #-}
 
-instance Lude.AWSRequest CreatePushTemplate where
-  type Rs CreatePushTemplate = CreatePushTemplateResponse
-  request = Req.postJSON pinpointService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreatePushTemplateResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreatePushTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreatePushTemplate where
-  toJSON CreatePushTemplate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON CreatePushTemplate where
+  toJSON CreatePushTemplate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "PushNotificationTemplateRequest"
-                  Lude..= pushNotificationTemplateRequest
+                  Core..= pushNotificationTemplateRequest
               )
           ]
       )
 
-instance Lude.ToPath CreatePushTemplate where
-  toPath CreatePushTemplate' {..} =
-    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/push"]
-
-instance Lude.ToQuery CreatePushTemplate where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreatePushTemplate where
+  type Rs CreatePushTemplate = CreatePushTemplateResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/templates/" Core.<> (Core.toText templateName)
+                Core.<> ("/push")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreatePushTemplateResponse'
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreatePushTemplateResponse' smart constructor.
 data CreatePushTemplateResponse = CreatePushTemplateResponse'
-  { createTemplateMessageBody :: CreateTemplateMessageBody,
+  { createTemplateMessageBody :: Types.CreateTemplateMessageBody,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePushTemplateResponse' with the minimum fields required to make a request.
---
--- * 'createTemplateMessageBody' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePushTemplateResponse' value with any optional fields omitted.
 mkCreatePushTemplateResponse ::
   -- | 'createTemplateMessageBody'
-  CreateTemplateMessageBody ->
+  Types.CreateTemplateMessageBody ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePushTemplateResponse
 mkCreatePushTemplateResponse
-  pCreateTemplateMessageBody_
-  pResponseStatus_ =
+  createTemplateMessageBody
+  responseStatus =
     CreatePushTemplateResponse'
-      { createTemplateMessageBody =
-          pCreateTemplateMessageBody_,
-        responseStatus = pResponseStatus_
+      { createTemplateMessageBody,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'createTemplateMessageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptrsCreateTemplateMessageBody :: Lens.Lens' CreatePushTemplateResponse CreateTemplateMessageBody
-cptrsCreateTemplateMessageBody = Lens.lens (createTemplateMessageBody :: CreatePushTemplateResponse -> CreateTemplateMessageBody) (\s a -> s {createTemplateMessageBody = a} :: CreatePushTemplateResponse)
-{-# DEPRECATED cptrsCreateTemplateMessageBody "Use generic-lens or generic-optics with 'createTemplateMessageBody' instead." #-}
+cptrrsCreateTemplateMessageBody :: Lens.Lens' CreatePushTemplateResponse Types.CreateTemplateMessageBody
+cptrrsCreateTemplateMessageBody = Lens.field @"createTemplateMessageBody"
+{-# DEPRECATED cptrrsCreateTemplateMessageBody "Use generic-lens or generic-optics with 'createTemplateMessageBody' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptrsResponseStatus :: Lens.Lens' CreatePushTemplateResponse Lude.Int
-cptrsResponseStatus = Lens.lens (responseStatus :: CreatePushTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePushTemplateResponse)
-{-# DEPRECATED cptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cptrrsResponseStatus :: Lens.Lens' CreatePushTemplateResponse Core.Int
+cptrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

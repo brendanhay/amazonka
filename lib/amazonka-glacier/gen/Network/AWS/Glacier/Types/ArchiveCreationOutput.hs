@@ -23,8 +23,11 @@ module Network.AWS.Glacier.Types.ArchiveCreationOutput
   )
 where
 
+import qualified Network.AWS.Glacier.Types.ArchiveId as Types
+import qualified Network.AWS.Glacier.Types.Checksum as Types
+import qualified Network.AWS.Glacier.Types.Location as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -33,57 +36,51 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkArchiveCreationOutput' smart constructor.
 data ArchiveCreationOutput = ArchiveCreationOutput'
   { -- | The ID of the archive. This value is also included as part of the location.
-    archiveId :: Lude.Maybe Lude.Text,
+    archiveId :: Core.Maybe Types.ArchiveId,
     -- | The checksum of the archive computed by Amazon S3 Glacier.
-    checksum :: Lude.Maybe Lude.Text,
+    checksum :: Core.Maybe Types.Checksum,
     -- | The relative URI path of the newly added archive resource.
-    location :: Lude.Maybe Lude.Text
+    location :: Core.Maybe Types.Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArchiveCreationOutput' with the minimum fields required to make a request.
---
--- * 'archiveId' - The ID of the archive. This value is also included as part of the location.
--- * 'checksum' - The checksum of the archive computed by Amazon S3 Glacier.
--- * 'location' - The relative URI path of the newly added archive resource.
+-- | Creates a 'ArchiveCreationOutput' value with any optional fields omitted.
 mkArchiveCreationOutput ::
   ArchiveCreationOutput
 mkArchiveCreationOutput =
   ArchiveCreationOutput'
-    { archiveId = Lude.Nothing,
-      checksum = Lude.Nothing,
-      location = Lude.Nothing
+    { archiveId = Core.Nothing,
+      checksum = Core.Nothing,
+      location = Core.Nothing
     }
 
 -- | The ID of the archive. This value is also included as part of the location.
 --
 -- /Note:/ Consider using 'archiveId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acoArchiveId :: Lens.Lens' ArchiveCreationOutput (Lude.Maybe Lude.Text)
-acoArchiveId = Lens.lens (archiveId :: ArchiveCreationOutput -> Lude.Maybe Lude.Text) (\s a -> s {archiveId = a} :: ArchiveCreationOutput)
+acoArchiveId :: Lens.Lens' ArchiveCreationOutput (Core.Maybe Types.ArchiveId)
+acoArchiveId = Lens.field @"archiveId"
 {-# DEPRECATED acoArchiveId "Use generic-lens or generic-optics with 'archiveId' instead." #-}
 
 -- | The checksum of the archive computed by Amazon S3 Glacier.
 --
 -- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acoChecksum :: Lens.Lens' ArchiveCreationOutput (Lude.Maybe Lude.Text)
-acoChecksum = Lens.lens (checksum :: ArchiveCreationOutput -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: ArchiveCreationOutput)
+acoChecksum :: Lens.Lens' ArchiveCreationOutput (Core.Maybe Types.Checksum)
+acoChecksum = Lens.field @"checksum"
 {-# DEPRECATED acoChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The relative URI path of the newly added archive resource.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acoLocation :: Lens.Lens' ArchiveCreationOutput (Lude.Maybe Lude.Text)
-acoLocation = Lens.lens (location :: ArchiveCreationOutput -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: ArchiveCreationOutput)
+acoLocation :: Lens.Lens' ArchiveCreationOutput (Core.Maybe Types.Location)
+acoLocation = Lens.field @"location"
 {-# DEPRECATED acoLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
-instance Lude.FromJSON ArchiveCreationOutput where
+instance Core.FromJSON ArchiveCreationOutput where
   parseJSON =
-    Lude.withObject
-      "ArchiveCreationOutput"
-      ( \x ->
-          ArchiveCreationOutput'
-            Lude.<$> (x Lude..:? "x-amz-archive-id")
-            Lude.<*> (x Lude..:? "x-amz-sha256-tree-hash")
-            Lude.<*> (x Lude..:? "Location")
-      )
+    Core.withObject "ArchiveCreationOutput" Core.$
+      \x ->
+        ArchiveCreationOutput'
+          Core.<$> (x Core..:? "x-amz-archive-id")
+          Core.<*> (x Core..:? "x-amz-sha256-tree-hash")
+          Core.<*> (x Core..:? "Location")

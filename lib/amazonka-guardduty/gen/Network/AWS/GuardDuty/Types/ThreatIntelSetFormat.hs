@@ -13,66 +13,71 @@
 module Network.AWS.GuardDuty.Types.ThreatIntelSetFormat
   ( ThreatIntelSetFormat
       ( ThreatIntelSetFormat',
-        Txt,
-        Stix,
-        OtxCSV,
-        AlienVault,
-        ProofPoint,
-        FireEye
+        ThreatIntelSetFormatTxt,
+        ThreatIntelSetFormatStix,
+        ThreatIntelSetFormatOtxCsv,
+        ThreatIntelSetFormatAlienVault,
+        ThreatIntelSetFormatProofPoint,
+        ThreatIntelSetFormatFireEye,
+        fromThreatIntelSetFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ThreatIntelSetFormat = ThreatIntelSetFormat' Lude.Text
+newtype ThreatIntelSetFormat = ThreatIntelSetFormat'
+  { fromThreatIntelSetFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Txt :: ThreatIntelSetFormat
-pattern Txt = ThreatIntelSetFormat' "TXT"
+pattern ThreatIntelSetFormatTxt :: ThreatIntelSetFormat
+pattern ThreatIntelSetFormatTxt = ThreatIntelSetFormat' "TXT"
 
-pattern Stix :: ThreatIntelSetFormat
-pattern Stix = ThreatIntelSetFormat' "STIX"
+pattern ThreatIntelSetFormatStix :: ThreatIntelSetFormat
+pattern ThreatIntelSetFormatStix = ThreatIntelSetFormat' "STIX"
 
-pattern OtxCSV :: ThreatIntelSetFormat
-pattern OtxCSV = ThreatIntelSetFormat' "OTX_CSV"
+pattern ThreatIntelSetFormatOtxCsv :: ThreatIntelSetFormat
+pattern ThreatIntelSetFormatOtxCsv = ThreatIntelSetFormat' "OTX_CSV"
 
-pattern AlienVault :: ThreatIntelSetFormat
-pattern AlienVault = ThreatIntelSetFormat' "ALIEN_VAULT"
+pattern ThreatIntelSetFormatAlienVault :: ThreatIntelSetFormat
+pattern ThreatIntelSetFormatAlienVault = ThreatIntelSetFormat' "ALIEN_VAULT"
 
-pattern ProofPoint :: ThreatIntelSetFormat
-pattern ProofPoint = ThreatIntelSetFormat' "PROOF_POINT"
+pattern ThreatIntelSetFormatProofPoint :: ThreatIntelSetFormat
+pattern ThreatIntelSetFormatProofPoint = ThreatIntelSetFormat' "PROOF_POINT"
 
-pattern FireEye :: ThreatIntelSetFormat
-pattern FireEye = ThreatIntelSetFormat' "FIRE_EYE"
+pattern ThreatIntelSetFormatFireEye :: ThreatIntelSetFormat
+pattern ThreatIntelSetFormatFireEye = ThreatIntelSetFormat' "FIRE_EYE"
 
 {-# COMPLETE
-  Txt,
-  Stix,
-  OtxCSV,
-  AlienVault,
-  ProofPoint,
-  FireEye,
+  ThreatIntelSetFormatTxt,
+  ThreatIntelSetFormatStix,
+  ThreatIntelSetFormatOtxCsv,
+  ThreatIntelSetFormatAlienVault,
+  ThreatIntelSetFormatProofPoint,
+  ThreatIntelSetFormatFireEye,
   ThreatIntelSetFormat'
   #-}

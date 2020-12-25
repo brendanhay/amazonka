@@ -22,34 +22,31 @@ module Network.AWS.SMS.Types.SSMOutput
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.S3Location
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.S3Location as Types
 
 -- | Contains the location of validation output.
 --
 -- /See:/ 'mkSSMOutput' smart constructor.
 newtype SSMOutput = SSMOutput'
-  { s3Location :: Lude.Maybe S3Location
+  { s3Location :: Core.Maybe Types.S3Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SSMOutput' with the minimum fields required to make a request.
---
--- * 's3Location' -
+-- | Creates a 'SSMOutput' value with any optional fields omitted.
 mkSSMOutput ::
   SSMOutput
-mkSSMOutput = SSMOutput' {s3Location = Lude.Nothing}
+mkSSMOutput = SSMOutput' {s3Location = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmoS3Location :: Lens.Lens' SSMOutput (Lude.Maybe S3Location)
-ssmoS3Location = Lens.lens (s3Location :: SSMOutput -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: SSMOutput)
+ssmoS3Location :: Lens.Lens' SSMOutput (Core.Maybe Types.S3Location)
+ssmoS3Location = Lens.field @"s3Location"
 {-# DEPRECATED ssmoS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
-instance Lude.FromJSON SSMOutput where
+instance Core.FromJSON SSMOutput where
   parseJSON =
-    Lude.withObject
-      "SSMOutput"
-      (\x -> SSMOutput' Lude.<$> (x Lude..:? "s3Location"))
+    Core.withObject "SSMOutput" Core.$
+      \x -> SSMOutput' Core.<$> (x Core..:? "s3Location")

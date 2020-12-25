@@ -17,57 +17,55 @@ module Network.AWS.OpsWorks.Types.InstanceIdentity
     mkInstanceIdentity,
 
     -- * Lenses
-    iiSignature,
     iiDocument,
+    iiSignature,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2 metadata service. For more information, see <https://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html Instance Metadata and User Data> .
 --
 -- /See:/ 'mkInstanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-  { -- | A signature that can be used to verify the document's accuracy and authenticity.
-    signature :: Lude.Maybe Lude.Text,
-    -- | A JSON document that contains the metadata.
-    document :: Lude.Maybe Lude.Text
+  { -- | A JSON document that contains the metadata.
+    document :: Core.Maybe Types.String,
+    -- | A signature that can be used to verify the document's accuracy and authenticity.
+    signature :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceIdentity' with the minimum fields required to make a request.
---
--- * 'signature' - A signature that can be used to verify the document's accuracy and authenticity.
--- * 'document' - A JSON document that contains the metadata.
+-- | Creates a 'InstanceIdentity' value with any optional fields omitted.
 mkInstanceIdentity ::
   InstanceIdentity
 mkInstanceIdentity =
   InstanceIdentity'
-    { signature = Lude.Nothing,
-      document = Lude.Nothing
+    { document = Core.Nothing,
+      signature = Core.Nothing
     }
-
--- | A signature that can be used to verify the document's accuracy and authenticity.
---
--- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiSignature :: Lens.Lens' InstanceIdentity (Lude.Maybe Lude.Text)
-iiSignature = Lens.lens (signature :: InstanceIdentity -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: InstanceIdentity)
-{-# DEPRECATED iiSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | A JSON document that contains the metadata.
 --
 -- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiDocument :: Lens.Lens' InstanceIdentity (Lude.Maybe Lude.Text)
-iiDocument = Lens.lens (document :: InstanceIdentity -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: InstanceIdentity)
+iiDocument :: Lens.Lens' InstanceIdentity (Core.Maybe Types.String)
+iiDocument = Lens.field @"document"
 {-# DEPRECATED iiDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
-instance Lude.ToJSON InstanceIdentity where
-  toJSON InstanceIdentity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Signature" Lude..=) Lude.<$> signature,
-            ("Document" Lude..=) Lude.<$> document
+-- | A signature that can be used to verify the document's accuracy and authenticity.
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiSignature :: Lens.Lens' InstanceIdentity (Core.Maybe Types.String)
+iiSignature = Lens.field @"signature"
+{-# DEPRECATED iiSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
+
+instance Core.FromJSON InstanceIdentity where
+  toJSON InstanceIdentity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Document" Core..=) Core.<$> document,
+            ("Signature" Core..=) Core.<$> signature
           ]
       )

@@ -22,8 +22,10 @@ module Network.AWS.ElasticSearch.Types.AdditionalLimit
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.LimitName as Types
+import qualified Network.AWS.ElasticSearch.Types.LimitValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | List of limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
 --
@@ -37,31 +39,20 @@ data AdditionalLimit = AdditionalLimit'
     -- This attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.
     --     * MaximumNumberOfDataNodesWithoutMasterNode
     -- This attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
-    limitName :: Lude.Maybe Lude.Text,
+    limitName :: Core.Maybe Types.LimitName,
     -- | Value for given @'AdditionalLimit$LimitName' @ .
-    limitValues :: Lude.Maybe [Lude.Text]
+    limitValues :: Core.Maybe [Types.LimitValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdditionalLimit' with the minimum fields required to make a request.
---
--- * 'limitName' - Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.
---
--- Attributes and their details:
---
---     * MaximumNumberOfDataNodesSupported
--- This attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.
---     * MaximumNumberOfDataNodesWithoutMasterNode
--- This attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
---
--- * 'limitValues' - Value for given @'AdditionalLimit$LimitName' @ .
+-- | Creates a 'AdditionalLimit' value with any optional fields omitted.
 mkAdditionalLimit ::
   AdditionalLimit
 mkAdditionalLimit =
   AdditionalLimit'
-    { limitName = Lude.Nothing,
-      limitValues = Lude.Nothing
+    { limitName = Core.Nothing,
+      limitValues = Core.Nothing
     }
 
 -- | Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.
@@ -75,23 +66,20 @@ mkAdditionalLimit =
 --
 --
 -- /Note:/ Consider using 'limitName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alLimitName :: Lens.Lens' AdditionalLimit (Lude.Maybe Lude.Text)
-alLimitName = Lens.lens (limitName :: AdditionalLimit -> Lude.Maybe Lude.Text) (\s a -> s {limitName = a} :: AdditionalLimit)
+alLimitName :: Lens.Lens' AdditionalLimit (Core.Maybe Types.LimitName)
+alLimitName = Lens.field @"limitName"
 {-# DEPRECATED alLimitName "Use generic-lens or generic-optics with 'limitName' instead." #-}
 
 -- | Value for given @'AdditionalLimit$LimitName' @ .
 --
 -- /Note:/ Consider using 'limitValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alLimitValues :: Lens.Lens' AdditionalLimit (Lude.Maybe [Lude.Text])
-alLimitValues = Lens.lens (limitValues :: AdditionalLimit -> Lude.Maybe [Lude.Text]) (\s a -> s {limitValues = a} :: AdditionalLimit)
+alLimitValues :: Lens.Lens' AdditionalLimit (Core.Maybe [Types.LimitValue])
+alLimitValues = Lens.field @"limitValues"
 {-# DEPRECATED alLimitValues "Use generic-lens or generic-optics with 'limitValues' instead." #-}
 
-instance Lude.FromJSON AdditionalLimit where
+instance Core.FromJSON AdditionalLimit where
   parseJSON =
-    Lude.withObject
-      "AdditionalLimit"
-      ( \x ->
-          AdditionalLimit'
-            Lude.<$> (x Lude..:? "LimitName")
-            Lude.<*> (x Lude..:? "LimitValues" Lude..!= Lude.mempty)
-      )
+    Core.withObject "AdditionalLimit" Core.$
+      \x ->
+        AdditionalLimit'
+          Core.<$> (x Core..:? "LimitName") Core.<*> (x Core..:? "LimitValues")

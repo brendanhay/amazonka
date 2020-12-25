@@ -20,10 +20,10 @@ module Network.AWS.IAM.EnableMFADevice
     mkEnableMFADevice,
 
     -- ** Request lenses
-    emdAuthenticationCode1,
-    emdUserName,
-    emdAuthenticationCode2,
-    emdSerialNumber,
+    emfadUserName,
+    emfadSerialNumber,
+    emfadAuthenticationCode1,
+    emfadAuthenticationCode2,
 
     -- * Destructuring the response
     EnableMFADeviceResponse (..),
@@ -31,73 +31,76 @@ module Network.AWS.IAM.EnableMFADevice
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableMFADevice' smart constructor.
 data EnableMFADevice = EnableMFADevice'
-  { -- | An authentication code emitted by the device.
+  { -- | The name of the IAM user for whom you want to enable the MFA device.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Types.UserName,
+    -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
+    serialNumber :: Types.SerialNumberType,
+    -- | An authentication code emitted by the device.
     --
     -- The format for this parameter is a string of six digits.
     -- /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
-    authenticationCode1 :: Lude.Text,
-    -- | The name of the IAM user for whom you want to enable the MFA device.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text,
+    authenticationCode1 :: Types.AuthenticationCodeType,
     -- | A subsequent authentication code emitted by the device.
     --
     -- The format for this parameter is a string of six digits.
     -- /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
-    authenticationCode2 :: Lude.Text,
-    -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
-    serialNumber :: Lude.Text
+    authenticationCode2 :: Types.AuthenticationCodeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableMFADevice' with the minimum fields required to make a request.
---
--- * 'authenticationCode1' - An authentication code emitted by the device.
---
--- The format for this parameter is a string of six digits.
--- /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
--- * 'userName' - The name of the IAM user for whom you want to enable the MFA device.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'authenticationCode2' - A subsequent authentication code emitted by the device.
---
--- The format for this parameter is a string of six digits.
--- /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
--- * 'serialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
+-- | Creates a 'EnableMFADevice' value with any optional fields omitted.
 mkEnableMFADevice ::
-  -- | 'authenticationCode1'
-  Lude.Text ->
   -- | 'userName'
-  Lude.Text ->
-  -- | 'authenticationCode2'
-  Lude.Text ->
+  Types.UserName ->
   -- | 'serialNumber'
-  Lude.Text ->
+  Types.SerialNumberType ->
+  -- | 'authenticationCode1'
+  Types.AuthenticationCodeType ->
+  -- | 'authenticationCode2'
+  Types.AuthenticationCodeType ->
   EnableMFADevice
 mkEnableMFADevice
-  pAuthenticationCode1_
-  pUserName_
-  pAuthenticationCode2_
-  pSerialNumber_ =
+  userName
+  serialNumber
+  authenticationCode1
+  authenticationCode2 =
     EnableMFADevice'
-      { authenticationCode1 = pAuthenticationCode1_,
-        userName = pUserName_,
-        authenticationCode2 = pAuthenticationCode2_,
-        serialNumber = pSerialNumber_
+      { userName,
+        serialNumber,
+        authenticationCode1,
+        authenticationCode2
       }
+
+-- | The name of the IAM user for whom you want to enable the MFA device.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emfadUserName :: Lens.Lens' EnableMFADevice Types.UserName
+emfadUserName = Lens.field @"userName"
+{-# DEPRECATED emfadUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
+--
+-- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emfadSerialNumber :: Lens.Lens' EnableMFADevice Types.SerialNumberType
+emfadSerialNumber = Lens.field @"serialNumber"
+{-# DEPRECATED emfadSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
 -- | An authentication code emitted by the device.
 --
@@ -105,18 +108,9 @@ mkEnableMFADevice
 -- /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
 --
 -- /Note:/ Consider using 'authenticationCode1' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emdAuthenticationCode1 :: Lens.Lens' EnableMFADevice Lude.Text
-emdAuthenticationCode1 = Lens.lens (authenticationCode1 :: EnableMFADevice -> Lude.Text) (\s a -> s {authenticationCode1 = a} :: EnableMFADevice)
-{-# DEPRECATED emdAuthenticationCode1 "Use generic-lens or generic-optics with 'authenticationCode1' instead." #-}
-
--- | The name of the IAM user for whom you want to enable the MFA device.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emdUserName :: Lens.Lens' EnableMFADevice Lude.Text
-emdUserName = Lens.lens (userName :: EnableMFADevice -> Lude.Text) (\s a -> s {userName = a} :: EnableMFADevice)
-{-# DEPRECATED emdUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+emfadAuthenticationCode1 :: Lens.Lens' EnableMFADevice Types.AuthenticationCodeType
+emfadAuthenticationCode1 = Lens.field @"authenticationCode1"
+{-# DEPRECATED emfadAuthenticationCode1 "Use generic-lens or generic-optics with 'authenticationCode1' instead." #-}
 
 -- | A subsequent authentication code emitted by the device.
 --
@@ -124,47 +118,41 @@ emdUserName = Lens.lens (userName :: EnableMFADevice -> Lude.Text) (\s a -> s {u
 -- /Important:/ Submit your request immediately after generating the authentication codes. If you generate the codes and then wait too long to submit the request, the MFA device successfully associates with the user but the MFA device becomes out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html resync the device> .
 --
 -- /Note:/ Consider using 'authenticationCode2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emdAuthenticationCode2 :: Lens.Lens' EnableMFADevice Lude.Text
-emdAuthenticationCode2 = Lens.lens (authenticationCode2 :: EnableMFADevice -> Lude.Text) (\s a -> s {authenticationCode2 = a} :: EnableMFADevice)
-{-# DEPRECATED emdAuthenticationCode2 "Use generic-lens or generic-optics with 'authenticationCode2' instead." #-}
+emfadAuthenticationCode2 :: Lens.Lens' EnableMFADevice Types.AuthenticationCodeType
+emfadAuthenticationCode2 = Lens.field @"authenticationCode2"
+{-# DEPRECATED emfadAuthenticationCode2 "Use generic-lens or generic-optics with 'authenticationCode2' instead." #-}
 
--- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
---
--- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emdSerialNumber :: Lens.Lens' EnableMFADevice Lude.Text
-emdSerialNumber = Lens.lens (serialNumber :: EnableMFADevice -> Lude.Text) (\s a -> s {serialNumber = a} :: EnableMFADevice)
-{-# DEPRECATED emdSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
-
-instance Lude.AWSRequest EnableMFADevice where
+instance Core.AWSRequest EnableMFADevice where
   type Rs EnableMFADevice = EnableMFADeviceResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull EnableMFADeviceResponse'
-
-instance Lude.ToHeaders EnableMFADevice where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath EnableMFADevice where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableMFADevice where
-  toQuery EnableMFADevice' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("EnableMFADevice" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "AuthenticationCode1" Lude.=: authenticationCode1,
-        "UserName" Lude.=: userName,
-        "AuthenticationCode2" Lude.=: authenticationCode2,
-        "SerialNumber" Lude.=: serialNumber
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "EnableMFADevice")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "SerialNumber" serialNumber)
+                Core.<> (Core.toQueryValue "AuthenticationCode1" authenticationCode1)
+                Core.<> (Core.toQueryValue "AuthenticationCode2" authenticationCode2)
+            )
+      }
+  response = Response.receiveNull EnableMFADeviceResponse'
 
 -- | /See:/ 'mkEnableMFADeviceResponse' smart constructor.
 data EnableMFADeviceResponse = EnableMFADeviceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableMFADeviceResponse' with the minimum fields required to make a request.
+-- | Creates a 'EnableMFADeviceResponse' value with any optional fields omitted.
 mkEnableMFADeviceResponse ::
   EnableMFADeviceResponse
 mkEnableMFADeviceResponse = EnableMFADeviceResponse'

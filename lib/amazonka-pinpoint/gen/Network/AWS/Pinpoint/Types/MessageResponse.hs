@@ -17,88 +17,81 @@ module Network.AWS.Pinpoint.Types.MessageResponse
     mkMessageResponse,
 
     -- * Lenses
-    mRequestId,
-    mResult,
-    mApplicationId,
-    mEndpointResult,
+    mrApplicationId,
+    mrEndpointResult,
+    mrRequestId,
+    mrResult,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EndpointMessageResult
-import Network.AWS.Pinpoint.Types.MessageResult
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EndpointMessageResult as Types
+import qualified Network.AWS.Pinpoint.Types.MessageResult as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the results of a request to send a message to an endpoint address.
 --
 -- /See:/ 'mkMessageResponse' smart constructor.
 data MessageResponse = MessageResponse'
-  { -- | The identifier for the original request that the message was delivered for.
-    requestId :: Lude.Maybe Lude.Text,
-    -- | A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.
-    result :: Lude.Maybe (Lude.HashMap Lude.Text (MessageResult)),
-    -- | The unique identifier for the application that was used to send the message.
-    applicationId :: Lude.Text,
+  { -- | The unique identifier for the application that was used to send the message.
+    applicationId :: Core.Text,
     -- | A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.
-    endpointResult :: Lude.Maybe (Lude.HashMap Lude.Text (EndpointMessageResult))
+    endpointResult :: Core.Maybe (Core.HashMap Core.Text Types.EndpointMessageResult),
+    -- | The identifier for the original request that the message was delivered for.
+    requestId :: Core.Maybe Core.Text,
+    -- | A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.
+    result :: Core.Maybe (Core.HashMap Core.Text Types.MessageResult)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MessageResponse' with the minimum fields required to make a request.
---
--- * 'requestId' - The identifier for the original request that the message was delivered for.
--- * 'result' - A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.
--- * 'applicationId' - The unique identifier for the application that was used to send the message.
--- * 'endpointResult' - A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.
+-- | Creates a 'MessageResponse' value with any optional fields omitted.
 mkMessageResponse ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   MessageResponse
-mkMessageResponse pApplicationId_ =
+mkMessageResponse applicationId =
   MessageResponse'
-    { requestId = Lude.Nothing,
-      result = Lude.Nothing,
-      applicationId = pApplicationId_,
-      endpointResult = Lude.Nothing
+    { applicationId,
+      endpointResult = Core.Nothing,
+      requestId = Core.Nothing,
+      result = Core.Nothing
     }
-
--- | The identifier for the original request that the message was delivered for.
---
--- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mRequestId :: Lens.Lens' MessageResponse (Lude.Maybe Lude.Text)
-mRequestId = Lens.lens (requestId :: MessageResponse -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: MessageResponse)
-{-# DEPRECATED mRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
-
--- | A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.
---
--- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mResult :: Lens.Lens' MessageResponse (Lude.Maybe (Lude.HashMap Lude.Text (MessageResult)))
-mResult = Lens.lens (result :: MessageResponse -> Lude.Maybe (Lude.HashMap Lude.Text (MessageResult))) (\s a -> s {result = a} :: MessageResponse)
-{-# DEPRECATED mResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The unique identifier for the application that was used to send the message.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mApplicationId :: Lens.Lens' MessageResponse Lude.Text
-mApplicationId = Lens.lens (applicationId :: MessageResponse -> Lude.Text) (\s a -> s {applicationId = a} :: MessageResponse)
-{-# DEPRECATED mApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+mrApplicationId :: Lens.Lens' MessageResponse Core.Text
+mrApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED mrApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | A map that contains a multipart response for each address that the message was sent to. In the map, the endpoint ID is the key and the result is the value.
 --
 -- /Note:/ Consider using 'endpointResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mEndpointResult :: Lens.Lens' MessageResponse (Lude.Maybe (Lude.HashMap Lude.Text (EndpointMessageResult)))
-mEndpointResult = Lens.lens (endpointResult :: MessageResponse -> Lude.Maybe (Lude.HashMap Lude.Text (EndpointMessageResult))) (\s a -> s {endpointResult = a} :: MessageResponse)
-{-# DEPRECATED mEndpointResult "Use generic-lens or generic-optics with 'endpointResult' instead." #-}
+mrEndpointResult :: Lens.Lens' MessageResponse (Core.Maybe (Core.HashMap Core.Text Types.EndpointMessageResult))
+mrEndpointResult = Lens.field @"endpointResult"
+{-# DEPRECATED mrEndpointResult "Use generic-lens or generic-optics with 'endpointResult' instead." #-}
 
-instance Lude.FromJSON MessageResponse where
+-- | The identifier for the original request that the message was delivered for.
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrRequestId :: Lens.Lens' MessageResponse (Core.Maybe Core.Text)
+mrRequestId = Lens.field @"requestId"
+{-# DEPRECATED mrRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
+
+-- | A map that contains a multipart response for each address (email address, phone number, or push notification token) that the message was sent to. In the map, the address is the key and the result is the value.
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrResult :: Lens.Lens' MessageResponse (Core.Maybe (Core.HashMap Core.Text Types.MessageResult))
+mrResult = Lens.field @"result"
+{-# DEPRECATED mrResult "Use generic-lens or generic-optics with 'result' instead." #-}
+
+instance Core.FromJSON MessageResponse where
   parseJSON =
-    Lude.withObject
-      "MessageResponse"
-      ( \x ->
-          MessageResponse'
-            Lude.<$> (x Lude..:? "RequestId")
-            Lude.<*> (x Lude..:? "Result" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "ApplicationId")
-            Lude.<*> (x Lude..:? "EndpointResult" Lude..!= Lude.mempty)
-      )
+    Core.withObject "MessageResponse" Core.$
+      \x ->
+        MessageResponse'
+          Core.<$> (x Core..: "ApplicationId")
+          Core.<*> (x Core..:? "EndpointResult")
+          Core.<*> (x Core..:? "RequestId")
+          Core.<*> (x Core..:? "Result")

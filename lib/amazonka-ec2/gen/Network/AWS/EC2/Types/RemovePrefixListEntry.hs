@@ -21,36 +21,30 @@ module Network.AWS.EC2.Types.RemovePrefixListEntry
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An entry for a prefix list.
 --
 -- /See:/ 'mkRemovePrefixListEntry' smart constructor.
 newtype RemovePrefixListEntry = RemovePrefixListEntry'
   { -- | The CIDR block.
-    cidr :: Lude.Text
+    cidr :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemovePrefixListEntry' with the minimum fields required to make a request.
---
--- * 'cidr' - The CIDR block.
+-- | Creates a 'RemovePrefixListEntry' value with any optional fields omitted.
 mkRemovePrefixListEntry ::
   -- | 'cidr'
-  Lude.Text ->
+  Types.String ->
   RemovePrefixListEntry
-mkRemovePrefixListEntry pCidr_ =
-  RemovePrefixListEntry' {cidr = pCidr_}
+mkRemovePrefixListEntry cidr = RemovePrefixListEntry' {cidr}
 
 -- | The CIDR block.
 --
 -- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpleCidr :: Lens.Lens' RemovePrefixListEntry Lude.Text
-rpleCidr = Lens.lens (cidr :: RemovePrefixListEntry -> Lude.Text) (\s a -> s {cidr = a} :: RemovePrefixListEntry)
+rpleCidr :: Lens.Lens' RemovePrefixListEntry Types.String
+rpleCidr = Lens.field @"cidr"
 {-# DEPRECATED rpleCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
-
-instance Lude.ToQuery RemovePrefixListEntry where
-  toQuery RemovePrefixListEntry' {..} =
-    Lude.mconcat ["Cidr" Lude.=: cidr]

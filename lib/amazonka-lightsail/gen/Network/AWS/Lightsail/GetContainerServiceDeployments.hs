@@ -30,114 +30,102 @@ module Network.AWS.Lightsail.GetContainerServiceDeployments
     mkGetContainerServiceDeploymentsResponse,
 
     -- ** Response lenses
-    gcsdrsDeployments,
-    gcsdrsResponseStatus,
+    gcsdrrsDeployments,
+    gcsdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetContainerServiceDeployments' smart constructor.
 newtype GetContainerServiceDeployments = GetContainerServiceDeployments'
   { -- | The name of the container service for which to return deployments.
-    serviceName :: Lude.Text
+    serviceName :: Types.ServiceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContainerServiceDeployments' with the minimum fields required to make a request.
---
--- * 'serviceName' - The name of the container service for which to return deployments.
+-- | Creates a 'GetContainerServiceDeployments' value with any optional fields omitted.
 mkGetContainerServiceDeployments ::
   -- | 'serviceName'
-  Lude.Text ->
+  Types.ServiceName ->
   GetContainerServiceDeployments
-mkGetContainerServiceDeployments pServiceName_ =
-  GetContainerServiceDeployments' {serviceName = pServiceName_}
+mkGetContainerServiceDeployments serviceName =
+  GetContainerServiceDeployments' {serviceName}
 
 -- | The name of the container service for which to return deployments.
 --
 -- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsdServiceName :: Lens.Lens' GetContainerServiceDeployments Lude.Text
-gcsdServiceName = Lens.lens (serviceName :: GetContainerServiceDeployments -> Lude.Text) (\s a -> s {serviceName = a} :: GetContainerServiceDeployments)
+gcsdServiceName :: Lens.Lens' GetContainerServiceDeployments Types.ServiceName
+gcsdServiceName = Lens.field @"serviceName"
 {-# DEPRECATED gcsdServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
-instance Lude.AWSRequest GetContainerServiceDeployments where
+instance Core.FromJSON GetContainerServiceDeployments where
+  toJSON GetContainerServiceDeployments {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("serviceName" Core..= serviceName)])
+
+instance Core.AWSRequest GetContainerServiceDeployments where
   type
     Rs GetContainerServiceDeployments =
       GetContainerServiceDeploymentsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.GetContainerServiceDeployments"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetContainerServiceDeploymentsResponse'
-            Lude.<$> (x Lude..?> "deployments" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deployments") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetContainerServiceDeployments where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.GetContainerServiceDeployments" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetContainerServiceDeployments where
-  toJSON GetContainerServiceDeployments' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("serviceName" Lude..= serviceName)])
-
-instance Lude.ToPath GetContainerServiceDeployments where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetContainerServiceDeployments where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetContainerServiceDeploymentsResponse' smart constructor.
 data GetContainerServiceDeploymentsResponse = GetContainerServiceDeploymentsResponse'
   { -- | An array of objects that describe deployments for a container service.
-    deployments :: Lude.Maybe [ContainerServiceDeployment],
+    deployments :: Core.Maybe [Types.ContainerServiceDeployment],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetContainerServiceDeploymentsResponse' with the minimum fields required to make a request.
---
--- * 'deployments' - An array of objects that describe deployments for a container service.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetContainerServiceDeploymentsResponse' value with any optional fields omitted.
 mkGetContainerServiceDeploymentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetContainerServiceDeploymentsResponse
-mkGetContainerServiceDeploymentsResponse pResponseStatus_ =
+mkGetContainerServiceDeploymentsResponse responseStatus =
   GetContainerServiceDeploymentsResponse'
     { deployments =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe deployments for a container service.
 --
 -- /Note:/ Consider using 'deployments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsdrsDeployments :: Lens.Lens' GetContainerServiceDeploymentsResponse (Lude.Maybe [ContainerServiceDeployment])
-gcsdrsDeployments = Lens.lens (deployments :: GetContainerServiceDeploymentsResponse -> Lude.Maybe [ContainerServiceDeployment]) (\s a -> s {deployments = a} :: GetContainerServiceDeploymentsResponse)
-{-# DEPRECATED gcsdrsDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
+gcsdrrsDeployments :: Lens.Lens' GetContainerServiceDeploymentsResponse (Core.Maybe [Types.ContainerServiceDeployment])
+gcsdrrsDeployments = Lens.field @"deployments"
+{-# DEPRECATED gcsdrrsDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsdrsResponseStatus :: Lens.Lens' GetContainerServiceDeploymentsResponse Lude.Int
-gcsdrsResponseStatus = Lens.lens (responseStatus :: GetContainerServiceDeploymentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContainerServiceDeploymentsResponse)
-{-# DEPRECATED gcsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcsdrrsResponseStatus :: Lens.Lens' GetContainerServiceDeploymentsResponse Core.Int
+gcsdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcsdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

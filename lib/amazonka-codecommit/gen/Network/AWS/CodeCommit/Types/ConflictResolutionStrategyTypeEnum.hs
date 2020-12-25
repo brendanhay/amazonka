@@ -13,56 +13,61 @@
 module Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum
   ( ConflictResolutionStrategyTypeEnum
       ( ConflictResolutionStrategyTypeEnum',
-        None,
-        AcceptSource,
-        AcceptDestination,
-        Automerge
+        ConflictResolutionStrategyTypeEnumNone,
+        ConflictResolutionStrategyTypeEnumAcceptSource,
+        ConflictResolutionStrategyTypeEnumAcceptDestination,
+        ConflictResolutionStrategyTypeEnumAutomerge,
+        fromConflictResolutionStrategyTypeEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConflictResolutionStrategyTypeEnum = ConflictResolutionStrategyTypeEnum' Lude.Text
+newtype ConflictResolutionStrategyTypeEnum = ConflictResolutionStrategyTypeEnum'
+  { fromConflictResolutionStrategyTypeEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: ConflictResolutionStrategyTypeEnum
-pattern None = ConflictResolutionStrategyTypeEnum' "NONE"
+pattern ConflictResolutionStrategyTypeEnumNone :: ConflictResolutionStrategyTypeEnum
+pattern ConflictResolutionStrategyTypeEnumNone = ConflictResolutionStrategyTypeEnum' "NONE"
 
-pattern AcceptSource :: ConflictResolutionStrategyTypeEnum
-pattern AcceptSource = ConflictResolutionStrategyTypeEnum' "ACCEPT_SOURCE"
+pattern ConflictResolutionStrategyTypeEnumAcceptSource :: ConflictResolutionStrategyTypeEnum
+pattern ConflictResolutionStrategyTypeEnumAcceptSource = ConflictResolutionStrategyTypeEnum' "ACCEPT_SOURCE"
 
-pattern AcceptDestination :: ConflictResolutionStrategyTypeEnum
-pattern AcceptDestination = ConflictResolutionStrategyTypeEnum' "ACCEPT_DESTINATION"
+pattern ConflictResolutionStrategyTypeEnumAcceptDestination :: ConflictResolutionStrategyTypeEnum
+pattern ConflictResolutionStrategyTypeEnumAcceptDestination = ConflictResolutionStrategyTypeEnum' "ACCEPT_DESTINATION"
 
-pattern Automerge :: ConflictResolutionStrategyTypeEnum
-pattern Automerge = ConflictResolutionStrategyTypeEnum' "AUTOMERGE"
+pattern ConflictResolutionStrategyTypeEnumAutomerge :: ConflictResolutionStrategyTypeEnum
+pattern ConflictResolutionStrategyTypeEnumAutomerge = ConflictResolutionStrategyTypeEnum' "AUTOMERGE"
 
 {-# COMPLETE
-  None,
-  AcceptSource,
-  AcceptDestination,
-  Automerge,
+  ConflictResolutionStrategyTypeEnumNone,
+  ConflictResolutionStrategyTypeEnumAcceptSource,
+  ConflictResolutionStrategyTypeEnumAcceptDestination,
+  ConflictResolutionStrategyTypeEnumAutomerge,
   ConflictResolutionStrategyTypeEnum'
   #-}

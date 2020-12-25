@@ -25,26 +25,26 @@ module Network.AWS.SES.ListCustomVerificationEmailTemplates
     mkListCustomVerificationEmailTemplates,
 
     -- ** Request lenses
-    lcvetNextToken,
     lcvetMaxResults,
+    lcvetNextToken,
 
     -- * Destructuring the response
     ListCustomVerificationEmailTemplatesResponse (..),
     mkListCustomVerificationEmailTemplatesResponse,
 
     -- ** Response lenses
-    lcvetrsNextToken,
-    lcvetrsCustomVerificationEmailTemplates,
-    lcvetrsResponseStatus,
+    lcvetrrsCustomVerificationEmailTemplates,
+    lcvetrrsNextToken,
+    lcvetrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to list the existing custom verification email templates for your account.
 --
@@ -52,131 +52,130 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkListCustomVerificationEmailTemplates' smart constructor.
 data ListCustomVerificationEmailTemplates = ListCustomVerificationEmailTemplates'
-  { -- | An array the contains the name and creation time stamp for each template in your Amazon SES account.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | An array the contains the name and creation time stamp for each template in your Amazon SES account.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListCustomVerificationEmailTemplates' with the minimum fields required to make a request.
---
--- * 'nextToken' - An array the contains the name and creation time stamp for each template in your Amazon SES account.
--- * 'maxResults' - The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.
+-- | Creates a 'ListCustomVerificationEmailTemplates' value with any optional fields omitted.
 mkListCustomVerificationEmailTemplates ::
   ListCustomVerificationEmailTemplates
 mkListCustomVerificationEmailTemplates =
   ListCustomVerificationEmailTemplates'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | An array the contains the name and creation time stamp for each template in your Amazon SES account.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcvetNextToken :: Lens.Lens' ListCustomVerificationEmailTemplates (Lude.Maybe Lude.Text)
-lcvetNextToken = Lens.lens (nextToken :: ListCustomVerificationEmailTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCustomVerificationEmailTemplates)
-{-# DEPRECATED lcvetNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcvetMaxResults :: Lens.Lens' ListCustomVerificationEmailTemplates (Lude.Maybe Lude.Natural)
-lcvetMaxResults = Lens.lens (maxResults :: ListCustomVerificationEmailTemplates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCustomVerificationEmailTemplates)
+lcvetMaxResults :: Lens.Lens' ListCustomVerificationEmailTemplates (Core.Maybe Core.Natural)
+lcvetMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lcvetMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListCustomVerificationEmailTemplates where
-  page rq rs
-    | Page.stop (rs Lens.^. lcvetrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcvetrsCustomVerificationEmailTemplates) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lcvetNextToken Lens..~ rs Lens.^. lcvetrsNextToken
+-- | An array the contains the name and creation time stamp for each template in your Amazon SES account.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcvetNextToken :: Lens.Lens' ListCustomVerificationEmailTemplates (Core.Maybe Types.NextToken)
+lcvetNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcvetNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListCustomVerificationEmailTemplates where
+instance Core.AWSRequest ListCustomVerificationEmailTemplates where
   type
     Rs ListCustomVerificationEmailTemplates =
       ListCustomVerificationEmailTemplatesResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListCustomVerificationEmailTemplates")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListCustomVerificationEmailTemplatesResult"
       ( \s h x ->
           ListCustomVerificationEmailTemplatesResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "CustomVerificationEmailTemplates" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "CustomVerificationEmailTemplates"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListCustomVerificationEmailTemplates where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListCustomVerificationEmailTemplates where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListCustomVerificationEmailTemplates where
-  toQuery ListCustomVerificationEmailTemplates' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ListCustomVerificationEmailTemplates" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListCustomVerificationEmailTemplates where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"customVerificationEmailTemplates" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | A paginated list of custom verification email templates.
 --
 -- /See:/ 'mkListCustomVerificationEmailTemplatesResponse' smart constructor.
 data ListCustomVerificationEmailTemplatesResponse = ListCustomVerificationEmailTemplatesResponse'
-  { -- | A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 custom verification email templates.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of the custom verification email templates that exist in your account.
-    customVerificationEmailTemplates :: Lude.Maybe [CustomVerificationEmailTemplate],
+  { -- | A list of the custom verification email templates that exist in your account.
+    customVerificationEmailTemplates :: Core.Maybe [Types.CustomVerificationEmailTemplate],
+    -- | A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 custom verification email templates.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListCustomVerificationEmailTemplatesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 custom verification email templates.
--- * 'customVerificationEmailTemplates' - A list of the custom verification email templates that exist in your account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListCustomVerificationEmailTemplatesResponse' value with any optional fields omitted.
 mkListCustomVerificationEmailTemplatesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListCustomVerificationEmailTemplatesResponse
-mkListCustomVerificationEmailTemplatesResponse pResponseStatus_ =
+mkListCustomVerificationEmailTemplatesResponse responseStatus =
   ListCustomVerificationEmailTemplatesResponse'
-    { nextToken =
-        Lude.Nothing,
-      customVerificationEmailTemplates = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { customVerificationEmailTemplates =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 custom verification email templates.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcvetrsNextToken :: Lens.Lens' ListCustomVerificationEmailTemplatesResponse (Lude.Maybe Lude.Text)
-lcvetrsNextToken = Lens.lens (nextToken :: ListCustomVerificationEmailTemplatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCustomVerificationEmailTemplatesResponse)
-{-# DEPRECATED lcvetrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of the custom verification email templates that exist in your account.
 --
 -- /Note:/ Consider using 'customVerificationEmailTemplates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcvetrsCustomVerificationEmailTemplates :: Lens.Lens' ListCustomVerificationEmailTemplatesResponse (Lude.Maybe [CustomVerificationEmailTemplate])
-lcvetrsCustomVerificationEmailTemplates = Lens.lens (customVerificationEmailTemplates :: ListCustomVerificationEmailTemplatesResponse -> Lude.Maybe [CustomVerificationEmailTemplate]) (\s a -> s {customVerificationEmailTemplates = a} :: ListCustomVerificationEmailTemplatesResponse)
-{-# DEPRECATED lcvetrsCustomVerificationEmailTemplates "Use generic-lens or generic-optics with 'customVerificationEmailTemplates' instead." #-}
+lcvetrrsCustomVerificationEmailTemplates :: Lens.Lens' ListCustomVerificationEmailTemplatesResponse (Core.Maybe [Types.CustomVerificationEmailTemplate])
+lcvetrrsCustomVerificationEmailTemplates = Lens.field @"customVerificationEmailTemplates"
+{-# DEPRECATED lcvetrrsCustomVerificationEmailTemplates "Use generic-lens or generic-optics with 'customVerificationEmailTemplates' instead." #-}
+
+-- | A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 custom verification email templates.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcvetrrsNextToken :: Lens.Lens' ListCustomVerificationEmailTemplatesResponse (Core.Maybe Types.NextToken)
+lcvetrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcvetrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcvetrsResponseStatus :: Lens.Lens' ListCustomVerificationEmailTemplatesResponse Lude.Int
-lcvetrsResponseStatus = Lens.lens (responseStatus :: ListCustomVerificationEmailTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCustomVerificationEmailTemplatesResponse)
-{-# DEPRECATED lcvetrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcvetrrsResponseStatus :: Lens.Lens' ListCustomVerificationEmailTemplatesResponse Core.Int
+lcvetrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcvetrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

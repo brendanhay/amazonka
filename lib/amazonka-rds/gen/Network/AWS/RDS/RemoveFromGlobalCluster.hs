@@ -20,7 +20,7 @@ module Network.AWS.RDS.RemoveFromGlobalCluster
     mkRemoveFromGlobalCluster,
 
     -- ** Request lenses
-    rfgcDBClusterIdentifier,
+    rfgcDbClusterIdentifier,
     rfgcGlobalClusterIdentifier,
 
     -- * Destructuring the response
@@ -28,113 +28,114 @@ module Network.AWS.RDS.RemoveFromGlobalCluster
     mkRemoveFromGlobalClusterResponse,
 
     -- ** Response lenses
-    rfgcrsGlobalCluster,
-    rfgcrsResponseStatus,
+    rfgcrrsGlobalCluster,
+    rfgcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveFromGlobalCluster' smart constructor.
 data RemoveFromGlobalCluster = RemoveFromGlobalCluster'
   { -- | The Amazon Resource Name (ARN) identifying the cluster that was detached from the Aurora global database cluster.
-    dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    dbClusterIdentifier :: Core.Maybe Types.DbClusterIdentifier,
     -- | The cluster identifier to detach from the Aurora global database cluster.
-    globalClusterIdentifier :: Lude.Maybe Lude.Text
+    globalClusterIdentifier :: Core.Maybe Types.GlobalClusterIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveFromGlobalCluster' with the minimum fields required to make a request.
---
--- * 'dbClusterIdentifier' - The Amazon Resource Name (ARN) identifying the cluster that was detached from the Aurora global database cluster.
--- * 'globalClusterIdentifier' - The cluster identifier to detach from the Aurora global database cluster.
+-- | Creates a 'RemoveFromGlobalCluster' value with any optional fields omitted.
 mkRemoveFromGlobalCluster ::
   RemoveFromGlobalCluster
 mkRemoveFromGlobalCluster =
   RemoveFromGlobalCluster'
-    { dbClusterIdentifier = Lude.Nothing,
-      globalClusterIdentifier = Lude.Nothing
+    { dbClusterIdentifier = Core.Nothing,
+      globalClusterIdentifier = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) identifying the cluster that was detached from the Aurora global database cluster.
 --
 -- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfgcDBClusterIdentifier :: Lens.Lens' RemoveFromGlobalCluster (Lude.Maybe Lude.Text)
-rfgcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: RemoveFromGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: RemoveFromGlobalCluster)
-{-# DEPRECATED rfgcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+rfgcDbClusterIdentifier :: Lens.Lens' RemoveFromGlobalCluster (Core.Maybe Types.DbClusterIdentifier)
+rfgcDbClusterIdentifier = Lens.field @"dbClusterIdentifier"
+{-# DEPRECATED rfgcDbClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | The cluster identifier to detach from the Aurora global database cluster.
 --
 -- /Note:/ Consider using 'globalClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfgcGlobalClusterIdentifier :: Lens.Lens' RemoveFromGlobalCluster (Lude.Maybe Lude.Text)
-rfgcGlobalClusterIdentifier = Lens.lens (globalClusterIdentifier :: RemoveFromGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {globalClusterIdentifier = a} :: RemoveFromGlobalCluster)
+rfgcGlobalClusterIdentifier :: Lens.Lens' RemoveFromGlobalCluster (Core.Maybe Types.GlobalClusterIdentifier)
+rfgcGlobalClusterIdentifier = Lens.field @"globalClusterIdentifier"
 {-# DEPRECATED rfgcGlobalClusterIdentifier "Use generic-lens or generic-optics with 'globalClusterIdentifier' instead." #-}
 
-instance Lude.AWSRequest RemoveFromGlobalCluster where
+instance Core.AWSRequest RemoveFromGlobalCluster where
   type Rs RemoveFromGlobalCluster = RemoveFromGlobalClusterResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemoveFromGlobalCluster")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue "DbClusterIdentifier"
+                            Core.<$> dbClusterIdentifier
+                        )
+                Core.<> ( Core.toQueryValue "GlobalClusterIdentifier"
+                            Core.<$> globalClusterIdentifier
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "RemoveFromGlobalClusterResult"
       ( \s h x ->
           RemoveFromGlobalClusterResponse'
-            Lude.<$> (x Lude..@? "GlobalCluster")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalCluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveFromGlobalCluster where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemoveFromGlobalCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveFromGlobalCluster where
-  toQuery RemoveFromGlobalCluster' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RemoveFromGlobalCluster" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DbClusterIdentifier" Lude.=: dbClusterIdentifier,
-        "GlobalClusterIdentifier" Lude.=: globalClusterIdentifier
-      ]
 
 -- | /See:/ 'mkRemoveFromGlobalClusterResponse' smart constructor.
 data RemoveFromGlobalClusterResponse = RemoveFromGlobalClusterResponse'
-  { globalCluster :: Lude.Maybe GlobalCluster,
+  { globalCluster :: Core.Maybe Types.GlobalCluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveFromGlobalClusterResponse' with the minimum fields required to make a request.
---
--- * 'globalCluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveFromGlobalClusterResponse' value with any optional fields omitted.
 mkRemoveFromGlobalClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveFromGlobalClusterResponse
-mkRemoveFromGlobalClusterResponse pResponseStatus_ =
+mkRemoveFromGlobalClusterResponse responseStatus =
   RemoveFromGlobalClusterResponse'
-    { globalCluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { globalCluster = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'globalCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfgcrsGlobalCluster :: Lens.Lens' RemoveFromGlobalClusterResponse (Lude.Maybe GlobalCluster)
-rfgcrsGlobalCluster = Lens.lens (globalCluster :: RemoveFromGlobalClusterResponse -> Lude.Maybe GlobalCluster) (\s a -> s {globalCluster = a} :: RemoveFromGlobalClusterResponse)
-{-# DEPRECATED rfgcrsGlobalCluster "Use generic-lens or generic-optics with 'globalCluster' instead." #-}
+rfgcrrsGlobalCluster :: Lens.Lens' RemoveFromGlobalClusterResponse (Core.Maybe Types.GlobalCluster)
+rfgcrrsGlobalCluster = Lens.field @"globalCluster"
+{-# DEPRECATED rfgcrrsGlobalCluster "Use generic-lens or generic-optics with 'globalCluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfgcrsResponseStatus :: Lens.Lens' RemoveFromGlobalClusterResponse Lude.Int
-rfgcrsResponseStatus = Lens.lens (responseStatus :: RemoveFromGlobalClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveFromGlobalClusterResponse)
-{-# DEPRECATED rfgcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rfgcrrsResponseStatus :: Lens.Lens' RemoveFromGlobalClusterResponse Core.Int
+rfgcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rfgcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,46 +13,51 @@
 module Network.AWS.CodeBuild.Types.ArtifactNamespace
   ( ArtifactNamespace
       ( ArtifactNamespace',
-        ANNone,
-        ANBuildId
+        ArtifactNamespaceNone,
+        ArtifactNamespaceBuildId,
+        fromArtifactNamespace
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ArtifactNamespace = ArtifactNamespace' Lude.Text
+newtype ArtifactNamespace = ArtifactNamespace'
+  { fromArtifactNamespace ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ANNone :: ArtifactNamespace
-pattern ANNone = ArtifactNamespace' "NONE"
+pattern ArtifactNamespaceNone :: ArtifactNamespace
+pattern ArtifactNamespaceNone = ArtifactNamespace' "NONE"
 
-pattern ANBuildId :: ArtifactNamespace
-pattern ANBuildId = ArtifactNamespace' "BUILD_ID"
+pattern ArtifactNamespaceBuildId :: ArtifactNamespace
+pattern ArtifactNamespaceBuildId = ArtifactNamespace' "BUILD_ID"
 
 {-# COMPLETE
-  ANNone,
-  ANBuildId,
+  ArtifactNamespaceNone,
+  ArtifactNamespaceBuildId,
   ArtifactNamespace'
   #-}

@@ -17,57 +17,54 @@ module Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
     mkLambdaFunctionTimedOutEventDetails,
 
     -- * Lenses
-    lftoedError,
     lftoedCause,
+    lftoedError,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.SensitiveCause as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveError as Types
 
 -- | Contains details about a lambda function timeout that occurred during an execution.
 --
 -- /See:/ 'mkLambdaFunctionTimedOutEventDetails' smart constructor.
 data LambdaFunctionTimedOutEventDetails = LambdaFunctionTimedOutEventDetails'
-  { -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A more detailed explanation of the cause of the timeout.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
+  { -- | A more detailed explanation of the cause of the timeout.
+    cause :: Core.Maybe Types.SensitiveCause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.SensitiveError
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaFunctionTimedOutEventDetails' with the minimum fields required to make a request.
---
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the timeout.
+-- | Creates a 'LambdaFunctionTimedOutEventDetails' value with any optional fields omitted.
 mkLambdaFunctionTimedOutEventDetails ::
   LambdaFunctionTimedOutEventDetails
 mkLambdaFunctionTimedOutEventDetails =
   LambdaFunctionTimedOutEventDetails'
-    { error = Lude.Nothing,
-      cause = Lude.Nothing
+    { cause = Core.Nothing,
+      error = Core.Nothing
     }
-
--- | The error code of the failure.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lftoedError :: Lens.Lens' LambdaFunctionTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-lftoedError = Lens.lens (error :: LambdaFunctionTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: LambdaFunctionTimedOutEventDetails)
-{-# DEPRECATED lftoedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the timeout.
 --
 -- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lftoedCause :: Lens.Lens' LambdaFunctionTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-lftoedCause = Lens.lens (cause :: LambdaFunctionTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: LambdaFunctionTimedOutEventDetails)
+lftoedCause :: Lens.Lens' LambdaFunctionTimedOutEventDetails (Core.Maybe Types.SensitiveCause)
+lftoedCause = Lens.field @"cause"
 {-# DEPRECATED lftoedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
-instance Lude.FromJSON LambdaFunctionTimedOutEventDetails where
+-- | The error code of the failure.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lftoedError :: Lens.Lens' LambdaFunctionTimedOutEventDetails (Core.Maybe Types.SensitiveError)
+lftoedError = Lens.field @"error"
+{-# DEPRECATED lftoedError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON LambdaFunctionTimedOutEventDetails where
   parseJSON =
-    Lude.withObject
-      "LambdaFunctionTimedOutEventDetails"
-      ( \x ->
-          LambdaFunctionTimedOutEventDetails'
-            Lude.<$> (x Lude..:? "error") Lude.<*> (x Lude..:? "cause")
-      )
+    Core.withObject "LambdaFunctionTimedOutEventDetails" Core.$
+      \x ->
+        LambdaFunctionTimedOutEventDetails'
+          Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")

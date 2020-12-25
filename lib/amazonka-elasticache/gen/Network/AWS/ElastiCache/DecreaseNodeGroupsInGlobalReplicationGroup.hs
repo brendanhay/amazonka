@@ -20,10 +20,10 @@ module Network.AWS.ElastiCache.DecreaseNodeGroupsInGlobalReplicationGroup
     mkDecreaseNodeGroupsInGlobalReplicationGroup,
 
     -- ** Request lenses
-    dngigrgGlobalNodeGroupsToRemove,
-    dngigrgNodeGroupCount,
     dngigrgGlobalReplicationGroupId,
+    dngigrgNodeGroupCount,
     dngigrgApplyImmediately,
+    dngigrgGlobalNodeGroupsToRemove,
     dngigrgGlobalNodeGroupsToRetain,
 
     -- * Destructuring the response
@@ -31,173 +31,168 @@ module Network.AWS.ElastiCache.DecreaseNodeGroupsInGlobalReplicationGroup
     mkDecreaseNodeGroupsInGlobalReplicationGroupResponse,
 
     -- ** Response lenses
-    dngigrgrsGlobalReplicationGroup,
-    dngigrgrsResponseStatus,
+    dngigrgrrsGlobalReplicationGroup,
+    dngigrgrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDecreaseNodeGroupsInGlobalReplicationGroup' smart constructor.
 data DecreaseNodeGroupsInGlobalReplicationGroup = DecreaseNodeGroupsInGlobalReplicationGroup'
-  { -- | If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster.
-    globalNodeGroupsToRemove :: Lude.Maybe [Lude.Text],
+  { -- | The name of the Global Datastore
+    globalReplicationGroupId :: Types.String,
     -- | The number of node groups (shards) that results from the modification of the shard configuration
-    nodeGroupCount :: Lude.Int,
-    -- | The name of the Global Datastore
-    globalReplicationGroupId :: Lude.Text,
+    nodeGroupCount :: Core.Int,
     -- | Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is true.
-    applyImmediately :: Lude.Bool,
+    applyImmediately :: Core.Bool,
     -- | If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster.
-    globalNodeGroupsToRetain :: Lude.Maybe [Lude.Text]
+    globalNodeGroupsToRemove :: Core.Maybe [Types.String],
+    -- | If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster.
+    globalNodeGroupsToRetain :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DecreaseNodeGroupsInGlobalReplicationGroup' with the minimum fields required to make a request.
---
--- * 'globalNodeGroupsToRemove' - If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster.
--- * 'nodeGroupCount' - The number of node groups (shards) that results from the modification of the shard configuration
--- * 'globalReplicationGroupId' - The name of the Global Datastore
--- * 'applyImmediately' - Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is true.
--- * 'globalNodeGroupsToRetain' - If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster.
+-- | Creates a 'DecreaseNodeGroupsInGlobalReplicationGroup' value with any optional fields omitted.
 mkDecreaseNodeGroupsInGlobalReplicationGroup ::
-  -- | 'nodeGroupCount'
-  Lude.Int ->
   -- | 'globalReplicationGroupId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'nodeGroupCount'
+  Core.Int ->
   -- | 'applyImmediately'
-  Lude.Bool ->
+  Core.Bool ->
   DecreaseNodeGroupsInGlobalReplicationGroup
 mkDecreaseNodeGroupsInGlobalReplicationGroup
-  pNodeGroupCount_
-  pGlobalReplicationGroupId_
-  pApplyImmediately_ =
+  globalReplicationGroupId
+  nodeGroupCount
+  applyImmediately =
     DecreaseNodeGroupsInGlobalReplicationGroup'
-      { globalNodeGroupsToRemove =
-          Lude.Nothing,
-        nodeGroupCount = pNodeGroupCount_,
-        globalReplicationGroupId =
-          pGlobalReplicationGroupId_,
-        applyImmediately = pApplyImmediately_,
-        globalNodeGroupsToRetain = Lude.Nothing
+      { globalReplicationGroupId,
+        nodeGroupCount,
+        applyImmediately,
+        globalNodeGroupsToRemove = Core.Nothing,
+        globalNodeGroupsToRetain = Core.Nothing
       }
-
--- | If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster.
---
--- /Note:/ Consider using 'globalNodeGroupsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dngigrgGlobalNodeGroupsToRemove :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup (Lude.Maybe [Lude.Text])
-dngigrgGlobalNodeGroupsToRemove = Lens.lens (globalNodeGroupsToRemove :: DecreaseNodeGroupsInGlobalReplicationGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {globalNodeGroupsToRemove = a} :: DecreaseNodeGroupsInGlobalReplicationGroup)
-{-# DEPRECATED dngigrgGlobalNodeGroupsToRemove "Use generic-lens or generic-optics with 'globalNodeGroupsToRemove' instead." #-}
-
--- | The number of node groups (shards) that results from the modification of the shard configuration
---
--- /Note:/ Consider using 'nodeGroupCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dngigrgNodeGroupCount :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup Lude.Int
-dngigrgNodeGroupCount = Lens.lens (nodeGroupCount :: DecreaseNodeGroupsInGlobalReplicationGroup -> Lude.Int) (\s a -> s {nodeGroupCount = a} :: DecreaseNodeGroupsInGlobalReplicationGroup)
-{-# DEPRECATED dngigrgNodeGroupCount "Use generic-lens or generic-optics with 'nodeGroupCount' instead." #-}
 
 -- | The name of the Global Datastore
 --
 -- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dngigrgGlobalReplicationGroupId :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup Lude.Text
-dngigrgGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: DecreaseNodeGroupsInGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: DecreaseNodeGroupsInGlobalReplicationGroup)
+dngigrgGlobalReplicationGroupId :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup Types.String
+dngigrgGlobalReplicationGroupId = Lens.field @"globalReplicationGroupId"
 {-# DEPRECATED dngigrgGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
+
+-- | The number of node groups (shards) that results from the modification of the shard configuration
+--
+-- /Note:/ Consider using 'nodeGroupCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngigrgNodeGroupCount :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup Core.Int
+dngigrgNodeGroupCount = Lens.field @"nodeGroupCount"
+{-# DEPRECATED dngigrgNodeGroupCount "Use generic-lens or generic-optics with 'nodeGroupCount' instead." #-}
 
 -- | Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is true.
 --
 -- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dngigrgApplyImmediately :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup Lude.Bool
-dngigrgApplyImmediately = Lens.lens (applyImmediately :: DecreaseNodeGroupsInGlobalReplicationGroup -> Lude.Bool) (\s a -> s {applyImmediately = a} :: DecreaseNodeGroupsInGlobalReplicationGroup)
+dngigrgApplyImmediately :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup Core.Bool
+dngigrgApplyImmediately = Lens.field @"applyImmediately"
 {-# DEPRECATED dngigrgApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
 -- | If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster.
 --
+-- /Note:/ Consider using 'globalNodeGroupsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngigrgGlobalNodeGroupsToRemove :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup (Core.Maybe [Types.String])
+dngigrgGlobalNodeGroupsToRemove = Lens.field @"globalNodeGroupsToRemove"
+{-# DEPRECATED dngigrgGlobalNodeGroupsToRemove "Use generic-lens or generic-optics with 'globalNodeGroupsToRemove' instead." #-}
+
+-- | If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster. ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster.
+--
 -- /Note:/ Consider using 'globalNodeGroupsToRetain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dngigrgGlobalNodeGroupsToRetain :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup (Lude.Maybe [Lude.Text])
-dngigrgGlobalNodeGroupsToRetain = Lens.lens (globalNodeGroupsToRetain :: DecreaseNodeGroupsInGlobalReplicationGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {globalNodeGroupsToRetain = a} :: DecreaseNodeGroupsInGlobalReplicationGroup)
+dngigrgGlobalNodeGroupsToRetain :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup (Core.Maybe [Types.String])
+dngigrgGlobalNodeGroupsToRetain = Lens.field @"globalNodeGroupsToRetain"
 {-# DEPRECATED dngigrgGlobalNodeGroupsToRetain "Use generic-lens or generic-optics with 'globalNodeGroupsToRetain' instead." #-}
 
-instance Lude.AWSRequest DecreaseNodeGroupsInGlobalReplicationGroup where
+instance Core.AWSRequest DecreaseNodeGroupsInGlobalReplicationGroup where
   type
     Rs DecreaseNodeGroupsInGlobalReplicationGroup =
       DecreaseNodeGroupsInGlobalReplicationGroupResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DecreaseNodeGroupsInGlobalReplicationGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue
+                            "GlobalReplicationGroupId"
+                            globalReplicationGroupId
+                        )
+                Core.<> (Core.toQueryValue "NodeGroupCount" nodeGroupCount)
+                Core.<> (Core.toQueryValue "ApplyImmediately" applyImmediately)
+                Core.<> ( Core.toQueryValue
+                            "GlobalNodeGroupsToRemove"
+                            ( Core.toQueryList "GlobalNodeGroupId"
+                                Core.<$> globalNodeGroupsToRemove
+                            )
+                        )
+                Core.<> ( Core.toQueryValue
+                            "GlobalNodeGroupsToRetain"
+                            ( Core.toQueryList "GlobalNodeGroupId"
+                                Core.<$> globalNodeGroupsToRetain
+                            )
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DecreaseNodeGroupsInGlobalReplicationGroupResult"
       ( \s h x ->
           DecreaseNodeGroupsInGlobalReplicationGroupResponse'
-            Lude.<$> (x Lude..@? "GlobalReplicationGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DecreaseNodeGroupsInGlobalReplicationGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DecreaseNodeGroupsInGlobalReplicationGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DecreaseNodeGroupsInGlobalReplicationGroup where
-  toQuery DecreaseNodeGroupsInGlobalReplicationGroup' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DecreaseNodeGroupsInGlobalReplicationGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "GlobalNodeGroupsToRemove"
-          Lude.=: Lude.toQuery
-            ( Lude.toQueryList "GlobalNodeGroupId"
-                Lude.<$> globalNodeGroupsToRemove
-            ),
-        "NodeGroupCount" Lude.=: nodeGroupCount,
-        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId,
-        "ApplyImmediately" Lude.=: applyImmediately,
-        "GlobalNodeGroupsToRetain"
-          Lude.=: Lude.toQuery
-            ( Lude.toQueryList "GlobalNodeGroupId"
-                Lude.<$> globalNodeGroupsToRetain
-            )
-      ]
 
 -- | /See:/ 'mkDecreaseNodeGroupsInGlobalReplicationGroupResponse' smart constructor.
 data DecreaseNodeGroupsInGlobalReplicationGroupResponse = DecreaseNodeGroupsInGlobalReplicationGroupResponse'
-  { globalReplicationGroup :: Lude.Maybe GlobalReplicationGroup,
+  { globalReplicationGroup :: Core.Maybe Types.GlobalReplicationGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DecreaseNodeGroupsInGlobalReplicationGroupResponse' with the minimum fields required to make a request.
---
--- * 'globalReplicationGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DecreaseNodeGroupsInGlobalReplicationGroupResponse' value with any optional fields omitted.
 mkDecreaseNodeGroupsInGlobalReplicationGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DecreaseNodeGroupsInGlobalReplicationGroupResponse
-mkDecreaseNodeGroupsInGlobalReplicationGroupResponse
-  pResponseStatus_ =
-    DecreaseNodeGroupsInGlobalReplicationGroupResponse'
-      { globalReplicationGroup =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
-      }
+mkDecreaseNodeGroupsInGlobalReplicationGroupResponse responseStatus =
+  DecreaseNodeGroupsInGlobalReplicationGroupResponse'
+    { globalReplicationGroup =
+        Core.Nothing,
+      responseStatus
+    }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'globalReplicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dngigrgrsGlobalReplicationGroup :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroupResponse (Lude.Maybe GlobalReplicationGroup)
-dngigrgrsGlobalReplicationGroup = Lens.lens (globalReplicationGroup :: DecreaseNodeGroupsInGlobalReplicationGroupResponse -> Lude.Maybe GlobalReplicationGroup) (\s a -> s {globalReplicationGroup = a} :: DecreaseNodeGroupsInGlobalReplicationGroupResponse)
-{-# DEPRECATED dngigrgrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
+dngigrgrrsGlobalReplicationGroup :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroupResponse (Core.Maybe Types.GlobalReplicationGroup)
+dngigrgrrsGlobalReplicationGroup = Lens.field @"globalReplicationGroup"
+{-# DEPRECATED dngigrgrrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dngigrgrsResponseStatus :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroupResponse Lude.Int
-dngigrgrsResponseStatus = Lens.lens (responseStatus :: DecreaseNodeGroupsInGlobalReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DecreaseNodeGroupsInGlobalReplicationGroupResponse)
-{-# DEPRECATED dngigrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dngigrgrrsResponseStatus :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroupResponse Core.Int
+dngigrgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dngigrgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

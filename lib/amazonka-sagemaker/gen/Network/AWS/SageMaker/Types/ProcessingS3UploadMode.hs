@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.ProcessingS3UploadMode
   ( ProcessingS3UploadMode
       ( ProcessingS3UploadMode',
-        Continuous,
-        EndOfJob
+        ProcessingS3UploadModeContinuous,
+        ProcessingS3UploadModeEndOfJob,
+        fromProcessingS3UploadMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProcessingS3UploadMode = ProcessingS3UploadMode' Lude.Text
+newtype ProcessingS3UploadMode = ProcessingS3UploadMode'
+  { fromProcessingS3UploadMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Continuous :: ProcessingS3UploadMode
-pattern Continuous = ProcessingS3UploadMode' "Continuous"
+pattern ProcessingS3UploadModeContinuous :: ProcessingS3UploadMode
+pattern ProcessingS3UploadModeContinuous = ProcessingS3UploadMode' "Continuous"
 
-pattern EndOfJob :: ProcessingS3UploadMode
-pattern EndOfJob = ProcessingS3UploadMode' "EndOfJob"
+pattern ProcessingS3UploadModeEndOfJob :: ProcessingS3UploadMode
+pattern ProcessingS3UploadModeEndOfJob = ProcessingS3UploadMode' "EndOfJob"
 
 {-# COMPLETE
-  Continuous,
-  EndOfJob,
+  ProcessingS3UploadModeContinuous,
+  ProcessingS3UploadModeEndOfJob,
   ProcessingS3UploadMode'
   #-}

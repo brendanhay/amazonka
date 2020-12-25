@@ -22,50 +22,46 @@ module Network.AWS.MediaLive.Types.AncillarySourceSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Ancillary Source Settings
 --
 -- /See:/ 'mkAncillarySourceSettings' smart constructor.
 newtype AncillarySourceSettings = AncillarySourceSettings'
   { -- | Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
-    sourceAncillaryChannelNumber :: Lude.Maybe Lude.Natural
+    sourceAncillaryChannelNumber :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AncillarySourceSettings' with the minimum fields required to make a request.
---
--- * 'sourceAncillaryChannelNumber' - Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+-- | Creates a 'AncillarySourceSettings' value with any optional fields omitted.
 mkAncillarySourceSettings ::
   AncillarySourceSettings
 mkAncillarySourceSettings =
   AncillarySourceSettings'
     { sourceAncillaryChannelNumber =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
 --
 -- /Note:/ Consider using 'sourceAncillaryChannelNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assSourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Lude.Maybe Lude.Natural)
-assSourceAncillaryChannelNumber = Lens.lens (sourceAncillaryChannelNumber :: AncillarySourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {sourceAncillaryChannelNumber = a} :: AncillarySourceSettings)
+assSourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Core.Maybe Core.Natural)
+assSourceAncillaryChannelNumber = Lens.field @"sourceAncillaryChannelNumber"
 {-# DEPRECATED assSourceAncillaryChannelNumber "Use generic-lens or generic-optics with 'sourceAncillaryChannelNumber' instead." #-}
 
-instance Lude.FromJSON AncillarySourceSettings where
-  parseJSON =
-    Lude.withObject
-      "AncillarySourceSettings"
-      ( \x ->
-          AncillarySourceSettings'
-            Lude.<$> (x Lude..:? "sourceAncillaryChannelNumber")
-      )
-
-instance Lude.ToJSON AncillarySourceSettings where
-  toJSON AncillarySourceSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("sourceAncillaryChannelNumber" Lude..=)
-              Lude.<$> sourceAncillaryChannelNumber
+instance Core.FromJSON AncillarySourceSettings where
+  toJSON AncillarySourceSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("sourceAncillaryChannelNumber" Core..=)
+              Core.<$> sourceAncillaryChannelNumber
           ]
       )
+
+instance Core.FromJSON AncillarySourceSettings where
+  parseJSON =
+    Core.withObject "AncillarySourceSettings" Core.$
+      \x ->
+        AncillarySourceSettings'
+          Core.<$> (x Core..:? "sourceAncillaryChannelNumber")

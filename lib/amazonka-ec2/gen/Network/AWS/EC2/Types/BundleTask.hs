@@ -17,156 +17,148 @@ module Network.AWS.EC2.Types.BundleTask
     mkBundleTask,
 
     -- * Lenses
+    btBundleId,
+    btBundleTaskError,
     btInstanceId,
-    btState,
     btProgress,
     btStartTime,
-    btBundleId,
+    btState,
     btStorage,
     btUpdateTime,
-    btBundleTaskError,
   )
 where
 
-import Network.AWS.EC2.Types.BundleTaskError
-import Network.AWS.EC2.Types.BundleTaskState
-import Network.AWS.EC2.Types.Storage
+import qualified Network.AWS.EC2.Types.BundleTaskError as Types
+import qualified Network.AWS.EC2.Types.BundleTaskState as Types
+import qualified Network.AWS.EC2.Types.Storage as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a bundle task.
 --
 -- /See:/ 'mkBundleTask' smart constructor.
 data BundleTask = BundleTask'
-  { -- | The ID of the instance associated with this bundle task.
-    instanceId :: Lude.Text,
-    -- | The state of the task.
-    state :: BundleTaskState,
-    -- | The level of task completion, as a percent (for example, 20%).
-    progress :: Lude.Text,
-    -- | The time this task started.
-    startTime :: Lude.DateTime,
-    -- | The ID of the bundle task.
-    bundleId :: Lude.Text,
-    -- | The Amazon S3 storage locations.
-    storage :: Storage,
-    -- | The time of the most recent update for the task.
-    updateTime :: Lude.DateTime,
+  { -- | The ID of the bundle task.
+    bundleId :: Types.String,
     -- | If the task fails, a description of the error.
-    bundleTaskError :: Lude.Maybe BundleTaskError
+    bundleTaskError :: Core.Maybe Types.BundleTaskError,
+    -- | The ID of the instance associated with this bundle task.
+    instanceId :: Types.String,
+    -- | The level of task completion, as a percent (for example, 20%).
+    progress :: Types.String,
+    -- | The time this task started.
+    startTime :: Core.UTCTime,
+    -- | The state of the task.
+    state :: Types.BundleTaskState,
+    -- | The Amazon S3 storage locations.
+    storage :: Types.Storage,
+    -- | The time of the most recent update for the task.
+    updateTime :: Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BundleTask' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance associated with this bundle task.
--- * 'state' - The state of the task.
--- * 'progress' - The level of task completion, as a percent (for example, 20%).
--- * 'startTime' - The time this task started.
--- * 'bundleId' - The ID of the bundle task.
--- * 'storage' - The Amazon S3 storage locations.
--- * 'updateTime' - The time of the most recent update for the task.
--- * 'bundleTaskError' - If the task fails, a description of the error.
+-- | Creates a 'BundleTask' value with any optional fields omitted.
 mkBundleTask ::
-  -- | 'instanceId'
-  Lude.Text ->
-  -- | 'state'
-  BundleTaskState ->
-  -- | 'progress'
-  Lude.Text ->
-  -- | 'startTime'
-  Lude.DateTime ->
   -- | 'bundleId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'instanceId'
+  Types.String ->
+  -- | 'progress'
+  Types.String ->
+  -- | 'startTime'
+  Core.UTCTime ->
+  -- | 'state'
+  Types.BundleTaskState ->
   -- | 'storage'
-  Storage ->
+  Types.Storage ->
   -- | 'updateTime'
-  Lude.DateTime ->
+  Core.UTCTime ->
   BundleTask
 mkBundleTask
-  pInstanceId_
-  pState_
-  pProgress_
-  pStartTime_
-  pBundleId_
-  pStorage_
-  pUpdateTime_ =
+  bundleId
+  instanceId
+  progress
+  startTime
+  state
+  storage
+  updateTime =
     BundleTask'
-      { instanceId = pInstanceId_,
-        state = pState_,
-        progress = pProgress_,
-        startTime = pStartTime_,
-        bundleId = pBundleId_,
-        storage = pStorage_,
-        updateTime = pUpdateTime_,
-        bundleTaskError = Lude.Nothing
+      { bundleId,
+        bundleTaskError = Core.Nothing,
+        instanceId,
+        progress,
+        startTime,
+        state,
+        storage,
+        updateTime
       }
+
+-- | The ID of the bundle task.
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+btBundleId :: Lens.Lens' BundleTask Types.String
+btBundleId = Lens.field @"bundleId"
+{-# DEPRECATED btBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | If the task fails, a description of the error.
+--
+-- /Note:/ Consider using 'bundleTaskError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+btBundleTaskError :: Lens.Lens' BundleTask (Core.Maybe Types.BundleTaskError)
+btBundleTaskError = Lens.field @"bundleTaskError"
+{-# DEPRECATED btBundleTaskError "Use generic-lens or generic-optics with 'bundleTaskError' instead." #-}
 
 -- | The ID of the instance associated with this bundle task.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btInstanceId :: Lens.Lens' BundleTask Lude.Text
-btInstanceId = Lens.lens (instanceId :: BundleTask -> Lude.Text) (\s a -> s {instanceId = a} :: BundleTask)
+btInstanceId :: Lens.Lens' BundleTask Types.String
+btInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED btInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The state of the task.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btState :: Lens.Lens' BundleTask BundleTaskState
-btState = Lens.lens (state :: BundleTask -> BundleTaskState) (\s a -> s {state = a} :: BundleTask)
-{-# DEPRECATED btState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The level of task completion, as a percent (for example, 20%).
 --
 -- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btProgress :: Lens.Lens' BundleTask Lude.Text
-btProgress = Lens.lens (progress :: BundleTask -> Lude.Text) (\s a -> s {progress = a} :: BundleTask)
+btProgress :: Lens.Lens' BundleTask Types.String
+btProgress = Lens.field @"progress"
 {-# DEPRECATED btProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
 
 -- | The time this task started.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btStartTime :: Lens.Lens' BundleTask Lude.DateTime
-btStartTime = Lens.lens (startTime :: BundleTask -> Lude.DateTime) (\s a -> s {startTime = a} :: BundleTask)
+btStartTime :: Lens.Lens' BundleTask Core.UTCTime
+btStartTime = Lens.field @"startTime"
 {-# DEPRECATED btStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | The ID of the bundle task.
+-- | The state of the task.
 --
--- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btBundleId :: Lens.Lens' BundleTask Lude.Text
-btBundleId = Lens.lens (bundleId :: BundleTask -> Lude.Text) (\s a -> s {bundleId = a} :: BundleTask)
-{-# DEPRECATED btBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+btState :: Lens.Lens' BundleTask Types.BundleTaskState
+btState = Lens.field @"state"
+{-# DEPRECATED btState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The Amazon S3 storage locations.
 --
 -- /Note:/ Consider using 'storage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btStorage :: Lens.Lens' BundleTask Storage
-btStorage = Lens.lens (storage :: BundleTask -> Storage) (\s a -> s {storage = a} :: BundleTask)
+btStorage :: Lens.Lens' BundleTask Types.Storage
+btStorage = Lens.field @"storage"
 {-# DEPRECATED btStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
 
 -- | The time of the most recent update for the task.
 --
 -- /Note:/ Consider using 'updateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btUpdateTime :: Lens.Lens' BundleTask Lude.DateTime
-btUpdateTime = Lens.lens (updateTime :: BundleTask -> Lude.DateTime) (\s a -> s {updateTime = a} :: BundleTask)
+btUpdateTime :: Lens.Lens' BundleTask Core.UTCTime
+btUpdateTime = Lens.field @"updateTime"
 {-# DEPRECATED btUpdateTime "Use generic-lens or generic-optics with 'updateTime' instead." #-}
 
--- | If the task fails, a description of the error.
---
--- /Note:/ Consider using 'bundleTaskError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-btBundleTaskError :: Lens.Lens' BundleTask (Lude.Maybe BundleTaskError)
-btBundleTaskError = Lens.lens (bundleTaskError :: BundleTask -> Lude.Maybe BundleTaskError) (\s a -> s {bundleTaskError = a} :: BundleTask)
-{-# DEPRECATED btBundleTaskError "Use generic-lens or generic-optics with 'bundleTaskError' instead." #-}
-
-instance Lude.FromXML BundleTask where
+instance Core.FromXML BundleTask where
   parseXML x =
     BundleTask'
-      Lude.<$> (x Lude..@ "instanceId")
-      Lude.<*> (x Lude..@ "state")
-      Lude.<*> (x Lude..@ "progress")
-      Lude.<*> (x Lude..@ "startTime")
-      Lude.<*> (x Lude..@ "bundleId")
-      Lude.<*> (x Lude..@ "storage")
-      Lude.<*> (x Lude..@ "updateTime")
-      Lude.<*> (x Lude..@? "error")
+      Core.<$> (x Core..@ "bundleId")
+      Core.<*> (x Core..@? "error")
+      Core.<*> (x Core..@ "instanceId")
+      Core.<*> (x Core..@ "progress")
+      Core.<*> (x Core..@ "startTime")
+      Core.<*> (x Core..@ "state")
+      Core.<*> (x Core..@ "storage")
+      Core.<*> (x Core..@ "updateTime")

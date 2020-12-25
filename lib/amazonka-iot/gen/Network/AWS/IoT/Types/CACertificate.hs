@@ -17,91 +17,84 @@ module Network.AWS.IoT.Types.CACertificate
     mkCACertificate,
 
     -- * Lenses
-    cacStatus,
-    cacCertificateARN,
+    cacCertificateArn,
     cacCertificateId,
     cacCreationDate,
+    cacStatus,
   )
 where
 
-import Network.AWS.IoT.Types.CACertificateStatus
+import qualified Network.AWS.IoT.Types.CACertificateStatus as Types
+import qualified Network.AWS.IoT.Types.CertificateArn as Types
+import qualified Network.AWS.IoT.Types.CertificateId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A CA certificate.
 --
 -- /See:/ 'mkCACertificate' smart constructor.
 data CACertificate = CACertificate'
-  { -- | The status of the CA certificate.
+  { -- | The ARN of the CA certificate.
+    certificateArn :: Core.Maybe Types.CertificateArn,
+    -- | The ID of the CA certificate.
+    certificateId :: Core.Maybe Types.CertificateId,
+    -- | The date the CA certificate was created.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the CA certificate.
     --
     -- The status value REGISTER_INACTIVE is deprecated and should not be used.
-    status :: Lude.Maybe CACertificateStatus,
-    -- | The ARN of the CA certificate.
-    certificateARN :: Lude.Maybe Lude.Text,
-    -- | The ID of the CA certificate.
-    certificateId :: Lude.Maybe Lude.Text,
-    -- | The date the CA certificate was created.
-    creationDate :: Lude.Maybe Lude.Timestamp
+    status :: Core.Maybe Types.CACertificateStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CACertificate' with the minimum fields required to make a request.
---
--- * 'status' - The status of the CA certificate.
---
--- The status value REGISTER_INACTIVE is deprecated and should not be used.
--- * 'certificateARN' - The ARN of the CA certificate.
--- * 'certificateId' - The ID of the CA certificate.
--- * 'creationDate' - The date the CA certificate was created.
+-- | Creates a 'CACertificate' value with any optional fields omitted.
 mkCACertificate ::
   CACertificate
 mkCACertificate =
   CACertificate'
-    { status = Lude.Nothing,
-      certificateARN = Lude.Nothing,
-      certificateId = Lude.Nothing,
-      creationDate = Lude.Nothing
+    { certificateArn = Core.Nothing,
+      certificateId = Core.Nothing,
+      creationDate = Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | The ARN of the CA certificate.
+--
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacCertificateArn :: Lens.Lens' CACertificate (Core.Maybe Types.CertificateArn)
+cacCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED cacCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
+
+-- | The ID of the CA certificate.
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacCertificateId :: Lens.Lens' CACertificate (Core.Maybe Types.CertificateId)
+cacCertificateId = Lens.field @"certificateId"
+{-# DEPRECATED cacCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+
+-- | The date the CA certificate was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacCreationDate :: Lens.Lens' CACertificate (Core.Maybe Core.NominalDiffTime)
+cacCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED cacCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The status of the CA certificate.
 --
 -- The status value REGISTER_INACTIVE is deprecated and should not be used.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacStatus :: Lens.Lens' CACertificate (Lude.Maybe CACertificateStatus)
-cacStatus = Lens.lens (status :: CACertificate -> Lude.Maybe CACertificateStatus) (\s a -> s {status = a} :: CACertificate)
+cacStatus :: Lens.Lens' CACertificate (Core.Maybe Types.CACertificateStatus)
+cacStatus = Lens.field @"status"
 {-# DEPRECATED cacStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The ARN of the CA certificate.
---
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacCertificateARN :: Lens.Lens' CACertificate (Lude.Maybe Lude.Text)
-cacCertificateARN = Lens.lens (certificateARN :: CACertificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CACertificate)
-{-# DEPRECATED cacCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
-
--- | The ID of the CA certificate.
---
--- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacCertificateId :: Lens.Lens' CACertificate (Lude.Maybe Lude.Text)
-cacCertificateId = Lens.lens (certificateId :: CACertificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateId = a} :: CACertificate)
-{-# DEPRECATED cacCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
-
--- | The date the CA certificate was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacCreationDate :: Lens.Lens' CACertificate (Lude.Maybe Lude.Timestamp)
-cacCreationDate = Lens.lens (creationDate :: CACertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: CACertificate)
-{-# DEPRECATED cacCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
-instance Lude.FromJSON CACertificate where
+instance Core.FromJSON CACertificate where
   parseJSON =
-    Lude.withObject
-      "CACertificate"
-      ( \x ->
-          CACertificate'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "certificateArn")
-            Lude.<*> (x Lude..:? "certificateId")
-            Lude.<*> (x Lude..:? "creationDate")
-      )
+    Core.withObject "CACertificate" Core.$
+      \x ->
+        CACertificate'
+          Core.<$> (x Core..:? "certificateArn")
+          Core.<*> (x Core..:? "certificateId")
+          Core.<*> (x Core..:? "creationDate")
+          Core.<*> (x Core..:? "status")

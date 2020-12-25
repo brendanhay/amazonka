@@ -21,162 +21,142 @@ module Network.AWS.Pinpoint.UpdateTemplateActiveVersion
 
     -- ** Request lenses
     utavTemplateName,
-    utavTemplateActiveVersionRequest,
     utavTemplateType,
+    utavTemplateActiveVersionRequest,
 
     -- * Destructuring the response
     UpdateTemplateActiveVersionResponse (..),
     mkUpdateTemplateActiveVersionResponse,
 
     -- ** Response lenses
-    utavrsMessageBody,
-    utavrsResponseStatus,
+    utavrrsMessageBody,
+    utavrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTemplateActiveVersion' smart constructor.
 data UpdateTemplateActiveVersion = UpdateTemplateActiveVersion'
   { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-    templateName :: Lude.Text,
-    templateActiveVersionRequest :: TemplateActiveVersionRequest,
+    templateName :: Core.Text,
     -- | The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
-    templateType :: Lude.Text
+    templateType :: Core.Text,
+    templateActiveVersionRequest :: Types.TemplateActiveVersionRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTemplateActiveVersion' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
--- * 'templateActiveVersionRequest' -
--- * 'templateType' - The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+-- | Creates a 'UpdateTemplateActiveVersion' value with any optional fields omitted.
 mkUpdateTemplateActiveVersion ::
   -- | 'templateName'
-  Lude.Text ->
-  -- | 'templateActiveVersionRequest'
-  TemplateActiveVersionRequest ->
+  Core.Text ->
   -- | 'templateType'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'templateActiveVersionRequest'
+  Types.TemplateActiveVersionRequest ->
   UpdateTemplateActiveVersion
 mkUpdateTemplateActiveVersion
-  pTemplateName_
-  pTemplateActiveVersionRequest_
-  pTemplateType_ =
+  templateName
+  templateType
+  templateActiveVersionRequest =
     UpdateTemplateActiveVersion'
-      { templateName = pTemplateName_,
-        templateActiveVersionRequest = pTemplateActiveVersionRequest_,
-        templateType = pTemplateType_
+      { templateName,
+        templateType,
+        templateActiveVersionRequest
       }
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utavTemplateName :: Lens.Lens' UpdateTemplateActiveVersion Lude.Text
-utavTemplateName = Lens.lens (templateName :: UpdateTemplateActiveVersion -> Lude.Text) (\s a -> s {templateName = a} :: UpdateTemplateActiveVersion)
+utavTemplateName :: Lens.Lens' UpdateTemplateActiveVersion Core.Text
+utavTemplateName = Lens.field @"templateName"
 {-# DEPRECATED utavTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'templateActiveVersionRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utavTemplateActiveVersionRequest :: Lens.Lens' UpdateTemplateActiveVersion TemplateActiveVersionRequest
-utavTemplateActiveVersionRequest = Lens.lens (templateActiveVersionRequest :: UpdateTemplateActiveVersion -> TemplateActiveVersionRequest) (\s a -> s {templateActiveVersionRequest = a} :: UpdateTemplateActiveVersion)
-{-# DEPRECATED utavTemplateActiveVersionRequest "Use generic-lens or generic-optics with 'templateActiveVersionRequest' instead." #-}
 
 -- | The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
 --
 -- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utavTemplateType :: Lens.Lens' UpdateTemplateActiveVersion Lude.Text
-utavTemplateType = Lens.lens (templateType :: UpdateTemplateActiveVersion -> Lude.Text) (\s a -> s {templateType = a} :: UpdateTemplateActiveVersion)
+utavTemplateType :: Lens.Lens' UpdateTemplateActiveVersion Core.Text
+utavTemplateType = Lens.field @"templateType"
 {-# DEPRECATED utavTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
 
-instance Lude.AWSRequest UpdateTemplateActiveVersion where
-  type
-    Rs UpdateTemplateActiveVersion =
-      UpdateTemplateActiveVersionResponse
-  request = Req.putJSON pinpointService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateTemplateActiveVersionResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'templateActiveVersionRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utavTemplateActiveVersionRequest :: Lens.Lens' UpdateTemplateActiveVersion Types.TemplateActiveVersionRequest
+utavTemplateActiveVersionRequest = Lens.field @"templateActiveVersionRequest"
+{-# DEPRECATED utavTemplateActiveVersionRequest "Use generic-lens or generic-optics with 'templateActiveVersionRequest' instead." #-}
 
-instance Lude.ToHeaders UpdateTemplateActiveVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTemplateActiveVersion where
-  toJSON UpdateTemplateActiveVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON UpdateTemplateActiveVersion where
+  toJSON UpdateTemplateActiveVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TemplateActiveVersionRequest"
-                  Lude..= templateActiveVersionRequest
+                  Core..= templateActiveVersionRequest
               )
           ]
       )
 
-instance Lude.ToPath UpdateTemplateActiveVersion where
-  toPath UpdateTemplateActiveVersion' {..} =
-    Lude.mconcat
-      [ "/v1/templates/",
-        Lude.toBS templateName,
-        "/",
-        Lude.toBS templateType,
-        "/active-version"
-      ]
-
-instance Lude.ToQuery UpdateTemplateActiveVersion where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateTemplateActiveVersion where
+  type
+    Rs UpdateTemplateActiveVersion =
+      UpdateTemplateActiveVersionResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/templates/" Core.<> (Core.toText templateName) Core.<> ("/")
+                Core.<> (Core.toText templateType)
+                Core.<> ("/active-version")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateTemplateActiveVersionResponse'
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateTemplateActiveVersionResponse' smart constructor.
 data UpdateTemplateActiveVersionResponse = UpdateTemplateActiveVersionResponse'
-  { messageBody :: MessageBody,
+  { messageBody :: Types.MessageBody,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTemplateActiveVersionResponse' with the minimum fields required to make a request.
---
--- * 'messageBody' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTemplateActiveVersionResponse' value with any optional fields omitted.
 mkUpdateTemplateActiveVersionResponse ::
   -- | 'messageBody'
-  MessageBody ->
+  Types.MessageBody ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTemplateActiveVersionResponse
-mkUpdateTemplateActiveVersionResponse
-  pMessageBody_
-  pResponseStatus_ =
-    UpdateTemplateActiveVersionResponse'
-      { messageBody = pMessageBody_,
-        responseStatus = pResponseStatus_
-      }
+mkUpdateTemplateActiveVersionResponse messageBody responseStatus =
+  UpdateTemplateActiveVersionResponse' {messageBody, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utavrsMessageBody :: Lens.Lens' UpdateTemplateActiveVersionResponse MessageBody
-utavrsMessageBody = Lens.lens (messageBody :: UpdateTemplateActiveVersionResponse -> MessageBody) (\s a -> s {messageBody = a} :: UpdateTemplateActiveVersionResponse)
-{-# DEPRECATED utavrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
+utavrrsMessageBody :: Lens.Lens' UpdateTemplateActiveVersionResponse Types.MessageBody
+utavrrsMessageBody = Lens.field @"messageBody"
+{-# DEPRECATED utavrrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utavrsResponseStatus :: Lens.Lens' UpdateTemplateActiveVersionResponse Lude.Int
-utavrsResponseStatus = Lens.lens (responseStatus :: UpdateTemplateActiveVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTemplateActiveVersionResponse)
-{-# DEPRECATED utavrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utavrrsResponseStatus :: Lens.Lens' UpdateTemplateActiveVersionResponse Core.Int
+utavrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utavrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -25,163 +25,159 @@ module Network.AWS.SES.ListIdentities
 
     -- ** Request lenses
     liIdentityType,
-    liNextToken,
     liMaxItems,
+    liNextToken,
 
     -- * Destructuring the response
     ListIdentitiesResponse (..),
     mkListIdentitiesResponse,
 
     -- ** Response lenses
-    lirsNextToken,
-    lirsIdentities,
-    lirsResponseStatus,
+    lirrsIdentities,
+    lirrsNextToken,
+    lirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.
 --
 -- /See:/ 'mkListIdentities' smart constructor.
 data ListIdentities = ListIdentities'
   { -- | The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
-    identityType :: Lude.Maybe IdentityType,
-    -- | The token to use for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
+    identityType :: Core.Maybe Types.IdentityType,
     -- | The maximum number of identities per page. Possible values are 1-1000 inclusive.
-    maxItems :: Lude.Maybe Lude.Int
+    maxItems :: Core.Maybe Core.Int,
+    -- | The token to use for pagination.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
---
--- * 'identityType' - The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
--- * 'nextToken' - The token to use for pagination.
--- * 'maxItems' - The maximum number of identities per page. Possible values are 1-1000 inclusive.
+-- | Creates a 'ListIdentities' value with any optional fields omitted.
 mkListIdentities ::
   ListIdentities
 mkListIdentities =
   ListIdentities'
-    { identityType = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { identityType = Core.Nothing,
+      maxItems = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
 --
 -- /Note:/ Consider using 'identityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liIdentityType :: Lens.Lens' ListIdentities (Lude.Maybe IdentityType)
-liIdentityType = Lens.lens (identityType :: ListIdentities -> Lude.Maybe IdentityType) (\s a -> s {identityType = a} :: ListIdentities)
+liIdentityType :: Lens.Lens' ListIdentities (Core.Maybe Types.IdentityType)
+liIdentityType = Lens.field @"identityType"
 {-# DEPRECATED liIdentityType "Use generic-lens or generic-optics with 'identityType' instead." #-}
-
--- | The token to use for pagination.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liNextToken :: Lens.Lens' ListIdentities (Lude.Maybe Lude.Text)
-liNextToken = Lens.lens (nextToken :: ListIdentities -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentities)
-{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of identities per page. Possible values are 1-1000 inclusive.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liMaxItems :: Lens.Lens' ListIdentities (Lude.Maybe Lude.Int)
-liMaxItems = Lens.lens (maxItems :: ListIdentities -> Lude.Maybe Lude.Int) (\s a -> s {maxItems = a} :: ListIdentities)
+liMaxItems :: Lens.Lens' ListIdentities (Core.Maybe Core.Int)
+liMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED liMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Page.AWSPager ListIdentities where
-  page rq rs
-    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lirsIdentities) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
+-- | The token to use for pagination.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNextToken :: Lens.Lens' ListIdentities (Core.Maybe Types.NextToken)
+liNextToken = Lens.field @"nextToken"
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListIdentities where
+instance Core.AWSRequest ListIdentities where
   type Rs ListIdentities = ListIdentitiesResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListIdentities")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "IdentityType" Core.<$> identityType)
+                Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListIdentitiesResult"
       ( \s h x ->
           ListIdentitiesResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "Identities" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "member"
+            Core.<$> ( x Core..@? "Identities" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListIdentities where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListIdentities where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListIdentities where
-  toQuery ListIdentities' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListIdentities" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "IdentityType" Lude.=: identityType,
-        "NextToken" Lude.=: nextToken,
-        "MaxItems" Lude.=: maxItems
-      ]
+instance Pager.AWSPager ListIdentities where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"identities") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | A list of all identities that you have attempted to verify under your AWS account, regardless of verification status.
 --
 -- /See:/ 'mkListIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-  { -- | The token used for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of identities.
-    identities :: [Lude.Text],
+  { -- | A list of identities.
+    identities :: [Types.Identity],
+    -- | The token used for pagination.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token used for pagination.
--- * 'identities' - A list of identities.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListIdentitiesResponse' value with any optional fields omitted.
 mkListIdentitiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListIdentitiesResponse
-mkListIdentitiesResponse pResponseStatus_ =
+mkListIdentitiesResponse responseStatus =
   ListIdentitiesResponse'
-    { nextToken = Lude.Nothing,
-      identities = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { identities = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token used for pagination.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsNextToken :: Lens.Lens' ListIdentitiesResponse (Lude.Maybe Lude.Text)
-lirsNextToken = Lens.lens (nextToken :: ListIdentitiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentitiesResponse)
-{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of identities.
 --
 -- /Note:/ Consider using 'identities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsIdentities :: Lens.Lens' ListIdentitiesResponse [Lude.Text]
-lirsIdentities = Lens.lens (identities :: ListIdentitiesResponse -> [Lude.Text]) (\s a -> s {identities = a} :: ListIdentitiesResponse)
-{-# DEPRECATED lirsIdentities "Use generic-lens or generic-optics with 'identities' instead." #-}
+lirrsIdentities :: Lens.Lens' ListIdentitiesResponse [Types.Identity]
+lirrsIdentities = Lens.field @"identities"
+{-# DEPRECATED lirrsIdentities "Use generic-lens or generic-optics with 'identities' instead." #-}
+
+-- | The token used for pagination.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirrsNextToken :: Lens.Lens' ListIdentitiesResponse (Core.Maybe Types.NextToken)
+lirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsResponseStatus :: Lens.Lens' ListIdentitiesResponse Lude.Int
-lirsResponseStatus = Lens.lens (responseStatus :: ListIdentitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIdentitiesResponse)
-{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lirrsResponseStatus :: Lens.Lens' ListIdentitiesResponse Core.Int
+lirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

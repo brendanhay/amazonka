@@ -13,51 +13,53 @@
 module Network.AWS.Glue.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        JAR,
-        File,
-        Archive
+        ResourceTypeJar,
+        ResourceTypeFile,
+        ResourceTypeArchive,
+        fromResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceType = ResourceType' Lude.Text
+newtype ResourceType = ResourceType' {fromResourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JAR :: ResourceType
-pattern JAR = ResourceType' "JAR"
+pattern ResourceTypeJar :: ResourceType
+pattern ResourceTypeJar = ResourceType' "JAR"
 
-pattern File :: ResourceType
-pattern File = ResourceType' "FILE"
+pattern ResourceTypeFile :: ResourceType
+pattern ResourceTypeFile = ResourceType' "FILE"
 
-pattern Archive :: ResourceType
-pattern Archive = ResourceType' "ARCHIVE"
+pattern ResourceTypeArchive :: ResourceType
+pattern ResourceTypeArchive = ResourceType' "ARCHIVE"
 
 {-# COMPLETE
-  JAR,
-  File,
-  Archive,
+  ResourceTypeJar,
+  ResourceTypeFile,
+  ResourceTypeArchive,
   ResourceType'
   #-}

@@ -20,118 +20,106 @@ module Network.AWS.SageMaker.DeleteTrialComponent
     mkDeleteTrialComponent,
 
     -- ** Request lenses
-    dtcTrialComponentName,
+    dTrialComponentName,
 
     -- * Destructuring the response
     DeleteTrialComponentResponse (..),
     mkDeleteTrialComponentResponse,
 
     -- ** Response lenses
-    dtcfrsTrialComponentARN,
-    dtcfrsResponseStatus,
+    dtcrfrsTrialComponentArn,
+    dtcrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteTrialComponent' smart constructor.
 newtype DeleteTrialComponent = DeleteTrialComponent'
   { -- | The name of the component to delete.
-    trialComponentName :: Lude.Text
+    trialComponentName :: Types.TrialComponentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTrialComponent' with the minimum fields required to make a request.
---
--- * 'trialComponentName' - The name of the component to delete.
+-- | Creates a 'DeleteTrialComponent' value with any optional fields omitted.
 mkDeleteTrialComponent ::
   -- | 'trialComponentName'
-  Lude.Text ->
+  Types.TrialComponentName ->
   DeleteTrialComponent
-mkDeleteTrialComponent pTrialComponentName_ =
-  DeleteTrialComponent' {trialComponentName = pTrialComponentName_}
+mkDeleteTrialComponent trialComponentName =
+  DeleteTrialComponent' {trialComponentName}
 
 -- | The name of the component to delete.
 --
 -- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcTrialComponentName :: Lens.Lens' DeleteTrialComponent Lude.Text
-dtcTrialComponentName = Lens.lens (trialComponentName :: DeleteTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: DeleteTrialComponent)
-{-# DEPRECATED dtcTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
+dTrialComponentName :: Lens.Lens' DeleteTrialComponent Types.TrialComponentName
+dTrialComponentName = Lens.field @"trialComponentName"
+{-# DEPRECATED dTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
-instance Lude.AWSRequest DeleteTrialComponent where
+instance Core.FromJSON DeleteTrialComponent where
+  toJSON DeleteTrialComponent {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TrialComponentName" Core..= trialComponentName)]
+      )
+
+instance Core.AWSRequest DeleteTrialComponent where
   type Rs DeleteTrialComponent = DeleteTrialComponentResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteTrialComponent")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteTrialComponentResponse'
-            Lude.<$> (x Lude..?> "TrialComponentArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TrialComponentArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTrialComponent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteTrialComponent" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteTrialComponent where
-  toJSON DeleteTrialComponent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("TrialComponentName" Lude..= trialComponentName)]
-      )
-
-instance Lude.ToPath DeleteTrialComponent where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTrialComponent where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteTrialComponentResponse' smart constructor.
 data DeleteTrialComponentResponse = DeleteTrialComponentResponse'
   { -- | The Amazon Resource Name (ARN) of the component is being deleted.
-    trialComponentARN :: Lude.Maybe Lude.Text,
+    trialComponentArn :: Core.Maybe Types.TrialComponentArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTrialComponentResponse' with the minimum fields required to make a request.
---
--- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the component is being deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTrialComponentResponse' value with any optional fields omitted.
 mkDeleteTrialComponentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTrialComponentResponse
-mkDeleteTrialComponentResponse pResponseStatus_ =
+mkDeleteTrialComponentResponse responseStatus =
   DeleteTrialComponentResponse'
-    { trialComponentARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { trialComponentArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the component is being deleted.
 --
--- /Note:/ Consider using 'trialComponentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcfrsTrialComponentARN :: Lens.Lens' DeleteTrialComponentResponse (Lude.Maybe Lude.Text)
-dtcfrsTrialComponentARN = Lens.lens (trialComponentARN :: DeleteTrialComponentResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialComponentARN = a} :: DeleteTrialComponentResponse)
-{-# DEPRECATED dtcfrsTrialComponentARN "Use generic-lens or generic-optics with 'trialComponentARN' instead." #-}
+-- /Note:/ Consider using 'trialComponentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtcrfrsTrialComponentArn :: Lens.Lens' DeleteTrialComponentResponse (Core.Maybe Types.TrialComponentArn)
+dtcrfrsTrialComponentArn = Lens.field @"trialComponentArn"
+{-# DEPRECATED dtcrfrsTrialComponentArn "Use generic-lens or generic-optics with 'trialComponentArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcfrsResponseStatus :: Lens.Lens' DeleteTrialComponentResponse Lude.Int
-dtcfrsResponseStatus = Lens.lens (responseStatus :: DeleteTrialComponentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrialComponentResponse)
-{-# DEPRECATED dtcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtcrfrsResponseStatus :: Lens.Lens' DeleteTrialComponentResponse Core.Int
+dtcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

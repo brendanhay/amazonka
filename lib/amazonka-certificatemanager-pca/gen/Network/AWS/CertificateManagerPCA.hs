@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,67 @@
 -- The documentation for each action shows the Query API request parameters and the XML response. Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the programming language or platform that you're using. For more information, see <https://aws.amazon.com/tools/#SDKs AWS SDKs> .
 module Network.AWS.CertificateManagerPCA
   ( -- * Service configuration
-    certificateManagerPCAService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** PermissionAlreadyExistsException
+    _PermissionAlreadyExistsException,
+
+    -- ** MalformedCSRException
+    _MalformedCSRException,
+
+    -- ** RequestAlreadyProcessedException
+    _RequestAlreadyProcessedException,
+
+    -- ** MalformedCertificateException
+    _MalformedCertificateException,
+
+    -- ** RequestFailedException
+    _RequestFailedException,
+
+    -- ** CertificateMismatchException
+    _CertificateMismatchException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** InvalidArgsException
+    _InvalidArgsException,
+
+    -- ** RequestInProgressException
+    _RequestInProgressException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** LockoutPreventedException
+    _LockoutPreventedException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** InvalidPolicyException
+    _InvalidPolicyException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -57,8 +113,8 @@ module Network.AWS.CertificateManagerPCA
     -- ** DeleteCertificateAuthority
     module Network.AWS.CertificateManagerPCA.DeleteCertificateAuthority,
 
-    -- ** GetCertificateAuthorityCSR
-    module Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR,
+    -- ** GetCertificateAuthorityCsr
+    module Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr,
 
     -- ** CreateCertificateAuthority
     module Network.AWS.CertificateManagerPCA.CreateCertificateAuthority,
@@ -107,80 +163,45 @@ module Network.AWS.CertificateManagerPCA
 
     -- * Types
 
-    -- ** ActionType
-    ActionType (..),
+    -- ** SigningAlgorithm
+    SigningAlgorithm (..),
 
-    -- ** AuditReportResponseFormat
-    AuditReportResponseFormat (..),
-
-    -- ** AuditReportStatus
-    AuditReportStatus (..),
-
-    -- ** CertificateAuthorityStatus
-    CertificateAuthorityStatus (..),
-
-    -- ** CertificateAuthorityType
-    CertificateAuthorityType (..),
+    -- ** IdempotencyToken
+    IdempotencyToken (..),
 
     -- ** FailureReason
     FailureReason (..),
 
-    -- ** KeyAlgorithm
-    KeyAlgorithm (..),
+    -- ** CertificateAuthorityConfiguration
+    CertificateAuthorityConfiguration (..),
+    mkCertificateAuthorityConfiguration,
+    cacKeyAlgorithm,
+    cacSigningAlgorithm,
+    cacSubject,
 
-    -- ** ResourceOwner
-    ResourceOwner (..),
-
-    -- ** RevocationReason
-    RevocationReason (..),
-
-    -- ** SigningAlgorithm
-    SigningAlgorithm (..),
+    -- ** CertificateAuthorityType
+    CertificateAuthorityType (..),
 
     -- ** ValidityPeriodType
     ValidityPeriodType (..),
 
-    -- ** ASN1Subject
-    ASN1Subject (..),
-    mkASN1Subject,
-    asGivenName,
-    asState,
-    asCommonName,
-    asOrganizationalUnit,
-    asCountry,
-    asGenerationQualifier,
-    asLocality,
-    asPseudonym,
-    asInitials,
-    asTitle,
-    asOrganization,
-    asSerialNumber,
-    asSurname,
-    asDistinguishedNameQualifier,
+    -- ** S3Key
+    S3Key (..),
 
-    -- ** CertificateAuthority
-    CertificateAuthority (..),
-    mkCertificateAuthority,
-    caStatus,
-    caFailureReason,
-    caCertificateAuthorityConfiguration,
-    caARN,
-    caCreatedAt,
-    caSerial,
-    caNotBefore,
-    caRestorableUntil,
-    caType,
-    caOwnerAccount,
-    caRevocationConfiguration,
-    caLastStateChangeAt,
-    caNotAfter,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** CertificateAuthorityConfiguration
-    CertificateAuthorityConfiguration (..),
-    mkCertificateAuthorityConfiguration,
-    cacSubject,
-    cacSigningAlgorithm,
-    cacKeyAlgorithm,
+    -- ** CsrBody
+    CsrBody (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** String
+    String (..),
 
     -- ** CrlConfiguration
     CrlConfiguration (..),
@@ -190,26 +211,64 @@ module Network.AWS.CertificateManagerPCA
     ccExpirationInDays,
     ccS3BucketName,
 
-    -- ** Permission
-    Permission (..),
-    mkPermission,
-    pSourceAccount,
-    pActions,
-    pCreatedAt,
-    pPrincipal,
-    pPolicy,
-    pCertificateAuthorityARN,
+    -- ** String5
+    String5 (..),
 
-    -- ** RevocationConfiguration
-    RevocationConfiguration (..),
-    mkRevocationConfiguration,
-    rcCrlConfiguration,
+    -- ** String128
+    String128 (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ASN1Subject
+    ASN1Subject (..),
+    mkASN1Subject,
+    asnsCommonName,
+    asnsCountry,
+    asnsDistinguishedNameQualifier,
+    asnsGenerationQualifier,
+    asnsGivenName,
+    asnsInitials,
+    asnsLocality,
+    asnsOrganization,
+    asnsOrganizationalUnit,
+    asnsPseudonym,
+    asnsSerialNumber,
+    asnsState,
+    asnsSurname,
+    asnsTitle,
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** CertificateAuthority
+    CertificateAuthority (..),
+    mkCertificateAuthority,
+    caArn,
+    caCertificateAuthorityConfiguration,
+    caCreatedAt,
+    caFailureReason,
+    caLastStateChangeAt,
+    caNotAfter,
+    caNotBefore,
+    caOwnerAccount,
+    caRestorableUntil,
+    caRevocationConfiguration,
+    caSerial,
+    caStatus,
+    caType,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** RevocationReason
+    RevocationReason (..),
+
+    -- ** String3To255
+    String3To255 (..),
+
+    -- ** AuditReportStatus
+    AuditReportStatus (..),
+
+    -- ** Principal
+    Principal (..),
 
     -- ** Validity
     Validity (..),
@@ -217,15 +276,109 @@ module Network.AWS.CertificateManagerPCA
     vValue,
     vType,
 
+    -- ** AWSPolicy
+    AWSPolicy (..),
+
+    -- ** CertificateAuthorityStatus
+    CertificateAuthorityStatus (..),
+
+    -- ** KeyAlgorithm
+    KeyAlgorithm (..),
+
+    -- ** CertificateChain
+    CertificateChain (..),
+
+    -- ** RevocationConfiguration
+    RevocationConfiguration (..),
+    mkRevocationConfiguration,
+    rcCrlConfiguration,
+
+    -- ** Permission
+    Permission (..),
+    mkPermission,
+    pActions,
+    pCertificateAuthorityArn,
+    pCreatedAt,
+    pPolicy,
+    pPrincipal,
+    pSourceAccount,
+
+    -- ** ResourceOwner
+    ResourceOwner (..),
+
+    -- ** AuditReportResponseFormat
+    AuditReportResponseFormat (..),
+
+    -- ** AuditReportId
+    AuditReportId (..),
+
+    -- ** ActionType
+    ActionType (..),
+
+    -- ** S3BucketName
+    S3BucketName (..),
+
+    -- ** CertificateAuthorityArn
+    CertificateAuthorityArn (..),
+
+    -- ** CertificateSerial
+    CertificateSerial (..),
+
+    -- ** CertificateArn
+    CertificateArn (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Policy
+    Policy (..),
+
+    -- ** CustomCname
+    CustomCname (..),
+
+    -- ** Certificate
+    Certificate (..),
+
+    -- ** CommonName
+    CommonName (..),
+
+    -- ** Country
+    Country (..),
+
+    -- ** DistinguishedNameQualifier
+    DistinguishedNameQualifier (..),
+
+    -- ** GenerationQualifier
+    GenerationQualifier (..),
+
+    -- ** GivenName
+    GivenName (..),
+
+    -- ** Organization
+    Organization (..),
+
+    -- ** OrganizationalUnit
+    OrganizationalUnit (..),
+
+    -- ** SerialNumber
+    SerialNumber (..),
+
+    -- ** Surname
+    Surname (..),
+
+    -- ** Title
+    Title (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -238,8 +391,8 @@ import Network.AWS.CertificateManagerPCA.DeletePolicy
 import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthority
 import Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
 import Network.AWS.CertificateManagerPCA.GetCertificate
-import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR
 import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCertificate
+import Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr
 import Network.AWS.CertificateManagerPCA.GetPolicy
 import Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
 import Network.AWS.CertificateManagerPCA.IssueCertificate

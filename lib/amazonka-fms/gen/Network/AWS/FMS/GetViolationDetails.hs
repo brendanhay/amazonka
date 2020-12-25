@@ -20,170 +20,155 @@ module Network.AWS.FMS.GetViolationDetails
     mkGetViolationDetails,
 
     -- ** Request lenses
-    gvdResourceId,
-    gvdResourceType,
     gvdPolicyId,
     gvdMemberAccount,
+    gvdResourceId,
+    gvdResourceType,
 
     -- * Destructuring the response
     GetViolationDetailsResponse (..),
     mkGetViolationDetailsResponse,
 
     -- ** Response lenses
-    gvdrsViolationDetail,
-    gvdrsResponseStatus,
+    gvdrrsViolationDetail,
+    gvdrrsResponseStatus,
   )
 where
 
-import Network.AWS.FMS.Types
+import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetViolationDetails' smart constructor.
 data GetViolationDetails = GetViolationDetails'
-  { -- | The ID of the resource that has violations.
-    resourceId :: Lude.Text,
-    -- | The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . Supported resource types are: @AWS::EC2::Instance@ , @AWS::EC2::NetworkInterface@ , @AWS::EC2::SecurityGroup@ , @AWS::NetworkFirewall::FirewallPolicy@ , and @AWS::EC2::Subnet@ .
-    resourceType :: Lude.Text,
-    -- | The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
-    policyId :: Lude.Text,
+  { -- | The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
+    policyId :: Types.PolicyId,
     -- | The AWS account ID that you want the details for.
-    memberAccount :: Lude.Text
+    memberAccount :: Types.AWSAccountId,
+    -- | The ID of the resource that has violations.
+    resourceId :: Types.ResourceId,
+    -- | The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . Supported resource types are: @AWS::EC2::Instance@ , @AWS::EC2::NetworkInterface@ , @AWS::EC2::SecurityGroup@ , @AWS::NetworkFirewall::FirewallPolicy@ , and @AWS::EC2::Subnet@ .
+    resourceType :: Types.ResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetViolationDetails' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource that has violations.
--- * 'resourceType' - The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . Supported resource types are: @AWS::EC2::Instance@ , @AWS::EC2::NetworkInterface@ , @AWS::EC2::SecurityGroup@ , @AWS::NetworkFirewall::FirewallPolicy@ , and @AWS::EC2::Subnet@ .
--- * 'policyId' - The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
--- * 'memberAccount' - The AWS account ID that you want the details for.
+-- | Creates a 'GetViolationDetails' value with any optional fields omitted.
 mkGetViolationDetails ::
-  -- | 'resourceId'
-  Lude.Text ->
-  -- | 'resourceType'
-  Lude.Text ->
   -- | 'policyId'
-  Lude.Text ->
+  Types.PolicyId ->
   -- | 'memberAccount'
-  Lude.Text ->
+  Types.AWSAccountId ->
+  -- | 'resourceId'
+  Types.ResourceId ->
+  -- | 'resourceType'
+  Types.ResourceType ->
   GetViolationDetails
 mkGetViolationDetails
-  pResourceId_
-  pResourceType_
-  pPolicyId_
-  pMemberAccount_ =
+  policyId
+  memberAccount
+  resourceId
+  resourceType =
     GetViolationDetails'
-      { resourceId = pResourceId_,
-        resourceType = pResourceType_,
-        policyId = pPolicyId_,
-        memberAccount = pMemberAccount_
+      { policyId,
+        memberAccount,
+        resourceId,
+        resourceType
       }
-
--- | The ID of the resource that has violations.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvdResourceId :: Lens.Lens' GetViolationDetails Lude.Text
-gvdResourceId = Lens.lens (resourceId :: GetViolationDetails -> Lude.Text) (\s a -> s {resourceId = a} :: GetViolationDetails)
-{-# DEPRECATED gvdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . Supported resource types are: @AWS::EC2::Instance@ , @AWS::EC2::NetworkInterface@ , @AWS::EC2::SecurityGroup@ , @AWS::NetworkFirewall::FirewallPolicy@ , and @AWS::EC2::Subnet@ .
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvdResourceType :: Lens.Lens' GetViolationDetails Lude.Text
-gvdResourceType = Lens.lens (resourceType :: GetViolationDetails -> Lude.Text) (\s a -> s {resourceType = a} :: GetViolationDetails)
-{-# DEPRECATED gvdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
 --
 -- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvdPolicyId :: Lens.Lens' GetViolationDetails Lude.Text
-gvdPolicyId = Lens.lens (policyId :: GetViolationDetails -> Lude.Text) (\s a -> s {policyId = a} :: GetViolationDetails)
+gvdPolicyId :: Lens.Lens' GetViolationDetails Types.PolicyId
+gvdPolicyId = Lens.field @"policyId"
 {-# DEPRECATED gvdPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | The AWS account ID that you want the details for.
 --
 -- /Note:/ Consider using 'memberAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvdMemberAccount :: Lens.Lens' GetViolationDetails Lude.Text
-gvdMemberAccount = Lens.lens (memberAccount :: GetViolationDetails -> Lude.Text) (\s a -> s {memberAccount = a} :: GetViolationDetails)
+gvdMemberAccount :: Lens.Lens' GetViolationDetails Types.AWSAccountId
+gvdMemberAccount = Lens.field @"memberAccount"
 {-# DEPRECATED gvdMemberAccount "Use generic-lens or generic-optics with 'memberAccount' instead." #-}
 
-instance Lude.AWSRequest GetViolationDetails where
+-- | The ID of the resource that has violations.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvdResourceId :: Lens.Lens' GetViolationDetails Types.ResourceId
+gvdResourceId = Lens.field @"resourceId"
+{-# DEPRECATED gvdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . Supported resource types are: @AWS::EC2::Instance@ , @AWS::EC2::NetworkInterface@ , @AWS::EC2::SecurityGroup@ , @AWS::NetworkFirewall::FirewallPolicy@ , and @AWS::EC2::Subnet@ .
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvdResourceType :: Lens.Lens' GetViolationDetails Types.ResourceType
+gvdResourceType = Lens.field @"resourceType"
+{-# DEPRECATED gvdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+instance Core.FromJSON GetViolationDetails where
+  toJSON GetViolationDetails {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyId" Core..= policyId),
+            Core.Just ("MemberAccount" Core..= memberAccount),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("ResourceType" Core..= resourceType)
+          ]
+      )
+
+instance Core.AWSRequest GetViolationDetails where
   type Rs GetViolationDetails = GetViolationDetailsResponse
-  request = Req.postJSON fmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSFMS_20180101.GetViolationDetails")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetViolationDetailsResponse'
-            Lude.<$> (x Lude..?> "ViolationDetail")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ViolationDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetViolationDetails where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSFMS_20180101.GetViolationDetails" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetViolationDetails where
-  toJSON GetViolationDetails' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("ResourceType" Lude..= resourceType),
-            Lude.Just ("PolicyId" Lude..= policyId),
-            Lude.Just ("MemberAccount" Lude..= memberAccount)
-          ]
-      )
-
-instance Lude.ToPath GetViolationDetails where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetViolationDetails where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetViolationDetailsResponse' smart constructor.
 data GetViolationDetailsResponse = GetViolationDetailsResponse'
   { -- | Violation detail for a resource.
-    violationDetail :: Lude.Maybe ViolationDetail,
+    violationDetail :: Core.Maybe Types.ViolationDetail,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetViolationDetailsResponse' with the minimum fields required to make a request.
---
--- * 'violationDetail' - Violation detail for a resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetViolationDetailsResponse' value with any optional fields omitted.
 mkGetViolationDetailsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetViolationDetailsResponse
-mkGetViolationDetailsResponse pResponseStatus_ =
+mkGetViolationDetailsResponse responseStatus =
   GetViolationDetailsResponse'
-    { violationDetail = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { violationDetail = Core.Nothing,
+      responseStatus
     }
 
 -- | Violation detail for a resource.
 --
 -- /Note:/ Consider using 'violationDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvdrsViolationDetail :: Lens.Lens' GetViolationDetailsResponse (Lude.Maybe ViolationDetail)
-gvdrsViolationDetail = Lens.lens (violationDetail :: GetViolationDetailsResponse -> Lude.Maybe ViolationDetail) (\s a -> s {violationDetail = a} :: GetViolationDetailsResponse)
-{-# DEPRECATED gvdrsViolationDetail "Use generic-lens or generic-optics with 'violationDetail' instead." #-}
+gvdrrsViolationDetail :: Lens.Lens' GetViolationDetailsResponse (Core.Maybe Types.ViolationDetail)
+gvdrrsViolationDetail = Lens.field @"violationDetail"
+{-# DEPRECATED gvdrrsViolationDetail "Use generic-lens or generic-optics with 'violationDetail' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvdrsResponseStatus :: Lens.Lens' GetViolationDetailsResponse Lude.Int
-gvdrsResponseStatus = Lens.lens (responseStatus :: GetViolationDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetViolationDetailsResponse)
-{-# DEPRECATED gvdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gvdrrsResponseStatus :: Lens.Lens' GetViolationDetailsResponse Core.Int
+gvdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gvdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

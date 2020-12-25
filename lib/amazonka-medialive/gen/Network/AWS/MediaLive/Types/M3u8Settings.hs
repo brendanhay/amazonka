@@ -17,281 +17,261 @@ module Network.AWS.MediaLive.Types.M3u8Settings
     mkM3u8Settings,
 
     -- * Lenses
-    mPmtPid,
-    mVideoPid,
-    mNielsenId3Behavior,
-    mScte35Pid,
-    mTransportStreamId,
-    mProgramNum,
-    mTimedMetadataBehavior,
-    mPmtInterval,
-    mEcmPid,
-    mTimedMetadataPid,
-    mAudioFramesPerPes,
-    mPcrPeriod,
-    mPcrPid,
-    mPatInterval,
-    mAudioPids,
-    mScte35Behavior,
-    mPcrControl,
+    msAudioFramesPerPes,
+    msAudioPids,
+    msEcmPid,
+    msNielsenId3Behavior,
+    msPatInterval,
+    msPcrControl,
+    msPcrPeriod,
+    msPcrPid,
+    msPmtInterval,
+    msPmtPid,
+    msProgramNum,
+    msScte35Behavior,
+    msScte35Pid,
+    msTimedMetadataBehavior,
+    msTimedMetadataPid,
+    msTransportStreamId,
+    msVideoPid,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.M3u8NielsenId3Behavior
-import Network.AWS.MediaLive.Types.M3u8PcrControl
-import Network.AWS.MediaLive.Types.M3u8Scte35Behavior
-import Network.AWS.MediaLive.Types.M3u8TimedMetadataBehavior
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.M3u8NielsenId3Behavior as Types
+import qualified Network.AWS.MediaLive.Types.M3u8PcrControl as Types
+import qualified Network.AWS.MediaLive.Types.M3u8Scte35Behavior as Types
+import qualified Network.AWS.MediaLive.Types.M3u8TimedMetadataBehavior as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings information for the .m3u8 container
 --
 -- /See:/ 'mkM3u8Settings' smart constructor.
 data M3u8Settings = M3u8Settings'
-  { -- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
-    pmtPid :: Lude.Maybe Lude.Text,
-    -- | Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
-    videoPid :: Lude.Maybe Lude.Text,
-    -- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-    nielsenId3Behavior :: Lude.Maybe M3u8NielsenId3Behavior,
-    -- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
-    scte35Pid :: Lude.Maybe Lude.Text,
-    -- | The value of the transport stream ID field in the Program Map Table.
-    transportStreamId :: Lude.Maybe Lude.Natural,
-    -- | The value of the program number field in the Program Map Table.
-    programNum :: Lude.Maybe Lude.Natural,
-    -- | When set to passthrough, timed metadata is passed through from input to output.
-    timedMetadataBehavior :: Lude.Maybe M3u8TimedMetadataBehavior,
-    -- | The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
-    pmtInterval :: Lude.Maybe Lude.Natural,
-    -- | This parameter is unused and deprecated.
-    ecmPid :: Lude.Maybe Lude.Text,
-    -- | Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
-    timedMetadataPid :: Lude.Maybe Lude.Text,
-    -- | The number of audio frames to insert for each PES packet.
-    audioFramesPerPes :: Lude.Maybe Lude.Natural,
-    -- | Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
-    pcrPeriod :: Lude.Maybe Lude.Natural,
-    -- | Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
-    pcrPid :: Lude.Maybe Lude.Text,
-    -- | The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
-    patInterval :: Lude.Maybe Lude.Natural,
+  { -- | The number of audio frames to insert for each PES packet.
+    audioFramesPerPes :: Core.Maybe Core.Natural,
     -- | Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
-    audioPids :: Lude.Maybe Lude.Text,
-    -- | If set to passthrough, passes any SCTE-35 signals from the input source to this output.
-    scte35Behavior :: Lude.Maybe M3u8Scte35Behavior,
+    audioPids :: Core.Maybe Core.Text,
+    -- | This parameter is unused and deprecated.
+    ecmPid :: Core.Maybe Core.Text,
+    -- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+    nielsenId3Behavior :: Core.Maybe Types.M3u8NielsenId3Behavior,
+    -- | The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+    patInterval :: Core.Maybe Core.Natural,
     -- | When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-    pcrControl :: Lude.Maybe M3u8PcrControl
+    pcrControl :: Core.Maybe Types.M3u8PcrControl,
+    -- | Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
+    pcrPeriod :: Core.Maybe Core.Natural,
+    -- | Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
+    pcrPid :: Core.Maybe Core.Text,
+    -- | The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+    pmtInterval :: Core.Maybe Core.Natural,
+    -- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
+    pmtPid :: Core.Maybe Core.Text,
+    -- | The value of the program number field in the Program Map Table.
+    programNum :: Core.Maybe Core.Natural,
+    -- | If set to passthrough, passes any SCTE-35 signals from the input source to this output.
+    scte35Behavior :: Core.Maybe Types.M3u8Scte35Behavior,
+    -- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+    scte35Pid :: Core.Maybe Core.Text,
+    -- | When set to passthrough, timed metadata is passed through from input to output.
+    timedMetadataBehavior :: Core.Maybe Types.M3u8TimedMetadataBehavior,
+    -- | Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+    timedMetadataPid :: Core.Maybe Core.Text,
+    -- | The value of the transport stream ID field in the Program Map Table.
+    transportStreamId :: Core.Maybe Core.Natural,
+    -- | Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+    videoPid :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'M3u8Settings' with the minimum fields required to make a request.
---
--- * 'pmtPid' - Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
--- * 'videoPid' - Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
--- * 'nielsenId3Behavior' - If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
--- * 'scte35Pid' - Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
--- * 'transportStreamId' - The value of the transport stream ID field in the Program Map Table.
--- * 'programNum' - The value of the program number field in the Program Map Table.
--- * 'timedMetadataBehavior' - When set to passthrough, timed metadata is passed through from input to output.
--- * 'pmtInterval' - The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
--- * 'ecmPid' - This parameter is unused and deprecated.
--- * 'timedMetadataPid' - Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
--- * 'audioFramesPerPes' - The number of audio frames to insert for each PES packet.
--- * 'pcrPeriod' - Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
--- * 'pcrPid' - Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
--- * 'patInterval' - The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
--- * 'audioPids' - Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
--- * 'scte35Behavior' - If set to passthrough, passes any SCTE-35 signals from the input source to this output.
--- * 'pcrControl' - When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+-- | Creates a 'M3u8Settings' value with any optional fields omitted.
 mkM3u8Settings ::
   M3u8Settings
 mkM3u8Settings =
   M3u8Settings'
-    { pmtPid = Lude.Nothing,
-      videoPid = Lude.Nothing,
-      nielsenId3Behavior = Lude.Nothing,
-      scte35Pid = Lude.Nothing,
-      transportStreamId = Lude.Nothing,
-      programNum = Lude.Nothing,
-      timedMetadataBehavior = Lude.Nothing,
-      pmtInterval = Lude.Nothing,
-      ecmPid = Lude.Nothing,
-      timedMetadataPid = Lude.Nothing,
-      audioFramesPerPes = Lude.Nothing,
-      pcrPeriod = Lude.Nothing,
-      pcrPid = Lude.Nothing,
-      patInterval = Lude.Nothing,
-      audioPids = Lude.Nothing,
-      scte35Behavior = Lude.Nothing,
-      pcrControl = Lude.Nothing
+    { audioFramesPerPes = Core.Nothing,
+      audioPids = Core.Nothing,
+      ecmPid = Core.Nothing,
+      nielsenId3Behavior = Core.Nothing,
+      patInterval = Core.Nothing,
+      pcrControl = Core.Nothing,
+      pcrPeriod = Core.Nothing,
+      pcrPid = Core.Nothing,
+      pmtInterval = Core.Nothing,
+      pmtPid = Core.Nothing,
+      programNum = Core.Nothing,
+      scte35Behavior = Core.Nothing,
+      scte35Pid = Core.Nothing,
+      timedMetadataBehavior = Core.Nothing,
+      timedMetadataPid = Core.Nothing,
+      transportStreamId = Core.Nothing,
+      videoPid = Core.Nothing
     }
-
--- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
---
--- /Note:/ Consider using 'pmtPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mPmtPid :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Text)
-mPmtPid = Lens.lens (pmtPid :: M3u8Settings -> Lude.Maybe Lude.Text) (\s a -> s {pmtPid = a} :: M3u8Settings)
-{-# DEPRECATED mPmtPid "Use generic-lens or generic-optics with 'pmtPid' instead." #-}
-
--- | Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
---
--- /Note:/ Consider using 'videoPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mVideoPid :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Text)
-mVideoPid = Lens.lens (videoPid :: M3u8Settings -> Lude.Maybe Lude.Text) (\s a -> s {videoPid = a} :: M3u8Settings)
-{-# DEPRECATED mVideoPid "Use generic-lens or generic-optics with 'videoPid' instead." #-}
-
--- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
---
--- /Note:/ Consider using 'nielsenId3Behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mNielsenId3Behavior :: Lens.Lens' M3u8Settings (Lude.Maybe M3u8NielsenId3Behavior)
-mNielsenId3Behavior = Lens.lens (nielsenId3Behavior :: M3u8Settings -> Lude.Maybe M3u8NielsenId3Behavior) (\s a -> s {nielsenId3Behavior = a} :: M3u8Settings)
-{-# DEPRECATED mNielsenId3Behavior "Use generic-lens or generic-optics with 'nielsenId3Behavior' instead." #-}
-
--- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
---
--- /Note:/ Consider using 'scte35Pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mScte35Pid :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Text)
-mScte35Pid = Lens.lens (scte35Pid :: M3u8Settings -> Lude.Maybe Lude.Text) (\s a -> s {scte35Pid = a} :: M3u8Settings)
-{-# DEPRECATED mScte35Pid "Use generic-lens or generic-optics with 'scte35Pid' instead." #-}
-
--- | The value of the transport stream ID field in the Program Map Table.
---
--- /Note:/ Consider using 'transportStreamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mTransportStreamId :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Natural)
-mTransportStreamId = Lens.lens (transportStreamId :: M3u8Settings -> Lude.Maybe Lude.Natural) (\s a -> s {transportStreamId = a} :: M3u8Settings)
-{-# DEPRECATED mTransportStreamId "Use generic-lens or generic-optics with 'transportStreamId' instead." #-}
-
--- | The value of the program number field in the Program Map Table.
---
--- /Note:/ Consider using 'programNum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mProgramNum :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Natural)
-mProgramNum = Lens.lens (programNum :: M3u8Settings -> Lude.Maybe Lude.Natural) (\s a -> s {programNum = a} :: M3u8Settings)
-{-# DEPRECATED mProgramNum "Use generic-lens or generic-optics with 'programNum' instead." #-}
-
--- | When set to passthrough, timed metadata is passed through from input to output.
---
--- /Note:/ Consider using 'timedMetadataBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mTimedMetadataBehavior :: Lens.Lens' M3u8Settings (Lude.Maybe M3u8TimedMetadataBehavior)
-mTimedMetadataBehavior = Lens.lens (timedMetadataBehavior :: M3u8Settings -> Lude.Maybe M3u8TimedMetadataBehavior) (\s a -> s {timedMetadataBehavior = a} :: M3u8Settings)
-{-# DEPRECATED mTimedMetadataBehavior "Use generic-lens or generic-optics with 'timedMetadataBehavior' instead." #-}
-
--- | The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
---
--- /Note:/ Consider using 'pmtInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mPmtInterval :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Natural)
-mPmtInterval = Lens.lens (pmtInterval :: M3u8Settings -> Lude.Maybe Lude.Natural) (\s a -> s {pmtInterval = a} :: M3u8Settings)
-{-# DEPRECATED mPmtInterval "Use generic-lens or generic-optics with 'pmtInterval' instead." #-}
-
--- | This parameter is unused and deprecated.
---
--- /Note:/ Consider using 'ecmPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mEcmPid :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Text)
-mEcmPid = Lens.lens (ecmPid :: M3u8Settings -> Lude.Maybe Lude.Text) (\s a -> s {ecmPid = a} :: M3u8Settings)
-{-# DEPRECATED mEcmPid "Use generic-lens or generic-optics with 'ecmPid' instead." #-}
-
--- | Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
---
--- /Note:/ Consider using 'timedMetadataPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mTimedMetadataPid :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Text)
-mTimedMetadataPid = Lens.lens (timedMetadataPid :: M3u8Settings -> Lude.Maybe Lude.Text) (\s a -> s {timedMetadataPid = a} :: M3u8Settings)
-{-# DEPRECATED mTimedMetadataPid "Use generic-lens or generic-optics with 'timedMetadataPid' instead." #-}
 
 -- | The number of audio frames to insert for each PES packet.
 --
 -- /Note:/ Consider using 'audioFramesPerPes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mAudioFramesPerPes :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Natural)
-mAudioFramesPerPes = Lens.lens (audioFramesPerPes :: M3u8Settings -> Lude.Maybe Lude.Natural) (\s a -> s {audioFramesPerPes = a} :: M3u8Settings)
-{-# DEPRECATED mAudioFramesPerPes "Use generic-lens or generic-optics with 'audioFramesPerPes' instead." #-}
-
--- | Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
---
--- /Note:/ Consider using 'pcrPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mPcrPeriod :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Natural)
-mPcrPeriod = Lens.lens (pcrPeriod :: M3u8Settings -> Lude.Maybe Lude.Natural) (\s a -> s {pcrPeriod = a} :: M3u8Settings)
-{-# DEPRECATED mPcrPeriod "Use generic-lens or generic-optics with 'pcrPeriod' instead." #-}
-
--- | Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
---
--- /Note:/ Consider using 'pcrPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mPcrPid :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Text)
-mPcrPid = Lens.lens (pcrPid :: M3u8Settings -> Lude.Maybe Lude.Text) (\s a -> s {pcrPid = a} :: M3u8Settings)
-{-# DEPRECATED mPcrPid "Use generic-lens or generic-optics with 'pcrPid' instead." #-}
-
--- | The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
---
--- /Note:/ Consider using 'patInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mPatInterval :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Natural)
-mPatInterval = Lens.lens (patInterval :: M3u8Settings -> Lude.Maybe Lude.Natural) (\s a -> s {patInterval = a} :: M3u8Settings)
-{-# DEPRECATED mPatInterval "Use generic-lens or generic-optics with 'patInterval' instead." #-}
+msAudioFramesPerPes :: Lens.Lens' M3u8Settings (Core.Maybe Core.Natural)
+msAudioFramesPerPes = Lens.field @"audioFramesPerPes"
+{-# DEPRECATED msAudioFramesPerPes "Use generic-lens or generic-optics with 'audioFramesPerPes' instead." #-}
 
 -- | Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.
 --
 -- /Note:/ Consider using 'audioPids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mAudioPids :: Lens.Lens' M3u8Settings (Lude.Maybe Lude.Text)
-mAudioPids = Lens.lens (audioPids :: M3u8Settings -> Lude.Maybe Lude.Text) (\s a -> s {audioPids = a} :: M3u8Settings)
-{-# DEPRECATED mAudioPids "Use generic-lens or generic-optics with 'audioPids' instead." #-}
+msAudioPids :: Lens.Lens' M3u8Settings (Core.Maybe Core.Text)
+msAudioPids = Lens.field @"audioPids"
+{-# DEPRECATED msAudioPids "Use generic-lens or generic-optics with 'audioPids' instead." #-}
 
--- | If set to passthrough, passes any SCTE-35 signals from the input source to this output.
+-- | This parameter is unused and deprecated.
 --
--- /Note:/ Consider using 'scte35Behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mScte35Behavior :: Lens.Lens' M3u8Settings (Lude.Maybe M3u8Scte35Behavior)
-mScte35Behavior = Lens.lens (scte35Behavior :: M3u8Settings -> Lude.Maybe M3u8Scte35Behavior) (\s a -> s {scte35Behavior = a} :: M3u8Settings)
-{-# DEPRECATED mScte35Behavior "Use generic-lens or generic-optics with 'scte35Behavior' instead." #-}
+-- /Note:/ Consider using 'ecmPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msEcmPid :: Lens.Lens' M3u8Settings (Core.Maybe Core.Text)
+msEcmPid = Lens.field @"ecmPid"
+{-# DEPRECATED msEcmPid "Use generic-lens or generic-optics with 'ecmPid' instead." #-}
+
+-- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+--
+-- /Note:/ Consider using 'nielsenId3Behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msNielsenId3Behavior :: Lens.Lens' M3u8Settings (Core.Maybe Types.M3u8NielsenId3Behavior)
+msNielsenId3Behavior = Lens.field @"nielsenId3Behavior"
+{-# DEPRECATED msNielsenId3Behavior "Use generic-lens or generic-optics with 'nielsenId3Behavior' instead." #-}
+
+-- | The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+--
+-- /Note:/ Consider using 'patInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msPatInterval :: Lens.Lens' M3u8Settings (Core.Maybe Core.Natural)
+msPatInterval = Lens.field @"patInterval"
+{-# DEPRECATED msPatInterval "Use generic-lens or generic-optics with 'patInterval' instead." #-}
 
 -- | When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
 --
 -- /Note:/ Consider using 'pcrControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mPcrControl :: Lens.Lens' M3u8Settings (Lude.Maybe M3u8PcrControl)
-mPcrControl = Lens.lens (pcrControl :: M3u8Settings -> Lude.Maybe M3u8PcrControl) (\s a -> s {pcrControl = a} :: M3u8Settings)
-{-# DEPRECATED mPcrControl "Use generic-lens or generic-optics with 'pcrControl' instead." #-}
+msPcrControl :: Lens.Lens' M3u8Settings (Core.Maybe Types.M3u8PcrControl)
+msPcrControl = Lens.field @"pcrControl"
+{-# DEPRECATED msPcrControl "Use generic-lens or generic-optics with 'pcrControl' instead." #-}
 
-instance Lude.FromJSON M3u8Settings where
-  parseJSON =
-    Lude.withObject
-      "M3u8Settings"
-      ( \x ->
-          M3u8Settings'
-            Lude.<$> (x Lude..:? "pmtPid")
-            Lude.<*> (x Lude..:? "videoPid")
-            Lude.<*> (x Lude..:? "nielsenId3Behavior")
-            Lude.<*> (x Lude..:? "scte35Pid")
-            Lude.<*> (x Lude..:? "transportStreamId")
-            Lude.<*> (x Lude..:? "programNum")
-            Lude.<*> (x Lude..:? "timedMetadataBehavior")
-            Lude.<*> (x Lude..:? "pmtInterval")
-            Lude.<*> (x Lude..:? "ecmPid")
-            Lude.<*> (x Lude..:? "timedMetadataPid")
-            Lude.<*> (x Lude..:? "audioFramesPerPes")
-            Lude.<*> (x Lude..:? "pcrPeriod")
-            Lude.<*> (x Lude..:? "pcrPid")
-            Lude.<*> (x Lude..:? "patInterval")
-            Lude.<*> (x Lude..:? "audioPids")
-            Lude.<*> (x Lude..:? "scte35Behavior")
-            Lude.<*> (x Lude..:? "pcrControl")
-      )
+-- | Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
+--
+-- /Note:/ Consider using 'pcrPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msPcrPeriod :: Lens.Lens' M3u8Settings (Core.Maybe Core.Natural)
+msPcrPeriod = Lens.field @"pcrPeriod"
+{-# DEPRECATED msPcrPeriod "Use generic-lens or generic-optics with 'pcrPeriod' instead." #-}
 
-instance Lude.ToJSON M3u8Settings where
-  toJSON M3u8Settings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("pmtPid" Lude..=) Lude.<$> pmtPid,
-            ("videoPid" Lude..=) Lude.<$> videoPid,
-            ("nielsenId3Behavior" Lude..=) Lude.<$> nielsenId3Behavior,
-            ("scte35Pid" Lude..=) Lude.<$> scte35Pid,
-            ("transportStreamId" Lude..=) Lude.<$> transportStreamId,
-            ("programNum" Lude..=) Lude.<$> programNum,
-            ("timedMetadataBehavior" Lude..=) Lude.<$> timedMetadataBehavior,
-            ("pmtInterval" Lude..=) Lude.<$> pmtInterval,
-            ("ecmPid" Lude..=) Lude.<$> ecmPid,
-            ("timedMetadataPid" Lude..=) Lude.<$> timedMetadataPid,
-            ("audioFramesPerPes" Lude..=) Lude.<$> audioFramesPerPes,
-            ("pcrPeriod" Lude..=) Lude.<$> pcrPeriod,
-            ("pcrPid" Lude..=) Lude.<$> pcrPid,
-            ("patInterval" Lude..=) Lude.<$> patInterval,
-            ("audioPids" Lude..=) Lude.<$> audioPids,
-            ("scte35Behavior" Lude..=) Lude.<$> scte35Behavior,
-            ("pcrControl" Lude..=) Lude.<$> pcrControl
+-- | Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID. Can be entered as a decimal or hexadecimal value.
+--
+-- /Note:/ Consider using 'pcrPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msPcrPid :: Lens.Lens' M3u8Settings (Core.Maybe Core.Text)
+msPcrPid = Lens.field @"pcrPid"
+{-# DEPRECATED msPcrPid "Use generic-lens or generic-optics with 'pcrPid' instead." #-}
+
+-- | The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
+--
+-- /Note:/ Consider using 'pmtInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msPmtInterval :: Lens.Lens' M3u8Settings (Core.Maybe Core.Natural)
+msPmtInterval = Lens.field @"pmtInterval"
+{-# DEPRECATED msPmtInterval "Use generic-lens or generic-optics with 'pmtInterval' instead." #-}
+
+-- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream. Can be entered as a decimal or hexadecimal value.
+--
+-- /Note:/ Consider using 'pmtPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msPmtPid :: Lens.Lens' M3u8Settings (Core.Maybe Core.Text)
+msPmtPid = Lens.field @"pmtPid"
+{-# DEPRECATED msPmtPid "Use generic-lens or generic-optics with 'pmtPid' instead." #-}
+
+-- | The value of the program number field in the Program Map Table.
+--
+-- /Note:/ Consider using 'programNum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msProgramNum :: Lens.Lens' M3u8Settings (Core.Maybe Core.Natural)
+msProgramNum = Lens.field @"programNum"
+{-# DEPRECATED msProgramNum "Use generic-lens or generic-optics with 'programNum' instead." #-}
+
+-- | If set to passthrough, passes any SCTE-35 signals from the input source to this output.
+--
+-- /Note:/ Consider using 'scte35Behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msScte35Behavior :: Lens.Lens' M3u8Settings (Core.Maybe Types.M3u8Scte35Behavior)
+msScte35Behavior = Lens.field @"scte35Behavior"
+{-# DEPRECATED msScte35Behavior "Use generic-lens or generic-optics with 'scte35Behavior' instead." #-}
+
+-- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+--
+-- /Note:/ Consider using 'scte35Pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msScte35Pid :: Lens.Lens' M3u8Settings (Core.Maybe Core.Text)
+msScte35Pid = Lens.field @"scte35Pid"
+{-# DEPRECATED msScte35Pid "Use generic-lens or generic-optics with 'scte35Pid' instead." #-}
+
+-- | When set to passthrough, timed metadata is passed through from input to output.
+--
+-- /Note:/ Consider using 'timedMetadataBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msTimedMetadataBehavior :: Lens.Lens' M3u8Settings (Core.Maybe Types.M3u8TimedMetadataBehavior)
+msTimedMetadataBehavior = Lens.field @"timedMetadataBehavior"
+{-# DEPRECATED msTimedMetadataBehavior "Use generic-lens or generic-optics with 'timedMetadataBehavior' instead." #-}
+
+-- | Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
+--
+-- /Note:/ Consider using 'timedMetadataPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msTimedMetadataPid :: Lens.Lens' M3u8Settings (Core.Maybe Core.Text)
+msTimedMetadataPid = Lens.field @"timedMetadataPid"
+{-# DEPRECATED msTimedMetadataPid "Use generic-lens or generic-optics with 'timedMetadataPid' instead." #-}
+
+-- | The value of the transport stream ID field in the Program Map Table.
+--
+-- /Note:/ Consider using 'transportStreamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msTransportStreamId :: Lens.Lens' M3u8Settings (Core.Maybe Core.Natural)
+msTransportStreamId = Lens.field @"transportStreamId"
+{-# DEPRECATED msTransportStreamId "Use generic-lens or generic-optics with 'transportStreamId' instead." #-}
+
+-- | Packet Identifier (PID) of the elementary video stream in the transport stream. Can be entered as a decimal or hexadecimal value.
+--
+-- /Note:/ Consider using 'videoPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msVideoPid :: Lens.Lens' M3u8Settings (Core.Maybe Core.Text)
+msVideoPid = Lens.field @"videoPid"
+{-# DEPRECATED msVideoPid "Use generic-lens or generic-optics with 'videoPid' instead." #-}
+
+instance Core.FromJSON M3u8Settings where
+  toJSON M3u8Settings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("audioFramesPerPes" Core..=) Core.<$> audioFramesPerPes,
+            ("audioPids" Core..=) Core.<$> audioPids,
+            ("ecmPid" Core..=) Core.<$> ecmPid,
+            ("nielsenId3Behavior" Core..=) Core.<$> nielsenId3Behavior,
+            ("patInterval" Core..=) Core.<$> patInterval,
+            ("pcrControl" Core..=) Core.<$> pcrControl,
+            ("pcrPeriod" Core..=) Core.<$> pcrPeriod,
+            ("pcrPid" Core..=) Core.<$> pcrPid,
+            ("pmtInterval" Core..=) Core.<$> pmtInterval,
+            ("pmtPid" Core..=) Core.<$> pmtPid,
+            ("programNum" Core..=) Core.<$> programNum,
+            ("scte35Behavior" Core..=) Core.<$> scte35Behavior,
+            ("scte35Pid" Core..=) Core.<$> scte35Pid,
+            ("timedMetadataBehavior" Core..=) Core.<$> timedMetadataBehavior,
+            ("timedMetadataPid" Core..=) Core.<$> timedMetadataPid,
+            ("transportStreamId" Core..=) Core.<$> transportStreamId,
+            ("videoPid" Core..=) Core.<$> videoPid
           ]
       )
+
+instance Core.FromJSON M3u8Settings where
+  parseJSON =
+    Core.withObject "M3u8Settings" Core.$
+      \x ->
+        M3u8Settings'
+          Core.<$> (x Core..:? "audioFramesPerPes")
+          Core.<*> (x Core..:? "audioPids")
+          Core.<*> (x Core..:? "ecmPid")
+          Core.<*> (x Core..:? "nielsenId3Behavior")
+          Core.<*> (x Core..:? "patInterval")
+          Core.<*> (x Core..:? "pcrControl")
+          Core.<*> (x Core..:? "pcrPeriod")
+          Core.<*> (x Core..:? "pcrPid")
+          Core.<*> (x Core..:? "pmtInterval")
+          Core.<*> (x Core..:? "pmtPid")
+          Core.<*> (x Core..:? "programNum")
+          Core.<*> (x Core..:? "scte35Behavior")
+          Core.<*> (x Core..:? "scte35Pid")
+          Core.<*> (x Core..:? "timedMetadataBehavior")
+          Core.<*> (x Core..:? "timedMetadataPid")
+          Core.<*> (x Core..:? "transportStreamId")
+          Core.<*> (x Core..:? "videoPid")

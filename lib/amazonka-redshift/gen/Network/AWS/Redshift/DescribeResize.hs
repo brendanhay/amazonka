@@ -25,34 +25,34 @@ module Network.AWS.Redshift.DescribeResize
     drClusterIdentifier,
 
     -- * Destructuring the response
-    ResizeProgressMessage (..),
-    mkResizeProgressMessage,
+    Types.ResizeProgressMessage (..),
+    Types.mkResizeProgressMessage,
 
     -- ** Response lenses
-    rpmImportTablesNotStarted,
-    rpmStatus,
-    rpmEstimatedTimeToCompletionInSeconds,
-    rpmAvgResizeRateInMegaBytesPerSecond,
-    rpmTargetNumberOfNodes,
-    rpmTargetEncryptionType,
-    rpmTargetNodeType,
-    rpmImportTablesInProgress,
-    rpmResizeType,
-    rpmImportTablesCompleted,
-    rpmProgressInMegaBytes,
-    rpmDataTransferProgressPercent,
-    rpmTotalResizeDataInMegaBytes,
-    rpmTargetClusterType,
-    rpmMessage,
-    rpmElapsedTimeInSeconds,
+    Types.rpmAvgResizeRateInMegaBytesPerSecond,
+    Types.rpmDataTransferProgressPercent,
+    Types.rpmElapsedTimeInSeconds,
+    Types.rpmEstimatedTimeToCompletionInSeconds,
+    Types.rpmImportTablesCompleted,
+    Types.rpmImportTablesInProgress,
+    Types.rpmImportTablesNotStarted,
+    Types.rpmMessage,
+    Types.rpmProgressInMegaBytes,
+    Types.rpmResizeType,
+    Types.rpmStatus,
+    Types.rpmTargetClusterType,
+    Types.rpmTargetEncryptionType,
+    Types.rpmTargetNodeType,
+    Types.rpmTargetNumberOfNodes,
+    Types.rpmTotalResizeDataInMegaBytes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -61,50 +61,49 @@ newtype DescribeResize = DescribeResize'
   { -- | The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.
     --
     -- By default, resize operations for all clusters defined for an AWS account are returned.
-    clusterIdentifier :: Lude.Text
+    clusterIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeResize' with the minimum fields required to make a request.
---
--- * 'clusterIdentifier' - The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.
---
--- By default, resize operations for all clusters defined for an AWS account are returned.
+-- | Creates a 'DescribeResize' value with any optional fields omitted.
 mkDescribeResize ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   DescribeResize
-mkDescribeResize pClusterIdentifier_ =
-  DescribeResize' {clusterIdentifier = pClusterIdentifier_}
+mkDescribeResize clusterIdentifier =
+  DescribeResize' {clusterIdentifier}
 
 -- | The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.
 --
 -- By default, resize operations for all clusters defined for an AWS account are returned.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drClusterIdentifier :: Lens.Lens' DescribeResize Lude.Text
-drClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeResize -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeResize)
+drClusterIdentifier :: Lens.Lens' DescribeResize Types.String
+drClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED drClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance Lude.AWSRequest DescribeResize where
-  type Rs DescribeResize = ResizeProgressMessage
-  request = Req.postQuery redshiftService
+instance Core.AWSRequest DescribeResize where
+  type Rs DescribeResize = Types.ResizeProgressMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeResize")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" clusterIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeResizeResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders DescribeResize where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeResize where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeResize where
-  toQuery DescribeResize' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeResize" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ClusterIdentifier" Lude.=: clusterIdentifier
-      ]
+      (\s h x -> Core.parseXML x)

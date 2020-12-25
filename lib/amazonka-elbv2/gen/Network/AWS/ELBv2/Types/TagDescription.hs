@@ -17,54 +17,50 @@ module Network.AWS.ELBv2.Types.TagDescription
     mkTagDescription,
 
     -- * Lenses
-    tdResourceARN,
+    tdResourceArn,
     tdTags,
   )
 where
 
-import Network.AWS.ELBv2.Types.Tag
+import qualified Network.AWS.ELBv2.Types.ResourceArn as Types
+import qualified Network.AWS.ELBv2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The tags associated with a resource.
 --
 -- /See:/ 'mkTagDescription' smart constructor.
 data TagDescription = TagDescription'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceARN :: Lude.Maybe Lude.Text,
+    resourceArn :: Core.Maybe Types.ResourceArn,
     -- | Information about the tags.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource.
--- * 'tags' - Information about the tags.
+-- | Creates a 'TagDescription' value with any optional fields omitted.
 mkTagDescription ::
   TagDescription
 mkTagDescription =
-  TagDescription' {resourceARN = Lude.Nothing, tags = Lude.Nothing}
+  TagDescription' {resourceArn = Core.Nothing, tags = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the resource.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdResourceARN :: Lens.Lens' TagDescription (Lude.Maybe Lude.Text)
-tdResourceARN = Lens.lens (resourceARN :: TagDescription -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: TagDescription)
-{-# DEPRECATED tdResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdResourceArn :: Lens.Lens' TagDescription (Core.Maybe Types.ResourceArn)
+tdResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED tdResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | Information about the tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTags :: Lens.Lens' TagDescription (Lude.Maybe (Lude.NonEmpty Tag))
-tdTags = Lens.lens (tags :: TagDescription -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: TagDescription)
+tdTags :: Lens.Lens' TagDescription (Core.Maybe (Core.NonEmpty Types.Tag))
+tdTags = Lens.field @"tags"
 {-# DEPRECATED tdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML TagDescription where
+instance Core.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Lude.<$> (x Lude..@? "ResourceArn")
-      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLNonEmpty "member")
-               )
+      Core.<$> (x Core..@? "ResourceArn")
+      Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLNonEmpty "member")

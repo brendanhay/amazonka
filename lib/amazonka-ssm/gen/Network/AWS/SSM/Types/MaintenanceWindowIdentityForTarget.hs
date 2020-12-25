@@ -23,51 +23,48 @@ module Network.AWS.SSM.Types.MaintenanceWindowIdentityForTarget
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.MaintenanceWindowId as Types
+import qualified Network.AWS.SSM.Types.MaintenanceWindowName as Types
 
 -- | The maintenance window to which the specified target belongs.
 --
 -- /See:/ 'mkMaintenanceWindowIdentityForTarget' smart constructor.
 data MaintenanceWindowIdentityForTarget = MaintenanceWindowIdentityForTarget'
   { -- | The name of the maintenance window.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.MaintenanceWindowName,
     -- | The ID of the maintenance window.
-    windowId :: Lude.Maybe Lude.Text
+    windowId :: Core.Maybe Types.MaintenanceWindowId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MaintenanceWindowIdentityForTarget' with the minimum fields required to make a request.
---
--- * 'name' - The name of the maintenance window.
--- * 'windowId' - The ID of the maintenance window.
+-- | Creates a 'MaintenanceWindowIdentityForTarget' value with any optional fields omitted.
 mkMaintenanceWindowIdentityForTarget ::
   MaintenanceWindowIdentityForTarget
 mkMaintenanceWindowIdentityForTarget =
   MaintenanceWindowIdentityForTarget'
-    { name = Lude.Nothing,
-      windowId = Lude.Nothing
+    { name = Core.Nothing,
+      windowId = Core.Nothing
     }
 
 -- | The name of the maintenance window.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwiftName :: Lens.Lens' MaintenanceWindowIdentityForTarget (Lude.Maybe Lude.Text)
-mwiftName = Lens.lens (name :: MaintenanceWindowIdentityForTarget -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MaintenanceWindowIdentityForTarget)
+mwiftName :: Lens.Lens' MaintenanceWindowIdentityForTarget (Core.Maybe Types.MaintenanceWindowName)
+mwiftName = Lens.field @"name"
 {-# DEPRECATED mwiftName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the maintenance window.
 --
 -- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwiftWindowId :: Lens.Lens' MaintenanceWindowIdentityForTarget (Lude.Maybe Lude.Text)
-mwiftWindowId = Lens.lens (windowId :: MaintenanceWindowIdentityForTarget -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: MaintenanceWindowIdentityForTarget)
+mwiftWindowId :: Lens.Lens' MaintenanceWindowIdentityForTarget (Core.Maybe Types.MaintenanceWindowId)
+mwiftWindowId = Lens.field @"windowId"
 {-# DEPRECATED mwiftWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance Lude.FromJSON MaintenanceWindowIdentityForTarget where
+instance Core.FromJSON MaintenanceWindowIdentityForTarget where
   parseJSON =
-    Lude.withObject
-      "MaintenanceWindowIdentityForTarget"
-      ( \x ->
-          MaintenanceWindowIdentityForTarget'
-            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "WindowId")
-      )
+    Core.withObject "MaintenanceWindowIdentityForTarget" Core.$
+      \x ->
+        MaintenanceWindowIdentityForTarget'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "WindowId")

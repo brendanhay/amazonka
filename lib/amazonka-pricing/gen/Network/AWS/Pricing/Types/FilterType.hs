@@ -13,41 +13,43 @@
 module Network.AWS.Pricing.Types.FilterType
   ( FilterType
       ( FilterType',
-        TermMatch
+        FilterTypeTermMatch,
+        fromFilterType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FilterType = FilterType' Lude.Text
+newtype FilterType = FilterType' {fromFilterType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TermMatch :: FilterType
-pattern TermMatch = FilterType' "TERM_MATCH"
+pattern FilterTypeTermMatch :: FilterType
+pattern FilterTypeTermMatch = FilterType' "TERM_MATCH"
 
 {-# COMPLETE
-  TermMatch,
+  FilterTypeTermMatch,
   FilterType'
   #-}

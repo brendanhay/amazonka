@@ -18,25 +18,25 @@ where
 
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus' every 15 seconds until a successful state is reached. An error is returned after 15 failed checks.
-mkNodeAssociated :: Wait.Wait DescribeNodeAssociationStatus
+mkNodeAssociated :: Waiter.Wait DescribeNodeAssociationStatus
 mkNodeAssociated =
-  Wait.Wait
-    { Wait._waitName = "NodeAssociated",
-      Wait._waitAttempts = 15,
-      Wait._waitDelay = 15,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "NodeAssociated",
+      Waiter._waitAttempts = 15,
+      Waiter._waitDelay = 15,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "SUCCESS"
-            Wait.AcceptSuccess
-            (dnasrsNodeAssociationStatus Lude.. Lens.to Lude.toText),
-          Wait.matchAll
+            Waiter.AcceptSuccess
+            (Lens.field @"nodeAssociationStatus"),
+          Waiter.matchAll
             "FAILED"
-            Wait.AcceptFailure
-            (dnasrsNodeAssociationStatus Lude.. Lens.to Lude.toText)
+            Waiter.AcceptFailure
+            (Lens.field @"nodeAssociationStatus")
         ]
     }

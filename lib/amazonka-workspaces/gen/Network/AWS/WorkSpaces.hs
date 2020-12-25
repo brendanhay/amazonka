@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,52 @@
 -- Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows and Amazon Linux desktops for your users.
 module Network.AWS.WorkSpaces
   ( -- * Service configuration
-    workSpacesService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** UnsupportedNetworkConfigurationException
+    _UnsupportedNetworkConfigurationException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** ResourceCreationFailedException
+    _ResourceCreationFailedException,
+
+    -- ** ResourceUnavailableException
+    _ResourceUnavailableException,
+
+    -- ** InvalidParameterValuesException
+    _InvalidParameterValuesException,
+
+    -- ** ResourceAssociatedException
+    _ResourceAssociatedException,
+
+    -- ** OperationInProgressException
+    _OperationInProgressException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** InvalidResourceStateException
+    _InvalidResourceStateException,
+
+    -- ** OperationNotSupportedException
+    _OperationNotSupportedException,
+
+    -- ** UnsupportedWorkspaceConfigurationException
+    _UnsupportedWorkspaceConfigurationException,
+
+    -- ** WorkspacesDefaultRoleNotFoundException
+    _WorkspacesDefaultRoleNotFoundException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -33,8 +74,8 @@ module Network.AWS.WorkSpaces
     -- ** DescribeAccount
     module Network.AWS.WorkSpaces.DescribeAccount,
 
-    -- ** RevokeIPRules
-    module Network.AWS.WorkSpaces.RevokeIPRules,
+    -- ** RevokeIpRules
+    module Network.AWS.WorkSpaces.RevokeIpRules,
 
     -- ** DescribeWorkspaceImages (Paginated)
     module Network.AWS.WorkSpaces.DescribeWorkspaceImages,
@@ -54,14 +95,14 @@ module Network.AWS.WorkSpaces
     -- ** DescribeWorkspaceDirectories (Paginated)
     module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories,
 
-    -- ** DisassociateIPGroups
-    module Network.AWS.WorkSpaces.DisassociateIPGroups,
+    -- ** DisassociateIpGroups
+    module Network.AWS.WorkSpaces.DisassociateIpGroups,
 
     -- ** DescribeWorkspaceBundles (Paginated)
     module Network.AWS.WorkSpaces.DescribeWorkspaceBundles,
 
-    -- ** AuthorizeIPRules
-    module Network.AWS.WorkSpaces.AuthorizeIPRules,
+    -- ** AuthorizeIpRules
+    module Network.AWS.WorkSpaces.AuthorizeIpRules,
 
     -- ** DescribeWorkspaceImagePermissions
     module Network.AWS.WorkSpaces.DescribeWorkspaceImagePermissions,
@@ -75,8 +116,8 @@ module Network.AWS.WorkSpaces
     -- ** ModifyWorkspaceState
     module Network.AWS.WorkSpaces.ModifyWorkspaceState,
 
-    -- ** CreateIPGroup
-    module Network.AWS.WorkSpaces.CreateIPGroup,
+    -- ** CreateIpGroup
+    module Network.AWS.WorkSpaces.CreateIpGroup,
 
     -- ** DisassociateConnectionAlias
     module Network.AWS.WorkSpaces.DisassociateConnectionAlias,
@@ -102,8 +143,8 @@ module Network.AWS.WorkSpaces
     -- ** ModifyWorkspaceAccessProperties
     module Network.AWS.WorkSpaces.ModifyWorkspaceAccessProperties,
 
-    -- ** UpdateRulesOfIPGroup
-    module Network.AWS.WorkSpaces.UpdateRulesOfIPGroup,
+    -- ** UpdateRulesOfIpGroup
+    module Network.AWS.WorkSpaces.UpdateRulesOfIpGroup,
 
     -- ** DeleteWorkspaceImage
     module Network.AWS.WorkSpaces.DeleteWorkspaceImage,
@@ -111,8 +152,8 @@ module Network.AWS.WorkSpaces
     -- ** StopWorkspaces
     module Network.AWS.WorkSpaces.StopWorkspaces,
 
-    -- ** AssociateIPGroups
-    module Network.AWS.WorkSpaces.AssociateIPGroups,
+    -- ** AssociateIpGroups
+    module Network.AWS.WorkSpaces.AssociateIpGroups,
 
     -- ** ModifySelfservicePermissions
     module Network.AWS.WorkSpaces.ModifySelfservicePermissions,
@@ -129,8 +170,8 @@ module Network.AWS.WorkSpaces
     -- ** RebootWorkspaces
     module Network.AWS.WorkSpaces.RebootWorkspaces,
 
-    -- ** DeleteIPGroup
-    module Network.AWS.WorkSpaces.DeleteIPGroup,
+    -- ** DeleteIpGroup
+    module Network.AWS.WorkSpaces.DeleteIpGroup,
 
     -- ** CopyWorkspaceImage
     module Network.AWS.WorkSpaces.CopyWorkspaceImage,
@@ -153,8 +194,8 @@ module Network.AWS.WorkSpaces
     -- ** ModifyClientProperties
     module Network.AWS.WorkSpaces.ModifyClientProperties,
 
-    -- ** DescribeIPGroups (Paginated)
-    module Network.AWS.WorkSpaces.DescribeIPGroups,
+    -- ** DescribeIpGroups (Paginated)
+    module Network.AWS.WorkSpaces.DescribeIpGroups,
 
     -- ** ListAvailableManagementCidrRanges (Paginated)
     module Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges,
@@ -179,117 +220,375 @@ module Network.AWS.WorkSpaces
 
     -- * Types
 
-    -- ** AccessPropertyValue
-    AccessPropertyValue (..),
+    -- ** WorkspaceRequest
+    WorkspaceRequest (..),
+    mkWorkspaceRequest,
+    wrDirectoryId,
+    wrUserName,
+    wrBundleId,
+    wrRootVolumeEncryptionEnabled,
+    wrTags,
+    wrUserVolumeEncryptionEnabled,
+    wrVolumeEncryptionKey,
+    wrWorkspaceProperties,
 
-    -- ** Application
-    Application (..),
+    -- ** WorkspaceDirectory
+    WorkspaceDirectory (..),
+    mkWorkspaceDirectory,
+    wdAlias,
+    wdCustomerUserName,
+    wdDirectoryId,
+    wdDirectoryName,
+    wdDirectoryType,
+    wdDnsIpAddresses,
+    wdIamRoleId,
+    wdRegistrationCode,
+    wdSelfservicePermissions,
+    wdState,
+    wdSubnetIds,
+    wdTenancy,
+    wdWorkspaceAccessProperties,
+    wdWorkspaceCreationProperties,
+    wdWorkspaceSecurityGroupId,
+    wdIpGroupIds,
 
-    -- ** AssociationStatus
-    AssociationStatus (..),
-
-    -- ** Compute
-    Compute (..),
-
-    -- ** ConnectionAliasState
-    ConnectionAliasState (..),
-
-    -- ** ConnectionState
-    ConnectionState (..),
-
-    -- ** DedicatedTenancyModificationStateEnum
-    DedicatedTenancyModificationStateEnum (..),
-
-    -- ** DedicatedTenancySupportEnum
-    DedicatedTenancySupportEnum (..),
+    -- ** RegistrationCode
+    RegistrationCode (..),
 
     -- ** DedicatedTenancySupportResultEnum
     DedicatedTenancySupportResultEnum (..),
 
-    -- ** ImageType
-    ImageType (..),
+    -- ** Snapshot
+    Snapshot (..),
+    mkSnapshot,
+    sSnapshotTime,
+
+    -- ** DirectoryId
+    DirectoryId (..),
+
+    -- ** WorkspaceImageErrorCode
+    WorkspaceImageErrorCode (..),
+
+    -- ** PaginationToken
+    PaginationToken (..),
 
     -- ** ModificationResourceEnum
     ModificationResourceEnum (..),
 
-    -- ** ModificationStateEnum
-    ModificationStateEnum (..),
+    -- ** WorkspaceImageId
+    WorkspaceImageId (..),
 
-    -- ** OperatingSystemType
-    OperatingSystemType (..),
-
-    -- ** ReconnectEnum
-    ReconnectEnum (..),
-
-    -- ** RunningMode
-    RunningMode (..),
-
-    -- ** TargetWorkspaceState
-    TargetWorkspaceState (..),
-
-    -- ** Tenancy
-    Tenancy (..),
-
-    -- ** WorkspaceDirectoryState
-    WorkspaceDirectoryState (..),
-
-    -- ** WorkspaceDirectoryType
-    WorkspaceDirectoryType (..),
-
-    -- ** WorkspaceImageIngestionProcess
-    WorkspaceImageIngestionProcess (..),
-
-    -- ** WorkspaceImageRequiredTenancy
-    WorkspaceImageRequiredTenancy (..),
-
-    -- ** WorkspaceImageState
-    WorkspaceImageState (..),
-
-    -- ** WorkspaceState
-    WorkspaceState (..),
+    -- ** IpGroupDesc
+    IpGroupDesc (..),
 
     -- ** AccountModification
     AccountModification (..),
     mkAccountModification,
-    amStartTime,
-    amDedicatedTenancySupport,
-    amModificationState,
     amDedicatedTenancyManagementCidrRange,
+    amDedicatedTenancySupport,
     amErrorCode,
     amErrorMessage,
+    amModificationState,
+    amStartTime,
+
+    -- ** IpAddress
+    IpAddress (..),
+
+    -- ** ConnectionAliasState
+    ConnectionAliasState (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** Application
+    Application (..),
+
+    -- ** IpRuleItem
+    IpRuleItem (..),
+    mkIpRuleItem,
+    iriIpRule,
+    iriRuleDesc,
+
+    -- ** DedicatedTenancySupportEnum
+    DedicatedTenancySupportEnum (..),
+
+    -- ** ManagementCidrRangeConstraint
+    ManagementCidrRangeConstraint (..),
+
+    -- ** Compute
+    Compute (..),
+
+    -- ** Workspace
+    Workspace (..),
+    mkWorkspace,
+    wBundleId,
+    wComputerName,
+    wDirectoryId,
+    wErrorCode,
+    wErrorMessage,
+    wIpAddress,
+    wModificationStates,
+    wRootVolumeEncryptionEnabled,
+    wState,
+    wSubnetId,
+    wUserName,
+    wUserVolumeEncryptionEnabled,
+    wVolumeEncryptionKey,
+    wWorkspaceId,
+    wWorkspaceProperties,
+
+    -- ** WorkspaceImageName
+    WorkspaceImageName (..),
+
+    -- ** OperatingSystem
+    OperatingSystem (..),
+    mkOperatingSystem,
+    osType,
+
+    -- ** ConnectionAlias
+    ConnectionAlias (..),
+    mkConnectionAlias,
+    caAliasId,
+    caAssociations,
+    caConnectionString,
+    caOwnerAccountId,
+    caState,
 
     -- ** ClientProperties
     ClientProperties (..),
     mkClientProperties,
     cpReconnectEnabled,
 
+    -- ** RebuildRequest
+    RebuildRequest (..),
+    mkRebuildRequest,
+    rrWorkspaceId,
+
+    -- ** FailedCreateWorkspaceRequest
+    FailedCreateWorkspaceRequest (..),
+    mkFailedCreateWorkspaceRequest,
+    fcwrErrorCode,
+    fcwrErrorMessage,
+    fcwrWorkspaceRequest,
+
+    -- ** WorkspaceDirectoryState
+    WorkspaceDirectoryState (..),
+
+    -- ** IpGroupId
+    IpGroupId (..),
+
+    -- ** TargetWorkspaceState
+    TargetWorkspaceState (..),
+
+    -- ** DedicatedTenancyModificationStateEnum
+    DedicatedTenancyModificationStateEnum (..),
+
+    -- ** Ec2ImageId
+    Ec2ImageId (..),
+
+    -- ** Alias
+    Alias (..),
+
+    -- ** UserName
+    UserName (..),
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** FailedWorkspaceChangeRequest
+    FailedWorkspaceChangeRequest (..),
+    mkFailedWorkspaceChangeRequest,
+    fwcrErrorCode,
+    fwcrErrorMessage,
+    fwcrWorkspaceId,
+
+    -- ** ModificationState
+    ModificationState (..),
+    mkModificationState,
+    msResource,
+    msState,
+
+    -- ** IpGroupName
+    IpGroupName (..),
+
     -- ** ClientPropertiesResult
     ClientPropertiesResult (..),
     mkClientPropertiesResult,
-    cprResourceId,
     cprClientProperties,
+    cprResourceId,
+
+    -- ** BundleId
+    BundleId (..),
+
+    -- ** DedicatedTenancyManagementCidrRange
+    DedicatedTenancyManagementCidrRange (..),
+
+    -- ** StopRequest
+    StopRequest (..),
+    mkStopRequest,
+    srWorkspaceId,
+
+    -- ** SecurityGroupId
+    SecurityGroupId (..),
+
+    -- ** WorkspaceImageDescription
+    WorkspaceImageDescription (..),
+
+    -- ** AwsAccount
+    AwsAccount (..),
+
+    -- ** WorkspaceProperties
+    WorkspaceProperties (..),
+    mkWorkspaceProperties,
+    wpComputeTypeName,
+    wpRootVolumeSizeGib,
+    wpRunningMode,
+    wpRunningModeAutoStopTimeoutInMinutes,
+    wpUserVolumeSizeGib,
+
+    -- ** RunningMode
+    RunningMode (..),
+
+    -- ** ImagePermission
+    ImagePermission (..),
+    mkImagePermission,
+    ipSharedAccountId,
+
+    -- ** WorkspaceDirectoryType
+    WorkspaceDirectoryType (..),
+
+    -- ** NonEmptyString
+    NonEmptyString (..),
+
+    -- ** RootStorage
+    RootStorage (..),
+    mkRootStorage,
+    rsCapacity,
+
+    -- ** ImageType
+    ImageType (..),
+
+    -- ** IpRule
+    IpRule (..),
+
+    -- ** WorkspaceConnectionStatus
+    WorkspaceConnectionStatus (..),
+    mkWorkspaceConnectionStatus,
+    wcsConnectionState,
+    wcsConnectionStateCheckTimestamp,
+    wcsLastKnownUserConnectionTimestamp,
+    wcsWorkspaceId,
+
+    -- ** WorkspaceState
+    WorkspaceState (..),
+
+    -- ** Tenancy
+    Tenancy (..),
+
+    -- ** ModificationStateEnum
+    ModificationStateEnum (..),
+
+    -- ** ReconnectEnum
+    ReconnectEnum (..),
+
+    -- ** WorkspaceImage
+    WorkspaceImage (..),
+    mkWorkspaceImage,
+    wiCreated,
+    wiDescription,
+    wiErrorCode,
+    wiErrorMessage,
+    wiImageId,
+    wiName,
+    wiOperatingSystem,
+    wiOwnerAccountId,
+    wiRequiredTenancy,
+    wiState,
+
+    -- ** BundleOwner
+    BundleOwner (..),
+
+    -- ** AssociationStatus
+    AssociationStatus (..),
+
+    -- ** WorkspaceCreationProperties
+    WorkspaceCreationProperties (..),
+    mkWorkspaceCreationProperties,
+    wcpCustomSecurityGroupId,
+    wcpDefaultOu,
+    wcpEnableInternetAccess,
+    wcpEnableMaintenanceMode,
+    wcpEnableWorkDocs,
+    wcpUserEnabledAsLocalAdministrator,
 
     -- ** ComputeType
     ComputeType (..),
     mkComputeType,
     ctName,
 
-    -- ** ConnectionAlias
-    ConnectionAlias (..),
-    mkConnectionAlias,
-    caState,
-    caOwnerAccountId,
-    caAliasId,
-    caAssociations,
-    caConnectionString,
+    -- ** ConnectionIdentifier
+    ConnectionIdentifier (..),
 
-    -- ** ConnectionAliasAssociation
-    ConnectionAliasAssociation (..),
-    mkConnectionAliasAssociation,
-    caaAssociatedAccountId,
-    caaResourceId,
-    caaAssociationStatus,
-    caaConnectionIdentifier,
+    -- ** ConnectionAliasId
+    ConnectionAliasId (..),
+
+    -- ** WorkspaceImageState
+    WorkspaceImageState (..),
+
+    -- ** VolumeEncryptionKey
+    VolumeEncryptionKey (..),
+
+    -- ** RebootRequest
+    RebootRequest (..),
+    mkRebootRequest,
+    rWorkspaceId,
+
+    -- ** UserStorage
+    UserStorage (..),
+    mkUserStorage,
+    usCapacity,
+
+    -- ** AccessPropertyValue
+    AccessPropertyValue (..),
+
+    -- ** ComputerName
+    ComputerName (..),
+
+    -- ** OperatingSystemType
+    OperatingSystemType (..),
+
+    -- ** WorkspacesIpGroup
+    WorkspacesIpGroup (..),
+    mkWorkspacesIpGroup,
+    wigGroupDesc,
+    wigGroupId,
+    wigGroupName,
+    wigUserRules,
+
+    -- ** WorkspaceAccessProperties
+    WorkspaceAccessProperties (..),
+    mkWorkspaceAccessProperties,
+    wapDeviceTypeAndroid,
+    wapDeviceTypeChromeOs,
+    wapDeviceTypeIos,
+    wapDeviceTypeOsx,
+    wapDeviceTypeWeb,
+    wapDeviceTypeWindows,
+    wapDeviceTypeZeroClient,
+
+    -- ** TerminateRequest
+    TerminateRequest (..),
+    mkTerminateRequest,
+    trWorkspaceId,
+
+    -- ** WorkspaceId
+    WorkspaceId (..),
+
+    -- ** WorkspaceImageIngestionProcess
+    WorkspaceImageIngestionProcess (..),
 
     -- ** ConnectionAliasPermission
     ConnectionAliasPermission (..),
@@ -297,254 +596,141 @@ module Network.AWS.WorkSpaces
     capSharedAccountId,
     capAllowAssociation,
 
+    -- ** ConnectionString
+    ConnectionString (..),
+
+    -- ** Description
+    Description (..),
+
     -- ** DefaultWorkspaceCreationProperties
     DefaultWorkspaceCreationProperties (..),
     mkDefaultWorkspaceCreationProperties,
     dwcpCustomSecurityGroupId,
-    dwcpUserEnabledAsLocalAdministrator,
-    dwcpEnableWorkDocs,
-    dwcpEnableMaintenanceMode,
-    dwcpEnableInternetAccess,
     dwcpDefaultOu,
+    dwcpEnableInternetAccess,
+    dwcpEnableMaintenanceMode,
+    dwcpEnableWorkDocs,
+    dwcpUserEnabledAsLocalAdministrator,
 
-    -- ** FailedCreateWorkspaceRequest
-    FailedCreateWorkspaceRequest (..),
-    mkFailedCreateWorkspaceRequest,
-    fcwrWorkspaceRequest,
-    fcwrErrorCode,
-    fcwrErrorMessage,
+    -- ** DirectoryName
+    DirectoryName (..),
 
-    -- ** FailedWorkspaceChangeRequest
-    FailedWorkspaceChangeRequest (..),
-    mkFailedWorkspaceChangeRequest,
-    fwcrErrorCode,
-    fwcrWorkspaceId,
-    fwcrErrorMessage,
+    -- ** ConnectionAliasAssociation
+    ConnectionAliasAssociation (..),
+    mkConnectionAliasAssociation,
+    caaAssociatedAccountId,
+    caaAssociationStatus,
+    caaConnectionIdentifier,
+    caaResourceId,
 
-    -- ** IPRuleItem
-    IPRuleItem (..),
-    mkIPRuleItem,
-    iriRuleDesc,
-    iriIpRule,
+    -- ** DefaultOu
+    DefaultOu (..),
 
-    -- ** ImagePermission
-    ImagePermission (..),
-    mkImagePermission,
-    ipSharedAccountId,
-
-    -- ** ModificationState
-    ModificationState (..),
-    mkModificationState,
-    msState,
-    msResource,
-
-    -- ** OperatingSystem
-    OperatingSystem (..),
-    mkOperatingSystem,
-    osType,
-
-    -- ** RebootRequest
-    RebootRequest (..),
-    mkRebootRequest,
-    rWorkspaceId,
-
-    -- ** RebuildRequest
-    RebuildRequest (..),
-    mkRebuildRequest,
-    rrWorkspaceId,
-
-    -- ** RootStorage
-    RootStorage (..),
-    mkRootStorage,
-    rsCapacity,
+    -- ** ConnectionState
+    ConnectionState (..),
 
     -- ** SelfservicePermissions
     SelfservicePermissions (..),
     mkSelfservicePermissions,
-    spRestartWorkspace,
     spChangeComputeType,
-    spSwitchRunningMode,
-    spRebuildWorkspace,
     spIncreaseVolumeSize,
+    spRebuildWorkspace,
+    spRestartWorkspace,
+    spSwitchRunningMode,
 
-    -- ** Snapshot
-    Snapshot (..),
-    mkSnapshot,
-    sSnapshotTime,
+    -- ** WorkspaceBundle
+    WorkspaceBundle (..),
+    mkWorkspaceBundle,
+    wbBundleId,
+    wbComputeType,
+    wbDescription,
+    wbImageId,
+    wbLastUpdatedTime,
+    wbName,
+    wbOwner,
+    wbRootStorage,
+    wbUserStorage,
+
+    -- ** WorkspaceImageRequiredTenancy
+    WorkspaceImageRequiredTenancy (..),
 
     -- ** StartRequest
     StartRequest (..),
     mkStartRequest,
     sWorkspaceId,
 
-    -- ** StopRequest
-    StopRequest (..),
-    mkStopRequest,
-    srWorkspaceId,
+    -- ** CustomerUserName
+    CustomerUserName (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** IamRoleId
+    IamRoleId (..),
 
-    -- ** TerminateRequest
-    TerminateRequest (..),
-    mkTerminateRequest,
-    trWorkspaceId,
+    -- ** WorkspaceSecurityGroupId
+    WorkspaceSecurityGroupId (..),
 
-    -- ** UserStorage
-    UserStorage (..),
-    mkUserStorage,
-    usCapacity,
+    -- ** AliasId
+    AliasId (..),
 
-    -- ** Workspace
-    Workspace (..),
-    mkWorkspace,
-    wDirectoryId,
-    wState,
-    wIPAddress,
-    wModificationStates,
-    wUserName,
-    wSubnetId,
-    wBundleId,
-    wWorkspaceProperties,
-    wRootVolumeEncryptionEnabled,
-    wErrorCode,
-    wVolumeEncryptionKey,
-    wComputerName,
-    wWorkspaceId,
-    wUserVolumeEncryptionEnabled,
-    wErrorMessage,
+    -- ** NextToken
+    NextToken (..),
 
-    -- ** WorkspaceAccessProperties
-    WorkspaceAccessProperties (..),
-    mkWorkspaceAccessProperties,
-    wapDeviceTypeWindows,
-    wapDeviceTypeWeb,
-    wapDeviceTypeAndroid,
-    wapDeviceTypeOSx,
-    wapDeviceTypeChromeOS,
-    wapDeviceTypeIOS,
-    wapDeviceTypeZeroClient,
+    -- ** ResourceId
+    ResourceId (..),
 
-    -- ** WorkspaceBundle
-    WorkspaceBundle (..),
-    mkWorkspaceBundle,
-    wbLastUpdatedTime,
-    wbBundleId,
-    wbOwner,
-    wbRootStorage,
-    wbName,
-    wbImageId,
-    wbComputeType,
-    wbUserStorage,
-    wbDescription,
+    -- ** ErrorCode
+    ErrorCode (..),
 
-    -- ** WorkspaceConnectionStatus
-    WorkspaceConnectionStatus (..),
-    mkWorkspaceConnectionStatus,
-    wcsLastKnownUserConnectionTimestamp,
-    wcsConnectionStateCheckTimestamp,
-    wcsWorkspaceId,
-    wcsConnectionState,
+    -- ** ErrorMessage
+    ErrorMessage (..),
 
-    -- ** WorkspaceCreationProperties
-    WorkspaceCreationProperties (..),
-    mkWorkspaceCreationProperties,
-    wcpCustomSecurityGroupId,
-    wcpUserEnabledAsLocalAdministrator,
-    wcpEnableWorkDocs,
-    wcpEnableMaintenanceMode,
-    wcpEnableInternetAccess,
-    wcpDefaultOu,
+    -- ** Key
+    Key (..),
 
-    -- ** WorkspaceDirectory
-    WorkspaceDirectory (..),
-    mkWorkspaceDirectory,
-    wdRegistrationCode,
-    wdIAMRoleId,
-    wdDirectoryId,
-    wdState,
-    wdCustomerUserName,
-    wdSubnetIds,
-    wdIpGroupIds,
-    wdAlias,
-    wdWorkspaceSecurityGroupId,
-    wdDirectoryType,
-    wdTenancy,
-    wdWorkspaceCreationProperties,
-    wdDNSIPAddresses,
-    wdWorkspaceAccessProperties,
-    wdDirectoryName,
-    wdSelfservicePermissions,
+    -- ** Value
+    Value (..),
 
-    -- ** WorkspaceImage
-    WorkspaceImage (..),
-    mkWorkspaceImage,
-    wiState,
-    wiOwnerAccountId,
-    wiOperatingSystem,
-    wiCreated,
-    wiRequiredTenancy,
-    wiName,
-    wiImageId,
-    wiErrorCode,
-    wiErrorMessage,
-    wiDescription,
+    -- ** GroupId
+    GroupId (..),
 
-    -- ** WorkspaceProperties
-    WorkspaceProperties (..),
-    mkWorkspaceProperties,
-    wpComputeTypeName,
-    wpRunningMode,
-    wpRootVolumeSizeGib,
-    wpRunningModeAutoStopTimeoutInMinutes,
-    wpUserVolumeSizeGib,
+    -- ** RuleDesc
+    RuleDesc (..),
 
-    -- ** WorkspaceRequest
-    WorkspaceRequest (..),
-    mkWorkspaceRequest,
-    wrDirectoryId,
-    wrUserName,
-    wrBundleId,
-    wrWorkspaceProperties,
-    wrRootVolumeEncryptionEnabled,
-    wrVolumeEncryptionKey,
-    wrUserVolumeEncryptionEnabled,
-    wrTags,
+    -- ** SourceWorkspaceId
+    SourceWorkspaceId (..),
 
-    -- ** WorkspacesIPGroup
-    WorkspacesIPGroup (..),
-    mkWorkspacesIPGroup,
-    wigGroupDesc,
-    wigUserRules,
-    wigGroupId,
-    wigGroupName,
+    -- ** TargetWorkspaceId
+    TargetWorkspaceId (..),
+
+    -- ** OwnerAccountId
+    OwnerAccountId (..),
+
+    -- ** SourceRegion
+    SourceRegion (..),
+
+    -- ** SharedAccountId
+    SharedAccountId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
 import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.AssociateConnectionAlias
-import Network.AWS.WorkSpaces.AssociateIPGroups
-import Network.AWS.WorkSpaces.AuthorizeIPRules
+import Network.AWS.WorkSpaces.AssociateIpGroups
+import Network.AWS.WorkSpaces.AuthorizeIpRules
 import Network.AWS.WorkSpaces.CopyWorkspaceImage
 import Network.AWS.WorkSpaces.CreateConnectionAlias
-import Network.AWS.WorkSpaces.CreateIPGroup
+import Network.AWS.WorkSpaces.CreateIpGroup
 import Network.AWS.WorkSpaces.CreateTags
 import Network.AWS.WorkSpaces.CreateWorkspaces
 import Network.AWS.WorkSpaces.DeleteConnectionAlias
-import Network.AWS.WorkSpaces.DeleteIPGroup
+import Network.AWS.WorkSpaces.DeleteIpGroup
 import Network.AWS.WorkSpaces.DeleteTags
 import Network.AWS.WorkSpaces.DeleteWorkspaceImage
 import Network.AWS.WorkSpaces.DeregisterWorkspaceDirectory
@@ -553,7 +739,7 @@ import Network.AWS.WorkSpaces.DescribeAccountModifications
 import Network.AWS.WorkSpaces.DescribeClientProperties
 import Network.AWS.WorkSpaces.DescribeConnectionAliasPermissions
 import Network.AWS.WorkSpaces.DescribeConnectionAliases
-import Network.AWS.WorkSpaces.DescribeIPGroups
+import Network.AWS.WorkSpaces.DescribeIpGroups
 import Network.AWS.WorkSpaces.DescribeTags
 import Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 import Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
@@ -563,7 +749,7 @@ import Network.AWS.WorkSpaces.DescribeWorkspaceSnapshots
 import Network.AWS.WorkSpaces.DescribeWorkspaces
 import Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
 import Network.AWS.WorkSpaces.DisassociateConnectionAlias
-import Network.AWS.WorkSpaces.DisassociateIPGroups
+import Network.AWS.WorkSpaces.DisassociateIpGroups
 import Network.AWS.WorkSpaces.ImportWorkspaceImage
 import Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
 import Network.AWS.WorkSpaces.MigrateWorkspace
@@ -578,13 +764,13 @@ import Network.AWS.WorkSpaces.RebootWorkspaces
 import Network.AWS.WorkSpaces.RebuildWorkspaces
 import Network.AWS.WorkSpaces.RegisterWorkspaceDirectory
 import Network.AWS.WorkSpaces.RestoreWorkspace
-import Network.AWS.WorkSpaces.RevokeIPRules
+import Network.AWS.WorkSpaces.RevokeIpRules
 import Network.AWS.WorkSpaces.StartWorkspaces
 import Network.AWS.WorkSpaces.StopWorkspaces
 import Network.AWS.WorkSpaces.TerminateWorkspaces
 import Network.AWS.WorkSpaces.Types
 import Network.AWS.WorkSpaces.UpdateConnectionAliasPermission
-import Network.AWS.WorkSpaces.UpdateRulesOfIPGroup
+import Network.AWS.WorkSpaces.UpdateRulesOfIpGroup
 import Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission
 import Network.AWS.WorkSpaces.Waiters
 

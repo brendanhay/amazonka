@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.AudioLanguageCodeControl
   ( AudioLanguageCodeControl
       ( AudioLanguageCodeControl',
-        FollowInput,
-        UseConfigured
+        AudioLanguageCodeControlFollowInput,
+        AudioLanguageCodeControlUseConfigured,
+        fromAudioLanguageCodeControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify which source for language code takes precedence for this audio track. When you choose Follow input (FOLLOW_INPUT), the service uses the language code from the input track if it's present. If there's no languge code on the input track, the service uses the code that you specify in the setting Language code (languageCode or customLanguageCode). When you choose Use configured (USE_CONFIGURED), the service uses the language code that you specify.
-newtype AudioLanguageCodeControl = AudioLanguageCodeControl' Lude.Text
+newtype AudioLanguageCodeControl = AudioLanguageCodeControl'
+  { fromAudioLanguageCodeControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FollowInput :: AudioLanguageCodeControl
-pattern FollowInput = AudioLanguageCodeControl' "FOLLOW_INPUT"
+pattern AudioLanguageCodeControlFollowInput :: AudioLanguageCodeControl
+pattern AudioLanguageCodeControlFollowInput = AudioLanguageCodeControl' "FOLLOW_INPUT"
 
-pattern UseConfigured :: AudioLanguageCodeControl
-pattern UseConfigured = AudioLanguageCodeControl' "USE_CONFIGURED"
+pattern AudioLanguageCodeControlUseConfigured :: AudioLanguageCodeControl
+pattern AudioLanguageCodeControlUseConfigured = AudioLanguageCodeControl' "USE_CONFIGURED"
 
 {-# COMPLETE
-  FollowInput,
-  UseConfigured,
+  AudioLanguageCodeControlFollowInput,
+  AudioLanguageCodeControlUseConfigured,
   AudioLanguageCodeControl'
   #-}

@@ -13,131 +13,133 @@
 module Network.AWS.Lightsail.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        RTContainerService,
-        RTInstance,
-        RTStaticIP,
-        RTKeyPair,
-        RTInstanceSnapshot,
-        RTDomain,
-        RTPeeredVPC,
-        RTLoadBalancer,
-        RTLoadBalancerTLSCertificate,
-        RTDisk,
-        RTDiskSnapshot,
-        RTRelationalDatabase,
-        RTRelationalDatabaseSnapshot,
-        RTExportSnapshotRecord,
-        RTCloudFormationStackRecord,
-        RTAlarm,
-        RTContactMethod,
-        RTDistribution,
-        RTCertificate
+        ResourceTypeContainerService,
+        ResourceTypeInstance,
+        ResourceTypeStaticIp,
+        ResourceTypeKeyPair,
+        ResourceTypeInstanceSnapshot,
+        ResourceTypeDomain,
+        ResourceTypePeeredVpc,
+        ResourceTypeLoadBalancer,
+        ResourceTypeLoadBalancerTlsCertificate,
+        ResourceTypeDisk,
+        ResourceTypeDiskSnapshot,
+        ResourceTypeRelationalDatabase,
+        ResourceTypeRelationalDatabaseSnapshot,
+        ResourceTypeExportSnapshotRecord,
+        ResourceTypeCloudFormationStackRecord,
+        ResourceTypeAlarm,
+        ResourceTypeContactMethod,
+        ResourceTypeDistribution,
+        ResourceTypeCertificate,
+        fromResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceType = ResourceType' Lude.Text
+newtype ResourceType = ResourceType' {fromResourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RTContainerService :: ResourceType
-pattern RTContainerService = ResourceType' "ContainerService"
+pattern ResourceTypeContainerService :: ResourceType
+pattern ResourceTypeContainerService = ResourceType' "ContainerService"
 
-pattern RTInstance :: ResourceType
-pattern RTInstance = ResourceType' "Instance"
+pattern ResourceTypeInstance :: ResourceType
+pattern ResourceTypeInstance = ResourceType' "Instance"
 
-pattern RTStaticIP :: ResourceType
-pattern RTStaticIP = ResourceType' "StaticIp"
+pattern ResourceTypeStaticIp :: ResourceType
+pattern ResourceTypeStaticIp = ResourceType' "StaticIp"
 
-pattern RTKeyPair :: ResourceType
-pattern RTKeyPair = ResourceType' "KeyPair"
+pattern ResourceTypeKeyPair :: ResourceType
+pattern ResourceTypeKeyPair = ResourceType' "KeyPair"
 
-pattern RTInstanceSnapshot :: ResourceType
-pattern RTInstanceSnapshot = ResourceType' "InstanceSnapshot"
+pattern ResourceTypeInstanceSnapshot :: ResourceType
+pattern ResourceTypeInstanceSnapshot = ResourceType' "InstanceSnapshot"
 
-pattern RTDomain :: ResourceType
-pattern RTDomain = ResourceType' "Domain"
+pattern ResourceTypeDomain :: ResourceType
+pattern ResourceTypeDomain = ResourceType' "Domain"
 
-pattern RTPeeredVPC :: ResourceType
-pattern RTPeeredVPC = ResourceType' "PeeredVpc"
+pattern ResourceTypePeeredVpc :: ResourceType
+pattern ResourceTypePeeredVpc = ResourceType' "PeeredVpc"
 
-pattern RTLoadBalancer :: ResourceType
-pattern RTLoadBalancer = ResourceType' "LoadBalancer"
+pattern ResourceTypeLoadBalancer :: ResourceType
+pattern ResourceTypeLoadBalancer = ResourceType' "LoadBalancer"
 
-pattern RTLoadBalancerTLSCertificate :: ResourceType
-pattern RTLoadBalancerTLSCertificate = ResourceType' "LoadBalancerTlsCertificate"
+pattern ResourceTypeLoadBalancerTlsCertificate :: ResourceType
+pattern ResourceTypeLoadBalancerTlsCertificate = ResourceType' "LoadBalancerTlsCertificate"
 
-pattern RTDisk :: ResourceType
-pattern RTDisk = ResourceType' "Disk"
+pattern ResourceTypeDisk :: ResourceType
+pattern ResourceTypeDisk = ResourceType' "Disk"
 
-pattern RTDiskSnapshot :: ResourceType
-pattern RTDiskSnapshot = ResourceType' "DiskSnapshot"
+pattern ResourceTypeDiskSnapshot :: ResourceType
+pattern ResourceTypeDiskSnapshot = ResourceType' "DiskSnapshot"
 
-pattern RTRelationalDatabase :: ResourceType
-pattern RTRelationalDatabase = ResourceType' "RelationalDatabase"
+pattern ResourceTypeRelationalDatabase :: ResourceType
+pattern ResourceTypeRelationalDatabase = ResourceType' "RelationalDatabase"
 
-pattern RTRelationalDatabaseSnapshot :: ResourceType
-pattern RTRelationalDatabaseSnapshot = ResourceType' "RelationalDatabaseSnapshot"
+pattern ResourceTypeRelationalDatabaseSnapshot :: ResourceType
+pattern ResourceTypeRelationalDatabaseSnapshot = ResourceType' "RelationalDatabaseSnapshot"
 
-pattern RTExportSnapshotRecord :: ResourceType
-pattern RTExportSnapshotRecord = ResourceType' "ExportSnapshotRecord"
+pattern ResourceTypeExportSnapshotRecord :: ResourceType
+pattern ResourceTypeExportSnapshotRecord = ResourceType' "ExportSnapshotRecord"
 
-pattern RTCloudFormationStackRecord :: ResourceType
-pattern RTCloudFormationStackRecord = ResourceType' "CloudFormationStackRecord"
+pattern ResourceTypeCloudFormationStackRecord :: ResourceType
+pattern ResourceTypeCloudFormationStackRecord = ResourceType' "CloudFormationStackRecord"
 
-pattern RTAlarm :: ResourceType
-pattern RTAlarm = ResourceType' "Alarm"
+pattern ResourceTypeAlarm :: ResourceType
+pattern ResourceTypeAlarm = ResourceType' "Alarm"
 
-pattern RTContactMethod :: ResourceType
-pattern RTContactMethod = ResourceType' "ContactMethod"
+pattern ResourceTypeContactMethod :: ResourceType
+pattern ResourceTypeContactMethod = ResourceType' "ContactMethod"
 
-pattern RTDistribution :: ResourceType
-pattern RTDistribution = ResourceType' "Distribution"
+pattern ResourceTypeDistribution :: ResourceType
+pattern ResourceTypeDistribution = ResourceType' "Distribution"
 
-pattern RTCertificate :: ResourceType
-pattern RTCertificate = ResourceType' "Certificate"
+pattern ResourceTypeCertificate :: ResourceType
+pattern ResourceTypeCertificate = ResourceType' "Certificate"
 
 {-# COMPLETE
-  RTContainerService,
-  RTInstance,
-  RTStaticIP,
-  RTKeyPair,
-  RTInstanceSnapshot,
-  RTDomain,
-  RTPeeredVPC,
-  RTLoadBalancer,
-  RTLoadBalancerTLSCertificate,
-  RTDisk,
-  RTDiskSnapshot,
-  RTRelationalDatabase,
-  RTRelationalDatabaseSnapshot,
-  RTExportSnapshotRecord,
-  RTCloudFormationStackRecord,
-  RTAlarm,
-  RTContactMethod,
-  RTDistribution,
-  RTCertificate,
+  ResourceTypeContainerService,
+  ResourceTypeInstance,
+  ResourceTypeStaticIp,
+  ResourceTypeKeyPair,
+  ResourceTypeInstanceSnapshot,
+  ResourceTypeDomain,
+  ResourceTypePeeredVpc,
+  ResourceTypeLoadBalancer,
+  ResourceTypeLoadBalancerTlsCertificate,
+  ResourceTypeDisk,
+  ResourceTypeDiskSnapshot,
+  ResourceTypeRelationalDatabase,
+  ResourceTypeRelationalDatabaseSnapshot,
+  ResourceTypeExportSnapshotRecord,
+  ResourceTypeCloudFormationStackRecord,
+  ResourceTypeAlarm,
+  ResourceTypeContactMethod,
+  ResourceTypeDistribution,
+  ResourceTypeCertificate,
   ResourceType'
   #-}

@@ -23,152 +23,139 @@ module Network.AWS.Lightsail.CreateContainerServiceDeployment
     mkCreateContainerServiceDeployment,
 
     -- ** Request lenses
-    ccsdPublicEndpoint,
-    ccsdContainers,
     ccsdServiceName,
+    ccsdContainers,
+    ccsdPublicEndpoint,
 
     -- * Destructuring the response
     CreateContainerServiceDeploymentResponse (..),
     mkCreateContainerServiceDeploymentResponse,
 
     -- ** Response lenses
-    ccsdrsContainerService,
-    ccsdrsResponseStatus,
+    ccsdrrsContainerService,
+    ccsdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateContainerServiceDeployment' smart constructor.
 data CreateContainerServiceDeployment = CreateContainerServiceDeployment'
-  { -- | An object that describes the settings of the public endpoint for the container service.
-    publicEndpoint :: Lude.Maybe EndpointRequest,
+  { -- | The name of the container service for which to create the deployment.
+    serviceName :: Types.ContainerServiceName,
     -- | An object that describes the settings of the containers that will be launched on the container service.
-    containers :: Lude.Maybe (Lude.HashMap Lude.Text (Container)),
-    -- | The name of the container service for which to create the deployment.
-    serviceName :: Lude.Text
+    containers :: Core.Maybe (Core.HashMap Types.ContainerName Types.Container),
+    -- | An object that describes the settings of the public endpoint for the container service.
+    publicEndpoint :: Core.Maybe Types.EndpointRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateContainerServiceDeployment' with the minimum fields required to make a request.
---
--- * 'publicEndpoint' - An object that describes the settings of the public endpoint for the container service.
--- * 'containers' - An object that describes the settings of the containers that will be launched on the container service.
--- * 'serviceName' - The name of the container service for which to create the deployment.
+-- | Creates a 'CreateContainerServiceDeployment' value with any optional fields omitted.
 mkCreateContainerServiceDeployment ::
   -- | 'serviceName'
-  Lude.Text ->
+  Types.ContainerServiceName ->
   CreateContainerServiceDeployment
-mkCreateContainerServiceDeployment pServiceName_ =
+mkCreateContainerServiceDeployment serviceName =
   CreateContainerServiceDeployment'
-    { publicEndpoint = Lude.Nothing,
-      containers = Lude.Nothing,
-      serviceName = pServiceName_
+    { serviceName,
+      containers = Core.Nothing,
+      publicEndpoint = Core.Nothing
     }
-
--- | An object that describes the settings of the public endpoint for the container service.
---
--- /Note:/ Consider using 'publicEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsdPublicEndpoint :: Lens.Lens' CreateContainerServiceDeployment (Lude.Maybe EndpointRequest)
-ccsdPublicEndpoint = Lens.lens (publicEndpoint :: CreateContainerServiceDeployment -> Lude.Maybe EndpointRequest) (\s a -> s {publicEndpoint = a} :: CreateContainerServiceDeployment)
-{-# DEPRECATED ccsdPublicEndpoint "Use generic-lens or generic-optics with 'publicEndpoint' instead." #-}
-
--- | An object that describes the settings of the containers that will be launched on the container service.
---
--- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsdContainers :: Lens.Lens' CreateContainerServiceDeployment (Lude.Maybe (Lude.HashMap Lude.Text (Container)))
-ccsdContainers = Lens.lens (containers :: CreateContainerServiceDeployment -> Lude.Maybe (Lude.HashMap Lude.Text (Container))) (\s a -> s {containers = a} :: CreateContainerServiceDeployment)
-{-# DEPRECATED ccsdContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
 
 -- | The name of the container service for which to create the deployment.
 --
 -- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsdServiceName :: Lens.Lens' CreateContainerServiceDeployment Lude.Text
-ccsdServiceName = Lens.lens (serviceName :: CreateContainerServiceDeployment -> Lude.Text) (\s a -> s {serviceName = a} :: CreateContainerServiceDeployment)
+ccsdServiceName :: Lens.Lens' CreateContainerServiceDeployment Types.ContainerServiceName
+ccsdServiceName = Lens.field @"serviceName"
 {-# DEPRECATED ccsdServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
-instance Lude.AWSRequest CreateContainerServiceDeployment where
+-- | An object that describes the settings of the containers that will be launched on the container service.
+--
+-- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsdContainers :: Lens.Lens' CreateContainerServiceDeployment (Core.Maybe (Core.HashMap Types.ContainerName Types.Container))
+ccsdContainers = Lens.field @"containers"
+{-# DEPRECATED ccsdContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
+
+-- | An object that describes the settings of the public endpoint for the container service.
+--
+-- /Note:/ Consider using 'publicEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsdPublicEndpoint :: Lens.Lens' CreateContainerServiceDeployment (Core.Maybe Types.EndpointRequest)
+ccsdPublicEndpoint = Lens.field @"publicEndpoint"
+{-# DEPRECATED ccsdPublicEndpoint "Use generic-lens or generic-optics with 'publicEndpoint' instead." #-}
+
+instance Core.FromJSON CreateContainerServiceDeployment where
+  toJSON CreateContainerServiceDeployment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("serviceName" Core..= serviceName),
+            ("containers" Core..=) Core.<$> containers,
+            ("publicEndpoint" Core..=) Core.<$> publicEndpoint
+          ]
+      )
+
+instance Core.AWSRequest CreateContainerServiceDeployment where
   type
     Rs CreateContainerServiceDeployment =
       CreateContainerServiceDeploymentResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.CreateContainerServiceDeployment"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateContainerServiceDeploymentResponse'
-            Lude.<$> (x Lude..?> "containerService")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "containerService")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateContainerServiceDeployment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.CreateContainerServiceDeployment" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateContainerServiceDeployment where
-  toJSON CreateContainerServiceDeployment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("publicEndpoint" Lude..=) Lude.<$> publicEndpoint,
-            ("containers" Lude..=) Lude.<$> containers,
-            Lude.Just ("serviceName" Lude..= serviceName)
-          ]
-      )
-
-instance Lude.ToPath CreateContainerServiceDeployment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateContainerServiceDeployment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateContainerServiceDeploymentResponse' smart constructor.
 data CreateContainerServiceDeploymentResponse = CreateContainerServiceDeploymentResponse'
   { -- | An object that describes a container service.
-    containerService :: Lude.Maybe ContainerService,
+    containerService :: Core.Maybe Types.ContainerService,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateContainerServiceDeploymentResponse' with the minimum fields required to make a request.
---
--- * 'containerService' - An object that describes a container service.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateContainerServiceDeploymentResponse' value with any optional fields omitted.
 mkCreateContainerServiceDeploymentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateContainerServiceDeploymentResponse
-mkCreateContainerServiceDeploymentResponse pResponseStatus_ =
+mkCreateContainerServiceDeploymentResponse responseStatus =
   CreateContainerServiceDeploymentResponse'
     { containerService =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes a container service.
 --
 -- /Note:/ Consider using 'containerService' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsdrsContainerService :: Lens.Lens' CreateContainerServiceDeploymentResponse (Lude.Maybe ContainerService)
-ccsdrsContainerService = Lens.lens (containerService :: CreateContainerServiceDeploymentResponse -> Lude.Maybe ContainerService) (\s a -> s {containerService = a} :: CreateContainerServiceDeploymentResponse)
-{-# DEPRECATED ccsdrsContainerService "Use generic-lens or generic-optics with 'containerService' instead." #-}
+ccsdrrsContainerService :: Lens.Lens' CreateContainerServiceDeploymentResponse (Core.Maybe Types.ContainerService)
+ccsdrrsContainerService = Lens.field @"containerService"
+{-# DEPRECATED ccsdrrsContainerService "Use generic-lens or generic-optics with 'containerService' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsdrsResponseStatus :: Lens.Lens' CreateContainerServiceDeploymentResponse Lude.Int
-ccsdrsResponseStatus = Lens.lens (responseStatus :: CreateContainerServiceDeploymentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateContainerServiceDeploymentResponse)
-{-# DEPRECATED ccsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccsdrrsResponseStatus :: Lens.Lens' CreateContainerServiceDeploymentResponse Core.Int
+ccsdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccsdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

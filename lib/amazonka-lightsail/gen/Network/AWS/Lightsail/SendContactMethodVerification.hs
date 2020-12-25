@@ -31,113 +31,101 @@ module Network.AWS.Lightsail.SendContactMethodVerification
     mkSendContactMethodVerificationResponse,
 
     -- ** Response lenses
-    scmvrsOperations,
-    scmvrsResponseStatus,
+    scmvrrsOperations,
+    scmvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSendContactMethodVerification' smart constructor.
 newtype SendContactMethodVerification = SendContactMethodVerification'
   { -- | The protocol to verify, such as @Email@ or @SMS@ (text messaging).
-    protocol :: ContactMethodVerificationProtocol
+    protocol :: Types.ContactMethodVerificationProtocol
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendContactMethodVerification' with the minimum fields required to make a request.
---
--- * 'protocol' - The protocol to verify, such as @Email@ or @SMS@ (text messaging).
+-- | Creates a 'SendContactMethodVerification' value with any optional fields omitted.
 mkSendContactMethodVerification ::
   -- | 'protocol'
-  ContactMethodVerificationProtocol ->
+  Types.ContactMethodVerificationProtocol ->
   SendContactMethodVerification
-mkSendContactMethodVerification pProtocol_ =
-  SendContactMethodVerification' {protocol = pProtocol_}
+mkSendContactMethodVerification protocol =
+  SendContactMethodVerification' {protocol}
 
 -- | The protocol to verify, such as @Email@ or @SMS@ (text messaging).
 --
 -- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmvProtocol :: Lens.Lens' SendContactMethodVerification ContactMethodVerificationProtocol
-scmvProtocol = Lens.lens (protocol :: SendContactMethodVerification -> ContactMethodVerificationProtocol) (\s a -> s {protocol = a} :: SendContactMethodVerification)
+scmvProtocol :: Lens.Lens' SendContactMethodVerification Types.ContactMethodVerificationProtocol
+scmvProtocol = Lens.field @"protocol"
 {-# DEPRECATED scmvProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
-instance Lude.AWSRequest SendContactMethodVerification where
+instance Core.FromJSON SendContactMethodVerification where
+  toJSON SendContactMethodVerification {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("protocol" Core..= protocol)])
+
+instance Core.AWSRequest SendContactMethodVerification where
   type
     Rs SendContactMethodVerification =
       SendContactMethodVerificationResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.SendContactMethodVerification"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SendContactMethodVerificationResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SendContactMethodVerification where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.SendContactMethodVerification" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SendContactMethodVerification where
-  toJSON SendContactMethodVerification' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("protocol" Lude..= protocol)])
-
-instance Lude.ToPath SendContactMethodVerification where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SendContactMethodVerification where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSendContactMethodVerificationResponse' smart constructor.
 data SendContactMethodVerificationResponse = SendContactMethodVerificationResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SendContactMethodVerificationResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SendContactMethodVerificationResponse' value with any optional fields omitted.
 mkSendContactMethodVerificationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SendContactMethodVerificationResponse
-mkSendContactMethodVerificationResponse pResponseStatus_ =
+mkSendContactMethodVerificationResponse responseStatus =
   SendContactMethodVerificationResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmvrsOperations :: Lens.Lens' SendContactMethodVerificationResponse (Lude.Maybe [Operation])
-scmvrsOperations = Lens.lens (operations :: SendContactMethodVerificationResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: SendContactMethodVerificationResponse)
-{-# DEPRECATED scmvrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+scmvrrsOperations :: Lens.Lens' SendContactMethodVerificationResponse (Core.Maybe [Types.Operation])
+scmvrrsOperations = Lens.field @"operations"
+{-# DEPRECATED scmvrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scmvrsResponseStatus :: Lens.Lens' SendContactMethodVerificationResponse Lude.Int
-scmvrsResponseStatus = Lens.lens (responseStatus :: SendContactMethodVerificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendContactMethodVerificationResponse)
-{-# DEPRECATED scmvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scmvrrsResponseStatus :: Lens.Lens' SendContactMethodVerificationResponse Core.Int
+scmvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scmvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

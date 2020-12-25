@@ -27,101 +27,87 @@ module Network.AWS.MediaConvert.GetPreset
     mkGetPresetResponse,
 
     -- ** Response lenses
-    gprsPreset,
-    gprsResponseStatus,
+    gprrsPreset,
+    gprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPreset' smart constructor.
 newtype GetPreset = GetPreset'
   { -- | The name of the preset.
-    name :: Lude.Text
+    name :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPreset' with the minimum fields required to make a request.
---
--- * 'name' - The name of the preset.
+-- | Creates a 'GetPreset' value with any optional fields omitted.
 mkGetPreset ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   GetPreset
-mkGetPreset pName_ = GetPreset' {name = pName_}
+mkGetPreset name = GetPreset' {name}
 
 -- | The name of the preset.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpName :: Lens.Lens' GetPreset Lude.Text
-gpName = Lens.lens (name :: GetPreset -> Lude.Text) (\s a -> s {name = a} :: GetPreset)
+gpName :: Lens.Lens' GetPreset Core.Text
+gpName = Lens.field @"name"
 {-# DEPRECATED gpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetPreset where
+instance Core.AWSRequest GetPreset where
   type Rs GetPreset = GetPresetResponse
-  request = Req.get mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/2017-08-29/presets/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPresetResponse'
-            Lude.<$> (x Lude..?> "preset") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "preset") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPreset where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetPreset where
-  toPath GetPreset' {..} =
-    Lude.mconcat ["/2017-08-29/presets/", Lude.toBS name]
-
-instance Lude.ToQuery GetPreset where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPresetResponse' smart constructor.
 data GetPresetResponse = GetPresetResponse'
   { -- | A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
-    preset :: Lude.Maybe Preset,
+    preset :: Core.Maybe Types.Preset,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPresetResponse' with the minimum fields required to make a request.
---
--- * 'preset' - A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPresetResponse' value with any optional fields omitted.
 mkGetPresetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPresetResponse
-mkGetPresetResponse pResponseStatus_ =
-  GetPresetResponse'
-    { preset = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetPresetResponse responseStatus =
+  GetPresetResponse' {preset = Core.Nothing, responseStatus}
 
 -- | A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
 --
 -- /Note:/ Consider using 'preset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsPreset :: Lens.Lens' GetPresetResponse (Lude.Maybe Preset)
-gprsPreset = Lens.lens (preset :: GetPresetResponse -> Lude.Maybe Preset) (\s a -> s {preset = a} :: GetPresetResponse)
-{-# DEPRECATED gprsPreset "Use generic-lens or generic-optics with 'preset' instead." #-}
+gprrsPreset :: Lens.Lens' GetPresetResponse (Core.Maybe Types.Preset)
+gprrsPreset = Lens.field @"preset"
+{-# DEPRECATED gprrsPreset "Use generic-lens or generic-optics with 'preset' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsResponseStatus :: Lens.Lens' GetPresetResponse Lude.Int
-gprsResponseStatus = Lens.lens (responseStatus :: GetPresetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPresetResponse)
-{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprrsResponseStatus :: Lens.Lens' GetPresetResponse Core.Int
+gprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -28,139 +28,122 @@ module Network.AWS.CodeCommit.BatchGetCommits
     mkBatchGetCommitsResponse,
 
     -- ** Response lenses
-    bgcrsCommits,
-    bgcrsErrors,
-    bgcrsResponseStatus,
+    bgcrrsCommits,
+    bgcrrsErrors,
+    bgcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchGetCommits' smart constructor.
 data BatchGetCommits = BatchGetCommits'
   { -- | The full commit IDs of the commits to get information about.
-    commitIds :: [Lude.Text],
+    commitIds :: [Types.ObjectId],
     -- | The name of the repository that contains the commits.
-    repositoryName :: Lude.Text
+    repositoryName :: Types.RepositoryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetCommits' with the minimum fields required to make a request.
---
--- * 'commitIds' - The full commit IDs of the commits to get information about.
--- * 'repositoryName' - The name of the repository that contains the commits.
+-- | Creates a 'BatchGetCommits' value with any optional fields omitted.
 mkBatchGetCommits ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   BatchGetCommits
-mkBatchGetCommits pRepositoryName_ =
-  BatchGetCommits'
-    { commitIds = Lude.mempty,
-      repositoryName = pRepositoryName_
-    }
+mkBatchGetCommits repositoryName =
+  BatchGetCommits' {commitIds = Core.mempty, repositoryName}
 
 -- | The full commit IDs of the commits to get information about.
 --
 -- /Note:/ Consider using 'commitIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgcCommitIds :: Lens.Lens' BatchGetCommits [Lude.Text]
-bgcCommitIds = Lens.lens (commitIds :: BatchGetCommits -> [Lude.Text]) (\s a -> s {commitIds = a} :: BatchGetCommits)
+bgcCommitIds :: Lens.Lens' BatchGetCommits [Types.ObjectId]
+bgcCommitIds = Lens.field @"commitIds"
 {-# DEPRECATED bgcCommitIds "Use generic-lens or generic-optics with 'commitIds' instead." #-}
 
 -- | The name of the repository that contains the commits.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgcRepositoryName :: Lens.Lens' BatchGetCommits Lude.Text
-bgcRepositoryName = Lens.lens (repositoryName :: BatchGetCommits -> Lude.Text) (\s a -> s {repositoryName = a} :: BatchGetCommits)
+bgcRepositoryName :: Lens.Lens' BatchGetCommits Types.RepositoryName
+bgcRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED bgcRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance Lude.AWSRequest BatchGetCommits where
+instance Core.FromJSON BatchGetCommits where
+  toJSON BatchGetCommits {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("commitIds" Core..= commitIds),
+            Core.Just ("repositoryName" Core..= repositoryName)
+          ]
+      )
+
+instance Core.AWSRequest BatchGetCommits where
   type Rs BatchGetCommits = BatchGetCommitsResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeCommit_20150413.BatchGetCommits")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetCommitsResponse'
-            Lude.<$> (x Lude..?> "commits" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "errors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "commits")
+            Core.<*> (x Core..:? "errors")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetCommits where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.BatchGetCommits" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetCommits where
-  toJSON BatchGetCommits' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("commitIds" Lude..= commitIds),
-            Lude.Just ("repositoryName" Lude..= repositoryName)
-          ]
-      )
-
-instance Lude.ToPath BatchGetCommits where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetCommits where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchGetCommitsResponse' smart constructor.
 data BatchGetCommitsResponse = BatchGetCommitsResponse'
   { -- | An array of commit data type objects, each of which contains information about a specified commit.
-    commits :: Lude.Maybe [Commit],
+    commits :: Core.Maybe [Types.Commit],
     -- | Returns any commit IDs for which information could not be found. For example, if one of the commit IDs was a shortened SHA ID or that commit was not found in the specified repository, the ID returns an error object with more information.
-    errors :: Lude.Maybe [BatchGetCommitsError],
+    errors :: Core.Maybe [Types.BatchGetCommitsError],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetCommitsResponse' with the minimum fields required to make a request.
---
--- * 'commits' - An array of commit data type objects, each of which contains information about a specified commit.
--- * 'errors' - Returns any commit IDs for which information could not be found. For example, if one of the commit IDs was a shortened SHA ID or that commit was not found in the specified repository, the ID returns an error object with more information.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetCommitsResponse' value with any optional fields omitted.
 mkBatchGetCommitsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetCommitsResponse
-mkBatchGetCommitsResponse pResponseStatus_ =
+mkBatchGetCommitsResponse responseStatus =
   BatchGetCommitsResponse'
-    { commits = Lude.Nothing,
-      errors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { commits = Core.Nothing,
+      errors = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of commit data type objects, each of which contains information about a specified commit.
 --
 -- /Note:/ Consider using 'commits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgcrsCommits :: Lens.Lens' BatchGetCommitsResponse (Lude.Maybe [Commit])
-bgcrsCommits = Lens.lens (commits :: BatchGetCommitsResponse -> Lude.Maybe [Commit]) (\s a -> s {commits = a} :: BatchGetCommitsResponse)
-{-# DEPRECATED bgcrsCommits "Use generic-lens or generic-optics with 'commits' instead." #-}
+bgcrrsCommits :: Lens.Lens' BatchGetCommitsResponse (Core.Maybe [Types.Commit])
+bgcrrsCommits = Lens.field @"commits"
+{-# DEPRECATED bgcrrsCommits "Use generic-lens or generic-optics with 'commits' instead." #-}
 
 -- | Returns any commit IDs for which information could not be found. For example, if one of the commit IDs was a shortened SHA ID or that commit was not found in the specified repository, the ID returns an error object with more information.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgcrsErrors :: Lens.Lens' BatchGetCommitsResponse (Lude.Maybe [BatchGetCommitsError])
-bgcrsErrors = Lens.lens (errors :: BatchGetCommitsResponse -> Lude.Maybe [BatchGetCommitsError]) (\s a -> s {errors = a} :: BatchGetCommitsResponse)
-{-# DEPRECATED bgcrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+bgcrrsErrors :: Lens.Lens' BatchGetCommitsResponse (Core.Maybe [Types.BatchGetCommitsError])
+bgcrrsErrors = Lens.field @"errors"
+{-# DEPRECATED bgcrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgcrsResponseStatus :: Lens.Lens' BatchGetCommitsResponse Lude.Int
-bgcrsResponseStatus = Lens.lens (responseStatus :: BatchGetCommitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetCommitsResponse)
-{-# DEPRECATED bgcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgcrrsResponseStatus :: Lens.Lens' BatchGetCommitsResponse Core.Int
+bgcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

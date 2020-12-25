@@ -28,107 +28,95 @@ module Network.AWS.WorkSpaces.CreateTags
     mkCreateTagsResponse,
 
     -- ** Response lenses
-    ctrsResponseStatus,
+    ctrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkCreateTags' smart constructor.
 data CreateTags = CreateTags'
   { -- | The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
-    resourceId :: Lude.Text,
+    resourceId :: Types.ResourceId,
     -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
---
--- * 'resourceId' - The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
--- * 'tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+-- | Creates a 'CreateTags' value with any optional fields omitted.
 mkCreateTags ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
   CreateTags
-mkCreateTags pResourceId_ =
-  CreateTags' {resourceId = pResourceId_, tags = Lude.mempty}
+mkCreateTags resourceId =
+  CreateTags' {resourceId, tags = Core.mempty}
 
 -- | The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctResourceId :: Lens.Lens' CreateTags Lude.Text
-ctResourceId = Lens.lens (resourceId :: CreateTags -> Lude.Text) (\s a -> s {resourceId = a} :: CreateTags)
+ctResourceId :: Lens.Lens' CreateTags Types.ResourceId
+ctResourceId = Lens.field @"resourceId"
 {-# DEPRECATED ctResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTags :: Lens.Lens' CreateTags [Tag]
-ctTags = Lens.lens (tags :: CreateTags -> [Tag]) (\s a -> s {tags = a} :: CreateTags)
+ctTags :: Lens.Lens' CreateTags [Types.Tag]
+ctTags = Lens.field @"tags"
 {-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateTags where
+instance Core.FromJSON CreateTags where
+  toJSON CreateTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest CreateTags where
   type Rs CreateTags = CreateTagsResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkspacesService.CreateTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.CreateTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateTags where
-  toJSON CreateTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath CreateTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateTagsResponse' smart constructor.
 newtype CreateTagsResponse = CreateTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTagsResponse' value with any optional fields omitted.
 mkCreateTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTagsResponse
-mkCreateTagsResponse pResponseStatus_ =
-  CreateTagsResponse' {responseStatus = pResponseStatus_}
+mkCreateTagsResponse responseStatus =
+  CreateTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrsResponseStatus :: Lens.Lens' CreateTagsResponse Lude.Int
-ctrsResponseStatus = Lens.lens (responseStatus :: CreateTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTagsResponse)
-{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctrrsResponseStatus :: Lens.Lens' CreateTagsResponse Core.Int
+ctrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

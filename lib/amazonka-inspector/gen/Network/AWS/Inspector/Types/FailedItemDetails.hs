@@ -22,57 +22,49 @@ module Network.AWS.Inspector.Types.FailedItemDetails
   )
 where
 
-import Network.AWS.Inspector.Types.FailedItemErrorCode
+import qualified Network.AWS.Inspector.Types.FailedItemErrorCode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Includes details about the failed items.
 --
 -- /See:/ 'mkFailedItemDetails' smart constructor.
 data FailedItemDetails = FailedItemDetails'
   { -- | The status code of a failed item.
-    failureCode :: FailedItemErrorCode,
+    failureCode :: Types.FailedItemErrorCode,
     -- | Indicates whether you can immediately retry a request for this item for a specified resource.
-    retryable :: Lude.Bool
+    retryable :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailedItemDetails' with the minimum fields required to make a request.
---
--- * 'failureCode' - The status code of a failed item.
--- * 'retryable' - Indicates whether you can immediately retry a request for this item for a specified resource.
+-- | Creates a 'FailedItemDetails' value with any optional fields omitted.
 mkFailedItemDetails ::
   -- | 'failureCode'
-  FailedItemErrorCode ->
+  Types.FailedItemErrorCode ->
   -- | 'retryable'
-  Lude.Bool ->
+  Core.Bool ->
   FailedItemDetails
-mkFailedItemDetails pFailureCode_ pRetryable_ =
-  FailedItemDetails'
-    { failureCode = pFailureCode_,
-      retryable = pRetryable_
-    }
+mkFailedItemDetails failureCode retryable =
+  FailedItemDetails' {failureCode, retryable}
 
 -- | The status code of a failed item.
 --
 -- /Note:/ Consider using 'failureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fidFailureCode :: Lens.Lens' FailedItemDetails FailedItemErrorCode
-fidFailureCode = Lens.lens (failureCode :: FailedItemDetails -> FailedItemErrorCode) (\s a -> s {failureCode = a} :: FailedItemDetails)
+fidFailureCode :: Lens.Lens' FailedItemDetails Types.FailedItemErrorCode
+fidFailureCode = Lens.field @"failureCode"
 {-# DEPRECATED fidFailureCode "Use generic-lens or generic-optics with 'failureCode' instead." #-}
 
 -- | Indicates whether you can immediately retry a request for this item for a specified resource.
 --
 -- /Note:/ Consider using 'retryable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fidRetryable :: Lens.Lens' FailedItemDetails Lude.Bool
-fidRetryable = Lens.lens (retryable :: FailedItemDetails -> Lude.Bool) (\s a -> s {retryable = a} :: FailedItemDetails)
+fidRetryable :: Lens.Lens' FailedItemDetails Core.Bool
+fidRetryable = Lens.field @"retryable"
 {-# DEPRECATED fidRetryable "Use generic-lens or generic-optics with 'retryable' instead." #-}
 
-instance Lude.FromJSON FailedItemDetails where
+instance Core.FromJSON FailedItemDetails where
   parseJSON =
-    Lude.withObject
-      "FailedItemDetails"
-      ( \x ->
-          FailedItemDetails'
-            Lude.<$> (x Lude..: "failureCode") Lude.<*> (x Lude..: "retryable")
-      )
+    Core.withObject "FailedItemDetails" Core.$
+      \x ->
+        FailedItemDetails'
+          Core.<$> (x Core..: "failureCode") Core.<*> (x Core..: "retryable")

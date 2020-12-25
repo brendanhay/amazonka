@@ -13,46 +13,51 @@
 module Network.AWS.Firehose.Types.RedshiftS3BackupMode
   ( RedshiftS3BackupMode
       ( RedshiftS3BackupMode',
-        Disabled,
-        Enabled
+        RedshiftS3BackupModeDisabled,
+        RedshiftS3BackupModeEnabled,
+        fromRedshiftS3BackupMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RedshiftS3BackupMode = RedshiftS3BackupMode' Lude.Text
+newtype RedshiftS3BackupMode = RedshiftS3BackupMode'
+  { fromRedshiftS3BackupMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Disabled :: RedshiftS3BackupMode
-pattern Disabled = RedshiftS3BackupMode' "Disabled"
+pattern RedshiftS3BackupModeDisabled :: RedshiftS3BackupMode
+pattern RedshiftS3BackupModeDisabled = RedshiftS3BackupMode' "Disabled"
 
-pattern Enabled :: RedshiftS3BackupMode
-pattern Enabled = RedshiftS3BackupMode' "Enabled"
+pattern RedshiftS3BackupModeEnabled :: RedshiftS3BackupMode
+pattern RedshiftS3BackupModeEnabled = RedshiftS3BackupMode' "Enabled"
 
 {-# COMPLETE
-  Disabled,
-  Enabled,
+  RedshiftS3BackupModeDisabled,
+  RedshiftS3BackupModeEnabled,
   RedshiftS3BackupMode'
   #-}

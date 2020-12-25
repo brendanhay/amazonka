@@ -17,58 +17,52 @@ module Network.AWS.XRay.Types.ForecastStatistics
     mkForecastStatistics,
 
     -- * Lenses
-    fsFaultCountLow,
     fsFaultCountHigh,
+    fsFaultCountLow,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The predicted high and low fault count. This is used to determine if a service has become anomalous and if an insight should be created.
 --
 -- /See:/ 'mkForecastStatistics' smart constructor.
 data ForecastStatistics = ForecastStatistics'
-  { -- | The lower limit of fault counts for a service.
-    faultCountLow :: Lude.Maybe Lude.Integer,
-    -- | The upper limit of fault counts for a service.
-    faultCountHigh :: Lude.Maybe Lude.Integer
+  { -- | The upper limit of fault counts for a service.
+    faultCountHigh :: Core.Maybe Core.Integer,
+    -- | The lower limit of fault counts for a service.
+    faultCountLow :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ForecastStatistics' with the minimum fields required to make a request.
---
--- * 'faultCountLow' - The lower limit of fault counts for a service.
--- * 'faultCountHigh' - The upper limit of fault counts for a service.
+-- | Creates a 'ForecastStatistics' value with any optional fields omitted.
 mkForecastStatistics ::
   ForecastStatistics
 mkForecastStatistics =
   ForecastStatistics'
-    { faultCountLow = Lude.Nothing,
-      faultCountHigh = Lude.Nothing
+    { faultCountHigh = Core.Nothing,
+      faultCountLow = Core.Nothing
     }
-
--- | The lower limit of fault counts for a service.
---
--- /Note:/ Consider using 'faultCountLow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsFaultCountLow :: Lens.Lens' ForecastStatistics (Lude.Maybe Lude.Integer)
-fsFaultCountLow = Lens.lens (faultCountLow :: ForecastStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {faultCountLow = a} :: ForecastStatistics)
-{-# DEPRECATED fsFaultCountLow "Use generic-lens or generic-optics with 'faultCountLow' instead." #-}
 
 -- | The upper limit of fault counts for a service.
 --
 -- /Note:/ Consider using 'faultCountHigh' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsFaultCountHigh :: Lens.Lens' ForecastStatistics (Lude.Maybe Lude.Integer)
-fsFaultCountHigh = Lens.lens (faultCountHigh :: ForecastStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {faultCountHigh = a} :: ForecastStatistics)
+fsFaultCountHigh :: Lens.Lens' ForecastStatistics (Core.Maybe Core.Integer)
+fsFaultCountHigh = Lens.field @"faultCountHigh"
 {-# DEPRECATED fsFaultCountHigh "Use generic-lens or generic-optics with 'faultCountHigh' instead." #-}
 
-instance Lude.FromJSON ForecastStatistics where
+-- | The lower limit of fault counts for a service.
+--
+-- /Note:/ Consider using 'faultCountLow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsFaultCountLow :: Lens.Lens' ForecastStatistics (Core.Maybe Core.Integer)
+fsFaultCountLow = Lens.field @"faultCountLow"
+{-# DEPRECATED fsFaultCountLow "Use generic-lens or generic-optics with 'faultCountLow' instead." #-}
+
+instance Core.FromJSON ForecastStatistics where
   parseJSON =
-    Lude.withObject
-      "ForecastStatistics"
-      ( \x ->
-          ForecastStatistics'
-            Lude.<$> (x Lude..:? "FaultCountLow")
-            Lude.<*> (x Lude..:? "FaultCountHigh")
-      )
+    Core.withObject "ForecastStatistics" Core.$
+      \x ->
+        ForecastStatistics'
+          Core.<$> (x Core..:? "FaultCountHigh") Core.<*> (x Core..:? "FaultCountLow")

@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsAudioOnlyHeader
   ( HlsAudioOnlyHeader
       ( HlsAudioOnlyHeader',
-        HAOHInclude,
-        HAOHExclude
+        HlsAudioOnlyHeaderInclude,
+        HlsAudioOnlyHeaderExclude,
+        fromHlsAudioOnlyHeader
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.
-newtype HlsAudioOnlyHeader = HlsAudioOnlyHeader' Lude.Text
+newtype HlsAudioOnlyHeader = HlsAudioOnlyHeader'
+  { fromHlsAudioOnlyHeader ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HAOHInclude :: HlsAudioOnlyHeader
-pattern HAOHInclude = HlsAudioOnlyHeader' "INCLUDE"
+pattern HlsAudioOnlyHeaderInclude :: HlsAudioOnlyHeader
+pattern HlsAudioOnlyHeaderInclude = HlsAudioOnlyHeader' "INCLUDE"
 
-pattern HAOHExclude :: HlsAudioOnlyHeader
-pattern HAOHExclude = HlsAudioOnlyHeader' "EXCLUDE"
+pattern HlsAudioOnlyHeaderExclude :: HlsAudioOnlyHeader
+pattern HlsAudioOnlyHeaderExclude = HlsAudioOnlyHeader' "EXCLUDE"
 
 {-# COMPLETE
-  HAOHInclude,
-  HAOHExclude,
+  HlsAudioOnlyHeaderInclude,
+  HlsAudioOnlyHeaderExclude,
   HlsAudioOnlyHeader'
   #-}

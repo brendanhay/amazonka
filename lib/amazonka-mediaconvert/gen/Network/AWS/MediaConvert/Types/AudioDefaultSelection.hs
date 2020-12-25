@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.AudioDefaultSelection
   ( AudioDefaultSelection
       ( AudioDefaultSelection',
-        ADSDefault,
-        ADSNotDefault
+        AudioDefaultSelectionDefault,
+        AudioDefaultSelectionNotDefault,
+        fromAudioDefaultSelection
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
-newtype AudioDefaultSelection = AudioDefaultSelection' Lude.Text
+newtype AudioDefaultSelection = AudioDefaultSelection'
+  { fromAudioDefaultSelection ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ADSDefault :: AudioDefaultSelection
-pattern ADSDefault = AudioDefaultSelection' "DEFAULT"
+pattern AudioDefaultSelectionDefault :: AudioDefaultSelection
+pattern AudioDefaultSelectionDefault = AudioDefaultSelection' "DEFAULT"
 
-pattern ADSNotDefault :: AudioDefaultSelection
-pattern ADSNotDefault = AudioDefaultSelection' "NOT_DEFAULT"
+pattern AudioDefaultSelectionNotDefault :: AudioDefaultSelection
+pattern AudioDefaultSelectionNotDefault = AudioDefaultSelection' "NOT_DEFAULT"
 
 {-# COMPLETE
-  ADSDefault,
-  ADSNotDefault,
+  AudioDefaultSelectionDefault,
+  AudioDefaultSelectionNotDefault,
   AudioDefaultSelection'
   #-}

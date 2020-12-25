@@ -17,111 +17,107 @@ module Network.AWS.Glue.Types.RegistryListItem
     mkRegistryListItem,
 
     -- * Lenses
-    rliStatus,
-    rliRegistryName,
     rliCreatedTime,
-    rliRegistryARN,
-    rliUpdatedTime,
     rliDescription,
+    rliRegistryArn,
+    rliRegistryName,
+    rliStatus,
+    rliUpdatedTime,
   )
 where
 
-import Network.AWS.Glue.Types.RegistryStatus
+import qualified Network.AWS.Glue.Types.CreatedTime as Types
+import qualified Network.AWS.Glue.Types.Description as Types
+import qualified Network.AWS.Glue.Types.GlueResourceArn as Types
+import qualified Network.AWS.Glue.Types.RegistryName as Types
+import qualified Network.AWS.Glue.Types.RegistryStatus as Types
+import qualified Network.AWS.Glue.Types.UpdatedTime as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure containing the details for a registry.
 --
 -- /See:/ 'mkRegistryListItem' smart constructor.
 data RegistryListItem = RegistryListItem'
-  { -- | The status of the registry.
-    status :: Lude.Maybe RegistryStatus,
-    -- | The name of the registry.
-    registryName :: Lude.Maybe Lude.Text,
-    -- | The data the registry was created.
-    createdTime :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the registry.
-    registryARN :: Lude.Maybe Lude.Text,
-    -- | The date the registry was updated.
-    updatedTime :: Lude.Maybe Lude.Text,
+  { -- | The data the registry was created.
+    createdTime :: Core.Maybe Types.CreatedTime,
     -- | A description of the registry.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The Amazon Resource Name (ARN) of the registry.
+    registryArn :: Core.Maybe Types.GlueResourceArn,
+    -- | The name of the registry.
+    registryName :: Core.Maybe Types.RegistryName,
+    -- | The status of the registry.
+    status :: Core.Maybe Types.RegistryStatus,
+    -- | The date the registry was updated.
+    updatedTime :: Core.Maybe Types.UpdatedTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegistryListItem' with the minimum fields required to make a request.
---
--- * 'status' - The status of the registry.
--- * 'registryName' - The name of the registry.
--- * 'createdTime' - The data the registry was created.
--- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
--- * 'updatedTime' - The date the registry was updated.
--- * 'description' - A description of the registry.
+-- | Creates a 'RegistryListItem' value with any optional fields omitted.
 mkRegistryListItem ::
   RegistryListItem
 mkRegistryListItem =
   RegistryListItem'
-    { status = Lude.Nothing,
-      registryName = Lude.Nothing,
-      createdTime = Lude.Nothing,
-      registryARN = Lude.Nothing,
-      updatedTime = Lude.Nothing,
-      description = Lude.Nothing
+    { createdTime = Core.Nothing,
+      description = Core.Nothing,
+      registryArn = Core.Nothing,
+      registryName = Core.Nothing,
+      status = Core.Nothing,
+      updatedTime = Core.Nothing
     }
-
--- | The status of the registry.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rliStatus :: Lens.Lens' RegistryListItem (Lude.Maybe RegistryStatus)
-rliStatus = Lens.lens (status :: RegistryListItem -> Lude.Maybe RegistryStatus) (\s a -> s {status = a} :: RegistryListItem)
-{-# DEPRECATED rliStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The name of the registry.
---
--- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rliRegistryName :: Lens.Lens' RegistryListItem (Lude.Maybe Lude.Text)
-rliRegistryName = Lens.lens (registryName :: RegistryListItem -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: RegistryListItem)
-{-# DEPRECATED rliRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | The data the registry was created.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rliCreatedTime :: Lens.Lens' RegistryListItem (Lude.Maybe Lude.Text)
-rliCreatedTime = Lens.lens (createdTime :: RegistryListItem -> Lude.Maybe Lude.Text) (\s a -> s {createdTime = a} :: RegistryListItem)
+rliCreatedTime :: Lens.Lens' RegistryListItem (Core.Maybe Types.CreatedTime)
+rliCreatedTime = Lens.field @"createdTime"
 {-# DEPRECATED rliCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the registry.
---
--- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rliRegistryARN :: Lens.Lens' RegistryListItem (Lude.Maybe Lude.Text)
-rliRegistryARN = Lens.lens (registryARN :: RegistryListItem -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: RegistryListItem)
-{-# DEPRECATED rliRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
-
--- | The date the registry was updated.
---
--- /Note:/ Consider using 'updatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rliUpdatedTime :: Lens.Lens' RegistryListItem (Lude.Maybe Lude.Text)
-rliUpdatedTime = Lens.lens (updatedTime :: RegistryListItem -> Lude.Maybe Lude.Text) (\s a -> s {updatedTime = a} :: RegistryListItem)
-{-# DEPRECATED rliUpdatedTime "Use generic-lens or generic-optics with 'updatedTime' instead." #-}
 
 -- | A description of the registry.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rliDescription :: Lens.Lens' RegistryListItem (Lude.Maybe Lude.Text)
-rliDescription = Lens.lens (description :: RegistryListItem -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegistryListItem)
+rliDescription :: Lens.Lens' RegistryListItem (Core.Maybe Types.Description)
+rliDescription = Lens.field @"description"
 {-# DEPRECATED rliDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON RegistryListItem where
+-- | The Amazon Resource Name (ARN) of the registry.
+--
+-- /Note:/ Consider using 'registryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rliRegistryArn :: Lens.Lens' RegistryListItem (Core.Maybe Types.GlueResourceArn)
+rliRegistryArn = Lens.field @"registryArn"
+{-# DEPRECATED rliRegistryArn "Use generic-lens or generic-optics with 'registryArn' instead." #-}
+
+-- | The name of the registry.
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rliRegistryName :: Lens.Lens' RegistryListItem (Core.Maybe Types.RegistryName)
+rliRegistryName = Lens.field @"registryName"
+{-# DEPRECATED rliRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
+
+-- | The status of the registry.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rliStatus :: Lens.Lens' RegistryListItem (Core.Maybe Types.RegistryStatus)
+rliStatus = Lens.field @"status"
+{-# DEPRECATED rliStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The date the registry was updated.
+--
+-- /Note:/ Consider using 'updatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rliUpdatedTime :: Lens.Lens' RegistryListItem (Core.Maybe Types.UpdatedTime)
+rliUpdatedTime = Lens.field @"updatedTime"
+{-# DEPRECATED rliUpdatedTime "Use generic-lens or generic-optics with 'updatedTime' instead." #-}
+
+instance Core.FromJSON RegistryListItem where
   parseJSON =
-    Lude.withObject
-      "RegistryListItem"
-      ( \x ->
-          RegistryListItem'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "RegistryName")
-            Lude.<*> (x Lude..:? "CreatedTime")
-            Lude.<*> (x Lude..:? "RegistryArn")
-            Lude.<*> (x Lude..:? "UpdatedTime")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "RegistryListItem" Core.$
+      \x ->
+        RegistryListItem'
+          Core.<$> (x Core..:? "CreatedTime")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "RegistryArn")
+          Core.<*> (x Core..:? "RegistryName")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "UpdatedTime")

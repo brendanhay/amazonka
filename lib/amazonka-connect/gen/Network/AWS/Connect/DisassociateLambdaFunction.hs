@@ -21,7 +21,7 @@ module Network.AWS.Connect.DisassociateLambdaFunction
 
     -- ** Request lenses
     dlfInstanceId,
-    dlfFunctionARN,
+    dlfFunctionArn,
 
     -- * Destructuring the response
     DisassociateLambdaFunctionResponse (..),
@@ -29,83 +29,72 @@ module Network.AWS.Connect.DisassociateLambdaFunction
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateLambdaFunction' smart constructor.
 data DisassociateLambdaFunction = DisassociateLambdaFunction'
   { -- | The identifier of the Amazon Connect instance..
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The Amazon Resource Name (ARN) of the Lambda function being disassociated.
-    functionARN :: Lude.Text
+    functionArn :: Types.FunctionArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateLambdaFunction' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance..
--- * 'functionARN' - The Amazon Resource Name (ARN) of the Lambda function being disassociated.
+-- | Creates a 'DisassociateLambdaFunction' value with any optional fields omitted.
 mkDisassociateLambdaFunction ::
   -- | 'instanceId'
-  Lude.Text ->
-  -- | 'functionARN'
-  Lude.Text ->
+  Types.InstanceId ->
+  -- | 'functionArn'
+  Types.FunctionArn ->
   DisassociateLambdaFunction
-mkDisassociateLambdaFunction pInstanceId_ pFunctionARN_ =
-  DisassociateLambdaFunction'
-    { instanceId = pInstanceId_,
-      functionARN = pFunctionARN_
-    }
+mkDisassociateLambdaFunction instanceId functionArn =
+  DisassociateLambdaFunction' {instanceId, functionArn}
 
 -- | The identifier of the Amazon Connect instance..
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlfInstanceId :: Lens.Lens' DisassociateLambdaFunction Lude.Text
-dlfInstanceId = Lens.lens (instanceId :: DisassociateLambdaFunction -> Lude.Text) (\s a -> s {instanceId = a} :: DisassociateLambdaFunction)
+dlfInstanceId :: Lens.Lens' DisassociateLambdaFunction Types.InstanceId
+dlfInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED dlfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Lambda function being disassociated.
 --
--- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlfFunctionARN :: Lens.Lens' DisassociateLambdaFunction Lude.Text
-dlfFunctionARN = Lens.lens (functionARN :: DisassociateLambdaFunction -> Lude.Text) (\s a -> s {functionARN = a} :: DisassociateLambdaFunction)
-{-# DEPRECATED dlfFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
+-- /Note:/ Consider using 'functionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlfFunctionArn :: Lens.Lens' DisassociateLambdaFunction Types.FunctionArn
+dlfFunctionArn = Lens.field @"functionArn"
+{-# DEPRECATED dlfFunctionArn "Use generic-lens or generic-optics with 'functionArn' instead." #-}
 
-instance Lude.AWSRequest DisassociateLambdaFunction where
+instance Core.AWSRequest DisassociateLambdaFunction where
   type
     Rs DisassociateLambdaFunction =
       DisassociateLambdaFunctionResponse
-  request = Req.delete connectService
-  response = Res.receiveNull DisassociateLambdaFunctionResponse'
-
-instance Lude.ToHeaders DisassociateLambdaFunction where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DisassociateLambdaFunction where
-  toPath DisassociateLambdaFunction' {..} =
-    Lude.mconcat
-      ["/instance/", Lude.toBS instanceId, "/lambda-function"]
-
-instance Lude.ToQuery DisassociateLambdaFunction where
-  toQuery DisassociateLambdaFunction' {..} =
-    Lude.mconcat ["functionArn" Lude.=: functionARN]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/instance/" Core.<> (Core.toText instanceId)
+                Core.<> ("/lambda-function")
+            ),
+        Core._rqQuery = Core.toQueryValue "functionArn" functionArn,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DisassociateLambdaFunctionResponse'
 
 -- | /See:/ 'mkDisassociateLambdaFunctionResponse' smart constructor.
 data DisassociateLambdaFunctionResponse = DisassociateLambdaFunctionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateLambdaFunctionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateLambdaFunctionResponse' value with any optional fields omitted.
 mkDisassociateLambdaFunctionResponse ::
   DisassociateLambdaFunctionResponse
 mkDisassociateLambdaFunctionResponse =

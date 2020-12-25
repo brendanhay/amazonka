@@ -13,47 +13,52 @@
 module Network.AWS.S3.Types.BucketAccelerateStatus
   ( BucketAccelerateStatus
       ( BucketAccelerateStatus',
-        BASEnabled,
-        BASSuspended
+        BucketAccelerateStatusEnabled,
+        BucketAccelerateStatusSuspended,
+        fromBucketAccelerateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype BucketAccelerateStatus = BucketAccelerateStatus' Lude.Text
+newtype BucketAccelerateStatus = BucketAccelerateStatus'
+  { fromBucketAccelerateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BASEnabled :: BucketAccelerateStatus
-pattern BASEnabled = BucketAccelerateStatus' "Enabled"
+pattern BucketAccelerateStatusEnabled :: BucketAccelerateStatus
+pattern BucketAccelerateStatusEnabled = BucketAccelerateStatus' "Enabled"
 
-pattern BASSuspended :: BucketAccelerateStatus
-pattern BASSuspended = BucketAccelerateStatus' "Suspended"
+pattern BucketAccelerateStatusSuspended :: BucketAccelerateStatus
+pattern BucketAccelerateStatusSuspended = BucketAccelerateStatus' "Suspended"
 
 {-# COMPLETE
-  BASEnabled,
-  BASSuspended,
+  BucketAccelerateStatusEnabled,
+  BucketAccelerateStatusSuspended,
   BucketAccelerateStatus'
   #-}

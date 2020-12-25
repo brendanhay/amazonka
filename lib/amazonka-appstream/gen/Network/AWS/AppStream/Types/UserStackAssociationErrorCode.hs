@@ -13,56 +13,61 @@
 module Network.AWS.AppStream.Types.UserStackAssociationErrorCode
   ( UserStackAssociationErrorCode
       ( UserStackAssociationErrorCode',
-        USAECStackNotFound,
-        USAECUserNameNotFound,
-        USAECDirectoryNotFound,
-        USAECInternalError
+        UserStackAssociationErrorCodeStackNotFound,
+        UserStackAssociationErrorCodeUserNameNotFound,
+        UserStackAssociationErrorCodeDirectoryNotFound,
+        UserStackAssociationErrorCodeInternalError,
+        fromUserStackAssociationErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserStackAssociationErrorCode = UserStackAssociationErrorCode' Lude.Text
+newtype UserStackAssociationErrorCode = UserStackAssociationErrorCode'
+  { fromUserStackAssociationErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern USAECStackNotFound :: UserStackAssociationErrorCode
-pattern USAECStackNotFound = UserStackAssociationErrorCode' "STACK_NOT_FOUND"
+pattern UserStackAssociationErrorCodeStackNotFound :: UserStackAssociationErrorCode
+pattern UserStackAssociationErrorCodeStackNotFound = UserStackAssociationErrorCode' "STACK_NOT_FOUND"
 
-pattern USAECUserNameNotFound :: UserStackAssociationErrorCode
-pattern USAECUserNameNotFound = UserStackAssociationErrorCode' "USER_NAME_NOT_FOUND"
+pattern UserStackAssociationErrorCodeUserNameNotFound :: UserStackAssociationErrorCode
+pattern UserStackAssociationErrorCodeUserNameNotFound = UserStackAssociationErrorCode' "USER_NAME_NOT_FOUND"
 
-pattern USAECDirectoryNotFound :: UserStackAssociationErrorCode
-pattern USAECDirectoryNotFound = UserStackAssociationErrorCode' "DIRECTORY_NOT_FOUND"
+pattern UserStackAssociationErrorCodeDirectoryNotFound :: UserStackAssociationErrorCode
+pattern UserStackAssociationErrorCodeDirectoryNotFound = UserStackAssociationErrorCode' "DIRECTORY_NOT_FOUND"
 
-pattern USAECInternalError :: UserStackAssociationErrorCode
-pattern USAECInternalError = UserStackAssociationErrorCode' "INTERNAL_ERROR"
+pattern UserStackAssociationErrorCodeInternalError :: UserStackAssociationErrorCode
+pattern UserStackAssociationErrorCodeInternalError = UserStackAssociationErrorCode' "INTERNAL_ERROR"
 
 {-# COMPLETE
-  USAECStackNotFound,
-  USAECUserNameNotFound,
-  USAECDirectoryNotFound,
-  USAECInternalError,
+  UserStackAssociationErrorCodeStackNotFound,
+  UserStackAssociationErrorCodeUserNameNotFound,
+  UserStackAssociationErrorCodeDirectoryNotFound,
+  UserStackAssociationErrorCodeInternalError,
   UserStackAssociationErrorCode'
   #-}

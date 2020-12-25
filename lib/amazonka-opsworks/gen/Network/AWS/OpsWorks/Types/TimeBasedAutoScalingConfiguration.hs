@@ -17,59 +17,56 @@ module Network.AWS.OpsWorks.Types.TimeBasedAutoScalingConfiguration
     mkTimeBasedAutoScalingConfiguration,
 
     -- * Lenses
-    tbascInstanceId,
     tbascAutoScalingSchedule,
+    tbascInstanceId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.WeeklyAutoScalingSchedule
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.OpsWorks.Types.WeeklyAutoScalingSchedule as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance's time-based auto scaling configuration.
 --
 -- /See:/ 'mkTimeBasedAutoScalingConfiguration' smart constructor.
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
-  { -- | The instance ID.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
-    autoScalingSchedule :: Lude.Maybe WeeklyAutoScalingSchedule
+  { -- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
+    autoScalingSchedule :: Core.Maybe Types.WeeklyAutoScalingSchedule,
+    -- | The instance ID.
+    instanceId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimeBasedAutoScalingConfiguration' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID.
--- * 'autoScalingSchedule' - A @WeeklyAutoScalingSchedule@ object with the instance schedule.
+-- | Creates a 'TimeBasedAutoScalingConfiguration' value with any optional fields omitted.
 mkTimeBasedAutoScalingConfiguration ::
   TimeBasedAutoScalingConfiguration
 mkTimeBasedAutoScalingConfiguration =
   TimeBasedAutoScalingConfiguration'
-    { instanceId = Lude.Nothing,
-      autoScalingSchedule = Lude.Nothing
+    { autoScalingSchedule =
+        Core.Nothing,
+      instanceId = Core.Nothing
     }
-
--- | The instance ID.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbascInstanceId :: Lens.Lens' TimeBasedAutoScalingConfiguration (Lude.Maybe Lude.Text)
-tbascInstanceId = Lens.lens (instanceId :: TimeBasedAutoScalingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: TimeBasedAutoScalingConfiguration)
-{-# DEPRECATED tbascInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
 --
 -- /Note:/ Consider using 'autoScalingSchedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbascAutoScalingSchedule :: Lens.Lens' TimeBasedAutoScalingConfiguration (Lude.Maybe WeeklyAutoScalingSchedule)
-tbascAutoScalingSchedule = Lens.lens (autoScalingSchedule :: TimeBasedAutoScalingConfiguration -> Lude.Maybe WeeklyAutoScalingSchedule) (\s a -> s {autoScalingSchedule = a} :: TimeBasedAutoScalingConfiguration)
+tbascAutoScalingSchedule :: Lens.Lens' TimeBasedAutoScalingConfiguration (Core.Maybe Types.WeeklyAutoScalingSchedule)
+tbascAutoScalingSchedule = Lens.field @"autoScalingSchedule"
 {-# DEPRECATED tbascAutoScalingSchedule "Use generic-lens or generic-optics with 'autoScalingSchedule' instead." #-}
 
-instance Lude.FromJSON TimeBasedAutoScalingConfiguration where
+-- | The instance ID.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tbascInstanceId :: Lens.Lens' TimeBasedAutoScalingConfiguration (Core.Maybe Types.String)
+tbascInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED tbascInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.FromJSON TimeBasedAutoScalingConfiguration where
   parseJSON =
-    Lude.withObject
-      "TimeBasedAutoScalingConfiguration"
-      ( \x ->
-          TimeBasedAutoScalingConfiguration'
-            Lude.<$> (x Lude..:? "InstanceId")
-            Lude.<*> (x Lude..:? "AutoScalingSchedule")
-      )
+    Core.withObject "TimeBasedAutoScalingConfiguration" Core.$
+      \x ->
+        TimeBasedAutoScalingConfiguration'
+          Core.<$> (x Core..:? "AutoScalingSchedule")
+          Core.<*> (x Core..:? "InstanceId")

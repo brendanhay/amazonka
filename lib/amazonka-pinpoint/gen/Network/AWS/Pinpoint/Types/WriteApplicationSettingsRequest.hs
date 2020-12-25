@@ -17,29 +17,33 @@ module Network.AWS.Pinpoint.Types.WriteApplicationSettingsRequest
     mkWriteApplicationSettingsRequest,
 
     -- * Lenses
-    wasrEventTaggingEnabled,
+    wasrCampaignHook,
     wasrCloudWatchMetricsEnabled,
+    wasrEventTaggingEnabled,
     wasrLimits,
     wasrQuietTime,
-    wasrCampaignHook,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.CampaignHook
-import Network.AWS.Pinpoint.Types.CampaignLimits
-import Network.AWS.Pinpoint.Types.QuietTime
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.CampaignHook as Types
+import qualified Network.AWS.Pinpoint.Types.CampaignLimits as Types
+import qualified Network.AWS.Pinpoint.Types.QuietTime as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the default settings for an application.
 --
 -- /See:/ 'mkWriteApplicationSettingsRequest' smart constructor.
 data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
-  { eventTaggingEnabled :: Lude.Maybe Lude.Bool,
+  { -- | The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
+    --
+    -- To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link>Campaign resource.
+    campaignHook :: Core.Maybe Types.CampaignHook,
     -- | Specifies whether to enable application-related alarms in Amazon CloudWatch.
-    cloudWatchMetricsEnabled :: Lude.Maybe Lude.Bool,
+    cloudWatchMetricsEnabled :: Core.Maybe Core.Bool,
+    eventTaggingEnabled :: Core.Maybe Core.Bool,
     -- | The default sending limits for campaigns in the application. To override these limits and define custom limits for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource, respectively.
-    limits :: Lude.Maybe CampaignLimits,
+    limits :: Core.Maybe Types.CampaignLimits,
     -- | The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:
     --
     --
@@ -54,68 +58,51 @@ data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
     --
     -- If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.
     -- To override the default quiet time settings for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource to define a custom quiet time for the campaign or journey.
-    quietTime :: Lude.Maybe QuietTime,
-    -- | The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
-    --
-    -- To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link>Campaign resource.
-    campaignHook :: Lude.Maybe CampaignHook
+    quietTime :: Core.Maybe Types.QuietTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WriteApplicationSettingsRequest' with the minimum fields required to make a request.
---
--- * 'eventTaggingEnabled' -
--- * 'cloudWatchMetricsEnabled' - Specifies whether to enable application-related alarms in Amazon CloudWatch.
--- * 'limits' - The default sending limits for campaigns in the application. To override these limits and define custom limits for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource, respectively.
--- * 'quietTime' - The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:
---
---
---     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.
---
---
---     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).
---
---
---     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).
---
---
--- If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.
--- To override the default quiet time settings for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource to define a custom quiet time for the campaign or journey.
--- * 'campaignHook' - The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
---
--- To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link>Campaign resource.
+-- | Creates a 'WriteApplicationSettingsRequest' value with any optional fields omitted.
 mkWriteApplicationSettingsRequest ::
   WriteApplicationSettingsRequest
 mkWriteApplicationSettingsRequest =
   WriteApplicationSettingsRequest'
-    { eventTaggingEnabled =
-        Lude.Nothing,
-      cloudWatchMetricsEnabled = Lude.Nothing,
-      limits = Lude.Nothing,
-      quietTime = Lude.Nothing,
-      campaignHook = Lude.Nothing
+    { campaignHook = Core.Nothing,
+      cloudWatchMetricsEnabled = Core.Nothing,
+      eventTaggingEnabled = Core.Nothing,
+      limits = Core.Nothing,
+      quietTime = Core.Nothing
     }
 
--- | Undocumented field.
+-- | The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
 --
--- /Note:/ Consider using 'eventTaggingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wasrEventTaggingEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Lude.Maybe Lude.Bool)
-wasrEventTaggingEnabled = Lens.lens (eventTaggingEnabled :: WriteApplicationSettingsRequest -> Lude.Maybe Lude.Bool) (\s a -> s {eventTaggingEnabled = a} :: WriteApplicationSettingsRequest)
-{-# DEPRECATED wasrEventTaggingEnabled "Use generic-lens or generic-optics with 'eventTaggingEnabled' instead." #-}
+-- To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link>Campaign resource.
+--
+-- /Note:/ Consider using 'campaignHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wasrCampaignHook :: Lens.Lens' WriteApplicationSettingsRequest (Core.Maybe Types.CampaignHook)
+wasrCampaignHook = Lens.field @"campaignHook"
+{-# DEPRECATED wasrCampaignHook "Use generic-lens or generic-optics with 'campaignHook' instead." #-}
 
 -- | Specifies whether to enable application-related alarms in Amazon CloudWatch.
 --
 -- /Note:/ Consider using 'cloudWatchMetricsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wasrCloudWatchMetricsEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Lude.Maybe Lude.Bool)
-wasrCloudWatchMetricsEnabled = Lens.lens (cloudWatchMetricsEnabled :: WriteApplicationSettingsRequest -> Lude.Maybe Lude.Bool) (\s a -> s {cloudWatchMetricsEnabled = a} :: WriteApplicationSettingsRequest)
+wasrCloudWatchMetricsEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Core.Maybe Core.Bool)
+wasrCloudWatchMetricsEnabled = Lens.field @"cloudWatchMetricsEnabled"
 {-# DEPRECATED wasrCloudWatchMetricsEnabled "Use generic-lens or generic-optics with 'cloudWatchMetricsEnabled' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'eventTaggingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wasrEventTaggingEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Core.Maybe Core.Bool)
+wasrEventTaggingEnabled = Lens.field @"eventTaggingEnabled"
+{-# DEPRECATED wasrEventTaggingEnabled "Use generic-lens or generic-optics with 'eventTaggingEnabled' instead." #-}
 
 -- | The default sending limits for campaigns in the application. To override these limits and define custom limits for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource, respectively.
 --
 -- /Note:/ Consider using 'limits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wasrLimits :: Lens.Lens' WriteApplicationSettingsRequest (Lude.Maybe CampaignLimits)
-wasrLimits = Lens.lens (limits :: WriteApplicationSettingsRequest -> Lude.Maybe CampaignLimits) (\s a -> s {limits = a} :: WriteApplicationSettingsRequest)
+wasrLimits :: Lens.Lens' WriteApplicationSettingsRequest (Core.Maybe Types.CampaignLimits)
+wasrLimits = Lens.field @"limits"
 {-# DEPRECATED wasrLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
 
 -- | The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:
@@ -134,28 +121,19 @@ wasrLimits = Lens.lens (limits :: WriteApplicationSettingsRequest -> Lude.Maybe 
 -- To override the default quiet time settings for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource to define a custom quiet time for the campaign or journey.
 --
 -- /Note:/ Consider using 'quietTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wasrQuietTime :: Lens.Lens' WriteApplicationSettingsRequest (Lude.Maybe QuietTime)
-wasrQuietTime = Lens.lens (quietTime :: WriteApplicationSettingsRequest -> Lude.Maybe QuietTime) (\s a -> s {quietTime = a} :: WriteApplicationSettingsRequest)
+wasrQuietTime :: Lens.Lens' WriteApplicationSettingsRequest (Core.Maybe Types.QuietTime)
+wasrQuietTime = Lens.field @"quietTime"
 {-# DEPRECATED wasrQuietTime "Use generic-lens or generic-optics with 'quietTime' instead." #-}
 
--- | The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
---
--- To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link>Campaign resource.
---
--- /Note:/ Consider using 'campaignHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wasrCampaignHook :: Lens.Lens' WriteApplicationSettingsRequest (Lude.Maybe CampaignHook)
-wasrCampaignHook = Lens.lens (campaignHook :: WriteApplicationSettingsRequest -> Lude.Maybe CampaignHook) (\s a -> s {campaignHook = a} :: WriteApplicationSettingsRequest)
-{-# DEPRECATED wasrCampaignHook "Use generic-lens or generic-optics with 'campaignHook' instead." #-}
-
-instance Lude.ToJSON WriteApplicationSettingsRequest where
-  toJSON WriteApplicationSettingsRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EventTaggingEnabled" Lude..=) Lude.<$> eventTaggingEnabled,
-            ("CloudWatchMetricsEnabled" Lude..=)
-              Lude.<$> cloudWatchMetricsEnabled,
-            ("Limits" Lude..=) Lude.<$> limits,
-            ("QuietTime" Lude..=) Lude.<$> quietTime,
-            ("CampaignHook" Lude..=) Lude.<$> campaignHook
+instance Core.FromJSON WriteApplicationSettingsRequest where
+  toJSON WriteApplicationSettingsRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CampaignHook" Core..=) Core.<$> campaignHook,
+            ("CloudWatchMetricsEnabled" Core..=)
+              Core.<$> cloudWatchMetricsEnabled,
+            ("EventTaggingEnabled" Core..=) Core.<$> eventTaggingEnabled,
+            ("Limits" Core..=) Core.<$> limits,
+            ("QuietTime" Core..=) Core.<$> quietTime
           ]
       )

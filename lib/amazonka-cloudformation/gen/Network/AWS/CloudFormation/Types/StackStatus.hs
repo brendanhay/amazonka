@@ -13,146 +13,148 @@
 module Network.AWS.CloudFormation.Types.StackStatus
   ( StackStatus
       ( StackStatus',
-        SSCreateInProgress,
-        SSCreateFailed,
-        SSCreateComplete,
-        SSRollbackInProgress,
-        SSRollbackFailed,
-        SSRollbackComplete,
-        SSDeleteInProgress,
-        SSDeleteFailed,
-        SSDeleteComplete,
-        SSUpdateInProgress,
-        SSUpdateCompleteCleanupInProgress,
-        SSUpdateComplete,
-        SSUpdateRollbackInProgress,
-        SSUpdateRollbackFailed,
-        SSUpdateRollbackCompleteCleanupInProgress,
-        SSUpdateRollbackComplete,
-        SSReviewInProgress,
-        SSImportInProgress,
-        SSImportComplete,
-        SSImportRollbackInProgress,
-        SSImportRollbackFailed,
-        SSImportRollbackComplete
+        StackStatusCreateInProgress,
+        StackStatusCreateFailed,
+        StackStatusCreateComplete,
+        StackStatusRollbackInProgress,
+        StackStatusRollbackFailed,
+        StackStatusRollbackComplete,
+        StackStatusDeleteInProgress,
+        StackStatusDeleteFailed,
+        StackStatusDeleteComplete,
+        StackStatusUpdateInProgress,
+        StackStatusUpdateCompleteCleanupInProgress,
+        StackStatusUpdateComplete,
+        StackStatusUpdateRollbackInProgress,
+        StackStatusUpdateRollbackFailed,
+        StackStatusUpdateRollbackCompleteCleanupInProgress,
+        StackStatusUpdateRollbackComplete,
+        StackStatusReviewInProgress,
+        StackStatusImportInProgress,
+        StackStatusImportComplete,
+        StackStatusImportRollbackInProgress,
+        StackStatusImportRollbackFailed,
+        StackStatusImportRollbackComplete,
+        fromStackStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackStatus = StackStatus' Lude.Text
+newtype StackStatus = StackStatus' {fromStackStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSCreateInProgress :: StackStatus
-pattern SSCreateInProgress = StackStatus' "CREATE_IN_PROGRESS"
+pattern StackStatusCreateInProgress :: StackStatus
+pattern StackStatusCreateInProgress = StackStatus' "CREATE_IN_PROGRESS"
 
-pattern SSCreateFailed :: StackStatus
-pattern SSCreateFailed = StackStatus' "CREATE_FAILED"
+pattern StackStatusCreateFailed :: StackStatus
+pattern StackStatusCreateFailed = StackStatus' "CREATE_FAILED"
 
-pattern SSCreateComplete :: StackStatus
-pattern SSCreateComplete = StackStatus' "CREATE_COMPLETE"
+pattern StackStatusCreateComplete :: StackStatus
+pattern StackStatusCreateComplete = StackStatus' "CREATE_COMPLETE"
 
-pattern SSRollbackInProgress :: StackStatus
-pattern SSRollbackInProgress = StackStatus' "ROLLBACK_IN_PROGRESS"
+pattern StackStatusRollbackInProgress :: StackStatus
+pattern StackStatusRollbackInProgress = StackStatus' "ROLLBACK_IN_PROGRESS"
 
-pattern SSRollbackFailed :: StackStatus
-pattern SSRollbackFailed = StackStatus' "ROLLBACK_FAILED"
+pattern StackStatusRollbackFailed :: StackStatus
+pattern StackStatusRollbackFailed = StackStatus' "ROLLBACK_FAILED"
 
-pattern SSRollbackComplete :: StackStatus
-pattern SSRollbackComplete = StackStatus' "ROLLBACK_COMPLETE"
+pattern StackStatusRollbackComplete :: StackStatus
+pattern StackStatusRollbackComplete = StackStatus' "ROLLBACK_COMPLETE"
 
-pattern SSDeleteInProgress :: StackStatus
-pattern SSDeleteInProgress = StackStatus' "DELETE_IN_PROGRESS"
+pattern StackStatusDeleteInProgress :: StackStatus
+pattern StackStatusDeleteInProgress = StackStatus' "DELETE_IN_PROGRESS"
 
-pattern SSDeleteFailed :: StackStatus
-pattern SSDeleteFailed = StackStatus' "DELETE_FAILED"
+pattern StackStatusDeleteFailed :: StackStatus
+pattern StackStatusDeleteFailed = StackStatus' "DELETE_FAILED"
 
-pattern SSDeleteComplete :: StackStatus
-pattern SSDeleteComplete = StackStatus' "DELETE_COMPLETE"
+pattern StackStatusDeleteComplete :: StackStatus
+pattern StackStatusDeleteComplete = StackStatus' "DELETE_COMPLETE"
 
-pattern SSUpdateInProgress :: StackStatus
-pattern SSUpdateInProgress = StackStatus' "UPDATE_IN_PROGRESS"
+pattern StackStatusUpdateInProgress :: StackStatus
+pattern StackStatusUpdateInProgress = StackStatus' "UPDATE_IN_PROGRESS"
 
-pattern SSUpdateCompleteCleanupInProgress :: StackStatus
-pattern SSUpdateCompleteCleanupInProgress = StackStatus' "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
+pattern StackStatusUpdateCompleteCleanupInProgress :: StackStatus
+pattern StackStatusUpdateCompleteCleanupInProgress = StackStatus' "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
 
-pattern SSUpdateComplete :: StackStatus
-pattern SSUpdateComplete = StackStatus' "UPDATE_COMPLETE"
+pattern StackStatusUpdateComplete :: StackStatus
+pattern StackStatusUpdateComplete = StackStatus' "UPDATE_COMPLETE"
 
-pattern SSUpdateRollbackInProgress :: StackStatus
-pattern SSUpdateRollbackInProgress = StackStatus' "UPDATE_ROLLBACK_IN_PROGRESS"
+pattern StackStatusUpdateRollbackInProgress :: StackStatus
+pattern StackStatusUpdateRollbackInProgress = StackStatus' "UPDATE_ROLLBACK_IN_PROGRESS"
 
-pattern SSUpdateRollbackFailed :: StackStatus
-pattern SSUpdateRollbackFailed = StackStatus' "UPDATE_ROLLBACK_FAILED"
+pattern StackStatusUpdateRollbackFailed :: StackStatus
+pattern StackStatusUpdateRollbackFailed = StackStatus' "UPDATE_ROLLBACK_FAILED"
 
-pattern SSUpdateRollbackCompleteCleanupInProgress :: StackStatus
-pattern SSUpdateRollbackCompleteCleanupInProgress = StackStatus' "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
+pattern StackStatusUpdateRollbackCompleteCleanupInProgress :: StackStatus
+pattern StackStatusUpdateRollbackCompleteCleanupInProgress = StackStatus' "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
 
-pattern SSUpdateRollbackComplete :: StackStatus
-pattern SSUpdateRollbackComplete = StackStatus' "UPDATE_ROLLBACK_COMPLETE"
+pattern StackStatusUpdateRollbackComplete :: StackStatus
+pattern StackStatusUpdateRollbackComplete = StackStatus' "UPDATE_ROLLBACK_COMPLETE"
 
-pattern SSReviewInProgress :: StackStatus
-pattern SSReviewInProgress = StackStatus' "REVIEW_IN_PROGRESS"
+pattern StackStatusReviewInProgress :: StackStatus
+pattern StackStatusReviewInProgress = StackStatus' "REVIEW_IN_PROGRESS"
 
-pattern SSImportInProgress :: StackStatus
-pattern SSImportInProgress = StackStatus' "IMPORT_IN_PROGRESS"
+pattern StackStatusImportInProgress :: StackStatus
+pattern StackStatusImportInProgress = StackStatus' "IMPORT_IN_PROGRESS"
 
-pattern SSImportComplete :: StackStatus
-pattern SSImportComplete = StackStatus' "IMPORT_COMPLETE"
+pattern StackStatusImportComplete :: StackStatus
+pattern StackStatusImportComplete = StackStatus' "IMPORT_COMPLETE"
 
-pattern SSImportRollbackInProgress :: StackStatus
-pattern SSImportRollbackInProgress = StackStatus' "IMPORT_ROLLBACK_IN_PROGRESS"
+pattern StackStatusImportRollbackInProgress :: StackStatus
+pattern StackStatusImportRollbackInProgress = StackStatus' "IMPORT_ROLLBACK_IN_PROGRESS"
 
-pattern SSImportRollbackFailed :: StackStatus
-pattern SSImportRollbackFailed = StackStatus' "IMPORT_ROLLBACK_FAILED"
+pattern StackStatusImportRollbackFailed :: StackStatus
+pattern StackStatusImportRollbackFailed = StackStatus' "IMPORT_ROLLBACK_FAILED"
 
-pattern SSImportRollbackComplete :: StackStatus
-pattern SSImportRollbackComplete = StackStatus' "IMPORT_ROLLBACK_COMPLETE"
+pattern StackStatusImportRollbackComplete :: StackStatus
+pattern StackStatusImportRollbackComplete = StackStatus' "IMPORT_ROLLBACK_COMPLETE"
 
 {-# COMPLETE
-  SSCreateInProgress,
-  SSCreateFailed,
-  SSCreateComplete,
-  SSRollbackInProgress,
-  SSRollbackFailed,
-  SSRollbackComplete,
-  SSDeleteInProgress,
-  SSDeleteFailed,
-  SSDeleteComplete,
-  SSUpdateInProgress,
-  SSUpdateCompleteCleanupInProgress,
-  SSUpdateComplete,
-  SSUpdateRollbackInProgress,
-  SSUpdateRollbackFailed,
-  SSUpdateRollbackCompleteCleanupInProgress,
-  SSUpdateRollbackComplete,
-  SSReviewInProgress,
-  SSImportInProgress,
-  SSImportComplete,
-  SSImportRollbackInProgress,
-  SSImportRollbackFailed,
-  SSImportRollbackComplete,
+  StackStatusCreateInProgress,
+  StackStatusCreateFailed,
+  StackStatusCreateComplete,
+  StackStatusRollbackInProgress,
+  StackStatusRollbackFailed,
+  StackStatusRollbackComplete,
+  StackStatusDeleteInProgress,
+  StackStatusDeleteFailed,
+  StackStatusDeleteComplete,
+  StackStatusUpdateInProgress,
+  StackStatusUpdateCompleteCleanupInProgress,
+  StackStatusUpdateComplete,
+  StackStatusUpdateRollbackInProgress,
+  StackStatusUpdateRollbackFailed,
+  StackStatusUpdateRollbackCompleteCleanupInProgress,
+  StackStatusUpdateRollbackComplete,
+  StackStatusReviewInProgress,
+  StackStatusImportInProgress,
+  StackStatusImportComplete,
+  StackStatusImportRollbackInProgress,
+  StackStatusImportRollbackFailed,
+  StackStatusImportRollbackComplete,
   StackStatus'
   #-}

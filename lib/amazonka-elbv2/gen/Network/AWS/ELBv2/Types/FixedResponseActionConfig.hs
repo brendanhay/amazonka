@@ -17,83 +17,72 @@ module Network.AWS.ELBv2.Types.FixedResponseActionConfig
     mkFixedResponseActionConfig,
 
     -- * Lenses
-    fracMessageBody,
-    fracContentType,
     fracStatusCode,
+    fracContentType,
+    fracMessageBody,
   )
 where
 
+import qualified Network.AWS.ELBv2.Types.FixedResponseActionContentType as Types
+import qualified Network.AWS.ELBv2.Types.FixedResponseActionMessage as Types
+import qualified Network.AWS.ELBv2.Types.FixedResponseActionStatusCode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an action that returns a custom HTTP response.
 --
 -- /See:/ 'mkFixedResponseActionConfig' smart constructor.
 data FixedResponseActionConfig = FixedResponseActionConfig'
-  { -- | The message.
-    messageBody :: Lude.Maybe Lude.Text,
+  { -- | The HTTP response code (2XX, 4XX, or 5XX).
+    statusCode :: Types.FixedResponseActionStatusCode,
     -- | The content type.
     --
     -- Valid Values: text/plain | text/css | text/html | application/javascript | application/json
-    contentType :: Lude.Maybe Lude.Text,
-    -- | The HTTP response code (2XX, 4XX, or 5XX).
-    statusCode :: Lude.Text
+    contentType :: Core.Maybe Types.FixedResponseActionContentType,
+    -- | The message.
+    messageBody :: Core.Maybe Types.FixedResponseActionMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FixedResponseActionConfig' with the minimum fields required to make a request.
---
--- * 'messageBody' - The message.
--- * 'contentType' - The content type.
---
--- Valid Values: text/plain | text/css | text/html | application/javascript | application/json
--- * 'statusCode' - The HTTP response code (2XX, 4XX, or 5XX).
+-- | Creates a 'FixedResponseActionConfig' value with any optional fields omitted.
 mkFixedResponseActionConfig ::
   -- | 'statusCode'
-  Lude.Text ->
+  Types.FixedResponseActionStatusCode ->
   FixedResponseActionConfig
-mkFixedResponseActionConfig pStatusCode_ =
+mkFixedResponseActionConfig statusCode =
   FixedResponseActionConfig'
-    { messageBody = Lude.Nothing,
-      contentType = Lude.Nothing,
-      statusCode = pStatusCode_
+    { statusCode,
+      contentType = Core.Nothing,
+      messageBody = Core.Nothing
     }
 
--- | The message.
+-- | The HTTP response code (2XX, 4XX, or 5XX).
 --
--- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fracMessageBody :: Lens.Lens' FixedResponseActionConfig (Lude.Maybe Lude.Text)
-fracMessageBody = Lens.lens (messageBody :: FixedResponseActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {messageBody = a} :: FixedResponseActionConfig)
-{-# DEPRECATED fracMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fracStatusCode :: Lens.Lens' FixedResponseActionConfig Types.FixedResponseActionStatusCode
+fracStatusCode = Lens.field @"statusCode"
+{-# DEPRECATED fracStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
 -- | The content type.
 --
 -- Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 --
 -- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fracContentType :: Lens.Lens' FixedResponseActionConfig (Lude.Maybe Lude.Text)
-fracContentType = Lens.lens (contentType :: FixedResponseActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: FixedResponseActionConfig)
+fracContentType :: Lens.Lens' FixedResponseActionConfig (Core.Maybe Types.FixedResponseActionContentType)
+fracContentType = Lens.field @"contentType"
 {-# DEPRECATED fracContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | The HTTP response code (2XX, 4XX, or 5XX).
+-- | The message.
 --
--- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fracStatusCode :: Lens.Lens' FixedResponseActionConfig Lude.Text
-fracStatusCode = Lens.lens (statusCode :: FixedResponseActionConfig -> Lude.Text) (\s a -> s {statusCode = a} :: FixedResponseActionConfig)
-{-# DEPRECATED fracStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
+-- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fracMessageBody :: Lens.Lens' FixedResponseActionConfig (Core.Maybe Types.FixedResponseActionMessage)
+fracMessageBody = Lens.field @"messageBody"
+{-# DEPRECATED fracMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
 
-instance Lude.FromXML FixedResponseActionConfig where
+instance Core.FromXML FixedResponseActionConfig where
   parseXML x =
     FixedResponseActionConfig'
-      Lude.<$> (x Lude..@? "MessageBody")
-      Lude.<*> (x Lude..@? "ContentType")
-      Lude.<*> (x Lude..@ "StatusCode")
-
-instance Lude.ToQuery FixedResponseActionConfig where
-  toQuery FixedResponseActionConfig' {..} =
-    Lude.mconcat
-      [ "MessageBody" Lude.=: messageBody,
-        "ContentType" Lude.=: contentType,
-        "StatusCode" Lude.=: statusCode
-      ]
+      Core.<$> (x Core..@ "StatusCode")
+      Core.<*> (x Core..@? "ContentType")
+      Core.<*> (x Core..@? "MessageBody")

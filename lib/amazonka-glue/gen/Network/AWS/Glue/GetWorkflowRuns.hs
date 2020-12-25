@@ -20,173 +20,157 @@ module Network.AWS.Glue.GetWorkflowRuns
     mkGetWorkflowRuns,
 
     -- ** Request lenses
-    gwrsIncludeGraph,
-    gwrsNextToken,
-    gwrsName,
-    gwrsMaxResults,
+    gwrName,
+    gwrIncludeGraph,
+    gwrMaxResults,
+    gwrNextToken,
 
     -- * Destructuring the response
     GetWorkflowRunsResponse (..),
     mkGetWorkflowRunsResponse,
 
     -- ** Response lenses
-    gwrrsRuns,
-    gwrrsNextToken,
-    gwrrsResponseStatus,
+    gwrrrsNextToken,
+    gwrrrsRuns,
+    gwrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetWorkflowRuns' smart constructor.
 data GetWorkflowRuns = GetWorkflowRuns'
-  { -- | Specifies whether to include the workflow graph in response or not.
-    includeGraph :: Lude.Maybe Lude.Bool,
-    -- | The maximum size of the response.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Name of the workflow whose metadata of runs should be returned.
-    name :: Lude.Text,
+  { -- | Name of the workflow whose metadata of runs should be returned.
+    name :: Types.NameString,
+    -- | Specifies whether to include the workflow graph in response or not.
+    includeGraph :: Core.Maybe Core.Bool,
     -- | The maximum number of workflow runs to be included in the response.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The maximum size of the response.
+    nextToken :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetWorkflowRuns' with the minimum fields required to make a request.
---
--- * 'includeGraph' - Specifies whether to include the workflow graph in response or not.
--- * 'nextToken' - The maximum size of the response.
--- * 'name' - Name of the workflow whose metadata of runs should be returned.
--- * 'maxResults' - The maximum number of workflow runs to be included in the response.
+-- | Creates a 'GetWorkflowRuns' value with any optional fields omitted.
 mkGetWorkflowRuns ::
   -- | 'name'
-  Lude.Text ->
+  Types.NameString ->
   GetWorkflowRuns
-mkGetWorkflowRuns pName_ =
+mkGetWorkflowRuns name =
   GetWorkflowRuns'
-    { includeGraph = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      name = pName_,
-      maxResults = Lude.Nothing
+    { name,
+      includeGraph = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Specifies whether to include the workflow graph in response or not.
---
--- /Note:/ Consider using 'includeGraph' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrsIncludeGraph :: Lens.Lens' GetWorkflowRuns (Lude.Maybe Lude.Bool)
-gwrsIncludeGraph = Lens.lens (includeGraph :: GetWorkflowRuns -> Lude.Maybe Lude.Bool) (\s a -> s {includeGraph = a} :: GetWorkflowRuns)
-{-# DEPRECATED gwrsIncludeGraph "Use generic-lens or generic-optics with 'includeGraph' instead." #-}
-
--- | The maximum size of the response.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrsNextToken :: Lens.Lens' GetWorkflowRuns (Lude.Maybe Lude.Text)
-gwrsNextToken = Lens.lens (nextToken :: GetWorkflowRuns -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetWorkflowRuns)
-{-# DEPRECATED gwrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Name of the workflow whose metadata of runs should be returned.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrsName :: Lens.Lens' GetWorkflowRuns Lude.Text
-gwrsName = Lens.lens (name :: GetWorkflowRuns -> Lude.Text) (\s a -> s {name = a} :: GetWorkflowRuns)
-{-# DEPRECATED gwrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+gwrName :: Lens.Lens' GetWorkflowRuns Types.NameString
+gwrName = Lens.field @"name"
+{-# DEPRECATED gwrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Specifies whether to include the workflow graph in response or not.
+--
+-- /Note:/ Consider using 'includeGraph' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwrIncludeGraph :: Lens.Lens' GetWorkflowRuns (Core.Maybe Core.Bool)
+gwrIncludeGraph = Lens.field @"includeGraph"
+{-# DEPRECATED gwrIncludeGraph "Use generic-lens or generic-optics with 'includeGraph' instead." #-}
 
 -- | The maximum number of workflow runs to be included in the response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrsMaxResults :: Lens.Lens' GetWorkflowRuns (Lude.Maybe Lude.Natural)
-gwrsMaxResults = Lens.lens (maxResults :: GetWorkflowRuns -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetWorkflowRuns)
-{-# DEPRECATED gwrsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+gwrMaxResults :: Lens.Lens' GetWorkflowRuns (Core.Maybe Core.Natural)
+gwrMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gwrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest GetWorkflowRuns where
+-- | The maximum size of the response.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwrNextToken :: Lens.Lens' GetWorkflowRuns (Core.Maybe Types.GenericString)
+gwrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gwrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON GetWorkflowRuns where
+  toJSON GetWorkflowRuns {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("IncludeGraph" Core..=) Core.<$> includeGraph,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest GetWorkflowRuns where
   type Rs GetWorkflowRuns = GetWorkflowRunsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetWorkflowRuns")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetWorkflowRunsResponse'
-            Lude.<$> (x Lude..?> "Runs")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Runs")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetWorkflowRuns where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetWorkflowRuns" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetWorkflowRuns where
-  toJSON GetWorkflowRuns' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("IncludeGraph" Lude..=) Lude.<$> includeGraph,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("Name" Lude..= name),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetWorkflowRuns where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetWorkflowRuns where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetWorkflowRunsResponse' smart constructor.
 data GetWorkflowRunsResponse = GetWorkflowRunsResponse'
-  { -- | A list of workflow run metadata objects.
-    runs :: Lude.Maybe (Lude.NonEmpty WorkflowRun),
-    -- | A continuation token, if not all requested workflow runs have been returned.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A continuation token, if not all requested workflow runs have been returned.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of workflow run metadata objects.
+    runs :: Core.Maybe (Core.NonEmpty Types.WorkflowRun),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetWorkflowRunsResponse' with the minimum fields required to make a request.
---
--- * 'runs' - A list of workflow run metadata objects.
--- * 'nextToken' - A continuation token, if not all requested workflow runs have been returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetWorkflowRunsResponse' value with any optional fields omitted.
 mkGetWorkflowRunsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetWorkflowRunsResponse
-mkGetWorkflowRunsResponse pResponseStatus_ =
+mkGetWorkflowRunsResponse responseStatus =
   GetWorkflowRunsResponse'
-    { runs = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      runs = Core.Nothing,
+      responseStatus
     }
-
--- | A list of workflow run metadata objects.
---
--- /Note:/ Consider using 'runs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrrsRuns :: Lens.Lens' GetWorkflowRunsResponse (Lude.Maybe (Lude.NonEmpty WorkflowRun))
-gwrrsRuns = Lens.lens (runs :: GetWorkflowRunsResponse -> Lude.Maybe (Lude.NonEmpty WorkflowRun)) (\s a -> s {runs = a} :: GetWorkflowRunsResponse)
-{-# DEPRECATED gwrrsRuns "Use generic-lens or generic-optics with 'runs' instead." #-}
 
 -- | A continuation token, if not all requested workflow runs have been returned.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrrsNextToken :: Lens.Lens' GetWorkflowRunsResponse (Lude.Maybe Lude.Text)
-gwrrsNextToken = Lens.lens (nextToken :: GetWorkflowRunsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetWorkflowRunsResponse)
-{-# DEPRECATED gwrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gwrrrsNextToken :: Lens.Lens' GetWorkflowRunsResponse (Core.Maybe Types.NextToken)
+gwrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gwrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of workflow run metadata objects.
+--
+-- /Note:/ Consider using 'runs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwrrrsRuns :: Lens.Lens' GetWorkflowRunsResponse (Core.Maybe (Core.NonEmpty Types.WorkflowRun))
+gwrrrsRuns = Lens.field @"runs"
+{-# DEPRECATED gwrrrsRuns "Use generic-lens or generic-optics with 'runs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrrsResponseStatus :: Lens.Lens' GetWorkflowRunsResponse Lude.Int
-gwrrsResponseStatus = Lens.lens (responseStatus :: GetWorkflowRunsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetWorkflowRunsResponse)
-{-# DEPRECATED gwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gwrrrsResponseStatus :: Lens.Lens' GetWorkflowRunsResponse Core.Int
+gwrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gwrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

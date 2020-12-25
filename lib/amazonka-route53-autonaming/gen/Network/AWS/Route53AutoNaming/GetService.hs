@@ -27,106 +27,92 @@ module Network.AWS.Route53AutoNaming.GetService
     mkGetServiceResponse,
 
     -- ** Response lenses
-    gsrsService,
-    gsrsResponseStatus,
+    gsrrsService,
+    gsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53AutoNaming.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53AutoNaming.Types as Types
 
 -- | /See:/ 'mkGetService' smart constructor.
 newtype GetService = GetService'
   { -- | The ID of the service that you want to get settings for.
-    id :: Lude.Text
+    id :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetService' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the service that you want to get settings for.
+-- | Creates a 'GetService' value with any optional fields omitted.
 mkGetService ::
   -- | 'id'
-  Lude.Text ->
+  Types.ResourceId ->
   GetService
-mkGetService pId_ = GetService' {id = pId_}
+mkGetService id = GetService' {id}
 
 -- | The ID of the service that you want to get settings for.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsId :: Lens.Lens' GetService Lude.Text
-gsId = Lens.lens (id :: GetService -> Lude.Text) (\s a -> s {id = a} :: GetService)
+gsId :: Lens.Lens' GetService Types.ResourceId
+gsId = Lens.field @"id"
 {-# DEPRECATED gsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetService where
+instance Core.FromJSON GetService where
+  toJSON GetService {..} =
+    Core.object (Core.catMaybes [Core.Just ("Id" Core..= id)])
+
+instance Core.AWSRequest GetService where
   type Rs GetService = GetServiceResponse
-  request = Req.postJSON route53AutoNamingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53AutoNaming_v20170314.GetService")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetServiceResponse'
-            Lude.<$> (x Lude..?> "Service") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Service") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetService where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53AutoNaming_v20170314.GetService" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetService where
-  toJSON GetService' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
-
-instance Lude.ToPath GetService where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetService where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetServiceResponse' smart constructor.
 data GetServiceResponse = GetServiceResponse'
   { -- | A complex type that contains information about the service.
-    service :: Lude.Maybe ServiceInfo,
+    service :: Core.Maybe Types.ServiceInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetServiceResponse' with the minimum fields required to make a request.
---
--- * 'service' - A complex type that contains information about the service.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetServiceResponse' value with any optional fields omitted.
 mkGetServiceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetServiceResponse
-mkGetServiceResponse pResponseStatus_ =
-  GetServiceResponse'
-    { service = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetServiceResponse responseStatus =
+  GetServiceResponse' {service = Core.Nothing, responseStatus}
 
 -- | A complex type that contains information about the service.
 --
 -- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsService :: Lens.Lens' GetServiceResponse (Lude.Maybe ServiceInfo)
-gsrsService = Lens.lens (service :: GetServiceResponse -> Lude.Maybe ServiceInfo) (\s a -> s {service = a} :: GetServiceResponse)
-{-# DEPRECATED gsrsService "Use generic-lens or generic-optics with 'service' instead." #-}
+gsrrsService :: Lens.Lens' GetServiceResponse (Core.Maybe Types.ServiceInfo)
+gsrrsService = Lens.field @"service"
+{-# DEPRECATED gsrrsService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsResponseStatus :: Lens.Lens' GetServiceResponse Lude.Int
-gsrsResponseStatus = Lens.lens (responseStatus :: GetServiceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServiceResponse)
-{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsrrsResponseStatus :: Lens.Lens' GetServiceResponse Core.Int
+gsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,51 +13,56 @@
 module Network.AWS.GameLift.Types.ScalingAdjustmentType
   ( ScalingAdjustmentType
       ( ScalingAdjustmentType',
-        ChangeInCapacity,
-        ExactCapacity,
-        PercentChangeInCapacity
+        ScalingAdjustmentTypeChangeInCapacity,
+        ScalingAdjustmentTypeExactCapacity,
+        ScalingAdjustmentTypePercentChangeInCapacity,
+        fromScalingAdjustmentType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScalingAdjustmentType = ScalingAdjustmentType' Lude.Text
+newtype ScalingAdjustmentType = ScalingAdjustmentType'
+  { fromScalingAdjustmentType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ChangeInCapacity :: ScalingAdjustmentType
-pattern ChangeInCapacity = ScalingAdjustmentType' "ChangeInCapacity"
+pattern ScalingAdjustmentTypeChangeInCapacity :: ScalingAdjustmentType
+pattern ScalingAdjustmentTypeChangeInCapacity = ScalingAdjustmentType' "ChangeInCapacity"
 
-pattern ExactCapacity :: ScalingAdjustmentType
-pattern ExactCapacity = ScalingAdjustmentType' "ExactCapacity"
+pattern ScalingAdjustmentTypeExactCapacity :: ScalingAdjustmentType
+pattern ScalingAdjustmentTypeExactCapacity = ScalingAdjustmentType' "ExactCapacity"
 
-pattern PercentChangeInCapacity :: ScalingAdjustmentType
-pattern PercentChangeInCapacity = ScalingAdjustmentType' "PercentChangeInCapacity"
+pattern ScalingAdjustmentTypePercentChangeInCapacity :: ScalingAdjustmentType
+pattern ScalingAdjustmentTypePercentChangeInCapacity = ScalingAdjustmentType' "PercentChangeInCapacity"
 
 {-# COMPLETE
-  ChangeInCapacity,
-  ExactCapacity,
-  PercentChangeInCapacity,
+  ScalingAdjustmentTypeChangeInCapacity,
+  ScalingAdjustmentTypeExactCapacity,
+  ScalingAdjustmentTypePercentChangeInCapacity,
   ScalingAdjustmentType'
   #-}

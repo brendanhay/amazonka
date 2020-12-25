@@ -20,116 +20,104 @@ module Network.AWS.AlexaBusiness.GetGatewayGroup
     mkGetGatewayGroup,
 
     -- ** Request lenses
-    gggGatewayGroupARN,
+    gggGatewayGroupArn,
 
     -- * Destructuring the response
     GetGatewayGroupResponse (..),
     mkGetGatewayGroupResponse,
 
     -- ** Response lenses
-    gggrsGatewayGroup,
-    gggrsResponseStatus,
+    gggrrsGatewayGroup,
+    gggrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetGatewayGroup' smart constructor.
 newtype GetGatewayGroup = GetGatewayGroup'
   { -- | The ARN of the gateway group to get.
-    gatewayGroupARN :: Lude.Text
+    gatewayGroupArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGatewayGroup' with the minimum fields required to make a request.
---
--- * 'gatewayGroupARN' - The ARN of the gateway group to get.
+-- | Creates a 'GetGatewayGroup' value with any optional fields omitted.
 mkGetGatewayGroup ::
-  -- | 'gatewayGroupARN'
-  Lude.Text ->
+  -- | 'gatewayGroupArn'
+  Types.Arn ->
   GetGatewayGroup
-mkGetGatewayGroup pGatewayGroupARN_ =
-  GetGatewayGroup' {gatewayGroupARN = pGatewayGroupARN_}
+mkGetGatewayGroup gatewayGroupArn =
+  GetGatewayGroup' {gatewayGroupArn}
 
 -- | The ARN of the gateway group to get.
 --
--- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gggGatewayGroupARN :: Lens.Lens' GetGatewayGroup Lude.Text
-gggGatewayGroupARN = Lens.lens (gatewayGroupARN :: GetGatewayGroup -> Lude.Text) (\s a -> s {gatewayGroupARN = a} :: GetGatewayGroup)
-{-# DEPRECATED gggGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
+-- /Note:/ Consider using 'gatewayGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gggGatewayGroupArn :: Lens.Lens' GetGatewayGroup Types.Arn
+gggGatewayGroupArn = Lens.field @"gatewayGroupArn"
+{-# DEPRECATED gggGatewayGroupArn "Use generic-lens or generic-optics with 'gatewayGroupArn' instead." #-}
 
-instance Lude.AWSRequest GetGatewayGroup where
+instance Core.FromJSON GetGatewayGroup where
+  toJSON GetGatewayGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("GatewayGroupArn" Core..= gatewayGroupArn)]
+      )
+
+instance Core.AWSRequest GetGatewayGroup where
   type Rs GetGatewayGroup = GetGatewayGroupResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.GetGatewayGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetGatewayGroupResponse'
-            Lude.<$> (x Lude..?> "GatewayGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayGroup") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetGatewayGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.GetGatewayGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetGatewayGroup where
-  toJSON GetGatewayGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("GatewayGroupArn" Lude..= gatewayGroupARN)]
-      )
-
-instance Lude.ToPath GetGatewayGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetGatewayGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetGatewayGroupResponse' smart constructor.
 data GetGatewayGroupResponse = GetGatewayGroupResponse'
-  { gatewayGroup :: Lude.Maybe GatewayGroup,
+  { gatewayGroup :: Core.Maybe Types.GatewayGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGatewayGroupResponse' with the minimum fields required to make a request.
---
--- * 'gatewayGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetGatewayGroupResponse' value with any optional fields omitted.
 mkGetGatewayGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetGatewayGroupResponse
-mkGetGatewayGroupResponse pResponseStatus_ =
+mkGetGatewayGroupResponse responseStatus =
   GetGatewayGroupResponse'
-    { gatewayGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gggrsGatewayGroup :: Lens.Lens' GetGatewayGroupResponse (Lude.Maybe GatewayGroup)
-gggrsGatewayGroup = Lens.lens (gatewayGroup :: GetGatewayGroupResponse -> Lude.Maybe GatewayGroup) (\s a -> s {gatewayGroup = a} :: GetGatewayGroupResponse)
-{-# DEPRECATED gggrsGatewayGroup "Use generic-lens or generic-optics with 'gatewayGroup' instead." #-}
+gggrrsGatewayGroup :: Lens.Lens' GetGatewayGroupResponse (Core.Maybe Types.GatewayGroup)
+gggrrsGatewayGroup = Lens.field @"gatewayGroup"
+{-# DEPRECATED gggrrsGatewayGroup "Use generic-lens or generic-optics with 'gatewayGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gggrsResponseStatus :: Lens.Lens' GetGatewayGroupResponse Lude.Int
-gggrsResponseStatus = Lens.lens (responseStatus :: GetGatewayGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGatewayGroupResponse)
-{-# DEPRECATED gggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gggrrsResponseStatus :: Lens.Lens' GetGatewayGroupResponse Core.Int
+gggrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gggrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

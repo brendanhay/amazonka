@@ -22,8 +22,8 @@ module Network.AWS.Rekognition.Types.Summary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.S3Object
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.S3Object as Types
 
 -- | The S3 bucket that contains the training summary. The training summary includes aggregated evaluation metrics for the entire testing dataset and metrics for each individual label.
 --
@@ -31,27 +31,24 @@ import Network.AWS.Rekognition.Types.S3Object
 --
 -- /See:/ 'mkSummary' smart constructor.
 newtype Summary = Summary'
-  { s3Object :: Lude.Maybe S3Object
+  { s3Object :: Core.Maybe Types.S3Object
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Summary' with the minimum fields required to make a request.
---
--- * 's3Object' -
+-- | Creates a 'Summary' value with any optional fields omitted.
 mkSummary ::
   Summary
-mkSummary = Summary' {s3Object = Lude.Nothing}
+mkSummary = Summary' {s3Object = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 's3Object' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sS3Object :: Lens.Lens' Summary (Lude.Maybe S3Object)
-sS3Object = Lens.lens (s3Object :: Summary -> Lude.Maybe S3Object) (\s a -> s {s3Object = a} :: Summary)
+sS3Object :: Lens.Lens' Summary (Core.Maybe Types.S3Object)
+sS3Object = Lens.field @"s3Object"
 {-# DEPRECATED sS3Object "Use generic-lens or generic-optics with 's3Object' instead." #-}
 
-instance Lude.FromJSON Summary where
+instance Core.FromJSON Summary where
   parseJSON =
-    Lude.withObject
-      "Summary"
-      (\x -> Summary' Lude.<$> (x Lude..:? "S3Object"))
+    Core.withObject "Summary" Core.$
+      \x -> Summary' Core.<$> (x Core..:? "S3Object")

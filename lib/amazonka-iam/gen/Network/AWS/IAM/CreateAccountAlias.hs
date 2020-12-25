@@ -28,68 +28,67 @@ module Network.AWS.IAM.CreateAccountAlias
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateAccountAlias' smart constructor.
 newtype CreateAccountAlias = CreateAccountAlias'
   { -- | The account alias to create.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
-    accountAlias :: Lude.Text
+    accountAlias :: Types.AccountAliasType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAccountAlias' with the minimum fields required to make a request.
---
--- * 'accountAlias' - The account alias to create.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+-- | Creates a 'CreateAccountAlias' value with any optional fields omitted.
 mkCreateAccountAlias ::
   -- | 'accountAlias'
-  Lude.Text ->
+  Types.AccountAliasType ->
   CreateAccountAlias
-mkCreateAccountAlias pAccountAlias_ =
-  CreateAccountAlias' {accountAlias = pAccountAlias_}
+mkCreateAccountAlias accountAlias =
+  CreateAccountAlias' {accountAlias}
 
 -- | The account alias to create.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 --
 -- /Note:/ Consider using 'accountAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caaAccountAlias :: Lens.Lens' CreateAccountAlias Lude.Text
-caaAccountAlias = Lens.lens (accountAlias :: CreateAccountAlias -> Lude.Text) (\s a -> s {accountAlias = a} :: CreateAccountAlias)
+caaAccountAlias :: Lens.Lens' CreateAccountAlias Types.AccountAliasType
+caaAccountAlias = Lens.field @"accountAlias"
 {-# DEPRECATED caaAccountAlias "Use generic-lens or generic-optics with 'accountAlias' instead." #-}
 
-instance Lude.AWSRequest CreateAccountAlias where
+instance Core.AWSRequest CreateAccountAlias where
   type Rs CreateAccountAlias = CreateAccountAliasResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull CreateAccountAliasResponse'
-
-instance Lude.ToHeaders CreateAccountAlias where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateAccountAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAccountAlias where
-  toQuery CreateAccountAlias' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateAccountAlias" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "AccountAlias" Lude.=: accountAlias
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateAccountAlias")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "AccountAlias" accountAlias)
+            )
+      }
+  response = Response.receiveNull CreateAccountAliasResponse'
 
 -- | /See:/ 'mkCreateAccountAliasResponse' smart constructor.
 data CreateAccountAliasResponse = CreateAccountAliasResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAccountAliasResponse' with the minimum fields required to make a request.
+-- | Creates a 'CreateAccountAliasResponse' value with any optional fields omitted.
 mkCreateAccountAliasResponse ::
   CreateAccountAliasResponse
 mkCreateAccountAliasResponse = CreateAccountAliasResponse'

@@ -23,8 +23,8 @@ module Network.AWS.Organizations.RegisterDelegatedAdministrator
     mkRegisterDelegatedAdministrator,
 
     -- ** Request lenses
-    rdaServicePrincipal,
     rdaAccountId,
+    rdaServicePrincipal,
 
     -- * Destructuring the response
     RegisterDelegatedAdministratorResponse (..),
@@ -33,93 +33,81 @@ module Network.AWS.Organizations.RegisterDelegatedAdministrator
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterDelegatedAdministrator' smart constructor.
 data RegisterDelegatedAdministrator = RegisterDelegatedAdministrator'
-  { -- | The service principal of the AWS service for which you want to make the member account a delegated administrator.
-    servicePrincipal :: Lude.Text,
-    -- | The account ID number of the member account in the organization to register as a delegated administrator.
-    accountId :: Lude.Text
+  { -- | The account ID number of the member account in the organization to register as a delegated administrator.
+    accountId :: Types.AccountId,
+    -- | The service principal of the AWS service for which you want to make the member account a delegated administrator.
+    servicePrincipal :: Types.ServicePrincipal
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterDelegatedAdministrator' with the minimum fields required to make a request.
---
--- * 'servicePrincipal' - The service principal of the AWS service for which you want to make the member account a delegated administrator.
--- * 'accountId' - The account ID number of the member account in the organization to register as a delegated administrator.
+-- | Creates a 'RegisterDelegatedAdministrator' value with any optional fields omitted.
 mkRegisterDelegatedAdministrator ::
-  -- | 'servicePrincipal'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'servicePrincipal'
+  Types.ServicePrincipal ->
   RegisterDelegatedAdministrator
-mkRegisterDelegatedAdministrator pServicePrincipal_ pAccountId_ =
-  RegisterDelegatedAdministrator'
-    { servicePrincipal =
-        pServicePrincipal_,
-      accountId = pAccountId_
-    }
-
--- | The service principal of the AWS service for which you want to make the member account a delegated administrator.
---
--- /Note:/ Consider using 'servicePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdaServicePrincipal :: Lens.Lens' RegisterDelegatedAdministrator Lude.Text
-rdaServicePrincipal = Lens.lens (servicePrincipal :: RegisterDelegatedAdministrator -> Lude.Text) (\s a -> s {servicePrincipal = a} :: RegisterDelegatedAdministrator)
-{-# DEPRECATED rdaServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
+mkRegisterDelegatedAdministrator accountId servicePrincipal =
+  RegisterDelegatedAdministrator' {accountId, servicePrincipal}
 
 -- | The account ID number of the member account in the organization to register as a delegated administrator.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdaAccountId :: Lens.Lens' RegisterDelegatedAdministrator Lude.Text
-rdaAccountId = Lens.lens (accountId :: RegisterDelegatedAdministrator -> Lude.Text) (\s a -> s {accountId = a} :: RegisterDelegatedAdministrator)
+rdaAccountId :: Lens.Lens' RegisterDelegatedAdministrator Types.AccountId
+rdaAccountId = Lens.field @"accountId"
 {-# DEPRECATED rdaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest RegisterDelegatedAdministrator where
+-- | The service principal of the AWS service for which you want to make the member account a delegated administrator.
+--
+-- /Note:/ Consider using 'servicePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdaServicePrincipal :: Lens.Lens' RegisterDelegatedAdministrator Types.ServicePrincipal
+rdaServicePrincipal = Lens.field @"servicePrincipal"
+{-# DEPRECATED rdaServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
+
+instance Core.FromJSON RegisterDelegatedAdministrator where
+  toJSON RegisterDelegatedAdministrator {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("ServicePrincipal" Core..= servicePrincipal)
+          ]
+      )
+
+instance Core.AWSRequest RegisterDelegatedAdministrator where
   type
     Rs RegisterDelegatedAdministrator =
       RegisterDelegatedAdministratorResponse
-  request = Req.postJSON organizationsService
-  response = Res.receiveNull RegisterDelegatedAdministratorResponse'
-
-instance Lude.ToHeaders RegisterDelegatedAdministrator where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.RegisterDelegatedAdministrator" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RegisterDelegatedAdministrator where
-  toJSON RegisterDelegatedAdministrator' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ServicePrincipal" Lude..= servicePrincipal),
-            Lude.Just ("AccountId" Lude..= accountId)
-          ]
-      )
-
-instance Lude.ToPath RegisterDelegatedAdministrator where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterDelegatedAdministrator where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrganizationsV20161128.RegisterDelegatedAdministrator"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull RegisterDelegatedAdministratorResponse'
 
 -- | /See:/ 'mkRegisterDelegatedAdministratorResponse' smart constructor.
 data RegisterDelegatedAdministratorResponse = RegisterDelegatedAdministratorResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterDelegatedAdministratorResponse' with the minimum fields required to make a request.
+-- | Creates a 'RegisterDelegatedAdministratorResponse' value with any optional fields omitted.
 mkRegisterDelegatedAdministratorResponse ::
   RegisterDelegatedAdministratorResponse
 mkRegisterDelegatedAdministratorResponse =

@@ -17,46 +17,43 @@ module Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
     mkBatchUpdateObjectAttributesResponse,
 
     -- * Lenses
-    buoaObjectIdentifier,
+    buoarObjectIdentifier,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a @BatchUpdate@ response operation.
 --
 -- /See:/ 'mkBatchUpdateObjectAttributesResponse' smart constructor.
 newtype BatchUpdateObjectAttributesResponse = BatchUpdateObjectAttributesResponse'
   { -- | ID that is associated with the object.
-    objectIdentifier :: Lude.Maybe Lude.Text
+    objectIdentifier :: Core.Maybe Types.ObjectIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchUpdateObjectAttributesResponse' with the minimum fields required to make a request.
---
--- * 'objectIdentifier' - ID that is associated with the object.
+-- | Creates a 'BatchUpdateObjectAttributesResponse' value with any optional fields omitted.
 mkBatchUpdateObjectAttributesResponse ::
   BatchUpdateObjectAttributesResponse
 mkBatchUpdateObjectAttributesResponse =
   BatchUpdateObjectAttributesResponse'
     { objectIdentifier =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | ID that is associated with the object.
 --
 -- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-buoaObjectIdentifier :: Lens.Lens' BatchUpdateObjectAttributesResponse (Lude.Maybe Lude.Text)
-buoaObjectIdentifier = Lens.lens (objectIdentifier :: BatchUpdateObjectAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: BatchUpdateObjectAttributesResponse)
-{-# DEPRECATED buoaObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
+buoarObjectIdentifier :: Lens.Lens' BatchUpdateObjectAttributesResponse (Core.Maybe Types.ObjectIdentifier)
+buoarObjectIdentifier = Lens.field @"objectIdentifier"
+{-# DEPRECATED buoarObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
-instance Lude.FromJSON BatchUpdateObjectAttributesResponse where
+instance Core.FromJSON BatchUpdateObjectAttributesResponse where
   parseJSON =
-    Lude.withObject
-      "BatchUpdateObjectAttributesResponse"
-      ( \x ->
-          BatchUpdateObjectAttributesResponse'
-            Lude.<$> (x Lude..:? "ObjectIdentifier")
-      )
+    Core.withObject "BatchUpdateObjectAttributesResponse" Core.$
+      \x ->
+        BatchUpdateObjectAttributesResponse'
+          Core.<$> (x Core..:? "ObjectIdentifier")

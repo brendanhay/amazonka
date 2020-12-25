@@ -17,110 +17,105 @@ module Network.AWS.IoT.Types.OutgoingCertificate
     mkOutgoingCertificate,
 
     -- * Lenses
-    ocTransferDate,
-    ocCertificateARN,
+    ocCertificateArn,
     ocCertificateId,
-    ocTransferredTo,
     ocCreationDate,
+    ocTransferDate,
     ocTransferMessage,
+    ocTransferredTo,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsAccountId as Types
+import qualified Network.AWS.IoT.Types.CertificateArn as Types
+import qualified Network.AWS.IoT.Types.CertificateId as Types
+import qualified Network.AWS.IoT.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A certificate that has been transferred but not yet accepted.
 --
 -- /See:/ 'mkOutgoingCertificate' smart constructor.
 data OutgoingCertificate = OutgoingCertificate'
-  { -- | The date the transfer was initiated.
-    transferDate :: Lude.Maybe Lude.Timestamp,
-    -- | The certificate ARN.
-    certificateARN :: Lude.Maybe Lude.Text,
+  { -- | The certificate ARN.
+    certificateArn :: Core.Maybe Types.CertificateArn,
     -- | The certificate ID.
-    certificateId :: Lude.Maybe Lude.Text,
-    -- | The AWS account to which the transfer was made.
-    transferredTo :: Lude.Maybe Lude.Text,
+    certificateId :: Core.Maybe Types.CertificateId,
     -- | The certificate creation date.
-    creationDate :: Lude.Maybe Lude.Timestamp,
+    creationDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The date the transfer was initiated.
+    transferDate :: Core.Maybe Core.NominalDiffTime,
     -- | The transfer message.
-    transferMessage :: Lude.Maybe Lude.Text
+    transferMessage :: Core.Maybe Types.Message,
+    -- | The AWS account to which the transfer was made.
+    transferredTo :: Core.Maybe Types.AwsAccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OutgoingCertificate' with the minimum fields required to make a request.
---
--- * 'transferDate' - The date the transfer was initiated.
--- * 'certificateARN' - The certificate ARN.
--- * 'certificateId' - The certificate ID.
--- * 'transferredTo' - The AWS account to which the transfer was made.
--- * 'creationDate' - The certificate creation date.
--- * 'transferMessage' - The transfer message.
+-- | Creates a 'OutgoingCertificate' value with any optional fields omitted.
 mkOutgoingCertificate ::
   OutgoingCertificate
 mkOutgoingCertificate =
   OutgoingCertificate'
-    { transferDate = Lude.Nothing,
-      certificateARN = Lude.Nothing,
-      certificateId = Lude.Nothing,
-      transferredTo = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      transferMessage = Lude.Nothing
+    { certificateArn = Core.Nothing,
+      certificateId = Core.Nothing,
+      creationDate = Core.Nothing,
+      transferDate = Core.Nothing,
+      transferMessage = Core.Nothing,
+      transferredTo = Core.Nothing
     }
-
--- | The date the transfer was initiated.
---
--- /Note:/ Consider using 'transferDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocTransferDate :: Lens.Lens' OutgoingCertificate (Lude.Maybe Lude.Timestamp)
-ocTransferDate = Lens.lens (transferDate :: OutgoingCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {transferDate = a} :: OutgoingCertificate)
-{-# DEPRECATED ocTransferDate "Use generic-lens or generic-optics with 'transferDate' instead." #-}
 
 -- | The certificate ARN.
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocCertificateARN :: Lens.Lens' OutgoingCertificate (Lude.Maybe Lude.Text)
-ocCertificateARN = Lens.lens (certificateARN :: OutgoingCertificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: OutgoingCertificate)
-{-# DEPRECATED ocCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocCertificateArn :: Lens.Lens' OutgoingCertificate (Core.Maybe Types.CertificateArn)
+ocCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED ocCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | The certificate ID.
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocCertificateId :: Lens.Lens' OutgoingCertificate (Lude.Maybe Lude.Text)
-ocCertificateId = Lens.lens (certificateId :: OutgoingCertificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateId = a} :: OutgoingCertificate)
+ocCertificateId :: Lens.Lens' OutgoingCertificate (Core.Maybe Types.CertificateId)
+ocCertificateId = Lens.field @"certificateId"
 {-# DEPRECATED ocCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
-
--- | The AWS account to which the transfer was made.
---
--- /Note:/ Consider using 'transferredTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocTransferredTo :: Lens.Lens' OutgoingCertificate (Lude.Maybe Lude.Text)
-ocTransferredTo = Lens.lens (transferredTo :: OutgoingCertificate -> Lude.Maybe Lude.Text) (\s a -> s {transferredTo = a} :: OutgoingCertificate)
-{-# DEPRECATED ocTransferredTo "Use generic-lens or generic-optics with 'transferredTo' instead." #-}
 
 -- | The certificate creation date.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocCreationDate :: Lens.Lens' OutgoingCertificate (Lude.Maybe Lude.Timestamp)
-ocCreationDate = Lens.lens (creationDate :: OutgoingCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: OutgoingCertificate)
+ocCreationDate :: Lens.Lens' OutgoingCertificate (Core.Maybe Core.NominalDiffTime)
+ocCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED ocCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The date the transfer was initiated.
+--
+-- /Note:/ Consider using 'transferDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocTransferDate :: Lens.Lens' OutgoingCertificate (Core.Maybe Core.NominalDiffTime)
+ocTransferDate = Lens.field @"transferDate"
+{-# DEPRECATED ocTransferDate "Use generic-lens or generic-optics with 'transferDate' instead." #-}
 
 -- | The transfer message.
 --
 -- /Note:/ Consider using 'transferMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocTransferMessage :: Lens.Lens' OutgoingCertificate (Lude.Maybe Lude.Text)
-ocTransferMessage = Lens.lens (transferMessage :: OutgoingCertificate -> Lude.Maybe Lude.Text) (\s a -> s {transferMessage = a} :: OutgoingCertificate)
+ocTransferMessage :: Lens.Lens' OutgoingCertificate (Core.Maybe Types.Message)
+ocTransferMessage = Lens.field @"transferMessage"
 {-# DEPRECATED ocTransferMessage "Use generic-lens or generic-optics with 'transferMessage' instead." #-}
 
-instance Lude.FromJSON OutgoingCertificate where
+-- | The AWS account to which the transfer was made.
+--
+-- /Note:/ Consider using 'transferredTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocTransferredTo :: Lens.Lens' OutgoingCertificate (Core.Maybe Types.AwsAccountId)
+ocTransferredTo = Lens.field @"transferredTo"
+{-# DEPRECATED ocTransferredTo "Use generic-lens or generic-optics with 'transferredTo' instead." #-}
+
+instance Core.FromJSON OutgoingCertificate where
   parseJSON =
-    Lude.withObject
-      "OutgoingCertificate"
-      ( \x ->
-          OutgoingCertificate'
-            Lude.<$> (x Lude..:? "transferDate")
-            Lude.<*> (x Lude..:? "certificateArn")
-            Lude.<*> (x Lude..:? "certificateId")
-            Lude.<*> (x Lude..:? "transferredTo")
-            Lude.<*> (x Lude..:? "creationDate")
-            Lude.<*> (x Lude..:? "transferMessage")
-      )
+    Core.withObject "OutgoingCertificate" Core.$
+      \x ->
+        OutgoingCertificate'
+          Core.<$> (x Core..:? "certificateArn")
+          Core.<*> (x Core..:? "certificateId")
+          Core.<*> (x Core..:? "creationDate")
+          Core.<*> (x Core..:? "transferDate")
+          Core.<*> (x Core..:? "transferMessage")
+          Core.<*> (x Core..:? "transferredTo")

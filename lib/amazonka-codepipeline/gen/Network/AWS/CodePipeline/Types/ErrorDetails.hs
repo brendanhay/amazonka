@@ -22,49 +22,46 @@ module Network.AWS.CodePipeline.Types.ErrorDetails
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.Code as Types
+import qualified Network.AWS.CodePipeline.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about an error in AWS CodePipeline.
 --
 -- /See:/ 'mkErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
   { -- | The system ID or number code of the error.
-    code :: Lude.Maybe Lude.Text,
+    code :: Core.Maybe Types.Code,
     -- | The text of the error message.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.Message
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ErrorDetails' with the minimum fields required to make a request.
---
--- * 'code' - The system ID or number code of the error.
--- * 'message' - The text of the error message.
+-- | Creates a 'ErrorDetails' value with any optional fields omitted.
 mkErrorDetails ::
   ErrorDetails
 mkErrorDetails =
-  ErrorDetails' {code = Lude.Nothing, message = Lude.Nothing}
+  ErrorDetails' {code = Core.Nothing, message = Core.Nothing}
 
 -- | The system ID or number code of the error.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edCode :: Lens.Lens' ErrorDetails (Lude.Maybe Lude.Text)
-edCode = Lens.lens (code :: ErrorDetails -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: ErrorDetails)
+edCode :: Lens.Lens' ErrorDetails (Core.Maybe Types.Code)
+edCode = Lens.field @"code"
 {-# DEPRECATED edCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The text of the error message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edMessage :: Lens.Lens' ErrorDetails (Lude.Maybe Lude.Text)
-edMessage = Lens.lens (message :: ErrorDetails -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ErrorDetails)
+edMessage :: Lens.Lens' ErrorDetails (Core.Maybe Types.Message)
+edMessage = Lens.field @"message"
 {-# DEPRECATED edMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON ErrorDetails where
+instance Core.FromJSON ErrorDetails where
   parseJSON =
-    Lude.withObject
-      "ErrorDetails"
-      ( \x ->
-          ErrorDetails'
-            Lude.<$> (x Lude..:? "code") Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "ErrorDetails" Core.$
+      \x ->
+        ErrorDetails'
+          Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "message")

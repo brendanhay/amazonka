@@ -17,195 +17,190 @@ module Network.AWS.CognitoIdentity.Types.IdentityPool
     mkIdentityPool,
 
     -- * Lenses
-    ipSamlProviderARNs,
-    ipSupportedLoginProviders,
     ipIdentityPoolId,
-    ipAllowClassicFlow,
     ipIdentityPoolName,
+    ipAllowUnauthenticatedIdentities,
+    ipAllowClassicFlow,
+    ipCognitoIdentityProviders,
     ipDeveloperProviderName,
     ipIdentityPoolTags,
     ipOpenIdConnectProviderARNs,
-    ipCognitoIdentityProviders,
-    ipAllowUnauthenticatedIdentities,
+    ipSamlProviderARNs,
+    ipSupportedLoginProviders,
   )
 where
 
-import Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider
+import qualified Network.AWS.CognitoIdentity.Types.ARNString as Types
+import qualified Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider as Types
+import qualified Network.AWS.CognitoIdentity.Types.DeveloperProviderName as Types
+import qualified Network.AWS.CognitoIdentity.Types.IdentityPoolId as Types
+import qualified Network.AWS.CognitoIdentity.Types.IdentityPoolName as Types
+import qualified Network.AWS.CognitoIdentity.Types.IdentityProviderId as Types
+import qualified Network.AWS.CognitoIdentity.Types.IdentityProviderName as Types
+import qualified Network.AWS.CognitoIdentity.Types.TagKeysType as Types
+import qualified Network.AWS.CognitoIdentity.Types.TagValueType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing an Amazon Cognito identity pool.
 --
 -- /See:/ 'mkIdentityPool' smart constructor.
 data IdentityPool = IdentityPool'
-  { -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
-    samlProviderARNs :: Lude.Maybe [Lude.Text],
-    -- | Optional key:value pairs mapping provider names to provider app IDs.
-    supportedLoginProviders :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Lude.Text,
-    -- | Enables or disables the Basic (Classic) authentication flow. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow> in the /Amazon Cognito Developer Guide/ .
-    allowClassicFlow :: Lude.Maybe Lude.Bool,
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Types.IdentityPoolId,
     -- | A string that you provide.
-    identityPoolName :: Lude.Text,
-    -- | The "domain" by which Cognito will refer to your users.
-    developerProviderName :: Lude.Maybe Lude.Text,
-    -- | The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
-    identityPoolTags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | A list of OpendID Connect provider ARNs.
-    openIdConnectProviderARNs :: Lude.Maybe [Lude.Text],
-    -- | A list representing an Amazon Cognito user pool and its client ID.
-    cognitoIdentityProviders :: Lude.Maybe [CognitoIdentityProvider],
+    identityPoolName :: Types.IdentityPoolName,
     -- | TRUE if the identity pool supports unauthenticated logins.
-    allowUnauthenticatedIdentities :: Lude.Bool
+    allowUnauthenticatedIdentities :: Core.Bool,
+    -- | Enables or disables the Basic (Classic) authentication flow. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow> in the /Amazon Cognito Developer Guide/ .
+    allowClassicFlow :: Core.Maybe Core.Bool,
+    -- | A list representing an Amazon Cognito user pool and its client ID.
+    cognitoIdentityProviders :: Core.Maybe [Types.CognitoIdentityProvider],
+    -- | The "domain" by which Cognito will refer to your users.
+    developerProviderName :: Core.Maybe Types.DeveloperProviderName,
+    -- | The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+    identityPoolTags :: Core.Maybe (Core.HashMap Types.TagKeysType Types.TagValueType),
+    -- | A list of OpendID Connect provider ARNs.
+    openIdConnectProviderARNs :: Core.Maybe [Types.ARNString],
+    -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
+    samlProviderARNs :: Core.Maybe [Types.ARNString],
+    -- | Optional key:value pairs mapping provider names to provider app IDs.
+    supportedLoginProviders :: Core.Maybe (Core.HashMap Types.IdentityProviderName Types.IdentityProviderId)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IdentityPool' with the minimum fields required to make a request.
---
--- * 'samlProviderARNs' - An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
--- * 'supportedLoginProviders' - Optional key:value pairs mapping provider names to provider app IDs.
--- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
--- * 'allowClassicFlow' - Enables or disables the Basic (Classic) authentication flow. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow> in the /Amazon Cognito Developer Guide/ .
--- * 'identityPoolName' - A string that you provide.
--- * 'developerProviderName' - The "domain" by which Cognito will refer to your users.
--- * 'identityPoolTags' - The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
--- * 'openIdConnectProviderARNs' - A list of OpendID Connect provider ARNs.
--- * 'cognitoIdentityProviders' - A list representing an Amazon Cognito user pool and its client ID.
--- * 'allowUnauthenticatedIdentities' - TRUE if the identity pool supports unauthenticated logins.
+-- | Creates a 'IdentityPool' value with any optional fields omitted.
 mkIdentityPool ::
   -- | 'identityPoolId'
-  Lude.Text ->
+  Types.IdentityPoolId ->
   -- | 'identityPoolName'
-  Lude.Text ->
+  Types.IdentityPoolName ->
   -- | 'allowUnauthenticatedIdentities'
-  Lude.Bool ->
+  Core.Bool ->
   IdentityPool
 mkIdentityPool
-  pIdentityPoolId_
-  pIdentityPoolName_
-  pAllowUnauthenticatedIdentities_ =
+  identityPoolId
+  identityPoolName
+  allowUnauthenticatedIdentities =
     IdentityPool'
-      { samlProviderARNs = Lude.Nothing,
-        supportedLoginProviders = Lude.Nothing,
-        identityPoolId = pIdentityPoolId_,
-        allowClassicFlow = Lude.Nothing,
-        identityPoolName = pIdentityPoolName_,
-        developerProviderName = Lude.Nothing,
-        identityPoolTags = Lude.Nothing,
-        openIdConnectProviderARNs = Lude.Nothing,
-        cognitoIdentityProviders = Lude.Nothing,
-        allowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
+      { identityPoolId,
+        identityPoolName,
+        allowUnauthenticatedIdentities,
+        allowClassicFlow = Core.Nothing,
+        cognitoIdentityProviders = Core.Nothing,
+        developerProviderName = Core.Nothing,
+        identityPoolTags = Core.Nothing,
+        openIdConnectProviderARNs = Core.Nothing,
+        samlProviderARNs = Core.Nothing,
+        supportedLoginProviders = Core.Nothing
       }
-
--- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
---
--- /Note:/ Consider using 'samlProviderARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipSamlProviderARNs :: Lens.Lens' IdentityPool (Lude.Maybe [Lude.Text])
-ipSamlProviderARNs = Lens.lens (samlProviderARNs :: IdentityPool -> Lude.Maybe [Lude.Text]) (\s a -> s {samlProviderARNs = a} :: IdentityPool)
-{-# DEPRECATED ipSamlProviderARNs "Use generic-lens or generic-optics with 'samlProviderARNs' instead." #-}
-
--- | Optional key:value pairs mapping provider names to provider app IDs.
---
--- /Note:/ Consider using 'supportedLoginProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipSupportedLoginProviders :: Lens.Lens' IdentityPool (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ipSupportedLoginProviders = Lens.lens (supportedLoginProviders :: IdentityPool -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {supportedLoginProviders = a} :: IdentityPool)
-{-# DEPRECATED ipSupportedLoginProviders "Use generic-lens or generic-optics with 'supportedLoginProviders' instead." #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipIdentityPoolId :: Lens.Lens' IdentityPool Lude.Text
-ipIdentityPoolId = Lens.lens (identityPoolId :: IdentityPool -> Lude.Text) (\s a -> s {identityPoolId = a} :: IdentityPool)
+ipIdentityPoolId :: Lens.Lens' IdentityPool Types.IdentityPoolId
+ipIdentityPoolId = Lens.field @"identityPoolId"
 {-# DEPRECATED ipIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
-
--- | Enables or disables the Basic (Classic) authentication flow. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow> in the /Amazon Cognito Developer Guide/ .
---
--- /Note:/ Consider using 'allowClassicFlow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipAllowClassicFlow :: Lens.Lens' IdentityPool (Lude.Maybe Lude.Bool)
-ipAllowClassicFlow = Lens.lens (allowClassicFlow :: IdentityPool -> Lude.Maybe Lude.Bool) (\s a -> s {allowClassicFlow = a} :: IdentityPool)
-{-# DEPRECATED ipAllowClassicFlow "Use generic-lens or generic-optics with 'allowClassicFlow' instead." #-}
 
 -- | A string that you provide.
 --
 -- /Note:/ Consider using 'identityPoolName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipIdentityPoolName :: Lens.Lens' IdentityPool Lude.Text
-ipIdentityPoolName = Lens.lens (identityPoolName :: IdentityPool -> Lude.Text) (\s a -> s {identityPoolName = a} :: IdentityPool)
+ipIdentityPoolName :: Lens.Lens' IdentityPool Types.IdentityPoolName
+ipIdentityPoolName = Lens.field @"identityPoolName"
 {-# DEPRECATED ipIdentityPoolName "Use generic-lens or generic-optics with 'identityPoolName' instead." #-}
+
+-- | TRUE if the identity pool supports unauthenticated logins.
+--
+-- /Note:/ Consider using 'allowUnauthenticatedIdentities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipAllowUnauthenticatedIdentities :: Lens.Lens' IdentityPool Core.Bool
+ipAllowUnauthenticatedIdentities = Lens.field @"allowUnauthenticatedIdentities"
+{-# DEPRECATED ipAllowUnauthenticatedIdentities "Use generic-lens or generic-optics with 'allowUnauthenticatedIdentities' instead." #-}
+
+-- | Enables or disables the Basic (Classic) authentication flow. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow> in the /Amazon Cognito Developer Guide/ .
+--
+-- /Note:/ Consider using 'allowClassicFlow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipAllowClassicFlow :: Lens.Lens' IdentityPool (Core.Maybe Core.Bool)
+ipAllowClassicFlow = Lens.field @"allowClassicFlow"
+{-# DEPRECATED ipAllowClassicFlow "Use generic-lens or generic-optics with 'allowClassicFlow' instead." #-}
+
+-- | A list representing an Amazon Cognito user pool and its client ID.
+--
+-- /Note:/ Consider using 'cognitoIdentityProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipCognitoIdentityProviders :: Lens.Lens' IdentityPool (Core.Maybe [Types.CognitoIdentityProvider])
+ipCognitoIdentityProviders = Lens.field @"cognitoIdentityProviders"
+{-# DEPRECATED ipCognitoIdentityProviders "Use generic-lens or generic-optics with 'cognitoIdentityProviders' instead." #-}
 
 -- | The "domain" by which Cognito will refer to your users.
 --
 -- /Note:/ Consider using 'developerProviderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipDeveloperProviderName :: Lens.Lens' IdentityPool (Lude.Maybe Lude.Text)
-ipDeveloperProviderName = Lens.lens (developerProviderName :: IdentityPool -> Lude.Maybe Lude.Text) (\s a -> s {developerProviderName = a} :: IdentityPool)
+ipDeveloperProviderName :: Lens.Lens' IdentityPool (Core.Maybe Types.DeveloperProviderName)
+ipDeveloperProviderName = Lens.field @"developerProviderName"
 {-# DEPRECATED ipDeveloperProviderName "Use generic-lens or generic-optics with 'developerProviderName' instead." #-}
 
 -- | The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
 --
 -- /Note:/ Consider using 'identityPoolTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipIdentityPoolTags :: Lens.Lens' IdentityPool (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ipIdentityPoolTags = Lens.lens (identityPoolTags :: IdentityPool -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {identityPoolTags = a} :: IdentityPool)
+ipIdentityPoolTags :: Lens.Lens' IdentityPool (Core.Maybe (Core.HashMap Types.TagKeysType Types.TagValueType))
+ipIdentityPoolTags = Lens.field @"identityPoolTags"
 {-# DEPRECATED ipIdentityPoolTags "Use generic-lens or generic-optics with 'identityPoolTags' instead." #-}
 
 -- | A list of OpendID Connect provider ARNs.
 --
 -- /Note:/ Consider using 'openIdConnectProviderARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipOpenIdConnectProviderARNs :: Lens.Lens' IdentityPool (Lude.Maybe [Lude.Text])
-ipOpenIdConnectProviderARNs = Lens.lens (openIdConnectProviderARNs :: IdentityPool -> Lude.Maybe [Lude.Text]) (\s a -> s {openIdConnectProviderARNs = a} :: IdentityPool)
+ipOpenIdConnectProviderARNs :: Lens.Lens' IdentityPool (Core.Maybe [Types.ARNString])
+ipOpenIdConnectProviderARNs = Lens.field @"openIdConnectProviderARNs"
 {-# DEPRECATED ipOpenIdConnectProviderARNs "Use generic-lens or generic-optics with 'openIdConnectProviderARNs' instead." #-}
 
--- | A list representing an Amazon Cognito user pool and its client ID.
+-- | An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 --
--- /Note:/ Consider using 'cognitoIdentityProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipCognitoIdentityProviders :: Lens.Lens' IdentityPool (Lude.Maybe [CognitoIdentityProvider])
-ipCognitoIdentityProviders = Lens.lens (cognitoIdentityProviders :: IdentityPool -> Lude.Maybe [CognitoIdentityProvider]) (\s a -> s {cognitoIdentityProviders = a} :: IdentityPool)
-{-# DEPRECATED ipCognitoIdentityProviders "Use generic-lens or generic-optics with 'cognitoIdentityProviders' instead." #-}
+-- /Note:/ Consider using 'samlProviderARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipSamlProviderARNs :: Lens.Lens' IdentityPool (Core.Maybe [Types.ARNString])
+ipSamlProviderARNs = Lens.field @"samlProviderARNs"
+{-# DEPRECATED ipSamlProviderARNs "Use generic-lens or generic-optics with 'samlProviderARNs' instead." #-}
 
--- | TRUE if the identity pool supports unauthenticated logins.
+-- | Optional key:value pairs mapping provider names to provider app IDs.
 --
--- /Note:/ Consider using 'allowUnauthenticatedIdentities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipAllowUnauthenticatedIdentities :: Lens.Lens' IdentityPool Lude.Bool
-ipAllowUnauthenticatedIdentities = Lens.lens (allowUnauthenticatedIdentities :: IdentityPool -> Lude.Bool) (\s a -> s {allowUnauthenticatedIdentities = a} :: IdentityPool)
-{-# DEPRECATED ipAllowUnauthenticatedIdentities "Use generic-lens or generic-optics with 'allowUnauthenticatedIdentities' instead." #-}
+-- /Note:/ Consider using 'supportedLoginProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipSupportedLoginProviders :: Lens.Lens' IdentityPool (Core.Maybe (Core.HashMap Types.IdentityProviderName Types.IdentityProviderId))
+ipSupportedLoginProviders = Lens.field @"supportedLoginProviders"
+{-# DEPRECATED ipSupportedLoginProviders "Use generic-lens or generic-optics with 'supportedLoginProviders' instead." #-}
 
-instance Lude.FromJSON IdentityPool where
-  parseJSON =
-    Lude.withObject
-      "IdentityPool"
-      ( \x ->
-          IdentityPool'
-            Lude.<$> (x Lude..:? "SamlProviderARNs" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SupportedLoginProviders" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "IdentityPoolId")
-            Lude.<*> (x Lude..:? "AllowClassicFlow")
-            Lude.<*> (x Lude..: "IdentityPoolName")
-            Lude.<*> (x Lude..:? "DeveloperProviderName")
-            Lude.<*> (x Lude..:? "IdentityPoolTags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "OpenIdConnectProviderARNs" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CognitoIdentityProviders" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "AllowUnauthenticatedIdentities")
-      )
-
-instance Lude.ToJSON IdentityPool where
-  toJSON IdentityPool' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SamlProviderARNs" Lude..=) Lude.<$> samlProviderARNs,
-            ("SupportedLoginProviders" Lude..=)
-              Lude.<$> supportedLoginProviders,
-            Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
-            ("AllowClassicFlow" Lude..=) Lude.<$> allowClassicFlow,
-            Lude.Just ("IdentityPoolName" Lude..= identityPoolName),
-            ("DeveloperProviderName" Lude..=) Lude.<$> developerProviderName,
-            ("IdentityPoolTags" Lude..=) Lude.<$> identityPoolTags,
-            ("OpenIdConnectProviderARNs" Lude..=)
-              Lude.<$> openIdConnectProviderARNs,
-            ("CognitoIdentityProviders" Lude..=)
-              Lude.<$> cognitoIdentityProviders,
-            Lude.Just
+instance Core.FromJSON IdentityPool where
+  toJSON IdentityPool {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IdentityPoolId" Core..= identityPoolId),
+            Core.Just ("IdentityPoolName" Core..= identityPoolName),
+            Core.Just
               ( "AllowUnauthenticatedIdentities"
-                  Lude..= allowUnauthenticatedIdentities
-              )
+                  Core..= allowUnauthenticatedIdentities
+              ),
+            ("AllowClassicFlow" Core..=) Core.<$> allowClassicFlow,
+            ("CognitoIdentityProviders" Core..=)
+              Core.<$> cognitoIdentityProviders,
+            ("DeveloperProviderName" Core..=) Core.<$> developerProviderName,
+            ("IdentityPoolTags" Core..=) Core.<$> identityPoolTags,
+            ("OpenIdConnectProviderARNs" Core..=)
+              Core.<$> openIdConnectProviderARNs,
+            ("SamlProviderARNs" Core..=) Core.<$> samlProviderARNs,
+            ("SupportedLoginProviders" Core..=)
+              Core.<$> supportedLoginProviders
           ]
       )
+
+instance Core.FromJSON IdentityPool where
+  parseJSON =
+    Core.withObject "IdentityPool" Core.$
+      \x ->
+        IdentityPool'
+          Core.<$> (x Core..: "IdentityPoolId")
+          Core.<*> (x Core..: "IdentityPoolName")
+          Core.<*> (x Core..: "AllowUnauthenticatedIdentities")
+          Core.<*> (x Core..:? "AllowClassicFlow")
+          Core.<*> (x Core..:? "CognitoIdentityProviders")
+          Core.<*> (x Core..:? "DeveloperProviderName")
+          Core.<*> (x Core..:? "IdentityPoolTags")
+          Core.<*> (x Core..:? "OpenIdConnectProviderARNs")
+          Core.<*> (x Core..:? "SamlProviderARNs")
+          Core.<*> (x Core..:? "SupportedLoginProviders")

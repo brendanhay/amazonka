@@ -27,163 +27,148 @@ module Network.AWS.CodePipeline.GetPipelineState
     mkGetPipelineStateResponse,
 
     -- ** Response lenses
-    gpsrsPipelineName,
-    gpsrsCreated,
-    gpsrsStageStates,
-    gpsrsPipelineVersion,
-    gpsrsUpdated,
-    gpsrsResponseStatus,
+    gpsrrsCreated,
+    gpsrrsPipelineName,
+    gpsrrsPipelineVersion,
+    gpsrrsStageStates,
+    gpsrrsUpdated,
+    gpsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @GetPipelineState@ action.
 --
 -- /See:/ 'mkGetPipelineState' smart constructor.
 newtype GetPipelineState = GetPipelineState'
   { -- | The name of the pipeline about which you want to get information.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPipelineState' with the minimum fields required to make a request.
---
--- * 'name' - The name of the pipeline about which you want to get information.
+-- | Creates a 'GetPipelineState' value with any optional fields omitted.
 mkGetPipelineState ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   GetPipelineState
-mkGetPipelineState pName_ = GetPipelineState' {name = pName_}
+mkGetPipelineState name = GetPipelineState' {name}
 
 -- | The name of the pipeline about which you want to get information.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsName :: Lens.Lens' GetPipelineState Lude.Text
-gpsName = Lens.lens (name :: GetPipelineState -> Lude.Text) (\s a -> s {name = a} :: GetPipelineState)
+gpsName :: Lens.Lens' GetPipelineState Types.Name
+gpsName = Lens.field @"name"
 {-# DEPRECATED gpsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetPipelineState where
+instance Core.FromJSON GetPipelineState where
+  toJSON GetPipelineState {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
+
+instance Core.AWSRequest GetPipelineState where
   type Rs GetPipelineState = GetPipelineStateResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodePipeline_20150709.GetPipelineState")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPipelineStateResponse'
-            Lude.<$> (x Lude..?> "pipelineName")
-            Lude.<*> (x Lude..?> "created")
-            Lude.<*> (x Lude..?> "stageStates" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "pipelineVersion")
-            Lude.<*> (x Lude..?> "updated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "created")
+            Core.<*> (x Core..:? "pipelineName")
+            Core.<*> (x Core..:? "pipelineVersion")
+            Core.<*> (x Core..:? "stageStates")
+            Core.<*> (x Core..:? "updated")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPipelineState where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.GetPipelineState" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPipelineState where
-  toJSON GetPipelineState' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
-
-instance Lude.ToPath GetPipelineState where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPipelineState where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetPipelineState@ action.
 --
 -- /See:/ 'mkGetPipelineStateResponse' smart constructor.
 data GetPipelineStateResponse = GetPipelineStateResponse'
-  { -- | The name of the pipeline for which you want to get the state.
-    pipelineName :: Lude.Maybe Lude.Text,
-    -- | The date and time the pipeline was created, in timestamp format.
-    created :: Lude.Maybe Lude.Timestamp,
-    -- | A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
-    stageStates :: Lude.Maybe [StageState],
+  { -- | The date and time the pipeline was created, in timestamp format.
+    created :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the pipeline for which you want to get the state.
+    pipelineName :: Core.Maybe Types.PipelineName,
     -- | The version number of the pipeline.
-    pipelineVersion :: Lude.Maybe Lude.Natural,
+    pipelineVersion :: Core.Maybe Core.Natural,
+    -- | A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
+    stageStates :: Core.Maybe [Types.StageState],
     -- | The date and time the pipeline was last updated, in timestamp format.
-    updated :: Lude.Maybe Lude.Timestamp,
+    updated :: Core.Maybe Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPipelineStateResponse' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of the pipeline for which you want to get the state.
--- * 'created' - The date and time the pipeline was created, in timestamp format.
--- * 'stageStates' - A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
--- * 'pipelineVersion' - The version number of the pipeline.
--- * 'updated' - The date and time the pipeline was last updated, in timestamp format.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPipelineStateResponse' value with any optional fields omitted.
 mkGetPipelineStateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPipelineStateResponse
-mkGetPipelineStateResponse pResponseStatus_ =
+mkGetPipelineStateResponse responseStatus =
   GetPipelineStateResponse'
-    { pipelineName = Lude.Nothing,
-      created = Lude.Nothing,
-      stageStates = Lude.Nothing,
-      pipelineVersion = Lude.Nothing,
-      updated = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { created = Core.Nothing,
+      pipelineName = Core.Nothing,
+      pipelineVersion = Core.Nothing,
+      stageStates = Core.Nothing,
+      updated = Core.Nothing,
+      responseStatus
     }
-
--- | The name of the pipeline for which you want to get the state.
---
--- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsPipelineName :: Lens.Lens' GetPipelineStateResponse (Lude.Maybe Lude.Text)
-gpsrsPipelineName = Lens.lens (pipelineName :: GetPipelineStateResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineName = a} :: GetPipelineStateResponse)
-{-# DEPRECATED gpsrsPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The date and time the pipeline was created, in timestamp format.
 --
 -- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsCreated :: Lens.Lens' GetPipelineStateResponse (Lude.Maybe Lude.Timestamp)
-gpsrsCreated = Lens.lens (created :: GetPipelineStateResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: GetPipelineStateResponse)
-{-# DEPRECATED gpsrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
+gpsrrsCreated :: Lens.Lens' GetPipelineStateResponse (Core.Maybe Core.NominalDiffTime)
+gpsrrsCreated = Lens.field @"created"
+{-# DEPRECATED gpsrrsCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
--- | A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
+-- | The name of the pipeline for which you want to get the state.
 --
--- /Note:/ Consider using 'stageStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsStageStates :: Lens.Lens' GetPipelineStateResponse (Lude.Maybe [StageState])
-gpsrsStageStates = Lens.lens (stageStates :: GetPipelineStateResponse -> Lude.Maybe [StageState]) (\s a -> s {stageStates = a} :: GetPipelineStateResponse)
-{-# DEPRECATED gpsrsStageStates "Use generic-lens or generic-optics with 'stageStates' instead." #-}
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsrrsPipelineName :: Lens.Lens' GetPipelineStateResponse (Core.Maybe Types.PipelineName)
+gpsrrsPipelineName = Lens.field @"pipelineName"
+{-# DEPRECATED gpsrrsPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The version number of the pipeline.
 --
 -- /Note:/ Consider using 'pipelineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsPipelineVersion :: Lens.Lens' GetPipelineStateResponse (Lude.Maybe Lude.Natural)
-gpsrsPipelineVersion = Lens.lens (pipelineVersion :: GetPipelineStateResponse -> Lude.Maybe Lude.Natural) (\s a -> s {pipelineVersion = a} :: GetPipelineStateResponse)
-{-# DEPRECATED gpsrsPipelineVersion "Use generic-lens or generic-optics with 'pipelineVersion' instead." #-}
+gpsrrsPipelineVersion :: Lens.Lens' GetPipelineStateResponse (Core.Maybe Core.Natural)
+gpsrrsPipelineVersion = Lens.field @"pipelineVersion"
+{-# DEPRECATED gpsrrsPipelineVersion "Use generic-lens or generic-optics with 'pipelineVersion' instead." #-}
+
+-- | A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
+--
+-- /Note:/ Consider using 'stageStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsrrsStageStates :: Lens.Lens' GetPipelineStateResponse (Core.Maybe [Types.StageState])
+gpsrrsStageStates = Lens.field @"stageStates"
+{-# DEPRECATED gpsrrsStageStates "Use generic-lens or generic-optics with 'stageStates' instead." #-}
 
 -- | The date and time the pipeline was last updated, in timestamp format.
 --
 -- /Note:/ Consider using 'updated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsUpdated :: Lens.Lens' GetPipelineStateResponse (Lude.Maybe Lude.Timestamp)
-gpsrsUpdated = Lens.lens (updated :: GetPipelineStateResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {updated = a} :: GetPipelineStateResponse)
-{-# DEPRECATED gpsrsUpdated "Use generic-lens or generic-optics with 'updated' instead." #-}
+gpsrrsUpdated :: Lens.Lens' GetPipelineStateResponse (Core.Maybe Core.NominalDiffTime)
+gpsrrsUpdated = Lens.field @"updated"
+{-# DEPRECATED gpsrrsUpdated "Use generic-lens or generic-optics with 'updated' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsResponseStatus :: Lens.Lens' GetPipelineStateResponse Lude.Int
-gpsrsResponseStatus = Lens.lens (responseStatus :: GetPipelineStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPipelineStateResponse)
-{-# DEPRECATED gpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpsrrsResponseStatus :: Lens.Lens' GetPipelineStateResponse Core.Int
+gpsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

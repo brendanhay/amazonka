@@ -23,7 +23,7 @@ module Network.AWS.ServerlessApplicationRepository.Types.Tag
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This property corresponds to the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/Tag Tag> / Data Type.
 --
@@ -33,27 +33,21 @@ data Tag = Tag'
     --
     --  Tag> /
     --  Data Type.
-    value :: Lude.Text,
+    value :: Core.Text,
     -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/Tag Tag> / Data Type.
-    key :: Lude.Text
+    key :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'value' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/Tag
---
---  Tag> /
---  Data Type.
--- * 'key' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/Tag Tag> / Data Type.
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
   -- | 'value'
-  Lude.Text ->
+  Core.Text ->
   -- | 'key'
-  Lude.Text ->
+  Core.Text ->
   Tag
-mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
+mkTag value key = Tag' {value, key}
 
 -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/Tag
 --
@@ -61,20 +55,20 @@ mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
 --  Data Type.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValue :: Lens.Lens' Tag Lude.Text
-tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
+tValue :: Lens.Lens' Tag Core.Text
+tValue = Lens.field @"value"
 {-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/Tag Tag> / Data Type.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+tKey :: Lens.Lens' Tag Core.Text
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON Tag where
-  toJSON Tag' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("value" Lude..= value), Lude.Just ("key" Lude..= key)]
+instance Core.FromJSON Tag where
+  toJSON Tag {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("value" Core..= value), Core.Just ("key" Core..= key)]
       )

@@ -49,36 +49,33 @@ module Network.AWS.DynamoDB.BatchWriteItem
     mkBatchWriteItem,
 
     -- ** Request lenses
+    bwiRequestItems,
     bwiReturnConsumedCapacity,
     bwiReturnItemCollectionMetrics,
-    bwiRequestItems,
 
     -- * Destructuring the response
     BatchWriteItemResponse (..),
     mkBatchWriteItemResponse,
 
     -- ** Response lenses
-    bwirsItemCollectionMetrics,
-    bwirsConsumedCapacity,
-    bwirsUnprocessedItems,
-    bwirsResponseStatus,
+    bwirrsConsumedCapacity,
+    bwirrsItemCollectionMetrics,
+    bwirrsUnprocessedItems,
+    bwirrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @BatchWriteItem@ operation.
 --
 -- /See:/ 'mkBatchWriteItem' smart constructor.
 data BatchWriteItem = BatchWriteItem'
-  { returnConsumedCapacity :: Lude.Maybe ReturnConsumedCapacity,
-    -- | Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
-    returnItemCollectionMetrics :: Lude.Maybe ReturnItemCollectionMetrics,
-    -- | A map of one or more table names and, for each table, a list of operations to be performed (@DeleteRequest@ or @PutRequest@ ). Each element in the map consists of the following:
+  { -- | A map of one or more table names and, for each table, a list of operations to be performed (@DeleteRequest@ or @PutRequest@ ). Each element in the map consists of the following:
     --
     --
     --     * @DeleteRequest@ - Perform a @DeleteItem@ operation on the specified item. The item to be deleted is identified by a @Key@ subelement:
@@ -92,51 +89,23 @@ data BatchWriteItem = BatchWriteItem'
     --
     --     * @Item@ - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values are rejected with a @ValidationException@ exception.
     -- If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.
-    requestItems :: Lude.HashMap Lude.Text (Lude.NonEmpty WriteRequest)
+    requestItems :: Core.HashMap Types.TableName (Core.NonEmpty Types.WriteRequest),
+    returnConsumedCapacity :: Core.Maybe Types.ReturnConsumedCapacity,
+    -- | Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
+    returnItemCollectionMetrics :: Core.Maybe Types.ReturnItemCollectionMetrics
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchWriteItem' with the minimum fields required to make a request.
---
--- * 'returnConsumedCapacity' -
--- * 'returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
--- * 'requestItems' - A map of one or more table names and, for each table, a list of operations to be performed (@DeleteRequest@ or @PutRequest@ ). Each element in the map consists of the following:
---
---
---     * @DeleteRequest@ - Perform a @DeleteItem@ operation on the specified item. The item to be deleted is identified by a @Key@ subelement:
---
---     * @Key@ - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value. For each primary key, you must provide /all/ of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for /both/ the partition key and the sort key.
---
---
---
---
---     * @PutRequest@ - Perform a @PutItem@ operation on the specified item. The item to be put is identified by an @Item@ subelement:
---
---     * @Item@ - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values are rejected with a @ValidationException@ exception.
--- If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.
+-- | Creates a 'BatchWriteItem' value with any optional fields omitted.
 mkBatchWriteItem ::
   BatchWriteItem
 mkBatchWriteItem =
   BatchWriteItem'
-    { returnConsumedCapacity = Lude.Nothing,
-      returnItemCollectionMetrics = Lude.Nothing,
-      requestItems = Lude.mempty
+    { requestItems = Core.mempty,
+      returnConsumedCapacity = Core.Nothing,
+      returnItemCollectionMetrics = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'returnConsumedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bwiReturnConsumedCapacity :: Lens.Lens' BatchWriteItem (Lude.Maybe ReturnConsumedCapacity)
-bwiReturnConsumedCapacity = Lens.lens (returnConsumedCapacity :: BatchWriteItem -> Lude.Maybe ReturnConsumedCapacity) (\s a -> s {returnConsumedCapacity = a} :: BatchWriteItem)
-{-# DEPRECATED bwiReturnConsumedCapacity "Use generic-lens or generic-optics with 'returnConsumedCapacity' instead." #-}
-
--- | Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
---
--- /Note:/ Consider using 'returnItemCollectionMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bwiReturnItemCollectionMetrics :: Lens.Lens' BatchWriteItem (Lude.Maybe ReturnItemCollectionMetrics)
-bwiReturnItemCollectionMetrics = Lens.lens (returnItemCollectionMetrics :: BatchWriteItem -> Lude.Maybe ReturnItemCollectionMetrics) (\s a -> s {returnItemCollectionMetrics = a} :: BatchWriteItem)
-{-# DEPRECATED bwiReturnItemCollectionMetrics "Use generic-lens or generic-optics with 'returnItemCollectionMetrics' instead." #-}
 
 -- | A map of one or more table names and, for each table, a list of operations to be performed (@DeleteRequest@ or @PutRequest@ ). Each element in the map consists of the following:
 --
@@ -158,57 +127,72 @@ bwiReturnItemCollectionMetrics = Lens.lens (returnItemCollectionMetrics :: Batch
 --
 --
 -- /Note:/ Consider using 'requestItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bwiRequestItems :: Lens.Lens' BatchWriteItem (Lude.HashMap Lude.Text (Lude.NonEmpty WriteRequest))
-bwiRequestItems = Lens.lens (requestItems :: BatchWriteItem -> Lude.HashMap Lude.Text (Lude.NonEmpty WriteRequest)) (\s a -> s {requestItems = a} :: BatchWriteItem)
+bwiRequestItems :: Lens.Lens' BatchWriteItem (Core.HashMap Types.TableName (Core.NonEmpty Types.WriteRequest))
+bwiRequestItems = Lens.field @"requestItems"
 {-# DEPRECATED bwiRequestItems "Use generic-lens or generic-optics with 'requestItems' instead." #-}
 
-instance Lude.AWSRequest BatchWriteItem where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'returnConsumedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwiReturnConsumedCapacity :: Lens.Lens' BatchWriteItem (Core.Maybe Types.ReturnConsumedCapacity)
+bwiReturnConsumedCapacity = Lens.field @"returnConsumedCapacity"
+{-# DEPRECATED bwiReturnConsumedCapacity "Use generic-lens or generic-optics with 'returnConsumedCapacity' instead." #-}
+
+-- | Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
+--
+-- /Note:/ Consider using 'returnItemCollectionMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwiReturnItemCollectionMetrics :: Lens.Lens' BatchWriteItem (Core.Maybe Types.ReturnItemCollectionMetrics)
+bwiReturnItemCollectionMetrics = Lens.field @"returnItemCollectionMetrics"
+{-# DEPRECATED bwiReturnItemCollectionMetrics "Use generic-lens or generic-optics with 'returnItemCollectionMetrics' instead." #-}
+
+instance Core.FromJSON BatchWriteItem where
+  toJSON BatchWriteItem {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RequestItems" Core..= requestItems),
+            ("ReturnConsumedCapacity" Core..=) Core.<$> returnConsumedCapacity,
+            ("ReturnItemCollectionMetrics" Core..=)
+              Core.<$> returnItemCollectionMetrics
+          ]
+      )
+
+instance Core.AWSRequest BatchWriteItem where
   type Rs BatchWriteItem = BatchWriteItemResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.BatchWriteItem")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchWriteItemResponse'
-            Lude.<$> (x Lude..?> "ItemCollectionMetrics" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "ConsumedCapacity" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "UnprocessedItems" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ConsumedCapacity")
+            Core.<*> (x Core..:? "ItemCollectionMetrics")
+            Core.<*> (x Core..:? "UnprocessedItems")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchWriteItem where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.BatchWriteItem" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchWriteItem where
-  toJSON BatchWriteItem' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ReturnConsumedCapacity" Lude..=)
-              Lude.<$> returnConsumedCapacity,
-            ("ReturnItemCollectionMetrics" Lude..=)
-              Lude.<$> returnItemCollectionMetrics,
-            Lude.Just ("RequestItems" Lude..= requestItems)
-          ]
-      )
-
-instance Lude.ToPath BatchWriteItem where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchWriteItem where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @BatchWriteItem@ operation.
 --
 -- /See:/ 'mkBatchWriteItemResponse' smart constructor.
 data BatchWriteItemResponse = BatchWriteItemResponse'
-  { -- | A list of tables that were processed by @BatchWriteItem@ and, for each table, information about any item collections that were affected by individual @DeleteItem@ or @PutItem@ operations.
+  { -- | The capacity units consumed by the entire @BatchWriteItem@ operation.
+    --
+    -- Each element consists of:
+    --
+    --     * @TableName@ - The table that consumed the provisioned throughput.
+    --
+    --
+    --     * @CapacityUnits@ - The total number of capacity units consumed.
+    consumedCapacity :: Core.Maybe [Types.ConsumedCapacity],
+    -- | A list of tables that were processed by @BatchWriteItem@ and, for each table, information about any item collections that were affected by individual @DeleteItem@ or @PutItem@ operations.
     --
     -- Each entry consists of the following subelements:
     --
@@ -217,16 +201,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     --
     --     * @SizeEstimateRangeGB@ - An estimate of item collection size, expressed in GB. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on the table. Use this estimate to measure whether a local secondary index is approaching its size limit.
     -- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
-    itemCollectionMetrics :: Lude.Maybe (Lude.HashMap Lude.Text ([ItemCollectionMetrics])),
-    -- | The capacity units consumed by the entire @BatchWriteItem@ operation.
-    --
-    -- Each element consists of:
-    --
-    --     * @TableName@ - The table that consumed the provisioned throughput.
-    --
-    --
-    --     * @CapacityUnits@ - The total number of capacity units consumed.
-    consumedCapacity :: Lude.Maybe [ConsumedCapacity],
+    itemCollectionMetrics :: Core.Maybe (Core.HashMap Types.TableName [Types.ItemCollectionMetrics]),
     -- | A map of tables and requests against those tables that were not processed. The @UnprocessedItems@ value is in the same form as @RequestItems@ , so you can provide this value directly to a subsequent @BatchGetItem@ operation. For more information, see @RequestItems@ in the Request Parameters section.
     --
     -- Each @UnprocessedItems@ entry consists of a table name and, for that table, a list of operations to perform (@DeleteRequest@ or @PutRequest@ ).
@@ -247,27 +222,27 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     --
     --
     -- If there are no unprocessed items remaining, the response contains an empty @UnprocessedItems@ map.
-    unprocessedItems :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty WriteRequest)),
+    unprocessedItems :: Core.Maybe (Core.HashMap Types.TableName (Core.NonEmpty Types.WriteRequest)),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchWriteItemResponse' with the minimum fields required to make a request.
---
--- * 'itemCollectionMetrics' - A list of tables that were processed by @BatchWriteItem@ and, for each table, information about any item collections that were affected by individual @DeleteItem@ or @PutItem@ operations.
---
--- Each entry consists of the following subelements:
---
---     * @ItemCollectionKey@ - The partition key value of the item collection. This is the same as the partition key value of the item.
---
---
---     * @SizeEstimateRangeGB@ - An estimate of item collection size, expressed in GB. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on the table. Use this estimate to measure whether a local secondary index is approaching its size limit.
--- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
---
---
--- * 'consumedCapacity' - The capacity units consumed by the entire @BatchWriteItem@ operation.
+-- | Creates a 'BatchWriteItemResponse' value with any optional fields omitted.
+mkBatchWriteItemResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  BatchWriteItemResponse
+mkBatchWriteItemResponse responseStatus =
+  BatchWriteItemResponse'
+    { consumedCapacity = Core.Nothing,
+      itemCollectionMetrics = Core.Nothing,
+      unprocessedItems = Core.Nothing,
+      responseStatus
+    }
+
+-- | The capacity units consumed by the entire @BatchWriteItem@ operation.
 --
 -- Each element consists of:
 --
@@ -277,38 +252,11 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 --     * @CapacityUnits@ - The total number of capacity units consumed.
 --
 --
--- * 'unprocessedItems' - A map of tables and requests against those tables that were not processed. The @UnprocessedItems@ value is in the same form as @RequestItems@ , so you can provide this value directly to a subsequent @BatchGetItem@ operation. For more information, see @RequestItems@ in the Request Parameters section.
 --
--- Each @UnprocessedItems@ entry consists of a table name and, for that table, a list of operations to perform (@DeleteRequest@ or @PutRequest@ ).
---
---     * @DeleteRequest@ - Perform a @DeleteItem@ operation on the specified item. The item to be deleted is identified by a @Key@ subelement:
---
---     * @Key@ - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.
---
---
---
---
---     * @PutRequest@ - Perform a @PutItem@ operation on the specified item. The item to be put is identified by an @Item@ subelement:
---
---     * @Item@ - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a @ValidationException@ exception.
--- If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.
---
---
---
---
--- If there are no unprocessed items remaining, the response contains an empty @UnprocessedItems@ map.
--- * 'responseStatus' - The response status code.
-mkBatchWriteItemResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  BatchWriteItemResponse
-mkBatchWriteItemResponse pResponseStatus_ =
-  BatchWriteItemResponse'
-    { itemCollectionMetrics = Lude.Nothing,
-      consumedCapacity = Lude.Nothing,
-      unprocessedItems = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+-- /Note:/ Consider using 'consumedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwirrsConsumedCapacity :: Lens.Lens' BatchWriteItemResponse (Core.Maybe [Types.ConsumedCapacity])
+bwirrsConsumedCapacity = Lens.field @"consumedCapacity"
+{-# DEPRECATED bwirrsConsumedCapacity "Use generic-lens or generic-optics with 'consumedCapacity' instead." #-}
 
 -- | A list of tables that were processed by @BatchWriteItem@ and, for each table, information about any item collections that were affected by individual @DeleteItem@ or @PutItem@ operations.
 --
@@ -323,25 +271,9 @@ mkBatchWriteItemResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'itemCollectionMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bwirsItemCollectionMetrics :: Lens.Lens' BatchWriteItemResponse (Lude.Maybe (Lude.HashMap Lude.Text ([ItemCollectionMetrics])))
-bwirsItemCollectionMetrics = Lens.lens (itemCollectionMetrics :: BatchWriteItemResponse -> Lude.Maybe (Lude.HashMap Lude.Text ([ItemCollectionMetrics]))) (\s a -> s {itemCollectionMetrics = a} :: BatchWriteItemResponse)
-{-# DEPRECATED bwirsItemCollectionMetrics "Use generic-lens or generic-optics with 'itemCollectionMetrics' instead." #-}
-
--- | The capacity units consumed by the entire @BatchWriteItem@ operation.
---
--- Each element consists of:
---
---     * @TableName@ - The table that consumed the provisioned throughput.
---
---
---     * @CapacityUnits@ - The total number of capacity units consumed.
---
---
---
--- /Note:/ Consider using 'consumedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bwirsConsumedCapacity :: Lens.Lens' BatchWriteItemResponse (Lude.Maybe [ConsumedCapacity])
-bwirsConsumedCapacity = Lens.lens (consumedCapacity :: BatchWriteItemResponse -> Lude.Maybe [ConsumedCapacity]) (\s a -> s {consumedCapacity = a} :: BatchWriteItemResponse)
-{-# DEPRECATED bwirsConsumedCapacity "Use generic-lens or generic-optics with 'consumedCapacity' instead." #-}
+bwirrsItemCollectionMetrics :: Lens.Lens' BatchWriteItemResponse (Core.Maybe (Core.HashMap Types.TableName [Types.ItemCollectionMetrics]))
+bwirrsItemCollectionMetrics = Lens.field @"itemCollectionMetrics"
+{-# DEPRECATED bwirrsItemCollectionMetrics "Use generic-lens or generic-optics with 'itemCollectionMetrics' instead." #-}
 
 -- | A map of tables and requests against those tables that were not processed. The @UnprocessedItems@ value is in the same form as @RequestItems@ , so you can provide this value directly to a subsequent @BatchGetItem@ operation. For more information, see @RequestItems@ in the Request Parameters section.
 --
@@ -365,13 +297,13 @@ bwirsConsumedCapacity = Lens.lens (consumedCapacity :: BatchWriteItemResponse ->
 -- If there are no unprocessed items remaining, the response contains an empty @UnprocessedItems@ map.
 --
 -- /Note:/ Consider using 'unprocessedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bwirsUnprocessedItems :: Lens.Lens' BatchWriteItemResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty WriteRequest)))
-bwirsUnprocessedItems = Lens.lens (unprocessedItems :: BatchWriteItemResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty WriteRequest))) (\s a -> s {unprocessedItems = a} :: BatchWriteItemResponse)
-{-# DEPRECATED bwirsUnprocessedItems "Use generic-lens or generic-optics with 'unprocessedItems' instead." #-}
+bwirrsUnprocessedItems :: Lens.Lens' BatchWriteItemResponse (Core.Maybe (Core.HashMap Types.TableName (Core.NonEmpty Types.WriteRequest)))
+bwirrsUnprocessedItems = Lens.field @"unprocessedItems"
+{-# DEPRECATED bwirrsUnprocessedItems "Use generic-lens or generic-optics with 'unprocessedItems' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bwirsResponseStatus :: Lens.Lens' BatchWriteItemResponse Lude.Int
-bwirsResponseStatus = Lens.lens (responseStatus :: BatchWriteItemResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchWriteItemResponse)
-{-# DEPRECATED bwirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bwirrsResponseStatus :: Lens.Lens' BatchWriteItemResponse Core.Int
+bwirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bwirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,39 +20,43 @@ module Network.AWS.Comprehend.StartDominantLanguageDetectionJob
     mkStartDominantLanguageDetectionJob,
 
     -- ** Request lenses
-    sdldjJobName,
     sdldjInputDataConfig,
-    sdldjVPCConfig,
-    sdldjVolumeKMSKeyId,
     sdldjOutputDataConfig,
-    sdldjDataAccessRoleARN,
+    sdldjDataAccessRoleArn,
     sdldjClientRequestToken,
+    sdldjJobName,
+    sdldjVolumeKmsKeyId,
+    sdldjVpcConfig,
 
     -- * Destructuring the response
     StartDominantLanguageDetectionJobResponse (..),
     mkStartDominantLanguageDetectionJobResponse,
 
     -- ** Response lenses
-    sdldjrsJobId,
-    sdldjrsJobStatus,
-    sdldjrsResponseStatus,
+    sdldjrrsJobId,
+    sdldjrrsJobStatus,
+    sdldjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartDominantLanguageDetectionJob' smart constructor.
 data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
-  { -- | An identifier for the job.
-    jobName :: Lude.Maybe Lude.Text,
-    -- | Specifies the format and location of the input data for the job.
-    inputDataConfig :: InputDataConfig,
-    -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
-    vpcConfig :: Lude.Maybe VPCConfig,
+  { -- | Specifies the format and location of the input data for the job.
+    inputDataConfig :: Types.InputDataConfig,
+    -- | Specifies where to send the output files.
+    outputDataConfig :: Types.OutputDataConfig,
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
+    dataAccessRoleArn :: Types.IamRoleArn,
+    -- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
+    clientRequestToken :: Core.Maybe Types.ClientRequestTokenString,
+    -- | An identifier for the job.
+    jobName :: Core.Maybe Types.JobName,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
     --
     --
@@ -60,76 +64,70 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
     --
     --
     --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-    volumeKMSKeyId :: Lude.Maybe Lude.Text,
-    -- | Specifies where to send the output files.
-    outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
-    dataAccessRoleARN :: Lude.Text,
-    -- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
-    clientRequestToken :: Lude.Maybe Lude.Text
+    volumeKmsKeyId :: Core.Maybe Types.KmsKeyId,
+    -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+    vpcConfig :: Core.Maybe Types.VpcConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartDominantLanguageDetectionJob' with the minimum fields required to make a request.
---
--- * 'jobName' - An identifier for the job.
--- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
--- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
--- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
---
---
---     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
---
---
---     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
---
---
--- * 'outputDataConfig' - Specifies where to send the output files.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
--- * 'clientRequestToken' - A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
+-- | Creates a 'StartDominantLanguageDetectionJob' value with any optional fields omitted.
 mkStartDominantLanguageDetectionJob ::
   -- | 'inputDataConfig'
-  InputDataConfig ->
+  Types.InputDataConfig ->
   -- | 'outputDataConfig'
-  OutputDataConfig ->
-  -- | 'dataAccessRoleARN'
-  Lude.Text ->
+  Types.OutputDataConfig ->
+  -- | 'dataAccessRoleArn'
+  Types.IamRoleArn ->
   StartDominantLanguageDetectionJob
 mkStartDominantLanguageDetectionJob
-  pInputDataConfig_
-  pOutputDataConfig_
-  pDataAccessRoleARN_ =
+  inputDataConfig
+  outputDataConfig
+  dataAccessRoleArn =
     StartDominantLanguageDetectionJob'
-      { jobName = Lude.Nothing,
-        inputDataConfig = pInputDataConfig_,
-        vpcConfig = Lude.Nothing,
-        volumeKMSKeyId = Lude.Nothing,
-        outputDataConfig = pOutputDataConfig_,
-        dataAccessRoleARN = pDataAccessRoleARN_,
-        clientRequestToken = Lude.Nothing
+      { inputDataConfig,
+        outputDataConfig,
+        dataAccessRoleArn,
+        clientRequestToken = Core.Nothing,
+        jobName = Core.Nothing,
+        volumeKmsKeyId = Core.Nothing,
+        vpcConfig = Core.Nothing
       }
-
--- | An identifier for the job.
---
--- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjJobName :: Lens.Lens' StartDominantLanguageDetectionJob (Lude.Maybe Lude.Text)
-sdldjJobName = Lens.lens (jobName :: StartDominantLanguageDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartDominantLanguageDetectionJob)
-{-# DEPRECATED sdldjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Specifies the format and location of the input data for the job.
 --
 -- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjInputDataConfig :: Lens.Lens' StartDominantLanguageDetectionJob InputDataConfig
-sdldjInputDataConfig = Lens.lens (inputDataConfig :: StartDominantLanguageDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartDominantLanguageDetectionJob)
+sdldjInputDataConfig :: Lens.Lens' StartDominantLanguageDetectionJob Types.InputDataConfig
+sdldjInputDataConfig = Lens.field @"inputDataConfig"
 {-# DEPRECATED sdldjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
--- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+-- | Specifies where to send the output files.
 --
--- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjVPCConfig :: Lens.Lens' StartDominantLanguageDetectionJob (Lude.Maybe VPCConfig)
-sdldjVPCConfig = Lens.lens (vpcConfig :: StartDominantLanguageDetectionJob -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: StartDominantLanguageDetectionJob)
-{-# DEPRECATED sdldjVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdldjOutputDataConfig :: Lens.Lens' StartDominantLanguageDetectionJob Types.OutputDataConfig
+sdldjOutputDataConfig = Lens.field @"outputDataConfig"
+{-# DEPRECATED sdldjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
+--
+-- /Note:/ Consider using 'dataAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdldjDataAccessRoleArn :: Lens.Lens' StartDominantLanguageDetectionJob Types.IamRoleArn
+sdldjDataAccessRoleArn = Lens.field @"dataAccessRoleArn"
+{-# DEPRECATED sdldjDataAccessRoleArn "Use generic-lens or generic-optics with 'dataAccessRoleArn' instead." #-}
+
+-- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdldjClientRequestToken :: Lens.Lens' StartDominantLanguageDetectionJob (Core.Maybe Types.ClientRequestTokenString)
+sdldjClientRequestToken = Lens.field @"clientRequestToken"
+{-# DEPRECATED sdldjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+-- | An identifier for the job.
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdldjJobName :: Lens.Lens' StartDominantLanguageDetectionJob (Core.Maybe Types.JobName)
+sdldjJobName = Lens.field @"jobName"
+{-# DEPRECATED sdldjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
@@ -141,83 +139,63 @@ sdldjVPCConfig = Lens.lens (vpcConfig :: StartDominantLanguageDetectionJob -> Lu
 --
 --
 --
--- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjVolumeKMSKeyId :: Lens.Lens' StartDominantLanguageDetectionJob (Lude.Maybe Lude.Text)
-sdldjVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: StartDominantLanguageDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: StartDominantLanguageDetectionJob)
-{-# DEPRECATED sdldjVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
+-- /Note:/ Consider using 'volumeKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdldjVolumeKmsKeyId :: Lens.Lens' StartDominantLanguageDetectionJob (Core.Maybe Types.KmsKeyId)
+sdldjVolumeKmsKeyId = Lens.field @"volumeKmsKeyId"
+{-# DEPRECATED sdldjVolumeKmsKeyId "Use generic-lens or generic-optics with 'volumeKmsKeyId' instead." #-}
 
--- | Specifies where to send the output files.
+-- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 --
--- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjOutputDataConfig :: Lens.Lens' StartDominantLanguageDetectionJob OutputDataConfig
-sdldjOutputDataConfig = Lens.lens (outputDataConfig :: StartDominantLanguageDetectionJob -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: StartDominantLanguageDetectionJob)
-{-# DEPRECATED sdldjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdldjVpcConfig :: Lens.Lens' StartDominantLanguageDetectionJob (Core.Maybe Types.VpcConfig)
+sdldjVpcConfig = Lens.field @"vpcConfig"
+{-# DEPRECATED sdldjVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
---
--- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjDataAccessRoleARN :: Lens.Lens' StartDominantLanguageDetectionJob Lude.Text
-sdldjDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartDominantLanguageDetectionJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartDominantLanguageDetectionJob)
-{-# DEPRECATED sdldjDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
+instance Core.FromJSON StartDominantLanguageDetectionJob where
+  toJSON StartDominantLanguageDetectionJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InputDataConfig" Core..= inputDataConfig),
+            Core.Just ("OutputDataConfig" Core..= outputDataConfig),
+            Core.Just ("DataAccessRoleArn" Core..= dataAccessRoleArn),
+            ("ClientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("JobName" Core..=) Core.<$> jobName,
+            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
+            ("VpcConfig" Core..=) Core.<$> vpcConfig
+          ]
+      )
 
--- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjClientRequestToken :: Lens.Lens' StartDominantLanguageDetectionJob (Lude.Maybe Lude.Text)
-sdldjClientRequestToken = Lens.lens (clientRequestToken :: StartDominantLanguageDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartDominantLanguageDetectionJob)
-{-# DEPRECATED sdldjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
-instance Lude.AWSRequest StartDominantLanguageDetectionJob where
+instance Core.AWSRequest StartDominantLanguageDetectionJob where
   type
     Rs StartDominantLanguageDetectionJob =
       StartDominantLanguageDetectionJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.StartDominantLanguageDetectionJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartDominantLanguageDetectionJobResponse'
-            Lude.<$> (x Lude..?> "JobId")
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId")
+            Core.<*> (x Core..:? "JobStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartDominantLanguageDetectionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.StartDominantLanguageDetectionJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartDominantLanguageDetectionJob where
-  toJSON StartDominantLanguageDetectionJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("JobName" Lude..=) Lude.<$> jobName,
-            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
-            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
-            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
-            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
-          ]
-      )
-
-instance Lude.ToPath StartDominantLanguageDetectionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartDominantLanguageDetectionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartDominantLanguageDetectionJobResponse' smart constructor.
 data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJobResponse'
   { -- | The identifier generated for the job. To get the status of a job, use this identifier with the operation.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The status of the job.
     --
     --
@@ -231,49 +209,31 @@ data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJ
     --
     --
     --     * FAILED - The job did not complete. To get details, use the operation.
-    jobStatus :: Lude.Maybe JobStatus,
+    jobStatus :: Core.Maybe Types.JobStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartDominantLanguageDetectionJobResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier generated for the job. To get the status of a job, use this identifier with the operation.
--- * 'jobStatus' - The status of the job.
---
---
---     * SUBMITTED - The job has been received and is queued for processing.
---
---
---     * IN_PROGRESS - Amazon Comprehend is processing the job.
---
---
---     * COMPLETED - The job was successfully completed and the output is available.
---
---
---     * FAILED - The job did not complete. To get details, use the operation.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartDominantLanguageDetectionJobResponse' value with any optional fields omitted.
 mkStartDominantLanguageDetectionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartDominantLanguageDetectionJobResponse
-mkStartDominantLanguageDetectionJobResponse pResponseStatus_ =
+mkStartDominantLanguageDetectionJobResponse responseStatus =
   StartDominantLanguageDetectionJobResponse'
-    { jobId = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      jobStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier generated for the job. To get the status of a job, use this identifier with the operation.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjrsJobId :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Lude.Maybe Lude.Text)
-sdldjrsJobId = Lens.lens (jobId :: StartDominantLanguageDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartDominantLanguageDetectionJobResponse)
-{-# DEPRECATED sdldjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+sdldjrrsJobId :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Core.Maybe Types.JobId)
+sdldjrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED sdldjrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The status of the job.
 --
@@ -292,13 +252,13 @@ sdldjrsJobId = Lens.lens (jobId :: StartDominantLanguageDetectionJobResponse -> 
 --
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjrsJobStatus :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Lude.Maybe JobStatus)
-sdldjrsJobStatus = Lens.lens (jobStatus :: StartDominantLanguageDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StartDominantLanguageDetectionJobResponse)
-{-# DEPRECATED sdldjrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+sdldjrrsJobStatus :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Core.Maybe Types.JobStatus)
+sdldjrrsJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED sdldjrrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjrsResponseStatus :: Lens.Lens' StartDominantLanguageDetectionJobResponse Lude.Int
-sdldjrsResponseStatus = Lens.lens (responseStatus :: StartDominantLanguageDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDominantLanguageDetectionJobResponse)
-{-# DEPRECATED sdldjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdldjrrsResponseStatus :: Lens.Lens' StartDominantLanguageDetectionJobResponse Core.Int
+sdldjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sdldjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

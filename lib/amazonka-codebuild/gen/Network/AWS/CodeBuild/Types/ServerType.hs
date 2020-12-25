@@ -13,51 +13,53 @@
 module Network.AWS.CodeBuild.Types.ServerType
   ( ServerType
       ( ServerType',
-        Github,
-        Bitbucket,
-        GithubEnterprise
+        ServerTypeGithub,
+        ServerTypeBitbucket,
+        ServerTypeGithubEnterprise,
+        fromServerType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServerType = ServerType' Lude.Text
+newtype ServerType = ServerType' {fromServerType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Github :: ServerType
-pattern Github = ServerType' "GITHUB"
+pattern ServerTypeGithub :: ServerType
+pattern ServerTypeGithub = ServerType' "GITHUB"
 
-pattern Bitbucket :: ServerType
-pattern Bitbucket = ServerType' "BITBUCKET"
+pattern ServerTypeBitbucket :: ServerType
+pattern ServerTypeBitbucket = ServerType' "BITBUCKET"
 
-pattern GithubEnterprise :: ServerType
-pattern GithubEnterprise = ServerType' "GITHUB_ENTERPRISE"
+pattern ServerTypeGithubEnterprise :: ServerType
+pattern ServerTypeGithubEnterprise = ServerType' "GITHUB_ENTERPRISE"
 
 {-# COMPLETE
-  Github,
-  Bitbucket,
-  GithubEnterprise,
+  ServerTypeGithub,
+  ServerTypeBitbucket,
+  ServerTypeGithubEnterprise,
   ServerType'
   #-}

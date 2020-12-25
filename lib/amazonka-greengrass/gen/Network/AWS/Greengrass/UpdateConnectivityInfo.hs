@@ -28,139 +28,128 @@ module Network.AWS.Greengrass.UpdateConnectivityInfo
     mkUpdateConnectivityInfoResponse,
 
     -- ** Response lenses
-    ucirsVersion,
-    ucirsMessage,
-    ucirsResponseStatus,
+    ucirrsMessage,
+    ucirrsVersion,
+    ucirrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Connectivity information.
 --
 -- /See:/ 'mkUpdateConnectivityInfo' smart constructor.
 data UpdateConnectivityInfo = UpdateConnectivityInfo'
   { -- | The thing name.
-    thingName :: Lude.Text,
+    thingName :: Core.Text,
     -- | A list of connectivity info.
-    connectivityInfo :: Lude.Maybe [ConnectivityInfo]
+    connectivityInfo :: Core.Maybe [Types.ConnectivityInfo]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConnectivityInfo' with the minimum fields required to make a request.
---
--- * 'thingName' - The thing name.
--- * 'connectivityInfo' - A list of connectivity info.
+-- | Creates a 'UpdateConnectivityInfo' value with any optional fields omitted.
 mkUpdateConnectivityInfo ::
   -- | 'thingName'
-  Lude.Text ->
+  Core.Text ->
   UpdateConnectivityInfo
-mkUpdateConnectivityInfo pThingName_ =
+mkUpdateConnectivityInfo thingName =
   UpdateConnectivityInfo'
-    { thingName = pThingName_,
-      connectivityInfo = Lude.Nothing
+    { thingName,
+      connectivityInfo = Core.Nothing
     }
 
 -- | The thing name.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uciThingName :: Lens.Lens' UpdateConnectivityInfo Lude.Text
-uciThingName = Lens.lens (thingName :: UpdateConnectivityInfo -> Lude.Text) (\s a -> s {thingName = a} :: UpdateConnectivityInfo)
+uciThingName :: Lens.Lens' UpdateConnectivityInfo Core.Text
+uciThingName = Lens.field @"thingName"
 {-# DEPRECATED uciThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | A list of connectivity info.
 --
 -- /Note:/ Consider using 'connectivityInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uciConnectivityInfo :: Lens.Lens' UpdateConnectivityInfo (Lude.Maybe [ConnectivityInfo])
-uciConnectivityInfo = Lens.lens (connectivityInfo :: UpdateConnectivityInfo -> Lude.Maybe [ConnectivityInfo]) (\s a -> s {connectivityInfo = a} :: UpdateConnectivityInfo)
+uciConnectivityInfo :: Lens.Lens' UpdateConnectivityInfo (Core.Maybe [Types.ConnectivityInfo])
+uciConnectivityInfo = Lens.field @"connectivityInfo"
 {-# DEPRECATED uciConnectivityInfo "Use generic-lens or generic-optics with 'connectivityInfo' instead." #-}
 
-instance Lude.AWSRequest UpdateConnectivityInfo where
+instance Core.FromJSON UpdateConnectivityInfo where
+  toJSON UpdateConnectivityInfo {..} =
+    Core.object
+      ( Core.catMaybes
+          [("ConnectivityInfo" Core..=) Core.<$> connectivityInfo]
+      )
+
+instance Core.AWSRequest UpdateConnectivityInfo where
   type Rs UpdateConnectivityInfo = UpdateConnectivityInfoResponse
-  request = Req.putJSON greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/things/" Core.<> (Core.toText thingName)
+                Core.<> ("/connectivityInfo")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateConnectivityInfoResponse'
-            Lude.<$> (x Lude..?> "Version")
-            Lude.<*> (x Lude..?> "message")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateConnectivityInfo where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateConnectivityInfo where
-  toJSON UpdateConnectivityInfo' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("ConnectivityInfo" Lude..=) Lude.<$> connectivityInfo]
-      )
-
-instance Lude.ToPath UpdateConnectivityInfo where
-  toPath UpdateConnectivityInfo' {..} =
-    Lude.mconcat
-      ["/greengrass/things/", Lude.toBS thingName, "/connectivityInfo"]
-
-instance Lude.ToQuery UpdateConnectivityInfo where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateConnectivityInfoResponse' smart constructor.
 data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
-  { -- | The new version of the connectivity info.
-    version :: Lude.Maybe Lude.Text,
-    -- | A message about the connectivity info update request.
-    message :: Lude.Maybe Lude.Text,
+  { -- | A message about the connectivity info update request.
+    message :: Core.Maybe Core.Text,
+    -- | The new version of the connectivity info.
+    version :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConnectivityInfoResponse' with the minimum fields required to make a request.
---
--- * 'version' - The new version of the connectivity info.
--- * 'message' - A message about the connectivity info update request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateConnectivityInfoResponse' value with any optional fields omitted.
 mkUpdateConnectivityInfoResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateConnectivityInfoResponse
-mkUpdateConnectivityInfoResponse pResponseStatus_ =
+mkUpdateConnectivityInfoResponse responseStatus =
   UpdateConnectivityInfoResponse'
-    { version = Lude.Nothing,
-      message = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { message = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
-
--- | The new version of the connectivity info.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucirsVersion :: Lens.Lens' UpdateConnectivityInfoResponse (Lude.Maybe Lude.Text)
-ucirsVersion = Lens.lens (version :: UpdateConnectivityInfoResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: UpdateConnectivityInfoResponse)
-{-# DEPRECATED ucirsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | A message about the connectivity info update request.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucirsMessage :: Lens.Lens' UpdateConnectivityInfoResponse (Lude.Maybe Lude.Text)
-ucirsMessage = Lens.lens (message :: UpdateConnectivityInfoResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: UpdateConnectivityInfoResponse)
-{-# DEPRECATED ucirsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+ucirrsMessage :: Lens.Lens' UpdateConnectivityInfoResponse (Core.Maybe Core.Text)
+ucirrsMessage = Lens.field @"message"
+{-# DEPRECATED ucirrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The new version of the connectivity info.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucirrsVersion :: Lens.Lens' UpdateConnectivityInfoResponse (Core.Maybe Core.Text)
+ucirrsVersion = Lens.field @"version"
+{-# DEPRECATED ucirrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucirsResponseStatus :: Lens.Lens' UpdateConnectivityInfoResponse Lude.Int
-ucirsResponseStatus = Lens.lens (responseStatus :: UpdateConnectivityInfoResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateConnectivityInfoResponse)
-{-# DEPRECATED ucirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucirrsResponseStatus :: Lens.Lens' UpdateConnectivityInfoResponse Core.Int
+ucirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

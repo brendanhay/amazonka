@@ -13,51 +13,53 @@
 module Network.AWS.SWF.Types.ChildPolicy
   ( ChildPolicy
       ( ChildPolicy',
-        Terminate,
-        RequestCancel,
-        Abandon
+        ChildPolicyTerminate,
+        ChildPolicyRequestCancel,
+        ChildPolicyAbandon,
+        fromChildPolicy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ChildPolicy = ChildPolicy' Lude.Text
+newtype ChildPolicy = ChildPolicy' {fromChildPolicy :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Terminate :: ChildPolicy
-pattern Terminate = ChildPolicy' "TERMINATE"
+pattern ChildPolicyTerminate :: ChildPolicy
+pattern ChildPolicyTerminate = ChildPolicy' "TERMINATE"
 
-pattern RequestCancel :: ChildPolicy
-pattern RequestCancel = ChildPolicy' "REQUEST_CANCEL"
+pattern ChildPolicyRequestCancel :: ChildPolicy
+pattern ChildPolicyRequestCancel = ChildPolicy' "REQUEST_CANCEL"
 
-pattern Abandon :: ChildPolicy
-pattern Abandon = ChildPolicy' "ABANDON"
+pattern ChildPolicyAbandon :: ChildPolicy
+pattern ChildPolicyAbandon = ChildPolicy' "ABANDON"
 
 {-# COMPLETE
-  Terminate,
-  RequestCancel,
-  Abandon,
+  ChildPolicyTerminate,
+  ChildPolicyRequestCancel,
+  ChildPolicyAbandon,
   ChildPolicy'
   #-}

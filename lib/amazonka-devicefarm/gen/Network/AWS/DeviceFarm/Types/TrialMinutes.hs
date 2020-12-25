@@ -23,48 +23,43 @@ module Network.AWS.DeviceFarm.Types.TrialMinutes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about free trial device minutes for an AWS account.
 --
 -- /See:/ 'mkTrialMinutes' smart constructor.
 data TrialMinutes = TrialMinutes'
   { -- | The number of free trial minutes remaining in the account.
-    remaining :: Lude.Maybe Lude.Double,
+    remaining :: Core.Maybe Core.Double,
     -- | The total number of free trial minutes that the account started with.
-    total :: Lude.Maybe Lude.Double
+    total :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrialMinutes' with the minimum fields required to make a request.
---
--- * 'remaining' - The number of free trial minutes remaining in the account.
--- * 'total' - The total number of free trial minutes that the account started with.
+-- | Creates a 'TrialMinutes' value with any optional fields omitted.
 mkTrialMinutes ::
   TrialMinutes
 mkTrialMinutes =
-  TrialMinutes' {remaining = Lude.Nothing, total = Lude.Nothing}
+  TrialMinutes' {remaining = Core.Nothing, total = Core.Nothing}
 
 -- | The number of free trial minutes remaining in the account.
 --
 -- /Note:/ Consider using 'remaining' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmRemaining :: Lens.Lens' TrialMinutes (Lude.Maybe Lude.Double)
-tmRemaining = Lens.lens (remaining :: TrialMinutes -> Lude.Maybe Lude.Double) (\s a -> s {remaining = a} :: TrialMinutes)
+tmRemaining :: Lens.Lens' TrialMinutes (Core.Maybe Core.Double)
+tmRemaining = Lens.field @"remaining"
 {-# DEPRECATED tmRemaining "Use generic-lens or generic-optics with 'remaining' instead." #-}
 
 -- | The total number of free trial minutes that the account started with.
 --
 -- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmTotal :: Lens.Lens' TrialMinutes (Lude.Maybe Lude.Double)
-tmTotal = Lens.lens (total :: TrialMinutes -> Lude.Maybe Lude.Double) (\s a -> s {total = a} :: TrialMinutes)
+tmTotal :: Lens.Lens' TrialMinutes (Core.Maybe Core.Double)
+tmTotal = Lens.field @"total"
 {-# DEPRECATED tmTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
-instance Lude.FromJSON TrialMinutes where
+instance Core.FromJSON TrialMinutes where
   parseJSON =
-    Lude.withObject
-      "TrialMinutes"
-      ( \x ->
-          TrialMinutes'
-            Lude.<$> (x Lude..:? "remaining") Lude.<*> (x Lude..:? "total")
-      )
+    Core.withObject "TrialMinutes" Core.$
+      \x ->
+        TrialMinutes'
+          Core.<$> (x Core..:? "remaining") Core.<*> (x Core..:? "total")

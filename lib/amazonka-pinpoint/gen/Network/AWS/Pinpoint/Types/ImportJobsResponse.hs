@@ -17,56 +17,51 @@ module Network.AWS.Pinpoint.Types.ImportJobsResponse
     mkImportJobsResponse,
 
     -- * Lenses
-    ijNextToken,
-    ijItem,
+    ijrItem,
+    ijrNextToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ImportJobResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ImportJobResponse as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.
 --
 -- /See:/ 'mkImportJobsResponse' smart constructor.
 data ImportJobsResponse = ImportJobsResponse'
-  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
-    item :: [ImportJobResponse]
+  { -- | An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
+    item :: [Types.ImportJobResponse],
+    -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportJobsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
--- * 'item' - An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
+-- | Creates a 'ImportJobsResponse' value with any optional fields omitted.
 mkImportJobsResponse ::
   ImportJobsResponse
 mkImportJobsResponse =
-  ImportJobsResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
-
--- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ijNextToken :: Lens.Lens' ImportJobsResponse (Lude.Maybe Lude.Text)
-ijNextToken = Lens.lens (nextToken :: ImportJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ImportJobsResponse)
-{-# DEPRECATED ijNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ImportJobsResponse' {item = Core.mempty, nextToken = Core.Nothing}
 
 -- | An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ijItem :: Lens.Lens' ImportJobsResponse [ImportJobResponse]
-ijItem = Lens.lens (item :: ImportJobsResponse -> [ImportJobResponse]) (\s a -> s {item = a} :: ImportJobsResponse)
-{-# DEPRECATED ijItem "Use generic-lens or generic-optics with 'item' instead." #-}
+ijrItem :: Lens.Lens' ImportJobsResponse [Types.ImportJobResponse]
+ijrItem = Lens.field @"item"
+{-# DEPRECATED ijrItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.FromJSON ImportJobsResponse where
+-- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijrNextToken :: Lens.Lens' ImportJobsResponse (Core.Maybe Core.Text)
+ijrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ijrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ImportJobsResponse where
   parseJSON =
-    Lude.withObject
-      "ImportJobsResponse"
-      ( \x ->
-          ImportJobsResponse'
-            Lude.<$> (x Lude..:? "NextToken")
-            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ImportJobsResponse" Core.$
+      \x ->
+        ImportJobsResponse'
+          Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "NextToken")

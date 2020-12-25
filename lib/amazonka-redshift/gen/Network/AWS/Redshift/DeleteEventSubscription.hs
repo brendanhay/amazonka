@@ -20,7 +20,7 @@ module Network.AWS.Redshift.DeleteEventSubscription
     mkDeleteEventSubscription,
 
     -- ** Request lenses
-    dSubscriptionName,
+    desSubscriptionName,
 
     -- * Destructuring the response
     DeleteEventSubscriptionResponse (..),
@@ -29,63 +29,64 @@ module Network.AWS.Redshift.DeleteEventSubscription
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteEventSubscription' smart constructor.
 newtype DeleteEventSubscription = DeleteEventSubscription'
   { -- | The name of the Amazon Redshift event notification subscription to be deleted.
-    subscriptionName :: Lude.Text
+    subscriptionName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEventSubscription' with the minimum fields required to make a request.
---
--- * 'subscriptionName' - The name of the Amazon Redshift event notification subscription to be deleted.
+-- | Creates a 'DeleteEventSubscription' value with any optional fields omitted.
 mkDeleteEventSubscription ::
   -- | 'subscriptionName'
-  Lude.Text ->
+  Types.String ->
   DeleteEventSubscription
-mkDeleteEventSubscription pSubscriptionName_ =
-  DeleteEventSubscription' {subscriptionName = pSubscriptionName_}
+mkDeleteEventSubscription subscriptionName =
+  DeleteEventSubscription' {subscriptionName}
 
 -- | The name of the Amazon Redshift event notification subscription to be deleted.
 --
 -- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSubscriptionName :: Lens.Lens' DeleteEventSubscription Lude.Text
-dSubscriptionName = Lens.lens (subscriptionName :: DeleteEventSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: DeleteEventSubscription)
-{-# DEPRECATED dSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
+desSubscriptionName :: Lens.Lens' DeleteEventSubscription Types.String
+desSubscriptionName = Lens.field @"subscriptionName"
+{-# DEPRECATED desSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
-instance Lude.AWSRequest DeleteEventSubscription where
+instance Core.AWSRequest DeleteEventSubscription where
   type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
-  request = Req.postQuery redshiftService
-  response = Res.receiveNull DeleteEventSubscriptionResponse'
-
-instance Lude.ToHeaders DeleteEventSubscription where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteEventSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteEventSubscription where
-  toQuery DeleteEventSubscription' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteEventSubscription" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "SubscriptionName" Lude.=: subscriptionName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteEventSubscription")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "SubscriptionName" subscriptionName)
+            )
+      }
+  response = Response.receiveNull DeleteEventSubscriptionResponse'
 
 -- | /See:/ 'mkDeleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEventSubscriptionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteEventSubscriptionResponse' value with any optional fields omitted.
 mkDeleteEventSubscriptionResponse ::
   DeleteEventSubscriptionResponse
 mkDeleteEventSubscriptionResponse =

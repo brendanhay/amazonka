@@ -18,95 +18,89 @@ module Network.AWS.Pinpoint.Types.SMSTemplateRequest
 
     -- * Lenses
     smstrBody,
-    smstrTemplateDescription,
     smstrDefaultSubstitutions,
     smstrRecommenderId,
+    smstrTemplateDescription,
     smstrTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.
 --
 -- /See:/ 'mkSMSTemplateRequest' smart constructor.
 data SMSTemplateRequest = SMSTemplateRequest'
   { -- | The message body to use in text messages that are based on the message template.
-    body :: Lude.Maybe Lude.Text,
-    -- | A custom description of the message template.
-    templateDescription :: Lude.Maybe Lude.Text,
+    body :: Core.Maybe Core.Text,
     -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-    defaultSubstitutions :: Lude.Maybe Lude.Text,
+    defaultSubstitutions :: Core.Maybe Core.Text,
     -- | The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-    recommenderId :: Lude.Maybe Lude.Text,
+    recommenderId :: Core.Maybe Core.Text,
+    -- | A custom description of the message template.
+    templateDescription :: Core.Maybe Core.Text,
     -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SMSTemplateRequest' with the minimum fields required to make a request.
---
--- * 'body' - The message body to use in text messages that are based on the message template.
--- * 'templateDescription' - A custom description of the message template.
--- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
--- * 'recommenderId' - The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
--- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+-- | Creates a 'SMSTemplateRequest' value with any optional fields omitted.
 mkSMSTemplateRequest ::
   SMSTemplateRequest
 mkSMSTemplateRequest =
   SMSTemplateRequest'
-    { body = Lude.Nothing,
-      templateDescription = Lude.Nothing,
-      defaultSubstitutions = Lude.Nothing,
-      recommenderId = Lude.Nothing,
-      tags = Lude.Nothing
+    { body = Core.Nothing,
+      defaultSubstitutions = Core.Nothing,
+      recommenderId = Core.Nothing,
+      templateDescription = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The message body to use in text messages that are based on the message template.
 --
 -- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smstrBody :: Lens.Lens' SMSTemplateRequest (Lude.Maybe Lude.Text)
-smstrBody = Lens.lens (body :: SMSTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: SMSTemplateRequest)
+smstrBody :: Lens.Lens' SMSTemplateRequest (Core.Maybe Core.Text)
+smstrBody = Lens.field @"body"
 {-# DEPRECATED smstrBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | A custom description of the message template.
---
--- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smstrTemplateDescription :: Lens.Lens' SMSTemplateRequest (Lude.Maybe Lude.Text)
-smstrTemplateDescription = Lens.lens (templateDescription :: SMSTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {templateDescription = a} :: SMSTemplateRequest)
-{-# DEPRECATED smstrTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
 
 -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
 --
 -- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smstrDefaultSubstitutions :: Lens.Lens' SMSTemplateRequest (Lude.Maybe Lude.Text)
-smstrDefaultSubstitutions = Lens.lens (defaultSubstitutions :: SMSTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubstitutions = a} :: SMSTemplateRequest)
+smstrDefaultSubstitutions :: Lens.Lens' SMSTemplateRequest (Core.Maybe Core.Text)
+smstrDefaultSubstitutions = Lens.field @"defaultSubstitutions"
 {-# DEPRECATED smstrDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
 
 -- | The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
 --
 -- /Note:/ Consider using 'recommenderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smstrRecommenderId :: Lens.Lens' SMSTemplateRequest (Lude.Maybe Lude.Text)
-smstrRecommenderId = Lens.lens (recommenderId :: SMSTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {recommenderId = a} :: SMSTemplateRequest)
+smstrRecommenderId :: Lens.Lens' SMSTemplateRequest (Core.Maybe Core.Text)
+smstrRecommenderId = Lens.field @"recommenderId"
 {-# DEPRECATED smstrRecommenderId "Use generic-lens or generic-optics with 'recommenderId' instead." #-}
+
+-- | A custom description of the message template.
+--
+-- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smstrTemplateDescription :: Lens.Lens' SMSTemplateRequest (Core.Maybe Core.Text)
+smstrTemplateDescription = Lens.field @"templateDescription"
+{-# DEPRECATED smstrTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
 
 -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smstrTags :: Lens.Lens' SMSTemplateRequest (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-smstrTags = Lens.lens (tags :: SMSTemplateRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: SMSTemplateRequest)
+smstrTags :: Lens.Lens' SMSTemplateRequest (Core.Maybe (Core.HashMap Core.Text Core.Text))
+smstrTags = Lens.field @"tags"
 {-# DEPRECATED smstrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.ToJSON SMSTemplateRequest where
-  toJSON SMSTemplateRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Body" Lude..=) Lude.<$> body,
-            ("TemplateDescription" Lude..=) Lude.<$> templateDescription,
-            ("DefaultSubstitutions" Lude..=) Lude.<$> defaultSubstitutions,
-            ("RecommenderId" Lude..=) Lude.<$> recommenderId,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON SMSTemplateRequest where
+  toJSON SMSTemplateRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Body" Core..=) Core.<$> body,
+            ("DefaultSubstitutions" Core..=) Core.<$> defaultSubstitutions,
+            ("RecommenderId" Core..=) Core.<$> recommenderId,
+            ("TemplateDescription" Core..=) Core.<$> templateDescription,
+            ("tags" Core..=) Core.<$> tags
           ]
       )

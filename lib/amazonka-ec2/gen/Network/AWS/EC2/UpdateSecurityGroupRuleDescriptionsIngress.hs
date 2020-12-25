@@ -22,152 +22,145 @@ module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
     mkUpdateSecurityGroupRuleDescriptionsIngress,
 
     -- ** Request lenses
-    usgrdiIPPermissions,
+    usgrdiIpPermissions,
+    usgrdiDryRun,
     usgrdiGroupId,
     usgrdiGroupName,
-    usgrdiDryRun,
 
     -- * Destructuring the response
     UpdateSecurityGroupRuleDescriptionsIngressResponse (..),
     mkUpdateSecurityGroupRuleDescriptionsIngressResponse,
 
     -- ** Response lenses
-    usgrdirsReturn,
-    usgrdirsResponseStatus,
+    usgrdirrsReturn,
+    usgrdirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateSecurityGroupRuleDescriptionsIngress' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsIngress = UpdateSecurityGroupRuleDescriptionsIngress'
   { -- | The IP permissions for the security group rule.
-    ipPermissions :: [IPPermission],
-    -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
-    groupId :: Lude.Maybe Lude.Text,
-    -- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
-    groupName :: Lude.Maybe Lude.Text,
+    ipPermissions :: [Types.IpPermission],
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+    groupId :: Core.Maybe Types.SecurityGroupId,
+    -- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
+    groupName :: Core.Maybe Types.SecurityGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSecurityGroupRuleDescriptionsIngress' with the minimum fields required to make a request.
---
--- * 'ipPermissions' - The IP permissions for the security group rule.
--- * 'groupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
--- * 'groupName' - [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'UpdateSecurityGroupRuleDescriptionsIngress' value with any optional fields omitted.
 mkUpdateSecurityGroupRuleDescriptionsIngress ::
   UpdateSecurityGroupRuleDescriptionsIngress
 mkUpdateSecurityGroupRuleDescriptionsIngress =
   UpdateSecurityGroupRuleDescriptionsIngress'
     { ipPermissions =
-        Lude.mempty,
-      groupId = Lude.Nothing,
-      groupName = Lude.Nothing,
-      dryRun = Lude.Nothing
+        Core.mempty,
+      dryRun = Core.Nothing,
+      groupId = Core.Nothing,
+      groupName = Core.Nothing
     }
 
 -- | The IP permissions for the security group rule.
 --
 -- /Note:/ Consider using 'ipPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgrdiIPPermissions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress [IPPermission]
-usgrdiIPPermissions = Lens.lens (ipPermissions :: UpdateSecurityGroupRuleDescriptionsIngress -> [IPPermission]) (\s a -> s {ipPermissions = a} :: UpdateSecurityGroupRuleDescriptionsIngress)
-{-# DEPRECATED usgrdiIPPermissions "Use generic-lens or generic-optics with 'ipPermissions' instead." #-}
+usgrdiIpPermissions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress [Types.IpPermission]
+usgrdiIpPermissions = Lens.field @"ipPermissions"
+{-# DEPRECATED usgrdiIpPermissions "Use generic-lens or generic-optics with 'ipPermissions' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgrdiDryRun :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Core.Maybe Core.Bool)
+usgrdiDryRun = Lens.field @"dryRun"
+{-# DEPRECATED usgrdiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgrdiGroupId :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Lude.Maybe Lude.Text)
-usgrdiGroupId = Lens.lens (groupId :: UpdateSecurityGroupRuleDescriptionsIngress -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: UpdateSecurityGroupRuleDescriptionsIngress)
+usgrdiGroupId :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Core.Maybe Types.SecurityGroupId)
+usgrdiGroupId = Lens.field @"groupId"
 {-# DEPRECATED usgrdiGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgrdiGroupName :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Lude.Maybe Lude.Text)
-usgrdiGroupName = Lens.lens (groupName :: UpdateSecurityGroupRuleDescriptionsIngress -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: UpdateSecurityGroupRuleDescriptionsIngress)
+usgrdiGroupName :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Core.Maybe Types.SecurityGroupName)
+usgrdiGroupName = Lens.field @"groupName"
 {-# DEPRECATED usgrdiGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgrdiDryRun :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngress (Lude.Maybe Lude.Bool)
-usgrdiDryRun = Lens.lens (dryRun :: UpdateSecurityGroupRuleDescriptionsIngress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: UpdateSecurityGroupRuleDescriptionsIngress)
-{-# DEPRECATED usgrdiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest UpdateSecurityGroupRuleDescriptionsIngress where
+instance Core.AWSRequest UpdateSecurityGroupRuleDescriptionsIngress where
   type
     Rs UpdateSecurityGroupRuleDescriptionsIngress =
       UpdateSecurityGroupRuleDescriptionsIngressResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateSecurityGroupRuleDescriptionsIngress")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "IpPermissions" ipPermissions)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "GroupId" Core.<$> groupId)
+                Core.<> (Core.toQueryValue "GroupName" Core.<$> groupName)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           UpdateSecurityGroupRuleDescriptionsIngressResponse'
-            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateSecurityGroupRuleDescriptionsIngress where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateSecurityGroupRuleDescriptionsIngress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateSecurityGroupRuleDescriptionsIngress where
-  toQuery UpdateSecurityGroupRuleDescriptionsIngress' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("UpdateSecurityGroupRuleDescriptionsIngress" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "IpPermissions" ipPermissions,
-        "GroupId" Lude.=: groupId,
-        "GroupName" Lude.=: groupName,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkUpdateSecurityGroupRuleDescriptionsIngressResponse' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsIngressResponse = UpdateSecurityGroupRuleDescriptionsIngressResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-    return :: Lude.Maybe Lude.Bool,
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSecurityGroupRuleDescriptionsIngressResponse' with the minimum fields required to make a request.
---
--- * 'return' - Returns @true@ if the request succeeds; otherwise, returns an error.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateSecurityGroupRuleDescriptionsIngressResponse' value with any optional fields omitted.
 mkUpdateSecurityGroupRuleDescriptionsIngressResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateSecurityGroupRuleDescriptionsIngressResponse
-mkUpdateSecurityGroupRuleDescriptionsIngressResponse
-  pResponseStatus_ =
-    UpdateSecurityGroupRuleDescriptionsIngressResponse'
-      { return =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
-      }
+mkUpdateSecurityGroupRuleDescriptionsIngressResponse responseStatus =
+  UpdateSecurityGroupRuleDescriptionsIngressResponse'
+    { return =
+        Core.Nothing,
+      responseStatus
+    }
 
 -- | Returns @true@ if the request succeeds; otherwise, returns an error.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgrdirsReturn :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngressResponse (Lude.Maybe Lude.Bool)
-usgrdirsReturn = Lens.lens (return :: UpdateSecurityGroupRuleDescriptionsIngressResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: UpdateSecurityGroupRuleDescriptionsIngressResponse)
-{-# DEPRECATED usgrdirsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+usgrdirrsReturn :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngressResponse (Core.Maybe Core.Bool)
+usgrdirrsReturn = Lens.field @"return"
+{-# DEPRECATED usgrdirrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgrdirsResponseStatus :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngressResponse Lude.Int
-usgrdirsResponseStatus = Lens.lens (responseStatus :: UpdateSecurityGroupRuleDescriptionsIngressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSecurityGroupRuleDescriptionsIngressResponse)
-{-# DEPRECATED usgrdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usgrdirrsResponseStatus :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsIngressResponse Core.Int
+usgrdirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usgrdirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

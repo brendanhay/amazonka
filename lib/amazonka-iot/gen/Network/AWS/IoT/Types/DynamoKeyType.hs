@@ -13,46 +13,51 @@
 module Network.AWS.IoT.Types.DynamoKeyType
   ( DynamoKeyType
       ( DynamoKeyType',
-        DKTString,
-        DKTNumber
+        DynamoKeyTypeString,
+        DynamoKeyTypeNumber,
+        fromDynamoKeyType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DynamoKeyType = DynamoKeyType' Lude.Text
+newtype DynamoKeyType = DynamoKeyType'
+  { fromDynamoKeyType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DKTString :: DynamoKeyType
-pattern DKTString = DynamoKeyType' "STRING"
+pattern DynamoKeyTypeString :: DynamoKeyType
+pattern DynamoKeyTypeString = DynamoKeyType' "STRING"
 
-pattern DKTNumber :: DynamoKeyType
-pattern DKTNumber = DynamoKeyType' "NUMBER"
+pattern DynamoKeyTypeNumber :: DynamoKeyType
+pattern DynamoKeyTypeNumber = DynamoKeyType' "NUMBER"
 
 {-# COMPLETE
-  DKTString,
-  DKTNumber,
+  DynamoKeyTypeString,
+  DynamoKeyTypeNumber,
   DynamoKeyType'
   #-}

@@ -21,32 +21,31 @@ module Network.AWS.ElastiCache.Types.AvailabilityZone
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Availability Zone in which the cluster is launched.
 --
 -- /See:/ 'mkAvailabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
   { -- | The name of the Availability Zone.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
---
--- * 'name' - The name of the Availability Zone.
+-- | Creates a 'AvailabilityZone' value with any optional fields omitted.
 mkAvailabilityZone ::
   AvailabilityZone
-mkAvailabilityZone = AvailabilityZone' {name = Lude.Nothing}
+mkAvailabilityZone = AvailabilityZone' {name = Core.Nothing}
 
 -- | The name of the Availability Zone.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
-azName = Lens.lens (name :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AvailabilityZone)
+azName :: Lens.Lens' AvailabilityZone (Core.Maybe Types.String)
+azName = Lens.field @"name"
 {-# DEPRECATED azName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML AvailabilityZone where
-  parseXML x = AvailabilityZone' Lude.<$> (x Lude..@? "Name")
+instance Core.FromXML AvailabilityZone where
+  parseXML x = AvailabilityZone' Core.<$> (x Core..@? "Name")

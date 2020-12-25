@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,28 @@
 -- Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.
 module Network.AWS.MQ
   ( -- * Service configuration
-    mqService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -93,83 +110,54 @@ module Network.AWS.MQ
 
     -- * Types
 
-    -- ** AuthenticationStrategy
-    AuthenticationStrategy (..),
+    -- ** EngineVersion
+    EngineVersion (..),
+    mkEngineVersion,
+    evName,
 
     -- ** BrokerState
     BrokerState (..),
 
-    -- ** BrokerStorageType
-    BrokerStorageType (..),
+    -- ** WeeklyStartTime
+    WeeklyStartTime (..),
+    mkWeeklyStartTime,
+    wstDayOfWeek,
+    wstTimeOfDay,
+    wstTimeZone,
 
-    -- ** ChangeType
-    ChangeType (..),
-
-    -- ** DayOfWeek
-    DayOfWeek (..),
-
-    -- ** DeploymentMode
-    DeploymentMode (..),
-
-    -- ** EngineType
-    EngineType (..),
-
-    -- ** SanitizationWarningReason
-    SanitizationWarningReason (..),
-
-    -- ** AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azName,
-
-    -- ** BrokerEngineType
-    BrokerEngineType (..),
-    mkBrokerEngineType,
-    betEngineVersions,
-    betEngineType,
-
-    -- ** BrokerInstance
-    BrokerInstance (..),
-    mkBrokerInstance,
-    biIPAddress,
-    biConsoleURL,
-    biEndpoints,
-
-    -- ** BrokerInstanceOption
-    BrokerInstanceOption (..),
-    mkBrokerInstanceOption,
-    bioSupportedEngineVersions,
-    bioAvailabilityZones,
-    bioSupportedDeploymentModes,
-    bioEngineType,
-    bioHostInstanceType,
-    bioStorageType,
+    -- ** LdapServerMetadataInput
+    LdapServerMetadataInput (..),
+    mkLdapServerMetadataInput,
+    lsmiHosts,
+    lsmiRoleBase,
+    lsmiRoleName,
+    lsmiRoleSearchMatching,
+    lsmiRoleSearchSubtree,
+    lsmiServiceAccountPassword,
+    lsmiServiceAccountUsername,
+    lsmiUserBase,
+    lsmiUserRoleName,
+    lsmiUserSearchMatching,
+    lsmiUserSearchSubtree,
 
     -- ** BrokerSummary
     BrokerSummary (..),
     mkBrokerSummary,
+    bsBrokerArn,
+    bsBrokerId,
     bsBrokerName,
     bsBrokerState,
     bsCreated,
     bsDeploymentMode,
-    bsBrokerId,
     bsEngineType,
-    bsBrokerARN,
     bsHostInstanceType,
 
-    -- ** Configuration
-    Configuration (..),
-    mkConfiguration,
-    cEngineVersion,
-    cARN,
-    cLatestRevision,
-    cCreated,
-    cAuthenticationStrategy,
-    cName,
-    cId,
-    cDescription,
-    cEngineType,
-    cTags,
+    -- ** BrokerInstance
+    BrokerInstance (..),
+    mkBrokerInstance,
+    biConsoleURL,
+    biEndpoints,
+    biIpAddress,
 
     -- ** ConfigurationId
     ConfigurationId (..),
@@ -181,55 +169,52 @@ module Network.AWS.MQ
     ConfigurationRevision (..),
     mkConfigurationRevision,
     crCreated,
-    crRevision,
     crDescription,
+    crRevision,
+
+    -- ** LogsSummary
+    LogsSummary (..),
+    mkLogsSummary,
+    lsAudit,
+    lsAuditLogGroup,
+    lsGeneral,
+    lsGeneralLogGroup,
+    lsPending,
 
     -- ** Configurations
     Configurations (..),
     mkConfigurations,
-    cPending,
-    cHistory,
     cCurrent,
+    cHistory,
+    cPending,
 
-    -- ** EncryptionOptions
-    EncryptionOptions (..),
-    mkEncryptionOptions,
-    eoUseAWSOwnedKey,
-    eoKMSKeyId,
-
-    -- ** EngineVersion
-    EngineVersion (..),
-    mkEngineVersion,
-    evName,
-
-    -- ** LdapServerMetadataInput
-    LdapServerMetadataInput (..),
-    mkLdapServerMetadataInput,
-    lsmiUserBase,
-    lsmiUserSearchMatching,
-    lsmiUserRoleName,
-    lsmiServiceAccountUsername,
-    lsmiUserSearchSubtree,
-    lsmiRoleSearchSubtree,
-    lsmiHosts,
-    lsmiRoleName,
-    lsmiServiceAccountPassword,
-    lsmiRoleSearchMatching,
-    lsmiRoleBase,
+    -- ** AuthenticationStrategy
+    AuthenticationStrategy (..),
 
     -- ** LdapServerMetadataOutput
     LdapServerMetadataOutput (..),
     mkLdapServerMetadataOutput,
-    lsmoUserBase,
-    lsmoUserSearchMatching,
-    lsmoUserRoleName,
-    lsmoServiceAccountUsername,
-    lsmoUserSearchSubtree,
-    lsmoRoleSearchSubtree,
     lsmoHosts,
+    lsmoRoleBase,
     lsmoRoleName,
     lsmoRoleSearchMatching,
-    lsmoRoleBase,
+    lsmoRoleSearchSubtree,
+    lsmoServiceAccountUsername,
+    lsmoUserBase,
+    lsmoUserRoleName,
+    lsmoUserSearchMatching,
+    lsmoUserSearchSubtree,
+
+    -- ** SanitizationWarningReason
+    SanitizationWarningReason (..),
+
+    -- ** User
+    User (..),
+    mkUser,
+    uConsoleAccess,
+    uGroups,
+    uPassword,
+    uUsername,
 
     -- ** Logs
     Logs (..),
@@ -237,14 +222,55 @@ module Network.AWS.MQ
     lAudit,
     lGeneral,
 
-    -- ** LogsSummary
-    LogsSummary (..),
-    mkLogsSummary,
-    lsPending,
-    lsAudit,
-    lsGeneral,
-    lsGeneralLogGroup,
-    lsAuditLogGroup,
+    -- ** EncryptionOptions
+    EncryptionOptions (..),
+    mkEncryptionOptions,
+    eoUseAwsOwnedKey,
+    eoKmsKeyId,
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azName,
+
+    -- ** DeploymentMode
+    DeploymentMode (..),
+
+    -- ** BrokerStorageType
+    BrokerStorageType (..),
+
+    -- ** UserSummary
+    UserSummary (..),
+    mkUserSummary,
+    usPendingChange,
+    usUsername,
+
+    -- ** SanitizationWarning
+    SanitizationWarning (..),
+    mkSanitizationWarning,
+    swAttributeName,
+    swElementName,
+    swReason,
+
+    -- ** BrokerEngineType
+    BrokerEngineType (..),
+    mkBrokerEngineType,
+    betEngineType,
+    betEngineVersions,
+
+    -- ** Configuration
+    Configuration (..),
+    mkConfiguration,
+    cArn,
+    cAuthenticationStrategy,
+    cCreated,
+    cDescription,
+    cEngineType,
+    cEngineVersion,
+    cId,
+    cLatestRevision,
+    cName,
+    cTags,
 
     -- ** PendingLogs
     PendingLogs (..),
@@ -252,50 +278,39 @@ module Network.AWS.MQ
     plAudit,
     plGeneral,
 
-    -- ** SanitizationWarning
-    SanitizationWarning (..),
-    mkSanitizationWarning,
-    swReason,
-    swAttributeName,
-    swElementName,
-
-    -- ** User
-    User (..),
-    mkUser,
-    uGroups,
-    uConsoleAccess,
-    uUsername,
-    uPassword,
-
     -- ** UserPendingChanges
     UserPendingChanges (..),
     mkUserPendingChanges,
-    upcGroups,
     upcConsoleAccess,
+    upcGroups,
     upcPendingChange,
 
-    -- ** UserSummary
-    UserSummary (..),
-    mkUserSummary,
-    usUsername,
-    usPendingChange,
+    -- ** ChangeType
+    ChangeType (..),
 
-    -- ** WeeklyStartTime
-    WeeklyStartTime (..),
-    mkWeeklyStartTime,
-    wstTimeOfDay,
-    wstTimeZone,
-    wstDayOfWeek,
+    -- ** EngineType
+    EngineType (..),
+
+    -- ** BrokerInstanceOption
+    BrokerInstanceOption (..),
+    mkBrokerInstanceOption,
+    bioAvailabilityZones,
+    bioEngineType,
+    bioHostInstanceType,
+    bioStorageType,
+    bioSupportedDeploymentModes,
+    bioSupportedEngineVersions,
+
+    -- ** DayOfWeek
+    DayOfWeek (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

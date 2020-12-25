@@ -17,71 +17,66 @@ module Network.AWS.SageMaker.Types.UserContext
     mkUserContext,
 
     -- * Lenses
-    ucUserProfileName,
-    ucUserProfileARN,
     ucDomainId,
+    ucUserProfileArn,
+    ucUserProfileName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.String as Types
 
 -- | Information about the user who created or modified an experiment, trial, or trial component.
 --
 -- /See:/ 'mkUserContext' smart constructor.
 data UserContext = UserContext'
-  { -- | The name of the user's profile.
-    userProfileName :: Lude.Maybe Lude.Text,
+  { -- | The domain associated with the user.
+    domainId :: Core.Maybe Types.String,
     -- | The Amazon Resource Name (ARN) of the user's profile.
-    userProfileARN :: Lude.Maybe Lude.Text,
-    -- | The domain associated with the user.
-    domainId :: Lude.Maybe Lude.Text
+    userProfileArn :: Core.Maybe Types.String,
+    -- | The name of the user's profile.
+    userProfileName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserContext' with the minimum fields required to make a request.
---
--- * 'userProfileName' - The name of the user's profile.
--- * 'userProfileARN' - The Amazon Resource Name (ARN) of the user's profile.
--- * 'domainId' - The domain associated with the user.
+-- | Creates a 'UserContext' value with any optional fields omitted.
 mkUserContext ::
   UserContext
 mkUserContext =
   UserContext'
-    { userProfileName = Lude.Nothing,
-      userProfileARN = Lude.Nothing,
-      domainId = Lude.Nothing
+    { domainId = Core.Nothing,
+      userProfileArn = Core.Nothing,
+      userProfileName = Core.Nothing
     }
-
--- | The name of the user's profile.
---
--- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucUserProfileName :: Lens.Lens' UserContext (Lude.Maybe Lude.Text)
-ucUserProfileName = Lens.lens (userProfileName :: UserContext -> Lude.Maybe Lude.Text) (\s a -> s {userProfileName = a} :: UserContext)
-{-# DEPRECATED ucUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the user's profile.
---
--- /Note:/ Consider using 'userProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucUserProfileARN :: Lens.Lens' UserContext (Lude.Maybe Lude.Text)
-ucUserProfileARN = Lens.lens (userProfileARN :: UserContext -> Lude.Maybe Lude.Text) (\s a -> s {userProfileARN = a} :: UserContext)
-{-# DEPRECATED ucUserProfileARN "Use generic-lens or generic-optics with 'userProfileARN' instead." #-}
 
 -- | The domain associated with the user.
 --
 -- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucDomainId :: Lens.Lens' UserContext (Lude.Maybe Lude.Text)
-ucDomainId = Lens.lens (domainId :: UserContext -> Lude.Maybe Lude.Text) (\s a -> s {domainId = a} :: UserContext)
+ucDomainId :: Lens.Lens' UserContext (Core.Maybe Types.String)
+ucDomainId = Lens.field @"domainId"
 {-# DEPRECATED ucDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
-instance Lude.FromJSON UserContext where
+-- | The Amazon Resource Name (ARN) of the user's profile.
+--
+-- /Note:/ Consider using 'userProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucUserProfileArn :: Lens.Lens' UserContext (Core.Maybe Types.String)
+ucUserProfileArn = Lens.field @"userProfileArn"
+{-# DEPRECATED ucUserProfileArn "Use generic-lens or generic-optics with 'userProfileArn' instead." #-}
+
+-- | The name of the user's profile.
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucUserProfileName :: Lens.Lens' UserContext (Core.Maybe Types.String)
+ucUserProfileName = Lens.field @"userProfileName"
+{-# DEPRECATED ucUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+
+instance Core.FromJSON UserContext where
   parseJSON =
-    Lude.withObject
-      "UserContext"
-      ( \x ->
-          UserContext'
-            Lude.<$> (x Lude..:? "UserProfileName")
-            Lude.<*> (x Lude..:? "UserProfileArn")
-            Lude.<*> (x Lude..:? "DomainId")
-      )
+    Core.withObject "UserContext" Core.$
+      \x ->
+        UserContext'
+          Core.<$> (x Core..:? "DomainId")
+          Core.<*> (x Core..:? "UserProfileArn")
+          Core.<*> (x Core..:? "UserProfileName")

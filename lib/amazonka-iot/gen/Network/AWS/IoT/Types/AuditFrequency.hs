@@ -13,56 +13,61 @@
 module Network.AWS.IoT.Types.AuditFrequency
   ( AuditFrequency
       ( AuditFrequency',
-        Daily,
-        Weekly,
-        Biweekly,
-        Monthly
+        AuditFrequencyDaily,
+        AuditFrequencyWeekly,
+        AuditFrequencyBiweekly,
+        AuditFrequencyMonthly,
+        fromAuditFrequency
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuditFrequency = AuditFrequency' Lude.Text
+newtype AuditFrequency = AuditFrequency'
+  { fromAuditFrequency ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Daily :: AuditFrequency
-pattern Daily = AuditFrequency' "DAILY"
+pattern AuditFrequencyDaily :: AuditFrequency
+pattern AuditFrequencyDaily = AuditFrequency' "DAILY"
 
-pattern Weekly :: AuditFrequency
-pattern Weekly = AuditFrequency' "WEEKLY"
+pattern AuditFrequencyWeekly :: AuditFrequency
+pattern AuditFrequencyWeekly = AuditFrequency' "WEEKLY"
 
-pattern Biweekly :: AuditFrequency
-pattern Biweekly = AuditFrequency' "BIWEEKLY"
+pattern AuditFrequencyBiweekly :: AuditFrequency
+pattern AuditFrequencyBiweekly = AuditFrequency' "BIWEEKLY"
 
-pattern Monthly :: AuditFrequency
-pattern Monthly = AuditFrequency' "MONTHLY"
+pattern AuditFrequencyMonthly :: AuditFrequency
+pattern AuditFrequencyMonthly = AuditFrequency' "MONTHLY"
 
 {-# COMPLETE
-  Daily,
-  Weekly,
-  Biweekly,
-  Monthly,
+  AuditFrequencyDaily,
+  AuditFrequencyWeekly,
+  AuditFrequencyBiweekly,
+  AuditFrequencyMonthly,
   AuditFrequency'
   #-}

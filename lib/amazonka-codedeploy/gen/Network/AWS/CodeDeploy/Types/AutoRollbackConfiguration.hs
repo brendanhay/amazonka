@@ -22,63 +22,57 @@ module Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
   )
 where
 
-import Network.AWS.CodeDeploy.Types.AutoRollbackEvent
+import qualified Network.AWS.CodeDeploy.Types.AutoRollbackEvent as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a configuration for automatically rolling back to a previous version of an application revision when a deployment is not completed successfully.
 --
 -- /See:/ 'mkAutoRollbackConfiguration' smart constructor.
 data AutoRollbackConfiguration = AutoRollbackConfiguration'
   { -- | Indicates whether a defined automatic rollback configuration is currently enabled.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The event type or types that trigger a rollback.
-    events :: Lude.Maybe [AutoRollbackEvent]
+    events :: Core.Maybe [Types.AutoRollbackEvent]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoRollbackConfiguration' with the minimum fields required to make a request.
---
--- * 'enabled' - Indicates whether a defined automatic rollback configuration is currently enabled.
--- * 'events' - The event type or types that trigger a rollback.
+-- | Creates a 'AutoRollbackConfiguration' value with any optional fields omitted.
 mkAutoRollbackConfiguration ::
   AutoRollbackConfiguration
 mkAutoRollbackConfiguration =
   AutoRollbackConfiguration'
-    { enabled = Lude.Nothing,
-      events = Lude.Nothing
+    { enabled = Core.Nothing,
+      events = Core.Nothing
     }
 
 -- | Indicates whether a defined automatic rollback configuration is currently enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arcEnabled :: Lens.Lens' AutoRollbackConfiguration (Lude.Maybe Lude.Bool)
-arcEnabled = Lens.lens (enabled :: AutoRollbackConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: AutoRollbackConfiguration)
+arcEnabled :: Lens.Lens' AutoRollbackConfiguration (Core.Maybe Core.Bool)
+arcEnabled = Lens.field @"enabled"
 {-# DEPRECATED arcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The event type or types that trigger a rollback.
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arcEvents :: Lens.Lens' AutoRollbackConfiguration (Lude.Maybe [AutoRollbackEvent])
-arcEvents = Lens.lens (events :: AutoRollbackConfiguration -> Lude.Maybe [AutoRollbackEvent]) (\s a -> s {events = a} :: AutoRollbackConfiguration)
+arcEvents :: Lens.Lens' AutoRollbackConfiguration (Core.Maybe [Types.AutoRollbackEvent])
+arcEvents = Lens.field @"events"
 {-# DEPRECATED arcEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
-instance Lude.FromJSON AutoRollbackConfiguration where
-  parseJSON =
-    Lude.withObject
-      "AutoRollbackConfiguration"
-      ( \x ->
-          AutoRollbackConfiguration'
-            Lude.<$> (x Lude..:? "enabled")
-            Lude.<*> (x Lude..:? "events" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON AutoRollbackConfiguration where
-  toJSON AutoRollbackConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("enabled" Lude..=) Lude.<$> enabled,
-            ("events" Lude..=) Lude.<$> events
+instance Core.FromJSON AutoRollbackConfiguration where
+  toJSON AutoRollbackConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("enabled" Core..=) Core.<$> enabled,
+            ("events" Core..=) Core.<$> events
           ]
       )
+
+instance Core.FromJSON AutoRollbackConfiguration where
+  parseJSON =
+    Core.withObject "AutoRollbackConfiguration" Core.$
+      \x ->
+        AutoRollbackConfiguration'
+          Core.<$> (x Core..:? "enabled") Core.<*> (x Core..:? "events")

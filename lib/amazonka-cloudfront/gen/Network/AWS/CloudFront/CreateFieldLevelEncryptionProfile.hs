@@ -27,134 +27,118 @@ module Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
     mkCreateFieldLevelEncryptionProfileResponse,
 
     -- ** Response lenses
-    cfleprsETag,
-    cfleprsLocation,
-    cfleprsFieldLevelEncryptionProfile,
-    cfleprsResponseStatus,
+    cfleprrsETag,
+    cfleprrsFieldLevelEncryptionProfile,
+    cfleprrsLocation,
+    cfleprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateFieldLevelEncryptionProfile' smart constructor.
 newtype CreateFieldLevelEncryptionProfile = CreateFieldLevelEncryptionProfile'
   { -- | The request to create a field-level encryption profile.
-    fieldLevelEncryptionProfileConfig :: FieldLevelEncryptionProfileConfig
+    fieldLevelEncryptionProfileConfig :: Types.FieldLevelEncryptionProfileConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateFieldLevelEncryptionProfile' with the minimum fields required to make a request.
---
--- * 'fieldLevelEncryptionProfileConfig' - The request to create a field-level encryption profile.
+-- | Creates a 'CreateFieldLevelEncryptionProfile' value with any optional fields omitted.
 mkCreateFieldLevelEncryptionProfile ::
   -- | 'fieldLevelEncryptionProfileConfig'
-  FieldLevelEncryptionProfileConfig ->
+  Types.FieldLevelEncryptionProfileConfig ->
   CreateFieldLevelEncryptionProfile
 mkCreateFieldLevelEncryptionProfile
-  pFieldLevelEncryptionProfileConfig_ =
-    CreateFieldLevelEncryptionProfile'
-      { fieldLevelEncryptionProfileConfig =
-          pFieldLevelEncryptionProfileConfig_
-      }
+  fieldLevelEncryptionProfileConfig =
+    CreateFieldLevelEncryptionProfile' {fieldLevelEncryptionProfileConfig}
 
 -- | The request to create a field-level encryption profile.
 --
 -- /Note:/ Consider using 'fieldLevelEncryptionProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cflepFieldLevelEncryptionProfileConfig :: Lens.Lens' CreateFieldLevelEncryptionProfile FieldLevelEncryptionProfileConfig
-cflepFieldLevelEncryptionProfileConfig = Lens.lens (fieldLevelEncryptionProfileConfig :: CreateFieldLevelEncryptionProfile -> FieldLevelEncryptionProfileConfig) (\s a -> s {fieldLevelEncryptionProfileConfig = a} :: CreateFieldLevelEncryptionProfile)
+cflepFieldLevelEncryptionProfileConfig :: Lens.Lens' CreateFieldLevelEncryptionProfile Types.FieldLevelEncryptionProfileConfig
+cflepFieldLevelEncryptionProfileConfig = Lens.field @"fieldLevelEncryptionProfileConfig"
 {-# DEPRECATED cflepFieldLevelEncryptionProfileConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfileConfig' instead." #-}
 
-instance Lude.AWSRequest CreateFieldLevelEncryptionProfile where
+instance Core.AWSRequest CreateFieldLevelEncryptionProfile where
   type
     Rs CreateFieldLevelEncryptionProfile =
       CreateFieldLevelEncryptionProfileResponse
-  request = Req.postXML cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/2020-05-31/field-level-encryption-profile",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateFieldLevelEncryptionProfileResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (h Lude..#? "Location")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.parseHeaderMaybe "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement CreateFieldLevelEncryptionProfile where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}FieldLevelEncryptionProfileConfig"
-      Lude.. fieldLevelEncryptionProfileConfig
-
-instance Lude.ToHeaders CreateFieldLevelEncryptionProfile where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateFieldLevelEncryptionProfile where
-  toPath = Lude.const "/2020-05-31/field-level-encryption-profile"
-
-instance Lude.ToQuery CreateFieldLevelEncryptionProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateFieldLevelEncryptionProfileResponse' smart constructor.
 data CreateFieldLevelEncryptionProfileResponse = CreateFieldLevelEncryptionProfileResponse'
   { -- | The current version of the field level encryption profile. For example: @E2QWRUHAPOMQZL@ .
-    eTag :: Lude.Maybe Lude.Text,
-    -- | The fully qualified URI of the new profile resource just created.
-    location :: Lude.Maybe Lude.Text,
+    eTag :: Core.Maybe Types.String,
     -- | Returned when you create a new field-level encryption profile.
-    fieldLevelEncryptionProfile :: Lude.Maybe FieldLevelEncryptionProfile,
+    fieldLevelEncryptionProfile :: Core.Maybe Types.FieldLevelEncryptionProfile,
+    -- | The fully qualified URI of the new profile resource just created.
+    location :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateFieldLevelEncryptionProfileResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The current version of the field level encryption profile. For example: @E2QWRUHAPOMQZL@ .
--- * 'location' - The fully qualified URI of the new profile resource just created.
--- * 'fieldLevelEncryptionProfile' - Returned when you create a new field-level encryption profile.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateFieldLevelEncryptionProfileResponse' value with any optional fields omitted.
 mkCreateFieldLevelEncryptionProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateFieldLevelEncryptionProfileResponse
-mkCreateFieldLevelEncryptionProfileResponse pResponseStatus_ =
+mkCreateFieldLevelEncryptionProfileResponse responseStatus =
   CreateFieldLevelEncryptionProfileResponse'
-    { eTag = Lude.Nothing,
-      location = Lude.Nothing,
-      fieldLevelEncryptionProfile = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      fieldLevelEncryptionProfile = Core.Nothing,
+      location = Core.Nothing,
+      responseStatus
     }
 
 -- | The current version of the field level encryption profile. For example: @E2QWRUHAPOMQZL@ .
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfleprsETag :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Lude.Maybe Lude.Text)
-cfleprsETag = Lens.lens (eTag :: CreateFieldLevelEncryptionProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateFieldLevelEncryptionProfileResponse)
-{-# DEPRECATED cfleprsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
-
--- | The fully qualified URI of the new profile resource just created.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfleprsLocation :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Lude.Maybe Lude.Text)
-cfleprsLocation = Lens.lens (location :: CreateFieldLevelEncryptionProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateFieldLevelEncryptionProfileResponse)
-{-# DEPRECATED cfleprsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+cfleprrsETag :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Core.Maybe Types.String)
+cfleprrsETag = Lens.field @"eTag"
+{-# DEPRECATED cfleprrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | Returned when you create a new field-level encryption profile.
 --
 -- /Note:/ Consider using 'fieldLevelEncryptionProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfleprsFieldLevelEncryptionProfile :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Lude.Maybe FieldLevelEncryptionProfile)
-cfleprsFieldLevelEncryptionProfile = Lens.lens (fieldLevelEncryptionProfile :: CreateFieldLevelEncryptionProfileResponse -> Lude.Maybe FieldLevelEncryptionProfile) (\s a -> s {fieldLevelEncryptionProfile = a} :: CreateFieldLevelEncryptionProfileResponse)
-{-# DEPRECATED cfleprsFieldLevelEncryptionProfile "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfile' instead." #-}
+cfleprrsFieldLevelEncryptionProfile :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Core.Maybe Types.FieldLevelEncryptionProfile)
+cfleprrsFieldLevelEncryptionProfile = Lens.field @"fieldLevelEncryptionProfile"
+{-# DEPRECATED cfleprrsFieldLevelEncryptionProfile "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfile' instead." #-}
+
+-- | The fully qualified URI of the new profile resource just created.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfleprrsLocation :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse (Core.Maybe Types.String)
+cfleprrsLocation = Lens.field @"location"
+{-# DEPRECATED cfleprrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfleprsResponseStatus :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse Lude.Int
-cfleprsResponseStatus = Lens.lens (responseStatus :: CreateFieldLevelEncryptionProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFieldLevelEncryptionProfileResponse)
-{-# DEPRECATED cfleprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cfleprrsResponseStatus :: Lens.Lens' CreateFieldLevelEncryptionProfileResponse Core.Int
+cfleprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cfleprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

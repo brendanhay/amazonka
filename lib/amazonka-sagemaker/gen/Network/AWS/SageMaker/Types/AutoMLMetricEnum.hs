@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.AutoMLMetricEnum
   ( AutoMLMetricEnum
       ( AutoMLMetricEnum',
-        Accuracy,
-        Mse,
-        F1,
-        F1macro,
-        Auc
+        AutoMLMetricEnumAccuracy,
+        AutoMLMetricEnumMse,
+        AutoMLMetricEnumF1,
+        AutoMLMetricEnumF1macro,
+        AutoMLMetricEnumAuc,
+        fromAutoMLMetricEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AutoMLMetricEnum = AutoMLMetricEnum' Lude.Text
+newtype AutoMLMetricEnum = AutoMLMetricEnum'
+  { fromAutoMLMetricEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Accuracy :: AutoMLMetricEnum
-pattern Accuracy = AutoMLMetricEnum' "Accuracy"
+pattern AutoMLMetricEnumAccuracy :: AutoMLMetricEnum
+pattern AutoMLMetricEnumAccuracy = AutoMLMetricEnum' "Accuracy"
 
-pattern Mse :: AutoMLMetricEnum
-pattern Mse = AutoMLMetricEnum' "MSE"
+pattern AutoMLMetricEnumMse :: AutoMLMetricEnum
+pattern AutoMLMetricEnumMse = AutoMLMetricEnum' "MSE"
 
-pattern F1 :: AutoMLMetricEnum
-pattern F1 = AutoMLMetricEnum' "F1"
+pattern AutoMLMetricEnumF1 :: AutoMLMetricEnum
+pattern AutoMLMetricEnumF1 = AutoMLMetricEnum' "F1"
 
-pattern F1macro :: AutoMLMetricEnum
-pattern F1macro = AutoMLMetricEnum' "F1macro"
+pattern AutoMLMetricEnumF1macro :: AutoMLMetricEnum
+pattern AutoMLMetricEnumF1macro = AutoMLMetricEnum' "F1macro"
 
-pattern Auc :: AutoMLMetricEnum
-pattern Auc = AutoMLMetricEnum' "AUC"
+pattern AutoMLMetricEnumAuc :: AutoMLMetricEnum
+pattern AutoMLMetricEnumAuc = AutoMLMetricEnum' "AUC"
 
 {-# COMPLETE
-  Accuracy,
-  Mse,
-  F1,
-  F1macro,
-  Auc,
+  AutoMLMetricEnumAccuracy,
+  AutoMLMetricEnumMse,
+  AutoMLMetricEnumF1,
+  AutoMLMetricEnumF1macro,
+  AutoMLMetricEnumAuc,
   AutoMLMetricEnum'
   #-}

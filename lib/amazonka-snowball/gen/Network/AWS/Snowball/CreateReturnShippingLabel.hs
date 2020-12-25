@@ -28,129 +28,114 @@ module Network.AWS.Snowball.CreateReturnShippingLabel
     mkCreateReturnShippingLabelResponse,
 
     -- ** Response lenses
-    crslrsStatus,
-    crslrsResponseStatus,
+    crslrrsStatus,
+    crslrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkCreateReturnShippingLabel' smart constructor.
 data CreateReturnShippingLabel = CreateReturnShippingLabel'
   { -- | The ID for a job that you want to create the return shipping label for. For example @JID123e4567-e89b-12d3-a456-426655440000@ .
-    jobId :: Lude.Text,
+    jobId :: Types.JobId,
     -- | The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to AWS. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
-    shippingOption :: Lude.Maybe ShippingOption
+    shippingOption :: Core.Maybe Types.ShippingOption
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateReturnShippingLabel' with the minimum fields required to make a request.
---
--- * 'jobId' - The ID for a job that you want to create the return shipping label for. For example @JID123e4567-e89b-12d3-a456-426655440000@ .
--- * 'shippingOption' - The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to AWS. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
+-- | Creates a 'CreateReturnShippingLabel' value with any optional fields omitted.
 mkCreateReturnShippingLabel ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   CreateReturnShippingLabel
-mkCreateReturnShippingLabel pJobId_ =
-  CreateReturnShippingLabel'
-    { jobId = pJobId_,
-      shippingOption = Lude.Nothing
-    }
+mkCreateReturnShippingLabel jobId =
+  CreateReturnShippingLabel' {jobId, shippingOption = Core.Nothing}
 
 -- | The ID for a job that you want to create the return shipping label for. For example @JID123e4567-e89b-12d3-a456-426655440000@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crslJobId :: Lens.Lens' CreateReturnShippingLabel Lude.Text
-crslJobId = Lens.lens (jobId :: CreateReturnShippingLabel -> Lude.Text) (\s a -> s {jobId = a} :: CreateReturnShippingLabel)
+crslJobId :: Lens.Lens' CreateReturnShippingLabel Types.JobId
+crslJobId = Lens.field @"jobId"
 {-# DEPRECATED crslJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to AWS. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
 --
 -- /Note:/ Consider using 'shippingOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crslShippingOption :: Lens.Lens' CreateReturnShippingLabel (Lude.Maybe ShippingOption)
-crslShippingOption = Lens.lens (shippingOption :: CreateReturnShippingLabel -> Lude.Maybe ShippingOption) (\s a -> s {shippingOption = a} :: CreateReturnShippingLabel)
+crslShippingOption :: Lens.Lens' CreateReturnShippingLabel (Core.Maybe Types.ShippingOption)
+crslShippingOption = Lens.field @"shippingOption"
 {-# DEPRECATED crslShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
 
-instance Lude.AWSRequest CreateReturnShippingLabel where
+instance Core.FromJSON CreateReturnShippingLabel where
+  toJSON CreateReturnShippingLabel {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobId" Core..= jobId),
+            ("ShippingOption" Core..=) Core.<$> shippingOption
+          ]
+      )
+
+instance Core.AWSRequest CreateReturnShippingLabel where
   type
     Rs CreateReturnShippingLabel =
       CreateReturnShippingLabelResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSIESnowballJobManagementService.CreateReturnShippingLabel"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateReturnShippingLabelResponse'
-            Lude.<$> (x Lude..?> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Status") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateReturnShippingLabel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.CreateReturnShippingLabel" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateReturnShippingLabel where
-  toJSON CreateReturnShippingLabel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobId" Lude..= jobId),
-            ("ShippingOption" Lude..=) Lude.<$> shippingOption
-          ]
-      )
-
-instance Lude.ToPath CreateReturnShippingLabel where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateReturnShippingLabel where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateReturnShippingLabelResponse' smart constructor.
 data CreateReturnShippingLabelResponse = CreateReturnShippingLabelResponse'
   { -- | The status information of the task on a Snow device that is being returned to AWS.
-    status :: Lude.Maybe ShippingLabelStatus,
+    status :: Core.Maybe Types.ShippingLabelStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateReturnShippingLabelResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status information of the task on a Snow device that is being returned to AWS.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateReturnShippingLabelResponse' value with any optional fields omitted.
 mkCreateReturnShippingLabelResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateReturnShippingLabelResponse
-mkCreateReturnShippingLabelResponse pResponseStatus_ =
+mkCreateReturnShippingLabelResponse responseStatus =
   CreateReturnShippingLabelResponse'
-    { status = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { status = Core.Nothing,
+      responseStatus
     }
 
 -- | The status information of the task on a Snow device that is being returned to AWS.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crslrsStatus :: Lens.Lens' CreateReturnShippingLabelResponse (Lude.Maybe ShippingLabelStatus)
-crslrsStatus = Lens.lens (status :: CreateReturnShippingLabelResponse -> Lude.Maybe ShippingLabelStatus) (\s a -> s {status = a} :: CreateReturnShippingLabelResponse)
-{-# DEPRECATED crslrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+crslrrsStatus :: Lens.Lens' CreateReturnShippingLabelResponse (Core.Maybe Types.ShippingLabelStatus)
+crslrrsStatus = Lens.field @"status"
+{-# DEPRECATED crslrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crslrsResponseStatus :: Lens.Lens' CreateReturnShippingLabelResponse Lude.Int
-crslrsResponseStatus = Lens.lens (responseStatus :: CreateReturnShippingLabelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReturnShippingLabelResponse)
-{-# DEPRECATED crslrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crslrrsResponseStatus :: Lens.Lens' CreateReturnShippingLabelResponse Core.Int
+crslrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crslrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

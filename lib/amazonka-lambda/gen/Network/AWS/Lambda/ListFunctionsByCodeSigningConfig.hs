@@ -22,7 +22,7 @@ module Network.AWS.Lambda.ListFunctionsByCodeSigningConfig
     mkListFunctionsByCodeSigningConfig,
 
     -- ** Request lenses
-    lfbcscCodeSigningConfigARN,
+    lfbcscCodeSigningConfigArn,
     lfbcscMarker,
     lfbcscMaxItems,
 
@@ -31,154 +31,147 @@ module Network.AWS.Lambda.ListFunctionsByCodeSigningConfig
     mkListFunctionsByCodeSigningConfigResponse,
 
     -- ** Response lenses
-    lfbcscrsFunctionARNs,
-    lfbcscrsNextMarker,
-    lfbcscrsResponseStatus,
+    lfbcscrrsFunctionArns,
+    lfbcscrrsNextMarker,
+    lfbcscrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListFunctionsByCodeSigningConfig' smart constructor.
 data ListFunctionsByCodeSigningConfig = ListFunctionsByCodeSigningConfig'
   { -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigARN :: Lude.Text,
+    codeSigningConfigArn :: Types.CodeSigningConfigArn,
     -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | Maximum number of items to return.
-    maxItems :: Lude.Maybe Lude.Natural
+    maxItems :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFunctionsByCodeSigningConfig' with the minimum fields required to make a request.
---
--- * 'codeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
--- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
--- * 'maxItems' - Maximum number of items to return.
+-- | Creates a 'ListFunctionsByCodeSigningConfig' value with any optional fields omitted.
 mkListFunctionsByCodeSigningConfig ::
-  -- | 'codeSigningConfigARN'
-  Lude.Text ->
+  -- | 'codeSigningConfigArn'
+  Types.CodeSigningConfigArn ->
   ListFunctionsByCodeSigningConfig
-mkListFunctionsByCodeSigningConfig pCodeSigningConfigARN_ =
+mkListFunctionsByCodeSigningConfig codeSigningConfigArn =
   ListFunctionsByCodeSigningConfig'
-    { codeSigningConfigARN =
-        pCodeSigningConfigARN_,
-      marker = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { codeSigningConfigArn,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
 --
--- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfbcscCodeSigningConfigARN :: Lens.Lens' ListFunctionsByCodeSigningConfig Lude.Text
-lfbcscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: ListFunctionsByCodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: ListFunctionsByCodeSigningConfig)
-{-# DEPRECATED lfbcscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
+-- /Note:/ Consider using 'codeSigningConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfbcscCodeSigningConfigArn :: Lens.Lens' ListFunctionsByCodeSigningConfig Types.CodeSigningConfigArn
+lfbcscCodeSigningConfigArn = Lens.field @"codeSigningConfigArn"
+{-# DEPRECATED lfbcscCodeSigningConfigArn "Use generic-lens or generic-optics with 'codeSigningConfigArn' instead." #-}
 
 -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfbcscMarker :: Lens.Lens' ListFunctionsByCodeSigningConfig (Lude.Maybe Lude.Text)
-lfbcscMarker = Lens.lens (marker :: ListFunctionsByCodeSigningConfig -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListFunctionsByCodeSigningConfig)
+lfbcscMarker :: Lens.Lens' ListFunctionsByCodeSigningConfig (Core.Maybe Types.Marker)
+lfbcscMarker = Lens.field @"marker"
 {-# DEPRECATED lfbcscMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Maximum number of items to return.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfbcscMaxItems :: Lens.Lens' ListFunctionsByCodeSigningConfig (Lude.Maybe Lude.Natural)
-lfbcscMaxItems = Lens.lens (maxItems :: ListFunctionsByCodeSigningConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListFunctionsByCodeSigningConfig)
+lfbcscMaxItems :: Lens.Lens' ListFunctionsByCodeSigningConfig (Core.Maybe Core.Natural)
+lfbcscMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED lfbcscMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Page.AWSPager ListFunctionsByCodeSigningConfig where
-  page rq rs
-    | Page.stop (rs Lens.^. lfbcscrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lfbcscrsFunctionARNs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lfbcscMarker Lens..~ rs Lens.^. lfbcscrsNextMarker
-
-instance Lude.AWSRequest ListFunctionsByCodeSigningConfig where
+instance Core.AWSRequest ListFunctionsByCodeSigningConfig where
   type
     Rs ListFunctionsByCodeSigningConfig =
       ListFunctionsByCodeSigningConfigResponse
-  request = Req.get lambdaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-04-22/code-signing-configs/"
+                Core.<> (Core.toText codeSigningConfigArn)
+                Core.<> ("/functions")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListFunctionsByCodeSigningConfigResponse'
-            Lude.<$> (x Lude..?> "FunctionArns" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FunctionArns")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListFunctionsByCodeSigningConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListFunctionsByCodeSigningConfig where
-  toPath ListFunctionsByCodeSigningConfig' {..} =
-    Lude.mconcat
-      [ "/2020-04-22/code-signing-configs/",
-        Lude.toBS codeSigningConfigARN,
-        "/functions"
-      ]
-
-instance Lude.ToQuery ListFunctionsByCodeSigningConfig where
-  toQuery ListFunctionsByCodeSigningConfig' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
+instance Pager.AWSPager ListFunctionsByCodeSigningConfig where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"functionArns" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListFunctionsByCodeSigningConfigResponse' smart constructor.
 data ListFunctionsByCodeSigningConfigResponse = ListFunctionsByCodeSigningConfigResponse'
   { -- | The function ARNs.
-    functionARNs :: Lude.Maybe [Lude.Text],
+    functionArns :: Core.Maybe [Types.FunctionArn],
     -- | The pagination token that's included if more results are available.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFunctionsByCodeSigningConfigResponse' with the minimum fields required to make a request.
---
--- * 'functionARNs' - The function ARNs.
--- * 'nextMarker' - The pagination token that's included if more results are available.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListFunctionsByCodeSigningConfigResponse' value with any optional fields omitted.
 mkListFunctionsByCodeSigningConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListFunctionsByCodeSigningConfigResponse
-mkListFunctionsByCodeSigningConfigResponse pResponseStatus_ =
+mkListFunctionsByCodeSigningConfigResponse responseStatus =
   ListFunctionsByCodeSigningConfigResponse'
-    { functionARNs =
-        Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { functionArns =
+        Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | The function ARNs.
 --
--- /Note:/ Consider using 'functionARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfbcscrsFunctionARNs :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Lude.Maybe [Lude.Text])
-lfbcscrsFunctionARNs = Lens.lens (functionARNs :: ListFunctionsByCodeSigningConfigResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {functionARNs = a} :: ListFunctionsByCodeSigningConfigResponse)
-{-# DEPRECATED lfbcscrsFunctionARNs "Use generic-lens or generic-optics with 'functionARNs' instead." #-}
+-- /Note:/ Consider using 'functionArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfbcscrrsFunctionArns :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Core.Maybe [Types.FunctionArn])
+lfbcscrrsFunctionArns = Lens.field @"functionArns"
+{-# DEPRECATED lfbcscrrsFunctionArns "Use generic-lens or generic-optics with 'functionArns' instead." #-}
 
 -- | The pagination token that's included if more results are available.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfbcscrsNextMarker :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Lude.Maybe Lude.Text)
-lfbcscrsNextMarker = Lens.lens (nextMarker :: ListFunctionsByCodeSigningConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListFunctionsByCodeSigningConfigResponse)
-{-# DEPRECATED lfbcscrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lfbcscrrsNextMarker :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Core.Maybe Types.String)
+lfbcscrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lfbcscrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfbcscrsResponseStatus :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse Lude.Int
-lfbcscrsResponseStatus = Lens.lens (responseStatus :: ListFunctionsByCodeSigningConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFunctionsByCodeSigningConfigResponse)
-{-# DEPRECATED lfbcscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lfbcscrrsResponseStatus :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse Core.Int
+lfbcscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lfbcscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

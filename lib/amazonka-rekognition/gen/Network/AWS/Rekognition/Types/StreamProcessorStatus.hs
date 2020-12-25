@@ -13,61 +13,66 @@
 module Network.AWS.Rekognition.Types.StreamProcessorStatus
   ( StreamProcessorStatus
       ( StreamProcessorStatus',
-        SPSStopped,
-        SPSStarting,
-        SPSRunning,
-        SPSFailed,
-        SPSStopping
+        StreamProcessorStatusStopped,
+        StreamProcessorStatusStarting,
+        StreamProcessorStatusRunning,
+        StreamProcessorStatusFailed,
+        StreamProcessorStatusStopping,
+        fromStreamProcessorStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StreamProcessorStatus = StreamProcessorStatus' Lude.Text
+newtype StreamProcessorStatus = StreamProcessorStatus'
+  { fromStreamProcessorStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SPSStopped :: StreamProcessorStatus
-pattern SPSStopped = StreamProcessorStatus' "STOPPED"
+pattern StreamProcessorStatusStopped :: StreamProcessorStatus
+pattern StreamProcessorStatusStopped = StreamProcessorStatus' "STOPPED"
 
-pattern SPSStarting :: StreamProcessorStatus
-pattern SPSStarting = StreamProcessorStatus' "STARTING"
+pattern StreamProcessorStatusStarting :: StreamProcessorStatus
+pattern StreamProcessorStatusStarting = StreamProcessorStatus' "STARTING"
 
-pattern SPSRunning :: StreamProcessorStatus
-pattern SPSRunning = StreamProcessorStatus' "RUNNING"
+pattern StreamProcessorStatusRunning :: StreamProcessorStatus
+pattern StreamProcessorStatusRunning = StreamProcessorStatus' "RUNNING"
 
-pattern SPSFailed :: StreamProcessorStatus
-pattern SPSFailed = StreamProcessorStatus' "FAILED"
+pattern StreamProcessorStatusFailed :: StreamProcessorStatus
+pattern StreamProcessorStatusFailed = StreamProcessorStatus' "FAILED"
 
-pattern SPSStopping :: StreamProcessorStatus
-pattern SPSStopping = StreamProcessorStatus' "STOPPING"
+pattern StreamProcessorStatusStopping :: StreamProcessorStatus
+pattern StreamProcessorStatusStopping = StreamProcessorStatus' "STOPPING"
 
 {-# COMPLETE
-  SPSStopped,
-  SPSStarting,
-  SPSRunning,
-  SPSFailed,
-  SPSStopping,
+  StreamProcessorStatusStopped,
+  StreamProcessorStatusStarting,
+  StreamProcessorStatusRunning,
+  StreamProcessorStatusFailed,
+  StreamProcessorStatusStopping,
   StreamProcessorStatus'
   #-}

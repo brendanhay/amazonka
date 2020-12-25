@@ -36,142 +36,125 @@ module Network.AWS.Rekognition.DetectText
     mkDetectTextResponse,
 
     -- ** Response lenses
-    dtrsTextDetections,
-    dtrsTextModelVersion,
-    dtrsResponseStatus,
+    dtrrsTextDetections,
+    dtrrsTextModelVersion,
+    dtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectText' smart constructor.
 data DetectText = DetectText'
   { -- | The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.
     --
     -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
-    image :: Image,
+    image :: Types.Image,
     -- | Optional parameters that let you set the criteria that the text must meet to be included in your response.
-    filters :: Lude.Maybe DetectTextFilters
+    filters :: Core.Maybe Types.DetectTextFilters
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectText' with the minimum fields required to make a request.
---
--- * 'image' - The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.
---
--- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
--- * 'filters' - Optional parameters that let you set the criteria that the text must meet to be included in your response.
+-- | Creates a 'DetectText' value with any optional fields omitted.
 mkDetectText ::
   -- | 'image'
-  Image ->
+  Types.Image ->
   DetectText
-mkDetectText pImage_ =
-  DetectText' {image = pImage_, filters = Lude.Nothing}
+mkDetectText image = DetectText' {image, filters = Core.Nothing}
 
 -- | The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.
 --
 -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtImage :: Lens.Lens' DetectText Image
-dtImage = Lens.lens (image :: DetectText -> Image) (\s a -> s {image = a} :: DetectText)
+dtImage :: Lens.Lens' DetectText Types.Image
+dtImage = Lens.field @"image"
 {-# DEPRECATED dtImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | Optional parameters that let you set the criteria that the text must meet to be included in your response.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtFilters :: Lens.Lens' DetectText (Lude.Maybe DetectTextFilters)
-dtFilters = Lens.lens (filters :: DetectText -> Lude.Maybe DetectTextFilters) (\s a -> s {filters = a} :: DetectText)
+dtFilters :: Lens.Lens' DetectText (Core.Maybe Types.DetectTextFilters)
+dtFilters = Lens.field @"filters"
 {-# DEPRECATED dtFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
-instance Lude.AWSRequest DetectText where
+instance Core.FromJSON DetectText where
+  toJSON DetectText {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Image" Core..= image),
+            ("Filters" Core..=) Core.<$> filters
+          ]
+      )
+
+instance Core.AWSRequest DetectText where
   type Rs DetectText = DetectTextResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.DetectText")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetectTextResponse'
-            Lude.<$> (x Lude..?> "TextDetections" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "TextModelVersion")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TextDetections")
+            Core.<*> (x Core..:? "TextModelVersion")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetectText where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.DetectText" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetectText where
-  toJSON DetectText' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Image" Lude..= image),
-            ("Filters" Lude..=) Lude.<$> filters
-          ]
-      )
-
-instance Lude.ToPath DetectText where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetectText where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetectTextResponse' smart constructor.
 data DetectTextResponse = DetectTextResponse'
   { -- | An array of text that was detected in the input image.
-    textDetections :: Lude.Maybe [TextDetection],
+    textDetections :: Core.Maybe [Types.TextDetection],
     -- | The model version used to detect text.
-    textModelVersion :: Lude.Maybe Lude.Text,
+    textModelVersion :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectTextResponse' with the minimum fields required to make a request.
---
--- * 'textDetections' - An array of text that was detected in the input image.
--- * 'textModelVersion' - The model version used to detect text.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetectTextResponse' value with any optional fields omitted.
 mkDetectTextResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetectTextResponse
-mkDetectTextResponse pResponseStatus_ =
+mkDetectTextResponse responseStatus =
   DetectTextResponse'
-    { textDetections = Lude.Nothing,
-      textModelVersion = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { textDetections = Core.Nothing,
+      textModelVersion = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of text that was detected in the input image.
 --
 -- /Note:/ Consider using 'textDetections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTextDetections :: Lens.Lens' DetectTextResponse (Lude.Maybe [TextDetection])
-dtrsTextDetections = Lens.lens (textDetections :: DetectTextResponse -> Lude.Maybe [TextDetection]) (\s a -> s {textDetections = a} :: DetectTextResponse)
-{-# DEPRECATED dtrsTextDetections "Use generic-lens or generic-optics with 'textDetections' instead." #-}
+dtrrsTextDetections :: Lens.Lens' DetectTextResponse (Core.Maybe [Types.TextDetection])
+dtrrsTextDetections = Lens.field @"textDetections"
+{-# DEPRECATED dtrrsTextDetections "Use generic-lens or generic-optics with 'textDetections' instead." #-}
 
 -- | The model version used to detect text.
 --
 -- /Note:/ Consider using 'textModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTextModelVersion :: Lens.Lens' DetectTextResponse (Lude.Maybe Lude.Text)
-dtrsTextModelVersion = Lens.lens (textModelVersion :: DetectTextResponse -> Lude.Maybe Lude.Text) (\s a -> s {textModelVersion = a} :: DetectTextResponse)
-{-# DEPRECATED dtrsTextModelVersion "Use generic-lens or generic-optics with 'textModelVersion' instead." #-}
+dtrrsTextModelVersion :: Lens.Lens' DetectTextResponse (Core.Maybe Types.String)
+dtrrsTextModelVersion = Lens.field @"textModelVersion"
+{-# DEPRECATED dtrrsTextModelVersion "Use generic-lens or generic-optics with 'textModelVersion' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DetectTextResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DetectTextResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectTextResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrrsResponseStatus :: Lens.Lens' DetectTextResponse Core.Int
+dtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

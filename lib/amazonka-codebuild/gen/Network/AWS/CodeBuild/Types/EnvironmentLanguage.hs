@@ -22,55 +22,49 @@ module Network.AWS.CodeBuild.Types.EnvironmentLanguage
   )
 where
 
-import Network.AWS.CodeBuild.Types.EnvironmentImage
-import Network.AWS.CodeBuild.Types.LanguageType
+import qualified Network.AWS.CodeBuild.Types.EnvironmentImage as Types
+import qualified Network.AWS.CodeBuild.Types.LanguageType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A set of Docker images that are related by programming language and are managed by AWS CodeBuild.
 --
 -- /See:/ 'mkEnvironmentLanguage' smart constructor.
 data EnvironmentLanguage = EnvironmentLanguage'
   { -- | The list of Docker images that are related by the specified programming language.
-    images :: Lude.Maybe [EnvironmentImage],
+    images :: Core.Maybe [Types.EnvironmentImage],
     -- | The programming language for the Docker images.
-    language :: Lude.Maybe LanguageType
+    language :: Core.Maybe Types.LanguageType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnvironmentLanguage' with the minimum fields required to make a request.
---
--- * 'images' - The list of Docker images that are related by the specified programming language.
--- * 'language' - The programming language for the Docker images.
+-- | Creates a 'EnvironmentLanguage' value with any optional fields omitted.
 mkEnvironmentLanguage ::
   EnvironmentLanguage
 mkEnvironmentLanguage =
   EnvironmentLanguage'
-    { images = Lude.Nothing,
-      language = Lude.Nothing
+    { images = Core.Nothing,
+      language = Core.Nothing
     }
 
 -- | The list of Docker images that are related by the specified programming language.
 --
 -- /Note:/ Consider using 'images' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elImages :: Lens.Lens' EnvironmentLanguage (Lude.Maybe [EnvironmentImage])
-elImages = Lens.lens (images :: EnvironmentLanguage -> Lude.Maybe [EnvironmentImage]) (\s a -> s {images = a} :: EnvironmentLanguage)
+elImages :: Lens.Lens' EnvironmentLanguage (Core.Maybe [Types.EnvironmentImage])
+elImages = Lens.field @"images"
 {-# DEPRECATED elImages "Use generic-lens or generic-optics with 'images' instead." #-}
 
 -- | The programming language for the Docker images.
 --
 -- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elLanguage :: Lens.Lens' EnvironmentLanguage (Lude.Maybe LanguageType)
-elLanguage = Lens.lens (language :: EnvironmentLanguage -> Lude.Maybe LanguageType) (\s a -> s {language = a} :: EnvironmentLanguage)
+elLanguage :: Lens.Lens' EnvironmentLanguage (Core.Maybe Types.LanguageType)
+elLanguage = Lens.field @"language"
 {-# DEPRECATED elLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
-instance Lude.FromJSON EnvironmentLanguage where
+instance Core.FromJSON EnvironmentLanguage where
   parseJSON =
-    Lude.withObject
-      "EnvironmentLanguage"
-      ( \x ->
-          EnvironmentLanguage'
-            Lude.<$> (x Lude..:? "images" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "language")
-      )
+    Core.withObject "EnvironmentLanguage" Core.$
+      \x ->
+        EnvironmentLanguage'
+          Core.<$> (x Core..:? "images") Core.<*> (x Core..:? "language")

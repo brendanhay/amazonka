@@ -29,123 +29,110 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     mkListVolumeRecoveryPointsResponse,
 
     -- ** Response lenses
-    lvrprsVolumeRecoveryPointInfos,
-    lvrprsGatewayARN,
-    lvrprsResponseStatus,
+    lvrprrsGatewayARN,
+    lvrprrsVolumeRecoveryPointInfos,
+    lvrprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkListVolumeRecoveryPoints' smart constructor.
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListVolumeRecoveryPoints' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'ListVolumeRecoveryPoints' value with any optional fields omitted.
 mkListVolumeRecoveryPoints ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   ListVolumeRecoveryPoints
-mkListVolumeRecoveryPoints pGatewayARN_ =
-  ListVolumeRecoveryPoints' {gatewayARN = pGatewayARN_}
+mkListVolumeRecoveryPoints gatewayARN =
+  ListVolumeRecoveryPoints' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvrpGatewayARN :: Lens.Lens' ListVolumeRecoveryPoints Lude.Text
-lvrpGatewayARN = Lens.lens (gatewayARN :: ListVolumeRecoveryPoints -> Lude.Text) (\s a -> s {gatewayARN = a} :: ListVolumeRecoveryPoints)
+lvrpGatewayARN :: Lens.Lens' ListVolumeRecoveryPoints Types.GatewayARN
+lvrpGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED lvrpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest ListVolumeRecoveryPoints where
+instance Core.FromJSON ListVolumeRecoveryPoints where
+  toJSON ListVolumeRecoveryPoints {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest ListVolumeRecoveryPoints where
   type Rs ListVolumeRecoveryPoints = ListVolumeRecoveryPointsResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.ListVolumeRecoveryPoints"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListVolumeRecoveryPointsResponse'
-            Lude.<$> (x Lude..?> "VolumeRecoveryPointInfos" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "GatewayARN")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN")
+            Core.<*> (x Core..:? "VolumeRecoveryPointInfos")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListVolumeRecoveryPoints where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.ListVolumeRecoveryPoints" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListVolumeRecoveryPoints where
-  toJSON ListVolumeRecoveryPoints' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath ListVolumeRecoveryPoints where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListVolumeRecoveryPoints where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListVolumeRecoveryPointsResponse' smart constructor.
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
-  { -- | An array of 'VolumeRecoveryPointInfo' objects.
-    volumeRecoveryPointInfos :: Lude.Maybe [VolumeRecoveryPointInfo],
-    gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
+    -- | An array of 'VolumeRecoveryPointInfo' objects.
+    volumeRecoveryPointInfos :: Core.Maybe [Types.VolumeRecoveryPointInfo],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListVolumeRecoveryPointsResponse' with the minimum fields required to make a request.
---
--- * 'volumeRecoveryPointInfos' - An array of 'VolumeRecoveryPointInfo' objects.
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListVolumeRecoveryPointsResponse' value with any optional fields omitted.
 mkListVolumeRecoveryPointsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListVolumeRecoveryPointsResponse
-mkListVolumeRecoveryPointsResponse pResponseStatus_ =
+mkListVolumeRecoveryPointsResponse responseStatus =
   ListVolumeRecoveryPointsResponse'
-    { volumeRecoveryPointInfos =
-        Lude.Nothing,
-      gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      volumeRecoveryPointInfos = Core.Nothing,
+      responseStatus
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrprrsGatewayARN :: Lens.Lens' ListVolumeRecoveryPointsResponse (Core.Maybe Types.GatewayARN)
+lvrprrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED lvrprrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An array of 'VolumeRecoveryPointInfo' objects.
 --
 -- /Note:/ Consider using 'volumeRecoveryPointInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvrprsVolumeRecoveryPointInfos :: Lens.Lens' ListVolumeRecoveryPointsResponse (Lude.Maybe [VolumeRecoveryPointInfo])
-lvrprsVolumeRecoveryPointInfos = Lens.lens (volumeRecoveryPointInfos :: ListVolumeRecoveryPointsResponse -> Lude.Maybe [VolumeRecoveryPointInfo]) (\s a -> s {volumeRecoveryPointInfos = a} :: ListVolumeRecoveryPointsResponse)
-{-# DEPRECATED lvrprsVolumeRecoveryPointInfos "Use generic-lens or generic-optics with 'volumeRecoveryPointInfos' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvrprsGatewayARN :: Lens.Lens' ListVolumeRecoveryPointsResponse (Lude.Maybe Lude.Text)
-lvrprsGatewayARN = Lens.lens (gatewayARN :: ListVolumeRecoveryPointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ListVolumeRecoveryPointsResponse)
-{-# DEPRECATED lvrprsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+lvrprrsVolumeRecoveryPointInfos :: Lens.Lens' ListVolumeRecoveryPointsResponse (Core.Maybe [Types.VolumeRecoveryPointInfo])
+lvrprrsVolumeRecoveryPointInfos = Lens.field @"volumeRecoveryPointInfos"
+{-# DEPRECATED lvrprrsVolumeRecoveryPointInfos "Use generic-lens or generic-optics with 'volumeRecoveryPointInfos' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvrprsResponseStatus :: Lens.Lens' ListVolumeRecoveryPointsResponse Lude.Int
-lvrprsResponseStatus = Lens.lens (responseStatus :: ListVolumeRecoveryPointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVolumeRecoveryPointsResponse)
-{-# DEPRECATED lvrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lvrprrsResponseStatus :: Lens.Lens' ListVolumeRecoveryPointsResponse Core.Int
+lvrprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lvrprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

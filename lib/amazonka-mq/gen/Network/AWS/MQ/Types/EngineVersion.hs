@@ -22,34 +22,31 @@ module Network.AWS.MQ.Types.EngineVersion
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Id of the engine version.
 --
 -- /See:/ 'mkEngineVersion' smart constructor.
 newtype EngineVersion = EngineVersion'
   { -- | Id for the version.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EngineVersion' with the minimum fields required to make a request.
---
--- * 'name' - Id for the version.
+-- | Creates a 'EngineVersion' value with any optional fields omitted.
 mkEngineVersion ::
   EngineVersion
-mkEngineVersion = EngineVersion' {name = Lude.Nothing}
+mkEngineVersion = EngineVersion' {name = Core.Nothing}
 
 -- | Id for the version.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evName :: Lens.Lens' EngineVersion (Lude.Maybe Lude.Text)
-evName = Lens.lens (name :: EngineVersion -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: EngineVersion)
+evName :: Lens.Lens' EngineVersion (Core.Maybe Core.Text)
+evName = Lens.field @"name"
 {-# DEPRECATED evName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON EngineVersion where
+instance Core.FromJSON EngineVersion where
   parseJSON =
-    Lude.withObject
-      "EngineVersion"
-      (\x -> EngineVersion' Lude.<$> (x Lude..:? "name"))
+    Core.withObject "EngineVersion" Core.$
+      \x -> EngineVersion' Core.<$> (x Core..:? "name")

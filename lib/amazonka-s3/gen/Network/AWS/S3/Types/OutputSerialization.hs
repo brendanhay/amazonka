@@ -17,52 +17,50 @@ module Network.AWS.S3.Types.OutputSerialization
     mkOutputSerialization,
 
     -- * Lenses
-    osJSON,
     osCSV,
+    osJSON,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.CSVOutput
-import Network.AWS.S3.Types.JSONOutput
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.CSVOutput as Types
+import qualified Network.AWS.S3.Types.JSONOutput as Types
 
 -- | Describes how results of the Select job are serialized.
 --
 -- /See:/ 'mkOutputSerialization' smart constructor.
 data OutputSerialization = OutputSerialization'
-  { -- | Specifies JSON as request's output serialization format.
-    json :: Lude.Maybe JSONOutput,
-    -- | Describes the serialization of CSV-encoded Select results.
-    csv :: Lude.Maybe CSVOutput
+  { -- | Describes the serialization of CSV-encoded Select results.
+    csv :: Core.Maybe Types.CSVOutput,
+    -- | Specifies JSON as request's output serialization format.
+    json :: Core.Maybe Types.JSONOutput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputSerialization' with the minimum fields required to make a request.
---
--- * 'json' - Specifies JSON as request's output serialization format.
--- * 'csv' - Describes the serialization of CSV-encoded Select results.
+-- | Creates a 'OutputSerialization' value with any optional fields omitted.
 mkOutputSerialization ::
   OutputSerialization
 mkOutputSerialization =
-  OutputSerialization' {json = Lude.Nothing, csv = Lude.Nothing}
-
--- | Specifies JSON as request's output serialization format.
---
--- /Note:/ Consider using 'json' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osJSON :: Lens.Lens' OutputSerialization (Lude.Maybe JSONOutput)
-osJSON = Lens.lens (json :: OutputSerialization -> Lude.Maybe JSONOutput) (\s a -> s {json = a} :: OutputSerialization)
-{-# DEPRECATED osJSON "Use generic-lens or generic-optics with 'json' instead." #-}
+  OutputSerialization' {csv = Core.Nothing, json = Core.Nothing}
 
 -- | Describes the serialization of CSV-encoded Select results.
 --
 -- /Note:/ Consider using 'csv' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osCSV :: Lens.Lens' OutputSerialization (Lude.Maybe CSVOutput)
-osCSV = Lens.lens (csv :: OutputSerialization -> Lude.Maybe CSVOutput) (\s a -> s {csv = a} :: OutputSerialization)
+osCSV :: Lens.Lens' OutputSerialization (Core.Maybe Types.CSVOutput)
+osCSV = Lens.field @"csv"
 {-# DEPRECATED osCSV "Use generic-lens or generic-optics with 'csv' instead." #-}
 
-instance Lude.ToXML OutputSerialization where
-  toXML OutputSerialization' {..} =
-    Lude.mconcat ["JSON" Lude.@= json, "CSV" Lude.@= csv]
+-- | Specifies JSON as request's output serialization format.
+--
+-- /Note:/ Consider using 'json' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osJSON :: Lens.Lens' OutputSerialization (Core.Maybe Types.JSONOutput)
+osJSON = Lens.field @"json"
+{-# DEPRECATED osJSON "Use generic-lens or generic-optics with 'json' instead." #-}
+
+instance Core.ToXML OutputSerialization where
+  toXML OutputSerialization {..} =
+    Core.toXMLNode "CSV" Core.<$> csv
+      Core.<> Core.toXMLNode "JSON" Core.<$> json

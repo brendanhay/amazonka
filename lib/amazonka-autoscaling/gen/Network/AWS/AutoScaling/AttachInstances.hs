@@ -24,8 +24,8 @@ module Network.AWS.AutoScaling.AttachInstances
     mkAttachInstances,
 
     -- ** Request lenses
-    aiInstanceIds,
     aiAutoScalingGroupName,
+    aiInstanceIds,
 
     -- * Destructuring the response
     AttachInstancesResponse (..),
@@ -33,77 +33,79 @@ module Network.AWS.AutoScaling.AttachInstances
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAttachInstances' smart constructor.
 data AttachInstances = AttachInstances'
-  { -- | The IDs of the instances. You can specify up to 20 instances.
-    instanceIds :: Lude.Maybe [Lude.Text],
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.ResourceName,
+    -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Core.Maybe [Types.XmlStringMaxLen19]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachInstances' with the minimum fields required to make a request.
---
--- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'AttachInstances' value with any optional fields omitted.
 mkAttachInstances ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
   AttachInstances
-mkAttachInstances pAutoScalingGroupName_ =
+mkAttachInstances autoScalingGroupName =
   AttachInstances'
-    { instanceIds = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
+    { autoScalingGroupName,
+      instanceIds = Core.Nothing
     }
-
--- | The IDs of the instances. You can specify up to 20 instances.
---
--- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiInstanceIds :: Lens.Lens' AttachInstances (Lude.Maybe [Lude.Text])
-aiInstanceIds = Lens.lens (instanceIds :: AttachInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: AttachInstances)
-{-# DEPRECATED aiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiAutoScalingGroupName :: Lens.Lens' AttachInstances Lude.Text
-aiAutoScalingGroupName = Lens.lens (autoScalingGroupName :: AttachInstances -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: AttachInstances)
+aiAutoScalingGroupName :: Lens.Lens' AttachInstances Types.ResourceName
+aiAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED aiAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest AttachInstances where
+-- | The IDs of the instances. You can specify up to 20 instances.
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiInstanceIds :: Lens.Lens' AttachInstances (Core.Maybe [Types.XmlStringMaxLen19])
+aiInstanceIds = Lens.field @"instanceIds"
+{-# DEPRECATED aiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+instance Core.AWSRequest AttachInstances where
   type Rs AttachInstances = AttachInstancesResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull AttachInstancesResponse'
-
-instance Lude.ToHeaders AttachInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AttachInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AttachInstances where
-  toQuery AttachInstances' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AttachInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "InstanceIds"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> instanceIds),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AttachInstances")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> ( Core.toQueryValue
+                            "InstanceIds"
+                            (Core.toQueryList "member" Core.<$> instanceIds)
+                        )
+            )
+      }
+  response = Response.receiveNull AttachInstancesResponse'
 
 -- | /See:/ 'mkAttachInstancesResponse' smart constructor.
 data AttachInstancesResponse = AttachInstancesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachInstancesResponse' with the minimum fields required to make a request.
+-- | Creates a 'AttachInstancesResponse' value with any optional fields omitted.
 mkAttachInstancesResponse ::
   AttachInstancesResponse
 mkAttachInstancesResponse = AttachInstancesResponse'

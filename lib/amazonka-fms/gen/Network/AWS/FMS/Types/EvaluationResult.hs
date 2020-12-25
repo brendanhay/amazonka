@@ -17,72 +17,66 @@ module Network.AWS.FMS.Types.EvaluationResult
     mkEvaluationResult,
 
     -- * Lenses
-    erViolatorCount,
     erComplianceStatus,
     erEvaluationLimitExceeded,
+    erViolatorCount,
   )
 where
 
-import Network.AWS.FMS.Types.PolicyComplianceStatusType
+import qualified Network.AWS.FMS.Types.PolicyComplianceStatusType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the compliance status for the account. An account is considered noncompliant if it includes resources that are not protected by the specified policy or that don't comply with the policy.
 --
 -- /See:/ 'mkEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { -- | The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.
-    violatorCount :: Lude.Maybe Lude.Natural,
-    -- | Describes an AWS account's compliance with the AWS Firewall Manager policy.
-    complianceStatus :: Lude.Maybe PolicyComplianceStatusType,
+  { -- | Describes an AWS account's compliance with the AWS Firewall Manager policy.
+    complianceStatus :: Core.Maybe Types.PolicyComplianceStatusType,
     -- | Indicates that over 100 resources are noncompliant with the AWS Firewall Manager policy.
-    evaluationLimitExceeded :: Lude.Maybe Lude.Bool
+    evaluationLimitExceeded :: Core.Maybe Core.Bool,
+    -- | The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.
+    violatorCount :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
---
--- * 'violatorCount' - The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.
--- * 'complianceStatus' - Describes an AWS account's compliance with the AWS Firewall Manager policy.
--- * 'evaluationLimitExceeded' - Indicates that over 100 resources are noncompliant with the AWS Firewall Manager policy.
+-- | Creates a 'EvaluationResult' value with any optional fields omitted.
 mkEvaluationResult ::
   EvaluationResult
 mkEvaluationResult =
   EvaluationResult'
-    { violatorCount = Lude.Nothing,
-      complianceStatus = Lude.Nothing,
-      evaluationLimitExceeded = Lude.Nothing
+    { complianceStatus = Core.Nothing,
+      evaluationLimitExceeded = Core.Nothing,
+      violatorCount = Core.Nothing
     }
-
--- | The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.
---
--- /Note:/ Consider using 'violatorCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erViolatorCount :: Lens.Lens' EvaluationResult (Lude.Maybe Lude.Natural)
-erViolatorCount = Lens.lens (violatorCount :: EvaluationResult -> Lude.Maybe Lude.Natural) (\s a -> s {violatorCount = a} :: EvaluationResult)
-{-# DEPRECATED erViolatorCount "Use generic-lens or generic-optics with 'violatorCount' instead." #-}
 
 -- | Describes an AWS account's compliance with the AWS Firewall Manager policy.
 --
 -- /Note:/ Consider using 'complianceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erComplianceStatus :: Lens.Lens' EvaluationResult (Lude.Maybe PolicyComplianceStatusType)
-erComplianceStatus = Lens.lens (complianceStatus :: EvaluationResult -> Lude.Maybe PolicyComplianceStatusType) (\s a -> s {complianceStatus = a} :: EvaluationResult)
+erComplianceStatus :: Lens.Lens' EvaluationResult (Core.Maybe Types.PolicyComplianceStatusType)
+erComplianceStatus = Lens.field @"complianceStatus"
 {-# DEPRECATED erComplianceStatus "Use generic-lens or generic-optics with 'complianceStatus' instead." #-}
 
 -- | Indicates that over 100 resources are noncompliant with the AWS Firewall Manager policy.
 --
 -- /Note:/ Consider using 'evaluationLimitExceeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erEvaluationLimitExceeded :: Lens.Lens' EvaluationResult (Lude.Maybe Lude.Bool)
-erEvaluationLimitExceeded = Lens.lens (evaluationLimitExceeded :: EvaluationResult -> Lude.Maybe Lude.Bool) (\s a -> s {evaluationLimitExceeded = a} :: EvaluationResult)
+erEvaluationLimitExceeded :: Lens.Lens' EvaluationResult (Core.Maybe Core.Bool)
+erEvaluationLimitExceeded = Lens.field @"evaluationLimitExceeded"
 {-# DEPRECATED erEvaluationLimitExceeded "Use generic-lens or generic-optics with 'evaluationLimitExceeded' instead." #-}
 
-instance Lude.FromJSON EvaluationResult where
+-- | The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.
+--
+-- /Note:/ Consider using 'violatorCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erViolatorCount :: Lens.Lens' EvaluationResult (Core.Maybe Core.Natural)
+erViolatorCount = Lens.field @"violatorCount"
+{-# DEPRECATED erViolatorCount "Use generic-lens or generic-optics with 'violatorCount' instead." #-}
+
+instance Core.FromJSON EvaluationResult where
   parseJSON =
-    Lude.withObject
-      "EvaluationResult"
-      ( \x ->
-          EvaluationResult'
-            Lude.<$> (x Lude..:? "ViolatorCount")
-            Lude.<*> (x Lude..:? "ComplianceStatus")
-            Lude.<*> (x Lude..:? "EvaluationLimitExceeded")
-      )
+    Core.withObject "EvaluationResult" Core.$
+      \x ->
+        EvaluationResult'
+          Core.<$> (x Core..:? "ComplianceStatus")
+          Core.<*> (x Core..:? "EvaluationLimitExceeded")
+          Core.<*> (x Core..:? "ViolatorCount")

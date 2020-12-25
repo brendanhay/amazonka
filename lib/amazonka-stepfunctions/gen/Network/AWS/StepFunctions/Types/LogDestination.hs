@@ -22,47 +22,43 @@ module Network.AWS.StepFunctions.Types.LogDestination
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup as Types
 
 -- |
 --
 -- /See:/ 'mkLogDestination' smart constructor.
 newtype LogDestination = LogDestination'
   { -- | An object describing a CloudWatch log group. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup> in the AWS CloudFormation User Guide.
-    cloudWatchLogsLogGroup :: Lude.Maybe CloudWatchLogsLogGroup
+    cloudWatchLogsLogGroup :: Core.Maybe Types.CloudWatchLogsLogGroup
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LogDestination' with the minimum fields required to make a request.
---
--- * 'cloudWatchLogsLogGroup' - An object describing a CloudWatch log group. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup> in the AWS CloudFormation User Guide.
+-- | Creates a 'LogDestination' value with any optional fields omitted.
 mkLogDestination ::
   LogDestination
 mkLogDestination =
-  LogDestination' {cloudWatchLogsLogGroup = Lude.Nothing}
+  LogDestination' {cloudWatchLogsLogGroup = Core.Nothing}
 
 -- | An object describing a CloudWatch log group. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup> in the AWS CloudFormation User Guide.
 --
 -- /Note:/ Consider using 'cloudWatchLogsLogGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldCloudWatchLogsLogGroup :: Lens.Lens' LogDestination (Lude.Maybe CloudWatchLogsLogGroup)
-ldCloudWatchLogsLogGroup = Lens.lens (cloudWatchLogsLogGroup :: LogDestination -> Lude.Maybe CloudWatchLogsLogGroup) (\s a -> s {cloudWatchLogsLogGroup = a} :: LogDestination)
+ldCloudWatchLogsLogGroup :: Lens.Lens' LogDestination (Core.Maybe Types.CloudWatchLogsLogGroup)
+ldCloudWatchLogsLogGroup = Lens.field @"cloudWatchLogsLogGroup"
 {-# DEPRECATED ldCloudWatchLogsLogGroup "Use generic-lens or generic-optics with 'cloudWatchLogsLogGroup' instead." #-}
 
-instance Lude.FromJSON LogDestination where
-  parseJSON =
-    Lude.withObject
-      "LogDestination"
-      ( \x ->
-          LogDestination' Lude.<$> (x Lude..:? "cloudWatchLogsLogGroup")
-      )
-
-instance Lude.ToJSON LogDestination where
-  toJSON LogDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("cloudWatchLogsLogGroup" Lude..=)
-              Lude.<$> cloudWatchLogsLogGroup
+instance Core.FromJSON LogDestination where
+  toJSON LogDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("cloudWatchLogsLogGroup" Core..=)
+              Core.<$> cloudWatchLogsLogGroup
           ]
       )
+
+instance Core.FromJSON LogDestination where
+  parseJSON =
+    Core.withObject "LogDestination" Core.$
+      \x ->
+        LogDestination' Core.<$> (x Core..:? "cloudWatchLogsLogGroup")

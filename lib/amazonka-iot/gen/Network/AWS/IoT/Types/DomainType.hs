@@ -13,51 +13,53 @@
 module Network.AWS.IoT.Types.DomainType
   ( DomainType
       ( DomainType',
-        Endpoint,
-        AWSManaged,
-        CustomerManaged
+        DomainTypeEndpoint,
+        DomainTypeAwsManaged,
+        DomainTypeCustomerManaged,
+        fromDomainType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DomainType = DomainType' Lude.Text
+newtype DomainType = DomainType' {fromDomainType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Endpoint :: DomainType
-pattern Endpoint = DomainType' "ENDPOINT"
+pattern DomainTypeEndpoint :: DomainType
+pattern DomainTypeEndpoint = DomainType' "ENDPOINT"
 
-pattern AWSManaged :: DomainType
-pattern AWSManaged = DomainType' "AWS_MANAGED"
+pattern DomainTypeAwsManaged :: DomainType
+pattern DomainTypeAwsManaged = DomainType' "AWS_MANAGED"
 
-pattern CustomerManaged :: DomainType
-pattern CustomerManaged = DomainType' "CUSTOMER_MANAGED"
+pattern DomainTypeCustomerManaged :: DomainType
+pattern DomainTypeCustomerManaged = DomainType' "CUSTOMER_MANAGED"
 
 {-# COMPLETE
-  Endpoint,
-  AWSManaged,
-  CustomerManaged,
+  DomainTypeEndpoint,
+  DomainTypeAwsManaged,
+  DomainTypeCustomerManaged,
   DomainType'
   #-}

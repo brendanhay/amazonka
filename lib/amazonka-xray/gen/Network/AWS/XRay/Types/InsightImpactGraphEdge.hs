@@ -22,37 +22,32 @@ module Network.AWS.XRay.Types.InsightImpactGraphEdge
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The connection between two service in an insight impact graph.
 --
 -- /See:/ 'mkInsightImpactGraphEdge' smart constructor.
 newtype InsightImpactGraphEdge = InsightImpactGraphEdge'
   { -- | Identifier of the edge. Unique within a service map.
-    referenceId :: Lude.Maybe Lude.Int
+    referenceId :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InsightImpactGraphEdge' with the minimum fields required to make a request.
---
--- * 'referenceId' - Identifier of the edge. Unique within a service map.
+-- | Creates a 'InsightImpactGraphEdge' value with any optional fields omitted.
 mkInsightImpactGraphEdge ::
   InsightImpactGraphEdge
 mkInsightImpactGraphEdge =
-  InsightImpactGraphEdge' {referenceId = Lude.Nothing}
+  InsightImpactGraphEdge' {referenceId = Core.Nothing}
 
 -- | Identifier of the edge. Unique within a service map.
 --
 -- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iigeReferenceId :: Lens.Lens' InsightImpactGraphEdge (Lude.Maybe Lude.Int)
-iigeReferenceId = Lens.lens (referenceId :: InsightImpactGraphEdge -> Lude.Maybe Lude.Int) (\s a -> s {referenceId = a} :: InsightImpactGraphEdge)
+iigeReferenceId :: Lens.Lens' InsightImpactGraphEdge (Core.Maybe Core.Int)
+iigeReferenceId = Lens.field @"referenceId"
 {-# DEPRECATED iigeReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
 
-instance Lude.FromJSON InsightImpactGraphEdge where
+instance Core.FromJSON InsightImpactGraphEdge where
   parseJSON =
-    Lude.withObject
-      "InsightImpactGraphEdge"
-      ( \x ->
-          InsightImpactGraphEdge' Lude.<$> (x Lude..:? "ReferenceId")
-      )
+    Core.withObject "InsightImpactGraphEdge" Core.$
+      \x -> InsightImpactGraphEdge' Core.<$> (x Core..:? "ReferenceId")

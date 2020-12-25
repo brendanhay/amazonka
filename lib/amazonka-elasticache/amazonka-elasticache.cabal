@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ElastiCache
     Network.AWS.ElastiCache.AddTagsToResource
@@ -136,83 +142,149 @@ library
     Network.AWS.ElastiCache.Waiters
 
   other-modules:
+    Network.AWS.ElastiCache.Types.AccessString
+    Network.AWS.ElastiCache.Types.Address
+    Network.AWS.ElastiCache.Types.AllowedNodeGroupId
+    Network.AWS.ElastiCache.Types.ARN
     Network.AWS.ElastiCache.Types.Authentication
     Network.AWS.ElastiCache.Types.AuthenticationType
+    Network.AWS.ElastiCache.Types.AuthToken
     Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
     Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType
     Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
     Network.AWS.ElastiCache.Types.AvailabilityZone
     Network.AWS.ElastiCache.Types.AZMode
     Network.AWS.ElastiCache.Types.CacheCluster
+    Network.AWS.ElastiCache.Types.CacheClusterId
     Network.AWS.ElastiCache.Types.CacheEngineVersion
     Network.AWS.ElastiCache.Types.CacheNode
+    Network.AWS.ElastiCache.Types.CacheNodeId
+    Network.AWS.ElastiCache.Types.CacheNodeType
     Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter
     Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue
     Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus
     Network.AWS.ElastiCache.Types.CacheParameterGroup
+    Network.AWS.ElastiCache.Types.CacheParameterGroupName
     Network.AWS.ElastiCache.Types.CacheParameterGroupNameMessage
     Network.AWS.ElastiCache.Types.CacheParameterGroupStatus
     Network.AWS.ElastiCache.Types.CacheSecurityGroup
     Network.AWS.ElastiCache.Types.CacheSecurityGroupMembership
+    Network.AWS.ElastiCache.Types.CacheSecurityGroupName
+    Network.AWS.ElastiCache.Types.CacheSize
     Network.AWS.ElastiCache.Types.CacheSubnetGroup
+    Network.AWS.ElastiCache.Types.CacheSubnetGroupDescription
+    Network.AWS.ElastiCache.Types.CacheSubnetGroupName
     Network.AWS.ElastiCache.Types.ChangeType
     Network.AWS.ElastiCache.Types.ConfigureShard
     Network.AWS.ElastiCache.Types.CustomerNodeEndpoint
+    Network.AWS.ElastiCache.Types.Description
     Network.AWS.ElastiCache.Types.EC2SecurityGroup
+    Network.AWS.ElastiCache.Types.EC2SecurityGroupName
+    Network.AWS.ElastiCache.Types.EC2SecurityGroupOwnerId
     Network.AWS.ElastiCache.Types.Endpoint
+    Network.AWS.ElastiCache.Types.Engine
     Network.AWS.ElastiCache.Types.EngineDefaults
+    Network.AWS.ElastiCache.Types.EngineType
+    Network.AWS.ElastiCache.Types.EngineVersion
+    Network.AWS.ElastiCache.Types.EstimatedUpdateTime
     Network.AWS.ElastiCache.Types.Event
     Network.AWS.ElastiCache.Types.Filter
+    Network.AWS.ElastiCache.Types.FilterName
+    Network.AWS.ElastiCache.Types.FilterValue
+    Network.AWS.ElastiCache.Types.FinalSnapshotIdentifier
     Network.AWS.ElastiCache.Types.GlobalNodeGroup
+    Network.AWS.ElastiCache.Types.GlobalNodeGroupId
     Network.AWS.ElastiCache.Types.GlobalReplicationGroup
+    Network.AWS.ElastiCache.Types.GlobalReplicationGroupDescription
+    Network.AWS.ElastiCache.Types.GlobalReplicationGroupId
+    Network.AWS.ElastiCache.Types.GlobalReplicationGroupIdSuffix
     Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo
     Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember
+    Network.AWS.ElastiCache.Types.Key
+    Network.AWS.ElastiCache.Types.KmsKeyId
+    Network.AWS.ElastiCache.Types.Marker
+    Network.AWS.ElastiCache.Types.Message
     Network.AWS.ElastiCache.Types.MultiAZStatus
     Network.AWS.ElastiCache.Types.NodeGroup
     Network.AWS.ElastiCache.Types.NodeGroupConfiguration
+    Network.AWS.ElastiCache.Types.NodeGroupId
     Network.AWS.ElastiCache.Types.NodeGroupMember
     Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus
     Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus
     Network.AWS.ElastiCache.Types.NodeSnapshot
+    Network.AWS.ElastiCache.Types.NodesUpdated
     Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy
     Network.AWS.ElastiCache.Types.NodeUpdateStatus
     Network.AWS.ElastiCache.Types.NotificationConfiguration
+    Network.AWS.ElastiCache.Types.NotificationTopicArn
     Network.AWS.ElastiCache.Types.OutpostMode
     Network.AWS.ElastiCache.Types.Parameter
+    Network.AWS.ElastiCache.Types.ParameterName
     Network.AWS.ElastiCache.Types.ParameterNameValue
+    Network.AWS.ElastiCache.Types.ParameterValue
     Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
     Network.AWS.ElastiCache.Types.PendingModifiedValues
+    Network.AWS.ElastiCache.Types.PreferredAvailabilityZone
+    Network.AWS.ElastiCache.Types.PreferredMaintenanceWindow
+    Network.AWS.ElastiCache.Types.PreferredOutpostArn
+    Network.AWS.ElastiCache.Types.PrimaryAvailabilityZone
+    Network.AWS.ElastiCache.Types.PrimaryClusterId
+    Network.AWS.ElastiCache.Types.PrimaryOutpostArn
+    Network.AWS.ElastiCache.Types.PrimaryRegion
+    Network.AWS.ElastiCache.Types.PrimaryReplicationGroupId
     Network.AWS.ElastiCache.Types.ProcessedUpdateAction
     Network.AWS.ElastiCache.Types.RecurringCharge
     Network.AWS.ElastiCache.Types.RegionalConfiguration
     Network.AWS.ElastiCache.Types.ReplicationGroup
+    Network.AWS.ElastiCache.Types.ReplicationGroupDescription
+    Network.AWS.ElastiCache.Types.ReplicationGroupId
     Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues
     Network.AWS.ElastiCache.Types.ReservedCacheNode
     Network.AWS.ElastiCache.Types.ReservedCacheNodesOffering
     Network.AWS.ElastiCache.Types.ReshardingConfiguration
     Network.AWS.ElastiCache.Types.ReshardingStatus
+    Network.AWS.ElastiCache.Types.ResourceName
     Network.AWS.ElastiCache.Types.SecurityGroupMembership
     Network.AWS.ElastiCache.Types.ServiceUpdate
+    Network.AWS.ElastiCache.Types.ServiceUpdateName
     Network.AWS.ElastiCache.Types.ServiceUpdateSeverity
     Network.AWS.ElastiCache.Types.ServiceUpdateStatus
     Network.AWS.ElastiCache.Types.ServiceUpdateType
     Network.AWS.ElastiCache.Types.SlaMet
     Network.AWS.ElastiCache.Types.SlotMigration
+    Network.AWS.ElastiCache.Types.Slots
     Network.AWS.ElastiCache.Types.Snapshot
+    Network.AWS.ElastiCache.Types.SnapshotName
+    Network.AWS.ElastiCache.Types.SnapshotSource
+    Network.AWS.ElastiCache.Types.SnapshotStatus
+    Network.AWS.ElastiCache.Types.SnapshotWindow
+    Network.AWS.ElastiCache.Types.SourceIdentifier
+    Network.AWS.ElastiCache.Types.SourceSnapshotName
     Network.AWS.ElastiCache.Types.SourceType
+    Network.AWS.ElastiCache.Types.Status
+    Network.AWS.ElastiCache.Types.String
     Network.AWS.ElastiCache.Types.Subnet
     Network.AWS.ElastiCache.Types.SubnetOutpost
     Network.AWS.ElastiCache.Types.Tag
     Network.AWS.ElastiCache.Types.TagListMessage
+    Network.AWS.ElastiCache.Types.TargetBucket
+    Network.AWS.ElastiCache.Types.TargetSnapshotName
     Network.AWS.ElastiCache.Types.TimeRangeFilter
+    Network.AWS.ElastiCache.Types.TopicArn
+    Network.AWS.ElastiCache.Types.TopicStatus
     Network.AWS.ElastiCache.Types.UnprocessedUpdateAction
     Network.AWS.ElastiCache.Types.UpdateAction
     Network.AWS.ElastiCache.Types.UpdateActionResultsMessage
     Network.AWS.ElastiCache.Types.UpdateActionStatus
     Network.AWS.ElastiCache.Types.User
     Network.AWS.ElastiCache.Types.UserGroup
+    Network.AWS.ElastiCache.Types.UserGroupId
     Network.AWS.ElastiCache.Types.UserGroupPendingChanges
     Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus
+    Network.AWS.ElastiCache.Types.UserId
+    Network.AWS.ElastiCache.Types.UserName
+    Network.AWS.ElastiCache.Types.Value
+    Network.AWS.ElastiCache.Types.VpcId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

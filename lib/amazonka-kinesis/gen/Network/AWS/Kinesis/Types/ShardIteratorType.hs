@@ -13,61 +13,66 @@
 module Network.AWS.Kinesis.Types.ShardIteratorType
   ( ShardIteratorType
       ( ShardIteratorType',
-        SITAtSequenceNumber,
-        SITAfterSequenceNumber,
-        SITTrimHorizon,
-        SITLatest,
-        SITAtTimestamp
+        ShardIteratorTypeAtSequenceNumber,
+        ShardIteratorTypeAfterSequenceNumber,
+        ShardIteratorTypeTrimHorizon,
+        ShardIteratorTypeLatest,
+        ShardIteratorTypeAtTimestamp,
+        fromShardIteratorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ShardIteratorType = ShardIteratorType' Lude.Text
+newtype ShardIteratorType = ShardIteratorType'
+  { fromShardIteratorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SITAtSequenceNumber :: ShardIteratorType
-pattern SITAtSequenceNumber = ShardIteratorType' "AT_SEQUENCE_NUMBER"
+pattern ShardIteratorTypeAtSequenceNumber :: ShardIteratorType
+pattern ShardIteratorTypeAtSequenceNumber = ShardIteratorType' "AT_SEQUENCE_NUMBER"
 
-pattern SITAfterSequenceNumber :: ShardIteratorType
-pattern SITAfterSequenceNumber = ShardIteratorType' "AFTER_SEQUENCE_NUMBER"
+pattern ShardIteratorTypeAfterSequenceNumber :: ShardIteratorType
+pattern ShardIteratorTypeAfterSequenceNumber = ShardIteratorType' "AFTER_SEQUENCE_NUMBER"
 
-pattern SITTrimHorizon :: ShardIteratorType
-pattern SITTrimHorizon = ShardIteratorType' "TRIM_HORIZON"
+pattern ShardIteratorTypeTrimHorizon :: ShardIteratorType
+pattern ShardIteratorTypeTrimHorizon = ShardIteratorType' "TRIM_HORIZON"
 
-pattern SITLatest :: ShardIteratorType
-pattern SITLatest = ShardIteratorType' "LATEST"
+pattern ShardIteratorTypeLatest :: ShardIteratorType
+pattern ShardIteratorTypeLatest = ShardIteratorType' "LATEST"
 
-pattern SITAtTimestamp :: ShardIteratorType
-pattern SITAtTimestamp = ShardIteratorType' "AT_TIMESTAMP"
+pattern ShardIteratorTypeAtTimestamp :: ShardIteratorType
+pattern ShardIteratorTypeAtTimestamp = ShardIteratorType' "AT_TIMESTAMP"
 
 {-# COMPLETE
-  SITAtSequenceNumber,
-  SITAfterSequenceNumber,
-  SITTrimHorizon,
-  SITLatest,
-  SITAtTimestamp,
+  ShardIteratorTypeAtSequenceNumber,
+  ShardIteratorTypeAfterSequenceNumber,
+  ShardIteratorTypeTrimHorizon,
+  ShardIteratorTypeLatest,
+  ShardIteratorTypeAtTimestamp,
   ShardIteratorType'
   #-}

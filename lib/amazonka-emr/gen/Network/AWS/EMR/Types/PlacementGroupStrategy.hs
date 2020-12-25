@@ -13,56 +13,61 @@
 module Network.AWS.EMR.Types.PlacementGroupStrategy
   ( PlacementGroupStrategy
       ( PlacementGroupStrategy',
-        PGSSpread,
-        PGSPartition,
-        PGSCluster,
-        PGSNone
+        PlacementGroupStrategySpread,
+        PlacementGroupStrategyPartition,
+        PlacementGroupStrategyCluster,
+        PlacementGroupStrategyNone,
+        fromPlacementGroupStrategy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PlacementGroupStrategy = PlacementGroupStrategy' Lude.Text
+newtype PlacementGroupStrategy = PlacementGroupStrategy'
+  { fromPlacementGroupStrategy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PGSSpread :: PlacementGroupStrategy
-pattern PGSSpread = PlacementGroupStrategy' "SPREAD"
+pattern PlacementGroupStrategySpread :: PlacementGroupStrategy
+pattern PlacementGroupStrategySpread = PlacementGroupStrategy' "SPREAD"
 
-pattern PGSPartition :: PlacementGroupStrategy
-pattern PGSPartition = PlacementGroupStrategy' "PARTITION"
+pattern PlacementGroupStrategyPartition :: PlacementGroupStrategy
+pattern PlacementGroupStrategyPartition = PlacementGroupStrategy' "PARTITION"
 
-pattern PGSCluster :: PlacementGroupStrategy
-pattern PGSCluster = PlacementGroupStrategy' "CLUSTER"
+pattern PlacementGroupStrategyCluster :: PlacementGroupStrategy
+pattern PlacementGroupStrategyCluster = PlacementGroupStrategy' "CLUSTER"
 
-pattern PGSNone :: PlacementGroupStrategy
-pattern PGSNone = PlacementGroupStrategy' "NONE"
+pattern PlacementGroupStrategyNone :: PlacementGroupStrategy
+pattern PlacementGroupStrategyNone = PlacementGroupStrategy' "NONE"
 
 {-# COMPLETE
-  PGSSpread,
-  PGSPartition,
-  PGSCluster,
-  PGSNone,
+  PlacementGroupStrategySpread,
+  PlacementGroupStrategyPartition,
+  PlacementGroupStrategyCluster,
+  PlacementGroupStrategyNone,
   PlacementGroupStrategy'
   #-}

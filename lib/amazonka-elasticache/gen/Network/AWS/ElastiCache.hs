@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,211 @@
 -- In addition, through integration with Amazon CloudWatch, customers get enhanced visibility into the key performance statistics associated with their cache and can receive alarms if a part of their cache runs hot.
 module Network.AWS.ElastiCache
   ( -- * Service configuration
-    elastiCacheService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** CacheSubnetGroupInUse
+    _CacheSubnetGroupInUse,
+
+    -- ** ReservedCacheNodeAlreadyExistsFault
+    _ReservedCacheNodeAlreadyExistsFault,
+
+    -- ** CacheSecurityGroupNotFoundFault
+    _CacheSecurityGroupNotFoundFault,
+
+    -- ** InvalidGlobalReplicationGroupStateFault
+    _InvalidGlobalReplicationGroupStateFault,
+
+    -- ** CacheSubnetGroupAlreadyExistsFault
+    _CacheSubnetGroupAlreadyExistsFault,
+
+    -- ** GlobalReplicationGroupAlreadyExistsFault
+    _GlobalReplicationGroupAlreadyExistsFault,
+
+    -- ** NodeGroupsPerReplicationGroupQuotaExceededFault
+    _NodeGroupsPerReplicationGroupQuotaExceededFault,
+
+    -- ** CacheSubnetGroupQuotaExceededFault
+    _CacheSubnetGroupQuotaExceededFault,
+
+    -- ** AuthorizationAlreadyExistsFault
+    _AuthorizationAlreadyExistsFault,
+
+    -- ** ReservedCacheNodeQuotaExceededFault
+    _ReservedCacheNodeQuotaExceededFault,
+
+    -- ** ReservedCacheNodesOfferingNotFoundFault
+    _ReservedCacheNodesOfferingNotFoundFault,
+
+    -- ** ReplicationGroupNotFoundFault
+    _ReplicationGroupNotFoundFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** InvalidUserGroupStateFault
+    _InvalidUserGroupStateFault,
+
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
+
+    -- ** UserAlreadyExistsFault
+    _UserAlreadyExistsFault,
+
+    -- ** InvalidUserStateFault
+    _InvalidUserStateFault,
+
+    -- ** SnapshotNotFoundFault
+    _SnapshotNotFoundFault,
+
+    -- ** InsufficientCacheClusterCapacityFault
+    _InsufficientCacheClusterCapacityFault,
+
+    -- ** InvalidSnapshotStateFault
+    _InvalidSnapshotStateFault,
+
+    -- ** SnapshotAlreadyExistsFault
+    _SnapshotAlreadyExistsFault,
+
+    -- ** DefaultUserRequired
+    _DefaultUserRequired,
+
+    -- ** TagNotFoundFault
+    _TagNotFoundFault,
+
+    -- ** SnapshotQuotaExceededFault
+    _SnapshotQuotaExceededFault,
+
+    -- ** NodeQuotaForClusterExceededFault
+    _NodeQuotaForClusterExceededFault,
+
+    -- ** APICallRateForCustomerExceededFault
+    _APICallRateForCustomerExceededFault,
+
+    -- ** NodeGroupNotFoundFault
+    _NodeGroupNotFoundFault,
+
+    -- ** CacheParameterGroupAlreadyExistsFault
+    _CacheParameterGroupAlreadyExistsFault,
+
+    -- ** ServiceLinkedRoleNotFoundFault
+    _ServiceLinkedRoleNotFoundFault,
+
+    -- ** InvalidKMSKeyFault
+    _InvalidKMSKeyFault,
+
+    -- ** GlobalReplicationGroupNotFoundFault
+    _GlobalReplicationGroupNotFoundFault,
+
+    -- ** ReservedCacheNodeNotFoundFault
+    _ReservedCacheNodeNotFoundFault,
+
+    -- ** CacheSubnetGroupNotFoundFault
+    _CacheSubnetGroupNotFoundFault,
+
+    -- ** SnapshotFeatureNotSupportedFault
+    _SnapshotFeatureNotSupportedFault,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** TestFailoverNotAvailableFault
+    _TestFailoverNotAvailableFault,
+
+    -- ** SubnetNotAllowedFault
+    _SubnetNotAllowedFault,
+
+    -- ** InvalidReplicationGroupStateFault
+    _InvalidReplicationGroupStateFault,
+
+    -- ** ReplicationGroupAlreadyExistsFault
+    _ReplicationGroupAlreadyExistsFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** SubnetInUse
+    _SubnetInUse,
+
+    -- ** UserGroupNotFoundFault
+    _UserGroupNotFoundFault,
+
+    -- ** CacheClusterNotFoundFault
+    _CacheClusterNotFoundFault,
+
+    -- ** ClusterQuotaForCustomerExceededFault
+    _ClusterQuotaForCustomerExceededFault,
+
+    -- ** AuthorizationNotFoundFault
+    _AuthorizationNotFoundFault,
+
+    -- ** UserGroupAlreadyExistsFault
+    _UserGroupAlreadyExistsFault,
+
+    -- ** InvalidCacheClusterStateFault
+    _InvalidCacheClusterStateFault,
+
+    -- ** CacheSecurityGroupQuotaExceededFault
+    _CacheSecurityGroupQuotaExceededFault,
+
+    -- ** CacheClusterAlreadyExistsFault
+    _CacheClusterAlreadyExistsFault,
+
+    -- ** CacheParameterGroupQuotaExceededFault
+    _CacheParameterGroupQuotaExceededFault,
+
+    -- ** ServiceUpdateNotFoundFault
+    _ServiceUpdateNotFoundFault,
+
+    -- ** DefaultUserAssociatedToUserGroupFault
+    _DefaultUserAssociatedToUserGroupFault,
+
+    -- ** UserNotFoundFault
+    _UserNotFoundFault,
+
+    -- ** NodeQuotaForCustomerExceededFault
+    _NodeQuotaForCustomerExceededFault,
+
+    -- ** CacheSubnetQuotaExceededFault
+    _CacheSubnetQuotaExceededFault,
+
+    -- ** ReplicationGroupNotUnderMigrationFault
+    _ReplicationGroupNotUnderMigrationFault,
+
+    -- ** ReplicationGroupAlreadyUnderMigrationFault
+    _ReplicationGroupAlreadyUnderMigrationFault,
+
+    -- ** CacheParameterGroupNotFoundFault
+    _CacheParameterGroupNotFoundFault,
+
+    -- ** DuplicateUserNameFault
+    _DuplicateUserNameFault,
+
+    -- ** UserQuotaExceededFault
+    _UserQuotaExceededFault,
+
+    -- ** InvalidARNFault
+    _InvalidARNFault,
+
+    -- ** NoOperationFault
+    _NoOperationFault,
+
+    -- ** InvalidCacheParameterGroupStateFault
+    _InvalidCacheParameterGroupStateFault,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** UserGroupQuotaExceededFault
+    _UserGroupQuotaExceededFault,
+
+    -- ** InvalidCacheSecurityGroupStateFault
+    _InvalidCacheSecurityGroupStateFault,
+
+    -- ** CacheSecurityGroupAlreadyExistsFault
+    _CacheSecurityGroupAlreadyExistsFault,
 
     -- * Waiters
     -- $waiters
@@ -238,621 +438,25 @@ module Network.AWS.ElastiCache
 
     -- * Types
 
-    -- ** AZMode
-    AZMode (..),
-
-    -- ** AuthTokenUpdateStatus
-    AuthTokenUpdateStatus (..),
-
-    -- ** AuthTokenUpdateStrategyType
-    AuthTokenUpdateStrategyType (..),
-
-    -- ** AuthenticationType
-    AuthenticationType (..),
-
-    -- ** AutomaticFailoverStatus
-    AutomaticFailoverStatus (..),
-
-    -- ** ChangeType
-    ChangeType (..),
-
-    -- ** MultiAZStatus
-    MultiAZStatus (..),
-
-    -- ** NodeUpdateInitiatedBy
-    NodeUpdateInitiatedBy (..),
-
-    -- ** NodeUpdateStatus
-    NodeUpdateStatus (..),
-
-    -- ** OutpostMode
-    OutpostMode (..),
-
-    -- ** PendingAutomaticFailoverStatus
-    PendingAutomaticFailoverStatus (..),
-
-    -- ** ServiceUpdateSeverity
-    ServiceUpdateSeverity (..),
-
-    -- ** ServiceUpdateStatus
-    ServiceUpdateStatus (..),
+    -- ** NodeSnapshot
+    NodeSnapshot (..),
+    mkNodeSnapshot,
+    nsCacheClusterId,
+    nsCacheNodeCreateTime,
+    nsCacheNodeId,
+    nsCacheSize,
+    nsNodeGroupConfiguration,
+    nsNodeGroupId,
+    nsSnapshotCreateTime,
 
     -- ** ServiceUpdateType
     ServiceUpdateType (..),
 
-    -- ** SlaMet
-    SlaMet (..),
-
-    -- ** SourceType
-    SourceType (..),
-
-    -- ** UpdateActionStatus
-    UpdateActionStatus (..),
-
-    -- ** Authentication
-    Authentication (..),
-    mkAuthentication,
-    aPasswordCount,
-    aType,
-
-    -- ** AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azName,
-
-    -- ** CacheCluster
-    CacheCluster (..),
-    mkCacheCluster,
-    ccAuthTokenLastModifiedDate,
-    ccEngineVersion,
-    ccCacheNodeType,
-    ccCacheNodes,
-    ccCacheClusterCreateTime,
-    ccAtRestEncryptionEnabled,
-    ccAutoMinorVersionUpgrade,
-    ccSecurityGroups,
-    ccNotificationConfiguration,
-    ccARN,
-    ccTransitEncryptionEnabled,
-    ccSnapshotWindow,
-    ccCacheClusterId,
-    ccConfigurationEndpoint,
-    ccEngine,
-    ccCacheSecurityGroups,
-    ccAuthTokenEnabled,
-    ccClientDownloadLandingPage,
-    ccPreferredMaintenanceWindow,
-    ccCacheSubnetGroupName,
-    ccPreferredAvailabilityZone,
-    ccCacheParameterGroup,
-    ccCacheClusterStatus,
-    ccSnapshotRetentionLimit,
-    ccPreferredOutpostARN,
-    ccReplicationGroupId,
-    ccPendingModifiedValues,
-    ccNumCacheNodes,
-
-    -- ** CacheEngineVersion
-    CacheEngineVersion (..),
-    mkCacheEngineVersion,
-    cevEngineVersion,
-    cevCacheParameterGroupFamily,
-    cevCacheEngineDescription,
-    cevEngine,
-    cevCacheEngineVersionDescription,
-
-    -- ** CacheNode
-    CacheNode (..),
-    mkCacheNode,
-    cnSourceCacheNodeId,
-    cnParameterGroupStatus,
-    cnCacheNodeCreateTime,
-    cnCustomerAvailabilityZone,
-    cnCacheNodeId,
-    cnCustomerOutpostARN,
-    cnCacheNodeStatus,
-    cnEndpoint,
-
-    -- ** CacheNodeTypeSpecificParameter
-    CacheNodeTypeSpecificParameter (..),
-    mkCacheNodeTypeSpecificParameter,
-    cntspCacheNodeTypeSpecificValues,
-    cntspMinimumEngineVersion,
-    cntspSource,
-    cntspIsModifiable,
-    cntspDataType,
-    cntspAllowedValues,
-    cntspParameterName,
-    cntspDescription,
-    cntspChangeType,
-
-    -- ** CacheNodeTypeSpecificValue
-    CacheNodeTypeSpecificValue (..),
-    mkCacheNodeTypeSpecificValue,
-    cntsvCacheNodeType,
-    cntsvValue,
-
-    -- ** CacheNodeUpdateStatus
-    CacheNodeUpdateStatus (..),
-    mkCacheNodeUpdateStatus,
-    cnusNodeUpdateEndDate,
-    cnusNodeUpdateInitiatedBy,
-    cnusNodeUpdateStatusModifiedDate,
-    cnusCacheNodeId,
-    cnusNodeUpdateInitiatedDate,
-    cnusNodeUpdateStartDate,
-    cnusNodeUpdateStatus,
-    cnusNodeDeletionDate,
-
-    -- ** CacheParameterGroup
-    CacheParameterGroup (..),
-    mkCacheParameterGroup,
-    cpgCacheParameterGroupFamily,
-    cpgARN,
-    cpgCacheParameterGroupName,
-    cpgIsGlobal,
-    cpgDescription,
-
-    -- ** CacheParameterGroupNameMessage
-    CacheParameterGroupNameMessage (..),
-    mkCacheParameterGroupNameMessage,
-    cpgnmCacheParameterGroupName,
-
-    -- ** CacheParameterGroupStatus
-    CacheParameterGroupStatus (..),
-    mkCacheParameterGroupStatus,
-    cpgsCacheParameterGroupName,
-    cpgsCacheNodeIdsToReboot,
-    cpgsParameterApplyStatus,
-
-    -- ** CacheSecurityGroup
-    CacheSecurityGroup (..),
-    mkCacheSecurityGroup,
-    csgCacheSecurityGroupName,
-    csgARN,
-    csgOwnerId,
-    csgEC2SecurityGroups,
-    csgDescription,
-
-    -- ** CacheSecurityGroupMembership
-    CacheSecurityGroupMembership (..),
-    mkCacheSecurityGroupMembership,
-    csgmStatus,
-    csgmCacheSecurityGroupName,
-
-    -- ** CacheSubnetGroup
-    CacheSubnetGroup (..),
-    mkCacheSubnetGroup,
-    cARN,
-    cVPCId,
-    cSubnets,
-    cCacheSubnetGroupName,
-    cCacheSubnetGroupDescription,
-
-    -- ** ConfigureShard
-    ConfigureShard (..),
-    mkConfigureShard,
-    csPreferredAvailabilityZones,
-    csNewReplicaCount,
-    csNodeGroupId,
-    csPreferredOutpostARNs,
-
-    -- ** CustomerNodeEndpoint
-    CustomerNodeEndpoint (..),
-    mkCustomerNodeEndpoint,
-    cneAddress,
-    cnePort,
-
-    -- ** EC2SecurityGroup
-    EC2SecurityGroup (..),
-    mkEC2SecurityGroup,
-    esgStatus,
-    esgEC2SecurityGroupOwnerId,
-    esgEC2SecurityGroupName,
-
-    -- ** Endpoint
-    Endpoint (..),
-    mkEndpoint,
-    eAddress,
-    ePort,
-
-    -- ** EngineDefaults
-    EngineDefaults (..),
-    mkEngineDefaults,
-    edCacheParameterGroupFamily,
-    edCacheNodeTypeSpecificParameters,
-    edMarker,
-    edParameters,
-
-    -- ** Event
-    Event (..),
-    mkEvent,
-    eSourceType,
-    eSourceIdentifier,
-    eDate,
-    eMessage,
-
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fName,
-
     -- ** GlobalNodeGroup
     GlobalNodeGroup (..),
     mkGlobalNodeGroup,
-    gngSlots,
     gngGlobalNodeGroupId,
-
-    -- ** GlobalReplicationGroup
-    GlobalReplicationGroup (..),
-    mkGlobalReplicationGroup,
-    grgEngineVersion,
-    grgStatus,
-    grgCacheNodeType,
-    grgClusterEnabled,
-    grgAtRestEncryptionEnabled,
-    grgARN,
-    grgTransitEncryptionEnabled,
-    grgMembers,
-    grgEngine,
-    grgAuthTokenEnabled,
-    grgGlobalNodeGroups,
-    grgGlobalReplicationGroupId,
-    grgGlobalReplicationGroupDescription,
-
-    -- ** GlobalReplicationGroupInfo
-    GlobalReplicationGroupInfo (..),
-    mkGlobalReplicationGroupInfo,
-    grgiGlobalReplicationGroupMemberRole,
-    grgiGlobalReplicationGroupId,
-
-    -- ** GlobalReplicationGroupMember
-    GlobalReplicationGroupMember (..),
-    mkGlobalReplicationGroupMember,
-    grgmStatus,
-    grgmReplicationGroupRegion,
-    grgmRole,
-    grgmReplicationGroupId,
-    grgmAutomaticFailover,
-
-    -- ** NodeGroup
-    NodeGroup (..),
-    mkNodeGroup,
-    ngStatus,
-    ngPrimaryEndpoint,
-    ngSlots,
-    ngNodeGroupMembers,
-    ngNodeGroupId,
-    ngReaderEndpoint,
-
-    -- ** NodeGroupConfiguration
-    NodeGroupConfiguration (..),
-    mkNodeGroupConfiguration,
-    ngcSlots,
-    ngcReplicaOutpostARNs,
-    ngcReplicaCount,
-    ngcPrimaryAvailabilityZone,
-    ngcReplicaAvailabilityZones,
-    ngcPrimaryOutpostARN,
-    ngcNodeGroupId,
-
-    -- ** NodeGroupMember
-    NodeGroupMember (..),
-    mkNodeGroupMember,
-    ngmCacheClusterId,
-    ngmCacheNodeId,
-    ngmPreferredAvailabilityZone,
-    ngmCurrentRole,
-    ngmPreferredOutpostARN,
-    ngmReadEndpoint,
-
-    -- ** NodeGroupMemberUpdateStatus
-    NodeGroupMemberUpdateStatus (..),
-    mkNodeGroupMemberUpdateStatus,
-    ngmusNodeUpdateEndDate,
-    ngmusNodeUpdateInitiatedBy,
-    ngmusNodeUpdateStatusModifiedDate,
-    ngmusCacheClusterId,
-    ngmusCacheNodeId,
-    ngmusNodeUpdateInitiatedDate,
-    ngmusNodeUpdateStartDate,
-    ngmusNodeUpdateStatus,
-    ngmusNodeDeletionDate,
-
-    -- ** NodeGroupUpdateStatus
-    NodeGroupUpdateStatus (..),
-    mkNodeGroupUpdateStatus,
-    ngusNodeGroupMemberUpdateStatus,
-    ngusNodeGroupId,
-
-    -- ** NodeSnapshot
-    NodeSnapshot (..),
-    mkNodeSnapshot,
-    nsNodeGroupConfiguration,
-    nsCacheNodeCreateTime,
-    nsCacheClusterId,
-    nsCacheNodeId,
-    nsNodeGroupId,
-    nsSnapshotCreateTime,
-    nsCacheSize,
-
-    -- ** NotificationConfiguration
-    NotificationConfiguration (..),
-    mkNotificationConfiguration,
-    ncTopicStatus,
-    ncTopicARN,
-
-    -- ** Parameter
-    Parameter (..),
-    mkParameter,
-    pParameterValue,
-    pMinimumEngineVersion,
-    pSource,
-    pIsModifiable,
-    pDataType,
-    pAllowedValues,
-    pParameterName,
-    pDescription,
-    pChangeType,
-
-    -- ** ParameterNameValue
-    ParameterNameValue (..),
-    mkParameterNameValue,
-    pnvParameterValue,
-    pnvParameterName,
-
-    -- ** PendingModifiedValues
-    PendingModifiedValues (..),
-    mkPendingModifiedValues,
-    pmvEngineVersion,
-    pmvCacheNodeType,
-    pmvAuthTokenStatus,
-    pmvCacheNodeIdsToRemove,
-    pmvNumCacheNodes,
-
-    -- ** ProcessedUpdateAction
-    ProcessedUpdateAction (..),
-    mkProcessedUpdateAction,
-    puaCacheClusterId,
-    puaServiceUpdateName,
-    puaUpdateActionStatus,
-    puaReplicationGroupId,
-
-    -- ** RecurringCharge
-    RecurringCharge (..),
-    mkRecurringCharge,
-    rcRecurringChargeFrequency,
-    rcRecurringChargeAmount,
-
-    -- ** RegionalConfiguration
-    RegionalConfiguration (..),
-    mkRegionalConfiguration,
-    rcReshardingConfiguration,
-    rcReplicationGroupRegion,
-    rcReplicationGroupId,
-
-    -- ** ReplicationGroup
-    ReplicationGroup (..),
-    mkReplicationGroup,
-    rgAuthTokenLastModifiedDate,
-    rgStatus,
-    rgCacheNodeType,
-    rgNodeGroups,
-    rgSnapshottingClusterId,
-    rgClusterEnabled,
-    rgAtRestEncryptionEnabled,
-    rgARN,
-    rgTransitEncryptionEnabled,
-    rgUserGroupIds,
-    rgSnapshotWindow,
-    rgConfigurationEndpoint,
-    rgAuthTokenEnabled,
-    rgMemberClusters,
-    rgKMSKeyId,
-    rgMultiAZ,
-    rgSnapshotRetentionLimit,
-    rgDescription,
-    rgReplicationGroupId,
-    rgPendingModifiedValues,
-    rgGlobalReplicationGroupInfo,
-    rgMemberClustersOutpostARNs,
-    rgAutomaticFailover,
-
-    -- ** ReplicationGroupPendingModifiedValues
-    ReplicationGroupPendingModifiedValues (..),
-    mkReplicationGroupPendingModifiedValues,
-    rgpmvAuthTokenStatus,
-    rgpmvUserGroups,
-    rgpmvResharding,
-    rgpmvPrimaryClusterId,
-    rgpmvAutomaticFailoverStatus,
-
-    -- ** ReservedCacheNode
-    ReservedCacheNode (..),
-    mkReservedCacheNode,
-    rcnCacheNodeType,
-    rcnState,
-    rcnStartTime,
-    rcnProductDescription,
-    rcnReservationARN,
-    rcnCacheNodeCount,
-    rcnReservedCacheNodeId,
-    rcnRecurringCharges,
-    rcnOfferingType,
-    rcnUsagePrice,
-    rcnFixedPrice,
-    rcnDuration,
-    rcnReservedCacheNodesOfferingId,
-
-    -- ** ReservedCacheNodesOffering
-    ReservedCacheNodesOffering (..),
-    mkReservedCacheNodesOffering,
-    rcnoCacheNodeType,
-    rcnoProductDescription,
-    rcnoRecurringCharges,
-    rcnoOfferingType,
-    rcnoUsagePrice,
-    rcnoFixedPrice,
-    rcnoDuration,
-    rcnoReservedCacheNodesOfferingId,
-
-    -- ** ReshardingConfiguration
-    ReshardingConfiguration (..),
-    mkReshardingConfiguration,
-    rcPreferredAvailabilityZones,
-    rcNodeGroupId,
-
-    -- ** ReshardingStatus
-    ReshardingStatus (..),
-    mkReshardingStatus,
-    rsSlotMigration,
-
-    -- ** SecurityGroupMembership
-    SecurityGroupMembership (..),
-    mkSecurityGroupMembership,
-    sgmStatus,
-    sgmSecurityGroupId,
-
-    -- ** ServiceUpdate
-    ServiceUpdate (..),
-    mkServiceUpdate,
-    suEngineVersion,
-    suServiceUpdateType,
-    suServiceUpdateName,
-    suEngine,
-    suServiceUpdateReleaseDate,
-    suAutoUpdateAfterRecommendedApplyByDate,
-    suServiceUpdateSeverity,
-    suServiceUpdateEndDate,
-    suServiceUpdateDescription,
-    suServiceUpdateRecommendedApplyByDate,
-    suServiceUpdateStatus,
-    suEstimatedUpdateTime,
-
-    -- ** SlotMigration
-    SlotMigration (..),
-    mkSlotMigration,
-    smProgressPercentage,
-
-    -- ** Snapshot
-    Snapshot (..),
-    mkSnapshot,
-    sEngineVersion,
-    sCacheNodeType,
-    sCacheClusterCreateTime,
-    sAutoMinorVersionUpgrade,
-    sARN,
-    sCacheParameterGroupName,
-    sReplicationGroupDescription,
-    sVPCId,
-    sSnapshotStatus,
-    sSnapshotWindow,
-    sCacheClusterId,
-    sEngine,
-    sPreferredMaintenanceWindow,
-    sTopicARN,
-    sKMSKeyId,
-    sNodeSnapshots,
-    sCacheSubnetGroupName,
-    sPreferredAvailabilityZone,
-    sNumNodeGroups,
-    sSnapshotRetentionLimit,
-    sSnapshotName,
-    sPreferredOutpostARN,
-    sReplicationGroupId,
-    sNumCacheNodes,
-    sPort,
-    sAutomaticFailover,
-    sSnapshotSource,
-
-    -- ** Subnet
-    Subnet (..),
-    mkSubnet,
-    sSubnetIdentifier,
-    sSubnetAvailabilityZone,
-    sSubnetOutpost,
-
-    -- ** SubnetOutpost
-    SubnetOutpost (..),
-    mkSubnetOutpost,
-    soSubnetOutpostARN,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** TagListMessage
-    TagListMessage (..),
-    mkTagListMessage,
-    tlmTagList,
-
-    -- ** TimeRangeFilter
-    TimeRangeFilter (..),
-    mkTimeRangeFilter,
-    trfStartTime,
-    trfEndTime,
-
-    -- ** UnprocessedUpdateAction
-    UnprocessedUpdateAction (..),
-    mkUnprocessedUpdateAction,
-    uuaCacheClusterId,
-    uuaServiceUpdateName,
-    uuaErrorType,
-    uuaErrorMessage,
-    uuaReplicationGroupId,
-
-    -- ** UpdateAction
-    UpdateAction (..),
-    mkUpdateAction,
-    uaServiceUpdateType,
-    uaSlaMet,
-    uaCacheClusterId,
-    uaServiceUpdateName,
-    uaUpdateActionStatus,
-    uaEngine,
-    uaNodesUpdated,
-    uaUpdateActionStatusModifiedDate,
-    uaServiceUpdateReleaseDate,
-    uaCacheNodeUpdateStatus,
-    uaServiceUpdateSeverity,
-    uaNodeGroupUpdateStatus,
-    uaServiceUpdateRecommendedApplyByDate,
-    uaUpdateActionAvailableDate,
-    uaServiceUpdateStatus,
-    uaEstimatedUpdateTime,
-    uaReplicationGroupId,
-
-    -- ** UpdateActionResultsMessage
-    UpdateActionResultsMessage (..),
-    mkUpdateActionResultsMessage,
-    uarmUnprocessedUpdateActions,
-    uarmProcessedUpdateActions,
-
-    -- ** User
-    User (..),
-    mkUser,
-    uStatus,
-    uARN,
-    uUserGroupIds,
-    uAuthentication,
-    uEngine,
-    uUserName,
-    uAccessString,
-    uUserId,
-
-    -- ** UserGroup
-    UserGroup (..),
-    mkUserGroup,
-    ugStatus,
-    ugUserIds,
-    ugARN,
-    ugUserGroupId,
-    ugEngine,
-    ugPendingChanges,
-    ugReplicationGroups,
+    gngSlots,
 
     -- ** UserGroupPendingChanges
     UserGroupPendingChanges (..),
@@ -860,21 +464,813 @@ module Network.AWS.ElastiCache
     ugpcUserIdsToAdd,
     ugpcUserIdsToRemove,
 
+    -- ** Snapshot
+    Snapshot (..),
+    mkSnapshot,
+    sARN,
+    sAutoMinorVersionUpgrade,
+    sAutomaticFailover,
+    sCacheClusterCreateTime,
+    sCacheClusterId,
+    sCacheNodeType,
+    sCacheParameterGroupName,
+    sCacheSubnetGroupName,
+    sEngine,
+    sEngineVersion,
+    sKmsKeyId,
+    sNodeSnapshots,
+    sNumCacheNodes,
+    sNumNodeGroups,
+    sPort,
+    sPreferredAvailabilityZone,
+    sPreferredMaintenanceWindow,
+    sPreferredOutpostArn,
+    sReplicationGroupDescription,
+    sReplicationGroupId,
+    sSnapshotName,
+    sSnapshotRetentionLimit,
+    sSnapshotSource,
+    sSnapshotStatus,
+    sSnapshotWindow,
+    sTopicArn,
+    sVpcId,
+
+    -- ** Event
+    Event (..),
+    mkEvent,
+    eDate,
+    eMessage,
+    eSourceIdentifier,
+    eSourceType,
+
+    -- ** UpdateAction
+    UpdateAction (..),
+    mkUpdateAction,
+    uaCacheClusterId,
+    uaCacheNodeUpdateStatus,
+    uaEngine,
+    uaEstimatedUpdateTime,
+    uaNodeGroupUpdateStatus,
+    uaNodesUpdated,
+    uaReplicationGroupId,
+    uaServiceUpdateName,
+    uaServiceUpdateRecommendedApplyByDate,
+    uaServiceUpdateReleaseDate,
+    uaServiceUpdateSeverity,
+    uaServiceUpdateStatus,
+    uaServiceUpdateType,
+    uaSlaMet,
+    uaUpdateActionAvailableDate,
+    uaUpdateActionStatus,
+    uaUpdateActionStatusModifiedDate,
+
+    -- ** NodeGroupConfiguration
+    NodeGroupConfiguration (..),
+    mkNodeGroupConfiguration,
+    ngcNodeGroupId,
+    ngcPrimaryAvailabilityZone,
+    ngcPrimaryOutpostArn,
+    ngcReplicaAvailabilityZones,
+    ngcReplicaCount,
+    ngcReplicaOutpostArns,
+    ngcSlots,
+
+    -- ** FilterName
+    FilterName (..),
+
+    -- ** ReshardingStatus
+    ReshardingStatus (..),
+    mkReshardingStatus,
+    rsSlotMigration,
+
+    -- ** NodeGroup
+    NodeGroup (..),
+    mkNodeGroup,
+    ngNodeGroupId,
+    ngNodeGroupMembers,
+    ngPrimaryEndpoint,
+    ngReaderEndpoint,
+    ngSlots,
+    ngStatus,
+
+    -- ** CacheNodeTypeSpecificValue
+    CacheNodeTypeSpecificValue (..),
+    mkCacheNodeTypeSpecificValue,
+    cntsvCacheNodeType,
+    cntsvValue,
+
+    -- ** CustomerNodeEndpoint
+    CustomerNodeEndpoint (..),
+    mkCustomerNodeEndpoint,
+    cneAddress,
+    cnePort,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** NodeGroupMemberUpdateStatus
+    NodeGroupMemberUpdateStatus (..),
+    mkNodeGroupMemberUpdateStatus,
+    ngmusCacheClusterId,
+    ngmusCacheNodeId,
+    ngmusNodeDeletionDate,
+    ngmusNodeUpdateEndDate,
+    ngmusNodeUpdateInitiatedBy,
+    ngmusNodeUpdateInitiatedDate,
+    ngmusNodeUpdateStartDate,
+    ngmusNodeUpdateStatus,
+    ngmusNodeUpdateStatusModifiedDate,
+
+    -- ** AllowedNodeGroupId
+    AllowedNodeGroupId (..),
+
+    -- ** PendingAutomaticFailoverStatus
+    PendingAutomaticFailoverStatus (..),
+
+    -- ** SlaMet
+    SlaMet (..),
+
+    -- ** NotificationConfiguration
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
+    ncTopicArn,
+    ncTopicStatus,
+
+    -- ** OutpostMode
+    OutpostMode (..),
+
+    -- ** ReplicationGroupPendingModifiedValues
+    ReplicationGroupPendingModifiedValues (..),
+    mkReplicationGroupPendingModifiedValues,
+    rgpmvAuthTokenStatus,
+    rgpmvAutomaticFailoverStatus,
+    rgpmvPrimaryClusterId,
+    rgpmvResharding,
+    rgpmvUserGroups,
+
+    -- ** EC2SecurityGroup
+    EC2SecurityGroup (..),
+    mkEC2SecurityGroup,
+    ecsgEC2SecurityGroupName,
+    ecsgEC2SecurityGroupOwnerId,
+    ecsgStatus,
+
+    -- ** ParameterNameValue
+    ParameterNameValue (..),
+    mkParameterNameValue,
+    pnvParameterName,
+    pnvParameterValue,
+
+    -- ** String
+    String (..),
+
+    -- ** SourceType
+    SourceType (..),
+
+    -- ** NodeUpdateInitiatedBy
+    NodeUpdateInitiatedBy (..),
+
+    -- ** RegionalConfiguration
+    RegionalConfiguration (..),
+    mkRegionalConfiguration,
+    rcReplicationGroupId,
+    rcReplicationGroupRegion,
+    rcReshardingConfiguration,
+
+    -- ** GlobalReplicationGroup
+    GlobalReplicationGroup (..),
+    mkGlobalReplicationGroup,
+    grgARN,
+    grgAtRestEncryptionEnabled,
+    grgAuthTokenEnabled,
+    grgCacheNodeType,
+    grgClusterEnabled,
+    grgEngine,
+    grgEngineVersion,
+    grgGlobalNodeGroups,
+    grgGlobalReplicationGroupDescription,
+    grgGlobalReplicationGroupId,
+    grgMembers,
+    grgStatus,
+    grgTransitEncryptionEnabled,
+
+    -- ** CacheSubnetGroup
+    CacheSubnetGroup (..),
+    mkCacheSubnetGroup,
+    csgARN,
+    csgCacheSubnetGroupDescription,
+    csgCacheSubnetGroupName,
+    csgSubnets,
+    csgVpcId,
+
+    -- ** Authentication
+    Authentication (..),
+    mkAuthentication,
+    aPasswordCount,
+    aType,
+
+    -- ** ReservedCacheNode
+    ReservedCacheNode (..),
+    mkReservedCacheNode,
+    rcnCacheNodeCount,
+    rcnCacheNodeType,
+    rcnDuration,
+    rcnFixedPrice,
+    rcnOfferingType,
+    rcnProductDescription,
+    rcnRecurringCharges,
+    rcnReservationARN,
+    rcnReservedCacheNodeId,
+    rcnReservedCacheNodesOfferingId,
+    rcnStartTime,
+    rcnState,
+    rcnUsagePrice,
+
+    -- ** Subnet
+    Subnet (..),
+    mkSubnet,
+    sSubnetAvailabilityZone,
+    sSubnetIdentifier,
+    sSubnetOutpost,
+
+    -- ** ReshardingConfiguration
+    ReshardingConfiguration (..),
+    mkReshardingConfiguration,
+    rcNodeGroupId,
+    rcPreferredAvailabilityZones,
+
+    -- ** SecurityGroupMembership
+    SecurityGroupMembership (..),
+    mkSecurityGroupMembership,
+    sgmSecurityGroupId,
+    sgmStatus,
+
+    -- ** UserGroupId
+    UserGroupId (..),
+
+    -- ** UpdateActionStatus
+    UpdateActionStatus (..),
+
+    -- ** UserGroup
+    UserGroup (..),
+    mkUserGroup,
+    ugARN,
+    ugEngine,
+    ugPendingChanges,
+    ugReplicationGroups,
+    ugStatus,
+    ugUserGroupId,
+    ugUserIds,
+
+    -- ** CacheCluster
+    CacheCluster (..),
+    mkCacheCluster,
+    ccARN,
+    ccAtRestEncryptionEnabled,
+    ccAuthTokenEnabled,
+    ccAuthTokenLastModifiedDate,
+    ccAutoMinorVersionUpgrade,
+    ccCacheClusterCreateTime,
+    ccCacheClusterId,
+    ccCacheClusterStatus,
+    ccCacheNodeType,
+    ccCacheNodes,
+    ccCacheParameterGroup,
+    ccCacheSecurityGroups,
+    ccCacheSubnetGroupName,
+    ccClientDownloadLandingPage,
+    ccConfigurationEndpoint,
+    ccEngine,
+    ccEngineVersion,
+    ccNotificationConfiguration,
+    ccNumCacheNodes,
+    ccPendingModifiedValues,
+    ccPreferredAvailabilityZone,
+    ccPreferredMaintenanceWindow,
+    ccPreferredOutpostArn,
+    ccReplicationGroupId,
+    ccSecurityGroups,
+    ccSnapshotRetentionLimit,
+    ccSnapshotWindow,
+    ccTransitEncryptionEnabled,
+
+    -- ** MultiAZStatus
+    MultiAZStatus (..),
+
+    -- ** UpdateActionResultsMessage
+    UpdateActionResultsMessage (..),
+    mkUpdateActionResultsMessage,
+    uarmProcessedUpdateActions,
+    uarmUnprocessedUpdateActions,
+
+    -- ** UserName
+    UserName (..),
+
+    -- ** EngineDefaults
+    EngineDefaults (..),
+    mkEngineDefaults,
+    edCacheNodeTypeSpecificParameters,
+    edCacheParameterGroupFamily,
+    edMarker,
+    edParameters,
+
+    -- ** CacheParameterGroupStatus
+    CacheParameterGroupStatus (..),
+    mkCacheParameterGroupStatus,
+    cpgsCacheNodeIdsToReboot,
+    cpgsCacheParameterGroupName,
+    cpgsParameterApplyStatus,
+
+    -- ** AuthTokenUpdateStatus
+    AuthTokenUpdateStatus (..),
+
+    -- ** UnprocessedUpdateAction
+    UnprocessedUpdateAction (..),
+    mkUnprocessedUpdateAction,
+    uuaCacheClusterId,
+    uuaErrorMessage,
+    uuaErrorType,
+    uuaReplicationGroupId,
+    uuaServiceUpdateName,
+
+    -- ** AuthTokenUpdateStrategyType
+    AuthTokenUpdateStrategyType (..),
+
+    -- ** AccessString
+    AccessString (..),
+
+    -- ** User
+    User (..),
+    mkUser,
+    uARN,
+    uAccessString,
+    uAuthentication,
+    uEngine,
+    uStatus,
+    uUserGroupIds,
+    uUserId,
+    uUserName,
+
+    -- ** CacheNodeUpdateStatus
+    CacheNodeUpdateStatus (..),
+    mkCacheNodeUpdateStatus,
+    cnusCacheNodeId,
+    cnusNodeDeletionDate,
+    cnusNodeUpdateEndDate,
+    cnusNodeUpdateInitiatedBy,
+    cnusNodeUpdateInitiatedDate,
+    cnusNodeUpdateStartDate,
+    cnusNodeUpdateStatus,
+    cnusNodeUpdateStatusModifiedDate,
+
+    -- ** UserId
+    UserId (..),
+
+    -- ** ServiceUpdate
+    ServiceUpdate (..),
+    mkServiceUpdate,
+    suAutoUpdateAfterRecommendedApplyByDate,
+    suEngine,
+    suEngineVersion,
+    suEstimatedUpdateTime,
+    suServiceUpdateDescription,
+    suServiceUpdateEndDate,
+    suServiceUpdateName,
+    suServiceUpdateRecommendedApplyByDate,
+    suServiceUpdateReleaseDate,
+    suServiceUpdateSeverity,
+    suServiceUpdateStatus,
+    suServiceUpdateType,
+
+    -- ** CacheNode
+    CacheNode (..),
+    mkCacheNode,
+    cnCacheNodeCreateTime,
+    cnCacheNodeId,
+    cnCacheNodeStatus,
+    cnCustomerAvailabilityZone,
+    cnCustomerOutpostArn,
+    cnEndpoint,
+    cnParameterGroupStatus,
+    cnSourceCacheNodeId,
+
+    -- ** ConfigureShard
+    ConfigureShard (..),
+    mkConfigureShard,
+    csNodeGroupId,
+    csNewReplicaCount,
+    csPreferredAvailabilityZones,
+    csPreferredOutpostArns,
+
+    -- ** CacheSecurityGroupMembership
+    CacheSecurityGroupMembership (..),
+    mkCacheSecurityGroupMembership,
+    csgmCacheSecurityGroupName,
+    csgmStatus,
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azName,
+
+    -- ** ServiceUpdateSeverity
+    ServiceUpdateSeverity (..),
+
+    -- ** NodeGroupMember
+    NodeGroupMember (..),
+    mkNodeGroupMember,
+    ngmCacheClusterId,
+    ngmCacheNodeId,
+    ngmCurrentRole,
+    ngmPreferredAvailabilityZone,
+    ngmPreferredOutpostArn,
+    ngmReadEndpoint,
+
+    -- ** TimeRangeFilter
+    TimeRangeFilter (..),
+    mkTimeRangeFilter,
+    trfEndTime,
+    trfStartTime,
+
+    -- ** NodeGroupUpdateStatus
+    NodeGroupUpdateStatus (..),
+    mkNodeGroupUpdateStatus,
+    ngusNodeGroupId,
+    ngusNodeGroupMemberUpdateStatus,
+
+    -- ** CacheParameterGroup
+    CacheParameterGroup (..),
+    mkCacheParameterGroup,
+    cpgARN,
+    cpgCacheParameterGroupFamily,
+    cpgCacheParameterGroupName,
+    cpgDescription,
+    cpgIsGlobal,
+
+    -- ** ProcessedUpdateAction
+    ProcessedUpdateAction (..),
+    mkProcessedUpdateAction,
+    puaCacheClusterId,
+    puaReplicationGroupId,
+    puaServiceUpdateName,
+    puaUpdateActionStatus,
+
+    -- ** AutomaticFailoverStatus
+    AutomaticFailoverStatus (..),
+
+    -- ** SubnetOutpost
+    SubnetOutpost (..),
+    mkSubnetOutpost,
+    soSubnetOutpostArn,
+
+    -- ** NodeUpdateStatus
+    NodeUpdateStatus (..),
+
+    -- ** CacheSecurityGroup
+    CacheSecurityGroup (..),
+    mkCacheSecurityGroup,
+    cARN,
+    cCacheSecurityGroupName,
+    cDescription,
+    cEC2SecurityGroups,
+    cOwnerId,
+
+    -- ** CacheNodeTypeSpecificParameter
+    CacheNodeTypeSpecificParameter (..),
+    mkCacheNodeTypeSpecificParameter,
+    cntspAllowedValues,
+    cntspCacheNodeTypeSpecificValues,
+    cntspChangeType,
+    cntspDataType,
+    cntspDescription,
+    cntspIsModifiable,
+    cntspMinimumEngineVersion,
+    cntspParameterName,
+    cntspSource,
+
+    -- ** GlobalReplicationGroupMember
+    GlobalReplicationGroupMember (..),
+    mkGlobalReplicationGroupMember,
+    grgmAutomaticFailover,
+    grgmReplicationGroupId,
+    grgmReplicationGroupRegion,
+    grgmRole,
+    grgmStatus,
+
+    -- ** AuthenticationType
+    AuthenticationType (..),
+
+    -- ** AZMode
+    AZMode (..),
+
+    -- ** SlotMigration
+    SlotMigration (..),
+    mkSlotMigration,
+    smProgressPercentage,
+
     -- ** UserGroupsUpdateStatus
     UserGroupsUpdateStatus (..),
     mkUserGroupsUpdateStatus,
     ugusUserGroupIdsToAdd,
     ugusUserGroupIdsToRemove,
 
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fName,
+    fValues,
+
+    -- ** CacheEngineVersion
+    CacheEngineVersion (..),
+    mkCacheEngineVersion,
+    cevCacheEngineDescription,
+    cevCacheEngineVersionDescription,
+    cevCacheParameterGroupFamily,
+    cevEngine,
+    cevEngineVersion,
+
+    -- ** ServiceUpdateStatus
+    ServiceUpdateStatus (..),
+
+    -- ** ReplicationGroup
+    ReplicationGroup (..),
+    mkReplicationGroup,
+    rgARN,
+    rgAtRestEncryptionEnabled,
+    rgAuthTokenEnabled,
+    rgAuthTokenLastModifiedDate,
+    rgAutomaticFailover,
+    rgCacheNodeType,
+    rgClusterEnabled,
+    rgConfigurationEndpoint,
+    rgDescription,
+    rgGlobalReplicationGroupInfo,
+    rgKmsKeyId,
+    rgMemberClusters,
+    rgMemberClustersOutpostArns,
+    rgMultiAZ,
+    rgNodeGroups,
+    rgPendingModifiedValues,
+    rgReplicationGroupId,
+    rgSnapshotRetentionLimit,
+    rgSnapshotWindow,
+    rgSnapshottingClusterId,
+    rgStatus,
+    rgTransitEncryptionEnabled,
+    rgUserGroupIds,
+
+    -- ** FilterValue
+    FilterValue (..),
+
+    -- ** RecurringCharge
+    RecurringCharge (..),
+    mkRecurringCharge,
+    rcRecurringChargeAmount,
+    rcRecurringChargeFrequency,
+
+    -- ** ReservedCacheNodesOffering
+    ReservedCacheNodesOffering (..),
+    mkReservedCacheNodesOffering,
+    rcnoCacheNodeType,
+    rcnoDuration,
+    rcnoFixedPrice,
+    rcnoOfferingType,
+    rcnoProductDescription,
+    rcnoRecurringCharges,
+    rcnoReservedCacheNodesOfferingId,
+    rcnoUsagePrice,
+
+    -- ** TagListMessage
+    TagListMessage (..),
+    mkTagListMessage,
+    tlmTagList,
+
+    -- ** Endpoint
+    Endpoint (..),
+    mkEndpoint,
+    eAddress,
+    ePort,
+
+    -- ** ChangeType
+    ChangeType (..),
+
+    -- ** EngineType
+    EngineType (..),
+
+    -- ** PendingModifiedValues
+    PendingModifiedValues (..),
+    mkPendingModifiedValues,
+    pmvAuthTokenStatus,
+    pmvCacheNodeIdsToRemove,
+    pmvCacheNodeType,
+    pmvEngineVersion,
+    pmvNumCacheNodes,
+
+    -- ** CacheParameterGroupNameMessage
+    CacheParameterGroupNameMessage (..),
+    mkCacheParameterGroupNameMessage,
+    cpgnmCacheParameterGroupName,
+
+    -- ** GlobalReplicationGroupInfo
+    GlobalReplicationGroupInfo (..),
+    mkGlobalReplicationGroupInfo,
+    grgiGlobalReplicationGroupId,
+    grgiGlobalReplicationGroupMemberRole,
+
+    -- ** Parameter
+    Parameter (..),
+    mkParameter,
+    pAllowedValues,
+    pChangeType,
+    pDataType,
+    pDescription,
+    pIsModifiable,
+    pMinimumEngineVersion,
+    pParameterName,
+    pParameterValue,
+    pSource,
+
+    -- ** CacheClusterId
+    CacheClusterId (..),
+
+    -- ** CacheNodeId
+    CacheNodeId (..),
+
+    -- ** CacheSize
+    CacheSize (..),
+
+    -- ** NodeGroupId
+    NodeGroupId (..),
+
+    -- ** Engine
+    Engine (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** ReplicationGroupId
+    ReplicationGroupId (..),
+
+    -- ** ReplicationGroupDescription
+    ReplicationGroupDescription (..),
+
+    -- ** AuthToken
+    AuthToken (..),
+
+    -- ** CacheNodeType
+    CacheNodeType (..),
+
+    -- ** CacheParameterGroupName
+    CacheParameterGroupName (..),
+
+    -- ** CacheSubnetGroupName
+    CacheSubnetGroupName (..),
+
+    -- ** EngineVersion
+    EngineVersion (..),
+
+    -- ** GlobalReplicationGroupId
+    GlobalReplicationGroupId (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** NotificationTopicArn
+    NotificationTopicArn (..),
+
+    -- ** PreferredMaintenanceWindow
+    PreferredMaintenanceWindow (..),
+
+    -- ** PrimaryClusterId
+    PrimaryClusterId (..),
+
+    -- ** SnapshotName
+    SnapshotName (..),
+
+    -- ** SnapshotWindow
+    SnapshotWindow (..),
+
+    -- ** GlobalNodeGroupId
+    GlobalNodeGroupId (..),
+
+    -- ** Slots
+    Slots (..),
+
+    -- ** FinalSnapshotIdentifier
+    FinalSnapshotIdentifier (..),
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** PreferredAvailabilityZone
+    PreferredAvailabilityZone (..),
+
+    -- ** PreferredOutpostArn
+    PreferredOutpostArn (..),
+
+    -- ** SnapshotSource
+    SnapshotSource (..),
+
+    -- ** SnapshotStatus
+    SnapshotStatus (..),
+
+    -- ** TopicArn
+    TopicArn (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** SourceIdentifier
+    SourceIdentifier (..),
+
+    -- ** EstimatedUpdateTime
+    EstimatedUpdateTime (..),
+
+    -- ** NodesUpdated
+    NodesUpdated (..),
+
+    -- ** ServiceUpdateName
+    ServiceUpdateName (..),
+
+    -- ** PrimaryAvailabilityZone
+    PrimaryAvailabilityZone (..),
+
+    -- ** PrimaryOutpostArn
+    PrimaryOutpostArn (..),
+
+    -- ** PrimaryRegion
+    PrimaryRegion (..),
+
+    -- ** PrimaryReplicationGroupId
+    PrimaryReplicationGroupId (..),
+
+    -- ** GlobalReplicationGroupIdSuffix
+    GlobalReplicationGroupIdSuffix (..),
+
+    -- ** GlobalReplicationGroupDescription
+    GlobalReplicationGroupDescription (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** CacheSubnetGroupDescription
+    CacheSubnetGroupDescription (..),
+
+    -- ** Address
+    Address (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** SourceSnapshotName
+    SourceSnapshotName (..),
+
+    -- ** TargetSnapshotName
+    TargetSnapshotName (..),
+
+    -- ** TargetBucket
+    TargetBucket (..),
+
+    -- ** CacheSecurityGroupName
+    CacheSecurityGroupName (..),
+
+    -- ** EC2SecurityGroupName
+    EC2SecurityGroupName (..),
+
+    -- ** EC2SecurityGroupOwnerId
+    EC2SecurityGroupOwnerId (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** TopicStatus
+    TopicStatus (..),
+
+    -- ** ParameterName
+    ParameterName (..),
+
+    -- ** ParameterValue
+    ParameterValue (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

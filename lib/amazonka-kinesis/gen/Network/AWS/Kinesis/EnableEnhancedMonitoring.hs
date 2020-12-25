@@ -20,31 +20,33 @@ module Network.AWS.Kinesis.EnableEnhancedMonitoring
     mkEnableEnhancedMonitoring,
 
     -- ** Request lenses
-    eemShardLevelMetrics,
     eemStreamName,
+    eemShardLevelMetrics,
 
     -- * Destructuring the response
-    EnhancedMonitoringOutput (..),
-    mkEnhancedMonitoringOutput,
+    Types.EnhancedMonitoringOutput (..),
+    Types.mkEnhancedMonitoringOutput,
 
     -- ** Response lenses
-    emoDesiredShardLevelMetrics,
-    emoCurrentShardLevelMetrics,
-    emoStreamName,
+    Types.emoCurrentShardLevelMetrics,
+    Types.emoDesiredShardLevelMetrics,
+    Types.emoStreamName,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for 'EnableEnhancedMonitoring' .
 --
 -- /See:/ 'mkEnableEnhancedMonitoring' smart constructor.
 data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
-  { -- | List of shard-level metrics to enable.
+  { -- | The name of the stream for which to enable enhanced monitoring.
+    streamName :: Types.StreamName,
+    -- | List of shard-level metrics to enable.
     --
     -- The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.
     --
@@ -73,54 +75,28 @@ data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
     --
     --
     -- For more information, see <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
-    shardLevelMetrics :: [MetricsName],
-    -- | The name of the stream for which to enable enhanced monitoring.
-    streamName :: Lude.Text
+    shardLevelMetrics :: [Types.MetricsName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableEnhancedMonitoring' with the minimum fields required to make a request.
---
--- * 'shardLevelMetrics' - List of shard-level metrics to enable.
---
--- The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.
---
---     * @IncomingBytes@
---
---
---     * @IncomingRecords@
---
---
---     * @OutgoingBytes@
---
---
---     * @OutgoingRecords@
---
---
---     * @WriteProvisionedThroughputExceeded@
---
---
---     * @ReadProvisionedThroughputExceeded@
---
---
---     * @IteratorAgeMilliseconds@
---
---
---     * @ALL@
---
---
--- For more information, see <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
--- * 'streamName' - The name of the stream for which to enable enhanced monitoring.
+-- | Creates a 'EnableEnhancedMonitoring' value with any optional fields omitted.
 mkEnableEnhancedMonitoring ::
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
   EnableEnhancedMonitoring
-mkEnableEnhancedMonitoring pStreamName_ =
+mkEnableEnhancedMonitoring streamName =
   EnableEnhancedMonitoring'
-    { shardLevelMetrics = Lude.mempty,
-      streamName = pStreamName_
+    { streamName,
+      shardLevelMetrics = Core.mempty
     }
+
+-- | The name of the stream for which to enable enhanced monitoring.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eemStreamName :: Lens.Lens' EnableEnhancedMonitoring Types.StreamName
+eemStreamName = Lens.field @"streamName"
+{-# DEPRECATED eemStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | List of shard-level metrics to enable.
 --
@@ -153,44 +129,31 @@ mkEnableEnhancedMonitoring pStreamName_ =
 -- For more information, see <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
 --
 -- /Note:/ Consider using 'shardLevelMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eemShardLevelMetrics :: Lens.Lens' EnableEnhancedMonitoring [MetricsName]
-eemShardLevelMetrics = Lens.lens (shardLevelMetrics :: EnableEnhancedMonitoring -> [MetricsName]) (\s a -> s {shardLevelMetrics = a} :: EnableEnhancedMonitoring)
+eemShardLevelMetrics :: Lens.Lens' EnableEnhancedMonitoring [Types.MetricsName]
+eemShardLevelMetrics = Lens.field @"shardLevelMetrics"
 {-# DEPRECATED eemShardLevelMetrics "Use generic-lens or generic-optics with 'shardLevelMetrics' instead." #-}
 
--- | The name of the stream for which to enable enhanced monitoring.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eemStreamName :: Lens.Lens' EnableEnhancedMonitoring Lude.Text
-eemStreamName = Lens.lens (streamName :: EnableEnhancedMonitoring -> Lude.Text) (\s a -> s {streamName = a} :: EnableEnhancedMonitoring)
-{-# DEPRECATED eemStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
-
-instance Lude.AWSRequest EnableEnhancedMonitoring where
-  type Rs EnableEnhancedMonitoring = EnhancedMonitoringOutput
-  request = Req.postJSON kinesisService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders EnableEnhancedMonitoring where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.EnableEnhancedMonitoring" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON EnableEnhancedMonitoring where
+  toJSON EnableEnhancedMonitoring {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("ShardLevelMetrics" Core..= shardLevelMetrics)
           ]
       )
 
-instance Lude.ToJSON EnableEnhancedMonitoring where
-  toJSON EnableEnhancedMonitoring' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ShardLevelMetrics" Lude..= shardLevelMetrics),
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath EnableEnhancedMonitoring where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableEnhancedMonitoring where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest EnableEnhancedMonitoring where
+  type Rs EnableEnhancedMonitoring = Types.EnhancedMonitoringOutput
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Kinesis_20131202.EnableEnhancedMonitoring")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

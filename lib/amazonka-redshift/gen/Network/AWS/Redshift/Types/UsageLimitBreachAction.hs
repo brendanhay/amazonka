@@ -13,52 +13,57 @@
 module Network.AWS.Redshift.Types.UsageLimitBreachAction
   ( UsageLimitBreachAction
       ( UsageLimitBreachAction',
-        Log,
-        EmitMetric,
-        Disable
+        UsageLimitBreachActionLog,
+        UsageLimitBreachActionEmitMetric,
+        UsageLimitBreachActionDisable,
+        fromUsageLimitBreachAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype UsageLimitBreachAction = UsageLimitBreachAction' Lude.Text
+newtype UsageLimitBreachAction = UsageLimitBreachAction'
+  { fromUsageLimitBreachAction ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Log :: UsageLimitBreachAction
-pattern Log = UsageLimitBreachAction' "log"
+pattern UsageLimitBreachActionLog :: UsageLimitBreachAction
+pattern UsageLimitBreachActionLog = UsageLimitBreachAction' "log"
 
-pattern EmitMetric :: UsageLimitBreachAction
-pattern EmitMetric = UsageLimitBreachAction' "emit-metric"
+pattern UsageLimitBreachActionEmitMetric :: UsageLimitBreachAction
+pattern UsageLimitBreachActionEmitMetric = UsageLimitBreachAction' "emit-metric"
 
-pattern Disable :: UsageLimitBreachAction
-pattern Disable = UsageLimitBreachAction' "disable"
+pattern UsageLimitBreachActionDisable :: UsageLimitBreachAction
+pattern UsageLimitBreachActionDisable = UsageLimitBreachAction' "disable"
 
 {-# COMPLETE
-  Log,
-  EmitMetric,
-  Disable,
+  UsageLimitBreachActionLog,
+  UsageLimitBreachActionEmitMetric,
+  UsageLimitBreachActionDisable,
   UsageLimitBreachAction'
   #-}

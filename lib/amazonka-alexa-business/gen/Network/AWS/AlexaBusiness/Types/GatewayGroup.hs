@@ -17,71 +17,68 @@ module Network.AWS.AlexaBusiness.Types.GatewayGroup
     mkGatewayGroup,
 
     -- * Lenses
-    ggARN,
-    ggName,
+    ggArn,
     ggDescription,
+    ggName,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
+import qualified Network.AWS.AlexaBusiness.Types.Description as Types
+import qualified Network.AWS.AlexaBusiness.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of the gateway group.
 --
 -- /See:/ 'mkGatewayGroup' smart constructor.
 data GatewayGroup = GatewayGroup'
   { -- | The ARN of the gateway group.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the gateway group.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The description of the gateway group.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The name of the gateway group.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GatewayGroup' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the gateway group.
--- * 'name' - The name of the gateway group.
--- * 'description' - The description of the gateway group.
+-- | Creates a 'GatewayGroup' value with any optional fields omitted.
 mkGatewayGroup ::
   GatewayGroup
 mkGatewayGroup =
   GatewayGroup'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      description = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ARN of the gateway group.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggARN :: Lens.Lens' GatewayGroup (Lude.Maybe Lude.Text)
-ggARN = Lens.lens (arn :: GatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GatewayGroup)
-{-# DEPRECATED ggARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the gateway group.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggName :: Lens.Lens' GatewayGroup (Lude.Maybe Lude.Text)
-ggName = Lens.lens (name :: GatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GatewayGroup)
-{-# DEPRECATED ggName "Use generic-lens or generic-optics with 'name' instead." #-}
+ggArn :: Lens.Lens' GatewayGroup (Core.Maybe Types.Arn)
+ggArn = Lens.field @"arn"
+{-# DEPRECATED ggArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The description of the gateway group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggDescription :: Lens.Lens' GatewayGroup (Lude.Maybe Lude.Text)
-ggDescription = Lens.lens (description :: GatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GatewayGroup)
+ggDescription :: Lens.Lens' GatewayGroup (Core.Maybe Types.Description)
+ggDescription = Lens.field @"description"
 {-# DEPRECATED ggDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON GatewayGroup where
+-- | The name of the gateway group.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggName :: Lens.Lens' GatewayGroup (Core.Maybe Types.Name)
+ggName = Lens.field @"name"
+{-# DEPRECATED ggName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON GatewayGroup where
   parseJSON =
-    Lude.withObject
-      "GatewayGroup"
-      ( \x ->
-          GatewayGroup'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "GatewayGroup" Core.$
+      \x ->
+        GatewayGroup'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Name")

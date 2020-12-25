@@ -13,46 +13,51 @@
 module Network.AWS.EC2.Types.UsageClassType
   ( UsageClassType
       ( UsageClassType',
-        UCTSpot,
-        UCTOnDemand
+        UsageClassTypeSpot,
+        UsageClassTypeOnDemand,
+        fromUsageClassType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UsageClassType = UsageClassType' Lude.Text
+newtype UsageClassType = UsageClassType'
+  { fromUsageClassType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UCTSpot :: UsageClassType
-pattern UCTSpot = UsageClassType' "spot"
+pattern UsageClassTypeSpot :: UsageClassType
+pattern UsageClassTypeSpot = UsageClassType' "spot"
 
-pattern UCTOnDemand :: UsageClassType
-pattern UCTOnDemand = UsageClassType' "on-demand"
+pattern UsageClassTypeOnDemand :: UsageClassType
+pattern UsageClassTypeOnDemand = UsageClassType' "on-demand"
 
 {-# COMPLETE
-  UCTSpot,
-  UCTOnDemand,
+  UsageClassTypeSpot,
+  UsageClassTypeOnDemand,
   UsageClassType'
   #-}

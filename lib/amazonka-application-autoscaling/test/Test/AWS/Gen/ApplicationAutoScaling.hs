@@ -162,7 +162,7 @@ responseDeleteScalingPolicy =
   res
     "DeleteScalingPolicyResponse"
     "fixture/DeleteScalingPolicyResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeleteScalingPolicy)
 
 responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
@@ -170,7 +170,7 @@ responsePutScalingPolicy =
   res
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy PutScalingPolicy)
 
 responseRegisterScalableTarget :: RegisterScalableTargetResponse -> TestTree
@@ -178,7 +178,7 @@ responseRegisterScalableTarget =
   res
     "RegisterScalableTargetResponse"
     "fixture/RegisterScalableTargetResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy RegisterScalableTarget)
 
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
@@ -186,7 +186,7 @@ responseDescribeScalingPolicies =
   res
     "DescribeScalingPoliciesResponse"
     "fixture/DescribeScalingPoliciesResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScalingPolicies)
 
 responsePutScheduledAction :: PutScheduledActionResponse -> TestTree
@@ -194,7 +194,7 @@ responsePutScheduledAction =
   res
     "PutScheduledActionResponse"
     "fixture/PutScheduledActionResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy PutScheduledAction)
 
 responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
@@ -202,7 +202,7 @@ responseDeleteScheduledAction =
   res
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeleteScheduledAction)
 
 responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
@@ -210,7 +210,7 @@ responseDescribeScheduledActions =
   res
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScheduledActions)
 
 responseDescribeScalableTargets :: DescribeScalableTargetsResponse -> TestTree
@@ -218,7 +218,7 @@ responseDescribeScalableTargets =
   res
     "DescribeScalableTargetsResponse"
     "fixture/DescribeScalableTargetsResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScalableTargets)
 
 responseDescribeScalingActivities :: DescribeScalingActivitiesResponse -> TestTree
@@ -226,7 +226,7 @@ responseDescribeScalingActivities =
   res
     "DescribeScalingActivitiesResponse"
     "fixture/DescribeScalingActivitiesResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScalingActivities)
 
 responseDeregisterScalableTarget :: DeregisterScalableTargetResponse -> TestTree
@@ -234,5 +234,5 @@ responseDeregisterScalableTarget =
   res
     "DeregisterScalableTargetResponse"
     "fixture/DeregisterScalableTargetResponse.proto"
-    applicationAutoScalingService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterScalableTarget)

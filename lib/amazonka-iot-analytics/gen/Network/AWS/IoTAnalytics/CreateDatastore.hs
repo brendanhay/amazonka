@@ -20,178 +20,167 @@ module Network.AWS.IoTAnalytics.CreateDatastore
     mkCreateDatastore,
 
     -- ** Request lenses
-    cDatastoreName,
-    cRetentionPeriod,
-    cDatastoreStorage,
-    cTags,
+    cdDatastoreName,
+    cdDatastoreStorage,
+    cdRetentionPeriod,
+    cdTags,
 
     -- * Destructuring the response
     CreateDatastoreResponse (..),
     mkCreateDatastoreResponse,
 
     -- ** Response lenses
-    cdrsDatastoreARN,
-    cdrsDatastoreName,
-    cdrsRetentionPeriod,
-    cdrsResponseStatus,
+    cdrrsDatastoreArn,
+    cdrrsDatastoreName,
+    cdrrsRetentionPeriod,
+    cdrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDatastore' smart constructor.
 data CreateDatastore = CreateDatastore'
   { -- | The name of the data store.
-    datastoreName :: Lude.Text,
-    -- | How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
-    retentionPeriod :: Lude.Maybe RetentionPeriod,
+    datastoreName :: Types.DatastoreName,
     -- | Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the data store is created.
-    datastoreStorage :: Lude.Maybe DatastoreStorage,
+    datastoreStorage :: Core.Maybe Types.DatastoreStorage,
+    -- | How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
+    retentionPeriod :: Core.Maybe Types.RetentionPeriod,
     -- | Metadata which can be used to manage the data store.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDatastore' with the minimum fields required to make a request.
---
--- * 'datastoreName' - The name of the data store.
--- * 'retentionPeriod' - How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
--- * 'datastoreStorage' - Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the data store is created.
--- * 'tags' - Metadata which can be used to manage the data store.
+-- | Creates a 'CreateDatastore' value with any optional fields omitted.
 mkCreateDatastore ::
   -- | 'datastoreName'
-  Lude.Text ->
+  Types.DatastoreName ->
   CreateDatastore
-mkCreateDatastore pDatastoreName_ =
+mkCreateDatastore datastoreName =
   CreateDatastore'
-    { datastoreName = pDatastoreName_,
-      retentionPeriod = Lude.Nothing,
-      datastoreStorage = Lude.Nothing,
-      tags = Lude.Nothing
+    { datastoreName,
+      datastoreStorage = Core.Nothing,
+      retentionPeriod = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The name of the data store.
 --
 -- /Note:/ Consider using 'datastoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDatastoreName :: Lens.Lens' CreateDatastore Lude.Text
-cDatastoreName = Lens.lens (datastoreName :: CreateDatastore -> Lude.Text) (\s a -> s {datastoreName = a} :: CreateDatastore)
-{-# DEPRECATED cDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
-
--- | How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
---
--- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cRetentionPeriod :: Lens.Lens' CreateDatastore (Lude.Maybe RetentionPeriod)
-cRetentionPeriod = Lens.lens (retentionPeriod :: CreateDatastore -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: CreateDatastore)
-{-# DEPRECATED cRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
+cdDatastoreName :: Lens.Lens' CreateDatastore Types.DatastoreName
+cdDatastoreName = Lens.field @"datastoreName"
+{-# DEPRECATED cdDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
 
 -- | Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the data store is created.
 --
 -- /Note:/ Consider using 'datastoreStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDatastoreStorage :: Lens.Lens' CreateDatastore (Lude.Maybe DatastoreStorage)
-cDatastoreStorage = Lens.lens (datastoreStorage :: CreateDatastore -> Lude.Maybe DatastoreStorage) (\s a -> s {datastoreStorage = a} :: CreateDatastore)
-{-# DEPRECATED cDatastoreStorage "Use generic-lens or generic-optics with 'datastoreStorage' instead." #-}
+cdDatastoreStorage :: Lens.Lens' CreateDatastore (Core.Maybe Types.DatastoreStorage)
+cdDatastoreStorage = Lens.field @"datastoreStorage"
+{-# DEPRECATED cdDatastoreStorage "Use generic-lens or generic-optics with 'datastoreStorage' instead." #-}
+
+-- | How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdRetentionPeriod :: Lens.Lens' CreateDatastore (Core.Maybe Types.RetentionPeriod)
+cdRetentionPeriod = Lens.field @"retentionPeriod"
+{-# DEPRECATED cdRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
 -- | Metadata which can be used to manage the data store.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' CreateDatastore (Lude.Maybe (Lude.NonEmpty Tag))
-cTags = Lens.lens (tags :: CreateDatastore -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateDatastore)
-{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cdTags :: Lens.Lens' CreateDatastore (Core.Maybe (Core.NonEmpty Types.Tag))
+cdTags = Lens.field @"tags"
+{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDatastore where
-  type Rs CreateDatastore = CreateDatastoreResponse
-  request = Req.postJSON ioTAnalyticsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateDatastoreResponse'
-            Lude.<$> (x Lude..?> "datastoreArn")
-            Lude.<*> (x Lude..?> "datastoreName")
-            Lude.<*> (x Lude..?> "retentionPeriod")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateDatastore where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateDatastore where
-  toJSON CreateDatastore' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("datastoreName" Lude..= datastoreName),
-            ("retentionPeriod" Lude..=) Lude.<$> retentionPeriod,
-            ("datastoreStorage" Lude..=) Lude.<$> datastoreStorage,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateDatastore where
+  toJSON CreateDatastore {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("datastoreName" Core..= datastoreName),
+            ("datastoreStorage" Core..=) Core.<$> datastoreStorage,
+            ("retentionPeriod" Core..=) Core.<$> retentionPeriod,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateDatastore where
-  toPath = Lude.const "/datastores"
-
-instance Lude.ToQuery CreateDatastore where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateDatastore where
+  type Rs CreateDatastore = CreateDatastoreResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/datastores",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDatastoreResponse'
+            Core.<$> (x Core..:? "datastoreArn")
+            Core.<*> (x Core..:? "datastoreName")
+            Core.<*> (x Core..:? "retentionPeriod")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateDatastoreResponse' smart constructor.
 data CreateDatastoreResponse = CreateDatastoreResponse'
   { -- | The ARN of the data store.
-    datastoreARN :: Lude.Maybe Lude.Text,
+    datastoreArn :: Core.Maybe Types.DatastoreArn,
     -- | The name of the data store.
-    datastoreName :: Lude.Maybe Lude.Text,
+    datastoreName :: Core.Maybe Types.DatastoreName,
     -- | How long, in days, message data is kept for the data store.
-    retentionPeriod :: Lude.Maybe RetentionPeriod,
+    retentionPeriod :: Core.Maybe Types.RetentionPeriod,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDatastoreResponse' with the minimum fields required to make a request.
---
--- * 'datastoreARN' - The ARN of the data store.
--- * 'datastoreName' - The name of the data store.
--- * 'retentionPeriod' - How long, in days, message data is kept for the data store.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDatastoreResponse' value with any optional fields omitted.
 mkCreateDatastoreResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDatastoreResponse
-mkCreateDatastoreResponse pResponseStatus_ =
+mkCreateDatastoreResponse responseStatus =
   CreateDatastoreResponse'
-    { datastoreARN = Lude.Nothing,
-      datastoreName = Lude.Nothing,
-      retentionPeriod = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { datastoreArn = Core.Nothing,
+      datastoreName = Core.Nothing,
+      retentionPeriod = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the data store.
 --
--- /Note:/ Consider using 'datastoreARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsDatastoreARN :: Lens.Lens' CreateDatastoreResponse (Lude.Maybe Lude.Text)
-cdrsDatastoreARN = Lens.lens (datastoreARN :: CreateDatastoreResponse -> Lude.Maybe Lude.Text) (\s a -> s {datastoreARN = a} :: CreateDatastoreResponse)
-{-# DEPRECATED cdrsDatastoreARN "Use generic-lens or generic-optics with 'datastoreARN' instead." #-}
+-- /Note:/ Consider using 'datastoreArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrrsDatastoreArn :: Lens.Lens' CreateDatastoreResponse (Core.Maybe Types.DatastoreArn)
+cdrrsDatastoreArn = Lens.field @"datastoreArn"
+{-# DEPRECATED cdrrsDatastoreArn "Use generic-lens or generic-optics with 'datastoreArn' instead." #-}
 
 -- | The name of the data store.
 --
 -- /Note:/ Consider using 'datastoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsDatastoreName :: Lens.Lens' CreateDatastoreResponse (Lude.Maybe Lude.Text)
-cdrsDatastoreName = Lens.lens (datastoreName :: CreateDatastoreResponse -> Lude.Maybe Lude.Text) (\s a -> s {datastoreName = a} :: CreateDatastoreResponse)
-{-# DEPRECATED cdrsDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
+cdrrsDatastoreName :: Lens.Lens' CreateDatastoreResponse (Core.Maybe Types.DatastoreName)
+cdrrsDatastoreName = Lens.field @"datastoreName"
+{-# DEPRECATED cdrrsDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
 
 -- | How long, in days, message data is kept for the data store.
 --
 -- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsRetentionPeriod :: Lens.Lens' CreateDatastoreResponse (Lude.Maybe RetentionPeriod)
-cdrsRetentionPeriod = Lens.lens (retentionPeriod :: CreateDatastoreResponse -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: CreateDatastoreResponse)
-{-# DEPRECATED cdrsRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
+cdrrsRetentionPeriod :: Lens.Lens' CreateDatastoreResponse (Core.Maybe Types.RetentionPeriod)
+cdrrsRetentionPeriod = Lens.field @"retentionPeriod"
+{-# DEPRECATED cdrrsRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsResponseStatus :: Lens.Lens' CreateDatastoreResponse Lude.Int
-cdrsResponseStatus = Lens.lens (responseStatus :: CreateDatastoreResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDatastoreResponse)
-{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrrsResponseStatus :: Lens.Lens' CreateDatastoreResponse Core.Int
+cdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

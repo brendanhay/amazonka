@@ -20,141 +20,135 @@ module Network.AWS.EC2.CreateTransitGatewayRouteTable
     mkCreateTransitGatewayRouteTable,
 
     -- ** Request lenses
-    ctgrtTagSpecifications,
     ctgrtTransitGatewayId,
     ctgrtDryRun,
+    ctgrtTagSpecifications,
 
     -- * Destructuring the response
     CreateTransitGatewayRouteTableResponse (..),
     mkCreateTransitGatewayRouteTableResponse,
 
     -- ** Response lenses
-    ctgrtrsTransitGatewayRouteTable,
-    ctgrtrsResponseStatus,
+    ctgrtrrsTransitGatewayRouteTable,
+    ctgrtrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTransitGatewayRouteTable' smart constructor.
 data CreateTransitGatewayRouteTable = CreateTransitGatewayRouteTable'
-  { -- | The tags to apply to the transit gateway route table.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    -- | The ID of the transit gateway.
-    transitGatewayId :: Lude.Text,
+  { -- | The ID of the transit gateway.
+    transitGatewayId :: Types.TransitGatewayId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The tags to apply to the transit gateway route table.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTransitGatewayRouteTable' with the minimum fields required to make a request.
---
--- * 'tagSpecifications' - The tags to apply to the transit gateway route table.
--- * 'transitGatewayId' - The ID of the transit gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateTransitGatewayRouteTable' value with any optional fields omitted.
 mkCreateTransitGatewayRouteTable ::
   -- | 'transitGatewayId'
-  Lude.Text ->
+  Types.TransitGatewayId ->
   CreateTransitGatewayRouteTable
-mkCreateTransitGatewayRouteTable pTransitGatewayId_ =
+mkCreateTransitGatewayRouteTable transitGatewayId =
   CreateTransitGatewayRouteTable'
-    { tagSpecifications = Lude.Nothing,
-      transitGatewayId = pTransitGatewayId_,
-      dryRun = Lude.Nothing
+    { transitGatewayId,
+      dryRun = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
-
--- | The tags to apply to the transit gateway route table.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrtTagSpecifications :: Lens.Lens' CreateTransitGatewayRouteTable (Lude.Maybe [TagSpecification])
-ctgrtTagSpecifications = Lens.lens (tagSpecifications :: CreateTransitGatewayRouteTable -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTransitGatewayRouteTable)
-{-# DEPRECATED ctgrtTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The ID of the transit gateway.
 --
 -- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrtTransitGatewayId :: Lens.Lens' CreateTransitGatewayRouteTable Lude.Text
-ctgrtTransitGatewayId = Lens.lens (transitGatewayId :: CreateTransitGatewayRouteTable -> Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateTransitGatewayRouteTable)
+ctgrtTransitGatewayId :: Lens.Lens' CreateTransitGatewayRouteTable Types.TransitGatewayId
+ctgrtTransitGatewayId = Lens.field @"transitGatewayId"
 {-# DEPRECATED ctgrtTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrtDryRun :: Lens.Lens' CreateTransitGatewayRouteTable (Lude.Maybe Lude.Bool)
-ctgrtDryRun = Lens.lens (dryRun :: CreateTransitGatewayRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayRouteTable)
+ctgrtDryRun :: Lens.Lens' CreateTransitGatewayRouteTable (Core.Maybe Core.Bool)
+ctgrtDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ctgrtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateTransitGatewayRouteTable where
+-- | The tags to apply to the transit gateway route table.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrtTagSpecifications :: Lens.Lens' CreateTransitGatewayRouteTable (Core.Maybe [Types.TagSpecification])
+ctgrtTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ctgrtTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateTransitGatewayRouteTable where
   type
     Rs CreateTransitGatewayRouteTable =
       CreateTransitGatewayRouteTableResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateTransitGatewayRouteTable")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "TransitGatewayId" transitGatewayId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "TagSpecifications" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayRouteTableResponse'
-            Lude.<$> (x Lude..@? "transitGatewayRouteTable")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayRouteTable")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTransitGatewayRouteTable where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTransitGatewayRouteTable where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTransitGatewayRouteTable where
-  toQuery CreateTransitGatewayRouteTable' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateTransitGatewayRouteTable" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecifications" Lude.<$> tagSpecifications),
-        "TransitGatewayId" Lude.=: transitGatewayId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateTransitGatewayRouteTableResponse' smart constructor.
 data CreateTransitGatewayRouteTableResponse = CreateTransitGatewayRouteTableResponse'
   { -- | Information about the transit gateway route table.
-    transitGatewayRouteTable :: Lude.Maybe TransitGatewayRouteTable,
+    transitGatewayRouteTable :: Core.Maybe Types.TransitGatewayRouteTable,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateTransitGatewayRouteTableResponse' with the minimum fields required to make a request.
---
--- * 'transitGatewayRouteTable' - Information about the transit gateway route table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTransitGatewayRouteTableResponse' value with any optional fields omitted.
 mkCreateTransitGatewayRouteTableResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTransitGatewayRouteTableResponse
-mkCreateTransitGatewayRouteTableResponse pResponseStatus_ =
+mkCreateTransitGatewayRouteTableResponse responseStatus =
   CreateTransitGatewayRouteTableResponse'
     { transitGatewayRouteTable =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the transit gateway route table.
 --
 -- /Note:/ Consider using 'transitGatewayRouteTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrtrsTransitGatewayRouteTable :: Lens.Lens' CreateTransitGatewayRouteTableResponse (Lude.Maybe TransitGatewayRouteTable)
-ctgrtrsTransitGatewayRouteTable = Lens.lens (transitGatewayRouteTable :: CreateTransitGatewayRouteTableResponse -> Lude.Maybe TransitGatewayRouteTable) (\s a -> s {transitGatewayRouteTable = a} :: CreateTransitGatewayRouteTableResponse)
-{-# DEPRECATED ctgrtrsTransitGatewayRouteTable "Use generic-lens or generic-optics with 'transitGatewayRouteTable' instead." #-}
+ctgrtrrsTransitGatewayRouteTable :: Lens.Lens' CreateTransitGatewayRouteTableResponse (Core.Maybe Types.TransitGatewayRouteTable)
+ctgrtrrsTransitGatewayRouteTable = Lens.field @"transitGatewayRouteTable"
+{-# DEPRECATED ctgrtrrsTransitGatewayRouteTable "Use generic-lens or generic-optics with 'transitGatewayRouteTable' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrtrsResponseStatus :: Lens.Lens' CreateTransitGatewayRouteTableResponse Lude.Int
-ctgrtrsResponseStatus = Lens.lens (responseStatus :: CreateTransitGatewayRouteTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTransitGatewayRouteTableResponse)
-{-# DEPRECATED ctgrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctgrtrrsResponseStatus :: Lens.Lens' CreateTransitGatewayRouteTableResponse Core.Int
+ctgrtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctgrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

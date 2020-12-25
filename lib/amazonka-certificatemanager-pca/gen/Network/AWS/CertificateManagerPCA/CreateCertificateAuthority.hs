@@ -22,9 +22,9 @@ module Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
     mkCreateCertificateAuthority,
 
     -- ** Request lenses
-    ccaIdempotencyToken,
     ccaCertificateAuthorityConfiguration,
     ccaCertificateAuthorityType,
+    ccaIdempotencyToken,
     ccaRevocationConfiguration,
     ccaTags,
 
@@ -33,181 +33,163 @@ module Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
     mkCreateCertificateAuthorityResponse,
 
     -- ** Response lenses
-    ccarsCertificateAuthorityARN,
-    ccarsResponseStatus,
+    ccarrsCertificateAuthorityArn,
+    ccarrsResponseStatus,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateCertificateAuthority' smart constructor.
 data CreateCertificateAuthority = CreateCertificateAuthority'
-  { -- | Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
-    idempotencyToken :: Lude.Maybe Lude.Text,
-    -- | Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.
-    certificateAuthorityConfiguration :: CertificateAuthorityConfiguration,
+  { -- | Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.
+    certificateAuthorityConfiguration :: Types.CertificateAuthorityConfiguration,
     -- | The type of the certificate authority.
-    certificateAuthorityType :: CertificateAuthorityType,
+    certificateAuthorityType :: Types.CertificateAuthorityType,
+    -- | Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
+    idempotencyToken :: Core.Maybe Types.IdempotencyToken,
     -- | Contains a Boolean value that you can use to enable a certification revocation list (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an optional CNAME alias that you can use to hide the name of your bucket in the __CRL Distribution Points__ extension of your CA certificate. For more information, see the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration> structure.
-    revocationConfiguration :: Lude.Maybe RevocationConfiguration,
+    revocationConfiguration :: Core.Maybe Types.RevocationConfiguration,
     -- | Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCertificateAuthority' with the minimum fields required to make a request.
---
--- * 'idempotencyToken' - Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
--- * 'certificateAuthorityConfiguration' - Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.
--- * 'certificateAuthorityType' - The type of the certificate authority.
--- * 'revocationConfiguration' - Contains a Boolean value that you can use to enable a certification revocation list (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an optional CNAME alias that you can use to hide the name of your bucket in the __CRL Distribution Points__ extension of your CA certificate. For more information, see the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration> structure.
--- * 'tags' - Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
+-- | Creates a 'CreateCertificateAuthority' value with any optional fields omitted.
 mkCreateCertificateAuthority ::
   -- | 'certificateAuthorityConfiguration'
-  CertificateAuthorityConfiguration ->
+  Types.CertificateAuthorityConfiguration ->
   -- | 'certificateAuthorityType'
-  CertificateAuthorityType ->
+  Types.CertificateAuthorityType ->
   CreateCertificateAuthority
 mkCreateCertificateAuthority
-  pCertificateAuthorityConfiguration_
-  pCertificateAuthorityType_ =
+  certificateAuthorityConfiguration
+  certificateAuthorityType =
     CreateCertificateAuthority'
-      { idempotencyToken = Lude.Nothing,
-        certificateAuthorityConfiguration =
-          pCertificateAuthorityConfiguration_,
-        certificateAuthorityType = pCertificateAuthorityType_,
-        revocationConfiguration = Lude.Nothing,
-        tags = Lude.Nothing
+      { certificateAuthorityConfiguration,
+        certificateAuthorityType,
+        idempotencyToken = Core.Nothing,
+        revocationConfiguration = Core.Nothing,
+        tags = Core.Nothing
       }
-
--- | Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
---
--- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaIdempotencyToken :: Lens.Lens' CreateCertificateAuthority (Lude.Maybe Lude.Text)
-ccaIdempotencyToken = Lens.lens (idempotencyToken :: CreateCertificateAuthority -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateCertificateAuthority)
-{-# DEPRECATED ccaIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.
 --
 -- /Note:/ Consider using 'certificateAuthorityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaCertificateAuthorityConfiguration :: Lens.Lens' CreateCertificateAuthority CertificateAuthorityConfiguration
-ccaCertificateAuthorityConfiguration = Lens.lens (certificateAuthorityConfiguration :: CreateCertificateAuthority -> CertificateAuthorityConfiguration) (\s a -> s {certificateAuthorityConfiguration = a} :: CreateCertificateAuthority)
+ccaCertificateAuthorityConfiguration :: Lens.Lens' CreateCertificateAuthority Types.CertificateAuthorityConfiguration
+ccaCertificateAuthorityConfiguration = Lens.field @"certificateAuthorityConfiguration"
 {-# DEPRECATED ccaCertificateAuthorityConfiguration "Use generic-lens or generic-optics with 'certificateAuthorityConfiguration' instead." #-}
 
 -- | The type of the certificate authority.
 --
 -- /Note:/ Consider using 'certificateAuthorityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaCertificateAuthorityType :: Lens.Lens' CreateCertificateAuthority CertificateAuthorityType
-ccaCertificateAuthorityType = Lens.lens (certificateAuthorityType :: CreateCertificateAuthority -> CertificateAuthorityType) (\s a -> s {certificateAuthorityType = a} :: CreateCertificateAuthority)
+ccaCertificateAuthorityType :: Lens.Lens' CreateCertificateAuthority Types.CertificateAuthorityType
+ccaCertificateAuthorityType = Lens.field @"certificateAuthorityType"
 {-# DEPRECATED ccaCertificateAuthorityType "Use generic-lens or generic-optics with 'certificateAuthorityType' instead." #-}
+
+-- | Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccaIdempotencyToken :: Lens.Lens' CreateCertificateAuthority (Core.Maybe Types.IdempotencyToken)
+ccaIdempotencyToken = Lens.field @"idempotencyToken"
+{-# DEPRECATED ccaIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | Contains a Boolean value that you can use to enable a certification revocation list (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an optional CNAME alias that you can use to hide the name of your bucket in the __CRL Distribution Points__ extension of your CA certificate. For more information, see the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration> structure.
 --
 -- /Note:/ Consider using 'revocationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaRevocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Lude.Maybe RevocationConfiguration)
-ccaRevocationConfiguration = Lens.lens (revocationConfiguration :: CreateCertificateAuthority -> Lude.Maybe RevocationConfiguration) (\s a -> s {revocationConfiguration = a} :: CreateCertificateAuthority)
+ccaRevocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Core.Maybe Types.RevocationConfiguration)
+ccaRevocationConfiguration = Lens.field @"revocationConfiguration"
 {-# DEPRECATED ccaRevocationConfiguration "Use generic-lens or generic-optics with 'revocationConfiguration' instead." #-}
 
 -- | Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaTags :: Lens.Lens' CreateCertificateAuthority (Lude.Maybe (Lude.NonEmpty Tag))
-ccaTags = Lens.lens (tags :: CreateCertificateAuthority -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateCertificateAuthority)
+ccaTags :: Lens.Lens' CreateCertificateAuthority (Core.Maybe (Core.NonEmpty Types.Tag))
+ccaTags = Lens.field @"tags"
 {-# DEPRECATED ccaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateCertificateAuthority where
+instance Core.FromJSON CreateCertificateAuthority where
+  toJSON CreateCertificateAuthority {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ( "CertificateAuthorityConfiguration"
+                  Core..= certificateAuthorityConfiguration
+              ),
+            Core.Just
+              ("CertificateAuthorityType" Core..= certificateAuthorityType),
+            ("IdempotencyToken" Core..=) Core.<$> idempotencyToken,
+            ("RevocationConfiguration" Core..=)
+              Core.<$> revocationConfiguration,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateCertificateAuthority where
   type
     Rs CreateCertificateAuthority =
       CreateCertificateAuthorityResponse
-  request = Req.postJSON certificateManagerPCAService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ACMPrivateCA.CreateCertificateAuthority")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateCertificateAuthorityResponse'
-            Lude.<$> (x Lude..?> "CertificateAuthorityArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CertificateAuthorityArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCertificateAuthority where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.CreateCertificateAuthority" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateCertificateAuthority where
-  toJSON CreateCertificateAuthority' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("IdempotencyToken" Lude..=) Lude.<$> idempotencyToken,
-            Lude.Just
-              ( "CertificateAuthorityConfiguration"
-                  Lude..= certificateAuthorityConfiguration
-              ),
-            Lude.Just
-              ("CertificateAuthorityType" Lude..= certificateAuthorityType),
-            ("RevocationConfiguration" Lude..=)
-              Lude.<$> revocationConfiguration,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateCertificateAuthority where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCertificateAuthority where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateCertificateAuthorityResponse' smart constructor.
 data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
   { -- | If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This is of the form:
     --
     -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-    certificateAuthorityARN :: Lude.Maybe Lude.Text,
+    certificateAuthorityArn :: Core.Maybe Types.Arn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCertificateAuthorityResponse' with the minimum fields required to make a request.
---
--- * 'certificateAuthorityARN' - If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This is of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCertificateAuthorityResponse' value with any optional fields omitted.
 mkCreateCertificateAuthorityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCertificateAuthorityResponse
-mkCreateCertificateAuthorityResponse pResponseStatus_ =
+mkCreateCertificateAuthorityResponse responseStatus =
   CreateCertificateAuthorityResponse'
-    { certificateAuthorityARN =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { certificateAuthorityArn =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This is of the form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
 --
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccarsCertificateAuthorityARN :: Lens.Lens' CreateCertificateAuthorityResponse (Lude.Maybe Lude.Text)
-ccarsCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: CreateCertificateAuthorityResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: CreateCertificateAuthorityResponse)
-{-# DEPRECATED ccarsCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccarrsCertificateAuthorityArn :: Lens.Lens' CreateCertificateAuthorityResponse (Core.Maybe Types.Arn)
+ccarrsCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED ccarrsCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccarsResponseStatus :: Lens.Lens' CreateCertificateAuthorityResponse Lude.Int
-ccarsResponseStatus = Lens.lens (responseStatus :: CreateCertificateAuthorityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCertificateAuthorityResponse)
-{-# DEPRECATED ccarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccarrsResponseStatus :: Lens.Lens' CreateCertificateAuthorityResponse Core.Int
+ccarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

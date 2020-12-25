@@ -13,47 +13,49 @@
 module Network.AWS.CloudWatchLogs.Types.Distribution
   ( Distribution
       ( Distribution',
-        Random,
-        ByLogStream
+        DistributionRandom,
+        DistributionByLogStream,
+        fromDistribution
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The method used to distribute log data to the destination, which can be either random or grouped by log stream.
-newtype Distribution = Distribution' Lude.Text
+newtype Distribution = Distribution' {fromDistribution :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Random :: Distribution
-pattern Random = Distribution' "Random"
+pattern DistributionRandom :: Distribution
+pattern DistributionRandom = Distribution' "Random"
 
-pattern ByLogStream :: Distribution
-pattern ByLogStream = Distribution' "ByLogStream"
+pattern DistributionByLogStream :: Distribution
+pattern DistributionByLogStream = Distribution' "ByLogStream"
 
 {-# COMPLETE
-  Random,
-  ByLogStream,
+  DistributionRandom,
+  DistributionByLogStream,
   Distribution'
   #-}

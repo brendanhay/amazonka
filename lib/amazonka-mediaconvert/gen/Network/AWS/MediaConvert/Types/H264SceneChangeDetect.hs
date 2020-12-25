@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.H264SceneChangeDetect
   ( H264SceneChangeDetect
       ( H264SceneChangeDetect',
-        HSCDfDisabled,
-        HSCDfEnabled,
-        HSCDfTransitionDetection
+        H264SceneChangeDetectDisabled,
+        H264SceneChangeDetectEnabled,
+        H264SceneChangeDetectTransitionDetection,
+        fromH264SceneChangeDetect
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Enable this setting to insert I-frames at scene changes that the service automatically detects. This improves video quality and is enabled by default. If this output uses QVBR, choose Transition detection (TRANSITION_DETECTION) for further video quality improvement. For more information about QVBR, see https://docs.aws.amazon.com/console/mediaconvert/cbr-vbr-qvbr.
-newtype H264SceneChangeDetect = H264SceneChangeDetect' Lude.Text
+newtype H264SceneChangeDetect = H264SceneChangeDetect'
+  { fromH264SceneChangeDetect ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HSCDfDisabled :: H264SceneChangeDetect
-pattern HSCDfDisabled = H264SceneChangeDetect' "DISABLED"
+pattern H264SceneChangeDetectDisabled :: H264SceneChangeDetect
+pattern H264SceneChangeDetectDisabled = H264SceneChangeDetect' "DISABLED"
 
-pattern HSCDfEnabled :: H264SceneChangeDetect
-pattern HSCDfEnabled = H264SceneChangeDetect' "ENABLED"
+pattern H264SceneChangeDetectEnabled :: H264SceneChangeDetect
+pattern H264SceneChangeDetectEnabled = H264SceneChangeDetect' "ENABLED"
 
-pattern HSCDfTransitionDetection :: H264SceneChangeDetect
-pattern HSCDfTransitionDetection = H264SceneChangeDetect' "TRANSITION_DETECTION"
+pattern H264SceneChangeDetectTransitionDetection :: H264SceneChangeDetect
+pattern H264SceneChangeDetectTransitionDetection = H264SceneChangeDetect' "TRANSITION_DETECTION"
 
 {-# COMPLETE
-  HSCDfDisabled,
-  HSCDfEnabled,
-  HSCDfTransitionDetection,
+  H264SceneChangeDetectDisabled,
+  H264SceneChangeDetectEnabled,
+  H264SceneChangeDetectTransitionDetection,
   H264SceneChangeDetect'
   #-}

@@ -17,165 +17,158 @@ module Network.AWS.SMS.Types.Connector
     mkConnector,
 
     -- * Lenses
-    cStatus,
-    cVmManagerName,
-    cIpAddress,
-    cVmManagerId,
-    cVmManagerType,
-    cConnectorId,
     cAssociatedOn,
-    cMacAddress,
-    cVersion,
     cCapabilityList,
+    cConnectorId,
+    cIpAddress,
+    cMacAddress,
+    cStatus,
+    cVersion,
+    cVmManagerId,
+    cVmManagerName,
+    cVmManagerType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.ConnectorCapability
-import Network.AWS.SMS.Types.ConnectorStatus
-import Network.AWS.SMS.Types.VMManagerType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.ConnectorCapability as Types
+import qualified Network.AWS.SMS.Types.ConnectorId as Types
+import qualified Network.AWS.SMS.Types.ConnectorStatus as Types
+import qualified Network.AWS.SMS.Types.IpAddress as Types
+import qualified Network.AWS.SMS.Types.MacAddress as Types
+import qualified Network.AWS.SMS.Types.Version as Types
+import qualified Network.AWS.SMS.Types.VmManagerId as Types
+import qualified Network.AWS.SMS.Types.VmManagerName as Types
+import qualified Network.AWS.SMS.Types.VmManagerType as Types
 
 -- | Represents a connector.
 --
 -- /See:/ 'mkConnector' smart constructor.
 data Connector = Connector'
-  { -- | The status of the connector.
-    status :: Lude.Maybe ConnectorStatus,
-    -- | The name of the VM manager.
-    vmManagerName :: Lude.Maybe Lude.Text,
-    -- | The IP address of the connector.
-    ipAddress :: Lude.Maybe Lude.Text,
-    -- | The ID of the VM manager.
-    vmManagerId :: Lude.Maybe Lude.Text,
-    -- | The VM management product.
-    vmManagerType :: Lude.Maybe VMManagerType,
-    -- | The ID of the connector.
-    connectorId :: Lude.Maybe Lude.Text,
-    -- | The time the connector was associated.
-    associatedOn :: Lude.Maybe Lude.Timestamp,
-    -- | The MAC address of the connector.
-    macAddress :: Lude.Maybe Lude.Text,
-    -- | The connector version.
-    version :: Lude.Maybe Lude.Text,
+  { -- | The time the connector was associated.
+    associatedOn :: Core.Maybe Core.NominalDiffTime,
     -- | The capabilities of the connector.
-    capabilityList :: Lude.Maybe [ConnectorCapability]
+    capabilityList :: Core.Maybe [Types.ConnectorCapability],
+    -- | The ID of the connector.
+    connectorId :: Core.Maybe Types.ConnectorId,
+    -- | The IP address of the connector.
+    ipAddress :: Core.Maybe Types.IpAddress,
+    -- | The MAC address of the connector.
+    macAddress :: Core.Maybe Types.MacAddress,
+    -- | The status of the connector.
+    status :: Core.Maybe Types.ConnectorStatus,
+    -- | The connector version.
+    version :: Core.Maybe Types.Version,
+    -- | The ID of the VM manager.
+    vmManagerId :: Core.Maybe Types.VmManagerId,
+    -- | The name of the VM manager.
+    vmManagerName :: Core.Maybe Types.VmManagerName,
+    -- | The VM management product.
+    vmManagerType :: Core.Maybe Types.VmManagerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Connector' with the minimum fields required to make a request.
---
--- * 'status' - The status of the connector.
--- * 'vmManagerName' - The name of the VM manager.
--- * 'ipAddress' - The IP address of the connector.
--- * 'vmManagerId' - The ID of the VM manager.
--- * 'vmManagerType' - The VM management product.
--- * 'connectorId' - The ID of the connector.
--- * 'associatedOn' - The time the connector was associated.
--- * 'macAddress' - The MAC address of the connector.
--- * 'version' - The connector version.
--- * 'capabilityList' - The capabilities of the connector.
+-- | Creates a 'Connector' value with any optional fields omitted.
 mkConnector ::
   Connector
 mkConnector =
   Connector'
-    { status = Lude.Nothing,
-      vmManagerName = Lude.Nothing,
-      ipAddress = Lude.Nothing,
-      vmManagerId = Lude.Nothing,
-      vmManagerType = Lude.Nothing,
-      connectorId = Lude.Nothing,
-      associatedOn = Lude.Nothing,
-      macAddress = Lude.Nothing,
-      version = Lude.Nothing,
-      capabilityList = Lude.Nothing
+    { associatedOn = Core.Nothing,
+      capabilityList = Core.Nothing,
+      connectorId = Core.Nothing,
+      ipAddress = Core.Nothing,
+      macAddress = Core.Nothing,
+      status = Core.Nothing,
+      version = Core.Nothing,
+      vmManagerId = Core.Nothing,
+      vmManagerName = Core.Nothing,
+      vmManagerType = Core.Nothing
     }
-
--- | The status of the connector.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cStatus :: Lens.Lens' Connector (Lude.Maybe ConnectorStatus)
-cStatus = Lens.lens (status :: Connector -> Lude.Maybe ConnectorStatus) (\s a -> s {status = a} :: Connector)
-{-# DEPRECATED cStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The name of the VM manager.
---
--- /Note:/ Consider using 'vmManagerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVmManagerName :: Lens.Lens' Connector (Lude.Maybe Lude.Text)
-cVmManagerName = Lens.lens (vmManagerName :: Connector -> Lude.Maybe Lude.Text) (\s a -> s {vmManagerName = a} :: Connector)
-{-# DEPRECATED cVmManagerName "Use generic-lens or generic-optics with 'vmManagerName' instead." #-}
-
--- | The IP address of the connector.
---
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cIpAddress :: Lens.Lens' Connector (Lude.Maybe Lude.Text)
-cIpAddress = Lens.lens (ipAddress :: Connector -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: Connector)
-{-# DEPRECATED cIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
-
--- | The ID of the VM manager.
---
--- /Note:/ Consider using 'vmManagerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVmManagerId :: Lens.Lens' Connector (Lude.Maybe Lude.Text)
-cVmManagerId = Lens.lens (vmManagerId :: Connector -> Lude.Maybe Lude.Text) (\s a -> s {vmManagerId = a} :: Connector)
-{-# DEPRECATED cVmManagerId "Use generic-lens or generic-optics with 'vmManagerId' instead." #-}
-
--- | The VM management product.
---
--- /Note:/ Consider using 'vmManagerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVmManagerType :: Lens.Lens' Connector (Lude.Maybe VMManagerType)
-cVmManagerType = Lens.lens (vmManagerType :: Connector -> Lude.Maybe VMManagerType) (\s a -> s {vmManagerType = a} :: Connector)
-{-# DEPRECATED cVmManagerType "Use generic-lens or generic-optics with 'vmManagerType' instead." #-}
-
--- | The ID of the connector.
---
--- /Note:/ Consider using 'connectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConnectorId :: Lens.Lens' Connector (Lude.Maybe Lude.Text)
-cConnectorId = Lens.lens (connectorId :: Connector -> Lude.Maybe Lude.Text) (\s a -> s {connectorId = a} :: Connector)
-{-# DEPRECATED cConnectorId "Use generic-lens or generic-optics with 'connectorId' instead." #-}
 
 -- | The time the connector was associated.
 --
 -- /Note:/ Consider using 'associatedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cAssociatedOn :: Lens.Lens' Connector (Lude.Maybe Lude.Timestamp)
-cAssociatedOn = Lens.lens (associatedOn :: Connector -> Lude.Maybe Lude.Timestamp) (\s a -> s {associatedOn = a} :: Connector)
+cAssociatedOn :: Lens.Lens' Connector (Core.Maybe Core.NominalDiffTime)
+cAssociatedOn = Lens.field @"associatedOn"
 {-# DEPRECATED cAssociatedOn "Use generic-lens or generic-optics with 'associatedOn' instead." #-}
-
--- | The MAC address of the connector.
---
--- /Note:/ Consider using 'macAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cMacAddress :: Lens.Lens' Connector (Lude.Maybe Lude.Text)
-cMacAddress = Lens.lens (macAddress :: Connector -> Lude.Maybe Lude.Text) (\s a -> s {macAddress = a} :: Connector)
-{-# DEPRECATED cMacAddress "Use generic-lens or generic-optics with 'macAddress' instead." #-}
-
--- | The connector version.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVersion :: Lens.Lens' Connector (Lude.Maybe Lude.Text)
-cVersion = Lens.lens (version :: Connector -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: Connector)
-{-# DEPRECATED cVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The capabilities of the connector.
 --
 -- /Note:/ Consider using 'capabilityList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCapabilityList :: Lens.Lens' Connector (Lude.Maybe [ConnectorCapability])
-cCapabilityList = Lens.lens (capabilityList :: Connector -> Lude.Maybe [ConnectorCapability]) (\s a -> s {capabilityList = a} :: Connector)
+cCapabilityList :: Lens.Lens' Connector (Core.Maybe [Types.ConnectorCapability])
+cCapabilityList = Lens.field @"capabilityList"
 {-# DEPRECATED cCapabilityList "Use generic-lens or generic-optics with 'capabilityList' instead." #-}
 
-instance Lude.FromJSON Connector where
+-- | The ID of the connector.
+--
+-- /Note:/ Consider using 'connectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cConnectorId :: Lens.Lens' Connector (Core.Maybe Types.ConnectorId)
+cConnectorId = Lens.field @"connectorId"
+{-# DEPRECATED cConnectorId "Use generic-lens or generic-optics with 'connectorId' instead." #-}
+
+-- | The IP address of the connector.
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cIpAddress :: Lens.Lens' Connector (Core.Maybe Types.IpAddress)
+cIpAddress = Lens.field @"ipAddress"
+{-# DEPRECATED cIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
+
+-- | The MAC address of the connector.
+--
+-- /Note:/ Consider using 'macAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cMacAddress :: Lens.Lens' Connector (Core.Maybe Types.MacAddress)
+cMacAddress = Lens.field @"macAddress"
+{-# DEPRECATED cMacAddress "Use generic-lens or generic-optics with 'macAddress' instead." #-}
+
+-- | The status of the connector.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStatus :: Lens.Lens' Connector (Core.Maybe Types.ConnectorStatus)
+cStatus = Lens.field @"status"
+{-# DEPRECATED cStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The connector version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVersion :: Lens.Lens' Connector (Core.Maybe Types.Version)
+cVersion = Lens.field @"version"
+{-# DEPRECATED cVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The ID of the VM manager.
+--
+-- /Note:/ Consider using 'vmManagerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVmManagerId :: Lens.Lens' Connector (Core.Maybe Types.VmManagerId)
+cVmManagerId = Lens.field @"vmManagerId"
+{-# DEPRECATED cVmManagerId "Use generic-lens or generic-optics with 'vmManagerId' instead." #-}
+
+-- | The name of the VM manager.
+--
+-- /Note:/ Consider using 'vmManagerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVmManagerName :: Lens.Lens' Connector (Core.Maybe Types.VmManagerName)
+cVmManagerName = Lens.field @"vmManagerName"
+{-# DEPRECATED cVmManagerName "Use generic-lens or generic-optics with 'vmManagerName' instead." #-}
+
+-- | The VM management product.
+--
+-- /Note:/ Consider using 'vmManagerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVmManagerType :: Lens.Lens' Connector (Core.Maybe Types.VmManagerType)
+cVmManagerType = Lens.field @"vmManagerType"
+{-# DEPRECATED cVmManagerType "Use generic-lens or generic-optics with 'vmManagerType' instead." #-}
+
+instance Core.FromJSON Connector where
   parseJSON =
-    Lude.withObject
-      "Connector"
-      ( \x ->
-          Connector'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "vmManagerName")
-            Lude.<*> (x Lude..:? "ipAddress")
-            Lude.<*> (x Lude..:? "vmManagerId")
-            Lude.<*> (x Lude..:? "vmManagerType")
-            Lude.<*> (x Lude..:? "connectorId")
-            Lude.<*> (x Lude..:? "associatedOn")
-            Lude.<*> (x Lude..:? "macAddress")
-            Lude.<*> (x Lude..:? "version")
-            Lude.<*> (x Lude..:? "capabilityList" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Connector" Core.$
+      \x ->
+        Connector'
+          Core.<$> (x Core..:? "associatedOn")
+          Core.<*> (x Core..:? "capabilityList")
+          Core.<*> (x Core..:? "connectorId")
+          Core.<*> (x Core..:? "ipAddress")
+          Core.<*> (x Core..:? "macAddress")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "version")
+          Core.<*> (x Core..:? "vmManagerId")
+          Core.<*> (x Core..:? "vmManagerName")
+          Core.<*> (x Core..:? "vmManagerType")

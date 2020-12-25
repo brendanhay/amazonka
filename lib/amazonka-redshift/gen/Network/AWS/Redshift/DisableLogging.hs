@@ -23,24 +23,24 @@ module Network.AWS.Redshift.DisableLogging
     dlClusterIdentifier,
 
     -- * Destructuring the response
-    LoggingStatus (..),
-    mkLoggingStatus,
+    Types.LoggingStatus (..),
+    Types.mkLoggingStatus,
 
     -- ** Response lenses
-    lsLastFailureTime,
-    lsLastSuccessfulDeliveryTime,
-    lsS3KeyPrefix,
-    lsBucketName,
-    lsLoggingEnabled,
-    lsLastFailureMessage,
+    Types.lsBucketName,
+    Types.lsLastFailureMessage,
+    Types.lsLastFailureTime,
+    Types.lsLastSuccessfulDeliveryTime,
+    Types.lsLoggingEnabled,
+    Types.lsS3KeyPrefix,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -49,50 +49,49 @@ newtype DisableLogging = DisableLogging'
   { -- | The identifier of the cluster on which logging is to be stopped.
     --
     -- Example: @examplecluster@
-    clusterIdentifier :: Lude.Text
+    clusterIdentifier :: Types.ClusterIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableLogging' with the minimum fields required to make a request.
---
--- * 'clusterIdentifier' - The identifier of the cluster on which logging is to be stopped.
---
--- Example: @examplecluster@
+-- | Creates a 'DisableLogging' value with any optional fields omitted.
 mkDisableLogging ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.ClusterIdentifier ->
   DisableLogging
-mkDisableLogging pClusterIdentifier_ =
-  DisableLogging' {clusterIdentifier = pClusterIdentifier_}
+mkDisableLogging clusterIdentifier =
+  DisableLogging' {clusterIdentifier}
 
 -- | The identifier of the cluster on which logging is to be stopped.
 --
 -- Example: @examplecluster@
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlClusterIdentifier :: Lens.Lens' DisableLogging Lude.Text
-dlClusterIdentifier = Lens.lens (clusterIdentifier :: DisableLogging -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: DisableLogging)
+dlClusterIdentifier :: Lens.Lens' DisableLogging Types.ClusterIdentifier
+dlClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED dlClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance Lude.AWSRequest DisableLogging where
-  type Rs DisableLogging = LoggingStatus
-  request = Req.postQuery redshiftService
+instance Core.AWSRequest DisableLogging where
+  type Rs DisableLogging = Types.LoggingStatus
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DisableLogging")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" clusterIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DisableLoggingResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders DisableLogging where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DisableLogging where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisableLogging where
-  toQuery DisableLogging' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DisableLogging" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ClusterIdentifier" Lude.=: clusterIdentifier
-      ]
+      (\s h x -> Core.parseXML x)

@@ -17,52 +17,47 @@ module Network.AWS.ElastiCache.Types.Tag
     mkTag,
 
     -- * Lenses
-    tValue,
     tKey,
+    tValue,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.Key as Types
+import qualified Network.AWS.ElastiCache.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A cost allocation Tag that can be added to an ElastiCache cluster or replication group. Tags are composed of a Key/Value pair. A tag with a null Value is permitted.
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | The tag's value. May be null.
-    value :: Lude.Maybe Lude.Text,
-    -- | The key for the tag. May not be null.
-    key :: Lude.Maybe Lude.Text
+  { -- | The key for the tag. May not be null.
+    key :: Core.Maybe Types.Key,
+    -- | The tag's value. May be null.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'value' - The tag's value. May be null.
--- * 'key' - The key for the tag. May not be null.
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
   Tag
-mkTag = Tag' {value = Lude.Nothing, key = Lude.Nothing}
-
--- | The tag's value. May be null.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValue :: Lens.Lens' Tag (Lude.Maybe Lude.Text)
-tValue = Lens.lens (value :: Tag -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Tag)
-{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkTag = Tag' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The key for the tag. May not be null.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag (Lude.Maybe Lude.Text)
-tKey = Lens.lens (key :: Tag -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: Tag)
+tKey :: Lens.Lens' Tag (Core.Maybe Types.Key)
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML Tag where
-  parseXML x =
-    Tag' Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@? "Key")
+-- | The tag's value. May be null.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag (Core.Maybe Types.Value)
+tValue = Lens.field @"value"
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToQuery Tag where
-  toQuery Tag' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Key" Lude.=: key]
+instance Core.FromXML Tag where
+  parseXML x =
+    Tag' Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")

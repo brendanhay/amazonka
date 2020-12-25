@@ -34,17 +34,17 @@ module Network.AWS.KMS.ScheduleKeyDeletion
     mkScheduleKeyDeletionResponse,
 
     -- ** Response lenses
-    skdrsKeyId,
-    skdrsDeletionDate,
-    skdrsResponseStatus,
+    skdrrsDeletionDate,
+    skdrrsKeyId,
+    skdrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkScheduleKeyDeletion' smart constructor.
 data ScheduleKeyDeletion = ScheduleKeyDeletion'
@@ -60,41 +60,22 @@ data ScheduleKeyDeletion = ScheduleKeyDeletion'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text,
+    keyId :: Types.KeyId,
     -- | The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the customer master key (CMK).
     --
     -- This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30.
-    pendingWindowInDays :: Lude.Maybe Lude.Natural
+    pendingWindowInDays :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduleKeyDeletion' with the minimum fields required to make a request.
---
--- * 'keyId' - The unique identifier of the customer master key (CMK) to delete.
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
--- * 'pendingWindowInDays' - The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the customer master key (CMK).
---
--- This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30.
+-- | Creates a 'ScheduleKeyDeletion' value with any optional fields omitted.
 mkScheduleKeyDeletion ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyId ->
   ScheduleKeyDeletion
-mkScheduleKeyDeletion pKeyId_ =
-  ScheduleKeyDeletion'
-    { keyId = pKeyId_,
-      pendingWindowInDays = Lude.Nothing
-    }
+mkScheduleKeyDeletion keyId =
+  ScheduleKeyDeletion' {keyId, pendingWindowInDays = Core.Nothing}
 
 -- | The unique identifier of the customer master key (CMK) to delete.
 --
@@ -110,8 +91,8 @@ mkScheduleKeyDeletion pKeyId_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skdKeyId :: Lens.Lens' ScheduleKeyDeletion Lude.Text
-skdKeyId = Lens.lens (keyId :: ScheduleKeyDeletion -> Lude.Text) (\s a -> s {keyId = a} :: ScheduleKeyDeletion)
+skdKeyId :: Lens.Lens' ScheduleKeyDeletion Types.KeyId
+skdKeyId = Lens.field @"keyId"
 {-# DEPRECATED skdKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the customer master key (CMK).
@@ -119,93 +100,82 @@ skdKeyId = Lens.lens (keyId :: ScheduleKeyDeletion -> Lude.Text) (\s a -> s {key
 -- This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30.
 --
 -- /Note:/ Consider using 'pendingWindowInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skdPendingWindowInDays :: Lens.Lens' ScheduleKeyDeletion (Lude.Maybe Lude.Natural)
-skdPendingWindowInDays = Lens.lens (pendingWindowInDays :: ScheduleKeyDeletion -> Lude.Maybe Lude.Natural) (\s a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletion)
+skdPendingWindowInDays :: Lens.Lens' ScheduleKeyDeletion (Core.Maybe Core.Natural)
+skdPendingWindowInDays = Lens.field @"pendingWindowInDays"
 {-# DEPRECATED skdPendingWindowInDays "Use generic-lens or generic-optics with 'pendingWindowInDays' instead." #-}
 
-instance Lude.AWSRequest ScheduleKeyDeletion where
+instance Core.FromJSON ScheduleKeyDeletion where
+  toJSON ScheduleKeyDeletion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            ("PendingWindowInDays" Core..=) Core.<$> pendingWindowInDays
+          ]
+      )
+
+instance Core.AWSRequest ScheduleKeyDeletion where
   type Rs ScheduleKeyDeletion = ScheduleKeyDeletionResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.ScheduleKeyDeletion")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ScheduleKeyDeletionResponse'
-            Lude.<$> (x Lude..?> "KeyId")
-            Lude.<*> (x Lude..?> "DeletionDate")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DeletionDate")
+            Core.<*> (x Core..:? "KeyId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ScheduleKeyDeletion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.ScheduleKeyDeletion" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ScheduleKeyDeletion where
-  toJSON ScheduleKeyDeletion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            ("PendingWindowInDays" Lude..=) Lude.<$> pendingWindowInDays
-          ]
-      )
-
-instance Lude.ToPath ScheduleKeyDeletion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ScheduleKeyDeletion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkScheduleKeyDeletionResponse' smart constructor.
 data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
-  { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK whose deletion is scheduled.
-    keyId :: Lude.Maybe Lude.Text,
-    -- | The date and time after which AWS KMS deletes the customer master key (CMK).
-    deletionDate :: Lude.Maybe Lude.Timestamp,
+  { -- | The date and time after which AWS KMS deletes the customer master key (CMK).
+    deletionDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK whose deletion is scheduled.
+    keyId :: Core.Maybe Types.KeyId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ScheduleKeyDeletionResponse' with the minimum fields required to make a request.
---
--- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK whose deletion is scheduled.
--- * 'deletionDate' - The date and time after which AWS KMS deletes the customer master key (CMK).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ScheduleKeyDeletionResponse' value with any optional fields omitted.
 mkScheduleKeyDeletionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ScheduleKeyDeletionResponse
-mkScheduleKeyDeletionResponse pResponseStatus_ =
+mkScheduleKeyDeletionResponse responseStatus =
   ScheduleKeyDeletionResponse'
-    { keyId = Lude.Nothing,
-      deletionDate = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deletionDate = Core.Nothing,
+      keyId = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK whose deletion is scheduled.
---
--- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skdrsKeyId :: Lens.Lens' ScheduleKeyDeletionResponse (Lude.Maybe Lude.Text)
-skdrsKeyId = Lens.lens (keyId :: ScheduleKeyDeletionResponse -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: ScheduleKeyDeletionResponse)
-{-# DEPRECATED skdrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The date and time after which AWS KMS deletes the customer master key (CMK).
 --
 -- /Note:/ Consider using 'deletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skdrsDeletionDate :: Lens.Lens' ScheduleKeyDeletionResponse (Lude.Maybe Lude.Timestamp)
-skdrsDeletionDate = Lens.lens (deletionDate :: ScheduleKeyDeletionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {deletionDate = a} :: ScheduleKeyDeletionResponse)
-{-# DEPRECATED skdrsDeletionDate "Use generic-lens or generic-optics with 'deletionDate' instead." #-}
+skdrrsDeletionDate :: Lens.Lens' ScheduleKeyDeletionResponse (Core.Maybe Core.NominalDiffTime)
+skdrrsDeletionDate = Lens.field @"deletionDate"
+{-# DEPRECATED skdrrsDeletionDate "Use generic-lens or generic-optics with 'deletionDate' instead." #-}
+
+-- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK whose deletion is scheduled.
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skdrrsKeyId :: Lens.Lens' ScheduleKeyDeletionResponse (Core.Maybe Types.KeyId)
+skdrrsKeyId = Lens.field @"keyId"
+{-# DEPRECATED skdrrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skdrsResponseStatus :: Lens.Lens' ScheduleKeyDeletionResponse Lude.Int
-skdrsResponseStatus = Lens.lens (responseStatus :: ScheduleKeyDeletionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ScheduleKeyDeletionResponse)
-{-# DEPRECATED skdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+skdrrsResponseStatus :: Lens.Lens' ScheduleKeyDeletionResponse Core.Int
+skdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED skdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

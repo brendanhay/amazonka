@@ -618,7 +618,7 @@ responseDetectProtectiveEquipment =
   res
     "DetectProtectiveEquipmentResponse"
     "fixture/DetectProtectiveEquipmentResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DetectProtectiveEquipment)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
@@ -626,7 +626,7 @@ responseDeleteProject =
   res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProject)
 
 responseStartCelebrityRecognition :: StartCelebrityRecognitionResponse -> TestTree
@@ -634,7 +634,7 @@ responseStartCelebrityRecognition =
   res
     "StartCelebrityRecognitionResponse"
     "fixture/StartCelebrityRecognitionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartCelebrityRecognition)
 
 responseGetPersonTracking :: GetPersonTrackingResponse -> TestTree
@@ -642,7 +642,7 @@ responseGetPersonTracking =
   res
     "GetPersonTrackingResponse"
     "fixture/GetPersonTrackingResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetPersonTracking)
 
 responseGetTextDetection :: GetTextDetectionResponse -> TestTree
@@ -650,7 +650,7 @@ responseGetTextDetection =
   res
     "GetTextDetectionResponse"
     "fixture/GetTextDetectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetTextDetection)
 
 responseStartSegmentDetection :: StartSegmentDetectionResponse -> TestTree
@@ -658,7 +658,7 @@ responseStartSegmentDetection =
   res
     "StartSegmentDetectionResponse"
     "fixture/StartSegmentDetectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartSegmentDetection)
 
 responseListCollections :: ListCollectionsResponse -> TestTree
@@ -666,7 +666,7 @@ responseListCollections =
   res
     "ListCollectionsResponse"
     "fixture/ListCollectionsResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy ListCollections)
 
 responseStartProjectVersion :: StartProjectVersionResponse -> TestTree
@@ -674,7 +674,7 @@ responseStartProjectVersion =
   res
     "StartProjectVersionResponse"
     "fixture/StartProjectVersionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartProjectVersion)
 
 responseDeleteCollection :: DeleteCollectionResponse -> TestTree
@@ -682,7 +682,7 @@ responseDeleteCollection =
   res
     "DeleteCollectionResponse"
     "fixture/DeleteCollectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCollection)
 
 responseCreateCollection :: CreateCollectionResponse -> TestTree
@@ -690,7 +690,7 @@ responseCreateCollection =
   res
     "CreateCollectionResponse"
     "fixture/CreateCollectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy CreateCollection)
 
 responseStopStreamProcessor :: StopStreamProcessorResponse -> TestTree
@@ -698,7 +698,7 @@ responseStopStreamProcessor =
   res
     "StopStreamProcessorResponse"
     "fixture/StopStreamProcessorResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StopStreamProcessor)
 
 responseDetectLabels :: DetectLabelsResponse -> TestTree
@@ -706,7 +706,7 @@ responseDetectLabels =
   res
     "DetectLabelsResponse"
     "fixture/DetectLabelsResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DetectLabels)
 
 responseStartContentModeration :: StartContentModerationResponse -> TestTree
@@ -714,7 +714,7 @@ responseStartContentModeration =
   res
     "StartContentModerationResponse"
     "fixture/StartContentModerationResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartContentModeration)
 
 responseSearchFacesByImage :: SearchFacesByImageResponse -> TestTree
@@ -722,7 +722,7 @@ responseSearchFacesByImage =
   res
     "SearchFacesByImageResponse"
     "fixture/SearchFacesByImageResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy SearchFacesByImage)
 
 responseListStreamProcessors :: ListStreamProcessorsResponse -> TestTree
@@ -730,7 +730,7 @@ responseListStreamProcessors =
   res
     "ListStreamProcessorsResponse"
     "fixture/ListStreamProcessorsResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy ListStreamProcessors)
 
 responseDescribeCollection :: DescribeCollectionResponse -> TestTree
@@ -738,7 +738,7 @@ responseDescribeCollection =
   res
     "DescribeCollectionResponse"
     "fixture/DescribeCollectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCollection)
 
 responseDeleteProjectVersion :: DeleteProjectVersionResponse -> TestTree
@@ -746,7 +746,7 @@ responseDeleteProjectVersion =
   res
     "DeleteProjectVersionResponse"
     "fixture/DeleteProjectVersionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProjectVersion)
 
 responseDescribeProjectVersions :: DescribeProjectVersionsResponse -> TestTree
@@ -754,7 +754,7 @@ responseDescribeProjectVersions =
   res
     "DescribeProjectVersionsResponse"
     "fixture/DescribeProjectVersionsResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProjectVersions)
 
 responseRecognizeCelebrities :: RecognizeCelebritiesResponse -> TestTree
@@ -762,7 +762,7 @@ responseRecognizeCelebrities =
   res
     "RecognizeCelebritiesResponse"
     "fixture/RecognizeCelebritiesResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy RecognizeCelebrities)
 
 responseDetectCustomLabels :: DetectCustomLabelsResponse -> TestTree
@@ -770,7 +770,7 @@ responseDetectCustomLabels =
   res
     "DetectCustomLabelsResponse"
     "fixture/DetectCustomLabelsResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DetectCustomLabels)
 
 responseGetFaceSearch :: GetFaceSearchResponse -> TestTree
@@ -778,7 +778,7 @@ responseGetFaceSearch =
   res
     "GetFaceSearchResponse"
     "fixture/GetFaceSearchResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetFaceSearch)
 
 responseStartLabelDetection :: StartLabelDetectionResponse -> TestTree
@@ -786,7 +786,7 @@ responseStartLabelDetection =
   res
     "StartLabelDetectionResponse"
     "fixture/StartLabelDetectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartLabelDetection)
 
 responseSearchFaces :: SearchFacesResponse -> TestTree
@@ -794,7 +794,7 @@ responseSearchFaces =
   res
     "SearchFacesResponse"
     "fixture/SearchFacesResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy SearchFaces)
 
 responseIndexFaces :: IndexFacesResponse -> TestTree
@@ -802,7 +802,7 @@ responseIndexFaces =
   res
     "IndexFacesResponse"
     "fixture/IndexFacesResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy IndexFaces)
 
 responseGetLabelDetection :: GetLabelDetectionResponse -> TestTree
@@ -810,7 +810,7 @@ responseGetLabelDetection =
   res
     "GetLabelDetectionResponse"
     "fixture/GetLabelDetectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetLabelDetection)
 
 responseStopProjectVersion :: StopProjectVersionResponse -> TestTree
@@ -818,7 +818,7 @@ responseStopProjectVersion =
   res
     "StopProjectVersionResponse"
     "fixture/StopProjectVersionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StopProjectVersion)
 
 responseDescribeStreamProcessor :: DescribeStreamProcessorResponse -> TestTree
@@ -826,7 +826,7 @@ responseDescribeStreamProcessor =
   res
     "DescribeStreamProcessorResponse"
     "fixture/DescribeStreamProcessorResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStreamProcessor)
 
 responseStartFaceSearch :: StartFaceSearchResponse -> TestTree
@@ -834,7 +834,7 @@ responseStartFaceSearch =
   res
     "StartFaceSearchResponse"
     "fixture/StartFaceSearchResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartFaceSearch)
 
 responseStartTextDetection :: StartTextDetectionResponse -> TestTree
@@ -842,7 +842,7 @@ responseStartTextDetection =
   res
     "StartTextDetectionResponse"
     "fixture/StartTextDetectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartTextDetection)
 
 responseStartPersonTracking :: StartPersonTrackingResponse -> TestTree
@@ -850,7 +850,7 @@ responseStartPersonTracking =
   res
     "StartPersonTrackingResponse"
     "fixture/StartPersonTrackingResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartPersonTracking)
 
 responseGetCelebrityRecognition :: GetCelebrityRecognitionResponse -> TestTree
@@ -858,7 +858,7 @@ responseGetCelebrityRecognition =
   res
     "GetCelebrityRecognitionResponse"
     "fixture/GetCelebrityRecognitionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetCelebrityRecognition)
 
 responseStartStreamProcessor :: StartStreamProcessorResponse -> TestTree
@@ -866,7 +866,7 @@ responseStartStreamProcessor =
   res
     "StartStreamProcessorResponse"
     "fixture/StartStreamProcessorResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartStreamProcessor)
 
 responseDetectText :: DetectTextResponse -> TestTree
@@ -874,7 +874,7 @@ responseDetectText =
   res
     "DetectTextResponse"
     "fixture/DetectTextResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DetectText)
 
 responseGetSegmentDetection :: GetSegmentDetectionResponse -> TestTree
@@ -882,7 +882,7 @@ responseGetSegmentDetection =
   res
     "GetSegmentDetectionResponse"
     "fixture/GetSegmentDetectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetSegmentDetection)
 
 responseCompareFaces :: CompareFacesResponse -> TestTree
@@ -890,7 +890,7 @@ responseCompareFaces =
   res
     "CompareFacesResponse"
     "fixture/CompareFacesResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy CompareFaces)
 
 responseDetectFaces :: DetectFacesResponse -> TestTree
@@ -898,7 +898,7 @@ responseDetectFaces =
   res
     "DetectFacesResponse"
     "fixture/DetectFacesResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DetectFaces)
 
 responseGetFaceDetection :: GetFaceDetectionResponse -> TestTree
@@ -906,7 +906,7 @@ responseGetFaceDetection =
   res
     "GetFaceDetectionResponse"
     "fixture/GetFaceDetectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetFaceDetection)
 
 responseListFaces :: ListFacesResponse -> TestTree
@@ -914,7 +914,7 @@ responseListFaces =
   res
     "ListFacesResponse"
     "fixture/ListFacesResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy ListFaces)
 
 responseCreateProjectVersion :: CreateProjectVersionResponse -> TestTree
@@ -922,7 +922,7 @@ responseCreateProjectVersion =
   res
     "CreateProjectVersionResponse"
     "fixture/CreateProjectVersionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy CreateProjectVersion)
 
 responseDescribeProjects :: DescribeProjectsResponse -> TestTree
@@ -930,7 +930,7 @@ responseDescribeProjects =
   res
     "DescribeProjectsResponse"
     "fixture/DescribeProjectsResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProjects)
 
 responseGetContentModeration :: GetContentModerationResponse -> TestTree
@@ -938,7 +938,7 @@ responseGetContentModeration =
   res
     "GetContentModerationResponse"
     "fixture/GetContentModerationResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetContentModeration)
 
 responseDeleteFaces :: DeleteFacesResponse -> TestTree
@@ -946,7 +946,7 @@ responseDeleteFaces =
   res
     "DeleteFacesResponse"
     "fixture/DeleteFacesResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFaces)
 
 responseGetCelebrityInfo :: GetCelebrityInfoResponse -> TestTree
@@ -954,7 +954,7 @@ responseGetCelebrityInfo =
   res
     "GetCelebrityInfoResponse"
     "fixture/GetCelebrityInfoResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy GetCelebrityInfo)
 
 responseDeleteStreamProcessor :: DeleteStreamProcessorResponse -> TestTree
@@ -962,7 +962,7 @@ responseDeleteStreamProcessor =
   res
     "DeleteStreamProcessorResponse"
     "fixture/DeleteStreamProcessorResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStreamProcessor)
 
 responseDetectModerationLabels :: DetectModerationLabelsResponse -> TestTree
@@ -970,7 +970,7 @@ responseDetectModerationLabels =
   res
     "DetectModerationLabelsResponse"
     "fixture/DetectModerationLabelsResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy DetectModerationLabels)
 
 responseCreateStreamProcessor :: CreateStreamProcessorResponse -> TestTree
@@ -978,7 +978,7 @@ responseCreateStreamProcessor =
   res
     "CreateStreamProcessorResponse"
     "fixture/CreateStreamProcessorResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy CreateStreamProcessor)
 
 responseStartFaceDetection :: StartFaceDetectionResponse -> TestTree
@@ -986,7 +986,7 @@ responseStartFaceDetection =
   res
     "StartFaceDetectionResponse"
     "fixture/StartFaceDetectionResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy StartFaceDetection)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
@@ -994,5 +994,5 @@ responseCreateProject =
   res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
-    rekognitionService
+    mkServiceConfig
     (Proxy :: Proxy CreateProject)

@@ -24,66 +24,61 @@ module Network.AWS.ServiceCatalog.Types.ResourceChangeDetail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.EvaluationType
-import Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.CausingEntity as Types
+import qualified Network.AWS.ServiceCatalog.Types.EvaluationType as Types
+import qualified Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition as Types
 
 -- | Information about a change to a resource attribute.
 --
 -- /See:/ 'mkResourceChangeDetail' smart constructor.
 data ResourceChangeDetail = ResourceChangeDetail'
   { -- | The ID of the entity that caused the change.
-    causingEntity :: Lude.Maybe Lude.Text,
+    causingEntity :: Core.Maybe Types.CausingEntity,
     -- | For static evaluations, the value of the resource attribute will change and the new value is known. For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.
-    evaluation :: Lude.Maybe EvaluationType,
+    evaluation :: Core.Maybe Types.EvaluationType,
     -- | Information about the resource attribute to be modified.
-    target :: Lude.Maybe ResourceTargetDefinition
+    target :: Core.Maybe Types.ResourceTargetDefinition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceChangeDetail' with the minimum fields required to make a request.
---
--- * 'causingEntity' - The ID of the entity that caused the change.
--- * 'evaluation' - For static evaluations, the value of the resource attribute will change and the new value is known. For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.
--- * 'target' - Information about the resource attribute to be modified.
+-- | Creates a 'ResourceChangeDetail' value with any optional fields omitted.
 mkResourceChangeDetail ::
   ResourceChangeDetail
 mkResourceChangeDetail =
   ResourceChangeDetail'
-    { causingEntity = Lude.Nothing,
-      evaluation = Lude.Nothing,
-      target = Lude.Nothing
+    { causingEntity = Core.Nothing,
+      evaluation = Core.Nothing,
+      target = Core.Nothing
     }
 
 -- | The ID of the entity that caused the change.
 --
 -- /Note:/ Consider using 'causingEntity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcdCausingEntity :: Lens.Lens' ResourceChangeDetail (Lude.Maybe Lude.Text)
-rcdCausingEntity = Lens.lens (causingEntity :: ResourceChangeDetail -> Lude.Maybe Lude.Text) (\s a -> s {causingEntity = a} :: ResourceChangeDetail)
+rcdCausingEntity :: Lens.Lens' ResourceChangeDetail (Core.Maybe Types.CausingEntity)
+rcdCausingEntity = Lens.field @"causingEntity"
 {-# DEPRECATED rcdCausingEntity "Use generic-lens or generic-optics with 'causingEntity' instead." #-}
 
 -- | For static evaluations, the value of the resource attribute will change and the new value is known. For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.
 --
 -- /Note:/ Consider using 'evaluation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcdEvaluation :: Lens.Lens' ResourceChangeDetail (Lude.Maybe EvaluationType)
-rcdEvaluation = Lens.lens (evaluation :: ResourceChangeDetail -> Lude.Maybe EvaluationType) (\s a -> s {evaluation = a} :: ResourceChangeDetail)
+rcdEvaluation :: Lens.Lens' ResourceChangeDetail (Core.Maybe Types.EvaluationType)
+rcdEvaluation = Lens.field @"evaluation"
 {-# DEPRECATED rcdEvaluation "Use generic-lens or generic-optics with 'evaluation' instead." #-}
 
 -- | Information about the resource attribute to be modified.
 --
 -- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcdTarget :: Lens.Lens' ResourceChangeDetail (Lude.Maybe ResourceTargetDefinition)
-rcdTarget = Lens.lens (target :: ResourceChangeDetail -> Lude.Maybe ResourceTargetDefinition) (\s a -> s {target = a} :: ResourceChangeDetail)
+rcdTarget :: Lens.Lens' ResourceChangeDetail (Core.Maybe Types.ResourceTargetDefinition)
+rcdTarget = Lens.field @"target"
 {-# DEPRECATED rcdTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance Lude.FromJSON ResourceChangeDetail where
+instance Core.FromJSON ResourceChangeDetail where
   parseJSON =
-    Lude.withObject
-      "ResourceChangeDetail"
-      ( \x ->
-          ResourceChangeDetail'
-            Lude.<$> (x Lude..:? "CausingEntity")
-            Lude.<*> (x Lude..:? "Evaluation")
-            Lude.<*> (x Lude..:? "Target")
-      )
+    Core.withObject "ResourceChangeDetail" Core.$
+      \x ->
+        ResourceChangeDetail'
+          Core.<$> (x Core..:? "CausingEntity")
+          Core.<*> (x Core..:? "Evaluation")
+          Core.<*> (x Core..:? "Target")

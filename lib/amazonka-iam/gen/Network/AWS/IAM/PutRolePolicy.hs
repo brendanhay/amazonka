@@ -24,9 +24,9 @@ module Network.AWS.IAM.PutRolePolicy
     mkPutRolePolicy,
 
     -- ** Request lenses
-    prpPolicyDocument,
-    prpPolicyName,
     prpRoleName,
+    prpPolicyName,
+    prpPolicyDocument,
 
     -- * Destructuring the response
     PutRolePolicyResponse (..),
@@ -34,15 +34,23 @@ module Network.AWS.IAM.PutRolePolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutRolePolicy' smart constructor.
 data PutRolePolicy = PutRolePolicy'
-  { -- | The policy document.
+  { -- | The name of the role to associate the policy with.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    roleName :: Types.RoleName,
+    -- | The name of the policy document.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    policyName :: Types.PolicyName,
+    -- | The policy document.
     --
     -- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
@@ -54,55 +62,40 @@ data PutRolePolicy = PutRolePolicy'
     --
     --
     --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-    policyDocument :: Lude.Text,
-    -- | The name of the policy document.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    policyName :: Lude.Text,
-    -- | The name of the role to associate the policy with.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text
+    policyDocument :: Types.PolicyDocument
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRolePolicy' with the minimum fields required to make a request.
---
--- * 'policyDocument' - The policy document.
---
--- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
---
---     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
---
---
---     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
---
---
---     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
---
---
--- * 'policyName' - The name of the policy document.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'roleName' - The name of the role to associate the policy with.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'PutRolePolicy' value with any optional fields omitted.
 mkPutRolePolicy ::
-  -- | 'policyDocument'
-  Lude.Text ->
-  -- | 'policyName'
-  Lude.Text ->
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
+  -- | 'policyName'
+  Types.PolicyName ->
+  -- | 'policyDocument'
+  Types.PolicyDocument ->
   PutRolePolicy
-mkPutRolePolicy pPolicyDocument_ pPolicyName_ pRoleName_ =
-  PutRolePolicy'
-    { policyDocument = pPolicyDocument_,
-      policyName = pPolicyName_,
-      roleName = pRoleName_
-    }
+mkPutRolePolicy roleName policyName policyDocument =
+  PutRolePolicy' {roleName, policyName, policyDocument}
+
+-- | The name of the role to associate the policy with.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpRoleName :: Lens.Lens' PutRolePolicy Types.RoleName
+prpRoleName = Lens.field @"roleName"
+{-# DEPRECATED prpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
+-- | The name of the policy document.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpPolicyName :: Lens.Lens' PutRolePolicy Types.PolicyName
+prpPolicyName = Lens.field @"policyName"
+{-# DEPRECATED prpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy document.
 --
@@ -120,55 +113,40 @@ mkPutRolePolicy pPolicyDocument_ pPolicyName_ pRoleName_ =
 --
 --
 -- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpPolicyDocument :: Lens.Lens' PutRolePolicy Lude.Text
-prpPolicyDocument = Lens.lens (policyDocument :: PutRolePolicy -> Lude.Text) (\s a -> s {policyDocument = a} :: PutRolePolicy)
+prpPolicyDocument :: Lens.Lens' PutRolePolicy Types.PolicyDocument
+prpPolicyDocument = Lens.field @"policyDocument"
 {-# DEPRECATED prpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
--- | The name of the policy document.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpPolicyName :: Lens.Lens' PutRolePolicy Lude.Text
-prpPolicyName = Lens.lens (policyName :: PutRolePolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutRolePolicy)
-{-# DEPRECATED prpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
-
--- | The name of the role to associate the policy with.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpRoleName :: Lens.Lens' PutRolePolicy Lude.Text
-prpRoleName = Lens.lens (roleName :: PutRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: PutRolePolicy)
-{-# DEPRECATED prpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
-instance Lude.AWSRequest PutRolePolicy where
+instance Core.AWSRequest PutRolePolicy where
   type Rs PutRolePolicy = PutRolePolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull PutRolePolicyResponse'
-
-instance Lude.ToHeaders PutRolePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutRolePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRolePolicy where
-  toQuery PutRolePolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("PutRolePolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyDocument" Lude.=: policyDocument,
-        "PolicyName" Lude.=: policyName,
-        "RoleName" Lude.=: roleName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PutRolePolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+                Core.<> (Core.toQueryValue "PolicyName" policyName)
+                Core.<> (Core.toQueryValue "PolicyDocument" policyDocument)
+            )
+      }
+  response = Response.receiveNull PutRolePolicyResponse'
 
 -- | /See:/ 'mkPutRolePolicyResponse' smart constructor.
 data PutRolePolicyResponse = PutRolePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRolePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutRolePolicyResponse' value with any optional fields omitted.
 mkPutRolePolicyResponse ::
   PutRolePolicyResponse
 mkPutRolePolicyResponse = PutRolePolicyResponse'

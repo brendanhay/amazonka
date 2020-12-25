@@ -17,39 +17,36 @@ module Network.AWS.S3.Types.CORSConfiguration
     mkCORSConfiguration,
 
     -- * Lenses
-    ccCORSRules,
+    corscCORSRules,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.CORSRule
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.CORSRule as Types
 
 -- | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /See:/ 'mkCORSConfiguration' smart constructor.
 newtype CORSConfiguration = CORSConfiguration'
   { -- | A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
-    corsRules :: [CORSRule]
+    cORSRules :: [Types.CORSRule]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CORSConfiguration' with the minimum fields required to make a request.
---
--- * 'corsRules' - A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+-- | Creates a 'CORSConfiguration' value with any optional fields omitted.
 mkCORSConfiguration ::
   CORSConfiguration
-mkCORSConfiguration = CORSConfiguration' {corsRules = Lude.mempty}
+mkCORSConfiguration = CORSConfiguration' {cORSRules = Core.mempty}
 
 -- | A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
 --
--- /Note:/ Consider using 'corsRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCORSRules :: Lens.Lens' CORSConfiguration [CORSRule]
-ccCORSRules = Lens.lens (corsRules :: CORSConfiguration -> [CORSRule]) (\s a -> s {corsRules = a} :: CORSConfiguration)
-{-# DEPRECATED ccCORSRules "Use generic-lens or generic-optics with 'corsRules' instead." #-}
+-- /Note:/ Consider using 'cORSRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corscCORSRules :: Lens.Lens' CORSConfiguration [Types.CORSRule]
+corscCORSRules = Lens.field @"cORSRules"
+{-# DEPRECATED corscCORSRules "Use generic-lens or generic-optics with 'cORSRules' instead." #-}
 
-instance Lude.ToXML CORSConfiguration where
-  toXML CORSConfiguration' {..} =
-    Lude.mconcat [Lude.toXMLList "CORSRule" corsRules]
+instance Core.ToXML CORSConfiguration where
+  toXML CORSConfiguration {..} = Core.toXMLList "CORSRule" cORSRules

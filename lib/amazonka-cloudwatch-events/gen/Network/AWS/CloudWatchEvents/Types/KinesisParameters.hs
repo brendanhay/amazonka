@@ -21,45 +21,43 @@ module Network.AWS.CloudWatchEvents.Types.KinesisParameters
   )
 where
 
+import qualified Network.AWS.CloudWatchEvents.Types.PartitionKeyPath as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the @eventId@ as the partition key.
 --
 -- /See:/ 'mkKinesisParameters' smart constructor.
 newtype KinesisParameters = KinesisParameters'
   { -- | The JSON path to be extracted from the event and used as the partition key. For more information, see <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts> in the /Amazon Kinesis Streams Developer Guide/ .
-    partitionKeyPath :: Lude.Text
+    partitionKeyPath :: Types.PartitionKeyPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisParameters' with the minimum fields required to make a request.
---
--- * 'partitionKeyPath' - The JSON path to be extracted from the event and used as the partition key. For more information, see <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts> in the /Amazon Kinesis Streams Developer Guide/ .
+-- | Creates a 'KinesisParameters' value with any optional fields omitted.
 mkKinesisParameters ::
   -- | 'partitionKeyPath'
-  Lude.Text ->
+  Types.PartitionKeyPath ->
   KinesisParameters
-mkKinesisParameters pPartitionKeyPath_ =
-  KinesisParameters' {partitionKeyPath = pPartitionKeyPath_}
+mkKinesisParameters partitionKeyPath =
+  KinesisParameters' {partitionKeyPath}
 
 -- | The JSON path to be extracted from the event and used as the partition key. For more information, see <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts> in the /Amazon Kinesis Streams Developer Guide/ .
 --
 -- /Note:/ Consider using 'partitionKeyPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpPartitionKeyPath :: Lens.Lens' KinesisParameters Lude.Text
-kpPartitionKeyPath = Lens.lens (partitionKeyPath :: KinesisParameters -> Lude.Text) (\s a -> s {partitionKeyPath = a} :: KinesisParameters)
+kpPartitionKeyPath :: Lens.Lens' KinesisParameters Types.PartitionKeyPath
+kpPartitionKeyPath = Lens.field @"partitionKeyPath"
 {-# DEPRECATED kpPartitionKeyPath "Use generic-lens or generic-optics with 'partitionKeyPath' instead." #-}
 
-instance Lude.FromJSON KinesisParameters where
-  parseJSON =
-    Lude.withObject
-      "KinesisParameters"
-      (\x -> KinesisParameters' Lude.<$> (x Lude..: "PartitionKeyPath"))
-
-instance Lude.ToJSON KinesisParameters where
-  toJSON KinesisParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("PartitionKeyPath" Lude..= partitionKeyPath)]
+instance Core.FromJSON KinesisParameters where
+  toJSON KinesisParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("PartitionKeyPath" Core..= partitionKeyPath)]
       )
+
+instance Core.FromJSON KinesisParameters where
+  parseJSON =
+    Core.withObject "KinesisParameters" Core.$
+      \x -> KinesisParameters' Core.<$> (x Core..: "PartitionKeyPath")

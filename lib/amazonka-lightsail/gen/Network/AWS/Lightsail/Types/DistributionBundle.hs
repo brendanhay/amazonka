@@ -17,97 +17,90 @@ module Network.AWS.Lightsail.Types.DistributionBundle
     mkDistributionBundle,
 
     -- * Lenses
-    dbTransferPerMonthInGb,
     dbBundleId,
+    dbIsActive,
     dbName,
     dbPrice,
-    dbIsActive,
+    dbTransferPerMonthInGb,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the specifications of a distribution bundle.
 --
 -- /See:/ 'mkDistributionBundle' smart constructor.
 data DistributionBundle = DistributionBundle'
-  { -- | The monthly network transfer quota of the bundle.
-    transferPerMonthInGb :: Lude.Maybe Lude.Int,
-    -- | The ID of the bundle.
-    bundleId :: Lude.Maybe Lude.Text,
-    -- | The name of the distribution bundle.
-    name :: Lude.Maybe Lude.Text,
-    -- | The monthly price, in US dollars, of the bundle.
-    price :: Lude.Maybe Lude.Double,
+  { -- | The ID of the bundle.
+    bundleId :: Core.Maybe Types.String,
     -- | Indicates whether the bundle is active, and can be specified for a new distribution.
-    isActive :: Lude.Maybe Lude.Bool
+    isActive :: Core.Maybe Core.Bool,
+    -- | The name of the distribution bundle.
+    name :: Core.Maybe Types.String,
+    -- | The monthly price, in US dollars, of the bundle.
+    price :: Core.Maybe Core.Double,
+    -- | The monthly network transfer quota of the bundle.
+    transferPerMonthInGb :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DistributionBundle' with the minimum fields required to make a request.
---
--- * 'transferPerMonthInGb' - The monthly network transfer quota of the bundle.
--- * 'bundleId' - The ID of the bundle.
--- * 'name' - The name of the distribution bundle.
--- * 'price' - The monthly price, in US dollars, of the bundle.
--- * 'isActive' - Indicates whether the bundle is active, and can be specified for a new distribution.
+-- | Creates a 'DistributionBundle' value with any optional fields omitted.
 mkDistributionBundle ::
   DistributionBundle
 mkDistributionBundle =
   DistributionBundle'
-    { transferPerMonthInGb = Lude.Nothing,
-      bundleId = Lude.Nothing,
-      name = Lude.Nothing,
-      price = Lude.Nothing,
-      isActive = Lude.Nothing
+    { bundleId = Core.Nothing,
+      isActive = Core.Nothing,
+      name = Core.Nothing,
+      price = Core.Nothing,
+      transferPerMonthInGb = Core.Nothing
     }
-
--- | The monthly network transfer quota of the bundle.
---
--- /Note:/ Consider using 'transferPerMonthInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbTransferPerMonthInGb :: Lens.Lens' DistributionBundle (Lude.Maybe Lude.Int)
-dbTransferPerMonthInGb = Lens.lens (transferPerMonthInGb :: DistributionBundle -> Lude.Maybe Lude.Int) (\s a -> s {transferPerMonthInGb = a} :: DistributionBundle)
-{-# DEPRECATED dbTransferPerMonthInGb "Use generic-lens or generic-optics with 'transferPerMonthInGb' instead." #-}
 
 -- | The ID of the bundle.
 --
 -- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbBundleId :: Lens.Lens' DistributionBundle (Lude.Maybe Lude.Text)
-dbBundleId = Lens.lens (bundleId :: DistributionBundle -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: DistributionBundle)
+dbBundleId :: Lens.Lens' DistributionBundle (Core.Maybe Types.String)
+dbBundleId = Lens.field @"bundleId"
 {-# DEPRECATED dbBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | Indicates whether the bundle is active, and can be specified for a new distribution.
+--
+-- /Note:/ Consider using 'isActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbIsActive :: Lens.Lens' DistributionBundle (Core.Maybe Core.Bool)
+dbIsActive = Lens.field @"isActive"
+{-# DEPRECATED dbIsActive "Use generic-lens or generic-optics with 'isActive' instead." #-}
 
 -- | The name of the distribution bundle.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbName :: Lens.Lens' DistributionBundle (Lude.Maybe Lude.Text)
-dbName = Lens.lens (name :: DistributionBundle -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DistributionBundle)
+dbName :: Lens.Lens' DistributionBundle (Core.Maybe Types.String)
+dbName = Lens.field @"name"
 {-# DEPRECATED dbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The monthly price, in US dollars, of the bundle.
 --
 -- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbPrice :: Lens.Lens' DistributionBundle (Lude.Maybe Lude.Double)
-dbPrice = Lens.lens (price :: DistributionBundle -> Lude.Maybe Lude.Double) (\s a -> s {price = a} :: DistributionBundle)
+dbPrice :: Lens.Lens' DistributionBundle (Core.Maybe Core.Double)
+dbPrice = Lens.field @"price"
 {-# DEPRECATED dbPrice "Use generic-lens or generic-optics with 'price' instead." #-}
 
--- | Indicates whether the bundle is active, and can be specified for a new distribution.
+-- | The monthly network transfer quota of the bundle.
 --
--- /Note:/ Consider using 'isActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbIsActive :: Lens.Lens' DistributionBundle (Lude.Maybe Lude.Bool)
-dbIsActive = Lens.lens (isActive :: DistributionBundle -> Lude.Maybe Lude.Bool) (\s a -> s {isActive = a} :: DistributionBundle)
-{-# DEPRECATED dbIsActive "Use generic-lens or generic-optics with 'isActive' instead." #-}
+-- /Note:/ Consider using 'transferPerMonthInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbTransferPerMonthInGb :: Lens.Lens' DistributionBundle (Core.Maybe Core.Int)
+dbTransferPerMonthInGb = Lens.field @"transferPerMonthInGb"
+{-# DEPRECATED dbTransferPerMonthInGb "Use generic-lens or generic-optics with 'transferPerMonthInGb' instead." #-}
 
-instance Lude.FromJSON DistributionBundle where
+instance Core.FromJSON DistributionBundle where
   parseJSON =
-    Lude.withObject
-      "DistributionBundle"
-      ( \x ->
-          DistributionBundle'
-            Lude.<$> (x Lude..:? "transferPerMonthInGb")
-            Lude.<*> (x Lude..:? "bundleId")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "price")
-            Lude.<*> (x Lude..:? "isActive")
-      )
+    Core.withObject "DistributionBundle" Core.$
+      \x ->
+        DistributionBundle'
+          Core.<$> (x Core..:? "bundleId")
+          Core.<*> (x Core..:? "isActive")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "price")
+          Core.<*> (x Core..:? "transferPerMonthInGb")

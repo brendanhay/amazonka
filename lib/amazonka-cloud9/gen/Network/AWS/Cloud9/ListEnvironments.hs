@@ -22,157 +22,147 @@ module Network.AWS.Cloud9.ListEnvironments
     mkListEnvironments,
 
     -- ** Request lenses
-    leNextToken,
     leMaxResults,
+    leNextToken,
 
     -- * Destructuring the response
     ListEnvironmentsResponse (..),
     mkListEnvironmentsResponse,
 
     -- ** Response lenses
-    lersEnvironmentIds,
-    lersNextToken,
-    lersResponseStatus,
+    lerrsEnvironmentIds,
+    lerrsNextToken,
+    lerrsResponseStatus,
   )
 where
 
-import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Cloud9.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListEnvironments' smart constructor.
 data ListEnvironments = ListEnvironments'
-  { -- | During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of environments to get identifiers for.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of environments to get identifiers for.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListEnvironments' with the minimum fields required to make a request.
---
--- * 'nextToken' - During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
--- * 'maxResults' - The maximum number of environments to get identifiers for.
+-- | Creates a 'ListEnvironments' value with any optional fields omitted.
 mkListEnvironments ::
   ListEnvironments
 mkListEnvironments =
   ListEnvironments'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leNextToken :: Lens.Lens' ListEnvironments (Lude.Maybe Lude.Text)
-leNextToken = Lens.lens (nextToken :: ListEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEnvironments)
-{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of environments to get identifiers for.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leMaxResults :: Lens.Lens' ListEnvironments (Lude.Maybe Lude.Natural)
-leMaxResults = Lens.lens (maxResults :: ListEnvironments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEnvironments)
+leMaxResults :: Lens.Lens' ListEnvironments (Core.Maybe Core.Natural)
+leMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListEnvironments where
-  page rq rs
-    | Page.stop (rs Lens.^. lersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lersEnvironmentIds) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& leNextToken Lens..~ rs Lens.^. lersNextToken
+-- | During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leNextToken :: Lens.Lens' ListEnvironments (Core.Maybe Types.String)
+leNextToken = Lens.field @"nextToken"
+{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListEnvironments where
+instance Core.FromJSON ListEnvironments where
+  toJSON ListEnvironments {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListEnvironments where
   type Rs ListEnvironments = ListEnvironmentsResponse
-  request = Req.postJSON cloud9Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCloud9WorkspaceManagementService.ListEnvironments"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListEnvironmentsResponse'
-            Lude.<$> (x Lude..?> "environmentIds" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "environmentIds")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListEnvironments where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCloud9WorkspaceManagementService.ListEnvironments" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListEnvironments where
-  toJSON ListEnvironments' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListEnvironments where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListEnvironments where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListEnvironments where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"environmentIds" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListEnvironmentsResponse' smart constructor.
 data ListEnvironmentsResponse = ListEnvironmentsResponse'
   { -- | The list of environment identifiers.
-    environmentIds :: Lude.Maybe [Lude.Text],
+    environmentIds :: Core.Maybe [Types.EnvironmentId],
     -- | If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListEnvironmentsResponse' with the minimum fields required to make a request.
---
--- * 'environmentIds' - The list of environment identifiers.
--- * 'nextToken' - If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListEnvironmentsResponse' value with any optional fields omitted.
 mkListEnvironmentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListEnvironmentsResponse
-mkListEnvironmentsResponse pResponseStatus_ =
+mkListEnvironmentsResponse responseStatus =
   ListEnvironmentsResponse'
-    { environmentIds = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { environmentIds = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of environment identifiers.
 --
 -- /Note:/ Consider using 'environmentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersEnvironmentIds :: Lens.Lens' ListEnvironmentsResponse (Lude.Maybe [Lude.Text])
-lersEnvironmentIds = Lens.lens (environmentIds :: ListEnvironmentsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {environmentIds = a} :: ListEnvironmentsResponse)
-{-# DEPRECATED lersEnvironmentIds "Use generic-lens or generic-optics with 'environmentIds' instead." #-}
+lerrsEnvironmentIds :: Lens.Lens' ListEnvironmentsResponse (Core.Maybe [Types.EnvironmentId])
+lerrsEnvironmentIds = Lens.field @"environmentIds"
+{-# DEPRECATED lerrsEnvironmentIds "Use generic-lens or generic-optics with 'environmentIds' instead." #-}
 
 -- | If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersNextToken :: Lens.Lens' ListEnvironmentsResponse (Lude.Maybe Lude.Text)
-lersNextToken = Lens.lens (nextToken :: ListEnvironmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEnvironmentsResponse)
-{-# DEPRECATED lersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lerrsNextToken :: Lens.Lens' ListEnvironmentsResponse (Core.Maybe Types.String)
+lerrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersResponseStatus :: Lens.Lens' ListEnvironmentsResponse Lude.Int
-lersResponseStatus = Lens.lens (responseStatus :: ListEnvironmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEnvironmentsResponse)
-{-# DEPRECATED lersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lerrsResponseStatus :: Lens.Lens' ListEnvironmentsResponse Core.Int
+lerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,76 +13,78 @@
 module Network.AWS.IoT.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        RTDeviceCertificate,
-        RTCaCertificate,
-        RTIotPolicy,
-        RTCognitoIdentityPool,
-        RTClientId,
-        RTAccountSettings,
-        RTRoleAlias,
-        RTIAMRole
+        ResourceTypeDeviceCertificate,
+        ResourceTypeCaCertificate,
+        ResourceTypeIotPolicy,
+        ResourceTypeCognitoIdentityPool,
+        ResourceTypeClientId,
+        ResourceTypeAccountSettings,
+        ResourceTypeRoleAlias,
+        ResourceTypeIamRole,
+        fromResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceType = ResourceType' Lude.Text
+newtype ResourceType = ResourceType' {fromResourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RTDeviceCertificate :: ResourceType
-pattern RTDeviceCertificate = ResourceType' "DEVICE_CERTIFICATE"
+pattern ResourceTypeDeviceCertificate :: ResourceType
+pattern ResourceTypeDeviceCertificate = ResourceType' "DEVICE_CERTIFICATE"
 
-pattern RTCaCertificate :: ResourceType
-pattern RTCaCertificate = ResourceType' "CA_CERTIFICATE"
+pattern ResourceTypeCaCertificate :: ResourceType
+pattern ResourceTypeCaCertificate = ResourceType' "CA_CERTIFICATE"
 
-pattern RTIotPolicy :: ResourceType
-pattern RTIotPolicy = ResourceType' "IOT_POLICY"
+pattern ResourceTypeIotPolicy :: ResourceType
+pattern ResourceTypeIotPolicy = ResourceType' "IOT_POLICY"
 
-pattern RTCognitoIdentityPool :: ResourceType
-pattern RTCognitoIdentityPool = ResourceType' "COGNITO_IDENTITY_POOL"
+pattern ResourceTypeCognitoIdentityPool :: ResourceType
+pattern ResourceTypeCognitoIdentityPool = ResourceType' "COGNITO_IDENTITY_POOL"
 
-pattern RTClientId :: ResourceType
-pattern RTClientId = ResourceType' "CLIENT_ID"
+pattern ResourceTypeClientId :: ResourceType
+pattern ResourceTypeClientId = ResourceType' "CLIENT_ID"
 
-pattern RTAccountSettings :: ResourceType
-pattern RTAccountSettings = ResourceType' "ACCOUNT_SETTINGS"
+pattern ResourceTypeAccountSettings :: ResourceType
+pattern ResourceTypeAccountSettings = ResourceType' "ACCOUNT_SETTINGS"
 
-pattern RTRoleAlias :: ResourceType
-pattern RTRoleAlias = ResourceType' "ROLE_ALIAS"
+pattern ResourceTypeRoleAlias :: ResourceType
+pattern ResourceTypeRoleAlias = ResourceType' "ROLE_ALIAS"
 
-pattern RTIAMRole :: ResourceType
-pattern RTIAMRole = ResourceType' "IAM_ROLE"
+pattern ResourceTypeIamRole :: ResourceType
+pattern ResourceTypeIamRole = ResourceType' "IAM_ROLE"
 
 {-# COMPLETE
-  RTDeviceCertificate,
-  RTCaCertificate,
-  RTIotPolicy,
-  RTCognitoIdentityPool,
-  RTClientId,
-  RTAccountSettings,
-  RTRoleAlias,
-  RTIAMRole,
+  ResourceTypeDeviceCertificate,
+  ResourceTypeCaCertificate,
+  ResourceTypeIotPolicy,
+  ResourceTypeCognitoIdentityPool,
+  ResourceTypeClientId,
+  ResourceTypeAccountSettings,
+  ResourceTypeRoleAlias,
+  ResourceTypeIamRole,
   ResourceType'
   #-}

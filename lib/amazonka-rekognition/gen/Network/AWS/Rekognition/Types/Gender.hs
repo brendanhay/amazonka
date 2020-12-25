@@ -17,14 +17,14 @@ module Network.AWS.Rekognition.Types.Gender
     mkGender,
 
     -- * Lenses
-    gValue,
     gConfidence,
+    gValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.GenderType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.GenderType as Types
 
 -- | The predicted gender of a detected face.
 --
@@ -34,41 +34,36 @@ import Network.AWS.Rekognition.Types.GenderType
 --
 -- /See:/ 'mkGender' smart constructor.
 data Gender = Gender'
-  { -- | The predicted gender of the face.
-    value :: Lude.Maybe GenderType,
-    -- | Level of confidence in the prediction.
-    confidence :: Lude.Maybe Lude.Double
+  { -- | Level of confidence in the prediction.
+    confidence :: Core.Maybe Core.Double,
+    -- | The predicted gender of the face.
+    value :: Core.Maybe Types.GenderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Gender' with the minimum fields required to make a request.
---
--- * 'value' - The predicted gender of the face.
--- * 'confidence' - Level of confidence in the prediction.
+-- | Creates a 'Gender' value with any optional fields omitted.
 mkGender ::
   Gender
-mkGender = Gender' {value = Lude.Nothing, confidence = Lude.Nothing}
-
--- | The predicted gender of the face.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gValue :: Lens.Lens' Gender (Lude.Maybe GenderType)
-gValue = Lens.lens (value :: Gender -> Lude.Maybe GenderType) (\s a -> s {value = a} :: Gender)
-{-# DEPRECATED gValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkGender = Gender' {confidence = Core.Nothing, value = Core.Nothing}
 
 -- | Level of confidence in the prediction.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gConfidence :: Lens.Lens' Gender (Lude.Maybe Lude.Double)
-gConfidence = Lens.lens (confidence :: Gender -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Gender)
+gConfidence :: Lens.Lens' Gender (Core.Maybe Core.Double)
+gConfidence = Lens.field @"confidence"
 {-# DEPRECATED gConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance Lude.FromJSON Gender where
+-- | The predicted gender of the face.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gValue :: Lens.Lens' Gender (Core.Maybe Types.GenderType)
+gValue = Lens.field @"value"
+{-# DEPRECATED gValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Gender where
   parseJSON =
-    Lude.withObject
-      "Gender"
-      ( \x ->
-          Gender'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
-      )
+    Core.withObject "Gender" Core.$
+      \x ->
+        Gender'
+          Core.<$> (x Core..:? "Confidence") Core.<*> (x Core..:? "Value")

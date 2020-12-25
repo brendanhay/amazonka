@@ -20,7 +20,7 @@ module Network.AWS.Inspector.DeleteAssessmentTemplate
     mkDeleteAssessmentTemplate,
 
     -- ** Request lenses
-    datAssessmentTemplateARN,
+    datAssessmentTemplateArn,
 
     -- * Destructuring the response
     DeleteAssessmentTemplateResponse (..),
@@ -28,77 +28,66 @@ module Network.AWS.Inspector.DeleteAssessmentTemplate
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAssessmentTemplate' smart constructor.
 newtype DeleteAssessmentTemplate = DeleteAssessmentTemplate'
   { -- | The ARN that specifies the assessment template that you want to delete.
-    assessmentTemplateARN :: Lude.Text
+    assessmentTemplateArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAssessmentTemplate' with the minimum fields required to make a request.
---
--- * 'assessmentTemplateARN' - The ARN that specifies the assessment template that you want to delete.
+-- | Creates a 'DeleteAssessmentTemplate' value with any optional fields omitted.
 mkDeleteAssessmentTemplate ::
-  -- | 'assessmentTemplateARN'
-  Lude.Text ->
+  -- | 'assessmentTemplateArn'
+  Types.Arn ->
   DeleteAssessmentTemplate
-mkDeleteAssessmentTemplate pAssessmentTemplateARN_ =
-  DeleteAssessmentTemplate'
-    { assessmentTemplateARN =
-        pAssessmentTemplateARN_
-    }
+mkDeleteAssessmentTemplate assessmentTemplateArn =
+  DeleteAssessmentTemplate' {assessmentTemplateArn}
 
 -- | The ARN that specifies the assessment template that you want to delete.
 --
--- /Note:/ Consider using 'assessmentTemplateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datAssessmentTemplateARN :: Lens.Lens' DeleteAssessmentTemplate Lude.Text
-datAssessmentTemplateARN = Lens.lens (assessmentTemplateARN :: DeleteAssessmentTemplate -> Lude.Text) (\s a -> s {assessmentTemplateARN = a} :: DeleteAssessmentTemplate)
-{-# DEPRECATED datAssessmentTemplateARN "Use generic-lens or generic-optics with 'assessmentTemplateARN' instead." #-}
+-- /Note:/ Consider using 'assessmentTemplateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datAssessmentTemplateArn :: Lens.Lens' DeleteAssessmentTemplate Types.Arn
+datAssessmentTemplateArn = Lens.field @"assessmentTemplateArn"
+{-# DEPRECATED datAssessmentTemplateArn "Use generic-lens or generic-optics with 'assessmentTemplateArn' instead." #-}
 
-instance Lude.AWSRequest DeleteAssessmentTemplate where
+instance Core.FromJSON DeleteAssessmentTemplate where
+  toJSON DeleteAssessmentTemplate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("assessmentTemplateArn" Core..= assessmentTemplateArn)
+          ]
+      )
+
+instance Core.AWSRequest DeleteAssessmentTemplate where
   type Rs DeleteAssessmentTemplate = DeleteAssessmentTemplateResponse
-  request = Req.postJSON inspectorService
-  response = Res.receiveNull DeleteAssessmentTemplateResponse'
-
-instance Lude.ToHeaders DeleteAssessmentTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.DeleteAssessmentTemplate" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAssessmentTemplate where
-  toJSON DeleteAssessmentTemplate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("assessmentTemplateArn" Lude..= assessmentTemplateARN)
-          ]
-      )
-
-instance Lude.ToPath DeleteAssessmentTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAssessmentTemplate where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.DeleteAssessmentTemplate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteAssessmentTemplateResponse'
 
 -- | /See:/ 'mkDeleteAssessmentTemplateResponse' smart constructor.
 data DeleteAssessmentTemplateResponse = DeleteAssessmentTemplateResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAssessmentTemplateResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAssessmentTemplateResponse' value with any optional fields omitted.
 mkDeleteAssessmentTemplateResponse ::
   DeleteAssessmentTemplateResponse
 mkDeleteAssessmentTemplateResponse =

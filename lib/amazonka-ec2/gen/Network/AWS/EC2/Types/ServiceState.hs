@@ -13,61 +13,63 @@
 module Network.AWS.EC2.Types.ServiceState
   ( ServiceState
       ( ServiceState',
-        SSfPending,
-        SSfAvailable,
-        SSfDeleting,
-        SSfDeleted,
-        SSfFailed
+        ServiceStatePending,
+        ServiceStateAvailable,
+        ServiceStateDeleting,
+        ServiceStateDeleted,
+        ServiceStateFailed,
+        fromServiceState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServiceState = ServiceState' Lude.Text
+newtype ServiceState = ServiceState' {fromServiceState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSfPending :: ServiceState
-pattern SSfPending = ServiceState' "Pending"
+pattern ServiceStatePending :: ServiceState
+pattern ServiceStatePending = ServiceState' "Pending"
 
-pattern SSfAvailable :: ServiceState
-pattern SSfAvailable = ServiceState' "Available"
+pattern ServiceStateAvailable :: ServiceState
+pattern ServiceStateAvailable = ServiceState' "Available"
 
-pattern SSfDeleting :: ServiceState
-pattern SSfDeleting = ServiceState' "Deleting"
+pattern ServiceStateDeleting :: ServiceState
+pattern ServiceStateDeleting = ServiceState' "Deleting"
 
-pattern SSfDeleted :: ServiceState
-pattern SSfDeleted = ServiceState' "Deleted"
+pattern ServiceStateDeleted :: ServiceState
+pattern ServiceStateDeleted = ServiceState' "Deleted"
 
-pattern SSfFailed :: ServiceState
-pattern SSfFailed = ServiceState' "Failed"
+pattern ServiceStateFailed :: ServiceState
+pattern ServiceStateFailed = ServiceState' "Failed"
 
 {-# COMPLETE
-  SSfPending,
-  SSfAvailable,
-  SSfDeleting,
-  SSfDeleted,
-  SSfFailed,
+  ServiceStatePending,
+  ServiceStateAvailable,
+  ServiceStateDeleting,
+  ServiceStateDeleted,
+  ServiceStateFailed,
   ServiceState'
   #-}

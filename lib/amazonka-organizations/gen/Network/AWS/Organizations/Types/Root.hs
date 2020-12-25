@@ -17,16 +17,19 @@ module Network.AWS.Organizations.Types.Root
     mkRoot,
 
     -- * Lenses
-    rARN,
-    rName,
+    rArn,
     rId,
+    rName,
     rPolicyTypes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.PolicyTypeSummary
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.Arn as Types
+import qualified Network.AWS.Organizations.Types.Name as Types
+import qualified Network.AWS.Organizations.Types.PolicyTypeSummary as Types
+import qualified Network.AWS.Organizations.Types.RootId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains details about a root. A root is a top-level parent node in the hierarchy of an organization that can contain organizational units (OUs) and accounts. The root contains every AWS account in the organization.
 --
@@ -35,41 +38,30 @@ data Root = Root'
   { -- | The Amazon Resource Name (ARN) of the root.
     --
     -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
-    arn :: Lude.Maybe Lude.Text,
-    -- | The friendly name of the root.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The unique identifier (ID) for the root.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.RootId,
+    -- | The friendly name of the root.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+    name :: Core.Maybe Types.Name,
     -- | The types of policies that are currently enabled for the root and therefore can be attached to the root or to its OUs or accounts.
-    policyTypes :: Lude.Maybe [PolicyTypeSummary]
+    policyTypes :: Core.Maybe [Types.PolicyTypeSummary]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Root' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the root.
---
--- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
--- * 'name' - The friendly name of the root.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
--- * 'id' - The unique identifier (ID) for the root.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
--- * 'policyTypes' - The types of policies that are currently enabled for the root and therefore can be attached to the root or to its OUs or accounts.
+-- | Creates a 'Root' value with any optional fields omitted.
 mkRoot ::
   Root
 mkRoot =
   Root'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      policyTypes = Lude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      policyTypes = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the root.
@@ -77,43 +69,41 @@ mkRoot =
 -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rARN :: Lens.Lens' Root (Lude.Maybe Lude.Text)
-rARN = Lens.lens (arn :: Root -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Root)
-{-# DEPRECATED rARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The friendly name of the root.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rName :: Lens.Lens' Root (Lude.Maybe Lude.Text)
-rName = Lens.lens (name :: Root -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Root)
-{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
+rArn :: Lens.Lens' Root (Core.Maybe Types.Arn)
+rArn = Lens.field @"arn"
+{-# DEPRECATED rArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The unique identifier (ID) for the root.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rId :: Lens.Lens' Root (Lude.Maybe Lude.Text)
-rId = Lens.lens (id :: Root -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Root)
+rId :: Lens.Lens' Root (Core.Maybe Types.RootId)
+rId = Lens.field @"id"
 {-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The friendly name of the root.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rName :: Lens.Lens' Root (Core.Maybe Types.Name)
+rName = Lens.field @"name"
+{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The types of policies that are currently enabled for the root and therefore can be attached to the root or to its OUs or accounts.
 --
 -- /Note:/ Consider using 'policyTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPolicyTypes :: Lens.Lens' Root (Lude.Maybe [PolicyTypeSummary])
-rPolicyTypes = Lens.lens (policyTypes :: Root -> Lude.Maybe [PolicyTypeSummary]) (\s a -> s {policyTypes = a} :: Root)
+rPolicyTypes :: Lens.Lens' Root (Core.Maybe [Types.PolicyTypeSummary])
+rPolicyTypes = Lens.field @"policyTypes"
 {-# DEPRECATED rPolicyTypes "Use generic-lens or generic-optics with 'policyTypes' instead." #-}
 
-instance Lude.FromJSON Root where
+instance Core.FromJSON Root where
   parseJSON =
-    Lude.withObject
-      "Root"
-      ( \x ->
-          Root'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "PolicyTypes" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Root" Core.$
+      \x ->
+        Root'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "PolicyTypes")

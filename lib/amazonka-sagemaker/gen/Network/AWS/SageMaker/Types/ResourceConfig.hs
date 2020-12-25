@@ -17,30 +17,31 @@ module Network.AWS.SageMaker.Types.ResourceConfig
     mkResourceConfig,
 
     -- * Lenses
-    rcInstanceCount,
     rcInstanceType,
+    rcInstanceCount,
     rcVolumeSizeInGB,
-    rcVolumeKMSKeyId,
+    rcVolumeKmsKeyId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.TrainingInstanceType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.KmsKeyId as Types
+import qualified Network.AWS.SageMaker.Types.TrainingInstanceType as Types
 
 -- | Describes the resources, including ML compute instances and ML storage volumes, to use for model training.
 --
 -- /See:/ 'mkResourceConfig' smart constructor.
 data ResourceConfig = ResourceConfig'
-  { -- | The number of ML compute instances to use. For distributed training, provide a value greater than 1.
-    instanceCount :: Lude.Natural,
-    -- | The ML compute instance type.
-    instanceType :: TrainingInstanceType,
+  { -- | The ML compute instance type.
+    instanceType :: Types.TrainingInstanceType,
+    -- | The number of ML compute instances to use. For distributed training, provide a value greater than 1.
+    instanceCount :: Core.Natural,
     -- | The size of the ML storage volume that you want to provision.
     --
     -- ML storage volumes store model artifacts and incremental states. Training algorithms might also use the ML storage volume for scratch space. If you want to store the training data in the ML storage volume, choose @File@ as the @TrainingInputMode@ in the algorithm specification.
     -- You must specify sufficient ML storage for your scenario.
-    volumeSizeInGB :: Lude.Natural,
+    volumeSizeInGB :: Core.Natural,
     -- | The AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job.
     --
     -- The @VolumeKmsKeyId@ can be in any of the following formats:
@@ -51,58 +52,41 @@ data ResourceConfig = ResourceConfig'
     --
     --     * // Amazon Resource Name (ARN) of a KMS Key
     -- @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-    volumeKMSKeyId :: Lude.Maybe Lude.Text
+    volumeKmsKeyId :: Core.Maybe Types.KmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceConfig' with the minimum fields required to make a request.
---
--- * 'instanceCount' - The number of ML compute instances to use. For distributed training, provide a value greater than 1.
--- * 'instanceType' - The ML compute instance type.
--- * 'volumeSizeInGB' - The size of the ML storage volume that you want to provision.
---
--- ML storage volumes store model artifacts and incremental states. Training algorithms might also use the ML storage volume for scratch space. If you want to store the training data in the ML storage volume, choose @File@ as the @TrainingInputMode@ in the algorithm specification.
--- You must specify sufficient ML storage for your scenario.
--- * 'volumeKMSKeyId' - The AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job.
---
--- The @VolumeKmsKeyId@ can be in any of the following formats:
---
---     * // KMS Key ID
--- @"1234abcd-12ab-34cd-56ef-1234567890ab"@
---
---
---     * // Amazon Resource Name (ARN) of a KMS Key
--- @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+-- | Creates a 'ResourceConfig' value with any optional fields omitted.
 mkResourceConfig ::
-  -- | 'instanceCount'
-  Lude.Natural ->
   -- | 'instanceType'
-  TrainingInstanceType ->
+  Types.TrainingInstanceType ->
+  -- | 'instanceCount'
+  Core.Natural ->
   -- | 'volumeSizeInGB'
-  Lude.Natural ->
+  Core.Natural ->
   ResourceConfig
-mkResourceConfig pInstanceCount_ pInstanceType_ pVolumeSizeInGB_ =
+mkResourceConfig instanceType instanceCount volumeSizeInGB =
   ResourceConfig'
-    { instanceCount = pInstanceCount_,
-      instanceType = pInstanceType_,
-      volumeSizeInGB = pVolumeSizeInGB_,
-      volumeKMSKeyId = Lude.Nothing
+    { instanceType,
+      instanceCount,
+      volumeSizeInGB,
+      volumeKmsKeyId = Core.Nothing
     }
-
--- | The number of ML compute instances to use. For distributed training, provide a value greater than 1.
---
--- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcInstanceCount :: Lens.Lens' ResourceConfig Lude.Natural
-rcInstanceCount = Lens.lens (instanceCount :: ResourceConfig -> Lude.Natural) (\s a -> s {instanceCount = a} :: ResourceConfig)
-{-# DEPRECATED rcInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The ML compute instance type.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcInstanceType :: Lens.Lens' ResourceConfig TrainingInstanceType
-rcInstanceType = Lens.lens (instanceType :: ResourceConfig -> TrainingInstanceType) (\s a -> s {instanceType = a} :: ResourceConfig)
+rcInstanceType :: Lens.Lens' ResourceConfig Types.TrainingInstanceType
+rcInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED rcInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The number of ML compute instances to use. For distributed training, provide a value greater than 1.
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcInstanceCount :: Lens.Lens' ResourceConfig Core.Natural
+rcInstanceCount = Lens.field @"instanceCount"
+{-# DEPRECATED rcInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The size of the ML storage volume that you want to provision.
 --
@@ -110,8 +94,8 @@ rcInstanceType = Lens.lens (instanceType :: ResourceConfig -> TrainingInstanceTy
 -- You must specify sufficient ML storage for your scenario.
 --
 -- /Note:/ Consider using 'volumeSizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcVolumeSizeInGB :: Lens.Lens' ResourceConfig Lude.Natural
-rcVolumeSizeInGB = Lens.lens (volumeSizeInGB :: ResourceConfig -> Lude.Natural) (\s a -> s {volumeSizeInGB = a} :: ResourceConfig)
+rcVolumeSizeInGB :: Lens.Lens' ResourceConfig Core.Natural
+rcVolumeSizeInGB = Lens.field @"volumeSizeInGB"
 {-# DEPRECATED rcVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
 
 -- | The AWS KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job.
@@ -127,30 +111,28 @@ rcVolumeSizeInGB = Lens.lens (volumeSizeInGB :: ResourceConfig -> Lude.Natural) 
 --
 --
 --
--- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcVolumeKMSKeyId :: Lens.Lens' ResourceConfig (Lude.Maybe Lude.Text)
-rcVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: ResourceConfig -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: ResourceConfig)
-{-# DEPRECATED rcVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
+-- /Note:/ Consider using 'volumeKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcVolumeKmsKeyId :: Lens.Lens' ResourceConfig (Core.Maybe Types.KmsKeyId)
+rcVolumeKmsKeyId = Lens.field @"volumeKmsKeyId"
+{-# DEPRECATED rcVolumeKmsKeyId "Use generic-lens or generic-optics with 'volumeKmsKeyId' instead." #-}
 
-instance Lude.FromJSON ResourceConfig where
-  parseJSON =
-    Lude.withObject
-      "ResourceConfig"
-      ( \x ->
-          ResourceConfig'
-            Lude.<$> (x Lude..: "InstanceCount")
-            Lude.<*> (x Lude..: "InstanceType")
-            Lude.<*> (x Lude..: "VolumeSizeInGB")
-            Lude.<*> (x Lude..:? "VolumeKmsKeyId")
-      )
-
-instance Lude.ToJSON ResourceConfig where
-  toJSON ResourceConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceCount" Lude..= instanceCount),
-            Lude.Just ("InstanceType" Lude..= instanceType),
-            Lude.Just ("VolumeSizeInGB" Lude..= volumeSizeInGB),
-            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId
+instance Core.FromJSON ResourceConfig where
+  toJSON ResourceConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceType" Core..= instanceType),
+            Core.Just ("InstanceCount" Core..= instanceCount),
+            Core.Just ("VolumeSizeInGB" Core..= volumeSizeInGB),
+            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId
           ]
       )
+
+instance Core.FromJSON ResourceConfig where
+  parseJSON =
+    Core.withObject "ResourceConfig" Core.$
+      \x ->
+        ResourceConfig'
+          Core.<$> (x Core..: "InstanceType")
+          Core.<*> (x Core..: "InstanceCount")
+          Core.<*> (x Core..: "VolumeSizeInGB")
+          Core.<*> (x Core..:? "VolumeKmsKeyId")

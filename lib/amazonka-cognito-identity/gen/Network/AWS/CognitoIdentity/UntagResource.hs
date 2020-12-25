@@ -20,118 +20,104 @@ module Network.AWS.CognitoIdentity.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
+    urResourceArn,
     urTagKeys,
-    urResourceARN,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
     mkUntagResourceResponse,
 
     -- ** Response lenses
-    urrsResponseStatus,
+    urrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.CognitoIdentity.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The keys of the tags to remove from the user pool.
-    tagKeys :: [Lude.Text],
-    -- | The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.
-    resourceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.
+    resourceArn :: Types.ARNString,
+    -- | The keys of the tags to remove from the user pool.
+    tagKeys :: [Types.TagKeysType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
---
--- * 'tagKeys' - The keys of the tags to remove from the user pool.
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.
+-- | Creates a 'UntagResource' value with any optional fields omitted.
 mkUntagResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ARNString ->
   UntagResource
-mkUntagResource pResourceARN_ =
-  UntagResource'
-    { tagKeys = Lude.mempty,
-      resourceARN = pResourceARN_
-    }
+mkUntagResource resourceArn =
+  UntagResource' {resourceArn, tagKeys = Core.mempty}
+
+-- | The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceArn :: Lens.Lens' UntagResource Types.ARNString
+urResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED urResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The keys of the tags to remove from the user pool.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
-urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
+urTagKeys :: Lens.Lens' UntagResource [Types.TagKeysType]
+urTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceARN :: Lens.Lens' UntagResource Lude.Text
-urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
-{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+instance Core.FromJSON UntagResource where
+  toJSON UntagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
 
-instance Lude.AWSRequest UntagResource where
+instance Core.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = Req.postJSON cognitoIdentityService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityService.UntagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UntagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UntagResourceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UntagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSCognitoIdentityService.UntagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UntagResource where
-  toJSON UntagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TagKeys" Lude..= tagKeys),
-            Lude.Just ("ResourceArn" Lude..= resourceARN)
-          ]
-      )
-
-instance Lude.ToPath UntagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 newtype UntagResourceResponse = UntagResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
 mkUntagResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UntagResourceResponse
-mkUntagResourceResponse pResponseStatus_ =
-  UntagResourceResponse' {responseStatus = pResponseStatus_}
+mkUntagResourceResponse responseStatus =
+  UntagResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsResponseStatus :: Lens.Lens' UntagResourceResponse Lude.Int
-urrsResponseStatus = Lens.lens (responseStatus :: UntagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagResourceResponse)
-{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrsResponseStatus :: Lens.Lens' UntagResourceResponse Core.Int
+urrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

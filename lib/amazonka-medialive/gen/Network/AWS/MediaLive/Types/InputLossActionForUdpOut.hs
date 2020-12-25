@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.InputLossActionForUdpOut
   ( InputLossActionForUdpOut
       ( InputLossActionForUdpOut',
-        DropProgram,
-        DropTs,
-        EmitProgram
+        InputLossActionForUdpOutDropProgram,
+        InputLossActionForUdpOutDropTs,
+        InputLossActionForUdpOutEmitProgram,
+        fromInputLossActionForUdpOut
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Input Loss Action For Udp Out
-newtype InputLossActionForUdpOut = InputLossActionForUdpOut' Lude.Text
+newtype InputLossActionForUdpOut = InputLossActionForUdpOut'
+  { fromInputLossActionForUdpOut ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DropProgram :: InputLossActionForUdpOut
-pattern DropProgram = InputLossActionForUdpOut' "DROP_PROGRAM"
+pattern InputLossActionForUdpOutDropProgram :: InputLossActionForUdpOut
+pattern InputLossActionForUdpOutDropProgram = InputLossActionForUdpOut' "DROP_PROGRAM"
 
-pattern DropTs :: InputLossActionForUdpOut
-pattern DropTs = InputLossActionForUdpOut' "DROP_TS"
+pattern InputLossActionForUdpOutDropTs :: InputLossActionForUdpOut
+pattern InputLossActionForUdpOutDropTs = InputLossActionForUdpOut' "DROP_TS"
 
-pattern EmitProgram :: InputLossActionForUdpOut
-pattern EmitProgram = InputLossActionForUdpOut' "EMIT_PROGRAM"
+pattern InputLossActionForUdpOutEmitProgram :: InputLossActionForUdpOut
+pattern InputLossActionForUdpOutEmitProgram = InputLossActionForUdpOut' "EMIT_PROGRAM"
 
 {-# COMPLETE
-  DropProgram,
-  DropTs,
-  EmitProgram,
+  InputLossActionForUdpOutDropProgram,
+  InputLossActionForUdpOutDropTs,
+  InputLossActionForUdpOutEmitProgram,
   InputLossActionForUdpOut'
   #-}

@@ -17,71 +17,75 @@ module Network.AWS.CodeBuild.Types.BuildArtifacts
     mkBuildArtifacts,
 
     -- * Lenses
+    baArtifactIdentifier,
+    baEncryptionDisabled,
     baLocation,
     baMd5sum,
-    baEncryptionDisabled,
     baOverrideArtifactName,
-    baArtifactIdentifier,
     baSha256sum,
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about build output artifacts.
 --
 -- /See:/ 'mkBuildArtifacts' smart constructor.
 data BuildArtifacts = BuildArtifacts'
-  { -- | Information about the location of the build artifacts.
-    location :: Lude.Maybe Lude.Text,
+  { -- | An identifier for this artifact definition.
+    artifactIdentifier :: Core.Maybe Types.String,
+    -- | Information that tells you if encryption for build artifacts is disabled.
+    encryptionDisabled :: Core.Maybe Core.Bool,
+    -- | Information about the location of the build artifacts.
+    location :: Core.Maybe Types.String,
     -- | The MD5 hash of the build artifact.
     --
     -- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
-    md5sum :: Lude.Maybe Lude.Text,
-    -- | Information that tells you if encryption for build artifacts is disabled.
-    encryptionDisabled :: Lude.Maybe Lude.Bool,
+    md5sum :: Core.Maybe Types.String,
     -- | If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique.
-    overrideArtifactName :: Lude.Maybe Lude.Bool,
-    -- | An identifier for this artifact definition.
-    artifactIdentifier :: Lude.Maybe Lude.Text,
+    overrideArtifactName :: Core.Maybe Core.Bool,
     -- | The SHA-256 hash of the build artifact.
     --
     -- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
-    sha256sum :: Lude.Maybe Lude.Text
+    sha256sum :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BuildArtifacts' with the minimum fields required to make a request.
---
--- * 'location' - Information about the location of the build artifacts.
--- * 'md5sum' - The MD5 hash of the build artifact.
---
--- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
--- * 'encryptionDisabled' - Information that tells you if encryption for build artifacts is disabled.
--- * 'overrideArtifactName' - If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique.
--- * 'artifactIdentifier' - An identifier for this artifact definition.
--- * 'sha256sum' - The SHA-256 hash of the build artifact.
---
--- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
+-- | Creates a 'BuildArtifacts' value with any optional fields omitted.
 mkBuildArtifacts ::
   BuildArtifacts
 mkBuildArtifacts =
   BuildArtifacts'
-    { location = Lude.Nothing,
-      md5sum = Lude.Nothing,
-      encryptionDisabled = Lude.Nothing,
-      overrideArtifactName = Lude.Nothing,
-      artifactIdentifier = Lude.Nothing,
-      sha256sum = Lude.Nothing
+    { artifactIdentifier = Core.Nothing,
+      encryptionDisabled = Core.Nothing,
+      location = Core.Nothing,
+      md5sum = Core.Nothing,
+      overrideArtifactName = Core.Nothing,
+      sha256sum = Core.Nothing
     }
+
+-- | An identifier for this artifact definition.
+--
+-- /Note:/ Consider using 'artifactIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baArtifactIdentifier :: Lens.Lens' BuildArtifacts (Core.Maybe Types.String)
+baArtifactIdentifier = Lens.field @"artifactIdentifier"
+{-# DEPRECATED baArtifactIdentifier "Use generic-lens or generic-optics with 'artifactIdentifier' instead." #-}
+
+-- | Information that tells you if encryption for build artifacts is disabled.
+--
+-- /Note:/ Consider using 'encryptionDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baEncryptionDisabled :: Lens.Lens' BuildArtifacts (Core.Maybe Core.Bool)
+baEncryptionDisabled = Lens.field @"encryptionDisabled"
+{-# DEPRECATED baEncryptionDisabled "Use generic-lens or generic-optics with 'encryptionDisabled' instead." #-}
 
 -- | Information about the location of the build artifacts.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baLocation :: Lens.Lens' BuildArtifacts (Lude.Maybe Lude.Text)
-baLocation = Lens.lens (location :: BuildArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: BuildArtifacts)
+baLocation :: Lens.Lens' BuildArtifacts (Core.Maybe Types.String)
+baLocation = Lens.field @"location"
 {-# DEPRECATED baLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The MD5 hash of the build artifact.
@@ -89,50 +93,34 @@ baLocation = Lens.lens (location :: BuildArtifacts -> Lude.Maybe Lude.Text) (\s 
 -- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
 --
 -- /Note:/ Consider using 'md5sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baMd5sum :: Lens.Lens' BuildArtifacts (Lude.Maybe Lude.Text)
-baMd5sum = Lens.lens (md5sum :: BuildArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {md5sum = a} :: BuildArtifacts)
+baMd5sum :: Lens.Lens' BuildArtifacts (Core.Maybe Types.String)
+baMd5sum = Lens.field @"md5sum"
 {-# DEPRECATED baMd5sum "Use generic-lens or generic-optics with 'md5sum' instead." #-}
-
--- | Information that tells you if encryption for build artifacts is disabled.
---
--- /Note:/ Consider using 'encryptionDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baEncryptionDisabled :: Lens.Lens' BuildArtifacts (Lude.Maybe Lude.Bool)
-baEncryptionDisabled = Lens.lens (encryptionDisabled :: BuildArtifacts -> Lude.Maybe Lude.Bool) (\s a -> s {encryptionDisabled = a} :: BuildArtifacts)
-{-# DEPRECATED baEncryptionDisabled "Use generic-lens or generic-optics with 'encryptionDisabled' instead." #-}
 
 -- | If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique.
 --
 -- /Note:/ Consider using 'overrideArtifactName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baOverrideArtifactName :: Lens.Lens' BuildArtifacts (Lude.Maybe Lude.Bool)
-baOverrideArtifactName = Lens.lens (overrideArtifactName :: BuildArtifacts -> Lude.Maybe Lude.Bool) (\s a -> s {overrideArtifactName = a} :: BuildArtifacts)
+baOverrideArtifactName :: Lens.Lens' BuildArtifacts (Core.Maybe Core.Bool)
+baOverrideArtifactName = Lens.field @"overrideArtifactName"
 {-# DEPRECATED baOverrideArtifactName "Use generic-lens or generic-optics with 'overrideArtifactName' instead." #-}
-
--- | An identifier for this artifact definition.
---
--- /Note:/ Consider using 'artifactIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baArtifactIdentifier :: Lens.Lens' BuildArtifacts (Lude.Maybe Lude.Text)
-baArtifactIdentifier = Lens.lens (artifactIdentifier :: BuildArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {artifactIdentifier = a} :: BuildArtifacts)
-{-# DEPRECATED baArtifactIdentifier "Use generic-lens or generic-optics with 'artifactIdentifier' instead." #-}
 
 -- | The SHA-256 hash of the build artifact.
 --
 -- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
 --
 -- /Note:/ Consider using 'sha256sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baSha256sum :: Lens.Lens' BuildArtifacts (Lude.Maybe Lude.Text)
-baSha256sum = Lens.lens (sha256sum :: BuildArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {sha256sum = a} :: BuildArtifacts)
+baSha256sum :: Lens.Lens' BuildArtifacts (Core.Maybe Types.String)
+baSha256sum = Lens.field @"sha256sum"
 {-# DEPRECATED baSha256sum "Use generic-lens or generic-optics with 'sha256sum' instead." #-}
 
-instance Lude.FromJSON BuildArtifacts where
+instance Core.FromJSON BuildArtifacts where
   parseJSON =
-    Lude.withObject
-      "BuildArtifacts"
-      ( \x ->
-          BuildArtifacts'
-            Lude.<$> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "md5sum")
-            Lude.<*> (x Lude..:? "encryptionDisabled")
-            Lude.<*> (x Lude..:? "overrideArtifactName")
-            Lude.<*> (x Lude..:? "artifactIdentifier")
-            Lude.<*> (x Lude..:? "sha256sum")
-      )
+    Core.withObject "BuildArtifacts" Core.$
+      \x ->
+        BuildArtifacts'
+          Core.<$> (x Core..:? "artifactIdentifier")
+          Core.<*> (x Core..:? "encryptionDisabled")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "md5sum")
+          Core.<*> (x Core..:? "overrideArtifactName")
+          Core.<*> (x Core..:? "sha256sum")

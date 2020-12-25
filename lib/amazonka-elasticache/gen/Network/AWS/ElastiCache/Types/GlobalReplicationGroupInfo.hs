@@ -17,55 +17,53 @@ module Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo
     mkGlobalReplicationGroupInfo,
 
     -- * Lenses
-    grgiGlobalReplicationGroupMemberRole,
     grgiGlobalReplicationGroupId,
+    grgiGlobalReplicationGroupMemberRole,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The name of the Global Datastore and role of this replication group in the Global Datastore.
 --
 -- /See:/ 'mkGlobalReplicationGroupInfo' smart constructor.
 data GlobalReplicationGroupInfo = GlobalReplicationGroupInfo'
-  { -- | The role of the replication group in a Global Datastore. Can be primary or secondary.
-    globalReplicationGroupMemberRole :: Lude.Maybe Lude.Text,
-    -- | The name of the Global Datastore
-    globalReplicationGroupId :: Lude.Maybe Lude.Text
+  { -- | The name of the Global Datastore
+    globalReplicationGroupId :: Core.Maybe Types.String,
+    -- | The role of the replication group in a Global Datastore. Can be primary or secondary.
+    globalReplicationGroupMemberRole :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlobalReplicationGroupInfo' with the minimum fields required to make a request.
---
--- * 'globalReplicationGroupMemberRole' - The role of the replication group in a Global Datastore. Can be primary or secondary.
--- * 'globalReplicationGroupId' - The name of the Global Datastore
+-- | Creates a 'GlobalReplicationGroupInfo' value with any optional fields omitted.
 mkGlobalReplicationGroupInfo ::
   GlobalReplicationGroupInfo
 mkGlobalReplicationGroupInfo =
   GlobalReplicationGroupInfo'
-    { globalReplicationGroupMemberRole =
-        Lude.Nothing,
-      globalReplicationGroupId = Lude.Nothing
+    { globalReplicationGroupId =
+        Core.Nothing,
+      globalReplicationGroupMemberRole = Core.Nothing
     }
-
--- | The role of the replication group in a Global Datastore. Can be primary or secondary.
---
--- /Note:/ Consider using 'globalReplicationGroupMemberRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grgiGlobalReplicationGroupMemberRole :: Lens.Lens' GlobalReplicationGroupInfo (Lude.Maybe Lude.Text)
-grgiGlobalReplicationGroupMemberRole = Lens.lens (globalReplicationGroupMemberRole :: GlobalReplicationGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {globalReplicationGroupMemberRole = a} :: GlobalReplicationGroupInfo)
-{-# DEPRECATED grgiGlobalReplicationGroupMemberRole "Use generic-lens or generic-optics with 'globalReplicationGroupMemberRole' instead." #-}
 
 -- | The name of the Global Datastore
 --
 -- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grgiGlobalReplicationGroupId :: Lens.Lens' GlobalReplicationGroupInfo (Lude.Maybe Lude.Text)
-grgiGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: GlobalReplicationGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: GlobalReplicationGroupInfo)
+grgiGlobalReplicationGroupId :: Lens.Lens' GlobalReplicationGroupInfo (Core.Maybe Types.String)
+grgiGlobalReplicationGroupId = Lens.field @"globalReplicationGroupId"
 {-# DEPRECATED grgiGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
-instance Lude.FromXML GlobalReplicationGroupInfo where
+-- | The role of the replication group in a Global Datastore. Can be primary or secondary.
+--
+-- /Note:/ Consider using 'globalReplicationGroupMemberRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgiGlobalReplicationGroupMemberRole :: Lens.Lens' GlobalReplicationGroupInfo (Core.Maybe Types.String)
+grgiGlobalReplicationGroupMemberRole = Lens.field @"globalReplicationGroupMemberRole"
+{-# DEPRECATED grgiGlobalReplicationGroupMemberRole "Use generic-lens or generic-optics with 'globalReplicationGroupMemberRole' instead." #-}
+
+instance Core.FromXML GlobalReplicationGroupInfo where
   parseXML x =
     GlobalReplicationGroupInfo'
-      Lude.<$> (x Lude..@? "GlobalReplicationGroupMemberRole")
-      Lude.<*> (x Lude..@? "GlobalReplicationGroupId")
+      Core.<$> (x Core..@? "GlobalReplicationGroupId")
+      Core.<*> (x Core..@? "GlobalReplicationGroupMemberRole")

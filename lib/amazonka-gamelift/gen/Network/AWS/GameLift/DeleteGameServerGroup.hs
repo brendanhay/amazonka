@@ -61,28 +61,30 @@ module Network.AWS.GameLift.DeleteGameServerGroup
     mkDeleteGameServerGroup,
 
     -- ** Request lenses
-    dgsgfDeleteOption,
-    dgsgfGameServerGroupName,
+    dgsgGameServerGroupName,
+    dgsgDeleteOption,
 
     -- * Destructuring the response
     DeleteGameServerGroupResponse (..),
     mkDeleteGameServerGroupResponse,
 
     -- ** Response lenses
-    dgsgrsGameServerGroup,
-    dgsgrsResponseStatus,
+    dgsgrrsGameServerGroup,
+    dgsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteGameServerGroup' smart constructor.
 data DeleteGameServerGroup = DeleteGameServerGroup'
-  { -- | The type of delete to perform. Options include the following:
+  { -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+    gameServerGroupName :: Types.GameServerGroupName,
+    -- | The type of delete to perform. Options include the following:
     --
     --
     --     * @SAFE_DELETE@ – (default) Terminates the game server group and EC2 Auto Scaling group only when it has no game servers that are in @UTILIZED@ status.
@@ -92,37 +94,28 @@ data DeleteGameServerGroup = DeleteGameServerGroup'
     --
     --
     --     * @RETAIN@ – Does a safe delete of the game server group but retains the EC2 Auto Scaling group as is.
-    deleteOption :: Lude.Maybe GameServerGroupDeleteOption,
-    -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
-    gameServerGroupName :: Lude.Text
+    deleteOption :: Core.Maybe Types.GameServerGroupDeleteOption
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGameServerGroup' with the minimum fields required to make a request.
---
--- * 'deleteOption' - The type of delete to perform. Options include the following:
---
---
---     * @SAFE_DELETE@ – (default) Terminates the game server group and EC2 Auto Scaling group only when it has no game servers that are in @UTILIZED@ status.
---
---
---     * @FORCE_DELETE@ – Terminates the game server group, including all active game servers regardless of their utilization status, and the EC2 Auto Scaling group.
---
---
---     * @RETAIN@ – Does a safe delete of the game server group but retains the EC2 Auto Scaling group as is.
---
---
--- * 'gameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+-- | Creates a 'DeleteGameServerGroup' value with any optional fields omitted.
 mkDeleteGameServerGroup ::
   -- | 'gameServerGroupName'
-  Lude.Text ->
+  Types.GameServerGroupName ->
   DeleteGameServerGroup
-mkDeleteGameServerGroup pGameServerGroupName_ =
+mkDeleteGameServerGroup gameServerGroupName =
   DeleteGameServerGroup'
-    { deleteOption = Lude.Nothing,
-      gameServerGroupName = pGameServerGroupName_
+    { gameServerGroupName,
+      deleteOption = Core.Nothing
     }
+
+-- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+--
+-- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsgGameServerGroupName :: Lens.Lens' DeleteGameServerGroup Types.GameServerGroupName
+dgsgGameServerGroupName = Lens.field @"gameServerGroupName"
+{-# DEPRECATED dgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 -- | The type of delete to perform. Options include the following:
 --
@@ -138,88 +131,71 @@ mkDeleteGameServerGroup pGameServerGroupName_ =
 --
 --
 -- /Note:/ Consider using 'deleteOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsgfDeleteOption :: Lens.Lens' DeleteGameServerGroup (Lude.Maybe GameServerGroupDeleteOption)
-dgsgfDeleteOption = Lens.lens (deleteOption :: DeleteGameServerGroup -> Lude.Maybe GameServerGroupDeleteOption) (\s a -> s {deleteOption = a} :: DeleteGameServerGroup)
-{-# DEPRECATED dgsgfDeleteOption "Use generic-lens or generic-optics with 'deleteOption' instead." #-}
+dgsgDeleteOption :: Lens.Lens' DeleteGameServerGroup (Core.Maybe Types.GameServerGroupDeleteOption)
+dgsgDeleteOption = Lens.field @"deleteOption"
+{-# DEPRECATED dgsgDeleteOption "Use generic-lens or generic-optics with 'deleteOption' instead." #-}
 
--- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
---
--- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsgfGameServerGroupName :: Lens.Lens' DeleteGameServerGroup Lude.Text
-dgsgfGameServerGroupName = Lens.lens (gameServerGroupName :: DeleteGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DeleteGameServerGroup)
-{-# DEPRECATED dgsgfGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
+instance Core.FromJSON DeleteGameServerGroup where
+  toJSON DeleteGameServerGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GameServerGroupName" Core..= gameServerGroupName),
+            ("DeleteOption" Core..=) Core.<$> deleteOption
+          ]
+      )
 
-instance Lude.AWSRequest DeleteGameServerGroup where
+instance Core.AWSRequest DeleteGameServerGroup where
   type Rs DeleteGameServerGroup = DeleteGameServerGroupResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DeleteGameServerGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteGameServerGroupResponse'
-            Lude.<$> (x Lude..?> "GameServerGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GameServerGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteGameServerGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DeleteGameServerGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteGameServerGroup where
-  toJSON DeleteGameServerGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeleteOption" Lude..=) Lude.<$> deleteOption,
-            Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName)
-          ]
-      )
-
-instance Lude.ToPath DeleteGameServerGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteGameServerGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteGameServerGroupResponse' smart constructor.
 data DeleteGameServerGroupResponse = DeleteGameServerGroupResponse'
   { -- | An object that describes the deleted game server group resource, with status updated to @DELETE_SCHEDULED@ .
-    gameServerGroup :: Lude.Maybe GameServerGroup,
+    gameServerGroup :: Core.Maybe Types.GameServerGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteGameServerGroupResponse' with the minimum fields required to make a request.
---
--- * 'gameServerGroup' - An object that describes the deleted game server group resource, with status updated to @DELETE_SCHEDULED@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteGameServerGroupResponse' value with any optional fields omitted.
 mkDeleteGameServerGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteGameServerGroupResponse
-mkDeleteGameServerGroupResponse pResponseStatus_ =
+mkDeleteGameServerGroupResponse responseStatus =
   DeleteGameServerGroupResponse'
-    { gameServerGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gameServerGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes the deleted game server group resource, with status updated to @DELETE_SCHEDULED@ .
 --
 -- /Note:/ Consider using 'gameServerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsgrsGameServerGroup :: Lens.Lens' DeleteGameServerGroupResponse (Lude.Maybe GameServerGroup)
-dgsgrsGameServerGroup = Lens.lens (gameServerGroup :: DeleteGameServerGroupResponse -> Lude.Maybe GameServerGroup) (\s a -> s {gameServerGroup = a} :: DeleteGameServerGroupResponse)
-{-# DEPRECATED dgsgrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
+dgsgrrsGameServerGroup :: Lens.Lens' DeleteGameServerGroupResponse (Core.Maybe Types.GameServerGroup)
+dgsgrrsGameServerGroup = Lens.field @"gameServerGroup"
+{-# DEPRECATED dgsgrrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsgrsResponseStatus :: Lens.Lens' DeleteGameServerGroupResponse Lude.Int
-dgsgrsResponseStatus = Lens.lens (responseStatus :: DeleteGameServerGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGameServerGroupResponse)
-{-# DEPRECATED dgsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgsgrrsResponseStatus :: Lens.Lens' DeleteGameServerGroupResponse Core.Int
+dgsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

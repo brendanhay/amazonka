@@ -13,46 +13,51 @@
 module Network.AWS.SSM.Types.DocumentHashType
   ( DocumentHashType
       ( DocumentHashType',
-        HashSHA256,
-        HashSHA1
+        DocumentHashTypeHashSHA256,
+        DocumentHashTypeHashSHA1,
+        fromDocumentHashType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DocumentHashType = DocumentHashType' Lude.Text
+newtype DocumentHashType = DocumentHashType'
+  { fromDocumentHashType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HashSHA256 :: DocumentHashType
-pattern HashSHA256 = DocumentHashType' "Sha256"
+pattern DocumentHashTypeHashSHA256 :: DocumentHashType
+pattern DocumentHashTypeHashSHA256 = DocumentHashType' "Sha256"
 
-pattern HashSHA1 :: DocumentHashType
-pattern HashSHA1 = DocumentHashType' "Sha1"
+pattern DocumentHashTypeHashSHA1 :: DocumentHashType
+pattern DocumentHashTypeHashSHA1 = DocumentHashType' "Sha1"
 
 {-# COMPLETE
-  HashSHA256,
-  HashSHA1,
+  DocumentHashTypeHashSHA256,
+  DocumentHashTypeHashSHA1,
   DocumentHashType'
   #-}

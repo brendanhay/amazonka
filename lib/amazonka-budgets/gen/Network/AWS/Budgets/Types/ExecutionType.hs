@@ -13,56 +13,61 @@
 module Network.AWS.Budgets.Types.ExecutionType
   ( ExecutionType
       ( ExecutionType',
-        ApproveBudgetAction,
-        RetryBudgetAction,
-        ReverseBudgetAction,
-        ResetBudgetAction
+        ExecutionTypeApproveBudgetAction,
+        ExecutionTypeRetryBudgetAction,
+        ExecutionTypeReverseBudgetAction,
+        ExecutionTypeResetBudgetAction,
+        fromExecutionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExecutionType = ExecutionType' Lude.Text
+newtype ExecutionType = ExecutionType'
+  { fromExecutionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ApproveBudgetAction :: ExecutionType
-pattern ApproveBudgetAction = ExecutionType' "APPROVE_BUDGET_ACTION"
+pattern ExecutionTypeApproveBudgetAction :: ExecutionType
+pattern ExecutionTypeApproveBudgetAction = ExecutionType' "APPROVE_BUDGET_ACTION"
 
-pattern RetryBudgetAction :: ExecutionType
-pattern RetryBudgetAction = ExecutionType' "RETRY_BUDGET_ACTION"
+pattern ExecutionTypeRetryBudgetAction :: ExecutionType
+pattern ExecutionTypeRetryBudgetAction = ExecutionType' "RETRY_BUDGET_ACTION"
 
-pattern ReverseBudgetAction :: ExecutionType
-pattern ReverseBudgetAction = ExecutionType' "REVERSE_BUDGET_ACTION"
+pattern ExecutionTypeReverseBudgetAction :: ExecutionType
+pattern ExecutionTypeReverseBudgetAction = ExecutionType' "REVERSE_BUDGET_ACTION"
 
-pattern ResetBudgetAction :: ExecutionType
-pattern ResetBudgetAction = ExecutionType' "RESET_BUDGET_ACTION"
+pattern ExecutionTypeResetBudgetAction :: ExecutionType
+pattern ExecutionTypeResetBudgetAction = ExecutionType' "RESET_BUDGET_ACTION"
 
 {-# COMPLETE
-  ApproveBudgetAction,
-  RetryBudgetAction,
-  ReverseBudgetAction,
-  ResetBudgetAction,
+  ExecutionTypeApproveBudgetAction,
+  ExecutionTypeRetryBudgetAction,
+  ExecutionTypeReverseBudgetAction,
+  ExecutionTypeResetBudgetAction,
   ExecutionType'
   #-}

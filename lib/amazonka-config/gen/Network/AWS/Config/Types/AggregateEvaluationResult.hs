@@ -17,132 +17,122 @@ module Network.AWS.Config.Types.AggregateEvaluationResult
     mkAggregateEvaluationResult,
 
     -- * Lenses
-    aerEvaluationResultIdentifier,
-    aerAnnotation,
-    aerConfigRuleInvokedTime,
-    aerResultRecordedTime,
     aerAccountId,
+    aerAnnotation,
+    aerAwsRegion,
     aerComplianceType,
-    aerAWSRegion,
+    aerConfigRuleInvokedTime,
+    aerEvaluationResultIdentifier,
+    aerResultRecordedTime,
   )
 where
 
-import Network.AWS.Config.Types.ComplianceType
-import Network.AWS.Config.Types.EvaluationResultIdentifier
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.AwsRegion as Types
+import qualified Network.AWS.Config.Types.ComplianceType as Types
+import qualified Network.AWS.Config.Types.EvaluationResultIdentifier as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of an AWS Config evaluation for an account ID and region in an aggregator. Provides the AWS resource that was evaluated, the compliance of the resource, related time stamps, and supplementary information.
 --
 -- /See:/ 'mkAggregateEvaluationResult' smart constructor.
 data AggregateEvaluationResult = AggregateEvaluationResult'
-  { -- | Uniquely identifies the evaluation result.
-    evaluationResultIdentifier :: Lude.Maybe EvaluationResultIdentifier,
+  { -- | The 12-digit account ID of the source account.
+    accountId :: Core.Maybe Types.AccountId,
     -- | Supplementary information about how the agrregate evaluation determined the compliance.
-    annotation :: Lude.Maybe Lude.Text,
-    -- | The time when the AWS Config rule evaluated the AWS resource.
-    configRuleInvokedTime :: Lude.Maybe Lude.Timestamp,
-    -- | The time when AWS Config recorded the aggregate evaluation result.
-    resultRecordedTime :: Lude.Maybe Lude.Timestamp,
-    -- | The 12-digit account ID of the source account.
-    accountId :: Lude.Maybe Lude.Text,
+    annotation :: Core.Maybe Types.StringWithCharLimit256,
+    -- | The source region from where the data is aggregated.
+    awsRegion :: Core.Maybe Types.AwsRegion,
     -- | The resource compliance status.
     --
     -- For the @AggregationEvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
-    complianceType :: Lude.Maybe ComplianceType,
-    -- | The source region from where the data is aggregated.
-    awsRegion :: Lude.Maybe Lude.Text
+    complianceType :: Core.Maybe Types.ComplianceType,
+    -- | The time when the AWS Config rule evaluated the AWS resource.
+    configRuleInvokedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Uniquely identifies the evaluation result.
+    evaluationResultIdentifier :: Core.Maybe Types.EvaluationResultIdentifier,
+    -- | The time when AWS Config recorded the aggregate evaluation result.
+    resultRecordedTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AggregateEvaluationResult' with the minimum fields required to make a request.
---
--- * 'evaluationResultIdentifier' - Uniquely identifies the evaluation result.
--- * 'annotation' - Supplementary information about how the agrregate evaluation determined the compliance.
--- * 'configRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
--- * 'resultRecordedTime' - The time when AWS Config recorded the aggregate evaluation result.
--- * 'accountId' - The 12-digit account ID of the source account.
--- * 'complianceType' - The resource compliance status.
---
--- For the @AggregationEvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
--- * 'awsRegion' - The source region from where the data is aggregated.
+-- | Creates a 'AggregateEvaluationResult' value with any optional fields omitted.
 mkAggregateEvaluationResult ::
   AggregateEvaluationResult
 mkAggregateEvaluationResult =
   AggregateEvaluationResult'
-    { evaluationResultIdentifier =
-        Lude.Nothing,
-      annotation = Lude.Nothing,
-      configRuleInvokedTime = Lude.Nothing,
-      resultRecordedTime = Lude.Nothing,
-      accountId = Lude.Nothing,
-      complianceType = Lude.Nothing,
-      awsRegion = Lude.Nothing
+    { accountId = Core.Nothing,
+      annotation = Core.Nothing,
+      awsRegion = Core.Nothing,
+      complianceType = Core.Nothing,
+      configRuleInvokedTime = Core.Nothing,
+      evaluationResultIdentifier = Core.Nothing,
+      resultRecordedTime = Core.Nothing
     }
-
--- | Uniquely identifies the evaluation result.
---
--- /Note:/ Consider using 'evaluationResultIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aerEvaluationResultIdentifier :: Lens.Lens' AggregateEvaluationResult (Lude.Maybe EvaluationResultIdentifier)
-aerEvaluationResultIdentifier = Lens.lens (evaluationResultIdentifier :: AggregateEvaluationResult -> Lude.Maybe EvaluationResultIdentifier) (\s a -> s {evaluationResultIdentifier = a} :: AggregateEvaluationResult)
-{-# DEPRECATED aerEvaluationResultIdentifier "Use generic-lens or generic-optics with 'evaluationResultIdentifier' instead." #-}
-
--- | Supplementary information about how the agrregate evaluation determined the compliance.
---
--- /Note:/ Consider using 'annotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aerAnnotation :: Lens.Lens' AggregateEvaluationResult (Lude.Maybe Lude.Text)
-aerAnnotation = Lens.lens (annotation :: AggregateEvaluationResult -> Lude.Maybe Lude.Text) (\s a -> s {annotation = a} :: AggregateEvaluationResult)
-{-# DEPRECATED aerAnnotation "Use generic-lens or generic-optics with 'annotation' instead." #-}
-
--- | The time when the AWS Config rule evaluated the AWS resource.
---
--- /Note:/ Consider using 'configRuleInvokedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aerConfigRuleInvokedTime :: Lens.Lens' AggregateEvaluationResult (Lude.Maybe Lude.Timestamp)
-aerConfigRuleInvokedTime = Lens.lens (configRuleInvokedTime :: AggregateEvaluationResult -> Lude.Maybe Lude.Timestamp) (\s a -> s {configRuleInvokedTime = a} :: AggregateEvaluationResult)
-{-# DEPRECATED aerConfigRuleInvokedTime "Use generic-lens or generic-optics with 'configRuleInvokedTime' instead." #-}
-
--- | The time when AWS Config recorded the aggregate evaluation result.
---
--- /Note:/ Consider using 'resultRecordedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aerResultRecordedTime :: Lens.Lens' AggregateEvaluationResult (Lude.Maybe Lude.Timestamp)
-aerResultRecordedTime = Lens.lens (resultRecordedTime :: AggregateEvaluationResult -> Lude.Maybe Lude.Timestamp) (\s a -> s {resultRecordedTime = a} :: AggregateEvaluationResult)
-{-# DEPRECATED aerResultRecordedTime "Use generic-lens or generic-optics with 'resultRecordedTime' instead." #-}
 
 -- | The 12-digit account ID of the source account.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aerAccountId :: Lens.Lens' AggregateEvaluationResult (Lude.Maybe Lude.Text)
-aerAccountId = Lens.lens (accountId :: AggregateEvaluationResult -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: AggregateEvaluationResult)
+aerAccountId :: Lens.Lens' AggregateEvaluationResult (Core.Maybe Types.AccountId)
+aerAccountId = Lens.field @"accountId"
 {-# DEPRECATED aerAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | Supplementary information about how the agrregate evaluation determined the compliance.
+--
+-- /Note:/ Consider using 'annotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aerAnnotation :: Lens.Lens' AggregateEvaluationResult (Core.Maybe Types.StringWithCharLimit256)
+aerAnnotation = Lens.field @"annotation"
+{-# DEPRECATED aerAnnotation "Use generic-lens or generic-optics with 'annotation' instead." #-}
+
+-- | The source region from where the data is aggregated.
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aerAwsRegion :: Lens.Lens' AggregateEvaluationResult (Core.Maybe Types.AwsRegion)
+aerAwsRegion = Lens.field @"awsRegion"
+{-# DEPRECATED aerAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
 -- | The resource compliance status.
 --
 -- For the @AggregationEvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
 --
 -- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aerComplianceType :: Lens.Lens' AggregateEvaluationResult (Lude.Maybe ComplianceType)
-aerComplianceType = Lens.lens (complianceType :: AggregateEvaluationResult -> Lude.Maybe ComplianceType) (\s a -> s {complianceType = a} :: AggregateEvaluationResult)
+aerComplianceType :: Lens.Lens' AggregateEvaluationResult (Core.Maybe Types.ComplianceType)
+aerComplianceType = Lens.field @"complianceType"
 {-# DEPRECATED aerComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
--- | The source region from where the data is aggregated.
+-- | The time when the AWS Config rule evaluated the AWS resource.
 --
--- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aerAWSRegion :: Lens.Lens' AggregateEvaluationResult (Lude.Maybe Lude.Text)
-aerAWSRegion = Lens.lens (awsRegion :: AggregateEvaluationResult -> Lude.Maybe Lude.Text) (\s a -> s {awsRegion = a} :: AggregateEvaluationResult)
-{-# DEPRECATED aerAWSRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+-- /Note:/ Consider using 'configRuleInvokedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aerConfigRuleInvokedTime :: Lens.Lens' AggregateEvaluationResult (Core.Maybe Core.NominalDiffTime)
+aerConfigRuleInvokedTime = Lens.field @"configRuleInvokedTime"
+{-# DEPRECATED aerConfigRuleInvokedTime "Use generic-lens or generic-optics with 'configRuleInvokedTime' instead." #-}
 
-instance Lude.FromJSON AggregateEvaluationResult where
+-- | Uniquely identifies the evaluation result.
+--
+-- /Note:/ Consider using 'evaluationResultIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aerEvaluationResultIdentifier :: Lens.Lens' AggregateEvaluationResult (Core.Maybe Types.EvaluationResultIdentifier)
+aerEvaluationResultIdentifier = Lens.field @"evaluationResultIdentifier"
+{-# DEPRECATED aerEvaluationResultIdentifier "Use generic-lens or generic-optics with 'evaluationResultIdentifier' instead." #-}
+
+-- | The time when AWS Config recorded the aggregate evaluation result.
+--
+-- /Note:/ Consider using 'resultRecordedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aerResultRecordedTime :: Lens.Lens' AggregateEvaluationResult (Core.Maybe Core.NominalDiffTime)
+aerResultRecordedTime = Lens.field @"resultRecordedTime"
+{-# DEPRECATED aerResultRecordedTime "Use generic-lens or generic-optics with 'resultRecordedTime' instead." #-}
+
+instance Core.FromJSON AggregateEvaluationResult where
   parseJSON =
-    Lude.withObject
-      "AggregateEvaluationResult"
-      ( \x ->
-          AggregateEvaluationResult'
-            Lude.<$> (x Lude..:? "EvaluationResultIdentifier")
-            Lude.<*> (x Lude..:? "Annotation")
-            Lude.<*> (x Lude..:? "ConfigRuleInvokedTime")
-            Lude.<*> (x Lude..:? "ResultRecordedTime")
-            Lude.<*> (x Lude..:? "AccountId")
-            Lude.<*> (x Lude..:? "ComplianceType")
-            Lude.<*> (x Lude..:? "AwsRegion")
-      )
+    Core.withObject "AggregateEvaluationResult" Core.$
+      \x ->
+        AggregateEvaluationResult'
+          Core.<$> (x Core..:? "AccountId")
+          Core.<*> (x Core..:? "Annotation")
+          Core.<*> (x Core..:? "AwsRegion")
+          Core.<*> (x Core..:? "ComplianceType")
+          Core.<*> (x Core..:? "ConfigRuleInvokedTime")
+          Core.<*> (x Core..:? "EvaluationResultIdentifier")
+          Core.<*> (x Core..:? "ResultRecordedTime")

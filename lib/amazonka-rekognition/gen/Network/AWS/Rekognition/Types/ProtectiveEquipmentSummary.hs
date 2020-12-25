@@ -17,14 +17,14 @@ module Network.AWS.Rekognition.Types.ProtectiveEquipmentSummary
     mkProtectiveEquipmentSummary,
 
     -- * Lenses
+    pesPersonsIndeterminate,
     pesPersonsWithRequiredEquipment,
     pesPersonsWithoutRequiredEquipment,
-    pesPersonsIndeterminate,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Summary information for required items of personal protective equipment (PPE) detected on persons by a call to 'DetectProtectiveEquipment' . You specify the required type of PPE in the @SummarizationAttributes@ ('ProtectiveEquipmentSummarizationAttributes' ) input parameter. The summary includes which persons were detected wearing the required personal protective equipment (@PersonsWithRequiredEquipment@ ), which persons were detected as not wearing the required PPE (@PersonsWithoutRequiredEquipment@ ), and the persons in which a determination could not be made (@PersonsIndeterminate@ ).
 --
@@ -32,59 +32,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProtectiveEquipmentSummary' smart constructor.
 data ProtectiveEquipmentSummary = ProtectiveEquipmentSummary'
-  { -- | An array of IDs for persons who are wearing detected personal protective equipment.
-    personsWithRequiredEquipment :: Lude.Maybe [Lude.Natural],
+  { -- | An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
+    personsIndeterminate :: Core.Maybe [Core.Natural],
+    -- | An array of IDs for persons who are wearing detected personal protective equipment.
+    personsWithRequiredEquipment :: Core.Maybe [Core.Natural],
     -- | An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment.
-    personsWithoutRequiredEquipment :: Lude.Maybe [Lude.Natural],
-    -- | An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
-    personsIndeterminate :: Lude.Maybe [Lude.Natural]
+    personsWithoutRequiredEquipment :: Core.Maybe [Core.Natural]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProtectiveEquipmentSummary' with the minimum fields required to make a request.
---
--- * 'personsWithRequiredEquipment' - An array of IDs for persons who are wearing detected personal protective equipment.
--- * 'personsWithoutRequiredEquipment' - An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment.
--- * 'personsIndeterminate' - An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
+-- | Creates a 'ProtectiveEquipmentSummary' value with any optional fields omitted.
 mkProtectiveEquipmentSummary ::
   ProtectiveEquipmentSummary
 mkProtectiveEquipmentSummary =
   ProtectiveEquipmentSummary'
-    { personsWithRequiredEquipment =
-        Lude.Nothing,
-      personsWithoutRequiredEquipment = Lude.Nothing,
-      personsIndeterminate = Lude.Nothing
+    { personsIndeterminate = Core.Nothing,
+      personsWithRequiredEquipment = Core.Nothing,
+      personsWithoutRequiredEquipment = Core.Nothing
     }
+
+-- | An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
+--
+-- /Note:/ Consider using 'personsIndeterminate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesPersonsIndeterminate :: Lens.Lens' ProtectiveEquipmentSummary (Core.Maybe [Core.Natural])
+pesPersonsIndeterminate = Lens.field @"personsIndeterminate"
+{-# DEPRECATED pesPersonsIndeterminate "Use generic-lens or generic-optics with 'personsIndeterminate' instead." #-}
 
 -- | An array of IDs for persons who are wearing detected personal protective equipment.
 --
 -- /Note:/ Consider using 'personsWithRequiredEquipment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesPersonsWithRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Lude.Maybe [Lude.Natural])
-pesPersonsWithRequiredEquipment = Lens.lens (personsWithRequiredEquipment :: ProtectiveEquipmentSummary -> Lude.Maybe [Lude.Natural]) (\s a -> s {personsWithRequiredEquipment = a} :: ProtectiveEquipmentSummary)
+pesPersonsWithRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Core.Maybe [Core.Natural])
+pesPersonsWithRequiredEquipment = Lens.field @"personsWithRequiredEquipment"
 {-# DEPRECATED pesPersonsWithRequiredEquipment "Use generic-lens or generic-optics with 'personsWithRequiredEquipment' instead." #-}
 
 -- | An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment.
 --
 -- /Note:/ Consider using 'personsWithoutRequiredEquipment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesPersonsWithoutRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Lude.Maybe [Lude.Natural])
-pesPersonsWithoutRequiredEquipment = Lens.lens (personsWithoutRequiredEquipment :: ProtectiveEquipmentSummary -> Lude.Maybe [Lude.Natural]) (\s a -> s {personsWithoutRequiredEquipment = a} :: ProtectiveEquipmentSummary)
+pesPersonsWithoutRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Core.Maybe [Core.Natural])
+pesPersonsWithoutRequiredEquipment = Lens.field @"personsWithoutRequiredEquipment"
 {-# DEPRECATED pesPersonsWithoutRequiredEquipment "Use generic-lens or generic-optics with 'personsWithoutRequiredEquipment' instead." #-}
 
--- | An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
---
--- /Note:/ Consider using 'personsIndeterminate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesPersonsIndeterminate :: Lens.Lens' ProtectiveEquipmentSummary (Lude.Maybe [Lude.Natural])
-pesPersonsIndeterminate = Lens.lens (personsIndeterminate :: ProtectiveEquipmentSummary -> Lude.Maybe [Lude.Natural]) (\s a -> s {personsIndeterminate = a} :: ProtectiveEquipmentSummary)
-{-# DEPRECATED pesPersonsIndeterminate "Use generic-lens or generic-optics with 'personsIndeterminate' instead." #-}
-
-instance Lude.FromJSON ProtectiveEquipmentSummary where
+instance Core.FromJSON ProtectiveEquipmentSummary where
   parseJSON =
-    Lude.withObject
-      "ProtectiveEquipmentSummary"
-      ( \x ->
-          ProtectiveEquipmentSummary'
-            Lude.<$> (x Lude..:? "PersonsWithRequiredEquipment" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "PersonsWithoutRequiredEquipment" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "PersonsIndeterminate" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ProtectiveEquipmentSummary" Core.$
+      \x ->
+        ProtectiveEquipmentSummary'
+          Core.<$> (x Core..:? "PersonsIndeterminate")
+          Core.<*> (x Core..:? "PersonsWithRequiredEquipment")
+          Core.<*> (x Core..:? "PersonsWithoutRequiredEquipment")

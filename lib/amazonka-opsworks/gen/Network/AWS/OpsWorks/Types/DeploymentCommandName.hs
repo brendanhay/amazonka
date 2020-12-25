@@ -13,96 +13,101 @@
 module Network.AWS.OpsWorks.Types.DeploymentCommandName
   ( DeploymentCommandName
       ( DeploymentCommandName',
-        InstallDependencies,
-        UpdateDependencies,
-        UpdateCustomCookbooks,
-        ExecuteRecipes,
-        Configure,
-        Setup,
-        Deploy,
-        Rollback,
-        Start,
-        Stop,
-        Restart,
-        Undeploy
+        DeploymentCommandNameInstallDependencies,
+        DeploymentCommandNameUpdateDependencies,
+        DeploymentCommandNameUpdateCustomCookbooks,
+        DeploymentCommandNameExecuteRecipes,
+        DeploymentCommandNameConfigure,
+        DeploymentCommandNameSetup,
+        DeploymentCommandNameDeploy,
+        DeploymentCommandNameRollback,
+        DeploymentCommandNameStart,
+        DeploymentCommandNameStop,
+        DeploymentCommandNameRestart,
+        DeploymentCommandNameUndeploy,
+        fromDeploymentCommandName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeploymentCommandName = DeploymentCommandName' Lude.Text
+newtype DeploymentCommandName = DeploymentCommandName'
+  { fromDeploymentCommandName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InstallDependencies :: DeploymentCommandName
-pattern InstallDependencies = DeploymentCommandName' "install_dependencies"
+pattern DeploymentCommandNameInstallDependencies :: DeploymentCommandName
+pattern DeploymentCommandNameInstallDependencies = DeploymentCommandName' "install_dependencies"
 
-pattern UpdateDependencies :: DeploymentCommandName
-pattern UpdateDependencies = DeploymentCommandName' "update_dependencies"
+pattern DeploymentCommandNameUpdateDependencies :: DeploymentCommandName
+pattern DeploymentCommandNameUpdateDependencies = DeploymentCommandName' "update_dependencies"
 
-pattern UpdateCustomCookbooks :: DeploymentCommandName
-pattern UpdateCustomCookbooks = DeploymentCommandName' "update_custom_cookbooks"
+pattern DeploymentCommandNameUpdateCustomCookbooks :: DeploymentCommandName
+pattern DeploymentCommandNameUpdateCustomCookbooks = DeploymentCommandName' "update_custom_cookbooks"
 
-pattern ExecuteRecipes :: DeploymentCommandName
-pattern ExecuteRecipes = DeploymentCommandName' "execute_recipes"
+pattern DeploymentCommandNameExecuteRecipes :: DeploymentCommandName
+pattern DeploymentCommandNameExecuteRecipes = DeploymentCommandName' "execute_recipes"
 
-pattern Configure :: DeploymentCommandName
-pattern Configure = DeploymentCommandName' "configure"
+pattern DeploymentCommandNameConfigure :: DeploymentCommandName
+pattern DeploymentCommandNameConfigure = DeploymentCommandName' "configure"
 
-pattern Setup :: DeploymentCommandName
-pattern Setup = DeploymentCommandName' "setup"
+pattern DeploymentCommandNameSetup :: DeploymentCommandName
+pattern DeploymentCommandNameSetup = DeploymentCommandName' "setup"
 
-pattern Deploy :: DeploymentCommandName
-pattern Deploy = DeploymentCommandName' "deploy"
+pattern DeploymentCommandNameDeploy :: DeploymentCommandName
+pattern DeploymentCommandNameDeploy = DeploymentCommandName' "deploy"
 
-pattern Rollback :: DeploymentCommandName
-pattern Rollback = DeploymentCommandName' "rollback"
+pattern DeploymentCommandNameRollback :: DeploymentCommandName
+pattern DeploymentCommandNameRollback = DeploymentCommandName' "rollback"
 
-pattern Start :: DeploymentCommandName
-pattern Start = DeploymentCommandName' "start"
+pattern DeploymentCommandNameStart :: DeploymentCommandName
+pattern DeploymentCommandNameStart = DeploymentCommandName' "start"
 
-pattern Stop :: DeploymentCommandName
-pattern Stop = DeploymentCommandName' "stop"
+pattern DeploymentCommandNameStop :: DeploymentCommandName
+pattern DeploymentCommandNameStop = DeploymentCommandName' "stop"
 
-pattern Restart :: DeploymentCommandName
-pattern Restart = DeploymentCommandName' "restart"
+pattern DeploymentCommandNameRestart :: DeploymentCommandName
+pattern DeploymentCommandNameRestart = DeploymentCommandName' "restart"
 
-pattern Undeploy :: DeploymentCommandName
-pattern Undeploy = DeploymentCommandName' "undeploy"
+pattern DeploymentCommandNameUndeploy :: DeploymentCommandName
+pattern DeploymentCommandNameUndeploy = DeploymentCommandName' "undeploy"
 
 {-# COMPLETE
-  InstallDependencies,
-  UpdateDependencies,
-  UpdateCustomCookbooks,
-  ExecuteRecipes,
-  Configure,
-  Setup,
-  Deploy,
-  Rollback,
-  Start,
-  Stop,
-  Restart,
-  Undeploy,
+  DeploymentCommandNameInstallDependencies,
+  DeploymentCommandNameUpdateDependencies,
+  DeploymentCommandNameUpdateCustomCookbooks,
+  DeploymentCommandNameExecuteRecipes,
+  DeploymentCommandNameConfigure,
+  DeploymentCommandNameSetup,
+  DeploymentCommandNameDeploy,
+  DeploymentCommandNameRollback,
+  DeploymentCommandNameStart,
+  DeploymentCommandNameStop,
+  DeploymentCommandNameRestart,
+  DeploymentCommandNameUndeploy,
   DeploymentCommandName'
   #-}

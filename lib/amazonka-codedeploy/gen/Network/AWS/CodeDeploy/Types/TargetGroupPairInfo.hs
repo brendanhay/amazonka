@@ -18,82 +18,76 @@ module Network.AWS.CodeDeploy.Types.TargetGroupPairInfo
 
     -- * Lenses
     tgpiProdTrafficRoute,
-    tgpiTestTrafficRoute,
     tgpiTargetGroups,
+    tgpiTestTrafficRoute,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.TargetGroupInfo
-import Network.AWS.CodeDeploy.Types.TrafficRoute
+import qualified Network.AWS.CodeDeploy.Types.TargetGroupInfo as Types
+import qualified Network.AWS.CodeDeploy.Types.TrafficRoute as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about two target groups and how traffic is routed during an Amazon ECS deployment. An optional test traffic route can be specified.
 --
 -- /See:/ 'mkTargetGroupPairInfo' smart constructor.
 data TargetGroupPairInfo = TargetGroupPairInfo'
   { -- | The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
-    prodTrafficRoute :: Lude.Maybe TrafficRoute,
-    -- | An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
-    testTrafficRoute :: Lude.Maybe TrafficRoute,
+    prodTrafficRoute :: Core.Maybe Types.TrafficRoute,
     -- | One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
-    targetGroups :: Lude.Maybe [TargetGroupInfo]
+    targetGroups :: Core.Maybe [Types.TargetGroupInfo],
+    -- | An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
+    testTrafficRoute :: Core.Maybe Types.TrafficRoute
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetGroupPairInfo' with the minimum fields required to make a request.
---
--- * 'prodTrafficRoute' - The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
--- * 'testTrafficRoute' - An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
--- * 'targetGroups' - One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
+-- | Creates a 'TargetGroupPairInfo' value with any optional fields omitted.
 mkTargetGroupPairInfo ::
   TargetGroupPairInfo
 mkTargetGroupPairInfo =
   TargetGroupPairInfo'
-    { prodTrafficRoute = Lude.Nothing,
-      testTrafficRoute = Lude.Nothing,
-      targetGroups = Lude.Nothing
+    { prodTrafficRoute = Core.Nothing,
+      targetGroups = Core.Nothing,
+      testTrafficRoute = Core.Nothing
     }
 
 -- | The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
 --
 -- /Note:/ Consider using 'prodTrafficRoute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpiProdTrafficRoute :: Lens.Lens' TargetGroupPairInfo (Lude.Maybe TrafficRoute)
-tgpiProdTrafficRoute = Lens.lens (prodTrafficRoute :: TargetGroupPairInfo -> Lude.Maybe TrafficRoute) (\s a -> s {prodTrafficRoute = a} :: TargetGroupPairInfo)
+tgpiProdTrafficRoute :: Lens.Lens' TargetGroupPairInfo (Core.Maybe Types.TrafficRoute)
+tgpiProdTrafficRoute = Lens.field @"prodTrafficRoute"
 {-# DEPRECATED tgpiProdTrafficRoute "Use generic-lens or generic-optics with 'prodTrafficRoute' instead." #-}
-
--- | An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
---
--- /Note:/ Consider using 'testTrafficRoute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpiTestTrafficRoute :: Lens.Lens' TargetGroupPairInfo (Lude.Maybe TrafficRoute)
-tgpiTestTrafficRoute = Lens.lens (testTrafficRoute :: TargetGroupPairInfo -> Lude.Maybe TrafficRoute) (\s a -> s {testTrafficRoute = a} :: TargetGroupPairInfo)
-{-# DEPRECATED tgpiTestTrafficRoute "Use generic-lens or generic-optics with 'testTrafficRoute' instead." #-}
 
 -- | One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
 --
 -- /Note:/ Consider using 'targetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpiTargetGroups :: Lens.Lens' TargetGroupPairInfo (Lude.Maybe [TargetGroupInfo])
-tgpiTargetGroups = Lens.lens (targetGroups :: TargetGroupPairInfo -> Lude.Maybe [TargetGroupInfo]) (\s a -> s {targetGroups = a} :: TargetGroupPairInfo)
+tgpiTargetGroups :: Lens.Lens' TargetGroupPairInfo (Core.Maybe [Types.TargetGroupInfo])
+tgpiTargetGroups = Lens.field @"targetGroups"
 {-# DEPRECATED tgpiTargetGroups "Use generic-lens or generic-optics with 'targetGroups' instead." #-}
 
-instance Lude.FromJSON TargetGroupPairInfo where
-  parseJSON =
-    Lude.withObject
-      "TargetGroupPairInfo"
-      ( \x ->
-          TargetGroupPairInfo'
-            Lude.<$> (x Lude..:? "prodTrafficRoute")
-            Lude.<*> (x Lude..:? "testTrafficRoute")
-            Lude.<*> (x Lude..:? "targetGroups" Lude..!= Lude.mempty)
-      )
+-- | An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
+--
+-- /Note:/ Consider using 'testTrafficRoute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpiTestTrafficRoute :: Lens.Lens' TargetGroupPairInfo (Core.Maybe Types.TrafficRoute)
+tgpiTestTrafficRoute = Lens.field @"testTrafficRoute"
+{-# DEPRECATED tgpiTestTrafficRoute "Use generic-lens or generic-optics with 'testTrafficRoute' instead." #-}
 
-instance Lude.ToJSON TargetGroupPairInfo where
-  toJSON TargetGroupPairInfo' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("prodTrafficRoute" Lude..=) Lude.<$> prodTrafficRoute,
-            ("testTrafficRoute" Lude..=) Lude.<$> testTrafficRoute,
-            ("targetGroups" Lude..=) Lude.<$> targetGroups
+instance Core.FromJSON TargetGroupPairInfo where
+  toJSON TargetGroupPairInfo {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("prodTrafficRoute" Core..=) Core.<$> prodTrafficRoute,
+            ("targetGroups" Core..=) Core.<$> targetGroups,
+            ("testTrafficRoute" Core..=) Core.<$> testTrafficRoute
           ]
       )
+
+instance Core.FromJSON TargetGroupPairInfo where
+  parseJSON =
+    Core.withObject "TargetGroupPairInfo" Core.$
+      \x ->
+        TargetGroupPairInfo'
+          Core.<$> (x Core..:? "prodTrafficRoute")
+          Core.<*> (x Core..:? "targetGroups")
+          Core.<*> (x Core..:? "testTrafficRoute")

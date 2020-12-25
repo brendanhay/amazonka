@@ -22,187 +22,174 @@ module Network.AWS.Glue.GetPartitionIndexes
     mkGetPartitionIndexes,
 
     -- ** Request lenses
-    gpiCatalogId,
-    gpiNextToken,
     gpiDatabaseName,
     gpiTableName,
+    gpiCatalogId,
+    gpiNextToken,
 
     -- * Destructuring the response
     GetPartitionIndexesResponse (..),
     mkGetPartitionIndexesResponse,
 
     -- ** Response lenses
-    gpirsPartitionIndexDescriptorList,
-    gpirsNextToken,
-    gpirsResponseStatus,
+    gpirrsNextToken,
+    gpirrsPartitionIndexDescriptorList,
+    gpirrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPartitionIndexes' smart constructor.
 data GetPartitionIndexes = GetPartitionIndexes'
-  { -- | The catalog ID where the table resides.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | A continuation token, included if this is a continuation call.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Specifies the name of a database from which you want to retrieve partition indexes.
-    databaseName :: Lude.Text,
+  { -- | Specifies the name of a database from which you want to retrieve partition indexes.
+    databaseName :: Types.DatabaseName,
     -- | Specifies the name of a table for which you want to retrieve the partition indexes.
-    tableName :: Lude.Text
+    tableName :: Types.TableName,
+    -- | The catalog ID where the table resides.
+    catalogId :: Core.Maybe Types.CatalogId,
+    -- | A continuation token, included if this is a continuation call.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPartitionIndexes' with the minimum fields required to make a request.
---
--- * 'catalogId' - The catalog ID where the table resides.
--- * 'nextToken' - A continuation token, included if this is a continuation call.
--- * 'databaseName' - Specifies the name of a database from which you want to retrieve partition indexes.
--- * 'tableName' - Specifies the name of a table for which you want to retrieve the partition indexes.
+-- | Creates a 'GetPartitionIndexes' value with any optional fields omitted.
 mkGetPartitionIndexes ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   GetPartitionIndexes
-mkGetPartitionIndexes pDatabaseName_ pTableName_ =
+mkGetPartitionIndexes databaseName tableName =
   GetPartitionIndexes'
-    { catalogId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      tableName = pTableName_
+    { databaseName,
+      tableName,
+      catalogId = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The catalog ID where the table resides.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpiCatalogId :: Lens.Lens' GetPartitionIndexes (Lude.Maybe Lude.Text)
-gpiCatalogId = Lens.lens (catalogId :: GetPartitionIndexes -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetPartitionIndexes)
-{-# DEPRECATED gpiCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
-
--- | A continuation token, included if this is a continuation call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpiNextToken :: Lens.Lens' GetPartitionIndexes (Lude.Maybe Lude.Text)
-gpiNextToken = Lens.lens (nextToken :: GetPartitionIndexes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPartitionIndexes)
-{-# DEPRECATED gpiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specifies the name of a database from which you want to retrieve partition indexes.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpiDatabaseName :: Lens.Lens' GetPartitionIndexes Lude.Text
-gpiDatabaseName = Lens.lens (databaseName :: GetPartitionIndexes -> Lude.Text) (\s a -> s {databaseName = a} :: GetPartitionIndexes)
+gpiDatabaseName :: Lens.Lens' GetPartitionIndexes Types.DatabaseName
+gpiDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED gpiDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | Specifies the name of a table for which you want to retrieve the partition indexes.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpiTableName :: Lens.Lens' GetPartitionIndexes Lude.Text
-gpiTableName = Lens.lens (tableName :: GetPartitionIndexes -> Lude.Text) (\s a -> s {tableName = a} :: GetPartitionIndexes)
+gpiTableName :: Lens.Lens' GetPartitionIndexes Types.TableName
+gpiTableName = Lens.field @"tableName"
 {-# DEPRECATED gpiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Page.AWSPager GetPartitionIndexes where
-  page rq rs
-    | Page.stop (rs Lens.^. gpirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gpirsPartitionIndexDescriptorList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gpiNextToken Lens..~ rs Lens.^. gpirsNextToken
+-- | The catalog ID where the table resides.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpiCatalogId :: Lens.Lens' GetPartitionIndexes (Core.Maybe Types.CatalogId)
+gpiCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED gpiCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
-instance Lude.AWSRequest GetPartitionIndexes where
+-- | A continuation token, included if this is a continuation call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpiNextToken :: Lens.Lens' GetPartitionIndexes (Core.Maybe Types.NextToken)
+gpiNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gpiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON GetPartitionIndexes where
+  toJSON GetPartitionIndexes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            ("CatalogId" Core..=) Core.<$> catalogId,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest GetPartitionIndexes where
   type Rs GetPartitionIndexes = GetPartitionIndexesResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetPartitionIndexes")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPartitionIndexesResponse'
-            Lude.<$> (x Lude..?> "PartitionIndexDescriptorList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "PartitionIndexDescriptorList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetPartitionIndexes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetPartitionIndexes" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPartitionIndexes where
-  toJSON GetPartitionIndexes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath GetPartitionIndexes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPartitionIndexes where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetPartitionIndexes where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"partitionIndexDescriptorList" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetPartitionIndexesResponse' smart constructor.
 data GetPartitionIndexesResponse = GetPartitionIndexesResponse'
-  { -- | A list of index descriptors.
-    partitionIndexDescriptorList :: Lude.Maybe [PartitionIndexDescriptor],
-    -- | A continuation token, present if the current list segment is not the last.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A continuation token, present if the current list segment is not the last.
+    nextToken :: Core.Maybe Types.Token,
+    -- | A list of index descriptors.
+    partitionIndexDescriptorList :: Core.Maybe [Types.PartitionIndexDescriptor],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPartitionIndexesResponse' with the minimum fields required to make a request.
---
--- * 'partitionIndexDescriptorList' - A list of index descriptors.
--- * 'nextToken' - A continuation token, present if the current list segment is not the last.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPartitionIndexesResponse' value with any optional fields omitted.
 mkGetPartitionIndexesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPartitionIndexesResponse
-mkGetPartitionIndexesResponse pResponseStatus_ =
+mkGetPartitionIndexesResponse responseStatus =
   GetPartitionIndexesResponse'
-    { partitionIndexDescriptorList =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      partitionIndexDescriptorList = Core.Nothing,
+      responseStatus
     }
-
--- | A list of index descriptors.
---
--- /Note:/ Consider using 'partitionIndexDescriptorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpirsPartitionIndexDescriptorList :: Lens.Lens' GetPartitionIndexesResponse (Lude.Maybe [PartitionIndexDescriptor])
-gpirsPartitionIndexDescriptorList = Lens.lens (partitionIndexDescriptorList :: GetPartitionIndexesResponse -> Lude.Maybe [PartitionIndexDescriptor]) (\s a -> s {partitionIndexDescriptorList = a} :: GetPartitionIndexesResponse)
-{-# DEPRECATED gpirsPartitionIndexDescriptorList "Use generic-lens or generic-optics with 'partitionIndexDescriptorList' instead." #-}
 
 -- | A continuation token, present if the current list segment is not the last.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpirsNextToken :: Lens.Lens' GetPartitionIndexesResponse (Lude.Maybe Lude.Text)
-gpirsNextToken = Lens.lens (nextToken :: GetPartitionIndexesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPartitionIndexesResponse)
-{-# DEPRECATED gpirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gpirrsNextToken :: Lens.Lens' GetPartitionIndexesResponse (Core.Maybe Types.Token)
+gpirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gpirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of index descriptors.
+--
+-- /Note:/ Consider using 'partitionIndexDescriptorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpirrsPartitionIndexDescriptorList :: Lens.Lens' GetPartitionIndexesResponse (Core.Maybe [Types.PartitionIndexDescriptor])
+gpirrsPartitionIndexDescriptorList = Lens.field @"partitionIndexDescriptorList"
+{-# DEPRECATED gpirrsPartitionIndexDescriptorList "Use generic-lens or generic-optics with 'partitionIndexDescriptorList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpirsResponseStatus :: Lens.Lens' GetPartitionIndexesResponse Lude.Int
-gpirsResponseStatus = Lens.lens (responseStatus :: GetPartitionIndexesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPartitionIndexesResponse)
-{-# DEPRECATED gpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpirrsResponseStatus :: Lens.Lens' GetPartitionIndexesResponse Core.Int
+gpirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

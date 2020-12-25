@@ -28,122 +28,105 @@ module Network.AWS.CodePipeline.PutWebhook
     mkPutWebhookResponse,
 
     -- ** Response lenses
-    pwrsWebhook,
-    pwrsResponseStatus,
+    pwrrsWebhook,
+    pwrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutWebhook' smart constructor.
 data PutWebhook = PutWebhook'
   { -- | The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name that helps you identify it. You might name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.
-    webhook :: WebhookDefinition,
+    webhook :: Types.WebhookDefinition,
     -- | The tags for the webhook.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutWebhook' with the minimum fields required to make a request.
---
--- * 'webhook' - The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name that helps you identify it. You might name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.
--- * 'tags' - The tags for the webhook.
+-- | Creates a 'PutWebhook' value with any optional fields omitted.
 mkPutWebhook ::
   -- | 'webhook'
-  WebhookDefinition ->
+  Types.WebhookDefinition ->
   PutWebhook
-mkPutWebhook pWebhook_ =
-  PutWebhook' {webhook = pWebhook_, tags = Lude.Nothing}
+mkPutWebhook webhook = PutWebhook' {webhook, tags = Core.Nothing}
 
 -- | The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name that helps you identify it. You might name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.
 --
 -- /Note:/ Consider using 'webhook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pwWebhook :: Lens.Lens' PutWebhook WebhookDefinition
-pwWebhook = Lens.lens (webhook :: PutWebhook -> WebhookDefinition) (\s a -> s {webhook = a} :: PutWebhook)
+pwWebhook :: Lens.Lens' PutWebhook Types.WebhookDefinition
+pwWebhook = Lens.field @"webhook"
 {-# DEPRECATED pwWebhook "Use generic-lens or generic-optics with 'webhook' instead." #-}
 
 -- | The tags for the webhook.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pwTags :: Lens.Lens' PutWebhook (Lude.Maybe [Tag])
-pwTags = Lens.lens (tags :: PutWebhook -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutWebhook)
+pwTags :: Lens.Lens' PutWebhook (Core.Maybe [Types.Tag])
+pwTags = Lens.field @"tags"
 {-# DEPRECATED pwTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest PutWebhook where
+instance Core.FromJSON PutWebhook where
+  toJSON PutWebhook {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("webhook" Core..= webhook),
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest PutWebhook where
   type Rs PutWebhook = PutWebhookResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodePipeline_20150709.PutWebhook")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutWebhookResponse'
-            Lude.<$> (x Lude..?> "webhook") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "webhook") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutWebhook where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.PutWebhook" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutWebhook where
-  toJSON PutWebhook' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("webhook" Lude..= webhook),
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath PutWebhook where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutWebhook where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutWebhookResponse' smart constructor.
 data PutWebhookResponse = PutWebhookResponse'
   { -- | The detail returned from creating the webhook, such as the webhook name, webhook URL, and webhook ARN.
-    webhook :: Lude.Maybe ListWebhookItem,
+    webhook :: Core.Maybe Types.ListWebhookItem,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PutWebhookResponse' with the minimum fields required to make a request.
---
--- * 'webhook' - The detail returned from creating the webhook, such as the webhook name, webhook URL, and webhook ARN.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutWebhookResponse' value with any optional fields omitted.
 mkPutWebhookResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutWebhookResponse
-mkPutWebhookResponse pResponseStatus_ =
-  PutWebhookResponse'
-    { webhook = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkPutWebhookResponse responseStatus =
+  PutWebhookResponse' {webhook = Core.Nothing, responseStatus}
 
 -- | The detail returned from creating the webhook, such as the webhook name, webhook URL, and webhook ARN.
 --
 -- /Note:/ Consider using 'webhook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pwrsWebhook :: Lens.Lens' PutWebhookResponse (Lude.Maybe ListWebhookItem)
-pwrsWebhook = Lens.lens (webhook :: PutWebhookResponse -> Lude.Maybe ListWebhookItem) (\s a -> s {webhook = a} :: PutWebhookResponse)
-{-# DEPRECATED pwrsWebhook "Use generic-lens or generic-optics with 'webhook' instead." #-}
+pwrrsWebhook :: Lens.Lens' PutWebhookResponse (Core.Maybe Types.ListWebhookItem)
+pwrrsWebhook = Lens.field @"webhook"
+{-# DEPRECATED pwrrsWebhook "Use generic-lens or generic-optics with 'webhook' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pwrsResponseStatus :: Lens.Lens' PutWebhookResponse Lude.Int
-pwrsResponseStatus = Lens.lens (responseStatus :: PutWebhookResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutWebhookResponse)
-{-# DEPRECATED pwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pwrrsResponseStatus :: Lens.Lens' PutWebhookResponse Core.Int
+pwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

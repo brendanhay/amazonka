@@ -17,56 +17,34 @@ module Network.AWS.Pinpoint.Types.ADMMessage
     mkADMMessage,
 
     -- * Lenses
-    admmSubstitutions,
-    admmExpiresAfter,
-    admmMD5,
-    admmSilentPush,
-    admmImageIconURL,
-    admmRawContent,
-    admmData,
-    admmSmallImageIconURL,
-    admmBody,
-    admmURL,
-    admmSound,
     admmAction,
-    admmImageURL,
+    admmBody,
     admmConsolidationKey,
-    admmTitle,
+    admmData,
+    admmExpiresAfter,
     admmIconReference,
+    admmImageIconUrl,
+    admmImageUrl,
+    admmMD5,
+    admmRawContent,
+    admmSilentPush,
+    admmSmallImageIconUrl,
+    admmSound,
+    admmSubstitutions,
+    admmTitle,
+    admmUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.Action
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.Action as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the settings for a one-time message that's sent directly to an endpoint through the ADM (Amazon Device Messaging) channel.
 --
 -- /See:/ 'mkADMMessage' smart constructor.
 data ADMMessage = ADMMessage'
-  { -- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
-    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | The amount of time, in seconds, that ADM should store the message if the recipient's device is offline. Amazon Pinpoint specifies this value in the expiresAfter parameter when it sends the notification message to ADM.
-    expiresAfter :: Lude.Maybe Lude.Text,
-    -- | The base64-encoded, MD5 checksum of the value specified by the Data property. ADM uses the MD5 value to verify the integrity of the data.
-    md5 :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
-    silentPush :: Lude.Maybe Lude.Bool,
-    -- | The URL of the large icon image to display in the content view of the push notification.
-    imageIconURL :: Lude.Maybe Lude.Text,
-    -- | The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
-    rawContent :: Lude.Maybe Lude.Text,
-    -- | The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
-    data' :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The URL of the small icon image to display in the status bar and the content view of the push notification.
-    smallImageIconURL :: Lude.Maybe Lude.Text,
-    -- | The body of the notification message.
-    body :: Lude.Maybe Lude.Text,
-    -- | The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
-    url :: Lude.Maybe Lude.Text,
-    -- | The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
-    sound :: Lude.Maybe Lude.Text,
-    -- | The action to occur if the recipient taps the push notification. Valid values are:
+  { -- | The action to occur if the recipient taps the push notification. Valid values are:
     --
     --
     --     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
@@ -76,146 +54,63 @@ data ADMMessage = ADMMessage'
     --
     --
     --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
-    action :: Lude.Maybe Action,
-    -- | The URL of an image to display in the push notification.
-    imageURL :: Lude.Maybe Lude.Text,
+    action :: Core.Maybe Types.Action,
+    -- | The body of the notification message.
+    body :: Core.Maybe Core.Text,
     -- | An arbitrary string that indicates that multiple messages are logically the same and that Amazon Device Messaging (ADM) can drop previously enqueued messages in favor of this message.
-    consolidationKey :: Lude.Maybe Lude.Text,
-    -- | The title to display above the notification message on the recipient's device.
-    title :: Lude.Maybe Lude.Text,
+    consolidationKey :: Core.Maybe Core.Text,
+    -- | The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
+    data' :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    -- | The amount of time, in seconds, that ADM should store the message if the recipient's device is offline. Amazon Pinpoint specifies this value in the expiresAfter parameter when it sends the notification message to ADM.
+    expiresAfter :: Core.Maybe Core.Text,
     -- | The icon image name of the asset saved in your app.
-    iconReference :: Lude.Maybe Lude.Text
+    iconReference :: Core.Maybe Core.Text,
+    -- | The URL of the large icon image to display in the content view of the push notification.
+    imageIconUrl :: Core.Maybe Core.Text,
+    -- | The URL of an image to display in the push notification.
+    imageUrl :: Core.Maybe Core.Text,
+    -- | The base64-encoded, MD5 checksum of the value specified by the Data property. ADM uses the MD5 value to verify the integrity of the data.
+    mD5 :: Core.Maybe Core.Text,
+    -- | The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
+    rawContent :: Core.Maybe Core.Text,
+    -- | Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
+    silentPush :: Core.Maybe Core.Bool,
+    -- | The URL of the small icon image to display in the status bar and the content view of the push notification.
+    smallImageIconUrl :: Core.Maybe Core.Text,
+    -- | The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
+    sound :: Core.Maybe Core.Text,
+    -- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    -- | The title to display above the notification message on the recipient's device.
+    title :: Core.Maybe Core.Text,
+    -- | The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
+    url :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ADMMessage' with the minimum fields required to make a request.
---
--- * 'substitutions' - The default message variables to use in the notification message. You can override the default variables with individual address variables.
--- * 'expiresAfter' - The amount of time, in seconds, that ADM should store the message if the recipient's device is offline. Amazon Pinpoint specifies this value in the expiresAfter parameter when it sends the notification message to ADM.
--- * 'md5' - The base64-encoded, MD5 checksum of the value specified by the Data property. ADM uses the MD5 value to verify the integrity of the data.
--- * 'silentPush' - Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
--- * 'imageIconURL' - The URL of the large icon image to display in the content view of the push notification.
--- * 'rawContent' - The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
--- * 'data'' - The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
--- * 'smallImageIconURL' - The URL of the small icon image to display in the status bar and the content view of the push notification.
--- * 'body' - The body of the notification message.
--- * 'url' - The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
--- * 'sound' - The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
--- * 'action' - The action to occur if the recipient taps the push notification. Valid values are:
---
---
---     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
---
---
---     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
---
---
---     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
---
---
--- * 'imageURL' - The URL of an image to display in the push notification.
--- * 'consolidationKey' - An arbitrary string that indicates that multiple messages are logically the same and that Amazon Device Messaging (ADM) can drop previously enqueued messages in favor of this message.
--- * 'title' - The title to display above the notification message on the recipient's device.
--- * 'iconReference' - The icon image name of the asset saved in your app.
+-- | Creates a 'ADMMessage' value with any optional fields omitted.
 mkADMMessage ::
   ADMMessage
 mkADMMessage =
   ADMMessage'
-    { substitutions = Lude.Nothing,
-      expiresAfter = Lude.Nothing,
-      md5 = Lude.Nothing,
-      silentPush = Lude.Nothing,
-      imageIconURL = Lude.Nothing,
-      rawContent = Lude.Nothing,
-      data' = Lude.Nothing,
-      smallImageIconURL = Lude.Nothing,
-      body = Lude.Nothing,
-      url = Lude.Nothing,
-      sound = Lude.Nothing,
-      action = Lude.Nothing,
-      imageURL = Lude.Nothing,
-      consolidationKey = Lude.Nothing,
-      title = Lude.Nothing,
-      iconReference = Lude.Nothing
+    { action = Core.Nothing,
+      body = Core.Nothing,
+      consolidationKey = Core.Nothing,
+      data' = Core.Nothing,
+      expiresAfter = Core.Nothing,
+      iconReference = Core.Nothing,
+      imageIconUrl = Core.Nothing,
+      imageUrl = Core.Nothing,
+      mD5 = Core.Nothing,
+      rawContent = Core.Nothing,
+      silentPush = Core.Nothing,
+      smallImageIconUrl = Core.Nothing,
+      sound = Core.Nothing,
+      substitutions = Core.Nothing,
+      title = Core.Nothing,
+      url = Core.Nothing
     }
-
--- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
---
--- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmSubstitutions :: Lens.Lens' ADMMessage (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-admmSubstitutions = Lens.lens (substitutions :: ADMMessage -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: ADMMessage)
-{-# DEPRECATED admmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
-
--- | The amount of time, in seconds, that ADM should store the message if the recipient's device is offline. Amazon Pinpoint specifies this value in the expiresAfter parameter when it sends the notification message to ADM.
---
--- /Note:/ Consider using 'expiresAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmExpiresAfter :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmExpiresAfter = Lens.lens (expiresAfter :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {expiresAfter = a} :: ADMMessage)
-{-# DEPRECATED admmExpiresAfter "Use generic-lens or generic-optics with 'expiresAfter' instead." #-}
-
--- | The base64-encoded, MD5 checksum of the value specified by the Data property. ADM uses the MD5 value to verify the integrity of the data.
---
--- /Note:/ Consider using 'md5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmMD5 :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmMD5 = Lens.lens (md5 :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {md5 = a} :: ADMMessage)
-{-# DEPRECATED admmMD5 "Use generic-lens or generic-optics with 'md5' instead." #-}
-
--- | Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
---
--- /Note:/ Consider using 'silentPush' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmSilentPush :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Bool)
-admmSilentPush = Lens.lens (silentPush :: ADMMessage -> Lude.Maybe Lude.Bool) (\s a -> s {silentPush = a} :: ADMMessage)
-{-# DEPRECATED admmSilentPush "Use generic-lens or generic-optics with 'silentPush' instead." #-}
-
--- | The URL of the large icon image to display in the content view of the push notification.
---
--- /Note:/ Consider using 'imageIconURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmImageIconURL :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmImageIconURL = Lens.lens (imageIconURL :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {imageIconURL = a} :: ADMMessage)
-{-# DEPRECATED admmImageIconURL "Use generic-lens or generic-optics with 'imageIconURL' instead." #-}
-
--- | The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
---
--- /Note:/ Consider using 'rawContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmRawContent :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmRawContent = Lens.lens (rawContent :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {rawContent = a} :: ADMMessage)
-{-# DEPRECATED admmRawContent "Use generic-lens or generic-optics with 'rawContent' instead." #-}
-
--- | The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
---
--- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmData :: Lens.Lens' ADMMessage (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-admmData = Lens.lens (data' :: ADMMessage -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {data' = a} :: ADMMessage)
-{-# DEPRECATED admmData "Use generic-lens or generic-optics with 'data'' instead." #-}
-
--- | The URL of the small icon image to display in the status bar and the content view of the push notification.
---
--- /Note:/ Consider using 'smallImageIconURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmSmallImageIconURL :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmSmallImageIconURL = Lens.lens (smallImageIconURL :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {smallImageIconURL = a} :: ADMMessage)
-{-# DEPRECATED admmSmallImageIconURL "Use generic-lens or generic-optics with 'smallImageIconURL' instead." #-}
-
--- | The body of the notification message.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmBody :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmBody = Lens.lens (body :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: ADMMessage)
-{-# DEPRECATED admmBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmURL :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmURL = Lens.lens (url :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: ADMMessage)
-{-# DEPRECATED admmURL "Use generic-lens or generic-optics with 'url' instead." #-}
-
--- | The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
---
--- /Note:/ Consider using 'sound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmSound :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmSound = Lens.lens (sound :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {sound = a} :: ADMMessage)
-{-# DEPRECATED admmSound "Use generic-lens or generic-optics with 'sound' instead." #-}
 
 -- | The action to occur if the recipient taps the push notification. Valid values are:
 --
@@ -231,57 +126,134 @@ admmSound = Lens.lens (sound :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmAction :: Lens.Lens' ADMMessage (Lude.Maybe Action)
-admmAction = Lens.lens (action :: ADMMessage -> Lude.Maybe Action) (\s a -> s {action = a} :: ADMMessage)
+admmAction :: Lens.Lens' ADMMessage (Core.Maybe Types.Action)
+admmAction = Lens.field @"action"
 {-# DEPRECATED admmAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
--- | The URL of an image to display in the push notification.
+-- | The body of the notification message.
 --
--- /Note:/ Consider using 'imageURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmImageURL :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmImageURL = Lens.lens (imageURL :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {imageURL = a} :: ADMMessage)
-{-# DEPRECATED admmImageURL "Use generic-lens or generic-optics with 'imageURL' instead." #-}
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmBody :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmBody = Lens.field @"body"
+{-# DEPRECATED admmBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | An arbitrary string that indicates that multiple messages are logically the same and that Amazon Device Messaging (ADM) can drop previously enqueued messages in favor of this message.
 --
 -- /Note:/ Consider using 'consolidationKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmConsolidationKey :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmConsolidationKey = Lens.lens (consolidationKey :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {consolidationKey = a} :: ADMMessage)
+admmConsolidationKey :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmConsolidationKey = Lens.field @"consolidationKey"
 {-# DEPRECATED admmConsolidationKey "Use generic-lens or generic-optics with 'consolidationKey' instead." #-}
 
--- | The title to display above the notification message on the recipient's device.
+-- | The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
 --
--- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmTitle :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmTitle = Lens.lens (title :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: ADMMessage)
-{-# DEPRECATED admmTitle "Use generic-lens or generic-optics with 'title' instead." #-}
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmData :: Lens.Lens' ADMMessage (Core.Maybe (Core.HashMap Core.Text Core.Text))
+admmData = Lens.field @"data'"
+{-# DEPRECATED admmData "Use generic-lens or generic-optics with 'data'' instead." #-}
+
+-- | The amount of time, in seconds, that ADM should store the message if the recipient's device is offline. Amazon Pinpoint specifies this value in the expiresAfter parameter when it sends the notification message to ADM.
+--
+-- /Note:/ Consider using 'expiresAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmExpiresAfter :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmExpiresAfter = Lens.field @"expiresAfter"
+{-# DEPRECATED admmExpiresAfter "Use generic-lens or generic-optics with 'expiresAfter' instead." #-}
 
 -- | The icon image name of the asset saved in your app.
 --
 -- /Note:/ Consider using 'iconReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admmIconReference :: Lens.Lens' ADMMessage (Lude.Maybe Lude.Text)
-admmIconReference = Lens.lens (iconReference :: ADMMessage -> Lude.Maybe Lude.Text) (\s a -> s {iconReference = a} :: ADMMessage)
+admmIconReference :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmIconReference = Lens.field @"iconReference"
 {-# DEPRECATED admmIconReference "Use generic-lens or generic-optics with 'iconReference' instead." #-}
 
-instance Lude.ToJSON ADMMessage where
-  toJSON ADMMessage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
-            ("ExpiresAfter" Lude..=) Lude.<$> expiresAfter,
-            ("MD5" Lude..=) Lude.<$> md5,
-            ("SilentPush" Lude..=) Lude.<$> silentPush,
-            ("ImageIconUrl" Lude..=) Lude.<$> imageIconURL,
-            ("RawContent" Lude..=) Lude.<$> rawContent,
-            ("Data" Lude..=) Lude.<$> data',
-            ("SmallImageIconUrl" Lude..=) Lude.<$> smallImageIconURL,
-            ("Body" Lude..=) Lude.<$> body,
-            ("Url" Lude..=) Lude.<$> url,
-            ("Sound" Lude..=) Lude.<$> sound,
-            ("Action" Lude..=) Lude.<$> action,
-            ("ImageUrl" Lude..=) Lude.<$> imageURL,
-            ("ConsolidationKey" Lude..=) Lude.<$> consolidationKey,
-            ("Title" Lude..=) Lude.<$> title,
-            ("IconReference" Lude..=) Lude.<$> iconReference
+-- | The URL of the large icon image to display in the content view of the push notification.
+--
+-- /Note:/ Consider using 'imageIconUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmImageIconUrl :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmImageIconUrl = Lens.field @"imageIconUrl"
+{-# DEPRECATED admmImageIconUrl "Use generic-lens or generic-optics with 'imageIconUrl' instead." #-}
+
+-- | The URL of an image to display in the push notification.
+--
+-- /Note:/ Consider using 'imageUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmImageUrl :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmImageUrl = Lens.field @"imageUrl"
+{-# DEPRECATED admmImageUrl "Use generic-lens or generic-optics with 'imageUrl' instead." #-}
+
+-- | The base64-encoded, MD5 checksum of the value specified by the Data property. ADM uses the MD5 value to verify the integrity of the data.
+--
+-- /Note:/ Consider using 'mD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmMD5 :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmMD5 = Lens.field @"mD5"
+{-# DEPRECATED admmMD5 "Use generic-lens or generic-optics with 'mD5' instead." #-}
+
+-- | The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
+--
+-- /Note:/ Consider using 'rawContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmRawContent :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmRawContent = Lens.field @"rawContent"
+{-# DEPRECATED admmRawContent "Use generic-lens or generic-optics with 'rawContent' instead." #-}
+
+-- | Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
+--
+-- /Note:/ Consider using 'silentPush' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmSilentPush :: Lens.Lens' ADMMessage (Core.Maybe Core.Bool)
+admmSilentPush = Lens.field @"silentPush"
+{-# DEPRECATED admmSilentPush "Use generic-lens or generic-optics with 'silentPush' instead." #-}
+
+-- | The URL of the small icon image to display in the status bar and the content view of the push notification.
+--
+-- /Note:/ Consider using 'smallImageIconUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmSmallImageIconUrl :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmSmallImageIconUrl = Lens.field @"smallImageIconUrl"
+{-# DEPRECATED admmSmallImageIconUrl "Use generic-lens or generic-optics with 'smallImageIconUrl' instead." #-}
+
+-- | The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
+--
+-- /Note:/ Consider using 'sound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmSound :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmSound = Lens.field @"sound"
+{-# DEPRECATED admmSound "Use generic-lens or generic-optics with 'sound' instead." #-}
+
+-- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
+--
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmSubstitutions :: Lens.Lens' ADMMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+admmSubstitutions = Lens.field @"substitutions"
+{-# DEPRECATED admmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
+
+-- | The title to display above the notification message on the recipient's device.
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmTitle :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmTitle = Lens.field @"title"
+{-# DEPRECATED admmTitle "Use generic-lens or generic-optics with 'title' instead." #-}
+
+-- | The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admmUrl :: Lens.Lens' ADMMessage (Core.Maybe Core.Text)
+admmUrl = Lens.field @"url"
+{-# DEPRECATED admmUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+
+instance Core.FromJSON ADMMessage where
+  toJSON ADMMessage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Action" Core..=) Core.<$> action,
+            ("Body" Core..=) Core.<$> body,
+            ("ConsolidationKey" Core..=) Core.<$> consolidationKey,
+            ("Data" Core..=) Core.<$> data',
+            ("ExpiresAfter" Core..=) Core.<$> expiresAfter,
+            ("IconReference" Core..=) Core.<$> iconReference,
+            ("ImageIconUrl" Core..=) Core.<$> imageIconUrl,
+            ("ImageUrl" Core..=) Core.<$> imageUrl,
+            ("MD5" Core..=) Core.<$> mD5,
+            ("RawContent" Core..=) Core.<$> rawContent,
+            ("SilentPush" Core..=) Core.<$> silentPush,
+            ("SmallImageIconUrl" Core..=) Core.<$> smallImageIconUrl,
+            ("Sound" Core..=) Core.<$> sound,
+            ("Substitutions" Core..=) Core.<$> substitutions,
+            ("Title" Core..=) Core.<$> title,
+            ("Url" Core..=) Core.<$> url
           ]
       )

@@ -17,55 +17,49 @@ module Network.AWS.MediaConvert.Types.JobMessages
     mkJobMessages,
 
     -- * Lenses
-    jmWarning,
     jmInfo,
+    jmWarning,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides messages from the service about jobs that you have already successfully submitted.
 --
 -- /See:/ 'mkJobMessages' smart constructor.
 data JobMessages = JobMessages'
-  { -- | List of messages that warn about conditions that might cause your job not to run or to fail.
-    warning :: Lude.Maybe [Lude.Text],
-    -- | List of messages that are informational only and don't indicate a problem with your job.
-    info :: Lude.Maybe [Lude.Text]
+  { -- | List of messages that are informational only and don't indicate a problem with your job.
+    info :: Core.Maybe [Core.Text],
+    -- | List of messages that warn about conditions that might cause your job not to run or to fail.
+    warning :: Core.Maybe [Core.Text]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobMessages' with the minimum fields required to make a request.
---
--- * 'warning' - List of messages that warn about conditions that might cause your job not to run or to fail.
--- * 'info' - List of messages that are informational only and don't indicate a problem with your job.
+-- | Creates a 'JobMessages' value with any optional fields omitted.
 mkJobMessages ::
   JobMessages
 mkJobMessages =
-  JobMessages' {warning = Lude.Nothing, info = Lude.Nothing}
-
--- | List of messages that warn about conditions that might cause your job not to run or to fail.
---
--- /Note:/ Consider using 'warning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jmWarning :: Lens.Lens' JobMessages (Lude.Maybe [Lude.Text])
-jmWarning = Lens.lens (warning :: JobMessages -> Lude.Maybe [Lude.Text]) (\s a -> s {warning = a} :: JobMessages)
-{-# DEPRECATED jmWarning "Use generic-lens or generic-optics with 'warning' instead." #-}
+  JobMessages' {info = Core.Nothing, warning = Core.Nothing}
 
 -- | List of messages that are informational only and don't indicate a problem with your job.
 --
 -- /Note:/ Consider using 'info' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jmInfo :: Lens.Lens' JobMessages (Lude.Maybe [Lude.Text])
-jmInfo = Lens.lens (info :: JobMessages -> Lude.Maybe [Lude.Text]) (\s a -> s {info = a} :: JobMessages)
+jmInfo :: Lens.Lens' JobMessages (Core.Maybe [Core.Text])
+jmInfo = Lens.field @"info"
 {-# DEPRECATED jmInfo "Use generic-lens or generic-optics with 'info' instead." #-}
 
-instance Lude.FromJSON JobMessages where
+-- | List of messages that warn about conditions that might cause your job not to run or to fail.
+--
+-- /Note:/ Consider using 'warning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jmWarning :: Lens.Lens' JobMessages (Core.Maybe [Core.Text])
+jmWarning = Lens.field @"warning"
+{-# DEPRECATED jmWarning "Use generic-lens or generic-optics with 'warning' instead." #-}
+
+instance Core.FromJSON JobMessages where
   parseJSON =
-    Lude.withObject
-      "JobMessages"
-      ( \x ->
-          JobMessages'
-            Lude.<$> (x Lude..:? "warning" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "info" Lude..!= Lude.mempty)
-      )
+    Core.withObject "JobMessages" Core.$
+      \x ->
+        JobMessages'
+          Core.<$> (x Core..:? "info") Core.<*> (x Core..:? "warning")

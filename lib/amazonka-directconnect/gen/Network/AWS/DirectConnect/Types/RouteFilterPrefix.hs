@@ -21,39 +21,37 @@ module Network.AWS.DirectConnect.Types.RouteFilterPrefix
   )
 where
 
+import qualified Network.AWS.DirectConnect.Types.CIDR as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
 --
 -- /See:/ 'mkRouteFilterPrefix' smart constructor.
 newtype RouteFilterPrefix = RouteFilterPrefix'
   { -- | The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
-    cidr :: Lude.Maybe Lude.Text
+    cidr :: Core.Maybe Types.CIDR
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RouteFilterPrefix' with the minimum fields required to make a request.
---
--- * 'cidr' - The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
+-- | Creates a 'RouteFilterPrefix' value with any optional fields omitted.
 mkRouteFilterPrefix ::
   RouteFilterPrefix
-mkRouteFilterPrefix = RouteFilterPrefix' {cidr = Lude.Nothing}
+mkRouteFilterPrefix = RouteFilterPrefix' {cidr = Core.Nothing}
 
 -- | The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
 --
 -- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfpCidr :: Lens.Lens' RouteFilterPrefix (Lude.Maybe Lude.Text)
-rfpCidr = Lens.lens (cidr :: RouteFilterPrefix -> Lude.Maybe Lude.Text) (\s a -> s {cidr = a} :: RouteFilterPrefix)
+rfpCidr :: Lens.Lens' RouteFilterPrefix (Core.Maybe Types.CIDR)
+rfpCidr = Lens.field @"cidr"
 {-# DEPRECATED rfpCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
-instance Lude.FromJSON RouteFilterPrefix where
-  parseJSON =
-    Lude.withObject
-      "RouteFilterPrefix"
-      (\x -> RouteFilterPrefix' Lude.<$> (x Lude..:? "cidr"))
+instance Core.FromJSON RouteFilterPrefix where
+  toJSON RouteFilterPrefix {..} =
+    Core.object (Core.catMaybes [("cidr" Core..=) Core.<$> cidr])
 
-instance Lude.ToJSON RouteFilterPrefix where
-  toJSON RouteFilterPrefix' {..} =
-    Lude.object (Lude.catMaybes [("cidr" Lude..=) Lude.<$> cidr])
+instance Core.FromJSON RouteFilterPrefix where
+  parseJSON =
+    Core.withObject "RouteFilterPrefix" Core.$
+      \x -> RouteFilterPrefix' Core.<$> (x Core..:? "cidr")

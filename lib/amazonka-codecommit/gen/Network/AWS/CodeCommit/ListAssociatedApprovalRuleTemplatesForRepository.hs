@@ -20,183 +20,158 @@ module Network.AWS.CodeCommit.ListAssociatedApprovalRuleTemplatesForRepository
     mkListAssociatedApprovalRuleTemplatesForRepository,
 
     -- ** Request lenses
-    laartfrNextToken,
     laartfrRepositoryName,
     laartfrMaxResults,
+    laartfrNextToken,
 
     -- * Destructuring the response
     ListAssociatedApprovalRuleTemplatesForRepositoryResponse (..),
     mkListAssociatedApprovalRuleTemplatesForRepositoryResponse,
 
     -- ** Response lenses
-    laartfrrsNextToken,
-    laartfrrsApprovalRuleTemplateNames,
-    laartfrrsResponseStatus,
+    laartfrrrsApprovalRuleTemplateNames,
+    laartfrrrsNextToken,
+    laartfrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAssociatedApprovalRuleTemplatesForRepository' smart constructor.
 data ListAssociatedApprovalRuleTemplatesForRepository = ListAssociatedApprovalRuleTemplatesForRepository'
-  { -- | An enumeration token that, when provided in a request, returns the next batch of the results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the repository for which you want to list all associated approval rule templates.
-    repositoryName :: Lude.Text,
+  { -- | The name of the repository for which you want to list all associated approval rule templates.
+    repositoryName :: Types.RepositoryName,
     -- | A non-zero, non-negative integer used to limit the number of returned results.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | An enumeration token that, when provided in a request, returns the next batch of the results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAssociatedApprovalRuleTemplatesForRepository' with the minimum fields required to make a request.
---
--- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
--- * 'repositoryName' - The name of the repository for which you want to list all associated approval rule templates.
--- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results.
+-- | Creates a 'ListAssociatedApprovalRuleTemplatesForRepository' value with any optional fields omitted.
 mkListAssociatedApprovalRuleTemplatesForRepository ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   ListAssociatedApprovalRuleTemplatesForRepository
-mkListAssociatedApprovalRuleTemplatesForRepository pRepositoryName_ =
+mkListAssociatedApprovalRuleTemplatesForRepository repositoryName =
   ListAssociatedApprovalRuleTemplatesForRepository'
-    { nextToken =
-        Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      maxResults = Lude.Nothing
+    { repositoryName,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | An enumeration token that, when provided in a request, returns the next batch of the results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laartfrNextToken :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepository (Lude.Maybe Lude.Text)
-laartfrNextToken = Lens.lens (nextToken :: ListAssociatedApprovalRuleTemplatesForRepository -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssociatedApprovalRuleTemplatesForRepository)
-{-# DEPRECATED laartfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the repository for which you want to list all associated approval rule templates.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laartfrRepositoryName :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepository Lude.Text
-laartfrRepositoryName = Lens.lens (repositoryName :: ListAssociatedApprovalRuleTemplatesForRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: ListAssociatedApprovalRuleTemplatesForRepository)
+laartfrRepositoryName :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepository Types.RepositoryName
+laartfrRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED laartfrRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | A non-zero, non-negative integer used to limit the number of returned results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laartfrMaxResults :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepository (Lude.Maybe Lude.Int)
-laartfrMaxResults = Lens.lens (maxResults :: ListAssociatedApprovalRuleTemplatesForRepository -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListAssociatedApprovalRuleTemplatesForRepository)
+laartfrMaxResults :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepository (Core.Maybe Core.Int)
+laartfrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED laartfrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
+-- | An enumeration token that, when provided in a request, returns the next batch of the results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laartfrNextToken :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepository (Core.Maybe Types.NextToken)
+laartfrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED laartfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
 instance
-  Lude.AWSRequest
+  Core.FromJSON
+    ListAssociatedApprovalRuleTemplatesForRepository
+  where
+  toJSON ListAssociatedApprovalRuleTemplatesForRepository {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance
+  Core.AWSRequest
     ListAssociatedApprovalRuleTemplatesForRepository
   where
   type
     Rs ListAssociatedApprovalRuleTemplatesForRepository =
       ListAssociatedApprovalRuleTemplatesForRepositoryResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeCommit_20150413.ListAssociatedApprovalRuleTemplatesForRepository"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAssociatedApprovalRuleTemplatesForRepositoryResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "approvalRuleTemplateNames" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "approvalRuleTemplateNames")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance
-  Lude.ToHeaders
-    ListAssociatedApprovalRuleTemplatesForRepository
-  where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.ListAssociatedApprovalRuleTemplatesForRepository" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance
-  Lude.ToJSON
-    ListAssociatedApprovalRuleTemplatesForRepository
-  where
-  toJSON ListAssociatedApprovalRuleTemplatesForRepository' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance
-  Lude.ToPath
-    ListAssociatedApprovalRuleTemplatesForRepository
-  where
-  toPath = Lude.const "/"
-
-instance
-  Lude.ToQuery
-    ListAssociatedApprovalRuleTemplatesForRepository
-  where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListAssociatedApprovalRuleTemplatesForRepositoryResponse' smart constructor.
 data ListAssociatedApprovalRuleTemplatesForRepositoryResponse = ListAssociatedApprovalRuleTemplatesForRepositoryResponse'
-  { -- | An enumeration token that allows the operation to batch the next results of the operation.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The names of all approval rule templates associated with the repository.
-    approvalRuleTemplateNames :: Lude.Maybe [Lude.Text],
+  { -- | The names of all approval rule templates associated with the repository.
+    approvalRuleTemplateNames :: Core.Maybe [Types.ApprovalRuleTemplateName],
+    -- | An enumeration token that allows the operation to batch the next results of the operation.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAssociatedApprovalRuleTemplatesForRepositoryResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - An enumeration token that allows the operation to batch the next results of the operation.
--- * 'approvalRuleTemplateNames' - The names of all approval rule templates associated with the repository.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAssociatedApprovalRuleTemplatesForRepositoryResponse' value with any optional fields omitted.
 mkListAssociatedApprovalRuleTemplatesForRepositoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAssociatedApprovalRuleTemplatesForRepositoryResponse
 mkListAssociatedApprovalRuleTemplatesForRepositoryResponse
-  pResponseStatus_ =
+  responseStatus =
     ListAssociatedApprovalRuleTemplatesForRepositoryResponse'
-      { nextToken =
-          Lude.Nothing,
-        approvalRuleTemplateNames =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
+      { approvalRuleTemplateNames =
+          Core.Nothing,
+        nextToken = Core.Nothing,
+        responseStatus
       }
-
--- | An enumeration token that allows the operation to batch the next results of the operation.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laartfrrsNextToken :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepositoryResponse (Lude.Maybe Lude.Text)
-laartfrrsNextToken = Lens.lens (nextToken :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse)
-{-# DEPRECATED laartfrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of all approval rule templates associated with the repository.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laartfrrsApprovalRuleTemplateNames :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepositoryResponse (Lude.Maybe [Lude.Text])
-laartfrrsApprovalRuleTemplateNames = Lens.lens (approvalRuleTemplateNames :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {approvalRuleTemplateNames = a} :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse)
-{-# DEPRECATED laartfrrsApprovalRuleTemplateNames "Use generic-lens or generic-optics with 'approvalRuleTemplateNames' instead." #-}
+laartfrrrsApprovalRuleTemplateNames :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepositoryResponse (Core.Maybe [Types.ApprovalRuleTemplateName])
+laartfrrrsApprovalRuleTemplateNames = Lens.field @"approvalRuleTemplateNames"
+{-# DEPRECATED laartfrrrsApprovalRuleTemplateNames "Use generic-lens or generic-optics with 'approvalRuleTemplateNames' instead." #-}
+
+-- | An enumeration token that allows the operation to batch the next results of the operation.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laartfrrrsNextToken :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepositoryResponse (Core.Maybe Types.NextToken)
+laartfrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED laartfrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laartfrrsResponseStatus :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepositoryResponse Lude.Int
-laartfrrsResponseStatus = Lens.lens (responseStatus :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse)
-{-# DEPRECATED laartfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+laartfrrrsResponseStatus :: Lens.Lens' ListAssociatedApprovalRuleTemplatesForRepositoryResponse Core.Int
+laartfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED laartfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

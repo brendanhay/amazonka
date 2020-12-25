@@ -30,127 +30,115 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     mkDescribeVirtualInterfacesResponse,
 
     -- ** Response lenses
-    dvisrsVirtualInterfaces,
-    dvisrsResponseStatus,
+    dvirfrsVirtualInterfaces,
+    dvirfrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeVirtualInterfaces' smart constructor.
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
   { -- | The ID of the connection.
-    connectionId :: Lude.Maybe Lude.Text,
+    connectionId :: Core.Maybe Types.ConnectionId,
     -- | The ID of the virtual interface.
-    virtualInterfaceId :: Lude.Maybe Lude.Text
+    virtualInterfaceId :: Core.Maybe Types.VirtualInterfaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeVirtualInterfaces' with the minimum fields required to make a request.
---
--- * 'connectionId' - The ID of the connection.
--- * 'virtualInterfaceId' - The ID of the virtual interface.
+-- | Creates a 'DescribeVirtualInterfaces' value with any optional fields omitted.
 mkDescribeVirtualInterfaces ::
   DescribeVirtualInterfaces
 mkDescribeVirtualInterfaces =
   DescribeVirtualInterfaces'
-    { connectionId = Lude.Nothing,
-      virtualInterfaceId = Lude.Nothing
+    { connectionId = Core.Nothing,
+      virtualInterfaceId = Core.Nothing
     }
 
 -- | The ID of the connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dviConnectionId :: Lens.Lens' DescribeVirtualInterfaces (Lude.Maybe Lude.Text)
-dviConnectionId = Lens.lens (connectionId :: DescribeVirtualInterfaces -> Lude.Maybe Lude.Text) (\s a -> s {connectionId = a} :: DescribeVirtualInterfaces)
+dviConnectionId :: Lens.Lens' DescribeVirtualInterfaces (Core.Maybe Types.ConnectionId)
+dviConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED dviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the virtual interface.
 --
 -- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dviVirtualInterfaceId :: Lens.Lens' DescribeVirtualInterfaces (Lude.Maybe Lude.Text)
-dviVirtualInterfaceId = Lens.lens (virtualInterfaceId :: DescribeVirtualInterfaces -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceId = a} :: DescribeVirtualInterfaces)
+dviVirtualInterfaceId :: Lens.Lens' DescribeVirtualInterfaces (Core.Maybe Types.VirtualInterfaceId)
+dviVirtualInterfaceId = Lens.field @"virtualInterfaceId"
 {-# DEPRECATED dviVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance Lude.AWSRequest DescribeVirtualInterfaces where
+instance Core.FromJSON DescribeVirtualInterfaces where
+  toJSON DescribeVirtualInterfaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("connectionId" Core..=) Core.<$> connectionId,
+            ("virtualInterfaceId" Core..=) Core.<$> virtualInterfaceId
+          ]
+      )
+
+instance Core.AWSRequest DescribeVirtualInterfaces where
   type
     Rs DescribeVirtualInterfaces =
       DescribeVirtualInterfacesResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.DescribeVirtualInterfaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeVirtualInterfacesResponse'
-            Lude.<$> (x Lude..?> "virtualInterfaces" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "virtualInterfaces")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeVirtualInterfaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.DescribeVirtualInterfaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeVirtualInterfaces where
-  toJSON DescribeVirtualInterfaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("connectionId" Lude..=) Lude.<$> connectionId,
-            ("virtualInterfaceId" Lude..=) Lude.<$> virtualInterfaceId
-          ]
-      )
-
-instance Lude.ToPath DescribeVirtualInterfaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeVirtualInterfaces where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeVirtualInterfacesResponse' smart constructor.
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
   { -- | The virtual interfaces
-    virtualInterfaces :: Lude.Maybe [VirtualInterface],
+    virtualInterfaces :: Core.Maybe [Types.VirtualInterface],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeVirtualInterfacesResponse' with the minimum fields required to make a request.
---
--- * 'virtualInterfaces' - The virtual interfaces
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeVirtualInterfacesResponse' value with any optional fields omitted.
 mkDescribeVirtualInterfacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeVirtualInterfacesResponse
-mkDescribeVirtualInterfacesResponse pResponseStatus_ =
+mkDescribeVirtualInterfacesResponse responseStatus =
   DescribeVirtualInterfacesResponse'
     { virtualInterfaces =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The virtual interfaces
 --
 -- /Note:/ Consider using 'virtualInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvisrsVirtualInterfaces :: Lens.Lens' DescribeVirtualInterfacesResponse (Lude.Maybe [VirtualInterface])
-dvisrsVirtualInterfaces = Lens.lens (virtualInterfaces :: DescribeVirtualInterfacesResponse -> Lude.Maybe [VirtualInterface]) (\s a -> s {virtualInterfaces = a} :: DescribeVirtualInterfacesResponse)
-{-# DEPRECATED dvisrsVirtualInterfaces "Use generic-lens or generic-optics with 'virtualInterfaces' instead." #-}
+dvirfrsVirtualInterfaces :: Lens.Lens' DescribeVirtualInterfacesResponse (Core.Maybe [Types.VirtualInterface])
+dvirfrsVirtualInterfaces = Lens.field @"virtualInterfaces"
+{-# DEPRECATED dvirfrsVirtualInterfaces "Use generic-lens or generic-optics with 'virtualInterfaces' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvisrsResponseStatus :: Lens.Lens' DescribeVirtualInterfacesResponse Lude.Int
-dvisrsResponseStatus = Lens.lens (responseStatus :: DescribeVirtualInterfacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVirtualInterfacesResponse)
-{-# DEPRECATED dvisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvirfrsResponseStatus :: Lens.Lens' DescribeVirtualInterfacesResponse Core.Int
+dvirfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dvirfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

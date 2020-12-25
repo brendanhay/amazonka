@@ -13,46 +13,51 @@
 module Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType
   ( VerifySoftwareTokenResponseType
       ( VerifySoftwareTokenResponseType',
-        VSTRTSuccess,
-        VSTRTError
+        VerifySoftwareTokenResponseTypeSuccess,
+        VerifySoftwareTokenResponseTypeError,
+        fromVerifySoftwareTokenResponseType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VerifySoftwareTokenResponseType = VerifySoftwareTokenResponseType' Lude.Text
+newtype VerifySoftwareTokenResponseType = VerifySoftwareTokenResponseType'
+  { fromVerifySoftwareTokenResponseType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VSTRTSuccess :: VerifySoftwareTokenResponseType
-pattern VSTRTSuccess = VerifySoftwareTokenResponseType' "SUCCESS"
+pattern VerifySoftwareTokenResponseTypeSuccess :: VerifySoftwareTokenResponseType
+pattern VerifySoftwareTokenResponseTypeSuccess = VerifySoftwareTokenResponseType' "SUCCESS"
 
-pattern VSTRTError :: VerifySoftwareTokenResponseType
-pattern VSTRTError = VerifySoftwareTokenResponseType' "ERROR"
+pattern VerifySoftwareTokenResponseTypeError :: VerifySoftwareTokenResponseType
+pattern VerifySoftwareTokenResponseTypeError = VerifySoftwareTokenResponseType' "ERROR"
 
 {-# COMPLETE
-  VSTRTSuccess,
-  VSTRTError,
+  VerifySoftwareTokenResponseTypeSuccess,
+  VerifySoftwareTokenResponseTypeError,
   VerifySoftwareTokenResponseType'
   #-}

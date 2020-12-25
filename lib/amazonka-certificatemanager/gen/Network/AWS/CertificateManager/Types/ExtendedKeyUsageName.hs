@@ -13,96 +13,101 @@
 module Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
   ( ExtendedKeyUsageName
       ( ExtendedKeyUsageName',
-        TLSWebServerAuthentication,
-        TLSWebClientAuthentication,
-        CodeSigning,
-        EmailProtection,
-        TimeStamping,
-        OcspSigning,
-        IPsecEndSystem,
-        IPsecTunnel,
-        IPsecUser,
-        Any,
-        None,
-        Custom
+        ExtendedKeyUsageNameTlsWebServerAuthentication,
+        ExtendedKeyUsageNameTlsWebClientAuthentication,
+        ExtendedKeyUsageNameCodeSigning,
+        ExtendedKeyUsageNameEmailProtection,
+        ExtendedKeyUsageNameTimeStamping,
+        ExtendedKeyUsageNameOcspSigning,
+        ExtendedKeyUsageNameIpsecEndSystem,
+        ExtendedKeyUsageNameIpsecTunnel,
+        ExtendedKeyUsageNameIpsecUser,
+        ExtendedKeyUsageNameAny,
+        ExtendedKeyUsageNameNone,
+        ExtendedKeyUsageNameCustom,
+        fromExtendedKeyUsageName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExtendedKeyUsageName = ExtendedKeyUsageName' Lude.Text
+newtype ExtendedKeyUsageName = ExtendedKeyUsageName'
+  { fromExtendedKeyUsageName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TLSWebServerAuthentication :: ExtendedKeyUsageName
-pattern TLSWebServerAuthentication = ExtendedKeyUsageName' "TLS_WEB_SERVER_AUTHENTICATION"
+pattern ExtendedKeyUsageNameTlsWebServerAuthentication :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameTlsWebServerAuthentication = ExtendedKeyUsageName' "TLS_WEB_SERVER_AUTHENTICATION"
 
-pattern TLSWebClientAuthentication :: ExtendedKeyUsageName
-pattern TLSWebClientAuthentication = ExtendedKeyUsageName' "TLS_WEB_CLIENT_AUTHENTICATION"
+pattern ExtendedKeyUsageNameTlsWebClientAuthentication :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameTlsWebClientAuthentication = ExtendedKeyUsageName' "TLS_WEB_CLIENT_AUTHENTICATION"
 
-pattern CodeSigning :: ExtendedKeyUsageName
-pattern CodeSigning = ExtendedKeyUsageName' "CODE_SIGNING"
+pattern ExtendedKeyUsageNameCodeSigning :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameCodeSigning = ExtendedKeyUsageName' "CODE_SIGNING"
 
-pattern EmailProtection :: ExtendedKeyUsageName
-pattern EmailProtection = ExtendedKeyUsageName' "EMAIL_PROTECTION"
+pattern ExtendedKeyUsageNameEmailProtection :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameEmailProtection = ExtendedKeyUsageName' "EMAIL_PROTECTION"
 
-pattern TimeStamping :: ExtendedKeyUsageName
-pattern TimeStamping = ExtendedKeyUsageName' "TIME_STAMPING"
+pattern ExtendedKeyUsageNameTimeStamping :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameTimeStamping = ExtendedKeyUsageName' "TIME_STAMPING"
 
-pattern OcspSigning :: ExtendedKeyUsageName
-pattern OcspSigning = ExtendedKeyUsageName' "OCSP_SIGNING"
+pattern ExtendedKeyUsageNameOcspSigning :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameOcspSigning = ExtendedKeyUsageName' "OCSP_SIGNING"
 
-pattern IPsecEndSystem :: ExtendedKeyUsageName
-pattern IPsecEndSystem = ExtendedKeyUsageName' "IPSEC_END_SYSTEM"
+pattern ExtendedKeyUsageNameIpsecEndSystem :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameIpsecEndSystem = ExtendedKeyUsageName' "IPSEC_END_SYSTEM"
 
-pattern IPsecTunnel :: ExtendedKeyUsageName
-pattern IPsecTunnel = ExtendedKeyUsageName' "IPSEC_TUNNEL"
+pattern ExtendedKeyUsageNameIpsecTunnel :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameIpsecTunnel = ExtendedKeyUsageName' "IPSEC_TUNNEL"
 
-pattern IPsecUser :: ExtendedKeyUsageName
-pattern IPsecUser = ExtendedKeyUsageName' "IPSEC_USER"
+pattern ExtendedKeyUsageNameIpsecUser :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameIpsecUser = ExtendedKeyUsageName' "IPSEC_USER"
 
-pattern Any :: ExtendedKeyUsageName
-pattern Any = ExtendedKeyUsageName' "ANY"
+pattern ExtendedKeyUsageNameAny :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameAny = ExtendedKeyUsageName' "ANY"
 
-pattern None :: ExtendedKeyUsageName
-pattern None = ExtendedKeyUsageName' "NONE"
+pattern ExtendedKeyUsageNameNone :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameNone = ExtendedKeyUsageName' "NONE"
 
-pattern Custom :: ExtendedKeyUsageName
-pattern Custom = ExtendedKeyUsageName' "CUSTOM"
+pattern ExtendedKeyUsageNameCustom :: ExtendedKeyUsageName
+pattern ExtendedKeyUsageNameCustom = ExtendedKeyUsageName' "CUSTOM"
 
 {-# COMPLETE
-  TLSWebServerAuthentication,
-  TLSWebClientAuthentication,
-  CodeSigning,
-  EmailProtection,
-  TimeStamping,
-  OcspSigning,
-  IPsecEndSystem,
-  IPsecTunnel,
-  IPsecUser,
-  Any,
-  None,
-  Custom,
+  ExtendedKeyUsageNameTlsWebServerAuthentication,
+  ExtendedKeyUsageNameTlsWebClientAuthentication,
+  ExtendedKeyUsageNameCodeSigning,
+  ExtendedKeyUsageNameEmailProtection,
+  ExtendedKeyUsageNameTimeStamping,
+  ExtendedKeyUsageNameOcspSigning,
+  ExtendedKeyUsageNameIpsecEndSystem,
+  ExtendedKeyUsageNameIpsecTunnel,
+  ExtendedKeyUsageNameIpsecUser,
+  ExtendedKeyUsageNameAny,
+  ExtendedKeyUsageNameNone,
+  ExtendedKeyUsageNameCustom,
   ExtendedKeyUsageName'
   #-}

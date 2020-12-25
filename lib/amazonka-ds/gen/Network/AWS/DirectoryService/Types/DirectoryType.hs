@@ -13,56 +13,61 @@
 module Network.AWS.DirectoryService.Types.DirectoryType
   ( DirectoryType
       ( DirectoryType',
-        SimpleAD,
-        ADConnector,
-        MicrosoftAD,
-        SharedMicrosoftAD
+        DirectoryTypeSimpleAD,
+        DirectoryTypeADConnector,
+        DirectoryTypeMicrosoftAD,
+        DirectoryTypeSharedMicrosoftAD,
+        fromDirectoryType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DirectoryType = DirectoryType' Lude.Text
+newtype DirectoryType = DirectoryType'
+  { fromDirectoryType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SimpleAD :: DirectoryType
-pattern SimpleAD = DirectoryType' "SimpleAD"
+pattern DirectoryTypeSimpleAD :: DirectoryType
+pattern DirectoryTypeSimpleAD = DirectoryType' "SimpleAD"
 
-pattern ADConnector :: DirectoryType
-pattern ADConnector = DirectoryType' "ADConnector"
+pattern DirectoryTypeADConnector :: DirectoryType
+pattern DirectoryTypeADConnector = DirectoryType' "ADConnector"
 
-pattern MicrosoftAD :: DirectoryType
-pattern MicrosoftAD = DirectoryType' "MicrosoftAD"
+pattern DirectoryTypeMicrosoftAD :: DirectoryType
+pattern DirectoryTypeMicrosoftAD = DirectoryType' "MicrosoftAD"
 
-pattern SharedMicrosoftAD :: DirectoryType
-pattern SharedMicrosoftAD = DirectoryType' "SharedMicrosoftAD"
+pattern DirectoryTypeSharedMicrosoftAD :: DirectoryType
+pattern DirectoryTypeSharedMicrosoftAD = DirectoryType' "SharedMicrosoftAD"
 
 {-# COMPLETE
-  SimpleAD,
-  ADConnector,
-  MicrosoftAD,
-  SharedMicrosoftAD,
+  DirectoryTypeSimpleAD,
+  DirectoryTypeADConnector,
+  DirectoryTypeMicrosoftAD,
+  DirectoryTypeSharedMicrosoftAD,
   DirectoryType'
   #-}

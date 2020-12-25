@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsManifestDurationFormat
   ( HlsManifestDurationFormat
       ( HlsManifestDurationFormat',
-        HMDFFloatingPoint,
-        HMDFInteger
+        HlsManifestDurationFormatFloatingPoint,
+        HlsManifestDurationFormatInteger,
+        fromHlsManifestDurationFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether the output manifest should use floating point values for segment duration.
-newtype HlsManifestDurationFormat = HlsManifestDurationFormat' Lude.Text
+newtype HlsManifestDurationFormat = HlsManifestDurationFormat'
+  { fromHlsManifestDurationFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HMDFFloatingPoint :: HlsManifestDurationFormat
-pattern HMDFFloatingPoint = HlsManifestDurationFormat' "FLOATING_POINT"
+pattern HlsManifestDurationFormatFloatingPoint :: HlsManifestDurationFormat
+pattern HlsManifestDurationFormatFloatingPoint = HlsManifestDurationFormat' "FLOATING_POINT"
 
-pattern HMDFInteger :: HlsManifestDurationFormat
-pattern HMDFInteger = HlsManifestDurationFormat' "INTEGER"
+pattern HlsManifestDurationFormatInteger :: HlsManifestDurationFormat
+pattern HlsManifestDurationFormatInteger = HlsManifestDurationFormat' "INTEGER"
 
 {-# COMPLETE
-  HMDFFloatingPoint,
-  HMDFInteger,
+  HlsManifestDurationFormatFloatingPoint,
+  HlsManifestDurationFormatInteger,
   HlsManifestDurationFormat'
   #-}

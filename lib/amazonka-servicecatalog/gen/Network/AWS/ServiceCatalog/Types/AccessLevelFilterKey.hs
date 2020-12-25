@@ -13,51 +13,56 @@
 module Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
   ( AccessLevelFilterKey
       ( AccessLevelFilterKey',
-        Account,
-        Role,
-        User
+        AccessLevelFilterKeyAccount,
+        AccessLevelFilterKeyRole,
+        AccessLevelFilterKeyUser,
+        fromAccessLevelFilterKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AccessLevelFilterKey = AccessLevelFilterKey' Lude.Text
+newtype AccessLevelFilterKey = AccessLevelFilterKey'
+  { fromAccessLevelFilterKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Account :: AccessLevelFilterKey
-pattern Account = AccessLevelFilterKey' "Account"
+pattern AccessLevelFilterKeyAccount :: AccessLevelFilterKey
+pattern AccessLevelFilterKeyAccount = AccessLevelFilterKey' "Account"
 
-pattern Role :: AccessLevelFilterKey
-pattern Role = AccessLevelFilterKey' "Role"
+pattern AccessLevelFilterKeyRole :: AccessLevelFilterKey
+pattern AccessLevelFilterKeyRole = AccessLevelFilterKey' "Role"
 
-pattern User :: AccessLevelFilterKey
-pattern User = AccessLevelFilterKey' "User"
+pattern AccessLevelFilterKeyUser :: AccessLevelFilterKey
+pattern AccessLevelFilterKeyUser = AccessLevelFilterKey' "User"
 
 {-# COMPLETE
-  Account,
-  Role,
-  User,
+  AccessLevelFilterKeyAccount,
+  AccessLevelFilterKeyRole,
+  AccessLevelFilterKeyUser,
   AccessLevelFilterKey'
   #-}

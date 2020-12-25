@@ -20,119 +20,92 @@ module Network.AWS.CloudFormation.ListTypeRegistrations
     mkListTypeRegistrations,
 
     -- ** Request lenses
-    ltrTypeName,
-    ltrRegistrationStatusFilter,
-    ltrNextToken,
-    ltrTypeARN,
-    ltrType,
     ltrMaxResults,
+    ltrNextToken,
+    ltrRegistrationStatusFilter,
+    ltrType,
+    ltrTypeArn,
+    ltrTypeName,
 
     -- * Destructuring the response
     ListTypeRegistrationsResponse (..),
     mkListTypeRegistrationsResponse,
 
     -- ** Response lenses
-    ltrrsRegistrationTokenList,
-    ltrrsNextToken,
-    ltrrsResponseStatus,
+    ltrrrsNextToken,
+    ltrrrsRegistrationTokenList,
+    ltrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTypeRegistrations' smart constructor.
 data ListTypeRegistrations = ListTypeRegistrations'
-  { -- | The name of the type.
-    --
-    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-    typeName :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The current status of the type registration request.
     --
     -- The default is @IN_PROGRESS@ .
-    registrationStatusFilter :: Lude.Maybe RegistrationStatus,
-    -- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the type.
-    --
-    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-    typeARN :: Lude.Maybe Lude.Text,
+    registrationStatusFilter :: Core.Maybe Types.RegistrationStatus,
     -- | The kind of type.
     --
     -- Currently the only valid value is @RESOURCE@ .
     -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-    type' :: Lude.Maybe RegistryType,
-    -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    type' :: Core.Maybe Types.RegistryType,
+    -- | The Amazon Resource Name (ARN) of the type.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+    typeArn :: Core.Maybe Types.TypeArn,
+    -- | The name of the type.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+    typeName :: Core.Maybe Types.TypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTypeRegistrations' with the minimum fields required to make a request.
---
--- * 'typeName' - The name of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'registrationStatusFilter' - The current status of the type registration request.
---
--- The default is @IN_PROGRESS@ .
--- * 'nextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
--- * 'typeARN' - The Amazon Resource Name (ARN) of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'type'' - The kind of type.
---
--- Currently the only valid value is @RESOURCE@ .
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+-- | Creates a 'ListTypeRegistrations' value with any optional fields omitted.
 mkListTypeRegistrations ::
   ListTypeRegistrations
 mkListTypeRegistrations =
   ListTypeRegistrations'
-    { typeName = Lude.Nothing,
-      registrationStatusFilter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      typeARN = Lude.Nothing,
-      type' = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      registrationStatusFilter = Core.Nothing,
+      type' = Core.Nothing,
+      typeArn = Core.Nothing,
+      typeName = Core.Nothing
     }
 
--- | The name of the type.
+-- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 --
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrMaxResults :: Lens.Lens' ListTypeRegistrations (Core.Maybe Core.Natural)
+ltrMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED ltrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 --
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrTypeName :: Lens.Lens' ListTypeRegistrations (Lude.Maybe Lude.Text)
-ltrTypeName = Lens.lens (typeName :: ListTypeRegistrations -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: ListTypeRegistrations)
-{-# DEPRECATED ltrTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrNextToken :: Lens.Lens' ListTypeRegistrations (Core.Maybe Types.NextToken)
+ltrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The current status of the type registration request.
 --
 -- The default is @IN_PROGRESS@ .
 --
 -- /Note:/ Consider using 'registrationStatusFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrRegistrationStatusFilter :: Lens.Lens' ListTypeRegistrations (Lude.Maybe RegistrationStatus)
-ltrRegistrationStatusFilter = Lens.lens (registrationStatusFilter :: ListTypeRegistrations -> Lude.Maybe RegistrationStatus) (\s a -> s {registrationStatusFilter = a} :: ListTypeRegistrations)
+ltrRegistrationStatusFilter :: Lens.Lens' ListTypeRegistrations (Core.Maybe Types.RegistrationStatus)
+ltrRegistrationStatusFilter = Lens.field @"registrationStatusFilter"
 {-# DEPRECATED ltrRegistrationStatusFilter "Use generic-lens or generic-optics with 'registrationStatusFilter' instead." #-}
-
--- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrNextToken :: Lens.Lens' ListTypeRegistrations (Lude.Maybe Lude.Text)
-ltrNextToken = Lens.lens (nextToken :: ListTypeRegistrations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypeRegistrations)
-{-# DEPRECATED ltrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
---
--- /Note:/ Consider using 'typeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrTypeARN :: Lens.Lens' ListTypeRegistrations (Lude.Maybe Lude.Text)
-ltrTypeARN = Lens.lens (typeARN :: ListTypeRegistrations -> Lude.Maybe Lude.Text) (\s a -> s {typeARN = a} :: ListTypeRegistrations)
-{-# DEPRECATED ltrTypeARN "Use generic-lens or generic-optics with 'typeARN' instead." #-}
 
 -- | The kind of type.
 --
@@ -140,103 +113,112 @@ ltrTypeARN = Lens.lens (typeARN :: ListTypeRegistrations -> Lude.Maybe Lude.Text
 -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrType :: Lens.Lens' ListTypeRegistrations (Lude.Maybe RegistryType)
-ltrType = Lens.lens (type' :: ListTypeRegistrations -> Lude.Maybe RegistryType) (\s a -> s {type' = a} :: ListTypeRegistrations)
+ltrType :: Lens.Lens' ListTypeRegistrations (Core.Maybe Types.RegistryType)
+ltrType = Lens.field @"type'"
 {-# DEPRECATED ltrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+-- | The Amazon Resource Name (ARN) of the type.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrMaxResults :: Lens.Lens' ListTypeRegistrations (Lude.Maybe Lude.Natural)
-ltrMaxResults = Lens.lens (maxResults :: ListTypeRegistrations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypeRegistrations)
-{-# DEPRECATED ltrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'typeArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrTypeArn :: Lens.Lens' ListTypeRegistrations (Core.Maybe Types.TypeArn)
+ltrTypeArn = Lens.field @"typeArn"
+{-# DEPRECATED ltrTypeArn "Use generic-lens or generic-optics with 'typeArn' instead." #-}
 
-instance Lude.AWSRequest ListTypeRegistrations where
+-- | The name of the type.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrTypeName :: Lens.Lens' ListTypeRegistrations (Core.Maybe Types.TypeName)
+ltrTypeName = Lens.field @"typeName"
+{-# DEPRECATED ltrTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+instance Core.AWSRequest ListTypeRegistrations where
   type Rs ListTypeRegistrations = ListTypeRegistrationsResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListTypeRegistrations")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryValue "RegistrationStatusFilter"
+                            Core.<$> registrationStatusFilter
+                        )
+                Core.<> (Core.toQueryValue "Type" Core.<$> type')
+                Core.<> (Core.toQueryValue "TypeArn" Core.<$> typeArn)
+                Core.<> (Core.toQueryValue "TypeName" Core.<$> typeName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListTypeRegistrationsResult"
       ( \s h x ->
           ListTypeRegistrationsResponse'
-            Lude.<$> ( x Lude..@? "RegistrationTokenList" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "RegistrationTokenList"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTypeRegistrations where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListTypeRegistrations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTypeRegistrations where
-  toQuery ListTypeRegistrations' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListTypeRegistrations" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "TypeName" Lude.=: typeName,
-        "RegistrationStatusFilter" Lude.=: registrationStatusFilter,
-        "NextToken" Lude.=: nextToken,
-        "TypeArn" Lude.=: typeARN,
-        "Type" Lude.=: type',
-        "MaxResults" Lude.=: maxResults
-      ]
 
 -- | /See:/ 'mkListTypeRegistrationsResponse' smart constructor.
 data ListTypeRegistrationsResponse = ListTypeRegistrationsResponse'
-  { -- | A list of type registration tokens.
+  { -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of type registration tokens.
     --
     -- Use @'DescribeTypeRegistration' @ to return detailed information about a type registration request.
-    registrationTokenList :: Lude.Maybe [Lude.Text],
-    -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
+    registrationTokenList :: Core.Maybe [Types.RegistrationToken],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTypeRegistrationsResponse' with the minimum fields required to make a request.
---
--- * 'registrationTokenList' - A list of type registration tokens.
---
--- Use @'DescribeTypeRegistration' @ to return detailed information about a type registration request.
--- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTypeRegistrationsResponse' value with any optional fields omitted.
 mkListTypeRegistrationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTypeRegistrationsResponse
-mkListTypeRegistrationsResponse pResponseStatus_ =
+mkListTypeRegistrationsResponse responseStatus =
   ListTypeRegistrationsResponse'
-    { registrationTokenList =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      registrationTokenList = Core.Nothing,
+      responseStatus
     }
+
+-- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrrrsNextToken :: Lens.Lens' ListTypeRegistrationsResponse (Core.Maybe Types.NextToken)
+ltrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of type registration tokens.
 --
 -- Use @'DescribeTypeRegistration' @ to return detailed information about a type registration request.
 --
 -- /Note:/ Consider using 'registrationTokenList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrrsRegistrationTokenList :: Lens.Lens' ListTypeRegistrationsResponse (Lude.Maybe [Lude.Text])
-ltrrsRegistrationTokenList = Lens.lens (registrationTokenList :: ListTypeRegistrationsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {registrationTokenList = a} :: ListTypeRegistrationsResponse)
-{-# DEPRECATED ltrrsRegistrationTokenList "Use generic-lens or generic-optics with 'registrationTokenList' instead." #-}
-
--- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrrsNextToken :: Lens.Lens' ListTypeRegistrationsResponse (Lude.Maybe Lude.Text)
-ltrrsNextToken = Lens.lens (nextToken :: ListTypeRegistrationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypeRegistrationsResponse)
-{-# DEPRECATED ltrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltrrrsRegistrationTokenList :: Lens.Lens' ListTypeRegistrationsResponse (Core.Maybe [Types.RegistrationToken])
+ltrrrsRegistrationTokenList = Lens.field @"registrationTokenList"
+{-# DEPRECATED ltrrrsRegistrationTokenList "Use generic-lens or generic-optics with 'registrationTokenList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrrsResponseStatus :: Lens.Lens' ListTypeRegistrationsResponse Lude.Int
-ltrrsResponseStatus = Lens.lens (responseStatus :: ListTypeRegistrationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTypeRegistrationsResponse)
-{-# DEPRECATED ltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltrrrsResponseStatus :: Lens.Lens' ListTypeRegistrationsResponse Core.Int
+ltrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

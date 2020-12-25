@@ -22,7 +22,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     mkDeleteIdentityPool,
 
     -- ** Request lenses
-    dipIdentityPoolId,
+    dIdentityPoolId,
 
     -- * Destructuring the response
     DeleteIdentityPoolResponse (..),
@@ -30,76 +30,66 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
   )
 where
 
-import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.CognitoIdentity.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the DeleteIdentityPool action.
 --
 -- /See:/ 'mkDeleteIdentityPool' smart constructor.
 newtype DeleteIdentityPool = DeleteIdentityPool'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Lude.Text
+    identityPoolId :: Types.IdentityPoolId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIdentityPool' with the minimum fields required to make a request.
---
--- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- | Creates a 'DeleteIdentityPool' value with any optional fields omitted.
 mkDeleteIdentityPool ::
   -- | 'identityPoolId'
-  Lude.Text ->
+  Types.IdentityPoolId ->
   DeleteIdentityPool
-mkDeleteIdentityPool pIdentityPoolId_ =
-  DeleteIdentityPool' {identityPoolId = pIdentityPoolId_}
+mkDeleteIdentityPool identityPoolId =
+  DeleteIdentityPool' {identityPoolId}
 
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipIdentityPoolId :: Lens.Lens' DeleteIdentityPool Lude.Text
-dipIdentityPoolId = Lens.lens (identityPoolId :: DeleteIdentityPool -> Lude.Text) (\s a -> s {identityPoolId = a} :: DeleteIdentityPool)
-{-# DEPRECATED dipIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+dIdentityPoolId :: Lens.Lens' DeleteIdentityPool Types.IdentityPoolId
+dIdentityPoolId = Lens.field @"identityPoolId"
+{-# DEPRECATED dIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
-instance Lude.AWSRequest DeleteIdentityPool where
+instance Core.FromJSON DeleteIdentityPool where
+  toJSON DeleteIdentityPool {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("IdentityPoolId" Core..= identityPoolId)]
+      )
+
+instance Core.AWSRequest DeleteIdentityPool where
   type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
-  request = Req.postJSON cognitoIdentityService
-  response = Res.receiveNull DeleteIdentityPoolResponse'
-
-instance Lude.ToHeaders DeleteIdentityPool where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityService.DeleteIdentityPool" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteIdentityPool where
-  toJSON DeleteIdentityPool' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("IdentityPoolId" Lude..= identityPoolId)]
-      )
-
-instance Lude.ToPath DeleteIdentityPool where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteIdentityPool where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityService.DeleteIdentityPool")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteIdentityPoolResponse'
 
 -- | /See:/ 'mkDeleteIdentityPoolResponse' smart constructor.
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIdentityPoolResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteIdentityPoolResponse' value with any optional fields omitted.
 mkDeleteIdentityPoolResponse ::
   DeleteIdentityPoolResponse
 mkDeleteIdentityPoolResponse = DeleteIdentityPoolResponse'

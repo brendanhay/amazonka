@@ -22,79 +22,78 @@ module Network.AWS.ELBv2.SetSubnets
     mkSetSubnets,
 
     -- ** Request lenses
+    ssLoadBalancerArn,
+    ssIpAddressType,
     ssSubnetMappings,
     ssSubnets,
-    ssLoadBalancerARN,
-    ssIPAddressType,
 
     -- * Destructuring the response
     SetSubnetsResponse (..),
     mkSetSubnetsResponse,
 
     -- ** Response lenses
-    ssrsAvailabilityZones,
-    ssrsIPAddressType,
-    ssrsResponseStatus,
+    ssrrsAvailabilityZones,
+    ssrrsIpAddressType,
+    ssrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetSubnets' smart constructor.
 data SetSubnets = SetSubnets'
-  { -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+  { -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerArn :: Types.LoadBalancerArn,
+    -- | [Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener. Internal load balancers must use @ipv4@ .
+    ipAddressType :: Core.Maybe Types.IpAddressType,
+    -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
     --
     -- [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
     -- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
     -- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
     -- [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-    subnetMappings :: Lude.Maybe [SubnetMapping],
+    subnetMappings :: Core.Maybe [Types.SubnetMapping],
     -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
     --
     -- [Application Load Balancers] You must specify subnets from at least two Availability Zones.
     -- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
     -- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
     -- [Network Load Balancers] You can specify subnets from one or more Availability Zones.
-    subnets :: Lude.Maybe [Lude.Text],
-    -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerARN :: Lude.Text,
-    -- | [Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener. Internal load balancers must use @ipv4@ .
-    ipAddressType :: Lude.Maybe IPAddressType
+    subnets :: Core.Maybe [Types.SubnetId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetSubnets' with the minimum fields required to make a request.
---
--- * 'subnetMappings' - The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
---
--- [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
--- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
--- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
--- [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
--- * 'subnets' - The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
---
--- [Application Load Balancers] You must specify subnets from at least two Availability Zones.
--- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
--- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
--- [Network Load Balancers] You can specify subnets from one or more Availability Zones.
--- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
--- * 'ipAddressType' - [Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener. Internal load balancers must use @ipv4@ .
+-- | Creates a 'SetSubnets' value with any optional fields omitted.
 mkSetSubnets ::
-  -- | 'loadBalancerARN'
-  Lude.Text ->
+  -- | 'loadBalancerArn'
+  Types.LoadBalancerArn ->
   SetSubnets
-mkSetSubnets pLoadBalancerARN_ =
+mkSetSubnets loadBalancerArn =
   SetSubnets'
-    { subnetMappings = Lude.Nothing,
-      subnets = Lude.Nothing,
-      loadBalancerARN = pLoadBalancerARN_,
-      ipAddressType = Lude.Nothing
+    { loadBalancerArn,
+      ipAddressType = Core.Nothing,
+      subnetMappings = Core.Nothing,
+      subnets = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssLoadBalancerArn :: Lens.Lens' SetSubnets Types.LoadBalancerArn
+ssLoadBalancerArn = Lens.field @"loadBalancerArn"
+{-# DEPRECATED ssLoadBalancerArn "Use generic-lens or generic-optics with 'loadBalancerArn' instead." #-}
+
+-- | [Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener. Internal load balancers must use @ipv4@ .
+--
+-- /Note:/ Consider using 'ipAddressType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssIpAddressType :: Lens.Lens' SetSubnets (Core.Maybe Types.IpAddressType)
+ssIpAddressType = Lens.field @"ipAddressType"
+{-# DEPRECATED ssIpAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
 
 -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
 --
@@ -104,8 +103,8 @@ mkSetSubnets pLoadBalancerARN_ =
 -- [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
 --
 -- /Note:/ Consider using 'subnetMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSubnetMappings :: Lens.Lens' SetSubnets (Lude.Maybe [SubnetMapping])
-ssSubnetMappings = Lens.lens (subnetMappings :: SetSubnets -> Lude.Maybe [SubnetMapping]) (\s a -> s {subnetMappings = a} :: SetSubnets)
+ssSubnetMappings :: Lens.Lens' SetSubnets (Core.Maybe [Types.SubnetMapping])
+ssSubnetMappings = Lens.field @"subnetMappings"
 {-# DEPRECATED ssSubnetMappings "Use generic-lens or generic-optics with 'subnetMappings' instead." #-}
 
 -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
@@ -116,103 +115,92 @@ ssSubnetMappings = Lens.lens (subnetMappings :: SetSubnets -> Lude.Maybe [Subnet
 -- [Network Load Balancers] You can specify subnets from one or more Availability Zones.
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSubnets :: Lens.Lens' SetSubnets (Lude.Maybe [Lude.Text])
-ssSubnets = Lens.lens (subnets :: SetSubnets -> Lude.Maybe [Lude.Text]) (\s a -> s {subnets = a} :: SetSubnets)
+ssSubnets :: Lens.Lens' SetSubnets (Core.Maybe [Types.SubnetId])
+ssSubnets = Lens.field @"subnets"
 {-# DEPRECATED ssSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssLoadBalancerARN :: Lens.Lens' SetSubnets Lude.Text
-ssLoadBalancerARN = Lens.lens (loadBalancerARN :: SetSubnets -> Lude.Text) (\s a -> s {loadBalancerARN = a} :: SetSubnets)
-{-# DEPRECATED ssLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
-
--- | [Network Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener. Internal load balancers must use @ipv4@ .
---
--- /Note:/ Consider using 'ipAddressType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssIPAddressType :: Lens.Lens' SetSubnets (Lude.Maybe IPAddressType)
-ssIPAddressType = Lens.lens (ipAddressType :: SetSubnets -> Lude.Maybe IPAddressType) (\s a -> s {ipAddressType = a} :: SetSubnets)
-{-# DEPRECATED ssIPAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
-
-instance Lude.AWSRequest SetSubnets where
+instance Core.AWSRequest SetSubnets where
   type Rs SetSubnets = SetSubnetsResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetSubnets")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerArn" loadBalancerArn)
+                Core.<> (Core.toQueryValue "IpAddressType" Core.<$> ipAddressType)
+                Core.<> ( Core.toQueryValue
+                            "SubnetMappings"
+                            (Core.toQueryList "member" Core.<$> subnetMappings)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Subnets"
+                            (Core.toQueryList "member" Core.<$> subnets)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SetSubnetsResult"
       ( \s h x ->
           SetSubnetsResponse'
-            Lude.<$> ( x Lude..@? "AvailabilityZones" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "AvailabilityZones"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "IpAddressType")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "IpAddressType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetSubnets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetSubnets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetSubnets where
-  toQuery SetSubnets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetSubnets" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "SubnetMappings"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> subnetMappings),
-        "Subnets"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> subnets),
-        "LoadBalancerArn" Lude.=: loadBalancerARN,
-        "IpAddressType" Lude.=: ipAddressType
-      ]
 
 -- | /See:/ 'mkSetSubnetsResponse' smart constructor.
 data SetSubnetsResponse = SetSubnetsResponse'
   { -- | Information about the subnets.
-    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    availabilityZones :: Core.Maybe [Types.AvailabilityZone],
     -- | [Network Load Balancers] The IP address type.
-    ipAddressType :: Lude.Maybe IPAddressType,
+    ipAddressType :: Core.Maybe Types.IpAddressType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetSubnetsResponse' with the minimum fields required to make a request.
---
--- * 'availabilityZones' - Information about the subnets.
--- * 'ipAddressType' - [Network Load Balancers] The IP address type.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetSubnetsResponse' value with any optional fields omitted.
 mkSetSubnetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetSubnetsResponse
-mkSetSubnetsResponse pResponseStatus_ =
+mkSetSubnetsResponse responseStatus =
   SetSubnetsResponse'
-    { availabilityZones = Lude.Nothing,
-      ipAddressType = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { availabilityZones = Core.Nothing,
+      ipAddressType = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the subnets.
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssrsAvailabilityZones :: Lens.Lens' SetSubnetsResponse (Lude.Maybe [AvailabilityZone])
-ssrsAvailabilityZones = Lens.lens (availabilityZones :: SetSubnetsResponse -> Lude.Maybe [AvailabilityZone]) (\s a -> s {availabilityZones = a} :: SetSubnetsResponse)
-{-# DEPRECATED ssrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+ssrrsAvailabilityZones :: Lens.Lens' SetSubnetsResponse (Core.Maybe [Types.AvailabilityZone])
+ssrrsAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED ssrrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | [Network Load Balancers] The IP address type.
 --
 -- /Note:/ Consider using 'ipAddressType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssrsIPAddressType :: Lens.Lens' SetSubnetsResponse (Lude.Maybe IPAddressType)
-ssrsIPAddressType = Lens.lens (ipAddressType :: SetSubnetsResponse -> Lude.Maybe IPAddressType) (\s a -> s {ipAddressType = a} :: SetSubnetsResponse)
-{-# DEPRECATED ssrsIPAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
+ssrrsIpAddressType :: Lens.Lens' SetSubnetsResponse (Core.Maybe Types.IpAddressType)
+ssrrsIpAddressType = Lens.field @"ipAddressType"
+{-# DEPRECATED ssrrsIpAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssrsResponseStatus :: Lens.Lens' SetSubnetsResponse Lude.Int
-ssrsResponseStatus = Lens.lens (responseStatus :: SetSubnetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetSubnetsResponse)
-{-# DEPRECATED ssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ssrrsResponseStatus :: Lens.Lens' SetSubnetsResponse Core.Int
+ssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

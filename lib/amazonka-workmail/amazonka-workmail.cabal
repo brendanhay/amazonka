@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.WorkMail
     Network.AWS.WorkMail.AssociateDelegateToResource
@@ -121,27 +127,73 @@ library
 
   other-modules:
     Network.AWS.WorkMail.Types.AccessControlRule
+    Network.AWS.WorkMail.Types.AccessControlRuleAction
+    Network.AWS.WorkMail.Types.AccessControlRuleDescription
     Network.AWS.WorkMail.Types.AccessControlRuleEffect
+    Network.AWS.WorkMail.Types.AccessControlRuleName
+    Network.AWS.WorkMail.Types.Alias
+    Network.AWS.WorkMail.Types.AmazonResourceName
+    Network.AWS.WorkMail.Types.ARN
     Network.AWS.WorkMail.Types.BookingOptions
+    Network.AWS.WorkMail.Types.DefaultMailDomain
     Network.AWS.WorkMail.Types.Delegate
+    Network.AWS.WorkMail.Types.Description
+    Network.AWS.WorkMail.Types.DirectoryId
     Network.AWS.WorkMail.Types.Domain
+    Network.AWS.WorkMail.Types.DomainName
+    Network.AWS.WorkMail.Types.Email
+    Network.AWS.WorkMail.Types.EmailAddress
+    Network.AWS.WorkMail.Types.EntityId
     Network.AWS.WorkMail.Types.EntityState
+    Network.AWS.WorkMail.Types.ErrorInfo
+    Network.AWS.WorkMail.Types.ErrorMessage
     Network.AWS.WorkMail.Types.FolderConfiguration
     Network.AWS.WorkMail.Types.FolderName
+    Network.AWS.WorkMail.Types.GranteeId
     Network.AWS.WorkMail.Types.Group
+    Network.AWS.WorkMail.Types.GroupId
+    Network.AWS.WorkMail.Types.HostedZoneId
+    Network.AWS.WorkMail.Types.Id
+    Network.AWS.WorkMail.Types.IdempotencyClientToken
+    Network.AWS.WorkMail.Types.IpAddress
+    Network.AWS.WorkMail.Types.IpRange
+    Network.AWS.WorkMail.Types.Key
+    Network.AWS.WorkMail.Types.KmsKeyArn
     Network.AWS.WorkMail.Types.MailboxExportJob
+    Network.AWS.WorkMail.Types.MailboxExportJobId
     Network.AWS.WorkMail.Types.MailboxExportJobState
     Network.AWS.WorkMail.Types.Member
+    Network.AWS.WorkMail.Types.MemberId
     Network.AWS.WorkMail.Types.MemberType
+    Network.AWS.WorkMail.Types.Name
+    Network.AWS.WorkMail.Types.NextToken
+    Network.AWS.WorkMail.Types.OrganizationId
+    Network.AWS.WorkMail.Types.OrganizationName
     Network.AWS.WorkMail.Types.OrganizationSummary
+    Network.AWS.WorkMail.Types.Password
     Network.AWS.WorkMail.Types.Permission
     Network.AWS.WorkMail.Types.PermissionType
+    Network.AWS.WorkMail.Types.PolicyDescription
     Network.AWS.WorkMail.Types.Resource
+    Network.AWS.WorkMail.Types.ResourceARN
+    Network.AWS.WorkMail.Types.ResourceId
+    Network.AWS.WorkMail.Types.ResourceName
     Network.AWS.WorkMail.Types.ResourceType
     Network.AWS.WorkMail.Types.RetentionAction
+    Network.AWS.WorkMail.Types.RoleArn
+    Network.AWS.WorkMail.Types.S3BucketName
+    Network.AWS.WorkMail.Types.S3ObjectKey
+    Network.AWS.WorkMail.Types.ShortString
+    Network.AWS.WorkMail.Types.State
+    Network.AWS.WorkMail.Types.String
     Network.AWS.WorkMail.Types.Tag
+    Network.AWS.WorkMail.Types.TagKey
     Network.AWS.WorkMail.Types.User
+    Network.AWS.WorkMail.Types.UserId
+    Network.AWS.WorkMail.Types.UserName
     Network.AWS.WorkMail.Types.UserRole
+    Network.AWS.WorkMail.Types.Value
+    Network.AWS.WorkMail.Types.WorkMailIdentifier
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

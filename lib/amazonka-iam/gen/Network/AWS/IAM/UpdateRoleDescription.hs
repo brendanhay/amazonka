@@ -30,117 +30,111 @@ module Network.AWS.IAM.UpdateRoleDescription
     mkUpdateRoleDescriptionResponse,
 
     -- ** Response lenses
-    urdrsRole,
-    urdrsResponseStatus,
+    urdrrsRole,
+    urdrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateRoleDescription' smart constructor.
 data UpdateRoleDescription = UpdateRoleDescription'
   { -- | The name of the role that you want to modify.
-    roleName :: Lude.Text,
+    roleName :: Types.RoleName,
     -- | The new description that you want to apply to the specified role.
-    description :: Lude.Text
+    description :: Types.RoleDescriptionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRoleDescription' with the minimum fields required to make a request.
---
--- * 'roleName' - The name of the role that you want to modify.
--- * 'description' - The new description that you want to apply to the specified role.
+-- | Creates a 'UpdateRoleDescription' value with any optional fields omitted.
 mkUpdateRoleDescription ::
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
   -- | 'description'
-  Lude.Text ->
+  Types.RoleDescriptionType ->
   UpdateRoleDescription
-mkUpdateRoleDescription pRoleName_ pDescription_ =
-  UpdateRoleDescription'
-    { roleName = pRoleName_,
-      description = pDescription_
-    }
+mkUpdateRoleDescription roleName description =
+  UpdateRoleDescription' {roleName, description}
 
 -- | The name of the role that you want to modify.
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdRoleName :: Lens.Lens' UpdateRoleDescription Lude.Text
-urdRoleName = Lens.lens (roleName :: UpdateRoleDescription -> Lude.Text) (\s a -> s {roleName = a} :: UpdateRoleDescription)
+urdRoleName :: Lens.Lens' UpdateRoleDescription Types.RoleName
+urdRoleName = Lens.field @"roleName"
 {-# DEPRECATED urdRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The new description that you want to apply to the specified role.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdDescription :: Lens.Lens' UpdateRoleDescription Lude.Text
-urdDescription = Lens.lens (description :: UpdateRoleDescription -> Lude.Text) (\s a -> s {description = a} :: UpdateRoleDescription)
+urdDescription :: Lens.Lens' UpdateRoleDescription Types.RoleDescriptionType
+urdDescription = Lens.field @"description"
 {-# DEPRECATED urdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest UpdateRoleDescription where
+instance Core.AWSRequest UpdateRoleDescription where
   type Rs UpdateRoleDescription = UpdateRoleDescriptionResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateRoleDescription")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+                Core.<> (Core.toQueryValue "Description" description)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateRoleDescriptionResult"
       ( \s h x ->
           UpdateRoleDescriptionResponse'
-            Lude.<$> (x Lude..@? "Role") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Role") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateRoleDescription where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateRoleDescription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateRoleDescription where
-  toQuery UpdateRoleDescription' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateRoleDescription" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
-        "Description" Lude.=: description
-      ]
 
 -- | /See:/ 'mkUpdateRoleDescriptionResponse' smart constructor.
 data UpdateRoleDescriptionResponse = UpdateRoleDescriptionResponse'
   { -- | A structure that contains details about the modified role.
-    role' :: Lude.Maybe Role,
+    role' :: Core.Maybe Types.Role,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateRoleDescriptionResponse' with the minimum fields required to make a request.
---
--- * 'role'' - A structure that contains details about the modified role.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateRoleDescriptionResponse' value with any optional fields omitted.
 mkUpdateRoleDescriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateRoleDescriptionResponse
-mkUpdateRoleDescriptionResponse pResponseStatus_ =
+mkUpdateRoleDescriptionResponse responseStatus =
   UpdateRoleDescriptionResponse'
-    { role' = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { role' = Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that contains details about the modified role.
 --
 -- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdrsRole :: Lens.Lens' UpdateRoleDescriptionResponse (Lude.Maybe Role)
-urdrsRole = Lens.lens (role' :: UpdateRoleDescriptionResponse -> Lude.Maybe Role) (\s a -> s {role' = a} :: UpdateRoleDescriptionResponse)
-{-# DEPRECATED urdrsRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+urdrrsRole :: Lens.Lens' UpdateRoleDescriptionResponse (Core.Maybe Types.Role)
+urdrrsRole = Lens.field @"role'"
+{-# DEPRECATED urdrrsRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdrsResponseStatus :: Lens.Lens' UpdateRoleDescriptionResponse Lude.Int
-urdrsResponseStatus = Lens.lens (responseStatus :: UpdateRoleDescriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRoleDescriptionResponse)
-{-# DEPRECATED urdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urdrrsResponseStatus :: Lens.Lens' UpdateRoleDescriptionResponse Core.Int
+urdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,7 +22,7 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
     mkDeleteClusterSecurityGroup,
 
     -- ** Request lenses
-    dcsgClusterSecurityGroupName,
+    dClusterSecurityGroupName,
 
     -- * Destructuring the response
     DeleteClusterSecurityGroupResponse (..),
@@ -31,69 +31,69 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteClusterSecurityGroup' smart constructor.
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
   { -- | The name of the cluster security group to be deleted.
-    clusterSecurityGroupName :: Lude.Text
+    clusterSecurityGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClusterSecurityGroup' with the minimum fields required to make a request.
---
--- * 'clusterSecurityGroupName' - The name of the cluster security group to be deleted.
+-- | Creates a 'DeleteClusterSecurityGroup' value with any optional fields omitted.
 mkDeleteClusterSecurityGroup ::
   -- | 'clusterSecurityGroupName'
-  Lude.Text ->
+  Types.String ->
   DeleteClusterSecurityGroup
-mkDeleteClusterSecurityGroup pClusterSecurityGroupName_ =
-  DeleteClusterSecurityGroup'
-    { clusterSecurityGroupName =
-        pClusterSecurityGroupName_
-    }
+mkDeleteClusterSecurityGroup clusterSecurityGroupName =
+  DeleteClusterSecurityGroup' {clusterSecurityGroupName}
 
 -- | The name of the cluster security group to be deleted.
 --
 -- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgClusterSecurityGroupName :: Lens.Lens' DeleteClusterSecurityGroup Lude.Text
-dcsgClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: DeleteClusterSecurityGroup -> Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: DeleteClusterSecurityGroup)
-{-# DEPRECATED dcsgClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
+dClusterSecurityGroupName :: Lens.Lens' DeleteClusterSecurityGroup Types.String
+dClusterSecurityGroupName = Lens.field @"clusterSecurityGroupName"
+{-# DEPRECATED dClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteClusterSecurityGroup where
+instance Core.AWSRequest DeleteClusterSecurityGroup where
   type
     Rs DeleteClusterSecurityGroup =
       DeleteClusterSecurityGroupResponse
-  request = Req.postQuery redshiftService
-  response = Res.receiveNull DeleteClusterSecurityGroupResponse'
-
-instance Lude.ToHeaders DeleteClusterSecurityGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteClusterSecurityGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteClusterSecurityGroup where
-  toQuery DeleteClusterSecurityGroup' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteClusterSecurityGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ClusterSecurityGroupName" Lude.=: clusterSecurityGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteClusterSecurityGroup")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "ClusterSecurityGroupName"
+                            clusterSecurityGroupName
+                        )
+            )
+      }
+  response = Response.receiveNull DeleteClusterSecurityGroupResponse'
 
 -- | /See:/ 'mkDeleteClusterSecurityGroupResponse' smart constructor.
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClusterSecurityGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteClusterSecurityGroupResponse' value with any optional fields omitted.
 mkDeleteClusterSecurityGroupResponse ::
   DeleteClusterSecurityGroupResponse
 mkDeleteClusterSecurityGroupResponse =

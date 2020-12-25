@@ -20,8 +20,8 @@ module Network.AWS.CloudDirectory.UpgradeAppliedSchema
     mkUpgradeAppliedSchema,
 
     -- ** Request lenses
-    uasDirectoryARN,
-    uasPublishedSchemaARN,
+    uasPublishedSchemaArn,
+    uasDirectoryArn,
     uasDryRun,
 
     -- * Destructuring the response
@@ -29,147 +29,138 @@ module Network.AWS.CloudDirectory.UpgradeAppliedSchema
     mkUpgradeAppliedSchemaResponse,
 
     -- ** Response lenses
-    uasrsDirectoryARN,
-    uasrsUpgradedSchemaARN,
-    uasrsResponseStatus,
+    uasrrsDirectoryArn,
+    uasrrsUpgradedSchemaArn,
+    uasrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpgradeAppliedSchema' smart constructor.
 data UpgradeAppliedSchema = UpgradeAppliedSchema'
-  { -- | The ARN for the directory to which the upgraded schema will be applied.
-    directoryARN :: Lude.Text,
-    -- | The revision of the published schema to upgrade the directory to.
-    publishedSchemaARN :: Lude.Text,
+  { -- | The revision of the published schema to upgrade the directory to.
+    publishedSchemaArn :: Types.Arn,
+    -- | The ARN for the directory to which the upgraded schema will be applied.
+    directoryArn :: Types.Arn,
     -- | Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpgradeAppliedSchema' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The ARN for the directory to which the upgraded schema will be applied.
--- * 'publishedSchemaARN' - The revision of the published schema to upgrade the directory to.
--- * 'dryRun' - Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
+-- | Creates a 'UpgradeAppliedSchema' value with any optional fields omitted.
 mkUpgradeAppliedSchema ::
-  -- | 'directoryARN'
-  Lude.Text ->
-  -- | 'publishedSchemaARN'
-  Lude.Text ->
+  -- | 'publishedSchemaArn'
+  Types.Arn ->
+  -- | 'directoryArn'
+  Types.Arn ->
   UpgradeAppliedSchema
-mkUpgradeAppliedSchema pDirectoryARN_ pPublishedSchemaARN_ =
+mkUpgradeAppliedSchema publishedSchemaArn directoryArn =
   UpgradeAppliedSchema'
-    { directoryARN = pDirectoryARN_,
-      publishedSchemaARN = pPublishedSchemaARN_,
-      dryRun = Lude.Nothing
+    { publishedSchemaArn,
+      directoryArn,
+      dryRun = Core.Nothing
     }
-
--- | The ARN for the directory to which the upgraded schema will be applied.
---
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasDirectoryARN :: Lens.Lens' UpgradeAppliedSchema Lude.Text
-uasDirectoryARN = Lens.lens (directoryARN :: UpgradeAppliedSchema -> Lude.Text) (\s a -> s {directoryARN = a} :: UpgradeAppliedSchema)
-{-# DEPRECATED uasDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The revision of the published schema to upgrade the directory to.
 --
--- /Note:/ Consider using 'publishedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasPublishedSchemaARN :: Lens.Lens' UpgradeAppliedSchema Lude.Text
-uasPublishedSchemaARN = Lens.lens (publishedSchemaARN :: UpgradeAppliedSchema -> Lude.Text) (\s a -> s {publishedSchemaARN = a} :: UpgradeAppliedSchema)
-{-# DEPRECATED uasPublishedSchemaARN "Use generic-lens or generic-optics with 'publishedSchemaARN' instead." #-}
+-- /Note:/ Consider using 'publishedSchemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasPublishedSchemaArn :: Lens.Lens' UpgradeAppliedSchema Types.Arn
+uasPublishedSchemaArn = Lens.field @"publishedSchemaArn"
+{-# DEPRECATED uasPublishedSchemaArn "Use generic-lens or generic-optics with 'publishedSchemaArn' instead." #-}
+
+-- | The ARN for the directory to which the upgraded schema will be applied.
+--
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasDirectoryArn :: Lens.Lens' UpgradeAppliedSchema Types.Arn
+uasDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED uasDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasDryRun :: Lens.Lens' UpgradeAppliedSchema (Lude.Maybe Lude.Bool)
-uasDryRun = Lens.lens (dryRun :: UpgradeAppliedSchema -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: UpgradeAppliedSchema)
+uasDryRun :: Lens.Lens' UpgradeAppliedSchema (Core.Maybe Core.Bool)
+uasDryRun = Lens.field @"dryRun"
 {-# DEPRECATED uasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest UpgradeAppliedSchema where
-  type Rs UpgradeAppliedSchema = UpgradeAppliedSchemaResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpgradeAppliedSchemaResponse'
-            Lude.<$> (x Lude..?> "DirectoryArn")
-            Lude.<*> (x Lude..?> "UpgradedSchemaArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpgradeAppliedSchema where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpgradeAppliedSchema where
-  toJSON UpgradeAppliedSchema' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryArn" Lude..= directoryARN),
-            Lude.Just ("PublishedSchemaArn" Lude..= publishedSchemaARN),
-            ("DryRun" Lude..=) Lude.<$> dryRun
+instance Core.FromJSON UpgradeAppliedSchema where
+  toJSON UpgradeAppliedSchema {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PublishedSchemaArn" Core..= publishedSchemaArn),
+            Core.Just ("DirectoryArn" Core..= directoryArn),
+            ("DryRun" Core..=) Core.<$> dryRun
           ]
       )
 
-instance Lude.ToPath UpgradeAppliedSchema where
-  toPath =
-    Lude.const
-      "/amazonclouddirectory/2017-01-11/schema/upgradeapplied"
-
-instance Lude.ToQuery UpgradeAppliedSchema where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpgradeAppliedSchema where
+  type Rs UpgradeAppliedSchema = UpgradeAppliedSchemaResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            "/amazonclouddirectory/2017-01-11/schema/upgradeapplied",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpgradeAppliedSchemaResponse'
+            Core.<$> (x Core..:? "DirectoryArn")
+            Core.<*> (x Core..:? "UpgradedSchemaArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpgradeAppliedSchemaResponse' smart constructor.
 data UpgradeAppliedSchemaResponse = UpgradeAppliedSchemaResponse'
   { -- | The ARN of the directory that is returned as part of the response.
-    directoryARN :: Lude.Maybe Lude.Text,
+    directoryArn :: Core.Maybe Types.DirectoryArn,
     -- | The ARN of the upgraded schema that is returned as part of the response.
-    upgradedSchemaARN :: Lude.Maybe Lude.Text,
+    upgradedSchemaArn :: Core.Maybe Types.UpgradedSchemaArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpgradeAppliedSchemaResponse' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The ARN of the directory that is returned as part of the response.
--- * 'upgradedSchemaARN' - The ARN of the upgraded schema that is returned as part of the response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpgradeAppliedSchemaResponse' value with any optional fields omitted.
 mkUpgradeAppliedSchemaResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpgradeAppliedSchemaResponse
-mkUpgradeAppliedSchemaResponse pResponseStatus_ =
+mkUpgradeAppliedSchemaResponse responseStatus =
   UpgradeAppliedSchemaResponse'
-    { directoryARN = Lude.Nothing,
-      upgradedSchemaARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { directoryArn = Core.Nothing,
+      upgradedSchemaArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the directory that is returned as part of the response.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasrsDirectoryARN :: Lens.Lens' UpgradeAppliedSchemaResponse (Lude.Maybe Lude.Text)
-uasrsDirectoryARN = Lens.lens (directoryARN :: UpgradeAppliedSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryARN = a} :: UpgradeAppliedSchemaResponse)
-{-# DEPRECATED uasrsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasrrsDirectoryArn :: Lens.Lens' UpgradeAppliedSchemaResponse (Core.Maybe Types.DirectoryArn)
+uasrrsDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED uasrrsDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | The ARN of the upgraded schema that is returned as part of the response.
 --
--- /Note:/ Consider using 'upgradedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasrsUpgradedSchemaARN :: Lens.Lens' UpgradeAppliedSchemaResponse (Lude.Maybe Lude.Text)
-uasrsUpgradedSchemaARN = Lens.lens (upgradedSchemaARN :: UpgradeAppliedSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {upgradedSchemaARN = a} :: UpgradeAppliedSchemaResponse)
-{-# DEPRECATED uasrsUpgradedSchemaARN "Use generic-lens or generic-optics with 'upgradedSchemaARN' instead." #-}
+-- /Note:/ Consider using 'upgradedSchemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasrrsUpgradedSchemaArn :: Lens.Lens' UpgradeAppliedSchemaResponse (Core.Maybe Types.UpgradedSchemaArn)
+uasrrsUpgradedSchemaArn = Lens.field @"upgradedSchemaArn"
+{-# DEPRECATED uasrrsUpgradedSchemaArn "Use generic-lens or generic-optics with 'upgradedSchemaArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasrsResponseStatus :: Lens.Lens' UpgradeAppliedSchemaResponse Lude.Int
-uasrsResponseStatus = Lens.lens (responseStatus :: UpgradeAppliedSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpgradeAppliedSchemaResponse)
-{-# DEPRECATED uasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uasrrsResponseStatus :: Lens.Lens' UpgradeAppliedSchemaResponse Core.Int
+uasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

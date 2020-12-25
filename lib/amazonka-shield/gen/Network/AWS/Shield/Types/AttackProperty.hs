@@ -18,100 +18,92 @@ module Network.AWS.Shield.Types.AttackProperty
 
     -- * Lenses
     apAttackLayer,
-    apTopContributors,
     apAttackPropertyIdentifier,
+    apTopContributors,
     apTotal,
     apUnit,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Shield.Types.AttackLayer
-import Network.AWS.Shield.Types.AttackPropertyIdentifier
-import Network.AWS.Shield.Types.Contributor
-import Network.AWS.Shield.Types.Unit
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.AttackLayer as Types
+import qualified Network.AWS.Shield.Types.AttackPropertyIdentifier as Types
+import qualified Network.AWS.Shield.Types.Contributor as Types
+import qualified Network.AWS.Shield.Types.Unit as Types
 
 -- | Details of the described attack.
 --
 -- /See:/ 'mkAttackProperty' smart constructor.
 data AttackProperty = AttackProperty'
   { -- | The type of distributed denial of service (DDoS) event that was observed. @NETWORK@ indicates layer 3 and layer 4 events and @APPLICATION@ indicates layer 7 events.
-    attackLayer :: Lude.Maybe AttackLayer,
-    -- | The array of contributor objects that includes the top five contributors to an attack.
-    topContributors :: Lude.Maybe [Contributor],
+    attackLayer :: Core.Maybe Types.AttackLayer,
     -- | Defines the DDoS attack property information that is provided. The @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values are valid only for WordPress reflective pingback DDoS attacks.
-    attackPropertyIdentifier :: Lude.Maybe AttackPropertyIdentifier,
+    attackPropertyIdentifier :: Core.Maybe Types.AttackPropertyIdentifier,
+    -- | The array of contributor objects that includes the top five contributors to an attack.
+    topContributors :: Core.Maybe [Types.Contributor],
     -- | The total contributions made to this attack by all contributors, not just the five listed in the @TopContributors@ list.
-    total :: Lude.Maybe Lude.Integer,
+    total :: Core.Maybe Core.Integer,
     -- | The unit of the @Value@ of the contributions.
-    unit :: Lude.Maybe Unit
+    unit :: Core.Maybe Types.Unit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttackProperty' with the minimum fields required to make a request.
---
--- * 'attackLayer' - The type of distributed denial of service (DDoS) event that was observed. @NETWORK@ indicates layer 3 and layer 4 events and @APPLICATION@ indicates layer 7 events.
--- * 'topContributors' - The array of contributor objects that includes the top five contributors to an attack.
--- * 'attackPropertyIdentifier' - Defines the DDoS attack property information that is provided. The @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values are valid only for WordPress reflective pingback DDoS attacks.
--- * 'total' - The total contributions made to this attack by all contributors, not just the five listed in the @TopContributors@ list.
--- * 'unit' - The unit of the @Value@ of the contributions.
+-- | Creates a 'AttackProperty' value with any optional fields omitted.
 mkAttackProperty ::
   AttackProperty
 mkAttackProperty =
   AttackProperty'
-    { attackLayer = Lude.Nothing,
-      topContributors = Lude.Nothing,
-      attackPropertyIdentifier = Lude.Nothing,
-      total = Lude.Nothing,
-      unit = Lude.Nothing
+    { attackLayer = Core.Nothing,
+      attackPropertyIdentifier = Core.Nothing,
+      topContributors = Core.Nothing,
+      total = Core.Nothing,
+      unit = Core.Nothing
     }
 
 -- | The type of distributed denial of service (DDoS) event that was observed. @NETWORK@ indicates layer 3 and layer 4 events and @APPLICATION@ indicates layer 7 events.
 --
 -- /Note:/ Consider using 'attackLayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apAttackLayer :: Lens.Lens' AttackProperty (Lude.Maybe AttackLayer)
-apAttackLayer = Lens.lens (attackLayer :: AttackProperty -> Lude.Maybe AttackLayer) (\s a -> s {attackLayer = a} :: AttackProperty)
+apAttackLayer :: Lens.Lens' AttackProperty (Core.Maybe Types.AttackLayer)
+apAttackLayer = Lens.field @"attackLayer"
 {-# DEPRECATED apAttackLayer "Use generic-lens or generic-optics with 'attackLayer' instead." #-}
-
--- | The array of contributor objects that includes the top five contributors to an attack.
---
--- /Note:/ Consider using 'topContributors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apTopContributors :: Lens.Lens' AttackProperty (Lude.Maybe [Contributor])
-apTopContributors = Lens.lens (topContributors :: AttackProperty -> Lude.Maybe [Contributor]) (\s a -> s {topContributors = a} :: AttackProperty)
-{-# DEPRECATED apTopContributors "Use generic-lens or generic-optics with 'topContributors' instead." #-}
 
 -- | Defines the DDoS attack property information that is provided. The @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values are valid only for WordPress reflective pingback DDoS attacks.
 --
 -- /Note:/ Consider using 'attackPropertyIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apAttackPropertyIdentifier :: Lens.Lens' AttackProperty (Lude.Maybe AttackPropertyIdentifier)
-apAttackPropertyIdentifier = Lens.lens (attackPropertyIdentifier :: AttackProperty -> Lude.Maybe AttackPropertyIdentifier) (\s a -> s {attackPropertyIdentifier = a} :: AttackProperty)
+apAttackPropertyIdentifier :: Lens.Lens' AttackProperty (Core.Maybe Types.AttackPropertyIdentifier)
+apAttackPropertyIdentifier = Lens.field @"attackPropertyIdentifier"
 {-# DEPRECATED apAttackPropertyIdentifier "Use generic-lens or generic-optics with 'attackPropertyIdentifier' instead." #-}
+
+-- | The array of contributor objects that includes the top five contributors to an attack.
+--
+-- /Note:/ Consider using 'topContributors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apTopContributors :: Lens.Lens' AttackProperty (Core.Maybe [Types.Contributor])
+apTopContributors = Lens.field @"topContributors"
+{-# DEPRECATED apTopContributors "Use generic-lens or generic-optics with 'topContributors' instead." #-}
 
 -- | The total contributions made to this attack by all contributors, not just the five listed in the @TopContributors@ list.
 --
 -- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apTotal :: Lens.Lens' AttackProperty (Lude.Maybe Lude.Integer)
-apTotal = Lens.lens (total :: AttackProperty -> Lude.Maybe Lude.Integer) (\s a -> s {total = a} :: AttackProperty)
+apTotal :: Lens.Lens' AttackProperty (Core.Maybe Core.Integer)
+apTotal = Lens.field @"total"
 {-# DEPRECATED apTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | The unit of the @Value@ of the contributions.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apUnit :: Lens.Lens' AttackProperty (Lude.Maybe Unit)
-apUnit = Lens.lens (unit :: AttackProperty -> Lude.Maybe Unit) (\s a -> s {unit = a} :: AttackProperty)
+apUnit :: Lens.Lens' AttackProperty (Core.Maybe Types.Unit)
+apUnit = Lens.field @"unit"
 {-# DEPRECATED apUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.FromJSON AttackProperty where
+instance Core.FromJSON AttackProperty where
   parseJSON =
-    Lude.withObject
-      "AttackProperty"
-      ( \x ->
-          AttackProperty'
-            Lude.<$> (x Lude..:? "AttackLayer")
-            Lude.<*> (x Lude..:? "TopContributors" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AttackPropertyIdentifier")
-            Lude.<*> (x Lude..:? "Total")
-            Lude.<*> (x Lude..:? "Unit")
-      )
+    Core.withObject "AttackProperty" Core.$
+      \x ->
+        AttackProperty'
+          Core.<$> (x Core..:? "AttackLayer")
+          Core.<*> (x Core..:? "AttackPropertyIdentifier")
+          Core.<*> (x Core..:? "TopContributors")
+          Core.<*> (x Core..:? "Total")
+          Core.<*> (x Core..:? "Unit")

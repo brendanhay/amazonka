@@ -13,51 +13,53 @@
 module Network.AWS.SSM.Types.Fault
   ( Fault
       ( Fault',
-        Client,
-        Server,
-        Unknown
+        FaultClient,
+        FaultServer,
+        FaultUnknown,
+        fromFault
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Fault = Fault' Lude.Text
+newtype Fault = Fault' {fromFault :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Client :: Fault
-pattern Client = Fault' "Client"
+pattern FaultClient :: Fault
+pattern FaultClient = Fault' "Client"
 
-pattern Server :: Fault
-pattern Server = Fault' "Server"
+pattern FaultServer :: Fault
+pattern FaultServer = Fault' "Server"
 
-pattern Unknown :: Fault
-pattern Unknown = Fault' "Unknown"
+pattern FaultUnknown :: Fault
+pattern FaultUnknown = Fault' "Unknown"
 
 {-# COMPLETE
-  Client,
-  Server,
-  Unknown,
+  FaultClient,
+  FaultServer,
+  FaultUnknown,
   Fault'
   #-}

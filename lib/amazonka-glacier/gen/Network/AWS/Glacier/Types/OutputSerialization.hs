@@ -21,40 +21,37 @@ module Network.AWS.Glacier.Types.OutputSerialization
   )
 where
 
-import Network.AWS.Glacier.Types.CSVOutput
+import qualified Network.AWS.Glacier.Types.CSVOutput as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes how the select output is serialized.
 --
 -- /See:/ 'mkOutputSerialization' smart constructor.
 newtype OutputSerialization = OutputSerialization'
   { -- | Describes the serialization of CSV-encoded query results.
-    csv :: Lude.Maybe CSVOutput
+    csv :: Core.Maybe Types.CSVOutput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputSerialization' with the minimum fields required to make a request.
---
--- * 'csv' - Describes the serialization of CSV-encoded query results.
+-- | Creates a 'OutputSerialization' value with any optional fields omitted.
 mkOutputSerialization ::
   OutputSerialization
-mkOutputSerialization = OutputSerialization' {csv = Lude.Nothing}
+mkOutputSerialization = OutputSerialization' {csv = Core.Nothing}
 
 -- | Describes the serialization of CSV-encoded query results.
 --
 -- /Note:/ Consider using 'csv' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osCsv :: Lens.Lens' OutputSerialization (Lude.Maybe CSVOutput)
-osCsv = Lens.lens (csv :: OutputSerialization -> Lude.Maybe CSVOutput) (\s a -> s {csv = a} :: OutputSerialization)
+osCsv :: Lens.Lens' OutputSerialization (Core.Maybe Types.CSVOutput)
+osCsv = Lens.field @"csv"
 {-# DEPRECATED osCsv "Use generic-lens or generic-optics with 'csv' instead." #-}
 
-instance Lude.FromJSON OutputSerialization where
-  parseJSON =
-    Lude.withObject
-      "OutputSerialization"
-      (\x -> OutputSerialization' Lude.<$> (x Lude..:? "csv"))
+instance Core.FromJSON OutputSerialization where
+  toJSON OutputSerialization {..} =
+    Core.object (Core.catMaybes [("csv" Core..=) Core.<$> csv])
 
-instance Lude.ToJSON OutputSerialization where
-  toJSON OutputSerialization' {..} =
-    Lude.object (Lude.catMaybes [("csv" Lude..=) Lude.<$> csv])
+instance Core.FromJSON OutputSerialization where
+  parseJSON =
+    Core.withObject "OutputSerialization" Core.$
+      \x -> OutputSerialization' Core.<$> (x Core..:? "csv")

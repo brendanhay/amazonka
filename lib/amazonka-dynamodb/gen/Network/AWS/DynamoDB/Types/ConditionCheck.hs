@@ -17,118 +17,116 @@ module Network.AWS.DynamoDB.Types.ConditionCheck
     mkConditionCheck,
 
     -- * Lenses
+    ccKey,
+    ccTableName,
+    ccConditionExpression,
     ccExpressionAttributeNames,
     ccExpressionAttributeValues,
     ccReturnValuesOnConditionCheckFailure,
-    ccConditionExpression,
-    ccKey,
-    ccTableName,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AttributeValue
-import Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
+import qualified Network.AWS.DynamoDB.Types.AttributeName as Types
+import qualified Network.AWS.DynamoDB.Types.AttributeValue as Types
+import qualified Network.AWS.DynamoDB.Types.ConditionExpression as Types
+import qualified Network.AWS.DynamoDB.Types.ExpressionAttributeNameVariable as Types
+import qualified Network.AWS.DynamoDB.Types.ExpressionAttributeValueVariable as Types
+import qualified Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure as Types
+import qualified Network.AWS.DynamoDB.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a request to perform a check that an item exists or to check the condition of specific attributes of the item.
 --
 -- /See:/ 'mkConditionCheck' smart constructor.
 data ConditionCheck = ConditionCheck'
-  { -- | One or more substitution tokens for attribute names in an expression.
-    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
-    returnValuesOnConditionCheckFailure :: Lude.Maybe ReturnValuesOnConditionCheckFailure,
-    -- | A condition that must be satisfied in order for a conditional update to succeed.
-    conditionExpression :: Lude.Text,
-    -- | The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
-    key :: Lude.HashMap Lude.Text (AttributeValue),
+  { -- | The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
+    key :: Core.HashMap Types.AttributeName Types.AttributeValue,
     -- | Name of the table for the check item request.
-    tableName :: Lude.Text
+    tableName :: Types.TableName,
+    -- | A condition that must be satisfied in order for a conditional update to succeed.
+    conditionExpression :: Types.ConditionExpression,
+    -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Core.Maybe (Core.HashMap Types.ExpressionAttributeNameVariable Types.AttributeName),
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Core.Maybe (Core.HashMap Types.ExpressionAttributeValueVariable Types.AttributeValue),
+    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+    returnValuesOnConditionCheckFailure :: Core.Maybe Types.ReturnValuesOnConditionCheckFailure
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConditionCheck' with the minimum fields required to make a request.
---
--- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
--- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
--- * 'returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
--- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
--- * 'key' - The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
--- * 'tableName' - Name of the table for the check item request.
+-- | Creates a 'ConditionCheck' value with any optional fields omitted.
 mkConditionCheck ::
-  -- | 'conditionExpression'
-  Lude.Text ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
+  -- | 'conditionExpression'
+  Types.ConditionExpression ->
   ConditionCheck
-mkConditionCheck pConditionExpression_ pTableName_ =
+mkConditionCheck tableName conditionExpression =
   ConditionCheck'
-    { expressionAttributeNames = Lude.Nothing,
-      expressionAttributeValues = Lude.Nothing,
-      returnValuesOnConditionCheckFailure = Lude.Nothing,
-      conditionExpression = pConditionExpression_,
-      key = Lude.mempty,
-      tableName = pTableName_
+    { key = Core.mempty,
+      tableName,
+      conditionExpression,
+      expressionAttributeNames = Core.Nothing,
+      expressionAttributeValues = Core.Nothing,
+      returnValuesOnConditionCheckFailure = Core.Nothing
     }
-
--- | One or more substitution tokens for attribute names in an expression.
---
--- /Note:/ Consider using 'expressionAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccExpressionAttributeNames :: Lens.Lens' ConditionCheck (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ccExpressionAttributeNames = Lens.lens (expressionAttributeNames :: ConditionCheck -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {expressionAttributeNames = a} :: ConditionCheck)
-{-# DEPRECATED ccExpressionAttributeNames "Use generic-lens or generic-optics with 'expressionAttributeNames' instead." #-}
-
--- | One or more values that can be substituted in an expression.
---
--- /Note:/ Consider using 'expressionAttributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccExpressionAttributeValues :: Lens.Lens' ConditionCheck (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
-ccExpressionAttributeValues = Lens.lens (expressionAttributeValues :: ConditionCheck -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {expressionAttributeValues = a} :: ConditionCheck)
-{-# DEPRECATED ccExpressionAttributeValues "Use generic-lens or generic-optics with 'expressionAttributeValues' instead." #-}
-
--- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
---
--- /Note:/ Consider using 'returnValuesOnConditionCheckFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccReturnValuesOnConditionCheckFailure :: Lens.Lens' ConditionCheck (Lude.Maybe ReturnValuesOnConditionCheckFailure)
-ccReturnValuesOnConditionCheckFailure = Lens.lens (returnValuesOnConditionCheckFailure :: ConditionCheck -> Lude.Maybe ReturnValuesOnConditionCheckFailure) (\s a -> s {returnValuesOnConditionCheckFailure = a} :: ConditionCheck)
-{-# DEPRECATED ccReturnValuesOnConditionCheckFailure "Use generic-lens or generic-optics with 'returnValuesOnConditionCheckFailure' instead." #-}
-
--- | A condition that must be satisfied in order for a conditional update to succeed.
---
--- /Note:/ Consider using 'conditionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccConditionExpression :: Lens.Lens' ConditionCheck Lude.Text
-ccConditionExpression = Lens.lens (conditionExpression :: ConditionCheck -> Lude.Text) (\s a -> s {conditionExpression = a} :: ConditionCheck)
-{-# DEPRECATED ccConditionExpression "Use generic-lens or generic-optics with 'conditionExpression' instead." #-}
 
 -- | The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccKey :: Lens.Lens' ConditionCheck (Lude.HashMap Lude.Text (AttributeValue))
-ccKey = Lens.lens (key :: ConditionCheck -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: ConditionCheck)
+ccKey :: Lens.Lens' ConditionCheck (Core.HashMap Types.AttributeName Types.AttributeValue)
+ccKey = Lens.field @"key"
 {-# DEPRECATED ccKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Name of the table for the check item request.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTableName :: Lens.Lens' ConditionCheck Lude.Text
-ccTableName = Lens.lens (tableName :: ConditionCheck -> Lude.Text) (\s a -> s {tableName = a} :: ConditionCheck)
+ccTableName :: Lens.Lens' ConditionCheck Types.TableName
+ccTableName = Lens.field @"tableName"
 {-# DEPRECATED ccTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.ToJSON ConditionCheck where
-  toJSON ConditionCheck' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExpressionAttributeNames" Lude..=)
-              Lude.<$> expressionAttributeNames,
-            ("ExpressionAttributeValues" Lude..=)
-              Lude.<$> expressionAttributeValues,
-            ("ReturnValuesOnConditionCheckFailure" Lude..=)
-              Lude.<$> returnValuesOnConditionCheckFailure,
-            Lude.Just ("ConditionExpression" Lude..= conditionExpression),
-            Lude.Just ("Key" Lude..= key),
-            Lude.Just ("TableName" Lude..= tableName)
+-- | A condition that must be satisfied in order for a conditional update to succeed.
+--
+-- /Note:/ Consider using 'conditionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccConditionExpression :: Lens.Lens' ConditionCheck Types.ConditionExpression
+ccConditionExpression = Lens.field @"conditionExpression"
+{-# DEPRECATED ccConditionExpression "Use generic-lens or generic-optics with 'conditionExpression' instead." #-}
+
+-- | One or more substitution tokens for attribute names in an expression.
+--
+-- /Note:/ Consider using 'expressionAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccExpressionAttributeNames :: Lens.Lens' ConditionCheck (Core.Maybe (Core.HashMap Types.ExpressionAttributeNameVariable Types.AttributeName))
+ccExpressionAttributeNames = Lens.field @"expressionAttributeNames"
+{-# DEPRECATED ccExpressionAttributeNames "Use generic-lens or generic-optics with 'expressionAttributeNames' instead." #-}
+
+-- | One or more values that can be substituted in an expression.
+--
+-- /Note:/ Consider using 'expressionAttributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccExpressionAttributeValues :: Lens.Lens' ConditionCheck (Core.Maybe (Core.HashMap Types.ExpressionAttributeValueVariable Types.AttributeValue))
+ccExpressionAttributeValues = Lens.field @"expressionAttributeValues"
+{-# DEPRECATED ccExpressionAttributeValues "Use generic-lens or generic-optics with 'expressionAttributeValues' instead." #-}
+
+-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+--
+-- /Note:/ Consider using 'returnValuesOnConditionCheckFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccReturnValuesOnConditionCheckFailure :: Lens.Lens' ConditionCheck (Core.Maybe Types.ReturnValuesOnConditionCheckFailure)
+ccReturnValuesOnConditionCheckFailure = Lens.field @"returnValuesOnConditionCheckFailure"
+{-# DEPRECATED ccReturnValuesOnConditionCheckFailure "Use generic-lens or generic-optics with 'returnValuesOnConditionCheckFailure' instead." #-}
+
+instance Core.FromJSON ConditionCheck where
+  toJSON ConditionCheck {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("ConditionExpression" Core..= conditionExpression),
+            ("ExpressionAttributeNames" Core..=)
+              Core.<$> expressionAttributeNames,
+            ("ExpressionAttributeValues" Core..=)
+              Core.<$> expressionAttributeValues,
+            ("ReturnValuesOnConditionCheckFailure" Core..=)
+              Core.<$> returnValuesOnConditionCheckFailure
           ]
       )

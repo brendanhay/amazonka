@@ -13,311 +13,316 @@
 module Network.AWS.StepFunctions.Types.HistoryEventType
   ( HistoryEventType
       ( HistoryEventType',
-        ActivityFailed,
-        ActivityScheduled,
-        ActivityScheduleFailed,
-        ActivityStarted,
-        ActivitySucceeded,
-        ActivityTimedOut,
-        ChoiceStateEntered,
-        ChoiceStateExited,
-        ExecutionAborted,
-        ExecutionFailed,
-        ExecutionStarted,
-        ExecutionSucceeded,
-        ExecutionTimedOut,
-        FailStateEntered,
-        LambdaFunctionFailed,
-        LambdaFunctionScheduled,
-        LambdaFunctionScheduleFailed,
-        LambdaFunctionStarted,
-        LambdaFunctionStartFailed,
-        LambdaFunctionSucceeded,
-        LambdaFunctionTimedOut,
-        MapIterationAborted,
-        MapIterationFailed,
-        MapIterationStarted,
-        MapIterationSucceeded,
-        MapStateAborted,
-        MapStateEntered,
-        MapStateExited,
-        MapStateFailed,
-        MapStateStarted,
-        MapStateSucceeded,
-        ParallelStateAborted,
-        ParallelStateEntered,
-        ParallelStateExited,
-        ParallelStateFailed,
-        ParallelStateStarted,
-        ParallelStateSucceeded,
-        PassStateEntered,
-        PassStateExited,
-        SucceedStateEntered,
-        SucceedStateExited,
-        TaskFailed,
-        TaskScheduled,
-        TaskStarted,
-        TaskStartFailed,
-        TaskStateAborted,
-        TaskStateEntered,
-        TaskStateExited,
-        TaskSubmitFailed,
-        TaskSubmitted,
-        TaskSucceeded,
-        TaskTimedOut,
-        WaitStateAborted,
-        WaitStateEntered,
-        WaitStateExited
+        HistoryEventTypeActivityFailed,
+        HistoryEventTypeActivityScheduled,
+        HistoryEventTypeActivityScheduleFailed,
+        HistoryEventTypeActivityStarted,
+        HistoryEventTypeActivitySucceeded,
+        HistoryEventTypeActivityTimedOut,
+        HistoryEventTypeChoiceStateEntered,
+        HistoryEventTypeChoiceStateExited,
+        HistoryEventTypeExecutionAborted,
+        HistoryEventTypeExecutionFailed,
+        HistoryEventTypeExecutionStarted,
+        HistoryEventTypeExecutionSucceeded,
+        HistoryEventTypeExecutionTimedOut,
+        HistoryEventTypeFailStateEntered,
+        HistoryEventTypeLambdaFunctionFailed,
+        HistoryEventTypeLambdaFunctionScheduled,
+        HistoryEventTypeLambdaFunctionScheduleFailed,
+        HistoryEventTypeLambdaFunctionStarted,
+        HistoryEventTypeLambdaFunctionStartFailed,
+        HistoryEventTypeLambdaFunctionSucceeded,
+        HistoryEventTypeLambdaFunctionTimedOut,
+        HistoryEventTypeMapIterationAborted,
+        HistoryEventTypeMapIterationFailed,
+        HistoryEventTypeMapIterationStarted,
+        HistoryEventTypeMapIterationSucceeded,
+        HistoryEventTypeMapStateAborted,
+        HistoryEventTypeMapStateEntered,
+        HistoryEventTypeMapStateExited,
+        HistoryEventTypeMapStateFailed,
+        HistoryEventTypeMapStateStarted,
+        HistoryEventTypeMapStateSucceeded,
+        HistoryEventTypeParallelStateAborted,
+        HistoryEventTypeParallelStateEntered,
+        HistoryEventTypeParallelStateExited,
+        HistoryEventTypeParallelStateFailed,
+        HistoryEventTypeParallelStateStarted,
+        HistoryEventTypeParallelStateSucceeded,
+        HistoryEventTypePassStateEntered,
+        HistoryEventTypePassStateExited,
+        HistoryEventTypeSucceedStateEntered,
+        HistoryEventTypeSucceedStateExited,
+        HistoryEventTypeTaskFailed,
+        HistoryEventTypeTaskScheduled,
+        HistoryEventTypeTaskStarted,
+        HistoryEventTypeTaskStartFailed,
+        HistoryEventTypeTaskStateAborted,
+        HistoryEventTypeTaskStateEntered,
+        HistoryEventTypeTaskStateExited,
+        HistoryEventTypeTaskSubmitFailed,
+        HistoryEventTypeTaskSubmitted,
+        HistoryEventTypeTaskSucceeded,
+        HistoryEventTypeTaskTimedOut,
+        HistoryEventTypeWaitStateAborted,
+        HistoryEventTypeWaitStateEntered,
+        HistoryEventTypeWaitStateExited,
+        fromHistoryEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HistoryEventType = HistoryEventType' Lude.Text
+newtype HistoryEventType = HistoryEventType'
+  { fromHistoryEventType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ActivityFailed :: HistoryEventType
-pattern ActivityFailed = HistoryEventType' "ActivityFailed"
+pattern HistoryEventTypeActivityFailed :: HistoryEventType
+pattern HistoryEventTypeActivityFailed = HistoryEventType' "ActivityFailed"
 
-pattern ActivityScheduled :: HistoryEventType
-pattern ActivityScheduled = HistoryEventType' "ActivityScheduled"
+pattern HistoryEventTypeActivityScheduled :: HistoryEventType
+pattern HistoryEventTypeActivityScheduled = HistoryEventType' "ActivityScheduled"
 
-pattern ActivityScheduleFailed :: HistoryEventType
-pattern ActivityScheduleFailed = HistoryEventType' "ActivityScheduleFailed"
+pattern HistoryEventTypeActivityScheduleFailed :: HistoryEventType
+pattern HistoryEventTypeActivityScheduleFailed = HistoryEventType' "ActivityScheduleFailed"
 
-pattern ActivityStarted :: HistoryEventType
-pattern ActivityStarted = HistoryEventType' "ActivityStarted"
+pattern HistoryEventTypeActivityStarted :: HistoryEventType
+pattern HistoryEventTypeActivityStarted = HistoryEventType' "ActivityStarted"
 
-pattern ActivitySucceeded :: HistoryEventType
-pattern ActivitySucceeded = HistoryEventType' "ActivitySucceeded"
+pattern HistoryEventTypeActivitySucceeded :: HistoryEventType
+pattern HistoryEventTypeActivitySucceeded = HistoryEventType' "ActivitySucceeded"
 
-pattern ActivityTimedOut :: HistoryEventType
-pattern ActivityTimedOut = HistoryEventType' "ActivityTimedOut"
+pattern HistoryEventTypeActivityTimedOut :: HistoryEventType
+pattern HistoryEventTypeActivityTimedOut = HistoryEventType' "ActivityTimedOut"
 
-pattern ChoiceStateEntered :: HistoryEventType
-pattern ChoiceStateEntered = HistoryEventType' "ChoiceStateEntered"
+pattern HistoryEventTypeChoiceStateEntered :: HistoryEventType
+pattern HistoryEventTypeChoiceStateEntered = HistoryEventType' "ChoiceStateEntered"
 
-pattern ChoiceStateExited :: HistoryEventType
-pattern ChoiceStateExited = HistoryEventType' "ChoiceStateExited"
+pattern HistoryEventTypeChoiceStateExited :: HistoryEventType
+pattern HistoryEventTypeChoiceStateExited = HistoryEventType' "ChoiceStateExited"
 
-pattern ExecutionAborted :: HistoryEventType
-pattern ExecutionAborted = HistoryEventType' "ExecutionAborted"
+pattern HistoryEventTypeExecutionAborted :: HistoryEventType
+pattern HistoryEventTypeExecutionAborted = HistoryEventType' "ExecutionAborted"
 
-pattern ExecutionFailed :: HistoryEventType
-pattern ExecutionFailed = HistoryEventType' "ExecutionFailed"
+pattern HistoryEventTypeExecutionFailed :: HistoryEventType
+pattern HistoryEventTypeExecutionFailed = HistoryEventType' "ExecutionFailed"
 
-pattern ExecutionStarted :: HistoryEventType
-pattern ExecutionStarted = HistoryEventType' "ExecutionStarted"
+pattern HistoryEventTypeExecutionStarted :: HistoryEventType
+pattern HistoryEventTypeExecutionStarted = HistoryEventType' "ExecutionStarted"
 
-pattern ExecutionSucceeded :: HistoryEventType
-pattern ExecutionSucceeded = HistoryEventType' "ExecutionSucceeded"
+pattern HistoryEventTypeExecutionSucceeded :: HistoryEventType
+pattern HistoryEventTypeExecutionSucceeded = HistoryEventType' "ExecutionSucceeded"
 
-pattern ExecutionTimedOut :: HistoryEventType
-pattern ExecutionTimedOut = HistoryEventType' "ExecutionTimedOut"
+pattern HistoryEventTypeExecutionTimedOut :: HistoryEventType
+pattern HistoryEventTypeExecutionTimedOut = HistoryEventType' "ExecutionTimedOut"
 
-pattern FailStateEntered :: HistoryEventType
-pattern FailStateEntered = HistoryEventType' "FailStateEntered"
+pattern HistoryEventTypeFailStateEntered :: HistoryEventType
+pattern HistoryEventTypeFailStateEntered = HistoryEventType' "FailStateEntered"
 
-pattern LambdaFunctionFailed :: HistoryEventType
-pattern LambdaFunctionFailed = HistoryEventType' "LambdaFunctionFailed"
+pattern HistoryEventTypeLambdaFunctionFailed :: HistoryEventType
+pattern HistoryEventTypeLambdaFunctionFailed = HistoryEventType' "LambdaFunctionFailed"
 
-pattern LambdaFunctionScheduled :: HistoryEventType
-pattern LambdaFunctionScheduled = HistoryEventType' "LambdaFunctionScheduled"
+pattern HistoryEventTypeLambdaFunctionScheduled :: HistoryEventType
+pattern HistoryEventTypeLambdaFunctionScheduled = HistoryEventType' "LambdaFunctionScheduled"
 
-pattern LambdaFunctionScheduleFailed :: HistoryEventType
-pattern LambdaFunctionScheduleFailed = HistoryEventType' "LambdaFunctionScheduleFailed"
+pattern HistoryEventTypeLambdaFunctionScheduleFailed :: HistoryEventType
+pattern HistoryEventTypeLambdaFunctionScheduleFailed = HistoryEventType' "LambdaFunctionScheduleFailed"
 
-pattern LambdaFunctionStarted :: HistoryEventType
-pattern LambdaFunctionStarted = HistoryEventType' "LambdaFunctionStarted"
+pattern HistoryEventTypeLambdaFunctionStarted :: HistoryEventType
+pattern HistoryEventTypeLambdaFunctionStarted = HistoryEventType' "LambdaFunctionStarted"
 
-pattern LambdaFunctionStartFailed :: HistoryEventType
-pattern LambdaFunctionStartFailed = HistoryEventType' "LambdaFunctionStartFailed"
+pattern HistoryEventTypeLambdaFunctionStartFailed :: HistoryEventType
+pattern HistoryEventTypeLambdaFunctionStartFailed = HistoryEventType' "LambdaFunctionStartFailed"
 
-pattern LambdaFunctionSucceeded :: HistoryEventType
-pattern LambdaFunctionSucceeded = HistoryEventType' "LambdaFunctionSucceeded"
+pattern HistoryEventTypeLambdaFunctionSucceeded :: HistoryEventType
+pattern HistoryEventTypeLambdaFunctionSucceeded = HistoryEventType' "LambdaFunctionSucceeded"
 
-pattern LambdaFunctionTimedOut :: HistoryEventType
-pattern LambdaFunctionTimedOut = HistoryEventType' "LambdaFunctionTimedOut"
+pattern HistoryEventTypeLambdaFunctionTimedOut :: HistoryEventType
+pattern HistoryEventTypeLambdaFunctionTimedOut = HistoryEventType' "LambdaFunctionTimedOut"
 
-pattern MapIterationAborted :: HistoryEventType
-pattern MapIterationAborted = HistoryEventType' "MapIterationAborted"
+pattern HistoryEventTypeMapIterationAborted :: HistoryEventType
+pattern HistoryEventTypeMapIterationAborted = HistoryEventType' "MapIterationAborted"
 
-pattern MapIterationFailed :: HistoryEventType
-pattern MapIterationFailed = HistoryEventType' "MapIterationFailed"
+pattern HistoryEventTypeMapIterationFailed :: HistoryEventType
+pattern HistoryEventTypeMapIterationFailed = HistoryEventType' "MapIterationFailed"
 
-pattern MapIterationStarted :: HistoryEventType
-pattern MapIterationStarted = HistoryEventType' "MapIterationStarted"
+pattern HistoryEventTypeMapIterationStarted :: HistoryEventType
+pattern HistoryEventTypeMapIterationStarted = HistoryEventType' "MapIterationStarted"
 
-pattern MapIterationSucceeded :: HistoryEventType
-pattern MapIterationSucceeded = HistoryEventType' "MapIterationSucceeded"
+pattern HistoryEventTypeMapIterationSucceeded :: HistoryEventType
+pattern HistoryEventTypeMapIterationSucceeded = HistoryEventType' "MapIterationSucceeded"
 
-pattern MapStateAborted :: HistoryEventType
-pattern MapStateAborted = HistoryEventType' "MapStateAborted"
+pattern HistoryEventTypeMapStateAborted :: HistoryEventType
+pattern HistoryEventTypeMapStateAborted = HistoryEventType' "MapStateAborted"
 
-pattern MapStateEntered :: HistoryEventType
-pattern MapStateEntered = HistoryEventType' "MapStateEntered"
+pattern HistoryEventTypeMapStateEntered :: HistoryEventType
+pattern HistoryEventTypeMapStateEntered = HistoryEventType' "MapStateEntered"
 
-pattern MapStateExited :: HistoryEventType
-pattern MapStateExited = HistoryEventType' "MapStateExited"
+pattern HistoryEventTypeMapStateExited :: HistoryEventType
+pattern HistoryEventTypeMapStateExited = HistoryEventType' "MapStateExited"
 
-pattern MapStateFailed :: HistoryEventType
-pattern MapStateFailed = HistoryEventType' "MapStateFailed"
+pattern HistoryEventTypeMapStateFailed :: HistoryEventType
+pattern HistoryEventTypeMapStateFailed = HistoryEventType' "MapStateFailed"
 
-pattern MapStateStarted :: HistoryEventType
-pattern MapStateStarted = HistoryEventType' "MapStateStarted"
+pattern HistoryEventTypeMapStateStarted :: HistoryEventType
+pattern HistoryEventTypeMapStateStarted = HistoryEventType' "MapStateStarted"
 
-pattern MapStateSucceeded :: HistoryEventType
-pattern MapStateSucceeded = HistoryEventType' "MapStateSucceeded"
+pattern HistoryEventTypeMapStateSucceeded :: HistoryEventType
+pattern HistoryEventTypeMapStateSucceeded = HistoryEventType' "MapStateSucceeded"
 
-pattern ParallelStateAborted :: HistoryEventType
-pattern ParallelStateAborted = HistoryEventType' "ParallelStateAborted"
+pattern HistoryEventTypeParallelStateAborted :: HistoryEventType
+pattern HistoryEventTypeParallelStateAborted = HistoryEventType' "ParallelStateAborted"
 
-pattern ParallelStateEntered :: HistoryEventType
-pattern ParallelStateEntered = HistoryEventType' "ParallelStateEntered"
+pattern HistoryEventTypeParallelStateEntered :: HistoryEventType
+pattern HistoryEventTypeParallelStateEntered = HistoryEventType' "ParallelStateEntered"
 
-pattern ParallelStateExited :: HistoryEventType
-pattern ParallelStateExited = HistoryEventType' "ParallelStateExited"
+pattern HistoryEventTypeParallelStateExited :: HistoryEventType
+pattern HistoryEventTypeParallelStateExited = HistoryEventType' "ParallelStateExited"
 
-pattern ParallelStateFailed :: HistoryEventType
-pattern ParallelStateFailed = HistoryEventType' "ParallelStateFailed"
+pattern HistoryEventTypeParallelStateFailed :: HistoryEventType
+pattern HistoryEventTypeParallelStateFailed = HistoryEventType' "ParallelStateFailed"
 
-pattern ParallelStateStarted :: HistoryEventType
-pattern ParallelStateStarted = HistoryEventType' "ParallelStateStarted"
+pattern HistoryEventTypeParallelStateStarted :: HistoryEventType
+pattern HistoryEventTypeParallelStateStarted = HistoryEventType' "ParallelStateStarted"
 
-pattern ParallelStateSucceeded :: HistoryEventType
-pattern ParallelStateSucceeded = HistoryEventType' "ParallelStateSucceeded"
+pattern HistoryEventTypeParallelStateSucceeded :: HistoryEventType
+pattern HistoryEventTypeParallelStateSucceeded = HistoryEventType' "ParallelStateSucceeded"
 
-pattern PassStateEntered :: HistoryEventType
-pattern PassStateEntered = HistoryEventType' "PassStateEntered"
+pattern HistoryEventTypePassStateEntered :: HistoryEventType
+pattern HistoryEventTypePassStateEntered = HistoryEventType' "PassStateEntered"
 
-pattern PassStateExited :: HistoryEventType
-pattern PassStateExited = HistoryEventType' "PassStateExited"
+pattern HistoryEventTypePassStateExited :: HistoryEventType
+pattern HistoryEventTypePassStateExited = HistoryEventType' "PassStateExited"
 
-pattern SucceedStateEntered :: HistoryEventType
-pattern SucceedStateEntered = HistoryEventType' "SucceedStateEntered"
+pattern HistoryEventTypeSucceedStateEntered :: HistoryEventType
+pattern HistoryEventTypeSucceedStateEntered = HistoryEventType' "SucceedStateEntered"
 
-pattern SucceedStateExited :: HistoryEventType
-pattern SucceedStateExited = HistoryEventType' "SucceedStateExited"
+pattern HistoryEventTypeSucceedStateExited :: HistoryEventType
+pattern HistoryEventTypeSucceedStateExited = HistoryEventType' "SucceedStateExited"
 
-pattern TaskFailed :: HistoryEventType
-pattern TaskFailed = HistoryEventType' "TaskFailed"
+pattern HistoryEventTypeTaskFailed :: HistoryEventType
+pattern HistoryEventTypeTaskFailed = HistoryEventType' "TaskFailed"
 
-pattern TaskScheduled :: HistoryEventType
-pattern TaskScheduled = HistoryEventType' "TaskScheduled"
+pattern HistoryEventTypeTaskScheduled :: HistoryEventType
+pattern HistoryEventTypeTaskScheduled = HistoryEventType' "TaskScheduled"
 
-pattern TaskStarted :: HistoryEventType
-pattern TaskStarted = HistoryEventType' "TaskStarted"
+pattern HistoryEventTypeTaskStarted :: HistoryEventType
+pattern HistoryEventTypeTaskStarted = HistoryEventType' "TaskStarted"
 
-pattern TaskStartFailed :: HistoryEventType
-pattern TaskStartFailed = HistoryEventType' "TaskStartFailed"
+pattern HistoryEventTypeTaskStartFailed :: HistoryEventType
+pattern HistoryEventTypeTaskStartFailed = HistoryEventType' "TaskStartFailed"
 
-pattern TaskStateAborted :: HistoryEventType
-pattern TaskStateAborted = HistoryEventType' "TaskStateAborted"
+pattern HistoryEventTypeTaskStateAborted :: HistoryEventType
+pattern HistoryEventTypeTaskStateAborted = HistoryEventType' "TaskStateAborted"
 
-pattern TaskStateEntered :: HistoryEventType
-pattern TaskStateEntered = HistoryEventType' "TaskStateEntered"
+pattern HistoryEventTypeTaskStateEntered :: HistoryEventType
+pattern HistoryEventTypeTaskStateEntered = HistoryEventType' "TaskStateEntered"
 
-pattern TaskStateExited :: HistoryEventType
-pattern TaskStateExited = HistoryEventType' "TaskStateExited"
+pattern HistoryEventTypeTaskStateExited :: HistoryEventType
+pattern HistoryEventTypeTaskStateExited = HistoryEventType' "TaskStateExited"
 
-pattern TaskSubmitFailed :: HistoryEventType
-pattern TaskSubmitFailed = HistoryEventType' "TaskSubmitFailed"
+pattern HistoryEventTypeTaskSubmitFailed :: HistoryEventType
+pattern HistoryEventTypeTaskSubmitFailed = HistoryEventType' "TaskSubmitFailed"
 
-pattern TaskSubmitted :: HistoryEventType
-pattern TaskSubmitted = HistoryEventType' "TaskSubmitted"
+pattern HistoryEventTypeTaskSubmitted :: HistoryEventType
+pattern HistoryEventTypeTaskSubmitted = HistoryEventType' "TaskSubmitted"
 
-pattern TaskSucceeded :: HistoryEventType
-pattern TaskSucceeded = HistoryEventType' "TaskSucceeded"
+pattern HistoryEventTypeTaskSucceeded :: HistoryEventType
+pattern HistoryEventTypeTaskSucceeded = HistoryEventType' "TaskSucceeded"
 
-pattern TaskTimedOut :: HistoryEventType
-pattern TaskTimedOut = HistoryEventType' "TaskTimedOut"
+pattern HistoryEventTypeTaskTimedOut :: HistoryEventType
+pattern HistoryEventTypeTaskTimedOut = HistoryEventType' "TaskTimedOut"
 
-pattern WaitStateAborted :: HistoryEventType
-pattern WaitStateAborted = HistoryEventType' "WaitStateAborted"
+pattern HistoryEventTypeWaitStateAborted :: HistoryEventType
+pattern HistoryEventTypeWaitStateAborted = HistoryEventType' "WaitStateAborted"
 
-pattern WaitStateEntered :: HistoryEventType
-pattern WaitStateEntered = HistoryEventType' "WaitStateEntered"
+pattern HistoryEventTypeWaitStateEntered :: HistoryEventType
+pattern HistoryEventTypeWaitStateEntered = HistoryEventType' "WaitStateEntered"
 
-pattern WaitStateExited :: HistoryEventType
-pattern WaitStateExited = HistoryEventType' "WaitStateExited"
+pattern HistoryEventTypeWaitStateExited :: HistoryEventType
+pattern HistoryEventTypeWaitStateExited = HistoryEventType' "WaitStateExited"
 
 {-# COMPLETE
-  ActivityFailed,
-  ActivityScheduled,
-  ActivityScheduleFailed,
-  ActivityStarted,
-  ActivitySucceeded,
-  ActivityTimedOut,
-  ChoiceStateEntered,
-  ChoiceStateExited,
-  ExecutionAborted,
-  ExecutionFailed,
-  ExecutionStarted,
-  ExecutionSucceeded,
-  ExecutionTimedOut,
-  FailStateEntered,
-  LambdaFunctionFailed,
-  LambdaFunctionScheduled,
-  LambdaFunctionScheduleFailed,
-  LambdaFunctionStarted,
-  LambdaFunctionStartFailed,
-  LambdaFunctionSucceeded,
-  LambdaFunctionTimedOut,
-  MapIterationAborted,
-  MapIterationFailed,
-  MapIterationStarted,
-  MapIterationSucceeded,
-  MapStateAborted,
-  MapStateEntered,
-  MapStateExited,
-  MapStateFailed,
-  MapStateStarted,
-  MapStateSucceeded,
-  ParallelStateAborted,
-  ParallelStateEntered,
-  ParallelStateExited,
-  ParallelStateFailed,
-  ParallelStateStarted,
-  ParallelStateSucceeded,
-  PassStateEntered,
-  PassStateExited,
-  SucceedStateEntered,
-  SucceedStateExited,
-  TaskFailed,
-  TaskScheduled,
-  TaskStarted,
-  TaskStartFailed,
-  TaskStateAborted,
-  TaskStateEntered,
-  TaskStateExited,
-  TaskSubmitFailed,
-  TaskSubmitted,
-  TaskSucceeded,
-  TaskTimedOut,
-  WaitStateAborted,
-  WaitStateEntered,
-  WaitStateExited,
+  HistoryEventTypeActivityFailed,
+  HistoryEventTypeActivityScheduled,
+  HistoryEventTypeActivityScheduleFailed,
+  HistoryEventTypeActivityStarted,
+  HistoryEventTypeActivitySucceeded,
+  HistoryEventTypeActivityTimedOut,
+  HistoryEventTypeChoiceStateEntered,
+  HistoryEventTypeChoiceStateExited,
+  HistoryEventTypeExecutionAborted,
+  HistoryEventTypeExecutionFailed,
+  HistoryEventTypeExecutionStarted,
+  HistoryEventTypeExecutionSucceeded,
+  HistoryEventTypeExecutionTimedOut,
+  HistoryEventTypeFailStateEntered,
+  HistoryEventTypeLambdaFunctionFailed,
+  HistoryEventTypeLambdaFunctionScheduled,
+  HistoryEventTypeLambdaFunctionScheduleFailed,
+  HistoryEventTypeLambdaFunctionStarted,
+  HistoryEventTypeLambdaFunctionStartFailed,
+  HistoryEventTypeLambdaFunctionSucceeded,
+  HistoryEventTypeLambdaFunctionTimedOut,
+  HistoryEventTypeMapIterationAborted,
+  HistoryEventTypeMapIterationFailed,
+  HistoryEventTypeMapIterationStarted,
+  HistoryEventTypeMapIterationSucceeded,
+  HistoryEventTypeMapStateAborted,
+  HistoryEventTypeMapStateEntered,
+  HistoryEventTypeMapStateExited,
+  HistoryEventTypeMapStateFailed,
+  HistoryEventTypeMapStateStarted,
+  HistoryEventTypeMapStateSucceeded,
+  HistoryEventTypeParallelStateAborted,
+  HistoryEventTypeParallelStateEntered,
+  HistoryEventTypeParallelStateExited,
+  HistoryEventTypeParallelStateFailed,
+  HistoryEventTypeParallelStateStarted,
+  HistoryEventTypeParallelStateSucceeded,
+  HistoryEventTypePassStateEntered,
+  HistoryEventTypePassStateExited,
+  HistoryEventTypeSucceedStateEntered,
+  HistoryEventTypeSucceedStateExited,
+  HistoryEventTypeTaskFailed,
+  HistoryEventTypeTaskScheduled,
+  HistoryEventTypeTaskStarted,
+  HistoryEventTypeTaskStartFailed,
+  HistoryEventTypeTaskStateAborted,
+  HistoryEventTypeTaskStateEntered,
+  HistoryEventTypeTaskStateExited,
+  HistoryEventTypeTaskSubmitFailed,
+  HistoryEventTypeTaskSubmitted,
+  HistoryEventTypeTaskSucceeded,
+  HistoryEventTypeTaskTimedOut,
+  HistoryEventTypeWaitStateAborted,
+  HistoryEventTypeWaitStateEntered,
+  HistoryEventTypeWaitStateExited,
   HistoryEventType'
   #-}

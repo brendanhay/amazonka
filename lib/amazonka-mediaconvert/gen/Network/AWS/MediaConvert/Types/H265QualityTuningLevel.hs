@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.H265QualityTuningLevel
   ( H265QualityTuningLevel
       ( H265QualityTuningLevel',
-        SinglePass,
-        SinglePassHq,
-        MultiPassHq
+        H265QualityTuningLevelSinglePass,
+        H265QualityTuningLevelSinglePassHq,
+        H265QualityTuningLevelMultiPassHq,
+        fromH265QualityTuningLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
-newtype H265QualityTuningLevel = H265QualityTuningLevel' Lude.Text
+newtype H265QualityTuningLevel = H265QualityTuningLevel'
+  { fromH265QualityTuningLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SinglePass :: H265QualityTuningLevel
-pattern SinglePass = H265QualityTuningLevel' "SINGLE_PASS"
+pattern H265QualityTuningLevelSinglePass :: H265QualityTuningLevel
+pattern H265QualityTuningLevelSinglePass = H265QualityTuningLevel' "SINGLE_PASS"
 
-pattern SinglePassHq :: H265QualityTuningLevel
-pattern SinglePassHq = H265QualityTuningLevel' "SINGLE_PASS_HQ"
+pattern H265QualityTuningLevelSinglePassHq :: H265QualityTuningLevel
+pattern H265QualityTuningLevelSinglePassHq = H265QualityTuningLevel' "SINGLE_PASS_HQ"
 
-pattern MultiPassHq :: H265QualityTuningLevel
-pattern MultiPassHq = H265QualityTuningLevel' "MULTI_PASS_HQ"
+pattern H265QualityTuningLevelMultiPassHq :: H265QualityTuningLevel
+pattern H265QualityTuningLevelMultiPassHq = H265QualityTuningLevel' "MULTI_PASS_HQ"
 
 {-# COMPLETE
-  SinglePass,
-  SinglePassHq,
-  MultiPassHq,
+  H265QualityTuningLevelSinglePass,
+  H265QualityTuningLevelSinglePassHq,
+  H265QualityTuningLevelMultiPassHq,
   H265QualityTuningLevel'
   #-}

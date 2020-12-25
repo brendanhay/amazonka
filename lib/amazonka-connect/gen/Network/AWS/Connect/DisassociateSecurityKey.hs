@@ -20,8 +20,8 @@ module Network.AWS.Connect.DisassociateSecurityKey
     mkDisassociateSecurityKey,
 
     -- ** Request lenses
-    dskAssociationId,
     dskInstanceId,
+    dskAssociationId,
 
     -- * Destructuring the response
     DisassociateSecurityKeyResponse (..),
@@ -29,84 +29,71 @@ module Network.AWS.Connect.DisassociateSecurityKey
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateSecurityKey' smart constructor.
 data DisassociateSecurityKey = DisassociateSecurityKey'
-  { -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-    associationId :: Lude.Text,
-    -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Types.InstanceId,
+    -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+    associationId :: Types.AssociationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateSecurityKey' with the minimum fields required to make a request.
---
--- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
--- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- | Creates a 'DisassociateSecurityKey' value with any optional fields omitted.
 mkDisassociateSecurityKey ::
-  -- | 'associationId'
-  Lude.Text ->
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
+  -- | 'associationId'
+  Types.AssociationId ->
   DisassociateSecurityKey
-mkDisassociateSecurityKey pAssociationId_ pInstanceId_ =
-  DisassociateSecurityKey'
-    { associationId = pAssociationId_,
-      instanceId = pInstanceId_
-    }
-
--- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
---
--- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dskAssociationId :: Lens.Lens' DisassociateSecurityKey Lude.Text
-dskAssociationId = Lens.lens (associationId :: DisassociateSecurityKey -> Lude.Text) (\s a -> s {associationId = a} :: DisassociateSecurityKey)
-{-# DEPRECATED dskAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+mkDisassociateSecurityKey instanceId associationId =
+  DisassociateSecurityKey' {instanceId, associationId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dskInstanceId :: Lens.Lens' DisassociateSecurityKey Lude.Text
-dskInstanceId = Lens.lens (instanceId :: DisassociateSecurityKey -> Lude.Text) (\s a -> s {instanceId = a} :: DisassociateSecurityKey)
+dskInstanceId :: Lens.Lens' DisassociateSecurityKey Types.InstanceId
+dskInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED dskInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance Lude.AWSRequest DisassociateSecurityKey where
+-- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dskAssociationId :: Lens.Lens' DisassociateSecurityKey Types.AssociationId
+dskAssociationId = Lens.field @"associationId"
+{-# DEPRECATED dskAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+
+instance Core.AWSRequest DisassociateSecurityKey where
   type Rs DisassociateSecurityKey = DisassociateSecurityKeyResponse
-  request = Req.delete connectService
-  response = Res.receiveNull DisassociateSecurityKeyResponse'
-
-instance Lude.ToHeaders DisassociateSecurityKey where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DisassociateSecurityKey where
-  toPath DisassociateSecurityKey' {..} =
-    Lude.mconcat
-      [ "/instance/",
-        Lude.toBS instanceId,
-        "/security-key/",
-        Lude.toBS associationId
-      ]
-
-instance Lude.ToQuery DisassociateSecurityKey where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/instance/" Core.<> (Core.toText instanceId)
+                Core.<> ("/security-key/")
+                Core.<> (Core.toText associationId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DisassociateSecurityKeyResponse'
 
 -- | /See:/ 'mkDisassociateSecurityKeyResponse' smart constructor.
 data DisassociateSecurityKeyResponse = DisassociateSecurityKeyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateSecurityKeyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateSecurityKeyResponse' value with any optional fields omitted.
 mkDisassociateSecurityKeyResponse ::
   DisassociateSecurityKeyResponse
 mkDisassociateSecurityKeyResponse =

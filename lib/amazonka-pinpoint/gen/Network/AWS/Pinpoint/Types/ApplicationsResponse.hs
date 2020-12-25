@@ -17,59 +17,53 @@ module Network.AWS.Pinpoint.Types.ApplicationsResponse
     mkApplicationsResponse,
 
     -- * Lenses
-    afNextToken,
-    afItem,
+    aItem,
+    aNextToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ApplicationResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ApplicationResponse as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about all of your applications.
 --
 -- /See:/ 'mkApplicationsResponse' smart constructor.
 data ApplicationsResponse = ApplicationsResponse'
-  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of responses, one for each application that was returned.
-    item :: Lude.Maybe [ApplicationResponse]
+  { -- | An array of responses, one for each application that was returned.
+    item :: Core.Maybe [Types.ApplicationResponse],
+    -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
--- * 'item' - An array of responses, one for each application that was returned.
+-- | Creates a 'ApplicationsResponse' value with any optional fields omitted.
 mkApplicationsResponse ::
   ApplicationsResponse
 mkApplicationsResponse =
   ApplicationsResponse'
-    { nextToken = Lude.Nothing,
-      item = Lude.Nothing
+    { item = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afNextToken :: Lens.Lens' ApplicationsResponse (Lude.Maybe Lude.Text)
-afNextToken = Lens.lens (nextToken :: ApplicationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ApplicationsResponse)
-{-# DEPRECATED afNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of responses, one for each application that was returned.
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afItem :: Lens.Lens' ApplicationsResponse (Lude.Maybe [ApplicationResponse])
-afItem = Lens.lens (item :: ApplicationsResponse -> Lude.Maybe [ApplicationResponse]) (\s a -> s {item = a} :: ApplicationsResponse)
-{-# DEPRECATED afItem "Use generic-lens or generic-optics with 'item' instead." #-}
+aItem :: Lens.Lens' ApplicationsResponse (Core.Maybe [Types.ApplicationResponse])
+aItem = Lens.field @"item"
+{-# DEPRECATED aItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.FromJSON ApplicationsResponse where
+-- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNextToken :: Lens.Lens' ApplicationsResponse (Core.Maybe Core.Text)
+aNextToken = Lens.field @"nextToken"
+{-# DEPRECATED aNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ApplicationsResponse where
   parseJSON =
-    Lude.withObject
-      "ApplicationsResponse"
-      ( \x ->
-          ApplicationsResponse'
-            Lude.<$> (x Lude..:? "NextToken")
-            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ApplicationsResponse" Core.$
+      \x ->
+        ApplicationsResponse'
+          Core.<$> (x Core..:? "Item") Core.<*> (x Core..:? "NextToken")

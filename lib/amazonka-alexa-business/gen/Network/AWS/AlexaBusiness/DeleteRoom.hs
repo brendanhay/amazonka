@@ -20,97 +20,86 @@ module Network.AWS.AlexaBusiness.DeleteRoom
     mkDeleteRoom,
 
     -- ** Request lenses
-    drRoomARN,
+    drRoomArn,
 
     -- * Destructuring the response
     DeleteRoomResponse (..),
     mkDeleteRoomResponse,
 
     -- ** Response lenses
-    drrsResponseStatus,
+    drrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRoom' smart constructor.
 newtype DeleteRoom = DeleteRoom'
   { -- | The ARN of the room to delete. Required.
-    roomARN :: Lude.Maybe Lude.Text
+    roomArn :: Core.Maybe Types.RoomArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRoom' with the minimum fields required to make a request.
---
--- * 'roomARN' - The ARN of the room to delete. Required.
+-- | Creates a 'DeleteRoom' value with any optional fields omitted.
 mkDeleteRoom ::
   DeleteRoom
-mkDeleteRoom = DeleteRoom' {roomARN = Lude.Nothing}
+mkDeleteRoom = DeleteRoom' {roomArn = Core.Nothing}
 
 -- | The ARN of the room to delete. Required.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drRoomARN :: Lens.Lens' DeleteRoom (Lude.Maybe Lude.Text)
-drRoomARN = Lens.lens (roomARN :: DeleteRoom -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: DeleteRoom)
-{-# DEPRECATED drRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drRoomArn :: Lens.Lens' DeleteRoom (Core.Maybe Types.RoomArn)
+drRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED drRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
-instance Lude.AWSRequest DeleteRoom where
+instance Core.FromJSON DeleteRoom where
+  toJSON DeleteRoom {..} =
+    Core.object
+      (Core.catMaybes [("RoomArn" Core..=) Core.<$> roomArn])
+
+instance Core.AWSRequest DeleteRoom where
   type Rs DeleteRoom = DeleteRoomResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.DeleteRoom")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteRoomResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteRoomResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteRoom where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.DeleteRoom" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteRoom where
-  toJSON DeleteRoom' {..} =
-    Lude.object
-      (Lude.catMaybes [("RoomArn" Lude..=) Lude.<$> roomARN])
-
-instance Lude.ToPath DeleteRoom where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRoom where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteRoomResponse' smart constructor.
 newtype DeleteRoomResponse = DeleteRoomResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRoomResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteRoomResponse' value with any optional fields omitted.
 mkDeleteRoomResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteRoomResponse
-mkDeleteRoomResponse pResponseStatus_ =
-  DeleteRoomResponse' {responseStatus = pResponseStatus_}
+mkDeleteRoomResponse responseStatus =
+  DeleteRoomResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsResponseStatus :: Lens.Lens' DeleteRoomResponse Lude.Int
-drrsResponseStatus = Lens.lens (responseStatus :: DeleteRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRoomResponse)
-{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrrsResponseStatus :: Lens.Lens' DeleteRoomResponse Core.Int
+drrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

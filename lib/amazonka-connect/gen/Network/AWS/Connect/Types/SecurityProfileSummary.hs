@@ -17,71 +17,68 @@ module Network.AWS.Connect.Types.SecurityProfileSummary
     mkSecurityProfileSummary,
 
     -- * Lenses
-    spsARN,
-    spsName,
+    spsArn,
     spsId,
+    spsName,
   )
 where
 
+import qualified Network.AWS.Connect.Types.ARN as Types
+import qualified Network.AWS.Connect.Types.SecurityProfileId as Types
+import qualified Network.AWS.Connect.Types.SecurityProfileName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a security profile.
 --
 -- /See:/ 'mkSecurityProfileSummary' smart constructor.
 data SecurityProfileSummary = SecurityProfileSummary'
   { -- | The Amazon Resource Name (ARN) of the security profile.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the security profile.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.ARN,
     -- | The identifier of the security profile.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.SecurityProfileId,
+    -- | The name of the security profile.
+    name :: Core.Maybe Types.SecurityProfileName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SecurityProfileSummary' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the security profile.
--- * 'name' - The name of the security profile.
--- * 'id' - The identifier of the security profile.
+-- | Creates a 'SecurityProfileSummary' value with any optional fields omitted.
 mkSecurityProfileSummary ::
   SecurityProfileSummary
 mkSecurityProfileSummary =
   SecurityProfileSummary'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the security profile.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spsARN :: Lens.Lens' SecurityProfileSummary (Lude.Maybe Lude.Text)
-spsARN = Lens.lens (arn :: SecurityProfileSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: SecurityProfileSummary)
-{-# DEPRECATED spsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the security profile.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spsName :: Lens.Lens' SecurityProfileSummary (Lude.Maybe Lude.Text)
-spsName = Lens.lens (name :: SecurityProfileSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SecurityProfileSummary)
-{-# DEPRECATED spsName "Use generic-lens or generic-optics with 'name' instead." #-}
+spsArn :: Lens.Lens' SecurityProfileSummary (Core.Maybe Types.ARN)
+spsArn = Lens.field @"arn"
+{-# DEPRECATED spsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The identifier of the security profile.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spsId :: Lens.Lens' SecurityProfileSummary (Lude.Maybe Lude.Text)
-spsId = Lens.lens (id :: SecurityProfileSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: SecurityProfileSummary)
+spsId :: Lens.Lens' SecurityProfileSummary (Core.Maybe Types.SecurityProfileId)
+spsId = Lens.field @"id"
 {-# DEPRECATED spsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON SecurityProfileSummary where
+-- | The name of the security profile.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spsName :: Lens.Lens' SecurityProfileSummary (Core.Maybe Types.SecurityProfileName)
+spsName = Lens.field @"name"
+{-# DEPRECATED spsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON SecurityProfileSummary where
   parseJSON =
-    Lude.withObject
-      "SecurityProfileSummary"
-      ( \x ->
-          SecurityProfileSummary'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "SecurityProfileSummary" Core.$
+      \x ->
+        SecurityProfileSummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")

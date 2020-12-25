@@ -20,158 +20,143 @@ module Network.AWS.CloudWatchEvents.ListEventBuses
     mkListEventBuses,
 
     -- ** Request lenses
-    lebNextToken,
-    lebNamePrefix,
     lebLimit,
+    lebNamePrefix,
+    lebNextToken,
 
     -- * Destructuring the response
     ListEventBusesResponse (..),
     mkListEventBusesResponse,
 
     -- ** Response lenses
-    lebrsEventBuses,
-    lebrsNextToken,
-    lebrsResponseStatus,
+    lebrrsEventBuses,
+    lebrrsNextToken,
+    lebrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListEventBuses' smart constructor.
 data ListEventBuses = ListEventBuses'
-  { -- | The token returned by a previous call to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
+    limit :: Core.Maybe Core.Natural,
     -- | Specifying this limits the results to only those event buses with names that start with the specified prefix.
-    namePrefix :: Lude.Maybe Lude.Text,
-    -- | Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
-    limit :: Lude.Maybe Lude.Natural
+    namePrefix :: Core.Maybe Types.NamePrefix,
+    -- | The token returned by a previous call to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListEventBuses' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
--- * 'namePrefix' - Specifying this limits the results to only those event buses with names that start with the specified prefix.
--- * 'limit' - Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
+-- | Creates a 'ListEventBuses' value with any optional fields omitted.
 mkListEventBuses ::
   ListEventBuses
 mkListEventBuses =
   ListEventBuses'
-    { nextToken = Lude.Nothing,
-      namePrefix = Lude.Nothing,
-      limit = Lude.Nothing
+    { limit = Core.Nothing,
+      namePrefix = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token returned by a previous call to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebNextToken :: Lens.Lens' ListEventBuses (Lude.Maybe Lude.Text)
-lebNextToken = Lens.lens (nextToken :: ListEventBuses -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventBuses)
-{-# DEPRECATED lebNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Specifying this limits the results to only those event buses with names that start with the specified prefix.
---
--- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebNamePrefix :: Lens.Lens' ListEventBuses (Lude.Maybe Lude.Text)
-lebNamePrefix = Lens.lens (namePrefix :: ListEventBuses -> Lude.Maybe Lude.Text) (\s a -> s {namePrefix = a} :: ListEventBuses)
-{-# DEPRECATED lebNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
 
 -- | Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebLimit :: Lens.Lens' ListEventBuses (Lude.Maybe Lude.Natural)
-lebLimit = Lens.lens (limit :: ListEventBuses -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListEventBuses)
+lebLimit :: Lens.Lens' ListEventBuses (Core.Maybe Core.Natural)
+lebLimit = Lens.field @"limit"
 {-# DEPRECATED lebLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListEventBuses where
+-- | Specifying this limits the results to only those event buses with names that start with the specified prefix.
+--
+-- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lebNamePrefix :: Lens.Lens' ListEventBuses (Core.Maybe Types.NamePrefix)
+lebNamePrefix = Lens.field @"namePrefix"
+{-# DEPRECATED lebNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
+
+-- | The token returned by a previous call to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lebNextToken :: Lens.Lens' ListEventBuses (Core.Maybe Types.NextToken)
+lebNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lebNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListEventBuses where
+  toJSON ListEventBuses {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NamePrefix" Core..=) Core.<$> namePrefix,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListEventBuses where
   type Rs ListEventBuses = ListEventBusesResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.ListEventBuses")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListEventBusesResponse'
-            Lude.<$> (x Lude..?> "EventBuses" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EventBuses")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListEventBuses where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.ListEventBuses" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListEventBuses where
-  toJSON ListEventBuses' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("NamePrefix" Lude..=) Lude.<$> namePrefix,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListEventBuses where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListEventBuses where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListEventBusesResponse' smart constructor.
 data ListEventBusesResponse = ListEventBusesResponse'
   { -- | This list of event buses.
-    eventBuses :: Lude.Maybe [EventBus],
+    eventBuses :: Core.Maybe [Types.EventBus],
     -- | A token you can use in a subsequent operation to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListEventBusesResponse' with the minimum fields required to make a request.
---
--- * 'eventBuses' - This list of event buses.
--- * 'nextToken' - A token you can use in a subsequent operation to retrieve the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListEventBusesResponse' value with any optional fields omitted.
 mkListEventBusesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListEventBusesResponse
-mkListEventBusesResponse pResponseStatus_ =
+mkListEventBusesResponse responseStatus =
   ListEventBusesResponse'
-    { eventBuses = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eventBuses = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | This list of event buses.
 --
 -- /Note:/ Consider using 'eventBuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebrsEventBuses :: Lens.Lens' ListEventBusesResponse (Lude.Maybe [EventBus])
-lebrsEventBuses = Lens.lens (eventBuses :: ListEventBusesResponse -> Lude.Maybe [EventBus]) (\s a -> s {eventBuses = a} :: ListEventBusesResponse)
-{-# DEPRECATED lebrsEventBuses "Use generic-lens or generic-optics with 'eventBuses' instead." #-}
+lebrrsEventBuses :: Lens.Lens' ListEventBusesResponse (Core.Maybe [Types.EventBus])
+lebrrsEventBuses = Lens.field @"eventBuses"
+{-# DEPRECATED lebrrsEventBuses "Use generic-lens or generic-optics with 'eventBuses' instead." #-}
 
 -- | A token you can use in a subsequent operation to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebrsNextToken :: Lens.Lens' ListEventBusesResponse (Lude.Maybe Lude.Text)
-lebrsNextToken = Lens.lens (nextToken :: ListEventBusesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventBusesResponse)
-{-# DEPRECATED lebrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lebrrsNextToken :: Lens.Lens' ListEventBusesResponse (Core.Maybe Types.NextToken)
+lebrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lebrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebrsResponseStatus :: Lens.Lens' ListEventBusesResponse Lude.Int
-lebrsResponseStatus = Lens.lens (responseStatus :: ListEventBusesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEventBusesResponse)
-{-# DEPRECATED lebrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lebrrsResponseStatus :: Lens.Lens' ListEventBusesResponse Core.Int
+lebrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lebrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

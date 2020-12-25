@@ -20,248 +20,227 @@ module Network.AWS.Comprehend.StartPiiEntitiesDetectionJob
     mkStartPiiEntitiesDetectionJob,
 
     -- ** Request lenses
-    spedjLanguageCode,
-    spedjJobName,
-    spedjMode,
     spedjInputDataConfig,
-    spedjRedactionConfig,
     spedjOutputDataConfig,
-    spedjDataAccessRoleARN,
+    spedjMode,
+    spedjDataAccessRoleArn,
+    spedjLanguageCode,
     spedjClientRequestToken,
+    spedjJobName,
+    spedjRedactionConfig,
 
     -- * Destructuring the response
     StartPiiEntitiesDetectionJobResponse (..),
     mkStartPiiEntitiesDetectionJobResponse,
 
     -- ** Response lenses
-    spedjrsJobId,
-    spedjrsJobStatus,
-    spedjrsResponseStatus,
+    spedjrrsJobId,
+    spedjrrsJobStatus,
+    spedjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartPiiEntitiesDetectionJob' smart constructor.
 data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
-  { -- | The language of the input documents.
-    languageCode :: LanguageCode,
-    -- | The identifier of the job.
-    jobName :: Lude.Maybe Lude.Text,
+  { -- | The input properties for a PII entities detection job.
+    inputDataConfig :: Types.InputDataConfig,
+    -- | Provides conﬁguration parameters for the output of PII entity detection jobs.
+    outputDataConfig :: Types.OutputDataConfig,
     -- | Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
-    mode :: PiiEntitiesDetectionMode,
-    -- | The input properties for a PII entities detection job.
-    inputDataConfig :: InputDataConfig,
+    mode :: Types.PiiEntitiesDetectionMode,
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+    dataAccessRoleArn :: Types.IamRoleArn,
+    -- | The language of the input documents.
+    languageCode :: Types.LanguageCode,
+    -- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+    clientRequestToken :: Core.Maybe Types.ClientRequestTokenString,
+    -- | The identifier of the job.
+    jobName :: Core.Maybe Types.JobName,
     -- | Provides configuration parameters for PII entity redaction.
     --
     -- This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
-    redactionConfig :: Lude.Maybe RedactionConfig,
-    -- | Provides conﬁguration parameters for the output of PII entity detection jobs.
-    outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleARN :: Lude.Text,
-    -- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
-    clientRequestToken :: Lude.Maybe Lude.Text
+    redactionConfig :: Core.Maybe Types.RedactionConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartPiiEntitiesDetectionJob' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language of the input documents.
--- * 'jobName' - The identifier of the job.
--- * 'mode' - Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
--- * 'inputDataConfig' - The input properties for a PII entities detection job.
--- * 'redactionConfig' - Provides configuration parameters for PII entity redaction.
---
--- This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
--- * 'outputDataConfig' - Provides conﬁguration parameters for the output of PII entity detection jobs.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
--- * 'clientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+-- | Creates a 'StartPiiEntitiesDetectionJob' value with any optional fields omitted.
 mkStartPiiEntitiesDetectionJob ::
-  -- | 'languageCode'
-  LanguageCode ->
-  -- | 'mode'
-  PiiEntitiesDetectionMode ->
   -- | 'inputDataConfig'
-  InputDataConfig ->
+  Types.InputDataConfig ->
   -- | 'outputDataConfig'
-  OutputDataConfig ->
-  -- | 'dataAccessRoleARN'
-  Lude.Text ->
+  Types.OutputDataConfig ->
+  -- | 'mode'
+  Types.PiiEntitiesDetectionMode ->
+  -- | 'dataAccessRoleArn'
+  Types.IamRoleArn ->
+  -- | 'languageCode'
+  Types.LanguageCode ->
   StartPiiEntitiesDetectionJob
 mkStartPiiEntitiesDetectionJob
-  pLanguageCode_
-  pMode_
-  pInputDataConfig_
-  pOutputDataConfig_
-  pDataAccessRoleARN_ =
+  inputDataConfig
+  outputDataConfig
+  mode
+  dataAccessRoleArn
+  languageCode =
     StartPiiEntitiesDetectionJob'
-      { languageCode = pLanguageCode_,
-        jobName = Lude.Nothing,
-        mode = pMode_,
-        inputDataConfig = pInputDataConfig_,
-        redactionConfig = Lude.Nothing,
-        outputDataConfig = pOutputDataConfig_,
-        dataAccessRoleARN = pDataAccessRoleARN_,
-        clientRequestToken = Lude.Nothing
+      { inputDataConfig,
+        outputDataConfig,
+        mode,
+        dataAccessRoleArn,
+        languageCode,
+        clientRequestToken = Core.Nothing,
+        jobName = Core.Nothing,
+        redactionConfig = Core.Nothing
       }
-
--- | The language of the input documents.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjLanguageCode :: Lens.Lens' StartPiiEntitiesDetectionJob LanguageCode
-spedjLanguageCode = Lens.lens (languageCode :: StartPiiEntitiesDetectionJob -> LanguageCode) (\s a -> s {languageCode = a} :: StartPiiEntitiesDetectionJob)
-{-# DEPRECATED spedjLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | The identifier of the job.
---
--- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjJobName :: Lens.Lens' StartPiiEntitiesDetectionJob (Lude.Maybe Lude.Text)
-spedjJobName = Lens.lens (jobName :: StartPiiEntitiesDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartPiiEntitiesDetectionJob)
-{-# DEPRECATED spedjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
-
--- | Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
---
--- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjMode :: Lens.Lens' StartPiiEntitiesDetectionJob PiiEntitiesDetectionMode
-spedjMode = Lens.lens (mode :: StartPiiEntitiesDetectionJob -> PiiEntitiesDetectionMode) (\s a -> s {mode = a} :: StartPiiEntitiesDetectionJob)
-{-# DEPRECATED spedjMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | The input properties for a PII entities detection job.
 --
 -- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjInputDataConfig :: Lens.Lens' StartPiiEntitiesDetectionJob InputDataConfig
-spedjInputDataConfig = Lens.lens (inputDataConfig :: StartPiiEntitiesDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartPiiEntitiesDetectionJob)
+spedjInputDataConfig :: Lens.Lens' StartPiiEntitiesDetectionJob Types.InputDataConfig
+spedjInputDataConfig = Lens.field @"inputDataConfig"
 {-# DEPRECATED spedjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
+
+-- | Provides conﬁguration parameters for the output of PII entity detection jobs.
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjOutputDataConfig :: Lens.Lens' StartPiiEntitiesDetectionJob Types.OutputDataConfig
+spedjOutputDataConfig = Lens.field @"outputDataConfig"
+{-# DEPRECATED spedjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
+
+-- | Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjMode :: Lens.Lens' StartPiiEntitiesDetectionJob Types.PiiEntitiesDetectionMode
+spedjMode = Lens.field @"mode"
+{-# DEPRECATED spedjMode "Use generic-lens or generic-optics with 'mode' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+--
+-- /Note:/ Consider using 'dataAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjDataAccessRoleArn :: Lens.Lens' StartPiiEntitiesDetectionJob Types.IamRoleArn
+spedjDataAccessRoleArn = Lens.field @"dataAccessRoleArn"
+{-# DEPRECATED spedjDataAccessRoleArn "Use generic-lens or generic-optics with 'dataAccessRoleArn' instead." #-}
+
+-- | The language of the input documents.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjLanguageCode :: Lens.Lens' StartPiiEntitiesDetectionJob Types.LanguageCode
+spedjLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED spedjLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjClientRequestToken :: Lens.Lens' StartPiiEntitiesDetectionJob (Core.Maybe Types.ClientRequestTokenString)
+spedjClientRequestToken = Lens.field @"clientRequestToken"
+{-# DEPRECATED spedjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+-- | The identifier of the job.
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spedjJobName :: Lens.Lens' StartPiiEntitiesDetectionJob (Core.Maybe Types.JobName)
+spedjJobName = Lens.field @"jobName"
+{-# DEPRECATED spedjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Provides configuration parameters for PII entity redaction.
 --
 -- This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
 --
 -- /Note:/ Consider using 'redactionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjRedactionConfig :: Lens.Lens' StartPiiEntitiesDetectionJob (Lude.Maybe RedactionConfig)
-spedjRedactionConfig = Lens.lens (redactionConfig :: StartPiiEntitiesDetectionJob -> Lude.Maybe RedactionConfig) (\s a -> s {redactionConfig = a} :: StartPiiEntitiesDetectionJob)
+spedjRedactionConfig :: Lens.Lens' StartPiiEntitiesDetectionJob (Core.Maybe Types.RedactionConfig)
+spedjRedactionConfig = Lens.field @"redactionConfig"
 {-# DEPRECATED spedjRedactionConfig "Use generic-lens or generic-optics with 'redactionConfig' instead." #-}
 
--- | Provides conﬁguration parameters for the output of PII entity detection jobs.
---
--- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjOutputDataConfig :: Lens.Lens' StartPiiEntitiesDetectionJob OutputDataConfig
-spedjOutputDataConfig = Lens.lens (outputDataConfig :: StartPiiEntitiesDetectionJob -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: StartPiiEntitiesDetectionJob)
-{-# DEPRECATED spedjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
+instance Core.FromJSON StartPiiEntitiesDetectionJob where
+  toJSON StartPiiEntitiesDetectionJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InputDataConfig" Core..= inputDataConfig),
+            Core.Just ("OutputDataConfig" Core..= outputDataConfig),
+            Core.Just ("Mode" Core..= mode),
+            Core.Just ("DataAccessRoleArn" Core..= dataAccessRoleArn),
+            Core.Just ("LanguageCode" Core..= languageCode),
+            ("ClientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("JobName" Core..=) Core.<$> jobName,
+            ("RedactionConfig" Core..=) Core.<$> redactionConfig
+          ]
+      )
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
---
--- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjDataAccessRoleARN :: Lens.Lens' StartPiiEntitiesDetectionJob Lude.Text
-spedjDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartPiiEntitiesDetectionJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartPiiEntitiesDetectionJob)
-{-# DEPRECATED spedjDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
-
--- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjClientRequestToken :: Lens.Lens' StartPiiEntitiesDetectionJob (Lude.Maybe Lude.Text)
-spedjClientRequestToken = Lens.lens (clientRequestToken :: StartPiiEntitiesDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartPiiEntitiesDetectionJob)
-{-# DEPRECATED spedjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
-instance Lude.AWSRequest StartPiiEntitiesDetectionJob where
+instance Core.AWSRequest StartPiiEntitiesDetectionJob where
   type
     Rs StartPiiEntitiesDetectionJob =
       StartPiiEntitiesDetectionJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.StartPiiEntitiesDetectionJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartPiiEntitiesDetectionJobResponse'
-            Lude.<$> (x Lude..?> "JobId")
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId")
+            Core.<*> (x Core..:? "JobStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartPiiEntitiesDetectionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.StartPiiEntitiesDetectionJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartPiiEntitiesDetectionJob where
-  toJSON StartPiiEntitiesDetectionJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LanguageCode" Lude..= languageCode),
-            ("JobName" Lude..=) Lude.<$> jobName,
-            Lude.Just ("Mode" Lude..= mode),
-            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
-            ("RedactionConfig" Lude..=) Lude.<$> redactionConfig,
-            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
-            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
-          ]
-      )
-
-instance Lude.ToPath StartPiiEntitiesDetectionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartPiiEntitiesDetectionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartPiiEntitiesDetectionJobResponse' smart constructor.
 data StartPiiEntitiesDetectionJobResponse = StartPiiEntitiesDetectionJobResponse'
   { -- | The identifier generated for the job.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The status of the job.
-    jobStatus :: Lude.Maybe JobStatus,
+    jobStatus :: Core.Maybe Types.JobStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartPiiEntitiesDetectionJobResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier generated for the job.
--- * 'jobStatus' - The status of the job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartPiiEntitiesDetectionJobResponse' value with any optional fields omitted.
 mkStartPiiEntitiesDetectionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartPiiEntitiesDetectionJobResponse
-mkStartPiiEntitiesDetectionJobResponse pResponseStatus_ =
+mkStartPiiEntitiesDetectionJobResponse responseStatus =
   StartPiiEntitiesDetectionJobResponse'
-    { jobId = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      jobStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier generated for the job.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjrsJobId :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Lude.Maybe Lude.Text)
-spedjrsJobId = Lens.lens (jobId :: StartPiiEntitiesDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartPiiEntitiesDetectionJobResponse)
-{-# DEPRECATED spedjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+spedjrrsJobId :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Core.Maybe Types.JobId)
+spedjrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED spedjrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The status of the job.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjrsJobStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Lude.Maybe JobStatus)
-spedjrsJobStatus = Lens.lens (jobStatus :: StartPiiEntitiesDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StartPiiEntitiesDetectionJobResponse)
-{-# DEPRECATED spedjrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+spedjrrsJobStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse (Core.Maybe Types.JobStatus)
+spedjrrsJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED spedjrrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjrsResponseStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse Lude.Int
-spedjrsResponseStatus = Lens.lens (responseStatus :: StartPiiEntitiesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartPiiEntitiesDetectionJobResponse)
-{-# DEPRECATED spedjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+spedjrrsResponseStatus :: Lens.Lens' StartPiiEntitiesDetectionJobResponse Core.Int
+spedjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED spedjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

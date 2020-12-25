@@ -21,37 +21,34 @@ module Network.AWS.CloudFormation.Types.ParameterConstraints
   )
 where
 
+import qualified Network.AWS.CloudFormation.Types.AllowedValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A set of criteria that AWS CloudFormation uses to validate parameter values. Although other constraints might be defined in the stack template, AWS CloudFormation returns only the @AllowedValues@ property.
 --
 -- /See:/ 'mkParameterConstraints' smart constructor.
 newtype ParameterConstraints = ParameterConstraints'
   { -- | A list of values that are permitted for a parameter.
-    allowedValues :: Lude.Maybe [Lude.Text]
+    allowedValues :: Core.Maybe [Types.AllowedValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterConstraints' with the minimum fields required to make a request.
---
--- * 'allowedValues' - A list of values that are permitted for a parameter.
+-- | Creates a 'ParameterConstraints' value with any optional fields omitted.
 mkParameterConstraints ::
   ParameterConstraints
 mkParameterConstraints =
-  ParameterConstraints' {allowedValues = Lude.Nothing}
+  ParameterConstraints' {allowedValues = Core.Nothing}
 
 -- | A list of values that are permitted for a parameter.
 --
 -- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcAllowedValues :: Lens.Lens' ParameterConstraints (Lude.Maybe [Lude.Text])
-pcAllowedValues = Lens.lens (allowedValues :: ParameterConstraints -> Lude.Maybe [Lude.Text]) (\s a -> s {allowedValues = a} :: ParameterConstraints)
+pcAllowedValues :: Lens.Lens' ParameterConstraints (Core.Maybe [Types.AllowedValue])
+pcAllowedValues = Lens.field @"allowedValues"
 {-# DEPRECATED pcAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
-instance Lude.FromXML ParameterConstraints where
+instance Core.FromXML ParameterConstraints where
   parseXML x =
     ParameterConstraints'
-      Lude.<$> ( x Lude..@? "AllowedValues" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<$> (x Core..@? "AllowedValues" Core..<@> Core.parseXMLList "member")

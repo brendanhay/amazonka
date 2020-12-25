@@ -13,111 +13,116 @@
 module Network.AWS.Firehose.Types.DeliveryStreamFailureType
   ( DeliveryStreamFailureType
       ( DeliveryStreamFailureType',
-        RetireKMSGrantFailed,
-        CreateKMSGrantFailed,
-        KMSAccessDenied,
-        DisabledKMSKey,
-        InvalidKMSKey,
-        KMSKeyNotFound,
-        KMSOptInRequired,
-        CreateEniFailed,
-        DeleteEniFailed,
-        SubnetNotFound,
-        SecurityGroupNotFound,
-        EniAccessDenied,
-        SubnetAccessDenied,
-        SecurityGroupAccessDenied,
-        UnknownError
+        DeliveryStreamFailureTypeRetireKmsGrantFailed,
+        DeliveryStreamFailureTypeCreateKmsGrantFailed,
+        DeliveryStreamFailureTypeKmsAccessDenied,
+        DeliveryStreamFailureTypeDisabledKmsKey,
+        DeliveryStreamFailureTypeInvalidKmsKey,
+        DeliveryStreamFailureTypeKmsKeyNotFound,
+        DeliveryStreamFailureTypeKmsOptInRequired,
+        DeliveryStreamFailureTypeCreateEniFailed,
+        DeliveryStreamFailureTypeDeleteEniFailed,
+        DeliveryStreamFailureTypeSubnetNotFound,
+        DeliveryStreamFailureTypeSecurityGroupNotFound,
+        DeliveryStreamFailureTypeEniAccessDenied,
+        DeliveryStreamFailureTypeSubnetAccessDenied,
+        DeliveryStreamFailureTypeSecurityGroupAccessDenied,
+        DeliveryStreamFailureTypeUnknownError,
+        fromDeliveryStreamFailureType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeliveryStreamFailureType = DeliveryStreamFailureType' Lude.Text
+newtype DeliveryStreamFailureType = DeliveryStreamFailureType'
+  { fromDeliveryStreamFailureType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RetireKMSGrantFailed :: DeliveryStreamFailureType
-pattern RetireKMSGrantFailed = DeliveryStreamFailureType' "RETIRE_KMS_GRANT_FAILED"
+pattern DeliveryStreamFailureTypeRetireKmsGrantFailed :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeRetireKmsGrantFailed = DeliveryStreamFailureType' "RETIRE_KMS_GRANT_FAILED"
 
-pattern CreateKMSGrantFailed :: DeliveryStreamFailureType
-pattern CreateKMSGrantFailed = DeliveryStreamFailureType' "CREATE_KMS_GRANT_FAILED"
+pattern DeliveryStreamFailureTypeCreateKmsGrantFailed :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeCreateKmsGrantFailed = DeliveryStreamFailureType' "CREATE_KMS_GRANT_FAILED"
 
-pattern KMSAccessDenied :: DeliveryStreamFailureType
-pattern KMSAccessDenied = DeliveryStreamFailureType' "KMS_ACCESS_DENIED"
+pattern DeliveryStreamFailureTypeKmsAccessDenied :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeKmsAccessDenied = DeliveryStreamFailureType' "KMS_ACCESS_DENIED"
 
-pattern DisabledKMSKey :: DeliveryStreamFailureType
-pattern DisabledKMSKey = DeliveryStreamFailureType' "DISABLED_KMS_KEY"
+pattern DeliveryStreamFailureTypeDisabledKmsKey :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeDisabledKmsKey = DeliveryStreamFailureType' "DISABLED_KMS_KEY"
 
-pattern InvalidKMSKey :: DeliveryStreamFailureType
-pattern InvalidKMSKey = DeliveryStreamFailureType' "INVALID_KMS_KEY"
+pattern DeliveryStreamFailureTypeInvalidKmsKey :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeInvalidKmsKey = DeliveryStreamFailureType' "INVALID_KMS_KEY"
 
-pattern KMSKeyNotFound :: DeliveryStreamFailureType
-pattern KMSKeyNotFound = DeliveryStreamFailureType' "KMS_KEY_NOT_FOUND"
+pattern DeliveryStreamFailureTypeKmsKeyNotFound :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeKmsKeyNotFound = DeliveryStreamFailureType' "KMS_KEY_NOT_FOUND"
 
-pattern KMSOptInRequired :: DeliveryStreamFailureType
-pattern KMSOptInRequired = DeliveryStreamFailureType' "KMS_OPT_IN_REQUIRED"
+pattern DeliveryStreamFailureTypeKmsOptInRequired :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeKmsOptInRequired = DeliveryStreamFailureType' "KMS_OPT_IN_REQUIRED"
 
-pattern CreateEniFailed :: DeliveryStreamFailureType
-pattern CreateEniFailed = DeliveryStreamFailureType' "CREATE_ENI_FAILED"
+pattern DeliveryStreamFailureTypeCreateEniFailed :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeCreateEniFailed = DeliveryStreamFailureType' "CREATE_ENI_FAILED"
 
-pattern DeleteEniFailed :: DeliveryStreamFailureType
-pattern DeleteEniFailed = DeliveryStreamFailureType' "DELETE_ENI_FAILED"
+pattern DeliveryStreamFailureTypeDeleteEniFailed :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeDeleteEniFailed = DeliveryStreamFailureType' "DELETE_ENI_FAILED"
 
-pattern SubnetNotFound :: DeliveryStreamFailureType
-pattern SubnetNotFound = DeliveryStreamFailureType' "SUBNET_NOT_FOUND"
+pattern DeliveryStreamFailureTypeSubnetNotFound :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeSubnetNotFound = DeliveryStreamFailureType' "SUBNET_NOT_FOUND"
 
-pattern SecurityGroupNotFound :: DeliveryStreamFailureType
-pattern SecurityGroupNotFound = DeliveryStreamFailureType' "SECURITY_GROUP_NOT_FOUND"
+pattern DeliveryStreamFailureTypeSecurityGroupNotFound :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeSecurityGroupNotFound = DeliveryStreamFailureType' "SECURITY_GROUP_NOT_FOUND"
 
-pattern EniAccessDenied :: DeliveryStreamFailureType
-pattern EniAccessDenied = DeliveryStreamFailureType' "ENI_ACCESS_DENIED"
+pattern DeliveryStreamFailureTypeEniAccessDenied :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeEniAccessDenied = DeliveryStreamFailureType' "ENI_ACCESS_DENIED"
 
-pattern SubnetAccessDenied :: DeliveryStreamFailureType
-pattern SubnetAccessDenied = DeliveryStreamFailureType' "SUBNET_ACCESS_DENIED"
+pattern DeliveryStreamFailureTypeSubnetAccessDenied :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeSubnetAccessDenied = DeliveryStreamFailureType' "SUBNET_ACCESS_DENIED"
 
-pattern SecurityGroupAccessDenied :: DeliveryStreamFailureType
-pattern SecurityGroupAccessDenied = DeliveryStreamFailureType' "SECURITY_GROUP_ACCESS_DENIED"
+pattern DeliveryStreamFailureTypeSecurityGroupAccessDenied :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeSecurityGroupAccessDenied = DeliveryStreamFailureType' "SECURITY_GROUP_ACCESS_DENIED"
 
-pattern UnknownError :: DeliveryStreamFailureType
-pattern UnknownError = DeliveryStreamFailureType' "UNKNOWN_ERROR"
+pattern DeliveryStreamFailureTypeUnknownError :: DeliveryStreamFailureType
+pattern DeliveryStreamFailureTypeUnknownError = DeliveryStreamFailureType' "UNKNOWN_ERROR"
 
 {-# COMPLETE
-  RetireKMSGrantFailed,
-  CreateKMSGrantFailed,
-  KMSAccessDenied,
-  DisabledKMSKey,
-  InvalidKMSKey,
-  KMSKeyNotFound,
-  KMSOptInRequired,
-  CreateEniFailed,
-  DeleteEniFailed,
-  SubnetNotFound,
-  SecurityGroupNotFound,
-  EniAccessDenied,
-  SubnetAccessDenied,
-  SecurityGroupAccessDenied,
-  UnknownError,
+  DeliveryStreamFailureTypeRetireKmsGrantFailed,
+  DeliveryStreamFailureTypeCreateKmsGrantFailed,
+  DeliveryStreamFailureTypeKmsAccessDenied,
+  DeliveryStreamFailureTypeDisabledKmsKey,
+  DeliveryStreamFailureTypeInvalidKmsKey,
+  DeliveryStreamFailureTypeKmsKeyNotFound,
+  DeliveryStreamFailureTypeKmsOptInRequired,
+  DeliveryStreamFailureTypeCreateEniFailed,
+  DeliveryStreamFailureTypeDeleteEniFailed,
+  DeliveryStreamFailureTypeSubnetNotFound,
+  DeliveryStreamFailureTypeSecurityGroupNotFound,
+  DeliveryStreamFailureTypeEniAccessDenied,
+  DeliveryStreamFailureTypeSubnetAccessDenied,
+  DeliveryStreamFailureTypeSecurityGroupAccessDenied,
+  DeliveryStreamFailureTypeUnknownError,
   DeliveryStreamFailureType'
   #-}

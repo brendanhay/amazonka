@@ -17,120 +17,110 @@ module Network.AWS.MediaPackage.Types.HlsEncryption
     mkHlsEncryption,
 
     -- * Lenses
+    heSpekeKeyProvider,
+    heConstantInitializationVector,
     heEncryptionMethod,
     heKeyRotationIntervalSeconds,
-    heConstantInitializationVector,
-    heSpekeKeyProvider,
     heRepeatExtXKey,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.EncryptionMethod
-import Network.AWS.MediaPackage.Types.SpekeKeyProvider
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaPackage.Types.EncryptionMethod as Types
+import qualified Network.AWS.MediaPackage.Types.SpekeKeyProvider as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | An HTTP Live Streaming (HLS) encryption configuration.
 --
 -- /See:/ 'mkHlsEncryption' smart constructor.
 data HlsEncryption = HlsEncryption'
-  { -- | The encryption method to use.
-    encryptionMethod :: Lude.Maybe EncryptionMethod,
-    -- | Interval (in seconds) between each encryption key rotation.
-    keyRotationIntervalSeconds :: Lude.Maybe Lude.Int,
+  { spekeKeyProvider :: Types.SpekeKeyProvider,
     -- | A constant initialization vector for encryption (optional).
     --
     -- When not specified the initialization vector will be periodically rotated.
-    constantInitializationVector :: Lude.Maybe Lude.Text,
-    spekeKeyProvider :: SpekeKeyProvider,
+    constantInitializationVector :: Core.Maybe Core.Text,
+    -- | The encryption method to use.
+    encryptionMethod :: Core.Maybe Types.EncryptionMethod,
+    -- | Interval (in seconds) between each encryption key rotation.
+    keyRotationIntervalSeconds :: Core.Maybe Core.Int,
     -- | When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-    repeatExtXKey :: Lude.Maybe Lude.Bool
+    repeatExtXKey :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsEncryption' with the minimum fields required to make a request.
---
--- * 'encryptionMethod' - The encryption method to use.
--- * 'keyRotationIntervalSeconds' - Interval (in seconds) between each encryption key rotation.
--- * 'constantInitializationVector' - A constant initialization vector for encryption (optional).
---
--- When not specified the initialization vector will be periodically rotated.
--- * 'spekeKeyProvider' -
--- * 'repeatExtXKey' - When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+-- | Creates a 'HlsEncryption' value with any optional fields omitted.
 mkHlsEncryption ::
   -- | 'spekeKeyProvider'
-  SpekeKeyProvider ->
+  Types.SpekeKeyProvider ->
   HlsEncryption
-mkHlsEncryption pSpekeKeyProvider_ =
+mkHlsEncryption spekeKeyProvider =
   HlsEncryption'
-    { encryptionMethod = Lude.Nothing,
-      keyRotationIntervalSeconds = Lude.Nothing,
-      constantInitializationVector = Lude.Nothing,
-      spekeKeyProvider = pSpekeKeyProvider_,
-      repeatExtXKey = Lude.Nothing
+    { spekeKeyProvider,
+      constantInitializationVector = Core.Nothing,
+      encryptionMethod = Core.Nothing,
+      keyRotationIntervalSeconds = Core.Nothing,
+      repeatExtXKey = Core.Nothing
     }
 
--- | The encryption method to use.
+-- | Undocumented field.
 --
--- /Note:/ Consider using 'encryptionMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heEncryptionMethod :: Lens.Lens' HlsEncryption (Lude.Maybe EncryptionMethod)
-heEncryptionMethod = Lens.lens (encryptionMethod :: HlsEncryption -> Lude.Maybe EncryptionMethod) (\s a -> s {encryptionMethod = a} :: HlsEncryption)
-{-# DEPRECATED heEncryptionMethod "Use generic-lens or generic-optics with 'encryptionMethod' instead." #-}
-
--- | Interval (in seconds) between each encryption key rotation.
---
--- /Note:/ Consider using 'keyRotationIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heKeyRotationIntervalSeconds :: Lens.Lens' HlsEncryption (Lude.Maybe Lude.Int)
-heKeyRotationIntervalSeconds = Lens.lens (keyRotationIntervalSeconds :: HlsEncryption -> Lude.Maybe Lude.Int) (\s a -> s {keyRotationIntervalSeconds = a} :: HlsEncryption)
-{-# DEPRECATED heKeyRotationIntervalSeconds "Use generic-lens or generic-optics with 'keyRotationIntervalSeconds' instead." #-}
+-- /Note:/ Consider using 'spekeKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heSpekeKeyProvider :: Lens.Lens' HlsEncryption Types.SpekeKeyProvider
+heSpekeKeyProvider = Lens.field @"spekeKeyProvider"
+{-# DEPRECATED heSpekeKeyProvider "Use generic-lens or generic-optics with 'spekeKeyProvider' instead." #-}
 
 -- | A constant initialization vector for encryption (optional).
 --
 -- When not specified the initialization vector will be periodically rotated.
 --
 -- /Note:/ Consider using 'constantInitializationVector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heConstantInitializationVector :: Lens.Lens' HlsEncryption (Lude.Maybe Lude.Text)
-heConstantInitializationVector = Lens.lens (constantInitializationVector :: HlsEncryption -> Lude.Maybe Lude.Text) (\s a -> s {constantInitializationVector = a} :: HlsEncryption)
+heConstantInitializationVector :: Lens.Lens' HlsEncryption (Core.Maybe Core.Text)
+heConstantInitializationVector = Lens.field @"constantInitializationVector"
 {-# DEPRECATED heConstantInitializationVector "Use generic-lens or generic-optics with 'constantInitializationVector' instead." #-}
 
--- | Undocumented field.
+-- | The encryption method to use.
 --
--- /Note:/ Consider using 'spekeKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heSpekeKeyProvider :: Lens.Lens' HlsEncryption SpekeKeyProvider
-heSpekeKeyProvider = Lens.lens (spekeKeyProvider :: HlsEncryption -> SpekeKeyProvider) (\s a -> s {spekeKeyProvider = a} :: HlsEncryption)
-{-# DEPRECATED heSpekeKeyProvider "Use generic-lens or generic-optics with 'spekeKeyProvider' instead." #-}
+-- /Note:/ Consider using 'encryptionMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heEncryptionMethod :: Lens.Lens' HlsEncryption (Core.Maybe Types.EncryptionMethod)
+heEncryptionMethod = Lens.field @"encryptionMethod"
+{-# DEPRECATED heEncryptionMethod "Use generic-lens or generic-optics with 'encryptionMethod' instead." #-}
+
+-- | Interval (in seconds) between each encryption key rotation.
+--
+-- /Note:/ Consider using 'keyRotationIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heKeyRotationIntervalSeconds :: Lens.Lens' HlsEncryption (Core.Maybe Core.Int)
+heKeyRotationIntervalSeconds = Lens.field @"keyRotationIntervalSeconds"
+{-# DEPRECATED heKeyRotationIntervalSeconds "Use generic-lens or generic-optics with 'keyRotationIntervalSeconds' instead." #-}
 
 -- | When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 --
 -- /Note:/ Consider using 'repeatExtXKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heRepeatExtXKey :: Lens.Lens' HlsEncryption (Lude.Maybe Lude.Bool)
-heRepeatExtXKey = Lens.lens (repeatExtXKey :: HlsEncryption -> Lude.Maybe Lude.Bool) (\s a -> s {repeatExtXKey = a} :: HlsEncryption)
+heRepeatExtXKey :: Lens.Lens' HlsEncryption (Core.Maybe Core.Bool)
+heRepeatExtXKey = Lens.field @"repeatExtXKey"
 {-# DEPRECATED heRepeatExtXKey "Use generic-lens or generic-optics with 'repeatExtXKey' instead." #-}
 
-instance Lude.FromJSON HlsEncryption where
-  parseJSON =
-    Lude.withObject
-      "HlsEncryption"
-      ( \x ->
-          HlsEncryption'
-            Lude.<$> (x Lude..:? "encryptionMethod")
-            Lude.<*> (x Lude..:? "keyRotationIntervalSeconds")
-            Lude.<*> (x Lude..:? "constantInitializationVector")
-            Lude.<*> (x Lude..: "spekeKeyProvider")
-            Lude.<*> (x Lude..:? "repeatExtXKey")
-      )
-
-instance Lude.ToJSON HlsEncryption where
-  toJSON HlsEncryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("encryptionMethod" Lude..=) Lude.<$> encryptionMethod,
-            ("keyRotationIntervalSeconds" Lude..=)
-              Lude.<$> keyRotationIntervalSeconds,
-            ("constantInitializationVector" Lude..=)
-              Lude.<$> constantInitializationVector,
-            Lude.Just ("spekeKeyProvider" Lude..= spekeKeyProvider),
-            ("repeatExtXKey" Lude..=) Lude.<$> repeatExtXKey
+instance Core.FromJSON HlsEncryption where
+  toJSON HlsEncryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("spekeKeyProvider" Core..= spekeKeyProvider),
+            ("constantInitializationVector" Core..=)
+              Core.<$> constantInitializationVector,
+            ("encryptionMethod" Core..=) Core.<$> encryptionMethod,
+            ("keyRotationIntervalSeconds" Core..=)
+              Core.<$> keyRotationIntervalSeconds,
+            ("repeatExtXKey" Core..=) Core.<$> repeatExtXKey
           ]
       )
+
+instance Core.FromJSON HlsEncryption where
+  parseJSON =
+    Core.withObject "HlsEncryption" Core.$
+      \x ->
+        HlsEncryption'
+          Core.<$> (x Core..: "spekeKeyProvider")
+          Core.<*> (x Core..:? "constantInitializationVector")
+          Core.<*> (x Core..:? "encryptionMethod")
+          Core.<*> (x Core..:? "keyRotationIntervalSeconds")
+          Core.<*> (x Core..:? "repeatExtXKey")

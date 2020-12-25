@@ -20,114 +20,111 @@ module Network.AWS.RDS.DeleteDBInstanceAutomatedBackup
     mkDeleteDBInstanceAutomatedBackup,
 
     -- ** Request lenses
-    ddbiabDBiResourceId,
+    ddbiabDbiResourceId,
 
     -- * Destructuring the response
     DeleteDBInstanceAutomatedBackupResponse (..),
     mkDeleteDBInstanceAutomatedBackupResponse,
 
     -- ** Response lenses
-    ddbiabrsDBInstanceAutomatedBackup,
-    ddbiabrsResponseStatus,
+    ddbiabrrsDBInstanceAutomatedBackup,
+    ddbiabrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Parameter input for the @DeleteDBInstanceAutomatedBackup@ operation.
 --
 -- /See:/ 'mkDeleteDBInstanceAutomatedBackup' smart constructor.
 newtype DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
   { -- | The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
-    dbiResourceId :: Lude.Text
+    dbiResourceId :: Types.DbiResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDBInstanceAutomatedBackup' with the minimum fields required to make a request.
---
--- * 'dbiResourceId' - The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
+-- | Creates a 'DeleteDBInstanceAutomatedBackup' value with any optional fields omitted.
 mkDeleteDBInstanceAutomatedBackup ::
   -- | 'dbiResourceId'
-  Lude.Text ->
+  Types.DbiResourceId ->
   DeleteDBInstanceAutomatedBackup
-mkDeleteDBInstanceAutomatedBackup pDBiResourceId_ =
-  DeleteDBInstanceAutomatedBackup' {dbiResourceId = pDBiResourceId_}
+mkDeleteDBInstanceAutomatedBackup dbiResourceId =
+  DeleteDBInstanceAutomatedBackup' {dbiResourceId}
 
 -- | The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
 --
 -- /Note:/ Consider using 'dbiResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiabDBiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup Lude.Text
-ddbiabDBiResourceId = Lens.lens (dbiResourceId :: DeleteDBInstanceAutomatedBackup -> Lude.Text) (\s a -> s {dbiResourceId = a} :: DeleteDBInstanceAutomatedBackup)
-{-# DEPRECATED ddbiabDBiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
+ddbiabDbiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup Types.DbiResourceId
+ddbiabDbiResourceId = Lens.field @"dbiResourceId"
+{-# DEPRECATED ddbiabDbiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
 
-instance Lude.AWSRequest DeleteDBInstanceAutomatedBackup where
+instance Core.AWSRequest DeleteDBInstanceAutomatedBackup where
   type
     Rs DeleteDBInstanceAutomatedBackup =
       DeleteDBInstanceAutomatedBackupResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteDBInstanceAutomatedBackup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DbiResourceId" dbiResourceId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteDBInstanceAutomatedBackupResult"
       ( \s h x ->
           DeleteDBInstanceAutomatedBackupResponse'
-            Lude.<$> (x Lude..@? "DBInstanceAutomatedBackup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBInstanceAutomatedBackup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDBInstanceAutomatedBackup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteDBInstanceAutomatedBackup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDBInstanceAutomatedBackup where
-  toQuery DeleteDBInstanceAutomatedBackup' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteDBInstanceAutomatedBackup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DbiResourceId" Lude.=: dbiResourceId
-      ]
 
 -- | /See:/ 'mkDeleteDBInstanceAutomatedBackupResponse' smart constructor.
 data DeleteDBInstanceAutomatedBackupResponse = DeleteDBInstanceAutomatedBackupResponse'
-  { dbInstanceAutomatedBackup :: Lude.Maybe DBInstanceAutomatedBackup,
+  { dBInstanceAutomatedBackup :: Core.Maybe Types.DBInstanceAutomatedBackup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteDBInstanceAutomatedBackupResponse' with the minimum fields required to make a request.
---
--- * 'dbInstanceAutomatedBackup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDBInstanceAutomatedBackupResponse' value with any optional fields omitted.
 mkDeleteDBInstanceAutomatedBackupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDBInstanceAutomatedBackupResponse
-mkDeleteDBInstanceAutomatedBackupResponse pResponseStatus_ =
+mkDeleteDBInstanceAutomatedBackupResponse responseStatus =
   DeleteDBInstanceAutomatedBackupResponse'
-    { dbInstanceAutomatedBackup =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBInstanceAutomatedBackup =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbInstanceAutomatedBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiabrsDBInstanceAutomatedBackup :: Lens.Lens' DeleteDBInstanceAutomatedBackupResponse (Lude.Maybe DBInstanceAutomatedBackup)
-ddbiabrsDBInstanceAutomatedBackup = Lens.lens (dbInstanceAutomatedBackup :: DeleteDBInstanceAutomatedBackupResponse -> Lude.Maybe DBInstanceAutomatedBackup) (\s a -> s {dbInstanceAutomatedBackup = a} :: DeleteDBInstanceAutomatedBackupResponse)
-{-# DEPRECATED ddbiabrsDBInstanceAutomatedBackup "Use generic-lens or generic-optics with 'dbInstanceAutomatedBackup' instead." #-}
+-- /Note:/ Consider using 'dBInstanceAutomatedBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbiabrrsDBInstanceAutomatedBackup :: Lens.Lens' DeleteDBInstanceAutomatedBackupResponse (Core.Maybe Types.DBInstanceAutomatedBackup)
+ddbiabrrsDBInstanceAutomatedBackup = Lens.field @"dBInstanceAutomatedBackup"
+{-# DEPRECATED ddbiabrrsDBInstanceAutomatedBackup "Use generic-lens or generic-optics with 'dBInstanceAutomatedBackup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiabrsResponseStatus :: Lens.Lens' DeleteDBInstanceAutomatedBackupResponse Lude.Int
-ddbiabrsResponseStatus = Lens.lens (responseStatus :: DeleteDBInstanceAutomatedBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDBInstanceAutomatedBackupResponse)
-{-# DEPRECATED ddbiabrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbiabrrsResponseStatus :: Lens.Lens' DeleteDBInstanceAutomatedBackupResponse Core.Int
+ddbiabrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbiabrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

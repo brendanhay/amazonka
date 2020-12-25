@@ -21,35 +21,33 @@ module Network.AWS.Athena.Types.Datum
   )
 where
 
+import qualified Network.AWS.Athena.Types.DatumString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A piece of data (a field in the table).
 --
 -- /See:/ 'mkDatum' smart constructor.
 newtype Datum = Datum'
   { -- | The value of the datum.
-    varCharValue :: Lude.Maybe Lude.Text
+    varCharValue :: Core.Maybe Types.DatumString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Datum' with the minimum fields required to make a request.
---
--- * 'varCharValue' - The value of the datum.
+-- | Creates a 'Datum' value with any optional fields omitted.
 mkDatum ::
   Datum
-mkDatum = Datum' {varCharValue = Lude.Nothing}
+mkDatum = Datum' {varCharValue = Core.Nothing}
 
 -- | The value of the datum.
 --
 -- /Note:/ Consider using 'varCharValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dVarCharValue :: Lens.Lens' Datum (Lude.Maybe Lude.Text)
-dVarCharValue = Lens.lens (varCharValue :: Datum -> Lude.Maybe Lude.Text) (\s a -> s {varCharValue = a} :: Datum)
+dVarCharValue :: Lens.Lens' Datum (Core.Maybe Types.DatumString)
+dVarCharValue = Lens.field @"varCharValue"
 {-# DEPRECATED dVarCharValue "Use generic-lens or generic-optics with 'varCharValue' instead." #-}
 
-instance Lude.FromJSON Datum where
+instance Core.FromJSON Datum where
   parseJSON =
-    Lude.withObject
-      "Datum"
-      (\x -> Datum' Lude.<$> (x Lude..:? "VarCharValue"))
+    Core.withObject "Datum" Core.$
+      \x -> Datum' Core.<$> (x Core..:? "VarCharValue")

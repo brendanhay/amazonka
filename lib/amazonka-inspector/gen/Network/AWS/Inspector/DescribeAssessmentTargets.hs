@@ -20,7 +20,7 @@ module Network.AWS.Inspector.DescribeAssessmentTargets
     mkDescribeAssessmentTargets,
 
     -- ** Request lenses
-    datAssessmentTargetARNs,
+    datAssessmentTargetArns,
 
     -- * Destructuring the response
     DescribeAssessmentTargetsResponse (..),
@@ -33,124 +33,109 @@ module Network.AWS.Inspector.DescribeAssessmentTargets
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAssessmentTargets' smart constructor.
 newtype DescribeAssessmentTargets = DescribeAssessmentTargets'
   { -- | The ARNs that specifies the assessment targets that you want to describe.
-    assessmentTargetARNs :: Lude.NonEmpty Lude.Text
+    assessmentTargetArns :: Core.NonEmpty Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAssessmentTargets' with the minimum fields required to make a request.
---
--- * 'assessmentTargetARNs' - The ARNs that specifies the assessment targets that you want to describe.
+-- | Creates a 'DescribeAssessmentTargets' value with any optional fields omitted.
 mkDescribeAssessmentTargets ::
-  -- | 'assessmentTargetARNs'
-  Lude.NonEmpty Lude.Text ->
+  -- | 'assessmentTargetArns'
+  Core.NonEmpty Types.Arn ->
   DescribeAssessmentTargets
-mkDescribeAssessmentTargets pAssessmentTargetARNs_ =
-  DescribeAssessmentTargets'
-    { assessmentTargetARNs =
-        pAssessmentTargetARNs_
-    }
+mkDescribeAssessmentTargets assessmentTargetArns =
+  DescribeAssessmentTargets' {assessmentTargetArns}
 
 -- | The ARNs that specifies the assessment targets that you want to describe.
 --
--- /Note:/ Consider using 'assessmentTargetARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datAssessmentTargetARNs :: Lens.Lens' DescribeAssessmentTargets (Lude.NonEmpty Lude.Text)
-datAssessmentTargetARNs = Lens.lens (assessmentTargetARNs :: DescribeAssessmentTargets -> Lude.NonEmpty Lude.Text) (\s a -> s {assessmentTargetARNs = a} :: DescribeAssessmentTargets)
-{-# DEPRECATED datAssessmentTargetARNs "Use generic-lens or generic-optics with 'assessmentTargetARNs' instead." #-}
+-- /Note:/ Consider using 'assessmentTargetArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datAssessmentTargetArns :: Lens.Lens' DescribeAssessmentTargets (Core.NonEmpty Types.Arn)
+datAssessmentTargetArns = Lens.field @"assessmentTargetArns"
+{-# DEPRECATED datAssessmentTargetArns "Use generic-lens or generic-optics with 'assessmentTargetArns' instead." #-}
 
-instance Lude.AWSRequest DescribeAssessmentTargets where
+instance Core.FromJSON DescribeAssessmentTargets where
+  toJSON DescribeAssessmentTargets {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("assessmentTargetArns" Core..= assessmentTargetArns)]
+      )
+
+instance Core.AWSRequest DescribeAssessmentTargets where
   type
     Rs DescribeAssessmentTargets =
       DescribeAssessmentTargetsResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.DescribeAssessmentTargets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAssessmentTargetsResponse'
-            Lude.<$> (x Lude..?> "assessmentTargets" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "assessmentTargets" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "failedItems" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAssessmentTargets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.DescribeAssessmentTargets" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAssessmentTargets where
-  toJSON DescribeAssessmentTargets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("assessmentTargetArns" Lude..= assessmentTargetARNs)]
-      )
-
-instance Lude.ToPath DescribeAssessmentTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAssessmentTargets where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeAssessmentTargetsResponse' smart constructor.
 data DescribeAssessmentTargetsResponse = DescribeAssessmentTargetsResponse'
   { -- | Information about the assessment targets.
-    assessmentTargets :: [AssessmentTarget],
+    assessmentTargets :: [Types.AssessmentTarget],
     -- | Assessment target details that cannot be described. An error code is provided for each failed item.
-    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    failedItems :: Core.HashMap Types.Arn Types.FailedItemDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAssessmentTargetsResponse' with the minimum fields required to make a request.
---
--- * 'assessmentTargets' - Information about the assessment targets.
--- * 'failedItems' - Assessment target details that cannot be described. An error code is provided for each failed item.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAssessmentTargetsResponse' value with any optional fields omitted.
 mkDescribeAssessmentTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAssessmentTargetsResponse
-mkDescribeAssessmentTargetsResponse pResponseStatus_ =
+mkDescribeAssessmentTargetsResponse responseStatus =
   DescribeAssessmentTargetsResponse'
     { assessmentTargets =
-        Lude.mempty,
-      failedItems = Lude.mempty,
-      responseStatus = pResponseStatus_
+        Core.mempty,
+      failedItems = Core.mempty,
+      responseStatus
     }
 
 -- | Information about the assessment targets.
 --
 -- /Note:/ Consider using 'assessmentTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsAssessmentTargets :: Lens.Lens' DescribeAssessmentTargetsResponse [AssessmentTarget]
-drsAssessmentTargets = Lens.lens (assessmentTargets :: DescribeAssessmentTargetsResponse -> [AssessmentTarget]) (\s a -> s {assessmentTargets = a} :: DescribeAssessmentTargetsResponse)
+drsAssessmentTargets :: Lens.Lens' DescribeAssessmentTargetsResponse [Types.AssessmentTarget]
+drsAssessmentTargets = Lens.field @"assessmentTargets"
 {-# DEPRECATED drsAssessmentTargets "Use generic-lens or generic-optics with 'assessmentTargets' instead." #-}
 
 -- | Assessment target details that cannot be described. An error code is provided for each failed item.
 --
 -- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsFailedItems :: Lens.Lens' DescribeAssessmentTargetsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
-drsFailedItems = Lens.lens (failedItems :: DescribeAssessmentTargetsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeAssessmentTargetsResponse)
+drsFailedItems :: Lens.Lens' DescribeAssessmentTargetsResponse (Core.HashMap Types.Arn Types.FailedItemDetails)
+drsFailedItems = Lens.field @"failedItems"
 {-# DEPRECATED drsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeAssessmentTargetsResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeAssessmentTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAssessmentTargetsResponse)
+drsResponseStatus :: Lens.Lens' DescribeAssessmentTargetsResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

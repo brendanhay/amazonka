@@ -26,92 +26,83 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     mkDescribeVirtualGatewaysResponse,
 
     -- ** Response lenses
-    dvgrsVirtualGateways,
-    dvgrsResponseStatus,
+    dvgrrsVirtualGateways,
+    dvgrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeVirtualGateways' smart constructor.
 data DescribeVirtualGateways = DescribeVirtualGateways'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeVirtualGateways' with the minimum fields required to make a request.
+-- | Creates a 'DescribeVirtualGateways' value with any optional fields omitted.
 mkDescribeVirtualGateways ::
   DescribeVirtualGateways
 mkDescribeVirtualGateways = DescribeVirtualGateways'
 
-instance Lude.AWSRequest DescribeVirtualGateways where
+instance Core.FromJSON DescribeVirtualGateways where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeVirtualGateways where
   type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse
-  request = Req.postJSON directConnectService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.DescribeVirtualGateways")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeVirtualGatewaysResponse'
-            Lude.<$> (x Lude..?> "virtualGateways" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "virtualGateways")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeVirtualGateways where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.DescribeVirtualGateways" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeVirtualGateways where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeVirtualGateways where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeVirtualGateways where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeVirtualGatewaysResponse' smart constructor.
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
   { -- | The virtual private gateways.
-    virtualGateways :: Lude.Maybe [VirtualGateway],
+    virtualGateways :: Core.Maybe [Types.VirtualGateway],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeVirtualGatewaysResponse' with the minimum fields required to make a request.
---
--- * 'virtualGateways' - The virtual private gateways.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeVirtualGatewaysResponse' value with any optional fields omitted.
 mkDescribeVirtualGatewaysResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeVirtualGatewaysResponse
-mkDescribeVirtualGatewaysResponse pResponseStatus_ =
+mkDescribeVirtualGatewaysResponse responseStatus =
   DescribeVirtualGatewaysResponse'
-    { virtualGateways = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { virtualGateways = Core.Nothing,
+      responseStatus
     }
 
 -- | The virtual private gateways.
 --
 -- /Note:/ Consider using 'virtualGateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvgrsVirtualGateways :: Lens.Lens' DescribeVirtualGatewaysResponse (Lude.Maybe [VirtualGateway])
-dvgrsVirtualGateways = Lens.lens (virtualGateways :: DescribeVirtualGatewaysResponse -> Lude.Maybe [VirtualGateway]) (\s a -> s {virtualGateways = a} :: DescribeVirtualGatewaysResponse)
-{-# DEPRECATED dvgrsVirtualGateways "Use generic-lens or generic-optics with 'virtualGateways' instead." #-}
+dvgrrsVirtualGateways :: Lens.Lens' DescribeVirtualGatewaysResponse (Core.Maybe [Types.VirtualGateway])
+dvgrrsVirtualGateways = Lens.field @"virtualGateways"
+{-# DEPRECATED dvgrrsVirtualGateways "Use generic-lens or generic-optics with 'virtualGateways' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvgrsResponseStatus :: Lens.Lens' DescribeVirtualGatewaysResponse Lude.Int
-dvgrsResponseStatus = Lens.lens (responseStatus :: DescribeVirtualGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVirtualGatewaysResponse)
-{-# DEPRECATED dvgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvgrrsResponseStatus :: Lens.Lens' DescribeVirtualGatewaysResponse Core.Int
+dvgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dvgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

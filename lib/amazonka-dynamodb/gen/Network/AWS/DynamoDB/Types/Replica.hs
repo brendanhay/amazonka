@@ -21,40 +21,38 @@ module Network.AWS.DynamoDB.Types.Replica
   )
 where
 
+import qualified Network.AWS.DynamoDB.Types.RegionName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the properties of a replica.
 --
 -- /See:/ 'mkReplica' smart constructor.
 newtype Replica = Replica'
   { -- | The Region where the replica needs to be created.
-    regionName :: Lude.Maybe Lude.Text
+    regionName :: Core.Maybe Types.RegionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Replica' with the minimum fields required to make a request.
---
--- * 'regionName' - The Region where the replica needs to be created.
+-- | Creates a 'Replica' value with any optional fields omitted.
 mkReplica ::
   Replica
-mkReplica = Replica' {regionName = Lude.Nothing}
+mkReplica = Replica' {regionName = Core.Nothing}
 
 -- | The Region where the replica needs to be created.
 --
 -- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRegionName :: Lens.Lens' Replica (Lude.Maybe Lude.Text)
-rRegionName = Lens.lens (regionName :: Replica -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: Replica)
+rRegionName :: Lens.Lens' Replica (Core.Maybe Types.RegionName)
+rRegionName = Lens.field @"regionName"
 {-# DEPRECATED rRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
-instance Lude.FromJSON Replica where
-  parseJSON =
-    Lude.withObject
-      "Replica"
-      (\x -> Replica' Lude.<$> (x Lude..:? "RegionName"))
+instance Core.FromJSON Replica where
+  toJSON Replica {..} =
+    Core.object
+      (Core.catMaybes [("RegionName" Core..=) Core.<$> regionName])
 
-instance Lude.ToJSON Replica where
-  toJSON Replica' {..} =
-    Lude.object
-      (Lude.catMaybes [("RegionName" Lude..=) Lude.<$> regionName])
+instance Core.FromJSON Replica where
+  parseJSON =
+    Core.withObject "Replica" Core.$
+      \x -> Replica' Core.<$> (x Core..:? "RegionName")

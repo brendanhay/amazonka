@@ -29,78 +29,70 @@ module Network.AWS.Lambda.DeleteLayerVersion
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLayerVersion' smart constructor.
 data DeleteLayerVersion = DeleteLayerVersion'
   { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Lude.Text,
+    layerName :: Types.LayerName,
     -- | The version number.
-    versionNumber :: Lude.Integer
+    versionNumber :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLayerVersion' with the minimum fields required to make a request.
---
--- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
--- * 'versionNumber' - The version number.
+-- | Creates a 'DeleteLayerVersion' value with any optional fields omitted.
 mkDeleteLayerVersion ::
   -- | 'layerName'
-  Lude.Text ->
+  Types.LayerName ->
   -- | 'versionNumber'
-  Lude.Integer ->
+  Core.Integer ->
   DeleteLayerVersion
-mkDeleteLayerVersion pLayerName_ pVersionNumber_ =
-  DeleteLayerVersion'
-    { layerName = pLayerName_,
-      versionNumber = pVersionNumber_
-    }
+mkDeleteLayerVersion layerName versionNumber =
+  DeleteLayerVersion' {layerName, versionNumber}
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 --
 -- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlvLayerName :: Lens.Lens' DeleteLayerVersion Lude.Text
-dlvLayerName = Lens.lens (layerName :: DeleteLayerVersion -> Lude.Text) (\s a -> s {layerName = a} :: DeleteLayerVersion)
+dlvLayerName :: Lens.Lens' DeleteLayerVersion Types.LayerName
+dlvLayerName = Lens.field @"layerName"
 {-# DEPRECATED dlvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 -- | The version number.
 --
 -- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlvVersionNumber :: Lens.Lens' DeleteLayerVersion Lude.Integer
-dlvVersionNumber = Lens.lens (versionNumber :: DeleteLayerVersion -> Lude.Integer) (\s a -> s {versionNumber = a} :: DeleteLayerVersion)
+dlvVersionNumber :: Lens.Lens' DeleteLayerVersion Core.Integer
+dlvVersionNumber = Lens.field @"versionNumber"
 {-# DEPRECATED dlvVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
-instance Lude.AWSRequest DeleteLayerVersion where
+instance Core.AWSRequest DeleteLayerVersion where
   type Rs DeleteLayerVersion = DeleteLayerVersionResponse
-  request = Req.delete lambdaService
-  response = Res.receiveNull DeleteLayerVersionResponse'
-
-instance Lude.ToHeaders DeleteLayerVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteLayerVersion where
-  toPath DeleteLayerVersion' {..} =
-    Lude.mconcat
-      [ "/2018-10-31/layers/",
-        Lude.toBS layerName,
-        "/versions/",
-        Lude.toBS versionNumber
-      ]
-
-instance Lude.ToQuery DeleteLayerVersion where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2018-10-31/layers/" Core.<> (Core.toText layerName)
+                Core.<> ("/versions/")
+                Core.<> (Core.toText versionNumber)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteLayerVersionResponse'
 
 -- | /See:/ 'mkDeleteLayerVersionResponse' smart constructor.
 data DeleteLayerVersionResponse = DeleteLayerVersionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLayerVersionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteLayerVersionResponse' value with any optional fields omitted.
 mkDeleteLayerVersionResponse ::
   DeleteLayerVersionResponse
 mkDeleteLayerVersionResponse = DeleteLayerVersionResponse'

@@ -27,114 +27,98 @@ module Network.AWS.CostExplorer.CreateAnomalyMonitor
     mkCreateAnomalyMonitorResponse,
 
     -- ** Response lenses
-    camrsMonitorARN,
-    camrsResponseStatus,
+    camrrsMonitorArn,
+    camrrsResponseStatus,
   )
 where
 
-import Network.AWS.CostExplorer.Types
+import qualified Network.AWS.CostExplorer.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateAnomalyMonitor' smart constructor.
 newtype CreateAnomalyMonitor = CreateAnomalyMonitor'
   { -- | The cost anomaly detection monitor object that you want to create.
-    anomalyMonitor :: AnomalyMonitor
+    anomalyMonitor :: Types.AnomalyMonitor
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAnomalyMonitor' with the minimum fields required to make a request.
---
--- * 'anomalyMonitor' - The cost anomaly detection monitor object that you want to create.
+-- | Creates a 'CreateAnomalyMonitor' value with any optional fields omitted.
 mkCreateAnomalyMonitor ::
   -- | 'anomalyMonitor'
-  AnomalyMonitor ->
+  Types.AnomalyMonitor ->
   CreateAnomalyMonitor
-mkCreateAnomalyMonitor pAnomalyMonitor_ =
-  CreateAnomalyMonitor' {anomalyMonitor = pAnomalyMonitor_}
+mkCreateAnomalyMonitor anomalyMonitor =
+  CreateAnomalyMonitor' {anomalyMonitor}
 
 -- | The cost anomaly detection monitor object that you want to create.
 --
 -- /Note:/ Consider using 'anomalyMonitor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-camAnomalyMonitor :: Lens.Lens' CreateAnomalyMonitor AnomalyMonitor
-camAnomalyMonitor = Lens.lens (anomalyMonitor :: CreateAnomalyMonitor -> AnomalyMonitor) (\s a -> s {anomalyMonitor = a} :: CreateAnomalyMonitor)
+camAnomalyMonitor :: Lens.Lens' CreateAnomalyMonitor Types.AnomalyMonitor
+camAnomalyMonitor = Lens.field @"anomalyMonitor"
 {-# DEPRECATED camAnomalyMonitor "Use generic-lens or generic-optics with 'anomalyMonitor' instead." #-}
 
-instance Lude.AWSRequest CreateAnomalyMonitor where
+instance Core.FromJSON CreateAnomalyMonitor where
+  toJSON CreateAnomalyMonitor {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AnomalyMonitor" Core..= anomalyMonitor)]
+      )
+
+instance Core.AWSRequest CreateAnomalyMonitor where
   type Rs CreateAnomalyMonitor = CreateAnomalyMonitorResponse
-  request = Req.postJSON costExplorerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSInsightsIndexService.CreateAnomalyMonitor")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateAnomalyMonitorResponse'
-            Lude.<$> (x Lude..:> "MonitorArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "MonitorArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateAnomalyMonitor where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSInsightsIndexService.CreateAnomalyMonitor" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateAnomalyMonitor where
-  toJSON CreateAnomalyMonitor' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("AnomalyMonitor" Lude..= anomalyMonitor)]
-      )
-
-instance Lude.ToPath CreateAnomalyMonitor where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAnomalyMonitor where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateAnomalyMonitorResponse' smart constructor.
 data CreateAnomalyMonitorResponse = CreateAnomalyMonitorResponse'
   { -- | The unique identifier of your newly created cost anomaly detection monitor.
-    monitorARN :: Lude.Text,
+    monitorArn :: Types.GenericString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAnomalyMonitorResponse' with the minimum fields required to make a request.
---
--- * 'monitorARN' - The unique identifier of your newly created cost anomaly detection monitor.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAnomalyMonitorResponse' value with any optional fields omitted.
 mkCreateAnomalyMonitorResponse ::
-  -- | 'monitorARN'
-  Lude.Text ->
+  -- | 'monitorArn'
+  Types.GenericString ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAnomalyMonitorResponse
-mkCreateAnomalyMonitorResponse pMonitorARN_ pResponseStatus_ =
-  CreateAnomalyMonitorResponse'
-    { monitorARN = pMonitorARN_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateAnomalyMonitorResponse monitorArn responseStatus =
+  CreateAnomalyMonitorResponse' {monitorArn, responseStatus}
 
 -- | The unique identifier of your newly created cost anomaly detection monitor.
 --
--- /Note:/ Consider using 'monitorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-camrsMonitorARN :: Lens.Lens' CreateAnomalyMonitorResponse Lude.Text
-camrsMonitorARN = Lens.lens (monitorARN :: CreateAnomalyMonitorResponse -> Lude.Text) (\s a -> s {monitorARN = a} :: CreateAnomalyMonitorResponse)
-{-# DEPRECATED camrsMonitorARN "Use generic-lens or generic-optics with 'monitorARN' instead." #-}
+-- /Note:/ Consider using 'monitorArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+camrrsMonitorArn :: Lens.Lens' CreateAnomalyMonitorResponse Types.GenericString
+camrrsMonitorArn = Lens.field @"monitorArn"
+{-# DEPRECATED camrrsMonitorArn "Use generic-lens or generic-optics with 'monitorArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-camrsResponseStatus :: Lens.Lens' CreateAnomalyMonitorResponse Lude.Int
-camrsResponseStatus = Lens.lens (responseStatus :: CreateAnomalyMonitorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAnomalyMonitorResponse)
-{-# DEPRECATED camrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+camrrsResponseStatus :: Lens.Lens' CreateAnomalyMonitorResponse Core.Int
+camrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED camrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

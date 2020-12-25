@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.H265GopBReference
   ( H265GopBReference
       ( H265GopBReference',
-        HGBRDisabled,
-        HGBREnabled
+        H265GopBReferenceDisabled,
+        H265GopBReferenceEnabled,
+        fromH265GopBReference
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If enable, use reference B frames for GOP structures that have B frames > 1.
-newtype H265GopBReference = H265GopBReference' Lude.Text
+newtype H265GopBReference = H265GopBReference'
+  { fromH265GopBReference ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HGBRDisabled :: H265GopBReference
-pattern HGBRDisabled = H265GopBReference' "DISABLED"
+pattern H265GopBReferenceDisabled :: H265GopBReference
+pattern H265GopBReferenceDisabled = H265GopBReference' "DISABLED"
 
-pattern HGBREnabled :: H265GopBReference
-pattern HGBREnabled = H265GopBReference' "ENABLED"
+pattern H265GopBReferenceEnabled :: H265GopBReference
+pattern H265GopBReferenceEnabled = H265GopBReference' "ENABLED"
 
 {-# COMPLETE
-  HGBRDisabled,
-  HGBREnabled,
+  H265GopBReferenceDisabled,
+  H265GopBReferenceEnabled,
   H265GopBReference'
   #-}

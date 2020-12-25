@@ -24,65 +24,60 @@ module Network.AWS.Transcribe.Types.VocabularyFilterInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Transcribe.Types.LanguageCode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.LanguageCode as Types
+import qualified Network.AWS.Transcribe.Types.VocabularyFilterName as Types
 
 -- | Provides information about a vocabulary filter.
 --
 -- /See:/ 'mkVocabularyFilterInfo' smart constructor.
 data VocabularyFilterInfo = VocabularyFilterInfo'
   { -- | The language code of the words in the vocabulary filter.
-    languageCode :: Lude.Maybe LanguageCode,
+    languageCode :: Core.Maybe Types.LanguageCode,
     -- | The date and time that the vocabulary was last updated.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
     -- | The name of the vocabulary filter. The name must be unique in the account that holds the filter.
-    vocabularyFilterName :: Lude.Maybe Lude.Text
+    vocabularyFilterName :: Core.Maybe Types.VocabularyFilterName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'VocabularyFilterInfo' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language code of the words in the vocabulary filter.
--- * 'lastModifiedTime' - The date and time that the vocabulary was last updated.
--- * 'vocabularyFilterName' - The name of the vocabulary filter. The name must be unique in the account that holds the filter.
+-- | Creates a 'VocabularyFilterInfo' value with any optional fields omitted.
 mkVocabularyFilterInfo ::
   VocabularyFilterInfo
 mkVocabularyFilterInfo =
   VocabularyFilterInfo'
-    { languageCode = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      vocabularyFilterName = Lude.Nothing
+    { languageCode = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      vocabularyFilterName = Core.Nothing
     }
 
 -- | The language code of the words in the vocabulary filter.
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vfiLanguageCode :: Lens.Lens' VocabularyFilterInfo (Lude.Maybe LanguageCode)
-vfiLanguageCode = Lens.lens (languageCode :: VocabularyFilterInfo -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: VocabularyFilterInfo)
+vfiLanguageCode :: Lens.Lens' VocabularyFilterInfo (Core.Maybe Types.LanguageCode)
+vfiLanguageCode = Lens.field @"languageCode"
 {-# DEPRECATED vfiLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The date and time that the vocabulary was last updated.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vfiLastModifiedTime :: Lens.Lens' VocabularyFilterInfo (Lude.Maybe Lude.Timestamp)
-vfiLastModifiedTime = Lens.lens (lastModifiedTime :: VocabularyFilterInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: VocabularyFilterInfo)
+vfiLastModifiedTime :: Lens.Lens' VocabularyFilterInfo (Core.Maybe Core.NominalDiffTime)
+vfiLastModifiedTime = Lens.field @"lastModifiedTime"
 {-# DEPRECATED vfiLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The name of the vocabulary filter. The name must be unique in the account that holds the filter.
 --
 -- /Note:/ Consider using 'vocabularyFilterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vfiVocabularyFilterName :: Lens.Lens' VocabularyFilterInfo (Lude.Maybe Lude.Text)
-vfiVocabularyFilterName = Lens.lens (vocabularyFilterName :: VocabularyFilterInfo -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyFilterName = a} :: VocabularyFilterInfo)
+vfiVocabularyFilterName :: Lens.Lens' VocabularyFilterInfo (Core.Maybe Types.VocabularyFilterName)
+vfiVocabularyFilterName = Lens.field @"vocabularyFilterName"
 {-# DEPRECATED vfiVocabularyFilterName "Use generic-lens or generic-optics with 'vocabularyFilterName' instead." #-}
 
-instance Lude.FromJSON VocabularyFilterInfo where
+instance Core.FromJSON VocabularyFilterInfo where
   parseJSON =
-    Lude.withObject
-      "VocabularyFilterInfo"
-      ( \x ->
-          VocabularyFilterInfo'
-            Lude.<$> (x Lude..:? "LanguageCode")
-            Lude.<*> (x Lude..:? "LastModifiedTime")
-            Lude.<*> (x Lude..:? "VocabularyFilterName")
-      )
+    Core.withObject "VocabularyFilterInfo" Core.$
+      \x ->
+        VocabularyFilterInfo'
+          Core.<$> (x Core..:? "LanguageCode")
+          Core.<*> (x Core..:? "LastModifiedTime")
+          Core.<*> (x Core..:? "VocabularyFilterName")

@@ -13,96 +13,101 @@
 module Network.AWS.EC2.Types.PrefixListState
   ( PrefixListState
       ( PrefixListState',
-        CreateInProgress,
-        CreateComplete,
-        CreateFailed,
-        ModifyInProgress,
-        ModifyComplete,
-        ModifyFailed,
-        RestoreInProgress,
-        RestoreComplete,
-        RestoreFailed,
-        DeleteInProgress,
-        DeleteComplete,
-        DeleteFailed
+        PrefixListStateCreateInProgress,
+        PrefixListStateCreateComplete,
+        PrefixListStateCreateFailed,
+        PrefixListStateModifyInProgress,
+        PrefixListStateModifyComplete,
+        PrefixListStateModifyFailed,
+        PrefixListStateRestoreInProgress,
+        PrefixListStateRestoreComplete,
+        PrefixListStateRestoreFailed,
+        PrefixListStateDeleteInProgress,
+        PrefixListStateDeleteComplete,
+        PrefixListStateDeleteFailed,
+        fromPrefixListState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PrefixListState = PrefixListState' Lude.Text
+newtype PrefixListState = PrefixListState'
+  { fromPrefixListState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CreateInProgress :: PrefixListState
-pattern CreateInProgress = PrefixListState' "create-in-progress"
+pattern PrefixListStateCreateInProgress :: PrefixListState
+pattern PrefixListStateCreateInProgress = PrefixListState' "create-in-progress"
 
-pattern CreateComplete :: PrefixListState
-pattern CreateComplete = PrefixListState' "create-complete"
+pattern PrefixListStateCreateComplete :: PrefixListState
+pattern PrefixListStateCreateComplete = PrefixListState' "create-complete"
 
-pattern CreateFailed :: PrefixListState
-pattern CreateFailed = PrefixListState' "create-failed"
+pattern PrefixListStateCreateFailed :: PrefixListState
+pattern PrefixListStateCreateFailed = PrefixListState' "create-failed"
 
-pattern ModifyInProgress :: PrefixListState
-pattern ModifyInProgress = PrefixListState' "modify-in-progress"
+pattern PrefixListStateModifyInProgress :: PrefixListState
+pattern PrefixListStateModifyInProgress = PrefixListState' "modify-in-progress"
 
-pattern ModifyComplete :: PrefixListState
-pattern ModifyComplete = PrefixListState' "modify-complete"
+pattern PrefixListStateModifyComplete :: PrefixListState
+pattern PrefixListStateModifyComplete = PrefixListState' "modify-complete"
 
-pattern ModifyFailed :: PrefixListState
-pattern ModifyFailed = PrefixListState' "modify-failed"
+pattern PrefixListStateModifyFailed :: PrefixListState
+pattern PrefixListStateModifyFailed = PrefixListState' "modify-failed"
 
-pattern RestoreInProgress :: PrefixListState
-pattern RestoreInProgress = PrefixListState' "restore-in-progress"
+pattern PrefixListStateRestoreInProgress :: PrefixListState
+pattern PrefixListStateRestoreInProgress = PrefixListState' "restore-in-progress"
 
-pattern RestoreComplete :: PrefixListState
-pattern RestoreComplete = PrefixListState' "restore-complete"
+pattern PrefixListStateRestoreComplete :: PrefixListState
+pattern PrefixListStateRestoreComplete = PrefixListState' "restore-complete"
 
-pattern RestoreFailed :: PrefixListState
-pattern RestoreFailed = PrefixListState' "restore-failed"
+pattern PrefixListStateRestoreFailed :: PrefixListState
+pattern PrefixListStateRestoreFailed = PrefixListState' "restore-failed"
 
-pattern DeleteInProgress :: PrefixListState
-pattern DeleteInProgress = PrefixListState' "delete-in-progress"
+pattern PrefixListStateDeleteInProgress :: PrefixListState
+pattern PrefixListStateDeleteInProgress = PrefixListState' "delete-in-progress"
 
-pattern DeleteComplete :: PrefixListState
-pattern DeleteComplete = PrefixListState' "delete-complete"
+pattern PrefixListStateDeleteComplete :: PrefixListState
+pattern PrefixListStateDeleteComplete = PrefixListState' "delete-complete"
 
-pattern DeleteFailed :: PrefixListState
-pattern DeleteFailed = PrefixListState' "delete-failed"
+pattern PrefixListStateDeleteFailed :: PrefixListState
+pattern PrefixListStateDeleteFailed = PrefixListState' "delete-failed"
 
 {-# COMPLETE
-  CreateInProgress,
-  CreateComplete,
-  CreateFailed,
-  ModifyInProgress,
-  ModifyComplete,
-  ModifyFailed,
-  RestoreInProgress,
-  RestoreComplete,
-  RestoreFailed,
-  DeleteInProgress,
-  DeleteComplete,
-  DeleteFailed,
+  PrefixListStateCreateInProgress,
+  PrefixListStateCreateComplete,
+  PrefixListStateCreateFailed,
+  PrefixListStateModifyInProgress,
+  PrefixListStateModifyComplete,
+  PrefixListStateModifyFailed,
+  PrefixListStateRestoreInProgress,
+  PrefixListStateRestoreComplete,
+  PrefixListStateRestoreFailed,
+  PrefixListStateDeleteInProgress,
+  PrefixListStateDeleteComplete,
+  PrefixListStateDeleteFailed,
   PrefixListState'
   #-}

@@ -13,71 +13,76 @@
 module Network.AWS.EC2.Types.ImageAttributeName
   ( ImageAttributeName
       ( ImageAttributeName',
-        Description,
-        Kernel,
-        RAMDisk,
-        LaunchPermission,
-        ProductCodes,
-        BlockDeviceMapping,
-        SRIOVNetSupport
+        ImageAttributeNameDescription,
+        ImageAttributeNameKernel,
+        ImageAttributeNameRamdisk,
+        ImageAttributeNameLaunchPermission,
+        ImageAttributeNameProductCodes,
+        ImageAttributeNameBlockDeviceMapping,
+        ImageAttributeNameSriovNetSupport,
+        fromImageAttributeName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ImageAttributeName = ImageAttributeName' Lude.Text
+newtype ImageAttributeName = ImageAttributeName'
+  { fromImageAttributeName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Description :: ImageAttributeName
-pattern Description = ImageAttributeName' "description"
+pattern ImageAttributeNameDescription :: ImageAttributeName
+pattern ImageAttributeNameDescription = ImageAttributeName' "description"
 
-pattern Kernel :: ImageAttributeName
-pattern Kernel = ImageAttributeName' "kernel"
+pattern ImageAttributeNameKernel :: ImageAttributeName
+pattern ImageAttributeNameKernel = ImageAttributeName' "kernel"
 
-pattern RAMDisk :: ImageAttributeName
-pattern RAMDisk = ImageAttributeName' "ramdisk"
+pattern ImageAttributeNameRamdisk :: ImageAttributeName
+pattern ImageAttributeNameRamdisk = ImageAttributeName' "ramdisk"
 
-pattern LaunchPermission :: ImageAttributeName
-pattern LaunchPermission = ImageAttributeName' "launchPermission"
+pattern ImageAttributeNameLaunchPermission :: ImageAttributeName
+pattern ImageAttributeNameLaunchPermission = ImageAttributeName' "launchPermission"
 
-pattern ProductCodes :: ImageAttributeName
-pattern ProductCodes = ImageAttributeName' "productCodes"
+pattern ImageAttributeNameProductCodes :: ImageAttributeName
+pattern ImageAttributeNameProductCodes = ImageAttributeName' "productCodes"
 
-pattern BlockDeviceMapping :: ImageAttributeName
-pattern BlockDeviceMapping = ImageAttributeName' "blockDeviceMapping"
+pattern ImageAttributeNameBlockDeviceMapping :: ImageAttributeName
+pattern ImageAttributeNameBlockDeviceMapping = ImageAttributeName' "blockDeviceMapping"
 
-pattern SRIOVNetSupport :: ImageAttributeName
-pattern SRIOVNetSupport = ImageAttributeName' "sriovNetSupport"
+pattern ImageAttributeNameSriovNetSupport :: ImageAttributeName
+pattern ImageAttributeNameSriovNetSupport = ImageAttributeName' "sriovNetSupport"
 
 {-# COMPLETE
-  Description,
-  Kernel,
-  RAMDisk,
-  LaunchPermission,
-  ProductCodes,
-  BlockDeviceMapping,
-  SRIOVNetSupport,
+  ImageAttributeNameDescription,
+  ImageAttributeNameKernel,
+  ImageAttributeNameRamdisk,
+  ImageAttributeNameLaunchPermission,
+  ImageAttributeNameProductCodes,
+  ImageAttributeNameBlockDeviceMapping,
+  ImageAttributeNameSriovNetSupport,
   ImageAttributeName'
   #-}

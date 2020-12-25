@@ -28,112 +28,102 @@ module Network.AWS.ResourceGroups.DeleteGroup
     mkDeleteGroupResponse,
 
     -- ** Response lenses
-    dgrsGroup,
-    dgrsResponseStatus,
+    dgrrsGroup,
+    dgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroups.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroups.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
   { -- | The name or the ARN of the resource group to delete.
-    group :: Lude.Maybe Lude.Text,
+    group :: Core.Maybe Types.GroupString,
     -- | Don't use this parameter. Use @Group@ instead.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
---
--- * 'group' - The name or the ARN of the resource group to delete.
--- * 'groupName' - Don't use this parameter. Use @Group@ instead.
+-- | Creates a 'DeleteGroup' value with any optional fields omitted.
 mkDeleteGroup ::
   DeleteGroup
 mkDeleteGroup =
-  DeleteGroup' {group = Lude.Nothing, groupName = Lude.Nothing}
+  DeleteGroup' {group = Core.Nothing, groupName = Core.Nothing}
 
 -- | The name or the ARN of the resource group to delete.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgGroup :: Lens.Lens' DeleteGroup (Lude.Maybe Lude.Text)
-dgGroup = Lens.lens (group :: DeleteGroup -> Lude.Maybe Lude.Text) (\s a -> s {group = a} :: DeleteGroup)
+dgGroup :: Lens.Lens' DeleteGroup (Core.Maybe Types.GroupString)
+dgGroup = Lens.field @"group"
 {-# DEPRECATED dgGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | Don't use this parameter. Use @Group@ instead.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgGroupName :: Lens.Lens' DeleteGroup (Lude.Maybe Lude.Text)
-dgGroupName = Lens.lens (groupName :: DeleteGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: DeleteGroup)
+dgGroupName :: Lens.Lens' DeleteGroup (Core.Maybe Types.GroupName)
+dgGroupName = Lens.field @"groupName"
 {-# DEPRECATED dgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest DeleteGroup where
-  type Rs DeleteGroup = DeleteGroupResponse
-  request = Req.postJSON resourceGroupsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DeleteGroupResponse'
-            Lude.<$> (x Lude..?> "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DeleteGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON DeleteGroup where
-  toJSON DeleteGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Group" Lude..=) Lude.<$> group,
-            ("GroupName" Lude..=) Lude.<$> groupName
+instance Core.FromJSON DeleteGroup where
+  toJSON DeleteGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Group" Core..=) Core.<$> group,
+            ("GroupName" Core..=) Core.<$> groupName
           ]
       )
 
-instance Lude.ToPath DeleteGroup where
-  toPath = Lude.const "/delete-group"
-
-instance Lude.ToQuery DeleteGroup where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DeleteGroup where
+  type Rs DeleteGroup = DeleteGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/delete-group",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteGroupResponse'
+            Core.<$> (x Core..:? "Group") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkDeleteGroupResponse' smart constructor.
 data DeleteGroupResponse = DeleteGroupResponse'
   { -- | A full description of the deleted resource group.
-    group :: Lude.Maybe Group,
+    group :: Core.Maybe Types.Group,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
---
--- * 'group' - A full description of the deleted resource group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteGroupResponse' value with any optional fields omitted.
 mkDeleteGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteGroupResponse
-mkDeleteGroupResponse pResponseStatus_ =
-  DeleteGroupResponse'
-    { group = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteGroupResponse responseStatus =
+  DeleteGroupResponse' {group = Core.Nothing, responseStatus}
 
 -- | A full description of the deleted resource group.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsGroup :: Lens.Lens' DeleteGroupResponse (Lude.Maybe Group)
-dgrsGroup = Lens.lens (group :: DeleteGroupResponse -> Lude.Maybe Group) (\s a -> s {group = a} :: DeleteGroupResponse)
-{-# DEPRECATED dgrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
+dgrrsGroup :: Lens.Lens' DeleteGroupResponse (Core.Maybe Types.Group)
+dgrrsGroup = Lens.field @"group"
+{-# DEPRECATED dgrrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsResponseStatus :: Lens.Lens' DeleteGroupResponse Lude.Int
-dgrsResponseStatus = Lens.lens (responseStatus :: DeleteGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGroupResponse)
-{-# DEPRECATED dgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgrrsResponseStatus :: Lens.Lens' DeleteGroupResponse Core.Int
+dgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

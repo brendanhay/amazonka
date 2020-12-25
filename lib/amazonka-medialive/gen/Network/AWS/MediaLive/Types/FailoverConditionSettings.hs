@@ -22,46 +22,42 @@ module Network.AWS.MediaLive.Types.FailoverConditionSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputLossFailoverSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.InputLossFailoverSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for one failover condition.
 --
 -- /See:/ 'mkFailoverConditionSettings' smart constructor.
 newtype FailoverConditionSettings = FailoverConditionSettings'
   { -- | MediaLive will perform a failover if content is not detected in this input for the specified period.
-    inputLossSettings :: Lude.Maybe InputLossFailoverSettings
+    inputLossSettings :: Core.Maybe Types.InputLossFailoverSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailoverConditionSettings' with the minimum fields required to make a request.
---
--- * 'inputLossSettings' - MediaLive will perform a failover if content is not detected in this input for the specified period.
+-- | Creates a 'FailoverConditionSettings' value with any optional fields omitted.
 mkFailoverConditionSettings ::
   FailoverConditionSettings
 mkFailoverConditionSettings =
-  FailoverConditionSettings' {inputLossSettings = Lude.Nothing}
+  FailoverConditionSettings' {inputLossSettings = Core.Nothing}
 
 -- | MediaLive will perform a failover if content is not detected in this input for the specified period.
 --
 -- /Note:/ Consider using 'inputLossSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcsInputLossSettings :: Lens.Lens' FailoverConditionSettings (Lude.Maybe InputLossFailoverSettings)
-fcsInputLossSettings = Lens.lens (inputLossSettings :: FailoverConditionSettings -> Lude.Maybe InputLossFailoverSettings) (\s a -> s {inputLossSettings = a} :: FailoverConditionSettings)
+fcsInputLossSettings :: Lens.Lens' FailoverConditionSettings (Core.Maybe Types.InputLossFailoverSettings)
+fcsInputLossSettings = Lens.field @"inputLossSettings"
 {-# DEPRECATED fcsInputLossSettings "Use generic-lens or generic-optics with 'inputLossSettings' instead." #-}
 
-instance Lude.FromJSON FailoverConditionSettings where
-  parseJSON =
-    Lude.withObject
-      "FailoverConditionSettings"
-      ( \x ->
-          FailoverConditionSettings'
-            Lude.<$> (x Lude..:? "inputLossSettings")
+instance Core.FromJSON FailoverConditionSettings where
+  toJSON FailoverConditionSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [("inputLossSettings" Core..=) Core.<$> inputLossSettings]
       )
 
-instance Lude.ToJSON FailoverConditionSettings where
-  toJSON FailoverConditionSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("inputLossSettings" Lude..=) Lude.<$> inputLossSettings]
-      )
+instance Core.FromJSON FailoverConditionSettings where
+  parseJSON =
+    Core.withObject "FailoverConditionSettings" Core.$
+      \x ->
+        FailoverConditionSettings'
+          Core.<$> (x Core..:? "inputLossSettings")

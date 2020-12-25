@@ -23,62 +23,59 @@ module Network.AWS.EC2.Types.TransitGatewayRouteAttachment
   )
 where
 
-import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a route attachment.
 --
 -- /See:/ 'mkTransitGatewayRouteAttachment' smart constructor.
 data TransitGatewayRouteAttachment = TransitGatewayRouteAttachment'
   { -- | The ID of the resource.
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.String,
     -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
-    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
+    resourceType :: Core.Maybe Types.TransitGatewayAttachmentResourceType,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Lude.Maybe Lude.Text
+    transitGatewayAttachmentId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransitGatewayRouteAttachment' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource.
--- * 'resourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- | Creates a 'TransitGatewayRouteAttachment' value with any optional fields omitted.
 mkTransitGatewayRouteAttachment ::
   TransitGatewayRouteAttachment
 mkTransitGatewayRouteAttachment =
   TransitGatewayRouteAttachment'
-    { resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      transitGatewayAttachmentId = Lude.Nothing
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing,
+      transitGatewayAttachmentId = Core.Nothing
     }
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgraResourceId :: Lens.Lens' TransitGatewayRouteAttachment (Lude.Maybe Lude.Text)
-tgraResourceId = Lens.lens (resourceId :: TransitGatewayRouteAttachment -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: TransitGatewayRouteAttachment)
+tgraResourceId :: Lens.Lens' TransitGatewayRouteAttachment (Core.Maybe Types.String)
+tgraResourceId = Lens.field @"resourceId"
 {-# DEPRECATED tgraResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgraResourceType :: Lens.Lens' TransitGatewayRouteAttachment (Lude.Maybe TransitGatewayAttachmentResourceType)
-tgraResourceType = Lens.lens (resourceType :: TransitGatewayRouteAttachment -> Lude.Maybe TransitGatewayAttachmentResourceType) (\s a -> s {resourceType = a} :: TransitGatewayRouteAttachment)
+tgraResourceType :: Lens.Lens' TransitGatewayRouteAttachment (Core.Maybe Types.TransitGatewayAttachmentResourceType)
+tgraResourceType = Lens.field @"resourceType"
 {-# DEPRECATED tgraResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the attachment.
 --
 -- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgraTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayRouteAttachment (Lude.Maybe Lude.Text)
-tgraTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: TransitGatewayRouteAttachment -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: TransitGatewayRouteAttachment)
+tgraTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayRouteAttachment (Core.Maybe Types.String)
+tgraTransitGatewayAttachmentId = Lens.field @"transitGatewayAttachmentId"
 {-# DEPRECATED tgraTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
-instance Lude.FromXML TransitGatewayRouteAttachment where
+instance Core.FromXML TransitGatewayRouteAttachment where
   parseXML x =
     TransitGatewayRouteAttachment'
-      Lude.<$> (x Lude..@? "resourceId")
-      Lude.<*> (x Lude..@? "resourceType")
-      Lude.<*> (x Lude..@? "transitGatewayAttachmentId")
+      Core.<$> (x Core..@? "resourceId")
+      Core.<*> (x Core..@? "resourceType")
+      Core.<*> (x Core..@? "transitGatewayAttachmentId")

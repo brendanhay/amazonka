@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,10 +26,46 @@
 -- AWS Secrets Manager supports AWS CloudTrail, a service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. By using information that's collected by AWS CloudTrail, you can determine the requests successfully made to Secrets Manager, who made the request, when it was made, and so on. For more about AWS Secrets Manager and support for AWS CloudTrail, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail Logging AWS Secrets Manager Events with AWS CloudTrail> in the /AWS Secrets Manager User Guide/ . To learn more about CloudTrail, including enabling it and find your log files, see the <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide> .
 module Network.AWS.SecretsManager
   ( -- * Service configuration
-    secretsManagerService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** DecryptionFailure
+    _DecryptionFailure,
+
+    -- ** PublicPolicyException
+    _PublicPolicyException,
+
+    -- ** EncryptionFailure
+    _EncryptionFailure,
+
+    -- ** PreconditionNotMetException
+    _PreconditionNotMetException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InternalServiceError
+    _InternalServiceError,
+
+    -- ** ResourceExistsException
+    _ResourceExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -97,55 +132,69 @@ module Network.AWS.SecretsManager
 
     -- * Types
 
-    -- ** FilterNameStringType
-    FilterNameStringType (..),
+    -- ** NextTokenType
+    NextTokenType (..),
+
+    -- ** ExcludeCharactersType
+    ExcludeCharactersType (..),
 
     -- ** SortOrderType
     SortOrderType (..),
 
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fKey,
+    -- ** NameType
+    NameType (..),
 
-    -- ** RotationRulesType
-    RotationRulesType (..),
-    mkRotationRulesType,
-    rrtAutomaticallyAfterDays,
-
-    -- ** SecretListEntry
-    SecretListEntry (..),
-    mkSecretListEntry,
-    sleLastChangedDate,
-    sleARN,
-    sleSecretVersionsToStages,
-    sleRotationRules,
-    sleDeletedDate,
-    sleRotationEnabled,
-    sleCreatedDate,
-    sleKMSKeyId,
-    sleName,
-    sleOwningService,
-    sleLastRotatedDate,
-    sleLastAccessedDate,
-    sleDescription,
-    sleRotationLambdaARN,
-    sleTags,
-
-    -- ** SecretVersionsListEntry
-    SecretVersionsListEntry (..),
-    mkSecretVersionsListEntry,
-    svleVersionId,
-    svleVersionStages,
-    svleCreatedDate,
-    svleLastAccessedDate,
+    -- ** KmsKeyIdType
+    KmsKeyIdType (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** TagKeyType
+    TagKeyType (..),
+
+    -- ** NonEmptyResourcePolicyType
+    NonEmptyResourcePolicyType (..),
+
+    -- ** SecretListEntry
+    SecretListEntry (..),
+    mkSecretListEntry,
+    sleARN,
+    sleCreatedDate,
+    sleDeletedDate,
+    sleDescription,
+    sleKmsKeyId,
+    sleLastAccessedDate,
+    sleLastChangedDate,
+    sleLastRotatedDate,
+    sleName,
+    sleOwningService,
+    sleRotationEnabled,
+    sleRotationLambdaARN,
+    sleRotationRules,
+    sleSecretVersionsToStages,
+    sleTags,
+
+    -- ** ClientRequestTokenType
+    ClientRequestTokenType (..),
+
+    -- ** SecretStringType
+    SecretStringType (..),
+
+    -- ** SecretARNType
+    SecretARNType (..),
+
+    -- ** DescriptionType
+    DescriptionType (..),
+
+    -- ** RotationLambdaARNType
+    RotationLambdaARNType (..),
+
+    -- ** SecretVersionIdType
+    SecretVersionIdType (..),
 
     -- ** ValidationErrorsEntry
     ValidationErrorsEntry (..),
@@ -153,15 +202,86 @@ module Network.AWS.SecretsManager
     veeCheckName,
     veeErrorMessage,
 
+    -- ** RandomPasswordType
+    RandomPasswordType (..),
+
+    -- ** FilterNameStringType
+    FilterNameStringType (..),
+
+    -- ** SecretVersionStageType
+    SecretVersionStageType (..),
+
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fKey,
+    fValues,
+
+    -- ** SecretIdType
+    SecretIdType (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** FilterValueStringType
+    FilterValueStringType (..),
+
+    -- ** RotationRulesType
+    RotationRulesType (..),
+    mkRotationRulesType,
+    rrtAutomaticallyAfterDays,
+
+    -- ** SecretVersionsListEntry
+    SecretVersionsListEntry (..),
+    mkSecretVersionsListEntry,
+    svleCreatedDate,
+    svleLastAccessedDate,
+    svleVersionId,
+    svleVersionStages,
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** VersionId
+    VersionId (..),
+
+    -- ** SecretId
+    SecretId (..),
+
+    -- ** VersionStage
+    VersionStage (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** SecretString
+    SecretString (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** OwningService
+    OwningService (..),
+
+    -- ** RotationLambdaARN
+    RotationLambdaARN (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

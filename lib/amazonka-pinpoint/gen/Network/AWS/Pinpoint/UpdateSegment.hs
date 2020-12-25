@@ -20,151 +20,130 @@ module Network.AWS.Pinpoint.UpdateSegment
     mkUpdateSegment,
 
     -- ** Request lenses
+    usSegmentId,
     usApplicationId,
     usWriteSegmentRequest,
-    usSegmentId,
 
     -- * Destructuring the response
     UpdateSegmentResponse (..),
     mkUpdateSegmentResponse,
 
     -- ** Response lenses
-    usrsSegmentResponse,
-    usrsResponseStatus,
+    usrrsSegmentResponse,
+    usrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateSegment' smart constructor.
 data UpdateSegment = UpdateSegment'
-  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
-    writeSegmentRequest :: WriteSegmentRequest,
-    -- | The unique identifier for the segment.
-    segmentId :: Lude.Text
+  { -- | The unique identifier for the segment.
+    segmentId :: Core.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Core.Text,
+    writeSegmentRequest :: Types.WriteSegmentRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSegment' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'writeSegmentRequest' -
--- * 'segmentId' - The unique identifier for the segment.
+-- | Creates a 'UpdateSegment' value with any optional fields omitted.
 mkUpdateSegment ::
-  -- | 'applicationId'
-  Lude.Text ->
-  -- | 'writeSegmentRequest'
-  WriteSegmentRequest ->
   -- | 'segmentId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'applicationId'
+  Core.Text ->
+  -- | 'writeSegmentRequest'
+  Types.WriteSegmentRequest ->
   UpdateSegment
-mkUpdateSegment pApplicationId_ pWriteSegmentRequest_ pSegmentId_ =
-  UpdateSegment'
-    { applicationId = pApplicationId_,
-      writeSegmentRequest = pWriteSegmentRequest_,
-      segmentId = pSegmentId_
-    }
+mkUpdateSegment segmentId applicationId writeSegmentRequest =
+  UpdateSegment' {segmentId, applicationId, writeSegmentRequest}
+
+-- | The unique identifier for the segment.
+--
+-- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usSegmentId :: Lens.Lens' UpdateSegment Core.Text
+usSegmentId = Lens.field @"segmentId"
+{-# DEPRECATED usSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usApplicationId :: Lens.Lens' UpdateSegment Lude.Text
-usApplicationId = Lens.lens (applicationId :: UpdateSegment -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateSegment)
+usApplicationId :: Lens.Lens' UpdateSegment Core.Text
+usApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED usApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'writeSegmentRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usWriteSegmentRequest :: Lens.Lens' UpdateSegment WriteSegmentRequest
-usWriteSegmentRequest = Lens.lens (writeSegmentRequest :: UpdateSegment -> WriteSegmentRequest) (\s a -> s {writeSegmentRequest = a} :: UpdateSegment)
+usWriteSegmentRequest :: Lens.Lens' UpdateSegment Types.WriteSegmentRequest
+usWriteSegmentRequest = Lens.field @"writeSegmentRequest"
 {-# DEPRECATED usWriteSegmentRequest "Use generic-lens or generic-optics with 'writeSegmentRequest' instead." #-}
 
--- | The unique identifier for the segment.
---
--- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usSegmentId :: Lens.Lens' UpdateSegment Lude.Text
-usSegmentId = Lens.lens (segmentId :: UpdateSegment -> Lude.Text) (\s a -> s {segmentId = a} :: UpdateSegment)
-{-# DEPRECATED usSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
+instance Core.FromJSON UpdateSegment where
+  toJSON UpdateSegment {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WriteSegmentRequest" Core..= writeSegmentRequest)]
+      )
 
-instance Lude.AWSRequest UpdateSegment where
+instance Core.AWSRequest UpdateSegment where
   type Rs UpdateSegment = UpdateSegmentResponse
-  request = Req.putJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/segments/")
+                Core.<> (Core.toText segmentId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateSegmentResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateSegment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateSegment where
-  toJSON UpdateSegment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("WriteSegmentRequest" Lude..= writeSegmentRequest)]
-      )
-
-instance Lude.ToPath UpdateSegment where
-  toPath UpdateSegment' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/segments/",
-        Lude.toBS segmentId
-      ]
-
-instance Lude.ToQuery UpdateSegment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateSegmentResponse' smart constructor.
 data UpdateSegmentResponse = UpdateSegmentResponse'
-  { segmentResponse :: SegmentResponse,
+  { segmentResponse :: Types.SegmentResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSegmentResponse' with the minimum fields required to make a request.
---
--- * 'segmentResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateSegmentResponse' value with any optional fields omitted.
 mkUpdateSegmentResponse ::
   -- | 'segmentResponse'
-  SegmentResponse ->
+  Types.SegmentResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateSegmentResponse
-mkUpdateSegmentResponse pSegmentResponse_ pResponseStatus_ =
-  UpdateSegmentResponse'
-    { segmentResponse = pSegmentResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateSegmentResponse segmentResponse responseStatus =
+  UpdateSegmentResponse' {segmentResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'segmentResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsSegmentResponse :: Lens.Lens' UpdateSegmentResponse SegmentResponse
-usrsSegmentResponse = Lens.lens (segmentResponse :: UpdateSegmentResponse -> SegmentResponse) (\s a -> s {segmentResponse = a} :: UpdateSegmentResponse)
-{-# DEPRECATED usrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}
+usrrsSegmentResponse :: Lens.Lens' UpdateSegmentResponse Types.SegmentResponse
+usrrsSegmentResponse = Lens.field @"segmentResponse"
+{-# DEPRECATED usrrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsResponseStatus :: Lens.Lens' UpdateSegmentResponse Lude.Int
-usrsResponseStatus = Lens.lens (responseStatus :: UpdateSegmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSegmentResponse)
-{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usrrsResponseStatus :: Lens.Lens' UpdateSegmentResponse Core.Int
+usrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

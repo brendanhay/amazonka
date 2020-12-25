@@ -17,69 +17,64 @@ module Network.AWS.MediaLive.Types.StandardHlsSettings
     mkStandardHlsSettings,
 
     -- * Lenses
-    shsAudioRenditionSets,
     shsM3u8Settings,
+    shsAudioRenditionSets,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.M3u8Settings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.M3u8Settings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Standard Hls Settings
 --
 -- /See:/ 'mkStandardHlsSettings' smart constructor.
 data StandardHlsSettings = StandardHlsSettings'
-  { -- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
-    audioRenditionSets :: Lude.Maybe Lude.Text,
-    m3u8Settings :: M3u8Settings
+  { m3u8Settings :: Types.M3u8Settings,
+    -- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+    audioRenditionSets :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StandardHlsSettings' with the minimum fields required to make a request.
---
--- * 'audioRenditionSets' - List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
--- * 'm3u8Settings' -
+-- | Creates a 'StandardHlsSettings' value with any optional fields omitted.
 mkStandardHlsSettings ::
   -- | 'm3u8Settings'
-  M3u8Settings ->
+  Types.M3u8Settings ->
   StandardHlsSettings
-mkStandardHlsSettings pM3u8Settings_ =
+mkStandardHlsSettings m3u8Settings =
   StandardHlsSettings'
-    { audioRenditionSets = Lude.Nothing,
-      m3u8Settings = pM3u8Settings_
+    { m3u8Settings,
+      audioRenditionSets = Core.Nothing
     }
-
--- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
---
--- /Note:/ Consider using 'audioRenditionSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-shsAudioRenditionSets :: Lens.Lens' StandardHlsSettings (Lude.Maybe Lude.Text)
-shsAudioRenditionSets = Lens.lens (audioRenditionSets :: StandardHlsSettings -> Lude.Maybe Lude.Text) (\s a -> s {audioRenditionSets = a} :: StandardHlsSettings)
-{-# DEPRECATED shsAudioRenditionSets "Use generic-lens or generic-optics with 'audioRenditionSets' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'm3u8Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-shsM3u8Settings :: Lens.Lens' StandardHlsSettings M3u8Settings
-shsM3u8Settings = Lens.lens (m3u8Settings :: StandardHlsSettings -> M3u8Settings) (\s a -> s {m3u8Settings = a} :: StandardHlsSettings)
+shsM3u8Settings :: Lens.Lens' StandardHlsSettings Types.M3u8Settings
+shsM3u8Settings = Lens.field @"m3u8Settings"
 {-# DEPRECATED shsM3u8Settings "Use generic-lens or generic-optics with 'm3u8Settings' instead." #-}
 
-instance Lude.FromJSON StandardHlsSettings where
-  parseJSON =
-    Lude.withObject
-      "StandardHlsSettings"
-      ( \x ->
-          StandardHlsSettings'
-            Lude.<$> (x Lude..:? "audioRenditionSets")
-            Lude.<*> (x Lude..: "m3u8Settings")
-      )
+-- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+--
+-- /Note:/ Consider using 'audioRenditionSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+shsAudioRenditionSets :: Lens.Lens' StandardHlsSettings (Core.Maybe Core.Text)
+shsAudioRenditionSets = Lens.field @"audioRenditionSets"
+{-# DEPRECATED shsAudioRenditionSets "Use generic-lens or generic-optics with 'audioRenditionSets' instead." #-}
 
-instance Lude.ToJSON StandardHlsSettings where
-  toJSON StandardHlsSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("audioRenditionSets" Lude..=) Lude.<$> audioRenditionSets,
-            Lude.Just ("m3u8Settings" Lude..= m3u8Settings)
+instance Core.FromJSON StandardHlsSettings where
+  toJSON StandardHlsSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("m3u8Settings" Core..= m3u8Settings),
+            ("audioRenditionSets" Core..=) Core.<$> audioRenditionSets
           ]
       )
+
+instance Core.FromJSON StandardHlsSettings where
+  parseJSON =
+    Core.withObject "StandardHlsSettings" Core.$
+      \x ->
+        StandardHlsSettings'
+          Core.<$> (x Core..: "m3u8Settings")
+          Core.<*> (x Core..:? "audioRenditionSets")

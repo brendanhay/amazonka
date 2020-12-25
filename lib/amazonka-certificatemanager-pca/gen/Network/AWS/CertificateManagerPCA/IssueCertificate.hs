@@ -20,49 +20,53 @@ module Network.AWS.CertificateManagerPCA.IssueCertificate
     mkIssueCertificate,
 
     -- ** Request lenses
+    icCertificateAuthorityArn,
+    icCsr,
     icSigningAlgorithm,
-    icIdempotencyToken,
-    icCSR,
     icValidity,
-    icTemplateARN,
-    icCertificateAuthorityARN,
+    icIdempotencyToken,
+    icTemplateArn,
 
     -- * Destructuring the response
     IssueCertificateResponse (..),
     mkIssueCertificateResponse,
 
     -- ** Response lenses
-    icrsCertificateARN,
-    icrsResponseStatus,
+    icrrsCertificateArn,
+    icrrsResponseStatus,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkIssueCertificate' smart constructor.
 data IssueCertificate = IssueCertificate'
-  { -- | The name of the algorithm that will be used to sign the certificate to be issued.
+  { -- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
     --
-    -- This parameter should not be confused with the @SigningAlgorithm@ parameter used to sign a CSR.
-    signingAlgorithm :: SigningAlgorithm,
-    -- | Custom string that can be used to distinguish between calls to the __IssueCertificate__ action. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM Private CA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
-    idempotencyToken :: Lude.Maybe Lude.Text,
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+    certificateAuthorityArn :: Types.Arn,
     -- | The certificate signing request (CSR) for the certificate you want to issue. You can use the following OpenSSL command to create the CSR and a 2048 bit RSA private key.
     --
     -- @openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr@
     -- If you have a configuration file, you can use the following OpenSSL command. The @usr_cert@ block in the configuration file contains your X509 version 3 extensions.
     -- @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days -365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr@
     -- Note: A CSR must provide either a /subject name/ or a /subject alternative name/ or the request will be rejected.
-    cSR :: Lude.Base64,
+    csr :: Core.Base64,
+    -- | The name of the algorithm that will be used to sign the certificate to be issued.
+    --
+    -- This parameter should not be confused with the @SigningAlgorithm@ parameter used to sign a CSR.
+    signingAlgorithm :: Types.SigningAlgorithm,
     -- | Information describing the validity period of the certificate.
     --
     -- When issuing a certificate, ACM Private CA sets the "Not Before" date in the validity field to date and time minus 60 minutes. This is intended to compensate for time inconsistencies across systems of 60 minutes or less.
     -- The validity period configured on a certificate must not exceed the limit set by its parents in the CA hierarchy.
-    validity :: Validity,
+    validity :: Types.Validity,
+    -- | Custom string that can be used to distinguish between calls to the __IssueCertificate__ action. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM Private CA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
+    idempotencyToken :: Core.Maybe Types.IdempotencyToken,
     -- | Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the @EndEntityCertificate/V1@ template. For CA certificates, you should choose the shortest path length that meets your needs. The path length is indicated by the PathLen/N/ portion of the ARN, where /N/ is the <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth> .
     --
     -- Note: The CA depth configured on a subordinate CA certificate must not exceed the limit set by its parents in the CA hierarchy.
@@ -114,124 +118,44 @@ data IssueCertificate = IssueCertificate'
     --
     --
     -- For more information, see <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Using Templates> .
-    templateARN :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
-    --
-    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
-    certificateAuthorityARN :: Lude.Text
+    templateArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IssueCertificate' with the minimum fields required to make a request.
---
--- * 'signingAlgorithm' - The name of the algorithm that will be used to sign the certificate to be issued.
---
--- This parameter should not be confused with the @SigningAlgorithm@ parameter used to sign a CSR.
--- * 'idempotencyToken' - Custom string that can be used to distinguish between calls to the __IssueCertificate__ action. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM Private CA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
--- * 'cSR' - The certificate signing request (CSR) for the certificate you want to issue. You can use the following OpenSSL command to create the CSR and a 2048 bit RSA private key.
---
--- @openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr@
--- If you have a configuration file, you can use the following OpenSSL command. The @usr_cert@ block in the configuration file contains your X509 version 3 extensions.
--- @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days -365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr@
--- Note: A CSR must provide either a /subject name/ or a /subject alternative name/ or the request will be rejected.
--- * 'validity' - Information describing the validity period of the certificate.
---
--- When issuing a certificate, ACM Private CA sets the "Not Before" date in the validity field to date and time minus 60 minutes. This is intended to compensate for time inconsistencies across systems of 60 minutes or less.
--- The validity period configured on a certificate must not exceed the limit set by its parents in the CA hierarchy.
--- * 'templateARN' - Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the @EndEntityCertificate/V1@ template. For CA certificates, you should choose the shortest path length that meets your needs. The path length is indicated by the PathLen/N/ portion of the ARN, where /N/ is the <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth> .
---
--- Note: The CA depth configured on a subordinate CA certificate must not exceed the limit set by its parents in the CA hierarchy.
--- The following service-owned @TemplateArn@ values are supported by ACM Private CA:
---
---     * arn:aws:acm-pca:::template/CodeSigningCertificate/V1
---
---
---     * arn:aws:acm-pca:::template/CodeSigningCertificate_CSRPassthrough/V1
---
---
---     * arn:aws:acm-pca:::template/EndEntityCertificate/V1
---
---
---     * arn:aws:acm-pca:::template/EndEntityCertificate_CSRPassthrough/V1
---
---
---     * arn:aws:acm-pca:::template/EndEntityClientAuthCertificate/V1
---
---
---     * arn:aws:acm-pca:::template/EndEntityClientAuthCertificate_CSRPassthrough/V1
---
---
---     * arn:aws:acm-pca:::template/EndEntityServerAuthCertificate/V1
---
---
---     * arn:aws:acm-pca:::template/EndEntityServerAuthCertificate_CSRPassthrough/V1
---
---
---     * arn:aws:acm-pca:::template/OCSPSigningCertificate/V1
---
---
---     * arn:aws:acm-pca:::template/OCSPSigningCertificate_CSRPassthrough/V1
---
---
---     * arn:aws:acm-pca:::template/RootCACertificate/V1
---
---
---     * arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen0/V1
---
---
---     * arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen1/V1
---
---
---     * arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1
---
---
---     * arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1
---
---
--- For more information, see <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Using Templates> .
--- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | Creates a 'IssueCertificate' value with any optional fields omitted.
 mkIssueCertificate ::
+  -- | 'certificateAuthorityArn'
+  Types.Arn ->
+  -- | 'csr'
+  Core.Base64 ->
   -- | 'signingAlgorithm'
-  SigningAlgorithm ->
-  -- | 'cSR'
-  Lude.Base64 ->
+  Types.SigningAlgorithm ->
   -- | 'validity'
-  Validity ->
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
+  Types.Validity ->
   IssueCertificate
 mkIssueCertificate
-  pSigningAlgorithm_
-  pCSR_
-  pValidity_
-  pCertificateAuthorityARN_ =
+  certificateAuthorityArn
+  csr
+  signingAlgorithm
+  validity =
     IssueCertificate'
-      { signingAlgorithm = pSigningAlgorithm_,
-        idempotencyToken = Lude.Nothing,
-        cSR = pCSR_,
-        validity = pValidity_,
-        templateARN = Lude.Nothing,
-        certificateAuthorityARN = pCertificateAuthorityARN_
+      { certificateAuthorityArn,
+        csr,
+        signingAlgorithm,
+        validity,
+        idempotencyToken = Core.Nothing,
+        templateArn = Core.Nothing
       }
 
--- | The name of the algorithm that will be used to sign the certificate to be issued.
+-- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
 --
--- This parameter should not be confused with the @SigningAlgorithm@ parameter used to sign a CSR.
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 --
--- /Note:/ Consider using 'signingAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icSigningAlgorithm :: Lens.Lens' IssueCertificate SigningAlgorithm
-icSigningAlgorithm = Lens.lens (signingAlgorithm :: IssueCertificate -> SigningAlgorithm) (\s a -> s {signingAlgorithm = a} :: IssueCertificate)
-{-# DEPRECATED icSigningAlgorithm "Use generic-lens or generic-optics with 'signingAlgorithm' instead." #-}
-
--- | Custom string that can be used to distinguish between calls to the __IssueCertificate__ action. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM Private CA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
---
--- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icIdempotencyToken :: Lens.Lens' IssueCertificate (Lude.Maybe Lude.Text)
-icIdempotencyToken = Lens.lens (idempotencyToken :: IssueCertificate -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: IssueCertificate)
-{-# DEPRECATED icIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icCertificateAuthorityArn :: Lens.Lens' IssueCertificate Types.Arn
+icCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED icCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
 -- | The certificate signing request (CSR) for the certificate you want to issue. You can use the following OpenSSL command to create the CSR and a 2048 bit RSA private key.
 --
@@ -244,10 +168,19 @@ icIdempotencyToken = Lens.lens (idempotencyToken :: IssueCertificate -> Lude.May
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- /Note:/ Consider using 'cSR' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icCSR :: Lens.Lens' IssueCertificate Lude.Base64
-icCSR = Lens.lens (cSR :: IssueCertificate -> Lude.Base64) (\s a -> s {cSR = a} :: IssueCertificate)
-{-# DEPRECATED icCSR "Use generic-lens or generic-optics with 'cSR' instead." #-}
+-- /Note:/ Consider using 'csr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icCsr :: Lens.Lens' IssueCertificate Core.Base64
+icCsr = Lens.field @"csr"
+{-# DEPRECATED icCsr "Use generic-lens or generic-optics with 'csr' instead." #-}
+
+-- | The name of the algorithm that will be used to sign the certificate to be issued.
+--
+-- This parameter should not be confused with the @SigningAlgorithm@ parameter used to sign a CSR.
+--
+-- /Note:/ Consider using 'signingAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icSigningAlgorithm :: Lens.Lens' IssueCertificate Types.SigningAlgorithm
+icSigningAlgorithm = Lens.field @"signingAlgorithm"
+{-# DEPRECATED icSigningAlgorithm "Use generic-lens or generic-optics with 'signingAlgorithm' instead." #-}
 
 -- | Information describing the validity period of the certificate.
 --
@@ -255,9 +188,16 @@ icCSR = Lens.lens (cSR :: IssueCertificate -> Lude.Base64) (\s a -> s {cSR = a} 
 -- The validity period configured on a certificate must not exceed the limit set by its parents in the CA hierarchy.
 --
 -- /Note:/ Consider using 'validity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icValidity :: Lens.Lens' IssueCertificate Validity
-icValidity = Lens.lens (validity :: IssueCertificate -> Validity) (\s a -> s {validity = a} :: IssueCertificate)
+icValidity :: Lens.Lens' IssueCertificate Types.Validity
+icValidity = Lens.field @"validity"
 {-# DEPRECATED icValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
+
+-- | Custom string that can be used to distinguish between calls to the __IssueCertificate__ action. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM Private CA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icIdempotencyToken :: Lens.Lens' IssueCertificate (Core.Maybe Types.IdempotencyToken)
+icIdempotencyToken = Lens.field @"idempotencyToken"
+{-# DEPRECATED icIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the @EndEntityCertificate/V1@ template. For CA certificates, you should choose the shortest path length that meets your needs. The path length is indicated by the PathLen/N/ portion of the ARN, where /N/ is the <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth> .
 --
@@ -311,102 +251,81 @@ icValidity = Lens.lens (validity :: IssueCertificate -> Validity) (\s a -> s {va
 --
 -- For more information, see <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Using Templates> .
 --
--- /Note:/ Consider using 'templateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icTemplateARN :: Lens.Lens' IssueCertificate (Lude.Maybe Lude.Text)
-icTemplateARN = Lens.lens (templateARN :: IssueCertificate -> Lude.Maybe Lude.Text) (\s a -> s {templateARN = a} :: IssueCertificate)
-{-# DEPRECATED icTemplateARN "Use generic-lens or generic-optics with 'templateARN' instead." #-}
+-- /Note:/ Consider using 'templateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icTemplateArn :: Lens.Lens' IssueCertificate (Core.Maybe Types.Arn)
+icTemplateArn = Lens.field @"templateArn"
+{-# DEPRECATED icTemplateArn "Use generic-lens or generic-optics with 'templateArn' instead." #-}
 
--- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
---
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icCertificateAuthorityARN :: Lens.Lens' IssueCertificate Lude.Text
-icCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: IssueCertificate -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: IssueCertificate)
-{-# DEPRECATED icCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+instance Core.FromJSON IssueCertificate where
+  toJSON IssueCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateAuthorityArn" Core..= certificateAuthorityArn),
+            Core.Just ("Csr" Core..= csr),
+            Core.Just ("SigningAlgorithm" Core..= signingAlgorithm),
+            Core.Just ("Validity" Core..= validity),
+            ("IdempotencyToken" Core..=) Core.<$> idempotencyToken,
+            ("TemplateArn" Core..=) Core.<$> templateArn
+          ]
+      )
 
-instance Lude.AWSRequest IssueCertificate where
+instance Core.AWSRequest IssueCertificate where
   type Rs IssueCertificate = IssueCertificateResponse
-  request = Req.postJSON certificateManagerPCAService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ACMPrivateCA.IssueCertificate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           IssueCertificateResponse'
-            Lude.<$> (x Lude..?> "CertificateArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CertificateArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders IssueCertificate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.IssueCertificate" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON IssueCertificate where
-  toJSON IssueCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SigningAlgorithm" Lude..= signingAlgorithm),
-            ("IdempotencyToken" Lude..=) Lude.<$> idempotencyToken,
-            Lude.Just ("Csr" Lude..= cSR),
-            Lude.Just ("Validity" Lude..= validity),
-            ("TemplateArn" Lude..=) Lude.<$> templateARN,
-            Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
-          ]
-      )
-
-instance Lude.ToPath IssueCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery IssueCertificate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkIssueCertificateResponse' smart constructor.
 data IssueCertificateResponse = IssueCertificateResponse'
   { -- | The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form:
     --
     -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ /certificate//286535153982981100925020015808220737245/ @
-    certificateARN :: Lude.Maybe Lude.Text,
+    certificateArn :: Core.Maybe Types.Arn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IssueCertificateResponse' with the minimum fields required to make a request.
---
--- * 'certificateARN' - The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ /certificate//286535153982981100925020015808220737245/ @
--- * 'responseStatus' - The response status code.
+-- | Creates a 'IssueCertificateResponse' value with any optional fields omitted.
 mkIssueCertificateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   IssueCertificateResponse
-mkIssueCertificateResponse pResponseStatus_ =
+mkIssueCertificateResponse responseStatus =
   IssueCertificateResponse'
-    { certificateARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { certificateArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ /certificate//286535153982981100925020015808220737245/ @
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icrsCertificateARN :: Lens.Lens' IssueCertificateResponse (Lude.Maybe Lude.Text)
-icrsCertificateARN = Lens.lens (certificateARN :: IssueCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: IssueCertificateResponse)
-{-# DEPRECATED icrsCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icrrsCertificateArn :: Lens.Lens' IssueCertificateResponse (Core.Maybe Types.Arn)
+icrrsCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED icrrsCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icrsResponseStatus :: Lens.Lens' IssueCertificateResponse Lude.Int
-icrsResponseStatus = Lens.lens (responseStatus :: IssueCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: IssueCertificateResponse)
-{-# DEPRECATED icrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+icrrsResponseStatus :: Lens.Lens' IssueCertificateResponse Core.Int
+icrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED icrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

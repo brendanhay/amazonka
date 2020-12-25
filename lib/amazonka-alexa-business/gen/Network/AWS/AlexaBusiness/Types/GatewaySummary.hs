@@ -17,97 +17,94 @@ module Network.AWS.AlexaBusiness.Types.GatewaySummary
     mkGatewaySummary,
 
     -- * Lenses
-    gsARN,
-    gsName,
-    gsGatewayGroupARN,
-    gsSoftwareVersion,
+    gsArn,
     gsDescription,
+    gsGatewayGroupArn,
+    gsName,
+    gsSoftwareVersion,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
+import qualified Network.AWS.AlexaBusiness.Types.Description as Types
+import qualified Network.AWS.AlexaBusiness.Types.GatewayGroupArn as Types
+import qualified Network.AWS.AlexaBusiness.Types.Name as Types
+import qualified Network.AWS.AlexaBusiness.Types.SoftwareVersion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The summary of a gateway.
 --
 -- /See:/ 'mkGatewaySummary' smart constructor.
 data GatewaySummary = GatewaySummary'
   { -- | The ARN of the gateway.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the gateway.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ARN of the gateway group that the gateway is associated to.
-    gatewayGroupARN :: Lude.Maybe Lude.Text,
-    -- | The software version of the gateway. The gateway automatically updates its software version during normal operation.
-    softwareVersion :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The description of the gateway.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The ARN of the gateway group that the gateway is associated to.
+    gatewayGroupArn :: Core.Maybe Types.GatewayGroupArn,
+    -- | The name of the gateway.
+    name :: Core.Maybe Types.Name,
+    -- | The software version of the gateway. The gateway automatically updates its software version during normal operation.
+    softwareVersion :: Core.Maybe Types.SoftwareVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GatewaySummary' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the gateway.
--- * 'name' - The name of the gateway.
--- * 'gatewayGroupARN' - The ARN of the gateway group that the gateway is associated to.
--- * 'softwareVersion' - The software version of the gateway. The gateway automatically updates its software version during normal operation.
--- * 'description' - The description of the gateway.
+-- | Creates a 'GatewaySummary' value with any optional fields omitted.
 mkGatewaySummary ::
   GatewaySummary
 mkGatewaySummary =
   GatewaySummary'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      gatewayGroupARN = Lude.Nothing,
-      softwareVersion = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      description = Core.Nothing,
+      gatewayGroupArn = Core.Nothing,
+      name = Core.Nothing,
+      softwareVersion = Core.Nothing
     }
 
 -- | The ARN of the gateway.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsARN :: Lens.Lens' GatewaySummary (Lude.Maybe Lude.Text)
-gsARN = Lens.lens (arn :: GatewaySummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GatewaySummary)
-{-# DEPRECATED gsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the gateway.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsName :: Lens.Lens' GatewaySummary (Lude.Maybe Lude.Text)
-gsName = Lens.lens (name :: GatewaySummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GatewaySummary)
-{-# DEPRECATED gsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ARN of the gateway group that the gateway is associated to.
---
--- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsGatewayGroupARN :: Lens.Lens' GatewaySummary (Lude.Maybe Lude.Text)
-gsGatewayGroupARN = Lens.lens (gatewayGroupARN :: GatewaySummary -> Lude.Maybe Lude.Text) (\s a -> s {gatewayGroupARN = a} :: GatewaySummary)
-{-# DEPRECATED gsGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
-
--- | The software version of the gateway. The gateway automatically updates its software version during normal operation.
---
--- /Note:/ Consider using 'softwareVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsSoftwareVersion :: Lens.Lens' GatewaySummary (Lude.Maybe Lude.Text)
-gsSoftwareVersion = Lens.lens (softwareVersion :: GatewaySummary -> Lude.Maybe Lude.Text) (\s a -> s {softwareVersion = a} :: GatewaySummary)
-{-# DEPRECATED gsSoftwareVersion "Use generic-lens or generic-optics with 'softwareVersion' instead." #-}
+gsArn :: Lens.Lens' GatewaySummary (Core.Maybe Types.Arn)
+gsArn = Lens.field @"arn"
+{-# DEPRECATED gsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The description of the gateway.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsDescription :: Lens.Lens' GatewaySummary (Lude.Maybe Lude.Text)
-gsDescription = Lens.lens (description :: GatewaySummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GatewaySummary)
+gsDescription :: Lens.Lens' GatewaySummary (Core.Maybe Types.Description)
+gsDescription = Lens.field @"description"
 {-# DEPRECATED gsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON GatewaySummary where
+-- | The ARN of the gateway group that the gateway is associated to.
+--
+-- /Note:/ Consider using 'gatewayGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsGatewayGroupArn :: Lens.Lens' GatewaySummary (Core.Maybe Types.GatewayGroupArn)
+gsGatewayGroupArn = Lens.field @"gatewayGroupArn"
+{-# DEPRECATED gsGatewayGroupArn "Use generic-lens or generic-optics with 'gatewayGroupArn' instead." #-}
+
+-- | The name of the gateway.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsName :: Lens.Lens' GatewaySummary (Core.Maybe Types.Name)
+gsName = Lens.field @"name"
+{-# DEPRECATED gsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The software version of the gateway. The gateway automatically updates its software version during normal operation.
+--
+-- /Note:/ Consider using 'softwareVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsSoftwareVersion :: Lens.Lens' GatewaySummary (Core.Maybe Types.SoftwareVersion)
+gsSoftwareVersion = Lens.field @"softwareVersion"
+{-# DEPRECATED gsSoftwareVersion "Use generic-lens or generic-optics with 'softwareVersion' instead." #-}
+
+instance Core.FromJSON GatewaySummary where
   parseJSON =
-    Lude.withObject
-      "GatewaySummary"
-      ( \x ->
-          GatewaySummary'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "GatewayGroupArn")
-            Lude.<*> (x Lude..:? "SoftwareVersion")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "GatewaySummary" Core.$
+      \x ->
+        GatewaySummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "GatewayGroupArn")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "SoftwareVersion")

@@ -27,116 +27,109 @@ module Network.AWS.IoT.SetDefaultAuthorizer
     mkSetDefaultAuthorizerResponse,
 
     -- ** Response lenses
-    sdarsAuthorizerName,
-    sdarsAuthorizerARN,
-    sdarsResponseStatus,
+    sdarrsAuthorizerArn,
+    sdarrsAuthorizerName,
+    sdarrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetDefaultAuthorizer' smart constructor.
 newtype SetDefaultAuthorizer = SetDefaultAuthorizer'
   { -- | The authorizer name.
-    authorizerName :: Lude.Text
+    authorizerName :: Types.AuthorizerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetDefaultAuthorizer' with the minimum fields required to make a request.
---
--- * 'authorizerName' - The authorizer name.
+-- | Creates a 'SetDefaultAuthorizer' value with any optional fields omitted.
 mkSetDefaultAuthorizer ::
   -- | 'authorizerName'
-  Lude.Text ->
+  Types.AuthorizerName ->
   SetDefaultAuthorizer
-mkSetDefaultAuthorizer pAuthorizerName_ =
-  SetDefaultAuthorizer' {authorizerName = pAuthorizerName_}
+mkSetDefaultAuthorizer authorizerName =
+  SetDefaultAuthorizer' {authorizerName}
 
 -- | The authorizer name.
 --
 -- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdaAuthorizerName :: Lens.Lens' SetDefaultAuthorizer Lude.Text
-sdaAuthorizerName = Lens.lens (authorizerName :: SetDefaultAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: SetDefaultAuthorizer)
+sdaAuthorizerName :: Lens.Lens' SetDefaultAuthorizer Types.AuthorizerName
+sdaAuthorizerName = Lens.field @"authorizerName"
 {-# DEPRECATED sdaAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
-instance Lude.AWSRequest SetDefaultAuthorizer where
+instance Core.FromJSON SetDefaultAuthorizer where
+  toJSON SetDefaultAuthorizer {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("authorizerName" Core..= authorizerName)]
+      )
+
+instance Core.AWSRequest SetDefaultAuthorizer where
   type Rs SetDefaultAuthorizer = SetDefaultAuthorizerResponse
-  request = Req.postJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/default-authorizer",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SetDefaultAuthorizerResponse'
-            Lude.<$> (x Lude..?> "authorizerName")
-            Lude.<*> (x Lude..?> "authorizerArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "authorizerArn")
+            Core.<*> (x Core..:? "authorizerName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetDefaultAuthorizer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON SetDefaultAuthorizer where
-  toJSON SetDefaultAuthorizer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("authorizerName" Lude..= authorizerName)]
-      )
-
-instance Lude.ToPath SetDefaultAuthorizer where
-  toPath = Lude.const "/default-authorizer"
-
-instance Lude.ToQuery SetDefaultAuthorizer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSetDefaultAuthorizerResponse' smart constructor.
 data SetDefaultAuthorizerResponse = SetDefaultAuthorizerResponse'
-  { -- | The authorizer name.
-    authorizerName :: Lude.Maybe Lude.Text,
-    -- | The authorizer ARN.
-    authorizerARN :: Lude.Maybe Lude.Text,
+  { -- | The authorizer ARN.
+    authorizerArn :: Core.Maybe Types.AuthorizerArn,
+    -- | The authorizer name.
+    authorizerName :: Core.Maybe Types.AuthorizerName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetDefaultAuthorizerResponse' with the minimum fields required to make a request.
---
--- * 'authorizerName' - The authorizer name.
--- * 'authorizerARN' - The authorizer ARN.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetDefaultAuthorizerResponse' value with any optional fields omitted.
 mkSetDefaultAuthorizerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetDefaultAuthorizerResponse
-mkSetDefaultAuthorizerResponse pResponseStatus_ =
+mkSetDefaultAuthorizerResponse responseStatus =
   SetDefaultAuthorizerResponse'
-    { authorizerName = Lude.Nothing,
-      authorizerARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { authorizerArn = Core.Nothing,
+      authorizerName = Core.Nothing,
+      responseStatus
     }
+
+-- | The authorizer ARN.
+--
+-- /Note:/ Consider using 'authorizerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdarrsAuthorizerArn :: Lens.Lens' SetDefaultAuthorizerResponse (Core.Maybe Types.AuthorizerArn)
+sdarrsAuthorizerArn = Lens.field @"authorizerArn"
+{-# DEPRECATED sdarrsAuthorizerArn "Use generic-lens or generic-optics with 'authorizerArn' instead." #-}
 
 -- | The authorizer name.
 --
 -- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdarsAuthorizerName :: Lens.Lens' SetDefaultAuthorizerResponse (Lude.Maybe Lude.Text)
-sdarsAuthorizerName = Lens.lens (authorizerName :: SetDefaultAuthorizerResponse -> Lude.Maybe Lude.Text) (\s a -> s {authorizerName = a} :: SetDefaultAuthorizerResponse)
-{-# DEPRECATED sdarsAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
-
--- | The authorizer ARN.
---
--- /Note:/ Consider using 'authorizerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdarsAuthorizerARN :: Lens.Lens' SetDefaultAuthorizerResponse (Lude.Maybe Lude.Text)
-sdarsAuthorizerARN = Lens.lens (authorizerARN :: SetDefaultAuthorizerResponse -> Lude.Maybe Lude.Text) (\s a -> s {authorizerARN = a} :: SetDefaultAuthorizerResponse)
-{-# DEPRECATED sdarsAuthorizerARN "Use generic-lens or generic-optics with 'authorizerARN' instead." #-}
+sdarrsAuthorizerName :: Lens.Lens' SetDefaultAuthorizerResponse (Core.Maybe Types.AuthorizerName)
+sdarrsAuthorizerName = Lens.field @"authorizerName"
+{-# DEPRECATED sdarrsAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdarsResponseStatus :: Lens.Lens' SetDefaultAuthorizerResponse Lude.Int
-sdarsResponseStatus = Lens.lens (responseStatus :: SetDefaultAuthorizerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetDefaultAuthorizerResponse)
-{-# DEPRECATED sdarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdarrsResponseStatus :: Lens.Lens' SetDefaultAuthorizerResponse Core.Int
+sdarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sdarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

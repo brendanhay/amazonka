@@ -18,111 +18,103 @@ module Network.AWS.WorkSpaces.Types.WorkspaceProperties
 
     -- * Lenses
     wpComputeTypeName,
-    wpRunningMode,
     wpRootVolumeSizeGib,
+    wpRunningMode,
     wpRunningModeAutoStopTimeoutInMinutes,
     wpUserVolumeSizeGib,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkSpaces.Types.Compute
-import Network.AWS.WorkSpaces.Types.RunningMode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.Compute as Types
+import qualified Network.AWS.WorkSpaces.Types.RunningMode as Types
 
 -- | Describes a WorkSpace.
 --
 -- /See:/ 'mkWorkspaceProperties' smart constructor.
 data WorkspaceProperties = WorkspaceProperties'
   { -- | The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
-    computeTypeName :: Lude.Maybe Compute,
-    -- | The running mode. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode> .
-    runningMode :: Lude.Maybe RunningMode,
+    computeTypeName :: Core.Maybe Types.Compute,
     -- | The size of the root volume. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
-    rootVolumeSizeGib :: Lude.Maybe Lude.Int,
+    rootVolumeSizeGib :: Core.Maybe Core.Int,
+    -- | The running mode. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode> .
+    runningMode :: Core.Maybe Types.RunningMode,
     -- | The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-    runningModeAutoStopTimeoutInMinutes :: Lude.Maybe Lude.Int,
+    runningModeAutoStopTimeoutInMinutes :: Core.Maybe Core.Int,
     -- | The size of the user storage. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
-    userVolumeSizeGib :: Lude.Maybe Lude.Int
+    userVolumeSizeGib :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkspaceProperties' with the minimum fields required to make a request.
---
--- * 'computeTypeName' - The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
--- * 'runningMode' - The running mode. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode> .
--- * 'rootVolumeSizeGib' - The size of the root volume. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
--- * 'runningModeAutoStopTimeoutInMinutes' - The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
--- * 'userVolumeSizeGib' - The size of the user storage. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
+-- | Creates a 'WorkspaceProperties' value with any optional fields omitted.
 mkWorkspaceProperties ::
   WorkspaceProperties
 mkWorkspaceProperties =
   WorkspaceProperties'
-    { computeTypeName = Lude.Nothing,
-      runningMode = Lude.Nothing,
-      rootVolumeSizeGib = Lude.Nothing,
-      runningModeAutoStopTimeoutInMinutes = Lude.Nothing,
-      userVolumeSizeGib = Lude.Nothing
+    { computeTypeName = Core.Nothing,
+      rootVolumeSizeGib = Core.Nothing,
+      runningMode = Core.Nothing,
+      runningModeAutoStopTimeoutInMinutes = Core.Nothing,
+      userVolumeSizeGib = Core.Nothing
     }
 
 -- | The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
 --
 -- /Note:/ Consider using 'computeTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wpComputeTypeName :: Lens.Lens' WorkspaceProperties (Lude.Maybe Compute)
-wpComputeTypeName = Lens.lens (computeTypeName :: WorkspaceProperties -> Lude.Maybe Compute) (\s a -> s {computeTypeName = a} :: WorkspaceProperties)
+wpComputeTypeName :: Lens.Lens' WorkspaceProperties (Core.Maybe Types.Compute)
+wpComputeTypeName = Lens.field @"computeTypeName"
 {-# DEPRECATED wpComputeTypeName "Use generic-lens or generic-optics with 'computeTypeName' instead." #-}
-
--- | The running mode. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode> .
---
--- /Note:/ Consider using 'runningMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wpRunningMode :: Lens.Lens' WorkspaceProperties (Lude.Maybe RunningMode)
-wpRunningMode = Lens.lens (runningMode :: WorkspaceProperties -> Lude.Maybe RunningMode) (\s a -> s {runningMode = a} :: WorkspaceProperties)
-{-# DEPRECATED wpRunningMode "Use generic-lens or generic-optics with 'runningMode' instead." #-}
 
 -- | The size of the root volume. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
 --
 -- /Note:/ Consider using 'rootVolumeSizeGib' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wpRootVolumeSizeGib :: Lens.Lens' WorkspaceProperties (Lude.Maybe Lude.Int)
-wpRootVolumeSizeGib = Lens.lens (rootVolumeSizeGib :: WorkspaceProperties -> Lude.Maybe Lude.Int) (\s a -> s {rootVolumeSizeGib = a} :: WorkspaceProperties)
+wpRootVolumeSizeGib :: Lens.Lens' WorkspaceProperties (Core.Maybe Core.Int)
+wpRootVolumeSizeGib = Lens.field @"rootVolumeSizeGib"
 {-# DEPRECATED wpRootVolumeSizeGib "Use generic-lens or generic-optics with 'rootVolumeSizeGib' instead." #-}
+
+-- | The running mode. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode> .
+--
+-- /Note:/ Consider using 'runningMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wpRunningMode :: Lens.Lens' WorkspaceProperties (Core.Maybe Types.RunningMode)
+wpRunningMode = Lens.field @"runningMode"
+{-# DEPRECATED wpRunningMode "Use generic-lens or generic-optics with 'runningMode' instead." #-}
 
 -- | The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
 --
 -- /Note:/ Consider using 'runningModeAutoStopTimeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wpRunningModeAutoStopTimeoutInMinutes :: Lens.Lens' WorkspaceProperties (Lude.Maybe Lude.Int)
-wpRunningModeAutoStopTimeoutInMinutes = Lens.lens (runningModeAutoStopTimeoutInMinutes :: WorkspaceProperties -> Lude.Maybe Lude.Int) (\s a -> s {runningModeAutoStopTimeoutInMinutes = a} :: WorkspaceProperties)
+wpRunningModeAutoStopTimeoutInMinutes :: Lens.Lens' WorkspaceProperties (Core.Maybe Core.Int)
+wpRunningModeAutoStopTimeoutInMinutes = Lens.field @"runningModeAutoStopTimeoutInMinutes"
 {-# DEPRECATED wpRunningModeAutoStopTimeoutInMinutes "Use generic-lens or generic-optics with 'runningModeAutoStopTimeoutInMinutes' instead." #-}
 
 -- | The size of the user storage. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
 --
 -- /Note:/ Consider using 'userVolumeSizeGib' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wpUserVolumeSizeGib :: Lens.Lens' WorkspaceProperties (Lude.Maybe Lude.Int)
-wpUserVolumeSizeGib = Lens.lens (userVolumeSizeGib :: WorkspaceProperties -> Lude.Maybe Lude.Int) (\s a -> s {userVolumeSizeGib = a} :: WorkspaceProperties)
+wpUserVolumeSizeGib :: Lens.Lens' WorkspaceProperties (Core.Maybe Core.Int)
+wpUserVolumeSizeGib = Lens.field @"userVolumeSizeGib"
 {-# DEPRECATED wpUserVolumeSizeGib "Use generic-lens or generic-optics with 'userVolumeSizeGib' instead." #-}
 
-instance Lude.FromJSON WorkspaceProperties where
-  parseJSON =
-    Lude.withObject
-      "WorkspaceProperties"
-      ( \x ->
-          WorkspaceProperties'
-            Lude.<$> (x Lude..:? "ComputeTypeName")
-            Lude.<*> (x Lude..:? "RunningMode")
-            Lude.<*> (x Lude..:? "RootVolumeSizeGib")
-            Lude.<*> (x Lude..:? "RunningModeAutoStopTimeoutInMinutes")
-            Lude.<*> (x Lude..:? "UserVolumeSizeGib")
-      )
-
-instance Lude.ToJSON WorkspaceProperties where
-  toJSON WorkspaceProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ComputeTypeName" Lude..=) Lude.<$> computeTypeName,
-            ("RunningMode" Lude..=) Lude.<$> runningMode,
-            ("RootVolumeSizeGib" Lude..=) Lude.<$> rootVolumeSizeGib,
-            ("RunningModeAutoStopTimeoutInMinutes" Lude..=)
-              Lude.<$> runningModeAutoStopTimeoutInMinutes,
-            ("UserVolumeSizeGib" Lude..=) Lude.<$> userVolumeSizeGib
+instance Core.FromJSON WorkspaceProperties where
+  toJSON WorkspaceProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ComputeTypeName" Core..=) Core.<$> computeTypeName,
+            ("RootVolumeSizeGib" Core..=) Core.<$> rootVolumeSizeGib,
+            ("RunningMode" Core..=) Core.<$> runningMode,
+            ("RunningModeAutoStopTimeoutInMinutes" Core..=)
+              Core.<$> runningModeAutoStopTimeoutInMinutes,
+            ("UserVolumeSizeGib" Core..=) Core.<$> userVolumeSizeGib
           ]
       )
+
+instance Core.FromJSON WorkspaceProperties where
+  parseJSON =
+    Core.withObject "WorkspaceProperties" Core.$
+      \x ->
+        WorkspaceProperties'
+          Core.<$> (x Core..:? "ComputeTypeName")
+          Core.<*> (x Core..:? "RootVolumeSizeGib")
+          Core.<*> (x Core..:? "RunningMode")
+          Core.<*> (x Core..:? "RunningModeAutoStopTimeoutInMinutes")
+          Core.<*> (x Core..:? "UserVolumeSizeGib")

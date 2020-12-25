@@ -13,226 +13,231 @@
 module Network.AWS.SageMaker.Types.ProcessingInstanceType
   ( ProcessingInstanceType
       ( ProcessingInstanceType',
-        PITMl_T3_Medium,
-        PITMl_T3_Large,
-        PITMl_T3_XLarge,
-        PITMl_T3_2XLarge,
-        PITMl_M4_XLarge,
-        PITMl_M4_2XLarge,
-        PITMl_M4_4XLarge,
-        PITMl_M4_10XLarge,
-        PITMl_M4_16XLarge,
-        PITMl_C4_XLarge,
-        PITMl_C4_2XLarge,
-        PITMl_C4_4XLarge,
-        PITMl_C4_8XLarge,
-        PITMl_P2_XLarge,
-        PITMl_P2_8XLarge,
-        PITMl_P2_16XLarge,
-        PITMl_P3_2XLarge,
-        PITMl_P3_8XLarge,
-        PITMl_P3_16XLarge,
-        PITMl_C5_XLarge,
-        PITMl_C5_2XLarge,
-        PITMl_C5_4XLarge,
-        PITMl_C5_9XLarge,
-        PITMl_C5_18XLarge,
-        PITMl_M5_Large,
-        PITMl_M5_XLarge,
-        PITMl_M5_2XLarge,
-        PITMl_M5_4XLarge,
-        PITMl_M5_12XLarge,
-        PITMl_M5_24XLarge,
-        PITMl_R5_Large,
-        PITMl_R5_XLarge,
-        PITMl_R5_2XLarge,
-        PITMl_R5_4XLarge,
-        PITMl_R5_8XLarge,
-        PITMl_R5_12XLarge,
-        PITMl_R5_16XLarge,
-        PITMl_R5_24XLarge
+        ProcessingInstanceTypeMl_T3_Medium,
+        ProcessingInstanceTypeMl_T3_Large,
+        ProcessingInstanceTypeMl_T3_Xlarge,
+        ProcessingInstanceTypeMl_T3_2xlarge,
+        ProcessingInstanceTypeMl_M4_Xlarge,
+        ProcessingInstanceTypeMl_M4_2xlarge,
+        ProcessingInstanceTypeMl_M4_4xlarge,
+        ProcessingInstanceTypeMl_M4_10xlarge,
+        ProcessingInstanceTypeMl_M4_16xlarge,
+        ProcessingInstanceTypeMl_C4_Xlarge,
+        ProcessingInstanceTypeMl_C4_2xlarge,
+        ProcessingInstanceTypeMl_C4_4xlarge,
+        ProcessingInstanceTypeMl_C4_8xlarge,
+        ProcessingInstanceTypeMl_P2_Xlarge,
+        ProcessingInstanceTypeMl_P2_8xlarge,
+        ProcessingInstanceTypeMl_P2_16xlarge,
+        ProcessingInstanceTypeMl_P3_2xlarge,
+        ProcessingInstanceTypeMl_P3_8xlarge,
+        ProcessingInstanceTypeMl_P3_16xlarge,
+        ProcessingInstanceTypeMl_C5_Xlarge,
+        ProcessingInstanceTypeMl_C5_2xlarge,
+        ProcessingInstanceTypeMl_C5_4xlarge,
+        ProcessingInstanceTypeMl_C5_9xlarge,
+        ProcessingInstanceTypeMl_C5_18xlarge,
+        ProcessingInstanceTypeMl_M5_Large,
+        ProcessingInstanceTypeMl_M5_Xlarge,
+        ProcessingInstanceTypeMl_M5_2xlarge,
+        ProcessingInstanceTypeMl_M5_4xlarge,
+        ProcessingInstanceTypeMl_M5_12xlarge,
+        ProcessingInstanceTypeMl_M5_24xlarge,
+        ProcessingInstanceTypeMl_R5_Large,
+        ProcessingInstanceTypeMl_R5_Xlarge,
+        ProcessingInstanceTypeMl_R5_2xlarge,
+        ProcessingInstanceTypeMl_R5_4xlarge,
+        ProcessingInstanceTypeMl_R5_8xlarge,
+        ProcessingInstanceTypeMl_R5_12xlarge,
+        ProcessingInstanceTypeMl_R5_16xlarge,
+        ProcessingInstanceTypeMl_R5_24xlarge,
+        fromProcessingInstanceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProcessingInstanceType = ProcessingInstanceType' Lude.Text
+newtype ProcessingInstanceType = ProcessingInstanceType'
+  { fromProcessingInstanceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PITMl_T3_Medium :: ProcessingInstanceType
-pattern PITMl_T3_Medium = ProcessingInstanceType' "ml.t3.medium"
+pattern ProcessingInstanceTypeMl_T3_Medium :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_T3_Medium = ProcessingInstanceType' "ml.t3.medium"
 
-pattern PITMl_T3_Large :: ProcessingInstanceType
-pattern PITMl_T3_Large = ProcessingInstanceType' "ml.t3.large"
+pattern ProcessingInstanceTypeMl_T3_Large :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_T3_Large = ProcessingInstanceType' "ml.t3.large"
 
-pattern PITMl_T3_XLarge :: ProcessingInstanceType
-pattern PITMl_T3_XLarge = ProcessingInstanceType' "ml.t3.xlarge"
+pattern ProcessingInstanceTypeMl_T3_Xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_T3_Xlarge = ProcessingInstanceType' "ml.t3.xlarge"
 
-pattern PITMl_T3_2XLarge :: ProcessingInstanceType
-pattern PITMl_T3_2XLarge = ProcessingInstanceType' "ml.t3.2xlarge"
+pattern ProcessingInstanceTypeMl_T3_2xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_T3_2xlarge = ProcessingInstanceType' "ml.t3.2xlarge"
 
-pattern PITMl_M4_XLarge :: ProcessingInstanceType
-pattern PITMl_M4_XLarge = ProcessingInstanceType' "ml.m4.xlarge"
+pattern ProcessingInstanceTypeMl_M4_Xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M4_Xlarge = ProcessingInstanceType' "ml.m4.xlarge"
 
-pattern PITMl_M4_2XLarge :: ProcessingInstanceType
-pattern PITMl_M4_2XLarge = ProcessingInstanceType' "ml.m4.2xlarge"
+pattern ProcessingInstanceTypeMl_M4_2xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M4_2xlarge = ProcessingInstanceType' "ml.m4.2xlarge"
 
-pattern PITMl_M4_4XLarge :: ProcessingInstanceType
-pattern PITMl_M4_4XLarge = ProcessingInstanceType' "ml.m4.4xlarge"
+pattern ProcessingInstanceTypeMl_M4_4xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M4_4xlarge = ProcessingInstanceType' "ml.m4.4xlarge"
 
-pattern PITMl_M4_10XLarge :: ProcessingInstanceType
-pattern PITMl_M4_10XLarge = ProcessingInstanceType' "ml.m4.10xlarge"
+pattern ProcessingInstanceTypeMl_M4_10xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M4_10xlarge = ProcessingInstanceType' "ml.m4.10xlarge"
 
-pattern PITMl_M4_16XLarge :: ProcessingInstanceType
-pattern PITMl_M4_16XLarge = ProcessingInstanceType' "ml.m4.16xlarge"
+pattern ProcessingInstanceTypeMl_M4_16xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M4_16xlarge = ProcessingInstanceType' "ml.m4.16xlarge"
 
-pattern PITMl_C4_XLarge :: ProcessingInstanceType
-pattern PITMl_C4_XLarge = ProcessingInstanceType' "ml.c4.xlarge"
+pattern ProcessingInstanceTypeMl_C4_Xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C4_Xlarge = ProcessingInstanceType' "ml.c4.xlarge"
 
-pattern PITMl_C4_2XLarge :: ProcessingInstanceType
-pattern PITMl_C4_2XLarge = ProcessingInstanceType' "ml.c4.2xlarge"
+pattern ProcessingInstanceTypeMl_C4_2xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C4_2xlarge = ProcessingInstanceType' "ml.c4.2xlarge"
 
-pattern PITMl_C4_4XLarge :: ProcessingInstanceType
-pattern PITMl_C4_4XLarge = ProcessingInstanceType' "ml.c4.4xlarge"
+pattern ProcessingInstanceTypeMl_C4_4xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C4_4xlarge = ProcessingInstanceType' "ml.c4.4xlarge"
 
-pattern PITMl_C4_8XLarge :: ProcessingInstanceType
-pattern PITMl_C4_8XLarge = ProcessingInstanceType' "ml.c4.8xlarge"
+pattern ProcessingInstanceTypeMl_C4_8xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C4_8xlarge = ProcessingInstanceType' "ml.c4.8xlarge"
 
-pattern PITMl_P2_XLarge :: ProcessingInstanceType
-pattern PITMl_P2_XLarge = ProcessingInstanceType' "ml.p2.xlarge"
+pattern ProcessingInstanceTypeMl_P2_Xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_P2_Xlarge = ProcessingInstanceType' "ml.p2.xlarge"
 
-pattern PITMl_P2_8XLarge :: ProcessingInstanceType
-pattern PITMl_P2_8XLarge = ProcessingInstanceType' "ml.p2.8xlarge"
+pattern ProcessingInstanceTypeMl_P2_8xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_P2_8xlarge = ProcessingInstanceType' "ml.p2.8xlarge"
 
-pattern PITMl_P2_16XLarge :: ProcessingInstanceType
-pattern PITMl_P2_16XLarge = ProcessingInstanceType' "ml.p2.16xlarge"
+pattern ProcessingInstanceTypeMl_P2_16xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_P2_16xlarge = ProcessingInstanceType' "ml.p2.16xlarge"
 
-pattern PITMl_P3_2XLarge :: ProcessingInstanceType
-pattern PITMl_P3_2XLarge = ProcessingInstanceType' "ml.p3.2xlarge"
+pattern ProcessingInstanceTypeMl_P3_2xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_P3_2xlarge = ProcessingInstanceType' "ml.p3.2xlarge"
 
-pattern PITMl_P3_8XLarge :: ProcessingInstanceType
-pattern PITMl_P3_8XLarge = ProcessingInstanceType' "ml.p3.8xlarge"
+pattern ProcessingInstanceTypeMl_P3_8xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_P3_8xlarge = ProcessingInstanceType' "ml.p3.8xlarge"
 
-pattern PITMl_P3_16XLarge :: ProcessingInstanceType
-pattern PITMl_P3_16XLarge = ProcessingInstanceType' "ml.p3.16xlarge"
+pattern ProcessingInstanceTypeMl_P3_16xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_P3_16xlarge = ProcessingInstanceType' "ml.p3.16xlarge"
 
-pattern PITMl_C5_XLarge :: ProcessingInstanceType
-pattern PITMl_C5_XLarge = ProcessingInstanceType' "ml.c5.xlarge"
+pattern ProcessingInstanceTypeMl_C5_Xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C5_Xlarge = ProcessingInstanceType' "ml.c5.xlarge"
 
-pattern PITMl_C5_2XLarge :: ProcessingInstanceType
-pattern PITMl_C5_2XLarge = ProcessingInstanceType' "ml.c5.2xlarge"
+pattern ProcessingInstanceTypeMl_C5_2xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C5_2xlarge = ProcessingInstanceType' "ml.c5.2xlarge"
 
-pattern PITMl_C5_4XLarge :: ProcessingInstanceType
-pattern PITMl_C5_4XLarge = ProcessingInstanceType' "ml.c5.4xlarge"
+pattern ProcessingInstanceTypeMl_C5_4xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C5_4xlarge = ProcessingInstanceType' "ml.c5.4xlarge"
 
-pattern PITMl_C5_9XLarge :: ProcessingInstanceType
-pattern PITMl_C5_9XLarge = ProcessingInstanceType' "ml.c5.9xlarge"
+pattern ProcessingInstanceTypeMl_C5_9xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C5_9xlarge = ProcessingInstanceType' "ml.c5.9xlarge"
 
-pattern PITMl_C5_18XLarge :: ProcessingInstanceType
-pattern PITMl_C5_18XLarge = ProcessingInstanceType' "ml.c5.18xlarge"
+pattern ProcessingInstanceTypeMl_C5_18xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_C5_18xlarge = ProcessingInstanceType' "ml.c5.18xlarge"
 
-pattern PITMl_M5_Large :: ProcessingInstanceType
-pattern PITMl_M5_Large = ProcessingInstanceType' "ml.m5.large"
+pattern ProcessingInstanceTypeMl_M5_Large :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M5_Large = ProcessingInstanceType' "ml.m5.large"
 
-pattern PITMl_M5_XLarge :: ProcessingInstanceType
-pattern PITMl_M5_XLarge = ProcessingInstanceType' "ml.m5.xlarge"
+pattern ProcessingInstanceTypeMl_M5_Xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M5_Xlarge = ProcessingInstanceType' "ml.m5.xlarge"
 
-pattern PITMl_M5_2XLarge :: ProcessingInstanceType
-pattern PITMl_M5_2XLarge = ProcessingInstanceType' "ml.m5.2xlarge"
+pattern ProcessingInstanceTypeMl_M5_2xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M5_2xlarge = ProcessingInstanceType' "ml.m5.2xlarge"
 
-pattern PITMl_M5_4XLarge :: ProcessingInstanceType
-pattern PITMl_M5_4XLarge = ProcessingInstanceType' "ml.m5.4xlarge"
+pattern ProcessingInstanceTypeMl_M5_4xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M5_4xlarge = ProcessingInstanceType' "ml.m5.4xlarge"
 
-pattern PITMl_M5_12XLarge :: ProcessingInstanceType
-pattern PITMl_M5_12XLarge = ProcessingInstanceType' "ml.m5.12xlarge"
+pattern ProcessingInstanceTypeMl_M5_12xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M5_12xlarge = ProcessingInstanceType' "ml.m5.12xlarge"
 
-pattern PITMl_M5_24XLarge :: ProcessingInstanceType
-pattern PITMl_M5_24XLarge = ProcessingInstanceType' "ml.m5.24xlarge"
+pattern ProcessingInstanceTypeMl_M5_24xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_M5_24xlarge = ProcessingInstanceType' "ml.m5.24xlarge"
 
-pattern PITMl_R5_Large :: ProcessingInstanceType
-pattern PITMl_R5_Large = ProcessingInstanceType' "ml.r5.large"
+pattern ProcessingInstanceTypeMl_R5_Large :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_R5_Large = ProcessingInstanceType' "ml.r5.large"
 
-pattern PITMl_R5_XLarge :: ProcessingInstanceType
-pattern PITMl_R5_XLarge = ProcessingInstanceType' "ml.r5.xlarge"
+pattern ProcessingInstanceTypeMl_R5_Xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_R5_Xlarge = ProcessingInstanceType' "ml.r5.xlarge"
 
-pattern PITMl_R5_2XLarge :: ProcessingInstanceType
-pattern PITMl_R5_2XLarge = ProcessingInstanceType' "ml.r5.2xlarge"
+pattern ProcessingInstanceTypeMl_R5_2xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_R5_2xlarge = ProcessingInstanceType' "ml.r5.2xlarge"
 
-pattern PITMl_R5_4XLarge :: ProcessingInstanceType
-pattern PITMl_R5_4XLarge = ProcessingInstanceType' "ml.r5.4xlarge"
+pattern ProcessingInstanceTypeMl_R5_4xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_R5_4xlarge = ProcessingInstanceType' "ml.r5.4xlarge"
 
-pattern PITMl_R5_8XLarge :: ProcessingInstanceType
-pattern PITMl_R5_8XLarge = ProcessingInstanceType' "ml.r5.8xlarge"
+pattern ProcessingInstanceTypeMl_R5_8xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_R5_8xlarge = ProcessingInstanceType' "ml.r5.8xlarge"
 
-pattern PITMl_R5_12XLarge :: ProcessingInstanceType
-pattern PITMl_R5_12XLarge = ProcessingInstanceType' "ml.r5.12xlarge"
+pattern ProcessingInstanceTypeMl_R5_12xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_R5_12xlarge = ProcessingInstanceType' "ml.r5.12xlarge"
 
-pattern PITMl_R5_16XLarge :: ProcessingInstanceType
-pattern PITMl_R5_16XLarge = ProcessingInstanceType' "ml.r5.16xlarge"
+pattern ProcessingInstanceTypeMl_R5_16xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_R5_16xlarge = ProcessingInstanceType' "ml.r5.16xlarge"
 
-pattern PITMl_R5_24XLarge :: ProcessingInstanceType
-pattern PITMl_R5_24XLarge = ProcessingInstanceType' "ml.r5.24xlarge"
+pattern ProcessingInstanceTypeMl_R5_24xlarge :: ProcessingInstanceType
+pattern ProcessingInstanceTypeMl_R5_24xlarge = ProcessingInstanceType' "ml.r5.24xlarge"
 
 {-# COMPLETE
-  PITMl_T3_Medium,
-  PITMl_T3_Large,
-  PITMl_T3_XLarge,
-  PITMl_T3_2XLarge,
-  PITMl_M4_XLarge,
-  PITMl_M4_2XLarge,
-  PITMl_M4_4XLarge,
-  PITMl_M4_10XLarge,
-  PITMl_M4_16XLarge,
-  PITMl_C4_XLarge,
-  PITMl_C4_2XLarge,
-  PITMl_C4_4XLarge,
-  PITMl_C4_8XLarge,
-  PITMl_P2_XLarge,
-  PITMl_P2_8XLarge,
-  PITMl_P2_16XLarge,
-  PITMl_P3_2XLarge,
-  PITMl_P3_8XLarge,
-  PITMl_P3_16XLarge,
-  PITMl_C5_XLarge,
-  PITMl_C5_2XLarge,
-  PITMl_C5_4XLarge,
-  PITMl_C5_9XLarge,
-  PITMl_C5_18XLarge,
-  PITMl_M5_Large,
-  PITMl_M5_XLarge,
-  PITMl_M5_2XLarge,
-  PITMl_M5_4XLarge,
-  PITMl_M5_12XLarge,
-  PITMl_M5_24XLarge,
-  PITMl_R5_Large,
-  PITMl_R5_XLarge,
-  PITMl_R5_2XLarge,
-  PITMl_R5_4XLarge,
-  PITMl_R5_8XLarge,
-  PITMl_R5_12XLarge,
-  PITMl_R5_16XLarge,
-  PITMl_R5_24XLarge,
+  ProcessingInstanceTypeMl_T3_Medium,
+  ProcessingInstanceTypeMl_T3_Large,
+  ProcessingInstanceTypeMl_T3_Xlarge,
+  ProcessingInstanceTypeMl_T3_2xlarge,
+  ProcessingInstanceTypeMl_M4_Xlarge,
+  ProcessingInstanceTypeMl_M4_2xlarge,
+  ProcessingInstanceTypeMl_M4_4xlarge,
+  ProcessingInstanceTypeMl_M4_10xlarge,
+  ProcessingInstanceTypeMl_M4_16xlarge,
+  ProcessingInstanceTypeMl_C4_Xlarge,
+  ProcessingInstanceTypeMl_C4_2xlarge,
+  ProcessingInstanceTypeMl_C4_4xlarge,
+  ProcessingInstanceTypeMl_C4_8xlarge,
+  ProcessingInstanceTypeMl_P2_Xlarge,
+  ProcessingInstanceTypeMl_P2_8xlarge,
+  ProcessingInstanceTypeMl_P2_16xlarge,
+  ProcessingInstanceTypeMl_P3_2xlarge,
+  ProcessingInstanceTypeMl_P3_8xlarge,
+  ProcessingInstanceTypeMl_P3_16xlarge,
+  ProcessingInstanceTypeMl_C5_Xlarge,
+  ProcessingInstanceTypeMl_C5_2xlarge,
+  ProcessingInstanceTypeMl_C5_4xlarge,
+  ProcessingInstanceTypeMl_C5_9xlarge,
+  ProcessingInstanceTypeMl_C5_18xlarge,
+  ProcessingInstanceTypeMl_M5_Large,
+  ProcessingInstanceTypeMl_M5_Xlarge,
+  ProcessingInstanceTypeMl_M5_2xlarge,
+  ProcessingInstanceTypeMl_M5_4xlarge,
+  ProcessingInstanceTypeMl_M5_12xlarge,
+  ProcessingInstanceTypeMl_M5_24xlarge,
+  ProcessingInstanceTypeMl_R5_Large,
+  ProcessingInstanceTypeMl_R5_Xlarge,
+  ProcessingInstanceTypeMl_R5_2xlarge,
+  ProcessingInstanceTypeMl_R5_4xlarge,
+  ProcessingInstanceTypeMl_R5_8xlarge,
+  ProcessingInstanceTypeMl_R5_12xlarge,
+  ProcessingInstanceTypeMl_R5_16xlarge,
+  ProcessingInstanceTypeMl_R5_24xlarge,
   ProcessingInstanceType'
   #-}

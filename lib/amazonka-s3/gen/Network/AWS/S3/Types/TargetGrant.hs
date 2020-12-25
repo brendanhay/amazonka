@@ -17,58 +17,55 @@ module Network.AWS.S3.Types.TargetGrant
     mkTargetGrant,
 
     -- * Lenses
-    tgPermission,
     tgGrantee,
+    tgPermission,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.BucketLogsPermission
-import Network.AWS.S3.Types.Grantee
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.BucketLogsPermission as Types
+import qualified Network.AWS.S3.Types.Grantee as Types
 
 -- | Container for granting information.
 --
 -- /See:/ 'mkTargetGrant' smart constructor.
 data TargetGrant = TargetGrant'
-  { -- | Logging permissions assigned to the grantee for the bucket.
-    permission :: Lude.Maybe BucketLogsPermission,
-    -- | Container for the person being granted permissions.
-    grantee :: Lude.Maybe Grantee
+  { -- | Container for the person being granted permissions.
+    grantee :: Core.Maybe Types.Grantee,
+    -- | Logging permissions assigned to the grantee for the bucket.
+    permission :: Core.Maybe Types.BucketLogsPermission
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetGrant' with the minimum fields required to make a request.
---
--- * 'permission' - Logging permissions assigned to the grantee for the bucket.
--- * 'grantee' - Container for the person being granted permissions.
+-- | Creates a 'TargetGrant' value with any optional fields omitted.
 mkTargetGrant ::
   TargetGrant
 mkTargetGrant =
-  TargetGrant' {permission = Lude.Nothing, grantee = Lude.Nothing}
-
--- | Logging permissions assigned to the grantee for the bucket.
---
--- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgPermission :: Lens.Lens' TargetGrant (Lude.Maybe BucketLogsPermission)
-tgPermission = Lens.lens (permission :: TargetGrant -> Lude.Maybe BucketLogsPermission) (\s a -> s {permission = a} :: TargetGrant)
-{-# DEPRECATED tgPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
+  TargetGrant' {grantee = Core.Nothing, permission = Core.Nothing}
 
 -- | Container for the person being granted permissions.
 --
 -- /Note:/ Consider using 'grantee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgGrantee :: Lens.Lens' TargetGrant (Lude.Maybe Grantee)
-tgGrantee = Lens.lens (grantee :: TargetGrant -> Lude.Maybe Grantee) (\s a -> s {grantee = a} :: TargetGrant)
+tgGrantee :: Lens.Lens' TargetGrant (Core.Maybe Types.Grantee)
+tgGrantee = Lens.field @"grantee"
 {-# DEPRECATED tgGrantee "Use generic-lens or generic-optics with 'grantee' instead." #-}
 
-instance Lude.FromXML TargetGrant where
+-- | Logging permissions assigned to the grantee for the bucket.
+--
+-- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgPermission :: Lens.Lens' TargetGrant (Core.Maybe Types.BucketLogsPermission)
+tgPermission = Lens.field @"permission"
+{-# DEPRECATED tgPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
+
+instance Core.ToXML TargetGrant where
+  toXML TargetGrant {..} =
+    Core.toXMLNode "Grantee" Core.<$> grantee
+      Core.<> Core.toXMLNode "Permission" Core.<$> permission
+
+instance Core.FromXML TargetGrant where
   parseXML x =
     TargetGrant'
-      Lude.<$> (x Lude..@? "Permission") Lude.<*> (x Lude..@? "Grantee")
-
-instance Lude.ToXML TargetGrant where
-  toXML TargetGrant' {..} =
-    Lude.mconcat
-      ["Permission" Lude.@= permission, "Grantee" Lude.@= grantee]
+      Core.<$> (x Core..@? "Grantee") Core.<*> (x Core..@? "Permission")

@@ -22,45 +22,42 @@ module Network.AWS.SageMaker.Types.CategoricalParameterRangeSpecification
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ParameterValue as Types
 
 -- | Defines the possible values for a categorical hyperparameter.
 --
 -- /See:/ 'mkCategoricalParameterRangeSpecification' smart constructor.
 newtype CategoricalParameterRangeSpecification = CategoricalParameterRangeSpecification'
   { -- | The allowed categories for the hyperparameter.
-    values :: Lude.NonEmpty Lude.Text
+    values :: Core.NonEmpty Types.ParameterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CategoricalParameterRangeSpecification' with the minimum fields required to make a request.
---
--- * 'values' - The allowed categories for the hyperparameter.
+-- | Creates a 'CategoricalParameterRangeSpecification' value with any optional fields omitted.
 mkCategoricalParameterRangeSpecification ::
   -- | 'values'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.ParameterValue ->
   CategoricalParameterRangeSpecification
-mkCategoricalParameterRangeSpecification pValues_ =
-  CategoricalParameterRangeSpecification' {values = pValues_}
+mkCategoricalParameterRangeSpecification values =
+  CategoricalParameterRangeSpecification' {values}
 
 -- | The allowed categories for the hyperparameter.
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsValues :: Lens.Lens' CategoricalParameterRangeSpecification (Lude.NonEmpty Lude.Text)
-cprsValues = Lens.lens (values :: CategoricalParameterRangeSpecification -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: CategoricalParameterRangeSpecification)
+cprsValues :: Lens.Lens' CategoricalParameterRangeSpecification (Core.NonEmpty Types.ParameterValue)
+cprsValues = Lens.field @"values"
 {-# DEPRECATED cprsValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.FromJSON CategoricalParameterRangeSpecification where
-  parseJSON =
-    Lude.withObject
-      "CategoricalParameterRangeSpecification"
-      ( \x ->
-          CategoricalParameterRangeSpecification'
-            Lude.<$> (x Lude..: "Values")
-      )
+instance Core.FromJSON CategoricalParameterRangeSpecification where
+  toJSON CategoricalParameterRangeSpecification {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Values" Core..= values)])
 
-instance Lude.ToJSON CategoricalParameterRangeSpecification where
-  toJSON CategoricalParameterRangeSpecification' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Values" Lude..= values)])
+instance Core.FromJSON CategoricalParameterRangeSpecification where
+  parseJSON =
+    Core.withObject "CategoricalParameterRangeSpecification" Core.$
+      \x ->
+        CategoricalParameterRangeSpecification'
+          Core.<$> (x Core..: "Values")

@@ -35,208 +35,192 @@ module Network.AWS.SecretsManager.ListSecretVersionIds
 
     -- ** Request lenses
     lsviSecretId,
-    lsviNextToken,
     lsviIncludeDeprecated,
     lsviMaxResults,
+    lsviNextToken,
 
     -- * Destructuring the response
     ListSecretVersionIdsResponse (..),
     mkListSecretVersionIdsResponse,
 
     -- ** Response lenses
-    lsvirsARN,
-    lsvirsVersions,
-    lsvirsNextToken,
-    lsvirsName,
-    lsvirsResponseStatus,
+    lsvirrsARN,
+    lsvirrsName,
+    lsvirrsNextToken,
+    lsvirrsVersions,
+    lsvirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SecretsManager.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SecretsManager.Types as Types
 
 -- | /See:/ 'mkListSecretVersionIds' smart constructor.
 data ListSecretVersionIds = ListSecretVersionIds'
   { -- | The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-    secretId :: Lude.Text,
-    -- | (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
-    nextToken :: Lude.Maybe Lude.Text,
+    secretId :: Types.SecretId,
     -- | (Optional) Specifies that you want the results to include versions that do not have any staging labels attached to them. Such versions are considered deprecated and are subject to deletion by Secrets Manager as needed.
-    includeDeprecated :: Lude.Maybe Lude.Bool,
+    includeDeprecated :: Core.Maybe Core.Bool,
     -- | (Optional) Limits the number of results you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (isn't null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Core.Maybe Types.NextTokenType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSecretVersionIds' with the minimum fields required to make a request.
---
--- * 'secretId' - The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
--- * 'nextToken' - (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
--- * 'includeDeprecated' - (Optional) Specifies that you want the results to include versions that do not have any staging labels attached to them. Such versions are considered deprecated and are subject to deletion by Secrets Manager as needed.
--- * 'maxResults' - (Optional) Limits the number of results you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (isn't null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+-- | Creates a 'ListSecretVersionIds' value with any optional fields omitted.
 mkListSecretVersionIds ::
   -- | 'secretId'
-  Lude.Text ->
+  Types.SecretId ->
   ListSecretVersionIds
-mkListSecretVersionIds pSecretId_ =
+mkListSecretVersionIds secretId =
   ListSecretVersionIds'
-    { secretId = pSecretId_,
-      nextToken = Lude.Nothing,
-      includeDeprecated = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { secretId,
+      includeDeprecated = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
 -- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsviSecretId :: Lens.Lens' ListSecretVersionIds Lude.Text
-lsviSecretId = Lens.lens (secretId :: ListSecretVersionIds -> Lude.Text) (\s a -> s {secretId = a} :: ListSecretVersionIds)
+lsviSecretId :: Lens.Lens' ListSecretVersionIds Types.SecretId
+lsviSecretId = Lens.field @"secretId"
 {-# DEPRECATED lsviSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
-
--- | (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsviNextToken :: Lens.Lens' ListSecretVersionIds (Lude.Maybe Lude.Text)
-lsviNextToken = Lens.lens (nextToken :: ListSecretVersionIds -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSecretVersionIds)
-{-# DEPRECATED lsviNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | (Optional) Specifies that you want the results to include versions that do not have any staging labels attached to them. Such versions are considered deprecated and are subject to deletion by Secrets Manager as needed.
 --
 -- /Note:/ Consider using 'includeDeprecated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsviIncludeDeprecated :: Lens.Lens' ListSecretVersionIds (Lude.Maybe Lude.Bool)
-lsviIncludeDeprecated = Lens.lens (includeDeprecated :: ListSecretVersionIds -> Lude.Maybe Lude.Bool) (\s a -> s {includeDeprecated = a} :: ListSecretVersionIds)
+lsviIncludeDeprecated :: Lens.Lens' ListSecretVersionIds (Core.Maybe Core.Bool)
+lsviIncludeDeprecated = Lens.field @"includeDeprecated"
 {-# DEPRECATED lsviIncludeDeprecated "Use generic-lens or generic-optics with 'includeDeprecated' instead." #-}
 
 -- | (Optional) Limits the number of results you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (isn't null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsviMaxResults :: Lens.Lens' ListSecretVersionIds (Lude.Maybe Lude.Natural)
-lsviMaxResults = Lens.lens (maxResults :: ListSecretVersionIds -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSecretVersionIds)
+lsviMaxResults :: Lens.Lens' ListSecretVersionIds (Core.Maybe Core.Natural)
+lsviMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lsviMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListSecretVersionIds where
-  page rq rs
-    | Page.stop (rs Lens.^. lsvirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsvirsVersions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsviNextToken Lens..~ rs Lens.^. lsvirsNextToken
+-- | (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsviNextToken :: Lens.Lens' ListSecretVersionIds (Core.Maybe Types.NextTokenType)
+lsviNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsviNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListSecretVersionIds where
+instance Core.FromJSON ListSecretVersionIds where
+  toJSON ListSecretVersionIds {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SecretId" Core..= secretId),
+            ("IncludeDeprecated" Core..=) Core.<$> includeDeprecated,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListSecretVersionIds where
   type Rs ListSecretVersionIds = ListSecretVersionIdsResponse
-  request = Req.postJSON secretsManagerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "secretsmanager.ListSecretVersionIds")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListSecretVersionIdsResponse'
-            Lude.<$> (x Lude..?> "ARN")
-            Lude.<*> (x Lude..?> "Versions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ARN")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Versions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSecretVersionIds where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("secretsmanager.ListSecretVersionIds" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSecretVersionIds where
-  toJSON ListSecretVersionIds' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SecretId" Lude..= secretId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("IncludeDeprecated" Lude..=) Lude.<$> includeDeprecated,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListSecretVersionIds where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSecretVersionIds where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListSecretVersionIds where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"versions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListSecretVersionIdsResponse' smart constructor.
 data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
   { -- | The Amazon Resource Name (ARN) for the secret.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The list of the currently available versions of the specified secret.
-    versions :: Lude.Maybe [SecretVersionsListEntry],
-    -- | If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the @NextToken@ response element comes back empty (as @null@ ).
-    nextToken :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.SecretARNType,
     -- | The friendly name of the secret.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
+    -- | If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the @NextToken@ response element comes back empty (as @null@ ).
+    nextToken :: Core.Maybe Types.NextTokenType,
+    -- | The list of the currently available versions of the specified secret.
+    versions :: Core.Maybe [Types.SecretVersionsListEntry],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListSecretVersionIdsResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) for the secret.
--- * 'versions' - The list of the currently available versions of the specified secret.
--- * 'nextToken' - If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the @NextToken@ response element comes back empty (as @null@ ).
--- * 'name' - The friendly name of the secret.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSecretVersionIdsResponse' value with any optional fields omitted.
 mkListSecretVersionIdsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSecretVersionIdsResponse
-mkListSecretVersionIdsResponse pResponseStatus_ =
+mkListSecretVersionIdsResponse responseStatus =
   ListSecretVersionIdsResponse'
-    { arn = Lude.Nothing,
-      versions = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      name = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      nextToken = Core.Nothing,
+      versions = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) for the secret.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvirsARN :: Lens.Lens' ListSecretVersionIdsResponse (Lude.Maybe Lude.Text)
-lsvirsARN = Lens.lens (arn :: ListSecretVersionIdsResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ListSecretVersionIdsResponse)
-{-# DEPRECATED lsvirsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The list of the currently available versions of the specified secret.
---
--- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvirsVersions :: Lens.Lens' ListSecretVersionIdsResponse (Lude.Maybe [SecretVersionsListEntry])
-lsvirsVersions = Lens.lens (versions :: ListSecretVersionIdsResponse -> Lude.Maybe [SecretVersionsListEntry]) (\s a -> s {versions = a} :: ListSecretVersionIdsResponse)
-{-# DEPRECATED lsvirsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
-
--- | If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the @NextToken@ response element comes back empty (as @null@ ).
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvirsNextToken :: Lens.Lens' ListSecretVersionIdsResponse (Lude.Maybe Lude.Text)
-lsvirsNextToken = Lens.lens (nextToken :: ListSecretVersionIdsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSecretVersionIdsResponse)
-{-# DEPRECATED lsvirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsvirrsARN :: Lens.Lens' ListSecretVersionIdsResponse (Core.Maybe Types.SecretARNType)
+lsvirrsARN = Lens.field @"arn"
+{-# DEPRECATED lsvirrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The friendly name of the secret.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvirsName :: Lens.Lens' ListSecretVersionIdsResponse (Lude.Maybe Lude.Text)
-lsvirsName = Lens.lens (name :: ListSecretVersionIdsResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ListSecretVersionIdsResponse)
-{-# DEPRECATED lsvirsName "Use generic-lens or generic-optics with 'name' instead." #-}
+lsvirrsName :: Lens.Lens' ListSecretVersionIdsResponse (Core.Maybe Types.Name)
+lsvirrsName = Lens.field @"name"
+{-# DEPRECATED lsvirrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the @NextToken@ response element comes back empty (as @null@ ).
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsvirrsNextToken :: Lens.Lens' ListSecretVersionIdsResponse (Core.Maybe Types.NextTokenType)
+lsvirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsvirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The list of the currently available versions of the specified secret.
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsvirrsVersions :: Lens.Lens' ListSecretVersionIdsResponse (Core.Maybe [Types.SecretVersionsListEntry])
+lsvirrsVersions = Lens.field @"versions"
+{-# DEPRECATED lsvirrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvirsResponseStatus :: Lens.Lens' ListSecretVersionIdsResponse Lude.Int
-lsvirsResponseStatus = Lens.lens (responseStatus :: ListSecretVersionIdsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSecretVersionIdsResponse)
-{-# DEPRECATED lsvirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsvirrsResponseStatus :: Lens.Lens' ListSecretVersionIdsResponse Core.Int
+lsvirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsvirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

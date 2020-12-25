@@ -27,119 +27,108 @@ module Network.AWS.Config.PutRemediationConfigurations
     mkPutRemediationConfigurationsResponse,
 
     -- ** Response lenses
-    prcrsFailedBatches,
-    prcrsResponseStatus,
+    prcrrsFailedBatches,
+    prcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutRemediationConfigurations' smart constructor.
 newtype PutRemediationConfigurations = PutRemediationConfigurations'
   { -- | A list of remediation configuration objects.
-    remediationConfigurations :: [RemediationConfiguration]
+    remediationConfigurations :: [Types.RemediationConfiguration]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRemediationConfigurations' with the minimum fields required to make a request.
---
--- * 'remediationConfigurations' - A list of remediation configuration objects.
+-- | Creates a 'PutRemediationConfigurations' value with any optional fields omitted.
 mkPutRemediationConfigurations ::
   PutRemediationConfigurations
 mkPutRemediationConfigurations =
   PutRemediationConfigurations'
     { remediationConfigurations =
-        Lude.mempty
+        Core.mempty
     }
 
 -- | A list of remediation configuration objects.
 --
 -- /Note:/ Consider using 'remediationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcRemediationConfigurations :: Lens.Lens' PutRemediationConfigurations [RemediationConfiguration]
-prcRemediationConfigurations = Lens.lens (remediationConfigurations :: PutRemediationConfigurations -> [RemediationConfiguration]) (\s a -> s {remediationConfigurations = a} :: PutRemediationConfigurations)
+prcRemediationConfigurations :: Lens.Lens' PutRemediationConfigurations [Types.RemediationConfiguration]
+prcRemediationConfigurations = Lens.field @"remediationConfigurations"
 {-# DEPRECATED prcRemediationConfigurations "Use generic-lens or generic-optics with 'remediationConfigurations' instead." #-}
 
-instance Lude.AWSRequest PutRemediationConfigurations where
+instance Core.FromJSON PutRemediationConfigurations where
+  toJSON PutRemediationConfigurations {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RemediationConfigurations" Core..= remediationConfigurations)
+          ]
+      )
+
+instance Core.AWSRequest PutRemediationConfigurations where
   type
     Rs PutRemediationConfigurations =
       PutRemediationConfigurationsResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.PutRemediationConfigurations"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutRemediationConfigurationsResponse'
-            Lude.<$> (x Lude..?> "FailedBatches" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedBatches")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRemediationConfigurations where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.PutRemediationConfigurations" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRemediationConfigurations where
-  toJSON PutRemediationConfigurations' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("RemediationConfigurations" Lude..= remediationConfigurations)
-          ]
-      )
-
-instance Lude.ToPath PutRemediationConfigurations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRemediationConfigurations where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutRemediationConfigurationsResponse' smart constructor.
 data PutRemediationConfigurationsResponse = PutRemediationConfigurationsResponse'
   { -- | Returns a list of failed remediation batch objects.
-    failedBatches :: Lude.Maybe [FailedRemediationBatch],
+    failedBatches :: Core.Maybe [Types.FailedRemediationBatch],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRemediationConfigurationsResponse' with the minimum fields required to make a request.
---
--- * 'failedBatches' - Returns a list of failed remediation batch objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRemediationConfigurationsResponse' value with any optional fields omitted.
 mkPutRemediationConfigurationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRemediationConfigurationsResponse
-mkPutRemediationConfigurationsResponse pResponseStatus_ =
+mkPutRemediationConfigurationsResponse responseStatus =
   PutRemediationConfigurationsResponse'
     { failedBatches =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Returns a list of failed remediation batch objects.
 --
 -- /Note:/ Consider using 'failedBatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcrsFailedBatches :: Lens.Lens' PutRemediationConfigurationsResponse (Lude.Maybe [FailedRemediationBatch])
-prcrsFailedBatches = Lens.lens (failedBatches :: PutRemediationConfigurationsResponse -> Lude.Maybe [FailedRemediationBatch]) (\s a -> s {failedBatches = a} :: PutRemediationConfigurationsResponse)
-{-# DEPRECATED prcrsFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
+prcrrsFailedBatches :: Lens.Lens' PutRemediationConfigurationsResponse (Core.Maybe [Types.FailedRemediationBatch])
+prcrrsFailedBatches = Lens.field @"failedBatches"
+{-# DEPRECATED prcrrsFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcrsResponseStatus :: Lens.Lens' PutRemediationConfigurationsResponse Lude.Int
-prcrsResponseStatus = Lens.lens (responseStatus :: PutRemediationConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRemediationConfigurationsResponse)
-{-# DEPRECATED prcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prcrrsResponseStatus :: Lens.Lens' PutRemediationConfigurationsResponse Core.Int
+prcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

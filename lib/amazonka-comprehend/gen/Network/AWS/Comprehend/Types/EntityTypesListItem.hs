@@ -21,8 +21,9 @@ module Network.AWS.Comprehend.Types.EntityTypesListItem
   )
 where
 
+import qualified Network.AWS.Comprehend.Types.EntityTypeName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 --
@@ -31,37 +32,32 @@ newtype EntityTypesListItem = EntityTypesListItem'
   { -- | An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
     --
     -- Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
-    type' :: Lude.Text
+    type' :: Types.EntityTypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EntityTypesListItem' with the minimum fields required to make a request.
---
--- * 'type'' - An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
---
--- Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
+-- | Creates a 'EntityTypesListItem' value with any optional fields omitted.
 mkEntityTypesListItem ::
-  -- | 'type''
-  Lude.Text ->
+  -- | 'type\''
+  Types.EntityTypeName ->
   EntityTypesListItem
-mkEntityTypesListItem pType_ = EntityTypesListItem' {type' = pType_}
+mkEntityTypesListItem type' = EntityTypesListItem' {type'}
 
 -- | An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
 --
 -- Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etliType :: Lens.Lens' EntityTypesListItem Lude.Text
-etliType = Lens.lens (type' :: EntityTypesListItem -> Lude.Text) (\s a -> s {type' = a} :: EntityTypesListItem)
+etliType :: Lens.Lens' EntityTypesListItem Types.EntityTypeName
+etliType = Lens.field @"type'"
 {-# DEPRECATED etliType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON EntityTypesListItem where
-  parseJSON =
-    Lude.withObject
-      "EntityTypesListItem"
-      (\x -> EntityTypesListItem' Lude.<$> (x Lude..: "Type"))
+instance Core.FromJSON EntityTypesListItem where
+  toJSON EntityTypesListItem {..} =
+    Core.object (Core.catMaybes [Core.Just ("Type" Core..= type')])
 
-instance Lude.ToJSON EntityTypesListItem where
-  toJSON EntityTypesListItem' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Type" Lude..= type')])
+instance Core.FromJSON EntityTypesListItem where
+  parseJSON =
+    Core.withObject "EntityTypesListItem" Core.$
+      \x -> EntityTypesListItem' Core.<$> (x Core..: "Type")

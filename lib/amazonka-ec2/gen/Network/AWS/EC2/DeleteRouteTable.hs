@@ -29,76 +29,73 @@ module Network.AWS.EC2.DeleteRouteTable
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRouteTable' smart constructor.
 data DeleteRouteTable = DeleteRouteTable'
   { -- | The ID of the route table.
-    routeTableId :: Lude.Text,
+    routeTableId :: Types.RouteTableId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRouteTable' with the minimum fields required to make a request.
---
--- * 'routeTableId' - The ID of the route table.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteRouteTable' value with any optional fields omitted.
 mkDeleteRouteTable ::
   -- | 'routeTableId'
-  Lude.Text ->
+  Types.RouteTableId ->
   DeleteRouteTable
-mkDeleteRouteTable pRouteTableId_ =
-  DeleteRouteTable'
-    { routeTableId = pRouteTableId_,
-      dryRun = Lude.Nothing
-    }
+mkDeleteRouteTable routeTableId =
+  DeleteRouteTable' {routeTableId, dryRun = Core.Nothing}
 
 -- | The ID of the route table.
 --
 -- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtfRouteTableId :: Lens.Lens' DeleteRouteTable Lude.Text
-drtfRouteTableId = Lens.lens (routeTableId :: DeleteRouteTable -> Lude.Text) (\s a -> s {routeTableId = a} :: DeleteRouteTable)
+drtfRouteTableId :: Lens.Lens' DeleteRouteTable Types.RouteTableId
+drtfRouteTableId = Lens.field @"routeTableId"
 {-# DEPRECATED drtfRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtfDryRun :: Lens.Lens' DeleteRouteTable (Lude.Maybe Lude.Bool)
-drtfDryRun = Lens.lens (dryRun :: DeleteRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteRouteTable)
+drtfDryRun :: Lens.Lens' DeleteRouteTable (Core.Maybe Core.Bool)
+drtfDryRun = Lens.field @"dryRun"
 {-# DEPRECATED drtfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteRouteTable where
+instance Core.AWSRequest DeleteRouteTable where
   type Rs DeleteRouteTable = DeleteRouteTableResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteRouteTableResponse'
-
-instance Lude.ToHeaders DeleteRouteTable where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteRouteTable where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRouteTable where
-  toQuery DeleteRouteTable' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteRouteTable" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "RouteTableId" Lude.=: routeTableId,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteRouteTable")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "RouteTableId" routeTableId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DeleteRouteTableResponse'
 
 -- | /See:/ 'mkDeleteRouteTableResponse' smart constructor.
 data DeleteRouteTableResponse = DeleteRouteTableResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRouteTableResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteRouteTableResponse' value with any optional fields omitted.
 mkDeleteRouteTableResponse ::
   DeleteRouteTableResponse
 mkDeleteRouteTableResponse = DeleteRouteTableResponse'

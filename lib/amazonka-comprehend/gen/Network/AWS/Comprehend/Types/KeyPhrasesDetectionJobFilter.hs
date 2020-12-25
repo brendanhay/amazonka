@@ -17,84 +17,80 @@ module Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter
     mkKeyPhrasesDetectionJobFilter,
 
     -- * Lenses
-    kpdjfSubmitTimeAfter,
-    kpdjfSubmitTimeBefore,
     kpdjfJobName,
     kpdjfJobStatus,
+    kpdjfSubmitTimeAfter,
+    kpdjfSubmitTimeBefore,
   )
 where
 
-import Network.AWS.Comprehend.Types.JobStatus
+import qualified Network.AWS.Comprehend.Types.JobName as Types
+import qualified Network.AWS.Comprehend.Types.JobStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information for filtering a list of dominant language detection jobs. For more information, see the operation.
 --
 -- /See:/ 'mkKeyPhrasesDetectionJobFilter' smart constructor.
 data KeyPhrasesDetectionJobFilter = KeyPhrasesDetectionJobFilter'
-  { -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
-    submitTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | Filters on the name of the job.
-    jobName :: Lude.Maybe Lude.Text,
+  { -- | Filters on the name of the job.
+    jobName :: Core.Maybe Types.JobName,
     -- | Filters the list of jobs based on job status. Returns only jobs with the specified status.
-    jobStatus :: Lude.Maybe JobStatus
+    jobStatus :: Core.Maybe Types.JobStatus,
+    -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
+    submitTimeAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+    submitTimeBefore :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'KeyPhrasesDetectionJobFilter' with the minimum fields required to make a request.
---
--- * 'submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
--- * 'submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
--- * 'jobName' - Filters on the name of the job.
--- * 'jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the specified status.
+-- | Creates a 'KeyPhrasesDetectionJobFilter' value with any optional fields omitted.
 mkKeyPhrasesDetectionJobFilter ::
   KeyPhrasesDetectionJobFilter
 mkKeyPhrasesDetectionJobFilter =
   KeyPhrasesDetectionJobFilter'
-    { submitTimeAfter = Lude.Nothing,
-      submitTimeBefore = Lude.Nothing,
-      jobName = Lude.Nothing,
-      jobStatus = Lude.Nothing
+    { jobName = Core.Nothing,
+      jobStatus = Core.Nothing,
+      submitTimeAfter = Core.Nothing,
+      submitTimeBefore = Core.Nothing
     }
-
--- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
---
--- /Note:/ Consider using 'submitTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpdjfSubmitTimeAfter :: Lens.Lens' KeyPhrasesDetectionJobFilter (Lude.Maybe Lude.Timestamp)
-kpdjfSubmitTimeAfter = Lens.lens (submitTimeAfter :: KeyPhrasesDetectionJobFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTimeAfter = a} :: KeyPhrasesDetectionJobFilter)
-{-# DEPRECATED kpdjfSubmitTimeAfter "Use generic-lens or generic-optics with 'submitTimeAfter' instead." #-}
-
--- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
---
--- /Note:/ Consider using 'submitTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpdjfSubmitTimeBefore :: Lens.Lens' KeyPhrasesDetectionJobFilter (Lude.Maybe Lude.Timestamp)
-kpdjfSubmitTimeBefore = Lens.lens (submitTimeBefore :: KeyPhrasesDetectionJobFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTimeBefore = a} :: KeyPhrasesDetectionJobFilter)
-{-# DEPRECATED kpdjfSubmitTimeBefore "Use generic-lens or generic-optics with 'submitTimeBefore' instead." #-}
 
 -- | Filters on the name of the job.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpdjfJobName :: Lens.Lens' KeyPhrasesDetectionJobFilter (Lude.Maybe Lude.Text)
-kpdjfJobName = Lens.lens (jobName :: KeyPhrasesDetectionJobFilter -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: KeyPhrasesDetectionJobFilter)
+kpdjfJobName :: Lens.Lens' KeyPhrasesDetectionJobFilter (Core.Maybe Types.JobName)
+kpdjfJobName = Lens.field @"jobName"
 {-# DEPRECATED kpdjfJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Filters the list of jobs based on job status. Returns only jobs with the specified status.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpdjfJobStatus :: Lens.Lens' KeyPhrasesDetectionJobFilter (Lude.Maybe JobStatus)
-kpdjfJobStatus = Lens.lens (jobStatus :: KeyPhrasesDetectionJobFilter -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: KeyPhrasesDetectionJobFilter)
+kpdjfJobStatus :: Lens.Lens' KeyPhrasesDetectionJobFilter (Core.Maybe Types.JobStatus)
+kpdjfJobStatus = Lens.field @"jobStatus"
 {-# DEPRECATED kpdjfJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
-instance Lude.ToJSON KeyPhrasesDetectionJobFilter where
-  toJSON KeyPhrasesDetectionJobFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SubmitTimeAfter" Lude..=) Lude.<$> submitTimeAfter,
-            ("SubmitTimeBefore" Lude..=) Lude.<$> submitTimeBefore,
-            ("JobName" Lude..=) Lude.<$> jobName,
-            ("JobStatus" Lude..=) Lude.<$> jobStatus
+-- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
+--
+-- /Note:/ Consider using 'submitTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kpdjfSubmitTimeAfter :: Lens.Lens' KeyPhrasesDetectionJobFilter (Core.Maybe Core.NominalDiffTime)
+kpdjfSubmitTimeAfter = Lens.field @"submitTimeAfter"
+{-# DEPRECATED kpdjfSubmitTimeAfter "Use generic-lens or generic-optics with 'submitTimeAfter' instead." #-}
+
+-- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+--
+-- /Note:/ Consider using 'submitTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kpdjfSubmitTimeBefore :: Lens.Lens' KeyPhrasesDetectionJobFilter (Core.Maybe Core.NominalDiffTime)
+kpdjfSubmitTimeBefore = Lens.field @"submitTimeBefore"
+{-# DEPRECATED kpdjfSubmitTimeBefore "Use generic-lens or generic-optics with 'submitTimeBefore' instead." #-}
+
+instance Core.FromJSON KeyPhrasesDetectionJobFilter where
+  toJSON KeyPhrasesDetectionJobFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("JobName" Core..=) Core.<$> jobName,
+            ("JobStatus" Core..=) Core.<$> jobStatus,
+            ("SubmitTimeAfter" Core..=) Core.<$> submitTimeAfter,
+            ("SubmitTimeBefore" Core..=) Core.<$> submitTimeBefore
           ]
       )

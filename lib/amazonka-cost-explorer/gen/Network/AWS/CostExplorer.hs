@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +21,40 @@
 -- For information about costs associated with the Cost Explorer API, see <http://aws.amazon.com/aws-cost-management/pricing/ AWS Cost Management Pricing> .
 module Network.AWS.CostExplorer
   ( -- * Service configuration
-    costExplorerService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** UnknownSubscriptionException
+    _UnknownSubscriptionException,
+
+    -- ** BillExpirationException
+    _BillExpirationException,
+
+    -- ** RequestChangedException
+    _RequestChangedException,
+
+    -- ** UnresolvableUsageUnitException
+    _UnresolvableUsageUnitException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** DataUnavailableException
+    _DataUnavailableException,
+
+    -- ** UnknownMonitorException
+    _UnknownMonitorException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -122,325 +151,119 @@ module Network.AWS.CostExplorer
 
     -- * Types
 
-    -- ** AccountScope
-    AccountScope (..),
-
-    -- ** AnomalyFeedbackType
-    AnomalyFeedbackType (..),
-
-    -- ** AnomalySubscriptionFrequency
-    AnomalySubscriptionFrequency (..),
-
-    -- ** Context
-    Context (..),
-
-    -- ** CostCategoryRuleVersion
-    CostCategoryRuleVersion (..),
-
-    -- ** CostCategoryStatus
-    CostCategoryStatus (..),
-
-    -- ** CostCategoryStatusComponent
-    CostCategoryStatusComponent (..),
-
-    -- ** Dimension
-    Dimension (..),
-
-    -- ** Granularity
-    Granularity (..),
-
-    -- ** GroupDefinitionType
-    GroupDefinitionType (..),
-
-    -- ** LookbackPeriodInDays
-    LookbackPeriodInDays (..),
-
-    -- ** MatchOption
-    MatchOption (..),
-
-    -- ** Metric
-    Metric (..),
-
-    -- ** MonitorDimension
-    MonitorDimension (..),
-
-    -- ** MonitorType
-    MonitorType (..),
-
-    -- ** NumericOperator
-    NumericOperator (..),
-
-    -- ** OfferingClass
-    OfferingClass (..),
-
-    -- ** PaymentOption
-    PaymentOption (..),
-
-    -- ** RecommendationTarget
-    RecommendationTarget (..),
-
-    -- ** RightsizingType
-    RightsizingType (..),
-
-    -- ** SubscriberStatus
-    SubscriberStatus (..),
-
-    -- ** SubscriberType
-    SubscriberType (..),
-
-    -- ** SupportedSavingsPlansType
-    SupportedSavingsPlansType (..),
-
-    -- ** TermInYears
-    TermInYears (..),
-
-    -- ** Anomaly
-    Anomaly (..),
-    mkAnomaly,
-    aAnomalyStartDate,
-    aDimensionValue,
-    aAnomalyId,
-    aRootCauses,
-    aAnomalyEndDate,
-    aImpact,
-    aAnomalyScore,
-    aFeedback,
-    aMonitorARN,
-
-    -- ** AnomalyDateInterval
-    AnomalyDateInterval (..),
-    mkAnomalyDateInterval,
-    adiEndDate,
-    adiStartDate,
-
-    -- ** AnomalyMonitor
-    AnomalyMonitor (..),
-    mkAnomalyMonitor,
-    amMonitorType,
-    amDimensionalValueCount,
-    amMonitorName,
-    amMonitorSpecification,
-    amMonitorDimension,
-    amCreationDate,
-    amLastUpdatedDate,
-    amLastEvaluatedDate,
-    amMonitorARN,
-
-    -- ** AnomalyScore
-    AnomalyScore (..),
-    mkAnomalyScore,
-    asMaxScore,
-    asCurrentScore,
-
-    -- ** AnomalySubscription
-    AnomalySubscription (..),
-    mkAnomalySubscription,
-    asSubscriptionName,
-    asFrequency,
-    asAccountId,
-    asThreshold,
-    asMonitorARNList,
-    asSubscriptionARN,
-    asSubscribers,
-
-    -- ** CostCategory
-    CostCategory (..),
-    mkCostCategory,
-    ccRuleVersion,
-    ccRules,
-    ccEffectiveStart,
-    ccCostCategoryARN,
-    ccProcessingStatus,
-    ccName,
-    ccEffectiveEnd,
-
-    -- ** CostCategoryProcessingStatus
-    CostCategoryProcessingStatus (..),
-    mkCostCategoryProcessingStatus,
-    ccpsStatus,
-    ccpsComponent,
-
-    -- ** CostCategoryReference
-    CostCategoryReference (..),
-    mkCostCategoryReference,
-    ccrEffectiveStart,
-    ccrValues,
-    ccrCostCategoryARN,
-    ccrProcessingStatus,
-    ccrNumberOfRules,
-    ccrName,
-    ccrEffectiveEnd,
-
-    -- ** CostCategoryRule
-    CostCategoryRule (..),
-    mkCostCategoryRule,
-    ccrValue,
-    ccrRule,
-
-    -- ** CostCategoryValues
-    CostCategoryValues (..),
-    mkCostCategoryValues,
-    ccvValues,
-    ccvKey,
-    ccvMatchOptions,
-
-    -- ** Coverage
-    Coverage (..),
-    mkCoverage,
-    cCoverageNormalizedUnits,
-    cCoverageHours,
-    cCoverageCost,
-
-    -- ** CoverageByTime
-    CoverageByTime (..),
-    mkCoverageByTime,
-    cbtGroups,
-    cbtTimePeriod,
-    cbtTotal,
-
-    -- ** CoverageCost
-    CoverageCost (..),
-    mkCoverageCost,
-    ccOnDemandCost,
-
-    -- ** CoverageHours
-    CoverageHours (..),
-    mkCoverageHours,
-    chCoverageHoursPercentage,
-    chOnDemandHours,
-    chTotalRunningHours,
-    chReservedHours,
-
-    -- ** CoverageNormalizedUnits
-    CoverageNormalizedUnits (..),
-    mkCoverageNormalizedUnits,
-    cnuReservedNormalizedUnits,
-    cnuTotalRunningNormalizedUnits,
-    cnuCoverageNormalizedUnitsPercentage,
-    cnuOnDemandNormalizedUnits,
-
-    -- ** CurrentInstance
-    CurrentInstance (..),
-    mkCurrentInstance,
-    ciResourceId,
-    ciCurrencyCode,
-    ciResourceUtilization,
-    ciResourceDetails,
-    ciTotalRunningHoursInLookbackPeriod,
-    ciReservationCoveredHoursInLookbackPeriod,
-    ciOnDemandHoursInLookbackPeriod,
-    ciMonthlyCost,
-    ciInstanceName,
-    ciSavingsPlansCoveredHoursInLookbackPeriod,
-    ciTags,
-
-    -- ** DateInterval
-    DateInterval (..),
-    mkDateInterval,
-    diStart,
-    diEnd,
-
-    -- ** DimensionValues
-    DimensionValues (..),
-    mkDimensionValues,
-    dvValues,
-    dvKey,
-    dvMatchOptions,
-
-    -- ** DimensionValuesWithAttributes
-    DimensionValuesWithAttributes (..),
-    mkDimensionValuesWithAttributes,
-    dvwaValue,
-    dvwaAttributes,
-
-    -- ** EBSResourceUtilization
-    EBSResourceUtilization (..),
-    mkEBSResourceUtilization,
-    eruEBSWriteBytesPerSecond,
-    eruEBSWriteOpsPerSecond,
-    eruEBSReadOpsPerSecond,
-    eruEBSReadBytesPerSecond,
-
-    -- ** EC2InstanceDetails
-    EC2InstanceDetails (..),
-    mkEC2InstanceDetails,
-    eidCurrentGeneration,
-    eidPlatform,
-    eidFamily,
-    eidInstanceType,
-    eidAvailabilityZone,
-    eidSizeFlexEligible,
-    eidTenancy,
-    eidRegion,
-
-    -- ** EC2ResourceDetails
-    EC2ResourceDetails (..),
-    mkEC2ResourceDetails,
-    erdPlatform,
-    erdVcpu,
-    erdNetworkPerformance,
-    erdMemory,
-    erdInstanceType,
-    erdStorage,
-    erdSku,
-    erdRegion,
-    erdHourlyOnDemandRate,
+    -- ** PurchasedHours
+    PurchasedHours (..),
 
     -- ** EC2ResourceUtilization
     EC2ResourceUtilization (..),
     mkEC2ResourceUtilization,
-    eruMaxCPUUtilizationPercentage,
-    eruEBSResourceUtilization,
-    eruMaxStorageUtilizationPercentage,
-    eruMaxMemoryUtilizationPercentage,
+    ecruEBSResourceUtilization,
+    ecruMaxCpuUtilizationPercentage,
+    ecruMaxMemoryUtilizationPercentage,
+    ecruMaxStorageUtilizationPercentage,
 
-    -- ** EC2Specification
-    EC2Specification (..),
-    mkEC2Specification,
-    esOfferingClass,
+    -- ** EC2ResourceDetails
+    EC2ResourceDetails (..),
+    mkEC2ResourceDetails,
+    ecrdHourlyOnDemandRate,
+    ecrdInstanceType,
+    ecrdMemory,
+    ecrdNetworkPerformance,
+    ecrdPlatform,
+    ecrdRegion,
+    ecrdSku,
+    ecrdStorage,
+    ecrdVcpu,
 
-    -- ** ESInstanceDetails
-    ESInstanceDetails (..),
-    mkESInstanceDetails,
-    esidCurrentGeneration,
-    esidInstanceClass,
-    esidInstanceSize,
-    esidSizeFlexEligible,
-    esidRegion,
+    -- ** MonitorType
+    MonitorType (..),
 
-    -- ** ElastiCacheInstanceDetails
-    ElastiCacheInstanceDetails (..),
-    mkElastiCacheInstanceDetails,
-    ecidCurrentGeneration,
-    ecidProductDescription,
-    ecidFamily,
-    ecidSizeFlexEligible,
-    ecidRegion,
-    ecidNodeType,
+    -- ** RightsizingRecommendationMetadata
+    RightsizingRecommendationMetadata (..),
+    mkRightsizingRecommendationMetadata,
+    rrmGenerationTimestamp,
+    rrmLookbackPeriodInDays,
+    rrmRecommendationId,
 
-    -- ** Expression
-    Expression (..),
-    mkExpression,
-    eNot,
-    eAnd,
-    eOr,
-    eCostCategories,
-    eDimensions,
-    eTags,
+    -- ** NextPageToken
+    NextPageToken (..),
 
-    -- ** ForecastResult
-    ForecastResult (..),
-    mkForecastResult,
-    frTimePeriod,
-    frMeanValue,
-    frPredictionIntervalUpperBound,
-    frPredictionIntervalLowerBound,
+    -- ** TotalActualHours
+    TotalActualHours (..),
+
+    -- ** Context
+    Context (..),
+
+    -- ** CostCategoryStatus
+    CostCategoryStatus (..),
 
     -- ** Group
     Group (..),
     mkGroup,
-    gMetrics,
     gKeys,
+    gMetrics,
+
+    -- ** SavingsPlansUtilizationAggregates
+    SavingsPlansUtilizationAggregates (..),
+    mkSavingsPlansUtilizationAggregates,
+    spuaUtilization,
+    spuaAmortizedCommitment,
+    spuaSavings,
+
+    -- ** ResultByTime
+    ResultByTime (..),
+    mkResultByTime,
+    rbtEstimated,
+    rbtGroups,
+    rbtTimePeriod,
+    rbtTotal,
+
+    -- ** AttributeValue
+    AttributeValue (..),
+
+    -- ** UtilizationPercentage
+    UtilizationPercentage (..),
+
+    -- ** CoverageNormalizedUnits
+    CoverageNormalizedUnits (..),
+    mkCoverageNormalizedUnits,
+    cnuCoverageNormalizedUnitsPercentage,
+    cnuOnDemandNormalizedUnits,
+    cnuReservedNormalizedUnits,
+    cnuTotalRunningNormalizedUnits,
+
+    -- ** ForecastResult
+    ForecastResult (..),
+    mkForecastResult,
+    frMeanValue,
+    frPredictionIntervalLowerBound,
+    frPredictionIntervalUpperBound,
+    frTimePeriod,
+
+    -- ** ReservationAggregates
+    ReservationAggregates (..),
+    mkReservationAggregates,
+    raAmortizedRecurringFee,
+    raAmortizedUpfrontFee,
+    raNetRISavings,
+    raOnDemandCostOfRIHoursUsed,
+    raPurchasedHours,
+    raPurchasedUnits,
+    raTotalActualHours,
+    raTotalActualUnits,
+    raTotalAmortizedFee,
+    raTotalPotentialRISavings,
+    raUnusedHours,
+    raUnusedUnits,
+    raUtilizationPercentage,
+    raUtilizationPercentageInUnits,
+
+    -- ** TagValues
+    TagValues (..),
+    mkTagValues,
+    tvKey,
+    tvMatchOptions,
+    tvValues,
 
     -- ** GroupDefinition
     GroupDefinition (..),
@@ -448,210 +271,72 @@ module Network.AWS.CostExplorer
     gdKey,
     gdType,
 
-    -- ** Impact
-    Impact (..),
-    mkImpact,
-    iTotalImpact,
-    iMaxImpact,
+    -- ** AnomalyDateInterval
+    AnomalyDateInterval (..),
+    mkAnomalyDateInterval,
+    adiStartDate,
+    adiEndDate,
 
-    -- ** InstanceDetails
-    InstanceDetails (..),
-    mkInstanceDetails,
-    idESInstanceDetails,
-    idRDSInstanceDetails,
-    idElastiCacheInstanceDetails,
-    idEC2InstanceDetails,
-    idRedshiftInstanceDetails,
-
-    -- ** MetricValue
-    MetricValue (..),
-    mkMetricValue,
-    mvAmount,
-    mvUnit,
-
-    -- ** ModifyRecommendationDetail
-    ModifyRecommendationDetail (..),
-    mkModifyRecommendationDetail,
-    mrdTargetInstances,
-
-    -- ** RDSInstanceDetails
-    RDSInstanceDetails (..),
-    mkRDSInstanceDetails,
-    ridCurrentGeneration,
-    ridDeploymentOption,
-    ridFamily,
-    ridInstanceType,
-    ridLicenseModel,
-    ridSizeFlexEligible,
-    ridRegion,
-    ridDatabaseEngine,
-    ridDatabaseEdition,
-
-    -- ** RedshiftInstanceDetails
-    RedshiftInstanceDetails (..),
-    mkRedshiftInstanceDetails,
-    rCurrentGeneration,
-    rFamily,
-    rSizeFlexEligible,
-    rRegion,
-    rNodeType,
-
-    -- ** ReservationAggregates
-    ReservationAggregates (..),
-    mkReservationAggregates,
-    raPurchasedHours,
-    raTotalActualHours,
-    raUtilizationPercentage,
-    raTotalAmortizedFee,
-    raUnusedUnits,
-    raUnusedHours,
-    raPurchasedUnits,
-    raAmortizedUpfrontFee,
-    raAmortizedRecurringFee,
-    raUtilizationPercentageInUnits,
-    raNetRISavings,
-    raOnDemandCostOfRIHoursUsed,
-    raTotalPotentialRISavings,
-    raTotalActualUnits,
-
-    -- ** ReservationCoverageGroup
-    ReservationCoverageGroup (..),
-    mkReservationCoverageGroup,
-    rcgCoverage,
-    rcgAttributes,
+    -- ** Subscriber
+    Subscriber (..),
+    mkSubscriber,
+    sAddress,
+    sStatus,
+    sType,
 
     -- ** ReservationPurchaseRecommendation
     ReservationPurchaseRecommendation (..),
     mkReservationPurchaseRecommendation,
-    rprTermInYears,
-    rprRecommendationSummary,
-    rprServiceSpecification,
     rprAccountScope,
-    rprRecommendationDetails,
     rprLookbackPeriodInDays,
     rprPaymentOption,
+    rprRecommendationDetails,
+    rprRecommendationSummary,
+    rprServiceSpecification,
+    rprTermInYears,
 
-    -- ** ReservationPurchaseRecommendationDetail
-    ReservationPurchaseRecommendationDetail (..),
-    mkReservationPurchaseRecommendationDetail,
-    rprdMaximumNormalizedUnitsUsedPerHour,
-    rprdRecurringStandardMonthlyCost,
-    rprdAverageNormalizedUnitsUsedPerHour,
-    rprdCurrencyCode,
-    rprdEstimatedMonthlySavingsPercentage,
-    rprdRecommendedNormalizedUnitsToPurchase,
-    rprdAverageUtilization,
-    rprdAccountId,
-    rprdEstimatedMonthlySavingsAmount,
-    rprdUpfrontCost,
-    rprdMinimumNormalizedUnitsUsedPerHour,
-    rprdEstimatedMonthlyOnDemandCost,
-    rprdRecommendedNumberOfInstancesToPurchase,
-    rprdMaximumNumberOfInstancesUsedPerHour,
-    rprdEstimatedReservationCostForLookbackPeriod,
-    rprdInstanceDetails,
-    rprdAverageNumberOfInstancesUsedPerHour,
-    rprdMinimumNumberOfInstancesUsedPerHour,
-    rprdEstimatedBreakEvenInMonths,
+    -- ** CoverageHoursPercentage
+    CoverageHoursPercentage (..),
 
-    -- ** ReservationPurchaseRecommendationMetadata
-    ReservationPurchaseRecommendationMetadata (..),
-    mkReservationPurchaseRecommendationMetadata,
-    rprmRecommendationId,
-    rprmGenerationTimestamp,
+    -- ** ESInstanceDetails
+    ESInstanceDetails (..),
+    mkESInstanceDetails,
+    esidCurrentGeneration,
+    esidInstanceClass,
+    esidInstanceSize,
+    esidRegion,
+    esidSizeFlexEligible,
 
-    -- ** ReservationPurchaseRecommendationSummary
-    ReservationPurchaseRecommendationSummary (..),
-    mkReservationPurchaseRecommendationSummary,
-    rprsCurrencyCode,
-    rprsTotalEstimatedMonthlySavingsPercentage,
-    rprsTotalEstimatedMonthlySavingsAmount,
+    -- ** OnDemandHours
+    OnDemandHours (..),
 
-    -- ** ReservationUtilizationGroup
-    ReservationUtilizationGroup (..),
-    mkReservationUtilizationGroup,
-    rugValue,
-    rugKey,
-    rugAttributes,
-    rugUtilization,
+    -- ** OnDemandCost
+    OnDemandCost (..),
 
-    -- ** ResourceDetails
-    ResourceDetails (..),
-    mkResourceDetails,
-    rdEC2ResourceDetails,
+    -- ** TermInYears
+    TermInYears (..),
 
-    -- ** ResourceUtilization
-    ResourceUtilization (..),
-    mkResourceUtilization,
-    ruEC2ResourceUtilization,
+    -- ** SavingsPlansPurchaseRecommendation
+    SavingsPlansPurchaseRecommendation (..),
+    mkSavingsPlansPurchaseRecommendation,
+    spprAccountScope,
+    spprLookbackPeriodInDays,
+    spprPaymentOption,
+    spprSavingsPlansPurchaseRecommendationDetails,
+    spprSavingsPlansPurchaseRecommendationSummary,
+    spprSavingsPlansType,
+    spprTermInYears,
 
-    -- ** ResultByTime
-    ResultByTime (..),
-    mkResultByTime,
-    rbtGroups,
-    rbtTimePeriod,
-    rbtTotal,
-    rbtEstimated,
-
-    -- ** RightsizingRecommendation
-    RightsizingRecommendation (..),
-    mkRightsizingRecommendation,
-    rrAccountId,
-    rrModifyRecommendationDetail,
-    rrCurrentInstance,
-    rrRightsizingType,
-    rrTerminateRecommendationDetail,
-
-    -- ** RightsizingRecommendationConfiguration
-    RightsizingRecommendationConfiguration (..),
-    mkRightsizingRecommendationConfiguration,
-    rrcRecommendationTarget,
-    rrcBenefitsConsidered,
-
-    -- ** RightsizingRecommendationMetadata
-    RightsizingRecommendationMetadata (..),
-    mkRightsizingRecommendationMetadata,
-    rrmRecommendationId,
-    rrmGenerationTimestamp,
-    rrmLookbackPeriodInDays,
+    -- ** Arn
+    Arn (..),
 
     -- ** RightsizingRecommendationSummary
     RightsizingRecommendationSummary (..),
     mkRightsizingRecommendationSummary,
-    rrsSavingsPercentage,
-    rrsSavingsCurrencyCode,
-    rrsTotalRecommendationCount,
     rrsEstimatedTotalMonthlySavingsAmount,
-
-    -- ** RootCause
-    RootCause (..),
-    mkRootCause,
-    rcService,
-    rcUsageType,
-    rcLinkedAccount,
-    rcRegion,
-
-    -- ** SavingsPlansAmortizedCommitment
-    SavingsPlansAmortizedCommitment (..),
-    mkSavingsPlansAmortizedCommitment,
-    spacAmortizedUpfrontCommitment,
-    spacTotalAmortizedCommitment,
-    spacAmortizedRecurringCommitment,
-
-    -- ** SavingsPlansCoverage
-    SavingsPlansCoverage (..),
-    mkSavingsPlansCoverage,
-    spcTimePeriod,
-    spcCoverage,
-    spcAttributes,
-
-    -- ** SavingsPlansCoverageData
-    SavingsPlansCoverageData (..),
-    mkSavingsPlansCoverageData,
-    spcdOnDemandCost,
-    spcdSpendCoveredBySavingsPlans,
-    spcdCoveragePercentage,
-    spcdTotalCost,
+    rrsSavingsCurrencyCode,
+    rrsSavingsPercentage,
+    rrsTotalRecommendationCount,
 
     -- ** SavingsPlansDetails
     SavingsPlansDetails (..),
@@ -660,58 +345,64 @@ module Network.AWS.CostExplorer
     spdOfferingId,
     spdRegion,
 
-    -- ** SavingsPlansPurchaseRecommendation
-    SavingsPlansPurchaseRecommendation (..),
-    mkSavingsPlansPurchaseRecommendation,
-    spprSavingsPlansPurchaseRecommendationDetails,
-    spprTermInYears,
-    spprAccountScope,
-    spprSavingsPlansType,
-    spprLookbackPeriodInDays,
-    spprPaymentOption,
-    spprSavingsPlansPurchaseRecommendationSummary,
+    -- ** SavingsPlansUtilization
+    SavingsPlansUtilization (..),
+    mkSavingsPlansUtilization,
+    spuTotalCommitment,
+    spuUnusedCommitment,
+    spuUsedCommitment,
+    spuUtilizationPercentage,
 
-    -- ** SavingsPlansPurchaseRecommendationDetail
-    SavingsPlansPurchaseRecommendationDetail (..),
-    mkSavingsPlansPurchaseRecommendationDetail,
-    spprdCurrencyCode,
-    spprdCurrentAverageHourlyOnDemandSpend,
-    spprdSavingsPlansDetails,
-    spprdCurrentMinimumHourlyOnDemandSpend,
-    spprdEstimatedROI,
-    spprdCurrentMaximumHourlyOnDemandSpend,
-    spprdEstimatedSavingsAmount,
-    spprdAccountId,
-    spprdEstimatedMonthlySavingsAmount,
-    spprdEstimatedOnDemandCost,
-    spprdEstimatedOnDemandCostWithCurrentCommitment,
-    spprdUpfrontCost,
-    spprdEstimatedSPCost,
-    spprdEstimatedSavingsPercentage,
-    spprdEstimatedAverageUtilization,
-    spprdHourlyCommitmentToPurchase,
+    -- ** AnomalyMonitor
+    AnomalyMonitor (..),
+    mkAnomalyMonitor,
+    amMonitorName,
+    amMonitorType,
+    amCreationDate,
+    amDimensionalValueCount,
+    amLastEvaluatedDate,
+    amLastUpdatedDate,
+    amMonitorArn,
+    amMonitorDimension,
+    amMonitorSpecification,
 
-    -- ** SavingsPlansPurchaseRecommendationMetadata
-    SavingsPlansPurchaseRecommendationMetadata (..),
-    mkSavingsPlansPurchaseRecommendationMetadata,
-    spprmRecommendationId,
-    spprmGenerationTimestamp,
-    spprmAdditionalMetadata,
+    -- ** AnomalyFeedbackType
+    AnomalyFeedbackType (..),
 
-    -- ** SavingsPlansPurchaseRecommendationSummary
-    SavingsPlansPurchaseRecommendationSummary (..),
-    mkSavingsPlansPurchaseRecommendationSummary,
-    spprsCurrencyCode,
-    spprsDailyCommitmentToPurchase,
-    spprsEstimatedTotalCost,
-    spprsEstimatedROI,
-    spprsEstimatedSavingsAmount,
-    spprsEstimatedMonthlySavingsAmount,
-    spprsEstimatedOnDemandCostWithCurrentCommitment,
-    spprsEstimatedSavingsPercentage,
-    spprsTotalRecommendationCount,
-    spprsCurrentOnDemandSpend,
-    spprsHourlyCommitmentToPurchase,
+    -- ** ResourceUtilization
+    ResourceUtilization (..),
+    mkResourceUtilization,
+    ruEC2ResourceUtilization,
+
+    -- ** ResourceDetails
+    ResourceDetails (..),
+    mkResourceDetails,
+    rdEC2ResourceDetails,
+
+    -- ** ReservationGroupKey
+    ReservationGroupKey (..),
+
+    -- ** DimensionValues
+    DimensionValues (..),
+    mkDimensionValues,
+    dvKey,
+    dvMatchOptions,
+    dvValues,
+
+    -- ** TargetInstance
+    TargetInstance (..),
+    mkTargetInstance,
+    tiCurrencyCode,
+    tiDefaultTargetInstance,
+    tiEstimatedMonthlyCost,
+    tiEstimatedMonthlySavings,
+    tiExpectedResourceUtilization,
+    tiResourceDetails,
+
+    -- ** ServiceSpecification
+    ServiceSpecification (..),
+    mkServiceSpecification,
+    ssEC2Specification,
 
     -- ** SavingsPlansSavings
     SavingsPlansSavings (..),
@@ -719,79 +410,148 @@ module Network.AWS.CostExplorer
     spsNetSavings,
     spsOnDemandCostEquivalent,
 
-    -- ** SavingsPlansUtilization
-    SavingsPlansUtilization (..),
-    mkSavingsPlansUtilization,
-    spuUnusedCommitment,
-    spuUtilizationPercentage,
-    spuTotalCommitment,
-    spuUsedCommitment,
+    -- ** ReservedNormalizedUnits
+    ReservedNormalizedUnits (..),
 
-    -- ** SavingsPlansUtilizationAggregates
-    SavingsPlansUtilizationAggregates (..),
-    mkSavingsPlansUtilizationAggregates,
-    spuaAmortizedCommitment,
-    spuaSavings,
-    spuaUtilization,
+    -- ** MatchOption
+    MatchOption (..),
+
+    -- ** Dimension
+    Dimension (..),
+
+    -- ** RecommendationTarget
+    RecommendationTarget (..),
 
     -- ** SavingsPlansUtilizationByTime
     SavingsPlansUtilizationByTime (..),
     mkSavingsPlansUtilizationByTime,
-    spubtAmortizedCommitment,
     spubtTimePeriod,
-    spubtSavings,
     spubtUtilization,
+    spubtAmortizedCommitment,
+    spubtSavings,
 
-    -- ** SavingsPlansUtilizationDetail
-    SavingsPlansUtilizationDetail (..),
-    mkSavingsPlansUtilizationDetail,
-    spudAmortizedCommitment,
-    spudSavings,
-    spudAttributes,
-    spudUtilization,
-    spudSavingsPlanARN,
+    -- ** MetricName
+    MetricName (..),
 
-    -- ** ServiceSpecification
-    ServiceSpecification (..),
-    mkServiceSpecification,
-    ssEC2Specification,
+    -- ** CostCategoryValues
+    CostCategoryValues (..),
+    mkCostCategoryValues,
+    ccvKey,
+    ccvMatchOptions,
+    ccvValues,
 
-    -- ** Subscriber
-    Subscriber (..),
-    mkSubscriber,
-    sStatus,
-    sAddress,
-    sType,
+    -- ** SearchString
+    SearchString (..),
 
-    -- ** TagValues
-    TagValues (..),
-    mkTagValues,
-    tvValues,
-    tvKey,
-    tvMatchOptions,
+    -- ** DateInterval
+    DateInterval (..),
+    mkDateInterval,
+    diStart,
+    diEnd,
 
-    -- ** TargetInstance
-    TargetInstance (..),
-    mkTargetInstance,
-    tiCurrencyCode,
-    tiResourceDetails,
-    tiDefaultTargetInstance,
-    tiEstimatedMonthlyCost,
-    tiEstimatedMonthlySavings,
-    tiExpectedResourceUtilization,
+    -- ** AccountScope
+    AccountScope (..),
 
-    -- ** TerminateRecommendationDetail
-    TerminateRecommendationDetail (..),
-    mkTerminateRecommendationDetail,
-    trdCurrencyCode,
-    trdEstimatedMonthlySavings,
+    -- ** CostCategory
+    CostCategory (..),
+    mkCostCategory,
+    ccCostCategoryArn,
+    ccEffectiveStart,
+    ccName,
+    ccRuleVersion,
+    ccRules,
+    ccEffectiveEnd,
+    ccProcessingStatus,
 
-    -- ** TotalImpactFilter
-    TotalImpactFilter (..),
-    mkTotalImpactFilter,
-    tifEndValue,
-    tifStartValue,
-    tifNumericOperator,
+    -- ** Value
+    Value (..),
+
+    -- ** TotalAmortizedFee
+    TotalAmortizedFee (..),
+
+    -- ** AnomalySubscriptionFrequency
+    AnomalySubscriptionFrequency (..),
+
+    -- ** Coverage
+    Coverage (..),
+    mkCoverage,
+    cCoverageCost,
+    cCoverageHours,
+    cCoverageNormalizedUnits,
+
+    -- ** RDSInstanceDetails
+    RDSInstanceDetails (..),
+    mkRDSInstanceDetails,
+    rdsidCurrentGeneration,
+    rdsidDatabaseEdition,
+    rdsidDatabaseEngine,
+    rdsidDeploymentOption,
+    rdsidFamily,
+    rdsidInstanceType,
+    rdsidLicenseModel,
+    rdsidRegion,
+    rdsidSizeFlexEligible,
+
+    -- ** TotalRunningHours
+    TotalRunningHours (..),
+
+    -- ** TotalRunningNormalizedUnits
+    TotalRunningNormalizedUnits (..),
+
+    -- ** UnusedUnits
+    UnusedUnits (..),
+
+    -- ** ElastiCacheInstanceDetails
+    ElastiCacheInstanceDetails (..),
+    mkElastiCacheInstanceDetails,
+    eCurrentGeneration,
+    eFamily,
+    eNodeType,
+    eProductDescription,
+    eRegion,
+    eSizeFlexEligible,
+
+    -- ** SupportedSavingsPlansType
+    SupportedSavingsPlansType (..),
+
+    -- ** Anomaly
+    Anomaly (..),
+    mkAnomaly,
+    aAnomalyId,
+    aAnomalyScore,
+    aImpact,
+    aMonitorArn,
+    aAnomalyEndDate,
+    aAnomalyStartDate,
+    aDimensionValue,
+    aFeedback,
+    aRootCauses,
+
+    -- ** CostCategoryName
+    CostCategoryName (..),
+
+    -- ** SavingsPlansPurchaseRecommendationDetail
+    SavingsPlansPurchaseRecommendationDetail (..),
+    mkSavingsPlansPurchaseRecommendationDetail,
+    spprdAccountId,
+    spprdCurrencyCode,
+    spprdCurrentAverageHourlyOnDemandSpend,
+    spprdCurrentMaximumHourlyOnDemandSpend,
+    spprdCurrentMinimumHourlyOnDemandSpend,
+    spprdEstimatedAverageUtilization,
+    spprdEstimatedMonthlySavingsAmount,
+    spprdEstimatedOnDemandCost,
+    spprdEstimatedOnDemandCostWithCurrentCommitment,
+    spprdEstimatedROI,
+    spprdEstimatedSPCost,
+    spprdEstimatedSavingsAmount,
+    spprdEstimatedSavingsPercentage,
+    spprdHourlyCommitmentToPurchase,
+    spprdSavingsPlansDetails,
+    spprdUpfrontCost,
+
+    -- ** Granularity
+    Granularity (..),
 
     -- ** UtilizationByTime
     UtilizationByTime (..),
@@ -800,15 +560,633 @@ module Network.AWS.CostExplorer
     ubtTimePeriod,
     ubtTotal,
 
+    -- ** ReservationGroupValue
+    ReservationGroupValue (..),
+
+    -- ** GenericString
+    GenericString (..),
+
+    -- ** CostCategoryProcessingStatus
+    CostCategoryProcessingStatus (..),
+    mkCostCategoryProcessingStatus,
+    ccpsComponent,
+    ccpsStatus,
+
+    -- ** MonitorDimension
+    MonitorDimension (..),
+
+    -- ** SavingsPlansUtilizationDetail
+    SavingsPlansUtilizationDetail (..),
+    mkSavingsPlansUtilizationDetail,
+    spudAmortizedCommitment,
+    spudAttributes,
+    spudSavings,
+    spudSavingsPlanArn,
+    spudUtilization,
+
+    -- ** Metric
+    Metric (..),
+
+    -- ** AttributeType
+    AttributeType (..),
+
+    -- ** EBSResourceUtilization
+    EBSResourceUtilization (..),
+    mkEBSResourceUtilization,
+    ebsruEbsReadBytesPerSecond,
+    ebsruEbsReadOpsPerSecond,
+    ebsruEbsWriteBytesPerSecond,
+    ebsruEbsWriteOpsPerSecond,
+
+    -- ** ReservedHours
+    ReservedHours (..),
+
+    -- ** RootCause
+    RootCause (..),
+    mkRootCause,
+    rcLinkedAccount,
+    rcRegion,
+    rcService,
+    rcUsageType,
+
+    -- ** UnusedHours
+    UnusedHours (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** CostCategoryRuleVersion
+    CostCategoryRuleVersion (..),
+
+    -- ** EC2InstanceDetails
+    EC2InstanceDetails (..),
+    mkEC2InstanceDetails,
+    ecidAvailabilityZone,
+    ecidCurrentGeneration,
+    ecidFamily,
+    ecidInstanceType,
+    ecidPlatform,
+    ecidRegion,
+    ecidSizeFlexEligible,
+    ecidTenancy,
+
+    -- ** MetricValue
+    MetricValue (..),
+    mkMetricValue,
+    mvAmount,
+    mvUnit,
+
+    -- ** ReservationPurchaseRecommendationMetadata
+    ReservationPurchaseRecommendationMetadata (..),
+    mkReservationPurchaseRecommendationMetadata,
+    rprmGenerationTimestamp,
+    rprmRecommendationId,
+
+    -- ** SubscriberType
+    SubscriberType (..),
+
+    -- ** AnomalySubscription
+    AnomalySubscription (..),
+    mkAnomalySubscription,
+    asMonitorArnList,
+    asSubscribers,
+    asThreshold,
+    asFrequency,
+    asSubscriptionName,
+    asAccountId,
+    asSubscriptionArn,
+
+    -- ** GroupDefinitionType
+    GroupDefinitionType (..),
+
+    -- ** CoverageNormalizedUnitsPercentage
+    CoverageNormalizedUnitsPercentage (..),
+
+    -- ** Impact
+    Impact (..),
+    mkImpact,
+    iMaxImpact,
+    iTotalImpact,
+
+    -- ** Expression
+    Expression (..),
+    mkExpression,
+    eAnd,
+    eCostCategories,
+    eDimensions,
+    eNot,
+    eOr,
+    eTags,
+
+    -- ** PurchasedUnits
+    PurchasedUnits (..),
+
+    -- ** OnDemandNormalizedUnits
+    OnDemandNormalizedUnits (..),
+
+    -- ** CoverageHours
+    CoverageHours (..),
+    mkCoverageHours,
+    chCoverageHoursPercentage,
+    chOnDemandHours,
+    chReservedHours,
+    chTotalRunningHours,
+
+    -- ** ReservationUtilizationGroup
+    ReservationUtilizationGroup (..),
+    mkReservationUtilizationGroup,
+    rugAttributes,
+    rugKey,
+    rugUtilization,
+    rugValue,
+
+    -- ** AmortizedUpfrontFee
+    AmortizedUpfrontFee (..),
+
+    -- ** CoverageCost
+    CoverageCost (..),
+    mkCoverageCost,
+    ccOnDemandCost,
+
+    -- ** CostCategoryRule
+    CostCategoryRule (..),
+    mkCostCategoryRule,
+    ccrValue,
+    ccrRule,
+
+    -- ** DimensionValuesWithAttributes
+    DimensionValuesWithAttributes (..),
+    mkDimensionValuesWithAttributes,
+    dvwaAttributes,
+    dvwaValue,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** ModifyRecommendationDetail
+    ModifyRecommendationDetail (..),
+    mkModifyRecommendationDetail,
+    mrdTargetInstances,
+
+    -- ** AmortizedRecurringFee
+    AmortizedRecurringFee (..),
+
+    -- ** CostCategoryValue
+    CostCategoryValue (..),
+
+    -- ** CoverageByTime
+    CoverageByTime (..),
+    mkCoverageByTime,
+    cbtGroups,
+    cbtTimePeriod,
+    cbtTotal,
+
+    -- ** TotalImpactFilter
+    TotalImpactFilter (..),
+    mkTotalImpactFilter,
+    tifNumericOperator,
+    tifStartValue,
+    tifEndValue,
+
+    -- ** CurrentInstance
+    CurrentInstance (..),
+    mkCurrentInstance,
+    ciCurrencyCode,
+    ciInstanceName,
+    ciMonthlyCost,
+    ciOnDemandHoursInLookbackPeriod,
+    ciReservationCoveredHoursInLookbackPeriod,
+    ciResourceDetails,
+    ciResourceId,
+    ciResourceUtilization,
+    ciSavingsPlansCoveredHoursInLookbackPeriod,
+    ciTags,
+    ciTotalRunningHoursInLookbackPeriod,
+
+    -- ** CostCategoryStatusComponent
+    CostCategoryStatusComponent (..),
+
+    -- ** RightsizingType
+    RightsizingType (..),
+
+    -- ** UtilizationPercentageInUnits
+    UtilizationPercentageInUnits (..),
+
+    -- ** RedshiftInstanceDetails
+    RedshiftInstanceDetails (..),
+    mkRedshiftInstanceDetails,
+    ridCurrentGeneration,
+    ridFamily,
+    ridNodeType,
+    ridRegion,
+    ridSizeFlexEligible,
+
+    -- ** SavingsPlansPurchaseRecommendationMetadata
+    SavingsPlansPurchaseRecommendationMetadata (..),
+    mkSavingsPlansPurchaseRecommendationMetadata,
+    spprmAdditionalMetadata,
+    spprmGenerationTimestamp,
+    spprmRecommendationId,
+
+    -- ** CostCategoryReference
+    CostCategoryReference (..),
+    mkCostCategoryReference,
+    ccrCostCategoryArn,
+    ccrEffectiveEnd,
+    ccrEffectiveStart,
+    ccrName,
+    ccrNumberOfRules,
+    ccrProcessingStatus,
+    ccrValues,
+
+    -- ** SavingsPlansAmortizedCommitment
+    SavingsPlansAmortizedCommitment (..),
+    mkSavingsPlansAmortizedCommitment,
+    spacAmortizedRecurringCommitment,
+    spacAmortizedUpfrontCommitment,
+    spacTotalAmortizedCommitment,
+
+    -- ** NetRISavings
+    NetRISavings (..),
+
+    -- ** InstanceDetails
+    InstanceDetails (..),
+    mkInstanceDetails,
+    idEC2InstanceDetails,
+    idESInstanceDetails,
+    idElastiCacheInstanceDetails,
+    idRDSInstanceDetails,
+    idRedshiftInstanceDetails,
+
+    -- ** OnDemandCostOfRIHoursUsed
+    OnDemandCostOfRIHoursUsed (..),
+
+    -- ** Entity
+    Entity (..),
+
+    -- ** ReservationPurchaseRecommendationDetail
+    ReservationPurchaseRecommendationDetail (..),
+    mkReservationPurchaseRecommendationDetail,
+    rprdAccountId,
+    rprdAverageNormalizedUnitsUsedPerHour,
+    rprdAverageNumberOfInstancesUsedPerHour,
+    rprdAverageUtilization,
+    rprdCurrencyCode,
+    rprdEstimatedBreakEvenInMonths,
+    rprdEstimatedMonthlyOnDemandCost,
+    rprdEstimatedMonthlySavingsAmount,
+    rprdEstimatedMonthlySavingsPercentage,
+    rprdEstimatedReservationCostForLookbackPeriod,
+    rprdInstanceDetails,
+    rprdMaximumNormalizedUnitsUsedPerHour,
+    rprdMaximumNumberOfInstancesUsedPerHour,
+    rprdMinimumNormalizedUnitsUsedPerHour,
+    rprdMinimumNumberOfInstancesUsedPerHour,
+    rprdRecommendedNormalizedUnitsToPurchase,
+    rprdRecommendedNumberOfInstancesToPurchase,
+    rprdRecurringStandardMonthlyCost,
+    rprdUpfrontCost,
+
+    -- ** NumericOperator
+    NumericOperator (..),
+
+    -- ** ZonedDateTime
+    ZonedDateTime (..),
+
+    -- ** OfferingClass
+    OfferingClass (..),
+
+    -- ** ReservationPurchaseRecommendationSummary
+    ReservationPurchaseRecommendationSummary (..),
+    mkReservationPurchaseRecommendationSummary,
+    rprsCurrencyCode,
+    rprsTotalEstimatedMonthlySavingsAmount,
+    rprsTotalEstimatedMonthlySavingsPercentage,
+
+    -- ** TotalPotentialRISavings
+    TotalPotentialRISavings (..),
+
+    -- ** SubscriberStatus
+    SubscriberStatus (..),
+
+    -- ** AnomalyScore
+    AnomalyScore (..),
+    mkAnomalyScore,
+    asMaxScore,
+    asCurrentScore,
+
+    -- ** RightsizingRecommendationConfiguration
+    RightsizingRecommendationConfiguration (..),
+    mkRightsizingRecommendationConfiguration,
+    rrcRecommendationTarget,
+    rrcBenefitsConsidered,
+
+    -- ** SavingsPlansCoverage
+    SavingsPlansCoverage (..),
+    mkSavingsPlansCoverage,
+    spcAttributes,
+    spcCoverage,
+    spcTimePeriod,
+
+    -- ** SavingsPlanArn
+    SavingsPlanArn (..),
+
+    -- ** LookbackPeriodInDays
+    LookbackPeriodInDays (..),
+
+    -- ** SavingsPlansCoverageData
+    SavingsPlansCoverageData (..),
+    mkSavingsPlansCoverageData,
+    spcdCoveragePercentage,
+    spcdOnDemandCost,
+    spcdSpendCoveredBySavingsPlans,
+    spcdTotalCost,
+
+    -- ** RightsizingRecommendation
+    RightsizingRecommendation (..),
+    mkRightsizingRecommendation,
+    rrAccountId,
+    rrCurrentInstance,
+    rrModifyRecommendationDetail,
+    rrRightsizingType,
+    rrTerminateRecommendationDetail,
+
+    -- ** PaymentOption
+    PaymentOption (..),
+
+    -- ** SavingsPlansPurchaseRecommendationSummary
+    SavingsPlansPurchaseRecommendationSummary (..),
+    mkSavingsPlansPurchaseRecommendationSummary,
+    spprsCurrencyCode,
+    spprsCurrentOnDemandSpend,
+    spprsDailyCommitmentToPurchase,
+    spprsEstimatedMonthlySavingsAmount,
+    spprsEstimatedOnDemandCostWithCurrentCommitment,
+    spprsEstimatedROI,
+    spprsEstimatedSavingsAmount,
+    spprsEstimatedSavingsPercentage,
+    spprsEstimatedTotalCost,
+    spprsHourlyCommitmentToPurchase,
+    spprsTotalRecommendationCount,
+
+    -- ** EC2Specification
+    EC2Specification (..),
+    mkEC2Specification,
+    ecsOfferingClass,
+
+    -- ** ReservationCoverageGroup
+    ReservationCoverageGroup (..),
+    mkReservationCoverageGroup,
+    rcgAttributes,
+    rcgCoverage,
+
+    -- ** TotalActualUnits
+    TotalActualUnits (..),
+
+    -- ** TerminateRecommendationDetail
+    TerminateRecommendationDetail (..),
+    mkTerminateRecommendationDetail,
+    trdCurrencyCode,
+    trdEstimatedMonthlySavings,
+
+    -- ** MaxCpuUtilizationPercentage
+    MaxCpuUtilizationPercentage (..),
+
+    -- ** MaxMemoryUtilizationPercentage
+    MaxMemoryUtilizationPercentage (..),
+
+    -- ** MaxStorageUtilizationPercentage
+    MaxStorageUtilizationPercentage (..),
+
+    -- ** HourlyOnDemandRate
+    HourlyOnDemandRate (..),
+
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** Memory
+    Memory (..),
+
+    -- ** NetworkPerformance
+    NetworkPerformance (..),
+
+    -- ** Platform
+    Platform (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** Sku
+    Sku (..),
+
+    -- ** Storage
+    Storage (..),
+
+    -- ** Vcpu
+    Vcpu (..),
+
+    -- ** GenerationTimestamp
+    GenerationTimestamp (..),
+
+    -- ** RecommendationId
+    RecommendationId (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** MeanValue
+    MeanValue (..),
+
+    -- ** PredictionIntervalLowerBound
+    PredictionIntervalLowerBound (..),
+
+    -- ** PredictionIntervalUpperBound
+    PredictionIntervalUpperBound (..),
+
+    -- ** StartDate
+    StartDate (..),
+
+    -- ** EndDate
+    EndDate (..),
+
+    -- ** Address
+    Address (..),
+
+    -- ** InstanceClass
+    InstanceClass (..),
+
+    -- ** InstanceSize
+    InstanceSize (..),
+
+    -- ** Service
+    Service (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** EstimatedTotalMonthlySavingsAmount
+    EstimatedTotalMonthlySavingsAmount (..),
+
+    -- ** SavingsCurrencyCode
+    SavingsCurrencyCode (..),
+
+    -- ** SavingsPercentage
+    SavingsPercentage (..),
+
+    -- ** TotalRecommendationCount
+    TotalRecommendationCount (..),
+
+    -- ** InstanceFamily
+    InstanceFamily (..),
+
+    -- ** OfferingId
+    OfferingId (..),
+
+    -- ** MonitorArn
+    MonitorArn (..),
+
+    -- ** MonitorName
+    MonitorName (..),
+
+    -- ** SubscriptionArn
+    SubscriptionArn (..),
+
+    -- ** TotalCommitment
+    TotalCommitment (..),
+
+    -- ** UnusedCommitment
+    UnusedCommitment (..),
+
+    -- ** UsedCommitment
+    UsedCommitment (..),
+
+    -- ** CreationDate
+    CreationDate (..),
+
+    -- ** LastEvaluatedDate
+    LastEvaluatedDate (..),
+
+    -- ** LastUpdatedDate
+    LastUpdatedDate (..),
+
+    -- ** CurrencyCode
+    CurrencyCode (..),
+
+    -- ** EstimatedMonthlyCost
+    EstimatedMonthlyCost (..),
+
+    -- ** EstimatedMonthlySavings
+    EstimatedMonthlySavings (..),
+
+    -- ** NetSavings
+    NetSavings (..),
+
+    -- ** OnDemandCostEquivalent
+    OnDemandCostEquivalent (..),
+
+    -- ** Start
+    Start (..),
+
+    -- ** End
+    End (..),
+
+    -- ** EffectiveStart
+    EffectiveStart (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** EffectiveEnd
+    EffectiveEnd (..),
+
+    -- ** EffectiveOn
+    EffectiveOn (..),
+
+    -- ** DatabaseEdition
+    DatabaseEdition (..),
+
+    -- ** DatabaseEngine
+    DatabaseEngine (..),
+
+    -- ** DeploymentOption
+    DeploymentOption (..),
+
+    -- ** Family
+    Family (..),
+
+    -- ** LicenseModel
+    LicenseModel (..),
+
+    -- ** NodeType
+    NodeType (..),
+
+    -- ** ProductDescription
+    ProductDescription (..),
+
+    -- ** AnomalyId
+    AnomalyId (..),
+
+    -- ** AnomalyEndDate
+    AnomalyEndDate (..),
+
+    -- ** AnomalyStartDate
+    AnomalyStartDate (..),
+
+    -- ** DimensionValue
+    DimensionValue (..),
+
+    -- ** CurrentAverageHourlyOnDemandSpend
+    CurrentAverageHourlyOnDemandSpend (..),
+
+    -- ** CurrentMaximumHourlyOnDemandSpend
+    CurrentMaximumHourlyOnDemandSpend (..),
+
+    -- ** CurrentMinimumHourlyOnDemandSpend
+    CurrentMinimumHourlyOnDemandSpend (..),
+
+    -- ** EstimatedAverageUtilization
+    EstimatedAverageUtilization (..),
+
+    -- ** EstimatedMonthlySavingsAmount
+    EstimatedMonthlySavingsAmount (..),
+
+    -- ** EstimatedOnDemandCost
+    EstimatedOnDemandCost (..),
+
+    -- ** EstimatedOnDemandCostWithCurrentCommitment
+    EstimatedOnDemandCostWithCurrentCommitment (..),
+
+    -- ** EstimatedROI
+    EstimatedROI (..),
+
+    -- ** EstimatedSPCost
+    EstimatedSPCost (..),
+
+    -- ** EstimatedSavingsAmount
+    EstimatedSavingsAmount (..),
+
+    -- ** EstimatedSavingsPercentage
+    EstimatedSavingsPercentage (..),
+
+    -- ** HourlyCommitmentToPurchase
+    HourlyCommitmentToPurchase (..),
+
+    -- ** UpfrontCost
+    UpfrontCost (..),
+
+    -- ** Amount
+    Amount (..),
+
+    -- ** Unit
+    Unit (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

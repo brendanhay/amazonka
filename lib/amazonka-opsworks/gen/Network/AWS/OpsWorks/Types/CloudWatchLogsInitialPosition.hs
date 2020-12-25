@@ -13,47 +13,52 @@
 module Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition
   ( CloudWatchLogsInitialPosition
       ( CloudWatchLogsInitialPosition',
-        StartOfFile,
-        EndOfFile
+        CloudWatchLogsInitialPositionStartOfFile,
+        CloudWatchLogsInitialPositionEndOfFile,
+        fromCloudWatchLogsInitialPosition
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file. It's only used if there is no state persisted for that log stream.
-newtype CloudWatchLogsInitialPosition = CloudWatchLogsInitialPosition' Lude.Text
+newtype CloudWatchLogsInitialPosition = CloudWatchLogsInitialPosition'
+  { fromCloudWatchLogsInitialPosition ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern StartOfFile :: CloudWatchLogsInitialPosition
-pattern StartOfFile = CloudWatchLogsInitialPosition' "start_of_file"
+pattern CloudWatchLogsInitialPositionStartOfFile :: CloudWatchLogsInitialPosition
+pattern CloudWatchLogsInitialPositionStartOfFile = CloudWatchLogsInitialPosition' "start_of_file"
 
-pattern EndOfFile :: CloudWatchLogsInitialPosition
-pattern EndOfFile = CloudWatchLogsInitialPosition' "end_of_file"
+pattern CloudWatchLogsInitialPositionEndOfFile :: CloudWatchLogsInitialPosition
+pattern CloudWatchLogsInitialPositionEndOfFile = CloudWatchLogsInitialPosition' "end_of_file"
 
 {-# COMPLETE
-  StartOfFile,
-  EndOfFile,
+  CloudWatchLogsInitialPositionStartOfFile,
+  CloudWatchLogsInitialPositionEndOfFile,
   CloudWatchLogsInitialPosition'
   #-}

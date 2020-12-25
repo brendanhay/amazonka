@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,25 @@
 -- For code samples using the AWS SDK for Java, see <https://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples> in the /Amazon Athena User Guide/ .
 module Network.AWS.Athena
   ( -- * Service configuration
-    athenaService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** MetadataException
+    _MetadataException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -114,123 +128,144 @@ module Network.AWS.Athena
 
     -- * Types
 
-    -- ** ColumnNullable
-    ColumnNullable (..),
+    -- ** WorkGroupConfigurationUpdates
+    WorkGroupConfigurationUpdates (..),
+    mkWorkGroupConfigurationUpdates,
+    wgcuBytesScannedCutoffPerQuery,
+    wgcuEnforceWorkGroupConfiguration,
+    wgcuPublishCloudWatchMetricsEnabled,
+    wgcuRemoveBytesScannedCutoffPerQuery,
+    wgcuRequesterPaysEnabled,
+    wgcuResultConfigurationUpdates,
 
-    -- ** DataCatalogType
-    DataCatalogType (..),
+    -- ** NamedQueryId
+    NamedQueryId (..),
 
     -- ** EncryptionOption
     EncryptionOption (..),
 
+    -- ** IdempotencyToken
+    IdempotencyToken (..),
+
+    -- ** QueryExecutionStatus
+    QueryExecutionStatus (..),
+    mkQueryExecutionStatus,
+    qesCompletionDateTime,
+    qesState,
+    qesStateChangeReason,
+    qesSubmissionDateTime,
+
+    -- ** UnprocessedQueryExecutionId
+    UnprocessedQueryExecutionId (..),
+    mkUnprocessedQueryExecutionId,
+    uqeiErrorCode,
+    uqeiErrorMessage,
+    uqeiQueryExecutionId,
+
     -- ** QueryExecutionState
     QueryExecutionState (..),
 
-    -- ** StatementType
-    StatementType (..),
+    -- ** QueryExecutionContext
+    QueryExecutionContext (..),
+    mkQueryExecutionContext,
+    qecCatalog,
+    qecDatabase,
 
-    -- ** WorkGroupState
-    WorkGroupState (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** Column
-    Column (..),
-    mkColumn,
-    cName,
-    cType,
-    cComment,
-
-    -- ** ColumnInfo
-    ColumnInfo (..),
-    mkColumnInfo,
-    ciScale,
-    ciPrecision,
-    ciSchemaName,
-    ciCatalogName,
-    ciName,
-    ciType,
-    ciCaseSensitive,
-    ciLabel,
-    ciTableName,
-    ciNullable,
-
-    -- ** DataCatalog
-    DataCatalog (..),
-    mkDataCatalog,
-    dcName,
-    dcParameters,
-    dcType,
-    dcDescription,
-
-    -- ** DataCatalogSummary
-    DataCatalogSummary (..),
-    mkDataCatalogSummary,
-    dcsCatalogName,
-    dcsType,
+    -- ** WorkGroupSummary
+    WorkGroupSummary (..),
+    mkWorkGroupSummary,
+    wgsCreationTime,
+    wgsDescription,
+    wgsName,
+    wgsState,
 
     -- ** Database
     Database (..),
     mkDatabase,
     dName,
-    dParameters,
     dDescription,
+    dParameters,
 
-    -- ** Datum
-    Datum (..),
-    mkDatum,
-    dVarCharValue,
+    -- ** String
+    String (..),
 
-    -- ** EncryptionConfiguration
-    EncryptionConfiguration (..),
-    mkEncryptionConfiguration,
-    ecEncryptionOption,
-    ecKMSKey,
+    -- ** WorkGroupDescriptionString
+    WorkGroupDescriptionString (..),
 
-    -- ** NamedQuery
-    NamedQuery (..),
-    mkNamedQuery,
-    nqNamedQueryId,
-    nqDatabase,
-    nqName,
-    nqQueryString,
-    nqDescription,
-    nqWorkGroup,
+    -- ** ParametersMapValue
+    ParametersMapValue (..),
+
+    -- ** DatabaseString
+    DatabaseString (..),
 
     -- ** QueryExecution
     QueryExecution (..),
     mkQueryExecution,
-    qeStatus,
-    qeQueryExecutionContext,
-    qeResultConfiguration,
     qeQuery,
+    qeQueryExecutionContext,
+    qeQueryExecutionId,
+    qeResultConfiguration,
     qeStatementType,
     qeStatistics,
-    qeQueryExecutionId,
+    qeStatus,
     qeWorkGroup,
 
-    -- ** QueryExecutionContext
-    QueryExecutionContext (..),
-    mkQueryExecutionContext,
-    qecDatabase,
-    qecCatalog,
+    -- ** ColumnInfo
+    ColumnInfo (..),
+    mkColumnInfo,
+    ciName,
+    ciType,
+    ciCaseSensitive,
+    ciCatalogName,
+    ciLabel,
+    ciNullable,
+    ciPrecision,
+    ciScale,
+    ciSchemaName,
+    ciTableName,
 
-    -- ** QueryExecutionStatistics
-    QueryExecutionStatistics (..),
-    mkQueryExecutionStatistics,
-    qesTotalExecutionTimeInMillis,
-    qesEngineExecutionTimeInMillis,
-    qesQueryPlanningTimeInMillis,
-    qesDataScannedInBytes,
-    qesQueryQueueTimeInMillis,
-    qesDataManifestLocation,
-    qesServiceProcessingTimeInMillis,
+    -- ** Token
+    Token (..),
 
-    -- ** QueryExecutionStatus
-    QueryExecutionStatus (..),
-    mkQueryExecutionStatus,
-    qesState,
-    qesStateChangeReason,
-    qesSubmissionDateTime,
-    qesCompletionDateTime,
+    -- ** DataCatalog
+    DataCatalog (..),
+    mkDataCatalog,
+    dcName,
+    dcType,
+    dcDescription,
+    dcParameters,
+
+    -- ** ResultConfigurationUpdates
+    ResultConfigurationUpdates (..),
+    mkResultConfigurationUpdates,
+    rcuEncryptionConfiguration,
+    rcuOutputLocation,
+    rcuRemoveEncryptionConfiguration,
+    rcuRemoveOutputLocation,
+
+    -- ** DescriptionString
+    DescriptionString (..),
+
+    -- ** WorkGroupConfiguration
+    WorkGroupConfiguration (..),
+    mkWorkGroupConfiguration,
+    wgcBytesScannedCutoffPerQuery,
+    wgcEnforceWorkGroupConfiguration,
+    wgcPublishCloudWatchMetricsEnabled,
+    wgcRequesterPaysEnabled,
+    wgcResultConfiguration,
+
+    -- ** CommentString
+    CommentString (..),
+
+    -- ** WorkGroupState
+    WorkGroupState (..),
 
     -- ** ResultConfiguration
     ResultConfiguration (..),
@@ -238,106 +273,185 @@ module Network.AWS.Athena
     rcEncryptionConfiguration,
     rcOutputLocation,
 
-    -- ** ResultConfigurationUpdates
-    ResultConfigurationUpdates (..),
-    mkResultConfigurationUpdates,
-    rcuRemoveOutputLocation,
-    rcuRemoveEncryptionConfiguration,
-    rcuEncryptionConfiguration,
-    rcuOutputLocation,
+    -- ** DatumString
+    DatumString (..),
 
-    -- ** ResultSet
-    ResultSet (..),
-    mkResultSet,
-    rsRows,
-    rsResultSetMetadata,
+    -- ** DataCatalogSummary
+    DataCatalogSummary (..),
+    mkDataCatalogSummary,
+    dcsCatalogName,
+    dcsType,
 
-    -- ** ResultSetMetadata
-    ResultSetMetadata (..),
-    mkResultSetMetadata,
-    rsmColumnInfo,
+    -- ** ColumnNullable
+    ColumnNullable (..),
+
+    -- ** QueryString
+    QueryString (..),
+
+    -- ** EncryptionConfiguration
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
+    ecEncryptionOption,
+    ecKmsKey,
+
+    -- ** NameString
+    NameString (..),
+
+    -- ** KeyString
+    KeyString (..),
 
     -- ** Row
     Row (..),
     mkRow,
     rData,
 
-    -- ** TableMetadata
-    TableMetadata (..),
-    mkTableMetadata,
-    tmTableType,
-    tmName,
-    tmParameters,
-    tmColumns,
-    tmLastAccessTime,
-    tmPartitionKeys,
-    tmCreateTime,
+    -- ** ErrorCode
+    ErrorCode (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** StatementType
+    StatementType (..),
+
+    -- ** QueryExecutionStatistics
+    QueryExecutionStatistics (..),
+    mkQueryExecutionStatistics,
+    qesDataManifestLocation,
+    qesDataScannedInBytes,
+    qesEngineExecutionTimeInMillis,
+    qesQueryPlanningTimeInMillis,
+    qesQueryQueueTimeInMillis,
+    qesServiceProcessingTimeInMillis,
+    qesTotalExecutionTimeInMillis,
 
     -- ** UnprocessedNamedQueryId
     UnprocessedNamedQueryId (..),
     mkUnprocessedNamedQueryId,
-    unqiNamedQueryId,
     unqiErrorCode,
     unqiErrorMessage,
+    unqiNamedQueryId,
 
-    -- ** UnprocessedQueryExecutionId
-    UnprocessedQueryExecutionId (..),
-    mkUnprocessedQueryExecutionId,
-    uqeiErrorCode,
-    uqeiQueryExecutionId,
-    uqeiErrorMessage,
+    -- ** TypeString
+    TypeString (..),
+
+    -- ** QueryExecutionId
+    QueryExecutionId (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** TableMetadata
+    TableMetadata (..),
+    mkTableMetadata,
+    tmName,
+    tmColumns,
+    tmCreateTime,
+    tmLastAccessTime,
+    tmParameters,
+    tmPartitionKeys,
+    tmTableType,
+
+    -- ** ResultSet
+    ResultSet (..),
+    mkResultSet,
+    rsResultSetMetadata,
+    rsRows,
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** DataCatalogType
+    DataCatalogType (..),
+
+    -- ** ResultSetMetadata
+    ResultSetMetadata (..),
+    mkResultSetMetadata,
+    rsmColumnInfo,
+
+    -- ** Column
+    Column (..),
+    mkColumn,
+    cName,
+    cComment,
+    cType,
 
     -- ** WorkGroup
     WorkGroup (..),
     mkWorkGroup,
-    wgCreationTime,
-    wgState,
     wgName,
     wgConfiguration,
+    wgCreationTime,
     wgDescription,
+    wgState,
 
-    -- ** WorkGroupConfiguration
-    WorkGroupConfiguration (..),
-    mkWorkGroupConfiguration,
-    wgcRequesterPaysEnabled,
-    wgcResultConfiguration,
-    wgcBytesScannedCutoffPerQuery,
-    wgcEnforceWorkGroupConfiguration,
-    wgcPublishCloudWatchMetricsEnabled,
+    -- ** WorkGroupName
+    WorkGroupName (..),
 
-    -- ** WorkGroupConfigurationUpdates
-    WorkGroupConfigurationUpdates (..),
-    mkWorkGroupConfigurationUpdates,
-    wgcuRequesterPaysEnabled,
-    wgcuResultConfigurationUpdates,
-    wgcuBytesScannedCutoffPerQuery,
-    wgcuRemoveBytesScannedCutoffPerQuery,
-    wgcuEnforceWorkGroupConfiguration,
-    wgcuPublishCloudWatchMetricsEnabled,
+    -- ** NamedQuery
+    NamedQuery (..),
+    mkNamedQuery,
+    nqName,
+    nqDatabase,
+    nqQueryString,
+    nqDescription,
+    nqNamedQueryId,
+    nqWorkGroup,
 
-    -- ** WorkGroupSummary
-    WorkGroupSummary (..),
-    mkWorkGroupSummary,
-    wgsCreationTime,
-    wgsState,
-    wgsName,
-    wgsDescription,
+    -- ** Datum
+    Datum (..),
+    mkDatum,
+    dVarCharValue,
+
+    -- ** StateChangeReason
+    StateChangeReason (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Catalog
+    Catalog (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Query
+    Query (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** CatalogName
+    CatalogName (..),
+
+    -- ** DatabaseName
+    DatabaseName (..),
+
+    -- ** TableName
+    TableName (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** Expression
+    Expression (..),
+
+    -- ** TableType
+    TableType (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

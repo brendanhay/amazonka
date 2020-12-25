@@ -17,25 +17,30 @@ module Network.AWS.IAM.Types.UserDetail
     mkUserDetail,
 
     -- * Lenses
-    udGroupList,
-    udARN,
-    udPath,
-    udCreateDate,
-    udUserName,
-    udUserId,
-    udPermissionsBoundary,
-    udUserPolicyList,
-    udTags,
+    udArn,
     udAttachedManagedPolicies,
+    udCreateDate,
+    udGroupList,
+    udPath,
+    udPermissionsBoundary,
+    udTags,
+    udUserId,
+    udUserName,
+    udUserPolicyList,
   )
 where
 
-import Network.AWS.IAM.Types.AttachedPermissionsBoundary
-import Network.AWS.IAM.Types.AttachedPolicy
-import Network.AWS.IAM.Types.PolicyDetail
-import Network.AWS.IAM.Types.Tag
+import qualified Network.AWS.IAM.Types.ArnType as Types
+import qualified Network.AWS.IAM.Types.AttachedPermissionsBoundary as Types
+import qualified Network.AWS.IAM.Types.AttachedPolicy as Types
+import qualified Network.AWS.IAM.Types.GroupNameType as Types
+import qualified Network.AWS.IAM.Types.IdType as Types
+import qualified Network.AWS.IAM.Types.PathType as Types
+import qualified Network.AWS.IAM.Types.PolicyDetail as Types
+import qualified Network.AWS.IAM.Types.Tag as Types
+import qualified Network.AWS.IAM.Types.UserName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.
 --
@@ -43,151 +48,132 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserDetail' smart constructor.
 data UserDetail = UserDetail'
-  { -- | A list of IAM groups that the user is in.
-    groupList :: Lude.Maybe [Lude.Text],
-    arn :: Lude.Maybe Lude.Text,
-    -- | The path to the user. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    path :: Lude.Maybe Lude.Text,
+  { arn :: Core.Maybe Types.ArnType,
+    -- | A list of the managed policies attached to the user.
+    attachedManagedPolicies :: Core.Maybe [Types.AttachedPolicy],
     -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
-    createDate :: Lude.Maybe Lude.DateTime,
-    -- | The friendly name identifying the user.
-    userName :: Lude.Maybe Lude.Text,
-    -- | The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    userId :: Lude.Maybe Lude.Text,
+    createDate :: Core.Maybe Core.UTCTime,
+    -- | A list of IAM groups that the user is in.
+    groupList :: Core.Maybe [Types.GroupNameType],
+    -- | The path to the user. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    path :: Core.Maybe Types.PathType,
     -- | The ARN of the policy used to set the permissions boundary for the user.
     --
     -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
-    permissionsBoundary :: Lude.Maybe AttachedPermissionsBoundary,
-    -- | A list of the inline policies embedded in the user.
-    userPolicyList :: Lude.Maybe [PolicyDetail],
+    permissionsBoundary :: Core.Maybe Types.AttachedPermissionsBoundary,
     -- | A list of tags that are associated with the specified user. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
-    tags :: Lude.Maybe [Tag],
-    -- | A list of the managed policies attached to the user.
-    attachedManagedPolicies :: Lude.Maybe [AttachedPolicy]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    userId :: Core.Maybe Types.IdType,
+    -- | The friendly name identifying the user.
+    userName :: Core.Maybe Types.UserName,
+    -- | A list of the inline policies embedded in the user.
+    userPolicyList :: Core.Maybe [Types.PolicyDetail]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UserDetail' with the minimum fields required to make a request.
---
--- * 'groupList' - A list of IAM groups that the user is in.
--- * 'arn' -
--- * 'path' - The path to the user. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
--- * 'userName' - The friendly name identifying the user.
--- * 'userId' - The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'permissionsBoundary' - The ARN of the policy used to set the permissions boundary for the user.
---
--- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
--- * 'userPolicyList' - A list of the inline policies embedded in the user.
--- * 'tags' - A list of tags that are associated with the specified user. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
--- * 'attachedManagedPolicies' - A list of the managed policies attached to the user.
+-- | Creates a 'UserDetail' value with any optional fields omitted.
 mkUserDetail ::
   UserDetail
 mkUserDetail =
   UserDetail'
-    { groupList = Lude.Nothing,
-      arn = Lude.Nothing,
-      path = Lude.Nothing,
-      createDate = Lude.Nothing,
-      userName = Lude.Nothing,
-      userId = Lude.Nothing,
-      permissionsBoundary = Lude.Nothing,
-      userPolicyList = Lude.Nothing,
-      tags = Lude.Nothing,
-      attachedManagedPolicies = Lude.Nothing
+    { arn = Core.Nothing,
+      attachedManagedPolicies = Core.Nothing,
+      createDate = Core.Nothing,
+      groupList = Core.Nothing,
+      path = Core.Nothing,
+      permissionsBoundary = Core.Nothing,
+      tags = Core.Nothing,
+      userId = Core.Nothing,
+      userName = Core.Nothing,
+      userPolicyList = Core.Nothing
     }
-
--- | A list of IAM groups that the user is in.
---
--- /Note:/ Consider using 'groupList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udGroupList :: Lens.Lens' UserDetail (Lude.Maybe [Lude.Text])
-udGroupList = Lens.lens (groupList :: UserDetail -> Lude.Maybe [Lude.Text]) (\s a -> s {groupList = a} :: UserDetail)
-{-# DEPRECATED udGroupList "Use generic-lens or generic-optics with 'groupList' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udARN :: Lens.Lens' UserDetail (Lude.Maybe Lude.Text)
-udARN = Lens.lens (arn :: UserDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: UserDetail)
-{-# DEPRECATED udARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+udArn :: Lens.Lens' UserDetail (Core.Maybe Types.ArnType)
+udArn = Lens.field @"arn"
+{-# DEPRECATED udArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The path to the user. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- | A list of the managed policies attached to the user.
 --
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udPath :: Lens.Lens' UserDetail (Lude.Maybe Lude.Text)
-udPath = Lens.lens (path :: UserDetail -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: UserDetail)
-{-# DEPRECATED udPath "Use generic-lens or generic-optics with 'path' instead." #-}
+-- /Note:/ Consider using 'attachedManagedPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udAttachedManagedPolicies :: Lens.Lens' UserDetail (Core.Maybe [Types.AttachedPolicy])
+udAttachedManagedPolicies = Lens.field @"attachedManagedPolicies"
+{-# DEPRECATED udAttachedManagedPolicies "Use generic-lens or generic-optics with 'attachedManagedPolicies' instead." #-}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udCreateDate :: Lens.Lens' UserDetail (Lude.Maybe Lude.DateTime)
-udCreateDate = Lens.lens (createDate :: UserDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: UserDetail)
+udCreateDate :: Lens.Lens' UserDetail (Core.Maybe Core.UTCTime)
+udCreateDate = Lens.field @"createDate"
 {-# DEPRECATED udCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
--- | The friendly name identifying the user.
+-- | A list of IAM groups that the user is in.
 --
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udUserName :: Lens.Lens' UserDetail (Lude.Maybe Lude.Text)
-udUserName = Lens.lens (userName :: UserDetail -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: UserDetail)
-{-# DEPRECATED udUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+-- /Note:/ Consider using 'groupList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udGroupList :: Lens.Lens' UserDetail (Core.Maybe [Types.GroupNameType])
+udGroupList = Lens.field @"groupList"
+{-# DEPRECATED udGroupList "Use generic-lens or generic-optics with 'groupList' instead." #-}
 
--- | The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- | The path to the user. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udUserId :: Lens.Lens' UserDetail (Lude.Maybe Lude.Text)
-udUserId = Lens.lens (userId :: UserDetail -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: UserDetail)
-{-# DEPRECATED udUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udPath :: Lens.Lens' UserDetail (Core.Maybe Types.PathType)
+udPath = Lens.field @"path"
+{-# DEPRECATED udPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The ARN of the policy used to set the permissions boundary for the user.
 --
 -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'permissionsBoundary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udPermissionsBoundary :: Lens.Lens' UserDetail (Lude.Maybe AttachedPermissionsBoundary)
-udPermissionsBoundary = Lens.lens (permissionsBoundary :: UserDetail -> Lude.Maybe AttachedPermissionsBoundary) (\s a -> s {permissionsBoundary = a} :: UserDetail)
+udPermissionsBoundary :: Lens.Lens' UserDetail (Core.Maybe Types.AttachedPermissionsBoundary)
+udPermissionsBoundary = Lens.field @"permissionsBoundary"
 {-# DEPRECATED udPermissionsBoundary "Use generic-lens or generic-optics with 'permissionsBoundary' instead." #-}
-
--- | A list of the inline policies embedded in the user.
---
--- /Note:/ Consider using 'userPolicyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udUserPolicyList :: Lens.Lens' UserDetail (Lude.Maybe [PolicyDetail])
-udUserPolicyList = Lens.lens (userPolicyList :: UserDetail -> Lude.Maybe [PolicyDetail]) (\s a -> s {userPolicyList = a} :: UserDetail)
-{-# DEPRECATED udUserPolicyList "Use generic-lens or generic-optics with 'userPolicyList' instead." #-}
 
 -- | A list of tags that are associated with the specified user. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udTags :: Lens.Lens' UserDetail (Lude.Maybe [Tag])
-udTags = Lens.lens (tags :: UserDetail -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UserDetail)
+udTags :: Lens.Lens' UserDetail (Core.Maybe [Types.Tag])
+udTags = Lens.field @"tags"
 {-# DEPRECATED udTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | A list of the managed policies attached to the user.
+-- | The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
--- /Note:/ Consider using 'attachedManagedPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udAttachedManagedPolicies :: Lens.Lens' UserDetail (Lude.Maybe [AttachedPolicy])
-udAttachedManagedPolicies = Lens.lens (attachedManagedPolicies :: UserDetail -> Lude.Maybe [AttachedPolicy]) (\s a -> s {attachedManagedPolicies = a} :: UserDetail)
-{-# DEPRECATED udAttachedManagedPolicies "Use generic-lens or generic-optics with 'attachedManagedPolicies' instead." #-}
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udUserId :: Lens.Lens' UserDetail (Core.Maybe Types.IdType)
+udUserId = Lens.field @"userId"
+{-# DEPRECATED udUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.FromXML UserDetail where
+-- | The friendly name identifying the user.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udUserName :: Lens.Lens' UserDetail (Core.Maybe Types.UserName)
+udUserName = Lens.field @"userName"
+{-# DEPRECATED udUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+-- | A list of the inline policies embedded in the user.
+--
+-- /Note:/ Consider using 'userPolicyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udUserPolicyList :: Lens.Lens' UserDetail (Core.Maybe [Types.PolicyDetail])
+udUserPolicyList = Lens.field @"userPolicyList"
+{-# DEPRECATED udUserPolicyList "Use generic-lens or generic-optics with 'userPolicyList' instead." #-}
+
+instance Core.FromXML UserDetail where
   parseXML x =
     UserDetail'
-      Lude.<$> ( x Lude..@? "GroupList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "Arn")
+      Core.<*> ( x Core..@? "AttachedManagedPolicies"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "Arn")
-      Lude.<*> (x Lude..@? "Path")
-      Lude.<*> (x Lude..@? "CreateDate")
-      Lude.<*> (x Lude..@? "UserName")
-      Lude.<*> (x Lude..@? "UserId")
-      Lude.<*> (x Lude..@? "PermissionsBoundary")
-      Lude.<*> ( x Lude..@? "UserPolicyList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> ( x Lude..@? "AttachedManagedPolicies" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<*> (x Core..@? "CreateDate")
+      Core.<*> (x Core..@? "GroupList" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Path")
+      Core.<*> (x Core..@? "PermissionsBoundary")
+      Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "UserId")
+      Core.<*> (x Core..@? "UserName")
+      Core.<*> (x Core..@? "UserPolicyList" Core..<@> Core.parseXMLList "member")

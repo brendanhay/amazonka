@@ -13,61 +13,63 @@
 module Network.AWS.ServiceCatalog.Types.ShareStatus
   ( ShareStatus
       ( ShareStatus',
-        NotStarted,
-        InProgress,
-        Completed,
-        CompletedWithErrors,
-        Error
+        ShareStatusNotStarted,
+        ShareStatusInProgress,
+        ShareStatusCompleted,
+        ShareStatusCompletedWithErrors,
+        ShareStatusError,
+        fromShareStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ShareStatus = ShareStatus' Lude.Text
+newtype ShareStatus = ShareStatus' {fromShareStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotStarted :: ShareStatus
-pattern NotStarted = ShareStatus' "NOT_STARTED"
+pattern ShareStatusNotStarted :: ShareStatus
+pattern ShareStatusNotStarted = ShareStatus' "NOT_STARTED"
 
-pattern InProgress :: ShareStatus
-pattern InProgress = ShareStatus' "IN_PROGRESS"
+pattern ShareStatusInProgress :: ShareStatus
+pattern ShareStatusInProgress = ShareStatus' "IN_PROGRESS"
 
-pattern Completed :: ShareStatus
-pattern Completed = ShareStatus' "COMPLETED"
+pattern ShareStatusCompleted :: ShareStatus
+pattern ShareStatusCompleted = ShareStatus' "COMPLETED"
 
-pattern CompletedWithErrors :: ShareStatus
-pattern CompletedWithErrors = ShareStatus' "COMPLETED_WITH_ERRORS"
+pattern ShareStatusCompletedWithErrors :: ShareStatus
+pattern ShareStatusCompletedWithErrors = ShareStatus' "COMPLETED_WITH_ERRORS"
 
-pattern Error :: ShareStatus
-pattern Error = ShareStatus' "ERROR"
+pattern ShareStatusError :: ShareStatus
+pattern ShareStatusError = ShareStatus' "ERROR"
 
 {-# COMPLETE
-  NotStarted,
-  InProgress,
-  Completed,
-  CompletedWithErrors,
-  Error,
+  ShareStatusNotStarted,
+  ShareStatusInProgress,
+  ShareStatusCompleted,
+  ShareStatusCompletedWithErrors,
+  ShareStatusError,
   ShareStatus'
   #-}

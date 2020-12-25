@@ -13,76 +13,78 @@
 module Network.AWS.SES.Types.EventType
   ( EventType
       ( EventType',
-        Send,
-        Reject,
-        Bounce,
-        Complaint,
-        Delivery,
-        Open,
-        Click,
-        RenderingFailure
+        EventTypeSend,
+        EventTypeReject,
+        EventTypeBounce,
+        EventTypeComplaint,
+        EventTypeDelivery,
+        EventTypeOpen,
+        EventTypeClick,
+        EventTypeRenderingFailure,
+        fromEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventType = EventType' Lude.Text
+newtype EventType = EventType' {fromEventType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Send :: EventType
-pattern Send = EventType' "send"
+pattern EventTypeSend :: EventType
+pattern EventTypeSend = EventType' "send"
 
-pattern Reject :: EventType
-pattern Reject = EventType' "reject"
+pattern EventTypeReject :: EventType
+pattern EventTypeReject = EventType' "reject"
 
-pattern Bounce :: EventType
-pattern Bounce = EventType' "bounce"
+pattern EventTypeBounce :: EventType
+pattern EventTypeBounce = EventType' "bounce"
 
-pattern Complaint :: EventType
-pattern Complaint = EventType' "complaint"
+pattern EventTypeComplaint :: EventType
+pattern EventTypeComplaint = EventType' "complaint"
 
-pattern Delivery :: EventType
-pattern Delivery = EventType' "delivery"
+pattern EventTypeDelivery :: EventType
+pattern EventTypeDelivery = EventType' "delivery"
 
-pattern Open :: EventType
-pattern Open = EventType' "open"
+pattern EventTypeOpen :: EventType
+pattern EventTypeOpen = EventType' "open"
 
-pattern Click :: EventType
-pattern Click = EventType' "click"
+pattern EventTypeClick :: EventType
+pattern EventTypeClick = EventType' "click"
 
-pattern RenderingFailure :: EventType
-pattern RenderingFailure = EventType' "renderingFailure"
+pattern EventTypeRenderingFailure :: EventType
+pattern EventTypeRenderingFailure = EventType' "renderingFailure"
 
 {-# COMPLETE
-  Send,
-  Reject,
-  Bounce,
-  Complaint,
-  Delivery,
-  Open,
-  Click,
-  RenderingFailure,
+  EventTypeSend,
+  EventTypeReject,
+  EventTypeBounce,
+  EventTypeComplaint,
+  EventTypeDelivery,
+  EventTypeOpen,
+  EventTypeClick,
+  EventTypeRenderingFailure,
   EventType'
   #-}

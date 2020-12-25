@@ -17,84 +17,78 @@ module Network.AWS.CostExplorer.Types.EBSResourceUtilization
     mkEBSResourceUtilization,
 
     -- * Lenses
-    eruEBSWriteBytesPerSecond,
-    eruEBSWriteOpsPerSecond,
-    eruEBSReadOpsPerSecond,
-    eruEBSReadBytesPerSecond,
+    ebsruEbsReadBytesPerSecond,
+    ebsruEbsReadOpsPerSecond,
+    ebsruEbsWriteBytesPerSecond,
+    ebsruEbsWriteOpsPerSecond,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The EBS field that contains a list of EBS metrics associated with the current instance.
 --
 -- /See:/ 'mkEBSResourceUtilization' smart constructor.
 data EBSResourceUtilization = EBSResourceUtilization'
-  { -- | The maximum size of write operations per second.
-    ebsWriteBytesPerSecond :: Lude.Maybe Lude.Text,
-    -- | The maximum number of write operations per second.
-    ebsWriteOpsPerSecond :: Lude.Maybe Lude.Text,
+  { -- | The maximum size of read operations per second
+    ebsReadBytesPerSecond :: Core.Maybe Types.GenericString,
     -- | The maximum number of read operations per second.
-    ebsReadOpsPerSecond :: Lude.Maybe Lude.Text,
-    -- | The maximum size of read operations per second
-    ebsReadBytesPerSecond :: Lude.Maybe Lude.Text
+    ebsReadOpsPerSecond :: Core.Maybe Types.GenericString,
+    -- | The maximum size of write operations per second.
+    ebsWriteBytesPerSecond :: Core.Maybe Types.GenericString,
+    -- | The maximum number of write operations per second.
+    ebsWriteOpsPerSecond :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EBSResourceUtilization' with the minimum fields required to make a request.
---
--- * 'ebsWriteBytesPerSecond' - The maximum size of write operations per second.
--- * 'ebsWriteOpsPerSecond' - The maximum number of write operations per second.
--- * 'ebsReadOpsPerSecond' - The maximum number of read operations per second.
--- * 'ebsReadBytesPerSecond' - The maximum size of read operations per second
+-- | Creates a 'EBSResourceUtilization' value with any optional fields omitted.
 mkEBSResourceUtilization ::
   EBSResourceUtilization
 mkEBSResourceUtilization =
   EBSResourceUtilization'
-    { ebsWriteBytesPerSecond = Lude.Nothing,
-      ebsWriteOpsPerSecond = Lude.Nothing,
-      ebsReadOpsPerSecond = Lude.Nothing,
-      ebsReadBytesPerSecond = Lude.Nothing
+    { ebsReadBytesPerSecond = Core.Nothing,
+      ebsReadOpsPerSecond = Core.Nothing,
+      ebsWriteBytesPerSecond = Core.Nothing,
+      ebsWriteOpsPerSecond = Core.Nothing
     }
-
--- | The maximum size of write operations per second.
---
--- /Note:/ Consider using 'ebsWriteBytesPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eruEBSWriteBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Lude.Maybe Lude.Text)
-eruEBSWriteBytesPerSecond = Lens.lens (ebsWriteBytesPerSecond :: EBSResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {ebsWriteBytesPerSecond = a} :: EBSResourceUtilization)
-{-# DEPRECATED eruEBSWriteBytesPerSecond "Use generic-lens or generic-optics with 'ebsWriteBytesPerSecond' instead." #-}
-
--- | The maximum number of write operations per second.
---
--- /Note:/ Consider using 'ebsWriteOpsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eruEBSWriteOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Lude.Maybe Lude.Text)
-eruEBSWriteOpsPerSecond = Lens.lens (ebsWriteOpsPerSecond :: EBSResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {ebsWriteOpsPerSecond = a} :: EBSResourceUtilization)
-{-# DEPRECATED eruEBSWriteOpsPerSecond "Use generic-lens or generic-optics with 'ebsWriteOpsPerSecond' instead." #-}
-
--- | The maximum number of read operations per second.
---
--- /Note:/ Consider using 'ebsReadOpsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eruEBSReadOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Lude.Maybe Lude.Text)
-eruEBSReadOpsPerSecond = Lens.lens (ebsReadOpsPerSecond :: EBSResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {ebsReadOpsPerSecond = a} :: EBSResourceUtilization)
-{-# DEPRECATED eruEBSReadOpsPerSecond "Use generic-lens or generic-optics with 'ebsReadOpsPerSecond' instead." #-}
 
 -- | The maximum size of read operations per second
 --
 -- /Note:/ Consider using 'ebsReadBytesPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eruEBSReadBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Lude.Maybe Lude.Text)
-eruEBSReadBytesPerSecond = Lens.lens (ebsReadBytesPerSecond :: EBSResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {ebsReadBytesPerSecond = a} :: EBSResourceUtilization)
-{-# DEPRECATED eruEBSReadBytesPerSecond "Use generic-lens or generic-optics with 'ebsReadBytesPerSecond' instead." #-}
+ebsruEbsReadBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Core.Maybe Types.GenericString)
+ebsruEbsReadBytesPerSecond = Lens.field @"ebsReadBytesPerSecond"
+{-# DEPRECATED ebsruEbsReadBytesPerSecond "Use generic-lens or generic-optics with 'ebsReadBytesPerSecond' instead." #-}
 
-instance Lude.FromJSON EBSResourceUtilization where
+-- | The maximum number of read operations per second.
+--
+-- /Note:/ Consider using 'ebsReadOpsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebsruEbsReadOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Core.Maybe Types.GenericString)
+ebsruEbsReadOpsPerSecond = Lens.field @"ebsReadOpsPerSecond"
+{-# DEPRECATED ebsruEbsReadOpsPerSecond "Use generic-lens or generic-optics with 'ebsReadOpsPerSecond' instead." #-}
+
+-- | The maximum size of write operations per second.
+--
+-- /Note:/ Consider using 'ebsWriteBytesPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebsruEbsWriteBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Core.Maybe Types.GenericString)
+ebsruEbsWriteBytesPerSecond = Lens.field @"ebsWriteBytesPerSecond"
+{-# DEPRECATED ebsruEbsWriteBytesPerSecond "Use generic-lens or generic-optics with 'ebsWriteBytesPerSecond' instead." #-}
+
+-- | The maximum number of write operations per second.
+--
+-- /Note:/ Consider using 'ebsWriteOpsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebsruEbsWriteOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Core.Maybe Types.GenericString)
+ebsruEbsWriteOpsPerSecond = Lens.field @"ebsWriteOpsPerSecond"
+{-# DEPRECATED ebsruEbsWriteOpsPerSecond "Use generic-lens or generic-optics with 'ebsWriteOpsPerSecond' instead." #-}
+
+instance Core.FromJSON EBSResourceUtilization where
   parseJSON =
-    Lude.withObject
-      "EBSResourceUtilization"
-      ( \x ->
-          EBSResourceUtilization'
-            Lude.<$> (x Lude..:? "EbsWriteBytesPerSecond")
-            Lude.<*> (x Lude..:? "EbsWriteOpsPerSecond")
-            Lude.<*> (x Lude..:? "EbsReadOpsPerSecond")
-            Lude.<*> (x Lude..:? "EbsReadBytesPerSecond")
-      )
+    Core.withObject "EBSResourceUtilization" Core.$
+      \x ->
+        EBSResourceUtilization'
+          Core.<$> (x Core..:? "EbsReadBytesPerSecond")
+          Core.<*> (x Core..:? "EbsReadOpsPerSecond")
+          Core.<*> (x Core..:? "EbsWriteBytesPerSecond")
+          Core.<*> (x Core..:? "EbsWriteOpsPerSecond")

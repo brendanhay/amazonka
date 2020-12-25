@@ -13,56 +13,58 @@
 module Network.AWS.SageMaker.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        TrainingJob,
-        Experiment,
-        ExperimentTrial,
-        ExperimentTrialComponent
+        ResourceTypeTrainingJob,
+        ResourceTypeExperiment,
+        ResourceTypeExperimentTrial,
+        ResourceTypeExperimentTrialComponent,
+        fromResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceType = ResourceType' Lude.Text
+newtype ResourceType = ResourceType' {fromResourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TrainingJob :: ResourceType
-pattern TrainingJob = ResourceType' "TrainingJob"
+pattern ResourceTypeTrainingJob :: ResourceType
+pattern ResourceTypeTrainingJob = ResourceType' "TrainingJob"
 
-pattern Experiment :: ResourceType
-pattern Experiment = ResourceType' "Experiment"
+pattern ResourceTypeExperiment :: ResourceType
+pattern ResourceTypeExperiment = ResourceType' "Experiment"
 
-pattern ExperimentTrial :: ResourceType
-pattern ExperimentTrial = ResourceType' "ExperimentTrial"
+pattern ResourceTypeExperimentTrial :: ResourceType
+pattern ResourceTypeExperimentTrial = ResourceType' "ExperimentTrial"
 
-pattern ExperimentTrialComponent :: ResourceType
-pattern ExperimentTrialComponent = ResourceType' "ExperimentTrialComponent"
+pattern ResourceTypeExperimentTrialComponent :: ResourceType
+pattern ResourceTypeExperimentTrialComponent = ResourceType' "ExperimentTrialComponent"
 
 {-# COMPLETE
-  TrainingJob,
-  Experiment,
-  ExperimentTrial,
-  ExperimentTrialComponent,
+  ResourceTypeTrainingJob,
+  ResourceTypeExperiment,
+  ResourceTypeExperimentTrial,
+  ResourceTypeExperimentTrialComponent,
   ResourceType'
   #-}

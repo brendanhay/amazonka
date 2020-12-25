@@ -13,57 +13,62 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix
   ( Eac3AtmosStereoDownmix
       ( Eac3AtmosStereoDownmix',
-        EASDNotIndicated,
-        EASDStereo,
-        EASDSurround,
-        EASDDPL2
+        Eac3AtmosStereoDownmixNotIndicated,
+        Eac3AtmosStereoDownmixStereo,
+        Eac3AtmosStereoDownmixSurround,
+        Eac3AtmosStereoDownmixDPL2,
+        fromEac3AtmosStereoDownmix
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose how the service does stereo downmixing.
-newtype Eac3AtmosStereoDownmix = Eac3AtmosStereoDownmix' Lude.Text
+newtype Eac3AtmosStereoDownmix = Eac3AtmosStereoDownmix'
+  { fromEac3AtmosStereoDownmix ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EASDNotIndicated :: Eac3AtmosStereoDownmix
-pattern EASDNotIndicated = Eac3AtmosStereoDownmix' "NOT_INDICATED"
+pattern Eac3AtmosStereoDownmixNotIndicated :: Eac3AtmosStereoDownmix
+pattern Eac3AtmosStereoDownmixNotIndicated = Eac3AtmosStereoDownmix' "NOT_INDICATED"
 
-pattern EASDStereo :: Eac3AtmosStereoDownmix
-pattern EASDStereo = Eac3AtmosStereoDownmix' "STEREO"
+pattern Eac3AtmosStereoDownmixStereo :: Eac3AtmosStereoDownmix
+pattern Eac3AtmosStereoDownmixStereo = Eac3AtmosStereoDownmix' "STEREO"
 
-pattern EASDSurround :: Eac3AtmosStereoDownmix
-pattern EASDSurround = Eac3AtmosStereoDownmix' "SURROUND"
+pattern Eac3AtmosStereoDownmixSurround :: Eac3AtmosStereoDownmix
+pattern Eac3AtmosStereoDownmixSurround = Eac3AtmosStereoDownmix' "SURROUND"
 
-pattern EASDDPL2 :: Eac3AtmosStereoDownmix
-pattern EASDDPL2 = Eac3AtmosStereoDownmix' "DPL2"
+pattern Eac3AtmosStereoDownmixDPL2 :: Eac3AtmosStereoDownmix
+pattern Eac3AtmosStereoDownmixDPL2 = Eac3AtmosStereoDownmix' "DPL2"
 
 {-# COMPLETE
-  EASDNotIndicated,
-  EASDStereo,
-  EASDSurround,
-  EASDDPL2,
+  Eac3AtmosStereoDownmixNotIndicated,
+  Eac3AtmosStereoDownmixStereo,
+  Eac3AtmosStereoDownmixSurround,
+  Eac3AtmosStereoDownmixDPL2,
   Eac3AtmosStereoDownmix'
   #-}

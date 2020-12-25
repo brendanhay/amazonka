@@ -13,72 +13,77 @@
 module Network.AWS.MediaConvert.Types.H264AdaptiveQuantization
   ( H264AdaptiveQuantization
       ( H264AdaptiveQuantization',
-        HAQfOff,
-        HAQfAuto,
-        HAQfLow,
-        HAQfMedium,
-        HAQfHigh,
-        HAQfHigher,
-        HAQfMax
+        H264AdaptiveQuantizationOff,
+        H264AdaptiveQuantizationAuto,
+        H264AdaptiveQuantizationLow,
+        H264AdaptiveQuantizationMedium,
+        H264AdaptiveQuantizationHigh,
+        H264AdaptiveQuantizationHigher,
+        H264AdaptiveQuantizationMax,
+        fromH264AdaptiveQuantization
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Keep the default value, Auto (AUTO), for this setting to have MediaConvert automatically apply the best types of quantization for your video content. When you want to apply your quantization settings manually, you must set H264AdaptiveQuantization to a value other than Auto (AUTO). Use this setting to specify the strength of any adaptive quantization filters that you enable. If you don't want MediaConvert to do any adaptive quantization in this transcode, set Adaptive quantization (H264AdaptiveQuantization) to Off (OFF). Related settings: The value that you choose here applies to the following settings: H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and H264TemporalAdaptiveQuantization.
-newtype H264AdaptiveQuantization = H264AdaptiveQuantization' Lude.Text
+newtype H264AdaptiveQuantization = H264AdaptiveQuantization'
+  { fromH264AdaptiveQuantization ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HAQfOff :: H264AdaptiveQuantization
-pattern HAQfOff = H264AdaptiveQuantization' "OFF"
+pattern H264AdaptiveQuantizationOff :: H264AdaptiveQuantization
+pattern H264AdaptiveQuantizationOff = H264AdaptiveQuantization' "OFF"
 
-pattern HAQfAuto :: H264AdaptiveQuantization
-pattern HAQfAuto = H264AdaptiveQuantization' "AUTO"
+pattern H264AdaptiveQuantizationAuto :: H264AdaptiveQuantization
+pattern H264AdaptiveQuantizationAuto = H264AdaptiveQuantization' "AUTO"
 
-pattern HAQfLow :: H264AdaptiveQuantization
-pattern HAQfLow = H264AdaptiveQuantization' "LOW"
+pattern H264AdaptiveQuantizationLow :: H264AdaptiveQuantization
+pattern H264AdaptiveQuantizationLow = H264AdaptiveQuantization' "LOW"
 
-pattern HAQfMedium :: H264AdaptiveQuantization
-pattern HAQfMedium = H264AdaptiveQuantization' "MEDIUM"
+pattern H264AdaptiveQuantizationMedium :: H264AdaptiveQuantization
+pattern H264AdaptiveQuantizationMedium = H264AdaptiveQuantization' "MEDIUM"
 
-pattern HAQfHigh :: H264AdaptiveQuantization
-pattern HAQfHigh = H264AdaptiveQuantization' "HIGH"
+pattern H264AdaptiveQuantizationHigh :: H264AdaptiveQuantization
+pattern H264AdaptiveQuantizationHigh = H264AdaptiveQuantization' "HIGH"
 
-pattern HAQfHigher :: H264AdaptiveQuantization
-pattern HAQfHigher = H264AdaptiveQuantization' "HIGHER"
+pattern H264AdaptiveQuantizationHigher :: H264AdaptiveQuantization
+pattern H264AdaptiveQuantizationHigher = H264AdaptiveQuantization' "HIGHER"
 
-pattern HAQfMax :: H264AdaptiveQuantization
-pattern HAQfMax = H264AdaptiveQuantization' "MAX"
+pattern H264AdaptiveQuantizationMax :: H264AdaptiveQuantization
+pattern H264AdaptiveQuantizationMax = H264AdaptiveQuantization' "MAX"
 
 {-# COMPLETE
-  HAQfOff,
-  HAQfAuto,
-  HAQfLow,
-  HAQfMedium,
-  HAQfHigh,
-  HAQfHigher,
-  HAQfMax,
+  H264AdaptiveQuantizationOff,
+  H264AdaptiveQuantizationAuto,
+  H264AdaptiveQuantizationLow,
+  H264AdaptiveQuantizationMedium,
+  H264AdaptiveQuantizationHigh,
+  H264AdaptiveQuantizationHigher,
+  H264AdaptiveQuantizationMax,
   H264AdaptiveQuantization'
   #-}

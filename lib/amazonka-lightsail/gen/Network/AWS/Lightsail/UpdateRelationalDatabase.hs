@@ -23,45 +23,72 @@ module Network.AWS.Lightsail.UpdateRelationalDatabase
     mkUpdateRelationalDatabase,
 
     -- ** Request lenses
-    urdMasterUserPassword,
-    urdPubliclyAccessible,
-    urdEnableBackupRetention,
-    urdPreferredMaintenanceWindow,
-    urdCaCertificateIdentifier,
-    urdPreferredBackupWindow,
-    urdApplyImmediately,
-    urdRotateMasterUserPassword,
-    urdDisableBackupRetention,
     urdRelationalDatabaseName,
+    urdApplyImmediately,
+    urdCaCertificateIdentifier,
+    urdDisableBackupRetention,
+    urdEnableBackupRetention,
+    urdMasterUserPassword,
+    urdPreferredBackupWindow,
+    urdPreferredMaintenanceWindow,
+    urdPubliclyAccessible,
+    urdRotateMasterUserPassword,
 
     -- * Destructuring the response
     UpdateRelationalDatabaseResponse (..),
     mkUpdateRelationalDatabaseResponse,
 
     -- ** Response lenses
-    urdrsOperations,
-    urdrsResponseStatus,
+    urdrrsOperations,
+    urdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateRelationalDatabase' smart constructor.
 data UpdateRelationalDatabase = UpdateRelationalDatabase'
-  { -- | The password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
+  { -- | The name of your database to update.
+    relationalDatabaseName :: Types.ResourceName,
+    -- | When @true@ , applies changes immediately. When @false@ , applies changes during the preferred maintenance window. Some changes may cause an outage.
     --
-    -- Constraints: Must contain 8 to 41 characters.
-    masterUserPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Specifies the accessibility options for your database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
-    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- Default: @false@
+    applyImmediately :: Core.Maybe Core.Bool,
+    -- | Indicates the certificate that needs to be associated with the database.
+    caCertificateIdentifier :: Core.Maybe Types.String,
+    -- | When @true@ , disables automated backup retention for your database.
+    --
+    -- Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database using the @create relational database snapshot@ operation.
+    -- Updates are applied during the next maintenance window because this can result in an outage.
+    disableBackupRetention :: Core.Maybe Core.Bool,
     -- | When @true@ , enables automated backup retention for your database.
     --
     -- Updates are applied during the next maintenance window because this can result in an outage.
-    enableBackupRetention :: Lude.Maybe Lude.Bool,
+    enableBackupRetention :: Core.Maybe Core.Bool,
+    -- | The password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
+    --
+    -- Constraints: Must contain 8 to 41 characters.
+    masterUserPassword :: Core.Maybe Types.MasterUserPassword,
+    -- | The daily time range during which automated backups are created for your database if automated backups are enabled.
+    --
+    -- Constraints:
+    --
+    --     * Must be in the @hh24:mi-hh24:mi@ format.
+    -- Example: @16:00-16:30@
+    --
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Must not conflict with the preferred maintenance window.
+    --
+    --
+    --     * Must be at least 30 minutes.
+    preferredBackupWindow :: Core.Maybe Types.String,
     -- | The weekly time range during which system maintenance can occur on your database.
     --
     -- The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week.
@@ -80,75 +107,88 @@ data UpdateRelationalDatabase = UpdateRelationalDatabase'
     --
     --
     --     * Example: @Tue:17:00-Tue:17:30@
-    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
-    -- | Indicates the certificate that needs to be associated with the database.
-    caCertificateIdentifier :: Lude.Maybe Lude.Text,
-    -- | The daily time range during which automated backups are created for your database if automated backups are enabled.
-    --
-    -- Constraints:
-    --
-    --     * Must be in the @hh24:mi-hh24:mi@ format.
-    -- Example: @16:00-16:30@
-    --
-    --
-    --     * Specified in Coordinated Universal Time (UTC).
-    --
-    --
-    --     * Must not conflict with the preferred maintenance window.
-    --
-    --
-    --     * Must be at least 30 minutes.
-    preferredBackupWindow :: Lude.Maybe Lude.Text,
-    -- | When @true@ , applies changes immediately. When @false@ , applies changes during the preferred maintenance window. Some changes may cause an outage.
-    --
-    -- Default: @false@
-    applyImmediately :: Lude.Maybe Lude.Bool,
+    preferredMaintenanceWindow :: Core.Maybe Types.String,
+    -- | Specifies the accessibility options for your database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
+    publiclyAccessible :: Core.Maybe Core.Bool,
     -- | When @true@ , the master user password is changed to a new strong password generated by Lightsail.
     --
     -- Use the @get relational database master user password@ operation to get the new password.
-    rotateMasterUserPassword :: Lude.Maybe Lude.Bool,
-    -- | When @true@ , disables automated backup retention for your database.
-    --
-    -- Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database using the @create relational database snapshot@ operation.
-    -- Updates are applied during the next maintenance window because this can result in an outage.
-    disableBackupRetention :: Lude.Maybe Lude.Bool,
-    -- | The name of your database to update.
-    relationalDatabaseName :: Lude.Text
+    rotateMasterUserPassword :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRelationalDatabase' with the minimum fields required to make a request.
+-- | Creates a 'UpdateRelationalDatabase' value with any optional fields omitted.
+mkUpdateRelationalDatabase ::
+  -- | 'relationalDatabaseName'
+  Types.ResourceName ->
+  UpdateRelationalDatabase
+mkUpdateRelationalDatabase relationalDatabaseName =
+  UpdateRelationalDatabase'
+    { relationalDatabaseName,
+      applyImmediately = Core.Nothing,
+      caCertificateIdentifier = Core.Nothing,
+      disableBackupRetention = Core.Nothing,
+      enableBackupRetention = Core.Nothing,
+      masterUserPassword = Core.Nothing,
+      preferredBackupWindow = Core.Nothing,
+      preferredMaintenanceWindow = Core.Nothing,
+      publiclyAccessible = Core.Nothing,
+      rotateMasterUserPassword = Core.Nothing
+    }
+
+-- | The name of your database to update.
 --
--- * 'masterUserPassword' - The password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdRelationalDatabaseName :: Lens.Lens' UpdateRelationalDatabase Types.ResourceName
+urdRelationalDatabaseName = Lens.field @"relationalDatabaseName"
+{-# DEPRECATED urdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
+
+-- | When @true@ , applies changes immediately. When @false@ , applies changes during the preferred maintenance window. Some changes may cause an outage.
 --
--- Constraints: Must contain 8 to 41 characters.
--- * 'publiclyAccessible' - Specifies the accessibility options for your database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
--- * 'enableBackupRetention' - When @true@ , enables automated backup retention for your database.
+-- Default: @false@
+--
+-- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdApplyImmediately :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Core.Bool)
+urdApplyImmediately = Lens.field @"applyImmediately"
+{-# DEPRECATED urdApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
+
+-- | Indicates the certificate that needs to be associated with the database.
+--
+-- /Note:/ Consider using 'caCertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdCaCertificateIdentifier :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Types.String)
+urdCaCertificateIdentifier = Lens.field @"caCertificateIdentifier"
+{-# DEPRECATED urdCaCertificateIdentifier "Use generic-lens or generic-optics with 'caCertificateIdentifier' instead." #-}
+
+-- | When @true@ , disables automated backup retention for your database.
+--
+-- Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database using the @create relational database snapshot@ operation.
+-- Updates are applied during the next maintenance window because this can result in an outage.
+--
+-- /Note:/ Consider using 'disableBackupRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdDisableBackupRetention :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Core.Bool)
+urdDisableBackupRetention = Lens.field @"disableBackupRetention"
+{-# DEPRECATED urdDisableBackupRetention "Use generic-lens or generic-optics with 'disableBackupRetention' instead." #-}
+
+-- | When @true@ , enables automated backup retention for your database.
 --
 -- Updates are applied during the next maintenance window because this can result in an outage.
--- * 'preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur on your database.
 --
--- The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week.
--- Constraints:
+-- /Note:/ Consider using 'enableBackupRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdEnableBackupRetention :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Core.Bool)
+urdEnableBackupRetention = Lens.field @"enableBackupRetention"
+{-# DEPRECATED urdEnableBackupRetention "Use generic-lens or generic-optics with 'enableBackupRetention' instead." #-}
+
+-- | The password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
 --
---     * Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.
+-- Constraints: Must contain 8 to 41 characters.
 --
---
---     * Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
---
---
---     * Must be at least 30 minutes.
---
---
---     * Specified in Coordinated Universal Time (UTC).
---
---
---     * Example: @Tue:17:00-Tue:17:30@
---
---
--- * 'caCertificateIdentifier' - Indicates the certificate that needs to be associated with the database.
--- * 'preferredBackupWindow' - The daily time range during which automated backups are created for your database if automated backups are enabled.
+-- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdMasterUserPassword :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Types.MasterUserPassword)
+urdMasterUserPassword = Lens.field @"masterUserPassword"
+{-# DEPRECATED urdMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
+
+-- | The daily time range during which automated backups are created for your database if automated backups are enabled.
 --
 -- Constraints:
 --
@@ -165,59 +205,11 @@ data UpdateRelationalDatabase = UpdateRelationalDatabase'
 --     * Must be at least 30 minutes.
 --
 --
--- * 'applyImmediately' - When @true@ , applies changes immediately. When @false@ , applies changes during the preferred maintenance window. Some changes may cause an outage.
 --
--- Default: @false@
--- * 'rotateMasterUserPassword' - When @true@ , the master user password is changed to a new strong password generated by Lightsail.
---
--- Use the @get relational database master user password@ operation to get the new password.
--- * 'disableBackupRetention' - When @true@ , disables automated backup retention for your database.
---
--- Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database using the @create relational database snapshot@ operation.
--- Updates are applied during the next maintenance window because this can result in an outage.
--- * 'relationalDatabaseName' - The name of your database to update.
-mkUpdateRelationalDatabase ::
-  -- | 'relationalDatabaseName'
-  Lude.Text ->
-  UpdateRelationalDatabase
-mkUpdateRelationalDatabase pRelationalDatabaseName_ =
-  UpdateRelationalDatabase'
-    { masterUserPassword = Lude.Nothing,
-      publiclyAccessible = Lude.Nothing,
-      enableBackupRetention = Lude.Nothing,
-      preferredMaintenanceWindow = Lude.Nothing,
-      caCertificateIdentifier = Lude.Nothing,
-      preferredBackupWindow = Lude.Nothing,
-      applyImmediately = Lude.Nothing,
-      rotateMasterUserPassword = Lude.Nothing,
-      disableBackupRetention = Lude.Nothing,
-      relationalDatabaseName = pRelationalDatabaseName_
-    }
-
--- | The password for the master user of your database. The password can include any printable ASCII character except "/", """, or "@".
---
--- Constraints: Must contain 8 to 41 characters.
---
--- /Note:/ Consider using 'masterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdMasterUserPassword :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe (Lude.Sensitive Lude.Text))
-urdMasterUserPassword = Lens.lens (masterUserPassword :: UpdateRelationalDatabase -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {masterUserPassword = a} :: UpdateRelationalDatabase)
-{-# DEPRECATED urdMasterUserPassword "Use generic-lens or generic-optics with 'masterUserPassword' instead." #-}
-
--- | Specifies the accessibility options for your database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
---
--- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdPubliclyAccessible :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe Lude.Bool)
-urdPubliclyAccessible = Lens.lens (publiclyAccessible :: UpdateRelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: UpdateRelationalDatabase)
-{-# DEPRECATED urdPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
-
--- | When @true@ , enables automated backup retention for your database.
---
--- Updates are applied during the next maintenance window because this can result in an outage.
---
--- /Note:/ Consider using 'enableBackupRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdEnableBackupRetention :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe Lude.Bool)
-urdEnableBackupRetention = Lens.lens (enableBackupRetention :: UpdateRelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {enableBackupRetention = a} :: UpdateRelationalDatabase)
-{-# DEPRECATED urdEnableBackupRetention "Use generic-lens or generic-optics with 'enableBackupRetention' instead." #-}
+-- /Note:/ Consider using 'preferredBackupWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdPreferredBackupWindow :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Types.String)
+urdPreferredBackupWindow = Lens.field @"preferredBackupWindow"
+{-# DEPRECATED urdPreferredBackupWindow "Use generic-lens or generic-optics with 'preferredBackupWindow' instead." #-}
 
 -- | The weekly time range during which system maintenance can occur on your database.
 --
@@ -241,158 +233,99 @@ urdEnableBackupRetention = Lens.lens (enableBackupRetention :: UpdateRelationalD
 --
 --
 -- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdPreferredMaintenanceWindow :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe Lude.Text)
-urdPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: UpdateRelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: UpdateRelationalDatabase)
+urdPreferredMaintenanceWindow :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Types.String)
+urdPreferredMaintenanceWindow = Lens.field @"preferredMaintenanceWindow"
 {-# DEPRECATED urdPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
--- | Indicates the certificate that needs to be associated with the database.
+-- | Specifies the accessibility options for your database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
 --
--- /Note:/ Consider using 'caCertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdCaCertificateIdentifier :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe Lude.Text)
-urdCaCertificateIdentifier = Lens.lens (caCertificateIdentifier :: UpdateRelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {caCertificateIdentifier = a} :: UpdateRelationalDatabase)
-{-# DEPRECATED urdCaCertificateIdentifier "Use generic-lens or generic-optics with 'caCertificateIdentifier' instead." #-}
-
--- | The daily time range during which automated backups are created for your database if automated backups are enabled.
---
--- Constraints:
---
---     * Must be in the @hh24:mi-hh24:mi@ format.
--- Example: @16:00-16:30@
---
---
---     * Specified in Coordinated Universal Time (UTC).
---
---
---     * Must not conflict with the preferred maintenance window.
---
---
---     * Must be at least 30 minutes.
---
---
---
--- /Note:/ Consider using 'preferredBackupWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdPreferredBackupWindow :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe Lude.Text)
-urdPreferredBackupWindow = Lens.lens (preferredBackupWindow :: UpdateRelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {preferredBackupWindow = a} :: UpdateRelationalDatabase)
-{-# DEPRECATED urdPreferredBackupWindow "Use generic-lens or generic-optics with 'preferredBackupWindow' instead." #-}
-
--- | When @true@ , applies changes immediately. When @false@ , applies changes during the preferred maintenance window. Some changes may cause an outage.
---
--- Default: @false@
---
--- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdApplyImmediately :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe Lude.Bool)
-urdApplyImmediately = Lens.lens (applyImmediately :: UpdateRelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {applyImmediately = a} :: UpdateRelationalDatabase)
-{-# DEPRECATED urdApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdPubliclyAccessible :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Core.Bool)
+urdPubliclyAccessible = Lens.field @"publiclyAccessible"
+{-# DEPRECATED urdPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | When @true@ , the master user password is changed to a new strong password generated by Lightsail.
 --
 -- Use the @get relational database master user password@ operation to get the new password.
 --
 -- /Note:/ Consider using 'rotateMasterUserPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdRotateMasterUserPassword :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe Lude.Bool)
-urdRotateMasterUserPassword = Lens.lens (rotateMasterUserPassword :: UpdateRelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {rotateMasterUserPassword = a} :: UpdateRelationalDatabase)
+urdRotateMasterUserPassword :: Lens.Lens' UpdateRelationalDatabase (Core.Maybe Core.Bool)
+urdRotateMasterUserPassword = Lens.field @"rotateMasterUserPassword"
 {-# DEPRECATED urdRotateMasterUserPassword "Use generic-lens or generic-optics with 'rotateMasterUserPassword' instead." #-}
 
--- | When @true@ , disables automated backup retention for your database.
---
--- Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database using the @create relational database snapshot@ operation.
--- Updates are applied during the next maintenance window because this can result in an outage.
---
--- /Note:/ Consider using 'disableBackupRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdDisableBackupRetention :: Lens.Lens' UpdateRelationalDatabase (Lude.Maybe Lude.Bool)
-urdDisableBackupRetention = Lens.lens (disableBackupRetention :: UpdateRelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {disableBackupRetention = a} :: UpdateRelationalDatabase)
-{-# DEPRECATED urdDisableBackupRetention "Use generic-lens or generic-optics with 'disableBackupRetention' instead." #-}
+instance Core.FromJSON UpdateRelationalDatabase where
+  toJSON UpdateRelationalDatabase {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("relationalDatabaseName" Core..= relationalDatabaseName),
+            ("applyImmediately" Core..=) Core.<$> applyImmediately,
+            ("caCertificateIdentifier" Core..=)
+              Core.<$> caCertificateIdentifier,
+            ("disableBackupRetention" Core..=) Core.<$> disableBackupRetention,
+            ("enableBackupRetention" Core..=) Core.<$> enableBackupRetention,
+            ("masterUserPassword" Core..=) Core.<$> masterUserPassword,
+            ("preferredBackupWindow" Core..=) Core.<$> preferredBackupWindow,
+            ("preferredMaintenanceWindow" Core..=)
+              Core.<$> preferredMaintenanceWindow,
+            ("publiclyAccessible" Core..=) Core.<$> publiclyAccessible,
+            ("rotateMasterUserPassword" Core..=)
+              Core.<$> rotateMasterUserPassword
+          ]
+      )
 
--- | The name of your database to update.
---
--- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdRelationalDatabaseName :: Lens.Lens' UpdateRelationalDatabase Lude.Text
-urdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: UpdateRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: UpdateRelationalDatabase)
-{-# DEPRECATED urdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
-
-instance Lude.AWSRequest UpdateRelationalDatabase where
+instance Core.AWSRequest UpdateRelationalDatabase where
   type Rs UpdateRelationalDatabase = UpdateRelationalDatabaseResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.UpdateRelationalDatabase")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateRelationalDatabaseResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateRelationalDatabase where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.UpdateRelationalDatabase" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateRelationalDatabase where
-  toJSON UpdateRelationalDatabase' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("masterUserPassword" Lude..=) Lude.<$> masterUserPassword,
-            ("publiclyAccessible" Lude..=) Lude.<$> publiclyAccessible,
-            ("enableBackupRetention" Lude..=) Lude.<$> enableBackupRetention,
-            ("preferredMaintenanceWindow" Lude..=)
-              Lude.<$> preferredMaintenanceWindow,
-            ("caCertificateIdentifier" Lude..=)
-              Lude.<$> caCertificateIdentifier,
-            ("preferredBackupWindow" Lude..=) Lude.<$> preferredBackupWindow,
-            ("applyImmediately" Lude..=) Lude.<$> applyImmediately,
-            ("rotateMasterUserPassword" Lude..=)
-              Lude.<$> rotateMasterUserPassword,
-            ("disableBackupRetention" Lude..=) Lude.<$> disableBackupRetention,
-            Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName)
-          ]
-      )
-
-instance Lude.ToPath UpdateRelationalDatabase where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateRelationalDatabase where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateRelationalDatabaseResponse' smart constructor.
 data UpdateRelationalDatabaseResponse = UpdateRelationalDatabaseResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateRelationalDatabaseResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateRelationalDatabaseResponse' value with any optional fields omitted.
 mkUpdateRelationalDatabaseResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateRelationalDatabaseResponse
-mkUpdateRelationalDatabaseResponse pResponseStatus_ =
+mkUpdateRelationalDatabaseResponse responseStatus =
   UpdateRelationalDatabaseResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdrsOperations :: Lens.Lens' UpdateRelationalDatabaseResponse (Lude.Maybe [Operation])
-urdrsOperations = Lens.lens (operations :: UpdateRelationalDatabaseResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: UpdateRelationalDatabaseResponse)
-{-# DEPRECATED urdrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+urdrrsOperations :: Lens.Lens' UpdateRelationalDatabaseResponse (Core.Maybe [Types.Operation])
+urdrrsOperations = Lens.field @"operations"
+{-# DEPRECATED urdrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdrsResponseStatus :: Lens.Lens' UpdateRelationalDatabaseResponse Lude.Int
-urdrsResponseStatus = Lens.lens (responseStatus :: UpdateRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRelationalDatabaseResponse)
-{-# DEPRECATED urdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urdrrsResponseStatus :: Lens.Lens' UpdateRelationalDatabaseResponse Core.Int
+urdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

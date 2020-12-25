@@ -28,123 +28,104 @@ module Network.AWS.Pinpoint.GetEndpoint
     mkGetEndpointResponse,
 
     -- ** Response lenses
-    gersEndpointResponse,
-    gersResponseStatus,
+    gerrsEndpointResponse,
+    gerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetEndpoint' smart constructor.
 data GetEndpoint = GetEndpoint'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
+    applicationId :: Core.Text,
     -- | The unique identifier for the endpoint.
-    endpointId :: Lude.Text
+    endpointId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetEndpoint' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'endpointId' - The unique identifier for the endpoint.
+-- | Creates a 'GetEndpoint' value with any optional fields omitted.
 mkGetEndpoint ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'endpointId'
-  Lude.Text ->
+  Core.Text ->
   GetEndpoint
-mkGetEndpoint pApplicationId_ pEndpointId_ =
-  GetEndpoint'
-    { applicationId = pApplicationId_,
-      endpointId = pEndpointId_
-    }
+mkGetEndpoint applicationId endpointId =
+  GetEndpoint' {applicationId, endpointId}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-geApplicationId :: Lens.Lens' GetEndpoint Lude.Text
-geApplicationId = Lens.lens (applicationId :: GetEndpoint -> Lude.Text) (\s a -> s {applicationId = a} :: GetEndpoint)
+geApplicationId :: Lens.Lens' GetEndpoint Core.Text
+geApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED geApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the endpoint.
 --
 -- /Note:/ Consider using 'endpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-geEndpointId :: Lens.Lens' GetEndpoint Lude.Text
-geEndpointId = Lens.lens (endpointId :: GetEndpoint -> Lude.Text) (\s a -> s {endpointId = a} :: GetEndpoint)
+geEndpointId :: Lens.Lens' GetEndpoint Core.Text
+geEndpointId = Lens.field @"endpointId"
 {-# DEPRECATED geEndpointId "Use generic-lens or generic-optics with 'endpointId' instead." #-}
 
-instance Lude.AWSRequest GetEndpoint where
+instance Core.AWSRequest GetEndpoint where
   type Rs GetEndpoint = GetEndpointResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/endpoints/")
+                Core.<> (Core.toText endpointId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetEndpointResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetEndpoint where
-  toPath GetEndpoint' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/endpoints/",
-        Lude.toBS endpointId
-      ]
-
-instance Lude.ToQuery GetEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetEndpointResponse' smart constructor.
 data GetEndpointResponse = GetEndpointResponse'
-  { endpointResponse :: EndpointResponse,
+  { endpointResponse :: Types.EndpointResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetEndpointResponse' with the minimum fields required to make a request.
---
--- * 'endpointResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetEndpointResponse' value with any optional fields omitted.
 mkGetEndpointResponse ::
   -- | 'endpointResponse'
-  EndpointResponse ->
+  Types.EndpointResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetEndpointResponse
-mkGetEndpointResponse pEndpointResponse_ pResponseStatus_ =
-  GetEndpointResponse'
-    { endpointResponse = pEndpointResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkGetEndpointResponse endpointResponse responseStatus =
+  GetEndpointResponse' {endpointResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'endpointResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersEndpointResponse :: Lens.Lens' GetEndpointResponse EndpointResponse
-gersEndpointResponse = Lens.lens (endpointResponse :: GetEndpointResponse -> EndpointResponse) (\s a -> s {endpointResponse = a} :: GetEndpointResponse)
-{-# DEPRECATED gersEndpointResponse "Use generic-lens or generic-optics with 'endpointResponse' instead." #-}
+gerrsEndpointResponse :: Lens.Lens' GetEndpointResponse Types.EndpointResponse
+gerrsEndpointResponse = Lens.field @"endpointResponse"
+{-# DEPRECATED gerrsEndpointResponse "Use generic-lens or generic-optics with 'endpointResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersResponseStatus :: Lens.Lens' GetEndpointResponse Lude.Int
-gersResponseStatus = Lens.lens (responseStatus :: GetEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEndpointResponse)
-{-# DEPRECATED gersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gerrsResponseStatus :: Lens.Lens' GetEndpointResponse Core.Int
+gerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

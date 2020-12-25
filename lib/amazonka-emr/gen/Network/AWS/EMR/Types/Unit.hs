@@ -13,171 +13,173 @@
 module Network.AWS.EMR.Types.Unit
   ( Unit
       ( Unit',
-        None,
-        Seconds,
-        MicroSeconds,
-        MilliSeconds,
-        Bytes,
-        KiloBytes,
-        MegaBytes,
-        GigaBytes,
-        TeraBytes,
-        Bits,
-        KiloBits,
-        MegaBits,
-        GigaBits,
-        TeraBits,
-        Percent,
-        Count,
-        BytesPerSecond,
-        KiloBytesPerSecond,
-        MegaBytesPerSecond,
-        GigaBytesPerSecond,
-        TeraBytesPerSecond,
-        BitsPerSecond,
-        KiloBitsPerSecond,
-        MegaBitsPerSecond,
-        GigaBitsPerSecond,
-        TeraBitsPerSecond,
-        CountPerSecond
+        UnitNone,
+        UnitSeconds,
+        UnitMicroSeconds,
+        UnitMilliSeconds,
+        UnitBytes,
+        UnitKiloBytes,
+        UnitMegaBytes,
+        UnitGigaBytes,
+        UnitTeraBytes,
+        UnitBits,
+        UnitKiloBits,
+        UnitMegaBits,
+        UnitGigaBits,
+        UnitTeraBits,
+        UnitPercent,
+        UnitCount,
+        UnitBytesPerSecond,
+        UnitKiloBytesPerSecond,
+        UnitMegaBytesPerSecond,
+        UnitGigaBytesPerSecond,
+        UnitTeraBytesPerSecond,
+        UnitBitsPerSecond,
+        UnitKiloBitsPerSecond,
+        UnitMegaBitsPerSecond,
+        UnitGigaBitsPerSecond,
+        UnitTeraBitsPerSecond,
+        UnitCountPerSecond,
+        fromUnit
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Unit = Unit' Lude.Text
+newtype Unit = Unit' {fromUnit :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: Unit
-pattern None = Unit' "NONE"
+pattern UnitNone :: Unit
+pattern UnitNone = Unit' "NONE"
 
-pattern Seconds :: Unit
-pattern Seconds = Unit' "SECONDS"
+pattern UnitSeconds :: Unit
+pattern UnitSeconds = Unit' "SECONDS"
 
-pattern MicroSeconds :: Unit
-pattern MicroSeconds = Unit' "MICRO_SECONDS"
+pattern UnitMicroSeconds :: Unit
+pattern UnitMicroSeconds = Unit' "MICRO_SECONDS"
 
-pattern MilliSeconds :: Unit
-pattern MilliSeconds = Unit' "MILLI_SECONDS"
+pattern UnitMilliSeconds :: Unit
+pattern UnitMilliSeconds = Unit' "MILLI_SECONDS"
 
-pattern Bytes :: Unit
-pattern Bytes = Unit' "BYTES"
+pattern UnitBytes :: Unit
+pattern UnitBytes = Unit' "BYTES"
 
-pattern KiloBytes :: Unit
-pattern KiloBytes = Unit' "KILO_BYTES"
+pattern UnitKiloBytes :: Unit
+pattern UnitKiloBytes = Unit' "KILO_BYTES"
 
-pattern MegaBytes :: Unit
-pattern MegaBytes = Unit' "MEGA_BYTES"
+pattern UnitMegaBytes :: Unit
+pattern UnitMegaBytes = Unit' "MEGA_BYTES"
 
-pattern GigaBytes :: Unit
-pattern GigaBytes = Unit' "GIGA_BYTES"
+pattern UnitGigaBytes :: Unit
+pattern UnitGigaBytes = Unit' "GIGA_BYTES"
 
-pattern TeraBytes :: Unit
-pattern TeraBytes = Unit' "TERA_BYTES"
+pattern UnitTeraBytes :: Unit
+pattern UnitTeraBytes = Unit' "TERA_BYTES"
 
-pattern Bits :: Unit
-pattern Bits = Unit' "BITS"
+pattern UnitBits :: Unit
+pattern UnitBits = Unit' "BITS"
 
-pattern KiloBits :: Unit
-pattern KiloBits = Unit' "KILO_BITS"
+pattern UnitKiloBits :: Unit
+pattern UnitKiloBits = Unit' "KILO_BITS"
 
-pattern MegaBits :: Unit
-pattern MegaBits = Unit' "MEGA_BITS"
+pattern UnitMegaBits :: Unit
+pattern UnitMegaBits = Unit' "MEGA_BITS"
 
-pattern GigaBits :: Unit
-pattern GigaBits = Unit' "GIGA_BITS"
+pattern UnitGigaBits :: Unit
+pattern UnitGigaBits = Unit' "GIGA_BITS"
 
-pattern TeraBits :: Unit
-pattern TeraBits = Unit' "TERA_BITS"
+pattern UnitTeraBits :: Unit
+pattern UnitTeraBits = Unit' "TERA_BITS"
 
-pattern Percent :: Unit
-pattern Percent = Unit' "PERCENT"
+pattern UnitPercent :: Unit
+pattern UnitPercent = Unit' "PERCENT"
 
-pattern Count :: Unit
-pattern Count = Unit' "COUNT"
+pattern UnitCount :: Unit
+pattern UnitCount = Unit' "COUNT"
 
-pattern BytesPerSecond :: Unit
-pattern BytesPerSecond = Unit' "BYTES_PER_SECOND"
+pattern UnitBytesPerSecond :: Unit
+pattern UnitBytesPerSecond = Unit' "BYTES_PER_SECOND"
 
-pattern KiloBytesPerSecond :: Unit
-pattern KiloBytesPerSecond = Unit' "KILO_BYTES_PER_SECOND"
+pattern UnitKiloBytesPerSecond :: Unit
+pattern UnitKiloBytesPerSecond = Unit' "KILO_BYTES_PER_SECOND"
 
-pattern MegaBytesPerSecond :: Unit
-pattern MegaBytesPerSecond = Unit' "MEGA_BYTES_PER_SECOND"
+pattern UnitMegaBytesPerSecond :: Unit
+pattern UnitMegaBytesPerSecond = Unit' "MEGA_BYTES_PER_SECOND"
 
-pattern GigaBytesPerSecond :: Unit
-pattern GigaBytesPerSecond = Unit' "GIGA_BYTES_PER_SECOND"
+pattern UnitGigaBytesPerSecond :: Unit
+pattern UnitGigaBytesPerSecond = Unit' "GIGA_BYTES_PER_SECOND"
 
-pattern TeraBytesPerSecond :: Unit
-pattern TeraBytesPerSecond = Unit' "TERA_BYTES_PER_SECOND"
+pattern UnitTeraBytesPerSecond :: Unit
+pattern UnitTeraBytesPerSecond = Unit' "TERA_BYTES_PER_SECOND"
 
-pattern BitsPerSecond :: Unit
-pattern BitsPerSecond = Unit' "BITS_PER_SECOND"
+pattern UnitBitsPerSecond :: Unit
+pattern UnitBitsPerSecond = Unit' "BITS_PER_SECOND"
 
-pattern KiloBitsPerSecond :: Unit
-pattern KiloBitsPerSecond = Unit' "KILO_BITS_PER_SECOND"
+pattern UnitKiloBitsPerSecond :: Unit
+pattern UnitKiloBitsPerSecond = Unit' "KILO_BITS_PER_SECOND"
 
-pattern MegaBitsPerSecond :: Unit
-pattern MegaBitsPerSecond = Unit' "MEGA_BITS_PER_SECOND"
+pattern UnitMegaBitsPerSecond :: Unit
+pattern UnitMegaBitsPerSecond = Unit' "MEGA_BITS_PER_SECOND"
 
-pattern GigaBitsPerSecond :: Unit
-pattern GigaBitsPerSecond = Unit' "GIGA_BITS_PER_SECOND"
+pattern UnitGigaBitsPerSecond :: Unit
+pattern UnitGigaBitsPerSecond = Unit' "GIGA_BITS_PER_SECOND"
 
-pattern TeraBitsPerSecond :: Unit
-pattern TeraBitsPerSecond = Unit' "TERA_BITS_PER_SECOND"
+pattern UnitTeraBitsPerSecond :: Unit
+pattern UnitTeraBitsPerSecond = Unit' "TERA_BITS_PER_SECOND"
 
-pattern CountPerSecond :: Unit
-pattern CountPerSecond = Unit' "COUNT_PER_SECOND"
+pattern UnitCountPerSecond :: Unit
+pattern UnitCountPerSecond = Unit' "COUNT_PER_SECOND"
 
 {-# COMPLETE
-  None,
-  Seconds,
-  MicroSeconds,
-  MilliSeconds,
-  Bytes,
-  KiloBytes,
-  MegaBytes,
-  GigaBytes,
-  TeraBytes,
-  Bits,
-  KiloBits,
-  MegaBits,
-  GigaBits,
-  TeraBits,
-  Percent,
-  Count,
-  BytesPerSecond,
-  KiloBytesPerSecond,
-  MegaBytesPerSecond,
-  GigaBytesPerSecond,
-  TeraBytesPerSecond,
-  BitsPerSecond,
-  KiloBitsPerSecond,
-  MegaBitsPerSecond,
-  GigaBitsPerSecond,
-  TeraBitsPerSecond,
-  CountPerSecond,
+  UnitNone,
+  UnitSeconds,
+  UnitMicroSeconds,
+  UnitMilliSeconds,
+  UnitBytes,
+  UnitKiloBytes,
+  UnitMegaBytes,
+  UnitGigaBytes,
+  UnitTeraBytes,
+  UnitBits,
+  UnitKiloBits,
+  UnitMegaBits,
+  UnitGigaBits,
+  UnitTeraBits,
+  UnitPercent,
+  UnitCount,
+  UnitBytesPerSecond,
+  UnitKiloBytesPerSecond,
+  UnitMegaBytesPerSecond,
+  UnitGigaBytesPerSecond,
+  UnitTeraBytesPerSecond,
+  UnitBitsPerSecond,
+  UnitKiloBitsPerSecond,
+  UnitMegaBitsPerSecond,
+  UnitGigaBitsPerSecond,
+  UnitTeraBitsPerSecond,
+  UnitCountPerSecond,
   Unit'
   #-}

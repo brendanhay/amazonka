@@ -22,37 +22,35 @@ module Network.AWS.S3.Types.RequestPaymentConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Payer
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Payer as Types
 
 -- | Container for Payer.
 --
 -- /See:/ 'mkRequestPaymentConfiguration' smart constructor.
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
   { -- | Specifies who pays for the download and request fees.
-    payer :: Payer
+    payer :: Types.Payer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestPaymentConfiguration' with the minimum fields required to make a request.
---
--- * 'payer' - Specifies who pays for the download and request fees.
+-- | Creates a 'RequestPaymentConfiguration' value with any optional fields omitted.
 mkRequestPaymentConfiguration ::
   -- | 'payer'
-  Payer ->
+  Types.Payer ->
   RequestPaymentConfiguration
-mkRequestPaymentConfiguration pPayer_ =
-  RequestPaymentConfiguration' {payer = pPayer_}
+mkRequestPaymentConfiguration payer =
+  RequestPaymentConfiguration' {payer}
 
 -- | Specifies who pays for the download and request fees.
 --
 -- /Note:/ Consider using 'payer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpcPayer :: Lens.Lens' RequestPaymentConfiguration Payer
-rpcPayer = Lens.lens (payer :: RequestPaymentConfiguration -> Payer) (\s a -> s {payer = a} :: RequestPaymentConfiguration)
+rpcPayer :: Lens.Lens' RequestPaymentConfiguration Types.Payer
+rpcPayer = Lens.field @"payer"
 {-# DEPRECATED rpcPayer "Use generic-lens or generic-optics with 'payer' instead." #-}
 
-instance Lude.ToXML RequestPaymentConfiguration where
-  toXML RequestPaymentConfiguration' {..} =
-    Lude.mconcat ["Payer" Lude.@= payer]
+instance Core.ToXML RequestPaymentConfiguration where
+  toXML RequestPaymentConfiguration {..} =
+    Core.toXMLNode "Payer" payer

@@ -33,8 +33,8 @@ module Network.AWS.WAF.CreateRuleGroup
     mkCreateRuleGroup,
 
     -- ** Request lenses
-    crgMetricName,
     crgName,
+    crgMetricName,
     crgChangeToken,
     crgTags,
 
@@ -43,167 +43,151 @@ module Network.AWS.WAF.CreateRuleGroup
     mkCreateRuleGroupResponse,
 
     -- ** Response lenses
-    crgrsChangeToken,
-    crgrsRuleGroup,
-    crgrsResponseStatus,
+    crgrrsChangeToken,
+    crgrrsRuleGroup,
+    crgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkCreateRuleGroup' smart constructor.
 data CreateRuleGroup = CreateRuleGroup'
-  { -- | A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
-    metricName :: Lude.Text,
-    -- | A friendly name or description of the 'RuleGroup' . You can't change @Name@ after you create a @RuleGroup@ .
-    name :: Lude.Text,
+  { -- | A friendly name or description of the 'RuleGroup' . You can't change @Name@ after you create a @RuleGroup@ .
+    name :: Types.Name,
+    -- | A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
+    metricName :: Types.MetricName,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text,
+    changeToken :: Types.ChangeToken,
     -- |
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRuleGroup' with the minimum fields required to make a request.
---
--- * 'metricName' - A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
--- * 'name' - A friendly name or description of the 'RuleGroup' . You can't change @Name@ after you create a @RuleGroup@ .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
--- * 'tags' -
+-- | Creates a 'CreateRuleGroup' value with any optional fields omitted.
 mkCreateRuleGroup ::
-  -- | 'metricName'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'metricName'
+  Types.MetricName ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   CreateRuleGroup
-mkCreateRuleGroup pMetricName_ pName_ pChangeToken_ =
+mkCreateRuleGroup name metricName changeToken =
   CreateRuleGroup'
-    { metricName = pMetricName_,
-      name = pName_,
-      changeToken = pChangeToken_,
-      tags = Lude.Nothing
+    { name,
+      metricName,
+      changeToken,
+      tags = Core.Nothing
     }
-
--- | A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgMetricName :: Lens.Lens' CreateRuleGroup Lude.Text
-crgMetricName = Lens.lens (metricName :: CreateRuleGroup -> Lude.Text) (\s a -> s {metricName = a} :: CreateRuleGroup)
-{-# DEPRECATED crgMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | A friendly name or description of the 'RuleGroup' . You can't change @Name@ after you create a @RuleGroup@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgName :: Lens.Lens' CreateRuleGroup Lude.Text
-crgName = Lens.lens (name :: CreateRuleGroup -> Lude.Text) (\s a -> s {name = a} :: CreateRuleGroup)
+crgName :: Lens.Lens' CreateRuleGroup Types.Name
+crgName = Lens.field @"name"
 {-# DEPRECATED crgName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crgMetricName :: Lens.Lens' CreateRuleGroup Types.MetricName
+crgMetricName = Lens.field @"metricName"
+{-# DEPRECATED crgMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgChangeToken :: Lens.Lens' CreateRuleGroup Lude.Text
-crgChangeToken = Lens.lens (changeToken :: CreateRuleGroup -> Lude.Text) (\s a -> s {changeToken = a} :: CreateRuleGroup)
+crgChangeToken :: Lens.Lens' CreateRuleGroup Types.ChangeToken
+crgChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED crgChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgTags :: Lens.Lens' CreateRuleGroup (Lude.Maybe (Lude.NonEmpty Tag))
-crgTags = Lens.lens (tags :: CreateRuleGroup -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateRuleGroup)
+crgTags :: Lens.Lens' CreateRuleGroup (Core.Maybe (Core.NonEmpty Types.Tag))
+crgTags = Lens.field @"tags"
 {-# DEPRECATED crgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateRuleGroup where
+instance Core.FromJSON CreateRuleGroup where
+  toJSON CreateRuleGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("MetricName" Core..= metricName),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateRuleGroup where
   type Rs CreateRuleGroup = CreateRuleGroupResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.CreateRuleGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateRuleGroupResponse'
-            Lude.<$> (x Lude..?> "ChangeToken")
-            Lude.<*> (x Lude..?> "RuleGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken")
+            Core.<*> (x Core..:? "RuleGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateRuleGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.CreateRuleGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateRuleGroup where
-  toJSON CreateRuleGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MetricName" Lude..= metricName),
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ChangeToken" Lude..= changeToken),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateRuleGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateRuleGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateRuleGroupResponse' smart constructor.
 data CreateRuleGroupResponse = CreateRuleGroupResponse'
   { -- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | An empty 'RuleGroup' .
-    ruleGroup :: Lude.Maybe RuleGroup,
+    ruleGroup :: Core.Maybe Types.RuleGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRuleGroupResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'ruleGroup' - An empty 'RuleGroup' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateRuleGroupResponse' value with any optional fields omitted.
 mkCreateRuleGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateRuleGroupResponse
-mkCreateRuleGroupResponse pResponseStatus_ =
+mkCreateRuleGroupResponse responseStatus =
   CreateRuleGroupResponse'
-    { changeToken = Lude.Nothing,
-      ruleGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      ruleGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgrsChangeToken :: Lens.Lens' CreateRuleGroupResponse (Lude.Maybe Lude.Text)
-crgrsChangeToken = Lens.lens (changeToken :: CreateRuleGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateRuleGroupResponse)
-{-# DEPRECATED crgrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+crgrrsChangeToken :: Lens.Lens' CreateRuleGroupResponse (Core.Maybe Types.ChangeToken)
+crgrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED crgrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An empty 'RuleGroup' .
 --
 -- /Note:/ Consider using 'ruleGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgrsRuleGroup :: Lens.Lens' CreateRuleGroupResponse (Lude.Maybe RuleGroup)
-crgrsRuleGroup = Lens.lens (ruleGroup :: CreateRuleGroupResponse -> Lude.Maybe RuleGroup) (\s a -> s {ruleGroup = a} :: CreateRuleGroupResponse)
-{-# DEPRECATED crgrsRuleGroup "Use generic-lens or generic-optics with 'ruleGroup' instead." #-}
+crgrrsRuleGroup :: Lens.Lens' CreateRuleGroupResponse (Core.Maybe Types.RuleGroup)
+crgrrsRuleGroup = Lens.field @"ruleGroup"
+{-# DEPRECATED crgrrsRuleGroup "Use generic-lens or generic-optics with 'ruleGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgrsResponseStatus :: Lens.Lens' CreateRuleGroupResponse Lude.Int
-crgrsResponseStatus = Lens.lens (responseStatus :: CreateRuleGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRuleGroupResponse)
-{-# DEPRECATED crgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crgrrsResponseStatus :: Lens.Lens' CreateRuleGroupResponse Core.Int
+crgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

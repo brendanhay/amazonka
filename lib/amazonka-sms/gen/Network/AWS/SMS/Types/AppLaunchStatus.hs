@@ -13,111 +13,116 @@
 module Network.AWS.SMS.Types.AppLaunchStatus
   ( AppLaunchStatus
       ( AppLaunchStatus',
-        ReadyForConfiguration,
-        ConfigurationInProgress,
-        ConfigurationInvalid,
-        ReadyForLaunch,
-        ValidationInProgress,
-        LaunchPending,
-        LaunchInProgress,
-        Launched,
-        PartiallyLaunched,
-        DeltaLaunchInProgress,
-        DeltaLaunchFailed,
-        LaunchFailed,
-        TerminateInProgress,
-        TerminateFailed,
-        Terminated
+        AppLaunchStatusReadyForConfiguration,
+        AppLaunchStatusConfigurationInProgress,
+        AppLaunchStatusConfigurationInvalid,
+        AppLaunchStatusReadyForLaunch,
+        AppLaunchStatusValidationInProgress,
+        AppLaunchStatusLaunchPending,
+        AppLaunchStatusLaunchInProgress,
+        AppLaunchStatusLaunched,
+        AppLaunchStatusPartiallyLaunched,
+        AppLaunchStatusDeltaLaunchInProgress,
+        AppLaunchStatusDeltaLaunchFailed,
+        AppLaunchStatusLaunchFailed,
+        AppLaunchStatusTerminateInProgress,
+        AppLaunchStatusTerminateFailed,
+        AppLaunchStatusTerminated,
+        fromAppLaunchStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AppLaunchStatus = AppLaunchStatus' Lude.Text
+newtype AppLaunchStatus = AppLaunchStatus'
+  { fromAppLaunchStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ReadyForConfiguration :: AppLaunchStatus
-pattern ReadyForConfiguration = AppLaunchStatus' "READY_FOR_CONFIGURATION"
+pattern AppLaunchStatusReadyForConfiguration :: AppLaunchStatus
+pattern AppLaunchStatusReadyForConfiguration = AppLaunchStatus' "READY_FOR_CONFIGURATION"
 
-pattern ConfigurationInProgress :: AppLaunchStatus
-pattern ConfigurationInProgress = AppLaunchStatus' "CONFIGURATION_IN_PROGRESS"
+pattern AppLaunchStatusConfigurationInProgress :: AppLaunchStatus
+pattern AppLaunchStatusConfigurationInProgress = AppLaunchStatus' "CONFIGURATION_IN_PROGRESS"
 
-pattern ConfigurationInvalid :: AppLaunchStatus
-pattern ConfigurationInvalid = AppLaunchStatus' "CONFIGURATION_INVALID"
+pattern AppLaunchStatusConfigurationInvalid :: AppLaunchStatus
+pattern AppLaunchStatusConfigurationInvalid = AppLaunchStatus' "CONFIGURATION_INVALID"
 
-pattern ReadyForLaunch :: AppLaunchStatus
-pattern ReadyForLaunch = AppLaunchStatus' "READY_FOR_LAUNCH"
+pattern AppLaunchStatusReadyForLaunch :: AppLaunchStatus
+pattern AppLaunchStatusReadyForLaunch = AppLaunchStatus' "READY_FOR_LAUNCH"
 
-pattern ValidationInProgress :: AppLaunchStatus
-pattern ValidationInProgress = AppLaunchStatus' "VALIDATION_IN_PROGRESS"
+pattern AppLaunchStatusValidationInProgress :: AppLaunchStatus
+pattern AppLaunchStatusValidationInProgress = AppLaunchStatus' "VALIDATION_IN_PROGRESS"
 
-pattern LaunchPending :: AppLaunchStatus
-pattern LaunchPending = AppLaunchStatus' "LAUNCH_PENDING"
+pattern AppLaunchStatusLaunchPending :: AppLaunchStatus
+pattern AppLaunchStatusLaunchPending = AppLaunchStatus' "LAUNCH_PENDING"
 
-pattern LaunchInProgress :: AppLaunchStatus
-pattern LaunchInProgress = AppLaunchStatus' "LAUNCH_IN_PROGRESS"
+pattern AppLaunchStatusLaunchInProgress :: AppLaunchStatus
+pattern AppLaunchStatusLaunchInProgress = AppLaunchStatus' "LAUNCH_IN_PROGRESS"
 
-pattern Launched :: AppLaunchStatus
-pattern Launched = AppLaunchStatus' "LAUNCHED"
+pattern AppLaunchStatusLaunched :: AppLaunchStatus
+pattern AppLaunchStatusLaunched = AppLaunchStatus' "LAUNCHED"
 
-pattern PartiallyLaunched :: AppLaunchStatus
-pattern PartiallyLaunched = AppLaunchStatus' "PARTIALLY_LAUNCHED"
+pattern AppLaunchStatusPartiallyLaunched :: AppLaunchStatus
+pattern AppLaunchStatusPartiallyLaunched = AppLaunchStatus' "PARTIALLY_LAUNCHED"
 
-pattern DeltaLaunchInProgress :: AppLaunchStatus
-pattern DeltaLaunchInProgress = AppLaunchStatus' "DELTA_LAUNCH_IN_PROGRESS"
+pattern AppLaunchStatusDeltaLaunchInProgress :: AppLaunchStatus
+pattern AppLaunchStatusDeltaLaunchInProgress = AppLaunchStatus' "DELTA_LAUNCH_IN_PROGRESS"
 
-pattern DeltaLaunchFailed :: AppLaunchStatus
-pattern DeltaLaunchFailed = AppLaunchStatus' "DELTA_LAUNCH_FAILED"
+pattern AppLaunchStatusDeltaLaunchFailed :: AppLaunchStatus
+pattern AppLaunchStatusDeltaLaunchFailed = AppLaunchStatus' "DELTA_LAUNCH_FAILED"
 
-pattern LaunchFailed :: AppLaunchStatus
-pattern LaunchFailed = AppLaunchStatus' "LAUNCH_FAILED"
+pattern AppLaunchStatusLaunchFailed :: AppLaunchStatus
+pattern AppLaunchStatusLaunchFailed = AppLaunchStatus' "LAUNCH_FAILED"
 
-pattern TerminateInProgress :: AppLaunchStatus
-pattern TerminateInProgress = AppLaunchStatus' "TERMINATE_IN_PROGRESS"
+pattern AppLaunchStatusTerminateInProgress :: AppLaunchStatus
+pattern AppLaunchStatusTerminateInProgress = AppLaunchStatus' "TERMINATE_IN_PROGRESS"
 
-pattern TerminateFailed :: AppLaunchStatus
-pattern TerminateFailed = AppLaunchStatus' "TERMINATE_FAILED"
+pattern AppLaunchStatusTerminateFailed :: AppLaunchStatus
+pattern AppLaunchStatusTerminateFailed = AppLaunchStatus' "TERMINATE_FAILED"
 
-pattern Terminated :: AppLaunchStatus
-pattern Terminated = AppLaunchStatus' "TERMINATED"
+pattern AppLaunchStatusTerminated :: AppLaunchStatus
+pattern AppLaunchStatusTerminated = AppLaunchStatus' "TERMINATED"
 
 {-# COMPLETE
-  ReadyForConfiguration,
-  ConfigurationInProgress,
-  ConfigurationInvalid,
-  ReadyForLaunch,
-  ValidationInProgress,
-  LaunchPending,
-  LaunchInProgress,
-  Launched,
-  PartiallyLaunched,
-  DeltaLaunchInProgress,
-  DeltaLaunchFailed,
-  LaunchFailed,
-  TerminateInProgress,
-  TerminateFailed,
-  Terminated,
+  AppLaunchStatusReadyForConfiguration,
+  AppLaunchStatusConfigurationInProgress,
+  AppLaunchStatusConfigurationInvalid,
+  AppLaunchStatusReadyForLaunch,
+  AppLaunchStatusValidationInProgress,
+  AppLaunchStatusLaunchPending,
+  AppLaunchStatusLaunchInProgress,
+  AppLaunchStatusLaunched,
+  AppLaunchStatusPartiallyLaunched,
+  AppLaunchStatusDeltaLaunchInProgress,
+  AppLaunchStatusDeltaLaunchFailed,
+  AppLaunchStatusLaunchFailed,
+  AppLaunchStatusTerminateInProgress,
+  AppLaunchStatusTerminateFailed,
+  AppLaunchStatusTerminated,
   AppLaunchStatus'
   #-}

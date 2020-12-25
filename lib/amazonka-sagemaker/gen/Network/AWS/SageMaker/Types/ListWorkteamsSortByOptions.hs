@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.ListWorkteamsSortByOptions
   ( ListWorkteamsSortByOptions
       ( ListWorkteamsSortByOptions',
-        LName,
-        LCreateDate
+        ListWorkteamsSortByOptionsName,
+        ListWorkteamsSortByOptionsCreateDate,
+        fromListWorkteamsSortByOptions
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ListWorkteamsSortByOptions = ListWorkteamsSortByOptions' Lude.Text
+newtype ListWorkteamsSortByOptions = ListWorkteamsSortByOptions'
+  { fromListWorkteamsSortByOptions ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LName :: ListWorkteamsSortByOptions
-pattern LName = ListWorkteamsSortByOptions' "Name"
+pattern ListWorkteamsSortByOptionsName :: ListWorkteamsSortByOptions
+pattern ListWorkteamsSortByOptionsName = ListWorkteamsSortByOptions' "Name"
 
-pattern LCreateDate :: ListWorkteamsSortByOptions
-pattern LCreateDate = ListWorkteamsSortByOptions' "CreateDate"
+pattern ListWorkteamsSortByOptionsCreateDate :: ListWorkteamsSortByOptions
+pattern ListWorkteamsSortByOptionsCreateDate = ListWorkteamsSortByOptions' "CreateDate"
 
 {-# COMPLETE
-  LName,
-  LCreateDate,
+  ListWorkteamsSortByOptionsName,
+  ListWorkteamsSortByOptionsCreateDate,
   ListWorkteamsSortByOptions'
   #-}

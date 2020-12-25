@@ -13,46 +13,48 @@
 module Network.AWS.LexModels.Types.StatusType
   ( StatusType
       ( StatusType',
-        Detected,
-        Missed
+        StatusTypeDetected,
+        StatusTypeMissed,
+        fromStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StatusType = StatusType' Lude.Text
+newtype StatusType = StatusType' {fromStatusType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Detected :: StatusType
-pattern Detected = StatusType' "Detected"
+pattern StatusTypeDetected :: StatusType
+pattern StatusTypeDetected = StatusType' "Detected"
 
-pattern Missed :: StatusType
-pattern Missed = StatusType' "Missed"
+pattern StatusTypeMissed :: StatusType
+pattern StatusTypeMissed = StatusType' "Missed"
 
 {-# COMPLETE
-  Detected,
-  Missed,
+  StatusTypeDetected,
+  StatusTypeMissed,
   StatusType'
   #-}

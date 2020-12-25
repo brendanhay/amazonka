@@ -38,113 +38,111 @@ module Network.AWS.EC2.AttachVolume
     mkAttachVolume,
 
     -- ** Request lenses
-    avInstanceId,
     avDevice,
+    avInstanceId,
     avVolumeId,
     avDryRun,
 
     -- * Destructuring the response
-    VolumeAttachment (..),
-    mkVolumeAttachment,
+    Types.VolumeAttachment (..),
+    Types.mkVolumeAttachment,
 
     -- ** Response lenses
-    vafInstanceId,
-    vafDeleteOnTermination,
-    vafState,
-    vafDevice,
-    vafVolumeId,
-    vafAttachTime,
+    Types.vaAttachTime,
+    Types.vaDeleteOnTermination,
+    Types.vaDevice,
+    Types.vaInstanceId,
+    Types.vaState,
+    Types.vaVolumeId,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAttachVolume' smart constructor.
 data AttachVolume = AttachVolume'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Text,
-    -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
-    device :: Lude.Text,
+  { -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
+    device :: Types.Device,
+    -- | The ID of the instance.
+    instanceId :: Types.InstanceId,
     -- | The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
-    volumeId :: Lude.Text,
+    volumeId :: Types.VolumeId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachVolume' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'device' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
--- * 'volumeId' - The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'AttachVolume' value with any optional fields omitted.
 mkAttachVolume ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'device'
-  Lude.Text ->
+  Types.Device ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   -- | 'volumeId'
-  Lude.Text ->
+  Types.VolumeId ->
   AttachVolume
-mkAttachVolume pInstanceId_ pDevice_ pVolumeId_ =
+mkAttachVolume device instanceId volumeId =
   AttachVolume'
-    { instanceId = pInstanceId_,
-      device = pDevice_,
-      volumeId = pVolumeId_,
-      dryRun = Lude.Nothing
+    { device,
+      instanceId,
+      volumeId,
+      dryRun = Core.Nothing
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avInstanceId :: Lens.Lens' AttachVolume Lude.Text
-avInstanceId = Lens.lens (instanceId :: AttachVolume -> Lude.Text) (\s a -> s {instanceId = a} :: AttachVolume)
-{-# DEPRECATED avInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
 --
 -- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avDevice :: Lens.Lens' AttachVolume Lude.Text
-avDevice = Lens.lens (device :: AttachVolume -> Lude.Text) (\s a -> s {device = a} :: AttachVolume)
+avDevice :: Lens.Lens' AttachVolume Types.Device
+avDevice = Lens.field @"device"
 {-# DEPRECATED avDevice "Use generic-lens or generic-optics with 'device' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avInstanceId :: Lens.Lens' AttachVolume Types.InstanceId
+avInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED avInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avVolumeId :: Lens.Lens' AttachVolume Lude.Text
-avVolumeId = Lens.lens (volumeId :: AttachVolume -> Lude.Text) (\s a -> s {volumeId = a} :: AttachVolume)
+avVolumeId :: Lens.Lens' AttachVolume Types.VolumeId
+avVolumeId = Lens.field @"volumeId"
 {-# DEPRECATED avVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avDryRun :: Lens.Lens' AttachVolume (Lude.Maybe Lude.Bool)
-avDryRun = Lens.lens (dryRun :: AttachVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AttachVolume)
+avDryRun :: Lens.Lens' AttachVolume (Core.Maybe Core.Bool)
+avDryRun = Lens.field @"dryRun"
 {-# DEPRECATED avDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest AttachVolume where
-  type Rs AttachVolume = VolumeAttachment
-  request = Req.postQuery ec2Service
-  response = Res.receiveXML (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders AttachVolume where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AttachVolume where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AttachVolume where
-  toQuery AttachVolume' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AttachVolume" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "Device" Lude.=: device,
-        "VolumeId" Lude.=: volumeId,
-        "DryRun" Lude.=: dryRun
-      ]
+instance Core.AWSRequest AttachVolume where
+  type Rs AttachVolume = Types.VolumeAttachment
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AttachVolume")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Device" device)
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "VolumeId" volumeId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveXML (\s h x -> Core.parseXML x)

@@ -17,15 +17,17 @@ module Network.AWS.Lightsail.Types.MonitoredResourceInfo
     mkMonitoredResourceInfo,
 
     -- * Lenses
-    mriResourceType,
     mriArn,
     mriName,
+    mriResourceType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ResourceType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.ResourceArn as Types
+import qualified Network.AWS.Lightsail.Types.ResourceName as Types
+import qualified Network.AWS.Lightsail.Types.ResourceType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes resource being monitored by an alarm.
 --
@@ -33,64 +35,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMonitoredResourceInfo' smart constructor.
 data MonitoredResourceInfo = MonitoredResourceInfo'
-  { -- | The Lightsail resource type of the resource being monitored.
+  { -- | The Amazon Resource Name (ARN) of the resource being monitored.
+    arn :: Core.Maybe Types.ResourceArn,
+    -- | The name of the Lightsail resource being monitored.
+    name :: Core.Maybe Types.ResourceName,
+    -- | The Lightsail resource type of the resource being monitored.
     --
     -- Instances, load balancers, and relational databases are the only Lightsail resources that can currently be monitored by alarms.
-    resourceType :: Lude.Maybe ResourceType,
-    -- | The Amazon Resource Name (ARN) of the resource being monitored.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the Lightsail resource being monitored.
-    name :: Lude.Maybe Lude.Text
+    resourceType :: Core.Maybe Types.ResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonitoredResourceInfo' with the minimum fields required to make a request.
---
--- * 'resourceType' - The Lightsail resource type of the resource being monitored.
---
--- Instances, load balancers, and relational databases are the only Lightsail resources that can currently be monitored by alarms.
--- * 'arn' - The Amazon Resource Name (ARN) of the resource being monitored.
--- * 'name' - The name of the Lightsail resource being monitored.
+-- | Creates a 'MonitoredResourceInfo' value with any optional fields omitted.
 mkMonitoredResourceInfo ::
   MonitoredResourceInfo
 mkMonitoredResourceInfo =
   MonitoredResourceInfo'
-    { resourceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      resourceType = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the resource being monitored.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mriArn :: Lens.Lens' MonitoredResourceInfo (Core.Maybe Types.ResourceArn)
+mriArn = Lens.field @"arn"
+{-# DEPRECATED mriArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The name of the Lightsail resource being monitored.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mriName :: Lens.Lens' MonitoredResourceInfo (Core.Maybe Types.ResourceName)
+mriName = Lens.field @"name"
+{-# DEPRECATED mriName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The Lightsail resource type of the resource being monitored.
 --
 -- Instances, load balancers, and relational databases are the only Lightsail resources that can currently be monitored by alarms.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mriResourceType :: Lens.Lens' MonitoredResourceInfo (Lude.Maybe ResourceType)
-mriResourceType = Lens.lens (resourceType :: MonitoredResourceInfo -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: MonitoredResourceInfo)
+mriResourceType :: Lens.Lens' MonitoredResourceInfo (Core.Maybe Types.ResourceType)
+mriResourceType = Lens.field @"resourceType"
 {-# DEPRECATED mriResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the resource being monitored.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mriArn :: Lens.Lens' MonitoredResourceInfo (Lude.Maybe Lude.Text)
-mriArn = Lens.lens (arn :: MonitoredResourceInfo -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: MonitoredResourceInfo)
-{-# DEPRECATED mriArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the Lightsail resource being monitored.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mriName :: Lens.Lens' MonitoredResourceInfo (Lude.Maybe Lude.Text)
-mriName = Lens.lens (name :: MonitoredResourceInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MonitoredResourceInfo)
-{-# DEPRECATED mriName "Use generic-lens or generic-optics with 'name' instead." #-}
-
-instance Lude.FromJSON MonitoredResourceInfo where
+instance Core.FromJSON MonitoredResourceInfo where
   parseJSON =
-    Lude.withObject
-      "MonitoredResourceInfo"
-      ( \x ->
-          MonitoredResourceInfo'
-            Lude.<$> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "name")
-      )
+    Core.withObject "MonitoredResourceInfo" Core.$
+      \x ->
+        MonitoredResourceInfo'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "resourceType")

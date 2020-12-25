@@ -17,74 +17,69 @@ module Network.AWS.Discovery.Types.ExportFilter
     mkExportFilter,
 
     -- * Lenses
-    efValues,
     efName,
+    efValues,
     efCondition,
   )
 where
 
+import qualified Network.AWS.Discovery.Types.Condition as Types
+import qualified Network.AWS.Discovery.Types.FilterName as Types
+import qualified Network.AWS.Discovery.Types.FilterValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Used to select which agent's data is to be exported. A single agent ID may be selected for export using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html StartExportTask> action.
 --
 -- /See:/ 'mkExportFilter' smart constructor.
 data ExportFilter = ExportFilter'
-  { -- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
-    values :: [Lude.Text],
-    -- | A single @ExportFilter@ name. Supported filters: @agentId@ .
-    name :: Lude.Text,
+  { -- | A single @ExportFilter@ name. Supported filters: @agentId@ .
+    name :: Types.FilterName,
+    -- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
+    values :: [Types.FilterValue],
     -- | Supported condition: @EQUALS@
-    condition :: Lude.Text
+    condition :: Types.Condition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportFilter' with the minimum fields required to make a request.
---
--- * 'values' - A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
--- * 'name' - A single @ExportFilter@ name. Supported filters: @agentId@ .
--- * 'condition' - Supported condition: @EQUALS@
+-- | Creates a 'ExportFilter' value with any optional fields omitted.
 mkExportFilter ::
   -- | 'name'
-  Lude.Text ->
+  Types.FilterName ->
   -- | 'condition'
-  Lude.Text ->
+  Types.Condition ->
   ExportFilter
-mkExportFilter pName_ pCondition_ =
-  ExportFilter'
-    { values = Lude.mempty,
-      name = pName_,
-      condition = pCondition_
-    }
-
--- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efValues :: Lens.Lens' ExportFilter [Lude.Text]
-efValues = Lens.lens (values :: ExportFilter -> [Lude.Text]) (\s a -> s {values = a} :: ExportFilter)
-{-# DEPRECATED efValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkExportFilter name condition =
+  ExportFilter' {name, values = Core.mempty, condition}
 
 -- | A single @ExportFilter@ name. Supported filters: @agentId@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efName :: Lens.Lens' ExportFilter Lude.Text
-efName = Lens.lens (name :: ExportFilter -> Lude.Text) (\s a -> s {name = a} :: ExportFilter)
+efName :: Lens.Lens' ExportFilter Types.FilterName
+efName = Lens.field @"name"
 {-# DEPRECATED efName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found using the <http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html DescribeAgents> action. Typically an ADS @agentId@ is in the form @o-0123456789abcdef0@ .
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efValues :: Lens.Lens' ExportFilter [Types.FilterValue]
+efValues = Lens.field @"values"
+{-# DEPRECATED efValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | Supported condition: @EQUALS@
 --
 -- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efCondition :: Lens.Lens' ExportFilter Lude.Text
-efCondition = Lens.lens (condition :: ExportFilter -> Lude.Text) (\s a -> s {condition = a} :: ExportFilter)
+efCondition :: Lens.Lens' ExportFilter Types.Condition
+efCondition = Lens.field @"condition"
 {-# DEPRECATED efCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance Lude.ToJSON ExportFilter where
-  toJSON ExportFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("values" Lude..= values),
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("condition" Lude..= condition)
+instance Core.FromJSON ExportFilter where
+  toJSON ExportFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("values" Core..= values),
+            Core.Just ("condition" Core..= condition)
           ]
       )

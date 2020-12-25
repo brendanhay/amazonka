@@ -29,130 +29,122 @@ module Network.AWS.EMR.ListSecurityConfigurations
     mkListSecurityConfigurationsResponse,
 
     -- ** Response lenses
-    lscrsSecurityConfigurations,
-    lscrsMarker,
-    lscrsResponseStatus,
+    lscrrsMarker,
+    lscrrsSecurityConfigurations,
+    lscrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSecurityConfigurations' smart constructor.
 newtype ListSecurityConfigurations = ListSecurityConfigurations'
   { -- | The pagination token that indicates the set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSecurityConfigurations' with the minimum fields required to make a request.
---
--- * 'marker' - The pagination token that indicates the set of results to retrieve.
+-- | Creates a 'ListSecurityConfigurations' value with any optional fields omitted.
 mkListSecurityConfigurations ::
   ListSecurityConfigurations
 mkListSecurityConfigurations =
-  ListSecurityConfigurations' {marker = Lude.Nothing}
+  ListSecurityConfigurations' {marker = Core.Nothing}
 
 -- | The pagination token that indicates the set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lscMarker :: Lens.Lens' ListSecurityConfigurations (Lude.Maybe Lude.Text)
-lscMarker = Lens.lens (marker :: ListSecurityConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSecurityConfigurations)
+lscMarker :: Lens.Lens' ListSecurityConfigurations (Core.Maybe Types.Marker)
+lscMarker = Lens.field @"marker"
 {-# DEPRECATED lscMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Page.AWSPager ListSecurityConfigurations where
-  page rq rs
-    | Page.stop (rs Lens.^. lscrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lscrsSecurityConfigurations) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lscMarker Lens..~ rs Lens.^. lscrsMarker
+instance Core.FromJSON ListSecurityConfigurations where
+  toJSON ListSecurityConfigurations {..} =
+    Core.object (Core.catMaybes [("Marker" Core..=) Core.<$> marker])
 
-instance Lude.AWSRequest ListSecurityConfigurations where
+instance Core.AWSRequest ListSecurityConfigurations where
   type
     Rs ListSecurityConfigurations =
       ListSecurityConfigurationsResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.ListSecurityConfigurations")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListSecurityConfigurationsResponse'
-            Lude.<$> (x Lude..?> "SecurityConfigurations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "SecurityConfigurations")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSecurityConfigurations where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ListSecurityConfigurations" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSecurityConfigurations where
-  toJSON ListSecurityConfigurations' {..} =
-    Lude.object (Lude.catMaybes [("Marker" Lude..=) Lude.<$> marker])
-
-instance Lude.ToPath ListSecurityConfigurations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSecurityConfigurations where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListSecurityConfigurations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"securityConfigurations" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkListSecurityConfigurationsResponse' smart constructor.
 data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
-  { -- | The creation date and time, and name, of each security configuration.
-    securityConfigurations :: Lude.Maybe [SecurityConfigurationSummary],
-    -- | A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.
+    marker :: Core.Maybe Types.Marker,
+    -- | The creation date and time, and name, of each security configuration.
+    securityConfigurations :: Core.Maybe [Types.SecurityConfigurationSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListSecurityConfigurationsResponse' with the minimum fields required to make a request.
---
--- * 'securityConfigurations' - The creation date and time, and name, of each security configuration.
--- * 'marker' - A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSecurityConfigurationsResponse' value with any optional fields omitted.
 mkListSecurityConfigurationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSecurityConfigurationsResponse
-mkListSecurityConfigurationsResponse pResponseStatus_ =
+mkListSecurityConfigurationsResponse responseStatus =
   ListSecurityConfigurationsResponse'
-    { securityConfigurations =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      securityConfigurations = Core.Nothing,
+      responseStatus
     }
-
--- | The creation date and time, and name, of each security configuration.
---
--- /Note:/ Consider using 'securityConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lscrsSecurityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Lude.Maybe [SecurityConfigurationSummary])
-lscrsSecurityConfigurations = Lens.lens (securityConfigurations :: ListSecurityConfigurationsResponse -> Lude.Maybe [SecurityConfigurationSummary]) (\s a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse)
-{-# DEPRECATED lscrsSecurityConfigurations "Use generic-lens or generic-optics with 'securityConfigurations' instead." #-}
 
 -- | A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lscrsMarker :: Lens.Lens' ListSecurityConfigurationsResponse (Lude.Maybe Lude.Text)
-lscrsMarker = Lens.lens (marker :: ListSecurityConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSecurityConfigurationsResponse)
-{-# DEPRECATED lscrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lscrrsMarker :: Lens.Lens' ListSecurityConfigurationsResponse (Core.Maybe Types.Marker)
+lscrrsMarker = Lens.field @"marker"
+{-# DEPRECATED lscrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The creation date and time, and name, of each security configuration.
+--
+-- /Note:/ Consider using 'securityConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lscrrsSecurityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Core.Maybe [Types.SecurityConfigurationSummary])
+lscrrsSecurityConfigurations = Lens.field @"securityConfigurations"
+{-# DEPRECATED lscrrsSecurityConfigurations "Use generic-lens or generic-optics with 'securityConfigurations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lscrsResponseStatus :: Lens.Lens' ListSecurityConfigurationsResponse Lude.Int
-lscrsResponseStatus = Lens.lens (responseStatus :: ListSecurityConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSecurityConfigurationsResponse)
-{-# DEPRECATED lscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lscrrsResponseStatus :: Lens.Lens' ListSecurityConfigurationsResponse Core.Int
+lscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

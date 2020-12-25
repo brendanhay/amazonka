@@ -32,62 +32,54 @@ module Network.AWS.LexModels.DeleteSlotType
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSlotType' smart constructor.
 newtype DeleteSlotType = DeleteSlotType'
   { -- | The name of the slot type. The name is case sensitive.
-    name :: Lude.Text
+    name :: Types.SlotTypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSlotType' with the minimum fields required to make a request.
---
--- * 'name' - The name of the slot type. The name is case sensitive.
+-- | Creates a 'DeleteSlotType' value with any optional fields omitted.
 mkDeleteSlotType ::
   -- | 'name'
-  Lude.Text ->
+  Types.SlotTypeName ->
   DeleteSlotType
-mkDeleteSlotType pName_ = DeleteSlotType' {name = pName_}
+mkDeleteSlotType name = DeleteSlotType' {name}
 
 -- | The name of the slot type. The name is case sensitive.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dstName :: Lens.Lens' DeleteSlotType Lude.Text
-dstName = Lens.lens (name :: DeleteSlotType -> Lude.Text) (\s a -> s {name = a} :: DeleteSlotType)
+dstName :: Lens.Lens' DeleteSlotType Types.SlotTypeName
+dstName = Lens.field @"name"
 {-# DEPRECATED dstName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteSlotType where
+instance Core.AWSRequest DeleteSlotType where
   type Rs DeleteSlotType = DeleteSlotTypeResponse
-  request = Req.delete lexModelsService
-  response = Res.receiveNull DeleteSlotTypeResponse'
-
-instance Lude.ToHeaders DeleteSlotType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteSlotType where
-  toPath DeleteSlotType' {..} =
-    Lude.mconcat ["/slottypes/", Lude.toBS name]
-
-instance Lude.ToQuery DeleteSlotType where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/slottypes/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteSlotTypeResponse'
 
 -- | /See:/ 'mkDeleteSlotTypeResponse' smart constructor.
 data DeleteSlotTypeResponse = DeleteSlotTypeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSlotTypeResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteSlotTypeResponse' value with any optional fields omitted.
 mkDeleteSlotTypeResponse ::
   DeleteSlotTypeResponse
 mkDeleteSlotTypeResponse = DeleteSlotTypeResponse'

@@ -17,13 +17,15 @@ module Network.AWS.KMS.Types.Tag
     mkTag,
 
     -- * Lenses
-    tTagValue,
     tTagKey,
+    tTagValue,
   )
 where
 
+import qualified Network.AWS.KMS.Types.TagKey as Types
+import qualified Network.AWS.KMS.Types.TagValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
 --
@@ -31,54 +33,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | The value of the tag.
-    tagValue :: Lude.Text,
-    -- | The key of the tag.
-    tagKey :: Lude.Text
+  { -- | The key of the tag.
+    tagKey :: Types.TagKey,
+    -- | The value of the tag.
+    tagValue :: Types.TagValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'tagValue' - The value of the tag.
--- * 'tagKey' - The key of the tag.
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
-  -- | 'tagValue'
-  Lude.Text ->
   -- | 'tagKey'
-  Lude.Text ->
+  Types.TagKey ->
+  -- | 'tagValue'
+  Types.TagValue ->
   Tag
-mkTag pTagValue_ pTagKey_ =
-  Tag' {tagValue = pTagValue_, tagKey = pTagKey_}
-
--- | The value of the tag.
---
--- /Note:/ Consider using 'tagValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTagValue :: Lens.Lens' Tag Lude.Text
-tTagValue = Lens.lens (tagValue :: Tag -> Lude.Text) (\s a -> s {tagValue = a} :: Tag)
-{-# DEPRECATED tTagValue "Use generic-lens or generic-optics with 'tagValue' instead." #-}
+mkTag tagKey tagValue = Tag' {tagKey, tagValue}
 
 -- | The key of the tag.
 --
 -- /Note:/ Consider using 'tagKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTagKey :: Lens.Lens' Tag Lude.Text
-tTagKey = Lens.lens (tagKey :: Tag -> Lude.Text) (\s a -> s {tagKey = a} :: Tag)
+tTagKey :: Lens.Lens' Tag Types.TagKey
+tTagKey = Lens.field @"tagKey"
 {-# DEPRECATED tTagKey "Use generic-lens or generic-optics with 'tagKey' instead." #-}
 
-instance Lude.FromJSON Tag where
-  parseJSON =
-    Lude.withObject
-      "Tag"
-      ( \x ->
-          Tag' Lude.<$> (x Lude..: "TagValue") Lude.<*> (x Lude..: "TagKey")
-      )
+-- | The value of the tag.
+--
+-- /Note:/ Consider using 'tagValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTagValue :: Lens.Lens' Tag Types.TagValue
+tTagValue = Lens.field @"tagValue"
+{-# DEPRECATED tTagValue "Use generic-lens or generic-optics with 'tagValue' instead." #-}
 
-instance Lude.ToJSON Tag where
-  toJSON Tag' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TagValue" Lude..= tagValue),
-            Lude.Just ("TagKey" Lude..= tagKey)
+instance Core.FromJSON Tag where
+  toJSON Tag {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TagKey" Core..= tagKey),
+            Core.Just ("TagValue" Core..= tagValue)
           ]
       )
+
+instance Core.FromJSON Tag where
+  parseJSON =
+    Core.withObject "Tag" Core.$
+      \x ->
+        Tag' Core.<$> (x Core..: "TagKey") Core.<*> (x Core..: "TagValue")

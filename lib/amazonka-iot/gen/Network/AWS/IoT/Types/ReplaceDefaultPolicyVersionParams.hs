@@ -21,47 +21,43 @@ module Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams
   )
 where
 
-import Network.AWS.IoT.Types.PolicyTemplateName
+import qualified Network.AWS.IoT.Types.PolicyTemplateName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 --
 -- /See:/ 'mkReplaceDefaultPolicyVersionParams' smart constructor.
 newtype ReplaceDefaultPolicyVersionParams = ReplaceDefaultPolicyVersionParams'
   { -- | The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
-    templateName :: PolicyTemplateName
+    templateName :: Types.PolicyTemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceDefaultPolicyVersionParams' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
+-- | Creates a 'ReplaceDefaultPolicyVersionParams' value with any optional fields omitted.
 mkReplaceDefaultPolicyVersionParams ::
   -- | 'templateName'
-  PolicyTemplateName ->
+  Types.PolicyTemplateName ->
   ReplaceDefaultPolicyVersionParams
-mkReplaceDefaultPolicyVersionParams pTemplateName_ =
-  ReplaceDefaultPolicyVersionParams' {templateName = pTemplateName_}
+mkReplaceDefaultPolicyVersionParams templateName =
+  ReplaceDefaultPolicyVersionParams' {templateName}
 
 -- | The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdpvpTemplateName :: Lens.Lens' ReplaceDefaultPolicyVersionParams PolicyTemplateName
-rdpvpTemplateName = Lens.lens (templateName :: ReplaceDefaultPolicyVersionParams -> PolicyTemplateName) (\s a -> s {templateName = a} :: ReplaceDefaultPolicyVersionParams)
+rdpvpTemplateName :: Lens.Lens' ReplaceDefaultPolicyVersionParams Types.PolicyTemplateName
+rdpvpTemplateName = Lens.field @"templateName"
 {-# DEPRECATED rdpvpTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance Lude.FromJSON ReplaceDefaultPolicyVersionParams where
-  parseJSON =
-    Lude.withObject
-      "ReplaceDefaultPolicyVersionParams"
-      ( \x ->
-          ReplaceDefaultPolicyVersionParams'
-            Lude.<$> (x Lude..: "templateName")
-      )
+instance Core.FromJSON ReplaceDefaultPolicyVersionParams where
+  toJSON ReplaceDefaultPolicyVersionParams {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("templateName" Core..= templateName)])
 
-instance Lude.ToJSON ReplaceDefaultPolicyVersionParams where
-  toJSON ReplaceDefaultPolicyVersionParams' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("templateName" Lude..= templateName)])
+instance Core.FromJSON ReplaceDefaultPolicyVersionParams where
+  parseJSON =
+    Core.withObject "ReplaceDefaultPolicyVersionParams" Core.$
+      \x ->
+        ReplaceDefaultPolicyVersionParams'
+          Core.<$> (x Core..: "templateName")

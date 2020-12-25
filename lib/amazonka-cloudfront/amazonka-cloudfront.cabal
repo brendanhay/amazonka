@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudFront
     Network.AWS.CloudFront.CreateCachePolicy
@@ -151,6 +157,8 @@ library
     Network.AWS.CloudFront.Types.Aliases
     Network.AWS.CloudFront.Types.AliasICPRecordal
     Network.AWS.CloudFront.Types.AllowedMethods
+    Network.AWS.CloudFront.Types.ARN
+    Network.AWS.CloudFront.Types.AwsAccountNumber
     Network.AWS.CloudFront.Types.CacheBehavior
     Network.AWS.CloudFront.Types.CacheBehaviors
     Network.AWS.CloudFront.Types.CachedMethods
@@ -165,11 +173,15 @@ library
     Network.AWS.CloudFront.Types.CachePolicyQueryStringsConfig
     Network.AWS.CloudFront.Types.CachePolicySummary
     Network.AWS.CloudFront.Types.CachePolicyType
+    Network.AWS.CloudFront.Types.CallerReference
     Network.AWS.CloudFront.Types.CertificateSource
     Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentity
     Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityConfig
     Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityList
     Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentitySummary
+    Network.AWS.CloudFront.Types.CNAME
+    Network.AWS.CloudFront.Types.Comment
+    Network.AWS.CloudFront.Types.ContentType
     Network.AWS.CloudFront.Types.ContentTypeProfile
     Network.AWS.CloudFront.Types.ContentTypeProfileConfig
     Network.AWS.CloudFront.Types.ContentTypeProfiles
@@ -183,12 +195,15 @@ library
     Network.AWS.CloudFront.Types.Distribution
     Network.AWS.CloudFront.Types.DistributionConfig
     Network.AWS.CloudFront.Types.DistributionConfigWithTags
+    Network.AWS.CloudFront.Types.DistributionId
     Network.AWS.CloudFront.Types.DistributionIdList
     Network.AWS.CloudFront.Types.DistributionList
     Network.AWS.CloudFront.Types.DistributionSummary
+    Network.AWS.CloudFront.Types.DomainName
     Network.AWS.CloudFront.Types.EncryptionEntities
     Network.AWS.CloudFront.Types.EncryptionEntity
     Network.AWS.CloudFront.Types.EndPoint
+    Network.AWS.CloudFront.Types.ETag
     Network.AWS.CloudFront.Types.EventType
     Network.AWS.CloudFront.Types.FieldLevelEncryption
     Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig
@@ -204,13 +219,16 @@ library
     Network.AWS.CloudFront.Types.GeoRestriction
     Network.AWS.CloudFront.Types.GeoRestrictionType
     Network.AWS.CloudFront.Types.Headers
-    Network.AWS.CloudFront.Types.HTTPVersion
+    Network.AWS.CloudFront.Types.HttpVersion
     Network.AWS.CloudFront.Types.ICPRecordalStatus
+    Network.AWS.CloudFront.Types.Id
+    Network.AWS.CloudFront.Types.IfMatch
     Network.AWS.CloudFront.Types.Invalidation
     Network.AWS.CloudFront.Types.InvalidationBatch
     Network.AWS.CloudFront.Types.InvalidationList
     Network.AWS.CloudFront.Types.InvalidationSummary
     Network.AWS.CloudFront.Types.ItemSelection
+    Network.AWS.CloudFront.Types.Key
     Network.AWS.CloudFront.Types.KeyGroup
     Network.AWS.CloudFront.Types.KeyGroupConfig
     Network.AWS.CloudFront.Types.KeyGroupList
@@ -218,12 +236,17 @@ library
     Network.AWS.CloudFront.Types.KeyPairIds
     Network.AWS.CloudFront.Types.KGKeyPairIds
     Network.AWS.CloudFront.Types.KinesisStreamConfig
+    Network.AWS.CloudFront.Types.LambdaFunctionARN
     Network.AWS.CloudFront.Types.LambdaFunctionAssociation
     Network.AWS.CloudFront.Types.LambdaFunctionAssociations
+    Network.AWS.CloudFront.Types.Location
     Network.AWS.CloudFront.Types.LoggingConfig
+    Network.AWS.CloudFront.Types.Marker
     Network.AWS.CloudFront.Types.Method
     Network.AWS.CloudFront.Types.MinimumProtocolVersion
     Network.AWS.CloudFront.Types.MonitoringSubscription
+    Network.AWS.CloudFront.Types.Name
+    Network.AWS.CloudFront.Types.NextMarker
     Network.AWS.CloudFront.Types.Origin
     Network.AWS.CloudFront.Types.OriginCustomHeader
     Network.AWS.CloudFront.Types.OriginGroup
@@ -231,6 +254,7 @@ library
     Network.AWS.CloudFront.Types.OriginGroupMember
     Network.AWS.CloudFront.Types.OriginGroupMembers
     Network.AWS.CloudFront.Types.OriginGroups
+    Network.AWS.CloudFront.Types.OriginPath
     Network.AWS.CloudFront.Types.OriginProtocolPolicy
     Network.AWS.CloudFront.Types.OriginRequestPolicy
     Network.AWS.CloudFront.Types.OriginRequestPolicyConfig
@@ -245,12 +269,16 @@ library
     Network.AWS.CloudFront.Types.OriginRequestPolicyType
     Network.AWS.CloudFront.Types.Origins
     Network.AWS.CloudFront.Types.OriginShield
-    Network.AWS.CloudFront.Types.OriginSSLProtocols
+    Network.AWS.CloudFront.Types.OriginShieldRegion
+    Network.AWS.CloudFront.Types.OriginSslProtocols
     Network.AWS.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin
     Network.AWS.CloudFront.Types.Paths
     Network.AWS.CloudFront.Types.PriceClass
+    Network.AWS.CloudFront.Types.ProfileId
+    Network.AWS.CloudFront.Types.ProviderId
     Network.AWS.CloudFront.Types.PublicKey
     Network.AWS.CloudFront.Types.PublicKeyConfig
+    Network.AWS.CloudFront.Types.PublicKeyId
     Network.AWS.CloudFront.Types.PublicKeyList
     Network.AWS.CloudFront.Types.PublicKeySummary
     Network.AWS.CloudFront.Types.QueryArgProfile
@@ -262,12 +290,16 @@ library
     Network.AWS.CloudFront.Types.RealtimeLogConfigs
     Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig
     Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus
+    Network.AWS.CloudFront.Types.Resource
+    Network.AWS.CloudFront.Types.ResourceARN
     Network.AWS.CloudFront.Types.Restrictions
+    Network.AWS.CloudFront.Types.S3CanonicalUserId
     Network.AWS.CloudFront.Types.S3Origin
     Network.AWS.CloudFront.Types.S3OriginConfig
     Network.AWS.CloudFront.Types.Signer
-    Network.AWS.CloudFront.Types.SSLProtocol
+    Network.AWS.CloudFront.Types.SslProtocol
     Network.AWS.CloudFront.Types.SSLSupportMethod
+    Network.AWS.CloudFront.Types.Status
     Network.AWS.CloudFront.Types.StatusCodes
     Network.AWS.CloudFront.Types.StreamingDistribution
     Network.AWS.CloudFront.Types.StreamingDistributionConfig
@@ -275,11 +307,14 @@ library
     Network.AWS.CloudFront.Types.StreamingDistributionList
     Network.AWS.CloudFront.Types.StreamingDistributionSummary
     Network.AWS.CloudFront.Types.StreamingLoggingConfig
+    Network.AWS.CloudFront.Types.String
     Network.AWS.CloudFront.Types.Tag
+    Network.AWS.CloudFront.Types.TagKey
     Network.AWS.CloudFront.Types.TagKeys
     Network.AWS.CloudFront.Types.Tags
     Network.AWS.CloudFront.Types.TrustedKeyGroups
     Network.AWS.CloudFront.Types.TrustedSigners
+    Network.AWS.CloudFront.Types.Value
     Network.AWS.CloudFront.Types.ViewerCertificate
     Network.AWS.CloudFront.Types.ViewerProtocolPolicy
 

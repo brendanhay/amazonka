@@ -22,53 +22,49 @@ module Network.AWS.CloudWatchLogs.Types.SearchedLogStream
   )
 where
 
+import qualified Network.AWS.CloudWatchLogs.Types.LogStreamName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the search status of a log stream.
 --
 -- /See:/ 'mkSearchedLogStream' smart constructor.
 data SearchedLogStream = SearchedLogStream'
   { -- | The name of the log stream.
-    logStreamName :: Lude.Maybe Lude.Text,
+    logStreamName :: Core.Maybe Types.LogStreamName,
     -- | Indicates whether all the events in this log stream were searched.
-    searchedCompletely :: Lude.Maybe Lude.Bool
+    searchedCompletely :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchedLogStream' with the minimum fields required to make a request.
---
--- * 'logStreamName' - The name of the log stream.
--- * 'searchedCompletely' - Indicates whether all the events in this log stream were searched.
+-- | Creates a 'SearchedLogStream' value with any optional fields omitted.
 mkSearchedLogStream ::
   SearchedLogStream
 mkSearchedLogStream =
   SearchedLogStream'
-    { logStreamName = Lude.Nothing,
-      searchedCompletely = Lude.Nothing
+    { logStreamName = Core.Nothing,
+      searchedCompletely = Core.Nothing
     }
 
 -- | The name of the log stream.
 --
 -- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slsLogStreamName :: Lens.Lens' SearchedLogStream (Lude.Maybe Lude.Text)
-slsLogStreamName = Lens.lens (logStreamName :: SearchedLogStream -> Lude.Maybe Lude.Text) (\s a -> s {logStreamName = a} :: SearchedLogStream)
+slsLogStreamName :: Lens.Lens' SearchedLogStream (Core.Maybe Types.LogStreamName)
+slsLogStreamName = Lens.field @"logStreamName"
 {-# DEPRECATED slsLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
 -- | Indicates whether all the events in this log stream were searched.
 --
 -- /Note:/ Consider using 'searchedCompletely' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slsSearchedCompletely :: Lens.Lens' SearchedLogStream (Lude.Maybe Lude.Bool)
-slsSearchedCompletely = Lens.lens (searchedCompletely :: SearchedLogStream -> Lude.Maybe Lude.Bool) (\s a -> s {searchedCompletely = a} :: SearchedLogStream)
+slsSearchedCompletely :: Lens.Lens' SearchedLogStream (Core.Maybe Core.Bool)
+slsSearchedCompletely = Lens.field @"searchedCompletely"
 {-# DEPRECATED slsSearchedCompletely "Use generic-lens or generic-optics with 'searchedCompletely' instead." #-}
 
-instance Lude.FromJSON SearchedLogStream where
+instance Core.FromJSON SearchedLogStream where
   parseJSON =
-    Lude.withObject
-      "SearchedLogStream"
-      ( \x ->
-          SearchedLogStream'
-            Lude.<$> (x Lude..:? "logStreamName")
-            Lude.<*> (x Lude..:? "searchedCompletely")
-      )
+    Core.withObject "SearchedLogStream" Core.$
+      \x ->
+        SearchedLogStream'
+          Core.<$> (x Core..:? "logStreamName")
+          Core.<*> (x Core..:? "searchedCompletely")

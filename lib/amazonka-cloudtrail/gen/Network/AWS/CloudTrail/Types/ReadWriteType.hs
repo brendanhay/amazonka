@@ -13,51 +13,56 @@
 module Network.AWS.CloudTrail.Types.ReadWriteType
   ( ReadWriteType
       ( ReadWriteType',
-        RWTReadOnly,
-        RWTWriteOnly,
-        RWTAll
+        ReadWriteTypeReadOnly,
+        ReadWriteTypeWriteOnly,
+        ReadWriteTypeAll,
+        fromReadWriteType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReadWriteType = ReadWriteType' Lude.Text
+newtype ReadWriteType = ReadWriteType'
+  { fromReadWriteType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RWTReadOnly :: ReadWriteType
-pattern RWTReadOnly = ReadWriteType' "ReadOnly"
+pattern ReadWriteTypeReadOnly :: ReadWriteType
+pattern ReadWriteTypeReadOnly = ReadWriteType' "ReadOnly"
 
-pattern RWTWriteOnly :: ReadWriteType
-pattern RWTWriteOnly = ReadWriteType' "WriteOnly"
+pattern ReadWriteTypeWriteOnly :: ReadWriteType
+pattern ReadWriteTypeWriteOnly = ReadWriteType' "WriteOnly"
 
-pattern RWTAll :: ReadWriteType
-pattern RWTAll = ReadWriteType' "All"
+pattern ReadWriteTypeAll :: ReadWriteType
+pattern ReadWriteTypeAll = ReadWriteType' "All"
 
 {-# COMPLETE
-  RWTReadOnly,
-  RWTWriteOnly,
-  RWTAll,
+  ReadWriteTypeReadOnly,
+  ReadWriteTypeWriteOnly,
+  ReadWriteTypeAll,
   ReadWriteType'
   #-}

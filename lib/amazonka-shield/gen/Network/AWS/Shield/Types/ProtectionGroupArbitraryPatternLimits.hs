@@ -22,40 +22,36 @@ module Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Limits settings on protection groups with arbitrary pattern type.
 --
 -- /See:/ 'mkProtectionGroupArbitraryPatternLimits' smart constructor.
 newtype ProtectionGroupArbitraryPatternLimits = ProtectionGroupArbitraryPatternLimits'
   { -- | The maximum number of resources you can specify for a single arbitrary pattern in a protection group.
-    maxMembers :: Lude.Integer
+    maxMembers :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProtectionGroupArbitraryPatternLimits' with the minimum fields required to make a request.
---
--- * 'maxMembers' - The maximum number of resources you can specify for a single arbitrary pattern in a protection group.
+-- | Creates a 'ProtectionGroupArbitraryPatternLimits' value with any optional fields omitted.
 mkProtectionGroupArbitraryPatternLimits ::
   -- | 'maxMembers'
-  Lude.Integer ->
+  Core.Integer ->
   ProtectionGroupArbitraryPatternLimits
-mkProtectionGroupArbitraryPatternLimits pMaxMembers_ =
-  ProtectionGroupArbitraryPatternLimits' {maxMembers = pMaxMembers_}
+mkProtectionGroupArbitraryPatternLimits maxMembers =
+  ProtectionGroupArbitraryPatternLimits' {maxMembers}
 
 -- | The maximum number of resources you can specify for a single arbitrary pattern in a protection group.
 --
 -- /Note:/ Consider using 'maxMembers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgaplMaxMembers :: Lens.Lens' ProtectionGroupArbitraryPatternLimits Lude.Integer
-pgaplMaxMembers = Lens.lens (maxMembers :: ProtectionGroupArbitraryPatternLimits -> Lude.Integer) (\s a -> s {maxMembers = a} :: ProtectionGroupArbitraryPatternLimits)
+pgaplMaxMembers :: Lens.Lens' ProtectionGroupArbitraryPatternLimits Core.Integer
+pgaplMaxMembers = Lens.field @"maxMembers"
 {-# DEPRECATED pgaplMaxMembers "Use generic-lens or generic-optics with 'maxMembers' instead." #-}
 
-instance Lude.FromJSON ProtectionGroupArbitraryPatternLimits where
+instance Core.FromJSON ProtectionGroupArbitraryPatternLimits where
   parseJSON =
-    Lude.withObject
-      "ProtectionGroupArbitraryPatternLimits"
-      ( \x ->
-          ProtectionGroupArbitraryPatternLimits'
-            Lude.<$> (x Lude..: "MaxMembers")
-      )
+    Core.withObject "ProtectionGroupArbitraryPatternLimits" Core.$
+      \x ->
+        ProtectionGroupArbitraryPatternLimits'
+          Core.<$> (x Core..: "MaxMembers")

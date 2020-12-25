@@ -48,45 +48,45 @@ module Network.AWS.GameLift.DescribePlayerSessions
     mkDescribePlayerSessions,
 
     -- ** Request lenses
-    dGameSessionId,
-    dNextToken,
-    dLimit,
-    dPlayerSessionId,
-    dPlayerId,
-    dPlayerSessionStatusFilter,
+    dpssGameSessionId,
+    dpssLimit,
+    dpssNextToken,
+    dpssPlayerId,
+    dpssPlayerSessionId,
+    dpssPlayerSessionStatusFilter,
 
     -- * Destructuring the response
     DescribePlayerSessionsResponse (..),
     mkDescribePlayerSessionsResponse,
 
     -- ** Response lenses
-    dpsrsNextToken,
-    dpsrsPlayerSessions,
-    dpsrsResponseStatus,
+    dpsrrsNextToken,
+    dpsrrsPlayerSessions,
+    dpsrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribePlayerSessions' smart constructor.
 data DescribePlayerSessions = DescribePlayerSessions'
   { -- | A unique identifier for the game session to retrieve player sessions for.
-    gameSessionId :: Lude.Maybe Lude.Text,
-    -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
-    nextToken :: Lude.Maybe Lude.Text,
+    gameSessionId :: Core.Maybe Types.ArnStringModel,
     -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | A unique identifier for a player session to retrieve.
-    playerSessionId :: Lude.Maybe Lude.Text,
+    limit :: Core.Maybe Core.Natural,
+    -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
+    nextToken :: Core.Maybe Types.NonZeroAndMaxString,
     -- | A unique identifier for a player to retrieve player sessions for.
-    playerId :: Lude.Maybe Lude.Text,
+    playerId :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | A unique identifier for a player session to retrieve.
+    playerSessionId :: Core.Maybe Types.PlayerSessionId,
     -- | Player session status to filter results on.
     --
     -- Possible player session statuses include the following:
@@ -101,78 +101,58 @@ data DescribePlayerSessions = DescribePlayerSessions'
     --
     --
     --     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
-    playerSessionStatusFilter :: Lude.Maybe Lude.Text
+    playerSessionStatusFilter :: Core.Maybe Types.NonZeroAndMaxString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePlayerSessions' with the minimum fields required to make a request.
---
--- * 'gameSessionId' - A unique identifier for the game session to retrieve player sessions for.
--- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.
--- * 'playerSessionId' - A unique identifier for a player session to retrieve.
--- * 'playerId' - A unique identifier for a player to retrieve player sessions for.
--- * 'playerSessionStatusFilter' - Player session status to filter results on.
---
--- Possible player session statuses include the following:
---
---     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.
---
---
---     * __ACTIVE__ -- The player has been validated by the server process and is currently connected.
---
---
---     * __COMPLETED__ -- The player connection has been dropped.
---
---
---     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
+-- | Creates a 'DescribePlayerSessions' value with any optional fields omitted.
 mkDescribePlayerSessions ::
   DescribePlayerSessions
 mkDescribePlayerSessions =
   DescribePlayerSessions'
-    { gameSessionId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      playerSessionId = Lude.Nothing,
-      playerId = Lude.Nothing,
-      playerSessionStatusFilter = Lude.Nothing
+    { gameSessionId = Core.Nothing,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing,
+      playerId = Core.Nothing,
+      playerSessionId = Core.Nothing,
+      playerSessionStatusFilter = Core.Nothing
     }
 
 -- | A unique identifier for the game session to retrieve player sessions for.
 --
 -- /Note:/ Consider using 'gameSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGameSessionId :: Lens.Lens' DescribePlayerSessions (Lude.Maybe Lude.Text)
-dGameSessionId = Lens.lens (gameSessionId :: DescribePlayerSessions -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionId = a} :: DescribePlayerSessions)
-{-# DEPRECATED dGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
-
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNextToken :: Lens.Lens' DescribePlayerSessions (Lude.Maybe Lude.Text)
-dNextToken = Lens.lens (nextToken :: DescribePlayerSessions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePlayerSessions)
-{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dpssGameSessionId :: Lens.Lens' DescribePlayerSessions (Core.Maybe Types.ArnStringModel)
+dpssGameSessionId = Lens.field @"gameSessionId"
+{-# DEPRECATED dpssGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLimit :: Lens.Lens' DescribePlayerSessions (Lude.Maybe Lude.Natural)
-dLimit = Lens.lens (limit :: DescribePlayerSessions -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribePlayerSessions)
-{-# DEPRECATED dLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+dpssLimit :: Lens.Lens' DescribePlayerSessions (Core.Maybe Core.Natural)
+dpssLimit = Lens.field @"limit"
+{-# DEPRECATED dpssLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | A unique identifier for a player session to retrieve.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
 --
--- /Note:/ Consider using 'playerSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPlayerSessionId :: Lens.Lens' DescribePlayerSessions (Lude.Maybe Lude.Text)
-dPlayerSessionId = Lens.lens (playerSessionId :: DescribePlayerSessions -> Lude.Maybe Lude.Text) (\s a -> s {playerSessionId = a} :: DescribePlayerSessions)
-{-# DEPRECATED dPlayerSessionId "Use generic-lens or generic-optics with 'playerSessionId' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpssNextToken :: Lens.Lens' DescribePlayerSessions (Core.Maybe Types.NonZeroAndMaxString)
+dpssNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dpssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A unique identifier for a player to retrieve player sessions for.
 --
 -- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPlayerId :: Lens.Lens' DescribePlayerSessions (Lude.Maybe Lude.Text)
-dPlayerId = Lens.lens (playerId :: DescribePlayerSessions -> Lude.Maybe Lude.Text) (\s a -> s {playerId = a} :: DescribePlayerSessions)
-{-# DEPRECATED dPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
+dpssPlayerId :: Lens.Lens' DescribePlayerSessions (Core.Maybe Types.NonZeroAndMaxString)
+dpssPlayerId = Lens.field @"playerId"
+{-# DEPRECATED dpssPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
+
+-- | A unique identifier for a player session to retrieve.
+--
+-- /Note:/ Consider using 'playerSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpssPlayerSessionId :: Lens.Lens' DescribePlayerSessions (Core.Maybe Types.PlayerSessionId)
+dpssPlayerSessionId = Lens.field @"playerSessionId"
+{-# DEPRECATED dpssPlayerSessionId "Use generic-lens or generic-optics with 'playerSessionId' instead." #-}
 
 -- | Player session status to filter results on.
 --
@@ -192,109 +172,101 @@ dPlayerId = Lens.lens (playerId :: DescribePlayerSessions -> Lude.Maybe Lude.Tex
 --
 --
 -- /Note:/ Consider using 'playerSessionStatusFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPlayerSessionStatusFilter :: Lens.Lens' DescribePlayerSessions (Lude.Maybe Lude.Text)
-dPlayerSessionStatusFilter = Lens.lens (playerSessionStatusFilter :: DescribePlayerSessions -> Lude.Maybe Lude.Text) (\s a -> s {playerSessionStatusFilter = a} :: DescribePlayerSessions)
-{-# DEPRECATED dPlayerSessionStatusFilter "Use generic-lens or generic-optics with 'playerSessionStatusFilter' instead." #-}
+dpssPlayerSessionStatusFilter :: Lens.Lens' DescribePlayerSessions (Core.Maybe Types.NonZeroAndMaxString)
+dpssPlayerSessionStatusFilter = Lens.field @"playerSessionStatusFilter"
+{-# DEPRECATED dpssPlayerSessionStatusFilter "Use generic-lens or generic-optics with 'playerSessionStatusFilter' instead." #-}
 
-instance Page.AWSPager DescribePlayerSessions where
-  page rq rs
-    | Page.stop (rs Lens.^. dpsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dpsrsPlayerSessions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dNextToken Lens..~ rs Lens.^. dpsrsNextToken
+instance Core.FromJSON DescribePlayerSessions where
+  toJSON DescribePlayerSessions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("GameSessionId" Core..=) Core.<$> gameSessionId,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("PlayerId" Core..=) Core.<$> playerId,
+            ("PlayerSessionId" Core..=) Core.<$> playerSessionId,
+            ("PlayerSessionStatusFilter" Core..=)
+              Core.<$> playerSessionStatusFilter
+          ]
+      )
 
-instance Lude.AWSRequest DescribePlayerSessions where
+instance Core.AWSRequest DescribePlayerSessions where
   type Rs DescribePlayerSessions = DescribePlayerSessionsResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribePlayerSessions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribePlayerSessionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "PlayerSessions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "PlayerSessions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribePlayerSessions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribePlayerSessions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribePlayerSessions where
-  toJSON DescribePlayerSessions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("GameSessionId" Lude..=) Lude.<$> gameSessionId,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("PlayerSessionId" Lude..=) Lude.<$> playerSessionId,
-            ("PlayerId" Lude..=) Lude.<$> playerId,
-            ("PlayerSessionStatusFilter" Lude..=)
-              Lude.<$> playerSessionStatusFilter
-          ]
-      )
-
-instance Lude.ToPath DescribePlayerSessions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribePlayerSessions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribePlayerSessions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"playerSessions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkDescribePlayerSessionsResponse' smart constructor.
 data DescribePlayerSessionsResponse = DescribePlayerSessionsResponse'
   { -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A collection of objects containing properties for each player session that matches the request.
-    playerSessions :: Lude.Maybe [PlayerSession],
+    playerSessions :: Core.Maybe [Types.PlayerSession],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribePlayerSessionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
--- * 'playerSessions' - A collection of objects containing properties for each player session that matches the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePlayerSessionsResponse' value with any optional fields omitted.
 mkDescribePlayerSessionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePlayerSessionsResponse
-mkDescribePlayerSessionsResponse pResponseStatus_ =
+mkDescribePlayerSessionsResponse responseStatus =
   DescribePlayerSessionsResponse'
-    { nextToken = Lude.Nothing,
-      playerSessions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      playerSessions = Core.Nothing,
+      responseStatus
     }
 
 -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsrsNextToken :: Lens.Lens' DescribePlayerSessionsResponse (Lude.Maybe Lude.Text)
-dpsrsNextToken = Lens.lens (nextToken :: DescribePlayerSessionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePlayerSessionsResponse)
-{-# DEPRECATED dpsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dpsrrsNextToken :: Lens.Lens' DescribePlayerSessionsResponse (Core.Maybe Types.NextToken)
+dpsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dpsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A collection of objects containing properties for each player session that matches the request.
 --
 -- /Note:/ Consider using 'playerSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsrsPlayerSessions :: Lens.Lens' DescribePlayerSessionsResponse (Lude.Maybe [PlayerSession])
-dpsrsPlayerSessions = Lens.lens (playerSessions :: DescribePlayerSessionsResponse -> Lude.Maybe [PlayerSession]) (\s a -> s {playerSessions = a} :: DescribePlayerSessionsResponse)
-{-# DEPRECATED dpsrsPlayerSessions "Use generic-lens or generic-optics with 'playerSessions' instead." #-}
+dpsrrsPlayerSessions :: Lens.Lens' DescribePlayerSessionsResponse (Core.Maybe [Types.PlayerSession])
+dpsrrsPlayerSessions = Lens.field @"playerSessions"
+{-# DEPRECATED dpsrrsPlayerSessions "Use generic-lens or generic-optics with 'playerSessions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsrsResponseStatus :: Lens.Lens' DescribePlayerSessionsResponse Lude.Int
-dpsrsResponseStatus = Lens.lens (responseStatus :: DescribePlayerSessionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePlayerSessionsResponse)
-{-# DEPRECATED dpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpsrrsResponseStatus :: Lens.Lens' DescribePlayerSessionsResponse Core.Int
+dpsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

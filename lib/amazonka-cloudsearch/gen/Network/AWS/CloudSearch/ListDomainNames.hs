@@ -24,54 +24,55 @@ module Network.AWS.CloudSearch.ListDomainNames
     mkListDomainNamesResponse,
 
     -- ** Response lenses
-    ldnrsDomainNames,
-    ldnrsResponseStatus,
+    ldnrrsDomainNames,
+    ldnrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDomainNames' smart constructor.
 data ListDomainNames = ListDomainNames'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDomainNames' with the minimum fields required to make a request.
+-- | Creates a 'ListDomainNames' value with any optional fields omitted.
 mkListDomainNames ::
   ListDomainNames
 mkListDomainNames = ListDomainNames'
 
-instance Lude.AWSRequest ListDomainNames where
+instance Core.AWSRequest ListDomainNames where
   type Rs ListDomainNames = ListDomainNamesResponse
-  request = Req.postQuery cloudSearchService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListDomainNames")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListDomainNamesResult"
       ( \s h x ->
           ListDomainNamesResponse'
-            Lude.<$> ( x Lude..@? "DomainNames" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+            Core.<$> ( x Core..@? "DomainNames"
+                         Core..<@> Core.parseXMLMap "entry" "key" "value"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListDomainNames where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListDomainNames where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListDomainNames where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("ListDomainNames" :: Lude.ByteString),
-            "Version" Lude.=: ("2013-01-01" :: Lude.ByteString)
-          ]
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | The result of a @ListDomainNames@ request. Contains a list of the domains owned by an account.
@@ -79,37 +80,34 @@ instance Lude.ToQuery ListDomainNames where
 -- /See:/ 'mkListDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
   { -- | The names of the search domains owned by an account.
-    domainNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    domainNames :: Core.Maybe (Core.HashMap Types.DomainName Types.APIVersion),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDomainNamesResponse' with the minimum fields required to make a request.
---
--- * 'domainNames' - The names of the search domains owned by an account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDomainNamesResponse' value with any optional fields omitted.
 mkListDomainNamesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDomainNamesResponse
-mkListDomainNamesResponse pResponseStatus_ =
+mkListDomainNamesResponse responseStatus =
   ListDomainNamesResponse'
-    { domainNames = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { domainNames = Core.Nothing,
+      responseStatus
     }
 
 -- | The names of the search domains owned by an account.
 --
 -- /Note:/ Consider using 'domainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldnrsDomainNames :: Lens.Lens' ListDomainNamesResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ldnrsDomainNames = Lens.lens (domainNames :: ListDomainNamesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {domainNames = a} :: ListDomainNamesResponse)
-{-# DEPRECATED ldnrsDomainNames "Use generic-lens or generic-optics with 'domainNames' instead." #-}
+ldnrrsDomainNames :: Lens.Lens' ListDomainNamesResponse (Core.Maybe (Core.HashMap Types.DomainName Types.APIVersion))
+ldnrrsDomainNames = Lens.field @"domainNames"
+{-# DEPRECATED ldnrrsDomainNames "Use generic-lens or generic-optics with 'domainNames' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldnrsResponseStatus :: Lens.Lens' ListDomainNamesResponse Lude.Int
-ldnrsResponseStatus = Lens.lens (responseStatus :: ListDomainNamesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainNamesResponse)
-{-# DEPRECATED ldnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldnrrsResponseStatus :: Lens.Lens' ListDomainNamesResponse Core.Int
+ldnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

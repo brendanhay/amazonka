@@ -23,33 +23,33 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     mkCreateStorediSCSIVolume,
 
     -- ** Request lenses
-    csscsivKMSKey,
     csscsivGatewayARN,
-    csscsivKMSEncrypted,
-    csscsivNetworkInterfaceId,
     csscsivDiskId,
     csscsivPreserveExistingData,
     csscsivTargetName,
-    csscsivTags,
+    csscsivNetworkInterfaceId,
+    csscsivKMSEncrypted,
+    csscsivKMSKey,
     csscsivSnapshotId,
+    csscsivTags,
 
     -- * Destructuring the response
     CreateStorediSCSIVolumeResponse (..),
     mkCreateStorediSCSIVolumeResponse,
 
     -- ** Response lenses
-    csscsivrsTargetARN,
-    csscsivrsVolumeARN,
-    csscsivrsVolumeSizeInBytes,
-    csscsivrsResponseStatus,
+    csscsivrrsTargetARN,
+    csscsivrrsVolumeARN,
+    csscsivrrsVolumeSizeInBytes,
+    csscsivrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -72,121 +72,78 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkCreateStorediSCSIVolume' smart constructor.
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
-  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
-    kmsKey :: Lude.Maybe Lude.Text,
-    gatewayARN :: Lude.Text,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
-    --
-    -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Lude.Maybe Lude.Bool,
-    -- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
-    --
-    -- Valid Values: A valid IP address.
-    networkInterfaceId :: Lude.Text,
+  { gatewayARN :: Types.GatewayARN,
     -- | The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
-    diskId :: Lude.Text,
+    diskId :: Types.DiskId,
     -- | Set to true @true@ if you want to preserve the data on the local disk. Otherwise, set to @false@ to create an empty volume.
     --
     -- Valid Values: @true@ | @false@
-    preserveExistingData :: Lude.Bool,
+    preserveExistingData :: Core.Bool,
     -- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
     --
     -- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
-    targetName :: Lude.Text,
-    -- | A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
-    tags :: Lude.Maybe [Tag],
+    targetName :: Types.TargetName,
+    -- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
+    --
+    -- Valid Values: A valid IP address.
+    networkInterfaceId :: Types.NetworkInterfaceId,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kMSEncrypted :: Core.Maybe Core.Bool,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+    kMSKey :: Core.Maybe Types.KMSKey,
     -- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
-    snapshotId :: Lude.Maybe Lude.Text
+    snapshotId :: Core.Maybe Types.SnapshotId,
+    -- | A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStorediSCSIVolume' with the minimum fields required to make a request.
---
--- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
--- * 'gatewayARN' -
--- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
--- * 'networkInterfaceId' - The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
---
--- Valid Values: A valid IP address.
--- * 'diskId' - The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
--- * 'preserveExistingData' - Set to true @true@ if you want to preserve the data on the local disk. Otherwise, set to @false@ to create an empty volume.
---
--- Valid Values: @true@ | @false@
--- * 'targetName' - The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
---
--- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
--- * 'tags' - A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
--- * 'snapshotId' - The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
+-- | Creates a 'CreateStorediSCSIVolume' value with any optional fields omitted.
 mkCreateStorediSCSIVolume ::
   -- | 'gatewayARN'
-  Lude.Text ->
-  -- | 'networkInterfaceId'
-  Lude.Text ->
+  Types.GatewayARN ->
   -- | 'diskId'
-  Lude.Text ->
+  Types.DiskId ->
   -- | 'preserveExistingData'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'targetName'
-  Lude.Text ->
+  Types.TargetName ->
+  -- | 'networkInterfaceId'
+  Types.NetworkInterfaceId ->
   CreateStorediSCSIVolume
 mkCreateStorediSCSIVolume
-  pGatewayARN_
-  pNetworkInterfaceId_
-  pDiskId_
-  pPreserveExistingData_
-  pTargetName_ =
+  gatewayARN
+  diskId
+  preserveExistingData
+  targetName
+  networkInterfaceId =
     CreateStorediSCSIVolume'
-      { kmsKey = Lude.Nothing,
-        gatewayARN = pGatewayARN_,
-        kmsEncrypted = Lude.Nothing,
-        networkInterfaceId = pNetworkInterfaceId_,
-        diskId = pDiskId_,
-        preserveExistingData = pPreserveExistingData_,
-        targetName = pTargetName_,
-        tags = Lude.Nothing,
-        snapshotId = Lude.Nothing
+      { gatewayARN,
+        diskId,
+        preserveExistingData,
+        targetName,
+        networkInterfaceId,
+        kMSEncrypted = Core.Nothing,
+        kMSKey = Core.Nothing,
+        snapshotId = Core.Nothing,
+        tags = Core.Nothing
       }
-
--- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
---
--- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivKMSKey :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe Lude.Text)
-csscsivKMSKey = Lens.lens (kmsKey :: CreateStorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: CreateStorediSCSIVolume)
-{-# DEPRECATED csscsivKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivGatewayARN :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
-csscsivGatewayARN = Lens.lens (gatewayARN :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateStorediSCSIVolume)
+csscsivGatewayARN :: Lens.Lens' CreateStorediSCSIVolume Types.GatewayARN
+csscsivGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED csscsivGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
---
--- /Note:/ Consider using 'kmsEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivKMSEncrypted :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe Lude.Bool)
-csscsivKMSEncrypted = Lens.lens (kmsEncrypted :: CreateStorediSCSIVolume -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: CreateStorediSCSIVolume)
-{-# DEPRECATED csscsivKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
-
--- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
---
--- Valid Values: A valid IP address.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivNetworkInterfaceId :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
-csscsivNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateStorediSCSIVolume)
-{-# DEPRECATED csscsivNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
 --
 -- /Note:/ Consider using 'diskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivDiskId :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
-csscsivDiskId = Lens.lens (diskId :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {diskId = a} :: CreateStorediSCSIVolume)
+csscsivDiskId :: Lens.Lens' CreateStorediSCSIVolume Types.DiskId
+csscsivDiskId = Lens.field @"diskId"
 {-# DEPRECATED csscsivDiskId "Use generic-lens or generic-optics with 'diskId' instead." #-}
 
 -- | Set to true @true@ if you want to preserve the data on the local disk. Otherwise, set to @false@ to create an empty volume.
@@ -194,8 +151,8 @@ csscsivDiskId = Lens.lens (diskId :: CreateStorediSCSIVolume -> Lude.Text) (\s a
 -- Valid Values: @true@ | @false@
 --
 -- /Note:/ Consider using 'preserveExistingData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivPreserveExistingData :: Lens.Lens' CreateStorediSCSIVolume Lude.Bool
-csscsivPreserveExistingData = Lens.lens (preserveExistingData :: CreateStorediSCSIVolume -> Lude.Bool) (\s a -> s {preserveExistingData = a} :: CreateStorediSCSIVolume)
+csscsivPreserveExistingData :: Lens.Lens' CreateStorediSCSIVolume Core.Bool
+csscsivPreserveExistingData = Lens.field @"preserveExistingData"
 {-# DEPRECATED csscsivPreserveExistingData "Use generic-lens or generic-optics with 'preserveExistingData' instead." #-}
 
 -- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
@@ -203,130 +160,142 @@ csscsivPreserveExistingData = Lens.lens (preserveExistingData :: CreateStorediSC
 -- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
 --
 -- /Note:/ Consider using 'targetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivTargetName :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
-csscsivTargetName = Lens.lens (targetName :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {targetName = a} :: CreateStorediSCSIVolume)
+csscsivTargetName :: Lens.Lens' CreateStorediSCSIVolume Types.TargetName
+csscsivTargetName = Lens.field @"targetName"
 {-# DEPRECATED csscsivTargetName "Use generic-lens or generic-optics with 'targetName' instead." #-}
 
--- | A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
+-- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivTags :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe [Tag])
-csscsivTags = Lens.lens (tags :: CreateStorediSCSIVolume -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateStorediSCSIVolume)
-{-# DEPRECATED csscsivTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- Valid Values: A valid IP address.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csscsivNetworkInterfaceId :: Lens.Lens' CreateStorediSCSIVolume Types.NetworkInterfaceId
+csscsivNetworkInterfaceId = Lens.field @"networkInterfaceId"
+{-# DEPRECATED csscsivNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'kMSEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csscsivKMSEncrypted :: Lens.Lens' CreateStorediSCSIVolume (Core.Maybe Core.Bool)
+csscsivKMSEncrypted = Lens.field @"kMSEncrypted"
+{-# DEPRECATED csscsivKMSEncrypted "Use generic-lens or generic-optics with 'kMSEncrypted' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+--
+-- /Note:/ Consider using 'kMSKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csscsivKMSKey :: Lens.Lens' CreateStorediSCSIVolume (Core.Maybe Types.KMSKey)
+csscsivKMSKey = Lens.field @"kMSKey"
+{-# DEPRECATED csscsivKMSKey "Use generic-lens or generic-optics with 'kMSKey' instead." #-}
 
 -- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivSnapshotId :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe Lude.Text)
-csscsivSnapshotId = Lens.lens (snapshotId :: CreateStorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateStorediSCSIVolume)
+csscsivSnapshotId :: Lens.Lens' CreateStorediSCSIVolume (Core.Maybe Types.SnapshotId)
+csscsivSnapshotId = Lens.field @"snapshotId"
 {-# DEPRECATED csscsivSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance Lude.AWSRequest CreateStorediSCSIVolume where
+-- | A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csscsivTags :: Lens.Lens' CreateStorediSCSIVolume (Core.Maybe [Types.Tag])
+csscsivTags = Lens.field @"tags"
+{-# DEPRECATED csscsivTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.FromJSON CreateStorediSCSIVolume where
+  toJSON CreateStorediSCSIVolume {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("DiskId" Core..= diskId),
+            Core.Just ("PreserveExistingData" Core..= preserveExistingData),
+            Core.Just ("TargetName" Core..= targetName),
+            Core.Just ("NetworkInterfaceId" Core..= networkInterfaceId),
+            ("KMSEncrypted" Core..=) Core.<$> kMSEncrypted,
+            ("KMSKey" Core..=) Core.<$> kMSKey,
+            ("SnapshotId" Core..=) Core.<$> snapshotId,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateStorediSCSIVolume where
   type Rs CreateStorediSCSIVolume = CreateStorediSCSIVolumeResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.CreateStorediSCSIVolume")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateStorediSCSIVolumeResponse'
-            Lude.<$> (x Lude..?> "TargetARN")
-            Lude.<*> (x Lude..?> "VolumeARN")
-            Lude.<*> (x Lude..?> "VolumeSizeInBytes")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TargetARN")
+            Core.<*> (x Core..:? "VolumeARN")
+            Core.<*> (x Core..:? "VolumeSizeInBytes")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateStorediSCSIVolume where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.CreateStorediSCSIVolume" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateStorediSCSIVolume where
-  toJSON CreateStorediSCSIVolume' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KMSKey" Lude..=) Lude.<$> kmsKey,
-            Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
-            Lude.Just ("NetworkInterfaceId" Lude..= networkInterfaceId),
-            Lude.Just ("DiskId" Lude..= diskId),
-            Lude.Just ("PreserveExistingData" Lude..= preserveExistingData),
-            Lude.Just ("TargetName" Lude..= targetName),
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("SnapshotId" Lude..=) Lude.<$> snapshotId
-          ]
-      )
-
-instance Lude.ToPath CreateStorediSCSIVolume where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateStorediSCSIVolume where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'mkCreateStorediSCSIVolumeResponse' smart constructor.
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
   { -- | The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
-    targetARN :: Lude.Maybe Lude.Text,
+    targetARN :: Core.Maybe Types.TargetARN,
     -- | The Amazon Resource Name (ARN) of the configured volume.
-    volumeARN :: Lude.Maybe Lude.Text,
+    volumeARN :: Core.Maybe Types.VolumeARN,
     -- | The size of the volume in bytes.
-    volumeSizeInBytes :: Lude.Maybe Lude.Integer,
+    volumeSizeInBytes :: Core.Maybe Core.Integer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStorediSCSIVolumeResponse' with the minimum fields required to make a request.
---
--- * 'targetARN' - The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the configured volume.
--- * 'volumeSizeInBytes' - The size of the volume in bytes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateStorediSCSIVolumeResponse' value with any optional fields omitted.
 mkCreateStorediSCSIVolumeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateStorediSCSIVolumeResponse
-mkCreateStorediSCSIVolumeResponse pResponseStatus_ =
+mkCreateStorediSCSIVolumeResponse responseStatus =
   CreateStorediSCSIVolumeResponse'
-    { targetARN = Lude.Nothing,
-      volumeARN = Lude.Nothing,
-      volumeSizeInBytes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { targetARN = Core.Nothing,
+      volumeARN = Core.Nothing,
+      volumeSizeInBytes = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
 --
 -- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivrsTargetARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Lude.Maybe Lude.Text)
-csscsivrsTargetARN = Lens.lens (targetARN :: CreateStorediSCSIVolumeResponse -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: CreateStorediSCSIVolumeResponse)
-{-# DEPRECATED csscsivrsTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
+csscsivrrsTargetARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Core.Maybe Types.TargetARN)
+csscsivrrsTargetARN = Lens.field @"targetARN"
+{-# DEPRECATED csscsivrrsTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the configured volume.
 --
 -- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivrsVolumeARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Lude.Maybe Lude.Text)
-csscsivrsVolumeARN = Lens.lens (volumeARN :: CreateStorediSCSIVolumeResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: CreateStorediSCSIVolumeResponse)
-{-# DEPRECATED csscsivrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+csscsivrrsVolumeARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Core.Maybe Types.VolumeARN)
+csscsivrrsVolumeARN = Lens.field @"volumeARN"
+{-# DEPRECATED csscsivrrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | The size of the volume in bytes.
 --
 -- /Note:/ Consider using 'volumeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivrsVolumeSizeInBytes :: Lens.Lens' CreateStorediSCSIVolumeResponse (Lude.Maybe Lude.Integer)
-csscsivrsVolumeSizeInBytes = Lens.lens (volumeSizeInBytes :: CreateStorediSCSIVolumeResponse -> Lude.Maybe Lude.Integer) (\s a -> s {volumeSizeInBytes = a} :: CreateStorediSCSIVolumeResponse)
-{-# DEPRECATED csscsivrsVolumeSizeInBytes "Use generic-lens or generic-optics with 'volumeSizeInBytes' instead." #-}
+csscsivrrsVolumeSizeInBytes :: Lens.Lens' CreateStorediSCSIVolumeResponse (Core.Maybe Core.Integer)
+csscsivrrsVolumeSizeInBytes = Lens.field @"volumeSizeInBytes"
+{-# DEPRECATED csscsivrrsVolumeSizeInBytes "Use generic-lens or generic-optics with 'volumeSizeInBytes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivrsResponseStatus :: Lens.Lens' CreateStorediSCSIVolumeResponse Lude.Int
-csscsivrsResponseStatus = Lens.lens (responseStatus :: CreateStorediSCSIVolumeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStorediSCSIVolumeResponse)
-{-# DEPRECATED csscsivrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csscsivrrsResponseStatus :: Lens.Lens' CreateStorediSCSIVolumeResponse Core.Int
+csscsivrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csscsivrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

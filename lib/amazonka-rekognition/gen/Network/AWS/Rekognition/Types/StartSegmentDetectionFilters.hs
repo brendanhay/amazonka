@@ -17,59 +17,56 @@ module Network.AWS.Rekognition.Types.StartSegmentDetectionFilters
     mkStartSegmentDetectionFilters,
 
     -- * Lenses
-    ssdfTechnicalCueFilter,
     ssdfShotFilter,
+    ssdfTechnicalCueFilter,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.StartShotDetectionFilter
-import Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.StartShotDetectionFilter as Types
+import qualified Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter as Types
 
 -- | Filters applied to the technical cue or shot detection segments. For more information, see 'StartSegmentDetection' .
 --
 -- /See:/ 'mkStartSegmentDetectionFilters' smart constructor.
 data StartSegmentDetectionFilters = StartSegmentDetectionFilters'
-  { -- | Filters that are specific to technical cues.
-    technicalCueFilter :: Lude.Maybe StartTechnicalCueDetectionFilter,
-    -- | Filters that are specific to shot detections.
-    shotFilter :: Lude.Maybe StartShotDetectionFilter
+  { -- | Filters that are specific to shot detections.
+    shotFilter :: Core.Maybe Types.StartShotDetectionFilter,
+    -- | Filters that are specific to technical cues.
+    technicalCueFilter :: Core.Maybe Types.StartTechnicalCueDetectionFilter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartSegmentDetectionFilters' with the minimum fields required to make a request.
---
--- * 'technicalCueFilter' - Filters that are specific to technical cues.
--- * 'shotFilter' - Filters that are specific to shot detections.
+-- | Creates a 'StartSegmentDetectionFilters' value with any optional fields omitted.
 mkStartSegmentDetectionFilters ::
   StartSegmentDetectionFilters
 mkStartSegmentDetectionFilters =
   StartSegmentDetectionFilters'
-    { technicalCueFilter = Lude.Nothing,
-      shotFilter = Lude.Nothing
+    { shotFilter = Core.Nothing,
+      technicalCueFilter = Core.Nothing
     }
-
--- | Filters that are specific to technical cues.
---
--- /Note:/ Consider using 'technicalCueFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdfTechnicalCueFilter :: Lens.Lens' StartSegmentDetectionFilters (Lude.Maybe StartTechnicalCueDetectionFilter)
-ssdfTechnicalCueFilter = Lens.lens (technicalCueFilter :: StartSegmentDetectionFilters -> Lude.Maybe StartTechnicalCueDetectionFilter) (\s a -> s {technicalCueFilter = a} :: StartSegmentDetectionFilters)
-{-# DEPRECATED ssdfTechnicalCueFilter "Use generic-lens or generic-optics with 'technicalCueFilter' instead." #-}
 
 -- | Filters that are specific to shot detections.
 --
 -- /Note:/ Consider using 'shotFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdfShotFilter :: Lens.Lens' StartSegmentDetectionFilters (Lude.Maybe StartShotDetectionFilter)
-ssdfShotFilter = Lens.lens (shotFilter :: StartSegmentDetectionFilters -> Lude.Maybe StartShotDetectionFilter) (\s a -> s {shotFilter = a} :: StartSegmentDetectionFilters)
+ssdfShotFilter :: Lens.Lens' StartSegmentDetectionFilters (Core.Maybe Types.StartShotDetectionFilter)
+ssdfShotFilter = Lens.field @"shotFilter"
 {-# DEPRECATED ssdfShotFilter "Use generic-lens or generic-optics with 'shotFilter' instead." #-}
 
-instance Lude.ToJSON StartSegmentDetectionFilters where
-  toJSON StartSegmentDetectionFilters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TechnicalCueFilter" Lude..=) Lude.<$> technicalCueFilter,
-            ("ShotFilter" Lude..=) Lude.<$> shotFilter
+-- | Filters that are specific to technical cues.
+--
+-- /Note:/ Consider using 'technicalCueFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdfTechnicalCueFilter :: Lens.Lens' StartSegmentDetectionFilters (Core.Maybe Types.StartTechnicalCueDetectionFilter)
+ssdfTechnicalCueFilter = Lens.field @"technicalCueFilter"
+{-# DEPRECATED ssdfTechnicalCueFilter "Use generic-lens or generic-optics with 'technicalCueFilter' instead." #-}
+
+instance Core.FromJSON StartSegmentDetectionFilters where
+  toJSON StartSegmentDetectionFilters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ShotFilter" Core..=) Core.<$> shotFilter,
+            ("TechnicalCueFilter" Core..=) Core.<$> technicalCueFilter
           ]
       )

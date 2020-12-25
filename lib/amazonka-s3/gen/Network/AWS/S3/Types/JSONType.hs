@@ -13,47 +13,49 @@
 module Network.AWS.S3.Types.JSONType
   ( JSONType
       ( JSONType',
-        Document,
-        Lines
+        JSONTypeDocument,
+        JSONTypeLines,
+        fromJSONType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype JSONType = JSONType' Lude.Text
+newtype JSONType = JSONType' {fromJSONType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Document :: JSONType
-pattern Document = JSONType' "DOCUMENT"
+pattern JSONTypeDocument :: JSONType
+pattern JSONTypeDocument = JSONType' "DOCUMENT"
 
-pattern Lines :: JSONType
-pattern Lines = JSONType' "LINES"
+pattern JSONTypeLines :: JSONType
+pattern JSONTypeLines = JSONType' "LINES"
 
 {-# COMPLETE
-  Document,
-  Lines,
+  JSONTypeDocument,
+  JSONTypeLines,
   JSONType'
   #-}

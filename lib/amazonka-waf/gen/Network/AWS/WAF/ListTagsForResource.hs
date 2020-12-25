@@ -23,159 +23,144 @@ module Network.AWS.WAF.ListTagsForResource
 
     -- ** Request lenses
     ltfrResourceARN,
-    ltfrNextMarker,
     ltfrLimit,
+    ltfrNextMarker,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
     mkListTagsForResourceResponse,
 
     -- ** Response lenses
-    ltfrrsTagInfoForResource,
-    ltfrrsNextMarker,
-    ltfrrsResponseStatus,
+    ltfrrrsNextMarker,
+    ltfrrrsTagInfoForResource,
+    ltfrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
   { -- |
-    resourceARN :: Lude.Text,
+    resourceARN :: Types.ResourceArn,
     -- |
-    nextMarker :: Lude.Maybe Lude.Text,
+    limit :: Core.Maybe Core.Natural,
     -- |
-    limit :: Lude.Maybe Lude.Natural
+    nextMarker :: Core.Maybe Types.NextMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
---
--- * 'resourceARN' -
--- * 'nextMarker' -
--- * 'limit' -
+-- | Creates a 'ListTagsForResource' value with any optional fields omitted.
 mkListTagsForResource ::
   -- | 'resourceARN'
-  Lude.Text ->
+  Types.ResourceArn ->
   ListTagsForResource
-mkListTagsForResource pResourceARN_ =
+mkListTagsForResource resourceARN =
   ListTagsForResource'
-    { resourceARN = pResourceARN_,
-      nextMarker = Lude.Nothing,
-      limit = Lude.Nothing
+    { resourceARN,
+      limit = Core.Nothing,
+      nextMarker = Core.Nothing
     }
 
 -- |
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
-ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
+ltfrResourceARN :: Lens.Lens' ListTagsForResource Types.ResourceArn
+ltfrResourceARN = Lens.field @"resourceARN"
 {-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- |
 --
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrNextMarker :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Text)
-ltfrNextMarker = Lens.lens (nextMarker :: ListTagsForResource -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrLimit :: Lens.Lens' ListTagsForResource (Core.Maybe Core.Natural)
+ltfrLimit = Lens.field @"limit"
+{-# DEPRECATED ltfrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- |
 --
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrLimit :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
-ltfrLimit = Lens.lens (limit :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrNextMarker :: Lens.Lens' ListTagsForResource (Core.Maybe Types.NextMarker)
+ltfrNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED ltfrNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
-instance Lude.AWSRequest ListTagsForResource where
+instance Core.FromJSON ListTagsForResource where
+  toJSON ListTagsForResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceARN" Core..= resourceARN),
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextMarker" Core..=) Core.<$> nextMarker
+          ]
+      )
+
+instance Core.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.ListTagsForResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Lude.<$> (x Lude..?> "TagInfoForResource")
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextMarker")
+            Core.<*> (x Core..:? "TagInfoForResource")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTagsForResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.ListTagsForResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTagsForResource where
-  toJSON ListTagsForResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
-            ("NextMarker" Lude..=) Lude.<$> nextMarker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListTagsForResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTagsForResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- |
-    tagInfoForResource :: Lude.Maybe TagInfoForResource,
+    nextMarker :: Core.Maybe Types.NextMarker,
     -- |
-    nextMarker :: Lude.Maybe Lude.Text,
+    tagInfoForResource :: Core.Maybe Types.TagInfoForResource,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
---
--- * 'tagInfoForResource' -
--- * 'nextMarker' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTagsForResourceResponse' value with any optional fields omitted.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTagsForResourceResponse
-mkListTagsForResourceResponse pResponseStatus_ =
+mkListTagsForResourceResponse responseStatus =
   ListTagsForResourceResponse'
-    { tagInfoForResource = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextMarker = Core.Nothing,
+      tagInfoForResource = Core.Nothing,
+      responseStatus
     }
 
 -- |
 --
--- /Note:/ Consider using 'tagInfoForResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsTagInfoForResource :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe TagInfoForResource)
-ltfrrsTagInfoForResource = Lens.lens (tagInfoForResource :: ListTagsForResourceResponse -> Lude.Maybe TagInfoForResource) (\s a -> s {tagInfoForResource = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsTagInfoForResource "Use generic-lens or generic-optics with 'tagInfoForResource' instead." #-}
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrrsNextMarker :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Types.NextMarker)
+ltfrrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED ltfrrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- |
 --
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsNextMarker :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe Lude.Text)
-ltfrrsNextMarker = Lens.lens (nextMarker :: ListTagsForResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+-- /Note:/ Consider using 'tagInfoForResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrrsTagInfoForResource :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Types.TagInfoForResource)
+ltfrrrsTagInfoForResource = Lens.field @"tagInfoForResource"
+{-# DEPRECATED ltfrrrsTagInfoForResource "Use generic-lens or generic-optics with 'tagInfoForResource' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
-ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltfrrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
+ltfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

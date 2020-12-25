@@ -17,86 +17,82 @@ module Network.AWS.SQS.Types.BatchResultErrorEntry
     mkBatchResultErrorEntry,
 
     -- * Lenses
-    breeSenderFault,
     breeId,
+    breeSenderFault,
     breeCode,
     breeMessage,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SQS.Types.String as Types
 
 -- | Gives a detailed description of the result of an action on each entry in the request.
 --
 -- /See:/ 'mkBatchResultErrorEntry' smart constructor.
 data BatchResultErrorEntry = BatchResultErrorEntry'
-  { -- | Specifies whether the error happened due to the caller of the batch API action.
-    senderFault :: Lude.Bool,
-    -- | The @Id@ of an entry in a batch request.
-    id :: Lude.Text,
+  { -- | The @Id@ of an entry in a batch request.
+    id :: Types.String,
+    -- | Specifies whether the error happened due to the caller of the batch API action.
+    senderFault :: Core.Bool,
     -- | An error code representing why the action failed on this entry.
-    code :: Lude.Text,
+    code :: Types.String,
     -- | A message explaining why the action failed on this entry.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchResultErrorEntry' with the minimum fields required to make a request.
---
--- * 'senderFault' - Specifies whether the error happened due to the caller of the batch API action.
--- * 'id' - The @Id@ of an entry in a batch request.
--- * 'code' - An error code representing why the action failed on this entry.
--- * 'message' - A message explaining why the action failed on this entry.
+-- | Creates a 'BatchResultErrorEntry' value with any optional fields omitted.
 mkBatchResultErrorEntry ::
-  -- | 'senderFault'
-  Lude.Bool ->
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
+  -- | 'senderFault'
+  Core.Bool ->
   -- | 'code'
-  Lude.Text ->
+  Types.String ->
   BatchResultErrorEntry
-mkBatchResultErrorEntry pSenderFault_ pId_ pCode_ =
+mkBatchResultErrorEntry id senderFault code =
   BatchResultErrorEntry'
-    { senderFault = pSenderFault_,
-      id = pId_,
-      code = pCode_,
-      message = Lude.Nothing
+    { id,
+      senderFault,
+      code,
+      message = Core.Nothing
     }
-
--- | Specifies whether the error happened due to the caller of the batch API action.
---
--- /Note:/ Consider using 'senderFault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-breeSenderFault :: Lens.Lens' BatchResultErrorEntry Lude.Bool
-breeSenderFault = Lens.lens (senderFault :: BatchResultErrorEntry -> Lude.Bool) (\s a -> s {senderFault = a} :: BatchResultErrorEntry)
-{-# DEPRECATED breeSenderFault "Use generic-lens or generic-optics with 'senderFault' instead." #-}
 
 -- | The @Id@ of an entry in a batch request.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-breeId :: Lens.Lens' BatchResultErrorEntry Lude.Text
-breeId = Lens.lens (id :: BatchResultErrorEntry -> Lude.Text) (\s a -> s {id = a} :: BatchResultErrorEntry)
+breeId :: Lens.Lens' BatchResultErrorEntry Types.String
+breeId = Lens.field @"id"
 {-# DEPRECATED breeId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Specifies whether the error happened due to the caller of the batch API action.
+--
+-- /Note:/ Consider using 'senderFault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+breeSenderFault :: Lens.Lens' BatchResultErrorEntry Core.Bool
+breeSenderFault = Lens.field @"senderFault"
+{-# DEPRECATED breeSenderFault "Use generic-lens or generic-optics with 'senderFault' instead." #-}
 
 -- | An error code representing why the action failed on this entry.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-breeCode :: Lens.Lens' BatchResultErrorEntry Lude.Text
-breeCode = Lens.lens (code :: BatchResultErrorEntry -> Lude.Text) (\s a -> s {code = a} :: BatchResultErrorEntry)
+breeCode :: Lens.Lens' BatchResultErrorEntry Types.String
+breeCode = Lens.field @"code"
 {-# DEPRECATED breeCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A message explaining why the action failed on this entry.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-breeMessage :: Lens.Lens' BatchResultErrorEntry (Lude.Maybe Lude.Text)
-breeMessage = Lens.lens (message :: BatchResultErrorEntry -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: BatchResultErrorEntry)
+breeMessage :: Lens.Lens' BatchResultErrorEntry (Core.Maybe Types.String)
+breeMessage = Lens.field @"message"
 {-# DEPRECATED breeMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML BatchResultErrorEntry where
+instance Core.FromXML BatchResultErrorEntry where
   parseXML x =
     BatchResultErrorEntry'
-      Lude.<$> (x Lude..@ "SenderFault")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "Code")
-      Lude.<*> (x Lude..@? "Message")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "SenderFault")
+      Core.<*> (x Core..@ "Code")
+      Core.<*> (x Core..@? "Message")

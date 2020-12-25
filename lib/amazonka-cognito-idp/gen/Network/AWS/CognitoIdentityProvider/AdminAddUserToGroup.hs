@@ -32,105 +32,91 @@ module Network.AWS.CognitoIdentityProvider.AdminAddUserToGroup
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAdminAddUserToGroup' smart constructor.
 data AdminAddUserToGroup = AdminAddUserToGroup'
   { -- | The user pool ID for the user pool.
-    userPoolId :: Lude.Text,
+    userPoolId :: Types.UserPoolId,
     -- | The username for the user.
-    username :: Lude.Sensitive Lude.Text,
+    username :: Types.Username,
     -- | The group name.
-    groupName :: Lude.Text
+    groupName :: Types.GroupNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminAddUserToGroup' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool.
--- * 'username' - The username for the user.
--- * 'groupName' - The group name.
+-- | Creates a 'AdminAddUserToGroup' value with any optional fields omitted.
 mkAdminAddUserToGroup ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'username'
-  Lude.Sensitive Lude.Text ->
+  Types.Username ->
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupNameType ->
   AdminAddUserToGroup
-mkAdminAddUserToGroup pUserPoolId_ pUsername_ pGroupName_ =
-  AdminAddUserToGroup'
-    { userPoolId = pUserPoolId_,
-      username = pUsername_,
-      groupName = pGroupName_
-    }
+mkAdminAddUserToGroup userPoolId username groupName =
+  AdminAddUserToGroup' {userPoolId, username, groupName}
 
 -- | The user pool ID for the user pool.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aautgUserPoolId :: Lens.Lens' AdminAddUserToGroup Lude.Text
-aautgUserPoolId = Lens.lens (userPoolId :: AdminAddUserToGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminAddUserToGroup)
+aautgUserPoolId :: Lens.Lens' AdminAddUserToGroup Types.UserPoolId
+aautgUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED aautgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The username for the user.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aautgUsername :: Lens.Lens' AdminAddUserToGroup (Lude.Sensitive Lude.Text)
-aautgUsername = Lens.lens (username :: AdminAddUserToGroup -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminAddUserToGroup)
+aautgUsername :: Lens.Lens' AdminAddUserToGroup Types.Username
+aautgUsername = Lens.field @"username"
 {-# DEPRECATED aautgUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The group name.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aautgGroupName :: Lens.Lens' AdminAddUserToGroup Lude.Text
-aautgGroupName = Lens.lens (groupName :: AdminAddUserToGroup -> Lude.Text) (\s a -> s {groupName = a} :: AdminAddUserToGroup)
+aautgGroupName :: Lens.Lens' AdminAddUserToGroup Types.GroupNameType
+aautgGroupName = Lens.field @"groupName"
 {-# DEPRECATED aautgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest AdminAddUserToGroup where
+instance Core.FromJSON AdminAddUserToGroup where
+  toJSON AdminAddUserToGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            Core.Just ("GroupName" Core..= groupName)
+          ]
+      )
+
+instance Core.AWSRequest AdminAddUserToGroup where
   type Rs AdminAddUserToGroup = AdminAddUserToGroupResponse
-  request = Req.postJSON cognitoIdentityProviderService
-  response = Res.receiveNull AdminAddUserToGroupResponse'
-
-instance Lude.ToHeaders AdminAddUserToGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminAddUserToGroup" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminAddUserToGroup where
-  toJSON AdminAddUserToGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Username" Lude..= username),
-            Lude.Just ("GroupName" Lude..= groupName)
-          ]
-      )
-
-instance Lude.ToPath AdminAddUserToGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminAddUserToGroup where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminAddUserToGroup"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull AdminAddUserToGroupResponse'
 
 -- | /See:/ 'mkAdminAddUserToGroupResponse' smart constructor.
 data AdminAddUserToGroupResponse = AdminAddUserToGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminAddUserToGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'AdminAddUserToGroupResponse' value with any optional fields omitted.
 mkAdminAddUserToGroupResponse ::
   AdminAddUserToGroupResponse
 mkAdminAddUserToGroupResponse = AdminAddUserToGroupResponse'

@@ -27,105 +27,91 @@ module Network.AWS.Glue.GetTrigger
     mkGetTriggerResponse,
 
     -- ** Response lenses
-    gtfrsTrigger,
-    gtfrsResponseStatus,
+    gtrfrsTrigger,
+    gtrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetTrigger' smart constructor.
 newtype GetTrigger = GetTrigger'
   { -- | The name of the trigger to retrieve.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTrigger' with the minimum fields required to make a request.
---
--- * 'name' - The name of the trigger to retrieve.
+-- | Creates a 'GetTrigger' value with any optional fields omitted.
 mkGetTrigger ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   GetTrigger
-mkGetTrigger pName_ = GetTrigger' {name = pName_}
+mkGetTrigger name = GetTrigger' {name}
 
 -- | The name of the trigger to retrieve.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtName :: Lens.Lens' GetTrigger Lude.Text
-gtName = Lens.lens (name :: GetTrigger -> Lude.Text) (\s a -> s {name = a} :: GetTrigger)
+gtName :: Lens.Lens' GetTrigger Types.Name
+gtName = Lens.field @"name"
 {-# DEPRECATED gtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetTrigger where
+instance Core.FromJSON GetTrigger where
+  toJSON GetTrigger {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest GetTrigger where
   type Rs GetTrigger = GetTriggerResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetTrigger")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTriggerResponse'
-            Lude.<$> (x Lude..?> "Trigger") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Trigger") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTrigger where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetTrigger" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetTrigger where
-  toJSON GetTrigger' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath GetTrigger where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTrigger where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetTriggerResponse' smart constructor.
 data GetTriggerResponse = GetTriggerResponse'
   { -- | The requested trigger definition.
-    trigger :: Lude.Maybe Trigger,
+    trigger :: Core.Maybe Types.Trigger,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTriggerResponse' with the minimum fields required to make a request.
---
--- * 'trigger' - The requested trigger definition.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTriggerResponse' value with any optional fields omitted.
 mkGetTriggerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTriggerResponse
-mkGetTriggerResponse pResponseStatus_ =
-  GetTriggerResponse'
-    { trigger = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetTriggerResponse responseStatus =
+  GetTriggerResponse' {trigger = Core.Nothing, responseStatus}
 
 -- | The requested trigger definition.
 --
 -- /Note:/ Consider using 'trigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtfrsTrigger :: Lens.Lens' GetTriggerResponse (Lude.Maybe Trigger)
-gtfrsTrigger = Lens.lens (trigger :: GetTriggerResponse -> Lude.Maybe Trigger) (\s a -> s {trigger = a} :: GetTriggerResponse)
-{-# DEPRECATED gtfrsTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
+gtrfrsTrigger :: Lens.Lens' GetTriggerResponse (Core.Maybe Types.Trigger)
+gtrfrsTrigger = Lens.field @"trigger"
+{-# DEPRECATED gtrfrsTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtfrsResponseStatus :: Lens.Lens' GetTriggerResponse Lude.Int
-gtfrsResponseStatus = Lens.lens (responseStatus :: GetTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTriggerResponse)
-{-# DEPRECATED gtfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtrfrsResponseStatus :: Lens.Lens' GetTriggerResponse Core.Int
+gtrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

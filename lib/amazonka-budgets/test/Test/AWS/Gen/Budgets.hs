@@ -306,7 +306,7 @@ responseCreateBudgetAction =
   res
     "CreateBudgetActionResponse"
     "fixture/CreateBudgetActionResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy CreateBudgetAction)
 
 responseUpdateBudgetAction :: UpdateBudgetActionResponse -> TestTree
@@ -314,7 +314,7 @@ responseUpdateBudgetAction =
   res
     "UpdateBudgetActionResponse"
     "fixture/UpdateBudgetActionResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateBudgetAction)
 
 responseDeleteBudgetAction :: DeleteBudgetActionResponse -> TestTree
@@ -322,7 +322,7 @@ responseDeleteBudgetAction =
   res
     "DeleteBudgetActionResponse"
     "fixture/DeleteBudgetActionResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBudgetAction)
 
 responseDescribeSubscribersForNotification :: DescribeSubscribersForNotificationResponse -> TestTree
@@ -330,7 +330,7 @@ responseDescribeSubscribersForNotification =
   res
     "DescribeSubscribersForNotificationResponse"
     "fixture/DescribeSubscribersForNotificationResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSubscribersForNotification)
 
 responseDescribeNotificationsForBudget :: DescribeNotificationsForBudgetResponse -> TestTree
@@ -338,7 +338,7 @@ responseDescribeNotificationsForBudget =
   res
     "DescribeNotificationsForBudgetResponse"
     "fixture/DescribeNotificationsForBudgetResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeNotificationsForBudget)
 
 responseDescribeBudgets :: DescribeBudgetsResponse -> TestTree
@@ -346,7 +346,7 @@ responseDescribeBudgets =
   res
     "DescribeBudgetsResponse"
     "fixture/DescribeBudgetsResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBudgets)
 
 responseCreateSubscriber :: CreateSubscriberResponse -> TestTree
@@ -354,7 +354,7 @@ responseCreateSubscriber =
   res
     "CreateSubscriberResponse"
     "fixture/CreateSubscriberResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy CreateSubscriber)
 
 responseExecuteBudgetAction :: ExecuteBudgetActionResponse -> TestTree
@@ -362,7 +362,7 @@ responseExecuteBudgetAction =
   res
     "ExecuteBudgetActionResponse"
     "fixture/ExecuteBudgetActionResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy ExecuteBudgetAction)
 
 responseUpdateBudget :: UpdateBudgetResponse -> TestTree
@@ -370,7 +370,7 @@ responseUpdateBudget =
   res
     "UpdateBudgetResponse"
     "fixture/UpdateBudgetResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateBudget)
 
 responseDeleteBudget :: DeleteBudgetResponse -> TestTree
@@ -378,7 +378,7 @@ responseDeleteBudget =
   res
     "DeleteBudgetResponse"
     "fixture/DeleteBudgetResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBudget)
 
 responseDeleteNotification :: DeleteNotificationResponse -> TestTree
@@ -386,7 +386,7 @@ responseDeleteNotification =
   res
     "DeleteNotificationResponse"
     "fixture/DeleteNotificationResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNotification)
 
 responseUpdateNotification :: UpdateNotificationResponse -> TestTree
@@ -394,7 +394,7 @@ responseUpdateNotification =
   res
     "UpdateNotificationResponse"
     "fixture/UpdateNotificationResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateNotification)
 
 responseDescribeBudgetActionsForAccount :: DescribeBudgetActionsForAccountResponse -> TestTree
@@ -402,7 +402,7 @@ responseDescribeBudgetActionsForAccount =
   res
     "DescribeBudgetActionsForAccountResponse"
     "fixture/DescribeBudgetActionsForAccountResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBudgetActionsForAccount)
 
 responseDescribeBudgetPerformanceHistory :: DescribeBudgetPerformanceHistoryResponse -> TestTree
@@ -410,7 +410,7 @@ responseDescribeBudgetPerformanceHistory =
   res
     "DescribeBudgetPerformanceHistoryResponse"
     "fixture/DescribeBudgetPerformanceHistoryResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBudgetPerformanceHistory)
 
 responseDescribeBudgetActionHistories :: DescribeBudgetActionHistoriesResponse -> TestTree
@@ -418,7 +418,7 @@ responseDescribeBudgetActionHistories =
   res
     "DescribeBudgetActionHistoriesResponse"
     "fixture/DescribeBudgetActionHistoriesResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBudgetActionHistories)
 
 responseDescribeBudget :: DescribeBudgetResponse -> TestTree
@@ -426,7 +426,7 @@ responseDescribeBudget =
   res
     "DescribeBudgetResponse"
     "fixture/DescribeBudgetResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBudget)
 
 responseUpdateSubscriber :: UpdateSubscriberResponse -> TestTree
@@ -434,7 +434,7 @@ responseUpdateSubscriber =
   res
     "UpdateSubscriberResponse"
     "fixture/UpdateSubscriberResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSubscriber)
 
 responseDeleteSubscriber :: DeleteSubscriberResponse -> TestTree
@@ -442,7 +442,7 @@ responseDeleteSubscriber =
   res
     "DeleteSubscriberResponse"
     "fixture/DeleteSubscriberResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSubscriber)
 
 responseDescribeBudgetActionsForBudget :: DescribeBudgetActionsForBudgetResponse -> TestTree
@@ -450,7 +450,7 @@ responseDescribeBudgetActionsForBudget =
   res
     "DescribeBudgetActionsForBudgetResponse"
     "fixture/DescribeBudgetActionsForBudgetResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBudgetActionsForBudget)
 
 responseDescribeBudgetAction :: DescribeBudgetActionResponse -> TestTree
@@ -458,7 +458,7 @@ responseDescribeBudgetAction =
   res
     "DescribeBudgetActionResponse"
     "fixture/DescribeBudgetActionResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBudgetAction)
 
 responseCreateBudget :: CreateBudgetResponse -> TestTree
@@ -466,7 +466,7 @@ responseCreateBudget =
   res
     "CreateBudgetResponse"
     "fixture/CreateBudgetResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy CreateBudget)
 
 responseCreateNotification :: CreateNotificationResponse -> TestTree
@@ -474,5 +474,5 @@ responseCreateNotification =
   res
     "CreateNotificationResponse"
     "fixture/CreateNotificationResponse.proto"
-    budgetsService
+    mkServiceConfig
     (Proxy :: Proxy CreateNotification)

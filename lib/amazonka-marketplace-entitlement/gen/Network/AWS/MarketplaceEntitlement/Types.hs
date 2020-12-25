@@ -9,90 +9,134 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MarketplaceEntitlement.Types
   ( -- * Service configuration
-    marketplaceEntitlementService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * GetEntitlementFilterName
-    GetEntitlementFilterName (..),
-
-    -- * Entitlement
-    Entitlement (..),
-    mkEntitlement,
-    eDimension,
-    eValue,
-    eExpirationDate,
-    eCustomerIdentifier,
-    eProductCode,
+    _InvalidParameterException,
+    _ThrottlingException,
+    _InternalServiceErrorException,
 
     -- * EntitlementValue
     EntitlementValue (..),
     mkEntitlementValue,
-    evIntegerValue,
-    evDoubleValue,
-    evStringValue,
     evBooleanValue,
+    evDoubleValue,
+    evIntegerValue,
+    evStringValue,
+
+    -- * GetEntitlementFilterName
+    GetEntitlementFilterName (..),
+
+    -- * NonEmptyString
+    NonEmptyString (..),
+
+    -- * FilterValue
+    FilterValue (..),
+
+    -- * ProductCode
+    ProductCode (..),
+
+    -- * Entitlement
+    Entitlement (..),
+    mkEntitlement,
+    eCustomerIdentifier,
+    eDimension,
+    eExpirationDate,
+    eProductCode,
+    eValue,
+
+    -- * StringValue
+    StringValue (..),
+
+    -- * NextToken
+    NextToken (..),
   )
 where
 
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceEntitlement.Types.Entitlement
 import Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
+import Network.AWS.MarketplaceEntitlement.Types.FilterValue
 import Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName
-import qualified Network.AWS.Prelude as Lude
+import Network.AWS.MarketplaceEntitlement.Types.NextToken
+import Network.AWS.MarketplaceEntitlement.Types.NonEmptyString
+import Network.AWS.MarketplaceEntitlement.Types.ProductCode
+import Network.AWS.MarketplaceEntitlement.Types.StringValue
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-01-11@ of the Amazon Marketplace Entitlement Service SDK configuration.
-marketplaceEntitlementService :: Lude.Service
-marketplaceEntitlementService =
-  Lude.Service
-    { Lude._svcAbbrev = "MarketplaceEntitlement",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "entitlement.marketplace",
-      Lude._svcVersion = "2017-01-11",
-      Lude._svcEndpoint =
-        Lude.defaultEndpoint marketplaceEntitlementService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "MarketplaceEntitlement",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "MarketplaceEntitlement",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "entitlement.marketplace",
+      Core._svcVersion = "2017-01-11",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "MarketplaceEntitlement",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | One or more parameters in your request was invalid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidParameterException"
+{-# DEPRECATED _InvalidParameterException "Use generic-lens or generic-optics instead." #-}
+
+-- | The calls to the GetEntitlements API are throttled.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError mkServiceConfig "ThrottlingException"
+{-# DEPRECATED _ThrottlingException "Use generic-lens or generic-optics instead." #-}
+
+-- | An internal error has occurred. Retry your request. If the problem persists, post a message with details on the AWS forums.
+_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalServiceErrorException"
+{-# DEPRECATED _InternalServiceErrorException "Use generic-lens or generic-optics instead." #-}

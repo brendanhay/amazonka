@@ -20,112 +20,97 @@ module Network.AWS.AlexaBusiness.GetProfile
     mkGetProfile,
 
     -- ** Request lenses
-    gpProfileARN,
+    gpProfileArn,
 
     -- * Destructuring the response
     GetProfileResponse (..),
     mkGetProfileResponse,
 
     -- ** Response lenses
-    gprsProfile,
-    gprsResponseStatus,
+    gprrsProfile,
+    gprrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetProfile' smart constructor.
 newtype GetProfile = GetProfile'
   { -- | The ARN of the room profile for which to request details. Required.
-    profileARN :: Lude.Maybe Lude.Text
+    profileArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetProfile' with the minimum fields required to make a request.
---
--- * 'profileARN' - The ARN of the room profile for which to request details. Required.
+-- | Creates a 'GetProfile' value with any optional fields omitted.
 mkGetProfile ::
   GetProfile
-mkGetProfile = GetProfile' {profileARN = Lude.Nothing}
+mkGetProfile = GetProfile' {profileArn = Core.Nothing}
 
 -- | The ARN of the room profile for which to request details. Required.
 --
--- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpProfileARN :: Lens.Lens' GetProfile (Lude.Maybe Lude.Text)
-gpProfileARN = Lens.lens (profileARN :: GetProfile -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: GetProfile)
-{-# DEPRECATED gpProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
+-- /Note:/ Consider using 'profileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpProfileArn :: Lens.Lens' GetProfile (Core.Maybe Types.Arn)
+gpProfileArn = Lens.field @"profileArn"
+{-# DEPRECATED gpProfileArn "Use generic-lens or generic-optics with 'profileArn' instead." #-}
 
-instance Lude.AWSRequest GetProfile where
+instance Core.FromJSON GetProfile where
+  toJSON GetProfile {..} =
+    Core.object
+      (Core.catMaybes [("ProfileArn" Core..=) Core.<$> profileArn])
+
+instance Core.AWSRequest GetProfile where
   type Rs GetProfile = GetProfileResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.GetProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetProfileResponse'
-            Lude.<$> (x Lude..?> "Profile") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Profile") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.GetProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetProfile where
-  toJSON GetProfile' {..} =
-    Lude.object
-      (Lude.catMaybes [("ProfileArn" Lude..=) Lude.<$> profileARN])
-
-instance Lude.ToPath GetProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetProfileResponse' smart constructor.
 data GetProfileResponse = GetProfileResponse'
   { -- | The details of the room profile requested. Required.
-    profile :: Lude.Maybe Profile,
+    profile :: Core.Maybe Types.Profile,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetProfileResponse' with the minimum fields required to make a request.
---
--- * 'profile' - The details of the room profile requested. Required.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetProfileResponse' value with any optional fields omitted.
 mkGetProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetProfileResponse
-mkGetProfileResponse pResponseStatus_ =
-  GetProfileResponse'
-    { profile = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetProfileResponse responseStatus =
+  GetProfileResponse' {profile = Core.Nothing, responseStatus}
 
 -- | The details of the room profile requested. Required.
 --
 -- /Note:/ Consider using 'profile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsProfile :: Lens.Lens' GetProfileResponse (Lude.Maybe Profile)
-gprsProfile = Lens.lens (profile :: GetProfileResponse -> Lude.Maybe Profile) (\s a -> s {profile = a} :: GetProfileResponse)
-{-# DEPRECATED gprsProfile "Use generic-lens or generic-optics with 'profile' instead." #-}
+gprrsProfile :: Lens.Lens' GetProfileResponse (Core.Maybe Types.Profile)
+gprrsProfile = Lens.field @"profile"
+{-# DEPRECATED gprrsProfile "Use generic-lens or generic-optics with 'profile' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsResponseStatus :: Lens.Lens' GetProfileResponse Lude.Int
-gprsResponseStatus = Lens.lens (responseStatus :: GetProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetProfileResponse)
-{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprrsResponseStatus :: Lens.Lens' GetProfileResponse Core.Int
+gprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

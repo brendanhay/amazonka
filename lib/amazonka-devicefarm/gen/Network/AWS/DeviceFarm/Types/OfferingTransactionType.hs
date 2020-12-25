@@ -13,51 +13,56 @@
 module Network.AWS.DeviceFarm.Types.OfferingTransactionType
   ( OfferingTransactionType
       ( OfferingTransactionType',
-        Purchase,
-        Renew,
-        System
+        OfferingTransactionTypePurchase,
+        OfferingTransactionTypeRenew,
+        OfferingTransactionTypeSystem,
+        fromOfferingTransactionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OfferingTransactionType = OfferingTransactionType' Lude.Text
+newtype OfferingTransactionType = OfferingTransactionType'
+  { fromOfferingTransactionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Purchase :: OfferingTransactionType
-pattern Purchase = OfferingTransactionType' "PURCHASE"
+pattern OfferingTransactionTypePurchase :: OfferingTransactionType
+pattern OfferingTransactionTypePurchase = OfferingTransactionType' "PURCHASE"
 
-pattern Renew :: OfferingTransactionType
-pattern Renew = OfferingTransactionType' "RENEW"
+pattern OfferingTransactionTypeRenew :: OfferingTransactionType
+pattern OfferingTransactionTypeRenew = OfferingTransactionType' "RENEW"
 
-pattern System :: OfferingTransactionType
-pattern System = OfferingTransactionType' "SYSTEM"
+pattern OfferingTransactionTypeSystem :: OfferingTransactionType
+pattern OfferingTransactionTypeSystem = OfferingTransactionType' "SYSTEM"
 
 {-# COMPLETE
-  Purchase,
-  Renew,
-  System,
+  OfferingTransactionTypePurchase,
+  OfferingTransactionTypeRenew,
+  OfferingTransactionTypeSystem,
   OfferingTransactionType'
   #-}

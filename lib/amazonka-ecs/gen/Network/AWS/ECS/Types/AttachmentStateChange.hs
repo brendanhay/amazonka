@@ -17,61 +17,56 @@ module Network.AWS.ECS.Types.AttachmentStateChange
     mkAttachmentStateChange,
 
     -- * Lenses
+    ascAttachmentArn,
     ascStatus,
-    ascAttachmentARN,
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a change in state for a task attachment.
 --
 -- /See:/ 'mkAttachmentStateChange' smart constructor.
 data AttachmentStateChange = AttachmentStateChange'
-  { -- | The status of the attachment.
-    status :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the attachment.
-    attachmentARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the attachment.
+    attachmentArn :: Types.String,
+    -- | The status of the attachment.
+    status :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachmentStateChange' with the minimum fields required to make a request.
---
--- * 'status' - The status of the attachment.
--- * 'attachmentARN' - The Amazon Resource Name (ARN) of the attachment.
+-- | Creates a 'AttachmentStateChange' value with any optional fields omitted.
 mkAttachmentStateChange ::
+  -- | 'attachmentArn'
+  Types.String ->
   -- | 'status'
-  Lude.Text ->
-  -- | 'attachmentARN'
-  Lude.Text ->
+  Types.String ->
   AttachmentStateChange
-mkAttachmentStateChange pStatus_ pAttachmentARN_ =
-  AttachmentStateChange'
-    { status = pStatus_,
-      attachmentARN = pAttachmentARN_
-    }
+mkAttachmentStateChange attachmentArn status =
+  AttachmentStateChange' {attachmentArn, status}
+
+-- | The Amazon Resource Name (ARN) of the attachment.
+--
+-- /Note:/ Consider using 'attachmentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascAttachmentArn :: Lens.Lens' AttachmentStateChange Types.String
+ascAttachmentArn = Lens.field @"attachmentArn"
+{-# DEPRECATED ascAttachmentArn "Use generic-lens or generic-optics with 'attachmentArn' instead." #-}
 
 -- | The status of the attachment.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ascStatus :: Lens.Lens' AttachmentStateChange Lude.Text
-ascStatus = Lens.lens (status :: AttachmentStateChange -> Lude.Text) (\s a -> s {status = a} :: AttachmentStateChange)
+ascStatus :: Lens.Lens' AttachmentStateChange Types.String
+ascStatus = Lens.field @"status"
 {-# DEPRECATED ascStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the attachment.
---
--- /Note:/ Consider using 'attachmentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ascAttachmentARN :: Lens.Lens' AttachmentStateChange Lude.Text
-ascAttachmentARN = Lens.lens (attachmentARN :: AttachmentStateChange -> Lude.Text) (\s a -> s {attachmentARN = a} :: AttachmentStateChange)
-{-# DEPRECATED ascAttachmentARN "Use generic-lens or generic-optics with 'attachmentARN' instead." #-}
-
-instance Lude.ToJSON AttachmentStateChange where
-  toJSON AttachmentStateChange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("status" Lude..= status),
-            Lude.Just ("attachmentArn" Lude..= attachmentARN)
+instance Core.FromJSON AttachmentStateChange where
+  toJSON AttachmentStateChange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("attachmentArn" Core..= attachmentArn),
+            Core.Just ("status" Core..= status)
           ]
       )

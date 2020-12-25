@@ -17,113 +17,108 @@ module Network.AWS.CloudFormation.Types.TypeSummary
     mkTypeSummary,
 
     -- * Lenses
-    tsLastUpdated,
-    tsTypeName,
     tsDefaultVersionId,
-    tsTypeARN,
-    tsType,
     tsDescription,
+    tsLastUpdated,
+    tsType,
+    tsTypeArn,
+    tsTypeName,
   )
 where
 
-import Network.AWS.CloudFormation.Types.RegistryType
+import qualified Network.AWS.CloudFormation.Types.DefaultVersionId as Types
+import qualified Network.AWS.CloudFormation.Types.Description as Types
+import qualified Network.AWS.CloudFormation.Types.RegistryType as Types
+import qualified Network.AWS.CloudFormation.Types.TypeArn as Types
+import qualified Network.AWS.CloudFormation.Types.TypeName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains summary information about the specified CloudFormation type.
 --
 -- /See:/ 'mkTypeSummary' smart constructor.
 data TypeSummary = TypeSummary'
-  { -- | When the current default version of the type was registered.
-    lastUpdated :: Lude.Maybe Lude.DateTime,
-    -- | The name of the type.
-    typeName :: Lude.Maybe Lude.Text,
-    -- | The ID of the default version of the type. The default version is used when the type version is not specified.
+  { -- | The ID of the default version of the type. The default version is used when the type version is not specified.
     --
     -- To set the default version of a type, use @'SetTypeDefaultVersion' @ .
-    defaultVersionId :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the type.
-    typeARN :: Lude.Maybe Lude.Text,
-    -- | The kind of type.
-    type' :: Lude.Maybe RegistryType,
+    defaultVersionId :: Core.Maybe Types.DefaultVersionId,
     -- | The description of the type.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | When the current default version of the type was registered.
+    lastUpdated :: Core.Maybe Core.UTCTime,
+    -- | The kind of type.
+    type' :: Core.Maybe Types.RegistryType,
+    -- | The Amazon Resource Name (ARN) of the type.
+    typeArn :: Core.Maybe Types.TypeArn,
+    -- | The name of the type.
+    typeName :: Core.Maybe Types.TypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TypeSummary' with the minimum fields required to make a request.
---
--- * 'lastUpdated' - When the current default version of the type was registered.
--- * 'typeName' - The name of the type.
--- * 'defaultVersionId' - The ID of the default version of the type. The default version is used when the type version is not specified.
---
--- To set the default version of a type, use @'SetTypeDefaultVersion' @ .
--- * 'typeARN' - The Amazon Resource Name (ARN) of the type.
--- * 'type'' - The kind of type.
--- * 'description' - The description of the type.
+-- | Creates a 'TypeSummary' value with any optional fields omitted.
 mkTypeSummary ::
   TypeSummary
 mkTypeSummary =
   TypeSummary'
-    { lastUpdated = Lude.Nothing,
-      typeName = Lude.Nothing,
-      defaultVersionId = Lude.Nothing,
-      typeARN = Lude.Nothing,
-      type' = Lude.Nothing,
-      description = Lude.Nothing
+    { defaultVersionId = Core.Nothing,
+      description = Core.Nothing,
+      lastUpdated = Core.Nothing,
+      type' = Core.Nothing,
+      typeArn = Core.Nothing,
+      typeName = Core.Nothing
     }
-
--- | When the current default version of the type was registered.
---
--- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsLastUpdated :: Lens.Lens' TypeSummary (Lude.Maybe Lude.DateTime)
-tsLastUpdated = Lens.lens (lastUpdated :: TypeSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {lastUpdated = a} :: TypeSummary)
-{-# DEPRECATED tsLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
-
--- | The name of the type.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsTypeName :: Lens.Lens' TypeSummary (Lude.Maybe Lude.Text)
-tsTypeName = Lens.lens (typeName :: TypeSummary -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: TypeSummary)
-{-# DEPRECATED tsTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The ID of the default version of the type. The default version is used when the type version is not specified.
 --
 -- To set the default version of a type, use @'SetTypeDefaultVersion' @ .
 --
 -- /Note:/ Consider using 'defaultVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsDefaultVersionId :: Lens.Lens' TypeSummary (Lude.Maybe Lude.Text)
-tsDefaultVersionId = Lens.lens (defaultVersionId :: TypeSummary -> Lude.Maybe Lude.Text) (\s a -> s {defaultVersionId = a} :: TypeSummary)
+tsDefaultVersionId :: Lens.Lens' TypeSummary (Core.Maybe Types.DefaultVersionId)
+tsDefaultVersionId = Lens.field @"defaultVersionId"
 {-# DEPRECATED tsDefaultVersionId "Use generic-lens or generic-optics with 'defaultVersionId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the type.
---
--- /Note:/ Consider using 'typeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsTypeARN :: Lens.Lens' TypeSummary (Lude.Maybe Lude.Text)
-tsTypeARN = Lens.lens (typeARN :: TypeSummary -> Lude.Maybe Lude.Text) (\s a -> s {typeARN = a} :: TypeSummary)
-{-# DEPRECATED tsTypeARN "Use generic-lens or generic-optics with 'typeARN' instead." #-}
-
--- | The kind of type.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsType :: Lens.Lens' TypeSummary (Lude.Maybe RegistryType)
-tsType = Lens.lens (type' :: TypeSummary -> Lude.Maybe RegistryType) (\s a -> s {type' = a} :: TypeSummary)
-{-# DEPRECATED tsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The description of the type.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsDescription :: Lens.Lens' TypeSummary (Lude.Maybe Lude.Text)
-tsDescription = Lens.lens (description :: TypeSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TypeSummary)
+tsDescription :: Lens.Lens' TypeSummary (Core.Maybe Types.Description)
+tsDescription = Lens.field @"description"
 {-# DEPRECATED tsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML TypeSummary where
+-- | When the current default version of the type was registered.
+--
+-- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsLastUpdated :: Lens.Lens' TypeSummary (Core.Maybe Core.UTCTime)
+tsLastUpdated = Lens.field @"lastUpdated"
+{-# DEPRECATED tsLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
+
+-- | The kind of type.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsType :: Lens.Lens' TypeSummary (Core.Maybe Types.RegistryType)
+tsType = Lens.field @"type'"
+{-# DEPRECATED tsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the type.
+--
+-- /Note:/ Consider using 'typeArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTypeArn :: Lens.Lens' TypeSummary (Core.Maybe Types.TypeArn)
+tsTypeArn = Lens.field @"typeArn"
+{-# DEPRECATED tsTypeArn "Use generic-lens or generic-optics with 'typeArn' instead." #-}
+
+-- | The name of the type.
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTypeName :: Lens.Lens' TypeSummary (Core.Maybe Types.TypeName)
+tsTypeName = Lens.field @"typeName"
+{-# DEPRECATED tsTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+instance Core.FromXML TypeSummary where
   parseXML x =
     TypeSummary'
-      Lude.<$> (x Lude..@? "LastUpdated")
-      Lude.<*> (x Lude..@? "TypeName")
-      Lude.<*> (x Lude..@? "DefaultVersionId")
-      Lude.<*> (x Lude..@? "TypeArn")
-      Lude.<*> (x Lude..@? "Type")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "DefaultVersionId")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "LastUpdated")
+      Core.<*> (x Core..@? "Type")
+      Core.<*> (x Core..@? "TypeArn")
+      Core.<*> (x Core..@? "TypeName")

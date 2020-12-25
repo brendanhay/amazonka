@@ -22,50 +22,47 @@ module Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharing
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharingType as Types
 
 -- | Synchronize Systems Manager Inventory data from multiple AWS accounts defined in AWS Organizations to a centralized S3 bucket. Data is synchronized to individual key prefixes in the central bucket. Each key prefix represents a different AWS account ID.
 --
 -- /See:/ 'mkResourceDataSyncDestinationDataSharing' smart constructor.
 newtype ResourceDataSyncDestinationDataSharing = ResourceDataSyncDestinationDataSharing'
   { -- | The sharing data type. Only @Organization@ is supported.
-    destinationDataSharingType :: Lude.Maybe Lude.Text
+    destinationDataSharingType :: Core.Maybe Types.ResourceDataSyncDestinationDataSharingType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceDataSyncDestinationDataSharing' with the minimum fields required to make a request.
---
--- * 'destinationDataSharingType' - The sharing data type. Only @Organization@ is supported.
+-- | Creates a 'ResourceDataSyncDestinationDataSharing' value with any optional fields omitted.
 mkResourceDataSyncDestinationDataSharing ::
   ResourceDataSyncDestinationDataSharing
 mkResourceDataSyncDestinationDataSharing =
   ResourceDataSyncDestinationDataSharing'
     { destinationDataSharingType =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The sharing data type. Only @Organization@ is supported.
 --
 -- /Note:/ Consider using 'destinationDataSharingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsddsDestinationDataSharingType :: Lens.Lens' ResourceDataSyncDestinationDataSharing (Lude.Maybe Lude.Text)
-rdsddsDestinationDataSharingType = Lens.lens (destinationDataSharingType :: ResourceDataSyncDestinationDataSharing -> Lude.Maybe Lude.Text) (\s a -> s {destinationDataSharingType = a} :: ResourceDataSyncDestinationDataSharing)
+rdsddsDestinationDataSharingType :: Lens.Lens' ResourceDataSyncDestinationDataSharing (Core.Maybe Types.ResourceDataSyncDestinationDataSharingType)
+rdsddsDestinationDataSharingType = Lens.field @"destinationDataSharingType"
 {-# DEPRECATED rdsddsDestinationDataSharingType "Use generic-lens or generic-optics with 'destinationDataSharingType' instead." #-}
 
-instance Lude.FromJSON ResourceDataSyncDestinationDataSharing where
-  parseJSON =
-    Lude.withObject
-      "ResourceDataSyncDestinationDataSharing"
-      ( \x ->
-          ResourceDataSyncDestinationDataSharing'
-            Lude.<$> (x Lude..:? "DestinationDataSharingType")
-      )
-
-instance Lude.ToJSON ResourceDataSyncDestinationDataSharing where
-  toJSON ResourceDataSyncDestinationDataSharing' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DestinationDataSharingType" Lude..=)
-              Lude.<$> destinationDataSharingType
+instance Core.FromJSON ResourceDataSyncDestinationDataSharing where
+  toJSON ResourceDataSyncDestinationDataSharing {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DestinationDataSharingType" Core..=)
+              Core.<$> destinationDataSharingType
           ]
       )
+
+instance Core.FromJSON ResourceDataSyncDestinationDataSharing where
+  parseJSON =
+    Core.withObject "ResourceDataSyncDestinationDataSharing" Core.$
+      \x ->
+        ResourceDataSyncDestinationDataSharing'
+          Core.<$> (x Core..:? "DestinationDataSharingType")

@@ -13,71 +13,76 @@
 module Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
   ( CertificateAuthorityStatus
       ( CertificateAuthorityStatus',
-        Creating,
-        PendingCertificate,
-        Active,
-        Deleted,
-        Disabled,
-        Expired,
-        Failed
+        CertificateAuthorityStatusCreating,
+        CertificateAuthorityStatusPendingCertificate,
+        CertificateAuthorityStatusActive,
+        CertificateAuthorityStatusDeleted,
+        CertificateAuthorityStatusDisabled,
+        CertificateAuthorityStatusExpired,
+        CertificateAuthorityStatusFailed,
+        fromCertificateAuthorityStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CertificateAuthorityStatus = CertificateAuthorityStatus' Lude.Text
+newtype CertificateAuthorityStatus = CertificateAuthorityStatus'
+  { fromCertificateAuthorityStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Creating :: CertificateAuthorityStatus
-pattern Creating = CertificateAuthorityStatus' "CREATING"
+pattern CertificateAuthorityStatusCreating :: CertificateAuthorityStatus
+pattern CertificateAuthorityStatusCreating = CertificateAuthorityStatus' "CREATING"
 
-pattern PendingCertificate :: CertificateAuthorityStatus
-pattern PendingCertificate = CertificateAuthorityStatus' "PENDING_CERTIFICATE"
+pattern CertificateAuthorityStatusPendingCertificate :: CertificateAuthorityStatus
+pattern CertificateAuthorityStatusPendingCertificate = CertificateAuthorityStatus' "PENDING_CERTIFICATE"
 
-pattern Active :: CertificateAuthorityStatus
-pattern Active = CertificateAuthorityStatus' "ACTIVE"
+pattern CertificateAuthorityStatusActive :: CertificateAuthorityStatus
+pattern CertificateAuthorityStatusActive = CertificateAuthorityStatus' "ACTIVE"
 
-pattern Deleted :: CertificateAuthorityStatus
-pattern Deleted = CertificateAuthorityStatus' "DELETED"
+pattern CertificateAuthorityStatusDeleted :: CertificateAuthorityStatus
+pattern CertificateAuthorityStatusDeleted = CertificateAuthorityStatus' "DELETED"
 
-pattern Disabled :: CertificateAuthorityStatus
-pattern Disabled = CertificateAuthorityStatus' "DISABLED"
+pattern CertificateAuthorityStatusDisabled :: CertificateAuthorityStatus
+pattern CertificateAuthorityStatusDisabled = CertificateAuthorityStatus' "DISABLED"
 
-pattern Expired :: CertificateAuthorityStatus
-pattern Expired = CertificateAuthorityStatus' "EXPIRED"
+pattern CertificateAuthorityStatusExpired :: CertificateAuthorityStatus
+pattern CertificateAuthorityStatusExpired = CertificateAuthorityStatus' "EXPIRED"
 
-pattern Failed :: CertificateAuthorityStatus
-pattern Failed = CertificateAuthorityStatus' "FAILED"
+pattern CertificateAuthorityStatusFailed :: CertificateAuthorityStatus
+pattern CertificateAuthorityStatusFailed = CertificateAuthorityStatus' "FAILED"
 
 {-# COMPLETE
-  Creating,
-  PendingCertificate,
-  Active,
-  Deleted,
-  Disabled,
-  Expired,
-  Failed,
+  CertificateAuthorityStatusCreating,
+  CertificateAuthorityStatusPendingCertificate,
+  CertificateAuthorityStatusActive,
+  CertificateAuthorityStatusDeleted,
+  CertificateAuthorityStatusDisabled,
+  CertificateAuthorityStatusExpired,
+  CertificateAuthorityStatusFailed,
   CertificateAuthorityStatus'
   #-}

@@ -13,46 +13,51 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy
   ( WorkspaceImageRequiredTenancy
       ( WorkspaceImageRequiredTenancy',
-        WIRTDefault,
-        WIRTDedicated
+        WorkspaceImageRequiredTenancyDefault,
+        WorkspaceImageRequiredTenancyDedicated,
+        fromWorkspaceImageRequiredTenancy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WorkspaceImageRequiredTenancy = WorkspaceImageRequiredTenancy' Lude.Text
+newtype WorkspaceImageRequiredTenancy = WorkspaceImageRequiredTenancy'
+  { fromWorkspaceImageRequiredTenancy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern WIRTDefault :: WorkspaceImageRequiredTenancy
-pattern WIRTDefault = WorkspaceImageRequiredTenancy' "DEFAULT"
+pattern WorkspaceImageRequiredTenancyDefault :: WorkspaceImageRequiredTenancy
+pattern WorkspaceImageRequiredTenancyDefault = WorkspaceImageRequiredTenancy' "DEFAULT"
 
-pattern WIRTDedicated :: WorkspaceImageRequiredTenancy
-pattern WIRTDedicated = WorkspaceImageRequiredTenancy' "DEDICATED"
+pattern WorkspaceImageRequiredTenancyDedicated :: WorkspaceImageRequiredTenancy
+pattern WorkspaceImageRequiredTenancyDedicated = WorkspaceImageRequiredTenancy' "DEDICATED"
 
 {-# COMPLETE
-  WIRTDefault,
-  WIRTDedicated,
+  WorkspaceImageRequiredTenancyDefault,
+  WorkspaceImageRequiredTenancyDedicated,
   WorkspaceImageRequiredTenancy'
   #-}

@@ -17,69 +17,139 @@ module Network.AWS.OpsWorks.Types.Instance
     mkInstance,
 
     -- * Lenses
-    iPrivateDNS,
-    iReportedAgentVersion,
-    iInstanceId,
-    iStatus,
-    iPrivateIP,
-    iInstallUpdatesOnBoot,
-    iVirtualizationType,
-    iInstanceProfileARN,
-    iPlatform,
-    iHostname,
-    iSSHHostRsaKeyFingerprint,
-    iSecurityGroupIds,
-    iEcsClusterARN,
-    iARN,
-    iCreatedAt,
-    iEC2InstanceId,
-    iSSHKeyName,
     iAgentVersion,
-    iRootDeviceVolumeId,
-    iSubnetId,
-    iInfrastructureClass,
-    iSSHHostDsaKeyFingerprint,
-    iInstanceType,
-    iEBSOptimized,
-    iElasticIP,
-    iOS,
-    iAvailabilityZone,
-    iLastServiceErrorId,
-    iTenancy,
-    iAutoScalingType,
-    iLayerIds,
+    iAmiId,
     iArchitecture,
-    iPublicDNS,
-    iAMIId,
-    iPublicIP,
-    iReportedOS,
-    iRegisteredBy,
-    iStackId,
-    iRootDeviceType,
-    iEcsContainerInstanceARN,
+    iArn,
+    iAutoScalingType,
+    iAvailabilityZone,
     iBlockDeviceMappings,
+    iCreatedAt,
+    iEbsOptimized,
+    iEc2InstanceId,
+    iEcsClusterArn,
+    iEcsContainerInstanceArn,
+    iElasticIp,
+    iHostname,
+    iInfrastructureClass,
+    iInstallUpdatesOnBoot,
+    iInstanceId,
+    iInstanceProfileArn,
+    iInstanceType,
+    iLastServiceErrorId,
+    iLayerIds,
+    iOs,
+    iPlatform,
+    iPrivateDns,
+    iPrivateIp,
+    iPublicDns,
+    iPublicIp,
+    iRegisteredBy,
+    iReportedAgentVersion,
+    iReportedOs,
+    iRootDeviceType,
+    iRootDeviceVolumeId,
+    iSecurityGroupIds,
+    iSshHostDsaKeyFingerprint,
+    iSshHostRsaKeyFingerprint,
+    iSshKeyName,
+    iStackId,
+    iStatus,
+    iSubnetId,
+    iTenancy,
+    iVirtualizationType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.Architecture
-import Network.AWS.OpsWorks.Types.AutoScalingType
-import Network.AWS.OpsWorks.Types.BlockDeviceMapping
-import Network.AWS.OpsWorks.Types.ReportedOS
-import Network.AWS.OpsWorks.Types.RootDeviceType
-import Network.AWS.OpsWorks.Types.VirtualizationType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.Architecture as Types
+import qualified Network.AWS.OpsWorks.Types.AutoScalingType as Types
+import qualified Network.AWS.OpsWorks.Types.BlockDeviceMapping as Types
+import qualified Network.AWS.OpsWorks.Types.DateTime as Types
+import qualified Network.AWS.OpsWorks.Types.ReportedOs as Types
+import qualified Network.AWS.OpsWorks.Types.RootDeviceType as Types
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.OpsWorks.Types.VirtualizationType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance.
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { -- | The instance's private DNS name.
-    privateDNS :: Lude.Maybe Lude.Text,
-    -- | The instance's reported AWS OpsWorks Stacks agent version.
-    reportedAgentVersion :: Lude.Maybe Lude.Text,
+  { -- | The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
+    agentVersion :: Core.Maybe Types.String,
+    -- | A custom AMI ID to be used to create the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
+    amiId :: Core.Maybe Types.String,
+    -- | The instance architecture: "i386" or "x86_64".
+    architecture :: Core.Maybe Types.Architecture,
+    -- | The instance's Amazon Resource Number (ARN).
+    arn :: Core.Maybe Types.String,
+    -- | For load-based or time-based instances, the type.
+    autoScalingType :: Core.Maybe Types.AutoScalingType,
+    -- | The instance Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+    availabilityZone :: Core.Maybe Types.String,
+    -- | An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
+    blockDeviceMappings :: Core.Maybe [Types.BlockDeviceMapping],
+    -- | The time that the instance was created.
+    createdAt :: Core.Maybe Types.DateTime,
+    -- | Whether this is an Amazon EBS-optimized instance.
+    ebsOptimized :: Core.Maybe Core.Bool,
+    -- | The ID of the associated Amazon EC2 instance.
+    ec2InstanceId :: Core.Maybe Types.String,
+    -- | For container instances, the Amazon ECS cluster's ARN.
+    ecsClusterArn :: Core.Maybe Types.String,
+    -- | For container instances, the instance's ARN.
+    ecsContainerInstanceArn :: Core.Maybe Types.String,
+    -- | The instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
+    elasticIp :: Core.Maybe Types.String,
+    -- | The instance host name.
+    hostname :: Core.Maybe Types.String,
+    -- | For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
+    infrastructureClass :: Core.Maybe Types.String,
+    -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
+    installUpdatesOnBoot :: Core.Maybe Core.Bool,
     -- | The instance ID.
-    instanceId :: Lude.Maybe Lude.Text,
+    instanceId :: Core.Maybe Types.String,
+    -- | The ARN of the instance's IAM profile. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+    instanceProfileArn :: Core.Maybe Types.String,
+    -- | The instance type, such as @t2.micro@ .
+    instanceType :: Core.Maybe Types.String,
+    -- | The ID of the last service error. For more information, call 'DescribeServiceErrors' .
+    lastServiceErrorId :: Core.Maybe Types.String,
+    -- | An array containing the instance layer IDs.
+    layerIds :: Core.Maybe [Types.String],
+    -- | The instance's operating system.
+    os :: Core.Maybe Types.String,
+    -- | The instance's platform.
+    platform :: Core.Maybe Types.String,
+    -- | The instance's private DNS name.
+    privateDns :: Core.Maybe Types.String,
+    -- | The instance's private IP address.
+    privateIp :: Core.Maybe Types.String,
+    -- | The instance public DNS name.
+    publicDns :: Core.Maybe Types.String,
+    -- | The instance public IP address.
+    publicIp :: Core.Maybe Types.String,
+    -- | For registered instances, who performed the registration.
+    registeredBy :: Core.Maybe Types.String,
+    -- | The instance's reported AWS OpsWorks Stacks agent version.
+    reportedAgentVersion :: Core.Maybe Types.String,
+    -- | For registered instances, the reported operating system.
+    reportedOs :: Core.Maybe Types.ReportedOs,
+    -- | The instance's root device type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
+    rootDeviceType :: Core.Maybe Types.RootDeviceType,
+    -- | The root device volume ID.
+    rootDeviceVolumeId :: Core.Maybe Types.String,
+    -- | An array containing the instance security group IDs.
+    securityGroupIds :: Core.Maybe [Types.String],
+    -- | The SSH key's Deep Security Agent (DSA) fingerprint.
+    sshHostDsaKeyFingerprint :: Core.Maybe Types.String,
+    -- | The SSH key's RSA fingerprint.
+    sshHostRsaKeyFingerprint :: Core.Maybe Types.String,
+    -- | The instance's Amazon EC2 key-pair name.
+    sshKeyName :: Core.Maybe Types.String,
+    -- | The stack ID.
+    stackId :: Core.Maybe Types.String,
     -- | The instance status:
     --
     --
@@ -126,242 +196,323 @@ data Instance = Instance'
     --
     --
     --     * @terminating@
-    status :: Lude.Maybe Lude.Text,
-    -- | The instance's private IP address.
-    privateIP :: Lude.Maybe Lude.Text,
-    -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
-    installUpdatesOnBoot :: Lude.Maybe Lude.Bool,
-    -- | The instance's virtualization type: @paravirtual@ or @hvm@ .
-    virtualizationType :: Lude.Maybe VirtualizationType,
-    -- | The ARN of the instance's IAM profile. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
-    instanceProfileARN :: Lude.Maybe Lude.Text,
-    -- | The instance's platform.
-    platform :: Lude.Maybe Lude.Text,
-    -- | The instance host name.
-    hostname :: Lude.Maybe Lude.Text,
-    -- | The SSH key's RSA fingerprint.
-    sshHostRsaKeyFingerprint :: Lude.Maybe Lude.Text,
-    -- | An array containing the instance security group IDs.
-    securityGroupIds :: Lude.Maybe [Lude.Text],
-    -- | For container instances, the Amazon ECS cluster's ARN.
-    ecsClusterARN :: Lude.Maybe Lude.Text,
-    -- | The instance's Amazon Resource Number (ARN).
-    arn :: Lude.Maybe Lude.Text,
-    -- | The time that the instance was created.
-    createdAt :: Lude.Maybe Lude.Text,
-    -- | The ID of the associated Amazon EC2 instance.
-    ec2InstanceId :: Lude.Maybe Lude.Text,
-    -- | The instance's Amazon EC2 key-pair name.
-    sshKeyName :: Lude.Maybe Lude.Text,
-    -- | The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
-    agentVersion :: Lude.Maybe Lude.Text,
-    -- | The root device volume ID.
-    rootDeviceVolumeId :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.String,
     -- | The instance's subnet ID; applicable only if the stack is running in a VPC.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
-    infrastructureClass :: Lude.Maybe Lude.Text,
-    -- | The SSH key's Deep Security Agent (DSA) fingerprint.
-    sshHostDsaKeyFingerprint :: Lude.Maybe Lude.Text,
-    -- | The instance type, such as @t2.micro@ .
-    instanceType :: Lude.Maybe Lude.Text,
-    -- | Whether this is an Amazon EBS-optimized instance.
-    ebsOptimized :: Lude.Maybe Lude.Bool,
-    -- | The instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
-    elasticIP :: Lude.Maybe Lude.Text,
-    -- | The instance's operating system.
-    os :: Lude.Maybe Lude.Text,
-    -- | The instance Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The ID of the last service error. For more information, call 'DescribeServiceErrors' .
-    lastServiceErrorId :: Lude.Maybe Lude.Text,
+    subnetId :: Core.Maybe Types.String,
     -- | The instance's tenancy option, such as @dedicated@ or @host@ .
-    tenancy :: Lude.Maybe Lude.Text,
-    -- | For load-based or time-based instances, the type.
-    autoScalingType :: Lude.Maybe AutoScalingType,
-    -- | An array containing the instance layer IDs.
-    layerIds :: Lude.Maybe [Lude.Text],
-    -- | The instance architecture: "i386" or "x86_64".
-    architecture :: Lude.Maybe Architecture,
-    -- | The instance public DNS name.
-    publicDNS :: Lude.Maybe Lude.Text,
-    -- | A custom AMI ID to be used to create the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
-    amiId :: Lude.Maybe Lude.Text,
-    -- | The instance public IP address.
-    publicIP :: Lude.Maybe Lude.Text,
-    -- | For registered instances, the reported operating system.
-    reportedOS :: Lude.Maybe ReportedOS,
-    -- | For registered instances, who performed the registration.
-    registeredBy :: Lude.Maybe Lude.Text,
-    -- | The stack ID.
-    stackId :: Lude.Maybe Lude.Text,
-    -- | The instance's root device type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
-    rootDeviceType :: Lude.Maybe RootDeviceType,
-    -- | For container instances, the instance's ARN.
-    ecsContainerInstanceARN :: Lude.Maybe Lude.Text,
-    -- | An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
-    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping]
+    tenancy :: Core.Maybe Types.String,
+    -- | The instance's virtualization type: @paravirtual@ or @hvm@ .
+    virtualizationType :: Core.Maybe Types.VirtualizationType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Instance' with the minimum fields required to make a request.
---
--- * 'privateDNS' - The instance's private DNS name.
--- * 'reportedAgentVersion' - The instance's reported AWS OpsWorks Stacks agent version.
--- * 'instanceId' - The instance ID.
--- * 'status' - The instance status:
---
---
---     * @booting@
---
---
---     * @connection_lost@
---
---
---     * @online@
---
---
---     * @pending@
---
---
---     * @rebooting@
---
---
---     * @requested@
---
---
---     * @running_setup@
---
---
---     * @setup_failed@
---
---
---     * @shutting_down@
---
---
---     * @start_failed@
---
---
---     * @stop_failed@
---
---
---     * @stopped@
---
---
---     * @stopping@
---
---
---     * @terminated@
---
---
---     * @terminating@
---
---
--- * 'privateIP' - The instance's private IP address.
--- * 'installUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
--- * 'virtualizationType' - The instance's virtualization type: @paravirtual@ or @hvm@ .
--- * 'instanceProfileARN' - The ARN of the instance's IAM profile. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
--- * 'platform' - The instance's platform.
--- * 'hostname' - The instance host name.
--- * 'sshHostRsaKeyFingerprint' - The SSH key's RSA fingerprint.
--- * 'securityGroupIds' - An array containing the instance security group IDs.
--- * 'ecsClusterARN' - For container instances, the Amazon ECS cluster's ARN.
--- * 'arn' - The instance's Amazon Resource Number (ARN).
--- * 'createdAt' - The time that the instance was created.
--- * 'ec2InstanceId' - The ID of the associated Amazon EC2 instance.
--- * 'sshKeyName' - The instance's Amazon EC2 key-pair name.
--- * 'agentVersion' - The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
--- * 'rootDeviceVolumeId' - The root device volume ID.
--- * 'subnetId' - The instance's subnet ID; applicable only if the stack is running in a VPC.
--- * 'infrastructureClass' - For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
--- * 'sshHostDsaKeyFingerprint' - The SSH key's Deep Security Agent (DSA) fingerprint.
--- * 'instanceType' - The instance type, such as @t2.micro@ .
--- * 'ebsOptimized' - Whether this is an Amazon EBS-optimized instance.
--- * 'elasticIP' - The instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
--- * 'os' - The instance's operating system.
--- * 'availabilityZone' - The instance Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'lastServiceErrorId' - The ID of the last service error. For more information, call 'DescribeServiceErrors' .
--- * 'tenancy' - The instance's tenancy option, such as @dedicated@ or @host@ .
--- * 'autoScalingType' - For load-based or time-based instances, the type.
--- * 'layerIds' - An array containing the instance layer IDs.
--- * 'architecture' - The instance architecture: "i386" or "x86_64".
--- * 'publicDNS' - The instance public DNS name.
--- * 'amiId' - A custom AMI ID to be used to create the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
--- * 'publicIP' - The instance public IP address.
--- * 'reportedOS' - For registered instances, the reported operating system.
--- * 'registeredBy' - For registered instances, who performed the registration.
--- * 'stackId' - The stack ID.
--- * 'rootDeviceType' - The instance's root device type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
--- * 'ecsContainerInstanceARN' - For container instances, the instance's ARN.
--- * 'blockDeviceMappings' - An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
+-- | Creates a 'Instance' value with any optional fields omitted.
 mkInstance ::
   Instance
 mkInstance =
   Instance'
-    { privateDNS = Lude.Nothing,
-      reportedAgentVersion = Lude.Nothing,
-      instanceId = Lude.Nothing,
-      status = Lude.Nothing,
-      privateIP = Lude.Nothing,
-      installUpdatesOnBoot = Lude.Nothing,
-      virtualizationType = Lude.Nothing,
-      instanceProfileARN = Lude.Nothing,
-      platform = Lude.Nothing,
-      hostname = Lude.Nothing,
-      sshHostRsaKeyFingerprint = Lude.Nothing,
-      securityGroupIds = Lude.Nothing,
-      ecsClusterARN = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      ec2InstanceId = Lude.Nothing,
-      sshKeyName = Lude.Nothing,
-      agentVersion = Lude.Nothing,
-      rootDeviceVolumeId = Lude.Nothing,
-      subnetId = Lude.Nothing,
-      infrastructureClass = Lude.Nothing,
-      sshHostDsaKeyFingerprint = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      ebsOptimized = Lude.Nothing,
-      elasticIP = Lude.Nothing,
-      os = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      lastServiceErrorId = Lude.Nothing,
-      tenancy = Lude.Nothing,
-      autoScalingType = Lude.Nothing,
-      layerIds = Lude.Nothing,
-      architecture = Lude.Nothing,
-      publicDNS = Lude.Nothing,
-      amiId = Lude.Nothing,
-      publicIP = Lude.Nothing,
-      reportedOS = Lude.Nothing,
-      registeredBy = Lude.Nothing,
-      stackId = Lude.Nothing,
-      rootDeviceType = Lude.Nothing,
-      ecsContainerInstanceARN = Lude.Nothing,
-      blockDeviceMappings = Lude.Nothing
+    { agentVersion = Core.Nothing,
+      amiId = Core.Nothing,
+      architecture = Core.Nothing,
+      arn = Core.Nothing,
+      autoScalingType = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      blockDeviceMappings = Core.Nothing,
+      createdAt = Core.Nothing,
+      ebsOptimized = Core.Nothing,
+      ec2InstanceId = Core.Nothing,
+      ecsClusterArn = Core.Nothing,
+      ecsContainerInstanceArn = Core.Nothing,
+      elasticIp = Core.Nothing,
+      hostname = Core.Nothing,
+      infrastructureClass = Core.Nothing,
+      installUpdatesOnBoot = Core.Nothing,
+      instanceId = Core.Nothing,
+      instanceProfileArn = Core.Nothing,
+      instanceType = Core.Nothing,
+      lastServiceErrorId = Core.Nothing,
+      layerIds = Core.Nothing,
+      os = Core.Nothing,
+      platform = Core.Nothing,
+      privateDns = Core.Nothing,
+      privateIp = Core.Nothing,
+      publicDns = Core.Nothing,
+      publicIp = Core.Nothing,
+      registeredBy = Core.Nothing,
+      reportedAgentVersion = Core.Nothing,
+      reportedOs = Core.Nothing,
+      rootDeviceType = Core.Nothing,
+      rootDeviceVolumeId = Core.Nothing,
+      securityGroupIds = Core.Nothing,
+      sshHostDsaKeyFingerprint = Core.Nothing,
+      sshHostRsaKeyFingerprint = Core.Nothing,
+      sshKeyName = Core.Nothing,
+      stackId = Core.Nothing,
+      status = Core.Nothing,
+      subnetId = Core.Nothing,
+      tenancy = Core.Nothing,
+      virtualizationType = Core.Nothing
     }
 
--- | The instance's private DNS name.
+-- | The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
 --
--- /Note:/ Consider using 'privateDNS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPrivateDNS :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPrivateDNS = Lens.lens (privateDNS :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {privateDNS = a} :: Instance)
-{-# DEPRECATED iPrivateDNS "Use generic-lens or generic-optics with 'privateDNS' instead." #-}
+-- /Note:/ Consider using 'agentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAgentVersion :: Lens.Lens' Instance (Core.Maybe Types.String)
+iAgentVersion = Lens.field @"agentVersion"
+{-# DEPRECATED iAgentVersion "Use generic-lens or generic-optics with 'agentVersion' instead." #-}
 
--- | The instance's reported AWS OpsWorks Stacks agent version.
+-- | A custom AMI ID to be used to create the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
 --
--- /Note:/ Consider using 'reportedAgentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iReportedAgentVersion :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iReportedAgentVersion = Lens.lens (reportedAgentVersion :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {reportedAgentVersion = a} :: Instance)
-{-# DEPRECATED iReportedAgentVersion "Use generic-lens or generic-optics with 'reportedAgentVersion' instead." #-}
+-- /Note:/ Consider using 'amiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAmiId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iAmiId = Lens.field @"amiId"
+{-# DEPRECATED iAmiId "Use generic-lens or generic-optics with 'amiId' instead." #-}
+
+-- | The instance architecture: "i386" or "x86_64".
+--
+-- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iArchitecture :: Lens.Lens' Instance (Core.Maybe Types.Architecture)
+iArchitecture = Lens.field @"architecture"
+{-# DEPRECATED iArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
+
+-- | The instance's Amazon Resource Number (ARN).
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iArn :: Lens.Lens' Instance (Core.Maybe Types.String)
+iArn = Lens.field @"arn"
+{-# DEPRECATED iArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | For load-based or time-based instances, the type.
+--
+-- /Note:/ Consider using 'autoScalingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAutoScalingType :: Lens.Lens' Instance (Core.Maybe Types.AutoScalingType)
+iAutoScalingType = Lens.field @"autoScalingType"
+{-# DEPRECATED iAutoScalingType "Use generic-lens or generic-optics with 'autoScalingType' instead." #-}
+
+-- | The instance Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAvailabilityZone :: Lens.Lens' Instance (Core.Maybe Types.String)
+iAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED iAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
+--
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iBlockDeviceMappings :: Lens.Lens' Instance (Core.Maybe [Types.BlockDeviceMapping])
+iBlockDeviceMappings = Lens.field @"blockDeviceMappings"
+{-# DEPRECATED iBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
+
+-- | The time that the instance was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iCreatedAt :: Lens.Lens' Instance (Core.Maybe Types.DateTime)
+iCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED iCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | Whether this is an Amazon EBS-optimized instance.
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEbsOptimized :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+iEbsOptimized = Lens.field @"ebsOptimized"
+{-# DEPRECATED iEbsOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
+
+-- | The ID of the associated Amazon EC2 instance.
+--
+-- /Note:/ Consider using 'ec2InstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEc2InstanceId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iEc2InstanceId = Lens.field @"ec2InstanceId"
+{-# DEPRECATED iEc2InstanceId "Use generic-lens or generic-optics with 'ec2InstanceId' instead." #-}
+
+-- | For container instances, the Amazon ECS cluster's ARN.
+--
+-- /Note:/ Consider using 'ecsClusterArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEcsClusterArn :: Lens.Lens' Instance (Core.Maybe Types.String)
+iEcsClusterArn = Lens.field @"ecsClusterArn"
+{-# DEPRECATED iEcsClusterArn "Use generic-lens or generic-optics with 'ecsClusterArn' instead." #-}
+
+-- | For container instances, the instance's ARN.
+--
+-- /Note:/ Consider using 'ecsContainerInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEcsContainerInstanceArn :: Lens.Lens' Instance (Core.Maybe Types.String)
+iEcsContainerInstanceArn = Lens.field @"ecsContainerInstanceArn"
+{-# DEPRECATED iEcsContainerInstanceArn "Use generic-lens or generic-optics with 'ecsContainerInstanceArn' instead." #-}
+
+-- | The instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
+--
+-- /Note:/ Consider using 'elasticIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iElasticIp :: Lens.Lens' Instance (Core.Maybe Types.String)
+iElasticIp = Lens.field @"elasticIp"
+{-# DEPRECATED iElasticIp "Use generic-lens or generic-optics with 'elasticIp' instead." #-}
+
+-- | The instance host name.
+--
+-- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iHostname :: Lens.Lens' Instance (Core.Maybe Types.String)
+iHostname = Lens.field @"hostname"
+{-# DEPRECATED iHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
+
+-- | For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
+--
+-- /Note:/ Consider using 'infrastructureClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInfrastructureClass :: Lens.Lens' Instance (Core.Maybe Types.String)
+iInfrastructureClass = Lens.field @"infrastructureClass"
+{-# DEPRECATED iInfrastructureClass "Use generic-lens or generic-optics with 'infrastructureClass' instead." #-}
+
+-- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
+--
+-- /Note:/ Consider using 'installUpdatesOnBoot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstallUpdatesOnBoot :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+iInstallUpdatesOnBoot = Lens.field @"installUpdatesOnBoot"
+{-# DEPRECATED iInstallUpdatesOnBoot "Use generic-lens or generic-optics with 'installUpdatesOnBoot' instead." #-}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iInstanceId = Lens.lens (instanceId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: Instance)
+iInstanceId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED iInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The ARN of the instance's IAM profile. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+--
+-- /Note:/ Consider using 'instanceProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceProfileArn :: Lens.Lens' Instance (Core.Maybe Types.String)
+iInstanceProfileArn = Lens.field @"instanceProfileArn"
+{-# DEPRECATED iInstanceProfileArn "Use generic-lens or generic-optics with 'instanceProfileArn' instead." #-}
+
+-- | The instance type, such as @t2.micro@ .
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceType :: Lens.Lens' Instance (Core.Maybe Types.String)
+iInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED iInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The ID of the last service error. For more information, call 'DescribeServiceErrors' .
+--
+-- /Note:/ Consider using 'lastServiceErrorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLastServiceErrorId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iLastServiceErrorId = Lens.field @"lastServiceErrorId"
+{-# DEPRECATED iLastServiceErrorId "Use generic-lens or generic-optics with 'lastServiceErrorId' instead." #-}
+
+-- | An array containing the instance layer IDs.
+--
+-- /Note:/ Consider using 'layerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLayerIds :: Lens.Lens' Instance (Core.Maybe [Types.String])
+iLayerIds = Lens.field @"layerIds"
+{-# DEPRECATED iLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
+
+-- | The instance's operating system.
+--
+-- /Note:/ Consider using 'os' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iOs :: Lens.Lens' Instance (Core.Maybe Types.String)
+iOs = Lens.field @"os"
+{-# DEPRECATED iOs "Use generic-lens or generic-optics with 'os' instead." #-}
+
+-- | The instance's platform.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPlatform :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPlatform = Lens.field @"platform"
+{-# DEPRECATED iPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+
+-- | The instance's private DNS name.
+--
+-- /Note:/ Consider using 'privateDns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPrivateDns :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPrivateDns = Lens.field @"privateDns"
+{-# DEPRECATED iPrivateDns "Use generic-lens or generic-optics with 'privateDns' instead." #-}
+
+-- | The instance's private IP address.
+--
+-- /Note:/ Consider using 'privateIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPrivateIp :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPrivateIp = Lens.field @"privateIp"
+{-# DEPRECATED iPrivateIp "Use generic-lens or generic-optics with 'privateIp' instead." #-}
+
+-- | The instance public DNS name.
+--
+-- /Note:/ Consider using 'publicDns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPublicDns :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPublicDns = Lens.field @"publicDns"
+{-# DEPRECATED iPublicDns "Use generic-lens or generic-optics with 'publicDns' instead." #-}
+
+-- | The instance public IP address.
+--
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPublicIp :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED iPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
+
+-- | For registered instances, who performed the registration.
+--
+-- /Note:/ Consider using 'registeredBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRegisteredBy :: Lens.Lens' Instance (Core.Maybe Types.String)
+iRegisteredBy = Lens.field @"registeredBy"
+{-# DEPRECATED iRegisteredBy "Use generic-lens or generic-optics with 'registeredBy' instead." #-}
+
+-- | The instance's reported AWS OpsWorks Stacks agent version.
+--
+-- /Note:/ Consider using 'reportedAgentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iReportedAgentVersion :: Lens.Lens' Instance (Core.Maybe Types.String)
+iReportedAgentVersion = Lens.field @"reportedAgentVersion"
+{-# DEPRECATED iReportedAgentVersion "Use generic-lens or generic-optics with 'reportedAgentVersion' instead." #-}
+
+-- | For registered instances, the reported operating system.
+--
+-- /Note:/ Consider using 'reportedOs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iReportedOs :: Lens.Lens' Instance (Core.Maybe Types.ReportedOs)
+iReportedOs = Lens.field @"reportedOs"
+{-# DEPRECATED iReportedOs "Use generic-lens or generic-optics with 'reportedOs' instead." #-}
+
+-- | The instance's root device type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
+--
+-- /Note:/ Consider using 'rootDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRootDeviceType :: Lens.Lens' Instance (Core.Maybe Types.RootDeviceType)
+iRootDeviceType = Lens.field @"rootDeviceType"
+{-# DEPRECATED iRootDeviceType "Use generic-lens or generic-optics with 'rootDeviceType' instead." #-}
+
+-- | The root device volume ID.
+--
+-- /Note:/ Consider using 'rootDeviceVolumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRootDeviceVolumeId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iRootDeviceVolumeId = Lens.field @"rootDeviceVolumeId"
+{-# DEPRECATED iRootDeviceVolumeId "Use generic-lens or generic-optics with 'rootDeviceVolumeId' instead." #-}
+
+-- | An array containing the instance security group IDs.
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSecurityGroupIds :: Lens.Lens' Instance (Core.Maybe [Types.String])
+iSecurityGroupIds = Lens.field @"securityGroupIds"
+{-# DEPRECATED iSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
+
+-- | The SSH key's Deep Security Agent (DSA) fingerprint.
+--
+-- /Note:/ Consider using 'sshHostDsaKeyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSshHostDsaKeyFingerprint :: Lens.Lens' Instance (Core.Maybe Types.String)
+iSshHostDsaKeyFingerprint = Lens.field @"sshHostDsaKeyFingerprint"
+{-# DEPRECATED iSshHostDsaKeyFingerprint "Use generic-lens or generic-optics with 'sshHostDsaKeyFingerprint' instead." #-}
+
+-- | The SSH key's RSA fingerprint.
+--
+-- /Note:/ Consider using 'sshHostRsaKeyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSshHostRsaKeyFingerprint :: Lens.Lens' Instance (Core.Maybe Types.String)
+iSshHostRsaKeyFingerprint = Lens.field @"sshHostRsaKeyFingerprint"
+{-# DEPRECATED iSshHostRsaKeyFingerprint "Use generic-lens or generic-optics with 'sshHostRsaKeyFingerprint' instead." #-}
+
+-- | The instance's Amazon EC2 key-pair name.
+--
+-- /Note:/ Consider using 'sshKeyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSshKeyName :: Lens.Lens' Instance (Core.Maybe Types.String)
+iSshKeyName = Lens.field @"sshKeyName"
+{-# DEPRECATED iSshKeyName "Use generic-lens or generic-optics with 'sshKeyName' instead." #-}
+
+-- | The stack ID.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStackId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iStackId = Lens.field @"stackId"
+{-# DEPRECATED iStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The instance status:
 --
@@ -413,314 +564,74 @@ iInstanceId = Lens.lens (instanceId :: Instance -> Lude.Maybe Lude.Text) (\s a -
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iStatus :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iStatus = Lens.lens (status :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Instance)
+iStatus :: Lens.Lens' Instance (Core.Maybe Types.String)
+iStatus = Lens.field @"status"
 {-# DEPRECATED iStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The instance's private IP address.
---
--- /Note:/ Consider using 'privateIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPrivateIP :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPrivateIP = Lens.lens (privateIP :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {privateIP = a} :: Instance)
-{-# DEPRECATED iPrivateIP "Use generic-lens or generic-optics with 'privateIP' instead." #-}
-
--- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
---
--- /Note:/ Consider using 'installUpdatesOnBoot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstallUpdatesOnBoot :: Lens.Lens' Instance (Lude.Maybe Lude.Bool)
-iInstallUpdatesOnBoot = Lens.lens (installUpdatesOnBoot :: Instance -> Lude.Maybe Lude.Bool) (\s a -> s {installUpdatesOnBoot = a} :: Instance)
-{-# DEPRECATED iInstallUpdatesOnBoot "Use generic-lens or generic-optics with 'installUpdatesOnBoot' instead." #-}
-
--- | The instance's virtualization type: @paravirtual@ or @hvm@ .
---
--- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iVirtualizationType :: Lens.Lens' Instance (Lude.Maybe VirtualizationType)
-iVirtualizationType = Lens.lens (virtualizationType :: Instance -> Lude.Maybe VirtualizationType) (\s a -> s {virtualizationType = a} :: Instance)
-{-# DEPRECATED iVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
-
--- | The ARN of the instance's IAM profile. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
---
--- /Note:/ Consider using 'instanceProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceProfileARN :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iInstanceProfileARN = Lens.lens (instanceProfileARN :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {instanceProfileARN = a} :: Instance)
-{-# DEPRECATED iInstanceProfileARN "Use generic-lens or generic-optics with 'instanceProfileARN' instead." #-}
-
--- | The instance's platform.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPlatform :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPlatform = Lens.lens (platform :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: Instance)
-{-# DEPRECATED iPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | The instance host name.
---
--- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iHostname :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iHostname = Lens.lens (hostname :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {hostname = a} :: Instance)
-{-# DEPRECATED iHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
-
--- | The SSH key's RSA fingerprint.
---
--- /Note:/ Consider using 'sshHostRsaKeyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iSSHHostRsaKeyFingerprint :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iSSHHostRsaKeyFingerprint = Lens.lens (sshHostRsaKeyFingerprint :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {sshHostRsaKeyFingerprint = a} :: Instance)
-{-# DEPRECATED iSSHHostRsaKeyFingerprint "Use generic-lens or generic-optics with 'sshHostRsaKeyFingerprint' instead." #-}
-
--- | An array containing the instance security group IDs.
---
--- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iSecurityGroupIds :: Lens.Lens' Instance (Lude.Maybe [Lude.Text])
-iSecurityGroupIds = Lens.lens (securityGroupIds :: Instance -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: Instance)
-{-# DEPRECATED iSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
-
--- | For container instances, the Amazon ECS cluster's ARN.
---
--- /Note:/ Consider using 'ecsClusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iEcsClusterARN :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iEcsClusterARN = Lens.lens (ecsClusterARN :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {ecsClusterARN = a} :: Instance)
-{-# DEPRECATED iEcsClusterARN "Use generic-lens or generic-optics with 'ecsClusterARN' instead." #-}
-
--- | The instance's Amazon Resource Number (ARN).
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iARN :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iARN = Lens.lens (arn :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Instance)
-{-# DEPRECATED iARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The time that the instance was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iCreatedAt :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iCreatedAt = Lens.lens (createdAt :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: Instance)
-{-# DEPRECATED iCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The ID of the associated Amazon EC2 instance.
---
--- /Note:/ Consider using 'ec2InstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iEC2InstanceId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iEC2InstanceId = Lens.lens (ec2InstanceId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {ec2InstanceId = a} :: Instance)
-{-# DEPRECATED iEC2InstanceId "Use generic-lens or generic-optics with 'ec2InstanceId' instead." #-}
-
--- | The instance's Amazon EC2 key-pair name.
---
--- /Note:/ Consider using 'sshKeyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iSSHKeyName :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iSSHKeyName = Lens.lens (sshKeyName :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {sshKeyName = a} :: Instance)
-{-# DEPRECATED iSSHKeyName "Use generic-lens or generic-optics with 'sshKeyName' instead." #-}
-
--- | The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
---
--- /Note:/ Consider using 'agentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iAgentVersion :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iAgentVersion = Lens.lens (agentVersion :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {agentVersion = a} :: Instance)
-{-# DEPRECATED iAgentVersion "Use generic-lens or generic-optics with 'agentVersion' instead." #-}
-
--- | The root device volume ID.
---
--- /Note:/ Consider using 'rootDeviceVolumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iRootDeviceVolumeId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iRootDeviceVolumeId = Lens.lens (rootDeviceVolumeId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {rootDeviceVolumeId = a} :: Instance)
-{-# DEPRECATED iRootDeviceVolumeId "Use generic-lens or generic-optics with 'rootDeviceVolumeId' instead." #-}
 
 -- | The instance's subnet ID; applicable only if the stack is running in a VPC.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iSubnetId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iSubnetId = Lens.lens (subnetId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: Instance)
+iSubnetId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iSubnetId = Lens.field @"subnetId"
 {-# DEPRECATED iSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
---
--- /Note:/ Consider using 'infrastructureClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInfrastructureClass :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iInfrastructureClass = Lens.lens (infrastructureClass :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {infrastructureClass = a} :: Instance)
-{-# DEPRECATED iInfrastructureClass "Use generic-lens or generic-optics with 'infrastructureClass' instead." #-}
-
--- | The SSH key's Deep Security Agent (DSA) fingerprint.
---
--- /Note:/ Consider using 'sshHostDsaKeyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iSSHHostDsaKeyFingerprint :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iSSHHostDsaKeyFingerprint = Lens.lens (sshHostDsaKeyFingerprint :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {sshHostDsaKeyFingerprint = a} :: Instance)
-{-# DEPRECATED iSSHHostDsaKeyFingerprint "Use generic-lens or generic-optics with 'sshHostDsaKeyFingerprint' instead." #-}
-
--- | The instance type, such as @t2.micro@ .
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceType :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iInstanceType = Lens.lens (instanceType :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: Instance)
-{-# DEPRECATED iInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | Whether this is an Amazon EBS-optimized instance.
---
--- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iEBSOptimized :: Lens.Lens' Instance (Lude.Maybe Lude.Bool)
-iEBSOptimized = Lens.lens (ebsOptimized :: Instance -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: Instance)
-{-# DEPRECATED iEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
-
--- | The instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
---
--- /Note:/ Consider using 'elasticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iElasticIP :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iElasticIP = Lens.lens (elasticIP :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {elasticIP = a} :: Instance)
-{-# DEPRECATED iElasticIP "Use generic-lens or generic-optics with 'elasticIP' instead." #-}
-
--- | The instance's operating system.
---
--- /Note:/ Consider using 'os' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iOS :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iOS = Lens.lens (os :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {os = a} :: Instance)
-{-# DEPRECATED iOS "Use generic-lens or generic-optics with 'os' instead." #-}
-
--- | The instance Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iAvailabilityZone :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iAvailabilityZone = Lens.lens (availabilityZone :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: Instance)
-{-# DEPRECATED iAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The ID of the last service error. For more information, call 'DescribeServiceErrors' .
---
--- /Note:/ Consider using 'lastServiceErrorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iLastServiceErrorId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iLastServiceErrorId = Lens.lens (lastServiceErrorId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {lastServiceErrorId = a} :: Instance)
-{-# DEPRECATED iLastServiceErrorId "Use generic-lens or generic-optics with 'lastServiceErrorId' instead." #-}
 
 -- | The instance's tenancy option, such as @dedicated@ or @host@ .
 --
 -- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iTenancy :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iTenancy = Lens.lens (tenancy :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {tenancy = a} :: Instance)
+iTenancy :: Lens.Lens' Instance (Core.Maybe Types.String)
+iTenancy = Lens.field @"tenancy"
 {-# DEPRECATED iTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
 
--- | For load-based or time-based instances, the type.
+-- | The instance's virtualization type: @paravirtual@ or @hvm@ .
 --
--- /Note:/ Consider using 'autoScalingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iAutoScalingType :: Lens.Lens' Instance (Lude.Maybe AutoScalingType)
-iAutoScalingType = Lens.lens (autoScalingType :: Instance -> Lude.Maybe AutoScalingType) (\s a -> s {autoScalingType = a} :: Instance)
-{-# DEPRECATED iAutoScalingType "Use generic-lens or generic-optics with 'autoScalingType' instead." #-}
+-- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iVirtualizationType :: Lens.Lens' Instance (Core.Maybe Types.VirtualizationType)
+iVirtualizationType = Lens.field @"virtualizationType"
+{-# DEPRECATED iVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
 
--- | An array containing the instance layer IDs.
---
--- /Note:/ Consider using 'layerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iLayerIds :: Lens.Lens' Instance (Lude.Maybe [Lude.Text])
-iLayerIds = Lens.lens (layerIds :: Instance -> Lude.Maybe [Lude.Text]) (\s a -> s {layerIds = a} :: Instance)
-{-# DEPRECATED iLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
-
--- | The instance architecture: "i386" or "x86_64".
---
--- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iArchitecture :: Lens.Lens' Instance (Lude.Maybe Architecture)
-iArchitecture = Lens.lens (architecture :: Instance -> Lude.Maybe Architecture) (\s a -> s {architecture = a} :: Instance)
-{-# DEPRECATED iArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
-
--- | The instance public DNS name.
---
--- /Note:/ Consider using 'publicDNS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPublicDNS :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPublicDNS = Lens.lens (publicDNS :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {publicDNS = a} :: Instance)
-{-# DEPRECATED iPublicDNS "Use generic-lens or generic-optics with 'publicDNS' instead." #-}
-
--- | A custom AMI ID to be used to create the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
---
--- /Note:/ Consider using 'amiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iAMIId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iAMIId = Lens.lens (amiId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {amiId = a} :: Instance)
-{-# DEPRECATED iAMIId "Use generic-lens or generic-optics with 'amiId' instead." #-}
-
--- | The instance public IP address.
---
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPublicIP :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPublicIP = Lens.lens (publicIP :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: Instance)
-{-# DEPRECATED iPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
-
--- | For registered instances, the reported operating system.
---
--- /Note:/ Consider using 'reportedOS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iReportedOS :: Lens.Lens' Instance (Lude.Maybe ReportedOS)
-iReportedOS = Lens.lens (reportedOS :: Instance -> Lude.Maybe ReportedOS) (\s a -> s {reportedOS = a} :: Instance)
-{-# DEPRECATED iReportedOS "Use generic-lens or generic-optics with 'reportedOS' instead." #-}
-
--- | For registered instances, who performed the registration.
---
--- /Note:/ Consider using 'registeredBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iRegisteredBy :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iRegisteredBy = Lens.lens (registeredBy :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {registeredBy = a} :: Instance)
-{-# DEPRECATED iRegisteredBy "Use generic-lens or generic-optics with 'registeredBy' instead." #-}
-
--- | The stack ID.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iStackId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iStackId = Lens.lens (stackId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: Instance)
-{-# DEPRECATED iStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
-
--- | The instance's root device type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
---
--- /Note:/ Consider using 'rootDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iRootDeviceType :: Lens.Lens' Instance (Lude.Maybe RootDeviceType)
-iRootDeviceType = Lens.lens (rootDeviceType :: Instance -> Lude.Maybe RootDeviceType) (\s a -> s {rootDeviceType = a} :: Instance)
-{-# DEPRECATED iRootDeviceType "Use generic-lens or generic-optics with 'rootDeviceType' instead." #-}
-
--- | For container instances, the instance's ARN.
---
--- /Note:/ Consider using 'ecsContainerInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iEcsContainerInstanceARN :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iEcsContainerInstanceARN = Lens.lens (ecsContainerInstanceARN :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {ecsContainerInstanceARN = a} :: Instance)
-{-# DEPRECATED iEcsContainerInstanceARN "Use generic-lens or generic-optics with 'ecsContainerInstanceARN' instead." #-}
-
--- | An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
---
--- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iBlockDeviceMappings :: Lens.Lens' Instance (Lude.Maybe [BlockDeviceMapping])
-iBlockDeviceMappings = Lens.lens (blockDeviceMappings :: Instance -> Lude.Maybe [BlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: Instance)
-{-# DEPRECATED iBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
-
-instance Lude.FromJSON Instance where
+instance Core.FromJSON Instance where
   parseJSON =
-    Lude.withObject
-      "Instance"
-      ( \x ->
-          Instance'
-            Lude.<$> (x Lude..:? "PrivateDns")
-            Lude.<*> (x Lude..:? "ReportedAgentVersion")
-            Lude.<*> (x Lude..:? "InstanceId")
-            Lude.<*> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "PrivateIp")
-            Lude.<*> (x Lude..:? "InstallUpdatesOnBoot")
-            Lude.<*> (x Lude..:? "VirtualizationType")
-            Lude.<*> (x Lude..:? "InstanceProfileArn")
-            Lude.<*> (x Lude..:? "Platform")
-            Lude.<*> (x Lude..:? "Hostname")
-            Lude.<*> (x Lude..:? "SshHostRsaKeyFingerprint")
-            Lude.<*> (x Lude..:? "SecurityGroupIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "EcsClusterArn")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "Ec2InstanceId")
-            Lude.<*> (x Lude..:? "SshKeyName")
-            Lude.<*> (x Lude..:? "AgentVersion")
-            Lude.<*> (x Lude..:? "RootDeviceVolumeId")
-            Lude.<*> (x Lude..:? "SubnetId")
-            Lude.<*> (x Lude..:? "InfrastructureClass")
-            Lude.<*> (x Lude..:? "SshHostDsaKeyFingerprint")
-            Lude.<*> (x Lude..:? "InstanceType")
-            Lude.<*> (x Lude..:? "EbsOptimized")
-            Lude.<*> (x Lude..:? "ElasticIp")
-            Lude.<*> (x Lude..:? "Os")
-            Lude.<*> (x Lude..:? "AvailabilityZone")
-            Lude.<*> (x Lude..:? "LastServiceErrorId")
-            Lude.<*> (x Lude..:? "Tenancy")
-            Lude.<*> (x Lude..:? "AutoScalingType")
-            Lude.<*> (x Lude..:? "LayerIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Architecture")
-            Lude.<*> (x Lude..:? "PublicDns")
-            Lude.<*> (x Lude..:? "AmiId")
-            Lude.<*> (x Lude..:? "PublicIp")
-            Lude.<*> (x Lude..:? "ReportedOs")
-            Lude.<*> (x Lude..:? "RegisteredBy")
-            Lude.<*> (x Lude..:? "StackId")
-            Lude.<*> (x Lude..:? "RootDeviceType")
-            Lude.<*> (x Lude..:? "EcsContainerInstanceArn")
-            Lude.<*> (x Lude..:? "BlockDeviceMappings" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Instance" Core.$
+      \x ->
+        Instance'
+          Core.<$> (x Core..:? "AgentVersion")
+          Core.<*> (x Core..:? "AmiId")
+          Core.<*> (x Core..:? "Architecture")
+          Core.<*> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "AutoScalingType")
+          Core.<*> (x Core..:? "AvailabilityZone")
+          Core.<*> (x Core..:? "BlockDeviceMappings")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "EbsOptimized")
+          Core.<*> (x Core..:? "Ec2InstanceId")
+          Core.<*> (x Core..:? "EcsClusterArn")
+          Core.<*> (x Core..:? "EcsContainerInstanceArn")
+          Core.<*> (x Core..:? "ElasticIp")
+          Core.<*> (x Core..:? "Hostname")
+          Core.<*> (x Core..:? "InfrastructureClass")
+          Core.<*> (x Core..:? "InstallUpdatesOnBoot")
+          Core.<*> (x Core..:? "InstanceId")
+          Core.<*> (x Core..:? "InstanceProfileArn")
+          Core.<*> (x Core..:? "InstanceType")
+          Core.<*> (x Core..:? "LastServiceErrorId")
+          Core.<*> (x Core..:? "LayerIds")
+          Core.<*> (x Core..:? "Os")
+          Core.<*> (x Core..:? "Platform")
+          Core.<*> (x Core..:? "PrivateDns")
+          Core.<*> (x Core..:? "PrivateIp")
+          Core.<*> (x Core..:? "PublicDns")
+          Core.<*> (x Core..:? "PublicIp")
+          Core.<*> (x Core..:? "RegisteredBy")
+          Core.<*> (x Core..:? "ReportedAgentVersion")
+          Core.<*> (x Core..:? "ReportedOs")
+          Core.<*> (x Core..:? "RootDeviceType")
+          Core.<*> (x Core..:? "RootDeviceVolumeId")
+          Core.<*> (x Core..:? "SecurityGroupIds")
+          Core.<*> (x Core..:? "SshHostDsaKeyFingerprint")
+          Core.<*> (x Core..:? "SshHostRsaKeyFingerprint")
+          Core.<*> (x Core..:? "SshKeyName")
+          Core.<*> (x Core..:? "StackId")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "SubnetId")
+          Core.<*> (x Core..:? "Tenancy")
+          Core.<*> (x Core..:? "VirtualizationType")

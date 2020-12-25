@@ -20,147 +20,147 @@ module Network.AWS.ElastiCache.CreateUser
     mkCreateUser,
 
     -- ** Request lenses
-    cuEngine,
-    cuUserName,
-    cuAccessString,
     cuUserId,
-    cuPasswords,
+    cuUserName,
+    cuEngine,
+    cuAccessString,
     cuNoPasswordRequired,
+    cuPasswords,
 
     -- * Destructuring the response
-    User (..),
-    mkUser,
+    Types.User (..),
+    Types.mkUser,
 
     -- ** Response lenses
-    uStatus,
-    uARN,
-    uUserGroupIds,
-    uAuthentication,
-    uEngine,
-    uUserName,
-    uAccessString,
-    uUserId,
+    Types.uARN,
+    Types.uAccessString,
+    Types.uAuthentication,
+    Types.uEngine,
+    Types.uStatus,
+    Types.uUserGroupIds,
+    Types.uUserId,
+    Types.uUserName,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | Must be Redis.
-    engine :: Lude.Text,
+  { -- | The ID of the user.
+    userId :: Types.UserId,
     -- | The username of the user.
-    userName :: Lude.Text,
+    userName :: Types.UserName,
+    -- | Must be Redis.
+    engine :: Types.Engine,
     -- | Access permissions string used for this user account.
-    accessString :: Lude.Text,
-    -- | The ID of the user.
-    userId :: Lude.Text,
-    -- | Passwords used for this user account. You can create up to two passwords for each user.
-    passwords :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    accessString :: Types.AccessString,
     -- | Indicates a password is not required for this user account.
-    noPasswordRequired :: Lude.Maybe Lude.Bool
+    noPasswordRequired :: Core.Maybe Core.Bool,
+    -- | Passwords used for this user account. You can create up to two passwords for each user.
+    passwords :: Core.Maybe (Core.NonEmpty Types.String)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
---
--- * 'engine' - Must be Redis.
--- * 'userName' - The username of the user.
--- * 'accessString' - Access permissions string used for this user account.
--- * 'userId' - The ID of the user.
--- * 'passwords' - Passwords used for this user account. You can create up to two passwords for each user.
--- * 'noPasswordRequired' - Indicates a password is not required for this user account.
+-- | Creates a 'CreateUser' value with any optional fields omitted.
 mkCreateUser ::
-  -- | 'engine'
-  Lude.Text ->
-  -- | 'userName'
-  Lude.Text ->
-  -- | 'accessString'
-  Lude.Text ->
   -- | 'userId'
-  Lude.Text ->
+  Types.UserId ->
+  -- | 'userName'
+  Types.UserName ->
+  -- | 'engine'
+  Types.Engine ->
+  -- | 'accessString'
+  Types.AccessString ->
   CreateUser
-mkCreateUser pEngine_ pUserName_ pAccessString_ pUserId_ =
+mkCreateUser userId userName engine accessString =
   CreateUser'
-    { engine = pEngine_,
-      userName = pUserName_,
-      accessString = pAccessString_,
-      userId = pUserId_,
-      passwords = Lude.Nothing,
-      noPasswordRequired = Lude.Nothing
+    { userId,
+      userName,
+      engine,
+      accessString,
+      noPasswordRequired = Core.Nothing,
+      passwords = Core.Nothing
     }
-
--- | Must be Redis.
---
--- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuEngine :: Lens.Lens' CreateUser Lude.Text
-cuEngine = Lens.lens (engine :: CreateUser -> Lude.Text) (\s a -> s {engine = a} :: CreateUser)
-{-# DEPRECATED cuEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
-
--- | The username of the user.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuUserName :: Lens.Lens' CreateUser Lude.Text
-cuUserName = Lens.lens (userName :: CreateUser -> Lude.Text) (\s a -> s {userName = a} :: CreateUser)
-{-# DEPRECATED cuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
--- | Access permissions string used for this user account.
---
--- /Note:/ Consider using 'accessString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuAccessString :: Lens.Lens' CreateUser Lude.Text
-cuAccessString = Lens.lens (accessString :: CreateUser -> Lude.Text) (\s a -> s {accessString = a} :: CreateUser)
-{-# DEPRECATED cuAccessString "Use generic-lens or generic-optics with 'accessString' instead." #-}
 
 -- | The ID of the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuUserId :: Lens.Lens' CreateUser Lude.Text
-cuUserId = Lens.lens (userId :: CreateUser -> Lude.Text) (\s a -> s {userId = a} :: CreateUser)
+cuUserId :: Lens.Lens' CreateUser Types.UserId
+cuUserId = Lens.field @"userId"
 {-# DEPRECATED cuUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
--- | Passwords used for this user account. You can create up to two passwords for each user.
+-- | The username of the user.
 --
--- /Note:/ Consider using 'passwords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuPasswords :: Lens.Lens' CreateUser (Lude.Maybe (Lude.NonEmpty Lude.Text))
-cuPasswords = Lens.lens (passwords :: CreateUser -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {passwords = a} :: CreateUser)
-{-# DEPRECATED cuPasswords "Use generic-lens or generic-optics with 'passwords' instead." #-}
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuUserName :: Lens.Lens' CreateUser Types.UserName
+cuUserName = Lens.field @"userName"
+{-# DEPRECATED cuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+-- | Must be Redis.
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuEngine :: Lens.Lens' CreateUser Types.Engine
+cuEngine = Lens.field @"engine"
+{-# DEPRECATED cuEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
+
+-- | Access permissions string used for this user account.
+--
+-- /Note:/ Consider using 'accessString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuAccessString :: Lens.Lens' CreateUser Types.AccessString
+cuAccessString = Lens.field @"accessString"
+{-# DEPRECATED cuAccessString "Use generic-lens or generic-optics with 'accessString' instead." #-}
 
 -- | Indicates a password is not required for this user account.
 --
 -- /Note:/ Consider using 'noPasswordRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuNoPasswordRequired :: Lens.Lens' CreateUser (Lude.Maybe Lude.Bool)
-cuNoPasswordRequired = Lens.lens (noPasswordRequired :: CreateUser -> Lude.Maybe Lude.Bool) (\s a -> s {noPasswordRequired = a} :: CreateUser)
+cuNoPasswordRequired :: Lens.Lens' CreateUser (Core.Maybe Core.Bool)
+cuNoPasswordRequired = Lens.field @"noPasswordRequired"
 {-# DEPRECATED cuNoPasswordRequired "Use generic-lens or generic-optics with 'noPasswordRequired' instead." #-}
 
-instance Lude.AWSRequest CreateUser where
-  type Rs CreateUser = User
-  request = Req.postQuery elastiCacheService
+-- | Passwords used for this user account. You can create up to two passwords for each user.
+--
+-- /Note:/ Consider using 'passwords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuPasswords :: Lens.Lens' CreateUser (Core.Maybe (Core.NonEmpty Types.String))
+cuPasswords = Lens.field @"passwords"
+{-# DEPRECATED cuPasswords "Use generic-lens or generic-optics with 'passwords' instead." #-}
+
+instance Core.AWSRequest CreateUser where
+  type Rs CreateUser = Types.User
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateUser")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "UserId" userId)
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "Engine" engine)
+                Core.<> (Core.toQueryValue "AccessString" accessString)
+                Core.<> ( Core.toQueryValue "NoPasswordRequired"
+                            Core.<$> noPasswordRequired
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Passwords"
+                            (Core.toQueryList "member" Core.<$> passwords)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateUserResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders CreateUser where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateUser where
-  toQuery CreateUser' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateUser" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "Engine" Lude.=: engine,
-        "UserName" Lude.=: userName,
-        "AccessString" Lude.=: accessString,
-        "UserId" Lude.=: userId,
-        "Passwords"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> passwords),
-        "NoPasswordRequired" Lude.=: noPasswordRequired
-      ]
+      (\s h x -> Core.parseXML x)

@@ -22,203 +22,201 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     mkDescribeScheduledActions,
 
     -- ** Request lenses
-    dsasStartTime,
-    dsasNextToken,
     dsasAutoScalingGroupName,
-    dsasMaxRecords,
     dsasEndTime,
+    dsasMaxRecords,
+    dsasNextToken,
     dsasScheduledActionNames,
+    dsasStartTime,
 
     -- * Destructuring the response
     DescribeScheduledActionsResponse (..),
     mkDescribeScheduledActionsResponse,
 
     -- ** Response lenses
-    dsarsScheduledUpdateGroupActions,
-    dsarsNextToken,
-    dsarsResponseStatus,
+    dsarrsNextToken,
+    dsarrsScheduledUpdateGroupActions,
+    dsarrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
-  { -- | The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
-    startTime :: Lude.Maybe Lude.DateTime,
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Maybe Lude.Text,
-    -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
-    maxRecords :: Lude.Maybe Lude.Int,
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Core.Maybe Types.ResourceName,
     -- | The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
-    endTime :: Lude.Maybe Lude.DateTime,
+    endTime :: Core.Maybe Core.UTCTime,
+    -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.XmlString,
     -- | The names of one or more scheduled actions. You can specify up to 50 actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.
-    scheduledActionNames :: Lude.Maybe [Lude.Text]
+    scheduledActionNames :: Core.Maybe [Types.ResourceName],
+    -- | The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+    startTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeScheduledActions' with the minimum fields required to make a request.
---
--- * 'startTime' - The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
--- * 'endTime' - The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
--- * 'scheduledActionNames' - The names of one or more scheduled actions. You can specify up to 50 actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.
+-- | Creates a 'DescribeScheduledActions' value with any optional fields omitted.
 mkDescribeScheduledActions ::
   DescribeScheduledActions
 mkDescribeScheduledActions =
   DescribeScheduledActions'
-    { startTime = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      autoScalingGroupName = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      endTime = Lude.Nothing,
-      scheduledActionNames = Lude.Nothing
+    { autoScalingGroupName = Core.Nothing,
+      endTime = Core.Nothing,
+      maxRecords = Core.Nothing,
+      nextToken = Core.Nothing,
+      scheduledActionNames = Core.Nothing,
+      startTime = Core.Nothing
     }
-
--- | The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasStartTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.DateTime)
-dsasStartTime = Lens.lens (startTime :: DescribeScheduledActions -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeScheduledActions)
-{-# DEPRECATED dsasStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasNextToken :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.Text)
-dsasNextToken = Lens.lens (nextToken :: DescribeScheduledActions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeScheduledActions)
-{-# DEPRECATED dsasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasAutoScalingGroupName :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.Text)
-dsasAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribeScheduledActions -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribeScheduledActions)
+dsasAutoScalingGroupName :: Lens.Lens' DescribeScheduledActions (Core.Maybe Types.ResourceName)
+dsasAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED dsasAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
--- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
---
--- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasMaxRecords :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.Int)
-dsasMaxRecords = Lens.lens (maxRecords :: DescribeScheduledActions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeScheduledActions)
-{-# DEPRECATED dsasMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasEndTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.DateTime)
-dsasEndTime = Lens.lens (endTime :: DescribeScheduledActions -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeScheduledActions)
+dsasEndTime :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.UTCTime)
+dsasEndTime = Lens.field @"endTime"
 {-# DEPRECATED dsasEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasMaxRecords :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.Int)
+dsasMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dsasMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasNextToken :: Lens.Lens' DescribeScheduledActions (Core.Maybe Types.XmlString)
+dsasNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of one or more scheduled actions. You can specify up to 50 actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.
 --
 -- /Note:/ Consider using 'scheduledActionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsasScheduledActionNames :: Lens.Lens' DescribeScheduledActions (Lude.Maybe [Lude.Text])
-dsasScheduledActionNames = Lens.lens (scheduledActionNames :: DescribeScheduledActions -> Lude.Maybe [Lude.Text]) (\s a -> s {scheduledActionNames = a} :: DescribeScheduledActions)
+dsasScheduledActionNames :: Lens.Lens' DescribeScheduledActions (Core.Maybe [Types.ResourceName])
+dsasScheduledActionNames = Lens.field @"scheduledActionNames"
 {-# DEPRECATED dsasScheduledActionNames "Use generic-lens or generic-optics with 'scheduledActionNames' instead." #-}
 
-instance Page.AWSPager DescribeScheduledActions where
-  page rq rs
-    | Page.stop (rs Lens.^. dsarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsarsScheduledUpdateGroupActions) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsasNextToken Lens..~ rs Lens.^. dsarsNextToken
+-- | The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasStartTime :: Lens.Lens' DescribeScheduledActions (Core.Maybe Core.UTCTime)
+dsasStartTime = Lens.field @"startTime"
+{-# DEPRECATED dsasStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
-instance Lude.AWSRequest DescribeScheduledActions where
+instance Core.AWSRequest DescribeScheduledActions where
   type Rs DescribeScheduledActions = DescribeScheduledActionsResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeScheduledActions")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> ( Core.toQueryValue "AutoScalingGroupName"
+                            Core.<$> autoScalingGroupName
+                        )
+                Core.<> (Core.toQueryValue "EndTime" Core.<$> endTime)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryValue
+                            "ScheduledActionNames"
+                            (Core.toQueryList "member" Core.<$> scheduledActionNames)
+                        )
+                Core.<> (Core.toQueryValue "StartTime" Core.<$> startTime)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeScheduledActionsResult"
       ( \s h x ->
           DescribeScheduledActionsResponse'
-            Lude.<$> ( x Lude..@? "ScheduledUpdateGroupActions" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "ScheduledUpdateGroupActions"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeScheduledActions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeScheduledActions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeScheduledActions where
-  toQuery DescribeScheduledActions' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeScheduledActions" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "StartTime" Lude.=: startTime,
-        "NextToken" Lude.=: nextToken,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "MaxRecords" Lude.=: maxRecords,
-        "EndTime" Lude.=: endTime,
-        "ScheduledActionNames"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> scheduledActionNames)
-      ]
+instance Pager.AWSPager DescribeScheduledActions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"scheduledUpdateGroupActions" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
-  { -- | The scheduled actions.
-    scheduledUpdateGroupActions :: Lude.Maybe [ScheduledUpdateGroupAction],
-    -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Core.Maybe Types.XmlString,
+    -- | The scheduled actions.
+    scheduledUpdateGroupActions :: Core.Maybe [Types.ScheduledUpdateGroupAction],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeScheduledActionsResponse' with the minimum fields required to make a request.
---
--- * 'scheduledUpdateGroupActions' - The scheduled actions.
--- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeScheduledActionsResponse' value with any optional fields omitted.
 mkDescribeScheduledActionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeScheduledActionsResponse
-mkDescribeScheduledActionsResponse pResponseStatus_ =
+mkDescribeScheduledActionsResponse responseStatus =
   DescribeScheduledActionsResponse'
-    { scheduledUpdateGroupActions =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      scheduledUpdateGroupActions = Core.Nothing,
+      responseStatus
     }
-
--- | The scheduled actions.
---
--- /Note:/ Consider using 'scheduledUpdateGroupActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarsScheduledUpdateGroupActions :: Lens.Lens' DescribeScheduledActionsResponse (Lude.Maybe [ScheduledUpdateGroupAction])
-dsarsScheduledUpdateGroupActions = Lens.lens (scheduledUpdateGroupActions :: DescribeScheduledActionsResponse -> Lude.Maybe [ScheduledUpdateGroupAction]) (\s a -> s {scheduledUpdateGroupActions = a} :: DescribeScheduledActionsResponse)
-{-# DEPRECATED dsarsScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'scheduledUpdateGroupActions' instead." #-}
 
 -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarsNextToken :: Lens.Lens' DescribeScheduledActionsResponse (Lude.Maybe Lude.Text)
-dsarsNextToken = Lens.lens (nextToken :: DescribeScheduledActionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeScheduledActionsResponse)
-{-# DEPRECATED dsarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsarrsNextToken :: Lens.Lens' DescribeScheduledActionsResponse (Core.Maybe Types.XmlString)
+dsarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The scheduled actions.
+--
+-- /Note:/ Consider using 'scheduledUpdateGroupActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarrsScheduledUpdateGroupActions :: Lens.Lens' DescribeScheduledActionsResponse (Core.Maybe [Types.ScheduledUpdateGroupAction])
+dsarrsScheduledUpdateGroupActions = Lens.field @"scheduledUpdateGroupActions"
+{-# DEPRECATED dsarrsScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'scheduledUpdateGroupActions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarsResponseStatus :: Lens.Lens' DescribeScheduledActionsResponse Lude.Int
-dsarsResponseStatus = Lens.lens (responseStatus :: DescribeScheduledActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScheduledActionsResponse)
-{-# DEPRECATED dsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsarrsResponseStatus :: Lens.Lens' DescribeScheduledActionsResponse Core.Int
+dsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

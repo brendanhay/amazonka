@@ -17,66 +17,57 @@ module Network.AWS.DirectConnect.Types.Connection
     mkConnection,
 
     -- * Lenses
-    cLagId,
-    cVlan,
-    cLocation,
     cAwsDevice,
-    cHasLogicalRedundancy,
-    cConnectionId,
-    cLoaIssueTime,
-    cPartnerName,
-    cConnectionName,
-    cBandwidth,
-    cJumboFrameCapable,
-    cOwnerAccount,
-    cRegion,
-    cProviderName,
     cAwsDeviceV2,
+    cBandwidth,
+    cConnectionId,
+    cConnectionName,
     cConnectionState,
+    cHasLogicalRedundancy,
+    cJumboFrameCapable,
+    cLagId,
+    cLoaIssueTime,
+    cLocation,
+    cOwnerAccount,
+    cPartnerName,
+    cProviderName,
+    cRegion,
     cTags,
+    cVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types.ConnectionState
-import Network.AWS.DirectConnect.Types.HasLogicalRedundancy
-import Network.AWS.DirectConnect.Types.Tag
+import qualified Network.AWS.DirectConnect.Types.AwsDevice as Types
+import qualified Network.AWS.DirectConnect.Types.AwsDeviceV2 as Types
+import qualified Network.AWS.DirectConnect.Types.Bandwidth as Types
+import qualified Network.AWS.DirectConnect.Types.ConnectionId as Types
+import qualified Network.AWS.DirectConnect.Types.ConnectionName as Types
+import qualified Network.AWS.DirectConnect.Types.ConnectionState as Types
+import qualified Network.AWS.DirectConnect.Types.HasLogicalRedundancy as Types
+import qualified Network.AWS.DirectConnect.Types.LagId as Types
+import qualified Network.AWS.DirectConnect.Types.LocationCode as Types
+import qualified Network.AWS.DirectConnect.Types.OwnerAccount as Types
+import qualified Network.AWS.DirectConnect.Types.PartnerName as Types
+import qualified Network.AWS.DirectConnect.Types.ProviderName as Types
+import qualified Network.AWS.DirectConnect.Types.Region as Types
+import qualified Network.AWS.DirectConnect.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an AWS Direct Connect connection.
 --
 -- /See:/ 'mkConnection' smart constructor.
 data Connection = Connection'
-  { -- | The ID of the LAG.
-    lagId :: Lude.Maybe Lude.Text,
-    -- | The ID of the VLAN.
-    vlan :: Lude.Maybe Lude.Int,
-    -- | The location of the connection.
-    location :: Lude.Maybe Lude.Text,
+  { -- | The Direct Connect endpoint on which the physical connection terminates.
+    awsDevice :: Core.Maybe Types.AwsDevice,
     -- | The Direct Connect endpoint on which the physical connection terminates.
-    awsDevice :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-    hasLogicalRedundancy :: Lude.Maybe HasLogicalRedundancy,
-    -- | The ID of the connection.
-    connectionId :: Lude.Maybe Lude.Text,
-    -- | The time of the most recent call to 'DescribeLoa' for this connection.
-    loaIssueTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the AWS Direct Connect service provider associated with the connection.
-    partnerName :: Lude.Maybe Lude.Text,
-    -- | The name of the connection.
-    connectionName :: Lude.Maybe Lude.Text,
+    awsDeviceV2 :: Core.Maybe Types.AwsDeviceV2,
     -- | The bandwidth of the connection.
-    bandwidth :: Lude.Maybe Lude.Text,
-    -- | Indicates whether jumbo frames (9001 MTU) are supported.
-    jumboFrameCapable :: Lude.Maybe Lude.Bool,
-    -- | The ID of the AWS account that owns the connection.
-    ownerAccount :: Lude.Maybe Lude.Text,
-    -- | The AWS Region where the connection is located.
-    region :: Lude.Maybe Lude.Text,
-    -- | The name of the service provider associated with the connection.
-    providerName :: Lude.Maybe Lude.Text,
-    -- | The Direct Connect endpoint on which the physical connection terminates.
-    awsDeviceV2 :: Lude.Maybe Lude.Text,
+    bandwidth :: Core.Maybe Types.Bandwidth,
+    -- | The ID of the connection.
+    connectionId :: Core.Maybe Types.ConnectionId,
+    -- | The name of the connection.
+    connectionName :: Core.Maybe Types.ConnectionName,
     -- | The state of the connection. The following are the possible values:
     --
     --
@@ -105,188 +96,91 @@ data Connection = Connection'
     --
     --
     --     * @unknown@ : The state of the connection is not available.
-    connectionState :: Lude.Maybe ConnectionState,
+    connectionState :: Core.Maybe Types.ConnectionState,
+    -- | Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+    hasLogicalRedundancy :: Core.Maybe Types.HasLogicalRedundancy,
+    -- | Indicates whether jumbo frames (9001 MTU) are supported.
+    jumboFrameCapable :: Core.Maybe Core.Bool,
+    -- | The ID of the LAG.
+    lagId :: Core.Maybe Types.LagId,
+    -- | The time of the most recent call to 'DescribeLoa' for this connection.
+    loaIssueTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The location of the connection.
+    location :: Core.Maybe Types.LocationCode,
+    -- | The ID of the AWS account that owns the connection.
+    ownerAccount :: Core.Maybe Types.OwnerAccount,
+    -- | The name of the AWS Direct Connect service provider associated with the connection.
+    partnerName :: Core.Maybe Types.PartnerName,
+    -- | The name of the service provider associated with the connection.
+    providerName :: Core.Maybe Types.ProviderName,
+    -- | The AWS Region where the connection is located.
+    region :: Core.Maybe Types.Region,
     -- | The tags associated with the connection.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag),
+    -- | The ID of the VLAN.
+    vlan :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Connection' with the minimum fields required to make a request.
---
--- * 'lagId' - The ID of the LAG.
--- * 'vlan' - The ID of the VLAN.
--- * 'location' - The location of the connection.
--- * 'awsDevice' - The Direct Connect endpoint on which the physical connection terminates.
--- * 'hasLogicalRedundancy' - Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
--- * 'connectionId' - The ID of the connection.
--- * 'loaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
--- * 'partnerName' - The name of the AWS Direct Connect service provider associated with the connection.
--- * 'connectionName' - The name of the connection.
--- * 'bandwidth' - The bandwidth of the connection.
--- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
--- * 'ownerAccount' - The ID of the AWS account that owns the connection.
--- * 'region' - The AWS Region where the connection is located.
--- * 'providerName' - The name of the service provider associated with the connection.
--- * 'awsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
--- * 'connectionState' - The state of the connection. The following are the possible values:
---
---
---     * @ordering@ : The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
---
---
---     * @requested@ : The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
---
---
---     * @pending@ : The connection has been approved and is being initialized.
---
---
---     * @available@ : The network link is up and the connection is ready for use.
---
---
---     * @down@ : The network link is down.
---
---
---     * @deleting@ : The connection is being deleted.
---
---
---     * @deleted@ : The connection has been deleted.
---
---
---     * @rejected@ : A hosted connection in the @ordering@ state enters the @rejected@ state if it is deleted by the customer.
---
---
---     * @unknown@ : The state of the connection is not available.
---
---
--- * 'tags' - The tags associated with the connection.
+-- | Creates a 'Connection' value with any optional fields omitted.
 mkConnection ::
   Connection
 mkConnection =
   Connection'
-    { lagId = Lude.Nothing,
-      vlan = Lude.Nothing,
-      location = Lude.Nothing,
-      awsDevice = Lude.Nothing,
-      hasLogicalRedundancy = Lude.Nothing,
-      connectionId = Lude.Nothing,
-      loaIssueTime = Lude.Nothing,
-      partnerName = Lude.Nothing,
-      connectionName = Lude.Nothing,
-      bandwidth = Lude.Nothing,
-      jumboFrameCapable = Lude.Nothing,
-      ownerAccount = Lude.Nothing,
-      region = Lude.Nothing,
-      providerName = Lude.Nothing,
-      awsDeviceV2 = Lude.Nothing,
-      connectionState = Lude.Nothing,
-      tags = Lude.Nothing
+    { awsDevice = Core.Nothing,
+      awsDeviceV2 = Core.Nothing,
+      bandwidth = Core.Nothing,
+      connectionId = Core.Nothing,
+      connectionName = Core.Nothing,
+      connectionState = Core.Nothing,
+      hasLogicalRedundancy = Core.Nothing,
+      jumboFrameCapable = Core.Nothing,
+      lagId = Core.Nothing,
+      loaIssueTime = Core.Nothing,
+      location = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      partnerName = Core.Nothing,
+      providerName = Core.Nothing,
+      region = Core.Nothing,
+      tags = Core.Nothing,
+      vlan = Core.Nothing
     }
-
--- | The ID of the LAG.
---
--- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLagId :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cLagId = Lens.lens (lagId :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {lagId = a} :: Connection)
-{-# DEPRECATED cLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
-
--- | The ID of the VLAN.
---
--- /Note:/ Consider using 'vlan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVlan :: Lens.Lens' Connection (Lude.Maybe Lude.Int)
-cVlan = Lens.lens (vlan :: Connection -> Lude.Maybe Lude.Int) (\s a -> s {vlan = a} :: Connection)
-{-# DEPRECATED cVlan "Use generic-lens or generic-optics with 'vlan' instead." #-}
-
--- | The location of the connection.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLocation :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cLocation = Lens.lens (location :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: Connection)
-{-# DEPRECATED cLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The Direct Connect endpoint on which the physical connection terminates.
 --
 -- /Note:/ Consider using 'awsDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cAwsDevice :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cAwsDevice = Lens.lens (awsDevice :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {awsDevice = a} :: Connection)
+cAwsDevice :: Lens.Lens' Connection (Core.Maybe Types.AwsDevice)
+cAwsDevice = Lens.field @"awsDevice"
 {-# DEPRECATED cAwsDevice "Use generic-lens or generic-optics with 'awsDevice' instead." #-}
-
--- | Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
---
--- /Note:/ Consider using 'hasLogicalRedundancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cHasLogicalRedundancy :: Lens.Lens' Connection (Lude.Maybe HasLogicalRedundancy)
-cHasLogicalRedundancy = Lens.lens (hasLogicalRedundancy :: Connection -> Lude.Maybe HasLogicalRedundancy) (\s a -> s {hasLogicalRedundancy = a} :: Connection)
-{-# DEPRECATED cHasLogicalRedundancy "Use generic-lens or generic-optics with 'hasLogicalRedundancy' instead." #-}
-
--- | The ID of the connection.
---
--- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConnectionId :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cConnectionId = Lens.lens (connectionId :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {connectionId = a} :: Connection)
-{-# DEPRECATED cConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
-
--- | The time of the most recent call to 'DescribeLoa' for this connection.
---
--- /Note:/ Consider using 'loaIssueTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLoaIssueTime :: Lens.Lens' Connection (Lude.Maybe Lude.Timestamp)
-cLoaIssueTime = Lens.lens (loaIssueTime :: Connection -> Lude.Maybe Lude.Timestamp) (\s a -> s {loaIssueTime = a} :: Connection)
-{-# DEPRECATED cLoaIssueTime "Use generic-lens or generic-optics with 'loaIssueTime' instead." #-}
-
--- | The name of the AWS Direct Connect service provider associated with the connection.
---
--- /Note:/ Consider using 'partnerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cPartnerName :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cPartnerName = Lens.lens (partnerName :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {partnerName = a} :: Connection)
-{-# DEPRECATED cPartnerName "Use generic-lens or generic-optics with 'partnerName' instead." #-}
-
--- | The name of the connection.
---
--- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConnectionName :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cConnectionName = Lens.lens (connectionName :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {connectionName = a} :: Connection)
-{-# DEPRECATED cConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
-
--- | The bandwidth of the connection.
---
--- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cBandwidth :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cBandwidth = Lens.lens (bandwidth :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {bandwidth = a} :: Connection)
-{-# DEPRECATED cBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
-
--- | Indicates whether jumbo frames (9001 MTU) are supported.
---
--- /Note:/ Consider using 'jumboFrameCapable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cJumboFrameCapable :: Lens.Lens' Connection (Lude.Maybe Lude.Bool)
-cJumboFrameCapable = Lens.lens (jumboFrameCapable :: Connection -> Lude.Maybe Lude.Bool) (\s a -> s {jumboFrameCapable = a} :: Connection)
-{-# DEPRECATED cJumboFrameCapable "Use generic-lens or generic-optics with 'jumboFrameCapable' instead." #-}
-
--- | The ID of the AWS account that owns the connection.
---
--- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cOwnerAccount :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cOwnerAccount = Lens.lens (ownerAccount :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccount = a} :: Connection)
-{-# DEPRECATED cOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
-
--- | The AWS Region where the connection is located.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cRegion :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cRegion = Lens.lens (region :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: Connection)
-{-# DEPRECATED cRegion "Use generic-lens or generic-optics with 'region' instead." #-}
-
--- | The name of the service provider associated with the connection.
---
--- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cProviderName :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cProviderName = Lens.lens (providerName :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: Connection)
-{-# DEPRECATED cProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | The Direct Connect endpoint on which the physical connection terminates.
 --
 -- /Note:/ Consider using 'awsDeviceV2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cAwsDeviceV2 :: Lens.Lens' Connection (Lude.Maybe Lude.Text)
-cAwsDeviceV2 = Lens.lens (awsDeviceV2 :: Connection -> Lude.Maybe Lude.Text) (\s a -> s {awsDeviceV2 = a} :: Connection)
+cAwsDeviceV2 :: Lens.Lens' Connection (Core.Maybe Types.AwsDeviceV2)
+cAwsDeviceV2 = Lens.field @"awsDeviceV2"
 {-# DEPRECATED cAwsDeviceV2 "Use generic-lens or generic-optics with 'awsDeviceV2' instead." #-}
+
+-- | The bandwidth of the connection.
+--
+-- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cBandwidth :: Lens.Lens' Connection (Core.Maybe Types.Bandwidth)
+cBandwidth = Lens.field @"bandwidth"
+{-# DEPRECATED cBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
+
+-- | The ID of the connection.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cConnectionId :: Lens.Lens' Connection (Core.Maybe Types.ConnectionId)
+cConnectionId = Lens.field @"connectionId"
+{-# DEPRECATED cConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
+
+-- | The name of the connection.
+--
+-- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cConnectionName :: Lens.Lens' Connection (Core.Maybe Types.ConnectionName)
+cConnectionName = Lens.field @"connectionName"
+{-# DEPRECATED cConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
 
 -- | The state of the connection. The following are the possible values:
 --
@@ -320,38 +214,106 @@ cAwsDeviceV2 = Lens.lens (awsDeviceV2 :: Connection -> Lude.Maybe Lude.Text) (\s
 --
 --
 -- /Note:/ Consider using 'connectionState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConnectionState :: Lens.Lens' Connection (Lude.Maybe ConnectionState)
-cConnectionState = Lens.lens (connectionState :: Connection -> Lude.Maybe ConnectionState) (\s a -> s {connectionState = a} :: Connection)
+cConnectionState :: Lens.Lens' Connection (Core.Maybe Types.ConnectionState)
+cConnectionState = Lens.field @"connectionState"
 {-# DEPRECATED cConnectionState "Use generic-lens or generic-optics with 'connectionState' instead." #-}
+
+-- | Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+--
+-- /Note:/ Consider using 'hasLogicalRedundancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cHasLogicalRedundancy :: Lens.Lens' Connection (Core.Maybe Types.HasLogicalRedundancy)
+cHasLogicalRedundancy = Lens.field @"hasLogicalRedundancy"
+{-# DEPRECATED cHasLogicalRedundancy "Use generic-lens or generic-optics with 'hasLogicalRedundancy' instead." #-}
+
+-- | Indicates whether jumbo frames (9001 MTU) are supported.
+--
+-- /Note:/ Consider using 'jumboFrameCapable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cJumboFrameCapable :: Lens.Lens' Connection (Core.Maybe Core.Bool)
+cJumboFrameCapable = Lens.field @"jumboFrameCapable"
+{-# DEPRECATED cJumboFrameCapable "Use generic-lens or generic-optics with 'jumboFrameCapable' instead." #-}
+
+-- | The ID of the LAG.
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLagId :: Lens.Lens' Connection (Core.Maybe Types.LagId)
+cLagId = Lens.field @"lagId"
+{-# DEPRECATED cLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
+
+-- | The time of the most recent call to 'DescribeLoa' for this connection.
+--
+-- /Note:/ Consider using 'loaIssueTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLoaIssueTime :: Lens.Lens' Connection (Core.Maybe Core.NominalDiffTime)
+cLoaIssueTime = Lens.field @"loaIssueTime"
+{-# DEPRECATED cLoaIssueTime "Use generic-lens or generic-optics with 'loaIssueTime' instead." #-}
+
+-- | The location of the connection.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLocation :: Lens.Lens' Connection (Core.Maybe Types.LocationCode)
+cLocation = Lens.field @"location"
+{-# DEPRECATED cLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The ID of the AWS account that owns the connection.
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOwnerAccount :: Lens.Lens' Connection (Core.Maybe Types.OwnerAccount)
+cOwnerAccount = Lens.field @"ownerAccount"
+{-# DEPRECATED cOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
+
+-- | The name of the AWS Direct Connect service provider associated with the connection.
+--
+-- /Note:/ Consider using 'partnerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPartnerName :: Lens.Lens' Connection (Core.Maybe Types.PartnerName)
+cPartnerName = Lens.field @"partnerName"
+{-# DEPRECATED cPartnerName "Use generic-lens or generic-optics with 'partnerName' instead." #-}
+
+-- | The name of the service provider associated with the connection.
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cProviderName :: Lens.Lens' Connection (Core.Maybe Types.ProviderName)
+cProviderName = Lens.field @"providerName"
+{-# DEPRECATED cProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
+
+-- | The AWS Region where the connection is located.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cRegion :: Lens.Lens' Connection (Core.Maybe Types.Region)
+cRegion = Lens.field @"region"
+{-# DEPRECATED cRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The tags associated with the connection.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' Connection (Lude.Maybe (Lude.NonEmpty Tag))
-cTags = Lens.lens (tags :: Connection -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: Connection)
+cTags :: Lens.Lens' Connection (Core.Maybe (Core.NonEmpty Types.Tag))
+cTags = Lens.field @"tags"
 {-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON Connection where
+-- | The ID of the VLAN.
+--
+-- /Note:/ Consider using 'vlan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVlan :: Lens.Lens' Connection (Core.Maybe Core.Int)
+cVlan = Lens.field @"vlan"
+{-# DEPRECATED cVlan "Use generic-lens or generic-optics with 'vlan' instead." #-}
+
+instance Core.FromJSON Connection where
   parseJSON =
-    Lude.withObject
-      "Connection"
-      ( \x ->
-          Connection'
-            Lude.<$> (x Lude..:? "lagId")
-            Lude.<*> (x Lude..:? "vlan")
-            Lude.<*> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "awsDevice")
-            Lude.<*> (x Lude..:? "hasLogicalRedundancy")
-            Lude.<*> (x Lude..:? "connectionId")
-            Lude.<*> (x Lude..:? "loaIssueTime")
-            Lude.<*> (x Lude..:? "partnerName")
-            Lude.<*> (x Lude..:? "connectionName")
-            Lude.<*> (x Lude..:? "bandwidth")
-            Lude.<*> (x Lude..:? "jumboFrameCapable")
-            Lude.<*> (x Lude..:? "ownerAccount")
-            Lude.<*> (x Lude..:? "region")
-            Lude.<*> (x Lude..:? "providerName")
-            Lude.<*> (x Lude..:? "awsDeviceV2")
-            Lude.<*> (x Lude..:? "connectionState")
-            Lude.<*> (x Lude..:? "tags")
-      )
+    Core.withObject "Connection" Core.$
+      \x ->
+        Connection'
+          Core.<$> (x Core..:? "awsDevice")
+          Core.<*> (x Core..:? "awsDeviceV2")
+          Core.<*> (x Core..:? "bandwidth")
+          Core.<*> (x Core..:? "connectionId")
+          Core.<*> (x Core..:? "connectionName")
+          Core.<*> (x Core..:? "connectionState")
+          Core.<*> (x Core..:? "hasLogicalRedundancy")
+          Core.<*> (x Core..:? "jumboFrameCapable")
+          Core.<*> (x Core..:? "lagId")
+          Core.<*> (x Core..:? "loaIssueTime")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "ownerAccount")
+          Core.<*> (x Core..:? "partnerName")
+          Core.<*> (x Core..:? "providerName")
+          Core.<*> (x Core..:? "region")
+          Core.<*> (x Core..:? "tags")
+          Core.<*> (x Core..:? "vlan")

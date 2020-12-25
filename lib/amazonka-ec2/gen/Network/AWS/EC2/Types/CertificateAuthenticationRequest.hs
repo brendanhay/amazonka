@@ -17,44 +17,36 @@ module Network.AWS.EC2.Types.CertificateAuthenticationRequest
     mkCertificateAuthenticationRequest,
 
     -- * Lenses
-    carClientRootCertificateChainARN,
+    carClientRootCertificateChainArn,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the client certificate to be used for authentication.
 --
 -- /See:/ 'mkCertificateAuthenticationRequest' smart constructor.
 newtype CertificateAuthenticationRequest = CertificateAuthenticationRequest'
   { -- | The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
-    clientRootCertificateChainARN :: Lude.Maybe Lude.Text
+    clientRootCertificateChainArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CertificateAuthenticationRequest' with the minimum fields required to make a request.
---
--- * 'clientRootCertificateChainARN' - The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
+-- | Creates a 'CertificateAuthenticationRequest' value with any optional fields omitted.
 mkCertificateAuthenticationRequest ::
   CertificateAuthenticationRequest
 mkCertificateAuthenticationRequest =
   CertificateAuthenticationRequest'
-    { clientRootCertificateChainARN =
-        Lude.Nothing
+    { clientRootCertificateChainArn =
+        Core.Nothing
     }
 
 -- | The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
 --
--- /Note:/ Consider using 'clientRootCertificateChainARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carClientRootCertificateChainARN :: Lens.Lens' CertificateAuthenticationRequest (Lude.Maybe Lude.Text)
-carClientRootCertificateChainARN = Lens.lens (clientRootCertificateChainARN :: CertificateAuthenticationRequest -> Lude.Maybe Lude.Text) (\s a -> s {clientRootCertificateChainARN = a} :: CertificateAuthenticationRequest)
-{-# DEPRECATED carClientRootCertificateChainARN "Use generic-lens or generic-optics with 'clientRootCertificateChainARN' instead." #-}
-
-instance Lude.ToQuery CertificateAuthenticationRequest where
-  toQuery CertificateAuthenticationRequest' {..} =
-    Lude.mconcat
-      [ "ClientRootCertificateChainArn"
-          Lude.=: clientRootCertificateChainARN
-      ]
+-- /Note:/ Consider using 'clientRootCertificateChainArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carClientRootCertificateChainArn :: Lens.Lens' CertificateAuthenticationRequest (Core.Maybe Types.String)
+carClientRootCertificateChainArn = Lens.field @"clientRootCertificateChainArn"
+{-# DEPRECATED carClientRootCertificateChainArn "Use generic-lens or generic-optics with 'clientRootCertificateChainArn' instead." #-}

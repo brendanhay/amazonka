@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.Rec601Settings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Rec601 Settings
 --
 -- /See:/ 'mkRec601Settings' smart constructor.
 data Rec601Settings = Rec601Settings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Rec601Settings' with the minimum fields required to make a request.
+-- | Creates a 'Rec601Settings' value with any optional fields omitted.
 mkRec601Settings ::
   Rec601Settings
 mkRec601Settings = Rec601Settings'
 
-instance Lude.FromJSON Rec601Settings where
-  parseJSON =
-    Lude.withObject
-      "Rec601Settings"
-      (\x -> Lude.pure Rec601Settings')
+instance Core.FromJSON Rec601Settings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON Rec601Settings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON Rec601Settings where
+  parseJSON =
+    Core.withObject "Rec601Settings" Core.$
+      \x -> Core.pure Rec601Settings'

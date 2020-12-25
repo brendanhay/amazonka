@@ -18,123 +18,116 @@ module Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
 
     -- * Lenses
     cshccHealthyThreshold,
+    cshccIntervalSeconds,
     cshccPath,
     cshccSuccessCodes,
-    cshccIntervalSeconds,
     cshccTimeoutSeconds,
     cshccUnhealthyThreshold,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.Path as Types
+import qualified Network.AWS.Lightsail.Types.SuccessCodes as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the health check configuration of an Amazon Lightsail container service.
 --
 -- /See:/ 'mkContainerServiceHealthCheckConfig' smart constructor.
 data ContainerServiceHealthCheckConfig = ContainerServiceHealthCheckConfig'
   { -- | The number of consecutive health checks successes required before moving the container to the @Healthy@ state.
-    healthyThreshold :: Lude.Maybe Lude.Int,
-    -- | The path on the container on which to perform the health check.
-    path :: Lude.Maybe Lude.Text,
-    -- | The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499.
-    successCodes :: Lude.Maybe Lude.Text,
+    healthyThreshold :: Core.Maybe Core.Int,
     -- | The approximate interval, in seconds, between health checks of an individual container. You may specify between 5 and 300 seconds.
-    intervalSeconds :: Lude.Maybe Lude.Int,
+    intervalSeconds :: Core.Maybe Core.Int,
+    -- | The path on the container on which to perform the health check.
+    path :: Core.Maybe Types.Path,
+    -- | The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499.
+    successCodes :: Core.Maybe Types.SuccessCodes,
     -- | The amount of time, in seconds, during which no response means a failed health check. You may specify between 2 and 60 seconds.
-    timeoutSeconds :: Lude.Maybe Lude.Int,
+    timeoutSeconds :: Core.Maybe Core.Int,
     -- | The number of consecutive health check failures required before moving the container to the @Unhealthy@ state.
-    unhealthyThreshold :: Lude.Maybe Lude.Int
+    unhealthyThreshold :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContainerServiceHealthCheckConfig' with the minimum fields required to make a request.
---
--- * 'healthyThreshold' - The number of consecutive health checks successes required before moving the container to the @Healthy@ state.
--- * 'path' - The path on the container on which to perform the health check.
--- * 'successCodes' - The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499.
--- * 'intervalSeconds' - The approximate interval, in seconds, between health checks of an individual container. You may specify between 5 and 300 seconds.
--- * 'timeoutSeconds' - The amount of time, in seconds, during which no response means a failed health check. You may specify between 2 and 60 seconds.
--- * 'unhealthyThreshold' - The number of consecutive health check failures required before moving the container to the @Unhealthy@ state.
+-- | Creates a 'ContainerServiceHealthCheckConfig' value with any optional fields omitted.
 mkContainerServiceHealthCheckConfig ::
   ContainerServiceHealthCheckConfig
 mkContainerServiceHealthCheckConfig =
   ContainerServiceHealthCheckConfig'
     { healthyThreshold =
-        Lude.Nothing,
-      path = Lude.Nothing,
-      successCodes = Lude.Nothing,
-      intervalSeconds = Lude.Nothing,
-      timeoutSeconds = Lude.Nothing,
-      unhealthyThreshold = Lude.Nothing
+        Core.Nothing,
+      intervalSeconds = Core.Nothing,
+      path = Core.Nothing,
+      successCodes = Core.Nothing,
+      timeoutSeconds = Core.Nothing,
+      unhealthyThreshold = Core.Nothing
     }
 
 -- | The number of consecutive health checks successes required before moving the container to the @Healthy@ state.
 --
 -- /Note:/ Consider using 'healthyThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshccHealthyThreshold :: Lens.Lens' ContainerServiceHealthCheckConfig (Lude.Maybe Lude.Int)
-cshccHealthyThreshold = Lens.lens (healthyThreshold :: ContainerServiceHealthCheckConfig -> Lude.Maybe Lude.Int) (\s a -> s {healthyThreshold = a} :: ContainerServiceHealthCheckConfig)
+cshccHealthyThreshold :: Lens.Lens' ContainerServiceHealthCheckConfig (Core.Maybe Core.Int)
+cshccHealthyThreshold = Lens.field @"healthyThreshold"
 {-# DEPRECATED cshccHealthyThreshold "Use generic-lens or generic-optics with 'healthyThreshold' instead." #-}
+
+-- | The approximate interval, in seconds, between health checks of an individual container. You may specify between 5 and 300 seconds.
+--
+-- /Note:/ Consider using 'intervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cshccIntervalSeconds :: Lens.Lens' ContainerServiceHealthCheckConfig (Core.Maybe Core.Int)
+cshccIntervalSeconds = Lens.field @"intervalSeconds"
+{-# DEPRECATED cshccIntervalSeconds "Use generic-lens or generic-optics with 'intervalSeconds' instead." #-}
 
 -- | The path on the container on which to perform the health check.
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshccPath :: Lens.Lens' ContainerServiceHealthCheckConfig (Lude.Maybe Lude.Text)
-cshccPath = Lens.lens (path :: ContainerServiceHealthCheckConfig -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: ContainerServiceHealthCheckConfig)
+cshccPath :: Lens.Lens' ContainerServiceHealthCheckConfig (Core.Maybe Types.Path)
+cshccPath = Lens.field @"path"
 {-# DEPRECATED cshccPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499.
 --
 -- /Note:/ Consider using 'successCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshccSuccessCodes :: Lens.Lens' ContainerServiceHealthCheckConfig (Lude.Maybe Lude.Text)
-cshccSuccessCodes = Lens.lens (successCodes :: ContainerServiceHealthCheckConfig -> Lude.Maybe Lude.Text) (\s a -> s {successCodes = a} :: ContainerServiceHealthCheckConfig)
+cshccSuccessCodes :: Lens.Lens' ContainerServiceHealthCheckConfig (Core.Maybe Types.SuccessCodes)
+cshccSuccessCodes = Lens.field @"successCodes"
 {-# DEPRECATED cshccSuccessCodes "Use generic-lens or generic-optics with 'successCodes' instead." #-}
-
--- | The approximate interval, in seconds, between health checks of an individual container. You may specify between 5 and 300 seconds.
---
--- /Note:/ Consider using 'intervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshccIntervalSeconds :: Lens.Lens' ContainerServiceHealthCheckConfig (Lude.Maybe Lude.Int)
-cshccIntervalSeconds = Lens.lens (intervalSeconds :: ContainerServiceHealthCheckConfig -> Lude.Maybe Lude.Int) (\s a -> s {intervalSeconds = a} :: ContainerServiceHealthCheckConfig)
-{-# DEPRECATED cshccIntervalSeconds "Use generic-lens or generic-optics with 'intervalSeconds' instead." #-}
 
 -- | The amount of time, in seconds, during which no response means a failed health check. You may specify between 2 and 60 seconds.
 --
 -- /Note:/ Consider using 'timeoutSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshccTimeoutSeconds :: Lens.Lens' ContainerServiceHealthCheckConfig (Lude.Maybe Lude.Int)
-cshccTimeoutSeconds = Lens.lens (timeoutSeconds :: ContainerServiceHealthCheckConfig -> Lude.Maybe Lude.Int) (\s a -> s {timeoutSeconds = a} :: ContainerServiceHealthCheckConfig)
+cshccTimeoutSeconds :: Lens.Lens' ContainerServiceHealthCheckConfig (Core.Maybe Core.Int)
+cshccTimeoutSeconds = Lens.field @"timeoutSeconds"
 {-# DEPRECATED cshccTimeoutSeconds "Use generic-lens or generic-optics with 'timeoutSeconds' instead." #-}
 
 -- | The number of consecutive health check failures required before moving the container to the @Unhealthy@ state.
 --
 -- /Note:/ Consider using 'unhealthyThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshccUnhealthyThreshold :: Lens.Lens' ContainerServiceHealthCheckConfig (Lude.Maybe Lude.Int)
-cshccUnhealthyThreshold = Lens.lens (unhealthyThreshold :: ContainerServiceHealthCheckConfig -> Lude.Maybe Lude.Int) (\s a -> s {unhealthyThreshold = a} :: ContainerServiceHealthCheckConfig)
+cshccUnhealthyThreshold :: Lens.Lens' ContainerServiceHealthCheckConfig (Core.Maybe Core.Int)
+cshccUnhealthyThreshold = Lens.field @"unhealthyThreshold"
 {-# DEPRECATED cshccUnhealthyThreshold "Use generic-lens or generic-optics with 'unhealthyThreshold' instead." #-}
 
-instance Lude.FromJSON ContainerServiceHealthCheckConfig where
-  parseJSON =
-    Lude.withObject
-      "ContainerServiceHealthCheckConfig"
-      ( \x ->
-          ContainerServiceHealthCheckConfig'
-            Lude.<$> (x Lude..:? "healthyThreshold")
-            Lude.<*> (x Lude..:? "path")
-            Lude.<*> (x Lude..:? "successCodes")
-            Lude.<*> (x Lude..:? "intervalSeconds")
-            Lude.<*> (x Lude..:? "timeoutSeconds")
-            Lude.<*> (x Lude..:? "unhealthyThreshold")
-      )
-
-instance Lude.ToJSON ContainerServiceHealthCheckConfig where
-  toJSON ContainerServiceHealthCheckConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("healthyThreshold" Lude..=) Lude.<$> healthyThreshold,
-            ("path" Lude..=) Lude.<$> path,
-            ("successCodes" Lude..=) Lude.<$> successCodes,
-            ("intervalSeconds" Lude..=) Lude.<$> intervalSeconds,
-            ("timeoutSeconds" Lude..=) Lude.<$> timeoutSeconds,
-            ("unhealthyThreshold" Lude..=) Lude.<$> unhealthyThreshold
+instance Core.FromJSON ContainerServiceHealthCheckConfig where
+  toJSON ContainerServiceHealthCheckConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("healthyThreshold" Core..=) Core.<$> healthyThreshold,
+            ("intervalSeconds" Core..=) Core.<$> intervalSeconds,
+            ("path" Core..=) Core.<$> path,
+            ("successCodes" Core..=) Core.<$> successCodes,
+            ("timeoutSeconds" Core..=) Core.<$> timeoutSeconds,
+            ("unhealthyThreshold" Core..=) Core.<$> unhealthyThreshold
           ]
       )
+
+instance Core.FromJSON ContainerServiceHealthCheckConfig where
+  parseJSON =
+    Core.withObject "ContainerServiceHealthCheckConfig" Core.$
+      \x ->
+        ContainerServiceHealthCheckConfig'
+          Core.<$> (x Core..:? "healthyThreshold")
+          Core.<*> (x Core..:? "intervalSeconds")
+          Core.<*> (x Core..:? "path")
+          Core.<*> (x Core..:? "successCodes")
+          Core.<*> (x Core..:? "timeoutSeconds")
+          Core.<*> (x Core..:? "unhealthyThreshold")

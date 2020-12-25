@@ -48,11 +48,11 @@ import Test.Tasty
 --         , requestDeleteContainer $
 --             mkDeleteContainer
 --
---         , requestPutCORSPolicy $
---             mkPutCORSPolicy
+--         , requestPutCorsPolicy $
+--             mkPutCorsPolicy
 --
---         , requestDeleteCORSPolicy $
---             mkDeleteCORSPolicy
+--         , requestDeleteCorsPolicy $
+--             mkDeleteCorsPolicy
 --
 --         , requestStartAccessLogging $
 --             mkStartAccessLogging
@@ -75,8 +75,8 @@ import Test.Tasty
 --         , requestTagResource $
 --             mkTagResource
 --
---         , requestGetCORSPolicy $
---             mkGetCORSPolicy
+--         , requestGetCorsPolicy $
+--             mkGetCorsPolicy
 --
 --         , requestUntagResource $
 --             mkUntagResource
@@ -114,11 +114,11 @@ import Test.Tasty
 --         , responseDeleteContainer $
 --             mkDeleteContainerResponse
 --
---         , responsePutCORSPolicy $
---             mkPutCORSPolicyResponse
+--         , responsePutCorsPolicy $
+--             mkPutCorsPolicyResponse
 --
---         , responseDeleteCORSPolicy $
---             mkDeleteCORSPolicyResponse
+--         , responseDeleteCorsPolicy $
+--             mkDeleteCorsPolicyResponse
 --
 --         , responseStartAccessLogging $
 --             mkStartAccessLoggingResponse
@@ -141,8 +141,8 @@ import Test.Tasty
 --         , responseTagResource $
 --             mkTagResourceResponse
 --
---         , responseGetCORSPolicy $
---             mkGetCORSPolicyResponse
+--         , responseGetCorsPolicy $
+--             mkGetCorsPolicyResponse
 --
 --         , responseUntagResource $
 --             mkUntagResourceResponse
@@ -203,17 +203,17 @@ requestDeleteContainer =
     "DeleteContainer"
     "fixture/DeleteContainer.yaml"
 
-requestPutCORSPolicy :: PutCORSPolicy -> TestTree
-requestPutCORSPolicy =
+requestPutCorsPolicy :: PutCorsPolicy -> TestTree
+requestPutCorsPolicy =
   req
-    "PutCORSPolicy"
-    "fixture/PutCORSPolicy.yaml"
+    "PutCorsPolicy"
+    "fixture/PutCorsPolicy.yaml"
 
-requestDeleteCORSPolicy :: DeleteCORSPolicy -> TestTree
-requestDeleteCORSPolicy =
+requestDeleteCorsPolicy :: DeleteCorsPolicy -> TestTree
+requestDeleteCorsPolicy =
   req
-    "DeleteCORSPolicy"
-    "fixture/DeleteCORSPolicy.yaml"
+    "DeleteCorsPolicy"
+    "fixture/DeleteCorsPolicy.yaml"
 
 requestStartAccessLogging :: StartAccessLogging -> TestTree
 requestStartAccessLogging =
@@ -257,11 +257,11 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestGetCORSPolicy :: GetCORSPolicy -> TestTree
-requestGetCORSPolicy =
+requestGetCorsPolicy :: GetCorsPolicy -> TestTree
+requestGetCorsPolicy =
   req
-    "GetCORSPolicy"
-    "fixture/GetCORSPolicy.yaml"
+    "GetCorsPolicy"
+    "fixture/GetCorsPolicy.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -294,7 +294,7 @@ responseStopAccessLogging =
   res
     "StopAccessLoggingResponse"
     "fixture/StopAccessLoggingResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy StopAccessLogging)
 
 responsePutLifecyclePolicy :: PutLifecyclePolicyResponse -> TestTree
@@ -302,7 +302,7 @@ responsePutLifecyclePolicy =
   res
     "PutLifecyclePolicyResponse"
     "fixture/PutLifecyclePolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy PutLifecyclePolicy)
 
 responseDeleteLifecyclePolicy :: DeleteLifecyclePolicyResponse -> TestTree
@@ -310,7 +310,7 @@ responseDeleteLifecyclePolicy =
   res
     "DeleteLifecyclePolicyResponse"
     "fixture/DeleteLifecyclePolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLifecyclePolicy)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -318,7 +318,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseCreateContainer :: CreateContainerResponse -> TestTree
@@ -326,7 +326,7 @@ responseCreateContainer =
   res
     "CreateContainerResponse"
     "fixture/CreateContainerResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy CreateContainer)
 
 responseListContainers :: ListContainersResponse -> TestTree
@@ -334,7 +334,7 @@ responseListContainers =
   res
     "ListContainersResponse"
     "fixture/ListContainersResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy ListContainers)
 
 responseDeleteContainer :: DeleteContainerResponse -> TestTree
@@ -342,31 +342,31 @@ responseDeleteContainer =
   res
     "DeleteContainerResponse"
     "fixture/DeleteContainerResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy DeleteContainer)
 
-responsePutCORSPolicy :: PutCORSPolicyResponse -> TestTree
-responsePutCORSPolicy =
+responsePutCorsPolicy :: PutCorsPolicyResponse -> TestTree
+responsePutCorsPolicy =
   res
-    "PutCORSPolicyResponse"
-    "fixture/PutCORSPolicyResponse.proto"
-    mediaStoreService
-    (Proxy :: Proxy PutCORSPolicy)
+    "PutCorsPolicyResponse"
+    "fixture/PutCorsPolicyResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy PutCorsPolicy)
 
-responseDeleteCORSPolicy :: DeleteCORSPolicyResponse -> TestTree
-responseDeleteCORSPolicy =
+responseDeleteCorsPolicy :: DeleteCorsPolicyResponse -> TestTree
+responseDeleteCorsPolicy =
   res
-    "DeleteCORSPolicyResponse"
-    "fixture/DeleteCORSPolicyResponse.proto"
-    mediaStoreService
-    (Proxy :: Proxy DeleteCORSPolicy)
+    "DeleteCorsPolicyResponse"
+    "fixture/DeleteCorsPolicyResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DeleteCorsPolicy)
 
 responseStartAccessLogging :: StartAccessLoggingResponse -> TestTree
 responseStartAccessLogging =
   res
     "StartAccessLoggingResponse"
     "fixture/StartAccessLoggingResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy StartAccessLogging)
 
 responseDescribeContainer :: DescribeContainerResponse -> TestTree
@@ -374,7 +374,7 @@ responseDescribeContainer =
   res
     "DescribeContainerResponse"
     "fixture/DescribeContainerResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy DescribeContainer)
 
 responseGetMetricPolicy :: GetMetricPolicyResponse -> TestTree
@@ -382,7 +382,7 @@ responseGetMetricPolicy =
   res
     "GetMetricPolicyResponse"
     "fixture/GetMetricPolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy GetMetricPolicy)
 
 responseDeleteMetricPolicy :: DeleteMetricPolicyResponse -> TestTree
@@ -390,7 +390,7 @@ responseDeleteMetricPolicy =
   res
     "DeleteMetricPolicyResponse"
     "fixture/DeleteMetricPolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMetricPolicy)
 
 responsePutMetricPolicy :: PutMetricPolicyResponse -> TestTree
@@ -398,7 +398,7 @@ responsePutMetricPolicy =
   res
     "PutMetricPolicyResponse"
     "fixture/PutMetricPolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy PutMetricPolicy)
 
 responseGetLifecyclePolicy :: GetLifecyclePolicyResponse -> TestTree
@@ -406,7 +406,7 @@ responseGetLifecyclePolicy =
   res
     "GetLifecyclePolicyResponse"
     "fixture/GetLifecyclePolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy GetLifecyclePolicy)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -414,23 +414,23 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
-responseGetCORSPolicy :: GetCORSPolicyResponse -> TestTree
-responseGetCORSPolicy =
+responseGetCorsPolicy :: GetCorsPolicyResponse -> TestTree
+responseGetCorsPolicy =
   res
-    "GetCORSPolicyResponse"
-    "fixture/GetCORSPolicyResponse.proto"
-    mediaStoreService
-    (Proxy :: Proxy GetCORSPolicy)
+    "GetCorsPolicyResponse"
+    "fixture/GetCorsPolicyResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetCorsPolicy)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDeleteContainerPolicy :: DeleteContainerPolicyResponse -> TestTree
@@ -438,7 +438,7 @@ responseDeleteContainerPolicy =
   res
     "DeleteContainerPolicyResponse"
     "fixture/DeleteContainerPolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy DeleteContainerPolicy)
 
 responsePutContainerPolicy :: PutContainerPolicyResponse -> TestTree
@@ -446,7 +446,7 @@ responsePutContainerPolicy =
   res
     "PutContainerPolicyResponse"
     "fixture/PutContainerPolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy PutContainerPolicy)
 
 responseGetContainerPolicy :: GetContainerPolicyResponse -> TestTree
@@ -454,5 +454,5 @@ responseGetContainerPolicy =
   res
     "GetContainerPolicyResponse"
     "fixture/GetContainerPolicyResponse.proto"
-    mediaStoreService
+    mkServiceConfig
     (Proxy :: Proxy GetContainerPolicy)

@@ -34,16 +34,16 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     mkDescribeReservedInstancesListingsResponse,
 
     -- ** Response lenses
-    drilrsReservedInstancesListings,
-    drilrsResponseStatus,
+    drilrrsReservedInstancesListings,
+    drilrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeReservedInstancesListings.
 --
@@ -62,41 +62,23 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
     --
     --
     --     * @status-message@ - The reason for the status.
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
     -- | One or more Reserved Instance IDs.
-    reservedInstancesId :: Lude.Maybe Lude.Text,
+    reservedInstancesId :: Core.Maybe Types.ReservationId,
     -- | One or more Reserved Instance listing IDs.
-    reservedInstancesListingId :: Lude.Maybe Lude.Text
+    reservedInstancesListingId :: Core.Maybe Types.ReservedInstancesListingId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReservedInstancesListings' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters.
---
---
---     * @reserved-instances-id@ - The ID of the Reserved Instances.
---
---
---     * @reserved-instances-listing-id@ - The ID of the Reserved Instances listing.
---
---
---     * @status@ - The status of the Reserved Instance listing (@pending@ | @active@ | @cancelled@ | @closed@ ).
---
---
---     * @status-message@ - The reason for the status.
---
---
--- * 'reservedInstancesId' - One or more Reserved Instance IDs.
--- * 'reservedInstancesListingId' - One or more Reserved Instance listing IDs.
+-- | Creates a 'DescribeReservedInstancesListings' value with any optional fields omitted.
 mkDescribeReservedInstancesListings ::
   DescribeReservedInstancesListings
 mkDescribeReservedInstancesListings =
   DescribeReservedInstancesListings'
-    { filters = Lude.Nothing,
-      reservedInstancesId = Lude.Nothing,
-      reservedInstancesListingId = Lude.Nothing
+    { filters = Core.Nothing,
+      reservedInstancesId = Core.Nothing,
+      reservedInstancesListingId = Core.Nothing
     }
 
 -- | One or more filters.
@@ -116,93 +98,96 @@ mkDescribeReservedInstancesListings =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drilFilters :: Lens.Lens' DescribeReservedInstancesListings (Lude.Maybe [Filter])
-drilFilters = Lens.lens (filters :: DescribeReservedInstancesListings -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReservedInstancesListings)
+drilFilters :: Lens.Lens' DescribeReservedInstancesListings (Core.Maybe [Types.Filter])
+drilFilters = Lens.field @"filters"
 {-# DEPRECATED drilFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | One or more Reserved Instance IDs.
 --
 -- /Note:/ Consider using 'reservedInstancesId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drilReservedInstancesId :: Lens.Lens' DescribeReservedInstancesListings (Lude.Maybe Lude.Text)
-drilReservedInstancesId = Lens.lens (reservedInstancesId :: DescribeReservedInstancesListings -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesId = a} :: DescribeReservedInstancesListings)
+drilReservedInstancesId :: Lens.Lens' DescribeReservedInstancesListings (Core.Maybe Types.ReservationId)
+drilReservedInstancesId = Lens.field @"reservedInstancesId"
 {-# DEPRECATED drilReservedInstancesId "Use generic-lens or generic-optics with 'reservedInstancesId' instead." #-}
 
 -- | One or more Reserved Instance listing IDs.
 --
 -- /Note:/ Consider using 'reservedInstancesListingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drilReservedInstancesListingId :: Lens.Lens' DescribeReservedInstancesListings (Lude.Maybe Lude.Text)
-drilReservedInstancesListingId = Lens.lens (reservedInstancesListingId :: DescribeReservedInstancesListings -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesListingId = a} :: DescribeReservedInstancesListings)
+drilReservedInstancesListingId :: Lens.Lens' DescribeReservedInstancesListings (Core.Maybe Types.ReservedInstancesListingId)
+drilReservedInstancesListingId = Lens.field @"reservedInstancesListingId"
 {-# DEPRECATED drilReservedInstancesListingId "Use generic-lens or generic-optics with 'reservedInstancesListingId' instead." #-}
 
-instance Lude.AWSRequest DescribeReservedInstancesListings where
+instance Core.AWSRequest DescribeReservedInstancesListings where
   type
     Rs DescribeReservedInstancesListings =
       DescribeReservedInstancesListingsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeReservedInstancesListings")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> ( Core.toQueryValue "ReservedInstancesId"
+                            Core.<$> reservedInstancesId
+                        )
+                Core.<> ( Core.toQueryValue "ReservedInstancesListingId"
+                            Core.<$> reservedInstancesListingId
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesListingsResponse'
-            Lude.<$> ( x Lude..@? "reservedInstancesListingsSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "reservedInstancesListingsSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeReservedInstancesListings where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeReservedInstancesListings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReservedInstancesListings where
-  toQuery DescribeReservedInstancesListings' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeReservedInstancesListings" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "ReservedInstancesId" Lude.=: reservedInstancesId,
-        "ReservedInstancesListingId" Lude.=: reservedInstancesListingId
-      ]
 
 -- | Contains the output of DescribeReservedInstancesListings.
 --
 -- /See:/ 'mkDescribeReservedInstancesListingsResponse' smart constructor.
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
   { -- | Information about the Reserved Instance listing.
-    reservedInstancesListings :: Lude.Maybe [ReservedInstancesListing],
+    reservedInstancesListings :: Core.Maybe [Types.ReservedInstancesListing],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeReservedInstancesListingsResponse' with the minimum fields required to make a request.
---
--- * 'reservedInstancesListings' - Information about the Reserved Instance listing.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReservedInstancesListingsResponse' value with any optional fields omitted.
 mkDescribeReservedInstancesListingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReservedInstancesListingsResponse
-mkDescribeReservedInstancesListingsResponse pResponseStatus_ =
+mkDescribeReservedInstancesListingsResponse responseStatus =
   DescribeReservedInstancesListingsResponse'
     { reservedInstancesListings =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the Reserved Instance listing.
 --
 -- /Note:/ Consider using 'reservedInstancesListings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drilrsReservedInstancesListings :: Lens.Lens' DescribeReservedInstancesListingsResponse (Lude.Maybe [ReservedInstancesListing])
-drilrsReservedInstancesListings = Lens.lens (reservedInstancesListings :: DescribeReservedInstancesListingsResponse -> Lude.Maybe [ReservedInstancesListing]) (\s a -> s {reservedInstancesListings = a} :: DescribeReservedInstancesListingsResponse)
-{-# DEPRECATED drilrsReservedInstancesListings "Use generic-lens or generic-optics with 'reservedInstancesListings' instead." #-}
+drilrrsReservedInstancesListings :: Lens.Lens' DescribeReservedInstancesListingsResponse (Core.Maybe [Types.ReservedInstancesListing])
+drilrrsReservedInstancesListings = Lens.field @"reservedInstancesListings"
+{-# DEPRECATED drilrrsReservedInstancesListings "Use generic-lens or generic-optics with 'reservedInstancesListings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drilrsResponseStatus :: Lens.Lens' DescribeReservedInstancesListingsResponse Lude.Int
-drilrsResponseStatus = Lens.lens (responseStatus :: DescribeReservedInstancesListingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReservedInstancesListingsResponse)
-{-# DEPRECATED drilrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drilrrsResponseStatus :: Lens.Lens' DescribeReservedInstancesListingsResponse Core.Int
+drilrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drilrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

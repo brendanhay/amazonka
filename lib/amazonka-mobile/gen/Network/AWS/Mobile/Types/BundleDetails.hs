@@ -19,103 +19,99 @@ module Network.AWS.Mobile.Types.BundleDetails
     -- * Lenses
     bdAvailablePlatforms,
     bdBundleId,
-    bdVersion,
-    bdIconURL,
-    bdTitle,
     bdDescription,
+    bdIconUrl,
+    bdTitle,
+    bdVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Mobile.Types.Platform
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Mobile.Types.BundleDescription as Types
+import qualified Network.AWS.Mobile.Types.BundleId as Types
+import qualified Network.AWS.Mobile.Types.BundleTitle as Types
+import qualified Network.AWS.Mobile.Types.BundleVersion as Types
+import qualified Network.AWS.Mobile.Types.IconUrl as Types
+import qualified Network.AWS.Mobile.Types.Platform as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of the bundle.
 --
 -- /See:/ 'mkBundleDetails' smart constructor.
 data BundleDetails = BundleDetails'
-  { availablePlatforms :: Lude.Maybe [Platform],
-    bundleId :: Lude.Maybe Lude.Text,
-    version :: Lude.Maybe Lude.Text,
-    iconURL :: Lude.Maybe Lude.Text,
-    title :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text
+  { availablePlatforms :: Core.Maybe [Types.Platform],
+    bundleId :: Core.Maybe Types.BundleId,
+    description :: Core.Maybe Types.BundleDescription,
+    iconUrl :: Core.Maybe Types.IconUrl,
+    title :: Core.Maybe Types.BundleTitle,
+    version :: Core.Maybe Types.BundleVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BundleDetails' with the minimum fields required to make a request.
---
--- * 'availablePlatforms' -
--- * 'bundleId' -
--- * 'version' -
--- * 'iconURL' -
--- * 'title' -
--- * 'description' -
+-- | Creates a 'BundleDetails' value with any optional fields omitted.
 mkBundleDetails ::
   BundleDetails
 mkBundleDetails =
   BundleDetails'
-    { availablePlatforms = Lude.Nothing,
-      bundleId = Lude.Nothing,
-      version = Lude.Nothing,
-      iconURL = Lude.Nothing,
-      title = Lude.Nothing,
-      description = Lude.Nothing
+    { availablePlatforms = Core.Nothing,
+      bundleId = Core.Nothing,
+      description = Core.Nothing,
+      iconUrl = Core.Nothing,
+      title = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'availablePlatforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdAvailablePlatforms :: Lens.Lens' BundleDetails (Lude.Maybe [Platform])
-bdAvailablePlatforms = Lens.lens (availablePlatforms :: BundleDetails -> Lude.Maybe [Platform]) (\s a -> s {availablePlatforms = a} :: BundleDetails)
+bdAvailablePlatforms :: Lens.Lens' BundleDetails (Core.Maybe [Types.Platform])
+bdAvailablePlatforms = Lens.field @"availablePlatforms"
 {-# DEPRECATED bdAvailablePlatforms "Use generic-lens or generic-optics with 'availablePlatforms' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdBundleId :: Lens.Lens' BundleDetails (Lude.Maybe Lude.Text)
-bdBundleId = Lens.lens (bundleId :: BundleDetails -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: BundleDetails)
+bdBundleId :: Lens.Lens' BundleDetails (Core.Maybe Types.BundleId)
+bdBundleId = Lens.field @"bundleId"
 {-# DEPRECATED bdBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdVersion :: Lens.Lens' BundleDetails (Lude.Maybe Lude.Text)
-bdVersion = Lens.lens (version :: BundleDetails -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: BundleDetails)
-{-# DEPRECATED bdVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdDescription :: Lens.Lens' BundleDetails (Core.Maybe Types.BundleDescription)
+bdDescription = Lens.field @"description"
+{-# DEPRECATED bdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'iconURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdIconURL :: Lens.Lens' BundleDetails (Lude.Maybe Lude.Text)
-bdIconURL = Lens.lens (iconURL :: BundleDetails -> Lude.Maybe Lude.Text) (\s a -> s {iconURL = a} :: BundleDetails)
-{-# DEPRECATED bdIconURL "Use generic-lens or generic-optics with 'iconURL' instead." #-}
+-- /Note:/ Consider using 'iconUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdIconUrl :: Lens.Lens' BundleDetails (Core.Maybe Types.IconUrl)
+bdIconUrl = Lens.field @"iconUrl"
+{-# DEPRECATED bdIconUrl "Use generic-lens or generic-optics with 'iconUrl' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdTitle :: Lens.Lens' BundleDetails (Lude.Maybe Lude.Text)
-bdTitle = Lens.lens (title :: BundleDetails -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: BundleDetails)
+bdTitle :: Lens.Lens' BundleDetails (Core.Maybe Types.BundleTitle)
+bdTitle = Lens.field @"title"
 {-# DEPRECATED bdTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdDescription :: Lens.Lens' BundleDetails (Lude.Maybe Lude.Text)
-bdDescription = Lens.lens (description :: BundleDetails -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: BundleDetails)
-{-# DEPRECATED bdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdVersion :: Lens.Lens' BundleDetails (Core.Maybe Types.BundleVersion)
+bdVersion = Lens.field @"version"
+{-# DEPRECATED bdVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON BundleDetails where
+instance Core.FromJSON BundleDetails where
   parseJSON =
-    Lude.withObject
-      "BundleDetails"
-      ( \x ->
-          BundleDetails'
-            Lude.<$> (x Lude..:? "availablePlatforms" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "bundleId")
-            Lude.<*> (x Lude..:? "version")
-            Lude.<*> (x Lude..:? "iconUrl")
-            Lude.<*> (x Lude..:? "title")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "BundleDetails" Core.$
+      \x ->
+        BundleDetails'
+          Core.<$> (x Core..:? "availablePlatforms")
+          Core.<*> (x Core..:? "bundleId")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "iconUrl")
+          Core.<*> (x Core..:? "title")
+          Core.<*> (x Core..:? "version")

@@ -270,7 +270,7 @@ responseDescribePipelines =
   res
     "DescribePipelinesResponse"
     "fixture/DescribePipelinesResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy DescribePipelines)
 
 responseQueryObjects :: QueryObjectsResponse -> TestTree
@@ -278,7 +278,7 @@ responseQueryObjects =
   res
     "QueryObjectsResponse"
     "fixture/QueryObjectsResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy QueryObjects)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
@@ -286,7 +286,7 @@ responseRemoveTags =
   res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
@@ -294,7 +294,7 @@ responseDeletePipeline =
   res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy DeletePipeline)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
@@ -302,7 +302,7 @@ responseListPipelines =
   res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy ListPipelines)
 
 responseEvaluateExpression :: EvaluateExpressionResponse -> TestTree
@@ -310,7 +310,7 @@ responseEvaluateExpression =
   res
     "EvaluateExpressionResponse"
     "fixture/EvaluateExpressionResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy EvaluateExpression)
 
 responseGetPipelineDefinition :: GetPipelineDefinitionResponse -> TestTree
@@ -318,7 +318,7 @@ responseGetPipelineDefinition =
   res
     "GetPipelineDefinitionResponse"
     "fixture/GetPipelineDefinitionResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy GetPipelineDefinition)
 
 responsePollForTask :: PollForTaskResponse -> TestTree
@@ -326,7 +326,7 @@ responsePollForTask =
   res
     "PollForTaskResponse"
     "fixture/PollForTaskResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy PollForTask)
 
 responseDeactivatePipeline :: DeactivatePipelineResponse -> TestTree
@@ -334,7 +334,7 @@ responseDeactivatePipeline =
   res
     "DeactivatePipelineResponse"
     "fixture/DeactivatePipelineResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy DeactivatePipeline)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -342,7 +342,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseDescribeObjects :: DescribeObjectsResponse -> TestTree
@@ -350,7 +350,7 @@ responseDescribeObjects =
   res
     "DescribeObjectsResponse"
     "fixture/DescribeObjectsResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy DescribeObjects)
 
 responseReportTaskRunnerHeartbeat :: ReportTaskRunnerHeartbeatResponse -> TestTree
@@ -358,7 +358,7 @@ responseReportTaskRunnerHeartbeat =
   res
     "ReportTaskRunnerHeartbeatResponse"
     "fixture/ReportTaskRunnerHeartbeatResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy ReportTaskRunnerHeartbeat)
 
 responseActivatePipeline :: ActivatePipelineResponse -> TestTree
@@ -366,7 +366,7 @@ responseActivatePipeline =
   res
     "ActivatePipelineResponse"
     "fixture/ActivatePipelineResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy ActivatePipeline)
 
 responseSetTaskStatus :: SetTaskStatusResponse -> TestTree
@@ -374,7 +374,7 @@ responseSetTaskStatus =
   res
     "SetTaskStatusResponse"
     "fixture/SetTaskStatusResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy SetTaskStatus)
 
 responseSetStatus :: SetStatusResponse -> TestTree
@@ -382,7 +382,7 @@ responseSetStatus =
   res
     "SetStatusResponse"
     "fixture/SetStatusResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy SetStatus)
 
 responseReportTaskProgress :: ReportTaskProgressResponse -> TestTree
@@ -390,7 +390,7 @@ responseReportTaskProgress =
   res
     "ReportTaskProgressResponse"
     "fixture/ReportTaskProgressResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy ReportTaskProgress)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
@@ -398,7 +398,7 @@ responseCreatePipeline =
   res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy CreatePipeline)
 
 responsePutPipelineDefinition :: PutPipelineDefinitionResponse -> TestTree
@@ -406,7 +406,7 @@ responsePutPipelineDefinition =
   res
     "PutPipelineDefinitionResponse"
     "fixture/PutPipelineDefinitionResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy PutPipelineDefinition)
 
 responseValidatePipelineDefinition :: ValidatePipelineDefinitionResponse -> TestTree
@@ -414,5 +414,5 @@ responseValidatePipelineDefinition =
   res
     "ValidatePipelineDefinitionResponse"
     "fixture/ValidatePipelineDefinitionResponse.proto"
-    dataPipelineService
+    mkServiceConfig
     (Proxy :: Proxy ValidatePipelineDefinition)

@@ -33,44 +33,58 @@ module Network.AWS.ELBv2.CreateLoadBalancer
     mkCreateLoadBalancer,
 
     -- ** Request lenses
-    clbSubnetMappings,
-    clbSecurityGroups,
-    clbSubnets,
-    clbCustomerOwnedIPv4Pool,
-    clbIPAddressType,
     clbName,
+    clbCustomerOwnedIpv4Pool,
+    clbIpAddressType,
     clbScheme,
-    clbType,
+    clbSecurityGroups,
+    clbSubnetMappings,
+    clbSubnets,
     clbTags,
+    clbType,
 
     -- * Destructuring the response
     CreateLoadBalancerResponse (..),
     mkCreateLoadBalancerResponse,
 
     -- ** Response lenses
-    clbrsLoadBalancers,
-    clbrsResponseStatus,
+    clbrrsLoadBalancers,
+    clbrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+  { -- | The name of the load balancer.
+    --
+    -- This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+    name :: Types.LoadBalancerName,
+    -- | [Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).
+    customerOwnedIpv4Pool :: Core.Maybe Types.CustomerOwnedIpv4Pool,
+    -- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
+    ipAddressType :: Core.Maybe Types.IpAddressType,
+    -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+    --
+    -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+    -- The default is an Internet-facing load balancer.
+    -- You cannot specify a scheme for a Gateway Load Balancer.
+    scheme :: Core.Maybe Types.LoadBalancerSchemeEnum,
+    -- | [Application Load Balancers] The IDs of the security groups for the load balancer.
+    securityGroups :: Core.Maybe [Types.SecurityGroupId],
+    -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
     --
     -- [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
     -- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
     -- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
     -- [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
     -- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
-    subnetMappings :: Lude.Maybe [SubnetMapping],
-    -- | [Application Load Balancers] The IDs of the security groups for the load balancer.
-    securityGroups :: Lude.Maybe [Lude.Text],
+    subnetMappings :: Core.Maybe [Types.SubnetMapping],
     -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
     --
     -- [Application Load Balancers] You must specify subnets from at least two Availability Zones.
@@ -78,74 +92,73 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
     -- [Network Load Balancers] You can specify subnets from one or more Availability Zones.
     -- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
-    subnets :: Lude.Maybe [Lude.Text],
-    -- | [Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).
-    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
-    -- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
-    ipAddressType :: Lude.Maybe IPAddressType,
-    -- | The name of the load balancer.
-    --
-    -- This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
-    name :: Lude.Text,
-    -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
-    --
-    -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
-    -- The default is an Internet-facing load balancer.
-    -- You cannot specify a scheme for a Gateway Load Balancer.
-    scheme :: Lude.Maybe LoadBalancerSchemeEnum,
-    -- | The type of load balancer. The default is @application@ .
-    type' :: Lude.Maybe LoadBalancerTypeEnum,
+    subnets :: Core.Maybe [Types.SubnetId],
     -- | The tags to assign to the load balancer.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag),
+    -- | The type of load balancer. The default is @application@ .
+    type' :: Core.Maybe Types.LoadBalancerTypeEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLoadBalancer' with the minimum fields required to make a request.
---
--- * 'subnetMappings' - The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
---
--- [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
--- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
--- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
--- [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
--- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
--- * 'securityGroups' - [Application Load Balancers] The IDs of the security groups for the load balancer.
--- * 'subnets' - The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
---
--- [Application Load Balancers] You must specify subnets from at least two Availability Zones.
--- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
--- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
--- [Network Load Balancers] You can specify subnets from one or more Availability Zones.
--- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
--- * 'customerOwnedIPv4Pool' - [Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).
--- * 'ipAddressType' - The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
--- * 'name' - The name of the load balancer.
+-- | Creates a 'CreateLoadBalancer' value with any optional fields omitted.
+mkCreateLoadBalancer ::
+  -- | 'name'
+  Types.LoadBalancerName ->
+  CreateLoadBalancer
+mkCreateLoadBalancer name =
+  CreateLoadBalancer'
+    { name,
+      customerOwnedIpv4Pool = Core.Nothing,
+      ipAddressType = Core.Nothing,
+      scheme = Core.Nothing,
+      securityGroups = Core.Nothing,
+      subnetMappings = Core.Nothing,
+      subnets = Core.Nothing,
+      tags = Core.Nothing,
+      type' = Core.Nothing
+    }
+
+-- | The name of the load balancer.
 --
 -- This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
--- * 'scheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbName :: Lens.Lens' CreateLoadBalancer Types.LoadBalancerName
+clbName = Lens.field @"name"
+{-# DEPRECATED clbName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | [Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).
+--
+-- /Note:/ Consider using 'customerOwnedIpv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbCustomerOwnedIpv4Pool :: Lens.Lens' CreateLoadBalancer (Core.Maybe Types.CustomerOwnedIpv4Pool)
+clbCustomerOwnedIpv4Pool = Lens.field @"customerOwnedIpv4Pool"
+{-# DEPRECATED clbCustomerOwnedIpv4Pool "Use generic-lens or generic-optics with 'customerOwnedIpv4Pool' instead." #-}
+
+-- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
+--
+-- /Note:/ Consider using 'ipAddressType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbIpAddressType :: Lens.Lens' CreateLoadBalancer (Core.Maybe Types.IpAddressType)
+clbIpAddressType = Lens.field @"ipAddressType"
+{-# DEPRECATED clbIpAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
+
+-- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
 --
 -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
 -- The default is an Internet-facing load balancer.
 -- You cannot specify a scheme for a Gateway Load Balancer.
--- * 'type'' - The type of load balancer. The default is @application@ .
--- * 'tags' - The tags to assign to the load balancer.
-mkCreateLoadBalancer ::
-  -- | 'name'
-  Lude.Text ->
-  CreateLoadBalancer
-mkCreateLoadBalancer pName_ =
-  CreateLoadBalancer'
-    { subnetMappings = Lude.Nothing,
-      securityGroups = Lude.Nothing,
-      subnets = Lude.Nothing,
-      customerOwnedIPv4Pool = Lude.Nothing,
-      ipAddressType = Lude.Nothing,
-      name = pName_,
-      scheme = Lude.Nothing,
-      type' = Lude.Nothing,
-      tags = Lude.Nothing
-    }
+--
+-- /Note:/ Consider using 'scheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbScheme :: Lens.Lens' CreateLoadBalancer (Core.Maybe Types.LoadBalancerSchemeEnum)
+clbScheme = Lens.field @"scheme"
+{-# DEPRECATED clbScheme "Use generic-lens or generic-optics with 'scheme' instead." #-}
+
+-- | [Application Load Balancers] The IDs of the security groups for the load balancer.
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbSecurityGroups :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Types.SecurityGroupId])
+clbSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED clbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
 --
@@ -156,16 +169,9 @@ mkCreateLoadBalancer pName_ =
 -- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
 --
 -- /Note:/ Consider using 'subnetMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbSubnetMappings :: Lens.Lens' CreateLoadBalancer (Lude.Maybe [SubnetMapping])
-clbSubnetMappings = Lens.lens (subnetMappings :: CreateLoadBalancer -> Lude.Maybe [SubnetMapping]) (\s a -> s {subnetMappings = a} :: CreateLoadBalancer)
+clbSubnetMappings :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Types.SubnetMapping])
+clbSubnetMappings = Lens.field @"subnetMappings"
 {-# DEPRECATED clbSubnetMappings "Use generic-lens or generic-optics with 'subnetMappings' instead." #-}
-
--- | [Application Load Balancers] The IDs of the security groups for the load balancer.
---
--- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbSecurityGroups :: Lens.Lens' CreateLoadBalancer (Lude.Maybe [Lude.Text])
-clbSecurityGroups = Lens.lens (securityGroups :: CreateLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
 --
@@ -176,132 +182,106 @@ clbSecurityGroups = Lens.lens (securityGroups :: CreateLoadBalancer -> Lude.Mayb
 -- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbSubnets :: Lens.Lens' CreateLoadBalancer (Lude.Maybe [Lude.Text])
-clbSubnets = Lens.lens (subnets :: CreateLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {subnets = a} :: CreateLoadBalancer)
+clbSubnets :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Types.SubnetId])
+clbSubnets = Lens.field @"subnets"
 {-# DEPRECATED clbSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
-
--- | [Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).
---
--- /Note:/ Consider using 'customerOwnedIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbCustomerOwnedIPv4Pool :: Lens.Lens' CreateLoadBalancer (Lude.Maybe Lude.Text)
-clbCustomerOwnedIPv4Pool = Lens.lens (customerOwnedIPv4Pool :: CreateLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIPv4Pool = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbCustomerOwnedIPv4Pool "Use generic-lens or generic-optics with 'customerOwnedIPv4Pool' instead." #-}
-
--- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
---
--- /Note:/ Consider using 'ipAddressType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbIPAddressType :: Lens.Lens' CreateLoadBalancer (Lude.Maybe IPAddressType)
-clbIPAddressType = Lens.lens (ipAddressType :: CreateLoadBalancer -> Lude.Maybe IPAddressType) (\s a -> s {ipAddressType = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbIPAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
-
--- | The name of the load balancer.
---
--- This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbName :: Lens.Lens' CreateLoadBalancer Lude.Text
-clbName = Lens.lens (name :: CreateLoadBalancer -> Lude.Text) (\s a -> s {name = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
---
--- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
--- The default is an Internet-facing load balancer.
--- You cannot specify a scheme for a Gateway Load Balancer.
---
--- /Note:/ Consider using 'scheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbScheme :: Lens.Lens' CreateLoadBalancer (Lude.Maybe LoadBalancerSchemeEnum)
-clbScheme = Lens.lens (scheme :: CreateLoadBalancer -> Lude.Maybe LoadBalancerSchemeEnum) (\s a -> s {scheme = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbScheme "Use generic-lens or generic-optics with 'scheme' instead." #-}
-
--- | The type of load balancer. The default is @application@ .
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbType :: Lens.Lens' CreateLoadBalancer (Lude.Maybe LoadBalancerTypeEnum)
-clbType = Lens.lens (type' :: CreateLoadBalancer -> Lude.Maybe LoadBalancerTypeEnum) (\s a -> s {type' = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The tags to assign to the load balancer.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbTags :: Lens.Lens' CreateLoadBalancer (Lude.Maybe (Lude.NonEmpty Tag))
-clbTags = Lens.lens (tags :: CreateLoadBalancer -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateLoadBalancer)
+clbTags :: Lens.Lens' CreateLoadBalancer (Core.Maybe (Core.NonEmpty Types.Tag))
+clbTags = Lens.field @"tags"
 {-# DEPRECATED clbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateLoadBalancer where
+-- | The type of load balancer. The default is @application@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbType :: Lens.Lens' CreateLoadBalancer (Core.Maybe Types.LoadBalancerTypeEnum)
+clbType = Lens.field @"type'"
+{-# DEPRECATED clbType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.AWSRequest CreateLoadBalancer where
   type Rs CreateLoadBalancer = CreateLoadBalancerResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateLoadBalancer")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "Name" name)
+                Core.<> ( Core.toQueryValue "CustomerOwnedIpv4Pool"
+                            Core.<$> customerOwnedIpv4Pool
+                        )
+                Core.<> (Core.toQueryValue "IpAddressType" Core.<$> ipAddressType)
+                Core.<> (Core.toQueryValue "Scheme" Core.<$> scheme)
+                Core.<> ( Core.toQueryValue
+                            "SecurityGroups"
+                            (Core.toQueryList "member" Core.<$> securityGroups)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "SubnetMappings"
+                            (Core.toQueryList "member" Core.<$> subnetMappings)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Subnets"
+                            (Core.toQueryList "member" Core.<$> subnets)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Tags"
+                            (Core.toQueryList "member" Core.<$> tags)
+                        )
+                Core.<> (Core.toQueryValue "Type" Core.<$> type')
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateLoadBalancerResult"
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Lude.<$> ( x Lude..@? "LoadBalancers" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "LoadBalancers" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLoadBalancer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateLoadBalancer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLoadBalancer where
-  toQuery CreateLoadBalancer' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateLoadBalancer" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "SubnetMappings"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> subnetMappings),
-        "SecurityGroups"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> securityGroups),
-        "Subnets"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> subnets),
-        "CustomerOwnedIpv4Pool" Lude.=: customerOwnedIPv4Pool,
-        "IpAddressType" Lude.=: ipAddressType,
-        "Name" Lude.=: name,
-        "Scheme" Lude.=: scheme,
-        "Type" Lude.=: type',
-        "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
-      ]
 
 -- | /See:/ 'mkCreateLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
   { -- | Information about the load balancer.
-    loadBalancers :: Lude.Maybe [LoadBalancer],
+    loadBalancers :: Core.Maybe [Types.LoadBalancer],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateLoadBalancerResponse' with the minimum fields required to make a request.
---
--- * 'loadBalancers' - Information about the load balancer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLoadBalancerResponse' value with any optional fields omitted.
 mkCreateLoadBalancerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLoadBalancerResponse
-mkCreateLoadBalancerResponse pResponseStatus_ =
+mkCreateLoadBalancerResponse responseStatus =
   CreateLoadBalancerResponse'
-    { loadBalancers = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { loadBalancers = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbrsLoadBalancers :: Lens.Lens' CreateLoadBalancerResponse (Lude.Maybe [LoadBalancer])
-clbrsLoadBalancers = Lens.lens (loadBalancers :: CreateLoadBalancerResponse -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: CreateLoadBalancerResponse)
-{-# DEPRECATED clbrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
+clbrrsLoadBalancers :: Lens.Lens' CreateLoadBalancerResponse (Core.Maybe [Types.LoadBalancer])
+clbrrsLoadBalancers = Lens.field @"loadBalancers"
+{-# DEPRECATED clbrrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbrsResponseStatus :: Lens.Lens' CreateLoadBalancerResponse Lude.Int
-clbrsResponseStatus = Lens.lens (responseStatus :: CreateLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLoadBalancerResponse)
-{-# DEPRECATED clbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clbrrsResponseStatus :: Lens.Lens' CreateLoadBalancerResponse Core.Int
+clbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,75 +17,69 @@ module Network.AWS.EMR.Types.ScalingAction
     mkScalingAction,
 
     -- * Lenses
-    saMarket,
     saSimpleScalingPolicyConfiguration,
+    saMarket,
   )
 where
 
-import Network.AWS.EMR.Types.MarketType
-import Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
+import qualified Network.AWS.EMR.Types.MarketType as Types
+import qualified Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
 --
 -- /See:/ 'mkScalingAction' smart constructor.
 data ScalingAction = ScalingAction'
-  { -- | Not available for instance groups. Instance groups use the market type specified for the group.
-    market :: Lude.Maybe MarketType,
-    -- | The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
-    simpleScalingPolicyConfiguration :: SimpleScalingPolicyConfiguration
+  { -- | The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+    simpleScalingPolicyConfiguration :: Types.SimpleScalingPolicyConfiguration,
+    -- | Not available for instance groups. Instance groups use the market type specified for the group.
+    market :: Core.Maybe Types.MarketType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalingAction' with the minimum fields required to make a request.
---
--- * 'market' - Not available for instance groups. Instance groups use the market type specified for the group.
--- * 'simpleScalingPolicyConfiguration' - The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+-- | Creates a 'ScalingAction' value with any optional fields omitted.
 mkScalingAction ::
   -- | 'simpleScalingPolicyConfiguration'
-  SimpleScalingPolicyConfiguration ->
+  Types.SimpleScalingPolicyConfiguration ->
   ScalingAction
-mkScalingAction pSimpleScalingPolicyConfiguration_ =
+mkScalingAction simpleScalingPolicyConfiguration =
   ScalingAction'
-    { market = Lude.Nothing,
-      simpleScalingPolicyConfiguration =
-        pSimpleScalingPolicyConfiguration_
+    { simpleScalingPolicyConfiguration,
+      market = Core.Nothing
     }
-
--- | Not available for instance groups. Instance groups use the market type specified for the group.
---
--- /Note:/ Consider using 'market' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saMarket :: Lens.Lens' ScalingAction (Lude.Maybe MarketType)
-saMarket = Lens.lens (market :: ScalingAction -> Lude.Maybe MarketType) (\s a -> s {market = a} :: ScalingAction)
-{-# DEPRECATED saMarket "Use generic-lens or generic-optics with 'market' instead." #-}
 
 -- | The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
 --
 -- /Note:/ Consider using 'simpleScalingPolicyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saSimpleScalingPolicyConfiguration :: Lens.Lens' ScalingAction SimpleScalingPolicyConfiguration
-saSimpleScalingPolicyConfiguration = Lens.lens (simpleScalingPolicyConfiguration :: ScalingAction -> SimpleScalingPolicyConfiguration) (\s a -> s {simpleScalingPolicyConfiguration = a} :: ScalingAction)
+saSimpleScalingPolicyConfiguration :: Lens.Lens' ScalingAction Types.SimpleScalingPolicyConfiguration
+saSimpleScalingPolicyConfiguration = Lens.field @"simpleScalingPolicyConfiguration"
 {-# DEPRECATED saSimpleScalingPolicyConfiguration "Use generic-lens or generic-optics with 'simpleScalingPolicyConfiguration' instead." #-}
 
-instance Lude.FromJSON ScalingAction where
-  parseJSON =
-    Lude.withObject
-      "ScalingAction"
-      ( \x ->
-          ScalingAction'
-            Lude.<$> (x Lude..:? "Market")
-            Lude.<*> (x Lude..: "SimpleScalingPolicyConfiguration")
-      )
+-- | Not available for instance groups. Instance groups use the market type specified for the group.
+--
+-- /Note:/ Consider using 'market' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saMarket :: Lens.Lens' ScalingAction (Core.Maybe Types.MarketType)
+saMarket = Lens.field @"market"
+{-# DEPRECATED saMarket "Use generic-lens or generic-optics with 'market' instead." #-}
 
-instance Lude.ToJSON ScalingAction where
-  toJSON ScalingAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Market" Lude..=) Lude.<$> market,
-            Lude.Just
+instance Core.FromJSON ScalingAction where
+  toJSON ScalingAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "SimpleScalingPolicyConfiguration"
-                  Lude..= simpleScalingPolicyConfiguration
-              )
+                  Core..= simpleScalingPolicyConfiguration
+              ),
+            ("Market" Core..=) Core.<$> market
           ]
       )
+
+instance Core.FromJSON ScalingAction where
+  parseJSON =
+    Core.withObject "ScalingAction" Core.$
+      \x ->
+        ScalingAction'
+          Core.<$> (x Core..: "SimpleScalingPolicyConfiguration")
+          Core.<*> (x Core..:? "Market")

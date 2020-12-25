@@ -22,172 +22,152 @@ module Network.AWS.OpsWorksCM.UpdateServer
     mkUpdateServer,
 
     -- ** Request lenses
-    usDisableAutomatedBackup,
     usServerName,
-    usPreferredMaintenanceWindow,
-    usPreferredBackupWindow,
     usBackupRetentionCount,
+    usDisableAutomatedBackup,
+    usPreferredBackupWindow,
+    usPreferredMaintenanceWindow,
 
     -- * Destructuring the response
     UpdateServerResponse (..),
     mkUpdateServerResponse,
 
     -- ** Response lenses
-    usrsServer,
-    usrsResponseStatus,
+    usrrsServer,
+    usrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateServer' smart constructor.
 data UpdateServer = UpdateServer'
-  { -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
-    disableAutomatedBackup :: Lude.Maybe Lude.Bool,
-    -- | The name of the server to update.
-    serverName :: Lude.Text,
-    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
-    preferredBackupWindow :: Lude.Maybe Lude.Text,
+  { -- | The name of the server to update.
+    serverName :: Types.ServerName,
     -- | Sets the number of automated backups that you want to keep.
-    backupRetentionCount :: Lude.Maybe Lude.Int
+    backupRetentionCount :: Core.Maybe Core.Int,
+    -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
+    disableAutomatedBackup :: Core.Maybe Core.Bool,
+    preferredBackupWindow :: Core.Maybe Types.TimeWindowDefinition,
+    preferredMaintenanceWindow :: Core.Maybe Types.TimeWindowDefinition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateServer' with the minimum fields required to make a request.
---
--- * 'disableAutomatedBackup' - Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
--- * 'serverName' - The name of the server to update.
--- * 'preferredMaintenanceWindow' -
--- * 'preferredBackupWindow' -
--- * 'backupRetentionCount' - Sets the number of automated backups that you want to keep.
+-- | Creates a 'UpdateServer' value with any optional fields omitted.
 mkUpdateServer ::
   -- | 'serverName'
-  Lude.Text ->
+  Types.ServerName ->
   UpdateServer
-mkUpdateServer pServerName_ =
+mkUpdateServer serverName =
   UpdateServer'
-    { disableAutomatedBackup = Lude.Nothing,
-      serverName = pServerName_,
-      preferredMaintenanceWindow = Lude.Nothing,
-      preferredBackupWindow = Lude.Nothing,
-      backupRetentionCount = Lude.Nothing
+    { serverName,
+      backupRetentionCount = Core.Nothing,
+      disableAutomatedBackup = Core.Nothing,
+      preferredBackupWindow = Core.Nothing,
+      preferredMaintenanceWindow = Core.Nothing
     }
-
--- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
---
--- /Note:/ Consider using 'disableAutomatedBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usDisableAutomatedBackup :: Lens.Lens' UpdateServer (Lude.Maybe Lude.Bool)
-usDisableAutomatedBackup = Lens.lens (disableAutomatedBackup :: UpdateServer -> Lude.Maybe Lude.Bool) (\s a -> s {disableAutomatedBackup = a} :: UpdateServer)
-{-# DEPRECATED usDisableAutomatedBackup "Use generic-lens or generic-optics with 'disableAutomatedBackup' instead." #-}
 
 -- | The name of the server to update.
 --
 -- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usServerName :: Lens.Lens' UpdateServer Lude.Text
-usServerName = Lens.lens (serverName :: UpdateServer -> Lude.Text) (\s a -> s {serverName = a} :: UpdateServer)
+usServerName :: Lens.Lens' UpdateServer Types.ServerName
+usServerName = Lens.field @"serverName"
 {-# DEPRECATED usServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usPreferredMaintenanceWindow :: Lens.Lens' UpdateServer (Lude.Maybe Lude.Text)
-usPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: UpdateServer -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: UpdateServer)
-{-# DEPRECATED usPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'preferredBackupWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usPreferredBackupWindow :: Lens.Lens' UpdateServer (Lude.Maybe Lude.Text)
-usPreferredBackupWindow = Lens.lens (preferredBackupWindow :: UpdateServer -> Lude.Maybe Lude.Text) (\s a -> s {preferredBackupWindow = a} :: UpdateServer)
-{-# DEPRECATED usPreferredBackupWindow "Use generic-lens or generic-optics with 'preferredBackupWindow' instead." #-}
 
 -- | Sets the number of automated backups that you want to keep.
 --
 -- /Note:/ Consider using 'backupRetentionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usBackupRetentionCount :: Lens.Lens' UpdateServer (Lude.Maybe Lude.Int)
-usBackupRetentionCount = Lens.lens (backupRetentionCount :: UpdateServer -> Lude.Maybe Lude.Int) (\s a -> s {backupRetentionCount = a} :: UpdateServer)
+usBackupRetentionCount :: Lens.Lens' UpdateServer (Core.Maybe Core.Int)
+usBackupRetentionCount = Lens.field @"backupRetentionCount"
 {-# DEPRECATED usBackupRetentionCount "Use generic-lens or generic-optics with 'backupRetentionCount' instead." #-}
 
-instance Lude.AWSRequest UpdateServer where
+-- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
+--
+-- /Note:/ Consider using 'disableAutomatedBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usDisableAutomatedBackup :: Lens.Lens' UpdateServer (Core.Maybe Core.Bool)
+usDisableAutomatedBackup = Lens.field @"disableAutomatedBackup"
+{-# DEPRECATED usDisableAutomatedBackup "Use generic-lens or generic-optics with 'disableAutomatedBackup' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'preferredBackupWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usPreferredBackupWindow :: Lens.Lens' UpdateServer (Core.Maybe Types.TimeWindowDefinition)
+usPreferredBackupWindow = Lens.field @"preferredBackupWindow"
+{-# DEPRECATED usPreferredBackupWindow "Use generic-lens or generic-optics with 'preferredBackupWindow' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usPreferredMaintenanceWindow :: Lens.Lens' UpdateServer (Core.Maybe Types.TimeWindowDefinition)
+usPreferredMaintenanceWindow = Lens.field @"preferredMaintenanceWindow"
+{-# DEPRECATED usPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
+
+instance Core.FromJSON UpdateServer where
+  toJSON UpdateServer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServerName" Core..= serverName),
+            ("BackupRetentionCount" Core..=) Core.<$> backupRetentionCount,
+            ("DisableAutomatedBackup" Core..=) Core.<$> disableAutomatedBackup,
+            ("PreferredBackupWindow" Core..=) Core.<$> preferredBackupWindow,
+            ("PreferredMaintenanceWindow" Core..=)
+              Core.<$> preferredMaintenanceWindow
+          ]
+      )
+
+instance Core.AWSRequest UpdateServer where
   type Rs UpdateServer = UpdateServerResponse
-  request = Req.postJSON opsWorksCMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorksCM_V2016_11_01.UpdateServer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateServerResponse'
-            Lude.<$> (x Lude..?> "Server") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Server") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateServer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorksCM_V2016_11_01.UpdateServer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateServer where
-  toJSON UpdateServer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DisableAutomatedBackup" Lude..=)
-              Lude.<$> disableAutomatedBackup,
-            Lude.Just ("ServerName" Lude..= serverName),
-            ("PreferredMaintenanceWindow" Lude..=)
-              Lude.<$> preferredMaintenanceWindow,
-            ("PreferredBackupWindow" Lude..=) Lude.<$> preferredBackupWindow,
-            ("BackupRetentionCount" Lude..=) Lude.<$> backupRetentionCount
-          ]
-      )
-
-instance Lude.ToPath UpdateServer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateServer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateServerResponse' smart constructor.
 data UpdateServerResponse = UpdateServerResponse'
   { -- | Contains the response to a @UpdateServer@ request.
-    server :: Lude.Maybe Server,
+    server :: Core.Maybe Types.Server,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateServerResponse' with the minimum fields required to make a request.
---
--- * 'server' - Contains the response to a @UpdateServer@ request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateServerResponse' value with any optional fields omitted.
 mkUpdateServerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateServerResponse
-mkUpdateServerResponse pResponseStatus_ =
-  UpdateServerResponse'
-    { server = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateServerResponse responseStatus =
+  UpdateServerResponse' {server = Core.Nothing, responseStatus}
 
 -- | Contains the response to a @UpdateServer@ request.
 --
 -- /Note:/ Consider using 'server' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsServer :: Lens.Lens' UpdateServerResponse (Lude.Maybe Server)
-usrsServer = Lens.lens (server :: UpdateServerResponse -> Lude.Maybe Server) (\s a -> s {server = a} :: UpdateServerResponse)
-{-# DEPRECATED usrsServer "Use generic-lens or generic-optics with 'server' instead." #-}
+usrrsServer :: Lens.Lens' UpdateServerResponse (Core.Maybe Types.Server)
+usrrsServer = Lens.field @"server"
+{-# DEPRECATED usrrsServer "Use generic-lens or generic-optics with 'server' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsResponseStatus :: Lens.Lens' UpdateServerResponse Lude.Int
-usrsResponseStatus = Lens.lens (responseStatus :: UpdateServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateServerResponse)
-{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usrrsResponseStatus :: Lens.Lens' UpdateServerResponse Core.Int
+usrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,80 +17,74 @@ module Network.AWS.WAF.Types.SqlInjectionMatchSet
     mkSqlInjectionMatchSet,
 
     -- * Lenses
-    simsName,
     simsSqlInjectionMatchSetId,
     simsSqlInjectionMatchTuples,
+    simsName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.SqlInjectionMatchTuple
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.ResourceId as Types
+import qualified Network.AWS.WAF.Types.ResourceName as Types
+import qualified Network.AWS.WAF.Types.SqlInjectionMatchTuple as Types
 
 -- | A complex type that contains @SqlInjectionMatchTuple@ objects, which specify the parts of web requests that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header. If a @SqlInjectionMatchSet@ contains more than one @SqlInjectionMatchTuple@ object, a request needs to include snippets of SQL code in only one of the specified parts of the request to be considered a match.
 --
 -- /See:/ 'mkSqlInjectionMatchSet' smart constructor.
 data SqlInjectionMatchSet = SqlInjectionMatchSet'
-  { -- | The name, if any, of the @SqlInjectionMatchSet@ .
-    name :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
+  { -- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
     --
     -- @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
-    sqlInjectionMatchSetId :: Lude.Text,
+    sqlInjectionMatchSetId :: Types.ResourceId,
     -- | Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.
-    sqlInjectionMatchTuples :: [SqlInjectionMatchTuple]
+    sqlInjectionMatchTuples :: [Types.SqlInjectionMatchTuple],
+    -- | The name, if any, of the @SqlInjectionMatchSet@ .
+    name :: Core.Maybe Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SqlInjectionMatchSet' with the minimum fields required to make a request.
---
--- * 'name' - The name, if any, of the @SqlInjectionMatchSet@ .
--- * 'sqlInjectionMatchSetId' - A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
---
--- @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
--- * 'sqlInjectionMatchTuples' - Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.
+-- | Creates a 'SqlInjectionMatchSet' value with any optional fields omitted.
 mkSqlInjectionMatchSet ::
   -- | 'sqlInjectionMatchSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   SqlInjectionMatchSet
-mkSqlInjectionMatchSet pSqlInjectionMatchSetId_ =
+mkSqlInjectionMatchSet sqlInjectionMatchSetId =
   SqlInjectionMatchSet'
-    { name = Lude.Nothing,
-      sqlInjectionMatchSetId = pSqlInjectionMatchSetId_,
-      sqlInjectionMatchTuples = Lude.mempty
+    { sqlInjectionMatchSetId,
+      sqlInjectionMatchTuples = Core.mempty,
+      name = Core.Nothing
     }
-
--- | The name, if any, of the @SqlInjectionMatchSet@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-simsName :: Lens.Lens' SqlInjectionMatchSet (Lude.Maybe Lude.Text)
-simsName = Lens.lens (name :: SqlInjectionMatchSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SqlInjectionMatchSet)
-{-# DEPRECATED simsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
 --
 -- @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 --
 -- /Note:/ Consider using 'sqlInjectionMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-simsSqlInjectionMatchSetId :: Lens.Lens' SqlInjectionMatchSet Lude.Text
-simsSqlInjectionMatchSetId = Lens.lens (sqlInjectionMatchSetId :: SqlInjectionMatchSet -> Lude.Text) (\s a -> s {sqlInjectionMatchSetId = a} :: SqlInjectionMatchSet)
+simsSqlInjectionMatchSetId :: Lens.Lens' SqlInjectionMatchSet Types.ResourceId
+simsSqlInjectionMatchSetId = Lens.field @"sqlInjectionMatchSetId"
 {-# DEPRECATED simsSqlInjectionMatchSetId "Use generic-lens or generic-optics with 'sqlInjectionMatchSetId' instead." #-}
 
 -- | Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.
 --
 -- /Note:/ Consider using 'sqlInjectionMatchTuples' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-simsSqlInjectionMatchTuples :: Lens.Lens' SqlInjectionMatchSet [SqlInjectionMatchTuple]
-simsSqlInjectionMatchTuples = Lens.lens (sqlInjectionMatchTuples :: SqlInjectionMatchSet -> [SqlInjectionMatchTuple]) (\s a -> s {sqlInjectionMatchTuples = a} :: SqlInjectionMatchSet)
+simsSqlInjectionMatchTuples :: Lens.Lens' SqlInjectionMatchSet [Types.SqlInjectionMatchTuple]
+simsSqlInjectionMatchTuples = Lens.field @"sqlInjectionMatchTuples"
 {-# DEPRECATED simsSqlInjectionMatchTuples "Use generic-lens or generic-optics with 'sqlInjectionMatchTuples' instead." #-}
 
-instance Lude.FromJSON SqlInjectionMatchSet where
+-- | The name, if any, of the @SqlInjectionMatchSet@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+simsName :: Lens.Lens' SqlInjectionMatchSet (Core.Maybe Types.ResourceName)
+simsName = Lens.field @"name"
+{-# DEPRECATED simsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON SqlInjectionMatchSet where
   parseJSON =
-    Lude.withObject
-      "SqlInjectionMatchSet"
-      ( \x ->
-          SqlInjectionMatchSet'
-            Lude.<$> (x Lude..:? "Name")
-            Lude.<*> (x Lude..: "SqlInjectionMatchSetId")
-            Lude.<*> (x Lude..:? "SqlInjectionMatchTuples" Lude..!= Lude.mempty)
-      )
+    Core.withObject "SqlInjectionMatchSet" Core.$
+      \x ->
+        SqlInjectionMatchSet'
+          Core.<$> (x Core..: "SqlInjectionMatchSetId")
+          Core.<*> (x Core..:? "SqlInjectionMatchTuples" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "Name")

@@ -17,14 +17,15 @@ module Network.AWS.AlexaBusiness.Types.Audio
     mkAudio,
 
     -- * Lenses
-    aLocation,
     aLocale,
+    aLocation,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.Locale
+import qualified Network.AWS.AlexaBusiness.Types.AudioLocation as Types
+import qualified Network.AWS.AlexaBusiness.Types.Locale as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The audio message. There is a 1 MB limit on the audio file input and the only supported format is MP3. To convert your MP3 audio files to an Alexa-friendly,
 --
@@ -33,46 +34,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudio' smart constructor.
 data Audio = Audio'
-  { -- | The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters> .
-    location :: Lude.Text,
-    -- | The locale of the audio message. Currently, en-US is supported.
-    locale :: Locale
+  { -- | The locale of the audio message. Currently, en-US is supported.
+    locale :: Types.Locale,
+    -- | The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters> .
+    location :: Types.AudioLocation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Audio' with the minimum fields required to make a request.
---
--- * 'location' - The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters> .
--- * 'locale' - The locale of the audio message. Currently, en-US is supported.
+-- | Creates a 'Audio' value with any optional fields omitted.
 mkAudio ::
-  -- | 'location'
-  Lude.Text ->
   -- | 'locale'
-  Locale ->
+  Types.Locale ->
+  -- | 'location'
+  Types.AudioLocation ->
   Audio
-mkAudio pLocation_ pLocale_ =
-  Audio' {location = pLocation_, locale = pLocale_}
-
--- | The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters> .
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aLocation :: Lens.Lens' Audio Lude.Text
-aLocation = Lens.lens (location :: Audio -> Lude.Text) (\s a -> s {location = a} :: Audio)
-{-# DEPRECATED aLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+mkAudio locale location = Audio' {locale, location}
 
 -- | The locale of the audio message. Currently, en-US is supported.
 --
 -- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aLocale :: Lens.Lens' Audio Locale
-aLocale = Lens.lens (locale :: Audio -> Locale) (\s a -> s {locale = a} :: Audio)
+aLocale :: Lens.Lens' Audio Types.Locale
+aLocale = Lens.field @"locale"
 {-# DEPRECATED aLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
-instance Lude.ToJSON Audio where
-  toJSON Audio' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Location" Lude..= location),
-            Lude.Just ("Locale" Lude..= locale)
+-- | The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters> .
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLocation :: Lens.Lens' Audio Types.AudioLocation
+aLocation = Lens.field @"location"
+{-# DEPRECATED aLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+instance Core.FromJSON Audio where
+  toJSON Audio {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Locale" Core..= locale),
+            Core.Just ("Location" Core..= location)
           ]
       )

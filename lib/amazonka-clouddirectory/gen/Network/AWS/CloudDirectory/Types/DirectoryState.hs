@@ -13,51 +13,56 @@
 module Network.AWS.CloudDirectory.Types.DirectoryState
   ( DirectoryState
       ( DirectoryState',
-        Enabled,
-        Disabled,
-        Deleted
+        DirectoryStateEnabled,
+        DirectoryStateDisabled,
+        DirectoryStateDeleted,
+        fromDirectoryState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DirectoryState = DirectoryState' Lude.Text
+newtype DirectoryState = DirectoryState'
+  { fromDirectoryState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabled :: DirectoryState
-pattern Enabled = DirectoryState' "ENABLED"
+pattern DirectoryStateEnabled :: DirectoryState
+pattern DirectoryStateEnabled = DirectoryState' "ENABLED"
 
-pattern Disabled :: DirectoryState
-pattern Disabled = DirectoryState' "DISABLED"
+pattern DirectoryStateDisabled :: DirectoryState
+pattern DirectoryStateDisabled = DirectoryState' "DISABLED"
 
-pattern Deleted :: DirectoryState
-pattern Deleted = DirectoryState' "DELETED"
+pattern DirectoryStateDeleted :: DirectoryState
+pattern DirectoryStateDeleted = DirectoryState' "DELETED"
 
 {-# COMPLETE
-  Enabled,
-  Disabled,
-  Deleted,
+  DirectoryStateEnabled,
+  DirectoryStateDisabled,
+  DirectoryStateDeleted,
   DirectoryState'
   #-}

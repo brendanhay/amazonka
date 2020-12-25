@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.JobTemplateListBy
   ( JobTemplateListBy
       ( JobTemplateListBy',
-        JTLBName,
-        JTLBCreationDate,
-        JTLBSystem
+        JobTemplateListByName,
+        JobTemplateListByCreationDate,
+        JobTemplateListBySystem,
+        fromJobTemplateListBy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
-newtype JobTemplateListBy = JobTemplateListBy' Lude.Text
+newtype JobTemplateListBy = JobTemplateListBy'
+  { fromJobTemplateListBy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JTLBName :: JobTemplateListBy
-pattern JTLBName = JobTemplateListBy' "NAME"
+pattern JobTemplateListByName :: JobTemplateListBy
+pattern JobTemplateListByName = JobTemplateListBy' "NAME"
 
-pattern JTLBCreationDate :: JobTemplateListBy
-pattern JTLBCreationDate = JobTemplateListBy' "CREATION_DATE"
+pattern JobTemplateListByCreationDate :: JobTemplateListBy
+pattern JobTemplateListByCreationDate = JobTemplateListBy' "CREATION_DATE"
 
-pattern JTLBSystem :: JobTemplateListBy
-pattern JTLBSystem = JobTemplateListBy' "SYSTEM"
+pattern JobTemplateListBySystem :: JobTemplateListBy
+pattern JobTemplateListBySystem = JobTemplateListBy' "SYSTEM"
 
 {-# COMPLETE
-  JTLBName,
-  JTLBCreationDate,
-  JTLBSystem,
+  JobTemplateListByName,
+  JobTemplateListByCreationDate,
+  JobTemplateListBySystem,
   JobTemplateListBy'
   #-}

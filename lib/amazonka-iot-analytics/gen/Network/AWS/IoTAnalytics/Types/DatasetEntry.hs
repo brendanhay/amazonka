@@ -17,54 +17,51 @@ module Network.AWS.IoTAnalytics.Types.DatasetEntry
     mkDatasetEntry,
 
     -- * Lenses
-    deEntryName,
     deDataURI,
+    deEntryName,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.EntryName as Types
+import qualified Network.AWS.IoTAnalytics.Types.PresignedURI as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The reference to a data set entry.
 --
 -- /See:/ 'mkDatasetEntry' smart constructor.
 data DatasetEntry = DatasetEntry'
-  { -- | The name of the data set item.
-    entryName :: Lude.Maybe Lude.Text,
-    -- | The presigned URI of the data set item.
-    dataURI :: Lude.Maybe Lude.Text
+  { -- | The presigned URI of the data set item.
+    dataURI :: Core.Maybe Types.PresignedURI,
+    -- | The name of the data set item.
+    entryName :: Core.Maybe Types.EntryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DatasetEntry' with the minimum fields required to make a request.
---
--- * 'entryName' - The name of the data set item.
--- * 'dataURI' - The presigned URI of the data set item.
+-- | Creates a 'DatasetEntry' value with any optional fields omitted.
 mkDatasetEntry ::
   DatasetEntry
 mkDatasetEntry =
-  DatasetEntry' {entryName = Lude.Nothing, dataURI = Lude.Nothing}
-
--- | The name of the data set item.
---
--- /Note:/ Consider using 'entryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEntryName :: Lens.Lens' DatasetEntry (Lude.Maybe Lude.Text)
-deEntryName = Lens.lens (entryName :: DatasetEntry -> Lude.Maybe Lude.Text) (\s a -> s {entryName = a} :: DatasetEntry)
-{-# DEPRECATED deEntryName "Use generic-lens or generic-optics with 'entryName' instead." #-}
+  DatasetEntry' {dataURI = Core.Nothing, entryName = Core.Nothing}
 
 -- | The presigned URI of the data set item.
 --
 -- /Note:/ Consider using 'dataURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deDataURI :: Lens.Lens' DatasetEntry (Lude.Maybe Lude.Text)
-deDataURI = Lens.lens (dataURI :: DatasetEntry -> Lude.Maybe Lude.Text) (\s a -> s {dataURI = a} :: DatasetEntry)
+deDataURI :: Lens.Lens' DatasetEntry (Core.Maybe Types.PresignedURI)
+deDataURI = Lens.field @"dataURI"
 {-# DEPRECATED deDataURI "Use generic-lens or generic-optics with 'dataURI' instead." #-}
 
-instance Lude.FromJSON DatasetEntry where
+-- | The name of the data set item.
+--
+-- /Note:/ Consider using 'entryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEntryName :: Lens.Lens' DatasetEntry (Core.Maybe Types.EntryName)
+deEntryName = Lens.field @"entryName"
+{-# DEPRECATED deEntryName "Use generic-lens or generic-optics with 'entryName' instead." #-}
+
+instance Core.FromJSON DatasetEntry where
   parseJSON =
-    Lude.withObject
-      "DatasetEntry"
-      ( \x ->
-          DatasetEntry'
-            Lude.<$> (x Lude..:? "entryName") Lude.<*> (x Lude..:? "dataURI")
-      )
+    Core.withObject "DatasetEntry" Core.$
+      \x ->
+        DatasetEntry'
+          Core.<$> (x Core..:? "dataURI") Core.<*> (x Core..:? "entryName")

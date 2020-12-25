@@ -17,149 +17,139 @@ module Network.AWS.SageMaker.Types.TrialComponentMetricSummary
     mkTrialComponentMetricSummary,
 
     -- * Lenses
-    tcmsMax,
-    tcmsSourceARN,
     tcmsAvg,
     tcmsCount,
-    tcmsMetricName,
-    tcmsStdDev,
-    tcmsMin,
     tcmsLast,
+    tcmsMax,
+    tcmsMetricName,
+    tcmsMin,
+    tcmsSourceArn,
+    tcmsStdDev,
     tcmsTimeStamp,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.MetricName as Types
+import qualified Network.AWS.SageMaker.Types.SourceArn as Types
 
 -- | A summary of the metrics of a trial component.
 --
 -- /See:/ 'mkTrialComponentMetricSummary' smart constructor.
 data TrialComponentMetricSummary = TrialComponentMetricSummary'
-  { -- | The maximum value of the metric.
-    max :: Lude.Maybe Lude.Double,
-    -- | The Amazon Resource Name (ARN) of the source.
-    sourceARN :: Lude.Maybe Lude.Text,
-    -- | The average value of the metric.
-    avg :: Lude.Maybe Lude.Double,
+  { -- | The average value of the metric.
+    avg :: Core.Maybe Core.Double,
     -- | The number of samples used to generate the metric.
-    count :: Lude.Maybe Lude.Int,
-    -- | The name of the metric.
-    metricName :: Lude.Maybe Lude.Text,
-    -- | The standard deviation of the metric.
-    stdDev :: Lude.Maybe Lude.Double,
-    -- | The minimum value of the metric.
-    min :: Lude.Maybe Lude.Double,
+    count :: Core.Maybe Core.Int,
     -- | The most recent value of the metric.
-    last :: Lude.Maybe Lude.Double,
+    last :: Core.Maybe Core.Double,
+    -- | The maximum value of the metric.
+    max :: Core.Maybe Core.Double,
+    -- | The name of the metric.
+    metricName :: Core.Maybe Types.MetricName,
+    -- | The minimum value of the metric.
+    min :: Core.Maybe Core.Double,
+    -- | The Amazon Resource Name (ARN) of the source.
+    sourceArn :: Core.Maybe Types.SourceArn,
+    -- | The standard deviation of the metric.
+    stdDev :: Core.Maybe Core.Double,
     -- | When the metric was last updated.
-    timeStamp :: Lude.Maybe Lude.Timestamp
+    timeStamp :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TrialComponentMetricSummary' with the minimum fields required to make a request.
---
--- * 'max' - The maximum value of the metric.
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
--- * 'avg' - The average value of the metric.
--- * 'count' - The number of samples used to generate the metric.
--- * 'metricName' - The name of the metric.
--- * 'stdDev' - The standard deviation of the metric.
--- * 'min' - The minimum value of the metric.
--- * 'last' - The most recent value of the metric.
--- * 'timeStamp' - When the metric was last updated.
+-- | Creates a 'TrialComponentMetricSummary' value with any optional fields omitted.
 mkTrialComponentMetricSummary ::
   TrialComponentMetricSummary
 mkTrialComponentMetricSummary =
   TrialComponentMetricSummary'
-    { max = Lude.Nothing,
-      sourceARN = Lude.Nothing,
-      avg = Lude.Nothing,
-      count = Lude.Nothing,
-      metricName = Lude.Nothing,
-      stdDev = Lude.Nothing,
-      min = Lude.Nothing,
-      last = Lude.Nothing,
-      timeStamp = Lude.Nothing
+    { avg = Core.Nothing,
+      count = Core.Nothing,
+      last = Core.Nothing,
+      max = Core.Nothing,
+      metricName = Core.Nothing,
+      min = Core.Nothing,
+      sourceArn = Core.Nothing,
+      stdDev = Core.Nothing,
+      timeStamp = Core.Nothing
     }
-
--- | The maximum value of the metric.
---
--- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsMax :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Double)
-tcmsMax = Lens.lens (max :: TrialComponentMetricSummary -> Lude.Maybe Lude.Double) (\s a -> s {max = a} :: TrialComponentMetricSummary)
-{-# DEPRECATED tcmsMax "Use generic-lens or generic-optics with 'max' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the source.
---
--- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsSourceARN :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Text)
-tcmsSourceARN = Lens.lens (sourceARN :: TrialComponentMetricSummary -> Lude.Maybe Lude.Text) (\s a -> s {sourceARN = a} :: TrialComponentMetricSummary)
-{-# DEPRECATED tcmsSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
 
 -- | The average value of the metric.
 --
 -- /Note:/ Consider using 'avg' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsAvg :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Double)
-tcmsAvg = Lens.lens (avg :: TrialComponentMetricSummary -> Lude.Maybe Lude.Double) (\s a -> s {avg = a} :: TrialComponentMetricSummary)
+tcmsAvg :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Core.Double)
+tcmsAvg = Lens.field @"avg"
 {-# DEPRECATED tcmsAvg "Use generic-lens or generic-optics with 'avg' instead." #-}
 
 -- | The number of samples used to generate the metric.
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsCount :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Int)
-tcmsCount = Lens.lens (count :: TrialComponentMetricSummary -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: TrialComponentMetricSummary)
+tcmsCount :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Core.Int)
+tcmsCount = Lens.field @"count"
 {-# DEPRECATED tcmsCount "Use generic-lens or generic-optics with 'count' instead." #-}
-
--- | The name of the metric.
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsMetricName :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Text)
-tcmsMetricName = Lens.lens (metricName :: TrialComponentMetricSummary -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: TrialComponentMetricSummary)
-{-# DEPRECATED tcmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
-
--- | The standard deviation of the metric.
---
--- /Note:/ Consider using 'stdDev' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsStdDev :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Double)
-tcmsStdDev = Lens.lens (stdDev :: TrialComponentMetricSummary -> Lude.Maybe Lude.Double) (\s a -> s {stdDev = a} :: TrialComponentMetricSummary)
-{-# DEPRECATED tcmsStdDev "Use generic-lens or generic-optics with 'stdDev' instead." #-}
-
--- | The minimum value of the metric.
---
--- /Note:/ Consider using 'min' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsMin :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Double)
-tcmsMin = Lens.lens (min :: TrialComponentMetricSummary -> Lude.Maybe Lude.Double) (\s a -> s {min = a} :: TrialComponentMetricSummary)
-{-# DEPRECATED tcmsMin "Use generic-lens or generic-optics with 'min' instead." #-}
 
 -- | The most recent value of the metric.
 --
 -- /Note:/ Consider using 'last' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsLast :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Double)
-tcmsLast = Lens.lens (last :: TrialComponentMetricSummary -> Lude.Maybe Lude.Double) (\s a -> s {last = a} :: TrialComponentMetricSummary)
+tcmsLast :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Core.Double)
+tcmsLast = Lens.field @"last"
 {-# DEPRECATED tcmsLast "Use generic-lens or generic-optics with 'last' instead." #-}
+
+-- | The maximum value of the metric.
+--
+-- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcmsMax :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Core.Double)
+tcmsMax = Lens.field @"max"
+{-# DEPRECATED tcmsMax "Use generic-lens or generic-optics with 'max' instead." #-}
+
+-- | The name of the metric.
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcmsMetricName :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Types.MetricName)
+tcmsMetricName = Lens.field @"metricName"
+{-# DEPRECATED tcmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+
+-- | The minimum value of the metric.
+--
+-- /Note:/ Consider using 'min' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcmsMin :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Core.Double)
+tcmsMin = Lens.field @"min"
+{-# DEPRECATED tcmsMin "Use generic-lens or generic-optics with 'min' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the source.
+--
+-- /Note:/ Consider using 'sourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcmsSourceArn :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Types.SourceArn)
+tcmsSourceArn = Lens.field @"sourceArn"
+{-# DEPRECATED tcmsSourceArn "Use generic-lens or generic-optics with 'sourceArn' instead." #-}
+
+-- | The standard deviation of the metric.
+--
+-- /Note:/ Consider using 'stdDev' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcmsStdDev :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Core.Double)
+tcmsStdDev = Lens.field @"stdDev"
+{-# DEPRECATED tcmsStdDev "Use generic-lens or generic-optics with 'stdDev' instead." #-}
 
 -- | When the metric was last updated.
 --
 -- /Note:/ Consider using 'timeStamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcmsTimeStamp :: Lens.Lens' TrialComponentMetricSummary (Lude.Maybe Lude.Timestamp)
-tcmsTimeStamp = Lens.lens (timeStamp :: TrialComponentMetricSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {timeStamp = a} :: TrialComponentMetricSummary)
+tcmsTimeStamp :: Lens.Lens' TrialComponentMetricSummary (Core.Maybe Core.NominalDiffTime)
+tcmsTimeStamp = Lens.field @"timeStamp"
 {-# DEPRECATED tcmsTimeStamp "Use generic-lens or generic-optics with 'timeStamp' instead." #-}
 
-instance Lude.FromJSON TrialComponentMetricSummary where
+instance Core.FromJSON TrialComponentMetricSummary where
   parseJSON =
-    Lude.withObject
-      "TrialComponentMetricSummary"
-      ( \x ->
-          TrialComponentMetricSummary'
-            Lude.<$> (x Lude..:? "Max")
-            Lude.<*> (x Lude..:? "SourceArn")
-            Lude.<*> (x Lude..:? "Avg")
-            Lude.<*> (x Lude..:? "Count")
-            Lude.<*> (x Lude..:? "MetricName")
-            Lude.<*> (x Lude..:? "StdDev")
-            Lude.<*> (x Lude..:? "Min")
-            Lude.<*> (x Lude..:? "Last")
-            Lude.<*> (x Lude..:? "TimeStamp")
-      )
+    Core.withObject "TrialComponentMetricSummary" Core.$
+      \x ->
+        TrialComponentMetricSummary'
+          Core.<$> (x Core..:? "Avg")
+          Core.<*> (x Core..:? "Count")
+          Core.<*> (x Core..:? "Last")
+          Core.<*> (x Core..:? "Max")
+          Core.<*> (x Core..:? "MetricName")
+          Core.<*> (x Core..:? "Min")
+          Core.<*> (x Core..:? "SourceArn")
+          Core.<*> (x Core..:? "StdDev")
+          Core.<*> (x Core..:? "TimeStamp")

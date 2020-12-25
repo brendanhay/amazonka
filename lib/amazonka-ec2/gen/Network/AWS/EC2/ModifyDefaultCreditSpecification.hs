@@ -24,7 +24,7 @@ module Network.AWS.EC2.ModifyDefaultCreditSpecification
 
     -- ** Request lenses
     mdcsInstanceFamily,
-    mdcsCPUCredits,
+    mdcsCpuCredits,
     mdcsDryRun,
 
     -- * Destructuring the response
@@ -32,57 +32,50 @@ module Network.AWS.EC2.ModifyDefaultCreditSpecification
     mkModifyDefaultCreditSpecificationResponse,
 
     -- ** Response lenses
-    mdcsrsInstanceFamilyCreditSpecification,
-    mdcsrsResponseStatus,
+    mdcsrrsInstanceFamilyCreditSpecification,
+    mdcsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyDefaultCreditSpecification' smart constructor.
 data ModifyDefaultCreditSpecification = ModifyDefaultCreditSpecification'
   { -- | The instance family.
-    instanceFamily :: UnlimitedSupportedInstanceFamily,
+    instanceFamily :: Types.UnlimitedSupportedInstanceFamily,
     -- | The credit option for CPU usage of the instance family.
     --
     -- Valid Values: @standard@ | @unlimited@
-    cpuCredits :: Lude.Text,
+    cpuCredits :: Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyDefaultCreditSpecification' with the minimum fields required to make a request.
---
--- * 'instanceFamily' - The instance family.
--- * 'cpuCredits' - The credit option for CPU usage of the instance family.
---
--- Valid Values: @standard@ | @unlimited@
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ModifyDefaultCreditSpecification' value with any optional fields omitted.
 mkModifyDefaultCreditSpecification ::
   -- | 'instanceFamily'
-  UnlimitedSupportedInstanceFamily ->
+  Types.UnlimitedSupportedInstanceFamily ->
   -- | 'cpuCredits'
-  Lude.Text ->
+  Types.String ->
   ModifyDefaultCreditSpecification
-mkModifyDefaultCreditSpecification pInstanceFamily_ pCPUCredits_ =
+mkModifyDefaultCreditSpecification instanceFamily cpuCredits =
   ModifyDefaultCreditSpecification'
-    { instanceFamily =
-        pInstanceFamily_,
-      cpuCredits = pCPUCredits_,
-      dryRun = Lude.Nothing
+    { instanceFamily,
+      cpuCredits,
+      dryRun = Core.Nothing
     }
 
 -- | The instance family.
 --
 -- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcsInstanceFamily :: Lens.Lens' ModifyDefaultCreditSpecification UnlimitedSupportedInstanceFamily
-mdcsInstanceFamily = Lens.lens (instanceFamily :: ModifyDefaultCreditSpecification -> UnlimitedSupportedInstanceFamily) (\s a -> s {instanceFamily = a} :: ModifyDefaultCreditSpecification)
+mdcsInstanceFamily :: Lens.Lens' ModifyDefaultCreditSpecification Types.UnlimitedSupportedInstanceFamily
+mdcsInstanceFamily = Lens.field @"instanceFamily"
 {-# DEPRECATED mdcsInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
 -- | The credit option for CPU usage of the instance family.
@@ -90,82 +83,81 @@ mdcsInstanceFamily = Lens.lens (instanceFamily :: ModifyDefaultCreditSpecificati
 -- Valid Values: @standard@ | @unlimited@
 --
 -- /Note:/ Consider using 'cpuCredits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcsCPUCredits :: Lens.Lens' ModifyDefaultCreditSpecification Lude.Text
-mdcsCPUCredits = Lens.lens (cpuCredits :: ModifyDefaultCreditSpecification -> Lude.Text) (\s a -> s {cpuCredits = a} :: ModifyDefaultCreditSpecification)
-{-# DEPRECATED mdcsCPUCredits "Use generic-lens or generic-optics with 'cpuCredits' instead." #-}
+mdcsCpuCredits :: Lens.Lens' ModifyDefaultCreditSpecification Types.String
+mdcsCpuCredits = Lens.field @"cpuCredits"
+{-# DEPRECATED mdcsCpuCredits "Use generic-lens or generic-optics with 'cpuCredits' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcsDryRun :: Lens.Lens' ModifyDefaultCreditSpecification (Lude.Maybe Lude.Bool)
-mdcsDryRun = Lens.lens (dryRun :: ModifyDefaultCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyDefaultCreditSpecification)
+mdcsDryRun :: Lens.Lens' ModifyDefaultCreditSpecification (Core.Maybe Core.Bool)
+mdcsDryRun = Lens.field @"dryRun"
 {-# DEPRECATED mdcsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ModifyDefaultCreditSpecification where
+instance Core.AWSRequest ModifyDefaultCreditSpecification where
   type
     Rs ModifyDefaultCreditSpecification =
       ModifyDefaultCreditSpecificationResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyDefaultCreditSpecification")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceFamily" instanceFamily)
+                Core.<> (Core.toQueryValue "CpuCredits" cpuCredits)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ModifyDefaultCreditSpecificationResponse'
-            Lude.<$> (x Lude..@? "instanceFamilyCreditSpecification")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "instanceFamilyCreditSpecification")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyDefaultCreditSpecification where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyDefaultCreditSpecification where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyDefaultCreditSpecification where
-  toQuery ModifyDefaultCreditSpecification' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ModifyDefaultCreditSpecification" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceFamily" Lude.=: instanceFamily,
-        "CpuCredits" Lude.=: cpuCredits,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkModifyDefaultCreditSpecificationResponse' smart constructor.
 data ModifyDefaultCreditSpecificationResponse = ModifyDefaultCreditSpecificationResponse'
   { -- | The default credit option for CPU usage of the instance family.
-    instanceFamilyCreditSpecification :: Lude.Maybe InstanceFamilyCreditSpecification,
+    instanceFamilyCreditSpecification :: Core.Maybe Types.InstanceFamilyCreditSpecification,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyDefaultCreditSpecificationResponse' with the minimum fields required to make a request.
---
--- * 'instanceFamilyCreditSpecification' - The default credit option for CPU usage of the instance family.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyDefaultCreditSpecificationResponse' value with any optional fields omitted.
 mkModifyDefaultCreditSpecificationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyDefaultCreditSpecificationResponse
-mkModifyDefaultCreditSpecificationResponse pResponseStatus_ =
+mkModifyDefaultCreditSpecificationResponse responseStatus =
   ModifyDefaultCreditSpecificationResponse'
     { instanceFamilyCreditSpecification =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The default credit option for CPU usage of the instance family.
 --
 -- /Note:/ Consider using 'instanceFamilyCreditSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcsrsInstanceFamilyCreditSpecification :: Lens.Lens' ModifyDefaultCreditSpecificationResponse (Lude.Maybe InstanceFamilyCreditSpecification)
-mdcsrsInstanceFamilyCreditSpecification = Lens.lens (instanceFamilyCreditSpecification :: ModifyDefaultCreditSpecificationResponse -> Lude.Maybe InstanceFamilyCreditSpecification) (\s a -> s {instanceFamilyCreditSpecification = a} :: ModifyDefaultCreditSpecificationResponse)
-{-# DEPRECATED mdcsrsInstanceFamilyCreditSpecification "Use generic-lens or generic-optics with 'instanceFamilyCreditSpecification' instead." #-}
+mdcsrrsInstanceFamilyCreditSpecification :: Lens.Lens' ModifyDefaultCreditSpecificationResponse (Core.Maybe Types.InstanceFamilyCreditSpecification)
+mdcsrrsInstanceFamilyCreditSpecification = Lens.field @"instanceFamilyCreditSpecification"
+{-# DEPRECATED mdcsrrsInstanceFamilyCreditSpecification "Use generic-lens or generic-optics with 'instanceFamilyCreditSpecification' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcsrsResponseStatus :: Lens.Lens' ModifyDefaultCreditSpecificationResponse Lude.Int
-mdcsrsResponseStatus = Lens.lens (responseStatus :: ModifyDefaultCreditSpecificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyDefaultCreditSpecificationResponse)
-{-# DEPRECATED mdcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mdcsrrsResponseStatus :: Lens.Lens' ModifyDefaultCreditSpecificationResponse Core.Int
+mdcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mdcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

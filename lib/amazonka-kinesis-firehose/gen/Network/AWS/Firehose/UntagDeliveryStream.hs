@@ -23,121 +23,106 @@ module Network.AWS.Firehose.UntagDeliveryStream
     mkUntagDeliveryStream,
 
     -- ** Request lenses
-    udsTagKeys,
     udsDeliveryStreamName,
+    udsTagKeys,
 
     -- * Destructuring the response
     UntagDeliveryStreamResponse (..),
     mkUntagDeliveryStreamResponse,
 
     -- ** Response lenses
-    udsrsResponseStatus,
+    udsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagDeliveryStream' smart constructor.
 data UntagDeliveryStream = UntagDeliveryStream'
-  { -- | A list of tag keys. Each corresponding tag is removed from the delivery stream.
-    tagKeys :: Lude.NonEmpty Lude.Text,
-    -- | The name of the delivery stream.
-    deliveryStreamName :: Lude.Text
+  { -- | The name of the delivery stream.
+    deliveryStreamName :: Types.DeliveryStreamName,
+    -- | A list of tag keys. Each corresponding tag is removed from the delivery stream.
+    tagKeys :: Core.NonEmpty Types.TagKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagDeliveryStream' with the minimum fields required to make a request.
---
--- * 'tagKeys' - A list of tag keys. Each corresponding tag is removed from the delivery stream.
--- * 'deliveryStreamName' - The name of the delivery stream.
+-- | Creates a 'UntagDeliveryStream' value with any optional fields omitted.
 mkUntagDeliveryStream ::
-  -- | 'tagKeys'
-  Lude.NonEmpty Lude.Text ->
   -- | 'deliveryStreamName'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
+  -- | 'tagKeys'
+  Core.NonEmpty Types.TagKey ->
   UntagDeliveryStream
-mkUntagDeliveryStream pTagKeys_ pDeliveryStreamName_ =
-  UntagDeliveryStream'
-    { tagKeys = pTagKeys_,
-      deliveryStreamName = pDeliveryStreamName_
-    }
-
--- | A list of tag keys. Each corresponding tag is removed from the delivery stream.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsTagKeys :: Lens.Lens' UntagDeliveryStream (Lude.NonEmpty Lude.Text)
-udsTagKeys = Lens.lens (tagKeys :: UntagDeliveryStream -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: UntagDeliveryStream)
-{-# DEPRECATED udsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+mkUntagDeliveryStream deliveryStreamName tagKeys =
+  UntagDeliveryStream' {deliveryStreamName, tagKeys}
 
 -- | The name of the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsDeliveryStreamName :: Lens.Lens' UntagDeliveryStream Lude.Text
-udsDeliveryStreamName = Lens.lens (deliveryStreamName :: UntagDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: UntagDeliveryStream)
+udsDeliveryStreamName :: Lens.Lens' UntagDeliveryStream Types.DeliveryStreamName
+udsDeliveryStreamName = Lens.field @"deliveryStreamName"
 {-# DEPRECATED udsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
-instance Lude.AWSRequest UntagDeliveryStream where
+-- | A list of tag keys. Each corresponding tag is removed from the delivery stream.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsTagKeys :: Lens.Lens' UntagDeliveryStream (Core.NonEmpty Types.TagKey)
+udsTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED udsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+instance Core.FromJSON UntagDeliveryStream where
+  toJSON UntagDeliveryStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
+
+instance Core.AWSRequest UntagDeliveryStream where
   type Rs UntagDeliveryStream = UntagDeliveryStreamResponse
-  request = Req.postJSON firehoseService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Firehose_20150804.UntagDeliveryStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UntagDeliveryStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UntagDeliveryStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Firehose_20150804.UntagDeliveryStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UntagDeliveryStream where
-  toJSON UntagDeliveryStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TagKeys" Lude..= tagKeys),
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)
-          ]
-      )
-
-instance Lude.ToPath UntagDeliveryStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagDeliveryStream where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUntagDeliveryStreamResponse' smart constructor.
 newtype UntagDeliveryStreamResponse = UntagDeliveryStreamResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagDeliveryStreamResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UntagDeliveryStreamResponse' value with any optional fields omitted.
 mkUntagDeliveryStreamResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UntagDeliveryStreamResponse
-mkUntagDeliveryStreamResponse pResponseStatus_ =
-  UntagDeliveryStreamResponse' {responseStatus = pResponseStatus_}
+mkUntagDeliveryStreamResponse responseStatus =
+  UntagDeliveryStreamResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsrsResponseStatus :: Lens.Lens' UntagDeliveryStreamResponse Lude.Int
-udsrsResponseStatus = Lens.lens (responseStatus :: UntagDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagDeliveryStreamResponse)
-{-# DEPRECATED udsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udsrrsResponseStatus :: Lens.Lens' UntagDeliveryStreamResponse Core.Int
+udsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

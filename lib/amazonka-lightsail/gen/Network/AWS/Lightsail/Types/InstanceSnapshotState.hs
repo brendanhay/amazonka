@@ -13,51 +13,56 @@
 module Network.AWS.Lightsail.Types.InstanceSnapshotState
   ( InstanceSnapshotState
       ( InstanceSnapshotState',
-        ISSPending,
-        ISSError,
-        ISSAvailable
+        InstanceSnapshotStatePending,
+        InstanceSnapshotStateError,
+        InstanceSnapshotStateAvailable,
+        fromInstanceSnapshotState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceSnapshotState = InstanceSnapshotState' Lude.Text
+newtype InstanceSnapshotState = InstanceSnapshotState'
+  { fromInstanceSnapshotState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISSPending :: InstanceSnapshotState
-pattern ISSPending = InstanceSnapshotState' "pending"
+pattern InstanceSnapshotStatePending :: InstanceSnapshotState
+pattern InstanceSnapshotStatePending = InstanceSnapshotState' "pending"
 
-pattern ISSError :: InstanceSnapshotState
-pattern ISSError = InstanceSnapshotState' "error"
+pattern InstanceSnapshotStateError :: InstanceSnapshotState
+pattern InstanceSnapshotStateError = InstanceSnapshotState' "error"
 
-pattern ISSAvailable :: InstanceSnapshotState
-pattern ISSAvailable = InstanceSnapshotState' "available"
+pattern InstanceSnapshotStateAvailable :: InstanceSnapshotState
+pattern InstanceSnapshotStateAvailable = InstanceSnapshotState' "available"
 
 {-# COMPLETE
-  ISSPending,
-  ISSError,
-  ISSAvailable,
+  InstanceSnapshotStatePending,
+  InstanceSnapshotStateError,
+  InstanceSnapshotStateAvailable,
   InstanceSnapshotState'
   #-}

@@ -30,160 +30,151 @@ module Network.AWS.EC2.GetHostReservationPurchasePreview
     mkGetHostReservationPurchasePreviewResponse,
 
     -- ** Response lenses
-    ghrpprsCurrencyCode,
-    ghrpprsTotalHourlyPrice,
-    ghrpprsTotalUpfrontPrice,
-    ghrpprsPurchase,
-    ghrpprsResponseStatus,
+    ghrpprrsCurrencyCode,
+    ghrpprrsPurchase,
+    ghrpprrsTotalHourlyPrice,
+    ghrpprrsTotalUpfrontPrice,
+    ghrpprrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetHostReservationPurchasePreview' smart constructor.
 data GetHostReservationPurchasePreview = GetHostReservationPurchasePreview'
   { -- | The IDs of the Dedicated Hosts with which the reservation is associated.
-    hostIdSet :: [Lude.Text],
+    hostIdSet :: [Types.DedicatedHostId],
     -- | The offering ID of the reservation.
-    offeringId :: Lude.Text
+    offeringId :: Types.OfferingId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHostReservationPurchasePreview' with the minimum fields required to make a request.
---
--- * 'hostIdSet' - The IDs of the Dedicated Hosts with which the reservation is associated.
--- * 'offeringId' - The offering ID of the reservation.
+-- | Creates a 'GetHostReservationPurchasePreview' value with any optional fields omitted.
 mkGetHostReservationPurchasePreview ::
   -- | 'offeringId'
-  Lude.Text ->
+  Types.OfferingId ->
   GetHostReservationPurchasePreview
-mkGetHostReservationPurchasePreview pOfferingId_ =
+mkGetHostReservationPurchasePreview offeringId =
   GetHostReservationPurchasePreview'
-    { hostIdSet = Lude.mempty,
-      offeringId = pOfferingId_
+    { hostIdSet = Core.mempty,
+      offeringId
     }
 
 -- | The IDs of the Dedicated Hosts with which the reservation is associated.
 --
 -- /Note:/ Consider using 'hostIdSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghrppHostIdSet :: Lens.Lens' GetHostReservationPurchasePreview [Lude.Text]
-ghrppHostIdSet = Lens.lens (hostIdSet :: GetHostReservationPurchasePreview -> [Lude.Text]) (\s a -> s {hostIdSet = a} :: GetHostReservationPurchasePreview)
+ghrppHostIdSet :: Lens.Lens' GetHostReservationPurchasePreview [Types.DedicatedHostId]
+ghrppHostIdSet = Lens.field @"hostIdSet"
 {-# DEPRECATED ghrppHostIdSet "Use generic-lens or generic-optics with 'hostIdSet' instead." #-}
 
 -- | The offering ID of the reservation.
 --
 -- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghrppOfferingId :: Lens.Lens' GetHostReservationPurchasePreview Lude.Text
-ghrppOfferingId = Lens.lens (offeringId :: GetHostReservationPurchasePreview -> Lude.Text) (\s a -> s {offeringId = a} :: GetHostReservationPurchasePreview)
+ghrppOfferingId :: Lens.Lens' GetHostReservationPurchasePreview Types.OfferingId
+ghrppOfferingId = Lens.field @"offeringId"
 {-# DEPRECATED ghrppOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
-instance Lude.AWSRequest GetHostReservationPurchasePreview where
+instance Core.AWSRequest GetHostReservationPurchasePreview where
   type
     Rs GetHostReservationPurchasePreview =
       GetHostReservationPurchasePreviewResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetHostReservationPurchasePreview")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "HostIdSet" hostIdSet)
+                Core.<> (Core.toQueryValue "OfferingId" offeringId)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetHostReservationPurchasePreviewResponse'
-            Lude.<$> (x Lude..@? "currencyCode")
-            Lude.<*> (x Lude..@? "totalHourlyPrice")
-            Lude.<*> (x Lude..@? "totalUpfrontPrice")
-            Lude.<*> ( x Lude..@? "purchase" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "currencyCode")
+            Core.<*> (x Core..@? "purchase" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "totalHourlyPrice")
+            Core.<*> (x Core..@? "totalUpfrontPrice")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetHostReservationPurchasePreview where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetHostReservationPurchasePreview where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetHostReservationPurchasePreview where
-  toQuery GetHostReservationPurchasePreview' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("GetHostReservationPurchasePreview" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "HostIdSet" hostIdSet,
-        "OfferingId" Lude.=: offeringId
-      ]
 
 -- | /See:/ 'mkGetHostReservationPurchasePreviewResponse' smart constructor.
 data GetHostReservationPurchasePreviewResponse = GetHostReservationPurchasePreviewResponse'
   { -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
-    currencyCode :: Lude.Maybe CurrencyCodeValues,
-    -- | The potential total hourly price of the reservation per hour.
-    totalHourlyPrice :: Lude.Maybe Lude.Text,
-    -- | The potential total upfront price. This is billed immediately.
-    totalUpfrontPrice :: Lude.Maybe Lude.Text,
+    currencyCode :: Core.Maybe Types.CurrencyCodeValues,
     -- | The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it.
-    purchase :: Lude.Maybe [Purchase],
+    purchase :: Core.Maybe [Types.Purchase],
+    -- | The potential total hourly price of the reservation per hour.
+    totalHourlyPrice :: Core.Maybe Types.String,
+    -- | The potential total upfront price. This is billed immediately.
+    totalUpfrontPrice :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHostReservationPurchasePreviewResponse' with the minimum fields required to make a request.
---
--- * 'currencyCode' - The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
--- * 'totalHourlyPrice' - The potential total hourly price of the reservation per hour.
--- * 'totalUpfrontPrice' - The potential total upfront price. This is billed immediately.
--- * 'purchase' - The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetHostReservationPurchasePreviewResponse' value with any optional fields omitted.
 mkGetHostReservationPurchasePreviewResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetHostReservationPurchasePreviewResponse
-mkGetHostReservationPurchasePreviewResponse pResponseStatus_ =
+mkGetHostReservationPurchasePreviewResponse responseStatus =
   GetHostReservationPurchasePreviewResponse'
     { currencyCode =
-        Lude.Nothing,
-      totalHourlyPrice = Lude.Nothing,
-      totalUpfrontPrice = Lude.Nothing,
-      purchase = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      purchase = Core.Nothing,
+      totalHourlyPrice = Core.Nothing,
+      totalUpfrontPrice = Core.Nothing,
+      responseStatus
     }
 
 -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
 --
 -- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghrpprsCurrencyCode :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Lude.Maybe CurrencyCodeValues)
-ghrpprsCurrencyCode = Lens.lens (currencyCode :: GetHostReservationPurchasePreviewResponse -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: GetHostReservationPurchasePreviewResponse)
-{-# DEPRECATED ghrpprsCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
-
--- | The potential total hourly price of the reservation per hour.
---
--- /Note:/ Consider using 'totalHourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghrpprsTotalHourlyPrice :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Lude.Maybe Lude.Text)
-ghrpprsTotalHourlyPrice = Lens.lens (totalHourlyPrice :: GetHostReservationPurchasePreviewResponse -> Lude.Maybe Lude.Text) (\s a -> s {totalHourlyPrice = a} :: GetHostReservationPurchasePreviewResponse)
-{-# DEPRECATED ghrpprsTotalHourlyPrice "Use generic-lens or generic-optics with 'totalHourlyPrice' instead." #-}
-
--- | The potential total upfront price. This is billed immediately.
---
--- /Note:/ Consider using 'totalUpfrontPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghrpprsTotalUpfrontPrice :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Lude.Maybe Lude.Text)
-ghrpprsTotalUpfrontPrice = Lens.lens (totalUpfrontPrice :: GetHostReservationPurchasePreviewResponse -> Lude.Maybe Lude.Text) (\s a -> s {totalUpfrontPrice = a} :: GetHostReservationPurchasePreviewResponse)
-{-# DEPRECATED ghrpprsTotalUpfrontPrice "Use generic-lens or generic-optics with 'totalUpfrontPrice' instead." #-}
+ghrpprrsCurrencyCode :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Core.Maybe Types.CurrencyCodeValues)
+ghrpprrsCurrencyCode = Lens.field @"currencyCode"
+{-# DEPRECATED ghrpprrsCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it.
 --
 -- /Note:/ Consider using 'purchase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghrpprsPurchase :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Lude.Maybe [Purchase])
-ghrpprsPurchase = Lens.lens (purchase :: GetHostReservationPurchasePreviewResponse -> Lude.Maybe [Purchase]) (\s a -> s {purchase = a} :: GetHostReservationPurchasePreviewResponse)
-{-# DEPRECATED ghrpprsPurchase "Use generic-lens or generic-optics with 'purchase' instead." #-}
+ghrpprrsPurchase :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Core.Maybe [Types.Purchase])
+ghrpprrsPurchase = Lens.field @"purchase"
+{-# DEPRECATED ghrpprrsPurchase "Use generic-lens or generic-optics with 'purchase' instead." #-}
+
+-- | The potential total hourly price of the reservation per hour.
+--
+-- /Note:/ Consider using 'totalHourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghrpprrsTotalHourlyPrice :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Core.Maybe Types.String)
+ghrpprrsTotalHourlyPrice = Lens.field @"totalHourlyPrice"
+{-# DEPRECATED ghrpprrsTotalHourlyPrice "Use generic-lens or generic-optics with 'totalHourlyPrice' instead." #-}
+
+-- | The potential total upfront price. This is billed immediately.
+--
+-- /Note:/ Consider using 'totalUpfrontPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghrpprrsTotalUpfrontPrice :: Lens.Lens' GetHostReservationPurchasePreviewResponse (Core.Maybe Types.String)
+ghrpprrsTotalUpfrontPrice = Lens.field @"totalUpfrontPrice"
+{-# DEPRECATED ghrpprrsTotalUpfrontPrice "Use generic-lens or generic-optics with 'totalUpfrontPrice' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghrpprsResponseStatus :: Lens.Lens' GetHostReservationPurchasePreviewResponse Lude.Int
-ghrpprsResponseStatus = Lens.lens (responseStatus :: GetHostReservationPurchasePreviewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHostReservationPurchasePreviewResponse)
-{-# DEPRECATED ghrpprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ghrpprrsResponseStatus :: Lens.Lens' GetHostReservationPurchasePreviewResponse Core.Int
+ghrpprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ghrpprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

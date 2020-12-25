@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging
   ( AudioNormalizationLoudnessLogging
       ( AudioNormalizationLoudnessLogging',
-        Log,
-        DontLog
+        AudioNormalizationLoudnessLoggingLog,
+        AudioNormalizationLoudnessLoggingDontLog,
+        fromAudioNormalizationLoudnessLogging
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If set to LOG, log each output's audio track loudness to a CSV file.
-newtype AudioNormalizationLoudnessLogging = AudioNormalizationLoudnessLogging' Lude.Text
+newtype AudioNormalizationLoudnessLogging = AudioNormalizationLoudnessLogging'
+  { fromAudioNormalizationLoudnessLogging ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Log :: AudioNormalizationLoudnessLogging
-pattern Log = AudioNormalizationLoudnessLogging' "LOG"
+pattern AudioNormalizationLoudnessLoggingLog :: AudioNormalizationLoudnessLogging
+pattern AudioNormalizationLoudnessLoggingLog = AudioNormalizationLoudnessLogging' "LOG"
 
-pattern DontLog :: AudioNormalizationLoudnessLogging
-pattern DontLog = AudioNormalizationLoudnessLogging' "DONT_LOG"
+pattern AudioNormalizationLoudnessLoggingDontLog :: AudioNormalizationLoudnessLogging
+pattern AudioNormalizationLoudnessLoggingDontLog = AudioNormalizationLoudnessLogging' "DONT_LOG"
 
 {-# COMPLETE
-  Log,
-  DontLog,
+  AudioNormalizationLoudnessLoggingLog,
+  AudioNormalizationLoudnessLoggingDontLog,
   AudioNormalizationLoudnessLogging'
   #-}

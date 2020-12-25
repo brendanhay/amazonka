@@ -28,116 +28,99 @@ module Network.AWS.EMR.RemoveAutoScalingPolicy
     mkRemoveAutoScalingPolicyResponse,
 
     -- ** Response lenses
-    rasprsResponseStatus,
+    rasprrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveAutoScalingPolicy' smart constructor.
 data RemoveAutoScalingPolicy = RemoveAutoScalingPolicy'
   { -- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
-    clusterId :: Lude.Text,
+    clusterId :: Types.ClusterId,
     -- | Specifies the ID of the instance group to which the scaling policy is applied.
-    instanceGroupId :: Lude.Text
+    instanceGroupId :: Types.InstanceGroupId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveAutoScalingPolicy' with the minimum fields required to make a request.
---
--- * 'clusterId' - Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
--- * 'instanceGroupId' - Specifies the ID of the instance group to which the scaling policy is applied.
+-- | Creates a 'RemoveAutoScalingPolicy' value with any optional fields omitted.
 mkRemoveAutoScalingPolicy ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   -- | 'instanceGroupId'
-  Lude.Text ->
+  Types.InstanceGroupId ->
   RemoveAutoScalingPolicy
-mkRemoveAutoScalingPolicy pClusterId_ pInstanceGroupId_ =
-  RemoveAutoScalingPolicy'
-    { clusterId = pClusterId_,
-      instanceGroupId = pInstanceGroupId_
-    }
+mkRemoveAutoScalingPolicy clusterId instanceGroupId =
+  RemoveAutoScalingPolicy' {clusterId, instanceGroupId}
 
 -- | Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raspClusterId :: Lens.Lens' RemoveAutoScalingPolicy Lude.Text
-raspClusterId = Lens.lens (clusterId :: RemoveAutoScalingPolicy -> Lude.Text) (\s a -> s {clusterId = a} :: RemoveAutoScalingPolicy)
+raspClusterId :: Lens.Lens' RemoveAutoScalingPolicy Types.ClusterId
+raspClusterId = Lens.field @"clusterId"
 {-# DEPRECATED raspClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | Specifies the ID of the instance group to which the scaling policy is applied.
 --
 -- /Note:/ Consider using 'instanceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raspInstanceGroupId :: Lens.Lens' RemoveAutoScalingPolicy Lude.Text
-raspInstanceGroupId = Lens.lens (instanceGroupId :: RemoveAutoScalingPolicy -> Lude.Text) (\s a -> s {instanceGroupId = a} :: RemoveAutoScalingPolicy)
+raspInstanceGroupId :: Lens.Lens' RemoveAutoScalingPolicy Types.InstanceGroupId
+raspInstanceGroupId = Lens.field @"instanceGroupId"
 {-# DEPRECATED raspInstanceGroupId "Use generic-lens or generic-optics with 'instanceGroupId' instead." #-}
 
-instance Lude.AWSRequest RemoveAutoScalingPolicy where
+instance Core.FromJSON RemoveAutoScalingPolicy where
+  toJSON RemoveAutoScalingPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just ("InstanceGroupId" Core..= instanceGroupId)
+          ]
+      )
+
+instance Core.AWSRequest RemoveAutoScalingPolicy where
   type Rs RemoveAutoScalingPolicy = RemoveAutoScalingPolicyResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.RemoveAutoScalingPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           RemoveAutoScalingPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveAutoScalingPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.RemoveAutoScalingPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveAutoScalingPolicy where
-  toJSON RemoveAutoScalingPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClusterId" Lude..= clusterId),
-            Lude.Just ("InstanceGroupId" Lude..= instanceGroupId)
-          ]
-      )
-
-instance Lude.ToPath RemoveAutoScalingPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveAutoScalingPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRemoveAutoScalingPolicyResponse' smart constructor.
 newtype RemoveAutoScalingPolicyResponse = RemoveAutoScalingPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveAutoScalingPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveAutoScalingPolicyResponse' value with any optional fields omitted.
 mkRemoveAutoScalingPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveAutoScalingPolicyResponse
-mkRemoveAutoScalingPolicyResponse pResponseStatus_ =
-  RemoveAutoScalingPolicyResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkRemoveAutoScalingPolicyResponse responseStatus =
+  RemoveAutoScalingPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasprsResponseStatus :: Lens.Lens' RemoveAutoScalingPolicyResponse Lude.Int
-rasprsResponseStatus = Lens.lens (responseStatus :: RemoveAutoScalingPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveAutoScalingPolicyResponse)
-{-# DEPRECATED rasprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rasprrsResponseStatus :: Lens.Lens' RemoveAutoScalingPolicyResponse Core.Int
+rasprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rasprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

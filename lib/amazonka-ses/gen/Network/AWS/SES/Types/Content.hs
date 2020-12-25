@@ -23,7 +23,9 @@ module Network.AWS.SES.Types.Content
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.Charset as Types
+import qualified Network.AWS.SES.Types.Data as Types
 
 -- | Represents textual data, plus an optional character set specification.
 --
@@ -32,37 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkContent' smart constructor.
 data Content = Content'
   { -- | The textual data of the content.
-    data' :: Lude.Text,
+    data' :: Types.Data,
     -- | The character set of the content.
-    charset :: Lude.Maybe Lude.Text
+    charset :: Core.Maybe Types.Charset
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Content' with the minimum fields required to make a request.
---
--- * 'data'' - The textual data of the content.
--- * 'charset' - The character set of the content.
+-- | Creates a 'Content' value with any optional fields omitted.
 mkContent ::
-  -- | 'data''
-  Lude.Text ->
+  -- | 'data\''
+  Types.Data ->
   Content
-mkContent pData_ = Content' {data' = pData_, charset = Lude.Nothing}
+mkContent data' = Content' {data', charset = Core.Nothing}
 
 -- | The textual data of the content.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cData :: Lens.Lens' Content Lude.Text
-cData = Lens.lens (data' :: Content -> Lude.Text) (\s a -> s {data' = a} :: Content)
+cData :: Lens.Lens' Content Types.Data
+cData = Lens.field @"data'"
 {-# DEPRECATED cData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The character set of the content.
 --
 -- /Note:/ Consider using 'charset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCharset :: Lens.Lens' Content (Lude.Maybe Lude.Text)
-cCharset = Lens.lens (charset :: Content -> Lude.Maybe Lude.Text) (\s a -> s {charset = a} :: Content)
+cCharset :: Lens.Lens' Content (Core.Maybe Types.Charset)
+cCharset = Lens.field @"charset"
 {-# DEPRECATED cCharset "Use generic-lens or generic-optics with 'charset' instead." #-}
-
-instance Lude.ToQuery Content where
-  toQuery Content' {..} =
-    Lude.mconcat ["Data" Lude.=: data', "Charset" Lude.=: charset]

@@ -20,246 +20,188 @@ module Network.AWS.MediaLive.DescribeChannel
     mkDescribeChannel,
 
     -- ** Request lenses
-    dcChannelId,
+    dcfChannelId,
 
     -- * Destructuring the response
     DescribeChannelResponse (..),
     mkDescribeChannelResponse,
 
     -- ** Response lenses
-    dcrsState,
-    dcrsLogLevel,
-    dcrsARN,
-    dcrsPipelinesRunningCount,
-    dcrsPipelineDetails,
-    dcrsInputSpecification,
-    dcrsInputAttachments,
-    dcrsDestinations,
-    dcrsName,
-    dcrsCdiInputSpecification,
-    dcrsId,
-    dcrsChannelClass,
-    dcrsEgressEndpoints,
-    dcrsTags,
-    dcrsEncoderSettings,
-    dcrsRoleARN,
-    dcrsResponseStatus,
+    dcrrsArn,
+    dcrrsCdiInputSpecification,
+    dcrrsChannelClass,
+    dcrrsDestinations,
+    dcrrsEgressEndpoints,
+    dcrrsEncoderSettings,
+    dcrrsId,
+    dcrrsInputAttachments,
+    dcrrsInputSpecification,
+    dcrrsLogLevel,
+    dcrrsName,
+    dcrrsPipelineDetails,
+    dcrrsPipelinesRunningCount,
+    dcrrsRoleArn,
+    dcrrsState,
+    dcrrsTags,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for DescribeChannelRequest
 --
 -- /See:/ 'mkDescribeChannel' smart constructor.
 newtype DescribeChannel = DescribeChannel'
   { -- | channel ID
-    channelId :: Lude.Text
+    channelId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeChannel' with the minimum fields required to make a request.
---
--- * 'channelId' - channel ID
+-- | Creates a 'DescribeChannel' value with any optional fields omitted.
 mkDescribeChannel ::
   -- | 'channelId'
-  Lude.Text ->
+  Core.Text ->
   DescribeChannel
-mkDescribeChannel pChannelId_ =
-  DescribeChannel' {channelId = pChannelId_}
+mkDescribeChannel channelId = DescribeChannel' {channelId}
 
 -- | channel ID
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcChannelId :: Lens.Lens' DescribeChannel Lude.Text
-dcChannelId = Lens.lens (channelId :: DescribeChannel -> Lude.Text) (\s a -> s {channelId = a} :: DescribeChannel)
-{-# DEPRECATED dcChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
+dcfChannelId :: Lens.Lens' DescribeChannel Core.Text
+dcfChannelId = Lens.field @"channelId"
+{-# DEPRECATED dcfChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
-instance Lude.AWSRequest DescribeChannel where
+instance Core.AWSRequest DescribeChannel where
   type Rs DescribeChannel = DescribeChannelResponse
-  request = Req.get mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/prod/channels/" Core.<> (Core.toText channelId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeChannelResponse'
-            Lude.<$> (x Lude..?> "state")
-            Lude.<*> (x Lude..?> "logLevel")
-            Lude.<*> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "pipelinesRunningCount")
-            Lude.<*> (x Lude..?> "pipelineDetails" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "inputSpecification")
-            Lude.<*> (x Lude..?> "inputAttachments" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "destinations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (x Lude..?> "cdiInputSpecification")
-            Lude.<*> (x Lude..?> "id")
-            Lude.<*> (x Lude..?> "channelClass")
-            Lude.<*> (x Lude..?> "egressEndpoints" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "encoderSettings")
-            Lude.<*> (x Lude..?> "roleArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "cdiInputSpecification")
+            Core.<*> (x Core..:? "channelClass")
+            Core.<*> (x Core..:? "destinations")
+            Core.<*> (x Core..:? "egressEndpoints")
+            Core.<*> (x Core..:? "encoderSettings")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "inputAttachments")
+            Core.<*> (x Core..:? "inputSpecification")
+            Core.<*> (x Core..:? "logLevel")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "pipelineDetails")
+            Core.<*> (x Core..:? "pipelinesRunningCount")
+            Core.<*> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "state")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeChannel where
-  toPath DescribeChannel' {..} =
-    Lude.mconcat ["/prod/channels/", Lude.toBS channelId]
-
-instance Lude.ToQuery DescribeChannel where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DescribeChannelResponse
 --
 -- /See:/ 'mkDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { state :: Lude.Maybe ChannelState,
-    -- | The log level being written to CloudWatch Logs.
-    logLevel :: Lude.Maybe LogLevel,
-    -- | The unique arn of the channel.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Lude.Maybe Lude.Int,
-    -- | Runtime details for the pipelines of a running channel.
-    pipelineDetails :: Lude.Maybe [PipelineDetail],
-    -- | Specification of network and file inputs for this channel
-    inputSpecification :: Lude.Maybe InputSpecification,
-    -- | List of input attachments for channel.
-    inputAttachments :: Lude.Maybe [InputAttachment],
+  { -- | The unique arn of the channel.
+    arn :: Core.Maybe Core.Text,
+    -- | Specification of CDI inputs for this channel
+    cdiInputSpecification :: Core.Maybe Types.CdiInputSpecification,
+    -- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+    channelClass :: Core.Maybe Types.ChannelClass,
     -- | A list of destinations of the channel. For UDP outputs, there is one
     --
     -- destination per output. For other types (HLS, for example), there is
     -- one destination per packager.
-    destinations :: Lude.Maybe [OutputDestination],
-    -- | The name of the channel. (user-mutable)
-    name :: Lude.Maybe Lude.Text,
-    -- | Specification of CDI inputs for this channel
-    cdiInputSpecification :: Lude.Maybe CdiInputSpecification,
-    -- | The unique id of the channel.
-    id :: Lude.Maybe Lude.Text,
-    -- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-    channelClass :: Lude.Maybe ChannelClass,
+    destinations :: Core.Maybe [Types.OutputDestination],
     -- | The endpoints where outgoing connections initiate from
-    egressEndpoints :: Lude.Maybe [ChannelEgressEndpoint],
-    -- | A collection of key-value pairs.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    encoderSettings :: Lude.Maybe EncoderSettings,
+    egressEndpoints :: Core.Maybe [Types.ChannelEgressEndpoint],
+    encoderSettings :: Core.Maybe Types.EncoderSettings,
+    -- | The unique id of the channel.
+    id :: Core.Maybe Core.Text,
+    -- | List of input attachments for channel.
+    inputAttachments :: Core.Maybe [Types.InputAttachment],
+    -- | Specification of network and file inputs for this channel
+    inputSpecification :: Core.Maybe Types.InputSpecification,
+    -- | The log level being written to CloudWatch Logs.
+    logLevel :: Core.Maybe Types.LogLevel,
+    -- | The name of the channel. (user-mutable)
+    name :: Core.Maybe Core.Text,
+    -- | Runtime details for the pipelines of a running channel.
+    pipelineDetails :: Core.Maybe [Types.PipelineDetail],
+    -- | The number of currently healthy pipelines.
+    pipelinesRunningCount :: Core.Maybe Core.Int,
     -- | The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-    roleARN :: Lude.Maybe Lude.Text,
+    roleArn :: Core.Maybe Core.Text,
+    state :: Core.Maybe Types.ChannelState,
+    -- | A collection of key-value pairs.
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeChannelResponse' with the minimum fields required to make a request.
---
--- * 'state' -
--- * 'logLevel' - The log level being written to CloudWatch Logs.
--- * 'arn' - The unique arn of the channel.
--- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
--- * 'pipelineDetails' - Runtime details for the pipelines of a running channel.
--- * 'inputSpecification' - Specification of network and file inputs for this channel
--- * 'inputAttachments' - List of input attachments for channel.
--- * 'destinations' - A list of destinations of the channel. For UDP outputs, there is one
---
--- destination per output. For other types (HLS, for example), there is
--- one destination per packager.
--- * 'name' - The name of the channel. (user-mutable)
--- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
--- * 'id' - The unique id of the channel.
--- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
--- * 'egressEndpoints' - The endpoints where outgoing connections initiate from
--- * 'tags' - A collection of key-value pairs.
--- * 'encoderSettings' -
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeChannelResponse' value with any optional fields omitted.
 mkDescribeChannelResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeChannelResponse
-mkDescribeChannelResponse pResponseStatus_ =
+mkDescribeChannelResponse responseStatus =
   DescribeChannelResponse'
-    { state = Lude.Nothing,
-      logLevel = Lude.Nothing,
-      arn = Lude.Nothing,
-      pipelinesRunningCount = Lude.Nothing,
-      pipelineDetails = Lude.Nothing,
-      inputSpecification = Lude.Nothing,
-      inputAttachments = Lude.Nothing,
-      destinations = Lude.Nothing,
-      name = Lude.Nothing,
-      cdiInputSpecification = Lude.Nothing,
-      id = Lude.Nothing,
-      channelClass = Lude.Nothing,
-      egressEndpoints = Lude.Nothing,
-      tags = Lude.Nothing,
-      encoderSettings = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      cdiInputSpecification = Core.Nothing,
+      channelClass = Core.Nothing,
+      destinations = Core.Nothing,
+      egressEndpoints = Core.Nothing,
+      encoderSettings = Core.Nothing,
+      id = Core.Nothing,
+      inputAttachments = Core.Nothing,
+      inputSpecification = Core.Nothing,
+      logLevel = Core.Nothing,
+      name = Core.Nothing,
+      pipelineDetails = Core.Nothing,
+      pipelinesRunningCount = Core.Nothing,
+      roleArn = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsState :: Lens.Lens' DescribeChannelResponse (Lude.Maybe ChannelState)
-dcrsState = Lens.lens (state :: DescribeChannelResponse -> Lude.Maybe ChannelState) (\s a -> s {state = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The log level being written to CloudWatch Logs.
---
--- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsLogLevel :: Lens.Lens' DescribeChannelResponse (Lude.Maybe LogLevel)
-dcrsLogLevel = Lens.lens (logLevel :: DescribeChannelResponse -> Lude.Maybe LogLevel) (\s a -> s {logLevel = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
 -- | The unique arn of the channel.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsARN :: Lens.Lens' DescribeChannelResponse (Lude.Maybe Lude.Text)
-dcrsARN = Lens.lens (arn :: DescribeChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+dcrrsArn :: Lens.Lens' DescribeChannelResponse (Core.Maybe Core.Text)
+dcrrsArn = Lens.field @"arn"
+{-# DEPRECATED dcrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The number of currently healthy pipelines.
+-- | Specification of CDI inputs for this channel
 --
--- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsPipelinesRunningCount :: Lens.Lens' DescribeChannelResponse (Lude.Maybe Lude.Int)
-dcrsPipelinesRunningCount = Lens.lens (pipelinesRunningCount :: DescribeChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {pipelinesRunningCount = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
+-- /Note:/ Consider using 'cdiInputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsCdiInputSpecification :: Lens.Lens' DescribeChannelResponse (Core.Maybe Types.CdiInputSpecification)
+dcrrsCdiInputSpecification = Lens.field @"cdiInputSpecification"
+{-# DEPRECATED dcrrsCdiInputSpecification "Use generic-lens or generic-optics with 'cdiInputSpecification' instead." #-}
 
--- | Runtime details for the pipelines of a running channel.
+-- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
 --
--- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsPipelineDetails :: Lens.Lens' DescribeChannelResponse (Lude.Maybe [PipelineDetail])
-dcrsPipelineDetails = Lens.lens (pipelineDetails :: DescribeChannelResponse -> Lude.Maybe [PipelineDetail]) (\s a -> s {pipelineDetails = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
-
--- | Specification of network and file inputs for this channel
---
--- /Note:/ Consider using 'inputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsInputSpecification :: Lens.Lens' DescribeChannelResponse (Lude.Maybe InputSpecification)
-dcrsInputSpecification = Lens.lens (inputSpecification :: DescribeChannelResponse -> Lude.Maybe InputSpecification) (\s a -> s {inputSpecification = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsInputSpecification "Use generic-lens or generic-optics with 'inputSpecification' instead." #-}
-
--- | List of input attachments for channel.
---
--- /Note:/ Consider using 'inputAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsInputAttachments :: Lens.Lens' DescribeChannelResponse (Lude.Maybe [InputAttachment])
-dcrsInputAttachments = Lens.lens (inputAttachments :: DescribeChannelResponse -> Lude.Maybe [InputAttachment]) (\s a -> s {inputAttachments = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsInputAttachments "Use generic-lens or generic-optics with 'inputAttachments' instead." #-}
+-- /Note:/ Consider using 'channelClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsChannelClass :: Lens.Lens' DescribeChannelResponse (Core.Maybe Types.ChannelClass)
+dcrrsChannelClass = Lens.field @"channelClass"
+{-# DEPRECATED dcrrsChannelClass "Use generic-lens or generic-optics with 'channelClass' instead." #-}
 
 -- | A list of destinations of the channel. For UDP outputs, there is one
 --
@@ -267,69 +209,97 @@ dcrsInputAttachments = Lens.lens (inputAttachments :: DescribeChannelResponse ->
 -- one destination per packager.
 --
 -- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsDestinations :: Lens.Lens' DescribeChannelResponse (Lude.Maybe [OutputDestination])
-dcrsDestinations = Lens.lens (destinations :: DescribeChannelResponse -> Lude.Maybe [OutputDestination]) (\s a -> s {destinations = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
-
--- | The name of the channel. (user-mutable)
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsName :: Lens.Lens' DescribeChannelResponse (Lude.Maybe Lude.Text)
-dcrsName = Lens.lens (name :: DescribeChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Specification of CDI inputs for this channel
---
--- /Note:/ Consider using 'cdiInputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsCdiInputSpecification :: Lens.Lens' DescribeChannelResponse (Lude.Maybe CdiInputSpecification)
-dcrsCdiInputSpecification = Lens.lens (cdiInputSpecification :: DescribeChannelResponse -> Lude.Maybe CdiInputSpecification) (\s a -> s {cdiInputSpecification = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsCdiInputSpecification "Use generic-lens or generic-optics with 'cdiInputSpecification' instead." #-}
-
--- | The unique id of the channel.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsId :: Lens.Lens' DescribeChannelResponse (Lude.Maybe Lude.Text)
-dcrsId = Lens.lens (id :: DescribeChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
---
--- /Note:/ Consider using 'channelClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsChannelClass :: Lens.Lens' DescribeChannelResponse (Lude.Maybe ChannelClass)
-dcrsChannelClass = Lens.lens (channelClass :: DescribeChannelResponse -> Lude.Maybe ChannelClass) (\s a -> s {channelClass = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsChannelClass "Use generic-lens or generic-optics with 'channelClass' instead." #-}
+dcrrsDestinations :: Lens.Lens' DescribeChannelResponse (Core.Maybe [Types.OutputDestination])
+dcrrsDestinations = Lens.field @"destinations"
+{-# DEPRECATED dcrrsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The endpoints where outgoing connections initiate from
 --
 -- /Note:/ Consider using 'egressEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsEgressEndpoints :: Lens.Lens' DescribeChannelResponse (Lude.Maybe [ChannelEgressEndpoint])
-dcrsEgressEndpoints = Lens.lens (egressEndpoints :: DescribeChannelResponse -> Lude.Maybe [ChannelEgressEndpoint]) (\s a -> s {egressEndpoints = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsEgressEndpoints "Use generic-lens or generic-optics with 'egressEndpoints' instead." #-}
-
--- | A collection of key-value pairs.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsTags :: Lens.Lens' DescribeChannelResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-dcrsTags = Lens.lens (tags :: DescribeChannelResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dcrrsEgressEndpoints :: Lens.Lens' DescribeChannelResponse (Core.Maybe [Types.ChannelEgressEndpoint])
+dcrrsEgressEndpoints = Lens.field @"egressEndpoints"
+{-# DEPRECATED dcrrsEgressEndpoints "Use generic-lens or generic-optics with 'egressEndpoints' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'encoderSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsEncoderSettings :: Lens.Lens' DescribeChannelResponse (Lude.Maybe EncoderSettings)
-dcrsEncoderSettings = Lens.lens (encoderSettings :: DescribeChannelResponse -> Lude.Maybe EncoderSettings) (\s a -> s {encoderSettings = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsEncoderSettings "Use generic-lens or generic-optics with 'encoderSettings' instead." #-}
+dcrrsEncoderSettings :: Lens.Lens' DescribeChannelResponse (Core.Maybe Types.EncoderSettings)
+dcrrsEncoderSettings = Lens.field @"encoderSettings"
+{-# DEPRECATED dcrrsEncoderSettings "Use generic-lens or generic-optics with 'encoderSettings' instead." #-}
+
+-- | The unique id of the channel.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsId :: Lens.Lens' DescribeChannelResponse (Core.Maybe Core.Text)
+dcrrsId = Lens.field @"id"
+{-# DEPRECATED dcrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | List of input attachments for channel.
+--
+-- /Note:/ Consider using 'inputAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsInputAttachments :: Lens.Lens' DescribeChannelResponse (Core.Maybe [Types.InputAttachment])
+dcrrsInputAttachments = Lens.field @"inputAttachments"
+{-# DEPRECATED dcrrsInputAttachments "Use generic-lens or generic-optics with 'inputAttachments' instead." #-}
+
+-- | Specification of network and file inputs for this channel
+--
+-- /Note:/ Consider using 'inputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsInputSpecification :: Lens.Lens' DescribeChannelResponse (Core.Maybe Types.InputSpecification)
+dcrrsInputSpecification = Lens.field @"inputSpecification"
+{-# DEPRECATED dcrrsInputSpecification "Use generic-lens or generic-optics with 'inputSpecification' instead." #-}
+
+-- | The log level being written to CloudWatch Logs.
+--
+-- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsLogLevel :: Lens.Lens' DescribeChannelResponse (Core.Maybe Types.LogLevel)
+dcrrsLogLevel = Lens.field @"logLevel"
+{-# DEPRECATED dcrrsLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
+
+-- | The name of the channel. (user-mutable)
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsName :: Lens.Lens' DescribeChannelResponse (Core.Maybe Core.Text)
+dcrrsName = Lens.field @"name"
+{-# DEPRECATED dcrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Runtime details for the pipelines of a running channel.
+--
+-- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsPipelineDetails :: Lens.Lens' DescribeChannelResponse (Core.Maybe [Types.PipelineDetail])
+dcrrsPipelineDetails = Lens.field @"pipelineDetails"
+{-# DEPRECATED dcrrsPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
+
+-- | The number of currently healthy pipelines.
+--
+-- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsPipelinesRunningCount :: Lens.Lens' DescribeChannelResponse (Core.Maybe Core.Int)
+dcrrsPipelinesRunningCount = Lens.field @"pipelinesRunningCount"
+{-# DEPRECATED dcrrsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the Channel.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsRoleARN :: Lens.Lens' DescribeChannelResponse (Lude.Maybe Lude.Text)
-dcrsRoleARN = Lens.lens (roleARN :: DescribeChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsRoleArn :: Lens.Lens' DescribeChannelResponse (Core.Maybe Core.Text)
+dcrrsRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED dcrrsRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsState :: Lens.Lens' DescribeChannelResponse (Core.Maybe Types.ChannelState)
+dcrrsState = Lens.field @"state"
+{-# DEPRECATED dcrrsState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | A collection of key-value pairs.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsTags :: Lens.Lens' DescribeChannelResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+dcrrsTags = Lens.field @"tags"
+{-# DEPRECATED dcrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DescribeChannelResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DescribeChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeChannelResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DescribeChannelResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

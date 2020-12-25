@@ -21,177 +21,162 @@ module Network.AWS.WorkSpaces.DescribeConnectionAliasPermissions
 
     -- ** Request lenses
     dcapAliasId,
-    dcapNextToken,
     dcapMaxResults,
+    dcapNextToken,
 
     -- * Destructuring the response
     DescribeConnectionAliasPermissionsResponse (..),
     mkDescribeConnectionAliasPermissionsResponse,
 
     -- ** Response lenses
-    dcaprsAliasId,
-    dcaprsNextToken,
-    dcaprsConnectionAliasPermissions,
-    dcaprsResponseStatus,
+    dcaprrsAliasId,
+    dcaprrsConnectionAliasPermissions,
+    dcaprrsNextToken,
+    dcaprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkDescribeConnectionAliasPermissions' smart constructor.
 data DescribeConnectionAliasPermissions = DescribeConnectionAliasPermissions'
   { -- | The identifier of the connection alias.
-    aliasId :: Lude.Text,
-    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    aliasId :: Types.AliasId,
     -- | The maximum number of results to return.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConnectionAliasPermissions' with the minimum fields required to make a request.
---
--- * 'aliasId' - The identifier of the connection alias.
--- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
--- * 'maxResults' - The maximum number of results to return.
+-- | Creates a 'DescribeConnectionAliasPermissions' value with any optional fields omitted.
 mkDescribeConnectionAliasPermissions ::
   -- | 'aliasId'
-  Lude.Text ->
+  Types.AliasId ->
   DescribeConnectionAliasPermissions
-mkDescribeConnectionAliasPermissions pAliasId_ =
+mkDescribeConnectionAliasPermissions aliasId =
   DescribeConnectionAliasPermissions'
-    { aliasId = pAliasId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { aliasId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the connection alias.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcapAliasId :: Lens.Lens' DescribeConnectionAliasPermissions Lude.Text
-dcapAliasId = Lens.lens (aliasId :: DescribeConnectionAliasPermissions -> Lude.Text) (\s a -> s {aliasId = a} :: DescribeConnectionAliasPermissions)
+dcapAliasId :: Lens.Lens' DescribeConnectionAliasPermissions Types.AliasId
+dcapAliasId = Lens.field @"aliasId"
 {-# DEPRECATED dcapAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
-
--- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcapNextToken :: Lens.Lens' DescribeConnectionAliasPermissions (Lude.Maybe Lude.Text)
-dcapNextToken = Lens.lens (nextToken :: DescribeConnectionAliasPermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConnectionAliasPermissions)
-{-# DEPRECATED dcapNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcapMaxResults :: Lens.Lens' DescribeConnectionAliasPermissions (Lude.Maybe Lude.Natural)
-dcapMaxResults = Lens.lens (maxResults :: DescribeConnectionAliasPermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeConnectionAliasPermissions)
+dcapMaxResults :: Lens.Lens' DescribeConnectionAliasPermissions (Core.Maybe Core.Natural)
+dcapMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dcapMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest DescribeConnectionAliasPermissions where
+-- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcapNextToken :: Lens.Lens' DescribeConnectionAliasPermissions (Core.Maybe Types.NextToken)
+dcapNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcapNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON DescribeConnectionAliasPermissions where
+  toJSON DescribeConnectionAliasPermissions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AliasId" Core..= aliasId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeConnectionAliasPermissions where
   type
     Rs DescribeConnectionAliasPermissions =
       DescribeConnectionAliasPermissionsResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "WorkspacesService.DescribeConnectionAliasPermissions"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeConnectionAliasPermissionsResponse'
-            Lude.<$> (x Lude..?> "AliasId")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "ConnectionAliasPermissions")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AliasId")
+            Core.<*> (x Core..:? "ConnectionAliasPermissions")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeConnectionAliasPermissions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "WorkspacesService.DescribeConnectionAliasPermissions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeConnectionAliasPermissions where
-  toJSON DescribeConnectionAliasPermissions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AliasId" Lude..= aliasId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeConnectionAliasPermissions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConnectionAliasPermissions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeConnectionAliasPermissionsResponse' smart constructor.
 data DescribeConnectionAliasPermissionsResponse = DescribeConnectionAliasPermissionsResponse'
   { -- | The identifier of the connection alias.
-    aliasId :: Lude.Maybe Lude.Text,
-    -- | The token to use to retrieve the next set of results, or null if no more results are available.
-    nextToken :: Lude.Maybe Lude.Text,
+    aliasId :: Core.Maybe Types.AliasId,
     -- | The permissions associated with a connection alias.
-    connectionAliasPermissions :: Lude.Maybe (Lude.NonEmpty ConnectionAliasPermission),
+    connectionAliasPermissions :: Core.Maybe (Core.NonEmpty Types.ConnectionAliasPermission),
+    -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConnectionAliasPermissionsResponse' with the minimum fields required to make a request.
---
--- * 'aliasId' - The identifier of the connection alias.
--- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
--- * 'connectionAliasPermissions' - The permissions associated with a connection alias.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeConnectionAliasPermissionsResponse' value with any optional fields omitted.
 mkDescribeConnectionAliasPermissionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeConnectionAliasPermissionsResponse
-mkDescribeConnectionAliasPermissionsResponse pResponseStatus_ =
+mkDescribeConnectionAliasPermissionsResponse responseStatus =
   DescribeConnectionAliasPermissionsResponse'
     { aliasId =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      connectionAliasPermissions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      connectionAliasPermissions = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier of the connection alias.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaprsAliasId :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Lude.Maybe Lude.Text)
-dcaprsAliasId = Lens.lens (aliasId :: DescribeConnectionAliasPermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {aliasId = a} :: DescribeConnectionAliasPermissionsResponse)
-{-# DEPRECATED dcaprsAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
-
--- | The token to use to retrieve the next set of results, or null if no more results are available.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaprsNextToken :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Lude.Maybe Lude.Text)
-dcaprsNextToken = Lens.lens (nextToken :: DescribeConnectionAliasPermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConnectionAliasPermissionsResponse)
-{-# DEPRECATED dcaprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcaprrsAliasId :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Core.Maybe Types.AliasId)
+dcaprrsAliasId = Lens.field @"aliasId"
+{-# DEPRECATED dcaprrsAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 -- | The permissions associated with a connection alias.
 --
 -- /Note:/ Consider using 'connectionAliasPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaprsConnectionAliasPermissions :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Lude.Maybe (Lude.NonEmpty ConnectionAliasPermission))
-dcaprsConnectionAliasPermissions = Lens.lens (connectionAliasPermissions :: DescribeConnectionAliasPermissionsResponse -> Lude.Maybe (Lude.NonEmpty ConnectionAliasPermission)) (\s a -> s {connectionAliasPermissions = a} :: DescribeConnectionAliasPermissionsResponse)
-{-# DEPRECATED dcaprsConnectionAliasPermissions "Use generic-lens or generic-optics with 'connectionAliasPermissions' instead." #-}
+dcaprrsConnectionAliasPermissions :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Core.Maybe (Core.NonEmpty Types.ConnectionAliasPermission))
+dcaprrsConnectionAliasPermissions = Lens.field @"connectionAliasPermissions"
+{-# DEPRECATED dcaprrsConnectionAliasPermissions "Use generic-lens or generic-optics with 'connectionAliasPermissions' instead." #-}
+
+-- | The token to use to retrieve the next set of results, or null if no more results are available.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaprrsNextToken :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Core.Maybe Types.NextToken)
+dcaprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcaprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaprsResponseStatus :: Lens.Lens' DescribeConnectionAliasPermissionsResponse Lude.Int
-dcaprsResponseStatus = Lens.lens (responseStatus :: DescribeConnectionAliasPermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConnectionAliasPermissionsResponse)
-{-# DEPRECATED dcaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcaprrsResponseStatus :: Lens.Lens' DescribeConnectionAliasPermissionsResponse Core.Int
+dcaprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcaprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

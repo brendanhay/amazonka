@@ -13,61 +13,66 @@
 module Network.AWS.CloudFormation.Types.StackSetDriftDetectionStatus
   ( StackSetDriftDetectionStatus
       ( StackSetDriftDetectionStatus',
-        SSDDSCompleted,
-        SSDDSFailed,
-        SSDDSPartialSuccess,
-        SSDDSInProgress,
-        SSDDSStopped
+        StackSetDriftDetectionStatusCompleted,
+        StackSetDriftDetectionStatusFailed,
+        StackSetDriftDetectionStatusPartialSuccess,
+        StackSetDriftDetectionStatusInProgress,
+        StackSetDriftDetectionStatusStopped,
+        fromStackSetDriftDetectionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackSetDriftDetectionStatus = StackSetDriftDetectionStatus' Lude.Text
+newtype StackSetDriftDetectionStatus = StackSetDriftDetectionStatus'
+  { fromStackSetDriftDetectionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSDDSCompleted :: StackSetDriftDetectionStatus
-pattern SSDDSCompleted = StackSetDriftDetectionStatus' "COMPLETED"
+pattern StackSetDriftDetectionStatusCompleted :: StackSetDriftDetectionStatus
+pattern StackSetDriftDetectionStatusCompleted = StackSetDriftDetectionStatus' "COMPLETED"
 
-pattern SSDDSFailed :: StackSetDriftDetectionStatus
-pattern SSDDSFailed = StackSetDriftDetectionStatus' "FAILED"
+pattern StackSetDriftDetectionStatusFailed :: StackSetDriftDetectionStatus
+pattern StackSetDriftDetectionStatusFailed = StackSetDriftDetectionStatus' "FAILED"
 
-pattern SSDDSPartialSuccess :: StackSetDriftDetectionStatus
-pattern SSDDSPartialSuccess = StackSetDriftDetectionStatus' "PARTIAL_SUCCESS"
+pattern StackSetDriftDetectionStatusPartialSuccess :: StackSetDriftDetectionStatus
+pattern StackSetDriftDetectionStatusPartialSuccess = StackSetDriftDetectionStatus' "PARTIAL_SUCCESS"
 
-pattern SSDDSInProgress :: StackSetDriftDetectionStatus
-pattern SSDDSInProgress = StackSetDriftDetectionStatus' "IN_PROGRESS"
+pattern StackSetDriftDetectionStatusInProgress :: StackSetDriftDetectionStatus
+pattern StackSetDriftDetectionStatusInProgress = StackSetDriftDetectionStatus' "IN_PROGRESS"
 
-pattern SSDDSStopped :: StackSetDriftDetectionStatus
-pattern SSDDSStopped = StackSetDriftDetectionStatus' "STOPPED"
+pattern StackSetDriftDetectionStatusStopped :: StackSetDriftDetectionStatus
+pattern StackSetDriftDetectionStatusStopped = StackSetDriftDetectionStatus' "STOPPED"
 
 {-# COMPLETE
-  SSDDSCompleted,
-  SSDDSFailed,
-  SSDDSPartialSuccess,
-  SSDDSInProgress,
-  SSDDSStopped,
+  StackSetDriftDetectionStatusCompleted,
+  StackSetDriftDetectionStatusFailed,
+  StackSetDriftDetectionStatusPartialSuccess,
+  StackSetDriftDetectionStatusInProgress,
+  StackSetDriftDetectionStatusStopped,
   StackSetDriftDetectionStatus'
   #-}

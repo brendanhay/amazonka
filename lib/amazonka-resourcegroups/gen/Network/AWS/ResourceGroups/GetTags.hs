@@ -20,116 +20,110 @@ module Network.AWS.ResourceGroups.GetTags
     mkGetTags,
 
     -- ** Request lenses
-    gtARN,
+    gtArn,
 
     -- * Destructuring the response
     GetTagsResponse (..),
     mkGetTagsResponse,
 
     -- ** Response lenses
-    gtrsARN,
-    gtrsTags,
-    gtrsResponseStatus,
+    gtrrsArn,
+    gtrrsTags,
+    gtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroups.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroups.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetTags' smart constructor.
 newtype GetTags = GetTags'
   { -- | The ARN of the resource group whose tags you want to retrieve.
-    arn :: Lude.Text
+    arn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTags' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the resource group whose tags you want to retrieve.
+-- | Creates a 'GetTags' value with any optional fields omitted.
 mkGetTags ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   GetTags
-mkGetTags pARN_ = GetTags' {arn = pARN_}
+mkGetTags arn = GetTags' {arn}
 
 -- | The ARN of the resource group whose tags you want to retrieve.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtARN :: Lens.Lens' GetTags Lude.Text
-gtARN = Lens.lens (arn :: GetTags -> Lude.Text) (\s a -> s {arn = a} :: GetTags)
-{-# DEPRECATED gtARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+gtArn :: Lens.Lens' GetTags Types.Arn
+gtArn = Lens.field @"arn"
+{-# DEPRECATED gtArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.AWSRequest GetTags where
+instance Core.AWSRequest GetTags where
   type Rs GetTags = GetTagsResponse
-  request = Req.get resourceGroupsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/resources/" Core.<> (Core.toText arn) Core.<> ("/tags")),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Lude.<$> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetTags where
-  toPath GetTags' {..} =
-    Lude.mconcat ["/resources/", Lude.toBS arn, "/tags"]
-
-instance Lude.ToQuery GetTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetTagsResponse' smart constructor.
 data GetTagsResponse = GetTagsResponse'
   { -- | The ARN of the tagged resource group.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.GroupArn,
     -- | The tags associated with the specified resource group.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTagsResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the tagged resource group.
--- * 'tags' - The tags associated with the specified resource group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTagsResponse' value with any optional fields omitted.
 mkGetTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTagsResponse
-mkGetTagsResponse pResponseStatus_ =
+mkGetTagsResponse responseStatus =
   GetTagsResponse'
-    { arn = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the tagged resource group.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsARN :: Lens.Lens' GetTagsResponse (Lude.Maybe Lude.Text)
-gtrsARN = Lens.lens (arn :: GetTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetTagsResponse)
-{-# DEPRECATED gtrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+gtrrsArn :: Lens.Lens' GetTagsResponse (Core.Maybe Types.GroupArn)
+gtrrsArn = Lens.field @"arn"
+{-# DEPRECATED gtrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The tags associated with the specified resource group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsTags :: Lens.Lens' GetTagsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gtrsTags = Lens.lens (tags :: GetTagsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetTagsResponse)
-{-# DEPRECATED gtrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+gtrrsTags :: Lens.Lens' GetTagsResponse (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+gtrrsTags = Lens.field @"tags"
+{-# DEPRECATED gtrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsResponseStatus :: Lens.Lens' GetTagsResponse Lude.Int
-gtrsResponseStatus = Lens.lens (responseStatus :: GetTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTagsResponse)
-{-# DEPRECATED gtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtrrsResponseStatus :: Lens.Lens' GetTagsResponse Core.Int
+gtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

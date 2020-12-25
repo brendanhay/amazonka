@@ -23,61 +23,56 @@ module Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for the action to deactivate the image in a specific layer.
 --
 -- /See:/ 'mkStaticImageDeactivateScheduleActionSettings' smart constructor.
 data StaticImageDeactivateScheduleActionSettings = StaticImageDeactivateScheduleActionSettings'
   { -- | The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
-    fadeOut :: Lude.Maybe Lude.Natural,
+    fadeOut :: Core.Maybe Core.Natural,
     -- | The image overlay layer to deactivate, 0 to 7. Default is 0.
-    layer :: Lude.Maybe Lude.Natural
+    layer :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StaticImageDeactivateScheduleActionSettings' with the minimum fields required to make a request.
---
--- * 'fadeOut' - The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
--- * 'layer' - The image overlay layer to deactivate, 0 to 7. Default is 0.
+-- | Creates a 'StaticImageDeactivateScheduleActionSettings' value with any optional fields omitted.
 mkStaticImageDeactivateScheduleActionSettings ::
   StaticImageDeactivateScheduleActionSettings
 mkStaticImageDeactivateScheduleActionSettings =
   StaticImageDeactivateScheduleActionSettings'
     { fadeOut =
-        Lude.Nothing,
-      layer = Lude.Nothing
+        Core.Nothing,
+      layer = Core.Nothing
     }
 
 -- | The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
 --
 -- /Note:/ Consider using 'fadeOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sidsasFadeOut :: Lens.Lens' StaticImageDeactivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-sidsasFadeOut = Lens.lens (fadeOut :: StaticImageDeactivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {fadeOut = a} :: StaticImageDeactivateScheduleActionSettings)
+sidsasFadeOut :: Lens.Lens' StaticImageDeactivateScheduleActionSettings (Core.Maybe Core.Natural)
+sidsasFadeOut = Lens.field @"fadeOut"
 {-# DEPRECATED sidsasFadeOut "Use generic-lens or generic-optics with 'fadeOut' instead." #-}
 
 -- | The image overlay layer to deactivate, 0 to 7. Default is 0.
 --
 -- /Note:/ Consider using 'layer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sidsasLayer :: Lens.Lens' StaticImageDeactivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-sidsasLayer = Lens.lens (layer :: StaticImageDeactivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {layer = a} :: StaticImageDeactivateScheduleActionSettings)
+sidsasLayer :: Lens.Lens' StaticImageDeactivateScheduleActionSettings (Core.Maybe Core.Natural)
+sidsasLayer = Lens.field @"layer"
 {-# DEPRECATED sidsasLayer "Use generic-lens or generic-optics with 'layer' instead." #-}
 
-instance Lude.FromJSON StaticImageDeactivateScheduleActionSettings where
-  parseJSON =
-    Lude.withObject
-      "StaticImageDeactivateScheduleActionSettings"
-      ( \x ->
-          StaticImageDeactivateScheduleActionSettings'
-            Lude.<$> (x Lude..:? "fadeOut") Lude.<*> (x Lude..:? "layer")
-      )
-
-instance Lude.ToJSON StaticImageDeactivateScheduleActionSettings where
-  toJSON StaticImageDeactivateScheduleActionSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("fadeOut" Lude..=) Lude.<$> fadeOut,
-            ("layer" Lude..=) Lude.<$> layer
+instance Core.FromJSON StaticImageDeactivateScheduleActionSettings where
+  toJSON StaticImageDeactivateScheduleActionSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("fadeOut" Core..=) Core.<$> fadeOut,
+            ("layer" Core..=) Core.<$> layer
           ]
       )
+
+instance Core.FromJSON StaticImageDeactivateScheduleActionSettings where
+  parseJSON =
+    Core.withObject "StaticImageDeactivateScheduleActionSettings" Core.$
+      \x ->
+        StaticImageDeactivateScheduleActionSettings'
+          Core.<$> (x Core..:? "fadeOut") Core.<*> (x Core..:? "layer")

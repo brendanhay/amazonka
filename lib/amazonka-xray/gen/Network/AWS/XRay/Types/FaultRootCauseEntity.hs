@@ -18,71 +18,66 @@ module Network.AWS.XRay.Types.FaultRootCauseEntity
 
     -- * Lenses
     frceExceptions,
-    frceRemote,
     frceName,
+    frceRemote,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.XRay.Types.RootCauseException
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.RootCauseException as Types
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | A collection of segments and corresponding subsegments associated to a trace summary fault error.
 --
 -- /See:/ 'mkFaultRootCauseEntity' smart constructor.
 data FaultRootCauseEntity = FaultRootCauseEntity'
   { -- | The types and messages of the exceptions.
-    exceptions :: Lude.Maybe [RootCauseException],
-    -- | A flag that denotes a remote subsegment.
-    remote :: Lude.Maybe Lude.Bool,
+    exceptions :: Core.Maybe [Types.RootCauseException],
     -- | The name of the entity.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.String,
+    -- | A flag that denotes a remote subsegment.
+    remote :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FaultRootCauseEntity' with the minimum fields required to make a request.
---
--- * 'exceptions' - The types and messages of the exceptions.
--- * 'remote' - A flag that denotes a remote subsegment.
--- * 'name' - The name of the entity.
+-- | Creates a 'FaultRootCauseEntity' value with any optional fields omitted.
 mkFaultRootCauseEntity ::
   FaultRootCauseEntity
 mkFaultRootCauseEntity =
   FaultRootCauseEntity'
-    { exceptions = Lude.Nothing,
-      remote = Lude.Nothing,
-      name = Lude.Nothing
+    { exceptions = Core.Nothing,
+      name = Core.Nothing,
+      remote = Core.Nothing
     }
 
 -- | The types and messages of the exceptions.
 --
 -- /Note:/ Consider using 'exceptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frceExceptions :: Lens.Lens' FaultRootCauseEntity (Lude.Maybe [RootCauseException])
-frceExceptions = Lens.lens (exceptions :: FaultRootCauseEntity -> Lude.Maybe [RootCauseException]) (\s a -> s {exceptions = a} :: FaultRootCauseEntity)
+frceExceptions :: Lens.Lens' FaultRootCauseEntity (Core.Maybe [Types.RootCauseException])
+frceExceptions = Lens.field @"exceptions"
 {-# DEPRECATED frceExceptions "Use generic-lens or generic-optics with 'exceptions' instead." #-}
-
--- | A flag that denotes a remote subsegment.
---
--- /Note:/ Consider using 'remote' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frceRemote :: Lens.Lens' FaultRootCauseEntity (Lude.Maybe Lude.Bool)
-frceRemote = Lens.lens (remote :: FaultRootCauseEntity -> Lude.Maybe Lude.Bool) (\s a -> s {remote = a} :: FaultRootCauseEntity)
-{-# DEPRECATED frceRemote "Use generic-lens or generic-optics with 'remote' instead." #-}
 
 -- | The name of the entity.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frceName :: Lens.Lens' FaultRootCauseEntity (Lude.Maybe Lude.Text)
-frceName = Lens.lens (name :: FaultRootCauseEntity -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: FaultRootCauseEntity)
+frceName :: Lens.Lens' FaultRootCauseEntity (Core.Maybe Types.String)
+frceName = Lens.field @"name"
 {-# DEPRECATED frceName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON FaultRootCauseEntity where
+-- | A flag that denotes a remote subsegment.
+--
+-- /Note:/ Consider using 'remote' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frceRemote :: Lens.Lens' FaultRootCauseEntity (Core.Maybe Core.Bool)
+frceRemote = Lens.field @"remote"
+{-# DEPRECATED frceRemote "Use generic-lens or generic-optics with 'remote' instead." #-}
+
+instance Core.FromJSON FaultRootCauseEntity where
   parseJSON =
-    Lude.withObject
-      "FaultRootCauseEntity"
-      ( \x ->
-          FaultRootCauseEntity'
-            Lude.<$> (x Lude..:? "Exceptions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Remote")
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "FaultRootCauseEntity" Core.$
+      \x ->
+        FaultRootCauseEntity'
+          Core.<$> (x Core..:? "Exceptions")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Remote")

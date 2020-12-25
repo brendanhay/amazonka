@@ -25,62 +25,58 @@ module Network.AWS.EFS.DescribeLifecycleConfiguration
     dlcFileSystemId,
 
     -- * Destructuring the response
-    LifecycleConfigurationDescription (..),
-    mkLifecycleConfigurationDescription,
+    Types.LifecycleConfigurationDescription (..),
+    Types.mkLifecycleConfigurationDescription,
 
     -- ** Response lenses
-    lcdLifecyclePolicies,
+    Types.lcdLifecyclePolicies,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLifecycleConfiguration' smart constructor.
 newtype DescribeLifecycleConfiguration = DescribeLifecycleConfiguration'
   { -- | The ID of the file system whose @LifecycleConfiguration@ object you want to retrieve (String).
-    fileSystemId :: Lude.Text
+    fileSystemId :: Types.FileSystemId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLifecycleConfiguration' with the minimum fields required to make a request.
---
--- * 'fileSystemId' - The ID of the file system whose @LifecycleConfiguration@ object you want to retrieve (String).
+-- | Creates a 'DescribeLifecycleConfiguration' value with any optional fields omitted.
 mkDescribeLifecycleConfiguration ::
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.FileSystemId ->
   DescribeLifecycleConfiguration
-mkDescribeLifecycleConfiguration pFileSystemId_ =
-  DescribeLifecycleConfiguration' {fileSystemId = pFileSystemId_}
+mkDescribeLifecycleConfiguration fileSystemId =
+  DescribeLifecycleConfiguration' {fileSystemId}
 
 -- | The ID of the file system whose @LifecycleConfiguration@ object you want to retrieve (String).
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcFileSystemId :: Lens.Lens' DescribeLifecycleConfiguration Lude.Text
-dlcFileSystemId = Lens.lens (fileSystemId :: DescribeLifecycleConfiguration -> Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeLifecycleConfiguration)
+dlcFileSystemId :: Lens.Lens' DescribeLifecycleConfiguration Types.FileSystemId
+dlcFileSystemId = Lens.field @"fileSystemId"
 {-# DEPRECATED dlcFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
-instance Lude.AWSRequest DescribeLifecycleConfiguration where
+instance Core.AWSRequest DescribeLifecycleConfiguration where
   type
     Rs DescribeLifecycleConfiguration =
-      LifecycleConfigurationDescription
-  request = Req.get efsService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders DescribeLifecycleConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLifecycleConfiguration where
-  toPath DescribeLifecycleConfiguration' {..} =
-    Lude.mconcat
-      [ "/2015-02-01/file-systems/",
-        Lude.toBS fileSystemId,
-        "/lifecycle-configuration"
-      ]
-
-instance Lude.ToQuery DescribeLifecycleConfiguration where
-  toQuery = Lude.const Lude.mempty
+      Types.LifecycleConfigurationDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-02-01/file-systems/" Core.<> (Core.toText fileSystemId)
+                Core.<> ("/lifecycle-configuration")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

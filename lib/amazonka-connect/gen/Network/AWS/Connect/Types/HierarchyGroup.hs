@@ -17,98 +17,94 @@ module Network.AWS.Connect.Types.HierarchyGroup
     mkHierarchyGroup,
 
     -- * Lenses
-    hgARN,
-    hgName,
+    hgArn,
     hgHierarchyPath,
     hgId,
     hgLevelId,
+    hgName,
   )
 where
 
-import Network.AWS.Connect.Types.HierarchyPath
+import qualified Network.AWS.Connect.Types.ARN as Types
+import qualified Network.AWS.Connect.Types.HierarchyPath as Types
+import qualified Network.AWS.Connect.Types.Id as Types
+import qualified Network.AWS.Connect.Types.LevelId as Types
+import qualified Network.AWS.Connect.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a hierarchy group.
 --
 -- /See:/ 'mkHierarchyGroup' smart constructor.
 data HierarchyGroup = HierarchyGroup'
   { -- | The Amazon Resource Name (ARN) of the hierarchy group.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the hierarchy group.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.ARN,
     -- | Information about the levels in the hierarchy group.
-    hierarchyPath :: Lude.Maybe HierarchyPath,
+    hierarchyPath :: Core.Maybe Types.HierarchyPath,
     -- | The identifier of the hierarchy group.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.Id,
     -- | The identifier of the level in the hierarchy group.
-    levelId :: Lude.Maybe Lude.Text
+    levelId :: Core.Maybe Types.LevelId,
+    -- | The name of the hierarchy group.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HierarchyGroup' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the hierarchy group.
--- * 'name' - The name of the hierarchy group.
--- * 'hierarchyPath' - Information about the levels in the hierarchy group.
--- * 'id' - The identifier of the hierarchy group.
--- * 'levelId' - The identifier of the level in the hierarchy group.
+-- | Creates a 'HierarchyGroup' value with any optional fields omitted.
 mkHierarchyGroup ::
   HierarchyGroup
 mkHierarchyGroup =
   HierarchyGroup'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      hierarchyPath = Lude.Nothing,
-      id = Lude.Nothing,
-      levelId = Lude.Nothing
+    { arn = Core.Nothing,
+      hierarchyPath = Core.Nothing,
+      id = Core.Nothing,
+      levelId = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the hierarchy group.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgARN :: Lens.Lens' HierarchyGroup (Lude.Maybe Lude.Text)
-hgARN = Lens.lens (arn :: HierarchyGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: HierarchyGroup)
-{-# DEPRECATED hgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the hierarchy group.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgName :: Lens.Lens' HierarchyGroup (Lude.Maybe Lude.Text)
-hgName = Lens.lens (name :: HierarchyGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: HierarchyGroup)
-{-# DEPRECATED hgName "Use generic-lens or generic-optics with 'name' instead." #-}
+hgArn :: Lens.Lens' HierarchyGroup (Core.Maybe Types.ARN)
+hgArn = Lens.field @"arn"
+{-# DEPRECATED hgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Information about the levels in the hierarchy group.
 --
 -- /Note:/ Consider using 'hierarchyPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgHierarchyPath :: Lens.Lens' HierarchyGroup (Lude.Maybe HierarchyPath)
-hgHierarchyPath = Lens.lens (hierarchyPath :: HierarchyGroup -> Lude.Maybe HierarchyPath) (\s a -> s {hierarchyPath = a} :: HierarchyGroup)
+hgHierarchyPath :: Lens.Lens' HierarchyGroup (Core.Maybe Types.HierarchyPath)
+hgHierarchyPath = Lens.field @"hierarchyPath"
 {-# DEPRECATED hgHierarchyPath "Use generic-lens or generic-optics with 'hierarchyPath' instead." #-}
 
 -- | The identifier of the hierarchy group.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgId :: Lens.Lens' HierarchyGroup (Lude.Maybe Lude.Text)
-hgId = Lens.lens (id :: HierarchyGroup -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: HierarchyGroup)
+hgId :: Lens.Lens' HierarchyGroup (Core.Maybe Types.Id)
+hgId = Lens.field @"id"
 {-# DEPRECATED hgId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The identifier of the level in the hierarchy group.
 --
 -- /Note:/ Consider using 'levelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgLevelId :: Lens.Lens' HierarchyGroup (Lude.Maybe Lude.Text)
-hgLevelId = Lens.lens (levelId :: HierarchyGroup -> Lude.Maybe Lude.Text) (\s a -> s {levelId = a} :: HierarchyGroup)
+hgLevelId :: Lens.Lens' HierarchyGroup (Core.Maybe Types.LevelId)
+hgLevelId = Lens.field @"levelId"
 {-# DEPRECATED hgLevelId "Use generic-lens or generic-optics with 'levelId' instead." #-}
 
-instance Lude.FromJSON HierarchyGroup where
+-- | The name of the hierarchy group.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgName :: Lens.Lens' HierarchyGroup (Core.Maybe Types.Name)
+hgName = Lens.field @"name"
+{-# DEPRECATED hgName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON HierarchyGroup where
   parseJSON =
-    Lude.withObject
-      "HierarchyGroup"
-      ( \x ->
-          HierarchyGroup'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "HierarchyPath")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "LevelId")
-      )
+    Core.withObject "HierarchyGroup" Core.$
+      \x ->
+        HierarchyGroup'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "HierarchyPath")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "LevelId")
+          Core.<*> (x Core..:? "Name")

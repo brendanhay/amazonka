@@ -18,87 +18,84 @@ module Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
 
     -- * Lenses
     ttoedResourceType,
-    ttoedError,
-    ttoedCause,
     ttoedResource,
+    ttoedCause,
+    ttoedError,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.Resource as Types
+import qualified Network.AWS.StepFunctions.Types.ResourceType as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveCause as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveError as Types
 
 -- | Contains details about a resource timeout that occurred during an execution.
 --
 -- /See:/ 'mkTaskTimedOutEventDetails' smart constructor.
 data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
   { -- | The action of the resource called by a task state.
-    resourceType :: Lude.Text,
-    -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A more detailed explanation of the cause of the failure.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    resourceType :: Types.ResourceType,
     -- | The service name of the resource in a task state.
-    resource :: Lude.Text
+    resource :: Types.Resource,
+    -- | A more detailed explanation of the cause of the failure.
+    cause :: Core.Maybe Types.SensitiveCause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.SensitiveError
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskTimedOutEventDetails' with the minimum fields required to make a request.
---
--- * 'resourceType' - The action of the resource called by a task state.
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the failure.
--- * 'resource' - The service name of the resource in a task state.
+-- | Creates a 'TaskTimedOutEventDetails' value with any optional fields omitted.
 mkTaskTimedOutEventDetails ::
   -- | 'resourceType'
-  Lude.Text ->
+  Types.ResourceType ->
   -- | 'resource'
-  Lude.Text ->
+  Types.Resource ->
   TaskTimedOutEventDetails
-mkTaskTimedOutEventDetails pResourceType_ pResource_ =
+mkTaskTimedOutEventDetails resourceType resource =
   TaskTimedOutEventDetails'
-    { resourceType = pResourceType_,
-      error = Lude.Nothing,
-      cause = Lude.Nothing,
-      resource = pResource_
+    { resourceType,
+      resource,
+      cause = Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | The action of the resource called by a task state.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttoedResourceType :: Lens.Lens' TaskTimedOutEventDetails Lude.Text
-ttoedResourceType = Lens.lens (resourceType :: TaskTimedOutEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskTimedOutEventDetails)
+ttoedResourceType :: Lens.Lens' TaskTimedOutEventDetails Types.ResourceType
+ttoedResourceType = Lens.field @"resourceType"
 {-# DEPRECATED ttoedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The error code of the failure.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttoedError :: Lens.Lens' TaskTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-ttoedError = Lens.lens (error :: TaskTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: TaskTimedOutEventDetails)
-{-# DEPRECATED ttoedError "Use generic-lens or generic-optics with 'error' instead." #-}
-
--- | A more detailed explanation of the cause of the failure.
---
--- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttoedCause :: Lens.Lens' TaskTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-ttoedCause = Lens.lens (cause :: TaskTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: TaskTimedOutEventDetails)
-{-# DEPRECATED ttoedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | The service name of the resource in a task state.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttoedResource :: Lens.Lens' TaskTimedOutEventDetails Lude.Text
-ttoedResource = Lens.lens (resource :: TaskTimedOutEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskTimedOutEventDetails)
+ttoedResource :: Lens.Lens' TaskTimedOutEventDetails Types.Resource
+ttoedResource = Lens.field @"resource"
 {-# DEPRECATED ttoedResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.FromJSON TaskTimedOutEventDetails where
+-- | A more detailed explanation of the cause of the failure.
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttoedCause :: Lens.Lens' TaskTimedOutEventDetails (Core.Maybe Types.SensitiveCause)
+ttoedCause = Lens.field @"cause"
+{-# DEPRECATED ttoedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
+
+-- | The error code of the failure.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttoedError :: Lens.Lens' TaskTimedOutEventDetails (Core.Maybe Types.SensitiveError)
+ttoedError = Lens.field @"error"
+{-# DEPRECATED ttoedError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON TaskTimedOutEventDetails where
   parseJSON =
-    Lude.withObject
-      "TaskTimedOutEventDetails"
-      ( \x ->
-          TaskTimedOutEventDetails'
-            Lude.<$> (x Lude..: "resourceType")
-            Lude.<*> (x Lude..:? "error")
-            Lude.<*> (x Lude..:? "cause")
-            Lude.<*> (x Lude..: "resource")
-      )
+    Core.withObject "TaskTimedOutEventDetails" Core.$
+      \x ->
+        TaskTimedOutEventDetails'
+          Core.<$> (x Core..: "resourceType")
+          Core.<*> (x Core..: "resource")
+          Core.<*> (x Core..:? "cause")
+          Core.<*> (x Core..:? "error")

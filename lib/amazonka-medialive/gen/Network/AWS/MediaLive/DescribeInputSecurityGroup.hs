@@ -20,185 +20,168 @@ module Network.AWS.MediaLive.DescribeInputSecurityGroup
     mkDescribeInputSecurityGroup,
 
     -- ** Request lenses
-    dInputSecurityGroupId,
+    disgInputSecurityGroupId,
 
     -- * Destructuring the response
     DescribeInputSecurityGroupResponse (..),
     mkDescribeInputSecurityGroupResponse,
 
     -- ** Response lenses
-    disgfrsState,
-    disgfrsARN,
-    disgfrsInputs,
-    disgfrsId,
-    disgfrsWhitelistRules,
-    disgfrsTags,
-    disgfrsResponseStatus,
+    disgrfrsArn,
+    disgrfrsId,
+    disgrfrsInputs,
+    disgrfrsState,
+    disgrfrsTags,
+    disgrfrsWhitelistRules,
+    disgrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for DescribeInputSecurityGroupRequest
 --
 -- /See:/ 'mkDescribeInputSecurityGroup' smart constructor.
 newtype DescribeInputSecurityGroup = DescribeInputSecurityGroup'
   { -- | The id of the Input Security Group to describe
-    inputSecurityGroupId :: Lude.Text
+    inputSecurityGroupId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInputSecurityGroup' with the minimum fields required to make a request.
---
--- * 'inputSecurityGroupId' - The id of the Input Security Group to describe
+-- | Creates a 'DescribeInputSecurityGroup' value with any optional fields omitted.
 mkDescribeInputSecurityGroup ::
   -- | 'inputSecurityGroupId'
-  Lude.Text ->
+  Core.Text ->
   DescribeInputSecurityGroup
-mkDescribeInputSecurityGroup pInputSecurityGroupId_ =
-  DescribeInputSecurityGroup'
-    { inputSecurityGroupId =
-        pInputSecurityGroupId_
-    }
+mkDescribeInputSecurityGroup inputSecurityGroupId =
+  DescribeInputSecurityGroup' {inputSecurityGroupId}
 
 -- | The id of the Input Security Group to describe
 --
 -- /Note:/ Consider using 'inputSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInputSecurityGroupId :: Lens.Lens' DescribeInputSecurityGroup Lude.Text
-dInputSecurityGroupId = Lens.lens (inputSecurityGroupId :: DescribeInputSecurityGroup -> Lude.Text) (\s a -> s {inputSecurityGroupId = a} :: DescribeInputSecurityGroup)
-{-# DEPRECATED dInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
+disgInputSecurityGroupId :: Lens.Lens' DescribeInputSecurityGroup Core.Text
+disgInputSecurityGroupId = Lens.field @"inputSecurityGroupId"
+{-# DEPRECATED disgInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
 
-instance Lude.AWSRequest DescribeInputSecurityGroup where
+instance Core.AWSRequest DescribeInputSecurityGroup where
   type
     Rs DescribeInputSecurityGroup =
       DescribeInputSecurityGroupResponse
-  request = Req.get mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/inputSecurityGroups/"
+                Core.<> (Core.toText inputSecurityGroupId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeInputSecurityGroupResponse'
-            Lude.<$> (x Lude..?> "state")
-            Lude.<*> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "inputs" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "id")
-            Lude.<*> (x Lude..?> "whitelistRules" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "inputs")
+            Core.<*> (x Core..:? "state")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (x Core..:? "whitelistRules")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeInputSecurityGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeInputSecurityGroup where
-  toPath DescribeInputSecurityGroup' {..} =
-    Lude.mconcat
-      ["/prod/inputSecurityGroups/", Lude.toBS inputSecurityGroupId]
-
-instance Lude.ToQuery DescribeInputSecurityGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DescribeInputSecurityGroupResponse
 --
 -- /See:/ 'mkDescribeInputSecurityGroupResponse' smart constructor.
 data DescribeInputSecurityGroupResponse = DescribeInputSecurityGroupResponse'
-  { -- | The current state of the Input Security Group.
-    state :: Lude.Maybe InputSecurityGroupState,
-    -- | Unique ARN of Input Security Group
-    arn :: Lude.Maybe Lude.Text,
-    -- | The list of inputs currently using this Input Security Group.
-    inputs :: Lude.Maybe [Lude.Text],
+  { -- | Unique ARN of Input Security Group
+    arn :: Core.Maybe Core.Text,
     -- | The Id of the Input Security Group
-    id :: Lude.Maybe Lude.Text,
-    -- | Whitelist rules and their sync status
-    whitelistRules :: Lude.Maybe [InputWhitelistRule],
+    id :: Core.Maybe Core.Text,
+    -- | The list of inputs currently using this Input Security Group.
+    inputs :: Core.Maybe [Core.Text],
+    -- | The current state of the Input Security Group.
+    state :: Core.Maybe Types.InputSecurityGroupState,
     -- | A collection of key-value pairs.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    -- | Whitelist rules and their sync status
+    whitelistRules :: Core.Maybe [Types.InputWhitelistRule],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInputSecurityGroupResponse' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the Input Security Group.
--- * 'arn' - Unique ARN of Input Security Group
--- * 'inputs' - The list of inputs currently using this Input Security Group.
--- * 'id' - The Id of the Input Security Group
--- * 'whitelistRules' - Whitelist rules and their sync status
--- * 'tags' - A collection of key-value pairs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInputSecurityGroupResponse' value with any optional fields omitted.
 mkDescribeInputSecurityGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInputSecurityGroupResponse
-mkDescribeInputSecurityGroupResponse pResponseStatus_ =
+mkDescribeInputSecurityGroupResponse responseStatus =
   DescribeInputSecurityGroupResponse'
-    { state = Lude.Nothing,
-      arn = Lude.Nothing,
-      inputs = Lude.Nothing,
-      id = Lude.Nothing,
-      whitelistRules = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      inputs = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing,
+      whitelistRules = Core.Nothing,
+      responseStatus
     }
-
--- | The current state of the Input Security Group.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgfrsState :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe InputSecurityGroupState)
-disgfrsState = Lens.lens (state :: DescribeInputSecurityGroupResponse -> Lude.Maybe InputSecurityGroupState) (\s a -> s {state = a} :: DescribeInputSecurityGroupResponse)
-{-# DEPRECATED disgfrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Unique ARN of Input Security Group
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgfrsARN :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe Lude.Text)
-disgfrsARN = Lens.lens (arn :: DescribeInputSecurityGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeInputSecurityGroupResponse)
-{-# DEPRECATED disgfrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The list of inputs currently using this Input Security Group.
---
--- /Note:/ Consider using 'inputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgfrsInputs :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe [Lude.Text])
-disgfrsInputs = Lens.lens (inputs :: DescribeInputSecurityGroupResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {inputs = a} :: DescribeInputSecurityGroupResponse)
-{-# DEPRECATED disgfrsInputs "Use generic-lens or generic-optics with 'inputs' instead." #-}
+disgrfrsArn :: Lens.Lens' DescribeInputSecurityGroupResponse (Core.Maybe Core.Text)
+disgrfrsArn = Lens.field @"arn"
+{-# DEPRECATED disgrfrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The Id of the Input Security Group
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgfrsId :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe Lude.Text)
-disgfrsId = Lens.lens (id :: DescribeInputSecurityGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeInputSecurityGroupResponse)
-{-# DEPRECATED disgfrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+disgrfrsId :: Lens.Lens' DescribeInputSecurityGroupResponse (Core.Maybe Core.Text)
+disgrfrsId = Lens.field @"id"
+{-# DEPRECATED disgrfrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | Whitelist rules and their sync status
+-- | The list of inputs currently using this Input Security Group.
 --
--- /Note:/ Consider using 'whitelistRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgfrsWhitelistRules :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe [InputWhitelistRule])
-disgfrsWhitelistRules = Lens.lens (whitelistRules :: DescribeInputSecurityGroupResponse -> Lude.Maybe [InputWhitelistRule]) (\s a -> s {whitelistRules = a} :: DescribeInputSecurityGroupResponse)
-{-# DEPRECATED disgfrsWhitelistRules "Use generic-lens or generic-optics with 'whitelistRules' instead." #-}
+-- /Note:/ Consider using 'inputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disgrfrsInputs :: Lens.Lens' DescribeInputSecurityGroupResponse (Core.Maybe [Core.Text])
+disgrfrsInputs = Lens.field @"inputs"
+{-# DEPRECATED disgrfrsInputs "Use generic-lens or generic-optics with 'inputs' instead." #-}
+
+-- | The current state of the Input Security Group.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disgrfrsState :: Lens.Lens' DescribeInputSecurityGroupResponse (Core.Maybe Types.InputSecurityGroupState)
+disgrfrsState = Lens.field @"state"
+{-# DEPRECATED disgrfrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A collection of key-value pairs.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgfrsTags :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-disgfrsTags = Lens.lens (tags :: DescribeInputSecurityGroupResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DescribeInputSecurityGroupResponse)
-{-# DEPRECATED disgfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+disgrfrsTags :: Lens.Lens' DescribeInputSecurityGroupResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+disgrfrsTags = Lens.field @"tags"
+{-# DEPRECATED disgrfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | Whitelist rules and their sync status
+--
+-- /Note:/ Consider using 'whitelistRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disgrfrsWhitelistRules :: Lens.Lens' DescribeInputSecurityGroupResponse (Core.Maybe [Types.InputWhitelistRule])
+disgrfrsWhitelistRules = Lens.field @"whitelistRules"
+{-# DEPRECATED disgrfrsWhitelistRules "Use generic-lens or generic-optics with 'whitelistRules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgfrsResponseStatus :: Lens.Lens' DescribeInputSecurityGroupResponse Lude.Int
-disgfrsResponseStatus = Lens.lens (responseStatus :: DescribeInputSecurityGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInputSecurityGroupResponse)
-{-# DEPRECATED disgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+disgrfrsResponseStatus :: Lens.Lens' DescribeInputSecurityGroupResponse Core.Int
+disgrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED disgrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

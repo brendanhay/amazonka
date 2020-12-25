@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,25 @@
 -- AWS X-Ray provides APIs for managing debug traces and retrieving service maps and other data created by processing those traces.
 module Network.AWS.XRay
   ( -- * Service configuration
-    xRayService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** RuleLimitExceededException
+    _RuleLimitExceededException,
+
+    -- ** ThrottledException
+    _ThrottledException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -108,173 +122,13 @@ module Network.AWS.XRay
 
     -- * Types
 
-    -- ** EncryptionStatus
-    EncryptionStatus (..),
-
-    -- ** EncryptionType
-    EncryptionType (..),
-
-    -- ** InsightCategory
-    InsightCategory (..),
-
-    -- ** InsightState
-    InsightState (..),
-
-    -- ** SamplingStrategyName
-    SamplingStrategyName (..),
-
-    -- ** TimeRangeType
-    TimeRangeType (..),
-
-    -- ** Alias
-    Alias (..),
-    mkAlias,
-    aNames,
-    aName,
-    aType,
-
-    -- ** AnnotationValue
-    AnnotationValue (..),
-    mkAnnotationValue,
-    avNumberValue,
-    avStringValue,
-    avBooleanValue,
-
     -- ** AnomalousService
     AnomalousService (..),
     mkAnomalousService,
     asServiceId,
 
-    -- ** AvailabilityZoneDetail
-    AvailabilityZoneDetail (..),
-    mkAvailabilityZoneDetail,
-    azdName,
-
-    -- ** BackendConnectionErrors
-    BackendConnectionErrors (..),
-    mkBackendConnectionErrors,
-    bceOtherCount,
-    bceTimeoutCount,
-    bceHTTPCode5XXCount,
-    bceConnectionRefusedCount,
-    bceHTTPCode4XXCount,
-    bceUnknownHostCount,
-
-    -- ** Edge
-    Edge (..),
-    mkEdge,
-    eStartTime,
-    eAliases,
-    eResponseTimeHistogram,
-    eReferenceId,
-    eEndTime,
-    eSummaryStatistics,
-
-    -- ** EdgeStatistics
-    EdgeStatistics (..),
-    mkEdgeStatistics,
-    esFaultStatistics,
-    esOKCount,
-    esTotalResponseTime,
-    esErrorStatistics,
-    esTotalCount,
-
-    -- ** EncryptionConfig
-    EncryptionConfig (..),
-    mkEncryptionConfig,
-    ecStatus,
-    ecKeyId,
-    ecType,
-
-    -- ** ErrorRootCause
-    ErrorRootCause (..),
-    mkErrorRootCause,
-    ercClientImpacting,
-    ercServices,
-
-    -- ** ErrorRootCauseEntity
-    ErrorRootCauseEntity (..),
-    mkErrorRootCauseEntity,
-    erceExceptions,
-    erceRemote,
-    erceName,
-
-    -- ** ErrorRootCauseService
-    ErrorRootCauseService (..),
-    mkErrorRootCauseService,
-    ercsEntityPath,
-    ercsAccountId,
-    ercsNames,
-    ercsName,
-    ercsInferred,
-    ercsType,
-
-    -- ** ErrorStatistics
-    ErrorStatistics (..),
-    mkErrorStatistics,
-    eOtherCount,
-    eThrottleCount,
-    eTotalCount,
-
-    -- ** FaultRootCause
-    FaultRootCause (..),
-    mkFaultRootCause,
-    frcClientImpacting,
-    frcServices,
-
-    -- ** FaultRootCauseEntity
-    FaultRootCauseEntity (..),
-    mkFaultRootCauseEntity,
-    frceExceptions,
-    frceRemote,
-    frceName,
-
-    -- ** FaultRootCauseService
-    FaultRootCauseService (..),
-    mkFaultRootCauseService,
-    frcsEntityPath,
-    frcsAccountId,
-    frcsNames,
-    frcsName,
-    frcsInferred,
-    frcsType,
-
-    -- ** FaultStatistics
-    FaultStatistics (..),
-    mkFaultStatistics,
-    fsOtherCount,
-    fsTotalCount,
-
-    -- ** ForecastStatistics
-    ForecastStatistics (..),
-    mkForecastStatistics,
-    fsFaultCountLow,
-    fsFaultCountHigh,
-
-    -- ** Group
-    Group (..),
-    mkGroup,
-    gFilterExpression,
-    gInsightsConfiguration,
-    gGroupARN,
-    gGroupName,
-
-    -- ** GroupSummary
-    GroupSummary (..),
-    mkGroupSummary,
-    gsFilterExpression,
-    gsInsightsConfiguration,
-    gsGroupARN,
-    gsGroupName,
-
-    -- ** HTTP
-    HTTP (..),
-    mkHTTP,
-    httpHTTPMethod,
-    httpHTTPStatus,
-    httpClientIP,
-    httpUserAgent,
-    httpHTTPURL,
+    -- ** SegmentDocument
+    SegmentDocument (..),
 
     -- ** HistogramEntry
     HistogramEntry (..),
@@ -282,298 +136,209 @@ module Network.AWS.XRay
     heCount,
     heValue,
 
-    -- ** Insight
-    Insight (..),
-    mkInsight,
-    iSummary,
-    iState,
-    iStartTime,
-    iInsightId,
-    iCategories,
-    iRootCauseServiceRequestImpactStatistics,
-    iTopAnomalousServices,
-    iRootCauseServiceId,
-    iClientRequestImpactStatistics,
-    iEndTime,
-    iGroupARN,
-    iGroupName,
+    -- ** ClientID
+    ClientID (..),
 
-    -- ** InsightEvent
-    InsightEvent (..),
-    mkInsightEvent,
-    ieSummary,
-    ieEventTime,
-    ieRootCauseServiceRequestImpactStatistics,
-    ieTopAnomalousServices,
-    ieClientRequestImpactStatistics,
+    -- ** UnprocessedStatistics
+    UnprocessedStatistics (..),
+    mkUnprocessedStatistics,
+    usErrorCode,
+    usMessage,
+    usRuleName,
 
-    -- ** InsightImpactGraphEdge
-    InsightImpactGraphEdge (..),
-    mkInsightImpactGraphEdge,
-    iigeReferenceId,
+    -- ** EntitySelectorExpression
+    EntitySelectorExpression (..),
 
-    -- ** InsightImpactGraphService
-    InsightImpactGraphService (..),
-    mkInsightImpactGraphService,
-    iigsReferenceId,
-    iigsAccountId,
-    iigsNames,
-    iigsName,
-    iigsType,
-    iigsEdges,
+    -- ** ErrorRootCauseEntity
+    ErrorRootCauseEntity (..),
+    mkErrorRootCauseEntity,
+    erceExceptions,
+    erceName,
+    erceRemote,
 
-    -- ** InsightSummary
-    InsightSummary (..),
-    mkInsightSummary,
-    isSummary,
-    isState,
-    isStartTime,
-    isInsightId,
-    isCategories,
-    isRootCauseServiceRequestImpactStatistics,
-    isTopAnomalousServices,
-    isRootCauseServiceId,
-    isClientRequestImpactStatistics,
-    isEndTime,
-    isGroupARN,
-    isGroupName,
-    isLastUpdateTime,
-
-    -- ** InsightsConfiguration
-    InsightsConfiguration (..),
-    mkInsightsConfiguration,
-    icNotificationsEnabled,
-    icInsightsEnabled,
-
-    -- ** InstanceIdDetail
-    InstanceIdDetail (..),
-    mkInstanceIdDetail,
-    iidId,
-
-    -- ** RequestImpactStatistics
-    RequestImpactStatistics (..),
-    mkRequestImpactStatistics,
-    risOKCount,
-    risFaultCount,
-    risTotalCount,
-
-    -- ** ResourceARNDetail
-    ResourceARNDetail (..),
-    mkResourceARNDetail,
-    radARN,
-
-    -- ** ResponseTimeRootCause
-    ResponseTimeRootCause (..),
-    mkResponseTimeRootCause,
-    rtrcClientImpacting,
-    rtrcServices,
-
-    -- ** ResponseTimeRootCauseEntity
-    ResponseTimeRootCauseEntity (..),
-    mkResponseTimeRootCauseEntity,
-    rtrceRemote,
-    rtrceCoverage,
-    rtrceName,
+    -- ** TraceId
+    TraceId (..),
 
     -- ** ResponseTimeRootCauseService
     ResponseTimeRootCauseService (..),
     mkResponseTimeRootCauseService,
-    rtrcsEntityPath,
     rtrcsAccountId,
-    rtrcsNames,
-    rtrcsName,
+    rtrcsEntityPath,
     rtrcsInferred,
+    rtrcsName,
+    rtrcsNames,
     rtrcsType,
 
-    -- ** RootCauseException
-    RootCauseException (..),
-    mkRootCauseException,
-    rceName,
-    rceMessage,
+    -- ** EncryptionType
+    EncryptionType (..),
 
-    -- ** SamplingRule
-    SamplingRule (..),
-    mkSamplingRule,
-    srHTTPMethod,
-    srPriority,
-    srRuleName,
-    srReservoirSize,
-    srFixedRate,
-    srResourceARN,
-    srAttributes,
-    srVersion,
-    srServiceName,
-    srServiceType,
-    srHost,
-    srRuleARN,
-    srURLPath,
+    -- ** Group
+    Group (..),
+    mkGroup,
+    gFilterExpression,
+    gGroupARN,
+    gGroupName,
+    gInsightsConfiguration,
 
-    -- ** SamplingRuleRecord
-    SamplingRuleRecord (..),
-    mkSamplingRuleRecord,
-    srrModifiedAt,
-    srrSamplingRule,
-    srrCreatedAt,
+    -- ** FaultStatistics
+    FaultStatistics (..),
+    mkFaultStatistics,
+    fsOtherCount,
+    fsTotalCount,
 
-    -- ** SamplingRuleUpdate
-    SamplingRuleUpdate (..),
-    mkSamplingRuleUpdate,
-    sruHTTPMethod,
-    sruPriority,
-    sruRuleName,
-    sruReservoirSize,
-    sruFixedRate,
-    sruResourceARN,
-    sruAttributes,
-    sruServiceName,
-    sruServiceType,
-    sruHost,
-    sruRuleARN,
-    sruURLPath,
+    -- ** Hostname
+    Hostname (..),
 
-    -- ** SamplingStatisticSummary
-    SamplingStatisticSummary (..),
-    mkSamplingStatisticSummary,
-    sssRequestCount,
-    sssBorrowCount,
-    sssRuleName,
-    sssTimestamp,
-    sssSampledCount,
+    -- ** SamplingStrategyName
+    SamplingStrategyName (..),
 
-    -- ** SamplingStatisticsDocument
-    SamplingStatisticsDocument (..),
-    mkSamplingStatisticsDocument,
-    ssdClientId,
-    ssdRequestCount,
-    ssdBorrowCount,
-    ssdRuleName,
-    ssdTimestamp,
-    ssdSampledCount,
+    -- ** AttributeValue
+    AttributeValue (..),
 
-    -- ** SamplingStrategy
-    SamplingStrategy (..),
-    mkSamplingStrategy,
-    ssValue,
-    ssName,
-
-    -- ** SamplingTargetDocument
-    SamplingTargetDocument (..),
-    mkSamplingTargetDocument,
-    stdReservoirQuota,
-    stdRuleName,
-    stdFixedRate,
-    stdInterval,
-    stdReservoirQuotaTTL,
-
-    -- ** Segment
-    Segment (..),
-    mkSegment,
-    sDocument,
-    sId,
-
-    -- ** ServiceId
-    ServiceId (..),
-    mkServiceId,
-    siAccountId,
-    siNames,
-    siName,
-    siType,
-
-    -- ** ServiceInfo
-    ServiceInfo (..),
-    mkServiceInfo,
-    sState,
-    sStartTime,
-    sRoot,
-    sResponseTimeHistogram,
-    sDurationHistogram,
-    sReferenceId,
-    sAccountId,
-    sNames,
-    sName,
-    sEndTime,
-    sType,
-    sEdges,
-    sSummaryStatistics,
-
-    -- ** ServiceStatistics
-    ServiceStatistics (..),
-    mkServiceStatistics,
-    ssFaultStatistics,
-    ssOKCount,
-    ssTotalResponseTime,
-    ssErrorStatistics,
-    ssTotalCount,
+    -- ** HTTPMethod
+    HTTPMethod (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
 
-    -- ** TelemetryRecord
-    TelemetryRecord (..),
-    mkTelemetryRecord,
-    trSegmentsReceivedCount,
-    trSegmentsSentCount,
-    trSegmentsSpilloverCount,
-    trSegmentsRejectedCount,
-    trTimestamp,
-    trBackendConnectionErrors,
+    -- ** ResponseTimeRootCauseEntity
+    ResponseTimeRootCauseEntity (..),
+    mkResponseTimeRootCauseEntity,
+    rtrceCoverage,
+    rtrceName,
+    rtrceRemote,
 
-    -- ** TimeSeriesServiceStatistics
-    TimeSeriesServiceStatistics (..),
-    mkTimeSeriesServiceStatistics,
-    tsssServiceSummaryStatistics,
-    tsssResponseTimeHistogram,
-    tsssEdgeSummaryStatistics,
-    tsssServiceForecastStatistics,
-    tsssTimestamp,
+    -- ** ValueWithServiceIds
+    ValueWithServiceIds (..),
+    mkValueWithServiceIds,
+    vwsiAnnotationValue,
+    vwsiServiceIds,
 
-    -- ** Trace
-    Trace (..),
-    mkTrace,
-    tLimitExceeded,
-    tId,
-    tSegments,
-    tDuration,
+    -- ** ErrorRootCauseService
+    ErrorRootCauseService (..),
+    mkErrorRootCauseService,
+    ercsAccountId,
+    ercsEntityPath,
+    ercsInferred,
+    ercsName,
+    ercsNames,
+    ercsType,
+
+    -- ** FilterExpression
+    FilterExpression (..),
+
+    -- ** TraceSegmentDocument
+    TraceSegmentDocument (..),
 
     -- ** TraceSummary
     TraceSummary (..),
     mkTraceSummary,
     tsAnnotations,
-    tsHasThrottle,
-    tsUsers,
-    tsEntryPoint,
-    tsHasFault,
-    tsServiceIds,
-    tsMatchedEventTime,
-    tsIsPartial,
-    tsErrorRootCauses,
-    tsResourceARNs,
     tsAvailabilityZones,
-    tsInstanceIds,
-    tsResponseTimeRootCauses,
-    tsHasError,
-    tsId,
-    tsHTTP,
-    tsRevision,
     tsDuration,
+    tsEntryPoint,
+    tsErrorRootCauses,
     tsFaultRootCauses,
+    tsHasError,
+    tsHasFault,
+    tsHasThrottle,
+    tsHttp,
+    tsId,
+    tsInstanceIds,
+    tsIsPartial,
+    tsMatchedEventTime,
+    tsResourceARNs,
     tsResponseTime,
+    tsResponseTimeRootCauses,
+    tsRevision,
+    tsServiceIds,
+    tsUsers,
 
-    -- ** TraceUser
-    TraceUser (..),
-    mkTraceUser,
-    tuServiceIds,
-    tuUserName,
+    -- ** FaultRootCause
+    FaultRootCause (..),
+    mkFaultRootCause,
+    frcClientImpacting,
+    frcServices,
 
-    -- ** UnprocessedStatistics
-    UnprocessedStatistics (..),
-    mkUnprocessedStatistics,
-    usRuleName,
-    usErrorCode,
-    usMessage,
+    -- ** String
+    String (..),
+
+    -- ** ServiceInfo
+    ServiceInfo (..),
+    mkServiceInfo,
+    sAccountId,
+    sDurationHistogram,
+    sEdges,
+    sEndTime,
+    sName,
+    sNames,
+    sReferenceId,
+    sResponseTimeHistogram,
+    sRoot,
+    sStartTime,
+    sState,
+    sSummaryStatistics,
+    sType,
+
+    -- ** InsightImpactGraphService
+    InsightImpactGraphService (..),
+    mkInsightImpactGraphService,
+    iigsAccountId,
+    iigsEdges,
+    iigsName,
+    iigsNames,
+    iigsReferenceId,
+    iigsType,
+
+    -- ** EncryptionKeyId
+    EncryptionKeyId (..),
+
+    -- ** SamplingRule
+    SamplingRule (..),
+    mkSamplingRule,
+    srResourceARN,
+    srPriority,
+    srFixedRate,
+    srReservoirSize,
+    srServiceName,
+    srServiceType,
+    srHost,
+    srHTTPMethod,
+    srURLPath,
+    srVersion,
+    srAttributes,
+    srRuleARN,
+    srRuleName,
+
+    -- ** InsightsConfiguration
+    InsightsConfiguration (..),
+    mkInsightsConfiguration,
+    icInsightsEnabled,
+    icNotificationsEnabled,
+
+    -- ** EventSummaryText
+    EventSummaryText (..),
+
+    -- ** RootCauseException
+    RootCauseException (..),
+    mkRootCauseException,
+    rceMessage,
+    rceName,
+
+    -- ** EC2InstanceId
+    EC2InstanceId (..),
+
+    -- ** AnnotationKey
+    AnnotationKey (..),
+
+    -- ** Token
+    Token (..),
+
+    -- ** InsightId
+    InsightId (..),
 
     -- ** UnprocessedTraceSegment
     UnprocessedTraceSegment (..),
@@ -582,21 +347,382 @@ module Network.AWS.XRay
     utsId,
     utsMessage,
 
-    -- ** ValueWithServiceIds
-    ValueWithServiceIds (..),
-    mkValueWithServiceIds,
-    vwsiServiceIds,
-    vwsiAnnotationValue,
+    -- ** Alias
+    Alias (..),
+    mkAlias,
+    aName,
+    aNames,
+    aType,
+
+    -- ** FaultRootCauseEntity
+    FaultRootCauseEntity (..),
+    mkFaultRootCauseEntity,
+    frceExceptions,
+    frceName,
+    frceRemote,
+
+    -- ** ForecastStatistics
+    ForecastStatistics (..),
+    mkForecastStatistics,
+    fsFaultCountHigh,
+    fsFaultCountLow,
+
+    -- ** TimeSeriesServiceStatistics
+    TimeSeriesServiceStatistics (..),
+    mkTimeSeriesServiceStatistics,
+    tsssEdgeSummaryStatistics,
+    tsssResponseTimeHistogram,
+    tsssServiceForecastStatistics,
+    tsssServiceSummaryStatistics,
+    tsssTimestamp,
+
+    -- ** Insight
+    Insight (..),
+    mkInsight,
+    iCategories,
+    iClientRequestImpactStatistics,
+    iEndTime,
+    iGroupARN,
+    iGroupName,
+    iInsightId,
+    iRootCauseServiceId,
+    iRootCauseServiceRequestImpactStatistics,
+    iStartTime,
+    iState,
+    iSummary,
+    iTopAnomalousServices,
+
+    -- ** RequestImpactStatistics
+    RequestImpactStatistics (..),
+    mkRequestImpactStatistics,
+    risFaultCount,
+    risOkCount,
+    risTotalCount,
+
+    -- ** InsightCategory
+    InsightCategory (..),
+
+    -- ** RuleName
+    RuleName (..),
+
+    -- ** AnnotationValue
+    AnnotationValue (..),
+    mkAnnotationValue,
+    avBooleanValue,
+    avNumberValue,
+    avStringValue,
+
+    -- ** SamplingRuleUpdate
+    SamplingRuleUpdate (..),
+    mkSamplingRuleUpdate,
+    sruAttributes,
+    sruFixedRate,
+    sruHTTPMethod,
+    sruHost,
+    sruPriority,
+    sruReservoirSize,
+    sruResourceARN,
+    sruRuleARN,
+    sruRuleName,
+    sruServiceName,
+    sruServiceType,
+    sruURLPath,
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** InsightSummaryText
+    InsightSummaryText (..),
+
+    -- ** ErrorRootCause
+    ErrorRootCause (..),
+    mkErrorRootCause,
+    ercClientImpacting,
+    ercServices,
+
+    -- ** InsightEvent
+    InsightEvent (..),
+    mkInsightEvent,
+    ieClientRequestImpactStatistics,
+    ieEventTime,
+    ieRootCauseServiceRequestImpactStatistics,
+    ieSummary,
+    ieTopAnomalousServices,
+
+    -- ** TimeRangeType
+    TimeRangeType (..),
+
+    -- ** ServiceName
+    ServiceName (..),
+
+    -- ** InsightSummary
+    InsightSummary (..),
+    mkInsightSummary,
+    isCategories,
+    isClientRequestImpactStatistics,
+    isEndTime,
+    isGroupARN,
+    isGroupName,
+    isInsightId,
+    isLastUpdateTime,
+    isRootCauseServiceId,
+    isRootCauseServiceRequestImpactStatistics,
+    isStartTime,
+    isState,
+    isSummary,
+    isTopAnomalousServices,
+
+    -- ** TelemetryRecord
+    TelemetryRecord (..),
+    mkTelemetryRecord,
+    trTimestamp,
+    trBackendConnectionErrors,
+    trSegmentsReceivedCount,
+    trSegmentsRejectedCount,
+    trSegmentsSentCount,
+    trSegmentsSpilloverCount,
+
+    -- ** GroupARN
+    GroupARN (..),
+
+    -- ** ServiceType
+    ServiceType (..),
+
+    -- ** InstanceIdDetail
+    InstanceIdDetail (..),
+    mkInstanceIdDetail,
+    iidId,
+
+    -- ** EncryptionConfig
+    EncryptionConfig (..),
+    mkEncryptionConfig,
+    ecKeyId,
+    ecStatus,
+    ecType,
+
+    -- ** ErrorStatistics
+    ErrorStatistics (..),
+    mkErrorStatistics,
+    eOtherCount,
+    eThrottleCount,
+    eTotalCount,
+
+    -- ** SamplingTargetDocument
+    SamplingTargetDocument (..),
+    mkSamplingTargetDocument,
+    stdFixedRate,
+    stdInterval,
+    stdReservoirQuota,
+    stdReservoirQuotaTTL,
+    stdRuleName,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** SamplingStrategy
+    SamplingStrategy (..),
+    mkSamplingStrategy,
+    ssName,
+    ssValue,
+
+    -- ** Http
+    Http (..),
+    mkHttp,
+    hClientIp,
+    hHttpMethod,
+    hHttpStatus,
+    hHttpURL,
+    hUserAgent,
+
+    -- ** SamplingRuleRecord
+    SamplingRuleRecord (..),
+    mkSamplingRuleRecord,
+    srrCreatedAt,
+    srrModifiedAt,
+    srrSamplingRule,
+
+    -- ** Host
+    Host (..),
+
+    -- ** ServiceStatistics
+    ServiceStatistics (..),
+    mkServiceStatistics,
+    ssErrorStatistics,
+    ssFaultStatistics,
+    ssOkCount,
+    ssTotalCount,
+    ssTotalResponseTime,
+
+    -- ** TraceUser
+    TraceUser (..),
+    mkTraceUser,
+    tuServiceIds,
+    tuUserName,
+
+    -- ** GroupName
+    GroupName (..),
+
+    -- ** FaultRootCauseService
+    FaultRootCauseService (..),
+    mkFaultRootCauseService,
+    frcsAccountId,
+    frcsEntityPath,
+    frcsInferred,
+    frcsName,
+    frcsNames,
+    frcsType,
+
+    -- ** ServiceId
+    ServiceId (..),
+    mkServiceId,
+    siAccountId,
+    siName,
+    siNames,
+    siType,
+
+    -- ** GroupSummary
+    GroupSummary (..),
+    mkGroupSummary,
+    gsFilterExpression,
+    gsGroupARN,
+    gsGroupName,
+    gsInsightsConfiguration,
+
+    -- ** Segment
+    Segment (..),
+    mkSegment,
+    sDocument,
+    sId,
+
+    -- ** AttributeKey
+    AttributeKey (..),
+
+    -- ** Edge
+    Edge (..),
+    mkEdge,
+    eAliases,
+    eEndTime,
+    eReferenceId,
+    eResponseTimeHistogram,
+    eStartTime,
+    eSummaryStatistics,
+
+    -- ** InsightImpactGraphEdge
+    InsightImpactGraphEdge (..),
+    mkInsightImpactGraphEdge,
+    iigeReferenceId,
+
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** EncryptionStatus
+    EncryptionStatus (..),
+
+    -- ** EdgeStatistics
+    EdgeStatistics (..),
+    mkEdgeStatistics,
+    esErrorStatistics,
+    esFaultStatistics,
+    esOkCount,
+    esTotalCount,
+    esTotalResponseTime,
+
+    -- ** AvailabilityZoneDetail
+    AvailabilityZoneDetail (..),
+    mkAvailabilityZoneDetail,
+    azdName,
+
+    -- ** ResourceARNDetail
+    ResourceARNDetail (..),
+    mkResourceARNDetail,
+    rarndARN,
+
+    -- ** URLPath
+    URLPath (..),
+
+    -- ** SamplingStatisticsDocument
+    SamplingStatisticsDocument (..),
+    mkSamplingStatisticsDocument,
+    ssdRuleName,
+    ssdClientID,
+    ssdTimestamp,
+    ssdRequestCount,
+    ssdSampledCount,
+    ssdBorrowCount,
+
+    -- ** BackendConnectionErrors
+    BackendConnectionErrors (..),
+    mkBackendConnectionErrors,
+    bceConnectionRefusedCount,
+    bceHTTPCode4XXCount,
+    bceHTTPCode5XXCount,
+    bceOtherCount,
+    bceTimeoutCount,
+    bceUnknownHostCount,
+
+    -- ** InsightState
+    InsightState (..),
+
+    -- ** SamplingStatisticSummary
+    SamplingStatisticSummary (..),
+    mkSamplingStatisticSummary,
+    sssBorrowCount,
+    sssRequestCount,
+    sssRuleName,
+    sssSampledCount,
+    sssTimestamp,
+
+    -- ** ResponseTimeRootCause
+    ResponseTimeRootCause (..),
+    mkResponseTimeRootCause,
+    rtrcClientImpacting,
+    rtrcServices,
+
+    -- ** Trace
+    Trace (..),
+    mkTrace,
+    tDuration,
+    tId,
+    tLimitExceeded,
+    tSegments,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Summary
+    Summary (..),
+
+    -- ** Id
+    Id (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

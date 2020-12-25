@@ -22,10 +22,10 @@ module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.MaxAgeRule
-import Network.AWS.ElasticBeanstalk.Types.MaxCountRule
+import qualified Network.AWS.ElasticBeanstalk.Types.MaxAgeRule as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.MaxCountRule as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The application version lifecycle settings for an application. Defines the rules that Elastic Beanstalk applies to an application's versions in order to avoid hitting the per-region limit for application versions.
 --
@@ -34,47 +34,37 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkApplicationVersionLifecycleConfig' smart constructor.
 data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
   { -- | Specify a max age rule to restrict the length of time that application versions are retained for an application.
-    maxAgeRule :: Lude.Maybe MaxAgeRule,
+    maxAgeRule :: Core.Maybe Types.MaxAgeRule,
     -- | Specify a max count rule to restrict the number of application versions that are retained for an application.
-    maxCountRule :: Lude.Maybe MaxCountRule
+    maxCountRule :: Core.Maybe Types.MaxCountRule
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationVersionLifecycleConfig' with the minimum fields required to make a request.
---
--- * 'maxAgeRule' - Specify a max age rule to restrict the length of time that application versions are retained for an application.
--- * 'maxCountRule' - Specify a max count rule to restrict the number of application versions that are retained for an application.
+-- | Creates a 'ApplicationVersionLifecycleConfig' value with any optional fields omitted.
 mkApplicationVersionLifecycleConfig ::
   ApplicationVersionLifecycleConfig
 mkApplicationVersionLifecycleConfig =
   ApplicationVersionLifecycleConfig'
-    { maxAgeRule = Lude.Nothing,
-      maxCountRule = Lude.Nothing
+    { maxAgeRule = Core.Nothing,
+      maxCountRule = Core.Nothing
     }
 
 -- | Specify a max age rule to restrict the length of time that application versions are retained for an application.
 --
 -- /Note:/ Consider using 'maxAgeRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avlcMaxAgeRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Lude.Maybe MaxAgeRule)
-avlcMaxAgeRule = Lens.lens (maxAgeRule :: ApplicationVersionLifecycleConfig -> Lude.Maybe MaxAgeRule) (\s a -> s {maxAgeRule = a} :: ApplicationVersionLifecycleConfig)
+avlcMaxAgeRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Core.Maybe Types.MaxAgeRule)
+avlcMaxAgeRule = Lens.field @"maxAgeRule"
 {-# DEPRECATED avlcMaxAgeRule "Use generic-lens or generic-optics with 'maxAgeRule' instead." #-}
 
 -- | Specify a max count rule to restrict the number of application versions that are retained for an application.
 --
 -- /Note:/ Consider using 'maxCountRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avlcMaxCountRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Lude.Maybe MaxCountRule)
-avlcMaxCountRule = Lens.lens (maxCountRule :: ApplicationVersionLifecycleConfig -> Lude.Maybe MaxCountRule) (\s a -> s {maxCountRule = a} :: ApplicationVersionLifecycleConfig)
+avlcMaxCountRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Core.Maybe Types.MaxCountRule)
+avlcMaxCountRule = Lens.field @"maxCountRule"
 {-# DEPRECATED avlcMaxCountRule "Use generic-lens or generic-optics with 'maxCountRule' instead." #-}
 
-instance Lude.FromXML ApplicationVersionLifecycleConfig where
+instance Core.FromXML ApplicationVersionLifecycleConfig where
   parseXML x =
     ApplicationVersionLifecycleConfig'
-      Lude.<$> (x Lude..@? "MaxAgeRule") Lude.<*> (x Lude..@? "MaxCountRule")
-
-instance Lude.ToQuery ApplicationVersionLifecycleConfig where
-  toQuery ApplicationVersionLifecycleConfig' {..} =
-    Lude.mconcat
-      [ "MaxAgeRule" Lude.=: maxAgeRule,
-        "MaxCountRule" Lude.=: maxCountRule
-      ]
+      Core.<$> (x Core..@? "MaxAgeRule") Core.<*> (x Core..@? "MaxCountRule")

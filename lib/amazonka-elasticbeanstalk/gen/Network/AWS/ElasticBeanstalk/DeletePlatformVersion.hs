@@ -20,107 +20,105 @@ module Network.AWS.ElasticBeanstalk.DeletePlatformVersion
     mkDeletePlatformVersion,
 
     -- ** Request lenses
-    dpvPlatformARN,
+    dpvPlatformArn,
 
     -- * Destructuring the response
     DeletePlatformVersionResponse (..),
     mkDeletePlatformVersionResponse,
 
     -- ** Response lenses
-    dpvrsPlatformSummary,
-    dpvrsResponseStatus,
+    dpvrrsPlatformSummary,
+    dpvrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePlatformVersion' smart constructor.
 newtype DeletePlatformVersion = DeletePlatformVersion'
   { -- | The ARN of the version of the custom platform.
-    platformARN :: Lude.Maybe Lude.Text
+    platformArn :: Core.Maybe Types.PlatformArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePlatformVersion' with the minimum fields required to make a request.
---
--- * 'platformARN' - The ARN of the version of the custom platform.
+-- | Creates a 'DeletePlatformVersion' value with any optional fields omitted.
 mkDeletePlatformVersion ::
   DeletePlatformVersion
 mkDeletePlatformVersion =
-  DeletePlatformVersion' {platformARN = Lude.Nothing}
+  DeletePlatformVersion' {platformArn = Core.Nothing}
 
 -- | The ARN of the version of the custom platform.
 --
--- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvPlatformARN :: Lens.Lens' DeletePlatformVersion (Lude.Maybe Lude.Text)
-dpvPlatformARN = Lens.lens (platformARN :: DeletePlatformVersion -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: DeletePlatformVersion)
-{-# DEPRECATED dpvPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
+-- /Note:/ Consider using 'platformArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvPlatformArn :: Lens.Lens' DeletePlatformVersion (Core.Maybe Types.PlatformArn)
+dpvPlatformArn = Lens.field @"platformArn"
+{-# DEPRECATED dpvPlatformArn "Use generic-lens or generic-optics with 'platformArn' instead." #-}
 
-instance Lude.AWSRequest DeletePlatformVersion where
+instance Core.AWSRequest DeletePlatformVersion where
   type Rs DeletePlatformVersion = DeletePlatformVersionResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeletePlatformVersion")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "PlatformArn" Core.<$> platformArn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeletePlatformVersionResult"
       ( \s h x ->
           DeletePlatformVersionResponse'
-            Lude.<$> (x Lude..@? "PlatformSummary")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "PlatformSummary")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePlatformVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePlatformVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePlatformVersion where
-  toQuery DeletePlatformVersion' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeletePlatformVersion" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "PlatformArn" Lude.=: platformARN
-      ]
 
 -- | /See:/ 'mkDeletePlatformVersionResponse' smart constructor.
 data DeletePlatformVersionResponse = DeletePlatformVersionResponse'
   { -- | Detailed information about the version of the custom platform.
-    platformSummary :: Lude.Maybe PlatformSummary,
+    platformSummary :: Core.Maybe Types.PlatformSummary,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePlatformVersionResponse' with the minimum fields required to make a request.
---
--- * 'platformSummary' - Detailed information about the version of the custom platform.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePlatformVersionResponse' value with any optional fields omitted.
 mkDeletePlatformVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePlatformVersionResponse
-mkDeletePlatformVersionResponse pResponseStatus_ =
+mkDeletePlatformVersionResponse responseStatus =
   DeletePlatformVersionResponse'
-    { platformSummary = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { platformSummary = Core.Nothing,
+      responseStatus
     }
 
 -- | Detailed information about the version of the custom platform.
 --
 -- /Note:/ Consider using 'platformSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvrsPlatformSummary :: Lens.Lens' DeletePlatformVersionResponse (Lude.Maybe PlatformSummary)
-dpvrsPlatformSummary = Lens.lens (platformSummary :: DeletePlatformVersionResponse -> Lude.Maybe PlatformSummary) (\s a -> s {platformSummary = a} :: DeletePlatformVersionResponse)
-{-# DEPRECATED dpvrsPlatformSummary "Use generic-lens or generic-optics with 'platformSummary' instead." #-}
+dpvrrsPlatformSummary :: Lens.Lens' DeletePlatformVersionResponse (Core.Maybe Types.PlatformSummary)
+dpvrrsPlatformSummary = Lens.field @"platformSummary"
+{-# DEPRECATED dpvrrsPlatformSummary "Use generic-lens or generic-optics with 'platformSummary' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvrsResponseStatus :: Lens.Lens' DeletePlatformVersionResponse Lude.Int
-dpvrsResponseStatus = Lens.lens (responseStatus :: DeletePlatformVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePlatformVersionResponse)
-{-# DEPRECATED dpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpvrrsResponseStatus :: Lens.Lens' DeletePlatformVersionResponse Core.Int
+dpvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

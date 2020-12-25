@@ -9,198 +9,227 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types
   ( -- * Service configuration
-    ecsService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * AgentUpdateStatus
-    AgentUpdateStatus (..),
-
-    -- * AssignPublicIP
-    AssignPublicIP (..),
-
-    -- * CapacityProviderField
-    CapacityProviderField (..),
-
-    -- * CapacityProviderStatus
-    CapacityProviderStatus (..),
-
-    -- * CapacityProviderUpdateStatus
-    CapacityProviderUpdateStatus (..),
-
-    -- * ClusterField
-    ClusterField (..),
-
-    -- * ClusterSettingName
-    ClusterSettingName (..),
-
-    -- * Compatibility
-    Compatibility (..),
-
-    -- * Connectivity
-    Connectivity (..),
-
-    -- * ContainerCondition
-    ContainerCondition (..),
-
-    -- * ContainerInstanceField
-    ContainerInstanceField (..),
-
-    -- * ContainerInstanceStatus
-    ContainerInstanceStatus (..),
-
-    -- * DeploymentControllerType
-    DeploymentControllerType (..),
-
-    -- * DeploymentRolloutState
-    DeploymentRolloutState (..),
+    _AccessDeniedException,
+    _InvalidParameterException,
+    _ServerException,
+    _ClusterContainsTasksException,
+    _PlatformUnknownException,
+    _ClusterContainsServicesException,
+    _TaskSetNotFoundException,
+    _ClusterContainsContainerInstancesException,
+    _ServiceNotActiveException,
+    _ClusterNotFoundException,
+    _NoUpdateAvailableException,
+    _UnsupportedFeatureException,
+    _ServiceNotFoundException,
+    _PlatformTaskDefinitionIncompatibilityException,
+    _MissingVersionException,
+    _UpdateInProgressException,
+    _BlockedException,
+    _TargetNotFoundException,
+    _AttributeLimitExceededException,
+    _ClientException,
+    _ResourceNotFoundException,
+    _LimitExceededException,
+    _ResourceInUseException,
 
     -- * DesiredStatus
     DesiredStatus (..),
 
-    -- * DeviceCgroupPermission
-    DeviceCgroupPermission (..),
+    -- * TaskDefinitionPlacementConstraintType
+    TaskDefinitionPlacementConstraintType (..),
 
-    -- * EFSAuthorizationConfigIAM
-    EFSAuthorizationConfigIAM (..),
-
-    -- * EFSTransitEncryption
-    EFSTransitEncryption (..),
-
-    -- * EnvironmentFileType
-    EnvironmentFileType (..),
-
-    -- * FirelensConfigurationType
-    FirelensConfigurationType (..),
-
-    -- * HealthStatus
-    HealthStatus (..),
-
-    -- * IPcMode
-    IPcMode (..),
-
-    -- * LaunchType
-    LaunchType (..),
-
-    -- * LogDriver
-    LogDriver (..),
-
-    -- * ManagedScalingStatus
-    ManagedScalingStatus (..),
-
-    -- * ManagedTerminationProtection
-    ManagedTerminationProtection (..),
-
-    -- * NetworkMode
-    NetworkMode (..),
-
-    -- * PidMode
-    PidMode (..),
-
-    -- * PlacementConstraintType
-    PlacementConstraintType (..),
-
-    -- * PlacementStrategyType
-    PlacementStrategyType (..),
-
-    -- * PlatformDeviceType
-    PlatformDeviceType (..),
-
-    -- * PropagateTags
-    PropagateTags (..),
+    -- * DockerVolumeConfiguration
+    DockerVolumeConfiguration (..),
+    mkDockerVolumeConfiguration,
+    dvcAutoprovision,
+    dvcDriver,
+    dvcDriverOpts,
+    dvcLabels,
+    dvcScope,
 
     -- * ProxyConfigurationType
     ProxyConfigurationType (..),
 
-    -- * ResourceType
-    ResourceType (..),
+    -- * Attribute
+    Attribute (..),
+    mkAttribute,
+    aName,
+    aTargetId,
+    aTargetType,
+    aValue,
 
-    -- * ScaleUnit
-    ScaleUnit (..),
+    -- * HostEntry
+    HostEntry (..),
+    mkHostEntry,
+    heHostname,
+    heIpAddress,
 
-    -- * SchedulingStrategy
-    SchedulingStrategy (..),
+    -- * ManagedScalingStatus
+    ManagedScalingStatus (..),
 
-    -- * Scope
-    Scope (..),
+    -- * ContainerInstanceField
+    ContainerInstanceField (..),
 
-    -- * ServiceField
-    ServiceField (..),
+    -- * PlacementConstraint
+    PlacementConstraint (..),
+    mkPlacementConstraint,
+    pcExpression,
+    pcType,
 
-    -- * SettingName
-    SettingName (..),
-
-    -- * SortOrder
-    SortOrder (..),
-
-    -- * StabilityStatus
-    StabilityStatus (..),
-
-    -- * TargetType
-    TargetType (..),
-
-    -- * TaskDefinitionFamilyStatus
-    TaskDefinitionFamilyStatus (..),
-
-    -- * TaskDefinitionField
-    TaskDefinitionField (..),
-
-    -- * TaskDefinitionPlacementConstraintType
-    TaskDefinitionPlacementConstraintType (..),
-
-    -- * TaskDefinitionStatus
-    TaskDefinitionStatus (..),
+    -- * FirelensConfigurationType
+    FirelensConfigurationType (..),
 
     -- * TaskField
     TaskField (..),
 
-    -- * TaskSetField
-    TaskSetField (..),
+    -- * UlimitName
+    UlimitName (..),
 
-    -- * TaskStopCode
-    TaskStopCode (..),
+    -- * TaskSet
+    TaskSet (..),
+    mkTaskSet,
+    tsCapacityProviderStrategy,
+    tsClusterArn,
+    tsComputedDesiredCount,
+    tsCreatedAt,
+    tsExternalId,
+    tsId,
+    tsLaunchType,
+    tsLoadBalancers,
+    tsNetworkConfiguration,
+    tsPendingCount,
+    tsPlatformVersion,
+    tsRunningCount,
+    tsScale,
+    tsServiceArn,
+    tsServiceRegistries,
+    tsStabilityStatus,
+    tsStabilityStatusAt,
+    tsStartedBy,
+    tsStatus,
+    tsTags,
+    tsTaskDefinition,
+    tsTaskSetArn,
+    tsUpdatedAt,
+
+    -- * NetworkBinding
+    NetworkBinding (..),
+    mkNetworkBinding,
+    nbBindIP,
+    nbContainerPort,
+    nbHostPort,
+    nbProtocol,
+
+    -- * PlatformDevice
+    PlatformDevice (..),
+    mkPlatformDevice,
+    pdId,
+    pdType,
+
+    -- * Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * RepositoryCredentials
+    RepositoryCredentials (..),
+    mkRepositoryCredentials,
+    rcCredentialsParameter,
+
+    -- * Cluster
+    Cluster (..),
+    mkCluster,
+    cActiveServicesCount,
+    cAttachments,
+    cAttachmentsStatus,
+    cCapacityProviders,
+    cClusterArn,
+    cClusterName,
+    cDefaultCapacityProviderStrategy,
+    cPendingTasksCount,
+    cRegisteredContainerInstancesCount,
+    cRunningTasksCount,
+    cSettings,
+    cStatistics,
+    cStatus,
+    cTags,
+
+    -- * PlacementStrategyType
+    PlacementStrategyType (..),
+
+    -- * ResourceType
+    ResourceType (..),
+
+    -- * ContainerInstanceStatus
+    ContainerInstanceStatus (..),
+
+    -- * HealthCheck
+    HealthCheck (..),
+    mkHealthCheck,
+    hcCommand,
+    hcInterval,
+    hcRetries,
+    hcStartPeriod,
+    hcTimeout,
+
+    -- * PropagateTags
+    PropagateTags (..),
+
+    -- * TaskDefinitionFamilyStatus
+    TaskDefinitionFamilyStatus (..),
+
+    -- * KernelCapabilities
+    KernelCapabilities (..),
+    mkKernelCapabilities,
+    kcAdd,
+    kcDrop,
+
+    -- * String
+    String (..),
 
     -- * TransportProtocol
     TransportProtocol (..),
 
-    -- * UlimitName
-    UlimitName (..),
+    -- * ContainerService
+    ContainerService (..),
+    mkContainerService,
+    csCapacityProviderStrategy,
+    csClusterArn,
+    csCreatedAt,
+    csCreatedBy,
+    csDeploymentConfiguration,
+    csDeploymentController,
+    csDeployments,
+    csDesiredCount,
+    csEnableECSManagedTags,
+    csEvents,
+    csHealthCheckGracePeriodSeconds,
+    csLaunchType,
+    csLoadBalancers,
+    csNetworkConfiguration,
+    csPendingCount,
+    csPlacementConstraints,
+    csPlacementStrategy,
+    csPlatformVersion,
+    csPropagateTags,
+    csRoleArn,
+    csRunningCount,
+    csSchedulingStrategy,
+    csServiceArn,
+    csServiceName,
+    csServiceRegistries,
+    csStatus,
+    csTags,
+    csTaskDefinition,
+    csTaskSets,
 
-    -- * AWSVPCConfiguration
-    AWSVPCConfiguration (..),
-    mkAWSVPCConfiguration,
-    avcSecurityGroups,
-    avcSubnets,
-    avcAssignPublicIP,
-
-    -- * Attachment
-    Attachment (..),
-    mkAttachment,
-    aStatus,
-    aDetails,
-    aId,
-    aType,
-
-    -- * AttachmentStateChange
-    AttachmentStateChange (..),
-    mkAttachmentStateChange,
-    ascStatus,
-    ascAttachmentARN,
-
-    -- * Attribute
-    Attribute (..),
-    mkAttribute,
-    aTargetId,
-    aValue,
-    aTargetType,
-    aName,
-
-    -- * AutoScalingGroupProvider
-    AutoScalingGroupProvider (..),
-    mkAutoScalingGroupProvider,
-    asgpManagedScaling,
-    asgpManagedTerminationProtection,
-    asgpAutoScalingGroupARN,
+    -- * DeploymentControllerType
+    DeploymentControllerType (..),
 
     -- * AutoScalingGroupProviderUpdate
     AutoScalingGroupProviderUpdate (..),
@@ -211,107 +240,19 @@ module Network.AWS.ECS.Types
     -- * CapacityProvider
     CapacityProvider (..),
     mkCapacityProvider,
-    cpStatus,
-    cpUpdateStatusReason,
     cpAutoScalingGroupProvider,
+    cpCapacityProviderArn,
     cpName,
-    cpUpdateStatus,
-    cpCapacityProviderARN,
+    cpStatus,
     cpTags,
+    cpUpdateStatus,
+    cpUpdateStatusReason,
 
-    -- * CapacityProviderStrategyItem
-    CapacityProviderStrategyItem (..),
-    mkCapacityProviderStrategyItem,
-    cpsiBase,
-    cpsiCapacityProvider,
-    cpsiWeight,
+    -- * EFSTransitEncryption
+    EFSTransitEncryption (..),
 
-    -- * Cluster
-    Cluster (..),
-    mkCluster,
-    cStatus,
-    cClusterARN,
-    cAttachments,
-    cRunningTasksCount,
-    cDefaultCapacityProviderStrategy,
-    cSettings,
-    cRegisteredContainerInstancesCount,
-    cPendingTasksCount,
-    cClusterName,
-    cStatistics,
-    cAttachmentsStatus,
-    cCapacityProviders,
-    cActiveServicesCount,
-    cTags,
-
-    -- * ClusterSetting
-    ClusterSetting (..),
-    mkClusterSetting,
-    csValue,
-    csName,
-
-    -- * Container
-    Container (..),
-    mkContainer,
-    cGpuIds,
-    cNetworkBindings,
-    cImage,
-    cContainerARN,
-    cNetworkInterfaces,
-    cTaskARN,
-    cLastStatus,
-    cMemory,
-    cReason,
-    cName,
-    cImageDigest,
-    cExitCode,
-    cHealthStatus,
-    cCpu,
-    cRuntimeId,
-    cMemoryReservation,
-
-    -- * ContainerDefinition
-    ContainerDefinition (..),
-    mkContainerDefinition,
-    cdImage,
-    cdCommand,
-    cdHostname,
-    cdRepositoryCredentials,
-    cdDockerSecurityOptions,
-    cdHealthCheck,
-    cdDisableNetworking,
-    cdSecrets,
-    cdVolumesFrom,
-    cdEnvironment,
-    cdEnvironmentFiles,
-    cdEntryPoint,
-    cdWorkingDirectory,
-    cdUlimits,
-    cdStopTimeout,
-    cdPrivileged,
-    cdPortMappings,
-    cdResourceRequirements,
-    cdDockerLabels,
-    cdExtraHosts,
-    cdMemory,
-    cdSystemControls,
-    cdUser,
-    cdFirelensConfiguration,
-    cdDnsSearchDomains,
-    cdLogConfiguration,
-    cdLinuxParameters,
-    cdPseudoTerminal,
-    cdDependsOn,
-    cdName,
-    cdDnsServers,
-    cdMountPoints,
-    cdInteractive,
-    cdStartTimeout,
-    cdLinks,
-    cdReadonlyRootFilesystem,
-    cdEssential,
-    cdCpu,
-    cdMemoryReservation,
+    -- * ClusterField
+    ClusterField (..),
 
     -- * ContainerDependency
     ContainerDependency (..),
@@ -319,208 +260,33 @@ module Network.AWS.ECS.Types
     cdContainerName,
     cdCondition,
 
-    -- * ContainerInstance
-    ContainerInstance (..),
-    mkContainerInstance,
-    ciStatus,
-    ciAttachments,
-    ciRunningTasksCount,
-    ciRemainingResources,
-    ciEc2InstanceId,
-    ciContainerInstanceARN,
-    ciAgentConnected,
-    ciVersionInfo,
-    ciAgentUpdateStatus,
-    ciAttributes,
-    ciVersion,
-    ciPendingTasksCount,
-    ciCapacityProviderName,
-    ciRegisteredAt,
-    ciStatusReason,
-    ciTags,
-    ciRegisteredResources,
-
-    -- * ContainerOverride
-    ContainerOverride (..),
-    mkContainerOverride,
-    coCommand,
-    coEnvironment,
-    coEnvironmentFiles,
-    coResourceRequirements,
-    coMemory,
-    coName,
-    coCpu,
-    coMemoryReservation,
-
-    -- * ContainerService
-    ContainerService (..),
-    mkContainerService,
-    csTaskSets,
-    csRunningCount,
-    csStatus,
-    csClusterARN,
-    csPropagateTags,
-    csCreatedAt,
-    csPlatformVersion,
-    csEnableECSManagedTags,
-    csCreatedBy,
-    csDesiredCount,
-    csLoadBalancers,
-    csPendingCount,
-    csPlacementConstraints,
-    csEvents,
-    csPlacementStrategy,
-    csDeployments,
-    csServiceName,
-    csDeploymentController,
-    csLaunchType,
-    csServiceARN,
-    csTaskDefinition,
-    csSchedulingStrategy,
-    csHealthCheckGracePeriodSeconds,
-    csNetworkConfiguration,
-    csServiceRegistries,
-    csCapacityProviderStrategy,
-    csTags,
-    csRoleARN,
-    csDeploymentConfiguration,
-
-    -- * ContainerStateChange
-    ContainerStateChange (..),
-    mkContainerStateChange,
-    cscNetworkBindings,
-    cscStatus,
-    cscContainerName,
-    cscReason,
-    cscImageDigest,
-    cscExitCode,
-    cscRuntimeId,
-
-    -- * Deployment
-    Deployment (..),
-    mkDeployment,
-    dRolloutState,
-    dRunningCount,
-    dStatus,
-    dCreatedAt,
-    dPlatformVersion,
-    dDesiredCount,
-    dPendingCount,
-    dId,
-    dFailedTasks,
-    dLaunchType,
-    dUpdatedAt,
-    dTaskDefinition,
-    dRolloutStateReason,
-    dNetworkConfiguration,
-    dCapacityProviderStrategy,
-
-    -- * DeploymentCircuitBreaker
-    DeploymentCircuitBreaker (..),
-    mkDeploymentCircuitBreaker,
-    dcbRollback,
-    dcbEnable,
-
-    -- * DeploymentConfiguration
-    DeploymentConfiguration (..),
-    mkDeploymentConfiguration,
-    dcMinimumHealthyPercent,
-    dcMaximumPercent,
-    dcDeploymentCircuitBreaker,
-
-    -- * DeploymentController
-    DeploymentController (..),
-    mkDeploymentController,
-    dcType,
-
     -- * Device
     Device (..),
     mkDevice,
-    dContainerPath,
     dHostPath,
+    dContainerPath,
     dPermissions,
 
-    -- * DockerVolumeConfiguration
-    DockerVolumeConfiguration (..),
-    mkDockerVolumeConfiguration,
-    dvcDriverOpts,
-    dvcDriver,
-    dvcScope,
-    dvcLabels,
-    dvcAutoprovision,
+    -- * Scale
+    Scale (..),
+    mkScale,
+    sUnit,
+    sValue,
 
-    -- * EFSAuthorizationConfig
-    EFSAuthorizationConfig (..),
-    mkEFSAuthorizationConfig,
-    efsacAccessPointId,
-    efsacIam,
+    -- * Volume
+    Volume (..),
+    mkVolume,
+    vDockerVolumeConfiguration,
+    vEfsVolumeConfiguration,
+    vFsxWindowsFileServerVolumeConfiguration,
+    vHost,
+    vName,
 
-    -- * EFSVolumeConfiguration
-    EFSVolumeConfiguration (..),
-    mkEFSVolumeConfiguration,
-    efsvcRootDirectory,
-    efsvcTransitEncryption,
-    efsvcFileSystemId,
-    efsvcAuthorizationConfig,
-    efsvcTransitEncryptionPort,
-
-    -- * EnvironmentFile
-    EnvironmentFile (..),
-    mkEnvironmentFile,
-    efValue,
-    efType,
-
-    -- * FSxWindowsFileServerAuthorizationConfig
-    FSxWindowsFileServerAuthorizationConfig (..),
-    mkFSxWindowsFileServerAuthorizationConfig,
-    fswfsacDomain,
-    fswfsacCredentialsParameter,
-
-    -- * FSxWindowsFileServerVolumeConfiguration
-    FSxWindowsFileServerVolumeConfiguration (..),
-    mkFSxWindowsFileServerVolumeConfiguration,
-    fswfsvcRootDirectory,
-    fswfsvcFileSystemId,
-    fswfsvcAuthorizationConfig,
-
-    -- * Failure
-    Failure (..),
-    mkFailure,
-    fArn,
-    fReason,
-    fDetail,
-
-    -- * FirelensConfiguration
-    FirelensConfiguration (..),
-    mkFirelensConfiguration,
-    fcOptions,
-    fcType,
-
-    -- * HealthCheck
-    HealthCheck (..),
-    mkHealthCheck,
-    hcCommand,
-    hcStartPeriod,
-    hcRetries,
-    hcInterval,
-    hcTimeout,
-
-    -- * HostEntry
-    HostEntry (..),
-    mkHostEntry,
-    heIpAddress,
-    heHostname,
-
-    -- * HostVolumeProperties
-    HostVolumeProperties (..),
-    mkHostVolumeProperties,
-    hvpSourcePath,
-
-    -- * InferenceAccelerator
-    InferenceAccelerator (..),
-    mkInferenceAccelerator,
-    iaDeviceName,
-    iaDeviceType,
+    -- * AttachmentStateChange
+    AttachmentStateChange (..),
+    mkAttachmentStateChange,
+    ascAttachmentArn,
+    ascStatus,
 
     -- * InferenceAcceleratorOverride
     InferenceAcceleratorOverride (..),
@@ -528,36 +294,162 @@ module Network.AWS.ECS.Types
     iaoDeviceName,
     iaoDeviceType,
 
-    -- * KernelCapabilities
-    KernelCapabilities (..),
-    mkKernelCapabilities,
-    kcDrop,
-    kcAdd,
+    -- * ManagedScaling
+    ManagedScaling (..),
+    mkManagedScaling,
+    msInstanceWarmupPeriod,
+    msMaximumScalingStepSize,
+    msMinimumScalingStepSize,
+    msStatus,
+    msTargetCapacity,
+
+    -- * ContainerOverride
+    ContainerOverride (..),
+    mkContainerOverride,
+    coCommand,
+    coCpu,
+    coEnvironment,
+    coEnvironmentFiles,
+    coMemory,
+    coMemoryReservation,
+    coName,
+    coResourceRequirements,
+
+    -- * NetworkInterface
+    NetworkInterface (..),
+    mkNetworkInterface,
+    niAttachmentId,
+    niIpv6Address,
+    niPrivateIpv4Address,
+
+    -- * EnvironmentFile
+    EnvironmentFile (..),
+    mkEnvironmentFile,
+    efValue,
+    efType,
+
+    -- * ClusterSettingName
+    ClusterSettingName (..),
+
+    -- * PidMode
+    PidMode (..),
 
     -- * KeyValuePair
     KeyValuePair (..),
     mkKeyValuePair,
-    kvpValue,
     kvpName,
+    kvpValue,
+
+    -- * Secret
+    Secret (..),
+    mkSecret,
+    sName,
+    sValueFrom,
+
+    -- * ContainerStateChange
+    ContainerStateChange (..),
+    mkContainerStateChange,
+    cscContainerName,
+    cscExitCode,
+    cscImageDigest,
+    cscNetworkBindings,
+    cscReason,
+    cscRuntimeId,
+    cscStatus,
+
+    -- * VolumeFrom
+    VolumeFrom (..),
+    mkVolumeFrom,
+    vfReadOnly,
+    vfSourceContainer,
+
+    -- * Setting
+    Setting (..),
+    mkSetting,
+    sfName,
+    sfPrincipalArn,
+    sfValue,
+
+    -- * FSxWindowsFileServerVolumeConfiguration
+    FSxWindowsFileServerVolumeConfiguration (..),
+    mkFSxWindowsFileServerVolumeConfiguration,
+    fswfsvcFileSystemId,
+    fswfsvcRootDirectory,
+    fswfsvcAuthorizationConfig,
+
+    -- * EFSAuthorizationConfig
+    EFSAuthorizationConfig (..),
+    mkEFSAuthorizationConfig,
+    efsacAccessPointId,
+    efsacIam,
+
+    -- * AssignPublicIp
+    AssignPublicIp (..),
+
+    -- * TaskOverride
+    TaskOverride (..),
+    mkTaskOverride,
+    toContainerOverrides,
+    toCpu,
+    toExecutionRoleArn,
+    toInferenceAcceleratorOverrides,
+    toMemory,
+    toTaskRoleArn,
+
+    -- * HostVolumeProperties
+    HostVolumeProperties (..),
+    mkHostVolumeProperties,
+    hvpSourcePath,
+
+    -- * CapacityProviderStatus
+    CapacityProviderStatus (..),
+
+    -- * TargetType
+    TargetType (..),
+
+    -- * IpcMode
+    IpcMode (..),
+
+    -- * SettingName
+    SettingName (..),
+
+    -- * Attachment
+    Attachment (..),
+    mkAttachment,
+    aDetails,
+    aId,
+    aStatus,
+    aType,
+
+    -- * TaskDefinitionPlacementConstraint
+    TaskDefinitionPlacementConstraint (..),
+    mkTaskDefinitionPlacementConstraint,
+    tdpcExpression,
+    tdpcType,
 
     -- * LinuxParameters
     LinuxParameters (..),
     mkLinuxParameters,
-    lpSharedMemorySize,
-    lpInitProcessEnabled,
-    lpTmpfs,
-    lpSwappiness,
-    lpDevices,
     lpCapabilities,
+    lpDevices,
+    lpInitProcessEnabled,
     lpMaxSwap,
+    lpSharedMemorySize,
+    lpSwappiness,
+    lpTmpfs,
 
-    -- * LoadBalancer
-    LoadBalancer (..),
-    mkLoadBalancer,
-    lbLoadBalancerName,
-    lbContainerName,
-    lbTargetGroupARN,
-    lbContainerPort,
+    -- * Tmpfs
+    Tmpfs (..),
+    mkTmpfs,
+    tContainerPath,
+    tSize,
+    tMountOptions,
+
+    -- * InferenceAccelerator
+    InferenceAccelerator (..),
+    mkInferenceAccelerator,
+    iaDeviceName,
+    iaDeviceType,
 
     -- * LogConfiguration
     LogConfiguration (..),
@@ -566,257 +458,49 @@ module Network.AWS.ECS.Types
     lcOptions,
     lcSecretOptions,
 
-    -- * ManagedScaling
-    ManagedScaling (..),
-    mkManagedScaling,
-    msStatus,
-    msMaximumScalingStepSize,
-    msTargetCapacity,
-    msMinimumScalingStepSize,
-    msInstanceWarmupPeriod,
+    -- * EFSAuthorizationConfigIAM
+    EFSAuthorizationConfigIAM (..),
 
-    -- * MountPoint
-    MountPoint (..),
-    mkMountPoint,
-    mpContainerPath,
-    mpSourceVolume,
-    mpReadOnly,
-
-    -- * NetworkBinding
-    NetworkBinding (..),
-    mkNetworkBinding,
-    nbBindIP,
-    nbProtocol,
-    nbHostPort,
-    nbContainerPort,
-
-    -- * NetworkConfiguration
-    NetworkConfiguration (..),
-    mkNetworkConfiguration,
-    ncAwsvpcConfiguration,
-
-    -- * NetworkInterface
-    NetworkInterface (..),
-    mkNetworkInterface,
-    niIpv6Address,
-    niPrivateIPv4Address,
-    niAttachmentId,
-
-    -- * PlacementConstraint
-    PlacementConstraint (..),
-    mkPlacementConstraint,
-    pcExpression,
-    pcType,
-
-    -- * PlacementStrategy
-    PlacementStrategy (..),
-    mkPlacementStrategy,
-    psField,
-    psType,
-
-    -- * PlatformDevice
-    PlatformDevice (..),
-    mkPlatformDevice,
-    pdId,
-    pdType,
-
-    -- * PortMapping
-    PortMapping (..),
-    mkPortMapping,
-    pmProtocol,
-    pmHostPort,
-    pmContainerPort,
+    -- * FirelensConfiguration
+    FirelensConfiguration (..),
+    mkFirelensConfiguration,
+    fcType,
+    fcOptions,
 
     -- * ProxyConfiguration
     ProxyConfiguration (..),
     mkProxyConfiguration,
     pContainerName,
-    pType,
     pProperties,
+    pType,
 
-    -- * RepositoryCredentials
-    RepositoryCredentials (..),
-    mkRepositoryCredentials,
-    rcCredentialsParameter,
+    -- * PlacementConstraintType
+    PlacementConstraintType (..),
 
-    -- * Resource
-    Resource (..),
-    mkResource,
-    rStringSetValue,
-    rIntegerValue,
-    rDoubleValue,
-    rLongValue,
-    rName,
-    rType,
+    -- * TaskDefinitionStatus
+    TaskDefinitionStatus (..),
 
-    -- * ResourceRequirement
-    ResourceRequirement (..),
-    mkResourceRequirement,
-    rrValue,
-    rrType,
+    -- * ContainerCondition
+    ContainerCondition (..),
 
-    -- * Scale
-    Scale (..),
-    mkScale,
-    sValue,
-    sUnit,
+    -- * ClusterSetting
+    ClusterSetting (..),
+    mkClusterSetting,
+    csName,
+    csValue,
 
-    -- * Secret
-    Secret (..),
-    mkSecret,
-    sName,
-    sValueFrom,
+    -- * SortOrder
+    SortOrder (..),
 
-    -- * ServiceEvent
-    ServiceEvent (..),
-    mkServiceEvent,
-    seCreatedAt,
-    seId,
-    seMessage,
+    -- * AutoScalingGroupProvider
+    AutoScalingGroupProvider (..),
+    mkAutoScalingGroupProvider,
+    asgpAutoScalingGroupArn,
+    asgpManagedScaling,
+    asgpManagedTerminationProtection,
 
-    -- * ServiceRegistry
-    ServiceRegistry (..),
-    mkServiceRegistry,
-    srRegistryARN,
-    srContainerName,
-    srContainerPort,
-    srPort,
-
-    -- * Setting
-    Setting (..),
-    mkSetting,
-    sfValue,
-    sfName,
-    sfPrincipalARN,
-
-    -- * SystemControl
-    SystemControl (..),
-    mkSystemControl,
-    scValue,
-    scNamespace,
-
-    -- * Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- * Task
-    Task (..),
-    mkTask,
-    tStoppedAt,
-    tDesiredStatus,
-    tOverrides,
-    tInferenceAccelerators,
-    tClusterARN,
-    tGroup,
-    tAttachments,
-    tCreatedAt,
-    tStopCode,
-    tPlatformVersion,
-    tTaskARN,
-    tContainerInstanceARN,
-    tExecutionStoppedAt,
-    tLastStatus,
-    tMemory,
-    tPullStoppedAt,
-    tContainers,
-    tStartedAt,
-    tAvailabilityZone,
-    tAttributes,
-    tVersion,
-    tCapacityProviderName,
-    tStartedBy,
-    tStoppedReason,
-    tConnectivity,
-    tStoppingAt,
-    tLaunchType,
-    tTaskDefinitionARN,
-    tHealthStatus,
-    tConnectivityAt,
-    tCpu,
-    tPullStartedAt,
-    tTags,
-
-    -- * TaskDefinition
-    TaskDefinition (..),
-    mkTaskDefinition,
-    tdStatus,
-    tdInferenceAccelerators,
-    tdExecutionRoleARN,
-    tdRequiresCompatibilities,
-    tdPidMode,
-    tdFamily,
-    tdIpcMode,
-    tdContainerDefinitions,
-    tdMemory,
-    tdProxyConfiguration,
-    tdTaskRoleARN,
-    tdPlacementConstraints,
-    tdNetworkMode,
-    tdTaskDefinitionARN,
-    tdCompatibilities,
-    tdRevision,
-    tdVolumes,
-    tdCpu,
-    tdRequiresAttributes,
-
-    -- * TaskDefinitionPlacementConstraint
-    TaskDefinitionPlacementConstraint (..),
-    mkTaskDefinitionPlacementConstraint,
-    tdpcExpression,
-    tdpcType,
-
-    -- * TaskOverride
-    TaskOverride (..),
-    mkTaskOverride,
-    toContainerOverrides,
-    toExecutionRoleARN,
-    toMemory,
-    toTaskRoleARN,
-    toInferenceAcceleratorOverrides,
-    toCpu,
-
-    -- * TaskSet
-    TaskSet (..),
-    mkTaskSet,
-    tsRunningCount,
-    tsStatus,
-    tsClusterARN,
-    tsComputedDesiredCount,
-    tsCreatedAt,
-    tsPlatformVersion,
-    tsScale,
-    tsLoadBalancers,
-    tsStabilityStatusAt,
-    tsPendingCount,
-    tsTaskSetARN,
-    tsStartedBy,
-    tsId,
-    tsLaunchType,
-    tsUpdatedAt,
-    tsServiceARN,
-    tsTaskDefinition,
-    tsExternalId,
-    tsNetworkConfiguration,
-    tsServiceRegistries,
-    tsCapacityProviderStrategy,
-    tsStabilityStatus,
-    tsTags,
-
-    -- * Tmpfs
-    Tmpfs (..),
-    mkTmpfs,
-    tSize,
-    tContainerPath,
-    tMountOptions,
-
-    -- * Ulimit
-    Ulimit (..),
-    mkUlimit,
-    uName,
-    uHardLimit,
-    uSoftLimit,
+    -- * AgentUpdateStatus
+    AgentUpdateStatus (..),
 
     -- * VersionInfo
     VersionInfo (..),
@@ -825,38 +509,472 @@ module Network.AWS.ECS.Types
     viAgentVersion,
     viDockerVersion,
 
-    -- * Volume
-    Volume (..),
-    mkVolume,
-    vDockerVolumeConfiguration,
-    vFsxWindowsFileServerVolumeConfiguration,
-    vName,
-    vEfsVolumeConfiguration,
-    vHost,
+    -- * ServiceField
+    ServiceField (..),
 
-    -- * VolumeFrom
-    VolumeFrom (..),
-    mkVolumeFrom,
-    vfSourceContainer,
-    vfReadOnly,
+    -- * CapacityProviderField
+    CapacityProviderField (..),
+
+    -- * Container
+    Container (..),
+    mkContainer,
+    cContainerArn,
+    cCpu,
+    cExitCode,
+    cGpuIds,
+    cHealthStatus,
+    cImage,
+    cImageDigest,
+    cLastStatus,
+    cMemory,
+    cMemoryReservation,
+    cName,
+    cNetworkBindings,
+    cNetworkInterfaces,
+    cReason,
+    cRuntimeId,
+    cTaskArn,
+
+    -- * PlatformDeviceType
+    PlatformDeviceType (..),
+
+    -- * DeviceCgroupPermission
+    DeviceCgroupPermission (..),
+
+    -- * LoadBalancer
+    LoadBalancer (..),
+    mkLoadBalancer,
+    lbContainerName,
+    lbContainerPort,
+    lbLoadBalancerName,
+    lbTargetGroupArn,
+
+    -- * TaskDefinitionField
+    TaskDefinitionField (..),
+
+    -- * LogDriver
+    LogDriver (..),
+
+    -- * ManagedTerminationProtection
+    ManagedTerminationProtection (..),
+
+    -- * DeploymentCircuitBreaker
+    DeploymentCircuitBreaker (..),
+    mkDeploymentCircuitBreaker,
+    dcbEnable,
+    dcbRollback,
+
+    -- * SystemControl
+    SystemControl (..),
+    mkSystemControl,
+    scNamespace,
+    scValue,
+
+    -- * Scope
+    Scope (..),
+
+    -- * ContainerDefinition
+    ContainerDefinition (..),
+    mkContainerDefinition,
+    cdCommand,
+    cdCpu,
+    cdDependsOn,
+    cdDisableNetworking,
+    cdDnsSearchDomains,
+    cdDnsServers,
+    cdDockerLabels,
+    cdDockerSecurityOptions,
+    cdEntryPoint,
+    cdEnvironment,
+    cdEnvironmentFiles,
+    cdEssential,
+    cdExtraHosts,
+    cdFirelensConfiguration,
+    cdHealthCheck,
+    cdHostname,
+    cdImage,
+    cdInteractive,
+    cdLinks,
+    cdLinuxParameters,
+    cdLogConfiguration,
+    cdMemory,
+    cdMemoryReservation,
+    cdMountPoints,
+    cdName,
+    cdPortMappings,
+    cdPrivileged,
+    cdPseudoTerminal,
+    cdReadonlyRootFilesystem,
+    cdRepositoryCredentials,
+    cdResourceRequirements,
+    cdSecrets,
+    cdStartTimeout,
+    cdStopTimeout,
+    cdSystemControls,
+    cdUlimits,
+    cdUser,
+    cdVolumesFrom,
+    cdWorkingDirectory,
+
+    -- * PlacementStrategy
+    PlacementStrategy (..),
+    mkPlacementStrategy,
+    psField,
+    psType,
+
+    -- * Resource
+    Resource (..),
+    mkResource,
+    rDoubleValue,
+    rIntegerValue,
+    rLongValue,
+    rName,
+    rStringSetValue,
+    rType,
+
+    -- * DeploymentController
+    DeploymentController (..),
+    mkDeploymentController,
+    dcType,
+
+    -- * Connectivity
+    Connectivity (..),
+
+    -- * DeploymentRolloutState
+    DeploymentRolloutState (..),
+
+    -- * TaskSetField
+    TaskSetField (..),
+
+    -- * Task
+    Task (..),
+    mkTask,
+    tAttachments,
+    tAttributes,
+    tAvailabilityZone,
+    tCapacityProviderName,
+    tClusterArn,
+    tConnectivity,
+    tConnectivityAt,
+    tContainerInstanceArn,
+    tContainers,
+    tCpu,
+    tCreatedAt,
+    tDesiredStatus,
+    tExecutionStoppedAt,
+    tGroup,
+    tHealthStatus,
+    tInferenceAccelerators,
+    tLastStatus,
+    tLaunchType,
+    tMemory,
+    tOverrides,
+    tPlatformVersion,
+    tPullStartedAt,
+    tPullStoppedAt,
+    tStartedAt,
+    tStartedBy,
+    tStopCode,
+    tStoppedAt,
+    tStoppedReason,
+    tStoppingAt,
+    tTags,
+    tTaskArn,
+    tTaskDefinitionArn,
+    tVersion,
+
+    -- * ResourceRequirement
+    ResourceRequirement (..),
+    mkResourceRequirement,
+    rrValue,
+    rrType,
+
+    -- * PortMapping
+    PortMapping (..),
+    mkPortMapping,
+    pmContainerPort,
+    pmHostPort,
+    pmProtocol,
+
+    -- * LaunchType
+    LaunchType (..),
+
+    -- * NetworkMode
+    NetworkMode (..),
+
+    -- * TagKey
+    TagKey (..),
+
+    -- * TaskDefinition
+    TaskDefinition (..),
+    mkTaskDefinition,
+    tdCompatibilities,
+    tdContainerDefinitions,
+    tdCpu,
+    tdExecutionRoleArn,
+    tdFamily,
+    tdInferenceAccelerators,
+    tdIpcMode,
+    tdMemory,
+    tdNetworkMode,
+    tdPidMode,
+    tdPlacementConstraints,
+    tdProxyConfiguration,
+    tdRequiresAttributes,
+    tdRequiresCompatibilities,
+    tdRevision,
+    tdStatus,
+    tdTaskDefinitionArn,
+    tdTaskRoleArn,
+    tdVolumes,
+
+    -- * Ulimit
+    Ulimit (..),
+    mkUlimit,
+    uName,
+    uSoftLimit,
+    uHardLimit,
+
+    -- * ServiceRegistry
+    ServiceRegistry (..),
+    mkServiceRegistry,
+    srContainerName,
+    srContainerPort,
+    srPort,
+    srRegistryArn,
+
+    -- * CapacityProviderUpdateStatus
+    CapacityProviderUpdateStatus (..),
+
+    -- * EFSVolumeConfiguration
+    EFSVolumeConfiguration (..),
+    mkEFSVolumeConfiguration,
+    efsvcFileSystemId,
+    efsvcAuthorizationConfig,
+    efsvcRootDirectory,
+    efsvcTransitEncryption,
+    efsvcTransitEncryptionPort,
+
+    -- * HealthStatus
+    HealthStatus (..),
+
+    -- * FSxWindowsFileServerAuthorizationConfig
+    FSxWindowsFileServerAuthorizationConfig (..),
+    mkFSxWindowsFileServerAuthorizationConfig,
+    fswfsacCredentialsParameter,
+    fswfsacDomain,
+
+    -- * TaskStopCode
+    TaskStopCode (..),
+
+    -- * AwsVpcConfiguration
+    AwsVpcConfiguration (..),
+    mkAwsVpcConfiguration,
+    avcSubnets,
+    avcAssignPublicIp,
+    avcSecurityGroups,
+
+    -- * Failure
+    Failure (..),
+    mkFailure,
+    fArn,
+    fDetail,
+    fReason,
+
+    -- * CapacityProviderStrategyItem
+    CapacityProviderStrategyItem (..),
+    mkCapacityProviderStrategyItem,
+    cpsiCapacityProvider,
+    cpsiBase,
+    cpsiWeight,
+
+    -- * EnvironmentFileType
+    EnvironmentFileType (..),
+
+    -- * SchedulingStrategy
+    SchedulingStrategy (..),
+
+    -- * ContainerInstance
+    ContainerInstance (..),
+    mkContainerInstance,
+    ciAgentConnected,
+    ciAgentUpdateStatus,
+    ciAttachments,
+    ciAttributes,
+    ciCapacityProviderName,
+    ciContainerInstanceArn,
+    ciEc2InstanceId,
+    ciPendingTasksCount,
+    ciRegisteredAt,
+    ciRegisteredResources,
+    ciRemainingResources,
+    ciRunningTasksCount,
+    ciStatus,
+    ciStatusReason,
+    ciTags,
+    ciVersion,
+    ciVersionInfo,
+
+    -- * ScaleUnit
+    ScaleUnit (..),
+
+    -- * NetworkConfiguration
+    NetworkConfiguration (..),
+    mkNetworkConfiguration,
+    ncAwsvpcConfiguration,
+
+    -- * Compatibility
+    Compatibility (..),
+
+    -- * StabilityStatus
+    StabilityStatus (..),
+
+    -- * ServiceEvent
+    ServiceEvent (..),
+    mkServiceEvent,
+    seCreatedAt,
+    seId,
+    seMessage,
+
+    -- * DeploymentConfiguration
+    DeploymentConfiguration (..),
+    mkDeploymentConfiguration,
+    dcDeploymentCircuitBreaker,
+    dcMaximumPercent,
+    dcMinimumHealthyPercent,
+
+    -- * Deployment
+    Deployment (..),
+    mkDeployment,
+    dCapacityProviderStrategy,
+    dCreatedAt,
+    dDesiredCount,
+    dFailedTasks,
+    dId,
+    dLaunchType,
+    dNetworkConfiguration,
+    dPendingCount,
+    dPlatformVersion,
+    dRolloutState,
+    dRolloutStateReason,
+    dRunningCount,
+    dStatus,
+    dTaskDefinition,
+    dUpdatedAt,
+
+    -- * MountPoint
+    MountPoint (..),
+    mkMountPoint,
+    mpContainerPath,
+    mpReadOnly,
+    mpSourceVolume,
+
+    -- * Acknowledgment
+    Acknowledgment (..),
+
+    -- * Reason
+    Reason (..),
+
+    -- * Endpoint
+    Endpoint (..),
+
+    -- * TelemetryEndpoint
+    TelemetryEndpoint (..),
+
+    -- * Driver
+    Driver (..),
+
+    -- * Name
+    Name (..),
+
+    -- * TargetId
+    TargetId (..),
+
+    -- * Value
+    Value (..),
+
+    -- * Hostname
+    Hostname (..),
+
+    -- * IpAddress
+    IpAddress (..),
+
+    -- * Expression
+    Expression (..),
+
+    -- * ClusterArn
+    ClusterArn (..),
+
+    -- * ExternalId
+    ExternalId (..),
+
+    -- * Id
+    Id (..),
+
+    -- * PlatformVersion
+    PlatformVersion (..),
+
+    -- * ServiceArn
+    ServiceArn (..),
+
+    -- * StartedBy
+    StartedBy (..),
+
+    -- * Status
+    Status (..),
+
+    -- * TaskSetArn
+    TaskSetArn (..),
+
+    -- * PrincipalArn
+    PrincipalArn (..),
+
+    -- * NextToken
+    NextToken (..),
+
+    -- * ClusterName
+    ClusterName (..),
+
+    -- * BindIP
+    BindIP (..),
+
+    -- * Key
+    Key (..),
+
+    -- * CredentialsParameter
+    CredentialsParameter (..),
+
+    -- * AttachmentsStatus
+    AttachmentsStatus (..),
+
+    -- * Family
+    Family (..),
+
+    -- * ServiceName
+    ServiceName (..),
   )
 where
 
-import Network.AWS.ECS.Types.AWSVPCConfiguration
+import Network.AWS.ECS.Types.Acknowledgment
 import Network.AWS.ECS.Types.AgentUpdateStatus
-import Network.AWS.ECS.Types.AssignPublicIP
+import Network.AWS.ECS.Types.AssignPublicIp
 import Network.AWS.ECS.Types.Attachment
 import Network.AWS.ECS.Types.AttachmentStateChange
+import Network.AWS.ECS.Types.AttachmentsStatus
 import Network.AWS.ECS.Types.Attribute
 import Network.AWS.ECS.Types.AutoScalingGroupProvider
 import Network.AWS.ECS.Types.AutoScalingGroupProviderUpdate
+import Network.AWS.ECS.Types.AwsVpcConfiguration
+import Network.AWS.ECS.Types.BindIP
 import Network.AWS.ECS.Types.CapacityProvider
 import Network.AWS.ECS.Types.CapacityProviderField
 import Network.AWS.ECS.Types.CapacityProviderStatus
 import Network.AWS.ECS.Types.CapacityProviderStrategyItem
 import Network.AWS.ECS.Types.CapacityProviderUpdateStatus
 import Network.AWS.ECS.Types.Cluster
+import Network.AWS.ECS.Types.ClusterArn
 import Network.AWS.ECS.Types.ClusterField
+import Network.AWS.ECS.Types.ClusterName
 import Network.AWS.ECS.Types.ClusterSetting
 import Network.AWS.ECS.Types.ClusterSettingName
 import Network.AWS.ECS.Types.Compatibility
@@ -871,6 +989,7 @@ import Network.AWS.ECS.Types.ContainerInstanceStatus
 import Network.AWS.ECS.Types.ContainerOverride
 import Network.AWS.ECS.Types.ContainerService
 import Network.AWS.ECS.Types.ContainerStateChange
+import Network.AWS.ECS.Types.CredentialsParameter
 import Network.AWS.ECS.Types.Deployment
 import Network.AWS.ECS.Types.DeploymentCircuitBreaker
 import Network.AWS.ECS.Types.DeploymentConfiguration
@@ -881,25 +1000,34 @@ import Network.AWS.ECS.Types.DesiredStatus
 import Network.AWS.ECS.Types.Device
 import Network.AWS.ECS.Types.DeviceCgroupPermission
 import Network.AWS.ECS.Types.DockerVolumeConfiguration
+import Network.AWS.ECS.Types.Driver
 import Network.AWS.ECS.Types.EFSAuthorizationConfig
 import Network.AWS.ECS.Types.EFSAuthorizationConfigIAM
 import Network.AWS.ECS.Types.EFSTransitEncryption
 import Network.AWS.ECS.Types.EFSVolumeConfiguration
+import Network.AWS.ECS.Types.Endpoint
 import Network.AWS.ECS.Types.EnvironmentFile
 import Network.AWS.ECS.Types.EnvironmentFileType
+import Network.AWS.ECS.Types.Expression
+import Network.AWS.ECS.Types.ExternalId
 import Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig
 import Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration
 import Network.AWS.ECS.Types.Failure
+import Network.AWS.ECS.Types.Family
 import Network.AWS.ECS.Types.FirelensConfiguration
 import Network.AWS.ECS.Types.FirelensConfigurationType
 import Network.AWS.ECS.Types.HealthCheck
 import Network.AWS.ECS.Types.HealthStatus
 import Network.AWS.ECS.Types.HostEntry
 import Network.AWS.ECS.Types.HostVolumeProperties
-import Network.AWS.ECS.Types.IPcMode
+import Network.AWS.ECS.Types.Hostname
+import Network.AWS.ECS.Types.Id
 import Network.AWS.ECS.Types.InferenceAccelerator
 import Network.AWS.ECS.Types.InferenceAcceleratorOverride
+import Network.AWS.ECS.Types.IpAddress
+import Network.AWS.ECS.Types.IpcMode
 import Network.AWS.ECS.Types.KernelCapabilities
+import Network.AWS.ECS.Types.Key
 import Network.AWS.ECS.Types.KeyValuePair
 import Network.AWS.ECS.Types.LaunchType
 import Network.AWS.ECS.Types.LinuxParameters
@@ -910,10 +1038,12 @@ import Network.AWS.ECS.Types.ManagedScaling
 import Network.AWS.ECS.Types.ManagedScalingStatus
 import Network.AWS.ECS.Types.ManagedTerminationProtection
 import Network.AWS.ECS.Types.MountPoint
+import Network.AWS.ECS.Types.Name
 import Network.AWS.ECS.Types.NetworkBinding
 import Network.AWS.ECS.Types.NetworkConfiguration
 import Network.AWS.ECS.Types.NetworkInterface
 import Network.AWS.ECS.Types.NetworkMode
+import Network.AWS.ECS.Types.NextToken
 import Network.AWS.ECS.Types.PidMode
 import Network.AWS.ECS.Types.PlacementConstraint
 import Network.AWS.ECS.Types.PlacementConstraintType
@@ -921,10 +1051,13 @@ import Network.AWS.ECS.Types.PlacementStrategy
 import Network.AWS.ECS.Types.PlacementStrategyType
 import Network.AWS.ECS.Types.PlatformDevice
 import Network.AWS.ECS.Types.PlatformDeviceType
+import Network.AWS.ECS.Types.PlatformVersion
 import Network.AWS.ECS.Types.PortMapping
+import Network.AWS.ECS.Types.PrincipalArn
 import Network.AWS.ECS.Types.PropagateTags
 import Network.AWS.ECS.Types.ProxyConfiguration
 import Network.AWS.ECS.Types.ProxyConfigurationType
+import Network.AWS.ECS.Types.Reason
 import Network.AWS.ECS.Types.RepositoryCredentials
 import Network.AWS.ECS.Types.Resource
 import Network.AWS.ECS.Types.ResourceRequirement
@@ -934,15 +1067,22 @@ import Network.AWS.ECS.Types.ScaleUnit
 import Network.AWS.ECS.Types.SchedulingStrategy
 import Network.AWS.ECS.Types.Scope
 import Network.AWS.ECS.Types.Secret
+import Network.AWS.ECS.Types.ServiceArn
 import Network.AWS.ECS.Types.ServiceEvent
 import Network.AWS.ECS.Types.ServiceField
+import Network.AWS.ECS.Types.ServiceName
 import Network.AWS.ECS.Types.ServiceRegistry
 import Network.AWS.ECS.Types.Setting
 import Network.AWS.ECS.Types.SettingName
 import Network.AWS.ECS.Types.SortOrder
 import Network.AWS.ECS.Types.StabilityStatus
+import Network.AWS.ECS.Types.StartedBy
+import Network.AWS.ECS.Types.Status
+import Network.AWS.ECS.Types.String
 import Network.AWS.ECS.Types.SystemControl
 import Network.AWS.ECS.Types.Tag
+import Network.AWS.ECS.Types.TagKey
+import Network.AWS.ECS.Types.TargetId
 import Network.AWS.ECS.Types.TargetType
 import Network.AWS.ECS.Types.Task
 import Network.AWS.ECS.Types.TaskDefinition
@@ -954,69 +1094,240 @@ import Network.AWS.ECS.Types.TaskDefinitionStatus
 import Network.AWS.ECS.Types.TaskField
 import Network.AWS.ECS.Types.TaskOverride
 import Network.AWS.ECS.Types.TaskSet
+import Network.AWS.ECS.Types.TaskSetArn
 import Network.AWS.ECS.Types.TaskSetField
 import Network.AWS.ECS.Types.TaskStopCode
+import Network.AWS.ECS.Types.TelemetryEndpoint
 import Network.AWS.ECS.Types.Tmpfs
 import Network.AWS.ECS.Types.TransportProtocol
 import Network.AWS.ECS.Types.Ulimit
 import Network.AWS.ECS.Types.UlimitName
+import Network.AWS.ECS.Types.Value
 import Network.AWS.ECS.Types.VersionInfo
 import Network.AWS.ECS.Types.Volume
 import Network.AWS.ECS.Types.VolumeFrom
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-11-13@ of the Amazon EC2 Container Service SDK configuration.
-ecsService :: Lude.Service
-ecsService =
-  Lude.Service
-    { Lude._svcAbbrev = "ECS",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "ecs",
-      Lude._svcVersion = "2014-11-13",
-      Lude._svcEndpoint = Lude.defaultEndpoint ecsService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "ECS",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "ECS",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "ecs",
+      Core._svcVersion = "2014-11-13",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "ECS",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | You do not have authorization to perform the requested action.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError mkServiceConfig "AccessDeniedException"
+{-# DEPRECATED _AccessDeniedException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified parameter is invalid. Review the available parameters for the API request.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidParameterException"
+{-# DEPRECATED _InvalidParameterException "Use generic-lens or generic-optics instead." #-}
+
+-- | These errors are usually caused by a server issue.
+_ServerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServerException =
+  Core._MatchServiceError mkServiceConfig "ServerException"
+{-# DEPRECATED _ServerException "Use generic-lens or generic-optics instead." #-}
+
+-- | You cannot delete a cluster that has active tasks.
+_ClusterContainsTasksException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsTasksException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ClusterContainsTasksException"
+{-# DEPRECATED _ClusterContainsTasksException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified platform version does not exist.
+_PlatformUnknownException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PlatformUnknownException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "PlatformUnknownException"
+{-# DEPRECATED _PlatformUnknownException "Use generic-lens or generic-optics instead." #-}
+
+-- | You cannot delete a cluster that contains services. First, update the service to reduce its desired task count to 0 and then delete the service. For more information, see 'UpdateService' and 'DeleteService' .
+_ClusterContainsServicesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsServicesException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ClusterContainsServicesException"
+{-# DEPRECATED _ClusterContainsServicesException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified task set could not be found. You can view your available task sets with 'DescribeTaskSets' . Task sets are specific to each cluster, service and Region.
+_TaskSetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TaskSetNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "TaskSetNotFoundException"
+{-# DEPRECATED _TaskSetNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | You cannot delete a cluster that has registered container instances. First, deregister the container instances before you can delete the cluster. For more information, see 'DeregisterContainerInstance' .
+_ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClusterContainsContainerInstancesException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ClusterContainsContainerInstancesException"
+{-# DEPRECATED _ClusterContainsContainerInstancesException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified service is not active. You can't update a service that is inactive. If you have previously deleted a service, you can re-create it with 'CreateService' .
+_ServiceNotActiveException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServiceNotActiveException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ServiceNotActiveException"
+{-# DEPRECATED _ServiceNotActiveException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified cluster could not be found. You can view your available clusters with 'ListClusters' . Amazon ECS clusters are Region-specific.
+_ClusterNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClusterNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ClusterNotFoundException"
+{-# DEPRECATED _ClusterNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | There is no update available for this Amazon ECS container agent. This could be because the agent is already running the latest version, or it is so old that there is no update path to the current version.
+_NoUpdateAvailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoUpdateAvailableException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "NoUpdateAvailableException"
+{-# DEPRECATED _NoUpdateAvailableException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified task is not supported in this Region.
+_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedFeatureException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "UnsupportedFeatureException"
+{-# DEPRECATED _UnsupportedFeatureException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified service could not be found. You can view your available services with 'ListServices' . Amazon ECS services are cluster-specific and Region-specific.
+_ServiceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServiceNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ServiceNotFoundException"
+{-# DEPRECATED _ServiceNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified platform version does not satisfy the task definition's required capabilities.
+_PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PlatformTaskDefinitionIncompatibilityException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "PlatformTaskDefinitionIncompatibilityException"
+{-# DEPRECATED _PlatformTaskDefinitionIncompatibilityException "Use generic-lens or generic-optics instead." #-}
+
+-- | Amazon ECS is unable to determine the current version of the Amazon ECS container agent on the container instance and does not have enough information to proceed with an update. This could be because the agent running on the container instance is an older or custom version that does not use our version information.
+_MissingVersionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MissingVersionException =
+  Core._MatchServiceError mkServiceConfig "MissingVersionException"
+{-# DEPRECATED _MissingVersionException "Use generic-lens or generic-optics instead." #-}
+
+-- | There is already a current Amazon ECS container agent update in progress on the specified container instance. If the container agent becomes disconnected while it is in a transitional stage, such as @PENDING@ or @STAGING@ , the update process can get stuck in that state. However, when the agent reconnects, it resumes where it stopped previously.
+_UpdateInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UpdateInProgressException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "UpdateInProgressException"
+{-# DEPRECATED _UpdateInProgressException "Use generic-lens or generic-optics instead." #-}
+
+-- | Your AWS account has been blocked. For more information, contact <http://aws.amazon.com/contact-us/ AWS Support> .
+_BlockedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BlockedException =
+  Core._MatchServiceError mkServiceConfig "BlockedException"
+{-# DEPRECATED _BlockedException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified target could not be found. You can view your available container instances with 'ListContainerInstances' . Amazon ECS container instances are cluster-specific and Region-specific.
+_TargetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TargetNotFoundException =
+  Core._MatchServiceError mkServiceConfig "TargetNotFoundException"
+{-# DEPRECATED _TargetNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | You can apply up to 10 custom attributes per resource. You can view the attributes of a resource with 'ListAttributes' . You can remove existing attributes on a resource with 'DeleteAttributes' .
+_AttributeLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AttributeLimitExceededException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "AttributeLimitExceededException"
+{-# DEPRECATED _AttributeLimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an identifier that is not valid.
+_ClientException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClientException =
+  Core._MatchServiceError mkServiceConfig "ClientException"
+{-# DEPRECATED _ClientException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ResourceNotFoundException"
+{-# DEPRECATED _ResourceNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The limit for the resource has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError mkServiceConfig "LimitExceededException"
+{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified resource is in-use and cannot be removed.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError mkServiceConfig "ResourceInUseException"
+{-# DEPRECATED _ResourceInUseException "Use generic-lens or generic-optics instead." #-}

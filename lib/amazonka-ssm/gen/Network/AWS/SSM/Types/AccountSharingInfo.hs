@@ -17,58 +17,55 @@ module Network.AWS.SSM.Types.AccountSharingInfo
     mkAccountSharingInfo,
 
     -- * Lenses
-    asiSharedDocumentVersion,
     asiAccountId,
+    asiSharedDocumentVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AccountId as Types
+import qualified Network.AWS.SSM.Types.SharedDocumentVersion as Types
 
 -- | Information includes the AWS account ID where the current document is shared and the version shared with that account.
 --
 -- /See:/ 'mkAccountSharingInfo' smart constructor.
 data AccountSharingInfo = AccountSharingInfo'
-  { -- | The version of the current document shared with the account.
-    sharedDocumentVersion :: Lude.Maybe Lude.Text,
-    -- | The AWS account ID where the current document is shared.
-    accountId :: Lude.Maybe Lude.Text
+  { -- | The AWS account ID where the current document is shared.
+    accountId :: Core.Maybe Types.AccountId,
+    -- | The version of the current document shared with the account.
+    sharedDocumentVersion :: Core.Maybe Types.SharedDocumentVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountSharingInfo' with the minimum fields required to make a request.
---
--- * 'sharedDocumentVersion' - The version of the current document shared with the account.
--- * 'accountId' - The AWS account ID where the current document is shared.
+-- | Creates a 'AccountSharingInfo' value with any optional fields omitted.
 mkAccountSharingInfo ::
   AccountSharingInfo
 mkAccountSharingInfo =
   AccountSharingInfo'
-    { sharedDocumentVersion = Lude.Nothing,
-      accountId = Lude.Nothing
+    { accountId = Core.Nothing,
+      sharedDocumentVersion = Core.Nothing
     }
-
--- | The version of the current document shared with the account.
---
--- /Note:/ Consider using 'sharedDocumentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asiSharedDocumentVersion :: Lens.Lens' AccountSharingInfo (Lude.Maybe Lude.Text)
-asiSharedDocumentVersion = Lens.lens (sharedDocumentVersion :: AccountSharingInfo -> Lude.Maybe Lude.Text) (\s a -> s {sharedDocumentVersion = a} :: AccountSharingInfo)
-{-# DEPRECATED asiSharedDocumentVersion "Use generic-lens or generic-optics with 'sharedDocumentVersion' instead." #-}
 
 -- | The AWS account ID where the current document is shared.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asiAccountId :: Lens.Lens' AccountSharingInfo (Lude.Maybe Lude.Text)
-asiAccountId = Lens.lens (accountId :: AccountSharingInfo -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: AccountSharingInfo)
+asiAccountId :: Lens.Lens' AccountSharingInfo (Core.Maybe Types.AccountId)
+asiAccountId = Lens.field @"accountId"
 {-# DEPRECATED asiAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.FromJSON AccountSharingInfo where
+-- | The version of the current document shared with the account.
+--
+-- /Note:/ Consider using 'sharedDocumentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asiSharedDocumentVersion :: Lens.Lens' AccountSharingInfo (Core.Maybe Types.SharedDocumentVersion)
+asiSharedDocumentVersion = Lens.field @"sharedDocumentVersion"
+{-# DEPRECATED asiSharedDocumentVersion "Use generic-lens or generic-optics with 'sharedDocumentVersion' instead." #-}
+
+instance Core.FromJSON AccountSharingInfo where
   parseJSON =
-    Lude.withObject
-      "AccountSharingInfo"
-      ( \x ->
-          AccountSharingInfo'
-            Lude.<$> (x Lude..:? "SharedDocumentVersion")
-            Lude.<*> (x Lude..:? "AccountId")
-      )
+    Core.withObject "AccountSharingInfo" Core.$
+      \x ->
+        AccountSharingInfo'
+          Core.<$> (x Core..:? "AccountId")
+          Core.<*> (x Core..:? "SharedDocumentVersion")

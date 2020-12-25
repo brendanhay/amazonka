@@ -13,61 +13,66 @@
 module Network.AWS.StepFunctions.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
-        ESRunning,
-        ESSucceeded,
-        ESFailed,
-        ESTimedOut,
-        ESAborted
+        ExecutionStatusRunning,
+        ExecutionStatusSucceeded,
+        ExecutionStatusFailed,
+        ExecutionStatusTimedOut,
+        ExecutionStatusAborted,
+        fromExecutionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExecutionStatus = ExecutionStatus' Lude.Text
+newtype ExecutionStatus = ExecutionStatus'
+  { fromExecutionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESRunning :: ExecutionStatus
-pattern ESRunning = ExecutionStatus' "RUNNING"
+pattern ExecutionStatusRunning :: ExecutionStatus
+pattern ExecutionStatusRunning = ExecutionStatus' "RUNNING"
 
-pattern ESSucceeded :: ExecutionStatus
-pattern ESSucceeded = ExecutionStatus' "SUCCEEDED"
+pattern ExecutionStatusSucceeded :: ExecutionStatus
+pattern ExecutionStatusSucceeded = ExecutionStatus' "SUCCEEDED"
 
-pattern ESFailed :: ExecutionStatus
-pattern ESFailed = ExecutionStatus' "FAILED"
+pattern ExecutionStatusFailed :: ExecutionStatus
+pattern ExecutionStatusFailed = ExecutionStatus' "FAILED"
 
-pattern ESTimedOut :: ExecutionStatus
-pattern ESTimedOut = ExecutionStatus' "TIMED_OUT"
+pattern ExecutionStatusTimedOut :: ExecutionStatus
+pattern ExecutionStatusTimedOut = ExecutionStatus' "TIMED_OUT"
 
-pattern ESAborted :: ExecutionStatus
-pattern ESAborted = ExecutionStatus' "ABORTED"
+pattern ExecutionStatusAborted :: ExecutionStatus
+pattern ExecutionStatusAborted = ExecutionStatus' "ABORTED"
 
 {-# COMPLETE
-  ESRunning,
-  ESSucceeded,
-  ESFailed,
-  ESTimedOut,
-  ESAborted,
+  ExecutionStatusRunning,
+  ExecutionStatusSucceeded,
+  ExecutionStatusFailed,
+  ExecutionStatusTimedOut,
+  ExecutionStatusAborted,
   ExecutionStatus'
   #-}

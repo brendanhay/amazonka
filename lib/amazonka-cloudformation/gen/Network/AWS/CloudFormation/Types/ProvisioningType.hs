@@ -13,51 +13,56 @@
 module Network.AWS.CloudFormation.Types.ProvisioningType
   ( ProvisioningType
       ( ProvisioningType',
-        NonProvisionable,
-        Immutable,
-        FullyMutable
+        ProvisioningTypeNonProvisionable,
+        ProvisioningTypeImmutable,
+        ProvisioningTypeFullyMutable,
+        fromProvisioningType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProvisioningType = ProvisioningType' Lude.Text
+newtype ProvisioningType = ProvisioningType'
+  { fromProvisioningType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NonProvisionable :: ProvisioningType
-pattern NonProvisionable = ProvisioningType' "NON_PROVISIONABLE"
+pattern ProvisioningTypeNonProvisionable :: ProvisioningType
+pattern ProvisioningTypeNonProvisionable = ProvisioningType' "NON_PROVISIONABLE"
 
-pattern Immutable :: ProvisioningType
-pattern Immutable = ProvisioningType' "IMMUTABLE"
+pattern ProvisioningTypeImmutable :: ProvisioningType
+pattern ProvisioningTypeImmutable = ProvisioningType' "IMMUTABLE"
 
-pattern FullyMutable :: ProvisioningType
-pattern FullyMutable = ProvisioningType' "FULLY_MUTABLE"
+pattern ProvisioningTypeFullyMutable :: ProvisioningType
+pattern ProvisioningTypeFullyMutable = ProvisioningType' "FULLY_MUTABLE"
 
 {-# COMPLETE
-  NonProvisionable,
-  Immutable,
-  FullyMutable,
+  ProvisioningTypeNonProvisionable,
+  ProvisioningTypeImmutable,
+  ProvisioningTypeFullyMutable,
   ProvisioningType'
   #-}

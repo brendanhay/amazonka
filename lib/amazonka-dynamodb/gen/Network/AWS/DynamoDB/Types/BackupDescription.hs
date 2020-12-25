@@ -23,68 +23,62 @@ module Network.AWS.DynamoDB.Types.BackupDescription
   )
 where
 
-import Network.AWS.DynamoDB.Types.BackupDetails
-import Network.AWS.DynamoDB.Types.SourceTableDetails
-import Network.AWS.DynamoDB.Types.SourceTableFeatureDetails
+import qualified Network.AWS.DynamoDB.Types.BackupDetails as Types
+import qualified Network.AWS.DynamoDB.Types.SourceTableDetails as Types
+import qualified Network.AWS.DynamoDB.Types.SourceTableFeatureDetails as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the description of the backup created for the table.
 --
 -- /See:/ 'mkBackupDescription' smart constructor.
 data BackupDescription = BackupDescription'
   { -- | Contains the details of the backup created for the table.
-    backupDetails :: Lude.Maybe BackupDetails,
+    backupDetails :: Core.Maybe Types.BackupDetails,
     -- | Contains the details of the table when the backup was created.
-    sourceTableDetails :: Lude.Maybe SourceTableDetails,
+    sourceTableDetails :: Core.Maybe Types.SourceTableDetails,
     -- | Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.
-    sourceTableFeatureDetails :: Lude.Maybe SourceTableFeatureDetails
+    sourceTableFeatureDetails :: Core.Maybe Types.SourceTableFeatureDetails
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BackupDescription' with the minimum fields required to make a request.
---
--- * 'backupDetails' - Contains the details of the backup created for the table.
--- * 'sourceTableDetails' - Contains the details of the table when the backup was created.
--- * 'sourceTableFeatureDetails' - Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.
+-- | Creates a 'BackupDescription' value with any optional fields omitted.
 mkBackupDescription ::
   BackupDescription
 mkBackupDescription =
   BackupDescription'
-    { backupDetails = Lude.Nothing,
-      sourceTableDetails = Lude.Nothing,
-      sourceTableFeatureDetails = Lude.Nothing
+    { backupDetails = Core.Nothing,
+      sourceTableDetails = Core.Nothing,
+      sourceTableFeatureDetails = Core.Nothing
     }
 
 -- | Contains the details of the backup created for the table.
 --
 -- /Note:/ Consider using 'backupDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdBackupDetails :: Lens.Lens' BackupDescription (Lude.Maybe BackupDetails)
-bdBackupDetails = Lens.lens (backupDetails :: BackupDescription -> Lude.Maybe BackupDetails) (\s a -> s {backupDetails = a} :: BackupDescription)
+bdBackupDetails :: Lens.Lens' BackupDescription (Core.Maybe Types.BackupDetails)
+bdBackupDetails = Lens.field @"backupDetails"
 {-# DEPRECATED bdBackupDetails "Use generic-lens or generic-optics with 'backupDetails' instead." #-}
 
 -- | Contains the details of the table when the backup was created.
 --
 -- /Note:/ Consider using 'sourceTableDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdSourceTableDetails :: Lens.Lens' BackupDescription (Lude.Maybe SourceTableDetails)
-bdSourceTableDetails = Lens.lens (sourceTableDetails :: BackupDescription -> Lude.Maybe SourceTableDetails) (\s a -> s {sourceTableDetails = a} :: BackupDescription)
+bdSourceTableDetails :: Lens.Lens' BackupDescription (Core.Maybe Types.SourceTableDetails)
+bdSourceTableDetails = Lens.field @"sourceTableDetails"
 {-# DEPRECATED bdSourceTableDetails "Use generic-lens or generic-optics with 'sourceTableDetails' instead." #-}
 
 -- | Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.
 --
 -- /Note:/ Consider using 'sourceTableFeatureDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdSourceTableFeatureDetails :: Lens.Lens' BackupDescription (Lude.Maybe SourceTableFeatureDetails)
-bdSourceTableFeatureDetails = Lens.lens (sourceTableFeatureDetails :: BackupDescription -> Lude.Maybe SourceTableFeatureDetails) (\s a -> s {sourceTableFeatureDetails = a} :: BackupDescription)
+bdSourceTableFeatureDetails :: Lens.Lens' BackupDescription (Core.Maybe Types.SourceTableFeatureDetails)
+bdSourceTableFeatureDetails = Lens.field @"sourceTableFeatureDetails"
 {-# DEPRECATED bdSourceTableFeatureDetails "Use generic-lens or generic-optics with 'sourceTableFeatureDetails' instead." #-}
 
-instance Lude.FromJSON BackupDescription where
+instance Core.FromJSON BackupDescription where
   parseJSON =
-    Lude.withObject
-      "BackupDescription"
-      ( \x ->
-          BackupDescription'
-            Lude.<$> (x Lude..:? "BackupDetails")
-            Lude.<*> (x Lude..:? "SourceTableDetails")
-            Lude.<*> (x Lude..:? "SourceTableFeatureDetails")
-      )
+    Core.withObject "BackupDescription" Core.$
+      \x ->
+        BackupDescription'
+          Core.<$> (x Core..:? "BackupDetails")
+          Core.<*> (x Core..:? "SourceTableDetails")
+          Core.<*> (x Core..:? "SourceTableFeatureDetails")

@@ -17,73 +17,62 @@ module Network.AWS.CodeCommit.Types.ReplaceContentEntry
     mkReplaceContentEntry,
 
     -- * Lenses
-    rceFileMode,
     rceFilePath,
     rceReplacementType,
     rceContent,
+    rceFileMode,
   )
 where
 
-import Network.AWS.CodeCommit.Types.FileModeTypeEnum
-import Network.AWS.CodeCommit.Types.ReplacementTypeEnum
+import qualified Network.AWS.CodeCommit.Types.FileModeTypeEnum as Types
+import qualified Network.AWS.CodeCommit.Types.Path as Types
+import qualified Network.AWS.CodeCommit.Types.ReplacementTypeEnum as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a replacement content entry in the conflict of a merge or pull request operation.
 --
 -- /See:/ 'mkReplaceContentEntry' smart constructor.
 data ReplaceContentEntry = ReplaceContentEntry'
-  { -- | The file mode to apply during conflict resoltion.
-    fileMode :: Lude.Maybe FileModeTypeEnum,
-    -- | The path of the conflicting file.
-    filePath :: Lude.Text,
+  { -- | The path of the conflicting file.
+    filePath :: Types.Path,
     -- | The replacement type to use when determining how to resolve the conflict.
-    replacementType :: ReplacementTypeEnum,
+    replacementType :: Types.ReplacementTypeEnum,
     -- | The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.
-    content :: Lude.Maybe Lude.Base64
+    content :: Core.Maybe Core.Base64,
+    -- | The file mode to apply during conflict resoltion.
+    fileMode :: Core.Maybe Types.FileModeTypeEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceContentEntry' with the minimum fields required to make a request.
---
--- * 'fileMode' - The file mode to apply during conflict resoltion.
--- * 'filePath' - The path of the conflicting file.
--- * 'replacementType' - The replacement type to use when determining how to resolve the conflict.
--- * 'content' - The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.
+-- | Creates a 'ReplaceContentEntry' value with any optional fields omitted.
 mkReplaceContentEntry ::
   -- | 'filePath'
-  Lude.Text ->
+  Types.Path ->
   -- | 'replacementType'
-  ReplacementTypeEnum ->
+  Types.ReplacementTypeEnum ->
   ReplaceContentEntry
-mkReplaceContentEntry pFilePath_ pReplacementType_ =
+mkReplaceContentEntry filePath replacementType =
   ReplaceContentEntry'
-    { fileMode = Lude.Nothing,
-      filePath = pFilePath_,
-      replacementType = pReplacementType_,
-      content = Lude.Nothing
+    { filePath,
+      replacementType,
+      content = Core.Nothing,
+      fileMode = Core.Nothing
     }
-
--- | The file mode to apply during conflict resoltion.
---
--- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceFileMode :: Lens.Lens' ReplaceContentEntry (Lude.Maybe FileModeTypeEnum)
-rceFileMode = Lens.lens (fileMode :: ReplaceContentEntry -> Lude.Maybe FileModeTypeEnum) (\s a -> s {fileMode = a} :: ReplaceContentEntry)
-{-# DEPRECATED rceFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
 
 -- | The path of the conflicting file.
 --
 -- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceFilePath :: Lens.Lens' ReplaceContentEntry Lude.Text
-rceFilePath = Lens.lens (filePath :: ReplaceContentEntry -> Lude.Text) (\s a -> s {filePath = a} :: ReplaceContentEntry)
+rceFilePath :: Lens.Lens' ReplaceContentEntry Types.Path
+rceFilePath = Lens.field @"filePath"
 {-# DEPRECATED rceFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
 -- | The replacement type to use when determining how to resolve the conflict.
 --
 -- /Note:/ Consider using 'replacementType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceReplacementType :: Lens.Lens' ReplaceContentEntry ReplacementTypeEnum
-rceReplacementType = Lens.lens (replacementType :: ReplaceContentEntry -> ReplacementTypeEnum) (\s a -> s {replacementType = a} :: ReplaceContentEntry)
+rceReplacementType :: Lens.Lens' ReplaceContentEntry Types.ReplacementTypeEnum
+rceReplacementType = Lens.field @"replacementType"
 {-# DEPRECATED rceReplacementType "Use generic-lens or generic-optics with 'replacementType' instead." #-}
 
 -- | The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.--
@@ -93,17 +82,24 @@ rceReplacementType = Lens.lens (replacementType :: ReplaceContentEntry -> Replac
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceContent :: Lens.Lens' ReplaceContentEntry (Lude.Maybe Lude.Base64)
-rceContent = Lens.lens (content :: ReplaceContentEntry -> Lude.Maybe Lude.Base64) (\s a -> s {content = a} :: ReplaceContentEntry)
+rceContent :: Lens.Lens' ReplaceContentEntry (Core.Maybe Core.Base64)
+rceContent = Lens.field @"content"
 {-# DEPRECATED rceContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance Lude.ToJSON ReplaceContentEntry where
-  toJSON ReplaceContentEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("fileMode" Lude..=) Lude.<$> fileMode,
-            Lude.Just ("filePath" Lude..= filePath),
-            Lude.Just ("replacementType" Lude..= replacementType),
-            ("content" Lude..=) Lude.<$> content
+-- | The file mode to apply during conflict resoltion.
+--
+-- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rceFileMode :: Lens.Lens' ReplaceContentEntry (Core.Maybe Types.FileModeTypeEnum)
+rceFileMode = Lens.field @"fileMode"
+{-# DEPRECATED rceFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
+
+instance Core.FromJSON ReplaceContentEntry where
+  toJSON ReplaceContentEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("filePath" Core..= filePath),
+            Core.Just ("replacementType" Core..= replacementType),
+            ("content" Core..=) Core.<$> content,
+            ("fileMode" Core..=) Core.<$> fileMode
           ]
       )

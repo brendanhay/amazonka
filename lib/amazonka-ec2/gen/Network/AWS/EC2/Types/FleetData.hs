@@ -17,313 +17,286 @@ module Network.AWS.EC2.Types.FleetData
     mkFleetData,
 
     -- * Lenses
+    fdActivityStatus,
     fdClientToken,
-    fdTargetCapacitySpecification,
-    fdSpotOptions,
+    fdCreateTime,
+    fdErrors,
     fdExcessCapacityTerminationPolicy,
-    fdOnDemandOptions,
+    fdFleetId,
     fdFleetState,
-    fdLaunchTemplateConfigs,
-    fdValidUntil,
-    fdTerminateInstancesWithExpiration,
-    fdInstances,
     fdFulfilledCapacity,
+    fdFulfilledOnDemandCapacity,
+    fdInstances,
+    fdLaunchTemplateConfigs,
+    fdOnDemandOptions,
+    fdReplaceUnhealthyInstances,
+    fdSpotOptions,
+    fdTags,
+    fdTargetCapacitySpecification,
+    fdTerminateInstancesWithExpiration,
     fdType,
     fdValidFrom,
-    fdReplaceUnhealthyInstances,
-    fdFulfilledOnDemandCapacity,
-    fdFleetId,
-    fdErrors,
-    fdCreateTime,
-    fdTags,
-    fdActivityStatus,
+    fdValidUntil,
   )
 where
 
-import Network.AWS.EC2.Types.DescribeFleetError
-import Network.AWS.EC2.Types.DescribeFleetsInstances
-import Network.AWS.EC2.Types.FleetActivityStatus
-import Network.AWS.EC2.Types.FleetExcessCapacityTerminationPolicy
-import Network.AWS.EC2.Types.FleetLaunchTemplateConfig
-import Network.AWS.EC2.Types.FleetStateCode
-import Network.AWS.EC2.Types.FleetType
-import Network.AWS.EC2.Types.OnDemandOptions
-import Network.AWS.EC2.Types.SpotOptions
-import Network.AWS.EC2.Types.Tag
-import Network.AWS.EC2.Types.TargetCapacitySpecification
+import qualified Network.AWS.EC2.Types.DescribeFleetError as Types
+import qualified Network.AWS.EC2.Types.DescribeFleetsInstances as Types
+import qualified Network.AWS.EC2.Types.FleetActivityStatus as Types
+import qualified Network.AWS.EC2.Types.FleetExcessCapacityTerminationPolicy as Types
+import qualified Network.AWS.EC2.Types.FleetId as Types
+import qualified Network.AWS.EC2.Types.FleetLaunchTemplateConfig as Types
+import qualified Network.AWS.EC2.Types.FleetStateCode as Types
+import qualified Network.AWS.EC2.Types.FleetType as Types
+import qualified Network.AWS.EC2.Types.OnDemandOptions as Types
+import qualified Network.AWS.EC2.Types.SpotOptions as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
+import qualified Network.AWS.EC2.Types.TargetCapacitySpecification as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an EC2 Fleet.
 --
 -- /See:/ 'mkFleetData' smart constructor.
 data FleetData = FleetData'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+  { -- | The progress of the EC2 Fleet. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the EC2 Fleet is decreased, the status is @pending_termination@ while instances are terminating.
+    activityStatus :: Core.Maybe Types.FleetActivityStatus,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
     --
     -- Constraints: Maximum 64 ASCII characters
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
-    targetCapacitySpecification :: Lude.Maybe TargetCapacitySpecification,
-    -- | The configuration of Spot Instances in an EC2 Fleet.
-    spotOptions :: Lude.Maybe SpotOptions,
-    -- | Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
-    excessCapacityTerminationPolicy :: Lude.Maybe FleetExcessCapacityTerminationPolicy,
-    -- | The allocation strategy of On-Demand Instances in an EC2 Fleet.
-    onDemandOptions :: Lude.Maybe OnDemandOptions,
-    -- | The state of the EC2 Fleet.
-    fleetState :: Lude.Maybe FleetStateCode,
-    -- | The launch template and overrides.
-    launchTemplateConfigs :: Lude.Maybe [FleetLaunchTemplateConfig],
-    -- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
-    validUntil :: Lude.Maybe Lude.DateTime,
-    -- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
-    terminateInstancesWithExpiration :: Lude.Maybe Lude.Bool,
-    -- | Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
-    instances :: Lude.Maybe [DescribeFleetsInstances],
-    -- | The number of units fulfilled by this request compared to the set target capacity.
-    fulfilledCapacity :: Lude.Maybe Lude.Double,
-    -- | The type of request. Indicates whether the EC2 Fleet only @requests@ the target capacity, or also attempts to @maintain@ it. If you request a certain target capacity, EC2 Fleet only places the required requests; it does not attempt to replenish instances if capacity is diminished, and it does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically replenishes any interrupted Spot Instances. Default: @maintain@ .
-    type' :: Lude.Maybe FleetType,
-    -- | The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
-    validFrom :: Lude.Maybe Lude.DateTime,
-    -- | Indicates whether EC2 Fleet should replace unhealthy instances.
-    replaceUnhealthyInstances :: Lude.Maybe Lude.Bool,
-    -- | The number of units fulfilled by this request compared to the set target On-Demand capacity.
-    fulfilledOnDemandCapacity :: Lude.Maybe Lude.Double,
-    -- | The ID of the EC2 Fleet.
-    fleetId :: Lude.Maybe Lude.Text,
-    -- | Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
-    errors :: Lude.Maybe [DescribeFleetError],
+    clientToken :: Core.Maybe Types.String,
     -- | The creation date and time of the EC2 Fleet.
-    createTime :: Lude.Maybe Lude.DateTime,
+    createTime :: Core.Maybe Core.UTCTime,
+    -- | Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
+    errors :: Core.Maybe [Types.DescribeFleetError],
+    -- | Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+    excessCapacityTerminationPolicy :: Core.Maybe Types.FleetExcessCapacityTerminationPolicy,
+    -- | The ID of the EC2 Fleet.
+    fleetId :: Core.Maybe Types.FleetId,
+    -- | The state of the EC2 Fleet.
+    fleetState :: Core.Maybe Types.FleetStateCode,
+    -- | The number of units fulfilled by this request compared to the set target capacity.
+    fulfilledCapacity :: Core.Maybe Core.Double,
+    -- | The number of units fulfilled by this request compared to the set target On-Demand capacity.
+    fulfilledOnDemandCapacity :: Core.Maybe Core.Double,
+    -- | Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
+    instances :: Core.Maybe [Types.DescribeFleetsInstances],
+    -- | The launch template and overrides.
+    launchTemplateConfigs :: Core.Maybe [Types.FleetLaunchTemplateConfig],
+    -- | The allocation strategy of On-Demand Instances in an EC2 Fleet.
+    onDemandOptions :: Core.Maybe Types.OnDemandOptions,
+    -- | Indicates whether EC2 Fleet should replace unhealthy instances.
+    replaceUnhealthyInstances :: Core.Maybe Core.Bool,
+    -- | The configuration of Spot Instances in an EC2 Fleet.
+    spotOptions :: Core.Maybe Types.SpotOptions,
     -- | The tags for an EC2 Fleet resource.
-    tags :: Lude.Maybe [Tag],
-    -- | The progress of the EC2 Fleet. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the EC2 Fleet is decreased, the status is @pending_termination@ while instances are terminating.
-    activityStatus :: Lude.Maybe FleetActivityStatus
+    tags :: Core.Maybe [Types.Tag],
+    -- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
+    targetCapacitySpecification :: Core.Maybe Types.TargetCapacitySpecification,
+    -- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
+    terminateInstancesWithExpiration :: Core.Maybe Core.Bool,
+    -- | The type of request. Indicates whether the EC2 Fleet only @requests@ the target capacity, or also attempts to @maintain@ it. If you request a certain target capacity, EC2 Fleet only places the required requests; it does not attempt to replenish instances if capacity is diminished, and it does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically replenishes any interrupted Spot Instances. Default: @maintain@ .
+    type' :: Core.Maybe Types.FleetType,
+    -- | The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
+    validFrom :: Core.Maybe Core.UTCTime,
+    -- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
+    validUntil :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FleetData' with the minimum fields required to make a request.
---
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- Constraints: Maximum 64 ASCII characters
--- * 'targetCapacitySpecification' - The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
--- * 'spotOptions' - The configuration of Spot Instances in an EC2 Fleet.
--- * 'excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
--- * 'onDemandOptions' - The allocation strategy of On-Demand Instances in an EC2 Fleet.
--- * 'fleetState' - The state of the EC2 Fleet.
--- * 'launchTemplateConfigs' - The launch template and overrides.
--- * 'validUntil' - The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
--- * 'terminateInstancesWithExpiration' - Indicates whether running instances should be terminated when the EC2 Fleet expires.
--- * 'instances' - Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
--- * 'fulfilledCapacity' - The number of units fulfilled by this request compared to the set target capacity.
--- * 'type'' - The type of request. Indicates whether the EC2 Fleet only @requests@ the target capacity, or also attempts to @maintain@ it. If you request a certain target capacity, EC2 Fleet only places the required requests; it does not attempt to replenish instances if capacity is diminished, and it does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically replenishes any interrupted Spot Instances. Default: @maintain@ .
--- * 'validFrom' - The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
--- * 'replaceUnhealthyInstances' - Indicates whether EC2 Fleet should replace unhealthy instances.
--- * 'fulfilledOnDemandCapacity' - The number of units fulfilled by this request compared to the set target On-Demand capacity.
--- * 'fleetId' - The ID of the EC2 Fleet.
--- * 'errors' - Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
--- * 'createTime' - The creation date and time of the EC2 Fleet.
--- * 'tags' - The tags for an EC2 Fleet resource.
--- * 'activityStatus' - The progress of the EC2 Fleet. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the EC2 Fleet is decreased, the status is @pending_termination@ while instances are terminating.
+-- | Creates a 'FleetData' value with any optional fields omitted.
 mkFleetData ::
   FleetData
 mkFleetData =
   FleetData'
-    { clientToken = Lude.Nothing,
-      targetCapacitySpecification = Lude.Nothing,
-      spotOptions = Lude.Nothing,
-      excessCapacityTerminationPolicy = Lude.Nothing,
-      onDemandOptions = Lude.Nothing,
-      fleetState = Lude.Nothing,
-      launchTemplateConfigs = Lude.Nothing,
-      validUntil = Lude.Nothing,
-      terminateInstancesWithExpiration = Lude.Nothing,
-      instances = Lude.Nothing,
-      fulfilledCapacity = Lude.Nothing,
-      type' = Lude.Nothing,
-      validFrom = Lude.Nothing,
-      replaceUnhealthyInstances = Lude.Nothing,
-      fulfilledOnDemandCapacity = Lude.Nothing,
-      fleetId = Lude.Nothing,
-      errors = Lude.Nothing,
-      createTime = Lude.Nothing,
-      tags = Lude.Nothing,
-      activityStatus = Lude.Nothing
+    { activityStatus = Core.Nothing,
+      clientToken = Core.Nothing,
+      createTime = Core.Nothing,
+      errors = Core.Nothing,
+      excessCapacityTerminationPolicy = Core.Nothing,
+      fleetId = Core.Nothing,
+      fleetState = Core.Nothing,
+      fulfilledCapacity = Core.Nothing,
+      fulfilledOnDemandCapacity = Core.Nothing,
+      instances = Core.Nothing,
+      launchTemplateConfigs = Core.Nothing,
+      onDemandOptions = Core.Nothing,
+      replaceUnhealthyInstances = Core.Nothing,
+      spotOptions = Core.Nothing,
+      tags = Core.Nothing,
+      targetCapacitySpecification = Core.Nothing,
+      terminateInstancesWithExpiration = Core.Nothing,
+      type' = Core.Nothing,
+      validFrom = Core.Nothing,
+      validUntil = Core.Nothing
     }
+
+-- | The progress of the EC2 Fleet. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the EC2 Fleet is decreased, the status is @pending_termination@ while instances are terminating.
+--
+-- /Note:/ Consider using 'activityStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdActivityStatus :: Lens.Lens' FleetData (Core.Maybe Types.FleetActivityStatus)
+fdActivityStatus = Lens.field @"activityStatus"
+{-# DEPRECATED fdActivityStatus "Use generic-lens or generic-optics with 'activityStatus' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- Constraints: Maximum 64 ASCII characters
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdClientToken :: Lens.Lens' FleetData (Lude.Maybe Lude.Text)
-fdClientToken = Lens.lens (clientToken :: FleetData -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: FleetData)
+fdClientToken :: Lens.Lens' FleetData (Core.Maybe Types.String)
+fdClientToken = Lens.field @"clientToken"
 {-# DEPRECATED fdClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
--- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
+-- | The creation date and time of the EC2 Fleet.
 --
--- /Note:/ Consider using 'targetCapacitySpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdTargetCapacitySpecification :: Lens.Lens' FleetData (Lude.Maybe TargetCapacitySpecification)
-fdTargetCapacitySpecification = Lens.lens (targetCapacitySpecification :: FleetData -> Lude.Maybe TargetCapacitySpecification) (\s a -> s {targetCapacitySpecification = a} :: FleetData)
-{-# DEPRECATED fdTargetCapacitySpecification "Use generic-lens or generic-optics with 'targetCapacitySpecification' instead." #-}
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdCreateTime :: Lens.Lens' FleetData (Core.Maybe Core.UTCTime)
+fdCreateTime = Lens.field @"createTime"
+{-# DEPRECATED fdCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
--- | The configuration of Spot Instances in an EC2 Fleet.
+-- | Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
 --
--- /Note:/ Consider using 'spotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdSpotOptions :: Lens.Lens' FleetData (Lude.Maybe SpotOptions)
-fdSpotOptions = Lens.lens (spotOptions :: FleetData -> Lude.Maybe SpotOptions) (\s a -> s {spotOptions = a} :: FleetData)
-{-# DEPRECATED fdSpotOptions "Use generic-lens or generic-optics with 'spotOptions' instead." #-}
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdErrors :: Lens.Lens' FleetData (Core.Maybe [Types.DescribeFleetError])
+fdErrors = Lens.field @"errors"
+{-# DEPRECATED fdErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
 --
 -- /Note:/ Consider using 'excessCapacityTerminationPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdExcessCapacityTerminationPolicy :: Lens.Lens' FleetData (Lude.Maybe FleetExcessCapacityTerminationPolicy)
-fdExcessCapacityTerminationPolicy = Lens.lens (excessCapacityTerminationPolicy :: FleetData -> Lude.Maybe FleetExcessCapacityTerminationPolicy) (\s a -> s {excessCapacityTerminationPolicy = a} :: FleetData)
+fdExcessCapacityTerminationPolicy :: Lens.Lens' FleetData (Core.Maybe Types.FleetExcessCapacityTerminationPolicy)
+fdExcessCapacityTerminationPolicy = Lens.field @"excessCapacityTerminationPolicy"
 {-# DEPRECATED fdExcessCapacityTerminationPolicy "Use generic-lens or generic-optics with 'excessCapacityTerminationPolicy' instead." #-}
 
--- | The allocation strategy of On-Demand Instances in an EC2 Fleet.
+-- | The ID of the EC2 Fleet.
 --
--- /Note:/ Consider using 'onDemandOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdOnDemandOptions :: Lens.Lens' FleetData (Lude.Maybe OnDemandOptions)
-fdOnDemandOptions = Lens.lens (onDemandOptions :: FleetData -> Lude.Maybe OnDemandOptions) (\s a -> s {onDemandOptions = a} :: FleetData)
-{-# DEPRECATED fdOnDemandOptions "Use generic-lens or generic-optics with 'onDemandOptions' instead." #-}
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdFleetId :: Lens.Lens' FleetData (Core.Maybe Types.FleetId)
+fdFleetId = Lens.field @"fleetId"
+{-# DEPRECATED fdFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | The state of the EC2 Fleet.
 --
 -- /Note:/ Consider using 'fleetState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdFleetState :: Lens.Lens' FleetData (Lude.Maybe FleetStateCode)
-fdFleetState = Lens.lens (fleetState :: FleetData -> Lude.Maybe FleetStateCode) (\s a -> s {fleetState = a} :: FleetData)
+fdFleetState :: Lens.Lens' FleetData (Core.Maybe Types.FleetStateCode)
+fdFleetState = Lens.field @"fleetState"
 {-# DEPRECATED fdFleetState "Use generic-lens or generic-optics with 'fleetState' instead." #-}
-
--- | The launch template and overrides.
---
--- /Note:/ Consider using 'launchTemplateConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdLaunchTemplateConfigs :: Lens.Lens' FleetData (Lude.Maybe [FleetLaunchTemplateConfig])
-fdLaunchTemplateConfigs = Lens.lens (launchTemplateConfigs :: FleetData -> Lude.Maybe [FleetLaunchTemplateConfig]) (\s a -> s {launchTemplateConfigs = a} :: FleetData)
-{-# DEPRECATED fdLaunchTemplateConfigs "Use generic-lens or generic-optics with 'launchTemplateConfigs' instead." #-}
-
--- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
---
--- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdValidUntil :: Lens.Lens' FleetData (Lude.Maybe Lude.DateTime)
-fdValidUntil = Lens.lens (validUntil :: FleetData -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: FleetData)
-{-# DEPRECATED fdValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
-
--- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
---
--- /Note:/ Consider using 'terminateInstancesWithExpiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdTerminateInstancesWithExpiration :: Lens.Lens' FleetData (Lude.Maybe Lude.Bool)
-fdTerminateInstancesWithExpiration = Lens.lens (terminateInstancesWithExpiration :: FleetData -> Lude.Maybe Lude.Bool) (\s a -> s {terminateInstancesWithExpiration = a} :: FleetData)
-{-# DEPRECATED fdTerminateInstancesWithExpiration "Use generic-lens or generic-optics with 'terminateInstancesWithExpiration' instead." #-}
-
--- | Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
---
--- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdInstances :: Lens.Lens' FleetData (Lude.Maybe [DescribeFleetsInstances])
-fdInstances = Lens.lens (instances :: FleetData -> Lude.Maybe [DescribeFleetsInstances]) (\s a -> s {instances = a} :: FleetData)
-{-# DEPRECATED fdInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 -- | The number of units fulfilled by this request compared to the set target capacity.
 --
 -- /Note:/ Consider using 'fulfilledCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdFulfilledCapacity :: Lens.Lens' FleetData (Lude.Maybe Lude.Double)
-fdFulfilledCapacity = Lens.lens (fulfilledCapacity :: FleetData -> Lude.Maybe Lude.Double) (\s a -> s {fulfilledCapacity = a} :: FleetData)
+fdFulfilledCapacity :: Lens.Lens' FleetData (Core.Maybe Core.Double)
+fdFulfilledCapacity = Lens.field @"fulfilledCapacity"
 {-# DEPRECATED fdFulfilledCapacity "Use generic-lens or generic-optics with 'fulfilledCapacity' instead." #-}
+
+-- | The number of units fulfilled by this request compared to the set target On-Demand capacity.
+--
+-- /Note:/ Consider using 'fulfilledOnDemandCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdFulfilledOnDemandCapacity :: Lens.Lens' FleetData (Core.Maybe Core.Double)
+fdFulfilledOnDemandCapacity = Lens.field @"fulfilledOnDemandCapacity"
+{-# DEPRECATED fdFulfilledOnDemandCapacity "Use generic-lens or generic-optics with 'fulfilledOnDemandCapacity' instead." #-}
+
+-- | Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdInstances :: Lens.Lens' FleetData (Core.Maybe [Types.DescribeFleetsInstances])
+fdInstances = Lens.field @"instances"
+{-# DEPRECATED fdInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+
+-- | The launch template and overrides.
+--
+-- /Note:/ Consider using 'launchTemplateConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdLaunchTemplateConfigs :: Lens.Lens' FleetData (Core.Maybe [Types.FleetLaunchTemplateConfig])
+fdLaunchTemplateConfigs = Lens.field @"launchTemplateConfigs"
+{-# DEPRECATED fdLaunchTemplateConfigs "Use generic-lens or generic-optics with 'launchTemplateConfigs' instead." #-}
+
+-- | The allocation strategy of On-Demand Instances in an EC2 Fleet.
+--
+-- /Note:/ Consider using 'onDemandOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdOnDemandOptions :: Lens.Lens' FleetData (Core.Maybe Types.OnDemandOptions)
+fdOnDemandOptions = Lens.field @"onDemandOptions"
+{-# DEPRECATED fdOnDemandOptions "Use generic-lens or generic-optics with 'onDemandOptions' instead." #-}
+
+-- | Indicates whether EC2 Fleet should replace unhealthy instances.
+--
+-- /Note:/ Consider using 'replaceUnhealthyInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdReplaceUnhealthyInstances :: Lens.Lens' FleetData (Core.Maybe Core.Bool)
+fdReplaceUnhealthyInstances = Lens.field @"replaceUnhealthyInstances"
+{-# DEPRECATED fdReplaceUnhealthyInstances "Use generic-lens or generic-optics with 'replaceUnhealthyInstances' instead." #-}
+
+-- | The configuration of Spot Instances in an EC2 Fleet.
+--
+-- /Note:/ Consider using 'spotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdSpotOptions :: Lens.Lens' FleetData (Core.Maybe Types.SpotOptions)
+fdSpotOptions = Lens.field @"spotOptions"
+{-# DEPRECATED fdSpotOptions "Use generic-lens or generic-optics with 'spotOptions' instead." #-}
+
+-- | The tags for an EC2 Fleet resource.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdTags :: Lens.Lens' FleetData (Core.Maybe [Types.Tag])
+fdTags = Lens.field @"tags"
+{-# DEPRECATED fdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
+--
+-- /Note:/ Consider using 'targetCapacitySpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdTargetCapacitySpecification :: Lens.Lens' FleetData (Core.Maybe Types.TargetCapacitySpecification)
+fdTargetCapacitySpecification = Lens.field @"targetCapacitySpecification"
+{-# DEPRECATED fdTargetCapacitySpecification "Use generic-lens or generic-optics with 'targetCapacitySpecification' instead." #-}
+
+-- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
+--
+-- /Note:/ Consider using 'terminateInstancesWithExpiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdTerminateInstancesWithExpiration :: Lens.Lens' FleetData (Core.Maybe Core.Bool)
+fdTerminateInstancesWithExpiration = Lens.field @"terminateInstancesWithExpiration"
+{-# DEPRECATED fdTerminateInstancesWithExpiration "Use generic-lens or generic-optics with 'terminateInstancesWithExpiration' instead." #-}
 
 -- | The type of request. Indicates whether the EC2 Fleet only @requests@ the target capacity, or also attempts to @maintain@ it. If you request a certain target capacity, EC2 Fleet only places the required requests; it does not attempt to replenish instances if capacity is diminished, and it does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically replenishes any interrupted Spot Instances. Default: @maintain@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdType :: Lens.Lens' FleetData (Lude.Maybe FleetType)
-fdType = Lens.lens (type' :: FleetData -> Lude.Maybe FleetType) (\s a -> s {type' = a} :: FleetData)
+fdType :: Lens.Lens' FleetData (Core.Maybe Types.FleetType)
+fdType = Lens.field @"type'"
 {-# DEPRECATED fdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdValidFrom :: Lens.Lens' FleetData (Lude.Maybe Lude.DateTime)
-fdValidFrom = Lens.lens (validFrom :: FleetData -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: FleetData)
+fdValidFrom :: Lens.Lens' FleetData (Core.Maybe Core.UTCTime)
+fdValidFrom = Lens.field @"validFrom"
 {-# DEPRECATED fdValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
--- | Indicates whether EC2 Fleet should replace unhealthy instances.
+-- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
 --
--- /Note:/ Consider using 'replaceUnhealthyInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdReplaceUnhealthyInstances :: Lens.Lens' FleetData (Lude.Maybe Lude.Bool)
-fdReplaceUnhealthyInstances = Lens.lens (replaceUnhealthyInstances :: FleetData -> Lude.Maybe Lude.Bool) (\s a -> s {replaceUnhealthyInstances = a} :: FleetData)
-{-# DEPRECATED fdReplaceUnhealthyInstances "Use generic-lens or generic-optics with 'replaceUnhealthyInstances' instead." #-}
+-- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdValidUntil :: Lens.Lens' FleetData (Core.Maybe Core.UTCTime)
+fdValidUntil = Lens.field @"validUntil"
+{-# DEPRECATED fdValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
--- | The number of units fulfilled by this request compared to the set target On-Demand capacity.
---
--- /Note:/ Consider using 'fulfilledOnDemandCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdFulfilledOnDemandCapacity :: Lens.Lens' FleetData (Lude.Maybe Lude.Double)
-fdFulfilledOnDemandCapacity = Lens.lens (fulfilledOnDemandCapacity :: FleetData -> Lude.Maybe Lude.Double) (\s a -> s {fulfilledOnDemandCapacity = a} :: FleetData)
-{-# DEPRECATED fdFulfilledOnDemandCapacity "Use generic-lens or generic-optics with 'fulfilledOnDemandCapacity' instead." #-}
-
--- | The ID of the EC2 Fleet.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdFleetId :: Lens.Lens' FleetData (Lude.Maybe Lude.Text)
-fdFleetId = Lens.lens (fleetId :: FleetData -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: FleetData)
-{-# DEPRECATED fdFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
-
--- | Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
---
--- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdErrors :: Lens.Lens' FleetData (Lude.Maybe [DescribeFleetError])
-fdErrors = Lens.lens (errors :: FleetData -> Lude.Maybe [DescribeFleetError]) (\s a -> s {errors = a} :: FleetData)
-{-# DEPRECATED fdErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
-
--- | The creation date and time of the EC2 Fleet.
---
--- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdCreateTime :: Lens.Lens' FleetData (Lude.Maybe Lude.DateTime)
-fdCreateTime = Lens.lens (createTime :: FleetData -> Lude.Maybe Lude.DateTime) (\s a -> s {createTime = a} :: FleetData)
-{-# DEPRECATED fdCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
-
--- | The tags for an EC2 Fleet resource.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdTags :: Lens.Lens' FleetData (Lude.Maybe [Tag])
-fdTags = Lens.lens (tags :: FleetData -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: FleetData)
-{-# DEPRECATED fdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The progress of the EC2 Fleet. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the EC2 Fleet is decreased, the status is @pending_termination@ while instances are terminating.
---
--- /Note:/ Consider using 'activityStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdActivityStatus :: Lens.Lens' FleetData (Lude.Maybe FleetActivityStatus)
-fdActivityStatus = Lens.lens (activityStatus :: FleetData -> Lude.Maybe FleetActivityStatus) (\s a -> s {activityStatus = a} :: FleetData)
-{-# DEPRECATED fdActivityStatus "Use generic-lens or generic-optics with 'activityStatus' instead." #-}
-
-instance Lude.FromXML FleetData where
+instance Core.FromXML FleetData where
   parseXML x =
     FleetData'
-      Lude.<$> (x Lude..@? "clientToken")
-      Lude.<*> (x Lude..@? "targetCapacitySpecification")
-      Lude.<*> (x Lude..@? "spotOptions")
-      Lude.<*> (x Lude..@? "excessCapacityTerminationPolicy")
-      Lude.<*> (x Lude..@? "onDemandOptions")
-      Lude.<*> (x Lude..@? "fleetState")
-      Lude.<*> ( x Lude..@? "launchTemplateConfigs" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@? "activityStatus")
+      Core.<*> (x Core..@? "clientToken")
+      Core.<*> (x Core..@? "createTime")
+      Core.<*> (x Core..@? "errorSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "excessCapacityTerminationPolicy")
+      Core.<*> (x Core..@? "fleetId")
+      Core.<*> (x Core..@? "fleetState")
+      Core.<*> (x Core..@? "fulfilledCapacity")
+      Core.<*> (x Core..@? "fulfilledOnDemandCapacity")
+      Core.<*> (x Core..@? "fleetInstanceSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> ( x Core..@? "launchTemplateConfigs"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "validUntil")
-      Lude.<*> (x Lude..@? "terminateInstancesWithExpiration")
-      Lude.<*> ( x Lude..@? "fleetInstanceSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "fulfilledCapacity")
-      Lude.<*> (x Lude..@? "type")
-      Lude.<*> (x Lude..@? "validFrom")
-      Lude.<*> (x Lude..@? "replaceUnhealthyInstances")
-      Lude.<*> (x Lude..@? "fulfilledOnDemandCapacity")
-      Lude.<*> (x Lude..@? "fleetId")
-      Lude.<*> ( x Lude..@? "errorSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "createTime")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "activityStatus")
+      Core.<*> (x Core..@? "onDemandOptions")
+      Core.<*> (x Core..@? "replaceUnhealthyInstances")
+      Core.<*> (x Core..@? "spotOptions")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "targetCapacitySpecification")
+      Core.<*> (x Core..@? "terminateInstancesWithExpiration")
+      Core.<*> (x Core..@? "type")
+      Core.<*> (x Core..@? "validFrom")
+      Core.<*> (x Core..@? "validUntil")

@@ -24,98 +24,63 @@ module Network.AWS.RDS.DescribeDBClusterParameterGroups
     mkDescribeDBClusterParameterGroups,
 
     -- ** Request lenses
+    ddbcpgDBClusterParameterGroupName,
     ddbcpgFilters,
     ddbcpgMarker,
     ddbcpgMaxRecords,
-    ddbcpgDBClusterParameterGroupName,
 
     -- * Destructuring the response
     DescribeDBClusterParameterGroupsResponse (..),
     mkDescribeDBClusterParameterGroupsResponse,
 
     -- ** Response lenses
-    ddcpgrsMarker,
-    ddcpgrsDBClusterParameterGroups,
-    ddcpgrsResponseStatus,
+    ddbcpgrrsDBClusterParameterGroups,
+    ddbcpgrrsMarker,
+    ddbcpgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeDBClusterParameterGroups' smart constructor.
 data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
-  { -- | This parameter isn't currently supported.
-    filters :: Lude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
-    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
-    --
-    -- Default: 100
-    -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
-    -- | The name of a specific DB cluster parameter group to return details for.
+  { -- | The name of a specific DB cluster parameter group to return details for.
     --
     -- Constraints:
     --
     --     * If supplied, must match the name of an existing DBClusterParameterGroup.
-    dbClusterParameterGroupName :: Lude.Maybe Lude.Text
+    dBClusterParameterGroupName :: Core.Maybe Types.String,
+    -- | This parameter isn't currently supported.
+    filters :: Core.Maybe [Types.Filter],
+    -- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBClusterParameterGroups' with the minimum fields required to make a request.
---
--- * 'filters' - This parameter isn't currently supported.
--- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
--- * 'dbClusterParameterGroupName' - The name of a specific DB cluster parameter group to return details for.
---
--- Constraints:
---
---     * If supplied, must match the name of an existing DBClusterParameterGroup.
+-- | Creates a 'DescribeDBClusterParameterGroups' value with any optional fields omitted.
 mkDescribeDBClusterParameterGroups ::
   DescribeDBClusterParameterGroups
 mkDescribeDBClusterParameterGroups =
   DescribeDBClusterParameterGroups'
-    { filters = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      dbClusterParameterGroupName = Lude.Nothing
+    { dBClusterParameterGroupName =
+        Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
-
--- | This parameter isn't currently supported.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbcpgFilters :: Lens.Lens' DescribeDBClusterParameterGroups (Lude.Maybe [Filter])
-ddbcpgFilters = Lens.lens (filters :: DescribeDBClusterParameterGroups -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBClusterParameterGroups)
-{-# DEPRECATED ddbcpgFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbcpgMarker :: Lens.Lens' DescribeDBClusterParameterGroups (Lude.Maybe Lude.Text)
-ddbcpgMarker = Lens.lens (marker :: DescribeDBClusterParameterGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusterParameterGroups)
-{-# DEPRECATED ddbcpgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
---
--- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbcpgMaxRecords :: Lens.Lens' DescribeDBClusterParameterGroups (Lude.Maybe Lude.Int)
-ddbcpgMaxRecords = Lens.lens (maxRecords :: DescribeDBClusterParameterGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBClusterParameterGroups)
-{-# DEPRECATED ddbcpgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The name of a specific DB cluster parameter group to return details for.
 --
@@ -125,104 +90,135 @@ ddbcpgMaxRecords = Lens.lens (maxRecords :: DescribeDBClusterParameterGroups -> 
 --
 --
 --
--- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbcpgDBClusterParameterGroupName :: Lens.Lens' DescribeDBClusterParameterGroups (Lude.Maybe Lude.Text)
-ddbcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: DescribeDBClusterParameterGroups -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: DescribeDBClusterParameterGroups)
-{-# DEPRECATED ddbcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'dBClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcpgDBClusterParameterGroupName :: Lens.Lens' DescribeDBClusterParameterGroups (Core.Maybe Types.String)
+ddbcpgDBClusterParameterGroupName = Lens.field @"dBClusterParameterGroupName"
+{-# DEPRECATED ddbcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dBClusterParameterGroupName' instead." #-}
 
-instance Page.AWSPager DescribeDBClusterParameterGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. ddcpgrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddcpgrsDBClusterParameterGroups) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ddbcpgMarker Lens..~ rs Lens.^. ddcpgrsMarker
+-- | This parameter isn't currently supported.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcpgFilters :: Lens.Lens' DescribeDBClusterParameterGroups (Core.Maybe [Types.Filter])
+ddbcpgFilters = Lens.field @"filters"
+{-# DEPRECATED ddbcpgFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
-instance Lude.AWSRequest DescribeDBClusterParameterGroups where
+-- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcpgMarker :: Lens.Lens' DescribeDBClusterParameterGroups (Core.Maybe Types.String)
+ddbcpgMarker = Lens.field @"marker"
+{-# DEPRECATED ddbcpgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcpgMaxRecords :: Lens.Lens' DescribeDBClusterParameterGroups (Core.Maybe Core.Int)
+ddbcpgMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED ddbcpgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+
+instance Core.AWSRequest DescribeDBClusterParameterGroups where
   type
     Rs DescribeDBClusterParameterGroups =
       DescribeDBClusterParameterGroupsResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBClusterParameterGroups")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue "DBClusterParameterGroupName"
+                            Core.<$> dBClusterParameterGroupName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBClusterParameterGroupsResult"
       ( \s h x ->
           DescribeDBClusterParameterGroupsResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "DBClusterParameterGroups" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "DBClusterParameterGroup")
+            Core.<$> ( x Core..@? "DBClusterParameterGroups"
+                         Core..<@> Core.parseXMLList "DBClusterParameterGroup"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeDBClusterParameterGroups where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBClusterParameterGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBClusterParameterGroups where
-  toQuery DescribeDBClusterParameterGroups' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeDBClusterParameterGroups" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "DBClusterParameterGroupName" Lude.=: dbClusterParameterGroupName
-      ]
+instance Pager.AWSPager DescribeDBClusterParameterGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"dBClusterParameterGroups" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeDBClusterParameterGroupsResponse' smart constructor.
 data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroupsResponse'
-  { -- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
-    -- | A list of DB cluster parameter groups.
-    dbClusterParameterGroups :: Lude.Maybe [DBClusterParameterGroup],
+  { -- | A list of DB cluster parameter groups.
+    dBClusterParameterGroups :: Core.Maybe [Types.DBClusterParameterGroup],
+    -- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBClusterParameterGroupsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'dbClusterParameterGroups' - A list of DB cluster parameter groups.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBClusterParameterGroupsResponse' value with any optional fields omitted.
 mkDescribeDBClusterParameterGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBClusterParameterGroupsResponse
-mkDescribeDBClusterParameterGroupsResponse pResponseStatus_ =
+mkDescribeDBClusterParameterGroupsResponse responseStatus =
   DescribeDBClusterParameterGroupsResponse'
-    { marker = Lude.Nothing,
-      dbClusterParameterGroups = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBClusterParameterGroups =
+        Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
+
+-- | A list of DB cluster parameter groups.
+--
+-- /Note:/ Consider using 'dBClusterParameterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcpgrrsDBClusterParameterGroups :: Lens.Lens' DescribeDBClusterParameterGroupsResponse (Core.Maybe [Types.DBClusterParameterGroup])
+ddbcpgrrsDBClusterParameterGroups = Lens.field @"dBClusterParameterGroups"
+{-# DEPRECATED ddbcpgrrsDBClusterParameterGroups "Use generic-lens or generic-optics with 'dBClusterParameterGroups' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcpgrsMarker :: Lens.Lens' DescribeDBClusterParameterGroupsResponse (Lude.Maybe Lude.Text)
-ddcpgrsMarker = Lens.lens (marker :: DescribeDBClusterParameterGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusterParameterGroupsResponse)
-{-# DEPRECATED ddcpgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | A list of DB cluster parameter groups.
---
--- /Note:/ Consider using 'dbClusterParameterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcpgrsDBClusterParameterGroups :: Lens.Lens' DescribeDBClusterParameterGroupsResponse (Lude.Maybe [DBClusterParameterGroup])
-ddcpgrsDBClusterParameterGroups = Lens.lens (dbClusterParameterGroups :: DescribeDBClusterParameterGroupsResponse -> Lude.Maybe [DBClusterParameterGroup]) (\s a -> s {dbClusterParameterGroups = a} :: DescribeDBClusterParameterGroupsResponse)
-{-# DEPRECATED ddcpgrsDBClusterParameterGroups "Use generic-lens or generic-optics with 'dbClusterParameterGroups' instead." #-}
+ddbcpgrrsMarker :: Lens.Lens' DescribeDBClusterParameterGroupsResponse (Core.Maybe Types.String)
+ddbcpgrrsMarker = Lens.field @"marker"
+{-# DEPRECATED ddbcpgrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcpgrsResponseStatus :: Lens.Lens' DescribeDBClusterParameterGroupsResponse Lude.Int
-ddcpgrsResponseStatus = Lens.lens (responseStatus :: DescribeDBClusterParameterGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBClusterParameterGroupsResponse)
-{-# DEPRECATED ddcpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbcpgrrsResponseStatus :: Lens.Lens' DescribeDBClusterParameterGroupsResponse Core.Int
+ddbcpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbcpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

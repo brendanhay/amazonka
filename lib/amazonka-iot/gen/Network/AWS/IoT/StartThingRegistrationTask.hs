@@ -20,163 +20,154 @@ module Network.AWS.IoT.StartThingRegistrationTask
     mkStartThingRegistrationTask,
 
     -- ** Request lenses
-    strtInputFileKey,
     strtTemplateBody,
     strtInputFileBucket,
-    strtRoleARN,
+    strtInputFileKey,
+    strtRoleArn,
 
     -- * Destructuring the response
     StartThingRegistrationTaskResponse (..),
     mkStartThingRegistrationTaskResponse,
 
     -- ** Response lenses
-    strtrsTaskId,
-    strtrsResponseStatus,
+    strtrrsTaskId,
+    strtrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartThingRegistrationTask' smart constructor.
 data StartThingRegistrationTask = StartThingRegistrationTask'
-  { -- | The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
-    inputFileKey :: Lude.Text,
-    -- | The provisioning template.
-    templateBody :: Lude.Text,
+  { -- | The provisioning template.
+    templateBody :: Types.TemplateBody,
     -- | The S3 bucket that contains the input file.
-    inputFileBucket :: Lude.Text,
+    inputFileBucket :: Types.RegistryS3BucketName,
+    -- | The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
+    inputFileKey :: Types.RegistryS3KeyName,
     -- | The IAM role ARN that grants permission the input file.
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartThingRegistrationTask' with the minimum fields required to make a request.
---
--- * 'inputFileKey' - The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
--- * 'templateBody' - The provisioning template.
--- * 'inputFileBucket' - The S3 bucket that contains the input file.
--- * 'roleARN' - The IAM role ARN that grants permission the input file.
+-- | Creates a 'StartThingRegistrationTask' value with any optional fields omitted.
 mkStartThingRegistrationTask ::
-  -- | 'inputFileKey'
-  Lude.Text ->
   -- | 'templateBody'
-  Lude.Text ->
+  Types.TemplateBody ->
   -- | 'inputFileBucket'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.RegistryS3BucketName ->
+  -- | 'inputFileKey'
+  Types.RegistryS3KeyName ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   StartThingRegistrationTask
 mkStartThingRegistrationTask
-  pInputFileKey_
-  pTemplateBody_
-  pInputFileBucket_
-  pRoleARN_ =
+  templateBody
+  inputFileBucket
+  inputFileKey
+  roleArn =
     StartThingRegistrationTask'
-      { inputFileKey = pInputFileKey_,
-        templateBody = pTemplateBody_,
-        inputFileBucket = pInputFileBucket_,
-        roleARN = pRoleARN_
+      { templateBody,
+        inputFileBucket,
+        inputFileKey,
+        roleArn
       }
-
--- | The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
---
--- /Note:/ Consider using 'inputFileKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-strtInputFileKey :: Lens.Lens' StartThingRegistrationTask Lude.Text
-strtInputFileKey = Lens.lens (inputFileKey :: StartThingRegistrationTask -> Lude.Text) (\s a -> s {inputFileKey = a} :: StartThingRegistrationTask)
-{-# DEPRECATED strtInputFileKey "Use generic-lens or generic-optics with 'inputFileKey' instead." #-}
 
 -- | The provisioning template.
 --
 -- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-strtTemplateBody :: Lens.Lens' StartThingRegistrationTask Lude.Text
-strtTemplateBody = Lens.lens (templateBody :: StartThingRegistrationTask -> Lude.Text) (\s a -> s {templateBody = a} :: StartThingRegistrationTask)
+strtTemplateBody :: Lens.Lens' StartThingRegistrationTask Types.TemplateBody
+strtTemplateBody = Lens.field @"templateBody"
 {-# DEPRECATED strtTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | The S3 bucket that contains the input file.
 --
 -- /Note:/ Consider using 'inputFileBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-strtInputFileBucket :: Lens.Lens' StartThingRegistrationTask Lude.Text
-strtInputFileBucket = Lens.lens (inputFileBucket :: StartThingRegistrationTask -> Lude.Text) (\s a -> s {inputFileBucket = a} :: StartThingRegistrationTask)
+strtInputFileBucket :: Lens.Lens' StartThingRegistrationTask Types.RegistryS3BucketName
+strtInputFileBucket = Lens.field @"inputFileBucket"
 {-# DEPRECATED strtInputFileBucket "Use generic-lens or generic-optics with 'inputFileBucket' instead." #-}
+
+-- | The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
+--
+-- /Note:/ Consider using 'inputFileKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+strtInputFileKey :: Lens.Lens' StartThingRegistrationTask Types.RegistryS3KeyName
+strtInputFileKey = Lens.field @"inputFileKey"
+{-# DEPRECATED strtInputFileKey "Use generic-lens or generic-optics with 'inputFileKey' instead." #-}
 
 -- | The IAM role ARN that grants permission the input file.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-strtRoleARN :: Lens.Lens' StartThingRegistrationTask Lude.Text
-strtRoleARN = Lens.lens (roleARN :: StartThingRegistrationTask -> Lude.Text) (\s a -> s {roleARN = a} :: StartThingRegistrationTask)
-{-# DEPRECATED strtRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+strtRoleArn :: Lens.Lens' StartThingRegistrationTask Types.RoleArn
+strtRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED strtRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest StartThingRegistrationTask where
-  type
-    Rs StartThingRegistrationTask =
-      StartThingRegistrationTaskResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          StartThingRegistrationTaskResponse'
-            Lude.<$> (x Lude..?> "taskId") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders StartThingRegistrationTask where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON StartThingRegistrationTask where
-  toJSON StartThingRegistrationTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("inputFileKey" Lude..= inputFileKey),
-            Lude.Just ("templateBody" Lude..= templateBody),
-            Lude.Just ("inputFileBucket" Lude..= inputFileBucket),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON StartThingRegistrationTask where
+  toJSON StartThingRegistrationTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("templateBody" Core..= templateBody),
+            Core.Just ("inputFileBucket" Core..= inputFileBucket),
+            Core.Just ("inputFileKey" Core..= inputFileKey),
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )
 
-instance Lude.ToPath StartThingRegistrationTask where
-  toPath = Lude.const "/thing-registration-tasks"
-
-instance Lude.ToQuery StartThingRegistrationTask where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest StartThingRegistrationTask where
+  type
+    Rs StartThingRegistrationTask =
+      StartThingRegistrationTaskResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/thing-registration-tasks",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartThingRegistrationTaskResponse'
+            Core.<$> (x Core..:? "taskId") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkStartThingRegistrationTaskResponse' smart constructor.
 data StartThingRegistrationTaskResponse = StartThingRegistrationTaskResponse'
   { -- | The bulk thing provisioning task ID.
-    taskId :: Lude.Maybe Lude.Text,
+    taskId :: Core.Maybe Types.TaskId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartThingRegistrationTaskResponse' with the minimum fields required to make a request.
---
--- * 'taskId' - The bulk thing provisioning task ID.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartThingRegistrationTaskResponse' value with any optional fields omitted.
 mkStartThingRegistrationTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartThingRegistrationTaskResponse
-mkStartThingRegistrationTaskResponse pResponseStatus_ =
+mkStartThingRegistrationTaskResponse responseStatus =
   StartThingRegistrationTaskResponse'
-    { taskId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { taskId = Core.Nothing,
+      responseStatus
     }
 
 -- | The bulk thing provisioning task ID.
 --
 -- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-strtrsTaskId :: Lens.Lens' StartThingRegistrationTaskResponse (Lude.Maybe Lude.Text)
-strtrsTaskId = Lens.lens (taskId :: StartThingRegistrationTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: StartThingRegistrationTaskResponse)
-{-# DEPRECATED strtrsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
+strtrrsTaskId :: Lens.Lens' StartThingRegistrationTaskResponse (Core.Maybe Types.TaskId)
+strtrrsTaskId = Lens.field @"taskId"
+{-# DEPRECATED strtrrsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-strtrsResponseStatus :: Lens.Lens' StartThingRegistrationTaskResponse Lude.Int
-strtrsResponseStatus = Lens.lens (responseStatus :: StartThingRegistrationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartThingRegistrationTaskResponse)
-{-# DEPRECATED strtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+strtrrsResponseStatus :: Lens.Lens' StartThingRegistrationTaskResponse Core.Int
+strtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED strtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

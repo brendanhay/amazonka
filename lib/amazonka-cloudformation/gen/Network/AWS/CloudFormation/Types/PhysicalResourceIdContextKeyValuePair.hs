@@ -17,57 +17,53 @@ module Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
     mkPhysicalResourceIdContextKeyValuePair,
 
     -- * Lenses
-    prickvpValue,
     prickvpKey,
+    prickvpValue,
   )
 where
 
+import qualified Network.AWS.CloudFormation.Types.Key as Types
+import qualified Network.AWS.CloudFormation.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses context key-value pairs in cases where a resource's logical and physical IDs are not enough to uniquely identify that resource. Each context key-value pair specifies a resource that contains the targeted resource.
 --
 -- /See:/ 'mkPhysicalResourceIdContextKeyValuePair' smart constructor.
 data PhysicalResourceIdContextKeyValuePair = PhysicalResourceIdContextKeyValuePair'
-  { -- | The resource context value.
-    value :: Lude.Text,
-    -- | The resource context key.
-    key :: Lude.Text
+  { -- | The resource context key.
+    key :: Types.Key,
+    -- | The resource context value.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PhysicalResourceIdContextKeyValuePair' with the minimum fields required to make a request.
---
--- * 'value' - The resource context value.
--- * 'key' - The resource context key.
+-- | Creates a 'PhysicalResourceIdContextKeyValuePair' value with any optional fields omitted.
 mkPhysicalResourceIdContextKeyValuePair ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
+  -- | 'value'
+  Types.Value ->
   PhysicalResourceIdContextKeyValuePair
-mkPhysicalResourceIdContextKeyValuePair pValue_ pKey_ =
-  PhysicalResourceIdContextKeyValuePair'
-    { value = pValue_,
-      key = pKey_
-    }
-
--- | The resource context value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prickvpValue :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Lude.Text
-prickvpValue = Lens.lens (value :: PhysicalResourceIdContextKeyValuePair -> Lude.Text) (\s a -> s {value = a} :: PhysicalResourceIdContextKeyValuePair)
-{-# DEPRECATED prickvpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkPhysicalResourceIdContextKeyValuePair key value =
+  PhysicalResourceIdContextKeyValuePair' {key, value}
 
 -- | The resource context key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prickvpKey :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Lude.Text
-prickvpKey = Lens.lens (key :: PhysicalResourceIdContextKeyValuePair -> Lude.Text) (\s a -> s {key = a} :: PhysicalResourceIdContextKeyValuePair)
+prickvpKey :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Types.Key
+prickvpKey = Lens.field @"key"
 {-# DEPRECATED prickvpKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML PhysicalResourceIdContextKeyValuePair where
+-- | The resource context value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prickvpValue :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Types.Value
+prickvpValue = Lens.field @"value"
+{-# DEPRECATED prickvpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromXML PhysicalResourceIdContextKeyValuePair where
   parseXML x =
     PhysicalResourceIdContextKeyValuePair'
-      Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Key")
+      Core.<$> (x Core..@ "Key") Core.<*> (x Core..@ "Value")

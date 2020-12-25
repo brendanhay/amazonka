@@ -13,62 +13,67 @@
 module Network.AWS.Route53.Types.AccountLimitType
   ( AccountLimitType
       ( AccountLimitType',
-        MaxHealthChecksByOwner,
-        MaxHostedZonesByOwner,
-        MaxTrafficPolicyInstancesByOwner,
-        MaxReusableDelegationSetsByOwner,
-        MaxTrafficPoliciesByOwner
+        AccountLimitTypeMaxHealthChecksByOwner,
+        AccountLimitTypeMaxHostedZonesByOwner,
+        AccountLimitTypeMaxTrafficPolicyInstancesByOwner,
+        AccountLimitTypeMaxReusableDelegationSetsByOwner,
+        AccountLimitTypeMaxTrafficPoliciesByOwner,
+        fromAccountLimitType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
 
-newtype AccountLimitType = AccountLimitType' Lude.Text
+newtype AccountLimitType = AccountLimitType'
+  { fromAccountLimitType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MaxHealthChecksByOwner :: AccountLimitType
-pattern MaxHealthChecksByOwner = AccountLimitType' "MAX_HEALTH_CHECKS_BY_OWNER"
+pattern AccountLimitTypeMaxHealthChecksByOwner :: AccountLimitType
+pattern AccountLimitTypeMaxHealthChecksByOwner = AccountLimitType' "MAX_HEALTH_CHECKS_BY_OWNER"
 
-pattern MaxHostedZonesByOwner :: AccountLimitType
-pattern MaxHostedZonesByOwner = AccountLimitType' "MAX_HOSTED_ZONES_BY_OWNER"
+pattern AccountLimitTypeMaxHostedZonesByOwner :: AccountLimitType
+pattern AccountLimitTypeMaxHostedZonesByOwner = AccountLimitType' "MAX_HOSTED_ZONES_BY_OWNER"
 
-pattern MaxTrafficPolicyInstancesByOwner :: AccountLimitType
-pattern MaxTrafficPolicyInstancesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
+pattern AccountLimitTypeMaxTrafficPolicyInstancesByOwner :: AccountLimitType
+pattern AccountLimitTypeMaxTrafficPolicyInstancesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
 
-pattern MaxReusableDelegationSetsByOwner :: AccountLimitType
-pattern MaxReusableDelegationSetsByOwner = AccountLimitType' "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
+pattern AccountLimitTypeMaxReusableDelegationSetsByOwner :: AccountLimitType
+pattern AccountLimitTypeMaxReusableDelegationSetsByOwner = AccountLimitType' "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
 
-pattern MaxTrafficPoliciesByOwner :: AccountLimitType
-pattern MaxTrafficPoliciesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICIES_BY_OWNER"
+pattern AccountLimitTypeMaxTrafficPoliciesByOwner :: AccountLimitType
+pattern AccountLimitTypeMaxTrafficPoliciesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICIES_BY_OWNER"
 
 {-# COMPLETE
-  MaxHealthChecksByOwner,
-  MaxHostedZonesByOwner,
-  MaxTrafficPolicyInstancesByOwner,
-  MaxReusableDelegationSetsByOwner,
-  MaxTrafficPoliciesByOwner,
+  AccountLimitTypeMaxHealthChecksByOwner,
+  AccountLimitTypeMaxHostedZonesByOwner,
+  AccountLimitTypeMaxTrafficPolicyInstancesByOwner,
+  AccountLimitTypeMaxReusableDelegationSetsByOwner,
+  AccountLimitTypeMaxTrafficPoliciesByOwner,
   AccountLimitType'
   #-}

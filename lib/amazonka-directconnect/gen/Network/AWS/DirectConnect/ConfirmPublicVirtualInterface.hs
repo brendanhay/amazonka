@@ -34,78 +34,65 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkConfirmPublicVirtualInterface' smart constructor.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
   { -- | The ID of the virtual interface.
-    virtualInterfaceId :: Lude.Text
+    virtualInterfaceId :: Types.VirtualInterfaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmPublicVirtualInterface' with the minimum fields required to make a request.
---
--- * 'virtualInterfaceId' - The ID of the virtual interface.
+-- | Creates a 'ConfirmPublicVirtualInterface' value with any optional fields omitted.
 mkConfirmPublicVirtualInterface ::
   -- | 'virtualInterfaceId'
-  Lude.Text ->
+  Types.VirtualInterfaceId ->
   ConfirmPublicVirtualInterface
-mkConfirmPublicVirtualInterface pVirtualInterfaceId_ =
-  ConfirmPublicVirtualInterface'
-    { virtualInterfaceId =
-        pVirtualInterfaceId_
-    }
+mkConfirmPublicVirtualInterface virtualInterfaceId =
+  ConfirmPublicVirtualInterface' {virtualInterfaceId}
 
 -- | The ID of the virtual interface.
 --
 -- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVirtualInterfaceId :: Lens.Lens' ConfirmPublicVirtualInterface Lude.Text
-cVirtualInterfaceId = Lens.lens (virtualInterfaceId :: ConfirmPublicVirtualInterface -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: ConfirmPublicVirtualInterface)
+cVirtualInterfaceId :: Lens.Lens' ConfirmPublicVirtualInterface Types.VirtualInterfaceId
+cVirtualInterfaceId = Lens.field @"virtualInterfaceId"
 {-# DEPRECATED cVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance Lude.AWSRequest ConfirmPublicVirtualInterface where
+instance Core.FromJSON ConfirmPublicVirtualInterface where
+  toJSON ConfirmPublicVirtualInterface {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("virtualInterfaceId" Core..= virtualInterfaceId)]
+      )
+
+instance Core.AWSRequest ConfirmPublicVirtualInterface where
   type
     Rs ConfirmPublicVirtualInterface =
       ConfirmPublicVirtualInterfaceResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.ConfirmPublicVirtualInterface")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ConfirmPublicVirtualInterfaceResponse'
-            Lude.<$> (x Lude..?> "virtualInterfaceState")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "virtualInterfaceState")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ConfirmPublicVirtualInterface where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OvertureService.ConfirmPublicVirtualInterface" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ConfirmPublicVirtualInterface where
-  toJSON ConfirmPublicVirtualInterface' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("virtualInterfaceId" Lude..= virtualInterfaceId)]
-      )
-
-instance Lude.ToPath ConfirmPublicVirtualInterface where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ConfirmPublicVirtualInterface where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkConfirmPublicVirtualInterfaceResponse' smart constructor.
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
@@ -137,55 +124,23 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
     --
     --
     --     * @unknown@ : The state of the virtual interface is not available.
-    virtualInterfaceState :: Lude.Maybe VirtualInterfaceState,
+    virtualInterfaceState :: Core.Maybe Types.VirtualInterfaceState,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmPublicVirtualInterfaceResponse' with the minimum fields required to make a request.
---
--- * 'virtualInterfaceState' - The state of the virtual interface. The following are the possible values:
---
---
---     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
---
---
---     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
---
---
---     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
---
---
---     * @available@ : A virtual interface that is able to forward traffic.
---
---
---     * @down@ : A virtual interface that is BGP down.
---
---
---     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.
---
---
---     * @deleted@ : A virtual interface that cannot forward traffic.
---
---
---     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.
---
---
---     * @unknown@ : The state of the virtual interface is not available.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ConfirmPublicVirtualInterfaceResponse' value with any optional fields omitted.
 mkConfirmPublicVirtualInterfaceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ConfirmPublicVirtualInterfaceResponse
-mkConfirmPublicVirtualInterfaceResponse pResponseStatus_ =
+mkConfirmPublicVirtualInterfaceResponse responseStatus =
   ConfirmPublicVirtualInterfaceResponse'
     { virtualInterfaceState =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The state of the virtual interface. The following are the possible values:
@@ -220,13 +175,13 @@ mkConfirmPublicVirtualInterfaceResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'virtualInterfaceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsVirtualInterfaceState :: Lens.Lens' ConfirmPublicVirtualInterfaceResponse (Lude.Maybe VirtualInterfaceState)
-crsVirtualInterfaceState = Lens.lens (virtualInterfaceState :: ConfirmPublicVirtualInterfaceResponse -> Lude.Maybe VirtualInterfaceState) (\s a -> s {virtualInterfaceState = a} :: ConfirmPublicVirtualInterfaceResponse)
+crsVirtualInterfaceState :: Lens.Lens' ConfirmPublicVirtualInterfaceResponse (Core.Maybe Types.VirtualInterfaceState)
+crsVirtualInterfaceState = Lens.field @"virtualInterfaceState"
 {-# DEPRECATED crsVirtualInterfaceState "Use generic-lens or generic-optics with 'virtualInterfaceState' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' ConfirmPublicVirtualInterfaceResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: ConfirmPublicVirtualInterfaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfirmPublicVirtualInterfaceResponse)
+crsResponseStatus :: Lens.Lens' ConfirmPublicVirtualInterfaceResponse Core.Int
+crsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,90 +17,86 @@ module Network.AWS.Config.Types.ConfigRuleComplianceFilters
     mkConfigRuleComplianceFilters,
 
     -- * Lenses
-    crcfConfigRuleName,
     crcfAccountId,
+    crcfAwsRegion,
     crcfComplianceType,
-    crcfAWSRegion,
+    crcfConfigRuleName,
   )
 where
 
-import Network.AWS.Config.Types.ComplianceType
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.AwsRegion as Types
+import qualified Network.AWS.Config.Types.ComplianceType as Types
+import qualified Network.AWS.Config.Types.ConfigRuleName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filters the compliance results based on account ID, region, compliance type, and rule name.
 --
 -- /See:/ 'mkConfigRuleComplianceFilters' smart constructor.
 data ConfigRuleComplianceFilters = ConfigRuleComplianceFilters'
-  { -- | The name of the AWS Config rule.
-    configRuleName :: Lude.Maybe Lude.Text,
-    -- | The 12-digit account ID of the source account.
-    accountId :: Lude.Maybe Lude.Text,
+  { -- | The 12-digit account ID of the source account.
+    accountId :: Core.Maybe Types.AccountId,
+    -- | The source region where the data is aggregated.
+    awsRegion :: Core.Maybe Types.AwsRegion,
     -- | The rule compliance status.
     --
     -- For the @ConfigRuleComplianceFilters@ data type, AWS Config supports only @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and the @INSUFFICIENT_DATA@ values.
-    complianceType :: Lude.Maybe ComplianceType,
-    -- | The source region where the data is aggregated.
-    awsRegion :: Lude.Maybe Lude.Text
+    complianceType :: Core.Maybe Types.ComplianceType,
+    -- | The name of the AWS Config rule.
+    configRuleName :: Core.Maybe Types.ConfigRuleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfigRuleComplianceFilters' with the minimum fields required to make a request.
---
--- * 'configRuleName' - The name of the AWS Config rule.
--- * 'accountId' - The 12-digit account ID of the source account.
--- * 'complianceType' - The rule compliance status.
---
--- For the @ConfigRuleComplianceFilters@ data type, AWS Config supports only @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and the @INSUFFICIENT_DATA@ values.
--- * 'awsRegion' - The source region where the data is aggregated.
+-- | Creates a 'ConfigRuleComplianceFilters' value with any optional fields omitted.
 mkConfigRuleComplianceFilters ::
   ConfigRuleComplianceFilters
 mkConfigRuleComplianceFilters =
   ConfigRuleComplianceFilters'
-    { configRuleName = Lude.Nothing,
-      accountId = Lude.Nothing,
-      complianceType = Lude.Nothing,
-      awsRegion = Lude.Nothing
+    { accountId = Core.Nothing,
+      awsRegion = Core.Nothing,
+      complianceType = Core.Nothing,
+      configRuleName = Core.Nothing
     }
-
--- | The name of the AWS Config rule.
---
--- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crcfConfigRuleName :: Lens.Lens' ConfigRuleComplianceFilters (Lude.Maybe Lude.Text)
-crcfConfigRuleName = Lens.lens (configRuleName :: ConfigRuleComplianceFilters -> Lude.Maybe Lude.Text) (\s a -> s {configRuleName = a} :: ConfigRuleComplianceFilters)
-{-# DEPRECATED crcfConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | The 12-digit account ID of the source account.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crcfAccountId :: Lens.Lens' ConfigRuleComplianceFilters (Lude.Maybe Lude.Text)
-crcfAccountId = Lens.lens (accountId :: ConfigRuleComplianceFilters -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ConfigRuleComplianceFilters)
+crcfAccountId :: Lens.Lens' ConfigRuleComplianceFilters (Core.Maybe Types.AccountId)
+crcfAccountId = Lens.field @"accountId"
 {-# DEPRECATED crcfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The source region where the data is aggregated.
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crcfAwsRegion :: Lens.Lens' ConfigRuleComplianceFilters (Core.Maybe Types.AwsRegion)
+crcfAwsRegion = Lens.field @"awsRegion"
+{-# DEPRECATED crcfAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
 -- | The rule compliance status.
 --
 -- For the @ConfigRuleComplianceFilters@ data type, AWS Config supports only @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and the @INSUFFICIENT_DATA@ values.
 --
 -- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crcfComplianceType :: Lens.Lens' ConfigRuleComplianceFilters (Lude.Maybe ComplianceType)
-crcfComplianceType = Lens.lens (complianceType :: ConfigRuleComplianceFilters -> Lude.Maybe ComplianceType) (\s a -> s {complianceType = a} :: ConfigRuleComplianceFilters)
+crcfComplianceType :: Lens.Lens' ConfigRuleComplianceFilters (Core.Maybe Types.ComplianceType)
+crcfComplianceType = Lens.field @"complianceType"
 {-# DEPRECATED crcfComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
--- | The source region where the data is aggregated.
+-- | The name of the AWS Config rule.
 --
--- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crcfAWSRegion :: Lens.Lens' ConfigRuleComplianceFilters (Lude.Maybe Lude.Text)
-crcfAWSRegion = Lens.lens (awsRegion :: ConfigRuleComplianceFilters -> Lude.Maybe Lude.Text) (\s a -> s {awsRegion = a} :: ConfigRuleComplianceFilters)
-{-# DEPRECATED crcfAWSRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crcfConfigRuleName :: Lens.Lens' ConfigRuleComplianceFilters (Core.Maybe Types.ConfigRuleName)
+crcfConfigRuleName = Lens.field @"configRuleName"
+{-# DEPRECATED crcfConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
-instance Lude.ToJSON ConfigRuleComplianceFilters where
-  toJSON ConfigRuleComplianceFilters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ConfigRuleName" Lude..=) Lude.<$> configRuleName,
-            ("AccountId" Lude..=) Lude.<$> accountId,
-            ("ComplianceType" Lude..=) Lude.<$> complianceType,
-            ("AwsRegion" Lude..=) Lude.<$> awsRegion
+instance Core.FromJSON ConfigRuleComplianceFilters where
+  toJSON ConfigRuleComplianceFilters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AccountId" Core..=) Core.<$> accountId,
+            ("AwsRegion" Core..=) Core.<$> awsRegion,
+            ("ComplianceType" Core..=) Core.<$> complianceType,
+            ("ConfigRuleName" Core..=) Core.<$> configRuleName
           ]
       )

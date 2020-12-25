@@ -24,106 +24,123 @@ where
 
 import Network.AWS.EMR.DescribeCluster
 import Network.AWS.EMR.DescribeStep
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.EMR.DescribeStep' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkStepComplete :: Wait.Wait DescribeStep
+mkStepComplete :: Waiter.Wait DescribeStep
 mkStepComplete =
-  Wait.Wait
-    { Wait._waitName = "StepComplete",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "StepComplete",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "COMPLETED"
-            Wait.AcceptSuccess
-            ( dsfrsStep Lude.. Lens._Just Lude.. sgStatus Lude.. Lens._Just
-                Lude.. ssState
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"step" Core.. Lens._Just
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "FAILED"
-            Wait.AcceptFailure
-            ( dsfrsStep Lude.. Lens._Just Lude.. sgStatus Lude.. Lens._Just
-                Lude.. ssState
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"step" Core.. Lens._Just
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "CANCELLED"
-            Wait.AcceptFailure
-            ( dsfrsStep Lude.. Lens._Just Lude.. sgStatus Lude.. Lens._Just
-                Lude.. ssState
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"step" Core.. Lens._Just
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkClusterTerminated :: Wait.Wait DescribeCluster
+mkClusterTerminated :: Waiter.Wait DescribeCluster
 mkClusterTerminated =
-  Wait.Wait
-    { Wait._waitName = "ClusterTerminated",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "ClusterTerminated",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "TERMINATED"
-            Wait.AcceptSuccess
-            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"cluster"
+                Core.. Lens.field @"status"
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "TERMINATED_WITH_ERRORS"
-            Wait.AcceptFailure
-            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"cluster"
+                Core.. Lens.field @"status"
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkClusterRunning :: Wait.Wait DescribeCluster
+mkClusterRunning :: Waiter.Wait DescribeCluster
 mkClusterRunning =
-  Wait.Wait
-    { Wait._waitName = "ClusterRunning",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "ClusterRunning",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "RUNNING"
-            Wait.AcceptSuccess
-            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"cluster"
+                Core.. Lens.field @"status"
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "WAITING"
-            Wait.AcceptSuccess
-            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"cluster"
+                Core.. Lens.field @"status"
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "TERMINATING"
-            Wait.AcceptFailure
-            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"cluster"
+                Core.. Lens.field @"status"
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "TERMINATED"
-            Wait.AcceptFailure
-            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"cluster"
+                Core.. Lens.field @"status"
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "TERMINATED_WITH_ERRORS"
-            Wait.AcceptFailure
-            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"cluster"
+                Core.. Lens.field @"status"
+                Core.. Lens.field @"state"
+                Core.. Lens._Just
             )
         ]
     }

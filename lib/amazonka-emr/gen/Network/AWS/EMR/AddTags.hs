@@ -28,111 +28,97 @@ module Network.AWS.EMR.AddTags
     mkAddTagsResponse,
 
     -- ** Response lenses
-    atrsResponseStatus,
+    atrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This input identifies a cluster and a list of tags to attach.
 --
 -- /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | The Amazon EMR resource identifier to which tags will be added. This value must be a cluster identifier.
-    resourceId :: Lude.Text,
+    resourceId :: Types.ResourceId,
     -- | A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTags' with the minimum fields required to make a request.
---
--- * 'resourceId' - The Amazon EMR resource identifier to which tags will be added. This value must be a cluster identifier.
--- * 'tags' - A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+-- | Creates a 'AddTags' value with any optional fields omitted.
 mkAddTags ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
   AddTags
-mkAddTags pResourceId_ =
-  AddTags' {resourceId = pResourceId_, tags = Lude.mempty}
+mkAddTags resourceId = AddTags' {resourceId, tags = Core.mempty}
 
 -- | The Amazon EMR resource identifier to which tags will be added. This value must be a cluster identifier.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atResourceId :: Lens.Lens' AddTags Lude.Text
-atResourceId = Lens.lens (resourceId :: AddTags -> Lude.Text) (\s a -> s {resourceId = a} :: AddTags)
+atResourceId :: Lens.Lens' AddTags Types.ResourceId
+atResourceId = Lens.field @"resourceId"
 {-# DEPRECATED atResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atTags :: Lens.Lens' AddTags [Tag]
-atTags = Lens.lens (tags :: AddTags -> [Tag]) (\s a -> s {tags = a} :: AddTags)
+atTags :: Lens.Lens' AddTags [Types.Tag]
+atTags = Lens.field @"tags"
 {-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest AddTags where
+instance Core.FromJSON AddTags where
+  toJSON AddTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.AddTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          AddTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AddTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.AddTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddTags where
-  toJSON AddTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath AddTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | This output indicates the result of adding tags to a resource.
 --
 -- /See:/ 'mkAddTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddTagsResponse' value with any optional fields omitted.
 mkAddTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddTagsResponse
-mkAddTagsResponse pResponseStatus_ =
-  AddTagsResponse' {responseStatus = pResponseStatus_}
+mkAddTagsResponse responseStatus = AddTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrsResponseStatus :: Lens.Lens' AddTagsResponse Lude.Int
-atrsResponseStatus = Lens.lens (responseStatus :: AddTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsResponse)
-{-# DEPRECATED atrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atrrsResponseStatus :: Lens.Lens' AddTagsResponse Core.Int
+atrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

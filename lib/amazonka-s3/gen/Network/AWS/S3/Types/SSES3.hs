@@ -21,23 +21,23 @@ module Network.AWS.S3.Types.SSES3
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.
 --
 -- /See:/ 'mkSSES3' smart constructor.
 data SSES3 = SSES3'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SSES3' with the minimum fields required to make a request.
+-- | Creates a 'SSES3' value with any optional fields omitted.
 mkSSES3 ::
   SSES3
 mkSSES3 = SSES3'
 
-instance Lude.FromXML SSES3 where
-  parseXML = Lude.const (Lude.pure SSES3')
+instance Core.ToXML SSES3 where
+  toXML _ = Core.mempty
 
-instance Lude.ToXML SSES3 where
-  toXML = Lude.const Lude.mempty
+instance Core.FromXML SSES3 where
+  parseXML x = Core.pure SSES3'

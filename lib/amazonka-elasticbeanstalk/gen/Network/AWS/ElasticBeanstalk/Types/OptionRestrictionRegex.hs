@@ -17,53 +17,52 @@ module Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex
     mkOptionRestrictionRegex,
 
     -- * Lenses
-    orrPattern,
     orrLabel,
+    orrPattern,
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.Label as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Pattern as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A regular expression representing a restriction on a string configuration option value.
 --
 -- /See:/ 'mkOptionRestrictionRegex' smart constructor.
 data OptionRestrictionRegex = OptionRestrictionRegex'
-  { -- | The regular expression pattern that a string configuration option value with this restriction must match.
-    pattern' :: Lude.Maybe Lude.Text,
-    -- | A unique name representing this regular expression.
-    label :: Lude.Maybe Lude.Text
+  { -- | A unique name representing this regular expression.
+    label :: Core.Maybe Types.Label,
+    -- | The regular expression pattern that a string configuration option value with this restriction must match.
+    pattern' :: Core.Maybe Types.Pattern
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OptionRestrictionRegex' with the minimum fields required to make a request.
---
--- * 'pattern'' - The regular expression pattern that a string configuration option value with this restriction must match.
--- * 'label' - A unique name representing this regular expression.
+-- | Creates a 'OptionRestrictionRegex' value with any optional fields omitted.
 mkOptionRestrictionRegex ::
   OptionRestrictionRegex
 mkOptionRestrictionRegex =
   OptionRestrictionRegex'
-    { pattern' = Lude.Nothing,
-      label = Lude.Nothing
+    { label = Core.Nothing,
+      pattern' = Core.Nothing
     }
-
--- | The regular expression pattern that a string configuration option value with this restriction must match.
---
--- /Note:/ Consider using 'pattern'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orrPattern :: Lens.Lens' OptionRestrictionRegex (Lude.Maybe Lude.Text)
-orrPattern = Lens.lens (pattern' :: OptionRestrictionRegex -> Lude.Maybe Lude.Text) (\s a -> s {pattern' = a} :: OptionRestrictionRegex)
-{-# DEPRECATED orrPattern "Use generic-lens or generic-optics with 'pattern'' instead." #-}
 
 -- | A unique name representing this regular expression.
 --
 -- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orrLabel :: Lens.Lens' OptionRestrictionRegex (Lude.Maybe Lude.Text)
-orrLabel = Lens.lens (label :: OptionRestrictionRegex -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: OptionRestrictionRegex)
+orrLabel :: Lens.Lens' OptionRestrictionRegex (Core.Maybe Types.Label)
+orrLabel = Lens.field @"label"
 {-# DEPRECATED orrLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
-instance Lude.FromXML OptionRestrictionRegex where
+-- | The regular expression pattern that a string configuration option value with this restriction must match.
+--
+-- /Note:/ Consider using 'pattern'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orrPattern :: Lens.Lens' OptionRestrictionRegex (Core.Maybe Types.Pattern)
+orrPattern = Lens.field @"pattern'"
+{-# DEPRECATED orrPattern "Use generic-lens or generic-optics with 'pattern'' instead." #-}
+
+instance Core.FromXML OptionRestrictionRegex where
   parseXML x =
     OptionRestrictionRegex'
-      Lude.<$> (x Lude..@? "Pattern") Lude.<*> (x Lude..@? "Label")
+      Core.<$> (x Core..@? "Label") Core.<*> (x Core..@? "Pattern")

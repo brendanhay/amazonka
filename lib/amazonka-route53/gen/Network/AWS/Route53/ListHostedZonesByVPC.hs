@@ -26,84 +26,83 @@ module Network.AWS.Route53.ListHostedZonesByVPC
     mkListHostedZonesByVPC,
 
     -- ** Request lenses
-    lhzbvVPCRegion,
-    lhzbvVPCId,
-    lhzbvNextToken,
-    lhzbvMaxItems,
+    lhzbvpcVPCId,
+    lhzbvpcVPCRegion,
+    lhzbvpcMaxItems,
+    lhzbvpcNextToken,
 
     -- * Destructuring the response
     ListHostedZonesByVPCResponse (..),
     mkListHostedZonesByVPCResponse,
 
     -- ** Response lenses
-    lhzbvrsNextToken,
-    lhzbvrsMaxItems,
-    lhzbvrsHostedZoneSummaries,
-    lhzbvrsResponseStatus,
+    lhzbvpcrrsHostedZoneSummaries,
+    lhzbvpcrrsMaxItems,
+    lhzbvpcrrsNextToken,
+    lhzbvpcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | Lists all the private hosted zones that a specified VPC is associated with, regardless of which AWS account created the hosted zones.
 --
 -- /See:/ 'mkListHostedZonesByVPC' smart constructor.
 data ListHostedZonesByVPC = ListHostedZonesByVPC'
-  { -- | For the Amazon VPC that you specified for @VPCId@ , the AWS Region that you created the VPC in.
-    vpcRegion :: VPCRegion,
-    -- | The ID of the Amazon VPC that you want to list hosted zones for.
-    vpcId :: Lude.Text,
+  { -- | The ID of the Amazon VPC that you want to list hosted zones for.
+    vPCId :: Types.VPCId,
+    -- | For the Amazon VPC that you specified for @VPCId@ , the AWS Region that you created the VPC in.
+    vPCRegion :: Types.VPCRegion,
+    -- | (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If the specified VPC is associated with more than @MaxItems@ hosted zones, the response includes a @NextToken@ element. @NextToken@ contains an encrypted token that identifies the first hosted zone that Route 53 will return if you submit another request.
+    maxItems :: Core.Maybe Types.MaxItems,
     -- | If the previous response included a @NextToken@ element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another @ListHostedZonesByVPC@ request.
     --
     -- For the value of @NextToken@ , specify the value of @NextToken@ from the previous response.
     -- If the previous response didn't include a @NextToken@ element, there are no more hosted zones to get.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If the specified VPC is associated with more than @MaxItems@ hosted zones, the response includes a @NextToken@ element. @NextToken@ contains an encrypted token that identifies the first hosted zone that Route 53 will return if you submit another request.
-    maxItems :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHostedZonesByVPC' with the minimum fields required to make a request.
---
--- * 'vpcRegion' - For the Amazon VPC that you specified for @VPCId@ , the AWS Region that you created the VPC in.
--- * 'vpcId' - The ID of the Amazon VPC that you want to list hosted zones for.
--- * 'nextToken' - If the previous response included a @NextToken@ element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another @ListHostedZonesByVPC@ request.
---
--- For the value of @NextToken@ , specify the value of @NextToken@ from the previous response.
--- If the previous response didn't include a @NextToken@ element, there are no more hosted zones to get.
--- * 'maxItems' - (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If the specified VPC is associated with more than @MaxItems@ hosted zones, the response includes a @NextToken@ element. @NextToken@ contains an encrypted token that identifies the first hosted zone that Route 53 will return if you submit another request.
+-- | Creates a 'ListHostedZonesByVPC' value with any optional fields omitted.
 mkListHostedZonesByVPC ::
-  -- | 'vpcRegion'
-  VPCRegion ->
-  -- | 'vpcId'
-  Lude.Text ->
+  -- | 'vPCId'
+  Types.VPCId ->
+  -- | 'vPCRegion'
+  Types.VPCRegion ->
   ListHostedZonesByVPC
-mkListHostedZonesByVPC pVPCRegion_ pVPCId_ =
+mkListHostedZonesByVPC vPCId vPCRegion =
   ListHostedZonesByVPC'
-    { vpcRegion = pVPCRegion_,
-      vpcId = pVPCId_,
-      nextToken = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { vPCId,
+      vPCRegion,
+      maxItems = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | For the Amazon VPC that you specified for @VPCId@ , the AWS Region that you created the VPC in.
---
--- /Note:/ Consider using 'vpcRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbvVPCRegion :: Lens.Lens' ListHostedZonesByVPC VPCRegion
-lhzbvVPCRegion = Lens.lens (vpcRegion :: ListHostedZonesByVPC -> VPCRegion) (\s a -> s {vpcRegion = a} :: ListHostedZonesByVPC)
-{-# DEPRECATED lhzbvVPCRegion "Use generic-lens or generic-optics with 'vpcRegion' instead." #-}
 
 -- | The ID of the Amazon VPC that you want to list hosted zones for.
 --
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbvVPCId :: Lens.Lens' ListHostedZonesByVPC Lude.Text
-lhzbvVPCId = Lens.lens (vpcId :: ListHostedZonesByVPC -> Lude.Text) (\s a -> s {vpcId = a} :: ListHostedZonesByVPC)
-{-# DEPRECATED lhzbvVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+-- /Note:/ Consider using 'vPCId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbvpcVPCId :: Lens.Lens' ListHostedZonesByVPC Types.VPCId
+lhzbvpcVPCId = Lens.field @"vPCId"
+{-# DEPRECATED lhzbvpcVPCId "Use generic-lens or generic-optics with 'vPCId' instead." #-}
+
+-- | For the Amazon VPC that you specified for @VPCId@ , the AWS Region that you created the VPC in.
+--
+-- /Note:/ Consider using 'vPCRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbvpcVPCRegion :: Lens.Lens' ListHostedZonesByVPC Types.VPCRegion
+lhzbvpcVPCRegion = Lens.field @"vPCRegion"
+{-# DEPRECATED lhzbvpcVPCRegion "Use generic-lens or generic-optics with 'vPCRegion' instead." #-}
+
+-- | (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If the specified VPC is associated with more than @MaxItems@ hosted zones, the response includes a @NextToken@ element. @NextToken@ contains an encrypted token that identifies the first hosted zone that Route 53 will return if you submit another request.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbvpcMaxItems :: Lens.Lens' ListHostedZonesByVPC (Core.Maybe Types.MaxItems)
+lhzbvpcMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED lhzbvpcMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | If the previous response included a @NextToken@ element, the specified VPC is associated with more hosted zones. To get more hosted zones, submit another @ListHostedZonesByVPC@ request.
 --
@@ -111,105 +110,90 @@ lhzbvVPCId = Lens.lens (vpcId :: ListHostedZonesByVPC -> Lude.Text) (\s a -> s {
 -- If the previous response didn't include a @NextToken@ element, there are no more hosted zones to get.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbvNextToken :: Lens.Lens' ListHostedZonesByVPC (Lude.Maybe Lude.Text)
-lhzbvNextToken = Lens.lens (nextToken :: ListHostedZonesByVPC -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHostedZonesByVPC)
-{-# DEPRECATED lhzbvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lhzbvpcNextToken :: Lens.Lens' ListHostedZonesByVPC (Core.Maybe Types.PaginationToken)
+lhzbvpcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lhzbvpcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If the specified VPC is associated with more than @MaxItems@ hosted zones, the response includes a @NextToken@ element. @NextToken@ contains an encrypted token that identifies the first hosted zone that Route 53 will return if you submit another request.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbvMaxItems :: Lens.Lens' ListHostedZonesByVPC (Lude.Maybe Lude.Text)
-lhzbvMaxItems = Lens.lens (maxItems :: ListHostedZonesByVPC -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListHostedZonesByVPC)
-{-# DEPRECATED lhzbvMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
-instance Lude.AWSRequest ListHostedZonesByVPC where
+instance Core.AWSRequest ListHostedZonesByVPC where
   type Rs ListHostedZonesByVPC = ListHostedZonesByVPCResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2013-04-01/hostedzonesbyvpc",
+        Core._rqQuery =
+          Core.toQueryValue "vpcid" vPCId
+            Core.<> (Core.toQueryValue "vpcregion" vPCRegion)
+            Core.<> (Core.toQueryValue "maxitems" Core.<$> maxItems)
+            Core.<> (Core.toQueryValue "nexttoken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListHostedZonesByVPCResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> (x Lude..@ "MaxItems")
-            Lude.<*> ( x Lude..@? "HostedZoneSummaries" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "HostedZoneSummary"
+            Core.<$> ( x Core..@? "HostedZoneSummaries" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "HostedZoneSummary"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@ "MaxItems")
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListHostedZonesByVPC where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListHostedZonesByVPC where
-  toPath = Lude.const "/2013-04-01/hostedzonesbyvpc"
-
-instance Lude.ToQuery ListHostedZonesByVPC where
-  toQuery ListHostedZonesByVPC' {..} =
-    Lude.mconcat
-      [ "vpcregion" Lude.=: vpcRegion,
-        "vpcid" Lude.=: vpcId,
-        "nexttoken" Lude.=: nextToken,
-        "maxitems" Lude.=: maxItems
-      ]
 
 -- | /See:/ 'mkListHostedZonesByVPCResponse' smart constructor.
 data ListHostedZonesByVPCResponse = ListHostedZonesByVPCResponse'
-  { -- | The value that you specified for @NextToken@ in the most recent @ListHostedZonesByVPC@ request.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A list that contains one @HostedZoneSummary@ element for each hosted zone that the specified Amazon VPC is associated with. Each @HostedZoneSummary@ element contains the hosted zone name and ID, and information about who owns the hosted zone.
+    hostedZoneSummaries :: [Types.HostedZoneSummary],
     -- | The value that you specified for @MaxItems@ in the most recent @ListHostedZonesByVPC@ request.
-    maxItems :: Lude.Text,
-    -- | A list that contains one @HostedZoneSummary@ element for each hosted zone that the specified Amazon VPC is associated with. Each @HostedZoneSummary@ element contains the hosted zone name and ID, and information about who owns the hosted zone.
-    hostedZoneSummaries :: [HostedZoneSummary],
+    maxItems :: Types.MaxItems,
+    -- | The value that you specified for @NextToken@ in the most recent @ListHostedZonesByVPC@ request.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHostedZonesByVPCResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The value that you specified for @NextToken@ in the most recent @ListHostedZonesByVPC@ request.
--- * 'maxItems' - The value that you specified for @MaxItems@ in the most recent @ListHostedZonesByVPC@ request.
--- * 'hostedZoneSummaries' - A list that contains one @HostedZoneSummary@ element for each hosted zone that the specified Amazon VPC is associated with. Each @HostedZoneSummary@ element contains the hosted zone name and ID, and information about who owns the hosted zone.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListHostedZonesByVPCResponse' value with any optional fields omitted.
 mkListHostedZonesByVPCResponse ::
   -- | 'maxItems'
-  Lude.Text ->
+  Types.MaxItems ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListHostedZonesByVPCResponse
-mkListHostedZonesByVPCResponse pMaxItems_ pResponseStatus_ =
+mkListHostedZonesByVPCResponse maxItems responseStatus =
   ListHostedZonesByVPCResponse'
-    { nextToken = Lude.Nothing,
-      maxItems = pMaxItems_,
-      hostedZoneSummaries = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { hostedZoneSummaries = Core.mempty,
+      maxItems,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The value that you specified for @NextToken@ in the most recent @ListHostedZonesByVPC@ request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbvrsNextToken :: Lens.Lens' ListHostedZonesByVPCResponse (Lude.Maybe Lude.Text)
-lhzbvrsNextToken = Lens.lens (nextToken :: ListHostedZonesByVPCResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHostedZonesByVPCResponse)
-{-# DEPRECATED lhzbvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The value that you specified for @MaxItems@ in the most recent @ListHostedZonesByVPC@ request.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbvrsMaxItems :: Lens.Lens' ListHostedZonesByVPCResponse Lude.Text
-lhzbvrsMaxItems = Lens.lens (maxItems :: ListHostedZonesByVPCResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListHostedZonesByVPCResponse)
-{-# DEPRECATED lhzbvrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | A list that contains one @HostedZoneSummary@ element for each hosted zone that the specified Amazon VPC is associated with. Each @HostedZoneSummary@ element contains the hosted zone name and ID, and information about who owns the hosted zone.
 --
 -- /Note:/ Consider using 'hostedZoneSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbvrsHostedZoneSummaries :: Lens.Lens' ListHostedZonesByVPCResponse [HostedZoneSummary]
-lhzbvrsHostedZoneSummaries = Lens.lens (hostedZoneSummaries :: ListHostedZonesByVPCResponse -> [HostedZoneSummary]) (\s a -> s {hostedZoneSummaries = a} :: ListHostedZonesByVPCResponse)
-{-# DEPRECATED lhzbvrsHostedZoneSummaries "Use generic-lens or generic-optics with 'hostedZoneSummaries' instead." #-}
+lhzbvpcrrsHostedZoneSummaries :: Lens.Lens' ListHostedZonesByVPCResponse [Types.HostedZoneSummary]
+lhzbvpcrrsHostedZoneSummaries = Lens.field @"hostedZoneSummaries"
+{-# DEPRECATED lhzbvpcrrsHostedZoneSummaries "Use generic-lens or generic-optics with 'hostedZoneSummaries' instead." #-}
+
+-- | The value that you specified for @MaxItems@ in the most recent @ListHostedZonesByVPC@ request.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbvpcrrsMaxItems :: Lens.Lens' ListHostedZonesByVPCResponse Types.MaxItems
+lhzbvpcrrsMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED lhzbvpcrrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+-- | The value that you specified for @NextToken@ in the most recent @ListHostedZonesByVPC@ request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbvpcrrsNextToken :: Lens.Lens' ListHostedZonesByVPCResponse (Core.Maybe Types.PaginationToken)
+lhzbvpcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lhzbvpcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbvrsResponseStatus :: Lens.Lens' ListHostedZonesByVPCResponse Lude.Int
-lhzbvrsResponseStatus = Lens.lens (responseStatus :: ListHostedZonesByVPCResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHostedZonesByVPCResponse)
-{-# DEPRECATED lhzbvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lhzbvpcrrsResponseStatus :: Lens.Lens' ListHostedZonesByVPCResponse Core.Int
+lhzbvpcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lhzbvpcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

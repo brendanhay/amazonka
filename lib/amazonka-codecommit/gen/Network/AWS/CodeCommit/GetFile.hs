@@ -20,194 +20,203 @@ module Network.AWS.CodeCommit.GetFile
     mkGetFile,
 
     -- ** Request lenses
+    gffRepositoryName,
     gffFilePath,
     gffCommitSpecifier,
-    gffRepositoryName,
 
     -- * Destructuring the response
     GetFileResponse (..),
     mkGetFileResponse,
 
     -- ** Response lenses
-    gfrsCommitId,
-    gfrsFileContent,
-    gfrsFileMode,
-    gfrsFilePath,
-    gfrsFileSize,
-    gfrsBlobId,
-    gfrsResponseStatus,
+    gfrfrsCommitId,
+    gfrfrsBlobId,
+    gfrfrsFilePath,
+    gfrfrsFileMode,
+    gfrfrsFileSize,
+    gfrfrsFileContent,
+    gfrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetFile' smart constructor.
 data GetFile = GetFile'
-  { -- | The fully qualified path to the file, including the full name and extension of the file. For example, /examples/file.md is the fully qualified path to a file named file.md in a folder named examples.
-    filePath :: Lude.Text,
+  { -- | The name of the repository that contains the file.
+    repositoryName :: Types.RepositoryName,
+    -- | The fully qualified path to the file, including the full name and extension of the file. For example, /examples/file.md is the fully qualified path to a file named file.md in a folder named examples.
+    filePath :: Types.Path,
     -- | The fully quaified reference that identifies the commit that contains the file. For example, you can specify a full commit ID, a tag, a branch name, or a reference such as refs/heads/master. If none is provided, the head commit is used.
-    commitSpecifier :: Lude.Maybe Lude.Text,
-    -- | The name of the repository that contains the file.
-    repositoryName :: Lude.Text
+    commitSpecifier :: Core.Maybe Types.CommitName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFile' with the minimum fields required to make a request.
---
--- * 'filePath' - The fully qualified path to the file, including the full name and extension of the file. For example, /examples/file.md is the fully qualified path to a file named file.md in a folder named examples.
--- * 'commitSpecifier' - The fully quaified reference that identifies the commit that contains the file. For example, you can specify a full commit ID, a tag, a branch name, or a reference such as refs/heads/master. If none is provided, the head commit is used.
--- * 'repositoryName' - The name of the repository that contains the file.
+-- | Creates a 'GetFile' value with any optional fields omitted.
 mkGetFile ::
-  -- | 'filePath'
-  Lude.Text ->
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
+  -- | 'filePath'
+  Types.Path ->
   GetFile
-mkGetFile pFilePath_ pRepositoryName_ =
+mkGetFile repositoryName filePath =
   GetFile'
-    { filePath = pFilePath_,
-      commitSpecifier = Lude.Nothing,
-      repositoryName = pRepositoryName_
+    { repositoryName,
+      filePath,
+      commitSpecifier = Core.Nothing
     }
+
+-- | The name of the repository that contains the file.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gffRepositoryName :: Lens.Lens' GetFile Types.RepositoryName
+gffRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED gffRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The fully qualified path to the file, including the full name and extension of the file. For example, /examples/file.md is the fully qualified path to a file named file.md in a folder named examples.
 --
 -- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffFilePath :: Lens.Lens' GetFile Lude.Text
-gffFilePath = Lens.lens (filePath :: GetFile -> Lude.Text) (\s a -> s {filePath = a} :: GetFile)
+gffFilePath :: Lens.Lens' GetFile Types.Path
+gffFilePath = Lens.field @"filePath"
 {-# DEPRECATED gffFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
 -- | The fully quaified reference that identifies the commit that contains the file. For example, you can specify a full commit ID, a tag, a branch name, or a reference such as refs/heads/master. If none is provided, the head commit is used.
 --
 -- /Note:/ Consider using 'commitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffCommitSpecifier :: Lens.Lens' GetFile (Lude.Maybe Lude.Text)
-gffCommitSpecifier = Lens.lens (commitSpecifier :: GetFile -> Lude.Maybe Lude.Text) (\s a -> s {commitSpecifier = a} :: GetFile)
+gffCommitSpecifier :: Lens.Lens' GetFile (Core.Maybe Types.CommitName)
+gffCommitSpecifier = Lens.field @"commitSpecifier"
 {-# DEPRECATED gffCommitSpecifier "Use generic-lens or generic-optics with 'commitSpecifier' instead." #-}
 
--- | The name of the repository that contains the file.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffRepositoryName :: Lens.Lens' GetFile Lude.Text
-gffRepositoryName = Lens.lens (repositoryName :: GetFile -> Lude.Text) (\s a -> s {repositoryName = a} :: GetFile)
-{-# DEPRECATED gffRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+instance Core.FromJSON GetFile where
+  toJSON GetFile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("filePath" Core..= filePath),
+            ("commitSpecifier" Core..=) Core.<$> commitSpecifier
+          ]
+      )
 
-instance Lude.AWSRequest GetFile where
+instance Core.AWSRequest GetFile where
   type Rs GetFile = GetFileResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeCommit_20150413.GetFile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetFileResponse'
-            Lude.<$> (x Lude..:> "commitId")
-            Lude.<*> (x Lude..:> "fileContent")
-            Lude.<*> (x Lude..:> "fileMode")
-            Lude.<*> (x Lude..:> "filePath")
-            Lude.<*> (x Lude..:> "fileSize")
-            Lude.<*> (x Lude..:> "blobId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "commitId")
+            Core.<*> (x Core..: "blobId")
+            Core.<*> (x Core..: "filePath")
+            Core.<*> (x Core..: "fileMode")
+            Core.<*> (x Core..: "fileSize")
+            Core.<*> (x Core..: "fileContent")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetFile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.GetFile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetFile where
-  toJSON GetFile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("filePath" Lude..= filePath),
-            ("commitSpecifier" Lude..=) Lude.<$> commitSpecifier,
-            Lude.Just ("repositoryName" Lude..= repositoryName)
-          ]
-      )
-
-instance Lude.ToPath GetFile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetFile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetFileResponse' smart constructor.
 data GetFileResponse = GetFileResponse'
   { -- | The full commit ID of the commit that contains the content returned by GetFile.
-    commitId :: Lude.Text,
-    -- | The base-64 encoded binary data object that represents the content of the file.
-    fileContent :: Lude.Base64,
-    -- | The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.
-    fileMode :: FileModeTypeEnum,
-    -- | The fully qualified path to the specified file. Returns the name and extension of the file.
-    filePath :: Lude.Text,
-    -- | The size of the contents of the file, in bytes.
-    fileSize :: Lude.Integer,
+    commitId :: Types.CommitId,
     -- | The blob ID of the object that represents the file content.
-    blobId :: Lude.Text,
+    blobId :: Types.BlobId,
+    -- | The fully qualified path to the specified file. Returns the name and extension of the file.
+    filePath :: Types.FilePath,
+    -- | The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.
+    fileMode :: Types.FileModeTypeEnum,
+    -- | The size of the contents of the file, in bytes.
+    fileSize :: Core.Integer,
+    -- | The base-64 encoded binary data object that represents the content of the file.
+    fileContent :: Core.Base64,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFileResponse' with the minimum fields required to make a request.
---
--- * 'commitId' - The full commit ID of the commit that contains the content returned by GetFile.
--- * 'fileContent' - The base-64 encoded binary data object that represents the content of the file.
--- * 'fileMode' - The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.
--- * 'filePath' - The fully qualified path to the specified file. Returns the name and extension of the file.
--- * 'fileSize' - The size of the contents of the file, in bytes.
--- * 'blobId' - The blob ID of the object that represents the file content.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetFileResponse' value with any optional fields omitted.
 mkGetFileResponse ::
   -- | 'commitId'
-  Lude.Text ->
-  -- | 'fileContent'
-  Lude.Base64 ->
-  -- | 'fileMode'
-  FileModeTypeEnum ->
-  -- | 'filePath'
-  Lude.Text ->
-  -- | 'fileSize'
-  Lude.Integer ->
+  Types.CommitId ->
   -- | 'blobId'
-  Lude.Text ->
+  Types.BlobId ->
+  -- | 'filePath'
+  Types.FilePath ->
+  -- | 'fileMode'
+  Types.FileModeTypeEnum ->
+  -- | 'fileSize'
+  Core.Integer ->
+  -- | 'fileContent'
+  Core.Base64 ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetFileResponse
 mkGetFileResponse
-  pCommitId_
-  pFileContent_
-  pFileMode_
-  pFilePath_
-  pFileSize_
-  pBlobId_
-  pResponseStatus_ =
+  commitId
+  blobId
+  filePath
+  fileMode
+  fileSize
+  fileContent
+  responseStatus =
     GetFileResponse'
-      { commitId = pCommitId_,
-        fileContent = pFileContent_,
-        fileMode = pFileMode_,
-        filePath = pFilePath_,
-        fileSize = pFileSize_,
-        blobId = pBlobId_,
-        responseStatus = pResponseStatus_
+      { commitId,
+        blobId,
+        filePath,
+        fileMode,
+        fileSize,
+        fileContent,
+        responseStatus
       }
 
 -- | The full commit ID of the commit that contains the content returned by GetFile.
 --
 -- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsCommitId :: Lens.Lens' GetFileResponse Lude.Text
-gfrsCommitId = Lens.lens (commitId :: GetFileResponse -> Lude.Text) (\s a -> s {commitId = a} :: GetFileResponse)
-{-# DEPRECATED gfrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+gfrfrsCommitId :: Lens.Lens' GetFileResponse Types.CommitId
+gfrfrsCommitId = Lens.field @"commitId"
+{-# DEPRECATED gfrfrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+
+-- | The blob ID of the object that represents the file content.
+--
+-- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrfrsBlobId :: Lens.Lens' GetFileResponse Types.BlobId
+gfrfrsBlobId = Lens.field @"blobId"
+{-# DEPRECATED gfrfrsBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
+
+-- | The fully qualified path to the specified file. Returns the name and extension of the file.
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrfrsFilePath :: Lens.Lens' GetFileResponse Types.FilePath
+gfrfrsFilePath = Lens.field @"filePath"
+{-# DEPRECATED gfrfrsFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
+
+-- | The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.
+--
+-- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrfrsFileMode :: Lens.Lens' GetFileResponse Types.FileModeTypeEnum
+gfrfrsFileMode = Lens.field @"fileMode"
+{-# DEPRECATED gfrfrsFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
+
+-- | The size of the contents of the file, in bytes.
+--
+-- /Note:/ Consider using 'fileSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrfrsFileSize :: Lens.Lens' GetFileResponse Core.Integer
+gfrfrsFileSize = Lens.field @"fileSize"
+{-# DEPRECATED gfrfrsFileSize "Use generic-lens or generic-optics with 'fileSize' instead." #-}
 
 -- | The base-64 encoded binary data object that represents the content of the file.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -216,41 +225,13 @@ gfrsCommitId = Lens.lens (commitId :: GetFileResponse -> Lude.Text) (\s a -> s {
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'fileContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsFileContent :: Lens.Lens' GetFileResponse Lude.Base64
-gfrsFileContent = Lens.lens (fileContent :: GetFileResponse -> Lude.Base64) (\s a -> s {fileContent = a} :: GetFileResponse)
-{-# DEPRECATED gfrsFileContent "Use generic-lens or generic-optics with 'fileContent' instead." #-}
-
--- | The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.
---
--- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsFileMode :: Lens.Lens' GetFileResponse FileModeTypeEnum
-gfrsFileMode = Lens.lens (fileMode :: GetFileResponse -> FileModeTypeEnum) (\s a -> s {fileMode = a} :: GetFileResponse)
-{-# DEPRECATED gfrsFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
-
--- | The fully qualified path to the specified file. Returns the name and extension of the file.
---
--- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsFilePath :: Lens.Lens' GetFileResponse Lude.Text
-gfrsFilePath = Lens.lens (filePath :: GetFileResponse -> Lude.Text) (\s a -> s {filePath = a} :: GetFileResponse)
-{-# DEPRECATED gfrsFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
-
--- | The size of the contents of the file, in bytes.
---
--- /Note:/ Consider using 'fileSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsFileSize :: Lens.Lens' GetFileResponse Lude.Integer
-gfrsFileSize = Lens.lens (fileSize :: GetFileResponse -> Lude.Integer) (\s a -> s {fileSize = a} :: GetFileResponse)
-{-# DEPRECATED gfrsFileSize "Use generic-lens or generic-optics with 'fileSize' instead." #-}
-
--- | The blob ID of the object that represents the file content.
---
--- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsBlobId :: Lens.Lens' GetFileResponse Lude.Text
-gfrsBlobId = Lens.lens (blobId :: GetFileResponse -> Lude.Text) (\s a -> s {blobId = a} :: GetFileResponse)
-{-# DEPRECATED gfrsBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
+gfrfrsFileContent :: Lens.Lens' GetFileResponse Core.Base64
+gfrfrsFileContent = Lens.field @"fileContent"
+{-# DEPRECATED gfrfrsFileContent "Use generic-lens or generic-optics with 'fileContent' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsResponseStatus :: Lens.Lens' GetFileResponse Lude.Int
-gfrsResponseStatus = Lens.lens (responseStatus :: GetFileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFileResponse)
-{-# DEPRECATED gfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gfrfrsResponseStatus :: Lens.Lens' GetFileResponse Core.Int
+gfrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gfrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

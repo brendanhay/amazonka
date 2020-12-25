@@ -13,57 +13,62 @@
 module Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm
   ( DeinterlaceAlgorithm
       ( DeinterlaceAlgorithm',
-        DAInterpolate,
-        DAInterpolateTicker,
-        DABlend,
-        DABlendTicker
+        DeinterlaceAlgorithmInterpolate,
+        DeinterlaceAlgorithmInterpolateTicker,
+        DeinterlaceAlgorithmBlend,
+        DeinterlaceAlgorithmBlendTicker,
+        fromDeinterlaceAlgorithm
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your source file includes a ticker, such as a scrolling headline at the bottom of the frame.
-newtype DeinterlaceAlgorithm = DeinterlaceAlgorithm' Lude.Text
+newtype DeinterlaceAlgorithm = DeinterlaceAlgorithm'
+  { fromDeinterlaceAlgorithm ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DAInterpolate :: DeinterlaceAlgorithm
-pattern DAInterpolate = DeinterlaceAlgorithm' "INTERPOLATE"
+pattern DeinterlaceAlgorithmInterpolate :: DeinterlaceAlgorithm
+pattern DeinterlaceAlgorithmInterpolate = DeinterlaceAlgorithm' "INTERPOLATE"
 
-pattern DAInterpolateTicker :: DeinterlaceAlgorithm
-pattern DAInterpolateTicker = DeinterlaceAlgorithm' "INTERPOLATE_TICKER"
+pattern DeinterlaceAlgorithmInterpolateTicker :: DeinterlaceAlgorithm
+pattern DeinterlaceAlgorithmInterpolateTicker = DeinterlaceAlgorithm' "INTERPOLATE_TICKER"
 
-pattern DABlend :: DeinterlaceAlgorithm
-pattern DABlend = DeinterlaceAlgorithm' "BLEND"
+pattern DeinterlaceAlgorithmBlend :: DeinterlaceAlgorithm
+pattern DeinterlaceAlgorithmBlend = DeinterlaceAlgorithm' "BLEND"
 
-pattern DABlendTicker :: DeinterlaceAlgorithm
-pattern DABlendTicker = DeinterlaceAlgorithm' "BLEND_TICKER"
+pattern DeinterlaceAlgorithmBlendTicker :: DeinterlaceAlgorithm
+pattern DeinterlaceAlgorithmBlendTicker = DeinterlaceAlgorithm' "BLEND_TICKER"
 
 {-# COMPLETE
-  DAInterpolate,
-  DAInterpolateTicker,
-  DABlend,
-  DABlendTicker,
+  DeinterlaceAlgorithmInterpolate,
+  DeinterlaceAlgorithmInterpolateTicker,
+  DeinterlaceAlgorithmBlend,
+  DeinterlaceAlgorithmBlendTicker,
   DeinterlaceAlgorithm'
   #-}

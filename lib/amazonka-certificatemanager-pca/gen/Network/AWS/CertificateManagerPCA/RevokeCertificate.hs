@@ -22,9 +22,9 @@ module Network.AWS.CertificateManagerPCA.RevokeCertificate
     mkRevokeCertificate,
 
     -- ** Request lenses
-    rcRevocationReason,
+    rcCertificateAuthorityArn,
     rcCertificateSerial,
-    rcCertificateAuthorityARN,
+    rcRevocationReason,
 
     -- * Destructuring the response
     RevokeCertificateResponse (..),
@@ -32,63 +32,56 @@ module Network.AWS.CertificateManagerPCA.RevokeCertificate
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRevokeCertificate' smart constructor.
 data RevokeCertificate = RevokeCertificate'
-  { -- | Specifies why you revoked the certificate.
-    revocationReason :: RevocationReason,
+  { -- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+    certificateAuthorityArn :: Types.CertificateAuthorityArn,
     -- | Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html GetCertificate> with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The __GetCertificate__ action retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number.
     --
     -- @openssl x509 -in /file_path/ -text -noout@
     -- You can also copy the serial number from the console or use the <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate> action in the /AWS Certificate Manager API Reference/ .
-    certificateSerial :: Lude.Text,
-    -- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
-    --
-    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
-    certificateAuthorityARN :: Lude.Text
+    certificateSerial :: Types.CertificateSerial,
+    -- | Specifies why you revoked the certificate.
+    revocationReason :: Types.RevocationReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RevokeCertificate' with the minimum fields required to make a request.
---
--- * 'revocationReason' - Specifies why you revoked the certificate.
--- * 'certificateSerial' - Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html GetCertificate> with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The __GetCertificate__ action retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number.
---
--- @openssl x509 -in /file_path/ -text -noout@
--- You can also copy the serial number from the console or use the <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate> action in the /AWS Certificate Manager API Reference/ .
--- * 'certificateAuthorityARN' - Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | Creates a 'RevokeCertificate' value with any optional fields omitted.
 mkRevokeCertificate ::
-  -- | 'revocationReason'
-  RevocationReason ->
+  -- | 'certificateAuthorityArn'
+  Types.CertificateAuthorityArn ->
   -- | 'certificateSerial'
-  Lude.Text ->
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
+  Types.CertificateSerial ->
+  -- | 'revocationReason'
+  Types.RevocationReason ->
   RevokeCertificate
 mkRevokeCertificate
-  pRevocationReason_
-  pCertificateSerial_
-  pCertificateAuthorityARN_ =
+  certificateAuthorityArn
+  certificateSerial
+  revocationReason =
     RevokeCertificate'
-      { revocationReason = pRevocationReason_,
-        certificateSerial = pCertificateSerial_,
-        certificateAuthorityARN = pCertificateAuthorityARN_
+      { certificateAuthorityArn,
+        certificateSerial,
+        revocationReason
       }
 
--- | Specifies why you revoked the certificate.
+-- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
 --
--- /Note:/ Consider using 'revocationReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRevocationReason :: Lens.Lens' RevokeCertificate RevocationReason
-rcRevocationReason = Lens.lens (revocationReason :: RevokeCertificate -> RevocationReason) (\s a -> s {revocationReason = a} :: RevokeCertificate)
-{-# DEPRECATED rcRevocationReason "Use generic-lens or generic-optics with 'revocationReason' instead." #-}
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+--
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcCertificateAuthorityArn :: Lens.Lens' RevokeCertificate Types.CertificateAuthorityArn
+rcCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED rcCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
 -- | Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html GetCertificate> with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The __GetCertificate__ action retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number.
 --
@@ -96,58 +89,49 @@ rcRevocationReason = Lens.lens (revocationReason :: RevokeCertificate -> Revocat
 -- You can also copy the serial number from the console or use the <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate> action in the /AWS Certificate Manager API Reference/ .
 --
 -- /Note:/ Consider using 'certificateSerial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCertificateSerial :: Lens.Lens' RevokeCertificate Lude.Text
-rcCertificateSerial = Lens.lens (certificateSerial :: RevokeCertificate -> Lude.Text) (\s a -> s {certificateSerial = a} :: RevokeCertificate)
+rcCertificateSerial :: Lens.Lens' RevokeCertificate Types.CertificateSerial
+rcCertificateSerial = Lens.field @"certificateSerial"
 {-# DEPRECATED rcCertificateSerial "Use generic-lens or generic-optics with 'certificateSerial' instead." #-}
 
--- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
+-- | Specifies why you revoked the certificate.
 --
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
---
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCertificateAuthorityARN :: Lens.Lens' RevokeCertificate Lude.Text
-rcCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: RevokeCertificate -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: RevokeCertificate)
-{-# DEPRECATED rcCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'revocationReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRevocationReason :: Lens.Lens' RevokeCertificate Types.RevocationReason
+rcRevocationReason = Lens.field @"revocationReason"
+{-# DEPRECATED rcRevocationReason "Use generic-lens or generic-optics with 'revocationReason' instead." #-}
 
-instance Lude.AWSRequest RevokeCertificate where
+instance Core.FromJSON RevokeCertificate where
+  toJSON RevokeCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateAuthorityArn" Core..= certificateAuthorityArn),
+            Core.Just ("CertificateSerial" Core..= certificateSerial),
+            Core.Just ("RevocationReason" Core..= revocationReason)
+          ]
+      )
+
+instance Core.AWSRequest RevokeCertificate where
   type Rs RevokeCertificate = RevokeCertificateResponse
-  request = Req.postJSON certificateManagerPCAService
-  response = Res.receiveNull RevokeCertificateResponse'
-
-instance Lude.ToHeaders RevokeCertificate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.RevokeCertificate" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RevokeCertificate where
-  toJSON RevokeCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RevocationReason" Lude..= revocationReason),
-            Lude.Just ("CertificateSerial" Lude..= certificateSerial),
-            Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
-          ]
-      )
-
-instance Lude.ToPath RevokeCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RevokeCertificate where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ACMPrivateCA.RevokeCertificate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RevokeCertificateResponse'
 
 -- | /See:/ 'mkRevokeCertificateResponse' smart constructor.
 data RevokeCertificateResponse = RevokeCertificateResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RevokeCertificateResponse' with the minimum fields required to make a request.
+-- | Creates a 'RevokeCertificateResponse' value with any optional fields omitted.
 mkRevokeCertificateResponse ::
   RevokeCertificateResponse
 mkRevokeCertificateResponse = RevokeCertificateResponse'

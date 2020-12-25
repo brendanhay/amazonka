@@ -24,94 +24,90 @@ module Network.AWS.CloudWatchLogs.Types.MetricTransformation
   )
 where
 
+import qualified Network.AWS.CloudWatchLogs.Types.MetricName as Types
+import qualified Network.AWS.CloudWatchLogs.Types.MetricNamespace as Types
+import qualified Network.AWS.CloudWatchLogs.Types.MetricValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates how to transform ingested log events to metric data in a CloudWatch metric.
 --
 -- /See:/ 'mkMetricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
   { -- | The name of the CloudWatch metric.
-    metricName :: Lude.Text,
+    metricName :: Types.MetricName,
     -- | A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces> .
-    metricNamespace :: Lude.Text,
+    metricNamespace :: Types.MetricNamespace,
     -- | The value to publish to the CloudWatch metric when a filter pattern matches a log event.
-    metricValue :: Lude.Text,
+    metricValue :: Types.MetricValue,
     -- | (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
-    defaultValue :: Lude.Maybe Lude.Double
+    defaultValue :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricTransformation' with the minimum fields required to make a request.
---
--- * 'metricName' - The name of the CloudWatch metric.
--- * 'metricNamespace' - A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces> .
--- * 'metricValue' - The value to publish to the CloudWatch metric when a filter pattern matches a log event.
--- * 'defaultValue' - (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
+-- | Creates a 'MetricTransformation' value with any optional fields omitted.
 mkMetricTransformation ::
   -- | 'metricName'
-  Lude.Text ->
+  Types.MetricName ->
   -- | 'metricNamespace'
-  Lude.Text ->
+  Types.MetricNamespace ->
   -- | 'metricValue'
-  Lude.Text ->
+  Types.MetricValue ->
   MetricTransformation
-mkMetricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
+mkMetricTransformation metricName metricNamespace metricValue =
   MetricTransformation'
-    { metricName = pMetricName_,
-      metricNamespace = pMetricNamespace_,
-      metricValue = pMetricValue_,
-      defaultValue = Lude.Nothing
+    { metricName,
+      metricNamespace,
+      metricValue,
+      defaultValue = Core.Nothing
     }
 
 -- | The name of the CloudWatch metric.
 --
 -- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtMetricName :: Lens.Lens' MetricTransformation Lude.Text
-mtMetricName = Lens.lens (metricName :: MetricTransformation -> Lude.Text) (\s a -> s {metricName = a} :: MetricTransformation)
+mtMetricName :: Lens.Lens' MetricTransformation Types.MetricName
+mtMetricName = Lens.field @"metricName"
 {-# DEPRECATED mtMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces> .
 --
 -- /Note:/ Consider using 'metricNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtMetricNamespace :: Lens.Lens' MetricTransformation Lude.Text
-mtMetricNamespace = Lens.lens (metricNamespace :: MetricTransformation -> Lude.Text) (\s a -> s {metricNamespace = a} :: MetricTransformation)
+mtMetricNamespace :: Lens.Lens' MetricTransformation Types.MetricNamespace
+mtMetricNamespace = Lens.field @"metricNamespace"
 {-# DEPRECATED mtMetricNamespace "Use generic-lens or generic-optics with 'metricNamespace' instead." #-}
 
 -- | The value to publish to the CloudWatch metric when a filter pattern matches a log event.
 --
 -- /Note:/ Consider using 'metricValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtMetricValue :: Lens.Lens' MetricTransformation Lude.Text
-mtMetricValue = Lens.lens (metricValue :: MetricTransformation -> Lude.Text) (\s a -> s {metricValue = a} :: MetricTransformation)
+mtMetricValue :: Lens.Lens' MetricTransformation Types.MetricValue
+mtMetricValue = Lens.field @"metricValue"
 {-# DEPRECATED mtMetricValue "Use generic-lens or generic-optics with 'metricValue' instead." #-}
 
 -- | (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
 --
 -- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtDefaultValue :: Lens.Lens' MetricTransformation (Lude.Maybe Lude.Double)
-mtDefaultValue = Lens.lens (defaultValue :: MetricTransformation -> Lude.Maybe Lude.Double) (\s a -> s {defaultValue = a} :: MetricTransformation)
+mtDefaultValue :: Lens.Lens' MetricTransformation (Core.Maybe Core.Double)
+mtDefaultValue = Lens.field @"defaultValue"
 {-# DEPRECATED mtDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance Lude.FromJSON MetricTransformation where
-  parseJSON =
-    Lude.withObject
-      "MetricTransformation"
-      ( \x ->
-          MetricTransformation'
-            Lude.<$> (x Lude..: "metricName")
-            Lude.<*> (x Lude..: "metricNamespace")
-            Lude.<*> (x Lude..: "metricValue")
-            Lude.<*> (x Lude..:? "defaultValue")
-      )
-
-instance Lude.ToJSON MetricTransformation where
-  toJSON MetricTransformation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("metricName" Lude..= metricName),
-            Lude.Just ("metricNamespace" Lude..= metricNamespace),
-            Lude.Just ("metricValue" Lude..= metricValue),
-            ("defaultValue" Lude..=) Lude.<$> defaultValue
+instance Core.FromJSON MetricTransformation where
+  toJSON MetricTransformation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("metricName" Core..= metricName),
+            Core.Just ("metricNamespace" Core..= metricNamespace),
+            Core.Just ("metricValue" Core..= metricValue),
+            ("defaultValue" Core..=) Core.<$> defaultValue
           ]
       )
+
+instance Core.FromJSON MetricTransformation where
+  parseJSON =
+    Core.withObject "MetricTransformation" Core.$
+      \x ->
+        MetricTransformation'
+          Core.<$> (x Core..: "metricName")
+          Core.<*> (x Core..: "metricNamespace")
+          Core.<*> (x Core..: "metricValue")
+          Core.<*> (x Core..:? "defaultValue")

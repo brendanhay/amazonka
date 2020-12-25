@@ -13,57 +13,62 @@
 module Network.AWS.MediaLive.Types.H264RateControlMode
   ( H264RateControlMode
       ( H264RateControlMode',
-        HRCMCbr,
-        HRCMMultiplex,
-        HRCMQvbr,
-        HRCMVbr
+        H264RateControlModeCbr,
+        H264RateControlModeMultiplex,
+        H264RateControlModeQvbr,
+        H264RateControlModeVbr,
+        fromH264RateControlMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Rate Control Mode
-newtype H264RateControlMode = H264RateControlMode' Lude.Text
+newtype H264RateControlMode = H264RateControlMode'
+  { fromH264RateControlMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HRCMCbr :: H264RateControlMode
-pattern HRCMCbr = H264RateControlMode' "CBR"
+pattern H264RateControlModeCbr :: H264RateControlMode
+pattern H264RateControlModeCbr = H264RateControlMode' "CBR"
 
-pattern HRCMMultiplex :: H264RateControlMode
-pattern HRCMMultiplex = H264RateControlMode' "MULTIPLEX"
+pattern H264RateControlModeMultiplex :: H264RateControlMode
+pattern H264RateControlModeMultiplex = H264RateControlMode' "MULTIPLEX"
 
-pattern HRCMQvbr :: H264RateControlMode
-pattern HRCMQvbr = H264RateControlMode' "QVBR"
+pattern H264RateControlModeQvbr :: H264RateControlMode
+pattern H264RateControlModeQvbr = H264RateControlMode' "QVBR"
 
-pattern HRCMVbr :: H264RateControlMode
-pattern HRCMVbr = H264RateControlMode' "VBR"
+pattern H264RateControlModeVbr :: H264RateControlMode
+pattern H264RateControlModeVbr = H264RateControlMode' "VBR"
 
 {-# COMPLETE
-  HRCMCbr,
-  HRCMMultiplex,
-  HRCMQvbr,
-  HRCMVbr,
+  H264RateControlModeCbr,
+  H264RateControlModeMultiplex,
+  H264RateControlModeQvbr,
+  H264RateControlModeVbr,
   H264RateControlMode'
   #-}

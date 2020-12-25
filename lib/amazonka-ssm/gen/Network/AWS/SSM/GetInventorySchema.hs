@@ -22,194 +22,179 @@ module Network.AWS.SSM.GetInventorySchema
     mkGetInventorySchema,
 
     -- ** Request lenses
-    gisTypeName,
     gisAggregator,
+    gisMaxResults,
     gisNextToken,
     gisSubType,
-    gisMaxResults,
+    gisTypeName,
 
     -- * Destructuring the response
     GetInventorySchemaResponse (..),
     mkGetInventorySchemaResponse,
 
     -- ** Response lenses
-    gisrsSchemas,
-    gisrsNextToken,
-    gisrsResponseStatus,
+    gisrrsNextToken,
+    gisrrsSchemas,
+    gisrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkGetInventorySchema' smart constructor.
 data GetInventorySchema = GetInventorySchema'
-  { -- | The type of inventory item to return.
-    typeName :: Lude.Maybe Lude.Text,
-    -- | Returns inventory schemas that support aggregation. For example, this call returns the @AWS:InstanceInformation@ type, because it supports aggregation based on the @PlatformName@ , @PlatformType@ , and @PlatformVersion@ attributes.
-    aggregator :: Lude.Maybe Lude.Bool,
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Returns the sub-type schema for a specified inventory type.
-    subType :: Lude.Maybe Lude.Bool,
+  { -- | Returns inventory schemas that support aggregation. For example, this call returns the @AWS:InstanceInformation@ type, because it supports aggregation based on the @PlatformName@ , @PlatformType@ , and @PlatformVersion@ attributes.
+    aggregator :: Core.Maybe Core.Bool,
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Returns the sub-type schema for a specified inventory type.
+    subType :: Core.Maybe Core.Bool,
+    -- | The type of inventory item to return.
+    typeName :: Core.Maybe Types.TypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInventorySchema' with the minimum fields required to make a request.
---
--- * 'typeName' - The type of inventory item to return.
--- * 'aggregator' - Returns inventory schemas that support aggregation. For example, this call returns the @AWS:InstanceInformation@ type, because it supports aggregation based on the @PlatformName@ , @PlatformType@ , and @PlatformVersion@ attributes.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'subType' - Returns the sub-type schema for a specified inventory type.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'GetInventorySchema' value with any optional fields omitted.
 mkGetInventorySchema ::
   GetInventorySchema
 mkGetInventorySchema =
   GetInventorySchema'
-    { typeName = Lude.Nothing,
-      aggregator = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      subType = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { aggregator = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      subType = Core.Nothing,
+      typeName = Core.Nothing
     }
-
--- | The type of inventory item to return.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisTypeName :: Lens.Lens' GetInventorySchema (Lude.Maybe Lude.Text)
-gisTypeName = Lens.lens (typeName :: GetInventorySchema -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: GetInventorySchema)
-{-# DEPRECATED gisTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | Returns inventory schemas that support aggregation. For example, this call returns the @AWS:InstanceInformation@ type, because it supports aggregation based on the @PlatformName@ , @PlatformType@ , and @PlatformVersion@ attributes.
 --
 -- /Note:/ Consider using 'aggregator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisAggregator :: Lens.Lens' GetInventorySchema (Lude.Maybe Lude.Bool)
-gisAggregator = Lens.lens (aggregator :: GetInventorySchema -> Lude.Maybe Lude.Bool) (\s a -> s {aggregator = a} :: GetInventorySchema)
+gisAggregator :: Lens.Lens' GetInventorySchema (Core.Maybe Core.Bool)
+gisAggregator = Lens.field @"aggregator"
 {-# DEPRECATED gisAggregator "Use generic-lens or generic-optics with 'aggregator' instead." #-}
+
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisMaxResults :: Lens.Lens' GetInventorySchema (Core.Maybe Core.Natural)
+gisMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisNextToken :: Lens.Lens' GetInventorySchema (Lude.Maybe Lude.Text)
-gisNextToken = Lens.lens (nextToken :: GetInventorySchema -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInventorySchema)
+gisNextToken :: Lens.Lens' GetInventorySchema (Core.Maybe Types.NextToken)
+gisNextToken = Lens.field @"nextToken"
 {-# DEPRECATED gisNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns the sub-type schema for a specified inventory type.
 --
 -- /Note:/ Consider using 'subType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisSubType :: Lens.Lens' GetInventorySchema (Lude.Maybe Lude.Bool)
-gisSubType = Lens.lens (subType :: GetInventorySchema -> Lude.Maybe Lude.Bool) (\s a -> s {subType = a} :: GetInventorySchema)
+gisSubType :: Lens.Lens' GetInventorySchema (Core.Maybe Core.Bool)
+gisSubType = Lens.field @"subType"
 {-# DEPRECATED gisSubType "Use generic-lens or generic-optics with 'subType' instead." #-}
 
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | The type of inventory item to return.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisMaxResults :: Lens.Lens' GetInventorySchema (Lude.Maybe Lude.Natural)
-gisMaxResults = Lens.lens (maxResults :: GetInventorySchema -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInventorySchema)
-{-# DEPRECATED gisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisTypeName :: Lens.Lens' GetInventorySchema (Core.Maybe Types.TypeName)
+gisTypeName = Lens.field @"typeName"
+{-# DEPRECATED gisTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
-instance Page.AWSPager GetInventorySchema where
-  page rq rs
-    | Page.stop (rs Lens.^. gisrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gisrsSchemas) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gisNextToken Lens..~ rs Lens.^. gisrsNextToken
+instance Core.FromJSON GetInventorySchema where
+  toJSON GetInventorySchema {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Aggregator" Core..=) Core.<$> aggregator,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SubType" Core..=) Core.<$> subType,
+            ("TypeName" Core..=) Core.<$> typeName
+          ]
+      )
 
-instance Lude.AWSRequest GetInventorySchema where
+instance Core.AWSRequest GetInventorySchema where
   type Rs GetInventorySchema = GetInventorySchemaResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.GetInventorySchema")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInventorySchemaResponse'
-            Lude.<$> (x Lude..?> "Schemas" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Schemas")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetInventorySchema where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.GetInventorySchema" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInventorySchema where
-  toJSON GetInventorySchema' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TypeName" Lude..=) Lude.<$> typeName,
-            ("Aggregator" Lude..=) Lude.<$> aggregator,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SubType" Lude..=) Lude.<$> subType,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetInventorySchema where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInventorySchema where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetInventorySchema where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"schemas" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetInventorySchemaResponse' smart constructor.
 data GetInventorySchemaResponse = GetInventorySchemaResponse'
-  { -- | Inventory schemas returned by the request.
-    schemas :: Lude.Maybe [InventoryItemSchema],
-    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Inventory schemas returned by the request.
+    schemas :: Core.Maybe [Types.InventoryItemSchema],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInventorySchemaResponse' with the minimum fields required to make a request.
---
--- * 'schemas' - Inventory schemas returned by the request.
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInventorySchemaResponse' value with any optional fields omitted.
 mkGetInventorySchemaResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInventorySchemaResponse
-mkGetInventorySchemaResponse pResponseStatus_ =
+mkGetInventorySchemaResponse responseStatus =
   GetInventorySchemaResponse'
-    { schemas = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      schemas = Core.Nothing,
+      responseStatus
     }
-
--- | Inventory schemas returned by the request.
---
--- /Note:/ Consider using 'schemas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisrsSchemas :: Lens.Lens' GetInventorySchemaResponse (Lude.Maybe [InventoryItemSchema])
-gisrsSchemas = Lens.lens (schemas :: GetInventorySchemaResponse -> Lude.Maybe [InventoryItemSchema]) (\s a -> s {schemas = a} :: GetInventorySchemaResponse)
-{-# DEPRECATED gisrsSchemas "Use generic-lens or generic-optics with 'schemas' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisrsNextToken :: Lens.Lens' GetInventorySchemaResponse (Lude.Maybe Lude.Text)
-gisrsNextToken = Lens.lens (nextToken :: GetInventorySchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInventorySchemaResponse)
-{-# DEPRECATED gisrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gisrrsNextToken :: Lens.Lens' GetInventorySchemaResponse (Core.Maybe Types.NextToken)
+gisrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gisrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Inventory schemas returned by the request.
+--
+-- /Note:/ Consider using 'schemas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrrsSchemas :: Lens.Lens' GetInventorySchemaResponse (Core.Maybe [Types.InventoryItemSchema])
+gisrrsSchemas = Lens.field @"schemas"
+{-# DEPRECATED gisrrsSchemas "Use generic-lens or generic-optics with 'schemas' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisrsResponseStatus :: Lens.Lens' GetInventorySchemaResponse Lude.Int
-gisrsResponseStatus = Lens.lens (responseStatus :: GetInventorySchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInventorySchemaResponse)
-{-# DEPRECATED gisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gisrrsResponseStatus :: Lens.Lens' GetInventorySchemaResponse Core.Int
+gisrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

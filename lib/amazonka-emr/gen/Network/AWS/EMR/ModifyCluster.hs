@@ -28,126 +28,110 @@ module Network.AWS.EMR.ModifyCluster
     mkModifyClusterResponse,
 
     -- ** Response lenses
-    mcrsStepConcurrencyLevel,
-    mcrsResponseStatus,
+    mcrrsStepConcurrencyLevel,
+    mcrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
   { -- | The unique identifier of the cluster.
-    clusterId :: Lude.Text,
+    clusterId :: Types.ClusterId,
     -- | The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
-    stepConcurrencyLevel :: Lude.Maybe Lude.Int
+    stepConcurrencyLevel :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyCluster' with the minimum fields required to make a request.
---
--- * 'clusterId' - The unique identifier of the cluster.
--- * 'stepConcurrencyLevel' - The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
+-- | Creates a 'ModifyCluster' value with any optional fields omitted.
 mkModifyCluster ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   ModifyCluster
-mkModifyCluster pClusterId_ =
-  ModifyCluster'
-    { clusterId = pClusterId_,
-      stepConcurrencyLevel = Lude.Nothing
-    }
+mkModifyCluster clusterId =
+  ModifyCluster' {clusterId, stepConcurrencyLevel = Core.Nothing}
 
 -- | The unique identifier of the cluster.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcClusterId :: Lens.Lens' ModifyCluster Lude.Text
-mcClusterId = Lens.lens (clusterId :: ModifyCluster -> Lude.Text) (\s a -> s {clusterId = a} :: ModifyCluster)
+mcClusterId :: Lens.Lens' ModifyCluster Types.ClusterId
+mcClusterId = Lens.field @"clusterId"
 {-# DEPRECATED mcClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
 --
 -- /Note:/ Consider using 'stepConcurrencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcStepConcurrencyLevel :: Lens.Lens' ModifyCluster (Lude.Maybe Lude.Int)
-mcStepConcurrencyLevel = Lens.lens (stepConcurrencyLevel :: ModifyCluster -> Lude.Maybe Lude.Int) (\s a -> s {stepConcurrencyLevel = a} :: ModifyCluster)
+mcStepConcurrencyLevel :: Lens.Lens' ModifyCluster (Core.Maybe Core.Int)
+mcStepConcurrencyLevel = Lens.field @"stepConcurrencyLevel"
 {-# DEPRECATED mcStepConcurrencyLevel "Use generic-lens or generic-optics with 'stepConcurrencyLevel' instead." #-}
 
-instance Lude.AWSRequest ModifyCluster where
+instance Core.FromJSON ModifyCluster where
+  toJSON ModifyCluster {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            ("StepConcurrencyLevel" Core..=) Core.<$> stepConcurrencyLevel
+          ]
+      )
+
+instance Core.AWSRequest ModifyCluster where
   type Rs ModifyCluster = ModifyClusterResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ModifyCluster")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ModifyClusterResponse'
-            Lude.<$> (x Lude..?> "StepConcurrencyLevel")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "StepConcurrencyLevel")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyCluster where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ModifyCluster" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifyCluster where
-  toJSON ModifyCluster' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClusterId" Lude..= clusterId),
-            ("StepConcurrencyLevel" Lude..=) Lude.<$> stepConcurrencyLevel
-          ]
-      )
-
-instance Lude.ToPath ModifyCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyCluster where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkModifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
   { -- | The number of steps that can be executed concurrently.
-    stepConcurrencyLevel :: Lude.Maybe Lude.Int,
+    stepConcurrencyLevel :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
---
--- * 'stepConcurrencyLevel' - The number of steps that can be executed concurrently.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyClusterResponse' value with any optional fields omitted.
 mkModifyClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyClusterResponse
-mkModifyClusterResponse pResponseStatus_ =
+mkModifyClusterResponse responseStatus =
   ModifyClusterResponse'
-    { stepConcurrencyLevel = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { stepConcurrencyLevel = Core.Nothing,
+      responseStatus
     }
 
 -- | The number of steps that can be executed concurrently.
 --
 -- /Note:/ Consider using 'stepConcurrencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcrsStepConcurrencyLevel :: Lens.Lens' ModifyClusterResponse (Lude.Maybe Lude.Int)
-mcrsStepConcurrencyLevel = Lens.lens (stepConcurrencyLevel :: ModifyClusterResponse -> Lude.Maybe Lude.Int) (\s a -> s {stepConcurrencyLevel = a} :: ModifyClusterResponse)
-{-# DEPRECATED mcrsStepConcurrencyLevel "Use generic-lens or generic-optics with 'stepConcurrencyLevel' instead." #-}
+mcrrsStepConcurrencyLevel :: Lens.Lens' ModifyClusterResponse (Core.Maybe Core.Int)
+mcrrsStepConcurrencyLevel = Lens.field @"stepConcurrencyLevel"
+{-# DEPRECATED mcrrsStepConcurrencyLevel "Use generic-lens or generic-optics with 'stepConcurrencyLevel' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcrsResponseStatus :: Lens.Lens' ModifyClusterResponse Lude.Int
-mcrsResponseStatus = Lens.lens (responseStatus :: ModifyClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClusterResponse)
-{-# DEPRECATED mcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mcrrsResponseStatus :: Lens.Lens' ModifyClusterResponse Core.Int
+mcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

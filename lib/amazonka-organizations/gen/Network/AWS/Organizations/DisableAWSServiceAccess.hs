@@ -26,7 +26,7 @@ module Network.AWS.Organizations.DisableAWSServiceAccess
     mkDisableAWSServiceAccess,
 
     -- ** Request lenses
-    dasaServicePrincipal,
+    dawssaServicePrincipal,
 
     -- * Destructuring the response
     DisableAWSServiceAccessResponse (..),
@@ -35,73 +35,65 @@ module Network.AWS.Organizations.DisableAWSServiceAccess
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisableAWSServiceAccess' smart constructor.
 newtype DisableAWSServiceAccess = DisableAWSServiceAccess'
   { -- | The service principal name of the AWS service for which you want to disable integration with your organization. This is typically in the form of a URL, such as @/service-abbreviation/ .amazonaws.com@ .
-    servicePrincipal :: Lude.Text
+    servicePrincipal :: Types.ServicePrincipal
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableAWSServiceAccess' with the minimum fields required to make a request.
---
--- * 'servicePrincipal' - The service principal name of the AWS service for which you want to disable integration with your organization. This is typically in the form of a URL, such as @/service-abbreviation/ .amazonaws.com@ .
+-- | Creates a 'DisableAWSServiceAccess' value with any optional fields omitted.
 mkDisableAWSServiceAccess ::
   -- | 'servicePrincipal'
-  Lude.Text ->
+  Types.ServicePrincipal ->
   DisableAWSServiceAccess
-mkDisableAWSServiceAccess pServicePrincipal_ =
-  DisableAWSServiceAccess' {servicePrincipal = pServicePrincipal_}
+mkDisableAWSServiceAccess servicePrincipal =
+  DisableAWSServiceAccess' {servicePrincipal}
 
 -- | The service principal name of the AWS service for which you want to disable integration with your organization. This is typically in the form of a URL, such as @/service-abbreviation/ .amazonaws.com@ .
 --
 -- /Note:/ Consider using 'servicePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasaServicePrincipal :: Lens.Lens' DisableAWSServiceAccess Lude.Text
-dasaServicePrincipal = Lens.lens (servicePrincipal :: DisableAWSServiceAccess -> Lude.Text) (\s a -> s {servicePrincipal = a} :: DisableAWSServiceAccess)
-{-# DEPRECATED dasaServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
+dawssaServicePrincipal :: Lens.Lens' DisableAWSServiceAccess Types.ServicePrincipal
+dawssaServicePrincipal = Lens.field @"servicePrincipal"
+{-# DEPRECATED dawssaServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
 
-instance Lude.AWSRequest DisableAWSServiceAccess where
+instance Core.FromJSON DisableAWSServiceAccess where
+  toJSON DisableAWSServiceAccess {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ServicePrincipal" Core..= servicePrincipal)]
+      )
+
+instance Core.AWSRequest DisableAWSServiceAccess where
   type Rs DisableAWSServiceAccess = DisableAWSServiceAccessResponse
-  request = Req.postJSON organizationsService
-  response = Res.receiveNull DisableAWSServiceAccessResponse'
-
-instance Lude.ToHeaders DisableAWSServiceAccess where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.DisableAWSServiceAccess" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisableAWSServiceAccess where
-  toJSON DisableAWSServiceAccess' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ServicePrincipal" Lude..= servicePrincipal)]
-      )
-
-instance Lude.ToPath DisableAWSServiceAccess where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisableAWSServiceAccess where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrganizationsV20161128.DisableAWSServiceAccess"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DisableAWSServiceAccessResponse'
 
 -- | /See:/ 'mkDisableAWSServiceAccessResponse' smart constructor.
 data DisableAWSServiceAccessResponse = DisableAWSServiceAccessResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableAWSServiceAccessResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisableAWSServiceAccessResponse' value with any optional fields omitted.
 mkDisableAWSServiceAccessResponse ::
   DisableAWSServiceAccessResponse
 mkDisableAWSServiceAccessResponse =

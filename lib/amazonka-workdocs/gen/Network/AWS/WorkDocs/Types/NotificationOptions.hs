@@ -23,51 +23,49 @@ module Network.AWS.WorkDocs.Types.NotificationOptions
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.EmailMessage as Types
 
 -- | Set of options which defines notification preferences of given action.
 --
 -- /See:/ 'mkNotificationOptions' smart constructor.
 data NotificationOptions = NotificationOptions'
   { -- | Text value to be included in the email body.
-    emailMessage :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    emailMessage :: Core.Maybe Types.EmailMessage,
     -- | Boolean value to indicate an email notification should be sent to the receipients.
-    sendEmail :: Lude.Maybe Lude.Bool
+    sendEmail :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationOptions' with the minimum fields required to make a request.
---
--- * 'emailMessage' - Text value to be included in the email body.
--- * 'sendEmail' - Boolean value to indicate an email notification should be sent to the receipients.
+-- | Creates a 'NotificationOptions' value with any optional fields omitted.
 mkNotificationOptions ::
   NotificationOptions
 mkNotificationOptions =
   NotificationOptions'
-    { emailMessage = Lude.Nothing,
-      sendEmail = Lude.Nothing
+    { emailMessage = Core.Nothing,
+      sendEmail = Core.Nothing
     }
 
 -- | Text value to be included in the email body.
 --
 -- /Note:/ Consider using 'emailMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-noEmailMessage :: Lens.Lens' NotificationOptions (Lude.Maybe (Lude.Sensitive Lude.Text))
-noEmailMessage = Lens.lens (emailMessage :: NotificationOptions -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {emailMessage = a} :: NotificationOptions)
+noEmailMessage :: Lens.Lens' NotificationOptions (Core.Maybe Types.EmailMessage)
+noEmailMessage = Lens.field @"emailMessage"
 {-# DEPRECATED noEmailMessage "Use generic-lens or generic-optics with 'emailMessage' instead." #-}
 
 -- | Boolean value to indicate an email notification should be sent to the receipients.
 --
 -- /Note:/ Consider using 'sendEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-noSendEmail :: Lens.Lens' NotificationOptions (Lude.Maybe Lude.Bool)
-noSendEmail = Lens.lens (sendEmail :: NotificationOptions -> Lude.Maybe Lude.Bool) (\s a -> s {sendEmail = a} :: NotificationOptions)
+noSendEmail :: Lens.Lens' NotificationOptions (Core.Maybe Core.Bool)
+noSendEmail = Lens.field @"sendEmail"
 {-# DEPRECATED noSendEmail "Use generic-lens or generic-optics with 'sendEmail' instead." #-}
 
-instance Lude.ToJSON NotificationOptions where
-  toJSON NotificationOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EmailMessage" Lude..=) Lude.<$> emailMessage,
-            ("SendEmail" Lude..=) Lude.<$> sendEmail
+instance Core.FromJSON NotificationOptions where
+  toJSON NotificationOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EmailMessage" Core..=) Core.<$> emailMessage,
+            ("SendEmail" Core..=) Core.<$> sendEmail
           ]
       )

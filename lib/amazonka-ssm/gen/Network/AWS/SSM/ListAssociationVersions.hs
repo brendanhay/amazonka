@@ -23,169 +23,158 @@ module Network.AWS.SSM.ListAssociationVersions
 
     -- ** Request lenses
     lavAssociationId,
-    lavNextToken,
     lavMaxResults,
+    lavNextToken,
 
     -- * Destructuring the response
     ListAssociationVersionsResponse (..),
     mkListAssociationVersionsResponse,
 
     -- ** Response lenses
-    lavrsNextToken,
-    lavrsAssociationVersions,
-    lavrsResponseStatus,
+    lavrrsAssociationVersions,
+    lavrrsNextToken,
+    lavrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkListAssociationVersions' smart constructor.
 data ListAssociationVersions = ListAssociationVersions'
   { -- | The association ID for which you want to view all versions.
-    associationId :: Lude.Text,
-    -- | A token to start the list. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    associationId :: Types.AssociationId,
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token to start the list. Use this token to get the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAssociationVersions' with the minimum fields required to make a request.
---
--- * 'associationId' - The association ID for which you want to view all versions.
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'ListAssociationVersions' value with any optional fields omitted.
 mkListAssociationVersions ::
   -- | 'associationId'
-  Lude.Text ->
+  Types.AssociationId ->
   ListAssociationVersions
-mkListAssociationVersions pAssociationId_ =
+mkListAssociationVersions associationId =
   ListAssociationVersions'
-    { associationId = pAssociationId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { associationId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The association ID for which you want to view all versions.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavAssociationId :: Lens.Lens' ListAssociationVersions Lude.Text
-lavAssociationId = Lens.lens (associationId :: ListAssociationVersions -> Lude.Text) (\s a -> s {associationId = a} :: ListAssociationVersions)
+lavAssociationId :: Lens.Lens' ListAssociationVersions Types.AssociationId
+lavAssociationId = Lens.field @"associationId"
 {-# DEPRECATED lavAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
-
--- | A token to start the list. Use this token to get the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavNextToken :: Lens.Lens' ListAssociationVersions (Lude.Maybe Lude.Text)
-lavNextToken = Lens.lens (nextToken :: ListAssociationVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssociationVersions)
-{-# DEPRECATED lavNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavMaxResults :: Lens.Lens' ListAssociationVersions (Lude.Maybe Lude.Natural)
-lavMaxResults = Lens.lens (maxResults :: ListAssociationVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAssociationVersions)
+lavMaxResults :: Lens.Lens' ListAssociationVersions (Core.Maybe Core.Natural)
+lavMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lavMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListAssociationVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. lavrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lavrsAssociationVersions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lavNextToken Lens..~ rs Lens.^. lavrsNextToken
+-- | A token to start the list. Use this token to get the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavNextToken :: Lens.Lens' ListAssociationVersions (Core.Maybe Types.NextToken)
+lavNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lavNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListAssociationVersions where
+instance Core.FromJSON ListAssociationVersions where
+  toJSON ListAssociationVersions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AssociationId" Core..= associationId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListAssociationVersions where
   type Rs ListAssociationVersions = ListAssociationVersionsResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.ListAssociationVersions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAssociationVersionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "AssociationVersions")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AssociationVersions")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAssociationVersions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.ListAssociationVersions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAssociationVersions where
-  toJSON ListAssociationVersions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AssociationId" Lude..= associationId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListAssociationVersions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAssociationVersions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAssociationVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"associationVersions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAssociationVersionsResponse' smart constructor.
 data ListAssociationVersionsResponse = ListAssociationVersionsResponse'
-  { -- | The token for the next set of items to return. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about all versions of the association for the specified association ID.
-    associationVersions :: Lude.Maybe (Lude.NonEmpty AssociationVersionInfo),
+  { -- | Information about all versions of the association for the specified association ID.
+    associationVersions :: Core.Maybe (Core.NonEmpty Types.AssociationVersionInfo),
+    -- | The token for the next set of items to return. Use this token to get the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListAssociationVersionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
--- * 'associationVersions' - Information about all versions of the association for the specified association ID.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAssociationVersionsResponse' value with any optional fields omitted.
 mkListAssociationVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAssociationVersionsResponse
-mkListAssociationVersionsResponse pResponseStatus_ =
+mkListAssociationVersionsResponse responseStatus =
   ListAssociationVersionsResponse'
-    { nextToken = Lude.Nothing,
-      associationVersions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { associationVersions =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token for the next set of items to return. Use this token to get the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavrsNextToken :: Lens.Lens' ListAssociationVersionsResponse (Lude.Maybe Lude.Text)
-lavrsNextToken = Lens.lens (nextToken :: ListAssociationVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssociationVersionsResponse)
-{-# DEPRECATED lavrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about all versions of the association for the specified association ID.
 --
 -- /Note:/ Consider using 'associationVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavrsAssociationVersions :: Lens.Lens' ListAssociationVersionsResponse (Lude.Maybe (Lude.NonEmpty AssociationVersionInfo))
-lavrsAssociationVersions = Lens.lens (associationVersions :: ListAssociationVersionsResponse -> Lude.Maybe (Lude.NonEmpty AssociationVersionInfo)) (\s a -> s {associationVersions = a} :: ListAssociationVersionsResponse)
-{-# DEPRECATED lavrsAssociationVersions "Use generic-lens or generic-optics with 'associationVersions' instead." #-}
+lavrrsAssociationVersions :: Lens.Lens' ListAssociationVersionsResponse (Core.Maybe (Core.NonEmpty Types.AssociationVersionInfo))
+lavrrsAssociationVersions = Lens.field @"associationVersions"
+{-# DEPRECATED lavrrsAssociationVersions "Use generic-lens or generic-optics with 'associationVersions' instead." #-}
+
+-- | The token for the next set of items to return. Use this token to get the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavrrsNextToken :: Lens.Lens' ListAssociationVersionsResponse (Core.Maybe Types.NextToken)
+lavrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lavrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavrsResponseStatus :: Lens.Lens' ListAssociationVersionsResponse Lude.Int
-lavrsResponseStatus = Lens.lens (responseStatus :: ListAssociationVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssociationVersionsResponse)
-{-# DEPRECATED lavrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lavrrsResponseStatus :: Lens.Lens' ListAssociationVersionsResponse Core.Int
+lavrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lavrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

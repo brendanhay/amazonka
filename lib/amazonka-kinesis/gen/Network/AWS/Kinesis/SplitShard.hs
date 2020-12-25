@@ -30,9 +30,9 @@ module Network.AWS.Kinesis.SplitShard
     mkSplitShard,
 
     -- ** Request lenses
-    ssNewStartingHashKey,
-    ssShardToSplit,
     ssStreamName,
+    ssShardToSplit,
+    ssNewStartingHashKey,
 
     -- * Destructuring the response
     SplitShardResponse (..),
@@ -40,105 +40,90 @@ module Network.AWS.Kinesis.SplitShard
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for @SplitShard@ .
 --
 -- /See:/ 'mkSplitShard' smart constructor.
 data SplitShard = SplitShard'
-  { -- | A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for @NewStartingHashKey@ must be in the range of hash keys being mapped into the shard. The @NewStartingHashKey@ hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.
-    newStartingHashKey :: Lude.Text,
+  { -- | The name of the stream for the shard split.
+    streamName :: Types.StreamName,
     -- | The shard ID of the shard to split.
-    shardToSplit :: Lude.Text,
-    -- | The name of the stream for the shard split.
-    streamName :: Lude.Text
+    shardToSplit :: Types.ShardToSplit,
+    -- | A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for @NewStartingHashKey@ must be in the range of hash keys being mapped into the shard. The @NewStartingHashKey@ hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.
+    newStartingHashKey :: Types.HashKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SplitShard' with the minimum fields required to make a request.
---
--- * 'newStartingHashKey' - A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for @NewStartingHashKey@ must be in the range of hash keys being mapped into the shard. The @NewStartingHashKey@ hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.
--- * 'shardToSplit' - The shard ID of the shard to split.
--- * 'streamName' - The name of the stream for the shard split.
+-- | Creates a 'SplitShard' value with any optional fields omitted.
 mkSplitShard ::
-  -- | 'newStartingHashKey'
-  Lude.Text ->
-  -- | 'shardToSplit'
-  Lude.Text ->
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
+  -- | 'shardToSplit'
+  Types.ShardToSplit ->
+  -- | 'newStartingHashKey'
+  Types.HashKey ->
   SplitShard
-mkSplitShard pNewStartingHashKey_ pShardToSplit_ pStreamName_ =
-  SplitShard'
-    { newStartingHashKey = pNewStartingHashKey_,
-      shardToSplit = pShardToSplit_,
-      streamName = pStreamName_
-    }
-
--- | A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for @NewStartingHashKey@ must be in the range of hash keys being mapped into the shard. The @NewStartingHashKey@ hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.
---
--- /Note:/ Consider using 'newStartingHashKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssNewStartingHashKey :: Lens.Lens' SplitShard Lude.Text
-ssNewStartingHashKey = Lens.lens (newStartingHashKey :: SplitShard -> Lude.Text) (\s a -> s {newStartingHashKey = a} :: SplitShard)
-{-# DEPRECATED ssNewStartingHashKey "Use generic-lens or generic-optics with 'newStartingHashKey' instead." #-}
-
--- | The shard ID of the shard to split.
---
--- /Note:/ Consider using 'shardToSplit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssShardToSplit :: Lens.Lens' SplitShard Lude.Text
-ssShardToSplit = Lens.lens (shardToSplit :: SplitShard -> Lude.Text) (\s a -> s {shardToSplit = a} :: SplitShard)
-{-# DEPRECATED ssShardToSplit "Use generic-lens or generic-optics with 'shardToSplit' instead." #-}
+mkSplitShard streamName shardToSplit newStartingHashKey =
+  SplitShard' {streamName, shardToSplit, newStartingHashKey}
 
 -- | The name of the stream for the shard split.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStreamName :: Lens.Lens' SplitShard Lude.Text
-ssStreamName = Lens.lens (streamName :: SplitShard -> Lude.Text) (\s a -> s {streamName = a} :: SplitShard)
+ssStreamName :: Lens.Lens' SplitShard Types.StreamName
+ssStreamName = Lens.field @"streamName"
 {-# DEPRECATED ssStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest SplitShard where
+-- | The shard ID of the shard to split.
+--
+-- /Note:/ Consider using 'shardToSplit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssShardToSplit :: Lens.Lens' SplitShard Types.ShardToSplit
+ssShardToSplit = Lens.field @"shardToSplit"
+{-# DEPRECATED ssShardToSplit "Use generic-lens or generic-optics with 'shardToSplit' instead." #-}
+
+-- | A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for @NewStartingHashKey@ must be in the range of hash keys being mapped into the shard. The @NewStartingHashKey@ hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.
+--
+-- /Note:/ Consider using 'newStartingHashKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssNewStartingHashKey :: Lens.Lens' SplitShard Types.HashKey
+ssNewStartingHashKey = Lens.field @"newStartingHashKey"
+{-# DEPRECATED ssNewStartingHashKey "Use generic-lens or generic-optics with 'newStartingHashKey' instead." #-}
+
+instance Core.FromJSON SplitShard where
+  toJSON SplitShard {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("ShardToSplit" Core..= shardToSplit),
+            Core.Just ("NewStartingHashKey" Core..= newStartingHashKey)
+          ]
+      )
+
+instance Core.AWSRequest SplitShard where
   type Rs SplitShard = SplitShardResponse
-  request = Req.postJSON kinesisService
-  response = Res.receiveNull SplitShardResponse'
-
-instance Lude.ToHeaders SplitShard where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.SplitShard" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SplitShard where
-  toJSON SplitShard' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("NewStartingHashKey" Lude..= newStartingHashKey),
-            Lude.Just ("ShardToSplit" Lude..= shardToSplit),
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath SplitShard where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SplitShard where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.SplitShard")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SplitShardResponse'
 
 -- | /See:/ 'mkSplitShardResponse' smart constructor.
 data SplitShardResponse = SplitShardResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SplitShardResponse' with the minimum fields required to make a request.
+-- | Creates a 'SplitShardResponse' value with any optional fields omitted.
 mkSplitShardResponse ::
   SplitShardResponse
 mkSplitShardResponse = SplitShardResponse'

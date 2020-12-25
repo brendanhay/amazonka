@@ -258,7 +258,7 @@ responseDescribeTrails =
   res
     "DescribeTrailsResponse"
     "fixture/DescribeTrailsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTrails)
 
 responseListPublicKeys :: ListPublicKeysResponse -> TestTree
@@ -266,7 +266,7 @@ responseListPublicKeys =
   res
     "ListPublicKeysResponse"
     "fixture/ListPublicKeysResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy ListPublicKeys)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
@@ -274,7 +274,7 @@ responseRemoveTags =
   res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseLookupEvents :: LookupEventsResponse -> TestTree
@@ -282,7 +282,7 @@ responseLookupEvents =
   res
     "LookupEventsResponse"
     "fixture/LookupEventsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy LookupEvents)
 
 responseStopLogging :: StopLoggingResponse -> TestTree
@@ -290,7 +290,7 @@ responseStopLogging =
   res
     "StopLoggingResponse"
     "fixture/StopLoggingResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy StopLogging)
 
 responseDeleteTrail :: DeleteTrailResponse -> TestTree
@@ -298,7 +298,7 @@ responseDeleteTrail =
   res
     "DeleteTrailResponse"
     "fixture/DeleteTrailResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTrail)
 
 responseUpdateTrail :: UpdateTrailResponse -> TestTree
@@ -306,7 +306,7 @@ responseUpdateTrail =
   res
     "UpdateTrailResponse"
     "fixture/UpdateTrailResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTrail)
 
 responseCreateTrail :: CreateTrailResponse -> TestTree
@@ -314,7 +314,7 @@ responseCreateTrail =
   res
     "CreateTrailResponse"
     "fixture/CreateTrailResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy CreateTrail)
 
 responsePutInsightSelectors :: PutInsightSelectorsResponse -> TestTree
@@ -322,7 +322,7 @@ responsePutInsightSelectors =
   res
     "PutInsightSelectorsResponse"
     "fixture/PutInsightSelectorsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy PutInsightSelectors)
 
 responseGetEventSelectors :: GetEventSelectorsResponse -> TestTree
@@ -330,7 +330,7 @@ responseGetEventSelectors =
   res
     "GetEventSelectorsResponse"
     "fixture/GetEventSelectorsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy GetEventSelectors)
 
 responseGetTrail :: GetTrailResponse -> TestTree
@@ -338,7 +338,7 @@ responseGetTrail =
   res
     "GetTrailResponse"
     "fixture/GetTrailResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy GetTrail)
 
 responseGetTrailStatus :: GetTrailStatusResponse -> TestTree
@@ -346,7 +346,7 @@ responseGetTrailStatus =
   res
     "GetTrailStatusResponse"
     "fixture/GetTrailStatusResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy GetTrailStatus)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -354,7 +354,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -362,7 +362,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responsePutEventSelectors :: PutEventSelectorsResponse -> TestTree
@@ -370,7 +370,7 @@ responsePutEventSelectors =
   res
     "PutEventSelectorsResponse"
     "fixture/PutEventSelectorsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy PutEventSelectors)
 
 responseStartLogging :: StartLoggingResponse -> TestTree
@@ -378,7 +378,7 @@ responseStartLogging =
   res
     "StartLoggingResponse"
     "fixture/StartLoggingResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy StartLogging)
 
 responseListTrails :: ListTrailsResponse -> TestTree
@@ -386,7 +386,7 @@ responseListTrails =
   res
     "ListTrailsResponse"
     "fixture/ListTrailsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy ListTrails)
 
 responseGetInsightSelectors :: GetInsightSelectorsResponse -> TestTree
@@ -394,5 +394,5 @@ responseGetInsightSelectors =
   res
     "GetInsightSelectorsResponse"
     "fixture/GetInsightSelectorsResponse.proto"
-    cloudTrailService
+    mkServiceConfig
     (Proxy :: Proxy GetInsightSelectors)

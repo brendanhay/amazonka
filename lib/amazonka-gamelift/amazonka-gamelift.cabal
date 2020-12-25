@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.GameLift
     Network.AWS.GameLift.AcceptMatch
@@ -80,8 +86,8 @@ library
     Network.AWS.GameLift.CreatePlayerSession
     Network.AWS.GameLift.CreatePlayerSessions
     Network.AWS.GameLift.CreateScript
-    Network.AWS.GameLift.CreateVPCPeeringAuthorization
-    Network.AWS.GameLift.CreateVPCPeeringConnection
+    Network.AWS.GameLift.CreateVpcPeeringAuthorization
+    Network.AWS.GameLift.CreateVpcPeeringConnection
     Network.AWS.GameLift.DeleteAlias
     Network.AWS.GameLift.DeleteBuild
     Network.AWS.GameLift.DeleteFleet
@@ -91,8 +97,8 @@ library
     Network.AWS.GameLift.DeleteMatchmakingRuleSet
     Network.AWS.GameLift.DeleteScalingPolicy
     Network.AWS.GameLift.DeleteScript
-    Network.AWS.GameLift.DeleteVPCPeeringAuthorization
-    Network.AWS.GameLift.DeleteVPCPeeringConnection
+    Network.AWS.GameLift.DeleteVpcPeeringAuthorization
+    Network.AWS.GameLift.DeleteVpcPeeringConnection
     Network.AWS.GameLift.DeregisterGameServer
     Network.AWS.GameLift.DescribeAlias
     Network.AWS.GameLift.DescribeBuild
@@ -117,9 +123,9 @@ library
     Network.AWS.GameLift.DescribeRuntimeConfiguration
     Network.AWS.GameLift.DescribeScalingPolicies
     Network.AWS.GameLift.DescribeScript
-    Network.AWS.GameLift.DescribeVPCPeeringAuthorizations
-    Network.AWS.GameLift.DescribeVPCPeeringConnections
-    Network.AWS.GameLift.GetGameSessionLogURL
+    Network.AWS.GameLift.DescribeVpcPeeringAuthorizations
+    Network.AWS.GameLift.DescribeVpcPeeringConnections
+    Network.AWS.GameLift.GetGameSessionLogUrl
     Network.AWS.GameLift.GetInstanceAccess
     Network.AWS.GameLift.ListAliases
     Network.AWS.GameLift.ListBuilds
@@ -163,92 +169,176 @@ library
   other-modules:
     Network.AWS.GameLift.Types.AcceptanceType
     Network.AWS.GameLift.Types.Alias
+    Network.AWS.GameLift.Types.AliasArn
+    Network.AWS.GameLift.Types.AliasId
+    Network.AWS.GameLift.Types.AliasIdOrArn
+    Network.AWS.GameLift.Types.AmazonResourceName
+    Network.AWS.GameLift.Types.ArnStringModel
     Network.AWS.GameLift.Types.AttributeValue
-    Network.AWS.GameLift.Types.AWSCredentials
+    Network.AWS.GameLift.Types.AutoScalingGroupArn
+    Network.AWS.GameLift.Types.AwsCredentials
     Network.AWS.GameLift.Types.BackfillMode
     Network.AWS.GameLift.Types.BalancingStrategy
     Network.AWS.GameLift.Types.Build
+    Network.AWS.GameLift.Types.BuildArn
+    Network.AWS.GameLift.Types.BuildId
+    Network.AWS.GameLift.Types.BuildIdOrArn
     Network.AWS.GameLift.Types.BuildStatus
     Network.AWS.GameLift.Types.CertificateConfiguration
     Network.AWS.GameLift.Types.CertificateType
     Network.AWS.GameLift.Types.ComparisonOperatorType
+    Network.AWS.GameLift.Types.ConfigurationArn
+    Network.AWS.GameLift.Types.ConfigurationName
+    Network.AWS.GameLift.Types.ConnectionInfo
+    Network.AWS.GameLift.Types.CustomEventData
+    Network.AWS.GameLift.Types.Description
     Network.AWS.GameLift.Types.DesiredPlayerSession
+    Network.AWS.GameLift.Types.DestinationArn
+    Network.AWS.GameLift.Types.DnsName
     Network.AWS.GameLift.Types.EC2InstanceCounts
     Network.AWS.GameLift.Types.EC2InstanceLimit
     Network.AWS.GameLift.Types.EC2InstanceType
     Network.AWS.GameLift.Types.Event
     Network.AWS.GameLift.Types.EventCode
+    Network.AWS.GameLift.Types.EventId
     Network.AWS.GameLift.Types.FleetAction
+    Network.AWS.GameLift.Types.FleetArn
     Network.AWS.GameLift.Types.FleetAttributes
     Network.AWS.GameLift.Types.FleetCapacity
+    Network.AWS.GameLift.Types.FleetId
+    Network.AWS.GameLift.Types.FleetIdOrArn
     Network.AWS.GameLift.Types.FleetStatus
     Network.AWS.GameLift.Types.FleetType
     Network.AWS.GameLift.Types.FleetUtilization
     Network.AWS.GameLift.Types.FlexMatchMode
+    Network.AWS.GameLift.Types.FreeText
     Network.AWS.GameLift.Types.GameProperty
+    Network.AWS.GameLift.Types.GamePropertyKey
+    Network.AWS.GameLift.Types.GamePropertyValue
     Network.AWS.GameLift.Types.GameServer
     Network.AWS.GameLift.Types.GameServerClaimStatus
+    Network.AWS.GameLift.Types.GameServerData
     Network.AWS.GameLift.Types.GameServerGroup
     Network.AWS.GameLift.Types.GameServerGroupAction
+    Network.AWS.GameLift.Types.GameServerGroupArn
     Network.AWS.GameLift.Types.GameServerGroupAutoScalingPolicy
     Network.AWS.GameLift.Types.GameServerGroupDeleteOption
     Network.AWS.GameLift.Types.GameServerGroupInstanceType
+    Network.AWS.GameLift.Types.GameServerGroupName
+    Network.AWS.GameLift.Types.GameServerGroupNameOrArn
     Network.AWS.GameLift.Types.GameServerGroupStatus
     Network.AWS.GameLift.Types.GameServerHealthCheck
+    Network.AWS.GameLift.Types.GameServerId
     Network.AWS.GameLift.Types.GameServerInstance
+    Network.AWS.GameLift.Types.GameServerInstanceId
     Network.AWS.GameLift.Types.GameServerInstanceStatus
     Network.AWS.GameLift.Types.GameServerProtectionPolicy
     Network.AWS.GameLift.Types.GameServerUtilizationStatus
     Network.AWS.GameLift.Types.GameSession
+    Network.AWS.GameLift.Types.GameSessionArn
     Network.AWS.GameLift.Types.GameSessionConnectionInfo
+    Network.AWS.GameLift.Types.GameSessionData
     Network.AWS.GameLift.Types.GameSessionDetail
+    Network.AWS.GameLift.Types.GameSessionId
+    Network.AWS.GameLift.Types.GameSessionName
     Network.AWS.GameLift.Types.GameSessionPlacement
     Network.AWS.GameLift.Types.GameSessionPlacementState
     Network.AWS.GameLift.Types.GameSessionQueue
+    Network.AWS.GameLift.Types.GameSessionQueueArn
     Network.AWS.GameLift.Types.GameSessionQueueDestination
+    Network.AWS.GameLift.Types.GameSessionQueueName
+    Network.AWS.GameLift.Types.GameSessionQueueNameOrArn
     Network.AWS.GameLift.Types.GameSessionStatus
     Network.AWS.GameLift.Types.GameSessionStatusReason
+    Network.AWS.GameLift.Types.IamRoleArn
+    Network.AWS.GameLift.Types.IdStringModel
     Network.AWS.GameLift.Types.Instance
     Network.AWS.GameLift.Types.InstanceAccess
     Network.AWS.GameLift.Types.InstanceCredentials
     Network.AWS.GameLift.Types.InstanceDefinition
+    Network.AWS.GameLift.Types.InstanceId
+    Network.AWS.GameLift.Types.InstanceRoleArn
     Network.AWS.GameLift.Types.InstanceStatus
-    Network.AWS.GameLift.Types.IPPermission
-    Network.AWS.GameLift.Types.IPProtocol
+    Network.AWS.GameLift.Types.IpAddress
+    Network.AWS.GameLift.Types.IpPermission
+    Network.AWS.GameLift.Types.IpProtocol
+    Network.AWS.GameLift.Types.IpRange
+    Network.AWS.GameLift.Types.Key
+    Network.AWS.GameLift.Types.LaunchTemplateId
+    Network.AWS.GameLift.Types.LaunchTemplateName
     Network.AWS.GameLift.Types.LaunchTemplateSpecification
+    Network.AWS.GameLift.Types.LaunchTemplateVersion
     Network.AWS.GameLift.Types.MatchedPlayerSession
+    Network.AWS.GameLift.Types.MatchmakerData
     Network.AWS.GameLift.Types.MatchmakingConfiguration
+    Network.AWS.GameLift.Types.MatchmakingConfigurationName
     Network.AWS.GameLift.Types.MatchmakingConfigurationStatus
+    Network.AWS.GameLift.Types.MatchmakingIdStringModel
     Network.AWS.GameLift.Types.MatchmakingRuleSet
+    Network.AWS.GameLift.Types.MatchmakingRuleSetArn
+    Network.AWS.GameLift.Types.MatchmakingRuleSetName
     Network.AWS.GameLift.Types.MatchmakingTicket
+    Network.AWS.GameLift.Types.Message
+    Network.AWS.GameLift.Types.MetricGroup
     Network.AWS.GameLift.Types.MetricName
+    Network.AWS.GameLift.Types.Name
+    Network.AWS.GameLift.Types.NextToken
+    Network.AWS.GameLift.Types.NonBlankAndLengthConstraintString
+    Network.AWS.GameLift.Types.NonEmptyString
+    Network.AWS.GameLift.Types.NonZeroAndMaxString
+    Network.AWS.GameLift.Types.NotificationTarget
     Network.AWS.GameLift.Types.OperatingSystem
+    Network.AWS.GameLift.Types.PeerVpcAwsAccountId
+    Network.AWS.GameLift.Types.PeerVpcId
     Network.AWS.GameLift.Types.PlacedPlayerSession
     Network.AWS.GameLift.Types.Player
+    Network.AWS.GameLift.Types.PlayerData
     Network.AWS.GameLift.Types.PlayerLatency
     Network.AWS.GameLift.Types.PlayerLatencyPolicy
     Network.AWS.GameLift.Types.PlayerSession
     Network.AWS.GameLift.Types.PlayerSessionCreationPolicy
+    Network.AWS.GameLift.Types.PlayerSessionId
     Network.AWS.GameLift.Types.PlayerSessionStatus
     Network.AWS.GameLift.Types.PolicyType
+    Network.AWS.GameLift.Types.PreSignedLogUrl
     Network.AWS.GameLift.Types.ProtectionPolicy
+    Network.AWS.GameLift.Types.ResourceARN
     Network.AWS.GameLift.Types.ResourceCreationLimitPolicy
+    Network.AWS.GameLift.Types.ResourceId
     Network.AWS.GameLift.Types.RoutingStrategy
     Network.AWS.GameLift.Types.RoutingStrategyType
+    Network.AWS.GameLift.Types.RuleSetArn
+    Network.AWS.GameLift.Types.RuleSetBody
+    Network.AWS.GameLift.Types.RuleSetName
     Network.AWS.GameLift.Types.RuntimeConfiguration
     Network.AWS.GameLift.Types.S3Location
     Network.AWS.GameLift.Types.ScalingAdjustmentType
     Network.AWS.GameLift.Types.ScalingPolicy
     Network.AWS.GameLift.Types.ScalingStatusType
     Network.AWS.GameLift.Types.Script
+    Network.AWS.GameLift.Types.ScriptArn
+    Network.AWS.GameLift.Types.ScriptId
+    Network.AWS.GameLift.Types.ScriptIdOrArn
+    Network.AWS.GameLift.Types.Secret
+    Network.AWS.GameLift.Types.ServerLaunchParameters
+    Network.AWS.GameLift.Types.ServerLaunchPath
     Network.AWS.GameLift.Types.ServerProcess
+    Network.AWS.GameLift.Types.SnsArnStringModel
     Network.AWS.GameLift.Types.SortOrder
+    Network.AWS.GameLift.Types.StringModel
     Network.AWS.GameLift.Types.Tag
+    Network.AWS.GameLift.Types.TagKey
     Network.AWS.GameLift.Types.TargetConfiguration
     Network.AWS.GameLift.Types.TargetTrackingConfiguration
-    Network.AWS.GameLift.Types.VPCPeeringAuthorization
-    Network.AWS.GameLift.Types.VPCPeeringConnection
-    Network.AWS.GameLift.Types.VPCPeeringConnectionStatus
+    Network.AWS.GameLift.Types.TicketId
+    Network.AWS.GameLift.Types.UserName
+    Network.AWS.GameLift.Types.Value
+    Network.AWS.GameLift.Types.Version
+    Network.AWS.GameLift.Types.VpcPeeringAuthorization
+    Network.AWS.GameLift.Types.VpcPeeringConnection
+    Network.AWS.GameLift.Types.VpcPeeringConnectionStatus
+    Network.AWS.GameLift.Types.VpcSubnet
+    Network.AWS.GameLift.Types.WeightedCapacity
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

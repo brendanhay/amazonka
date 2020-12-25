@@ -17,19 +17,20 @@ module Network.AWS.Lightsail.Types.ContainerServiceDeployment
     mkContainerServiceDeployment,
 
     -- * Lenses
-    csdState,
-    csdPublicEndpoint,
-    csdCreatedAt,
     csdContainers,
+    csdCreatedAt,
+    csdPublicEndpoint,
+    csdState,
     csdVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.Container
-import Network.AWS.Lightsail.Types.ContainerServiceDeploymentState
-import Network.AWS.Lightsail.Types.ContainerServiceEndpoint
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.Container as Types
+import qualified Network.AWS.Lightsail.Types.ContainerName as Types
+import qualified Network.AWS.Lightsail.Types.ContainerServiceDeploymentState as Types
+import qualified Network.AWS.Lightsail.Types.ContainerServiceEndpoint as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a container deployment configuration of an Amazon Lightsail container service.
 --
@@ -37,7 +38,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerServiceDeployment' smart constructor.
 data ContainerServiceDeployment = ContainerServiceDeployment'
-  { -- | The state of the deployment.
+  { -- | An object that describes the configuration for the containers of the deployment.
+    containers :: Core.Maybe (Core.HashMap Types.ContainerName Types.Container),
+    -- | The timestamp when the deployment was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | An object that describes the endpoint of the deployment.
+    publicEndpoint :: Core.Maybe Types.ContainerServiceEndpoint,
+    -- | The state of the deployment.
     --
     -- A deployment can be in one of the following states:
     --
@@ -51,51 +58,45 @@ data ContainerServiceDeployment = ContainerServiceDeployment'
     --
     --
     --     * @Failed@ - The deployment failed. Use the @GetContainerLog@ action to view the log events for the containers in the deployment to try to determine the reason for the failure.
-    state :: Lude.Maybe ContainerServiceDeploymentState,
-    -- | An object that describes the endpoint of the deployment.
-    publicEndpoint :: Lude.Maybe ContainerServiceEndpoint,
-    -- | The timestamp when the deployment was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | An object that describes the configuration for the containers of the deployment.
-    containers :: Lude.Maybe (Lude.HashMap Lude.Text (Container)),
+    state :: Core.Maybe Types.ContainerServiceDeploymentState,
     -- | The version number of the deployment.
-    version :: Lude.Maybe Lude.Int
+    version :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ContainerServiceDeployment' with the minimum fields required to make a request.
---
--- * 'state' - The state of the deployment.
---
--- A deployment can be in one of the following states:
---
---     * @Activating@ - The deployment is being created.
---
---
---     * @Active@ - The deployment was successfully created, and it's currently running on the container service. The container service can have only one deployment in an active state at a time.
---
---
---     * @Inactive@ - The deployment was previously successfully created, but it is not currently running on the container service.
---
---
---     * @Failed@ - The deployment failed. Use the @GetContainerLog@ action to view the log events for the containers in the deployment to try to determine the reason for the failure.
---
---
--- * 'publicEndpoint' - An object that describes the endpoint of the deployment.
--- * 'createdAt' - The timestamp when the deployment was created.
--- * 'containers' - An object that describes the configuration for the containers of the deployment.
--- * 'version' - The version number of the deployment.
+-- | Creates a 'ContainerServiceDeployment' value with any optional fields omitted.
 mkContainerServiceDeployment ::
   ContainerServiceDeployment
 mkContainerServiceDeployment =
   ContainerServiceDeployment'
-    { state = Lude.Nothing,
-      publicEndpoint = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      containers = Lude.Nothing,
-      version = Lude.Nothing
+    { containers = Core.Nothing,
+      createdAt = Core.Nothing,
+      publicEndpoint = Core.Nothing,
+      state = Core.Nothing,
+      version = Core.Nothing
     }
+
+-- | An object that describes the configuration for the containers of the deployment.
+--
+-- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdContainers :: Lens.Lens' ContainerServiceDeployment (Core.Maybe (Core.HashMap Types.ContainerName Types.Container))
+csdContainers = Lens.field @"containers"
+{-# DEPRECATED csdContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
+
+-- | The timestamp when the deployment was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdCreatedAt :: Lens.Lens' ContainerServiceDeployment (Core.Maybe Core.NominalDiffTime)
+csdCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED csdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | An object that describes the endpoint of the deployment.
+--
+-- /Note:/ Consider using 'publicEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdPublicEndpoint :: Lens.Lens' ContainerServiceDeployment (Core.Maybe Types.ContainerServiceEndpoint)
+csdPublicEndpoint = Lens.field @"publicEndpoint"
+{-# DEPRECATED csdPublicEndpoint "Use generic-lens or generic-optics with 'publicEndpoint' instead." #-}
 
 -- | The state of the deployment.
 --
@@ -115,47 +116,24 @@ mkContainerServiceDeployment =
 --
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdState :: Lens.Lens' ContainerServiceDeployment (Lude.Maybe ContainerServiceDeploymentState)
-csdState = Lens.lens (state :: ContainerServiceDeployment -> Lude.Maybe ContainerServiceDeploymentState) (\s a -> s {state = a} :: ContainerServiceDeployment)
+csdState :: Lens.Lens' ContainerServiceDeployment (Core.Maybe Types.ContainerServiceDeploymentState)
+csdState = Lens.field @"state"
 {-# DEPRECATED csdState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | An object that describes the endpoint of the deployment.
---
--- /Note:/ Consider using 'publicEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdPublicEndpoint :: Lens.Lens' ContainerServiceDeployment (Lude.Maybe ContainerServiceEndpoint)
-csdPublicEndpoint = Lens.lens (publicEndpoint :: ContainerServiceDeployment -> Lude.Maybe ContainerServiceEndpoint) (\s a -> s {publicEndpoint = a} :: ContainerServiceDeployment)
-{-# DEPRECATED csdPublicEndpoint "Use generic-lens or generic-optics with 'publicEndpoint' instead." #-}
-
--- | The timestamp when the deployment was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdCreatedAt :: Lens.Lens' ContainerServiceDeployment (Lude.Maybe Lude.Timestamp)
-csdCreatedAt = Lens.lens (createdAt :: ContainerServiceDeployment -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ContainerServiceDeployment)
-{-# DEPRECATED csdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | An object that describes the configuration for the containers of the deployment.
---
--- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdContainers :: Lens.Lens' ContainerServiceDeployment (Lude.Maybe (Lude.HashMap Lude.Text (Container)))
-csdContainers = Lens.lens (containers :: ContainerServiceDeployment -> Lude.Maybe (Lude.HashMap Lude.Text (Container))) (\s a -> s {containers = a} :: ContainerServiceDeployment)
-{-# DEPRECATED csdContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
 
 -- | The version number of the deployment.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdVersion :: Lens.Lens' ContainerServiceDeployment (Lude.Maybe Lude.Int)
-csdVersion = Lens.lens (version :: ContainerServiceDeployment -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: ContainerServiceDeployment)
+csdVersion :: Lens.Lens' ContainerServiceDeployment (Core.Maybe Core.Int)
+csdVersion = Lens.field @"version"
 {-# DEPRECATED csdVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON ContainerServiceDeployment where
+instance Core.FromJSON ContainerServiceDeployment where
   parseJSON =
-    Lude.withObject
-      "ContainerServiceDeployment"
-      ( \x ->
-          ContainerServiceDeployment'
-            Lude.<$> (x Lude..:? "state")
-            Lude.<*> (x Lude..:? "publicEndpoint")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "containers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "version")
-      )
+    Core.withObject "ContainerServiceDeployment" Core.$
+      \x ->
+        ContainerServiceDeployment'
+          Core.<$> (x Core..:? "containers")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "publicEndpoint")
+          Core.<*> (x Core..:? "state")
+          Core.<*> (x Core..:? "version")

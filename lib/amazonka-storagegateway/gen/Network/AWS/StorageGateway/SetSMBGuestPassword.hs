@@ -28,128 +28,113 @@ module Network.AWS.StorageGateway.SetSMBGuestPassword
     mkSetSMBGuestPasswordResponse,
 
     -- ** Response lenses
-    ssmbgprsGatewayARN,
-    ssmbgprsResponseStatus,
+    ssmbgprrsGatewayARN,
+    ssmbgprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | SetSMBGuestPasswordInput
 --
 -- /See:/ 'mkSetSMBGuestPassword' smart constructor.
 data SetSMBGuestPassword = SetSMBGuestPassword'
   { -- | The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated with.
-    gatewayARN :: Lude.Text,
+    gatewayARN :: Types.GatewayARN,
     -- | The password that you want to set for your SMB server.
-    password :: Lude.Sensitive Lude.Text
+    password :: Types.Password
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetSMBGuestPassword' with the minimum fields required to make a request.
---
--- * 'gatewayARN' - The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated with.
--- * 'password' - The password that you want to set for your SMB server.
+-- | Creates a 'SetSMBGuestPassword' value with any optional fields omitted.
 mkSetSMBGuestPassword ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   -- | 'password'
-  Lude.Sensitive Lude.Text ->
+  Types.Password ->
   SetSMBGuestPassword
-mkSetSMBGuestPassword pGatewayARN_ pPassword_ =
-  SetSMBGuestPassword'
-    { gatewayARN = pGatewayARN_,
-      password = pPassword_
-    }
+mkSetSMBGuestPassword gatewayARN password =
+  SetSMBGuestPassword' {gatewayARN, password}
 
 -- | The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated with.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmbgpGatewayARN :: Lens.Lens' SetSMBGuestPassword Lude.Text
-ssmbgpGatewayARN = Lens.lens (gatewayARN :: SetSMBGuestPassword -> Lude.Text) (\s a -> s {gatewayARN = a} :: SetSMBGuestPassword)
+ssmbgpGatewayARN :: Lens.Lens' SetSMBGuestPassword Types.GatewayARN
+ssmbgpGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED ssmbgpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The password that you want to set for your SMB server.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmbgpPassword :: Lens.Lens' SetSMBGuestPassword (Lude.Sensitive Lude.Text)
-ssmbgpPassword = Lens.lens (password :: SetSMBGuestPassword -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: SetSMBGuestPassword)
+ssmbgpPassword :: Lens.Lens' SetSMBGuestPassword Types.Password
+ssmbgpPassword = Lens.field @"password"
 {-# DEPRECATED ssmbgpPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance Lude.AWSRequest SetSMBGuestPassword where
+instance Core.FromJSON SetSMBGuestPassword where
+  toJSON SetSMBGuestPassword {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("Password" Core..= password)
+          ]
+      )
+
+instance Core.AWSRequest SetSMBGuestPassword where
   type Rs SetSMBGuestPassword = SetSMBGuestPasswordResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.SetSMBGuestPassword")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SetSMBGuestPasswordResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetSMBGuestPassword where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.SetSMBGuestPassword" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetSMBGuestPassword where
-  toJSON SetSMBGuestPassword' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("Password" Lude..= password)
-          ]
-      )
-
-instance Lude.ToPath SetSMBGuestPassword where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetSMBGuestPassword where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSetSMBGuestPasswordResponse' smart constructor.
 data SetSMBGuestPasswordResponse = SetSMBGuestPasswordResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetSMBGuestPasswordResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetSMBGuestPasswordResponse' value with any optional fields omitted.
 mkSetSMBGuestPasswordResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetSMBGuestPasswordResponse
-mkSetSMBGuestPasswordResponse pResponseStatus_ =
+mkSetSMBGuestPasswordResponse responseStatus =
   SetSMBGuestPasswordResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmbgprsGatewayARN :: Lens.Lens' SetSMBGuestPasswordResponse (Lude.Maybe Lude.Text)
-ssmbgprsGatewayARN = Lens.lens (gatewayARN :: SetSMBGuestPasswordResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: SetSMBGuestPasswordResponse)
-{-# DEPRECATED ssmbgprsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+ssmbgprrsGatewayARN :: Lens.Lens' SetSMBGuestPasswordResponse (Core.Maybe Types.GatewayARN)
+ssmbgprrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED ssmbgprrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmbgprsResponseStatus :: Lens.Lens' SetSMBGuestPasswordResponse Lude.Int
-ssmbgprsResponseStatus = Lens.lens (responseStatus :: SetSMBGuestPasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetSMBGuestPasswordResponse)
-{-# DEPRECATED ssmbgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ssmbgprrsResponseStatus :: Lens.Lens' SetSMBGuestPasswordResponse Core.Int
+ssmbgprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ssmbgprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

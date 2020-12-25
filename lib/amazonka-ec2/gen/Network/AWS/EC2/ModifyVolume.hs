@@ -25,86 +25,78 @@ module Network.AWS.EC2.ModifyVolume
     mkModifyVolume,
 
     -- ** Request lenses
-    mvSize,
-    mvIOPS,
     mvVolumeId,
-    mvVolumeType,
     mvDryRun,
+    mvIops,
+    mvSize,
+    mvVolumeType,
 
     -- * Destructuring the response
     ModifyVolumeResponse (..),
     mkModifyVolumeResponse,
 
     -- ** Response lenses
-    mvrsVolumeModification,
-    mvrsResponseStatus,
+    mvrrsVolumeModification,
+    mvrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyVolume' smart constructor.
 data ModifyVolume = ModifyVolume'
-  { -- | The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing size of the volume. For information about available EBS volume sizes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
-    --
-    -- Default: If no size is specified, the existing size is retained.
-    size :: Lude.Maybe Lude.Int,
+  { -- | The ID of the volume.
+    volumeId :: Types.VolumeId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | The target IOPS rate of the volume.
     --
     -- This is only valid for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes. For moreinformation, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops Provisioned IOPS SSD (io1 and io2) volumes> .
     -- Default: If no IOPS value is specified, the existing value is retained.
-    iops :: Lude.Maybe Lude.Int,
-    -- | The ID of the volume.
-    volumeId :: Lude.Text,
+    iops :: Core.Maybe Core.Int,
+    -- | The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing size of the volume. For information about available EBS volume sizes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
+    --
+    -- Default: If no size is specified, the existing size is retained.
+    size :: Core.Maybe Core.Int,
     -- | The target EBS volume type of the volume.
     --
     -- Default: If no type is specified, the existing type is retained.
-    volumeType :: Lude.Maybe VolumeType,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    volumeType :: Core.Maybe Types.VolumeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyVolume' with the minimum fields required to make a request.
---
--- * 'size' - The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing size of the volume. For information about available EBS volume sizes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
---
--- Default: If no size is specified, the existing size is retained.
--- * 'iops' - The target IOPS rate of the volume.
---
--- This is only valid for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes. For moreinformation, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops Provisioned IOPS SSD (io1 and io2) volumes> .
--- Default: If no IOPS value is specified, the existing value is retained.
--- * 'volumeId' - The ID of the volume.
--- * 'volumeType' - The target EBS volume type of the volume.
---
--- Default: If no type is specified, the existing type is retained.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ModifyVolume' value with any optional fields omitted.
 mkModifyVolume ::
   -- | 'volumeId'
-  Lude.Text ->
+  Types.VolumeId ->
   ModifyVolume
-mkModifyVolume pVolumeId_ =
+mkModifyVolume volumeId =
   ModifyVolume'
-    { size = Lude.Nothing,
-      iops = Lude.Nothing,
-      volumeId = pVolumeId_,
-      volumeType = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { volumeId,
+      dryRun = Core.Nothing,
+      iops = Core.Nothing,
+      size = Core.Nothing,
+      volumeType = Core.Nothing
     }
 
--- | The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing size of the volume. For information about available EBS volume sizes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
+-- | The ID of the volume.
 --
--- Default: If no size is specified, the existing size is retained.
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvVolumeId :: Lens.Lens' ModifyVolume Types.VolumeId
+mvVolumeId = Lens.field @"volumeId"
+{-# DEPRECATED mvVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvSize :: Lens.Lens' ModifyVolume (Lude.Maybe Lude.Int)
-mvSize = Lens.lens (size :: ModifyVolume -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: ModifyVolume)
-{-# DEPRECATED mvSize "Use generic-lens or generic-optics with 'size' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvDryRun :: Lens.Lens' ModifyVolume (Core.Maybe Core.Bool)
+mvDryRun = Lens.field @"dryRun"
+{-# DEPRECATED mvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The target IOPS rate of the volume.
 --
@@ -112,96 +104,91 @@ mvSize = Lens.lens (size :: ModifyVolume -> Lude.Maybe Lude.Int) (\s a -> s {siz
 -- Default: If no IOPS value is specified, the existing value is retained.
 --
 -- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvIOPS :: Lens.Lens' ModifyVolume (Lude.Maybe Lude.Int)
-mvIOPS = Lens.lens (iops :: ModifyVolume -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: ModifyVolume)
-{-# DEPRECATED mvIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
+mvIops :: Lens.Lens' ModifyVolume (Core.Maybe Core.Int)
+mvIops = Lens.field @"iops"
+{-# DEPRECATED mvIops "Use generic-lens or generic-optics with 'iops' instead." #-}
 
--- | The ID of the volume.
+-- | The target size of the volume, in GiB. The target volume size must be greater than or equal to than the existing size of the volume. For information about available EBS volume sizes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
 --
--- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvVolumeId :: Lens.Lens' ModifyVolume Lude.Text
-mvVolumeId = Lens.lens (volumeId :: ModifyVolume -> Lude.Text) (\s a -> s {volumeId = a} :: ModifyVolume)
-{-# DEPRECATED mvVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+-- Default: If no size is specified, the existing size is retained.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvSize :: Lens.Lens' ModifyVolume (Core.Maybe Core.Int)
+mvSize = Lens.field @"size"
+{-# DEPRECATED mvSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The target EBS volume type of the volume.
 --
 -- Default: If no type is specified, the existing type is retained.
 --
 -- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvVolumeType :: Lens.Lens' ModifyVolume (Lude.Maybe VolumeType)
-mvVolumeType = Lens.lens (volumeType :: ModifyVolume -> Lude.Maybe VolumeType) (\s a -> s {volumeType = a} :: ModifyVolume)
+mvVolumeType :: Lens.Lens' ModifyVolume (Core.Maybe Types.VolumeType)
+mvVolumeType = Lens.field @"volumeType"
 {-# DEPRECATED mvVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvDryRun :: Lens.Lens' ModifyVolume (Lude.Maybe Lude.Bool)
-mvDryRun = Lens.lens (dryRun :: ModifyVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVolume)
-{-# DEPRECATED mvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest ModifyVolume where
+instance Core.AWSRequest ModifyVolume where
   type Rs ModifyVolume = ModifyVolumeResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyVolume")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "VolumeId" volumeId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "Iops" Core.<$> iops)
+                Core.<> (Core.toQueryValue "Size" Core.<$> size)
+                Core.<> (Core.toQueryValue "VolumeType" Core.<$> volumeType)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ModifyVolumeResponse'
-            Lude.<$> (x Lude..@? "volumeModification")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "volumeModification")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyVolume where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyVolume where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyVolume where
-  toQuery ModifyVolume' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyVolume" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Size" Lude.=: size,
-        "Iops" Lude.=: iops,
-        "VolumeId" Lude.=: volumeId,
-        "VolumeType" Lude.=: volumeType,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkModifyVolumeResponse' smart constructor.
 data ModifyVolumeResponse = ModifyVolumeResponse'
   { -- | Information about the volume modification.
-    volumeModification :: Lude.Maybe VolumeModification,
+    volumeModification :: Core.Maybe Types.VolumeModification,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ModifyVolumeResponse' with the minimum fields required to make a request.
---
--- * 'volumeModification' - Information about the volume modification.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyVolumeResponse' value with any optional fields omitted.
 mkModifyVolumeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyVolumeResponse
-mkModifyVolumeResponse pResponseStatus_ =
+mkModifyVolumeResponse responseStatus =
   ModifyVolumeResponse'
-    { volumeModification = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { volumeModification = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the volume modification.
 --
 -- /Note:/ Consider using 'volumeModification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvrsVolumeModification :: Lens.Lens' ModifyVolumeResponse (Lude.Maybe VolumeModification)
-mvrsVolumeModification = Lens.lens (volumeModification :: ModifyVolumeResponse -> Lude.Maybe VolumeModification) (\s a -> s {volumeModification = a} :: ModifyVolumeResponse)
-{-# DEPRECATED mvrsVolumeModification "Use generic-lens or generic-optics with 'volumeModification' instead." #-}
+mvrrsVolumeModification :: Lens.Lens' ModifyVolumeResponse (Core.Maybe Types.VolumeModification)
+mvrrsVolumeModification = Lens.field @"volumeModification"
+{-# DEPRECATED mvrrsVolumeModification "Use generic-lens or generic-optics with 'volumeModification' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvrsResponseStatus :: Lens.Lens' ModifyVolumeResponse Lude.Int
-mvrsResponseStatus = Lens.lens (responseStatus :: ModifyVolumeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyVolumeResponse)
-{-# DEPRECATED mvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mvrrsResponseStatus :: Lens.Lens' ModifyVolumeResponse Core.Int
+mvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

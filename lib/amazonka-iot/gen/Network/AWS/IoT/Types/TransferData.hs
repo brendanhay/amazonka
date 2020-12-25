@@ -17,97 +17,91 @@ module Network.AWS.IoT.Types.TransferData
     mkTransferData,
 
     -- * Lenses
-    tdTransferDate,
     tdAcceptDate,
-    tdTransferMessage,
     tdRejectDate,
     tdRejectReason,
+    tdTransferDate,
+    tdTransferMessage,
   )
 where
 
+import qualified Network.AWS.IoT.Types.RejectReason as Types
+import qualified Network.AWS.IoT.Types.TransferMessage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Data used to transfer a certificate to an AWS account.
 --
 -- /See:/ 'mkTransferData' smart constructor.
 data TransferData = TransferData'
-  { -- | The date the transfer took place.
-    transferDate :: Lude.Maybe Lude.Timestamp,
-    -- | The date the transfer was accepted.
-    acceptDate :: Lude.Maybe Lude.Timestamp,
-    -- | The transfer message.
-    transferMessage :: Lude.Maybe Lude.Text,
+  { -- | The date the transfer was accepted.
+    acceptDate :: Core.Maybe Core.NominalDiffTime,
     -- | The date the transfer was rejected.
-    rejectDate :: Lude.Maybe Lude.Timestamp,
+    rejectDate :: Core.Maybe Core.NominalDiffTime,
     -- | The reason why the transfer was rejected.
-    rejectReason :: Lude.Maybe Lude.Text
+    rejectReason :: Core.Maybe Types.RejectReason,
+    -- | The date the transfer took place.
+    transferDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The transfer message.
+    transferMessage :: Core.Maybe Types.TransferMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TransferData' with the minimum fields required to make a request.
---
--- * 'transferDate' - The date the transfer took place.
--- * 'acceptDate' - The date the transfer was accepted.
--- * 'transferMessage' - The transfer message.
--- * 'rejectDate' - The date the transfer was rejected.
--- * 'rejectReason' - The reason why the transfer was rejected.
+-- | Creates a 'TransferData' value with any optional fields omitted.
 mkTransferData ::
   TransferData
 mkTransferData =
   TransferData'
-    { transferDate = Lude.Nothing,
-      acceptDate = Lude.Nothing,
-      transferMessage = Lude.Nothing,
-      rejectDate = Lude.Nothing,
-      rejectReason = Lude.Nothing
+    { acceptDate = Core.Nothing,
+      rejectDate = Core.Nothing,
+      rejectReason = Core.Nothing,
+      transferDate = Core.Nothing,
+      transferMessage = Core.Nothing
     }
-
--- | The date the transfer took place.
---
--- /Note:/ Consider using 'transferDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTransferDate :: Lens.Lens' TransferData (Lude.Maybe Lude.Timestamp)
-tdTransferDate = Lens.lens (transferDate :: TransferData -> Lude.Maybe Lude.Timestamp) (\s a -> s {transferDate = a} :: TransferData)
-{-# DEPRECATED tdTransferDate "Use generic-lens or generic-optics with 'transferDate' instead." #-}
 
 -- | The date the transfer was accepted.
 --
 -- /Note:/ Consider using 'acceptDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdAcceptDate :: Lens.Lens' TransferData (Lude.Maybe Lude.Timestamp)
-tdAcceptDate = Lens.lens (acceptDate :: TransferData -> Lude.Maybe Lude.Timestamp) (\s a -> s {acceptDate = a} :: TransferData)
+tdAcceptDate :: Lens.Lens' TransferData (Core.Maybe Core.NominalDiffTime)
+tdAcceptDate = Lens.field @"acceptDate"
 {-# DEPRECATED tdAcceptDate "Use generic-lens or generic-optics with 'acceptDate' instead." #-}
-
--- | The transfer message.
---
--- /Note:/ Consider using 'transferMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTransferMessage :: Lens.Lens' TransferData (Lude.Maybe Lude.Text)
-tdTransferMessage = Lens.lens (transferMessage :: TransferData -> Lude.Maybe Lude.Text) (\s a -> s {transferMessage = a} :: TransferData)
-{-# DEPRECATED tdTransferMessage "Use generic-lens or generic-optics with 'transferMessage' instead." #-}
 
 -- | The date the transfer was rejected.
 --
 -- /Note:/ Consider using 'rejectDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdRejectDate :: Lens.Lens' TransferData (Lude.Maybe Lude.Timestamp)
-tdRejectDate = Lens.lens (rejectDate :: TransferData -> Lude.Maybe Lude.Timestamp) (\s a -> s {rejectDate = a} :: TransferData)
+tdRejectDate :: Lens.Lens' TransferData (Core.Maybe Core.NominalDiffTime)
+tdRejectDate = Lens.field @"rejectDate"
 {-# DEPRECATED tdRejectDate "Use generic-lens or generic-optics with 'rejectDate' instead." #-}
 
 -- | The reason why the transfer was rejected.
 --
 -- /Note:/ Consider using 'rejectReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdRejectReason :: Lens.Lens' TransferData (Lude.Maybe Lude.Text)
-tdRejectReason = Lens.lens (rejectReason :: TransferData -> Lude.Maybe Lude.Text) (\s a -> s {rejectReason = a} :: TransferData)
+tdRejectReason :: Lens.Lens' TransferData (Core.Maybe Types.RejectReason)
+tdRejectReason = Lens.field @"rejectReason"
 {-# DEPRECATED tdRejectReason "Use generic-lens or generic-optics with 'rejectReason' instead." #-}
 
-instance Lude.FromJSON TransferData where
+-- | The date the transfer took place.
+--
+-- /Note:/ Consider using 'transferDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTransferDate :: Lens.Lens' TransferData (Core.Maybe Core.NominalDiffTime)
+tdTransferDate = Lens.field @"transferDate"
+{-# DEPRECATED tdTransferDate "Use generic-lens or generic-optics with 'transferDate' instead." #-}
+
+-- | The transfer message.
+--
+-- /Note:/ Consider using 'transferMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTransferMessage :: Lens.Lens' TransferData (Core.Maybe Types.TransferMessage)
+tdTransferMessage = Lens.field @"transferMessage"
+{-# DEPRECATED tdTransferMessage "Use generic-lens or generic-optics with 'transferMessage' instead." #-}
+
+instance Core.FromJSON TransferData where
   parseJSON =
-    Lude.withObject
-      "TransferData"
-      ( \x ->
-          TransferData'
-            Lude.<$> (x Lude..:? "transferDate")
-            Lude.<*> (x Lude..:? "acceptDate")
-            Lude.<*> (x Lude..:? "transferMessage")
-            Lude.<*> (x Lude..:? "rejectDate")
-            Lude.<*> (x Lude..:? "rejectReason")
-      )
+    Core.withObject "TransferData" Core.$
+      \x ->
+        TransferData'
+          Core.<$> (x Core..:? "acceptDate")
+          Core.<*> (x Core..:? "rejectDate")
+          Core.<*> (x Core..:? "rejectReason")
+          Core.<*> (x Core..:? "transferDate")
+          Core.<*> (x Core..:? "transferMessage")

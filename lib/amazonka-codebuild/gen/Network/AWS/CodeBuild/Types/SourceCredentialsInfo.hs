@@ -18,72 +18,67 @@ module Network.AWS.CodeBuild.Types.SourceCredentialsInfo
 
     -- * Lenses
     sciArn,
-    sciServerType,
     sciAuthType,
+    sciServerType,
   )
 where
 
-import Network.AWS.CodeBuild.Types.AuthType
-import Network.AWS.CodeBuild.Types.ServerType
+import qualified Network.AWS.CodeBuild.Types.Arn as Types
+import qualified Network.AWS.CodeBuild.Types.AuthType as Types
+import qualified Network.AWS.CodeBuild.Types.ServerType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the credentials for a GitHub, GitHub Enterprise, or Bitbucket repository.
 --
 -- /See:/ 'mkSourceCredentialsInfo' smart constructor.
 data SourceCredentialsInfo = SourceCredentialsInfo'
   { -- | The Amazon Resource Name (ARN) of the token.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
-    serverType :: Lude.Maybe ServerType,
+    arn :: Core.Maybe Types.Arn,
     -- | The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
-    authType :: Lude.Maybe AuthType
+    authType :: Core.Maybe Types.AuthType,
+    -- | The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
+    serverType :: Core.Maybe Types.ServerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SourceCredentialsInfo' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the token.
--- * 'serverType' - The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
--- * 'authType' - The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
+-- | Creates a 'SourceCredentialsInfo' value with any optional fields omitted.
 mkSourceCredentialsInfo ::
   SourceCredentialsInfo
 mkSourceCredentialsInfo =
   SourceCredentialsInfo'
-    { arn = Lude.Nothing,
-      serverType = Lude.Nothing,
-      authType = Lude.Nothing
+    { arn = Core.Nothing,
+      authType = Core.Nothing,
+      serverType = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the token.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sciArn :: Lens.Lens' SourceCredentialsInfo (Lude.Maybe Lude.Text)
-sciArn = Lens.lens (arn :: SourceCredentialsInfo -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: SourceCredentialsInfo)
+sciArn :: Lens.Lens' SourceCredentialsInfo (Core.Maybe Types.Arn)
+sciArn = Lens.field @"arn"
 {-# DEPRECATED sciArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
---
--- /Note:/ Consider using 'serverType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sciServerType :: Lens.Lens' SourceCredentialsInfo (Lude.Maybe ServerType)
-sciServerType = Lens.lens (serverType :: SourceCredentialsInfo -> Lude.Maybe ServerType) (\s a -> s {serverType = a} :: SourceCredentialsInfo)
-{-# DEPRECATED sciServerType "Use generic-lens or generic-optics with 'serverType' instead." #-}
 
 -- | The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
 --
 -- /Note:/ Consider using 'authType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sciAuthType :: Lens.Lens' SourceCredentialsInfo (Lude.Maybe AuthType)
-sciAuthType = Lens.lens (authType :: SourceCredentialsInfo -> Lude.Maybe AuthType) (\s a -> s {authType = a} :: SourceCredentialsInfo)
+sciAuthType :: Lens.Lens' SourceCredentialsInfo (Core.Maybe Types.AuthType)
+sciAuthType = Lens.field @"authType"
 {-# DEPRECATED sciAuthType "Use generic-lens or generic-optics with 'authType' instead." #-}
 
-instance Lude.FromJSON SourceCredentialsInfo where
+-- | The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
+--
+-- /Note:/ Consider using 'serverType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sciServerType :: Lens.Lens' SourceCredentialsInfo (Core.Maybe Types.ServerType)
+sciServerType = Lens.field @"serverType"
+{-# DEPRECATED sciServerType "Use generic-lens or generic-optics with 'serverType' instead." #-}
+
+instance Core.FromJSON SourceCredentialsInfo where
   parseJSON =
-    Lude.withObject
-      "SourceCredentialsInfo"
-      ( \x ->
-          SourceCredentialsInfo'
-            Lude.<$> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "serverType")
-            Lude.<*> (x Lude..:? "authType")
-      )
+    Core.withObject "SourceCredentialsInfo" Core.$
+      \x ->
+        SourceCredentialsInfo'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "authType")
+          Core.<*> (x Core..:? "serverType")

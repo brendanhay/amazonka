@@ -24,80 +24,105 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     mkDescribeLogStreams,
 
     -- ** Request lenses
-    dlssOrderBy,
-    dlssDescending,
     dlssLogGroupName,
-    dlssNextToken,
-    dlssLogStreamNamePrefix,
+    dlssDescending,
     dlssLimit,
+    dlssLogStreamNamePrefix,
+    dlssNextToken,
+    dlssOrderBy,
 
     -- * Destructuring the response
     DescribeLogStreamsResponse (..),
     mkDescribeLogStreamsResponse,
 
     -- ** Response lenses
-    dlsrsNextToken,
-    dlsrsLogStreams,
-    dlsrsResponseStatus,
+    dlsrrsLogStreams,
+    dlsrrsNextToken,
+    dlsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLogStreams' smart constructor.
 data DescribeLogStreams = DescribeLogStreams'
-  { -- | If the value is @LogStreamName@ , the results are ordered by log stream name. If the value is @LastEventTime@ , the results are ordered by the event time. The default value is @LogStreamName@ .
-    --
-    -- If you order the results by event time, you cannot specify the @logStreamNamePrefix@ parameter.
-    -- @lastEventTimeStamp@ represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. @lastEventTimeStamp@ updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
-    orderBy :: Lude.Maybe OrderBy,
+  { -- | The name of the log group.
+    logGroupName :: Types.LogGroupName,
     -- | If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.
-    descending :: Lude.Maybe Lude.Bool,
-    -- | The name of the log group.
-    logGroupName :: Lude.Text,
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    descending :: Core.Maybe Core.Bool,
+    -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+    limit :: Core.Maybe Core.Natural,
     -- | The prefix to match.
     --
     -- If @orderBy@ is @LastEventTime@ , you cannot specify this parameter.
-    logStreamNamePrefix :: Lude.Maybe Lude.Text,
-    -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-    limit :: Lude.Maybe Lude.Natural
+    logStreamNamePrefix :: Core.Maybe Types.LogStreamName,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | If the value is @LogStreamName@ , the results are ordered by log stream name. If the value is @LastEventTime@ , the results are ordered by the event time. The default value is @LogStreamName@ .
+    --
+    -- If you order the results by event time, you cannot specify the @logStreamNamePrefix@ parameter.
+    -- @lastEventTimeStamp@ represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. @lastEventTimeStamp@ updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
+    orderBy :: Core.Maybe Types.OrderBy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLogStreams' with the minimum fields required to make a request.
---
--- * 'orderBy' - If the value is @LogStreamName@ , the results are ordered by log stream name. If the value is @LastEventTime@ , the results are ordered by the event time. The default value is @LogStreamName@ .
---
--- If you order the results by event time, you cannot specify the @logStreamNamePrefix@ parameter.
--- @lastEventTimeStamp@ represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. @lastEventTimeStamp@ updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
--- * 'descending' - If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.
--- * 'logGroupName' - The name of the log group.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'logStreamNamePrefix' - The prefix to match.
---
--- If @orderBy@ is @LastEventTime@ , you cannot specify this parameter.
--- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+-- | Creates a 'DescribeLogStreams' value with any optional fields omitted.
 mkDescribeLogStreams ::
   -- | 'logGroupName'
-  Lude.Text ->
+  Types.LogGroupName ->
   DescribeLogStreams
-mkDescribeLogStreams pLogGroupName_ =
+mkDescribeLogStreams logGroupName =
   DescribeLogStreams'
-    { orderBy = Lude.Nothing,
-      descending = Lude.Nothing,
-      logGroupName = pLogGroupName_,
-      nextToken = Lude.Nothing,
-      logStreamNamePrefix = Lude.Nothing,
-      limit = Lude.Nothing
+    { logGroupName,
+      descending = Core.Nothing,
+      limit = Core.Nothing,
+      logStreamNamePrefix = Core.Nothing,
+      nextToken = Core.Nothing,
+      orderBy = Core.Nothing
     }
+
+-- | The name of the log group.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlssLogGroupName :: Lens.Lens' DescribeLogStreams Types.LogGroupName
+dlssLogGroupName = Lens.field @"logGroupName"
+{-# DEPRECATED dlssLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
+
+-- | If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.
+--
+-- /Note:/ Consider using 'descending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlssDescending :: Lens.Lens' DescribeLogStreams (Core.Maybe Core.Bool)
+dlssDescending = Lens.field @"descending"
+{-# DEPRECATED dlssDescending "Use generic-lens or generic-optics with 'descending' instead." #-}
+
+-- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlssLimit :: Lens.Lens' DescribeLogStreams (Core.Maybe Core.Natural)
+dlssLimit = Lens.field @"limit"
+{-# DEPRECATED dlssLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The prefix to match.
+--
+-- If @orderBy@ is @LastEventTime@ , you cannot specify this parameter.
+--
+-- /Note:/ Consider using 'logStreamNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlssLogStreamNamePrefix :: Lens.Lens' DescribeLogStreams (Core.Maybe Types.LogStreamName)
+dlssLogStreamNamePrefix = Lens.field @"logStreamNamePrefix"
+{-# DEPRECATED dlssLogStreamNamePrefix "Use generic-lens or generic-optics with 'logStreamNamePrefix' instead." #-}
+
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlssNextToken :: Lens.Lens' DescribeLogStreams (Core.Maybe Types.NextToken)
+dlssNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | If the value is @LogStreamName@ , the results are ordered by log stream name. If the value is @LastEventTime@ , the results are ordered by the event time. The default value is @LogStreamName@ .
 --
@@ -105,142 +130,97 @@ mkDescribeLogStreams pLogGroupName_ =
 -- @lastEventTimeStamp@ represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. @lastEventTimeStamp@ updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
 --
 -- /Note:/ Consider using 'orderBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlssOrderBy :: Lens.Lens' DescribeLogStreams (Lude.Maybe OrderBy)
-dlssOrderBy = Lens.lens (orderBy :: DescribeLogStreams -> Lude.Maybe OrderBy) (\s a -> s {orderBy = a} :: DescribeLogStreams)
+dlssOrderBy :: Lens.Lens' DescribeLogStreams (Core.Maybe Types.OrderBy)
+dlssOrderBy = Lens.field @"orderBy"
 {-# DEPRECATED dlssOrderBy "Use generic-lens or generic-optics with 'orderBy' instead." #-}
 
--- | If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.
---
--- /Note:/ Consider using 'descending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlssDescending :: Lens.Lens' DescribeLogStreams (Lude.Maybe Lude.Bool)
-dlssDescending = Lens.lens (descending :: DescribeLogStreams -> Lude.Maybe Lude.Bool) (\s a -> s {descending = a} :: DescribeLogStreams)
-{-# DEPRECATED dlssDescending "Use generic-lens or generic-optics with 'descending' instead." #-}
+instance Core.FromJSON DescribeLogStreams where
+  toJSON DescribeLogStreams {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            ("descending" Core..=) Core.<$> descending,
+            ("limit" Core..=) Core.<$> limit,
+            ("logStreamNamePrefix" Core..=) Core.<$> logStreamNamePrefix,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("orderBy" Core..=) Core.<$> orderBy
+          ]
+      )
 
--- | The name of the log group.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlssLogGroupName :: Lens.Lens' DescribeLogStreams Lude.Text
-dlssLogGroupName = Lens.lens (logGroupName :: DescribeLogStreams -> Lude.Text) (\s a -> s {logGroupName = a} :: DescribeLogStreams)
-{-# DEPRECATED dlssLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlssNextToken :: Lens.Lens' DescribeLogStreams (Lude.Maybe Lude.Text)
-dlssNextToken = Lens.lens (nextToken :: DescribeLogStreams -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLogStreams)
-{-# DEPRECATED dlssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The prefix to match.
---
--- If @orderBy@ is @LastEventTime@ , you cannot specify this parameter.
---
--- /Note:/ Consider using 'logStreamNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlssLogStreamNamePrefix :: Lens.Lens' DescribeLogStreams (Lude.Maybe Lude.Text)
-dlssLogStreamNamePrefix = Lens.lens (logStreamNamePrefix :: DescribeLogStreams -> Lude.Maybe Lude.Text) (\s a -> s {logStreamNamePrefix = a} :: DescribeLogStreams)
-{-# DEPRECATED dlssLogStreamNamePrefix "Use generic-lens or generic-optics with 'logStreamNamePrefix' instead." #-}
-
--- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlssLimit :: Lens.Lens' DescribeLogStreams (Lude.Maybe Lude.Natural)
-dlssLimit = Lens.lens (limit :: DescribeLogStreams -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeLogStreams)
-{-# DEPRECATED dlssLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
-instance Page.AWSPager DescribeLogStreams where
-  page rq rs
-    | Page.stop (rs Lens.^. dlsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dlsrsLogStreams) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dlssNextToken Lens..~ rs Lens.^. dlsrsNextToken
-
-instance Lude.AWSRequest DescribeLogStreams where
+instance Core.AWSRequest DescribeLogStreams where
   type Rs DescribeLogStreams = DescribeLogStreamsResponse
-  request = Req.postJSON cloudWatchLogsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.DescribeLogStreams")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeLogStreamsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "logStreams" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "logStreams")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeLogStreams where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.DescribeLogStreams" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeLogStreams where
-  toJSON DescribeLogStreams' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("orderBy" Lude..=) Lude.<$> orderBy,
-            ("descending" Lude..=) Lude.<$> descending,
-            Lude.Just ("logGroupName" Lude..= logGroupName),
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("logStreamNamePrefix" Lude..=) Lude.<$> logStreamNamePrefix,
-            ("limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeLogStreams where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLogStreams where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeLogStreams where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"logStreams" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeLogStreamsResponse' smart constructor.
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
-  { nextToken :: Lude.Maybe Lude.Text,
-    -- | The log streams.
-    logStreams :: Lude.Maybe [LogStream],
+  { -- | The log streams.
+    logStreams :: Core.Maybe [Types.LogStream],
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLogStreamsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'logStreams' - The log streams.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLogStreamsResponse' value with any optional fields omitted.
 mkDescribeLogStreamsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLogStreamsResponse
-mkDescribeLogStreamsResponse pResponseStatus_ =
+mkDescribeLogStreamsResponse responseStatus =
   DescribeLogStreamsResponse'
-    { nextToken = Lude.Nothing,
-      logStreams = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { logStreams = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsNextToken :: Lens.Lens' DescribeLogStreamsResponse (Lude.Maybe Lude.Text)
-dlsrsNextToken = Lens.lens (nextToken :: DescribeLogStreamsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLogStreamsResponse)
-{-# DEPRECATED dlsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The log streams.
 --
 -- /Note:/ Consider using 'logStreams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsLogStreams :: Lens.Lens' DescribeLogStreamsResponse (Lude.Maybe [LogStream])
-dlsrsLogStreams = Lens.lens (logStreams :: DescribeLogStreamsResponse -> Lude.Maybe [LogStream]) (\s a -> s {logStreams = a} :: DescribeLogStreamsResponse)
-{-# DEPRECATED dlsrsLogStreams "Use generic-lens or generic-optics with 'logStreams' instead." #-}
+dlsrrsLogStreams :: Lens.Lens' DescribeLogStreamsResponse (Core.Maybe [Types.LogStream])
+dlsrrsLogStreams = Lens.field @"logStreams"
+{-# DEPRECATED dlsrrsLogStreams "Use generic-lens or generic-optics with 'logStreams' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlsrrsNextToken :: Lens.Lens' DescribeLogStreamsResponse (Core.Maybe Types.NextToken)
+dlsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsResponseStatus :: Lens.Lens' DescribeLogStreamsResponse Lude.Int
-dlsrsResponseStatus = Lens.lens (responseStatus :: DescribeLogStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLogStreamsResponse)
-{-# DEPRECATED dlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlsrrsResponseStatus :: Lens.Lens' DescribeLogStreamsResponse Core.Int
+dlsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,51 +13,56 @@
 module Network.AWS.AlexaBusiness.Types.BusinessReportStatus
   ( BusinessReportStatus
       ( BusinessReportStatus',
-        BRSRunning,
-        BRSSucceeded,
-        BRSFailed
+        BusinessReportStatusRunning,
+        BusinessReportStatusSucceeded,
+        BusinessReportStatusFailed,
+        fromBusinessReportStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BusinessReportStatus = BusinessReportStatus' Lude.Text
+newtype BusinessReportStatus = BusinessReportStatus'
+  { fromBusinessReportStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BRSRunning :: BusinessReportStatus
-pattern BRSRunning = BusinessReportStatus' "RUNNING"
+pattern BusinessReportStatusRunning :: BusinessReportStatus
+pattern BusinessReportStatusRunning = BusinessReportStatus' "RUNNING"
 
-pattern BRSSucceeded :: BusinessReportStatus
-pattern BRSSucceeded = BusinessReportStatus' "SUCCEEDED"
+pattern BusinessReportStatusSucceeded :: BusinessReportStatus
+pattern BusinessReportStatusSucceeded = BusinessReportStatus' "SUCCEEDED"
 
-pattern BRSFailed :: BusinessReportStatus
-pattern BRSFailed = BusinessReportStatus' "FAILED"
+pattern BusinessReportStatusFailed :: BusinessReportStatus
+pattern BusinessReportStatusFailed = BusinessReportStatus' "FAILED"
 
 {-# COMPLETE
-  BRSRunning,
-  BRSSucceeded,
-  BRSFailed,
+  BusinessReportStatusRunning,
+  BusinessReportStatusSucceeded,
+  BusinessReportStatusFailed,
   BusinessReportStatus'
   #-}

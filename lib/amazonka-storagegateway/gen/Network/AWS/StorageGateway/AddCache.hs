@@ -30,120 +30,104 @@ module Network.AWS.StorageGateway.AddCache
     mkAddCacheResponse,
 
     -- ** Response lenses
-    acrsGatewayARN,
-    acrsResponseStatus,
+    acrrsGatewayARN,
+    acrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkAddCache' smart constructor.
 data AddCache = AddCache'
-  { gatewayARN :: Lude.Text,
+  { gatewayARN :: Types.GatewayARN,
     -- | An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
-    diskIds :: [Lude.Text]
+    diskIds :: [Types.DiskId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddCache' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'diskIds' - An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
+-- | Creates a 'AddCache' value with any optional fields omitted.
 mkAddCache ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   AddCache
-mkAddCache pGatewayARN_ =
-  AddCache' {gatewayARN = pGatewayARN_, diskIds = Lude.mempty}
+mkAddCache gatewayARN =
+  AddCache' {gatewayARN, diskIds = Core.mempty}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acGatewayARN :: Lens.Lens' AddCache Lude.Text
-acGatewayARN = Lens.lens (gatewayARN :: AddCache -> Lude.Text) (\s a -> s {gatewayARN = a} :: AddCache)
+acGatewayARN :: Lens.Lens' AddCache Types.GatewayARN
+acGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED acGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
 --
 -- /Note:/ Consider using 'diskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acDiskIds :: Lens.Lens' AddCache [Lude.Text]
-acDiskIds = Lens.lens (diskIds :: AddCache -> [Lude.Text]) (\s a -> s {diskIds = a} :: AddCache)
+acDiskIds :: Lens.Lens' AddCache [Types.DiskId]
+acDiskIds = Lens.field @"diskIds"
 {-# DEPRECATED acDiskIds "Use generic-lens or generic-optics with 'diskIds' instead." #-}
 
-instance Lude.AWSRequest AddCache where
+instance Core.FromJSON AddCache where
+  toJSON AddCache {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("DiskIds" Core..= diskIds)
+          ]
+      )
+
+instance Core.AWSRequest AddCache where
   type Rs AddCache = AddCacheResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "StorageGateway_20130630.AddCache")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AddCacheResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddCache where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.AddCache" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddCache where
-  toJSON AddCache' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("DiskIds" Lude..= diskIds)
-          ]
-      )
-
-instance Lude.ToPath AddCache where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddCache where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAddCacheResponse' smart constructor.
 data AddCacheResponse = AddCacheResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddCacheResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddCacheResponse' value with any optional fields omitted.
 mkAddCacheResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddCacheResponse
-mkAddCacheResponse pResponseStatus_ =
-  AddCacheResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkAddCacheResponse responseStatus =
+  AddCacheResponse' {gatewayARN = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acrsGatewayARN :: Lens.Lens' AddCacheResponse (Lude.Maybe Lude.Text)
-acrsGatewayARN = Lens.lens (gatewayARN :: AddCacheResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: AddCacheResponse)
-{-# DEPRECATED acrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+acrrsGatewayARN :: Lens.Lens' AddCacheResponse (Core.Maybe Types.GatewayARN)
+acrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED acrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acrsResponseStatus :: Lens.Lens' AddCacheResponse Lude.Int
-acrsResponseStatus = Lens.lens (responseStatus :: AddCacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddCacheResponse)
-{-# DEPRECATED acrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+acrrsResponseStatus :: Lens.Lens' AddCacheResponse Core.Int
+acrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED acrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

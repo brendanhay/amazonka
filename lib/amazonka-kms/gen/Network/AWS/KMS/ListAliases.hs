@@ -27,60 +27,52 @@ module Network.AWS.KMS.ListAliases
 
     -- ** Request lenses
     laKeyId,
-    laMarker,
     laLimit,
+    laMarker,
 
     -- * Destructuring the response
     ListAliasesResponse (..),
     mkListAliasesResponse,
 
     -- ** Response lenses
-    larsTruncated,
-    larsAliases,
-    larsNextMarker,
-    larsResponseStatus,
+    larrsAliases,
+    larrsNextMarker,
+    larrsTruncated,
+    larrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAliases' smart constructor.
 data ListAliases = ListAliases'
   { -- | Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use an alias name or alias ARN in this value.
     --
     -- This parameter is optional. If you omit it, @ListAliases@ returns all aliases in the account and region.
-    keyId :: Lude.Maybe Lude.Text,
-    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
-    marker :: Lude.Maybe Lude.Text,
+    keyId :: Core.Maybe Types.KeyIdType,
     -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+    marker :: Core.Maybe Types.MarkerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
---
--- * 'keyId' - Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use an alias name or alias ARN in this value.
---
--- This parameter is optional. If you omit it, @ListAliases@ returns all aliases in the account and region.
--- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
--- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+-- | Creates a 'ListAliases' value with any optional fields omitted.
 mkListAliases ::
   ListAliases
 mkListAliases =
   ListAliases'
-    { keyId = Lude.Nothing,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing
+    { keyId = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use an alias name or alias ARN in this value.
@@ -88,131 +80,121 @@ mkListAliases =
 -- This parameter is optional. If you omit it, @ListAliases@ returns all aliases in the account and region.
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laKeyId :: Lens.Lens' ListAliases (Lude.Maybe Lude.Text)
-laKeyId = Lens.lens (keyId :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: ListAliases)
+laKeyId :: Lens.Lens' ListAliases (Core.Maybe Types.KeyIdType)
+laKeyId = Lens.field @"keyId"
 {-# DEPRECATED laKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
-
--- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laMarker :: Lens.Lens' ListAliases (Lude.Maybe Lude.Text)
-laMarker = Lens.lens (marker :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListAliases)
-{-# DEPRECATED laMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laLimit :: Lens.Lens' ListAliases (Lude.Maybe Lude.Natural)
-laLimit = Lens.lens (limit :: ListAliases -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListAliases)
+laLimit :: Lens.Lens' ListAliases (Core.Maybe Core.Natural)
+laLimit = Lens.field @"limit"
 {-# DEPRECATED laLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListAliases where
-  page rq rs
-    | Page.stop (rs Lens.^. larsTruncated) = Lude.Nothing
-    | Lude.isNothing (rs Lens.^. larsNextMarker) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& laMarker Lens..~ rs Lens.^. larsNextMarker
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laMarker :: Lens.Lens' ListAliases (Core.Maybe Types.MarkerType)
+laMarker = Lens.field @"marker"
+{-# DEPRECATED laMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListAliases where
+instance Core.FromJSON ListAliases where
+  toJSON ListAliases {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("KeyId" Core..=) Core.<$> keyId,
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
+
+instance Core.AWSRequest ListAliases where
   type Rs ListAliases = ListAliasesResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.ListAliases")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Lude.<$> (x Lude..?> "Truncated")
-            Lude.<*> (x Lude..?> "Aliases" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Aliases")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (x Core..:? "Truncated")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAliases where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.ListAliases" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAliases where
-  toJSON ListAliases' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KeyId" Lude..=) Lude.<$> keyId,
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListAliases where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAliases where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAliases where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"truncated") = Core.Nothing
+    | Core.isNothing (rs Lens.^. Lens.field @"nextMarker") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
-    truncated :: Lude.Maybe Lude.Bool,
-    -- | A list of aliases.
-    aliases :: Lude.Maybe [AliasListEntry],
+  { -- | A list of aliases.
+    aliases :: Core.Maybe [Types.AliasListEntry],
     -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.MarkerType,
+    -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+    truncated :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
---
--- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
--- * 'aliases' - A list of aliases.
--- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAliasesResponse' value with any optional fields omitted.
 mkListAliasesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAliasesResponse
-mkListAliasesResponse pResponseStatus_ =
+mkListAliasesResponse responseStatus =
   ListAliasesResponse'
-    { truncated = Lude.Nothing,
-      aliases = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { aliases = Core.Nothing,
+      nextMarker = Core.Nothing,
+      truncated = Core.Nothing,
+      responseStatus
     }
-
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
---
--- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsTruncated :: Lens.Lens' ListAliasesResponse (Lude.Maybe Lude.Bool)
-larsTruncated = Lens.lens (truncated :: ListAliasesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: ListAliasesResponse)
-{-# DEPRECATED larsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | A list of aliases.
 --
 -- /Note:/ Consider using 'aliases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsAliases :: Lens.Lens' ListAliasesResponse (Lude.Maybe [AliasListEntry])
-larsAliases = Lens.lens (aliases :: ListAliasesResponse -> Lude.Maybe [AliasListEntry]) (\s a -> s {aliases = a} :: ListAliasesResponse)
-{-# DEPRECATED larsAliases "Use generic-lens or generic-optics with 'aliases' instead." #-}
+larrsAliases :: Lens.Lens' ListAliasesResponse (Core.Maybe [Types.AliasListEntry])
+larrsAliases = Lens.field @"aliases"
+{-# DEPRECATED larrsAliases "Use generic-lens or generic-optics with 'aliases' instead." #-}
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsNextMarker :: Lens.Lens' ListAliasesResponse (Lude.Maybe Lude.Text)
-larsNextMarker = Lens.lens (nextMarker :: ListAliasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListAliasesResponse)
-{-# DEPRECATED larsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+larrsNextMarker :: Lens.Lens' ListAliasesResponse (Core.Maybe Types.MarkerType)
+larrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED larrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larrsTruncated :: Lens.Lens' ListAliasesResponse (Core.Maybe Core.Bool)
+larrsTruncated = Lens.field @"truncated"
+{-# DEPRECATED larrsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsResponseStatus :: Lens.Lens' ListAliasesResponse Lude.Int
-larsResponseStatus = Lens.lens (responseStatus :: ListAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAliasesResponse)
-{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larrsResponseStatus :: Lens.Lens' ListAliasesResponse Core.Int
+larrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

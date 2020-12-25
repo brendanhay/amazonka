@@ -17,14 +17,17 @@ module Network.AWS.Discovery.Types.Filter
     mkFilter,
 
     -- * Lenses
-    fValues,
     fName,
+    fValues,
     fCondition,
   )
 where
 
+import qualified Network.AWS.Discovery.Types.Condition as Types
+import qualified Network.AWS.Discovery.Types.FilterValue as Types
+import qualified Network.AWS.Discovery.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A filter that can use conditional operators.
 --
@@ -32,61 +35,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { -- | A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
-    values :: [Lude.Text],
-    -- | The name of the filter.
-    name :: Lude.Text,
+  { -- | The name of the filter.
+    name :: Types.String,
+    -- | A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
+    values :: [Types.FilterValue],
     -- | A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
-    condition :: Lude.Text
+    condition :: Types.Condition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Filter' with the minimum fields required to make a request.
---
--- * 'values' - A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
--- * 'name' - The name of the filter.
--- * 'condition' - A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
+-- | Creates a 'Filter' value with any optional fields omitted.
 mkFilter ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   -- | 'condition'
-  Lude.Text ->
+  Types.Condition ->
   Filter
-mkFilter pName_ pCondition_ =
-  Filter'
-    { values = Lude.mempty,
-      name = pName_,
-      condition = pCondition_
-    }
-
--- | A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fValues :: Lens.Lens' Filter [Lude.Text]
-fValues = Lens.lens (values :: Filter -> [Lude.Text]) (\s a -> s {values = a} :: Filter)
-{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkFilter name condition =
+  Filter' {name, values = Core.mempty, condition}
 
 -- | The name of the filter.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fName :: Lens.Lens' Filter Lude.Text
-fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
+fName :: Lens.Lens' Filter Types.String
+fName = Lens.field @"name"
 {-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fValues :: Lens.Lens' Filter [Types.FilterValue]
+fValues = Lens.field @"values"
+{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
 --
 -- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fCondition :: Lens.Lens' Filter Lude.Text
-fCondition = Lens.lens (condition :: Filter -> Lude.Text) (\s a -> s {condition = a} :: Filter)
+fCondition :: Lens.Lens' Filter Types.Condition
+fCondition = Lens.field @"condition"
 {-# DEPRECATED fCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance Lude.ToJSON Filter where
-  toJSON Filter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("values" Lude..= values),
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("condition" Lude..= condition)
+instance Core.FromJSON Filter where
+  toJSON Filter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("values" Core..= values),
+            Core.Just ("condition" Core..= condition)
           ]
       )

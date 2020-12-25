@@ -20,9 +20,9 @@ module Network.AWS.DirectConnect.AcceptDirectConnectGatewayAssociationProposal
     mkAcceptDirectConnectGatewayAssociationProposal,
 
     -- ** Request lenses
-    adcgapAssociatedGatewayOwnerAccount,
     adcgapDirectConnectGatewayId,
     adcgapProposalId,
+    adcgapAssociatedGatewayOwnerAccount,
     adcgapOverrideAllowedPrefixesToDirectConnectGateway,
 
     -- * Destructuring the response
@@ -30,182 +30,164 @@ module Network.AWS.DirectConnect.AcceptDirectConnectGatewayAssociationProposal
     mkAcceptDirectConnectGatewayAssociationProposalResponse,
 
     -- ** Response lenses
-    adcgaprsDirectConnectGatewayAssociation,
-    adcgaprsResponseStatus,
+    adcgaprrsDirectConnectGatewayAssociation,
+    adcgaprrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAcceptDirectConnectGatewayAssociationProposal' smart constructor.
 data AcceptDirectConnectGatewayAssociationProposal = AcceptDirectConnectGatewayAssociationProposal'
-  { -- | The ID of the AWS account that owns the virtual private gateway or transit gateway.
-    associatedGatewayOwnerAccount :: Lude.Text,
-    -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Lude.Text,
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Types.DirectConnectGatewayId,
     -- | The ID of the request proposal.
-    proposalId :: Lude.Text,
+    proposalId :: Types.ProposalId,
+    -- | The ID of the AWS account that owns the virtual private gateway or transit gateway.
+    associatedGatewayOwnerAccount :: Types.AssociatedGatewayOwnerAccount,
     -- | Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.
     --
     -- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
-    overrideAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix]
+    overrideAllowedPrefixesToDirectConnectGateway :: Core.Maybe [Types.RouteFilterPrefix]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AcceptDirectConnectGatewayAssociationProposal' with the minimum fields required to make a request.
---
--- * 'associatedGatewayOwnerAccount' - The ID of the AWS account that owns the virtual private gateway or transit gateway.
--- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
--- * 'proposalId' - The ID of the request proposal.
--- * 'overrideAllowedPrefixesToDirectConnectGateway' - Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.
---
--- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
+-- | Creates a 'AcceptDirectConnectGatewayAssociationProposal' value with any optional fields omitted.
 mkAcceptDirectConnectGatewayAssociationProposal ::
-  -- | 'associatedGatewayOwnerAccount'
-  Lude.Text ->
   -- | 'directConnectGatewayId'
-  Lude.Text ->
+  Types.DirectConnectGatewayId ->
   -- | 'proposalId'
-  Lude.Text ->
+  Types.ProposalId ->
+  -- | 'associatedGatewayOwnerAccount'
+  Types.AssociatedGatewayOwnerAccount ->
   AcceptDirectConnectGatewayAssociationProposal
 mkAcceptDirectConnectGatewayAssociationProposal
-  pAssociatedGatewayOwnerAccount_
-  pDirectConnectGatewayId_
-  pProposalId_ =
+  directConnectGatewayId
+  proposalId
+  associatedGatewayOwnerAccount =
     AcceptDirectConnectGatewayAssociationProposal'
-      { associatedGatewayOwnerAccount =
-          pAssociatedGatewayOwnerAccount_,
-        directConnectGatewayId =
-          pDirectConnectGatewayId_,
-        proposalId = pProposalId_,
+      { directConnectGatewayId,
+        proposalId,
+        associatedGatewayOwnerAccount,
         overrideAllowedPrefixesToDirectConnectGateway =
-          Lude.Nothing
+          Core.Nothing
       }
-
--- | The ID of the AWS account that owns the virtual private gateway or transit gateway.
---
--- /Note:/ Consider using 'associatedGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcgapAssociatedGatewayOwnerAccount :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Lude.Text
-adcgapAssociatedGatewayOwnerAccount = Lens.lens (associatedGatewayOwnerAccount :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Text) (\s a -> s {associatedGatewayOwnerAccount = a} :: AcceptDirectConnectGatewayAssociationProposal)
-{-# DEPRECATED adcgapAssociatedGatewayOwnerAccount "Use generic-lens or generic-optics with 'associatedGatewayOwnerAccount' instead." #-}
 
 -- | The ID of the Direct Connect gateway.
 --
 -- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcgapDirectConnectGatewayId :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Lude.Text
-adcgapDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Text) (\s a -> s {directConnectGatewayId = a} :: AcceptDirectConnectGatewayAssociationProposal)
+adcgapDirectConnectGatewayId :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Types.DirectConnectGatewayId
+adcgapDirectConnectGatewayId = Lens.field @"directConnectGatewayId"
 {-# DEPRECATED adcgapDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
 -- | The ID of the request proposal.
 --
 -- /Note:/ Consider using 'proposalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcgapProposalId :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Lude.Text
-adcgapProposalId = Lens.lens (proposalId :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Text) (\s a -> s {proposalId = a} :: AcceptDirectConnectGatewayAssociationProposal)
+adcgapProposalId :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Types.ProposalId
+adcgapProposalId = Lens.field @"proposalId"
 {-# DEPRECATED adcgapProposalId "Use generic-lens or generic-optics with 'proposalId' instead." #-}
+
+-- | The ID of the AWS account that owns the virtual private gateway or transit gateway.
+--
+-- /Note:/ Consider using 'associatedGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adcgapAssociatedGatewayOwnerAccount :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Types.AssociatedGatewayOwnerAccount
+adcgapAssociatedGatewayOwnerAccount = Lens.field @"associatedGatewayOwnerAccount"
+{-# DEPRECATED adcgapAssociatedGatewayOwnerAccount "Use generic-lens or generic-optics with 'associatedGatewayOwnerAccount' instead." #-}
 
 -- | Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.
 --
 -- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
 --
 -- /Note:/ Consider using 'overrideAllowedPrefixesToDirectConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcgapOverrideAllowedPrefixesToDirectConnectGateway :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal (Lude.Maybe [RouteFilterPrefix])
-adcgapOverrideAllowedPrefixesToDirectConnectGateway = Lens.lens (overrideAllowedPrefixesToDirectConnectGateway :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {overrideAllowedPrefixesToDirectConnectGateway = a} :: AcceptDirectConnectGatewayAssociationProposal)
+adcgapOverrideAllowedPrefixesToDirectConnectGateway :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal (Core.Maybe [Types.RouteFilterPrefix])
+adcgapOverrideAllowedPrefixesToDirectConnectGateway = Lens.field @"overrideAllowedPrefixesToDirectConnectGateway"
 {-# DEPRECATED adcgapOverrideAllowedPrefixesToDirectConnectGateway "Use generic-lens or generic-optics with 'overrideAllowedPrefixesToDirectConnectGateway' instead." #-}
 
 instance
-  Lude.AWSRequest
+  Core.FromJSON
+    AcceptDirectConnectGatewayAssociationProposal
+  where
+  toJSON AcceptDirectConnectGatewayAssociationProposal {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("directConnectGatewayId" Core..= directConnectGatewayId),
+            Core.Just ("proposalId" Core..= proposalId),
+            Core.Just
+              ( "associatedGatewayOwnerAccount"
+                  Core..= associatedGatewayOwnerAccount
+              ),
+            ("overrideAllowedPrefixesToDirectConnectGateway" Core..=)
+              Core.<$> overrideAllowedPrefixesToDirectConnectGateway
+          ]
+      )
+
+instance
+  Core.AWSRequest
     AcceptDirectConnectGatewayAssociationProposal
   where
   type
     Rs AcceptDirectConnectGatewayAssociationProposal =
       AcceptDirectConnectGatewayAssociationProposalResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "OvertureService.AcceptDirectConnectGatewayAssociationProposal"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AcceptDirectConnectGatewayAssociationProposalResponse'
-            Lude.<$> (x Lude..?> "directConnectGatewayAssociation")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "directConnectGatewayAssociation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance
-  Lude.ToHeaders
-    AcceptDirectConnectGatewayAssociationProposal
-  where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OvertureService.AcceptDirectConnectGatewayAssociationProposal" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AcceptDirectConnectGatewayAssociationProposal where
-  toJSON AcceptDirectConnectGatewayAssociationProposal' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ( "associatedGatewayOwnerAccount"
-                  Lude..= associatedGatewayOwnerAccount
-              ),
-            Lude.Just
-              ("directConnectGatewayId" Lude..= directConnectGatewayId),
-            Lude.Just ("proposalId" Lude..= proposalId),
-            ("overrideAllowedPrefixesToDirectConnectGateway" Lude..=)
-              Lude.<$> overrideAllowedPrefixesToDirectConnectGateway
-          ]
-      )
-
-instance Lude.ToPath AcceptDirectConnectGatewayAssociationProposal where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AcceptDirectConnectGatewayAssociationProposal where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAcceptDirectConnectGatewayAssociationProposalResponse' smart constructor.
 data AcceptDirectConnectGatewayAssociationProposalResponse = AcceptDirectConnectGatewayAssociationProposalResponse'
-  { directConnectGatewayAssociation :: Lude.Maybe DirectConnectGatewayAssociation,
+  { directConnectGatewayAssociation :: Core.Maybe Types.DirectConnectGatewayAssociation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AcceptDirectConnectGatewayAssociationProposalResponse' with the minimum fields required to make a request.
---
--- * 'directConnectGatewayAssociation' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AcceptDirectConnectGatewayAssociationProposalResponse' value with any optional fields omitted.
 mkAcceptDirectConnectGatewayAssociationProposalResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AcceptDirectConnectGatewayAssociationProposalResponse
 mkAcceptDirectConnectGatewayAssociationProposalResponse
-  pResponseStatus_ =
+  responseStatus =
     AcceptDirectConnectGatewayAssociationProposalResponse'
       { directConnectGatewayAssociation =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
+          Core.Nothing,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'directConnectGatewayAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcgaprsDirectConnectGatewayAssociation :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposalResponse (Lude.Maybe DirectConnectGatewayAssociation)
-adcgaprsDirectConnectGatewayAssociation = Lens.lens (directConnectGatewayAssociation :: AcceptDirectConnectGatewayAssociationProposalResponse -> Lude.Maybe DirectConnectGatewayAssociation) (\s a -> s {directConnectGatewayAssociation = a} :: AcceptDirectConnectGatewayAssociationProposalResponse)
-{-# DEPRECATED adcgaprsDirectConnectGatewayAssociation "Use generic-lens or generic-optics with 'directConnectGatewayAssociation' instead." #-}
+adcgaprrsDirectConnectGatewayAssociation :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposalResponse (Core.Maybe Types.DirectConnectGatewayAssociation)
+adcgaprrsDirectConnectGatewayAssociation = Lens.field @"directConnectGatewayAssociation"
+{-# DEPRECATED adcgaprrsDirectConnectGatewayAssociation "Use generic-lens or generic-optics with 'directConnectGatewayAssociation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcgaprsResponseStatus :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposalResponse Lude.Int
-adcgaprsResponseStatus = Lens.lens (responseStatus :: AcceptDirectConnectGatewayAssociationProposalResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcceptDirectConnectGatewayAssociationProposalResponse)
-{-# DEPRECATED adcgaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+adcgaprrsResponseStatus :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposalResponse Core.Int
+adcgaprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED adcgaprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,8 +27,8 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetQueueURL $
---             mkGetQueueURL
+--         [ requestGetQueueUrl $
+--             mkGetQueueUrl
 --
 --         , requestPurgeQueue $
 --             mkPurgeQueue
@@ -90,8 +90,8 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseGetQueueURL $
---             mkGetQueueURLResponse
+--         [ responseGetQueueUrl $
+--             mkGetQueueUrlResponse
 --
 --         , responsePurgeQueue $
 --             mkPurgeQueueResponse
@@ -155,11 +155,11 @@ import Test.Tasty
 
 -- Requests
 
-requestGetQueueURL :: GetQueueURL -> TestTree
-requestGetQueueURL =
+requestGetQueueUrl :: GetQueueUrl -> TestTree
+requestGetQueueUrl =
   req
-    "GetQueueURL"
-    "fixture/GetQueueURL.yaml"
+    "GetQueueUrl"
+    "fixture/GetQueueUrl.yaml"
 
 requestPurgeQueue :: PurgeQueue -> TestTree
 requestPurgeQueue =
@@ -277,20 +277,20 @@ requestChangeMessageVisibility =
 
 -- Responses
 
-responseGetQueueURL :: GetQueueURLResponse -> TestTree
-responseGetQueueURL =
+responseGetQueueUrl :: GetQueueUrlResponse -> TestTree
+responseGetQueueUrl =
   res
-    "GetQueueURLResponse"
-    "fixture/GetQueueURLResponse.proto"
-    sqsService
-    (Proxy :: Proxy GetQueueURL)
+    "GetQueueUrlResponse"
+    "fixture/GetQueueUrlResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetQueueUrl)
 
 responsePurgeQueue :: PurgeQueueResponse -> TestTree
 responsePurgeQueue =
   res
     "PurgeQueueResponse"
     "fixture/PurgeQueueResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy PurgeQueue)
 
 responseChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatchResponse -> TestTree
@@ -298,7 +298,7 @@ responseChangeMessageVisibilityBatch =
   res
     "ChangeMessageVisibilityBatchResponse"
     "fixture/ChangeMessageVisibilityBatchResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy ChangeMessageVisibilityBatch)
 
 responseSendMessage :: SendMessageResponse -> TestTree
@@ -306,7 +306,7 @@ responseSendMessage =
   res
     "SendMessageResponse"
     "fixture/SendMessageResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy SendMessage)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
@@ -314,7 +314,7 @@ responseRemovePermission =
   res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy RemovePermission)
 
 responseGetQueueAttributes :: GetQueueAttributesResponse -> TestTree
@@ -322,7 +322,7 @@ responseGetQueueAttributes =
   res
     "GetQueueAttributesResponse"
     "fixture/GetQueueAttributesResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy GetQueueAttributes)
 
 responseListQueues :: ListQueuesResponse -> TestTree
@@ -330,7 +330,7 @@ responseListQueues =
   res
     "ListQueuesResponse"
     "fixture/ListQueuesResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy ListQueues)
 
 responseReceiveMessage :: ReceiveMessageResponse -> TestTree
@@ -338,7 +338,7 @@ responseReceiveMessage =
   res
     "ReceiveMessageResponse"
     "fixture/ReceiveMessageResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy ReceiveMessage)
 
 responseDeleteQueue :: DeleteQueueResponse -> TestTree
@@ -346,7 +346,7 @@ responseDeleteQueue =
   res
     "DeleteQueueResponse"
     "fixture/DeleteQueueResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteQueue)
 
 responseTagQueue :: TagQueueResponse -> TestTree
@@ -354,7 +354,7 @@ responseTagQueue =
   res
     "TagQueueResponse"
     "fixture/TagQueueResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy TagQueue)
 
 responseDeleteMessageBatch :: DeleteMessageBatchResponse -> TestTree
@@ -362,7 +362,7 @@ responseDeleteMessageBatch =
   res
     "DeleteMessageBatchResponse"
     "fixture/DeleteMessageBatchResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMessageBatch)
 
 responseSetQueueAttributes :: SetQueueAttributesResponse -> TestTree
@@ -370,7 +370,7 @@ responseSetQueueAttributes =
   res
     "SetQueueAttributesResponse"
     "fixture/SetQueueAttributesResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy SetQueueAttributes)
 
 responseListDeadLetterSourceQueues :: ListDeadLetterSourceQueuesResponse -> TestTree
@@ -378,7 +378,7 @@ responseListDeadLetterSourceQueues =
   res
     "ListDeadLetterSourceQueuesResponse"
     "fixture/ListDeadLetterSourceQueuesResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy ListDeadLetterSourceQueues)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
@@ -386,7 +386,7 @@ responseAddPermission =
   res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy AddPermission)
 
 responseDeleteMessage :: DeleteMessageResponse -> TestTree
@@ -394,7 +394,7 @@ responseDeleteMessage =
   res
     "DeleteMessageResponse"
     "fixture/DeleteMessageResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMessage)
 
 responseListQueueTags :: ListQueueTagsResponse -> TestTree
@@ -402,7 +402,7 @@ responseListQueueTags =
   res
     "ListQueueTagsResponse"
     "fixture/ListQueueTagsResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy ListQueueTags)
 
 responseCreateQueue :: CreateQueueResponse -> TestTree
@@ -410,7 +410,7 @@ responseCreateQueue =
   res
     "CreateQueueResponse"
     "fixture/CreateQueueResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy CreateQueue)
 
 responseUntagQueue :: UntagQueueResponse -> TestTree
@@ -418,7 +418,7 @@ responseUntagQueue =
   res
     "UntagQueueResponse"
     "fixture/UntagQueueResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy UntagQueue)
 
 responseSendMessageBatch :: SendMessageBatchResponse -> TestTree
@@ -426,7 +426,7 @@ responseSendMessageBatch =
   res
     "SendMessageBatchResponse"
     "fixture/SendMessageBatchResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy SendMessageBatch)
 
 responseChangeMessageVisibility :: ChangeMessageVisibilityResponse -> TestTree
@@ -434,5 +434,5 @@ responseChangeMessageVisibility =
   res
     "ChangeMessageVisibilityResponse"
     "fixture/ChangeMessageVisibilityResponse.proto"
-    sqsService
+    mkServiceConfig
     (Proxy :: Proxy ChangeMessageVisibility)

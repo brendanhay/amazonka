@@ -13,56 +13,58 @@
 module Network.AWS.DAX.Types.SSEStatus
   ( SSEStatus
       ( SSEStatus',
-        Enabling,
-        Enabled,
-        Disabling,
-        Disabled
+        SSEStatusEnabling,
+        SSEStatusEnabled,
+        SSEStatusDisabling,
+        SSEStatusDisabled,
+        fromSSEStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SSEStatus = SSEStatus' Lude.Text
+newtype SSEStatus = SSEStatus' {fromSSEStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabling :: SSEStatus
-pattern Enabling = SSEStatus' "ENABLING"
+pattern SSEStatusEnabling :: SSEStatus
+pattern SSEStatusEnabling = SSEStatus' "ENABLING"
 
-pattern Enabled :: SSEStatus
-pattern Enabled = SSEStatus' "ENABLED"
+pattern SSEStatusEnabled :: SSEStatus
+pattern SSEStatusEnabled = SSEStatus' "ENABLED"
 
-pattern Disabling :: SSEStatus
-pattern Disabling = SSEStatus' "DISABLING"
+pattern SSEStatusDisabling :: SSEStatus
+pattern SSEStatusDisabling = SSEStatus' "DISABLING"
 
-pattern Disabled :: SSEStatus
-pattern Disabled = SSEStatus' "DISABLED"
+pattern SSEStatusDisabled :: SSEStatus
+pattern SSEStatusDisabled = SSEStatus' "DISABLED"
 
 {-# COMPLETE
-  Enabling,
-  Enabled,
-  Disabling,
-  Disabled,
+  SSEStatusEnabling,
+  SSEStatusEnabled,
+  SSEStatusDisabling,
+  SSEStatusDisabled,
   SSEStatus'
   #-}

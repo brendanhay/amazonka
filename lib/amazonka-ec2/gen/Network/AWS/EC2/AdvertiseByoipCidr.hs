@@ -33,111 +33,108 @@ module Network.AWS.EC2.AdvertiseByoipCidr
     mkAdvertiseByoipCidrResponse,
 
     -- ** Response lenses
-    abcrsByoipCidr,
-    abcrsResponseStatus,
+    abcrrsByoipCidr,
+    abcrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAdvertiseByoipCidr' smart constructor.
 data AdvertiseByoipCidr = AdvertiseByoipCidr'
   { -- | The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.
-    cidr :: Lude.Text,
+    cidr :: Types.Cidr,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdvertiseByoipCidr' with the minimum fields required to make a request.
---
--- * 'cidr' - The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'AdvertiseByoipCidr' value with any optional fields omitted.
 mkAdvertiseByoipCidr ::
   -- | 'cidr'
-  Lude.Text ->
+  Types.Cidr ->
   AdvertiseByoipCidr
-mkAdvertiseByoipCidr pCidr_ =
-  AdvertiseByoipCidr' {cidr = pCidr_, dryRun = Lude.Nothing}
+mkAdvertiseByoipCidr cidr =
+  AdvertiseByoipCidr' {cidr, dryRun = Core.Nothing}
 
 -- | The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.
 --
 -- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abcCidr :: Lens.Lens' AdvertiseByoipCidr Lude.Text
-abcCidr = Lens.lens (cidr :: AdvertiseByoipCidr -> Lude.Text) (\s a -> s {cidr = a} :: AdvertiseByoipCidr)
+abcCidr :: Lens.Lens' AdvertiseByoipCidr Types.Cidr
+abcCidr = Lens.field @"cidr"
 {-# DEPRECATED abcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abcDryRun :: Lens.Lens' AdvertiseByoipCidr (Lude.Maybe Lude.Bool)
-abcDryRun = Lens.lens (dryRun :: AdvertiseByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AdvertiseByoipCidr)
+abcDryRun :: Lens.Lens' AdvertiseByoipCidr (Core.Maybe Core.Bool)
+abcDryRun = Lens.field @"dryRun"
 {-# DEPRECATED abcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest AdvertiseByoipCidr where
+instance Core.AWSRequest AdvertiseByoipCidr where
   type Rs AdvertiseByoipCidr = AdvertiseByoipCidrResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AdvertiseByoipCidr")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Cidr" cidr)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           AdvertiseByoipCidrResponse'
-            Lude.<$> (x Lude..@? "byoipCidr") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "byoipCidr") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AdvertiseByoipCidr where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AdvertiseByoipCidr where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdvertiseByoipCidr where
-  toQuery AdvertiseByoipCidr' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AdvertiseByoipCidr" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Cidr" Lude.=: cidr,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkAdvertiseByoipCidrResponse' smart constructor.
 data AdvertiseByoipCidrResponse = AdvertiseByoipCidrResponse'
   { -- | Information about the address range.
-    byoipCidr :: Lude.Maybe ByoipCidr,
+    byoipCidr :: Core.Maybe Types.ByoipCidr,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdvertiseByoipCidrResponse' with the minimum fields required to make a request.
---
--- * 'byoipCidr' - Information about the address range.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AdvertiseByoipCidrResponse' value with any optional fields omitted.
 mkAdvertiseByoipCidrResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AdvertiseByoipCidrResponse
-mkAdvertiseByoipCidrResponse pResponseStatus_ =
+mkAdvertiseByoipCidrResponse responseStatus =
   AdvertiseByoipCidrResponse'
-    { byoipCidr = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { byoipCidr = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the address range.
 --
 -- /Note:/ Consider using 'byoipCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abcrsByoipCidr :: Lens.Lens' AdvertiseByoipCidrResponse (Lude.Maybe ByoipCidr)
-abcrsByoipCidr = Lens.lens (byoipCidr :: AdvertiseByoipCidrResponse -> Lude.Maybe ByoipCidr) (\s a -> s {byoipCidr = a} :: AdvertiseByoipCidrResponse)
-{-# DEPRECATED abcrsByoipCidr "Use generic-lens or generic-optics with 'byoipCidr' instead." #-}
+abcrrsByoipCidr :: Lens.Lens' AdvertiseByoipCidrResponse (Core.Maybe Types.ByoipCidr)
+abcrrsByoipCidr = Lens.field @"byoipCidr"
+{-# DEPRECATED abcrrsByoipCidr "Use generic-lens or generic-optics with 'byoipCidr' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abcrsResponseStatus :: Lens.Lens' AdvertiseByoipCidrResponse Lude.Int
-abcrsResponseStatus = Lens.lens (responseStatus :: AdvertiseByoipCidrResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdvertiseByoipCidrResponse)
-{-# DEPRECATED abcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+abcrrsResponseStatus :: Lens.Lens' AdvertiseByoipCidrResponse Core.Int
+abcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED abcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

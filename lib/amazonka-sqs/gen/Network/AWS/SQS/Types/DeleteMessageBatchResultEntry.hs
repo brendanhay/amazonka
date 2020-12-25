@@ -22,35 +22,34 @@ module Network.AWS.SQS.Types.DeleteMessageBatchResultEntry
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SQS.Types.String as Types
 
 -- | Encloses the @Id@ of an entry in @'DeleteMessageBatch' .@
 --
 -- /See:/ 'mkDeleteMessageBatchResultEntry' smart constructor.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
   { -- | Represents a successfully deleted message.
-    id :: Lude.Text
+    id :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMessageBatchResultEntry' with the minimum fields required to make a request.
---
--- * 'id' - Represents a successfully deleted message.
+-- | Creates a 'DeleteMessageBatchResultEntry' value with any optional fields omitted.
 mkDeleteMessageBatchResultEntry ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   DeleteMessageBatchResultEntry
-mkDeleteMessageBatchResultEntry pId_ =
-  DeleteMessageBatchResultEntry' {id = pId_}
+mkDeleteMessageBatchResultEntry id =
+  DeleteMessageBatchResultEntry' {id}
 
 -- | Represents a successfully deleted message.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dId :: Lens.Lens' DeleteMessageBatchResultEntry Lude.Text
-dId = Lens.lens (id :: DeleteMessageBatchResultEntry -> Lude.Text) (\s a -> s {id = a} :: DeleteMessageBatchResultEntry)
+dId :: Lens.Lens' DeleteMessageBatchResultEntry Types.String
+dId = Lens.field @"id"
 {-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromXML DeleteMessageBatchResultEntry where
+instance Core.FromXML DeleteMessageBatchResultEntry where
   parseXML x =
-    DeleteMessageBatchResultEntry' Lude.<$> (x Lude..@ "Id")
+    DeleteMessageBatchResultEntry' Core.<$> (x Core..@ "Id")

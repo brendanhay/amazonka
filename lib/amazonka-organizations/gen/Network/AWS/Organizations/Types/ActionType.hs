@@ -13,56 +13,58 @@
 module Network.AWS.Organizations.Types.ActionType
   ( ActionType
       ( ActionType',
-        Invite,
-        EnableAllFeatures,
-        ApproveAllFeatures,
-        AddOrganizationsServiceLinkedRole
+        ActionTypeInvite,
+        ActionTypeEnableAllFeatures,
+        ActionTypeApproveAllFeatures,
+        ActionTypeAddOrganizationsServiceLinkedRole,
+        fromActionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionType = ActionType' Lude.Text
+newtype ActionType = ActionType' {fromActionType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Invite :: ActionType
-pattern Invite = ActionType' "INVITE"
+pattern ActionTypeInvite :: ActionType
+pattern ActionTypeInvite = ActionType' "INVITE"
 
-pattern EnableAllFeatures :: ActionType
-pattern EnableAllFeatures = ActionType' "ENABLE_ALL_FEATURES"
+pattern ActionTypeEnableAllFeatures :: ActionType
+pattern ActionTypeEnableAllFeatures = ActionType' "ENABLE_ALL_FEATURES"
 
-pattern ApproveAllFeatures :: ActionType
-pattern ApproveAllFeatures = ActionType' "APPROVE_ALL_FEATURES"
+pattern ActionTypeApproveAllFeatures :: ActionType
+pattern ActionTypeApproveAllFeatures = ActionType' "APPROVE_ALL_FEATURES"
 
-pattern AddOrganizationsServiceLinkedRole :: ActionType
-pattern AddOrganizationsServiceLinkedRole = ActionType' "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE"
+pattern ActionTypeAddOrganizationsServiceLinkedRole :: ActionType
+pattern ActionTypeAddOrganizationsServiceLinkedRole = ActionType' "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE"
 
 {-# COMPLETE
-  Invite,
-  EnableAllFeatures,
-  ApproveAllFeatures,
-  AddOrganizationsServiceLinkedRole,
+  ActionTypeInvite,
+  ActionTypeEnableAllFeatures,
+  ActionTypeApproveAllFeatures,
+  ActionTypeAddOrganizationsServiceLinkedRole,
   ActionType'
   #-}

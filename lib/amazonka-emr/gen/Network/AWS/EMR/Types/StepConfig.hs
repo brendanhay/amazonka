@@ -17,76 +17,69 @@ module Network.AWS.EMR.Types.StepConfig
     mkStepConfig,
 
     -- * Lenses
-    scActionOnFailure,
-    scHadoopJARStep,
     scName,
+    scHadoopJarStep,
+    scActionOnFailure,
   )
 where
 
-import Network.AWS.EMR.Types.ActionOnFailure
-import Network.AWS.EMR.Types.HadoopJARStepConfig
+import qualified Network.AWS.EMR.Types.ActionOnFailure as Types
+import qualified Network.AWS.EMR.Types.HadoopJarStepConfig as Types
+import qualified Network.AWS.EMR.Types.XmlStringMaxLen256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specification of a cluster (job flow) step.
 --
 -- /See:/ 'mkStepConfig' smart constructor.
 data StepConfig = StepConfig'
-  { -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
-    actionOnFailure :: Lude.Maybe ActionOnFailure,
+  { -- | The name of the step.
+    name :: Types.XmlStringMaxLen256,
     -- | The JAR file used for the step.
-    hadoopJARStep :: HadoopJARStepConfig,
-    -- | The name of the step.
-    name :: Lude.Text
+    hadoopJarStep :: Types.HadoopJarStepConfig,
+    -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+    actionOnFailure :: Core.Maybe Types.ActionOnFailure
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StepConfig' with the minimum fields required to make a request.
---
--- * 'actionOnFailure' - The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
--- * 'hadoopJARStep' - The JAR file used for the step.
--- * 'name' - The name of the step.
+-- | Creates a 'StepConfig' value with any optional fields omitted.
 mkStepConfig ::
-  -- | 'hadoopJARStep'
-  HadoopJARStepConfig ->
   -- | 'name'
-  Lude.Text ->
+  Types.XmlStringMaxLen256 ->
+  -- | 'hadoopJarStep'
+  Types.HadoopJarStepConfig ->
   StepConfig
-mkStepConfig pHadoopJARStep_ pName_ =
-  StepConfig'
-    { actionOnFailure = Lude.Nothing,
-      hadoopJARStep = pHadoopJARStep_,
-      name = pName_
-    }
-
--- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
---
--- /Note:/ Consider using 'actionOnFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scActionOnFailure :: Lens.Lens' StepConfig (Lude.Maybe ActionOnFailure)
-scActionOnFailure = Lens.lens (actionOnFailure :: StepConfig -> Lude.Maybe ActionOnFailure) (\s a -> s {actionOnFailure = a} :: StepConfig)
-{-# DEPRECATED scActionOnFailure "Use generic-lens or generic-optics with 'actionOnFailure' instead." #-}
-
--- | The JAR file used for the step.
---
--- /Note:/ Consider using 'hadoopJARStep' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scHadoopJARStep :: Lens.Lens' StepConfig HadoopJARStepConfig
-scHadoopJARStep = Lens.lens (hadoopJARStep :: StepConfig -> HadoopJARStepConfig) (\s a -> s {hadoopJARStep = a} :: StepConfig)
-{-# DEPRECATED scHadoopJARStep "Use generic-lens or generic-optics with 'hadoopJARStep' instead." #-}
+mkStepConfig name hadoopJarStep =
+  StepConfig' {name, hadoopJarStep, actionOnFailure = Core.Nothing}
 
 -- | The name of the step.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scName :: Lens.Lens' StepConfig Lude.Text
-scName = Lens.lens (name :: StepConfig -> Lude.Text) (\s a -> s {name = a} :: StepConfig)
+scName :: Lens.Lens' StepConfig Types.XmlStringMaxLen256
+scName = Lens.field @"name"
 {-# DEPRECATED scName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON StepConfig where
-  toJSON StepConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ActionOnFailure" Lude..=) Lude.<$> actionOnFailure,
-            Lude.Just ("HadoopJarStep" Lude..= hadoopJARStep),
-            Lude.Just ("Name" Lude..= name)
+-- | The JAR file used for the step.
+--
+-- /Note:/ Consider using 'hadoopJarStep' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scHadoopJarStep :: Lens.Lens' StepConfig Types.HadoopJarStepConfig
+scHadoopJarStep = Lens.field @"hadoopJarStep"
+{-# DEPRECATED scHadoopJarStep "Use generic-lens or generic-optics with 'hadoopJarStep' instead." #-}
+
+-- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+--
+-- /Note:/ Consider using 'actionOnFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scActionOnFailure :: Lens.Lens' StepConfig (Core.Maybe Types.ActionOnFailure)
+scActionOnFailure = Lens.field @"actionOnFailure"
+{-# DEPRECATED scActionOnFailure "Use generic-lens or generic-optics with 'actionOnFailure' instead." #-}
+
+instance Core.FromJSON StepConfig where
+  toJSON StepConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("HadoopJarStep" Core..= hadoopJarStep),
+            ("ActionOnFailure" Core..=) Core.<$> actionOnFailure
           ]
       )

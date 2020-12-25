@@ -30,81 +30,68 @@ module Network.AWS.Config.PutConfigurationRecorder
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'PutConfigurationRecorder' action.
 --
 -- /See:/ 'mkPutConfigurationRecorder' smart constructor.
 newtype PutConfigurationRecorder = PutConfigurationRecorder'
   { -- | The configuration recorder object that records each configuration change made to the resources.
-    configurationRecorder :: ConfigurationRecorder
+    configurationRecorder :: Types.ConfigurationRecorder
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutConfigurationRecorder' with the minimum fields required to make a request.
---
--- * 'configurationRecorder' - The configuration recorder object that records each configuration change made to the resources.
+-- | Creates a 'PutConfigurationRecorder' value with any optional fields omitted.
 mkPutConfigurationRecorder ::
   -- | 'configurationRecorder'
-  ConfigurationRecorder ->
+  Types.ConfigurationRecorder ->
   PutConfigurationRecorder
-mkPutConfigurationRecorder pConfigurationRecorder_ =
-  PutConfigurationRecorder'
-    { configurationRecorder =
-        pConfigurationRecorder_
-    }
+mkPutConfigurationRecorder configurationRecorder =
+  PutConfigurationRecorder' {configurationRecorder}
 
 -- | The configuration recorder object that records each configuration change made to the resources.
 --
 -- /Note:/ Consider using 'configurationRecorder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcrConfigurationRecorder :: Lens.Lens' PutConfigurationRecorder ConfigurationRecorder
-pcrConfigurationRecorder = Lens.lens (configurationRecorder :: PutConfigurationRecorder -> ConfigurationRecorder) (\s a -> s {configurationRecorder = a} :: PutConfigurationRecorder)
+pcrConfigurationRecorder :: Lens.Lens' PutConfigurationRecorder Types.ConfigurationRecorder
+pcrConfigurationRecorder = Lens.field @"configurationRecorder"
 {-# DEPRECATED pcrConfigurationRecorder "Use generic-lens or generic-optics with 'configurationRecorder' instead." #-}
 
-instance Lude.AWSRequest PutConfigurationRecorder where
+instance Core.FromJSON PutConfigurationRecorder where
+  toJSON PutConfigurationRecorder {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ConfigurationRecorder" Core..= configurationRecorder)
+          ]
+      )
+
+instance Core.AWSRequest PutConfigurationRecorder where
   type Rs PutConfigurationRecorder = PutConfigurationRecorderResponse
-  request = Req.postJSON configService
-  response = Res.receiveNull PutConfigurationRecorderResponse'
-
-instance Lude.ToHeaders PutConfigurationRecorder where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.PutConfigurationRecorder" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutConfigurationRecorder where
-  toJSON PutConfigurationRecorder' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("ConfigurationRecorder" Lude..= configurationRecorder)
-          ]
-      )
-
-instance Lude.ToPath PutConfigurationRecorder where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutConfigurationRecorder where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.PutConfigurationRecorder")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull PutConfigurationRecorderResponse'
 
 -- | /See:/ 'mkPutConfigurationRecorderResponse' smart constructor.
 data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutConfigurationRecorderResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutConfigurationRecorderResponse' value with any optional fields omitted.
 mkPutConfigurationRecorderResponse ::
   PutConfigurationRecorderResponse
 mkPutConfigurationRecorderResponse =

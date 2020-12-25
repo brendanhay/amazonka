@@ -22,53 +22,49 @@ module Network.AWS.AppStream.Types.FleetError
   )
 where
 
-import Network.AWS.AppStream.Types.FleetErrorCode
+import qualified Network.AWS.AppStream.Types.FleetErrorCode as Types
+import qualified Network.AWS.AppStream.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a fleet error.
 --
 -- /See:/ 'mkFleetError' smart constructor.
 data FleetError = FleetError'
   { -- | The error code.
-    errorCode :: Lude.Maybe FleetErrorCode,
+    errorCode :: Core.Maybe Types.FleetErrorCode,
     -- | The error message.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FleetError' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error code.
--- * 'errorMessage' - The error message.
+-- | Creates a 'FleetError' value with any optional fields omitted.
 mkFleetError ::
   FleetError
 mkFleetError =
   FleetError'
-    { errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing
     }
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-feErrorCode :: Lens.Lens' FleetError (Lude.Maybe FleetErrorCode)
-feErrorCode = Lens.lens (errorCode :: FleetError -> Lude.Maybe FleetErrorCode) (\s a -> s {errorCode = a} :: FleetError)
+feErrorCode :: Lens.Lens' FleetError (Core.Maybe Types.FleetErrorCode)
+feErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED feErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-feErrorMessage :: Lens.Lens' FleetError (Lude.Maybe Lude.Text)
-feErrorMessage = Lens.lens (errorMessage :: FleetError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FleetError)
+feErrorMessage :: Lens.Lens' FleetError (Core.Maybe Types.String)
+feErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED feErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON FleetError where
+instance Core.FromJSON FleetError where
   parseJSON =
-    Lude.withObject
-      "FleetError"
-      ( \x ->
-          FleetError'
-            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "FleetError" Core.$
+      \x ->
+        FleetError'
+          Core.<$> (x Core..:? "ErrorCode") Core.<*> (x Core..:? "ErrorMessage")

@@ -22,41 +22,38 @@ module Network.AWS.MediaConvert.Types.SccDestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.SccDestinationFramerate
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.SccDestinationFramerate as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for SCC caption output.
 --
 -- /See:/ 'mkSccDestinationSettings' smart constructor.
 newtype SccDestinationSettings = SccDestinationSettings'
   { -- | Set Framerate (SccDestinationFramerate) to make sure that the captions and the video are synchronized in the output. Specify a frame rate that matches the frame rate of the associated video. If the video frame rate is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the video has video_insertion=true and drop_frame_timecode=true; otherwise, choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
-    framerate :: Lude.Maybe SccDestinationFramerate
+    framerate :: Core.Maybe Types.SccDestinationFramerate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SccDestinationSettings' with the minimum fields required to make a request.
---
--- * 'framerate' - Set Framerate (SccDestinationFramerate) to make sure that the captions and the video are synchronized in the output. Specify a frame rate that matches the frame rate of the associated video. If the video frame rate is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the video has video_insertion=true and drop_frame_timecode=true; otherwise, choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
+-- | Creates a 'SccDestinationSettings' value with any optional fields omitted.
 mkSccDestinationSettings ::
   SccDestinationSettings
 mkSccDestinationSettings =
-  SccDestinationSettings' {framerate = Lude.Nothing}
+  SccDestinationSettings' {framerate = Core.Nothing}
 
 -- | Set Framerate (SccDestinationFramerate) to make sure that the captions and the video are synchronized in the output. Specify a frame rate that matches the frame rate of the associated video. If the video frame rate is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the video has video_insertion=true and drop_frame_timecode=true; otherwise, choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
 --
 -- /Note:/ Consider using 'framerate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsFramerate :: Lens.Lens' SccDestinationSettings (Lude.Maybe SccDestinationFramerate)
-sdsFramerate = Lens.lens (framerate :: SccDestinationSettings -> Lude.Maybe SccDestinationFramerate) (\s a -> s {framerate = a} :: SccDestinationSettings)
+sdsFramerate :: Lens.Lens' SccDestinationSettings (Core.Maybe Types.SccDestinationFramerate)
+sdsFramerate = Lens.field @"framerate"
 {-# DEPRECATED sdsFramerate "Use generic-lens or generic-optics with 'framerate' instead." #-}
 
-instance Lude.FromJSON SccDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "SccDestinationSettings"
-      (\x -> SccDestinationSettings' Lude.<$> (x Lude..:? "framerate"))
+instance Core.FromJSON SccDestinationSettings where
+  toJSON SccDestinationSettings {..} =
+    Core.object
+      (Core.catMaybes [("framerate" Core..=) Core.<$> framerate])
 
-instance Lude.ToJSON SccDestinationSettings where
-  toJSON SccDestinationSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("framerate" Lude..=) Lude.<$> framerate])
+instance Core.FromJSON SccDestinationSettings where
+  parseJSON =
+    Core.withObject "SccDestinationSettings" Core.$
+      \x -> SccDestinationSettings' Core.<$> (x Core..:? "framerate")

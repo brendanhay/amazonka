@@ -22,8 +22,10 @@ module Network.AWS.Budgets.Types.Spend
   )
 where
 
+import qualified Network.AWS.Budgets.Types.Amount as Types
+import qualified Network.AWS.Budgets.Types.Unit as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The amount of cost or usage that is measured for a budget.
 --
@@ -39,52 +41,47 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSpend' smart constructor.
 data Spend = Spend'
   { -- | The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
-    amount :: Lude.Text,
+    amount :: Types.Amount,
     -- | The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
-    unit :: Lude.Text
+    unit :: Types.Unit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Spend' with the minimum fields required to make a request.
---
--- * 'amount' - The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
--- * 'unit' - The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
+-- | Creates a 'Spend' value with any optional fields omitted.
 mkSpend ::
   -- | 'amount'
-  Lude.Text ->
+  Types.Amount ->
   -- | 'unit'
-  Lude.Text ->
+  Types.Unit ->
   Spend
-mkSpend pAmount_ pUnit_ = Spend' {amount = pAmount_, unit = pUnit_}
+mkSpend amount unit = Spend' {amount, unit}
 
 -- | The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
 --
 -- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAmount :: Lens.Lens' Spend Lude.Text
-sAmount = Lens.lens (amount :: Spend -> Lude.Text) (\s a -> s {amount = a} :: Spend)
+sAmount :: Lens.Lens' Spend Types.Amount
+sAmount = Lens.field @"amount"
 {-# DEPRECATED sAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sUnit :: Lens.Lens' Spend Lude.Text
-sUnit = Lens.lens (unit :: Spend -> Lude.Text) (\s a -> s {unit = a} :: Spend)
+sUnit :: Lens.Lens' Spend Types.Unit
+sUnit = Lens.field @"unit"
 {-# DEPRECATED sUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.FromJSON Spend where
-  parseJSON =
-    Lude.withObject
-      "Spend"
-      ( \x ->
-          Spend' Lude.<$> (x Lude..: "Amount") Lude.<*> (x Lude..: "Unit")
-      )
-
-instance Lude.ToJSON Spend where
-  toJSON Spend' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Amount" Lude..= amount),
-            Lude.Just ("Unit" Lude..= unit)
+instance Core.FromJSON Spend where
+  toJSON Spend {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Amount" Core..= amount),
+            Core.Just ("Unit" Core..= unit)
           ]
       )
+
+instance Core.FromJSON Spend where
+  parseJSON =
+    Core.withObject "Spend" Core.$
+      \x ->
+        Spend' Core.<$> (x Core..: "Amount") Core.<*> (x Core..: "Unit")

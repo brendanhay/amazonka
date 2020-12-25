@@ -20,112 +20,97 @@ module Network.AWS.AlexaBusiness.GetSkillGroup
     mkGetSkillGroup,
 
     -- ** Request lenses
-    gsgSkillGroupARN,
+    gsgSkillGroupArn,
 
     -- * Destructuring the response
     GetSkillGroupResponse (..),
     mkGetSkillGroupResponse,
 
     -- ** Response lenses
-    gsgrsSkillGroup,
-    gsgrsResponseStatus,
+    gsgrrsSkillGroup,
+    gsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSkillGroup' smart constructor.
 newtype GetSkillGroup = GetSkillGroup'
   { -- | The ARN of the skill group for which to get details. Required.
-    skillGroupARN :: Lude.Maybe Lude.Text
+    skillGroupArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSkillGroup' with the minimum fields required to make a request.
---
--- * 'skillGroupARN' - The ARN of the skill group for which to get details. Required.
+-- | Creates a 'GetSkillGroup' value with any optional fields omitted.
 mkGetSkillGroup ::
   GetSkillGroup
-mkGetSkillGroup = GetSkillGroup' {skillGroupARN = Lude.Nothing}
+mkGetSkillGroup = GetSkillGroup' {skillGroupArn = Core.Nothing}
 
 -- | The ARN of the skill group for which to get details. Required.
 --
--- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsgSkillGroupARN :: Lens.Lens' GetSkillGroup (Lude.Maybe Lude.Text)
-gsgSkillGroupARN = Lens.lens (skillGroupARN :: GetSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: GetSkillGroup)
-{-# DEPRECATED gsgSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
+-- /Note:/ Consider using 'skillGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgSkillGroupArn :: Lens.Lens' GetSkillGroup (Core.Maybe Types.Arn)
+gsgSkillGroupArn = Lens.field @"skillGroupArn"
+{-# DEPRECATED gsgSkillGroupArn "Use generic-lens or generic-optics with 'skillGroupArn' instead." #-}
 
-instance Lude.AWSRequest GetSkillGroup where
+instance Core.FromJSON GetSkillGroup where
+  toJSON GetSkillGroup {..} =
+    Core.object
+      (Core.catMaybes [("SkillGroupArn" Core..=) Core.<$> skillGroupArn])
+
+instance Core.AWSRequest GetSkillGroup where
   type Rs GetSkillGroup = GetSkillGroupResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.GetSkillGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSkillGroupResponse'
-            Lude.<$> (x Lude..?> "SkillGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SkillGroup") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSkillGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.GetSkillGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetSkillGroup where
-  toJSON GetSkillGroup' {..} =
-    Lude.object
-      (Lude.catMaybes [("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN])
-
-instance Lude.ToPath GetSkillGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSkillGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSkillGroupResponse' smart constructor.
 data GetSkillGroupResponse = GetSkillGroupResponse'
   { -- | The details of the skill group requested. Required.
-    skillGroup :: Lude.Maybe SkillGroup,
+    skillGroup :: Core.Maybe Types.SkillGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSkillGroupResponse' with the minimum fields required to make a request.
---
--- * 'skillGroup' - The details of the skill group requested. Required.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSkillGroupResponse' value with any optional fields omitted.
 mkGetSkillGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSkillGroupResponse
-mkGetSkillGroupResponse pResponseStatus_ =
-  GetSkillGroupResponse'
-    { skillGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetSkillGroupResponse responseStatus =
+  GetSkillGroupResponse' {skillGroup = Core.Nothing, responseStatus}
 
 -- | The details of the skill group requested. Required.
 --
 -- /Note:/ Consider using 'skillGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsgrsSkillGroup :: Lens.Lens' GetSkillGroupResponse (Lude.Maybe SkillGroup)
-gsgrsSkillGroup = Lens.lens (skillGroup :: GetSkillGroupResponse -> Lude.Maybe SkillGroup) (\s a -> s {skillGroup = a} :: GetSkillGroupResponse)
-{-# DEPRECATED gsgrsSkillGroup "Use generic-lens or generic-optics with 'skillGroup' instead." #-}
+gsgrrsSkillGroup :: Lens.Lens' GetSkillGroupResponse (Core.Maybe Types.SkillGroup)
+gsgrrsSkillGroup = Lens.field @"skillGroup"
+{-# DEPRECATED gsgrrsSkillGroup "Use generic-lens or generic-optics with 'skillGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsgrsResponseStatus :: Lens.Lens' GetSkillGroupResponse Lude.Int
-gsgrsResponseStatus = Lens.lens (responseStatus :: GetSkillGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSkillGroupResponse)
-{-# DEPRECATED gsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsgrrsResponseStatus :: Lens.Lens' GetSkillGroupResponse Core.Int
+gsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

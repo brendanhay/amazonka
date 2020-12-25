@@ -21,192 +21,174 @@ module Network.AWS.DeviceFarm.UpdateInstanceProfile
 
     -- ** Request lenses
     uipArn,
-    uipRebootAfterUse,
+    uipDescription,
+    uipExcludeAppPackagesFromCleanup,
     uipName,
     uipPackageCleanup,
-    uipExcludeAppPackagesFromCleanup,
-    uipDescription,
+    uipRebootAfterUse,
 
     -- * Destructuring the response
     UpdateInstanceProfileResponse (..),
     mkUpdateInstanceProfileResponse,
 
     -- ** Response lenses
-    uiprsInstanceProfile,
-    uiprsResponseStatus,
+    uiprrsInstanceProfile,
+    uiprrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateInstanceProfile' smart constructor.
 data UpdateInstanceProfile = UpdateInstanceProfile'
   { -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Lude.Text,
-    -- | The updated choice for whether you want to reboot the device after use. The default value is @true@ .
-    rebootAfterUse :: Lude.Maybe Lude.Bool,
-    -- | The updated name for your instance profile.
-    name :: Lude.Maybe Lude.Text,
-    -- | The updated choice for whether you want to specify package cleanup. The default value is @false@ for private devices.
-    packageCleanup :: Lude.Maybe Lude.Bool,
+    arn :: Types.Arn,
+    -- | The updated description for your instance profile.
+    description :: Core.Maybe Types.Description,
     -- | An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run is over.
     --
     -- The list of packages is only considered if you set @packageCleanup@ to @true@ .
-    excludeAppPackagesFromCleanup :: Lude.Maybe [Lude.Text],
-    -- | The updated description for your instance profile.
-    description :: Lude.Maybe Lude.Text
+    excludeAppPackagesFromCleanup :: Core.Maybe [Types.String],
+    -- | The updated name for your instance profile.
+    name :: Core.Maybe Types.Name,
+    -- | The updated choice for whether you want to specify package cleanup. The default value is @false@ for private devices.
+    packageCleanup :: Core.Maybe Core.Bool,
+    -- | The updated choice for whether you want to reboot the device after use. The default value is @true@ .
+    rebootAfterUse :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateInstanceProfile' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the instance profile.
--- * 'rebootAfterUse' - The updated choice for whether you want to reboot the device after use. The default value is @true@ .
--- * 'name' - The updated name for your instance profile.
--- * 'packageCleanup' - The updated choice for whether you want to specify package cleanup. The default value is @false@ for private devices.
--- * 'excludeAppPackagesFromCleanup' - An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run is over.
---
--- The list of packages is only considered if you set @packageCleanup@ to @true@ .
--- * 'description' - The updated description for your instance profile.
+-- | Creates a 'UpdateInstanceProfile' value with any optional fields omitted.
 mkUpdateInstanceProfile ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   UpdateInstanceProfile
-mkUpdateInstanceProfile pArn_ =
+mkUpdateInstanceProfile arn =
   UpdateInstanceProfile'
-    { arn = pArn_,
-      rebootAfterUse = Lude.Nothing,
-      name = Lude.Nothing,
-      packageCleanup = Lude.Nothing,
-      excludeAppPackagesFromCleanup = Lude.Nothing,
-      description = Lude.Nothing
+    { arn,
+      description = Core.Nothing,
+      excludeAppPackagesFromCleanup = Core.Nothing,
+      name = Core.Nothing,
+      packageCleanup = Core.Nothing,
+      rebootAfterUse = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipArn :: Lens.Lens' UpdateInstanceProfile Lude.Text
-uipArn = Lens.lens (arn :: UpdateInstanceProfile -> Lude.Text) (\s a -> s {arn = a} :: UpdateInstanceProfile)
+uipArn :: Lens.Lens' UpdateInstanceProfile Types.Arn
+uipArn = Lens.field @"arn"
 {-# DEPRECATED uipArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The updated choice for whether you want to reboot the device after use. The default value is @true@ .
+-- | The updated description for your instance profile.
 --
--- /Note:/ Consider using 'rebootAfterUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipRebootAfterUse :: Lens.Lens' UpdateInstanceProfile (Lude.Maybe Lude.Bool)
-uipRebootAfterUse = Lens.lens (rebootAfterUse :: UpdateInstanceProfile -> Lude.Maybe Lude.Bool) (\s a -> s {rebootAfterUse = a} :: UpdateInstanceProfile)
-{-# DEPRECATED uipRebootAfterUse "Use generic-lens or generic-optics with 'rebootAfterUse' instead." #-}
-
--- | The updated name for your instance profile.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipName :: Lens.Lens' UpdateInstanceProfile (Lude.Maybe Lude.Text)
-uipName = Lens.lens (name :: UpdateInstanceProfile -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateInstanceProfile)
-{-# DEPRECATED uipName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The updated choice for whether you want to specify package cleanup. The default value is @false@ for private devices.
---
--- /Note:/ Consider using 'packageCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipPackageCleanup :: Lens.Lens' UpdateInstanceProfile (Lude.Maybe Lude.Bool)
-uipPackageCleanup = Lens.lens (packageCleanup :: UpdateInstanceProfile -> Lude.Maybe Lude.Bool) (\s a -> s {packageCleanup = a} :: UpdateInstanceProfile)
-{-# DEPRECATED uipPackageCleanup "Use generic-lens or generic-optics with 'packageCleanup' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipDescription :: Lens.Lens' UpdateInstanceProfile (Core.Maybe Types.Description)
+uipDescription = Lens.field @"description"
+{-# DEPRECATED uipDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run is over.
 --
 -- The list of packages is only considered if you set @packageCleanup@ to @true@ .
 --
 -- /Note:/ Consider using 'excludeAppPackagesFromCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipExcludeAppPackagesFromCleanup :: Lens.Lens' UpdateInstanceProfile (Lude.Maybe [Lude.Text])
-uipExcludeAppPackagesFromCleanup = Lens.lens (excludeAppPackagesFromCleanup :: UpdateInstanceProfile -> Lude.Maybe [Lude.Text]) (\s a -> s {excludeAppPackagesFromCleanup = a} :: UpdateInstanceProfile)
+uipExcludeAppPackagesFromCleanup :: Lens.Lens' UpdateInstanceProfile (Core.Maybe [Types.String])
+uipExcludeAppPackagesFromCleanup = Lens.field @"excludeAppPackagesFromCleanup"
 {-# DEPRECATED uipExcludeAppPackagesFromCleanup "Use generic-lens or generic-optics with 'excludeAppPackagesFromCleanup' instead." #-}
 
--- | The updated description for your instance profile.
+-- | The updated name for your instance profile.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipDescription :: Lens.Lens' UpdateInstanceProfile (Lude.Maybe Lude.Text)
-uipDescription = Lens.lens (description :: UpdateInstanceProfile -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateInstanceProfile)
-{-# DEPRECATED uipDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipName :: Lens.Lens' UpdateInstanceProfile (Core.Maybe Types.Name)
+uipName = Lens.field @"name"
+{-# DEPRECATED uipName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UpdateInstanceProfile where
+-- | The updated choice for whether you want to specify package cleanup. The default value is @false@ for private devices.
+--
+-- /Note:/ Consider using 'packageCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipPackageCleanup :: Lens.Lens' UpdateInstanceProfile (Core.Maybe Core.Bool)
+uipPackageCleanup = Lens.field @"packageCleanup"
+{-# DEPRECATED uipPackageCleanup "Use generic-lens or generic-optics with 'packageCleanup' instead." #-}
+
+-- | The updated choice for whether you want to reboot the device after use. The default value is @true@ .
+--
+-- /Note:/ Consider using 'rebootAfterUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipRebootAfterUse :: Lens.Lens' UpdateInstanceProfile (Core.Maybe Core.Bool)
+uipRebootAfterUse = Lens.field @"rebootAfterUse"
+{-# DEPRECATED uipRebootAfterUse "Use generic-lens or generic-optics with 'rebootAfterUse' instead." #-}
+
+instance Core.FromJSON UpdateInstanceProfile where
+  toJSON UpdateInstanceProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("arn" Core..= arn),
+            ("description" Core..=) Core.<$> description,
+            ("excludeAppPackagesFromCleanup" Core..=)
+              Core.<$> excludeAppPackagesFromCleanup,
+            ("name" Core..=) Core.<$> name,
+            ("packageCleanup" Core..=) Core.<$> packageCleanup,
+            ("rebootAfterUse" Core..=) Core.<$> rebootAfterUse
+          ]
+      )
+
+instance Core.AWSRequest UpdateInstanceProfile where
   type Rs UpdateInstanceProfile = UpdateInstanceProfileResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.UpdateInstanceProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateInstanceProfileResponse'
-            Lude.<$> (x Lude..?> "instanceProfile")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "instanceProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateInstanceProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.UpdateInstanceProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateInstanceProfile where
-  toJSON UpdateInstanceProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("arn" Lude..= arn),
-            ("rebootAfterUse" Lude..=) Lude.<$> rebootAfterUse,
-            ("name" Lude..=) Lude.<$> name,
-            ("packageCleanup" Lude..=) Lude.<$> packageCleanup,
-            ("excludeAppPackagesFromCleanup" Lude..=)
-              Lude.<$> excludeAppPackagesFromCleanup,
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath UpdateInstanceProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateInstanceProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateInstanceProfileResponse' smart constructor.
 data UpdateInstanceProfileResponse = UpdateInstanceProfileResponse'
   { -- | An object that contains information about your instance profile.
-    instanceProfile :: Lude.Maybe InstanceProfile,
+    instanceProfile :: Core.Maybe Types.InstanceProfile,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateInstanceProfileResponse' with the minimum fields required to make a request.
---
--- * 'instanceProfile' - An object that contains information about your instance profile.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateInstanceProfileResponse' value with any optional fields omitted.
 mkUpdateInstanceProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateInstanceProfileResponse
-mkUpdateInstanceProfileResponse pResponseStatus_ =
+mkUpdateInstanceProfileResponse responseStatus =
   UpdateInstanceProfileResponse'
-    { instanceProfile = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceProfile = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains information about your instance profile.
 --
 -- /Note:/ Consider using 'instanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiprsInstanceProfile :: Lens.Lens' UpdateInstanceProfileResponse (Lude.Maybe InstanceProfile)
-uiprsInstanceProfile = Lens.lens (instanceProfile :: UpdateInstanceProfileResponse -> Lude.Maybe InstanceProfile) (\s a -> s {instanceProfile = a} :: UpdateInstanceProfileResponse)
-{-# DEPRECATED uiprsInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}
+uiprrsInstanceProfile :: Lens.Lens' UpdateInstanceProfileResponse (Core.Maybe Types.InstanceProfile)
+uiprrsInstanceProfile = Lens.field @"instanceProfile"
+{-# DEPRECATED uiprrsInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiprsResponseStatus :: Lens.Lens' UpdateInstanceProfileResponse Lude.Int
-uiprsResponseStatus = Lens.lens (responseStatus :: UpdateInstanceProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateInstanceProfileResponse)
-{-# DEPRECATED uiprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uiprrsResponseStatus :: Lens.Lens' UpdateInstanceProfileResponse Core.Int
+uiprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uiprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

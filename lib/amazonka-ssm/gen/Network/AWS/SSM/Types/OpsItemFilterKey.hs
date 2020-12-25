@@ -13,111 +13,116 @@
 module Network.AWS.SSM.Types.OpsItemFilterKey
   ( OpsItemFilterKey
       ( OpsItemFilterKey',
-        OIFKStatus,
-        OIFKCreatedBy,
-        OIFKSource,
-        OIFKPriority,
-        OIFKTitle,
-        OIFKOpsItemId,
-        OIFKCreatedTime,
-        OIFKLastModifiedTime,
-        OIFKOperationalData,
-        OIFKOperationalDataKey,
-        OIFKOperationalDataValue,
-        OIFKResourceId,
-        OIFKAutomationId,
-        OIFKCategory,
-        OIFKSeverity
+        OpsItemFilterKeyStatus,
+        OpsItemFilterKeyCreatedBy,
+        OpsItemFilterKeySource,
+        OpsItemFilterKeyPriority,
+        OpsItemFilterKeyTitle,
+        OpsItemFilterKeyOpsItemId,
+        OpsItemFilterKeyCreatedTime,
+        OpsItemFilterKeyLastModifiedTime,
+        OpsItemFilterKeyOperationalData,
+        OpsItemFilterKeyOperationalDataKey,
+        OpsItemFilterKeyOperationalDataValue,
+        OpsItemFilterKeyResourceId,
+        OpsItemFilterKeyAutomationId,
+        OpsItemFilterKeyCategory,
+        OpsItemFilterKeySeverity,
+        fromOpsItemFilterKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OpsItemFilterKey = OpsItemFilterKey' Lude.Text
+newtype OpsItemFilterKey = OpsItemFilterKey'
+  { fromOpsItemFilterKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OIFKStatus :: OpsItemFilterKey
-pattern OIFKStatus = OpsItemFilterKey' "Status"
+pattern OpsItemFilterKeyStatus :: OpsItemFilterKey
+pattern OpsItemFilterKeyStatus = OpsItemFilterKey' "Status"
 
-pattern OIFKCreatedBy :: OpsItemFilterKey
-pattern OIFKCreatedBy = OpsItemFilterKey' "CreatedBy"
+pattern OpsItemFilterKeyCreatedBy :: OpsItemFilterKey
+pattern OpsItemFilterKeyCreatedBy = OpsItemFilterKey' "CreatedBy"
 
-pattern OIFKSource :: OpsItemFilterKey
-pattern OIFKSource = OpsItemFilterKey' "Source"
+pattern OpsItemFilterKeySource :: OpsItemFilterKey
+pattern OpsItemFilterKeySource = OpsItemFilterKey' "Source"
 
-pattern OIFKPriority :: OpsItemFilterKey
-pattern OIFKPriority = OpsItemFilterKey' "Priority"
+pattern OpsItemFilterKeyPriority :: OpsItemFilterKey
+pattern OpsItemFilterKeyPriority = OpsItemFilterKey' "Priority"
 
-pattern OIFKTitle :: OpsItemFilterKey
-pattern OIFKTitle = OpsItemFilterKey' "Title"
+pattern OpsItemFilterKeyTitle :: OpsItemFilterKey
+pattern OpsItemFilterKeyTitle = OpsItemFilterKey' "Title"
 
-pattern OIFKOpsItemId :: OpsItemFilterKey
-pattern OIFKOpsItemId = OpsItemFilterKey' "OpsItemId"
+pattern OpsItemFilterKeyOpsItemId :: OpsItemFilterKey
+pattern OpsItemFilterKeyOpsItemId = OpsItemFilterKey' "OpsItemId"
 
-pattern OIFKCreatedTime :: OpsItemFilterKey
-pattern OIFKCreatedTime = OpsItemFilterKey' "CreatedTime"
+pattern OpsItemFilterKeyCreatedTime :: OpsItemFilterKey
+pattern OpsItemFilterKeyCreatedTime = OpsItemFilterKey' "CreatedTime"
 
-pattern OIFKLastModifiedTime :: OpsItemFilterKey
-pattern OIFKLastModifiedTime = OpsItemFilterKey' "LastModifiedTime"
+pattern OpsItemFilterKeyLastModifiedTime :: OpsItemFilterKey
+pattern OpsItemFilterKeyLastModifiedTime = OpsItemFilterKey' "LastModifiedTime"
 
-pattern OIFKOperationalData :: OpsItemFilterKey
-pattern OIFKOperationalData = OpsItemFilterKey' "OperationalData"
+pattern OpsItemFilterKeyOperationalData :: OpsItemFilterKey
+pattern OpsItemFilterKeyOperationalData = OpsItemFilterKey' "OperationalData"
 
-pattern OIFKOperationalDataKey :: OpsItemFilterKey
-pattern OIFKOperationalDataKey = OpsItemFilterKey' "OperationalDataKey"
+pattern OpsItemFilterKeyOperationalDataKey :: OpsItemFilterKey
+pattern OpsItemFilterKeyOperationalDataKey = OpsItemFilterKey' "OperationalDataKey"
 
-pattern OIFKOperationalDataValue :: OpsItemFilterKey
-pattern OIFKOperationalDataValue = OpsItemFilterKey' "OperationalDataValue"
+pattern OpsItemFilterKeyOperationalDataValue :: OpsItemFilterKey
+pattern OpsItemFilterKeyOperationalDataValue = OpsItemFilterKey' "OperationalDataValue"
 
-pattern OIFKResourceId :: OpsItemFilterKey
-pattern OIFKResourceId = OpsItemFilterKey' "ResourceId"
+pattern OpsItemFilterKeyResourceId :: OpsItemFilterKey
+pattern OpsItemFilterKeyResourceId = OpsItemFilterKey' "ResourceId"
 
-pattern OIFKAutomationId :: OpsItemFilterKey
-pattern OIFKAutomationId = OpsItemFilterKey' "AutomationId"
+pattern OpsItemFilterKeyAutomationId :: OpsItemFilterKey
+pattern OpsItemFilterKeyAutomationId = OpsItemFilterKey' "AutomationId"
 
-pattern OIFKCategory :: OpsItemFilterKey
-pattern OIFKCategory = OpsItemFilterKey' "Category"
+pattern OpsItemFilterKeyCategory :: OpsItemFilterKey
+pattern OpsItemFilterKeyCategory = OpsItemFilterKey' "Category"
 
-pattern OIFKSeverity :: OpsItemFilterKey
-pattern OIFKSeverity = OpsItemFilterKey' "Severity"
+pattern OpsItemFilterKeySeverity :: OpsItemFilterKey
+pattern OpsItemFilterKeySeverity = OpsItemFilterKey' "Severity"
 
 {-# COMPLETE
-  OIFKStatus,
-  OIFKCreatedBy,
-  OIFKSource,
-  OIFKPriority,
-  OIFKTitle,
-  OIFKOpsItemId,
-  OIFKCreatedTime,
-  OIFKLastModifiedTime,
-  OIFKOperationalData,
-  OIFKOperationalDataKey,
-  OIFKOperationalDataValue,
-  OIFKResourceId,
-  OIFKAutomationId,
-  OIFKCategory,
-  OIFKSeverity,
+  OpsItemFilterKeyStatus,
+  OpsItemFilterKeyCreatedBy,
+  OpsItemFilterKeySource,
+  OpsItemFilterKeyPriority,
+  OpsItemFilterKeyTitle,
+  OpsItemFilterKeyOpsItemId,
+  OpsItemFilterKeyCreatedTime,
+  OpsItemFilterKeyLastModifiedTime,
+  OpsItemFilterKeyOperationalData,
+  OpsItemFilterKeyOperationalDataKey,
+  OpsItemFilterKeyOperationalDataValue,
+  OpsItemFilterKeyResourceId,
+  OpsItemFilterKeyAutomationId,
+  OpsItemFilterKeyCategory,
+  OpsItemFilterKeySeverity,
   OpsItemFilterKey'
   #-}

@@ -17,191 +17,180 @@ module Network.AWS.EMR.Types.Instance
     mkInstance,
 
     -- * Lenses
-    iStatus,
-    iPublicDNSName,
-    iEBSVolumes,
-    iEC2InstanceId,
+    iEbsVolumes,
+    iEc2InstanceId,
+    iId,
+    iInstanceFleetId,
+    iInstanceGroupId,
     iInstanceType,
     iMarket,
-    iPrivateIPAddress,
-    iInstanceFleetId,
-    iId,
-    iInstanceGroupId,
-    iPrivateDNSName,
-    iPublicIPAddress,
+    iPrivateDnsName,
+    iPrivateIpAddress,
+    iPublicDnsName,
+    iPublicIpAddress,
+    iStatus,
   )
 where
 
-import Network.AWS.EMR.Types.EBSVolume
-import Network.AWS.EMR.Types.InstanceStatus
-import Network.AWS.EMR.Types.MarketType
+import qualified Network.AWS.EMR.Types.EbsVolume as Types
+import qualified Network.AWS.EMR.Types.InstanceFleetId as Types
+import qualified Network.AWS.EMR.Types.InstanceId as Types
+import qualified Network.AWS.EMR.Types.InstanceStatus as Types
+import qualified Network.AWS.EMR.Types.InstanceType as Types
+import qualified Network.AWS.EMR.Types.MarketType as Types
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { -- | The current status of the instance.
-    status :: Lude.Maybe InstanceStatus,
-    -- | The public DNS name of the instance.
-    publicDNSName :: Lude.Maybe Lude.Text,
-    -- | The list of EBS volumes that are attached to this instance.
-    ebsVolumes :: Lude.Maybe [EBSVolume],
+  { -- | The list of EBS volumes that are attached to this instance.
+    ebsVolumes :: Core.Maybe [Types.EbsVolume],
     -- | The unique identifier of the instance in Amazon EC2.
-    ec2InstanceId :: Lude.Maybe Lude.Text,
-    -- | The EC2 instance type, for example @m3.xlarge@ .
-    instanceType :: Lude.Maybe Lude.Text,
-    -- | The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@ .
-    market :: Lude.Maybe MarketType,
-    -- | The private IP address of the instance.
-    privateIPAddress :: Lude.Maybe Lude.Text,
-    -- | The unique identifier of the instance fleet to which an EC2 instance belongs.
-    instanceFleetId :: Lude.Maybe Lude.Text,
+    ec2InstanceId :: Core.Maybe Types.InstanceId,
     -- | The unique identifier for the instance in Amazon EMR.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.InstanceId,
+    -- | The unique identifier of the instance fleet to which an EC2 instance belongs.
+    instanceFleetId :: Core.Maybe Types.InstanceFleetId,
     -- | The identifier of the instance group to which this instance belongs.
-    instanceGroupId :: Lude.Maybe Lude.Text,
+    instanceGroupId :: Core.Maybe Types.String,
+    -- | The EC2 instance type, for example @m3.xlarge@ .
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@ .
+    market :: Core.Maybe Types.MarketType,
     -- | The private DNS name of the instance.
-    privateDNSName :: Lude.Maybe Lude.Text,
+    privateDnsName :: Core.Maybe Types.String,
+    -- | The private IP address of the instance.
+    privateIpAddress :: Core.Maybe Types.String,
+    -- | The public DNS name of the instance.
+    publicDnsName :: Core.Maybe Types.String,
     -- | The public IP address of the instance.
-    publicIPAddress :: Lude.Maybe Lude.Text
+    publicIpAddress :: Core.Maybe Types.String,
+    -- | The current status of the instance.
+    status :: Core.Maybe Types.InstanceStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Instance' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the instance.
--- * 'publicDNSName' - The public DNS name of the instance.
--- * 'ebsVolumes' - The list of EBS volumes that are attached to this instance.
--- * 'ec2InstanceId' - The unique identifier of the instance in Amazon EC2.
--- * 'instanceType' - The EC2 instance type, for example @m3.xlarge@ .
--- * 'market' - The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@ .
--- * 'privateIPAddress' - The private IP address of the instance.
--- * 'instanceFleetId' - The unique identifier of the instance fleet to which an EC2 instance belongs.
--- * 'id' - The unique identifier for the instance in Amazon EMR.
--- * 'instanceGroupId' - The identifier of the instance group to which this instance belongs.
--- * 'privateDNSName' - The private DNS name of the instance.
--- * 'publicIPAddress' - The public IP address of the instance.
+-- | Creates a 'Instance' value with any optional fields omitted.
 mkInstance ::
   Instance
 mkInstance =
   Instance'
-    { status = Lude.Nothing,
-      publicDNSName = Lude.Nothing,
-      ebsVolumes = Lude.Nothing,
-      ec2InstanceId = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      market = Lude.Nothing,
-      privateIPAddress = Lude.Nothing,
-      instanceFleetId = Lude.Nothing,
-      id = Lude.Nothing,
-      instanceGroupId = Lude.Nothing,
-      privateDNSName = Lude.Nothing,
-      publicIPAddress = Lude.Nothing
+    { ebsVolumes = Core.Nothing,
+      ec2InstanceId = Core.Nothing,
+      id = Core.Nothing,
+      instanceFleetId = Core.Nothing,
+      instanceGroupId = Core.Nothing,
+      instanceType = Core.Nothing,
+      market = Core.Nothing,
+      privateDnsName = Core.Nothing,
+      privateIpAddress = Core.Nothing,
+      publicDnsName = Core.Nothing,
+      publicIpAddress = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The current status of the instance.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iStatus :: Lens.Lens' Instance (Lude.Maybe InstanceStatus)
-iStatus = Lens.lens (status :: Instance -> Lude.Maybe InstanceStatus) (\s a -> s {status = a} :: Instance)
-{-# DEPRECATED iStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The public DNS name of the instance.
---
--- /Note:/ Consider using 'publicDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPublicDNSName :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPublicDNSName = Lens.lens (publicDNSName :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {publicDNSName = a} :: Instance)
-{-# DEPRECATED iPublicDNSName "Use generic-lens or generic-optics with 'publicDNSName' instead." #-}
 
 -- | The list of EBS volumes that are attached to this instance.
 --
 -- /Note:/ Consider using 'ebsVolumes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iEBSVolumes :: Lens.Lens' Instance (Lude.Maybe [EBSVolume])
-iEBSVolumes = Lens.lens (ebsVolumes :: Instance -> Lude.Maybe [EBSVolume]) (\s a -> s {ebsVolumes = a} :: Instance)
-{-# DEPRECATED iEBSVolumes "Use generic-lens or generic-optics with 'ebsVolumes' instead." #-}
+iEbsVolumes :: Lens.Lens' Instance (Core.Maybe [Types.EbsVolume])
+iEbsVolumes = Lens.field @"ebsVolumes"
+{-# DEPRECATED iEbsVolumes "Use generic-lens or generic-optics with 'ebsVolumes' instead." #-}
 
 -- | The unique identifier of the instance in Amazon EC2.
 --
 -- /Note:/ Consider using 'ec2InstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iEC2InstanceId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iEC2InstanceId = Lens.lens (ec2InstanceId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {ec2InstanceId = a} :: Instance)
-{-# DEPRECATED iEC2InstanceId "Use generic-lens or generic-optics with 'ec2InstanceId' instead." #-}
+iEc2InstanceId :: Lens.Lens' Instance (Core.Maybe Types.InstanceId)
+iEc2InstanceId = Lens.field @"ec2InstanceId"
+{-# DEPRECATED iEc2InstanceId "Use generic-lens or generic-optics with 'ec2InstanceId' instead." #-}
+
+-- | The unique identifier for the instance in Amazon EMR.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iId :: Lens.Lens' Instance (Core.Maybe Types.InstanceId)
+iId = Lens.field @"id"
+{-# DEPRECATED iId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The unique identifier of the instance fleet to which an EC2 instance belongs.
+--
+-- /Note:/ Consider using 'instanceFleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceFleetId :: Lens.Lens' Instance (Core.Maybe Types.InstanceFleetId)
+iInstanceFleetId = Lens.field @"instanceFleetId"
+{-# DEPRECATED iInstanceFleetId "Use generic-lens or generic-optics with 'instanceFleetId' instead." #-}
+
+-- | The identifier of the instance group to which this instance belongs.
+--
+-- /Note:/ Consider using 'instanceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceGroupId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iInstanceGroupId = Lens.field @"instanceGroupId"
+{-# DEPRECATED iInstanceGroupId "Use generic-lens or generic-optics with 'instanceGroupId' instead." #-}
 
 -- | The EC2 instance type, for example @m3.xlarge@ .
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceType :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iInstanceType = Lens.lens (instanceType :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: Instance)
+iInstanceType :: Lens.Lens' Instance (Core.Maybe Types.InstanceType)
+iInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED iInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@ .
 --
 -- /Note:/ Consider using 'market' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iMarket :: Lens.Lens' Instance (Lude.Maybe MarketType)
-iMarket = Lens.lens (market :: Instance -> Lude.Maybe MarketType) (\s a -> s {market = a} :: Instance)
+iMarket :: Lens.Lens' Instance (Core.Maybe Types.MarketType)
+iMarket = Lens.field @"market"
 {-# DEPRECATED iMarket "Use generic-lens or generic-optics with 'market' instead." #-}
-
--- | The private IP address of the instance.
---
--- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPrivateIPAddress :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPrivateIPAddress = Lens.lens (privateIPAddress :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: Instance)
-{-# DEPRECATED iPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
-
--- | The unique identifier of the instance fleet to which an EC2 instance belongs.
---
--- /Note:/ Consider using 'instanceFleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceFleetId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iInstanceFleetId = Lens.lens (instanceFleetId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {instanceFleetId = a} :: Instance)
-{-# DEPRECATED iInstanceFleetId "Use generic-lens or generic-optics with 'instanceFleetId' instead." #-}
-
--- | The unique identifier for the instance in Amazon EMR.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iId = Lens.lens (id :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Instance)
-{-# DEPRECATED iId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The identifier of the instance group to which this instance belongs.
---
--- /Note:/ Consider using 'instanceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceGroupId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iInstanceGroupId = Lens.lens (instanceGroupId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {instanceGroupId = a} :: Instance)
-{-# DEPRECATED iInstanceGroupId "Use generic-lens or generic-optics with 'instanceGroupId' instead." #-}
 
 -- | The private DNS name of the instance.
 --
--- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPrivateDNSName :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPrivateDNSName = Lens.lens (privateDNSName :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: Instance)
-{-# DEPRECATED iPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
+-- /Note:/ Consider using 'privateDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPrivateDnsName :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPrivateDnsName = Lens.field @"privateDnsName"
+{-# DEPRECATED iPrivateDnsName "Use generic-lens or generic-optics with 'privateDnsName' instead." #-}
+
+-- | The private IP address of the instance.
+--
+-- /Note:/ Consider using 'privateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPrivateIpAddress :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPrivateIpAddress = Lens.field @"privateIpAddress"
+{-# DEPRECATED iPrivateIpAddress "Use generic-lens or generic-optics with 'privateIpAddress' instead." #-}
+
+-- | The public DNS name of the instance.
+--
+-- /Note:/ Consider using 'publicDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPublicDnsName :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPublicDnsName = Lens.field @"publicDnsName"
+{-# DEPRECATED iPublicDnsName "Use generic-lens or generic-optics with 'publicDnsName' instead." #-}
 
 -- | The public IP address of the instance.
 --
--- /Note:/ Consider using 'publicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPublicIPAddress :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iPublicIPAddress = Lens.lens (publicIPAddress :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {publicIPAddress = a} :: Instance)
-{-# DEPRECATED iPublicIPAddress "Use generic-lens or generic-optics with 'publicIPAddress' instead." #-}
+-- /Note:/ Consider using 'publicIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPublicIpAddress :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPublicIpAddress = Lens.field @"publicIpAddress"
+{-# DEPRECATED iPublicIpAddress "Use generic-lens or generic-optics with 'publicIpAddress' instead." #-}
 
-instance Lude.FromJSON Instance where
+-- | The current status of the instance.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStatus :: Lens.Lens' Instance (Core.Maybe Types.InstanceStatus)
+iStatus = Lens.field @"status"
+{-# DEPRECATED iStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON Instance where
   parseJSON =
-    Lude.withObject
-      "Instance"
-      ( \x ->
-          Instance'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "PublicDnsName")
-            Lude.<*> (x Lude..:? "EbsVolumes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Ec2InstanceId")
-            Lude.<*> (x Lude..:? "InstanceType")
-            Lude.<*> (x Lude..:? "Market")
-            Lude.<*> (x Lude..:? "PrivateIpAddress")
-            Lude.<*> (x Lude..:? "InstanceFleetId")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "InstanceGroupId")
-            Lude.<*> (x Lude..:? "PrivateDnsName")
-            Lude.<*> (x Lude..:? "PublicIpAddress")
-      )
+    Core.withObject "Instance" Core.$
+      \x ->
+        Instance'
+          Core.<$> (x Core..:? "EbsVolumes")
+          Core.<*> (x Core..:? "Ec2InstanceId")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "InstanceFleetId")
+          Core.<*> (x Core..:? "InstanceGroupId")
+          Core.<*> (x Core..:? "InstanceType")
+          Core.<*> (x Core..:? "Market")
+          Core.<*> (x Core..:? "PrivateDnsName")
+          Core.<*> (x Core..:? "PrivateIpAddress")
+          Core.<*> (x Core..:? "PublicDnsName")
+          Core.<*> (x Core..:? "PublicIpAddress")
+          Core.<*> (x Core..:? "Status")

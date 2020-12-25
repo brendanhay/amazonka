@@ -17,54 +17,51 @@ module Network.AWS.CodeCommit.Types.BranchInfo
     mkBranchInfo,
 
     -- * Lenses
-    biCommitId,
     biBranchName,
+    biCommitId,
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.BranchName as Types
+import qualified Network.AWS.CodeCommit.Types.CommitId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about a branch.
 --
 -- /See:/ 'mkBranchInfo' smart constructor.
 data BranchInfo = BranchInfo'
-  { -- | The ID of the last commit made to the branch.
-    commitId :: Lude.Maybe Lude.Text,
-    -- | The name of the branch.
-    branchName :: Lude.Maybe Lude.Text
+  { -- | The name of the branch.
+    branchName :: Core.Maybe Types.BranchName,
+    -- | The ID of the last commit made to the branch.
+    commitId :: Core.Maybe Types.CommitId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BranchInfo' with the minimum fields required to make a request.
---
--- * 'commitId' - The ID of the last commit made to the branch.
--- * 'branchName' - The name of the branch.
+-- | Creates a 'BranchInfo' value with any optional fields omitted.
 mkBranchInfo ::
   BranchInfo
 mkBranchInfo =
-  BranchInfo' {commitId = Lude.Nothing, branchName = Lude.Nothing}
-
--- | The ID of the last commit made to the branch.
---
--- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biCommitId :: Lens.Lens' BranchInfo (Lude.Maybe Lude.Text)
-biCommitId = Lens.lens (commitId :: BranchInfo -> Lude.Maybe Lude.Text) (\s a -> s {commitId = a} :: BranchInfo)
-{-# DEPRECATED biCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+  BranchInfo' {branchName = Core.Nothing, commitId = Core.Nothing}
 
 -- | The name of the branch.
 --
 -- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biBranchName :: Lens.Lens' BranchInfo (Lude.Maybe Lude.Text)
-biBranchName = Lens.lens (branchName :: BranchInfo -> Lude.Maybe Lude.Text) (\s a -> s {branchName = a} :: BranchInfo)
+biBranchName :: Lens.Lens' BranchInfo (Core.Maybe Types.BranchName)
+biBranchName = Lens.field @"branchName"
 {-# DEPRECATED biBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
 
-instance Lude.FromJSON BranchInfo where
+-- | The ID of the last commit made to the branch.
+--
+-- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+biCommitId :: Lens.Lens' BranchInfo (Core.Maybe Types.CommitId)
+biCommitId = Lens.field @"commitId"
+{-# DEPRECATED biCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+
+instance Core.FromJSON BranchInfo where
   parseJSON =
-    Lude.withObject
-      "BranchInfo"
-      ( \x ->
-          BranchInfo'
-            Lude.<$> (x Lude..:? "commitId") Lude.<*> (x Lude..:? "branchName")
-      )
+    Core.withObject "BranchInfo" Core.$
+      \x ->
+        BranchInfo'
+          Core.<$> (x Core..:? "branchName") Core.<*> (x Core..:? "commitId")

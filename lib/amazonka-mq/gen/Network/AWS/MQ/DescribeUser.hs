@@ -28,168 +28,154 @@ module Network.AWS.MQ.DescribeUser
     mkDescribeUserResponse,
 
     -- ** Response lenses
-    dursGroups,
-    dursPending,
-    dursConsoleAccess,
-    dursUsername,
-    dursBrokerId,
-    dursResponseStatus,
+    durrsBrokerId,
+    durrsConsoleAccess,
+    durrsGroups,
+    durrsPending,
+    durrsUsername,
+    durrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MQ.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeUser' smart constructor.
 data DescribeUser = DescribeUser'
   { -- | The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-    username :: Lude.Text,
+    username :: Core.Text,
     -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Lude.Text
+    brokerId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUser' with the minimum fields required to make a request.
---
--- * 'username' - The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- | Creates a 'DescribeUser' value with any optional fields omitted.
 mkDescribeUser ::
   -- | 'username'
-  Lude.Text ->
+  Core.Text ->
   -- | 'brokerId'
-  Lude.Text ->
+  Core.Text ->
   DescribeUser
-mkDescribeUser pUsername_ pBrokerId_ =
-  DescribeUser' {username = pUsername_, brokerId = pBrokerId_}
+mkDescribeUser username brokerId =
+  DescribeUser' {username, brokerId}
 
 -- | The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duUsername :: Lens.Lens' DescribeUser Lude.Text
-duUsername = Lens.lens (username :: DescribeUser -> Lude.Text) (\s a -> s {username = a} :: DescribeUser)
+duUsername :: Lens.Lens' DescribeUser Core.Text
+duUsername = Lens.field @"username"
 {-# DEPRECATED duUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duBrokerId :: Lens.Lens' DescribeUser Lude.Text
-duBrokerId = Lens.lens (brokerId :: DescribeUser -> Lude.Text) (\s a -> s {brokerId = a} :: DescribeUser)
+duBrokerId :: Lens.Lens' DescribeUser Core.Text
+duBrokerId = Lens.field @"brokerId"
 {-# DEPRECATED duBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
-instance Lude.AWSRequest DescribeUser where
+instance Core.AWSRequest DescribeUser where
   type Rs DescribeUser = DescribeUserResponse
-  request = Req.get mqService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/brokers/" Core.<> (Core.toText brokerId) Core.<> ("/users/")
+                Core.<> (Core.toText username)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Lude.<$> (x Lude..?> "groups" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "pending")
-            Lude.<*> (x Lude..?> "consoleAccess")
-            Lude.<*> (x Lude..?> "username")
-            Lude.<*> (x Lude..?> "brokerId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "brokerId")
+            Core.<*> (x Core..:? "consoleAccess")
+            Core.<*> (x Core..:? "groups")
+            Core.<*> (x Core..:? "pending")
+            Core.<*> (x Core..:? "username")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeUser where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeUser where
-  toPath DescribeUser' {..} =
-    Lude.mconcat
-      ["/v1/brokers/", Lude.toBS brokerId, "/users/", Lude.toBS username]
-
-instance Lude.ToQuery DescribeUser where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
-  { -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-    groups :: Lude.Maybe [Lude.Text],
-    -- | The status of the changes pending for the ActiveMQ user.
-    pending :: Lude.Maybe UserPendingChanges,
+  { -- | Required. The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Core.Maybe Core.Text,
     -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Lude.Maybe Lude.Bool,
+    consoleAccess :: Core.Maybe Core.Bool,
+    -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    groups :: Core.Maybe [Core.Text],
+    -- | The status of the changes pending for the ActiveMQ user.
+    pending :: Core.Maybe Types.UserPendingChanges,
     -- | Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-    username :: Lude.Maybe Lude.Text,
-    -- | Required. The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Lude.Maybe Lude.Text,
+    username :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUserResponse' with the minimum fields required to make a request.
---
--- * 'groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
--- * 'pending' - The status of the changes pending for the ActiveMQ user.
--- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
--- * 'username' - Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
--- * 'brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUserResponse' value with any optional fields omitted.
 mkDescribeUserResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUserResponse
-mkDescribeUserResponse pResponseStatus_ =
+mkDescribeUserResponse responseStatus =
   DescribeUserResponse'
-    { groups = Lude.Nothing,
-      pending = Lude.Nothing,
-      consoleAccess = Lude.Nothing,
-      username = Lude.Nothing,
-      brokerId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { brokerId = Core.Nothing,
+      consoleAccess = Core.Nothing,
+      groups = Core.Nothing,
+      pending = Core.Nothing,
+      username = Core.Nothing,
+      responseStatus
     }
-
--- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursGroups :: Lens.Lens' DescribeUserResponse (Lude.Maybe [Lude.Text])
-dursGroups = Lens.lens (groups :: DescribeUserResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: DescribeUserResponse)
-{-# DEPRECATED dursGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
-
--- | The status of the changes pending for the ActiveMQ user.
---
--- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursPending :: Lens.Lens' DescribeUserResponse (Lude.Maybe UserPendingChanges)
-dursPending = Lens.lens (pending :: DescribeUserResponse -> Lude.Maybe UserPendingChanges) (\s a -> s {pending = a} :: DescribeUserResponse)
-{-# DEPRECATED dursPending "Use generic-lens or generic-optics with 'pending' instead." #-}
-
--- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
---
--- /Note:/ Consider using 'consoleAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursConsoleAccess :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Bool)
-dursConsoleAccess = Lens.lens (consoleAccess :: DescribeUserResponse -> Lude.Maybe Lude.Bool) (\s a -> s {consoleAccess = a} :: DescribeUserResponse)
-{-# DEPRECATED dursConsoleAccess "Use generic-lens or generic-optics with 'consoleAccess' instead." #-}
-
--- | Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursUsername :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Text)
-dursUsername = Lens.lens (username :: DescribeUserResponse -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: DescribeUserResponse)
-{-# DEPRECATED dursUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Required. The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursBrokerId :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Text)
-dursBrokerId = Lens.lens (brokerId :: DescribeUserResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerId = a} :: DescribeUserResponse)
-{-# DEPRECATED dursBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
+durrsBrokerId :: Lens.Lens' DescribeUserResponse (Core.Maybe Core.Text)
+durrsBrokerId = Lens.field @"brokerId"
+{-# DEPRECATED durrsBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
+
+-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+--
+-- /Note:/ Consider using 'consoleAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsConsoleAccess :: Lens.Lens' DescribeUserResponse (Core.Maybe Core.Bool)
+durrsConsoleAccess = Lens.field @"consoleAccess"
+{-# DEPRECATED durrsConsoleAccess "Use generic-lens or generic-optics with 'consoleAccess' instead." #-}
+
+-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsGroups :: Lens.Lens' DescribeUserResponse (Core.Maybe [Core.Text])
+durrsGroups = Lens.field @"groups"
+{-# DEPRECATED durrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+
+-- | The status of the changes pending for the ActiveMQ user.
+--
+-- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsPending :: Lens.Lens' DescribeUserResponse (Core.Maybe Types.UserPendingChanges)
+durrsPending = Lens.field @"pending"
+{-# DEPRECATED durrsPending "Use generic-lens or generic-optics with 'pending' instead." #-}
+
+-- | Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsUsername :: Lens.Lens' DescribeUserResponse (Core.Maybe Core.Text)
+durrsUsername = Lens.field @"username"
+{-# DEPRECATED durrsUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursResponseStatus :: Lens.Lens' DescribeUserResponse Lude.Int
-dursResponseStatus = Lens.lens (responseStatus :: DescribeUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserResponse)
-{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+durrsResponseStatus :: Lens.Lens' DescribeUserResponse Core.Int
+durrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED durrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

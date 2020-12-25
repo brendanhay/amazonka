@@ -13,46 +13,51 @@
 module Network.AWS.IoT.Types.DimensionValueOperator
   ( DimensionValueOperator
       ( DimensionValueOperator',
-        IN,
-        NotIn
+        DimensionValueOperatorIN,
+        DimensionValueOperatorNotIn,
+        fromDimensionValueOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DimensionValueOperator = DimensionValueOperator' Lude.Text
+newtype DimensionValueOperator = DimensionValueOperator'
+  { fromDimensionValueOperator ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IN :: DimensionValueOperator
-pattern IN = DimensionValueOperator' "IN"
+pattern DimensionValueOperatorIN :: DimensionValueOperator
+pattern DimensionValueOperatorIN = DimensionValueOperator' "IN"
 
-pattern NotIn :: DimensionValueOperator
-pattern NotIn = DimensionValueOperator' "NOT_IN"
+pattern DimensionValueOperatorNotIn :: DimensionValueOperator
+pattern DimensionValueOperatorNotIn = DimensionValueOperator' "NOT_IN"
 
 {-# COMPLETE
-  IN,
-  NotIn,
+  DimensionValueOperatorIN,
+  DimensionValueOperatorNotIn,
   DimensionValueOperator'
   #-}

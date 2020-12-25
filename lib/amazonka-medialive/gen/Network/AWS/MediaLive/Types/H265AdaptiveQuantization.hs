@@ -13,67 +13,72 @@
 module Network.AWS.MediaLive.Types.H265AdaptiveQuantization
   ( H265AdaptiveQuantization
       ( H265AdaptiveQuantization',
-        HAQHigh,
-        HAQHigher,
-        HAQLow,
-        HAQMax,
-        HAQMedium,
-        HAQOff
+        H265AdaptiveQuantizationHigh,
+        H265AdaptiveQuantizationHigher,
+        H265AdaptiveQuantizationLow,
+        H265AdaptiveQuantizationMax,
+        H265AdaptiveQuantizationMedium,
+        H265AdaptiveQuantizationOff,
+        fromH265AdaptiveQuantization
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H265 Adaptive Quantization
-newtype H265AdaptiveQuantization = H265AdaptiveQuantization' Lude.Text
+newtype H265AdaptiveQuantization = H265AdaptiveQuantization'
+  { fromH265AdaptiveQuantization ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HAQHigh :: H265AdaptiveQuantization
-pattern HAQHigh = H265AdaptiveQuantization' "HIGH"
+pattern H265AdaptiveQuantizationHigh :: H265AdaptiveQuantization
+pattern H265AdaptiveQuantizationHigh = H265AdaptiveQuantization' "HIGH"
 
-pattern HAQHigher :: H265AdaptiveQuantization
-pattern HAQHigher = H265AdaptiveQuantization' "HIGHER"
+pattern H265AdaptiveQuantizationHigher :: H265AdaptiveQuantization
+pattern H265AdaptiveQuantizationHigher = H265AdaptiveQuantization' "HIGHER"
 
-pattern HAQLow :: H265AdaptiveQuantization
-pattern HAQLow = H265AdaptiveQuantization' "LOW"
+pattern H265AdaptiveQuantizationLow :: H265AdaptiveQuantization
+pattern H265AdaptiveQuantizationLow = H265AdaptiveQuantization' "LOW"
 
-pattern HAQMax :: H265AdaptiveQuantization
-pattern HAQMax = H265AdaptiveQuantization' "MAX"
+pattern H265AdaptiveQuantizationMax :: H265AdaptiveQuantization
+pattern H265AdaptiveQuantizationMax = H265AdaptiveQuantization' "MAX"
 
-pattern HAQMedium :: H265AdaptiveQuantization
-pattern HAQMedium = H265AdaptiveQuantization' "MEDIUM"
+pattern H265AdaptiveQuantizationMedium :: H265AdaptiveQuantization
+pattern H265AdaptiveQuantizationMedium = H265AdaptiveQuantization' "MEDIUM"
 
-pattern HAQOff :: H265AdaptiveQuantization
-pattern HAQOff = H265AdaptiveQuantization' "OFF"
+pattern H265AdaptiveQuantizationOff :: H265AdaptiveQuantization
+pattern H265AdaptiveQuantizationOff = H265AdaptiveQuantization' "OFF"
 
 {-# COMPLETE
-  HAQHigh,
-  HAQHigher,
-  HAQLow,
-  HAQMax,
-  HAQMedium,
-  HAQOff,
+  H265AdaptiveQuantizationHigh,
+  H265AdaptiveQuantizationHigher,
+  H265AdaptiveQuantizationLow,
+  H265AdaptiveQuantizationMax,
+  H265AdaptiveQuantizationMedium,
+  H265AdaptiveQuantizationOff,
   H265AdaptiveQuantization'
   #-}

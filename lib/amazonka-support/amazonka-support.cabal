@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Support
     Network.AWS.Support.AddAttachmentsToSet
@@ -85,14 +91,42 @@ library
     Network.AWS.Support.Waiters
 
   other-modules:
+    Network.AWS.Support.Types.AfterTime
     Network.AWS.Support.Types.Attachment
     Network.AWS.Support.Types.AttachmentDetails
+    Network.AWS.Support.Types.AttachmentId
+    Network.AWS.Support.Types.AttachmentSetId
+    Network.AWS.Support.Types.BeforeTime
+    Network.AWS.Support.Types.Body
     Network.AWS.Support.Types.CaseDetails
+    Network.AWS.Support.Types.CaseId
     Network.AWS.Support.Types.Category
+    Network.AWS.Support.Types.CategoryCode
+    Network.AWS.Support.Types.CcEmailAddress
+    Network.AWS.Support.Types.Code
     Network.AWS.Support.Types.Communication
+    Network.AWS.Support.Types.CommunicationBody
+    Network.AWS.Support.Types.DisplayId
+    Network.AWS.Support.Types.ExpiryTime
+    Network.AWS.Support.Types.FileName
+    Network.AWS.Support.Types.FinalCaseStatus
+    Network.AWS.Support.Types.InitialCaseStatus
+    Network.AWS.Support.Types.IssueType
+    Network.AWS.Support.Types.Language
+    Network.AWS.Support.Types.Name
+    Network.AWS.Support.Types.NextToken
     Network.AWS.Support.Types.RecentCaseCommunications
+    Network.AWS.Support.Types.ServiceCode
+    Network.AWS.Support.Types.SeverityCode
     Network.AWS.Support.Types.SeverityLevel
+    Network.AWS.Support.Types.SeverityLevelCode
+    Network.AWS.Support.Types.SeverityLevelName
+    Network.AWS.Support.Types.Status
+    Network.AWS.Support.Types.String
+    Network.AWS.Support.Types.Subject
+    Network.AWS.Support.Types.SubmittedBy
     Network.AWS.Support.Types.SupportService
+    Network.AWS.Support.Types.TimeCreated
     Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
     Network.AWS.Support.Types.TrustedAdvisorCheckDescription
     Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus

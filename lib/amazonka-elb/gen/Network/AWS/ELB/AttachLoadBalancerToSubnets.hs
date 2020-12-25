@@ -30,126 +30,119 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     mkAttachLoadBalancerToSubnetsResponse,
 
     -- ** Response lenses
-    albtsrsSubnets,
-    albtsrsResponseStatus,
+    albtsrrsSubnets,
+    albtsrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for AttachLoaBalancerToSubnets.
 --
 -- /See:/ 'mkAttachLoadBalancerToSubnets' smart constructor.
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
   { -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text,
+    loadBalancerName :: Types.LoadBalancerName,
     -- | The IDs of the subnets to add. You can add only one subnet per Availability Zone.
-    subnets :: [Lude.Text]
+    subnets :: [Types.SubnetId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachLoadBalancerToSubnets' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'subnets' - The IDs of the subnets to add. You can add only one subnet per Availability Zone.
+-- | Creates a 'AttachLoadBalancerToSubnets' value with any optional fields omitted.
 mkAttachLoadBalancerToSubnets ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.LoadBalancerName ->
   AttachLoadBalancerToSubnets
-mkAttachLoadBalancerToSubnets pLoadBalancerName_ =
+mkAttachLoadBalancerToSubnets loadBalancerName =
   AttachLoadBalancerToSubnets'
-    { loadBalancerName =
-        pLoadBalancerName_,
-      subnets = Lude.mempty
+    { loadBalancerName,
+      subnets = Core.mempty
     }
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-albtsLoadBalancerName :: Lens.Lens' AttachLoadBalancerToSubnets Lude.Text
-albtsLoadBalancerName = Lens.lens (loadBalancerName :: AttachLoadBalancerToSubnets -> Lude.Text) (\s a -> s {loadBalancerName = a} :: AttachLoadBalancerToSubnets)
+albtsLoadBalancerName :: Lens.Lens' AttachLoadBalancerToSubnets Types.LoadBalancerName
+albtsLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED albtsLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The IDs of the subnets to add. You can add only one subnet per Availability Zone.
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-albtsSubnets :: Lens.Lens' AttachLoadBalancerToSubnets [Lude.Text]
-albtsSubnets = Lens.lens (subnets :: AttachLoadBalancerToSubnets -> [Lude.Text]) (\s a -> s {subnets = a} :: AttachLoadBalancerToSubnets)
+albtsSubnets :: Lens.Lens' AttachLoadBalancerToSubnets [Types.SubnetId]
+albtsSubnets = Lens.field @"subnets"
 {-# DEPRECATED albtsSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
-instance Lude.AWSRequest AttachLoadBalancerToSubnets where
+instance Core.AWSRequest AttachLoadBalancerToSubnets where
   type
     Rs AttachLoadBalancerToSubnets =
       AttachLoadBalancerToSubnetsResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AttachLoadBalancerToSubnets")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> (Core.toQueryValue "Subnets" (Core.toQueryList "member" subnets))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "AttachLoadBalancerToSubnetsResult"
       ( \s h x ->
           AttachLoadBalancerToSubnetsResponse'
-            Lude.<$> ( x Lude..@? "Subnets" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Subnets" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AttachLoadBalancerToSubnets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AttachLoadBalancerToSubnets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AttachLoadBalancerToSubnets where
-  toQuery AttachLoadBalancerToSubnets' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("AttachLoadBalancerToSubnets" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "Subnets" Lude.=: Lude.toQueryList "member" subnets
-      ]
 
 -- | Contains the output of AttachLoadBalancerToSubnets.
 --
 -- /See:/ 'mkAttachLoadBalancerToSubnetsResponse' smart constructor.
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
   { -- | The IDs of the subnets attached to the load balancer.
-    subnets :: Lude.Maybe [Lude.Text],
+    subnets :: Core.Maybe [Types.SubnetId],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachLoadBalancerToSubnetsResponse' with the minimum fields required to make a request.
---
--- * 'subnets' - The IDs of the subnets attached to the load balancer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AttachLoadBalancerToSubnetsResponse' value with any optional fields omitted.
 mkAttachLoadBalancerToSubnetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AttachLoadBalancerToSubnetsResponse
-mkAttachLoadBalancerToSubnetsResponse pResponseStatus_ =
+mkAttachLoadBalancerToSubnetsResponse responseStatus =
   AttachLoadBalancerToSubnetsResponse'
-    { subnets = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { subnets = Core.Nothing,
+      responseStatus
     }
 
 -- | The IDs of the subnets attached to the load balancer.
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-albtsrsSubnets :: Lens.Lens' AttachLoadBalancerToSubnetsResponse (Lude.Maybe [Lude.Text])
-albtsrsSubnets = Lens.lens (subnets :: AttachLoadBalancerToSubnetsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {subnets = a} :: AttachLoadBalancerToSubnetsResponse)
-{-# DEPRECATED albtsrsSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
+albtsrrsSubnets :: Lens.Lens' AttachLoadBalancerToSubnetsResponse (Core.Maybe [Types.SubnetId])
+albtsrrsSubnets = Lens.field @"subnets"
+{-# DEPRECATED albtsrrsSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-albtsrsResponseStatus :: Lens.Lens' AttachLoadBalancerToSubnetsResponse Lude.Int
-albtsrsResponseStatus = Lens.lens (responseStatus :: AttachLoadBalancerToSubnetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachLoadBalancerToSubnetsResponse)
-{-# DEPRECATED albtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+albtsrrsResponseStatus :: Lens.Lens' AttachLoadBalancerToSubnetsResponse Core.Int
+albtsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED albtsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,38 +21,33 @@ module Network.AWS.IoT.Types.Allowed
   )
 where
 
-import Network.AWS.IoT.Types.Policy
+import qualified Network.AWS.IoT.Types.Policy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information that allowed the authorization.
 --
 -- /See:/ 'mkAllowed' smart constructor.
 newtype Allowed = Allowed'
   { -- | A list of policies that allowed the authentication.
-    policies :: Lude.Maybe [Policy]
+    policies :: Core.Maybe [Types.Policy]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Allowed' with the minimum fields required to make a request.
---
--- * 'policies' - A list of policies that allowed the authentication.
+-- | Creates a 'Allowed' value with any optional fields omitted.
 mkAllowed ::
   Allowed
-mkAllowed = Allowed' {policies = Lude.Nothing}
+mkAllowed = Allowed' {policies = Core.Nothing}
 
 -- | A list of policies that allowed the authentication.
 --
 -- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPolicies :: Lens.Lens' Allowed (Lude.Maybe [Policy])
-aPolicies = Lens.lens (policies :: Allowed -> Lude.Maybe [Policy]) (\s a -> s {policies = a} :: Allowed)
+aPolicies :: Lens.Lens' Allowed (Core.Maybe [Types.Policy])
+aPolicies = Lens.field @"policies"
 {-# DEPRECATED aPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
-instance Lude.FromJSON Allowed where
+instance Core.FromJSON Allowed where
   parseJSON =
-    Lude.withObject
-      "Allowed"
-      ( \x ->
-          Allowed' Lude.<$> (x Lude..:? "policies" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Allowed" Core.$
+      \x -> Allowed' Core.<$> (x Core..:? "policies")

@@ -24,186 +24,174 @@ module Network.AWS.SSM.DescribeInstanceInformation
     mkDescribeInstanceInformation,
 
     -- ** Request lenses
-    diiInstanceInformationFilterList,
     diiFilters,
-    diiNextToken,
+    diiInstanceInformationFilterList,
     diiMaxResults,
+    diiNextToken,
 
     -- * Destructuring the response
     DescribeInstanceInformationResponse (..),
     mkDescribeInstanceInformationResponse,
 
     -- ** Response lenses
-    diirsNextToken,
-    diirsInstanceInformationList,
-    diirsResponseStatus,
+    diirrsInstanceInformationList,
+    diirrsNextToken,
+    diirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribeInstanceInformation' smart constructor.
 data DescribeInstanceInformation = DescribeInstanceInformation'
-  { -- | This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
-    instanceInformationFilterList :: Lude.Maybe [InstanceInformationFilter],
-    -- | One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
-    filters :: Lude.Maybe [InstanceInformationStringFilter],
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
+    filters :: Core.Maybe [Types.InstanceInformationStringFilter],
+    -- | This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
+    instanceInformationFilterList :: Core.Maybe [Types.InstanceInformationFilter],
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInstanceInformation' with the minimum fields required to make a request.
---
--- * 'instanceInformationFilterList' - This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
--- * 'filters' - One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'DescribeInstanceInformation' value with any optional fields omitted.
 mkDescribeInstanceInformation ::
   DescribeInstanceInformation
 mkDescribeInstanceInformation =
   DescribeInstanceInformation'
-    { instanceInformationFilterList =
-        Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      instanceInformationFilterList = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
---
--- /Note:/ Consider using 'instanceInformationFilterList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diiInstanceInformationFilterList :: Lens.Lens' DescribeInstanceInformation (Lude.Maybe [InstanceInformationFilter])
-diiInstanceInformationFilterList = Lens.lens (instanceInformationFilterList :: DescribeInstanceInformation -> Lude.Maybe [InstanceInformationFilter]) (\s a -> s {instanceInformationFilterList = a} :: DescribeInstanceInformation)
-{-# DEPRECATED diiInstanceInformationFilterList "Use generic-lens or generic-optics with 'instanceInformationFilterList' instead." #-}
 
 -- | One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diiFilters :: Lens.Lens' DescribeInstanceInformation (Lude.Maybe [InstanceInformationStringFilter])
-diiFilters = Lens.lens (filters :: DescribeInstanceInformation -> Lude.Maybe [InstanceInformationStringFilter]) (\s a -> s {filters = a} :: DescribeInstanceInformation)
+diiFilters :: Lens.Lens' DescribeInstanceInformation (Core.Maybe [Types.InstanceInformationStringFilter])
+diiFilters = Lens.field @"filters"
 {-# DEPRECATED diiFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | The token for the next set of items to return. (You received this token from a previous call.)
+-- | This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diiNextToken :: Lens.Lens' DescribeInstanceInformation (Lude.Maybe Lude.Text)
-diiNextToken = Lens.lens (nextToken :: DescribeInstanceInformation -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceInformation)
-{-# DEPRECATED diiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'instanceInformationFilterList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diiInstanceInformationFilterList :: Lens.Lens' DescribeInstanceInformation (Core.Maybe [Types.InstanceInformationFilter])
+diiInstanceInformationFilterList = Lens.field @"instanceInformationFilterList"
+{-# DEPRECATED diiInstanceInformationFilterList "Use generic-lens or generic-optics with 'instanceInformationFilterList' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diiMaxResults :: Lens.Lens' DescribeInstanceInformation (Lude.Maybe Lude.Natural)
-diiMaxResults = Lens.lens (maxResults :: DescribeInstanceInformation -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstanceInformation)
+diiMaxResults :: Lens.Lens' DescribeInstanceInformation (Core.Maybe Core.Natural)
+diiMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED diiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeInstanceInformation where
-  page rq rs
-    | Page.stop (rs Lens.^. diirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. diirsInstanceInformationList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& diiNextToken Lens..~ rs Lens.^. diirsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diiNextToken :: Lens.Lens' DescribeInstanceInformation (Core.Maybe Types.NextToken)
+diiNextToken = Lens.field @"nextToken"
+{-# DEPRECATED diiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeInstanceInformation where
+instance Core.FromJSON DescribeInstanceInformation where
+  toJSON DescribeInstanceInformation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("InstanceInformationFilterList" Core..=)
+              Core.<$> instanceInformationFilterList,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeInstanceInformation where
   type
     Rs DescribeInstanceInformation =
       DescribeInstanceInformationResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DescribeInstanceInformation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeInstanceInformationResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "InstanceInformationList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InstanceInformationList")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeInstanceInformation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DescribeInstanceInformation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeInstanceInformation where
-  toJSON DescribeInstanceInformation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("InstanceInformationFilterList" Lude..=)
-              Lude.<$> instanceInformationFilterList,
-            ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeInstanceInformation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeInstanceInformation where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeInstanceInformation where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"instanceInformationList" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeInstanceInformationResponse' smart constructor.
 data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
-  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The instance information list.
-    instanceInformationList :: Lude.Maybe [InstanceInformation],
+  { -- | The instance information list.
+    instanceInformationList :: Core.Maybe [Types.InstanceInformation],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeInstanceInformationResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'instanceInformationList' - The instance information list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInstanceInformationResponse' value with any optional fields omitted.
 mkDescribeInstanceInformationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInstanceInformationResponse
-mkDescribeInstanceInformationResponse pResponseStatus_ =
+mkDescribeInstanceInformationResponse responseStatus =
   DescribeInstanceInformationResponse'
-    { nextToken = Lude.Nothing,
-      instanceInformationList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceInformationList =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diirsNextToken :: Lens.Lens' DescribeInstanceInformationResponse (Lude.Maybe Lude.Text)
-diirsNextToken = Lens.lens (nextToken :: DescribeInstanceInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceInformationResponse)
-{-# DEPRECATED diirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The instance information list.
 --
 -- /Note:/ Consider using 'instanceInformationList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diirsInstanceInformationList :: Lens.Lens' DescribeInstanceInformationResponse (Lude.Maybe [InstanceInformation])
-diirsInstanceInformationList = Lens.lens (instanceInformationList :: DescribeInstanceInformationResponse -> Lude.Maybe [InstanceInformation]) (\s a -> s {instanceInformationList = a} :: DescribeInstanceInformationResponse)
-{-# DEPRECATED diirsInstanceInformationList "Use generic-lens or generic-optics with 'instanceInformationList' instead." #-}
+diirrsInstanceInformationList :: Lens.Lens' DescribeInstanceInformationResponse (Core.Maybe [Types.InstanceInformation])
+diirrsInstanceInformationList = Lens.field @"instanceInformationList"
+{-# DEPRECATED diirrsInstanceInformationList "Use generic-lens or generic-optics with 'instanceInformationList' instead." #-}
+
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirrsNextToken :: Lens.Lens' DescribeInstanceInformationResponse (Core.Maybe Types.NextToken)
+diirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED diirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diirsResponseStatus :: Lens.Lens' DescribeInstanceInformationResponse Lude.Int
-diirsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceInformationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceInformationResponse)
-{-# DEPRECATED diirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+diirrsResponseStatus :: Lens.Lens' DescribeInstanceInformationResponse Core.Int
+diirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED diirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

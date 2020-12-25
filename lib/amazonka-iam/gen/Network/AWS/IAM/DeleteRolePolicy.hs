@@ -22,8 +22,8 @@ module Network.AWS.IAM.DeleteRolePolicy
     mkDeleteRolePolicy,
 
     -- ** Request lenses
-    dPolicyName,
-    dRoleName,
+    drpfRoleName,
+    drpfPolicyName,
 
     -- * Destructuring the response
     DeleteRolePolicyResponse (..),
@@ -31,90 +31,83 @@ module Network.AWS.IAM.DeleteRolePolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRolePolicy' smart constructor.
 data DeleteRolePolicy = DeleteRolePolicy'
-  { -- | The name of the inline policy to delete from the specified IAM role.
+  { -- | The name (friendly name, not ARN) identifying the role that the policy is embedded in.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    policyName :: Lude.Text,
-    -- | The name (friendly name, not ARN) identifying the role that the policy is embedded in.
+    roleName :: Types.RoleName,
+    -- | The name of the inline policy to delete from the specified IAM role.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text
+    policyName :: Types.PolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRolePolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the inline policy to delete from the specified IAM role.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'roleName' - The name (friendly name, not ARN) identifying the role that the policy is embedded in.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'DeleteRolePolicy' value with any optional fields omitted.
 mkDeleteRolePolicy ::
-  -- | 'policyName'
-  Lude.Text ->
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
+  -- | 'policyName'
+  Types.PolicyName ->
   DeleteRolePolicy
-mkDeleteRolePolicy pPolicyName_ pRoleName_ =
-  DeleteRolePolicy'
-    { policyName = pPolicyName_,
-      roleName = pRoleName_
-    }
-
--- | The name of the inline policy to delete from the specified IAM role.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPolicyName :: Lens.Lens' DeleteRolePolicy Lude.Text
-dPolicyName = Lens.lens (policyName :: DeleteRolePolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteRolePolicy)
-{-# DEPRECATED dPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+mkDeleteRolePolicy roleName policyName =
+  DeleteRolePolicy' {roleName, policyName}
 
 -- | The name (friendly name, not ARN) identifying the role that the policy is embedded in.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRoleName :: Lens.Lens' DeleteRolePolicy Lude.Text
-dRoleName = Lens.lens (roleName :: DeleteRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: DeleteRolePolicy)
-{-# DEPRECATED dRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+drpfRoleName :: Lens.Lens' DeleteRolePolicy Types.RoleName
+drpfRoleName = Lens.field @"roleName"
+{-# DEPRECATED drpfRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance Lude.AWSRequest DeleteRolePolicy where
+-- | The name of the inline policy to delete from the specified IAM role.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpfPolicyName :: Lens.Lens' DeleteRolePolicy Types.PolicyName
+drpfPolicyName = Lens.field @"policyName"
+{-# DEPRECATED drpfPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+instance Core.AWSRequest DeleteRolePolicy where
   type Rs DeleteRolePolicy = DeleteRolePolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteRolePolicyResponse'
-
-instance Lude.ToHeaders DeleteRolePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteRolePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRolePolicy where
-  toQuery DeleteRolePolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteRolePolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyName" Lude.=: policyName,
-        "RoleName" Lude.=: roleName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteRolePolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+                Core.<> (Core.toQueryValue "PolicyName" policyName)
+            )
+      }
+  response = Response.receiveNull DeleteRolePolicyResponse'
 
 -- | /See:/ 'mkDeleteRolePolicyResponse' smart constructor.
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRolePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteRolePolicyResponse' value with any optional fields omitted.
 mkDeleteRolePolicyResponse ::
   DeleteRolePolicyResponse
 mkDeleteRolePolicyResponse = DeleteRolePolicyResponse'

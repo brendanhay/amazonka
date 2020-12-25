@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,10 +54,37 @@
 -- /Important:/ All data is handled according to the <http://aws.amazon.com/privacy/ AWS Privacy Policy> . You can operate Application Discovery Service offline to inspect collected data before it is shared with the service.
 module Network.AWS.Discovery
   ( -- * Service configuration
-    discoveryService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AuthorizationErrorException
+    _AuthorizationErrorException,
+
+    -- ** HomeRegionNotSetException
+    _HomeRegionNotSetException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** ConflictErrorException
+    _ConflictErrorException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** ServerInternalErrorException
+    _ServerInternalErrorException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -137,56 +163,107 @@ module Network.AWS.Discovery
 
     -- * Types
 
-    -- ** AgentStatus
-    AgentStatus (..),
+    -- ** ConfigurationsDownloadUrl
+    ConfigurationsDownloadUrl (..),
 
-    -- ** BatchDeleteImportDataErrorCode
-    BatchDeleteImportDataErrorCode (..),
+    -- ** AgentInfo
+    AgentInfo (..),
+    mkAgentInfo,
+    aiAgentId,
+    aiAgentNetworkInfoList,
+    aiAgentType,
+    aiCollectionStatus,
+    aiConnectorId,
+    aiHealth,
+    aiHostName,
+    aiLastHealthPingTime,
+    aiRegisteredTime,
+    aiVersion,
 
-    -- ** ConfigurationItemType
-    ConfigurationItemType (..),
-
-    -- ** ContinuousExportStatus
-    ContinuousExportStatus (..),
-
-    -- ** DataSource
-    DataSource (..),
-
-    -- ** ExportDataFormat
-    ExportDataFormat (..),
-
-    -- ** ExportStatus
-    ExportStatus (..),
-
-    -- ** ImportStatus
-    ImportStatus (..),
+    -- ** FilterName
+    FilterName (..),
 
     -- ** ImportTaskFilterName
     ImportTaskFilterName (..),
 
-    -- ** OrderString
-    OrderString (..),
+    -- ** ExportDataFormat
+    ExportDataFormat (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** ExportInfo
+    ExportInfo (..),
+    mkExportInfo,
+    eiExportId,
+    eiExportStatus,
+    eiStatusMessage,
+    eiExportRequestTime,
+    eiConfigurationsDownloadUrl,
+    eiIsTruncated,
+    eiRequestedEndTime,
+    eiRequestedStartTime,
 
     -- ** AgentConfigurationStatus
     AgentConfigurationStatus (..),
     mkAgentConfigurationStatus,
     acsAgentId,
-    acsOperationSucceeded,
     acsDescription,
+    acsOperationSucceeded,
 
-    -- ** AgentInfo
-    AgentInfo (..),
-    mkAgentInfo,
-    aiHostName,
-    aiLastHealthPingTime,
-    aiAgentNetworkInfoList,
-    aiConnectorId,
-    aiHealth,
-    aiAgentId,
-    aiVersion,
-    aiCollectionStatus,
-    aiRegisteredTime,
-    aiAgentType,
+    -- ** String
+    String (..),
+
+    -- ** ConfigurationId
+    ConfigurationId (..),
+
+    -- ** AgentStatus
+    AgentStatus (..),
+
+    -- ** ContinuousExportStatus
+    ContinuousExportStatus (..),
+
+    -- ** ExportStatus
+    ExportStatus (..),
+
+    -- ** BatchDeleteImportDataError
+    BatchDeleteImportDataError (..),
+    mkBatchDeleteImportDataError,
+    bdideErrorCode,
+    bdideErrorDescription,
+    bdideImportTaskId,
+
+    -- ** ImportTask
+    ImportTask (..),
+    mkImportTask,
+    itApplicationImportFailure,
+    itApplicationImportSuccess,
+    itClientRequestToken,
+    itErrorsAndFailedEntriesZip,
+    itImportCompletionTime,
+    itImportDeletedTime,
+    itImportRequestTime,
+    itImportTaskId,
+    itImportUrl,
+    itName,
+    itServerImportFailure,
+    itServerImportSuccess,
+    itStatus,
+
+    -- ** ImportTaskIdentifier
+    ImportTaskIdentifier (..),
+
+    -- ** StringMax255
+    StringMax255 (..),
+
+    -- ** OrderString
+    OrderString (..),
+
+    -- ** TagValue
+    TagValue (..),
 
     -- ** AgentNetworkInfo
     AgentNetworkInfo (..),
@@ -194,141 +271,199 @@ module Network.AWS.Discovery
     aniIpAddress,
     aniMacAddress,
 
-    -- ** BatchDeleteImportDataError
-    BatchDeleteImportDataError (..),
-    mkBatchDeleteImportDataError,
-    bdideImportTaskId,
-    bdideErrorCode,
-    bdideErrorDescription,
+    -- ** NextToken
+    NextToken (..),
 
-    -- ** ConfigurationTag
-    ConfigurationTag (..),
-    mkConfigurationTag,
-    ctTimeOfCreation,
-    ctConfigurationId,
-    ctConfigurationType,
-    ctValue,
-    ctKey,
-
-    -- ** ContinuousExportDescription
-    ContinuousExportDescription (..),
-    mkContinuousExportDescription,
-    cedStatus,
-    cedStartTime,
-    cedSchemaStorageConfig,
-    cedStatusDetail,
-    cedStopTime,
-    cedDataSource,
-    cedS3Bucket,
-    cedExportId,
-
-    -- ** CustomerAgentInfo
-    CustomerAgentInfo (..),
-    mkCustomerAgentInfo,
-    caiUnhealthyAgents,
-    caiHealthyAgents,
-    caiUnknownAgents,
-    caiShutdownAgents,
-    caiActiveAgents,
-    caiTotalAgents,
-    caiBlackListedAgents,
-
-    -- ** CustomerConnectorInfo
-    CustomerConnectorInfo (..),
-    mkCustomerConnectorInfo,
-    cciBlackListedConnectors,
-    cciHealthyConnectors,
-    cciUnknownConnectors,
-    cciShutdownConnectors,
-    cciActiveConnectors,
-    cciTotalConnectors,
-    cciUnhealthyConnectors,
+    -- ** AgentId
+    AgentId (..),
 
     -- ** ExportFilter
     ExportFilter (..),
     mkExportFilter,
-    efValues,
     efName,
+    efValues,
     efCondition,
 
-    -- ** ExportInfo
-    ExportInfo (..),
-    mkExportInfo,
-    eiConfigurationsDownloadURL,
-    eiRequestedStartTime,
-    eiExportStatus,
-    eiStatusMessage,
-    eiRequestedEndTime,
-    eiIsTruncated,
-    eiExportRequestTime,
-    eiExportId,
+    -- ** ImportTaskName
+    ImportTaskName (..),
 
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fName,
-    fCondition,
+    -- ** ApplicationId
+    ApplicationId (..),
 
-    -- ** ImportTask
-    ImportTask (..),
-    mkImportTask,
-    itApplicationImportSuccess,
-    itStatus,
-    itServerImportSuccess,
-    itImportCompletionTime,
-    itName,
-    itApplicationImportFailure,
-    itErrorsAndFailedEntriesZip,
-    itImportTaskId,
-    itImportDeletedTime,
-    itServerImportFailure,
-    itClientRequestToken,
-    itImportURL,
-    itImportRequestTime,
+    -- ** ContinuousExportDescription
+    ContinuousExportDescription (..),
+    mkContinuousExportDescription,
+    cedDataSource,
+    cedExportId,
+    cedS3Bucket,
+    cedSchemaStorageConfig,
+    cedStartTime,
+    cedStatus,
+    cedStatusDetail,
+    cedStopTime,
 
-    -- ** ImportTaskFilter
-    ImportTaskFilter (..),
-    mkImportTaskFilter,
-    itfValues,
-    itfName,
-
-    -- ** NeighborConnectionDetail
-    NeighborConnectionDetail (..),
-    mkNeighborConnectionDetail,
-    ncdDestinationServerId,
-    ncdTransportProtocol,
-    ncdConnectionsCount,
-    ncdSourceServerId,
-    ncdDestinationPort,
-
-    -- ** OrderByElement
-    OrderByElement (..),
-    mkOrderByElement,
-    obeSortOrder,
-    obeFieldName,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ConfigurationsExportId
+    ConfigurationsExportId (..),
 
     -- ** TagFilter
     TagFilter (..),
     mkTagFilter,
-    tfValues,
     tfName,
+    tfValues,
+
+    -- ** ConfigurationTag
+    ConfigurationTag (..),
+    mkConfigurationTag,
+    ctConfigurationId,
+    ctConfigurationType,
+    ctKey,
+    ctTimeOfCreation,
+    ctValue,
+
+    -- ** DatabaseName
+    DatabaseName (..),
+
+    -- ** ConfigurationItemType
+    ConfigurationItemType (..),
+
+    -- ** NeighborConnectionDetail
+    NeighborConnectionDetail (..),
+    mkNeighborConnectionDetail,
+    ncdSourceServerId,
+    ncdDestinationServerId,
+    ncdConnectionsCount,
+    ncdDestinationPort,
+    ncdTransportProtocol,
+
+    -- ** DataSource
+    DataSource (..),
+
+    -- ** BatchDeleteImportDataErrorCode
+    BatchDeleteImportDataErrorCode (..),
+
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fName,
+    fValues,
+    fCondition,
+
+    -- ** ImportTaskFilter
+    ImportTaskFilter (..),
+    mkImportTaskFilter,
+    itfName,
+    itfValues,
+
+    -- ** Condition
+    Condition (..),
+
+    -- ** FilterValue
+    FilterValue (..),
+
+    -- ** CustomerAgentInfo
+    CustomerAgentInfo (..),
+    mkCustomerAgentInfo,
+    caiActiveAgents,
+    caiHealthyAgents,
+    caiBlackListedAgents,
+    caiShutdownAgents,
+    caiUnhealthyAgents,
+    caiTotalAgents,
+    caiUnknownAgents,
+
+    -- ** ImportTaskFilterValue
+    ImportTaskFilterValue (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** OrderByElement
+    OrderByElement (..),
+    mkOrderByElement,
+    obeFieldName,
+    obeSortOrder,
+
+    -- ** ImportURL
+    ImportURL (..),
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** CustomerConnectorInfo
+    CustomerConnectorInfo (..),
+    mkCustomerConnectorInfo,
+    cciActiveConnectors,
+    cciHealthyConnectors,
+    cciBlackListedConnectors,
+    cciShutdownConnectors,
+    cciUnhealthyConnectors,
+    cciTotalConnectors,
+    cciUnknownConnectors,
+
+    -- ** ImportStatus
+    ImportStatus (..),
+
+    -- ** ExportId
+    ExportId (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** AgentType
+    AgentType (..),
+
+    -- ** CollectionStatus
+    CollectionStatus (..),
+
+    -- ** ConnectorId
+    ConnectorId (..),
+
+    -- ** HostName
+    HostName (..),
+
+    -- ** LastHealthPingTime
+    LastHealthPingTime (..),
+
+    -- ** RegisteredTime
+    RegisteredTime (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** StatusMessage
+    StatusMessage (..),
+
+    -- ** ErrorDescription
+    ErrorDescription (..),
+
+    -- ** ImportTaskId
+    ImportTaskId (..),
+
+    -- ** ErrorsAndFailedEntriesZip
+    ErrorsAndFailedEntriesZip (..),
+
+    -- ** ImportUrl
+    ImportUrl (..),
+
+    -- ** ApplicationConfigurationId
+    ApplicationConfigurationId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

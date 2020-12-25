@@ -17,20 +17,22 @@ module Network.AWS.DynamoDB.Types.StreamSpecification
     mkStreamSpecification,
 
     -- * Lenses
-    ssStreamViewType,
     ssStreamEnabled,
+    ssStreamViewType,
   )
 where
 
-import Network.AWS.DynamoDB.Types.StreamViewType
+import qualified Network.AWS.DynamoDB.Types.StreamViewType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the DynamoDB Streams configuration for a table in DynamoDB.
 --
 -- /See:/ 'mkStreamSpecification' smart constructor.
 data StreamSpecification = StreamSpecification'
-  { -- | When an item in the table is modified, @StreamViewType@ determines what information is written to the stream for this table. Valid values for @StreamViewType@ are:
+  { -- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
+    streamEnabled :: Core.Bool,
+    -- | When an item in the table is modified, @StreamViewType@ determines what information is written to the stream for this table. Valid values for @StreamViewType@ are:
     --
     --
     --     * @KEYS_ONLY@ - Only the key attributes of the modified item are written to the stream.
@@ -43,40 +45,28 @@ data StreamSpecification = StreamSpecification'
     --
     --
     --     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
-    streamViewType :: Lude.Maybe StreamViewType,
-    -- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
-    streamEnabled :: Lude.Bool
+    streamViewType :: Core.Maybe Types.StreamViewType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StreamSpecification' with the minimum fields required to make a request.
---
--- * 'streamViewType' - When an item in the table is modified, @StreamViewType@ determines what information is written to the stream for this table. Valid values for @StreamViewType@ are:
---
---
---     * @KEYS_ONLY@ - Only the key attributes of the modified item are written to the stream.
---
---
---     * @NEW_IMAGE@ - The entire item, as it appears after it was modified, is written to the stream.
---
---
---     * @OLD_IMAGE@ - The entire item, as it appeared before it was modified, is written to the stream.
---
---
---     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
---
---
--- * 'streamEnabled' - Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
+-- | Creates a 'StreamSpecification' value with any optional fields omitted.
 mkStreamSpecification ::
   -- | 'streamEnabled'
-  Lude.Bool ->
+  Core.Bool ->
   StreamSpecification
-mkStreamSpecification pStreamEnabled_ =
+mkStreamSpecification streamEnabled =
   StreamSpecification'
-    { streamViewType = Lude.Nothing,
-      streamEnabled = pStreamEnabled_
+    { streamEnabled,
+      streamViewType = Core.Nothing
     }
+
+-- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
+--
+-- /Note:/ Consider using 'streamEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStreamEnabled :: Lens.Lens' StreamSpecification Core.Bool
+ssStreamEnabled = Lens.field @"streamEnabled"
+{-# DEPRECATED ssStreamEnabled "Use generic-lens or generic-optics with 'streamEnabled' instead." #-}
 
 -- | When an item in the table is modified, @StreamViewType@ determines what information is written to the stream for this table. Valid values for @StreamViewType@ are:
 --
@@ -95,31 +85,22 @@ mkStreamSpecification pStreamEnabled_ =
 --
 --
 -- /Note:/ Consider using 'streamViewType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStreamViewType :: Lens.Lens' StreamSpecification (Lude.Maybe StreamViewType)
-ssStreamViewType = Lens.lens (streamViewType :: StreamSpecification -> Lude.Maybe StreamViewType) (\s a -> s {streamViewType = a} :: StreamSpecification)
+ssStreamViewType :: Lens.Lens' StreamSpecification (Core.Maybe Types.StreamViewType)
+ssStreamViewType = Lens.field @"streamViewType"
 {-# DEPRECATED ssStreamViewType "Use generic-lens or generic-optics with 'streamViewType' instead." #-}
 
--- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
---
--- /Note:/ Consider using 'streamEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStreamEnabled :: Lens.Lens' StreamSpecification Lude.Bool
-ssStreamEnabled = Lens.lens (streamEnabled :: StreamSpecification -> Lude.Bool) (\s a -> s {streamEnabled = a} :: StreamSpecification)
-{-# DEPRECATED ssStreamEnabled "Use generic-lens or generic-optics with 'streamEnabled' instead." #-}
-
-instance Lude.FromJSON StreamSpecification where
-  parseJSON =
-    Lude.withObject
-      "StreamSpecification"
-      ( \x ->
-          StreamSpecification'
-            Lude.<$> (x Lude..:? "StreamViewType") Lude.<*> (x Lude..: "StreamEnabled")
-      )
-
-instance Lude.ToJSON StreamSpecification where
-  toJSON StreamSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StreamViewType" Lude..=) Lude.<$> streamViewType,
-            Lude.Just ("StreamEnabled" Lude..= streamEnabled)
+instance Core.FromJSON StreamSpecification where
+  toJSON StreamSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamEnabled" Core..= streamEnabled),
+            ("StreamViewType" Core..=) Core.<$> streamViewType
           ]
       )
+
+instance Core.FromJSON StreamSpecification where
+  parseJSON =
+    Core.withObject "StreamSpecification" Core.$
+      \x ->
+        StreamSpecification'
+          Core.<$> (x Core..: "StreamEnabled") Core.<*> (x Core..:? "StreamViewType")

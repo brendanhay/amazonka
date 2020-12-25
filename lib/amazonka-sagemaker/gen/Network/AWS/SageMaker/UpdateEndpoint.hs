@@ -23,164 +23,146 @@ module Network.AWS.SageMaker.UpdateEndpoint
 
     -- ** Request lenses
     ueEndpointName,
+    ueEndpointConfigName,
     ueExcludeRetainedVariantProperties,
     ueRetainAllVariantProperties,
-    ueEndpointConfigName,
 
     -- * Destructuring the response
     UpdateEndpointResponse (..),
     mkUpdateEndpointResponse,
 
     -- ** Response lenses
-    uersEndpointARN,
-    uersResponseStatus,
+    uerfrsEndpointArn,
+    uerfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkUpdateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'
   { -- | The name of the endpoint whose configuration you want to update.
-    endpointName :: Lude.Text,
-    -- | When you are updating endpoint resources with 'UpdateEndpointInput$RetainAllVariantProperties' , whose value is set to @true@ , @ExcludeRetainedVariantProperties@ specifies the list of type 'VariantProperty' to override with the values provided by @EndpointConfig@ . If you don't specify a value for @ExcludeAllVariantProperties@ , no variant properties are overridden.
-    excludeRetainedVariantProperties :: Lude.Maybe [VariantProperty],
-    -- | When updating endpoint resources, enables or disables the retention of variant properties, such as the instance count or the variant weight. To retain the variant properties of an endpoint when updating it, set @RetainAllVariantProperties@ to @true@ . To use the variant properties specified in a new @EndpointConfig@ call when updating an endpoint, set @RetainAllVariantProperties@ to @false@ .
-    retainAllVariantProperties :: Lude.Maybe Lude.Bool,
+    endpointName :: Types.EndpointName,
     -- | The name of the new endpoint configuration.
-    endpointConfigName :: Lude.Text
+    endpointConfigName :: Types.EndpointConfigName,
+    -- | When you are updating endpoint resources with 'UpdateEndpointInput$RetainAllVariantProperties' , whose value is set to @true@ , @ExcludeRetainedVariantProperties@ specifies the list of type 'VariantProperty' to override with the values provided by @EndpointConfig@ . If you don't specify a value for @ExcludeAllVariantProperties@ , no variant properties are overridden.
+    excludeRetainedVariantProperties :: Core.Maybe [Types.VariantProperty],
+    -- | When updating endpoint resources, enables or disables the retention of variant properties, such as the instance count or the variant weight. To retain the variant properties of an endpoint when updating it, set @RetainAllVariantProperties@ to @true@ . To use the variant properties specified in a new @EndpointConfig@ call when updating an endpoint, set @RetainAllVariantProperties@ to @false@ .
+    retainAllVariantProperties :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEndpoint' with the minimum fields required to make a request.
---
--- * 'endpointName' - The name of the endpoint whose configuration you want to update.
--- * 'excludeRetainedVariantProperties' - When you are updating endpoint resources with 'UpdateEndpointInput$RetainAllVariantProperties' , whose value is set to @true@ , @ExcludeRetainedVariantProperties@ specifies the list of type 'VariantProperty' to override with the values provided by @EndpointConfig@ . If you don't specify a value for @ExcludeAllVariantProperties@ , no variant properties are overridden.
--- * 'retainAllVariantProperties' - When updating endpoint resources, enables or disables the retention of variant properties, such as the instance count or the variant weight. To retain the variant properties of an endpoint when updating it, set @RetainAllVariantProperties@ to @true@ . To use the variant properties specified in a new @EndpointConfig@ call when updating an endpoint, set @RetainAllVariantProperties@ to @false@ .
--- * 'endpointConfigName' - The name of the new endpoint configuration.
+-- | Creates a 'UpdateEndpoint' value with any optional fields omitted.
 mkUpdateEndpoint ::
   -- | 'endpointName'
-  Lude.Text ->
+  Types.EndpointName ->
   -- | 'endpointConfigName'
-  Lude.Text ->
+  Types.EndpointConfigName ->
   UpdateEndpoint
-mkUpdateEndpoint pEndpointName_ pEndpointConfigName_ =
+mkUpdateEndpoint endpointName endpointConfigName =
   UpdateEndpoint'
-    { endpointName = pEndpointName_,
-      excludeRetainedVariantProperties = Lude.Nothing,
-      retainAllVariantProperties = Lude.Nothing,
-      endpointConfigName = pEndpointConfigName_
+    { endpointName,
+      endpointConfigName,
+      excludeRetainedVariantProperties = Core.Nothing,
+      retainAllVariantProperties = Core.Nothing
     }
 
 -- | The name of the endpoint whose configuration you want to update.
 --
 -- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueEndpointName :: Lens.Lens' UpdateEndpoint Lude.Text
-ueEndpointName = Lens.lens (endpointName :: UpdateEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: UpdateEndpoint)
+ueEndpointName :: Lens.Lens' UpdateEndpoint Types.EndpointName
+ueEndpointName = Lens.field @"endpointName"
 {-# DEPRECATED ueEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
+
+-- | The name of the new endpoint configuration.
+--
+-- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueEndpointConfigName :: Lens.Lens' UpdateEndpoint Types.EndpointConfigName
+ueEndpointConfigName = Lens.field @"endpointConfigName"
+{-# DEPRECATED ueEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
 -- | When you are updating endpoint resources with 'UpdateEndpointInput$RetainAllVariantProperties' , whose value is set to @true@ , @ExcludeRetainedVariantProperties@ specifies the list of type 'VariantProperty' to override with the values provided by @EndpointConfig@ . If you don't specify a value for @ExcludeAllVariantProperties@ , no variant properties are overridden.
 --
 -- /Note:/ Consider using 'excludeRetainedVariantProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueExcludeRetainedVariantProperties :: Lens.Lens' UpdateEndpoint (Lude.Maybe [VariantProperty])
-ueExcludeRetainedVariantProperties = Lens.lens (excludeRetainedVariantProperties :: UpdateEndpoint -> Lude.Maybe [VariantProperty]) (\s a -> s {excludeRetainedVariantProperties = a} :: UpdateEndpoint)
+ueExcludeRetainedVariantProperties :: Lens.Lens' UpdateEndpoint (Core.Maybe [Types.VariantProperty])
+ueExcludeRetainedVariantProperties = Lens.field @"excludeRetainedVariantProperties"
 {-# DEPRECATED ueExcludeRetainedVariantProperties "Use generic-lens or generic-optics with 'excludeRetainedVariantProperties' instead." #-}
 
 -- | When updating endpoint resources, enables or disables the retention of variant properties, such as the instance count or the variant weight. To retain the variant properties of an endpoint when updating it, set @RetainAllVariantProperties@ to @true@ . To use the variant properties specified in a new @EndpointConfig@ call when updating an endpoint, set @RetainAllVariantProperties@ to @false@ .
 --
 -- /Note:/ Consider using 'retainAllVariantProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueRetainAllVariantProperties :: Lens.Lens' UpdateEndpoint (Lude.Maybe Lude.Bool)
-ueRetainAllVariantProperties = Lens.lens (retainAllVariantProperties :: UpdateEndpoint -> Lude.Maybe Lude.Bool) (\s a -> s {retainAllVariantProperties = a} :: UpdateEndpoint)
+ueRetainAllVariantProperties :: Lens.Lens' UpdateEndpoint (Core.Maybe Core.Bool)
+ueRetainAllVariantProperties = Lens.field @"retainAllVariantProperties"
 {-# DEPRECATED ueRetainAllVariantProperties "Use generic-lens or generic-optics with 'retainAllVariantProperties' instead." #-}
 
--- | The name of the new endpoint configuration.
---
--- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueEndpointConfigName :: Lens.Lens' UpdateEndpoint Lude.Text
-ueEndpointConfigName = Lens.lens (endpointConfigName :: UpdateEndpoint -> Lude.Text) (\s a -> s {endpointConfigName = a} :: UpdateEndpoint)
-{-# DEPRECATED ueEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
+instance Core.FromJSON UpdateEndpoint where
+  toJSON UpdateEndpoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EndpointName" Core..= endpointName),
+            Core.Just ("EndpointConfigName" Core..= endpointConfigName),
+            ("ExcludeRetainedVariantProperties" Core..=)
+              Core.<$> excludeRetainedVariantProperties,
+            ("RetainAllVariantProperties" Core..=)
+              Core.<$> retainAllVariantProperties
+          ]
+      )
 
-instance Lude.AWSRequest UpdateEndpoint where
+instance Core.AWSRequest UpdateEndpoint where
   type Rs UpdateEndpoint = UpdateEndpointResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.UpdateEndpoint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateEndpointResponse'
-            Lude.<$> (x Lude..:> "EndpointArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "EndpointArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.UpdateEndpoint" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateEndpoint where
-  toJSON UpdateEndpoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("EndpointName" Lude..= endpointName),
-            ("ExcludeRetainedVariantProperties" Lude..=)
-              Lude.<$> excludeRetainedVariantProperties,
-            ("RetainAllVariantProperties" Lude..=)
-              Lude.<$> retainAllVariantProperties,
-            Lude.Just ("EndpointConfigName" Lude..= endpointConfigName)
-          ]
-      )
-
-instance Lude.ToPath UpdateEndpoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateEndpointResponse' smart constructor.
 data UpdateEndpointResponse = UpdateEndpointResponse'
   { -- | The Amazon Resource Name (ARN) of the endpoint.
-    endpointARN :: Lude.Text,
+    endpointArn :: Types.EndpointArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEndpointResponse' with the minimum fields required to make a request.
---
--- * 'endpointARN' - The Amazon Resource Name (ARN) of the endpoint.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateEndpointResponse' value with any optional fields omitted.
 mkUpdateEndpointResponse ::
-  -- | 'endpointARN'
-  Lude.Text ->
+  -- | 'endpointArn'
+  Types.EndpointArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateEndpointResponse
-mkUpdateEndpointResponse pEndpointARN_ pResponseStatus_ =
-  UpdateEndpointResponse'
-    { endpointARN = pEndpointARN_,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateEndpointResponse endpointArn responseStatus =
+  UpdateEndpointResponse' {endpointArn, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
 --
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uersEndpointARN :: Lens.Lens' UpdateEndpointResponse Lude.Text
-uersEndpointARN = Lens.lens (endpointARN :: UpdateEndpointResponse -> Lude.Text) (\s a -> s {endpointARN = a} :: UpdateEndpointResponse)
-{-# DEPRECATED uersEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uerfrsEndpointArn :: Lens.Lens' UpdateEndpointResponse Types.EndpointArn
+uerfrsEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED uerfrsEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uersResponseStatus :: Lens.Lens' UpdateEndpointResponse Lude.Int
-uersResponseStatus = Lens.lens (responseStatus :: UpdateEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEndpointResponse)
-{-# DEPRECATED uersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uerfrsResponseStatus :: Lens.Lens' UpdateEndpointResponse Core.Int
+uerfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uerfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -65,10 +64,31 @@
 -- To learn more about Application Auto Scaling, including information about granting IAM users required permissions for Application Auto Scaling actions, see the <https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html Application Auto Scaling User Guide> .
 module Network.AWS.ApplicationAutoScaling
   ( -- * Service configuration
-    applicationAutoScalingService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** FailedResourceAccessException
+    _FailedResourceAccessException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ConcurrentUpdateException
+    _ConcurrentUpdateException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -108,50 +128,14 @@ module Network.AWS.ApplicationAutoScaling
 
     -- * Types
 
-    -- ** AdjustmentType
-    AdjustmentType (..),
-
-    -- ** MetricAggregationType
-    MetricAggregationType (..),
-
-    -- ** MetricStatistic
-    MetricStatistic (..),
+    -- ** XmlString
+    XmlString (..),
 
     -- ** MetricType
     MetricType (..),
 
-    -- ** PolicyType
-    PolicyType (..),
-
     -- ** ScalableDimension
     ScalableDimension (..),
-
-    -- ** ScalingActivityStatusCode
-    ScalingActivityStatusCode (..),
-
-    -- ** ServiceNamespace
-    ServiceNamespace (..),
-
-    -- ** Alarm
-    Alarm (..),
-    mkAlarm,
-    aAlarmName,
-    aAlarmARN,
-
-    -- ** CustomizedMetricSpecification
-    CustomizedMetricSpecification (..),
-    mkCustomizedMetricSpecification,
-    cmsMetricName,
-    cmsNamespace,
-    cmsDimensions,
-    cmsUnit,
-    cmsStatistic,
-
-    -- ** MetricDimension
-    MetricDimension (..),
-    mkMetricDimension,
-    mdValue,
-    mdName,
 
     -- ** PredefinedMetricSpecification
     PredefinedMetricSpecification (..),
@@ -159,17 +143,132 @@ module Network.AWS.ApplicationAutoScaling
     pmsPredefinedMetricType,
     pmsResourceLabel,
 
-    -- ** ScalableTarget
-    ScalableTarget (..),
-    mkScalableTarget,
-    stCreationTime,
-    stScalableDimension,
-    stResourceId,
-    stServiceNamespace,
-    stSuspendedState,
-    stMaxCapacity,
-    stMinCapacity,
-    stRoleARN,
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** PolicyName
+    PolicyName (..),
+
+    -- ** ScalingPolicy
+    ScalingPolicy (..),
+    mkScalingPolicy,
+    spPolicyARN,
+    spPolicyName,
+    spServiceNamespace,
+    spResourceId,
+    spScalableDimension,
+    spPolicyType,
+    spCreationTime,
+    spAlarms,
+    spStepScalingPolicyConfiguration,
+    spTargetTrackingScalingPolicyConfiguration,
+
+    -- ** CustomizedMetricSpecification
+    CustomizedMetricSpecification (..),
+    mkCustomizedMetricSpecification,
+    cmsMetricName,
+    cmsNamespace,
+    cmsStatistic,
+    cmsDimensions,
+    cmsUnit,
+
+    -- ** ScheduledActionName
+    ScheduledActionName (..),
+
+    -- ** PolicyType
+    PolicyType (..),
+
+    -- ** ScalingActivity
+    ScalingActivity (..),
+    mkScalingActivity,
+    sActivityId,
+    sServiceNamespace,
+    sResourceId,
+    sScalableDimension,
+    sDescription,
+    sCause,
+    sStartTime,
+    sStatusCode,
+    sDetails,
+    sEndTime,
+    sStatusMessage,
+
+    -- ** MetricDimensionName
+    MetricDimensionName (..),
+
+    -- ** MetricName
+    MetricName (..),
+
+    -- ** ResourceIdMaxLen1600
+    ResourceIdMaxLen1600 (..),
+
+    -- ** TargetTrackingScalingPolicyConfiguration
+    TargetTrackingScalingPolicyConfiguration (..),
+    mkTargetTrackingScalingPolicyConfiguration,
+    ttspcTargetValue,
+    ttspcCustomizedMetricSpecification,
+    ttspcDisableScaleIn,
+    ttspcPredefinedMetricSpecification,
+    ttspcScaleInCooldown,
+    ttspcScaleOutCooldown,
+
+    -- ** ServiceNamespace
+    ServiceNamespace (..),
+
+    -- ** MetricDimension
+    MetricDimension (..),
+    mkMetricDimension,
+    mdName,
+    mdValue,
+
+    -- ** SuspendedState
+    SuspendedState (..),
+    mkSuspendedState,
+    ssDynamicScalingInSuspended,
+    ssDynamicScalingOutSuspended,
+    ssScheduledScalingSuspended,
+
+    -- ** ResourceLabel
+    ResourceLabel (..),
+
+    -- ** ScheduledAction
+    ScheduledAction (..),
+    mkScheduledAction,
+    saScheduledActionName,
+    saScheduledActionARN,
+    saServiceNamespace,
+    saSchedule,
+    saResourceId,
+    saCreationTime,
+    saEndTime,
+    saScalableDimension,
+    saScalableTargetAction,
+    saStartTime,
+
+    -- ** StepScalingPolicyConfiguration
+    StepScalingPolicyConfiguration (..),
+    mkStepScalingPolicyConfiguration,
+    sspcAdjustmentType,
+    sspcCooldown,
+    sspcMetricAggregationType,
+    sspcMinAdjustmentMagnitude,
+    sspcStepAdjustments,
+
+    -- ** AdjustmentType
+    AdjustmentType (..),
+
+    -- ** MetricStatistic
+    MetricStatistic (..),
+
+    -- ** StepAdjustment
+    StepAdjustment (..),
+    mkStepAdjustment,
+    saScalingAdjustment,
+    saMetricIntervalLowerBound,
+    saMetricIntervalUpperBound,
+
+    -- ** MetricAggregationType
+    MetricAggregationType (..),
 
     -- ** ScalableTargetAction
     ScalableTargetAction (..),
@@ -177,91 +276,49 @@ module Network.AWS.ApplicationAutoScaling
     staMaxCapacity,
     staMinCapacity,
 
-    -- ** ScalingActivity
-    ScalingActivity (..),
-    mkScalingActivity,
-    sScalableDimension,
-    sResourceId,
-    sStartTime,
-    sActivityId,
-    sServiceNamespace,
-    sCause,
-    sStatusMessage,
-    sEndTime,
-    sDetails,
-    sDescription,
-    sStatusCode,
+    -- ** Alarm
+    Alarm (..),
+    mkAlarm,
+    aAlarmName,
+    aAlarmARN,
 
-    -- ** ScalingPolicy
-    ScalingPolicy (..),
-    mkScalingPolicy,
-    spCreationTime,
-    spScalableDimension,
-    spResourceId,
-    spPolicyName,
-    spPolicyType,
-    spTargetTrackingScalingPolicyConfiguration,
-    spServiceNamespace,
-    spStepScalingPolicyConfiguration,
-    spPolicyARN,
-    spAlarms,
+    -- ** ScalableTarget
+    ScalableTarget (..),
+    mkScalableTarget,
+    stServiceNamespace,
+    stResourceId,
+    stScalableDimension,
+    stMinCapacity,
+    stMaxCapacity,
+    stRoleARN,
+    stCreationTime,
+    stSuspendedState,
 
-    -- ** ScheduledAction
-    ScheduledAction (..),
-    mkScheduledAction,
-    saCreationTime,
-    saScalableDimension,
-    saResourceId,
-    saScheduledActionARN,
-    saStartTime,
-    saSchedule,
-    saScheduledActionName,
-    saServiceNamespace,
-    saEndTime,
-    saScalableTargetAction,
+    -- ** ScalingActivityStatusCode
+    ScalingActivityStatusCode (..),
 
-    -- ** StepAdjustment
-    StepAdjustment (..),
-    mkStepAdjustment,
-    saMetricIntervalLowerBound,
-    saMetricIntervalUpperBound,
-    saScalingAdjustment,
+    -- ** Schedule
+    Schedule (..),
 
-    -- ** StepScalingPolicyConfiguration
-    StepScalingPolicyConfiguration (..),
-    mkStepScalingPolicyConfiguration,
-    sspcStepAdjustments,
-    sspcAdjustmentType,
-    sspcCooldown,
-    sspcMetricAggregationType,
-    sspcMinAdjustmentMagnitude,
+    -- ** PolicyARN
+    PolicyARN (..),
 
-    -- ** SuspendedState
-    SuspendedState (..),
-    mkSuspendedState,
-    ssDynamicScalingInSuspended,
-    ssScheduledScalingSuspended,
-    ssDynamicScalingOutSuspended,
+    -- ** Namespace
+    Namespace (..),
 
-    -- ** TargetTrackingScalingPolicyConfiguration
-    TargetTrackingScalingPolicyConfiguration (..),
-    mkTargetTrackingScalingPolicyConfiguration,
-    ttspcPredefinedMetricSpecification,
-    ttspcTargetValue,
-    ttspcScaleInCooldown,
-    ttspcCustomizedMetricSpecification,
-    ttspcDisableScaleIn,
-    ttspcScaleOutCooldown,
+    -- ** Unit
+    Unit (..),
+
+    -- ** Value
+    Value (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -13,51 +13,56 @@
 module Network.AWS.CostExplorer.Types.GroupDefinitionType
   ( GroupDefinitionType
       ( GroupDefinitionType',
-        Dimension,
-        Tag,
-        CostCategory
+        GroupDefinitionTypeDimension,
+        GroupDefinitionTypeTag,
+        GroupDefinitionTypeCostCategory,
+        fromGroupDefinitionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype GroupDefinitionType = GroupDefinitionType' Lude.Text
+newtype GroupDefinitionType = GroupDefinitionType'
+  { fromGroupDefinitionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Dimension :: GroupDefinitionType
-pattern Dimension = GroupDefinitionType' "DIMENSION"
+pattern GroupDefinitionTypeDimension :: GroupDefinitionType
+pattern GroupDefinitionTypeDimension = GroupDefinitionType' "DIMENSION"
 
-pattern Tag :: GroupDefinitionType
-pattern Tag = GroupDefinitionType' "TAG"
+pattern GroupDefinitionTypeTag :: GroupDefinitionType
+pattern GroupDefinitionTypeTag = GroupDefinitionType' "TAG"
 
-pattern CostCategory :: GroupDefinitionType
-pattern CostCategory = GroupDefinitionType' "COST_CATEGORY"
+pattern GroupDefinitionTypeCostCategory :: GroupDefinitionType
+pattern GroupDefinitionTypeCostCategory = GroupDefinitionType' "COST_CATEGORY"
 
 {-# COMPLETE
-  Dimension,
-  Tag,
-  CostCategory,
+  GroupDefinitionTypeDimension,
+  GroupDefinitionTypeTag,
+  GroupDefinitionTypeCostCategory,
   GroupDefinitionType'
   #-}

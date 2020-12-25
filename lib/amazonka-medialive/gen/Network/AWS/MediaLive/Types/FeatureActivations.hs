@@ -22,8 +22,8 @@ module Network.AWS.MediaLive.Types.FeatureActivations
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.FeatureActivationsInputPrepareScheduleActions
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.FeatureActivationsInputPrepareScheduleActions as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Feature Activations
 --
@@ -32,44 +32,38 @@ newtype FeatureActivations = FeatureActivations'
   { -- | Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
     --
     -- If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
-    inputPrepareScheduleActions :: Lude.Maybe FeatureActivationsInputPrepareScheduleActions
+    inputPrepareScheduleActions :: Core.Maybe Types.FeatureActivationsInputPrepareScheduleActions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FeatureActivations' with the minimum fields required to make a request.
---
--- * 'inputPrepareScheduleActions' - Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
---
--- If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
+-- | Creates a 'FeatureActivations' value with any optional fields omitted.
 mkFeatureActivations ::
   FeatureActivations
 mkFeatureActivations =
-  FeatureActivations' {inputPrepareScheduleActions = Lude.Nothing}
+  FeatureActivations' {inputPrepareScheduleActions = Core.Nothing}
 
 -- | Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
 --
 -- If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
 --
 -- /Note:/ Consider using 'inputPrepareScheduleActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faInputPrepareScheduleActions :: Lens.Lens' FeatureActivations (Lude.Maybe FeatureActivationsInputPrepareScheduleActions)
-faInputPrepareScheduleActions = Lens.lens (inputPrepareScheduleActions :: FeatureActivations -> Lude.Maybe FeatureActivationsInputPrepareScheduleActions) (\s a -> s {inputPrepareScheduleActions = a} :: FeatureActivations)
+faInputPrepareScheduleActions :: Lens.Lens' FeatureActivations (Core.Maybe Types.FeatureActivationsInputPrepareScheduleActions)
+faInputPrepareScheduleActions = Lens.field @"inputPrepareScheduleActions"
 {-# DEPRECATED faInputPrepareScheduleActions "Use generic-lens or generic-optics with 'inputPrepareScheduleActions' instead." #-}
 
-instance Lude.FromJSON FeatureActivations where
-  parseJSON =
-    Lude.withObject
-      "FeatureActivations"
-      ( \x ->
-          FeatureActivations'
-            Lude.<$> (x Lude..:? "inputPrepareScheduleActions")
-      )
-
-instance Lude.ToJSON FeatureActivations where
-  toJSON FeatureActivations' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("inputPrepareScheduleActions" Lude..=)
-              Lude.<$> inputPrepareScheduleActions
+instance Core.FromJSON FeatureActivations where
+  toJSON FeatureActivations {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("inputPrepareScheduleActions" Core..=)
+              Core.<$> inputPrepareScheduleActions
           ]
       )
+
+instance Core.FromJSON FeatureActivations where
+  parseJSON =
+    Core.withObject "FeatureActivations" Core.$
+      \x ->
+        FeatureActivations'
+          Core.<$> (x Core..:? "inputPrepareScheduleActions")

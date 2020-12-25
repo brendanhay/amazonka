@@ -23,160 +23,140 @@ module Network.AWS.CloudSearchDomains.Suggest
     mkSuggest,
 
     -- ** Request lenses
-    sfSize,
-    sfQuery,
-    sfSuggester,
+    sQuery,
+    sSuggester,
+    sSize,
 
     -- * Destructuring the response
     SuggestResponse (..),
     mkSuggestResponse,
 
     -- ** Response lenses
-    srsSuggest,
-    srsStatus,
-    srsResponseStatus,
+    srrsStatus,
+    srrsSuggest,
+    srrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearchDomains.Types
+import qualified Network.AWS.CloudSearchDomains.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @Suggest@ request.
 --
 -- /See:/ 'mkSuggest' smart constructor.
 data Suggest = Suggest'
-  { -- | Specifies the maximum number of suggestions to return.
-    size :: Lude.Maybe Lude.Integer,
-    -- | Specifies the string for which you want to get suggestions.
-    query :: Lude.Text,
+  { -- | Specifies the string for which you want to get suggestions.
+    query :: Types.Query,
     -- | Specifies the name of the suggester to use to find suggested matches.
-    suggester :: Lude.Text
+    suggester :: Types.Suggester,
+    -- | Specifies the maximum number of suggestions to return.
+    size :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Suggest' with the minimum fields required to make a request.
---
--- * 'size' - Specifies the maximum number of suggestions to return.
--- * 'query' - Specifies the string for which you want to get suggestions.
--- * 'suggester' - Specifies the name of the suggester to use to find suggested matches.
+-- | Creates a 'Suggest' value with any optional fields omitted.
 mkSuggest ::
   -- | 'query'
-  Lude.Text ->
+  Types.Query ->
   -- | 'suggester'
-  Lude.Text ->
+  Types.Suggester ->
   Suggest
-mkSuggest pQuery_ pSuggester_ =
-  Suggest'
-    { size = Lude.Nothing,
-      query = pQuery_,
-      suggester = pSuggester_
-    }
-
--- | Specifies the maximum number of suggestions to return.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfSize :: Lens.Lens' Suggest (Lude.Maybe Lude.Integer)
-sfSize = Lens.lens (size :: Suggest -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: Suggest)
-{-# DEPRECATED sfSize "Use generic-lens or generic-optics with 'size' instead." #-}
+mkSuggest query suggester =
+  Suggest' {query, suggester, size = Core.Nothing}
 
 -- | Specifies the string for which you want to get suggestions.
 --
 -- /Note:/ Consider using 'query' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfQuery :: Lens.Lens' Suggest Lude.Text
-sfQuery = Lens.lens (query :: Suggest -> Lude.Text) (\s a -> s {query = a} :: Suggest)
-{-# DEPRECATED sfQuery "Use generic-lens or generic-optics with 'query' instead." #-}
+sQuery :: Lens.Lens' Suggest Types.Query
+sQuery = Lens.field @"query"
+{-# DEPRECATED sQuery "Use generic-lens or generic-optics with 'query' instead." #-}
 
 -- | Specifies the name of the suggester to use to find suggested matches.
 --
 -- /Note:/ Consider using 'suggester' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfSuggester :: Lens.Lens' Suggest Lude.Text
-sfSuggester = Lens.lens (suggester :: Suggest -> Lude.Text) (\s a -> s {suggester = a} :: Suggest)
-{-# DEPRECATED sfSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
+sSuggester :: Lens.Lens' Suggest Types.Suggester
+sSuggester = Lens.field @"suggester"
+{-# DEPRECATED sSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
 
-instance Lude.AWSRequest Suggest where
+-- | Specifies the maximum number of suggestions to return.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSize :: Lens.Lens' Suggest (Core.Maybe Core.Integer)
+sSize = Lens.field @"size"
+{-# DEPRECATED sSize "Use generic-lens or generic-optics with 'size' instead." #-}
+
+instance Core.AWSRequest Suggest where
   type Rs Suggest = SuggestResponse
-  request = Req.get cloudSearchDomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2013-01-01/suggest",
+        Core._rqQuery =
+          Core.toQueryValue "q" query
+            Core.<> (Core.toQueryValue "suggester" suggester)
+            Core.<> (Core.toQueryValue "size" Core.<$> size)
+            Core.<> (Core.pure ("format=sdk&pretty=true", "")),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SuggestResponse'
-            Lude.<$> (x Lude..?> "suggest")
-            Lude.<*> (x Lude..?> "status")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "suggest")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders Suggest where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath Suggest where
-  toPath = Lude.const "/2013-01-01/suggest"
-
-instance Lude.ToQuery Suggest where
-  toQuery Suggest' {..} =
-    Lude.mconcat
-      [ "size" Lude.=: size,
-        "q" Lude.=: query,
-        "suggester" Lude.=: suggester,
-        "format=sdk&pretty=true"
-      ]
 
 -- | Contains the response to a @Suggest@ request.
 --
 -- /See:/ 'mkSuggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
-  { -- | Container for the matching search suggestion information.
-    suggest :: Lude.Maybe SuggestModel,
-    -- | The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
-    status :: Lude.Maybe SuggestStatus,
+  { -- | The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
+    status :: Core.Maybe Types.SuggestStatus,
+    -- | Container for the matching search suggestion information.
+    suggest :: Core.Maybe Types.SuggestModel,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuggestResponse' with the minimum fields required to make a request.
---
--- * 'suggest' - Container for the matching search suggestion information.
--- * 'status' - The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SuggestResponse' value with any optional fields omitted.
 mkSuggestResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SuggestResponse
-mkSuggestResponse pResponseStatus_ =
+mkSuggestResponse responseStatus =
   SuggestResponse'
-    { suggest = Lude.Nothing,
-      status = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { status = Core.Nothing,
+      suggest = Core.Nothing,
+      responseStatus
     }
-
--- | Container for the matching search suggestion information.
---
--- /Note:/ Consider using 'suggest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsSuggest :: Lens.Lens' SuggestResponse (Lude.Maybe SuggestModel)
-srsSuggest = Lens.lens (suggest :: SuggestResponse -> Lude.Maybe SuggestModel) (\s a -> s {suggest = a} :: SuggestResponse)
-{-# DEPRECATED srsSuggest "Use generic-lens or generic-optics with 'suggest' instead." #-}
 
 -- | The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsStatus :: Lens.Lens' SuggestResponse (Lude.Maybe SuggestStatus)
-srsStatus = Lens.lens (status :: SuggestResponse -> Lude.Maybe SuggestStatus) (\s a -> s {status = a} :: SuggestResponse)
-{-# DEPRECATED srsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+srrsStatus :: Lens.Lens' SuggestResponse (Core.Maybe Types.SuggestStatus)
+srrsStatus = Lens.field @"status"
+{-# DEPRECATED srrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | Container for the matching search suggestion information.
+--
+-- /Note:/ Consider using 'suggest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrsSuggest :: Lens.Lens' SuggestResponse (Core.Maybe Types.SuggestModel)
+srrsSuggest = Lens.field @"suggest"
+{-# DEPRECATED srrsSuggest "Use generic-lens or generic-optics with 'suggest' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' SuggestResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: SuggestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SuggestResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srrsResponseStatus :: Lens.Lens' SuggestResponse Core.Int
+srrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

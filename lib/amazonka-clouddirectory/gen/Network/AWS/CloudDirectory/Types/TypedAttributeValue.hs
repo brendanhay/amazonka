@@ -18,50 +18,46 @@ module Network.AWS.CloudDirectory.Types.TypedAttributeValue
 
     -- * Lenses
     tavBinaryValue,
+    tavBooleanValue,
     tavDatetimeValue,
     tavNumberValue,
     tavStringValue,
-    tavBooleanValue,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.NumberValue as Types
+import qualified Network.AWS.CloudDirectory.Types.StringAttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the data for a typed attribute. You can set one, and only one, of the elements. Each attribute in an item is a name-value pair. Attributes have a single value.
 --
 -- /See:/ 'mkTypedAttributeValue' smart constructor.
 data TypedAttributeValue = TypedAttributeValue'
   { -- | A binary data value.
-    binaryValue :: Lude.Maybe Lude.Base64,
-    -- | A date and time value.
-    datetimeValue :: Lude.Maybe Lude.Timestamp,
-    -- | A number data value.
-    numberValue :: Lude.Maybe Lude.Text,
-    -- | A string data value.
-    stringValue :: Lude.Maybe Lude.Text,
+    binaryValue :: Core.Maybe Core.Base64,
     -- | A Boolean data value.
-    booleanValue :: Lude.Maybe Lude.Bool
+    booleanValue :: Core.Maybe Core.Bool,
+    -- | A date and time value.
+    datetimeValue :: Core.Maybe Core.NominalDiffTime,
+    -- | A number data value.
+    numberValue :: Core.Maybe Types.NumberValue,
+    -- | A string data value.
+    stringValue :: Core.Maybe Types.StringAttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TypedAttributeValue' with the minimum fields required to make a request.
---
--- * 'binaryValue' - A binary data value.
--- * 'datetimeValue' - A date and time value.
--- * 'numberValue' - A number data value.
--- * 'stringValue' - A string data value.
--- * 'booleanValue' - A Boolean data value.
+-- | Creates a 'TypedAttributeValue' value with any optional fields omitted.
 mkTypedAttributeValue ::
   TypedAttributeValue
 mkTypedAttributeValue =
   TypedAttributeValue'
-    { binaryValue = Lude.Nothing,
-      datetimeValue = Lude.Nothing,
-      numberValue = Lude.Nothing,
-      stringValue = Lude.Nothing,
-      booleanValue = Lude.Nothing
+    { binaryValue = Core.Nothing,
+      booleanValue = Core.Nothing,
+      datetimeValue = Core.Nothing,
+      numberValue = Core.Nothing,
+      stringValue = Core.Nothing
     }
 
 -- | A binary data value.--
@@ -71,59 +67,57 @@ mkTypedAttributeValue =
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'binaryValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tavBinaryValue :: Lens.Lens' TypedAttributeValue (Lude.Maybe Lude.Base64)
-tavBinaryValue = Lens.lens (binaryValue :: TypedAttributeValue -> Lude.Maybe Lude.Base64) (\s a -> s {binaryValue = a} :: TypedAttributeValue)
+tavBinaryValue :: Lens.Lens' TypedAttributeValue (Core.Maybe Core.Base64)
+tavBinaryValue = Lens.field @"binaryValue"
 {-# DEPRECATED tavBinaryValue "Use generic-lens or generic-optics with 'binaryValue' instead." #-}
+
+-- | A Boolean data value.
+--
+-- /Note:/ Consider using 'booleanValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tavBooleanValue :: Lens.Lens' TypedAttributeValue (Core.Maybe Core.Bool)
+tavBooleanValue = Lens.field @"booleanValue"
+{-# DEPRECATED tavBooleanValue "Use generic-lens or generic-optics with 'booleanValue' instead." #-}
 
 -- | A date and time value.
 --
 -- /Note:/ Consider using 'datetimeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tavDatetimeValue :: Lens.Lens' TypedAttributeValue (Lude.Maybe Lude.Timestamp)
-tavDatetimeValue = Lens.lens (datetimeValue :: TypedAttributeValue -> Lude.Maybe Lude.Timestamp) (\s a -> s {datetimeValue = a} :: TypedAttributeValue)
+tavDatetimeValue :: Lens.Lens' TypedAttributeValue (Core.Maybe Core.NominalDiffTime)
+tavDatetimeValue = Lens.field @"datetimeValue"
 {-# DEPRECATED tavDatetimeValue "Use generic-lens or generic-optics with 'datetimeValue' instead." #-}
 
 -- | A number data value.
 --
 -- /Note:/ Consider using 'numberValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tavNumberValue :: Lens.Lens' TypedAttributeValue (Lude.Maybe Lude.Text)
-tavNumberValue = Lens.lens (numberValue :: TypedAttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {numberValue = a} :: TypedAttributeValue)
+tavNumberValue :: Lens.Lens' TypedAttributeValue (Core.Maybe Types.NumberValue)
+tavNumberValue = Lens.field @"numberValue"
 {-# DEPRECATED tavNumberValue "Use generic-lens or generic-optics with 'numberValue' instead." #-}
 
 -- | A string data value.
 --
 -- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tavStringValue :: Lens.Lens' TypedAttributeValue (Lude.Maybe Lude.Text)
-tavStringValue = Lens.lens (stringValue :: TypedAttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: TypedAttributeValue)
+tavStringValue :: Lens.Lens' TypedAttributeValue (Core.Maybe Types.StringAttributeValue)
+tavStringValue = Lens.field @"stringValue"
 {-# DEPRECATED tavStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
--- | A Boolean data value.
---
--- /Note:/ Consider using 'booleanValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tavBooleanValue :: Lens.Lens' TypedAttributeValue (Lude.Maybe Lude.Bool)
-tavBooleanValue = Lens.lens (booleanValue :: TypedAttributeValue -> Lude.Maybe Lude.Bool) (\s a -> s {booleanValue = a} :: TypedAttributeValue)
-{-# DEPRECATED tavBooleanValue "Use generic-lens or generic-optics with 'booleanValue' instead." #-}
-
-instance Lude.FromJSON TypedAttributeValue where
-  parseJSON =
-    Lude.withObject
-      "TypedAttributeValue"
-      ( \x ->
-          TypedAttributeValue'
-            Lude.<$> (x Lude..:? "BinaryValue")
-            Lude.<*> (x Lude..:? "DatetimeValue")
-            Lude.<*> (x Lude..:? "NumberValue")
-            Lude.<*> (x Lude..:? "StringValue")
-            Lude.<*> (x Lude..:? "BooleanValue")
-      )
-
-instance Lude.ToJSON TypedAttributeValue where
-  toJSON TypedAttributeValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("BinaryValue" Lude..=) Lude.<$> binaryValue,
-            ("DatetimeValue" Lude..=) Lude.<$> datetimeValue,
-            ("NumberValue" Lude..=) Lude.<$> numberValue,
-            ("StringValue" Lude..=) Lude.<$> stringValue,
-            ("BooleanValue" Lude..=) Lude.<$> booleanValue
+instance Core.FromJSON TypedAttributeValue where
+  toJSON TypedAttributeValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BinaryValue" Core..=) Core.<$> binaryValue,
+            ("BooleanValue" Core..=) Core.<$> booleanValue,
+            ("DatetimeValue" Core..=) Core.<$> datetimeValue,
+            ("NumberValue" Core..=) Core.<$> numberValue,
+            ("StringValue" Core..=) Core.<$> stringValue
           ]
       )
+
+instance Core.FromJSON TypedAttributeValue where
+  parseJSON =
+    Core.withObject "TypedAttributeValue" Core.$
+      \x ->
+        TypedAttributeValue'
+          Core.<$> (x Core..:? "BinaryValue")
+          Core.<*> (x Core..:? "BooleanValue")
+          Core.<*> (x Core..:? "DatetimeValue")
+          Core.<*> (x Core..:? "NumberValue")
+          Core.<*> (x Core..:? "StringValue")

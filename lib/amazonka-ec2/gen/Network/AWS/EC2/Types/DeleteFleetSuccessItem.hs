@@ -18,67 +18,64 @@ module Network.AWS.EC2.Types.DeleteFleetSuccessItem
 
     -- * Lenses
     dfsiCurrentFleetState,
-    dfsiPreviousFleetState,
     dfsiFleetId,
+    dfsiPreviousFleetState,
   )
 where
 
-import Network.AWS.EC2.Types.FleetStateCode
+import qualified Network.AWS.EC2.Types.FleetId as Types
+import qualified Network.AWS.EC2.Types.FleetStateCode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an EC2 Fleet that was successfully deleted.
 --
 -- /See:/ 'mkDeleteFleetSuccessItem' smart constructor.
 data DeleteFleetSuccessItem = DeleteFleetSuccessItem'
   { -- | The current state of the EC2 Fleet.
-    currentFleetState :: Lude.Maybe FleetStateCode,
-    -- | The previous state of the EC2 Fleet.
-    previousFleetState :: Lude.Maybe FleetStateCode,
+    currentFleetState :: Core.Maybe Types.FleetStateCode,
     -- | The ID of the EC2 Fleet.
-    fleetId :: Lude.Maybe Lude.Text
+    fleetId :: Core.Maybe Types.FleetId,
+    -- | The previous state of the EC2 Fleet.
+    previousFleetState :: Core.Maybe Types.FleetStateCode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFleetSuccessItem' with the minimum fields required to make a request.
---
--- * 'currentFleetState' - The current state of the EC2 Fleet.
--- * 'previousFleetState' - The previous state of the EC2 Fleet.
--- * 'fleetId' - The ID of the EC2 Fleet.
+-- | Creates a 'DeleteFleetSuccessItem' value with any optional fields omitted.
 mkDeleteFleetSuccessItem ::
   DeleteFleetSuccessItem
 mkDeleteFleetSuccessItem =
   DeleteFleetSuccessItem'
-    { currentFleetState = Lude.Nothing,
-      previousFleetState = Lude.Nothing,
-      fleetId = Lude.Nothing
+    { currentFleetState = Core.Nothing,
+      fleetId = Core.Nothing,
+      previousFleetState = Core.Nothing
     }
 
 -- | The current state of the EC2 Fleet.
 --
 -- /Note:/ Consider using 'currentFleetState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsiCurrentFleetState :: Lens.Lens' DeleteFleetSuccessItem (Lude.Maybe FleetStateCode)
-dfsiCurrentFleetState = Lens.lens (currentFleetState :: DeleteFleetSuccessItem -> Lude.Maybe FleetStateCode) (\s a -> s {currentFleetState = a} :: DeleteFleetSuccessItem)
+dfsiCurrentFleetState :: Lens.Lens' DeleteFleetSuccessItem (Core.Maybe Types.FleetStateCode)
+dfsiCurrentFleetState = Lens.field @"currentFleetState"
 {-# DEPRECATED dfsiCurrentFleetState "Use generic-lens or generic-optics with 'currentFleetState' instead." #-}
-
--- | The previous state of the EC2 Fleet.
---
--- /Note:/ Consider using 'previousFleetState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsiPreviousFleetState :: Lens.Lens' DeleteFleetSuccessItem (Lude.Maybe FleetStateCode)
-dfsiPreviousFleetState = Lens.lens (previousFleetState :: DeleteFleetSuccessItem -> Lude.Maybe FleetStateCode) (\s a -> s {previousFleetState = a} :: DeleteFleetSuccessItem)
-{-# DEPRECATED dfsiPreviousFleetState "Use generic-lens or generic-optics with 'previousFleetState' instead." #-}
 
 -- | The ID of the EC2 Fleet.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsiFleetId :: Lens.Lens' DeleteFleetSuccessItem (Lude.Maybe Lude.Text)
-dfsiFleetId = Lens.lens (fleetId :: DeleteFleetSuccessItem -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: DeleteFleetSuccessItem)
+dfsiFleetId :: Lens.Lens' DeleteFleetSuccessItem (Core.Maybe Types.FleetId)
+dfsiFleetId = Lens.field @"fleetId"
 {-# DEPRECATED dfsiFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance Lude.FromXML DeleteFleetSuccessItem where
+-- | The previous state of the EC2 Fleet.
+--
+-- /Note:/ Consider using 'previousFleetState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsiPreviousFleetState :: Lens.Lens' DeleteFleetSuccessItem (Core.Maybe Types.FleetStateCode)
+dfsiPreviousFleetState = Lens.field @"previousFleetState"
+{-# DEPRECATED dfsiPreviousFleetState "Use generic-lens or generic-optics with 'previousFleetState' instead." #-}
+
+instance Core.FromXML DeleteFleetSuccessItem where
   parseXML x =
     DeleteFleetSuccessItem'
-      Lude.<$> (x Lude..@? "currentFleetState")
-      Lude.<*> (x Lude..@? "previousFleetState")
-      Lude.<*> (x Lude..@? "fleetId")
+      Core.<$> (x Core..@? "currentFleetState")
+      Core.<*> (x Core..@? "fleetId")
+      Core.<*> (x Core..@? "previousFleetState")

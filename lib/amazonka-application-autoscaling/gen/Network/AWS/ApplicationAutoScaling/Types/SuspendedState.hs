@@ -18,83 +18,77 @@ module Network.AWS.ApplicationAutoScaling.Types.SuspendedState
 
     -- * Lenses
     ssDynamicScalingInSuspended,
-    ssScheduledScalingSuspended,
     ssDynamicScalingOutSuspended,
+    ssScheduledScalingSuspended,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies whether the scaling activities for a scalable target are in a suspended state.
 --
 -- /See:/ 'mkSuspendedState' smart constructor.
 data SuspendedState = SuspendedState'
   { -- | Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to @true@ if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is @false@ .
-    dynamicScalingInSuspended :: Lude.Maybe Lude.Bool,
-    -- | Whether scheduled scaling is suspended. Set the value to @true@ if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is @false@ .
-    scheduledScalingSuspended :: Lude.Maybe Lude.Bool,
+    dynamicScalingInSuspended :: Core.Maybe Core.Bool,
     -- | Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to @true@ if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is @false@ .
-    dynamicScalingOutSuspended :: Lude.Maybe Lude.Bool
+    dynamicScalingOutSuspended :: Core.Maybe Core.Bool,
+    -- | Whether scheduled scaling is suspended. Set the value to @true@ if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is @false@ .
+    scheduledScalingSuspended :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuspendedState' with the minimum fields required to make a request.
---
--- * 'dynamicScalingInSuspended' - Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to @true@ if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is @false@ .
--- * 'scheduledScalingSuspended' - Whether scheduled scaling is suspended. Set the value to @true@ if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is @false@ .
--- * 'dynamicScalingOutSuspended' - Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to @true@ if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is @false@ .
+-- | Creates a 'SuspendedState' value with any optional fields omitted.
 mkSuspendedState ::
   SuspendedState
 mkSuspendedState =
   SuspendedState'
-    { dynamicScalingInSuspended = Lude.Nothing,
-      scheduledScalingSuspended = Lude.Nothing,
-      dynamicScalingOutSuspended = Lude.Nothing
+    { dynamicScalingInSuspended = Core.Nothing,
+      dynamicScalingOutSuspended = Core.Nothing,
+      scheduledScalingSuspended = Core.Nothing
     }
 
 -- | Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Set the value to @true@ if you don't want Application Auto Scaling to remove capacity when a scaling policy is triggered. The default is @false@ .
 --
 -- /Note:/ Consider using 'dynamicScalingInSuspended' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssDynamicScalingInSuspended :: Lens.Lens' SuspendedState (Lude.Maybe Lude.Bool)
-ssDynamicScalingInSuspended = Lens.lens (dynamicScalingInSuspended :: SuspendedState -> Lude.Maybe Lude.Bool) (\s a -> s {dynamicScalingInSuspended = a} :: SuspendedState)
+ssDynamicScalingInSuspended :: Lens.Lens' SuspendedState (Core.Maybe Core.Bool)
+ssDynamicScalingInSuspended = Lens.field @"dynamicScalingInSuspended"
 {-# DEPRECATED ssDynamicScalingInSuspended "Use generic-lens or generic-optics with 'dynamicScalingInSuspended' instead." #-}
-
--- | Whether scheduled scaling is suspended. Set the value to @true@ if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is @false@ .
---
--- /Note:/ Consider using 'scheduledScalingSuspended' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssScheduledScalingSuspended :: Lens.Lens' SuspendedState (Lude.Maybe Lude.Bool)
-ssScheduledScalingSuspended = Lens.lens (scheduledScalingSuspended :: SuspendedState -> Lude.Maybe Lude.Bool) (\s a -> s {scheduledScalingSuspended = a} :: SuspendedState)
-{-# DEPRECATED ssScheduledScalingSuspended "Use generic-lens or generic-optics with 'scheduledScalingSuspended' instead." #-}
 
 -- | Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Set the value to @true@ if you don't want Application Auto Scaling to add capacity when a scaling policy is triggered. The default is @false@ .
 --
 -- /Note:/ Consider using 'dynamicScalingOutSuspended' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssDynamicScalingOutSuspended :: Lens.Lens' SuspendedState (Lude.Maybe Lude.Bool)
-ssDynamicScalingOutSuspended = Lens.lens (dynamicScalingOutSuspended :: SuspendedState -> Lude.Maybe Lude.Bool) (\s a -> s {dynamicScalingOutSuspended = a} :: SuspendedState)
+ssDynamicScalingOutSuspended :: Lens.Lens' SuspendedState (Core.Maybe Core.Bool)
+ssDynamicScalingOutSuspended = Lens.field @"dynamicScalingOutSuspended"
 {-# DEPRECATED ssDynamicScalingOutSuspended "Use generic-lens or generic-optics with 'dynamicScalingOutSuspended' instead." #-}
 
-instance Lude.FromJSON SuspendedState where
-  parseJSON =
-    Lude.withObject
-      "SuspendedState"
-      ( \x ->
-          SuspendedState'
-            Lude.<$> (x Lude..:? "DynamicScalingInSuspended")
-            Lude.<*> (x Lude..:? "ScheduledScalingSuspended")
-            Lude.<*> (x Lude..:? "DynamicScalingOutSuspended")
-      )
+-- | Whether scheduled scaling is suspended. Set the value to @true@ if you don't want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is @false@ .
+--
+-- /Note:/ Consider using 'scheduledScalingSuspended' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssScheduledScalingSuspended :: Lens.Lens' SuspendedState (Core.Maybe Core.Bool)
+ssScheduledScalingSuspended = Lens.field @"scheduledScalingSuspended"
+{-# DEPRECATED ssScheduledScalingSuspended "Use generic-lens or generic-optics with 'scheduledScalingSuspended' instead." #-}
 
-instance Lude.ToJSON SuspendedState where
-  toJSON SuspendedState' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DynamicScalingInSuspended" Lude..=)
-              Lude.<$> dynamicScalingInSuspended,
-            ("ScheduledScalingSuspended" Lude..=)
-              Lude.<$> scheduledScalingSuspended,
-            ("DynamicScalingOutSuspended" Lude..=)
-              Lude.<$> dynamicScalingOutSuspended
+instance Core.FromJSON SuspendedState where
+  toJSON SuspendedState {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DynamicScalingInSuspended" Core..=)
+              Core.<$> dynamicScalingInSuspended,
+            ("DynamicScalingOutSuspended" Core..=)
+              Core.<$> dynamicScalingOutSuspended,
+            ("ScheduledScalingSuspended" Core..=)
+              Core.<$> scheduledScalingSuspended
           ]
       )
+
+instance Core.FromJSON SuspendedState where
+  parseJSON =
+    Core.withObject "SuspendedState" Core.$
+      \x ->
+        SuspendedState'
+          Core.<$> (x Core..:? "DynamicScalingInSuspended")
+          Core.<*> (x Core..:? "DynamicScalingOutSuspended")
+          Core.<*> (x Core..:? "ScheduledScalingSuspended")

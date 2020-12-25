@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.WAFRegional
     Network.AWS.WAFRegional.AssociateWebACL
@@ -80,7 +86,7 @@ library
     Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
     Network.AWS.WAFRegional.CreateWebACL
     Network.AWS.WAFRegional.CreateWebACLMigrationStack
-    Network.AWS.WAFRegional.CreateXSSMatchSet
+    Network.AWS.WAFRegional.CreateXssMatchSet
     Network.AWS.WAFRegional.DeleteByteMatchSet
     Network.AWS.WAFRegional.DeleteGeoMatchSet
     Network.AWS.WAFRegional.DeleteIPSet
@@ -94,7 +100,7 @@ library
     Network.AWS.WAFRegional.DeleteSizeConstraintSet
     Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
     Network.AWS.WAFRegional.DeleteWebACL
-    Network.AWS.WAFRegional.DeleteXSSMatchSet
+    Network.AWS.WAFRegional.DeleteXssMatchSet
     Network.AWS.WAFRegional.DisassociateWebACL
     Network.AWS.WAFRegional.GetByteMatchSet
     Network.AWS.WAFRegional.GetChangeToken
@@ -114,7 +120,7 @@ library
     Network.AWS.WAFRegional.GetSqlInjectionMatchSet
     Network.AWS.WAFRegional.GetWebACL
     Network.AWS.WAFRegional.GetWebACLForResource
-    Network.AWS.WAFRegional.GetXSSMatchSet
+    Network.AWS.WAFRegional.GetXssMatchSet
     Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup
     Network.AWS.WAFRegional.ListByteMatchSets
     Network.AWS.WAFRegional.ListGeoMatchSets
@@ -131,7 +137,7 @@ library
     Network.AWS.WAFRegional.ListSubscribedRuleGroups
     Network.AWS.WAFRegional.ListTagsForResource
     Network.AWS.WAFRegional.ListWebACLs
-    Network.AWS.WAFRegional.ListXSSMatchSets
+    Network.AWS.WAFRegional.ListXssMatchSets
     Network.AWS.WAFRegional.PutLoggingConfiguration
     Network.AWS.WAFRegional.PutPermissionPolicy
     Network.AWS.WAFRegional.TagResource
@@ -148,18 +154,22 @@ library
     Network.AWS.WAFRegional.UpdateSizeConstraintSet
     Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet
     Network.AWS.WAFRegional.UpdateWebACL
-    Network.AWS.WAFRegional.UpdateXSSMatchSet
+    Network.AWS.WAFRegional.UpdateXssMatchSet
     Network.AWS.WAFRegional.Waiters
 
   other-modules:
+    Network.AWS.WAFRegional.Types.Action
     Network.AWS.WAFRegional.Types.ActivatedRule
     Network.AWS.WAFRegional.Types.ByteMatchSet
     Network.AWS.WAFRegional.Types.ByteMatchSetSummary
     Network.AWS.WAFRegional.Types.ByteMatchSetUpdate
     Network.AWS.WAFRegional.Types.ByteMatchTuple
     Network.AWS.WAFRegional.Types.ChangeAction
+    Network.AWS.WAFRegional.Types.ChangeToken
     Network.AWS.WAFRegional.Types.ChangeTokenStatus
     Network.AWS.WAFRegional.Types.ComparisonOperator
+    Network.AWS.WAFRegional.Types.Country
+    Network.AWS.WAFRegional.Types.Data
     Network.AWS.WAFRegional.Types.ExcludedRule
     Network.AWS.WAFRegional.Types.FieldToMatch
     Network.AWS.WAFRegional.Types.GeoMatchConstraint
@@ -168,60 +178,88 @@ library
     Network.AWS.WAFRegional.Types.GeoMatchSet
     Network.AWS.WAFRegional.Types.GeoMatchSetSummary
     Network.AWS.WAFRegional.Types.GeoMatchSetUpdate
+    Network.AWS.WAFRegional.Types.HeaderValue
     Network.AWS.WAFRegional.Types.HTTPHeader
+    Network.AWS.WAFRegional.Types.HTTPMethod
     Network.AWS.WAFRegional.Types.HTTPRequest
+    Network.AWS.WAFRegional.Types.HTTPVersion
     Network.AWS.WAFRegional.Types.IPSet
     Network.AWS.WAFRegional.Types.IPSetDescriptor
     Network.AWS.WAFRegional.Types.IPSetDescriptorType
+    Network.AWS.WAFRegional.Types.IPSetId
     Network.AWS.WAFRegional.Types.IPSetSummary
     Network.AWS.WAFRegional.Types.IPSetUpdate
+    Network.AWS.WAFRegional.Types.IPString
+    Network.AWS.WAFRegional.Types.Key
     Network.AWS.WAFRegional.Types.LoggingConfiguration
+    Network.AWS.WAFRegional.Types.ManagedKey
     Network.AWS.WAFRegional.Types.MatchFieldType
+    Network.AWS.WAFRegional.Types.MetricName
+    Network.AWS.WAFRegional.Types.Name
+    Network.AWS.WAFRegional.Types.NextMarker
+    Network.AWS.WAFRegional.Types.Policy
     Network.AWS.WAFRegional.Types.PositionalConstraint
     Network.AWS.WAFRegional.Types.Predicate
     Network.AWS.WAFRegional.Types.PredicateType
     Network.AWS.WAFRegional.Types.RateBasedRule
     Network.AWS.WAFRegional.Types.RateKey
     Network.AWS.WAFRegional.Types.RegexMatchSet
+    Network.AWS.WAFRegional.Types.RegexMatchSetId
     Network.AWS.WAFRegional.Types.RegexMatchSetSummary
     Network.AWS.WAFRegional.Types.RegexMatchSetUpdate
     Network.AWS.WAFRegional.Types.RegexMatchTuple
     Network.AWS.WAFRegional.Types.RegexPatternSet
+    Network.AWS.WAFRegional.Types.RegexPatternSetId
     Network.AWS.WAFRegional.Types.RegexPatternSetSummary
     Network.AWS.WAFRegional.Types.RegexPatternSetUpdate
+    Network.AWS.WAFRegional.Types.RegexPatternString
+    Network.AWS.WAFRegional.Types.ResourceArn
+    Network.AWS.WAFRegional.Types.ResourceARN
+    Network.AWS.WAFRegional.Types.ResourceId
+    Network.AWS.WAFRegional.Types.ResourceName
     Network.AWS.WAFRegional.Types.ResourceType
     Network.AWS.WAFRegional.Types.Rule
     Network.AWS.WAFRegional.Types.RuleGroup
     Network.AWS.WAFRegional.Types.RuleGroupSummary
     Network.AWS.WAFRegional.Types.RuleGroupUpdate
+    Network.AWS.WAFRegional.Types.RuleId
     Network.AWS.WAFRegional.Types.RuleSummary
     Network.AWS.WAFRegional.Types.RuleUpdate
+    Network.AWS.WAFRegional.Types.S3BucketName
+    Network.AWS.WAFRegional.Types.S3ObjectUrl
     Network.AWS.WAFRegional.Types.SampledHTTPRequest
     Network.AWS.WAFRegional.Types.SizeConstraint
     Network.AWS.WAFRegional.Types.SizeConstraintSet
     Network.AWS.WAFRegional.Types.SizeConstraintSetSummary
     Network.AWS.WAFRegional.Types.SizeConstraintSetUpdate
     Network.AWS.WAFRegional.Types.SqlInjectionMatchSet
+    Network.AWS.WAFRegional.Types.SqlInjectionMatchSetId
     Network.AWS.WAFRegional.Types.SqlInjectionMatchSetSummary
     Network.AWS.WAFRegional.Types.SqlInjectionMatchSetUpdate
     Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple
     Network.AWS.WAFRegional.Types.SubscribedRuleGroupSummary
     Network.AWS.WAFRegional.Types.Tag
     Network.AWS.WAFRegional.Types.TagInfoForResource
+    Network.AWS.WAFRegional.Types.TagKey
     Network.AWS.WAFRegional.Types.TextTransformation
     Network.AWS.WAFRegional.Types.TimeWindow
+    Network.AWS.WAFRegional.Types.URI
+    Network.AWS.WAFRegional.Types.Value
     Network.AWS.WAFRegional.Types.WafAction
     Network.AWS.WAFRegional.Types.WafActionType
     Network.AWS.WAFRegional.Types.WafOverrideAction
     Network.AWS.WAFRegional.Types.WafOverrideActionType
     Network.AWS.WAFRegional.Types.WafRuleType
     Network.AWS.WAFRegional.Types.WebACL
+    Network.AWS.WAFRegional.Types.WebACLArn
+    Network.AWS.WAFRegional.Types.WebAclId
+    Network.AWS.WAFRegional.Types.WebACLId
     Network.AWS.WAFRegional.Types.WebACLSummary
     Network.AWS.WAFRegional.Types.WebACLUpdate
-    Network.AWS.WAFRegional.Types.XSSMatchSet
-    Network.AWS.WAFRegional.Types.XSSMatchSetSummary
-    Network.AWS.WAFRegional.Types.XSSMatchSetUpdate
-    Network.AWS.WAFRegional.Types.XSSMatchTuple
+    Network.AWS.WAFRegional.Types.XssMatchSet
+    Network.AWS.WAFRegional.Types.XssMatchSetSummary
+    Network.AWS.WAFRegional.Types.XssMatchSetUpdate
+    Network.AWS.WAFRegional.Types.XssMatchTuple
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

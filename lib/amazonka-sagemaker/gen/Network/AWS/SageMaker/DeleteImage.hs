@@ -20,99 +20,88 @@ module Network.AWS.SageMaker.DeleteImage
     mkDeleteImage,
 
     -- ** Request lenses
-    diImageName,
+    difImageName,
 
     -- * Destructuring the response
     DeleteImageResponse (..),
     mkDeleteImageResponse,
 
     -- ** Response lenses
-    dirsResponseStatus,
+    dirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteImage' smart constructor.
 newtype DeleteImage = DeleteImage'
   { -- | The name of the image to delete.
-    imageName :: Lude.Text
+    imageName :: Types.ImageName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteImage' with the minimum fields required to make a request.
---
--- * 'imageName' - The name of the image to delete.
+-- | Creates a 'DeleteImage' value with any optional fields omitted.
 mkDeleteImage ::
   -- | 'imageName'
-  Lude.Text ->
+  Types.ImageName ->
   DeleteImage
-mkDeleteImage pImageName_ = DeleteImage' {imageName = pImageName_}
+mkDeleteImage imageName = DeleteImage' {imageName}
 
 -- | The name of the image to delete.
 --
 -- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diImageName :: Lens.Lens' DeleteImage Lude.Text
-diImageName = Lens.lens (imageName :: DeleteImage -> Lude.Text) (\s a -> s {imageName = a} :: DeleteImage)
-{-# DEPRECATED diImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+difImageName :: Lens.Lens' DeleteImage Types.ImageName
+difImageName = Lens.field @"imageName"
+{-# DEPRECATED difImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
-instance Lude.AWSRequest DeleteImage where
+instance Core.FromJSON DeleteImage where
+  toJSON DeleteImage {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ImageName" Core..= imageName)])
+
+instance Core.AWSRequest DeleteImage where
   type Rs DeleteImage = DeleteImageResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteImage")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteImageResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteImageResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteImage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteImage" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteImage where
-  toJSON DeleteImage' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ImageName" Lude..= imageName)])
-
-instance Lude.ToPath DeleteImage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteImage where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteImageResponse' smart constructor.
 newtype DeleteImageResponse = DeleteImageResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteImageResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteImageResponse' value with any optional fields omitted.
 mkDeleteImageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteImageResponse
-mkDeleteImageResponse pResponseStatus_ =
-  DeleteImageResponse' {responseStatus = pResponseStatus_}
+mkDeleteImageResponse responseStatus =
+  DeleteImageResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsResponseStatus :: Lens.Lens' DeleteImageResponse Lude.Int
-dirsResponseStatus = Lens.lens (responseStatus :: DeleteImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteImageResponse)
-{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirrsResponseStatus :: Lens.Lens' DeleteImageResponse Core.Int
+dirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

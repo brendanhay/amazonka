@@ -17,125 +17,116 @@ module Network.AWS.MediaConvert.Types.ColorCorrector
     mkColorCorrector,
 
     -- * Lenses
-    ccSaturation,
-    ccHue,
-    ccColorSpaceConversion,
-    ccHdr10Metadata,
-    ccContrast,
     ccBrightness,
+    ccColorSpaceConversion,
+    ccContrast,
+    ccHdr10Metadata,
+    ccHue,
+    ccSaturation,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.ColorSpaceConversion
-import Network.AWS.MediaConvert.Types.Hdr10Metadata
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.ColorSpaceConversion as Types
+import qualified Network.AWS.MediaConvert.Types.Hdr10Metadata as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for color correction.
 --
 -- /See:/ 'mkColorCorrector' smart constructor.
 data ColorCorrector = ColorCorrector'
-  { -- | Saturation level.
-    saturation :: Lude.Maybe Lude.Natural,
-    -- | Hue in degrees.
-    hue :: Lude.Maybe Lude.Int,
+  { -- | Brightness level.
+    brightness :: Core.Maybe Core.Natural,
     -- | Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR.
-    colorSpaceConversion :: Lude.Maybe ColorSpaceConversion,
-    -- | Use these settings when you convert to the HDR 10 color space. Specify the SMPTE ST 2086 Mastering Display Color Volume static metadata that you want signaled in the output. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator. When you set Color space conversion (ColorSpaceConversion) to HDR 10 (FORCE_HDR10), these settings are required. You must set values for Max frame average light level (maxFrameAverageLightLevel) and Max content light level (maxContentLightLevel); these settings don't have a default value. The default values for the other HDR 10 metadata settings are defined by the P3D65 color space. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
-    hdr10Metadata :: Lude.Maybe Hdr10Metadata,
+    colorSpaceConversion :: Core.Maybe Types.ColorSpaceConversion,
     -- | Contrast level.
-    contrast :: Lude.Maybe Lude.Natural,
-    -- | Brightness level.
-    brightness :: Lude.Maybe Lude.Natural
+    contrast :: Core.Maybe Core.Natural,
+    -- | Use these settings when you convert to the HDR 10 color space. Specify the SMPTE ST 2086 Mastering Display Color Volume static metadata that you want signaled in the output. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator. When you set Color space conversion (ColorSpaceConversion) to HDR 10 (FORCE_HDR10), these settings are required. You must set values for Max frame average light level (maxFrameAverageLightLevel) and Max content light level (maxContentLightLevel); these settings don't have a default value. The default values for the other HDR 10 metadata settings are defined by the P3D65 color space. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
+    hdr10Metadata :: Core.Maybe Types.Hdr10Metadata,
+    -- | Hue in degrees.
+    hue :: Core.Maybe Core.Int,
+    -- | Saturation level.
+    saturation :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ColorCorrector' with the minimum fields required to make a request.
---
--- * 'saturation' - Saturation level.
--- * 'hue' - Hue in degrees.
--- * 'colorSpaceConversion' - Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR.
--- * 'hdr10Metadata' - Use these settings when you convert to the HDR 10 color space. Specify the SMPTE ST 2086 Mastering Display Color Volume static metadata that you want signaled in the output. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator. When you set Color space conversion (ColorSpaceConversion) to HDR 10 (FORCE_HDR10), these settings are required. You must set values for Max frame average light level (maxFrameAverageLightLevel) and Max content light level (maxContentLightLevel); these settings don't have a default value. The default values for the other HDR 10 metadata settings are defined by the P3D65 color space. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
--- * 'contrast' - Contrast level.
--- * 'brightness' - Brightness level.
+-- | Creates a 'ColorCorrector' value with any optional fields omitted.
 mkColorCorrector ::
   ColorCorrector
 mkColorCorrector =
   ColorCorrector'
-    { saturation = Lude.Nothing,
-      hue = Lude.Nothing,
-      colorSpaceConversion = Lude.Nothing,
-      hdr10Metadata = Lude.Nothing,
-      contrast = Lude.Nothing,
-      brightness = Lude.Nothing
+    { brightness = Core.Nothing,
+      colorSpaceConversion = Core.Nothing,
+      contrast = Core.Nothing,
+      hdr10Metadata = Core.Nothing,
+      hue = Core.Nothing,
+      saturation = Core.Nothing
     }
-
--- | Saturation level.
---
--- /Note:/ Consider using 'saturation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccSaturation :: Lens.Lens' ColorCorrector (Lude.Maybe Lude.Natural)
-ccSaturation = Lens.lens (saturation :: ColorCorrector -> Lude.Maybe Lude.Natural) (\s a -> s {saturation = a} :: ColorCorrector)
-{-# DEPRECATED ccSaturation "Use generic-lens or generic-optics with 'saturation' instead." #-}
-
--- | Hue in degrees.
---
--- /Note:/ Consider using 'hue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccHue :: Lens.Lens' ColorCorrector (Lude.Maybe Lude.Int)
-ccHue = Lens.lens (hue :: ColorCorrector -> Lude.Maybe Lude.Int) (\s a -> s {hue = a} :: ColorCorrector)
-{-# DEPRECATED ccHue "Use generic-lens or generic-optics with 'hue' instead." #-}
-
--- | Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR.
---
--- /Note:/ Consider using 'colorSpaceConversion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccColorSpaceConversion :: Lens.Lens' ColorCorrector (Lude.Maybe ColorSpaceConversion)
-ccColorSpaceConversion = Lens.lens (colorSpaceConversion :: ColorCorrector -> Lude.Maybe ColorSpaceConversion) (\s a -> s {colorSpaceConversion = a} :: ColorCorrector)
-{-# DEPRECATED ccColorSpaceConversion "Use generic-lens or generic-optics with 'colorSpaceConversion' instead." #-}
-
--- | Use these settings when you convert to the HDR 10 color space. Specify the SMPTE ST 2086 Mastering Display Color Volume static metadata that you want signaled in the output. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator. When you set Color space conversion (ColorSpaceConversion) to HDR 10 (FORCE_HDR10), these settings are required. You must set values for Max frame average light level (maxFrameAverageLightLevel) and Max content light level (maxContentLightLevel); these settings don't have a default value. The default values for the other HDR 10 metadata settings are defined by the P3D65 color space. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
---
--- /Note:/ Consider using 'hdr10Metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccHdr10Metadata :: Lens.Lens' ColorCorrector (Lude.Maybe Hdr10Metadata)
-ccHdr10Metadata = Lens.lens (hdr10Metadata :: ColorCorrector -> Lude.Maybe Hdr10Metadata) (\s a -> s {hdr10Metadata = a} :: ColorCorrector)
-{-# DEPRECATED ccHdr10Metadata "Use generic-lens or generic-optics with 'hdr10Metadata' instead." #-}
-
--- | Contrast level.
---
--- /Note:/ Consider using 'contrast' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccContrast :: Lens.Lens' ColorCorrector (Lude.Maybe Lude.Natural)
-ccContrast = Lens.lens (contrast :: ColorCorrector -> Lude.Maybe Lude.Natural) (\s a -> s {contrast = a} :: ColorCorrector)
-{-# DEPRECATED ccContrast "Use generic-lens or generic-optics with 'contrast' instead." #-}
 
 -- | Brightness level.
 --
 -- /Note:/ Consider using 'brightness' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccBrightness :: Lens.Lens' ColorCorrector (Lude.Maybe Lude.Natural)
-ccBrightness = Lens.lens (brightness :: ColorCorrector -> Lude.Maybe Lude.Natural) (\s a -> s {brightness = a} :: ColorCorrector)
+ccBrightness :: Lens.Lens' ColorCorrector (Core.Maybe Core.Natural)
+ccBrightness = Lens.field @"brightness"
 {-# DEPRECATED ccBrightness "Use generic-lens or generic-optics with 'brightness' instead." #-}
 
-instance Lude.FromJSON ColorCorrector where
-  parseJSON =
-    Lude.withObject
-      "ColorCorrector"
-      ( \x ->
-          ColorCorrector'
-            Lude.<$> (x Lude..:? "saturation")
-            Lude.<*> (x Lude..:? "hue")
-            Lude.<*> (x Lude..:? "colorSpaceConversion")
-            Lude.<*> (x Lude..:? "hdr10Metadata")
-            Lude.<*> (x Lude..:? "contrast")
-            Lude.<*> (x Lude..:? "brightness")
-      )
+-- | Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR.
+--
+-- /Note:/ Consider using 'colorSpaceConversion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccColorSpaceConversion :: Lens.Lens' ColorCorrector (Core.Maybe Types.ColorSpaceConversion)
+ccColorSpaceConversion = Lens.field @"colorSpaceConversion"
+{-# DEPRECATED ccColorSpaceConversion "Use generic-lens or generic-optics with 'colorSpaceConversion' instead." #-}
 
-instance Lude.ToJSON ColorCorrector where
-  toJSON ColorCorrector' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("saturation" Lude..=) Lude.<$> saturation,
-            ("hue" Lude..=) Lude.<$> hue,
-            ("colorSpaceConversion" Lude..=) Lude.<$> colorSpaceConversion,
-            ("hdr10Metadata" Lude..=) Lude.<$> hdr10Metadata,
-            ("contrast" Lude..=) Lude.<$> contrast,
-            ("brightness" Lude..=) Lude.<$> brightness
+-- | Contrast level.
+--
+-- /Note:/ Consider using 'contrast' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccContrast :: Lens.Lens' ColorCorrector (Core.Maybe Core.Natural)
+ccContrast = Lens.field @"contrast"
+{-# DEPRECATED ccContrast "Use generic-lens or generic-optics with 'contrast' instead." #-}
+
+-- | Use these settings when you convert to the HDR 10 color space. Specify the SMPTE ST 2086 Mastering Display Color Volume static metadata that you want signaled in the output. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator. When you set Color space conversion (ColorSpaceConversion) to HDR 10 (FORCE_HDR10), these settings are required. You must set values for Max frame average light level (maxFrameAverageLightLevel) and Max content light level (maxContentLightLevel); these settings don't have a default value. The default values for the other HDR 10 metadata settings are defined by the P3D65 color space. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
+--
+-- /Note:/ Consider using 'hdr10Metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccHdr10Metadata :: Lens.Lens' ColorCorrector (Core.Maybe Types.Hdr10Metadata)
+ccHdr10Metadata = Lens.field @"hdr10Metadata"
+{-# DEPRECATED ccHdr10Metadata "Use generic-lens or generic-optics with 'hdr10Metadata' instead." #-}
+
+-- | Hue in degrees.
+--
+-- /Note:/ Consider using 'hue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccHue :: Lens.Lens' ColorCorrector (Core.Maybe Core.Int)
+ccHue = Lens.field @"hue"
+{-# DEPRECATED ccHue "Use generic-lens or generic-optics with 'hue' instead." #-}
+
+-- | Saturation level.
+--
+-- /Note:/ Consider using 'saturation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSaturation :: Lens.Lens' ColorCorrector (Core.Maybe Core.Natural)
+ccSaturation = Lens.field @"saturation"
+{-# DEPRECATED ccSaturation "Use generic-lens or generic-optics with 'saturation' instead." #-}
+
+instance Core.FromJSON ColorCorrector where
+  toJSON ColorCorrector {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("brightness" Core..=) Core.<$> brightness,
+            ("colorSpaceConversion" Core..=) Core.<$> colorSpaceConversion,
+            ("contrast" Core..=) Core.<$> contrast,
+            ("hdr10Metadata" Core..=) Core.<$> hdr10Metadata,
+            ("hue" Core..=) Core.<$> hue,
+            ("saturation" Core..=) Core.<$> saturation
           ]
       )
+
+instance Core.FromJSON ColorCorrector where
+  parseJSON =
+    Core.withObject "ColorCorrector" Core.$
+      \x ->
+        ColorCorrector'
+          Core.<$> (x Core..:? "brightness")
+          Core.<*> (x Core..:? "colorSpaceConversion")
+          Core.<*> (x Core..:? "contrast")
+          Core.<*> (x Core..:? "hdr10Metadata")
+          Core.<*> (x Core..:? "hue")
+          Core.<*> (x Core..:? "saturation")

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,31 @@
 -- AWS IoT Analytics automates the steps required to analyze data from IoT devices. AWS IoT Analytics filters, transforms, and enriches IoT data before storing it in a time-series data store for analysis. You can set up the service to collect only the data you need from your devices, apply mathematical transforms to process the data, and enrich the data with device-specific metadata such as device type and location before storing it. Then, you can analyze your data by running queries using the built-in SQL query engine, or perform more complex analytics and machine learning inference. AWS IoT Analytics includes pre-built models for common IoT use cases so you can answer questions like which devices are about to fail or which customers are at risk of abandoning their wearable devices.
 module Network.AWS.IoTAnalytics
   ( -- * Service configuration
-    ioTAnalyticsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -132,36 +152,93 @@ module Network.AWS.IoTAnalytics
 
     -- * Types
 
-    -- ** ChannelStatus
-    ChannelStatus (..),
-
-    -- ** ComputeType
-    ComputeType (..),
-
     -- ** DatasetActionType
     DatasetActionType (..),
 
-    -- ** DatasetContentState
-    DatasetContentState (..),
+    -- ** OutputFileUriValue
+    OutputFileUriValue (..),
+    mkOutputFileUriValue,
+    ofuvFileName,
 
-    -- ** DatasetStatus
-    DatasetStatus (..),
+    -- ** S3DestinationConfiguration
+    S3DestinationConfiguration (..),
+    mkS3DestinationConfiguration,
+    sdcBucket,
+    sdcKey,
+    sdcRoleArn,
+    sdcGlueConfiguration,
 
-    -- ** DatastoreStatus
-    DatastoreStatus (..),
+    -- ** IotEventsInputName
+    IotEventsInputName (..),
 
-    -- ** LoggingLevel
-    LoggingLevel (..),
+    -- ** DatasetContentStatus
+    DatasetContentStatus (..),
+    mkDatasetContentStatus,
+    dcsReason,
+    dcsState,
 
-    -- ** ReprocessingStatus
-    ReprocessingStatus (..),
+    -- ** CustomerManagedDatastoreS3Storage
+    CustomerManagedDatastoreS3Storage (..),
+    mkCustomerManagedDatastoreS3Storage,
+    cmdssBucket,
+    cmdssRoleArn,
+    cmdssKeyPrefix,
 
-    -- ** AddAttributesActivity
-    AddAttributesActivity (..),
-    mkAddAttributesActivity,
-    aaaNext,
-    aaaName,
-    aaaAttributes,
+    -- ** PipelineActivity
+    PipelineActivity (..),
+    mkPipelineActivity,
+    paAddAttributes,
+    paChannel,
+    paDatastore,
+    paDeviceRegistryEnrich,
+    paDeviceShadowEnrich,
+    paFilter,
+    paLambda,
+    paMath,
+    paRemoveAttributes,
+    paSelectAttributes,
+
+    -- ** CustomerManagedChannelS3StorageSummary
+    CustomerManagedChannelS3StorageSummary (..),
+    mkCustomerManagedChannelS3StorageSummary,
+    cmcsssBucket,
+    cmcsssKeyPrefix,
+    cmcsssRoleArn,
+
+    -- ** DatasetArn
+    DatasetArn (..),
+
+    -- ** Image
+    Image (..),
+
+    -- ** ChannelStatus
+    ChannelStatus (..),
+
+    -- ** S3KeyPrefix
+    S3KeyPrefix (..),
+
+    -- ** LambdaActivity
+    LambdaActivity (..),
+    mkLambdaActivity,
+    laName,
+    laLambdaName,
+    laBatchSize,
+    laNext,
+
+    -- ** VersioningConfiguration
+    VersioningConfiguration (..),
+    mkVersioningConfiguration,
+    vcMaxVersions,
+    vcUnlimited,
+
+    -- ** ActivityName
+    ActivityName (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** BatchPutMessageErrorEntry
     BatchPutMessageErrorEntry (..),
@@ -170,243 +247,76 @@ module Network.AWS.IoTAnalytics
     bpmeeErrorMessage,
     bpmeeMessageId,
 
-    -- ** Channel
-    Channel (..),
-    mkChannel,
-    cfCreationTime,
-    cfStatus,
-    cfLastMessageArrivalTime,
-    cfArn,
-    cfStorage,
-    cfRetentionPeriod,
-    cfName,
-    cfLastUpdateTime,
+    -- ** GlueTableName
+    GlueTableName (..),
 
-    -- ** ChannelActivity
-    ChannelActivity (..),
-    mkChannelActivity,
-    caNext,
-    caChannelName,
-    caName,
+    -- ** LateDataRuleConfiguration
+    LateDataRuleConfiguration (..),
+    mkLateDataRuleConfiguration,
+    ldrcDeltaTimeSessionWindowConfiguration,
 
-    -- ** ChannelStatistics
-    ChannelStatistics (..),
-    mkChannelStatistics,
-    csSize,
-
-    -- ** ChannelStorage
-    ChannelStorage (..),
-    mkChannelStorage,
-    csServiceManagedS3,
-    csCustomerManagedS3,
-
-    -- ** ChannelStorageSummary
-    ChannelStorageSummary (..),
-    mkChannelStorageSummary,
-    cssServiceManagedS3,
-    cssCustomerManagedS3,
-
-    -- ** ChannelSummary
-    ChannelSummary (..),
-    mkChannelSummary,
-    csCreationTime,
-    csStatus,
-    csLastMessageArrivalTime,
-    csChannelName,
-    csChannelStorage,
-    csLastUpdateTime,
-
-    -- ** ContainerDatasetAction
-    ContainerDatasetAction (..),
-    mkContainerDatasetAction,
-    cdaImage,
-    cdaResourceConfiguration,
-    cdaVariables,
-    cdaExecutionRoleARN,
-
-    -- ** CustomerManagedChannelS3Storage
-    CustomerManagedChannelS3Storage (..),
-    mkCustomerManagedChannelS3Storage,
-    cmcssBucket,
-    cmcssKeyPrefix,
-    cmcssRoleARN,
-
-    -- ** CustomerManagedChannelS3StorageSummary
-    CustomerManagedChannelS3StorageSummary (..),
-    mkCustomerManagedChannelS3StorageSummary,
-    cmcsssBucket,
-    cmcsssKeyPrefix,
-    cmcsssRoleARN,
-
-    -- ** CustomerManagedDatastoreS3Storage
-    CustomerManagedDatastoreS3Storage (..),
-    mkCustomerManagedDatastoreS3Storage,
-    cmdssBucket,
-    cmdssKeyPrefix,
-    cmdssRoleARN,
-
-    -- ** CustomerManagedDatastoreS3StorageSummary
-    CustomerManagedDatastoreS3StorageSummary (..),
-    mkCustomerManagedDatastoreS3StorageSummary,
-    cmdsssBucket,
-    cmdsssKeyPrefix,
-    cmdsssRoleARN,
-
-    -- ** Dataset
-    Dataset (..),
-    mkDataset,
-    dCreationTime,
-    dStatus,
-    dVersioningConfiguration,
-    dArn,
-    dActions,
-    dTriggers,
-    dRetentionPeriod,
-    dLateDataRules,
-    dName,
-    dContentDeliveryRules,
-    dLastUpdateTime,
-
-    -- ** DatasetAction
-    DatasetAction (..),
-    mkDatasetAction,
-    daQueryAction,
-    daActionName,
-    daContainerAction,
-
-    -- ** DatasetActionSummary
-    DatasetActionSummary (..),
-    mkDatasetActionSummary,
-    dasActionName,
-    dasActionType,
-
-    -- ** DatasetContentDeliveryDestination
-    DatasetContentDeliveryDestination (..),
-    mkDatasetContentDeliveryDestination,
-    dcddS3DestinationConfiguration,
-    dcddIotEventsDestinationConfiguration,
-
-    -- ** DatasetContentDeliveryRule
-    DatasetContentDeliveryRule (..),
-    mkDatasetContentDeliveryRule,
-    dcdrDestination,
-    dcdrEntryName,
-
-    -- ** DatasetContentStatus
-    DatasetContentStatus (..),
-    mkDatasetContentStatus,
-    dcsState,
-    dcsReason,
-
-    -- ** DatasetContentSummary
-    DatasetContentSummary (..),
-    mkDatasetContentSummary,
-    dcsCreationTime,
-    dcsStatus,
-    dcsScheduleTime,
-    dcsCompletionTime,
-    dcsVersion,
-
-    -- ** DatasetContentVersionValue
-    DatasetContentVersionValue (..),
-    mkDatasetContentVersionValue,
-    dcvvDatasetName,
-
-    -- ** DatasetEntry
-    DatasetEntry (..),
-    mkDatasetEntry,
-    deEntryName,
-    deDataURI,
-
-    -- ** DatasetSummary
-    DatasetSummary (..),
-    mkDatasetSummary,
-    dsfCreationTime,
-    dsfStatus,
-    dsfActions,
-    dsfTriggers,
-    dsfDatasetName,
-    dsfLastUpdateTime,
-
-    -- ** DatasetTrigger
-    DatasetTrigger (..),
-    mkDatasetTrigger,
-    dtDataset,
-    dtSchedule,
-
-    -- ** Datastore
-    Datastore (..),
-    mkDatastore,
-    dfCreationTime,
-    dfStatus,
-    dfLastMessageArrivalTime,
-    dfArn,
-    dfStorage,
-    dfRetentionPeriod,
-    dfName,
-    dfLastUpdateTime,
-
-    -- ** DatastoreActivity
-    DatastoreActivity (..),
-    mkDatastoreActivity,
-    daDatastoreName,
-    daName,
+    -- ** MathExpression
+    MathExpression (..),
 
     -- ** DatastoreStatistics
     DatastoreStatistics (..),
     mkDatastoreStatistics,
     dsSize,
 
-    -- ** DatastoreStorage
-    DatastoreStorage (..),
-    mkDatastoreStorage,
-    dsServiceManagedS3,
-    dsCustomerManagedS3,
+    -- ** FilterExpression
+    FilterExpression (..),
+
+    -- ** DatastoreActivity
+    DatastoreActivity (..),
+    mkDatastoreActivity,
+    daName,
+    daDatastoreName,
+
+    -- ** QueryFilter
+    QueryFilter (..),
+    mkQueryFilter,
+    qfDeltaTime,
 
     -- ** DatastoreStorageSummary
     DatastoreStorageSummary (..),
     mkDatastoreStorageSummary,
-    dssServiceManagedS3,
     dssCustomerManagedS3,
+    dssServiceManagedS3,
 
-    -- ** DatastoreSummary
-    DatastoreSummary (..),
-    mkDatastoreSummary,
-    dsCreationTime,
-    dsStatus,
-    dsLastMessageArrivalTime,
-    dsDatastoreName,
-    dsLastUpdateTime,
-    dsDatastoreStorage,
+    -- ** Dataset
+    Dataset (..),
+    mkDataset,
+    dActions,
+    dArn,
+    dContentDeliveryRules,
+    dCreationTime,
+    dLastUpdateTime,
+    dLateDataRules,
+    dName,
+    dRetentionPeriod,
+    dStatus,
+    dTriggers,
+    dVersioningConfiguration,
 
-    -- ** DeltaTime
-    DeltaTime (..),
-    mkDeltaTime,
-    dtTimeExpression,
-    dtOffsetSeconds,
+    -- ** ServiceManagedDatastoreS3StorageSummary
+    ServiceManagedDatastoreS3StorageSummary (..),
+    mkServiceManagedDatastoreS3StorageSummary,
 
-    -- ** DeltaTimeSessionWindowConfiguration
-    DeltaTimeSessionWindowConfiguration (..),
-    mkDeltaTimeSessionWindowConfiguration,
-    dtswcTimeoutInMinutes,
+    -- ** DatastoreArn
+    DatastoreArn (..),
 
-    -- ** DeviceRegistryEnrichActivity
-    DeviceRegistryEnrichActivity (..),
-    mkDeviceRegistryEnrichActivity,
-    dreaAttribute,
-    dreaNext,
-    dreaName,
-    dreaThingName,
-    dreaRoleARN,
+    -- ** ResourceConfiguration
+    ResourceConfiguration (..),
+    mkResourceConfiguration,
+    rcComputeType,
+    rcVolumeSizeInGB,
 
-    -- ** DeviceShadowEnrichActivity
-    DeviceShadowEnrichActivity (..),
-    mkDeviceShadowEnrichActivity,
-    dseaAttribute,
-    dseaNext,
-    dseaName,
-    dseaThingName,
-    dseaRoleARN,
+    -- ** FilterActivity
+    FilterActivity (..),
+    mkFilterActivity,
+    faName,
+    faFilter,
+    faNext,
 
     -- ** EstimatedResourceSize
     EstimatedResourceSize (..),
@@ -414,210 +324,468 @@ module Network.AWS.IoTAnalytics
     ersEstimatedOn,
     ersEstimatedSizeInBytes,
 
-    -- ** FilterActivity
-    FilterActivity (..),
-    mkFilterActivity,
-    faNext,
-    faName,
-    faFilter,
+    -- ** LateDataRuleName
+    LateDataRuleName (..),
 
-    -- ** GlueConfiguration
-    GlueConfiguration (..),
-    mkGlueConfiguration,
-    gcDatabaseName,
-    gcTableName,
+    -- ** LogResult
+    LogResult (..),
 
-    -- ** IotEventsDestinationConfiguration
-    IotEventsDestinationConfiguration (..),
-    mkIotEventsDestinationConfiguration,
-    iedcInputName,
-    iedcRoleARN,
+    -- ** PipelineName
+    PipelineName (..),
 
-    -- ** LambdaActivity
-    LambdaActivity (..),
-    mkLambdaActivity,
-    laNext,
-    laLambdaName,
-    laBatchSize,
-    laName,
-
-    -- ** LateDataRule
-    LateDataRule (..),
-    mkLateDataRule,
-    ldrRuleName,
-    ldrRuleConfiguration,
-
-    -- ** LateDataRuleConfiguration
-    LateDataRuleConfiguration (..),
-    mkLateDataRuleConfiguration,
-    ldrcDeltaTimeSessionWindowConfiguration,
-
-    -- ** LoggingOptions
-    LoggingOptions (..),
-    mkLoggingOptions,
-    loEnabled,
-    loLevel,
-    loRoleARN,
+    -- ** LoggingLevel
+    LoggingLevel (..),
 
     -- ** MathActivity
     MathActivity (..),
     mkMathActivity,
-    maAttribute,
-    maNext,
     maName,
+    maAttribute,
     maMath,
-
-    -- ** Message
-    Message (..),
-    mkMessage,
-    mPayload,
-    mMessageId,
-
-    -- ** OutputFileURIValue
-    OutputFileURIValue (..),
-    mkOutputFileURIValue,
-    ofuvFileName,
-
-    -- ** Pipeline
-    Pipeline (..),
-    mkPipeline,
-    pCreationTime,
-    pArn,
-    pActivities,
-    pName,
-    pReprocessingSummaries,
-    pLastUpdateTime,
-
-    -- ** PipelineActivity
-    PipelineActivity (..),
-    mkPipelineActivity,
-    paSelectAttributes,
-    paChannel,
-    paAddAttributes,
-    paDeviceRegistryEnrich,
-    paRemoveAttributes,
-    paLambda,
-    paDatastore,
-    paDeviceShadowEnrich,
-    paFilter,
-    paMath,
-
-    -- ** PipelineSummary
-    PipelineSummary (..),
-    mkPipelineSummary,
-    psCreationTime,
-    psPipelineName,
-    psReprocessingSummaries,
-    psLastUpdateTime,
-
-    -- ** QueryFilter
-    QueryFilter (..),
-    mkQueryFilter,
-    qfDeltaTime,
-
-    -- ** RemoveAttributesActivity
-    RemoveAttributesActivity (..),
-    mkRemoveAttributesActivity,
-    raaNext,
-    raaName,
-    raaAttributes,
-
-    -- ** ReprocessingSummary
-    ReprocessingSummary (..),
-    mkReprocessingSummary,
-    rsCreationTime,
-    rsStatus,
-    rsId,
-
-    -- ** ResourceConfiguration
-    ResourceConfiguration (..),
-    mkResourceConfiguration,
-    rcVolumeSizeInGB,
-    rcComputeType,
-
-    -- ** RetentionPeriod
-    RetentionPeriod (..),
-    mkRetentionPeriod,
-    rpUnlimited,
-    rpNumberOfDays,
-
-    -- ** S3DestinationConfiguration
-    S3DestinationConfiguration (..),
-    mkS3DestinationConfiguration,
-    sdcGlueConfiguration,
-    sdcBucket,
-    sdcKey,
-    sdcRoleARN,
+    maNext,
 
     -- ** Schedule
     Schedule (..),
     mkSchedule,
     sExpression,
 
-    -- ** SelectAttributesActivity
-    SelectAttributesActivity (..),
-    mkSelectAttributesActivity,
-    saaNext,
-    saaName,
-    saaAttributes,
+    -- ** DeltaTime
+    DeltaTime (..),
+    mkDeltaTime,
+    dtOffsetSeconds,
+    dtTimeExpression,
 
-    -- ** ServiceManagedChannelS3Storage
-    ServiceManagedChannelS3Storage (..),
-    mkServiceManagedChannelS3Storage,
+    -- ** LambdaName
+    LambdaName (..),
+
+    -- ** DatastoreName
+    DatastoreName (..),
+
+    -- ** DeviceShadowEnrichActivity
+    DeviceShadowEnrichActivity (..),
+    mkDeviceShadowEnrichActivity,
+    dseaName,
+    dseaAttribute,
+    dseaThingName,
+    dseaRoleArn,
+    dseaNext,
+
+    -- ** SqlQueryDatasetAction
+    SqlQueryDatasetAction (..),
+    mkSqlQueryDatasetAction,
+    sqdaSqlQuery,
+    sqdaFilters,
+
+    -- ** PresignedURI
+    PresignedURI (..),
+
+    -- ** DeviceRegistryEnrichActivity
+    DeviceRegistryEnrichActivity (..),
+    mkDeviceRegistryEnrichActivity,
+    dreaName,
+    dreaAttribute,
+    dreaThingName,
+    dreaRoleArn,
+    dreaNext,
+
+    -- ** DatastoreSummary
+    DatastoreSummary (..),
+    mkDatastoreSummary,
+    dsCreationTime,
+    dsDatastoreName,
+    dsDatastoreStorage,
+    dsLastMessageArrivalTime,
+    dsLastUpdateTime,
+    dsStatus,
+
+    -- ** AddAttributesActivity
+    AddAttributesActivity (..),
+    mkAddAttributesActivity,
+    aaaName,
+    aaaAttributes,
+    aaaNext,
+
+    -- ** GlueConfiguration
+    GlueConfiguration (..),
+    mkGlueConfiguration,
+    gcTableName,
+    gcDatabaseName,
+
+    -- ** Channel
+    Channel (..),
+    mkChannel,
+    cArn,
+    cCreationTime,
+    cLastMessageArrivalTime,
+    cLastUpdateTime,
+    cName,
+    cRetentionPeriod,
+    cStatus,
+    cStorage,
+
+    -- ** DatasetActionName
+    DatasetActionName (..),
+
+    -- ** EntryName
+    EntryName (..),
 
     -- ** ServiceManagedChannelS3StorageSummary
     ServiceManagedChannelS3StorageSummary (..),
     mkServiceManagedChannelS3StorageSummary,
 
-    -- ** ServiceManagedDatastoreS3Storage
-    ServiceManagedDatastoreS3Storage (..),
-    mkServiceManagedDatastoreS3Storage,
+    -- ** ChannelActivity
+    ChannelActivity (..),
+    mkChannelActivity,
+    caName,
+    caChannelName,
+    caNext,
 
-    -- ** ServiceManagedDatastoreS3StorageSummary
-    ServiceManagedDatastoreS3StorageSummary (..),
-    mkServiceManagedDatastoreS3StorageSummary,
+    -- ** ChannelStatistics
+    ChannelStatistics (..),
+    mkChannelStatistics,
+    csSize,
 
-    -- ** SqlQueryDatasetAction
-    SqlQueryDatasetAction (..),
-    mkSqlQueryDatasetAction,
-    sqdaFilters,
-    sqdaSqlQuery,
+    -- ** Variable
+    Variable (..),
+    mkVariable,
+    vName,
+    vDatasetContentVersionValue,
+    vDoubleValue,
+    vOutputFileUriValue,
+    vStringValue,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ChannelArn
+    ChannelArn (..),
+
+    -- ** StringValue
+    StringValue (..),
+
+    -- ** PipelineSummary
+    PipelineSummary (..),
+    mkPipelineSummary,
+    psCreationTime,
+    psLastUpdateTime,
+    psPipelineName,
+    psReprocessingSummaries,
+
+    -- ** ChannelStorageSummary
+    ChannelStorageSummary (..),
+    mkChannelStorageSummary,
+    cssCustomerManagedS3,
+    cssServiceManagedS3,
+
+    -- ** DatasetEntry
+    DatasetEntry (..),
+    mkDatasetEntry,
+    deDataURI,
+    deEntryName,
+
+    -- ** IotEventsDestinationConfiguration
+    IotEventsDestinationConfiguration (..),
+    mkIotEventsDestinationConfiguration,
+    iedcInputName,
+    iedcRoleArn,
+
+    -- ** DatasetContentVersion
+    DatasetContentVersion (..),
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** RetentionPeriod
+    RetentionPeriod (..),
+    mkRetentionPeriod,
+    rpNumberOfDays,
+    rpUnlimited,
+
+    -- ** ReprocessingId
+    ReprocessingId (..),
+
+    -- ** RemoveAttributesActivity
+    RemoveAttributesActivity (..),
+    mkRemoveAttributesActivity,
+    raaName,
+    raaAttributes,
+    raaNext,
+
+    -- ** SqlQuery
+    SqlQuery (..),
+
+    -- ** Reason
+    Reason (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ChannelName
+    ChannelName (..),
+
+    -- ** DatasetContentState
+    DatasetContentState (..),
+
+    -- ** DatasetAction
+    DatasetAction (..),
+    mkDatasetAction,
+    daActionName,
+    daContainerAction,
+    daQueryAction,
+
+    -- ** Datastore
+    Datastore (..),
+    mkDatastore,
+    dfArn,
+    dfCreationTime,
+    dfLastMessageArrivalTime,
+    dfLastUpdateTime,
+    dfName,
+    dfRetentionPeriod,
+    dfStatus,
+    dfStorage,
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** DatasetContentSummary
+    DatasetContentSummary (..),
+    mkDatasetContentSummary,
+    dcsCompletionTime,
+    dcsCreationTime,
+    dcsScheduleTime,
+    dcsStatus,
+    dcsVersion,
+
+    -- ** DeltaTimeSessionWindowConfiguration
+    DeltaTimeSessionWindowConfiguration (..),
+    mkDeltaTimeSessionWindowConfiguration,
+    dtswcTimeoutInMinutes,
+
+    -- ** TimeExpression
+    TimeExpression (..),
+
+    -- ** ChannelSummary
+    ChannelSummary (..),
+    mkChannelSummary,
+    csChannelName,
+    csChannelStorage,
+    csCreationTime,
+    csLastMessageArrivalTime,
+    csLastUpdateTime,
+    csStatus,
+
+    -- ** PipelineArn
+    PipelineArn (..),
+
+    -- ** ChannelStorage
+    ChannelStorage (..),
+    mkChannelStorage,
+    csCustomerManagedS3,
+    csServiceManagedS3,
+
+    -- ** DatasetTrigger
+    DatasetTrigger (..),
+    mkDatasetTrigger,
+    dtDataset,
+    dtSchedule,
+
+    -- ** DatasetContentVersionValue
+    DatasetContentVersionValue (..),
+    mkDatasetContentVersionValue,
+    dcvvDatasetName,
+
+    -- ** Pipeline
+    Pipeline (..),
+    mkPipeline,
+    pActivities,
+    pArn,
+    pCreationTime,
+    pLastUpdateTime,
+    pName,
+    pReprocessingSummaries,
+
+    -- ** SelectAttributesActivity
+    SelectAttributesActivity (..),
+    mkSelectAttributesActivity,
+    saaName,
+    saaAttributes,
+    saaNext,
+
+    -- ** LateDataRule
+    LateDataRule (..),
+    mkLateDataRule,
+    ldrRuleConfiguration,
+    ldrRuleName,
 
     -- ** TriggeringDataset
     TriggeringDataset (..),
     mkTriggeringDataset,
     tdName,
 
-    -- ** Variable
-    Variable (..),
-    mkVariable,
-    vOutputFileURIValue,
-    vDoubleValue,
-    vStringValue,
-    vName,
-    vDatasetContentVersionValue,
+    -- ** ServiceManagedChannelS3Storage
+    ServiceManagedChannelS3Storage (..),
+    mkServiceManagedChannelS3Storage,
 
-    -- ** VersioningConfiguration
-    VersioningConfiguration (..),
-    mkVersioningConfiguration,
-    vcUnlimited,
-    vcMaxVersions,
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** DatasetName
+    DatasetName (..),
+
+    -- ** ComputeType
+    ComputeType (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** ReprocessingStatus
+    ReprocessingStatus (..),
+
+    -- ** ReprocessingSummary
+    ReprocessingSummary (..),
+    mkReprocessingSummary,
+    rsCreationTime,
+    rsId,
+    rsStatus,
+
+    -- ** DatasetActionSummary
+    DatasetActionSummary (..),
+    mkDatasetActionSummary,
+    dasActionName,
+    dasActionType,
+
+    -- ** LoggingOptions
+    LoggingOptions (..),
+    mkLoggingOptions,
+    loRoleArn,
+    loLevel,
+    loEnabled,
+
+    -- ** DatastoreStatus
+    DatastoreStatus (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** Message
+    Message (..),
+    mkMessage,
+    mMessageId,
+    mPayload,
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** CustomerManagedChannelS3Storage
+    CustomerManagedChannelS3Storage (..),
+    mkCustomerManagedChannelS3Storage,
+    cmcssBucket,
+    cmcssRoleArn,
+    cmcssKeyPrefix,
+
+    -- ** DatasetContentDeliveryDestination
+    DatasetContentDeliveryDestination (..),
+    mkDatasetContentDeliveryDestination,
+    dcddIotEventsDestinationConfiguration,
+    dcddS3DestinationConfiguration,
+
+    -- ** ContainerDatasetAction
+    ContainerDatasetAction (..),
+    mkContainerDatasetAction,
+    cdaImage,
+    cdaExecutionRoleArn,
+    cdaResourceConfiguration,
+    cdaVariables,
+
+    -- ** CustomerManagedDatastoreS3StorageSummary
+    CustomerManagedDatastoreS3StorageSummary (..),
+    mkCustomerManagedDatastoreS3StorageSummary,
+    cmdsssBucket,
+    cmdsssKeyPrefix,
+    cmdsssRoleArn,
+
+    -- ** ServiceManagedDatastoreS3Storage
+    ServiceManagedDatastoreS3Storage (..),
+    mkServiceManagedDatastoreS3Storage,
+
+    -- ** DatastoreStorage
+    DatastoreStorage (..),
+    mkDatastoreStorage,
+    dsCustomerManagedS3,
+    dsServiceManagedS3,
+
+    -- ** DatasetStatus
+    DatasetStatus (..),
+
+    -- ** MessageId
+    MessageId (..),
+
+    -- ** DatasetSummary
+    DatasetSummary (..),
+    mkDatasetSummary,
+    dsfActions,
+    dsfCreationTime,
+    dsfDatasetName,
+    dsfLastUpdateTime,
+    dsfStatus,
+    dsfTriggers,
+
+    -- ** DatasetContentDeliveryRule
+    DatasetContentDeliveryRule (..),
+    mkDatasetContentDeliveryRule,
+    dcdrDestination,
+    dcdrEntryName,
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** FileName
+    FileName (..),
+
+    -- ** Bucket
+    Bucket (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** KeyPrefix
+    KeyPrefix (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Next
+    Next (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Attribute
+    Attribute (..),
+
+    -- ** Expression
+    Expression (..),
+
+    -- ** ThingName
+    ThingName (..),
+
+    -- ** VersionId
+    VersionId (..),
+
+    -- ** DatabaseName
+    DatabaseName (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** ExecutionRoleArn
+    ExecutionRoleArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

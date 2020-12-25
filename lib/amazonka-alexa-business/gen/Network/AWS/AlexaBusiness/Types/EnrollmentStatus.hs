@@ -13,61 +13,66 @@
 module Network.AWS.AlexaBusiness.Types.EnrollmentStatus
   ( EnrollmentStatus
       ( EnrollmentStatus',
-        ESInitialized,
-        ESPending,
-        ESRegistered,
-        ESDisassociating,
-        ESDeregistering
+        EnrollmentStatusInitialized,
+        EnrollmentStatusPending,
+        EnrollmentStatusRegistered,
+        EnrollmentStatusDisassociating,
+        EnrollmentStatusDeregistering,
+        fromEnrollmentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EnrollmentStatus = EnrollmentStatus' Lude.Text
+newtype EnrollmentStatus = EnrollmentStatus'
+  { fromEnrollmentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESInitialized :: EnrollmentStatus
-pattern ESInitialized = EnrollmentStatus' "INITIALIZED"
+pattern EnrollmentStatusInitialized :: EnrollmentStatus
+pattern EnrollmentStatusInitialized = EnrollmentStatus' "INITIALIZED"
 
-pattern ESPending :: EnrollmentStatus
-pattern ESPending = EnrollmentStatus' "PENDING"
+pattern EnrollmentStatusPending :: EnrollmentStatus
+pattern EnrollmentStatusPending = EnrollmentStatus' "PENDING"
 
-pattern ESRegistered :: EnrollmentStatus
-pattern ESRegistered = EnrollmentStatus' "REGISTERED"
+pattern EnrollmentStatusRegistered :: EnrollmentStatus
+pattern EnrollmentStatusRegistered = EnrollmentStatus' "REGISTERED"
 
-pattern ESDisassociating :: EnrollmentStatus
-pattern ESDisassociating = EnrollmentStatus' "DISASSOCIATING"
+pattern EnrollmentStatusDisassociating :: EnrollmentStatus
+pattern EnrollmentStatusDisassociating = EnrollmentStatus' "DISASSOCIATING"
 
-pattern ESDeregistering :: EnrollmentStatus
-pattern ESDeregistering = EnrollmentStatus' "DEREGISTERING"
+pattern EnrollmentStatusDeregistering :: EnrollmentStatus
+pattern EnrollmentStatusDeregistering = EnrollmentStatus' "DEREGISTERING"
 
 {-# COMPLETE
-  ESInitialized,
-  ESPending,
-  ESRegistered,
-  ESDisassociating,
-  ESDeregistering,
+  EnrollmentStatusInitialized,
+  EnrollmentStatusPending,
+  EnrollmentStatusRegistered,
+  EnrollmentStatusDisassociating,
+  EnrollmentStatusDeregistering,
   EnrollmentStatus'
   #-}

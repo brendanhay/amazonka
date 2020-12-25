@@ -23,59 +23,53 @@ module Network.AWS.S3.Types.IntelligentTieringAndOperator
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
+import qualified Network.AWS.S3.Types.Tag as Types
 
 -- | A container for specifying S3 Intelligent-Tiering filters. The filters determine the subset of objects to which the rule applies.
 --
 -- /See:/ 'mkIntelligentTieringAndOperator' smart constructor.
 data IntelligentTieringAndOperator = IntelligentTieringAndOperator'
   { -- | An object key name prefix that identifies the subset of objects to which the configuration applies.
-    prefix :: Lude.Maybe Lude.Text,
+    prefix :: Core.Maybe Types.Prefix,
     -- | All of these tags must exist in the object's tag set in order for the configuration to apply.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IntelligentTieringAndOperator' with the minimum fields required to make a request.
---
--- * 'prefix' - An object key name prefix that identifies the subset of objects to which the configuration applies.
--- * 'tags' - All of these tags must exist in the object's tag set in order for the configuration to apply.
+-- | Creates a 'IntelligentTieringAndOperator' value with any optional fields omitted.
 mkIntelligentTieringAndOperator ::
   IntelligentTieringAndOperator
 mkIntelligentTieringAndOperator =
   IntelligentTieringAndOperator'
-    { prefix = Lude.Nothing,
-      tags = Lude.Nothing
+    { prefix = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | An object key name prefix that identifies the subset of objects to which the configuration applies.
 --
 -- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itaoPrefix :: Lens.Lens' IntelligentTieringAndOperator (Lude.Maybe Lude.Text)
-itaoPrefix = Lens.lens (prefix :: IntelligentTieringAndOperator -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: IntelligentTieringAndOperator)
+itaoPrefix :: Lens.Lens' IntelligentTieringAndOperator (Core.Maybe Types.Prefix)
+itaoPrefix = Lens.field @"prefix"
 {-# DEPRECATED itaoPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | All of these tags must exist in the object's tag set in order for the configuration to apply.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itaoTags :: Lens.Lens' IntelligentTieringAndOperator (Lude.Maybe [Tag])
-itaoTags = Lens.lens (tags :: IntelligentTieringAndOperator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: IntelligentTieringAndOperator)
+itaoTags :: Lens.Lens' IntelligentTieringAndOperator (Core.Maybe [Types.Tag])
+itaoTags = Lens.field @"tags"
 {-# DEPRECATED itaoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML IntelligentTieringAndOperator where
+instance Core.ToXML IntelligentTieringAndOperator where
+  toXML IntelligentTieringAndOperator {..} =
+    Core.toXMLNode "Prefix" Core.<$> prefix
+      Core.<> Core.toXMLNode "Tag" (Core.toXMLList "Tag" Core.<$> tags)
+
+instance Core.FromXML IntelligentTieringAndOperator where
   parseXML x =
     IntelligentTieringAndOperator'
-      Lude.<$> (x Lude..@? "Prefix")
-      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
-               )
-
-instance Lude.ToXML IntelligentTieringAndOperator where
-  toXML IntelligentTieringAndOperator' {..} =
-    Lude.mconcat
-      [ "Prefix" Lude.@= prefix,
-        "Tag" Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> tags)
-      ]
+      Core.<$> (x Core..@? "Prefix")
+      Core.<*> (x Core..@? "Tag" Core..<@> Core.parseXMLList "Tag")

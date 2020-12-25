@@ -17,59 +17,54 @@ module Network.AWS.Config.Types.FailedRemediationBatch
     mkFailedRemediationBatch,
 
     -- * Lenses
-    frbFailureMessage,
     frbFailedItems,
+    frbFailureMessage,
   )
 where
 
-import Network.AWS.Config.Types.RemediationConfiguration
+import qualified Network.AWS.Config.Types.RemediationConfiguration as Types
+import qualified Network.AWS.Config.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | List of each of the failed remediations with specific reasons.
 --
 -- /See:/ 'mkFailedRemediationBatch' smart constructor.
 data FailedRemediationBatch = FailedRemediationBatch'
-  { -- | Returns a failure message. For example, the resource is already compliant.
-    failureMessage :: Lude.Maybe Lude.Text,
-    -- | Returns remediation configurations of the failed items.
-    failedItems :: Lude.Maybe [RemediationConfiguration]
+  { -- | Returns remediation configurations of the failed items.
+    failedItems :: Core.Maybe [Types.RemediationConfiguration],
+    -- | Returns a failure message. For example, the resource is already compliant.
+    failureMessage :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailedRemediationBatch' with the minimum fields required to make a request.
---
--- * 'failureMessage' - Returns a failure message. For example, the resource is already compliant.
--- * 'failedItems' - Returns remediation configurations of the failed items.
+-- | Creates a 'FailedRemediationBatch' value with any optional fields omitted.
 mkFailedRemediationBatch ::
   FailedRemediationBatch
 mkFailedRemediationBatch =
   FailedRemediationBatch'
-    { failureMessage = Lude.Nothing,
-      failedItems = Lude.Nothing
+    { failedItems = Core.Nothing,
+      failureMessage = Core.Nothing
     }
-
--- | Returns a failure message. For example, the resource is already compliant.
---
--- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frbFailureMessage :: Lens.Lens' FailedRemediationBatch (Lude.Maybe Lude.Text)
-frbFailureMessage = Lens.lens (failureMessage :: FailedRemediationBatch -> Lude.Maybe Lude.Text) (\s a -> s {failureMessage = a} :: FailedRemediationBatch)
-{-# DEPRECATED frbFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
 
 -- | Returns remediation configurations of the failed items.
 --
 -- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frbFailedItems :: Lens.Lens' FailedRemediationBatch (Lude.Maybe [RemediationConfiguration])
-frbFailedItems = Lens.lens (failedItems :: FailedRemediationBatch -> Lude.Maybe [RemediationConfiguration]) (\s a -> s {failedItems = a} :: FailedRemediationBatch)
+frbFailedItems :: Lens.Lens' FailedRemediationBatch (Core.Maybe [Types.RemediationConfiguration])
+frbFailedItems = Lens.field @"failedItems"
 {-# DEPRECATED frbFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
 
-instance Lude.FromJSON FailedRemediationBatch where
+-- | Returns a failure message. For example, the resource is already compliant.
+--
+-- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frbFailureMessage :: Lens.Lens' FailedRemediationBatch (Core.Maybe Types.String)
+frbFailureMessage = Lens.field @"failureMessage"
+{-# DEPRECATED frbFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
+
+instance Core.FromJSON FailedRemediationBatch where
   parseJSON =
-    Lude.withObject
-      "FailedRemediationBatch"
-      ( \x ->
-          FailedRemediationBatch'
-            Lude.<$> (x Lude..:? "FailureMessage")
-            Lude.<*> (x Lude..:? "FailedItems" Lude..!= Lude.mempty)
-      )
+    Core.withObject "FailedRemediationBatch" Core.$
+      \x ->
+        FailedRemediationBatch'
+          Core.<$> (x Core..:? "FailedItems") Core.<*> (x Core..:? "FailureMessage")

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +19,331 @@
 -- If you are a database developer, the <https://docs.aws.amazon.com/redshift/latest/dg/welcome.html Amazon Redshift Database Developer Guide> explains how to design, build, query, and maintain the databases that make up your data warehouse.
 module Network.AWS.Redshift
   ( -- * Service configuration
-    redshiftService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ClusterSecurityGroupQuotaExceededFault
+    _ClusterSecurityGroupQuotaExceededFault,
+
+    -- ** InvalidS3KeyPrefixFault
+    _InvalidS3KeyPrefixFault,
+
+    -- ** SourceNotFoundFault
+    _SourceNotFoundFault,
+
+    -- ** AuthorizationQuotaExceededFault
+    _AuthorizationQuotaExceededFault,
+
+    -- ** CopyToRegionDisabledFault
+    _CopyToRegionDisabledFault,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
+
+    -- ** InvalidClusterSecurityGroupStateFault
+    _InvalidClusterSecurityGroupStateFault,
+
+    -- ** ClusterSecurityGroupAlreadyExistsFault
+    _ClusterSecurityGroupAlreadyExistsFault,
+
+    -- ** ClusterSnapshotNotFoundFault
+    _ClusterSnapshotNotFoundFault,
+
+    -- ** InvalidElasticIpFault
+    _InvalidElasticIpFault,
+
+    -- ** TableRestoreNotFoundFault
+    _TableRestoreNotFoundFault,
+
+    -- ** HsmConfigurationNotFoundFault
+    _HsmConfigurationNotFoundFault,
+
+    -- ** ScheduleDefinitionTypeUnsupportedFault
+    _ScheduleDefinitionTypeUnsupportedFault,
+
+    -- ** AuthorizationAlreadyExistsFault
+    _AuthorizationAlreadyExistsFault,
+
+    -- ** SubscriptionCategoryNotFoundFault
+    _SubscriptionCategoryNotFoundFault,
+
+    -- ** InvalidRetentionPeriodFault
+    _InvalidRetentionPeriodFault,
+
+    -- ** HsmConfigurationAlreadyExistsFault
+    _HsmConfigurationAlreadyExistsFault,
+
+    -- ** SubscriptionNotFoundFault
+    _SubscriptionNotFoundFault,
+
+    -- ** InvalidS3BucketNameFault
+    _InvalidS3BucketNameFault,
+
+    -- ** ClusterSnapshotAlreadyExistsFault
+    _ClusterSnapshotAlreadyExistsFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** TableLimitExceededFault
+    _TableLimitExceededFault,
+
+    -- ** InvalidHsmConfigurationStateFault
+    _InvalidHsmConfigurationStateFault,
+
+    -- ** SnapshotCopyAlreadyDisabledFault
+    _SnapshotCopyAlreadyDisabledFault,
+
+    -- ** ClusterQuotaExceededFault
+    _ClusterQuotaExceededFault,
+
+    -- ** HsmClientCertificateQuotaExceededFault
+    _HsmClientCertificateQuotaExceededFault,
+
+    -- ** SnapshotScheduleAlreadyExistsFault
+    _SnapshotScheduleAlreadyExistsFault,
+
+    -- ** BatchModifyClusterSnapshotsLimitExceededFault
+    _BatchModifyClusterSnapshotsLimitExceededFault,
+
+    -- ** ClusterParameterGroupNotFoundFault
+    _ClusterParameterGroupNotFoundFault,
+
+    -- ** SnapshotCopyGrantQuotaExceededFault
+    _SnapshotCopyGrantQuotaExceededFault,
+
+    -- ** NumberOfNodesPerClusterLimitExceededFault
+    _NumberOfNodesPerClusterLimitExceededFault,
+
+    -- ** SnapshotCopyAlreadyEnabledFault
+    _SnapshotCopyAlreadyEnabledFault,
+
+    -- ** ClusterParameterGroupAlreadyExistsFault
+    _ClusterParameterGroupAlreadyExistsFault,
+
+    -- ** BatchDeleteRequestSizeExceededFault
+    _BatchDeleteRequestSizeExceededFault,
+
+    -- ** SnapshotCopyDisabledFault
+    _SnapshotCopyDisabledFault,
+
+    -- ** ResizeNotFoundFault
+    _ResizeNotFoundFault,
+
+    -- ** HsmClientCertificateNotFoundFault
+    _HsmClientCertificateNotFoundFault,
+
+    -- ** SNSTopicArnNotFoundFault
+    _SNSTopicArnNotFoundFault,
+
+    -- ** ClusterNotFoundFault
+    _ClusterNotFoundFault,
+
+    -- ** ClusterParameterGroupQuotaExceededFault
+    _ClusterParameterGroupQuotaExceededFault,
+
+    -- ** SnapshotCopyGrantAlreadyExistsFault
+    _SnapshotCopyGrantAlreadyExistsFault,
+
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
+
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
+
+    -- ** InvalidTableRestoreArgumentFault
+    _InvalidTableRestoreArgumentFault,
+
+    -- ** SnapshotCopyGrantNotFoundFault
+    _SnapshotCopyGrantNotFoundFault,
+
+    -- ** InvalidScheduleFault
+    _InvalidScheduleFault,
+
+    -- ** InvalidClusterTrackFault
+    _InvalidClusterTrackFault,
+
+    -- ** HsmConfigurationQuotaExceededFault
+    _HsmConfigurationQuotaExceededFault,
+
+    -- ** ClusterSnapshotQuotaExceededFault
+    _ClusterSnapshotQuotaExceededFault,
+
+    -- ** InsufficientClusterCapacityFault
+    _InsufficientClusterCapacityFault,
+
+    -- ** InvalidScheduledActionFault
+    _InvalidScheduledActionFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** UsageLimitAlreadyExistsFault
+    _UsageLimitAlreadyExistsFault,
+
+    -- ** DependentServiceUnavailableFault
+    _DependentServiceUnavailableFault,
+
+    -- ** UnsupportedOptionFault
+    _UnsupportedOptionFault,
+
+    -- ** SubscriptionAlreadyExistFault
+    _SubscriptionAlreadyExistFault,
+
+    -- ** InvalidClusterSnapshotScheduleStateFault
+    _InvalidClusterSnapshotScheduleStateFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** ClusterSubnetGroupNotFoundFault
+    _ClusterSubnetGroupNotFoundFault,
+
+    -- ** BucketNotFoundFault
+    _BucketNotFoundFault,
+
+    -- ** InvalidSubscriptionStateFault
+    _InvalidSubscriptionStateFault,
+
+    -- ** DependentServiceRequestThrottlingFault
+    _DependentServiceRequestThrottlingFault,
+
+    -- ** AuthorizationNotFoundFault
+    _AuthorizationNotFoundFault,
+
+    -- ** InvalidClusterSubnetGroupStateFault
+    _InvalidClusterSubnetGroupStateFault,
+
+    -- ** UnsupportedOperationFault
+    _UnsupportedOperationFault,
+
+    -- ** ClusterSubnetGroupAlreadyExistsFault
+    _ClusterSubnetGroupAlreadyExistsFault,
+
+    -- ** InvalidClusterSnapshotStateFault
+    _InvalidClusterSnapshotStateFault,
+
+    -- ** ClusterSecurityGroupNotFoundFault
+    _ClusterSecurityGroupNotFoundFault,
+
+    -- ** ReservedNodeNotFoundFault
+    _ReservedNodeNotFoundFault,
+
+    -- ** ReservedNodeOfferingNotFoundFault
+    _ReservedNodeOfferingNotFoundFault,
+
+    -- ** InvalidClusterSubnetStateFault
+    _InvalidClusterSubnetStateFault,
+
+    -- ** IncompatibleOrderableOptions
+    _IncompatibleOrderableOptions,
+
+    -- ** ReservedNodeAlreadyMigratedFault
+    _ReservedNodeAlreadyMigratedFault,
+
+    -- ** EventSubscriptionQuotaExceededFault
+    _EventSubscriptionQuotaExceededFault,
+
+    -- ** SnapshotScheduleNotFoundFault
+    _SnapshotScheduleNotFoundFault,
+
+    -- ** InvalidClusterParameterGroupStateFault
+    _InvalidClusterParameterGroupStateFault,
+
+    -- ** ScheduledActionQuotaExceededFault
+    _ScheduledActionQuotaExceededFault,
+
+    -- ** InvalidReservedNodeStateFault
+    _InvalidReservedNodeStateFault,
+
+    -- ** ReservedNodeAlreadyExistsFault
+    _ReservedNodeAlreadyExistsFault,
+
+    -- ** ScheduledActionTypeUnsupportedFault
+    _ScheduledActionTypeUnsupportedFault,
+
+    -- ** SnapshotScheduleUpdateInProgressFault
+    _SnapshotScheduleUpdateInProgressFault,
+
+    -- ** InProgressTableRestoreQuotaExceededFault
+    _InProgressTableRestoreQuotaExceededFault,
+
+    -- ** InvalidRestoreFault
+    _InvalidRestoreFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** SubscriptionEventIdNotFoundFault
+    _SubscriptionEventIdNotFoundFault,
+
+    -- ** InvalidUsageLimitFault
+    _InvalidUsageLimitFault,
+
+    -- ** InvalidSnapshotCopyGrantStateFault
+    _InvalidSnapshotCopyGrantStateFault,
+
+    -- ** UnknownSnapshotCopyRegionFault
+    _UnknownSnapshotCopyRegionFault,
+
+    -- ** ReservedNodeQuotaExceededFault
+    _ReservedNodeQuotaExceededFault,
+
+    -- ** ScheduledActionAlreadyExistsFault
+    _ScheduledActionAlreadyExistsFault,
+
+    -- ** ClusterSubnetQuotaExceededFault
+    _ClusterSubnetQuotaExceededFault,
+
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
+
+    -- ** AccessToSnapshotDeniedFault
+    _AccessToSnapshotDeniedFault,
+
+    -- ** TagLimitExceededFault
+    _TagLimitExceededFault,
+
+    -- ** NumberOfNodesQuotaExceededFault
+    _NumberOfNodesQuotaExceededFault,
+
+    -- ** ScheduledActionNotFoundFault
+    _ScheduledActionNotFoundFault,
+
+    -- ** HsmClientCertificateAlreadyExistsFault
+    _HsmClientCertificateAlreadyExistsFault,
+
+    -- ** SnapshotScheduleQuotaExceededFault
+    _SnapshotScheduleQuotaExceededFault,
+
+    -- ** InvalidHsmClientCertificateStateFault
+    _InvalidHsmClientCertificateStateFault,
+
+    -- ** ClusterOnLatestRevisionFault
+    _ClusterOnLatestRevisionFault,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** SubscriptionSeverityNotFoundFault
+    _SubscriptionSeverityNotFoundFault,
+
+    -- ** UsageLimitNotFoundFault
+    _UsageLimitNotFoundFault,
+
+    -- ** UnauthorizedOperation
+    _UnauthorizedOperation,
+
+    -- ** InvalidTagFault
+    _InvalidTagFault,
+
+    -- ** InsufficientS3BucketPolicyFault
+    _InsufficientS3BucketPolicyFault,
+
+    -- ** ClusterSubnetGroupQuotaExceededFault
+    _ClusterSubnetGroupQuotaExceededFault,
 
     -- * Waiters
     -- $waiters
@@ -73,8 +393,8 @@ module Network.AWS.Redshift
     -- ** ModifyEventSubscription
     module Network.AWS.Redshift.ModifyEventSubscription,
 
-    -- ** ModifyClusterDBRevision
-    module Network.AWS.Redshift.ModifyClusterDBRevision,
+    -- ** ModifyClusterDbRevision
+    module Network.AWS.Redshift.ModifyClusterDbRevision,
 
     -- ** DeleteClusterSnapshot
     module Network.AWS.Redshift.DeleteClusterSnapshot,
@@ -136,8 +456,8 @@ module Network.AWS.Redshift
     -- ** ModifySnapshotCopyRetentionPeriod
     module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod,
 
-    -- ** ModifyClusterIAMRoles
-    module Network.AWS.Redshift.ModifyClusterIAMRoles,
+    -- ** ModifyClusterIamRoles
+    module Network.AWS.Redshift.ModifyClusterIamRoles,
 
     -- ** AuthorizeSnapshotAccess
     module Network.AWS.Redshift.AuthorizeSnapshotAccess,
@@ -166,8 +486,8 @@ module Network.AWS.Redshift
     -- ** CreateCluster
     module Network.AWS.Redshift.CreateCluster,
 
-    -- ** CreateHSMClientCertificate
-    module Network.AWS.Redshift.CreateHSMClientCertificate,
+    -- ** CreateHsmClientCertificate
+    module Network.AWS.Redshift.CreateHsmClientCertificate,
 
     -- ** RestoreTableFromClusterSnapshot
     module Network.AWS.Redshift.RestoreTableFromClusterSnapshot,
@@ -193,8 +513,8 @@ module Network.AWS.Redshift
     -- ** DescribeEventSubscriptions (Paginated)
     module Network.AWS.Redshift.DescribeEventSubscriptions,
 
-    -- ** DescribeClusterDBRevisions (Paginated)
-    module Network.AWS.Redshift.DescribeClusterDBRevisions,
+    -- ** DescribeClusterDbRevisions (Paginated)
+    module Network.AWS.Redshift.DescribeClusterDbRevisions,
 
     -- ** BatchModifyClusterSnapshots
     module Network.AWS.Redshift.BatchModifyClusterSnapshots,
@@ -205,8 +525,8 @@ module Network.AWS.Redshift
     -- ** RevokeClusterSecurityGroupIngress
     module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress,
 
-    -- ** DescribeHSMClientCertificates (Paginated)
-    module Network.AWS.Redshift.DescribeHSMClientCertificates,
+    -- ** DescribeHsmClientCertificates (Paginated)
+    module Network.AWS.Redshift.DescribeHsmClientCertificates,
 
     -- ** ModifyClusterParameterGroup
     module Network.AWS.Redshift.ModifyClusterParameterGroup,
@@ -226,8 +546,8 @@ module Network.AWS.Redshift
     -- ** DescribeResize
     module Network.AWS.Redshift.DescribeResize,
 
-    -- ** DeleteHSMConfiguration
-    module Network.AWS.Redshift.DeleteHSMConfiguration,
+    -- ** DeleteHsmConfiguration
+    module Network.AWS.Redshift.DeleteHsmConfiguration,
 
     -- ** AcceptReservedNodeExchange
     module Network.AWS.Redshift.AcceptReservedNodeExchange,
@@ -241,8 +561,8 @@ module Network.AWS.Redshift
     -- ** CreateClusterSnapshot
     module Network.AWS.Redshift.CreateClusterSnapshot,
 
-    -- ** CreateHSMConfiguration
-    module Network.AWS.Redshift.CreateHSMConfiguration,
+    -- ** CreateHsmConfiguration
+    module Network.AWS.Redshift.CreateHsmConfiguration,
 
     -- ** DescribeLoggingStatus
     module Network.AWS.Redshift.DescribeLoggingStatus,
@@ -280,8 +600,8 @@ module Network.AWS.Redshift
     -- ** RevokeSnapshotAccess
     module Network.AWS.Redshift.RevokeSnapshotAccess,
 
-    -- ** DescribeHSMConfigurations (Paginated)
-    module Network.AWS.Redshift.DescribeHSMConfigurations,
+    -- ** DescribeHsmConfigurations (Paginated)
+    module Network.AWS.Redshift.DescribeHsmConfigurations,
 
     -- ** DescribeAccountAttributes
     module Network.AWS.Redshift.DescribeAccountAttributes,
@@ -292,8 +612,8 @@ module Network.AWS.Redshift
     -- ** CopyClusterSnapshot
     module Network.AWS.Redshift.CopyClusterSnapshot,
 
-    -- ** DeleteHSMClientCertificate
-    module Network.AWS.Redshift.DeleteHSMClientCertificate,
+    -- ** DeleteHsmClientCertificate
+    module Network.AWS.Redshift.DeleteHsmClientCertificate,
 
     -- ** ModifyClusterSnapshotSchedule
     module Network.AWS.Redshift.ModifyClusterSnapshotSchedule,
@@ -324,153 +644,210 @@ module Network.AWS.Redshift
     -- ** Common
     module Network.AWS.Redshift.Internal,
 
-    -- ** ActionType
-    ActionType (..),
+    -- ** ResizeProgressMessage
+    ResizeProgressMessage (..),
+    mkResizeProgressMessage,
+    rpmAvgResizeRateInMegaBytesPerSecond,
+    rpmDataTransferProgressPercent,
+    rpmElapsedTimeInSeconds,
+    rpmEstimatedTimeToCompletionInSeconds,
+    rpmImportTablesCompleted,
+    rpmImportTablesInProgress,
+    rpmImportTablesNotStarted,
+    rpmMessage,
+    rpmProgressInMegaBytes,
+    rpmResizeType,
+    rpmStatus,
+    rpmTargetClusterType,
+    rpmTargetEncryptionType,
+    rpmTargetNodeType,
+    rpmTargetNumberOfNodes,
+    rpmTotalResizeDataInMegaBytes,
 
-    -- ** Mode
-    Mode (..),
+    -- ** Snapshot
+    Snapshot (..),
+    mkSnapshot,
+    sAccountsWithRestoreAccess,
+    sActualIncrementalBackupSizeInMegaBytes,
+    sAvailabilityZone,
+    sBackupProgressInMegaBytes,
+    sClusterCreateTime,
+    sClusterIdentifier,
+    sClusterVersion,
+    sCurrentBackupRateInMegaBytesPerSecond,
+    sDBName,
+    sElapsedTimeInSeconds,
+    sEncrypted,
+    sEncryptedWithHSM,
+    sEnhancedVpcRouting,
+    sEstimatedSecondsToCompletion,
+    sKmsKeyId,
+    sMaintenanceTrackName,
+    sManualSnapshotRemainingDays,
+    sManualSnapshotRetentionPeriod,
+    sMasterUsername,
+    sNodeType,
+    sNumberOfNodes,
+    sOwnerAccount,
+    sPort,
+    sRestorableNodeTypes,
+    sSnapshotCreateTime,
+    sSnapshotIdentifier,
+    sSnapshotRetentionStartTime,
+    sSnapshotType,
+    sSourceRegion,
+    sStatus,
+    sTags,
+    sTotalBackupSizeInMegaBytes,
+    sVpcId,
 
-    -- ** NodeConfigurationOptionsFilterName
-    NodeConfigurationOptionsFilterName (..),
-
-    -- ** OperatorType
-    OperatorType (..),
-
-    -- ** ParameterApplyType
-    ParameterApplyType (..),
-
-    -- ** ReservedNodeOfferingType
-    ReservedNodeOfferingType (..),
-
-    -- ** ScheduleState
-    ScheduleState (..),
-
-    -- ** ScheduledActionFilterName
-    ScheduledActionFilterName (..),
-
-    -- ** ScheduledActionState
-    ScheduledActionState (..),
-
-    -- ** ScheduledActionTypeValues
-    ScheduledActionTypeValues (..),
-
-    -- ** SnapshotAttributeToSortBy
-    SnapshotAttributeToSortBy (..),
-
-    -- ** SortByOrder
-    SortByOrder (..),
-
-    -- ** SourceType
-    SourceType (..),
-
-    -- ** TableRestoreStatusType
-    TableRestoreStatusType (..),
-
-    -- ** UsageLimitBreachAction
-    UsageLimitBreachAction (..),
+    -- ** ClusterParameterGroup
+    ClusterParameterGroup (..),
+    mkClusterParameterGroup,
+    cpgDescription,
+    cpgParameterGroupFamily,
+    cpgParameterGroupName,
+    cpgTags,
 
     -- ** UsageLimitFeatureType
     UsageLimitFeatureType (..),
 
-    -- ** UsageLimitLimitType
-    UsageLimitLimitType (..),
+    -- ** ReservedNodeOfferingType
+    ReservedNodeOfferingType (..),
 
-    -- ** UsageLimitPeriod
-    UsageLimitPeriod (..),
+    -- ** ResizeInfo
+    ResizeInfo (..),
+    mkResizeInfo,
+    riAllowCancelResize,
+    riResizeType,
 
-    -- ** AccountAttribute
-    AccountAttribute (..),
-    mkAccountAttribute,
-    aaAttributeValues,
-    aaAttributeName,
+    -- ** DeleteClusterSnapshotMessage
+    DeleteClusterSnapshotMessage (..),
+    mkDeleteClusterSnapshotMessage,
+    dcsmSnapshotIdentifier,
+    dcsmSnapshotClusterIdentifier,
 
-    -- ** AccountWithRestoreAccess
-    AccountWithRestoreAccess (..),
-    mkAccountWithRestoreAccess,
-    awraAccountAlias,
-    awraAccountId,
+    -- ** RestoreStatus
+    RestoreStatus (..),
+    mkRestoreStatus,
+    rsCurrentRestoreRateInMegaBytesPerSecond,
+    rsElapsedTimeInSeconds,
+    rsEstimatedTimeToCompletionInSeconds,
+    rsProgressInMegaBytes,
+    rsSnapshotSizeInMegaBytes,
+    rsStatus,
 
-    -- ** AttributeValueTarget
-    AttributeValueTarget (..),
-    mkAttributeValueTarget,
-    avtAttributeValue,
+    -- ** Event
+    Event (..),
+    mkEvent,
+    eDate,
+    eEventCategories,
+    eEventId,
+    eMessage,
+    eSeverity,
+    eSourceIdentifier,
+    eSourceType,
 
-    -- ** AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azName,
-    azSupportedPlatforms,
+    -- ** ScheduledActionFilter
+    ScheduledActionFilter (..),
+    mkScheduledActionFilter,
+    safName,
+    safValues,
+
+    -- ** ClusterSnapshotCopyStatus
+    ClusterSnapshotCopyStatus (..),
+    mkClusterSnapshotCopyStatus,
+    cscsDestinationRegion,
+    cscsManualSnapshotRetentionPeriod,
+    cscsRetentionPeriod,
+    cscsSnapshotCopyGrantName,
+
+    -- ** ScheduledActionType
+    ScheduledActionType (..),
+    mkScheduledActionType,
+    satPauseCluster,
+    satResizeCluster,
+    satResumeCluster,
+
+    -- ** SortByOrder
+    SortByOrder (..),
+
+    -- ** NodeConfigurationOptionsFilterName
+    NodeConfigurationOptionsFilterName (..),
+
+    -- ** SnapshotCopyGrant
+    SnapshotCopyGrant (..),
+    mkSnapshotCopyGrant,
+    scgKmsKeyId,
+    scgSnapshotCopyGrantName,
+    scgTags,
+
+    -- ** ScheduledActionTypeValues
+    ScheduledActionTypeValues (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** HsmClientCertificate
+    HsmClientCertificate (..),
+    mkHsmClientCertificate,
+    hccHsmClientCertificateIdentifier,
+    hccHsmClientCertificatePublicKey,
+    hccTags,
 
     -- ** Cluster
     Cluster (..),
     mkCluster,
+    cAllowVersionUpgrade,
+    cAutomatedSnapshotRetentionPeriod,
+    cAvailabilityZone,
+    cClusterAvailabilityStatus,
+    cClusterCreateTime,
+    cClusterIdentifier,
+    cClusterNamespaceArn,
+    cClusterNodes,
+    cClusterParameterGroups,
+    cClusterPublicKey,
+    cClusterRevisionNumber,
+    cClusterSecurityGroups,
+    cClusterSnapshotCopyStatus,
+    cClusterStatus,
+    cClusterSubnetGroupName,
+    cClusterVersion,
+    cDBName,
+    cDataTransferProgress,
+    cDeferredMaintenanceWindows,
+    cElasticIpStatus,
+    cElasticResizeNumberOfNodeOptions,
+    cEncrypted,
+    cEndpoint,
+    cEnhancedVpcRouting,
+    cExpectedNextSnapshotScheduleTime,
+    cExpectedNextSnapshotScheduleTimeStatus,
+    cHsmStatus,
+    cIamRoles,
+    cKmsKeyId,
+    cMaintenanceTrackName,
+    cManualSnapshotRetentionPeriod,
+    cMasterUsername,
+    cModifyStatus,
+    cNextMaintenanceWindowStartTime,
+    cNodeType,
+    cNumberOfNodes,
+    cPendingActions,
+    cPendingModifiedValues,
+    cPreferredMaintenanceWindow,
+    cPubliclyAccessible,
     cResizeInfo,
     cRestoreStatus,
-    cManualSnapshotRetentionPeriod,
-    cEnhancedVPCRouting,
-    cClusterSnapshotCopyStatus,
-    cClusterAvailabilityStatus,
-    cClusterRevisionNumber,
     cSnapshotScheduleIdentifier,
-    cPubliclyAccessible,
-    cMasterUsername,
-    cMaintenanceTrackName,
-    cExpectedNextSnapshotScheduleTime,
-    cElasticResizeNumberOfNodeOptions,
-    cVPCId,
-    cClusterSecurityGroups,
-    cAutomatedSnapshotRetentionPeriod,
     cSnapshotScheduleState,
-    cDataTransferProgress,
-    cEncrypted,
-    cClusterSubnetGroupName,
-    cExpectedNextSnapshotScheduleTimeStatus,
-    cClusterIdentifier,
-    cDeferredMaintenanceWindows,
-    cNumberOfNodes,
-    cClusterPublicKey,
-    cPreferredMaintenanceWindow,
-    cModifyStatus,
-    cClusterNamespaceARN,
-    cKMSKeyId,
-    cClusterParameterGroups,
-    cAvailabilityZone,
-    cVPCSecurityGroups,
-    cHSMStatus,
-    cIAMRoles,
-    cPendingActions,
-    cElasticIPStatus,
-    cClusterVersion,
-    cNodeType,
-    cNextMaintenanceWindowStartTime,
-    cClusterCreateTime,
-    cEndpoint,
-    cAllowVersionUpgrade,
-    cClusterStatus,
-    cPendingModifiedValues,
     cTags,
-    cClusterNodes,
-    cDBName,
-
-    -- ** ClusterAssociatedToSchedule
-    ClusterAssociatedToSchedule (..),
-    mkClusterAssociatedToSchedule,
-    catsScheduleAssociationState,
-    catsClusterIdentifier,
-
-    -- ** ClusterDBRevision
-    ClusterDBRevision (..),
-    mkClusterDBRevision,
-    cdrDatabaseRevisionReleaseDate,
-    cdrClusterIdentifier,
-    cdrCurrentDatabaseRevision,
-    cdrRevisionTargets,
-
-    -- ** ClusterIAMRole
-    ClusterIAMRole (..),
-    mkClusterIAMRole,
-    cirIAMRoleARN,
-    cirApplyStatus,
+    cVpcId,
+    cVpcSecurityGroups,
 
     -- ** ClusterNode
     ClusterNode (..),
@@ -479,225 +856,50 @@ module Network.AWS.Redshift
     cnPrivateIPAddress,
     cnPublicIPAddress,
 
-    -- ** ClusterParameterGroup
-    ClusterParameterGroup (..),
-    mkClusterParameterGroup,
-    cpgParameterGroupFamily,
-    cpgDescription,
-    cpgTags,
-    cpgParameterGroupName,
+    -- ** RevisionTarget
+    RevisionTarget (..),
+    mkRevisionTarget,
+    rtDatabaseRevision,
+    rtDatabaseRevisionReleaseDate,
+    rtDescription,
 
-    -- ** ClusterParameterGroupNameMessage
-    ClusterParameterGroupNameMessage (..),
-    mkClusterParameterGroupNameMessage,
-    cpgnmParameterGroupStatus,
-    cpgnmParameterGroupName,
+    -- ** TableRestoreStatus
+    TableRestoreStatus (..),
+    mkTableRestoreStatus,
+    trsClusterIdentifier,
+    trsMessage,
+    trsNewTableName,
+    trsProgressInMegaBytes,
+    trsRequestTime,
+    trsSnapshotIdentifier,
+    trsSourceDatabaseName,
+    trsSourceSchemaName,
+    trsSourceTableName,
+    trsStatus,
+    trsTableRestoreRequestId,
+    trsTargetDatabaseName,
+    trsTargetSchemaName,
+    trsTotalDataInMegaBytes,
 
-    -- ** ClusterParameterGroupStatus
-    ClusterParameterGroupStatus (..),
-    mkClusterParameterGroupStatus,
-    cpgsClusterParameterStatusList,
-    cpgsParameterApplyStatus,
-    cpgsParameterGroupName,
+    -- ** SnapshotSortingEntity
+    SnapshotSortingEntity (..),
+    mkSnapshotSortingEntity,
+    sseAttribute,
+    sseSortOrder,
 
-    -- ** ClusterParameterStatus
-    ClusterParameterStatus (..),
-    mkClusterParameterStatus,
-    cpsParameterApplyErrorDescription,
-    cpsParameterName,
-    cpsParameterApplyStatus,
-
-    -- ** ClusterSecurityGroup
-    ClusterSecurityGroup (..),
-    mkClusterSecurityGroup,
-    csgfClusterSecurityGroupName,
-    csgfIPRanges,
-    csgfEC2SecurityGroups,
-    csgfDescription,
-    csgfTags,
-
-    -- ** ClusterSecurityGroupMembership
-    ClusterSecurityGroupMembership (..),
-    mkClusterSecurityGroupMembership,
-    csgmStatus,
-    csgmClusterSecurityGroupName,
-
-    -- ** ClusterSnapshotCopyStatus
-    ClusterSnapshotCopyStatus (..),
-    mkClusterSnapshotCopyStatus,
-    cscsManualSnapshotRetentionPeriod,
-    cscsRetentionPeriod,
-    cscsDestinationRegion,
-    cscsSnapshotCopyGrantName,
-
-    -- ** ClusterSubnetGroup
-    ClusterSubnetGroup (..),
-    mkClusterSubnetGroup,
-    csgVPCId,
-    csgSubnets,
-    csgClusterSubnetGroupName,
-    csgSubnetGroupStatus,
-    csgDescription,
-    csgTags,
-
-    -- ** ClusterVersion
-    ClusterVersion (..),
-    mkClusterVersion,
-    cvClusterParameterGroupFamily,
-    cvClusterVersion,
-    cvDescription,
-
-    -- ** DataTransferProgress
-    DataTransferProgress (..),
-    mkDataTransferProgress,
-    dtpCurrentRateInMegaBytesPerSecond,
-    dtpStatus,
-    dtpEstimatedTimeToCompletionInSeconds,
-    dtpDataTransferredInMegaBytes,
-    dtpTotalDataInMegaBytes,
-    dtpElapsedTimeInSeconds,
-
-    -- ** DefaultClusterParameters
-    DefaultClusterParameters (..),
-    mkDefaultClusterParameters,
-    dcpMarker,
-    dcpParameters,
-    dcpParameterGroupFamily,
-
-    -- ** DeferredMaintenanceWindow
-    DeferredMaintenanceWindow (..),
-    mkDeferredMaintenanceWindow,
-    dmwDeferMaintenanceEndTime,
-    dmwDeferMaintenanceStartTime,
-    dmwDeferMaintenanceIdentifier,
-
-    -- ** DeleteClusterSnapshotMessage
-    DeleteClusterSnapshotMessage (..),
-    mkDeleteClusterSnapshotMessage,
-    dcsmSnapshotIdentifier,
-    dcsmSnapshotClusterIdentifier,
+    -- ** ParameterApplyType
+    ParameterApplyType (..),
 
     -- ** EC2SecurityGroup
     EC2SecurityGroup (..),
     mkEC2SecurityGroup,
-    esgStatus,
-    esgEC2SecurityGroupOwnerId,
-    esgEC2SecurityGroupName,
-    esgTags,
+    ecsgEC2SecurityGroupName,
+    ecsgEC2SecurityGroupOwnerId,
+    ecsgStatus,
+    ecsgTags,
 
-    -- ** ElasticIPStatus
-    ElasticIPStatus (..),
-    mkElasticIPStatus,
-    eisStatus,
-    eisElasticIP,
-
-    -- ** Endpoint
-    Endpoint (..),
-    mkEndpoint,
-    eAddress,
-    ePort,
-
-    -- ** Event
-    Event (..),
-    mkEvent,
-    eSourceType,
-    eSeverity,
-    eSourceIdentifier,
-    eDate,
-    eEventCategories,
-    eMessage,
-    eEventId,
-
-    -- ** EventCategoriesMap
-    EventCategoriesMap (..),
-    mkEventCategoriesMap,
-    ecmSourceType,
-    ecmEvents,
-
-    -- ** EventInfoMap
-    EventInfoMap (..),
-    mkEventInfoMap,
-    eimEventDescription,
-    eimSeverity,
-    eimEventCategories,
-    eimEventId,
-
-    -- ** EventSubscription
-    EventSubscription (..),
-    mkEventSubscription,
-    esStatus,
-    esCustomerAWSId,
-    esCustSubscriptionId,
-    esSNSTopicARN,
-    esEnabled,
-    esSourceType,
-    esSeverity,
-    esSubscriptionCreationTime,
-    esEventCategoriesList,
-    esTags,
-    esSourceIdsList,
-
-    -- ** HSMClientCertificate
-    HSMClientCertificate (..),
-    mkHSMClientCertificate,
-    hccHSMClientCertificateIdentifier,
-    hccHSMClientCertificatePublicKey,
-    hccTags,
-
-    -- ** HSMConfiguration
-    HSMConfiguration (..),
-    mkHSMConfiguration,
-    hcHSMConfigurationIdentifier,
-    hcHSMPartitionName,
-    hcDescription,
-    hcTags,
-    hcHSMIPAddress,
-
-    -- ** HSMStatus
-    HSMStatus (..),
-    mkHSMStatus,
-    hsStatus,
-    hsHSMConfigurationIdentifier,
-    hsHSMClientCertificateIdentifier,
-
-    -- ** IPRange
-    IPRange (..),
-    mkIPRange,
-    irStatus,
-    irCIdRIP,
-    irTags,
-
-    -- ** LoggingStatus
-    LoggingStatus (..),
-    mkLoggingStatus,
-    lsLastFailureTime,
-    lsLastSuccessfulDeliveryTime,
-    lsS3KeyPrefix,
-    lsBucketName,
-    lsLoggingEnabled,
-    lsLastFailureMessage,
-
-    -- ** MaintenanceTrack
-    MaintenanceTrack (..),
-    mkMaintenanceTrack,
-    mtDatabaseVersion,
-    mtMaintenanceTrackName,
-    mtUpdateTargets,
-
-    -- ** NodeConfigurationOption
-    NodeConfigurationOption (..),
-    mkNodeConfigurationOption,
-    ncoMode,
-    ncoNumberOfNodes,
-    ncoNodeType,
-    ncoEstimatedDiskUtilizationPercent,
-
-    -- ** NodeConfigurationOptionsFilter
-    NodeConfigurationOptionsFilter (..),
-    mkNodeConfigurationOptionsFilter,
-    ncofValues,
-    ncofOperator,
-    ncofName,
+    -- ** String
+    String (..),
 
     -- ** OrderableClusterOption
     OrderableClusterOption (..),
@@ -707,274 +909,11 @@ module Network.AWS.Redshift
     ocoClusterVersion,
     ocoNodeType,
 
-    -- ** Parameter
-    Parameter (..),
-    mkParameter,
-    pApplyType,
-    pParameterValue,
-    pMinimumEngineVersion,
-    pSource,
-    pIsModifiable,
-    pDataType,
-    pAllowedValues,
-    pParameterName,
-    pDescription,
+    -- ** SourceType
+    SourceType (..),
 
-    -- ** PauseClusterMessage
-    PauseClusterMessage (..),
-    mkPauseClusterMessage,
-    pcmClusterIdentifier,
-
-    -- ** PendingModifiedValues
-    PendingModifiedValues (..),
-    mkPendingModifiedValues,
-    pmvEncryptionType,
-    pmvEnhancedVPCRouting,
-    pmvMasterUserPassword,
-    pmvPubliclyAccessible,
-    pmvMaintenanceTrackName,
-    pmvAutomatedSnapshotRetentionPeriod,
-    pmvClusterIdentifier,
-    pmvNumberOfNodes,
-    pmvClusterType,
-    pmvClusterVersion,
-    pmvNodeType,
-
-    -- ** RecurringCharge
-    RecurringCharge (..),
-    mkRecurringCharge,
-    rcRecurringChargeFrequency,
-    rcRecurringChargeAmount,
-
-    -- ** ReservedNode
-    ReservedNode (..),
-    mkReservedNode,
-    rnReservedNodeOfferingType,
-    rnState,
-    rnCurrencyCode,
-    rnStartTime,
-    rnNodeCount,
-    rnReservedNodeId,
-    rnReservedNodeOfferingId,
-    rnRecurringCharges,
-    rnOfferingType,
-    rnUsagePrice,
-    rnNodeType,
-    rnFixedPrice,
-    rnDuration,
-
-    -- ** ReservedNodeOffering
-    ReservedNodeOffering (..),
-    mkReservedNodeOffering,
-    rnoReservedNodeOfferingType,
-    rnoCurrencyCode,
-    rnoReservedNodeOfferingId,
-    rnoRecurringCharges,
-    rnoOfferingType,
-    rnoUsagePrice,
-    rnoNodeType,
-    rnoFixedPrice,
-    rnoDuration,
-
-    -- ** ResizeClusterMessage
-    ResizeClusterMessage (..),
-    mkResizeClusterMessage,
-    rcmClusterIdentifier,
-    rcmNumberOfNodes,
-    rcmClassic,
-    rcmClusterType,
-    rcmNodeType,
-
-    -- ** ResizeInfo
-    ResizeInfo (..),
-    mkResizeInfo,
-    riAllowCancelResize,
-    riResizeType,
-
-    -- ** ResizeProgressMessage
-    ResizeProgressMessage (..),
-    mkResizeProgressMessage,
-    rpmImportTablesNotStarted,
-    rpmStatus,
-    rpmEstimatedTimeToCompletionInSeconds,
-    rpmAvgResizeRateInMegaBytesPerSecond,
-    rpmTargetNumberOfNodes,
-    rpmTargetEncryptionType,
-    rpmTargetNodeType,
-    rpmImportTablesInProgress,
-    rpmResizeType,
-    rpmImportTablesCompleted,
-    rpmProgressInMegaBytes,
-    rpmDataTransferProgressPercent,
-    rpmTotalResizeDataInMegaBytes,
-    rpmTargetClusterType,
-    rpmMessage,
-    rpmElapsedTimeInSeconds,
-
-    -- ** RestoreStatus
-    RestoreStatus (..),
-    mkRestoreStatus,
-    rsStatus,
-    rsEstimatedTimeToCompletionInSeconds,
-    rsCurrentRestoreRateInMegaBytesPerSecond,
-    rsProgressInMegaBytes,
-    rsElapsedTimeInSeconds,
-    rsSnapshotSizeInMegaBytes,
-
-    -- ** ResumeClusterMessage
-    ResumeClusterMessage (..),
-    mkResumeClusterMessage,
-    rClusterIdentifier,
-
-    -- ** RevisionTarget
-    RevisionTarget (..),
-    mkRevisionTarget,
-    rtDatabaseRevisionReleaseDate,
-    rtDatabaseRevision,
-    rtDescription,
-
-    -- ** ScheduledAction
-    ScheduledAction (..),
-    mkScheduledAction,
-    saState,
-    saTargetAction,
-    saStartTime,
-    saSchedule,
-    saScheduledActionName,
-    saScheduledActionDescription,
-    saNextInvocations,
-    saEndTime,
-    saIAMRole,
-
-    -- ** ScheduledActionFilter
-    ScheduledActionFilter (..),
-    mkScheduledActionFilter,
-    safValues,
-    safName,
-
-    -- ** ScheduledActionType
-    ScheduledActionType (..),
-    mkScheduledActionType,
-    satResizeCluster,
-    satResumeCluster,
-    satPauseCluster,
-
-    -- ** Snapshot
-    Snapshot (..),
-    mkSnapshot,
-    sStatus,
-    sRestorableNodeTypes,
-    sAccountsWithRestoreAccess,
-    sManualSnapshotRetentionPeriod,
-    sEnhancedVPCRouting,
-    sSnapshotIdentifier,
-    sEncryptedWithHSM,
-    sMasterUsername,
-    sSourceRegion,
-    sMaintenanceTrackName,
-    sSnapshotRetentionStartTime,
-    sManualSnapshotRemainingDays,
-    sVPCId,
-    sBackupProgressInMegaBytes,
-    sEncrypted,
-    sClusterIdentifier,
-    sNumberOfNodes,
-    sSnapshotType,
-    sKMSKeyId,
-    sAvailabilityZone,
-    sCurrentBackupRateInMegaBytesPerSecond,
-    sSnapshotCreateTime,
-    sClusterVersion,
-    sOwnerAccount,
-    sNodeType,
-    sElapsedTimeInSeconds,
-    sClusterCreateTime,
-    sEstimatedSecondsToCompletion,
-    sActualIncrementalBackupSizeInMegaBytes,
-    sTags,
-    sPort,
-    sTotalBackupSizeInMegaBytes,
-    sDBName,
-
-    -- ** SnapshotCopyGrant
-    SnapshotCopyGrant (..),
-    mkSnapshotCopyGrant,
-    scgKMSKeyId,
-    scgSnapshotCopyGrantName,
-    scgTags,
-
-    -- ** SnapshotErrorMessage
-    SnapshotErrorMessage (..),
-    mkSnapshotErrorMessage,
-    semFailureReason,
-    semSnapshotIdentifier,
-    semSnapshotClusterIdentifier,
-    semFailureCode,
-
-    -- ** SnapshotSchedule
-    SnapshotSchedule (..),
-    mkSnapshotSchedule,
-    ssAssociatedClusters,
-    ssNextInvocations,
-    ssScheduleDefinitions,
-    ssScheduleDescription,
-    ssScheduleIdentifier,
-    ssAssociatedClusterCount,
-    ssTags,
-
-    -- ** SnapshotSortingEntity
-    SnapshotSortingEntity (..),
-    mkSnapshotSortingEntity,
-    sseAttribute,
-    sseSortOrder,
-
-    -- ** Subnet
-    Subnet (..),
-    mkSubnet,
-    sSubnetStatus,
-    sSubnetIdentifier,
-    sSubnetAvailabilityZone,
-
-    -- ** SupportedOperation
-    SupportedOperation (..),
-    mkSupportedOperation,
-    soOperationName,
-
-    -- ** SupportedPlatform
-    SupportedPlatform (..),
-    mkSupportedPlatform,
-    spName,
-
-    -- ** TableRestoreStatus
-    TableRestoreStatus (..),
-    mkTableRestoreStatus,
-    trsStatus,
-    trsTargetSchemaName,
-    trsSnapshotIdentifier,
-    trsSourceDatabaseName,
-    trsTableRestoreRequestId,
-    trsNewTableName,
-    trsTargetDatabaseName,
-    trsSourceSchemaName,
-    trsClusterIdentifier,
-    trsRequestTime,
-    trsSourceTableName,
-    trsTotalDataInMegaBytes,
-    trsProgressInMegaBytes,
-    trsMessage,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** TaggedResource
-    TaggedResource (..),
-    mkTaggedResource,
-    trTag,
-    trResourceType,
-    trResourceName,
+    -- ** ScheduledActionState
+    ScheduledActionState (..),
 
     -- ** UpdateTarget
     UpdateTarget (..),
@@ -983,33 +922,625 @@ module Network.AWS.Redshift
     utMaintenanceTrackName,
     utSupportedOperations,
 
+    -- ** ResumeClusterMessage
+    ResumeClusterMessage (..),
+    mkResumeClusterMessage,
+    rClusterIdentifier,
+
+    -- ** ClusterParameterGroupStatus
+    ClusterParameterGroupStatus (..),
+    mkClusterParameterGroupStatus,
+    cpgsClusterParameterStatusList,
+    cpgsParameterApplyStatus,
+    cpgsParameterGroupName,
+
+    -- ** Subnet
+    Subnet (..),
+    mkSubnet,
+    sSubnetAvailabilityZone,
+    sSubnetIdentifier,
+    sSubnetStatus,
+
+    -- ** ClusterSecurityGroup
+    ClusterSecurityGroup (..),
+    mkClusterSecurityGroup,
+    csgfClusterSecurityGroupName,
+    csgfDescription,
+    csgfEC2SecurityGroups,
+    csgfIPRanges,
+    csgfTags,
+
+    -- ** DefaultClusterParameters
+    DefaultClusterParameters (..),
+    mkDefaultClusterParameters,
+    dcpMarker,
+    dcpParameterGroupFamily,
+    dcpParameters,
+
+    -- ** NodeConfigurationOption
+    NodeConfigurationOption (..),
+    mkNodeConfigurationOption,
+    ncoEstimatedDiskUtilizationPercent,
+    ncoMode,
+    ncoNodeType,
+    ncoNumberOfNodes,
+
+    -- ** PauseClusterMessage
+    PauseClusterMessage (..),
+    mkPauseClusterMessage,
+    pcmClusterIdentifier,
+
+    -- ** Mode
+    Mode (..),
+
+    -- ** AttributeValueTarget
+    AttributeValueTarget (..),
+    mkAttributeValueTarget,
+    avtAttributeValue,
+
+    -- ** ClusterSubnetGroup
+    ClusterSubnetGroup (..),
+    mkClusterSubnetGroup,
+    csgClusterSubnetGroupName,
+    csgDescription,
+    csgSubnetGroupStatus,
+    csgSubnets,
+    csgTags,
+    csgVpcId,
+
+    -- ** DataTransferProgress
+    DataTransferProgress (..),
+    mkDataTransferProgress,
+    dtpCurrentRateInMegaBytesPerSecond,
+    dtpDataTransferredInMegaBytes,
+    dtpElapsedTimeInSeconds,
+    dtpEstimatedTimeToCompletionInSeconds,
+    dtpStatus,
+    dtpTotalDataInMegaBytes,
+
+    -- ** EventInfoMap
+    EventInfoMap (..),
+    mkEventInfoMap,
+    eimEventCategories,
+    eimEventDescription,
+    eimEventId,
+    eimSeverity,
+
+    -- ** SnapshotSchedule
+    SnapshotSchedule (..),
+    mkSnapshotSchedule,
+    ssAssociatedClusterCount,
+    ssAssociatedClusters,
+    ssNextInvocations,
+    ssScheduleDefinitions,
+    ssScheduleDescription,
+    ssScheduleIdentifier,
+    ssTags,
+
+    -- ** ClusterSecurityGroupMembership
+    ClusterSecurityGroupMembership (..),
+    mkClusterSecurityGroupMembership,
+    csgmClusterSecurityGroupName,
+    csgmStatus,
+
+    -- ** ClusterAssociatedToSchedule
+    ClusterAssociatedToSchedule (..),
+    mkClusterAssociatedToSchedule,
+    catsClusterIdentifier,
+    catsScheduleAssociationState,
+
+    -- ** ReservedNodeOffering
+    ReservedNodeOffering (..),
+    mkReservedNodeOffering,
+    rnoCurrencyCode,
+    rnoDuration,
+    rnoFixedPrice,
+    rnoNodeType,
+    rnoOfferingType,
+    rnoRecurringCharges,
+    rnoReservedNodeOfferingId,
+    rnoReservedNodeOfferingType,
+    rnoUsagePrice,
+
+    -- ** ReservedNode
+    ReservedNode (..),
+    mkReservedNode,
+    rnCurrencyCode,
+    rnDuration,
+    rnFixedPrice,
+    rnNodeCount,
+    rnNodeType,
+    rnOfferingType,
+    rnRecurringCharges,
+    rnReservedNodeId,
+    rnReservedNodeOfferingId,
+    rnReservedNodeOfferingType,
+    rnStartTime,
+    rnState,
+    rnUsagePrice,
+
+    -- ** ScheduledAction
+    ScheduledAction (..),
+    mkScheduledAction,
+    saEndTime,
+    saIamRole,
+    saNextInvocations,
+    saSchedule,
+    saScheduledActionDescription,
+    saScheduledActionName,
+    saStartTime,
+    saState,
+    saTargetAction,
+
+    -- ** SnapshotErrorMessage
+    SnapshotErrorMessage (..),
+    mkSnapshotErrorMessage,
+    semFailureCode,
+    semFailureReason,
+    semSnapshotClusterIdentifier,
+    semSnapshotIdentifier,
+
+    -- ** LoggingStatus
+    LoggingStatus (..),
+    mkLoggingStatus,
+    lsBucketName,
+    lsLastFailureMessage,
+    lsLastFailureTime,
+    lsLastSuccessfulDeliveryTime,
+    lsLoggingEnabled,
+    lsS3KeyPrefix,
+
+    -- ** AccountWithRestoreAccess
+    AccountWithRestoreAccess (..),
+    mkAccountWithRestoreAccess,
+    awraAccountAlias,
+    awraAccountId,
+
+    -- ** ClusterParameterStatus
+    ClusterParameterStatus (..),
+    mkClusterParameterStatus,
+    cpsParameterApplyErrorDescription,
+    cpsParameterApplyStatus,
+    cpsParameterName,
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azName,
+    azSupportedPlatforms,
+
+    -- ** ClusterDbRevision
+    ClusterDbRevision (..),
+    mkClusterDbRevision,
+    cdrClusterIdentifier,
+    cdrCurrentDatabaseRevision,
+    cdrDatabaseRevisionReleaseDate,
+    cdrRevisionTargets,
+
+    -- ** EventSubscription
+    EventSubscription (..),
+    mkEventSubscription,
+    esCustSubscriptionId,
+    esCustomerAwsId,
+    esEnabled,
+    esEventCategoriesList,
+    esSeverity,
+    esSnsTopicArn,
+    esSourceIdsList,
+    esSourceType,
+    esStatus,
+    esSubscriptionCreationTime,
+    esTags,
+
+    -- ** HsmStatus
+    HsmStatus (..),
+    mkHsmStatus,
+    hsHsmClientCertificateIdentifier,
+    hsHsmConfigurationIdentifier,
+    hsStatus,
+
+    -- ** DeferredMaintenanceWindow
+    DeferredMaintenanceWindow (..),
+    mkDeferredMaintenanceWindow,
+    dmwDeferMaintenanceEndTime,
+    dmwDeferMaintenanceIdentifier,
+    dmwDeferMaintenanceStartTime,
+
+    -- ** MaintenanceTrack
+    MaintenanceTrack (..),
+    mkMaintenanceTrack,
+    mtDatabaseVersion,
+    mtMaintenanceTrackName,
+    mtUpdateTargets,
+
+    -- ** SnapshotAttributeToSortBy
+    SnapshotAttributeToSortBy (..),
+
+    -- ** ScheduleState
+    ScheduleState (..),
+
+    -- ** TableRestoreStatusType
+    TableRestoreStatusType (..),
+
+    -- ** UsageLimitLimitType
+    UsageLimitLimitType (..),
+
+    -- ** AccountAttribute
+    AccountAttribute (..),
+    mkAccountAttribute,
+    aaAttributeName,
+    aaAttributeValues,
+
+    -- ** UsageLimitPeriod
+    UsageLimitPeriod (..),
+
     -- ** UsageLimit
     UsageLimit (..),
     mkUsageLimit,
     ulAmount,
-    ulLimitType,
-    ulUsageLimitId,
-    ulPeriod,
-    ulClusterIdentifier,
     ulBreachAction,
+    ulClusterIdentifier,
     ulFeatureType,
+    ulLimitType,
+    ulPeriod,
     ulTags,
+    ulUsageLimitId,
 
-    -- ** VPCSecurityGroupMembership
-    VPCSecurityGroupMembership (..),
-    mkVPCSecurityGroupMembership,
+    -- ** NodeConfigurationOptionsFilter
+    NodeConfigurationOptionsFilter (..),
+    mkNodeConfigurationOptionsFilter,
+    ncofName,
+    ncofOperator,
+    ncofValues,
+
+    -- ** ScheduledActionFilterName
+    ScheduledActionFilterName (..),
+
+    -- ** ClusterParameterGroupNameMessage
+    ClusterParameterGroupNameMessage (..),
+    mkClusterParameterGroupNameMessage,
+    cpgnmParameterGroupName,
+    cpgnmParameterGroupStatus,
+
+    -- ** OperatorType
+    OperatorType (..),
+
+    -- ** ElasticIpStatus
+    ElasticIpStatus (..),
+    mkElasticIpStatus,
+    eisElasticIp,
+    eisStatus,
+
+    -- ** ClusterVersion
+    ClusterVersion (..),
+    mkClusterVersion,
+    cvClusterParameterGroupFamily,
+    cvClusterVersion,
+    cvDescription,
+
+    -- ** RecurringCharge
+    RecurringCharge (..),
+    mkRecurringCharge,
+    rcRecurringChargeAmount,
+    rcRecurringChargeFrequency,
+
+    -- ** SupportedOperation
+    SupportedOperation (..),
+    mkSupportedOperation,
+    soOperationName,
+
+    -- ** ClusterIamRole
+    ClusterIamRole (..),
+    mkClusterIamRole,
+    cirApplyStatus,
+    cirIamRoleArn,
+
+    -- ** ResizeClusterMessage
+    ResizeClusterMessage (..),
+    mkResizeClusterMessage,
+    rcmClusterIdentifier,
+    rcmClassic,
+    rcmClusterType,
+    rcmNodeType,
+    rcmNumberOfNodes,
+
+    -- ** Endpoint
+    Endpoint (..),
+    mkEndpoint,
+    eAddress,
+    ePort,
+
+    -- ** IPRange
+    IPRange (..),
+    mkIPRange,
+    iprCIDRIP,
+    iprStatus,
+    iprTags,
+
+    -- ** TaggedResource
+    TaggedResource (..),
+    mkTaggedResource,
+    trResourceName,
+    trResourceType,
+    trTag,
+
+    -- ** EventCategoriesMap
+    EventCategoriesMap (..),
+    mkEventCategoriesMap,
+    ecmEvents,
+    ecmSourceType,
+
+    -- ** ActionType
+    ActionType (..),
+
+    -- ** HsmConfiguration
+    HsmConfiguration (..),
+    mkHsmConfiguration,
+    hcDescription,
+    hcHsmConfigurationIdentifier,
+    hcHsmIpAddress,
+    hcHsmPartitionName,
+    hcTags,
+
+    -- ** PendingModifiedValues
+    PendingModifiedValues (..),
+    mkPendingModifiedValues,
+    pmvAutomatedSnapshotRetentionPeriod,
+    pmvClusterIdentifier,
+    pmvClusterType,
+    pmvClusterVersion,
+    pmvEncryptionType,
+    pmvEnhancedVpcRouting,
+    pmvMaintenanceTrackName,
+    pmvMasterUserPassword,
+    pmvNodeType,
+    pmvNumberOfNodes,
+    pmvPubliclyAccessible,
+
+    -- ** VpcSecurityGroupMembership
+    VpcSecurityGroupMembership (..),
+    mkVpcSecurityGroupMembership,
     vsgmStatus,
-    vsgmVPCSecurityGroupId,
+    vsgmVpcSecurityGroupId,
+
+    -- ** SupportedPlatform
+    SupportedPlatform (..),
+    mkSupportedPlatform,
+    spName,
+
+    -- ** Parameter
+    Parameter (..),
+    mkParameter,
+    pAllowedValues,
+    pApplyType,
+    pDataType,
+    pDescription,
+    pIsModifiable,
+    pMinimumEngineVersion,
+    pParameterName,
+    pParameterValue,
+    pSource,
+
+    -- ** UsageLimitBreachAction
+    UsageLimitBreachAction (..),
+
+    -- ** ClusterSubnetGroupName
+    ClusterSubnetGroupName (..),
+
+    -- ** SubscriptionName
+    SubscriptionName (..),
+
+    -- ** Severity
+    Severity (..),
+
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** ResizeType
+    ResizeType (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** TargetClusterType
+    TargetClusterType (..),
+
+    -- ** TargetEncryptionType
+    TargetEncryptionType (..),
+
+    -- ** TargetNodeType
+    TargetNodeType (..),
+
+    -- ** ReservedNodeOfferingId
+    ReservedNodeOfferingId (..),
+
+    -- ** ClusterIdentifier
+    ClusterIdentifier (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** ScheduleIdentifier
+    ScheduleIdentifier (..),
+
+    -- ** DBName
+    DBName (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** MaintenanceTrackName
+    MaintenanceTrackName (..),
+
+    -- ** MasterUsername
+    MasterUsername (..),
+
+    -- ** NodeType
+    NodeType (..),
+
+    -- ** OwnerAccount
+    OwnerAccount (..),
+
+    -- ** SnapshotIdentifier
+    SnapshotIdentifier (..),
+
+    -- ** SnapshotType
+    SnapshotType (..),
+
+    -- ** SourceRegion
+    SourceRegion (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** ParameterGroupFamily
+    ParameterGroupFamily (..),
+
+    -- ** ParameterGroupName
+    ParameterGroupName (..),
+
+    -- ** SnapshotClusterIdentifier
+    SnapshotClusterIdentifier (..),
+
+    -- ** ScheduledActionName
+    ScheduledActionName (..),
+
+    -- ** IamRole
+    IamRole (..),
+
+    -- ** Schedule
+    Schedule (..),
+
+    -- ** ScheduledActionDescription
+    ScheduledActionDescription (..),
+
+    -- ** EventId
+    EventId (..),
+
+    -- ** SourceIdentifier
+    SourceIdentifier (..),
+
+    -- ** HsmClientCertificateIdentifier
+    HsmClientCertificateIdentifier (..),
+
+    -- ** DestinationRegion
+    DestinationRegion (..),
+
+    -- ** SnapshotCopyGrantName
+    SnapshotCopyGrantName (..),
+
+    -- ** ReservedNodeId
+    ReservedNodeId (..),
+
+    -- ** ClusterSecurityGroupName
+    ClusterSecurityGroupName (..),
+
+    -- ** CIDRIP
+    CIDRIP (..),
+
+    -- ** EC2SecurityGroupName
+    EC2SecurityGroupName (..),
+
+    -- ** EC2SecurityGroupOwnerId
+    EC2SecurityGroupOwnerId (..),
+
+    -- ** DbUser
+    DbUser (..),
+
+    -- ** DbName
+    DbName (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** HsmClientCertificatePublicKey
+    HsmClientCertificatePublicKey (..),
+
+    -- ** UsageLimitId
+    UsageLimitId (..),
+
+    -- ** ClusterAvailabilityStatus
+    ClusterAvailabilityStatus (..),
+
+    -- ** ClusterNamespaceArn
+    ClusterNamespaceArn (..),
+
+    -- ** ClusterPublicKey
+    ClusterPublicKey (..),
+
+    -- ** ClusterRevisionNumber
+    ClusterRevisionNumber (..),
+
+    -- ** ClusterStatus
+    ClusterStatus (..),
+
+    -- ** ElasticResizeNumberOfNodeOptions
+    ElasticResizeNumberOfNodeOptions (..),
+
+    -- ** ExpectedNextSnapshotScheduleTimeStatus
+    ExpectedNextSnapshotScheduleTimeStatus (..),
+
+    -- ** ModifyStatus
+    ModifyStatus (..),
+
+    -- ** PreferredMaintenanceWindow
+    PreferredMaintenanceWindow (..),
+
+    -- ** SnapshotScheduleIdentifier
+    SnapshotScheduleIdentifier (..),
+
+    -- ** NodeRole
+    NodeRole (..),
+
+    -- ** PrivateIPAddress
+    PrivateIPAddress (..),
+
+    -- ** PublicIPAddress
+    PublicIPAddress (..),
+
+    -- ** DatabaseRevision
+    DatabaseRevision (..),
+
+    -- ** DbPassword
+    DbPassword (..),
+
+    -- ** NewTableName
+    NewTableName (..),
+
+    -- ** SourceDatabaseName
+    SourceDatabaseName (..),
+
+    -- ** SourceSchemaName
+    SourceSchemaName (..),
+
+    -- ** SourceTableName
+    SourceTableName (..),
+
+    -- ** TableRestoreRequestId
+    TableRestoreRequestId (..),
+
+    -- ** TargetDatabaseName
+    TargetDatabaseName (..),
+
+    -- ** TargetSchemaName
+    TargetSchemaName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -1027,8 +1558,8 @@ import Network.AWS.Redshift.CreateClusterSecurityGroup
 import Network.AWS.Redshift.CreateClusterSnapshot
 import Network.AWS.Redshift.CreateClusterSubnetGroup
 import Network.AWS.Redshift.CreateEventSubscription
-import Network.AWS.Redshift.CreateHSMClientCertificate
-import Network.AWS.Redshift.CreateHSMConfiguration
+import Network.AWS.Redshift.CreateHsmClientCertificate
+import Network.AWS.Redshift.CreateHsmConfiguration
 import Network.AWS.Redshift.CreateScheduledAction
 import Network.AWS.Redshift.CreateSnapshotCopyGrant
 import Network.AWS.Redshift.CreateSnapshotSchedule
@@ -1040,15 +1571,15 @@ import Network.AWS.Redshift.DeleteClusterSecurityGroup
 import Network.AWS.Redshift.DeleteClusterSnapshot
 import Network.AWS.Redshift.DeleteClusterSubnetGroup
 import Network.AWS.Redshift.DeleteEventSubscription
-import Network.AWS.Redshift.DeleteHSMClientCertificate
-import Network.AWS.Redshift.DeleteHSMConfiguration
+import Network.AWS.Redshift.DeleteHsmClientCertificate
+import Network.AWS.Redshift.DeleteHsmConfiguration
 import Network.AWS.Redshift.DeleteScheduledAction
 import Network.AWS.Redshift.DeleteSnapshotCopyGrant
 import Network.AWS.Redshift.DeleteSnapshotSchedule
 import Network.AWS.Redshift.DeleteTags
 import Network.AWS.Redshift.DeleteUsageLimit
 import Network.AWS.Redshift.DescribeAccountAttributes
-import Network.AWS.Redshift.DescribeClusterDBRevisions
+import Network.AWS.Redshift.DescribeClusterDbRevisions
 import Network.AWS.Redshift.DescribeClusterParameterGroups
 import Network.AWS.Redshift.DescribeClusterParameters
 import Network.AWS.Redshift.DescribeClusterSecurityGroups
@@ -1061,8 +1592,8 @@ import Network.AWS.Redshift.DescribeDefaultClusterParameters
 import Network.AWS.Redshift.DescribeEventCategories
 import Network.AWS.Redshift.DescribeEventSubscriptions
 import Network.AWS.Redshift.DescribeEvents
-import Network.AWS.Redshift.DescribeHSMClientCertificates
-import Network.AWS.Redshift.DescribeHSMConfigurations
+import Network.AWS.Redshift.DescribeHsmClientCertificates
+import Network.AWS.Redshift.DescribeHsmConfigurations
 import Network.AWS.Redshift.DescribeLoggingStatus
 import Network.AWS.Redshift.DescribeNodeConfigurationOptions
 import Network.AWS.Redshift.DescribeOrderableClusterOptions
@@ -1084,8 +1615,8 @@ import Network.AWS.Redshift.GetClusterCredentials
 import Network.AWS.Redshift.GetReservedNodeExchangeOfferings
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.ModifyCluster
-import Network.AWS.Redshift.ModifyClusterDBRevision
-import Network.AWS.Redshift.ModifyClusterIAMRoles
+import Network.AWS.Redshift.ModifyClusterDbRevision
+import Network.AWS.Redshift.ModifyClusterIamRoles
 import Network.AWS.Redshift.ModifyClusterMaintenance
 import Network.AWS.Redshift.ModifyClusterParameterGroup
 import Network.AWS.Redshift.ModifyClusterSnapshot

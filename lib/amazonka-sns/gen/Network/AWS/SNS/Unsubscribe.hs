@@ -22,7 +22,7 @@ module Network.AWS.SNS.Unsubscribe
     mkUnsubscribe,
 
     -- ** Request lenses
-    uSubscriptionARN,
+    uSubscriptionArn,
 
     -- * Destructuring the response
     UnsubscribeResponse (..),
@@ -31,63 +31,63 @@ module Network.AWS.SNS.Unsubscribe
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for Unsubscribe action.
 --
 -- /See:/ 'mkUnsubscribe' smart constructor.
 newtype Unsubscribe = Unsubscribe'
   { -- | The ARN of the subscription to be deleted.
-    subscriptionARN :: Lude.Text
+    subscriptionArn :: Types.SubscriptionArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Unsubscribe' with the minimum fields required to make a request.
---
--- * 'subscriptionARN' - The ARN of the subscription to be deleted.
+-- | Creates a 'Unsubscribe' value with any optional fields omitted.
 mkUnsubscribe ::
-  -- | 'subscriptionARN'
-  Lude.Text ->
+  -- | 'subscriptionArn'
+  Types.SubscriptionArn ->
   Unsubscribe
-mkUnsubscribe pSubscriptionARN_ =
-  Unsubscribe' {subscriptionARN = pSubscriptionARN_}
+mkUnsubscribe subscriptionArn = Unsubscribe' {subscriptionArn}
 
 -- | The ARN of the subscription to be deleted.
 --
--- /Note:/ Consider using 'subscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uSubscriptionARN :: Lens.Lens' Unsubscribe Lude.Text
-uSubscriptionARN = Lens.lens (subscriptionARN :: Unsubscribe -> Lude.Text) (\s a -> s {subscriptionARN = a} :: Unsubscribe)
-{-# DEPRECATED uSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}
+-- /Note:/ Consider using 'subscriptionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uSubscriptionArn :: Lens.Lens' Unsubscribe Types.SubscriptionArn
+uSubscriptionArn = Lens.field @"subscriptionArn"
+{-# DEPRECATED uSubscriptionArn "Use generic-lens or generic-optics with 'subscriptionArn' instead." #-}
 
-instance Lude.AWSRequest Unsubscribe where
+instance Core.AWSRequest Unsubscribe where
   type Rs Unsubscribe = UnsubscribeResponse
-  request = Req.postQuery snsService
-  response = Res.receiveNull UnsubscribeResponse'
-
-instance Lude.ToHeaders Unsubscribe where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath Unsubscribe where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery Unsubscribe where
-  toQuery Unsubscribe' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("Unsubscribe" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "SubscriptionArn" Lude.=: subscriptionARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "Unsubscribe")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "SubscriptionArn" subscriptionArn)
+            )
+      }
+  response = Response.receiveNull UnsubscribeResponse'
 
 -- | /See:/ 'mkUnsubscribeResponse' smart constructor.
 data UnsubscribeResponse = UnsubscribeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnsubscribeResponse' with the minimum fields required to make a request.
+-- | Creates a 'UnsubscribeResponse' value with any optional fields omitted.
 mkUnsubscribeResponse ::
   UnsubscribeResponse
 mkUnsubscribeResponse = UnsubscribeResponse'

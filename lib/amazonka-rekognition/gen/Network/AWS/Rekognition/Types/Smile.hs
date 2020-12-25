@@ -17,53 +17,48 @@ module Network.AWS.Rekognition.Types.Smile
     mkSmile,
 
     -- * Lenses
-    sfValue,
-    sfConfidence,
+    sConfidence,
+    sValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether or not the face is smiling, and the confidence level in the determination.
 --
 -- /See:/ 'mkSmile' smart constructor.
 data Smile = Smile'
-  { -- | Boolean value that indicates whether the face is smiling or not.
-    value :: Lude.Maybe Lude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Lude.Maybe Lude.Double
+  { -- | Level of confidence in the determination.
+    confidence :: Core.Maybe Core.Double,
+    -- | Boolean value that indicates whether the face is smiling or not.
+    value :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Smile' with the minimum fields required to make a request.
---
--- * 'value' - Boolean value that indicates whether the face is smiling or not.
--- * 'confidence' - Level of confidence in the determination.
+-- | Creates a 'Smile' value with any optional fields omitted.
 mkSmile ::
   Smile
-mkSmile = Smile' {value = Lude.Nothing, confidence = Lude.Nothing}
-
--- | Boolean value that indicates whether the face is smiling or not.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfValue :: Lens.Lens' Smile (Lude.Maybe Lude.Bool)
-sfValue = Lens.lens (value :: Smile -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: Smile)
-{-# DEPRECATED sfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkSmile = Smile' {confidence = Core.Nothing, value = Core.Nothing}
 
 -- | Level of confidence in the determination.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfConfidence :: Lens.Lens' Smile (Lude.Maybe Lude.Double)
-sfConfidence = Lens.lens (confidence :: Smile -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Smile)
-{-# DEPRECATED sfConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
+sConfidence :: Lens.Lens' Smile (Core.Maybe Core.Double)
+sConfidence = Lens.field @"confidence"
+{-# DEPRECATED sConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance Lude.FromJSON Smile where
+-- | Boolean value that indicates whether the face is smiling or not.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sValue :: Lens.Lens' Smile (Core.Maybe Core.Bool)
+sValue = Lens.field @"value"
+{-# DEPRECATED sValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Smile where
   parseJSON =
-    Lude.withObject
-      "Smile"
-      ( \x ->
-          Smile'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
-      )
+    Core.withObject "Smile" Core.$
+      \x ->
+        Smile'
+          Core.<$> (x Core..:? "Confidence") Core.<*> (x Core..:? "Value")

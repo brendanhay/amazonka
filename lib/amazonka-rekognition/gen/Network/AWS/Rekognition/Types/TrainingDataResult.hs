@@ -24,66 +24,60 @@ module Network.AWS.Rekognition.Types.TrainingDataResult
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.TrainingData
-import Network.AWS.Rekognition.Types.ValidationData
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.TrainingData as Types
+import qualified Network.AWS.Rekognition.Types.ValidationData as Types
 
 -- | Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.
 --
 -- /See:/ 'mkTrainingDataResult' smart constructor.
 data TrainingDataResult = TrainingDataResult'
   { -- | The training assets that you supplied for training.
-    input :: Lude.Maybe TrainingData,
+    input :: Core.Maybe Types.TrainingData,
     -- | The images (assets) that were actually trained by Amazon Rekognition Custom Labels.
-    output :: Lude.Maybe TrainingData,
+    output :: Core.Maybe Types.TrainingData,
     -- | The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.
-    validation :: Lude.Maybe ValidationData
+    validation :: Core.Maybe Types.ValidationData
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrainingDataResult' with the minimum fields required to make a request.
---
--- * 'input' - The training assets that you supplied for training.
--- * 'output' - The images (assets) that were actually trained by Amazon Rekognition Custom Labels.
--- * 'validation' - The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.
+-- | Creates a 'TrainingDataResult' value with any optional fields omitted.
 mkTrainingDataResult ::
   TrainingDataResult
 mkTrainingDataResult =
   TrainingDataResult'
-    { input = Lude.Nothing,
-      output = Lude.Nothing,
-      validation = Lude.Nothing
+    { input = Core.Nothing,
+      output = Core.Nothing,
+      validation = Core.Nothing
     }
 
 -- | The training assets that you supplied for training.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tInput :: Lens.Lens' TrainingDataResult (Lude.Maybe TrainingData)
-tInput = Lens.lens (input :: TrainingDataResult -> Lude.Maybe TrainingData) (\s a -> s {input = a} :: TrainingDataResult)
+tInput :: Lens.Lens' TrainingDataResult (Core.Maybe Types.TrainingData)
+tInput = Lens.field @"input"
 {-# DEPRECATED tInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The images (assets) that were actually trained by Amazon Rekognition Custom Labels.
 --
 -- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tOutput :: Lens.Lens' TrainingDataResult (Lude.Maybe TrainingData)
-tOutput = Lens.lens (output :: TrainingDataResult -> Lude.Maybe TrainingData) (\s a -> s {output = a} :: TrainingDataResult)
+tOutput :: Lens.Lens' TrainingDataResult (Core.Maybe Types.TrainingData)
+tOutput = Lens.field @"output"
 {-# DEPRECATED tOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.
 --
 -- /Note:/ Consider using 'validation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValidation :: Lens.Lens' TrainingDataResult (Lude.Maybe ValidationData)
-tValidation = Lens.lens (validation :: TrainingDataResult -> Lude.Maybe ValidationData) (\s a -> s {validation = a} :: TrainingDataResult)
+tValidation :: Lens.Lens' TrainingDataResult (Core.Maybe Types.ValidationData)
+tValidation = Lens.field @"validation"
 {-# DEPRECATED tValidation "Use generic-lens or generic-optics with 'validation' instead." #-}
 
-instance Lude.FromJSON TrainingDataResult where
+instance Core.FromJSON TrainingDataResult where
   parseJSON =
-    Lude.withObject
-      "TrainingDataResult"
-      ( \x ->
-          TrainingDataResult'
-            Lude.<$> (x Lude..:? "Input")
-            Lude.<*> (x Lude..:? "Output")
-            Lude.<*> (x Lude..:? "Validation")
-      )
+    Core.withObject "TrainingDataResult" Core.$
+      \x ->
+        TrainingDataResult'
+          Core.<$> (x Core..:? "Input")
+          Core.<*> (x Core..:? "Output")
+          Core.<*> (x Core..:? "Validation")

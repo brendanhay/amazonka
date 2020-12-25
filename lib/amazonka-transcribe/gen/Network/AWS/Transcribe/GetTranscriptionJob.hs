@@ -27,114 +27,99 @@ module Network.AWS.Transcribe.GetTranscriptionJob
     mkGetTranscriptionJobResponse,
 
     -- ** Response lenses
-    gtjrsTranscriptionJob,
-    gtjrsResponseStatus,
+    gtjrrsTranscriptionJob,
+    gtjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Transcribe.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Transcribe.Types as Types
 
 -- | /See:/ 'mkGetTranscriptionJob' smart constructor.
 newtype GetTranscriptionJob = GetTranscriptionJob'
   { -- | The name of the job.
-    transcriptionJobName :: Lude.Text
+    transcriptionJobName :: Types.TranscriptionJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTranscriptionJob' with the minimum fields required to make a request.
---
--- * 'transcriptionJobName' - The name of the job.
+-- | Creates a 'GetTranscriptionJob' value with any optional fields omitted.
 mkGetTranscriptionJob ::
   -- | 'transcriptionJobName'
-  Lude.Text ->
+  Types.TranscriptionJobName ->
   GetTranscriptionJob
-mkGetTranscriptionJob pTranscriptionJobName_ =
-  GetTranscriptionJob'
-    { transcriptionJobName =
-        pTranscriptionJobName_
-    }
+mkGetTranscriptionJob transcriptionJobName =
+  GetTranscriptionJob' {transcriptionJobName}
 
 -- | The name of the job.
 --
 -- /Note:/ Consider using 'transcriptionJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtjTranscriptionJobName :: Lens.Lens' GetTranscriptionJob Lude.Text
-gtjTranscriptionJobName = Lens.lens (transcriptionJobName :: GetTranscriptionJob -> Lude.Text) (\s a -> s {transcriptionJobName = a} :: GetTranscriptionJob)
+gtjTranscriptionJobName :: Lens.Lens' GetTranscriptionJob Types.TranscriptionJobName
+gtjTranscriptionJobName = Lens.field @"transcriptionJobName"
 {-# DEPRECATED gtjTranscriptionJobName "Use generic-lens or generic-optics with 'transcriptionJobName' instead." #-}
 
-instance Lude.AWSRequest GetTranscriptionJob where
+instance Core.FromJSON GetTranscriptionJob where
+  toJSON GetTranscriptionJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TranscriptionJobName" Core..= transcriptionJobName)]
+      )
+
+instance Core.AWSRequest GetTranscriptionJob where
   type Rs GetTranscriptionJob = GetTranscriptionJobResponse
-  request = Req.postJSON transcribeService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Transcribe.GetTranscriptionJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTranscriptionJobResponse'
-            Lude.<$> (x Lude..?> "TranscriptionJob")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TranscriptionJob")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTranscriptionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Transcribe.GetTranscriptionJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetTranscriptionJob where
-  toJSON GetTranscriptionJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("TranscriptionJobName" Lude..= transcriptionJobName)]
-      )
-
-instance Lude.ToPath GetTranscriptionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTranscriptionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetTranscriptionJobResponse' smart constructor.
 data GetTranscriptionJobResponse = GetTranscriptionJobResponse'
   { -- | An object that contains the results of the transcription job.
-    transcriptionJob :: Lude.Maybe TranscriptionJob,
+    transcriptionJob :: Core.Maybe Types.TranscriptionJob,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetTranscriptionJobResponse' with the minimum fields required to make a request.
---
--- * 'transcriptionJob' - An object that contains the results of the transcription job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTranscriptionJobResponse' value with any optional fields omitted.
 mkGetTranscriptionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTranscriptionJobResponse
-mkGetTranscriptionJobResponse pResponseStatus_ =
+mkGetTranscriptionJobResponse responseStatus =
   GetTranscriptionJobResponse'
-    { transcriptionJob = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { transcriptionJob = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains the results of the transcription job.
 --
 -- /Note:/ Consider using 'transcriptionJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtjrsTranscriptionJob :: Lens.Lens' GetTranscriptionJobResponse (Lude.Maybe TranscriptionJob)
-gtjrsTranscriptionJob = Lens.lens (transcriptionJob :: GetTranscriptionJobResponse -> Lude.Maybe TranscriptionJob) (\s a -> s {transcriptionJob = a} :: GetTranscriptionJobResponse)
-{-# DEPRECATED gtjrsTranscriptionJob "Use generic-lens or generic-optics with 'transcriptionJob' instead." #-}
+gtjrrsTranscriptionJob :: Lens.Lens' GetTranscriptionJobResponse (Core.Maybe Types.TranscriptionJob)
+gtjrrsTranscriptionJob = Lens.field @"transcriptionJob"
+{-# DEPRECATED gtjrrsTranscriptionJob "Use generic-lens or generic-optics with 'transcriptionJob' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtjrsResponseStatus :: Lens.Lens' GetTranscriptionJobResponse Lude.Int
-gtjrsResponseStatus = Lens.lens (responseStatus :: GetTranscriptionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTranscriptionJobResponse)
-{-# DEPRECATED gtjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtjrrsResponseStatus :: Lens.Lens' GetTranscriptionJobResponse Core.Int
+gtjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

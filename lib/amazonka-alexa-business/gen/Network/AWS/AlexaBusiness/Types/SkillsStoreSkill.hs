@@ -17,124 +17,119 @@ module Network.AWS.AlexaBusiness.Types.SkillsStoreSkill
     mkSkillsStoreSkill,
 
     -- * Lenses
-    sssSkillId,
-    sssSupportsLinking,
+    sssIconUrl,
     sssSampleUtterances,
     sssShortDescription,
-    sssIconURL,
     sssSkillDetails,
+    sssSkillId,
     sssSkillName,
+    sssSupportsLinking,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.SkillDetails
+import qualified Network.AWS.AlexaBusiness.Types.IconUrl as Types
+import qualified Network.AWS.AlexaBusiness.Types.ShortDescription as Types
+import qualified Network.AWS.AlexaBusiness.Types.SkillDetails as Types
+import qualified Network.AWS.AlexaBusiness.Types.SkillId as Types
+import qualified Network.AWS.AlexaBusiness.Types.SkillName as Types
+import qualified Network.AWS.AlexaBusiness.Types.Utterance as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The detailed information about an Alexa skill.
 --
 -- /See:/ 'mkSkillsStoreSkill' smart constructor.
 data SkillsStoreSkill = SkillsStoreSkill'
-  { -- | The ARN of the skill.
-    skillId :: Lude.Maybe Lude.Text,
-    -- | Linking support for a skill.
-    supportsLinking :: Lude.Maybe Lude.Bool,
+  { -- | The URL where the skill icon resides.
+    iconUrl :: Core.Maybe Types.IconUrl,
     -- | Sample utterances that interact with the skill.
-    sampleUtterances :: Lude.Maybe [Lude.Text],
+    sampleUtterances :: Core.Maybe [Types.Utterance],
     -- | Short description about the skill.
-    shortDescription :: Lude.Maybe Lude.Text,
-    -- | The URL where the skill icon resides.
-    iconURL :: Lude.Maybe Lude.Text,
+    shortDescription :: Core.Maybe Types.ShortDescription,
     -- | Information about the skill.
-    skillDetails :: Lude.Maybe SkillDetails,
+    skillDetails :: Core.Maybe Types.SkillDetails,
+    -- | The ARN of the skill.
+    skillId :: Core.Maybe Types.SkillId,
     -- | The name of the skill.
-    skillName :: Lude.Maybe Lude.Text
+    skillName :: Core.Maybe Types.SkillName,
+    -- | Linking support for a skill.
+    supportsLinking :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SkillsStoreSkill' with the minimum fields required to make a request.
---
--- * 'skillId' - The ARN of the skill.
--- * 'supportsLinking' - Linking support for a skill.
--- * 'sampleUtterances' - Sample utterances that interact with the skill.
--- * 'shortDescription' - Short description about the skill.
--- * 'iconURL' - The URL where the skill icon resides.
--- * 'skillDetails' - Information about the skill.
--- * 'skillName' - The name of the skill.
+-- | Creates a 'SkillsStoreSkill' value with any optional fields omitted.
 mkSkillsStoreSkill ::
   SkillsStoreSkill
 mkSkillsStoreSkill =
   SkillsStoreSkill'
-    { skillId = Lude.Nothing,
-      supportsLinking = Lude.Nothing,
-      sampleUtterances = Lude.Nothing,
-      shortDescription = Lude.Nothing,
-      iconURL = Lude.Nothing,
-      skillDetails = Lude.Nothing,
-      skillName = Lude.Nothing
+    { iconUrl = Core.Nothing,
+      sampleUtterances = Core.Nothing,
+      shortDescription = Core.Nothing,
+      skillDetails = Core.Nothing,
+      skillId = Core.Nothing,
+      skillName = Core.Nothing,
+      supportsLinking = Core.Nothing
     }
 
--- | The ARN of the skill.
+-- | The URL where the skill icon resides.
 --
--- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssSkillId :: Lens.Lens' SkillsStoreSkill (Lude.Maybe Lude.Text)
-sssSkillId = Lens.lens (skillId :: SkillsStoreSkill -> Lude.Maybe Lude.Text) (\s a -> s {skillId = a} :: SkillsStoreSkill)
-{-# DEPRECATED sssSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
-
--- | Linking support for a skill.
---
--- /Note:/ Consider using 'supportsLinking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssSupportsLinking :: Lens.Lens' SkillsStoreSkill (Lude.Maybe Lude.Bool)
-sssSupportsLinking = Lens.lens (supportsLinking :: SkillsStoreSkill -> Lude.Maybe Lude.Bool) (\s a -> s {supportsLinking = a} :: SkillsStoreSkill)
-{-# DEPRECATED sssSupportsLinking "Use generic-lens or generic-optics with 'supportsLinking' instead." #-}
+-- /Note:/ Consider using 'iconUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssIconUrl :: Lens.Lens' SkillsStoreSkill (Core.Maybe Types.IconUrl)
+sssIconUrl = Lens.field @"iconUrl"
+{-# DEPRECATED sssIconUrl "Use generic-lens or generic-optics with 'iconUrl' instead." #-}
 
 -- | Sample utterances that interact with the skill.
 --
 -- /Note:/ Consider using 'sampleUtterances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssSampleUtterances :: Lens.Lens' SkillsStoreSkill (Lude.Maybe [Lude.Text])
-sssSampleUtterances = Lens.lens (sampleUtterances :: SkillsStoreSkill -> Lude.Maybe [Lude.Text]) (\s a -> s {sampleUtterances = a} :: SkillsStoreSkill)
+sssSampleUtterances :: Lens.Lens' SkillsStoreSkill (Core.Maybe [Types.Utterance])
+sssSampleUtterances = Lens.field @"sampleUtterances"
 {-# DEPRECATED sssSampleUtterances "Use generic-lens or generic-optics with 'sampleUtterances' instead." #-}
 
 -- | Short description about the skill.
 --
 -- /Note:/ Consider using 'shortDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssShortDescription :: Lens.Lens' SkillsStoreSkill (Lude.Maybe Lude.Text)
-sssShortDescription = Lens.lens (shortDescription :: SkillsStoreSkill -> Lude.Maybe Lude.Text) (\s a -> s {shortDescription = a} :: SkillsStoreSkill)
+sssShortDescription :: Lens.Lens' SkillsStoreSkill (Core.Maybe Types.ShortDescription)
+sssShortDescription = Lens.field @"shortDescription"
 {-# DEPRECATED sssShortDescription "Use generic-lens or generic-optics with 'shortDescription' instead." #-}
-
--- | The URL where the skill icon resides.
---
--- /Note:/ Consider using 'iconURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssIconURL :: Lens.Lens' SkillsStoreSkill (Lude.Maybe Lude.Text)
-sssIconURL = Lens.lens (iconURL :: SkillsStoreSkill -> Lude.Maybe Lude.Text) (\s a -> s {iconURL = a} :: SkillsStoreSkill)
-{-# DEPRECATED sssIconURL "Use generic-lens or generic-optics with 'iconURL' instead." #-}
 
 -- | Information about the skill.
 --
 -- /Note:/ Consider using 'skillDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssSkillDetails :: Lens.Lens' SkillsStoreSkill (Lude.Maybe SkillDetails)
-sssSkillDetails = Lens.lens (skillDetails :: SkillsStoreSkill -> Lude.Maybe SkillDetails) (\s a -> s {skillDetails = a} :: SkillsStoreSkill)
+sssSkillDetails :: Lens.Lens' SkillsStoreSkill (Core.Maybe Types.SkillDetails)
+sssSkillDetails = Lens.field @"skillDetails"
 {-# DEPRECATED sssSkillDetails "Use generic-lens or generic-optics with 'skillDetails' instead." #-}
+
+-- | The ARN of the skill.
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssSkillId :: Lens.Lens' SkillsStoreSkill (Core.Maybe Types.SkillId)
+sssSkillId = Lens.field @"skillId"
+{-# DEPRECATED sssSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
 -- | The name of the skill.
 --
 -- /Note:/ Consider using 'skillName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssSkillName :: Lens.Lens' SkillsStoreSkill (Lude.Maybe Lude.Text)
-sssSkillName = Lens.lens (skillName :: SkillsStoreSkill -> Lude.Maybe Lude.Text) (\s a -> s {skillName = a} :: SkillsStoreSkill)
+sssSkillName :: Lens.Lens' SkillsStoreSkill (Core.Maybe Types.SkillName)
+sssSkillName = Lens.field @"skillName"
 {-# DEPRECATED sssSkillName "Use generic-lens or generic-optics with 'skillName' instead." #-}
 
-instance Lude.FromJSON SkillsStoreSkill where
+-- | Linking support for a skill.
+--
+-- /Note:/ Consider using 'supportsLinking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssSupportsLinking :: Lens.Lens' SkillsStoreSkill (Core.Maybe Core.Bool)
+sssSupportsLinking = Lens.field @"supportsLinking"
+{-# DEPRECATED sssSupportsLinking "Use generic-lens or generic-optics with 'supportsLinking' instead." #-}
+
+instance Core.FromJSON SkillsStoreSkill where
   parseJSON =
-    Lude.withObject
-      "SkillsStoreSkill"
-      ( \x ->
-          SkillsStoreSkill'
-            Lude.<$> (x Lude..:? "SkillId")
-            Lude.<*> (x Lude..:? "SupportsLinking")
-            Lude.<*> (x Lude..:? "SampleUtterances" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ShortDescription")
-            Lude.<*> (x Lude..:? "IconUrl")
-            Lude.<*> (x Lude..:? "SkillDetails")
-            Lude.<*> (x Lude..:? "SkillName")
-      )
+    Core.withObject "SkillsStoreSkill" Core.$
+      \x ->
+        SkillsStoreSkill'
+          Core.<$> (x Core..:? "IconUrl")
+          Core.<*> (x Core..:? "SampleUtterances")
+          Core.<*> (x Core..:? "ShortDescription")
+          Core.<*> (x Core..:? "SkillDetails")
+          Core.<*> (x Core..:? "SkillId")
+          Core.<*> (x Core..:? "SkillName")
+          Core.<*> (x Core..:? "SupportsLinking")

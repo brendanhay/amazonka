@@ -32,92 +32,79 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachElasticLoadBalancer' smart constructor.
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
   { -- | The Elastic Load Balancing instance's name.
-    elasticLoadBalancerName :: Lude.Text,
+    elasticLoadBalancerName :: Types.String,
     -- | The ID of the layer that the Elastic Load Balancing instance is attached to.
-    layerId :: Lude.Text
+    layerId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachElasticLoadBalancer' with the minimum fields required to make a request.
---
--- * 'elasticLoadBalancerName' - The Elastic Load Balancing instance's name.
--- * 'layerId' - The ID of the layer that the Elastic Load Balancing instance is attached to.
+-- | Creates a 'DetachElasticLoadBalancer' value with any optional fields omitted.
 mkDetachElasticLoadBalancer ::
   -- | 'elasticLoadBalancerName'
-  Lude.Text ->
+  Types.String ->
   -- | 'layerId'
-  Lude.Text ->
+  Types.String ->
   DetachElasticLoadBalancer
-mkDetachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
-  DetachElasticLoadBalancer'
-    { elasticLoadBalancerName =
-        pElasticLoadBalancerName_,
-      layerId = pLayerId_
-    }
+mkDetachElasticLoadBalancer elasticLoadBalancerName layerId =
+  DetachElasticLoadBalancer' {elasticLoadBalancerName, layerId}
 
 -- | The Elastic Load Balancing instance's name.
 --
 -- /Note:/ Consider using 'elasticLoadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delbElasticLoadBalancerName :: Lens.Lens' DetachElasticLoadBalancer Lude.Text
-delbElasticLoadBalancerName = Lens.lens (elasticLoadBalancerName :: DetachElasticLoadBalancer -> Lude.Text) (\s a -> s {elasticLoadBalancerName = a} :: DetachElasticLoadBalancer)
+delbElasticLoadBalancerName :: Lens.Lens' DetachElasticLoadBalancer Types.String
+delbElasticLoadBalancerName = Lens.field @"elasticLoadBalancerName"
 {-# DEPRECATED delbElasticLoadBalancerName "Use generic-lens or generic-optics with 'elasticLoadBalancerName' instead." #-}
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached to.
 --
 -- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delbLayerId :: Lens.Lens' DetachElasticLoadBalancer Lude.Text
-delbLayerId = Lens.lens (layerId :: DetachElasticLoadBalancer -> Lude.Text) (\s a -> s {layerId = a} :: DetachElasticLoadBalancer)
+delbLayerId :: Lens.Lens' DetachElasticLoadBalancer Types.String
+delbLayerId = Lens.field @"layerId"
 {-# DEPRECATED delbLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
-instance Lude.AWSRequest DetachElasticLoadBalancer where
+instance Core.FromJSON DetachElasticLoadBalancer where
+  toJSON DetachElasticLoadBalancer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ElasticLoadBalancerName" Core..= elasticLoadBalancerName),
+            Core.Just ("LayerId" Core..= layerId)
+          ]
+      )
+
+instance Core.AWSRequest DetachElasticLoadBalancer where
   type
     Rs DetachElasticLoadBalancer =
       DetachElasticLoadBalancerResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull DetachElasticLoadBalancerResponse'
-
-instance Lude.ToHeaders DetachElasticLoadBalancer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DetachElasticLoadBalancer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetachElasticLoadBalancer where
-  toJSON DetachElasticLoadBalancer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("ElasticLoadBalancerName" Lude..= elasticLoadBalancerName),
-            Lude.Just ("LayerId" Lude..= layerId)
-          ]
-      )
-
-instance Lude.ToPath DetachElasticLoadBalancer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachElasticLoadBalancer where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OpsWorks_20130218.DetachElasticLoadBalancer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DetachElasticLoadBalancerResponse'
 
 -- | /See:/ 'mkDetachElasticLoadBalancerResponse' smart constructor.
 data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachElasticLoadBalancerResponse' with the minimum fields required to make a request.
+-- | Creates a 'DetachElasticLoadBalancerResponse' value with any optional fields omitted.
 mkDetachElasticLoadBalancerResponse ::
   DetachElasticLoadBalancerResponse
 mkDetachElasticLoadBalancerResponse =

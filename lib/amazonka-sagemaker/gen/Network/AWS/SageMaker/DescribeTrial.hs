@@ -20,220 +20,199 @@ module Network.AWS.SageMaker.DescribeTrial
     mkDescribeTrial,
 
     -- ** Request lenses
-    dTrialName,
+    dtTrialName,
 
     -- * Destructuring the response
     DescribeTrialResponse (..),
     mkDescribeTrialResponse,
 
     -- ** Response lenses
-    dtrsCreationTime,
-    dtrsTrialARN,
-    dtrsCreatedBy,
-    dtrsLastModifiedTime,
-    dtrsExperimentName,
-    dtrsSource,
-    dtrsDisplayName,
-    dtrsTrialName,
-    dtrsLastModifiedBy,
-    dtrsResponseStatus,
+    dtrrsCreatedBy,
+    dtrrsCreationTime,
+    dtrrsDisplayName,
+    dtrrsExperimentName,
+    dtrrsLastModifiedBy,
+    dtrrsLastModifiedTime,
+    dtrrsSource,
+    dtrrsTrialArn,
+    dtrrsTrialName,
+    dtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDescribeTrial' smart constructor.
 newtype DescribeTrial = DescribeTrial'
   { -- | The name of the trial to describe.
-    trialName :: Lude.Text
+    trialName :: Types.ExperimentEntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTrial' with the minimum fields required to make a request.
---
--- * 'trialName' - The name of the trial to describe.
+-- | Creates a 'DescribeTrial' value with any optional fields omitted.
 mkDescribeTrial ::
   -- | 'trialName'
-  Lude.Text ->
+  Types.ExperimentEntityName ->
   DescribeTrial
-mkDescribeTrial pTrialName_ =
-  DescribeTrial' {trialName = pTrialName_}
+mkDescribeTrial trialName = DescribeTrial' {trialName}
 
 -- | The name of the trial to describe.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTrialName :: Lens.Lens' DescribeTrial Lude.Text
-dTrialName = Lens.lens (trialName :: DescribeTrial -> Lude.Text) (\s a -> s {trialName = a} :: DescribeTrial)
-{-# DEPRECATED dTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
+dtTrialName :: Lens.Lens' DescribeTrial Types.ExperimentEntityName
+dtTrialName = Lens.field @"trialName"
+{-# DEPRECATED dtTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
-instance Lude.AWSRequest DescribeTrial where
+instance Core.FromJSON DescribeTrial where
+  toJSON DescribeTrial {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TrialName" Core..= trialName)])
+
+instance Core.AWSRequest DescribeTrial where
   type Rs DescribeTrial = DescribeTrialResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DescribeTrial")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTrialResponse'
-            Lude.<$> (x Lude..?> "CreationTime")
-            Lude.<*> (x Lude..?> "TrialArn")
-            Lude.<*> (x Lude..?> "CreatedBy")
-            Lude.<*> (x Lude..?> "LastModifiedTime")
-            Lude.<*> (x Lude..?> "ExperimentName")
-            Lude.<*> (x Lude..?> "Source")
-            Lude.<*> (x Lude..?> "DisplayName")
-            Lude.<*> (x Lude..?> "TrialName")
-            Lude.<*> (x Lude..?> "LastModifiedBy")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CreatedBy")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "DisplayName")
+            Core.<*> (x Core..:? "ExperimentName")
+            Core.<*> (x Core..:? "LastModifiedBy")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "Source")
+            Core.<*> (x Core..:? "TrialArn")
+            Core.<*> (x Core..:? "TrialName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTrial where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DescribeTrial" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTrial where
-  toJSON DescribeTrial' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TrialName" Lude..= trialName)])
-
-instance Lude.ToPath DescribeTrial where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTrial where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeTrialResponse' smart constructor.
 data DescribeTrialResponse = DescribeTrialResponse'
-  { -- | When the trial was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the trial.
-    trialARN :: Lude.Maybe Lude.Text,
-    -- | Who created the trial.
-    createdBy :: Lude.Maybe UserContext,
-    -- | When the trial was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the experiment the trial is part of.
-    experimentName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the source and, optionally, the job type.
-    source :: Lude.Maybe TrialSource,
+  { -- | Who created the trial.
+    createdBy :: Core.Maybe Types.UserContext,
+    -- | When the trial was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | The name of the trial.
-    trialName :: Lude.Maybe Lude.Text,
+    displayName :: Core.Maybe Types.DisplayName,
+    -- | The name of the experiment the trial is part of.
+    experimentName :: Core.Maybe Types.ExperimentName,
     -- | Who last modified the trial.
-    lastModifiedBy :: Lude.Maybe UserContext,
+    lastModifiedBy :: Core.Maybe Types.UserContext,
+    -- | When the trial was last modified.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) of the source and, optionally, the job type.
+    source :: Core.Maybe Types.TrialSource,
+    -- | The Amazon Resource Name (ARN) of the trial.
+    trialArn :: Core.Maybe Types.TrialArn,
+    -- | The name of the trial.
+    trialName :: Core.Maybe Types.TrialName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTrialResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the trial was created.
--- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
--- * 'createdBy' - Who created the trial.
--- * 'lastModifiedTime' - When the trial was last modified.
--- * 'experimentName' - The name of the experiment the trial is part of.
--- * 'source' - The Amazon Resource Name (ARN) of the source and, optionally, the job type.
--- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
--- * 'trialName' - The name of the trial.
--- * 'lastModifiedBy' - Who last modified the trial.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTrialResponse' value with any optional fields omitted.
 mkDescribeTrialResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTrialResponse
-mkDescribeTrialResponse pResponseStatus_ =
+mkDescribeTrialResponse responseStatus =
   DescribeTrialResponse'
-    { creationTime = Lude.Nothing,
-      trialARN = Lude.Nothing,
-      createdBy = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      experimentName = Lude.Nothing,
-      source = Lude.Nothing,
-      displayName = Lude.Nothing,
-      trialName = Lude.Nothing,
-      lastModifiedBy = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { createdBy = Core.Nothing,
+      creationTime = Core.Nothing,
+      displayName = Core.Nothing,
+      experimentName = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      source = Core.Nothing,
+      trialArn = Core.Nothing,
+      trialName = Core.Nothing,
+      responseStatus
     }
-
--- | When the trial was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsCreationTime :: Lens.Lens' DescribeTrialResponse (Lude.Maybe Lude.Timestamp)
-dtrsCreationTime = Lens.lens (creationTime :: DescribeTrialResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the trial.
---
--- /Note:/ Consider using 'trialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTrialARN :: Lens.Lens' DescribeTrialResponse (Lude.Maybe Lude.Text)
-dtrsTrialARN = Lens.lens (trialARN :: DescribeTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
 
 -- | Who created the trial.
 --
 -- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsCreatedBy :: Lens.Lens' DescribeTrialResponse (Lude.Maybe UserContext)
-dtrsCreatedBy = Lens.lens (createdBy :: DescribeTrialResponse -> Lude.Maybe UserContext) (\s a -> s {createdBy = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
+dtrrsCreatedBy :: Lens.Lens' DescribeTrialResponse (Core.Maybe Types.UserContext)
+dtrrsCreatedBy = Lens.field @"createdBy"
+{-# DEPRECATED dtrrsCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
--- | When the trial was last modified.
+-- | When the trial was created.
 --
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsLastModifiedTime :: Lens.Lens' DescribeTrialResponse (Lude.Maybe Lude.Timestamp)
-dtrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeTrialResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
-
--- | The name of the experiment the trial is part of.
---
--- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsExperimentName :: Lens.Lens' DescribeTrialResponse (Lude.Maybe Lude.Text)
-dtrsExperimentName = Lens.lens (experimentName :: DescribeTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentName = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the source and, optionally, the job type.
---
--- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsSource :: Lens.Lens' DescribeTrialResponse (Lude.Maybe TrialSource)
-dtrsSource = Lens.lens (source :: DescribeTrialResponse -> Lude.Maybe TrialSource) (\s a -> s {source = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsSource "Use generic-lens or generic-optics with 'source' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsCreationTime :: Lens.Lens' DescribeTrialResponse (Core.Maybe Core.NominalDiffTime)
+dtrrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED dtrrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsDisplayName :: Lens.Lens' DescribeTrialResponse (Lude.Maybe Lude.Text)
-dtrsDisplayName = Lens.lens (displayName :: DescribeTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+dtrrsDisplayName :: Lens.Lens' DescribeTrialResponse (Core.Maybe Types.DisplayName)
+dtrrsDisplayName = Lens.field @"displayName"
+{-# DEPRECATED dtrrsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
--- | The name of the trial.
+-- | The name of the experiment the trial is part of.
 --
--- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTrialName :: Lens.Lens' DescribeTrialResponse (Lude.Maybe Lude.Text)
-dtrsTrialName = Lens.lens (trialName :: DescribeTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialName = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsExperimentName :: Lens.Lens' DescribeTrialResponse (Core.Maybe Types.ExperimentName)
+dtrrsExperimentName = Lens.field @"experimentName"
+{-# DEPRECATED dtrrsExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | Who last modified the trial.
 --
 -- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsLastModifiedBy :: Lens.Lens' DescribeTrialResponse (Lude.Maybe UserContext)
-dtrsLastModifiedBy = Lens.lens (lastModifiedBy :: DescribeTrialResponse -> Lude.Maybe UserContext) (\s a -> s {lastModifiedBy = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+dtrrsLastModifiedBy :: Lens.Lens' DescribeTrialResponse (Core.Maybe Types.UserContext)
+dtrrsLastModifiedBy = Lens.field @"lastModifiedBy"
+{-# DEPRECATED dtrrsLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+
+-- | When the trial was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsLastModifiedTime :: Lens.Lens' DescribeTrialResponse (Core.Maybe Core.NominalDiffTime)
+dtrrsLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED dtrrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the source and, optionally, the job type.
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsSource :: Lens.Lens' DescribeTrialResponse (Core.Maybe Types.TrialSource)
+dtrrsSource = Lens.field @"source"
+{-# DEPRECATED dtrrsSource "Use generic-lens or generic-optics with 'source' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the trial.
+--
+-- /Note:/ Consider using 'trialArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsTrialArn :: Lens.Lens' DescribeTrialResponse (Core.Maybe Types.TrialArn)
+dtrrsTrialArn = Lens.field @"trialArn"
+{-# DEPRECATED dtrrsTrialArn "Use generic-lens or generic-optics with 'trialArn' instead." #-}
+
+-- | The name of the trial.
+--
+-- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsTrialName :: Lens.Lens' DescribeTrialResponse (Core.Maybe Types.TrialName)
+dtrrsTrialName = Lens.field @"trialName"
+{-# DEPRECATED dtrrsTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeTrialResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTrialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrialResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrrsResponseStatus :: Lens.Lens' DescribeTrialResponse Core.Int
+dtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

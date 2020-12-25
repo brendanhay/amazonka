@@ -17,111 +17,105 @@ module Network.AWS.EC2.Types.StaleSecurityGroup
     mkStaleSecurityGroup,
 
     -- * Lenses
-    ssgVPCId,
+    ssgDescription,
     ssgGroupId,
     ssgGroupName,
-    ssgStaleIPPermissionsEgress,
-    ssgStaleIPPermissions,
-    ssgDescription,
+    ssgStaleIpPermissions,
+    ssgStaleIpPermissionsEgress,
+    ssgVpcId,
   )
 where
 
-import Network.AWS.EC2.Types.StaleIPPermission
+import qualified Network.AWS.EC2.Types.StaleIpPermission as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a stale security group (a security group that contains stale rules).
 --
 -- /See:/ 'mkStaleSecurityGroup' smart constructor.
 data StaleSecurityGroup = StaleSecurityGroup'
-  { -- | The ID of the VPC for the security group.
-    vpcId :: Lude.Maybe Lude.Text,
+  { -- | The description of the security group.
+    description :: Core.Maybe Types.String,
     -- | The ID of the security group.
-    groupId :: Lude.Maybe Lude.Text,
+    groupId :: Core.Maybe Types.String,
     -- | The name of the security group.
-    groupName :: Lude.Maybe Lude.Text,
-    -- | Information about the stale outbound rules in the security group.
-    staleIPPermissionsEgress :: Lude.Maybe [StaleIPPermission],
+    groupName :: Core.Maybe Types.String,
     -- | Information about the stale inbound rules in the security group.
-    staleIPPermissions :: Lude.Maybe [StaleIPPermission],
-    -- | The description of the security group.
-    description :: Lude.Maybe Lude.Text
+    staleIpPermissions :: Core.Maybe [Types.StaleIpPermission],
+    -- | Information about the stale outbound rules in the security group.
+    staleIpPermissionsEgress :: Core.Maybe [Types.StaleIpPermission],
+    -- | The ID of the VPC for the security group.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StaleSecurityGroup' with the minimum fields required to make a request.
---
--- * 'vpcId' - The ID of the VPC for the security group.
--- * 'groupId' - The ID of the security group.
--- * 'groupName' - The name of the security group.
--- * 'staleIPPermissionsEgress' - Information about the stale outbound rules in the security group.
--- * 'staleIPPermissions' - Information about the stale inbound rules in the security group.
--- * 'description' - The description of the security group.
+-- | Creates a 'StaleSecurityGroup' value with any optional fields omitted.
 mkStaleSecurityGroup ::
   StaleSecurityGroup
 mkStaleSecurityGroup =
   StaleSecurityGroup'
-    { vpcId = Lude.Nothing,
-      groupId = Lude.Nothing,
-      groupName = Lude.Nothing,
-      staleIPPermissionsEgress = Lude.Nothing,
-      staleIPPermissions = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      groupId = Core.Nothing,
+      groupName = Core.Nothing,
+      staleIpPermissions = Core.Nothing,
+      staleIpPermissionsEgress = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
--- | The ID of the VPC for the security group.
+-- | The description of the security group.
 --
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgVPCId :: Lens.Lens' StaleSecurityGroup (Lude.Maybe Lude.Text)
-ssgVPCId = Lens.lens (vpcId :: StaleSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: StaleSecurityGroup)
-{-# DEPRECATED ssgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgDescription :: Lens.Lens' StaleSecurityGroup (Core.Maybe Types.String)
+ssgDescription = Lens.field @"description"
+{-# DEPRECATED ssgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the security group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgGroupId :: Lens.Lens' StaleSecurityGroup (Lude.Maybe Lude.Text)
-ssgGroupId = Lens.lens (groupId :: StaleSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: StaleSecurityGroup)
+ssgGroupId :: Lens.Lens' StaleSecurityGroup (Core.Maybe Types.String)
+ssgGroupId = Lens.field @"groupId"
 {-# DEPRECATED ssgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The name of the security group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgGroupName :: Lens.Lens' StaleSecurityGroup (Lude.Maybe Lude.Text)
-ssgGroupName = Lens.lens (groupName :: StaleSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: StaleSecurityGroup)
+ssgGroupName :: Lens.Lens' StaleSecurityGroup (Core.Maybe Types.String)
+ssgGroupName = Lens.field @"groupName"
 {-# DEPRECATED ssgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | Information about the stale outbound rules in the security group.
---
--- /Note:/ Consider using 'staleIPPermissionsEgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgStaleIPPermissionsEgress :: Lens.Lens' StaleSecurityGroup (Lude.Maybe [StaleIPPermission])
-ssgStaleIPPermissionsEgress = Lens.lens (staleIPPermissionsEgress :: StaleSecurityGroup -> Lude.Maybe [StaleIPPermission]) (\s a -> s {staleIPPermissionsEgress = a} :: StaleSecurityGroup)
-{-# DEPRECATED ssgStaleIPPermissionsEgress "Use generic-lens or generic-optics with 'staleIPPermissionsEgress' instead." #-}
 
 -- | Information about the stale inbound rules in the security group.
 --
--- /Note:/ Consider using 'staleIPPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgStaleIPPermissions :: Lens.Lens' StaleSecurityGroup (Lude.Maybe [StaleIPPermission])
-ssgStaleIPPermissions = Lens.lens (staleIPPermissions :: StaleSecurityGroup -> Lude.Maybe [StaleIPPermission]) (\s a -> s {staleIPPermissions = a} :: StaleSecurityGroup)
-{-# DEPRECATED ssgStaleIPPermissions "Use generic-lens or generic-optics with 'staleIPPermissions' instead." #-}
+-- /Note:/ Consider using 'staleIpPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgStaleIpPermissions :: Lens.Lens' StaleSecurityGroup (Core.Maybe [Types.StaleIpPermission])
+ssgStaleIpPermissions = Lens.field @"staleIpPermissions"
+{-# DEPRECATED ssgStaleIpPermissions "Use generic-lens or generic-optics with 'staleIpPermissions' instead." #-}
 
--- | The description of the security group.
+-- | Information about the stale outbound rules in the security group.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgDescription :: Lens.Lens' StaleSecurityGroup (Lude.Maybe Lude.Text)
-ssgDescription = Lens.lens (description :: StaleSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StaleSecurityGroup)
-{-# DEPRECATED ssgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'staleIpPermissionsEgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgStaleIpPermissionsEgress :: Lens.Lens' StaleSecurityGroup (Core.Maybe [Types.StaleIpPermission])
+ssgStaleIpPermissionsEgress = Lens.field @"staleIpPermissionsEgress"
+{-# DEPRECATED ssgStaleIpPermissionsEgress "Use generic-lens or generic-optics with 'staleIpPermissionsEgress' instead." #-}
 
-instance Lude.FromXML StaleSecurityGroup where
+-- | The ID of the VPC for the security group.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgVpcId :: Lens.Lens' StaleSecurityGroup (Core.Maybe Types.String)
+ssgVpcId = Lens.field @"vpcId"
+{-# DEPRECATED ssgVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromXML StaleSecurityGroup where
   parseXML x =
     StaleSecurityGroup'
-      Lude.<$> (x Lude..@? "vpcId")
-      Lude.<*> (x Lude..@? "groupId")
-      Lude.<*> (x Lude..@? "groupName")
-      Lude.<*> ( x Lude..@? "staleIpPermissionsEgress" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@? "description")
+      Core.<*> (x Core..@? "groupId")
+      Core.<*> (x Core..@? "groupName")
+      Core.<*> ( x Core..@? "staleIpPermissions"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> ( x Lude..@? "staleIpPermissions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> ( x Core..@? "staleIpPermissionsEgress"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "description")
+      Core.<*> (x Core..@? "vpcId")

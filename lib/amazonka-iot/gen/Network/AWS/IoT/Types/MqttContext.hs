@@ -18,55 +18,46 @@ module Network.AWS.IoT.Types.MqttContext
 
     -- * Lenses
     mcClientId,
-    mcUsername,
     mcPassword,
+    mcUsername,
   )
 where
 
+import qualified Network.AWS.IoT.Types.MqttClientId as Types
+import qualified Network.AWS.IoT.Types.MqttUsername as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the MQTT context to use for the test authorizer request
 --
 -- /See:/ 'mkMqttContext' smart constructor.
 data MqttContext = MqttContext'
   { -- | The value of the @clientId@ key in an MQTT authorization request.
-    clientId :: Lude.Maybe Lude.Text,
-    -- | The value of the @username@ key in an MQTT authorization request.
-    username :: Lude.Maybe Lude.Text,
+    clientId :: Core.Maybe Types.MqttClientId,
     -- | The value of the @password@ key in an MQTT authorization request.
-    password :: Lude.Maybe Lude.Base64
+    password :: Core.Maybe Core.Base64,
+    -- | The value of the @username@ key in an MQTT authorization request.
+    username :: Core.Maybe Types.MqttUsername
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MqttContext' with the minimum fields required to make a request.
---
--- * 'clientId' - The value of the @clientId@ key in an MQTT authorization request.
--- * 'username' - The value of the @username@ key in an MQTT authorization request.
--- * 'password' - The value of the @password@ key in an MQTT authorization request.
+-- | Creates a 'MqttContext' value with any optional fields omitted.
 mkMqttContext ::
   MqttContext
 mkMqttContext =
   MqttContext'
-    { clientId = Lude.Nothing,
-      username = Lude.Nothing,
-      password = Lude.Nothing
+    { clientId = Core.Nothing,
+      password = Core.Nothing,
+      username = Core.Nothing
     }
 
 -- | The value of the @clientId@ key in an MQTT authorization request.
 --
 -- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcClientId :: Lens.Lens' MqttContext (Lude.Maybe Lude.Text)
-mcClientId = Lens.lens (clientId :: MqttContext -> Lude.Maybe Lude.Text) (\s a -> s {clientId = a} :: MqttContext)
+mcClientId :: Lens.Lens' MqttContext (Core.Maybe Types.MqttClientId)
+mcClientId = Lens.field @"clientId"
 {-# DEPRECATED mcClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
--- | The value of the @username@ key in an MQTT authorization request.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcUsername :: Lens.Lens' MqttContext (Lude.Maybe Lude.Text)
-mcUsername = Lens.lens (username :: MqttContext -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: MqttContext)
-{-# DEPRECATED mcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The value of the @password@ key in an MQTT authorization request.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -75,16 +66,23 @@ mcUsername = Lens.lens (username :: MqttContext -> Lude.Maybe Lude.Text) (\s a -
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcPassword :: Lens.Lens' MqttContext (Lude.Maybe Lude.Base64)
-mcPassword = Lens.lens (password :: MqttContext -> Lude.Maybe Lude.Base64) (\s a -> s {password = a} :: MqttContext)
+mcPassword :: Lens.Lens' MqttContext (Core.Maybe Core.Base64)
+mcPassword = Lens.field @"password"
 {-# DEPRECATED mcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance Lude.ToJSON MqttContext where
-  toJSON MqttContext' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("clientId" Lude..=) Lude.<$> clientId,
-            ("username" Lude..=) Lude.<$> username,
-            ("password" Lude..=) Lude.<$> password
+-- | The value of the @username@ key in an MQTT authorization request.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcUsername :: Lens.Lens' MqttContext (Core.Maybe Types.MqttUsername)
+mcUsername = Lens.field @"username"
+{-# DEPRECATED mcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+instance Core.FromJSON MqttContext where
+  toJSON MqttContext {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("clientId" Core..=) Core.<$> clientId,
+            ("password" Core..=) Core.<$> password,
+            ("username" Core..=) Core.<$> username
           ]
       )

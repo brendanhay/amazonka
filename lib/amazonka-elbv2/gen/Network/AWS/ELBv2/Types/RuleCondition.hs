@@ -18,24 +18,26 @@ module Network.AWS.ELBv2.Types.RuleCondition
 
     -- * Lenses
     rcField,
-    rcHTTPHeaderConfig,
     rcHostHeaderConfig,
-    rcValues,
-    rcSourceIPConfig,
-    rcHTTPRequestMethodConfig,
+    rcHttpHeaderConfig,
+    rcHttpRequestMethodConfig,
     rcPathPatternConfig,
     rcQueryStringConfig,
+    rcSourceIpConfig,
+    rcValues,
   )
 where
 
-import Network.AWS.ELBv2.Types.HTTPHeaderConditionConfig
-import Network.AWS.ELBv2.Types.HTTPRequestMethodConditionConfig
-import Network.AWS.ELBv2.Types.HostHeaderConditionConfig
-import Network.AWS.ELBv2.Types.PathPatternConditionConfig
-import Network.AWS.ELBv2.Types.QueryStringConditionConfig
-import Network.AWS.ELBv2.Types.SourceIPConditionConfig
+import qualified Network.AWS.ELBv2.Types.Field as Types
+import qualified Network.AWS.ELBv2.Types.HostHeaderConditionConfig as Types
+import qualified Network.AWS.ELBv2.Types.HttpHeaderConditionConfig as Types
+import qualified Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig as Types
+import qualified Network.AWS.ELBv2.Types.PathPatternConditionConfig as Types
+import qualified Network.AWS.ELBv2.Types.QueryStringConditionConfig as Types
+import qualified Network.AWS.ELBv2.Types.SourceIpConditionConfig as Types
+import qualified Network.AWS.ELBv2.Types.StringValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a condition for a rule.
 --
@@ -62,11 +64,19 @@ data RuleCondition = RuleCondition'
     --
     --
     --     * @source-ip@
-    field :: Lude.Maybe Lude.Text,
-    -- | Information for an HTTP header condition. Specify only when @Field@ is @http-header@ .
-    hTTPHeaderConfig :: Lude.Maybe HTTPHeaderConditionConfig,
+    field :: Core.Maybe Types.Field,
     -- | Information for a host header condition. Specify only when @Field@ is @host-header@ .
-    hostHeaderConfig :: Lude.Maybe HostHeaderConditionConfig,
+    hostHeaderConfig :: Core.Maybe Types.HostHeaderConditionConfig,
+    -- | Information for an HTTP header condition. Specify only when @Field@ is @http-header@ .
+    httpHeaderConfig :: Core.Maybe Types.HttpHeaderConditionConfig,
+    -- | Information for an HTTP method condition. Specify only when @Field@ is @http-request-method@ .
+    httpRequestMethodConfig :: Core.Maybe Types.HttpRequestMethodConditionConfig,
+    -- | Information for a path pattern condition. Specify only when @Field@ is @path-pattern@ .
+    pathPatternConfig :: Core.Maybe Types.PathPatternConditionConfig,
+    -- | Information for a query string condition. Specify only when @Field@ is @query-string@ .
+    queryStringConfig :: Core.Maybe Types.QueryStringConditionConfig,
+    -- | Information for a source IP condition. Specify only when @Field@ is @source-ip@ .
+    sourceIpConfig :: Core.Maybe Types.SourceIpConditionConfig,
     -- | The condition value. Specify only when @Field@ is @host-header@ or @path-pattern@ . Alternatively, to specify multiple host names or multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@ .
     --
     -- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@ , you can specify a single host name (for example, my.example.com) in @Values@ . A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
@@ -98,93 +108,24 @@ data RuleCondition = RuleCondition'
     --
     --
     --     * ? (matches exactly 1 character)
-    values :: Lude.Maybe [Lude.Text],
-    -- | Information for a source IP condition. Specify only when @Field@ is @source-ip@ .
-    sourceIPConfig :: Lude.Maybe SourceIPConditionConfig,
-    -- | Information for an HTTP method condition. Specify only when @Field@ is @http-request-method@ .
-    hTTPRequestMethodConfig :: Lude.Maybe HTTPRequestMethodConditionConfig,
-    -- | Information for a path pattern condition. Specify only when @Field@ is @path-pattern@ .
-    pathPatternConfig :: Lude.Maybe PathPatternConditionConfig,
-    -- | Information for a query string condition. Specify only when @Field@ is @query-string@ .
-    queryStringConfig :: Lude.Maybe QueryStringConditionConfig
+    values :: Core.Maybe [Types.StringValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RuleCondition' with the minimum fields required to make a request.
---
--- * 'field' - The field in the HTTP request. The following are the possible values:
---
---
---     * @http-header@
---
---
---     * @http-request-method@
---
---
---     * @host-header@
---
---
---     * @path-pattern@
---
---
---     * @query-string@
---
---
---     * @source-ip@
---
---
--- * 'hTTPHeaderConfig' - Information for an HTTP header condition. Specify only when @Field@ is @http-header@ .
--- * 'hostHeaderConfig' - Information for a host header condition. Specify only when @Field@ is @host-header@ .
--- * 'values' - The condition value. Specify only when @Field@ is @host-header@ or @path-pattern@ . Alternatively, to specify multiple host names or multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@ .
---
--- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@ , you can specify a single host name (for example, my.example.com) in @Values@ . A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
---
---     * A-Z, a-z, 0-9
---
---
---     * - .
---
---
---     * * (matches 0 or more characters)
---
---
---     * ? (matches exactly 1 character)
---
---
--- If @Field@ is @path-pattern@ and you are not using @PathPatternConfig@ , you can specify a single path pattern (for example, /img/*) in @Values@ . A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
---
---     * A-Z, a-z, 0-9
---
---
---     * _ - . $ / ~ " ' @ : +
---
---
---     * & (using &amp;)
---
---
---     * * (matches 0 or more characters)
---
---
---     * ? (matches exactly 1 character)
---
---
--- * 'sourceIPConfig' - Information for a source IP condition. Specify only when @Field@ is @source-ip@ .
--- * 'hTTPRequestMethodConfig' - Information for an HTTP method condition. Specify only when @Field@ is @http-request-method@ .
--- * 'pathPatternConfig' - Information for a path pattern condition. Specify only when @Field@ is @path-pattern@ .
--- * 'queryStringConfig' - Information for a query string condition. Specify only when @Field@ is @query-string@ .
+-- | Creates a 'RuleCondition' value with any optional fields omitted.
 mkRuleCondition ::
   RuleCondition
 mkRuleCondition =
   RuleCondition'
-    { field = Lude.Nothing,
-      hTTPHeaderConfig = Lude.Nothing,
-      hostHeaderConfig = Lude.Nothing,
-      values = Lude.Nothing,
-      sourceIPConfig = Lude.Nothing,
-      hTTPRequestMethodConfig = Lude.Nothing,
-      pathPatternConfig = Lude.Nothing,
-      queryStringConfig = Lude.Nothing
+    { field = Core.Nothing,
+      hostHeaderConfig = Core.Nothing,
+      httpHeaderConfig = Core.Nothing,
+      httpRequestMethodConfig = Core.Nothing,
+      pathPatternConfig = Core.Nothing,
+      queryStringConfig = Core.Nothing,
+      sourceIpConfig = Core.Nothing,
+      values = Core.Nothing
     }
 
 -- | The field in the HTTP request. The following are the possible values:
@@ -210,23 +151,51 @@ mkRuleCondition =
 --
 --
 -- /Note:/ Consider using 'field' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcField :: Lens.Lens' RuleCondition (Lude.Maybe Lude.Text)
-rcField = Lens.lens (field :: RuleCondition -> Lude.Maybe Lude.Text) (\s a -> s {field = a} :: RuleCondition)
+rcField :: Lens.Lens' RuleCondition (Core.Maybe Types.Field)
+rcField = Lens.field @"field"
 {-# DEPRECATED rcField "Use generic-lens or generic-optics with 'field' instead." #-}
-
--- | Information for an HTTP header condition. Specify only when @Field@ is @http-header@ .
---
--- /Note:/ Consider using 'hTTPHeaderConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcHTTPHeaderConfig :: Lens.Lens' RuleCondition (Lude.Maybe HTTPHeaderConditionConfig)
-rcHTTPHeaderConfig = Lens.lens (hTTPHeaderConfig :: RuleCondition -> Lude.Maybe HTTPHeaderConditionConfig) (\s a -> s {hTTPHeaderConfig = a} :: RuleCondition)
-{-# DEPRECATED rcHTTPHeaderConfig "Use generic-lens or generic-optics with 'hTTPHeaderConfig' instead." #-}
 
 -- | Information for a host header condition. Specify only when @Field@ is @host-header@ .
 --
 -- /Note:/ Consider using 'hostHeaderConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcHostHeaderConfig :: Lens.Lens' RuleCondition (Lude.Maybe HostHeaderConditionConfig)
-rcHostHeaderConfig = Lens.lens (hostHeaderConfig :: RuleCondition -> Lude.Maybe HostHeaderConditionConfig) (\s a -> s {hostHeaderConfig = a} :: RuleCondition)
+rcHostHeaderConfig :: Lens.Lens' RuleCondition (Core.Maybe Types.HostHeaderConditionConfig)
+rcHostHeaderConfig = Lens.field @"hostHeaderConfig"
 {-# DEPRECATED rcHostHeaderConfig "Use generic-lens or generic-optics with 'hostHeaderConfig' instead." #-}
+
+-- | Information for an HTTP header condition. Specify only when @Field@ is @http-header@ .
+--
+-- /Note:/ Consider using 'httpHeaderConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcHttpHeaderConfig :: Lens.Lens' RuleCondition (Core.Maybe Types.HttpHeaderConditionConfig)
+rcHttpHeaderConfig = Lens.field @"httpHeaderConfig"
+{-# DEPRECATED rcHttpHeaderConfig "Use generic-lens or generic-optics with 'httpHeaderConfig' instead." #-}
+
+-- | Information for an HTTP method condition. Specify only when @Field@ is @http-request-method@ .
+--
+-- /Note:/ Consider using 'httpRequestMethodConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcHttpRequestMethodConfig :: Lens.Lens' RuleCondition (Core.Maybe Types.HttpRequestMethodConditionConfig)
+rcHttpRequestMethodConfig = Lens.field @"httpRequestMethodConfig"
+{-# DEPRECATED rcHttpRequestMethodConfig "Use generic-lens or generic-optics with 'httpRequestMethodConfig' instead." #-}
+
+-- | Information for a path pattern condition. Specify only when @Field@ is @path-pattern@ .
+--
+-- /Note:/ Consider using 'pathPatternConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcPathPatternConfig :: Lens.Lens' RuleCondition (Core.Maybe Types.PathPatternConditionConfig)
+rcPathPatternConfig = Lens.field @"pathPatternConfig"
+{-# DEPRECATED rcPathPatternConfig "Use generic-lens or generic-optics with 'pathPatternConfig' instead." #-}
+
+-- | Information for a query string condition. Specify only when @Field@ is @query-string@ .
+--
+-- /Note:/ Consider using 'queryStringConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcQueryStringConfig :: Lens.Lens' RuleCondition (Core.Maybe Types.QueryStringConditionConfig)
+rcQueryStringConfig = Lens.field @"queryStringConfig"
+{-# DEPRECATED rcQueryStringConfig "Use generic-lens or generic-optics with 'queryStringConfig' instead." #-}
+
+-- | Information for a source IP condition. Specify only when @Field@ is @source-ip@ .
+--
+-- /Note:/ Consider using 'sourceIpConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcSourceIpConfig :: Lens.Lens' RuleCondition (Core.Maybe Types.SourceIpConditionConfig)
+rcSourceIpConfig = Lens.field @"sourceIpConfig"
+{-# DEPRECATED rcSourceIpConfig "Use generic-lens or generic-optics with 'sourceIpConfig' instead." #-}
 
 -- | The condition value. Specify only when @Field@ is @host-header@ or @path-pattern@ . Alternatively, to specify multiple host names or multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@ .
 --
@@ -263,62 +232,18 @@ rcHostHeaderConfig = Lens.lens (hostHeaderConfig :: RuleCondition -> Lude.Maybe 
 --
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcValues :: Lens.Lens' RuleCondition (Lude.Maybe [Lude.Text])
-rcValues = Lens.lens (values :: RuleCondition -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: RuleCondition)
+rcValues :: Lens.Lens' RuleCondition (Core.Maybe [Types.StringValue])
+rcValues = Lens.field @"values"
 {-# DEPRECATED rcValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
--- | Information for a source IP condition. Specify only when @Field@ is @source-ip@ .
---
--- /Note:/ Consider using 'sourceIPConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcSourceIPConfig :: Lens.Lens' RuleCondition (Lude.Maybe SourceIPConditionConfig)
-rcSourceIPConfig = Lens.lens (sourceIPConfig :: RuleCondition -> Lude.Maybe SourceIPConditionConfig) (\s a -> s {sourceIPConfig = a} :: RuleCondition)
-{-# DEPRECATED rcSourceIPConfig "Use generic-lens or generic-optics with 'sourceIPConfig' instead." #-}
-
--- | Information for an HTTP method condition. Specify only when @Field@ is @http-request-method@ .
---
--- /Note:/ Consider using 'hTTPRequestMethodConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcHTTPRequestMethodConfig :: Lens.Lens' RuleCondition (Lude.Maybe HTTPRequestMethodConditionConfig)
-rcHTTPRequestMethodConfig = Lens.lens (hTTPRequestMethodConfig :: RuleCondition -> Lude.Maybe HTTPRequestMethodConditionConfig) (\s a -> s {hTTPRequestMethodConfig = a} :: RuleCondition)
-{-# DEPRECATED rcHTTPRequestMethodConfig "Use generic-lens or generic-optics with 'hTTPRequestMethodConfig' instead." #-}
-
--- | Information for a path pattern condition. Specify only when @Field@ is @path-pattern@ .
---
--- /Note:/ Consider using 'pathPatternConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcPathPatternConfig :: Lens.Lens' RuleCondition (Lude.Maybe PathPatternConditionConfig)
-rcPathPatternConfig = Lens.lens (pathPatternConfig :: RuleCondition -> Lude.Maybe PathPatternConditionConfig) (\s a -> s {pathPatternConfig = a} :: RuleCondition)
-{-# DEPRECATED rcPathPatternConfig "Use generic-lens or generic-optics with 'pathPatternConfig' instead." #-}
-
--- | Information for a query string condition. Specify only when @Field@ is @query-string@ .
---
--- /Note:/ Consider using 'queryStringConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcQueryStringConfig :: Lens.Lens' RuleCondition (Lude.Maybe QueryStringConditionConfig)
-rcQueryStringConfig = Lens.lens (queryStringConfig :: RuleCondition -> Lude.Maybe QueryStringConditionConfig) (\s a -> s {queryStringConfig = a} :: RuleCondition)
-{-# DEPRECATED rcQueryStringConfig "Use generic-lens or generic-optics with 'queryStringConfig' instead." #-}
-
-instance Lude.FromXML RuleCondition where
+instance Core.FromXML RuleCondition where
   parseXML x =
     RuleCondition'
-      Lude.<$> (x Lude..@? "Field")
-      Lude.<*> (x Lude..@? "HttpHeaderConfig")
-      Lude.<*> (x Lude..@? "HostHeaderConfig")
-      Lude.<*> ( x Lude..@? "Values" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "SourceIpConfig")
-      Lude.<*> (x Lude..@? "HttpRequestMethodConfig")
-      Lude.<*> (x Lude..@? "PathPatternConfig")
-      Lude.<*> (x Lude..@? "QueryStringConfig")
-
-instance Lude.ToQuery RuleCondition where
-  toQuery RuleCondition' {..} =
-    Lude.mconcat
-      [ "Field" Lude.=: field,
-        "HttpHeaderConfig" Lude.=: hTTPHeaderConfig,
-        "HostHeaderConfig" Lude.=: hostHeaderConfig,
-        "Values"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> values),
-        "SourceIpConfig" Lude.=: sourceIPConfig,
-        "HttpRequestMethodConfig" Lude.=: hTTPRequestMethodConfig,
-        "PathPatternConfig" Lude.=: pathPatternConfig,
-        "QueryStringConfig" Lude.=: queryStringConfig
-      ]
+      Core.<$> (x Core..@? "Field")
+      Core.<*> (x Core..@? "HostHeaderConfig")
+      Core.<*> (x Core..@? "HttpHeaderConfig")
+      Core.<*> (x Core..@? "HttpRequestMethodConfig")
+      Core.<*> (x Core..@? "PathPatternConfig")
+      Core.<*> (x Core..@? "QueryStringConfig")
+      Core.<*> (x Core..@? "SourceIpConfig")
+      Core.<*> (x Core..@? "Values" Core..<@> Core.parseXMLList "member")

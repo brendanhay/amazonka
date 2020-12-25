@@ -17,88 +17,81 @@ module Network.AWS.SageMaker.Types.SearchRecord
     mkSearchRecord,
 
     -- * Lenses
+    srExperiment,
     srTrainingJob,
     srTrial,
     srTrialComponent,
-    srExperiment,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.Experiment
-import Network.AWS.SageMaker.Types.TrainingJob
-import Network.AWS.SageMaker.Types.Trial
-import Network.AWS.SageMaker.Types.TrialComponent
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.Experiment as Types
+import qualified Network.AWS.SageMaker.Types.TrainingJob as Types
+import qualified Network.AWS.SageMaker.Types.Trial as Types
+import qualified Network.AWS.SageMaker.Types.TrialComponent as Types
 
 -- | A single resource returned as part of the 'Search' API response.
 --
 -- /See:/ 'mkSearchRecord' smart constructor.
 data SearchRecord = SearchRecord'
-  { -- | The properties of a training job.
-    trainingJob :: Lude.Maybe TrainingJob,
+  { -- | The properties of an experiment.
+    experiment :: Core.Maybe Types.Experiment,
+    -- | The properties of a training job.
+    trainingJob :: Core.Maybe Types.TrainingJob,
     -- | The properties of a trial.
-    trial :: Lude.Maybe Trial,
+    trial :: Core.Maybe Types.Trial,
     -- | The properties of a trial component.
-    trialComponent :: Lude.Maybe TrialComponent,
-    -- | The properties of an experiment.
-    experiment :: Lude.Maybe Experiment
+    trialComponent :: Core.Maybe Types.TrialComponent
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SearchRecord' with the minimum fields required to make a request.
---
--- * 'trainingJob' - The properties of a training job.
--- * 'trial' - The properties of a trial.
--- * 'trialComponent' - The properties of a trial component.
--- * 'experiment' - The properties of an experiment.
+-- | Creates a 'SearchRecord' value with any optional fields omitted.
 mkSearchRecord ::
   SearchRecord
 mkSearchRecord =
   SearchRecord'
-    { trainingJob = Lude.Nothing,
-      trial = Lude.Nothing,
-      trialComponent = Lude.Nothing,
-      experiment = Lude.Nothing
+    { experiment = Core.Nothing,
+      trainingJob = Core.Nothing,
+      trial = Core.Nothing,
+      trialComponent = Core.Nothing
     }
+
+-- | The properties of an experiment.
+--
+-- /Note:/ Consider using 'experiment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srExperiment :: Lens.Lens' SearchRecord (Core.Maybe Types.Experiment)
+srExperiment = Lens.field @"experiment"
+{-# DEPRECATED srExperiment "Use generic-lens or generic-optics with 'experiment' instead." #-}
 
 -- | The properties of a training job.
 --
 -- /Note:/ Consider using 'trainingJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srTrainingJob :: Lens.Lens' SearchRecord (Lude.Maybe TrainingJob)
-srTrainingJob = Lens.lens (trainingJob :: SearchRecord -> Lude.Maybe TrainingJob) (\s a -> s {trainingJob = a} :: SearchRecord)
+srTrainingJob :: Lens.Lens' SearchRecord (Core.Maybe Types.TrainingJob)
+srTrainingJob = Lens.field @"trainingJob"
 {-# DEPRECATED srTrainingJob "Use generic-lens or generic-optics with 'trainingJob' instead." #-}
 
 -- | The properties of a trial.
 --
 -- /Note:/ Consider using 'trial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srTrial :: Lens.Lens' SearchRecord (Lude.Maybe Trial)
-srTrial = Lens.lens (trial :: SearchRecord -> Lude.Maybe Trial) (\s a -> s {trial = a} :: SearchRecord)
+srTrial :: Lens.Lens' SearchRecord (Core.Maybe Types.Trial)
+srTrial = Lens.field @"trial"
 {-# DEPRECATED srTrial "Use generic-lens or generic-optics with 'trial' instead." #-}
 
 -- | The properties of a trial component.
 --
 -- /Note:/ Consider using 'trialComponent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srTrialComponent :: Lens.Lens' SearchRecord (Lude.Maybe TrialComponent)
-srTrialComponent = Lens.lens (trialComponent :: SearchRecord -> Lude.Maybe TrialComponent) (\s a -> s {trialComponent = a} :: SearchRecord)
+srTrialComponent :: Lens.Lens' SearchRecord (Core.Maybe Types.TrialComponent)
+srTrialComponent = Lens.field @"trialComponent"
 {-# DEPRECATED srTrialComponent "Use generic-lens or generic-optics with 'trialComponent' instead." #-}
 
--- | The properties of an experiment.
---
--- /Note:/ Consider using 'experiment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srExperiment :: Lens.Lens' SearchRecord (Lude.Maybe Experiment)
-srExperiment = Lens.lens (experiment :: SearchRecord -> Lude.Maybe Experiment) (\s a -> s {experiment = a} :: SearchRecord)
-{-# DEPRECATED srExperiment "Use generic-lens or generic-optics with 'experiment' instead." #-}
-
-instance Lude.FromJSON SearchRecord where
+instance Core.FromJSON SearchRecord where
   parseJSON =
-    Lude.withObject
-      "SearchRecord"
-      ( \x ->
-          SearchRecord'
-            Lude.<$> (x Lude..:? "TrainingJob")
-            Lude.<*> (x Lude..:? "Trial")
-            Lude.<*> (x Lude..:? "TrialComponent")
-            Lude.<*> (x Lude..:? "Experiment")
-      )
+    Core.withObject "SearchRecord" Core.$
+      \x ->
+        SearchRecord'
+          Core.<$> (x Core..:? "Experiment")
+          Core.<*> (x Core..:? "TrainingJob")
+          Core.<*> (x Core..:? "Trial")
+          Core.<*> (x Core..:? "TrialComponent")

@@ -28,119 +28,105 @@ module Network.AWS.CognitoIdentityProvider.AddCustomAttributes
     mkAddCustomAttributesResponse,
 
     -- ** Response lenses
-    acarsResponseStatus,
+    acarrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to add custom attributes.
 --
 -- /See:/ 'mkAddCustomAttributes' smart constructor.
 data AddCustomAttributes = AddCustomAttributes'
   { -- | The user pool ID for the user pool where you want to add custom attributes.
-    userPoolId :: Lude.Text,
+    userPoolId :: Types.UserPoolId,
     -- | An array of custom attributes, such as Mutable and Name.
-    customAttributes :: Lude.NonEmpty SchemaAttributeType
+    customAttributes :: Core.NonEmpty Types.SchemaAttributeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddCustomAttributes' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool where you want to add custom attributes.
--- * 'customAttributes' - An array of custom attributes, such as Mutable and Name.
+-- | Creates a 'AddCustomAttributes' value with any optional fields omitted.
 mkAddCustomAttributes ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'customAttributes'
-  Lude.NonEmpty SchemaAttributeType ->
+  Core.NonEmpty Types.SchemaAttributeType ->
   AddCustomAttributes
-mkAddCustomAttributes pUserPoolId_ pCustomAttributes_ =
-  AddCustomAttributes'
-    { userPoolId = pUserPoolId_,
-      customAttributes = pCustomAttributes_
-    }
+mkAddCustomAttributes userPoolId customAttributes =
+  AddCustomAttributes' {userPoolId, customAttributes}
 
 -- | The user pool ID for the user pool where you want to add custom attributes.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acaUserPoolId :: Lens.Lens' AddCustomAttributes Lude.Text
-acaUserPoolId = Lens.lens (userPoolId :: AddCustomAttributes -> Lude.Text) (\s a -> s {userPoolId = a} :: AddCustomAttributes)
+acaUserPoolId :: Lens.Lens' AddCustomAttributes Types.UserPoolId
+acaUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED acaUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | An array of custom attributes, such as Mutable and Name.
 --
 -- /Note:/ Consider using 'customAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acaCustomAttributes :: Lens.Lens' AddCustomAttributes (Lude.NonEmpty SchemaAttributeType)
-acaCustomAttributes = Lens.lens (customAttributes :: AddCustomAttributes -> Lude.NonEmpty SchemaAttributeType) (\s a -> s {customAttributes = a} :: AddCustomAttributes)
+acaCustomAttributes :: Lens.Lens' AddCustomAttributes (Core.NonEmpty Types.SchemaAttributeType)
+acaCustomAttributes = Lens.field @"customAttributes"
 {-# DEPRECATED acaCustomAttributes "Use generic-lens or generic-optics with 'customAttributes' instead." #-}
 
-instance Lude.AWSRequest AddCustomAttributes where
+instance Core.FromJSON AddCustomAttributes where
+  toJSON AddCustomAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("CustomAttributes" Core..= customAttributes)
+          ]
+      )
+
+instance Core.AWSRequest AddCustomAttributes where
   type Rs AddCustomAttributes = AddCustomAttributesResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AddCustomAttributes"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AddCustomAttributesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddCustomAttributes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AddCustomAttributes" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddCustomAttributes where
-  toJSON AddCustomAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("CustomAttributes" Lude..= customAttributes)
-          ]
-      )
-
-instance Lude.ToPath AddCustomAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddCustomAttributes where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server for the request to add custom attributes.
 --
 -- /See:/ 'mkAddCustomAttributesResponse' smart constructor.
 newtype AddCustomAttributesResponse = AddCustomAttributesResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddCustomAttributesResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddCustomAttributesResponse' value with any optional fields omitted.
 mkAddCustomAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddCustomAttributesResponse
-mkAddCustomAttributesResponse pResponseStatus_ =
-  AddCustomAttributesResponse' {responseStatus = pResponseStatus_}
+mkAddCustomAttributesResponse responseStatus =
+  AddCustomAttributesResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acarsResponseStatus :: Lens.Lens' AddCustomAttributesResponse Lude.Int
-acarsResponseStatus = Lens.lens (responseStatus :: AddCustomAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddCustomAttributesResponse)
-{-# DEPRECATED acarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+acarrsResponseStatus :: Lens.Lens' AddCustomAttributesResponse Core.Int
+acarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED acarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

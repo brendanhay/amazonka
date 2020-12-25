@@ -17,72 +17,67 @@ module Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo
     mkCloudFormationStackRecordSourceInfo,
 
     -- * Lenses
-    cfsrsiResourceType,
     cfsrsiArn,
     cfsrsiName,
+    cfsrsiResourceType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType as Types
+import qualified Network.AWS.Lightsail.Types.NonEmptyString as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the source of a CloudFormation stack record (i.e., the export snapshot record).
 --
 -- /See:/ 'mkCloudFormationStackRecordSourceInfo' smart constructor.
 data CloudFormationStackRecordSourceInfo = CloudFormationStackRecordSourceInfo'
-  { -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
-    resourceType :: Lude.Maybe CloudFormationStackRecordSourceType,
-    -- | The Amazon Resource Name (ARN) of the export snapshot record.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the export snapshot record.
+    arn :: Core.Maybe Types.NonEmptyString,
     -- | The name of the record.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.NonEmptyString,
+    -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
+    resourceType :: Core.Maybe Types.CloudFormationStackRecordSourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudFormationStackRecordSourceInfo' with the minimum fields required to make a request.
---
--- * 'resourceType' - The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
--- * 'arn' - The Amazon Resource Name (ARN) of the export snapshot record.
--- * 'name' - The name of the record.
+-- | Creates a 'CloudFormationStackRecordSourceInfo' value with any optional fields omitted.
 mkCloudFormationStackRecordSourceInfo ::
   CloudFormationStackRecordSourceInfo
 mkCloudFormationStackRecordSourceInfo =
   CloudFormationStackRecordSourceInfo'
-    { resourceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      resourceType = Core.Nothing
     }
-
--- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfsrsiResourceType :: Lens.Lens' CloudFormationStackRecordSourceInfo (Lude.Maybe CloudFormationStackRecordSourceType)
-cfsrsiResourceType = Lens.lens (resourceType :: CloudFormationStackRecordSourceInfo -> Lude.Maybe CloudFormationStackRecordSourceType) (\s a -> s {resourceType = a} :: CloudFormationStackRecordSourceInfo)
-{-# DEPRECATED cfsrsiResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the export snapshot record.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfsrsiArn :: Lens.Lens' CloudFormationStackRecordSourceInfo (Lude.Maybe Lude.Text)
-cfsrsiArn = Lens.lens (arn :: CloudFormationStackRecordSourceInfo -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CloudFormationStackRecordSourceInfo)
+cfsrsiArn :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe Types.NonEmptyString)
+cfsrsiArn = Lens.field @"arn"
 {-# DEPRECATED cfsrsiArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the record.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfsrsiName :: Lens.Lens' CloudFormationStackRecordSourceInfo (Lude.Maybe Lude.Text)
-cfsrsiName = Lens.lens (name :: CloudFormationStackRecordSourceInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CloudFormationStackRecordSourceInfo)
+cfsrsiName :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe Types.NonEmptyString)
+cfsrsiName = Lens.field @"name"
 {-# DEPRECATED cfsrsiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON CloudFormationStackRecordSourceInfo where
+-- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsrsiResourceType :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe Types.CloudFormationStackRecordSourceType)
+cfsrsiResourceType = Lens.field @"resourceType"
+{-# DEPRECATED cfsrsiResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+instance Core.FromJSON CloudFormationStackRecordSourceInfo where
   parseJSON =
-    Lude.withObject
-      "CloudFormationStackRecordSourceInfo"
-      ( \x ->
-          CloudFormationStackRecordSourceInfo'
-            Lude.<$> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "name")
-      )
+    Core.withObject "CloudFormationStackRecordSourceInfo" Core.$
+      \x ->
+        CloudFormationStackRecordSourceInfo'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "resourceType")

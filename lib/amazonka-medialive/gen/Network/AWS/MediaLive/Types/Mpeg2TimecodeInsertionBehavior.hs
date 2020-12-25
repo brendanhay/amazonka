@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Mpeg2TimecodeInsertionBehavior
   ( Mpeg2TimecodeInsertionBehavior
       ( Mpeg2TimecodeInsertionBehavior',
-        MTIBDisabled,
-        MTIBGopTimecode
+        Mpeg2TimecodeInsertionBehaviorDisabled,
+        Mpeg2TimecodeInsertionBehaviorGopTimecode,
+        fromMpeg2TimecodeInsertionBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Mpeg2 Timecode Insertion Behavior
-newtype Mpeg2TimecodeInsertionBehavior = Mpeg2TimecodeInsertionBehavior' Lude.Text
+newtype Mpeg2TimecodeInsertionBehavior = Mpeg2TimecodeInsertionBehavior'
+  { fromMpeg2TimecodeInsertionBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MTIBDisabled :: Mpeg2TimecodeInsertionBehavior
-pattern MTIBDisabled = Mpeg2TimecodeInsertionBehavior' "DISABLED"
+pattern Mpeg2TimecodeInsertionBehaviorDisabled :: Mpeg2TimecodeInsertionBehavior
+pattern Mpeg2TimecodeInsertionBehaviorDisabled = Mpeg2TimecodeInsertionBehavior' "DISABLED"
 
-pattern MTIBGopTimecode :: Mpeg2TimecodeInsertionBehavior
-pattern MTIBGopTimecode = Mpeg2TimecodeInsertionBehavior' "GOP_TIMECODE"
+pattern Mpeg2TimecodeInsertionBehaviorGopTimecode :: Mpeg2TimecodeInsertionBehavior
+pattern Mpeg2TimecodeInsertionBehaviorGopTimecode = Mpeg2TimecodeInsertionBehavior' "GOP_TIMECODE"
 
 {-# COMPLETE
-  MTIBDisabled,
-  MTIBGopTimecode,
+  Mpeg2TimecodeInsertionBehaviorDisabled,
+  Mpeg2TimecodeInsertionBehaviorGopTimecode,
   Mpeg2TimecodeInsertionBehavior'
   #-}

@@ -27,111 +27,99 @@ module Network.AWS.Snowball.DescribeCluster
     mkDescribeClusterResponse,
 
     -- ** Response lenses
-    dcrsClusterMetadata,
-    dcrsResponseStatus,
+    dcrrsClusterMetadata,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkDescribeCluster' smart constructor.
 newtype DescribeCluster = DescribeCluster'
   { -- | The automatically generated ID for a cluster.
-    clusterId :: Lude.Text
+    clusterId :: Types.ClusterId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeCluster' with the minimum fields required to make a request.
---
--- * 'clusterId' - The automatically generated ID for a cluster.
+-- | Creates a 'DescribeCluster' value with any optional fields omitted.
 mkDescribeCluster ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   DescribeCluster
-mkDescribeCluster pClusterId_ =
-  DescribeCluster' {clusterId = pClusterId_}
+mkDescribeCluster clusterId = DescribeCluster' {clusterId}
 
 -- | The automatically generated ID for a cluster.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcClusterId :: Lens.Lens' DescribeCluster Lude.Text
-dcClusterId = Lens.lens (clusterId :: DescribeCluster -> Lude.Text) (\s a -> s {clusterId = a} :: DescribeCluster)
+dcClusterId :: Lens.Lens' DescribeCluster Types.ClusterId
+dcClusterId = Lens.field @"clusterId"
 {-# DEPRECATED dcClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance Lude.AWSRequest DescribeCluster where
+instance Core.FromJSON DescribeCluster where
+  toJSON DescribeCluster {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ClusterId" Core..= clusterId)])
+
+instance Core.AWSRequest DescribeCluster where
   type Rs DescribeCluster = DescribeClusterResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSIESnowballJobManagementService.DescribeCluster"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeClusterResponse'
-            Lude.<$> (x Lude..?> "ClusterMetadata")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ClusterMetadata")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeCluster where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.DescribeCluster" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeCluster where
-  toJSON DescribeCluster' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ClusterId" Lude..= clusterId)])
-
-instance Lude.ToPath DescribeCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeCluster where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
   { -- | Information about a specific cluster, including shipping information, cluster status, and other important metadata.
-    clusterMetadata :: Lude.Maybe ClusterMetadata,
+    clusterMetadata :: Core.Maybe Types.ClusterMetadata,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeClusterResponse' with the minimum fields required to make a request.
---
--- * 'clusterMetadata' - Information about a specific cluster, including shipping information, cluster status, and other important metadata.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeClusterResponse' value with any optional fields omitted.
 mkDescribeClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeClusterResponse
-mkDescribeClusterResponse pResponseStatus_ =
+mkDescribeClusterResponse responseStatus =
   DescribeClusterResponse'
-    { clusterMetadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clusterMetadata = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about a specific cluster, including shipping information, cluster status, and other important metadata.
 --
 -- /Note:/ Consider using 'clusterMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsClusterMetadata :: Lens.Lens' DescribeClusterResponse (Lude.Maybe ClusterMetadata)
-dcrsClusterMetadata = Lens.lens (clusterMetadata :: DescribeClusterResponse -> Lude.Maybe ClusterMetadata) (\s a -> s {clusterMetadata = a} :: DescribeClusterResponse)
-{-# DEPRECATED dcrsClusterMetadata "Use generic-lens or generic-optics with 'clusterMetadata' instead." #-}
+dcrrsClusterMetadata :: Lens.Lens' DescribeClusterResponse (Core.Maybe Types.ClusterMetadata)
+dcrrsClusterMetadata = Lens.field @"clusterMetadata"
+{-# DEPRECATED dcrrsClusterMetadata "Use generic-lens or generic-optics with 'clusterMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DescribeClusterResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DescribeClusterResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

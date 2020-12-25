@@ -17,124 +17,116 @@ module Network.AWS.DynamoDB.Types.ConsumedCapacity
     mkConsumedCapacity,
 
     -- * Lenses
-    cReadCapacityUnits,
-    cGlobalSecondaryIndexes,
-    cCapacityUnits,
-    cWriteCapacityUnits,
-    cLocalSecondaryIndexes,
-    cTable,
-    cTableName,
+    ccfCapacityUnits,
+    ccfGlobalSecondaryIndexes,
+    ccfLocalSecondaryIndexes,
+    ccfReadCapacityUnits,
+    ccfTable,
+    ccfTableName,
+    ccfWriteCapacityUnits,
   )
 where
 
-import Network.AWS.DynamoDB.Types.Capacity
+import qualified Network.AWS.DynamoDB.Types.Capacity as Types
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
+import qualified Network.AWS.DynamoDB.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the request asked for it. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- /See:/ 'mkConsumedCapacity' smart constructor.
 data ConsumedCapacity = ConsumedCapacity'
-  { -- | The total number of read capacity units consumed by the operation.
-    readCapacityUnits :: Lude.Maybe Lude.Double,
+  { -- | The total number of capacity units consumed by the operation.
+    capacityUnits :: Core.Maybe Core.Double,
     -- | The amount of throughput consumed on each global index affected by the operation.
-    globalSecondaryIndexes :: Lude.Maybe (Lude.HashMap Lude.Text (Capacity)),
-    -- | The total number of capacity units consumed by the operation.
-    capacityUnits :: Lude.Maybe Lude.Double,
-    -- | The total number of write capacity units consumed by the operation.
-    writeCapacityUnits :: Lude.Maybe Lude.Double,
+    globalSecondaryIndexes :: Core.Maybe (Core.HashMap Types.IndexName Types.Capacity),
     -- | The amount of throughput consumed on each local index affected by the operation.
-    localSecondaryIndexes :: Lude.Maybe (Lude.HashMap Lude.Text (Capacity)),
+    localSecondaryIndexes :: Core.Maybe (Core.HashMap Types.IndexName Types.Capacity),
+    -- | The total number of read capacity units consumed by the operation.
+    readCapacityUnits :: Core.Maybe Core.Double,
     -- | The amount of throughput consumed on the table affected by the operation.
-    table :: Lude.Maybe Capacity,
+    table :: Core.Maybe Types.Capacity,
     -- | The name of the table that was affected by the operation.
-    tableName :: Lude.Maybe Lude.Text
+    tableName :: Core.Maybe Types.TableName,
+    -- | The total number of write capacity units consumed by the operation.
+    writeCapacityUnits :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConsumedCapacity' with the minimum fields required to make a request.
---
--- * 'readCapacityUnits' - The total number of read capacity units consumed by the operation.
--- * 'globalSecondaryIndexes' - The amount of throughput consumed on each global index affected by the operation.
--- * 'capacityUnits' - The total number of capacity units consumed by the operation.
--- * 'writeCapacityUnits' - The total number of write capacity units consumed by the operation.
--- * 'localSecondaryIndexes' - The amount of throughput consumed on each local index affected by the operation.
--- * 'table' - The amount of throughput consumed on the table affected by the operation.
--- * 'tableName' - The name of the table that was affected by the operation.
+-- | Creates a 'ConsumedCapacity' value with any optional fields omitted.
 mkConsumedCapacity ::
   ConsumedCapacity
 mkConsumedCapacity =
   ConsumedCapacity'
-    { readCapacityUnits = Lude.Nothing,
-      globalSecondaryIndexes = Lude.Nothing,
-      capacityUnits = Lude.Nothing,
-      writeCapacityUnits = Lude.Nothing,
-      localSecondaryIndexes = Lude.Nothing,
-      table = Lude.Nothing,
-      tableName = Lude.Nothing
+    { capacityUnits = Core.Nothing,
+      globalSecondaryIndexes = Core.Nothing,
+      localSecondaryIndexes = Core.Nothing,
+      readCapacityUnits = Core.Nothing,
+      table = Core.Nothing,
+      tableName = Core.Nothing,
+      writeCapacityUnits = Core.Nothing
     }
-
--- | The total number of read capacity units consumed by the operation.
---
--- /Note:/ Consider using 'readCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cReadCapacityUnits :: Lens.Lens' ConsumedCapacity (Lude.Maybe Lude.Double)
-cReadCapacityUnits = Lens.lens (readCapacityUnits :: ConsumedCapacity -> Lude.Maybe Lude.Double) (\s a -> s {readCapacityUnits = a} :: ConsumedCapacity)
-{-# DEPRECATED cReadCapacityUnits "Use generic-lens or generic-optics with 'readCapacityUnits' instead." #-}
-
--- | The amount of throughput consumed on each global index affected by the operation.
---
--- /Note:/ Consider using 'globalSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGlobalSecondaryIndexes :: Lens.Lens' ConsumedCapacity (Lude.Maybe (Lude.HashMap Lude.Text (Capacity)))
-cGlobalSecondaryIndexes = Lens.lens (globalSecondaryIndexes :: ConsumedCapacity -> Lude.Maybe (Lude.HashMap Lude.Text (Capacity))) (\s a -> s {globalSecondaryIndexes = a} :: ConsumedCapacity)
-{-# DEPRECATED cGlobalSecondaryIndexes "Use generic-lens or generic-optics with 'globalSecondaryIndexes' instead." #-}
 
 -- | The total number of capacity units consumed by the operation.
 --
 -- /Note:/ Consider using 'capacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCapacityUnits :: Lens.Lens' ConsumedCapacity (Lude.Maybe Lude.Double)
-cCapacityUnits = Lens.lens (capacityUnits :: ConsumedCapacity -> Lude.Maybe Lude.Double) (\s a -> s {capacityUnits = a} :: ConsumedCapacity)
-{-# DEPRECATED cCapacityUnits "Use generic-lens or generic-optics with 'capacityUnits' instead." #-}
+ccfCapacityUnits :: Lens.Lens' ConsumedCapacity (Core.Maybe Core.Double)
+ccfCapacityUnits = Lens.field @"capacityUnits"
+{-# DEPRECATED ccfCapacityUnits "Use generic-lens or generic-optics with 'capacityUnits' instead." #-}
 
--- | The total number of write capacity units consumed by the operation.
+-- | The amount of throughput consumed on each global index affected by the operation.
 --
--- /Note:/ Consider using 'writeCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cWriteCapacityUnits :: Lens.Lens' ConsumedCapacity (Lude.Maybe Lude.Double)
-cWriteCapacityUnits = Lens.lens (writeCapacityUnits :: ConsumedCapacity -> Lude.Maybe Lude.Double) (\s a -> s {writeCapacityUnits = a} :: ConsumedCapacity)
-{-# DEPRECATED cWriteCapacityUnits "Use generic-lens or generic-optics with 'writeCapacityUnits' instead." #-}
+-- /Note:/ Consider using 'globalSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfGlobalSecondaryIndexes :: Lens.Lens' ConsumedCapacity (Core.Maybe (Core.HashMap Types.IndexName Types.Capacity))
+ccfGlobalSecondaryIndexes = Lens.field @"globalSecondaryIndexes"
+{-# DEPRECATED ccfGlobalSecondaryIndexes "Use generic-lens or generic-optics with 'globalSecondaryIndexes' instead." #-}
 
 -- | The amount of throughput consumed on each local index affected by the operation.
 --
 -- /Note:/ Consider using 'localSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLocalSecondaryIndexes :: Lens.Lens' ConsumedCapacity (Lude.Maybe (Lude.HashMap Lude.Text (Capacity)))
-cLocalSecondaryIndexes = Lens.lens (localSecondaryIndexes :: ConsumedCapacity -> Lude.Maybe (Lude.HashMap Lude.Text (Capacity))) (\s a -> s {localSecondaryIndexes = a} :: ConsumedCapacity)
-{-# DEPRECATED cLocalSecondaryIndexes "Use generic-lens or generic-optics with 'localSecondaryIndexes' instead." #-}
+ccfLocalSecondaryIndexes :: Lens.Lens' ConsumedCapacity (Core.Maybe (Core.HashMap Types.IndexName Types.Capacity))
+ccfLocalSecondaryIndexes = Lens.field @"localSecondaryIndexes"
+{-# DEPRECATED ccfLocalSecondaryIndexes "Use generic-lens or generic-optics with 'localSecondaryIndexes' instead." #-}
+
+-- | The total number of read capacity units consumed by the operation.
+--
+-- /Note:/ Consider using 'readCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfReadCapacityUnits :: Lens.Lens' ConsumedCapacity (Core.Maybe Core.Double)
+ccfReadCapacityUnits = Lens.field @"readCapacityUnits"
+{-# DEPRECATED ccfReadCapacityUnits "Use generic-lens or generic-optics with 'readCapacityUnits' instead." #-}
 
 -- | The amount of throughput consumed on the table affected by the operation.
 --
 -- /Note:/ Consider using 'table' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTable :: Lens.Lens' ConsumedCapacity (Lude.Maybe Capacity)
-cTable = Lens.lens (table :: ConsumedCapacity -> Lude.Maybe Capacity) (\s a -> s {table = a} :: ConsumedCapacity)
-{-# DEPRECATED cTable "Use generic-lens or generic-optics with 'table' instead." #-}
+ccfTable :: Lens.Lens' ConsumedCapacity (Core.Maybe Types.Capacity)
+ccfTable = Lens.field @"table"
+{-# DEPRECATED ccfTable "Use generic-lens or generic-optics with 'table' instead." #-}
 
 -- | The name of the table that was affected by the operation.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTableName :: Lens.Lens' ConsumedCapacity (Lude.Maybe Lude.Text)
-cTableName = Lens.lens (tableName :: ConsumedCapacity -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: ConsumedCapacity)
-{-# DEPRECATED cTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+ccfTableName :: Lens.Lens' ConsumedCapacity (Core.Maybe Types.TableName)
+ccfTableName = Lens.field @"tableName"
+{-# DEPRECATED ccfTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.FromJSON ConsumedCapacity where
+-- | The total number of write capacity units consumed by the operation.
+--
+-- /Note:/ Consider using 'writeCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfWriteCapacityUnits :: Lens.Lens' ConsumedCapacity (Core.Maybe Core.Double)
+ccfWriteCapacityUnits = Lens.field @"writeCapacityUnits"
+{-# DEPRECATED ccfWriteCapacityUnits "Use generic-lens or generic-optics with 'writeCapacityUnits' instead." #-}
+
+instance Core.FromJSON ConsumedCapacity where
   parseJSON =
-    Lude.withObject
-      "ConsumedCapacity"
-      ( \x ->
-          ConsumedCapacity'
-            Lude.<$> (x Lude..:? "ReadCapacityUnits")
-            Lude.<*> (x Lude..:? "GlobalSecondaryIndexes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CapacityUnits")
-            Lude.<*> (x Lude..:? "WriteCapacityUnits")
-            Lude.<*> (x Lude..:? "LocalSecondaryIndexes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Table")
-            Lude.<*> (x Lude..:? "TableName")
-      )
+    Core.withObject "ConsumedCapacity" Core.$
+      \x ->
+        ConsumedCapacity'
+          Core.<$> (x Core..:? "CapacityUnits")
+          Core.<*> (x Core..:? "GlobalSecondaryIndexes")
+          Core.<*> (x Core..:? "LocalSecondaryIndexes")
+          Core.<*> (x Core..:? "ReadCapacityUnits")
+          Core.<*> (x Core..:? "Table")
+          Core.<*> (x Core..:? "TableName")
+          Core.<*> (x Core..:? "WriteCapacityUnits")

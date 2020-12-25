@@ -17,101 +17,71 @@ module Network.AWS.Redshift.Types.Event
     mkEvent,
 
     -- * Lenses
-    eSourceType,
-    eSeverity,
-    eSourceIdentifier,
     eDate,
     eEventCategories,
-    eMessage,
     eEventId,
+    eMessage,
+    eSeverity,
+    eSourceIdentifier,
+    eSourceType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.SourceType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.EventId as Types
+import qualified Network.AWS.Redshift.Types.Message as Types
+import qualified Network.AWS.Redshift.Types.Severity as Types
+import qualified Network.AWS.Redshift.Types.SourceIdentifier as Types
+import qualified Network.AWS.Redshift.Types.SourceType as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes an event.
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { -- | The source type for this event.
-    sourceType :: Lude.Maybe SourceType,
-    -- | The severity of the event.
-    --
-    -- Values: ERROR, INFO
-    severity :: Lude.Maybe Lude.Text,
-    -- | The identifier for the source of the event.
-    sourceIdentifier :: Lude.Maybe Lude.Text,
-    -- | The date and time of the event.
-    date :: Lude.Maybe Lude.DateTime,
+  { -- | The date and time of the event.
+    date :: Core.Maybe Core.UTCTime,
     -- | A list of the event categories.
     --
     -- Values: Configuration, Management, Monitoring, Security
-    eventCategories :: Lude.Maybe [Lude.Text],
-    -- | The text of this event.
-    message :: Lude.Maybe Lude.Text,
+    eventCategories :: Core.Maybe [Types.String],
     -- | The identifier of the event.
-    eventId :: Lude.Maybe Lude.Text
+    eventId :: Core.Maybe Types.EventId,
+    -- | The text of this event.
+    message :: Core.Maybe Types.Message,
+    -- | The severity of the event.
+    --
+    -- Values: ERROR, INFO
+    severity :: Core.Maybe Types.Severity,
+    -- | The identifier for the source of the event.
+    sourceIdentifier :: Core.Maybe Types.SourceIdentifier,
+    -- | The source type for this event.
+    sourceType :: Core.Maybe Types.SourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Event' with the minimum fields required to make a request.
---
--- * 'sourceType' - The source type for this event.
--- * 'severity' - The severity of the event.
---
--- Values: ERROR, INFO
--- * 'sourceIdentifier' - The identifier for the source of the event.
--- * 'date' - The date and time of the event.
--- * 'eventCategories' - A list of the event categories.
---
--- Values: Configuration, Management, Monitoring, Security
--- * 'message' - The text of this event.
--- * 'eventId' - The identifier of the event.
+-- | Creates a 'Event' value with any optional fields omitted.
 mkEvent ::
   Event
 mkEvent =
   Event'
-    { sourceType = Lude.Nothing,
-      severity = Lude.Nothing,
-      sourceIdentifier = Lude.Nothing,
-      date = Lude.Nothing,
-      eventCategories = Lude.Nothing,
-      message = Lude.Nothing,
-      eventId = Lude.Nothing
+    { date = Core.Nothing,
+      eventCategories = Core.Nothing,
+      eventId = Core.Nothing,
+      message = Core.Nothing,
+      severity = Core.Nothing,
+      sourceIdentifier = Core.Nothing,
+      sourceType = Core.Nothing
     }
-
--- | The source type for this event.
---
--- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSourceType :: Lens.Lens' Event (Lude.Maybe SourceType)
-eSourceType = Lens.lens (sourceType :: Event -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: Event)
-{-# DEPRECATED eSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
-
--- | The severity of the event.
---
--- Values: ERROR, INFO
---
--- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSeverity :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eSeverity = Lens.lens (severity :: Event -> Lude.Maybe Lude.Text) (\s a -> s {severity = a} :: Event)
-{-# DEPRECATED eSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
-
--- | The identifier for the source of the event.
---
--- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSourceIdentifier :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eSourceIdentifier = Lens.lens (sourceIdentifier :: Event -> Lude.Maybe Lude.Text) (\s a -> s {sourceIdentifier = a} :: Event)
-{-# DEPRECATED eSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
 -- | The date and time of the event.
 --
 -- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDate :: Lens.Lens' Event (Lude.Maybe Lude.DateTime)
-eDate = Lens.lens (date :: Event -> Lude.Maybe Lude.DateTime) (\s a -> s {date = a} :: Event)
+eDate :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
+eDate = Lens.field @"date"
 {-# DEPRECATED eDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | A list of the event categories.
@@ -119,33 +89,56 @@ eDate = Lens.lens (date :: Event -> Lude.Maybe Lude.DateTime) (\s a -> s {date =
 -- Values: Configuration, Management, Monitoring, Security
 --
 -- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEventCategories :: Lens.Lens' Event (Lude.Maybe [Lude.Text])
-eEventCategories = Lens.lens (eventCategories :: Event -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: Event)
+eEventCategories :: Lens.Lens' Event (Core.Maybe [Types.String])
+eEventCategories = Lens.field @"eventCategories"
 {-# DEPRECATED eEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
-
--- | The text of this event.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eMessage :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eMessage = Lens.lens (message :: Event -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Event)
-{-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The identifier of the event.
 --
 -- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEventId :: Lens.Lens' Event (Lude.Maybe Lude.Text)
-eEventId = Lens.lens (eventId :: Event -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: Event)
+eEventId :: Lens.Lens' Event (Core.Maybe Types.EventId)
+eEventId = Lens.field @"eventId"
 {-# DEPRECATED eEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
-instance Lude.FromXML Event where
+-- | The text of this event.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eMessage :: Lens.Lens' Event (Core.Maybe Types.Message)
+eMessage = Lens.field @"message"
+{-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The severity of the event.
+--
+-- Values: ERROR, INFO
+--
+-- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSeverity :: Lens.Lens' Event (Core.Maybe Types.Severity)
+eSeverity = Lens.field @"severity"
+{-# DEPRECATED eSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
+
+-- | The identifier for the source of the event.
+--
+-- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceIdentifier :: Lens.Lens' Event (Core.Maybe Types.SourceIdentifier)
+eSourceIdentifier = Lens.field @"sourceIdentifier"
+{-# DEPRECATED eSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
+
+-- | The source type for this event.
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSourceType :: Lens.Lens' Event (Core.Maybe Types.SourceType)
+eSourceType = Lens.field @"sourceType"
+{-# DEPRECATED eSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
+
+instance Core.FromXML Event where
   parseXML x =
     Event'
-      Lude.<$> (x Lude..@? "SourceType")
-      Lude.<*> (x Lude..@? "Severity")
-      Lude.<*> (x Lude..@? "SourceIdentifier")
-      Lude.<*> (x Lude..@? "Date")
-      Lude.<*> ( x Lude..@? "EventCategories" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "EventCategory")
+      Core.<$> (x Core..@? "Date")
+      Core.<*> ( x Core..@? "EventCategories"
+                   Core..<@> Core.parseXMLList "EventCategory"
                )
-      Lude.<*> (x Lude..@? "Message")
-      Lude.<*> (x Lude..@? "EventId")
+      Core.<*> (x Core..@? "EventId")
+      Core.<*> (x Core..@? "Message")
+      Core.<*> (x Core..@? "Severity")
+      Core.<*> (x Core..@? "SourceIdentifier")
+      Core.<*> (x Core..@? "SourceType")

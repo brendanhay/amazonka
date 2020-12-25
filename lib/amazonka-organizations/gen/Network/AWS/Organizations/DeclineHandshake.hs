@@ -23,7 +23,7 @@ module Network.AWS.Organizations.DeclineHandshake
     mkDeclineHandshake,
 
     -- ** Request lenses
-    dhHandshakeId,
+    dHandshakeId,
 
     -- * Destructuring the response
     DeclineHandshakeResponse (..),
@@ -36,108 +36,94 @@ module Network.AWS.Organizations.DeclineHandshake
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeclineHandshake' smart constructor.
 newtype DeclineHandshake = DeclineHandshake'
   { -- | The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the 'ListHandshakesForAccount' operation.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
-    handshakeId :: Lude.Text
+    handshakeId :: Types.HandshakeId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeclineHandshake' with the minimum fields required to make a request.
---
--- * 'handshakeId' - The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the 'ListHandshakesForAccount' operation.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+-- | Creates a 'DeclineHandshake' value with any optional fields omitted.
 mkDeclineHandshake ::
   -- | 'handshakeId'
-  Lude.Text ->
+  Types.HandshakeId ->
   DeclineHandshake
-mkDeclineHandshake pHandshakeId_ =
-  DeclineHandshake' {handshakeId = pHandshakeId_}
+mkDeclineHandshake handshakeId = DeclineHandshake' {handshakeId}
 
 -- | The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the 'ListHandshakesForAccount' operation.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
 --
 -- /Note:/ Consider using 'handshakeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhHandshakeId :: Lens.Lens' DeclineHandshake Lude.Text
-dhHandshakeId = Lens.lens (handshakeId :: DeclineHandshake -> Lude.Text) (\s a -> s {handshakeId = a} :: DeclineHandshake)
-{-# DEPRECATED dhHandshakeId "Use generic-lens or generic-optics with 'handshakeId' instead." #-}
+dHandshakeId :: Lens.Lens' DeclineHandshake Types.HandshakeId
+dHandshakeId = Lens.field @"handshakeId"
+{-# DEPRECATED dHandshakeId "Use generic-lens or generic-optics with 'handshakeId' instead." #-}
 
-instance Lude.AWSRequest DeclineHandshake where
+instance Core.FromJSON DeclineHandshake where
+  toJSON DeclineHandshake {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("HandshakeId" Core..= handshakeId)])
+
+instance Core.AWSRequest DeclineHandshake where
   type Rs DeclineHandshake = DeclineHandshakeResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.DeclineHandshake")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeclineHandshakeResponse'
-            Lude.<$> (x Lude..?> "Handshake") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Handshake") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeclineHandshake where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSOrganizationsV20161128.DeclineHandshake" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeclineHandshake where
-  toJSON DeclineHandshake' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("HandshakeId" Lude..= handshakeId)])
-
-instance Lude.ToPath DeclineHandshake where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeclineHandshake where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeclineHandshakeResponse' smart constructor.
 data DeclineHandshakeResponse = DeclineHandshakeResponse'
   { -- | A structure that contains details about the declined handshake. The state is updated to show the value @DECLINED@ .
-    handshake :: Lude.Maybe Handshake,
+    handshake :: Core.Maybe Types.Handshake,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeclineHandshakeResponse' with the minimum fields required to make a request.
---
--- * 'handshake' - A structure that contains details about the declined handshake. The state is updated to show the value @DECLINED@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeclineHandshakeResponse' value with any optional fields omitted.
 mkDeclineHandshakeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeclineHandshakeResponse
-mkDeclineHandshakeResponse pResponseStatus_ =
+mkDeclineHandshakeResponse responseStatus =
   DeclineHandshakeResponse'
-    { handshake = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { handshake = Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that contains details about the declined handshake. The state is updated to show the value @DECLINED@ .
 --
 -- /Note:/ Consider using 'handshake' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsHandshake :: Lens.Lens' DeclineHandshakeResponse (Lude.Maybe Handshake)
-drsHandshake = Lens.lens (handshake :: DeclineHandshakeResponse -> Lude.Maybe Handshake) (\s a -> s {handshake = a} :: DeclineHandshakeResponse)
+drsHandshake :: Lens.Lens' DeclineHandshakeResponse (Core.Maybe Types.Handshake)
+drsHandshake = Lens.field @"handshake"
 {-# DEPRECATED drsHandshake "Use generic-lens or generic-optics with 'handshake' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeclineHandshakeResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeclineHandshakeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeclineHandshakeResponse)
+drsResponseStatus :: Lens.Lens' DeclineHandshakeResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

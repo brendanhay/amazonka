@@ -23,51 +23,41 @@ module Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SQS.Types.String as Types
 
 -- | Encloses a receipt handle and an identifier for it.
 --
 -- /See:/ 'mkDeleteMessageBatchRequestEntry' smart constructor.
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
   { -- | An identifier for this particular receipt handle. This is used to communicate the result.
-    id :: Lude.Text,
+    id :: Types.String,
     -- | A receipt handle.
-    receiptHandle :: Lude.Text
+    receiptHandle :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMessageBatchRequestEntry' with the minimum fields required to make a request.
---
--- * 'id' - An identifier for this particular receipt handle. This is used to communicate the result.
--- * 'receiptHandle' - A receipt handle.
+-- | Creates a 'DeleteMessageBatchRequestEntry' value with any optional fields omitted.
 mkDeleteMessageBatchRequestEntry ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   -- | 'receiptHandle'
-  Lude.Text ->
+  Types.String ->
   DeleteMessageBatchRequestEntry
-mkDeleteMessageBatchRequestEntry pId_ pReceiptHandle_ =
-  DeleteMessageBatchRequestEntry'
-    { id = pId_,
-      receiptHandle = pReceiptHandle_
-    }
+mkDeleteMessageBatchRequestEntry id receiptHandle =
+  DeleteMessageBatchRequestEntry' {id, receiptHandle}
 
 -- | An identifier for this particular receipt handle. This is used to communicate the result.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmbreId :: Lens.Lens' DeleteMessageBatchRequestEntry Lude.Text
-dmbreId = Lens.lens (id :: DeleteMessageBatchRequestEntry -> Lude.Text) (\s a -> s {id = a} :: DeleteMessageBatchRequestEntry)
+dmbreId :: Lens.Lens' DeleteMessageBatchRequestEntry Types.String
+dmbreId = Lens.field @"id"
 {-# DEPRECATED dmbreId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A receipt handle.
 --
 -- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmbreReceiptHandle :: Lens.Lens' DeleteMessageBatchRequestEntry Lude.Text
-dmbreReceiptHandle = Lens.lens (receiptHandle :: DeleteMessageBatchRequestEntry -> Lude.Text) (\s a -> s {receiptHandle = a} :: DeleteMessageBatchRequestEntry)
+dmbreReceiptHandle :: Lens.Lens' DeleteMessageBatchRequestEntry Types.String
+dmbreReceiptHandle = Lens.field @"receiptHandle"
 {-# DEPRECATED dmbreReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
-
-instance Lude.ToQuery DeleteMessageBatchRequestEntry where
-  toQuery DeleteMessageBatchRequestEntry' {..} =
-    Lude.mconcat
-      ["Id" Lude.=: id, "ReceiptHandle" Lude.=: receiptHandle]

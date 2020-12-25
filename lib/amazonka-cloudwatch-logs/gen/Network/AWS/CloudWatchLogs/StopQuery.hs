@@ -27,107 +27,92 @@ module Network.AWS.CloudWatchLogs.StopQuery
     mkStopQueryResponse,
 
     -- ** Response lenses
-    sqrsSuccess,
-    sqrsResponseStatus,
+    sqrrsSuccess,
+    sqrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopQuery' smart constructor.
 newtype StopQuery = StopQuery'
   { -- | The ID number of the query to stop. To find this ID number, use @DescribeQueries@ .
-    queryId :: Lude.Text
+    queryId :: Types.QueryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopQuery' with the minimum fields required to make a request.
---
--- * 'queryId' - The ID number of the query to stop. To find this ID number, use @DescribeQueries@ .
+-- | Creates a 'StopQuery' value with any optional fields omitted.
 mkStopQuery ::
   -- | 'queryId'
-  Lude.Text ->
+  Types.QueryId ->
   StopQuery
-mkStopQuery pQueryId_ = StopQuery' {queryId = pQueryId_}
+mkStopQuery queryId = StopQuery' {queryId}
 
 -- | The ID number of the query to stop. To find this ID number, use @DescribeQueries@ .
 --
 -- /Note:/ Consider using 'queryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqQueryId :: Lens.Lens' StopQuery Lude.Text
-sqQueryId = Lens.lens (queryId :: StopQuery -> Lude.Text) (\s a -> s {queryId = a} :: StopQuery)
+sqQueryId :: Lens.Lens' StopQuery Types.QueryId
+sqQueryId = Lens.field @"queryId"
 {-# DEPRECATED sqQueryId "Use generic-lens or generic-optics with 'queryId' instead." #-}
 
-instance Lude.AWSRequest StopQuery where
+instance Core.FromJSON StopQuery where
+  toJSON StopQuery {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("queryId" Core..= queryId)])
+
+instance Core.AWSRequest StopQuery where
   type Rs StopQuery = StopQueryResponse
-  request = Req.postJSON cloudWatchLogsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.StopQuery")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopQueryResponse'
-            Lude.<$> (x Lude..?> "success") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "success") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopQuery where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.StopQuery" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopQuery where
-  toJSON StopQuery' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("queryId" Lude..= queryId)])
-
-instance Lude.ToPath StopQuery where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopQuery where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopQueryResponse' smart constructor.
 data StopQueryResponse = StopQueryResponse'
   { -- | This is true if the query was stopped by the @StopQuery@ operation.
-    success :: Lude.Maybe Lude.Bool,
+    success :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopQueryResponse' with the minimum fields required to make a request.
---
--- * 'success' - This is true if the query was stopped by the @StopQuery@ operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopQueryResponse' value with any optional fields omitted.
 mkStopQueryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopQueryResponse
-mkStopQueryResponse pResponseStatus_ =
-  StopQueryResponse'
-    { success = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkStopQueryResponse responseStatus =
+  StopQueryResponse' {success = Core.Nothing, responseStatus}
 
 -- | This is true if the query was stopped by the @StopQuery@ operation.
 --
 -- /Note:/ Consider using 'success' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqrsSuccess :: Lens.Lens' StopQueryResponse (Lude.Maybe Lude.Bool)
-sqrsSuccess = Lens.lens (success :: StopQueryResponse -> Lude.Maybe Lude.Bool) (\s a -> s {success = a} :: StopQueryResponse)
-{-# DEPRECATED sqrsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
+sqrrsSuccess :: Lens.Lens' StopQueryResponse (Core.Maybe Core.Bool)
+sqrrsSuccess = Lens.field @"success"
+{-# DEPRECATED sqrrsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqrsResponseStatus :: Lens.Lens' StopQueryResponse Lude.Int
-sqrsResponseStatus = Lens.lens (responseStatus :: StopQueryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopQueryResponse)
-{-# DEPRECATED sqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sqrrsResponseStatus :: Lens.Lens' StopQueryResponse Core.Int
+sqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

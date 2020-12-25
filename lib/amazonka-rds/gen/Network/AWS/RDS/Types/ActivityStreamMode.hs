@@ -13,46 +13,51 @@
 module Network.AWS.RDS.Types.ActivityStreamMode
   ( ActivityStreamMode
       ( ActivityStreamMode',
-        Sync,
-        Async
+        ActivityStreamModeSync,
+        ActivityStreamModeAsync,
+        fromActivityStreamMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActivityStreamMode = ActivityStreamMode' Lude.Text
+newtype ActivityStreamMode = ActivityStreamMode'
+  { fromActivityStreamMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Sync :: ActivityStreamMode
-pattern Sync = ActivityStreamMode' "sync"
+pattern ActivityStreamModeSync :: ActivityStreamMode
+pattern ActivityStreamModeSync = ActivityStreamMode' "sync"
 
-pattern Async :: ActivityStreamMode
-pattern Async = ActivityStreamMode' "async"
+pattern ActivityStreamModeAsync :: ActivityStreamMode
+pattern ActivityStreamModeAsync = ActivityStreamMode' "async"
 
 {-# COMPLETE
-  Sync,
-  Async,
+  ActivityStreamModeSync,
+  ActivityStreamModeAsync,
   ActivityStreamMode'
   #-}

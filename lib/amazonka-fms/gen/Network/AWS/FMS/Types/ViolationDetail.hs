@@ -17,137 +17,128 @@ module Network.AWS.FMS.Types.ViolationDetail
     mkViolationDetail,
 
     -- * Lenses
+    vdPolicyId,
+    vdMemberAccount,
     vdResourceId,
     vdResourceType,
-    vdPolicyId,
-    vdResourceTags,
-    vdResourceDescription,
     vdResourceViolations,
-    vdMemberAccount,
+    vdResourceDescription,
+    vdResourceTags,
   )
 where
 
-import Network.AWS.FMS.Types.ResourceViolation
-import Network.AWS.FMS.Types.Tag
+import qualified Network.AWS.FMS.Types.AWSAccountId as Types
+import qualified Network.AWS.FMS.Types.LengthBoundedString as Types
+import qualified Network.AWS.FMS.Types.PolicyId as Types
+import qualified Network.AWS.FMS.Types.ResourceId as Types
+import qualified Network.AWS.FMS.Types.ResourceType as Types
+import qualified Network.AWS.FMS.Types.ResourceViolation as Types
+import qualified Network.AWS.FMS.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Violations for a resource based on the specified AWS Firewall Manager policy and AWS account.
 --
 -- /See:/ 'mkViolationDetail' smart constructor.
 data ViolationDetail = ViolationDetail'
-  { -- | The resource ID that the violation details were requested for.
-    resourceId :: Lude.Text,
-    -- | The resource type that the violation details were requested for.
-    resourceType :: Lude.Text,
-    -- | The ID of the AWS Firewall Manager policy that the violation details were requested for.
-    policyId :: Lude.Text,
-    -- | The @ResourceTag@ objects associated with the resource.
-    resourceTags :: Lude.Maybe [Tag],
-    -- | Brief description for the requested resource.
-    resourceDescription :: Lude.Maybe Lude.Text,
-    -- | List of violations for the requested resource.
-    resourceViolations :: [ResourceViolation],
+  { -- | The ID of the AWS Firewall Manager policy that the violation details were requested for.
+    policyId :: Types.PolicyId,
     -- | The AWS account that the violation details were requested for.
-    memberAccount :: Lude.Text
+    memberAccount :: Types.AWSAccountId,
+    -- | The resource ID that the violation details were requested for.
+    resourceId :: Types.ResourceId,
+    -- | The resource type that the violation details were requested for.
+    resourceType :: Types.ResourceType,
+    -- | List of violations for the requested resource.
+    resourceViolations :: [Types.ResourceViolation],
+    -- | Brief description for the requested resource.
+    resourceDescription :: Core.Maybe Types.LengthBoundedString,
+    -- | The @ResourceTag@ objects associated with the resource.
+    resourceTags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ViolationDetail' with the minimum fields required to make a request.
---
--- * 'resourceId' - The resource ID that the violation details were requested for.
--- * 'resourceType' - The resource type that the violation details were requested for.
--- * 'policyId' - The ID of the AWS Firewall Manager policy that the violation details were requested for.
--- * 'resourceTags' - The @ResourceTag@ objects associated with the resource.
--- * 'resourceDescription' - Brief description for the requested resource.
--- * 'resourceViolations' - List of violations for the requested resource.
--- * 'memberAccount' - The AWS account that the violation details were requested for.
+-- | Creates a 'ViolationDetail' value with any optional fields omitted.
 mkViolationDetail ::
-  -- | 'resourceId'
-  Lude.Text ->
-  -- | 'resourceType'
-  Lude.Text ->
   -- | 'policyId'
-  Lude.Text ->
+  Types.PolicyId ->
   -- | 'memberAccount'
-  Lude.Text ->
+  Types.AWSAccountId ->
+  -- | 'resourceId'
+  Types.ResourceId ->
+  -- | 'resourceType'
+  Types.ResourceType ->
   ViolationDetail
-mkViolationDetail
-  pResourceId_
-  pResourceType_
-  pPolicyId_
-  pMemberAccount_ =
-    ViolationDetail'
-      { resourceId = pResourceId_,
-        resourceType = pResourceType_,
-        policyId = pPolicyId_,
-        resourceTags = Lude.Nothing,
-        resourceDescription = Lude.Nothing,
-        resourceViolations = Lude.mempty,
-        memberAccount = pMemberAccount_
-      }
+mkViolationDetail policyId memberAccount resourceId resourceType =
+  ViolationDetail'
+    { policyId,
+      memberAccount,
+      resourceId,
+      resourceType,
+      resourceViolations = Core.mempty,
+      resourceDescription = Core.Nothing,
+      resourceTags = Core.Nothing
+    }
+
+-- | The ID of the AWS Firewall Manager policy that the violation details were requested for.
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdPolicyId :: Lens.Lens' ViolationDetail Types.PolicyId
+vdPolicyId = Lens.field @"policyId"
+{-# DEPRECATED vdPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
+
+-- | The AWS account that the violation details were requested for.
+--
+-- /Note:/ Consider using 'memberAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdMemberAccount :: Lens.Lens' ViolationDetail Types.AWSAccountId
+vdMemberAccount = Lens.field @"memberAccount"
+{-# DEPRECATED vdMemberAccount "Use generic-lens or generic-optics with 'memberAccount' instead." #-}
 
 -- | The resource ID that the violation details were requested for.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdResourceId :: Lens.Lens' ViolationDetail Lude.Text
-vdResourceId = Lens.lens (resourceId :: ViolationDetail -> Lude.Text) (\s a -> s {resourceId = a} :: ViolationDetail)
+vdResourceId :: Lens.Lens' ViolationDetail Types.ResourceId
+vdResourceId = Lens.field @"resourceId"
 {-# DEPRECATED vdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type that the violation details were requested for.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdResourceType :: Lens.Lens' ViolationDetail Lude.Text
-vdResourceType = Lens.lens (resourceType :: ViolationDetail -> Lude.Text) (\s a -> s {resourceType = a} :: ViolationDetail)
+vdResourceType :: Lens.Lens' ViolationDetail Types.ResourceType
+vdResourceType = Lens.field @"resourceType"
 {-# DEPRECATED vdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The ID of the AWS Firewall Manager policy that the violation details were requested for.
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdPolicyId :: Lens.Lens' ViolationDetail Lude.Text
-vdPolicyId = Lens.lens (policyId :: ViolationDetail -> Lude.Text) (\s a -> s {policyId = a} :: ViolationDetail)
-{-# DEPRECATED vdPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
-
--- | The @ResourceTag@ objects associated with the resource.
---
--- /Note:/ Consider using 'resourceTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdResourceTags :: Lens.Lens' ViolationDetail (Lude.Maybe [Tag])
-vdResourceTags = Lens.lens (resourceTags :: ViolationDetail -> Lude.Maybe [Tag]) (\s a -> s {resourceTags = a} :: ViolationDetail)
-{-# DEPRECATED vdResourceTags "Use generic-lens or generic-optics with 'resourceTags' instead." #-}
-
--- | Brief description for the requested resource.
---
--- /Note:/ Consider using 'resourceDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdResourceDescription :: Lens.Lens' ViolationDetail (Lude.Maybe Lude.Text)
-vdResourceDescription = Lens.lens (resourceDescription :: ViolationDetail -> Lude.Maybe Lude.Text) (\s a -> s {resourceDescription = a} :: ViolationDetail)
-{-# DEPRECATED vdResourceDescription "Use generic-lens or generic-optics with 'resourceDescription' instead." #-}
 
 -- | List of violations for the requested resource.
 --
 -- /Note:/ Consider using 'resourceViolations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdResourceViolations :: Lens.Lens' ViolationDetail [ResourceViolation]
-vdResourceViolations = Lens.lens (resourceViolations :: ViolationDetail -> [ResourceViolation]) (\s a -> s {resourceViolations = a} :: ViolationDetail)
+vdResourceViolations :: Lens.Lens' ViolationDetail [Types.ResourceViolation]
+vdResourceViolations = Lens.field @"resourceViolations"
 {-# DEPRECATED vdResourceViolations "Use generic-lens or generic-optics with 'resourceViolations' instead." #-}
 
--- | The AWS account that the violation details were requested for.
+-- | Brief description for the requested resource.
 --
--- /Note:/ Consider using 'memberAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdMemberAccount :: Lens.Lens' ViolationDetail Lude.Text
-vdMemberAccount = Lens.lens (memberAccount :: ViolationDetail -> Lude.Text) (\s a -> s {memberAccount = a} :: ViolationDetail)
-{-# DEPRECATED vdMemberAccount "Use generic-lens or generic-optics with 'memberAccount' instead." #-}
+-- /Note:/ Consider using 'resourceDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdResourceDescription :: Lens.Lens' ViolationDetail (Core.Maybe Types.LengthBoundedString)
+vdResourceDescription = Lens.field @"resourceDescription"
+{-# DEPRECATED vdResourceDescription "Use generic-lens or generic-optics with 'resourceDescription' instead." #-}
 
-instance Lude.FromJSON ViolationDetail where
+-- | The @ResourceTag@ objects associated with the resource.
+--
+-- /Note:/ Consider using 'resourceTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdResourceTags :: Lens.Lens' ViolationDetail (Core.Maybe [Types.Tag])
+vdResourceTags = Lens.field @"resourceTags"
+{-# DEPRECATED vdResourceTags "Use generic-lens or generic-optics with 'resourceTags' instead." #-}
+
+instance Core.FromJSON ViolationDetail where
   parseJSON =
-    Lude.withObject
-      "ViolationDetail"
-      ( \x ->
-          ViolationDetail'
-            Lude.<$> (x Lude..: "ResourceId")
-            Lude.<*> (x Lude..: "ResourceType")
-            Lude.<*> (x Lude..: "PolicyId")
-            Lude.<*> (x Lude..:? "ResourceTags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ResourceDescription")
-            Lude.<*> (x Lude..:? "ResourceViolations" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "MemberAccount")
-      )
+    Core.withObject "ViolationDetail" Core.$
+      \x ->
+        ViolationDetail'
+          Core.<$> (x Core..: "PolicyId")
+          Core.<*> (x Core..: "MemberAccount")
+          Core.<*> (x Core..: "ResourceId")
+          Core.<*> (x Core..: "ResourceType")
+          Core.<*> (x Core..:? "ResourceViolations" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "ResourceDescription")
+          Core.<*> (x Core..:? "ResourceTags")

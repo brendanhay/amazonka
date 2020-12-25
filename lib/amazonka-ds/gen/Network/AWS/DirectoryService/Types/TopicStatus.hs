@@ -13,56 +13,58 @@
 module Network.AWS.DirectoryService.Types.TopicStatus
   ( TopicStatus
       ( TopicStatus',
-        TRegistered,
-        TTopicNotFound,
-        TFailed,
-        TDeleted
+        TopicStatusRegistered,
+        TopicStatusTopicNotFound,
+        TopicStatusFailed,
+        TopicStatusDeleted,
+        fromTopicStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TopicStatus = TopicStatus' Lude.Text
+newtype TopicStatus = TopicStatus' {fromTopicStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TRegistered :: TopicStatus
-pattern TRegistered = TopicStatus' "Registered"
+pattern TopicStatusRegistered :: TopicStatus
+pattern TopicStatusRegistered = TopicStatus' "Registered"
 
-pattern TTopicNotFound :: TopicStatus
-pattern TTopicNotFound = TopicStatus' "Topic not found"
+pattern TopicStatusTopicNotFound :: TopicStatus
+pattern TopicStatusTopicNotFound = TopicStatus' "Topic not found"
 
-pattern TFailed :: TopicStatus
-pattern TFailed = TopicStatus' "Failed"
+pattern TopicStatusFailed :: TopicStatus
+pattern TopicStatusFailed = TopicStatus' "Failed"
 
-pattern TDeleted :: TopicStatus
-pattern TDeleted = TopicStatus' "Deleted"
+pattern TopicStatusDeleted :: TopicStatus
+pattern TopicStatusDeleted = TopicStatus' "Deleted"
 
 {-# COMPLETE
-  TRegistered,
-  TTopicNotFound,
-  TFailed,
-  TDeleted,
+  TopicStatusRegistered,
+  TopicStatusTopicNotFound,
+  TopicStatusFailed,
+  TopicStatusDeleted,
   TopicStatus'
   #-}

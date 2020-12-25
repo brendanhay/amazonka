@@ -22,33 +22,27 @@ module Network.AWS.EC2.Types.ScheduledInstancesMonitoring
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes whether monitoring is enabled for a Scheduled Instance.
 --
 -- /See:/ 'mkScheduledInstancesMonitoring' smart constructor.
 newtype ScheduledInstancesMonitoring = ScheduledInstancesMonitoring'
   { -- | Indicates whether monitoring is enabled.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduledInstancesMonitoring' with the minimum fields required to make a request.
---
--- * 'enabled' - Indicates whether monitoring is enabled.
+-- | Creates a 'ScheduledInstancesMonitoring' value with any optional fields omitted.
 mkScheduledInstancesMonitoring ::
   ScheduledInstancesMonitoring
 mkScheduledInstancesMonitoring =
-  ScheduledInstancesMonitoring' {enabled = Lude.Nothing}
+  ScheduledInstancesMonitoring' {enabled = Core.Nothing}
 
 -- | Indicates whether monitoring is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-simEnabled :: Lens.Lens' ScheduledInstancesMonitoring (Lude.Maybe Lude.Bool)
-simEnabled = Lens.lens (enabled :: ScheduledInstancesMonitoring -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ScheduledInstancesMonitoring)
+simEnabled :: Lens.Lens' ScheduledInstancesMonitoring (Core.Maybe Core.Bool)
+simEnabled = Lens.field @"enabled"
 {-# DEPRECATED simEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
-instance Lude.ToQuery ScheduledInstancesMonitoring where
-  toQuery ScheduledInstancesMonitoring' {..} =
-    Lude.mconcat ["Enabled" Lude.=: enabled]

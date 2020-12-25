@@ -17,59 +17,56 @@ module Network.AWS.CloudDirectory.Types.ObjectAttributeRange
     mkObjectAttributeRange,
 
     -- * Lenses
-    oarRange,
     oarAttributeKey,
+    oarRange,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.AttributeKey
-import Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
+import qualified Network.AWS.CloudDirectory.Types.AttributeKey as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedAttributeValueRange as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A range of attributes.
 --
 -- /See:/ 'mkObjectAttributeRange' smart constructor.
 data ObjectAttributeRange = ObjectAttributeRange'
-  { -- | The range of attribute values being selected.
-    range :: Lude.Maybe TypedAttributeValueRange,
-    -- | The key of the attribute that the attribute range covers.
-    attributeKey :: Lude.Maybe AttributeKey
+  { -- | The key of the attribute that the attribute range covers.
+    attributeKey :: Core.Maybe Types.AttributeKey,
+    -- | The range of attribute values being selected.
+    range :: Core.Maybe Types.TypedAttributeValueRange
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ObjectAttributeRange' with the minimum fields required to make a request.
---
--- * 'range' - The range of attribute values being selected.
--- * 'attributeKey' - The key of the attribute that the attribute range covers.
+-- | Creates a 'ObjectAttributeRange' value with any optional fields omitted.
 mkObjectAttributeRange ::
   ObjectAttributeRange
 mkObjectAttributeRange =
   ObjectAttributeRange'
-    { range = Lude.Nothing,
-      attributeKey = Lude.Nothing
+    { attributeKey = Core.Nothing,
+      range = Core.Nothing
     }
-
--- | The range of attribute values being selected.
---
--- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oarRange :: Lens.Lens' ObjectAttributeRange (Lude.Maybe TypedAttributeValueRange)
-oarRange = Lens.lens (range :: ObjectAttributeRange -> Lude.Maybe TypedAttributeValueRange) (\s a -> s {range = a} :: ObjectAttributeRange)
-{-# DEPRECATED oarRange "Use generic-lens or generic-optics with 'range' instead." #-}
 
 -- | The key of the attribute that the attribute range covers.
 --
 -- /Note:/ Consider using 'attributeKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oarAttributeKey :: Lens.Lens' ObjectAttributeRange (Lude.Maybe AttributeKey)
-oarAttributeKey = Lens.lens (attributeKey :: ObjectAttributeRange -> Lude.Maybe AttributeKey) (\s a -> s {attributeKey = a} :: ObjectAttributeRange)
+oarAttributeKey :: Lens.Lens' ObjectAttributeRange (Core.Maybe Types.AttributeKey)
+oarAttributeKey = Lens.field @"attributeKey"
 {-# DEPRECATED oarAttributeKey "Use generic-lens or generic-optics with 'attributeKey' instead." #-}
 
-instance Lude.ToJSON ObjectAttributeRange where
-  toJSON ObjectAttributeRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Range" Lude..=) Lude.<$> range,
-            ("AttributeKey" Lude..=) Lude.<$> attributeKey
+-- | The range of attribute values being selected.
+--
+-- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oarRange :: Lens.Lens' ObjectAttributeRange (Core.Maybe Types.TypedAttributeValueRange)
+oarRange = Lens.field @"range"
+{-# DEPRECATED oarRange "Use generic-lens or generic-optics with 'range' instead." #-}
+
+instance Core.FromJSON ObjectAttributeRange where
+  toJSON ObjectAttributeRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeKey" Core..=) Core.<$> attributeKey,
+            ("Range" Core..=) Core.<$> range
           ]
       )

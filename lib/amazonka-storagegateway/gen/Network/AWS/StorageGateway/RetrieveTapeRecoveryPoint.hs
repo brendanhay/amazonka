@@ -30,134 +30,119 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     mkRetrieveTapeRecoveryPointResponse,
 
     -- ** Response lenses
-    rtrprsTapeARN,
-    rtrprsResponseStatus,
+    rtrprrsTapeARN,
+    rtrprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | RetrieveTapeRecoveryPointInput
 --
 -- /See:/ 'mkRetrieveTapeRecoveryPoint' smart constructor.
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
   { -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
-    tapeARN :: Lude.Text,
-    gatewayARN :: Lude.Text
+    tapeARN :: Types.TapeARN,
+    gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetrieveTapeRecoveryPoint' with the minimum fields required to make a request.
---
--- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
--- * 'gatewayARN' -
+-- | Creates a 'RetrieveTapeRecoveryPoint' value with any optional fields omitted.
 mkRetrieveTapeRecoveryPoint ::
   -- | 'tapeARN'
-  Lude.Text ->
+  Types.TapeARN ->
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   RetrieveTapeRecoveryPoint
-mkRetrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
-  RetrieveTapeRecoveryPoint'
-    { tapeARN = pTapeARN_,
-      gatewayARN = pGatewayARN_
-    }
+mkRetrieveTapeRecoveryPoint tapeARN gatewayARN =
+  RetrieveTapeRecoveryPoint' {tapeARN, gatewayARN}
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
 --
 -- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrpTapeARN :: Lens.Lens' RetrieveTapeRecoveryPoint Lude.Text
-rtrpTapeARN = Lens.lens (tapeARN :: RetrieveTapeRecoveryPoint -> Lude.Text) (\s a -> s {tapeARN = a} :: RetrieveTapeRecoveryPoint)
+rtrpTapeARN :: Lens.Lens' RetrieveTapeRecoveryPoint Types.TapeARN
+rtrpTapeARN = Lens.field @"tapeARN"
 {-# DEPRECATED rtrpTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrpGatewayARN :: Lens.Lens' RetrieveTapeRecoveryPoint Lude.Text
-rtrpGatewayARN = Lens.lens (gatewayARN :: RetrieveTapeRecoveryPoint -> Lude.Text) (\s a -> s {gatewayARN = a} :: RetrieveTapeRecoveryPoint)
+rtrpGatewayARN :: Lens.Lens' RetrieveTapeRecoveryPoint Types.GatewayARN
+rtrpGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED rtrpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest RetrieveTapeRecoveryPoint where
+instance Core.FromJSON RetrieveTapeRecoveryPoint where
+  toJSON RetrieveTapeRecoveryPoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TapeARN" Core..= tapeARN),
+            Core.Just ("GatewayARN" Core..= gatewayARN)
+          ]
+      )
+
+instance Core.AWSRequest RetrieveTapeRecoveryPoint where
   type
     Rs RetrieveTapeRecoveryPoint =
       RetrieveTapeRecoveryPointResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.RetrieveTapeRecoveryPoint"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RetrieveTapeRecoveryPointResponse'
-            Lude.<$> (x Lude..?> "TapeARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TapeARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RetrieveTapeRecoveryPoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.RetrieveTapeRecoveryPoint" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RetrieveTapeRecoveryPoint where
-  toJSON RetrieveTapeRecoveryPoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TapeARN" Lude..= tapeARN),
-            Lude.Just ("GatewayARN" Lude..= gatewayARN)
-          ]
-      )
-
-instance Lude.ToPath RetrieveTapeRecoveryPoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RetrieveTapeRecoveryPoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | RetrieveTapeRecoveryPointOutput
 --
 -- /See:/ 'mkRetrieveTapeRecoveryPointResponse' smart constructor.
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
   { -- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
-    tapeARN :: Lude.Maybe Lude.Text,
+    tapeARN :: Core.Maybe Types.TapeARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetrieveTapeRecoveryPointResponse' with the minimum fields required to make a request.
---
--- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RetrieveTapeRecoveryPointResponse' value with any optional fields omitted.
 mkRetrieveTapeRecoveryPointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RetrieveTapeRecoveryPointResponse
-mkRetrieveTapeRecoveryPointResponse pResponseStatus_ =
+mkRetrieveTapeRecoveryPointResponse responseStatus =
   RetrieveTapeRecoveryPointResponse'
-    { tapeARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { tapeARN = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
 --
 -- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrprsTapeARN :: Lens.Lens' RetrieveTapeRecoveryPointResponse (Lude.Maybe Lude.Text)
-rtrprsTapeARN = Lens.lens (tapeARN :: RetrieveTapeRecoveryPointResponse -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: RetrieveTapeRecoveryPointResponse)
-{-# DEPRECATED rtrprsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
+rtrprrsTapeARN :: Lens.Lens' RetrieveTapeRecoveryPointResponse (Core.Maybe Types.TapeARN)
+rtrprrsTapeARN = Lens.field @"tapeARN"
+{-# DEPRECATED rtrprrsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrprsResponseStatus :: Lens.Lens' RetrieveTapeRecoveryPointResponse Lude.Int
-rtrprsResponseStatus = Lens.lens (responseStatus :: RetrieveTapeRecoveryPointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetrieveTapeRecoveryPointResponse)
-{-# DEPRECATED rtrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtrprrsResponseStatus :: Lens.Lens' RetrieveTapeRecoveryPointResponse Core.Int
+rtrprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtrprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

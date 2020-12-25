@@ -18,82 +18,69 @@ module Network.AWS.EC2.Types.ExportToS3TaskSpecification
 
     -- * Lenses
     etstsContainerFormat,
-    etstsS3Prefix,
-    etstsS3Bucket,
     etstsDiskImageFormat,
+    etstsS3Bucket,
+    etstsS3Prefix,
   )
 where
 
-import Network.AWS.EC2.Types.ContainerFormat
-import Network.AWS.EC2.Types.DiskImageFormat
+import qualified Network.AWS.EC2.Types.ContainerFormat as Types
+import qualified Network.AWS.EC2.Types.DiskImageFormat as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance export task.
 --
 -- /See:/ 'mkExportToS3TaskSpecification' smart constructor.
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
   { -- | The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
-    containerFormat :: Lude.Maybe ContainerFormat,
-    -- | The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
-    s3Prefix :: Lude.Maybe Lude.Text,
-    -- | The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
-    s3Bucket :: Lude.Maybe Lude.Text,
+    containerFormat :: Core.Maybe Types.ContainerFormat,
     -- | The format for the exported image.
-    diskImageFormat :: Lude.Maybe DiskImageFormat
+    diskImageFormat :: Core.Maybe Types.DiskImageFormat,
+    -- | The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
+    s3Bucket :: Core.Maybe Types.String,
+    -- | The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
+    s3Prefix :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportToS3TaskSpecification' with the minimum fields required to make a request.
---
--- * 'containerFormat' - The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
--- * 's3Prefix' - The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
--- * 's3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
--- * 'diskImageFormat' - The format for the exported image.
+-- | Creates a 'ExportToS3TaskSpecification' value with any optional fields omitted.
 mkExportToS3TaskSpecification ::
   ExportToS3TaskSpecification
 mkExportToS3TaskSpecification =
   ExportToS3TaskSpecification'
-    { containerFormat = Lude.Nothing,
-      s3Prefix = Lude.Nothing,
-      s3Bucket = Lude.Nothing,
-      diskImageFormat = Lude.Nothing
+    { containerFormat = Core.Nothing,
+      diskImageFormat = Core.Nothing,
+      s3Bucket = Core.Nothing,
+      s3Prefix = Core.Nothing
     }
 
 -- | The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
 --
 -- /Note:/ Consider using 'containerFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etstsContainerFormat :: Lens.Lens' ExportToS3TaskSpecification (Lude.Maybe ContainerFormat)
-etstsContainerFormat = Lens.lens (containerFormat :: ExportToS3TaskSpecification -> Lude.Maybe ContainerFormat) (\s a -> s {containerFormat = a} :: ExportToS3TaskSpecification)
+etstsContainerFormat :: Lens.Lens' ExportToS3TaskSpecification (Core.Maybe Types.ContainerFormat)
+etstsContainerFormat = Lens.field @"containerFormat"
 {-# DEPRECATED etstsContainerFormat "Use generic-lens or generic-optics with 'containerFormat' instead." #-}
-
--- | The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
---
--- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etstsS3Prefix :: Lens.Lens' ExportToS3TaskSpecification (Lude.Maybe Lude.Text)
-etstsS3Prefix = Lens.lens (s3Prefix :: ExportToS3TaskSpecification -> Lude.Maybe Lude.Text) (\s a -> s {s3Prefix = a} :: ExportToS3TaskSpecification)
-{-# DEPRECATED etstsS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
-
--- | The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
---
--- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etstsS3Bucket :: Lens.Lens' ExportToS3TaskSpecification (Lude.Maybe Lude.Text)
-etstsS3Bucket = Lens.lens (s3Bucket :: ExportToS3TaskSpecification -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: ExportToS3TaskSpecification)
-{-# DEPRECATED etstsS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
 -- | The format for the exported image.
 --
 -- /Note:/ Consider using 'diskImageFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etstsDiskImageFormat :: Lens.Lens' ExportToS3TaskSpecification (Lude.Maybe DiskImageFormat)
-etstsDiskImageFormat = Lens.lens (diskImageFormat :: ExportToS3TaskSpecification -> Lude.Maybe DiskImageFormat) (\s a -> s {diskImageFormat = a} :: ExportToS3TaskSpecification)
+etstsDiskImageFormat :: Lens.Lens' ExportToS3TaskSpecification (Core.Maybe Types.DiskImageFormat)
+etstsDiskImageFormat = Lens.field @"diskImageFormat"
 {-# DEPRECATED etstsDiskImageFormat "Use generic-lens or generic-optics with 'diskImageFormat' instead." #-}
 
-instance Lude.ToQuery ExportToS3TaskSpecification where
-  toQuery ExportToS3TaskSpecification' {..} =
-    Lude.mconcat
-      [ "ContainerFormat" Lude.=: containerFormat,
-        "S3Prefix" Lude.=: s3Prefix,
-        "S3Bucket" Lude.=: s3Bucket,
-        "DiskImageFormat" Lude.=: diskImageFormat
-      ]
+-- | The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etstsS3Bucket :: Lens.Lens' ExportToS3TaskSpecification (Core.Maybe Types.String)
+etstsS3Bucket = Lens.field @"s3Bucket"
+{-# DEPRECATED etstsS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
+
+-- | The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
+--
+-- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etstsS3Prefix :: Lens.Lens' ExportToS3TaskSpecification (Core.Maybe Types.String)
+etstsS3Prefix = Lens.field @"s3Prefix"
+{-# DEPRECATED etstsS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}

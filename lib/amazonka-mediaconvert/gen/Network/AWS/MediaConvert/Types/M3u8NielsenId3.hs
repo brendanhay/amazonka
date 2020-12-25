@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.M3u8NielsenId3
   ( M3u8NielsenId3
       ( M3u8NielsenId3',
-        MNIfInsert,
-        MNIfNone
+        M3u8NielsenId3Insert,
+        M3u8NielsenId3None,
+        fromM3u8NielsenId3
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-newtype M3u8NielsenId3 = M3u8NielsenId3' Lude.Text
+newtype M3u8NielsenId3 = M3u8NielsenId3'
+  { fromM3u8NielsenId3 ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MNIfInsert :: M3u8NielsenId3
-pattern MNIfInsert = M3u8NielsenId3' "INSERT"
+pattern M3u8NielsenId3Insert :: M3u8NielsenId3
+pattern M3u8NielsenId3Insert = M3u8NielsenId3' "INSERT"
 
-pattern MNIfNone :: M3u8NielsenId3
-pattern MNIfNone = M3u8NielsenId3' "NONE"
+pattern M3u8NielsenId3None :: M3u8NielsenId3
+pattern M3u8NielsenId3None = M3u8NielsenId3' "NONE"
 
 {-# COMPLETE
-  MNIfInsert,
-  MNIfNone,
+  M3u8NielsenId3Insert,
+  M3u8NielsenId3None,
   M3u8NielsenId3'
   #-}

@@ -33,89 +33,80 @@ module Network.AWS.EMR.SetTerminationProtection
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input argument to the 'TerminationProtection' operation.
 --
 -- /See:/ 'mkSetTerminationProtection' smart constructor.
 data SetTerminationProtection = SetTerminationProtection'
   { -- | A list of strings that uniquely identify the clusters to protect. This identifier is returned by 'RunJobFlow' and can also be obtained from 'DescribeJobFlows' .
-    jobFlowIds :: [Lude.Text],
+    jobFlowIds :: [Types.XmlString],
     -- | A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.
-    terminationProtected :: Lude.Bool
+    terminationProtected :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetTerminationProtection' with the minimum fields required to make a request.
---
--- * 'jobFlowIds' - A list of strings that uniquely identify the clusters to protect. This identifier is returned by 'RunJobFlow' and can also be obtained from 'DescribeJobFlows' .
--- * 'terminationProtected' - A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.
+-- | Creates a 'SetTerminationProtection' value with any optional fields omitted.
 mkSetTerminationProtection ::
   -- | 'terminationProtected'
-  Lude.Bool ->
+  Core.Bool ->
   SetTerminationProtection
-mkSetTerminationProtection pTerminationProtected_ =
+mkSetTerminationProtection terminationProtected =
   SetTerminationProtection'
-    { jobFlowIds = Lude.mempty,
-      terminationProtected = pTerminationProtected_
+    { jobFlowIds = Core.mempty,
+      terminationProtected
     }
 
 -- | A list of strings that uniquely identify the clusters to protect. This identifier is returned by 'RunJobFlow' and can also be obtained from 'DescribeJobFlows' .
 --
 -- /Note:/ Consider using 'jobFlowIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stpJobFlowIds :: Lens.Lens' SetTerminationProtection [Lude.Text]
-stpJobFlowIds = Lens.lens (jobFlowIds :: SetTerminationProtection -> [Lude.Text]) (\s a -> s {jobFlowIds = a} :: SetTerminationProtection)
+stpJobFlowIds :: Lens.Lens' SetTerminationProtection [Types.XmlString]
+stpJobFlowIds = Lens.field @"jobFlowIds"
 {-# DEPRECATED stpJobFlowIds "Use generic-lens or generic-optics with 'jobFlowIds' instead." #-}
 
 -- | A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.
 --
 -- /Note:/ Consider using 'terminationProtected' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stpTerminationProtected :: Lens.Lens' SetTerminationProtection Lude.Bool
-stpTerminationProtected = Lens.lens (terminationProtected :: SetTerminationProtection -> Lude.Bool) (\s a -> s {terminationProtected = a} :: SetTerminationProtection)
+stpTerminationProtected :: Lens.Lens' SetTerminationProtection Core.Bool
+stpTerminationProtected = Lens.field @"terminationProtected"
 {-# DEPRECATED stpTerminationProtected "Use generic-lens or generic-optics with 'terminationProtected' instead." #-}
 
-instance Lude.AWSRequest SetTerminationProtection where
+instance Core.FromJSON SetTerminationProtection where
+  toJSON SetTerminationProtection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobFlowIds" Core..= jobFlowIds),
+            Core.Just ("TerminationProtected" Core..= terminationProtected)
+          ]
+      )
+
+instance Core.AWSRequest SetTerminationProtection where
   type Rs SetTerminationProtection = SetTerminationProtectionResponse
-  request = Req.postJSON emrService
-  response = Res.receiveNull SetTerminationProtectionResponse'
-
-instance Lude.ToHeaders SetTerminationProtection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.SetTerminationProtection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetTerminationProtection where
-  toJSON SetTerminationProtection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobFlowIds" Lude..= jobFlowIds),
-            Lude.Just ("TerminationProtected" Lude..= terminationProtected)
-          ]
-      )
-
-instance Lude.ToPath SetTerminationProtection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetTerminationProtection where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.SetTerminationProtection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetTerminationProtectionResponse'
 
 -- | /See:/ 'mkSetTerminationProtectionResponse' smart constructor.
 data SetTerminationProtectionResponse = SetTerminationProtectionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetTerminationProtectionResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetTerminationProtectionResponse' value with any optional fields omitted.
 mkSetTerminationProtectionResponse ::
   SetTerminationProtectionResponse
 mkSetTerminationProtectionResponse =

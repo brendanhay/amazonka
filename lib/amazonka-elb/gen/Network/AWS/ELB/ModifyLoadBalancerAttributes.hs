@@ -42,142 +42,139 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     mkModifyLoadBalancerAttributesResponse,
 
     -- ** Response lenses
-    mlbarsLoadBalancerName,
-    mlbarsLoadBalancerAttributes,
-    mlbarsResponseStatus,
+    mlbarrsLoadBalancerAttributes,
+    mlbarrsLoadBalancerName,
+    mlbarrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ModifyLoadBalancerAttributes.
 --
 -- /See:/ 'mkModifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
   { -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text,
+    loadBalancerName :: Types.AccessPointName,
     -- | The attributes for the load balancer.
-    loadBalancerAttributes :: LoadBalancerAttributes
+    loadBalancerAttributes :: Types.LoadBalancerAttributes
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'loadBalancerAttributes' - The attributes for the load balancer.
+-- | Creates a 'ModifyLoadBalancerAttributes' value with any optional fields omitted.
 mkModifyLoadBalancerAttributes ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
   -- | 'loadBalancerAttributes'
-  LoadBalancerAttributes ->
+  Types.LoadBalancerAttributes ->
   ModifyLoadBalancerAttributes
 mkModifyLoadBalancerAttributes
-  pLoadBalancerName_
-  pLoadBalancerAttributes_ =
+  loadBalancerName
+  loadBalancerAttributes =
     ModifyLoadBalancerAttributes'
-      { loadBalancerName =
-          pLoadBalancerName_,
-        loadBalancerAttributes = pLoadBalancerAttributes_
+      { loadBalancerName,
+        loadBalancerAttributes
       }
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlbaLoadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributes Lude.Text
-mlbaLoadBalancerName = Lens.lens (loadBalancerName :: ModifyLoadBalancerAttributes -> Lude.Text) (\s a -> s {loadBalancerName = a} :: ModifyLoadBalancerAttributes)
+mlbaLoadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributes Types.AccessPointName
+mlbaLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED mlbaLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The attributes for the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlbaLoadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
-mlbaLoadBalancerAttributes = Lens.lens (loadBalancerAttributes :: ModifyLoadBalancerAttributes -> LoadBalancerAttributes) (\s a -> s {loadBalancerAttributes = a} :: ModifyLoadBalancerAttributes)
+mlbaLoadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributes Types.LoadBalancerAttributes
+mlbaLoadBalancerAttributes = Lens.field @"loadBalancerAttributes"
 {-# DEPRECATED mlbaLoadBalancerAttributes "Use generic-lens or generic-optics with 'loadBalancerAttributes' instead." #-}
 
-instance Lude.AWSRequest ModifyLoadBalancerAttributes where
+instance Core.AWSRequest ModifyLoadBalancerAttributes where
   type
     Rs ModifyLoadBalancerAttributes =
       ModifyLoadBalancerAttributesResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyLoadBalancerAttributes")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> ( Core.toQueryValue
+                            "LoadBalancerAttributes"
+                            loadBalancerAttributes
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifyLoadBalancerAttributesResult"
       ( \s h x ->
           ModifyLoadBalancerAttributesResponse'
-            Lude.<$> (x Lude..@? "LoadBalancerName")
-            Lude.<*> (x Lude..@? "LoadBalancerAttributes")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "LoadBalancerAttributes")
+            Core.<*> (x Core..@? "LoadBalancerName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyLoadBalancerAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyLoadBalancerAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyLoadBalancerAttributes where
-  toQuery ModifyLoadBalancerAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ModifyLoadBalancerAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "LoadBalancerAttributes" Lude.=: loadBalancerAttributes
-      ]
 
 -- | Contains the output of ModifyLoadBalancerAttributes.
 --
 -- /See:/ 'mkModifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-  { -- | The name of the load balancer.
-    loadBalancerName :: Lude.Maybe Lude.Text,
-    -- | Information about the load balancer attributes.
-    loadBalancerAttributes :: Lude.Maybe LoadBalancerAttributes,
+  { -- | Information about the load balancer attributes.
+    loadBalancerAttributes :: Core.Maybe Types.LoadBalancerAttributes,
+    -- | The name of the load balancer.
+    loadBalancerName :: Core.Maybe Types.AccessPointName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'loadBalancerAttributes' - Information about the load balancer attributes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyLoadBalancerAttributesResponse' value with any optional fields omitted.
 mkModifyLoadBalancerAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyLoadBalancerAttributesResponse
-mkModifyLoadBalancerAttributesResponse pResponseStatus_ =
+mkModifyLoadBalancerAttributesResponse responseStatus =
   ModifyLoadBalancerAttributesResponse'
-    { loadBalancerName =
-        Lude.Nothing,
-      loadBalancerAttributes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { loadBalancerAttributes =
+        Core.Nothing,
+      loadBalancerName = Core.Nothing,
+      responseStatus
     }
-
--- | The name of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlbarsLoadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Lude.Maybe Lude.Text)
-mlbarsLoadBalancerName = Lens.lens (loadBalancerName :: ModifyLoadBalancerAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerName = a} :: ModifyLoadBalancerAttributesResponse)
-{-# DEPRECATED mlbarsLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | Information about the load balancer attributes.
 --
 -- /Note:/ Consider using 'loadBalancerAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlbarsLoadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Lude.Maybe LoadBalancerAttributes)
-mlbarsLoadBalancerAttributes = Lens.lens (loadBalancerAttributes :: ModifyLoadBalancerAttributesResponse -> Lude.Maybe LoadBalancerAttributes) (\s a -> s {loadBalancerAttributes = a} :: ModifyLoadBalancerAttributesResponse)
-{-# DEPRECATED mlbarsLoadBalancerAttributes "Use generic-lens or generic-optics with 'loadBalancerAttributes' instead." #-}
+mlbarrsLoadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Core.Maybe Types.LoadBalancerAttributes)
+mlbarrsLoadBalancerAttributes = Lens.field @"loadBalancerAttributes"
+{-# DEPRECATED mlbarrsLoadBalancerAttributes "Use generic-lens or generic-optics with 'loadBalancerAttributes' instead." #-}
+
+-- | The name of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mlbarrsLoadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Core.Maybe Types.AccessPointName)
+mlbarrsLoadBalancerName = Lens.field @"loadBalancerName"
+{-# DEPRECATED mlbarrsLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlbarsResponseStatus :: Lens.Lens' ModifyLoadBalancerAttributesResponse Lude.Int
-mlbarsResponseStatus = Lens.lens (responseStatus :: ModifyLoadBalancerAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyLoadBalancerAttributesResponse)
-{-# DEPRECATED mlbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mlbarrsResponseStatus :: Lens.Lens' ModifyLoadBalancerAttributesResponse Core.Int
+mlbarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mlbarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

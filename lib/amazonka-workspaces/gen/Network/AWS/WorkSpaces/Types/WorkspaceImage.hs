@@ -17,165 +17,158 @@ module Network.AWS.WorkSpaces.Types.WorkspaceImage
     mkWorkspaceImage,
 
     -- * Lenses
-    wiState,
-    wiOwnerAccountId,
-    wiOperatingSystem,
     wiCreated,
-    wiRequiredTenancy,
-    wiName,
-    wiImageId,
+    wiDescription,
     wiErrorCode,
     wiErrorMessage,
-    wiDescription,
+    wiImageId,
+    wiName,
+    wiOperatingSystem,
+    wiOwnerAccountId,
+    wiRequiredTenancy,
+    wiState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkSpaces.Types.OperatingSystem
-import Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy
-import Network.AWS.WorkSpaces.Types.WorkspaceImageState
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.AwsAccount as Types
+import qualified Network.AWS.WorkSpaces.Types.ErrorMessage as Types
+import qualified Network.AWS.WorkSpaces.Types.OperatingSystem as Types
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceImageDescription as Types
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceImageErrorCode as Types
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceImageId as Types
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceImageName as Types
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy as Types
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceImageState as Types
 
 -- | Describes a WorkSpace image.
 --
 -- /See:/ 'mkWorkspaceImage' smart constructor.
 data WorkspaceImage = WorkspaceImage'
-  { -- | The status of the image.
-    state :: Lude.Maybe WorkspaceImageState,
-    -- | The identifier of the AWS account that owns the image.
-    ownerAccountId :: Lude.Maybe Lude.Text,
-    -- | The operating system that the image is running.
-    operatingSystem :: Lude.Maybe OperatingSystem,
-    -- | The date when the image was created. If the image has been shared, the AWS account that the image has been shared with sees the original creation date of the image.
-    created :: Lude.Maybe Lude.Timestamp,
-    -- | Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
-    requiredTenancy :: Lude.Maybe WorkspaceImageRequiredTenancy,
-    -- | The name of the image.
-    name :: Lude.Maybe Lude.Text,
-    -- | The identifier of the image.
-    imageId :: Lude.Maybe Lude.Text,
-    -- | The error code that is returned for the image.
-    errorCode :: Lude.Maybe Lude.Text,
-    -- | The text of the error message that is returned for the image.
-    errorMessage :: Lude.Maybe Lude.Text,
+  { -- | The date when the image was created. If the image has been shared, the AWS account that the image has been shared with sees the original creation date of the image.
+    created :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the image.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.WorkspaceImageDescription,
+    -- | The error code that is returned for the image.
+    errorCode :: Core.Maybe Types.WorkspaceImageErrorCode,
+    -- | The text of the error message that is returned for the image.
+    errorMessage :: Core.Maybe Types.ErrorMessage,
+    -- | The identifier of the image.
+    imageId :: Core.Maybe Types.WorkspaceImageId,
+    -- | The name of the image.
+    name :: Core.Maybe Types.WorkspaceImageName,
+    -- | The operating system that the image is running.
+    operatingSystem :: Core.Maybe Types.OperatingSystem,
+    -- | The identifier of the AWS account that owns the image.
+    ownerAccountId :: Core.Maybe Types.AwsAccount,
+    -- | Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
+    requiredTenancy :: Core.Maybe Types.WorkspaceImageRequiredTenancy,
+    -- | The status of the image.
+    state :: Core.Maybe Types.WorkspaceImageState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'WorkspaceImage' with the minimum fields required to make a request.
---
--- * 'state' - The status of the image.
--- * 'ownerAccountId' - The identifier of the AWS account that owns the image.
--- * 'operatingSystem' - The operating system that the image is running.
--- * 'created' - The date when the image was created. If the image has been shared, the AWS account that the image has been shared with sees the original creation date of the image.
--- * 'requiredTenancy' - Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
--- * 'name' - The name of the image.
--- * 'imageId' - The identifier of the image.
--- * 'errorCode' - The error code that is returned for the image.
--- * 'errorMessage' - The text of the error message that is returned for the image.
--- * 'description' - The description of the image.
+-- | Creates a 'WorkspaceImage' value with any optional fields omitted.
 mkWorkspaceImage ::
   WorkspaceImage
 mkWorkspaceImage =
   WorkspaceImage'
-    { state = Lude.Nothing,
-      ownerAccountId = Lude.Nothing,
-      operatingSystem = Lude.Nothing,
-      created = Lude.Nothing,
-      requiredTenancy = Lude.Nothing,
-      name = Lude.Nothing,
-      imageId = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      description = Lude.Nothing
+    { created = Core.Nothing,
+      description = Core.Nothing,
+      errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      imageId = Core.Nothing,
+      name = Core.Nothing,
+      operatingSystem = Core.Nothing,
+      ownerAccountId = Core.Nothing,
+      requiredTenancy = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The status of the image.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiState :: Lens.Lens' WorkspaceImage (Lude.Maybe WorkspaceImageState)
-wiState = Lens.lens (state :: WorkspaceImage -> Lude.Maybe WorkspaceImageState) (\s a -> s {state = a} :: WorkspaceImage)
-{-# DEPRECATED wiState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The identifier of the AWS account that owns the image.
---
--- /Note:/ Consider using 'ownerAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiOwnerAccountId :: Lens.Lens' WorkspaceImage (Lude.Maybe Lude.Text)
-wiOwnerAccountId = Lens.lens (ownerAccountId :: WorkspaceImage -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccountId = a} :: WorkspaceImage)
-{-# DEPRECATED wiOwnerAccountId "Use generic-lens or generic-optics with 'ownerAccountId' instead." #-}
-
--- | The operating system that the image is running.
---
--- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiOperatingSystem :: Lens.Lens' WorkspaceImage (Lude.Maybe OperatingSystem)
-wiOperatingSystem = Lens.lens (operatingSystem :: WorkspaceImage -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: WorkspaceImage)
-{-# DEPRECATED wiOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
 -- | The date when the image was created. If the image has been shared, the AWS account that the image has been shared with sees the original creation date of the image.
 --
 -- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiCreated :: Lens.Lens' WorkspaceImage (Lude.Maybe Lude.Timestamp)
-wiCreated = Lens.lens (created :: WorkspaceImage -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: WorkspaceImage)
+wiCreated :: Lens.Lens' WorkspaceImage (Core.Maybe Core.NominalDiffTime)
+wiCreated = Lens.field @"created"
 {-# DEPRECATED wiCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
--- | Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
+-- | The description of the image.
 --
--- /Note:/ Consider using 'requiredTenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiRequiredTenancy :: Lens.Lens' WorkspaceImage (Lude.Maybe WorkspaceImageRequiredTenancy)
-wiRequiredTenancy = Lens.lens (requiredTenancy :: WorkspaceImage -> Lude.Maybe WorkspaceImageRequiredTenancy) (\s a -> s {requiredTenancy = a} :: WorkspaceImage)
-{-# DEPRECATED wiRequiredTenancy "Use generic-lens or generic-optics with 'requiredTenancy' instead." #-}
-
--- | The name of the image.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiName :: Lens.Lens' WorkspaceImage (Lude.Maybe Lude.Text)
-wiName = Lens.lens (name :: WorkspaceImage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: WorkspaceImage)
-{-# DEPRECATED wiName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The identifier of the image.
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiImageId :: Lens.Lens' WorkspaceImage (Lude.Maybe Lude.Text)
-wiImageId = Lens.lens (imageId :: WorkspaceImage -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: WorkspaceImage)
-{-# DEPRECATED wiImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wiDescription :: Lens.Lens' WorkspaceImage (Core.Maybe Types.WorkspaceImageDescription)
+wiDescription = Lens.field @"description"
+{-# DEPRECATED wiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The error code that is returned for the image.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiErrorCode :: Lens.Lens' WorkspaceImage (Lude.Maybe Lude.Text)
-wiErrorCode = Lens.lens (errorCode :: WorkspaceImage -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: WorkspaceImage)
+wiErrorCode :: Lens.Lens' WorkspaceImage (Core.Maybe Types.WorkspaceImageErrorCode)
+wiErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED wiErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The text of the error message that is returned for the image.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiErrorMessage :: Lens.Lens' WorkspaceImage (Lude.Maybe Lude.Text)
-wiErrorMessage = Lens.lens (errorMessage :: WorkspaceImage -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: WorkspaceImage)
+wiErrorMessage :: Lens.Lens' WorkspaceImage (Core.Maybe Types.ErrorMessage)
+wiErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED wiErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
--- | The description of the image.
+-- | The identifier of the image.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wiDescription :: Lens.Lens' WorkspaceImage (Lude.Maybe Lude.Text)
-wiDescription = Lens.lens (description :: WorkspaceImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: WorkspaceImage)
-{-# DEPRECATED wiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wiImageId :: Lens.Lens' WorkspaceImage (Core.Maybe Types.WorkspaceImageId)
+wiImageId = Lens.field @"imageId"
+{-# DEPRECATED wiImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance Lude.FromJSON WorkspaceImage where
+-- | The name of the image.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wiName :: Lens.Lens' WorkspaceImage (Core.Maybe Types.WorkspaceImageName)
+wiName = Lens.field @"name"
+{-# DEPRECATED wiName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The operating system that the image is running.
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wiOperatingSystem :: Lens.Lens' WorkspaceImage (Core.Maybe Types.OperatingSystem)
+wiOperatingSystem = Lens.field @"operatingSystem"
+{-# DEPRECATED wiOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
+
+-- | The identifier of the AWS account that owns the image.
+--
+-- /Note:/ Consider using 'ownerAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wiOwnerAccountId :: Lens.Lens' WorkspaceImage (Core.Maybe Types.AwsAccount)
+wiOwnerAccountId = Lens.field @"ownerAccountId"
+{-# DEPRECATED wiOwnerAccountId "Use generic-lens or generic-optics with 'ownerAccountId' instead." #-}
+
+-- | Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
+--
+-- /Note:/ Consider using 'requiredTenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wiRequiredTenancy :: Lens.Lens' WorkspaceImage (Core.Maybe Types.WorkspaceImageRequiredTenancy)
+wiRequiredTenancy = Lens.field @"requiredTenancy"
+{-# DEPRECATED wiRequiredTenancy "Use generic-lens or generic-optics with 'requiredTenancy' instead." #-}
+
+-- | The status of the image.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wiState :: Lens.Lens' WorkspaceImage (Core.Maybe Types.WorkspaceImageState)
+wiState = Lens.field @"state"
+{-# DEPRECATED wiState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON WorkspaceImage where
   parseJSON =
-    Lude.withObject
-      "WorkspaceImage"
-      ( \x ->
-          WorkspaceImage'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "OwnerAccountId")
-            Lude.<*> (x Lude..:? "OperatingSystem")
-            Lude.<*> (x Lude..:? "Created")
-            Lude.<*> (x Lude..:? "RequiredTenancy")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "ImageId")
-            Lude.<*> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "WorkspaceImage" Core.$
+      \x ->
+        WorkspaceImage'
+          Core.<$> (x Core..:? "Created")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "ImageId")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "OperatingSystem")
+          Core.<*> (x Core..:? "OwnerAccountId")
+          Core.<*> (x Core..:? "RequiredTenancy")
+          Core.<*> (x Core..:? "State")

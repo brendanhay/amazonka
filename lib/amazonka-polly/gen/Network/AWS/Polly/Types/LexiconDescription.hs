@@ -23,52 +23,48 @@ module Network.AWS.Polly.Types.LexiconDescription
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types.LexiconAttributes
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Polly.Types.LexiconAttributes as Types
+import qualified Network.AWS.Polly.Types.LexiconName as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the content of the lexicon.
 --
 -- /See:/ 'mkLexiconDescription' smart constructor.
 data LexiconDescription = LexiconDescription'
   { -- | Provides lexicon metadata.
-    attributes :: Lude.Maybe LexiconAttributes,
+    attributes :: Core.Maybe Types.LexiconAttributes,
     -- | Name of the lexicon.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.LexiconName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LexiconDescription' with the minimum fields required to make a request.
---
--- * 'attributes' - Provides lexicon metadata.
--- * 'name' - Name of the lexicon.
+-- | Creates a 'LexiconDescription' value with any optional fields omitted.
 mkLexiconDescription ::
   LexiconDescription
 mkLexiconDescription =
   LexiconDescription'
-    { attributes = Lude.Nothing,
-      name = Lude.Nothing
+    { attributes = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | Provides lexicon metadata.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldAttributes :: Lens.Lens' LexiconDescription (Lude.Maybe LexiconAttributes)
-ldAttributes = Lens.lens (attributes :: LexiconDescription -> Lude.Maybe LexiconAttributes) (\s a -> s {attributes = a} :: LexiconDescription)
+ldAttributes :: Lens.Lens' LexiconDescription (Core.Maybe Types.LexiconAttributes)
+ldAttributes = Lens.field @"attributes"
 {-# DEPRECATED ldAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | Name of the lexicon.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldName :: Lens.Lens' LexiconDescription (Lude.Maybe Lude.Text)
-ldName = Lens.lens (name :: LexiconDescription -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LexiconDescription)
+ldName :: Lens.Lens' LexiconDescription (Core.Maybe Types.LexiconName)
+ldName = Lens.field @"name"
 {-# DEPRECATED ldName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON LexiconDescription where
+instance Core.FromJSON LexiconDescription where
   parseJSON =
-    Lude.withObject
-      "LexiconDescription"
-      ( \x ->
-          LexiconDescription'
-            Lude.<$> (x Lude..:? "Attributes") Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "LexiconDescription" Core.$
+      \x ->
+        LexiconDescription'
+          Core.<$> (x Core..:? "Attributes") Core.<*> (x Core..:? "Name")

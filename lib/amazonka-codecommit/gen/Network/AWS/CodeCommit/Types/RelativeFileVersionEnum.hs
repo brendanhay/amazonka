@@ -13,46 +13,51 @@
 module Network.AWS.CodeCommit.Types.RelativeFileVersionEnum
   ( RelativeFileVersionEnum
       ( RelativeFileVersionEnum',
-        Before,
-        After
+        RelativeFileVersionEnumBefore,
+        RelativeFileVersionEnumAfter,
+        fromRelativeFileVersionEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RelativeFileVersionEnum = RelativeFileVersionEnum' Lude.Text
+newtype RelativeFileVersionEnum = RelativeFileVersionEnum'
+  { fromRelativeFileVersionEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Before :: RelativeFileVersionEnum
-pattern Before = RelativeFileVersionEnum' "BEFORE"
+pattern RelativeFileVersionEnumBefore :: RelativeFileVersionEnum
+pattern RelativeFileVersionEnumBefore = RelativeFileVersionEnum' "BEFORE"
 
-pattern After :: RelativeFileVersionEnum
-pattern After = RelativeFileVersionEnum' "AFTER"
+pattern RelativeFileVersionEnumAfter :: RelativeFileVersionEnum
+pattern RelativeFileVersionEnumAfter = RelativeFileVersionEnum' "AFTER"
 
 {-# COMPLETE
-  Before,
-  After,
+  RelativeFileVersionEnumBefore,
+  RelativeFileVersionEnumAfter,
   RelativeFileVersionEnum'
   #-}

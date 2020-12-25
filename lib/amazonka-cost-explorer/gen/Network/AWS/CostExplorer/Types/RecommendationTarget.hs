@@ -13,46 +13,51 @@
 module Network.AWS.CostExplorer.Types.RecommendationTarget
   ( RecommendationTarget
       ( RecommendationTarget',
-        SameInstanceFamily,
-        CrossInstanceFamily
+        RecommendationTargetSameInstanceFamily,
+        RecommendationTargetCrossInstanceFamily,
+        fromRecommendationTarget
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RecommendationTarget = RecommendationTarget' Lude.Text
+newtype RecommendationTarget = RecommendationTarget'
+  { fromRecommendationTarget ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SameInstanceFamily :: RecommendationTarget
-pattern SameInstanceFamily = RecommendationTarget' "SAME_INSTANCE_FAMILY"
+pattern RecommendationTargetSameInstanceFamily :: RecommendationTarget
+pattern RecommendationTargetSameInstanceFamily = RecommendationTarget' "SAME_INSTANCE_FAMILY"
 
-pattern CrossInstanceFamily :: RecommendationTarget
-pattern CrossInstanceFamily = RecommendationTarget' "CROSS_INSTANCE_FAMILY"
+pattern RecommendationTargetCrossInstanceFamily :: RecommendationTarget
+pattern RecommendationTargetCrossInstanceFamily = RecommendationTarget' "CROSS_INSTANCE_FAMILY"
 
 {-# COMPLETE
-  SameInstanceFamily,
-  CrossInstanceFamily,
+  RecommendationTargetSameInstanceFamily,
+  RecommendationTargetCrossInstanceFamily,
   RecommendationTarget'
   #-}

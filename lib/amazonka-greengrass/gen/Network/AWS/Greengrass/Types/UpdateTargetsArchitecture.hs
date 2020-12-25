@@ -13,57 +13,62 @@
 module Network.AWS.Greengrass.Types.UpdateTargetsArchitecture
   ( UpdateTargetsArchitecture
       ( UpdateTargetsArchitecture',
-        Armv6l,
-        Armv7l,
-        X86_64,
-        AARCH64
+        UpdateTargetsArchitectureArmv6l,
+        UpdateTargetsArchitectureArmv7l,
+        UpdateTargetsArchitectureX8664,
+        UpdateTargetsArchitectureAARCH64,
+        fromUpdateTargetsArchitecture
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The architecture of the cores which are the targets of an update.
-newtype UpdateTargetsArchitecture = UpdateTargetsArchitecture' Lude.Text
+newtype UpdateTargetsArchitecture = UpdateTargetsArchitecture'
+  { fromUpdateTargetsArchitecture ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Armv6l :: UpdateTargetsArchitecture
-pattern Armv6l = UpdateTargetsArchitecture' "armv6l"
+pattern UpdateTargetsArchitectureArmv6l :: UpdateTargetsArchitecture
+pattern UpdateTargetsArchitectureArmv6l = UpdateTargetsArchitecture' "armv6l"
 
-pattern Armv7l :: UpdateTargetsArchitecture
-pattern Armv7l = UpdateTargetsArchitecture' "armv7l"
+pattern UpdateTargetsArchitectureArmv7l :: UpdateTargetsArchitecture
+pattern UpdateTargetsArchitectureArmv7l = UpdateTargetsArchitecture' "armv7l"
 
-pattern X86_64 :: UpdateTargetsArchitecture
-pattern X86_64 = UpdateTargetsArchitecture' "x86_64"
+pattern UpdateTargetsArchitectureX8664 :: UpdateTargetsArchitecture
+pattern UpdateTargetsArchitectureX8664 = UpdateTargetsArchitecture' "x86_64"
 
-pattern AARCH64 :: UpdateTargetsArchitecture
-pattern AARCH64 = UpdateTargetsArchitecture' "aarch64"
+pattern UpdateTargetsArchitectureAARCH64 :: UpdateTargetsArchitecture
+pattern UpdateTargetsArchitectureAARCH64 = UpdateTargetsArchitecture' "aarch64"
 
 {-# COMPLETE
-  Armv6l,
-  Armv7l,
-  X86_64,
-  AARCH64,
+  UpdateTargetsArchitectureArmv6l,
+  UpdateTargetsArchitectureArmv7l,
+  UpdateTargetsArchitectureX8664,
+  UpdateTargetsArchitectureAARCH64,
   UpdateTargetsArchitecture'
   #-}

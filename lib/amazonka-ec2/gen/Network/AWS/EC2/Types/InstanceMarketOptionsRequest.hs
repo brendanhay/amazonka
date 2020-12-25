@@ -22,52 +22,42 @@ module Network.AWS.EC2.Types.InstanceMarketOptionsRequest
   )
 where
 
-import Network.AWS.EC2.Types.MarketType
-import Network.AWS.EC2.Types.SpotMarketOptions
+import qualified Network.AWS.EC2.Types.MarketType as Types
+import qualified Network.AWS.EC2.Types.SpotMarketOptions as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the market (purchasing) option for the instances.
 --
 -- /See:/ 'mkInstanceMarketOptionsRequest' smart constructor.
 data InstanceMarketOptionsRequest = InstanceMarketOptionsRequest'
   { -- | The market type.
-    marketType :: Lude.Maybe MarketType,
+    marketType :: Core.Maybe Types.MarketType,
     -- | The options for Spot Instances.
-    spotOptions :: Lude.Maybe SpotMarketOptions
+    spotOptions :: Core.Maybe Types.SpotMarketOptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceMarketOptionsRequest' with the minimum fields required to make a request.
---
--- * 'marketType' - The market type.
--- * 'spotOptions' - The options for Spot Instances.
+-- | Creates a 'InstanceMarketOptionsRequest' value with any optional fields omitted.
 mkInstanceMarketOptionsRequest ::
   InstanceMarketOptionsRequest
 mkInstanceMarketOptionsRequest =
   InstanceMarketOptionsRequest'
-    { marketType = Lude.Nothing,
-      spotOptions = Lude.Nothing
+    { marketType = Core.Nothing,
+      spotOptions = Core.Nothing
     }
 
 -- | The market type.
 --
 -- /Note:/ Consider using 'marketType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imorMarketType :: Lens.Lens' InstanceMarketOptionsRequest (Lude.Maybe MarketType)
-imorMarketType = Lens.lens (marketType :: InstanceMarketOptionsRequest -> Lude.Maybe MarketType) (\s a -> s {marketType = a} :: InstanceMarketOptionsRequest)
+imorMarketType :: Lens.Lens' InstanceMarketOptionsRequest (Core.Maybe Types.MarketType)
+imorMarketType = Lens.field @"marketType"
 {-# DEPRECATED imorMarketType "Use generic-lens or generic-optics with 'marketType' instead." #-}
 
 -- | The options for Spot Instances.
 --
 -- /Note:/ Consider using 'spotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imorSpotOptions :: Lens.Lens' InstanceMarketOptionsRequest (Lude.Maybe SpotMarketOptions)
-imorSpotOptions = Lens.lens (spotOptions :: InstanceMarketOptionsRequest -> Lude.Maybe SpotMarketOptions) (\s a -> s {spotOptions = a} :: InstanceMarketOptionsRequest)
+imorSpotOptions :: Lens.Lens' InstanceMarketOptionsRequest (Core.Maybe Types.SpotMarketOptions)
+imorSpotOptions = Lens.field @"spotOptions"
 {-# DEPRECATED imorSpotOptions "Use generic-lens or generic-optics with 'spotOptions' instead." #-}
-
-instance Lude.ToQuery InstanceMarketOptionsRequest where
-  toQuery InstanceMarketOptionsRequest' {..} =
-    Lude.mconcat
-      [ "MarketType" Lude.=: marketType,
-        "SpotOptions" Lude.=: spotOptions
-      ]

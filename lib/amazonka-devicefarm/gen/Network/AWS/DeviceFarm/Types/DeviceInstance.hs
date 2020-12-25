@@ -17,112 +17,105 @@ module Network.AWS.DeviceFarm.Types.DeviceInstance
     mkDeviceInstance,
 
     -- * Lenses
+    diArn,
+    diDeviceArn,
+    diInstanceProfile,
+    diLabels,
     diStatus,
     diUdid,
-    diInstanceProfile,
-    diArn,
-    diDeviceARN,
-    diLabels,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.InstanceProfile
-import Network.AWS.DeviceFarm.Types.InstanceStatus
+import qualified Network.AWS.DeviceFarm.Types.AmazonResourceName as Types
+import qualified Network.AWS.DeviceFarm.Types.InstanceProfile as Types
+import qualified Network.AWS.DeviceFarm.Types.InstanceStatus as Types
+import qualified Network.AWS.DeviceFarm.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the device instance.
 --
 -- /See:/ 'mkDeviceInstance' smart constructor.
 data DeviceInstance = DeviceInstance'
-  { -- | The status of the device instance. Valid values are listed here.
-    status :: Lude.Maybe InstanceStatus,
-    -- | Unique device identifier for the device instance.
-    udid :: Lude.Maybe Lude.Text,
-    -- | A object that contains information about the instance profile.
-    instanceProfile :: Lude.Maybe InstanceProfile,
-    -- | The Amazon Resource Name (ARN) of the device instance.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the device instance.
+    arn :: Core.Maybe Types.AmazonResourceName,
     -- | The ARN of the device.
-    deviceARN :: Lude.Maybe Lude.Text,
+    deviceArn :: Core.Maybe Types.AmazonResourceName,
+    -- | A object that contains information about the instance profile.
+    instanceProfile :: Core.Maybe Types.InstanceProfile,
     -- | An array of strings that describe the device instance.
-    labels :: Lude.Maybe [Lude.Text]
+    labels :: Core.Maybe [Types.String],
+    -- | The status of the device instance. Valid values are listed here.
+    status :: Core.Maybe Types.InstanceStatus,
+    -- | Unique device identifier for the device instance.
+    udid :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeviceInstance' with the minimum fields required to make a request.
---
--- * 'status' - The status of the device instance. Valid values are listed here.
--- * 'udid' - Unique device identifier for the device instance.
--- * 'instanceProfile' - A object that contains information about the instance profile.
--- * 'arn' - The Amazon Resource Name (ARN) of the device instance.
--- * 'deviceARN' - The ARN of the device.
--- * 'labels' - An array of strings that describe the device instance.
+-- | Creates a 'DeviceInstance' value with any optional fields omitted.
 mkDeviceInstance ::
   DeviceInstance
 mkDeviceInstance =
   DeviceInstance'
-    { status = Lude.Nothing,
-      udid = Lude.Nothing,
-      instanceProfile = Lude.Nothing,
-      arn = Lude.Nothing,
-      deviceARN = Lude.Nothing,
-      labels = Lude.Nothing
+    { arn = Core.Nothing,
+      deviceArn = Core.Nothing,
+      instanceProfile = Core.Nothing,
+      labels = Core.Nothing,
+      status = Core.Nothing,
+      udid = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the device instance.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diArn :: Lens.Lens' DeviceInstance (Core.Maybe Types.AmazonResourceName)
+diArn = Lens.field @"arn"
+{-# DEPRECATED diArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The ARN of the device.
+--
+-- /Note:/ Consider using 'deviceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDeviceArn :: Lens.Lens' DeviceInstance (Core.Maybe Types.AmazonResourceName)
+diDeviceArn = Lens.field @"deviceArn"
+{-# DEPRECATED diDeviceArn "Use generic-lens or generic-optics with 'deviceArn' instead." #-}
+
+-- | A object that contains information about the instance profile.
+--
+-- /Note:/ Consider using 'instanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diInstanceProfile :: Lens.Lens' DeviceInstance (Core.Maybe Types.InstanceProfile)
+diInstanceProfile = Lens.field @"instanceProfile"
+{-# DEPRECATED diInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}
+
+-- | An array of strings that describe the device instance.
+--
+-- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLabels :: Lens.Lens' DeviceInstance (Core.Maybe [Types.String])
+diLabels = Lens.field @"labels"
+{-# DEPRECATED diLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
 -- | The status of the device instance. Valid values are listed here.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diStatus :: Lens.Lens' DeviceInstance (Lude.Maybe InstanceStatus)
-diStatus = Lens.lens (status :: DeviceInstance -> Lude.Maybe InstanceStatus) (\s a -> s {status = a} :: DeviceInstance)
+diStatus :: Lens.Lens' DeviceInstance (Core.Maybe Types.InstanceStatus)
+diStatus = Lens.field @"status"
 {-# DEPRECATED diStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Unique device identifier for the device instance.
 --
 -- /Note:/ Consider using 'udid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diUdid :: Lens.Lens' DeviceInstance (Lude.Maybe Lude.Text)
-diUdid = Lens.lens (udid :: DeviceInstance -> Lude.Maybe Lude.Text) (\s a -> s {udid = a} :: DeviceInstance)
+diUdid :: Lens.Lens' DeviceInstance (Core.Maybe Types.String)
+diUdid = Lens.field @"udid"
 {-# DEPRECATED diUdid "Use generic-lens or generic-optics with 'udid' instead." #-}
 
--- | A object that contains information about the instance profile.
---
--- /Note:/ Consider using 'instanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diInstanceProfile :: Lens.Lens' DeviceInstance (Lude.Maybe InstanceProfile)
-diInstanceProfile = Lens.lens (instanceProfile :: DeviceInstance -> Lude.Maybe InstanceProfile) (\s a -> s {instanceProfile = a} :: DeviceInstance)
-{-# DEPRECATED diInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the device instance.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diArn :: Lens.Lens' DeviceInstance (Lude.Maybe Lude.Text)
-diArn = Lens.lens (arn :: DeviceInstance -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DeviceInstance)
-{-# DEPRECATED diArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The ARN of the device.
---
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diDeviceARN :: Lens.Lens' DeviceInstance (Lude.Maybe Lude.Text)
-diDeviceARN = Lens.lens (deviceARN :: DeviceInstance -> Lude.Maybe Lude.Text) (\s a -> s {deviceARN = a} :: DeviceInstance)
-{-# DEPRECATED diDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
-
--- | An array of strings that describe the device instance.
---
--- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diLabels :: Lens.Lens' DeviceInstance (Lude.Maybe [Lude.Text])
-diLabels = Lens.lens (labels :: DeviceInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: DeviceInstance)
-{-# DEPRECATED diLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
-
-instance Lude.FromJSON DeviceInstance where
+instance Core.FromJSON DeviceInstance where
   parseJSON =
-    Lude.withObject
-      "DeviceInstance"
-      ( \x ->
-          DeviceInstance'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "udid")
-            Lude.<*> (x Lude..:? "instanceProfile")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "deviceArn")
-            Lude.<*> (x Lude..:? "labels" Lude..!= Lude.mempty)
-      )
+    Core.withObject "DeviceInstance" Core.$
+      \x ->
+        DeviceInstance'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "deviceArn")
+          Core.<*> (x Core..:? "instanceProfile")
+          Core.<*> (x Core..:? "labels")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "udid")

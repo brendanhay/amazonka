@@ -17,84 +17,78 @@ module Network.AWS.CostExplorer.Types.RootCause
     mkRootCause,
 
     -- * Lenses
-    rcService,
-    rcUsageType,
     rcLinkedAccount,
     rcRegion,
+    rcService,
+    rcUsageType,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The combination of AWS service, linked account, Region, and usage type where a cost anomaly is observed.
 --
 -- /See:/ 'mkRootCause' smart constructor.
 data RootCause = RootCause'
-  { -- | The AWS service name associated with the cost anomaly.
-    service :: Lude.Maybe Lude.Text,
-    -- | The @UsageType@ value associated with the cost anomaly.
-    usageType :: Lude.Maybe Lude.Text,
-    -- | The linked account value associated with the cost anomaly.
-    linkedAccount :: Lude.Maybe Lude.Text,
+  { -- | The linked account value associated with the cost anomaly.
+    linkedAccount :: Core.Maybe Types.GenericString,
     -- | The AWS Region associated with the cost anomaly.
-    region :: Lude.Maybe Lude.Text
+    region :: Core.Maybe Types.GenericString,
+    -- | The AWS service name associated with the cost anomaly.
+    service :: Core.Maybe Types.GenericString,
+    -- | The @UsageType@ value associated with the cost anomaly.
+    usageType :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RootCause' with the minimum fields required to make a request.
---
--- * 'service' - The AWS service name associated with the cost anomaly.
--- * 'usageType' - The @UsageType@ value associated with the cost anomaly.
--- * 'linkedAccount' - The linked account value associated with the cost anomaly.
--- * 'region' - The AWS Region associated with the cost anomaly.
+-- | Creates a 'RootCause' value with any optional fields omitted.
 mkRootCause ::
   RootCause
 mkRootCause =
   RootCause'
-    { service = Lude.Nothing,
-      usageType = Lude.Nothing,
-      linkedAccount = Lude.Nothing,
-      region = Lude.Nothing
+    { linkedAccount = Core.Nothing,
+      region = Core.Nothing,
+      service = Core.Nothing,
+      usageType = Core.Nothing
     }
-
--- | The AWS service name associated with the cost anomaly.
---
--- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcService :: Lens.Lens' RootCause (Lude.Maybe Lude.Text)
-rcService = Lens.lens (service :: RootCause -> Lude.Maybe Lude.Text) (\s a -> s {service = a} :: RootCause)
-{-# DEPRECATED rcService "Use generic-lens or generic-optics with 'service' instead." #-}
-
--- | The @UsageType@ value associated with the cost anomaly.
---
--- /Note:/ Consider using 'usageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcUsageType :: Lens.Lens' RootCause (Lude.Maybe Lude.Text)
-rcUsageType = Lens.lens (usageType :: RootCause -> Lude.Maybe Lude.Text) (\s a -> s {usageType = a} :: RootCause)
-{-# DEPRECATED rcUsageType "Use generic-lens or generic-optics with 'usageType' instead." #-}
 
 -- | The linked account value associated with the cost anomaly.
 --
 -- /Note:/ Consider using 'linkedAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcLinkedAccount :: Lens.Lens' RootCause (Lude.Maybe Lude.Text)
-rcLinkedAccount = Lens.lens (linkedAccount :: RootCause -> Lude.Maybe Lude.Text) (\s a -> s {linkedAccount = a} :: RootCause)
+rcLinkedAccount :: Lens.Lens' RootCause (Core.Maybe Types.GenericString)
+rcLinkedAccount = Lens.field @"linkedAccount"
 {-# DEPRECATED rcLinkedAccount "Use generic-lens or generic-optics with 'linkedAccount' instead." #-}
 
 -- | The AWS Region associated with the cost anomaly.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRegion :: Lens.Lens' RootCause (Lude.Maybe Lude.Text)
-rcRegion = Lens.lens (region :: RootCause -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: RootCause)
+rcRegion :: Lens.Lens' RootCause (Core.Maybe Types.GenericString)
+rcRegion = Lens.field @"region"
 {-# DEPRECATED rcRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromJSON RootCause where
+-- | The AWS service name associated with the cost anomaly.
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcService :: Lens.Lens' RootCause (Core.Maybe Types.GenericString)
+rcService = Lens.field @"service"
+{-# DEPRECATED rcService "Use generic-lens or generic-optics with 'service' instead." #-}
+
+-- | The @UsageType@ value associated with the cost anomaly.
+--
+-- /Note:/ Consider using 'usageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcUsageType :: Lens.Lens' RootCause (Core.Maybe Types.GenericString)
+rcUsageType = Lens.field @"usageType"
+{-# DEPRECATED rcUsageType "Use generic-lens or generic-optics with 'usageType' instead." #-}
+
+instance Core.FromJSON RootCause where
   parseJSON =
-    Lude.withObject
-      "RootCause"
-      ( \x ->
-          RootCause'
-            Lude.<$> (x Lude..:? "Service")
-            Lude.<*> (x Lude..:? "UsageType")
-            Lude.<*> (x Lude..:? "LinkedAccount")
-            Lude.<*> (x Lude..:? "Region")
-      )
+    Core.withObject "RootCause" Core.$
+      \x ->
+        RootCause'
+          Core.<$> (x Core..:? "LinkedAccount")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "Service")
+          Core.<*> (x Core..:? "UsageType")

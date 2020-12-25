@@ -30,7 +30,7 @@ description:
   such as <http://hackage.haskell.org/package/lens lens> or
   <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  See "Network.AWS.APIGatewayManagementAPI" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  See "Network.AWS.ApiGatewayManagement" or <https://aws.amazon.com/documentation/ the AWS documentation>
   to get started.
 
 source-repository head
@@ -46,34 +46,40 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
-    Network.AWS.APIGatewayManagementAPI
-    Network.AWS.APIGatewayManagementAPI.DeleteConnection
-    Network.AWS.APIGatewayManagementAPI.GetConnection
-    Network.AWS.APIGatewayManagementAPI.PostToConnection
-    Network.AWS.APIGatewayManagementAPI.Types
-    Network.AWS.APIGatewayManagementAPI.Waiters
+    Network.AWS.ApiGatewayManagement
+    Network.AWS.ApiGatewayManagement.DeleteConnection
+    Network.AWS.ApiGatewayManagement.GetConnection
+    Network.AWS.ApiGatewayManagement.PostToConnection
+    Network.AWS.ApiGatewayManagement.Types
+    Network.AWS.ApiGatewayManagement.Waiters
 
-  other-modules:   Network.AWS.APIGatewayManagementAPI.Types.Identity
+  other-modules:   Network.AWS.ApiGatewayManagement.Types.Identity
   build-depends:   amazonka-core ==2.0.0.0.*
 
 test-suite amazonka-apigatewaymanagementapi-test
@@ -87,9 +93,9 @@ test-suite amazonka-apigatewaymanagementapi-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.APIGatewayManagementAPI
-    Test.AWS.APIGatewayManagementAPI.Internal
-    Test.AWS.Gen.APIGatewayManagementAPI
+    Test.AWS.ApiGatewayManagement
+    Test.AWS.ApiGatewayManagement.Internal
+    Test.AWS.Gen.ApiGatewayManagement
 
   build-depends:
     , amazonka-apigatewaymanagementapi

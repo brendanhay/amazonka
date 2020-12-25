@@ -17,64 +17,59 @@ module Network.AWS.IoT.Types.StreamFile
     mkStreamFile,
 
     -- * Lenses
-    sfS3Location,
     sfFileId,
+    sfS3Location,
   )
 where
 
-import Network.AWS.IoT.Types.S3Location
+import qualified Network.AWS.IoT.Types.S3Location as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a file to stream.
 --
 -- /See:/ 'mkStreamFile' smart constructor.
 data StreamFile = StreamFile'
-  { -- | The location of the file in S3.
-    s3Location :: Lude.Maybe S3Location,
-    -- | The file ID.
-    fileId :: Lude.Maybe Lude.Natural
+  { -- | The file ID.
+    fileId :: Core.Maybe Core.Natural,
+    -- | The location of the file in S3.
+    s3Location :: Core.Maybe Types.S3Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StreamFile' with the minimum fields required to make a request.
---
--- * 's3Location' - The location of the file in S3.
--- * 'fileId' - The file ID.
+-- | Creates a 'StreamFile' value with any optional fields omitted.
 mkStreamFile ::
   StreamFile
 mkStreamFile =
-  StreamFile' {s3Location = Lude.Nothing, fileId = Lude.Nothing}
-
--- | The location of the file in S3.
---
--- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfS3Location :: Lens.Lens' StreamFile (Lude.Maybe S3Location)
-sfS3Location = Lens.lens (s3Location :: StreamFile -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: StreamFile)
-{-# DEPRECATED sfS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
+  StreamFile' {fileId = Core.Nothing, s3Location = Core.Nothing}
 
 -- | The file ID.
 --
 -- /Note:/ Consider using 'fileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfFileId :: Lens.Lens' StreamFile (Lude.Maybe Lude.Natural)
-sfFileId = Lens.lens (fileId :: StreamFile -> Lude.Maybe Lude.Natural) (\s a -> s {fileId = a} :: StreamFile)
+sfFileId :: Lens.Lens' StreamFile (Core.Maybe Core.Natural)
+sfFileId = Lens.field @"fileId"
 {-# DEPRECATED sfFileId "Use generic-lens or generic-optics with 'fileId' instead." #-}
 
-instance Lude.FromJSON StreamFile where
-  parseJSON =
-    Lude.withObject
-      "StreamFile"
-      ( \x ->
-          StreamFile'
-            Lude.<$> (x Lude..:? "s3Location") Lude.<*> (x Lude..:? "fileId")
-      )
+-- | The location of the file in S3.
+--
+-- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfS3Location :: Lens.Lens' StreamFile (Core.Maybe Types.S3Location)
+sfS3Location = Lens.field @"s3Location"
+{-# DEPRECATED sfS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
-instance Lude.ToJSON StreamFile where
-  toJSON StreamFile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("s3Location" Lude..=) Lude.<$> s3Location,
-            ("fileId" Lude..=) Lude.<$> fileId
+instance Core.FromJSON StreamFile where
+  toJSON StreamFile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("fileId" Core..=) Core.<$> fileId,
+            ("s3Location" Core..=) Core.<$> s3Location
           ]
       )
+
+instance Core.FromJSON StreamFile where
+  parseJSON =
+    Core.withObject "StreamFile" Core.$
+      \x ->
+        StreamFile'
+          Core.<$> (x Core..:? "fileId") Core.<*> (x Core..:? "s3Location")

@@ -20,7 +20,7 @@ module Network.AWS.OpsWorksCM.TagResource
     mkTagResource,
 
     -- ** Request lenses
-    trResourceARN,
+    trResourceArn,
     trTags,
 
     -- * Destructuring the response
@@ -28,20 +28,20 @@ module Network.AWS.OpsWorksCM.TagResource
     mkTagResourceResponse,
 
     -- ** Response lenses
-    trrsResponseStatus,
+    trrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example, @arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE@ .
-    resourceARN :: Lude.Text,
+    resourceArn :: Types.ResourceArn,
     -- | A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or backups.
     --
     --
@@ -58,43 +58,25 @@ data TagResource = TagResource'
     --
     --
     --     * A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example, @arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE@ .
--- * 'tags' - A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or backups.
---
---
---     * The key cannot be empty.
---
---
---     * The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@
---
---
---     * The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@
---
---
---     * Leading and trailing white spaces are trimmed from both the key and value.
---
---
---     * A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.
+-- | Creates a 'TagResource' value with any optional fields omitted.
 mkTagResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   TagResource
-mkTagResource pResourceARN_ =
-  TagResource' {resourceARN = pResourceARN_, tags = Lude.mempty}
+mkTagResource resourceArn =
+  TagResource' {resourceArn, tags = Core.mempty}
 
 -- | The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example, @arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE@ .
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceARN :: Lens.Lens' TagResource Lude.Text
-trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
-{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceArn :: Lens.Lens' TagResource Types.ResourceArn
+trResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED trResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or backups.
 --
@@ -116,66 +98,57 @@ trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagResource [Tag]
-trTags = Lens.lens (tags :: TagResource -> [Tag]) (\s a -> s {tags = a} :: TagResource)
+trTags :: Lens.Lens' TagResource [Types.Tag]
+trTags = Lens.field @"tags"
 {-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagResource where
+instance Core.FromJSON TagResource where
+  toJSON TagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = Req.postJSON opsWorksCMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorksCM_V2016_11_01.TagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          TagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          TagResourceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorksCM_V2016_11_01.TagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TagResource where
-  toJSON TagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath TagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TagResourceResponse' value with any optional fields omitted.
 mkTagResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TagResourceResponse
-mkTagResourceResponse pResponseStatus_ =
-  TagResourceResponse' {responseStatus = pResponseStatus_}
+mkTagResourceResponse responseStatus =
+  TagResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trrsResponseStatus :: Lens.Lens' TagResourceResponse Lude.Int
-trrsResponseStatus = Lens.lens (responseStatus :: TagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResourceResponse)
-{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+trrrsResponseStatus :: Lens.Lens' TagResourceResponse Core.Int
+trrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED trrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

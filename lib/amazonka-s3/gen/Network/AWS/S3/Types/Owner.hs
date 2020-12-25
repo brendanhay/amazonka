@@ -18,53 +18,53 @@ module Network.AWS.S3.Types.Owner
 
     -- * Lenses
     oDisplayName,
-    oId,
+    oID,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.DisplayName as Types
+import qualified Network.AWS.S3.Types.ID as Types
 
 -- | Container for the owner's display name and ID.
 --
 -- /See:/ 'mkOwner' smart constructor.
 data Owner = Owner'
   { -- | Container for the display name of the owner.
-    displayName :: Lude.Maybe Lude.Text,
+    displayName :: Core.Maybe Types.DisplayName,
     -- | Container for the ID of the owner.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.ID
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Owner' with the minimum fields required to make a request.
---
--- * 'displayName' - Container for the display name of the owner.
--- * 'id' - Container for the ID of the owner.
+-- | Creates a 'Owner' value with any optional fields omitted.
 mkOwner ::
   Owner
-mkOwner = Owner' {displayName = Lude.Nothing, id = Lude.Nothing}
+mkOwner = Owner' {displayName = Core.Nothing, id = Core.Nothing}
 
 -- | Container for the display name of the owner.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oDisplayName :: Lens.Lens' Owner (Lude.Maybe Lude.Text)
-oDisplayName = Lens.lens (displayName :: Owner -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Owner)
+oDisplayName :: Lens.Lens' Owner (Core.Maybe Types.DisplayName)
+oDisplayName = Lens.field @"displayName"
 {-# DEPRECATED oDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | Container for the ID of the owner.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oId :: Lens.Lens' Owner (Lude.Maybe Lude.Text)
-oId = Lens.lens (id :: Owner -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Owner)
-{-# DEPRECATED oId "Use generic-lens or generic-optics with 'id' instead." #-}
+oID :: Lens.Lens' Owner (Core.Maybe Types.ID)
+oID = Lens.field @"id"
+{-# DEPRECATED oID "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromXML Owner where
+instance Core.ToXML Owner where
+  toXML Owner {..} =
+    Core.toXMLNode "DisplayName" Core.<$> displayName
+      Core.<> Core.toXMLNode "ID" Core.<$> id
+
+instance Core.FromXML Owner where
   parseXML x =
     Owner'
-      Lude.<$> (x Lude..@? "DisplayName") Lude.<*> (x Lude..@? "ID")
-
-instance Lude.ToXML Owner where
-  toXML Owner' {..} =
-    Lude.mconcat ["DisplayName" Lude.@= displayName, "ID" Lude.@= id]
+      Core.<$> (x Core..@? "DisplayName") Core.<*> (x Core..@? "ID")

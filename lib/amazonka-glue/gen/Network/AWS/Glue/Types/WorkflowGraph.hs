@@ -22,52 +22,46 @@ module Network.AWS.Glue.Types.WorkflowGraph
   )
 where
 
-import Network.AWS.Glue.Types.Edge
-import Network.AWS.Glue.Types.Node
+import qualified Network.AWS.Glue.Types.Edge as Types
+import qualified Network.AWS.Glue.Types.Node as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A workflow graph represents the complete workflow containing all the AWS Glue components present in the workflow and all the directed connections between them.
 --
 -- /See:/ 'mkWorkflowGraph' smart constructor.
 data WorkflowGraph = WorkflowGraph'
   { -- | A list of all the directed connections between the nodes belonging to the workflow.
-    edges :: Lude.Maybe [Edge],
+    edges :: Core.Maybe [Types.Edge],
     -- | A list of the the AWS Glue components belong to the workflow represented as nodes.
-    nodes :: Lude.Maybe [Node]
+    nodes :: Core.Maybe [Types.Node]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'WorkflowGraph' with the minimum fields required to make a request.
---
--- * 'edges' - A list of all the directed connections between the nodes belonging to the workflow.
--- * 'nodes' - A list of the the AWS Glue components belong to the workflow represented as nodes.
+-- | Creates a 'WorkflowGraph' value with any optional fields omitted.
 mkWorkflowGraph ::
   WorkflowGraph
 mkWorkflowGraph =
-  WorkflowGraph' {edges = Lude.Nothing, nodes = Lude.Nothing}
+  WorkflowGraph' {edges = Core.Nothing, nodes = Core.Nothing}
 
 -- | A list of all the directed connections between the nodes belonging to the workflow.
 --
 -- /Note:/ Consider using 'edges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wgEdges :: Lens.Lens' WorkflowGraph (Lude.Maybe [Edge])
-wgEdges = Lens.lens (edges :: WorkflowGraph -> Lude.Maybe [Edge]) (\s a -> s {edges = a} :: WorkflowGraph)
+wgEdges :: Lens.Lens' WorkflowGraph (Core.Maybe [Types.Edge])
+wgEdges = Lens.field @"edges"
 {-# DEPRECATED wgEdges "Use generic-lens or generic-optics with 'edges' instead." #-}
 
 -- | A list of the the AWS Glue components belong to the workflow represented as nodes.
 --
 -- /Note:/ Consider using 'nodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wgNodes :: Lens.Lens' WorkflowGraph (Lude.Maybe [Node])
-wgNodes = Lens.lens (nodes :: WorkflowGraph -> Lude.Maybe [Node]) (\s a -> s {nodes = a} :: WorkflowGraph)
+wgNodes :: Lens.Lens' WorkflowGraph (Core.Maybe [Types.Node])
+wgNodes = Lens.field @"nodes"
 {-# DEPRECATED wgNodes "Use generic-lens or generic-optics with 'nodes' instead." #-}
 
-instance Lude.FromJSON WorkflowGraph where
+instance Core.FromJSON WorkflowGraph where
   parseJSON =
-    Lude.withObject
-      "WorkflowGraph"
-      ( \x ->
-          WorkflowGraph'
-            Lude.<$> (x Lude..:? "Edges" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Nodes" Lude..!= Lude.mempty)
-      )
+    Core.withObject "WorkflowGraph" Core.$
+      \x ->
+        WorkflowGraph'
+          Core.<$> (x Core..:? "Edges") Core.<*> (x Core..:? "Nodes")

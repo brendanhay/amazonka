@@ -23,68 +23,62 @@ module Network.AWS.CostExplorer.Types.CoverageByTime
   )
 where
 
-import Network.AWS.CostExplorer.Types.Coverage
-import Network.AWS.CostExplorer.Types.DateInterval
-import Network.AWS.CostExplorer.Types.ReservationCoverageGroup
+import qualified Network.AWS.CostExplorer.Types.Coverage as Types
+import qualified Network.AWS.CostExplorer.Types.DateInterval as Types
+import qualified Network.AWS.CostExplorer.Types.ReservationCoverageGroup as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Reservation coverage for a specified period, in hours.
 --
 -- /See:/ 'mkCoverageByTime' smart constructor.
 data CoverageByTime = CoverageByTime'
   { -- | The groups of instances that the reservation covered.
-    groups :: Lude.Maybe [ReservationCoverageGroup],
+    groups :: Core.Maybe [Types.ReservationCoverageGroup],
     -- | The period that this coverage was used over.
-    timePeriod :: Lude.Maybe DateInterval,
+    timePeriod :: Core.Maybe Types.DateInterval,
     -- | The total reservation coverage, in hours.
-    total :: Lude.Maybe Coverage
+    total :: Core.Maybe Types.Coverage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CoverageByTime' with the minimum fields required to make a request.
---
--- * 'groups' - The groups of instances that the reservation covered.
--- * 'timePeriod' - The period that this coverage was used over.
--- * 'total' - The total reservation coverage, in hours.
+-- | Creates a 'CoverageByTime' value with any optional fields omitted.
 mkCoverageByTime ::
   CoverageByTime
 mkCoverageByTime =
   CoverageByTime'
-    { groups = Lude.Nothing,
-      timePeriod = Lude.Nothing,
-      total = Lude.Nothing
+    { groups = Core.Nothing,
+      timePeriod = Core.Nothing,
+      total = Core.Nothing
     }
 
 -- | The groups of instances that the reservation covered.
 --
 -- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbtGroups :: Lens.Lens' CoverageByTime (Lude.Maybe [ReservationCoverageGroup])
-cbtGroups = Lens.lens (groups :: CoverageByTime -> Lude.Maybe [ReservationCoverageGroup]) (\s a -> s {groups = a} :: CoverageByTime)
+cbtGroups :: Lens.Lens' CoverageByTime (Core.Maybe [Types.ReservationCoverageGroup])
+cbtGroups = Lens.field @"groups"
 {-# DEPRECATED cbtGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The period that this coverage was used over.
 --
 -- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbtTimePeriod :: Lens.Lens' CoverageByTime (Lude.Maybe DateInterval)
-cbtTimePeriod = Lens.lens (timePeriod :: CoverageByTime -> Lude.Maybe DateInterval) (\s a -> s {timePeriod = a} :: CoverageByTime)
+cbtTimePeriod :: Lens.Lens' CoverageByTime (Core.Maybe Types.DateInterval)
+cbtTimePeriod = Lens.field @"timePeriod"
 {-# DEPRECATED cbtTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | The total reservation coverage, in hours.
 --
 -- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbtTotal :: Lens.Lens' CoverageByTime (Lude.Maybe Coverage)
-cbtTotal = Lens.lens (total :: CoverageByTime -> Lude.Maybe Coverage) (\s a -> s {total = a} :: CoverageByTime)
+cbtTotal :: Lens.Lens' CoverageByTime (Core.Maybe Types.Coverage)
+cbtTotal = Lens.field @"total"
 {-# DEPRECATED cbtTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
-instance Lude.FromJSON CoverageByTime where
+instance Core.FromJSON CoverageByTime where
   parseJSON =
-    Lude.withObject
-      "CoverageByTime"
-      ( \x ->
-          CoverageByTime'
-            Lude.<$> (x Lude..:? "Groups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "TimePeriod")
-            Lude.<*> (x Lude..:? "Total")
-      )
+    Core.withObject "CoverageByTime" Core.$
+      \x ->
+        CoverageByTime'
+          Core.<$> (x Core..:? "Groups")
+          Core.<*> (x Core..:? "TimePeriod")
+          Core.<*> (x Core..:? "Total")

@@ -13,67 +13,72 @@
 module Network.AWS.MediaLive.Types.BurnInOutlineColor
   ( BurnInOutlineColor
       ( BurnInOutlineColor',
-        BIOCBlack,
-        BIOCBlue,
-        BIOCGreen,
-        BIOCRed,
-        BIOCWhite,
-        BIOCYellow
+        BurnInOutlineColorBlack,
+        BurnInOutlineColorBlue,
+        BurnInOutlineColorGreen,
+        BurnInOutlineColorRed,
+        BurnInOutlineColorWhite,
+        BurnInOutlineColorYellow,
+        fromBurnInOutlineColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Burn In Outline Color
-newtype BurnInOutlineColor = BurnInOutlineColor' Lude.Text
+newtype BurnInOutlineColor = BurnInOutlineColor'
+  { fromBurnInOutlineColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BIOCBlack :: BurnInOutlineColor
-pattern BIOCBlack = BurnInOutlineColor' "BLACK"
+pattern BurnInOutlineColorBlack :: BurnInOutlineColor
+pattern BurnInOutlineColorBlack = BurnInOutlineColor' "BLACK"
 
-pattern BIOCBlue :: BurnInOutlineColor
-pattern BIOCBlue = BurnInOutlineColor' "BLUE"
+pattern BurnInOutlineColorBlue :: BurnInOutlineColor
+pattern BurnInOutlineColorBlue = BurnInOutlineColor' "BLUE"
 
-pattern BIOCGreen :: BurnInOutlineColor
-pattern BIOCGreen = BurnInOutlineColor' "GREEN"
+pattern BurnInOutlineColorGreen :: BurnInOutlineColor
+pattern BurnInOutlineColorGreen = BurnInOutlineColor' "GREEN"
 
-pattern BIOCRed :: BurnInOutlineColor
-pattern BIOCRed = BurnInOutlineColor' "RED"
+pattern BurnInOutlineColorRed :: BurnInOutlineColor
+pattern BurnInOutlineColorRed = BurnInOutlineColor' "RED"
 
-pattern BIOCWhite :: BurnInOutlineColor
-pattern BIOCWhite = BurnInOutlineColor' "WHITE"
+pattern BurnInOutlineColorWhite :: BurnInOutlineColor
+pattern BurnInOutlineColorWhite = BurnInOutlineColor' "WHITE"
 
-pattern BIOCYellow :: BurnInOutlineColor
-pattern BIOCYellow = BurnInOutlineColor' "YELLOW"
+pattern BurnInOutlineColorYellow :: BurnInOutlineColor
+pattern BurnInOutlineColorYellow = BurnInOutlineColor' "YELLOW"
 
 {-# COMPLETE
-  BIOCBlack,
-  BIOCBlue,
-  BIOCGreen,
-  BIOCRed,
-  BIOCWhite,
-  BIOCYellow,
+  BurnInOutlineColorBlack,
+  BurnInOutlineColorBlue,
+  BurnInOutlineColorGreen,
+  BurnInOutlineColorRed,
+  BurnInOutlineColorWhite,
+  BurnInOutlineColorYellow,
   BurnInOutlineColor'
   #-}

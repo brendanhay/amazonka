@@ -17,18 +17,20 @@ module Network.AWS.OpsWorks.Types.WeeklyAutoScalingSchedule
     mkWeeklyAutoScalingSchedule,
 
     -- * Lenses
-    wassThursday,
-    wassWednesday,
-    wassSaturday,
-    wassMonday,
     wassFriday,
+    wassMonday,
+    wassSaturday,
     wassSunday,
+    wassThursday,
     wassTuesday,
+    wassWednesday,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.Hour as Types
+import qualified Network.AWS.OpsWorks.Types.Switch as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a time-based instance's auto scaling schedule. The schedule consists of a set of key-value pairs.
 --
@@ -45,120 +47,110 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWeeklyAutoScalingSchedule' smart constructor.
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
-  { -- | The schedule for Thursday.
-    thursday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The schedule for Wednesday.
-    wednesday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The schedule for Saturday.
-    saturday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The schedule for Friday.
+    friday :: Core.Maybe (Core.HashMap Types.Hour Types.Switch),
     -- | The schedule for Monday.
-    monday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The schedule for Friday.
-    friday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    monday :: Core.Maybe (Core.HashMap Types.Hour Types.Switch),
+    -- | The schedule for Saturday.
+    saturday :: Core.Maybe (Core.HashMap Types.Hour Types.Switch),
     -- | The schedule for Sunday.
-    sunday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    sunday :: Core.Maybe (Core.HashMap Types.Hour Types.Switch),
+    -- | The schedule for Thursday.
+    thursday :: Core.Maybe (Core.HashMap Types.Hour Types.Switch),
     -- | The schedule for Tuesday.
-    tuesday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tuesday :: Core.Maybe (Core.HashMap Types.Hour Types.Switch),
+    -- | The schedule for Wednesday.
+    wednesday :: Core.Maybe (Core.HashMap Types.Hour Types.Switch)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WeeklyAutoScalingSchedule' with the minimum fields required to make a request.
---
--- * 'thursday' - The schedule for Thursday.
--- * 'wednesday' - The schedule for Wednesday.
--- * 'saturday' - The schedule for Saturday.
--- * 'monday' - The schedule for Monday.
--- * 'friday' - The schedule for Friday.
--- * 'sunday' - The schedule for Sunday.
--- * 'tuesday' - The schedule for Tuesday.
+-- | Creates a 'WeeklyAutoScalingSchedule' value with any optional fields omitted.
 mkWeeklyAutoScalingSchedule ::
   WeeklyAutoScalingSchedule
 mkWeeklyAutoScalingSchedule =
   WeeklyAutoScalingSchedule'
-    { thursday = Lude.Nothing,
-      wednesday = Lude.Nothing,
-      saturday = Lude.Nothing,
-      monday = Lude.Nothing,
-      friday = Lude.Nothing,
-      sunday = Lude.Nothing,
-      tuesday = Lude.Nothing
+    { friday = Core.Nothing,
+      monday = Core.Nothing,
+      saturday = Core.Nothing,
+      sunday = Core.Nothing,
+      thursday = Core.Nothing,
+      tuesday = Core.Nothing,
+      wednesday = Core.Nothing
     }
-
--- | The schedule for Thursday.
---
--- /Note:/ Consider using 'thursday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wassThursday :: Lens.Lens' WeeklyAutoScalingSchedule (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wassThursday = Lens.lens (thursday :: WeeklyAutoScalingSchedule -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {thursday = a} :: WeeklyAutoScalingSchedule)
-{-# DEPRECATED wassThursday "Use generic-lens or generic-optics with 'thursday' instead." #-}
-
--- | The schedule for Wednesday.
---
--- /Note:/ Consider using 'wednesday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wassWednesday :: Lens.Lens' WeeklyAutoScalingSchedule (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wassWednesday = Lens.lens (wednesday :: WeeklyAutoScalingSchedule -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {wednesday = a} :: WeeklyAutoScalingSchedule)
-{-# DEPRECATED wassWednesday "Use generic-lens or generic-optics with 'wednesday' instead." #-}
-
--- | The schedule for Saturday.
---
--- /Note:/ Consider using 'saturday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wassSaturday :: Lens.Lens' WeeklyAutoScalingSchedule (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wassSaturday = Lens.lens (saturday :: WeeklyAutoScalingSchedule -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {saturday = a} :: WeeklyAutoScalingSchedule)
-{-# DEPRECATED wassSaturday "Use generic-lens or generic-optics with 'saturday' instead." #-}
-
--- | The schedule for Monday.
---
--- /Note:/ Consider using 'monday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wassMonday :: Lens.Lens' WeeklyAutoScalingSchedule (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wassMonday = Lens.lens (monday :: WeeklyAutoScalingSchedule -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {monday = a} :: WeeklyAutoScalingSchedule)
-{-# DEPRECATED wassMonday "Use generic-lens or generic-optics with 'monday' instead." #-}
 
 -- | The schedule for Friday.
 --
 -- /Note:/ Consider using 'friday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wassFriday :: Lens.Lens' WeeklyAutoScalingSchedule (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wassFriday = Lens.lens (friday :: WeeklyAutoScalingSchedule -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {friday = a} :: WeeklyAutoScalingSchedule)
+wassFriday :: Lens.Lens' WeeklyAutoScalingSchedule (Core.Maybe (Core.HashMap Types.Hour Types.Switch))
+wassFriday = Lens.field @"friday"
 {-# DEPRECATED wassFriday "Use generic-lens or generic-optics with 'friday' instead." #-}
+
+-- | The schedule for Monday.
+--
+-- /Note:/ Consider using 'monday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wassMonday :: Lens.Lens' WeeklyAutoScalingSchedule (Core.Maybe (Core.HashMap Types.Hour Types.Switch))
+wassMonday = Lens.field @"monday"
+{-# DEPRECATED wassMonday "Use generic-lens or generic-optics with 'monday' instead." #-}
+
+-- | The schedule for Saturday.
+--
+-- /Note:/ Consider using 'saturday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wassSaturday :: Lens.Lens' WeeklyAutoScalingSchedule (Core.Maybe (Core.HashMap Types.Hour Types.Switch))
+wassSaturday = Lens.field @"saturday"
+{-# DEPRECATED wassSaturday "Use generic-lens or generic-optics with 'saturday' instead." #-}
 
 -- | The schedule for Sunday.
 --
 -- /Note:/ Consider using 'sunday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wassSunday :: Lens.Lens' WeeklyAutoScalingSchedule (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wassSunday = Lens.lens (sunday :: WeeklyAutoScalingSchedule -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {sunday = a} :: WeeklyAutoScalingSchedule)
+wassSunday :: Lens.Lens' WeeklyAutoScalingSchedule (Core.Maybe (Core.HashMap Types.Hour Types.Switch))
+wassSunday = Lens.field @"sunday"
 {-# DEPRECATED wassSunday "Use generic-lens or generic-optics with 'sunday' instead." #-}
+
+-- | The schedule for Thursday.
+--
+-- /Note:/ Consider using 'thursday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wassThursday :: Lens.Lens' WeeklyAutoScalingSchedule (Core.Maybe (Core.HashMap Types.Hour Types.Switch))
+wassThursday = Lens.field @"thursday"
+{-# DEPRECATED wassThursday "Use generic-lens or generic-optics with 'thursday' instead." #-}
 
 -- | The schedule for Tuesday.
 --
 -- /Note:/ Consider using 'tuesday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wassTuesday :: Lens.Lens' WeeklyAutoScalingSchedule (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wassTuesday = Lens.lens (tuesday :: WeeklyAutoScalingSchedule -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tuesday = a} :: WeeklyAutoScalingSchedule)
+wassTuesday :: Lens.Lens' WeeklyAutoScalingSchedule (Core.Maybe (Core.HashMap Types.Hour Types.Switch))
+wassTuesday = Lens.field @"tuesday"
 {-# DEPRECATED wassTuesday "Use generic-lens or generic-optics with 'tuesday' instead." #-}
 
-instance Lude.FromJSON WeeklyAutoScalingSchedule where
-  parseJSON =
-    Lude.withObject
-      "WeeklyAutoScalingSchedule"
-      ( \x ->
-          WeeklyAutoScalingSchedule'
-            Lude.<$> (x Lude..:? "Thursday" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Wednesday" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Saturday" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Monday" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Friday" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Sunday" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Tuesday" Lude..!= Lude.mempty)
-      )
+-- | The schedule for Wednesday.
+--
+-- /Note:/ Consider using 'wednesday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wassWednesday :: Lens.Lens' WeeklyAutoScalingSchedule (Core.Maybe (Core.HashMap Types.Hour Types.Switch))
+wassWednesday = Lens.field @"wednesday"
+{-# DEPRECATED wassWednesday "Use generic-lens or generic-optics with 'wednesday' instead." #-}
 
-instance Lude.ToJSON WeeklyAutoScalingSchedule where
-  toJSON WeeklyAutoScalingSchedule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Thursday" Lude..=) Lude.<$> thursday,
-            ("Wednesday" Lude..=) Lude.<$> wednesday,
-            ("Saturday" Lude..=) Lude.<$> saturday,
-            ("Monday" Lude..=) Lude.<$> monday,
-            ("Friday" Lude..=) Lude.<$> friday,
-            ("Sunday" Lude..=) Lude.<$> sunday,
-            ("Tuesday" Lude..=) Lude.<$> tuesday
+instance Core.FromJSON WeeklyAutoScalingSchedule where
+  toJSON WeeklyAutoScalingSchedule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Friday" Core..=) Core.<$> friday,
+            ("Monday" Core..=) Core.<$> monday,
+            ("Saturday" Core..=) Core.<$> saturday,
+            ("Sunday" Core..=) Core.<$> sunday,
+            ("Thursday" Core..=) Core.<$> thursday,
+            ("Tuesday" Core..=) Core.<$> tuesday,
+            ("Wednesday" Core..=) Core.<$> wednesday
           ]
       )
+
+instance Core.FromJSON WeeklyAutoScalingSchedule where
+  parseJSON =
+    Core.withObject "WeeklyAutoScalingSchedule" Core.$
+      \x ->
+        WeeklyAutoScalingSchedule'
+          Core.<$> (x Core..:? "Friday")
+          Core.<*> (x Core..:? "Monday")
+          Core.<*> (x Core..:? "Saturday")
+          Core.<*> (x Core..:? "Sunday")
+          Core.<*> (x Core..:? "Thursday")
+          Core.<*> (x Core..:? "Tuesday")
+          Core.<*> (x Core..:? "Wednesday")

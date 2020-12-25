@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.MediaPackageOutputSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Media Package Output Settings
 --
 -- /See:/ 'mkMediaPackageOutputSettings' smart constructor.
 data MediaPackageOutputSettings = MediaPackageOutputSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MediaPackageOutputSettings' with the minimum fields required to make a request.
+-- | Creates a 'MediaPackageOutputSettings' value with any optional fields omitted.
 mkMediaPackageOutputSettings ::
   MediaPackageOutputSettings
 mkMediaPackageOutputSettings = MediaPackageOutputSettings'
 
-instance Lude.FromJSON MediaPackageOutputSettings where
-  parseJSON =
-    Lude.withObject
-      "MediaPackageOutputSettings"
-      (\x -> Lude.pure MediaPackageOutputSettings')
+instance Core.FromJSON MediaPackageOutputSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON MediaPackageOutputSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON MediaPackageOutputSettings where
+  parseJSON =
+    Core.withObject "MediaPackageOutputSettings" Core.$
+      \x -> Core.pure MediaPackageOutputSettings'

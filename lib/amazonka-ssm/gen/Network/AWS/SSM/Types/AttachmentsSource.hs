@@ -17,21 +17,27 @@ module Network.AWS.SSM.Types.AttachmentsSource
     mkAttachmentsSource,
 
     -- * Lenses
-    aValues,
-    aKey,
-    aName,
+    asfKey,
+    asfName,
+    asfValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.AttachmentsSourceKey
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AttachmentIdentifier as Types
+import qualified Network.AWS.SSM.Types.AttachmentsSourceKey as Types
+import qualified Network.AWS.SSM.Types.AttachmentsSourceValue as Types
 
 -- | Identifying information about a document attachment, including the file name and a key-value pair that identifies the location of an attachment to a document.
 --
 -- /See:/ 'mkAttachmentsSource' smart constructor.
 data AttachmentsSource = AttachmentsSource'
-  { -- | The value of a key-value pair that identifies the location of an attachment to a document. The format for __Value__ depends on the type of key you specify.
+  { -- | The key of a key-value pair that identifies the location of an attachment to a document.
+    key :: Core.Maybe Types.AttachmentsSourceKey,
+    -- | The name of the document attachment file.
+    name :: Core.Maybe Types.AttachmentIdentifier,
+    -- | The value of a key-value pair that identifies the location of an attachment to a document. The format for __Value__ depends on the type of key you specify.
     --
     --
     --     * For the key /SourceUrl/ , the value is an S3 bucket location. For example:
@@ -46,44 +52,34 @@ data AttachmentsSource = AttachmentsSource'
     -- @"Values": [ "MyOtherDocument/3/my-other-file.py" ]@
     -- However, if the SSM document is shared with you from another account, the full SSM document ARN must be specified instead of the document name only. For example:
     -- @"Values": [ "arn:aws:ssm:us-east-2:111122223333:document/OtherAccountDocument/3/their-file.py" ]@
-    values :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The key of a key-value pair that identifies the location of an attachment to a document.
-    key :: Lude.Maybe AttachmentsSourceKey,
-    -- | The name of the document attachment file.
-    name :: Lude.Maybe Lude.Text
+    values :: Core.Maybe (Core.NonEmpty Types.AttachmentsSourceValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachmentsSource' with the minimum fields required to make a request.
---
--- * 'values' - The value of a key-value pair that identifies the location of an attachment to a document. The format for __Value__ depends on the type of key you specify.
---
---
---     * For the key /SourceUrl/ , the value is an S3 bucket location. For example:
--- @"Values": [ "s3://doc-example-bucket/my-folder" ]@
---
---
---     * For the key /S3FileUrl/ , the value is a file in an S3 bucket. For example:
--- @"Values": [ "s3://doc-example-bucket/my-folder/my-file.py" ]@
---
---
---     * For the key /AttachmentReference/ , the value is constructed from the name of another SSM document in your account, a version number of that document, and a file attached to that document version that you want to reuse. For example:
--- @"Values": [ "MyOtherDocument/3/my-other-file.py" ]@
--- However, if the SSM document is shared with you from another account, the full SSM document ARN must be specified instead of the document name only. For example:
--- @"Values": [ "arn:aws:ssm:us-east-2:111122223333:document/OtherAccountDocument/3/their-file.py" ]@
---
---
--- * 'key' - The key of a key-value pair that identifies the location of an attachment to a document.
--- * 'name' - The name of the document attachment file.
+-- | Creates a 'AttachmentsSource' value with any optional fields omitted.
 mkAttachmentsSource ::
   AttachmentsSource
 mkAttachmentsSource =
   AttachmentsSource'
-    { values = Lude.Nothing,
-      key = Lude.Nothing,
-      name = Lude.Nothing
+    { key = Core.Nothing,
+      name = Core.Nothing,
+      values = Core.Nothing
     }
+
+-- | The key of a key-value pair that identifies the location of an attachment to a document.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asfKey :: Lens.Lens' AttachmentsSource (Core.Maybe Types.AttachmentsSourceKey)
+asfKey = Lens.field @"key"
+{-# DEPRECATED asfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The name of the document attachment file.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asfName :: Lens.Lens' AttachmentsSource (Core.Maybe Types.AttachmentIdentifier)
+asfName = Lens.field @"name"
+{-# DEPRECATED asfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value of a key-value pair that identifies the location of an attachment to a document. The format for __Value__ depends on the type of key you specify.
 --
@@ -104,30 +100,16 @@ mkAttachmentsSource =
 --
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aValues :: Lens.Lens' AttachmentsSource (Lude.Maybe (Lude.NonEmpty Lude.Text))
-aValues = Lens.lens (values :: AttachmentsSource -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {values = a} :: AttachmentsSource)
-{-# DEPRECATED aValues "Use generic-lens or generic-optics with 'values' instead." #-}
+asfValues :: Lens.Lens' AttachmentsSource (Core.Maybe (Core.NonEmpty Types.AttachmentsSourceValue))
+asfValues = Lens.field @"values"
+{-# DEPRECATED asfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
--- | The key of a key-value pair that identifies the location of an attachment to a document.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aKey :: Lens.Lens' AttachmentsSource (Lude.Maybe AttachmentsSourceKey)
-aKey = Lens.lens (key :: AttachmentsSource -> Lude.Maybe AttachmentsSourceKey) (\s a -> s {key = a} :: AttachmentsSource)
-{-# DEPRECATED aKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
--- | The name of the document attachment file.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aName :: Lens.Lens' AttachmentsSource (Lude.Maybe Lude.Text)
-aName = Lens.lens (name :: AttachmentsSource -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AttachmentsSource)
-{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
-
-instance Lude.ToJSON AttachmentsSource where
-  toJSON AttachmentsSource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Values" Lude..=) Lude.<$> values,
-            ("Key" Lude..=) Lude.<$> key,
-            ("Name" Lude..=) Lude.<$> name
+instance Core.FromJSON AttachmentsSource where
+  toJSON AttachmentsSource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Name" Core..=) Core.<$> name,
+            ("Values" Core..=) Core.<$> values
           ]
       )

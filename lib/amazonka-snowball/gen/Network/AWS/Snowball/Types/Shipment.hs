@@ -23,38 +23,34 @@ module Network.AWS.Snowball.Types.Shipment
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.String as Types
 
 -- | The @Status@ and @TrackingNumber@ information for an inbound or outbound shipment.
 --
 -- /See:/ 'mkShipment' smart constructor.
 data Shipment = Shipment'
   { -- | Status information for a shipment.
-    status :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.String,
     -- | The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snow device as the carrier transports it.
     --
     -- For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
-    trackingNumber :: Lude.Maybe Lude.Text
+    trackingNumber :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Shipment' with the minimum fields required to make a request.
---
--- * 'status' - Status information for a shipment.
--- * 'trackingNumber' - The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snow device as the carrier transports it.
---
--- For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
+-- | Creates a 'Shipment' value with any optional fields omitted.
 mkShipment ::
   Shipment
 mkShipment =
-  Shipment' {status = Lude.Nothing, trackingNumber = Lude.Nothing}
+  Shipment' {status = Core.Nothing, trackingNumber = Core.Nothing}
 
 -- | Status information for a shipment.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStatus :: Lens.Lens' Shipment (Lude.Maybe Lude.Text)
-sStatus = Lens.lens (status :: Shipment -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Shipment)
+sStatus :: Lens.Lens' Shipment (Core.Maybe Types.String)
+sStatus = Lens.field @"status"
 {-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snow device as the carrier transports it.
@@ -62,15 +58,13 @@ sStatus = Lens.lens (status :: Shipment -> Lude.Maybe Lude.Text) (\s a -> s {sta
 -- For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
 --
 -- /Note:/ Consider using 'trackingNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTrackingNumber :: Lens.Lens' Shipment (Lude.Maybe Lude.Text)
-sTrackingNumber = Lens.lens (trackingNumber :: Shipment -> Lude.Maybe Lude.Text) (\s a -> s {trackingNumber = a} :: Shipment)
+sTrackingNumber :: Lens.Lens' Shipment (Core.Maybe Types.String)
+sTrackingNumber = Lens.field @"trackingNumber"
 {-# DEPRECATED sTrackingNumber "Use generic-lens or generic-optics with 'trackingNumber' instead." #-}
 
-instance Lude.FromJSON Shipment where
+instance Core.FromJSON Shipment where
   parseJSON =
-    Lude.withObject
-      "Shipment"
-      ( \x ->
-          Shipment'
-            Lude.<$> (x Lude..:? "Status") Lude.<*> (x Lude..:? "TrackingNumber")
-      )
+    Core.withObject "Shipment" Core.$
+      \x ->
+        Shipment'
+          Core.<$> (x Core..:? "Status") Core.<*> (x Core..:? "TrackingNumber")

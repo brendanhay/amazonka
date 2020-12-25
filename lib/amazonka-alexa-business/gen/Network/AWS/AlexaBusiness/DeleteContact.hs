@@ -20,100 +20,88 @@ module Network.AWS.AlexaBusiness.DeleteContact
     mkDeleteContact,
 
     -- ** Request lenses
-    dcContactARN,
+    dcContactArn,
 
     -- * Destructuring the response
     DeleteContactResponse (..),
     mkDeleteContactResponse,
 
     -- ** Response lenses
-    dcrsResponseStatus,
+    dcrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteContact' smart constructor.
 newtype DeleteContact = DeleteContact'
   { -- | The ARN of the contact to delete.
-    contactARN :: Lude.Text
+    contactArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteContact' with the minimum fields required to make a request.
---
--- * 'contactARN' - The ARN of the contact to delete.
+-- | Creates a 'DeleteContact' value with any optional fields omitted.
 mkDeleteContact ::
-  -- | 'contactARN'
-  Lude.Text ->
+  -- | 'contactArn'
+  Types.Arn ->
   DeleteContact
-mkDeleteContact pContactARN_ =
-  DeleteContact' {contactARN = pContactARN_}
+mkDeleteContact contactArn = DeleteContact' {contactArn}
 
 -- | The ARN of the contact to delete.
 --
--- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcContactARN :: Lens.Lens' DeleteContact Lude.Text
-dcContactARN = Lens.lens (contactARN :: DeleteContact -> Lude.Text) (\s a -> s {contactARN = a} :: DeleteContact)
-{-# DEPRECATED dcContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
+-- /Note:/ Consider using 'contactArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcContactArn :: Lens.Lens' DeleteContact Types.Arn
+dcContactArn = Lens.field @"contactArn"
+{-# DEPRECATED dcContactArn "Use generic-lens or generic-optics with 'contactArn' instead." #-}
 
-instance Lude.AWSRequest DeleteContact where
+instance Core.FromJSON DeleteContact where
+  toJSON DeleteContact {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ContactArn" Core..= contactArn)])
+
+instance Core.AWSRequest DeleteContact where
   type Rs DeleteContact = DeleteContactResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.DeleteContact")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteContactResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteContactResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteContact where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.DeleteContact" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteContact where
-  toJSON DeleteContact' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ContactArn" Lude..= contactARN)])
-
-instance Lude.ToPath DeleteContact where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteContact where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteContactResponse' smart constructor.
 newtype DeleteContactResponse = DeleteContactResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteContactResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteContactResponse' value with any optional fields omitted.
 mkDeleteContactResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteContactResponse
-mkDeleteContactResponse pResponseStatus_ =
-  DeleteContactResponse' {responseStatus = pResponseStatus_}
+mkDeleteContactResponse responseStatus =
+  DeleteContactResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DeleteContactResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DeleteContactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteContactResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DeleteContactResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

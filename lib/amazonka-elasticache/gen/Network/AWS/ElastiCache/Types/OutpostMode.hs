@@ -13,46 +13,48 @@
 module Network.AWS.ElastiCache.Types.OutpostMode
   ( OutpostMode
       ( OutpostMode',
-        SingleOutpost,
-        CrossOutpost
+        OutpostModeSingleOutpost,
+        OutpostModeCrossOutpost,
+        fromOutpostMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OutpostMode = OutpostMode' Lude.Text
+newtype OutpostMode = OutpostMode' {fromOutpostMode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SingleOutpost :: OutpostMode
-pattern SingleOutpost = OutpostMode' "single-outpost"
+pattern OutpostModeSingleOutpost :: OutpostMode
+pattern OutpostModeSingleOutpost = OutpostMode' "single-outpost"
 
-pattern CrossOutpost :: OutpostMode
-pattern CrossOutpost = OutpostMode' "cross-outpost"
+pattern OutpostModeCrossOutpost :: OutpostMode
+pattern OutpostModeCrossOutpost = OutpostMode' "cross-outpost"
 
 {-# COMPLETE
-  SingleOutpost,
-  CrossOutpost,
+  OutpostModeSingleOutpost,
+  OutpostModeCrossOutpost,
   OutpostMode'
   #-}

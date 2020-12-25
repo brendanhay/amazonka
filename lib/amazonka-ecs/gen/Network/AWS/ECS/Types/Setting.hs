@@ -17,72 +17,67 @@ module Network.AWS.ECS.Types.Setting
     mkSetting,
 
     -- * Lenses
-    sfValue,
     sfName,
-    sfPrincipalARN,
+    sfPrincipalArn,
+    sfValue,
   )
 where
 
-import Network.AWS.ECS.Types.SettingName
+import qualified Network.AWS.ECS.Types.SettingName as Types
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The current account setting for a resource.
 --
 -- /See:/ 'mkSetting' smart constructor.
 data Setting = Setting'
-  { -- | Whether the account setting is enabled or disabled for the specified resource.
-    value :: Lude.Maybe Lude.Text,
-    -- | The Amazon ECS resource name.
-    name :: Lude.Maybe SettingName,
+  { -- | The Amazon ECS resource name.
+    name :: Core.Maybe Types.SettingName,
     -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
-    principalARN :: Lude.Maybe Lude.Text
+    principalArn :: Core.Maybe Types.String,
+    -- | Whether the account setting is enabled or disabled for the specified resource.
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Setting' with the minimum fields required to make a request.
---
--- * 'value' - Whether the account setting is enabled or disabled for the specified resource.
--- * 'name' - The Amazon ECS resource name.
--- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
+-- | Creates a 'Setting' value with any optional fields omitted.
 mkSetting ::
   Setting
 mkSetting =
   Setting'
-    { value = Lude.Nothing,
-      name = Lude.Nothing,
-      principalARN = Lude.Nothing
+    { name = Core.Nothing,
+      principalArn = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | Whether the account setting is enabled or disabled for the specified resource.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfValue :: Lens.Lens' Setting (Lude.Maybe Lude.Text)
-sfValue = Lens.lens (value :: Setting -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Setting)
-{-# DEPRECATED sfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The Amazon ECS resource name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfName :: Lens.Lens' Setting (Lude.Maybe SettingName)
-sfName = Lens.lens (name :: Setting -> Lude.Maybe SettingName) (\s a -> s {name = a} :: Setting)
+sfName :: Lens.Lens' Setting (Core.Maybe Types.SettingName)
+sfName = Lens.field @"name"
 {-# DEPRECATED sfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
 --
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfPrincipalARN :: Lens.Lens' Setting (Lude.Maybe Lude.Text)
-sfPrincipalARN = Lens.lens (principalARN :: Setting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: Setting)
-{-# DEPRECATED sfPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
+-- /Note:/ Consider using 'principalArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfPrincipalArn :: Lens.Lens' Setting (Core.Maybe Types.String)
+sfPrincipalArn = Lens.field @"principalArn"
+{-# DEPRECATED sfPrincipalArn "Use generic-lens or generic-optics with 'principalArn' instead." #-}
 
-instance Lude.FromJSON Setting where
+-- | Whether the account setting is enabled or disabled for the specified resource.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfValue :: Lens.Lens' Setting (Core.Maybe Types.String)
+sfValue = Lens.field @"value"
+{-# DEPRECATED sfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Setting where
   parseJSON =
-    Lude.withObject
-      "Setting"
-      ( \x ->
-          Setting'
-            Lude.<$> (x Lude..:? "value")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "principalArn")
-      )
+    Core.withObject "Setting" Core.$
+      \x ->
+        Setting'
+          Core.<$> (x Core..:? "name")
+          Core.<*> (x Core..:? "principalArn")
+          Core.<*> (x Core..:? "value")

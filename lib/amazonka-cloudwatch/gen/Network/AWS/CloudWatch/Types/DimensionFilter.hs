@@ -17,51 +17,46 @@ module Network.AWS.CloudWatch.Types.DimensionFilter
     mkDimensionFilter,
 
     -- * Lenses
-    dfValue,
     dfName,
+    dfValue,
   )
 where
 
+import qualified Network.AWS.CloudWatch.Types.DimensionName as Types
+import qualified Network.AWS.CloudWatch.Types.DimensionValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents filters for a dimension.
 --
 -- /See:/ 'mkDimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
-  { -- | The value of the dimension to be matched.
-    value :: Lude.Maybe Lude.Text,
-    -- | The dimension name to be matched.
-    name :: Lude.Text
+  { -- | The dimension name to be matched.
+    name :: Types.DimensionName,
+    -- | The value of the dimension to be matched.
+    value :: Core.Maybe Types.DimensionValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DimensionFilter' with the minimum fields required to make a request.
---
--- * 'value' - The value of the dimension to be matched.
--- * 'name' - The dimension name to be matched.
+-- | Creates a 'DimensionFilter' value with any optional fields omitted.
 mkDimensionFilter ::
   -- | 'name'
-  Lude.Text ->
+  Types.DimensionName ->
   DimensionFilter
-mkDimensionFilter pName_ =
-  DimensionFilter' {value = Lude.Nothing, name = pName_}
-
--- | The value of the dimension to be matched.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfValue :: Lens.Lens' DimensionFilter (Lude.Maybe Lude.Text)
-dfValue = Lens.lens (value :: DimensionFilter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: DimensionFilter)
-{-# DEPRECATED dfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkDimensionFilter name =
+  DimensionFilter' {name, value = Core.Nothing}
 
 -- | The dimension name to be matched.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfName :: Lens.Lens' DimensionFilter Lude.Text
-dfName = Lens.lens (name :: DimensionFilter -> Lude.Text) (\s a -> s {name = a} :: DimensionFilter)
+dfName :: Lens.Lens' DimensionFilter Types.DimensionName
+dfName = Lens.field @"name"
 {-# DEPRECATED dfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery DimensionFilter where
-  toQuery DimensionFilter' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Name" Lude.=: name]
+-- | The value of the dimension to be matched.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfValue :: Lens.Lens' DimensionFilter (Core.Maybe Types.DimensionValue)
+dfValue = Lens.field @"value"
+{-# DEPRECATED dfValue "Use generic-lens or generic-optics with 'value' instead." #-}

@@ -17,83 +17,78 @@ module Network.AWS.SMS.Types.ServerGroupLaunchConfiguration
     mkServerGroupLaunchConfiguration,
 
     -- * Lenses
-    sglcServerGroupId,
     sglcLaunchOrder,
+    sglcServerGroupId,
     sglcServerLaunchConfigurations,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.ServerLaunchConfiguration
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.ServerGroupId as Types
+import qualified Network.AWS.SMS.Types.ServerLaunchConfiguration as Types
 
 -- | Launch configuration for a server group.
 --
 -- /See:/ 'mkServerGroupLaunchConfiguration' smart constructor.
 data ServerGroupLaunchConfiguration = ServerGroupLaunchConfiguration'
-  { -- | The ID of the server group with which the launch configuration is associated.
-    serverGroupId :: Lude.Maybe Lude.Text,
-    -- | The launch order of servers in the server group.
-    launchOrder :: Lude.Maybe Lude.Int,
+  { -- | The launch order of servers in the server group.
+    launchOrder :: Core.Maybe Core.Int,
+    -- | The ID of the server group with which the launch configuration is associated.
+    serverGroupId :: Core.Maybe Types.ServerGroupId,
     -- | The launch configuration for servers in the server group.
-    serverLaunchConfigurations :: Lude.Maybe [ServerLaunchConfiguration]
+    serverLaunchConfigurations :: Core.Maybe [Types.ServerLaunchConfiguration]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServerGroupLaunchConfiguration' with the minimum fields required to make a request.
---
--- * 'serverGroupId' - The ID of the server group with which the launch configuration is associated.
--- * 'launchOrder' - The launch order of servers in the server group.
--- * 'serverLaunchConfigurations' - The launch configuration for servers in the server group.
+-- | Creates a 'ServerGroupLaunchConfiguration' value with any optional fields omitted.
 mkServerGroupLaunchConfiguration ::
   ServerGroupLaunchConfiguration
 mkServerGroupLaunchConfiguration =
   ServerGroupLaunchConfiguration'
-    { serverGroupId = Lude.Nothing,
-      launchOrder = Lude.Nothing,
-      serverLaunchConfigurations = Lude.Nothing
+    { launchOrder = Core.Nothing,
+      serverGroupId = Core.Nothing,
+      serverLaunchConfigurations = Core.Nothing
     }
-
--- | The ID of the server group with which the launch configuration is associated.
---
--- /Note:/ Consider using 'serverGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sglcServerGroupId :: Lens.Lens' ServerGroupLaunchConfiguration (Lude.Maybe Lude.Text)
-sglcServerGroupId = Lens.lens (serverGroupId :: ServerGroupLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {serverGroupId = a} :: ServerGroupLaunchConfiguration)
-{-# DEPRECATED sglcServerGroupId "Use generic-lens or generic-optics with 'serverGroupId' instead." #-}
 
 -- | The launch order of servers in the server group.
 --
 -- /Note:/ Consider using 'launchOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sglcLaunchOrder :: Lens.Lens' ServerGroupLaunchConfiguration (Lude.Maybe Lude.Int)
-sglcLaunchOrder = Lens.lens (launchOrder :: ServerGroupLaunchConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {launchOrder = a} :: ServerGroupLaunchConfiguration)
+sglcLaunchOrder :: Lens.Lens' ServerGroupLaunchConfiguration (Core.Maybe Core.Int)
+sglcLaunchOrder = Lens.field @"launchOrder"
 {-# DEPRECATED sglcLaunchOrder "Use generic-lens or generic-optics with 'launchOrder' instead." #-}
+
+-- | The ID of the server group with which the launch configuration is associated.
+--
+-- /Note:/ Consider using 'serverGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sglcServerGroupId :: Lens.Lens' ServerGroupLaunchConfiguration (Core.Maybe Types.ServerGroupId)
+sglcServerGroupId = Lens.field @"serverGroupId"
+{-# DEPRECATED sglcServerGroupId "Use generic-lens or generic-optics with 'serverGroupId' instead." #-}
 
 -- | The launch configuration for servers in the server group.
 --
 -- /Note:/ Consider using 'serverLaunchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sglcServerLaunchConfigurations :: Lens.Lens' ServerGroupLaunchConfiguration (Lude.Maybe [ServerLaunchConfiguration])
-sglcServerLaunchConfigurations = Lens.lens (serverLaunchConfigurations :: ServerGroupLaunchConfiguration -> Lude.Maybe [ServerLaunchConfiguration]) (\s a -> s {serverLaunchConfigurations = a} :: ServerGroupLaunchConfiguration)
+sglcServerLaunchConfigurations :: Lens.Lens' ServerGroupLaunchConfiguration (Core.Maybe [Types.ServerLaunchConfiguration])
+sglcServerLaunchConfigurations = Lens.field @"serverLaunchConfigurations"
 {-# DEPRECATED sglcServerLaunchConfigurations "Use generic-lens or generic-optics with 'serverLaunchConfigurations' instead." #-}
 
-instance Lude.FromJSON ServerGroupLaunchConfiguration where
-  parseJSON =
-    Lude.withObject
-      "ServerGroupLaunchConfiguration"
-      ( \x ->
-          ServerGroupLaunchConfiguration'
-            Lude.<$> (x Lude..:? "serverGroupId")
-            Lude.<*> (x Lude..:? "launchOrder")
-            Lude.<*> (x Lude..:? "serverLaunchConfigurations" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON ServerGroupLaunchConfiguration where
-  toJSON ServerGroupLaunchConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serverGroupId" Lude..=) Lude.<$> serverGroupId,
-            ("launchOrder" Lude..=) Lude.<$> launchOrder,
-            ("serverLaunchConfigurations" Lude..=)
-              Lude.<$> serverLaunchConfigurations
+instance Core.FromJSON ServerGroupLaunchConfiguration where
+  toJSON ServerGroupLaunchConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("launchOrder" Core..=) Core.<$> launchOrder,
+            ("serverGroupId" Core..=) Core.<$> serverGroupId,
+            ("serverLaunchConfigurations" Core..=)
+              Core.<$> serverLaunchConfigurations
           ]
       )
+
+instance Core.FromJSON ServerGroupLaunchConfiguration where
+  parseJSON =
+    Core.withObject "ServerGroupLaunchConfiguration" Core.$
+      \x ->
+        ServerGroupLaunchConfiguration'
+          Core.<$> (x Core..:? "launchOrder")
+          Core.<*> (x Core..:? "serverGroupId")
+          Core.<*> (x Core..:? "serverLaunchConfigurations")

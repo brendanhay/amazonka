@@ -18,14 +18,15 @@ module Network.AWS.WAFRegional.Types.Predicate
 
     -- * Lenses
     pNegated,
-    pDataId,
     pType,
+    pDataId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAFRegional.Types.PredicateType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.PredicateType as Types
+import qualified Network.AWS.WAFRegional.Types.ResourceId as Types
 
 -- | Specifies the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , and 'SizeConstraintSet' objects that you want to add to a @Rule@ and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44.
 --
@@ -34,77 +35,65 @@ data Predicate = Predicate'
   { -- | Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address.
     --
     -- Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
-    negated :: Lude.Bool,
-    -- | A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
-    dataId :: Lude.Text,
+    negated :: Core.Bool,
     -- | The type of predicate in a @Rule@ , such as @ByteMatch@ or @IPSet@ .
-    type' :: PredicateType
+    type' :: Types.PredicateType,
+    -- | A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
+    dataId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Predicate' with the minimum fields required to make a request.
---
--- * 'negated' - Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address.
---
--- Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
--- * 'dataId' - A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
--- * 'type'' - The type of predicate in a @Rule@ , such as @ByteMatch@ or @IPSet@ .
+-- | Creates a 'Predicate' value with any optional fields omitted.
 mkPredicate ::
   -- | 'negated'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'type\''
+  Types.PredicateType ->
   -- | 'dataId'
-  Lude.Text ->
-  -- | 'type''
-  PredicateType ->
+  Types.ResourceId ->
   Predicate
-mkPredicate pNegated_ pDataId_ pType_ =
-  Predicate'
-    { negated = pNegated_,
-      dataId = pDataId_,
-      type' = pType_
-    }
+mkPredicate negated type' dataId =
+  Predicate' {negated, type', dataId}
 
 -- | Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address.
 --
 -- Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
 --
 -- /Note:/ Consider using 'negated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pNegated :: Lens.Lens' Predicate Lude.Bool
-pNegated = Lens.lens (negated :: Predicate -> Lude.Bool) (\s a -> s {negated = a} :: Predicate)
+pNegated :: Lens.Lens' Predicate Core.Bool
+pNegated = Lens.field @"negated"
 {-# DEPRECATED pNegated "Use generic-lens or generic-optics with 'negated' instead." #-}
-
--- | A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
---
--- /Note:/ Consider using 'dataId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDataId :: Lens.Lens' Predicate Lude.Text
-pDataId = Lens.lens (dataId :: Predicate -> Lude.Text) (\s a -> s {dataId = a} :: Predicate)
-{-# DEPRECATED pDataId "Use generic-lens or generic-optics with 'dataId' instead." #-}
 
 -- | The type of predicate in a @Rule@ , such as @ByteMatch@ or @IPSet@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pType :: Lens.Lens' Predicate PredicateType
-pType = Lens.lens (type' :: Predicate -> PredicateType) (\s a -> s {type' = a} :: Predicate)
+pType :: Lens.Lens' Predicate Types.PredicateType
+pType = Lens.field @"type'"
 {-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Predicate where
-  parseJSON =
-    Lude.withObject
-      "Predicate"
-      ( \x ->
-          Predicate'
-            Lude.<$> (x Lude..: "Negated")
-            Lude.<*> (x Lude..: "DataId")
-            Lude.<*> (x Lude..: "Type")
-      )
+-- | A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
+--
+-- /Note:/ Consider using 'dataId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDataId :: Lens.Lens' Predicate Types.ResourceId
+pDataId = Lens.field @"dataId"
+{-# DEPRECATED pDataId "Use generic-lens or generic-optics with 'dataId' instead." #-}
 
-instance Lude.ToJSON Predicate where
-  toJSON Predicate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Negated" Lude..= negated),
-            Lude.Just ("DataId" Lude..= dataId),
-            Lude.Just ("Type" Lude..= type')
+instance Core.FromJSON Predicate where
+  toJSON Predicate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Negated" Core..= negated),
+            Core.Just ("Type" Core..= type'),
+            Core.Just ("DataId" Core..= dataId)
           ]
       )
+
+instance Core.FromJSON Predicate where
+  parseJSON =
+    Core.withObject "Predicate" Core.$
+      \x ->
+        Predicate'
+          Core.<$> (x Core..: "Negated")
+          Core.<*> (x Core..: "Type")
+          Core.<*> (x Core..: "DataId")

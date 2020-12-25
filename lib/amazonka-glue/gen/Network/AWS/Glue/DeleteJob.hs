@@ -27,106 +27,92 @@ module Network.AWS.Glue.DeleteJob
     mkDeleteJobResponse,
 
     -- ** Response lenses
-    djrsJobName,
-    djrsResponseStatus,
+    djrrsJobName,
+    djrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteJob' smart constructor.
 newtype DeleteJob = DeleteJob'
   { -- | The name of the job definition to delete.
-    jobName :: Lude.Text
+    jobName :: Types.JobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteJob' with the minimum fields required to make a request.
---
--- * 'jobName' - The name of the job definition to delete.
+-- | Creates a 'DeleteJob' value with any optional fields omitted.
 mkDeleteJob ::
   -- | 'jobName'
-  Lude.Text ->
+  Types.JobName ->
   DeleteJob
-mkDeleteJob pJobName_ = DeleteJob' {jobName = pJobName_}
+mkDeleteJob jobName = DeleteJob' {jobName}
 
 -- | The name of the job definition to delete.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djJobName :: Lens.Lens' DeleteJob Lude.Text
-djJobName = Lens.lens (jobName :: DeleteJob -> Lude.Text) (\s a -> s {jobName = a} :: DeleteJob)
+djJobName :: Lens.Lens' DeleteJob Types.JobName
+djJobName = Lens.field @"jobName"
 {-# DEPRECATED djJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
-instance Lude.AWSRequest DeleteJob where
+instance Core.FromJSON DeleteJob where
+  toJSON DeleteJob {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("JobName" Core..= jobName)])
+
+instance Core.AWSRequest DeleteJob where
   type Rs DeleteJob = DeleteJobResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeleteJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteJobResponse'
-            Lude.<$> (x Lude..?> "JobName") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobName") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.DeleteJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteJob where
-  toJSON DeleteJob' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("JobName" Lude..= jobName)])
-
-instance Lude.ToPath DeleteJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteJobResponse' smart constructor.
 data DeleteJobResponse = DeleteJobResponse'
   { -- | The name of the job definition that was deleted.
-    jobName :: Lude.Maybe Lude.Text,
+    jobName :: Core.Maybe Types.NameString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteJobResponse' with the minimum fields required to make a request.
---
--- * 'jobName' - The name of the job definition that was deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteJobResponse' value with any optional fields omitted.
 mkDeleteJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteJobResponse
-mkDeleteJobResponse pResponseStatus_ =
-  DeleteJobResponse'
-    { jobName = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteJobResponse responseStatus =
+  DeleteJobResponse' {jobName = Core.Nothing, responseStatus}
 
 -- | The name of the job definition that was deleted.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djrsJobName :: Lens.Lens' DeleteJobResponse (Lude.Maybe Lude.Text)
-djrsJobName = Lens.lens (jobName :: DeleteJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: DeleteJobResponse)
-{-# DEPRECATED djrsJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+djrrsJobName :: Lens.Lens' DeleteJobResponse (Core.Maybe Types.NameString)
+djrrsJobName = Lens.field @"jobName"
+{-# DEPRECATED djrrsJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djrsResponseStatus :: Lens.Lens' DeleteJobResponse Lude.Int
-djrsResponseStatus = Lens.lens (responseStatus :: DeleteJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteJobResponse)
-{-# DEPRECATED djrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+djrrsResponseStatus :: Lens.Lens' DeleteJobResponse Core.Int
+djrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED djrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

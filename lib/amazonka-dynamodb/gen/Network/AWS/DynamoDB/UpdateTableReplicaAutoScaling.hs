@@ -20,166 +20,150 @@ module Network.AWS.DynamoDB.UpdateTableReplicaAutoScaling
     mkUpdateTableReplicaAutoScaling,
 
     -- ** Request lenses
-    utrasReplicaUpdates,
-    utrasProvisionedWriteCapacityAutoScalingUpdate,
-    utrasGlobalSecondaryIndexUpdates,
     utrasTableName,
+    utrasGlobalSecondaryIndexUpdates,
+    utrasProvisionedWriteCapacityAutoScalingUpdate,
+    utrasReplicaUpdates,
 
     -- * Destructuring the response
     UpdateTableReplicaAutoScalingResponse (..),
     mkUpdateTableReplicaAutoScalingResponse,
 
     -- ** Response lenses
-    utrasrsTableAutoScalingDescription,
-    utrasrsResponseStatus,
+    utrasrrsTableAutoScalingDescription,
+    utrasrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTableReplicaAutoScaling' smart constructor.
 data UpdateTableReplicaAutoScaling = UpdateTableReplicaAutoScaling'
-  { -- | Represents the auto scaling settings of replicas of the table that will be modified.
-    replicaUpdates :: Lude.Maybe (Lude.NonEmpty ReplicaAutoScalingUpdate),
-    provisionedWriteCapacityAutoScalingUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+  { -- | The name of the global table to be updated.
+    tableName :: Types.TableName,
     -- | Represents the auto scaling settings of the global secondary indexes of the replica to be updated.
-    globalSecondaryIndexUpdates :: Lude.Maybe (Lude.NonEmpty GlobalSecondaryIndexAutoScalingUpdate),
-    -- | The name of the global table to be updated.
-    tableName :: Lude.Text
+    globalSecondaryIndexUpdates :: Core.Maybe (Core.NonEmpty Types.GlobalSecondaryIndexAutoScalingUpdate),
+    provisionedWriteCapacityAutoScalingUpdate :: Core.Maybe Types.AutoScalingSettingsUpdate,
+    -- | Represents the auto scaling settings of replicas of the table that will be modified.
+    replicaUpdates :: Core.Maybe (Core.NonEmpty Types.ReplicaAutoScalingUpdate)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTableReplicaAutoScaling' with the minimum fields required to make a request.
---
--- * 'replicaUpdates' - Represents the auto scaling settings of replicas of the table that will be modified.
--- * 'provisionedWriteCapacityAutoScalingUpdate' -
--- * 'globalSecondaryIndexUpdates' - Represents the auto scaling settings of the global secondary indexes of the replica to be updated.
--- * 'tableName' - The name of the global table to be updated.
+-- | Creates a 'UpdateTableReplicaAutoScaling' value with any optional fields omitted.
 mkUpdateTableReplicaAutoScaling ::
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   UpdateTableReplicaAutoScaling
-mkUpdateTableReplicaAutoScaling pTableName_ =
+mkUpdateTableReplicaAutoScaling tableName =
   UpdateTableReplicaAutoScaling'
-    { replicaUpdates = Lude.Nothing,
-      provisionedWriteCapacityAutoScalingUpdate = Lude.Nothing,
-      globalSecondaryIndexUpdates = Lude.Nothing,
-      tableName = pTableName_
+    { tableName,
+      globalSecondaryIndexUpdates = Core.Nothing,
+      provisionedWriteCapacityAutoScalingUpdate = Core.Nothing,
+      replicaUpdates = Core.Nothing
     }
-
--- | Represents the auto scaling settings of replicas of the table that will be modified.
---
--- /Note:/ Consider using 'replicaUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrasReplicaUpdates :: Lens.Lens' UpdateTableReplicaAutoScaling (Lude.Maybe (Lude.NonEmpty ReplicaAutoScalingUpdate))
-utrasReplicaUpdates = Lens.lens (replicaUpdates :: UpdateTableReplicaAutoScaling -> Lude.Maybe (Lude.NonEmpty ReplicaAutoScalingUpdate)) (\s a -> s {replicaUpdates = a} :: UpdateTableReplicaAutoScaling)
-{-# DEPRECATED utrasReplicaUpdates "Use generic-lens or generic-optics with 'replicaUpdates' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrasProvisionedWriteCapacityAutoScalingUpdate :: Lens.Lens' UpdateTableReplicaAutoScaling (Lude.Maybe AutoScalingSettingsUpdate)
-utrasProvisionedWriteCapacityAutoScalingUpdate = Lens.lens (provisionedWriteCapacityAutoScalingUpdate :: UpdateTableReplicaAutoScaling -> Lude.Maybe AutoScalingSettingsUpdate) (\s a -> s {provisionedWriteCapacityAutoScalingUpdate = a} :: UpdateTableReplicaAutoScaling)
-{-# DEPRECATED utrasProvisionedWriteCapacityAutoScalingUpdate "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingUpdate' instead." #-}
-
--- | Represents the auto scaling settings of the global secondary indexes of the replica to be updated.
---
--- /Note:/ Consider using 'globalSecondaryIndexUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrasGlobalSecondaryIndexUpdates :: Lens.Lens' UpdateTableReplicaAutoScaling (Lude.Maybe (Lude.NonEmpty GlobalSecondaryIndexAutoScalingUpdate))
-utrasGlobalSecondaryIndexUpdates = Lens.lens (globalSecondaryIndexUpdates :: UpdateTableReplicaAutoScaling -> Lude.Maybe (Lude.NonEmpty GlobalSecondaryIndexAutoScalingUpdate)) (\s a -> s {globalSecondaryIndexUpdates = a} :: UpdateTableReplicaAutoScaling)
-{-# DEPRECATED utrasGlobalSecondaryIndexUpdates "Use generic-lens or generic-optics with 'globalSecondaryIndexUpdates' instead." #-}
 
 -- | The name of the global table to be updated.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrasTableName :: Lens.Lens' UpdateTableReplicaAutoScaling Lude.Text
-utrasTableName = Lens.lens (tableName :: UpdateTableReplicaAutoScaling -> Lude.Text) (\s a -> s {tableName = a} :: UpdateTableReplicaAutoScaling)
+utrasTableName :: Lens.Lens' UpdateTableReplicaAutoScaling Types.TableName
+utrasTableName = Lens.field @"tableName"
 {-# DEPRECATED utrasTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest UpdateTableReplicaAutoScaling where
+-- | Represents the auto scaling settings of the global secondary indexes of the replica to be updated.
+--
+-- /Note:/ Consider using 'globalSecondaryIndexUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrasGlobalSecondaryIndexUpdates :: Lens.Lens' UpdateTableReplicaAutoScaling (Core.Maybe (Core.NonEmpty Types.GlobalSecondaryIndexAutoScalingUpdate))
+utrasGlobalSecondaryIndexUpdates = Lens.field @"globalSecondaryIndexUpdates"
+{-# DEPRECATED utrasGlobalSecondaryIndexUpdates "Use generic-lens or generic-optics with 'globalSecondaryIndexUpdates' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrasProvisionedWriteCapacityAutoScalingUpdate :: Lens.Lens' UpdateTableReplicaAutoScaling (Core.Maybe Types.AutoScalingSettingsUpdate)
+utrasProvisionedWriteCapacityAutoScalingUpdate = Lens.field @"provisionedWriteCapacityAutoScalingUpdate"
+{-# DEPRECATED utrasProvisionedWriteCapacityAutoScalingUpdate "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingUpdate' instead." #-}
+
+-- | Represents the auto scaling settings of replicas of the table that will be modified.
+--
+-- /Note:/ Consider using 'replicaUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrasReplicaUpdates :: Lens.Lens' UpdateTableReplicaAutoScaling (Core.Maybe (Core.NonEmpty Types.ReplicaAutoScalingUpdate))
+utrasReplicaUpdates = Lens.field @"replicaUpdates"
+{-# DEPRECATED utrasReplicaUpdates "Use generic-lens or generic-optics with 'replicaUpdates' instead." #-}
+
+instance Core.FromJSON UpdateTableReplicaAutoScaling where
+  toJSON UpdateTableReplicaAutoScaling {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            ("GlobalSecondaryIndexUpdates" Core..=)
+              Core.<$> globalSecondaryIndexUpdates,
+            ("ProvisionedWriteCapacityAutoScalingUpdate" Core..=)
+              Core.<$> provisionedWriteCapacityAutoScalingUpdate,
+            ("ReplicaUpdates" Core..=) Core.<$> replicaUpdates
+          ]
+      )
+
+instance Core.AWSRequest UpdateTableReplicaAutoScaling where
   type
     Rs UpdateTableReplicaAutoScaling =
       UpdateTableReplicaAutoScalingResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DynamoDB_20120810.UpdateTableReplicaAutoScaling")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateTableReplicaAutoScalingResponse'
-            Lude.<$> (x Lude..?> "TableAutoScalingDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TableAutoScalingDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTableReplicaAutoScaling where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DynamoDB_20120810.UpdateTableReplicaAutoScaling" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTableReplicaAutoScaling where
-  toJSON UpdateTableReplicaAutoScaling' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ReplicaUpdates" Lude..=) Lude.<$> replicaUpdates,
-            ("ProvisionedWriteCapacityAutoScalingUpdate" Lude..=)
-              Lude.<$> provisionedWriteCapacityAutoScalingUpdate,
-            ("GlobalSecondaryIndexUpdates" Lude..=)
-              Lude.<$> globalSecondaryIndexUpdates,
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath UpdateTableReplicaAutoScaling where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTableReplicaAutoScaling where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTableReplicaAutoScalingResponse' smart constructor.
 data UpdateTableReplicaAutoScalingResponse = UpdateTableReplicaAutoScalingResponse'
   { -- | Returns information about the auto scaling settings of a table with replicas.
-    tableAutoScalingDescription :: Lude.Maybe TableAutoScalingDescription,
+    tableAutoScalingDescription :: Core.Maybe Types.TableAutoScalingDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTableReplicaAutoScalingResponse' with the minimum fields required to make a request.
---
--- * 'tableAutoScalingDescription' - Returns information about the auto scaling settings of a table with replicas.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTableReplicaAutoScalingResponse' value with any optional fields omitted.
 mkUpdateTableReplicaAutoScalingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTableReplicaAutoScalingResponse
-mkUpdateTableReplicaAutoScalingResponse pResponseStatus_ =
+mkUpdateTableReplicaAutoScalingResponse responseStatus =
   UpdateTableReplicaAutoScalingResponse'
     { tableAutoScalingDescription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Returns information about the auto scaling settings of a table with replicas.
 --
 -- /Note:/ Consider using 'tableAutoScalingDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrasrsTableAutoScalingDescription :: Lens.Lens' UpdateTableReplicaAutoScalingResponse (Lude.Maybe TableAutoScalingDescription)
-utrasrsTableAutoScalingDescription = Lens.lens (tableAutoScalingDescription :: UpdateTableReplicaAutoScalingResponse -> Lude.Maybe TableAutoScalingDescription) (\s a -> s {tableAutoScalingDescription = a} :: UpdateTableReplicaAutoScalingResponse)
-{-# DEPRECATED utrasrsTableAutoScalingDescription "Use generic-lens or generic-optics with 'tableAutoScalingDescription' instead." #-}
+utrasrrsTableAutoScalingDescription :: Lens.Lens' UpdateTableReplicaAutoScalingResponse (Core.Maybe Types.TableAutoScalingDescription)
+utrasrrsTableAutoScalingDescription = Lens.field @"tableAutoScalingDescription"
+{-# DEPRECATED utrasrrsTableAutoScalingDescription "Use generic-lens or generic-optics with 'tableAutoScalingDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrasrsResponseStatus :: Lens.Lens' UpdateTableReplicaAutoScalingResponse Lude.Int
-utrasrsResponseStatus = Lens.lens (responseStatus :: UpdateTableReplicaAutoScalingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTableReplicaAutoScalingResponse)
-{-# DEPRECATED utrasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrasrrsResponseStatus :: Lens.Lens' UpdateTableReplicaAutoScalingResponse Core.Int
+utrasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

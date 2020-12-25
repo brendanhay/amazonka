@@ -21,9 +21,9 @@ module Network.AWS.EC2.Types.CapacityReservationOptionsRequest
   )
 where
 
-import Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy
+import qualified Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
 --
@@ -35,21 +35,16 @@ newtype CapacityReservationOptionsRequest = CapacityReservationOptionsRequest'
     --
     -- If you specify @use-capacity-reservations-first@ , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy (@lowest-price@ or @prioritized@ ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy (@lowest-price@ or @prioritized@ ).
     -- If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
-    usageStrategy :: Lude.Maybe FleetCapacityReservationUsageStrategy
+    usageStrategy :: Core.Maybe Types.FleetCapacityReservationUsageStrategy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CapacityReservationOptionsRequest' with the minimum fields required to make a request.
---
--- * 'usageStrategy' - Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
---
--- If you specify @use-capacity-reservations-first@ , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy (@lowest-price@ or @prioritized@ ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy (@lowest-price@ or @prioritized@ ).
--- If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
+-- | Creates a 'CapacityReservationOptionsRequest' value with any optional fields omitted.
 mkCapacityReservationOptionsRequest ::
   CapacityReservationOptionsRequest
 mkCapacityReservationOptionsRequest =
-  CapacityReservationOptionsRequest' {usageStrategy = Lude.Nothing}
+  CapacityReservationOptionsRequest' {usageStrategy = Core.Nothing}
 
 -- | Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
 --
@@ -57,10 +52,6 @@ mkCapacityReservationOptionsRequest =
 -- If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
 --
 -- /Note:/ Consider using 'usageStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crorUsageStrategy :: Lens.Lens' CapacityReservationOptionsRequest (Lude.Maybe FleetCapacityReservationUsageStrategy)
-crorUsageStrategy = Lens.lens (usageStrategy :: CapacityReservationOptionsRequest -> Lude.Maybe FleetCapacityReservationUsageStrategy) (\s a -> s {usageStrategy = a} :: CapacityReservationOptionsRequest)
+crorUsageStrategy :: Lens.Lens' CapacityReservationOptionsRequest (Core.Maybe Types.FleetCapacityReservationUsageStrategy)
+crorUsageStrategy = Lens.field @"usageStrategy"
 {-# DEPRECATED crorUsageStrategy "Use generic-lens or generic-optics with 'usageStrategy' instead." #-}
-
-instance Lude.ToQuery CapacityReservationOptionsRequest where
-  toQuery CapacityReservationOptionsRequest' {..} =
-    Lude.mconcat ["UsageStrategy" Lude.=: usageStrategy]

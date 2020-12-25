@@ -13,51 +13,56 @@
 module Network.AWS.WorkMail.Types.RetentionAction
   ( RetentionAction
       ( RetentionAction',
-        None,
-        Delete,
-        PermanentlyDelete
+        RetentionActionNone,
+        RetentionActionDelete,
+        RetentionActionPermanentlyDelete,
+        fromRetentionAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RetentionAction = RetentionAction' Lude.Text
+newtype RetentionAction = RetentionAction'
+  { fromRetentionAction ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: RetentionAction
-pattern None = RetentionAction' "NONE"
+pattern RetentionActionNone :: RetentionAction
+pattern RetentionActionNone = RetentionAction' "NONE"
 
-pattern Delete :: RetentionAction
-pattern Delete = RetentionAction' "DELETE"
+pattern RetentionActionDelete :: RetentionAction
+pattern RetentionActionDelete = RetentionAction' "DELETE"
 
-pattern PermanentlyDelete :: RetentionAction
-pattern PermanentlyDelete = RetentionAction' "PERMANENTLY_DELETE"
+pattern RetentionActionPermanentlyDelete :: RetentionAction
+pattern RetentionActionPermanentlyDelete = RetentionAction' "PERMANENTLY_DELETE"
 
 {-# COMPLETE
-  None,
-  Delete,
-  PermanentlyDelete,
+  RetentionActionNone,
+  RetentionActionDelete,
+  RetentionActionPermanentlyDelete,
   RetentionAction'
   #-}

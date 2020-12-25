@@ -17,71 +17,65 @@ module Network.AWS.EMR.Types.ClusterTimeline
     mkClusterTimeline,
 
     -- * Lenses
-    ctReadyDateTime,
     ctCreationDateTime,
     ctEndDateTime,
+    ctReadyDateTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the timeline of the cluster's lifecycle.
 --
 -- /See:/ 'mkClusterTimeline' smart constructor.
 data ClusterTimeline = ClusterTimeline'
-  { -- | The date and time when the cluster was ready to run steps.
-    readyDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The creation date and time of the cluster.
-    creationDateTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The creation date and time of the cluster.
+    creationDateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The date and time when the cluster was terminated.
-    endDateTime :: Lude.Maybe Lude.Timestamp
+    endDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The date and time when the cluster was ready to run steps.
+    readyDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ClusterTimeline' with the minimum fields required to make a request.
---
--- * 'readyDateTime' - The date and time when the cluster was ready to run steps.
--- * 'creationDateTime' - The creation date and time of the cluster.
--- * 'endDateTime' - The date and time when the cluster was terminated.
+-- | Creates a 'ClusterTimeline' value with any optional fields omitted.
 mkClusterTimeline ::
   ClusterTimeline
 mkClusterTimeline =
   ClusterTimeline'
-    { readyDateTime = Lude.Nothing,
-      creationDateTime = Lude.Nothing,
-      endDateTime = Lude.Nothing
+    { creationDateTime = Core.Nothing,
+      endDateTime = Core.Nothing,
+      readyDateTime = Core.Nothing
     }
-
--- | The date and time when the cluster was ready to run steps.
---
--- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctReadyDateTime :: Lens.Lens' ClusterTimeline (Lude.Maybe Lude.Timestamp)
-ctReadyDateTime = Lens.lens (readyDateTime :: ClusterTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {readyDateTime = a} :: ClusterTimeline)
-{-# DEPRECATED ctReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
 
 -- | The creation date and time of the cluster.
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctCreationDateTime :: Lens.Lens' ClusterTimeline (Lude.Maybe Lude.Timestamp)
-ctCreationDateTime = Lens.lens (creationDateTime :: ClusterTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: ClusterTimeline)
+ctCreationDateTime :: Lens.Lens' ClusterTimeline (Core.Maybe Core.NominalDiffTime)
+ctCreationDateTime = Lens.field @"creationDateTime"
 {-# DEPRECATED ctCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The date and time when the cluster was terminated.
 --
 -- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctEndDateTime :: Lens.Lens' ClusterTimeline (Lude.Maybe Lude.Timestamp)
-ctEndDateTime = Lens.lens (endDateTime :: ClusterTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: ClusterTimeline)
+ctEndDateTime :: Lens.Lens' ClusterTimeline (Core.Maybe Core.NominalDiffTime)
+ctEndDateTime = Lens.field @"endDateTime"
 {-# DEPRECATED ctEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
 
-instance Lude.FromJSON ClusterTimeline where
+-- | The date and time when the cluster was ready to run steps.
+--
+-- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctReadyDateTime :: Lens.Lens' ClusterTimeline (Core.Maybe Core.NominalDiffTime)
+ctReadyDateTime = Lens.field @"readyDateTime"
+{-# DEPRECATED ctReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
+
+instance Core.FromJSON ClusterTimeline where
   parseJSON =
-    Lude.withObject
-      "ClusterTimeline"
-      ( \x ->
-          ClusterTimeline'
-            Lude.<$> (x Lude..:? "ReadyDateTime")
-            Lude.<*> (x Lude..:? "CreationDateTime")
-            Lude.<*> (x Lude..:? "EndDateTime")
-      )
+    Core.withObject "ClusterTimeline" Core.$
+      \x ->
+        ClusterTimeline'
+          Core.<$> (x Core..:? "CreationDateTime")
+          Core.<*> (x Core..:? "EndDateTime")
+          Core.<*> (x Core..:? "ReadyDateTime")

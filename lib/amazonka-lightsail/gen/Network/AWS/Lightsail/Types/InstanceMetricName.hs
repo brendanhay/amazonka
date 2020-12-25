@@ -13,76 +13,81 @@
 module Network.AWS.Lightsail.Types.InstanceMetricName
   ( InstanceMetricName
       ( InstanceMetricName',
-        IMNCPUUtilization,
-        IMNNetworkIn,
-        IMNNetworkOut,
-        IMNStatusCheckFailed,
-        IMNStatusCheckFailedInstance,
-        IMNStatusCheckFailedSystem,
-        IMNBurstCapacityTime,
-        IMNBurstCapacityPercentage
+        InstanceMetricNameCPUUtilization,
+        InstanceMetricNameNetworkIn,
+        InstanceMetricNameNetworkOut,
+        InstanceMetricNameStatusCheckFailed,
+        InstanceMetricNameStatusCheckFailedInstance,
+        InstanceMetricNameStatusCheckFailedSystem,
+        InstanceMetricNameBurstCapacityTime,
+        InstanceMetricNameBurstCapacityPercentage,
+        fromInstanceMetricName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceMetricName = InstanceMetricName' Lude.Text
+newtype InstanceMetricName = InstanceMetricName'
+  { fromInstanceMetricName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IMNCPUUtilization :: InstanceMetricName
-pattern IMNCPUUtilization = InstanceMetricName' "CPUUtilization"
+pattern InstanceMetricNameCPUUtilization :: InstanceMetricName
+pattern InstanceMetricNameCPUUtilization = InstanceMetricName' "CPUUtilization"
 
-pattern IMNNetworkIn :: InstanceMetricName
-pattern IMNNetworkIn = InstanceMetricName' "NetworkIn"
+pattern InstanceMetricNameNetworkIn :: InstanceMetricName
+pattern InstanceMetricNameNetworkIn = InstanceMetricName' "NetworkIn"
 
-pattern IMNNetworkOut :: InstanceMetricName
-pattern IMNNetworkOut = InstanceMetricName' "NetworkOut"
+pattern InstanceMetricNameNetworkOut :: InstanceMetricName
+pattern InstanceMetricNameNetworkOut = InstanceMetricName' "NetworkOut"
 
-pattern IMNStatusCheckFailed :: InstanceMetricName
-pattern IMNStatusCheckFailed = InstanceMetricName' "StatusCheckFailed"
+pattern InstanceMetricNameStatusCheckFailed :: InstanceMetricName
+pattern InstanceMetricNameStatusCheckFailed = InstanceMetricName' "StatusCheckFailed"
 
-pattern IMNStatusCheckFailedInstance :: InstanceMetricName
-pattern IMNStatusCheckFailedInstance = InstanceMetricName' "StatusCheckFailed_Instance"
+pattern InstanceMetricNameStatusCheckFailedInstance :: InstanceMetricName
+pattern InstanceMetricNameStatusCheckFailedInstance = InstanceMetricName' "StatusCheckFailed_Instance"
 
-pattern IMNStatusCheckFailedSystem :: InstanceMetricName
-pattern IMNStatusCheckFailedSystem = InstanceMetricName' "StatusCheckFailed_System"
+pattern InstanceMetricNameStatusCheckFailedSystem :: InstanceMetricName
+pattern InstanceMetricNameStatusCheckFailedSystem = InstanceMetricName' "StatusCheckFailed_System"
 
-pattern IMNBurstCapacityTime :: InstanceMetricName
-pattern IMNBurstCapacityTime = InstanceMetricName' "BurstCapacityTime"
+pattern InstanceMetricNameBurstCapacityTime :: InstanceMetricName
+pattern InstanceMetricNameBurstCapacityTime = InstanceMetricName' "BurstCapacityTime"
 
-pattern IMNBurstCapacityPercentage :: InstanceMetricName
-pattern IMNBurstCapacityPercentage = InstanceMetricName' "BurstCapacityPercentage"
+pattern InstanceMetricNameBurstCapacityPercentage :: InstanceMetricName
+pattern InstanceMetricNameBurstCapacityPercentage = InstanceMetricName' "BurstCapacityPercentage"
 
 {-# COMPLETE
-  IMNCPUUtilization,
-  IMNNetworkIn,
-  IMNNetworkOut,
-  IMNStatusCheckFailed,
-  IMNStatusCheckFailedInstance,
-  IMNStatusCheckFailedSystem,
-  IMNBurstCapacityTime,
-  IMNBurstCapacityPercentage,
+  InstanceMetricNameCPUUtilization,
+  InstanceMetricNameNetworkIn,
+  InstanceMetricNameNetworkOut,
+  InstanceMetricNameStatusCheckFailed,
+  InstanceMetricNameStatusCheckFailedInstance,
+  InstanceMetricNameStatusCheckFailedSystem,
+  InstanceMetricNameBurstCapacityTime,
+  InstanceMetricNameBurstCapacityPercentage,
   InstanceMetricName'
   #-}

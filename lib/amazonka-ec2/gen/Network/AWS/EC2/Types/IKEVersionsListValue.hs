@@ -21,33 +21,32 @@ module Network.AWS.EC2.Types.IKEVersionsListValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The internet key exchange (IKE) version permitted for the VPN tunnel.
 --
 -- /See:/ 'mkIKEVersionsListValue' smart constructor.
 newtype IKEVersionsListValue = IKEVersionsListValue'
   { -- | The IKE version.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IKEVersionsListValue' with the minimum fields required to make a request.
---
--- * 'value' - The IKE version.
+-- | Creates a 'IKEVersionsListValue' value with any optional fields omitted.
 mkIKEVersionsListValue ::
   IKEVersionsListValue
 mkIKEVersionsListValue =
-  IKEVersionsListValue' {value = Lude.Nothing}
+  IKEVersionsListValue' {value = Core.Nothing}
 
 -- | The IKE version.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ikevlvValue :: Lens.Lens' IKEVersionsListValue (Lude.Maybe Lude.Text)
-ikevlvValue = Lens.lens (value :: IKEVersionsListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: IKEVersionsListValue)
+ikevlvValue :: Lens.Lens' IKEVersionsListValue (Core.Maybe Types.String)
+ikevlvValue = Lens.field @"value"
 {-# DEPRECATED ikevlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromXML IKEVersionsListValue where
-  parseXML x = IKEVersionsListValue' Lude.<$> (x Lude..@? "value")
+instance Core.FromXML IKEVersionsListValue where
+  parseXML x = IKEVersionsListValue' Core.<$> (x Core..@? "value")

@@ -21,22 +21,21 @@ module Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'DeleteObject' response operation.
 --
 -- /See:/ 'mkBatchDeleteObjectResponse' smart constructor.
 data BatchDeleteObjectResponse = BatchDeleteObjectResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteObjectResponse' with the minimum fields required to make a request.
+-- | Creates a 'BatchDeleteObjectResponse' value with any optional fields omitted.
 mkBatchDeleteObjectResponse ::
   BatchDeleteObjectResponse
 mkBatchDeleteObjectResponse = BatchDeleteObjectResponse'
 
-instance Lude.FromJSON BatchDeleteObjectResponse where
+instance Core.FromJSON BatchDeleteObjectResponse where
   parseJSON =
-    Lude.withObject
-      "BatchDeleteObjectResponse"
-      (\x -> Lude.pure BatchDeleteObjectResponse')
+    Core.withObject "BatchDeleteObjectResponse" Core.$
+      \x -> Core.pure BatchDeleteObjectResponse'

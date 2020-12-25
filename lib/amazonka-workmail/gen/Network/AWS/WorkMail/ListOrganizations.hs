@@ -22,155 +22,144 @@ module Network.AWS.WorkMail.ListOrganizations
     mkListOrganizations,
 
     -- ** Request lenses
-    loNextToken,
     loMaxResults,
+    loNextToken,
 
     -- * Destructuring the response
     ListOrganizationsResponse (..),
     mkListOrganizationsResponse,
 
     -- ** Response lenses
-    lorsNextToken,
-    lorsOrganizationSummaries,
-    lorsResponseStatus,
+    lorrsNextToken,
+    lorrsOrganizationSummaries,
+    lorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkListOrganizations' smart constructor.
 data ListOrganizations = ListOrganizations'
-  { -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListOrganizations' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
--- * 'maxResults' - The maximum number of results to return in a single call.
+-- | Creates a 'ListOrganizations' value with any optional fields omitted.
 mkListOrganizations ::
   ListOrganizations
 mkListOrganizations =
   ListOrganizations'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loNextToken :: Lens.Lens' ListOrganizations (Lude.Maybe Lude.Text)
-loNextToken = Lens.lens (nextToken :: ListOrganizations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOrganizations)
-{-# DEPRECATED loNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a single call.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loMaxResults :: Lens.Lens' ListOrganizations (Lude.Maybe Lude.Natural)
-loMaxResults = Lens.lens (maxResults :: ListOrganizations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListOrganizations)
+loMaxResults :: Lens.Lens' ListOrganizations (Core.Maybe Core.Natural)
+loMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED loMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListOrganizations where
-  page rq rs
-    | Page.stop (rs Lens.^. lorsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lorsOrganizationSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& loNextToken Lens..~ rs Lens.^. lorsNextToken
+-- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loNextToken :: Lens.Lens' ListOrganizations (Core.Maybe Types.NextToken)
+loNextToken = Lens.field @"nextToken"
+{-# DEPRECATED loNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListOrganizations where
+instance Core.FromJSON ListOrganizations where
+  toJSON ListOrganizations {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListOrganizations where
   type Rs ListOrganizations = ListOrganizationsResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.ListOrganizations")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListOrganizationsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "OrganizationSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "OrganizationSummaries")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListOrganizations where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.ListOrganizations" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListOrganizations where
-  toJSON ListOrganizations' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListOrganizations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListOrganizations where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListOrganizations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"organizationSummaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListOrganizationsResponse' smart constructor.
 data ListOrganizationsResponse = ListOrganizationsResponse'
   { -- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The overview of owned organizations presented as a list of organization summaries.
-    organizationSummaries :: Lude.Maybe [OrganizationSummary],
+    organizationSummaries :: Core.Maybe [Types.OrganizationSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListOrganizationsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
--- * 'organizationSummaries' - The overview of owned organizations presented as a list of organization summaries.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListOrganizationsResponse' value with any optional fields omitted.
 mkListOrganizationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListOrganizationsResponse
-mkListOrganizationsResponse pResponseStatus_ =
+mkListOrganizationsResponse responseStatus =
   ListOrganizationsResponse'
-    { nextToken = Lude.Nothing,
-      organizationSummaries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      organizationSummaries = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lorsNextToken :: Lens.Lens' ListOrganizationsResponse (Lude.Maybe Lude.Text)
-lorsNextToken = Lens.lens (nextToken :: ListOrganizationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOrganizationsResponse)
-{-# DEPRECATED lorsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lorrsNextToken :: Lens.Lens' ListOrganizationsResponse (Core.Maybe Types.NextToken)
+lorrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lorrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The overview of owned organizations presented as a list of organization summaries.
 --
 -- /Note:/ Consider using 'organizationSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lorsOrganizationSummaries :: Lens.Lens' ListOrganizationsResponse (Lude.Maybe [OrganizationSummary])
-lorsOrganizationSummaries = Lens.lens (organizationSummaries :: ListOrganizationsResponse -> Lude.Maybe [OrganizationSummary]) (\s a -> s {organizationSummaries = a} :: ListOrganizationsResponse)
-{-# DEPRECATED lorsOrganizationSummaries "Use generic-lens or generic-optics with 'organizationSummaries' instead." #-}
+lorrsOrganizationSummaries :: Lens.Lens' ListOrganizationsResponse (Core.Maybe [Types.OrganizationSummary])
+lorrsOrganizationSummaries = Lens.field @"organizationSummaries"
+{-# DEPRECATED lorrsOrganizationSummaries "Use generic-lens or generic-optics with 'organizationSummaries' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lorsResponseStatus :: Lens.Lens' ListOrganizationsResponse Lude.Int
-lorsResponseStatus = Lens.lens (responseStatus :: ListOrganizationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOrganizationsResponse)
-{-# DEPRECATED lorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lorrsResponseStatus :: Lens.Lens' ListOrganizationsResponse Core.Int
+lorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

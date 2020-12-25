@@ -26,173 +26,158 @@ module Network.AWS.LexModels.GetBuiltinSlotTypes
 
     -- ** Request lenses
     gbstLocale,
+    gbstMaxResults,
     gbstNextToken,
     gbstSignatureContains,
-    gbstMaxResults,
 
     -- * Destructuring the response
     GetBuiltinSlotTypesResponse (..),
     mkGetBuiltinSlotTypesResponse,
 
     -- ** Response lenses
-    gbstrsNextToken,
-    gbstrsSlotTypes,
-    gbstrsResponseStatus,
+    gbstrrsNextToken,
+    gbstrrsSlotTypes,
+    gbstrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetBuiltinSlotTypes' smart constructor.
 data GetBuiltinSlotTypes = GetBuiltinSlotTypes'
   { -- | A list of locales that the slot type supports.
-    locale :: Lude.Maybe Locale,
-    -- | A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of slot types, specify the pagination token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
-    signatureContains :: Lude.Maybe Lude.Text,
+    locale :: Core.Maybe Types.Locale,
     -- | The maximum number of slot types to return in the response. The default is 10.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of slot types, specify the pagination token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+    signatureContains :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBuiltinSlotTypes' with the minimum fields required to make a request.
---
--- * 'locale' - A list of locales that the slot type supports.
--- * 'nextToken' - A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of slot types, specify the pagination token in the next request.
--- * 'signatureContains' - Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
--- * 'maxResults' - The maximum number of slot types to return in the response. The default is 10.
+-- | Creates a 'GetBuiltinSlotTypes' value with any optional fields omitted.
 mkGetBuiltinSlotTypes ::
   GetBuiltinSlotTypes
 mkGetBuiltinSlotTypes =
   GetBuiltinSlotTypes'
-    { locale = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      signatureContains = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { locale = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      signatureContains = Core.Nothing
     }
 
 -- | A list of locales that the slot type supports.
 --
 -- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbstLocale :: Lens.Lens' GetBuiltinSlotTypes (Lude.Maybe Locale)
-gbstLocale = Lens.lens (locale :: GetBuiltinSlotTypes -> Lude.Maybe Locale) (\s a -> s {locale = a} :: GetBuiltinSlotTypes)
+gbstLocale :: Lens.Lens' GetBuiltinSlotTypes (Core.Maybe Types.Locale)
+gbstLocale = Lens.field @"locale"
 {-# DEPRECATED gbstLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+
+-- | The maximum number of slot types to return in the response. The default is 10.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbstMaxResults :: Lens.Lens' GetBuiltinSlotTypes (Core.Maybe Core.Natural)
+gbstMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gbstMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of slot types, specify the pagination token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbstNextToken :: Lens.Lens' GetBuiltinSlotTypes (Lude.Maybe Lude.Text)
-gbstNextToken = Lens.lens (nextToken :: GetBuiltinSlotTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBuiltinSlotTypes)
+gbstNextToken :: Lens.Lens' GetBuiltinSlotTypes (Core.Maybe Types.NextToken)
+gbstNextToken = Lens.field @"nextToken"
 {-# DEPRECATED gbstNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Substring to match in built-in slot type signatures. A slot type will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 --
 -- /Note:/ Consider using 'signatureContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbstSignatureContains :: Lens.Lens' GetBuiltinSlotTypes (Lude.Maybe Lude.Text)
-gbstSignatureContains = Lens.lens (signatureContains :: GetBuiltinSlotTypes -> Lude.Maybe Lude.Text) (\s a -> s {signatureContains = a} :: GetBuiltinSlotTypes)
+gbstSignatureContains :: Lens.Lens' GetBuiltinSlotTypes (Core.Maybe Types.String)
+gbstSignatureContains = Lens.field @"signatureContains"
 {-# DEPRECATED gbstSignatureContains "Use generic-lens or generic-optics with 'signatureContains' instead." #-}
 
--- | The maximum number of slot types to return in the response. The default is 10.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbstMaxResults :: Lens.Lens' GetBuiltinSlotTypes (Lude.Maybe Lude.Natural)
-gbstMaxResults = Lens.lens (maxResults :: GetBuiltinSlotTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBuiltinSlotTypes)
-{-# DEPRECATED gbstMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager GetBuiltinSlotTypes where
-  page rq rs
-    | Page.stop (rs Lens.^. gbstrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gbstrsSlotTypes) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gbstNextToken Lens..~ rs Lens.^. gbstrsNextToken
-
-instance Lude.AWSRequest GetBuiltinSlotTypes where
+instance Core.AWSRequest GetBuiltinSlotTypes where
   type Rs GetBuiltinSlotTypes = GetBuiltinSlotTypesResponse
-  request = Req.get lexModelsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/builtins/slottypes/",
+        Core._rqQuery =
+          Core.toQueryValue "locale" Core.<$> locale
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "signatureContains" Core.<$> signatureContains),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetBuiltinSlotTypesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "slotTypes" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "slotTypes")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetBuiltinSlotTypes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetBuiltinSlotTypes where
-  toPath = Lude.const "/builtins/slottypes/"
-
-instance Lude.ToQuery GetBuiltinSlotTypes where
-  toQuery GetBuiltinSlotTypes' {..} =
-    Lude.mconcat
-      [ "locale" Lude.=: locale,
-        "nextToken" Lude.=: nextToken,
-        "signatureContains" Lude.=: signatureContains,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager GetBuiltinSlotTypes where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"slotTypes" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetBuiltinSlotTypesResponse' smart constructor.
 data GetBuiltinSlotTypesResponse = GetBuiltinSlotTypesResponse'
   { -- | If the response is truncated, the response includes a pagination token that you can use in your next request to fetch the next page of slot types.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | An array of @BuiltInSlotTypeMetadata@ objects, one entry for each slot type returned.
-    slotTypes :: Lude.Maybe [BuiltinSlotTypeMetadata],
+    slotTypes :: Core.Maybe [Types.BuiltinSlotTypeMetadata],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBuiltinSlotTypesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the response is truncated, the response includes a pagination token that you can use in your next request to fetch the next page of slot types.
--- * 'slotTypes' - An array of @BuiltInSlotTypeMetadata@ objects, one entry for each slot type returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBuiltinSlotTypesResponse' value with any optional fields omitted.
 mkGetBuiltinSlotTypesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBuiltinSlotTypesResponse
-mkGetBuiltinSlotTypesResponse pResponseStatus_ =
+mkGetBuiltinSlotTypesResponse responseStatus =
   GetBuiltinSlotTypesResponse'
-    { nextToken = Lude.Nothing,
-      slotTypes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      slotTypes = Core.Nothing,
+      responseStatus
     }
 
 -- | If the response is truncated, the response includes a pagination token that you can use in your next request to fetch the next page of slot types.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbstrsNextToken :: Lens.Lens' GetBuiltinSlotTypesResponse (Lude.Maybe Lude.Text)
-gbstrsNextToken = Lens.lens (nextToken :: GetBuiltinSlotTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBuiltinSlotTypesResponse)
-{-# DEPRECATED gbstrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gbstrrsNextToken :: Lens.Lens' GetBuiltinSlotTypesResponse (Core.Maybe Types.NextToken)
+gbstrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gbstrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @BuiltInSlotTypeMetadata@ objects, one entry for each slot type returned.
 --
 -- /Note:/ Consider using 'slotTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbstrsSlotTypes :: Lens.Lens' GetBuiltinSlotTypesResponse (Lude.Maybe [BuiltinSlotTypeMetadata])
-gbstrsSlotTypes = Lens.lens (slotTypes :: GetBuiltinSlotTypesResponse -> Lude.Maybe [BuiltinSlotTypeMetadata]) (\s a -> s {slotTypes = a} :: GetBuiltinSlotTypesResponse)
-{-# DEPRECATED gbstrsSlotTypes "Use generic-lens or generic-optics with 'slotTypes' instead." #-}
+gbstrrsSlotTypes :: Lens.Lens' GetBuiltinSlotTypesResponse (Core.Maybe [Types.BuiltinSlotTypeMetadata])
+gbstrrsSlotTypes = Lens.field @"slotTypes"
+{-# DEPRECATED gbstrrsSlotTypes "Use generic-lens or generic-optics with 'slotTypes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbstrsResponseStatus :: Lens.Lens' GetBuiltinSlotTypesResponse Lude.Int
-gbstrsResponseStatus = Lens.lens (responseStatus :: GetBuiltinSlotTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBuiltinSlotTypesResponse)
-{-# DEPRECATED gbstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbstrrsResponseStatus :: Lens.Lens' GetBuiltinSlotTypesResponse Core.Int
+gbstrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbstrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,37 +22,34 @@ module Network.AWS.SWF.Types.CloseStatusFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.CloseStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.CloseStatus as Types
 
 -- | Used to filter the closed workflow executions in visibility APIs by their close status.
 --
 -- /See:/ 'mkCloseStatusFilter' smart constructor.
 newtype CloseStatusFilter = CloseStatusFilter'
   { -- | The close status that must match the close status of an execution for it to meet the criteria of this filter.
-    status :: CloseStatus
+    status :: Types.CloseStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloseStatusFilter' with the minimum fields required to make a request.
---
--- * 'status' - The close status that must match the close status of an execution for it to meet the criteria of this filter.
+-- | Creates a 'CloseStatusFilter' value with any optional fields omitted.
 mkCloseStatusFilter ::
   -- | 'status'
-  CloseStatus ->
+  Types.CloseStatus ->
   CloseStatusFilter
-mkCloseStatusFilter pStatus_ =
-  CloseStatusFilter' {status = pStatus_}
+mkCloseStatusFilter status = CloseStatusFilter' {status}
 
 -- | The close status that must match the close status of an execution for it to meet the criteria of this filter.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfStatus :: Lens.Lens' CloseStatusFilter CloseStatus
-csfStatus = Lens.lens (status :: CloseStatusFilter -> CloseStatus) (\s a -> s {status = a} :: CloseStatusFilter)
+csfStatus :: Lens.Lens' CloseStatusFilter Types.CloseStatus
+csfStatus = Lens.field @"status"
 {-# DEPRECATED csfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.ToJSON CloseStatusFilter where
-  toJSON CloseStatusFilter' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("status" Lude..= status)])
+instance Core.FromJSON CloseStatusFilter where
+  toJSON CloseStatusFilter {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("status" Core..= status)])

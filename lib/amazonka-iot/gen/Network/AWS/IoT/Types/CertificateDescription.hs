@@ -17,218 +17,207 @@ module Network.AWS.IoT.Types.CertificateDescription
     mkCertificateDescription,
 
     -- * Lenses
-    cdStatus,
-    cdOwnedBy,
-    cdLastModifiedDate,
     cdCaCertificateId,
-    cdPreviousOwnedBy,
-    cdCertificatePem,
-    cdCertificateARN,
+    cdCertificateArn,
     cdCertificateId,
     cdCertificateMode,
-    cdValidity,
+    cdCertificatePem,
     cdCreationDate,
-    cdGenerationId,
-    cdTransferData,
     cdCustomerVersion,
+    cdGenerationId,
+    cdLastModifiedDate,
+    cdOwnedBy,
+    cdPreviousOwnedBy,
+    cdStatus,
+    cdTransferData,
+    cdValidity,
   )
 where
 
-import Network.AWS.IoT.Types.CertificateMode
-import Network.AWS.IoT.Types.CertificateStatus
-import Network.AWS.IoT.Types.CertificateValidity
-import Network.AWS.IoT.Types.TransferData
+import qualified Network.AWS.IoT.Types.CertificateArn as Types
+import qualified Network.AWS.IoT.Types.CertificateId as Types
+import qualified Network.AWS.IoT.Types.CertificateMode as Types
+import qualified Network.AWS.IoT.Types.CertificatePem as Types
+import qualified Network.AWS.IoT.Types.CertificateStatus as Types
+import qualified Network.AWS.IoT.Types.CertificateValidity as Types
+import qualified Network.AWS.IoT.Types.GenerationId as Types
+import qualified Network.AWS.IoT.Types.OwnedBy as Types
+import qualified Network.AWS.IoT.Types.PreviousOwnedBy as Types
+import qualified Network.AWS.IoT.Types.TransferData as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a certificate.
 --
 -- /See:/ 'mkCertificateDescription' smart constructor.
 data CertificateDescription = CertificateDescription'
-  { -- | The status of the certificate.
-    status :: Lude.Maybe CertificateStatus,
-    -- | The ID of the AWS account that owns the certificate.
-    ownedBy :: Lude.Maybe Lude.Text,
-    -- | The date and time the certificate was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The certificate ID of the CA certificate used to sign this certificate.
-    caCertificateId :: Lude.Maybe Lude.Text,
-    -- | The ID of the AWS account of the previous owner of the certificate.
-    previousOwnedBy :: Lude.Maybe Lude.Text,
-    -- | The certificate data, in PEM format.
-    certificatePem :: Lude.Maybe Lude.Text,
+  { -- | The certificate ID of the CA certificate used to sign this certificate.
+    caCertificateId :: Core.Maybe Types.CertificateId,
     -- | The ARN of the certificate.
-    certificateARN :: Lude.Maybe Lude.Text,
+    certificateArn :: Core.Maybe Types.CertificateArn,
     -- | The ID of the certificate.
-    certificateId :: Lude.Maybe Lude.Text,
+    certificateId :: Core.Maybe Types.CertificateId,
     -- | The mode of the certificate.
-    certificateMode :: Lude.Maybe CertificateMode,
-    -- | When the certificate is valid.
-    validity :: Lude.Maybe CertificateValidity,
+    certificateMode :: Core.Maybe Types.CertificateMode,
+    -- | The certificate data, in PEM format.
+    certificatePem :: Core.Maybe Types.CertificatePem,
     -- | The date and time the certificate was created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
-    -- | The generation ID of the certificate.
-    generationId :: Lude.Maybe Lude.Text,
-    -- | The transfer data.
-    transferData :: Lude.Maybe TransferData,
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The customer version of the certificate.
-    customerVersion :: Lude.Maybe Lude.Natural
+    customerVersion :: Core.Maybe Core.Natural,
+    -- | The generation ID of the certificate.
+    generationId :: Core.Maybe Types.GenerationId,
+    -- | The date and time the certificate was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the AWS account that owns the certificate.
+    ownedBy :: Core.Maybe Types.OwnedBy,
+    -- | The ID of the AWS account of the previous owner of the certificate.
+    previousOwnedBy :: Core.Maybe Types.PreviousOwnedBy,
+    -- | The status of the certificate.
+    status :: Core.Maybe Types.CertificateStatus,
+    -- | The transfer data.
+    transferData :: Core.Maybe Types.TransferData,
+    -- | When the certificate is valid.
+    validity :: Core.Maybe Types.CertificateValidity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CertificateDescription' with the minimum fields required to make a request.
---
--- * 'status' - The status of the certificate.
--- * 'ownedBy' - The ID of the AWS account that owns the certificate.
--- * 'lastModifiedDate' - The date and time the certificate was last modified.
--- * 'caCertificateId' - The certificate ID of the CA certificate used to sign this certificate.
--- * 'previousOwnedBy' - The ID of the AWS account of the previous owner of the certificate.
--- * 'certificatePem' - The certificate data, in PEM format.
--- * 'certificateARN' - The ARN of the certificate.
--- * 'certificateId' - The ID of the certificate.
--- * 'certificateMode' - The mode of the certificate.
--- * 'validity' - When the certificate is valid.
--- * 'creationDate' - The date and time the certificate was created.
--- * 'generationId' - The generation ID of the certificate.
--- * 'transferData' - The transfer data.
--- * 'customerVersion' - The customer version of the certificate.
+-- | Creates a 'CertificateDescription' value with any optional fields omitted.
 mkCertificateDescription ::
   CertificateDescription
 mkCertificateDescription =
   CertificateDescription'
-    { status = Lude.Nothing,
-      ownedBy = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      caCertificateId = Lude.Nothing,
-      previousOwnedBy = Lude.Nothing,
-      certificatePem = Lude.Nothing,
-      certificateARN = Lude.Nothing,
-      certificateId = Lude.Nothing,
-      certificateMode = Lude.Nothing,
-      validity = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      generationId = Lude.Nothing,
-      transferData = Lude.Nothing,
-      customerVersion = Lude.Nothing
+    { caCertificateId = Core.Nothing,
+      certificateArn = Core.Nothing,
+      certificateId = Core.Nothing,
+      certificateMode = Core.Nothing,
+      certificatePem = Core.Nothing,
+      creationDate = Core.Nothing,
+      customerVersion = Core.Nothing,
+      generationId = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      ownedBy = Core.Nothing,
+      previousOwnedBy = Core.Nothing,
+      status = Core.Nothing,
+      transferData = Core.Nothing,
+      validity = Core.Nothing
     }
-
--- | The status of the certificate.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdStatus :: Lens.Lens' CertificateDescription (Lude.Maybe CertificateStatus)
-cdStatus = Lens.lens (status :: CertificateDescription -> Lude.Maybe CertificateStatus) (\s a -> s {status = a} :: CertificateDescription)
-{-# DEPRECATED cdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The ID of the AWS account that owns the certificate.
---
--- /Note:/ Consider using 'ownedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdOwnedBy :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Text)
-cdOwnedBy = Lens.lens (ownedBy :: CertificateDescription -> Lude.Maybe Lude.Text) (\s a -> s {ownedBy = a} :: CertificateDescription)
-{-# DEPRECATED cdOwnedBy "Use generic-lens or generic-optics with 'ownedBy' instead." #-}
-
--- | The date and time the certificate was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdLastModifiedDate :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Timestamp)
-cdLastModifiedDate = Lens.lens (lastModifiedDate :: CertificateDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: CertificateDescription)
-{-# DEPRECATED cdLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The certificate ID of the CA certificate used to sign this certificate.
 --
 -- /Note:/ Consider using 'caCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCaCertificateId :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Text)
-cdCaCertificateId = Lens.lens (caCertificateId :: CertificateDescription -> Lude.Maybe Lude.Text) (\s a -> s {caCertificateId = a} :: CertificateDescription)
+cdCaCertificateId :: Lens.Lens' CertificateDescription (Core.Maybe Types.CertificateId)
+cdCaCertificateId = Lens.field @"caCertificateId"
 {-# DEPRECATED cdCaCertificateId "Use generic-lens or generic-optics with 'caCertificateId' instead." #-}
-
--- | The ID of the AWS account of the previous owner of the certificate.
---
--- /Note:/ Consider using 'previousOwnedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdPreviousOwnedBy :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Text)
-cdPreviousOwnedBy = Lens.lens (previousOwnedBy :: CertificateDescription -> Lude.Maybe Lude.Text) (\s a -> s {previousOwnedBy = a} :: CertificateDescription)
-{-# DEPRECATED cdPreviousOwnedBy "Use generic-lens or generic-optics with 'previousOwnedBy' instead." #-}
-
--- | The certificate data, in PEM format.
---
--- /Note:/ Consider using 'certificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCertificatePem :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Text)
-cdCertificatePem = Lens.lens (certificatePem :: CertificateDescription -> Lude.Maybe Lude.Text) (\s a -> s {certificatePem = a} :: CertificateDescription)
-{-# DEPRECATED cdCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
 
 -- | The ARN of the certificate.
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCertificateARN :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Text)
-cdCertificateARN = Lens.lens (certificateARN :: CertificateDescription -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CertificateDescription)
-{-# DEPRECATED cdCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCertificateArn :: Lens.Lens' CertificateDescription (Core.Maybe Types.CertificateArn)
+cdCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED cdCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | The ID of the certificate.
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCertificateId :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Text)
-cdCertificateId = Lens.lens (certificateId :: CertificateDescription -> Lude.Maybe Lude.Text) (\s a -> s {certificateId = a} :: CertificateDescription)
+cdCertificateId :: Lens.Lens' CertificateDescription (Core.Maybe Types.CertificateId)
+cdCertificateId = Lens.field @"certificateId"
 {-# DEPRECATED cdCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
 -- | The mode of the certificate.
 --
 -- /Note:/ Consider using 'certificateMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCertificateMode :: Lens.Lens' CertificateDescription (Lude.Maybe CertificateMode)
-cdCertificateMode = Lens.lens (certificateMode :: CertificateDescription -> Lude.Maybe CertificateMode) (\s a -> s {certificateMode = a} :: CertificateDescription)
+cdCertificateMode :: Lens.Lens' CertificateDescription (Core.Maybe Types.CertificateMode)
+cdCertificateMode = Lens.field @"certificateMode"
 {-# DEPRECATED cdCertificateMode "Use generic-lens or generic-optics with 'certificateMode' instead." #-}
 
--- | When the certificate is valid.
+-- | The certificate data, in PEM format.
 --
--- /Note:/ Consider using 'validity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdValidity :: Lens.Lens' CertificateDescription (Lude.Maybe CertificateValidity)
-cdValidity = Lens.lens (validity :: CertificateDescription -> Lude.Maybe CertificateValidity) (\s a -> s {validity = a} :: CertificateDescription)
-{-# DEPRECATED cdValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
+-- /Note:/ Consider using 'certificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCertificatePem :: Lens.Lens' CertificateDescription (Core.Maybe Types.CertificatePem)
+cdCertificatePem = Lens.field @"certificatePem"
+{-# DEPRECATED cdCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
 
 -- | The date and time the certificate was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCreationDate :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Timestamp)
-cdCreationDate = Lens.lens (creationDate :: CertificateDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: CertificateDescription)
+cdCreationDate :: Lens.Lens' CertificateDescription (Core.Maybe Core.NominalDiffTime)
+cdCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED cdCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The generation ID of the certificate.
---
--- /Note:/ Consider using 'generationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdGenerationId :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Text)
-cdGenerationId = Lens.lens (generationId :: CertificateDescription -> Lude.Maybe Lude.Text) (\s a -> s {generationId = a} :: CertificateDescription)
-{-# DEPRECATED cdGenerationId "Use generic-lens or generic-optics with 'generationId' instead." #-}
-
--- | The transfer data.
---
--- /Note:/ Consider using 'transferData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdTransferData :: Lens.Lens' CertificateDescription (Lude.Maybe TransferData)
-cdTransferData = Lens.lens (transferData :: CertificateDescription -> Lude.Maybe TransferData) (\s a -> s {transferData = a} :: CertificateDescription)
-{-# DEPRECATED cdTransferData "Use generic-lens or generic-optics with 'transferData' instead." #-}
 
 -- | The customer version of the certificate.
 --
 -- /Note:/ Consider using 'customerVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCustomerVersion :: Lens.Lens' CertificateDescription (Lude.Maybe Lude.Natural)
-cdCustomerVersion = Lens.lens (customerVersion :: CertificateDescription -> Lude.Maybe Lude.Natural) (\s a -> s {customerVersion = a} :: CertificateDescription)
+cdCustomerVersion :: Lens.Lens' CertificateDescription (Core.Maybe Core.Natural)
+cdCustomerVersion = Lens.field @"customerVersion"
 {-# DEPRECATED cdCustomerVersion "Use generic-lens or generic-optics with 'customerVersion' instead." #-}
 
-instance Lude.FromJSON CertificateDescription where
+-- | The generation ID of the certificate.
+--
+-- /Note:/ Consider using 'generationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdGenerationId :: Lens.Lens' CertificateDescription (Core.Maybe Types.GenerationId)
+cdGenerationId = Lens.field @"generationId"
+{-# DEPRECATED cdGenerationId "Use generic-lens or generic-optics with 'generationId' instead." #-}
+
+-- | The date and time the certificate was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdLastModifiedDate :: Lens.Lens' CertificateDescription (Core.Maybe Core.NominalDiffTime)
+cdLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED cdLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The ID of the AWS account that owns the certificate.
+--
+-- /Note:/ Consider using 'ownedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdOwnedBy :: Lens.Lens' CertificateDescription (Core.Maybe Types.OwnedBy)
+cdOwnedBy = Lens.field @"ownedBy"
+{-# DEPRECATED cdOwnedBy "Use generic-lens or generic-optics with 'ownedBy' instead." #-}
+
+-- | The ID of the AWS account of the previous owner of the certificate.
+--
+-- /Note:/ Consider using 'previousOwnedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdPreviousOwnedBy :: Lens.Lens' CertificateDescription (Core.Maybe Types.PreviousOwnedBy)
+cdPreviousOwnedBy = Lens.field @"previousOwnedBy"
+{-# DEPRECATED cdPreviousOwnedBy "Use generic-lens or generic-optics with 'previousOwnedBy' instead." #-}
+
+-- | The status of the certificate.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdStatus :: Lens.Lens' CertificateDescription (Core.Maybe Types.CertificateStatus)
+cdStatus = Lens.field @"status"
+{-# DEPRECATED cdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The transfer data.
+--
+-- /Note:/ Consider using 'transferData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTransferData :: Lens.Lens' CertificateDescription (Core.Maybe Types.TransferData)
+cdTransferData = Lens.field @"transferData"
+{-# DEPRECATED cdTransferData "Use generic-lens or generic-optics with 'transferData' instead." #-}
+
+-- | When the certificate is valid.
+--
+-- /Note:/ Consider using 'validity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdValidity :: Lens.Lens' CertificateDescription (Core.Maybe Types.CertificateValidity)
+cdValidity = Lens.field @"validity"
+{-# DEPRECATED cdValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
+
+instance Core.FromJSON CertificateDescription where
   parseJSON =
-    Lude.withObject
-      "CertificateDescription"
-      ( \x ->
-          CertificateDescription'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "ownedBy")
-            Lude.<*> (x Lude..:? "lastModifiedDate")
-            Lude.<*> (x Lude..:? "caCertificateId")
-            Lude.<*> (x Lude..:? "previousOwnedBy")
-            Lude.<*> (x Lude..:? "certificatePem")
-            Lude.<*> (x Lude..:? "certificateArn")
-            Lude.<*> (x Lude..:? "certificateId")
-            Lude.<*> (x Lude..:? "certificateMode")
-            Lude.<*> (x Lude..:? "validity")
-            Lude.<*> (x Lude..:? "creationDate")
-            Lude.<*> (x Lude..:? "generationId")
-            Lude.<*> (x Lude..:? "transferData")
-            Lude.<*> (x Lude..:? "customerVersion")
-      )
+    Core.withObject "CertificateDescription" Core.$
+      \x ->
+        CertificateDescription'
+          Core.<$> (x Core..:? "caCertificateId")
+          Core.<*> (x Core..:? "certificateArn")
+          Core.<*> (x Core..:? "certificateId")
+          Core.<*> (x Core..:? "certificateMode")
+          Core.<*> (x Core..:? "certificatePem")
+          Core.<*> (x Core..:? "creationDate")
+          Core.<*> (x Core..:? "customerVersion")
+          Core.<*> (x Core..:? "generationId")
+          Core.<*> (x Core..:? "lastModifiedDate")
+          Core.<*> (x Core..:? "ownedBy")
+          Core.<*> (x Core..:? "previousOwnedBy")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "transferData")
+          Core.<*> (x Core..:? "validity")

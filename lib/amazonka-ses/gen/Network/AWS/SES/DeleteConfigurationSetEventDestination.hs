@@ -30,116 +30,109 @@ module Network.AWS.SES.DeleteConfigurationSetEventDestination
     mkDeleteConfigurationSetEventDestinationResponse,
 
     -- ** Response lenses
-    dcsedrsResponseStatus,
+    dcsedrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to delete a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkDeleteConfigurationSetEventDestination' smart constructor.
 data DeleteConfigurationSetEventDestination = DeleteConfigurationSetEventDestination'
   { -- | The name of the configuration set from which to delete the event destination.
-    configurationSetName :: Lude.Text,
+    configurationSetName :: Types.ConfigurationSetName,
     -- | The name of the event destination to delete.
-    eventDestinationName :: Lude.Text
+    eventDestinationName :: Types.EventDestinationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigurationSetEventDestination' with the minimum fields required to make a request.
---
--- * 'configurationSetName' - The name of the configuration set from which to delete the event destination.
--- * 'eventDestinationName' - The name of the event destination to delete.
+-- | Creates a 'DeleteConfigurationSetEventDestination' value with any optional fields omitted.
 mkDeleteConfigurationSetEventDestination ::
   -- | 'configurationSetName'
-  Lude.Text ->
+  Types.ConfigurationSetName ->
   -- | 'eventDestinationName'
-  Lude.Text ->
+  Types.EventDestinationName ->
   DeleteConfigurationSetEventDestination
 mkDeleteConfigurationSetEventDestination
-  pConfigurationSetName_
-  pEventDestinationName_ =
+  configurationSetName
+  eventDestinationName =
     DeleteConfigurationSetEventDestination'
-      { configurationSetName =
-          pConfigurationSetName_,
-        eventDestinationName = pEventDestinationName_
+      { configurationSetName,
+        eventDestinationName
       }
 
 -- | The name of the configuration set from which to delete the event destination.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsedConfigurationSetName :: Lens.Lens' DeleteConfigurationSetEventDestination Lude.Text
-dcsedConfigurationSetName = Lens.lens (configurationSetName :: DeleteConfigurationSetEventDestination -> Lude.Text) (\s a -> s {configurationSetName = a} :: DeleteConfigurationSetEventDestination)
+dcsedConfigurationSetName :: Lens.Lens' DeleteConfigurationSetEventDestination Types.ConfigurationSetName
+dcsedConfigurationSetName = Lens.field @"configurationSetName"
 {-# DEPRECATED dcsedConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 -- | The name of the event destination to delete.
 --
 -- /Note:/ Consider using 'eventDestinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsedEventDestinationName :: Lens.Lens' DeleteConfigurationSetEventDestination Lude.Text
-dcsedEventDestinationName = Lens.lens (eventDestinationName :: DeleteConfigurationSetEventDestination -> Lude.Text) (\s a -> s {eventDestinationName = a} :: DeleteConfigurationSetEventDestination)
+dcsedEventDestinationName :: Lens.Lens' DeleteConfigurationSetEventDestination Types.EventDestinationName
+dcsedEventDestinationName = Lens.field @"eventDestinationName"
 {-# DEPRECATED dcsedEventDestinationName "Use generic-lens or generic-optics with 'eventDestinationName' instead." #-}
 
-instance Lude.AWSRequest DeleteConfigurationSetEventDestination where
+instance Core.AWSRequest DeleteConfigurationSetEventDestination where
   type
     Rs DeleteConfigurationSetEventDestination =
       DeleteConfigurationSetEventDestinationResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteConfigurationSetEventDestination")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ConfigurationSetName" configurationSetName)
+                Core.<> (Core.toQueryValue "EventDestinationName" eventDestinationName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteConfigurationSetEventDestinationResult"
       ( \s h x ->
           DeleteConfigurationSetEventDestinationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteConfigurationSetEventDestination where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteConfigurationSetEventDestination where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConfigurationSetEventDestination where
-  toQuery DeleteConfigurationSetEventDestination' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteConfigurationSetEventDestination" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ConfigurationSetName" Lude.=: configurationSetName,
-        "EventDestinationName" Lude.=: eventDestinationName
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkDeleteConfigurationSetEventDestinationResponse' smart constructor.
 newtype DeleteConfigurationSetEventDestinationResponse = DeleteConfigurationSetEventDestinationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigurationSetEventDestinationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteConfigurationSetEventDestinationResponse' value with any optional fields omitted.
 mkDeleteConfigurationSetEventDestinationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteConfigurationSetEventDestinationResponse
-mkDeleteConfigurationSetEventDestinationResponse pResponseStatus_ =
-  DeleteConfigurationSetEventDestinationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteConfigurationSetEventDestinationResponse responseStatus =
+  DeleteConfigurationSetEventDestinationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsedrsResponseStatus :: Lens.Lens' DeleteConfigurationSetEventDestinationResponse Lude.Int
-dcsedrsResponseStatus = Lens.lens (responseStatus :: DeleteConfigurationSetEventDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConfigurationSetEventDestinationResponse)
-{-# DEPRECATED dcsedrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcsedrrsResponseStatus :: Lens.Lens' DeleteConfigurationSetEventDestinationResponse Core.Int
+dcsedrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcsedrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

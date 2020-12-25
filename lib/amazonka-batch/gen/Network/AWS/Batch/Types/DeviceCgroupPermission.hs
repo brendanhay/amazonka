@@ -13,51 +13,56 @@
 module Network.AWS.Batch.Types.DeviceCgroupPermission
   ( DeviceCgroupPermission
       ( DeviceCgroupPermission',
-        Read,
-        Write,
-        Mknod
+        DeviceCgroupPermissionRead,
+        DeviceCgroupPermissionWrite,
+        DeviceCgroupPermissionMknod,
+        fromDeviceCgroupPermission
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeviceCgroupPermission = DeviceCgroupPermission' Lude.Text
+newtype DeviceCgroupPermission = DeviceCgroupPermission'
+  { fromDeviceCgroupPermission ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Read :: DeviceCgroupPermission
-pattern Read = DeviceCgroupPermission' "READ"
+pattern DeviceCgroupPermissionRead :: DeviceCgroupPermission
+pattern DeviceCgroupPermissionRead = DeviceCgroupPermission' "READ"
 
-pattern Write :: DeviceCgroupPermission
-pattern Write = DeviceCgroupPermission' "WRITE"
+pattern DeviceCgroupPermissionWrite :: DeviceCgroupPermission
+pattern DeviceCgroupPermissionWrite = DeviceCgroupPermission' "WRITE"
 
-pattern Mknod :: DeviceCgroupPermission
-pattern Mknod = DeviceCgroupPermission' "MKNOD"
+pattern DeviceCgroupPermissionMknod :: DeviceCgroupPermission
+pattern DeviceCgroupPermissionMknod = DeviceCgroupPermission' "MKNOD"
 
 {-# COMPLETE
-  Read,
-  Write,
-  Mknod,
+  DeviceCgroupPermissionRead,
+  DeviceCgroupPermissionWrite,
+  DeviceCgroupPermissionMknod,
   DeviceCgroupPermission'
   #-}

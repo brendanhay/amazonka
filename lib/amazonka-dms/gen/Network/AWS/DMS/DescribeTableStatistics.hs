@@ -24,8 +24,8 @@ module Network.AWS.DMS.DescribeTableStatistics
     mkDescribeTableStatistics,
 
     -- ** Request lenses
+    dtsReplicationTaskArn,
     dtsFilters,
-    dtsReplicationTaskARN,
     dtsMarker,
     dtsMaxRecords,
 
@@ -34,65 +34,61 @@ module Network.AWS.DMS.DescribeTableStatistics
     mkDescribeTableStatisticsResponse,
 
     -- ** Response lenses
-    dtsrsReplicationTaskARN,
-    dtsrsMarker,
-    dtsrsTableStatistics,
-    dtsrsResponseStatus,
+    dtsrrsMarker,
+    dtsrrsReplicationTaskArn,
+    dtsrrsTableStatistics,
+    dtsrrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeTableStatistics' smart constructor.
 data DescribeTableStatistics = DescribeTableStatistics'
-  { -- | Filters applied to table statistics.
+  { -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskArn :: Types.ReplicationTaskArn,
+    -- | Filters applied to table statistics.
     --
     -- Valid filter names: schema-name | table-name | table-state
     -- A combination of filters creates an AND condition where each record matches all specified filters.
-    filters :: Lude.Maybe [Filter],
-    -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskARN :: Lude.Text,
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 500.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTableStatistics' with the minimum fields required to make a request.
---
--- * 'filters' - Filters applied to table statistics.
---
--- Valid filter names: schema-name | table-name | table-state
--- A combination of filters creates an AND condition where each record matches all specified filters.
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 500.
+-- | Creates a 'DescribeTableStatistics' value with any optional fields omitted.
 mkDescribeTableStatistics ::
-  -- | 'replicationTaskARN'
-  Lude.Text ->
+  -- | 'replicationTaskArn'
+  Types.ReplicationTaskArn ->
   DescribeTableStatistics
-mkDescribeTableStatistics pReplicationTaskARN_ =
+mkDescribeTableStatistics replicationTaskArn =
   DescribeTableStatistics'
-    { filters = Lude.Nothing,
-      replicationTaskARN = pReplicationTaskARN_,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { replicationTaskArn,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the replication task.
+--
+-- /Note:/ Consider using 'replicationTaskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsReplicationTaskArn :: Lens.Lens' DescribeTableStatistics Types.ReplicationTaskArn
+dtsReplicationTaskArn = Lens.field @"replicationTaskArn"
+{-# DEPRECATED dtsReplicationTaskArn "Use generic-lens or generic-optics with 'replicationTaskArn' instead." #-}
 
 -- | Filters applied to table statistics.
 --
@@ -100,22 +96,15 @@ mkDescribeTableStatistics pReplicationTaskARN_ =
 -- A combination of filters creates an AND condition where each record matches all specified filters.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsFilters :: Lens.Lens' DescribeTableStatistics (Lude.Maybe [Filter])
-dtsFilters = Lens.lens (filters :: DescribeTableStatistics -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeTableStatistics)
+dtsFilters :: Lens.Lens' DescribeTableStatistics (Core.Maybe [Types.Filter])
+dtsFilters = Lens.field @"filters"
 {-# DEPRECATED dtsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the replication task.
---
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsReplicationTaskARN :: Lens.Lens' DescribeTableStatistics Lude.Text
-dtsReplicationTaskARN = Lens.lens (replicationTaskARN :: DescribeTableStatistics -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: DescribeTableStatistics)
-{-# DEPRECATED dtsReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsMarker :: Lens.Lens' DescribeTableStatistics (Lude.Maybe Lude.Text)
-dtsMarker = Lens.lens (marker :: DescribeTableStatistics -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTableStatistics)
+dtsMarker :: Lens.Lens' DescribeTableStatistics (Core.Maybe Types.Marker)
+dtsMarker = Lens.field @"marker"
 {-# DEPRECATED dtsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
@@ -124,117 +113,110 @@ dtsMarker = Lens.lens (marker :: DescribeTableStatistics -> Lude.Maybe Lude.Text
 -- Constraints: Minimum 20, maximum 500.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsMaxRecords :: Lens.Lens' DescribeTableStatistics (Lude.Maybe Lude.Int)
-dtsMaxRecords = Lens.lens (maxRecords :: DescribeTableStatistics -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeTableStatistics)
+dtsMaxRecords :: Lens.Lens' DescribeTableStatistics (Core.Maybe Core.Int)
+dtsMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dtsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeTableStatistics where
-  page rq rs
-    | Page.stop (rs Lens.^. dtsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtsrsTableStatistics) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dtsMarker Lens..~ rs Lens.^. dtsrsMarker
+instance Core.FromJSON DescribeTableStatistics where
+  toJSON DescribeTableStatistics {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ReplicationTaskArn" Core..= replicationTaskArn),
+            ("Filters" Core..=) Core.<$> filters,
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords
+          ]
+      )
 
-instance Lude.AWSRequest DescribeTableStatistics where
+instance Core.AWSRequest DescribeTableStatistics where
   type Rs DescribeTableStatistics = DescribeTableStatisticsResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.DescribeTableStatistics")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTableStatisticsResponse'
-            Lude.<$> (x Lude..?> "ReplicationTaskArn")
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "TableStatistics" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "ReplicationTaskArn")
+            Core.<*> (x Core..:? "TableStatistics")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeTableStatistics where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDMSv20160101.DescribeTableStatistics" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTableStatistics where
-  toJSON DescribeTableStatistics' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN),
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("MaxRecords" Lude..=) Lude.<$> maxRecords
-          ]
-      )
-
-instance Lude.ToPath DescribeTableStatistics where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTableStatistics where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeTableStatistics where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"tableStatistics" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeTableStatisticsResponse' smart constructor.
 data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
-  { -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskARN :: Lude.Maybe Lude.Text,
-    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
+    -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskArn :: Core.Maybe Types.String,
     -- | The table statistics.
-    tableStatistics :: Lude.Maybe [TableStatistics],
+    tableStatistics :: Core.Maybe [Types.TableStatistics],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTableStatisticsResponse' with the minimum fields required to make a request.
---
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'tableStatistics' - The table statistics.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTableStatisticsResponse' value with any optional fields omitted.
 mkDescribeTableStatisticsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTableStatisticsResponse
-mkDescribeTableStatisticsResponse pResponseStatus_ =
+mkDescribeTableStatisticsResponse responseStatus =
   DescribeTableStatisticsResponse'
-    { replicationTaskARN =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      tableStatistics = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      replicationTaskArn = Core.Nothing,
+      tableStatistics = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (ARN) of the replication task.
---
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsReplicationTaskARN :: Lens.Lens' DescribeTableStatisticsResponse (Lude.Maybe Lude.Text)
-dtsrsReplicationTaskARN = Lens.lens (replicationTaskARN :: DescribeTableStatisticsResponse -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskARN = a} :: DescribeTableStatisticsResponse)
-{-# DEPRECATED dtsrsReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsMarker :: Lens.Lens' DescribeTableStatisticsResponse (Lude.Maybe Lude.Text)
-dtsrsMarker = Lens.lens (marker :: DescribeTableStatisticsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTableStatisticsResponse)
-{-# DEPRECATED dtsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dtsrrsMarker :: Lens.Lens' DescribeTableStatisticsResponse (Core.Maybe Types.String)
+dtsrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dtsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the replication task.
+--
+-- /Note:/ Consider using 'replicationTaskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsrrsReplicationTaskArn :: Lens.Lens' DescribeTableStatisticsResponse (Core.Maybe Types.String)
+dtsrrsReplicationTaskArn = Lens.field @"replicationTaskArn"
+{-# DEPRECATED dtsrrsReplicationTaskArn "Use generic-lens or generic-optics with 'replicationTaskArn' instead." #-}
 
 -- | The table statistics.
 --
 -- /Note:/ Consider using 'tableStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsTableStatistics :: Lens.Lens' DescribeTableStatisticsResponse (Lude.Maybe [TableStatistics])
-dtsrsTableStatistics = Lens.lens (tableStatistics :: DescribeTableStatisticsResponse -> Lude.Maybe [TableStatistics]) (\s a -> s {tableStatistics = a} :: DescribeTableStatisticsResponse)
-{-# DEPRECATED dtsrsTableStatistics "Use generic-lens or generic-optics with 'tableStatistics' instead." #-}
+dtsrrsTableStatistics :: Lens.Lens' DescribeTableStatisticsResponse (Core.Maybe [Types.TableStatistics])
+dtsrrsTableStatistics = Lens.field @"tableStatistics"
+{-# DEPRECATED dtsrrsTableStatistics "Use generic-lens or generic-optics with 'tableStatistics' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsResponseStatus :: Lens.Lens' DescribeTableStatisticsResponse Lude.Int
-dtsrsResponseStatus = Lens.lens (responseStatus :: DescribeTableStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTableStatisticsResponse)
-{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtsrrsResponseStatus :: Lens.Lens' DescribeTableStatisticsResponse Core.Int
+dtsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,66 +13,71 @@
 module Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
   ( SigningAlgorithm
       ( SigningAlgorithm',
-        SHA256WITHECDSA,
-        SHA384WITHECDSA,
-        SHA512WITHECDSA,
-        SHA256WITHRSA,
-        SHA384WITHRSA,
-        SHA512WITHRSA
+        SigningAlgorithmSHA256WITHECDSA,
+        SigningAlgorithmSHA384WITHECDSA,
+        SigningAlgorithmSHA512WITHECDSA,
+        SigningAlgorithmSHA256WITHRSA,
+        SigningAlgorithmSHA384WITHRSA,
+        SigningAlgorithmSHA512WITHRSA,
+        fromSigningAlgorithm
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SigningAlgorithm = SigningAlgorithm' Lude.Text
+newtype SigningAlgorithm = SigningAlgorithm'
+  { fromSigningAlgorithm ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SHA256WITHECDSA :: SigningAlgorithm
-pattern SHA256WITHECDSA = SigningAlgorithm' "SHA256WITHECDSA"
+pattern SigningAlgorithmSHA256WITHECDSA :: SigningAlgorithm
+pattern SigningAlgorithmSHA256WITHECDSA = SigningAlgorithm' "SHA256WITHECDSA"
 
-pattern SHA384WITHECDSA :: SigningAlgorithm
-pattern SHA384WITHECDSA = SigningAlgorithm' "SHA384WITHECDSA"
+pattern SigningAlgorithmSHA384WITHECDSA :: SigningAlgorithm
+pattern SigningAlgorithmSHA384WITHECDSA = SigningAlgorithm' "SHA384WITHECDSA"
 
-pattern SHA512WITHECDSA :: SigningAlgorithm
-pattern SHA512WITHECDSA = SigningAlgorithm' "SHA512WITHECDSA"
+pattern SigningAlgorithmSHA512WITHECDSA :: SigningAlgorithm
+pattern SigningAlgorithmSHA512WITHECDSA = SigningAlgorithm' "SHA512WITHECDSA"
 
-pattern SHA256WITHRSA :: SigningAlgorithm
-pattern SHA256WITHRSA = SigningAlgorithm' "SHA256WITHRSA"
+pattern SigningAlgorithmSHA256WITHRSA :: SigningAlgorithm
+pattern SigningAlgorithmSHA256WITHRSA = SigningAlgorithm' "SHA256WITHRSA"
 
-pattern SHA384WITHRSA :: SigningAlgorithm
-pattern SHA384WITHRSA = SigningAlgorithm' "SHA384WITHRSA"
+pattern SigningAlgorithmSHA384WITHRSA :: SigningAlgorithm
+pattern SigningAlgorithmSHA384WITHRSA = SigningAlgorithm' "SHA384WITHRSA"
 
-pattern SHA512WITHRSA :: SigningAlgorithm
-pattern SHA512WITHRSA = SigningAlgorithm' "SHA512WITHRSA"
+pattern SigningAlgorithmSHA512WITHRSA :: SigningAlgorithm
+pattern SigningAlgorithmSHA512WITHRSA = SigningAlgorithm' "SHA512WITHRSA"
 
 {-# COMPLETE
-  SHA256WITHECDSA,
-  SHA384WITHECDSA,
-  SHA512WITHECDSA,
-  SHA256WITHRSA,
-  SHA384WITHRSA,
-  SHA512WITHRSA,
+  SigningAlgorithmSHA256WITHECDSA,
+  SigningAlgorithmSHA384WITHECDSA,
+  SigningAlgorithmSHA512WITHECDSA,
+  SigningAlgorithmSHA256WITHRSA,
+  SigningAlgorithmSHA384WITHRSA,
+  SigningAlgorithmSHA512WITHRSA,
   SigningAlgorithm'
   #-}

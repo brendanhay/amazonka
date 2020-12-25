@@ -18,100 +18,93 @@ module Network.AWS.MediaLive.Types.UdpOutputSettings
 
     -- * Lenses
     uosDestination,
-    uosFecOutputSettings,
-    uosBufferMsec,
     uosContainerSettings,
+    uosBufferMsec,
+    uosFecOutputSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.FecOutputSettings
-import Network.AWS.MediaLive.Types.OutputLocationRef
-import Network.AWS.MediaLive.Types.UdpContainerSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.FecOutputSettings as Types
+import qualified Network.AWS.MediaLive.Types.OutputLocationRef as Types
+import qualified Network.AWS.MediaLive.Types.UdpContainerSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Udp Output Settings
 --
 -- /See:/ 'mkUdpOutputSettings' smart constructor.
 data UdpOutputSettings = UdpOutputSettings'
   { -- | Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
-    destination :: OutputLocationRef,
-    -- | Settings for enabling and adjusting Forward Error Correction on UDP outputs.
-    fecOutputSettings :: Lude.Maybe FecOutputSettings,
+    destination :: Types.OutputLocationRef,
+    containerSettings :: Types.UdpContainerSettings,
     -- | UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-    bufferMsec :: Lude.Maybe Lude.Natural,
-    containerSettings :: UdpContainerSettings
+    bufferMsec :: Core.Maybe Core.Natural,
+    -- | Settings for enabling and adjusting Forward Error Correction on UDP outputs.
+    fecOutputSettings :: Core.Maybe Types.FecOutputSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UdpOutputSettings' with the minimum fields required to make a request.
---
--- * 'destination' - Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
--- * 'fecOutputSettings' - Settings for enabling and adjusting Forward Error Correction on UDP outputs.
--- * 'bufferMsec' - UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
--- * 'containerSettings' -
+-- | Creates a 'UdpOutputSettings' value with any optional fields omitted.
 mkUdpOutputSettings ::
   -- | 'destination'
-  OutputLocationRef ->
+  Types.OutputLocationRef ->
   -- | 'containerSettings'
-  UdpContainerSettings ->
+  Types.UdpContainerSettings ->
   UdpOutputSettings
-mkUdpOutputSettings pDestination_ pContainerSettings_ =
+mkUdpOutputSettings destination containerSettings =
   UdpOutputSettings'
-    { destination = pDestination_,
-      fecOutputSettings = Lude.Nothing,
-      bufferMsec = Lude.Nothing,
-      containerSettings = pContainerSettings_
+    { destination,
+      containerSettings,
+      bufferMsec = Core.Nothing,
+      fecOutputSettings = Core.Nothing
     }
 
 -- | Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uosDestination :: Lens.Lens' UdpOutputSettings OutputLocationRef
-uosDestination = Lens.lens (destination :: UdpOutputSettings -> OutputLocationRef) (\s a -> s {destination = a} :: UdpOutputSettings)
+uosDestination :: Lens.Lens' UdpOutputSettings Types.OutputLocationRef
+uosDestination = Lens.field @"destination"
 {-# DEPRECATED uosDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
--- | Settings for enabling and adjusting Forward Error Correction on UDP outputs.
---
--- /Note:/ Consider using 'fecOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uosFecOutputSettings :: Lens.Lens' UdpOutputSettings (Lude.Maybe FecOutputSettings)
-uosFecOutputSettings = Lens.lens (fecOutputSettings :: UdpOutputSettings -> Lude.Maybe FecOutputSettings) (\s a -> s {fecOutputSettings = a} :: UdpOutputSettings)
-{-# DEPRECATED uosFecOutputSettings "Use generic-lens or generic-optics with 'fecOutputSettings' instead." #-}
-
--- | UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
---
--- /Note:/ Consider using 'bufferMsec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uosBufferMsec :: Lens.Lens' UdpOutputSettings (Lude.Maybe Lude.Natural)
-uosBufferMsec = Lens.lens (bufferMsec :: UdpOutputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {bufferMsec = a} :: UdpOutputSettings)
-{-# DEPRECATED uosBufferMsec "Use generic-lens or generic-optics with 'bufferMsec' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'containerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uosContainerSettings :: Lens.Lens' UdpOutputSettings UdpContainerSettings
-uosContainerSettings = Lens.lens (containerSettings :: UdpOutputSettings -> UdpContainerSettings) (\s a -> s {containerSettings = a} :: UdpOutputSettings)
+uosContainerSettings :: Lens.Lens' UdpOutputSettings Types.UdpContainerSettings
+uosContainerSettings = Lens.field @"containerSettings"
 {-# DEPRECATED uosContainerSettings "Use generic-lens or generic-optics with 'containerSettings' instead." #-}
 
-instance Lude.FromJSON UdpOutputSettings where
-  parseJSON =
-    Lude.withObject
-      "UdpOutputSettings"
-      ( \x ->
-          UdpOutputSettings'
-            Lude.<$> (x Lude..: "destination")
-            Lude.<*> (x Lude..:? "fecOutputSettings")
-            Lude.<*> (x Lude..:? "bufferMsec")
-            Lude.<*> (x Lude..: "containerSettings")
-      )
+-- | UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
+--
+-- /Note:/ Consider using 'bufferMsec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uosBufferMsec :: Lens.Lens' UdpOutputSettings (Core.Maybe Core.Natural)
+uosBufferMsec = Lens.field @"bufferMsec"
+{-# DEPRECATED uosBufferMsec "Use generic-lens or generic-optics with 'bufferMsec' instead." #-}
 
-instance Lude.ToJSON UdpOutputSettings where
-  toJSON UdpOutputSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("destination" Lude..= destination),
-            ("fecOutputSettings" Lude..=) Lude.<$> fecOutputSettings,
-            ("bufferMsec" Lude..=) Lude.<$> bufferMsec,
-            Lude.Just ("containerSettings" Lude..= containerSettings)
+-- | Settings for enabling and adjusting Forward Error Correction on UDP outputs.
+--
+-- /Note:/ Consider using 'fecOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uosFecOutputSettings :: Lens.Lens' UdpOutputSettings (Core.Maybe Types.FecOutputSettings)
+uosFecOutputSettings = Lens.field @"fecOutputSettings"
+{-# DEPRECATED uosFecOutputSettings "Use generic-lens or generic-optics with 'fecOutputSettings' instead." #-}
+
+instance Core.FromJSON UdpOutputSettings where
+  toJSON UdpOutputSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("destination" Core..= destination),
+            Core.Just ("containerSettings" Core..= containerSettings),
+            ("bufferMsec" Core..=) Core.<$> bufferMsec,
+            ("fecOutputSettings" Core..=) Core.<$> fecOutputSettings
           ]
       )
+
+instance Core.FromJSON UdpOutputSettings where
+  parseJSON =
+    Core.withObject "UdpOutputSettings" Core.$
+      \x ->
+        UdpOutputSettings'
+          Core.<$> (x Core..: "destination")
+          Core.<*> (x Core..: "containerSettings")
+          Core.<*> (x Core..:? "bufferMsec")
+          Core.<*> (x Core..:? "fecOutputSettings")

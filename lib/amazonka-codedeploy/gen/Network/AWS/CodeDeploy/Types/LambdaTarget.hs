@@ -17,126 +17,119 @@ module Network.AWS.CodeDeploy.Types.LambdaTarget
     mkLambdaTarget,
 
     -- * Lenses
-    ltTargetARN,
-    ltTargetId,
-    ltStatus,
     ltDeploymentId,
+    ltLambdaFunctionInfo,
     ltLastUpdatedAt,
     ltLifecycleEvents,
-    ltLambdaFunctionInfo,
+    ltStatus,
+    ltTargetArn,
+    ltTargetId,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.LambdaFunctionInfo
-import Network.AWS.CodeDeploy.Types.LifecycleEvent
-import Network.AWS.CodeDeploy.Types.TargetStatus
+import qualified Network.AWS.CodeDeploy.Types.DeploymentId as Types
+import qualified Network.AWS.CodeDeploy.Types.LambdaFunctionInfo as Types
+import qualified Network.AWS.CodeDeploy.Types.LifecycleEvent as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetArn as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetId as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the target AWS Lambda function during an AWS Lambda deployment.
 --
 -- /See:/ 'mkLambdaTarget' smart constructor.
 data LambdaTarget = LambdaTarget'
-  { -- | The Amazon Resource Name (ARN) of the target.
-    targetARN :: Lude.Maybe Lude.Text,
-    -- | The unique ID of a deployment target that has a type of @lambdaTarget@ .
-    targetId :: Lude.Maybe Lude.Text,
-    -- | The status an AWS Lambda deployment's target Lambda function.
-    status :: Lude.Maybe TargetStatus,
-    -- | The unique ID of a deployment.
-    deploymentId :: Lude.Maybe Lude.Text,
-    -- | The date and time when the target Lambda function was updated by a deployment.
-    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The lifecycle events of the deployment to this target Lambda function.
-    lifecycleEvents :: Lude.Maybe [LifecycleEvent],
+  { -- | The unique ID of a deployment.
+    deploymentId :: Core.Maybe Types.DeploymentId,
     -- | A @LambdaFunctionInfo@ object that describes a target Lambda function.
-    lambdaFunctionInfo :: Lude.Maybe LambdaFunctionInfo
+    lambdaFunctionInfo :: Core.Maybe Types.LambdaFunctionInfo,
+    -- | The date and time when the target Lambda function was updated by a deployment.
+    lastUpdatedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The lifecycle events of the deployment to this target Lambda function.
+    lifecycleEvents :: Core.Maybe [Types.LifecycleEvent],
+    -- | The status an AWS Lambda deployment's target Lambda function.
+    status :: Core.Maybe Types.TargetStatus,
+    -- | The Amazon Resource Name (ARN) of the target.
+    targetArn :: Core.Maybe Types.TargetArn,
+    -- | The unique ID of a deployment target that has a type of @lambdaTarget@ .
+    targetId :: Core.Maybe Types.TargetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LambdaTarget' with the minimum fields required to make a request.
---
--- * 'targetARN' - The Amazon Resource Name (ARN) of the target.
--- * 'targetId' - The unique ID of a deployment target that has a type of @lambdaTarget@ .
--- * 'status' - The status an AWS Lambda deployment's target Lambda function.
--- * 'deploymentId' - The unique ID of a deployment.
--- * 'lastUpdatedAt' - The date and time when the target Lambda function was updated by a deployment.
--- * 'lifecycleEvents' - The lifecycle events of the deployment to this target Lambda function.
--- * 'lambdaFunctionInfo' - A @LambdaFunctionInfo@ object that describes a target Lambda function.
+-- | Creates a 'LambdaTarget' value with any optional fields omitted.
 mkLambdaTarget ::
   LambdaTarget
 mkLambdaTarget =
   LambdaTarget'
-    { targetARN = Lude.Nothing,
-      targetId = Lude.Nothing,
-      status = Lude.Nothing,
-      deploymentId = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      lifecycleEvents = Lude.Nothing,
-      lambdaFunctionInfo = Lude.Nothing
+    { deploymentId = Core.Nothing,
+      lambdaFunctionInfo = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      lifecycleEvents = Core.Nothing,
+      status = Core.Nothing,
+      targetArn = Core.Nothing,
+      targetId = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the target.
---
--- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltTargetARN :: Lens.Lens' LambdaTarget (Lude.Maybe Lude.Text)
-ltTargetARN = Lens.lens (targetARN :: LambdaTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: LambdaTarget)
-{-# DEPRECATED ltTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
-
--- | The unique ID of a deployment target that has a type of @lambdaTarget@ .
---
--- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltTargetId :: Lens.Lens' LambdaTarget (Lude.Maybe Lude.Text)
-ltTargetId = Lens.lens (targetId :: LambdaTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: LambdaTarget)
-{-# DEPRECATED ltTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
-
--- | The status an AWS Lambda deployment's target Lambda function.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltStatus :: Lens.Lens' LambdaTarget (Lude.Maybe TargetStatus)
-ltStatus = Lens.lens (status :: LambdaTarget -> Lude.Maybe TargetStatus) (\s a -> s {status = a} :: LambdaTarget)
-{-# DEPRECATED ltStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID of a deployment.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltDeploymentId :: Lens.Lens' LambdaTarget (Lude.Maybe Lude.Text)
-ltDeploymentId = Lens.lens (deploymentId :: LambdaTarget -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: LambdaTarget)
+ltDeploymentId :: Lens.Lens' LambdaTarget (Core.Maybe Types.DeploymentId)
+ltDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED ltDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
+
+-- | A @LambdaFunctionInfo@ object that describes a target Lambda function.
+--
+-- /Note:/ Consider using 'lambdaFunctionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltLambdaFunctionInfo :: Lens.Lens' LambdaTarget (Core.Maybe Types.LambdaFunctionInfo)
+ltLambdaFunctionInfo = Lens.field @"lambdaFunctionInfo"
+{-# DEPRECATED ltLambdaFunctionInfo "Use generic-lens or generic-optics with 'lambdaFunctionInfo' instead." #-}
 
 -- | The date and time when the target Lambda function was updated by a deployment.
 --
 -- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltLastUpdatedAt :: Lens.Lens' LambdaTarget (Lude.Maybe Lude.Timestamp)
-ltLastUpdatedAt = Lens.lens (lastUpdatedAt :: LambdaTarget -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: LambdaTarget)
+ltLastUpdatedAt :: Lens.Lens' LambdaTarget (Core.Maybe Core.NominalDiffTime)
+ltLastUpdatedAt = Lens.field @"lastUpdatedAt"
 {-# DEPRECATED ltLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The lifecycle events of the deployment to this target Lambda function.
 --
 -- /Note:/ Consider using 'lifecycleEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltLifecycleEvents :: Lens.Lens' LambdaTarget (Lude.Maybe [LifecycleEvent])
-ltLifecycleEvents = Lens.lens (lifecycleEvents :: LambdaTarget -> Lude.Maybe [LifecycleEvent]) (\s a -> s {lifecycleEvents = a} :: LambdaTarget)
+ltLifecycleEvents :: Lens.Lens' LambdaTarget (Core.Maybe [Types.LifecycleEvent])
+ltLifecycleEvents = Lens.field @"lifecycleEvents"
 {-# DEPRECATED ltLifecycleEvents "Use generic-lens or generic-optics with 'lifecycleEvents' instead." #-}
 
--- | A @LambdaFunctionInfo@ object that describes a target Lambda function.
+-- | The status an AWS Lambda deployment's target Lambda function.
 --
--- /Note:/ Consider using 'lambdaFunctionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltLambdaFunctionInfo :: Lens.Lens' LambdaTarget (Lude.Maybe LambdaFunctionInfo)
-ltLambdaFunctionInfo = Lens.lens (lambdaFunctionInfo :: LambdaTarget -> Lude.Maybe LambdaFunctionInfo) (\s a -> s {lambdaFunctionInfo = a} :: LambdaTarget)
-{-# DEPRECATED ltLambdaFunctionInfo "Use generic-lens or generic-optics with 'lambdaFunctionInfo' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltStatus :: Lens.Lens' LambdaTarget (Core.Maybe Types.TargetStatus)
+ltStatus = Lens.field @"status"
+{-# DEPRECATED ltStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromJSON LambdaTarget where
+-- | The Amazon Resource Name (ARN) of the target.
+--
+-- /Note:/ Consider using 'targetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltTargetArn :: Lens.Lens' LambdaTarget (Core.Maybe Types.TargetArn)
+ltTargetArn = Lens.field @"targetArn"
+{-# DEPRECATED ltTargetArn "Use generic-lens or generic-optics with 'targetArn' instead." #-}
+
+-- | The unique ID of a deployment target that has a type of @lambdaTarget@ .
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltTargetId :: Lens.Lens' LambdaTarget (Core.Maybe Types.TargetId)
+ltTargetId = Lens.field @"targetId"
+{-# DEPRECATED ltTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+
+instance Core.FromJSON LambdaTarget where
   parseJSON =
-    Lude.withObject
-      "LambdaTarget"
-      ( \x ->
-          LambdaTarget'
-            Lude.<$> (x Lude..:? "targetArn")
-            Lude.<*> (x Lude..:? "targetId")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "deploymentId")
-            Lude.<*> (x Lude..:? "lastUpdatedAt")
-            Lude.<*> (x Lude..:? "lifecycleEvents" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "lambdaFunctionInfo")
-      )
+    Core.withObject "LambdaTarget" Core.$
+      \x ->
+        LambdaTarget'
+          Core.<$> (x Core..:? "deploymentId")
+          Core.<*> (x Core..:? "lambdaFunctionInfo")
+          Core.<*> (x Core..:? "lastUpdatedAt")
+          Core.<*> (x Core..:? "lifecycleEvents")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "targetArn")
+          Core.<*> (x Core..:? "targetId")

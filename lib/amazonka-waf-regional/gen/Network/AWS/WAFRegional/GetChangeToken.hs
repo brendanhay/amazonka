@@ -27,91 +27,82 @@ module Network.AWS.WAFRegional.GetChangeToken
     mkGetChangeTokenResponse,
 
     -- ** Response lenses
-    gctrsChangeToken,
-    gctrsResponseStatus,
+    gctrrsChangeToken,
+    gctrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkGetChangeToken' smart constructor.
 data GetChangeToken = GetChangeToken'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetChangeToken' with the minimum fields required to make a request.
+-- | Creates a 'GetChangeToken' value with any optional fields omitted.
 mkGetChangeToken ::
   GetChangeToken
 mkGetChangeToken = GetChangeToken'
 
-instance Lude.AWSRequest GetChangeToken where
+instance Core.FromJSON GetChangeToken where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest GetChangeToken where
   type Rs GetChangeToken = GetChangeTokenResponse
-  request = Req.postJSON wAFRegionalService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.GetChangeToken")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetChangeTokenResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetChangeToken where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.GetChangeToken" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetChangeToken where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath GetChangeToken where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetChangeToken where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetChangeTokenResponse' smart constructor.
 data GetChangeTokenResponse = GetChangeTokenResponse'
   { -- | The @ChangeToken@ that you used in the request. Use this value in a @GetChangeTokenStatus@ request to get the current status of the request.
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetChangeTokenResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used in the request. Use this value in a @GetChangeTokenStatus@ request to get the current status of the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetChangeTokenResponse' value with any optional fields omitted.
 mkGetChangeTokenResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetChangeTokenResponse
-mkGetChangeTokenResponse pResponseStatus_ =
+mkGetChangeTokenResponse responseStatus =
   GetChangeTokenResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used in the request. Use this value in a @GetChangeTokenStatus@ request to get the current status of the request.
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gctrsChangeToken :: Lens.Lens' GetChangeTokenResponse (Lude.Maybe Lude.Text)
-gctrsChangeToken = Lens.lens (changeToken :: GetChangeTokenResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: GetChangeTokenResponse)
-{-# DEPRECATED gctrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+gctrrsChangeToken :: Lens.Lens' GetChangeTokenResponse (Core.Maybe Types.ChangeToken)
+gctrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED gctrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gctrsResponseStatus :: Lens.Lens' GetChangeTokenResponse Lude.Int
-gctrsResponseStatus = Lens.lens (responseStatus :: GetChangeTokenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetChangeTokenResponse)
-{-# DEPRECATED gctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gctrrsResponseStatus :: Lens.Lens' GetChangeTokenResponse Core.Int
+gctrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gctrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

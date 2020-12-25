@@ -22,154 +22,143 @@ module Network.AWS.CloudWatchLogs.DescribeResourcePolicies
     mkDescribeResourcePolicies,
 
     -- ** Request lenses
-    drpNextToken,
     drpLimit,
+    drpNextToken,
 
     -- * Destructuring the response
     DescribeResourcePoliciesResponse (..),
     mkDescribeResourcePoliciesResponse,
 
     -- ** Response lenses
-    drprsResourcePolicies,
-    drprsNextToken,
-    drprsResponseStatus,
+    drprrsNextToken,
+    drprrsResourcePolicies,
+    drprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeResourcePolicies' smart constructor.
 data DescribeResourcePolicies = DescribeResourcePolicies'
-  { nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of resource policies to be displayed with one call of this API.
-    limit :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of resource policies to be displayed with one call of this API.
+    limit :: Core.Maybe Core.Natural,
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeResourcePolicies' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'limit' - The maximum number of resource policies to be displayed with one call of this API.
+-- | Creates a 'DescribeResourcePolicies' value with any optional fields omitted.
 mkDescribeResourcePolicies ::
   DescribeResourcePolicies
 mkDescribeResourcePolicies =
   DescribeResourcePolicies'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing
+    { limit = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpNextToken :: Lens.Lens' DescribeResourcePolicies (Lude.Maybe Lude.Text)
-drpNextToken = Lens.lens (nextToken :: DescribeResourcePolicies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeResourcePolicies)
-{-# DEPRECATED drpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of resource policies to be displayed with one call of this API.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpLimit :: Lens.Lens' DescribeResourcePolicies (Lude.Maybe Lude.Natural)
-drpLimit = Lens.lens (limit :: DescribeResourcePolicies -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeResourcePolicies)
+drpLimit :: Lens.Lens' DescribeResourcePolicies (Core.Maybe Core.Natural)
+drpLimit = Lens.field @"limit"
 {-# DEPRECATED drpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
-instance Page.AWSPager DescribeResourcePolicies where
-  page rq rs
-    | Page.stop (rs Lens.^. drprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. drprsResourcePolicies) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& drpNextToken Lens..~ rs Lens.^. drprsNextToken
-
-instance Lude.AWSRequest DescribeResourcePolicies where
-  type Rs DescribeResourcePolicies = DescribeResourcePoliciesResponse
-  request = Req.postJSON cloudWatchLogsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribeResourcePoliciesResponse'
-            Lude.<$> (x Lude..?> "resourcePolicies" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeResourcePolicies where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.DescribeResourcePolicies" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeResourcePolicies where
-  toJSON DescribeResourcePolicies' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeResourcePolicies where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeResourcePolicies where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkDescribeResourcePoliciesResponse' smart constructor.
-data DescribeResourcePoliciesResponse = DescribeResourcePoliciesResponse'
-  { -- | The resource policies that exist in this account.
-    resourcePolicies :: Lude.Maybe [ResourcePolicy],
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'DescribeResourcePoliciesResponse' with the minimum fields required to make a request.
---
--- * 'resourcePolicies' - The resource policies that exist in this account.
--- * 'nextToken' -
--- * 'responseStatus' - The response status code.
-mkDescribeResourcePoliciesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  DescribeResourcePoliciesResponse
-mkDescribeResourcePoliciesResponse pResponseStatus_ =
-  DescribeResourcePoliciesResponse'
-    { resourcePolicies =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | The resource policies that exist in this account.
---
--- /Note:/ Consider using 'resourcePolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsResourcePolicies :: Lens.Lens' DescribeResourcePoliciesResponse (Lude.Maybe [ResourcePolicy])
-drprsResourcePolicies = Lens.lens (resourcePolicies :: DescribeResourcePoliciesResponse -> Lude.Maybe [ResourcePolicy]) (\s a -> s {resourcePolicies = a} :: DescribeResourcePoliciesResponse)
-{-# DEPRECATED drprsResourcePolicies "Use generic-lens or generic-optics with 'resourcePolicies' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsNextToken :: Lens.Lens' DescribeResourcePoliciesResponse (Lude.Maybe Lude.Text)
-drprsNextToken = Lens.lens (nextToken :: DescribeResourcePoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeResourcePoliciesResponse)
-{-# DEPRECATED drprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+drpNextToken :: Lens.Lens' DescribeResourcePolicies (Core.Maybe Types.NextToken)
+drpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED drpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON DescribeResourcePolicies where
+  toJSON DescribeResourcePolicies {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("limit" Core..=) Core.<$> limit,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeResourcePolicies where
+  type Rs DescribeResourcePolicies = DescribeResourcePoliciesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Logs_20140328.DescribeResourcePolicies")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeResourcePoliciesResponse'
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "resourcePolicies")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager DescribeResourcePolicies where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"resourcePolicies" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkDescribeResourcePoliciesResponse' smart constructor.
+data DescribeResourcePoliciesResponse = DescribeResourcePoliciesResponse'
+  { nextToken :: Core.Maybe Types.NextToken,
+    -- | The resource policies that exist in this account.
+    resourcePolicies :: Core.Maybe [Types.ResourcePolicy],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'DescribeResourcePoliciesResponse' value with any optional fields omitted.
+mkDescribeResourcePoliciesResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  DescribeResourcePoliciesResponse
+mkDescribeResourcePoliciesResponse responseStatus =
+  DescribeResourcePoliciesResponse'
+    { nextToken = Core.Nothing,
+      resourcePolicies = Core.Nothing,
+      responseStatus
+    }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drprrsNextToken :: Lens.Lens' DescribeResourcePoliciesResponse (Core.Maybe Types.NextToken)
+drprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED drprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The resource policies that exist in this account.
+--
+-- /Note:/ Consider using 'resourcePolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drprrsResourcePolicies :: Lens.Lens' DescribeResourcePoliciesResponse (Core.Maybe [Types.ResourcePolicy])
+drprrsResourcePolicies = Lens.field @"resourcePolicies"
+{-# DEPRECATED drprrsResourcePolicies "Use generic-lens or generic-optics with 'resourcePolicies' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsResponseStatus :: Lens.Lens' DescribeResourcePoliciesResponse Lude.Int
-drprsResponseStatus = Lens.lens (responseStatus :: DescribeResourcePoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeResourcePoliciesResponse)
-{-# DEPRECATED drprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drprrsResponseStatus :: Lens.Lens' DescribeResourcePoliciesResponse Core.Int
+drprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

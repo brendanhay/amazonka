@@ -13,46 +13,48 @@
 module Network.AWS.MediaStoreData.Types.ItemType
   ( ItemType
       ( ItemType',
-        TypeObject,
-        TypeFolder
+        ItemTypeTypeObject,
+        ItemTypeTypeFolder,
+        fromItemType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ItemType = ItemType' Lude.Text
+newtype ItemType = ItemType' {fromItemType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TypeObject :: ItemType
-pattern TypeObject = ItemType' "OBJECT"
+pattern ItemTypeTypeObject :: ItemType
+pattern ItemTypeTypeObject = ItemType' "OBJECT"
 
-pattern TypeFolder :: ItemType
-pattern TypeFolder = ItemType' "FOLDER"
+pattern ItemTypeTypeFolder :: ItemType
+pattern ItemTypeTypeFolder = ItemType' "FOLDER"
 
 {-# COMPLETE
-  TypeObject,
-  TypeFolder,
+  ItemTypeTypeObject,
+  ItemTypeTypeFolder,
   ItemType'
   #-}

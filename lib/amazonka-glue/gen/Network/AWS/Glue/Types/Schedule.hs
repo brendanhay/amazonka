@@ -17,58 +17,54 @@ module Network.AWS.Glue.Types.Schedule
     mkSchedule,
 
     -- * Lenses
-    sState,
     sScheduleExpression,
+    sState,
   )
 where
 
-import Network.AWS.Glue.Types.ScheduleState
+import qualified Network.AWS.Glue.Types.ScheduleExpression as Types
+import qualified Network.AWS.Glue.Types.ScheduleState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A scheduling object using a @cron@ statement to schedule an event.
 --
 -- /See:/ 'mkSchedule' smart constructor.
 data Schedule = Schedule'
-  { -- | The state of the schedule.
-    state :: Lude.Maybe ScheduleState,
-    -- | A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
-    scheduleExpression :: Lude.Maybe Lude.Text
+  { -- | A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+    scheduleExpression :: Core.Maybe Types.ScheduleExpression,
+    -- | The state of the schedule.
+    state :: Core.Maybe Types.ScheduleState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Schedule' with the minimum fields required to make a request.
---
--- * 'state' - The state of the schedule.
--- * 'scheduleExpression' - A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+-- | Creates a 'Schedule' value with any optional fields omitted.
 mkSchedule ::
   Schedule
 mkSchedule =
   Schedule'
-    { state = Lude.Nothing,
-      scheduleExpression = Lude.Nothing
+    { scheduleExpression = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The state of the schedule.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sState :: Lens.Lens' Schedule (Lude.Maybe ScheduleState)
-sState = Lens.lens (state :: Schedule -> Lude.Maybe ScheduleState) (\s a -> s {state = a} :: Schedule)
-{-# DEPRECATED sState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 --
 -- /Note:/ Consider using 'scheduleExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sScheduleExpression :: Lens.Lens' Schedule (Lude.Maybe Lude.Text)
-sScheduleExpression = Lens.lens (scheduleExpression :: Schedule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleExpression = a} :: Schedule)
+sScheduleExpression :: Lens.Lens' Schedule (Core.Maybe Types.ScheduleExpression)
+sScheduleExpression = Lens.field @"scheduleExpression"
 {-# DEPRECATED sScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
 
-instance Lude.FromJSON Schedule where
+-- | The state of the schedule.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sState :: Lens.Lens' Schedule (Core.Maybe Types.ScheduleState)
+sState = Lens.field @"state"
+{-# DEPRECATED sState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON Schedule where
   parseJSON =
-    Lude.withObject
-      "Schedule"
-      ( \x ->
-          Schedule'
-            Lude.<$> (x Lude..:? "State") Lude.<*> (x Lude..:? "ScheduleExpression")
-      )
+    Core.withObject "Schedule" Core.$
+      \x ->
+        Schedule'
+          Core.<$> (x Core..:? "ScheduleExpression") Core.<*> (x Core..:? "State")

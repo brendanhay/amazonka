@@ -22,54 +22,48 @@ module Network.AWS.Comprehend.Types.BatchDetectKeyPhrasesItemResult
   )
 where
 
-import Network.AWS.Comprehend.Types.KeyPhrase
+import qualified Network.AWS.Comprehend.Types.KeyPhrase as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.
 --
 -- /See:/ 'mkBatchDetectKeyPhrasesItemResult' smart constructor.
 data BatchDetectKeyPhrasesItemResult = BatchDetectKeyPhrasesItemResult'
   { -- | The zero-based index of the document in the input list.
-    index :: Lude.Maybe Lude.Int,
+    index :: Core.Maybe Core.Int,
     -- | One or more 'KeyPhrase' objects, one for each key phrase detected in the document.
-    keyPhrases :: Lude.Maybe [KeyPhrase]
+    keyPhrases :: Core.Maybe [Types.KeyPhrase]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetectKeyPhrasesItemResult' with the minimum fields required to make a request.
---
--- * 'index' - The zero-based index of the document in the input list.
--- * 'keyPhrases' - One or more 'KeyPhrase' objects, one for each key phrase detected in the document.
+-- | Creates a 'BatchDetectKeyPhrasesItemResult' value with any optional fields omitted.
 mkBatchDetectKeyPhrasesItemResult ::
   BatchDetectKeyPhrasesItemResult
 mkBatchDetectKeyPhrasesItemResult =
   BatchDetectKeyPhrasesItemResult'
-    { index = Lude.Nothing,
-      keyPhrases = Lude.Nothing
+    { index = Core.Nothing,
+      keyPhrases = Core.Nothing
     }
 
 -- | The zero-based index of the document in the input list.
 --
 -- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdkpirIndex :: Lens.Lens' BatchDetectKeyPhrasesItemResult (Lude.Maybe Lude.Int)
-bdkpirIndex = Lens.lens (index :: BatchDetectKeyPhrasesItemResult -> Lude.Maybe Lude.Int) (\s a -> s {index = a} :: BatchDetectKeyPhrasesItemResult)
+bdkpirIndex :: Lens.Lens' BatchDetectKeyPhrasesItemResult (Core.Maybe Core.Int)
+bdkpirIndex = Lens.field @"index"
 {-# DEPRECATED bdkpirIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
 -- | One or more 'KeyPhrase' objects, one for each key phrase detected in the document.
 --
 -- /Note:/ Consider using 'keyPhrases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdkpirKeyPhrases :: Lens.Lens' BatchDetectKeyPhrasesItemResult (Lude.Maybe [KeyPhrase])
-bdkpirKeyPhrases = Lens.lens (keyPhrases :: BatchDetectKeyPhrasesItemResult -> Lude.Maybe [KeyPhrase]) (\s a -> s {keyPhrases = a} :: BatchDetectKeyPhrasesItemResult)
+bdkpirKeyPhrases :: Lens.Lens' BatchDetectKeyPhrasesItemResult (Core.Maybe [Types.KeyPhrase])
+bdkpirKeyPhrases = Lens.field @"keyPhrases"
 {-# DEPRECATED bdkpirKeyPhrases "Use generic-lens or generic-optics with 'keyPhrases' instead." #-}
 
-instance Lude.FromJSON BatchDetectKeyPhrasesItemResult where
+instance Core.FromJSON BatchDetectKeyPhrasesItemResult where
   parseJSON =
-    Lude.withObject
-      "BatchDetectKeyPhrasesItemResult"
-      ( \x ->
-          BatchDetectKeyPhrasesItemResult'
-            Lude.<$> (x Lude..:? "Index")
-            Lude.<*> (x Lude..:? "KeyPhrases" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BatchDetectKeyPhrasesItemResult" Core.$
+      \x ->
+        BatchDetectKeyPhrasesItemResult'
+          Core.<$> (x Core..:? "Index") Core.<*> (x Core..:? "KeyPhrases")

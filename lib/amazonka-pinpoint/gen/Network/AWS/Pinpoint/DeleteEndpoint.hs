@@ -28,123 +28,104 @@ module Network.AWS.Pinpoint.DeleteEndpoint
     mkDeleteEndpointResponse,
 
     -- ** Response lenses
-    dersEndpointResponse,
-    dersResponseStatus,
+    derrsEndpointResponse,
+    derrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteEndpoint' smart constructor.
 data DeleteEndpoint = DeleteEndpoint'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
+    applicationId :: Core.Text,
     -- | The unique identifier for the endpoint.
-    endpointId :: Lude.Text
+    endpointId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEndpoint' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'endpointId' - The unique identifier for the endpoint.
+-- | Creates a 'DeleteEndpoint' value with any optional fields omitted.
 mkDeleteEndpoint ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'endpointId'
-  Lude.Text ->
+  Core.Text ->
   DeleteEndpoint
-mkDeleteEndpoint pApplicationId_ pEndpointId_ =
-  DeleteEndpoint'
-    { applicationId = pApplicationId_,
-      endpointId = pEndpointId_
-    }
+mkDeleteEndpoint applicationId endpointId =
+  DeleteEndpoint' {applicationId, endpointId}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deApplicationId :: Lens.Lens' DeleteEndpoint Lude.Text
-deApplicationId = Lens.lens (applicationId :: DeleteEndpoint -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteEndpoint)
+deApplicationId :: Lens.Lens' DeleteEndpoint Core.Text
+deApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED deApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the endpoint.
 --
 -- /Note:/ Consider using 'endpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndpointId :: Lens.Lens' DeleteEndpoint Lude.Text
-deEndpointId = Lens.lens (endpointId :: DeleteEndpoint -> Lude.Text) (\s a -> s {endpointId = a} :: DeleteEndpoint)
+deEndpointId :: Lens.Lens' DeleteEndpoint Core.Text
+deEndpointId = Lens.field @"endpointId"
 {-# DEPRECATED deEndpointId "Use generic-lens or generic-optics with 'endpointId' instead." #-}
 
-instance Lude.AWSRequest DeleteEndpoint where
+instance Core.AWSRequest DeleteEndpoint where
   type Rs DeleteEndpoint = DeleteEndpointResponse
-  request = Req.delete pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/endpoints/")
+                Core.<> (Core.toText endpointId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteEndpointResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteEndpoint where
-  toPath DeleteEndpoint' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/endpoints/",
-        Lude.toBS endpointId
-      ]
-
-instance Lude.ToQuery DeleteEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-  { endpointResponse :: EndpointResponse,
+  { endpointResponse :: Types.EndpointResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
---
--- * 'endpointResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteEndpointResponse' value with any optional fields omitted.
 mkDeleteEndpointResponse ::
   -- | 'endpointResponse'
-  EndpointResponse ->
+  Types.EndpointResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteEndpointResponse
-mkDeleteEndpointResponse pEndpointResponse_ pResponseStatus_ =
-  DeleteEndpointResponse'
-    { endpointResponse = pEndpointResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteEndpointResponse endpointResponse responseStatus =
+  DeleteEndpointResponse' {endpointResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'endpointResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersEndpointResponse :: Lens.Lens' DeleteEndpointResponse EndpointResponse
-dersEndpointResponse = Lens.lens (endpointResponse :: DeleteEndpointResponse -> EndpointResponse) (\s a -> s {endpointResponse = a} :: DeleteEndpointResponse)
-{-# DEPRECATED dersEndpointResponse "Use generic-lens or generic-optics with 'endpointResponse' instead." #-}
+derrsEndpointResponse :: Lens.Lens' DeleteEndpointResponse Types.EndpointResponse
+derrsEndpointResponse = Lens.field @"endpointResponse"
+{-# DEPRECATED derrsEndpointResponse "Use generic-lens or generic-optics with 'endpointResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersResponseStatus :: Lens.Lens' DeleteEndpointResponse Lude.Int
-dersResponseStatus = Lens.lens (responseStatus :: DeleteEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEndpointResponse)
-{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derrsResponseStatus :: Lens.Lens' DeleteEndpointResponse Core.Int
+derrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

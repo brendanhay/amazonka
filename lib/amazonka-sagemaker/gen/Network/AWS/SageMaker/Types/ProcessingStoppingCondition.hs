@@ -22,50 +22,43 @@ module Network.AWS.SageMaker.Types.ProcessingStoppingCondition
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a time limit for how long the processing job is allowed to run.
 --
 -- /See:/ 'mkProcessingStoppingCondition' smart constructor.
 newtype ProcessingStoppingCondition = ProcessingStoppingCondition'
   { -- | Specifies the maximum runtime in seconds.
-    maxRuntimeInSeconds :: Lude.Natural
+    maxRuntimeInSeconds :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProcessingStoppingCondition' with the minimum fields required to make a request.
---
--- * 'maxRuntimeInSeconds' - Specifies the maximum runtime in seconds.
+-- | Creates a 'ProcessingStoppingCondition' value with any optional fields omitted.
 mkProcessingStoppingCondition ::
   -- | 'maxRuntimeInSeconds'
-  Lude.Natural ->
+  Core.Natural ->
   ProcessingStoppingCondition
-mkProcessingStoppingCondition pMaxRuntimeInSeconds_ =
-  ProcessingStoppingCondition'
-    { maxRuntimeInSeconds =
-        pMaxRuntimeInSeconds_
-    }
+mkProcessingStoppingCondition maxRuntimeInSeconds =
+  ProcessingStoppingCondition' {maxRuntimeInSeconds}
 
 -- | Specifies the maximum runtime in seconds.
 --
 -- /Note:/ Consider using 'maxRuntimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pscMaxRuntimeInSeconds :: Lens.Lens' ProcessingStoppingCondition Lude.Natural
-pscMaxRuntimeInSeconds = Lens.lens (maxRuntimeInSeconds :: ProcessingStoppingCondition -> Lude.Natural) (\s a -> s {maxRuntimeInSeconds = a} :: ProcessingStoppingCondition)
+pscMaxRuntimeInSeconds :: Lens.Lens' ProcessingStoppingCondition Core.Natural
+pscMaxRuntimeInSeconds = Lens.field @"maxRuntimeInSeconds"
 {-# DEPRECATED pscMaxRuntimeInSeconds "Use generic-lens or generic-optics with 'maxRuntimeInSeconds' instead." #-}
 
-instance Lude.FromJSON ProcessingStoppingCondition where
-  parseJSON =
-    Lude.withObject
-      "ProcessingStoppingCondition"
-      ( \x ->
-          ProcessingStoppingCondition'
-            Lude.<$> (x Lude..: "MaxRuntimeInSeconds")
+instance Core.FromJSON ProcessingStoppingCondition where
+  toJSON ProcessingStoppingCondition {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("MaxRuntimeInSeconds" Core..= maxRuntimeInSeconds)]
       )
 
-instance Lude.ToJSON ProcessingStoppingCondition where
-  toJSON ProcessingStoppingCondition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("MaxRuntimeInSeconds" Lude..= maxRuntimeInSeconds)]
-      )
+instance Core.FromJSON ProcessingStoppingCondition where
+  parseJSON =
+    Core.withObject "ProcessingStoppingCondition" Core.$
+      \x ->
+        ProcessingStoppingCondition'
+          Core.<$> (x Core..: "MaxRuntimeInSeconds")

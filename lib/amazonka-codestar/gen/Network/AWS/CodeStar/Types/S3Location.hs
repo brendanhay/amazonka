@@ -22,49 +22,48 @@ module Network.AWS.CodeStar.Types.S3Location
   )
 where
 
+import qualified Network.AWS.CodeStar.Types.BucketKey as Types
+import qualified Network.AWS.CodeStar.Types.BucketName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Amazon S3 location where the source code files provided with the project request are stored.
 --
 -- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
   { -- | The Amazon S3 object key where the source code files provided with the project request are stored.
-    bucketKey :: Lude.Maybe Lude.Text,
+    bucketKey :: Core.Maybe Types.BucketKey,
     -- | The Amazon S3 bucket name where the source code files provided with the project request are stored.
-    bucketName :: Lude.Maybe Lude.Text
+    bucketName :: Core.Maybe Types.BucketName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Location' with the minimum fields required to make a request.
---
--- * 'bucketKey' - The Amazon S3 object key where the source code files provided with the project request are stored.
--- * 'bucketName' - The Amazon S3 bucket name where the source code files provided with the project request are stored.
+-- | Creates a 'S3Location' value with any optional fields omitted.
 mkS3Location ::
   S3Location
 mkS3Location =
-  S3Location' {bucketKey = Lude.Nothing, bucketName = Lude.Nothing}
+  S3Location' {bucketKey = Core.Nothing, bucketName = Core.Nothing}
 
 -- | The Amazon S3 object key where the source code files provided with the project request are stored.
 --
 -- /Note:/ Consider using 'bucketKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slBucketKey :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
-slBucketKey = Lens.lens (bucketKey :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {bucketKey = a} :: S3Location)
+slBucketKey :: Lens.Lens' S3Location (Core.Maybe Types.BucketKey)
+slBucketKey = Lens.field @"bucketKey"
 {-# DEPRECATED slBucketKey "Use generic-lens or generic-optics with 'bucketKey' instead." #-}
 
 -- | The Amazon S3 bucket name where the source code files provided with the project request are stored.
 --
 -- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slBucketName :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
-slBucketName = Lens.lens (bucketName :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {bucketName = a} :: S3Location)
+slBucketName :: Lens.Lens' S3Location (Core.Maybe Types.BucketName)
+slBucketName = Lens.field @"bucketName"
 {-# DEPRECATED slBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
-instance Lude.ToJSON S3Location where
-  toJSON S3Location' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("bucketKey" Lude..=) Lude.<$> bucketKey,
-            ("bucketName" Lude..=) Lude.<$> bucketName
+instance Core.FromJSON S3Location where
+  toJSON S3Location {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bucketKey" Core..=) Core.<$> bucketKey,
+            ("bucketName" Core..=) Core.<$> bucketName
           ]
       )

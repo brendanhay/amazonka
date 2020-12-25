@@ -17,156 +17,148 @@ module Network.AWS.SageMaker.Types.AutoMLJobSummary
     mkAutoMLJobSummary,
 
     -- * Lenses
-    amljsCreationTime,
-    amljsFailureReason,
-    amljsAutoMLJobStatus,
-    amljsLastModifiedTime,
     amljsAutoMLJobName,
-    amljsAutoMLJobARN,
+    amljsAutoMLJobArn,
+    amljsAutoMLJobStatus,
     amljsAutoMLJobSecondaryStatus,
+    amljsCreationTime,
+    amljsLastModifiedTime,
     amljsEndTime,
+    amljsFailureReason,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus
-import Network.AWS.SageMaker.Types.AutoMLJobStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AutoMLFailureReason as Types
+import qualified Network.AWS.SageMaker.Types.AutoMLJobArn as Types
+import qualified Network.AWS.SageMaker.Types.AutoMLJobName as Types
+import qualified Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus as Types
+import qualified Network.AWS.SageMaker.Types.AutoMLJobStatus as Types
 
 -- | Provides a summary about a job.
 --
 -- /See:/ 'mkAutoMLJobSummary' smart constructor.
 data AutoMLJobSummary = AutoMLJobSummary'
-  { -- | When the job was created.
-    creationTime :: Lude.Timestamp,
-    -- | The failure reason of a job.
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | The job's status.
-    autoMLJobStatus :: AutoMLJobStatus,
-    -- | When the job was last modified.
-    lastModifiedTime :: Lude.Timestamp,
-    -- | The name of the object you are requesting.
-    autoMLJobName :: Lude.Text,
+  { -- | The name of the object you are requesting.
+    autoMLJobName :: Types.AutoMLJobName,
     -- | The ARN of the job.
-    autoMLJobARN :: Lude.Text,
+    autoMLJobArn :: Types.AutoMLJobArn,
+    -- | The job's status.
+    autoMLJobStatus :: Types.AutoMLJobStatus,
     -- | The job's secondary status.
-    autoMLJobSecondaryStatus :: AutoMLJobSecondaryStatus,
+    autoMLJobSecondaryStatus :: Types.AutoMLJobSecondaryStatus,
+    -- | When the job was created.
+    creationTime :: Core.NominalDiffTime,
+    -- | When the job was last modified.
+    lastModifiedTime :: Core.NominalDiffTime,
     -- | The end time of an AutoML job.
-    endTime :: Lude.Maybe Lude.Timestamp
+    endTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The failure reason of a job.
+    failureReason :: Core.Maybe Types.AutoMLFailureReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AutoMLJobSummary' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the job was created.
--- * 'failureReason' - The failure reason of a job.
--- * 'autoMLJobStatus' - The job's status.
--- * 'lastModifiedTime' - When the job was last modified.
--- * 'autoMLJobName' - The name of the object you are requesting.
--- * 'autoMLJobARN' - The ARN of the job.
--- * 'autoMLJobSecondaryStatus' - The job's secondary status.
--- * 'endTime' - The end time of an AutoML job.
+-- | Creates a 'AutoMLJobSummary' value with any optional fields omitted.
 mkAutoMLJobSummary ::
-  -- | 'creationTime'
-  Lude.Timestamp ->
-  -- | 'autoMLJobStatus'
-  AutoMLJobStatus ->
-  -- | 'lastModifiedTime'
-  Lude.Timestamp ->
   -- | 'autoMLJobName'
-  Lude.Text ->
-  -- | 'autoMLJobARN'
-  Lude.Text ->
+  Types.AutoMLJobName ->
+  -- | 'autoMLJobArn'
+  Types.AutoMLJobArn ->
+  -- | 'autoMLJobStatus'
+  Types.AutoMLJobStatus ->
   -- | 'autoMLJobSecondaryStatus'
-  AutoMLJobSecondaryStatus ->
+  Types.AutoMLJobSecondaryStatus ->
+  -- | 'creationTime'
+  Core.NominalDiffTime ->
+  -- | 'lastModifiedTime'
+  Core.NominalDiffTime ->
   AutoMLJobSummary
 mkAutoMLJobSummary
-  pCreationTime_
-  pAutoMLJobStatus_
-  pLastModifiedTime_
-  pAutoMLJobName_
-  pAutoMLJobARN_
-  pAutoMLJobSecondaryStatus_ =
+  autoMLJobName
+  autoMLJobArn
+  autoMLJobStatus
+  autoMLJobSecondaryStatus
+  creationTime
+  lastModifiedTime =
     AutoMLJobSummary'
-      { creationTime = pCreationTime_,
-        failureReason = Lude.Nothing,
-        autoMLJobStatus = pAutoMLJobStatus_,
-        lastModifiedTime = pLastModifiedTime_,
-        autoMLJobName = pAutoMLJobName_,
-        autoMLJobARN = pAutoMLJobARN_,
-        autoMLJobSecondaryStatus = pAutoMLJobSecondaryStatus_,
-        endTime = Lude.Nothing
+      { autoMLJobName,
+        autoMLJobArn,
+        autoMLJobStatus,
+        autoMLJobSecondaryStatus,
+        creationTime,
+        lastModifiedTime,
+        endTime = Core.Nothing,
+        failureReason = Core.Nothing
       }
-
--- | When the job was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljsCreationTime :: Lens.Lens' AutoMLJobSummary Lude.Timestamp
-amljsCreationTime = Lens.lens (creationTime :: AutoMLJobSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: AutoMLJobSummary)
-{-# DEPRECATED amljsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The failure reason of a job.
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljsFailureReason :: Lens.Lens' AutoMLJobSummary (Lude.Maybe Lude.Text)
-amljsFailureReason = Lens.lens (failureReason :: AutoMLJobSummary -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: AutoMLJobSummary)
-{-# DEPRECATED amljsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | The job's status.
---
--- /Note:/ Consider using 'autoMLJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljsAutoMLJobStatus :: Lens.Lens' AutoMLJobSummary AutoMLJobStatus
-amljsAutoMLJobStatus = Lens.lens (autoMLJobStatus :: AutoMLJobSummary -> AutoMLJobStatus) (\s a -> s {autoMLJobStatus = a} :: AutoMLJobSummary)
-{-# DEPRECATED amljsAutoMLJobStatus "Use generic-lens or generic-optics with 'autoMLJobStatus' instead." #-}
-
--- | When the job was last modified.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljsLastModifiedTime :: Lens.Lens' AutoMLJobSummary Lude.Timestamp
-amljsLastModifiedTime = Lens.lens (lastModifiedTime :: AutoMLJobSummary -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: AutoMLJobSummary)
-{-# DEPRECATED amljsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The name of the object you are requesting.
 --
 -- /Note:/ Consider using 'autoMLJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljsAutoMLJobName :: Lens.Lens' AutoMLJobSummary Lude.Text
-amljsAutoMLJobName = Lens.lens (autoMLJobName :: AutoMLJobSummary -> Lude.Text) (\s a -> s {autoMLJobName = a} :: AutoMLJobSummary)
+amljsAutoMLJobName :: Lens.Lens' AutoMLJobSummary Types.AutoMLJobName
+amljsAutoMLJobName = Lens.field @"autoMLJobName"
 {-# DEPRECATED amljsAutoMLJobName "Use generic-lens or generic-optics with 'autoMLJobName' instead." #-}
 
 -- | The ARN of the job.
 --
--- /Note:/ Consider using 'autoMLJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljsAutoMLJobARN :: Lens.Lens' AutoMLJobSummary Lude.Text
-amljsAutoMLJobARN = Lens.lens (autoMLJobARN :: AutoMLJobSummary -> Lude.Text) (\s a -> s {autoMLJobARN = a} :: AutoMLJobSummary)
-{-# DEPRECATED amljsAutoMLJobARN "Use generic-lens or generic-optics with 'autoMLJobARN' instead." #-}
+-- /Note:/ Consider using 'autoMLJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amljsAutoMLJobArn :: Lens.Lens' AutoMLJobSummary Types.AutoMLJobArn
+amljsAutoMLJobArn = Lens.field @"autoMLJobArn"
+{-# DEPRECATED amljsAutoMLJobArn "Use generic-lens or generic-optics with 'autoMLJobArn' instead." #-}
+
+-- | The job's status.
+--
+-- /Note:/ Consider using 'autoMLJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amljsAutoMLJobStatus :: Lens.Lens' AutoMLJobSummary Types.AutoMLJobStatus
+amljsAutoMLJobStatus = Lens.field @"autoMLJobStatus"
+{-# DEPRECATED amljsAutoMLJobStatus "Use generic-lens or generic-optics with 'autoMLJobStatus' instead." #-}
 
 -- | The job's secondary status.
 --
 -- /Note:/ Consider using 'autoMLJobSecondaryStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljsAutoMLJobSecondaryStatus :: Lens.Lens' AutoMLJobSummary AutoMLJobSecondaryStatus
-amljsAutoMLJobSecondaryStatus = Lens.lens (autoMLJobSecondaryStatus :: AutoMLJobSummary -> AutoMLJobSecondaryStatus) (\s a -> s {autoMLJobSecondaryStatus = a} :: AutoMLJobSummary)
+amljsAutoMLJobSecondaryStatus :: Lens.Lens' AutoMLJobSummary Types.AutoMLJobSecondaryStatus
+amljsAutoMLJobSecondaryStatus = Lens.field @"autoMLJobSecondaryStatus"
 {-# DEPRECATED amljsAutoMLJobSecondaryStatus "Use generic-lens or generic-optics with 'autoMLJobSecondaryStatus' instead." #-}
+
+-- | When the job was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amljsCreationTime :: Lens.Lens' AutoMLJobSummary Core.NominalDiffTime
+amljsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED amljsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | When the job was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amljsLastModifiedTime :: Lens.Lens' AutoMLJobSummary Core.NominalDiffTime
+amljsLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED amljsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The end time of an AutoML job.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljsEndTime :: Lens.Lens' AutoMLJobSummary (Lude.Maybe Lude.Timestamp)
-amljsEndTime = Lens.lens (endTime :: AutoMLJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: AutoMLJobSummary)
+amljsEndTime :: Lens.Lens' AutoMLJobSummary (Core.Maybe Core.NominalDiffTime)
+amljsEndTime = Lens.field @"endTime"
 {-# DEPRECATED amljsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance Lude.FromJSON AutoMLJobSummary where
+-- | The failure reason of a job.
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amljsFailureReason :: Lens.Lens' AutoMLJobSummary (Core.Maybe Types.AutoMLFailureReason)
+amljsFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED amljsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+
+instance Core.FromJSON AutoMLJobSummary where
   parseJSON =
-    Lude.withObject
-      "AutoMLJobSummary"
-      ( \x ->
-          AutoMLJobSummary'
-            Lude.<$> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..: "AutoMLJobStatus")
-            Lude.<*> (x Lude..: "LastModifiedTime")
-            Lude.<*> (x Lude..: "AutoMLJobName")
-            Lude.<*> (x Lude..: "AutoMLJobArn")
-            Lude.<*> (x Lude..: "AutoMLJobSecondaryStatus")
-            Lude.<*> (x Lude..:? "EndTime")
-      )
+    Core.withObject "AutoMLJobSummary" Core.$
+      \x ->
+        AutoMLJobSummary'
+          Core.<$> (x Core..: "AutoMLJobName")
+          Core.<*> (x Core..: "AutoMLJobArn")
+          Core.<*> (x Core..: "AutoMLJobStatus")
+          Core.<*> (x Core..: "AutoMLJobSecondaryStatus")
+          Core.<*> (x Core..: "CreationTime")
+          Core.<*> (x Core..: "LastModifiedTime")
+          Core.<*> (x Core..:? "EndTime")
+          Core.<*> (x Core..:? "FailureReason")

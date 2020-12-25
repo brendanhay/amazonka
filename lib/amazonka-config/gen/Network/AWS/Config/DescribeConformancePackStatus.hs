@@ -21,163 +21,149 @@ module Network.AWS.Config.DescribeConformancePackStatus
 
     -- ** Request lenses
     dcpsConformancePackNames,
-    dcpsNextToken,
     dcpsLimit,
+    dcpsNextToken,
 
     -- * Destructuring the response
     DescribeConformancePackStatusResponse (..),
     mkDescribeConformancePackStatusResponse,
 
     -- ** Response lenses
-    dcpsrsConformancePackStatusDetails,
-    dcpsrsNextToken,
-    dcpsrsResponseStatus,
+    dcpsrrsConformancePackStatusDetails,
+    dcpsrrsNextToken,
+    dcpsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeConformancePackStatus' smart constructor.
 data DescribeConformancePackStatus = DescribeConformancePackStatus'
   { -- | Comma-separated list of conformance pack names.
-    conformancePackNames :: Lude.Maybe [Lude.Text],
-    -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+    conformancePackNames :: Core.Maybe [Types.ConformancePackName],
     -- | The maximum number of conformance packs status returned on each page.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConformancePackStatus' with the minimum fields required to make a request.
---
--- * 'conformancePackNames' - Comma-separated list of conformance pack names.
--- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
--- * 'limit' - The maximum number of conformance packs status returned on each page.
+-- | Creates a 'DescribeConformancePackStatus' value with any optional fields omitted.
 mkDescribeConformancePackStatus ::
   DescribeConformancePackStatus
 mkDescribeConformancePackStatus =
   DescribeConformancePackStatus'
     { conformancePackNames =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing
+        Core.Nothing,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Comma-separated list of conformance pack names.
 --
 -- /Note:/ Consider using 'conformancePackNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsConformancePackNames :: Lens.Lens' DescribeConformancePackStatus (Lude.Maybe [Lude.Text])
-dcpsConformancePackNames = Lens.lens (conformancePackNames :: DescribeConformancePackStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {conformancePackNames = a} :: DescribeConformancePackStatus)
+dcpsConformancePackNames :: Lens.Lens' DescribeConformancePackStatus (Core.Maybe [Types.ConformancePackName])
+dcpsConformancePackNames = Lens.field @"conformancePackNames"
 {-# DEPRECATED dcpsConformancePackNames "Use generic-lens or generic-optics with 'conformancePackNames' instead." #-}
-
--- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsNextToken :: Lens.Lens' DescribeConformancePackStatus (Lude.Maybe Lude.Text)
-dcpsNextToken = Lens.lens (nextToken :: DescribeConformancePackStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConformancePackStatus)
-{-# DEPRECATED dcpsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of conformance packs status returned on each page.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsLimit :: Lens.Lens' DescribeConformancePackStatus (Lude.Maybe Lude.Natural)
-dcpsLimit = Lens.lens (limit :: DescribeConformancePackStatus -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeConformancePackStatus)
+dcpsLimit :: Lens.Lens' DescribeConformancePackStatus (Core.Maybe Core.Natural)
+dcpsLimit = Lens.field @"limit"
 {-# DEPRECATED dcpsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest DescribeConformancePackStatus where
+-- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpsNextToken :: Lens.Lens' DescribeConformancePackStatus (Core.Maybe Types.NextToken)
+dcpsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcpsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON DescribeConformancePackStatus where
+  toJSON DescribeConformancePackStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConformancePackNames" Core..=) Core.<$> conformancePackNames,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeConformancePackStatus where
   type
     Rs DescribeConformancePackStatus =
       DescribeConformancePackStatusResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DescribeConformancePackStatus"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeConformancePackStatusResponse'
-            Lude.<$> (x Lude..?> "ConformancePackStatusDetails" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ConformancePackStatusDetails")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeConformancePackStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DescribeConformancePackStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeConformancePackStatus where
-  toJSON DescribeConformancePackStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ConformancePackNames" Lude..=) Lude.<$> conformancePackNames,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeConformancePackStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConformancePackStatus where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeConformancePackStatusResponse' smart constructor.
 data DescribeConformancePackStatusResponse = DescribeConformancePackStatusResponse'
   { -- | A list of @ConformancePackStatusDetail@ objects.
-    conformancePackStatusDetails :: Lude.Maybe [ConformancePackStatusDetail],
+    conformancePackStatusDetails :: Core.Maybe [Types.ConformancePackStatusDetail],
     -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeConformancePackStatusResponse' with the minimum fields required to make a request.
---
--- * 'conformancePackStatusDetails' - A list of @ConformancePackStatusDetail@ objects.
--- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeConformancePackStatusResponse' value with any optional fields omitted.
 mkDescribeConformancePackStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeConformancePackStatusResponse
-mkDescribeConformancePackStatusResponse pResponseStatus_ =
+mkDescribeConformancePackStatusResponse responseStatus =
   DescribeConformancePackStatusResponse'
     { conformancePackStatusDetails =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of @ConformancePackStatusDetail@ objects.
 --
 -- /Note:/ Consider using 'conformancePackStatusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsrsConformancePackStatusDetails :: Lens.Lens' DescribeConformancePackStatusResponse (Lude.Maybe [ConformancePackStatusDetail])
-dcpsrsConformancePackStatusDetails = Lens.lens (conformancePackStatusDetails :: DescribeConformancePackStatusResponse -> Lude.Maybe [ConformancePackStatusDetail]) (\s a -> s {conformancePackStatusDetails = a} :: DescribeConformancePackStatusResponse)
-{-# DEPRECATED dcpsrsConformancePackStatusDetails "Use generic-lens or generic-optics with 'conformancePackStatusDetails' instead." #-}
+dcpsrrsConformancePackStatusDetails :: Lens.Lens' DescribeConformancePackStatusResponse (Core.Maybe [Types.ConformancePackStatusDetail])
+dcpsrrsConformancePackStatusDetails = Lens.field @"conformancePackStatusDetails"
+{-# DEPRECATED dcpsrrsConformancePackStatusDetails "Use generic-lens or generic-optics with 'conformancePackStatusDetails' instead." #-}
 
 -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsrsNextToken :: Lens.Lens' DescribeConformancePackStatusResponse (Lude.Maybe Lude.Text)
-dcpsrsNextToken = Lens.lens (nextToken :: DescribeConformancePackStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConformancePackStatusResponse)
-{-# DEPRECATED dcpsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcpsrrsNextToken :: Lens.Lens' DescribeConformancePackStatusResponse (Core.Maybe Types.NextToken)
+dcpsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcpsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsrsResponseStatus :: Lens.Lens' DescribeConformancePackStatusResponse Lude.Int
-dcpsrsResponseStatus = Lens.lens (responseStatus :: DescribeConformancePackStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConformancePackStatusResponse)
-{-# DEPRECATED dcpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcpsrrsResponseStatus :: Lens.Lens' DescribeConformancePackStatusResponse Core.Int
+dcpsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcpsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

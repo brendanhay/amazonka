@@ -21,43 +21,39 @@ module Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescriptio
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription
+import qualified Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides configuration information about an input processor. Currently, the only input processor available is <https://docs.aws.amazon.com/lambda/ AWS Lambda> .
 --
 -- /See:/ 'mkInputProcessingConfigurationDescription' smart constructor.
 newtype InputProcessingConfigurationDescription = InputProcessingConfigurationDescription'
   { -- | Provides configuration information about the associated <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html InputLambdaProcessorDescription> .
-    inputLambdaProcessorDescription :: Lude.Maybe InputLambdaProcessorDescription
+    inputLambdaProcessorDescription :: Core.Maybe Types.InputLambdaProcessorDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputProcessingConfigurationDescription' with the minimum fields required to make a request.
---
--- * 'inputLambdaProcessorDescription' - Provides configuration information about the associated <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html InputLambdaProcessorDescription> .
+-- | Creates a 'InputProcessingConfigurationDescription' value with any optional fields omitted.
 mkInputProcessingConfigurationDescription ::
   InputProcessingConfigurationDescription
 mkInputProcessingConfigurationDescription =
   InputProcessingConfigurationDescription'
     { inputLambdaProcessorDescription =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | Provides configuration information about the associated <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html InputLambdaProcessorDescription> .
 --
 -- /Note:/ Consider using 'inputLambdaProcessorDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipcdInputLambdaProcessorDescription :: Lens.Lens' InputProcessingConfigurationDescription (Lude.Maybe InputLambdaProcessorDescription)
-ipcdInputLambdaProcessorDescription = Lens.lens (inputLambdaProcessorDescription :: InputProcessingConfigurationDescription -> Lude.Maybe InputLambdaProcessorDescription) (\s a -> s {inputLambdaProcessorDescription = a} :: InputProcessingConfigurationDescription)
+ipcdInputLambdaProcessorDescription :: Lens.Lens' InputProcessingConfigurationDescription (Core.Maybe Types.InputLambdaProcessorDescription)
+ipcdInputLambdaProcessorDescription = Lens.field @"inputLambdaProcessorDescription"
 {-# DEPRECATED ipcdInputLambdaProcessorDescription "Use generic-lens or generic-optics with 'inputLambdaProcessorDescription' instead." #-}
 
-instance Lude.FromJSON InputProcessingConfigurationDescription where
+instance Core.FromJSON InputProcessingConfigurationDescription where
   parseJSON =
-    Lude.withObject
-      "InputProcessingConfigurationDescription"
-      ( \x ->
-          InputProcessingConfigurationDescription'
-            Lude.<$> (x Lude..:? "InputLambdaProcessorDescription")
-      )
+    Core.withObject "InputProcessingConfigurationDescription" Core.$
+      \x ->
+        InputProcessingConfigurationDescription'
+          Core.<$> (x Core..:? "InputLambdaProcessorDescription")

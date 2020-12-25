@@ -17,14 +17,17 @@ module Network.AWS.SWF.Types.StartTimerDecisionAttributes
     mkStartTimerDecisionAttributes,
 
     -- * Lenses
-    stdaControl,
     stdaTimerId,
     stdaStartToFireTimeout,
+    stdaControl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.StartToFireTimeout as Types
+import qualified Network.AWS.SWF.Types.TimerId as Types
 
 -- | Provides the details of the @StartTimer@ decision.
 --
@@ -44,56 +47,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStartTimerDecisionAttributes' smart constructor.
 data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
-  { -- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
-    control :: Lude.Maybe Lude.Text,
-    -- | The unique ID of the timer.
+  { -- | The unique ID of the timer.
     --
     -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
-    timerId :: Lude.Text,
+    timerId :: Types.TimerId,
     -- | The duration to wait before firing the timer.
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ .
-    startToFireTimeout :: Lude.Text
+    startToFireTimeout :: Types.StartToFireTimeout,
+    -- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
+    control :: Core.Maybe Types.Data
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartTimerDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'control' - The data attached to the event that can be used by the decider in subsequent workflow tasks.
--- * 'timerId' - The unique ID of the timer.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
--- * 'startToFireTimeout' - The duration to wait before firing the timer.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ .
+-- | Creates a 'StartTimerDecisionAttributes' value with any optional fields omitted.
 mkStartTimerDecisionAttributes ::
   -- | 'timerId'
-  Lude.Text ->
+  Types.TimerId ->
   -- | 'startToFireTimeout'
-  Lude.Text ->
+  Types.StartToFireTimeout ->
   StartTimerDecisionAttributes
-mkStartTimerDecisionAttributes pTimerId_ pStartToFireTimeout_ =
+mkStartTimerDecisionAttributes timerId startToFireTimeout =
   StartTimerDecisionAttributes'
-    { control = Lude.Nothing,
-      timerId = pTimerId_,
-      startToFireTimeout = pStartToFireTimeout_
+    { timerId,
+      startToFireTimeout,
+      control = Core.Nothing
     }
-
--- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
---
--- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdaControl :: Lens.Lens' StartTimerDecisionAttributes (Lude.Maybe Lude.Text)
-stdaControl = Lens.lens (control :: StartTimerDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: StartTimerDecisionAttributes)
-{-# DEPRECATED stdaControl "Use generic-lens or generic-optics with 'control' instead." #-}
 
 -- | The unique ID of the timer.
 --
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 --
 -- /Note:/ Consider using 'timerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdaTimerId :: Lens.Lens' StartTimerDecisionAttributes Lude.Text
-stdaTimerId = Lens.lens (timerId :: StartTimerDecisionAttributes -> Lude.Text) (\s a -> s {timerId = a} :: StartTimerDecisionAttributes)
+stdaTimerId :: Lens.Lens' StartTimerDecisionAttributes Types.TimerId
+stdaTimerId = Lens.field @"timerId"
 {-# DEPRECATED stdaTimerId "Use generic-lens or generic-optics with 'timerId' instead." #-}
 
 -- | The duration to wait before firing the timer.
@@ -101,16 +89,23 @@ stdaTimerId = Lens.lens (timerId :: StartTimerDecisionAttributes -> Lude.Text) (
 -- The duration is specified in seconds, an integer greater than or equal to @0@ .
 --
 -- /Note:/ Consider using 'startToFireTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdaStartToFireTimeout :: Lens.Lens' StartTimerDecisionAttributes Lude.Text
-stdaStartToFireTimeout = Lens.lens (startToFireTimeout :: StartTimerDecisionAttributes -> Lude.Text) (\s a -> s {startToFireTimeout = a} :: StartTimerDecisionAttributes)
+stdaStartToFireTimeout :: Lens.Lens' StartTimerDecisionAttributes Types.StartToFireTimeout
+stdaStartToFireTimeout = Lens.field @"startToFireTimeout"
 {-# DEPRECATED stdaStartToFireTimeout "Use generic-lens or generic-optics with 'startToFireTimeout' instead." #-}
 
-instance Lude.ToJSON StartTimerDecisionAttributes where
-  toJSON StartTimerDecisionAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("control" Lude..=) Lude.<$> control,
-            Lude.Just ("timerId" Lude..= timerId),
-            Lude.Just ("startToFireTimeout" Lude..= startToFireTimeout)
+-- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
+--
+-- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdaControl :: Lens.Lens' StartTimerDecisionAttributes (Core.Maybe Types.Data)
+stdaControl = Lens.field @"control"
+{-# DEPRECATED stdaControl "Use generic-lens or generic-optics with 'control' instead." #-}
+
+instance Core.FromJSON StartTimerDecisionAttributes where
+  toJSON StartTimerDecisionAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("timerId" Core..= timerId),
+            Core.Just ("startToFireTimeout" Core..= startToFireTimeout),
+            ("control" Core..=) Core.<$> control
           ]
       )

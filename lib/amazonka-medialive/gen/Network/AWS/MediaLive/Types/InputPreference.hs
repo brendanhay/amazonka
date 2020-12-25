@@ -13,50 +13,55 @@
 module Network.AWS.MediaLive.Types.InputPreference
   ( InputPreference
       ( InputPreference',
-        EqualInputPreference,
-        PrimaryInputPreferred
+        InputPreferenceEqualInputPreference,
+        InputPreferencePrimaryInputPreferred,
+        fromInputPreference
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Input preference when deciding which input to make active when a previously failed input has recovered.
 --
 -- If \"EQUAL_INPUT_PREFERENCE\", then the active input will stay active as long as it is healthy.
 -- If \"PRIMARY_INPUT_PREFERRED\", then always switch back to the primary input when it is healthy.
-newtype InputPreference = InputPreference' Lude.Text
+newtype InputPreference = InputPreference'
+  { fromInputPreference ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EqualInputPreference :: InputPreference
-pattern EqualInputPreference = InputPreference' "EQUAL_INPUT_PREFERENCE"
+pattern InputPreferenceEqualInputPreference :: InputPreference
+pattern InputPreferenceEqualInputPreference = InputPreference' "EQUAL_INPUT_PREFERENCE"
 
-pattern PrimaryInputPreferred :: InputPreference
-pattern PrimaryInputPreferred = InputPreference' "PRIMARY_INPUT_PREFERRED"
+pattern InputPreferencePrimaryInputPreferred :: InputPreference
+pattern InputPreferencePrimaryInputPreferred = InputPreference' "PRIMARY_INPUT_PREFERRED"
 
 {-# COMPLETE
-  EqualInputPreference,
-  PrimaryInputPreferred,
+  InputPreferenceEqualInputPreference,
+  InputPreferencePrimaryInputPreferred,
   InputPreference'
   #-}

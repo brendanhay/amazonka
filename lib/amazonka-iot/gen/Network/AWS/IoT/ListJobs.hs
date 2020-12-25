@@ -22,93 +22,75 @@ module Network.AWS.IoT.ListJobs
     mkListJobs,
 
     -- ** Request lenses
-    ljStatus,
-    ljThingGroupId,
+    ljMaxResults,
     ljNamespaceId,
     ljNextToken,
-    ljThingGroupName,
-    ljMaxResults,
+    ljStatus,
     ljTargetSelection,
+    ljThingGroupId,
+    ljThingGroupName,
 
     -- * Destructuring the response
     ListJobsResponse (..),
     mkListJobsResponse,
 
     -- ** Response lenses
-    ljrsJobs,
-    ljrsNextToken,
-    ljrsResponseStatus,
+    ljrrsJobs,
+    ljrrsNextToken,
+    ljrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | An optional filter that lets you search for jobs that have the specified status.
-    status :: Lude.Maybe JobStatus,
-    -- | A filter that limits the returned jobs to those for the specified group.
-    thingGroupId :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of results to return per request.
+    maxResults :: Core.Maybe Core.Natural,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
     -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
-    namespaceId :: Lude.Maybe Lude.Text,
+    namespaceId :: Core.Maybe Types.NamespaceId,
     -- | The token to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A filter that limits the returned jobs to those for the specified group.
-    thingGroupName :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return per request.
-    maxResults :: Lude.Maybe Lude.Natural,
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | An optional filter that lets you search for jobs that have the specified status.
+    status :: Core.Maybe Types.JobStatus,
     -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
-    targetSelection :: Lude.Maybe TargetSelection
+    targetSelection :: Core.Maybe Types.TargetSelection,
+    -- | A filter that limits the returned jobs to those for the specified group.
+    thingGroupId :: Core.Maybe Types.ThingGroupId,
+    -- | A filter that limits the returned jobs to those for the specified group.
+    thingGroupName :: Core.Maybe Types.ThingGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
---
--- * 'status' - An optional filter that lets you search for jobs that have the specified status.
--- * 'thingGroupId' - A filter that limits the returned jobs to those for the specified group.
--- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
---
--- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
--- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
--- * 'nextToken' - The token to retrieve the next set of results.
--- * 'thingGroupName' - A filter that limits the returned jobs to those for the specified group.
--- * 'maxResults' - The maximum number of results to return per request.
--- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
+-- | Creates a 'ListJobs' value with any optional fields omitted.
 mkListJobs ::
   ListJobs
 mkListJobs =
   ListJobs'
-    { status = Lude.Nothing,
-      thingGroupId = Lude.Nothing,
-      namespaceId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      thingGroupName = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      targetSelection = Lude.Nothing
+    { maxResults = Core.Nothing,
+      namespaceId = Core.Nothing,
+      nextToken = Core.Nothing,
+      status = Core.Nothing,
+      targetSelection = Core.Nothing,
+      thingGroupId = Core.Nothing,
+      thingGroupName = Core.Nothing
     }
 
--- | An optional filter that lets you search for jobs that have the specified status.
+-- | The maximum number of results to return per request.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljStatus :: Lens.Lens' ListJobs (Lude.Maybe JobStatus)
-ljStatus = Lens.lens (status :: ListJobs -> Lude.Maybe JobStatus) (\s a -> s {status = a} :: ListJobs)
-{-# DEPRECATED ljStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | A filter that limits the returned jobs to those for the specified group.
---
--- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljThingGroupId :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljThingGroupId = Lens.lens (thingGroupId :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupId = a} :: ListJobs)
-{-# DEPRECATED ljThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljMaxResults :: Lens.Lens' ListJobs (Core.Maybe Core.Natural)
+ljMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED ljMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
@@ -116,122 +98,124 @@ ljThingGroupId = Lens.lens (thingGroupId :: ListJobs -> Lude.Maybe Lude.Text) (\
 -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
 --
 -- /Note:/ Consider using 'namespaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljNamespaceId :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljNamespaceId = Lens.lens (namespaceId :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {namespaceId = a} :: ListJobs)
+ljNamespaceId :: Lens.Lens' ListJobs (Core.Maybe Types.NamespaceId)
+ljNamespaceId = Lens.field @"namespaceId"
 {-# DEPRECATED ljNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
 
 -- | The token to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljNextToken :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobs)
+ljNextToken :: Lens.Lens' ListJobs (Core.Maybe Types.NextToken)
+ljNextToken = Lens.field @"nextToken"
 {-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | A filter that limits the returned jobs to those for the specified group.
+-- | An optional filter that lets you search for jobs that have the specified status.
 --
--- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljThingGroupName :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljThingGroupName = Lens.lens (thingGroupName :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupName = a} :: ListJobs)
-{-# DEPRECATED ljThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
-
--- | The maximum number of results to return per request.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljMaxResults :: Lens.Lens' ListJobs (Lude.Maybe Lude.Natural)
-ljMaxResults = Lens.lens (maxResults :: ListJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobs)
-{-# DEPRECATED ljMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljStatus :: Lens.Lens' ListJobs (Core.Maybe Types.JobStatus)
+ljStatus = Lens.field @"status"
+{-# DEPRECATED ljStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
 --
 -- /Note:/ Consider using 'targetSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljTargetSelection :: Lens.Lens' ListJobs (Lude.Maybe TargetSelection)
-ljTargetSelection = Lens.lens (targetSelection :: ListJobs -> Lude.Maybe TargetSelection) (\s a -> s {targetSelection = a} :: ListJobs)
+ljTargetSelection :: Lens.Lens' ListJobs (Core.Maybe Types.TargetSelection)
+ljTargetSelection = Lens.field @"targetSelection"
 {-# DEPRECATED ljTargetSelection "Use generic-lens or generic-optics with 'targetSelection' instead." #-}
 
-instance Page.AWSPager ListJobs where
-  page rq rs
-    | Page.stop (rs Lens.^. ljrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ljrsJobs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ljNextToken Lens..~ rs Lens.^. ljrsNextToken
+-- | A filter that limits the returned jobs to those for the specified group.
+--
+-- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljThingGroupId :: Lens.Lens' ListJobs (Core.Maybe Types.ThingGroupId)
+ljThingGroupId = Lens.field @"thingGroupId"
+{-# DEPRECATED ljThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
 
-instance Lude.AWSRequest ListJobs where
+-- | A filter that limits the returned jobs to those for the specified group.
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljThingGroupName :: Lens.Lens' ListJobs (Core.Maybe Types.ThingGroupName)
+ljThingGroupName = Lens.field @"thingGroupName"
+{-# DEPRECATED ljThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
+
+instance Core.AWSRequest ListJobs where
   type Rs ListJobs = ListJobsResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/jobs",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "namespaceId" Core.<$> namespaceId)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "status" Core.<$> status)
+            Core.<> (Core.toQueryValue "targetSelection" Core.<$> targetSelection)
+            Core.<> (Core.toQueryValue "thingGroupId" Core.<$> thingGroupId)
+            Core.<> (Core.toQueryValue "thingGroupName" Core.<$> thingGroupName),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Lude.<$> (x Lude..?> "jobs" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "jobs")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListJobs where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListJobs where
-  toPath = Lude.const "/jobs"
-
-instance Lude.ToQuery ListJobs where
-  toQuery ListJobs' {..} =
-    Lude.mconcat
-      [ "status" Lude.=: status,
-        "thingGroupId" Lude.=: thingGroupId,
-        "namespaceId" Lude.=: namespaceId,
-        "nextToken" Lude.=: nextToken,
-        "thingGroupName" Lude.=: thingGroupName,
-        "maxResults" Lude.=: maxResults,
-        "targetSelection" Lude.=: targetSelection
-      ]
+instance Pager.AWSPager ListJobs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"jobs" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
   { -- | A list of jobs.
-    jobs :: Lude.Maybe [JobSummary],
+    jobs :: Core.Maybe [Types.JobSummary],
     -- | The token for the next set of results, or __null__ if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
---
--- * 'jobs' - A list of jobs.
--- * 'nextToken' - The token for the next set of results, or __null__ if there are no additional results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListJobsResponse' value with any optional fields omitted.
 mkListJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListJobsResponse
-mkListJobsResponse pResponseStatus_ =
+mkListJobsResponse responseStatus =
   ListJobsResponse'
-    { jobs = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobs = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of jobs.
 --
 -- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsJobs :: Lens.Lens' ListJobsResponse (Lude.Maybe [JobSummary])
-ljrsJobs = Lens.lens (jobs :: ListJobsResponse -> Lude.Maybe [JobSummary]) (\s a -> s {jobs = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
+ljrrsJobs :: Lens.Lens' ListJobsResponse (Core.Maybe [Types.JobSummary])
+ljrrsJobs = Lens.field @"jobs"
+{-# DEPRECATED ljrrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsNextToken :: Lens.Lens' ListJobsResponse (Lude.Maybe Lude.Text)
-ljrsNextToken = Lens.lens (nextToken :: ListJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ljrrsNextToken :: Lens.Lens' ListJobsResponse (Core.Maybe Types.NextToken)
+ljrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ljrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsResponseStatus :: Lens.Lens' ListJobsResponse Lude.Int
-ljrsResponseStatus = Lens.lens (responseStatus :: ListJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ljrrsResponseStatus :: Lens.Lens' ListJobsResponse Core.Int
+ljrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ljrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

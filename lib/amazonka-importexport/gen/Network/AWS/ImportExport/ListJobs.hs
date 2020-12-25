@@ -31,154 +31,151 @@ module Network.AWS.ImportExport.ListJobs
     mkListJobsResponse,
 
     -- ** Response lenses
-    ljrsJobs,
-    ljrsIsTruncated,
-    ljrsResponseStatus,
+    ljrrsIsTruncated,
+    ljrrsJobs,
+    ljrrsResponseStatus,
   )
 where
 
-import Network.AWS.ImportExport.Types
+import qualified Network.AWS.ImportExport.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input structure for the ListJobs operation.
 --
 -- /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { apiVersion :: Lude.Maybe Lude.Text,
-    marker :: Lude.Maybe Lude.Text,
-    maxJobs :: Lude.Maybe Lude.Int
+  { aPIVersion :: Core.Maybe Types.APIVersion,
+    marker :: Core.Maybe Types.Marker,
+    maxJobs :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
---
--- * 'apiVersion' -
--- * 'marker' -
--- * 'maxJobs' -
+-- | Creates a 'ListJobs' value with any optional fields omitted.
 mkListJobs ::
   ListJobs
 mkListJobs =
   ListJobs'
-    { apiVersion = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxJobs = Lude.Nothing
+    { aPIVersion = Core.Nothing,
+      marker = Core.Nothing,
+      maxJobs = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'apiVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljAPIVersion :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljAPIVersion = Lens.lens (apiVersion :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {apiVersion = a} :: ListJobs)
-{-# DEPRECATED ljAPIVersion "Use generic-lens or generic-optics with 'apiVersion' instead." #-}
+-- /Note:/ Consider using 'aPIVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljAPIVersion :: Lens.Lens' ListJobs (Core.Maybe Types.APIVersion)
+ljAPIVersion = Lens.field @"aPIVersion"
+{-# DEPRECATED ljAPIVersion "Use generic-lens or generic-optics with 'aPIVersion' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljMarker :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljMarker = Lens.lens (marker :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListJobs)
+ljMarker :: Lens.Lens' ListJobs (Core.Maybe Types.Marker)
+ljMarker = Lens.field @"marker"
 {-# DEPRECATED ljMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'maxJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljMaxJobs :: Lens.Lens' ListJobs (Lude.Maybe Lude.Int)
-ljMaxJobs = Lens.lens (maxJobs :: ListJobs -> Lude.Maybe Lude.Int) (\s a -> s {maxJobs = a} :: ListJobs)
+ljMaxJobs :: Lens.Lens' ListJobs (Core.Maybe Core.Int)
+ljMaxJobs = Lens.field @"maxJobs"
 {-# DEPRECATED ljMaxJobs "Use generic-lens or generic-optics with 'maxJobs' instead." #-}
 
-instance Page.AWSPager ListJobs where
-  page rq rs
-    | Page.stop (rs Lens.^. ljrsIsTruncated) = Lude.Nothing
-    | Lude.isNothing
-        (rs Lens.^? ljrsJobs Lude.. Lens._last Lude.. jJobId) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ljMarker
-          Lens..~ rs Lens.^? ljrsJobs Lude.. Lens._last Lude.. jJobId
-
-instance Lude.AWSRequest ListJobs where
+instance Core.AWSRequest ListJobs where
   type Rs ListJobs = ListJobsResponse
-  request = Req.postQuery importExportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Operation=ListJobs", "")
+                Core.<> (Core.pure ("Action", "ListJobs"))
+                Core.<> (Core.pure ("Version", "2010-06-01"))
+                Core.<> (Core.toQueryValue "APIVersion" Core.<$> aPIVersion)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxJobs" Core.<$> maxJobs)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListJobsResult"
       ( \s h x ->
           ListJobsResponse'
-            Lude.<$> ( x Lude..@? "Jobs" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Jobs" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListJobs where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListJobs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListJobs where
-  toQuery ListJobs' {..} =
-    Lude.mconcat
-      [ "Operation=ListJobs",
-        "Action" Lude.=: ("ListJobs" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-06-01" :: Lude.ByteString),
-        "APIVersion" Lude.=: apiVersion,
-        "Marker" Lude.=: marker,
-        "MaxJobs" Lude.=: maxJobs
-      ]
+instance Pager.AWSPager ListJobs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"isTruncated") = Core.Nothing
+    | Core.isNothing
+        ( rs
+            Lens.^? Lens.field @"jobs" Core.. Lens._last Core.. Lens.field @"jobId"
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker"
+            Lens..~ rs
+            Lens.^? Lens.field @"jobs" Core.. Lens._last Core.. Lens.field @"jobId"
+        )
 
 -- | Output structure for the ListJobs operation.
 --
 -- /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { jobs :: Lude.Maybe [Job],
-    isTruncated :: Lude.Maybe Lude.Bool,
+  { isTruncated :: Core.Maybe Core.Bool,
+    jobs :: Core.Maybe [Types.Job],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
---
--- * 'jobs' -
--- * 'isTruncated' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListJobsResponse' value with any optional fields omitted.
 mkListJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListJobsResponse
-mkListJobsResponse pResponseStatus_ =
+mkListJobsResponse responseStatus =
   ListJobsResponse'
-    { jobs = Lude.Nothing,
-      isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { isTruncated = Core.Nothing,
+      jobs = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsJobs :: Lens.Lens' ListJobsResponse (Lude.Maybe [Job])
-ljrsJobs = Lens.lens (jobs :: ListJobsResponse -> Lude.Maybe [Job]) (\s a -> s {jobs = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrrsIsTruncated :: Lens.Lens' ListJobsResponse (Core.Maybe Core.Bool)
+ljrrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED ljrrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsIsTruncated :: Lens.Lens' ListJobsResponse (Lude.Maybe Lude.Bool)
-ljrsIsTruncated = Lens.lens (isTruncated :: ListJobsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+-- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrrsJobs :: Lens.Lens' ListJobsResponse (Core.Maybe [Types.Job])
+ljrrsJobs = Lens.field @"jobs"
+{-# DEPRECATED ljrrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsResponseStatus :: Lens.Lens' ListJobsResponse Lude.Int
-ljrsResponseStatus = Lens.lens (responseStatus :: ListJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ljrrsResponseStatus :: Lens.Lens' ListJobsResponse Core.Int
+ljrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ljrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

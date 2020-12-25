@@ -17,90 +17,85 @@ module Network.AWS.StorageGateway.Types.ChapInfo
     mkChapInfo,
 
     -- * Lenses
-    ciTargetARN,
-    ciSecretToAuthenticateInitiator,
     ciInitiatorName,
+    ciSecretToAuthenticateInitiator,
     ciSecretToAuthenticateTarget,
+    ciTargetARN,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StorageGateway.Types.InitiatorName as Types
+import qualified Network.AWS.StorageGateway.Types.SecretToAuthenticateInitiator as Types
+import qualified Network.AWS.StorageGateway.Types.SecretToAuthenticateTarget as Types
+import qualified Network.AWS.StorageGateway.Types.TargetARN as Types
 
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.
 --
 -- /See:/ 'mkChapInfo' smart constructor.
 data ChapInfo = ChapInfo'
-  { -- | The Amazon Resource Name (ARN) of the volume.
+  { -- | The iSCSI initiator that connects to the target.
+    initiatorName :: Core.Maybe Types.InitiatorName,
+    -- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
+    secretToAuthenticateInitiator :: Core.Maybe Types.SecretToAuthenticateInitiator,
+    -- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client).
+    secretToAuthenticateTarget :: Core.Maybe Types.SecretToAuthenticateTarget,
+    -- | The Amazon Resource Name (ARN) of the volume.
     --
     -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
-    targetARN :: Lude.Maybe Lude.Text,
-    -- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
-    secretToAuthenticateInitiator :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The iSCSI initiator that connects to the target.
-    initiatorName :: Lude.Maybe Lude.Text,
-    -- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client).
-    secretToAuthenticateTarget :: Lude.Maybe (Lude.Sensitive Lude.Text)
+    targetARN :: Core.Maybe Types.TargetARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChapInfo' with the minimum fields required to make a request.
---
--- * 'targetARN' - The Amazon Resource Name (ARN) of the volume.
---
--- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
--- * 'secretToAuthenticateInitiator' - The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
--- * 'initiatorName' - The iSCSI initiator that connects to the target.
--- * 'secretToAuthenticateTarget' - The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client).
+-- | Creates a 'ChapInfo' value with any optional fields omitted.
 mkChapInfo ::
   ChapInfo
 mkChapInfo =
   ChapInfo'
-    { targetARN = Lude.Nothing,
-      secretToAuthenticateInitiator = Lude.Nothing,
-      initiatorName = Lude.Nothing,
-      secretToAuthenticateTarget = Lude.Nothing
+    { initiatorName = Core.Nothing,
+      secretToAuthenticateInitiator = Core.Nothing,
+      secretToAuthenticateTarget = Core.Nothing,
+      targetARN = Core.Nothing
     }
+
+-- | The iSCSI initiator that connects to the target.
+--
+-- /Note:/ Consider using 'initiatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciInitiatorName :: Lens.Lens' ChapInfo (Core.Maybe Types.InitiatorName)
+ciInitiatorName = Lens.field @"initiatorName"
+{-# DEPRECATED ciInitiatorName "Use generic-lens or generic-optics with 'initiatorName' instead." #-}
+
+-- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
+--
+-- /Note:/ Consider using 'secretToAuthenticateInitiator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciSecretToAuthenticateInitiator :: Lens.Lens' ChapInfo (Core.Maybe Types.SecretToAuthenticateInitiator)
+ciSecretToAuthenticateInitiator = Lens.field @"secretToAuthenticateInitiator"
+{-# DEPRECATED ciSecretToAuthenticateInitiator "Use generic-lens or generic-optics with 'secretToAuthenticateInitiator' instead." #-}
+
+-- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client).
+--
+-- /Note:/ Consider using 'secretToAuthenticateTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciSecretToAuthenticateTarget :: Lens.Lens' ChapInfo (Core.Maybe Types.SecretToAuthenticateTarget)
+ciSecretToAuthenticateTarget = Lens.field @"secretToAuthenticateTarget"
+{-# DEPRECATED ciSecretToAuthenticateTarget "Use generic-lens or generic-optics with 'secretToAuthenticateTarget' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the volume.
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 --
 -- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciTargetARN :: Lens.Lens' ChapInfo (Lude.Maybe Lude.Text)
-ciTargetARN = Lens.lens (targetARN :: ChapInfo -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: ChapInfo)
+ciTargetARN :: Lens.Lens' ChapInfo (Core.Maybe Types.TargetARN)
+ciTargetARN = Lens.field @"targetARN"
 {-# DEPRECATED ciTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
--- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
---
--- /Note:/ Consider using 'secretToAuthenticateInitiator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciSecretToAuthenticateInitiator :: Lens.Lens' ChapInfo (Lude.Maybe (Lude.Sensitive Lude.Text))
-ciSecretToAuthenticateInitiator = Lens.lens (secretToAuthenticateInitiator :: ChapInfo -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretToAuthenticateInitiator = a} :: ChapInfo)
-{-# DEPRECATED ciSecretToAuthenticateInitiator "Use generic-lens or generic-optics with 'secretToAuthenticateInitiator' instead." #-}
-
--- | The iSCSI initiator that connects to the target.
---
--- /Note:/ Consider using 'initiatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciInitiatorName :: Lens.Lens' ChapInfo (Lude.Maybe Lude.Text)
-ciInitiatorName = Lens.lens (initiatorName :: ChapInfo -> Lude.Maybe Lude.Text) (\s a -> s {initiatorName = a} :: ChapInfo)
-{-# DEPRECATED ciInitiatorName "Use generic-lens or generic-optics with 'initiatorName' instead." #-}
-
--- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client).
---
--- /Note:/ Consider using 'secretToAuthenticateTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciSecretToAuthenticateTarget :: Lens.Lens' ChapInfo (Lude.Maybe (Lude.Sensitive Lude.Text))
-ciSecretToAuthenticateTarget = Lens.lens (secretToAuthenticateTarget :: ChapInfo -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretToAuthenticateTarget = a} :: ChapInfo)
-{-# DEPRECATED ciSecretToAuthenticateTarget "Use generic-lens or generic-optics with 'secretToAuthenticateTarget' instead." #-}
-
-instance Lude.FromJSON ChapInfo where
+instance Core.FromJSON ChapInfo where
   parseJSON =
-    Lude.withObject
-      "ChapInfo"
-      ( \x ->
-          ChapInfo'
-            Lude.<$> (x Lude..:? "TargetARN")
-            Lude.<*> (x Lude..:? "SecretToAuthenticateInitiator")
-            Lude.<*> (x Lude..:? "InitiatorName")
-            Lude.<*> (x Lude..:? "SecretToAuthenticateTarget")
-      )
+    Core.withObject "ChapInfo" Core.$
+      \x ->
+        ChapInfo'
+          Core.<$> (x Core..:? "InitiatorName")
+          Core.<*> (x Core..:? "SecretToAuthenticateInitiator")
+          Core.<*> (x Core..:? "SecretToAuthenticateTarget")
+          Core.<*> (x Core..:? "TargetARN")

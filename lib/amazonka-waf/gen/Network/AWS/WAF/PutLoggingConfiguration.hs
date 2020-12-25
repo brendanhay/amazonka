@@ -38,115 +38,101 @@ module Network.AWS.WAF.PutLoggingConfiguration
     mkPutLoggingConfigurationResponse,
 
     -- ** Response lenses
-    plcrsLoggingConfiguration,
-    plcrsResponseStatus,
+    plcrrsLoggingConfiguration,
+    plcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkPutLoggingConfiguration' smart constructor.
 newtype PutLoggingConfiguration = PutLoggingConfiguration'
   { -- | The Amazon Kinesis Data Firehose that contains the inspected traffic information, the redacted fields details, and the Amazon Resource Name (ARN) of the web ACL to monitor.
-    loggingConfiguration :: LoggingConfiguration
+    loggingConfiguration :: Types.LoggingConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLoggingConfiguration' with the minimum fields required to make a request.
---
--- * 'loggingConfiguration' - The Amazon Kinesis Data Firehose that contains the inspected traffic information, the redacted fields details, and the Amazon Resource Name (ARN) of the web ACL to monitor.
+-- | Creates a 'PutLoggingConfiguration' value with any optional fields omitted.
 mkPutLoggingConfiguration ::
   -- | 'loggingConfiguration'
-  LoggingConfiguration ->
+  Types.LoggingConfiguration ->
   PutLoggingConfiguration
-mkPutLoggingConfiguration pLoggingConfiguration_ =
-  PutLoggingConfiguration'
-    { loggingConfiguration =
-        pLoggingConfiguration_
-    }
+mkPutLoggingConfiguration loggingConfiguration =
+  PutLoggingConfiguration' {loggingConfiguration}
 
 -- | The Amazon Kinesis Data Firehose that contains the inspected traffic information, the redacted fields details, and the Amazon Resource Name (ARN) of the web ACL to monitor.
 --
 -- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plcLoggingConfiguration :: Lens.Lens' PutLoggingConfiguration LoggingConfiguration
-plcLoggingConfiguration = Lens.lens (loggingConfiguration :: PutLoggingConfiguration -> LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: PutLoggingConfiguration)
+plcLoggingConfiguration :: Lens.Lens' PutLoggingConfiguration Types.LoggingConfiguration
+plcLoggingConfiguration = Lens.field @"loggingConfiguration"
 {-# DEPRECATED plcLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
 
-instance Lude.AWSRequest PutLoggingConfiguration where
+instance Core.FromJSON PutLoggingConfiguration where
+  toJSON PutLoggingConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("LoggingConfiguration" Core..= loggingConfiguration)]
+      )
+
+instance Core.AWSRequest PutLoggingConfiguration where
   type Rs PutLoggingConfiguration = PutLoggingConfigurationResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_20150824.PutLoggingConfiguration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutLoggingConfigurationResponse'
-            Lude.<$> (x Lude..?> "LoggingConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LoggingConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutLoggingConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.PutLoggingConfiguration" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutLoggingConfiguration where
-  toJSON PutLoggingConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("LoggingConfiguration" Lude..= loggingConfiguration)]
-      )
-
-instance Lude.ToPath PutLoggingConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutLoggingConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutLoggingConfigurationResponse' smart constructor.
 data PutLoggingConfigurationResponse = PutLoggingConfigurationResponse'
   { -- | The 'LoggingConfiguration' that you submitted in the request.
-    loggingConfiguration :: Lude.Maybe LoggingConfiguration,
+    loggingConfiguration :: Core.Maybe Types.LoggingConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLoggingConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'loggingConfiguration' - The 'LoggingConfiguration' that you submitted in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutLoggingConfigurationResponse' value with any optional fields omitted.
 mkPutLoggingConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutLoggingConfigurationResponse
-mkPutLoggingConfigurationResponse pResponseStatus_ =
+mkPutLoggingConfigurationResponse responseStatus =
   PutLoggingConfigurationResponse'
     { loggingConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The 'LoggingConfiguration' that you submitted in the request.
 --
 -- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plcrsLoggingConfiguration :: Lens.Lens' PutLoggingConfigurationResponse (Lude.Maybe LoggingConfiguration)
-plcrsLoggingConfiguration = Lens.lens (loggingConfiguration :: PutLoggingConfigurationResponse -> Lude.Maybe LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: PutLoggingConfigurationResponse)
-{-# DEPRECATED plcrsLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
+plcrrsLoggingConfiguration :: Lens.Lens' PutLoggingConfigurationResponse (Core.Maybe Types.LoggingConfiguration)
+plcrrsLoggingConfiguration = Lens.field @"loggingConfiguration"
+{-# DEPRECATED plcrrsLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plcrsResponseStatus :: Lens.Lens' PutLoggingConfigurationResponse Lude.Int
-plcrsResponseStatus = Lens.lens (responseStatus :: PutLoggingConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutLoggingConfigurationResponse)
-{-# DEPRECATED plcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+plcrrsResponseStatus :: Lens.Lens' PutLoggingConfigurationResponse Core.Int
+plcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED plcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

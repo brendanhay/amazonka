@@ -23,7 +23,7 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The start and end of the timestamp range for the requested media.
 --
@@ -35,30 +35,22 @@ data DASHTimestampRange = DASHTimestampRange'
     --
     -- If @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@ , this value must be in the past.
     -- The @EndTimestamp@ value is required for @ON_DEMAND@ mode, but optional for @LIVE_REPLAY@ mode. If the @EndTimestamp@ is not set for @LIVE_REPLAY@ mode then the session will continue to include newly ingested fragments until the session expires.
-    endTimestamp :: Lude.Maybe Lude.Timestamp,
+    endTimestamp :: Core.Maybe Core.NominalDiffTime,
     -- | The start of the timestamp range for the requested media.
     --
     -- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@ value is required.
-    startTimestamp :: Lude.Maybe Lude.Timestamp
+    startTimestamp :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DASHTimestampRange' with the minimum fields required to make a request.
---
--- * 'endTimestamp' - The end of the timestamp range for the requested media. This value must be within 3 hours of the specified @StartTimestamp@ , and it must be later than the @StartTimestamp@ value.
---
--- If @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@ , this value must be in the past.
--- The @EndTimestamp@ value is required for @ON_DEMAND@ mode, but optional for @LIVE_REPLAY@ mode. If the @EndTimestamp@ is not set for @LIVE_REPLAY@ mode then the session will continue to include newly ingested fragments until the session expires.
--- * 'startTimestamp' - The start of the timestamp range for the requested media.
---
--- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@ value is required.
+-- | Creates a 'DASHTimestampRange' value with any optional fields omitted.
 mkDASHTimestampRange ::
   DASHTimestampRange
 mkDASHTimestampRange =
   DASHTimestampRange'
-    { endTimestamp = Lude.Nothing,
-      startTimestamp = Lude.Nothing
+    { endTimestamp = Core.Nothing,
+      startTimestamp = Core.Nothing
     }
 
 -- | The end of the timestamp range for the requested media. This value must be within 3 hours of the specified @StartTimestamp@ , and it must be later than the @StartTimestamp@ value.
@@ -67,8 +59,8 @@ mkDASHTimestampRange =
 -- The @EndTimestamp@ value is required for @ON_DEMAND@ mode, but optional for @LIVE_REPLAY@ mode. If the @EndTimestamp@ is not set for @LIVE_REPLAY@ mode then the session will continue to include newly ingested fragments until the session expires.
 --
 -- /Note:/ Consider using 'endTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dashtrEndTimestamp :: Lens.Lens' DASHTimestampRange (Lude.Maybe Lude.Timestamp)
-dashtrEndTimestamp = Lens.lens (endTimestamp :: DASHTimestampRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTimestamp = a} :: DASHTimestampRange)
+dashtrEndTimestamp :: Lens.Lens' DASHTimestampRange (Core.Maybe Core.NominalDiffTime)
+dashtrEndTimestamp = Lens.field @"endTimestamp"
 {-# DEPRECATED dashtrEndTimestamp "Use generic-lens or generic-optics with 'endTimestamp' instead." #-}
 
 -- | The start of the timestamp range for the requested media.
@@ -76,15 +68,15 @@ dashtrEndTimestamp = Lens.lens (endTimestamp :: DASHTimestampRange -> Lude.Maybe
 -- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@ value is required.
 --
 -- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dashtrStartTimestamp :: Lens.Lens' DASHTimestampRange (Lude.Maybe Lude.Timestamp)
-dashtrStartTimestamp = Lens.lens (startTimestamp :: DASHTimestampRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTimestamp = a} :: DASHTimestampRange)
+dashtrStartTimestamp :: Lens.Lens' DASHTimestampRange (Core.Maybe Core.NominalDiffTime)
+dashtrStartTimestamp = Lens.field @"startTimestamp"
 {-# DEPRECATED dashtrStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
 
-instance Lude.ToJSON DASHTimestampRange where
-  toJSON DASHTimestampRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EndTimestamp" Lude..=) Lude.<$> endTimestamp,
-            ("StartTimestamp" Lude..=) Lude.<$> startTimestamp
+instance Core.FromJSON DASHTimestampRange where
+  toJSON DASHTimestampRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EndTimestamp" Core..=) Core.<$> endTimestamp,
+            ("StartTimestamp" Core..=) Core.<$> startTimestamp
           ]
       )

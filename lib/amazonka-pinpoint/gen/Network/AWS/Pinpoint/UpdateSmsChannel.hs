@@ -28,126 +28,109 @@ module Network.AWS.Pinpoint.UpdateSmsChannel
     mkUpdateSmsChannelResponse,
 
     -- ** Response lenses
-    uscrsSMSChannelResponse,
-    uscrsResponseStatus,
+    uscrrsSMSChannelResponse,
+    uscrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateSmsChannel' smart constructor.
 data UpdateSmsChannel = UpdateSmsChannel'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
-    sMSChannelRequest :: SMSChannelRequest
+    applicationId :: Core.Text,
+    sMSChannelRequest :: Types.SMSChannelRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSmsChannel' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'sMSChannelRequest' -
+-- | Creates a 'UpdateSmsChannel' value with any optional fields omitted.
 mkUpdateSmsChannel ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'sMSChannelRequest'
-  SMSChannelRequest ->
+  Types.SMSChannelRequest ->
   UpdateSmsChannel
-mkUpdateSmsChannel pApplicationId_ pSMSChannelRequest_ =
-  UpdateSmsChannel'
-    { applicationId = pApplicationId_,
-      sMSChannelRequest = pSMSChannelRequest_
-    }
+mkUpdateSmsChannel applicationId sMSChannelRequest =
+  UpdateSmsChannel' {applicationId, sMSChannelRequest}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscApplicationId :: Lens.Lens' UpdateSmsChannel Lude.Text
-uscApplicationId = Lens.lens (applicationId :: UpdateSmsChannel -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateSmsChannel)
+uscApplicationId :: Lens.Lens' UpdateSmsChannel Core.Text
+uscApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED uscApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'sMSChannelRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscSMSChannelRequest :: Lens.Lens' UpdateSmsChannel SMSChannelRequest
-uscSMSChannelRequest = Lens.lens (sMSChannelRequest :: UpdateSmsChannel -> SMSChannelRequest) (\s a -> s {sMSChannelRequest = a} :: UpdateSmsChannel)
+uscSMSChannelRequest :: Lens.Lens' UpdateSmsChannel Types.SMSChannelRequest
+uscSMSChannelRequest = Lens.field @"sMSChannelRequest"
 {-# DEPRECATED uscSMSChannelRequest "Use generic-lens or generic-optics with 'sMSChannelRequest' instead." #-}
 
-instance Lude.AWSRequest UpdateSmsChannel where
+instance Core.FromJSON UpdateSmsChannel where
+  toJSON UpdateSmsChannel {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SMSChannelRequest" Core..= sMSChannelRequest)]
+      )
+
+instance Core.AWSRequest UpdateSmsChannel where
   type Rs UpdateSmsChannel = UpdateSmsChannelResponse
-  request = Req.putJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/channels/sms")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateSmsChannelResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateSmsChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateSmsChannel where
-  toJSON UpdateSmsChannel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("SMSChannelRequest" Lude..= sMSChannelRequest)]
-      )
-
-instance Lude.ToPath UpdateSmsChannel where
-  toPath UpdateSmsChannel' {..} =
-    Lude.mconcat
-      ["/v1/apps/", Lude.toBS applicationId, "/channels/sms"]
-
-instance Lude.ToQuery UpdateSmsChannel where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateSmsChannelResponse' smart constructor.
 data UpdateSmsChannelResponse = UpdateSmsChannelResponse'
-  { sMSChannelResponse :: SMSChannelResponse,
+  { sMSChannelResponse :: Types.SMSChannelResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSmsChannelResponse' with the minimum fields required to make a request.
---
--- * 'sMSChannelResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateSmsChannelResponse' value with any optional fields omitted.
 mkUpdateSmsChannelResponse ::
   -- | 'sMSChannelResponse'
-  SMSChannelResponse ->
+  Types.SMSChannelResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateSmsChannelResponse
-mkUpdateSmsChannelResponse pSMSChannelResponse_ pResponseStatus_ =
-  UpdateSmsChannelResponse'
-    { sMSChannelResponse =
-        pSMSChannelResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateSmsChannelResponse sMSChannelResponse responseStatus =
+  UpdateSmsChannelResponse' {sMSChannelResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'sMSChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscrsSMSChannelResponse :: Lens.Lens' UpdateSmsChannelResponse SMSChannelResponse
-uscrsSMSChannelResponse = Lens.lens (sMSChannelResponse :: UpdateSmsChannelResponse -> SMSChannelResponse) (\s a -> s {sMSChannelResponse = a} :: UpdateSmsChannelResponse)
-{-# DEPRECATED uscrsSMSChannelResponse "Use generic-lens or generic-optics with 'sMSChannelResponse' instead." #-}
+uscrrsSMSChannelResponse :: Lens.Lens' UpdateSmsChannelResponse Types.SMSChannelResponse
+uscrrsSMSChannelResponse = Lens.field @"sMSChannelResponse"
+{-# DEPRECATED uscrrsSMSChannelResponse "Use generic-lens or generic-optics with 'sMSChannelResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscrsResponseStatus :: Lens.Lens' UpdateSmsChannelResponse Lude.Int
-uscrsResponseStatus = Lens.lens (responseStatus :: UpdateSmsChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSmsChannelResponse)
-{-# DEPRECATED uscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uscrrsResponseStatus :: Lens.Lens' UpdateSmsChannelResponse Core.Int
+uscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

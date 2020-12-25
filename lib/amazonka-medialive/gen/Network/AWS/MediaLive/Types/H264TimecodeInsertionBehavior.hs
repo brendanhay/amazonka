@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H264TimecodeInsertionBehavior
   ( H264TimecodeInsertionBehavior
       ( H264TimecodeInsertionBehavior',
-        HTIBfDisabled,
-        HTIBfPicTimingSei
+        H264TimecodeInsertionBehaviorDisabled,
+        H264TimecodeInsertionBehaviorPicTimingSei,
+        fromH264TimecodeInsertionBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Timecode Insertion Behavior
-newtype H264TimecodeInsertionBehavior = H264TimecodeInsertionBehavior' Lude.Text
+newtype H264TimecodeInsertionBehavior = H264TimecodeInsertionBehavior'
+  { fromH264TimecodeInsertionBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HTIBfDisabled :: H264TimecodeInsertionBehavior
-pattern HTIBfDisabled = H264TimecodeInsertionBehavior' "DISABLED"
+pattern H264TimecodeInsertionBehaviorDisabled :: H264TimecodeInsertionBehavior
+pattern H264TimecodeInsertionBehaviorDisabled = H264TimecodeInsertionBehavior' "DISABLED"
 
-pattern HTIBfPicTimingSei :: H264TimecodeInsertionBehavior
-pattern HTIBfPicTimingSei = H264TimecodeInsertionBehavior' "PIC_TIMING_SEI"
+pattern H264TimecodeInsertionBehaviorPicTimingSei :: H264TimecodeInsertionBehavior
+pattern H264TimecodeInsertionBehaviorPicTimingSei = H264TimecodeInsertionBehavior' "PIC_TIMING_SEI"
 
 {-# COMPLETE
-  HTIBfDisabled,
-  HTIBfPicTimingSei,
+  H264TimecodeInsertionBehaviorDisabled,
+  H264TimecodeInsertionBehaviorPicTimingSei,
   H264TimecodeInsertionBehavior'
   #-}

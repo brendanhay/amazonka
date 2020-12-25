@@ -17,81 +17,78 @@ module Network.AWS.EC2.Types.GpuDeviceInfo
     mkGpuDeviceInfo,
 
     -- * Lenses
-    gdiMemoryInfo,
-    gdiManufacturer,
     gdiCount,
+    gdiManufacturer,
+    gdiMemoryInfo,
     gdiName,
   )
 where
 
-import Network.AWS.EC2.Types.GpuDeviceMemoryInfo
+import qualified Network.AWS.EC2.Types.GpuDeviceManufacturerName as Types
+import qualified Network.AWS.EC2.Types.GpuDeviceMemoryInfo as Types
+import qualified Network.AWS.EC2.Types.GpuDeviceName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the GPU accelerators for the instance type.
 --
 -- /See:/ 'mkGpuDeviceInfo' smart constructor.
 data GpuDeviceInfo = GpuDeviceInfo'
-  { -- | Describes the memory available to the GPU accelerator.
-    memoryInfo :: Lude.Maybe GpuDeviceMemoryInfo,
+  { -- | The number of GPUs for the instance type.
+    count :: Core.Maybe Core.Int,
     -- | The manufacturer of the GPU accelerator.
-    manufacturer :: Lude.Maybe Lude.Text,
-    -- | The number of GPUs for the instance type.
-    count :: Lude.Maybe Lude.Int,
+    manufacturer :: Core.Maybe Types.GpuDeviceManufacturerName,
+    -- | Describes the memory available to the GPU accelerator.
+    memoryInfo :: Core.Maybe Types.GpuDeviceMemoryInfo,
     -- | The name of the GPU accelerator.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.GpuDeviceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GpuDeviceInfo' with the minimum fields required to make a request.
---
--- * 'memoryInfo' - Describes the memory available to the GPU accelerator.
--- * 'manufacturer' - The manufacturer of the GPU accelerator.
--- * 'count' - The number of GPUs for the instance type.
--- * 'name' - The name of the GPU accelerator.
+-- | Creates a 'GpuDeviceInfo' value with any optional fields omitted.
 mkGpuDeviceInfo ::
   GpuDeviceInfo
 mkGpuDeviceInfo =
   GpuDeviceInfo'
-    { memoryInfo = Lude.Nothing,
-      manufacturer = Lude.Nothing,
-      count = Lude.Nothing,
-      name = Lude.Nothing
+    { count = Core.Nothing,
+      manufacturer = Core.Nothing,
+      memoryInfo = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | Describes the memory available to the GPU accelerator.
---
--- /Note:/ Consider using 'memoryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdiMemoryInfo :: Lens.Lens' GpuDeviceInfo (Lude.Maybe GpuDeviceMemoryInfo)
-gdiMemoryInfo = Lens.lens (memoryInfo :: GpuDeviceInfo -> Lude.Maybe GpuDeviceMemoryInfo) (\s a -> s {memoryInfo = a} :: GpuDeviceInfo)
-{-# DEPRECATED gdiMemoryInfo "Use generic-lens or generic-optics with 'memoryInfo' instead." #-}
-
--- | The manufacturer of the GPU accelerator.
---
--- /Note:/ Consider using 'manufacturer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdiManufacturer :: Lens.Lens' GpuDeviceInfo (Lude.Maybe Lude.Text)
-gdiManufacturer = Lens.lens (manufacturer :: GpuDeviceInfo -> Lude.Maybe Lude.Text) (\s a -> s {manufacturer = a} :: GpuDeviceInfo)
-{-# DEPRECATED gdiManufacturer "Use generic-lens or generic-optics with 'manufacturer' instead." #-}
 
 -- | The number of GPUs for the instance type.
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdiCount :: Lens.Lens' GpuDeviceInfo (Lude.Maybe Lude.Int)
-gdiCount = Lens.lens (count :: GpuDeviceInfo -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: GpuDeviceInfo)
+gdiCount :: Lens.Lens' GpuDeviceInfo (Core.Maybe Core.Int)
+gdiCount = Lens.field @"count"
 {-# DEPRECATED gdiCount "Use generic-lens or generic-optics with 'count' instead." #-}
+
+-- | The manufacturer of the GPU accelerator.
+--
+-- /Note:/ Consider using 'manufacturer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdiManufacturer :: Lens.Lens' GpuDeviceInfo (Core.Maybe Types.GpuDeviceManufacturerName)
+gdiManufacturer = Lens.field @"manufacturer"
+{-# DEPRECATED gdiManufacturer "Use generic-lens or generic-optics with 'manufacturer' instead." #-}
+
+-- | Describes the memory available to the GPU accelerator.
+--
+-- /Note:/ Consider using 'memoryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdiMemoryInfo :: Lens.Lens' GpuDeviceInfo (Core.Maybe Types.GpuDeviceMemoryInfo)
+gdiMemoryInfo = Lens.field @"memoryInfo"
+{-# DEPRECATED gdiMemoryInfo "Use generic-lens or generic-optics with 'memoryInfo' instead." #-}
 
 -- | The name of the GPU accelerator.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdiName :: Lens.Lens' GpuDeviceInfo (Lude.Maybe Lude.Text)
-gdiName = Lens.lens (name :: GpuDeviceInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GpuDeviceInfo)
+gdiName :: Lens.Lens' GpuDeviceInfo (Core.Maybe Types.GpuDeviceName)
+gdiName = Lens.field @"name"
 {-# DEPRECATED gdiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML GpuDeviceInfo where
+instance Core.FromXML GpuDeviceInfo where
   parseXML x =
     GpuDeviceInfo'
-      Lude.<$> (x Lude..@? "memoryInfo")
-      Lude.<*> (x Lude..@? "manufacturer")
-      Lude.<*> (x Lude..@? "count")
-      Lude.<*> (x Lude..@? "name")
+      Core.<$> (x Core..@? "count")
+      Core.<*> (x Core..@? "manufacturer")
+      Core.<*> (x Core..@? "memoryInfo")
+      Core.<*> (x Core..@? "name")

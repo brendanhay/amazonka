@@ -20,117 +20,105 @@ module Network.AWS.SageMaker.DeleteImageVersion
     mkDeleteImageVersion,
 
     -- ** Request lenses
-    divVersion,
     divImageName,
+    divVersion,
 
     -- * Destructuring the response
     DeleteImageVersionResponse (..),
     mkDeleteImageVersionResponse,
 
     -- ** Response lenses
-    divrsResponseStatus,
+    divrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteImageVersion' smart constructor.
 data DeleteImageVersion = DeleteImageVersion'
-  { -- | The version to delete.
-    version :: Lude.Natural,
-    -- | The name of the image.
-    imageName :: Lude.Text
+  { -- | The name of the image.
+    imageName :: Types.ImageName,
+    -- | The version to delete.
+    version :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteImageVersion' with the minimum fields required to make a request.
---
--- * 'version' - The version to delete.
--- * 'imageName' - The name of the image.
+-- | Creates a 'DeleteImageVersion' value with any optional fields omitted.
 mkDeleteImageVersion ::
-  -- | 'version'
-  Lude.Natural ->
   -- | 'imageName'
-  Lude.Text ->
+  Types.ImageName ->
+  -- | 'version'
+  Core.Natural ->
   DeleteImageVersion
-mkDeleteImageVersion pVersion_ pImageName_ =
-  DeleteImageVersion' {version = pVersion_, imageName = pImageName_}
-
--- | The version to delete.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-divVersion :: Lens.Lens' DeleteImageVersion Lude.Natural
-divVersion = Lens.lens (version :: DeleteImageVersion -> Lude.Natural) (\s a -> s {version = a} :: DeleteImageVersion)
-{-# DEPRECATED divVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+mkDeleteImageVersion imageName version =
+  DeleteImageVersion' {imageName, version}
 
 -- | The name of the image.
 --
 -- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-divImageName :: Lens.Lens' DeleteImageVersion Lude.Text
-divImageName = Lens.lens (imageName :: DeleteImageVersion -> Lude.Text) (\s a -> s {imageName = a} :: DeleteImageVersion)
+divImageName :: Lens.Lens' DeleteImageVersion Types.ImageName
+divImageName = Lens.field @"imageName"
 {-# DEPRECATED divImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
-instance Lude.AWSRequest DeleteImageVersion where
+-- | The version to delete.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divVersion :: Lens.Lens' DeleteImageVersion Core.Natural
+divVersion = Lens.field @"version"
+{-# DEPRECATED divVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON DeleteImageVersion where
+  toJSON DeleteImageVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ImageName" Core..= imageName),
+            Core.Just ("Version" Core..= version)
+          ]
+      )
+
+instance Core.AWSRequest DeleteImageVersion where
   type Rs DeleteImageVersion = DeleteImageVersionResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteImageVersion")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteImageVersionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteImageVersionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteImageVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteImageVersion" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteImageVersion where
-  toJSON DeleteImageVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Version" Lude..= version),
-            Lude.Just ("ImageName" Lude..= imageName)
-          ]
-      )
-
-instance Lude.ToPath DeleteImageVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteImageVersion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteImageVersionResponse' smart constructor.
 newtype DeleteImageVersionResponse = DeleteImageVersionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteImageVersionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteImageVersionResponse' value with any optional fields omitted.
 mkDeleteImageVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteImageVersionResponse
-mkDeleteImageVersionResponse pResponseStatus_ =
-  DeleteImageVersionResponse' {responseStatus = pResponseStatus_}
+mkDeleteImageVersionResponse responseStatus =
+  DeleteImageVersionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-divrsResponseStatus :: Lens.Lens' DeleteImageVersionResponse Lude.Int
-divrsResponseStatus = Lens.lens (responseStatus :: DeleteImageVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteImageVersionResponse)
-{-# DEPRECATED divrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+divrrsResponseStatus :: Lens.Lens' DeleteImageVersionResponse Core.Int
+divrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED divrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

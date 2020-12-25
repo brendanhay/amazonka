@@ -20,122 +20,104 @@ module Network.AWS.SSM.DeleteResourceDataSync
     mkDeleteResourceDataSync,
 
     -- ** Request lenses
-    drdsSyncType,
     drdsSyncName,
+    drdsSyncType,
 
     -- * Destructuring the response
     DeleteResourceDataSyncResponse (..),
     mkDeleteResourceDataSyncResponse,
 
     -- ** Response lenses
-    drdsrsResponseStatus,
+    drdsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDeleteResourceDataSync' smart constructor.
 data DeleteResourceDataSync = DeleteResourceDataSync'
-  { -- | Specify the type of resource data sync to delete.
-    syncType :: Lude.Maybe Lude.Text,
-    -- | The name of the configuration to delete.
-    syncName :: Lude.Text
+  { -- | The name of the configuration to delete.
+    syncName :: Types.SyncName,
+    -- | Specify the type of resource data sync to delete.
+    syncType :: Core.Maybe Types.SyncType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteResourceDataSync' with the minimum fields required to make a request.
---
--- * 'syncType' - Specify the type of resource data sync to delete.
--- * 'syncName' - The name of the configuration to delete.
+-- | Creates a 'DeleteResourceDataSync' value with any optional fields omitted.
 mkDeleteResourceDataSync ::
   -- | 'syncName'
-  Lude.Text ->
+  Types.SyncName ->
   DeleteResourceDataSync
-mkDeleteResourceDataSync pSyncName_ =
-  DeleteResourceDataSync'
-    { syncType = Lude.Nothing,
-      syncName = pSyncName_
-    }
-
--- | Specify the type of resource data sync to delete.
---
--- /Note:/ Consider using 'syncType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdsSyncType :: Lens.Lens' DeleteResourceDataSync (Lude.Maybe Lude.Text)
-drdsSyncType = Lens.lens (syncType :: DeleteResourceDataSync -> Lude.Maybe Lude.Text) (\s a -> s {syncType = a} :: DeleteResourceDataSync)
-{-# DEPRECATED drdsSyncType "Use generic-lens or generic-optics with 'syncType' instead." #-}
+mkDeleteResourceDataSync syncName =
+  DeleteResourceDataSync' {syncName, syncType = Core.Nothing}
 
 -- | The name of the configuration to delete.
 --
 -- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdsSyncName :: Lens.Lens' DeleteResourceDataSync Lude.Text
-drdsSyncName = Lens.lens (syncName :: DeleteResourceDataSync -> Lude.Text) (\s a -> s {syncName = a} :: DeleteResourceDataSync)
+drdsSyncName :: Lens.Lens' DeleteResourceDataSync Types.SyncName
+drdsSyncName = Lens.field @"syncName"
 {-# DEPRECATED drdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
 
-instance Lude.AWSRequest DeleteResourceDataSync where
+-- | Specify the type of resource data sync to delete.
+--
+-- /Note:/ Consider using 'syncType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdsSyncType :: Lens.Lens' DeleteResourceDataSync (Core.Maybe Types.SyncType)
+drdsSyncType = Lens.field @"syncType"
+{-# DEPRECATED drdsSyncType "Use generic-lens or generic-optics with 'syncType' instead." #-}
+
+instance Core.FromJSON DeleteResourceDataSync where
+  toJSON DeleteResourceDataSync {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SyncName" Core..= syncName),
+            ("SyncType" Core..=) Core.<$> syncType
+          ]
+      )
+
+instance Core.AWSRequest DeleteResourceDataSync where
   type Rs DeleteResourceDataSync = DeleteResourceDataSyncResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DeleteResourceDataSync")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteResourceDataSyncResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteResourceDataSync where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DeleteResourceDataSync" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteResourceDataSync where
-  toJSON DeleteResourceDataSync' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SyncType" Lude..=) Lude.<$> syncType,
-            Lude.Just ("SyncName" Lude..= syncName)
-          ]
-      )
-
-instance Lude.ToPath DeleteResourceDataSync where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteResourceDataSync where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteResourceDataSyncResponse' smart constructor.
 newtype DeleteResourceDataSyncResponse = DeleteResourceDataSyncResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteResourceDataSyncResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteResourceDataSyncResponse' value with any optional fields omitted.
 mkDeleteResourceDataSyncResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteResourceDataSyncResponse
-mkDeleteResourceDataSyncResponse pResponseStatus_ =
-  DeleteResourceDataSyncResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteResourceDataSyncResponse responseStatus =
+  DeleteResourceDataSyncResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdsrsResponseStatus :: Lens.Lens' DeleteResourceDataSyncResponse Lude.Int
-drdsrsResponseStatus = Lens.lens (responseStatus :: DeleteResourceDataSyncResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteResourceDataSyncResponse)
-{-# DEPRECATED drdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drdsrrsResponseStatus :: Lens.Lens' DeleteResourceDataSyncResponse Core.Int
+drdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

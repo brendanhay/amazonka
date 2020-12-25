@@ -20,143 +20,140 @@ module Network.AWS.EC2.DeleteNetworkInterfacePermission
     mkDeleteNetworkInterfacePermission,
 
     -- ** Request lenses
-    dnipForce,
     dnipNetworkInterfacePermissionId,
     dnipDryRun,
+    dnipForce,
 
     -- * Destructuring the response
     DeleteNetworkInterfacePermissionResponse (..),
     mkDeleteNetworkInterfacePermissionResponse,
 
     -- ** Response lenses
-    dnipfrsReturn,
-    dnipfrsResponseStatus,
+    dniprrsReturn,
+    dniprrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DeleteNetworkInterfacePermission.
 --
 -- /See:/ 'mkDeleteNetworkInterfacePermission' smart constructor.
 data DeleteNetworkInterfacePermission = DeleteNetworkInterfacePermission'
-  { -- | Specify @true@ to remove the permission even if the network interface is attached to an instance.
-    force :: Lude.Maybe Lude.Bool,
-    -- | The ID of the network interface permission.
-    networkInterfacePermissionId :: Lude.Text,
+  { -- | The ID of the network interface permission.
+    networkInterfacePermissionId :: Types.NetworkInterfacePermissionId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | Specify @true@ to remove the permission even if the network interface is attached to an instance.
+    force :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteNetworkInterfacePermission' with the minimum fields required to make a request.
---
--- * 'force' - Specify @true@ to remove the permission even if the network interface is attached to an instance.
--- * 'networkInterfacePermissionId' - The ID of the network interface permission.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteNetworkInterfacePermission' value with any optional fields omitted.
 mkDeleteNetworkInterfacePermission ::
   -- | 'networkInterfacePermissionId'
-  Lude.Text ->
+  Types.NetworkInterfacePermissionId ->
   DeleteNetworkInterfacePermission
-mkDeleteNetworkInterfacePermission pNetworkInterfacePermissionId_ =
+mkDeleteNetworkInterfacePermission networkInterfacePermissionId =
   DeleteNetworkInterfacePermission'
-    { force = Lude.Nothing,
-      networkInterfacePermissionId = pNetworkInterfacePermissionId_,
-      dryRun = Lude.Nothing
+    { networkInterfacePermissionId,
+      dryRun = Core.Nothing,
+      force = Core.Nothing
     }
-
--- | Specify @true@ to remove the permission even if the network interface is attached to an instance.
---
--- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnipForce :: Lens.Lens' DeleteNetworkInterfacePermission (Lude.Maybe Lude.Bool)
-dnipForce = Lens.lens (force :: DeleteNetworkInterfacePermission -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteNetworkInterfacePermission)
-{-# DEPRECATED dnipForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The ID of the network interface permission.
 --
 -- /Note:/ Consider using 'networkInterfacePermissionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnipNetworkInterfacePermissionId :: Lens.Lens' DeleteNetworkInterfacePermission Lude.Text
-dnipNetworkInterfacePermissionId = Lens.lens (networkInterfacePermissionId :: DeleteNetworkInterfacePermission -> Lude.Text) (\s a -> s {networkInterfacePermissionId = a} :: DeleteNetworkInterfacePermission)
+dnipNetworkInterfacePermissionId :: Lens.Lens' DeleteNetworkInterfacePermission Types.NetworkInterfacePermissionId
+dnipNetworkInterfacePermissionId = Lens.field @"networkInterfacePermissionId"
 {-# DEPRECATED dnipNetworkInterfacePermissionId "Use generic-lens or generic-optics with 'networkInterfacePermissionId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnipDryRun :: Lens.Lens' DeleteNetworkInterfacePermission (Lude.Maybe Lude.Bool)
-dnipDryRun = Lens.lens (dryRun :: DeleteNetworkInterfacePermission -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteNetworkInterfacePermission)
+dnipDryRun :: Lens.Lens' DeleteNetworkInterfacePermission (Core.Maybe Core.Bool)
+dnipDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dnipDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteNetworkInterfacePermission where
+-- | Specify @true@ to remove the permission even if the network interface is attached to an instance.
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnipForce :: Lens.Lens' DeleteNetworkInterfacePermission (Core.Maybe Core.Bool)
+dnipForce = Lens.field @"force"
+{-# DEPRECATED dnipForce "Use generic-lens or generic-optics with 'force' instead." #-}
+
+instance Core.AWSRequest DeleteNetworkInterfacePermission where
   type
     Rs DeleteNetworkInterfacePermission =
       DeleteNetworkInterfacePermissionResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteNetworkInterfacePermission")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue
+                            "NetworkInterfacePermissionId"
+                            networkInterfacePermissionId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "Force" Core.<$> force)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteNetworkInterfacePermissionResponse'
-            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteNetworkInterfacePermission where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteNetworkInterfacePermission where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteNetworkInterfacePermission where
-  toQuery DeleteNetworkInterfacePermission' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteNetworkInterfacePermission" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Force" Lude.=: force,
-        "NetworkInterfacePermissionId"
-          Lude.=: networkInterfacePermissionId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Contains the output for DeleteNetworkInterfacePermission.
 --
 -- /See:/ 'mkDeleteNetworkInterfacePermissionResponse' smart constructor.
 data DeleteNetworkInterfacePermissionResponse = DeleteNetworkInterfacePermissionResponse'
   { -- | Returns @true@ if the request succeeds, otherwise returns an error.
-    return :: Lude.Maybe Lude.Bool,
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteNetworkInterfacePermissionResponse' with the minimum fields required to make a request.
---
--- * 'return' - Returns @true@ if the request succeeds, otherwise returns an error.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteNetworkInterfacePermissionResponse' value with any optional fields omitted.
 mkDeleteNetworkInterfacePermissionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteNetworkInterfacePermissionResponse
-mkDeleteNetworkInterfacePermissionResponse pResponseStatus_ =
+mkDeleteNetworkInterfacePermissionResponse responseStatus =
   DeleteNetworkInterfacePermissionResponse'
-    { return = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { return = Core.Nothing,
+      responseStatus
     }
 
 -- | Returns @true@ if the request succeeds, otherwise returns an error.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnipfrsReturn :: Lens.Lens' DeleteNetworkInterfacePermissionResponse (Lude.Maybe Lude.Bool)
-dnipfrsReturn = Lens.lens (return :: DeleteNetworkInterfacePermissionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: DeleteNetworkInterfacePermissionResponse)
-{-# DEPRECATED dnipfrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+dniprrsReturn :: Lens.Lens' DeleteNetworkInterfacePermissionResponse (Core.Maybe Core.Bool)
+dniprrsReturn = Lens.field @"return"
+{-# DEPRECATED dniprrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnipfrsResponseStatus :: Lens.Lens' DeleteNetworkInterfacePermissionResponse Lude.Int
-dnipfrsResponseStatus = Lens.lens (responseStatus :: DeleteNetworkInterfacePermissionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteNetworkInterfacePermissionResponse)
-{-# DEPRECATED dnipfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dniprrsResponseStatus :: Lens.Lens' DeleteNetworkInterfacePermissionResponse Core.Int
+dniprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dniprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

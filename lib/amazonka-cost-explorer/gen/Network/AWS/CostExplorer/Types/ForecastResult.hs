@@ -17,85 +17,81 @@ module Network.AWS.CostExplorer.Types.ForecastResult
     mkForecastResult,
 
     -- * Lenses
-    frTimePeriod,
     frMeanValue,
-    frPredictionIntervalUpperBound,
     frPredictionIntervalLowerBound,
+    frPredictionIntervalUpperBound,
+    frTimePeriod,
   )
 where
 
-import Network.AWS.CostExplorer.Types.DateInterval
+import qualified Network.AWS.CostExplorer.Types.DateInterval as Types
+import qualified Network.AWS.CostExplorer.Types.MeanValue as Types
+import qualified Network.AWS.CostExplorer.Types.PredictionIntervalLowerBound as Types
+import qualified Network.AWS.CostExplorer.Types.PredictionIntervalUpperBound as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The forecast created for your query.
 --
 -- /See:/ 'mkForecastResult' smart constructor.
 data ForecastResult = ForecastResult'
-  { -- | The period of time that the forecast covers.
-    timePeriod :: Lude.Maybe DateInterval,
-    -- | The mean value of the forecast.
-    meanValue :: Lude.Maybe Lude.Text,
-    -- | The upper limit for the prediction interval.
-    predictionIntervalUpperBound :: Lude.Maybe Lude.Text,
+  { -- | The mean value of the forecast.
+    meanValue :: Core.Maybe Types.MeanValue,
     -- | The lower limit for the prediction interval.
-    predictionIntervalLowerBound :: Lude.Maybe Lude.Text
+    predictionIntervalLowerBound :: Core.Maybe Types.PredictionIntervalLowerBound,
+    -- | The upper limit for the prediction interval.
+    predictionIntervalUpperBound :: Core.Maybe Types.PredictionIntervalUpperBound,
+    -- | The period of time that the forecast covers.
+    timePeriod :: Core.Maybe Types.DateInterval
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ForecastResult' with the minimum fields required to make a request.
---
--- * 'timePeriod' - The period of time that the forecast covers.
--- * 'meanValue' - The mean value of the forecast.
--- * 'predictionIntervalUpperBound' - The upper limit for the prediction interval.
--- * 'predictionIntervalLowerBound' - The lower limit for the prediction interval.
+-- | Creates a 'ForecastResult' value with any optional fields omitted.
 mkForecastResult ::
   ForecastResult
 mkForecastResult =
   ForecastResult'
-    { timePeriod = Lude.Nothing,
-      meanValue = Lude.Nothing,
-      predictionIntervalUpperBound = Lude.Nothing,
-      predictionIntervalLowerBound = Lude.Nothing
+    { meanValue = Core.Nothing,
+      predictionIntervalLowerBound = Core.Nothing,
+      predictionIntervalUpperBound = Core.Nothing,
+      timePeriod = Core.Nothing
     }
-
--- | The period of time that the forecast covers.
---
--- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frTimePeriod :: Lens.Lens' ForecastResult (Lude.Maybe DateInterval)
-frTimePeriod = Lens.lens (timePeriod :: ForecastResult -> Lude.Maybe DateInterval) (\s a -> s {timePeriod = a} :: ForecastResult)
-{-# DEPRECATED frTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | The mean value of the forecast.
 --
 -- /Note:/ Consider using 'meanValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frMeanValue :: Lens.Lens' ForecastResult (Lude.Maybe Lude.Text)
-frMeanValue = Lens.lens (meanValue :: ForecastResult -> Lude.Maybe Lude.Text) (\s a -> s {meanValue = a} :: ForecastResult)
+frMeanValue :: Lens.Lens' ForecastResult (Core.Maybe Types.MeanValue)
+frMeanValue = Lens.field @"meanValue"
 {-# DEPRECATED frMeanValue "Use generic-lens or generic-optics with 'meanValue' instead." #-}
-
--- | The upper limit for the prediction interval.
---
--- /Note:/ Consider using 'predictionIntervalUpperBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frPredictionIntervalUpperBound :: Lens.Lens' ForecastResult (Lude.Maybe Lude.Text)
-frPredictionIntervalUpperBound = Lens.lens (predictionIntervalUpperBound :: ForecastResult -> Lude.Maybe Lude.Text) (\s a -> s {predictionIntervalUpperBound = a} :: ForecastResult)
-{-# DEPRECATED frPredictionIntervalUpperBound "Use generic-lens or generic-optics with 'predictionIntervalUpperBound' instead." #-}
 
 -- | The lower limit for the prediction interval.
 --
 -- /Note:/ Consider using 'predictionIntervalLowerBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frPredictionIntervalLowerBound :: Lens.Lens' ForecastResult (Lude.Maybe Lude.Text)
-frPredictionIntervalLowerBound = Lens.lens (predictionIntervalLowerBound :: ForecastResult -> Lude.Maybe Lude.Text) (\s a -> s {predictionIntervalLowerBound = a} :: ForecastResult)
+frPredictionIntervalLowerBound :: Lens.Lens' ForecastResult (Core.Maybe Types.PredictionIntervalLowerBound)
+frPredictionIntervalLowerBound = Lens.field @"predictionIntervalLowerBound"
 {-# DEPRECATED frPredictionIntervalLowerBound "Use generic-lens or generic-optics with 'predictionIntervalLowerBound' instead." #-}
 
-instance Lude.FromJSON ForecastResult where
+-- | The upper limit for the prediction interval.
+--
+-- /Note:/ Consider using 'predictionIntervalUpperBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frPredictionIntervalUpperBound :: Lens.Lens' ForecastResult (Core.Maybe Types.PredictionIntervalUpperBound)
+frPredictionIntervalUpperBound = Lens.field @"predictionIntervalUpperBound"
+{-# DEPRECATED frPredictionIntervalUpperBound "Use generic-lens or generic-optics with 'predictionIntervalUpperBound' instead." #-}
+
+-- | The period of time that the forecast covers.
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frTimePeriod :: Lens.Lens' ForecastResult (Core.Maybe Types.DateInterval)
+frTimePeriod = Lens.field @"timePeriod"
+{-# DEPRECATED frTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
+
+instance Core.FromJSON ForecastResult where
   parseJSON =
-    Lude.withObject
-      "ForecastResult"
-      ( \x ->
-          ForecastResult'
-            Lude.<$> (x Lude..:? "TimePeriod")
-            Lude.<*> (x Lude..:? "MeanValue")
-            Lude.<*> (x Lude..:? "PredictionIntervalUpperBound")
-            Lude.<*> (x Lude..:? "PredictionIntervalLowerBound")
-      )
+    Core.withObject "ForecastResult" Core.$
+      \x ->
+        ForecastResult'
+          Core.<$> (x Core..:? "MeanValue")
+          Core.<*> (x Core..:? "PredictionIntervalLowerBound")
+          Core.<*> (x Core..:? "PredictionIntervalUpperBound")
+          Core.<*> (x Core..:? "TimePeriod")

@@ -13,46 +13,51 @@
 module Network.AWS.WAF.Types.IPSetDescriptorType
   ( IPSetDescriptorType
       ( IPSetDescriptorType',
-        IPV4,
-        IPV6
+        IPSetDescriptorTypeIPV4,
+        IPSetDescriptorTypeIPV6,
+        fromIPSetDescriptorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype IPSetDescriptorType = IPSetDescriptorType' Lude.Text
+newtype IPSetDescriptorType = IPSetDescriptorType'
+  { fromIPSetDescriptorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IPV4 :: IPSetDescriptorType
-pattern IPV4 = IPSetDescriptorType' "IPV4"
+pattern IPSetDescriptorTypeIPV4 :: IPSetDescriptorType
+pattern IPSetDescriptorTypeIPV4 = IPSetDescriptorType' "IPV4"
 
-pattern IPV6 :: IPSetDescriptorType
-pattern IPV6 = IPSetDescriptorType' "IPV6"
+pattern IPSetDescriptorTypeIPV6 :: IPSetDescriptorType
+pattern IPSetDescriptorTypeIPV6 = IPSetDescriptorType' "IPV6"
 
 {-# COMPLETE
-  IPV4,
-  IPV6,
+  IPSetDescriptorTypeIPV4,
+  IPSetDescriptorTypeIPV6,
   IPSetDescriptorType'
   #-}

@@ -17,28 +17,30 @@ module Network.AWS.CodeDeploy.Types.RevisionLocation
     mkRevisionLocation,
 
     -- * Lenses
-    rlString,
-    rlRevisionType,
-    rlS3Location,
     rlAppSpecContent,
     rlGitHubLocation,
+    rlRevisionType,
+    rlS3Location,
+    rlString,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.AppSpecContent
-import Network.AWS.CodeDeploy.Types.GitHubLocation
-import Network.AWS.CodeDeploy.Types.RawString
-import Network.AWS.CodeDeploy.Types.RevisionLocationType
-import Network.AWS.CodeDeploy.Types.S3Location
+import qualified Network.AWS.CodeDeploy.Types.AppSpecContent as Types
+import qualified Network.AWS.CodeDeploy.Types.GitHubLocation as Types
+import qualified Network.AWS.CodeDeploy.Types.RawString as Types
+import qualified Network.AWS.CodeDeploy.Types.RevisionLocationType as Types
+import qualified Network.AWS.CodeDeploy.Types.S3Location as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the location of an application revision.
 --
 -- /See:/ 'mkRevisionLocation' smart constructor.
 data RevisionLocation = RevisionLocation'
-  { -- | Information about the location of an AWS Lambda deployment revision stored as a RawString.
-    string :: Lude.Maybe RawString,
+  { -- | The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString.
+    appSpecContent :: Core.Maybe Types.AppSpecContent,
+    -- | Information about the location of application artifacts stored in GitHub.
+    gitHubLocation :: Core.Maybe Types.GitHubLocation,
     -- | The type of application revision:
     --
     --
@@ -52,55 +54,40 @@ data RevisionLocation = RevisionLocation'
     --
     --
     --     * AppSpecContent: An @AppSpecContent@ object that contains the contents of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML stored as a RawString.
-    revisionType :: Lude.Maybe RevisionLocationType,
+    revisionType :: Core.Maybe Types.RevisionLocationType,
     -- | Information about the location of a revision stored in Amazon S3.
-    s3Location :: Lude.Maybe S3Location,
-    -- | The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString.
-    appSpecContent :: Lude.Maybe AppSpecContent,
-    -- | Information about the location of application artifacts stored in GitHub.
-    gitHubLocation :: Lude.Maybe GitHubLocation
+    s3Location :: Core.Maybe Types.S3Location,
+    -- | Information about the location of an AWS Lambda deployment revision stored as a RawString.
+    string :: Core.Maybe Types.RawString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RevisionLocation' with the minimum fields required to make a request.
---
--- * 'string' - Information about the location of an AWS Lambda deployment revision stored as a RawString.
--- * 'revisionType' - The type of application revision:
---
---
---     * S3: An application revision stored in Amazon S3.
---
---
---     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
---
---
---     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
---
---
---     * AppSpecContent: An @AppSpecContent@ object that contains the contents of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML stored as a RawString.
---
---
--- * 's3Location' - Information about the location of a revision stored in Amazon S3.
--- * 'appSpecContent' - The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString.
--- * 'gitHubLocation' - Information about the location of application artifacts stored in GitHub.
+-- | Creates a 'RevisionLocation' value with any optional fields omitted.
 mkRevisionLocation ::
   RevisionLocation
 mkRevisionLocation =
   RevisionLocation'
-    { string = Lude.Nothing,
-      revisionType = Lude.Nothing,
-      s3Location = Lude.Nothing,
-      appSpecContent = Lude.Nothing,
-      gitHubLocation = Lude.Nothing
+    { appSpecContent = Core.Nothing,
+      gitHubLocation = Core.Nothing,
+      revisionType = Core.Nothing,
+      s3Location = Core.Nothing,
+      string = Core.Nothing
     }
 
--- | Information about the location of an AWS Lambda deployment revision stored as a RawString.
+-- | The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString.
 --
--- /Note:/ Consider using 'string' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlString :: Lens.Lens' RevisionLocation (Lude.Maybe RawString)
-rlString = Lens.lens (string :: RevisionLocation -> Lude.Maybe RawString) (\s a -> s {string = a} :: RevisionLocation)
-{-# DEPRECATED rlString "Use generic-lens or generic-optics with 'string' instead." #-}
+-- /Note:/ Consider using 'appSpecContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rlAppSpecContent :: Lens.Lens' RevisionLocation (Core.Maybe Types.AppSpecContent)
+rlAppSpecContent = Lens.field @"appSpecContent"
+{-# DEPRECATED rlAppSpecContent "Use generic-lens or generic-optics with 'appSpecContent' instead." #-}
+
+-- | Information about the location of application artifacts stored in GitHub.
+--
+-- /Note:/ Consider using 'gitHubLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rlGitHubLocation :: Lens.Lens' RevisionLocation (Core.Maybe Types.GitHubLocation)
+rlGitHubLocation = Lens.field @"gitHubLocation"
+{-# DEPRECATED rlGitHubLocation "Use generic-lens or generic-optics with 'gitHubLocation' instead." #-}
 
 -- | The type of application revision:
 --
@@ -119,52 +106,43 @@ rlString = Lens.lens (string :: RevisionLocation -> Lude.Maybe RawString) (\s a 
 --
 --
 -- /Note:/ Consider using 'revisionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlRevisionType :: Lens.Lens' RevisionLocation (Lude.Maybe RevisionLocationType)
-rlRevisionType = Lens.lens (revisionType :: RevisionLocation -> Lude.Maybe RevisionLocationType) (\s a -> s {revisionType = a} :: RevisionLocation)
+rlRevisionType :: Lens.Lens' RevisionLocation (Core.Maybe Types.RevisionLocationType)
+rlRevisionType = Lens.field @"revisionType"
 {-# DEPRECATED rlRevisionType "Use generic-lens or generic-optics with 'revisionType' instead." #-}
 
 -- | Information about the location of a revision stored in Amazon S3.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlS3Location :: Lens.Lens' RevisionLocation (Lude.Maybe S3Location)
-rlS3Location = Lens.lens (s3Location :: RevisionLocation -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: RevisionLocation)
+rlS3Location :: Lens.Lens' RevisionLocation (Core.Maybe Types.S3Location)
+rlS3Location = Lens.field @"s3Location"
 {-# DEPRECATED rlS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
--- | The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString.
+-- | Information about the location of an AWS Lambda deployment revision stored as a RawString.
 --
--- /Note:/ Consider using 'appSpecContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlAppSpecContent :: Lens.Lens' RevisionLocation (Lude.Maybe AppSpecContent)
-rlAppSpecContent = Lens.lens (appSpecContent :: RevisionLocation -> Lude.Maybe AppSpecContent) (\s a -> s {appSpecContent = a} :: RevisionLocation)
-{-# DEPRECATED rlAppSpecContent "Use generic-lens or generic-optics with 'appSpecContent' instead." #-}
+-- /Note:/ Consider using 'string' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rlString :: Lens.Lens' RevisionLocation (Core.Maybe Types.RawString)
+rlString = Lens.field @"string"
+{-# DEPRECATED rlString "Use generic-lens or generic-optics with 'string' instead." #-}
 
--- | Information about the location of application artifacts stored in GitHub.
---
--- /Note:/ Consider using 'gitHubLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlGitHubLocation :: Lens.Lens' RevisionLocation (Lude.Maybe GitHubLocation)
-rlGitHubLocation = Lens.lens (gitHubLocation :: RevisionLocation -> Lude.Maybe GitHubLocation) (\s a -> s {gitHubLocation = a} :: RevisionLocation)
-{-# DEPRECATED rlGitHubLocation "Use generic-lens or generic-optics with 'gitHubLocation' instead." #-}
-
-instance Lude.FromJSON RevisionLocation where
-  parseJSON =
-    Lude.withObject
-      "RevisionLocation"
-      ( \x ->
-          RevisionLocation'
-            Lude.<$> (x Lude..:? "string")
-            Lude.<*> (x Lude..:? "revisionType")
-            Lude.<*> (x Lude..:? "s3Location")
-            Lude.<*> (x Lude..:? "appSpecContent")
-            Lude.<*> (x Lude..:? "gitHubLocation")
-      )
-
-instance Lude.ToJSON RevisionLocation where
-  toJSON RevisionLocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("string" Lude..=) Lude.<$> string,
-            ("revisionType" Lude..=) Lude.<$> revisionType,
-            ("s3Location" Lude..=) Lude.<$> s3Location,
-            ("appSpecContent" Lude..=) Lude.<$> appSpecContent,
-            ("gitHubLocation" Lude..=) Lude.<$> gitHubLocation
+instance Core.FromJSON RevisionLocation where
+  toJSON RevisionLocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("appSpecContent" Core..=) Core.<$> appSpecContent,
+            ("gitHubLocation" Core..=) Core.<$> gitHubLocation,
+            ("revisionType" Core..=) Core.<$> revisionType,
+            ("s3Location" Core..=) Core.<$> s3Location,
+            ("string" Core..=) Core.<$> string
           ]
       )
+
+instance Core.FromJSON RevisionLocation where
+  parseJSON =
+    Core.withObject "RevisionLocation" Core.$
+      \x ->
+        RevisionLocation'
+          Core.<$> (x Core..:? "appSpecContent")
+          Core.<*> (x Core..:? "gitHubLocation")
+          Core.<*> (x Core..:? "revisionType")
+          Core.<*> (x Core..:? "s3Location")
+          Core.<*> (x Core..:? "string")

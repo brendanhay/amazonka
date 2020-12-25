@@ -22,43 +22,39 @@ module Network.AWS.MediaLive.Types.AudioTrackSelection
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AudioTrack
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AudioTrack as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Audio Track Selection
 --
 -- /See:/ 'mkAudioTrackSelection' smart constructor.
 newtype AudioTrackSelection = AudioTrackSelection'
   { -- | Selects one or more unique audio tracks from within a source.
-    tracks :: [AudioTrack]
+    tracks :: [Types.AudioTrack]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AudioTrackSelection' with the minimum fields required to make a request.
---
--- * 'tracks' - Selects one or more unique audio tracks from within a source.
+-- | Creates a 'AudioTrackSelection' value with any optional fields omitted.
 mkAudioTrackSelection ::
   AudioTrackSelection
-mkAudioTrackSelection = AudioTrackSelection' {tracks = Lude.mempty}
+mkAudioTrackSelection = AudioTrackSelection' {tracks = Core.mempty}
 
 -- | Selects one or more unique audio tracks from within a source.
 --
 -- /Note:/ Consider using 'tracks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atsTracks :: Lens.Lens' AudioTrackSelection [AudioTrack]
-atsTracks = Lens.lens (tracks :: AudioTrackSelection -> [AudioTrack]) (\s a -> s {tracks = a} :: AudioTrackSelection)
+atsTracks :: Lens.Lens' AudioTrackSelection [Types.AudioTrack]
+atsTracks = Lens.field @"tracks"
 {-# DEPRECATED atsTracks "Use generic-lens or generic-optics with 'tracks' instead." #-}
 
-instance Lude.FromJSON AudioTrackSelection where
-  parseJSON =
-    Lude.withObject
-      "AudioTrackSelection"
-      ( \x ->
-          AudioTrackSelection'
-            Lude.<$> (x Lude..:? "tracks" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON AudioTrackSelection where
+  toJSON AudioTrackSelection {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("tracks" Core..= tracks)])
 
-instance Lude.ToJSON AudioTrackSelection where
-  toJSON AudioTrackSelection' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("tracks" Lude..= tracks)])
+instance Core.FromJSON AudioTrackSelection where
+  parseJSON =
+    Core.withObject "AudioTrackSelection" Core.$
+      \x ->
+        AudioTrackSelection'
+          Core.<$> (x Core..:? "tracks" Core..!= Core.mempty)

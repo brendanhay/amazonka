@@ -22,49 +22,47 @@ module Network.AWS.EC2.Types.NetworkInterfacePermissionState
   )
 where
 
-import Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode
+import qualified Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the state of a network interface permission.
 --
 -- /See:/ 'mkNetworkInterfacePermissionState' smart constructor.
 data NetworkInterfacePermissionState = NetworkInterfacePermissionState'
   { -- | The state of the permission.
-    state :: Lude.Maybe NetworkInterfacePermissionStateCode,
+    state :: Core.Maybe Types.NetworkInterfacePermissionStateCode,
     -- | A status message, if applicable.
-    statusMessage :: Lude.Maybe Lude.Text
+    statusMessage :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkInterfacePermissionState' with the minimum fields required to make a request.
---
--- * 'state' - The state of the permission.
--- * 'statusMessage' - A status message, if applicable.
+-- | Creates a 'NetworkInterfacePermissionState' value with any optional fields omitted.
 mkNetworkInterfacePermissionState ::
   NetworkInterfacePermissionState
 mkNetworkInterfacePermissionState =
   NetworkInterfacePermissionState'
-    { state = Lude.Nothing,
-      statusMessage = Lude.Nothing
+    { state = Core.Nothing,
+      statusMessage = Core.Nothing
     }
 
 -- | The state of the permission.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nipsState :: Lens.Lens' NetworkInterfacePermissionState (Lude.Maybe NetworkInterfacePermissionStateCode)
-nipsState = Lens.lens (state :: NetworkInterfacePermissionState -> Lude.Maybe NetworkInterfacePermissionStateCode) (\s a -> s {state = a} :: NetworkInterfacePermissionState)
+nipsState :: Lens.Lens' NetworkInterfacePermissionState (Core.Maybe Types.NetworkInterfacePermissionStateCode)
+nipsState = Lens.field @"state"
 {-# DEPRECATED nipsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A status message, if applicable.
 --
 -- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nipsStatusMessage :: Lens.Lens' NetworkInterfacePermissionState (Lude.Maybe Lude.Text)
-nipsStatusMessage = Lens.lens (statusMessage :: NetworkInterfacePermissionState -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: NetworkInterfacePermissionState)
+nipsStatusMessage :: Lens.Lens' NetworkInterfacePermissionState (Core.Maybe Types.String)
+nipsStatusMessage = Lens.field @"statusMessage"
 {-# DEPRECATED nipsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
-instance Lude.FromXML NetworkInterfacePermissionState where
+instance Core.FromXML NetworkInterfacePermissionState where
   parseXML x =
     NetworkInterfacePermissionState'
-      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "statusMessage")
+      Core.<$> (x Core..@? "state") Core.<*> (x Core..@? "statusMessage")

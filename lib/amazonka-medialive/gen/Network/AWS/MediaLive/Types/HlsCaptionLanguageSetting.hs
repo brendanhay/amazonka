@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.HlsCaptionLanguageSetting
   ( HlsCaptionLanguageSetting
       ( HlsCaptionLanguageSetting',
-        HCLSInsert,
-        HCLSNone,
-        HCLSOmit
+        HlsCaptionLanguageSettingInsert,
+        HlsCaptionLanguageSettingNone,
+        HlsCaptionLanguageSettingOmit,
+        fromHlsCaptionLanguageSetting
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Caption Language Setting
-newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting' Lude.Text
+newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting'
+  { fromHlsCaptionLanguageSetting ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HCLSInsert :: HlsCaptionLanguageSetting
-pattern HCLSInsert = HlsCaptionLanguageSetting' "INSERT"
+pattern HlsCaptionLanguageSettingInsert :: HlsCaptionLanguageSetting
+pattern HlsCaptionLanguageSettingInsert = HlsCaptionLanguageSetting' "INSERT"
 
-pattern HCLSNone :: HlsCaptionLanguageSetting
-pattern HCLSNone = HlsCaptionLanguageSetting' "NONE"
+pattern HlsCaptionLanguageSettingNone :: HlsCaptionLanguageSetting
+pattern HlsCaptionLanguageSettingNone = HlsCaptionLanguageSetting' "NONE"
 
-pattern HCLSOmit :: HlsCaptionLanguageSetting
-pattern HCLSOmit = HlsCaptionLanguageSetting' "OMIT"
+pattern HlsCaptionLanguageSettingOmit :: HlsCaptionLanguageSetting
+pattern HlsCaptionLanguageSettingOmit = HlsCaptionLanguageSetting' "OMIT"
 
 {-# COMPLETE
-  HCLSInsert,
-  HCLSNone,
-  HCLSOmit,
+  HlsCaptionLanguageSettingInsert,
+  HlsCaptionLanguageSettingNone,
+  HlsCaptionLanguageSettingOmit,
   HlsCaptionLanguageSetting'
   #-}

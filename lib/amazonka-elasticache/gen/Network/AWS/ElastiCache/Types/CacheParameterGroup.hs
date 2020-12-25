@@ -17,99 +17,92 @@ module Network.AWS.ElastiCache.Types.CacheParameterGroup
     mkCacheParameterGroup,
 
     -- * Lenses
-    cpgCacheParameterGroupFamily,
     cpgARN,
+    cpgCacheParameterGroupFamily,
     cpgCacheParameterGroupName,
-    cpgIsGlobal,
     cpgDescription,
+    cpgIsGlobal,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a @CreateCacheParameterGroup@ operation.
 --
 -- /See:/ 'mkCacheParameterGroup' smart constructor.
 data CacheParameterGroup = CacheParameterGroup'
-  { -- | The name of the cache parameter group family that this cache parameter group is compatible with.
+  { -- | The ARN (Amazon Resource Name) of the cache parameter group.
+    arn :: Core.Maybe Types.String,
+    -- | The name of the cache parameter group family that this cache parameter group is compatible with.
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
-    cacheParameterGroupFamily :: Lude.Maybe Lude.Text,
-    -- | The ARN (Amazon Resource Name) of the cache parameter group.
-    arn :: Lude.Maybe Lude.Text,
+    cacheParameterGroupFamily :: Core.Maybe Types.String,
     -- | The name of the cache parameter group.
-    cacheParameterGroupName :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the parameter group is associated with a Global Datastore
-    isGlobal :: Lude.Maybe Lude.Bool,
+    cacheParameterGroupName :: Core.Maybe Types.String,
     -- | The description for this cache parameter group.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String,
+    -- | Indicates whether the parameter group is associated with a Global Datastore
+    isGlobal :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CacheParameterGroup' with the minimum fields required to make a request.
---
--- * 'cacheParameterGroupFamily' - The name of the cache parameter group family that this cache parameter group is compatible with.
---
--- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
--- * 'arn' - The ARN (Amazon Resource Name) of the cache parameter group.
--- * 'cacheParameterGroupName' - The name of the cache parameter group.
--- * 'isGlobal' - Indicates whether the parameter group is associated with a Global Datastore
--- * 'description' - The description for this cache parameter group.
+-- | Creates a 'CacheParameterGroup' value with any optional fields omitted.
 mkCacheParameterGroup ::
   CacheParameterGroup
 mkCacheParameterGroup =
   CacheParameterGroup'
-    { cacheParameterGroupFamily = Lude.Nothing,
-      arn = Lude.Nothing,
-      cacheParameterGroupName = Lude.Nothing,
-      isGlobal = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      cacheParameterGroupFamily = Core.Nothing,
+      cacheParameterGroupName = Core.Nothing,
+      description = Core.Nothing,
+      isGlobal = Core.Nothing
     }
+
+-- | The ARN (Amazon Resource Name) of the cache parameter group.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgARN :: Lens.Lens' CacheParameterGroup (Core.Maybe Types.String)
+cpgARN = Lens.field @"arn"
+{-# DEPRECATED cpgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the cache parameter group family that this cache parameter group is compatible with.
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
 --
 -- /Note:/ Consider using 'cacheParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgCacheParameterGroupFamily :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Text)
-cpgCacheParameterGroupFamily = Lens.lens (cacheParameterGroupFamily :: CacheParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheParameterGroupFamily = a} :: CacheParameterGroup)
+cpgCacheParameterGroupFamily :: Lens.Lens' CacheParameterGroup (Core.Maybe Types.String)
+cpgCacheParameterGroupFamily = Lens.field @"cacheParameterGroupFamily"
 {-# DEPRECATED cpgCacheParameterGroupFamily "Use generic-lens or generic-optics with 'cacheParameterGroupFamily' instead." #-}
-
--- | The ARN (Amazon Resource Name) of the cache parameter group.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgARN :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Text)
-cpgARN = Lens.lens (arn :: CacheParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CacheParameterGroup)
-{-# DEPRECATED cpgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the cache parameter group.
 --
 -- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgCacheParameterGroupName :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Text)
-cpgCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: CacheParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: CacheParameterGroup)
+cpgCacheParameterGroupName :: Lens.Lens' CacheParameterGroup (Core.Maybe Types.String)
+cpgCacheParameterGroupName = Lens.field @"cacheParameterGroupName"
 {-# DEPRECATED cpgCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
-
--- | Indicates whether the parameter group is associated with a Global Datastore
---
--- /Note:/ Consider using 'isGlobal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgIsGlobal :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Bool)
-cpgIsGlobal = Lens.lens (isGlobal :: CacheParameterGroup -> Lude.Maybe Lude.Bool) (\s a -> s {isGlobal = a} :: CacheParameterGroup)
-{-# DEPRECATED cpgIsGlobal "Use generic-lens or generic-optics with 'isGlobal' instead." #-}
 
 -- | The description for this cache parameter group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgDescription :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Text)
-cpgDescription = Lens.lens (description :: CacheParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CacheParameterGroup)
+cpgDescription :: Lens.Lens' CacheParameterGroup (Core.Maybe Types.String)
+cpgDescription = Lens.field @"description"
 {-# DEPRECATED cpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML CacheParameterGroup where
+-- | Indicates whether the parameter group is associated with a Global Datastore
+--
+-- /Note:/ Consider using 'isGlobal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgIsGlobal :: Lens.Lens' CacheParameterGroup (Core.Maybe Core.Bool)
+cpgIsGlobal = Lens.field @"isGlobal"
+{-# DEPRECATED cpgIsGlobal "Use generic-lens or generic-optics with 'isGlobal' instead." #-}
+
+instance Core.FromXML CacheParameterGroup where
   parseXML x =
     CacheParameterGroup'
-      Lude.<$> (x Lude..@? "CacheParameterGroupFamily")
-      Lude.<*> (x Lude..@? "ARN")
-      Lude.<*> (x Lude..@? "CacheParameterGroupName")
-      Lude.<*> (x Lude..@? "IsGlobal")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "ARN")
+      Core.<*> (x Core..@? "CacheParameterGroupFamily")
+      Core.<*> (x Core..@? "CacheParameterGroupName")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "IsGlobal")

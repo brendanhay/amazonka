@@ -20,10 +20,10 @@ module Network.AWS.Glue.ListMLTransforms
     mkListMLTransforms,
 
     -- ** Request lenses
-    lmltNextToken,
-    lmltSort,
     lmltFilter,
     lmltMaxResults,
+    lmltNextToken,
+    lmltSort,
     lmltTags,
 
     -- * Destructuring the response
@@ -31,173 +31,156 @@ module Network.AWS.Glue.ListMLTransforms
     mkListMLTransformsResponse,
 
     -- ** Response lenses
-    lmltrsNextToken,
-    lmltrsTransformIds,
-    lmltrsResponseStatus,
+    lmltrrsTransformIds,
+    lmltrrsNextToken,
+    lmltrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListMLTransforms' smart constructor.
 data ListMLTransforms = ListMLTransforms'
-  { -- | A continuation token, if this is a continuation request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A @TransformSortCriteria@ used to sort the machine learning transforms.
-    sort :: Lude.Maybe TransformSortCriteria,
-    -- | A @TransformFilterCriteria@ used to filter the machine learning transforms.
-    filter :: Lude.Maybe TransformFilterCriteria,
+  { -- | A @TransformFilterCriteria@ used to filter the machine learning transforms.
+    filter :: Core.Maybe Types.TransformFilterCriteria,
     -- | The maximum size of a list to return.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A continuation token, if this is a continuation request.
+    nextToken :: Core.Maybe Types.PaginationToken,
+    -- | A @TransformSortCriteria@ used to sort the machine learning transforms.
+    sort :: Core.Maybe Types.TransformSortCriteria,
     -- | Specifies to return only these tagged resources.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListMLTransforms' with the minimum fields required to make a request.
---
--- * 'nextToken' - A continuation token, if this is a continuation request.
--- * 'sort' - A @TransformSortCriteria@ used to sort the machine learning transforms.
--- * 'filter' - A @TransformFilterCriteria@ used to filter the machine learning transforms.
--- * 'maxResults' - The maximum size of a list to return.
--- * 'tags' - Specifies to return only these tagged resources.
+-- | Creates a 'ListMLTransforms' value with any optional fields omitted.
 mkListMLTransforms ::
   ListMLTransforms
 mkListMLTransforms =
   ListMLTransforms'
-    { nextToken = Lude.Nothing,
-      sort = Lude.Nothing,
-      filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      tags = Lude.Nothing
+    { filter = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sort = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | A continuation token, if this is a continuation request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltNextToken :: Lens.Lens' ListMLTransforms (Lude.Maybe Lude.Text)
-lmltNextToken = Lens.lens (nextToken :: ListMLTransforms -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMLTransforms)
-{-# DEPRECATED lmltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | A @TransformSortCriteria@ used to sort the machine learning transforms.
---
--- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltSort :: Lens.Lens' ListMLTransforms (Lude.Maybe TransformSortCriteria)
-lmltSort = Lens.lens (sort :: ListMLTransforms -> Lude.Maybe TransformSortCriteria) (\s a -> s {sort = a} :: ListMLTransforms)
-{-# DEPRECATED lmltSort "Use generic-lens or generic-optics with 'sort' instead." #-}
 
 -- | A @TransformFilterCriteria@ used to filter the machine learning transforms.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltFilter :: Lens.Lens' ListMLTransforms (Lude.Maybe TransformFilterCriteria)
-lmltFilter = Lens.lens (filter :: ListMLTransforms -> Lude.Maybe TransformFilterCriteria) (\s a -> s {filter = a} :: ListMLTransforms)
+lmltFilter :: Lens.Lens' ListMLTransforms (Core.Maybe Types.TransformFilterCriteria)
+lmltFilter = Lens.field @"filter"
 {-# DEPRECATED lmltFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum size of a list to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltMaxResults :: Lens.Lens' ListMLTransforms (Lude.Maybe Lude.Natural)
-lmltMaxResults = Lens.lens (maxResults :: ListMLTransforms -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMLTransforms)
+lmltMaxResults :: Lens.Lens' ListMLTransforms (Core.Maybe Core.Natural)
+lmltMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lmltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A continuation token, if this is a continuation request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmltNextToken :: Lens.Lens' ListMLTransforms (Core.Maybe Types.PaginationToken)
+lmltNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A @TransformSortCriteria@ used to sort the machine learning transforms.
+--
+-- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmltSort :: Lens.Lens' ListMLTransforms (Core.Maybe Types.TransformSortCriteria)
+lmltSort = Lens.field @"sort"
+{-# DEPRECATED lmltSort "Use generic-lens or generic-optics with 'sort' instead." #-}
 
 -- | Specifies to return only these tagged resources.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltTags :: Lens.Lens' ListMLTransforms (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-lmltTags = Lens.lens (tags :: ListMLTransforms -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListMLTransforms)
+lmltTags :: Lens.Lens' ListMLTransforms (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+lmltTags = Lens.field @"tags"
 {-# DEPRECATED lmltTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest ListMLTransforms where
+instance Core.FromJSON ListMLTransforms where
+  toJSON ListMLTransforms {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filter" Core..=) Core.<$> filter,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Sort" Core..=) Core.<$> sort,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest ListMLTransforms where
   type Rs ListMLTransforms = ListMLTransformsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.ListMLTransforms")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListMLTransformsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "TransformIds" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TransformIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListMLTransforms where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.ListMLTransforms" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListMLTransforms where
-  toJSON ListMLTransforms' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Sort" Lude..=) Lude.<$> sort,
-            ("Filter" Lude..=) Lude.<$> filter,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath ListMLTransforms where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListMLTransforms where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListMLTransformsResponse' smart constructor.
 data ListMLTransformsResponse = ListMLTransformsResponse'
-  { -- | A continuation token, if the returned list does not contain the last metric available.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.
-    transformIds :: [Lude.Text],
+  { -- | The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.
+    transformIds :: [Types.HashString],
+    -- | A continuation token, if the returned list does not contain the last metric available.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMLTransformsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A continuation token, if the returned list does not contain the last metric available.
--- * 'transformIds' - The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListMLTransformsResponse' value with any optional fields omitted.
 mkListMLTransformsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListMLTransformsResponse
-mkListMLTransformsResponse pResponseStatus_ =
+mkListMLTransformsResponse responseStatus =
   ListMLTransformsResponse'
-    { nextToken = Lude.Nothing,
-      transformIds = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { transformIds = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | A continuation token, if the returned list does not contain the last metric available.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltrsNextToken :: Lens.Lens' ListMLTransformsResponse (Lude.Maybe Lude.Text)
-lmltrsNextToken = Lens.lens (nextToken :: ListMLTransformsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMLTransformsResponse)
-{-# DEPRECATED lmltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.
 --
 -- /Note:/ Consider using 'transformIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltrsTransformIds :: Lens.Lens' ListMLTransformsResponse [Lude.Text]
-lmltrsTransformIds = Lens.lens (transformIds :: ListMLTransformsResponse -> [Lude.Text]) (\s a -> s {transformIds = a} :: ListMLTransformsResponse)
-{-# DEPRECATED lmltrsTransformIds "Use generic-lens or generic-optics with 'transformIds' instead." #-}
+lmltrrsTransformIds :: Lens.Lens' ListMLTransformsResponse [Types.HashString]
+lmltrrsTransformIds = Lens.field @"transformIds"
+{-# DEPRECATED lmltrrsTransformIds "Use generic-lens or generic-optics with 'transformIds' instead." #-}
+
+-- | A continuation token, if the returned list does not contain the last metric available.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmltrrsNextToken :: Lens.Lens' ListMLTransformsResponse (Core.Maybe Types.PaginationToken)
+lmltrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmltrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltrsResponseStatus :: Lens.Lens' ListMLTransformsResponse Lude.Int
-lmltrsResponseStatus = Lens.lens (responseStatus :: ListMLTransformsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMLTransformsResponse)
-{-# DEPRECATED lmltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmltrrsResponseStatus :: Lens.Lens' ListMLTransformsResponse Core.Int
+lmltrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

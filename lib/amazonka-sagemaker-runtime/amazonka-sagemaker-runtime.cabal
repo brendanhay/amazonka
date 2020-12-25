@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.SageMakerRuntime
     Network.AWS.SageMakerRuntime.InvokeEndpoint
@@ -72,6 +78,15 @@ library
     Network.AWS.SageMakerRuntime.Waiters
 
   other-modules:
+    Network.AWS.SageMakerRuntime.Types.ContentType
+    Network.AWS.SageMakerRuntime.Types.CustomAttributes
+    Network.AWS.SageMakerRuntime.Types.CustomAttributesHeader
+    Network.AWS.SageMakerRuntime.Types.EndpointName
+    Network.AWS.SageMakerRuntime.Types.Header
+    Network.AWS.SageMakerRuntime.Types.InvokedProductionVariant
+    Network.AWS.SageMakerRuntime.Types.TargetModelHeader
+    Network.AWS.SageMakerRuntime.Types.TargetVariant
+
   build-depends:   amazonka-core ==2.0.0.0.*
 
 test-suite amazonka-sagemaker-runtime-test

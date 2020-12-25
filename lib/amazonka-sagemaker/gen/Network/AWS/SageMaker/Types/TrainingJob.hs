@@ -17,148 +17,119 @@ module Network.AWS.SageMaker.Types.TrainingJob
     mkTrainingJob,
 
     -- * Lenses
-    tjCreationTime,
-    tjLabelingJobARN,
-    tjFailureReason,
-    tjSecondaryStatusTransitions,
-    tjModelArtifacts,
-    tjTrainingEndTime,
+    tjAlgorithmSpecification,
+    tjAutoMLJobArn,
     tjBillableTimeInSeconds,
-    tjDebugHookConfig,
     tjCheckpointConfig,
-    tjStoppingCondition,
+    tjCreationTime,
+    tjDebugHookConfig,
+    tjDebugRuleConfigurations,
     tjDebugRuleEvaluationStatuses,
-    tjTrainingJobStatus,
+    tjEnableInterContainerTrafficEncryption,
+    tjEnableManagedSpotTraining,
     tjEnableNetworkIsolation,
     tjExperimentConfig,
-    tjLastModifiedTime,
-    tjDebugRuleConfigurations,
-    tjEnableManagedSpotTraining,
-    tjAutoMLJobARN,
+    tjFailureReason,
+    tjFinalMetricDataList,
     tjHyperParameters,
     tjInputDataConfig,
-    tjVPCConfig,
-    tjTrainingJobARN,
-    tjAlgorithmSpecification,
-    tjFinalMetricDataList,
+    tjLabelingJobArn,
+    tjLastModifiedTime,
+    tjModelArtifacts,
     tjOutputDataConfig,
-    tjTrainingStartTime,
-    tjTuningJobARN,
-    tjTrainingJobName,
     tjResourceConfig,
-    tjEnableInterContainerTrafficEncryption,
-    tjTensorBoardOutputConfig,
+    tjRoleArn,
     tjSecondaryStatus,
+    tjSecondaryStatusTransitions,
+    tjStoppingCondition,
     tjTags,
+    tjTensorBoardOutputConfig,
+    tjTrainingEndTime,
+    tjTrainingJobArn,
+    tjTrainingJobName,
+    tjTrainingJobStatus,
+    tjTrainingStartTime,
     tjTrainingTimeInSeconds,
-    tjRoleARN,
+    tjTuningJobArn,
+    tjVpcConfig,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AlgorithmSpecification
-import Network.AWS.SageMaker.Types.Channel
-import Network.AWS.SageMaker.Types.CheckpointConfig
-import Network.AWS.SageMaker.Types.DebugHookConfig
-import Network.AWS.SageMaker.Types.DebugRuleConfiguration
-import Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus
-import Network.AWS.SageMaker.Types.ExperimentConfig
-import Network.AWS.SageMaker.Types.MetricData
-import Network.AWS.SageMaker.Types.ModelArtifacts
-import Network.AWS.SageMaker.Types.OutputDataConfig
-import Network.AWS.SageMaker.Types.ResourceConfig
-import Network.AWS.SageMaker.Types.SecondaryStatus
-import Network.AWS.SageMaker.Types.SecondaryStatusTransition
-import Network.AWS.SageMaker.Types.StoppingCondition
-import Network.AWS.SageMaker.Types.Tag
-import Network.AWS.SageMaker.Types.TensorBoardOutputConfig
-import Network.AWS.SageMaker.Types.TrainingJobStatus
-import Network.AWS.SageMaker.Types.VPCConfig
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AlgorithmSpecification as Types
+import qualified Network.AWS.SageMaker.Types.AutoMLJobArn as Types
+import qualified Network.AWS.SageMaker.Types.Channel as Types
+import qualified Network.AWS.SageMaker.Types.CheckpointConfig as Types
+import qualified Network.AWS.SageMaker.Types.DebugHookConfig as Types
+import qualified Network.AWS.SageMaker.Types.DebugRuleConfiguration as Types
+import qualified Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus as Types
+import qualified Network.AWS.SageMaker.Types.ExperimentConfig as Types
+import qualified Network.AWS.SageMaker.Types.FailureReason as Types
+import qualified Network.AWS.SageMaker.Types.HyperParameterKey as Types
+import qualified Network.AWS.SageMaker.Types.HyperParameterValue as Types
+import qualified Network.AWS.SageMaker.Types.LabelingJobArn as Types
+import qualified Network.AWS.SageMaker.Types.MetricData as Types
+import qualified Network.AWS.SageMaker.Types.ModelArtifacts as Types
+import qualified Network.AWS.SageMaker.Types.OutputDataConfig as Types
+import qualified Network.AWS.SageMaker.Types.ResourceConfig as Types
+import qualified Network.AWS.SageMaker.Types.RoleArn as Types
+import qualified Network.AWS.SageMaker.Types.SecondaryStatus as Types
+import qualified Network.AWS.SageMaker.Types.SecondaryStatusTransition as Types
+import qualified Network.AWS.SageMaker.Types.StoppingCondition as Types
+import qualified Network.AWS.SageMaker.Types.Tag as Types
+import qualified Network.AWS.SageMaker.Types.TensorBoardOutputConfig as Types
+import qualified Network.AWS.SageMaker.Types.TrainingJobArn as Types
+import qualified Network.AWS.SageMaker.Types.TrainingJobName as Types
+import qualified Network.AWS.SageMaker.Types.TrainingJobStatus as Types
+import qualified Network.AWS.SageMaker.Types.TuningJobArn as Types
+import qualified Network.AWS.SageMaker.Types.VpcConfig as Types
 
 -- | Contains information about a training job.
 --
 -- /See:/ 'mkTrainingJob' smart constructor.
 data TrainingJob = TrainingJob'
-  { -- | A timestamp that indicates when the training job was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the labeling job.
-    labelingJobARN :: Lude.Maybe Lude.Text,
-    -- | If the training job failed, the reason it failed.
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | A history of all of the secondary statuses that the training job has transitioned through.
-    secondaryStatusTransitions :: Lude.Maybe [SecondaryStatusTransition],
-    -- | Information about the Amazon S3 location that is configured for storing model artifacts.
-    modelArtifacts :: Lude.Maybe ModelArtifacts,
-    -- | Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
-    trainingEndTime :: Lude.Maybe Lude.Timestamp,
-    -- | The billable time in seconds.
-    billableTimeInSeconds :: Lude.Maybe Lude.Natural,
-    debugHookConfig :: Lude.Maybe DebugHookConfig,
-    checkpointConfig :: Lude.Maybe CheckpointConfig,
-    -- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
-    --
-    -- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-    stoppingCondition :: Lude.Maybe StoppingCondition,
-    -- | Information about the evaluation status of the rules for the training job.
-    debugRuleEvaluationStatuses :: Lude.Maybe [DebugRuleEvaluationStatus],
-    -- | The status of the training job.
-    --
-    -- Training job statuses are:
-    --
-    --     * @InProgress@ - The training is in progress.
-    --
-    --
-    --     * @Completed@ - The training job has completed.
-    --
-    --
-    --     * @Failed@ - The training job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTrainingJobResponse@ call.
-    --
-    --
-    --     * @Stopping@ - The training job is stopping.
-    --
-    --
-    --     * @Stopped@ - The training job has stopped.
-    --
-    --
-    -- For more detailed information, see @SecondaryStatus@ .
-    trainingJobStatus :: Lude.Maybe TrainingJobStatus,
-    -- | If the @TrainingJob@ was created with network isolation, the value is set to @true@ . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
-    enableNetworkIsolation :: Lude.Maybe Lude.Bool,
-    experimentConfig :: Lude.Maybe ExperimentConfig,
-    -- | A timestamp that indicates when the status of the training job was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    -- | Information about the debug rule configuration.
-    debugRuleConfigurations :: Lude.Maybe [DebugRuleConfiguration],
-    -- | When true, enables managed spot training using Amazon EC2 Spot instances to run training jobs instead of on-demand instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
-    enableManagedSpotTraining :: Lude.Maybe Lude.Bool,
+  { -- | Information about the algorithm used for training, and algorithm metadata.
+    algorithmSpecification :: Core.Maybe Types.AlgorithmSpecification,
     -- | The Amazon Resource Name (ARN) of the job.
-    autoMLJobARN :: Lude.Maybe Lude.Text,
-    -- | Algorithm-specific parameters.
-    hyperParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | An array of @Channel@ objects that describes each data input channel.
-    inputDataConfig :: Lude.Maybe (Lude.NonEmpty Channel),
-    -- | A 'VpcConfig' object that specifies the VPC that this training job has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
-    vpcConfig :: Lude.Maybe VPCConfig,
-    -- | The Amazon Resource Name (ARN) of the training job.
-    trainingJobARN :: Lude.Maybe Lude.Text,
-    -- | Information about the algorithm used for training, and algorithm metadata.
-    algorithmSpecification :: Lude.Maybe AlgorithmSpecification,
-    -- | A list of final metric values that are set when the training job completes. Used only if the training job was configured to use metrics.
-    finalMetricDataList :: Lude.Maybe [MetricData],
-    -- | The S3 path where model artifacts that you configured when creating the job are stored. Amazon SageMaker creates subfolders for model artifacts.
-    outputDataConfig :: Lude.Maybe OutputDataConfig,
-    -- | Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of @TrainingEndTime@ . The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container.
-    trainingStartTime :: Lude.Maybe Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job.
-    tuningJobARN :: Lude.Maybe Lude.Text,
-    -- | The name of the training job.
-    trainingJobName :: Lude.Maybe Lude.Text,
-    -- | Resources, including ML compute instances and ML storage volumes, that are configured for model training.
-    resourceConfig :: Lude.Maybe ResourceConfig,
+    autoMLJobArn :: Core.Maybe Types.AutoMLJobArn,
+    -- | The billable time in seconds.
+    billableTimeInSeconds :: Core.Maybe Core.Natural,
+    checkpointConfig :: Core.Maybe Types.CheckpointConfig,
+    -- | A timestamp that indicates when the training job was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
+    debugHookConfig :: Core.Maybe Types.DebugHookConfig,
+    -- | Information about the debug rule configuration.
+    debugRuleConfigurations :: Core.Maybe [Types.DebugRuleConfiguration],
+    -- | Information about the evaluation status of the rules for the training job.
+    debugRuleEvaluationStatuses :: Core.Maybe [Types.DebugRuleEvaluationStatus],
     -- | To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
-    enableInterContainerTrafficEncryption :: Lude.Maybe Lude.Bool,
-    tensorBoardOutputConfig :: Lude.Maybe TensorBoardOutputConfig,
+    enableInterContainerTrafficEncryption :: Core.Maybe Core.Bool,
+    -- | When true, enables managed spot training using Amazon EC2 Spot instances to run training jobs instead of on-demand instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
+    enableManagedSpotTraining :: Core.Maybe Core.Bool,
+    -- | If the @TrainingJob@ was created with network isolation, the value is set to @true@ . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
+    enableNetworkIsolation :: Core.Maybe Core.Bool,
+    experimentConfig :: Core.Maybe Types.ExperimentConfig,
+    -- | If the training job failed, the reason it failed.
+    failureReason :: Core.Maybe Types.FailureReason,
+    -- | A list of final metric values that are set when the training job completes. Used only if the training job was configured to use metrics.
+    finalMetricDataList :: Core.Maybe [Types.MetricData],
+    -- | Algorithm-specific parameters.
+    hyperParameters :: Core.Maybe (Core.HashMap Types.HyperParameterKey Types.HyperParameterValue),
+    -- | An array of @Channel@ objects that describes each data input channel.
+    inputDataConfig :: Core.Maybe (Core.NonEmpty Types.Channel),
+    -- | The Amazon Resource Name (ARN) of the labeling job.
+    labelingJobArn :: Core.Maybe Types.LabelingJobArn,
+    -- | A timestamp that indicates when the status of the training job was last modified.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Information about the Amazon S3 location that is configured for storing model artifacts.
+    modelArtifacts :: Core.Maybe Types.ModelArtifacts,
+    -- | The S3 path where model artifacts that you configured when creating the job are stored. Amazon SageMaker creates subfolders for model artifacts.
+    outputDataConfig :: Core.Maybe Types.OutputDataConfig,
+    -- | Resources, including ML compute instances and ML storage volumes, that are configured for model training.
+    resourceConfig :: Core.Maybe Types.ResourceConfig,
+    -- | The AWS Identity and Access Management (IAM) role configured for the training job.
+    roleArn :: Core.Maybe Types.RoleArn,
     -- | Provides detailed information about the state of the training job. For detailed information about the secondary status of the training job, see @StatusMessage@ under 'SecondaryStatusTransition' .
     --
     -- Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
@@ -225,420 +196,250 @@ data TrainingJob = TrainingJob'
     --
     --
     --     * @DownloadingTrainingImage@
-    secondaryStatus :: Lude.Maybe SecondaryStatus,
+    secondaryStatus :: Core.Maybe Types.SecondaryStatus,
+    -- | A history of all of the secondary statuses that the training job has transitioned through.
+    secondaryStatusTransitions :: Core.Maybe [Types.SecondaryStatusTransition],
+    -- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
+    --
+    -- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+    stoppingCondition :: Core.Maybe Types.StoppingCondition,
     -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
+    tensorBoardOutputConfig :: Core.Maybe Types.TensorBoardOutputConfig,
+    -- | Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
+    trainingEndTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) of the training job.
+    trainingJobArn :: Core.Maybe Types.TrainingJobArn,
+    -- | The name of the training job.
+    trainingJobName :: Core.Maybe Types.TrainingJobName,
+    -- | The status of the training job.
+    --
+    -- Training job statuses are:
+    --
+    --     * @InProgress@ - The training is in progress.
+    --
+    --
+    --     * @Completed@ - The training job has completed.
+    --
+    --
+    --     * @Failed@ - The training job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTrainingJobResponse@ call.
+    --
+    --
+    --     * @Stopping@ - The training job is stopping.
+    --
+    --
+    --     * @Stopped@ - The training job has stopped.
+    --
+    --
+    -- For more detailed information, see @SecondaryStatus@ .
+    trainingJobStatus :: Core.Maybe Types.TrainingJobStatus,
+    -- | Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of @TrainingEndTime@ . The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container.
+    trainingStartTime :: Core.Maybe Core.NominalDiffTime,
     -- | The training time in seconds.
-    trainingTimeInSeconds :: Lude.Maybe Lude.Natural,
-    -- | The AWS Identity and Access Management (IAM) role configured for the training job.
-    roleARN :: Lude.Maybe Lude.Text
+    trainingTimeInSeconds :: Core.Maybe Core.Natural,
+    -- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job.
+    tuningJobArn :: Core.Maybe Types.TuningJobArn,
+    -- | A 'VpcConfig' object that specifies the VPC that this training job has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
+    vpcConfig :: Core.Maybe Types.VpcConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TrainingJob' with the minimum fields required to make a request.
---
--- * 'creationTime' - A timestamp that indicates when the training job was created.
--- * 'labelingJobARN' - The Amazon Resource Name (ARN) of the labeling job.
--- * 'failureReason' - If the training job failed, the reason it failed.
--- * 'secondaryStatusTransitions' - A history of all of the secondary statuses that the training job has transitioned through.
--- * 'modelArtifacts' - Information about the Amazon S3 location that is configured for storing model artifacts.
--- * 'trainingEndTime' - Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
--- * 'billableTimeInSeconds' - The billable time in seconds.
--- * 'debugHookConfig' -
--- * 'checkpointConfig' -
--- * 'stoppingCondition' - Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
---
--- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
--- * 'debugRuleEvaluationStatuses' - Information about the evaluation status of the rules for the training job.
--- * 'trainingJobStatus' - The status of the training job.
---
--- Training job statuses are:
---
---     * @InProgress@ - The training is in progress.
---
---
---     * @Completed@ - The training job has completed.
---
---
---     * @Failed@ - The training job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTrainingJobResponse@ call.
---
---
---     * @Stopping@ - The training job is stopping.
---
---
---     * @Stopped@ - The training job has stopped.
---
---
--- For more detailed information, see @SecondaryStatus@ .
--- * 'enableNetworkIsolation' - If the @TrainingJob@ was created with network isolation, the value is set to @true@ . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
--- * 'experimentConfig' -
--- * 'lastModifiedTime' - A timestamp that indicates when the status of the training job was last modified.
--- * 'debugRuleConfigurations' - Information about the debug rule configuration.
--- * 'enableManagedSpotTraining' - When true, enables managed spot training using Amazon EC2 Spot instances to run training jobs instead of on-demand instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
--- * 'autoMLJobARN' - The Amazon Resource Name (ARN) of the job.
--- * 'hyperParameters' - Algorithm-specific parameters.
--- * 'inputDataConfig' - An array of @Channel@ objects that describes each data input channel.
--- * 'vpcConfig' - A 'VpcConfig' object that specifies the VPC that this training job has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
--- * 'trainingJobARN' - The Amazon Resource Name (ARN) of the training job.
--- * 'algorithmSpecification' - Information about the algorithm used for training, and algorithm metadata.
--- * 'finalMetricDataList' - A list of final metric values that are set when the training job completes. Used only if the training job was configured to use metrics.
--- * 'outputDataConfig' - The S3 path where model artifacts that you configured when creating the job are stored. Amazon SageMaker creates subfolders for model artifacts.
--- * 'trainingStartTime' - Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of @TrainingEndTime@ . The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container.
--- * 'tuningJobARN' - The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job.
--- * 'trainingJobName' - The name of the training job.
--- * 'resourceConfig' - Resources, including ML compute instances and ML storage volumes, that are configured for model training.
--- * 'enableInterContainerTrafficEncryption' - To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
--- * 'tensorBoardOutputConfig' -
--- * 'secondaryStatus' - Provides detailed information about the state of the training job. For detailed information about the secondary status of the training job, see @StatusMessage@ under 'SecondaryStatusTransition' .
---
--- Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
---
---     * InProgress
---
---     *
---     * @Starting@ - Starting the training job.
---
---
---     * @Downloading@ - An optional stage for algorithms that support @File@ training input mode. It indicates that data is being downloaded to the ML storage volumes.
---
---
---     * @Training@ - Training is in progress.
---
---
---     * @Uploading@ - Training is complete and the model artifacts are being uploaded to the S3 location.
---
---
---
---
---     * Completed
---
---     *
---     * @Completed@ - The training job has completed.
---
---
---
---
---     * Failed
---
---     *
---     * @Failed@ - The training job has failed. The reason for the failure is returned in the @FailureReason@ field of @DescribeTrainingJobResponse@ .
---
---
---
---
---     * Stopped
---
---     *
---     * @MaxRuntimeExceeded@ - The job stopped because it exceeded the maximum allowed runtime.
---
---
---     * @Stopped@ - The training job has stopped.
---
---
---
---
---     * Stopping
---
---     *
---     * @Stopping@ - Stopping the training job.
---
---
---
---
--- /Important:/ Valid values for @SecondaryStatus@ are subject to change.
--- We no longer support the following secondary statuses:
---
---     * @LaunchingMLInstances@
---
---
---     * @PreparingTrainingStack@
---
---
---     * @DownloadingTrainingImage@
---
---
--- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
--- * 'trainingTimeInSeconds' - The training time in seconds.
--- * 'roleARN' - The AWS Identity and Access Management (IAM) role configured for the training job.
+-- | Creates a 'TrainingJob' value with any optional fields omitted.
 mkTrainingJob ::
   TrainingJob
 mkTrainingJob =
   TrainingJob'
-    { creationTime = Lude.Nothing,
-      labelingJobARN = Lude.Nothing,
-      failureReason = Lude.Nothing,
-      secondaryStatusTransitions = Lude.Nothing,
-      modelArtifacts = Lude.Nothing,
-      trainingEndTime = Lude.Nothing,
-      billableTimeInSeconds = Lude.Nothing,
-      debugHookConfig = Lude.Nothing,
-      checkpointConfig = Lude.Nothing,
-      stoppingCondition = Lude.Nothing,
-      debugRuleEvaluationStatuses = Lude.Nothing,
-      trainingJobStatus = Lude.Nothing,
-      enableNetworkIsolation = Lude.Nothing,
-      experimentConfig = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      debugRuleConfigurations = Lude.Nothing,
-      enableManagedSpotTraining = Lude.Nothing,
-      autoMLJobARN = Lude.Nothing,
-      hyperParameters = Lude.Nothing,
-      inputDataConfig = Lude.Nothing,
-      vpcConfig = Lude.Nothing,
-      trainingJobARN = Lude.Nothing,
-      algorithmSpecification = Lude.Nothing,
-      finalMetricDataList = Lude.Nothing,
-      outputDataConfig = Lude.Nothing,
-      trainingStartTime = Lude.Nothing,
-      tuningJobARN = Lude.Nothing,
-      trainingJobName = Lude.Nothing,
-      resourceConfig = Lude.Nothing,
-      enableInterContainerTrafficEncryption = Lude.Nothing,
-      tensorBoardOutputConfig = Lude.Nothing,
-      secondaryStatus = Lude.Nothing,
-      tags = Lude.Nothing,
-      trainingTimeInSeconds = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { algorithmSpecification = Core.Nothing,
+      autoMLJobArn = Core.Nothing,
+      billableTimeInSeconds = Core.Nothing,
+      checkpointConfig = Core.Nothing,
+      creationTime = Core.Nothing,
+      debugHookConfig = Core.Nothing,
+      debugRuleConfigurations = Core.Nothing,
+      debugRuleEvaluationStatuses = Core.Nothing,
+      enableInterContainerTrafficEncryption = Core.Nothing,
+      enableManagedSpotTraining = Core.Nothing,
+      enableNetworkIsolation = Core.Nothing,
+      experimentConfig = Core.Nothing,
+      failureReason = Core.Nothing,
+      finalMetricDataList = Core.Nothing,
+      hyperParameters = Core.Nothing,
+      inputDataConfig = Core.Nothing,
+      labelingJobArn = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      modelArtifacts = Core.Nothing,
+      outputDataConfig = Core.Nothing,
+      resourceConfig = Core.Nothing,
+      roleArn = Core.Nothing,
+      secondaryStatus = Core.Nothing,
+      secondaryStatusTransitions = Core.Nothing,
+      stoppingCondition = Core.Nothing,
+      tags = Core.Nothing,
+      tensorBoardOutputConfig = Core.Nothing,
+      trainingEndTime = Core.Nothing,
+      trainingJobArn = Core.Nothing,
+      trainingJobName = Core.Nothing,
+      trainingJobStatus = Core.Nothing,
+      trainingStartTime = Core.Nothing,
+      trainingTimeInSeconds = Core.Nothing,
+      tuningJobArn = Core.Nothing,
+      vpcConfig = Core.Nothing
     }
 
--- | A timestamp that indicates when the training job was created.
+-- | Information about the algorithm used for training, and algorithm metadata.
 --
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjCreationTime :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Timestamp)
-tjCreationTime = Lens.lens (creationTime :: TrainingJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: TrainingJob)
-{-# DEPRECATED tjCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+-- /Note:/ Consider using 'algorithmSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjAlgorithmSpecification :: Lens.Lens' TrainingJob (Core.Maybe Types.AlgorithmSpecification)
+tjAlgorithmSpecification = Lens.field @"algorithmSpecification"
+{-# DEPRECATED tjAlgorithmSpecification "Use generic-lens or generic-optics with 'algorithmSpecification' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the labeling job.
+-- | The Amazon Resource Name (ARN) of the job.
 --
--- /Note:/ Consider using 'labelingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjLabelingJobARN :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Text)
-tjLabelingJobARN = Lens.lens (labelingJobARN :: TrainingJob -> Lude.Maybe Lude.Text) (\s a -> s {labelingJobARN = a} :: TrainingJob)
-{-# DEPRECATED tjLabelingJobARN "Use generic-lens or generic-optics with 'labelingJobARN' instead." #-}
-
--- | If the training job failed, the reason it failed.
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjFailureReason :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Text)
-tjFailureReason = Lens.lens (failureReason :: TrainingJob -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: TrainingJob)
-{-# DEPRECATED tjFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | A history of all of the secondary statuses that the training job has transitioned through.
---
--- /Note:/ Consider using 'secondaryStatusTransitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjSecondaryStatusTransitions :: Lens.Lens' TrainingJob (Lude.Maybe [SecondaryStatusTransition])
-tjSecondaryStatusTransitions = Lens.lens (secondaryStatusTransitions :: TrainingJob -> Lude.Maybe [SecondaryStatusTransition]) (\s a -> s {secondaryStatusTransitions = a} :: TrainingJob)
-{-# DEPRECATED tjSecondaryStatusTransitions "Use generic-lens or generic-optics with 'secondaryStatusTransitions' instead." #-}
-
--- | Information about the Amazon S3 location that is configured for storing model artifacts.
---
--- /Note:/ Consider using 'modelArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjModelArtifacts :: Lens.Lens' TrainingJob (Lude.Maybe ModelArtifacts)
-tjModelArtifacts = Lens.lens (modelArtifacts :: TrainingJob -> Lude.Maybe ModelArtifacts) (\s a -> s {modelArtifacts = a} :: TrainingJob)
-{-# DEPRECATED tjModelArtifacts "Use generic-lens or generic-optics with 'modelArtifacts' instead." #-}
-
--- | Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
---
--- /Note:/ Consider using 'trainingEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTrainingEndTime :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Timestamp)
-tjTrainingEndTime = Lens.lens (trainingEndTime :: TrainingJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {trainingEndTime = a} :: TrainingJob)
-{-# DEPRECATED tjTrainingEndTime "Use generic-lens or generic-optics with 'trainingEndTime' instead." #-}
+-- /Note:/ Consider using 'autoMLJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjAutoMLJobArn :: Lens.Lens' TrainingJob (Core.Maybe Types.AutoMLJobArn)
+tjAutoMLJobArn = Lens.field @"autoMLJobArn"
+{-# DEPRECATED tjAutoMLJobArn "Use generic-lens or generic-optics with 'autoMLJobArn' instead." #-}
 
 -- | The billable time in seconds.
 --
 -- /Note:/ Consider using 'billableTimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjBillableTimeInSeconds :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Natural)
-tjBillableTimeInSeconds = Lens.lens (billableTimeInSeconds :: TrainingJob -> Lude.Maybe Lude.Natural) (\s a -> s {billableTimeInSeconds = a} :: TrainingJob)
+tjBillableTimeInSeconds :: Lens.Lens' TrainingJob (Core.Maybe Core.Natural)
+tjBillableTimeInSeconds = Lens.field @"billableTimeInSeconds"
 {-# DEPRECATED tjBillableTimeInSeconds "Use generic-lens or generic-optics with 'billableTimeInSeconds' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'debugHookConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjDebugHookConfig :: Lens.Lens' TrainingJob (Lude.Maybe DebugHookConfig)
-tjDebugHookConfig = Lens.lens (debugHookConfig :: TrainingJob -> Lude.Maybe DebugHookConfig) (\s a -> s {debugHookConfig = a} :: TrainingJob)
-{-# DEPRECATED tjDebugHookConfig "Use generic-lens or generic-optics with 'debugHookConfig' instead." #-}
+-- /Note:/ Consider using 'checkpointConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjCheckpointConfig :: Lens.Lens' TrainingJob (Core.Maybe Types.CheckpointConfig)
+tjCheckpointConfig = Lens.field @"checkpointConfig"
+{-# DEPRECATED tjCheckpointConfig "Use generic-lens or generic-optics with 'checkpointConfig' instead." #-}
+
+-- | A timestamp that indicates when the training job was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjCreationTime :: Lens.Lens' TrainingJob (Core.Maybe Core.NominalDiffTime)
+tjCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED tjCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'checkpointConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjCheckpointConfig :: Lens.Lens' TrainingJob (Lude.Maybe CheckpointConfig)
-tjCheckpointConfig = Lens.lens (checkpointConfig :: TrainingJob -> Lude.Maybe CheckpointConfig) (\s a -> s {checkpointConfig = a} :: TrainingJob)
-{-# DEPRECATED tjCheckpointConfig "Use generic-lens or generic-optics with 'checkpointConfig' instead." #-}
+-- /Note:/ Consider using 'debugHookConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjDebugHookConfig :: Lens.Lens' TrainingJob (Core.Maybe Types.DebugHookConfig)
+tjDebugHookConfig = Lens.field @"debugHookConfig"
+{-# DEPRECATED tjDebugHookConfig "Use generic-lens or generic-optics with 'debugHookConfig' instead." #-}
 
--- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
+-- | Information about the debug rule configuration.
 --
--- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
---
--- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjStoppingCondition :: Lens.Lens' TrainingJob (Lude.Maybe StoppingCondition)
-tjStoppingCondition = Lens.lens (stoppingCondition :: TrainingJob -> Lude.Maybe StoppingCondition) (\s a -> s {stoppingCondition = a} :: TrainingJob)
-{-# DEPRECATED tjStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
+-- /Note:/ Consider using 'debugRuleConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjDebugRuleConfigurations :: Lens.Lens' TrainingJob (Core.Maybe [Types.DebugRuleConfiguration])
+tjDebugRuleConfigurations = Lens.field @"debugRuleConfigurations"
+{-# DEPRECATED tjDebugRuleConfigurations "Use generic-lens or generic-optics with 'debugRuleConfigurations' instead." #-}
 
 -- | Information about the evaluation status of the rules for the training job.
 --
 -- /Note:/ Consider using 'debugRuleEvaluationStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjDebugRuleEvaluationStatuses :: Lens.Lens' TrainingJob (Lude.Maybe [DebugRuleEvaluationStatus])
-tjDebugRuleEvaluationStatuses = Lens.lens (debugRuleEvaluationStatuses :: TrainingJob -> Lude.Maybe [DebugRuleEvaluationStatus]) (\s a -> s {debugRuleEvaluationStatuses = a} :: TrainingJob)
+tjDebugRuleEvaluationStatuses :: Lens.Lens' TrainingJob (Core.Maybe [Types.DebugRuleEvaluationStatus])
+tjDebugRuleEvaluationStatuses = Lens.field @"debugRuleEvaluationStatuses"
 {-# DEPRECATED tjDebugRuleEvaluationStatuses "Use generic-lens or generic-optics with 'debugRuleEvaluationStatuses' instead." #-}
 
--- | The status of the training job.
+-- | To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
 --
--- Training job statuses are:
+-- /Note:/ Consider using 'enableInterContainerTrafficEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjEnableInterContainerTrafficEncryption :: Lens.Lens' TrainingJob (Core.Maybe Core.Bool)
+tjEnableInterContainerTrafficEncryption = Lens.field @"enableInterContainerTrafficEncryption"
+{-# DEPRECATED tjEnableInterContainerTrafficEncryption "Use generic-lens or generic-optics with 'enableInterContainerTrafficEncryption' instead." #-}
+
+-- | When true, enables managed spot training using Amazon EC2 Spot instances to run training jobs instead of on-demand instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
 --
---     * @InProgress@ - The training is in progress.
---
---
---     * @Completed@ - The training job has completed.
---
---
---     * @Failed@ - The training job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTrainingJobResponse@ call.
---
---
---     * @Stopping@ - The training job is stopping.
---
---
---     * @Stopped@ - The training job has stopped.
---
---
--- For more detailed information, see @SecondaryStatus@ .
---
--- /Note:/ Consider using 'trainingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTrainingJobStatus :: Lens.Lens' TrainingJob (Lude.Maybe TrainingJobStatus)
-tjTrainingJobStatus = Lens.lens (trainingJobStatus :: TrainingJob -> Lude.Maybe TrainingJobStatus) (\s a -> s {trainingJobStatus = a} :: TrainingJob)
-{-# DEPRECATED tjTrainingJobStatus "Use generic-lens or generic-optics with 'trainingJobStatus' instead." #-}
+-- /Note:/ Consider using 'enableManagedSpotTraining' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjEnableManagedSpotTraining :: Lens.Lens' TrainingJob (Core.Maybe Core.Bool)
+tjEnableManagedSpotTraining = Lens.field @"enableManagedSpotTraining"
+{-# DEPRECATED tjEnableManagedSpotTraining "Use generic-lens or generic-optics with 'enableManagedSpotTraining' instead." #-}
 
 -- | If the @TrainingJob@ was created with network isolation, the value is set to @true@ . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
 --
 -- /Note:/ Consider using 'enableNetworkIsolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjEnableNetworkIsolation :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Bool)
-tjEnableNetworkIsolation = Lens.lens (enableNetworkIsolation :: TrainingJob -> Lude.Maybe Lude.Bool) (\s a -> s {enableNetworkIsolation = a} :: TrainingJob)
+tjEnableNetworkIsolation :: Lens.Lens' TrainingJob (Core.Maybe Core.Bool)
+tjEnableNetworkIsolation = Lens.field @"enableNetworkIsolation"
 {-# DEPRECATED tjEnableNetworkIsolation "Use generic-lens or generic-optics with 'enableNetworkIsolation' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'experimentConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjExperimentConfig :: Lens.Lens' TrainingJob (Lude.Maybe ExperimentConfig)
-tjExperimentConfig = Lens.lens (experimentConfig :: TrainingJob -> Lude.Maybe ExperimentConfig) (\s a -> s {experimentConfig = a} :: TrainingJob)
+tjExperimentConfig :: Lens.Lens' TrainingJob (Core.Maybe Types.ExperimentConfig)
+tjExperimentConfig = Lens.field @"experimentConfig"
 {-# DEPRECATED tjExperimentConfig "Use generic-lens or generic-optics with 'experimentConfig' instead." #-}
 
--- | A timestamp that indicates when the status of the training job was last modified.
+-- | If the training job failed, the reason it failed.
 --
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjLastModifiedTime :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Timestamp)
-tjLastModifiedTime = Lens.lens (lastModifiedTime :: TrainingJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: TrainingJob)
-{-# DEPRECATED tjLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjFailureReason :: Lens.Lens' TrainingJob (Core.Maybe Types.FailureReason)
+tjFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED tjFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
--- | Information about the debug rule configuration.
+-- | A list of final metric values that are set when the training job completes. Used only if the training job was configured to use metrics.
 --
--- /Note:/ Consider using 'debugRuleConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjDebugRuleConfigurations :: Lens.Lens' TrainingJob (Lude.Maybe [DebugRuleConfiguration])
-tjDebugRuleConfigurations = Lens.lens (debugRuleConfigurations :: TrainingJob -> Lude.Maybe [DebugRuleConfiguration]) (\s a -> s {debugRuleConfigurations = a} :: TrainingJob)
-{-# DEPRECATED tjDebugRuleConfigurations "Use generic-lens or generic-optics with 'debugRuleConfigurations' instead." #-}
-
--- | When true, enables managed spot training using Amazon EC2 Spot instances to run training jobs instead of on-demand instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
---
--- /Note:/ Consider using 'enableManagedSpotTraining' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjEnableManagedSpotTraining :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Bool)
-tjEnableManagedSpotTraining = Lens.lens (enableManagedSpotTraining :: TrainingJob -> Lude.Maybe Lude.Bool) (\s a -> s {enableManagedSpotTraining = a} :: TrainingJob)
-{-# DEPRECATED tjEnableManagedSpotTraining "Use generic-lens or generic-optics with 'enableManagedSpotTraining' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the job.
---
--- /Note:/ Consider using 'autoMLJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjAutoMLJobARN :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Text)
-tjAutoMLJobARN = Lens.lens (autoMLJobARN :: TrainingJob -> Lude.Maybe Lude.Text) (\s a -> s {autoMLJobARN = a} :: TrainingJob)
-{-# DEPRECATED tjAutoMLJobARN "Use generic-lens or generic-optics with 'autoMLJobARN' instead." #-}
+-- /Note:/ Consider using 'finalMetricDataList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjFinalMetricDataList :: Lens.Lens' TrainingJob (Core.Maybe [Types.MetricData])
+tjFinalMetricDataList = Lens.field @"finalMetricDataList"
+{-# DEPRECATED tjFinalMetricDataList "Use generic-lens or generic-optics with 'finalMetricDataList' instead." #-}
 
 -- | Algorithm-specific parameters.
 --
 -- /Note:/ Consider using 'hyperParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjHyperParameters :: Lens.Lens' TrainingJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-tjHyperParameters = Lens.lens (hyperParameters :: TrainingJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {hyperParameters = a} :: TrainingJob)
+tjHyperParameters :: Lens.Lens' TrainingJob (Core.Maybe (Core.HashMap Types.HyperParameterKey Types.HyperParameterValue))
+tjHyperParameters = Lens.field @"hyperParameters"
 {-# DEPRECATED tjHyperParameters "Use generic-lens or generic-optics with 'hyperParameters' instead." #-}
 
 -- | An array of @Channel@ objects that describes each data input channel.
 --
 -- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjInputDataConfig :: Lens.Lens' TrainingJob (Lude.Maybe (Lude.NonEmpty Channel))
-tjInputDataConfig = Lens.lens (inputDataConfig :: TrainingJob -> Lude.Maybe (Lude.NonEmpty Channel)) (\s a -> s {inputDataConfig = a} :: TrainingJob)
+tjInputDataConfig :: Lens.Lens' TrainingJob (Core.Maybe (Core.NonEmpty Types.Channel))
+tjInputDataConfig = Lens.field @"inputDataConfig"
 {-# DEPRECATED tjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
--- | A 'VpcConfig' object that specifies the VPC that this training job has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
+-- | The Amazon Resource Name (ARN) of the labeling job.
 --
--- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjVPCConfig :: Lens.Lens' TrainingJob (Lude.Maybe VPCConfig)
-tjVPCConfig = Lens.lens (vpcConfig :: TrainingJob -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: TrainingJob)
-{-# DEPRECATED tjVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+-- /Note:/ Consider using 'labelingJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjLabelingJobArn :: Lens.Lens' TrainingJob (Core.Maybe Types.LabelingJobArn)
+tjLabelingJobArn = Lens.field @"labelingJobArn"
+{-# DEPRECATED tjLabelingJobArn "Use generic-lens or generic-optics with 'labelingJobArn' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the training job.
+-- | A timestamp that indicates when the status of the training job was last modified.
 --
--- /Note:/ Consider using 'trainingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTrainingJobARN :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Text)
-tjTrainingJobARN = Lens.lens (trainingJobARN :: TrainingJob -> Lude.Maybe Lude.Text) (\s a -> s {trainingJobARN = a} :: TrainingJob)
-{-# DEPRECATED tjTrainingJobARN "Use generic-lens or generic-optics with 'trainingJobARN' instead." #-}
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjLastModifiedTime :: Lens.Lens' TrainingJob (Core.Maybe Core.NominalDiffTime)
+tjLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED tjLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
--- | Information about the algorithm used for training, and algorithm metadata.
+-- | Information about the Amazon S3 location that is configured for storing model artifacts.
 --
--- /Note:/ Consider using 'algorithmSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjAlgorithmSpecification :: Lens.Lens' TrainingJob (Lude.Maybe AlgorithmSpecification)
-tjAlgorithmSpecification = Lens.lens (algorithmSpecification :: TrainingJob -> Lude.Maybe AlgorithmSpecification) (\s a -> s {algorithmSpecification = a} :: TrainingJob)
-{-# DEPRECATED tjAlgorithmSpecification "Use generic-lens or generic-optics with 'algorithmSpecification' instead." #-}
-
--- | A list of final metric values that are set when the training job completes. Used only if the training job was configured to use metrics.
---
--- /Note:/ Consider using 'finalMetricDataList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjFinalMetricDataList :: Lens.Lens' TrainingJob (Lude.Maybe [MetricData])
-tjFinalMetricDataList = Lens.lens (finalMetricDataList :: TrainingJob -> Lude.Maybe [MetricData]) (\s a -> s {finalMetricDataList = a} :: TrainingJob)
-{-# DEPRECATED tjFinalMetricDataList "Use generic-lens or generic-optics with 'finalMetricDataList' instead." #-}
+-- /Note:/ Consider using 'modelArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjModelArtifacts :: Lens.Lens' TrainingJob (Core.Maybe Types.ModelArtifacts)
+tjModelArtifacts = Lens.field @"modelArtifacts"
+{-# DEPRECATED tjModelArtifacts "Use generic-lens or generic-optics with 'modelArtifacts' instead." #-}
 
 -- | The S3 path where model artifacts that you configured when creating the job are stored. Amazon SageMaker creates subfolders for model artifacts.
 --
 -- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjOutputDataConfig :: Lens.Lens' TrainingJob (Lude.Maybe OutputDataConfig)
-tjOutputDataConfig = Lens.lens (outputDataConfig :: TrainingJob -> Lude.Maybe OutputDataConfig) (\s a -> s {outputDataConfig = a} :: TrainingJob)
+tjOutputDataConfig :: Lens.Lens' TrainingJob (Core.Maybe Types.OutputDataConfig)
+tjOutputDataConfig = Lens.field @"outputDataConfig"
 {-# DEPRECATED tjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
-
--- | Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of @TrainingEndTime@ . The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container.
---
--- /Note:/ Consider using 'trainingStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTrainingStartTime :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Timestamp)
-tjTrainingStartTime = Lens.lens (trainingStartTime :: TrainingJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {trainingStartTime = a} :: TrainingJob)
-{-# DEPRECATED tjTrainingStartTime "Use generic-lens or generic-optics with 'trainingStartTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job.
---
--- /Note:/ Consider using 'tuningJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTuningJobARN :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Text)
-tjTuningJobARN = Lens.lens (tuningJobARN :: TrainingJob -> Lude.Maybe Lude.Text) (\s a -> s {tuningJobARN = a} :: TrainingJob)
-{-# DEPRECATED tjTuningJobARN "Use generic-lens or generic-optics with 'tuningJobARN' instead." #-}
-
--- | The name of the training job.
---
--- /Note:/ Consider using 'trainingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTrainingJobName :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Text)
-tjTrainingJobName = Lens.lens (trainingJobName :: TrainingJob -> Lude.Maybe Lude.Text) (\s a -> s {trainingJobName = a} :: TrainingJob)
-{-# DEPRECATED tjTrainingJobName "Use generic-lens or generic-optics with 'trainingJobName' instead." #-}
 
 -- | Resources, including ML compute instances and ML storage volumes, that are configured for model training.
 --
 -- /Note:/ Consider using 'resourceConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjResourceConfig :: Lens.Lens' TrainingJob (Lude.Maybe ResourceConfig)
-tjResourceConfig = Lens.lens (resourceConfig :: TrainingJob -> Lude.Maybe ResourceConfig) (\s a -> s {resourceConfig = a} :: TrainingJob)
+tjResourceConfig :: Lens.Lens' TrainingJob (Core.Maybe Types.ResourceConfig)
+tjResourceConfig = Lens.field @"resourceConfig"
 {-# DEPRECATED tjResourceConfig "Use generic-lens or generic-optics with 'resourceConfig' instead." #-}
 
--- | To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
+-- | The AWS Identity and Access Management (IAM) role configured for the training job.
 --
--- /Note:/ Consider using 'enableInterContainerTrafficEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjEnableInterContainerTrafficEncryption :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Bool)
-tjEnableInterContainerTrafficEncryption = Lens.lens (enableInterContainerTrafficEncryption :: TrainingJob -> Lude.Maybe Lude.Bool) (\s a -> s {enableInterContainerTrafficEncryption = a} :: TrainingJob)
-{-# DEPRECATED tjEnableInterContainerTrafficEncryption "Use generic-lens or generic-optics with 'enableInterContainerTrafficEncryption' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'tensorBoardOutputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTensorBoardOutputConfig :: Lens.Lens' TrainingJob (Lude.Maybe TensorBoardOutputConfig)
-tjTensorBoardOutputConfig = Lens.lens (tensorBoardOutputConfig :: TrainingJob -> Lude.Maybe TensorBoardOutputConfig) (\s a -> s {tensorBoardOutputConfig = a} :: TrainingJob)
-{-# DEPRECATED tjTensorBoardOutputConfig "Use generic-lens or generic-optics with 'tensorBoardOutputConfig' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjRoleArn :: Lens.Lens' TrainingJob (Core.Maybe Types.RoleArn)
+tjRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED tjRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | Provides detailed information about the state of the training job. For detailed information about the secondary status of the training job, see @StatusMessage@ under 'SecondaryStatusTransition' .
 --
@@ -710,70 +511,152 @@ tjTensorBoardOutputConfig = Lens.lens (tensorBoardOutputConfig :: TrainingJob ->
 --
 --
 -- /Note:/ Consider using 'secondaryStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjSecondaryStatus :: Lens.Lens' TrainingJob (Lude.Maybe SecondaryStatus)
-tjSecondaryStatus = Lens.lens (secondaryStatus :: TrainingJob -> Lude.Maybe SecondaryStatus) (\s a -> s {secondaryStatus = a} :: TrainingJob)
+tjSecondaryStatus :: Lens.Lens' TrainingJob (Core.Maybe Types.SecondaryStatus)
+tjSecondaryStatus = Lens.field @"secondaryStatus"
 {-# DEPRECATED tjSecondaryStatus "Use generic-lens or generic-optics with 'secondaryStatus' instead." #-}
+
+-- | A history of all of the secondary statuses that the training job has transitioned through.
+--
+-- /Note:/ Consider using 'secondaryStatusTransitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjSecondaryStatusTransitions :: Lens.Lens' TrainingJob (Core.Maybe [Types.SecondaryStatusTransition])
+tjSecondaryStatusTransitions = Lens.field @"secondaryStatusTransitions"
+{-# DEPRECATED tjSecondaryStatusTransitions "Use generic-lens or generic-optics with 'secondaryStatusTransitions' instead." #-}
+
+-- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
+--
+-- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+--
+-- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjStoppingCondition :: Lens.Lens' TrainingJob (Core.Maybe Types.StoppingCondition)
+tjStoppingCondition = Lens.field @"stoppingCondition"
+{-# DEPRECATED tjStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
 
 -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTags :: Lens.Lens' TrainingJob (Lude.Maybe [Tag])
-tjTags = Lens.lens (tags :: TrainingJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TrainingJob)
+tjTags :: Lens.Lens' TrainingJob (Core.Maybe [Types.Tag])
+tjTags = Lens.field @"tags"
 {-# DEPRECATED tjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tensorBoardOutputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjTensorBoardOutputConfig :: Lens.Lens' TrainingJob (Core.Maybe Types.TensorBoardOutputConfig)
+tjTensorBoardOutputConfig = Lens.field @"tensorBoardOutputConfig"
+{-# DEPRECATED tjTensorBoardOutputConfig "Use generic-lens or generic-optics with 'tensorBoardOutputConfig' instead." #-}
+
+-- | Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
+--
+-- /Note:/ Consider using 'trainingEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjTrainingEndTime :: Lens.Lens' TrainingJob (Core.Maybe Core.NominalDiffTime)
+tjTrainingEndTime = Lens.field @"trainingEndTime"
+{-# DEPRECATED tjTrainingEndTime "Use generic-lens or generic-optics with 'trainingEndTime' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the training job.
+--
+-- /Note:/ Consider using 'trainingJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjTrainingJobArn :: Lens.Lens' TrainingJob (Core.Maybe Types.TrainingJobArn)
+tjTrainingJobArn = Lens.field @"trainingJobArn"
+{-# DEPRECATED tjTrainingJobArn "Use generic-lens or generic-optics with 'trainingJobArn' instead." #-}
+
+-- | The name of the training job.
+--
+-- /Note:/ Consider using 'trainingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjTrainingJobName :: Lens.Lens' TrainingJob (Core.Maybe Types.TrainingJobName)
+tjTrainingJobName = Lens.field @"trainingJobName"
+{-# DEPRECATED tjTrainingJobName "Use generic-lens or generic-optics with 'trainingJobName' instead." #-}
+
+-- | The status of the training job.
+--
+-- Training job statuses are:
+--
+--     * @InProgress@ - The training is in progress.
+--
+--
+--     * @Completed@ - The training job has completed.
+--
+--
+--     * @Failed@ - The training job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTrainingJobResponse@ call.
+--
+--
+--     * @Stopping@ - The training job is stopping.
+--
+--
+--     * @Stopped@ - The training job has stopped.
+--
+--
+-- For more detailed information, see @SecondaryStatus@ .
+--
+-- /Note:/ Consider using 'trainingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjTrainingJobStatus :: Lens.Lens' TrainingJob (Core.Maybe Types.TrainingJobStatus)
+tjTrainingJobStatus = Lens.field @"trainingJobStatus"
+{-# DEPRECATED tjTrainingJobStatus "Use generic-lens or generic-optics with 'trainingJobStatus' instead." #-}
+
+-- | Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of @TrainingEndTime@ . The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container.
+--
+-- /Note:/ Consider using 'trainingStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjTrainingStartTime :: Lens.Lens' TrainingJob (Core.Maybe Core.NominalDiffTime)
+tjTrainingStartTime = Lens.field @"trainingStartTime"
+{-# DEPRECATED tjTrainingStartTime "Use generic-lens or generic-optics with 'trainingStartTime' instead." #-}
 
 -- | The training time in seconds.
 --
 -- /Note:/ Consider using 'trainingTimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjTrainingTimeInSeconds :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Natural)
-tjTrainingTimeInSeconds = Lens.lens (trainingTimeInSeconds :: TrainingJob -> Lude.Maybe Lude.Natural) (\s a -> s {trainingTimeInSeconds = a} :: TrainingJob)
+tjTrainingTimeInSeconds :: Lens.Lens' TrainingJob (Core.Maybe Core.Natural)
+tjTrainingTimeInSeconds = Lens.field @"trainingTimeInSeconds"
 {-# DEPRECATED tjTrainingTimeInSeconds "Use generic-lens or generic-optics with 'trainingTimeInSeconds' instead." #-}
 
--- | The AWS Identity and Access Management (IAM) role configured for the training job.
+-- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjRoleARN :: Lens.Lens' TrainingJob (Lude.Maybe Lude.Text)
-tjRoleARN = Lens.lens (roleARN :: TrainingJob -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: TrainingJob)
-{-# DEPRECATED tjRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'tuningJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjTuningJobArn :: Lens.Lens' TrainingJob (Core.Maybe Types.TuningJobArn)
+tjTuningJobArn = Lens.field @"tuningJobArn"
+{-# DEPRECATED tjTuningJobArn "Use generic-lens or generic-optics with 'tuningJobArn' instead." #-}
 
-instance Lude.FromJSON TrainingJob where
+-- | A 'VpcConfig' object that specifies the VPC that this training job has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjVpcConfig :: Lens.Lens' TrainingJob (Core.Maybe Types.VpcConfig)
+tjVpcConfig = Lens.field @"vpcConfig"
+{-# DEPRECATED tjVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+
+instance Core.FromJSON TrainingJob where
   parseJSON =
-    Lude.withObject
-      "TrainingJob"
-      ( \x ->
-          TrainingJob'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "LabelingJobArn")
-            Lude.<*> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..:? "SecondaryStatusTransitions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ModelArtifacts")
-            Lude.<*> (x Lude..:? "TrainingEndTime")
-            Lude.<*> (x Lude..:? "BillableTimeInSeconds")
-            Lude.<*> (x Lude..:? "DebugHookConfig")
-            Lude.<*> (x Lude..:? "CheckpointConfig")
-            Lude.<*> (x Lude..:? "StoppingCondition")
-            Lude.<*> (x Lude..:? "DebugRuleEvaluationStatuses" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "TrainingJobStatus")
-            Lude.<*> (x Lude..:? "EnableNetworkIsolation")
-            Lude.<*> (x Lude..:? "ExperimentConfig")
-            Lude.<*> (x Lude..:? "LastModifiedTime")
-            Lude.<*> (x Lude..:? "DebugRuleConfigurations" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "EnableManagedSpotTraining")
-            Lude.<*> (x Lude..:? "AutoMLJobArn")
-            Lude.<*> (x Lude..:? "HyperParameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "InputDataConfig")
-            Lude.<*> (x Lude..:? "VpcConfig")
-            Lude.<*> (x Lude..:? "TrainingJobArn")
-            Lude.<*> (x Lude..:? "AlgorithmSpecification")
-            Lude.<*> (x Lude..:? "FinalMetricDataList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "OutputDataConfig")
-            Lude.<*> (x Lude..:? "TrainingStartTime")
-            Lude.<*> (x Lude..:? "TuningJobArn")
-            Lude.<*> (x Lude..:? "TrainingJobName")
-            Lude.<*> (x Lude..:? "ResourceConfig")
-            Lude.<*> (x Lude..:? "EnableInterContainerTrafficEncryption")
-            Lude.<*> (x Lude..:? "TensorBoardOutputConfig")
-            Lude.<*> (x Lude..:? "SecondaryStatus")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "TrainingTimeInSeconds")
-            Lude.<*> (x Lude..:? "RoleArn")
-      )
+    Core.withObject "TrainingJob" Core.$
+      \x ->
+        TrainingJob'
+          Core.<$> (x Core..:? "AlgorithmSpecification")
+          Core.<*> (x Core..:? "AutoMLJobArn")
+          Core.<*> (x Core..:? "BillableTimeInSeconds")
+          Core.<*> (x Core..:? "CheckpointConfig")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "DebugHookConfig")
+          Core.<*> (x Core..:? "DebugRuleConfigurations")
+          Core.<*> (x Core..:? "DebugRuleEvaluationStatuses")
+          Core.<*> (x Core..:? "EnableInterContainerTrafficEncryption")
+          Core.<*> (x Core..:? "EnableManagedSpotTraining")
+          Core.<*> (x Core..:? "EnableNetworkIsolation")
+          Core.<*> (x Core..:? "ExperimentConfig")
+          Core.<*> (x Core..:? "FailureReason")
+          Core.<*> (x Core..:? "FinalMetricDataList")
+          Core.<*> (x Core..:? "HyperParameters")
+          Core.<*> (x Core..:? "InputDataConfig")
+          Core.<*> (x Core..:? "LabelingJobArn")
+          Core.<*> (x Core..:? "LastModifiedTime")
+          Core.<*> (x Core..:? "ModelArtifacts")
+          Core.<*> (x Core..:? "OutputDataConfig")
+          Core.<*> (x Core..:? "ResourceConfig")
+          Core.<*> (x Core..:? "RoleArn")
+          Core.<*> (x Core..:? "SecondaryStatus")
+          Core.<*> (x Core..:? "SecondaryStatusTransitions")
+          Core.<*> (x Core..:? "StoppingCondition")
+          Core.<*> (x Core..:? "Tags")
+          Core.<*> (x Core..:? "TensorBoardOutputConfig")
+          Core.<*> (x Core..:? "TrainingEndTime")
+          Core.<*> (x Core..:? "TrainingJobArn")
+          Core.<*> (x Core..:? "TrainingJobName")
+          Core.<*> (x Core..:? "TrainingJobStatus")
+          Core.<*> (x Core..:? "TrainingStartTime")
+          Core.<*> (x Core..:? "TrainingTimeInSeconds")
+          Core.<*> (x Core..:? "TuningJobArn")
+          Core.<*> (x Core..:? "VpcConfig")

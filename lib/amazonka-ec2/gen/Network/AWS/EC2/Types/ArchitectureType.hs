@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.ArchitectureType
   ( ArchitectureType
       ( ArchitectureType',
-        ATI386,
-        ATX86_64,
-        ATARM64
+        ArchitectureTypeI386,
+        ArchitectureTypeX8664,
+        ArchitectureTypeARM64,
+        fromArchitectureType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ArchitectureType = ArchitectureType' Lude.Text
+newtype ArchitectureType = ArchitectureType'
+  { fromArchitectureType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATI386 :: ArchitectureType
-pattern ATI386 = ArchitectureType' "i386"
+pattern ArchitectureTypeI386 :: ArchitectureType
+pattern ArchitectureTypeI386 = ArchitectureType' "i386"
 
-pattern ATX86_64 :: ArchitectureType
-pattern ATX86_64 = ArchitectureType' "x86_64"
+pattern ArchitectureTypeX8664 :: ArchitectureType
+pattern ArchitectureTypeX8664 = ArchitectureType' "x86_64"
 
-pattern ATARM64 :: ArchitectureType
-pattern ATARM64 = ArchitectureType' "arm64"
+pattern ArchitectureTypeARM64 :: ArchitectureType
+pattern ArchitectureTypeARM64 = ArchitectureType' "arm64"
 
 {-# COMPLETE
-  ATI386,
-  ATX86_64,
-  ATARM64,
+  ArchitectureTypeI386,
+  ArchitectureTypeX8664,
+  ArchitectureTypeARM64,
   ArchitectureType'
   #-}

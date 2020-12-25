@@ -17,92 +17,87 @@ module Network.AWS.S3.Types.TopicConfiguration
     mkTopicConfiguration,
 
     -- * Lenses
-    tcTopicARN,
+    tcTopicArn,
     tcEvents,
-    tcId,
     tcFilter,
+    tcId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Event
-import Network.AWS.S3.Types.NotificationConfigurationFilter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Event as Types
+import qualified Network.AWS.S3.Types.Id as Types
+import qualified Network.AWS.S3.Types.NotificationConfigurationFilter as Types
+import qualified Network.AWS.S3.Types.TopicArn as Types
 
 -- | A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.
 --
 -- /See:/ 'mkTopicConfiguration' smart constructor.
 data TopicConfiguration = TopicConfiguration'
   { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
-    topicARN :: Lude.Text,
+    topicArn :: Types.TopicArn,
     -- | The Amazon S3 bucket event about which to send notifications. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types> in the /Amazon Simple Storage Service Developer Guide/ .
-    events :: [Event],
-    id :: Lude.Maybe Lude.Text,
-    filter :: Lude.Maybe NotificationConfigurationFilter
+    events :: [Types.Event],
+    filter :: Core.Maybe Types.NotificationConfigurationFilter,
+    id :: Core.Maybe Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TopicConfiguration' with the minimum fields required to make a request.
---
--- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
--- * 'events' - The Amazon S3 bucket event about which to send notifications. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'id' -
--- * 'filter' -
+-- | Creates a 'TopicConfiguration' value with any optional fields omitted.
 mkTopicConfiguration ::
-  -- | 'topicARN'
-  Lude.Text ->
+  -- | 'topicArn'
+  Types.TopicArn ->
   TopicConfiguration
-mkTopicConfiguration pTopicARN_ =
+mkTopicConfiguration topicArn =
   TopicConfiguration'
-    { topicARN = pTopicARN_,
-      events = Lude.mempty,
-      id = Lude.Nothing,
-      filter = Lude.Nothing
+    { topicArn,
+      events = Core.mempty,
+      filter = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
 --
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcTopicARN :: Lens.Lens' TopicConfiguration Lude.Text
-tcTopicARN = Lens.lens (topicARN :: TopicConfiguration -> Lude.Text) (\s a -> s {topicARN = a} :: TopicConfiguration)
-{-# DEPRECATED tcTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcTopicArn :: Lens.Lens' TopicConfiguration Types.TopicArn
+tcTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED tcTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
 
 -- | The Amazon S3 bucket event about which to send notifications. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcEvents :: Lens.Lens' TopicConfiguration [Event]
-tcEvents = Lens.lens (events :: TopicConfiguration -> [Event]) (\s a -> s {events = a} :: TopicConfiguration)
+tcEvents :: Lens.Lens' TopicConfiguration [Types.Event]
+tcEvents = Lens.field @"events"
 {-# DEPRECATED tcEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcId :: Lens.Lens' TopicConfiguration (Lude.Maybe Lude.Text)
-tcId = Lens.lens (id :: TopicConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: TopicConfiguration)
-{-# DEPRECATED tcId "Use generic-lens or generic-optics with 'id' instead." #-}
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcFilter :: Lens.Lens' TopicConfiguration (Core.Maybe Types.NotificationConfigurationFilter)
+tcFilter = Lens.field @"filter"
+{-# DEPRECATED tcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcFilter :: Lens.Lens' TopicConfiguration (Lude.Maybe NotificationConfigurationFilter)
-tcFilter = Lens.lens (filter :: TopicConfiguration -> Lude.Maybe NotificationConfigurationFilter) (\s a -> s {filter = a} :: TopicConfiguration)
-{-# DEPRECATED tcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcId :: Lens.Lens' TopicConfiguration (Core.Maybe Types.Id)
+tcId = Lens.field @"id"
+{-# DEPRECATED tcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromXML TopicConfiguration where
+instance Core.ToXML TopicConfiguration where
+  toXML TopicConfiguration {..} =
+    Core.toXMLNode "Topic" topicArn
+      Core.<> Core.toXMLList "Event" events
+      Core.<> Core.toXMLNode "Filter" Core.<$> filter
+      Core.<> Core.toXMLNode "Id" Core.<$> id
+
+instance Core.FromXML TopicConfiguration where
   parseXML x =
     TopicConfiguration'
-      Lude.<$> (x Lude..@ "Topic")
-      Lude.<*> (Lude.parseXMLList "Event" x)
-      Lude.<*> (x Lude..@? "Id")
-      Lude.<*> (x Lude..@? "Filter")
-
-instance Lude.ToXML TopicConfiguration where
-  toXML TopicConfiguration' {..} =
-    Lude.mconcat
-      [ "Topic" Lude.@= topicARN,
-        Lude.toXMLList "Event" events,
-        "Id" Lude.@= id,
-        "Filter" Lude.@= filter
-      ]
+      Core.<$> (x Core..@ "Topic")
+      Core.<*> (x Core..@? "Event" Core..@! Core.mempty)
+      Core.<*> (x Core..@? "Filter")
+      Core.<*> (x Core..@? "Id")

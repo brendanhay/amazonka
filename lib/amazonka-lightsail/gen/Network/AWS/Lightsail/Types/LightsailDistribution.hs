@@ -17,298 +17,275 @@ module Network.AWS.Lightsail.Types.LightsailDistribution
     mkLightsailDistribution,
 
     -- * Lenses
-    ldStatus,
-    ldOrigin,
-    ldCertificateName,
-    ldResourceType,
-    ldArn,
-    ldCreatedAt,
-    ldLocation,
-    ldCacheBehaviorSettings,
-    ldAlternativeDomainNames,
-    ldBundleId,
     ldAbleToUpdateBundle,
-    ldOriginPublicDNS,
-    ldDomainName,
-    ldName,
-    ldIsEnabled,
-    ldSupportCode,
-    ldDefaultCacheBehavior,
+    ldAlternativeDomainNames,
+    ldArn,
+    ldBundleId,
+    ldCacheBehaviorSettings,
     ldCacheBehaviors,
+    ldCertificateName,
+    ldCreatedAt,
+    ldDefaultCacheBehavior,
+    ldDomainName,
+    ldIsEnabled,
+    ldLocation,
+    ldName,
+    ldOrigin,
+    ldOriginPublicDNS,
+    ldResourceType,
+    ldStatus,
+    ldSupportCode,
     ldTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.CacheBehavior
-import Network.AWS.Lightsail.Types.CacheBehaviorPerPath
-import Network.AWS.Lightsail.Types.CacheSettings
-import Network.AWS.Lightsail.Types.Origin
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import Network.AWS.Lightsail.Types.Tag
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.Arn as Types
+import qualified Network.AWS.Lightsail.Types.CacheBehavior as Types
+import qualified Network.AWS.Lightsail.Types.CacheBehaviorPerPath as Types
+import qualified Network.AWS.Lightsail.Types.CacheSettings as Types
+import qualified Network.AWS.Lightsail.Types.Origin as Types
+import qualified Network.AWS.Lightsail.Types.ResourceLocation as Types
+import qualified Network.AWS.Lightsail.Types.ResourceName as Types
+import qualified Network.AWS.Lightsail.Types.ResourceType as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Lightsail.Types.Tag as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Amazon Lightsail content delivery network (CDN) distribution.
 --
 -- /See:/ 'mkLightsailDistribution' smart constructor.
 data LightsailDistribution = LightsailDistribution'
-  { -- | The status of the distribution.
-    status :: Lude.Maybe Lude.Text,
+  { -- | Indicates whether the bundle that is currently applied to your distribution, specified using the @distributionName@ parameter, can be changed to another bundle.
+    --
+    -- Use the @UpdateDistributionBundle@ action to change your distribution's bundle.
+    ableToUpdateBundle :: Core.Maybe Core.Bool,
+    -- | The alternate domain names of the distribution.
+    alternativeDomainNames :: Core.Maybe [Types.String],
+    -- | The Amazon Resource Name (ARN) of the distribution.
+    arn :: Core.Maybe Types.Arn,
+    -- | The ID of the bundle currently applied to the distribution.
+    bundleId :: Core.Maybe Types.String,
+    -- | An object that describes the cache behavior settings of the distribution.
+    cacheBehaviorSettings :: Core.Maybe Types.CacheSettings,
+    -- | An array of objects that describe the per-path cache behavior of the distribution.
+    cacheBehaviors :: Core.Maybe [Types.CacheBehaviorPerPath],
+    -- | The name of the SSL/TLS certificate attached to the distribution, if any.
+    certificateName :: Core.Maybe Types.ResourceName,
+    -- | The timestamp when the distribution was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | An object that describes the default cache behavior of the distribution.
+    defaultCacheBehavior :: Core.Maybe Types.CacheBehavior,
+    -- | The domain name of the distribution.
+    domainName :: Core.Maybe Types.String,
+    -- | Indicates whether the distribution is enabled.
+    isEnabled :: Core.Maybe Core.Bool,
+    -- | An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
+    location :: Core.Maybe Types.ResourceLocation,
+    -- | The name of the distribution.
+    name :: Core.Maybe Types.ResourceName,
     -- | An object that describes the origin resource of the distribution, such as a Lightsail instance or load balancer.
     --
     -- The distribution pulls, caches, and serves content from the origin.
-    origin :: Lude.Maybe Origin,
-    -- | The name of the SSL/TLS certificate attached to the distribution, if any.
-    certificateName :: Lude.Maybe Lude.Text,
-    -- | The Lightsail resource type (e.g., @Distribution@ ).
-    resourceType :: Lude.Maybe ResourceType,
-    -- | The Amazon Resource Name (ARN) of the distribution.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The timestamp when the distribution was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
-    location :: Lude.Maybe ResourceLocation,
-    -- | An object that describes the cache behavior settings of the distribution.
-    cacheBehaviorSettings :: Lude.Maybe CacheSettings,
-    -- | The alternate domain names of the distribution.
-    alternativeDomainNames :: Lude.Maybe [Lude.Text],
-    -- | The ID of the bundle currently applied to the distribution.
-    bundleId :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the bundle that is currently applied to your distribution, specified using the @distributionName@ parameter, can be changed to another bundle.
-    --
-    -- Use the @UpdateDistributionBundle@ action to change your distribution's bundle.
-    ableToUpdateBundle :: Lude.Maybe Lude.Bool,
+    origin :: Core.Maybe Types.Origin,
     -- | The public DNS of the origin.
-    originPublicDNS :: Lude.Maybe Lude.Text,
-    -- | The domain name of the distribution.
-    domainName :: Lude.Maybe Lude.Text,
-    -- | The name of the distribution.
-    name :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the distribution is enabled.
-    isEnabled :: Lude.Maybe Lude.Bool,
+    originPublicDNS :: Core.Maybe Types.String,
+    -- | The Lightsail resource type (e.g., @Distribution@ ).
+    resourceType :: Core.Maybe Types.ResourceType,
+    -- | The status of the distribution.
+    status :: Core.Maybe Types.String,
     -- | The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-    supportCode :: Lude.Maybe Lude.Text,
-    -- | An object that describes the default cache behavior of the distribution.
-    defaultCacheBehavior :: Lude.Maybe CacheBehavior,
-    -- | An array of objects that describe the per-path cache behavior of the distribution.
-    cacheBehaviors :: Lude.Maybe [CacheBehaviorPerPath],
+    supportCode :: Core.Maybe Types.String,
     -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LightsailDistribution' with the minimum fields required to make a request.
---
--- * 'status' - The status of the distribution.
--- * 'origin' - An object that describes the origin resource of the distribution, such as a Lightsail instance or load balancer.
---
--- The distribution pulls, caches, and serves content from the origin.
--- * 'certificateName' - The name of the SSL/TLS certificate attached to the distribution, if any.
--- * 'resourceType' - The Lightsail resource type (e.g., @Distribution@ ).
--- * 'arn' - The Amazon Resource Name (ARN) of the distribution.
--- * 'createdAt' - The timestamp when the distribution was created.
--- * 'location' - An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
--- * 'cacheBehaviorSettings' - An object that describes the cache behavior settings of the distribution.
--- * 'alternativeDomainNames' - The alternate domain names of the distribution.
--- * 'bundleId' - The ID of the bundle currently applied to the distribution.
--- * 'ableToUpdateBundle' - Indicates whether the bundle that is currently applied to your distribution, specified using the @distributionName@ parameter, can be changed to another bundle.
---
--- Use the @UpdateDistributionBundle@ action to change your distribution's bundle.
--- * 'originPublicDNS' - The public DNS of the origin.
--- * 'domainName' - The domain name of the distribution.
--- * 'name' - The name of the distribution.
--- * 'isEnabled' - Indicates whether the distribution is enabled.
--- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
--- * 'defaultCacheBehavior' - An object that describes the default cache behavior of the distribution.
--- * 'cacheBehaviors' - An array of objects that describe the per-path cache behavior of the distribution.
--- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+-- | Creates a 'LightsailDistribution' value with any optional fields omitted.
 mkLightsailDistribution ::
   LightsailDistribution
 mkLightsailDistribution =
   LightsailDistribution'
-    { status = Lude.Nothing,
-      origin = Lude.Nothing,
-      certificateName = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      location = Lude.Nothing,
-      cacheBehaviorSettings = Lude.Nothing,
-      alternativeDomainNames = Lude.Nothing,
-      bundleId = Lude.Nothing,
-      ableToUpdateBundle = Lude.Nothing,
-      originPublicDNS = Lude.Nothing,
-      domainName = Lude.Nothing,
-      name = Lude.Nothing,
-      isEnabled = Lude.Nothing,
-      supportCode = Lude.Nothing,
-      defaultCacheBehavior = Lude.Nothing,
-      cacheBehaviors = Lude.Nothing,
-      tags = Lude.Nothing
+    { ableToUpdateBundle = Core.Nothing,
+      alternativeDomainNames = Core.Nothing,
+      arn = Core.Nothing,
+      bundleId = Core.Nothing,
+      cacheBehaviorSettings = Core.Nothing,
+      cacheBehaviors = Core.Nothing,
+      certificateName = Core.Nothing,
+      createdAt = Core.Nothing,
+      defaultCacheBehavior = Core.Nothing,
+      domainName = Core.Nothing,
+      isEnabled = Core.Nothing,
+      location = Core.Nothing,
+      name = Core.Nothing,
+      origin = Core.Nothing,
+      originPublicDNS = Core.Nothing,
+      resourceType = Core.Nothing,
+      status = Core.Nothing,
+      supportCode = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The status of the distribution.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldStatus :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Text)
-ldStatus = Lens.lens (status :: LightsailDistribution -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: LightsailDistribution)
-{-# DEPRECATED ldStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | An object that describes the origin resource of the distribution, such as a Lightsail instance or load balancer.
---
--- The distribution pulls, caches, and serves content from the origin.
---
--- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldOrigin :: Lens.Lens' LightsailDistribution (Lude.Maybe Origin)
-ldOrigin = Lens.lens (origin :: LightsailDistribution -> Lude.Maybe Origin) (\s a -> s {origin = a} :: LightsailDistribution)
-{-# DEPRECATED ldOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
-
--- | The name of the SSL/TLS certificate attached to the distribution, if any.
---
--- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldCertificateName :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Text)
-ldCertificateName = Lens.lens (certificateName :: LightsailDistribution -> Lude.Maybe Lude.Text) (\s a -> s {certificateName = a} :: LightsailDistribution)
-{-# DEPRECATED ldCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
-
--- | The Lightsail resource type (e.g., @Distribution@ ).
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldResourceType :: Lens.Lens' LightsailDistribution (Lude.Maybe ResourceType)
-ldResourceType = Lens.lens (resourceType :: LightsailDistribution -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: LightsailDistribution)
-{-# DEPRECATED ldResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the distribution.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldArn :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Text)
-ldArn = Lens.lens (arn :: LightsailDistribution -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: LightsailDistribution)
-{-# DEPRECATED ldArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The timestamp when the distribution was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldCreatedAt :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Timestamp)
-ldCreatedAt = Lens.lens (createdAt :: LightsailDistribution -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: LightsailDistribution)
-{-# DEPRECATED ldCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldLocation :: Lens.Lens' LightsailDistribution (Lude.Maybe ResourceLocation)
-ldLocation = Lens.lens (location :: LightsailDistribution -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: LightsailDistribution)
-{-# DEPRECATED ldLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | An object that describes the cache behavior settings of the distribution.
---
--- /Note:/ Consider using 'cacheBehaviorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldCacheBehaviorSettings :: Lens.Lens' LightsailDistribution (Lude.Maybe CacheSettings)
-ldCacheBehaviorSettings = Lens.lens (cacheBehaviorSettings :: LightsailDistribution -> Lude.Maybe CacheSettings) (\s a -> s {cacheBehaviorSettings = a} :: LightsailDistribution)
-{-# DEPRECATED ldCacheBehaviorSettings "Use generic-lens or generic-optics with 'cacheBehaviorSettings' instead." #-}
-
--- | The alternate domain names of the distribution.
---
--- /Note:/ Consider using 'alternativeDomainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldAlternativeDomainNames :: Lens.Lens' LightsailDistribution (Lude.Maybe [Lude.Text])
-ldAlternativeDomainNames = Lens.lens (alternativeDomainNames :: LightsailDistribution -> Lude.Maybe [Lude.Text]) (\s a -> s {alternativeDomainNames = a} :: LightsailDistribution)
-{-# DEPRECATED ldAlternativeDomainNames "Use generic-lens or generic-optics with 'alternativeDomainNames' instead." #-}
-
--- | The ID of the bundle currently applied to the distribution.
---
--- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldBundleId :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Text)
-ldBundleId = Lens.lens (bundleId :: LightsailDistribution -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: LightsailDistribution)
-{-# DEPRECATED ldBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | Indicates whether the bundle that is currently applied to your distribution, specified using the @distributionName@ parameter, can be changed to another bundle.
 --
 -- Use the @UpdateDistributionBundle@ action to change your distribution's bundle.
 --
 -- /Note:/ Consider using 'ableToUpdateBundle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldAbleToUpdateBundle :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Bool)
-ldAbleToUpdateBundle = Lens.lens (ableToUpdateBundle :: LightsailDistribution -> Lude.Maybe Lude.Bool) (\s a -> s {ableToUpdateBundle = a} :: LightsailDistribution)
+ldAbleToUpdateBundle :: Lens.Lens' LightsailDistribution (Core.Maybe Core.Bool)
+ldAbleToUpdateBundle = Lens.field @"ableToUpdateBundle"
 {-# DEPRECATED ldAbleToUpdateBundle "Use generic-lens or generic-optics with 'ableToUpdateBundle' instead." #-}
 
--- | The public DNS of the origin.
+-- | The alternate domain names of the distribution.
 --
--- /Note:/ Consider using 'originPublicDNS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldOriginPublicDNS :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Text)
-ldOriginPublicDNS = Lens.lens (originPublicDNS :: LightsailDistribution -> Lude.Maybe Lude.Text) (\s a -> s {originPublicDNS = a} :: LightsailDistribution)
-{-# DEPRECATED ldOriginPublicDNS "Use generic-lens or generic-optics with 'originPublicDNS' instead." #-}
+-- /Note:/ Consider using 'alternativeDomainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldAlternativeDomainNames :: Lens.Lens' LightsailDistribution (Core.Maybe [Types.String])
+ldAlternativeDomainNames = Lens.field @"alternativeDomainNames"
+{-# DEPRECATED ldAlternativeDomainNames "Use generic-lens or generic-optics with 'alternativeDomainNames' instead." #-}
 
--- | The domain name of the distribution.
+-- | The Amazon Resource Name (ARN) of the distribution.
 --
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldDomainName :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Text)
-ldDomainName = Lens.lens (domainName :: LightsailDistribution -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: LightsailDistribution)
-{-# DEPRECATED ldDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldArn :: Lens.Lens' LightsailDistribution (Core.Maybe Types.Arn)
+ldArn = Lens.field @"arn"
+{-# DEPRECATED ldArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The name of the distribution.
+-- | The ID of the bundle currently applied to the distribution.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldName :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Text)
-ldName = Lens.lens (name :: LightsailDistribution -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LightsailDistribution)
-{-# DEPRECATED ldName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldBundleId :: Lens.Lens' LightsailDistribution (Core.Maybe Types.String)
+ldBundleId = Lens.field @"bundleId"
+{-# DEPRECATED ldBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
--- | Indicates whether the distribution is enabled.
+-- | An object that describes the cache behavior settings of the distribution.
 --
--- /Note:/ Consider using 'isEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldIsEnabled :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Bool)
-ldIsEnabled = Lens.lens (isEnabled :: LightsailDistribution -> Lude.Maybe Lude.Bool) (\s a -> s {isEnabled = a} :: LightsailDistribution)
-{-# DEPRECATED ldIsEnabled "Use generic-lens or generic-optics with 'isEnabled' instead." #-}
-
--- | The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
---
--- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldSupportCode :: Lens.Lens' LightsailDistribution (Lude.Maybe Lude.Text)
-ldSupportCode = Lens.lens (supportCode :: LightsailDistribution -> Lude.Maybe Lude.Text) (\s a -> s {supportCode = a} :: LightsailDistribution)
-{-# DEPRECATED ldSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
-
--- | An object that describes the default cache behavior of the distribution.
---
--- /Note:/ Consider using 'defaultCacheBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldDefaultCacheBehavior :: Lens.Lens' LightsailDistribution (Lude.Maybe CacheBehavior)
-ldDefaultCacheBehavior = Lens.lens (defaultCacheBehavior :: LightsailDistribution -> Lude.Maybe CacheBehavior) (\s a -> s {defaultCacheBehavior = a} :: LightsailDistribution)
-{-# DEPRECATED ldDefaultCacheBehavior "Use generic-lens or generic-optics with 'defaultCacheBehavior' instead." #-}
+-- /Note:/ Consider using 'cacheBehaviorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldCacheBehaviorSettings :: Lens.Lens' LightsailDistribution (Core.Maybe Types.CacheSettings)
+ldCacheBehaviorSettings = Lens.field @"cacheBehaviorSettings"
+{-# DEPRECATED ldCacheBehaviorSettings "Use generic-lens or generic-optics with 'cacheBehaviorSettings' instead." #-}
 
 -- | An array of objects that describe the per-path cache behavior of the distribution.
 --
 -- /Note:/ Consider using 'cacheBehaviors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldCacheBehaviors :: Lens.Lens' LightsailDistribution (Lude.Maybe [CacheBehaviorPerPath])
-ldCacheBehaviors = Lens.lens (cacheBehaviors :: LightsailDistribution -> Lude.Maybe [CacheBehaviorPerPath]) (\s a -> s {cacheBehaviors = a} :: LightsailDistribution)
+ldCacheBehaviors :: Lens.Lens' LightsailDistribution (Core.Maybe [Types.CacheBehaviorPerPath])
+ldCacheBehaviors = Lens.field @"cacheBehaviors"
 {-# DEPRECATED ldCacheBehaviors "Use generic-lens or generic-optics with 'cacheBehaviors' instead." #-}
+
+-- | The name of the SSL/TLS certificate attached to the distribution, if any.
+--
+-- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldCertificateName :: Lens.Lens' LightsailDistribution (Core.Maybe Types.ResourceName)
+ldCertificateName = Lens.field @"certificateName"
+{-# DEPRECATED ldCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
+
+-- | The timestamp when the distribution was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldCreatedAt :: Lens.Lens' LightsailDistribution (Core.Maybe Core.NominalDiffTime)
+ldCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED ldCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | An object that describes the default cache behavior of the distribution.
+--
+-- /Note:/ Consider using 'defaultCacheBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldDefaultCacheBehavior :: Lens.Lens' LightsailDistribution (Core.Maybe Types.CacheBehavior)
+ldDefaultCacheBehavior = Lens.field @"defaultCacheBehavior"
+{-# DEPRECATED ldDefaultCacheBehavior "Use generic-lens or generic-optics with 'defaultCacheBehavior' instead." #-}
+
+-- | The domain name of the distribution.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldDomainName :: Lens.Lens' LightsailDistribution (Core.Maybe Types.String)
+ldDomainName = Lens.field @"domainName"
+{-# DEPRECATED ldDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | Indicates whether the distribution is enabled.
+--
+-- /Note:/ Consider using 'isEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldIsEnabled :: Lens.Lens' LightsailDistribution (Core.Maybe Core.Bool)
+ldIsEnabled = Lens.field @"isEnabled"
+{-# DEPRECATED ldIsEnabled "Use generic-lens or generic-optics with 'isEnabled' instead." #-}
+
+-- | An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldLocation :: Lens.Lens' LightsailDistribution (Core.Maybe Types.ResourceLocation)
+ldLocation = Lens.field @"location"
+{-# DEPRECATED ldLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The name of the distribution.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldName :: Lens.Lens' LightsailDistribution (Core.Maybe Types.ResourceName)
+ldName = Lens.field @"name"
+{-# DEPRECATED ldName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | An object that describes the origin resource of the distribution, such as a Lightsail instance or load balancer.
+--
+-- The distribution pulls, caches, and serves content from the origin.
+--
+-- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldOrigin :: Lens.Lens' LightsailDistribution (Core.Maybe Types.Origin)
+ldOrigin = Lens.field @"origin"
+{-# DEPRECATED ldOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
+
+-- | The public DNS of the origin.
+--
+-- /Note:/ Consider using 'originPublicDNS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldOriginPublicDNS :: Lens.Lens' LightsailDistribution (Core.Maybe Types.String)
+ldOriginPublicDNS = Lens.field @"originPublicDNS"
+{-# DEPRECATED ldOriginPublicDNS "Use generic-lens or generic-optics with 'originPublicDNS' instead." #-}
+
+-- | The Lightsail resource type (e.g., @Distribution@ ).
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldResourceType :: Lens.Lens' LightsailDistribution (Core.Maybe Types.ResourceType)
+ldResourceType = Lens.field @"resourceType"
+{-# DEPRECATED ldResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The status of the distribution.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldStatus :: Lens.Lens' LightsailDistribution (Core.Maybe Types.String)
+ldStatus = Lens.field @"status"
+{-# DEPRECATED ldStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+--
+-- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldSupportCode :: Lens.Lens' LightsailDistribution (Core.Maybe Types.String)
+ldSupportCode = Lens.field @"supportCode"
+{-# DEPRECATED ldSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
 
 -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldTags :: Lens.Lens' LightsailDistribution (Lude.Maybe [Tag])
-ldTags = Lens.lens (tags :: LightsailDistribution -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LightsailDistribution)
+ldTags :: Lens.Lens' LightsailDistribution (Core.Maybe [Types.Tag])
+ldTags = Lens.field @"tags"
 {-# DEPRECATED ldTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON LightsailDistribution where
+instance Core.FromJSON LightsailDistribution where
   parseJSON =
-    Lude.withObject
-      "LightsailDistribution"
-      ( \x ->
-          LightsailDistribution'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "origin")
-            Lude.<*> (x Lude..:? "certificateName")
-            Lude.<*> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "cacheBehaviorSettings")
-            Lude.<*> (x Lude..:? "alternativeDomainNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "bundleId")
-            Lude.<*> (x Lude..:? "ableToUpdateBundle")
-            Lude.<*> (x Lude..:? "originPublicDNS")
-            Lude.<*> (x Lude..:? "domainName")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "isEnabled")
-            Lude.<*> (x Lude..:? "supportCode")
-            Lude.<*> (x Lude..:? "defaultCacheBehavior")
-            Lude.<*> (x Lude..:? "cacheBehaviors" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "LightsailDistribution" Core.$
+      \x ->
+        LightsailDistribution'
+          Core.<$> (x Core..:? "ableToUpdateBundle")
+          Core.<*> (x Core..:? "alternativeDomainNames")
+          Core.<*> (x Core..:? "arn")
+          Core.<*> (x Core..:? "bundleId")
+          Core.<*> (x Core..:? "cacheBehaviorSettings")
+          Core.<*> (x Core..:? "cacheBehaviors")
+          Core.<*> (x Core..:? "certificateName")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "defaultCacheBehavior")
+          Core.<*> (x Core..:? "domainName")
+          Core.<*> (x Core..:? "isEnabled")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "origin")
+          Core.<*> (x Core..:? "originPublicDNS")
+          Core.<*> (x Core..:? "resourceType")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "supportCode")
+          Core.<*> (x Core..:? "tags")

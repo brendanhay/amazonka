@@ -36,8 +36,8 @@ import Test.Tasty
 --         , requestInitializeCluster $
 --             mkInitializeCluster
 --
---         , requestCreateHSM $
---             mkCreateHSM
+--         , requestCreateHsm $
+--             mkCreateHsm
 --
 --         , requestDescribeBackups $
 --             mkDescribeBackups
@@ -54,8 +54,8 @@ import Test.Tasty
 --         , requestRestoreBackup $
 --             mkRestoreBackup
 --
---         , requestDeleteHSM $
---             mkDeleteHSM
+--         , requestDeleteHsm $
+--             mkDeleteHsm
 --
 --         , requestModifyCluster $
 --             mkModifyCluster
@@ -84,8 +84,8 @@ import Test.Tasty
 --         , responseInitializeCluster $
 --             mkInitializeClusterResponse
 --
---         , responseCreateHSM $
---             mkCreateHSMResponse
+--         , responseCreateHsm $
+--             mkCreateHsmResponse
 --
 --         , responseDescribeBackups $
 --             mkDescribeBackupsResponse
@@ -102,8 +102,8 @@ import Test.Tasty
 --         , responseRestoreBackup $
 --             mkRestoreBackupResponse
 --
---         , responseDeleteHSM $
---             mkDeleteHSMResponse
+--         , responseDeleteHsm $
+--             mkDeleteHsmResponse
 --
 --         , responseModifyCluster $
 --             mkModifyClusterResponse
@@ -143,11 +143,11 @@ requestInitializeCluster =
     "InitializeCluster"
     "fixture/InitializeCluster.yaml"
 
-requestCreateHSM :: CreateHSM -> TestTree
-requestCreateHSM =
+requestCreateHsm :: CreateHsm -> TestTree
+requestCreateHsm =
   req
-    "CreateHSM"
-    "fixture/CreateHSM.yaml"
+    "CreateHsm"
+    "fixture/CreateHsm.yaml"
 
 requestDescribeBackups :: DescribeBackups -> TestTree
 requestDescribeBackups =
@@ -179,11 +179,11 @@ requestRestoreBackup =
     "RestoreBackup"
     "fixture/RestoreBackup.yaml"
 
-requestDeleteHSM :: DeleteHSM -> TestTree
-requestDeleteHSM =
+requestDeleteHsm :: DeleteHsm -> TestTree
+requestDeleteHsm =
   req
-    "DeleteHSM"
-    "fixture/DeleteHSM.yaml"
+    "DeleteHsm"
+    "fixture/DeleteHsm.yaml"
 
 requestModifyCluster :: ModifyCluster -> TestTree
 requestModifyCluster =
@@ -222,7 +222,7 @@ responseDescribeClusters =
   res
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusters)
 
 responseDeleteBackup :: DeleteBackupResponse -> TestTree
@@ -230,7 +230,7 @@ responseDeleteBackup =
   res
     "DeleteBackupResponse"
     "fixture/DeleteBackupResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteBackup)
 
 responseInitializeCluster :: InitializeClusterResponse -> TestTree
@@ -238,23 +238,23 @@ responseInitializeCluster =
   res
     "InitializeClusterResponse"
     "fixture/InitializeClusterResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy InitializeCluster)
 
-responseCreateHSM :: CreateHSMResponse -> TestTree
-responseCreateHSM =
+responseCreateHsm :: CreateHsmResponse -> TestTree
+responseCreateHsm =
   res
-    "CreateHSMResponse"
-    "fixture/CreateHSMResponse.proto"
-    cloudHSMv2Service
-    (Proxy :: Proxy CreateHSM)
+    "CreateHsmResponse"
+    "fixture/CreateHsmResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy CreateHsm)
 
 responseDescribeBackups :: DescribeBackupsResponse -> TestTree
 responseDescribeBackups =
   res
     "DescribeBackupsResponse"
     "fixture/DescribeBackupsResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeBackups)
 
 responseCopyBackupToRegion :: CopyBackupToRegionResponse -> TestTree
@@ -262,7 +262,7 @@ responseCopyBackupToRegion =
   res
     "CopyBackupToRegionResponse"
     "fixture/CopyBackupToRegionResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy CopyBackupToRegion)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
@@ -270,7 +270,7 @@ responseDeleteCluster =
   res
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteCluster)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
@@ -278,7 +278,7 @@ responseCreateCluster =
   res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy CreateCluster)
 
 responseRestoreBackup :: RestoreBackupResponse -> TestTree
@@ -286,23 +286,23 @@ responseRestoreBackup =
   res
     "RestoreBackupResponse"
     "fixture/RestoreBackupResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy RestoreBackup)
 
-responseDeleteHSM :: DeleteHSMResponse -> TestTree
-responseDeleteHSM =
+responseDeleteHsm :: DeleteHsmResponse -> TestTree
+responseDeleteHsm =
   res
-    "DeleteHSMResponse"
-    "fixture/DeleteHSMResponse.proto"
-    cloudHSMv2Service
-    (Proxy :: Proxy DeleteHSM)
+    "DeleteHsmResponse"
+    "fixture/DeleteHsmResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DeleteHsm)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
 responseModifyCluster =
   res
     "ModifyClusterResponse"
     "fixture/ModifyClusterResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy ModifyCluster)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -310,7 +310,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -318,7 +318,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -326,7 +326,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseModifyBackupAttributes :: ModifyBackupAttributesResponse -> TestTree
@@ -334,5 +334,5 @@ responseModifyBackupAttributes =
   res
     "ModifyBackupAttributesResponse"
     "fixture/ModifyBackupAttributesResponse.proto"
-    cloudHSMv2Service
+    mkServiceConfig
     (Proxy :: Proxy ModifyBackupAttributes)

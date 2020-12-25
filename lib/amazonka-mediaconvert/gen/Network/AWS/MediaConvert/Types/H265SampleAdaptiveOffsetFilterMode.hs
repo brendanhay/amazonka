@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode
   ( H265SampleAdaptiveOffsetFilterMode
       ( H265SampleAdaptiveOffsetFilterMode',
-        HSAOFMDefault,
-        HSAOFMAdaptive,
-        HSAOFMOff
+        H265SampleAdaptiveOffsetFilterModeDefault,
+        H265SampleAdaptiveOffsetFilterModeAdaptive,
+        H265SampleAdaptiveOffsetFilterModeOff,
+        fromH265SampleAdaptiveOffsetFilterMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify Sample Adaptive Offset (SAO) filter strength.  Adaptive mode dynamically selects best strength based on content
-newtype H265SampleAdaptiveOffsetFilterMode = H265SampleAdaptiveOffsetFilterMode' Lude.Text
+newtype H265SampleAdaptiveOffsetFilterMode = H265SampleAdaptiveOffsetFilterMode'
+  { fromH265SampleAdaptiveOffsetFilterMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HSAOFMDefault :: H265SampleAdaptiveOffsetFilterMode
-pattern HSAOFMDefault = H265SampleAdaptiveOffsetFilterMode' "DEFAULT"
+pattern H265SampleAdaptiveOffsetFilterModeDefault :: H265SampleAdaptiveOffsetFilterMode
+pattern H265SampleAdaptiveOffsetFilterModeDefault = H265SampleAdaptiveOffsetFilterMode' "DEFAULT"
 
-pattern HSAOFMAdaptive :: H265SampleAdaptiveOffsetFilterMode
-pattern HSAOFMAdaptive = H265SampleAdaptiveOffsetFilterMode' "ADAPTIVE"
+pattern H265SampleAdaptiveOffsetFilterModeAdaptive :: H265SampleAdaptiveOffsetFilterMode
+pattern H265SampleAdaptiveOffsetFilterModeAdaptive = H265SampleAdaptiveOffsetFilterMode' "ADAPTIVE"
 
-pattern HSAOFMOff :: H265SampleAdaptiveOffsetFilterMode
-pattern HSAOFMOff = H265SampleAdaptiveOffsetFilterMode' "OFF"
+pattern H265SampleAdaptiveOffsetFilterModeOff :: H265SampleAdaptiveOffsetFilterMode
+pattern H265SampleAdaptiveOffsetFilterModeOff = H265SampleAdaptiveOffsetFilterMode' "OFF"
 
 {-# COMPLETE
-  HSAOFMDefault,
-  HSAOFMAdaptive,
-  HSAOFMOff,
+  H265SampleAdaptiveOffsetFilterModeDefault,
+  H265SampleAdaptiveOffsetFilterModeAdaptive,
+  H265SampleAdaptiveOffsetFilterModeOff,
   H265SampleAdaptiveOffsetFilterMode'
   #-}

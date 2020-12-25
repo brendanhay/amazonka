@@ -31,136 +31,124 @@ module Network.AWS.Lightsail.GetRelationalDatabaseBlueprints
     mkGetRelationalDatabaseBlueprintsResponse,
 
     -- ** Response lenses
-    grdbsrsBlueprints,
-    grdbsrsNextPageToken,
-    grdbsrsResponseStatus,
+    grdbrrsBlueprints,
+    grdbrrsNextPageToken,
+    grdbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetRelationalDatabaseBlueprints' smart constructor.
 newtype GetRelationalDatabaseBlueprints = GetRelationalDatabaseBlueprints'
   { -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetRelationalDatabaseBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRelationalDatabaseBlueprints' with the minimum fields required to make a request.
---
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetRelationalDatabaseBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+-- | Creates a 'GetRelationalDatabaseBlueprints' value with any optional fields omitted.
 mkGetRelationalDatabaseBlueprints ::
   GetRelationalDatabaseBlueprints
 mkGetRelationalDatabaseBlueprints =
-  GetRelationalDatabaseBlueprints' {pageToken = Lude.Nothing}
+  GetRelationalDatabaseBlueprints' {pageToken = Core.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetRelationalDatabaseBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdbPageToken :: Lens.Lens' GetRelationalDatabaseBlueprints (Lude.Maybe Lude.Text)
-grdbPageToken = Lens.lens (pageToken :: GetRelationalDatabaseBlueprints -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetRelationalDatabaseBlueprints)
+grdbPageToken :: Lens.Lens' GetRelationalDatabaseBlueprints (Core.Maybe Types.String)
+grdbPageToken = Lens.field @"pageToken"
 {-# DEPRECATED grdbPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager GetRelationalDatabaseBlueprints where
-  page rq rs
-    | Page.stop (rs Lens.^. grdbsrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. grdbsrsBlueprints) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& grdbPageToken Lens..~ rs Lens.^. grdbsrsNextPageToken
+instance Core.FromJSON GetRelationalDatabaseBlueprints where
+  toJSON GetRelationalDatabaseBlueprints {..} =
+    Core.object
+      (Core.catMaybes [("pageToken" Core..=) Core.<$> pageToken])
 
-instance Lude.AWSRequest GetRelationalDatabaseBlueprints where
+instance Core.AWSRequest GetRelationalDatabaseBlueprints where
   type
     Rs GetRelationalDatabaseBlueprints =
       GetRelationalDatabaseBlueprintsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.GetRelationalDatabaseBlueprints"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseBlueprintsResponse'
-            Lude.<$> (x Lude..?> "blueprints" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextPageToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "blueprints")
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetRelationalDatabaseBlueprints where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.GetRelationalDatabaseBlueprints" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetRelationalDatabaseBlueprints where
-  toJSON GetRelationalDatabaseBlueprints' {..} =
-    Lude.object
-      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
-
-instance Lude.ToPath GetRelationalDatabaseBlueprints where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRelationalDatabaseBlueprints where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetRelationalDatabaseBlueprints where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"blueprints" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkGetRelationalDatabaseBlueprintsResponse' smart constructor.
 data GetRelationalDatabaseBlueprintsResponse = GetRelationalDatabaseBlueprintsResponse'
   { -- | An object describing the result of your get relational database blueprints request.
-    blueprints :: Lude.Maybe [RelationalDatabaseBlueprint],
+    blueprints :: Core.Maybe [Types.RelationalDatabaseBlueprint],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetRelationalDatabaseBlueprints@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRelationalDatabaseBlueprintsResponse' with the minimum fields required to make a request.
---
--- * 'blueprints' - An object describing the result of your get relational database blueprints request.
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetRelationalDatabaseBlueprints@ request and specify the next page token using the @pageToken@ parameter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRelationalDatabaseBlueprintsResponse' value with any optional fields omitted.
 mkGetRelationalDatabaseBlueprintsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRelationalDatabaseBlueprintsResponse
-mkGetRelationalDatabaseBlueprintsResponse pResponseStatus_ =
+mkGetRelationalDatabaseBlueprintsResponse responseStatus =
   GetRelationalDatabaseBlueprintsResponse'
     { blueprints =
-        Lude.Nothing,
-      nextPageToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An object describing the result of your get relational database blueprints request.
 --
 -- /Note:/ Consider using 'blueprints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdbsrsBlueprints :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Lude.Maybe [RelationalDatabaseBlueprint])
-grdbsrsBlueprints = Lens.lens (blueprints :: GetRelationalDatabaseBlueprintsResponse -> Lude.Maybe [RelationalDatabaseBlueprint]) (\s a -> s {blueprints = a} :: GetRelationalDatabaseBlueprintsResponse)
-{-# DEPRECATED grdbsrsBlueprints "Use generic-lens or generic-optics with 'blueprints' instead." #-}
+grdbrrsBlueprints :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Core.Maybe [Types.RelationalDatabaseBlueprint])
+grdbrrsBlueprints = Lens.field @"blueprints"
+{-# DEPRECATED grdbrrsBlueprints "Use generic-lens or generic-optics with 'blueprints' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -168,13 +156,13 @@ grdbsrsBlueprints = Lens.lens (blueprints :: GetRelationalDatabaseBlueprintsResp
 -- To get the next page of results, perform another @GetRelationalDatabaseBlueprints@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdbsrsNextPageToken :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Lude.Maybe Lude.Text)
-grdbsrsNextPageToken = Lens.lens (nextPageToken :: GetRelationalDatabaseBlueprintsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetRelationalDatabaseBlueprintsResponse)
-{-# DEPRECATED grdbsrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+grdbrrsNextPageToken :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Core.Maybe Types.String)
+grdbrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED grdbrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdbsrsResponseStatus :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse Lude.Int
-grdbsrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseBlueprintsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseBlueprintsResponse)
-{-# DEPRECATED grdbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grdbrrsResponseStatus :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse Core.Int
+grdbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grdbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

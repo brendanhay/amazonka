@@ -9,21 +9,92 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearchDomains.Types
   ( -- * Service configuration
-    cloudSearchDomainsService,
+    mkServiceConfig,
 
     -- * Errors
+    _DocumentServiceException,
+    _SearchException,
 
-    -- * ContentType
-    ContentType (..),
+    -- * Expr
+    Expr (..),
+
+    -- * FilterQuery
+    FilterQuery (..),
+
+    -- * SearchStatus
+    SearchStatus (..),
+    mkSearchStatus,
+    sRid,
+    sTimems,
+
+    -- * Cursor
+    Cursor (..),
+
+    -- * QueryOptions
+    QueryOptions (..),
+
+    -- * Return
+    Return (..),
 
     -- * QueryParser
     QueryParser (..),
 
+    -- * String
+    String (..),
+
+    -- * Hit
+    Hit (..),
+    mkHit,
+    hExprs,
+    hFields,
+    hHighlights,
+    hId,
+
+    -- * Highlight
+    Highlight (..),
+
+    -- * SuggestStatus
+    SuggestStatus (..),
+    mkSuggestStatus,
+    ssRid,
+    ssTimems,
+
+    -- * FieldStats
+    FieldStats (..),
+    mkFieldStats,
+    fsCount,
+    fsMax,
+    fsMean,
+    fsMin,
+    fsMissing,
+    fsStddev,
+    fsSum,
+    fsSumOfSquares,
+
     -- * Bucket
     Bucket (..),
     mkBucket,
-    bValue,
     bCount,
+    bValue,
+
+    -- * SuggestionMatch
+    SuggestionMatch (..),
+    mkSuggestionMatch,
+    smId,
+    smScore,
+    smSuggestion,
+
+    -- * Sort
+    Sort (..),
+
+    -- * Query
+    Query (..),
+
+    -- * Stat
+    Stat (..),
+
+    -- * Facet
+    Facet (..),
 
     -- * BucketInfo
     BucketInfo (..),
@@ -35,128 +106,125 @@ module Network.AWS.CloudSearchDomains.Types
     mkDocumentServiceWarning,
     dswMessage,
 
-    -- * FieldStats
-    FieldStats (..),
-    mkFieldStats,
-    fsMax,
-    fsMean,
-    fsCount,
-    fsMissing,
-    fsStddev,
-    fsMin,
-    fsSumOfSquares,
-    fsSum,
-
-    -- * Hit
-    Hit (..),
-    mkHit,
-    hExprs,
-    hId,
-    hHighlights,
-    hFields,
-
-    -- * Hits
-    Hits (..),
-    mkHits,
-    hCursor,
-    hHit,
-    hStart,
-    hFound,
-
-    -- * SearchStatus
-    SearchStatus (..),
-    mkSearchStatus,
-    sRid,
-    sTimems,
+    -- * Suggester
+    Suggester (..),
 
     -- * SuggestModel
     SuggestModel (..),
     mkSuggestModel,
     smFound,
-    smSuggestions,
     smQuery,
+    smSuggestions,
 
-    -- * SuggestStatus
-    SuggestStatus (..),
-    mkSuggestStatus,
-    ssRid,
-    ssTimems,
+    -- * Hits
+    Hits (..),
+    mkHits,
+    hCursor,
+    hFound,
+    hHit,
+    hStart,
 
-    -- * SuggestionMatch
-    SuggestionMatch (..),
-    mkSuggestionMatch,
-    smSuggestion,
-    smScore,
-    smId,
+    -- * ContentType
+    ContentType (..),
+
+    -- * Rid
+    Rid (..),
   )
 where
 
 import Network.AWS.CloudSearchDomains.Types.Bucket
 import Network.AWS.CloudSearchDomains.Types.BucketInfo
 import Network.AWS.CloudSearchDomains.Types.ContentType
+import Network.AWS.CloudSearchDomains.Types.Cursor
 import Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning
+import Network.AWS.CloudSearchDomains.Types.Expr
+import Network.AWS.CloudSearchDomains.Types.Facet
 import Network.AWS.CloudSearchDomains.Types.FieldStats
+import Network.AWS.CloudSearchDomains.Types.FilterQuery
+import Network.AWS.CloudSearchDomains.Types.Highlight
 import Network.AWS.CloudSearchDomains.Types.Hit
 import Network.AWS.CloudSearchDomains.Types.Hits
+import Network.AWS.CloudSearchDomains.Types.Query
+import Network.AWS.CloudSearchDomains.Types.QueryOptions
 import Network.AWS.CloudSearchDomains.Types.QueryParser
+import Network.AWS.CloudSearchDomains.Types.Return
+import Network.AWS.CloudSearchDomains.Types.Rid
 import Network.AWS.CloudSearchDomains.Types.SearchStatus
+import Network.AWS.CloudSearchDomains.Types.Sort
+import Network.AWS.CloudSearchDomains.Types.Stat
+import Network.AWS.CloudSearchDomains.Types.String
 import Network.AWS.CloudSearchDomains.Types.SuggestModel
 import Network.AWS.CloudSearchDomains.Types.SuggestStatus
+import Network.AWS.CloudSearchDomains.Types.Suggester
 import Network.AWS.CloudSearchDomains.Types.SuggestionMatch
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2013-01-01@ of the Amazon CloudSearch Domain SDK configuration.
-cloudSearchDomainsService :: Lude.Service
-cloudSearchDomainsService =
-  Lude.Service
-    { Lude._svcAbbrev = "CloudSearchDomains",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "cloudsearchdomain",
-      Lude._svcVersion = "2013-01-01",
-      Lude._svcEndpoint = Lude.defaultEndpoint cloudSearchDomainsService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "CloudSearchDomains",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "CloudSearchDomains",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "cloudsearchdomain",
+      Core._svcVersion = "2013-01-01",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "CloudSearchDomains",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | Information about any problems encountered while processing an upload request.
+_DocumentServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DocumentServiceException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "DocumentServiceException"
+{-# DEPRECATED _DocumentServiceException "Use generic-lens or generic-optics instead." #-}
+
+-- | Information about any problems encountered while processing a search request.
+_SearchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SearchException =
+  Core._MatchServiceError mkServiceConfig "SearchException"
+{-# DEPRECATED _SearchException "Use generic-lens or generic-optics instead." #-}

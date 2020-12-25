@@ -32,44 +32,36 @@ module Network.AWS.EC2.DeleteTags
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
   { -- | The IDs of the resources, separated by spaces.
     --
     -- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
-    resources :: [Lude.Text],
+    resources :: [Types.TaggableResourceId],
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
     --
     -- If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the @aws:@ prefix).
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
---
--- * 'resources' - The IDs of the resources, separated by spaces.
---
--- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'tags' - The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
---
--- If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the @aws:@ prefix).
+-- | Creates a 'DeleteTags' value with any optional fields omitted.
 mkDeleteTags ::
   DeleteTags
 mkDeleteTags =
   DeleteTags'
-    { resources = Lude.mempty,
-      dryRun = Lude.Nothing,
-      tags = Lude.Nothing
+    { resources = Core.mempty,
+      dryRun = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The IDs of the resources, separated by spaces.
@@ -77,15 +69,15 @@ mkDeleteTags =
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
 --
 -- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsResources :: Lens.Lens' DeleteTags [Lude.Text]
-dtsResources = Lens.lens (resources :: DeleteTags -> [Lude.Text]) (\s a -> s {resources = a} :: DeleteTags)
+dtsResources :: Lens.Lens' DeleteTags [Types.TaggableResourceId]
+dtsResources = Lens.field @"resources"
 {-# DEPRECATED dtsResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsDryRun :: Lens.Lens' DeleteTags (Lude.Maybe Lude.Bool)
-dtsDryRun = Lens.lens (dryRun :: DeleteTags -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTags)
+dtsDryRun :: Lens.Lens' DeleteTags (Core.Maybe Core.Bool)
+dtsDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dtsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
@@ -93,37 +85,40 @@ dtsDryRun = Lens.lens (dryRun :: DeleteTags -> Lude.Maybe Lude.Bool) (\s a -> s 
 -- If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the @aws:@ prefix).
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsTags :: Lens.Lens' DeleteTags (Lude.Maybe [Tag])
-dtsTags = Lens.lens (tags :: DeleteTags -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DeleteTags)
+dtsTags :: Lens.Lens' DeleteTags (Core.Maybe [Types.Tag])
+dtsTags = Lens.field @"tags"
 {-# DEPRECATED dtsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest DeleteTags where
+instance Core.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteTagsResponse'
-
-instance Lude.ToHeaders DeleteTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTags where
-  toQuery DeleteTags' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteTags" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "ResourceId" resources,
-        "DryRun" Lude.=: dryRun,
-        Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteTags")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "ResourceId" resources)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Tag" Core.<$> tags)
+            )
+      }
+  response = Response.receiveNull DeleteTagsResponse'
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteTagsResponse' value with any optional fields omitted.
 mkDeleteTagsResponse ::
   DeleteTagsResponse
 mkDeleteTagsResponse = DeleteTagsResponse'

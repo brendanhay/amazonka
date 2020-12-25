@@ -23,61 +23,58 @@ module Network.AWS.EC2.Types.ReservationValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The cost associated with the Reserved Instance.
 --
 -- /See:/ 'mkReservationValue' smart constructor.
 data ReservationValue = ReservationValue'
   { -- | The hourly rate of the reservation.
-    hourlyPrice :: Lude.Maybe Lude.Text,
+    hourlyPrice :: Core.Maybe Types.String,
     -- | The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
-    remainingTotalValue :: Lude.Maybe Lude.Text,
+    remainingTotalValue :: Core.Maybe Types.String,
     -- | The remaining upfront cost of the reservation.
-    remainingUpfrontValue :: Lude.Maybe Lude.Text
+    remainingUpfrontValue :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReservationValue' with the minimum fields required to make a request.
---
--- * 'hourlyPrice' - The hourly rate of the reservation.
--- * 'remainingTotalValue' - The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
--- * 'remainingUpfrontValue' - The remaining upfront cost of the reservation.
+-- | Creates a 'ReservationValue' value with any optional fields omitted.
 mkReservationValue ::
   ReservationValue
 mkReservationValue =
   ReservationValue'
-    { hourlyPrice = Lude.Nothing,
-      remainingTotalValue = Lude.Nothing,
-      remainingUpfrontValue = Lude.Nothing
+    { hourlyPrice = Core.Nothing,
+      remainingTotalValue = Core.Nothing,
+      remainingUpfrontValue = Core.Nothing
     }
 
 -- | The hourly rate of the reservation.
 --
 -- /Note:/ Consider using 'hourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rvHourlyPrice :: Lens.Lens' ReservationValue (Lude.Maybe Lude.Text)
-rvHourlyPrice = Lens.lens (hourlyPrice :: ReservationValue -> Lude.Maybe Lude.Text) (\s a -> s {hourlyPrice = a} :: ReservationValue)
+rvHourlyPrice :: Lens.Lens' ReservationValue (Core.Maybe Types.String)
+rvHourlyPrice = Lens.field @"hourlyPrice"
 {-# DEPRECATED rvHourlyPrice "Use generic-lens or generic-optics with 'hourlyPrice' instead." #-}
 
 -- | The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
 --
 -- /Note:/ Consider using 'remainingTotalValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rvRemainingTotalValue :: Lens.Lens' ReservationValue (Lude.Maybe Lude.Text)
-rvRemainingTotalValue = Lens.lens (remainingTotalValue :: ReservationValue -> Lude.Maybe Lude.Text) (\s a -> s {remainingTotalValue = a} :: ReservationValue)
+rvRemainingTotalValue :: Lens.Lens' ReservationValue (Core.Maybe Types.String)
+rvRemainingTotalValue = Lens.field @"remainingTotalValue"
 {-# DEPRECATED rvRemainingTotalValue "Use generic-lens or generic-optics with 'remainingTotalValue' instead." #-}
 
 -- | The remaining upfront cost of the reservation.
 --
 -- /Note:/ Consider using 'remainingUpfrontValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rvRemainingUpfrontValue :: Lens.Lens' ReservationValue (Lude.Maybe Lude.Text)
-rvRemainingUpfrontValue = Lens.lens (remainingUpfrontValue :: ReservationValue -> Lude.Maybe Lude.Text) (\s a -> s {remainingUpfrontValue = a} :: ReservationValue)
+rvRemainingUpfrontValue :: Lens.Lens' ReservationValue (Core.Maybe Types.String)
+rvRemainingUpfrontValue = Lens.field @"remainingUpfrontValue"
 {-# DEPRECATED rvRemainingUpfrontValue "Use generic-lens or generic-optics with 'remainingUpfrontValue' instead." #-}
 
-instance Lude.FromXML ReservationValue where
+instance Core.FromXML ReservationValue where
   parseXML x =
     ReservationValue'
-      Lude.<$> (x Lude..@? "hourlyPrice")
-      Lude.<*> (x Lude..@? "remainingTotalValue")
-      Lude.<*> (x Lude..@? "remainingUpfrontValue")
+      Core.<$> (x Core..@? "hourlyPrice")
+      Core.<*> (x Core..@? "remainingTotalValue")
+      Core.<*> (x Core..@? "remainingUpfrontValue")

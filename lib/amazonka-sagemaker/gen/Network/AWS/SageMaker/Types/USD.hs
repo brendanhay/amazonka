@@ -24,74 +24,68 @@ module Network.AWS.SageMaker.Types.USD
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an amount of money in United States dollars/
 --
 -- /See:/ 'mkUSD' smart constructor.
 data USD = USD'
   { -- | The fractional portion, in cents, of the amount.
-    cents :: Lude.Maybe Lude.Natural,
+    cents :: Core.Maybe Core.Natural,
     -- | The whole number of dollars in the amount.
-    dollars :: Lude.Maybe Lude.Natural,
+    dollars :: Core.Maybe Core.Natural,
     -- | Fractions of a cent, in tenths.
-    tenthFractionsOfACent :: Lude.Maybe Lude.Natural
+    tenthFractionsOfACent :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'USD' with the minimum fields required to make a request.
---
--- * 'cents' - The fractional portion, in cents, of the amount.
--- * 'dollars' - The whole number of dollars in the amount.
--- * 'tenthFractionsOfACent' - Fractions of a cent, in tenths.
+-- | Creates a 'USD' value with any optional fields omitted.
 mkUSD ::
   USD
 mkUSD =
   USD'
-    { cents = Lude.Nothing,
-      dollars = Lude.Nothing,
-      tenthFractionsOfACent = Lude.Nothing
+    { cents = Core.Nothing,
+      dollars = Core.Nothing,
+      tenthFractionsOfACent = Core.Nothing
     }
 
 -- | The fractional portion, in cents, of the amount.
 --
 -- /Note:/ Consider using 'cents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdCents :: Lens.Lens' USD (Lude.Maybe Lude.Natural)
-usdCents = Lens.lens (cents :: USD -> Lude.Maybe Lude.Natural) (\s a -> s {cents = a} :: USD)
+usdCents :: Lens.Lens' USD (Core.Maybe Core.Natural)
+usdCents = Lens.field @"cents"
 {-# DEPRECATED usdCents "Use generic-lens or generic-optics with 'cents' instead." #-}
 
 -- | The whole number of dollars in the amount.
 --
 -- /Note:/ Consider using 'dollars' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdDollars :: Lens.Lens' USD (Lude.Maybe Lude.Natural)
-usdDollars = Lens.lens (dollars :: USD -> Lude.Maybe Lude.Natural) (\s a -> s {dollars = a} :: USD)
+usdDollars :: Lens.Lens' USD (Core.Maybe Core.Natural)
+usdDollars = Lens.field @"dollars"
 {-# DEPRECATED usdDollars "Use generic-lens or generic-optics with 'dollars' instead." #-}
 
 -- | Fractions of a cent, in tenths.
 --
 -- /Note:/ Consider using 'tenthFractionsOfACent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdTenthFractionsOfACent :: Lens.Lens' USD (Lude.Maybe Lude.Natural)
-usdTenthFractionsOfACent = Lens.lens (tenthFractionsOfACent :: USD -> Lude.Maybe Lude.Natural) (\s a -> s {tenthFractionsOfACent = a} :: USD)
+usdTenthFractionsOfACent :: Lens.Lens' USD (Core.Maybe Core.Natural)
+usdTenthFractionsOfACent = Lens.field @"tenthFractionsOfACent"
 {-# DEPRECATED usdTenthFractionsOfACent "Use generic-lens or generic-optics with 'tenthFractionsOfACent' instead." #-}
 
-instance Lude.FromJSON USD where
-  parseJSON =
-    Lude.withObject
-      "USD"
-      ( \x ->
-          USD'
-            Lude.<$> (x Lude..:? "Cents")
-            Lude.<*> (x Lude..:? "Dollars")
-            Lude.<*> (x Lude..:? "TenthFractionsOfACent")
-      )
-
-instance Lude.ToJSON USD where
-  toJSON USD' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Cents" Lude..=) Lude.<$> cents,
-            ("Dollars" Lude..=) Lude.<$> dollars,
-            ("TenthFractionsOfACent" Lude..=) Lude.<$> tenthFractionsOfACent
+instance Core.FromJSON USD where
+  toJSON USD {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Cents" Core..=) Core.<$> cents,
+            ("Dollars" Core..=) Core.<$> dollars,
+            ("TenthFractionsOfACent" Core..=) Core.<$> tenthFractionsOfACent
           ]
       )
+
+instance Core.FromJSON USD where
+  parseJSON =
+    Core.withObject "USD" Core.$
+      \x ->
+        USD'
+          Core.<$> (x Core..:? "Cents")
+          Core.<*> (x Core..:? "Dollars")
+          Core.<*> (x Core..:? "TenthFractionsOfACent")

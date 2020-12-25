@@ -17,14 +17,16 @@ module Network.AWS.IAM.Types.MFADevice
     mkMFADevice,
 
     -- * Lenses
-    mdUserName,
-    mdEnableDate,
-    mdSerialNumber,
+    mfadUserName,
+    mfadSerialNumber,
+    mfadEnableDate,
   )
 where
 
+import qualified Network.AWS.IAM.Types.SerialNumber as Types
+import qualified Network.AWS.IAM.Types.UserName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an MFA device.
 --
@@ -33,59 +35,51 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkMFADevice' smart constructor.
 data MFADevice = MFADevice'
   { -- | The user with whom the MFA device is associated.
-    userName :: Lude.Text,
-    -- | The date when the MFA device was enabled for the user.
-    enableDate :: Lude.DateTime,
+    userName :: Types.UserName,
     -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
-    serialNumber :: Lude.Text
+    serialNumber :: Types.SerialNumber,
+    -- | The date when the MFA device was enabled for the user.
+    enableDate :: Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MFADevice' with the minimum fields required to make a request.
---
--- * 'userName' - The user with whom the MFA device is associated.
--- * 'enableDate' - The date when the MFA device was enabled for the user.
--- * 'serialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
+-- | Creates a 'MFADevice' value with any optional fields omitted.
 mkMFADevice ::
   -- | 'userName'
-  Lude.Text ->
-  -- | 'enableDate'
-  Lude.DateTime ->
+  Types.UserName ->
   -- | 'serialNumber'
-  Lude.Text ->
+  Types.SerialNumber ->
+  -- | 'enableDate'
+  Core.UTCTime ->
   MFADevice
-mkMFADevice pUserName_ pEnableDate_ pSerialNumber_ =
-  MFADevice'
-    { userName = pUserName_,
-      enableDate = pEnableDate_,
-      serialNumber = pSerialNumber_
-    }
+mkMFADevice userName serialNumber enableDate =
+  MFADevice' {userName, serialNumber, enableDate}
 
 -- | The user with whom the MFA device is associated.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdUserName :: Lens.Lens' MFADevice Lude.Text
-mdUserName = Lens.lens (userName :: MFADevice -> Lude.Text) (\s a -> s {userName = a} :: MFADevice)
-{-# DEPRECATED mdUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
--- | The date when the MFA device was enabled for the user.
---
--- /Note:/ Consider using 'enableDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdEnableDate :: Lens.Lens' MFADevice Lude.DateTime
-mdEnableDate = Lens.lens (enableDate :: MFADevice -> Lude.DateTime) (\s a -> s {enableDate = a} :: MFADevice)
-{-# DEPRECATED mdEnableDate "Use generic-lens or generic-optics with 'enableDate' instead." #-}
+mfadUserName :: Lens.Lens' MFADevice Types.UserName
+mfadUserName = Lens.field @"userName"
+{-# DEPRECATED mfadUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
 --
 -- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdSerialNumber :: Lens.Lens' MFADevice Lude.Text
-mdSerialNumber = Lens.lens (serialNumber :: MFADevice -> Lude.Text) (\s a -> s {serialNumber = a} :: MFADevice)
-{-# DEPRECATED mdSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
+mfadSerialNumber :: Lens.Lens' MFADevice Types.SerialNumber
+mfadSerialNumber = Lens.field @"serialNumber"
+{-# DEPRECATED mfadSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
-instance Lude.FromXML MFADevice where
+-- | The date when the MFA device was enabled for the user.
+--
+-- /Note:/ Consider using 'enableDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfadEnableDate :: Lens.Lens' MFADevice Core.UTCTime
+mfadEnableDate = Lens.field @"enableDate"
+{-# DEPRECATED mfadEnableDate "Use generic-lens or generic-optics with 'enableDate' instead." #-}
+
+instance Core.FromXML MFADevice where
   parseXML x =
     MFADevice'
-      Lude.<$> (x Lude..@ "UserName")
-      Lude.<*> (x Lude..@ "EnableDate")
-      Lude.<*> (x Lude..@ "SerialNumber")
+      Core.<$> (x Core..@ "UserName")
+      Core.<*> (x Core..@ "SerialNumber")
+      Core.<*> (x Core..@ "EnableDate")

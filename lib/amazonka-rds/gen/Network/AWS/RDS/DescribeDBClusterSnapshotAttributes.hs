@@ -23,117 +23,114 @@ module Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
     mkDescribeDBClusterSnapshotAttributes,
 
     -- ** Request lenses
-    ddcsaDBClusterSnapshotIdentifier,
+    ddbcsaDBClusterSnapshotIdentifier,
 
     -- * Destructuring the response
     DescribeDBClusterSnapshotAttributesResponse (..),
     mkDescribeDBClusterSnapshotAttributesResponse,
 
     -- ** Response lenses
-    ddcsarsDBClusterSnapshotAttributesResult,
-    ddcsarsResponseStatus,
+    ddbcsarrsDBClusterSnapshotAttributesResult,
+    ddbcsarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeDBClusterSnapshotAttributes' smart constructor.
 newtype DescribeDBClusterSnapshotAttributes = DescribeDBClusterSnapshotAttributes'
   { -- | The identifier for the DB cluster snapshot to describe the attributes for.
-    dbClusterSnapshotIdentifier :: Lude.Text
+    dBClusterSnapshotIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBClusterSnapshotAttributes' with the minimum fields required to make a request.
---
--- * 'dbClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to describe the attributes for.
+-- | Creates a 'DescribeDBClusterSnapshotAttributes' value with any optional fields omitted.
 mkDescribeDBClusterSnapshotAttributes ::
-  -- | 'dbClusterSnapshotIdentifier'
-  Lude.Text ->
+  -- | 'dBClusterSnapshotIdentifier'
+  Types.String ->
   DescribeDBClusterSnapshotAttributes
-mkDescribeDBClusterSnapshotAttributes pDBClusterSnapshotIdentifier_ =
-  DescribeDBClusterSnapshotAttributes'
-    { dbClusterSnapshotIdentifier =
-        pDBClusterSnapshotIdentifier_
-    }
+mkDescribeDBClusterSnapshotAttributes dBClusterSnapshotIdentifier =
+  DescribeDBClusterSnapshotAttributes' {dBClusterSnapshotIdentifier}
 
 -- | The identifier for the DB cluster snapshot to describe the attributes for.
 --
--- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsaDBClusterSnapshotIdentifier :: Lens.Lens' DescribeDBClusterSnapshotAttributes Lude.Text
-ddcsaDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: DescribeDBClusterSnapshotAttributes -> Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: DescribeDBClusterSnapshotAttributes)
-{-# DEPRECATED ddcsaDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsaDBClusterSnapshotIdentifier :: Lens.Lens' DescribeDBClusterSnapshotAttributes Types.String
+ddbcsaDBClusterSnapshotIdentifier = Lens.field @"dBClusterSnapshotIdentifier"
+{-# DEPRECATED ddbcsaDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dBClusterSnapshotIdentifier' instead." #-}
 
-instance Lude.AWSRequest DescribeDBClusterSnapshotAttributes where
+instance Core.AWSRequest DescribeDBClusterSnapshotAttributes where
   type
     Rs DescribeDBClusterSnapshotAttributes =
       DescribeDBClusterSnapshotAttributesResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBClusterSnapshotAttributes")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue
+                            "DBClusterSnapshotIdentifier"
+                            dBClusterSnapshotIdentifier
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBClusterSnapshotAttributesResult"
       ( \s h x ->
           DescribeDBClusterSnapshotAttributesResponse'
-            Lude.<$> (x Lude..@? "DBClusterSnapshotAttributesResult")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBClusterSnapshotAttributesResult")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDBClusterSnapshotAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBClusterSnapshotAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBClusterSnapshotAttributes where
-  toQuery DescribeDBClusterSnapshotAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeDBClusterSnapshotAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBClusterSnapshotIdentifier" Lude.=: dbClusterSnapshotIdentifier
-      ]
 
 -- | /See:/ 'mkDescribeDBClusterSnapshotAttributesResponse' smart constructor.
 data DescribeDBClusterSnapshotAttributesResponse = DescribeDBClusterSnapshotAttributesResponse'
-  { dbClusterSnapshotAttributesResult :: Lude.Maybe DBClusterSnapshotAttributesResult,
+  { dBClusterSnapshotAttributesResult :: Core.Maybe Types.DBClusterSnapshotAttributesResult,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBClusterSnapshotAttributesResponse' with the minimum fields required to make a request.
---
--- * 'dbClusterSnapshotAttributesResult' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBClusterSnapshotAttributesResponse' value with any optional fields omitted.
 mkDescribeDBClusterSnapshotAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBClusterSnapshotAttributesResponse
-mkDescribeDBClusterSnapshotAttributesResponse pResponseStatus_ =
+mkDescribeDBClusterSnapshotAttributesResponse responseStatus =
   DescribeDBClusterSnapshotAttributesResponse'
-    { dbClusterSnapshotAttributesResult =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBClusterSnapshotAttributesResult =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbClusterSnapshotAttributesResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsarsDBClusterSnapshotAttributesResult :: Lens.Lens' DescribeDBClusterSnapshotAttributesResponse (Lude.Maybe DBClusterSnapshotAttributesResult)
-ddcsarsDBClusterSnapshotAttributesResult = Lens.lens (dbClusterSnapshotAttributesResult :: DescribeDBClusterSnapshotAttributesResponse -> Lude.Maybe DBClusterSnapshotAttributesResult) (\s a -> s {dbClusterSnapshotAttributesResult = a} :: DescribeDBClusterSnapshotAttributesResponse)
-{-# DEPRECATED ddcsarsDBClusterSnapshotAttributesResult "Use generic-lens or generic-optics with 'dbClusterSnapshotAttributesResult' instead." #-}
+-- /Note:/ Consider using 'dBClusterSnapshotAttributesResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsarrsDBClusterSnapshotAttributesResult :: Lens.Lens' DescribeDBClusterSnapshotAttributesResponse (Core.Maybe Types.DBClusterSnapshotAttributesResult)
+ddbcsarrsDBClusterSnapshotAttributesResult = Lens.field @"dBClusterSnapshotAttributesResult"
+{-# DEPRECATED ddbcsarrsDBClusterSnapshotAttributesResult "Use generic-lens or generic-optics with 'dBClusterSnapshotAttributesResult' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsarsResponseStatus :: Lens.Lens' DescribeDBClusterSnapshotAttributesResponse Lude.Int
-ddcsarsResponseStatus = Lens.lens (responseStatus :: DescribeDBClusterSnapshotAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBClusterSnapshotAttributesResponse)
-{-# DEPRECATED ddcsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbcsarrsResponseStatus :: Lens.Lens' DescribeDBClusterSnapshotAttributesResponse Core.Int
+ddbcsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbcsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

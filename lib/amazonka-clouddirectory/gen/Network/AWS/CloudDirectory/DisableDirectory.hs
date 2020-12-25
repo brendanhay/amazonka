@@ -20,109 +20,99 @@ module Network.AWS.CloudDirectory.DisableDirectory
     mkDisableDirectory,
 
     -- ** Request lenses
-    ddDirectoryARN,
+    ddDirectoryArn,
 
     -- * Destructuring the response
     DisableDirectoryResponse (..),
     mkDisableDirectoryResponse,
 
     -- ** Response lenses
-    drsDirectoryARN,
+    drsDirectoryArn,
     drsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisableDirectory' smart constructor.
 newtype DisableDirectory = DisableDirectory'
   { -- | The ARN of the directory to disable.
-    directoryARN :: Lude.Text
+    directoryArn :: Types.DirectoryArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableDirectory' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The ARN of the directory to disable.
+-- | Creates a 'DisableDirectory' value with any optional fields omitted.
 mkDisableDirectory ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.DirectoryArn ->
   DisableDirectory
-mkDisableDirectory pDirectoryARN_ =
-  DisableDirectory' {directoryARN = pDirectoryARN_}
+mkDisableDirectory directoryArn = DisableDirectory' {directoryArn}
 
 -- | The ARN of the directory to disable.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDirectoryARN :: Lens.Lens' DisableDirectory Lude.Text
-ddDirectoryARN = Lens.lens (directoryARN :: DisableDirectory -> Lude.Text) (\s a -> s {directoryARN = a} :: DisableDirectory)
-{-# DEPRECATED ddDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDirectoryArn :: Lens.Lens' DisableDirectory Types.DirectoryArn
+ddDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED ddDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
-instance Lude.AWSRequest DisableDirectory where
+instance Core.FromJSON DisableDirectory where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DisableDirectory where
   type Rs DisableDirectory = DisableDirectoryResponse
-  request = Req.putJSON cloudDirectoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/directory/disable",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DisableDirectoryResponse'
-            Lude.<$> (x Lude..:> "DirectoryArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "DirectoryArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisableDirectory where
-  toHeaders DisableDirectory' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON DisableDirectory where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DisableDirectory where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/directory/disable"
-
-instance Lude.ToQuery DisableDirectory where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisableDirectoryResponse' smart constructor.
 data DisableDirectoryResponse = DisableDirectoryResponse'
   { -- | The ARN of the directory that has been disabled.
-    directoryARN :: Lude.Text,
+    directoryArn :: Types.Arn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableDirectoryResponse' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The ARN of the directory that has been disabled.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisableDirectoryResponse' value with any optional fields omitted.
 mkDisableDirectoryResponse ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisableDirectoryResponse
-mkDisableDirectoryResponse pDirectoryARN_ pResponseStatus_ =
-  DisableDirectoryResponse'
-    { directoryARN = pDirectoryARN_,
-      responseStatus = pResponseStatus_
-    }
+mkDisableDirectoryResponse directoryArn responseStatus =
+  DisableDirectoryResponse' {directoryArn, responseStatus}
 
 -- | The ARN of the directory that has been disabled.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsDirectoryARN :: Lens.Lens' DisableDirectoryResponse Lude.Text
-drsDirectoryARN = Lens.lens (directoryARN :: DisableDirectoryResponse -> Lude.Text) (\s a -> s {directoryARN = a} :: DisableDirectoryResponse)
-{-# DEPRECATED drsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDirectoryArn :: Lens.Lens' DisableDirectoryResponse Types.Arn
+drsDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED drsDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DisableDirectoryResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DisableDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDirectoryResponse)
+drsResponseStatus :: Lens.Lens' DisableDirectoryResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

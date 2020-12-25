@@ -20,159 +20,145 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     mkUpdateStreamingDistribution,
 
     -- ** Request lenses
-    usdIfMatch,
     usdStreamingDistributionConfig,
     usdId,
+    usdIfMatch,
 
     -- * Destructuring the response
     UpdateStreamingDistributionResponse (..),
     mkUpdateStreamingDistributionResponse,
 
     -- ** Response lenses
-    usdrsETag,
-    usdrsStreamingDistribution,
-    usdrsResponseStatus,
+    usdrrsETag,
+    usdrrsStreamingDistribution,
+    usdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to update a streaming distribution.
 --
 -- /See:/ 'mkUpdateStreamingDistribution' smart constructor.
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
-  { -- | The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | The streaming distribution's configuration information.
-    streamingDistributionConfig :: StreamingDistributionConfig,
+  { -- | The streaming distribution's configuration information.
+    streamingDistributionConfig :: Types.StreamingDistributionConfig,
     -- | The streaming distribution's id.
-    id :: Lude.Text
+    id :: Types.String,
+    -- | The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateStreamingDistribution' with the minimum fields required to make a request.
---
--- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
--- * 'streamingDistributionConfig' - The streaming distribution's configuration information.
--- * 'id' - The streaming distribution's id.
+-- | Creates a 'UpdateStreamingDistribution' value with any optional fields omitted.
 mkUpdateStreamingDistribution ::
   -- | 'streamingDistributionConfig'
-  StreamingDistributionConfig ->
+  Types.StreamingDistributionConfig ->
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   UpdateStreamingDistribution
-mkUpdateStreamingDistribution pStreamingDistributionConfig_ pId_ =
+mkUpdateStreamingDistribution streamingDistributionConfig id =
   UpdateStreamingDistribution'
-    { ifMatch = Lude.Nothing,
-      streamingDistributionConfig = pStreamingDistributionConfig_,
-      id = pId_
+    { streamingDistributionConfig,
+      id,
+      ifMatch = Core.Nothing
     }
-
--- | The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdIfMatch :: Lens.Lens' UpdateStreamingDistribution (Lude.Maybe Lude.Text)
-usdIfMatch = Lens.lens (ifMatch :: UpdateStreamingDistribution -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: UpdateStreamingDistribution)
-{-# DEPRECATED usdIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | The streaming distribution's configuration information.
 --
 -- /Note:/ Consider using 'streamingDistributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdStreamingDistributionConfig :: Lens.Lens' UpdateStreamingDistribution StreamingDistributionConfig
-usdStreamingDistributionConfig = Lens.lens (streamingDistributionConfig :: UpdateStreamingDistribution -> StreamingDistributionConfig) (\s a -> s {streamingDistributionConfig = a} :: UpdateStreamingDistribution)
+usdStreamingDistributionConfig :: Lens.Lens' UpdateStreamingDistribution Types.StreamingDistributionConfig
+usdStreamingDistributionConfig = Lens.field @"streamingDistributionConfig"
 {-# DEPRECATED usdStreamingDistributionConfig "Use generic-lens or generic-optics with 'streamingDistributionConfig' instead." #-}
 
 -- | The streaming distribution's id.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdId :: Lens.Lens' UpdateStreamingDistribution Lude.Text
-usdId = Lens.lens (id :: UpdateStreamingDistribution -> Lude.Text) (\s a -> s {id = a} :: UpdateStreamingDistribution)
+usdId :: Lens.Lens' UpdateStreamingDistribution Types.String
+usdId = Lens.field @"id"
 {-# DEPRECATED usdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest UpdateStreamingDistribution where
+-- | The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usdIfMatch :: Lens.Lens' UpdateStreamingDistribution (Core.Maybe Types.String)
+usdIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED usdIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+
+instance Core.AWSRequest UpdateStreamingDistribution where
   type
     Rs UpdateStreamingDistribution =
       UpdateStreamingDistributionResponse
-  request = Req.putXML cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/streaming-distribution/" Core.<> (Core.toText id)
+                Core.<> ("/config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           UpdateStreamingDistributionResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement UpdateStreamingDistribution where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfig"
-      Lude.. streamingDistributionConfig
-
-instance Lude.ToHeaders UpdateStreamingDistribution where
-  toHeaders UpdateStreamingDistribution' {..} =
-    Lude.mconcat ["If-Match" Lude.=# ifMatch]
-
-instance Lude.ToPath UpdateStreamingDistribution where
-  toPath UpdateStreamingDistribution' {..} =
-    Lude.mconcat
-      ["/2020-05-31/streaming-distribution/", Lude.toBS id, "/config"]
-
-instance Lude.ToQuery UpdateStreamingDistribution where
-  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'mkUpdateStreamingDistributionResponse' smart constructor.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
   { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-    eTag :: Lude.Maybe Lude.Text,
+    eTag :: Core.Maybe Types.String,
     -- | The streaming distribution's information.
-    streamingDistribution :: Lude.Maybe StreamingDistribution,
+    streamingDistribution :: Core.Maybe Types.StreamingDistribution,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateStreamingDistributionResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
--- * 'streamingDistribution' - The streaming distribution's information.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateStreamingDistributionResponse' value with any optional fields omitted.
 mkUpdateStreamingDistributionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateStreamingDistributionResponse
-mkUpdateStreamingDistributionResponse pResponseStatus_ =
+mkUpdateStreamingDistributionResponse responseStatus =
   UpdateStreamingDistributionResponse'
-    { eTag = Lude.Nothing,
-      streamingDistribution = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      streamingDistribution = Core.Nothing,
+      responseStatus
     }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdrsETag :: Lens.Lens' UpdateStreamingDistributionResponse (Lude.Maybe Lude.Text)
-usdrsETag = Lens.lens (eTag :: UpdateStreamingDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: UpdateStreamingDistributionResponse)
-{-# DEPRECATED usdrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+usdrrsETag :: Lens.Lens' UpdateStreamingDistributionResponse (Core.Maybe Types.String)
+usdrrsETag = Lens.field @"eTag"
+{-# DEPRECATED usdrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The streaming distribution's information.
 --
 -- /Note:/ Consider using 'streamingDistribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdrsStreamingDistribution :: Lens.Lens' UpdateStreamingDistributionResponse (Lude.Maybe StreamingDistribution)
-usdrsStreamingDistribution = Lens.lens (streamingDistribution :: UpdateStreamingDistributionResponse -> Lude.Maybe StreamingDistribution) (\s a -> s {streamingDistribution = a} :: UpdateStreamingDistributionResponse)
-{-# DEPRECATED usdrsStreamingDistribution "Use generic-lens or generic-optics with 'streamingDistribution' instead." #-}
+usdrrsStreamingDistribution :: Lens.Lens' UpdateStreamingDistributionResponse (Core.Maybe Types.StreamingDistribution)
+usdrrsStreamingDistribution = Lens.field @"streamingDistribution"
+{-# DEPRECATED usdrrsStreamingDistribution "Use generic-lens or generic-optics with 'streamingDistribution' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usdrsResponseStatus :: Lens.Lens' UpdateStreamingDistributionResponse Lude.Int
-usdrsResponseStatus = Lens.lens (responseStatus :: UpdateStreamingDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateStreamingDistributionResponse)
-{-# DEPRECATED usdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usdrrsResponseStatus :: Lens.Lens' UpdateStreamingDistributionResponse Core.Int
+usdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

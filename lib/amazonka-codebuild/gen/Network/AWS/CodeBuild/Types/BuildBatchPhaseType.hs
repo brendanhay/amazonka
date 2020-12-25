@@ -13,71 +13,76 @@
 module Network.AWS.CodeBuild.Types.BuildBatchPhaseType
   ( BuildBatchPhaseType
       ( BuildBatchPhaseType',
-        BBPTSubmitted,
-        BBPTDownloadBatchspec,
-        BBPTInProgress,
-        BBPTCombineArtifacts,
-        BBPTSucceeded,
-        BBPTFailed,
-        BBPTStopped
+        BuildBatchPhaseTypeSubmitted,
+        BuildBatchPhaseTypeDownloadBatchspec,
+        BuildBatchPhaseTypeInProgress,
+        BuildBatchPhaseTypeCombineArtifacts,
+        BuildBatchPhaseTypeSucceeded,
+        BuildBatchPhaseTypeFailed,
+        BuildBatchPhaseTypeStopped,
+        fromBuildBatchPhaseType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BuildBatchPhaseType = BuildBatchPhaseType' Lude.Text
+newtype BuildBatchPhaseType = BuildBatchPhaseType'
+  { fromBuildBatchPhaseType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BBPTSubmitted :: BuildBatchPhaseType
-pattern BBPTSubmitted = BuildBatchPhaseType' "SUBMITTED"
+pattern BuildBatchPhaseTypeSubmitted :: BuildBatchPhaseType
+pattern BuildBatchPhaseTypeSubmitted = BuildBatchPhaseType' "SUBMITTED"
 
-pattern BBPTDownloadBatchspec :: BuildBatchPhaseType
-pattern BBPTDownloadBatchspec = BuildBatchPhaseType' "DOWNLOAD_BATCHSPEC"
+pattern BuildBatchPhaseTypeDownloadBatchspec :: BuildBatchPhaseType
+pattern BuildBatchPhaseTypeDownloadBatchspec = BuildBatchPhaseType' "DOWNLOAD_BATCHSPEC"
 
-pattern BBPTInProgress :: BuildBatchPhaseType
-pattern BBPTInProgress = BuildBatchPhaseType' "IN_PROGRESS"
+pattern BuildBatchPhaseTypeInProgress :: BuildBatchPhaseType
+pattern BuildBatchPhaseTypeInProgress = BuildBatchPhaseType' "IN_PROGRESS"
 
-pattern BBPTCombineArtifacts :: BuildBatchPhaseType
-pattern BBPTCombineArtifacts = BuildBatchPhaseType' "COMBINE_ARTIFACTS"
+pattern BuildBatchPhaseTypeCombineArtifacts :: BuildBatchPhaseType
+pattern BuildBatchPhaseTypeCombineArtifacts = BuildBatchPhaseType' "COMBINE_ARTIFACTS"
 
-pattern BBPTSucceeded :: BuildBatchPhaseType
-pattern BBPTSucceeded = BuildBatchPhaseType' "SUCCEEDED"
+pattern BuildBatchPhaseTypeSucceeded :: BuildBatchPhaseType
+pattern BuildBatchPhaseTypeSucceeded = BuildBatchPhaseType' "SUCCEEDED"
 
-pattern BBPTFailed :: BuildBatchPhaseType
-pattern BBPTFailed = BuildBatchPhaseType' "FAILED"
+pattern BuildBatchPhaseTypeFailed :: BuildBatchPhaseType
+pattern BuildBatchPhaseTypeFailed = BuildBatchPhaseType' "FAILED"
 
-pattern BBPTStopped :: BuildBatchPhaseType
-pattern BBPTStopped = BuildBatchPhaseType' "STOPPED"
+pattern BuildBatchPhaseTypeStopped :: BuildBatchPhaseType
+pattern BuildBatchPhaseTypeStopped = BuildBatchPhaseType' "STOPPED"
 
 {-# COMPLETE
-  BBPTSubmitted,
-  BBPTDownloadBatchspec,
-  BBPTInProgress,
-  BBPTCombineArtifacts,
-  BBPTSucceeded,
-  BBPTFailed,
-  BBPTStopped,
+  BuildBatchPhaseTypeSubmitted,
+  BuildBatchPhaseTypeDownloadBatchspec,
+  BuildBatchPhaseTypeInProgress,
+  BuildBatchPhaseTypeCombineArtifacts,
+  BuildBatchPhaseTypeSucceeded,
+  BuildBatchPhaseTypeFailed,
+  BuildBatchPhaseTypeStopped,
   BuildBatchPhaseType'
   #-}

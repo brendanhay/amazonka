@@ -13,46 +13,51 @@
 module Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat
   ( AuditReportResponseFormat
       ( AuditReportResponseFormat',
-        JSON,
-        CSV
+        AuditReportResponseFormatJson,
+        AuditReportResponseFormatCsv,
+        fromAuditReportResponseFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuditReportResponseFormat = AuditReportResponseFormat' Lude.Text
+newtype AuditReportResponseFormat = AuditReportResponseFormat'
+  { fromAuditReportResponseFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JSON :: AuditReportResponseFormat
-pattern JSON = AuditReportResponseFormat' "JSON"
+pattern AuditReportResponseFormatJson :: AuditReportResponseFormat
+pattern AuditReportResponseFormatJson = AuditReportResponseFormat' "JSON"
 
-pattern CSV :: AuditReportResponseFormat
-pattern CSV = AuditReportResponseFormat' "CSV"
+pattern AuditReportResponseFormatCsv :: AuditReportResponseFormat
+pattern AuditReportResponseFormatCsv = AuditReportResponseFormat' "CSV"
 
 {-# COMPLETE
-  JSON,
-  CSV,
+  AuditReportResponseFormatJson,
+  AuditReportResponseFormatCsv,
   AuditReportResponseFormat'
   #-}

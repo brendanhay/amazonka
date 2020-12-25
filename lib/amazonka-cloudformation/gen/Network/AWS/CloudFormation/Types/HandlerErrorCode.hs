@@ -13,106 +13,111 @@
 module Network.AWS.CloudFormation.Types.HandlerErrorCode
   ( HandlerErrorCode
       ( HandlerErrorCode',
-        NotUpdatable,
-        InvalidRequest,
-        AccessDenied,
-        InvalidCredentials,
-        AlreadyExists,
-        NotFound,
-        ResourceConflict,
-        Throttling,
-        ServiceLimitExceeded,
-        NotStabilized,
-        GeneralServiceException,
-        ServiceInternalError,
-        NetworkFailure,
-        InternalFailure
+        HandlerErrorCodeNotUpdatable,
+        HandlerErrorCodeInvalidRequest,
+        HandlerErrorCodeAccessDenied,
+        HandlerErrorCodeInvalidCredentials,
+        HandlerErrorCodeAlreadyExists,
+        HandlerErrorCodeNotFound,
+        HandlerErrorCodeResourceConflict,
+        HandlerErrorCodeThrottling,
+        HandlerErrorCodeServiceLimitExceeded,
+        HandlerErrorCodeNotStabilized,
+        HandlerErrorCodeGeneralServiceException,
+        HandlerErrorCodeServiceInternalError,
+        HandlerErrorCodeNetworkFailure,
+        HandlerErrorCodeInternalFailure,
+        fromHandlerErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HandlerErrorCode = HandlerErrorCode' Lude.Text
+newtype HandlerErrorCode = HandlerErrorCode'
+  { fromHandlerErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotUpdatable :: HandlerErrorCode
-pattern NotUpdatable = HandlerErrorCode' "NotUpdatable"
+pattern HandlerErrorCodeNotUpdatable :: HandlerErrorCode
+pattern HandlerErrorCodeNotUpdatable = HandlerErrorCode' "NotUpdatable"
 
-pattern InvalidRequest :: HandlerErrorCode
-pattern InvalidRequest = HandlerErrorCode' "InvalidRequest"
+pattern HandlerErrorCodeInvalidRequest :: HandlerErrorCode
+pattern HandlerErrorCodeInvalidRequest = HandlerErrorCode' "InvalidRequest"
 
-pattern AccessDenied :: HandlerErrorCode
-pattern AccessDenied = HandlerErrorCode' "AccessDenied"
+pattern HandlerErrorCodeAccessDenied :: HandlerErrorCode
+pattern HandlerErrorCodeAccessDenied = HandlerErrorCode' "AccessDenied"
 
-pattern InvalidCredentials :: HandlerErrorCode
-pattern InvalidCredentials = HandlerErrorCode' "InvalidCredentials"
+pattern HandlerErrorCodeInvalidCredentials :: HandlerErrorCode
+pattern HandlerErrorCodeInvalidCredentials = HandlerErrorCode' "InvalidCredentials"
 
-pattern AlreadyExists :: HandlerErrorCode
-pattern AlreadyExists = HandlerErrorCode' "AlreadyExists"
+pattern HandlerErrorCodeAlreadyExists :: HandlerErrorCode
+pattern HandlerErrorCodeAlreadyExists = HandlerErrorCode' "AlreadyExists"
 
-pattern NotFound :: HandlerErrorCode
-pattern NotFound = HandlerErrorCode' "NotFound"
+pattern HandlerErrorCodeNotFound :: HandlerErrorCode
+pattern HandlerErrorCodeNotFound = HandlerErrorCode' "NotFound"
 
-pattern ResourceConflict :: HandlerErrorCode
-pattern ResourceConflict = HandlerErrorCode' "ResourceConflict"
+pattern HandlerErrorCodeResourceConflict :: HandlerErrorCode
+pattern HandlerErrorCodeResourceConflict = HandlerErrorCode' "ResourceConflict"
 
-pattern Throttling :: HandlerErrorCode
-pattern Throttling = HandlerErrorCode' "Throttling"
+pattern HandlerErrorCodeThrottling :: HandlerErrorCode
+pattern HandlerErrorCodeThrottling = HandlerErrorCode' "Throttling"
 
-pattern ServiceLimitExceeded :: HandlerErrorCode
-pattern ServiceLimitExceeded = HandlerErrorCode' "ServiceLimitExceeded"
+pattern HandlerErrorCodeServiceLimitExceeded :: HandlerErrorCode
+pattern HandlerErrorCodeServiceLimitExceeded = HandlerErrorCode' "ServiceLimitExceeded"
 
-pattern NotStabilized :: HandlerErrorCode
-pattern NotStabilized = HandlerErrorCode' "NotStabilized"
+pattern HandlerErrorCodeNotStabilized :: HandlerErrorCode
+pattern HandlerErrorCodeNotStabilized = HandlerErrorCode' "NotStabilized"
 
-pattern GeneralServiceException :: HandlerErrorCode
-pattern GeneralServiceException = HandlerErrorCode' "GeneralServiceException"
+pattern HandlerErrorCodeGeneralServiceException :: HandlerErrorCode
+pattern HandlerErrorCodeGeneralServiceException = HandlerErrorCode' "GeneralServiceException"
 
-pattern ServiceInternalError :: HandlerErrorCode
-pattern ServiceInternalError = HandlerErrorCode' "ServiceInternalError"
+pattern HandlerErrorCodeServiceInternalError :: HandlerErrorCode
+pattern HandlerErrorCodeServiceInternalError = HandlerErrorCode' "ServiceInternalError"
 
-pattern NetworkFailure :: HandlerErrorCode
-pattern NetworkFailure = HandlerErrorCode' "NetworkFailure"
+pattern HandlerErrorCodeNetworkFailure :: HandlerErrorCode
+pattern HandlerErrorCodeNetworkFailure = HandlerErrorCode' "NetworkFailure"
 
-pattern InternalFailure :: HandlerErrorCode
-pattern InternalFailure = HandlerErrorCode' "InternalFailure"
+pattern HandlerErrorCodeInternalFailure :: HandlerErrorCode
+pattern HandlerErrorCodeInternalFailure = HandlerErrorCode' "InternalFailure"
 
 {-# COMPLETE
-  NotUpdatable,
-  InvalidRequest,
-  AccessDenied,
-  InvalidCredentials,
-  AlreadyExists,
-  NotFound,
-  ResourceConflict,
-  Throttling,
-  ServiceLimitExceeded,
-  NotStabilized,
-  GeneralServiceException,
-  ServiceInternalError,
-  NetworkFailure,
-  InternalFailure,
+  HandlerErrorCodeNotUpdatable,
+  HandlerErrorCodeInvalidRequest,
+  HandlerErrorCodeAccessDenied,
+  HandlerErrorCodeInvalidCredentials,
+  HandlerErrorCodeAlreadyExists,
+  HandlerErrorCodeNotFound,
+  HandlerErrorCodeResourceConflict,
+  HandlerErrorCodeThrottling,
+  HandlerErrorCodeServiceLimitExceeded,
+  HandlerErrorCodeNotStabilized,
+  HandlerErrorCodeGeneralServiceException,
+  HandlerErrorCodeServiceInternalError,
+  HandlerErrorCodeNetworkFailure,
+  HandlerErrorCodeInternalFailure,
   HandlerErrorCode'
   #-}

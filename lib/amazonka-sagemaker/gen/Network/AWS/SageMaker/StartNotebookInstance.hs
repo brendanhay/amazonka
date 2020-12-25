@@ -29,74 +29,62 @@ module Network.AWS.SageMaker.StartNotebookInstance
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkStartNotebookInstance' smart constructor.
 newtype StartNotebookInstance = StartNotebookInstance'
   { -- | The name of the notebook instance to start.
-    notebookInstanceName :: Lude.Text
+    notebookInstanceName :: Types.NotebookInstanceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartNotebookInstance' with the minimum fields required to make a request.
---
--- * 'notebookInstanceName' - The name of the notebook instance to start.
+-- | Creates a 'StartNotebookInstance' value with any optional fields omitted.
 mkStartNotebookInstance ::
   -- | 'notebookInstanceName'
-  Lude.Text ->
+  Types.NotebookInstanceName ->
   StartNotebookInstance
-mkStartNotebookInstance pNotebookInstanceName_ =
-  StartNotebookInstance'
-    { notebookInstanceName =
-        pNotebookInstanceName_
-    }
+mkStartNotebookInstance notebookInstanceName =
+  StartNotebookInstance' {notebookInstanceName}
 
 -- | The name of the notebook instance to start.
 --
 -- /Note:/ Consider using 'notebookInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sNotebookInstanceName :: Lens.Lens' StartNotebookInstance Lude.Text
-sNotebookInstanceName = Lens.lens (notebookInstanceName :: StartNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: StartNotebookInstance)
+sNotebookInstanceName :: Lens.Lens' StartNotebookInstance Types.NotebookInstanceName
+sNotebookInstanceName = Lens.field @"notebookInstanceName"
 {-# DEPRECATED sNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
 
-instance Lude.AWSRequest StartNotebookInstance where
+instance Core.FromJSON StartNotebookInstance where
+  toJSON StartNotebookInstance {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("NotebookInstanceName" Core..= notebookInstanceName)]
+      )
+
+instance Core.AWSRequest StartNotebookInstance where
   type Rs StartNotebookInstance = StartNotebookInstanceResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull StartNotebookInstanceResponse'
-
-instance Lude.ToHeaders StartNotebookInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.StartNotebookInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartNotebookInstance where
-  toJSON StartNotebookInstance' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("NotebookInstanceName" Lude..= notebookInstanceName)]
-      )
-
-instance Lude.ToPath StartNotebookInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartNotebookInstance where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.StartNotebookInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StartNotebookInstanceResponse'
 
 -- | /See:/ 'mkStartNotebookInstanceResponse' smart constructor.
 data StartNotebookInstanceResponse = StartNotebookInstanceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartNotebookInstanceResponse' with the minimum fields required to make a request.
+-- | Creates a 'StartNotebookInstanceResponse' value with any optional fields omitted.
 mkStartNotebookInstanceResponse ::
   StartNotebookInstanceResponse
 mkStartNotebookInstanceResponse = StartNotebookInstanceResponse'

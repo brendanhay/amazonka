@@ -13,46 +13,51 @@
 module Network.AWS.DMS.Types.DataFormatValue
   ( DataFormatValue
       ( DataFormatValue',
-        CSV,
-        Parquet
+        DataFormatValueCsv,
+        DataFormatValueParquet,
+        fromDataFormatValue
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DataFormatValue = DataFormatValue' Lude.Text
+newtype DataFormatValue = DataFormatValue'
+  { fromDataFormatValue ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSV :: DataFormatValue
-pattern CSV = DataFormatValue' "csv"
+pattern DataFormatValueCsv :: DataFormatValue
+pattern DataFormatValueCsv = DataFormatValue' "csv"
 
-pattern Parquet :: DataFormatValue
-pattern Parquet = DataFormatValue' "parquet"
+pattern DataFormatValueParquet :: DataFormatValue
+pattern DataFormatValueParquet = DataFormatValue' "parquet"
 
 {-# COMPLETE
-  CSV,
-  Parquet,
+  DataFormatValueCsv,
+  DataFormatValueParquet,
   DataFormatValue'
   #-}

@@ -13,86 +13,88 @@
 module Network.AWS.MechanicalTurk.Types.Comparator
   ( Comparator
       ( Comparator',
-        LessThan,
-        LessThanOrEqualTo,
-        GreaterThan,
-        GreaterThanOrEqualTo,
-        EqualTo,
-        NotEqualTo,
-        Exists,
-        DoesNotExist,
-        IN,
-        NotIn
+        ComparatorLessThan,
+        ComparatorLessThanOrEqualTo,
+        ComparatorGreaterThan,
+        ComparatorGreaterThanOrEqualTo,
+        ComparatorEqualTo,
+        ComparatorNotEqualTo,
+        ComparatorExists,
+        ComparatorDoesNotExist,
+        ComparatorIN,
+        ComparatorNotIn,
+        fromComparator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Comparator = Comparator' Lude.Text
+newtype Comparator = Comparator' {fromComparator :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LessThan :: Comparator
-pattern LessThan = Comparator' "LessThan"
+pattern ComparatorLessThan :: Comparator
+pattern ComparatorLessThan = Comparator' "LessThan"
 
-pattern LessThanOrEqualTo :: Comparator
-pattern LessThanOrEqualTo = Comparator' "LessThanOrEqualTo"
+pattern ComparatorLessThanOrEqualTo :: Comparator
+pattern ComparatorLessThanOrEqualTo = Comparator' "LessThanOrEqualTo"
 
-pattern GreaterThan :: Comparator
-pattern GreaterThan = Comparator' "GreaterThan"
+pattern ComparatorGreaterThan :: Comparator
+pattern ComparatorGreaterThan = Comparator' "GreaterThan"
 
-pattern GreaterThanOrEqualTo :: Comparator
-pattern GreaterThanOrEqualTo = Comparator' "GreaterThanOrEqualTo"
+pattern ComparatorGreaterThanOrEqualTo :: Comparator
+pattern ComparatorGreaterThanOrEqualTo = Comparator' "GreaterThanOrEqualTo"
 
-pattern EqualTo :: Comparator
-pattern EqualTo = Comparator' "EqualTo"
+pattern ComparatorEqualTo :: Comparator
+pattern ComparatorEqualTo = Comparator' "EqualTo"
 
-pattern NotEqualTo :: Comparator
-pattern NotEqualTo = Comparator' "NotEqualTo"
+pattern ComparatorNotEqualTo :: Comparator
+pattern ComparatorNotEqualTo = Comparator' "NotEqualTo"
 
-pattern Exists :: Comparator
-pattern Exists = Comparator' "Exists"
+pattern ComparatorExists :: Comparator
+pattern ComparatorExists = Comparator' "Exists"
 
-pattern DoesNotExist :: Comparator
-pattern DoesNotExist = Comparator' "DoesNotExist"
+pattern ComparatorDoesNotExist :: Comparator
+pattern ComparatorDoesNotExist = Comparator' "DoesNotExist"
 
-pattern IN :: Comparator
-pattern IN = Comparator' "In"
+pattern ComparatorIN :: Comparator
+pattern ComparatorIN = Comparator' "In"
 
-pattern NotIn :: Comparator
-pattern NotIn = Comparator' "NotIn"
+pattern ComparatorNotIn :: Comparator
+pattern ComparatorNotIn = Comparator' "NotIn"
 
 {-# COMPLETE
-  LessThan,
-  LessThanOrEqualTo,
-  GreaterThan,
-  GreaterThanOrEqualTo,
-  EqualTo,
-  NotEqualTo,
-  Exists,
-  DoesNotExist,
-  IN,
-  NotIn,
+  ComparatorLessThan,
+  ComparatorLessThanOrEqualTo,
+  ComparatorGreaterThan,
+  ComparatorGreaterThanOrEqualTo,
+  ComparatorEqualTo,
+  ComparatorNotEqualTo,
+  ComparatorExists,
+  ComparatorDoesNotExist,
+  ComparatorIN,
+  ComparatorNotIn,
   Comparator'
   #-}

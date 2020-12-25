@@ -762,7 +762,7 @@ responseBatchDetectSentiment =
   res
     "BatchDetectSentimentResponse"
     "fixture/BatchDetectSentimentResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy BatchDetectSentiment)
 
 responseDeleteEntityRecognizer :: DeleteEntityRecognizerResponse -> TestTree
@@ -770,7 +770,7 @@ responseDeleteEntityRecognizer =
   res
     "DeleteEntityRecognizerResponse"
     "fixture/DeleteEntityRecognizerResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEntityRecognizer)
 
 responseDescribeKeyPhrasesDetectionJob :: DescribeKeyPhrasesDetectionJobResponse -> TestTree
@@ -778,7 +778,7 @@ responseDescribeKeyPhrasesDetectionJob =
   res
     "DescribeKeyPhrasesDetectionJobResponse"
     "fixture/DescribeKeyPhrasesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeKeyPhrasesDetectionJob)
 
 responseListEntitiesDetectionJobs :: ListEntitiesDetectionJobsResponse -> TestTree
@@ -786,7 +786,7 @@ responseListEntitiesDetectionJobs =
   res
     "ListEntitiesDetectionJobsResponse"
     "fixture/ListEntitiesDetectionJobsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListEntitiesDetectionJobs)
 
 responseCreateEndpoint :: CreateEndpointResponse -> TestTree
@@ -794,7 +794,7 @@ responseCreateEndpoint =
   res
     "CreateEndpointResponse"
     "fixture/CreateEndpointResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy CreateEndpoint)
 
 responseStopEventsDetectionJob :: StopEventsDetectionJobResponse -> TestTree
@@ -802,7 +802,7 @@ responseStopEventsDetectionJob =
   res
     "StopEventsDetectionJobResponse"
     "fixture/StopEventsDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StopEventsDetectionJob)
 
 responseStartSentimentDetectionJob :: StartSentimentDetectionJobResponse -> TestTree
@@ -810,7 +810,7 @@ responseStartSentimentDetectionJob =
   res
     "StartSentimentDetectionJobResponse"
     "fixture/StartSentimentDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StartSentimentDetectionJob)
 
 responseBatchDetectSyntax :: BatchDetectSyntaxResponse -> TestTree
@@ -818,7 +818,7 @@ responseBatchDetectSyntax =
   res
     "BatchDetectSyntaxResponse"
     "fixture/BatchDetectSyntaxResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy BatchDetectSyntax)
 
 responseStartTopicsDetectionJob :: StartTopicsDetectionJobResponse -> TestTree
@@ -826,7 +826,7 @@ responseStartTopicsDetectionJob =
   res
     "StartTopicsDetectionJobResponse"
     "fixture/StartTopicsDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StartTopicsDetectionJob)
 
 responseDescribeEventsDetectionJob :: DescribeEventsDetectionJobResponse -> TestTree
@@ -834,7 +834,7 @@ responseDescribeEventsDetectionJob =
   res
     "DescribeEventsDetectionJobResponse"
     "fixture/DescribeEventsDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEventsDetectionJob)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
@@ -842,7 +842,7 @@ responseDeleteEndpoint =
   res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEndpoint)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
@@ -850,7 +850,7 @@ responseUpdateEndpoint =
   res
     "UpdateEndpointResponse"
     "fixture/UpdateEndpointResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy UpdateEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -858,7 +858,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseBatchDetectKeyPhrases :: BatchDetectKeyPhrasesResponse -> TestTree
@@ -866,7 +866,7 @@ responseBatchDetectKeyPhrases =
   res
     "BatchDetectKeyPhrasesResponse"
     "fixture/BatchDetectKeyPhrasesResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy BatchDetectKeyPhrases)
 
 responseDescribeSentimentDetectionJob :: DescribeSentimentDetectionJobResponse -> TestTree
@@ -874,7 +874,7 @@ responseDescribeSentimentDetectionJob =
   res
     "DescribeSentimentDetectionJobResponse"
     "fixture/DescribeSentimentDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSentimentDetectionJob)
 
 responseStartEntitiesDetectionJob :: StartEntitiesDetectionJobResponse -> TestTree
@@ -882,7 +882,7 @@ responseStartEntitiesDetectionJob =
   res
     "StartEntitiesDetectionJobResponse"
     "fixture/StartEntitiesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StartEntitiesDetectionJob)
 
 responseStopPiiEntitiesDetectionJob :: StopPiiEntitiesDetectionJobResponse -> TestTree
@@ -890,7 +890,7 @@ responseStopPiiEntitiesDetectionJob =
   res
     "StopPiiEntitiesDetectionJobResponse"
     "fixture/StopPiiEntitiesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StopPiiEntitiesDetectionJob)
 
 responseDescribeEntityRecognizer :: DescribeEntityRecognizerResponse -> TestTree
@@ -898,7 +898,7 @@ responseDescribeEntityRecognizer =
   res
     "DescribeEntityRecognizerResponse"
     "fixture/DescribeEntityRecognizerResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEntityRecognizer)
 
 responseDetectSentiment :: DetectSentimentResponse -> TestTree
@@ -906,7 +906,7 @@ responseDetectSentiment =
   res
     "DetectSentimentResponse"
     "fixture/DetectSentimentResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DetectSentiment)
 
 responseStartDominantLanguageDetectionJob :: StartDominantLanguageDetectionJobResponse -> TestTree
@@ -914,7 +914,7 @@ responseStartDominantLanguageDetectionJob =
   res
     "StartDominantLanguageDetectionJobResponse"
     "fixture/StartDominantLanguageDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StartDominantLanguageDetectionJob)
 
 responseStopTrainingDocumentClassifier :: StopTrainingDocumentClassifierResponse -> TestTree
@@ -922,7 +922,7 @@ responseStopTrainingDocumentClassifier =
   res
     "StopTrainingDocumentClassifierResponse"
     "fixture/StopTrainingDocumentClassifierResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StopTrainingDocumentClassifier)
 
 responseDescribeDocumentClassificationJob :: DescribeDocumentClassificationJobResponse -> TestTree
@@ -930,7 +930,7 @@ responseDescribeDocumentClassificationJob =
   res
     "DescribeDocumentClassificationJobResponse"
     "fixture/DescribeDocumentClassificationJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDocumentClassificationJob)
 
 responseListEventsDetectionJobs :: ListEventsDetectionJobsResponse -> TestTree
@@ -938,7 +938,7 @@ responseListEventsDetectionJobs =
   res
     "ListEventsDetectionJobsResponse"
     "fixture/ListEventsDetectionJobsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListEventsDetectionJobs)
 
 responseBatchDetectEntities :: BatchDetectEntitiesResponse -> TestTree
@@ -946,7 +946,7 @@ responseBatchDetectEntities =
   res
     "BatchDetectEntitiesResponse"
     "fixture/BatchDetectEntitiesResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy BatchDetectEntities)
 
 responseCreateEntityRecognizer :: CreateEntityRecognizerResponse -> TestTree
@@ -954,7 +954,7 @@ responseCreateEntityRecognizer =
   res
     "CreateEntityRecognizerResponse"
     "fixture/CreateEntityRecognizerResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy CreateEntityRecognizer)
 
 responseStopKeyPhrasesDetectionJob :: StopKeyPhrasesDetectionJobResponse -> TestTree
@@ -962,7 +962,7 @@ responseStopKeyPhrasesDetectionJob =
   res
     "StopKeyPhrasesDetectionJobResponse"
     "fixture/StopKeyPhrasesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StopKeyPhrasesDetectionJob)
 
 responseCreateDocumentClassifier :: CreateDocumentClassifierResponse -> TestTree
@@ -970,7 +970,7 @@ responseCreateDocumentClassifier =
   res
     "CreateDocumentClassifierResponse"
     "fixture/CreateDocumentClassifierResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy CreateDocumentClassifier)
 
 responseListPiiEntitiesDetectionJobs :: ListPiiEntitiesDetectionJobsResponse -> TestTree
@@ -978,7 +978,7 @@ responseListPiiEntitiesDetectionJobs =
   res
     "ListPiiEntitiesDetectionJobsResponse"
     "fixture/ListPiiEntitiesDetectionJobsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListPiiEntitiesDetectionJobs)
 
 responseListEntityRecognizers :: ListEntityRecognizersResponse -> TestTree
@@ -986,7 +986,7 @@ responseListEntityRecognizers =
   res
     "ListEntityRecognizersResponse"
     "fixture/ListEntityRecognizersResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListEntityRecognizers)
 
 responseStopSentimentDetectionJob :: StopSentimentDetectionJobResponse -> TestTree
@@ -994,7 +994,7 @@ responseStopSentimentDetectionJob =
   res
     "StopSentimentDetectionJobResponse"
     "fixture/StopSentimentDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StopSentimentDetectionJob)
 
 responseDetectDominantLanguage :: DetectDominantLanguageResponse -> TestTree
@@ -1002,7 +1002,7 @@ responseDetectDominantLanguage =
   res
     "DetectDominantLanguageResponse"
     "fixture/DetectDominantLanguageResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DetectDominantLanguage)
 
 responseClassifyDocument :: ClassifyDocumentResponse -> TestTree
@@ -1010,7 +1010,7 @@ responseClassifyDocument =
   res
     "ClassifyDocumentResponse"
     "fixture/ClassifyDocumentResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ClassifyDocument)
 
 responseStartEventsDetectionJob :: StartEventsDetectionJobResponse -> TestTree
@@ -1018,7 +1018,7 @@ responseStartEventsDetectionJob =
   res
     "StartEventsDetectionJobResponse"
     "fixture/StartEventsDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StartEventsDetectionJob)
 
 responseDescribeTopicsDetectionJob :: DescribeTopicsDetectionJobResponse -> TestTree
@@ -1026,7 +1026,7 @@ responseDescribeTopicsDetectionJob =
   res
     "DescribeTopicsDetectionJobResponse"
     "fixture/DescribeTopicsDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTopicsDetectionJob)
 
 responseListDocumentClassificationJobs :: ListDocumentClassificationJobsResponse -> TestTree
@@ -1034,7 +1034,7 @@ responseListDocumentClassificationJobs =
   res
     "ListDocumentClassificationJobsResponse"
     "fixture/ListDocumentClassificationJobsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListDocumentClassificationJobs)
 
 responseDetectPiiEntities :: DetectPiiEntitiesResponse -> TestTree
@@ -1042,7 +1042,7 @@ responseDetectPiiEntities =
   res
     "DetectPiiEntitiesResponse"
     "fixture/DetectPiiEntitiesResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DetectPiiEntities)
 
 responseListEndpoints :: ListEndpointsResponse -> TestTree
@@ -1050,7 +1050,7 @@ responseListEndpoints =
   res
     "ListEndpointsResponse"
     "fixture/ListEndpointsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListEndpoints)
 
 responseDetectEntities :: DetectEntitiesResponse -> TestTree
@@ -1058,7 +1058,7 @@ responseDetectEntities =
   res
     "DetectEntitiesResponse"
     "fixture/DetectEntitiesResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DetectEntities)
 
 responseDescribeDocumentClassifier :: DescribeDocumentClassifierResponse -> TestTree
@@ -1066,7 +1066,7 @@ responseDescribeDocumentClassifier =
   res
     "DescribeDocumentClassifierResponse"
     "fixture/DescribeDocumentClassifierResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDocumentClassifier)
 
 responseDescribeDominantLanguageDetectionJob :: DescribeDominantLanguageDetectionJobResponse -> TestTree
@@ -1074,7 +1074,7 @@ responseDescribeDominantLanguageDetectionJob =
   res
     "DescribeDominantLanguageDetectionJobResponse"
     "fixture/DescribeDominantLanguageDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDominantLanguageDetectionJob)
 
 responseStopEntitiesDetectionJob :: StopEntitiesDetectionJobResponse -> TestTree
@@ -1082,7 +1082,7 @@ responseStopEntitiesDetectionJob =
   res
     "StopEntitiesDetectionJobResponse"
     "fixture/StopEntitiesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StopEntitiesDetectionJob)
 
 responseStopTrainingEntityRecognizer :: StopTrainingEntityRecognizerResponse -> TestTree
@@ -1090,7 +1090,7 @@ responseStopTrainingEntityRecognizer =
   res
     "StopTrainingEntityRecognizerResponse"
     "fixture/StopTrainingEntityRecognizerResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StopTrainingEntityRecognizer)
 
 responseStartPiiEntitiesDetectionJob :: StartPiiEntitiesDetectionJobResponse -> TestTree
@@ -1098,7 +1098,7 @@ responseStartPiiEntitiesDetectionJob =
   res
     "StartPiiEntitiesDetectionJobResponse"
     "fixture/StartPiiEntitiesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StartPiiEntitiesDetectionJob)
 
 responseListKeyPhrasesDetectionJobs :: ListKeyPhrasesDetectionJobsResponse -> TestTree
@@ -1106,7 +1106,7 @@ responseListKeyPhrasesDetectionJobs =
   res
     "ListKeyPhrasesDetectionJobsResponse"
     "fixture/ListKeyPhrasesDetectionJobsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListKeyPhrasesDetectionJobs)
 
 responseDescribeEntitiesDetectionJob :: DescribeEntitiesDetectionJobResponse -> TestTree
@@ -1114,7 +1114,7 @@ responseDescribeEntitiesDetectionJob =
   res
     "DescribeEntitiesDetectionJobResponse"
     "fixture/DescribeEntitiesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEntitiesDetectionJob)
 
 responseStopDominantLanguageDetectionJob :: StopDominantLanguageDetectionJobResponse -> TestTree
@@ -1122,7 +1122,7 @@ responseStopDominantLanguageDetectionJob =
   res
     "StopDominantLanguageDetectionJobResponse"
     "fixture/StopDominantLanguageDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StopDominantLanguageDetectionJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1130,7 +1130,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDescribePiiEntitiesDetectionJob :: DescribePiiEntitiesDetectionJobResponse -> TestTree
@@ -1138,7 +1138,7 @@ responseDescribePiiEntitiesDetectionJob =
   res
     "DescribePiiEntitiesDetectionJobResponse"
     "fixture/DescribePiiEntitiesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribePiiEntitiesDetectionJob)
 
 responseListTopicsDetectionJobs :: ListTopicsDetectionJobsResponse -> TestTree
@@ -1146,7 +1146,7 @@ responseListTopicsDetectionJobs =
   res
     "ListTopicsDetectionJobsResponse"
     "fixture/ListTopicsDetectionJobsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListTopicsDetectionJobs)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1154,7 +1154,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseBatchDetectDominantLanguage :: BatchDetectDominantLanguageResponse -> TestTree
@@ -1162,7 +1162,7 @@ responseBatchDetectDominantLanguage =
   res
     "BatchDetectDominantLanguageResponse"
     "fixture/BatchDetectDominantLanguageResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy BatchDetectDominantLanguage)
 
 responseStartDocumentClassificationJob :: StartDocumentClassificationJobResponse -> TestTree
@@ -1170,7 +1170,7 @@ responseStartDocumentClassificationJob =
   res
     "StartDocumentClassificationJobResponse"
     "fixture/StartDocumentClassificationJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StartDocumentClassificationJob)
 
 responseDetectKeyPhrases :: DetectKeyPhrasesResponse -> TestTree
@@ -1178,7 +1178,7 @@ responseDetectKeyPhrases =
   res
     "DetectKeyPhrasesResponse"
     "fixture/DetectKeyPhrasesResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DetectKeyPhrases)
 
 responseDetectSyntax :: DetectSyntaxResponse -> TestTree
@@ -1186,7 +1186,7 @@ responseDetectSyntax =
   res
     "DetectSyntaxResponse"
     "fixture/DetectSyntaxResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DetectSyntax)
 
 responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
@@ -1194,7 +1194,7 @@ responseDescribeEndpoint =
   res
     "DescribeEndpointResponse"
     "fixture/DescribeEndpointResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEndpoint)
 
 responseListSentimentDetectionJobs :: ListSentimentDetectionJobsResponse -> TestTree
@@ -1202,7 +1202,7 @@ responseListSentimentDetectionJobs =
   res
     "ListSentimentDetectionJobsResponse"
     "fixture/ListSentimentDetectionJobsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListSentimentDetectionJobs)
 
 responseDeleteDocumentClassifier :: DeleteDocumentClassifierResponse -> TestTree
@@ -1210,7 +1210,7 @@ responseDeleteDocumentClassifier =
   res
     "DeleteDocumentClassifierResponse"
     "fixture/DeleteDocumentClassifierResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDocumentClassifier)
 
 responseListDominantLanguageDetectionJobs :: ListDominantLanguageDetectionJobsResponse -> TestTree
@@ -1218,7 +1218,7 @@ responseListDominantLanguageDetectionJobs =
   res
     "ListDominantLanguageDetectionJobsResponse"
     "fixture/ListDominantLanguageDetectionJobsResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListDominantLanguageDetectionJobs)
 
 responseStartKeyPhrasesDetectionJob :: StartKeyPhrasesDetectionJobResponse -> TestTree
@@ -1226,7 +1226,7 @@ responseStartKeyPhrasesDetectionJob =
   res
     "StartKeyPhrasesDetectionJobResponse"
     "fixture/StartKeyPhrasesDetectionJobResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy StartKeyPhrasesDetectionJob)
 
 responseListDocumentClassifiers :: ListDocumentClassifiersResponse -> TestTree
@@ -1234,5 +1234,5 @@ responseListDocumentClassifiers =
   res
     "ListDocumentClassifiersResponse"
     "fixture/ListDocumentClassifiersResponse.proto"
-    comprehendService
+    mkServiceConfig
     (Proxy :: Proxy ListDocumentClassifiers)

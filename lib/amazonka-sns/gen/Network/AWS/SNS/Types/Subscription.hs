@@ -17,93 +17,92 @@ module Network.AWS.SNS.Types.Subscription
     mkSubscription,
 
     -- * Lenses
-    sProtocol,
-    sOwner,
-    sTopicARN,
     sEndpoint,
-    sSubscriptionARN,
+    sOwner,
+    sProtocol,
+    sSubscriptionArn,
+    sTopicArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SNS.Types.Account as Types
+import qualified Network.AWS.SNS.Types.Endpoint as Types
+import qualified Network.AWS.SNS.Types.Protocol as Types
+import qualified Network.AWS.SNS.Types.SubscriptionArn as Types
+import qualified Network.AWS.SNS.Types.TopicARN as Types
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 --
 -- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { -- | The subscription's protocol.
-    protocol :: Lude.Maybe Lude.Text,
+  { -- | The subscription's endpoint (format depends on the protocol).
+    endpoint :: Core.Maybe Types.Endpoint,
     -- | The subscription's owner.
-    owner :: Lude.Maybe Lude.Text,
-    -- | The ARN of the subscription's topic.
-    topicARN :: Lude.Maybe Lude.Text,
-    -- | The subscription's endpoint (format depends on the protocol).
-    endpoint :: Lude.Maybe Lude.Text,
+    owner :: Core.Maybe Types.Account,
+    -- | The subscription's protocol.
+    protocol :: Core.Maybe Types.Protocol,
     -- | The subscription's ARN.
-    subscriptionARN :: Lude.Maybe Lude.Text
+    subscriptionArn :: Core.Maybe Types.SubscriptionArn,
+    -- | The ARN of the subscription's topic.
+    topicArn :: Core.Maybe Types.TopicARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Subscription' with the minimum fields required to make a request.
---
--- * 'protocol' - The subscription's protocol.
--- * 'owner' - The subscription's owner.
--- * 'topicARN' - The ARN of the subscription's topic.
--- * 'endpoint' - The subscription's endpoint (format depends on the protocol).
--- * 'subscriptionARN' - The subscription's ARN.
+-- | Creates a 'Subscription' value with any optional fields omitted.
 mkSubscription ::
   Subscription
 mkSubscription =
   Subscription'
-    { protocol = Lude.Nothing,
-      owner = Lude.Nothing,
-      topicARN = Lude.Nothing,
-      endpoint = Lude.Nothing,
-      subscriptionARN = Lude.Nothing
+    { endpoint = Core.Nothing,
+      owner = Core.Nothing,
+      protocol = Core.Nothing,
+      subscriptionArn = Core.Nothing,
+      topicArn = Core.Nothing
     }
-
--- | The subscription's protocol.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sProtocol :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
-sProtocol = Lens.lens (protocol :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {protocol = a} :: Subscription)
-{-# DEPRECATED sProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
-
--- | The subscription's owner.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sOwner :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
-sOwner = Lens.lens (owner :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: Subscription)
-{-# DEPRECATED sOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
-
--- | The ARN of the subscription's topic.
---
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTopicARN :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
-sTopicARN = Lens.lens (topicARN :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: Subscription)
-{-# DEPRECATED sTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | The subscription's endpoint (format depends on the protocol).
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sEndpoint :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
-sEndpoint = Lens.lens (endpoint :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: Subscription)
+sEndpoint :: Lens.Lens' Subscription (Core.Maybe Types.Endpoint)
+sEndpoint = Lens.field @"endpoint"
 {-# DEPRECATED sEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
+
+-- | The subscription's owner.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOwner :: Lens.Lens' Subscription (Core.Maybe Types.Account)
+sOwner = Lens.field @"owner"
+{-# DEPRECATED sOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
+-- | The subscription's protocol.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sProtocol :: Lens.Lens' Subscription (Core.Maybe Types.Protocol)
+sProtocol = Lens.field @"protocol"
+{-# DEPRECATED sProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The subscription's ARN.
 --
--- /Note:/ Consider using 'subscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubscriptionARN :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
-sSubscriptionARN = Lens.lens (subscriptionARN :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionARN = a} :: Subscription)
-{-# DEPRECATED sSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}
+-- /Note:/ Consider using 'subscriptionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubscriptionArn :: Lens.Lens' Subscription (Core.Maybe Types.SubscriptionArn)
+sSubscriptionArn = Lens.field @"subscriptionArn"
+{-# DEPRECATED sSubscriptionArn "Use generic-lens or generic-optics with 'subscriptionArn' instead." #-}
 
-instance Lude.FromXML Subscription where
+-- | The ARN of the subscription's topic.
+--
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTopicArn :: Lens.Lens' Subscription (Core.Maybe Types.TopicARN)
+sTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED sTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
+
+instance Core.FromXML Subscription where
   parseXML x =
     Subscription'
-      Lude.<$> (x Lude..@? "Protocol")
-      Lude.<*> (x Lude..@? "Owner")
-      Lude.<*> (x Lude..@? "TopicArn")
-      Lude.<*> (x Lude..@? "Endpoint")
-      Lude.<*> (x Lude..@? "SubscriptionArn")
+      Core.<$> (x Core..@? "Endpoint")
+      Core.<*> (x Core..@? "Owner")
+      Core.<*> (x Core..@? "Protocol")
+      Core.<*> (x Core..@? "SubscriptionArn")
+      Core.<*> (x Core..@? "TopicArn")

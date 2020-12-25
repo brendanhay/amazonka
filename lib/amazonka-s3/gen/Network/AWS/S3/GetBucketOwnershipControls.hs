@@ -36,114 +36,105 @@ module Network.AWS.S3.GetBucketOwnershipControls
     mkGetBucketOwnershipControlsResponse,
 
     -- ** Response lenses
-    gbocrsOwnershipControls,
-    gbocrsResponseStatus,
+    gbocrrsOwnershipControls,
+    gbocrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketOwnershipControls' smart constructor.
 data GetBucketOwnershipControls = GetBucketOwnershipControls'
   { -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to retrieve.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketOwnershipControls' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the Amazon S3 bucket whose @OwnershipControls@ you want to retrieve.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketOwnershipControls' value with any optional fields omitted.
 mkGetBucketOwnershipControls ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketOwnershipControls
-mkGetBucketOwnershipControls pBucket_ =
+mkGetBucketOwnershipControls bucket =
   GetBucketOwnershipControls'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to retrieve.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbocBucket :: Lens.Lens' GetBucketOwnershipControls BucketName
-gbocBucket = Lens.lens (bucket :: GetBucketOwnershipControls -> BucketName) (\s a -> s {bucket = a} :: GetBucketOwnershipControls)
+gbocBucket :: Lens.Lens' GetBucketOwnershipControls Types.BucketName
+gbocBucket = Lens.field @"bucket"
 {-# DEPRECATED gbocBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbocExpectedBucketOwner :: Lens.Lens' GetBucketOwnershipControls (Lude.Maybe Lude.Text)
-gbocExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketOwnershipControls -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketOwnershipControls)
+gbocExpectedBucketOwner :: Lens.Lens' GetBucketOwnershipControls (Core.Maybe Types.ExpectedBucketOwner)
+gbocExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbocExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketOwnershipControls where
+instance Core.AWSRequest GetBucketOwnershipControls where
   type
     Rs GetBucketOwnershipControls =
       GetBucketOwnershipControlsResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("ownershipControls", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketOwnershipControlsResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketOwnershipControls where
-  toHeaders GetBucketOwnershipControls' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketOwnershipControls where
-  toPath GetBucketOwnershipControls' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketOwnershipControls where
-  toQuery = Lude.const (Lude.mconcat ["ownershipControls"])
 
 -- | /See:/ 'mkGetBucketOwnershipControlsResponse' smart constructor.
 data GetBucketOwnershipControlsResponse = GetBucketOwnershipControlsResponse'
   { -- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) currently in effect for this Amazon S3 bucket.
-    ownershipControls :: Lude.Maybe OwnershipControls,
+    ownershipControls :: Core.Maybe Types.OwnershipControls,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketOwnershipControlsResponse' with the minimum fields required to make a request.
---
--- * 'ownershipControls' - The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) currently in effect for this Amazon S3 bucket.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketOwnershipControlsResponse' value with any optional fields omitted.
 mkGetBucketOwnershipControlsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketOwnershipControlsResponse
-mkGetBucketOwnershipControlsResponse pResponseStatus_ =
+mkGetBucketOwnershipControlsResponse responseStatus =
   GetBucketOwnershipControlsResponse'
     { ownershipControls =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The @OwnershipControls@ (BucketOwnerPreferred or ObjectWriter) currently in effect for this Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'ownershipControls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbocrsOwnershipControls :: Lens.Lens' GetBucketOwnershipControlsResponse (Lude.Maybe OwnershipControls)
-gbocrsOwnershipControls = Lens.lens (ownershipControls :: GetBucketOwnershipControlsResponse -> Lude.Maybe OwnershipControls) (\s a -> s {ownershipControls = a} :: GetBucketOwnershipControlsResponse)
-{-# DEPRECATED gbocrsOwnershipControls "Use generic-lens or generic-optics with 'ownershipControls' instead." #-}
+gbocrrsOwnershipControls :: Lens.Lens' GetBucketOwnershipControlsResponse (Core.Maybe Types.OwnershipControls)
+gbocrrsOwnershipControls = Lens.field @"ownershipControls"
+{-# DEPRECATED gbocrrsOwnershipControls "Use generic-lens or generic-optics with 'ownershipControls' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbocrsResponseStatus :: Lens.Lens' GetBucketOwnershipControlsResponse Lude.Int
-gbocrsResponseStatus = Lens.lens (responseStatus :: GetBucketOwnershipControlsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketOwnershipControlsResponse)
-{-# DEPRECATED gbocrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbocrrsResponseStatus :: Lens.Lens' GetBucketOwnershipControlsResponse Core.Int
+gbocrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbocrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

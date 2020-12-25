@@ -17,179 +17,170 @@ module Network.AWS.Comprehend.Types.EventsDetectionJobProperties
     mkEventsDetectionJobProperties,
 
     -- * Lenses
-    edjpLanguageCode,
+    edjpDataAccessRoleArn,
+    edjpEndTime,
+    edjpInputDataConfig,
     edjpJobId,
     edjpJobName,
-    edjpTargetEventTypes,
-    edjpInputDataConfig,
-    edjpEndTime,
-    edjpOutputDataConfig,
-    edjpDataAccessRoleARN,
     edjpJobStatus,
+    edjpLanguageCode,
     edjpMessage,
+    edjpOutputDataConfig,
     edjpSubmitTime,
+    edjpTargetEventTypes,
   )
 where
 
-import Network.AWS.Comprehend.Types.InputDataConfig
-import Network.AWS.Comprehend.Types.JobStatus
-import Network.AWS.Comprehend.Types.LanguageCode
-import Network.AWS.Comprehend.Types.OutputDataConfig
+import qualified Network.AWS.Comprehend.Types.AnyLengthString as Types
+import qualified Network.AWS.Comprehend.Types.EventTypeString as Types
+import qualified Network.AWS.Comprehend.Types.IamRoleArn as Types
+import qualified Network.AWS.Comprehend.Types.InputDataConfig as Types
+import qualified Network.AWS.Comprehend.Types.JobId as Types
+import qualified Network.AWS.Comprehend.Types.JobName as Types
+import qualified Network.AWS.Comprehend.Types.JobStatus as Types
+import qualified Network.AWS.Comprehend.Types.LanguageCode as Types
+import qualified Network.AWS.Comprehend.Types.OutputDataConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about an events detection job.
 --
 -- /See:/ 'mkEventsDetectionJobProperties' smart constructor.
 data EventsDetectionJobProperties = EventsDetectionJobProperties'
-  { -- | The language code of the input documents.
-    languageCode :: Lude.Maybe LanguageCode,
-    -- | The identifier assigned to the events detection job.
-    jobId :: Lude.Maybe Lude.Text,
-    -- | The name you assigned the events detection job.
-    jobName :: Lude.Maybe Lude.Text,
-    -- | The types of events that are detected by the job.
-    targetEventTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The input data configuration that you supplied when you created the events detection job.
-    inputDataConfig :: Lude.Maybe InputDataConfig,
+  { -- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+    dataAccessRoleArn :: Core.Maybe Types.IamRoleArn,
     -- | The time that the events detection job completed.
-    endTime :: Lude.Maybe Lude.Timestamp,
-    -- | The output data configuration that you supplied when you created the events detection job.
-    outputDataConfig :: Lude.Maybe OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleARN :: Lude.Maybe Lude.Text,
+    endTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The input data configuration that you supplied when you created the events detection job.
+    inputDataConfig :: Core.Maybe Types.InputDataConfig,
+    -- | The identifier assigned to the events detection job.
+    jobId :: Core.Maybe Types.JobId,
+    -- | The name you assigned the events detection job.
+    jobName :: Core.Maybe Types.JobName,
     -- | The current status of the events detection job.
-    jobStatus :: Lude.Maybe JobStatus,
+    jobStatus :: Core.Maybe Types.JobStatus,
+    -- | The language code of the input documents.
+    languageCode :: Core.Maybe Types.LanguageCode,
     -- | A description of the status of the events detection job.
-    message :: Lude.Maybe Lude.Text,
+    message :: Core.Maybe Types.AnyLengthString,
+    -- | The output data configuration that you supplied when you created the events detection job.
+    outputDataConfig :: Core.Maybe Types.OutputDataConfig,
     -- | The time that the events detection job was submitted for processing.
-    submitTime :: Lude.Maybe Lude.Timestamp
+    submitTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The types of events that are detected by the job.
+    targetEventTypes :: Core.Maybe (Core.NonEmpty Types.EventTypeString)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EventsDetectionJobProperties' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language code of the input documents.
--- * 'jobId' - The identifier assigned to the events detection job.
--- * 'jobName' - The name you assigned the events detection job.
--- * 'targetEventTypes' - The types of events that are detected by the job.
--- * 'inputDataConfig' - The input data configuration that you supplied when you created the events detection job.
--- * 'endTime' - The time that the events detection job completed.
--- * 'outputDataConfig' - The output data configuration that you supplied when you created the events detection job.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
--- * 'jobStatus' - The current status of the events detection job.
--- * 'message' - A description of the status of the events detection job.
--- * 'submitTime' - The time that the events detection job was submitted for processing.
+-- | Creates a 'EventsDetectionJobProperties' value with any optional fields omitted.
 mkEventsDetectionJobProperties ::
   EventsDetectionJobProperties
 mkEventsDetectionJobProperties =
   EventsDetectionJobProperties'
-    { languageCode = Lude.Nothing,
-      jobId = Lude.Nothing,
-      jobName = Lude.Nothing,
-      targetEventTypes = Lude.Nothing,
-      inputDataConfig = Lude.Nothing,
-      endTime = Lude.Nothing,
-      outputDataConfig = Lude.Nothing,
-      dataAccessRoleARN = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      message = Lude.Nothing,
-      submitTime = Lude.Nothing
+    { dataAccessRoleArn = Core.Nothing,
+      endTime = Core.Nothing,
+      inputDataConfig = Core.Nothing,
+      jobId = Core.Nothing,
+      jobName = Core.Nothing,
+      jobStatus = Core.Nothing,
+      languageCode = Core.Nothing,
+      message = Core.Nothing,
+      outputDataConfig = Core.Nothing,
+      submitTime = Core.Nothing,
+      targetEventTypes = Core.Nothing
     }
 
--- | The language code of the input documents.
+-- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
 --
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpLanguageCode :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe LanguageCode)
-edjpLanguageCode = Lens.lens (languageCode :: EventsDetectionJobProperties -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: EventsDetectionJobProperties)
-{-# DEPRECATED edjpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+-- /Note:/ Consider using 'dataAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edjpDataAccessRoleArn :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Types.IamRoleArn)
+edjpDataAccessRoleArn = Lens.field @"dataAccessRoleArn"
+{-# DEPRECATED edjpDataAccessRoleArn "Use generic-lens or generic-optics with 'dataAccessRoleArn' instead." #-}
+
+-- | The time that the events detection job completed.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edjpEndTime :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Core.NominalDiffTime)
+edjpEndTime = Lens.field @"endTime"
+{-# DEPRECATED edjpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The input data configuration that you supplied when you created the events detection job.
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edjpInputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Types.InputDataConfig)
+edjpInputDataConfig = Lens.field @"inputDataConfig"
+{-# DEPRECATED edjpInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | The identifier assigned to the events detection job.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpJobId :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe Lude.Text)
-edjpJobId = Lens.lens (jobId :: EventsDetectionJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: EventsDetectionJobProperties)
+edjpJobId :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Types.JobId)
+edjpJobId = Lens.field @"jobId"
 {-# DEPRECATED edjpJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The name you assigned the events detection job.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpJobName :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe Lude.Text)
-edjpJobName = Lens.lens (jobName :: EventsDetectionJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: EventsDetectionJobProperties)
+edjpJobName :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Types.JobName)
+edjpJobName = Lens.field @"jobName"
 {-# DEPRECATED edjpJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
-
--- | The types of events that are detected by the job.
---
--- /Note:/ Consider using 'targetEventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpTargetEventTypes :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe (Lude.NonEmpty Lude.Text))
-edjpTargetEventTypes = Lens.lens (targetEventTypes :: EventsDetectionJobProperties -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {targetEventTypes = a} :: EventsDetectionJobProperties)
-{-# DEPRECATED edjpTargetEventTypes "Use generic-lens or generic-optics with 'targetEventTypes' instead." #-}
-
--- | The input data configuration that you supplied when you created the events detection job.
---
--- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpInputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe InputDataConfig)
-edjpInputDataConfig = Lens.lens (inputDataConfig :: EventsDetectionJobProperties -> Lude.Maybe InputDataConfig) (\s a -> s {inputDataConfig = a} :: EventsDetectionJobProperties)
-{-# DEPRECATED edjpInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
-
--- | The time that the events detection job completed.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpEndTime :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe Lude.Timestamp)
-edjpEndTime = Lens.lens (endTime :: EventsDetectionJobProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: EventsDetectionJobProperties)
-{-# DEPRECATED edjpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The output data configuration that you supplied when you created the events detection job.
---
--- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpOutputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe OutputDataConfig)
-edjpOutputDataConfig = Lens.lens (outputDataConfig :: EventsDetectionJobProperties -> Lude.Maybe OutputDataConfig) (\s a -> s {outputDataConfig = a} :: EventsDetectionJobProperties)
-{-# DEPRECATED edjpOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
---
--- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpDataAccessRoleARN :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe Lude.Text)
-edjpDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: EventsDetectionJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: EventsDetectionJobProperties)
-{-# DEPRECATED edjpDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
 -- | The current status of the events detection job.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpJobStatus :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe JobStatus)
-edjpJobStatus = Lens.lens (jobStatus :: EventsDetectionJobProperties -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: EventsDetectionJobProperties)
+edjpJobStatus :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Types.JobStatus)
+edjpJobStatus = Lens.field @"jobStatus"
 {-# DEPRECATED edjpJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+
+-- | The language code of the input documents.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edjpLanguageCode :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Types.LanguageCode)
+edjpLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED edjpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | A description of the status of the events detection job.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpMessage :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe Lude.Text)
-edjpMessage = Lens.lens (message :: EventsDetectionJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EventsDetectionJobProperties)
+edjpMessage :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Types.AnyLengthString)
+edjpMessage = Lens.field @"message"
 {-# DEPRECATED edjpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The output data configuration that you supplied when you created the events detection job.
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edjpOutputDataConfig :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Types.OutputDataConfig)
+edjpOutputDataConfig = Lens.field @"outputDataConfig"
+{-# DEPRECATED edjpOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The time that the events detection job was submitted for processing.
 --
 -- /Note:/ Consider using 'submitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edjpSubmitTime :: Lens.Lens' EventsDetectionJobProperties (Lude.Maybe Lude.Timestamp)
-edjpSubmitTime = Lens.lens (submitTime :: EventsDetectionJobProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTime = a} :: EventsDetectionJobProperties)
+edjpSubmitTime :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe Core.NominalDiffTime)
+edjpSubmitTime = Lens.field @"submitTime"
 {-# DEPRECATED edjpSubmitTime "Use generic-lens or generic-optics with 'submitTime' instead." #-}
 
-instance Lude.FromJSON EventsDetectionJobProperties where
+-- | The types of events that are detected by the job.
+--
+-- /Note:/ Consider using 'targetEventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edjpTargetEventTypes :: Lens.Lens' EventsDetectionJobProperties (Core.Maybe (Core.NonEmpty Types.EventTypeString))
+edjpTargetEventTypes = Lens.field @"targetEventTypes"
+{-# DEPRECATED edjpTargetEventTypes "Use generic-lens or generic-optics with 'targetEventTypes' instead." #-}
+
+instance Core.FromJSON EventsDetectionJobProperties where
   parseJSON =
-    Lude.withObject
-      "EventsDetectionJobProperties"
-      ( \x ->
-          EventsDetectionJobProperties'
-            Lude.<$> (x Lude..:? "LanguageCode")
-            Lude.<*> (x Lude..:? "JobId")
-            Lude.<*> (x Lude..:? "JobName")
-            Lude.<*> (x Lude..:? "TargetEventTypes")
-            Lude.<*> (x Lude..:? "InputDataConfig")
-            Lude.<*> (x Lude..:? "EndTime")
-            Lude.<*> (x Lude..:? "OutputDataConfig")
-            Lude.<*> (x Lude..:? "DataAccessRoleArn")
-            Lude.<*> (x Lude..:? "JobStatus")
-            Lude.<*> (x Lude..:? "Message")
-            Lude.<*> (x Lude..:? "SubmitTime")
-      )
+    Core.withObject "EventsDetectionJobProperties" Core.$
+      \x ->
+        EventsDetectionJobProperties'
+          Core.<$> (x Core..:? "DataAccessRoleArn")
+          Core.<*> (x Core..:? "EndTime")
+          Core.<*> (x Core..:? "InputDataConfig")
+          Core.<*> (x Core..:? "JobId")
+          Core.<*> (x Core..:? "JobName")
+          Core.<*> (x Core..:? "JobStatus")
+          Core.<*> (x Core..:? "LanguageCode")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "OutputDataConfig")
+          Core.<*> (x Core..:? "SubmitTime")
+          Core.<*> (x Core..:? "TargetEventTypes")

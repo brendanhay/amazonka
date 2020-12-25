@@ -17,70 +17,61 @@ module Network.AWS.Pinpoint.Types.WriteEventStream
     mkWriteEventStream,
 
     -- * Lenses
-    wesDestinationStreamARN,
-    wesRoleARN,
+    wesRoleArn,
+    wesDestinationStreamArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the Amazon Resource Name (ARN) of an event stream to publish events to and the AWS Identity and Access Management (IAM) role to use when publishing those events.
 --
 -- /See:/ 'mkWriteEventStream' smart constructor.
 data WriteEventStream = WriteEventStream'
-  { -- | The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
+  { -- | The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.
+    roleArn :: Core.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
     --
     -- For a Kinesis data stream, the ARN format is: arn:aws:kinesis:<replaceable>region:<replaceable>account-id:stream/<replaceable>stream_name
     -- For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:<replaceable>region:<replaceable>account-id:deliverystream/<replaceable>stream_name
-    destinationStreamARN :: Lude.Text,
-    -- | The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.
-    roleARN :: Lude.Text
+    destinationStreamArn :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WriteEventStream' with the minimum fields required to make a request.
---
--- * 'destinationStreamARN' - The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
---
--- For a Kinesis data stream, the ARN format is: arn:aws:kinesis:<replaceable>region:<replaceable>account-id:stream/<replaceable>stream_name
--- For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:<replaceable>region:<replaceable>account-id:deliverystream/<replaceable>stream_name
--- * 'roleARN' - The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.
+-- | Creates a 'WriteEventStream' value with any optional fields omitted.
 mkWriteEventStream ::
-  -- | 'destinationStreamARN'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  -- | 'roleArn'
+  Core.Text ->
+  -- | 'destinationStreamArn'
+  Core.Text ->
   WriteEventStream
-mkWriteEventStream pDestinationStreamARN_ pRoleARN_ =
-  WriteEventStream'
-    { destinationStreamARN = pDestinationStreamARN_,
-      roleARN = pRoleARN_
-    }
+mkWriteEventStream roleArn destinationStreamArn =
+  WriteEventStream' {roleArn, destinationStreamArn}
+
+-- | The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wesRoleArn :: Lens.Lens' WriteEventStream Core.Text
+wesRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED wesRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream that you want to publish event data to.
 --
 -- For a Kinesis data stream, the ARN format is: arn:aws:kinesis:<replaceable>region:<replaceable>account-id:stream/<replaceable>stream_name
 -- For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:<replaceable>region:<replaceable>account-id:deliverystream/<replaceable>stream_name
 --
--- /Note:/ Consider using 'destinationStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wesDestinationStreamARN :: Lens.Lens' WriteEventStream Lude.Text
-wesDestinationStreamARN = Lens.lens (destinationStreamARN :: WriteEventStream -> Lude.Text) (\s a -> s {destinationStreamARN = a} :: WriteEventStream)
-{-# DEPRECATED wesDestinationStreamARN "Use generic-lens or generic-optics with 'destinationStreamARN' instead." #-}
+-- /Note:/ Consider using 'destinationStreamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wesDestinationStreamArn :: Lens.Lens' WriteEventStream Core.Text
+wesDestinationStreamArn = Lens.field @"destinationStreamArn"
+{-# DEPRECATED wesDestinationStreamArn "Use generic-lens or generic-optics with 'destinationStreamArn' instead." #-}
 
--- | The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wesRoleARN :: Lens.Lens' WriteEventStream Lude.Text
-wesRoleARN = Lens.lens (roleARN :: WriteEventStream -> Lude.Text) (\s a -> s {roleARN = a} :: WriteEventStream)
-{-# DEPRECATED wesRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.ToJSON WriteEventStream where
-  toJSON WriteEventStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DestinationStreamArn" Lude..= destinationStreamARN),
-            Lude.Just ("RoleArn" Lude..= roleARN)
+instance Core.FromJSON WriteEventStream where
+  toJSON WriteEventStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RoleArn" Core..= roleArn),
+            Core.Just ("DestinationStreamArn" Core..= destinationStreamArn)
           ]
       )

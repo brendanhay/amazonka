@@ -17,57 +17,53 @@ module Network.AWS.EMR.Types.SecurityConfigurationSummary
     mkSecurityConfigurationSummary,
 
     -- * Lenses
-    scsName,
     scsCreationDateTime,
+    scsName,
   )
 where
 
+import qualified Network.AWS.EMR.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The creation date and time, and name, of a security configuration.
 --
 -- /See:/ 'mkSecurityConfigurationSummary' smart constructor.
 data SecurityConfigurationSummary = SecurityConfigurationSummary'
-  { -- | The name of the security configuration.
-    name :: Lude.Maybe Lude.Text,
-    -- | The date and time the security configuration was created.
-    creationDateTime :: Lude.Maybe Lude.Timestamp
+  { -- | The date and time the security configuration was created.
+    creationDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the security configuration.
+    name :: Core.Maybe Types.XmlString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SecurityConfigurationSummary' with the minimum fields required to make a request.
---
--- * 'name' - The name of the security configuration.
--- * 'creationDateTime' - The date and time the security configuration was created.
+-- | Creates a 'SecurityConfigurationSummary' value with any optional fields omitted.
 mkSecurityConfigurationSummary ::
   SecurityConfigurationSummary
 mkSecurityConfigurationSummary =
   SecurityConfigurationSummary'
-    { name = Lude.Nothing,
-      creationDateTime = Lude.Nothing
+    { creationDateTime = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The name of the security configuration.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsName :: Lens.Lens' SecurityConfigurationSummary (Lude.Maybe Lude.Text)
-scsName = Lens.lens (name :: SecurityConfigurationSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SecurityConfigurationSummary)
-{-# DEPRECATED scsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date and time the security configuration was created.
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsCreationDateTime :: Lens.Lens' SecurityConfigurationSummary (Lude.Maybe Lude.Timestamp)
-scsCreationDateTime = Lens.lens (creationDateTime :: SecurityConfigurationSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: SecurityConfigurationSummary)
+scsCreationDateTime :: Lens.Lens' SecurityConfigurationSummary (Core.Maybe Core.NominalDiffTime)
+scsCreationDateTime = Lens.field @"creationDateTime"
 {-# DEPRECATED scsCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
-instance Lude.FromJSON SecurityConfigurationSummary where
+-- | The name of the security configuration.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scsName :: Lens.Lens' SecurityConfigurationSummary (Core.Maybe Types.XmlString)
+scsName = Lens.field @"name"
+{-# DEPRECATED scsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON SecurityConfigurationSummary where
   parseJSON =
-    Lude.withObject
-      "SecurityConfigurationSummary"
-      ( \x ->
-          SecurityConfigurationSummary'
-            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "CreationDateTime")
-      )
+    Core.withObject "SecurityConfigurationSummary" Core.$
+      \x ->
+        SecurityConfigurationSummary'
+          Core.<$> (x Core..:? "CreationDateTime") Core.<*> (x Core..:? "Name")

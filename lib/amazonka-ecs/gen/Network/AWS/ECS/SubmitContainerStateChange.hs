@@ -20,215 +20,197 @@ module Network.AWS.ECS.SubmitContainerStateChange
     mkSubmitContainerStateChange,
 
     -- ** Request lenses
-    scscNetworkBindings,
-    scscStatus,
     scscCluster,
     scscContainerName,
-    scscReason,
     scscExitCode,
-    scscTask,
+    scscNetworkBindings,
+    scscReason,
     scscRuntimeId,
+    scscStatus,
+    scscTask,
 
     -- * Destructuring the response
     SubmitContainerStateChangeResponse (..),
     mkSubmitContainerStateChangeResponse,
 
     -- ** Response lenses
-    scscrsAcknowledgment,
-    scscrsResponseStatus,
+    scscrrsAcknowledgment,
+    scscrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSubmitContainerStateChange' smart constructor.
 data SubmitContainerStateChange = SubmitContainerStateChange'
-  { -- | The network bindings of the container.
-    networkBindings :: Lude.Maybe [NetworkBinding],
-    -- | The status of the state change request.
-    status :: Lude.Maybe Lude.Text,
-    -- | The short name or full ARN of the cluster that hosts the container.
-    cluster :: Lude.Maybe Lude.Text,
+  { -- | The short name or full ARN of the cluster that hosts the container.
+    cluster :: Core.Maybe Types.String,
     -- | The name of the container.
-    containerName :: Lude.Maybe Lude.Text,
-    -- | The reason for the state change request.
-    reason :: Lude.Maybe Lude.Text,
+    containerName :: Core.Maybe Types.String,
     -- | The exit code returned for the state change request.
-    exitCode :: Lude.Maybe Lude.Int,
-    -- | The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
-    task :: Lude.Maybe Lude.Text,
+    exitCode :: Core.Maybe Core.Int,
+    -- | The network bindings of the container.
+    networkBindings :: Core.Maybe [Types.NetworkBinding],
+    -- | The reason for the state change request.
+    reason :: Core.Maybe Types.String,
     -- | The ID of the Docker container.
-    runtimeId :: Lude.Maybe Lude.Text
+    runtimeId :: Core.Maybe Types.String,
+    -- | The status of the state change request.
+    status :: Core.Maybe Types.String,
+    -- | The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
+    task :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubmitContainerStateChange' with the minimum fields required to make a request.
---
--- * 'networkBindings' - The network bindings of the container.
--- * 'status' - The status of the state change request.
--- * 'cluster' - The short name or full ARN of the cluster that hosts the container.
--- * 'containerName' - The name of the container.
--- * 'reason' - The reason for the state change request.
--- * 'exitCode' - The exit code returned for the state change request.
--- * 'task' - The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
--- * 'runtimeId' - The ID of the Docker container.
+-- | Creates a 'SubmitContainerStateChange' value with any optional fields omitted.
 mkSubmitContainerStateChange ::
   SubmitContainerStateChange
 mkSubmitContainerStateChange =
   SubmitContainerStateChange'
-    { networkBindings = Lude.Nothing,
-      status = Lude.Nothing,
-      cluster = Lude.Nothing,
-      containerName = Lude.Nothing,
-      reason = Lude.Nothing,
-      exitCode = Lude.Nothing,
-      task = Lude.Nothing,
-      runtimeId = Lude.Nothing
+    { cluster = Core.Nothing,
+      containerName = Core.Nothing,
+      exitCode = Core.Nothing,
+      networkBindings = Core.Nothing,
+      reason = Core.Nothing,
+      runtimeId = Core.Nothing,
+      status = Core.Nothing,
+      task = Core.Nothing
     }
-
--- | The network bindings of the container.
---
--- /Note:/ Consider using 'networkBindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscNetworkBindings :: Lens.Lens' SubmitContainerStateChange (Lude.Maybe [NetworkBinding])
-scscNetworkBindings = Lens.lens (networkBindings :: SubmitContainerStateChange -> Lude.Maybe [NetworkBinding]) (\s a -> s {networkBindings = a} :: SubmitContainerStateChange)
-{-# DEPRECATED scscNetworkBindings "Use generic-lens or generic-optics with 'networkBindings' instead." #-}
-
--- | The status of the state change request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscStatus :: Lens.Lens' SubmitContainerStateChange (Lude.Maybe Lude.Text)
-scscStatus = Lens.lens (status :: SubmitContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: SubmitContainerStateChange)
-{-# DEPRECATED scscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The short name or full ARN of the cluster that hosts the container.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscCluster :: Lens.Lens' SubmitContainerStateChange (Lude.Maybe Lude.Text)
-scscCluster = Lens.lens (cluster :: SubmitContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: SubmitContainerStateChange)
+scscCluster :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Types.String)
+scscCluster = Lens.field @"cluster"
 {-# DEPRECATED scscCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The name of the container.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscContainerName :: Lens.Lens' SubmitContainerStateChange (Lude.Maybe Lude.Text)
-scscContainerName = Lens.lens (containerName :: SubmitContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {containerName = a} :: SubmitContainerStateChange)
+scscContainerName :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Types.String)
+scscContainerName = Lens.field @"containerName"
 {-# DEPRECATED scscContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
-
--- | The reason for the state change request.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscReason :: Lens.Lens' SubmitContainerStateChange (Lude.Maybe Lude.Text)
-scscReason = Lens.lens (reason :: SubmitContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: SubmitContainerStateChange)
-{-# DEPRECATED scscReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The exit code returned for the state change request.
 --
 -- /Note:/ Consider using 'exitCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscExitCode :: Lens.Lens' SubmitContainerStateChange (Lude.Maybe Lude.Int)
-scscExitCode = Lens.lens (exitCode :: SubmitContainerStateChange -> Lude.Maybe Lude.Int) (\s a -> s {exitCode = a} :: SubmitContainerStateChange)
+scscExitCode :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Core.Int)
+scscExitCode = Lens.field @"exitCode"
 {-# DEPRECATED scscExitCode "Use generic-lens or generic-optics with 'exitCode' instead." #-}
 
--- | The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
+-- | The network bindings of the container.
 --
--- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscTask :: Lens.Lens' SubmitContainerStateChange (Lude.Maybe Lude.Text)
-scscTask = Lens.lens (task :: SubmitContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {task = a} :: SubmitContainerStateChange)
-{-# DEPRECATED scscTask "Use generic-lens or generic-optics with 'task' instead." #-}
+-- /Note:/ Consider using 'networkBindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scscNetworkBindings :: Lens.Lens' SubmitContainerStateChange (Core.Maybe [Types.NetworkBinding])
+scscNetworkBindings = Lens.field @"networkBindings"
+{-# DEPRECATED scscNetworkBindings "Use generic-lens or generic-optics with 'networkBindings' instead." #-}
+
+-- | The reason for the state change request.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scscReason :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Types.String)
+scscReason = Lens.field @"reason"
+{-# DEPRECATED scscReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The ID of the Docker container.
 --
 -- /Note:/ Consider using 'runtimeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscRuntimeId :: Lens.Lens' SubmitContainerStateChange (Lude.Maybe Lude.Text)
-scscRuntimeId = Lens.lens (runtimeId :: SubmitContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {runtimeId = a} :: SubmitContainerStateChange)
+scscRuntimeId :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Types.String)
+scscRuntimeId = Lens.field @"runtimeId"
 {-# DEPRECATED scscRuntimeId "Use generic-lens or generic-optics with 'runtimeId' instead." #-}
 
-instance Lude.AWSRequest SubmitContainerStateChange where
+-- | The status of the state change request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scscStatus :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Types.String)
+scscStatus = Lens.field @"status"
+{-# DEPRECATED scscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
+--
+-- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scscTask :: Lens.Lens' SubmitContainerStateChange (Core.Maybe Types.String)
+scscTask = Lens.field @"task"
+{-# DEPRECATED scscTask "Use generic-lens or generic-optics with 'task' instead." #-}
+
+instance Core.FromJSON SubmitContainerStateChange where
+  toJSON SubmitContainerStateChange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("cluster" Core..=) Core.<$> cluster,
+            ("containerName" Core..=) Core.<$> containerName,
+            ("exitCode" Core..=) Core.<$> exitCode,
+            ("networkBindings" Core..=) Core.<$> networkBindings,
+            ("reason" Core..=) Core.<$> reason,
+            ("runtimeId" Core..=) Core.<$> runtimeId,
+            ("status" Core..=) Core.<$> status,
+            ("task" Core..=) Core.<$> task
+          ]
+      )
+
+instance Core.AWSRequest SubmitContainerStateChange where
   type
     Rs SubmitContainerStateChange =
       SubmitContainerStateChangeResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SubmitContainerStateChangeResponse'
-            Lude.<$> (x Lude..?> "acknowledgment")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "acknowledgment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SubmitContainerStateChange where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SubmitContainerStateChange where
-  toJSON SubmitContainerStateChange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("networkBindings" Lude..=) Lude.<$> networkBindings,
-            ("status" Lude..=) Lude.<$> status,
-            ("cluster" Lude..=) Lude.<$> cluster,
-            ("containerName" Lude..=) Lude.<$> containerName,
-            ("reason" Lude..=) Lude.<$> reason,
-            ("exitCode" Lude..=) Lude.<$> exitCode,
-            ("task" Lude..=) Lude.<$> task,
-            ("runtimeId" Lude..=) Lude.<$> runtimeId
-          ]
-      )
-
-instance Lude.ToPath SubmitContainerStateChange where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SubmitContainerStateChange where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSubmitContainerStateChangeResponse' smart constructor.
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
   { -- | Acknowledgement of the state change.
-    acknowledgment :: Lude.Maybe Lude.Text,
+    acknowledgment :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubmitContainerStateChangeResponse' with the minimum fields required to make a request.
---
--- * 'acknowledgment' - Acknowledgement of the state change.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SubmitContainerStateChangeResponse' value with any optional fields omitted.
 mkSubmitContainerStateChangeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SubmitContainerStateChangeResponse
-mkSubmitContainerStateChangeResponse pResponseStatus_ =
+mkSubmitContainerStateChangeResponse responseStatus =
   SubmitContainerStateChangeResponse'
     { acknowledgment =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Acknowledgement of the state change.
 --
 -- /Note:/ Consider using 'acknowledgment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscrsAcknowledgment :: Lens.Lens' SubmitContainerStateChangeResponse (Lude.Maybe Lude.Text)
-scscrsAcknowledgment = Lens.lens (acknowledgment :: SubmitContainerStateChangeResponse -> Lude.Maybe Lude.Text) (\s a -> s {acknowledgment = a} :: SubmitContainerStateChangeResponse)
-{-# DEPRECATED scscrsAcknowledgment "Use generic-lens or generic-optics with 'acknowledgment' instead." #-}
+scscrrsAcknowledgment :: Lens.Lens' SubmitContainerStateChangeResponse (Core.Maybe Types.String)
+scscrrsAcknowledgment = Lens.field @"acknowledgment"
+{-# DEPRECATED scscrrsAcknowledgment "Use generic-lens or generic-optics with 'acknowledgment' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scscrsResponseStatus :: Lens.Lens' SubmitContainerStateChangeResponse Lude.Int
-scscrsResponseStatus = Lens.lens (responseStatus :: SubmitContainerStateChangeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SubmitContainerStateChangeResponse)
-{-# DEPRECATED scscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scscrrsResponseStatus :: Lens.Lens' SubmitContainerStateChangeResponse Core.Int
+scscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

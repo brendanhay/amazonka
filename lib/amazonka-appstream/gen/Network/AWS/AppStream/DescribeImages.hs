@@ -22,194 +22,180 @@ module Network.AWS.AppStream.DescribeImages
     mkDescribeImages,
 
     -- ** Request lenses
-    diNextToken,
-    diNames,
-    diType,
-    diARNs,
+    diArns,
     diMaxResults,
+    diNames,
+    diNextToken,
+    diType,
 
     -- * Destructuring the response
     DescribeImagesResponse (..),
     mkDescribeImagesResponse,
 
     -- ** Response lenses
-    disrsImages,
-    disrsNextToken,
-    disrsResponseStatus,
+    dirfrsImages,
+    dirfrsNextToken,
+    dirfrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeImages' smart constructor.
 data DescribeImages = DescribeImages'
-  { -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The names of the public or private images to describe.
-    names :: Lude.Maybe [Lude.Text],
-    -- | The type of image (public, private, or shared) to describe.
-    type' :: Lude.Maybe VisibilityType,
-    -- | The ARNs of the public, private, and shared images to describe.
-    arns :: Lude.Maybe [Lude.Text],
+  { -- | The ARNs of the public, private, and shared images to describe.
+    arns :: Core.Maybe [Types.Arn],
     -- | The maximum size of each page of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The names of the public or private images to describe.
+    names :: Core.Maybe [Types.String],
+    -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Core.Maybe Types.String,
+    -- | The type of image (public, private, or shared) to describe.
+    type' :: Core.Maybe Types.VisibilityType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeImages' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
--- * 'names' - The names of the public or private images to describe.
--- * 'type'' - The type of image (public, private, or shared) to describe.
--- * 'arns' - The ARNs of the public, private, and shared images to describe.
--- * 'maxResults' - The maximum size of each page of results.
+-- | Creates a 'DescribeImages' value with any optional fields omitted.
 mkDescribeImages ::
   DescribeImages
 mkDescribeImages =
   DescribeImages'
-    { nextToken = Lude.Nothing,
-      names = Lude.Nothing,
-      type' = Lude.Nothing,
-      arns = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { arns = Core.Nothing,
+      maxResults = Core.Nothing,
+      names = Core.Nothing,
+      nextToken = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diNextToken :: Lens.Lens' DescribeImages (Lude.Maybe Lude.Text)
-diNextToken = Lens.lens (nextToken :: DescribeImages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImages)
-{-# DEPRECATED diNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The names of the public or private images to describe.
---
--- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diNames :: Lens.Lens' DescribeImages (Lude.Maybe [Lude.Text])
-diNames = Lens.lens (names :: DescribeImages -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: DescribeImages)
-{-# DEPRECATED diNames "Use generic-lens or generic-optics with 'names' instead." #-}
-
--- | The type of image (public, private, or shared) to describe.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diType :: Lens.Lens' DescribeImages (Lude.Maybe VisibilityType)
-diType = Lens.lens (type' :: DescribeImages -> Lude.Maybe VisibilityType) (\s a -> s {type' = a} :: DescribeImages)
-{-# DEPRECATED diType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The ARNs of the public, private, and shared images to describe.
 --
 -- /Note:/ Consider using 'arns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diARNs :: Lens.Lens' DescribeImages (Lude.Maybe [Lude.Text])
-diARNs = Lens.lens (arns :: DescribeImages -> Lude.Maybe [Lude.Text]) (\s a -> s {arns = a} :: DescribeImages)
-{-# DEPRECATED diARNs "Use generic-lens or generic-optics with 'arns' instead." #-}
+diArns :: Lens.Lens' DescribeImages (Core.Maybe [Types.Arn])
+diArns = Lens.field @"arns"
+{-# DEPRECATED diArns "Use generic-lens or generic-optics with 'arns' instead." #-}
 
 -- | The maximum size of each page of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diMaxResults :: Lens.Lens' DescribeImages (Lude.Maybe Lude.Natural)
-diMaxResults = Lens.lens (maxResults :: DescribeImages -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeImages)
+diMaxResults :: Lens.Lens' DescribeImages (Core.Maybe Core.Natural)
+diMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED diMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeImages where
-  page rq rs
-    | Page.stop (rs Lens.^. disrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. disrsImages) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& diNextToken Lens..~ rs Lens.^. disrsNextToken
+-- | The names of the public or private images to describe.
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diNames :: Lens.Lens' DescribeImages (Core.Maybe [Types.String])
+diNames = Lens.field @"names"
+{-# DEPRECATED diNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
-instance Lude.AWSRequest DescribeImages where
+-- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diNextToken :: Lens.Lens' DescribeImages (Core.Maybe Types.String)
+diNextToken = Lens.field @"nextToken"
+{-# DEPRECATED diNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The type of image (public, private, or shared) to describe.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diType :: Lens.Lens' DescribeImages (Core.Maybe Types.VisibilityType)
+diType = Lens.field @"type'"
+{-# DEPRECATED diType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON DescribeImages where
+  toJSON DescribeImages {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Arns" Core..=) Core.<$> arns,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Names" Core..=) Core.<$> names,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Type" Core..=) Core.<$> type'
+          ]
+      )
+
+instance Core.AWSRequest DescribeImages where
   type Rs DescribeImages = DescribeImagesResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.DescribeImages")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeImagesResponse'
-            Lude.<$> (x Lude..?> "Images" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Images")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeImages where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.DescribeImages" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeImages where
-  toJSON DescribeImages' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Names" Lude..=) Lude.<$> names,
-            ("Type" Lude..=) Lude.<$> type',
-            ("Arns" Lude..=) Lude.<$> arns,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeImages where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeImages where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeImages where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"images" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
   { -- | Information about the images.
-    images :: Lude.Maybe [Image],
+    images :: Core.Maybe [Types.Image],
     -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
---
--- * 'images' - Information about the images.
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeImagesResponse' value with any optional fields omitted.
 mkDescribeImagesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeImagesResponse
-mkDescribeImagesResponse pResponseStatus_ =
+mkDescribeImagesResponse responseStatus =
   DescribeImagesResponse'
-    { images = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { images = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the images.
 --
 -- /Note:/ Consider using 'images' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsImages :: Lens.Lens' DescribeImagesResponse (Lude.Maybe [Image])
-disrsImages = Lens.lens (images :: DescribeImagesResponse -> Lude.Maybe [Image]) (\s a -> s {images = a} :: DescribeImagesResponse)
-{-# DEPRECATED disrsImages "Use generic-lens or generic-optics with 'images' instead." #-}
+dirfrsImages :: Lens.Lens' DescribeImagesResponse (Core.Maybe [Types.Image])
+dirfrsImages = Lens.field @"images"
+{-# DEPRECATED dirfrsImages "Use generic-lens or generic-optics with 'images' instead." #-}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsNextToken :: Lens.Lens' DescribeImagesResponse (Lude.Maybe Lude.Text)
-disrsNextToken = Lens.lens (nextToken :: DescribeImagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImagesResponse)
-{-# DEPRECATED disrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dirfrsNextToken :: Lens.Lens' DescribeImagesResponse (Core.Maybe Types.String)
+dirfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dirfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DescribeImagesResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DescribeImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImagesResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirfrsResponseStatus :: Lens.Lens' DescribeImagesResponse Core.Int
+dirfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dirfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

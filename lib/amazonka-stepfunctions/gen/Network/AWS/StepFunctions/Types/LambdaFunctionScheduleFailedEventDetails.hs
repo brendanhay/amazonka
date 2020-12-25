@@ -17,57 +17,54 @@ module Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails
     mkLambdaFunctionScheduleFailedEventDetails,
 
     -- * Lenses
-    lError,
-    lCause,
+    lfsfedCause,
+    lfsfedError,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.SensitiveCause as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveError as Types
 
 -- | Contains details about a failed lambda function schedule event that occurred during an execution.
 --
 -- /See:/ 'mkLambdaFunctionScheduleFailedEventDetails' smart constructor.
 data LambdaFunctionScheduleFailedEventDetails = LambdaFunctionScheduleFailedEventDetails'
-  { -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A more detailed explanation of the cause of the failure.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
+  { -- | A more detailed explanation of the cause of the failure.
+    cause :: Core.Maybe Types.SensitiveCause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.SensitiveError
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaFunctionScheduleFailedEventDetails' with the minimum fields required to make a request.
---
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the failure.
+-- | Creates a 'LambdaFunctionScheduleFailedEventDetails' value with any optional fields omitted.
 mkLambdaFunctionScheduleFailedEventDetails ::
   LambdaFunctionScheduleFailedEventDetails
 mkLambdaFunctionScheduleFailedEventDetails =
   LambdaFunctionScheduleFailedEventDetails'
-    { error = Lude.Nothing,
-      cause = Lude.Nothing
+    { cause = Core.Nothing,
+      error = Core.Nothing
     }
-
--- | The error code of the failure.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lError :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-lError = Lens.lens (error :: LambdaFunctionScheduleFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: LambdaFunctionScheduleFailedEventDetails)
-{-# DEPRECATED lError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
 --
 -- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lCause :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-lCause = Lens.lens (cause :: LambdaFunctionScheduleFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: LambdaFunctionScheduleFailedEventDetails)
-{-# DEPRECATED lCause "Use generic-lens or generic-optics with 'cause' instead." #-}
+lfsfedCause :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Core.Maybe Types.SensitiveCause)
+lfsfedCause = Lens.field @"cause"
+{-# DEPRECATED lfsfedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
-instance Lude.FromJSON LambdaFunctionScheduleFailedEventDetails where
+-- | The error code of the failure.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfsfedError :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Core.Maybe Types.SensitiveError)
+lfsfedError = Lens.field @"error"
+{-# DEPRECATED lfsfedError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON LambdaFunctionScheduleFailedEventDetails where
   parseJSON =
-    Lude.withObject
-      "LambdaFunctionScheduleFailedEventDetails"
-      ( \x ->
-          LambdaFunctionScheduleFailedEventDetails'
-            Lude.<$> (x Lude..:? "error") Lude.<*> (x Lude..:? "cause")
-      )
+    Core.withObject "LambdaFunctionScheduleFailedEventDetails" Core.$
+      \x ->
+        LambdaFunctionScheduleFailedEventDetails'
+          Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")

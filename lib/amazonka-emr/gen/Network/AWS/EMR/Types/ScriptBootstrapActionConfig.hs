@@ -17,54 +17,52 @@ module Network.AWS.EMR.Types.ScriptBootstrapActionConfig
     mkScriptBootstrapActionConfig,
 
     -- * Lenses
-    sbacArgs,
     sbacPath,
+    sbacArgs,
   )
 where
 
+import qualified Network.AWS.EMR.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration of the script to run during a bootstrap action.
 --
 -- /See:/ 'mkScriptBootstrapActionConfig' smart constructor.
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
-  { -- | A list of command line arguments to pass to the bootstrap action script.
-    args :: Lude.Maybe [Lude.Text],
-    -- | Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-    path :: Lude.Text
+  { -- | Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
+    path :: Types.XmlString,
+    -- | A list of command line arguments to pass to the bootstrap action script.
+    args :: Core.Maybe [Types.XmlString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScriptBootstrapActionConfig' with the minimum fields required to make a request.
---
--- * 'args' - A list of command line arguments to pass to the bootstrap action script.
--- * 'path' - Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
+-- | Creates a 'ScriptBootstrapActionConfig' value with any optional fields omitted.
 mkScriptBootstrapActionConfig ::
   -- | 'path'
-  Lude.Text ->
+  Types.XmlString ->
   ScriptBootstrapActionConfig
-mkScriptBootstrapActionConfig pPath_ =
-  ScriptBootstrapActionConfig' {args = Lude.Nothing, path = pPath_}
-
--- | A list of command line arguments to pass to the bootstrap action script.
---
--- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbacArgs :: Lens.Lens' ScriptBootstrapActionConfig (Lude.Maybe [Lude.Text])
-sbacArgs = Lens.lens (args :: ScriptBootstrapActionConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: ScriptBootstrapActionConfig)
-{-# DEPRECATED sbacArgs "Use generic-lens or generic-optics with 'args' instead." #-}
+mkScriptBootstrapActionConfig path =
+  ScriptBootstrapActionConfig' {path, args = Core.Nothing}
 
 -- | Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbacPath :: Lens.Lens' ScriptBootstrapActionConfig Lude.Text
-sbacPath = Lens.lens (path :: ScriptBootstrapActionConfig -> Lude.Text) (\s a -> s {path = a} :: ScriptBootstrapActionConfig)
+sbacPath :: Lens.Lens' ScriptBootstrapActionConfig Types.XmlString
+sbacPath = Lens.field @"path"
 {-# DEPRECATED sbacPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
-instance Lude.ToJSON ScriptBootstrapActionConfig where
-  toJSON ScriptBootstrapActionConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Args" Lude..=) Lude.<$> args, Lude.Just ("Path" Lude..= path)]
+-- | A list of command line arguments to pass to the bootstrap action script.
+--
+-- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbacArgs :: Lens.Lens' ScriptBootstrapActionConfig (Core.Maybe [Types.XmlString])
+sbacArgs = Lens.field @"args"
+{-# DEPRECATED sbacArgs "Use generic-lens or generic-optics with 'args' instead." #-}
+
+instance Core.FromJSON ScriptBootstrapActionConfig where
+  toJSON ScriptBootstrapActionConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Path" Core..= path), ("Args" Core..=) Core.<$> args]
       )

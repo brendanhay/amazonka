@@ -17,123 +17,116 @@ module Network.AWS.ECS.Types.ContainerStateChange
     mkContainerStateChange,
 
     -- * Lenses
-    cscNetworkBindings,
-    cscStatus,
     cscContainerName,
-    cscReason,
-    cscImageDigest,
     cscExitCode,
+    cscImageDigest,
+    cscNetworkBindings,
+    cscReason,
     cscRuntimeId,
+    cscStatus,
   )
 where
 
-import Network.AWS.ECS.Types.NetworkBinding
+import qualified Network.AWS.ECS.Types.NetworkBinding as Types
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a change in state for a container.
 --
 -- /See:/ 'mkContainerStateChange' smart constructor.
 data ContainerStateChange = ContainerStateChange'
-  { -- | Any network bindings associated with the container.
-    networkBindings :: Lude.Maybe [NetworkBinding],
-    -- | The status of the container.
-    status :: Lude.Maybe Lude.Text,
-    -- | The name of the container.
-    containerName :: Lude.Maybe Lude.Text,
-    -- | The reason for the state change.
-    reason :: Lude.Maybe Lude.Text,
-    -- | The container image SHA 256 digest.
-    imageDigest :: Lude.Maybe Lude.Text,
+  { -- | The name of the container.
+    containerName :: Core.Maybe Types.String,
     -- | The exit code for the container, if the state change is a result of the container exiting.
-    exitCode :: Lude.Maybe Lude.Int,
+    exitCode :: Core.Maybe Core.Int,
+    -- | The container image SHA 256 digest.
+    imageDigest :: Core.Maybe Types.String,
+    -- | Any network bindings associated with the container.
+    networkBindings :: Core.Maybe [Types.NetworkBinding],
+    -- | The reason for the state change.
+    reason :: Core.Maybe Types.String,
     -- | The ID of the Docker container.
-    runtimeId :: Lude.Maybe Lude.Text
+    runtimeId :: Core.Maybe Types.String,
+    -- | The status of the container.
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContainerStateChange' with the minimum fields required to make a request.
---
--- * 'networkBindings' - Any network bindings associated with the container.
--- * 'status' - The status of the container.
--- * 'containerName' - The name of the container.
--- * 'reason' - The reason for the state change.
--- * 'imageDigest' - The container image SHA 256 digest.
--- * 'exitCode' - The exit code for the container, if the state change is a result of the container exiting.
--- * 'runtimeId' - The ID of the Docker container.
+-- | Creates a 'ContainerStateChange' value with any optional fields omitted.
 mkContainerStateChange ::
   ContainerStateChange
 mkContainerStateChange =
   ContainerStateChange'
-    { networkBindings = Lude.Nothing,
-      status = Lude.Nothing,
-      containerName = Lude.Nothing,
-      reason = Lude.Nothing,
-      imageDigest = Lude.Nothing,
-      exitCode = Lude.Nothing,
-      runtimeId = Lude.Nothing
+    { containerName = Core.Nothing,
+      exitCode = Core.Nothing,
+      imageDigest = Core.Nothing,
+      networkBindings = Core.Nothing,
+      reason = Core.Nothing,
+      runtimeId = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | Any network bindings associated with the container.
---
--- /Note:/ Consider using 'networkBindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscNetworkBindings :: Lens.Lens' ContainerStateChange (Lude.Maybe [NetworkBinding])
-cscNetworkBindings = Lens.lens (networkBindings :: ContainerStateChange -> Lude.Maybe [NetworkBinding]) (\s a -> s {networkBindings = a} :: ContainerStateChange)
-{-# DEPRECATED cscNetworkBindings "Use generic-lens or generic-optics with 'networkBindings' instead." #-}
-
--- | The status of the container.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscStatus :: Lens.Lens' ContainerStateChange (Lude.Maybe Lude.Text)
-cscStatus = Lens.lens (status :: ContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ContainerStateChange)
-{-# DEPRECATED cscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the container.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscContainerName :: Lens.Lens' ContainerStateChange (Lude.Maybe Lude.Text)
-cscContainerName = Lens.lens (containerName :: ContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {containerName = a} :: ContainerStateChange)
+cscContainerName :: Lens.Lens' ContainerStateChange (Core.Maybe Types.String)
+cscContainerName = Lens.field @"containerName"
 {-# DEPRECATED cscContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
-
--- | The reason for the state change.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscReason :: Lens.Lens' ContainerStateChange (Lude.Maybe Lude.Text)
-cscReason = Lens.lens (reason :: ContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: ContainerStateChange)
-{-# DEPRECATED cscReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
--- | The container image SHA 256 digest.
---
--- /Note:/ Consider using 'imageDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscImageDigest :: Lens.Lens' ContainerStateChange (Lude.Maybe Lude.Text)
-cscImageDigest = Lens.lens (imageDigest :: ContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {imageDigest = a} :: ContainerStateChange)
-{-# DEPRECATED cscImageDigest "Use generic-lens or generic-optics with 'imageDigest' instead." #-}
 
 -- | The exit code for the container, if the state change is a result of the container exiting.
 --
 -- /Note:/ Consider using 'exitCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscExitCode :: Lens.Lens' ContainerStateChange (Lude.Maybe Lude.Int)
-cscExitCode = Lens.lens (exitCode :: ContainerStateChange -> Lude.Maybe Lude.Int) (\s a -> s {exitCode = a} :: ContainerStateChange)
+cscExitCode :: Lens.Lens' ContainerStateChange (Core.Maybe Core.Int)
+cscExitCode = Lens.field @"exitCode"
 {-# DEPRECATED cscExitCode "Use generic-lens or generic-optics with 'exitCode' instead." #-}
+
+-- | The container image SHA 256 digest.
+--
+-- /Note:/ Consider using 'imageDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscImageDigest :: Lens.Lens' ContainerStateChange (Core.Maybe Types.String)
+cscImageDigest = Lens.field @"imageDigest"
+{-# DEPRECATED cscImageDigest "Use generic-lens or generic-optics with 'imageDigest' instead." #-}
+
+-- | Any network bindings associated with the container.
+--
+-- /Note:/ Consider using 'networkBindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscNetworkBindings :: Lens.Lens' ContainerStateChange (Core.Maybe [Types.NetworkBinding])
+cscNetworkBindings = Lens.field @"networkBindings"
+{-# DEPRECATED cscNetworkBindings "Use generic-lens or generic-optics with 'networkBindings' instead." #-}
+
+-- | The reason for the state change.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscReason :: Lens.Lens' ContainerStateChange (Core.Maybe Types.String)
+cscReason = Lens.field @"reason"
+{-# DEPRECATED cscReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The ID of the Docker container.
 --
 -- /Note:/ Consider using 'runtimeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscRuntimeId :: Lens.Lens' ContainerStateChange (Lude.Maybe Lude.Text)
-cscRuntimeId = Lens.lens (runtimeId :: ContainerStateChange -> Lude.Maybe Lude.Text) (\s a -> s {runtimeId = a} :: ContainerStateChange)
+cscRuntimeId :: Lens.Lens' ContainerStateChange (Core.Maybe Types.String)
+cscRuntimeId = Lens.field @"runtimeId"
 {-# DEPRECATED cscRuntimeId "Use generic-lens or generic-optics with 'runtimeId' instead." #-}
 
-instance Lude.ToJSON ContainerStateChange where
-  toJSON ContainerStateChange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("networkBindings" Lude..=) Lude.<$> networkBindings,
-            ("status" Lude..=) Lude.<$> status,
-            ("containerName" Lude..=) Lude.<$> containerName,
-            ("reason" Lude..=) Lude.<$> reason,
-            ("imageDigest" Lude..=) Lude.<$> imageDigest,
-            ("exitCode" Lude..=) Lude.<$> exitCode,
-            ("runtimeId" Lude..=) Lude.<$> runtimeId
+-- | The status of the container.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscStatus :: Lens.Lens' ContainerStateChange (Core.Maybe Types.String)
+cscStatus = Lens.field @"status"
+{-# DEPRECATED cscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON ContainerStateChange where
+  toJSON ContainerStateChange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("containerName" Core..=) Core.<$> containerName,
+            ("exitCode" Core..=) Core.<$> exitCode,
+            ("imageDigest" Core..=) Core.<$> imageDigest,
+            ("networkBindings" Core..=) Core.<$> networkBindings,
+            ("reason" Core..=) Core.<$> reason,
+            ("runtimeId" Core..=) Core.<$> runtimeId,
+            ("status" Core..=) Core.<$> status
           ]
       )

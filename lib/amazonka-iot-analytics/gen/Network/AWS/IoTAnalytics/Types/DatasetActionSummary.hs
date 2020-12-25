@@ -22,53 +22,49 @@ module Network.AWS.IoTAnalytics.Types.DatasetActionSummary
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.DatasetActionType
+import qualified Network.AWS.IoTAnalytics.Types.DatasetActionName as Types
+import qualified Network.AWS.IoTAnalytics.Types.DatasetActionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the action that automatically creates the dataset's contents.
 --
 -- /See:/ 'mkDatasetActionSummary' smart constructor.
 data DatasetActionSummary = DatasetActionSummary'
   { -- | The name of the action that automatically creates the dataset's contents.
-    actionName :: Lude.Maybe Lude.Text,
+    actionName :: Core.Maybe Types.DatasetActionName,
     -- | The type of action by which the dataset's contents are automatically created.
-    actionType :: Lude.Maybe DatasetActionType
+    actionType :: Core.Maybe Types.DatasetActionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DatasetActionSummary' with the minimum fields required to make a request.
---
--- * 'actionName' - The name of the action that automatically creates the dataset's contents.
--- * 'actionType' - The type of action by which the dataset's contents are automatically created.
+-- | Creates a 'DatasetActionSummary' value with any optional fields omitted.
 mkDatasetActionSummary ::
   DatasetActionSummary
 mkDatasetActionSummary =
   DatasetActionSummary'
-    { actionName = Lude.Nothing,
-      actionType = Lude.Nothing
+    { actionName = Core.Nothing,
+      actionType = Core.Nothing
     }
 
 -- | The name of the action that automatically creates the dataset's contents.
 --
 -- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasActionName :: Lens.Lens' DatasetActionSummary (Lude.Maybe Lude.Text)
-dasActionName = Lens.lens (actionName :: DatasetActionSummary -> Lude.Maybe Lude.Text) (\s a -> s {actionName = a} :: DatasetActionSummary)
+dasActionName :: Lens.Lens' DatasetActionSummary (Core.Maybe Types.DatasetActionName)
+dasActionName = Lens.field @"actionName"
 {-# DEPRECATED dasActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | The type of action by which the dataset's contents are automatically created.
 --
 -- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasActionType :: Lens.Lens' DatasetActionSummary (Lude.Maybe DatasetActionType)
-dasActionType = Lens.lens (actionType :: DatasetActionSummary -> Lude.Maybe DatasetActionType) (\s a -> s {actionType = a} :: DatasetActionSummary)
+dasActionType :: Lens.Lens' DatasetActionSummary (Core.Maybe Types.DatasetActionType)
+dasActionType = Lens.field @"actionType"
 {-# DEPRECATED dasActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
-instance Lude.FromJSON DatasetActionSummary where
+instance Core.FromJSON DatasetActionSummary where
   parseJSON =
-    Lude.withObject
-      "DatasetActionSummary"
-      ( \x ->
-          DatasetActionSummary'
-            Lude.<$> (x Lude..:? "actionName") Lude.<*> (x Lude..:? "actionType")
-      )
+    Core.withObject "DatasetActionSummary" Core.$
+      \x ->
+        DatasetActionSummary'
+          Core.<$> (x Core..:? "actionName") Core.<*> (x Core..:? "actionType")

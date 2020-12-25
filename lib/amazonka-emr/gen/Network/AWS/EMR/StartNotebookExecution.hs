@@ -20,224 +20,206 @@ module Network.AWS.EMR.StartNotebookExecution
     mkStartNotebookExecution,
 
     -- ** Request lenses
-    sneExecutionEngine,
-    sneNotebookInstanceSecurityGroupId,
     sneEditorId,
+    sneRelativePath,
+    sneExecutionEngine,
+    sneServiceRole,
     sneNotebookExecutionName,
+    sneNotebookInstanceSecurityGroupId,
     sneNotebookParams,
     sneTags,
-    sneRelativePath,
-    sneServiceRole,
 
     -- * Destructuring the response
     StartNotebookExecutionResponse (..),
     mkStartNotebookExecutionResponse,
 
     -- ** Response lenses
-    snersNotebookExecutionId,
-    snersResponseStatus,
+    snerrsNotebookExecutionId,
+    snerrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartNotebookExecution' smart constructor.
 data StartNotebookExecution = StartNotebookExecution'
-  { -- | Specifies the execution engine (cluster) that runs the notebook execution.
-    executionEngine :: ExecutionEngineConfig,
-    -- | The unique identifier of the Amazon EC2 security group to associate with the EMR Notebook for this notebook execution.
-    notebookInstanceSecurityGroupId :: Lude.Maybe Lude.Text,
-    -- | The unique identifier of the EMR Notebook to use for notebook execution.
-    editorId :: Lude.Text,
-    -- | An optional name for the notebook execution.
-    notebookExecutionName :: Lude.Maybe Lude.Text,
-    -- | Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
-    notebookParams :: Lude.Maybe Lude.Text,
-    -- | A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
-    tags :: Lude.Maybe [Tag],
+  { -- | The unique identifier of the EMR Notebook to use for notebook execution.
+    editorId :: Types.EditorId,
     -- | The path and file name of the notebook file for this execution, relative to the path specified for the EMR Notebook. For example, if you specify a path of @s3://MyBucket/MyNotebooks@ when you create an EMR Notebook for a notebook with an ID of @e-ABCDEFGHIJK1234567890ABCD@ (the @EditorID@ of this request), and you specify a @RelativePath@ of @my_notebook_executions/notebook_execution.ipynb@ , the location of the file for the notebook execution is @s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb@ .
-    relativePath :: Lude.Text,
+    relativePath :: Types.XmlString,
+    -- | Specifies the execution engine (cluster) that runs the notebook execution.
+    executionEngine :: Types.ExecutionEngineConfig,
     -- | The name or ARN of the IAM role that is used as the service role for Amazon EMR (the EMR role) for the notebook execution.
-    serviceRole :: Lude.Text
+    serviceRole :: Types.XmlString,
+    -- | An optional name for the notebook execution.
+    notebookExecutionName :: Core.Maybe Types.NotebookExecutionName,
+    -- | The unique identifier of the Amazon EC2 security group to associate with the EMR Notebook for this notebook execution.
+    notebookInstanceSecurityGroupId :: Core.Maybe Types.NotebookInstanceSecurityGroupId,
+    -- | Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
+    notebookParams :: Core.Maybe Types.XmlString,
+    -- | A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartNotebookExecution' with the minimum fields required to make a request.
---
--- * 'executionEngine' - Specifies the execution engine (cluster) that runs the notebook execution.
--- * 'notebookInstanceSecurityGroupId' - The unique identifier of the Amazon EC2 security group to associate with the EMR Notebook for this notebook execution.
--- * 'editorId' - The unique identifier of the EMR Notebook to use for notebook execution.
--- * 'notebookExecutionName' - An optional name for the notebook execution.
--- * 'notebookParams' - Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
--- * 'tags' - A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
--- * 'relativePath' - The path and file name of the notebook file for this execution, relative to the path specified for the EMR Notebook. For example, if you specify a path of @s3://MyBucket/MyNotebooks@ when you create an EMR Notebook for a notebook with an ID of @e-ABCDEFGHIJK1234567890ABCD@ (the @EditorID@ of this request), and you specify a @RelativePath@ of @my_notebook_executions/notebook_execution.ipynb@ , the location of the file for the notebook execution is @s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb@ .
--- * 'serviceRole' - The name or ARN of the IAM role that is used as the service role for Amazon EMR (the EMR role) for the notebook execution.
+-- | Creates a 'StartNotebookExecution' value with any optional fields omitted.
 mkStartNotebookExecution ::
-  -- | 'executionEngine'
-  ExecutionEngineConfig ->
   -- | 'editorId'
-  Lude.Text ->
+  Types.EditorId ->
   -- | 'relativePath'
-  Lude.Text ->
+  Types.XmlString ->
+  -- | 'executionEngine'
+  Types.ExecutionEngineConfig ->
   -- | 'serviceRole'
-  Lude.Text ->
+  Types.XmlString ->
   StartNotebookExecution
 mkStartNotebookExecution
-  pExecutionEngine_
-  pEditorId_
-  pRelativePath_
-  pServiceRole_ =
+  editorId
+  relativePath
+  executionEngine
+  serviceRole =
     StartNotebookExecution'
-      { executionEngine = pExecutionEngine_,
-        notebookInstanceSecurityGroupId = Lude.Nothing,
-        editorId = pEditorId_,
-        notebookExecutionName = Lude.Nothing,
-        notebookParams = Lude.Nothing,
-        tags = Lude.Nothing,
-        relativePath = pRelativePath_,
-        serviceRole = pServiceRole_
+      { editorId,
+        relativePath,
+        executionEngine,
+        serviceRole,
+        notebookExecutionName = Core.Nothing,
+        notebookInstanceSecurityGroupId = Core.Nothing,
+        notebookParams = Core.Nothing,
+        tags = Core.Nothing
       }
-
--- | Specifies the execution engine (cluster) that runs the notebook execution.
---
--- /Note:/ Consider using 'executionEngine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneExecutionEngine :: Lens.Lens' StartNotebookExecution ExecutionEngineConfig
-sneExecutionEngine = Lens.lens (executionEngine :: StartNotebookExecution -> ExecutionEngineConfig) (\s a -> s {executionEngine = a} :: StartNotebookExecution)
-{-# DEPRECATED sneExecutionEngine "Use generic-lens or generic-optics with 'executionEngine' instead." #-}
-
--- | The unique identifier of the Amazon EC2 security group to associate with the EMR Notebook for this notebook execution.
---
--- /Note:/ Consider using 'notebookInstanceSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneNotebookInstanceSecurityGroupId :: Lens.Lens' StartNotebookExecution (Lude.Maybe Lude.Text)
-sneNotebookInstanceSecurityGroupId = Lens.lens (notebookInstanceSecurityGroupId :: StartNotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {notebookInstanceSecurityGroupId = a} :: StartNotebookExecution)
-{-# DEPRECATED sneNotebookInstanceSecurityGroupId "Use generic-lens or generic-optics with 'notebookInstanceSecurityGroupId' instead." #-}
 
 -- | The unique identifier of the EMR Notebook to use for notebook execution.
 --
 -- /Note:/ Consider using 'editorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneEditorId :: Lens.Lens' StartNotebookExecution Lude.Text
-sneEditorId = Lens.lens (editorId :: StartNotebookExecution -> Lude.Text) (\s a -> s {editorId = a} :: StartNotebookExecution)
+sneEditorId :: Lens.Lens' StartNotebookExecution Types.EditorId
+sneEditorId = Lens.field @"editorId"
 {-# DEPRECATED sneEditorId "Use generic-lens or generic-optics with 'editorId' instead." #-}
+
+-- | The path and file name of the notebook file for this execution, relative to the path specified for the EMR Notebook. For example, if you specify a path of @s3://MyBucket/MyNotebooks@ when you create an EMR Notebook for a notebook with an ID of @e-ABCDEFGHIJK1234567890ABCD@ (the @EditorID@ of this request), and you specify a @RelativePath@ of @my_notebook_executions/notebook_execution.ipynb@ , the location of the file for the notebook execution is @s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb@ .
+--
+-- /Note:/ Consider using 'relativePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sneRelativePath :: Lens.Lens' StartNotebookExecution Types.XmlString
+sneRelativePath = Lens.field @"relativePath"
+{-# DEPRECATED sneRelativePath "Use generic-lens or generic-optics with 'relativePath' instead." #-}
+
+-- | Specifies the execution engine (cluster) that runs the notebook execution.
+--
+-- /Note:/ Consider using 'executionEngine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sneExecutionEngine :: Lens.Lens' StartNotebookExecution Types.ExecutionEngineConfig
+sneExecutionEngine = Lens.field @"executionEngine"
+{-# DEPRECATED sneExecutionEngine "Use generic-lens or generic-optics with 'executionEngine' instead." #-}
+
+-- | The name or ARN of the IAM role that is used as the service role for Amazon EMR (the EMR role) for the notebook execution.
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sneServiceRole :: Lens.Lens' StartNotebookExecution Types.XmlString
+sneServiceRole = Lens.field @"serviceRole"
+{-# DEPRECATED sneServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
 -- | An optional name for the notebook execution.
 --
 -- /Note:/ Consider using 'notebookExecutionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneNotebookExecutionName :: Lens.Lens' StartNotebookExecution (Lude.Maybe Lude.Text)
-sneNotebookExecutionName = Lens.lens (notebookExecutionName :: StartNotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {notebookExecutionName = a} :: StartNotebookExecution)
+sneNotebookExecutionName :: Lens.Lens' StartNotebookExecution (Core.Maybe Types.NotebookExecutionName)
+sneNotebookExecutionName = Lens.field @"notebookExecutionName"
 {-# DEPRECATED sneNotebookExecutionName "Use generic-lens or generic-optics with 'notebookExecutionName' instead." #-}
+
+-- | The unique identifier of the Amazon EC2 security group to associate with the EMR Notebook for this notebook execution.
+--
+-- /Note:/ Consider using 'notebookInstanceSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sneNotebookInstanceSecurityGroupId :: Lens.Lens' StartNotebookExecution (Core.Maybe Types.NotebookInstanceSecurityGroupId)
+sneNotebookInstanceSecurityGroupId = Lens.field @"notebookInstanceSecurityGroupId"
+{-# DEPRECATED sneNotebookInstanceSecurityGroupId "Use generic-lens or generic-optics with 'notebookInstanceSecurityGroupId' instead." #-}
 
 -- | Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
 --
 -- /Note:/ Consider using 'notebookParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneNotebookParams :: Lens.Lens' StartNotebookExecution (Lude.Maybe Lude.Text)
-sneNotebookParams = Lens.lens (notebookParams :: StartNotebookExecution -> Lude.Maybe Lude.Text) (\s a -> s {notebookParams = a} :: StartNotebookExecution)
+sneNotebookParams :: Lens.Lens' StartNotebookExecution (Core.Maybe Types.XmlString)
+sneNotebookParams = Lens.field @"notebookParams"
 {-# DEPRECATED sneNotebookParams "Use generic-lens or generic-optics with 'notebookParams' instead." #-}
 
 -- | A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneTags :: Lens.Lens' StartNotebookExecution (Lude.Maybe [Tag])
-sneTags = Lens.lens (tags :: StartNotebookExecution -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: StartNotebookExecution)
+sneTags :: Lens.Lens' StartNotebookExecution (Core.Maybe [Types.Tag])
+sneTags = Lens.field @"tags"
 {-# DEPRECATED sneTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The path and file name of the notebook file for this execution, relative to the path specified for the EMR Notebook. For example, if you specify a path of @s3://MyBucket/MyNotebooks@ when you create an EMR Notebook for a notebook with an ID of @e-ABCDEFGHIJK1234567890ABCD@ (the @EditorID@ of this request), and you specify a @RelativePath@ of @my_notebook_executions/notebook_execution.ipynb@ , the location of the file for the notebook execution is @s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb@ .
---
--- /Note:/ Consider using 'relativePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneRelativePath :: Lens.Lens' StartNotebookExecution Lude.Text
-sneRelativePath = Lens.lens (relativePath :: StartNotebookExecution -> Lude.Text) (\s a -> s {relativePath = a} :: StartNotebookExecution)
-{-# DEPRECATED sneRelativePath "Use generic-lens or generic-optics with 'relativePath' instead." #-}
+instance Core.FromJSON StartNotebookExecution where
+  toJSON StartNotebookExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EditorId" Core..= editorId),
+            Core.Just ("RelativePath" Core..= relativePath),
+            Core.Just ("ExecutionEngine" Core..= executionEngine),
+            Core.Just ("ServiceRole" Core..= serviceRole),
+            ("NotebookExecutionName" Core..=) Core.<$> notebookExecutionName,
+            ("NotebookInstanceSecurityGroupId" Core..=)
+              Core.<$> notebookInstanceSecurityGroupId,
+            ("NotebookParams" Core..=) Core.<$> notebookParams,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
 
--- | The name or ARN of the IAM role that is used as the service role for Amazon EMR (the EMR role) for the notebook execution.
---
--- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sneServiceRole :: Lens.Lens' StartNotebookExecution Lude.Text
-sneServiceRole = Lens.lens (serviceRole :: StartNotebookExecution -> Lude.Text) (\s a -> s {serviceRole = a} :: StartNotebookExecution)
-{-# DEPRECATED sneServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
-
-instance Lude.AWSRequest StartNotebookExecution where
+instance Core.AWSRequest StartNotebookExecution where
   type Rs StartNotebookExecution = StartNotebookExecutionResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.StartNotebookExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartNotebookExecutionResponse'
-            Lude.<$> (x Lude..?> "NotebookExecutionId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NotebookExecutionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartNotebookExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.StartNotebookExecution" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartNotebookExecution where
-  toJSON StartNotebookExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ExecutionEngine" Lude..= executionEngine),
-            ("NotebookInstanceSecurityGroupId" Lude..=)
-              Lude.<$> notebookInstanceSecurityGroupId,
-            Lude.Just ("EditorId" Lude..= editorId),
-            ("NotebookExecutionName" Lude..=) Lude.<$> notebookExecutionName,
-            ("NotebookParams" Lude..=) Lude.<$> notebookParams,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("RelativePath" Lude..= relativePath),
-            Lude.Just ("ServiceRole" Lude..= serviceRole)
-          ]
-      )
-
-instance Lude.ToPath StartNotebookExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartNotebookExecution where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartNotebookExecutionResponse' smart constructor.
 data StartNotebookExecutionResponse = StartNotebookExecutionResponse'
   { -- | The unique identifier of the notebook execution.
-    notebookExecutionId :: Lude.Maybe Lude.Text,
+    notebookExecutionId :: Core.Maybe Types.XmlStringMaxLen256,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartNotebookExecutionResponse' with the minimum fields required to make a request.
---
--- * 'notebookExecutionId' - The unique identifier of the notebook execution.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartNotebookExecutionResponse' value with any optional fields omitted.
 mkStartNotebookExecutionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartNotebookExecutionResponse
-mkStartNotebookExecutionResponse pResponseStatus_ =
+mkStartNotebookExecutionResponse responseStatus =
   StartNotebookExecutionResponse'
     { notebookExecutionId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier of the notebook execution.
 --
 -- /Note:/ Consider using 'notebookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-snersNotebookExecutionId :: Lens.Lens' StartNotebookExecutionResponse (Lude.Maybe Lude.Text)
-snersNotebookExecutionId = Lens.lens (notebookExecutionId :: StartNotebookExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {notebookExecutionId = a} :: StartNotebookExecutionResponse)
-{-# DEPRECATED snersNotebookExecutionId "Use generic-lens or generic-optics with 'notebookExecutionId' instead." #-}
+snerrsNotebookExecutionId :: Lens.Lens' StartNotebookExecutionResponse (Core.Maybe Types.XmlStringMaxLen256)
+snerrsNotebookExecutionId = Lens.field @"notebookExecutionId"
+{-# DEPRECATED snerrsNotebookExecutionId "Use generic-lens or generic-optics with 'notebookExecutionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-snersResponseStatus :: Lens.Lens' StartNotebookExecutionResponse Lude.Int
-snersResponseStatus = Lens.lens (responseStatus :: StartNotebookExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartNotebookExecutionResponse)
-{-# DEPRECATED snersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+snerrsResponseStatus :: Lens.Lens' StartNotebookExecutionResponse Core.Int
+snerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED snerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,107 +27,98 @@ module Network.AWS.Greengrass.GetThingRuntimeConfiguration
     mkGetThingRuntimeConfigurationResponse,
 
     -- ** Response lenses
-    gtrcrsRuntimeConfiguration,
-    gtrcrsResponseStatus,
+    gtrcrrsRuntimeConfiguration,
+    gtrcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetThingRuntimeConfiguration' smart constructor.
 newtype GetThingRuntimeConfiguration = GetThingRuntimeConfiguration'
   { -- | The thing name.
-    thingName :: Lude.Text
+    thingName :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetThingRuntimeConfiguration' with the minimum fields required to make a request.
---
--- * 'thingName' - The thing name.
+-- | Creates a 'GetThingRuntimeConfiguration' value with any optional fields omitted.
 mkGetThingRuntimeConfiguration ::
   -- | 'thingName'
-  Lude.Text ->
+  Core.Text ->
   GetThingRuntimeConfiguration
-mkGetThingRuntimeConfiguration pThingName_ =
-  GetThingRuntimeConfiguration' {thingName = pThingName_}
+mkGetThingRuntimeConfiguration thingName =
+  GetThingRuntimeConfiguration' {thingName}
 
 -- | The thing name.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrcThingName :: Lens.Lens' GetThingRuntimeConfiguration Lude.Text
-gtrcThingName = Lens.lens (thingName :: GetThingRuntimeConfiguration -> Lude.Text) (\s a -> s {thingName = a} :: GetThingRuntimeConfiguration)
+gtrcThingName :: Lens.Lens' GetThingRuntimeConfiguration Core.Text
+gtrcThingName = Lens.field @"thingName"
 {-# DEPRECATED gtrcThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest GetThingRuntimeConfiguration where
+instance Core.AWSRequest GetThingRuntimeConfiguration where
   type
     Rs GetThingRuntimeConfiguration =
       GetThingRuntimeConfigurationResponse
-  request = Req.get greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/things/" Core.<> (Core.toText thingName)
+                Core.<> ("/runtimeconfig")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetThingRuntimeConfigurationResponse'
-            Lude.<$> (x Lude..?> "RuntimeConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RuntimeConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetThingRuntimeConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetThingRuntimeConfiguration where
-  toPath GetThingRuntimeConfiguration' {..} =
-    Lude.mconcat
-      ["/greengrass/things/", Lude.toBS thingName, "/runtimeconfig"]
-
-instance Lude.ToQuery GetThingRuntimeConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetThingRuntimeConfigurationResponse' smart constructor.
 data GetThingRuntimeConfigurationResponse = GetThingRuntimeConfigurationResponse'
   { -- | Runtime configuration for a thing.
-    runtimeConfiguration :: Lude.Maybe RuntimeConfiguration,
+    runtimeConfiguration :: Core.Maybe Types.RuntimeConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetThingRuntimeConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'runtimeConfiguration' - Runtime configuration for a thing.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetThingRuntimeConfigurationResponse' value with any optional fields omitted.
 mkGetThingRuntimeConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetThingRuntimeConfigurationResponse
-mkGetThingRuntimeConfigurationResponse pResponseStatus_ =
+mkGetThingRuntimeConfigurationResponse responseStatus =
   GetThingRuntimeConfigurationResponse'
     { runtimeConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Runtime configuration for a thing.
 --
 -- /Note:/ Consider using 'runtimeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrcrsRuntimeConfiguration :: Lens.Lens' GetThingRuntimeConfigurationResponse (Lude.Maybe RuntimeConfiguration)
-gtrcrsRuntimeConfiguration = Lens.lens (runtimeConfiguration :: GetThingRuntimeConfigurationResponse -> Lude.Maybe RuntimeConfiguration) (\s a -> s {runtimeConfiguration = a} :: GetThingRuntimeConfigurationResponse)
-{-# DEPRECATED gtrcrsRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
+gtrcrrsRuntimeConfiguration :: Lens.Lens' GetThingRuntimeConfigurationResponse (Core.Maybe Types.RuntimeConfiguration)
+gtrcrrsRuntimeConfiguration = Lens.field @"runtimeConfiguration"
+{-# DEPRECATED gtrcrrsRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrcrsResponseStatus :: Lens.Lens' GetThingRuntimeConfigurationResponse Lude.Int
-gtrcrsResponseStatus = Lens.lens (responseStatus :: GetThingRuntimeConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetThingRuntimeConfigurationResponse)
-{-# DEPRECATED gtrcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtrcrrsResponseStatus :: Lens.Lens' GetThingRuntimeConfigurationResponse Core.Int
+gtrcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtrcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

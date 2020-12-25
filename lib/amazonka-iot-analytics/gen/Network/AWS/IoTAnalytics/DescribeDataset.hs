@@ -20,103 +20,93 @@ module Network.AWS.IoTAnalytics.DescribeDataset
     mkDescribeDataset,
 
     -- ** Request lenses
-    dDatasetName,
+    ddDatasetName,
 
     -- * Destructuring the response
     DescribeDatasetResponse (..),
     mkDescribeDatasetResponse,
 
     -- ** Response lenses
-    ddrsDataset,
-    ddrsResponseStatus,
+    ddrrsDataset,
+    ddrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeDataset' smart constructor.
 newtype DescribeDataset = DescribeDataset'
   { -- | The name of the data set whose information is retrieved.
-    datasetName :: Lude.Text
+    datasetName :: Types.DatasetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDataset' with the minimum fields required to make a request.
---
--- * 'datasetName' - The name of the data set whose information is retrieved.
+-- | Creates a 'DescribeDataset' value with any optional fields omitted.
 mkDescribeDataset ::
   -- | 'datasetName'
-  Lude.Text ->
+  Types.DatasetName ->
   DescribeDataset
-mkDescribeDataset pDatasetName_ =
-  DescribeDataset' {datasetName = pDatasetName_}
+mkDescribeDataset datasetName = DescribeDataset' {datasetName}
 
 -- | The name of the data set whose information is retrieved.
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDatasetName :: Lens.Lens' DescribeDataset Lude.Text
-dDatasetName = Lens.lens (datasetName :: DescribeDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DescribeDataset)
-{-# DEPRECATED dDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+ddDatasetName :: Lens.Lens' DescribeDataset Types.DatasetName
+ddDatasetName = Lens.field @"datasetName"
+{-# DEPRECATED ddDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance Lude.AWSRequest DescribeDataset where
+instance Core.AWSRequest DescribeDataset where
   type Rs DescribeDataset = DescribeDatasetResponse
-  request = Req.get ioTAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/datasets/" Core.<> (Core.toText datasetName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Lude.<$> (x Lude..?> "dataset") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "dataset") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDataset where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDataset where
-  toPath DescribeDataset' {..} =
-    Lude.mconcat ["/datasets/", Lude.toBS datasetName]
-
-instance Lude.ToQuery DescribeDataset where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
   { -- | An object that contains information about the data set.
-    dataset :: Lude.Maybe Dataset,
+    dataset :: Core.Maybe Types.Dataset,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.
---
--- * 'dataset' - An object that contains information about the data set.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDatasetResponse' value with any optional fields omitted.
 mkDescribeDatasetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDatasetResponse
-mkDescribeDatasetResponse pResponseStatus_ =
-  DescribeDatasetResponse'
-    { dataset = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeDatasetResponse responseStatus =
+  DescribeDatasetResponse' {dataset = Core.Nothing, responseStatus}
 
 -- | An object that contains information about the data set.
 --
 -- /Note:/ Consider using 'dataset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsDataset :: Lens.Lens' DescribeDatasetResponse (Lude.Maybe Dataset)
-ddrsDataset = Lens.lens (dataset :: DescribeDatasetResponse -> Lude.Maybe Dataset) (\s a -> s {dataset = a} :: DescribeDatasetResponse)
-{-# DEPRECATED ddrsDataset "Use generic-lens or generic-optics with 'dataset' instead." #-}
+ddrrsDataset :: Lens.Lens' DescribeDatasetResponse (Core.Maybe Types.Dataset)
+ddrrsDataset = Lens.field @"dataset"
+{-# DEPRECATED ddrrsDataset "Use generic-lens or generic-optics with 'dataset' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DescribeDatasetResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DescribeDatasetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDatasetResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrrsResponseStatus :: Lens.Lens' DescribeDatasetResponse Core.Int
+ddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

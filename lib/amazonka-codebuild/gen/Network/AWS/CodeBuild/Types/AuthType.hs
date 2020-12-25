@@ -13,51 +13,53 @@
 module Network.AWS.CodeBuild.Types.AuthType
   ( AuthType
       ( AuthType',
-        ATOauth,
-        ATBasicAuth,
-        ATPersonalAccessToken
+        AuthTypeOauth,
+        AuthTypeBasicAuth,
+        AuthTypePersonalAccessToken,
+        fromAuthType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuthType = AuthType' Lude.Text
+newtype AuthType = AuthType' {fromAuthType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATOauth :: AuthType
-pattern ATOauth = AuthType' "OAUTH"
+pattern AuthTypeOauth :: AuthType
+pattern AuthTypeOauth = AuthType' "OAUTH"
 
-pattern ATBasicAuth :: AuthType
-pattern ATBasicAuth = AuthType' "BASIC_AUTH"
+pattern AuthTypeBasicAuth :: AuthType
+pattern AuthTypeBasicAuth = AuthType' "BASIC_AUTH"
 
-pattern ATPersonalAccessToken :: AuthType
-pattern ATPersonalAccessToken = AuthType' "PERSONAL_ACCESS_TOKEN"
+pattern AuthTypePersonalAccessToken :: AuthType
+pattern AuthTypePersonalAccessToken = AuthType' "PERSONAL_ACCESS_TOKEN"
 
 {-# COMPLETE
-  ATOauth,
-  ATBasicAuth,
-  ATPersonalAccessToken,
+  AuthTypeOauth,
+  AuthTypeBasicAuth,
+  AuthTypePersonalAccessToken,
   AuthType'
   #-}

@@ -31,9 +31,9 @@ module Network.AWS.Glacier.DeleteArchive
     mkDeleteArchive,
 
     -- ** Request lenses
-    daArchiveId,
-    daVaultName,
     daAccountId,
+    daVaultName,
+    daArchiveId,
 
     -- * Destructuring the response
     DeleteArchiveResponse (..),
@@ -41,95 +41,84 @@ module Network.AWS.Glacier.DeleteArchive
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options for deleting an archive from an Amazon S3 Glacier vault.
 --
 -- /See:/ 'mkDeleteArchive' smart constructor.
 data DeleteArchive = DeleteArchive'
-  { -- | The ID of the archive to delete.
-    archiveId :: Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
     -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+    vaultName :: Types.String,
+    -- | The ID of the archive to delete.
+    archiveId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteArchive' with the minimum fields required to make a request.
---
--- * 'archiveId' - The ID of the archive to delete.
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'DeleteArchive' value with any optional fields omitted.
 mkDeleteArchive ::
-  -- | 'archiveId'
-  Lude.Text ->
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
+  -- | 'archiveId'
+  Types.String ->
   DeleteArchive
-mkDeleteArchive pArchiveId_ pVaultName_ pAccountId_ =
-  DeleteArchive'
-    { archiveId = pArchiveId_,
-      vaultName = pVaultName_,
-      accountId = pAccountId_
-    }
-
--- | The ID of the archive to delete.
---
--- /Note:/ Consider using 'archiveId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daArchiveId :: Lens.Lens' DeleteArchive Lude.Text
-daArchiveId = Lens.lens (archiveId :: DeleteArchive -> Lude.Text) (\s a -> s {archiveId = a} :: DeleteArchive)
-{-# DEPRECATED daArchiveId "Use generic-lens or generic-optics with 'archiveId' instead." #-}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daVaultName :: Lens.Lens' DeleteArchive Lude.Text
-daVaultName = Lens.lens (vaultName :: DeleteArchive -> Lude.Text) (\s a -> s {vaultName = a} :: DeleteArchive)
-{-# DEPRECATED daVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkDeleteArchive accountId vaultName archiveId =
+  DeleteArchive' {accountId, vaultName, archiveId}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAccountId :: Lens.Lens' DeleteArchive Lude.Text
-daAccountId = Lens.lens (accountId :: DeleteArchive -> Lude.Text) (\s a -> s {accountId = a} :: DeleteArchive)
+daAccountId :: Lens.Lens' DeleteArchive Types.String
+daAccountId = Lens.field @"accountId"
 {-# DEPRECATED daAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest DeleteArchive where
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daVaultName :: Lens.Lens' DeleteArchive Types.String
+daVaultName = Lens.field @"vaultName"
+{-# DEPRECATED daVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The ID of the archive to delete.
+--
+-- /Note:/ Consider using 'archiveId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daArchiveId :: Lens.Lens' DeleteArchive Types.String
+daArchiveId = Lens.field @"archiveId"
+{-# DEPRECATED daArchiveId "Use generic-lens or generic-optics with 'archiveId' instead." #-}
+
+instance Core.AWSRequest DeleteArchive where
   type Rs DeleteArchive = DeleteArchiveResponse
-  request = Req.delete glacierService
-  response = Res.receiveNull DeleteArchiveResponse'
-
-instance Lude.ToHeaders DeleteArchive where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteArchive where
-  toPath DeleteArchive' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/archives/",
-        Lude.toBS archiveId
-      ]
-
-instance Lude.ToQuery DeleteArchive where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/archives/")
+                Core.<> (Core.toText archiveId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteArchiveResponse'
 
 -- | /See:/ 'mkDeleteArchiveResponse' smart constructor.
 data DeleteArchiveResponse = DeleteArchiveResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteArchiveResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteArchiveResponse' value with any optional fields omitted.
 mkDeleteArchiveResponse ::
   DeleteArchiveResponse
 mkDeleteArchiveResponse = DeleteArchiveResponse'

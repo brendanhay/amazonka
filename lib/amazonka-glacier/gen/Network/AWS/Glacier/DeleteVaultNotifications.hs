@@ -23,8 +23,8 @@ module Network.AWS.Glacier.DeleteVaultNotifications
     mkDeleteVaultNotifications,
 
     -- ** Request lenses
-    dvnVaultName,
     dvnAccountId,
+    dvnVaultName,
 
     -- * Destructuring the response
     DeleteVaultNotificationsResponse (..),
@@ -32,81 +32,72 @@ module Network.AWS.Glacier.DeleteVaultNotifications
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options for deleting a vault notification configuration from an Amazon Glacier vault.
 --
 -- /See:/ 'mkDeleteVaultNotifications' smart constructor.
 data DeleteVaultNotifications = DeleteVaultNotifications'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVaultNotifications' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'DeleteVaultNotifications' value with any optional fields omitted.
 mkDeleteVaultNotifications ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   DeleteVaultNotifications
-mkDeleteVaultNotifications pVaultName_ pAccountId_ =
-  DeleteVaultNotifications'
-    { vaultName = pVaultName_,
-      accountId = pAccountId_
-    }
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvnVaultName :: Lens.Lens' DeleteVaultNotifications Lude.Text
-dvnVaultName = Lens.lens (vaultName :: DeleteVaultNotifications -> Lude.Text) (\s a -> s {vaultName = a} :: DeleteVaultNotifications)
-{-# DEPRECATED dvnVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkDeleteVaultNotifications accountId vaultName =
+  DeleteVaultNotifications' {accountId, vaultName}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvnAccountId :: Lens.Lens' DeleteVaultNotifications Lude.Text
-dvnAccountId = Lens.lens (accountId :: DeleteVaultNotifications -> Lude.Text) (\s a -> s {accountId = a} :: DeleteVaultNotifications)
+dvnAccountId :: Lens.Lens' DeleteVaultNotifications Types.String
+dvnAccountId = Lens.field @"accountId"
 {-# DEPRECATED dvnAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest DeleteVaultNotifications where
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvnVaultName :: Lens.Lens' DeleteVaultNotifications Types.String
+dvnVaultName = Lens.field @"vaultName"
+{-# DEPRECATED dvnVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+instance Core.AWSRequest DeleteVaultNotifications where
   type Rs DeleteVaultNotifications = DeleteVaultNotificationsResponse
-  request = Req.delete glacierService
-  response = Res.receiveNull DeleteVaultNotificationsResponse'
-
-instance Lude.ToHeaders DeleteVaultNotifications where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteVaultNotifications where
-  toPath DeleteVaultNotifications' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/notification-configuration"
-      ]
-
-instance Lude.ToQuery DeleteVaultNotifications where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/notification-configuration")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteVaultNotificationsResponse'
 
 -- | /See:/ 'mkDeleteVaultNotificationsResponse' smart constructor.
 data DeleteVaultNotificationsResponse = DeleteVaultNotificationsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVaultNotificationsResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteVaultNotificationsResponse' value with any optional fields omitted.
 mkDeleteVaultNotificationsResponse ::
   DeleteVaultNotificationsResponse
 mkDeleteVaultNotificationsResponse =

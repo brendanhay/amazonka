@@ -20,29 +20,31 @@ module Network.AWS.ServiceCatalog.DescribeProductView
     mkDescribeProductView,
 
     -- ** Request lenses
-    dpvAcceptLanguage,
     dpvId,
+    dpvAcceptLanguage,
 
     -- * Destructuring the response
     DescribeProductViewResponse (..),
     mkDescribeProductViewResponse,
 
     -- ** Response lenses
-    dpvrsProductViewSummary,
-    dpvrsProvisioningArtifacts,
-    dpvrsResponseStatus,
+    dpvrrsProductViewSummary,
+    dpvrrsProvisioningArtifacts,
+    dpvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDescribeProductView' smart constructor.
 data DescribeProductView = DescribeProductView'
-  { -- | The language code.
+  { -- | The product view identifier.
+    id :: Types.Id,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -52,34 +54,25 @@ data DescribeProductView = DescribeProductView'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The product view identifier.
-    id :: Lude.Text
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeProductView' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'id' - The product view identifier.
+-- | Creates a 'DescribeProductView' value with any optional fields omitted.
 mkDescribeProductView ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DescribeProductView
-mkDescribeProductView pId_ =
-  DescribeProductView' {acceptLanguage = Lude.Nothing, id = pId_}
+mkDescribeProductView id =
+  DescribeProductView' {id, acceptLanguage = Core.Nothing}
+
+-- | The product view identifier.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvId :: Lens.Lens' DescribeProductView Types.Id
+dpvId = Lens.field @"id"
+{-# DEPRECATED dpvId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The language code.
 --
@@ -95,102 +88,83 @@ mkDescribeProductView pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvAcceptLanguage :: Lens.Lens' DescribeProductView (Lude.Maybe Lude.Text)
-dpvAcceptLanguage = Lens.lens (acceptLanguage :: DescribeProductView -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeProductView)
+dpvAcceptLanguage :: Lens.Lens' DescribeProductView (Core.Maybe Types.AcceptLanguage)
+dpvAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED dpvAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The product view identifier.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvId :: Lens.Lens' DescribeProductView Lude.Text
-dpvId = Lens.lens (id :: DescribeProductView -> Lude.Text) (\s a -> s {id = a} :: DescribeProductView)
-{-# DEPRECATED dpvId "Use generic-lens or generic-optics with 'id' instead." #-}
+instance Core.FromJSON DescribeProductView where
+  toJSON DescribeProductView {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+          ]
+      )
 
-instance Lude.AWSRequest DescribeProductView where
+instance Core.AWSRequest DescribeProductView where
   type Rs DescribeProductView = DescribeProductViewResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.DescribeProductView")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeProductViewResponse'
-            Lude.<$> (x Lude..?> "ProductViewSummary")
-            Lude.<*> (x Lude..?> "ProvisioningArtifacts" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ProductViewSummary")
+            Core.<*> (x Core..:? "ProvisioningArtifacts")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeProductView where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DescribeProductView" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeProductView where
-  toJSON DescribeProductView' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("Id" Lude..= id)
-          ]
-      )
-
-instance Lude.ToPath DescribeProductView where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeProductView where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeProductViewResponse' smart constructor.
 data DescribeProductViewResponse = DescribeProductViewResponse'
   { -- | Summary information about the product.
-    productViewSummary :: Lude.Maybe ProductViewSummary,
+    productViewSummary :: Core.Maybe Types.ProductViewSummary,
     -- | Information about the provisioning artifacts for the product.
-    provisioningArtifacts :: Lude.Maybe [ProvisioningArtifact],
+    provisioningArtifacts :: Core.Maybe [Types.ProvisioningArtifact],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeProductViewResponse' with the minimum fields required to make a request.
---
--- * 'productViewSummary' - Summary information about the product.
--- * 'provisioningArtifacts' - Information about the provisioning artifacts for the product.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeProductViewResponse' value with any optional fields omitted.
 mkDescribeProductViewResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeProductViewResponse
-mkDescribeProductViewResponse pResponseStatus_ =
+mkDescribeProductViewResponse responseStatus =
   DescribeProductViewResponse'
-    { productViewSummary = Lude.Nothing,
-      provisioningArtifacts = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { productViewSummary = Core.Nothing,
+      provisioningArtifacts = Core.Nothing,
+      responseStatus
     }
 
 -- | Summary information about the product.
 --
 -- /Note:/ Consider using 'productViewSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvrsProductViewSummary :: Lens.Lens' DescribeProductViewResponse (Lude.Maybe ProductViewSummary)
-dpvrsProductViewSummary = Lens.lens (productViewSummary :: DescribeProductViewResponse -> Lude.Maybe ProductViewSummary) (\s a -> s {productViewSummary = a} :: DescribeProductViewResponse)
-{-# DEPRECATED dpvrsProductViewSummary "Use generic-lens or generic-optics with 'productViewSummary' instead." #-}
+dpvrrsProductViewSummary :: Lens.Lens' DescribeProductViewResponse (Core.Maybe Types.ProductViewSummary)
+dpvrrsProductViewSummary = Lens.field @"productViewSummary"
+{-# DEPRECATED dpvrrsProductViewSummary "Use generic-lens or generic-optics with 'productViewSummary' instead." #-}
 
 -- | Information about the provisioning artifacts for the product.
 --
 -- /Note:/ Consider using 'provisioningArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvrsProvisioningArtifacts :: Lens.Lens' DescribeProductViewResponse (Lude.Maybe [ProvisioningArtifact])
-dpvrsProvisioningArtifacts = Lens.lens (provisioningArtifacts :: DescribeProductViewResponse -> Lude.Maybe [ProvisioningArtifact]) (\s a -> s {provisioningArtifacts = a} :: DescribeProductViewResponse)
-{-# DEPRECATED dpvrsProvisioningArtifacts "Use generic-lens or generic-optics with 'provisioningArtifacts' instead." #-}
+dpvrrsProvisioningArtifacts :: Lens.Lens' DescribeProductViewResponse (Core.Maybe [Types.ProvisioningArtifact])
+dpvrrsProvisioningArtifacts = Lens.field @"provisioningArtifacts"
+{-# DEPRECATED dpvrrsProvisioningArtifacts "Use generic-lens or generic-optics with 'provisioningArtifacts' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvrsResponseStatus :: Lens.Lens' DescribeProductViewResponse Lude.Int
-dpvrsResponseStatus = Lens.lens (responseStatus :: DescribeProductViewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProductViewResponse)
-{-# DEPRECATED dpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpvrrsResponseStatus :: Lens.Lens' DescribeProductViewResponse Core.Int
+dpvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

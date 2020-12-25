@@ -17,54 +17,68 @@ module Network.AWS.Comprehend.Types.DocumentClassifierProperties
     mkDocumentClassifierProperties,
 
     -- * Lenses
-    dcpStatus,
-    dcpLanguageCode,
     dcpClassifierMetadata,
-    dcpTrainingEndTime,
-    dcpDocumentClassifierARN,
-    dcpMode,
-    dcpInputDataConfig,
-    dcpVPCConfig,
-    dcpVolumeKMSKeyId,
+    dcpDataAccessRoleArn,
+    dcpDocumentClassifierArn,
     dcpEndTime,
-    dcpOutputDataConfig,
-    dcpTrainingStartTime,
-    dcpDataAccessRoleARN,
+    dcpInputDataConfig,
+    dcpLanguageCode,
     dcpMessage,
+    dcpMode,
+    dcpOutputDataConfig,
+    dcpStatus,
     dcpSubmitTime,
+    dcpTrainingEndTime,
+    dcpTrainingStartTime,
+    dcpVolumeKmsKeyId,
+    dcpVpcConfig,
   )
 where
 
-import Network.AWS.Comprehend.Types.ClassifierMetadata
-import Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig
-import Network.AWS.Comprehend.Types.DocumentClassifierMode
-import Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig
-import Network.AWS.Comprehend.Types.LanguageCode
-import Network.AWS.Comprehend.Types.ModelStatus
-import Network.AWS.Comprehend.Types.VPCConfig
+import qualified Network.AWS.Comprehend.Types.AnyLengthString as Types
+import qualified Network.AWS.Comprehend.Types.ClassifierMetadata as Types
+import qualified Network.AWS.Comprehend.Types.DocumentClassifierArn as Types
+import qualified Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig as Types
+import qualified Network.AWS.Comprehend.Types.DocumentClassifierMode as Types
+import qualified Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig as Types
+import qualified Network.AWS.Comprehend.Types.IamRoleArn as Types
+import qualified Network.AWS.Comprehend.Types.KmsKeyId as Types
+import qualified Network.AWS.Comprehend.Types.LanguageCode as Types
+import qualified Network.AWS.Comprehend.Types.ModelStatus as Types
+import qualified Network.AWS.Comprehend.Types.VpcConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a document classifier.
 --
 -- /See:/ 'mkDocumentClassifierProperties' smart constructor.
 data DocumentClassifierProperties = DocumentClassifierProperties'
-  { -- | The status of the document classifier. If the status is @TRAINED@ the classifier is ready to use. If the status is @FAILED@ you can see additional information about why the classifier wasn't trained in the @Message@ field.
-    status :: Lude.Maybe ModelStatus,
-    -- | The language code for the language of the documents that the classifier was trained on.
-    languageCode :: Lude.Maybe LanguageCode,
-    -- | Information about the document classifier, including the number of documents used for training the classifier, the number of documents used for test the classifier, and an accuracy rating.
-    classifierMetadata :: Lude.Maybe ClassifierMetadata,
-    -- | The time that training of the document classifier was completed. Indicates the time when the training completes on documentation classifiers. You are billed for the time interval between this time and the value of TrainingStartTime.
-    trainingEndTime :: Lude.Maybe Lude.Timestamp,
+  { -- | Information about the document classifier, including the number of documents used for training the classifier, the number of documents used for test the classifier, and an accuracy rating.
+    classifierMetadata :: Core.Maybe Types.ClassifierMetadata,
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+    dataAccessRoleArn :: Core.Maybe Types.IamRoleArn,
     -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-    documentClassifierARN :: Lude.Maybe Lude.Text,
-    -- | Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.
-    mode :: Lude.Maybe DocumentClassifierMode,
+    documentClassifierArn :: Core.Maybe Types.DocumentClassifierArn,
+    -- | The time that training the document classifier completed.
+    endTime :: Core.Maybe Core.NominalDiffTime,
     -- | The input data configuration that you supplied when you created the document classifier for training.
-    inputDataConfig :: Lude.Maybe DocumentClassifierInputDataConfig,
-    -- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
-    vpcConfig :: Lude.Maybe VPCConfig,
+    inputDataConfig :: Core.Maybe Types.DocumentClassifierInputDataConfig,
+    -- | The language code for the language of the documents that the classifier was trained on.
+    languageCode :: Core.Maybe Types.LanguageCode,
+    -- | Additional information about the status of the classifier.
+    message :: Core.Maybe Types.AnyLengthString,
+    -- | Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.
+    mode :: Core.Maybe Types.DocumentClassifierMode,
+    -- | Provides output results configuration parameters for custom classifier jobs.
+    outputDataConfig :: Core.Maybe Types.DocumentClassifierOutputDataConfig,
+    -- | The status of the document classifier. If the status is @TRAINED@ the classifier is ready to use. If the status is @FAILED@ you can see additional information about why the classifier wasn't trained in the @Message@ field.
+    status :: Core.Maybe Types.ModelStatus,
+    -- | The time that the document classifier was submitted for training.
+    submitTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The time that training of the document classifier was completed. Indicates the time when the training completes on documentation classifiers. You are billed for the time interval between this time and the value of TrainingStartTime.
+    trainingEndTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Indicates the time when the training starts on documentation classifiers. You are billed for the time interval between this time and the value of TrainingEndTime.
+    trainingStartTime :: Core.Maybe Core.NominalDiffTime,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
     --
     --
@@ -72,124 +86,125 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     --
     --
     --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-    volumeKMSKeyId :: Lude.Maybe Lude.Text,
-    -- | The time that training the document classifier completed.
-    endTime :: Lude.Maybe Lude.Timestamp,
-    -- | Provides output results configuration parameters for custom classifier jobs.
-    outputDataConfig :: Lude.Maybe DocumentClassifierOutputDataConfig,
-    -- | Indicates the time when the training starts on documentation classifiers. You are billed for the time interval between this time and the value of TrainingEndTime.
-    trainingStartTime :: Lude.Maybe Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleARN :: Lude.Maybe Lude.Text,
-    -- | Additional information about the status of the classifier.
-    message :: Lude.Maybe Lude.Text,
-    -- | The time that the document classifier was submitted for training.
-    submitTime :: Lude.Maybe Lude.Timestamp
+    volumeKmsKeyId :: Core.Maybe Types.KmsKeyId,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+    vpcConfig :: Core.Maybe Types.VpcConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DocumentClassifierProperties' with the minimum fields required to make a request.
---
--- * 'status' - The status of the document classifier. If the status is @TRAINED@ the classifier is ready to use. If the status is @FAILED@ you can see additional information about why the classifier wasn't trained in the @Message@ field.
--- * 'languageCode' - The language code for the language of the documents that the classifier was trained on.
--- * 'classifierMetadata' - Information about the document classifier, including the number of documents used for training the classifier, the number of documents used for test the classifier, and an accuracy rating.
--- * 'trainingEndTime' - The time that training of the document classifier was completed. Indicates the time when the training completes on documentation classifiers. You are billed for the time interval between this time and the value of TrainingStartTime.
--- * 'documentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier.
--- * 'mode' - Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.
--- * 'inputDataConfig' - The input data configuration that you supplied when you created the document classifier for training.
--- * 'vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
--- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
---
---
---     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
---
---
---     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
---
---
--- * 'endTime' - The time that training the document classifier completed.
--- * 'outputDataConfig' - Provides output results configuration parameters for custom classifier jobs.
--- * 'trainingStartTime' - Indicates the time when the training starts on documentation classifiers. You are billed for the time interval between this time and the value of TrainingEndTime.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
--- * 'message' - Additional information about the status of the classifier.
--- * 'submitTime' - The time that the document classifier was submitted for training.
+-- | Creates a 'DocumentClassifierProperties' value with any optional fields omitted.
 mkDocumentClassifierProperties ::
   DocumentClassifierProperties
 mkDocumentClassifierProperties =
   DocumentClassifierProperties'
-    { status = Lude.Nothing,
-      languageCode = Lude.Nothing,
-      classifierMetadata = Lude.Nothing,
-      trainingEndTime = Lude.Nothing,
-      documentClassifierARN = Lude.Nothing,
-      mode = Lude.Nothing,
-      inputDataConfig = Lude.Nothing,
-      vpcConfig = Lude.Nothing,
-      volumeKMSKeyId = Lude.Nothing,
-      endTime = Lude.Nothing,
-      outputDataConfig = Lude.Nothing,
-      trainingStartTime = Lude.Nothing,
-      dataAccessRoleARN = Lude.Nothing,
-      message = Lude.Nothing,
-      submitTime = Lude.Nothing
+    { classifierMetadata = Core.Nothing,
+      dataAccessRoleArn = Core.Nothing,
+      documentClassifierArn = Core.Nothing,
+      endTime = Core.Nothing,
+      inputDataConfig = Core.Nothing,
+      languageCode = Core.Nothing,
+      message = Core.Nothing,
+      mode = Core.Nothing,
+      outputDataConfig = Core.Nothing,
+      status = Core.Nothing,
+      submitTime = Core.Nothing,
+      trainingEndTime = Core.Nothing,
+      trainingStartTime = Core.Nothing,
+      volumeKmsKeyId = Core.Nothing,
+      vpcConfig = Core.Nothing
     }
-
--- | The status of the document classifier. If the status is @TRAINED@ the classifier is ready to use. If the status is @FAILED@ you can see additional information about why the classifier wasn't trained in the @Message@ field.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpStatus :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe ModelStatus)
-dcpStatus = Lens.lens (status :: DocumentClassifierProperties -> Lude.Maybe ModelStatus) (\s a -> s {status = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The language code for the language of the documents that the classifier was trained on.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpLanguageCode :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe LanguageCode)
-dcpLanguageCode = Lens.lens (languageCode :: DocumentClassifierProperties -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | Information about the document classifier, including the number of documents used for training the classifier, the number of documents used for test the classifier, and an accuracy rating.
 --
 -- /Note:/ Consider using 'classifierMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpClassifierMetadata :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe ClassifierMetadata)
-dcpClassifierMetadata = Lens.lens (classifierMetadata :: DocumentClassifierProperties -> Lude.Maybe ClassifierMetadata) (\s a -> s {classifierMetadata = a} :: DocumentClassifierProperties)
+dcpClassifierMetadata :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.ClassifierMetadata)
+dcpClassifierMetadata = Lens.field @"classifierMetadata"
 {-# DEPRECATED dcpClassifierMetadata "Use generic-lens or generic-optics with 'classifierMetadata' instead." #-}
 
--- | The time that training of the document classifier was completed. Indicates the time when the training completes on documentation classifiers. You are billed for the time interval between this time and the value of TrainingStartTime.
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
 --
--- /Note:/ Consider using 'trainingEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpTrainingEndTime :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe Lude.Timestamp)
-dcpTrainingEndTime = Lens.lens (trainingEndTime :: DocumentClassifierProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {trainingEndTime = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpTrainingEndTime "Use generic-lens or generic-optics with 'trainingEndTime' instead." #-}
+-- /Note:/ Consider using 'dataAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpDataAccessRoleArn :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.IamRoleArn)
+dcpDataAccessRoleArn = Lens.field @"dataAccessRoleArn"
+{-# DEPRECATED dcpDataAccessRoleArn "Use generic-lens or generic-optics with 'dataAccessRoleArn' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
 --
--- /Note:/ Consider using 'documentClassifierARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpDocumentClassifierARN :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe Lude.Text)
-dcpDocumentClassifierARN = Lens.lens (documentClassifierARN :: DocumentClassifierProperties -> Lude.Maybe Lude.Text) (\s a -> s {documentClassifierARN = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpDocumentClassifierARN "Use generic-lens or generic-optics with 'documentClassifierARN' instead." #-}
+-- /Note:/ Consider using 'documentClassifierArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpDocumentClassifierArn :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.DocumentClassifierArn)
+dcpDocumentClassifierArn = Lens.field @"documentClassifierArn"
+{-# DEPRECATED dcpDocumentClassifierArn "Use generic-lens or generic-optics with 'documentClassifierArn' instead." #-}
 
--- | Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.
+-- | The time that training the document classifier completed.
 --
--- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpMode :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe DocumentClassifierMode)
-dcpMode = Lens.lens (mode :: DocumentClassifierProperties -> Lude.Maybe DocumentClassifierMode) (\s a -> s {mode = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpMode "Use generic-lens or generic-optics with 'mode' instead." #-}
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpEndTime :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Core.NominalDiffTime)
+dcpEndTime = Lens.field @"endTime"
+{-# DEPRECATED dcpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The input data configuration that you supplied when you created the document classifier for training.
 --
 -- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpInputDataConfig :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe DocumentClassifierInputDataConfig)
-dcpInputDataConfig = Lens.lens (inputDataConfig :: DocumentClassifierProperties -> Lude.Maybe DocumentClassifierInputDataConfig) (\s a -> s {inputDataConfig = a} :: DocumentClassifierProperties)
+dcpInputDataConfig :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.DocumentClassifierInputDataConfig)
+dcpInputDataConfig = Lens.field @"inputDataConfig"
 {-# DEPRECATED dcpInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
--- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+-- | The language code for the language of the documents that the classifier was trained on.
 --
--- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpVPCConfig :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe VPCConfig)
-dcpVPCConfig = Lens.lens (vpcConfig :: DocumentClassifierProperties -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpLanguageCode :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.LanguageCode)
+dcpLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED dcpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | Additional information about the status of the classifier.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpMessage :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.AnyLengthString)
+dcpMessage = Lens.field @"message"
+{-# DEPRECATED dcpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpMode :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.DocumentClassifierMode)
+dcpMode = Lens.field @"mode"
+{-# DEPRECATED dcpMode "Use generic-lens or generic-optics with 'mode' instead." #-}
+
+-- | Provides output results configuration parameters for custom classifier jobs.
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpOutputDataConfig :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.DocumentClassifierOutputDataConfig)
+dcpOutputDataConfig = Lens.field @"outputDataConfig"
+{-# DEPRECATED dcpOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
+
+-- | The status of the document classifier. If the status is @TRAINED@ the classifier is ready to use. If the status is @FAILED@ you can see additional information about why the classifier wasn't trained in the @Message@ field.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpStatus :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.ModelStatus)
+dcpStatus = Lens.field @"status"
+{-# DEPRECATED dcpStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The time that the document classifier was submitted for training.
+--
+-- /Note:/ Consider using 'submitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpSubmitTime :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Core.NominalDiffTime)
+dcpSubmitTime = Lens.field @"submitTime"
+{-# DEPRECATED dcpSubmitTime "Use generic-lens or generic-optics with 'submitTime' instead." #-}
+
+-- | The time that training of the document classifier was completed. Indicates the time when the training completes on documentation classifiers. You are billed for the time interval between this time and the value of TrainingStartTime.
+--
+-- /Note:/ Consider using 'trainingEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpTrainingEndTime :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Core.NominalDiffTime)
+dcpTrainingEndTime = Lens.field @"trainingEndTime"
+{-# DEPRECATED dcpTrainingEndTime "Use generic-lens or generic-optics with 'trainingEndTime' instead." #-}
+
+-- | Indicates the time when the training starts on documentation classifiers. You are billed for the time interval between this time and the value of TrainingEndTime.
+--
+-- /Note:/ Consider using 'trainingStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpTrainingStartTime :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Core.NominalDiffTime)
+dcpTrainingStartTime = Lens.field @"trainingStartTime"
+{-# DEPRECATED dcpTrainingStartTime "Use generic-lens or generic-optics with 'trainingStartTime' instead." #-}
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
@@ -201,72 +216,35 @@ dcpVPCConfig = Lens.lens (vpcConfig :: DocumentClassifierProperties -> Lude.Mayb
 --
 --
 --
--- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpVolumeKMSKeyId :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe Lude.Text)
-dcpVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: DocumentClassifierProperties -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
+-- /Note:/ Consider using 'volumeKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpVolumeKmsKeyId :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.KmsKeyId)
+dcpVolumeKmsKeyId = Lens.field @"volumeKmsKeyId"
+{-# DEPRECATED dcpVolumeKmsKeyId "Use generic-lens or generic-optics with 'volumeKmsKeyId' instead." #-}
 
--- | The time that training the document classifier completed.
+-- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 --
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpEndTime :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe Lude.Timestamp)
-dcpEndTime = Lens.lens (endTime :: DocumentClassifierProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpVpcConfig :: Lens.Lens' DocumentClassifierProperties (Core.Maybe Types.VpcConfig)
+dcpVpcConfig = Lens.field @"vpcConfig"
+{-# DEPRECATED dcpVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | Provides output results configuration parameters for custom classifier jobs.
---
--- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpOutputDataConfig :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe DocumentClassifierOutputDataConfig)
-dcpOutputDataConfig = Lens.lens (outputDataConfig :: DocumentClassifierProperties -> Lude.Maybe DocumentClassifierOutputDataConfig) (\s a -> s {outputDataConfig = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
-
--- | Indicates the time when the training starts on documentation classifiers. You are billed for the time interval between this time and the value of TrainingEndTime.
---
--- /Note:/ Consider using 'trainingStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpTrainingStartTime :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe Lude.Timestamp)
-dcpTrainingStartTime = Lens.lens (trainingStartTime :: DocumentClassifierProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {trainingStartTime = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpTrainingStartTime "Use generic-lens or generic-optics with 'trainingStartTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
---
--- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpDataAccessRoleARN :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe Lude.Text)
-dcpDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: DocumentClassifierProperties -> Lude.Maybe Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
-
--- | Additional information about the status of the classifier.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpMessage :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe Lude.Text)
-dcpMessage = Lens.lens (message :: DocumentClassifierProperties -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The time that the document classifier was submitted for training.
---
--- /Note:/ Consider using 'submitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpSubmitTime :: Lens.Lens' DocumentClassifierProperties (Lude.Maybe Lude.Timestamp)
-dcpSubmitTime = Lens.lens (submitTime :: DocumentClassifierProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTime = a} :: DocumentClassifierProperties)
-{-# DEPRECATED dcpSubmitTime "Use generic-lens or generic-optics with 'submitTime' instead." #-}
-
-instance Lude.FromJSON DocumentClassifierProperties where
+instance Core.FromJSON DocumentClassifierProperties where
   parseJSON =
-    Lude.withObject
-      "DocumentClassifierProperties"
-      ( \x ->
-          DocumentClassifierProperties'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "LanguageCode")
-            Lude.<*> (x Lude..:? "ClassifierMetadata")
-            Lude.<*> (x Lude..:? "TrainingEndTime")
-            Lude.<*> (x Lude..:? "DocumentClassifierArn")
-            Lude.<*> (x Lude..:? "Mode")
-            Lude.<*> (x Lude..:? "InputDataConfig")
-            Lude.<*> (x Lude..:? "VpcConfig")
-            Lude.<*> (x Lude..:? "VolumeKmsKeyId")
-            Lude.<*> (x Lude..:? "EndTime")
-            Lude.<*> (x Lude..:? "OutputDataConfig")
-            Lude.<*> (x Lude..:? "TrainingStartTime")
-            Lude.<*> (x Lude..:? "DataAccessRoleArn")
-            Lude.<*> (x Lude..:? "Message")
-            Lude.<*> (x Lude..:? "SubmitTime")
-      )
+    Core.withObject "DocumentClassifierProperties" Core.$
+      \x ->
+        DocumentClassifierProperties'
+          Core.<$> (x Core..:? "ClassifierMetadata")
+          Core.<*> (x Core..:? "DataAccessRoleArn")
+          Core.<*> (x Core..:? "DocumentClassifierArn")
+          Core.<*> (x Core..:? "EndTime")
+          Core.<*> (x Core..:? "InputDataConfig")
+          Core.<*> (x Core..:? "LanguageCode")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "Mode")
+          Core.<*> (x Core..:? "OutputDataConfig")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "SubmitTime")
+          Core.<*> (x Core..:? "TrainingEndTime")
+          Core.<*> (x Core..:? "TrainingStartTime")
+          Core.<*> (x Core..:? "VolumeKmsKeyId")
+          Core.<*> (x Core..:? "VpcConfig")

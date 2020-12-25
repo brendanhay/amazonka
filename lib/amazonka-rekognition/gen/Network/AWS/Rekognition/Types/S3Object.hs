@@ -24,7 +24,10 @@ module Network.AWS.Rekognition.Types.S3Object
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.Bucket as Types
+import qualified Network.AWS.Rekognition.Types.Name as Types
+import qualified Network.AWS.Rekognition.Types.S3ObjectVersion as Types
 
 -- | Provides the S3 bucket name and object name.
 --
@@ -34,67 +37,61 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkS3Object' smart constructor.
 data S3Object = S3Object'
   { -- | Name of the S3 bucket.
-    bucket :: Lude.Maybe Lude.Text,
+    bucket :: Core.Maybe Types.Bucket,
     -- | S3 object key name.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | If the bucket is versioning enabled, you can specify the object version.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Types.S3ObjectVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Object' with the minimum fields required to make a request.
---
--- * 'bucket' - Name of the S3 bucket.
--- * 'name' - S3 object key name.
--- * 'version' - If the bucket is versioning enabled, you can specify the object version.
+-- | Creates a 'S3Object' value with any optional fields omitted.
 mkS3Object ::
   S3Object
 mkS3Object =
   S3Object'
-    { bucket = Lude.Nothing,
-      name = Lude.Nothing,
-      version = Lude.Nothing
+    { bucket = Core.Nothing,
+      name = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | Name of the S3 bucket.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-soBucket :: Lens.Lens' S3Object (Lude.Maybe Lude.Text)
-soBucket = Lens.lens (bucket :: S3Object -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: S3Object)
+soBucket :: Lens.Lens' S3Object (Core.Maybe Types.Bucket)
+soBucket = Lens.field @"bucket"
 {-# DEPRECATED soBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | S3 object key name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-soName :: Lens.Lens' S3Object (Lude.Maybe Lude.Text)
-soName = Lens.lens (name :: S3Object -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: S3Object)
+soName :: Lens.Lens' S3Object (Core.Maybe Types.Name)
+soName = Lens.field @"name"
 {-# DEPRECATED soName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | If the bucket is versioning enabled, you can specify the object version.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-soVersion :: Lens.Lens' S3Object (Lude.Maybe Lude.Text)
-soVersion = Lens.lens (version :: S3Object -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: S3Object)
+soVersion :: Lens.Lens' S3Object (Core.Maybe Types.S3ObjectVersion)
+soVersion = Lens.field @"version"
 {-# DEPRECATED soVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON S3Object where
-  parseJSON =
-    Lude.withObject
-      "S3Object"
-      ( \x ->
-          S3Object'
-            Lude.<$> (x Lude..:? "Bucket")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Version")
-      )
-
-instance Lude.ToJSON S3Object where
-  toJSON S3Object' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Bucket" Lude..=) Lude.<$> bucket,
-            ("Name" Lude..=) Lude.<$> name,
-            ("Version" Lude..=) Lude.<$> version
+instance Core.FromJSON S3Object where
+  toJSON S3Object {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Bucket" Core..=) Core.<$> bucket,
+            ("Name" Core..=) Core.<$> name,
+            ("Version" Core..=) Core.<$> version
           ]
       )
+
+instance Core.FromJSON S3Object where
+  parseJSON =
+    Core.withObject "S3Object" Core.$
+      \x ->
+        S3Object'
+          Core.<$> (x Core..:? "Bucket")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Version")

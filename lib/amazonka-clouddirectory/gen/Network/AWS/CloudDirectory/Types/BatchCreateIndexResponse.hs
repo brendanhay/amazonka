@@ -17,42 +17,39 @@ module Network.AWS.CloudDirectory.Types.BatchCreateIndexResponse
     mkBatchCreateIndexResponse,
 
     -- * Lenses
-    bciObjectIdentifier,
+    bcirObjectIdentifier,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'CreateIndex' response operation.
 --
 -- /See:/ 'mkBatchCreateIndexResponse' smart constructor.
 newtype BatchCreateIndexResponse = BatchCreateIndexResponse'
   { -- | The @ObjectIdentifier@ of the index created by this operation.
-    objectIdentifier :: Lude.Maybe Lude.Text
+    objectIdentifier :: Core.Maybe Types.ObjectIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchCreateIndexResponse' with the minimum fields required to make a request.
---
--- * 'objectIdentifier' - The @ObjectIdentifier@ of the index created by this operation.
+-- | Creates a 'BatchCreateIndexResponse' value with any optional fields omitted.
 mkBatchCreateIndexResponse ::
   BatchCreateIndexResponse
 mkBatchCreateIndexResponse =
-  BatchCreateIndexResponse' {objectIdentifier = Lude.Nothing}
+  BatchCreateIndexResponse' {objectIdentifier = Core.Nothing}
 
 -- | The @ObjectIdentifier@ of the index created by this operation.
 --
 -- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bciObjectIdentifier :: Lens.Lens' BatchCreateIndexResponse (Lude.Maybe Lude.Text)
-bciObjectIdentifier = Lens.lens (objectIdentifier :: BatchCreateIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: BatchCreateIndexResponse)
-{-# DEPRECATED bciObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
+bcirObjectIdentifier :: Lens.Lens' BatchCreateIndexResponse (Core.Maybe Types.ObjectIdentifier)
+bcirObjectIdentifier = Lens.field @"objectIdentifier"
+{-# DEPRECATED bcirObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
-instance Lude.FromJSON BatchCreateIndexResponse where
+instance Core.FromJSON BatchCreateIndexResponse where
   parseJSON =
-    Lude.withObject
-      "BatchCreateIndexResponse"
-      ( \x ->
-          BatchCreateIndexResponse' Lude.<$> (x Lude..:? "ObjectIdentifier")
-      )
+    Core.withObject "BatchCreateIndexResponse" Core.$
+      \x ->
+        BatchCreateIndexResponse' Core.<$> (x Core..:? "ObjectIdentifier")

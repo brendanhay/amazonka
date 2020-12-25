@@ -17,73 +17,69 @@ module Network.AWS.CodeCommit.Types.ConflictResolution
     mkConflictResolution,
 
     -- * Lenses
-    crSetFileModes,
     crDeleteFiles,
     crReplaceContents,
+    crSetFileModes,
   )
 where
 
-import Network.AWS.CodeCommit.Types.DeleteFileEntry
-import Network.AWS.CodeCommit.Types.ReplaceContentEntry
-import Network.AWS.CodeCommit.Types.SetFileModeEntry
+import qualified Network.AWS.CodeCommit.Types.DeleteFileEntry as Types
+import qualified Network.AWS.CodeCommit.Types.ReplaceContentEntry as Types
+import qualified Network.AWS.CodeCommit.Types.SetFileModeEntry as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
 --
 -- /See:/ 'mkConflictResolution' smart constructor.
 data ConflictResolution = ConflictResolution'
-  { -- | File modes that are set as part of the merge conflict resolution.
-    setFileModes :: Lude.Maybe [SetFileModeEntry],
-    -- | Files to be deleted as part of the merge conflict resolution.
-    deleteFiles :: Lude.Maybe [DeleteFileEntry],
+  { -- | Files to be deleted as part of the merge conflict resolution.
+    deleteFiles :: Core.Maybe [Types.DeleteFileEntry],
     -- | Files to have content replaced as part of the merge conflict resolution.
-    replaceContents :: Lude.Maybe [ReplaceContentEntry]
+    replaceContents :: Core.Maybe [Types.ReplaceContentEntry],
+    -- | File modes that are set as part of the merge conflict resolution.
+    setFileModes :: Core.Maybe [Types.SetFileModeEntry]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConflictResolution' with the minimum fields required to make a request.
---
--- * 'setFileModes' - File modes that are set as part of the merge conflict resolution.
--- * 'deleteFiles' - Files to be deleted as part of the merge conflict resolution.
--- * 'replaceContents' - Files to have content replaced as part of the merge conflict resolution.
+-- | Creates a 'ConflictResolution' value with any optional fields omitted.
 mkConflictResolution ::
   ConflictResolution
 mkConflictResolution =
   ConflictResolution'
-    { setFileModes = Lude.Nothing,
-      deleteFiles = Lude.Nothing,
-      replaceContents = Lude.Nothing
+    { deleteFiles = Core.Nothing,
+      replaceContents = Core.Nothing,
+      setFileModes = Core.Nothing
     }
-
--- | File modes that are set as part of the merge conflict resolution.
---
--- /Note:/ Consider using 'setFileModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crSetFileModes :: Lens.Lens' ConflictResolution (Lude.Maybe [SetFileModeEntry])
-crSetFileModes = Lens.lens (setFileModes :: ConflictResolution -> Lude.Maybe [SetFileModeEntry]) (\s a -> s {setFileModes = a} :: ConflictResolution)
-{-# DEPRECATED crSetFileModes "Use generic-lens or generic-optics with 'setFileModes' instead." #-}
 
 -- | Files to be deleted as part of the merge conflict resolution.
 --
 -- /Note:/ Consider using 'deleteFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crDeleteFiles :: Lens.Lens' ConflictResolution (Lude.Maybe [DeleteFileEntry])
-crDeleteFiles = Lens.lens (deleteFiles :: ConflictResolution -> Lude.Maybe [DeleteFileEntry]) (\s a -> s {deleteFiles = a} :: ConflictResolution)
+crDeleteFiles :: Lens.Lens' ConflictResolution (Core.Maybe [Types.DeleteFileEntry])
+crDeleteFiles = Lens.field @"deleteFiles"
 {-# DEPRECATED crDeleteFiles "Use generic-lens or generic-optics with 'deleteFiles' instead." #-}
 
 -- | Files to have content replaced as part of the merge conflict resolution.
 --
 -- /Note:/ Consider using 'replaceContents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crReplaceContents :: Lens.Lens' ConflictResolution (Lude.Maybe [ReplaceContentEntry])
-crReplaceContents = Lens.lens (replaceContents :: ConflictResolution -> Lude.Maybe [ReplaceContentEntry]) (\s a -> s {replaceContents = a} :: ConflictResolution)
+crReplaceContents :: Lens.Lens' ConflictResolution (Core.Maybe [Types.ReplaceContentEntry])
+crReplaceContents = Lens.field @"replaceContents"
 {-# DEPRECATED crReplaceContents "Use generic-lens or generic-optics with 'replaceContents' instead." #-}
 
-instance Lude.ToJSON ConflictResolution where
-  toJSON ConflictResolution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("setFileModes" Lude..=) Lude.<$> setFileModes,
-            ("deleteFiles" Lude..=) Lude.<$> deleteFiles,
-            ("replaceContents" Lude..=) Lude.<$> replaceContents
+-- | File modes that are set as part of the merge conflict resolution.
+--
+-- /Note:/ Consider using 'setFileModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crSetFileModes :: Lens.Lens' ConflictResolution (Core.Maybe [Types.SetFileModeEntry])
+crSetFileModes = Lens.field @"setFileModes"
+{-# DEPRECATED crSetFileModes "Use generic-lens or generic-optics with 'setFileModes' instead." #-}
+
+instance Core.FromJSON ConflictResolution where
+  toJSON ConflictResolution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("deleteFiles" Core..=) Core.<$> deleteFiles,
+            ("replaceContents" Core..=) Core.<$> replaceContents,
+            ("setFileModes" Core..=) Core.<$> setFileModes
           ]
       )

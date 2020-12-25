@@ -13,51 +13,56 @@
 module Network.AWS.CloudFormation.Types.StackDriftDetectionStatus
   ( StackDriftDetectionStatus
       ( StackDriftDetectionStatus',
-        DetectionInProgress,
-        DetectionFailed,
-        DetectionComplete
+        StackDriftDetectionStatusDetectionInProgress,
+        StackDriftDetectionStatusDetectionFailed,
+        StackDriftDetectionStatusDetectionComplete,
+        fromStackDriftDetectionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackDriftDetectionStatus = StackDriftDetectionStatus' Lude.Text
+newtype StackDriftDetectionStatus = StackDriftDetectionStatus'
+  { fromStackDriftDetectionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DetectionInProgress :: StackDriftDetectionStatus
-pattern DetectionInProgress = StackDriftDetectionStatus' "DETECTION_IN_PROGRESS"
+pattern StackDriftDetectionStatusDetectionInProgress :: StackDriftDetectionStatus
+pattern StackDriftDetectionStatusDetectionInProgress = StackDriftDetectionStatus' "DETECTION_IN_PROGRESS"
 
-pattern DetectionFailed :: StackDriftDetectionStatus
-pattern DetectionFailed = StackDriftDetectionStatus' "DETECTION_FAILED"
+pattern StackDriftDetectionStatusDetectionFailed :: StackDriftDetectionStatus
+pattern StackDriftDetectionStatusDetectionFailed = StackDriftDetectionStatus' "DETECTION_FAILED"
 
-pattern DetectionComplete :: StackDriftDetectionStatus
-pattern DetectionComplete = StackDriftDetectionStatus' "DETECTION_COMPLETE"
+pattern StackDriftDetectionStatusDetectionComplete :: StackDriftDetectionStatus
+pattern StackDriftDetectionStatusDetectionComplete = StackDriftDetectionStatus' "DETECTION_COMPLETE"
 
 {-# COMPLETE
-  DetectionInProgress,
-  DetectionFailed,
-  DetectionComplete,
+  StackDriftDetectionStatusDetectionInProgress,
+  StackDriftDetectionStatusDetectionFailed,
+  StackDriftDetectionStatusDetectionComplete,
   StackDriftDetectionStatus'
   #-}

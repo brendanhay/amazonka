@@ -18,124 +18,118 @@ module Network.AWS.FMS.Types.PolicyComplianceStatus
 
     -- * Lenses
     pcsEvaluationResults,
-    pcsLastUpdated,
-    pcsPolicyName,
-    pcsPolicyId,
     pcsIssueInfoMap,
-    pcsPolicyOwner,
+    pcsLastUpdated,
     pcsMemberAccount,
+    pcsPolicyId,
+    pcsPolicyName,
+    pcsPolicyOwner,
   )
 where
 
-import Network.AWS.FMS.Types.DependentServiceName
-import Network.AWS.FMS.Types.EvaluationResult
+import qualified Network.AWS.FMS.Types.AWSAccountId as Types
+import qualified Network.AWS.FMS.Types.DependentServiceName as Types
+import qualified Network.AWS.FMS.Types.DetailedInfo as Types
+import qualified Network.AWS.FMS.Types.EvaluationResult as Types
+import qualified Network.AWS.FMS.Types.PolicyId as Types
+import qualified Network.AWS.FMS.Types.ResourceName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether the account is compliant with the specified policy. An account is considered noncompliant if it includes resources that are not protected by the policy, for AWS WAF and Shield Advanced policies, or that are noncompliant with the policy, for security group policies.
 --
 -- /See:/ 'mkPolicyComplianceStatus' smart constructor.
 data PolicyComplianceStatus = PolicyComplianceStatus'
   { -- | An array of @EvaluationResult@ objects.
-    evaluationResults :: Lude.Maybe [EvaluationResult],
-    -- | Timestamp of the last update to the @EvaluationResult@ objects.
-    lastUpdated :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the AWS Firewall Manager policy.
-    policyName :: Lude.Maybe Lude.Text,
-    -- | The ID of the AWS Firewall Manager policy.
-    policyId :: Lude.Maybe Lude.Text,
+    evaluationResults :: Core.Maybe [Types.EvaluationResult],
     -- | Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
-    issueInfoMap :: Lude.Maybe (Lude.HashMap DependentServiceName (Lude.Text)),
-    -- | The AWS account that created the AWS Firewall Manager policy.
-    policyOwner :: Lude.Maybe Lude.Text,
+    issueInfoMap :: Core.Maybe (Core.HashMap Types.DependentServiceName Types.DetailedInfo),
+    -- | Timestamp of the last update to the @EvaluationResult@ objects.
+    lastUpdated :: Core.Maybe Core.NominalDiffTime,
     -- | The member account ID.
-    memberAccount :: Lude.Maybe Lude.Text
+    memberAccount :: Core.Maybe Types.AWSAccountId,
+    -- | The ID of the AWS Firewall Manager policy.
+    policyId :: Core.Maybe Types.PolicyId,
+    -- | The name of the AWS Firewall Manager policy.
+    policyName :: Core.Maybe Types.ResourceName,
+    -- | The AWS account that created the AWS Firewall Manager policy.
+    policyOwner :: Core.Maybe Types.AWSAccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PolicyComplianceStatus' with the minimum fields required to make a request.
---
--- * 'evaluationResults' - An array of @EvaluationResult@ objects.
--- * 'lastUpdated' - Timestamp of the last update to the @EvaluationResult@ objects.
--- * 'policyName' - The name of the AWS Firewall Manager policy.
--- * 'policyId' - The ID of the AWS Firewall Manager policy.
--- * 'issueInfoMap' - Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
--- * 'policyOwner' - The AWS account that created the AWS Firewall Manager policy.
--- * 'memberAccount' - The member account ID.
+-- | Creates a 'PolicyComplianceStatus' value with any optional fields omitted.
 mkPolicyComplianceStatus ::
   PolicyComplianceStatus
 mkPolicyComplianceStatus =
   PolicyComplianceStatus'
-    { evaluationResults = Lude.Nothing,
-      lastUpdated = Lude.Nothing,
-      policyName = Lude.Nothing,
-      policyId = Lude.Nothing,
-      issueInfoMap = Lude.Nothing,
-      policyOwner = Lude.Nothing,
-      memberAccount = Lude.Nothing
+    { evaluationResults = Core.Nothing,
+      issueInfoMap = Core.Nothing,
+      lastUpdated = Core.Nothing,
+      memberAccount = Core.Nothing,
+      policyId = Core.Nothing,
+      policyName = Core.Nothing,
+      policyOwner = Core.Nothing
     }
 
 -- | An array of @EvaluationResult@ objects.
 --
 -- /Note:/ Consider using 'evaluationResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsEvaluationResults :: Lens.Lens' PolicyComplianceStatus (Lude.Maybe [EvaluationResult])
-pcsEvaluationResults = Lens.lens (evaluationResults :: PolicyComplianceStatus -> Lude.Maybe [EvaluationResult]) (\s a -> s {evaluationResults = a} :: PolicyComplianceStatus)
+pcsEvaluationResults :: Lens.Lens' PolicyComplianceStatus (Core.Maybe [Types.EvaluationResult])
+pcsEvaluationResults = Lens.field @"evaluationResults"
 {-# DEPRECATED pcsEvaluationResults "Use generic-lens or generic-optics with 'evaluationResults' instead." #-}
-
--- | Timestamp of the last update to the @EvaluationResult@ objects.
---
--- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsLastUpdated :: Lens.Lens' PolicyComplianceStatus (Lude.Maybe Lude.Timestamp)
-pcsLastUpdated = Lens.lens (lastUpdated :: PolicyComplianceStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: PolicyComplianceStatus)
-{-# DEPRECATED pcsLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
-
--- | The name of the AWS Firewall Manager policy.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsPolicyName :: Lens.Lens' PolicyComplianceStatus (Lude.Maybe Lude.Text)
-pcsPolicyName = Lens.lens (policyName :: PolicyComplianceStatus -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: PolicyComplianceStatus)
-{-# DEPRECATED pcsPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
-
--- | The ID of the AWS Firewall Manager policy.
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsPolicyId :: Lens.Lens' PolicyComplianceStatus (Lude.Maybe Lude.Text)
-pcsPolicyId = Lens.lens (policyId :: PolicyComplianceStatus -> Lude.Maybe Lude.Text) (\s a -> s {policyId = a} :: PolicyComplianceStatus)
-{-# DEPRECATED pcsPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
 --
 -- /Note:/ Consider using 'issueInfoMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsIssueInfoMap :: Lens.Lens' PolicyComplianceStatus (Lude.Maybe (Lude.HashMap DependentServiceName (Lude.Text)))
-pcsIssueInfoMap = Lens.lens (issueInfoMap :: PolicyComplianceStatus -> Lude.Maybe (Lude.HashMap DependentServiceName (Lude.Text))) (\s a -> s {issueInfoMap = a} :: PolicyComplianceStatus)
+pcsIssueInfoMap :: Lens.Lens' PolicyComplianceStatus (Core.Maybe (Core.HashMap Types.DependentServiceName Types.DetailedInfo))
+pcsIssueInfoMap = Lens.field @"issueInfoMap"
 {-# DEPRECATED pcsIssueInfoMap "Use generic-lens or generic-optics with 'issueInfoMap' instead." #-}
 
--- | The AWS account that created the AWS Firewall Manager policy.
+-- | Timestamp of the last update to the @EvaluationResult@ objects.
 --
--- /Note:/ Consider using 'policyOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsPolicyOwner :: Lens.Lens' PolicyComplianceStatus (Lude.Maybe Lude.Text)
-pcsPolicyOwner = Lens.lens (policyOwner :: PolicyComplianceStatus -> Lude.Maybe Lude.Text) (\s a -> s {policyOwner = a} :: PolicyComplianceStatus)
-{-# DEPRECATED pcsPolicyOwner "Use generic-lens or generic-optics with 'policyOwner' instead." #-}
+-- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcsLastUpdated :: Lens.Lens' PolicyComplianceStatus (Core.Maybe Core.NominalDiffTime)
+pcsLastUpdated = Lens.field @"lastUpdated"
+{-# DEPRECATED pcsLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
 -- | The member account ID.
 --
 -- /Note:/ Consider using 'memberAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsMemberAccount :: Lens.Lens' PolicyComplianceStatus (Lude.Maybe Lude.Text)
-pcsMemberAccount = Lens.lens (memberAccount :: PolicyComplianceStatus -> Lude.Maybe Lude.Text) (\s a -> s {memberAccount = a} :: PolicyComplianceStatus)
+pcsMemberAccount :: Lens.Lens' PolicyComplianceStatus (Core.Maybe Types.AWSAccountId)
+pcsMemberAccount = Lens.field @"memberAccount"
 {-# DEPRECATED pcsMemberAccount "Use generic-lens or generic-optics with 'memberAccount' instead." #-}
 
-instance Lude.FromJSON PolicyComplianceStatus where
+-- | The ID of the AWS Firewall Manager policy.
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcsPolicyId :: Lens.Lens' PolicyComplianceStatus (Core.Maybe Types.PolicyId)
+pcsPolicyId = Lens.field @"policyId"
+{-# DEPRECATED pcsPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
+
+-- | The name of the AWS Firewall Manager policy.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcsPolicyName :: Lens.Lens' PolicyComplianceStatus (Core.Maybe Types.ResourceName)
+pcsPolicyName = Lens.field @"policyName"
+{-# DEPRECATED pcsPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The AWS account that created the AWS Firewall Manager policy.
+--
+-- /Note:/ Consider using 'policyOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcsPolicyOwner :: Lens.Lens' PolicyComplianceStatus (Core.Maybe Types.AWSAccountId)
+pcsPolicyOwner = Lens.field @"policyOwner"
+{-# DEPRECATED pcsPolicyOwner "Use generic-lens or generic-optics with 'policyOwner' instead." #-}
+
+instance Core.FromJSON PolicyComplianceStatus where
   parseJSON =
-    Lude.withObject
-      "PolicyComplianceStatus"
-      ( \x ->
-          PolicyComplianceStatus'
-            Lude.<$> (x Lude..:? "EvaluationResults" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LastUpdated")
-            Lude.<*> (x Lude..:? "PolicyName")
-            Lude.<*> (x Lude..:? "PolicyId")
-            Lude.<*> (x Lude..:? "IssueInfoMap" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "PolicyOwner")
-            Lude.<*> (x Lude..:? "MemberAccount")
-      )
+    Core.withObject "PolicyComplianceStatus" Core.$
+      \x ->
+        PolicyComplianceStatus'
+          Core.<$> (x Core..:? "EvaluationResults")
+          Core.<*> (x Core..:? "IssueInfoMap")
+          Core.<*> (x Core..:? "LastUpdated")
+          Core.<*> (x Core..:? "MemberAccount")
+          Core.<*> (x Core..:? "PolicyId")
+          Core.<*> (x Core..:? "PolicyName")
+          Core.<*> (x Core..:? "PolicyOwner")

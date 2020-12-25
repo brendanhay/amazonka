@@ -26,108 +26,101 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     mkDescribeMetricCollectionTypesResponse,
 
     -- ** Response lenses
-    dmctrsMetrics,
-    dmctrsGranularities,
-    dmctrsResponseStatus,
+    dmctrrsGranularities,
+    dmctrrsMetrics,
+    dmctrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeMetricCollectionTypes' smart constructor.
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMetricCollectionTypes' with the minimum fields required to make a request.
+-- | Creates a 'DescribeMetricCollectionTypes' value with any optional fields omitted.
 mkDescribeMetricCollectionTypes ::
   DescribeMetricCollectionTypes
 mkDescribeMetricCollectionTypes = DescribeMetricCollectionTypes'
 
-instance Lude.AWSRequest DescribeMetricCollectionTypes where
+instance Core.AWSRequest DescribeMetricCollectionTypes where
   type
     Rs DescribeMetricCollectionTypes =
       DescribeMetricCollectionTypesResponse
-  request = Req.postQuery autoScalingService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeMetricCollectionTypes")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeMetricCollectionTypesResult"
       ( \s h x ->
           DescribeMetricCollectionTypesResponse'
-            Lude.<$> ( x Lude..@? "Metrics" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> ( x Lude..@? "Granularities" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeMetricCollectionTypes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeMetricCollectionTypes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeMetricCollectionTypes where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action"
-              Lude.=: ("DescribeMetricCollectionTypes" :: Lude.ByteString),
-            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
-          ]
+            Core.<$> (x Core..@? "Granularities" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "Metrics" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | /See:/ 'mkDescribeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-  { -- | One or more metrics.
-    metrics :: Lude.Maybe [MetricCollectionType],
-    -- | The granularities for the metrics.
-    granularities :: Lude.Maybe [MetricGranularityType],
+  { -- | The granularities for the metrics.
+    granularities :: Core.Maybe [Types.MetricGranularityType],
+    -- | One or more metrics.
+    metrics :: Core.Maybe [Types.MetricCollectionType],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMetricCollectionTypesResponse' with the minimum fields required to make a request.
---
--- * 'metrics' - One or more metrics.
--- * 'granularities' - The granularities for the metrics.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMetricCollectionTypesResponse' value with any optional fields omitted.
 mkDescribeMetricCollectionTypesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMetricCollectionTypesResponse
-mkDescribeMetricCollectionTypesResponse pResponseStatus_ =
+mkDescribeMetricCollectionTypesResponse responseStatus =
   DescribeMetricCollectionTypesResponse'
-    { metrics = Lude.Nothing,
-      granularities = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { granularities =
+        Core.Nothing,
+      metrics = Core.Nothing,
+      responseStatus
     }
-
--- | One or more metrics.
---
--- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmctrsMetrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Lude.Maybe [MetricCollectionType])
-dmctrsMetrics = Lens.lens (metrics :: DescribeMetricCollectionTypesResponse -> Lude.Maybe [MetricCollectionType]) (\s a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse)
-{-# DEPRECATED dmctrsMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The granularities for the metrics.
 --
 -- /Note:/ Consider using 'granularities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmctrsGranularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Lude.Maybe [MetricGranularityType])
-dmctrsGranularities = Lens.lens (granularities :: DescribeMetricCollectionTypesResponse -> Lude.Maybe [MetricGranularityType]) (\s a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse)
-{-# DEPRECATED dmctrsGranularities "Use generic-lens or generic-optics with 'granularities' instead." #-}
+dmctrrsGranularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Core.Maybe [Types.MetricGranularityType])
+dmctrrsGranularities = Lens.field @"granularities"
+{-# DEPRECATED dmctrrsGranularities "Use generic-lens or generic-optics with 'granularities' instead." #-}
+
+-- | One or more metrics.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmctrrsMetrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Core.Maybe [Types.MetricCollectionType])
+dmctrrsMetrics = Lens.field @"metrics"
+{-# DEPRECATED dmctrrsMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmctrsResponseStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Lude.Int
-dmctrsResponseStatus = Lens.lens (responseStatus :: DescribeMetricCollectionTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMetricCollectionTypesResponse)
-{-# DEPRECATED dmctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmctrrsResponseStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Core.Int
+dmctrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmctrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

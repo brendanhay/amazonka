@@ -22,38 +22,58 @@ module Network.AWS.Glue.UpdateMLTransform
     mkUpdateMLTransform,
 
     -- ** Request lenses
-    umltNumberOfWorkers,
-    umltWorkerType,
-    umltGlueVersion,
-    umltRole,
-    umltName,
-    umltParameters,
-    umltMaxRetries,
-    umltMaxCapacity,
-    umltTimeout,
-    umltDescription,
     umltTransformId,
+    umltDescription,
+    umltGlueVersion,
+    umltMaxCapacity,
+    umltMaxRetries,
+    umltName,
+    umltNumberOfWorkers,
+    umltParameters,
+    umltRole,
+    umltTimeout,
+    umltWorkerType,
 
     -- * Destructuring the response
     UpdateMLTransformResponse (..),
     mkUpdateMLTransformResponse,
 
     -- ** Response lenses
-    umltrsTransformId,
-    umltrsResponseStatus,
+    umltrrsTransformId,
+    umltrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateMLTransform' smart constructor.
 data UpdateMLTransform = UpdateMLTransform'
-  { -- | The number of workers of a defined @workerType@ that are allocated when this task runs.
-    numberOfWorkers :: Lude.Maybe Lude.Int,
+  { -- | A unique identifier that was generated when the transform was created.
+    transformId :: Types.HashString,
+    -- | A description of the transform. The default is an empty string.
+    description :: Core.Maybe Types.DescriptionString,
+    -- | This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
+    glueVersion :: Core.Maybe Types.GlueVersionString,
+    -- | The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+    --
+    -- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
+    maxCapacity :: Core.Maybe Core.Double,
+    -- | The maximum number of times to retry a task for this transform after a task run fails.
+    maxRetries :: Core.Maybe Core.Int,
+    -- | The unique name that you gave the transform when you created it.
+    name :: Core.Maybe Types.NameString,
+    -- | The number of workers of a defined @workerType@ that are allocated when this task runs.
+    numberOfWorkers :: Core.Maybe Core.Int,
+    -- | The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.
+    parameters :: Core.Maybe Types.TransformParameters,
+    -- | The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
+    role' :: Core.Maybe Types.Role,
+    -- | The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
+    timeout :: Core.Maybe Core.Natural,
     -- | The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.
     --
     --
@@ -64,82 +84,102 @@ data UpdateMLTransform = UpdateMLTransform'
     --
     --
     --     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
-    workerType :: Lude.Maybe WorkerType,
-    -- | This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
-    glueVersion :: Lude.Maybe Lude.Text,
-    -- | The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
-    role' :: Lude.Maybe Lude.Text,
-    -- | The unique name that you gave the transform when you created it.
-    name :: Lude.Maybe Lude.Text,
-    -- | The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.
-    parameters :: Lude.Maybe TransformParameters,
-    -- | The maximum number of times to retry a task for this transform after a task run fails.
-    maxRetries :: Lude.Maybe Lude.Int,
-    -- | The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
-    --
-    -- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
-    maxCapacity :: Lude.Maybe Lude.Double,
-    -- | The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
-    timeout :: Lude.Maybe Lude.Natural,
-    -- | A description of the transform. The default is an empty string.
-    description :: Lude.Maybe Lude.Text,
-    -- | A unique identifier that was generated when the transform was created.
-    transformId :: Lude.Text
+    workerType :: Core.Maybe Types.WorkerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMLTransform' with the minimum fields required to make a request.
---
--- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when this task runs.
--- * 'workerType' - The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.
---
---
---     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
---
---
---     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
---
---
---     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
---
---
--- * 'glueVersion' - This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
--- * 'role'' - The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
--- * 'name' - The unique name that you gave the transform when you created it.
--- * 'parameters' - The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.
--- * 'maxRetries' - The maximum number of times to retry a task for this transform after a task run fails.
--- * 'maxCapacity' - The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
---
--- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
--- * 'timeout' - The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
--- * 'description' - A description of the transform. The default is an empty string.
--- * 'transformId' - A unique identifier that was generated when the transform was created.
+-- | Creates a 'UpdateMLTransform' value with any optional fields omitted.
 mkUpdateMLTransform ::
   -- | 'transformId'
-  Lude.Text ->
+  Types.HashString ->
   UpdateMLTransform
-mkUpdateMLTransform pTransformId_ =
+mkUpdateMLTransform transformId =
   UpdateMLTransform'
-    { numberOfWorkers = Lude.Nothing,
-      workerType = Lude.Nothing,
-      glueVersion = Lude.Nothing,
-      role' = Lude.Nothing,
-      name = Lude.Nothing,
-      parameters = Lude.Nothing,
-      maxRetries = Lude.Nothing,
-      maxCapacity = Lude.Nothing,
-      timeout = Lude.Nothing,
-      description = Lude.Nothing,
-      transformId = pTransformId_
+    { transformId,
+      description = Core.Nothing,
+      glueVersion = Core.Nothing,
+      maxCapacity = Core.Nothing,
+      maxRetries = Core.Nothing,
+      name = Core.Nothing,
+      numberOfWorkers = Core.Nothing,
+      parameters = Core.Nothing,
+      role' = Core.Nothing,
+      timeout = Core.Nothing,
+      workerType = Core.Nothing
     }
+
+-- | A unique identifier that was generated when the transform was created.
+--
+-- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltTransformId :: Lens.Lens' UpdateMLTransform Types.HashString
+umltTransformId = Lens.field @"transformId"
+{-# DEPRECATED umltTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
+
+-- | A description of the transform. The default is an empty string.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltDescription :: Lens.Lens' UpdateMLTransform (Core.Maybe Types.DescriptionString)
+umltDescription = Lens.field @"description"
+{-# DEPRECATED umltDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
+--
+-- /Note:/ Consider using 'glueVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltGlueVersion :: Lens.Lens' UpdateMLTransform (Core.Maybe Types.GlueVersionString)
+umltGlueVersion = Lens.field @"glueVersion"
+{-# DEPRECATED umltGlueVersion "Use generic-lens or generic-optics with 'glueVersion' instead." #-}
+
+-- | The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+--
+-- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
+--
+-- /Note:/ Consider using 'maxCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltMaxCapacity :: Lens.Lens' UpdateMLTransform (Core.Maybe Core.Double)
+umltMaxCapacity = Lens.field @"maxCapacity"
+{-# DEPRECATED umltMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
+
+-- | The maximum number of times to retry a task for this transform after a task run fails.
+--
+-- /Note:/ Consider using 'maxRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltMaxRetries :: Lens.Lens' UpdateMLTransform (Core.Maybe Core.Int)
+umltMaxRetries = Lens.field @"maxRetries"
+{-# DEPRECATED umltMaxRetries "Use generic-lens or generic-optics with 'maxRetries' instead." #-}
+
+-- | The unique name that you gave the transform when you created it.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltName :: Lens.Lens' UpdateMLTransform (Core.Maybe Types.NameString)
+umltName = Lens.field @"name"
+{-# DEPRECATED umltName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The number of workers of a defined @workerType@ that are allocated when this task runs.
 --
 -- /Note:/ Consider using 'numberOfWorkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltNumberOfWorkers :: Lens.Lens' UpdateMLTransform (Lude.Maybe Lude.Int)
-umltNumberOfWorkers = Lens.lens (numberOfWorkers :: UpdateMLTransform -> Lude.Maybe Lude.Int) (\s a -> s {numberOfWorkers = a} :: UpdateMLTransform)
+umltNumberOfWorkers :: Lens.Lens' UpdateMLTransform (Core.Maybe Core.Int)
+umltNumberOfWorkers = Lens.field @"numberOfWorkers"
 {-# DEPRECATED umltNumberOfWorkers "Use generic-lens or generic-optics with 'numberOfWorkers' instead." #-}
+
+-- | The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltParameters :: Lens.Lens' UpdateMLTransform (Core.Maybe Types.TransformParameters)
+umltParameters = Lens.field @"parameters"
+{-# DEPRECATED umltParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltRole :: Lens.Lens' UpdateMLTransform (Core.Maybe Types.Role)
+umltRole = Lens.field @"role'"
+{-# DEPRECATED umltRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+
+-- | The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umltTimeout :: Lens.Lens' UpdateMLTransform (Core.Maybe Core.Natural)
+umltTimeout = Lens.field @"timeout"
+{-# DEPRECATED umltTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
 -- | The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.
 --
@@ -155,154 +195,79 @@ umltNumberOfWorkers = Lens.lens (numberOfWorkers :: UpdateMLTransform -> Lude.Ma
 --
 --
 -- /Note:/ Consider using 'workerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltWorkerType :: Lens.Lens' UpdateMLTransform (Lude.Maybe WorkerType)
-umltWorkerType = Lens.lens (workerType :: UpdateMLTransform -> Lude.Maybe WorkerType) (\s a -> s {workerType = a} :: UpdateMLTransform)
+umltWorkerType :: Lens.Lens' UpdateMLTransform (Core.Maybe Types.WorkerType)
+umltWorkerType = Lens.field @"workerType"
 {-# DEPRECATED umltWorkerType "Use generic-lens or generic-optics with 'workerType' instead." #-}
 
--- | This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
---
--- /Note:/ Consider using 'glueVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltGlueVersion :: Lens.Lens' UpdateMLTransform (Lude.Maybe Lude.Text)
-umltGlueVersion = Lens.lens (glueVersion :: UpdateMLTransform -> Lude.Maybe Lude.Text) (\s a -> s {glueVersion = a} :: UpdateMLTransform)
-{-# DEPRECATED umltGlueVersion "Use generic-lens or generic-optics with 'glueVersion' instead." #-}
+instance Core.FromJSON UpdateMLTransform where
+  toJSON UpdateMLTransform {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TransformId" Core..= transformId),
+            ("Description" Core..=) Core.<$> description,
+            ("GlueVersion" Core..=) Core.<$> glueVersion,
+            ("MaxCapacity" Core..=) Core.<$> maxCapacity,
+            ("MaxRetries" Core..=) Core.<$> maxRetries,
+            ("Name" Core..=) Core.<$> name,
+            ("NumberOfWorkers" Core..=) Core.<$> numberOfWorkers,
+            ("Parameters" Core..=) Core.<$> parameters,
+            ("Role" Core..=) Core.<$> role',
+            ("Timeout" Core..=) Core.<$> timeout,
+            ("WorkerType" Core..=) Core.<$> workerType
+          ]
+      )
 
--- | The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
---
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltRole :: Lens.Lens' UpdateMLTransform (Lude.Maybe Lude.Text)
-umltRole = Lens.lens (role' :: UpdateMLTransform -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: UpdateMLTransform)
-{-# DEPRECATED umltRole "Use generic-lens or generic-optics with 'role'' instead." #-}
-
--- | The unique name that you gave the transform when you created it.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltName :: Lens.Lens' UpdateMLTransform (Lude.Maybe Lude.Text)
-umltName = Lens.lens (name :: UpdateMLTransform -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateMLTransform)
-{-# DEPRECATED umltName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltParameters :: Lens.Lens' UpdateMLTransform (Lude.Maybe TransformParameters)
-umltParameters = Lens.lens (parameters :: UpdateMLTransform -> Lude.Maybe TransformParameters) (\s a -> s {parameters = a} :: UpdateMLTransform)
-{-# DEPRECATED umltParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | The maximum number of times to retry a task for this transform after a task run fails.
---
--- /Note:/ Consider using 'maxRetries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltMaxRetries :: Lens.Lens' UpdateMLTransform (Lude.Maybe Lude.Int)
-umltMaxRetries = Lens.lens (maxRetries :: UpdateMLTransform -> Lude.Maybe Lude.Int) (\s a -> s {maxRetries = a} :: UpdateMLTransform)
-{-# DEPRECATED umltMaxRetries "Use generic-lens or generic-optics with 'maxRetries' instead." #-}
-
--- | The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
---
--- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
---
--- /Note:/ Consider using 'maxCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltMaxCapacity :: Lens.Lens' UpdateMLTransform (Lude.Maybe Lude.Double)
-umltMaxCapacity = Lens.lens (maxCapacity :: UpdateMLTransform -> Lude.Maybe Lude.Double) (\s a -> s {maxCapacity = a} :: UpdateMLTransform)
-{-# DEPRECATED umltMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
-
--- | The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
---
--- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltTimeout :: Lens.Lens' UpdateMLTransform (Lude.Maybe Lude.Natural)
-umltTimeout = Lens.lens (timeout :: UpdateMLTransform -> Lude.Maybe Lude.Natural) (\s a -> s {timeout = a} :: UpdateMLTransform)
-{-# DEPRECATED umltTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
-
--- | A description of the transform. The default is an empty string.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltDescription :: Lens.Lens' UpdateMLTransform (Lude.Maybe Lude.Text)
-umltDescription = Lens.lens (description :: UpdateMLTransform -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateMLTransform)
-{-# DEPRECATED umltDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | A unique identifier that was generated when the transform was created.
---
--- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltTransformId :: Lens.Lens' UpdateMLTransform Lude.Text
-umltTransformId = Lens.lens (transformId :: UpdateMLTransform -> Lude.Text) (\s a -> s {transformId = a} :: UpdateMLTransform)
-{-# DEPRECATED umltTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
-
-instance Lude.AWSRequest UpdateMLTransform where
+instance Core.AWSRequest UpdateMLTransform where
   type Rs UpdateMLTransform = UpdateMLTransformResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.UpdateMLTransform")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateMLTransformResponse'
-            Lude.<$> (x Lude..?> "TransformId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TransformId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateMLTransform where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.UpdateMLTransform" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateMLTransform where
-  toJSON UpdateMLTransform' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NumberOfWorkers" Lude..=) Lude.<$> numberOfWorkers,
-            ("WorkerType" Lude..=) Lude.<$> workerType,
-            ("GlueVersion" Lude..=) Lude.<$> glueVersion,
-            ("Role" Lude..=) Lude.<$> role',
-            ("Name" Lude..=) Lude.<$> name,
-            ("Parameters" Lude..=) Lude.<$> parameters,
-            ("MaxRetries" Lude..=) Lude.<$> maxRetries,
-            ("MaxCapacity" Lude..=) Lude.<$> maxCapacity,
-            ("Timeout" Lude..=) Lude.<$> timeout,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("TransformId" Lude..= transformId)
-          ]
-      )
-
-instance Lude.ToPath UpdateMLTransform where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateMLTransform where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateMLTransformResponse' smart constructor.
 data UpdateMLTransformResponse = UpdateMLTransformResponse'
   { -- | The unique identifier for the transform that was updated.
-    transformId :: Lude.Maybe Lude.Text,
+    transformId :: Core.Maybe Types.HashString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMLTransformResponse' with the minimum fields required to make a request.
---
--- * 'transformId' - The unique identifier for the transform that was updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateMLTransformResponse' value with any optional fields omitted.
 mkUpdateMLTransformResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateMLTransformResponse
-mkUpdateMLTransformResponse pResponseStatus_ =
+mkUpdateMLTransformResponse responseStatus =
   UpdateMLTransformResponse'
-    { transformId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { transformId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier for the transform that was updated.
 --
 -- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltrsTransformId :: Lens.Lens' UpdateMLTransformResponse (Lude.Maybe Lude.Text)
-umltrsTransformId = Lens.lens (transformId :: UpdateMLTransformResponse -> Lude.Maybe Lude.Text) (\s a -> s {transformId = a} :: UpdateMLTransformResponse)
-{-# DEPRECATED umltrsTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
+umltrrsTransformId :: Lens.Lens' UpdateMLTransformResponse (Core.Maybe Types.HashString)
+umltrrsTransformId = Lens.field @"transformId"
+{-# DEPRECATED umltrrsTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umltrsResponseStatus :: Lens.Lens' UpdateMLTransformResponse Lude.Int
-umltrsResponseStatus = Lens.lens (responseStatus :: UpdateMLTransformResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMLTransformResponse)
-{-# DEPRECATED umltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+umltrrsResponseStatus :: Lens.Lens' UpdateMLTransformResponse Core.Int
+umltrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED umltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

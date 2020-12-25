@@ -22,7 +22,9 @@ module Network.AWS.MachineLearning.Types.PerformanceMetrics
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MachineLearning.Types.PerformanceMetricsPropertyKey as Types
+import qualified Network.AWS.MachineLearning.Types.PerformanceMetricsPropertyValue as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Measurements of how well the @MLModel@ performed on known observations. One of the following metrics is returned, based on the type of the @MLModel@ :
 --
@@ -40,31 +42,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPerformanceMetrics' smart constructor.
 newtype PerformanceMetrics = PerformanceMetrics'
-  { properties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { properties :: Core.Maybe (Core.HashMap Types.PerformanceMetricsPropertyKey Types.PerformanceMetricsPropertyValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PerformanceMetrics' with the minimum fields required to make a request.
---
--- * 'properties' -
+-- | Creates a 'PerformanceMetrics' value with any optional fields omitted.
 mkPerformanceMetrics ::
   PerformanceMetrics
 mkPerformanceMetrics =
-  PerformanceMetrics' {properties = Lude.Nothing}
+  PerformanceMetrics' {properties = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmProperties :: Lens.Lens' PerformanceMetrics (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-pmProperties = Lens.lens (properties :: PerformanceMetrics -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {properties = a} :: PerformanceMetrics)
+pmProperties :: Lens.Lens' PerformanceMetrics (Core.Maybe (Core.HashMap Types.PerformanceMetricsPropertyKey Types.PerformanceMetricsPropertyValue))
+pmProperties = Lens.field @"properties"
 {-# DEPRECATED pmProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
-instance Lude.FromJSON PerformanceMetrics where
+instance Core.FromJSON PerformanceMetrics where
   parseJSON =
-    Lude.withObject
-      "PerformanceMetrics"
-      ( \x ->
-          PerformanceMetrics'
-            Lude.<$> (x Lude..:? "Properties" Lude..!= Lude.mempty)
-      )
+    Core.withObject "PerformanceMetrics" Core.$
+      \x -> PerformanceMetrics' Core.<$> (x Core..:? "Properties")

@@ -28,112 +28,102 @@ module Network.AWS.XRay.GetGroup
     mkGetGroupResponse,
 
     -- ** Response lenses
-    ggrsGroup,
-    ggrsResponseStatus,
+    grsGroup,
+    grsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkGetGroup' smart constructor.
 data GetGroup = GetGroup'
   { -- | The ARN of the group that was generated on creation.
-    groupARN :: Lude.Maybe Lude.Text,
+    groupARN :: Core.Maybe Types.GroupARN,
     -- | The case-sensitive name of the group.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
---
--- * 'groupARN' - The ARN of the group that was generated on creation.
--- * 'groupName' - The case-sensitive name of the group.
+-- | Creates a 'GetGroup' value with any optional fields omitted.
 mkGetGroup ::
   GetGroup
 mkGetGroup =
-  GetGroup' {groupARN = Lude.Nothing, groupName = Lude.Nothing}
+  GetGroup' {groupARN = Core.Nothing, groupName = Core.Nothing}
 
 -- | The ARN of the group that was generated on creation.
 --
 -- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggGroupARN :: Lens.Lens' GetGroup (Lude.Maybe Lude.Text)
-ggGroupARN = Lens.lens (groupARN :: GetGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: GetGroup)
+ggGroupARN :: Lens.Lens' GetGroup (Core.Maybe Types.GroupARN)
+ggGroupARN = Lens.field @"groupARN"
 {-# DEPRECATED ggGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The case-sensitive name of the group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggGroupName :: Lens.Lens' GetGroup (Lude.Maybe Lude.Text)
-ggGroupName = Lens.lens (groupName :: GetGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GetGroup)
+ggGroupName :: Lens.Lens' GetGroup (Core.Maybe Types.GroupName)
+ggGroupName = Lens.field @"groupName"
 {-# DEPRECATED ggGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest GetGroup where
-  type Rs GetGroup = GetGroupResponse
-  request = Req.postJSON xRayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetGroupResponse'
-            Lude.<$> (x Lude..?> "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetGroup where
-  toJSON GetGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("GroupARN" Lude..=) Lude.<$> groupARN,
-            ("GroupName" Lude..=) Lude.<$> groupName
+instance Core.FromJSON GetGroup where
+  toJSON GetGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("GroupARN" Core..=) Core.<$> groupARN,
+            ("GroupName" Core..=) Core.<$> groupName
           ]
       )
 
-instance Lude.ToPath GetGroup where
-  toPath = Lude.const "/GetGroup"
-
-instance Lude.ToQuery GetGroup where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetGroup where
+  type Rs GetGroup = GetGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/GetGroup",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetGroupResponse'
+            Core.<$> (x Core..:? "Group") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
   { -- | The group that was requested. Contains the name of the group, the ARN of the group, the filter expression, and the insight configuration assigned to the group.
-    group :: Lude.Maybe Group,
+    group :: Core.Maybe Types.Group,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
---
--- * 'group' - The group that was requested. Contains the name of the group, the ARN of the group, the filter expression, and the insight configuration assigned to the group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetGroupResponse' value with any optional fields omitted.
 mkGetGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetGroupResponse
-mkGetGroupResponse pResponseStatus_ =
-  GetGroupResponse'
-    { group = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetGroupResponse responseStatus =
+  GetGroupResponse' {group = Core.Nothing, responseStatus}
 
 -- | The group that was requested. Contains the name of the group, the ARN of the group, the filter expression, and the insight configuration assigned to the group.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsGroup :: Lens.Lens' GetGroupResponse (Lude.Maybe Group)
-ggrsGroup = Lens.lens (group :: GetGroupResponse -> Lude.Maybe Group) (\s a -> s {group = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
+grsGroup :: Lens.Lens' GetGroupResponse (Core.Maybe Types.Group)
+grsGroup = Lens.field @"group"
+{-# DEPRECATED grsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsResponseStatus :: Lens.Lens' GetGroupResponse Lude.Int
-ggrsResponseStatus = Lens.lens (responseStatus :: GetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grsResponseStatus :: Lens.Lens' GetGroupResponse Core.Int
+grsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -25,11 +25,11 @@ module Network.AWS.KinesisVideo.CreateStream
     mkCreateStream,
 
     -- ** Request lenses
-    csMediaType,
-    csDataRetentionInHours,
-    csKMSKeyId,
-    csDeviceName,
     csStreamName,
+    csDataRetentionInHours,
+    csDeviceName,
+    csKmsKeyId,
+    csMediaType,
     csTags,
 
     -- * Destructuring the response
@@ -37,88 +37,69 @@ module Network.AWS.KinesisVideo.CreateStream
     mkCreateStreamResponse,
 
     -- ** Response lenses
-    csrsStreamARN,
-    csrsResponseStatus,
+    csrrsStreamARN,
+    csrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideo.Types
+import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { -- | The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types> . If you choose to specify the @MediaType@ , see <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements> for guidelines.
+  { -- | A name for the stream that you are creating.
     --
-    -- Example valid values include "video/h264" and "video/h264,audio/aac".
-    -- This parameter is optional; the default value is @null@ (or empty in JSON).
-    mediaType :: Lude.Maybe Lude.Text,
+    -- The stream name is an identifier for the stream, and must be unique for each account and region.
+    streamName :: Types.StreamName,
     -- | The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
     --
     -- The default value is 0, indicating that the stream does not persist data.
     -- When the @DataRetentionInHours@ value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.
-    dataRetentionInHours :: Lude.Maybe Lude.Natural,
+    dataRetentionInHours :: Core.Maybe Core.Natural,
+    -- | The name of the device that is writing to the stream.
+    deviceName :: Core.Maybe Types.DeviceName,
     -- | The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.
     --
     -- If no key ID is specified, the default, Kinesis Video-managed key (@aws/kinesisvideo@ ) is used.
     -- For more information, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey> .
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    -- | The name of the device that is writing to the stream.
-    deviceName :: Lude.Maybe Lude.Text,
-    -- | A name for the stream that you are creating.
+    kmsKeyId :: Core.Maybe Types.KmsKeyId,
+    -- | The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types> . If you choose to specify the @MediaType@ , see <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements> for guidelines.
     --
-    -- The stream name is an identifier for the stream, and must be unique for each account and region.
-    streamName :: Lude.Text,
+    -- Example valid values include "video/h264" and "video/h264,audio/aac".
+    -- This parameter is optional; the default value is @null@ (or empty in JSON).
+    mediaType :: Core.Maybe Types.MediaType,
     -- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStream' with the minimum fields required to make a request.
---
--- * 'mediaType' - The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types> . If you choose to specify the @MediaType@ , see <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements> for guidelines.
---
--- Example valid values include "video/h264" and "video/h264,audio/aac".
--- This parameter is optional; the default value is @null@ (or empty in JSON).
--- * 'dataRetentionInHours' - The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
---
--- The default value is 0, indicating that the stream does not persist data.
--- When the @DataRetentionInHours@ value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.
--- * 'kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.
---
--- If no key ID is specified, the default, Kinesis Video-managed key (@aws/kinesisvideo@ ) is used.
--- For more information, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey> .
--- * 'deviceName' - The name of the device that is writing to the stream.
--- * 'streamName' - A name for the stream that you are creating.
---
--- The stream name is an identifier for the stream, and must be unique for each account and region.
--- * 'tags' - A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+-- | Creates a 'CreateStream' value with any optional fields omitted.
 mkCreateStream ::
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
   CreateStream
-mkCreateStream pStreamName_ =
+mkCreateStream streamName =
   CreateStream'
-    { mediaType = Lude.Nothing,
-      dataRetentionInHours = Lude.Nothing,
-      kmsKeyId = Lude.Nothing,
-      deviceName = Lude.Nothing,
-      streamName = pStreamName_,
-      tags = Lude.Nothing
+    { streamName,
+      dataRetentionInHours = Core.Nothing,
+      deviceName = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      mediaType = Core.Nothing,
+      tags = Core.Nothing
     }
 
--- | The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types> . If you choose to specify the @MediaType@ , see <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements> for guidelines.
+-- | A name for the stream that you are creating.
 --
--- Example valid values include "video/h264" and "video/h264,audio/aac".
--- This parameter is optional; the default value is @null@ (or empty in JSON).
+-- The stream name is an identifier for the stream, and must be unique for each account and region.
 --
--- /Note:/ Consider using 'mediaType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csMediaType :: Lens.Lens' CreateStream (Lude.Maybe Lude.Text)
-csMediaType = Lens.lens (mediaType :: CreateStream -> Lude.Maybe Lude.Text) (\s a -> s {mediaType = a} :: CreateStream)
-{-# DEPRECATED csMediaType "Use generic-lens or generic-optics with 'mediaType' instead." #-}
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStreamName :: Lens.Lens' CreateStream Types.StreamName
+csStreamName = Lens.field @"streamName"
+{-# DEPRECATED csStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
 --
@@ -126,9 +107,16 @@ csMediaType = Lens.lens (mediaType :: CreateStream -> Lude.Maybe Lude.Text) (\s 
 -- When the @DataRetentionInHours@ value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.
 --
 -- /Note:/ Consider using 'dataRetentionInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csDataRetentionInHours :: Lens.Lens' CreateStream (Lude.Maybe Lude.Natural)
-csDataRetentionInHours = Lens.lens (dataRetentionInHours :: CreateStream -> Lude.Maybe Lude.Natural) (\s a -> s {dataRetentionInHours = a} :: CreateStream)
+csDataRetentionInHours :: Lens.Lens' CreateStream (Core.Maybe Core.Natural)
+csDataRetentionInHours = Lens.field @"dataRetentionInHours"
 {-# DEPRECATED csDataRetentionInHours "Use generic-lens or generic-optics with 'dataRetentionInHours' instead." #-}
+
+-- | The name of the device that is writing to the stream.
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDeviceName :: Lens.Lens' CreateStream (Core.Maybe Types.DeviceName)
+csDeviceName = Lens.field @"deviceName"
+{-# DEPRECATED csDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.
 --
@@ -136,99 +124,86 @@ csDataRetentionInHours = Lens.lens (dataRetentionInHours :: CreateStream -> Lude
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey> .
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csKMSKeyId :: Lens.Lens' CreateStream (Lude.Maybe Lude.Text)
-csKMSKeyId = Lens.lens (kmsKeyId :: CreateStream -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateStream)
-{-# DEPRECATED csKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+csKmsKeyId :: Lens.Lens' CreateStream (Core.Maybe Types.KmsKeyId)
+csKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED csKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | The name of the device that is writing to the stream.
+-- | The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types> . If you choose to specify the @MediaType@ , see <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements> for guidelines.
 --
--- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csDeviceName :: Lens.Lens' CreateStream (Lude.Maybe Lude.Text)
-csDeviceName = Lens.lens (deviceName :: CreateStream -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: CreateStream)
-{-# DEPRECATED csDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
-
--- | A name for the stream that you are creating.
+-- Example valid values include "video/h264" and "video/h264,audio/aac".
+-- This parameter is optional; the default value is @null@ (or empty in JSON).
 --
--- The stream name is an identifier for the stream, and must be unique for each account and region.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csStreamName :: Lens.Lens' CreateStream Lude.Text
-csStreamName = Lens.lens (streamName :: CreateStream -> Lude.Text) (\s a -> s {streamName = a} :: CreateStream)
-{-# DEPRECATED csStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+-- /Note:/ Consider using 'mediaType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csMediaType :: Lens.Lens' CreateStream (Core.Maybe Types.MediaType)
+csMediaType = Lens.field @"mediaType"
+{-# DEPRECATED csMediaType "Use generic-lens or generic-optics with 'mediaType' instead." #-}
 
 -- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csTags :: Lens.Lens' CreateStream (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-csTags = Lens.lens (tags :: CreateStream -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateStream)
+csTags :: Lens.Lens' CreateStream (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+csTags = Lens.field @"tags"
 {-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateStream where
-  type Rs CreateStream = CreateStreamResponse
-  request = Req.postJSON kinesisVideoService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateStreamResponse'
-            Lude.<$> (x Lude..?> "StreamARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateStream where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateStream where
-  toJSON CreateStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MediaType" Lude..=) Lude.<$> mediaType,
-            ("DataRetentionInHours" Lude..=) Lude.<$> dataRetentionInHours,
-            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
-            ("DeviceName" Lude..=) Lude.<$> deviceName,
-            Lude.Just ("StreamName" Lude..= streamName),
-            ("Tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateStream where
+  toJSON CreateStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            ("DataRetentionInHours" Core..=) Core.<$> dataRetentionInHours,
+            ("DeviceName" Core..=) Core.<$> deviceName,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("MediaType" Core..=) Core.<$> mediaType,
+            ("Tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateStream where
-  toPath = Lude.const "/createStream"
-
-instance Lude.ToQuery CreateStream where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateStream where
+  type Rs CreateStream = CreateStreamResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/createStream",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateStreamResponse'
+            Core.<$> (x Core..:? "StreamARN") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateStreamResponse' smart constructor.
 data CreateStreamResponse = CreateStreamResponse'
   { -- | The Amazon Resource Name (ARN) of the stream.
-    streamARN :: Lude.Maybe Lude.Text,
+    streamARN :: Core.Maybe Types.StreamARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStreamResponse' with the minimum fields required to make a request.
---
--- * 'streamARN' - The Amazon Resource Name (ARN) of the stream.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateStreamResponse' value with any optional fields omitted.
 mkCreateStreamResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateStreamResponse
-mkCreateStreamResponse pResponseStatus_ =
-  CreateStreamResponse'
-    { streamARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateStreamResponse responseStatus =
+  CreateStreamResponse' {streamARN = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the stream.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsStreamARN :: Lens.Lens' CreateStreamResponse (Lude.Maybe Lude.Text)
-csrsStreamARN = Lens.lens (streamARN :: CreateStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: CreateStreamResponse)
-{-# DEPRECATED csrsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+csrrsStreamARN :: Lens.Lens' CreateStreamResponse (Core.Maybe Types.StreamARN)
+csrrsStreamARN = Lens.field @"streamARN"
+{-# DEPRECATED csrrsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CreateStreamResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CreateStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStreamResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrrsResponseStatus :: Lens.Lens' CreateStreamResponse Core.Int
+csrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

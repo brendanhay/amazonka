@@ -20,8 +20,8 @@ module Network.AWS.Glue.GetSchemaVersion
     mkGetSchemaVersion,
 
     -- ** Request lenses
-    gsvSchemaVersionId,
     gsvSchemaId,
+    gsvSchemaVersionId,
     gsvSchemaVersionNumber,
 
     -- * Destructuring the response
@@ -29,69 +29,50 @@ module Network.AWS.Glue.GetSchemaVersion
     mkGetSchemaVersionResponse,
 
     -- ** Response lenses
-    gsvrsStatus,
-    gsvrsSchemaDefinition,
-    gsvrsCreatedTime,
-    gsvrsDataFormat,
-    gsvrsSchemaVersionId,
-    gsvrsVersionNumber,
-    gsvrsSchemaARN,
-    gsvrsResponseStatus,
+    gsvrrsCreatedTime,
+    gsvrrsDataFormat,
+    gsvrrsSchemaArn,
+    gsvrrsSchemaDefinition,
+    gsvrrsSchemaVersionId,
+    gsvrrsStatus,
+    gsvrrsVersionNumber,
+    gsvrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSchemaVersion' smart constructor.
 data GetSchemaVersion = GetSchemaVersion'
-  { -- | The @SchemaVersionId@ of the schema version. This field is required for fetching by schema ID. Either this or the @SchemaId@ wrapper has to be provided.
-    schemaVersionId :: Lude.Maybe Lude.Text,
-    -- | This is a wrapper structure to contain schema identity fields. The structure contains:
+  { -- | This is a wrapper structure to contain schema identity fields. The structure contains:
     --
     --
     --     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
     --
     --
     --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
-    schemaId :: Lude.Maybe SchemaId,
+    schemaId :: Core.Maybe Types.SchemaId,
+    -- | The @SchemaVersionId@ of the schema version. This field is required for fetching by schema ID. Either this or the @SchemaId@ wrapper has to be provided.
+    schemaVersionId :: Core.Maybe Types.SchemaVersionId,
     -- | The version number of the schema.
-    schemaVersionNumber :: Lude.Maybe SchemaVersionNumber
+    schemaVersionNumber :: Core.Maybe Types.SchemaVersionNumber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSchemaVersion' with the minimum fields required to make a request.
---
--- * 'schemaVersionId' - The @SchemaVersionId@ of the schema version. This field is required for fetching by schema ID. Either this or the @SchemaId@ wrapper has to be provided.
--- * 'schemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:
---
---
---     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
---
---
---     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
---
---
--- * 'schemaVersionNumber' - The version number of the schema.
+-- | Creates a 'GetSchemaVersion' value with any optional fields omitted.
 mkGetSchemaVersion ::
   GetSchemaVersion
 mkGetSchemaVersion =
   GetSchemaVersion'
-    { schemaVersionId = Lude.Nothing,
-      schemaId = Lude.Nothing,
-      schemaVersionNumber = Lude.Nothing
+    { schemaId = Core.Nothing,
+      schemaVersionId = Core.Nothing,
+      schemaVersionNumber = Core.Nothing
     }
-
--- | The @SchemaVersionId@ of the schema version. This field is required for fetching by schema ID. Either this or the @SchemaId@ wrapper has to be provided.
---
--- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvSchemaVersionId :: Lens.Lens' GetSchemaVersion (Lude.Maybe Lude.Text)
-gsvSchemaVersionId = Lens.lens (schemaVersionId :: GetSchemaVersion -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: GetSchemaVersion)
-{-# DEPRECATED gsvSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | This is a wrapper structure to contain schema identity fields. The structure contains:
 --
@@ -104,161 +85,152 @@ gsvSchemaVersionId = Lens.lens (schemaVersionId :: GetSchemaVersion -> Lude.Mayb
 --
 --
 -- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvSchemaId :: Lens.Lens' GetSchemaVersion (Lude.Maybe SchemaId)
-gsvSchemaId = Lens.lens (schemaId :: GetSchemaVersion -> Lude.Maybe SchemaId) (\s a -> s {schemaId = a} :: GetSchemaVersion)
+gsvSchemaId :: Lens.Lens' GetSchemaVersion (Core.Maybe Types.SchemaId)
+gsvSchemaId = Lens.field @"schemaId"
 {-# DEPRECATED gsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
+
+-- | The @SchemaVersionId@ of the schema version. This field is required for fetching by schema ID. Either this or the @SchemaId@ wrapper has to be provided.
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvSchemaVersionId :: Lens.Lens' GetSchemaVersion (Core.Maybe Types.SchemaVersionId)
+gsvSchemaVersionId = Lens.field @"schemaVersionId"
+{-# DEPRECATED gsvSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | The version number of the schema.
 --
 -- /Note:/ Consider using 'schemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvSchemaVersionNumber :: Lens.Lens' GetSchemaVersion (Lude.Maybe SchemaVersionNumber)
-gsvSchemaVersionNumber = Lens.lens (schemaVersionNumber :: GetSchemaVersion -> Lude.Maybe SchemaVersionNumber) (\s a -> s {schemaVersionNumber = a} :: GetSchemaVersion)
+gsvSchemaVersionNumber :: Lens.Lens' GetSchemaVersion (Core.Maybe Types.SchemaVersionNumber)
+gsvSchemaVersionNumber = Lens.field @"schemaVersionNumber"
 {-# DEPRECATED gsvSchemaVersionNumber "Use generic-lens or generic-optics with 'schemaVersionNumber' instead." #-}
 
-instance Lude.AWSRequest GetSchemaVersion where
+instance Core.FromJSON GetSchemaVersion where
+  toJSON GetSchemaVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("SchemaId" Core..=) Core.<$> schemaId,
+            ("SchemaVersionId" Core..=) Core.<$> schemaVersionId,
+            ("SchemaVersionNumber" Core..=) Core.<$> schemaVersionNumber
+          ]
+      )
+
+instance Core.AWSRequest GetSchemaVersion where
   type Rs GetSchemaVersion = GetSchemaVersionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetSchemaVersion")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSchemaVersionResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "SchemaDefinition")
-            Lude.<*> (x Lude..?> "CreatedTime")
-            Lude.<*> (x Lude..?> "DataFormat")
-            Lude.<*> (x Lude..?> "SchemaVersionId")
-            Lude.<*> (x Lude..?> "VersionNumber")
-            Lude.<*> (x Lude..?> "SchemaArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CreatedTime")
+            Core.<*> (x Core..:? "DataFormat")
+            Core.<*> (x Core..:? "SchemaArn")
+            Core.<*> (x Core..:? "SchemaDefinition")
+            Core.<*> (x Core..:? "SchemaVersionId")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "VersionNumber")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSchemaVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetSchemaVersion" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetSchemaVersion where
-  toJSON GetSchemaVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SchemaVersionId" Lude..=) Lude.<$> schemaVersionId,
-            ("SchemaId" Lude..=) Lude.<$> schemaId,
-            ("SchemaVersionNumber" Lude..=) Lude.<$> schemaVersionNumber
-          ]
-      )
-
-instance Lude.ToPath GetSchemaVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSchemaVersion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSchemaVersionResponse' smart constructor.
 data GetSchemaVersionResponse = GetSchemaVersionResponse'
-  { -- | The status of the schema version.
-    status :: Lude.Maybe SchemaVersionStatus,
-    -- | The schema definition for the schema ID.
-    schemaDefinition :: Lude.Maybe Lude.Text,
-    -- | The date and time the schema version was created.
-    createdTime :: Lude.Maybe Lude.Text,
+  { -- | The date and time the schema version was created.
+    createdTime :: Core.Maybe Types.CreatedTime,
     -- | The data format of the schema definition. Currently only @AVRO@ is supported.
-    dataFormat :: Lude.Maybe DataFormat,
-    -- | The @SchemaVersionId@ of the schema version.
-    schemaVersionId :: Lude.Maybe Lude.Text,
-    -- | The version number of the schema.
-    versionNumber :: Lude.Maybe Lude.Natural,
+    dataFormat :: Core.Maybe Types.DataFormat,
     -- | The Amazon Resource Name (ARN) of the schema.
-    schemaARN :: Lude.Maybe Lude.Text,
+    schemaArn :: Core.Maybe Types.GlueResourceArn,
+    -- | The schema definition for the schema ID.
+    schemaDefinition :: Core.Maybe Types.SchemaDefinition,
+    -- | The @SchemaVersionId@ of the schema version.
+    schemaVersionId :: Core.Maybe Types.SchemaVersionId,
+    -- | The status of the schema version.
+    status :: Core.Maybe Types.SchemaVersionStatus,
+    -- | The version number of the schema.
+    versionNumber :: Core.Maybe Core.Natural,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSchemaVersionResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the schema version.
--- * 'schemaDefinition' - The schema definition for the schema ID.
--- * 'createdTime' - The date and time the schema version was created.
--- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
--- * 'schemaVersionId' - The @SchemaVersionId@ of the schema version.
--- * 'versionNumber' - The version number of the schema.
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSchemaVersionResponse' value with any optional fields omitted.
 mkGetSchemaVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSchemaVersionResponse
-mkGetSchemaVersionResponse pResponseStatus_ =
+mkGetSchemaVersionResponse responseStatus =
   GetSchemaVersionResponse'
-    { status = Lude.Nothing,
-      schemaDefinition = Lude.Nothing,
-      createdTime = Lude.Nothing,
-      dataFormat = Lude.Nothing,
-      schemaVersionId = Lude.Nothing,
-      versionNumber = Lude.Nothing,
-      schemaARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { createdTime = Core.Nothing,
+      dataFormat = Core.Nothing,
+      schemaArn = Core.Nothing,
+      schemaDefinition = Core.Nothing,
+      schemaVersionId = Core.Nothing,
+      status = Core.Nothing,
+      versionNumber = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the schema version.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvrsStatus :: Lens.Lens' GetSchemaVersionResponse (Lude.Maybe SchemaVersionStatus)
-gsvrsStatus = Lens.lens (status :: GetSchemaVersionResponse -> Lude.Maybe SchemaVersionStatus) (\s a -> s {status = a} :: GetSchemaVersionResponse)
-{-# DEPRECATED gsvrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The schema definition for the schema ID.
---
--- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvrsSchemaDefinition :: Lens.Lens' GetSchemaVersionResponse (Lude.Maybe Lude.Text)
-gsvrsSchemaDefinition = Lens.lens (schemaDefinition :: GetSchemaVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaDefinition = a} :: GetSchemaVersionResponse)
-{-# DEPRECATED gsvrsSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
 
 -- | The date and time the schema version was created.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvrsCreatedTime :: Lens.Lens' GetSchemaVersionResponse (Lude.Maybe Lude.Text)
-gsvrsCreatedTime = Lens.lens (createdTime :: GetSchemaVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdTime = a} :: GetSchemaVersionResponse)
-{-# DEPRECATED gsvrsCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
+gsvrrsCreatedTime :: Lens.Lens' GetSchemaVersionResponse (Core.Maybe Types.CreatedTime)
+gsvrrsCreatedTime = Lens.field @"createdTime"
+{-# DEPRECATED gsvrrsCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The data format of the schema definition. Currently only @AVRO@ is supported.
 --
 -- /Note:/ Consider using 'dataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvrsDataFormat :: Lens.Lens' GetSchemaVersionResponse (Lude.Maybe DataFormat)
-gsvrsDataFormat = Lens.lens (dataFormat :: GetSchemaVersionResponse -> Lude.Maybe DataFormat) (\s a -> s {dataFormat = a} :: GetSchemaVersionResponse)
-{-# DEPRECATED gsvrsDataFormat "Use generic-lens or generic-optics with 'dataFormat' instead." #-}
+gsvrrsDataFormat :: Lens.Lens' GetSchemaVersionResponse (Core.Maybe Types.DataFormat)
+gsvrrsDataFormat = Lens.field @"dataFormat"
+{-# DEPRECATED gsvrrsDataFormat "Use generic-lens or generic-optics with 'dataFormat' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the schema.
+--
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvrrsSchemaArn :: Lens.Lens' GetSchemaVersionResponse (Core.Maybe Types.GlueResourceArn)
+gsvrrsSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED gsvrrsSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
+
+-- | The schema definition for the schema ID.
+--
+-- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvrrsSchemaDefinition :: Lens.Lens' GetSchemaVersionResponse (Core.Maybe Types.SchemaDefinition)
+gsvrrsSchemaDefinition = Lens.field @"schemaDefinition"
+{-# DEPRECATED gsvrrsSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
 
 -- | The @SchemaVersionId@ of the schema version.
 --
 -- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvrsSchemaVersionId :: Lens.Lens' GetSchemaVersionResponse (Lude.Maybe Lude.Text)
-gsvrsSchemaVersionId = Lens.lens (schemaVersionId :: GetSchemaVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: GetSchemaVersionResponse)
-{-# DEPRECATED gsvrsSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
+gsvrrsSchemaVersionId :: Lens.Lens' GetSchemaVersionResponse (Core.Maybe Types.SchemaVersionId)
+gsvrrsSchemaVersionId = Lens.field @"schemaVersionId"
+{-# DEPRECATED gsvrrsSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
+
+-- | The status of the schema version.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvrrsStatus :: Lens.Lens' GetSchemaVersionResponse (Core.Maybe Types.SchemaVersionStatus)
+gsvrrsStatus = Lens.field @"status"
+{-# DEPRECATED gsvrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The version number of the schema.
 --
 -- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvrsVersionNumber :: Lens.Lens' GetSchemaVersionResponse (Lude.Maybe Lude.Natural)
-gsvrsVersionNumber = Lens.lens (versionNumber :: GetSchemaVersionResponse -> Lude.Maybe Lude.Natural) (\s a -> s {versionNumber = a} :: GetSchemaVersionResponse)
-{-# DEPRECATED gsvrsVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the schema.
---
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvrsSchemaARN :: Lens.Lens' GetSchemaVersionResponse (Lude.Maybe Lude.Text)
-gsvrsSchemaARN = Lens.lens (schemaARN :: GetSchemaVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: GetSchemaVersionResponse)
-{-# DEPRECATED gsvrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+gsvrrsVersionNumber :: Lens.Lens' GetSchemaVersionResponse (Core.Maybe Core.Natural)
+gsvrrsVersionNumber = Lens.field @"versionNumber"
+{-# DEPRECATED gsvrrsVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvrsResponseStatus :: Lens.Lens' GetSchemaVersionResponse Lude.Int
-gsvrsResponseStatus = Lens.lens (responseStatus :: GetSchemaVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSchemaVersionResponse)
-{-# DEPRECATED gsvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsvrrsResponseStatus :: Lens.Lens' GetSchemaVersionResponse Core.Int
+gsvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

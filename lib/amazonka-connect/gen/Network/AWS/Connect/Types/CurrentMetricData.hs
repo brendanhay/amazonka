@@ -17,55 +17,50 @@ module Network.AWS.Connect.Types.CurrentMetricData
     mkCurrentMetricData,
 
     -- * Lenses
-    cmdValue,
     cmdMetric,
+    cmdValue,
   )
 where
 
-import Network.AWS.Connect.Types.CurrentMetric
+import qualified Network.AWS.Connect.Types.CurrentMetric as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the data for a real-time metric.
 --
 -- /See:/ 'mkCurrentMetricData' smart constructor.
 data CurrentMetricData = CurrentMetricData'
-  { -- | The value of the metric.
-    value :: Lude.Maybe Lude.Double,
-    -- | Information about the metric.
-    metric :: Lude.Maybe CurrentMetric
+  { -- | Information about the metric.
+    metric :: Core.Maybe Types.CurrentMetric,
+    -- | The value of the metric.
+    value :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CurrentMetricData' with the minimum fields required to make a request.
---
--- * 'value' - The value of the metric.
--- * 'metric' - Information about the metric.
+-- | Creates a 'CurrentMetricData' value with any optional fields omitted.
 mkCurrentMetricData ::
   CurrentMetricData
 mkCurrentMetricData =
-  CurrentMetricData' {value = Lude.Nothing, metric = Lude.Nothing}
-
--- | The value of the metric.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdValue :: Lens.Lens' CurrentMetricData (Lude.Maybe Lude.Double)
-cmdValue = Lens.lens (value :: CurrentMetricData -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: CurrentMetricData)
-{-# DEPRECATED cmdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  CurrentMetricData' {metric = Core.Nothing, value = Core.Nothing}
 
 -- | Information about the metric.
 --
 -- /Note:/ Consider using 'metric' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdMetric :: Lens.Lens' CurrentMetricData (Lude.Maybe CurrentMetric)
-cmdMetric = Lens.lens (metric :: CurrentMetricData -> Lude.Maybe CurrentMetric) (\s a -> s {metric = a} :: CurrentMetricData)
+cmdMetric :: Lens.Lens' CurrentMetricData (Core.Maybe Types.CurrentMetric)
+cmdMetric = Lens.field @"metric"
 {-# DEPRECATED cmdMetric "Use generic-lens or generic-optics with 'metric' instead." #-}
 
-instance Lude.FromJSON CurrentMetricData where
+-- | The value of the metric.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmdValue :: Lens.Lens' CurrentMetricData (Core.Maybe Core.Double)
+cmdValue = Lens.field @"value"
+{-# DEPRECATED cmdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON CurrentMetricData where
   parseJSON =
-    Lude.withObject
-      "CurrentMetricData"
-      ( \x ->
-          CurrentMetricData'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Metric")
-      )
+    Core.withObject "CurrentMetricData" Core.$
+      \x ->
+        CurrentMetricData'
+          Core.<$> (x Core..:? "Metric") Core.<*> (x Core..:? "Value")

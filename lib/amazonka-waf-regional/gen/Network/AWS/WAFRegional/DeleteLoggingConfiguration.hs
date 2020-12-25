@@ -20,108 +20,95 @@ module Network.AWS.WAFRegional.DeleteLoggingConfiguration
     mkDeleteLoggingConfiguration,
 
     -- ** Request lenses
-    dlcResourceARN,
+    dlcResourceArn,
 
     -- * Destructuring the response
     DeleteLoggingConfigurationResponse (..),
     mkDeleteLoggingConfigurationResponse,
 
     -- ** Response lenses
-    dlcrsResponseStatus,
+    dlcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkDeleteLoggingConfiguration' smart constructor.
 newtype DeleteLoggingConfiguration = DeleteLoggingConfiguration'
   { -- | The Amazon Resource Name (ARN) of the web ACL from which you want to delete the 'LoggingConfiguration' .
-    resourceARN :: Lude.Text
+    resourceArn :: Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLoggingConfiguration' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the web ACL from which you want to delete the 'LoggingConfiguration' .
+-- | Creates a 'DeleteLoggingConfiguration' value with any optional fields omitted.
 mkDeleteLoggingConfiguration ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   DeleteLoggingConfiguration
-mkDeleteLoggingConfiguration pResourceARN_ =
-  DeleteLoggingConfiguration' {resourceARN = pResourceARN_}
+mkDeleteLoggingConfiguration resourceArn =
+  DeleteLoggingConfiguration' {resourceArn}
 
 -- | The Amazon Resource Name (ARN) of the web ACL from which you want to delete the 'LoggingConfiguration' .
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcResourceARN :: Lens.Lens' DeleteLoggingConfiguration Lude.Text
-dlcResourceARN = Lens.lens (resourceARN :: DeleteLoggingConfiguration -> Lude.Text) (\s a -> s {resourceARN = a} :: DeleteLoggingConfiguration)
-{-# DEPRECATED dlcResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcResourceArn :: Lens.Lens' DeleteLoggingConfiguration Types.ResourceArn
+dlcResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED dlcResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest DeleteLoggingConfiguration where
+instance Core.FromJSON DeleteLoggingConfiguration where
+  toJSON DeleteLoggingConfiguration {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ResourceArn" Core..= resourceArn)])
+
+instance Core.AWSRequest DeleteLoggingConfiguration where
   type
     Rs DeleteLoggingConfiguration =
       DeleteLoggingConfigurationResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSWAF_Regional_20161128.DeleteLoggingConfiguration"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteLoggingConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteLoggingConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSWAF_Regional_20161128.DeleteLoggingConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteLoggingConfiguration where
-  toJSON DeleteLoggingConfiguration' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ResourceArn" Lude..= resourceARN)])
-
-instance Lude.ToPath DeleteLoggingConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLoggingConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteLoggingConfigurationResponse' smart constructor.
 newtype DeleteLoggingConfigurationResponse = DeleteLoggingConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLoggingConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteLoggingConfigurationResponse' value with any optional fields omitted.
 mkDeleteLoggingConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteLoggingConfigurationResponse
-mkDeleteLoggingConfigurationResponse pResponseStatus_ =
-  DeleteLoggingConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteLoggingConfigurationResponse responseStatus =
+  DeleteLoggingConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcrsResponseStatus :: Lens.Lens' DeleteLoggingConfigurationResponse Lude.Int
-dlcrsResponseStatus = Lens.lens (responseStatus :: DeleteLoggingConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLoggingConfigurationResponse)
-{-# DEPRECATED dlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlcrrsResponseStatus :: Lens.Lens' DeleteLoggingConfigurationResponse Core.Int
+dlcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

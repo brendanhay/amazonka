@@ -22,53 +22,49 @@ module Network.AWS.ServiceCatalog.CreateProduct
     mkCreateProduct,
 
     -- ** Request lenses
-    cpIdempotencyToken,
-    cpProvisioningArtifactParameters,
-    cpProductType,
-    cpOwner,
-    cpSupportURL,
-    cpDistributor,
     cpName,
+    cpOwner,
+    cpProductType,
+    cpProvisioningArtifactParameters,
+    cpIdempotencyToken,
     cpAcceptLanguage,
-    cpSupportEmail,
     cpDescription,
-    cpTags,
+    cpDistributor,
     cpSupportDescription,
+    cpSupportEmail,
+    cpSupportUrl,
+    cpTags,
 
     -- * Destructuring the response
     CreateProductResponse (..),
     mkCreateProductResponse,
 
     -- ** Response lenses
-    cprsProductViewDetail,
-    cprsProvisioningArtifactDetail,
-    cprsTags,
-    cprsResponseStatus,
+    cprrsProductViewDetail,
+    cprrsProvisioningArtifactDetail,
+    cprrsTags,
+    cprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkCreateProduct' smart constructor.
 data CreateProduct = CreateProduct'
-  { -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-    idempotencyToken :: Lude.Text,
-    -- | The configuration of the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
-    provisioningArtifactParameters :: ProvisioningArtifactProperties,
-    -- | The type of product.
-    productType :: ProductType,
+  { -- | The name of the product.
+    name :: Types.Name,
     -- | The owner of the product.
-    owner :: Lude.Text,
-    -- | The contact URL for product support.
-    supportURL :: Lude.Maybe Lude.Text,
-    -- | The distributor of the product.
-    distributor :: Lude.Maybe Lude.Text,
-    -- | The name of the product.
-    name :: Lude.Text,
+    owner :: Types.ProductViewOwner,
+    -- | The type of product.
+    productType :: Types.ProductType,
+    -- | The configuration of the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
+    provisioningArtifactParameters :: Types.ProvisioningArtifactProperties,
+    -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+    idempotencyToken :: Types.IdempotencyToken,
     -- | The language code.
     --
     --
@@ -79,125 +75,91 @@ data CreateProduct = CreateProduct'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The contact email for product support.
-    supportEmail :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The description of the product.
-    description :: Lude.Maybe Lude.Text,
-    -- | One or more tags.
-    tags :: Lude.Maybe [Tag],
+    description :: Core.Maybe Types.Description,
+    -- | The distributor of the product.
+    distributor :: Core.Maybe Types.ProductViewOwner,
     -- | The support information about the product.
-    supportDescription :: Lude.Maybe Lude.Text
+    supportDescription :: Core.Maybe Types.SupportDescription,
+    -- | The contact email for product support.
+    supportEmail :: Core.Maybe Types.SupportEmail,
+    -- | The contact URL for product support.
+    supportUrl :: Core.Maybe Types.SupportUrl,
+    -- | One or more tags.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProduct' with the minimum fields required to make a request.
---
--- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
--- * 'provisioningArtifactParameters' - The configuration of the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
--- * 'productType' - The type of product.
--- * 'owner' - The owner of the product.
--- * 'supportURL' - The contact URL for product support.
--- * 'distributor' - The distributor of the product.
--- * 'name' - The name of the product.
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'supportEmail' - The contact email for product support.
--- * 'description' - The description of the product.
--- * 'tags' - One or more tags.
--- * 'supportDescription' - The support information about the product.
+-- | Creates a 'CreateProduct' value with any optional fields omitted.
 mkCreateProduct ::
-  -- | 'idempotencyToken'
-  Lude.Text ->
-  -- | 'provisioningArtifactParameters'
-  ProvisioningArtifactProperties ->
-  -- | 'productType'
-  ProductType ->
-  -- | 'owner'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'owner'
+  Types.ProductViewOwner ->
+  -- | 'productType'
+  Types.ProductType ->
+  -- | 'provisioningArtifactParameters'
+  Types.ProvisioningArtifactProperties ->
+  -- | 'idempotencyToken'
+  Types.IdempotencyToken ->
   CreateProduct
 mkCreateProduct
-  pIdempotencyToken_
-  pProvisioningArtifactParameters_
-  pProductType_
-  pOwner_
-  pName_ =
+  name
+  owner
+  productType
+  provisioningArtifactParameters
+  idempotencyToken =
     CreateProduct'
-      { idempotencyToken = pIdempotencyToken_,
-        provisioningArtifactParameters = pProvisioningArtifactParameters_,
-        productType = pProductType_,
-        owner = pOwner_,
-        supportURL = Lude.Nothing,
-        distributor = Lude.Nothing,
-        name = pName_,
-        acceptLanguage = Lude.Nothing,
-        supportEmail = Lude.Nothing,
-        description = Lude.Nothing,
-        tags = Lude.Nothing,
-        supportDescription = Lude.Nothing
+      { name,
+        owner,
+        productType,
+        provisioningArtifactParameters,
+        idempotencyToken,
+        acceptLanguage = Core.Nothing,
+        description = Core.Nothing,
+        distributor = Core.Nothing,
+        supportDescription = Core.Nothing,
+        supportEmail = Core.Nothing,
+        supportUrl = Core.Nothing,
+        tags = Core.Nothing
       }
-
--- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
---
--- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpIdempotencyToken :: Lens.Lens' CreateProduct Lude.Text
-cpIdempotencyToken = Lens.lens (idempotencyToken :: CreateProduct -> Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateProduct)
-{-# DEPRECATED cpIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
-
--- | The configuration of the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
---
--- /Note:/ Consider using 'provisioningArtifactParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpProvisioningArtifactParameters :: Lens.Lens' CreateProduct ProvisioningArtifactProperties
-cpProvisioningArtifactParameters = Lens.lens (provisioningArtifactParameters :: CreateProduct -> ProvisioningArtifactProperties) (\s a -> s {provisioningArtifactParameters = a} :: CreateProduct)
-{-# DEPRECATED cpProvisioningArtifactParameters "Use generic-lens or generic-optics with 'provisioningArtifactParameters' instead." #-}
-
--- | The type of product.
---
--- /Note:/ Consider using 'productType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpProductType :: Lens.Lens' CreateProduct ProductType
-cpProductType = Lens.lens (productType :: CreateProduct -> ProductType) (\s a -> s {productType = a} :: CreateProduct)
-{-# DEPRECATED cpProductType "Use generic-lens or generic-optics with 'productType' instead." #-}
-
--- | The owner of the product.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpOwner :: Lens.Lens' CreateProduct Lude.Text
-cpOwner = Lens.lens (owner :: CreateProduct -> Lude.Text) (\s a -> s {owner = a} :: CreateProduct)
-{-# DEPRECATED cpOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
-
--- | The contact URL for product support.
---
--- /Note:/ Consider using 'supportURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpSupportURL :: Lens.Lens' CreateProduct (Lude.Maybe Lude.Text)
-cpSupportURL = Lens.lens (supportURL :: CreateProduct -> Lude.Maybe Lude.Text) (\s a -> s {supportURL = a} :: CreateProduct)
-{-# DEPRECATED cpSupportURL "Use generic-lens or generic-optics with 'supportURL' instead." #-}
-
--- | The distributor of the product.
---
--- /Note:/ Consider using 'distributor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpDistributor :: Lens.Lens' CreateProduct (Lude.Maybe Lude.Text)
-cpDistributor = Lens.lens (distributor :: CreateProduct -> Lude.Maybe Lude.Text) (\s a -> s {distributor = a} :: CreateProduct)
-{-# DEPRECATED cpDistributor "Use generic-lens or generic-optics with 'distributor' instead." #-}
 
 -- | The name of the product.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpName :: Lens.Lens' CreateProduct Lude.Text
-cpName = Lens.lens (name :: CreateProduct -> Lude.Text) (\s a -> s {name = a} :: CreateProduct)
+cpName :: Lens.Lens' CreateProduct Types.Name
+cpName = Lens.field @"name"
 {-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The owner of the product.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpOwner :: Lens.Lens' CreateProduct Types.ProductViewOwner
+cpOwner = Lens.field @"owner"
+{-# DEPRECATED cpOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
+-- | The type of product.
+--
+-- /Note:/ Consider using 'productType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpProductType :: Lens.Lens' CreateProduct Types.ProductType
+cpProductType = Lens.field @"productType"
+{-# DEPRECATED cpProductType "Use generic-lens or generic-optics with 'productType' instead." #-}
+
+-- | The configuration of the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
+--
+-- /Note:/ Consider using 'provisioningArtifactParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpProvisioningArtifactParameters :: Lens.Lens' CreateProduct Types.ProvisioningArtifactProperties
+cpProvisioningArtifactParameters = Lens.field @"provisioningArtifactParameters"
+{-# DEPRECATED cpProvisioningArtifactParameters "Use generic-lens or generic-optics with 'provisioningArtifactParameters' instead." #-}
+
+-- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpIdempotencyToken :: Lens.Lens' CreateProduct Types.IdempotencyToken
+cpIdempotencyToken = Lens.field @"idempotencyToken"
+{-# DEPRECATED cpIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | The language code.
 --
@@ -213,146 +175,149 @@ cpName = Lens.lens (name :: CreateProduct -> Lude.Text) (\s a -> s {name = a} ::
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpAcceptLanguage :: Lens.Lens' CreateProduct (Lude.Maybe Lude.Text)
-cpAcceptLanguage = Lens.lens (acceptLanguage :: CreateProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: CreateProduct)
+cpAcceptLanguage :: Lens.Lens' CreateProduct (Core.Maybe Types.AcceptLanguage)
+cpAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED cpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The contact email for product support.
---
--- /Note:/ Consider using 'supportEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpSupportEmail :: Lens.Lens' CreateProduct (Lude.Maybe Lude.Text)
-cpSupportEmail = Lens.lens (supportEmail :: CreateProduct -> Lude.Maybe Lude.Text) (\s a -> s {supportEmail = a} :: CreateProduct)
-{-# DEPRECATED cpSupportEmail "Use generic-lens or generic-optics with 'supportEmail' instead." #-}
 
 -- | The description of the product.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpDescription :: Lens.Lens' CreateProduct (Lude.Maybe Lude.Text)
-cpDescription = Lens.lens (description :: CreateProduct -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateProduct)
+cpDescription :: Lens.Lens' CreateProduct (Core.Maybe Types.Description)
+cpDescription = Lens.field @"description"
 {-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | One or more tags.
+-- | The distributor of the product.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpTags :: Lens.Lens' CreateProduct (Lude.Maybe [Tag])
-cpTags = Lens.lens (tags :: CreateProduct -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateProduct)
-{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'distributor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDistributor :: Lens.Lens' CreateProduct (Core.Maybe Types.ProductViewOwner)
+cpDistributor = Lens.field @"distributor"
+{-# DEPRECATED cpDistributor "Use generic-lens or generic-optics with 'distributor' instead." #-}
 
 -- | The support information about the product.
 --
 -- /Note:/ Consider using 'supportDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpSupportDescription :: Lens.Lens' CreateProduct (Lude.Maybe Lude.Text)
-cpSupportDescription = Lens.lens (supportDescription :: CreateProduct -> Lude.Maybe Lude.Text) (\s a -> s {supportDescription = a} :: CreateProduct)
+cpSupportDescription :: Lens.Lens' CreateProduct (Core.Maybe Types.SupportDescription)
+cpSupportDescription = Lens.field @"supportDescription"
 {-# DEPRECATED cpSupportDescription "Use generic-lens or generic-optics with 'supportDescription' instead." #-}
 
-instance Lude.AWSRequest CreateProduct where
+-- | The contact email for product support.
+--
+-- /Note:/ Consider using 'supportEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpSupportEmail :: Lens.Lens' CreateProduct (Core.Maybe Types.SupportEmail)
+cpSupportEmail = Lens.field @"supportEmail"
+{-# DEPRECATED cpSupportEmail "Use generic-lens or generic-optics with 'supportEmail' instead." #-}
+
+-- | The contact URL for product support.
+--
+-- /Note:/ Consider using 'supportUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpSupportUrl :: Lens.Lens' CreateProduct (Core.Maybe Types.SupportUrl)
+cpSupportUrl = Lens.field @"supportUrl"
+{-# DEPRECATED cpSupportUrl "Use generic-lens or generic-optics with 'supportUrl' instead." #-}
+
+-- | One or more tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreateProduct (Core.Maybe [Types.Tag])
+cpTags = Lens.field @"tags"
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.FromJSON CreateProduct where
+  toJSON CreateProduct {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Owner" Core..= owner),
+            Core.Just ("ProductType" Core..= productType),
+            Core.Just
+              ( "ProvisioningArtifactParameters"
+                  Core..= provisioningArtifactParameters
+              ),
+            Core.Just ("IdempotencyToken" Core..= idempotencyToken),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("Description" Core..=) Core.<$> description,
+            ("Distributor" Core..=) Core.<$> distributor,
+            ("SupportDescription" Core..=) Core.<$> supportDescription,
+            ("SupportEmail" Core..=) Core.<$> supportEmail,
+            ("SupportUrl" Core..=) Core.<$> supportUrl,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateProduct where
   type Rs CreateProduct = CreateProductResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.CreateProduct")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateProductResponse'
-            Lude.<$> (x Lude..?> "ProductViewDetail")
-            Lude.<*> (x Lude..?> "ProvisioningArtifactDetail")
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ProductViewDetail")
+            Core.<*> (x Core..:? "ProvisioningArtifactDetail")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateProduct where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWS242ServiceCatalogService.CreateProduct" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateProduct where
-  toJSON CreateProduct' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("IdempotencyToken" Lude..= idempotencyToken),
-            Lude.Just
-              ( "ProvisioningArtifactParameters"
-                  Lude..= provisioningArtifactParameters
-              ),
-            Lude.Just ("ProductType" Lude..= productType),
-            Lude.Just ("Owner" Lude..= owner),
-            ("SupportUrl" Lude..=) Lude.<$> supportURL,
-            ("Distributor" Lude..=) Lude.<$> distributor,
-            Lude.Just ("Name" Lude..= name),
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("SupportEmail" Lude..=) Lude.<$> supportEmail,
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("SupportDescription" Lude..=) Lude.<$> supportDescription
-          ]
-      )
-
-instance Lude.ToPath CreateProduct where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateProduct where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateProductResponse' smart constructor.
 data CreateProductResponse = CreateProductResponse'
   { -- | Information about the product view.
-    productViewDetail :: Lude.Maybe ProductViewDetail,
+    productViewDetail :: Core.Maybe Types.ProductViewDetail,
     -- | Information about the provisioning artifact.
-    provisioningArtifactDetail :: Lude.Maybe ProvisioningArtifactDetail,
+    provisioningArtifactDetail :: Core.Maybe Types.ProvisioningArtifactDetail,
     -- | Information about the tags associated with the product.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateProductResponse' with the minimum fields required to make a request.
---
--- * 'productViewDetail' - Information about the product view.
--- * 'provisioningArtifactDetail' - Information about the provisioning artifact.
--- * 'tags' - Information about the tags associated with the product.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateProductResponse' value with any optional fields omitted.
 mkCreateProductResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateProductResponse
-mkCreateProductResponse pResponseStatus_ =
+mkCreateProductResponse responseStatus =
   CreateProductResponse'
-    { productViewDetail = Lude.Nothing,
-      provisioningArtifactDetail = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { productViewDetail = Core.Nothing,
+      provisioningArtifactDetail = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the product view.
 --
 -- /Note:/ Consider using 'productViewDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsProductViewDetail :: Lens.Lens' CreateProductResponse (Lude.Maybe ProductViewDetail)
-cprsProductViewDetail = Lens.lens (productViewDetail :: CreateProductResponse -> Lude.Maybe ProductViewDetail) (\s a -> s {productViewDetail = a} :: CreateProductResponse)
-{-# DEPRECATED cprsProductViewDetail "Use generic-lens or generic-optics with 'productViewDetail' instead." #-}
+cprrsProductViewDetail :: Lens.Lens' CreateProductResponse (Core.Maybe Types.ProductViewDetail)
+cprrsProductViewDetail = Lens.field @"productViewDetail"
+{-# DEPRECATED cprrsProductViewDetail "Use generic-lens or generic-optics with 'productViewDetail' instead." #-}
 
 -- | Information about the provisioning artifact.
 --
 -- /Note:/ Consider using 'provisioningArtifactDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsProvisioningArtifactDetail :: Lens.Lens' CreateProductResponse (Lude.Maybe ProvisioningArtifactDetail)
-cprsProvisioningArtifactDetail = Lens.lens (provisioningArtifactDetail :: CreateProductResponse -> Lude.Maybe ProvisioningArtifactDetail) (\s a -> s {provisioningArtifactDetail = a} :: CreateProductResponse)
-{-# DEPRECATED cprsProvisioningArtifactDetail "Use generic-lens or generic-optics with 'provisioningArtifactDetail' instead." #-}
+cprrsProvisioningArtifactDetail :: Lens.Lens' CreateProductResponse (Core.Maybe Types.ProvisioningArtifactDetail)
+cprrsProvisioningArtifactDetail = Lens.field @"provisioningArtifactDetail"
+{-# DEPRECATED cprrsProvisioningArtifactDetail "Use generic-lens or generic-optics with 'provisioningArtifactDetail' instead." #-}
 
 -- | Information about the tags associated with the product.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsTags :: Lens.Lens' CreateProductResponse (Lude.Maybe [Tag])
-cprsTags = Lens.lens (tags :: CreateProductResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateProductResponse)
-{-# DEPRECATED cprsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cprrsTags :: Lens.Lens' CreateProductResponse (Core.Maybe [Types.Tag])
+cprrsTags = Lens.field @"tags"
+{-# DEPRECATED cprrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsResponseStatus :: Lens.Lens' CreateProductResponse Lude.Int
-cprsResponseStatus = Lens.lens (responseStatus :: CreateProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProductResponse)
-{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cprrsResponseStatus :: Lens.Lens' CreateProductResponse Core.Int
+cprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

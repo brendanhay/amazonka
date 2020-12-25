@@ -23,8 +23,8 @@ module Network.AWS.AutoScaling.DeletePolicy
     mkDeletePolicy,
 
     -- ** Request lenses
-    dpfPolicyName,
-    dpfAutoScalingGroupName,
+    dpPolicyName,
+    dpAutoScalingGroupName,
 
     -- * Destructuring the response
     DeletePolicyResponse (..),
@@ -32,76 +32,75 @@ module Network.AWS.AutoScaling.DeletePolicy
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
   { -- | The name or Amazon Resource Name (ARN) of the policy.
-    policyName :: Lude.Text,
+    policyName :: Types.ResourceName,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Maybe Lude.Text
+    autoScalingGroupName :: Core.Maybe Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name or Amazon Resource Name (ARN) of the policy.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'DeletePolicy' value with any optional fields omitted.
 mkDeletePolicy ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.ResourceName ->
   DeletePolicy
-mkDeletePolicy pPolicyName_ =
-  DeletePolicy'
-    { policyName = pPolicyName_,
-      autoScalingGroupName = Lude.Nothing
-    }
+mkDeletePolicy policyName =
+  DeletePolicy' {policyName, autoScalingGroupName = Core.Nothing}
 
 -- | The name or Amazon Resource Name (ARN) of the policy.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfPolicyName :: Lens.Lens' DeletePolicy Lude.Text
-dpfPolicyName = Lens.lens (policyName :: DeletePolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeletePolicy)
-{-# DEPRECATED dpfPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+dpPolicyName :: Lens.Lens' DeletePolicy Types.ResourceName
+dpPolicyName = Lens.field @"policyName"
+{-# DEPRECATED dpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfAutoScalingGroupName :: Lens.Lens' DeletePolicy (Lude.Maybe Lude.Text)
-dpfAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeletePolicy -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeletePolicy)
-{-# DEPRECATED dpfAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+dpAutoScalingGroupName :: Lens.Lens' DeletePolicy (Core.Maybe Types.ResourceName)
+dpAutoScalingGroupName = Lens.field @"autoScalingGroupName"
+{-# DEPRECATED dpAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest DeletePolicy where
+instance Core.AWSRequest DeletePolicy where
   type Rs DeletePolicy = DeletePolicyResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull DeletePolicyResponse'
-
-instance Lude.ToHeaders DeletePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePolicy where
-  toQuery DeletePolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeletePolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "PolicyName" Lude.=: policyName,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeletePolicy")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "PolicyName" policyName)
+                Core.<> ( Core.toQueryValue "AutoScalingGroupName"
+                            Core.<$> autoScalingGroupName
+                        )
+            )
+      }
+  response = Response.receiveNull DeletePolicyResponse'
 
 -- | /See:/ 'mkDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePolicyResponse' value with any optional fields omitted.
 mkDeletePolicyResponse ::
   DeletePolicyResponse
 mkDeletePolicyResponse = DeletePolicyResponse'

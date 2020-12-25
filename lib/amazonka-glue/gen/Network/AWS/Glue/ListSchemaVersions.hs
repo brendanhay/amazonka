@@ -23,26 +23,26 @@ module Network.AWS.Glue.ListSchemaVersions
 
     -- ** Request lenses
     lsvSchemaId,
-    lsvNextToken,
     lsvMaxResults,
+    lsvNextToken,
 
     -- * Destructuring the response
     ListSchemaVersionsResponse (..),
     mkListSchemaVersionsResponse,
 
     -- ** Response lenses
-    lsvrsSchemas,
-    lsvrsNextToken,
-    lsvrsResponseStatus,
+    lsvrrsNextToken,
+    lsvrrsSchemas,
+    lsvrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSchemaVersions' smart constructor.
 data ListSchemaVersions = ListSchemaVersions'
@@ -53,37 +53,25 @@ data ListSchemaVersions = ListSchemaVersions'
     --
     --
     --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
-    schemaId :: SchemaId,
-    -- | A continuation token, if this is a continuation call.
-    nextToken :: Lude.Maybe Lude.Text,
+    schemaId :: Types.SchemaId,
     -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSchemaVersions' with the minimum fields required to make a request.
---
--- * 'schemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:
---
---
---     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
---
---
---     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
---
---
--- * 'nextToken' - A continuation token, if this is a continuation call.
--- * 'maxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
+-- | Creates a 'ListSchemaVersions' value with any optional fields omitted.
 mkListSchemaVersions ::
   -- | 'schemaId'
-  SchemaId ->
+  Types.SchemaId ->
   ListSchemaVersions
-mkListSchemaVersions pSchemaId_ =
+mkListSchemaVersions schemaId =
   ListSchemaVersions'
-    { schemaId = pSchemaId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { schemaId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | This is a wrapper structure to contain schema identity fields. The structure contains:
@@ -97,117 +85,108 @@ mkListSchemaVersions pSchemaId_ =
 --
 --
 -- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvSchemaId :: Lens.Lens' ListSchemaVersions SchemaId
-lsvSchemaId = Lens.lens (schemaId :: ListSchemaVersions -> SchemaId) (\s a -> s {schemaId = a} :: ListSchemaVersions)
+lsvSchemaId :: Lens.Lens' ListSchemaVersions Types.SchemaId
+lsvSchemaId = Lens.field @"schemaId"
 {-# DEPRECATED lsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
-
--- | A continuation token, if this is a continuation call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvNextToken :: Lens.Lens' ListSchemaVersions (Lude.Maybe Lude.Text)
-lsvNextToken = Lens.lens (nextToken :: ListSchemaVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSchemaVersions)
-{-# DEPRECATED lsvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvMaxResults :: Lens.Lens' ListSchemaVersions (Lude.Maybe Lude.Natural)
-lsvMaxResults = Lens.lens (maxResults :: ListSchemaVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSchemaVersions)
+lsvMaxResults :: Lens.Lens' ListSchemaVersions (Core.Maybe Core.Natural)
+lsvMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lsvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListSchemaVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. lsvrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsvrsSchemas) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsvNextToken Lens..~ rs Lens.^. lsvrsNextToken
+-- | A continuation token, if this is a continuation call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsvNextToken :: Lens.Lens' ListSchemaVersions (Core.Maybe Types.NextToken)
+lsvNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListSchemaVersions where
+instance Core.FromJSON ListSchemaVersions where
+  toJSON ListSchemaVersions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaId" Core..= schemaId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListSchemaVersions where
   type Rs ListSchemaVersions = ListSchemaVersionsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.ListSchemaVersions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListSchemaVersionsResponse'
-            Lude.<$> (x Lude..?> "Schemas" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Schemas")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSchemaVersions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.ListSchemaVersions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSchemaVersions where
-  toJSON ListSchemaVersions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SchemaId" Lude..= schemaId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListSchemaVersions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSchemaVersions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListSchemaVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"schemas" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListSchemaVersionsResponse' smart constructor.
 data ListSchemaVersionsResponse = ListSchemaVersionsResponse'
-  { -- | An array of @SchemaVersionList@ objects containing details of each schema version.
-    schemas :: Lude.Maybe [SchemaVersionListItem],
-    -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | An array of @SchemaVersionList@ objects containing details of each schema version.
+    schemas :: Core.Maybe [Types.SchemaVersionListItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSchemaVersionsResponse' with the minimum fields required to make a request.
---
--- * 'schemas' - An array of @SchemaVersionList@ objects containing details of each schema version.
--- * 'nextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSchemaVersionsResponse' value with any optional fields omitted.
 mkListSchemaVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSchemaVersionsResponse
-mkListSchemaVersionsResponse pResponseStatus_ =
+mkListSchemaVersionsResponse responseStatus =
   ListSchemaVersionsResponse'
-    { schemas = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      schemas = Core.Nothing,
+      responseStatus
     }
-
--- | An array of @SchemaVersionList@ objects containing details of each schema version.
---
--- /Note:/ Consider using 'schemas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvrsSchemas :: Lens.Lens' ListSchemaVersionsResponse (Lude.Maybe [SchemaVersionListItem])
-lsvrsSchemas = Lens.lens (schemas :: ListSchemaVersionsResponse -> Lude.Maybe [SchemaVersionListItem]) (\s a -> s {schemas = a} :: ListSchemaVersionsResponse)
-{-# DEPRECATED lsvrsSchemas "Use generic-lens or generic-optics with 'schemas' instead." #-}
 
 -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvrsNextToken :: Lens.Lens' ListSchemaVersionsResponse (Lude.Maybe Lude.Text)
-lsvrsNextToken = Lens.lens (nextToken :: ListSchemaVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSchemaVersionsResponse)
-{-# DEPRECATED lsvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsvrrsNextToken :: Lens.Lens' ListSchemaVersionsResponse (Core.Maybe Types.NextToken)
+lsvrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsvrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | An array of @SchemaVersionList@ objects containing details of each schema version.
+--
+-- /Note:/ Consider using 'schemas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsvrrsSchemas :: Lens.Lens' ListSchemaVersionsResponse (Core.Maybe [Types.SchemaVersionListItem])
+lsvrrsSchemas = Lens.field @"schemas"
+{-# DEPRECATED lsvrrsSchemas "Use generic-lens or generic-optics with 'schemas' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvrsResponseStatus :: Lens.Lens' ListSchemaVersionsResponse Lude.Int
-lsvrsResponseStatus = Lens.lens (responseStatus :: ListSchemaVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSchemaVersionsResponse)
-{-# DEPRECATED lsvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsvrrsResponseStatus :: Lens.Lens' ListSchemaVersionsResponse Core.Int
+lsvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

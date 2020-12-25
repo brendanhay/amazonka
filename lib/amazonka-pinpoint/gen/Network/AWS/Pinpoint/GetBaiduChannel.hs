@@ -27,105 +27,91 @@ module Network.AWS.Pinpoint.GetBaiduChannel
     mkGetBaiduChannelResponse,
 
     -- ** Response lenses
-    gbcrsBaiduChannelResponse,
-    gbcrsResponseStatus,
+    gbcrrsBaiduChannelResponse,
+    gbcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetBaiduChannel' smart constructor.
 newtype GetBaiduChannel = GetBaiduChannel'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBaiduChannel' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- | Creates a 'GetBaiduChannel' value with any optional fields omitted.
 mkGetBaiduChannel ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   GetBaiduChannel
-mkGetBaiduChannel pApplicationId_ =
-  GetBaiduChannel' {applicationId = pApplicationId_}
+mkGetBaiduChannel applicationId = GetBaiduChannel' {applicationId}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbcApplicationId :: Lens.Lens' GetBaiduChannel Lude.Text
-gbcApplicationId = Lens.lens (applicationId :: GetBaiduChannel -> Lude.Text) (\s a -> s {applicationId = a} :: GetBaiduChannel)
+gbcApplicationId :: Lens.Lens' GetBaiduChannel Core.Text
+gbcApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED gbcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest GetBaiduChannel where
+instance Core.AWSRequest GetBaiduChannel where
   type Rs GetBaiduChannel = GetBaiduChannelResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/channels/baidu")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetBaiduChannelResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBaiduChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetBaiduChannel where
-  toPath GetBaiduChannel' {..} =
-    Lude.mconcat
-      ["/v1/apps/", Lude.toBS applicationId, "/channels/baidu"]
-
-instance Lude.ToQuery GetBaiduChannel where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetBaiduChannelResponse' smart constructor.
 data GetBaiduChannelResponse = GetBaiduChannelResponse'
-  { baiduChannelResponse :: BaiduChannelResponse,
+  { baiduChannelResponse :: Types.BaiduChannelResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBaiduChannelResponse' with the minimum fields required to make a request.
---
--- * 'baiduChannelResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBaiduChannelResponse' value with any optional fields omitted.
 mkGetBaiduChannelResponse ::
   -- | 'baiduChannelResponse'
-  BaiduChannelResponse ->
+  Types.BaiduChannelResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBaiduChannelResponse
-mkGetBaiduChannelResponse pBaiduChannelResponse_ pResponseStatus_ =
-  GetBaiduChannelResponse'
-    { baiduChannelResponse =
-        pBaiduChannelResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkGetBaiduChannelResponse baiduChannelResponse responseStatus =
+  GetBaiduChannelResponse' {baiduChannelResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'baiduChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbcrsBaiduChannelResponse :: Lens.Lens' GetBaiduChannelResponse BaiduChannelResponse
-gbcrsBaiduChannelResponse = Lens.lens (baiduChannelResponse :: GetBaiduChannelResponse -> BaiduChannelResponse) (\s a -> s {baiduChannelResponse = a} :: GetBaiduChannelResponse)
-{-# DEPRECATED gbcrsBaiduChannelResponse "Use generic-lens or generic-optics with 'baiduChannelResponse' instead." #-}
+gbcrrsBaiduChannelResponse :: Lens.Lens' GetBaiduChannelResponse Types.BaiduChannelResponse
+gbcrrsBaiduChannelResponse = Lens.field @"baiduChannelResponse"
+{-# DEPRECATED gbcrrsBaiduChannelResponse "Use generic-lens or generic-optics with 'baiduChannelResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbcrsResponseStatus :: Lens.Lens' GetBaiduChannelResponse Lude.Int
-gbcrsResponseStatus = Lens.lens (responseStatus :: GetBaiduChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBaiduChannelResponse)
-{-# DEPRECATED gbcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbcrrsResponseStatus :: Lens.Lens' GetBaiduChannelResponse Core.Int
+gbcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -83,210 +83,151 @@ module Network.AWS.S3.GetObject
     mkGetObject,
 
     -- ** Request lenses
-    goIfMatch,
-    goVersionId,
-    goResponseContentType,
-    goResponseContentDisposition,
-    goResponseContentLanguage,
     goBucket,
-    goSSECustomerAlgorithm,
-    goSSECustomerKey,
-    goRequestPayer,
-    goResponseContentEncoding,
+    goKey,
+    goExpectedBucketOwner,
+    goIfMatch,
     goIfModifiedSince,
+    goIfNoneMatch,
+    goIfUnmodifiedSince,
     goPartNumber,
     goRange,
-    goKey,
-    goIfUnmodifiedSince,
-    goSSECustomerKeyMD5,
+    goRequestPayer,
     goResponseCacheControl,
+    goResponseContentDisposition,
+    goResponseContentEncoding,
+    goResponseContentLanguage,
+    goResponseContentType,
     goResponseExpires,
-    goIfNoneMatch,
-    goExpectedBucketOwner,
+    goSSECustomerAlgorithm,
+    goSSECustomerKey,
+    goSSECustomerKeyMD5,
+    goVersionId,
 
     -- * Destructuring the response
     GetObjectResponse (..),
     mkGetObjectResponse,
 
     -- ** Response lenses
-    gorsRequestCharged,
-    gorsPartsCount,
-    gorsETag,
-    gorsVersionId,
-    gorsContentLength,
-    gorsObjectLockMode,
-    gorsExpires,
-    gorsBody,
-    gorsRestore,
-    gorsExpiration,
-    gorsDeleteMarker,
-    gorsSSECustomerAlgorithm,
-    gorsTagCount,
-    gorsMissingMeta,
-    gorsWebsiteRedirectLocation,
-    gorsAcceptRanges,
-    gorsStorageClass,
-    gorsSSECustomerKeyMD5,
-    gorsSSEKMSKeyId,
-    gorsContentEncoding,
-    gorsObjectLockRetainUntilDate,
-    gorsMetadata,
-    gorsReplicationStatus,
-    gorsCacheControl,
-    gorsContentLanguage,
-    gorsLastModified,
-    gorsObjectLockLegalHoldStatus,
-    gorsContentDisposition,
-    gorsContentRange,
-    gorsServerSideEncryption,
-    gorsContentType,
-    gorsResponseStatus,
+    gorrsAcceptRanges,
+    gorrsBody,
+    gorrsCacheControl,
+    gorrsContentDisposition,
+    gorrsContentEncoding,
+    gorrsContentLanguage,
+    gorrsContentLength,
+    gorrsContentRange,
+    gorrsContentType,
+    gorrsDeleteMarker,
+    gorrsETag,
+    gorrsExpiration,
+    gorrsExpires,
+    gorrsLastModified,
+    gorrsMetadata,
+    gorrsMissingMeta,
+    gorrsObjectLockLegalHoldStatus,
+    gorrsObjectLockMode,
+    gorrsObjectLockRetainUntilDate,
+    gorrsPartsCount,
+    gorrsReplicationStatus,
+    gorrsRequestCharged,
+    gorrsRestore,
+    gorrsSSECustomerAlgorithm,
+    gorrsSSECustomerKeyMD5,
+    gorrsSSEKMSKeyId,
+    gorrsServerSideEncryption,
+    gorrsStorageClass,
+    gorrsTagCount,
+    gorrsVersionId,
+    gorrsWebsiteRedirectLocation,
+    gorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetObject' smart constructor.
 data GetObject = GetObject'
-  { -- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | VersionId used to reference a specific version of the object.
-    versionId :: Lude.Maybe ObjectVersionId,
-    -- | Sets the @Content-Type@ header of the response.
-    responseContentType :: Lude.Maybe Lude.Text,
-    -- | Sets the @Content-Disposition@ header of the response
-    responseContentDisposition :: Lude.Maybe Lude.Text,
-    -- | Sets the @Content-Language@ header of the response.
-    responseContentLanguage :: Lude.Maybe Lude.Text,
-    -- | The bucket name containing the object.
+  { -- | The bucket name containing the object.
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
-    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    requestPayer :: Lude.Maybe RequestPayer,
-    -- | Sets the @Content-Encoding@ header of the response.
-    responseContentEncoding :: Lude.Maybe Lude.Text,
-    -- | Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
-    ifModifiedSince :: Lude.Maybe Lude.DateTime,
-    -- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
-    partNumber :: Lude.Maybe Lude.Int,
-    -- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, see <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35> .
-    range :: Lude.Maybe Lude.Text,
+    bucket :: Types.BucketName,
     -- | Key of the object to get.
-    key :: ObjectKey,
-    -- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
-    ifUnmodifiedSince :: Lude.Maybe Lude.DateTime,
-    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    -- | Sets the @Cache-Control@ header of the response.
-    responseCacheControl :: Lude.Maybe Lude.Text,
-    -- | Sets the @Expires@ header of the response.
-    responseExpires :: Lude.Maybe Lude.DateTime,
-    -- | Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
-    ifNoneMatch :: Lude.Maybe Lude.Text,
+    key :: Types.Key,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    -- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
+    ifMatch :: Core.Maybe Types.IfMatch,
+    -- | Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
+    ifModifiedSince :: Core.Maybe Core.UTCTime,
+    -- | Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+    ifNoneMatch :: Core.Maybe Types.IfNoneMatch,
+    -- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
+    ifUnmodifiedSince :: Core.Maybe Core.UTCTime,
+    -- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+    partNumber :: Core.Maybe Core.Int,
+    -- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, see <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35> .
+    range :: Core.Maybe Types.Range,
+    requestPayer :: Core.Maybe Types.RequestPayer,
+    -- | Sets the @Cache-Control@ header of the response.
+    responseCacheControl :: Core.Maybe Types.ResponseCacheControl,
+    -- | Sets the @Content-Disposition@ header of the response
+    responseContentDisposition :: Core.Maybe Types.ResponseContentDisposition,
+    -- | Sets the @Content-Encoding@ header of the response.
+    responseContentEncoding :: Core.Maybe Types.ResponseContentEncoding,
+    -- | Sets the @Content-Language@ header of the response.
+    responseContentLanguage :: Core.Maybe Types.ResponseContentLanguage,
+    -- | Sets the @Content-Type@ header of the response.
+    responseContentType :: Core.Maybe Types.ResponseContentType,
+    -- | Sets the @Expires@ header of the response.
+    responseExpires :: Core.Maybe Core.UTCTime,
+    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+    sSECustomerKey :: Core.Maybe Types.SSECustomerKey,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5,
+    -- | VersionId used to reference a specific version of the object.
+    versionId :: Core.Maybe Types.VersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetObject' with the minimum fields required to make a request.
---
--- * 'ifMatch' - Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
--- * 'versionId' - VersionId used to reference a specific version of the object.
--- * 'responseContentType' - Sets the @Content-Type@ header of the response.
--- * 'responseContentDisposition' - Sets the @Content-Disposition@ header of the response
--- * 'responseContentLanguage' - Sets the @Content-Language@ header of the response.
--- * 'bucket' - The bucket name containing the object.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
--- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
--- * 'requestPayer' -
--- * 'responseContentEncoding' - Sets the @Content-Encoding@ header of the response.
--- * 'ifModifiedSince' - Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
--- * 'partNumber' - Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
--- * 'range' - Downloads the specified range bytes of an object. For more information about the HTTP Range header, see <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35> .
--- * 'key' - Key of the object to get.
--- * 'ifUnmodifiedSince' - Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
--- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
--- * 'responseCacheControl' - Sets the @Cache-Control@ header of the response.
--- * 'responseExpires' - Sets the @Expires@ header of the response.
--- * 'ifNoneMatch' - Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetObject' value with any optional fields omitted.
 mkGetObject ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'key'
-  ObjectKey ->
+  Types.Key ->
   GetObject
-mkGetObject pBucket_ pKey_ =
+mkGetObject bucket key =
   GetObject'
-    { ifMatch = Lude.Nothing,
-      versionId = Lude.Nothing,
-      responseContentType = Lude.Nothing,
-      responseContentDisposition = Lude.Nothing,
-      responseContentLanguage = Lude.Nothing,
-      bucket = pBucket_,
-      sSECustomerAlgorithm = Lude.Nothing,
-      sSECustomerKey = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      responseContentEncoding = Lude.Nothing,
-      ifModifiedSince = Lude.Nothing,
-      partNumber = Lude.Nothing,
-      range = Lude.Nothing,
-      key = pKey_,
-      ifUnmodifiedSince = Lude.Nothing,
-      sSECustomerKeyMD5 = Lude.Nothing,
-      responseCacheControl = Lude.Nothing,
-      responseExpires = Lude.Nothing,
-      ifNoneMatch = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      key,
+      expectedBucketOwner = Core.Nothing,
+      ifMatch = Core.Nothing,
+      ifModifiedSince = Core.Nothing,
+      ifNoneMatch = Core.Nothing,
+      ifUnmodifiedSince = Core.Nothing,
+      partNumber = Core.Nothing,
+      range = Core.Nothing,
+      requestPayer = Core.Nothing,
+      responseCacheControl = Core.Nothing,
+      responseContentDisposition = Core.Nothing,
+      responseContentEncoding = Core.Nothing,
+      responseContentLanguage = Core.Nothing,
+      responseContentType = Core.Nothing,
+      responseExpires = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      sSECustomerKey = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goIfMatch :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goIfMatch = Lens.lens (ifMatch :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: GetObject)
-{-# DEPRECATED goIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
-
--- | VersionId used to reference a specific version of the object.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goVersionId :: Lens.Lens' GetObject (Lude.Maybe ObjectVersionId)
-goVersionId = Lens.lens (versionId :: GetObject -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObject)
-{-# DEPRECATED goVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | Sets the @Content-Type@ header of the response.
---
--- /Note:/ Consider using 'responseContentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goResponseContentType :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goResponseContentType = Lens.lens (responseContentType :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {responseContentType = a} :: GetObject)
-{-# DEPRECATED goResponseContentType "Use generic-lens or generic-optics with 'responseContentType' instead." #-}
-
--- | Sets the @Content-Disposition@ header of the response
---
--- /Note:/ Consider using 'responseContentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goResponseContentDisposition :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goResponseContentDisposition = Lens.lens (responseContentDisposition :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {responseContentDisposition = a} :: GetObject)
-{-# DEPRECATED goResponseContentDisposition "Use generic-lens or generic-optics with 'responseContentDisposition' instead." #-}
-
--- | Sets the @Content-Language@ header of the response.
---
--- /Note:/ Consider using 'responseContentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goResponseContentLanguage :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goResponseContentLanguage = Lens.lens (responseContentLanguage :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {responseContentLanguage = a} :: GetObject)
-{-# DEPRECATED goResponseContentLanguage "Use generic-lens or generic-optics with 'responseContentLanguage' instead." #-}
 
 -- | The bucket name containing the object.
 --
@@ -294,547 +235,573 @@ goResponseContentLanguage = Lens.lens (responseContentLanguage :: GetObject -> L
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goBucket :: Lens.Lens' GetObject BucketName
-goBucket = Lens.lens (bucket :: GetObject -> BucketName) (\s a -> s {bucket = a} :: GetObject)
+goBucket :: Lens.Lens' GetObject Types.BucketName
+goBucket = Lens.field @"bucket"
 {-# DEPRECATED goBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
--- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
+-- | Key of the object to get.
 --
--- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goSSECustomerAlgorithm :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: GetObject)
-{-# DEPRECATED goSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goKey :: Lens.Lens' GetObject Types.Key
+goKey = Lens.field @"key"
+{-# DEPRECATED goKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
--- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goSSECustomerKey :: Lens.Lens' GetObject (Lude.Maybe (Lude.Sensitive Lude.Text))
-goSSECustomerKey = Lens.lens (sSECustomerKey :: GetObject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSECustomerKey = a} :: GetObject)
-{-# DEPRECATED goSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goExpectedBucketOwner :: Lens.Lens' GetObject (Core.Maybe Types.ExpectedBucketOwner)
+goExpectedBucketOwner = Lens.field @"expectedBucketOwner"
+{-# DEPRECATED goExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | Undocumented field.
+-- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
 --
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goRequestPayer :: Lens.Lens' GetObject (Lude.Maybe RequestPayer)
-goRequestPayer = Lens.lens (requestPayer :: GetObject -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: GetObject)
-{-# DEPRECATED goRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
-
--- | Sets the @Content-Encoding@ header of the response.
---
--- /Note:/ Consider using 'responseContentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goResponseContentEncoding :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goResponseContentEncoding = Lens.lens (responseContentEncoding :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {responseContentEncoding = a} :: GetObject)
-{-# DEPRECATED goResponseContentEncoding "Use generic-lens or generic-optics with 'responseContentEncoding' instead." #-}
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goIfMatch :: Lens.Lens' GetObject (Core.Maybe Types.IfMatch)
+goIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED goIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 --
 -- /Note:/ Consider using 'ifModifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goIfModifiedSince :: Lens.Lens' GetObject (Lude.Maybe Lude.DateTime)
-goIfModifiedSince = Lens.lens (ifModifiedSince :: GetObject -> Lude.Maybe Lude.DateTime) (\s a -> s {ifModifiedSince = a} :: GetObject)
+goIfModifiedSince :: Lens.Lens' GetObject (Core.Maybe Core.UTCTime)
+goIfModifiedSince = Lens.field @"ifModifiedSince"
 {-# DEPRECATED goIfModifiedSince "Use generic-lens or generic-optics with 'ifModifiedSince' instead." #-}
+
+-- | Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+--
+-- /Note:/ Consider using 'ifNoneMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goIfNoneMatch :: Lens.Lens' GetObject (Core.Maybe Types.IfNoneMatch)
+goIfNoneMatch = Lens.field @"ifNoneMatch"
+{-# DEPRECATED goIfNoneMatch "Use generic-lens or generic-optics with 'ifNoneMatch' instead." #-}
+
+-- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
+--
+-- /Note:/ Consider using 'ifUnmodifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goIfUnmodifiedSince :: Lens.Lens' GetObject (Core.Maybe Core.UTCTime)
+goIfUnmodifiedSince = Lens.field @"ifUnmodifiedSince"
+{-# DEPRECATED goIfUnmodifiedSince "Use generic-lens or generic-optics with 'ifUnmodifiedSince' instead." #-}
 
 -- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
 --
 -- /Note:/ Consider using 'partNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goPartNumber :: Lens.Lens' GetObject (Lude.Maybe Lude.Int)
-goPartNumber = Lens.lens (partNumber :: GetObject -> Lude.Maybe Lude.Int) (\s a -> s {partNumber = a} :: GetObject)
+goPartNumber :: Lens.Lens' GetObject (Core.Maybe Core.Int)
+goPartNumber = Lens.field @"partNumber"
 {-# DEPRECATED goPartNumber "Use generic-lens or generic-optics with 'partNumber' instead." #-}
 
 -- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, see <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35> .
 --
 -- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goRange :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goRange = Lens.lens (range :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {range = a} :: GetObject)
+goRange :: Lens.Lens' GetObject (Core.Maybe Types.Range)
+goRange = Lens.field @"range"
 {-# DEPRECATED goRange "Use generic-lens or generic-optics with 'range' instead." #-}
 
--- | Key of the object to get.
+-- | Undocumented field.
 --
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goKey :: Lens.Lens' GetObject ObjectKey
-goKey = Lens.lens (key :: GetObject -> ObjectKey) (\s a -> s {key = a} :: GetObject)
-{-# DEPRECATED goKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
--- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
---
--- /Note:/ Consider using 'ifUnmodifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goIfUnmodifiedSince :: Lens.Lens' GetObject (Lude.Maybe Lude.DateTime)
-goIfUnmodifiedSince = Lens.lens (ifUnmodifiedSince :: GetObject -> Lude.Maybe Lude.DateTime) (\s a -> s {ifUnmodifiedSince = a} :: GetObject)
-{-# DEPRECATED goIfUnmodifiedSince "Use generic-lens or generic-optics with 'ifUnmodifiedSince' instead." #-}
-
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
---
--- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goSSECustomerKeyMD5 :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: GetObject)
-{-# DEPRECATED goSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goRequestPayer :: Lens.Lens' GetObject (Core.Maybe Types.RequestPayer)
+goRequestPayer = Lens.field @"requestPayer"
+{-# DEPRECATED goRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | Sets the @Cache-Control@ header of the response.
 --
 -- /Note:/ Consider using 'responseCacheControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goResponseCacheControl :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goResponseCacheControl = Lens.lens (responseCacheControl :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {responseCacheControl = a} :: GetObject)
+goResponseCacheControl :: Lens.Lens' GetObject (Core.Maybe Types.ResponseCacheControl)
+goResponseCacheControl = Lens.field @"responseCacheControl"
 {-# DEPRECATED goResponseCacheControl "Use generic-lens or generic-optics with 'responseCacheControl' instead." #-}
+
+-- | Sets the @Content-Disposition@ header of the response
+--
+-- /Note:/ Consider using 'responseContentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goResponseContentDisposition :: Lens.Lens' GetObject (Core.Maybe Types.ResponseContentDisposition)
+goResponseContentDisposition = Lens.field @"responseContentDisposition"
+{-# DEPRECATED goResponseContentDisposition "Use generic-lens or generic-optics with 'responseContentDisposition' instead." #-}
+
+-- | Sets the @Content-Encoding@ header of the response.
+--
+-- /Note:/ Consider using 'responseContentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goResponseContentEncoding :: Lens.Lens' GetObject (Core.Maybe Types.ResponseContentEncoding)
+goResponseContentEncoding = Lens.field @"responseContentEncoding"
+{-# DEPRECATED goResponseContentEncoding "Use generic-lens or generic-optics with 'responseContentEncoding' instead." #-}
+
+-- | Sets the @Content-Language@ header of the response.
+--
+-- /Note:/ Consider using 'responseContentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goResponseContentLanguage :: Lens.Lens' GetObject (Core.Maybe Types.ResponseContentLanguage)
+goResponseContentLanguage = Lens.field @"responseContentLanguage"
+{-# DEPRECATED goResponseContentLanguage "Use generic-lens or generic-optics with 'responseContentLanguage' instead." #-}
+
+-- | Sets the @Content-Type@ header of the response.
+--
+-- /Note:/ Consider using 'responseContentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goResponseContentType :: Lens.Lens' GetObject (Core.Maybe Types.ResponseContentType)
+goResponseContentType = Lens.field @"responseContentType"
+{-# DEPRECATED goResponseContentType "Use generic-lens or generic-optics with 'responseContentType' instead." #-}
 
 -- | Sets the @Expires@ header of the response.
 --
 -- /Note:/ Consider using 'responseExpires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goResponseExpires :: Lens.Lens' GetObject (Lude.Maybe Lude.DateTime)
-goResponseExpires = Lens.lens (responseExpires :: GetObject -> Lude.Maybe Lude.DateTime) (\s a -> s {responseExpires = a} :: GetObject)
+goResponseExpires :: Lens.Lens' GetObject (Core.Maybe Core.UTCTime)
+goResponseExpires = Lens.field @"responseExpires"
 {-# DEPRECATED goResponseExpires "Use generic-lens or generic-optics with 'responseExpires' instead." #-}
 
--- | Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+-- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
 --
--- /Note:/ Consider using 'ifNoneMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goIfNoneMatch :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goIfNoneMatch = Lens.lens (ifNoneMatch :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {ifNoneMatch = a} :: GetObject)
-{-# DEPRECATED goIfNoneMatch "Use generic-lens or generic-optics with 'ifNoneMatch' instead." #-}
+-- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goSSECustomerAlgorithm :: Lens.Lens' GetObject (Core.Maybe Types.SSECustomerAlgorithm)
+goSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
+{-# DEPRECATED goSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
 --
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goExpectedBucketOwner :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
-goExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObject)
-{-# DEPRECATED goExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+-- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goSSECustomerKey :: Lens.Lens' GetObject (Core.Maybe Types.SSECustomerKey)
+goSSECustomerKey = Lens.field @"sSECustomerKey"
+{-# DEPRECATED goSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
 
-instance Lude.AWSRequest GetObject where
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+--
+-- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goSSECustomerKeyMD5 :: Lens.Lens' GetObject (Core.Maybe Types.SSECustomerKeyMD5)
+goSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
+{-# DEPRECATED goSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
+
+-- | VersionId used to reference a specific version of the object.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goVersionId :: Lens.Lens' GetObject (Core.Maybe Types.VersionId)
+goVersionId = Lens.field @"versionId"
+{-# DEPRECATED goVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.AWSRequest GetObject where
   type Rs GetObject = GetObjectResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText bucket) Core.<> ("/")
+                Core.<> (Core.toText key)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "partNumber" Core.<$> partNumber
+            Core.<> ( Core.toQueryValue "response-cache-control"
+                        Core.<$> responseCacheControl
+                    )
+            Core.<> ( Core.toQueryValue "response-content-disposition"
+                        Core.<$> responseContentDisposition
+                    )
+            Core.<> ( Core.toQueryValue "response-content-encoding"
+                        Core.<$> responseContentEncoding
+                    )
+            Core.<> ( Core.toQueryValue "response-content-language"
+                        Core.<$> responseContentLanguage
+                    )
+            Core.<> ( Core.toQueryValue "response-content-type"
+                        Core.<$> responseContentType
+                    )
+            Core.<> (Core.toQueryValue "response-expires" Core.<$> responseExpires)
+            Core.<> (Core.toQueryValue "versionId" Core.<$> versionId),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner
+            Core.<> (Core.toHeaders "If-Match" ifMatch)
+            Core.<> (Core.toHeaders "If-Modified-Since" ifModifiedSince)
+            Core.<> (Core.toHeaders "If-None-Match" ifNoneMatch)
+            Core.<> (Core.toHeaders "If-Unmodified-Since" ifUnmodifiedSince)
+            Core.<> (Core.toHeaders "Range" range)
+            Core.<> (Core.toHeaders "x-amz-request-payer" requestPayer)
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-algorithm"
+                        sSECustomerAlgorithm
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-key"
+                        sSECustomerKey
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-key-MD5"
+                        sSECustomerKeyMD5
+                    ),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveBody
+    Response.receiveBody
       ( \s h x ->
           GetObjectResponse'
-            Lude.<$> (h Lude..#? "x-amz-request-charged")
-            Lude.<*> (h Lude..#? "x-amz-mp-parts-count")
-            Lude.<*> (h Lude..#? "ETag")
-            Lude.<*> (h Lude..#? "x-amz-version-id")
-            Lude.<*> (h Lude..#? "Content-Length")
-            Lude.<*> (h Lude..#? "x-amz-object-lock-mode")
-            Lude.<*> (h Lude..#? "Expires")
-            Lude.<*> (Lude.pure x)
-            Lude.<*> (h Lude..#? "x-amz-restore")
-            Lude.<*> (h Lude..#? "x-amz-expiration")
-            Lude.<*> (h Lude..#? "x-amz-delete-marker")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-algorithm")
-            Lude.<*> (h Lude..#? "x-amz-tagging-count")
-            Lude.<*> (h Lude..#? "x-amz-missing-meta")
-            Lude.<*> (h Lude..#? "x-amz-website-redirect-location")
-            Lude.<*> (h Lude..#? "accept-ranges")
-            Lude.<*> (h Lude..#? "x-amz-storage-class")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-key-MD5")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-aws-kms-key-id")
-            Lude.<*> (h Lude..#? "Content-Encoding")
-            Lude.<*> (h Lude..#? "x-amz-object-lock-retain-until-date")
-            Lude.<*> (Lude.parseHeadersMap "x-amz-meta-" h)
-            Lude.<*> (h Lude..#? "x-amz-replication-status")
-            Lude.<*> (h Lude..#? "Cache-Control")
-            Lude.<*> (h Lude..#? "Content-Language")
-            Lude.<*> (h Lude..#? "Last-Modified")
-            Lude.<*> (h Lude..#? "x-amz-object-lock-legal-hold")
-            Lude.<*> (h Lude..#? "Content-Disposition")
-            Lude.<*> (h Lude..#? "Content-Range")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption")
-            Lude.<*> (h Lude..#? "Content-Type")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "accept-ranges" h)
+            Core.<*> (Core.pure x)
+            Core.<*> (Core.parseHeaderMaybe "Cache-Control" h)
+            Core.<*> (Core.parseHeaderMaybe "Content-Disposition" h)
+            Core.<*> (Core.parseHeaderMaybe "Content-Encoding" h)
+            Core.<*> (Core.parseHeaderMaybe "Content-Language" h)
+            Core.<*> (Core.parseHeaderMaybe "Content-Length" h)
+            Core.<*> (Core.parseHeaderMaybe "Content-Range" h)
+            Core.<*> (Core.parseHeaderMaybe "Content-Type" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-delete-marker" h)
+            Core.<*> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-expiration" h)
+            Core.<*> (Core.parseHeaderMaybe "Expires" h)
+            Core.<*> (Core.parseHeaderMaybe "Last-Modified" h)
+            Core.<*> (Core.parseHeaderMap "x-amz-meta-" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-missing-meta" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-object-lock-legal-hold" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-object-lock-mode" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-object-lock-retain-until-date" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-mp-parts-count" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-replication-status" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-request-charged" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-restore" h)
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-customer-algorithm"
+                         h
+                     )
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-customer-key-MD5"
+                         h
+                     )
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-aws-kms-key-id"
+                         h
+                     )
+            Core.<*> (Core.parseHeaderMaybe "x-amz-server-side-encryption" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-storage-class" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-tagging-count" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-version-id" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-website-redirect-location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetObject where
-  toHeaders GetObject' {..} =
-    Lude.mconcat
-      [ "If-Match" Lude.=# ifMatch,
-        "x-amz-server-side-encryption-customer-algorithm"
-          Lude.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key" Lude.=# sSECustomerKey,
-        "x-amz-request-payer" Lude.=# requestPayer,
-        "If-Modified-Since" Lude.=# ifModifiedSince,
-        "Range" Lude.=# range,
-        "If-Unmodified-Since" Lude.=# ifUnmodifiedSince,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Lude.=# sSECustomerKeyMD5,
-        "If-None-Match" Lude.=# ifNoneMatch,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath GetObject where
-  toPath GetObject' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
-
-instance Lude.ToQuery GetObject where
-  toQuery GetObject' {..} =
-    Lude.mconcat
-      [ "versionId" Lude.=: versionId,
-        "response-content-type" Lude.=: responseContentType,
-        "response-content-disposition" Lude.=: responseContentDisposition,
-        "response-content-language" Lude.=: responseContentLanguage,
-        "response-content-encoding" Lude.=: responseContentEncoding,
-        "partNumber" Lude.=: partNumber,
-        "response-cache-control" Lude.=: responseCacheControl,
-        "response-expires" Lude.=: responseExpires
-      ]
 
 -- | /See:/ 'mkGetObjectResponse' smart constructor.
 data GetObjectResponse = GetObjectResponse'
-  { requestCharged :: Lude.Maybe RequestCharged,
-    -- | The count of parts this object has.
-    partsCount :: Lude.Maybe Lude.Int,
-    -- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
-    eTag :: Lude.Maybe ETag,
-    -- | Version of the object.
-    versionId :: Lude.Maybe ObjectVersionId,
-    -- | Size of the body in bytes.
-    contentLength :: Lude.Maybe Lude.Integer,
-    -- | The Object Lock mode currently in place for this object.
-    objectLockMode :: Lude.Maybe ObjectLockMode,
-    -- | The date and time at which the object is no longer cacheable.
-    expires :: Lude.Maybe Lude.DateTime,
+  { -- | Indicates that a range of bytes was specified.
+    acceptRanges :: Core.Maybe Types.AcceptRanges,
     -- | Object data.
-    body :: Lude.RsBody,
-    -- | Provides information about object restoration operation and expiration time of the restored object copy.
-    restore :: Lude.Maybe Lude.Text,
-    -- | If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
-    expiration :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
-    deleteMarker :: Lude.Maybe Lude.Bool,
-    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    -- | The number of tags, if any, on the object.
-    tagCount :: Lude.Maybe Lude.Int,
-    -- | This is set to the number of metadata entries not returned in @x-amz-meta@ headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
-    missingMeta :: Lude.Maybe Lude.Int,
-    -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
-    websiteRedirectLocation :: Lude.Maybe Lude.Text,
-    -- | Indicates that a range of bytes was specified.
-    acceptRanges :: Lude.Maybe Lude.Text,
-    -- | Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
-    storageClass :: Lude.Maybe StorageClass,
-    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
-    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
-    contentEncoding :: Lude.Maybe Lude.Text,
-    -- | The date and time when this object's Object Lock will expire.
-    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
-    -- | A map of metadata to store with the object in S3.
-    metadata :: Lude.HashMap Lude.Text (Lude.Text),
-    -- | Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.
-    replicationStatus :: Lude.Maybe ReplicationStatus,
+    body :: Core.RsBody,
     -- | Specifies caching behavior along the request/reply chain.
-    cacheControl :: Lude.Maybe Lude.Text,
-    -- | The language the content is in.
-    contentLanguage :: Lude.Maybe Lude.Text,
-    -- | Last modified date of the object
-    lastModified :: Lude.Maybe Lude.DateTime,
-    -- | Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.
-    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
+    cacheControl :: Core.Maybe Types.CacheControl,
     -- | Specifies presentational information for the object.
-    contentDisposition :: Lude.Maybe Lude.Text,
+    contentDisposition :: Core.Maybe Types.ContentDisposition,
+    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+    contentEncoding :: Core.Maybe Types.ContentEncoding,
+    -- | The language the content is in.
+    contentLanguage :: Core.Maybe Types.ContentLanguage,
+    -- | Size of the body in bytes.
+    contentLength :: Core.Maybe Core.Integer,
     -- | The portion of the object returned in the response.
-    contentRange :: Lude.Maybe Lude.Text,
-    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    contentRange :: Core.Maybe Types.ContentRange,
     -- | A standard MIME type describing the format of the object data.
-    contentType :: Lude.Maybe Lude.Text,
+    contentType :: Core.Maybe Types.ContentType,
+    -- | Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
+    deleteMarker :: Core.Maybe Core.Bool,
+    -- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
+    eTag :: Core.Maybe Types.ETag,
+    -- | If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
+    expiration :: Core.Maybe Types.Expiration,
+    -- | The date and time at which the object is no longer cacheable.
+    expires :: Core.Maybe Core.UTCTime,
+    -- | Last modified date of the object
+    lastModified :: Core.Maybe Core.UTCTime,
+    -- | A map of metadata to store with the object in S3.
+    metadata :: Core.HashMap Types.MetadataKey Types.MetadataValue,
+    -- | This is set to the number of metadata entries not returned in @x-amz-meta@ headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
+    missingMeta :: Core.Maybe Core.Int,
+    -- | Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.
+    objectLockLegalHoldStatus :: Core.Maybe Types.ObjectLockLegalHoldStatus,
+    -- | The Object Lock mode currently in place for this object.
+    objectLockMode :: Core.Maybe Types.ObjectLockMode,
+    -- | The date and time when this object's Object Lock will expire.
+    objectLockRetainUntilDate :: Core.Maybe Core.UTCTime,
+    -- | The count of parts this object has.
+    partsCount :: Core.Maybe Core.Int,
+    -- | Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.
+    replicationStatus :: Core.Maybe Types.ReplicationStatus,
+    requestCharged :: Core.Maybe Types.RequestCharged,
+    -- | Provides information about object restoration operation and expiration time of the restored object copy.
+    restore :: Core.Maybe Types.Restore,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5,
+    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+    sSEKMSKeyId :: Core.Maybe Types.SSEKMSKeyId,
+    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Core.Maybe Types.ServerSideEncryption,
+    -- | Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
+    storageClass :: Core.Maybe Types.StorageClass,
+    -- | The number of tags, if any, on the object.
+    tagCount :: Core.Maybe Core.Int,
+    -- | Version of the object.
+    versionId :: Core.Maybe Types.ObjectVersionId,
+    -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+    websiteRedirectLocation :: Core.Maybe Types.WebsiteRedirectLocation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Show, Lude.Generic)
+  deriving stock (Core.Show, Core.Generic)
 
--- | Creates a value of 'GetObjectResponse' with the minimum fields required to make a request.
---
--- * 'requestCharged' -
--- * 'partsCount' - The count of parts this object has.
--- * 'eTag' - An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
--- * 'versionId' - Version of the object.
--- * 'contentLength' - Size of the body in bytes.
--- * 'objectLockMode' - The Object Lock mode currently in place for this object.
--- * 'expires' - The date and time at which the object is no longer cacheable.
--- * 'body' - Object data.
--- * 'restore' - Provides information about object restoration operation and expiration time of the restored object copy.
--- * 'expiration' - If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
--- * 'deleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
--- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
--- * 'tagCount' - The number of tags, if any, on the object.
--- * 'missingMeta' - This is set to the number of metadata entries not returned in @x-amz-meta@ headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
--- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
--- * 'acceptRanges' - Indicates that a range of bytes was specified.
--- * 'storageClass' - Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
--- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
--- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
--- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
--- * 'objectLockRetainUntilDate' - The date and time when this object's Object Lock will expire.
--- * 'metadata' - A map of metadata to store with the object in S3.
--- * 'replicationStatus' - Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.
--- * 'cacheControl' - Specifies caching behavior along the request/reply chain.
--- * 'contentLanguage' - The language the content is in.
--- * 'lastModified' - Last modified date of the object
--- * 'objectLockLegalHoldStatus' - Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.
--- * 'contentDisposition' - Specifies presentational information for the object.
--- * 'contentRange' - The portion of the object returned in the response.
--- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
--- * 'contentType' - A standard MIME type describing the format of the object data.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetObjectResponse' value with any optional fields omitted.
 mkGetObjectResponse ::
   -- | 'body'
-  Lude.RsBody ->
+  Core.RsBody ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetObjectResponse
-mkGetObjectResponse pBody_ pResponseStatus_ =
+mkGetObjectResponse body responseStatus =
   GetObjectResponse'
-    { requestCharged = Lude.Nothing,
-      partsCount = Lude.Nothing,
-      eTag = Lude.Nothing,
-      versionId = Lude.Nothing,
-      contentLength = Lude.Nothing,
-      objectLockMode = Lude.Nothing,
-      expires = Lude.Nothing,
-      body = pBody_,
-      restore = Lude.Nothing,
-      expiration = Lude.Nothing,
-      deleteMarker = Lude.Nothing,
-      sSECustomerAlgorithm = Lude.Nothing,
-      tagCount = Lude.Nothing,
-      missingMeta = Lude.Nothing,
-      websiteRedirectLocation = Lude.Nothing,
-      acceptRanges = Lude.Nothing,
-      storageClass = Lude.Nothing,
-      sSECustomerKeyMD5 = Lude.Nothing,
-      sSEKMSKeyId = Lude.Nothing,
-      contentEncoding = Lude.Nothing,
-      objectLockRetainUntilDate = Lude.Nothing,
-      metadata = Lude.mempty,
-      replicationStatus = Lude.Nothing,
-      cacheControl = Lude.Nothing,
-      contentLanguage = Lude.Nothing,
-      lastModified = Lude.Nothing,
-      objectLockLegalHoldStatus = Lude.Nothing,
-      contentDisposition = Lude.Nothing,
-      contentRange = Lude.Nothing,
-      serverSideEncryption = Lude.Nothing,
-      contentType = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { acceptRanges = Core.Nothing,
+      body,
+      cacheControl = Core.Nothing,
+      contentDisposition = Core.Nothing,
+      contentEncoding = Core.Nothing,
+      contentLanguage = Core.Nothing,
+      contentLength = Core.Nothing,
+      contentRange = Core.Nothing,
+      contentType = Core.Nothing,
+      deleteMarker = Core.Nothing,
+      eTag = Core.Nothing,
+      expiration = Core.Nothing,
+      expires = Core.Nothing,
+      lastModified = Core.Nothing,
+      metadata = Core.mempty,
+      missingMeta = Core.Nothing,
+      objectLockLegalHoldStatus = Core.Nothing,
+      objectLockMode = Core.Nothing,
+      objectLockRetainUntilDate = Core.Nothing,
+      partsCount = Core.Nothing,
+      replicationStatus = Core.Nothing,
+      requestCharged = Core.Nothing,
+      restore = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      sSEKMSKeyId = Core.Nothing,
+      serverSideEncryption = Core.Nothing,
+      storageClass = Core.Nothing,
+      tagCount = Core.Nothing,
+      versionId = Core.Nothing,
+      websiteRedirectLocation = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsRequestCharged :: Lens.Lens' GetObjectResponse (Lude.Maybe RequestCharged)
-gorsRequestCharged = Lens.lens (requestCharged :: GetObjectResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: GetObjectResponse)
-{-# DEPRECATED gorsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
-
--- | The count of parts this object has.
---
--- /Note:/ Consider using 'partsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsPartsCount :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Int)
-gorsPartsCount = Lens.lens (partsCount :: GetObjectResponse -> Lude.Maybe Lude.Int) (\s a -> s {partsCount = a} :: GetObjectResponse)
-{-# DEPRECATED gorsPartsCount "Use generic-lens or generic-optics with 'partsCount' instead." #-}
-
--- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
---
--- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsETag :: Lens.Lens' GetObjectResponse (Lude.Maybe ETag)
-gorsETag = Lens.lens (eTag :: GetObjectResponse -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: GetObjectResponse)
-{-# DEPRECATED gorsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
-
--- | Version of the object.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsVersionId :: Lens.Lens' GetObjectResponse (Lude.Maybe ObjectVersionId)
-gorsVersionId = Lens.lens (versionId :: GetObjectResponse -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectResponse)
-{-# DEPRECATED gorsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | Size of the body in bytes.
---
--- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsContentLength :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Integer)
-gorsContentLength = Lens.lens (contentLength :: GetObjectResponse -> Lude.Maybe Lude.Integer) (\s a -> s {contentLength = a} :: GetObjectResponse)
-{-# DEPRECATED gorsContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
-
--- | The Object Lock mode currently in place for this object.
---
--- /Note:/ Consider using 'objectLockMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsObjectLockMode :: Lens.Lens' GetObjectResponse (Lude.Maybe ObjectLockMode)
-gorsObjectLockMode = Lens.lens (objectLockMode :: GetObjectResponse -> Lude.Maybe ObjectLockMode) (\s a -> s {objectLockMode = a} :: GetObjectResponse)
-{-# DEPRECATED gorsObjectLockMode "Use generic-lens or generic-optics with 'objectLockMode' instead." #-}
-
--- | The date and time at which the object is no longer cacheable.
---
--- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsExpires :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.DateTime)
-gorsExpires = Lens.lens (expires :: GetObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: GetObjectResponse)
-{-# DEPRECATED gorsExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
-
--- | Object data.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsBody :: Lens.Lens' GetObjectResponse Lude.RsBody
-gorsBody = Lens.lens (body :: GetObjectResponse -> Lude.RsBody) (\s a -> s {body = a} :: GetObjectResponse)
-{-# DEPRECATED gorsBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | Provides information about object restoration operation and expiration time of the restored object copy.
---
--- /Note:/ Consider using 'restore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsRestore :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsRestore = Lens.lens (restore :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {restore = a} :: GetObjectResponse)
-{-# DEPRECATED gorsRestore "Use generic-lens or generic-optics with 'restore' instead." #-}
-
--- | If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
---
--- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsExpiration :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsExpiration = Lens.lens (expiration :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {expiration = a} :: GetObjectResponse)
-{-# DEPRECATED gorsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
-
--- | Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
---
--- /Note:/ Consider using 'deleteMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsDeleteMarker :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Bool)
-gorsDeleteMarker = Lens.lens (deleteMarker :: GetObjectResponse -> Lude.Maybe Lude.Bool) (\s a -> s {deleteMarker = a} :: GetObjectResponse)
-{-# DEPRECATED gorsDeleteMarker "Use generic-lens or generic-optics with 'deleteMarker' instead." #-}
-
--- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
---
--- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsSSECustomerAlgorithm :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: GetObjectResponse)
-{-# DEPRECATED gorsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
-
--- | The number of tags, if any, on the object.
---
--- /Note:/ Consider using 'tagCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsTagCount :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Int)
-gorsTagCount = Lens.lens (tagCount :: GetObjectResponse -> Lude.Maybe Lude.Int) (\s a -> s {tagCount = a} :: GetObjectResponse)
-{-# DEPRECATED gorsTagCount "Use generic-lens or generic-optics with 'tagCount' instead." #-}
-
--- | This is set to the number of metadata entries not returned in @x-amz-meta@ headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
---
--- /Note:/ Consider using 'missingMeta' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsMissingMeta :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Int)
-gorsMissingMeta = Lens.lens (missingMeta :: GetObjectResponse -> Lude.Maybe Lude.Int) (\s a -> s {missingMeta = a} :: GetObjectResponse)
-{-# DEPRECATED gorsMissingMeta "Use generic-lens or generic-optics with 'missingMeta' instead." #-}
-
--- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
---
--- /Note:/ Consider using 'websiteRedirectLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsWebsiteRedirectLocation :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsWebsiteRedirectLocation = Lens.lens (websiteRedirectLocation :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {websiteRedirectLocation = a} :: GetObjectResponse)
-{-# DEPRECATED gorsWebsiteRedirectLocation "Use generic-lens or generic-optics with 'websiteRedirectLocation' instead." #-}
 
 -- | Indicates that a range of bytes was specified.
 --
 -- /Note:/ Consider using 'acceptRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsAcceptRanges :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsAcceptRanges = Lens.lens (acceptRanges :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {acceptRanges = a} :: GetObjectResponse)
-{-# DEPRECATED gorsAcceptRanges "Use generic-lens or generic-optics with 'acceptRanges' instead." #-}
+gorrsAcceptRanges :: Lens.Lens' GetObjectResponse (Core.Maybe Types.AcceptRanges)
+gorrsAcceptRanges = Lens.field @"acceptRanges"
+{-# DEPRECATED gorrsAcceptRanges "Use generic-lens or generic-optics with 'acceptRanges' instead." #-}
 
--- | Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
+-- | Object data.
 --
--- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsStorageClass :: Lens.Lens' GetObjectResponse (Lude.Maybe StorageClass)
-gorsStorageClass = Lens.lens (storageClass :: GetObjectResponse -> Lude.Maybe StorageClass) (\s a -> s {storageClass = a} :: GetObjectResponse)
-{-# DEPRECATED gorsStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
-
--- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
---
--- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsSSECustomerKeyMD5 :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: GetObjectResponse)
-{-# DEPRECATED gorsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
-
--- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
---
--- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsSSEKMSKeyId :: Lens.Lens' GetObjectResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-gorsSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: GetObjectResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: GetObjectResponse)
-{-# DEPRECATED gorsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
-
--- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
---
--- /Note:/ Consider using 'contentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsContentEncoding :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsContentEncoding = Lens.lens (contentEncoding :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentEncoding = a} :: GetObjectResponse)
-{-# DEPRECATED gorsContentEncoding "Use generic-lens or generic-optics with 'contentEncoding' instead." #-}
-
--- | The date and time when this object's Object Lock will expire.
---
--- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsObjectLockRetainUntilDate :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.DateTime)
-gorsObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: GetObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {objectLockRetainUntilDate = a} :: GetObjectResponse)
-{-# DEPRECATED gorsObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
-
--- | A map of metadata to store with the object in S3.
---
--- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsMetadata :: Lens.Lens' GetObjectResponse (Lude.HashMap Lude.Text (Lude.Text))
-gorsMetadata = Lens.lens (metadata :: GetObjectResponse -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metadata = a} :: GetObjectResponse)
-{-# DEPRECATED gorsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
-
--- | Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.
---
--- /Note:/ Consider using 'replicationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsReplicationStatus :: Lens.Lens' GetObjectResponse (Lude.Maybe ReplicationStatus)
-gorsReplicationStatus = Lens.lens (replicationStatus :: GetObjectResponse -> Lude.Maybe ReplicationStatus) (\s a -> s {replicationStatus = a} :: GetObjectResponse)
-{-# DEPRECATED gorsReplicationStatus "Use generic-lens or generic-optics with 'replicationStatus' instead." #-}
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsBody :: Lens.Lens' GetObjectResponse Core.RsBody
+gorrsBody = Lens.field @"body"
+{-# DEPRECATED gorrsBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | Specifies caching behavior along the request/reply chain.
 --
 -- /Note:/ Consider using 'cacheControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsCacheControl :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsCacheControl = Lens.lens (cacheControl :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {cacheControl = a} :: GetObjectResponse)
-{-# DEPRECATED gorsCacheControl "Use generic-lens or generic-optics with 'cacheControl' instead." #-}
-
--- | The language the content is in.
---
--- /Note:/ Consider using 'contentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsContentLanguage :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsContentLanguage = Lens.lens (contentLanguage :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentLanguage = a} :: GetObjectResponse)
-{-# DEPRECATED gorsContentLanguage "Use generic-lens or generic-optics with 'contentLanguage' instead." #-}
-
--- | Last modified date of the object
---
--- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsLastModified :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.DateTime)
-gorsLastModified = Lens.lens (lastModified :: GetObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: GetObjectResponse)
-{-# DEPRECATED gorsLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
-
--- | Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.
---
--- /Note:/ Consider using 'objectLockLegalHoldStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsObjectLockLegalHoldStatus :: Lens.Lens' GetObjectResponse (Lude.Maybe ObjectLockLegalHoldStatus)
-gorsObjectLockLegalHoldStatus = Lens.lens (objectLockLegalHoldStatus :: GetObjectResponse -> Lude.Maybe ObjectLockLegalHoldStatus) (\s a -> s {objectLockLegalHoldStatus = a} :: GetObjectResponse)
-{-# DEPRECATED gorsObjectLockLegalHoldStatus "Use generic-lens or generic-optics with 'objectLockLegalHoldStatus' instead." #-}
+gorrsCacheControl :: Lens.Lens' GetObjectResponse (Core.Maybe Types.CacheControl)
+gorrsCacheControl = Lens.field @"cacheControl"
+{-# DEPRECATED gorrsCacheControl "Use generic-lens or generic-optics with 'cacheControl' instead." #-}
 
 -- | Specifies presentational information for the object.
 --
 -- /Note:/ Consider using 'contentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsContentDisposition :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsContentDisposition = Lens.lens (contentDisposition :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentDisposition = a} :: GetObjectResponse)
-{-# DEPRECATED gorsContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
+gorrsContentDisposition :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ContentDisposition)
+gorrsContentDisposition = Lens.field @"contentDisposition"
+{-# DEPRECATED gorrsContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
+
+-- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+--
+-- /Note:/ Consider using 'contentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsContentEncoding :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ContentEncoding)
+gorrsContentEncoding = Lens.field @"contentEncoding"
+{-# DEPRECATED gorrsContentEncoding "Use generic-lens or generic-optics with 'contentEncoding' instead." #-}
+
+-- | The language the content is in.
+--
+-- /Note:/ Consider using 'contentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsContentLanguage :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ContentLanguage)
+gorrsContentLanguage = Lens.field @"contentLanguage"
+{-# DEPRECATED gorrsContentLanguage "Use generic-lens or generic-optics with 'contentLanguage' instead." #-}
+
+-- | Size of the body in bytes.
+--
+-- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsContentLength :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Integer)
+gorrsContentLength = Lens.field @"contentLength"
+{-# DEPRECATED gorrsContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
 
 -- | The portion of the object returned in the response.
 --
 -- /Note:/ Consider using 'contentRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsContentRange :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsContentRange = Lens.lens (contentRange :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentRange = a} :: GetObjectResponse)
-{-# DEPRECATED gorsContentRange "Use generic-lens or generic-optics with 'contentRange' instead." #-}
-
--- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
---
--- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsServerSideEncryption :: Lens.Lens' GetObjectResponse (Lude.Maybe ServerSideEncryption)
-gorsServerSideEncryption = Lens.lens (serverSideEncryption :: GetObjectResponse -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: GetObjectResponse)
-{-# DEPRECATED gorsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+gorrsContentRange :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ContentRange)
+gorrsContentRange = Lens.field @"contentRange"
+{-# DEPRECATED gorrsContentRange "Use generic-lens or generic-optics with 'contentRange' instead." #-}
 
 -- | A standard MIME type describing the format of the object data.
 --
 -- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsContentType :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.Text)
-gorsContentType = Lens.lens (contentType :: GetObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: GetObjectResponse)
-{-# DEPRECATED gorsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+gorrsContentType :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ContentType)
+gorrsContentType = Lens.field @"contentType"
+{-# DEPRECATED gorrsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+
+-- | Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
+--
+-- /Note:/ Consider using 'deleteMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsDeleteMarker :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Bool)
+gorrsDeleteMarker = Lens.field @"deleteMarker"
+{-# DEPRECATED gorrsDeleteMarker "Use generic-lens or generic-optics with 'deleteMarker' instead." #-}
+
+-- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsETag :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ETag)
+gorrsETag = Lens.field @"eTag"
+{-# DEPRECATED gorrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+
+-- | If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
+--
+-- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsExpiration :: Lens.Lens' GetObjectResponse (Core.Maybe Types.Expiration)
+gorrsExpiration = Lens.field @"expiration"
+{-# DEPRECATED gorrsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
+
+-- | The date and time at which the object is no longer cacheable.
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsExpires :: Lens.Lens' GetObjectResponse (Core.Maybe Core.UTCTime)
+gorrsExpires = Lens.field @"expires"
+{-# DEPRECATED gorrsExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
+
+-- | Last modified date of the object
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsLastModified :: Lens.Lens' GetObjectResponse (Core.Maybe Core.UTCTime)
+gorrsLastModified = Lens.field @"lastModified"
+{-# DEPRECATED gorrsLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
+
+-- | A map of metadata to store with the object in S3.
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsMetadata :: Lens.Lens' GetObjectResponse (Core.HashMap Types.MetadataKey Types.MetadataValue)
+gorrsMetadata = Lens.field @"metadata"
+{-# DEPRECATED gorrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | This is set to the number of metadata entries not returned in @x-amz-meta@ headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
+--
+-- /Note:/ Consider using 'missingMeta' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsMissingMeta :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Int)
+gorrsMissingMeta = Lens.field @"missingMeta"
+{-# DEPRECATED gorrsMissingMeta "Use generic-lens or generic-optics with 'missingMeta' instead." #-}
+
+-- | Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.
+--
+-- /Note:/ Consider using 'objectLockLegalHoldStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsObjectLockLegalHoldStatus :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ObjectLockLegalHoldStatus)
+gorrsObjectLockLegalHoldStatus = Lens.field @"objectLockLegalHoldStatus"
+{-# DEPRECATED gorrsObjectLockLegalHoldStatus "Use generic-lens or generic-optics with 'objectLockLegalHoldStatus' instead." #-}
+
+-- | The Object Lock mode currently in place for this object.
+--
+-- /Note:/ Consider using 'objectLockMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsObjectLockMode :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ObjectLockMode)
+gorrsObjectLockMode = Lens.field @"objectLockMode"
+{-# DEPRECATED gorrsObjectLockMode "Use generic-lens or generic-optics with 'objectLockMode' instead." #-}
+
+-- | The date and time when this object's Object Lock will expire.
+--
+-- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsObjectLockRetainUntilDate :: Lens.Lens' GetObjectResponse (Core.Maybe Core.UTCTime)
+gorrsObjectLockRetainUntilDate = Lens.field @"objectLockRetainUntilDate"
+{-# DEPRECATED gorrsObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
+
+-- | The count of parts this object has.
+--
+-- /Note:/ Consider using 'partsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsPartsCount :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Int)
+gorrsPartsCount = Lens.field @"partsCount"
+{-# DEPRECATED gorrsPartsCount "Use generic-lens or generic-optics with 'partsCount' instead." #-}
+
+-- | Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.
+--
+-- /Note:/ Consider using 'replicationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsReplicationStatus :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ReplicationStatus)
+gorrsReplicationStatus = Lens.field @"replicationStatus"
+{-# DEPRECATED gorrsReplicationStatus "Use generic-lens or generic-optics with 'replicationStatus' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsRequestCharged :: Lens.Lens' GetObjectResponse (Core.Maybe Types.RequestCharged)
+gorrsRequestCharged = Lens.field @"requestCharged"
+{-# DEPRECATED gorrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
+
+-- | Provides information about object restoration operation and expiration time of the restored object copy.
+--
+-- /Note:/ Consider using 'restore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsRestore :: Lens.Lens' GetObjectResponse (Core.Maybe Types.Restore)
+gorrsRestore = Lens.field @"restore"
+{-# DEPRECATED gorrsRestore "Use generic-lens or generic-optics with 'restore' instead." #-}
+
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+--
+-- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsSSECustomerAlgorithm :: Lens.Lens' GetObjectResponse (Core.Maybe Types.SSECustomerAlgorithm)
+gorrsSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
+{-# DEPRECATED gorrsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
+
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
+--
+-- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsSSECustomerKeyMD5 :: Lens.Lens' GetObjectResponse (Core.Maybe Types.SSECustomerKeyMD5)
+gorrsSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
+{-# DEPRECATED gorrsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
+
+-- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+--
+-- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsSSEKMSKeyId :: Lens.Lens' GetObjectResponse (Core.Maybe Types.SSEKMSKeyId)
+gorrsSSEKMSKeyId = Lens.field @"sSEKMSKeyId"
+{-# DEPRECATED gorrsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
+
+-- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+--
+-- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsServerSideEncryption :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ServerSideEncryption)
+gorrsServerSideEncryption = Lens.field @"serverSideEncryption"
+{-# DEPRECATED gorrsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+
+-- | Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
+--
+-- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsStorageClass :: Lens.Lens' GetObjectResponse (Core.Maybe Types.StorageClass)
+gorrsStorageClass = Lens.field @"storageClass"
+{-# DEPRECATED gorrsStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
+
+-- | The number of tags, if any, on the object.
+--
+-- /Note:/ Consider using 'tagCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsTagCount :: Lens.Lens' GetObjectResponse (Core.Maybe Core.Int)
+gorrsTagCount = Lens.field @"tagCount"
+{-# DEPRECATED gorrsTagCount "Use generic-lens or generic-optics with 'tagCount' instead." #-}
+
+-- | Version of the object.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsVersionId :: Lens.Lens' GetObjectResponse (Core.Maybe Types.ObjectVersionId)
+gorrsVersionId = Lens.field @"versionId"
+{-# DEPRECATED gorrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+--
+-- /Note:/ Consider using 'websiteRedirectLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorrsWebsiteRedirectLocation :: Lens.Lens' GetObjectResponse (Core.Maybe Types.WebsiteRedirectLocation)
+gorrsWebsiteRedirectLocation = Lens.field @"websiteRedirectLocation"
+{-# DEPRECATED gorrsWebsiteRedirectLocation "Use generic-lens or generic-optics with 'websiteRedirectLocation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsResponseStatus :: Lens.Lens' GetObjectResponse Lude.Int
-gorsResponseStatus = Lens.lens (responseStatus :: GetObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetObjectResponse)
-{-# DEPRECATED gorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gorrsResponseStatus :: Lens.Lens' GetObjectResponse Core.Int
+gorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

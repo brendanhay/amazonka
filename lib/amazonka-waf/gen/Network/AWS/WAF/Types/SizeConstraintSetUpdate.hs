@@ -23,57 +23,51 @@ module Network.AWS.WAF.Types.SizeConstraintSetUpdate
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.ChangeAction
-import Network.AWS.WAF.Types.SizeConstraint
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.ChangeAction as Types
+import qualified Network.AWS.WAF.Types.SizeConstraint as Types
 
 -- | Specifies the part of a web request that you want to inspect the size of and indicates whether you want to add the specification to a 'SizeConstraintSet' or delete it from a @SizeConstraintSet@ .
 --
 -- /See:/ 'mkSizeConstraintSetUpdate' smart constructor.
 data SizeConstraintSetUpdate = SizeConstraintSetUpdate'
   { -- | Specify @INSERT@ to add a 'SizeConstraintSetUpdate' to a 'SizeConstraintSet' . Use @DELETE@ to remove a @SizeConstraintSetUpdate@ from a @SizeConstraintSet@ .
-    action :: ChangeAction,
+    action :: Types.ChangeAction,
     -- | Specifies a constraint on the size of a part of the web request. AWS WAF uses the @Size@ , @ComparisonOperator@ , and @FieldToMatch@ to build an expression in the form of "@Size@ @ComparisonOperator@ size in bytes of @FieldToMatch@ ". If that expression is true, the @SizeConstraint@ is considered to match.
-    sizeConstraint :: SizeConstraint
+    sizeConstraint :: Types.SizeConstraint
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SizeConstraintSetUpdate' with the minimum fields required to make a request.
---
--- * 'action' - Specify @INSERT@ to add a 'SizeConstraintSetUpdate' to a 'SizeConstraintSet' . Use @DELETE@ to remove a @SizeConstraintSetUpdate@ from a @SizeConstraintSet@ .
--- * 'sizeConstraint' - Specifies a constraint on the size of a part of the web request. AWS WAF uses the @Size@ , @ComparisonOperator@ , and @FieldToMatch@ to build an expression in the form of "@Size@ @ComparisonOperator@ size in bytes of @FieldToMatch@ ". If that expression is true, the @SizeConstraint@ is considered to match.
+-- | Creates a 'SizeConstraintSetUpdate' value with any optional fields omitted.
 mkSizeConstraintSetUpdate ::
   -- | 'action'
-  ChangeAction ->
+  Types.ChangeAction ->
   -- | 'sizeConstraint'
-  SizeConstraint ->
+  Types.SizeConstraint ->
   SizeConstraintSetUpdate
-mkSizeConstraintSetUpdate pAction_ pSizeConstraint_ =
-  SizeConstraintSetUpdate'
-    { action = pAction_,
-      sizeConstraint = pSizeConstraint_
-    }
+mkSizeConstraintSetUpdate action sizeConstraint =
+  SizeConstraintSetUpdate' {action, sizeConstraint}
 
 -- | Specify @INSERT@ to add a 'SizeConstraintSetUpdate' to a 'SizeConstraintSet' . Use @DELETE@ to remove a @SizeConstraintSetUpdate@ from a @SizeConstraintSet@ .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsuAction :: Lens.Lens' SizeConstraintSetUpdate ChangeAction
-scsuAction = Lens.lens (action :: SizeConstraintSetUpdate -> ChangeAction) (\s a -> s {action = a} :: SizeConstraintSetUpdate)
+scsuAction :: Lens.Lens' SizeConstraintSetUpdate Types.ChangeAction
+scsuAction = Lens.field @"action"
 {-# DEPRECATED scsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Specifies a constraint on the size of a part of the web request. AWS WAF uses the @Size@ , @ComparisonOperator@ , and @FieldToMatch@ to build an expression in the form of "@Size@ @ComparisonOperator@ size in bytes of @FieldToMatch@ ". If that expression is true, the @SizeConstraint@ is considered to match.
 --
 -- /Note:/ Consider using 'sizeConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsuSizeConstraint :: Lens.Lens' SizeConstraintSetUpdate SizeConstraint
-scsuSizeConstraint = Lens.lens (sizeConstraint :: SizeConstraintSetUpdate -> SizeConstraint) (\s a -> s {sizeConstraint = a} :: SizeConstraintSetUpdate)
+scsuSizeConstraint :: Lens.Lens' SizeConstraintSetUpdate Types.SizeConstraint
+scsuSizeConstraint = Lens.field @"sizeConstraint"
 {-# DEPRECATED scsuSizeConstraint "Use generic-lens or generic-optics with 'sizeConstraint' instead." #-}
 
-instance Lude.ToJSON SizeConstraintSetUpdate where
-  toJSON SizeConstraintSetUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Action" Lude..= action),
-            Lude.Just ("SizeConstraint" Lude..= sizeConstraint)
+instance Core.FromJSON SizeConstraintSetUpdate where
+  toJSON SizeConstraintSetUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("SizeConstraint" Core..= sizeConstraint)
           ]
       )

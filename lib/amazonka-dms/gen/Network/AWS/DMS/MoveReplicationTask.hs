@@ -20,146 +20,133 @@ module Network.AWS.DMS.MoveReplicationTask
     mkMoveReplicationTask,
 
     -- ** Request lenses
-    mTargetReplicationInstanceARN,
-    mReplicationTaskARN,
+    mrtReplicationTaskArn,
+    mrtTargetReplicationInstanceArn,
 
     -- * Destructuring the response
     MoveReplicationTaskResponse (..),
     mkMoveReplicationTaskResponse,
 
     -- ** Response lenses
-    mrtrsReplicationTask,
-    mrtrsResponseStatus,
+    mrtrrsReplicationTask,
+    mrtrrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkMoveReplicationTask' smart constructor.
 data MoveReplicationTask = MoveReplicationTask'
-  { -- | The ARN of the replication instance where you want to move the task to.
-    targetReplicationInstanceARN :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the task that you want to move.
-    replicationTaskARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the task that you want to move.
+    replicationTaskArn :: Types.String,
+    -- | The ARN of the replication instance where you want to move the task to.
+    targetReplicationInstanceArn :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MoveReplicationTask' with the minimum fields required to make a request.
---
--- * 'targetReplicationInstanceARN' - The ARN of the replication instance where you want to move the task to.
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the task that you want to move.
+-- | Creates a 'MoveReplicationTask' value with any optional fields omitted.
 mkMoveReplicationTask ::
-  -- | 'targetReplicationInstanceARN'
-  Lude.Text ->
-  -- | 'replicationTaskARN'
-  Lude.Text ->
+  -- | 'replicationTaskArn'
+  Types.String ->
+  -- | 'targetReplicationInstanceArn'
+  Types.String ->
   MoveReplicationTask
 mkMoveReplicationTask
-  pTargetReplicationInstanceARN_
-  pReplicationTaskARN_ =
+  replicationTaskArn
+  targetReplicationInstanceArn =
     MoveReplicationTask'
-      { targetReplicationInstanceARN =
-          pTargetReplicationInstanceARN_,
-        replicationTaskARN = pReplicationTaskARN_
+      { replicationTaskArn,
+        targetReplicationInstanceArn
       }
-
--- | The ARN of the replication instance where you want to move the task to.
---
--- /Note:/ Consider using 'targetReplicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mTargetReplicationInstanceARN :: Lens.Lens' MoveReplicationTask Lude.Text
-mTargetReplicationInstanceARN = Lens.lens (targetReplicationInstanceARN :: MoveReplicationTask -> Lude.Text) (\s a -> s {targetReplicationInstanceARN = a} :: MoveReplicationTask)
-{-# DEPRECATED mTargetReplicationInstanceARN "Use generic-lens or generic-optics with 'targetReplicationInstanceARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the task that you want to move.
 --
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mReplicationTaskARN :: Lens.Lens' MoveReplicationTask Lude.Text
-mReplicationTaskARN = Lens.lens (replicationTaskARN :: MoveReplicationTask -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: MoveReplicationTask)
-{-# DEPRECATED mReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
+-- /Note:/ Consider using 'replicationTaskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrtReplicationTaskArn :: Lens.Lens' MoveReplicationTask Types.String
+mrtReplicationTaskArn = Lens.field @"replicationTaskArn"
+{-# DEPRECATED mrtReplicationTaskArn "Use generic-lens or generic-optics with 'replicationTaskArn' instead." #-}
 
-instance Lude.AWSRequest MoveReplicationTask where
+-- | The ARN of the replication instance where you want to move the task to.
+--
+-- /Note:/ Consider using 'targetReplicationInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrtTargetReplicationInstanceArn :: Lens.Lens' MoveReplicationTask Types.String
+mrtTargetReplicationInstanceArn = Lens.field @"targetReplicationInstanceArn"
+{-# DEPRECATED mrtTargetReplicationInstanceArn "Use generic-lens or generic-optics with 'targetReplicationInstanceArn' instead." #-}
+
+instance Core.FromJSON MoveReplicationTask where
+  toJSON MoveReplicationTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ReplicationTaskArn" Core..= replicationTaskArn),
+            Core.Just
+              ( "TargetReplicationInstanceArn"
+                  Core..= targetReplicationInstanceArn
+              )
+          ]
+      )
+
+instance Core.AWSRequest MoveReplicationTask where
   type Rs MoveReplicationTask = MoveReplicationTaskResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.MoveReplicationTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           MoveReplicationTaskResponse'
-            Lude.<$> (x Lude..?> "ReplicationTask")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ReplicationTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders MoveReplicationTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDMSv20160101.MoveReplicationTask" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON MoveReplicationTask where
-  toJSON MoveReplicationTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ( "TargetReplicationInstanceArn"
-                  Lude..= targetReplicationInstanceARN
-              ),
-            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN)
-          ]
-      )
-
-instance Lude.ToPath MoveReplicationTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery MoveReplicationTask where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkMoveReplicationTaskResponse' smart constructor.
 data MoveReplicationTaskResponse = MoveReplicationTaskResponse'
   { -- | The replication task that was moved.
-    replicationTask :: Lude.Maybe ReplicationTask,
+    replicationTask :: Core.Maybe Types.ReplicationTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MoveReplicationTaskResponse' with the minimum fields required to make a request.
---
--- * 'replicationTask' - The replication task that was moved.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'MoveReplicationTaskResponse' value with any optional fields omitted.
 mkMoveReplicationTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   MoveReplicationTaskResponse
-mkMoveReplicationTaskResponse pResponseStatus_ =
+mkMoveReplicationTaskResponse responseStatus =
   MoveReplicationTaskResponse'
-    { replicationTask = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { replicationTask = Core.Nothing,
+      responseStatus
     }
 
 -- | The replication task that was moved.
 --
 -- /Note:/ Consider using 'replicationTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrtrsReplicationTask :: Lens.Lens' MoveReplicationTaskResponse (Lude.Maybe ReplicationTask)
-mrtrsReplicationTask = Lens.lens (replicationTask :: MoveReplicationTaskResponse -> Lude.Maybe ReplicationTask) (\s a -> s {replicationTask = a} :: MoveReplicationTaskResponse)
-{-# DEPRECATED mrtrsReplicationTask "Use generic-lens or generic-optics with 'replicationTask' instead." #-}
+mrtrrsReplicationTask :: Lens.Lens' MoveReplicationTaskResponse (Core.Maybe Types.ReplicationTask)
+mrtrrsReplicationTask = Lens.field @"replicationTask"
+{-# DEPRECATED mrtrrsReplicationTask "Use generic-lens or generic-optics with 'replicationTask' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrtrsResponseStatus :: Lens.Lens' MoveReplicationTaskResponse Lude.Int
-mrtrsResponseStatus = Lens.lens (responseStatus :: MoveReplicationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: MoveReplicationTaskResponse)
-{-# DEPRECATED mrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mrtrrsResponseStatus :: Lens.Lens' MoveReplicationTaskResponse Core.Int
+mrtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

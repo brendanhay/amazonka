@@ -17,125 +17,118 @@ module Network.AWS.IoT.Types.ActiveViolation
     mkActiveViolation,
 
     -- * Lenses
-    avLastViolationValue,
-    avLastViolationTime,
-    avViolationStartTime,
-    avViolationId,
     avBehavior,
+    avLastViolationTime,
+    avLastViolationValue,
     avSecurityProfileName,
     avThingName,
+    avViolationId,
+    avViolationStartTime,
   )
 where
 
-import Network.AWS.IoT.Types.Behavior
-import Network.AWS.IoT.Types.MetricValue
+import qualified Network.AWS.IoT.Types.Behavior as Types
+import qualified Network.AWS.IoT.Types.DeviceDefenderThingName as Types
+import qualified Network.AWS.IoT.Types.MetricValue as Types
+import qualified Network.AWS.IoT.Types.SecurityProfileName as Types
+import qualified Network.AWS.IoT.Types.ViolationId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an active Device Defender security profile behavior violation.
 --
 -- /See:/ 'mkActiveViolation' smart constructor.
 data ActiveViolation = ActiveViolation'
-  { -- | The value of the metric (the measurement) which caused the most recent violation.
-    lastViolationValue :: Lude.Maybe MetricValue,
+  { -- | The behavior which is being violated.
+    behavior :: Core.Maybe Types.Behavior,
     -- | The time the most recent violation occurred.
-    lastViolationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The time the violation started.
-    violationStartTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the active violation.
-    violationId :: Lude.Maybe Lude.Text,
-    -- | The behavior which is being violated.
-    behavior :: Lude.Maybe Behavior,
+    lastViolationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The value of the metric (the measurement) which caused the most recent violation.
+    lastViolationValue :: Core.Maybe Types.MetricValue,
     -- | The security profile whose behavior is in violation.
-    securityProfileName :: Lude.Maybe Lude.Text,
+    securityProfileName :: Core.Maybe Types.SecurityProfileName,
     -- | The name of the thing responsible for the active violation.
-    thingName :: Lude.Maybe Lude.Text
+    thingName :: Core.Maybe Types.DeviceDefenderThingName,
+    -- | The ID of the active violation.
+    violationId :: Core.Maybe Types.ViolationId,
+    -- | The time the violation started.
+    violationStartTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ActiveViolation' with the minimum fields required to make a request.
---
--- * 'lastViolationValue' - The value of the metric (the measurement) which caused the most recent violation.
--- * 'lastViolationTime' - The time the most recent violation occurred.
--- * 'violationStartTime' - The time the violation started.
--- * 'violationId' - The ID of the active violation.
--- * 'behavior' - The behavior which is being violated.
--- * 'securityProfileName' - The security profile whose behavior is in violation.
--- * 'thingName' - The name of the thing responsible for the active violation.
+-- | Creates a 'ActiveViolation' value with any optional fields omitted.
 mkActiveViolation ::
   ActiveViolation
 mkActiveViolation =
   ActiveViolation'
-    { lastViolationValue = Lude.Nothing,
-      lastViolationTime = Lude.Nothing,
-      violationStartTime = Lude.Nothing,
-      violationId = Lude.Nothing,
-      behavior = Lude.Nothing,
-      securityProfileName = Lude.Nothing,
-      thingName = Lude.Nothing
+    { behavior = Core.Nothing,
+      lastViolationTime = Core.Nothing,
+      lastViolationValue = Core.Nothing,
+      securityProfileName = Core.Nothing,
+      thingName = Core.Nothing,
+      violationId = Core.Nothing,
+      violationStartTime = Core.Nothing
     }
-
--- | The value of the metric (the measurement) which caused the most recent violation.
---
--- /Note:/ Consider using 'lastViolationValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avLastViolationValue :: Lens.Lens' ActiveViolation (Lude.Maybe MetricValue)
-avLastViolationValue = Lens.lens (lastViolationValue :: ActiveViolation -> Lude.Maybe MetricValue) (\s a -> s {lastViolationValue = a} :: ActiveViolation)
-{-# DEPRECATED avLastViolationValue "Use generic-lens or generic-optics with 'lastViolationValue' instead." #-}
-
--- | The time the most recent violation occurred.
---
--- /Note:/ Consider using 'lastViolationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avLastViolationTime :: Lens.Lens' ActiveViolation (Lude.Maybe Lude.Timestamp)
-avLastViolationTime = Lens.lens (lastViolationTime :: ActiveViolation -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastViolationTime = a} :: ActiveViolation)
-{-# DEPRECATED avLastViolationTime "Use generic-lens or generic-optics with 'lastViolationTime' instead." #-}
-
--- | The time the violation started.
---
--- /Note:/ Consider using 'violationStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avViolationStartTime :: Lens.Lens' ActiveViolation (Lude.Maybe Lude.Timestamp)
-avViolationStartTime = Lens.lens (violationStartTime :: ActiveViolation -> Lude.Maybe Lude.Timestamp) (\s a -> s {violationStartTime = a} :: ActiveViolation)
-{-# DEPRECATED avViolationStartTime "Use generic-lens or generic-optics with 'violationStartTime' instead." #-}
-
--- | The ID of the active violation.
---
--- /Note:/ Consider using 'violationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avViolationId :: Lens.Lens' ActiveViolation (Lude.Maybe Lude.Text)
-avViolationId = Lens.lens (violationId :: ActiveViolation -> Lude.Maybe Lude.Text) (\s a -> s {violationId = a} :: ActiveViolation)
-{-# DEPRECATED avViolationId "Use generic-lens or generic-optics with 'violationId' instead." #-}
 
 -- | The behavior which is being violated.
 --
 -- /Note:/ Consider using 'behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avBehavior :: Lens.Lens' ActiveViolation (Lude.Maybe Behavior)
-avBehavior = Lens.lens (behavior :: ActiveViolation -> Lude.Maybe Behavior) (\s a -> s {behavior = a} :: ActiveViolation)
+avBehavior :: Lens.Lens' ActiveViolation (Core.Maybe Types.Behavior)
+avBehavior = Lens.field @"behavior"
 {-# DEPRECATED avBehavior "Use generic-lens or generic-optics with 'behavior' instead." #-}
+
+-- | The time the most recent violation occurred.
+--
+-- /Note:/ Consider using 'lastViolationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avLastViolationTime :: Lens.Lens' ActiveViolation (Core.Maybe Core.NominalDiffTime)
+avLastViolationTime = Lens.field @"lastViolationTime"
+{-# DEPRECATED avLastViolationTime "Use generic-lens or generic-optics with 'lastViolationTime' instead." #-}
+
+-- | The value of the metric (the measurement) which caused the most recent violation.
+--
+-- /Note:/ Consider using 'lastViolationValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avLastViolationValue :: Lens.Lens' ActiveViolation (Core.Maybe Types.MetricValue)
+avLastViolationValue = Lens.field @"lastViolationValue"
+{-# DEPRECATED avLastViolationValue "Use generic-lens or generic-optics with 'lastViolationValue' instead." #-}
 
 -- | The security profile whose behavior is in violation.
 --
 -- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avSecurityProfileName :: Lens.Lens' ActiveViolation (Lude.Maybe Lude.Text)
-avSecurityProfileName = Lens.lens (securityProfileName :: ActiveViolation -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileName = a} :: ActiveViolation)
+avSecurityProfileName :: Lens.Lens' ActiveViolation (Core.Maybe Types.SecurityProfileName)
+avSecurityProfileName = Lens.field @"securityProfileName"
 {-# DEPRECATED avSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | The name of the thing responsible for the active violation.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avThingName :: Lens.Lens' ActiveViolation (Lude.Maybe Lude.Text)
-avThingName = Lens.lens (thingName :: ActiveViolation -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: ActiveViolation)
+avThingName :: Lens.Lens' ActiveViolation (Core.Maybe Types.DeviceDefenderThingName)
+avThingName = Lens.field @"thingName"
 {-# DEPRECATED avThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.FromJSON ActiveViolation where
+-- | The ID of the active violation.
+--
+-- /Note:/ Consider using 'violationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avViolationId :: Lens.Lens' ActiveViolation (Core.Maybe Types.ViolationId)
+avViolationId = Lens.field @"violationId"
+{-# DEPRECATED avViolationId "Use generic-lens or generic-optics with 'violationId' instead." #-}
+
+-- | The time the violation started.
+--
+-- /Note:/ Consider using 'violationStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avViolationStartTime :: Lens.Lens' ActiveViolation (Core.Maybe Core.NominalDiffTime)
+avViolationStartTime = Lens.field @"violationStartTime"
+{-# DEPRECATED avViolationStartTime "Use generic-lens or generic-optics with 'violationStartTime' instead." #-}
+
+instance Core.FromJSON ActiveViolation where
   parseJSON =
-    Lude.withObject
-      "ActiveViolation"
-      ( \x ->
-          ActiveViolation'
-            Lude.<$> (x Lude..:? "lastViolationValue")
-            Lude.<*> (x Lude..:? "lastViolationTime")
-            Lude.<*> (x Lude..:? "violationStartTime")
-            Lude.<*> (x Lude..:? "violationId")
-            Lude.<*> (x Lude..:? "behavior")
-            Lude.<*> (x Lude..:? "securityProfileName")
-            Lude.<*> (x Lude..:? "thingName")
-      )
+    Core.withObject "ActiveViolation" Core.$
+      \x ->
+        ActiveViolation'
+          Core.<$> (x Core..:? "behavior")
+          Core.<*> (x Core..:? "lastViolationTime")
+          Core.<*> (x Core..:? "lastViolationValue")
+          Core.<*> (x Core..:? "securityProfileName")
+          Core.<*> (x Core..:? "thingName")
+          Core.<*> (x Core..:? "violationId")
+          Core.<*> (x Core..:? "violationStartTime")

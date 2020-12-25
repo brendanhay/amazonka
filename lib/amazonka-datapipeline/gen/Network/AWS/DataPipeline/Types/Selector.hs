@@ -17,54 +17,52 @@ module Network.AWS.DataPipeline.Types.Selector
     mkSelector,
 
     -- * Lenses
-    sOperator,
     sFieldName,
+    sOperator,
   )
 where
 
-import Network.AWS.DataPipeline.Types.Operator
+import qualified Network.AWS.DataPipeline.Types.FieldName as Types
+import qualified Network.AWS.DataPipeline.Types.Operator as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A comparision that is used to determine whether a query should return this object.
 --
 -- /See:/ 'mkSelector' smart constructor.
 data Selector = Selector'
-  { operator :: Lude.Maybe Operator,
-    -- | The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
-    fieldName :: Lude.Maybe Lude.Text
+  { -- | The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
+    fieldName :: Core.Maybe Types.FieldName,
+    operator :: Core.Maybe Types.Operator
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Selector' with the minimum fields required to make a request.
---
--- * 'operator' -
--- * 'fieldName' - The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
+-- | Creates a 'Selector' value with any optional fields omitted.
 mkSelector ::
   Selector
 mkSelector =
-  Selector' {operator = Lude.Nothing, fieldName = Lude.Nothing}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sOperator :: Lens.Lens' Selector (Lude.Maybe Operator)
-sOperator = Lens.lens (operator :: Selector -> Lude.Maybe Operator) (\s a -> s {operator = a} :: Selector)
-{-# DEPRECATED sOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
+  Selector' {fieldName = Core.Nothing, operator = Core.Nothing}
 
 -- | The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
 --
 -- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sFieldName :: Lens.Lens' Selector (Lude.Maybe Lude.Text)
-sFieldName = Lens.lens (fieldName :: Selector -> Lude.Maybe Lude.Text) (\s a -> s {fieldName = a} :: Selector)
+sFieldName :: Lens.Lens' Selector (Core.Maybe Types.FieldName)
+sFieldName = Lens.field @"fieldName"
 {-# DEPRECATED sFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
 
-instance Lude.ToJSON Selector where
-  toJSON Selector' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("operator" Lude..=) Lude.<$> operator,
-            ("fieldName" Lude..=) Lude.<$> fieldName
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOperator :: Lens.Lens' Selector (Core.Maybe Types.Operator)
+sOperator = Lens.field @"operator"
+{-# DEPRECATED sOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
+
+instance Core.FromJSON Selector where
+  toJSON Selector {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("fieldName" Core..=) Core.<$> fieldName,
+            ("operator" Core..=) Core.<$> operator
           ]
       )

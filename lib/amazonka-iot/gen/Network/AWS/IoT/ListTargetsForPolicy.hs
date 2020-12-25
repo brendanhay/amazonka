@@ -31,149 +31,142 @@ module Network.AWS.IoT.ListTargetsForPolicy
     mkListTargetsForPolicyResponse,
 
     -- ** Response lenses
-    ltfprsTargets,
-    ltfprsNextMarker,
-    ltfprsResponseStatus,
+    ltfprrsNextMarker,
+    ltfprrsTargets,
+    ltfprrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTargetsForPolicy' smart constructor.
 data ListTargetsForPolicy = ListTargetsForPolicy'
   { -- | The policy name.
-    policyName :: Lude.Text,
+    policyName :: Types.PolicyName,
     -- | A marker used to get the next set of results.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The maximum number of results to return at one time.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTargetsForPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The policy name.
--- * 'marker' - A marker used to get the next set of results.
--- * 'pageSize' - The maximum number of results to return at one time.
+-- | Creates a 'ListTargetsForPolicy' value with any optional fields omitted.
 mkListTargetsForPolicy ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   ListTargetsForPolicy
-mkListTargetsForPolicy pPolicyName_ =
+mkListTargetsForPolicy policyName =
   ListTargetsForPolicy'
-    { policyName = pPolicyName_,
-      marker = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { policyName,
+      marker = Core.Nothing,
+      pageSize = Core.Nothing
     }
 
 -- | The policy name.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfpPolicyName :: Lens.Lens' ListTargetsForPolicy Lude.Text
-ltfpPolicyName = Lens.lens (policyName :: ListTargetsForPolicy -> Lude.Text) (\s a -> s {policyName = a} :: ListTargetsForPolicy)
+ltfpPolicyName :: Lens.Lens' ListTargetsForPolicy Types.PolicyName
+ltfpPolicyName = Lens.field @"policyName"
 {-# DEPRECATED ltfpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | A marker used to get the next set of results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfpMarker :: Lens.Lens' ListTargetsForPolicy (Lude.Maybe Lude.Text)
-ltfpMarker = Lens.lens (marker :: ListTargetsForPolicy -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListTargetsForPolicy)
+ltfpMarker :: Lens.Lens' ListTargetsForPolicy (Core.Maybe Types.Marker)
+ltfpMarker = Lens.field @"marker"
 {-# DEPRECATED ltfpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfpPageSize :: Lens.Lens' ListTargetsForPolicy (Lude.Maybe Lude.Natural)
-ltfpPageSize = Lens.lens (pageSize :: ListTargetsForPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListTargetsForPolicy)
+ltfpPageSize :: Lens.Lens' ListTargetsForPolicy (Core.Maybe Core.Natural)
+ltfpPageSize = Lens.field @"pageSize"
 {-# DEPRECATED ltfpPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager ListTargetsForPolicy where
-  page rq rs
-    | Page.stop (rs Lens.^. ltfprsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltfprsTargets) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltfpMarker Lens..~ rs Lens.^. ltfprsNextMarker
+instance Core.FromJSON ListTargetsForPolicy where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.AWSRequest ListTargetsForPolicy where
+instance Core.AWSRequest ListTargetsForPolicy where
   type Rs ListTargetsForPolicy = ListTargetsForPolicyResponse
-  request = Req.postJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath ("/policy-targets/" Core.<> (Core.toText policyName)),
+        Core._rqQuery =
+          Core.toQueryValue "marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "pageSize" Core.<$> pageSize),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTargetsForPolicyResponse'
-            Lude.<$> (x Lude..?> "targets" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextMarker")
+            Core.<*> (x Core..:? "targets")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListTargetsForPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON ListTargetsForPolicy where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath ListTargetsForPolicy where
-  toPath ListTargetsForPolicy' {..} =
-    Lude.mconcat ["/policy-targets/", Lude.toBS policyName]
-
-instance Lude.ToQuery ListTargetsForPolicy where
-  toQuery ListTargetsForPolicy' {..} =
-    Lude.mconcat
-      ["marker" Lude.=: marker, "pageSize" Lude.=: pageSize]
+instance Pager.AWSPager ListTargetsForPolicy where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"targets" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListTargetsForPolicyResponse' smart constructor.
 data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
-  { -- | The policy targets.
-    targets :: Lude.Maybe [Lude.Text],
-    -- | A marker used to get the next set of results.
-    nextMarker :: Lude.Maybe Lude.Text,
+  { -- | A marker used to get the next set of results.
+    nextMarker :: Core.Maybe Types.Marker,
+    -- | The policy targets.
+    targets :: Core.Maybe [Types.PolicyTarget],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTargetsForPolicyResponse' with the minimum fields required to make a request.
---
--- * 'targets' - The policy targets.
--- * 'nextMarker' - A marker used to get the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTargetsForPolicyResponse' value with any optional fields omitted.
 mkListTargetsForPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTargetsForPolicyResponse
-mkListTargetsForPolicyResponse pResponseStatus_ =
+mkListTargetsForPolicyResponse responseStatus =
   ListTargetsForPolicyResponse'
-    { targets = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextMarker = Core.Nothing,
+      targets = Core.Nothing,
+      responseStatus
     }
-
--- | The policy targets.
---
--- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfprsTargets :: Lens.Lens' ListTargetsForPolicyResponse (Lude.Maybe [Lude.Text])
-ltfprsTargets = Lens.lens (targets :: ListTargetsForPolicyResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {targets = a} :: ListTargetsForPolicyResponse)
-{-# DEPRECATED ltfprsTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | A marker used to get the next set of results.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfprsNextMarker :: Lens.Lens' ListTargetsForPolicyResponse (Lude.Maybe Lude.Text)
-ltfprsNextMarker = Lens.lens (nextMarker :: ListTargetsForPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListTargetsForPolicyResponse)
-{-# DEPRECATED ltfprsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+ltfprrsNextMarker :: Lens.Lens' ListTargetsForPolicyResponse (Core.Maybe Types.Marker)
+ltfprrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED ltfprrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+-- | The policy targets.
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfprrsTargets :: Lens.Lens' ListTargetsForPolicyResponse (Core.Maybe [Types.PolicyTarget])
+ltfprrsTargets = Lens.field @"targets"
+{-# DEPRECATED ltfprrsTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfprsResponseStatus :: Lens.Lens' ListTargetsForPolicyResponse Lude.Int
-ltfprsResponseStatus = Lens.lens (responseStatus :: ListTargetsForPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTargetsForPolicyResponse)
-{-# DEPRECATED ltfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltfprrsResponseStatus :: Lens.Lens' ListTargetsForPolicyResponse Core.Int
+ltfprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltfprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

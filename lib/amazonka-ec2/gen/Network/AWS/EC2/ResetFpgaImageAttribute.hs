@@ -20,8 +20,8 @@ module Network.AWS.EC2.ResetFpgaImageAttribute
     mkResetFpgaImageAttribute,
 
     -- ** Request lenses
-    rfiaAttribute,
     rfiaFpgaImageId,
+    rfiaAttribute,
     rfiaDryRun,
 
     -- * Destructuring the response
@@ -29,126 +29,122 @@ module Network.AWS.EC2.ResetFpgaImageAttribute
     mkResetFpgaImageAttributeResponse,
 
     -- ** Response lenses
-    rfiarsReturn,
-    rfiarsResponseStatus,
+    rfiarrsReturn,
+    rfiarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkResetFpgaImageAttribute' smart constructor.
 data ResetFpgaImageAttribute = ResetFpgaImageAttribute'
-  { -- | The attribute.
-    attribute :: Lude.Maybe ResetFpgaImageAttributeName,
-    -- | The ID of the AFI.
-    fpgaImageId :: Lude.Text,
+  { -- | The ID of the AFI.
+    fpgaImageId :: Types.FpgaImageId,
+    -- | The attribute.
+    attribute :: Core.Maybe Types.ResetFpgaImageAttributeName,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetFpgaImageAttribute' with the minimum fields required to make a request.
---
--- * 'attribute' - The attribute.
--- * 'fpgaImageId' - The ID of the AFI.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ResetFpgaImageAttribute' value with any optional fields omitted.
 mkResetFpgaImageAttribute ::
   -- | 'fpgaImageId'
-  Lude.Text ->
+  Types.FpgaImageId ->
   ResetFpgaImageAttribute
-mkResetFpgaImageAttribute pFpgaImageId_ =
+mkResetFpgaImageAttribute fpgaImageId =
   ResetFpgaImageAttribute'
-    { attribute = Lude.Nothing,
-      fpgaImageId = pFpgaImageId_,
-      dryRun = Lude.Nothing
+    { fpgaImageId,
+      attribute = Core.Nothing,
+      dryRun = Core.Nothing
     }
-
--- | The attribute.
---
--- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfiaAttribute :: Lens.Lens' ResetFpgaImageAttribute (Lude.Maybe ResetFpgaImageAttributeName)
-rfiaAttribute = Lens.lens (attribute :: ResetFpgaImageAttribute -> Lude.Maybe ResetFpgaImageAttributeName) (\s a -> s {attribute = a} :: ResetFpgaImageAttribute)
-{-# DEPRECATED rfiaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The ID of the AFI.
 --
 -- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfiaFpgaImageId :: Lens.Lens' ResetFpgaImageAttribute Lude.Text
-rfiaFpgaImageId = Lens.lens (fpgaImageId :: ResetFpgaImageAttribute -> Lude.Text) (\s a -> s {fpgaImageId = a} :: ResetFpgaImageAttribute)
+rfiaFpgaImageId :: Lens.Lens' ResetFpgaImageAttribute Types.FpgaImageId
+rfiaFpgaImageId = Lens.field @"fpgaImageId"
 {-# DEPRECATED rfiaFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
+
+-- | The attribute.
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfiaAttribute :: Lens.Lens' ResetFpgaImageAttribute (Core.Maybe Types.ResetFpgaImageAttributeName)
+rfiaAttribute = Lens.field @"attribute"
+{-# DEPRECATED rfiaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfiaDryRun :: Lens.Lens' ResetFpgaImageAttribute (Lude.Maybe Lude.Bool)
-rfiaDryRun = Lens.lens (dryRun :: ResetFpgaImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetFpgaImageAttribute)
+rfiaDryRun :: Lens.Lens' ResetFpgaImageAttribute (Core.Maybe Core.Bool)
+rfiaDryRun = Lens.field @"dryRun"
 {-# DEPRECATED rfiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ResetFpgaImageAttribute where
+instance Core.AWSRequest ResetFpgaImageAttribute where
   type Rs ResetFpgaImageAttribute = ResetFpgaImageAttributeResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ResetFpgaImageAttribute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "FpgaImageId" fpgaImageId)
+                Core.<> (Core.toQueryValue "Attribute" Core.<$> attribute)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ResetFpgaImageAttributeResponse'
-            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResetFpgaImageAttribute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ResetFpgaImageAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResetFpgaImageAttribute where
-  toQuery ResetFpgaImageAttribute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ResetFpgaImageAttribute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Attribute" Lude.=: attribute,
-        "FpgaImageId" Lude.=: fpgaImageId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkResetFpgaImageAttributeResponse' smart constructor.
 data ResetFpgaImageAttributeResponse = ResetFpgaImageAttributeResponse'
   { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return :: Lude.Maybe Lude.Bool,
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetFpgaImageAttributeResponse' with the minimum fields required to make a request.
---
--- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResetFpgaImageAttributeResponse' value with any optional fields omitted.
 mkResetFpgaImageAttributeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResetFpgaImageAttributeResponse
-mkResetFpgaImageAttributeResponse pResponseStatus_ =
+mkResetFpgaImageAttributeResponse responseStatus =
   ResetFpgaImageAttributeResponse'
-    { return = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { return = Core.Nothing,
+      responseStatus
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfiarsReturn :: Lens.Lens' ResetFpgaImageAttributeResponse (Lude.Maybe Lude.Bool)
-rfiarsReturn = Lens.lens (return :: ResetFpgaImageAttributeResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: ResetFpgaImageAttributeResponse)
-{-# DEPRECATED rfiarsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+rfiarrsReturn :: Lens.Lens' ResetFpgaImageAttributeResponse (Core.Maybe Core.Bool)
+rfiarrsReturn = Lens.field @"return"
+{-# DEPRECATED rfiarrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfiarsResponseStatus :: Lens.Lens' ResetFpgaImageAttributeResponse Lude.Int
-rfiarsResponseStatus = Lens.lens (responseStatus :: ResetFpgaImageAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetFpgaImageAttributeResponse)
-{-# DEPRECATED rfiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rfiarrsResponseStatus :: Lens.Lens' ResetFpgaImageAttributeResponse Core.Int
+rfiarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rfiarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

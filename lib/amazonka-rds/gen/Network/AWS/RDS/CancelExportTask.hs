@@ -23,77 +23,78 @@ module Network.AWS.RDS.CancelExportTask
     cetExportTaskIdentifier,
 
     -- * Destructuring the response
-    ExportTask (..),
-    mkExportTask,
+    Types.ExportTask (..),
+    Types.mkExportTask,
 
     -- ** Response lenses
-    etTotalExtractedDataInGB,
-    etStatus,
-    etIAMRoleARN,
-    etSourceARN,
-    etExportOnly,
-    etTaskStartTime,
-    etWarningMessage,
-    etSnapshotTime,
-    etKMSKeyId,
-    etTaskEndTime,
-    etExportTaskIdentifier,
-    etS3Prefix,
-    etPercentProgress,
-    etS3Bucket,
-    etFailureCause,
+    Types.etExportOnly,
+    Types.etExportTaskIdentifier,
+    Types.etFailureCause,
+    Types.etIamRoleArn,
+    Types.etKmsKeyId,
+    Types.etPercentProgress,
+    Types.etS3Bucket,
+    Types.etS3Prefix,
+    Types.etSnapshotTime,
+    Types.etSourceArn,
+    Types.etStatus,
+    Types.etTaskEndTime,
+    Types.etTaskStartTime,
+    Types.etTotalExtractedDataInGB,
+    Types.etWarningMessage,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelExportTask' smart constructor.
 newtype CancelExportTask = CancelExportTask'
   { -- | The identifier of the snapshot export task to cancel.
-    exportTaskIdentifier :: Lude.Text
+    exportTaskIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelExportTask' with the minimum fields required to make a request.
---
--- * 'exportTaskIdentifier' - The identifier of the snapshot export task to cancel.
+-- | Creates a 'CancelExportTask' value with any optional fields omitted.
 mkCancelExportTask ::
   -- | 'exportTaskIdentifier'
-  Lude.Text ->
+  Types.String ->
   CancelExportTask
-mkCancelExportTask pExportTaskIdentifier_ =
-  CancelExportTask' {exportTaskIdentifier = pExportTaskIdentifier_}
+mkCancelExportTask exportTaskIdentifier =
+  CancelExportTask' {exportTaskIdentifier}
 
 -- | The identifier of the snapshot export task to cancel.
 --
 -- /Note:/ Consider using 'exportTaskIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cetExportTaskIdentifier :: Lens.Lens' CancelExportTask Lude.Text
-cetExportTaskIdentifier = Lens.lens (exportTaskIdentifier :: CancelExportTask -> Lude.Text) (\s a -> s {exportTaskIdentifier = a} :: CancelExportTask)
+cetExportTaskIdentifier :: Lens.Lens' CancelExportTask Types.String
+cetExportTaskIdentifier = Lens.field @"exportTaskIdentifier"
 {-# DEPRECATED cetExportTaskIdentifier "Use generic-lens or generic-optics with 'exportTaskIdentifier' instead." #-}
 
-instance Lude.AWSRequest CancelExportTask where
-  type Rs CancelExportTask = ExportTask
-  request = Req.postQuery rdsService
+instance Core.AWSRequest CancelExportTask where
+  type Rs CancelExportTask = Types.ExportTask
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CancelExportTask")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "ExportTaskIdentifier" exportTaskIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CancelExportTaskResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders CancelExportTask where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelExportTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelExportTask where
-  toQuery CancelExportTask' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CancelExportTask" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "ExportTaskIdentifier" Lude.=: exportTaskIdentifier
-      ]
+      (\s h x -> Core.parseXML x)

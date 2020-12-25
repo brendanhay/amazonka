@@ -18,72 +18,68 @@ module Network.AWS.AlexaBusiness.Types.Content
 
     -- * Lenses
     cAudioList,
-    cTextList,
     cSsmlList,
+    cTextList,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.Audio
-import Network.AWS.AlexaBusiness.Types.Ssml
-import Network.AWS.AlexaBusiness.Types.TextMessage
+import qualified Network.AWS.AlexaBusiness.Types.Audio as Types
+import qualified Network.AWS.AlexaBusiness.Types.Ssml as Types
+import qualified Network.AWS.AlexaBusiness.Types.TextMessage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The content definition. This can contain only one text, SSML, or audio list object.
 --
 -- /See:/ 'mkContent' smart constructor.
 data Content = Content'
   { -- | The list of audio messages.
-    audioList :: Lude.Maybe [Audio],
-    -- | The list of text messages.
-    textList :: Lude.Maybe [TextMessage],
+    audioList :: Core.Maybe [Types.Audio],
     -- | The list of SSML messages.
-    ssmlList :: Lude.Maybe [Ssml]
+    ssmlList :: Core.Maybe [Types.Ssml],
+    -- | The list of text messages.
+    textList :: Core.Maybe [Types.TextMessage]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Content' with the minimum fields required to make a request.
---
--- * 'audioList' - The list of audio messages.
--- * 'textList' - The list of text messages.
--- * 'ssmlList' - The list of SSML messages.
+-- | Creates a 'Content' value with any optional fields omitted.
 mkContent ::
   Content
 mkContent =
   Content'
-    { audioList = Lude.Nothing,
-      textList = Lude.Nothing,
-      ssmlList = Lude.Nothing
+    { audioList = Core.Nothing,
+      ssmlList = Core.Nothing,
+      textList = Core.Nothing
     }
 
 -- | The list of audio messages.
 --
 -- /Note:/ Consider using 'audioList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cAudioList :: Lens.Lens' Content (Lude.Maybe [Audio])
-cAudioList = Lens.lens (audioList :: Content -> Lude.Maybe [Audio]) (\s a -> s {audioList = a} :: Content)
+cAudioList :: Lens.Lens' Content (Core.Maybe [Types.Audio])
+cAudioList = Lens.field @"audioList"
 {-# DEPRECATED cAudioList "Use generic-lens or generic-optics with 'audioList' instead." #-}
-
--- | The list of text messages.
---
--- /Note:/ Consider using 'textList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTextList :: Lens.Lens' Content (Lude.Maybe [TextMessage])
-cTextList = Lens.lens (textList :: Content -> Lude.Maybe [TextMessage]) (\s a -> s {textList = a} :: Content)
-{-# DEPRECATED cTextList "Use generic-lens or generic-optics with 'textList' instead." #-}
 
 -- | The list of SSML messages.
 --
 -- /Note:/ Consider using 'ssmlList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSsmlList :: Lens.Lens' Content (Lude.Maybe [Ssml])
-cSsmlList = Lens.lens (ssmlList :: Content -> Lude.Maybe [Ssml]) (\s a -> s {ssmlList = a} :: Content)
+cSsmlList :: Lens.Lens' Content (Core.Maybe [Types.Ssml])
+cSsmlList = Lens.field @"ssmlList"
 {-# DEPRECATED cSsmlList "Use generic-lens or generic-optics with 'ssmlList' instead." #-}
 
-instance Lude.ToJSON Content where
-  toJSON Content' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AudioList" Lude..=) Lude.<$> audioList,
-            ("TextList" Lude..=) Lude.<$> textList,
-            ("SsmlList" Lude..=) Lude.<$> ssmlList
+-- | The list of text messages.
+--
+-- /Note:/ Consider using 'textList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTextList :: Lens.Lens' Content (Core.Maybe [Types.TextMessage])
+cTextList = Lens.field @"textList"
+{-# DEPRECATED cTextList "Use generic-lens or generic-optics with 'textList' instead." #-}
+
+instance Core.FromJSON Content where
+  toJSON Content {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AudioList" Core..=) Core.<$> audioList,
+            ("SsmlList" Core..=) Core.<$> ssmlList,
+            ("TextList" Core..=) Core.<$> textList
           ]
       )

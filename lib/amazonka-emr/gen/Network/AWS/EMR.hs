@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,19 @@
 -- Amazon EMR is a web service that makes it easier to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS services to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehouse management.
 module Network.AWS.EMR
   ( -- * Service configuration
-    emrService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- * Waiters
     -- $waiters
@@ -171,215 +179,107 @@ module Network.AWS.EMR
 
     -- * Types
 
-    -- ** ActionOnFailure
-    ActionOnFailure (..),
-
-    -- ** AdjustmentType
-    AdjustmentType (..),
-
-    -- ** AuthMode
-    AuthMode (..),
-
-    -- ** AutoScalingPolicyState
-    AutoScalingPolicyState (..),
-
-    -- ** AutoScalingPolicyStateChangeReasonCode
-    AutoScalingPolicyStateChangeReasonCode (..),
-
-    -- ** CancelStepsRequestStatus
-    CancelStepsRequestStatus (..),
-
-    -- ** ClusterState
-    ClusterState (..),
-
-    -- ** ClusterStateChangeReasonCode
-    ClusterStateChangeReasonCode (..),
-
-    -- ** ComparisonOperator
-    ComparisonOperator (..),
-
-    -- ** ComputeLimitsUnitType
-    ComputeLimitsUnitType (..),
-
-    -- ** ExecutionEngineType
-    ExecutionEngineType (..),
-
-    -- ** IdentityType
-    IdentityType (..),
-
-    -- ** InstanceCollectionType
-    InstanceCollectionType (..),
-
-    -- ** InstanceFleetState
-    InstanceFleetState (..),
-
-    -- ** InstanceFleetStateChangeReasonCode
-    InstanceFleetStateChangeReasonCode (..),
-
-    -- ** InstanceFleetType
-    InstanceFleetType (..),
-
-    -- ** InstanceGroupState
-    InstanceGroupState (..),
-
-    -- ** InstanceGroupStateChangeReasonCode
-    InstanceGroupStateChangeReasonCode (..),
-
-    -- ** InstanceGroupType
-    InstanceGroupType (..),
-
-    -- ** InstanceRoleType
-    InstanceRoleType (..),
-
-    -- ** InstanceState
-    InstanceState (..),
-
-    -- ** InstanceStateChangeReasonCode
-    InstanceStateChangeReasonCode (..),
-
-    -- ** MarketType
-    MarketType (..),
-
-    -- ** NotebookExecutionStatus
-    NotebookExecutionStatus (..),
-
-    -- ** OnDemandProvisioningAllocationStrategy
-    OnDemandProvisioningAllocationStrategy (..),
-
-    -- ** PlacementGroupStrategy
-    PlacementGroupStrategy (..),
-
-    -- ** RepoUpgradeOnBoot
-    RepoUpgradeOnBoot (..),
-
-    -- ** ScaleDownBehavior
-    ScaleDownBehavior (..),
-
-    -- ** SpotProvisioningAllocationStrategy
-    SpotProvisioningAllocationStrategy (..),
-
-    -- ** SpotProvisioningTimeoutAction
-    SpotProvisioningTimeoutAction (..),
-
-    -- ** Statistic
-    Statistic (..),
-
-    -- ** StepCancellationOption
-    StepCancellationOption (..),
-
-    -- ** StepState
-    StepState (..),
-
-    -- ** StepStateChangeReasonCode
-    StepStateChangeReasonCode (..),
-
-    -- ** Unit
-    Unit (..),
-
-    -- ** Application
-    Application (..),
-    mkApplication,
-    aArgs,
-    aAdditionalInfo,
-    aName,
-    aVersion,
-
-    -- ** AutoScalingPolicy
-    AutoScalingPolicy (..),
-    mkAutoScalingPolicy,
-    aspRules,
-    aspConstraints,
-
-    -- ** AutoScalingPolicyDescription
-    AutoScalingPolicyDescription (..),
-    mkAutoScalingPolicyDescription,
-    aspdStatus,
-    aspdRules,
-    aspdConstraints,
-
-    -- ** AutoScalingPolicyStateChangeReason
-    AutoScalingPolicyStateChangeReason (..),
-    mkAutoScalingPolicyStateChangeReason,
-    aspscrCode,
-    aspscrMessage,
-
-    -- ** AutoScalingPolicyStatus
-    AutoScalingPolicyStatus (..),
-    mkAutoScalingPolicyStatus,
-    aspsState,
-    aspsStateChangeReason,
-
     -- ** BlockPublicAccessConfiguration
     BlockPublicAccessConfiguration (..),
     mkBlockPublicAccessConfiguration,
     bpacBlockPublicSecurityGroupRules,
     bpacPermittedPublicSecurityGroupRuleRanges,
 
-    -- ** BlockPublicAccessConfigurationMetadata
-    BlockPublicAccessConfigurationMetadata (..),
-    mkBlockPublicAccessConfigurationMetadata,
-    bpacmCreatedByARN,
-    bpacmCreationDateTime,
+    -- ** XmlString
+    XmlString (..),
 
-    -- ** BootstrapActionConfig
-    BootstrapActionConfig (..),
-    mkBootstrapActionConfig,
-    bacName,
-    bacScriptBootstrapAction,
+    -- ** MarketType
+    MarketType (..),
 
-    -- ** CancelStepsInfo
-    CancelStepsInfo (..),
-    mkCancelStepsInfo,
-    csiStatus,
-    csiStepId,
-    csiReason,
+    -- ** InstanceGroupConfig
+    InstanceGroupConfig (..),
+    mkInstanceGroupConfig,
+    igcInstanceRole,
+    igcInstanceType,
+    igcInstanceCount,
+    igcAutoScalingPolicy,
+    igcBidPrice,
+    igcConfigurations,
+    igcEbsConfiguration,
+    igcMarket,
+    igcName,
 
-    -- ** CloudWatchAlarmDefinition
-    CloudWatchAlarmDefinition (..),
-    mkCloudWatchAlarmDefinition,
-    cwadPeriod,
-    cwadEvaluationPeriods,
-    cwadMetricName,
-    cwadNamespace,
-    cwadComparisonOperator,
-    cwadThreshold,
-    cwadDimensions,
-    cwadUnit,
-    cwadStatistic,
+    -- ** InstanceId
+    InstanceId (..),
 
-    -- ** Cluster
-    Cluster (..),
-    mkCluster,
-    cfStatus,
-    cfLogEncryptionKMSKeyId,
-    cfClusterARN,
-    cfRequestedAMIVersion,
-    cfEBSRootVolumeSize,
-    cfEC2InstanceAttributes,
-    cfOutpostARN,
-    cfNormalizedInstanceHours,
-    cfConfigurations,
-    cfCustomAMIId,
-    cfAutoScalingRole,
-    cfSecurityConfiguration,
-    cfScaleDownBehavior,
-    cfInstanceCollectionType,
-    cfReleaseLabel,
-    cfName,
-    cfRepoUpgradeOnBoot,
-    cfLogURI,
-    cfKerberosAttributes,
-    cfId,
-    cfPlacementGroups,
-    cfRunningAMIVersion,
-    cfMasterPublicDNSName,
-    cfTerminationProtected,
-    cfVisibleToAllUsers,
-    cfAutoTerminate,
-    cfStepConcurrencyLevel,
-    cfApplications,
-    cfTags,
-    cfServiceRole,
+    -- ** SpotProvisioningTimeoutAction
+    SpotProvisioningTimeoutAction (..),
+
+    -- ** EbsConfiguration
+    EbsConfiguration (..),
+    mkEbsConfiguration,
+    ecEbsBlockDeviceConfigs,
+    ecEbsOptimized,
+
+    -- ** InstanceStateChangeReason
+    InstanceStateChangeReason (..),
+    mkInstanceStateChangeReason,
+    iscrCode,
+    iscrMessage,
+
+    -- ** PlacementGroupConfig
+    PlacementGroupConfig (..),
+    mkPlacementGroupConfig,
+    pgcInstanceRole,
+    pgcPlacementStrategy,
+
+    -- ** KeyValue
+    KeyValue (..),
+    mkKeyValue,
+    kvKey,
+    kvValue,
+
+    -- ** InstanceTypeSpecification
+    InstanceTypeSpecification (..),
+    mkInstanceTypeSpecification,
+    itsBidPrice,
+    itsBidPriceAsPercentageOfOnDemandPrice,
+    itsConfigurations,
+    itsEbsBlockDevices,
+    itsEbsOptimized,
+    itsInstanceType,
+    itsWeightedCapacity,
+
+    -- ** NotebookExecutionStatus
+    NotebookExecutionStatus (..),
+
+    -- ** SupportedProductConfig
+    SupportedProductConfig (..),
+    mkSupportedProductConfig,
+    spcArgs,
+    spcName,
+
+    -- ** Command
+    Command (..),
+    mkCommand,
+    cArgs,
+    cName,
+    cScriptPath,
+
+    -- ** StepId
+    StepId (..),
+
+    -- ** ActionOnFailure
+    ActionOnFailure (..),
+
+    -- ** InstanceFleet
+    InstanceFleet (..),
+    mkInstanceFleet,
+    ifId,
+    ifInstanceFleetType,
+    ifInstanceTypeSpecifications,
+    ifLaunchSpecifications,
+    ifName,
+    ifProvisionedOnDemandCapacity,
+    ifProvisionedSpotCapacity,
+    ifStatus,
+    ifTargetOnDemandCapacity,
+    ifTargetSpotCapacity,
 
     -- ** ClusterStateChangeReason
     ClusterStateChangeReason (..),
@@ -387,243 +287,31 @@ module Network.AWS.EMR
     cscrCode,
     cscrMessage,
 
-    -- ** ClusterStatus
-    ClusterStatus (..),
-    mkClusterStatus,
-    csState,
-    csStateChangeReason,
-    csTimeline,
+    -- ** InstanceFleetStateChangeReasonCode
+    InstanceFleetStateChangeReasonCode (..),
 
-    -- ** ClusterSummary
-    ClusterSummary (..),
-    mkClusterSummary,
-    csStatus,
-    csClusterARN,
-    csOutpostARN,
-    csNormalizedInstanceHours,
-    csName,
-    csId,
+    -- ** ResourceId
+    ResourceId (..),
 
-    -- ** ClusterTimeline
-    ClusterTimeline (..),
-    mkClusterTimeline,
-    ctReadyDateTime,
-    ctCreationDateTime,
-    ctEndDateTime,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** Command
-    Command (..),
-    mkCommand,
-    cArgs,
-    cScriptPath,
-    cName,
+    -- ** Application
+    Application (..),
+    mkApplication,
+    aAdditionalInfo,
+    aArgs,
+    aName,
+    aVersion,
 
-    -- ** ComputeLimits
-    ComputeLimits (..),
-    mkComputeLimits,
-    clMaximumOnDemandCapacityUnits,
-    clMaximumCoreCapacityUnits,
-    clUnitType,
-    clMaximumCapacityUnits,
-    clMinimumCapacityUnits,
+    -- ** AutoScalingPolicyStateChangeReasonCode
+    AutoScalingPolicyStateChangeReasonCode (..),
 
-    -- ** Configuration
-    Configuration (..),
-    mkConfiguration,
-    cConfigurations,
-    cClassification,
-    cProperties,
-
-    -- ** EBSBlockDevice
-    EBSBlockDevice (..),
-    mkEBSBlockDevice,
-    ebdDevice,
-    ebdVolumeSpecification,
-
-    -- ** EBSBlockDeviceConfig
-    EBSBlockDeviceConfig (..),
-    mkEBSBlockDeviceConfig,
-    ebdcVolumesPerInstance,
-    ebdcVolumeSpecification,
-
-    -- ** EBSConfiguration
-    EBSConfiguration (..),
-    mkEBSConfiguration,
-    ecEBSOptimized,
-    ecEBSBlockDeviceConfigs,
-
-    -- ** EBSVolume
-    EBSVolume (..),
-    mkEBSVolume,
-    evDevice,
-    evVolumeId,
-
-    -- ** EC2InstanceAttributes
-    EC2InstanceAttributes (..),
-    mkEC2InstanceAttributes,
-    eiaEC2KeyName,
-    eiaEmrManagedSlaveSecurityGroup,
-    eiaAdditionalSlaveSecurityGroups,
-    eiaRequestedEC2SubnetIds,
-    eiaAdditionalMasterSecurityGroups,
-    eiaIAMInstanceProfile,
-    eiaEmrManagedMasterSecurityGroup,
-    eiaEC2SubnetId,
-    eiaRequestedEC2AvailabilityZones,
-    eiaServiceAccessSecurityGroup,
-    eiaEC2AvailabilityZone,
-
-    -- ** ExecutionEngineConfig
-    ExecutionEngineConfig (..),
-    mkExecutionEngineConfig,
-    eecMasterInstanceSecurityGroupId,
-    eecId,
-    eecType,
-
-    -- ** FailureDetails
-    FailureDetails (..),
-    mkFailureDetails,
-    fdLogFile,
-    fdReason,
-    fdMessage,
-
-    -- ** HadoopJARStepConfig
-    HadoopJARStepConfig (..),
-    mkHadoopJARStepConfig,
-    hjscArgs,
-    hjscJAR,
-    hjscMainClass,
-    hjscProperties,
-
-    -- ** HadoopStepConfig
-    HadoopStepConfig (..),
-    mkHadoopStepConfig,
-    hscArgs,
-    hscJAR,
-    hscMainClass,
-    hscProperties,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iStatus,
-    iPublicDNSName,
-    iEBSVolumes,
-    iEC2InstanceId,
-    iInstanceType,
-    iMarket,
-    iPrivateIPAddress,
-    iInstanceFleetId,
-    iId,
-    iInstanceGroupId,
-    iPrivateDNSName,
-    iPublicIPAddress,
-
-    -- ** InstanceFleet
-    InstanceFleet (..),
-    mkInstanceFleet,
-    ifProvisionedSpotCapacity,
-    ifStatus,
-    ifTargetOnDemandCapacity,
-    ifInstanceFleetType,
-    ifInstanceTypeSpecifications,
-    ifName,
-    ifProvisionedOnDemandCapacity,
-    ifTargetSpotCapacity,
-    ifId,
-    ifLaunchSpecifications,
-
-    -- ** InstanceFleetConfig
-    InstanceFleetConfig (..),
-    mkInstanceFleetConfig,
-    ifcInstanceTypeConfigs,
-    ifcTargetOnDemandCapacity,
-    ifcInstanceFleetType,
-    ifcName,
-    ifcTargetSpotCapacity,
-    ifcLaunchSpecifications,
-
-    -- ** InstanceFleetModifyConfig
-    InstanceFleetModifyConfig (..),
-    mkInstanceFleetModifyConfig,
-    ifmcTargetOnDemandCapacity,
-    ifmcInstanceFleetId,
-    ifmcTargetSpotCapacity,
-
-    -- ** InstanceFleetProvisioningSpecifications
-    InstanceFleetProvisioningSpecifications (..),
-    mkInstanceFleetProvisioningSpecifications,
-    ifpsSpotSpecification,
-    ifpsOnDemandSpecification,
-
-    -- ** InstanceFleetStateChangeReason
-    InstanceFleetStateChangeReason (..),
-    mkInstanceFleetStateChangeReason,
-    ifscrCode,
-    ifscrMessage,
-
-    -- ** InstanceFleetStatus
-    InstanceFleetStatus (..),
-    mkInstanceFleetStatus,
-    ifsState,
-    ifsStateChangeReason,
-    ifsTimeline,
-
-    -- ** InstanceFleetTimeline
-    InstanceFleetTimeline (..),
-    mkInstanceFleetTimeline,
-    iftReadyDateTime,
-    iftCreationDateTime,
-    iftEndDateTime,
-
-    -- ** InstanceGroup
-    InstanceGroup (..),
-    mkInstanceGroup,
-    igStatus,
-    igLastSuccessfullyAppliedConfigurationsVersion,
-    igBidPrice,
-    igRequestedInstanceCount,
-    igRunningInstanceCount,
-    igLastSuccessfullyAppliedConfigurations,
-    igConfigurations,
-    igInstanceGroupType,
-    igEBSBlockDevices,
-    igInstanceType,
-    igConfigurationsVersion,
-    igEBSOptimized,
-    igMarket,
-    igName,
-    igAutoScalingPolicy,
-    igShrinkPolicy,
-    igId,
-
-    -- ** InstanceGroupConfig
-    InstanceGroupConfig (..),
-    mkInstanceGroupConfig,
-    igcEBSConfiguration,
-    igcBidPrice,
-    igcInstanceCount,
-    igcInstanceRole,
-    igcConfigurations,
-    igcInstanceType,
-    igcMarket,
-    igcName,
-    igcAutoScalingPolicy,
-
-    -- ** InstanceGroupModifyConfig
-    InstanceGroupModifyConfig (..),
-    mkInstanceGroupModifyConfig,
-    igmcInstanceCount,
-    igmcConfigurations,
-    igmcEC2InstanceIdsToTerminate,
-    igmcShrinkPolicy,
-    igmcInstanceGroupId,
-
-    -- ** InstanceGroupStateChangeReason
-    InstanceGroupStateChangeReason (..),
-    mkInstanceGroupStateChangeReason,
-    igscrCode,
-    igscrMessage,
+    -- ** SpotProvisioningAllocationStrategy
+    SpotProvisioningAllocationStrategy (..),
 
     -- ** InstanceGroupStatus
     InstanceGroupStatus (..),
@@ -632,151 +320,215 @@ module Network.AWS.EMR
     igsStateChangeReason,
     igsTimeline,
 
-    -- ** InstanceGroupTimeline
-    InstanceGroupTimeline (..),
-    mkInstanceGroupTimeline,
-    igtReadyDateTime,
-    igtCreationDateTime,
-    igtEndDateTime,
+    -- ** Cluster
+    Cluster (..),
+    mkCluster,
+    cfApplications,
+    cfAutoScalingRole,
+    cfAutoTerminate,
+    cfClusterArn,
+    cfConfigurations,
+    cfCustomAmiId,
+    cfEbsRootVolumeSize,
+    cfEc2InstanceAttributes,
+    cfId,
+    cfInstanceCollectionType,
+    cfKerberosAttributes,
+    cfLogEncryptionKmsKeyId,
+    cfLogUri,
+    cfMasterPublicDnsName,
+    cfName,
+    cfNormalizedInstanceHours,
+    cfOutpostArn,
+    cfPlacementGroups,
+    cfReleaseLabel,
+    cfRepoUpgradeOnBoot,
+    cfRequestedAmiVersion,
+    cfRunningAmiVersion,
+    cfScaleDownBehavior,
+    cfSecurityConfiguration,
+    cfServiceRole,
+    cfStatus,
+    cfStepConcurrencyLevel,
+    cfTags,
+    cfTerminationProtected,
+    cfVisibleToAllUsers,
 
-    -- ** InstanceResizePolicy
-    InstanceResizePolicy (..),
-    mkInstanceResizePolicy,
-    irpInstancesToProtect,
-    irpInstancesToTerminate,
-    irpInstanceTerminationTimeout,
-
-    -- ** InstanceStateChangeReason
-    InstanceStateChangeReason (..),
-    mkInstanceStateChangeReason,
-    iscrCode,
-    iscrMessage,
-
-    -- ** InstanceStatus
-    InstanceStatus (..),
-    mkInstanceStatus,
-    isState,
-    isStateChangeReason,
-    isTimeline,
+    -- ** CancelStepsRequestStatus
+    CancelStepsRequestStatus (..),
 
     -- ** InstanceTimeline
     InstanceTimeline (..),
     mkInstanceTimeline,
-    itReadyDateTime,
     itCreationDateTime,
     itEndDateTime,
+    itReadyDateTime,
 
-    -- ** InstanceTypeConfig
-    InstanceTypeConfig (..),
-    mkInstanceTypeConfig,
-    itcEBSConfiguration,
-    itcBidPrice,
-    itcWeightedCapacity,
-    itcConfigurations,
-    itcInstanceType,
-    itcBidPriceAsPercentageOfOnDemandPrice,
-
-    -- ** InstanceTypeSpecification
-    InstanceTypeSpecification (..),
-    mkInstanceTypeSpecification,
-    itsBidPrice,
-    itsWeightedCapacity,
-    itsConfigurations,
-    itsEBSBlockDevices,
-    itsInstanceType,
-    itsEBSOptimized,
-    itsBidPriceAsPercentageOfOnDemandPrice,
-
-    -- ** JobFlowInstancesConfig
-    JobFlowInstancesConfig (..),
-    mkJobFlowInstancesConfig,
-    jficInstanceFleets,
-    jficEC2KeyName,
-    jficSlaveInstanceType,
-    jficInstanceCount,
-    jficEmrManagedSlaveSecurityGroup,
-    jficAdditionalSlaveSecurityGroups,
-    jficEC2SubnetIds,
-    jficHadoopVersion,
-    jficAdditionalMasterSecurityGroups,
-    jficEmrManagedMasterSecurityGroup,
-    jficEC2SubnetId,
-    jficMasterInstanceType,
-    jficInstanceGroups,
-    jficKeepJobFlowAliveWhenNoSteps,
-    jficServiceAccessSecurityGroup,
-    jficTerminationProtected,
-    jficPlacement,
-
-    -- ** KerberosAttributes
-    KerberosAttributes (..),
-    mkKerberosAttributes,
-    kaKdcAdminPassword,
-    kaRealm,
-    kaADDomainJoinPassword,
-    kaCrossRealmTrustPrincipalPassword,
-    kaADDomainJoinUser,
-
-    -- ** KeyValue
-    KeyValue (..),
-    mkKeyValue,
-    kvValue,
-    kvKey,
-
-    -- ** ManagedScalingPolicy
-    ManagedScalingPolicy (..),
-    mkManagedScalingPolicy,
-    mspComputeLimits,
-
-    -- ** MetricDimension
-    MetricDimension (..),
-    mkMetricDimension,
-    mdValue,
-    mdKey,
-
-    -- ** NotebookExecution
-    NotebookExecution (..),
-    mkNotebookExecution,
-    neStatus,
-    neExecutionEngine,
-    neNotebookInstanceSecurityGroupId,
-    neEditorId,
-    neStartTime,
-    neARN,
-    neOutputNotebookURI,
-    neNotebookExecutionId,
-    neNotebookExecutionName,
-    neLastStateChangeReason,
-    neEndTime,
-    neNotebookParams,
-    neTags,
-
-    -- ** NotebookExecutionSummary
-    NotebookExecutionSummary (..),
-    mkNotebookExecutionSummary,
-    nesStatus,
-    nesEditorId,
-    nesStartTime,
-    nesNotebookExecutionId,
-    nesNotebookExecutionName,
-    nesEndTime,
+    -- ** Ec2InstanceAttributes
+    Ec2InstanceAttributes (..),
+    mkEc2InstanceAttributes,
+    eiaAdditionalMasterSecurityGroups,
+    eiaAdditionalSlaveSecurityGroups,
+    eiaEc2AvailabilityZone,
+    eiaEc2KeyName,
+    eiaEc2SubnetId,
+    eiaEmrManagedMasterSecurityGroup,
+    eiaEmrManagedSlaveSecurityGroup,
+    eiaIamInstanceProfile,
+    eiaRequestedEc2AvailabilityZones,
+    eiaRequestedEc2SubnetIds,
+    eiaServiceAccessSecurityGroup,
 
     -- ** OnDemandProvisioningSpecification
     OnDemandProvisioningSpecification (..),
     mkOnDemandProvisioningSpecification,
     odpsAllocationStrategy,
 
-    -- ** PlacementGroupConfig
-    PlacementGroupConfig (..),
-    mkPlacementGroupConfig,
-    pgcInstanceRole,
-    pgcPlacementStrategy,
+    -- ** StepStateChangeReasonCode
+    StepStateChangeReasonCode (..),
 
-    -- ** PlacementType
-    PlacementType (..),
-    mkPlacementType,
-    ptAvailabilityZones,
-    ptAvailabilityZone,
+    -- ** FailureDetails
+    FailureDetails (..),
+    mkFailureDetails,
+    fdLogFile,
+    fdMessage,
+    fdReason,
+
+    -- ** ClusterState
+    ClusterState (..),
+
+    -- ** InstanceFleetConfig
+    InstanceFleetConfig (..),
+    mkInstanceFleetConfig,
+    ifcInstanceFleetType,
+    ifcInstanceTypeConfigs,
+    ifcLaunchSpecifications,
+    ifcName,
+    ifcTargetOnDemandCapacity,
+    ifcTargetSpotCapacity,
+
+    -- ** ComputeLimitsUnitType
+    ComputeLimitsUnitType (..),
+
+    -- ** String
+    String (..),
+
+    -- ** PlacementGroupStrategy
+    PlacementGroupStrategy (..),
+
+    -- ** HadoopStepConfig
+    HadoopStepConfig (..),
+    mkHadoopStepConfig,
+    hscArgs,
+    hscJar,
+    hscMainClass,
+    hscProperties,
+
+    -- ** SessionMappingDetail
+    SessionMappingDetail (..),
+    mkSessionMappingDetail,
+    smdCreationTime,
+    smdIdentityId,
+    smdIdentityName,
+    smdIdentityType,
+    smdLastModifiedTime,
+    smdSessionPolicyArn,
+    smdStudioId,
+
+    -- ** ScalingRule
+    ScalingRule (..),
+    mkScalingRule,
+    srName,
+    srAction,
+    srTrigger,
+    srDescription,
+
+    -- ** ScalingAction
+    ScalingAction (..),
+    mkScalingAction,
+    saSimpleScalingPolicyConfiguration,
+    saMarket,
+
+    -- ** InstanceTypeConfig
+    InstanceTypeConfig (..),
+    mkInstanceTypeConfig,
+    itcInstanceType,
+    itcBidPrice,
+    itcBidPriceAsPercentageOfOnDemandPrice,
+    itcConfigurations,
+    itcEbsConfiguration,
+    itcWeightedCapacity,
+
+    -- ** NotebookExecution
+    NotebookExecution (..),
+    mkNotebookExecution,
+    neArn,
+    neEditorId,
+    neEndTime,
+    neExecutionEngine,
+    neLastStateChangeReason,
+    neNotebookExecutionId,
+    neNotebookExecutionName,
+    neNotebookInstanceSecurityGroupId,
+    neNotebookParams,
+    neOutputNotebookURI,
+    neStartTime,
+    neStatus,
+    neTags,
+
+    -- ** AuthMode
+    AuthMode (..),
+
+    -- ** InstanceResizePolicy
+    InstanceResizePolicy (..),
+    mkInstanceResizePolicy,
+    irpInstanceTerminationTimeout,
+    irpInstancesToProtect,
+    irpInstancesToTerminate,
+
+    -- ** InstanceFleetStatus
+    InstanceFleetStatus (..),
+    mkInstanceFleetStatus,
+    ifsState,
+    ifsStateChangeReason,
+    ifsTimeline,
+
+    -- ** InstanceGroupStateChangeReason
+    InstanceGroupStateChangeReason (..),
+    mkInstanceGroupStateChangeReason,
+    igscrCode,
+    igscrMessage,
+
+    -- ** SessionMappingSummary
+    SessionMappingSummary (..),
+    mkSessionMappingSummary,
+    smsCreationTime,
+    smsIdentityId,
+    smsIdentityName,
+    smsIdentityType,
+    smsSessionPolicyArn,
+    smsStudioId,
+
+    -- ** InstanceGroupType
+    InstanceGroupType (..),
+
+    -- ** AutoScalingPolicyStatus
+    AutoScalingPolicyStatus (..),
+    mkAutoScalingPolicyStatus,
+    aspsState,
+    aspsStateChangeReason,
+
+    -- ** XmlStringMaxLen256
+    XmlStringMaxLen256 (..),
+
+    -- ** StepCancellationOption
+    StepCancellationOption (..),
+
+    -- ** IdentityType
+    IdentityType (..),
+
+    -- ** ScaleDownBehavior
+    ScaleDownBehavior (..),
 
     -- ** PortRange
     PortRange (..),
@@ -784,123 +536,28 @@ module Network.AWS.EMR
     prMinRange,
     prMaxRange,
 
-    -- ** ScalingAction
-    ScalingAction (..),
-    mkScalingAction,
-    saMarket,
-    saSimpleScalingPolicyConfiguration,
-
-    -- ** ScalingConstraints
-    ScalingConstraints (..),
-    mkScalingConstraints,
-    scMaxCapacity,
-    scMinCapacity,
-
-    -- ** ScalingRule
-    ScalingRule (..),
-    mkScalingRule,
-    srAction,
-    srName,
-    srTrigger,
-    srDescription,
-
-    -- ** ScalingTrigger
-    ScalingTrigger (..),
-    mkScalingTrigger,
-    stCloudWatchAlarmDefinition,
-
-    -- ** ScriptBootstrapActionConfig
-    ScriptBootstrapActionConfig (..),
-    mkScriptBootstrapActionConfig,
-    sbacArgs,
-    sbacPath,
-
-    -- ** SecurityConfigurationSummary
-    SecurityConfigurationSummary (..),
-    mkSecurityConfigurationSummary,
-    scsName,
-    scsCreationDateTime,
-
-    -- ** SessionMappingDetail
-    SessionMappingDetail (..),
-    mkSessionMappingDetail,
-    smdCreationTime,
-    smdStudioId,
-    smdLastModifiedTime,
-    smdIdentityType,
-    smdIdentityId,
-    smdSessionPolicyARN,
-    smdIdentityName,
-
-    -- ** SessionMappingSummary
-    SessionMappingSummary (..),
-    mkSessionMappingSummary,
-    smsCreationTime,
-    smsStudioId,
-    smsIdentityType,
-    smsIdentityId,
-    smsSessionPolicyARN,
-    smsIdentityName,
-
-    -- ** ShrinkPolicy
-    ShrinkPolicy (..),
-    mkShrinkPolicy,
-    spDecommissionTimeout,
-    spInstanceResizePolicy,
-
-    -- ** SimpleScalingPolicyConfiguration
-    SimpleScalingPolicyConfiguration (..),
-    mkSimpleScalingPolicyConfiguration,
-    sspcAdjustmentType,
-    sspcScalingAdjustment,
-    sspcCoolDown,
-
-    -- ** SpotProvisioningSpecification
-    SpotProvisioningSpecification (..),
-    mkSpotProvisioningSpecification,
-    spsBlockDurationMinutes,
-    spsTimeoutAction,
-    spsTimeoutDurationMinutes,
-    spsAllocationStrategy,
-
-    -- ** Step
-    Step (..),
-    mkStep,
-    sgStatus,
-    sgActionOnFailure,
-    sgConfig,
-    sgName,
-    sgId,
-
-    -- ** StepConfig
-    StepConfig (..),
-    mkStepConfig,
-    scActionOnFailure,
-    scHadoopJARStep,
-    scName,
-
-    -- ** StepStateChangeReason
-    StepStateChangeReason (..),
-    mkStepStateChangeReason,
-    sscrCode,
-    sscrMessage,
+    -- ** InstanceGroupStateChangeReasonCode
+    InstanceGroupStateChangeReasonCode (..),
 
     -- ** StepStatus
     StepStatus (..),
     mkStepStatus,
-    ssState,
     ssFailureDetails,
+    ssState,
     ssStateChangeReason,
     ssTimeline,
 
     -- ** StepSummary
     StepSummary (..),
     mkStepSummary,
-    sStatus,
     sActionOnFailure,
     sConfig,
-    sName,
     sId,
+    sName,
+    sStatus,
+
+    -- ** InstanceGroupState
+    InstanceGroupState (..),
 
     -- ** StepTimeline
     StepTimeline (..),
@@ -909,63 +566,565 @@ module Network.AWS.EMR
     stEndDateTime,
     stStartDateTime,
 
-    -- ** Studio
-    Studio (..),
-    mkStudio,
-    sfCreationTime,
-    sfEngineSecurityGroupId,
-    sfSubnetIds,
-    sfStudioId,
-    sfVPCId,
-    sfURL,
-    sfAuthMode,
-    sfDefaultS3Location,
-    sfWorkspaceSecurityGroupId,
-    sfName,
-    sfStudioARN,
-    sfUserRole,
-    sfDescription,
-    sfTags,
-    sfServiceRole,
+    -- ** PlacementType
+    PlacementType (..),
+    mkPlacementType,
+    ptAvailabilityZone,
+    ptAvailabilityZones,
+
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** CancelStepsInfo
+    CancelStepsInfo (..),
+    mkCancelStepsInfo,
+    csiReason,
+    csiStatus,
+    csiStepId,
+
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** HadoopJarStepConfig
+    HadoopJarStepConfig (..),
+    mkHadoopJarStepConfig,
+    hjscJar,
+    hjscArgs,
+    hjscMainClass,
+    hjscProperties,
+
+    -- ** MetricDimension
+    MetricDimension (..),
+    mkMetricDimension,
+    mdKey,
+    mdValue,
+
+    -- ** ExecutionEngineType
+    ExecutionEngineType (..),
+
+    -- ** InstanceGroupModifyConfig
+    InstanceGroupModifyConfig (..),
+    mkInstanceGroupModifyConfig,
+    igmcInstanceGroupId,
+    igmcConfigurations,
+    igmcEC2InstanceIdsToTerminate,
+    igmcInstanceCount,
+    igmcShrinkPolicy,
 
     -- ** StudioSummary
     StudioSummary (..),
     mkStudioSummary,
     ssCreationTime,
-    ssStudioId,
-    ssVPCId,
-    ssURL,
-    ssName,
     ssDescription,
+    ssName,
+    ssStudioId,
+    ssUrl,
+    ssVpcId,
 
-    -- ** SupportedProductConfig
-    SupportedProductConfig (..),
-    mkSupportedProductConfig,
-    spcArgs,
-    spcName,
+    -- ** SpotProvisioningSpecification
+    SpotProvisioningSpecification (..),
+    mkSpotProvisioningSpecification,
+    spsTimeoutDurationMinutes,
+    spsTimeoutAction,
+    spsAllocationStrategy,
+    spsBlockDurationMinutes,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** AutoScalingPolicyDescription
+    AutoScalingPolicyDescription (..),
+    mkAutoScalingPolicyDescription,
+    aspdConstraints,
+    aspdRules,
+    aspdStatus,
+
+    -- ** OnDemandProvisioningAllocationStrategy
+    OnDemandProvisioningAllocationStrategy (..),
+
+    -- ** InstanceFleetTimeline
+    InstanceFleetTimeline (..),
+    mkInstanceFleetTimeline,
+    iftCreationDateTime,
+    iftEndDateTime,
+    iftReadyDateTime,
+
+    -- ** EbsVolume
+    EbsVolume (..),
+    mkEbsVolume,
+    evDevice,
+    evVolumeId,
+
+    -- ** EbsBlockDeviceConfig
+    EbsBlockDeviceConfig (..),
+    mkEbsBlockDeviceConfig,
+    ebdcVolumeSpecification,
+    ebdcVolumesPerInstance,
+
+    -- ** InstanceCollectionType
+    InstanceCollectionType (..),
+
+    -- ** InstanceFleetType
+    InstanceFleetType (..),
+
+    -- ** AutoScalingPolicyStateChangeReason
+    AutoScalingPolicyStateChangeReason (..),
+    mkAutoScalingPolicyStateChangeReason,
+    aspscrCode,
+    aspscrMessage,
+
+    -- ** AdjustmentType
+    AdjustmentType (..),
+
+    -- ** NotebookExecutionSummary
+    NotebookExecutionSummary (..),
+    mkNotebookExecutionSummary,
+    nesEditorId,
+    nesEndTime,
+    nesNotebookExecutionId,
+    nesNotebookExecutionName,
+    nesStartTime,
+    nesStatus,
+
+    -- ** StepStateChangeReason
+    StepStateChangeReason (..),
+    mkStepStateChangeReason,
+    sscrCode,
+    sscrMessage,
+
+    -- ** RepoUpgradeOnBoot
+    RepoUpgradeOnBoot (..),
+
+    -- ** ClusterId
+    ClusterId (..),
+
+    -- ** SecurityConfigurationSummary
+    SecurityConfigurationSummary (..),
+    mkSecurityConfigurationSummary,
+    scsCreationDateTime,
+    scsName,
+
+    -- ** KerberosAttributes
+    KerberosAttributes (..),
+    mkKerberosAttributes,
+    kaRealm,
+    kaKdcAdminPassword,
+    kaADDomainJoinPassword,
+    kaADDomainJoinUser,
+    kaCrossRealmTrustPrincipalPassword,
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** InstanceFleetStateChangeReason
+    InstanceFleetStateChangeReason (..),
+    mkInstanceFleetStateChangeReason,
+    ifscrCode,
+    ifscrMessage,
+
+    -- ** ClusterStateChangeReasonCode
+    ClusterStateChangeReasonCode (..),
+
+    -- ** AutoScalingPolicy
+    AutoScalingPolicy (..),
+    mkAutoScalingPolicy,
+    aspConstraints,
+    aspRules,
+
+    -- ** InstanceFleetId
+    InstanceFleetId (..),
+
+    -- ** Step
+    Step (..),
+    mkStep,
+    sfActionOnFailure,
+    sfConfig,
+    sfId,
+    sfName,
+    sfStatus,
+
+    -- ** StepState
+    StepState (..),
+
+    -- ** ShrinkPolicy
+    ShrinkPolicy (..),
+    mkShrinkPolicy,
+    spDecommissionTimeout,
+    spInstanceResizePolicy,
 
     -- ** VolumeSpecification
     VolumeSpecification (..),
     mkVolumeSpecification,
-    vsIOPS,
-    vsSizeInGB,
     vsVolumeType,
+    vsSizeInGB,
+    vsIops,
+
+    -- ** ScalingTrigger
+    ScalingTrigger (..),
+    mkScalingTrigger,
+    stCloudWatchAlarmDefinition,
+
+    -- ** InstanceGroupTimeline
+    InstanceGroupTimeline (..),
+    mkInstanceGroupTimeline,
+    igtCreationDateTime,
+    igtEndDateTime,
+    igtReadyDateTime,
+
+    -- ** InstanceStatus
+    InstanceStatus (..),
+    mkInstanceStatus,
+    isState,
+    isStateChangeReason,
+    isTimeline,
+
+    -- ** AutoScalingPolicyState
+    AutoScalingPolicyState (..),
+
+    -- ** InstanceRoleType
+    InstanceRoleType (..),
+
+    -- ** EbsBlockDevice
+    EbsBlockDevice (..),
+    mkEbsBlockDevice,
+    ebdDevice,
+    ebdVolumeSpecification,
+
+    -- ** JobFlowInstancesConfig
+    JobFlowInstancesConfig (..),
+    mkJobFlowInstancesConfig,
+    jficAdditionalMasterSecurityGroups,
+    jficAdditionalSlaveSecurityGroups,
+    jficEc2KeyName,
+    jficEc2SubnetId,
+    jficEc2SubnetIds,
+    jficEmrManagedMasterSecurityGroup,
+    jficEmrManagedSlaveSecurityGroup,
+    jficHadoopVersion,
+    jficInstanceCount,
+    jficInstanceFleets,
+    jficInstanceGroups,
+    jficKeepJobFlowAliveWhenNoSteps,
+    jficMasterInstanceType,
+    jficPlacement,
+    jficServiceAccessSecurityGroup,
+    jficSlaveInstanceType,
+    jficTerminationProtected,
+
+    -- ** InstanceFleetModifyConfig
+    InstanceFleetModifyConfig (..),
+    mkInstanceFleetModifyConfig,
+    ifmcInstanceFleetId,
+    ifmcTargetOnDemandCapacity,
+    ifmcTargetSpotCapacity,
+
+    -- ** ArnType
+    ArnType (..),
+
+    -- ** InstanceFleetState
+    InstanceFleetState (..),
+
+    -- ** Configuration
+    Configuration (..),
+    mkConfiguration,
+    cClassification,
+    cConfigurations,
+    cProperties,
+
+    -- ** InstanceFleetProvisioningSpecifications
+    InstanceFleetProvisioningSpecifications (..),
+    mkInstanceFleetProvisioningSpecifications,
+    ifpsOnDemandSpecification,
+    ifpsSpotSpecification,
+
+    -- ** Studio
+    Studio (..),
+    mkStudio,
+    sgAuthMode,
+    sgCreationTime,
+    sgDefaultS3Location,
+    sgDescription,
+    sgEngineSecurityGroupId,
+    sgName,
+    sgServiceRole,
+    sgStudioArn,
+    sgStudioId,
+    sgSubnetIds,
+    sgTags,
+    sgUrl,
+    sgUserRole,
+    sgVpcId,
+    sgWorkspaceSecurityGroupId,
+
+    -- ** ManagedScalingPolicy
+    ManagedScalingPolicy (..),
+    mkManagedScalingPolicy,
+    mspComputeLimits,
+
+    -- ** StepConfig
+    StepConfig (..),
+    mkStepConfig,
+    scName,
+    scHadoopJarStep,
+    scActionOnFailure,
+
+    -- ** InstanceGroupId
+    InstanceGroupId (..),
+
+    -- ** OptionalArnType
+    OptionalArnType (..),
+
+    -- ** ScalingConstraints
+    ScalingConstraints (..),
+    mkScalingConstraints,
+    scMinCapacity,
+    scMaxCapacity,
+
+    -- ** SimpleScalingPolicyConfiguration
+    SimpleScalingPolicyConfiguration (..),
+    mkSimpleScalingPolicyConfiguration,
+    sspcScalingAdjustment,
+    sspcAdjustmentType,
+    sspcCoolDown,
+
+    -- ** ComputeLimits
+    ComputeLimits (..),
+    mkComputeLimits,
+    clUnitType,
+    clMinimumCapacityUnits,
+    clMaximumCapacityUnits,
+    clMaximumCoreCapacityUnits,
+    clMaximumOnDemandCapacityUnits,
+
+    -- ** InstanceGroup
+    InstanceGroup (..),
+    mkInstanceGroup,
+    igAutoScalingPolicy,
+    igBidPrice,
+    igConfigurations,
+    igConfigurationsVersion,
+    igEbsBlockDevices,
+    igEbsOptimized,
+    igId,
+    igInstanceGroupType,
+    igInstanceType,
+    igLastSuccessfullyAppliedConfigurations,
+    igLastSuccessfullyAppliedConfigurationsVersion,
+    igMarket,
+    igName,
+    igRequestedInstanceCount,
+    igRunningInstanceCount,
+    igShrinkPolicy,
+    igStatus,
+
+    -- ** BootstrapActionConfig
+    BootstrapActionConfig (..),
+    mkBootstrapActionConfig,
+    bacName,
+    bacScriptBootstrapAction,
+
+    -- ** ClusterSummary
+    ClusterSummary (..),
+    mkClusterSummary,
+    csClusterArn,
+    csId,
+    csName,
+    csNormalizedInstanceHours,
+    csOutpostArn,
+    csStatus,
+
+    -- ** ExecutionEngineConfig
+    ExecutionEngineConfig (..),
+    mkExecutionEngineConfig,
+    eecId,
+    eecMasterInstanceSecurityGroupId,
+    eecType,
+
+    -- ** Unit
+    Unit (..),
+
+    -- ** CloudWatchAlarmDefinition
+    CloudWatchAlarmDefinition (..),
+    mkCloudWatchAlarmDefinition,
+    cwadComparisonOperator,
+    cwadMetricName,
+    cwadPeriod,
+    cwadThreshold,
+    cwadDimensions,
+    cwadEvaluationPeriods,
+    cwadNamespace,
+    cwadStatistic,
+    cwadUnit,
+
+    -- ** ClusterStatus
+    ClusterStatus (..),
+    mkClusterStatus,
+    csState,
+    csStateChangeReason,
+    csTimeline,
+
+    -- ** InstanceState
+    InstanceState (..),
+
+    -- ** Statistic
+    Statistic (..),
+
+    -- ** BlockPublicAccessConfigurationMetadata
+    BlockPublicAccessConfigurationMetadata (..),
+    mkBlockPublicAccessConfigurationMetadata,
+    bpacmCreationDateTime,
+    bpacmCreatedByArn,
+
+    -- ** ClusterTimeline
+    ClusterTimeline (..),
+    mkClusterTimeline,
+    ctCreationDateTime,
+    ctEndDateTime,
+    ctReadyDateTime,
+
+    -- ** InstanceStateChangeReasonCode
+    InstanceStateChangeReasonCode (..),
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iEbsVolumes,
+    iEc2InstanceId,
+    iId,
+    iInstanceFleetId,
+    iInstanceGroupId,
+    iInstanceType,
+    iMarket,
+    iPrivateDnsName,
+    iPrivateIpAddress,
+    iPublicDnsName,
+    iPublicIpAddress,
+    iStatus,
+
+    -- ** ScriptBootstrapActionConfig
+    ScriptBootstrapActionConfig (..),
+    mkScriptBootstrapActionConfig,
+    sbacPath,
+    sbacArgs,
+
+    -- ** SecurityConfiguration
+    SecurityConfiguration (..),
+
+    -- ** BidPrice
+    BidPrice (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** JobFlowId
+    JobFlowId (..),
+
+    -- ** ClusterArn
+    ClusterArn (..),
+
+    -- ** ScriptPath
+    ScriptPath (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** StudioId
+    StudioId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** CustomAmiId
+    CustomAmiId (..),
+
+    -- ** LogEncryptionKmsKeyId
+    LogEncryptionKmsKeyId (..),
+
+    -- ** LogUri
+    LogUri (..),
+
+    -- ** MasterPublicDnsName
+    MasterPublicDnsName (..),
+
+    -- ** OutpostArn
+    OutpostArn (..),
+
+    -- ** ReleaseLabel
+    ReleaseLabel (..),
+
+    -- ** RequestedAmiVersion
+    RequestedAmiVersion (..),
+
+    -- ** RunningAmiVersion
+    RunningAmiVersion (..),
+
+    -- ** ServiceRole
+    ServiceRole (..),
+
+    -- ** IdentityId
+    IdentityId (..),
+
+    -- ** IdentityName
+    IdentityName (..),
+
+    -- ** Ec2AvailabilityZone
+    Ec2AvailabilityZone (..),
+
+    -- ** Ec2KeyName
+    Ec2KeyName (..),
+
+    -- ** Ec2SubnetId
+    Ec2SubnetId (..),
+
+    -- ** EmrManagedMasterSecurityGroup
+    EmrManagedMasterSecurityGroup (..),
+
+    -- ** EmrManagedSlaveSecurityGroup
+    EmrManagedSlaveSecurityGroup (..),
+
+    -- ** IamInstanceProfile
+    IamInstanceProfile (..),
+
+    -- ** ServiceAccessSecurityGroup
+    ServiceAccessSecurityGroup (..),
+
+    -- ** LogFile
+    LogFile (..),
+
+    -- ** Reason
+    Reason (..),
+
+    -- ** EditorId
+    EditorId (..),
+
+    -- ** NotebookExecutionName
+    NotebookExecutionName (..),
+
+    -- ** NotebookInstanceSecurityGroupId
+    NotebookInstanceSecurityGroupId (..),
+
+    -- ** SessionPolicyArn
+    SessionPolicyArn (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** NotebookExecutionId
+    NotebookExecutionId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

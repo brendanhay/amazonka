@@ -738,7 +738,7 @@ responseCreateFilter =
   res
     "CreateFilterResponse"
     "fixture/CreateFilterResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy CreateFilter)
 
 responseEnableOrganizationAdminAccount :: EnableOrganizationAdminAccountResponse -> TestTree
@@ -746,7 +746,7 @@ responseEnableOrganizationAdminAccount =
   res
     "EnableOrganizationAdminAccountResponse"
     "fixture/EnableOrganizationAdminAccountResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy EnableOrganizationAdminAccount)
 
 responseListFindings :: ListFindingsResponse -> TestTree
@@ -754,7 +754,7 @@ responseListFindings =
   res
     "ListFindingsResponse"
     "fixture/ListFindingsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListFindings)
 
 responseListOrganizationAdminAccounts :: ListOrganizationAdminAccountsResponse -> TestTree
@@ -762,7 +762,7 @@ responseListOrganizationAdminAccounts =
   res
     "ListOrganizationAdminAccountsResponse"
     "fixture/ListOrganizationAdminAccountsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListOrganizationAdminAccounts)
 
 responseCreateIPSet :: CreateIPSetResponse -> TestTree
@@ -770,7 +770,7 @@ responseCreateIPSet =
   res
     "CreateIPSetResponse"
     "fixture/CreateIPSetResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy CreateIPSet)
 
 responseDeleteThreatIntelSet :: DeleteThreatIntelSetResponse -> TestTree
@@ -778,7 +778,7 @@ responseDeleteThreatIntelSet =
   res
     "DeleteThreatIntelSetResponse"
     "fixture/DeleteThreatIntelSetResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DeleteThreatIntelSet)
 
 responseUpdateThreatIntelSet :: UpdateThreatIntelSetResponse -> TestTree
@@ -786,7 +786,7 @@ responseUpdateThreatIntelSet =
   res
     "UpdateThreatIntelSetResponse"
     "fixture/UpdateThreatIntelSetResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UpdateThreatIntelSet)
 
 responseStopMonitoringMembers :: StopMonitoringMembersResponse -> TestTree
@@ -794,7 +794,7 @@ responseStopMonitoringMembers =
   res
     "StopMonitoringMembersResponse"
     "fixture/StopMonitoringMembersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy StopMonitoringMembers)
 
 responseListThreatIntelSets :: ListThreatIntelSetsResponse -> TestTree
@@ -802,7 +802,7 @@ responseListThreatIntelSets =
   res
     "ListThreatIntelSetsResponse"
     "fixture/ListThreatIntelSetsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListThreatIntelSets)
 
 responseCreateThreatIntelSet :: CreateThreatIntelSetResponse -> TestTree
@@ -810,7 +810,7 @@ responseCreateThreatIntelSet =
   res
     "CreateThreatIntelSetResponse"
     "fixture/CreateThreatIntelSetResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy CreateThreatIntelSet)
 
 responseDeleteMembers :: DeleteMembersResponse -> TestTree
@@ -818,7 +818,7 @@ responseDeleteMembers =
   res
     "DeleteMembersResponse"
     "fixture/DeleteMembersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMembers)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -826,7 +826,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetFindingsStatistics :: GetFindingsStatisticsResponse -> TestTree
@@ -834,7 +834,7 @@ responseGetFindingsStatistics =
   res
     "GetFindingsStatisticsResponse"
     "fixture/GetFindingsStatisticsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetFindingsStatistics)
 
 responseGetIPSet :: GetIPSetResponse -> TestTree
@@ -842,7 +842,7 @@ responseGetIPSet =
   res
     "GetIPSetResponse"
     "fixture/GetIPSetResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetIPSet)
 
 responseListInvitations :: ListInvitationsResponse -> TestTree
@@ -850,7 +850,7 @@ responseListInvitations =
   res
     "ListInvitationsResponse"
     "fixture/ListInvitationsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListInvitations)
 
 responseUpdateMemberDetectors :: UpdateMemberDetectorsResponse -> TestTree
@@ -858,7 +858,7 @@ responseUpdateMemberDetectors =
   res
     "UpdateMemberDetectorsResponse"
     "fixture/UpdateMemberDetectorsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UpdateMemberDetectors)
 
 responseGetThreatIntelSet :: GetThreatIntelSetResponse -> TestTree
@@ -866,7 +866,7 @@ responseGetThreatIntelSet =
   res
     "GetThreatIntelSetResponse"
     "fixture/GetThreatIntelSetResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetThreatIntelSet)
 
 responseDeleteInvitations :: DeleteInvitationsResponse -> TestTree
@@ -874,7 +874,7 @@ responseDeleteInvitations =
   res
     "DeleteInvitationsResponse"
     "fixture/DeleteInvitationsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DeleteInvitations)
 
 responseGetMasterAccount :: GetMasterAccountResponse -> TestTree
@@ -882,7 +882,7 @@ responseGetMasterAccount =
   res
     "GetMasterAccountResponse"
     "fixture/GetMasterAccountResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetMasterAccount)
 
 responseGetUsageStatistics :: GetUsageStatisticsResponse -> TestTree
@@ -890,7 +890,7 @@ responseGetUsageStatistics =
   res
     "GetUsageStatisticsResponse"
     "fixture/GetUsageStatisticsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetUsageStatistics)
 
 responseCreateDetector :: CreateDetectorResponse -> TestTree
@@ -898,7 +898,7 @@ responseCreateDetector =
   res
     "CreateDetectorResponse"
     "fixture/CreateDetectorResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy CreateDetector)
 
 responseDeclineInvitations :: DeclineInvitationsResponse -> TestTree
@@ -906,7 +906,7 @@ responseDeclineInvitations =
   res
     "DeclineInvitationsResponse"
     "fixture/DeclineInvitationsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DeclineInvitations)
 
 responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
@@ -914,7 +914,7 @@ responseDescribeOrganizationConfiguration =
   res
     "DescribeOrganizationConfigurationResponse"
     "fixture/DescribeOrganizationConfigurationResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOrganizationConfiguration)
 
 responseCreatePublishingDestination :: CreatePublishingDestinationResponse -> TestTree
@@ -922,7 +922,7 @@ responseCreatePublishingDestination =
   res
     "CreatePublishingDestinationResponse"
     "fixture/CreatePublishingDestinationResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy CreatePublishingDestination)
 
 responseUpdateFilter :: UpdateFilterResponse -> TestTree
@@ -930,7 +930,7 @@ responseUpdateFilter =
   res
     "UpdateFilterResponse"
     "fixture/UpdateFilterResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UpdateFilter)
 
 responseDeleteFilter :: DeleteFilterResponse -> TestTree
@@ -938,7 +938,7 @@ responseDeleteFilter =
   res
     "DeleteFilterResponse"
     "fixture/DeleteFilterResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFilter)
 
 responseDisassociateMembers :: DisassociateMembersResponse -> TestTree
@@ -946,7 +946,7 @@ responseDisassociateMembers =
   res
     "DisassociateMembersResponse"
     "fixture/DisassociateMembersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateMembers)
 
 responseDisassociateFromMasterAccount :: DisassociateFromMasterAccountResponse -> TestTree
@@ -954,7 +954,7 @@ responseDisassociateFromMasterAccount =
   res
     "DisassociateFromMasterAccountResponse"
     "fixture/DisassociateFromMasterAccountResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateFromMasterAccount)
 
 responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
@@ -962,7 +962,7 @@ responseAcceptInvitation =
   res
     "AcceptInvitationResponse"
     "fixture/AcceptInvitationResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy AcceptInvitation)
 
 responseListFilters :: ListFiltersResponse -> TestTree
@@ -970,7 +970,7 @@ responseListFilters =
   res
     "ListFiltersResponse"
     "fixture/ListFiltersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListFilters)
 
 responseListMembers :: ListMembersResponse -> TestTree
@@ -978,7 +978,7 @@ responseListMembers =
   res
     "ListMembersResponse"
     "fixture/ListMembersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListMembers)
 
 responseListPublishingDestinations :: ListPublishingDestinationsResponse -> TestTree
@@ -986,7 +986,7 @@ responseListPublishingDestinations =
   res
     "ListPublishingDestinationsResponse"
     "fixture/ListPublishingDestinationsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListPublishingDestinations)
 
 responseDeletePublishingDestination :: DeletePublishingDestinationResponse -> TestTree
@@ -994,7 +994,7 @@ responseDeletePublishingDestination =
   res
     "DeletePublishingDestinationResponse"
     "fixture/DeletePublishingDestinationResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DeletePublishingDestination)
 
 responseUpdatePublishingDestination :: UpdatePublishingDestinationResponse -> TestTree
@@ -1002,7 +1002,7 @@ responseUpdatePublishingDestination =
   res
     "UpdatePublishingDestinationResponse"
     "fixture/UpdatePublishingDestinationResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePublishingDestination)
 
 responseGetDetector :: GetDetectorResponse -> TestTree
@@ -1010,7 +1010,7 @@ responseGetDetector =
   res
     "GetDetectorResponse"
     "fixture/GetDetectorResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetDetector)
 
 responseCreateSampleFindings :: CreateSampleFindingsResponse -> TestTree
@@ -1018,7 +1018,7 @@ responseCreateSampleFindings =
   res
     "CreateSampleFindingsResponse"
     "fixture/CreateSampleFindingsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy CreateSampleFindings)
 
 responseArchiveFindings :: ArchiveFindingsResponse -> TestTree
@@ -1026,7 +1026,7 @@ responseArchiveFindings =
   res
     "ArchiveFindingsResponse"
     "fixture/ArchiveFindingsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ArchiveFindings)
 
 responseCreateMembers :: CreateMembersResponse -> TestTree
@@ -1034,7 +1034,7 @@ responseCreateMembers =
   res
     "CreateMembersResponse"
     "fixture/CreateMembersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy CreateMembers)
 
 responseUnarchiveFindings :: UnarchiveFindingsResponse -> TestTree
@@ -1042,7 +1042,7 @@ responseUnarchiveFindings =
   res
     "UnarchiveFindingsResponse"
     "fixture/UnarchiveFindingsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UnarchiveFindings)
 
 responseGetMemberDetectors :: GetMemberDetectorsResponse -> TestTree
@@ -1050,7 +1050,7 @@ responseGetMemberDetectors =
   res
     "GetMemberDetectorsResponse"
     "fixture/GetMemberDetectorsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetMemberDetectors)
 
 responseGetInvitationsCount :: GetInvitationsCountResponse -> TestTree
@@ -1058,7 +1058,7 @@ responseGetInvitationsCount =
   res
     "GetInvitationsCountResponse"
     "fixture/GetInvitationsCountResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetInvitationsCount)
 
 responseStartMonitoringMembers :: StartMonitoringMembersResponse -> TestTree
@@ -1066,7 +1066,7 @@ responseStartMonitoringMembers =
   res
     "StartMonitoringMembersResponse"
     "fixture/StartMonitoringMembersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy StartMonitoringMembers)
 
 responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
@@ -1074,7 +1074,7 @@ responseUpdateOrganizationConfiguration =
   res
     "UpdateOrganizationConfigurationResponse"
     "fixture/UpdateOrganizationConfigurationResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UpdateOrganizationConfiguration)
 
 responseInviteMembers :: InviteMembersResponse -> TestTree
@@ -1082,7 +1082,7 @@ responseInviteMembers =
   res
     "InviteMembersResponse"
     "fixture/InviteMembersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy InviteMembers)
 
 responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
@@ -1090,7 +1090,7 @@ responseDeleteIPSet =
   res
     "DeleteIPSetResponse"
     "fixture/DeleteIPSetResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DeleteIPSet)
 
 responseUpdateIPSet :: UpdateIPSetResponse -> TestTree
@@ -1098,7 +1098,7 @@ responseUpdateIPSet =
   res
     "UpdateIPSetResponse"
     "fixture/UpdateIPSetResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UpdateIPSet)
 
 responseListIPSets :: ListIPSetsResponse -> TestTree
@@ -1106,7 +1106,7 @@ responseListIPSets =
   res
     "ListIPSetsResponse"
     "fixture/ListIPSetsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListIPSets)
 
 responseGetMembers :: GetMembersResponse -> TestTree
@@ -1114,7 +1114,7 @@ responseGetMembers =
   res
     "GetMembersResponse"
     "fixture/GetMembersResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetMembers)
 
 responseDescribePublishingDestination :: DescribePublishingDestinationResponse -> TestTree
@@ -1122,7 +1122,7 @@ responseDescribePublishingDestination =
   res
     "DescribePublishingDestinationResponse"
     "fixture/DescribePublishingDestinationResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DescribePublishingDestination)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1130,7 +1130,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseGetFindings :: GetFindingsResponse -> TestTree
@@ -1138,7 +1138,7 @@ responseGetFindings =
   res
     "GetFindingsResponse"
     "fixture/GetFindingsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetFindings)
 
 responseListDetectors :: ListDetectorsResponse -> TestTree
@@ -1146,7 +1146,7 @@ responseListDetectors =
   res
     "ListDetectorsResponse"
     "fixture/ListDetectorsResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy ListDetectors)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1154,7 +1154,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseUpdateDetector :: UpdateDetectorResponse -> TestTree
@@ -1162,7 +1162,7 @@ responseUpdateDetector =
   res
     "UpdateDetectorResponse"
     "fixture/UpdateDetectorResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDetector)
 
 responseDeleteDetector :: DeleteDetectorResponse -> TestTree
@@ -1170,7 +1170,7 @@ responseDeleteDetector =
   res
     "DeleteDetectorResponse"
     "fixture/DeleteDetectorResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDetector)
 
 responseUpdateFindingsFeedback :: UpdateFindingsFeedbackResponse -> TestTree
@@ -1178,7 +1178,7 @@ responseUpdateFindingsFeedback =
   res
     "UpdateFindingsFeedbackResponse"
     "fixture/UpdateFindingsFeedbackResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy UpdateFindingsFeedback)
 
 responseGetFilter :: GetFilterResponse -> TestTree
@@ -1186,7 +1186,7 @@ responseGetFilter =
   res
     "GetFilterResponse"
     "fixture/GetFilterResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy GetFilter)
 
 responseDisableOrganizationAdminAccount :: DisableOrganizationAdminAccountResponse -> TestTree
@@ -1194,5 +1194,5 @@ responseDisableOrganizationAdminAccount =
   res
     "DisableOrganizationAdminAccountResponse"
     "fixture/DisableOrganizationAdminAccountResponse.proto"
-    guardDutyService
+    mkServiceConfig
     (Proxy :: Proxy DisableOrganizationAdminAccount)

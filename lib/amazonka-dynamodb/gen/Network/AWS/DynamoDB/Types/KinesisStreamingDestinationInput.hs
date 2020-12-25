@@ -17,59 +17,55 @@ module Network.AWS.DynamoDB.Types.KinesisStreamingDestinationInput
     mkKinesisStreamingDestinationInput,
 
     -- * Lenses
-    ksdiStreamARN,
     ksdiTableName,
+    ksdiStreamArn,
   )
 where
 
+import qualified Network.AWS.DynamoDB.Types.StreamArn as Types
+import qualified Network.AWS.DynamoDB.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkKinesisStreamingDestinationInput' smart constructor.
 data KinesisStreamingDestinationInput = KinesisStreamingDestinationInput'
-  { -- | The ARN for a Kinesis data stream.
-    streamARN :: Lude.Text,
-    -- | The name of the DynamoDB table.
-    tableName :: Lude.Text
+  { -- | The name of the DynamoDB table.
+    tableName :: Types.TableName,
+    -- | The ARN for a Kinesis data stream.
+    streamArn :: Types.StreamArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisStreamingDestinationInput' with the minimum fields required to make a request.
---
--- * 'streamARN' - The ARN for a Kinesis data stream.
--- * 'tableName' - The name of the DynamoDB table.
+-- | Creates a 'KinesisStreamingDestinationInput' value with any optional fields omitted.
 mkKinesisStreamingDestinationInput ::
-  -- | 'streamARN'
-  Lude.Text ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
+  -- | 'streamArn'
+  Types.StreamArn ->
   KinesisStreamingDestinationInput
-mkKinesisStreamingDestinationInput pStreamARN_ pTableName_ =
-  KinesisStreamingDestinationInput'
-    { streamARN = pStreamARN_,
-      tableName = pTableName_
-    }
-
--- | The ARN for a Kinesis data stream.
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksdiStreamARN :: Lens.Lens' KinesisStreamingDestinationInput Lude.Text
-ksdiStreamARN = Lens.lens (streamARN :: KinesisStreamingDestinationInput -> Lude.Text) (\s a -> s {streamARN = a} :: KinesisStreamingDestinationInput)
-{-# DEPRECATED ksdiStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+mkKinesisStreamingDestinationInput tableName streamArn =
+  KinesisStreamingDestinationInput' {tableName, streamArn}
 
 -- | The name of the DynamoDB table.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksdiTableName :: Lens.Lens' KinesisStreamingDestinationInput Lude.Text
-ksdiTableName = Lens.lens (tableName :: KinesisStreamingDestinationInput -> Lude.Text) (\s a -> s {tableName = a} :: KinesisStreamingDestinationInput)
+ksdiTableName :: Lens.Lens' KinesisStreamingDestinationInput Types.TableName
+ksdiTableName = Lens.field @"tableName"
 {-# DEPRECATED ksdiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.ToJSON KinesisStreamingDestinationInput where
-  toJSON KinesisStreamingDestinationInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("StreamArn" Lude..= streamARN),
-            Lude.Just ("TableName" Lude..= tableName)
+-- | The ARN for a Kinesis data stream.
+--
+-- /Note:/ Consider using 'streamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksdiStreamArn :: Lens.Lens' KinesisStreamingDestinationInput Types.StreamArn
+ksdiStreamArn = Lens.field @"streamArn"
+{-# DEPRECATED ksdiStreamArn "Use generic-lens or generic-optics with 'streamArn' instead." #-}
+
+instance Core.FromJSON KinesisStreamingDestinationInput where
+  toJSON KinesisStreamingDestinationInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            Core.Just ("StreamArn" Core..= streamArn)
           ]
       )

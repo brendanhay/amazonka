@@ -13,112 +13,117 @@
 module Network.AWS.MediaConvert.Types.AudioChannelTag
   ( AudioChannelTag
       ( AudioChannelTag',
-        L,
-        R,
-        C,
-        Lfe,
-        LS,
-        RS,
-        LC,
-        RC,
-        CS,
-        Lsd,
-        Rsd,
-        Tcs,
-        Vhl,
-        Vhc,
-        Vhr
+        AudioChannelTagL,
+        AudioChannelTagR,
+        AudioChannelTagC,
+        AudioChannelTagLfe,
+        AudioChannelTagLS,
+        AudioChannelTagRS,
+        AudioChannelTagLC,
+        AudioChannelTagRC,
+        AudioChannelTagCS,
+        AudioChannelTagLsd,
+        AudioChannelTagRsd,
+        AudioChannelTagTcs,
+        AudioChannelTagVhl,
+        AudioChannelTagVhc,
+        AudioChannelTagVhr,
+        fromAudioChannelTag
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
-newtype AudioChannelTag = AudioChannelTag' Lude.Text
+newtype AudioChannelTag = AudioChannelTag'
+  { fromAudioChannelTag ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern L :: AudioChannelTag
-pattern L = AudioChannelTag' "L"
+pattern AudioChannelTagL :: AudioChannelTag
+pattern AudioChannelTagL = AudioChannelTag' "L"
 
-pattern R :: AudioChannelTag
-pattern R = AudioChannelTag' "R"
+pattern AudioChannelTagR :: AudioChannelTag
+pattern AudioChannelTagR = AudioChannelTag' "R"
 
-pattern C :: AudioChannelTag
-pattern C = AudioChannelTag' "C"
+pattern AudioChannelTagC :: AudioChannelTag
+pattern AudioChannelTagC = AudioChannelTag' "C"
 
-pattern Lfe :: AudioChannelTag
-pattern Lfe = AudioChannelTag' "LFE"
+pattern AudioChannelTagLfe :: AudioChannelTag
+pattern AudioChannelTagLfe = AudioChannelTag' "LFE"
 
-pattern LS :: AudioChannelTag
-pattern LS = AudioChannelTag' "LS"
+pattern AudioChannelTagLS :: AudioChannelTag
+pattern AudioChannelTagLS = AudioChannelTag' "LS"
 
-pattern RS :: AudioChannelTag
-pattern RS = AudioChannelTag' "RS"
+pattern AudioChannelTagRS :: AudioChannelTag
+pattern AudioChannelTagRS = AudioChannelTag' "RS"
 
-pattern LC :: AudioChannelTag
-pattern LC = AudioChannelTag' "LC"
+pattern AudioChannelTagLC :: AudioChannelTag
+pattern AudioChannelTagLC = AudioChannelTag' "LC"
 
-pattern RC :: AudioChannelTag
-pattern RC = AudioChannelTag' "RC"
+pattern AudioChannelTagRC :: AudioChannelTag
+pattern AudioChannelTagRC = AudioChannelTag' "RC"
 
-pattern CS :: AudioChannelTag
-pattern CS = AudioChannelTag' "CS"
+pattern AudioChannelTagCS :: AudioChannelTag
+pattern AudioChannelTagCS = AudioChannelTag' "CS"
 
-pattern Lsd :: AudioChannelTag
-pattern Lsd = AudioChannelTag' "LSD"
+pattern AudioChannelTagLsd :: AudioChannelTag
+pattern AudioChannelTagLsd = AudioChannelTag' "LSD"
 
-pattern Rsd :: AudioChannelTag
-pattern Rsd = AudioChannelTag' "RSD"
+pattern AudioChannelTagRsd :: AudioChannelTag
+pattern AudioChannelTagRsd = AudioChannelTag' "RSD"
 
-pattern Tcs :: AudioChannelTag
-pattern Tcs = AudioChannelTag' "TCS"
+pattern AudioChannelTagTcs :: AudioChannelTag
+pattern AudioChannelTagTcs = AudioChannelTag' "TCS"
 
-pattern Vhl :: AudioChannelTag
-pattern Vhl = AudioChannelTag' "VHL"
+pattern AudioChannelTagVhl :: AudioChannelTag
+pattern AudioChannelTagVhl = AudioChannelTag' "VHL"
 
-pattern Vhc :: AudioChannelTag
-pattern Vhc = AudioChannelTag' "VHC"
+pattern AudioChannelTagVhc :: AudioChannelTag
+pattern AudioChannelTagVhc = AudioChannelTag' "VHC"
 
-pattern Vhr :: AudioChannelTag
-pattern Vhr = AudioChannelTag' "VHR"
+pattern AudioChannelTagVhr :: AudioChannelTag
+pattern AudioChannelTagVhr = AudioChannelTag' "VHR"
 
 {-# COMPLETE
-  L,
-  R,
-  C,
-  Lfe,
-  LS,
-  RS,
-  LC,
-  RC,
-  CS,
-  Lsd,
-  Rsd,
-  Tcs,
-  Vhl,
-  Vhc,
-  Vhr,
+  AudioChannelTagL,
+  AudioChannelTagR,
+  AudioChannelTagC,
+  AudioChannelTagLfe,
+  AudioChannelTagLS,
+  AudioChannelTagRS,
+  AudioChannelTagLC,
+  AudioChannelTagRC,
+  AudioChannelTagCS,
+  AudioChannelTagLsd,
+  AudioChannelTagRsd,
+  AudioChannelTagTcs,
+  AudioChannelTagVhl,
+  AudioChannelTagVhc,
+  AudioChannelTagVhr,
   AudioChannelTag'
   #-}

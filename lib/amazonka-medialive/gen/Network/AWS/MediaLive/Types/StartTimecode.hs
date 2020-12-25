@@ -17,44 +17,41 @@ module Network.AWS.MediaLive.Types.StartTimecode
     mkStartTimecode,
 
     -- * Lenses
-    sTimecode,
+    stTimecode,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings to identify the start of the clip.
 --
 -- /See:/ 'mkStartTimecode' smart constructor.
 newtype StartTimecode = StartTimecode'
   { -- | The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-    timecode :: Lude.Maybe Lude.Text
+    timecode :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartTimecode' with the minimum fields required to make a request.
---
--- * 'timecode' - The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+-- | Creates a 'StartTimecode' value with any optional fields omitted.
 mkStartTimecode ::
   StartTimecode
-mkStartTimecode = StartTimecode' {timecode = Lude.Nothing}
+mkStartTimecode = StartTimecode' {timecode = Core.Nothing}
 
 -- | The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
 --
 -- /Note:/ Consider using 'timecode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTimecode :: Lens.Lens' StartTimecode (Lude.Maybe Lude.Text)
-sTimecode = Lens.lens (timecode :: StartTimecode -> Lude.Maybe Lude.Text) (\s a -> s {timecode = a} :: StartTimecode)
-{-# DEPRECATED sTimecode "Use generic-lens or generic-optics with 'timecode' instead." #-}
+stTimecode :: Lens.Lens' StartTimecode (Core.Maybe Core.Text)
+stTimecode = Lens.field @"timecode"
+{-# DEPRECATED stTimecode "Use generic-lens or generic-optics with 'timecode' instead." #-}
 
-instance Lude.FromJSON StartTimecode where
+instance Core.FromJSON StartTimecode where
+  toJSON StartTimecode {..} =
+    Core.object
+      (Core.catMaybes [("timecode" Core..=) Core.<$> timecode])
+
+instance Core.FromJSON StartTimecode where
   parseJSON =
-    Lude.withObject
-      "StartTimecode"
-      (\x -> StartTimecode' Lude.<$> (x Lude..:? "timecode"))
-
-instance Lude.ToJSON StartTimecode where
-  toJSON StartTimecode' {..} =
-    Lude.object
-      (Lude.catMaybes [("timecode" Lude..=) Lude.<$> timecode])
+    Core.withObject "StartTimecode" Core.$
+      \x -> StartTimecode' Core.<$> (x Core..:? "timecode")

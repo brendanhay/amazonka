@@ -18,24 +18,23 @@ module Network.AWS.MachineLearning.Types.RealtimeEndpointInfo
 
     -- * Lenses
     reiCreatedAt,
-    reiEndpointURL,
     reiEndpointStatus,
+    reiEndpointUrl,
     reiPeakRequestsPerSecond,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types.RealtimeEndpointStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MachineLearning.Types.EndpointUrl as Types
+import qualified Network.AWS.MachineLearning.Types.RealtimeEndpointStatus as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the real-time endpoint information for an @MLModel@ .
 --
 -- /See:/ 'mkRealtimeEndpointInfo' smart constructor.
 data RealtimeEndpointInfo = RealtimeEndpointInfo'
   { -- | The time that the request to create the real-time endpoint for the @MLModel@ was received. The time is expressed in epoch time.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The URI that specifies where to send real-time prediction requests for the @MLModel@ .
-    endpointURL :: Lude.Maybe Lude.Text,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The current status of the real-time endpoint for the @MLModel@ . This element can have one of the following values:
     --
     --
@@ -44,50 +43,32 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
     --     * @READY@ - Endpoint is ready to be used for real-time predictions.
     --
     --     * @UPDATING@ - Updating/creating the endpoint.
-    endpointStatus :: Lude.Maybe RealtimeEndpointStatus,
+    endpointStatus :: Core.Maybe Types.RealtimeEndpointStatus,
+    -- | The URI that specifies where to send real-time prediction requests for the @MLModel@ .
+    endpointUrl :: Core.Maybe Types.EndpointUrl,
     -- | The maximum processing rate for the real-time endpoint for @MLModel@ , measured in incoming requests per second.
-    peakRequestsPerSecond :: Lude.Maybe Lude.Int
+    peakRequestsPerSecond :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RealtimeEndpointInfo' with the minimum fields required to make a request.
---
--- * 'createdAt' - The time that the request to create the real-time endpoint for the @MLModel@ was received. The time is expressed in epoch time.
--- * 'endpointURL' - The URI that specifies where to send real-time prediction requests for the @MLModel@ .
--- * 'endpointStatus' - The current status of the real-time endpoint for the @MLModel@ . This element can have one of the following values:
---
---
---     * @NONE@ - Endpoint does not exist or was previously deleted.
---
---     * @READY@ - Endpoint is ready to be used for real-time predictions.
---
---     * @UPDATING@ - Updating/creating the endpoint.
---
--- * 'peakRequestsPerSecond' - The maximum processing rate for the real-time endpoint for @MLModel@ , measured in incoming requests per second.
+-- | Creates a 'RealtimeEndpointInfo' value with any optional fields omitted.
 mkRealtimeEndpointInfo ::
   RealtimeEndpointInfo
 mkRealtimeEndpointInfo =
   RealtimeEndpointInfo'
-    { createdAt = Lude.Nothing,
-      endpointURL = Lude.Nothing,
-      endpointStatus = Lude.Nothing,
-      peakRequestsPerSecond = Lude.Nothing
+    { createdAt = Core.Nothing,
+      endpointStatus = Core.Nothing,
+      endpointUrl = Core.Nothing,
+      peakRequestsPerSecond = Core.Nothing
     }
 
 -- | The time that the request to create the real-time endpoint for the @MLModel@ was received. The time is expressed in epoch time.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reiCreatedAt :: Lens.Lens' RealtimeEndpointInfo (Lude.Maybe Lude.Timestamp)
-reiCreatedAt = Lens.lens (createdAt :: RealtimeEndpointInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: RealtimeEndpointInfo)
+reiCreatedAt :: Lens.Lens' RealtimeEndpointInfo (Core.Maybe Core.NominalDiffTime)
+reiCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED reiCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The URI that specifies where to send real-time prediction requests for the @MLModel@ .
---
--- /Note:/ Consider using 'endpointURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reiEndpointURL :: Lens.Lens' RealtimeEndpointInfo (Lude.Maybe Lude.Text)
-reiEndpointURL = Lens.lens (endpointURL :: RealtimeEndpointInfo -> Lude.Maybe Lude.Text) (\s a -> s {endpointURL = a} :: RealtimeEndpointInfo)
-{-# DEPRECATED reiEndpointURL "Use generic-lens or generic-optics with 'endpointURL' instead." #-}
 
 -- | The current status of the real-time endpoint for the @MLModel@ . This element can have one of the following values:
 --
@@ -100,25 +81,30 @@ reiEndpointURL = Lens.lens (endpointURL :: RealtimeEndpointInfo -> Lude.Maybe Lu
 --
 --
 -- /Note:/ Consider using 'endpointStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reiEndpointStatus :: Lens.Lens' RealtimeEndpointInfo (Lude.Maybe RealtimeEndpointStatus)
-reiEndpointStatus = Lens.lens (endpointStatus :: RealtimeEndpointInfo -> Lude.Maybe RealtimeEndpointStatus) (\s a -> s {endpointStatus = a} :: RealtimeEndpointInfo)
+reiEndpointStatus :: Lens.Lens' RealtimeEndpointInfo (Core.Maybe Types.RealtimeEndpointStatus)
+reiEndpointStatus = Lens.field @"endpointStatus"
 {-# DEPRECATED reiEndpointStatus "Use generic-lens or generic-optics with 'endpointStatus' instead." #-}
+
+-- | The URI that specifies where to send real-time prediction requests for the @MLModel@ .
+--
+-- /Note:/ Consider using 'endpointUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reiEndpointUrl :: Lens.Lens' RealtimeEndpointInfo (Core.Maybe Types.EndpointUrl)
+reiEndpointUrl = Lens.field @"endpointUrl"
+{-# DEPRECATED reiEndpointUrl "Use generic-lens or generic-optics with 'endpointUrl' instead." #-}
 
 -- | The maximum processing rate for the real-time endpoint for @MLModel@ , measured in incoming requests per second.
 --
 -- /Note:/ Consider using 'peakRequestsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reiPeakRequestsPerSecond :: Lens.Lens' RealtimeEndpointInfo (Lude.Maybe Lude.Int)
-reiPeakRequestsPerSecond = Lens.lens (peakRequestsPerSecond :: RealtimeEndpointInfo -> Lude.Maybe Lude.Int) (\s a -> s {peakRequestsPerSecond = a} :: RealtimeEndpointInfo)
+reiPeakRequestsPerSecond :: Lens.Lens' RealtimeEndpointInfo (Core.Maybe Core.Int)
+reiPeakRequestsPerSecond = Lens.field @"peakRequestsPerSecond"
 {-# DEPRECATED reiPeakRequestsPerSecond "Use generic-lens or generic-optics with 'peakRequestsPerSecond' instead." #-}
 
-instance Lude.FromJSON RealtimeEndpointInfo where
+instance Core.FromJSON RealtimeEndpointInfo where
   parseJSON =
-    Lude.withObject
-      "RealtimeEndpointInfo"
-      ( \x ->
-          RealtimeEndpointInfo'
-            Lude.<$> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "EndpointUrl")
-            Lude.<*> (x Lude..:? "EndpointStatus")
-            Lude.<*> (x Lude..:? "PeakRequestsPerSecond")
-      )
+    Core.withObject "RealtimeEndpointInfo" Core.$
+      \x ->
+        RealtimeEndpointInfo'
+          Core.<$> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "EndpointStatus")
+          Core.<*> (x Core..:? "EndpointUrl")
+          Core.<*> (x Core..:? "PeakRequestsPerSecond")

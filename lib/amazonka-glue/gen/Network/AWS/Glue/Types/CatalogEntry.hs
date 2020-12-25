@@ -22,56 +22,52 @@ module Network.AWS.Glue.Types.CatalogEntry
   )
 where
 
+import qualified Network.AWS.Glue.Types.DatabaseName as Types
+import qualified Network.AWS.Glue.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a table definition in the AWS Glue Data Catalog.
 --
 -- /See:/ 'mkCatalogEntry' smart constructor.
 data CatalogEntry = CatalogEntry'
   { -- | The database in which the table metadata resides.
-    databaseName :: Lude.Text,
+    databaseName :: Types.DatabaseName,
     -- | The name of the table in question.
-    tableName :: Lude.Text
+    tableName :: Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CatalogEntry' with the minimum fields required to make a request.
---
--- * 'databaseName' - The database in which the table metadata resides.
--- * 'tableName' - The name of the table in question.
+-- | Creates a 'CatalogEntry' value with any optional fields omitted.
 mkCatalogEntry ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   CatalogEntry
-mkCatalogEntry pDatabaseName_ pTableName_ =
-  CatalogEntry'
-    { databaseName = pDatabaseName_,
-      tableName = pTableName_
-    }
+mkCatalogEntry databaseName tableName =
+  CatalogEntry' {databaseName, tableName}
 
 -- | The database in which the table metadata resides.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceDatabaseName :: Lens.Lens' CatalogEntry Lude.Text
-ceDatabaseName = Lens.lens (databaseName :: CatalogEntry -> Lude.Text) (\s a -> s {databaseName = a} :: CatalogEntry)
+ceDatabaseName :: Lens.Lens' CatalogEntry Types.DatabaseName
+ceDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED ceDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table in question.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceTableName :: Lens.Lens' CatalogEntry Lude.Text
-ceTableName = Lens.lens (tableName :: CatalogEntry -> Lude.Text) (\s a -> s {tableName = a} :: CatalogEntry)
+ceTableName :: Lens.Lens' CatalogEntry Types.TableName
+ceTableName = Lens.field @"tableName"
 {-# DEPRECATED ceTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.ToJSON CatalogEntry where
-  toJSON CatalogEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName)
+instance Core.FromJSON CatalogEntry where
+  toJSON CatalogEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName)
           ]
       )

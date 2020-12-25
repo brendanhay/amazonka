@@ -44,61 +44,51 @@ module Network.AWS.SWF.PollForActivityTask
     mkPollForActivityTaskResponse,
 
     -- ** Response lenses
-    pfatrsActivityType,
-    pfatrsActivityId,
-    pfatrsInput,
-    pfatrsStartedEventId,
-    pfatrsTaskToken,
-    pfatrsWorkflowExecution,
-    pfatrsResponseStatus,
+    pfatrrsTaskToken,
+    pfatrrsActivityId,
+    pfatrrsStartedEventId,
+    pfatrrsWorkflowExecution,
+    pfatrrsActivityType,
+    pfatrrsInput,
+    pfatrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkPollForActivityTask' smart constructor.
 data PollForActivityTask = PollForActivityTask'
   { -- | The name of the domain that contains the task lists being polled.
-    domain :: Lude.Text,
+    domain :: Types.Domain,
     -- | Specifies the task list to poll for activity tasks.
     --
     -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
-    taskList :: TaskList,
+    taskList :: Types.TaskList,
     -- | Identity of the worker making the request, recorded in the @ActivityTaskStarted@ event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
-    identity :: Lude.Maybe Lude.Text
+    identity :: Core.Maybe Types.Identity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PollForActivityTask' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain that contains the task lists being polled.
--- * 'taskList' - Specifies the task list to poll for activity tasks.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
--- * 'identity' - Identity of the worker making the request, recorded in the @ActivityTaskStarted@ event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
+-- | Creates a 'PollForActivityTask' value with any optional fields omitted.
 mkPollForActivityTask ::
   -- | 'domain'
-  Lude.Text ->
+  Types.Domain ->
   -- | 'taskList'
-  TaskList ->
+  Types.TaskList ->
   PollForActivityTask
-mkPollForActivityTask pDomain_ pTaskList_ =
-  PollForActivityTask'
-    { domain = pDomain_,
-      taskList = pTaskList_,
-      identity = Lude.Nothing
-    }
+mkPollForActivityTask domain taskList =
+  PollForActivityTask' {domain, taskList, identity = Core.Nothing}
 
 -- | The name of the domain that contains the task lists being polled.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatDomain :: Lens.Lens' PollForActivityTask Lude.Text
-pfatDomain = Lens.lens (domain :: PollForActivityTask -> Lude.Text) (\s a -> s {domain = a} :: PollForActivityTask)
+pfatDomain :: Lens.Lens' PollForActivityTask Types.Domain
+pfatDomain = Lens.field @"domain"
 {-# DEPRECATED pfatDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | Specifies the task list to poll for activity tasks.
@@ -106,153 +96,139 @@ pfatDomain = Lens.lens (domain :: PollForActivityTask -> Lude.Text) (\s a -> s {
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
 --
 -- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatTaskList :: Lens.Lens' PollForActivityTask TaskList
-pfatTaskList = Lens.lens (taskList :: PollForActivityTask -> TaskList) (\s a -> s {taskList = a} :: PollForActivityTask)
+pfatTaskList :: Lens.Lens' PollForActivityTask Types.TaskList
+pfatTaskList = Lens.field @"taskList"
 {-# DEPRECATED pfatTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
 
 -- | Identity of the worker making the request, recorded in the @ActivityTaskStarted@ event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
 --
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatIdentity :: Lens.Lens' PollForActivityTask (Lude.Maybe Lude.Text)
-pfatIdentity = Lens.lens (identity :: PollForActivityTask -> Lude.Maybe Lude.Text) (\s a -> s {identity = a} :: PollForActivityTask)
+pfatIdentity :: Lens.Lens' PollForActivityTask (Core.Maybe Types.Identity)
+pfatIdentity = Lens.field @"identity"
 {-# DEPRECATED pfatIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
-instance Lude.AWSRequest PollForActivityTask where
+instance Core.FromJSON PollForActivityTask where
+  toJSON PollForActivityTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("taskList" Core..= taskList),
+            ("identity" Core..=) Core.<$> identity
+          ]
+      )
+
+instance Core.AWSRequest PollForActivityTask where
   type Rs PollForActivityTask = PollForActivityTaskResponse
-  request = Req.postJSON swfService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.PollForActivityTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PollForActivityTaskResponse'
-            Lude.<$> (x Lude..?> "activityType")
-            Lude.<*> (x Lude..?> "activityId")
-            Lude.<*> (x Lude..?> "input")
-            Lude.<*> (x Lude..:> "startedEventId")
-            Lude.<*> (x Lude..?> "taskToken")
-            Lude.<*> (x Lude..?> "workflowExecution")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "taskToken")
+            Core.<*> (x Core..:? "activityId")
+            Core.<*> (x Core..: "startedEventId")
+            Core.<*> (x Core..:? "workflowExecution")
+            Core.<*> (x Core..:? "activityType")
+            Core.<*> (x Core..:? "input")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PollForActivityTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SimpleWorkflowService.PollForActivityTask" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PollForActivityTask where
-  toJSON PollForActivityTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("taskList" Lude..= taskList),
-            ("identity" Lude..=) Lude.<$> identity
-          ]
-      )
-
-instance Lude.ToPath PollForActivityTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PollForActivityTask where
-  toQuery = Lude.const Lude.mempty
 
 -- | Unit of work sent to an activity worker.
 --
 -- /See:/ 'mkPollForActivityTaskResponse' smart constructor.
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
-  { -- | The type of this activity task.
-    activityType :: Lude.Maybe ActivityType,
+  { -- | The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
+    taskToken :: Core.Maybe Types.TaskToken,
     -- | The unique ID of the task.
-    activityId :: Lude.Maybe Lude.Text,
-    -- | The inputs provided when the activity task was scheduled. The form of the input is user defined and should be meaningful to the activity implementation.
-    input :: Lude.Maybe Lude.Text,
+    activityId :: Core.Maybe Types.ActivityId,
     -- | The ID of the @ActivityTaskStarted@ event recorded in the history.
-    startedEventId :: Lude.Integer,
-    -- | The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
-    taskToken :: Lude.Maybe Lude.Text,
+    startedEventId :: Core.Integer,
     -- | The workflow execution that started this activity task.
-    workflowExecution :: Lude.Maybe WorkflowExecution,
+    workflowExecution :: Core.Maybe Types.WorkflowExecution,
+    -- | The type of this activity task.
+    activityType :: Core.Maybe Types.ActivityType,
+    -- | The inputs provided when the activity task was scheduled. The form of the input is user defined and should be meaningful to the activity implementation.
+    input :: Core.Maybe Types.Data,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PollForActivityTaskResponse' with the minimum fields required to make a request.
---
--- * 'activityType' - The type of this activity task.
--- * 'activityId' - The unique ID of the task.
--- * 'input' - The inputs provided when the activity task was scheduled. The form of the input is user defined and should be meaningful to the activity implementation.
--- * 'startedEventId' - The ID of the @ActivityTaskStarted@ event recorded in the history.
--- * 'taskToken' - The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
--- * 'workflowExecution' - The workflow execution that started this activity task.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PollForActivityTaskResponse' value with any optional fields omitted.
 mkPollForActivityTaskResponse ::
   -- | 'startedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PollForActivityTaskResponse
-mkPollForActivityTaskResponse pStartedEventId_ pResponseStatus_ =
+mkPollForActivityTaskResponse startedEventId responseStatus =
   PollForActivityTaskResponse'
-    { activityType = Lude.Nothing,
-      activityId = Lude.Nothing,
-      input = Lude.Nothing,
-      startedEventId = pStartedEventId_,
-      taskToken = Lude.Nothing,
-      workflowExecution = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { taskToken = Core.Nothing,
+      activityId = Core.Nothing,
+      startedEventId,
+      workflowExecution = Core.Nothing,
+      activityType = Core.Nothing,
+      input = Core.Nothing,
+      responseStatus
     }
-
--- | The type of this activity task.
---
--- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatrsActivityType :: Lens.Lens' PollForActivityTaskResponse (Lude.Maybe ActivityType)
-pfatrsActivityType = Lens.lens (activityType :: PollForActivityTaskResponse -> Lude.Maybe ActivityType) (\s a -> s {activityType = a} :: PollForActivityTaskResponse)
-{-# DEPRECATED pfatrsActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
-
--- | The unique ID of the task.
---
--- /Note:/ Consider using 'activityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatrsActivityId :: Lens.Lens' PollForActivityTaskResponse (Lude.Maybe Lude.Text)
-pfatrsActivityId = Lens.lens (activityId :: PollForActivityTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {activityId = a} :: PollForActivityTaskResponse)
-{-# DEPRECATED pfatrsActivityId "Use generic-lens or generic-optics with 'activityId' instead." #-}
-
--- | The inputs provided when the activity task was scheduled. The form of the input is user defined and should be meaningful to the activity implementation.
---
--- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatrsInput :: Lens.Lens' PollForActivityTaskResponse (Lude.Maybe Lude.Text)
-pfatrsInput = Lens.lens (input :: PollForActivityTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {input = a} :: PollForActivityTaskResponse)
-{-# DEPRECATED pfatrsInput "Use generic-lens or generic-optics with 'input' instead." #-}
-
--- | The ID of the @ActivityTaskStarted@ event recorded in the history.
---
--- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatrsStartedEventId :: Lens.Lens' PollForActivityTaskResponse Lude.Integer
-pfatrsStartedEventId = Lens.lens (startedEventId :: PollForActivityTaskResponse -> Lude.Integer) (\s a -> s {startedEventId = a} :: PollForActivityTaskResponse)
-{-# DEPRECATED pfatrsStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
 
 -- | The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
 --
 -- /Note:/ Consider using 'taskToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatrsTaskToken :: Lens.Lens' PollForActivityTaskResponse (Lude.Maybe Lude.Text)
-pfatrsTaskToken = Lens.lens (taskToken :: PollForActivityTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskToken = a} :: PollForActivityTaskResponse)
-{-# DEPRECATED pfatrsTaskToken "Use generic-lens or generic-optics with 'taskToken' instead." #-}
+pfatrrsTaskToken :: Lens.Lens' PollForActivityTaskResponse (Core.Maybe Types.TaskToken)
+pfatrrsTaskToken = Lens.field @"taskToken"
+{-# DEPRECATED pfatrrsTaskToken "Use generic-lens or generic-optics with 'taskToken' instead." #-}
+
+-- | The unique ID of the task.
+--
+-- /Note:/ Consider using 'activityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfatrrsActivityId :: Lens.Lens' PollForActivityTaskResponse (Core.Maybe Types.ActivityId)
+pfatrrsActivityId = Lens.field @"activityId"
+{-# DEPRECATED pfatrrsActivityId "Use generic-lens or generic-optics with 'activityId' instead." #-}
+
+-- | The ID of the @ActivityTaskStarted@ event recorded in the history.
+--
+-- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfatrrsStartedEventId :: Lens.Lens' PollForActivityTaskResponse Core.Integer
+pfatrrsStartedEventId = Lens.field @"startedEventId"
+{-# DEPRECATED pfatrrsStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
 
 -- | The workflow execution that started this activity task.
 --
 -- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatrsWorkflowExecution :: Lens.Lens' PollForActivityTaskResponse (Lude.Maybe WorkflowExecution)
-pfatrsWorkflowExecution = Lens.lens (workflowExecution :: PollForActivityTaskResponse -> Lude.Maybe WorkflowExecution) (\s a -> s {workflowExecution = a} :: PollForActivityTaskResponse)
-{-# DEPRECATED pfatrsWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
+pfatrrsWorkflowExecution :: Lens.Lens' PollForActivityTaskResponse (Core.Maybe Types.WorkflowExecution)
+pfatrrsWorkflowExecution = Lens.field @"workflowExecution"
+{-# DEPRECATED pfatrrsWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
+
+-- | The type of this activity task.
+--
+-- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfatrrsActivityType :: Lens.Lens' PollForActivityTaskResponse (Core.Maybe Types.ActivityType)
+pfatrrsActivityType = Lens.field @"activityType"
+{-# DEPRECATED pfatrrsActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
+
+-- | The inputs provided when the activity task was scheduled. The form of the input is user defined and should be meaningful to the activity implementation.
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfatrrsInput :: Lens.Lens' PollForActivityTaskResponse (Core.Maybe Types.Data)
+pfatrrsInput = Lens.field @"input"
+{-# DEPRECATED pfatrrsInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfatrsResponseStatus :: Lens.Lens' PollForActivityTaskResponse Lude.Int
-pfatrsResponseStatus = Lens.lens (responseStatus :: PollForActivityTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PollForActivityTaskResponse)
-{-# DEPRECATED pfatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pfatrrsResponseStatus :: Lens.Lens' PollForActivityTaskResponse Core.Int
+pfatrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pfatrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

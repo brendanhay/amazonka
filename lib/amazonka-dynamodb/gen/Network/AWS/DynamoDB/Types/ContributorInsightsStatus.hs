@@ -13,61 +13,66 @@
 module Network.AWS.DynamoDB.Types.ContributorInsightsStatus
   ( ContributorInsightsStatus
       ( ContributorInsightsStatus',
-        CISEnabling,
-        CISEnabled,
-        CISDisabling,
-        CISDisabled,
-        CISFailed
+        ContributorInsightsStatusEnabling,
+        ContributorInsightsStatusEnabled,
+        ContributorInsightsStatusDisabling,
+        ContributorInsightsStatusDisabled,
+        ContributorInsightsStatusFailed,
+        fromContributorInsightsStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContributorInsightsStatus = ContributorInsightsStatus' Lude.Text
+newtype ContributorInsightsStatus = ContributorInsightsStatus'
+  { fromContributorInsightsStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CISEnabling :: ContributorInsightsStatus
-pattern CISEnabling = ContributorInsightsStatus' "ENABLING"
+pattern ContributorInsightsStatusEnabling :: ContributorInsightsStatus
+pattern ContributorInsightsStatusEnabling = ContributorInsightsStatus' "ENABLING"
 
-pattern CISEnabled :: ContributorInsightsStatus
-pattern CISEnabled = ContributorInsightsStatus' "ENABLED"
+pattern ContributorInsightsStatusEnabled :: ContributorInsightsStatus
+pattern ContributorInsightsStatusEnabled = ContributorInsightsStatus' "ENABLED"
 
-pattern CISDisabling :: ContributorInsightsStatus
-pattern CISDisabling = ContributorInsightsStatus' "DISABLING"
+pattern ContributorInsightsStatusDisabling :: ContributorInsightsStatus
+pattern ContributorInsightsStatusDisabling = ContributorInsightsStatus' "DISABLING"
 
-pattern CISDisabled :: ContributorInsightsStatus
-pattern CISDisabled = ContributorInsightsStatus' "DISABLED"
+pattern ContributorInsightsStatusDisabled :: ContributorInsightsStatus
+pattern ContributorInsightsStatusDisabled = ContributorInsightsStatus' "DISABLED"
 
-pattern CISFailed :: ContributorInsightsStatus
-pattern CISFailed = ContributorInsightsStatus' "FAILED"
+pattern ContributorInsightsStatusFailed :: ContributorInsightsStatus
+pattern ContributorInsightsStatusFailed = ContributorInsightsStatus' "FAILED"
 
 {-# COMPLETE
-  CISEnabling,
-  CISEnabled,
-  CISDisabling,
-  CISDisabled,
-  CISFailed,
+  ContributorInsightsStatusEnabling,
+  ContributorInsightsStatusEnabled,
+  ContributorInsightsStatusDisabling,
+  ContributorInsightsStatusDisabled,
+  ContributorInsightsStatusFailed,
   ContributorInsightsStatus'
   #-}

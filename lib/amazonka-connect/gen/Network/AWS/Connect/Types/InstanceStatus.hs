@@ -13,51 +13,56 @@
 module Network.AWS.Connect.Types.InstanceStatus
   ( InstanceStatus
       ( InstanceStatus',
-        CreationInProgress,
-        Active,
-        CreationFailed
+        InstanceStatusCreationInProgress,
+        InstanceStatusActive,
+        InstanceStatusCreationFailed,
+        fromInstanceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceStatus = InstanceStatus' Lude.Text
+newtype InstanceStatus = InstanceStatus'
+  { fromInstanceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CreationInProgress :: InstanceStatus
-pattern CreationInProgress = InstanceStatus' "CREATION_IN_PROGRESS"
+pattern InstanceStatusCreationInProgress :: InstanceStatus
+pattern InstanceStatusCreationInProgress = InstanceStatus' "CREATION_IN_PROGRESS"
 
-pattern Active :: InstanceStatus
-pattern Active = InstanceStatus' "ACTIVE"
+pattern InstanceStatusActive :: InstanceStatus
+pattern InstanceStatusActive = InstanceStatus' "ACTIVE"
 
-pattern CreationFailed :: InstanceStatus
-pattern CreationFailed = InstanceStatus' "CREATION_FAILED"
+pattern InstanceStatusCreationFailed :: InstanceStatus
+pattern InstanceStatusCreationFailed = InstanceStatus' "CREATION_FAILED"
 
 {-# COMPLETE
-  CreationInProgress,
-  Active,
-  CreationFailed,
+  InstanceStatusCreationInProgress,
+  InstanceStatusActive,
+  InstanceStatusCreationFailed,
   InstanceStatus'
   #-}

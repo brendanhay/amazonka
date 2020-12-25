@@ -17,23 +17,34 @@ module Network.AWS.RDS.Types.DBClusterBacktrack
     mkDBClusterBacktrack,
 
     -- * Lenses
-    dcbStatus,
-    dcbBacktrackIdentifier,
-    dcbBacktrackTo,
-    dcbDBClusterIdentifier,
-    dcbBacktrackedFrom,
-    dcbBacktrackRequestCreationTime,
+    dbcbBacktrackIdentifier,
+    dbcbBacktrackRequestCreationTime,
+    dbcbBacktrackTo,
+    dbcbBacktrackedFrom,
+    dbcbDBClusterIdentifier,
+    dbcbStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | This data type is used as a response element in the @DescribeDBClusterBacktracks@ action.
 --
 -- /See:/ 'mkDBClusterBacktrack' smart constructor.
 data DBClusterBacktrack = DBClusterBacktrack'
-  { -- | The status of the backtrack. This property returns one of the following values:
+  { -- | Contains the backtrack identifier.
+    backtrackIdentifier :: Core.Maybe Types.String,
+    -- | The timestamp of the time at which the backtrack was requested.
+    backtrackRequestCreationTime :: Core.Maybe Core.UTCTime,
+    -- | The timestamp of the time to which the DB cluster was backtracked.
+    backtrackTo :: Core.Maybe Core.UTCTime,
+    -- | The timestamp of the time from which the DB cluster was backtracked.
+    backtrackedFrom :: Core.Maybe Core.UTCTime,
+    -- | Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
+    dBClusterIdentifier :: Core.Maybe Types.String,
+    -- | The status of the backtrack. This property returns one of the following values:
     --
     --
     --     * @applying@ - The backtrack is currently being applied to or rolled back from the DB cluster.
@@ -46,54 +57,58 @@ data DBClusterBacktrack = DBClusterBacktrack'
     --
     --
     --     * @pending@ - The backtrack is currently pending application to or rollback from the DB cluster.
-    status :: Lude.Maybe Lude.Text,
-    -- | Contains the backtrack identifier.
-    backtrackIdentifier :: Lude.Maybe Lude.Text,
-    -- | The timestamp of the time to which the DB cluster was backtracked.
-    backtrackTo :: Lude.Maybe Lude.DateTime,
-    -- | Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
-    dbClusterIdentifier :: Lude.Maybe Lude.Text,
-    -- | The timestamp of the time from which the DB cluster was backtracked.
-    backtrackedFrom :: Lude.Maybe Lude.DateTime,
-    -- | The timestamp of the time at which the backtrack was requested.
-    backtrackRequestCreationTime :: Lude.Maybe Lude.DateTime
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DBClusterBacktrack' with the minimum fields required to make a request.
---
--- * 'status' - The status of the backtrack. This property returns one of the following values:
---
---
---     * @applying@ - The backtrack is currently being applied to or rolled back from the DB cluster.
---
---
---     * @completed@ - The backtrack has successfully been applied to or rolled back from the DB cluster.
---
---
---     * @failed@ - An error occurred while the backtrack was applied to or rolled back from the DB cluster.
---
---
---     * @pending@ - The backtrack is currently pending application to or rollback from the DB cluster.
---
---
--- * 'backtrackIdentifier' - Contains the backtrack identifier.
--- * 'backtrackTo' - The timestamp of the time to which the DB cluster was backtracked.
--- * 'dbClusterIdentifier' - Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
--- * 'backtrackedFrom' - The timestamp of the time from which the DB cluster was backtracked.
--- * 'backtrackRequestCreationTime' - The timestamp of the time at which the backtrack was requested.
+-- | Creates a 'DBClusterBacktrack' value with any optional fields omitted.
 mkDBClusterBacktrack ::
   DBClusterBacktrack
 mkDBClusterBacktrack =
   DBClusterBacktrack'
-    { status = Lude.Nothing,
-      backtrackIdentifier = Lude.Nothing,
-      backtrackTo = Lude.Nothing,
-      dbClusterIdentifier = Lude.Nothing,
-      backtrackedFrom = Lude.Nothing,
-      backtrackRequestCreationTime = Lude.Nothing
+    { backtrackIdentifier = Core.Nothing,
+      backtrackRequestCreationTime = Core.Nothing,
+      backtrackTo = Core.Nothing,
+      backtrackedFrom = Core.Nothing,
+      dBClusterIdentifier = Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | Contains the backtrack identifier.
+--
+-- /Note:/ Consider using 'backtrackIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcbBacktrackIdentifier :: Lens.Lens' DBClusterBacktrack (Core.Maybe Types.String)
+dbcbBacktrackIdentifier = Lens.field @"backtrackIdentifier"
+{-# DEPRECATED dbcbBacktrackIdentifier "Use generic-lens or generic-optics with 'backtrackIdentifier' instead." #-}
+
+-- | The timestamp of the time at which the backtrack was requested.
+--
+-- /Note:/ Consider using 'backtrackRequestCreationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcbBacktrackRequestCreationTime :: Lens.Lens' DBClusterBacktrack (Core.Maybe Core.UTCTime)
+dbcbBacktrackRequestCreationTime = Lens.field @"backtrackRequestCreationTime"
+{-# DEPRECATED dbcbBacktrackRequestCreationTime "Use generic-lens or generic-optics with 'backtrackRequestCreationTime' instead." #-}
+
+-- | The timestamp of the time to which the DB cluster was backtracked.
+--
+-- /Note:/ Consider using 'backtrackTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcbBacktrackTo :: Lens.Lens' DBClusterBacktrack (Core.Maybe Core.UTCTime)
+dbcbBacktrackTo = Lens.field @"backtrackTo"
+{-# DEPRECATED dbcbBacktrackTo "Use generic-lens or generic-optics with 'backtrackTo' instead." #-}
+
+-- | The timestamp of the time from which the DB cluster was backtracked.
+--
+-- /Note:/ Consider using 'backtrackedFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcbBacktrackedFrom :: Lens.Lens' DBClusterBacktrack (Core.Maybe Core.UTCTime)
+dbcbBacktrackedFrom = Lens.field @"backtrackedFrom"
+{-# DEPRECATED dbcbBacktrackedFrom "Use generic-lens or generic-optics with 'backtrackedFrom' instead." #-}
+
+-- | Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
+--
+-- /Note:/ Consider using 'dBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcbDBClusterIdentifier :: Lens.Lens' DBClusterBacktrack (Core.Maybe Types.String)
+dbcbDBClusterIdentifier = Lens.field @"dBClusterIdentifier"
+{-# DEPRECATED dbcbDBClusterIdentifier "Use generic-lens or generic-optics with 'dBClusterIdentifier' instead." #-}
 
 -- | The status of the backtrack. This property returns one of the following values:
 --
@@ -112,51 +127,16 @@ mkDBClusterBacktrack =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbStatus :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.Text)
-dcbStatus = Lens.lens (status :: DBClusterBacktrack -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBClusterBacktrack)
-{-# DEPRECATED dcbStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+dbcbStatus :: Lens.Lens' DBClusterBacktrack (Core.Maybe Types.String)
+dbcbStatus = Lens.field @"status"
+{-# DEPRECATED dbcbStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | Contains the backtrack identifier.
---
--- /Note:/ Consider using 'backtrackIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbBacktrackIdentifier :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.Text)
-dcbBacktrackIdentifier = Lens.lens (backtrackIdentifier :: DBClusterBacktrack -> Lude.Maybe Lude.Text) (\s a -> s {backtrackIdentifier = a} :: DBClusterBacktrack)
-{-# DEPRECATED dcbBacktrackIdentifier "Use generic-lens or generic-optics with 'backtrackIdentifier' instead." #-}
-
--- | The timestamp of the time to which the DB cluster was backtracked.
---
--- /Note:/ Consider using 'backtrackTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbBacktrackTo :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.DateTime)
-dcbBacktrackTo = Lens.lens (backtrackTo :: DBClusterBacktrack -> Lude.Maybe Lude.DateTime) (\s a -> s {backtrackTo = a} :: DBClusterBacktrack)
-{-# DEPRECATED dcbBacktrackTo "Use generic-lens or generic-optics with 'backtrackTo' instead." #-}
-
--- | Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
---
--- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbDBClusterIdentifier :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.Text)
-dcbDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DBClusterBacktrack -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DBClusterBacktrack)
-{-# DEPRECATED dcbDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
-
--- | The timestamp of the time from which the DB cluster was backtracked.
---
--- /Note:/ Consider using 'backtrackedFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbBacktrackedFrom :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.DateTime)
-dcbBacktrackedFrom = Lens.lens (backtrackedFrom :: DBClusterBacktrack -> Lude.Maybe Lude.DateTime) (\s a -> s {backtrackedFrom = a} :: DBClusterBacktrack)
-{-# DEPRECATED dcbBacktrackedFrom "Use generic-lens or generic-optics with 'backtrackedFrom' instead." #-}
-
--- | The timestamp of the time at which the backtrack was requested.
---
--- /Note:/ Consider using 'backtrackRequestCreationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbBacktrackRequestCreationTime :: Lens.Lens' DBClusterBacktrack (Lude.Maybe Lude.DateTime)
-dcbBacktrackRequestCreationTime = Lens.lens (backtrackRequestCreationTime :: DBClusterBacktrack -> Lude.Maybe Lude.DateTime) (\s a -> s {backtrackRequestCreationTime = a} :: DBClusterBacktrack)
-{-# DEPRECATED dcbBacktrackRequestCreationTime "Use generic-lens or generic-optics with 'backtrackRequestCreationTime' instead." #-}
-
-instance Lude.FromXML DBClusterBacktrack where
+instance Core.FromXML DBClusterBacktrack where
   parseXML x =
     DBClusterBacktrack'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "BacktrackIdentifier")
-      Lude.<*> (x Lude..@? "BacktrackTo")
-      Lude.<*> (x Lude..@? "DBClusterIdentifier")
-      Lude.<*> (x Lude..@? "BacktrackedFrom")
-      Lude.<*> (x Lude..@? "BacktrackRequestCreationTime")
+      Core.<$> (x Core..@? "BacktrackIdentifier")
+      Core.<*> (x Core..@? "BacktrackRequestCreationTime")
+      Core.<*> (x Core..@? "BacktrackTo")
+      Core.<*> (x Core..@? "BacktrackedFrom")
+      Core.<*> (x Core..@? "DBClusterIdentifier")
+      Core.<*> (x Core..@? "Status")

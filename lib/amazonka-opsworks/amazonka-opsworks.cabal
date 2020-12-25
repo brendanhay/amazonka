@@ -46,30 +46,36 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.OpsWorks
     Network.AWS.OpsWorks.AssignInstance
     Network.AWS.OpsWorks.AssignVolume
-    Network.AWS.OpsWorks.AssociateElasticIP
+    Network.AWS.OpsWorks.AssociateElasticIp
     Network.AWS.OpsWorks.AttachElasticLoadBalancer
     Network.AWS.OpsWorks.CloneStack
     Network.AWS.OpsWorks.CreateApp
@@ -84,16 +90,16 @@ library
     Network.AWS.OpsWorks.DeleteStack
     Network.AWS.OpsWorks.DeleteUserProfile
     Network.AWS.OpsWorks.DeregisterEcsCluster
-    Network.AWS.OpsWorks.DeregisterElasticIP
+    Network.AWS.OpsWorks.DeregisterElasticIp
     Network.AWS.OpsWorks.DeregisterInstance
-    Network.AWS.OpsWorks.DeregisterRDSDBInstance
+    Network.AWS.OpsWorks.DeregisterRdsDbInstance
     Network.AWS.OpsWorks.DeregisterVolume
     Network.AWS.OpsWorks.DescribeAgentVersions
     Network.AWS.OpsWorks.DescribeApps
     Network.AWS.OpsWorks.DescribeCommands
     Network.AWS.OpsWorks.DescribeDeployments
     Network.AWS.OpsWorks.DescribeEcsClusters
-    Network.AWS.OpsWorks.DescribeElasticIPs
+    Network.AWS.OpsWorks.DescribeElasticIps
     Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     Network.AWS.OpsWorks.DescribeInstances
     Network.AWS.OpsWorks.DescribeLayers
@@ -101,8 +107,8 @@ library
     Network.AWS.OpsWorks.DescribeMyUserProfile
     Network.AWS.OpsWorks.DescribeOperatingSystems
     Network.AWS.OpsWorks.DescribePermissions
-    Network.AWS.OpsWorks.DescribeRAIDArrays
-    Network.AWS.OpsWorks.DescribeRDSDBInstances
+    Network.AWS.OpsWorks.DescribeRaidArrays
+    Network.AWS.OpsWorks.DescribeRdsDbInstances
     Network.AWS.OpsWorks.DescribeServiceErrors
     Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     Network.AWS.OpsWorks.DescribeStacks
@@ -111,15 +117,15 @@ library
     Network.AWS.OpsWorks.DescribeUserProfiles
     Network.AWS.OpsWorks.DescribeVolumes
     Network.AWS.OpsWorks.DetachElasticLoadBalancer
-    Network.AWS.OpsWorks.DisassociateElasticIP
+    Network.AWS.OpsWorks.DisassociateElasticIp
     Network.AWS.OpsWorks.GetHostnameSuggestion
     Network.AWS.OpsWorks.GrantAccess
     Network.AWS.OpsWorks.ListTags
     Network.AWS.OpsWorks.RebootInstance
     Network.AWS.OpsWorks.RegisterEcsCluster
-    Network.AWS.OpsWorks.RegisterElasticIP
+    Network.AWS.OpsWorks.RegisterElasticIp
     Network.AWS.OpsWorks.RegisterInstance
-    Network.AWS.OpsWorks.RegisterRDSDBInstance
+    Network.AWS.OpsWorks.RegisterRdsDbInstance
     Network.AWS.OpsWorks.RegisterVolume
     Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     Network.AWS.OpsWorks.SetPermission
@@ -134,25 +140,33 @@ library
     Network.AWS.OpsWorks.UnassignVolume
     Network.AWS.OpsWorks.UntagResource
     Network.AWS.OpsWorks.UpdateApp
-    Network.AWS.OpsWorks.UpdateElasticIP
+    Network.AWS.OpsWorks.UpdateElasticIp
     Network.AWS.OpsWorks.UpdateInstance
     Network.AWS.OpsWorks.UpdateLayer
     Network.AWS.OpsWorks.UpdateMyUserProfile
-    Network.AWS.OpsWorks.UpdateRDSDBInstance
+    Network.AWS.OpsWorks.UpdateRdsDbInstance
     Network.AWS.OpsWorks.UpdateStack
     Network.AWS.OpsWorks.UpdateUserProfile
     Network.AWS.OpsWorks.UpdateVolume
     Network.AWS.OpsWorks.Waiters
 
   other-modules:
+    Network.AWS.OpsWorks.Types.AcknowledgedAt
+    Network.AWS.OpsWorks.Types.Address
     Network.AWS.OpsWorks.Types.AgentVersion
+    Network.AWS.OpsWorks.Types.AmiId
     Network.AWS.OpsWorks.Types.App
     Network.AWS.OpsWorks.Types.AppAttributesKeys
+    Network.AWS.OpsWorks.Types.AppId
     Network.AWS.OpsWorks.Types.AppType
     Network.AWS.OpsWorks.Types.Architecture
+    Network.AWS.OpsWorks.Types.Arn
     Network.AWS.OpsWorks.Types.AutoScalingThresholds
     Network.AWS.OpsWorks.Types.AutoScalingType
+    Network.AWS.OpsWorks.Types.AvailabilityZone
     Network.AWS.OpsWorks.Types.BlockDeviceMapping
+    Network.AWS.OpsWorks.Types.Certificate
+    Network.AWS.OpsWorks.Types.Chain
     Network.AWS.OpsWorks.Types.ChefConfiguration
     Network.AWS.OpsWorks.Types.CloudWatchLogsConfiguration
     Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
@@ -160,48 +174,94 @@ library
     Network.AWS.OpsWorks.Types.CloudWatchLogsLogStream
     Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone
     Network.AWS.OpsWorks.Types.Command
+    Network.AWS.OpsWorks.Types.CommandId
+    Network.AWS.OpsWorks.Types.Comment
+    Network.AWS.OpsWorks.Types.CompletedAt
+    Network.AWS.OpsWorks.Types.CreatedAt
+    Network.AWS.OpsWorks.Types.CustomJson
     Network.AWS.OpsWorks.Types.DataSource
+    Network.AWS.OpsWorks.Types.DateTime
+    Network.AWS.OpsWorks.Types.DbInstanceIdentifier
+    Network.AWS.OpsWorks.Types.DbPassword
+    Network.AWS.OpsWorks.Types.DbUser
     Network.AWS.OpsWorks.Types.Deployment
     Network.AWS.OpsWorks.Types.DeploymentCommand
     Network.AWS.OpsWorks.Types.DeploymentCommandName
-    Network.AWS.OpsWorks.Types.EBSBlockDevice
+    Network.AWS.OpsWorks.Types.DeploymentId
+    Network.AWS.OpsWorks.Types.Device
+    Network.AWS.OpsWorks.Types.DeviceName
+    Network.AWS.OpsWorks.Types.DnsName
+    Network.AWS.OpsWorks.Types.EbsBlockDevice
     Network.AWS.OpsWorks.Types.EcsCluster
-    Network.AWS.OpsWorks.Types.ElasticIP
+    Network.AWS.OpsWorks.Types.EcsClusterArn
+    Network.AWS.OpsWorks.Types.ElasticIp
     Network.AWS.OpsWorks.Types.ElasticLoadBalancer
+    Network.AWS.OpsWorks.Types.ElasticLoadBalancerName
+    Network.AWS.OpsWorks.Types.Engine
     Network.AWS.OpsWorks.Types.EnvironmentVariable
+    Network.AWS.OpsWorks.Types.Hostname
+    Network.AWS.OpsWorks.Types.Hour
+    Network.AWS.OpsWorks.Types.IamUserArn
     Network.AWS.OpsWorks.Types.Instance
+    Network.AWS.OpsWorks.Types.InstanceId
     Network.AWS.OpsWorks.Types.InstanceIdentity
     Network.AWS.OpsWorks.Types.InstancesCount
+    Network.AWS.OpsWorks.Types.InstanceType
     Network.AWS.OpsWorks.Types.Layer
     Network.AWS.OpsWorks.Types.LayerAttributesKeys
+    Network.AWS.OpsWorks.Types.LayerId
     Network.AWS.OpsWorks.Types.LayerType
     Network.AWS.OpsWorks.Types.LifecycleEventConfiguration
     Network.AWS.OpsWorks.Types.LoadBasedAutoScalingConfiguration
+    Network.AWS.OpsWorks.Types.LogUrl
+    Network.AWS.OpsWorks.Types.MountPoint
+    Network.AWS.OpsWorks.Types.Name
+    Network.AWS.OpsWorks.Types.NextToken
+    Network.AWS.OpsWorks.Types.NoDevice
     Network.AWS.OpsWorks.Types.OperatingSystem
     Network.AWS.OpsWorks.Types.OperatingSystemConfigurationManager
+    Network.AWS.OpsWorks.Types.Os
     Network.AWS.OpsWorks.Types.Permission
-    Network.AWS.OpsWorks.Types.RAIdArray
-    Network.AWS.OpsWorks.Types.RDSDBInstance
+    Network.AWS.OpsWorks.Types.PrivateKey
+    Network.AWS.OpsWorks.Types.RaidArray
+    Network.AWS.OpsWorks.Types.RaidArrayId
+    Network.AWS.OpsWorks.Types.RdsDbInstance
+    Network.AWS.OpsWorks.Types.RdsDbInstanceArn
     Network.AWS.OpsWorks.Types.Recipes
-    Network.AWS.OpsWorks.Types.ReportedOS
+    Network.AWS.OpsWorks.Types.Region
+    Network.AWS.OpsWorks.Types.RegisteredAt
+    Network.AWS.OpsWorks.Types.ReportedOs
+    Network.AWS.OpsWorks.Types.ResourceArn
     Network.AWS.OpsWorks.Types.RootDeviceType
     Network.AWS.OpsWorks.Types.SelfUserProfile
     Network.AWS.OpsWorks.Types.ServiceError'
     Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
     Network.AWS.OpsWorks.Types.Source
     Network.AWS.OpsWorks.Types.SourceType
-    Network.AWS.OpsWorks.Types.SSLConfiguration
+    Network.AWS.OpsWorks.Types.SshKeyName
+    Network.AWS.OpsWorks.Types.SslConfiguration
     Network.AWS.OpsWorks.Types.Stack
     Network.AWS.OpsWorks.Types.StackAttributesKeys
     Network.AWS.OpsWorks.Types.StackConfigurationManager
+    Network.AWS.OpsWorks.Types.StackId
     Network.AWS.OpsWorks.Types.StackSummary
+    Network.AWS.OpsWorks.Types.Status
+    Network.AWS.OpsWorks.Types.String
+    Network.AWS.OpsWorks.Types.SubnetId
+    Network.AWS.OpsWorks.Types.Switch
+    Network.AWS.OpsWorks.Types.TagKey
+    Network.AWS.OpsWorks.Types.TagValue
     Network.AWS.OpsWorks.Types.TemporaryCredential
+    Network.AWS.OpsWorks.Types.Tenancy
     Network.AWS.OpsWorks.Types.TimeBasedAutoScalingConfiguration
+    Network.AWS.OpsWorks.Types.Type
     Network.AWS.OpsWorks.Types.UserProfile
     Network.AWS.OpsWorks.Types.VirtualizationType
+    Network.AWS.OpsWorks.Types.VirtualName
     Network.AWS.OpsWorks.Types.Volume
     Network.AWS.OpsWorks.Types.VolumeConfiguration
     Network.AWS.OpsWorks.Types.VolumeType
+    Network.AWS.OpsWorks.Types.VpcId
     Network.AWS.OpsWorks.Types.WeeklyAutoScalingSchedule
 
   build-depends:   amazonka-core ==2.0.0.0.*

@@ -13,51 +13,56 @@
 module Network.AWS.EMR.Types.ComputeLimitsUnitType
   ( ComputeLimitsUnitType
       ( ComputeLimitsUnitType',
-        InstanceFleetUnits,
-        Instances,
-        Vcpu
+        ComputeLimitsUnitTypeInstanceFleetUnits,
+        ComputeLimitsUnitTypeInstances,
+        ComputeLimitsUnitTypeVcpu,
+        fromComputeLimitsUnitType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComputeLimitsUnitType = ComputeLimitsUnitType' Lude.Text
+newtype ComputeLimitsUnitType = ComputeLimitsUnitType'
+  { fromComputeLimitsUnitType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InstanceFleetUnits :: ComputeLimitsUnitType
-pattern InstanceFleetUnits = ComputeLimitsUnitType' "InstanceFleetUnits"
+pattern ComputeLimitsUnitTypeInstanceFleetUnits :: ComputeLimitsUnitType
+pattern ComputeLimitsUnitTypeInstanceFleetUnits = ComputeLimitsUnitType' "InstanceFleetUnits"
 
-pattern Instances :: ComputeLimitsUnitType
-pattern Instances = ComputeLimitsUnitType' "Instances"
+pattern ComputeLimitsUnitTypeInstances :: ComputeLimitsUnitType
+pattern ComputeLimitsUnitTypeInstances = ComputeLimitsUnitType' "Instances"
 
-pattern Vcpu :: ComputeLimitsUnitType
-pattern Vcpu = ComputeLimitsUnitType' "VCPU"
+pattern ComputeLimitsUnitTypeVcpu :: ComputeLimitsUnitType
+pattern ComputeLimitsUnitTypeVcpu = ComputeLimitsUnitType' "VCPU"
 
 {-# COMPLETE
-  InstanceFleetUnits,
-  Instances,
-  Vcpu,
+  ComputeLimitsUnitTypeInstanceFleetUnits,
+  ComputeLimitsUnitTypeInstances,
+  ComputeLimitsUnitTypeVcpu,
   ComputeLimitsUnitType'
   #-}

@@ -17,100 +17,99 @@ module Network.AWS.SWF.Types.ScheduleLambdaFunctionDecisionAttributes
     mkScheduleLambdaFunctionDecisionAttributes,
 
     -- * Lenses
+    slfdaId,
+    slfdaName,
     slfdaControl,
     slfdaInput,
-    slfdaName,
-    slfdaId,
     slfdaStartToCloseTimeout,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.DurationInSecondsOptional as Types
+import qualified Network.AWS.SWF.Types.FunctionId as Types
+import qualified Network.AWS.SWF.Types.FunctionInput as Types
+import qualified Network.AWS.SWF.Types.FunctionName as Types
 
 -- | Decision attributes specified in @scheduleLambdaFunctionDecisionAttributes@ within the list of decisions @decisions@ passed to 'RespondDecisionTaskCompleted' .
 --
 -- /See:/ 'mkScheduleLambdaFunctionDecisionAttributes' smart constructor.
 data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAttributes'
-  { -- | The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
-    control :: Lude.Maybe Lude.Text,
-    -- | The optional input data to be supplied to the Lambda function.
-    input :: Lude.Maybe Lude.Text,
+  { -- | A string that identifies the Lambda function execution in the event history.
+    id :: Types.FunctionId,
     -- | The name, or ARN, of the Lambda function to schedule.
-    name :: Lude.Text,
-    -- | A string that identifies the Lambda function execution in the event history.
-    id :: Lude.Text,
+    name :: Types.FunctionName,
+    -- | The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
+    control :: Core.Maybe Types.Data,
+    -- | The optional input data to be supplied to the Lambda function.
+    input :: Core.Maybe Types.FunctionInput,
     -- | The timeout value, in seconds, after which the Lambda function is considered to be failed once it has started. This can be any integer from 1-300 (1s-5m). If no value is supplied, than a default value of 300s is assumed.
-    startToCloseTimeout :: Lude.Maybe Lude.Text
+    startToCloseTimeout :: Core.Maybe Types.DurationInSecondsOptional
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduleLambdaFunctionDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'control' - The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
--- * 'input' - The optional input data to be supplied to the Lambda function.
--- * 'name' - The name, or ARN, of the Lambda function to schedule.
--- * 'id' - A string that identifies the Lambda function execution in the event history.
--- * 'startToCloseTimeout' - The timeout value, in seconds, after which the Lambda function is considered to be failed once it has started. This can be any integer from 1-300 (1s-5m). If no value is supplied, than a default value of 300s is assumed.
+-- | Creates a 'ScheduleLambdaFunctionDecisionAttributes' value with any optional fields omitted.
 mkScheduleLambdaFunctionDecisionAttributes ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'id'
-  Lude.Text ->
+  Types.FunctionId ->
+  -- | 'name'
+  Types.FunctionName ->
   ScheduleLambdaFunctionDecisionAttributes
-mkScheduleLambdaFunctionDecisionAttributes pName_ pId_ =
+mkScheduleLambdaFunctionDecisionAttributes id name =
   ScheduleLambdaFunctionDecisionAttributes'
-    { control = Lude.Nothing,
-      input = Lude.Nothing,
-      name = pName_,
-      id = pId_,
-      startToCloseTimeout = Lude.Nothing
+    { id,
+      name,
+      control = Core.Nothing,
+      input = Core.Nothing,
+      startToCloseTimeout = Core.Nothing
     }
+
+-- | A string that identifies the Lambda function execution in the event history.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slfdaId :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes Types.FunctionId
+slfdaId = Lens.field @"id"
+{-# DEPRECATED slfdaId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name, or ARN, of the Lambda function to schedule.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slfdaName :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes Types.FunctionName
+slfdaName = Lens.field @"name"
+{-# DEPRECATED slfdaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
 --
 -- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slfdaControl :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Lude.Maybe Lude.Text)
-slfdaControl = Lens.lens (control :: ScheduleLambdaFunctionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: ScheduleLambdaFunctionDecisionAttributes)
+slfdaControl :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Core.Maybe Types.Data)
+slfdaControl = Lens.field @"control"
 {-# DEPRECATED slfdaControl "Use generic-lens or generic-optics with 'control' instead." #-}
 
 -- | The optional input data to be supplied to the Lambda function.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slfdaInput :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Lude.Maybe Lude.Text)
-slfdaInput = Lens.lens (input :: ScheduleLambdaFunctionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {input = a} :: ScheduleLambdaFunctionDecisionAttributes)
+slfdaInput :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Core.Maybe Types.FunctionInput)
+slfdaInput = Lens.field @"input"
 {-# DEPRECATED slfdaInput "Use generic-lens or generic-optics with 'input' instead." #-}
-
--- | The name, or ARN, of the Lambda function to schedule.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slfdaName :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes Lude.Text
-slfdaName = Lens.lens (name :: ScheduleLambdaFunctionDecisionAttributes -> Lude.Text) (\s a -> s {name = a} :: ScheduleLambdaFunctionDecisionAttributes)
-{-# DEPRECATED slfdaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A string that identifies the Lambda function execution in the event history.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slfdaId :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes Lude.Text
-slfdaId = Lens.lens (id :: ScheduleLambdaFunctionDecisionAttributes -> Lude.Text) (\s a -> s {id = a} :: ScheduleLambdaFunctionDecisionAttributes)
-{-# DEPRECATED slfdaId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The timeout value, in seconds, after which the Lambda function is considered to be failed once it has started. This can be any integer from 1-300 (1s-5m). If no value is supplied, than a default value of 300s is assumed.
 --
 -- /Note:/ Consider using 'startToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slfdaStartToCloseTimeout :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Lude.Maybe Lude.Text)
-slfdaStartToCloseTimeout = Lens.lens (startToCloseTimeout :: ScheduleLambdaFunctionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {startToCloseTimeout = a} :: ScheduleLambdaFunctionDecisionAttributes)
+slfdaStartToCloseTimeout :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Core.Maybe Types.DurationInSecondsOptional)
+slfdaStartToCloseTimeout = Lens.field @"startToCloseTimeout"
 {-# DEPRECATED slfdaStartToCloseTimeout "Use generic-lens or generic-optics with 'startToCloseTimeout' instead." #-}
 
-instance Lude.ToJSON ScheduleLambdaFunctionDecisionAttributes where
-  toJSON ScheduleLambdaFunctionDecisionAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("control" Lude..=) Lude.<$> control,
-            ("input" Lude..=) Lude.<$> input,
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("id" Lude..= id),
-            ("startToCloseTimeout" Lude..=) Lude.<$> startToCloseTimeout
+instance Core.FromJSON ScheduleLambdaFunctionDecisionAttributes where
+  toJSON ScheduleLambdaFunctionDecisionAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            Core.Just ("name" Core..= name),
+            ("control" Core..=) Core.<$> control,
+            ("input" Core..=) Core.<$> input,
+            ("startToCloseTimeout" Core..=) Core.<$> startToCloseTimeout
           ]
       )

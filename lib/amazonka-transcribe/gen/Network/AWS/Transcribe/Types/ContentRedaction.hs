@@ -17,49 +17,47 @@ module Network.AWS.Transcribe.Types.ContentRedaction
     mkContentRedaction,
 
     -- * Lenses
-    crRedactionOutput,
     crRedactionType,
+    crRedactionOutput,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Transcribe.Types.RedactionOutput
-import Network.AWS.Transcribe.Types.RedactionType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.RedactionOutput as Types
+import qualified Network.AWS.Transcribe.Types.RedactionType as Types
 
 -- | Settings for content redaction within a transcription job.
 --
 -- /See:/ 'mkContentRedaction' smart constructor.
 data ContentRedaction = ContentRedaction'
-  { -- | The output transcript file stored in either the default S3 bucket or in a bucket you specify.
+  { -- | Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
+    redactionType :: Types.RedactionType,
+    -- | The output transcript file stored in either the default S3 bucket or in a bucket you specify.
     --
     -- When you choose @redacted@ Amazon Transcribe outputs only the redacted transcript.
     -- When you choose @redacted_and_unredacted@ Amazon Transcribe outputs both the redacted and unredacted transcripts.
-    redactionOutput :: RedactionOutput,
-    -- | Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
-    redactionType :: RedactionType
+    redactionOutput :: Types.RedactionOutput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContentRedaction' with the minimum fields required to make a request.
---
--- * 'redactionOutput' - The output transcript file stored in either the default S3 bucket or in a bucket you specify.
---
--- When you choose @redacted@ Amazon Transcribe outputs only the redacted transcript.
--- When you choose @redacted_and_unredacted@ Amazon Transcribe outputs both the redacted and unredacted transcripts.
--- * 'redactionType' - Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
+-- | Creates a 'ContentRedaction' value with any optional fields omitted.
 mkContentRedaction ::
-  -- | 'redactionOutput'
-  RedactionOutput ->
   -- | 'redactionType'
-  RedactionType ->
+  Types.RedactionType ->
+  -- | 'redactionOutput'
+  Types.RedactionOutput ->
   ContentRedaction
-mkContentRedaction pRedactionOutput_ pRedactionType_ =
-  ContentRedaction'
-    { redactionOutput = pRedactionOutput_,
-      redactionType = pRedactionType_
-    }
+mkContentRedaction redactionType redactionOutput =
+  ContentRedaction' {redactionType, redactionOutput}
+
+-- | Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
+--
+-- /Note:/ Consider using 'redactionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRedactionType :: Lens.Lens' ContentRedaction Types.RedactionType
+crRedactionType = Lens.field @"redactionType"
+{-# DEPRECATED crRedactionType "Use generic-lens or generic-optics with 'redactionType' instead." #-}
 
 -- | The output transcript file stored in either the default S3 bucket or in a bucket you specify.
 --
@@ -67,31 +65,22 @@ mkContentRedaction pRedactionOutput_ pRedactionType_ =
 -- When you choose @redacted_and_unredacted@ Amazon Transcribe outputs both the redacted and unredacted transcripts.
 --
 -- /Note:/ Consider using 'redactionOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRedactionOutput :: Lens.Lens' ContentRedaction RedactionOutput
-crRedactionOutput = Lens.lens (redactionOutput :: ContentRedaction -> RedactionOutput) (\s a -> s {redactionOutput = a} :: ContentRedaction)
+crRedactionOutput :: Lens.Lens' ContentRedaction Types.RedactionOutput
+crRedactionOutput = Lens.field @"redactionOutput"
 {-# DEPRECATED crRedactionOutput "Use generic-lens or generic-optics with 'redactionOutput' instead." #-}
 
--- | Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
---
--- /Note:/ Consider using 'redactionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRedactionType :: Lens.Lens' ContentRedaction RedactionType
-crRedactionType = Lens.lens (redactionType :: ContentRedaction -> RedactionType) (\s a -> s {redactionType = a} :: ContentRedaction)
-{-# DEPRECATED crRedactionType "Use generic-lens or generic-optics with 'redactionType' instead." #-}
-
-instance Lude.FromJSON ContentRedaction where
-  parseJSON =
-    Lude.withObject
-      "ContentRedaction"
-      ( \x ->
-          ContentRedaction'
-            Lude.<$> (x Lude..: "RedactionOutput") Lude.<*> (x Lude..: "RedactionType")
-      )
-
-instance Lude.ToJSON ContentRedaction where
-  toJSON ContentRedaction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RedactionOutput" Lude..= redactionOutput),
-            Lude.Just ("RedactionType" Lude..= redactionType)
+instance Core.FromJSON ContentRedaction where
+  toJSON ContentRedaction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RedactionType" Core..= redactionType),
+            Core.Just ("RedactionOutput" Core..= redactionOutput)
           ]
       )
+
+instance Core.FromJSON ContentRedaction where
+  parseJSON =
+    Core.withObject "ContentRedaction" Core.$
+      \x ->
+        ContentRedaction'
+          Core.<$> (x Core..: "RedactionType") Core.<*> (x Core..: "RedactionOutput")

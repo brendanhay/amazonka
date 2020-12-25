@@ -18,67 +18,61 @@ module Network.AWS.SageMaker.Types.AutoMLOutputDataConfig
 
     -- * Lenses
     amlodcS3OutputPath,
-    amlodcKMSKeyId,
+    amlodcKmsKeyId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.KmsKeyId as Types
+import qualified Network.AWS.SageMaker.Types.S3OutputPath as Types
 
 -- | The output data configuration.
 --
 -- /See:/ 'mkAutoMLOutputDataConfig' smart constructor.
 data AutoMLOutputDataConfig = AutoMLOutputDataConfig'
   { -- | The Amazon S3 output path. Must be 128 characters or less.
-    s3OutputPath :: Lude.Text,
+    s3OutputPath :: Types.S3OutputPath,
     -- | The AWS KMS encryption key ID.
-    kmsKeyId :: Lude.Maybe Lude.Text
+    kmsKeyId :: Core.Maybe Types.KmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoMLOutputDataConfig' with the minimum fields required to make a request.
---
--- * 's3OutputPath' - The Amazon S3 output path. Must be 128 characters or less.
--- * 'kmsKeyId' - The AWS KMS encryption key ID.
+-- | Creates a 'AutoMLOutputDataConfig' value with any optional fields omitted.
 mkAutoMLOutputDataConfig ::
   -- | 's3OutputPath'
-  Lude.Text ->
+  Types.S3OutputPath ->
   AutoMLOutputDataConfig
-mkAutoMLOutputDataConfig pS3OutputPath_ =
-  AutoMLOutputDataConfig'
-    { s3OutputPath = pS3OutputPath_,
-      kmsKeyId = Lude.Nothing
-    }
+mkAutoMLOutputDataConfig s3OutputPath =
+  AutoMLOutputDataConfig' {s3OutputPath, kmsKeyId = Core.Nothing}
 
 -- | The Amazon S3 output path. Must be 128 characters or less.
 --
 -- /Note:/ Consider using 's3OutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlodcS3OutputPath :: Lens.Lens' AutoMLOutputDataConfig Lude.Text
-amlodcS3OutputPath = Lens.lens (s3OutputPath :: AutoMLOutputDataConfig -> Lude.Text) (\s a -> s {s3OutputPath = a} :: AutoMLOutputDataConfig)
+amlodcS3OutputPath :: Lens.Lens' AutoMLOutputDataConfig Types.S3OutputPath
+amlodcS3OutputPath = Lens.field @"s3OutputPath"
 {-# DEPRECATED amlodcS3OutputPath "Use generic-lens or generic-optics with 's3OutputPath' instead." #-}
 
 -- | The AWS KMS encryption key ID.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlodcKMSKeyId :: Lens.Lens' AutoMLOutputDataConfig (Lude.Maybe Lude.Text)
-amlodcKMSKeyId = Lens.lens (kmsKeyId :: AutoMLOutputDataConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: AutoMLOutputDataConfig)
-{-# DEPRECATED amlodcKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+amlodcKmsKeyId :: Lens.Lens' AutoMLOutputDataConfig (Core.Maybe Types.KmsKeyId)
+amlodcKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED amlodcKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
-instance Lude.FromJSON AutoMLOutputDataConfig where
-  parseJSON =
-    Lude.withObject
-      "AutoMLOutputDataConfig"
-      ( \x ->
-          AutoMLOutputDataConfig'
-            Lude.<$> (x Lude..: "S3OutputPath") Lude.<*> (x Lude..:? "KmsKeyId")
-      )
-
-instance Lude.ToJSON AutoMLOutputDataConfig where
-  toJSON AutoMLOutputDataConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("S3OutputPath" Lude..= s3OutputPath),
-            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId
+instance Core.FromJSON AutoMLOutputDataConfig where
+  toJSON AutoMLOutputDataConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3OutputPath" Core..= s3OutputPath),
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId
           ]
       )
+
+instance Core.FromJSON AutoMLOutputDataConfig where
+  parseJSON =
+    Core.withObject "AutoMLOutputDataConfig" Core.$
+      \x ->
+        AutoMLOutputDataConfig'
+          Core.<$> (x Core..: "S3OutputPath") Core.<*> (x Core..:? "KmsKeyId")

@@ -17,97 +17,89 @@ module Network.AWS.MediaConvert.Types.InputDecryptionSettings
     mkInputDecryptionSettings,
 
     -- * Lenses
-    idsEncryptedDecryptionKey,
-    idsKMSKeyRegion,
     idsDecryptionMode,
+    idsEncryptedDecryptionKey,
     idsInitializationVector,
+    idsKmsKeyRegion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DecryptionMode
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.DecryptionMode as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for decrypting any input files that you encrypt before you upload them to Amazon S3. MediaConvert can decrypt files only when you use AWS Key Management Service (KMS) to encrypt the data key that you use to encrypt your content.
 --
 -- /See:/ 'mkInputDecryptionSettings' smart constructor.
 data InputDecryptionSettings = InputDecryptionSettings'
-  { -- | Warning! Don't provide your encryption key in plaintext. Your job settings could be intercepted, making your encrypted content vulnerable. Specify the encrypted version of the data key that you used to encrypt your content. The data key must be encrypted by AWS Key Management Service (KMS). The key can be 128, 192, or 256 bits.
-    encryptedDecryptionKey :: Lude.Maybe Lude.Text,
-    -- | Specify the AWS Region for AWS Key Management Service (KMS) that you used to encrypt your data key, if that Region is different from the one you are using for AWS Elemental MediaConvert.
-    kmsKeyRegion :: Lude.Maybe Lude.Text,
-    -- | Specify the encryption mode that you used to encrypt your input files.
-    decryptionMode :: Lude.Maybe DecryptionMode,
+  { -- | Specify the encryption mode that you used to encrypt your input files.
+    decryptionMode :: Core.Maybe Types.DecryptionMode,
+    -- | Warning! Don't provide your encryption key in plaintext. Your job settings could be intercepted, making your encrypted content vulnerable. Specify the encrypted version of the data key that you used to encrypt your content. The data key must be encrypted by AWS Key Management Service (KMS). The key can be 128, 192, or 256 bits.
+    encryptedDecryptionKey :: Core.Maybe Core.Text,
     -- | Specify the initialization vector that you used when you encrypted your content before uploading it to Amazon S3. You can use a 16-byte initialization vector with any encryption mode. Or, you can use a 12-byte initialization vector with GCM or CTR. MediaConvert accepts only initialization vectors that are base64-encoded.
-    initializationVector :: Lude.Maybe Lude.Text
+    initializationVector :: Core.Maybe Core.Text,
+    -- | Specify the AWS Region for AWS Key Management Service (KMS) that you used to encrypt your data key, if that Region is different from the one you are using for AWS Elemental MediaConvert.
+    kmsKeyRegion :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputDecryptionSettings' with the minimum fields required to make a request.
---
--- * 'encryptedDecryptionKey' - Warning! Don't provide your encryption key in plaintext. Your job settings could be intercepted, making your encrypted content vulnerable. Specify the encrypted version of the data key that you used to encrypt your content. The data key must be encrypted by AWS Key Management Service (KMS). The key can be 128, 192, or 256 bits.
--- * 'kmsKeyRegion' - Specify the AWS Region for AWS Key Management Service (KMS) that you used to encrypt your data key, if that Region is different from the one you are using for AWS Elemental MediaConvert.
--- * 'decryptionMode' - Specify the encryption mode that you used to encrypt your input files.
--- * 'initializationVector' - Specify the initialization vector that you used when you encrypted your content before uploading it to Amazon S3. You can use a 16-byte initialization vector with any encryption mode. Or, you can use a 12-byte initialization vector with GCM or CTR. MediaConvert accepts only initialization vectors that are base64-encoded.
+-- | Creates a 'InputDecryptionSettings' value with any optional fields omitted.
 mkInputDecryptionSettings ::
   InputDecryptionSettings
 mkInputDecryptionSettings =
   InputDecryptionSettings'
-    { encryptedDecryptionKey = Lude.Nothing,
-      kmsKeyRegion = Lude.Nothing,
-      decryptionMode = Lude.Nothing,
-      initializationVector = Lude.Nothing
+    { decryptionMode = Core.Nothing,
+      encryptedDecryptionKey = Core.Nothing,
+      initializationVector = Core.Nothing,
+      kmsKeyRegion = Core.Nothing
     }
-
--- | Warning! Don't provide your encryption key in plaintext. Your job settings could be intercepted, making your encrypted content vulnerable. Specify the encrypted version of the data key that you used to encrypt your content. The data key must be encrypted by AWS Key Management Service (KMS). The key can be 128, 192, or 256 bits.
---
--- /Note:/ Consider using 'encryptedDecryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsEncryptedDecryptionKey :: Lens.Lens' InputDecryptionSettings (Lude.Maybe Lude.Text)
-idsEncryptedDecryptionKey = Lens.lens (encryptedDecryptionKey :: InputDecryptionSettings -> Lude.Maybe Lude.Text) (\s a -> s {encryptedDecryptionKey = a} :: InputDecryptionSettings)
-{-# DEPRECATED idsEncryptedDecryptionKey "Use generic-lens or generic-optics with 'encryptedDecryptionKey' instead." #-}
-
--- | Specify the AWS Region for AWS Key Management Service (KMS) that you used to encrypt your data key, if that Region is different from the one you are using for AWS Elemental MediaConvert.
---
--- /Note:/ Consider using 'kmsKeyRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsKMSKeyRegion :: Lens.Lens' InputDecryptionSettings (Lude.Maybe Lude.Text)
-idsKMSKeyRegion = Lens.lens (kmsKeyRegion :: InputDecryptionSettings -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyRegion = a} :: InputDecryptionSettings)
-{-# DEPRECATED idsKMSKeyRegion "Use generic-lens or generic-optics with 'kmsKeyRegion' instead." #-}
 
 -- | Specify the encryption mode that you used to encrypt your input files.
 --
 -- /Note:/ Consider using 'decryptionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsDecryptionMode :: Lens.Lens' InputDecryptionSettings (Lude.Maybe DecryptionMode)
-idsDecryptionMode = Lens.lens (decryptionMode :: InputDecryptionSettings -> Lude.Maybe DecryptionMode) (\s a -> s {decryptionMode = a} :: InputDecryptionSettings)
+idsDecryptionMode :: Lens.Lens' InputDecryptionSettings (Core.Maybe Types.DecryptionMode)
+idsDecryptionMode = Lens.field @"decryptionMode"
 {-# DEPRECATED idsDecryptionMode "Use generic-lens or generic-optics with 'decryptionMode' instead." #-}
+
+-- | Warning! Don't provide your encryption key in plaintext. Your job settings could be intercepted, making your encrypted content vulnerable. Specify the encrypted version of the data key that you used to encrypt your content. The data key must be encrypted by AWS Key Management Service (KMS). The key can be 128, 192, or 256 bits.
+--
+-- /Note:/ Consider using 'encryptedDecryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsEncryptedDecryptionKey :: Lens.Lens' InputDecryptionSettings (Core.Maybe Core.Text)
+idsEncryptedDecryptionKey = Lens.field @"encryptedDecryptionKey"
+{-# DEPRECATED idsEncryptedDecryptionKey "Use generic-lens or generic-optics with 'encryptedDecryptionKey' instead." #-}
 
 -- | Specify the initialization vector that you used when you encrypted your content before uploading it to Amazon S3. You can use a 16-byte initialization vector with any encryption mode. Or, you can use a 12-byte initialization vector with GCM or CTR. MediaConvert accepts only initialization vectors that are base64-encoded.
 --
 -- /Note:/ Consider using 'initializationVector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsInitializationVector :: Lens.Lens' InputDecryptionSettings (Lude.Maybe Lude.Text)
-idsInitializationVector = Lens.lens (initializationVector :: InputDecryptionSettings -> Lude.Maybe Lude.Text) (\s a -> s {initializationVector = a} :: InputDecryptionSettings)
+idsInitializationVector :: Lens.Lens' InputDecryptionSettings (Core.Maybe Core.Text)
+idsInitializationVector = Lens.field @"initializationVector"
 {-# DEPRECATED idsInitializationVector "Use generic-lens or generic-optics with 'initializationVector' instead." #-}
 
-instance Lude.FromJSON InputDecryptionSettings where
-  parseJSON =
-    Lude.withObject
-      "InputDecryptionSettings"
-      ( \x ->
-          InputDecryptionSettings'
-            Lude.<$> (x Lude..:? "encryptedDecryptionKey")
-            Lude.<*> (x Lude..:? "kmsKeyRegion")
-            Lude.<*> (x Lude..:? "decryptionMode")
-            Lude.<*> (x Lude..:? "initializationVector")
-      )
+-- | Specify the AWS Region for AWS Key Management Service (KMS) that you used to encrypt your data key, if that Region is different from the one you are using for AWS Elemental MediaConvert.
+--
+-- /Note:/ Consider using 'kmsKeyRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsKmsKeyRegion :: Lens.Lens' InputDecryptionSettings (Core.Maybe Core.Text)
+idsKmsKeyRegion = Lens.field @"kmsKeyRegion"
+{-# DEPRECATED idsKmsKeyRegion "Use generic-lens or generic-optics with 'kmsKeyRegion' instead." #-}
 
-instance Lude.ToJSON InputDecryptionSettings where
-  toJSON InputDecryptionSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("encryptedDecryptionKey" Lude..=)
-              Lude.<$> encryptedDecryptionKey,
-            ("kmsKeyRegion" Lude..=) Lude.<$> kmsKeyRegion,
-            ("decryptionMode" Lude..=) Lude.<$> decryptionMode,
-            ("initializationVector" Lude..=) Lude.<$> initializationVector
+instance Core.FromJSON InputDecryptionSettings where
+  toJSON InputDecryptionSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("decryptionMode" Core..=) Core.<$> decryptionMode,
+            ("encryptedDecryptionKey" Core..=) Core.<$> encryptedDecryptionKey,
+            ("initializationVector" Core..=) Core.<$> initializationVector,
+            ("kmsKeyRegion" Core..=) Core.<$> kmsKeyRegion
           ]
       )
+
+instance Core.FromJSON InputDecryptionSettings where
+  parseJSON =
+    Core.withObject "InputDecryptionSettings" Core.$
+      \x ->
+        InputDecryptionSettings'
+          Core.<$> (x Core..:? "decryptionMode")
+          Core.<*> (x Core..:? "encryptedDecryptionKey")
+          Core.<*> (x Core..:? "initializationVector")
+          Core.<*> (x Core..:? "kmsKeyRegion")

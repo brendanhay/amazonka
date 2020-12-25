@@ -31,11 +31,11 @@ module Network.AWS.KMS.RevokeGrant
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRevokeGrant' smart constructor.
 data RevokeGrant = RevokeGrant'
@@ -51,36 +51,21 @@ data RevokeGrant = RevokeGrant'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text,
+    keyId :: Types.KeyId,
     -- | Identifier of the grant to be revoked.
-    grantId :: Lude.Text
+    grantId :: Types.GrantId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RevokeGrant' with the minimum fields required to make a request.
---
--- * 'keyId' - A unique identifier for the customer master key associated with the grant.
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
--- * 'grantId' - Identifier of the grant to be revoked.
+-- | Creates a 'RevokeGrant' value with any optional fields omitted.
 mkRevokeGrant ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyId ->
   -- | 'grantId'
-  Lude.Text ->
+  Types.GrantId ->
   RevokeGrant
-mkRevokeGrant pKeyId_ pGrantId_ =
-  RevokeGrant' {keyId = pKeyId_, grantId = pGrantId_}
+mkRevokeGrant keyId grantId = RevokeGrant' {keyId, grantId}
 
 -- | A unique identifier for the customer master key associated with the grant.
 --
@@ -96,54 +81,47 @@ mkRevokeGrant pKeyId_ pGrantId_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rKeyId :: Lens.Lens' RevokeGrant Lude.Text
-rKeyId = Lens.lens (keyId :: RevokeGrant -> Lude.Text) (\s a -> s {keyId = a} :: RevokeGrant)
+rKeyId :: Lens.Lens' RevokeGrant Types.KeyId
+rKeyId = Lens.field @"keyId"
 {-# DEPRECATED rKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | Identifier of the grant to be revoked.
 --
 -- /Note:/ Consider using 'grantId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rGrantId :: Lens.Lens' RevokeGrant Lude.Text
-rGrantId = Lens.lens (grantId :: RevokeGrant -> Lude.Text) (\s a -> s {grantId = a} :: RevokeGrant)
+rGrantId :: Lens.Lens' RevokeGrant Types.GrantId
+rGrantId = Lens.field @"grantId"
 {-# DEPRECATED rGrantId "Use generic-lens or generic-optics with 'grantId' instead." #-}
 
-instance Lude.AWSRequest RevokeGrant where
+instance Core.FromJSON RevokeGrant where
+  toJSON RevokeGrant {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("GrantId" Core..= grantId)
+          ]
+      )
+
+instance Core.AWSRequest RevokeGrant where
   type Rs RevokeGrant = RevokeGrantResponse
-  request = Req.postJSON kmsService
-  response = Res.receiveNull RevokeGrantResponse'
-
-instance Lude.ToHeaders RevokeGrant where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.RevokeGrant" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RevokeGrant where
-  toJSON RevokeGrant' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            Lude.Just ("GrantId" Lude..= grantId)
-          ]
-      )
-
-instance Lude.ToPath RevokeGrant where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RevokeGrant where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.RevokeGrant")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RevokeGrantResponse'
 
 -- | /See:/ 'mkRevokeGrantResponse' smart constructor.
 data RevokeGrantResponse = RevokeGrantResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RevokeGrantResponse' with the minimum fields required to make a request.
+-- | Creates a 'RevokeGrantResponse' value with any optional fields omitted.
 mkRevokeGrantResponse ::
   RevokeGrantResponse
 mkRevokeGrantResponse = RevokeGrantResponse'

@@ -22,125 +22,121 @@ module Network.AWS.EC2.CancelCapacityReservation
     mkCancelCapacityReservation,
 
     -- ** Request lenses
-    ccrCapacityReservationId,
-    ccrDryRun,
+    ccrfCapacityReservationId,
+    ccrfDryRun,
 
     -- * Destructuring the response
     CancelCapacityReservationResponse (..),
     mkCancelCapacityReservationResponse,
 
     -- ** Response lenses
-    ccrfrsReturn,
-    ccrfrsResponseStatus,
+    ccrrfrsReturn,
+    ccrrfrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelCapacityReservation' smart constructor.
 data CancelCapacityReservation = CancelCapacityReservation'
   { -- | The ID of the Capacity Reservation to be cancelled.
-    capacityReservationId :: Lude.Text,
+    capacityReservationId :: Types.CapacityReservationId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelCapacityReservation' with the minimum fields required to make a request.
---
--- * 'capacityReservationId' - The ID of the Capacity Reservation to be cancelled.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CancelCapacityReservation' value with any optional fields omitted.
 mkCancelCapacityReservation ::
   -- | 'capacityReservationId'
-  Lude.Text ->
+  Types.CapacityReservationId ->
   CancelCapacityReservation
-mkCancelCapacityReservation pCapacityReservationId_ =
+mkCancelCapacityReservation capacityReservationId =
   CancelCapacityReservation'
-    { capacityReservationId =
-        pCapacityReservationId_,
-      dryRun = Lude.Nothing
+    { capacityReservationId,
+      dryRun = Core.Nothing
     }
 
 -- | The ID of the Capacity Reservation to be cancelled.
 --
 -- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrCapacityReservationId :: Lens.Lens' CancelCapacityReservation Lude.Text
-ccrCapacityReservationId = Lens.lens (capacityReservationId :: CancelCapacityReservation -> Lude.Text) (\s a -> s {capacityReservationId = a} :: CancelCapacityReservation)
-{-# DEPRECATED ccrCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
+ccrfCapacityReservationId :: Lens.Lens' CancelCapacityReservation Types.CapacityReservationId
+ccrfCapacityReservationId = Lens.field @"capacityReservationId"
+{-# DEPRECATED ccrfCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrDryRun :: Lens.Lens' CancelCapacityReservation (Lude.Maybe Lude.Bool)
-ccrDryRun = Lens.lens (dryRun :: CancelCapacityReservation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelCapacityReservation)
-{-# DEPRECATED ccrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+ccrfDryRun :: Lens.Lens' CancelCapacityReservation (Core.Maybe Core.Bool)
+ccrfDryRun = Lens.field @"dryRun"
+{-# DEPRECATED ccrfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CancelCapacityReservation where
+instance Core.AWSRequest CancelCapacityReservation where
   type
     Rs CancelCapacityReservation =
       CancelCapacityReservationResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CancelCapacityReservation")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "CapacityReservationId" capacityReservationId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CancelCapacityReservationResponse'
-            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelCapacityReservation where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelCapacityReservation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelCapacityReservation where
-  toQuery CancelCapacityReservation' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CancelCapacityReservation" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "CapacityReservationId" Lude.=: capacityReservationId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCancelCapacityReservationResponse' smart constructor.
 data CancelCapacityReservationResponse = CancelCapacityReservationResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return :: Lude.Maybe Lude.Bool,
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelCapacityReservationResponse' with the minimum fields required to make a request.
---
--- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelCapacityReservationResponse' value with any optional fields omitted.
 mkCancelCapacityReservationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelCapacityReservationResponse
-mkCancelCapacityReservationResponse pResponseStatus_ =
+mkCancelCapacityReservationResponse responseStatus =
   CancelCapacityReservationResponse'
-    { return = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { return = Core.Nothing,
+      responseStatus
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfrsReturn :: Lens.Lens' CancelCapacityReservationResponse (Lude.Maybe Lude.Bool)
-ccrfrsReturn = Lens.lens (return :: CancelCapacityReservationResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: CancelCapacityReservationResponse)
-{-# DEPRECATED ccrfrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+ccrrfrsReturn :: Lens.Lens' CancelCapacityReservationResponse (Core.Maybe Core.Bool)
+ccrrfrsReturn = Lens.field @"return"
+{-# DEPRECATED ccrrfrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfrsResponseStatus :: Lens.Lens' CancelCapacityReservationResponse Lude.Int
-ccrfrsResponseStatus = Lens.lens (responseStatus :: CancelCapacityReservationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelCapacityReservationResponse)
-{-# DEPRECATED ccrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccrrfrsResponseStatus :: Lens.Lens' CancelCapacityReservationResponse Core.Int
+ccrrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccrrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

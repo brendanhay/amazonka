@@ -31,130 +31,126 @@ module Network.AWS.Lightsail.GetCloudFormationStackRecords
     mkGetCloudFormationStackRecordsResponse,
 
     -- ** Response lenses
-    gcfsrrsNextPageToken,
-    gcfsrrsCloudFormationStackRecords,
-    gcfsrrsResponseStatus,
+    gcfsrrrsCloudFormationStackRecords,
+    gcfsrrrsNextPageToken,
+    gcfsrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCloudFormationStackRecords' smart constructor.
 newtype GetCloudFormationStackRecords = GetCloudFormationStackRecords'
   { -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetClouFormationStackRecords@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.PageToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCloudFormationStackRecords' with the minimum fields required to make a request.
---
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetClouFormationStackRecords@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+-- | Creates a 'GetCloudFormationStackRecords' value with any optional fields omitted.
 mkGetCloudFormationStackRecords ::
   GetCloudFormationStackRecords
 mkGetCloudFormationStackRecords =
-  GetCloudFormationStackRecords' {pageToken = Lude.Nothing}
+  GetCloudFormationStackRecords' {pageToken = Core.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetClouFormationStackRecords@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfsrPageToken :: Lens.Lens' GetCloudFormationStackRecords (Lude.Maybe Lude.Text)
-gcfsrPageToken = Lens.lens (pageToken :: GetCloudFormationStackRecords -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetCloudFormationStackRecords)
+gcfsrPageToken :: Lens.Lens' GetCloudFormationStackRecords (Core.Maybe Types.PageToken)
+gcfsrPageToken = Lens.field @"pageToken"
 {-# DEPRECATED gcfsrPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager GetCloudFormationStackRecords where
-  page rq rs
-    | Page.stop (rs Lens.^. gcfsrrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gcfsrrsCloudFormationStackRecords) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gcfsrPageToken Lens..~ rs Lens.^. gcfsrrsNextPageToken
+instance Core.FromJSON GetCloudFormationStackRecords where
+  toJSON GetCloudFormationStackRecords {..} =
+    Core.object
+      (Core.catMaybes [("pageToken" Core..=) Core.<$> pageToken])
 
-instance Lude.AWSRequest GetCloudFormationStackRecords where
+instance Core.AWSRequest GetCloudFormationStackRecords where
   type
     Rs GetCloudFormationStackRecords =
       GetCloudFormationStackRecordsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.GetCloudFormationStackRecords"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCloudFormationStackRecordsResponse'
-            Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (x Lude..?> "cloudFormationStackRecords" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "cloudFormationStackRecords")
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetCloudFormationStackRecords where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.GetCloudFormationStackRecords" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetCloudFormationStackRecords where
-  toJSON GetCloudFormationStackRecords' {..} =
-    Lude.object
-      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
-
-instance Lude.ToPath GetCloudFormationStackRecords where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetCloudFormationStackRecords where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetCloudFormationStackRecords where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"cloudFormationStackRecords" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkGetCloudFormationStackRecordsResponse' smart constructor.
 data GetCloudFormationStackRecordsResponse = GetCloudFormationStackRecordsResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | A list of objects describing the CloudFormation stack records.
+    cloudFormationStackRecords :: Core.Maybe [Types.CloudFormationStackRecord],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetCloudFormationStackRecords@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | A list of objects describing the CloudFormation stack records.
-    cloudFormationStackRecords :: Lude.Maybe [CloudFormationStackRecord],
+    nextPageToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetCloudFormationStackRecordsResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetCloudFormationStackRecords@ request and specify the next page token using the @pageToken@ parameter.
--- * 'cloudFormationStackRecords' - A list of objects describing the CloudFormation stack records.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCloudFormationStackRecordsResponse' value with any optional fields omitted.
 mkGetCloudFormationStackRecordsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCloudFormationStackRecordsResponse
-mkGetCloudFormationStackRecordsResponse pResponseStatus_ =
+mkGetCloudFormationStackRecordsResponse responseStatus =
   GetCloudFormationStackRecordsResponse'
-    { nextPageToken =
-        Lude.Nothing,
-      cloudFormationStackRecords = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { cloudFormationStackRecords =
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
+
+-- | A list of objects describing the CloudFormation stack records.
+--
+-- /Note:/ Consider using 'cloudFormationStackRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfsrrrsCloudFormationStackRecords :: Lens.Lens' GetCloudFormationStackRecordsResponse (Core.Maybe [Types.CloudFormationStackRecord])
+gcfsrrrsCloudFormationStackRecords = Lens.field @"cloudFormationStackRecords"
+{-# DEPRECATED gcfsrrrsCloudFormationStackRecords "Use generic-lens or generic-optics with 'cloudFormationStackRecords' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -162,20 +158,13 @@ mkGetCloudFormationStackRecordsResponse pResponseStatus_ =
 -- To get the next page of results, perform another @GetCloudFormationStackRecords@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfsrrsNextPageToken :: Lens.Lens' GetCloudFormationStackRecordsResponse (Lude.Maybe Lude.Text)
-gcfsrrsNextPageToken = Lens.lens (nextPageToken :: GetCloudFormationStackRecordsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetCloudFormationStackRecordsResponse)
-{-# DEPRECATED gcfsrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | A list of objects describing the CloudFormation stack records.
---
--- /Note:/ Consider using 'cloudFormationStackRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfsrrsCloudFormationStackRecords :: Lens.Lens' GetCloudFormationStackRecordsResponse (Lude.Maybe [CloudFormationStackRecord])
-gcfsrrsCloudFormationStackRecords = Lens.lens (cloudFormationStackRecords :: GetCloudFormationStackRecordsResponse -> Lude.Maybe [CloudFormationStackRecord]) (\s a -> s {cloudFormationStackRecords = a} :: GetCloudFormationStackRecordsResponse)
-{-# DEPRECATED gcfsrrsCloudFormationStackRecords "Use generic-lens or generic-optics with 'cloudFormationStackRecords' instead." #-}
+gcfsrrrsNextPageToken :: Lens.Lens' GetCloudFormationStackRecordsResponse (Core.Maybe Types.String)
+gcfsrrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gcfsrrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfsrrsResponseStatus :: Lens.Lens' GetCloudFormationStackRecordsResponse Lude.Int
-gcfsrrsResponseStatus = Lens.lens (responseStatus :: GetCloudFormationStackRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCloudFormationStackRecordsResponse)
-{-# DEPRECATED gcfsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcfsrrrsResponseStatus :: Lens.Lens' GetCloudFormationStackRecordsResponse Core.Int
+gcfsrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcfsrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

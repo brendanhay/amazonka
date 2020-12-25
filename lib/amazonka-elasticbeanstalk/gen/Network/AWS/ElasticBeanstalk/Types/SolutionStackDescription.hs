@@ -22,51 +22,50 @@ module Network.AWS.ElasticBeanstalk.Types.SolutionStackDescription
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.FileTypeExtension as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.SolutionStackName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the solution stack.
 --
 -- /See:/ 'mkSolutionStackDescription' smart constructor.
 data SolutionStackDescription = SolutionStackDescription'
   { -- | The permitted file types allowed for a solution stack.
-    permittedFileTypes :: Lude.Maybe [Lude.Text],
+    permittedFileTypes :: Core.Maybe [Types.FileTypeExtension],
     -- | The name of the solution stack.
-    solutionStackName :: Lude.Maybe Lude.Text
+    solutionStackName :: Core.Maybe Types.SolutionStackName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SolutionStackDescription' with the minimum fields required to make a request.
---
--- * 'permittedFileTypes' - The permitted file types allowed for a solution stack.
--- * 'solutionStackName' - The name of the solution stack.
+-- | Creates a 'SolutionStackDescription' value with any optional fields omitted.
 mkSolutionStackDescription ::
   SolutionStackDescription
 mkSolutionStackDescription =
   SolutionStackDescription'
-    { permittedFileTypes = Lude.Nothing,
-      solutionStackName = Lude.Nothing
+    { permittedFileTypes = Core.Nothing,
+      solutionStackName = Core.Nothing
     }
 
 -- | The permitted file types allowed for a solution stack.
 --
 -- /Note:/ Consider using 'permittedFileTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdPermittedFileTypes :: Lens.Lens' SolutionStackDescription (Lude.Maybe [Lude.Text])
-ssdPermittedFileTypes = Lens.lens (permittedFileTypes :: SolutionStackDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {permittedFileTypes = a} :: SolutionStackDescription)
+ssdPermittedFileTypes :: Lens.Lens' SolutionStackDescription (Core.Maybe [Types.FileTypeExtension])
+ssdPermittedFileTypes = Lens.field @"permittedFileTypes"
 {-# DEPRECATED ssdPermittedFileTypes "Use generic-lens or generic-optics with 'permittedFileTypes' instead." #-}
 
 -- | The name of the solution stack.
 --
 -- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdSolutionStackName :: Lens.Lens' SolutionStackDescription (Lude.Maybe Lude.Text)
-ssdSolutionStackName = Lens.lens (solutionStackName :: SolutionStackDescription -> Lude.Maybe Lude.Text) (\s a -> s {solutionStackName = a} :: SolutionStackDescription)
+ssdSolutionStackName :: Lens.Lens' SolutionStackDescription (Core.Maybe Types.SolutionStackName)
+ssdSolutionStackName = Lens.field @"solutionStackName"
 {-# DEPRECATED ssdSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
 
-instance Lude.FromXML SolutionStackDescription where
+instance Core.FromXML SolutionStackDescription where
   parseXML x =
     SolutionStackDescription'
-      Lude.<$> ( x Lude..@? "PermittedFileTypes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> ( x Core..@? "PermittedFileTypes"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "SolutionStackName")
+      Core.<*> (x Core..@? "SolutionStackName")

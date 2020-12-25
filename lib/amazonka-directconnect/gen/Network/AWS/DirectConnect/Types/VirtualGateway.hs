@@ -22,15 +22,17 @@ module Network.AWS.DirectConnect.Types.VirtualGateway
   )
 where
 
+import qualified Network.AWS.DirectConnect.Types.VirtualGatewayId as Types
+import qualified Network.AWS.DirectConnect.Types.VirtualGatewayState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a virtual private gateway for a private virtual interface.
 --
 -- /See:/ 'mkVirtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
   { -- | The ID of the virtual private gateway.
-    virtualGatewayId :: Lude.Maybe Lude.Text,
+    virtualGatewayId :: Core.Maybe Types.VirtualGatewayId,
     -- | The state of the virtual private gateway. The following are the possible values:
     --
     --
@@ -44,40 +46,25 @@ data VirtualGateway = VirtualGateway'
     --
     --
     --     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
-    virtualGatewayState :: Lude.Maybe Lude.Text
+    virtualGatewayState :: Core.Maybe Types.VirtualGatewayState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VirtualGateway' with the minimum fields required to make a request.
---
--- * 'virtualGatewayId' - The ID of the virtual private gateway.
--- * 'virtualGatewayState' - The state of the virtual private gateway. The following are the possible values:
---
---
---     * @pending@ : Initial state after creating the virtual private gateway.
---
---
---     * @available@ : Ready for use by a private virtual interface.
---
---
---     * @deleting@ : Initial state after deleting the virtual private gateway.
---
---
---     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
+-- | Creates a 'VirtualGateway' value with any optional fields omitted.
 mkVirtualGateway ::
   VirtualGateway
 mkVirtualGateway =
   VirtualGateway'
-    { virtualGatewayId = Lude.Nothing,
-      virtualGatewayState = Lude.Nothing
+    { virtualGatewayId = Core.Nothing,
+      virtualGatewayState = Core.Nothing
     }
 
 -- | The ID of the virtual private gateway.
 --
 -- /Note:/ Consider using 'virtualGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vgVirtualGatewayId :: Lens.Lens' VirtualGateway (Lude.Maybe Lude.Text)
-vgVirtualGatewayId = Lens.lens (virtualGatewayId :: VirtualGateway -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayId = a} :: VirtualGateway)
+vgVirtualGatewayId :: Lens.Lens' VirtualGateway (Core.Maybe Types.VirtualGatewayId)
+vgVirtualGatewayId = Lens.field @"virtualGatewayId"
 {-# DEPRECATED vgVirtualGatewayId "Use generic-lens or generic-optics with 'virtualGatewayId' instead." #-}
 
 -- | The state of the virtual private gateway. The following are the possible values:
@@ -97,16 +84,14 @@ vgVirtualGatewayId = Lens.lens (virtualGatewayId :: VirtualGateway -> Lude.Maybe
 --
 --
 -- /Note:/ Consider using 'virtualGatewayState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vgVirtualGatewayState :: Lens.Lens' VirtualGateway (Lude.Maybe Lude.Text)
-vgVirtualGatewayState = Lens.lens (virtualGatewayState :: VirtualGateway -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayState = a} :: VirtualGateway)
+vgVirtualGatewayState :: Lens.Lens' VirtualGateway (Core.Maybe Types.VirtualGatewayState)
+vgVirtualGatewayState = Lens.field @"virtualGatewayState"
 {-# DEPRECATED vgVirtualGatewayState "Use generic-lens or generic-optics with 'virtualGatewayState' instead." #-}
 
-instance Lude.FromJSON VirtualGateway where
+instance Core.FromJSON VirtualGateway where
   parseJSON =
-    Lude.withObject
-      "VirtualGateway"
-      ( \x ->
-          VirtualGateway'
-            Lude.<$> (x Lude..:? "virtualGatewayId")
-            Lude.<*> (x Lude..:? "virtualGatewayState")
-      )
+    Core.withObject "VirtualGateway" Core.$
+      \x ->
+        VirtualGateway'
+          Core.<$> (x Core..:? "virtualGatewayId")
+          Core.<*> (x Core..:? "virtualGatewayState")

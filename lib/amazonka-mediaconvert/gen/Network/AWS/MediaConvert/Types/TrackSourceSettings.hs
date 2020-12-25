@@ -22,40 +22,37 @@ module Network.AWS.MediaConvert.Types.TrackSourceSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
 --
 -- /See:/ 'mkTrackSourceSettings' smart constructor.
 newtype TrackSourceSettings = TrackSourceSettings'
   { -- | Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
-    trackNumber :: Lude.Maybe Lude.Natural
+    trackNumber :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrackSourceSettings' with the minimum fields required to make a request.
---
--- * 'trackNumber' - Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
+-- | Creates a 'TrackSourceSettings' value with any optional fields omitted.
 mkTrackSourceSettings ::
   TrackSourceSettings
 mkTrackSourceSettings =
-  TrackSourceSettings' {trackNumber = Lude.Nothing}
+  TrackSourceSettings' {trackNumber = Core.Nothing}
 
 -- | Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
 --
 -- /Note:/ Consider using 'trackNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tssTrackNumber :: Lens.Lens' TrackSourceSettings (Lude.Maybe Lude.Natural)
-tssTrackNumber = Lens.lens (trackNumber :: TrackSourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {trackNumber = a} :: TrackSourceSettings)
+tssTrackNumber :: Lens.Lens' TrackSourceSettings (Core.Maybe Core.Natural)
+tssTrackNumber = Lens.field @"trackNumber"
 {-# DEPRECATED tssTrackNumber "Use generic-lens or generic-optics with 'trackNumber' instead." #-}
 
-instance Lude.FromJSON TrackSourceSettings where
-  parseJSON =
-    Lude.withObject
-      "TrackSourceSettings"
-      (\x -> TrackSourceSettings' Lude.<$> (x Lude..:? "trackNumber"))
+instance Core.FromJSON TrackSourceSettings where
+  toJSON TrackSourceSettings {..} =
+    Core.object
+      (Core.catMaybes [("trackNumber" Core..=) Core.<$> trackNumber])
 
-instance Lude.ToJSON TrackSourceSettings where
-  toJSON TrackSourceSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("trackNumber" Lude..=) Lude.<$> trackNumber])
+instance Core.FromJSON TrackSourceSettings where
+  parseJSON =
+    Core.withObject "TrackSourceSettings" Core.$
+      \x -> TrackSourceSettings' Core.<$> (x Core..:? "trackNumber")

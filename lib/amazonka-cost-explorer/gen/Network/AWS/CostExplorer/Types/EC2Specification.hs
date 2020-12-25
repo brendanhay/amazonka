@@ -17,46 +17,43 @@ module Network.AWS.CostExplorer.Types.EC2Specification
     mkEC2Specification,
 
     -- * Lenses
-    esOfferingClass,
+    ecsOfferingClass,
   )
 where
 
-import Network.AWS.CostExplorer.Types.OfferingClass
+import qualified Network.AWS.CostExplorer.Types.OfferingClass as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Amazon EC2 hardware specifications that you want AWS to provide recommendations for.
 --
 -- /See:/ 'mkEC2Specification' smart constructor.
 newtype EC2Specification = EC2Specification'
   { -- | Whether you want a recommendation for standard or convertible reservations.
-    offeringClass :: Lude.Maybe OfferingClass
+    offeringClass :: Core.Maybe Types.OfferingClass
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EC2Specification' with the minimum fields required to make a request.
---
--- * 'offeringClass' - Whether you want a recommendation for standard or convertible reservations.
+-- | Creates a 'EC2Specification' value with any optional fields omitted.
 mkEC2Specification ::
   EC2Specification
 mkEC2Specification =
-  EC2Specification' {offeringClass = Lude.Nothing}
+  EC2Specification' {offeringClass = Core.Nothing}
 
 -- | Whether you want a recommendation for standard or convertible reservations.
 --
 -- /Note:/ Consider using 'offeringClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esOfferingClass :: Lens.Lens' EC2Specification (Lude.Maybe OfferingClass)
-esOfferingClass = Lens.lens (offeringClass :: EC2Specification -> Lude.Maybe OfferingClass) (\s a -> s {offeringClass = a} :: EC2Specification)
-{-# DEPRECATED esOfferingClass "Use generic-lens or generic-optics with 'offeringClass' instead." #-}
+ecsOfferingClass :: Lens.Lens' EC2Specification (Core.Maybe Types.OfferingClass)
+ecsOfferingClass = Lens.field @"offeringClass"
+{-# DEPRECATED ecsOfferingClass "Use generic-lens or generic-optics with 'offeringClass' instead." #-}
 
-instance Lude.FromJSON EC2Specification where
+instance Core.FromJSON EC2Specification where
+  toJSON EC2Specification {..} =
+    Core.object
+      (Core.catMaybes [("OfferingClass" Core..=) Core.<$> offeringClass])
+
+instance Core.FromJSON EC2Specification where
   parseJSON =
-    Lude.withObject
-      "EC2Specification"
-      (\x -> EC2Specification' Lude.<$> (x Lude..:? "OfferingClass"))
-
-instance Lude.ToJSON EC2Specification where
-  toJSON EC2Specification' {..} =
-    Lude.object
-      (Lude.catMaybes [("OfferingClass" Lude..=) Lude.<$> offeringClass])
+    Core.withObject "EC2Specification" Core.$
+      \x -> EC2Specification' Core.<$> (x Core..:? "OfferingClass")

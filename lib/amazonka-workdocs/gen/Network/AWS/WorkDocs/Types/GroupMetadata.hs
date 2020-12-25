@@ -17,54 +17,51 @@ module Network.AWS.WorkDocs.Types.GroupMetadata
     mkGroupMetadata,
 
     -- * Lenses
-    gmName,
     gmId,
+    gmName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.GroupNameType as Types
+import qualified Network.AWS.WorkDocs.Types.IdType as Types
 
 -- | Describes the metadata of a user group.
 --
 -- /See:/ 'mkGroupMetadata' smart constructor.
 data GroupMetadata = GroupMetadata'
-  { -- | The name of the group.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID of the user group.
-    id :: Lude.Maybe Lude.Text
+  { -- | The ID of the user group.
+    id :: Core.Maybe Types.IdType,
+    -- | The name of the group.
+    name :: Core.Maybe Types.GroupNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupMetadata' with the minimum fields required to make a request.
---
--- * 'name' - The name of the group.
--- * 'id' - The ID of the user group.
+-- | Creates a 'GroupMetadata' value with any optional fields omitted.
 mkGroupMetadata ::
   GroupMetadata
 mkGroupMetadata =
-  GroupMetadata' {name = Lude.Nothing, id = Lude.Nothing}
-
--- | The name of the group.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmName :: Lens.Lens' GroupMetadata (Lude.Maybe Lude.Text)
-gmName = Lens.lens (name :: GroupMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GroupMetadata)
-{-# DEPRECATED gmName "Use generic-lens or generic-optics with 'name' instead." #-}
+  GroupMetadata' {id = Core.Nothing, name = Core.Nothing}
 
 -- | The ID of the user group.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmId :: Lens.Lens' GroupMetadata (Lude.Maybe Lude.Text)
-gmId = Lens.lens (id :: GroupMetadata -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GroupMetadata)
+gmId :: Lens.Lens' GroupMetadata (Core.Maybe Types.IdType)
+gmId = Lens.field @"id"
 {-# DEPRECATED gmId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON GroupMetadata where
+-- | The name of the group.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmName :: Lens.Lens' GroupMetadata (Core.Maybe Types.GroupNameType)
+gmName = Lens.field @"name"
+{-# DEPRECATED gmName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON GroupMetadata where
   parseJSON =
-    Lude.withObject
-      "GroupMetadata"
-      ( \x ->
-          GroupMetadata'
-            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "GroupMetadata" Core.$
+      \x ->
+        GroupMetadata'
+          Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Name")

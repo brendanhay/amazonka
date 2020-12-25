@@ -20,133 +20,120 @@ module Network.AWS.Glue.UpdateConnection
     mkUpdateConnection,
 
     -- ** Request lenses
-    uConnectionInput,
-    uCatalogId,
-    uName,
+    ucName,
+    ucConnectionInput,
+    ucCatalogId,
 
     -- * Destructuring the response
     UpdateConnectionResponse (..),
     mkUpdateConnectionResponse,
 
     -- ** Response lenses
-    ucrsResponseStatus,
+    ucrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateConnection' smart constructor.
 data UpdateConnection = UpdateConnection'
-  { -- | A @ConnectionInput@ object that redefines the connection in question.
-    connectionInput :: ConnectionInput,
+  { -- | The name of the connection definition to update.
+    name :: Types.NameString,
+    -- | A @ConnectionInput@ object that redefines the connection in question.
+    connectionInput :: Types.ConnectionInput,
     -- | The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the connection definition to update.
-    name :: Lude.Text
+    catalogId :: Core.Maybe Types.CatalogIdString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConnection' with the minimum fields required to make a request.
---
--- * 'connectionInput' - A @ConnectionInput@ object that redefines the connection in question.
--- * 'catalogId' - The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.
--- * 'name' - The name of the connection definition to update.
+-- | Creates a 'UpdateConnection' value with any optional fields omitted.
 mkUpdateConnection ::
-  -- | 'connectionInput'
-  ConnectionInput ->
   -- | 'name'
-  Lude.Text ->
+  Types.NameString ->
+  -- | 'connectionInput'
+  Types.ConnectionInput ->
   UpdateConnection
-mkUpdateConnection pConnectionInput_ pName_ =
+mkUpdateConnection name connectionInput =
   UpdateConnection'
-    { connectionInput = pConnectionInput_,
-      catalogId = Lude.Nothing,
-      name = pName_
+    { name,
+      connectionInput,
+      catalogId = Core.Nothing
     }
-
--- | A @ConnectionInput@ object that redefines the connection in question.
---
--- /Note:/ Consider using 'connectionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uConnectionInput :: Lens.Lens' UpdateConnection ConnectionInput
-uConnectionInput = Lens.lens (connectionInput :: UpdateConnection -> ConnectionInput) (\s a -> s {connectionInput = a} :: UpdateConnection)
-{-# DEPRECATED uConnectionInput "Use generic-lens or generic-optics with 'connectionInput' instead." #-}
-
--- | The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uCatalogId :: Lens.Lens' UpdateConnection (Lude.Maybe Lude.Text)
-uCatalogId = Lens.lens (catalogId :: UpdateConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: UpdateConnection)
-{-# DEPRECATED uCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the connection definition to update.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uName :: Lens.Lens' UpdateConnection Lude.Text
-uName = Lens.lens (name :: UpdateConnection -> Lude.Text) (\s a -> s {name = a} :: UpdateConnection)
-{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
+ucName :: Lens.Lens' UpdateConnection Types.NameString
+ucName = Lens.field @"name"
+{-# DEPRECATED ucName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UpdateConnection where
+-- | A @ConnectionInput@ object that redefines the connection in question.
+--
+-- /Note:/ Consider using 'connectionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucConnectionInput :: Lens.Lens' UpdateConnection Types.ConnectionInput
+ucConnectionInput = Lens.field @"connectionInput"
+{-# DEPRECATED ucConnectionInput "Use generic-lens or generic-optics with 'connectionInput' instead." #-}
+
+-- | The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucCatalogId :: Lens.Lens' UpdateConnection (Core.Maybe Types.CatalogIdString)
+ucCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED ucCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON UpdateConnection where
+  toJSON UpdateConnection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ConnectionInput" Core..= connectionInput),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest UpdateConnection where
   type Rs UpdateConnection = UpdateConnectionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.UpdateConnection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateConnectionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateConnectionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateConnection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.UpdateConnection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateConnection where
-  toJSON UpdateConnection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConnectionInput" Lude..= connectionInput),
-            ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath UpdateConnection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateConnection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateConnectionResponse' smart constructor.
 newtype UpdateConnectionResponse = UpdateConnectionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConnectionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateConnectionResponse' value with any optional fields omitted.
 mkUpdateConnectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateConnectionResponse
-mkUpdateConnectionResponse pResponseStatus_ =
-  UpdateConnectionResponse' {responseStatus = pResponseStatus_}
+mkUpdateConnectionResponse responseStatus =
+  UpdateConnectionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsResponseStatus :: Lens.Lens' UpdateConnectionResponse Lude.Int
-ucrsResponseStatus = Lens.lens (responseStatus :: UpdateConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateConnectionResponse)
-{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucrrsResponseStatus :: Lens.Lens' UpdateConnectionResponse Core.Int
+ucrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

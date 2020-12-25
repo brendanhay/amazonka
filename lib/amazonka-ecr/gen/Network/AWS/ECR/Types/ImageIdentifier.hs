@@ -22,61 +22,58 @@ module Network.AWS.ECR.Types.ImageIdentifier
   )
 where
 
+import qualified Network.AWS.ECR.Types.ImageDigest as Types
+import qualified Network.AWS.ECR.Types.ImageTag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object with identifying information for an Amazon ECR image.
 --
 -- /See:/ 'mkImageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
   { -- | The @sha256@ digest of the image manifest.
-    imageDigest :: Lude.Maybe Lude.Text,
+    imageDigest :: Core.Maybe Types.ImageDigest,
     -- | The tag used for the image.
-    imageTag :: Lude.Maybe Lude.Text
+    imageTag :: Core.Maybe Types.ImageTag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImageIdentifier' with the minimum fields required to make a request.
---
--- * 'imageDigest' - The @sha256@ digest of the image manifest.
--- * 'imageTag' - The tag used for the image.
+-- | Creates a 'ImageIdentifier' value with any optional fields omitted.
 mkImageIdentifier ::
   ImageIdentifier
 mkImageIdentifier =
   ImageIdentifier'
-    { imageDigest = Lude.Nothing,
-      imageTag = Lude.Nothing
+    { imageDigest = Core.Nothing,
+      imageTag = Core.Nothing
     }
 
 -- | The @sha256@ digest of the image manifest.
 --
 -- /Note:/ Consider using 'imageDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiImageDigest :: Lens.Lens' ImageIdentifier (Lude.Maybe Lude.Text)
-iiImageDigest = Lens.lens (imageDigest :: ImageIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {imageDigest = a} :: ImageIdentifier)
+iiImageDigest :: Lens.Lens' ImageIdentifier (Core.Maybe Types.ImageDigest)
+iiImageDigest = Lens.field @"imageDigest"
 {-# DEPRECATED iiImageDigest "Use generic-lens or generic-optics with 'imageDigest' instead." #-}
 
 -- | The tag used for the image.
 --
 -- /Note:/ Consider using 'imageTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiImageTag :: Lens.Lens' ImageIdentifier (Lude.Maybe Lude.Text)
-iiImageTag = Lens.lens (imageTag :: ImageIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {imageTag = a} :: ImageIdentifier)
+iiImageTag :: Lens.Lens' ImageIdentifier (Core.Maybe Types.ImageTag)
+iiImageTag = Lens.field @"imageTag"
 {-# DEPRECATED iiImageTag "Use generic-lens or generic-optics with 'imageTag' instead." #-}
 
-instance Lude.FromJSON ImageIdentifier where
-  parseJSON =
-    Lude.withObject
-      "ImageIdentifier"
-      ( \x ->
-          ImageIdentifier'
-            Lude.<$> (x Lude..:? "imageDigest") Lude.<*> (x Lude..:? "imageTag")
-      )
-
-instance Lude.ToJSON ImageIdentifier where
-  toJSON ImageIdentifier' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("imageDigest" Lude..=) Lude.<$> imageDigest,
-            ("imageTag" Lude..=) Lude.<$> imageTag
+instance Core.FromJSON ImageIdentifier where
+  toJSON ImageIdentifier {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("imageDigest" Core..=) Core.<$> imageDigest,
+            ("imageTag" Core..=) Core.<$> imageTag
           ]
       )
+
+instance Core.FromJSON ImageIdentifier where
+  parseJSON =
+    Core.withObject "ImageIdentifier" Core.$
+      \x ->
+        ImageIdentifier'
+          Core.<$> (x Core..:? "imageDigest") Core.<*> (x Core..:? "imageTag")

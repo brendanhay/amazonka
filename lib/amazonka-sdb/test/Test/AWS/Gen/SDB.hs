@@ -162,7 +162,7 @@ responseBatchDeleteAttributes =
   res
     "BatchDeleteAttributesResponse"
     "fixture/BatchDeleteAttributesResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeleteAttributes)
 
 responseBatchPutAttributes :: BatchPutAttributesResponse -> TestTree
@@ -170,7 +170,7 @@ responseBatchPutAttributes =
   res
     "BatchPutAttributesResponse"
     "fixture/BatchPutAttributesResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy BatchPutAttributes)
 
 responseGetAttributes :: GetAttributesResponse -> TestTree
@@ -178,7 +178,7 @@ responseGetAttributes =
   res
     "GetAttributesResponse"
     "fixture/GetAttributesResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy GetAttributes)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
@@ -186,7 +186,7 @@ responseCreateDomain =
   res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy CreateDomain)
 
 responseDomainMetadata :: DomainMetadataResponse -> TestTree
@@ -194,7 +194,7 @@ responseDomainMetadata =
   res
     "DomainMetadataResponse"
     "fixture/DomainMetadataResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy DomainMetadata)
 
 responseSelect :: SelectResponse -> TestTree
@@ -202,7 +202,7 @@ responseSelect =
   res
     "SelectResponse"
     "fixture/SelectResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy Select)
 
 responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
@@ -210,7 +210,7 @@ responseDeleteAttributes =
   res
     "DeleteAttributesResponse"
     "fixture/DeleteAttributesResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAttributes)
 
 responsePutAttributes :: PutAttributesResponse -> TestTree
@@ -218,7 +218,7 @@ responsePutAttributes =
   res
     "PutAttributesResponse"
     "fixture/PutAttributesResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy PutAttributes)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
@@ -226,7 +226,7 @@ responseDeleteDomain =
   res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
@@ -234,5 +234,5 @@ responseListDomains =
   res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
-    sdbService
+    mkServiceConfig
     (Proxy :: Proxy ListDomains)

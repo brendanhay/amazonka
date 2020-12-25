@@ -22,36 +22,34 @@ module Network.AWS.WorkSpaces.Types.TerminateRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceId as Types
 
 -- | Describes the information used to terminate a WorkSpace.
 --
 -- /See:/ 'mkTerminateRequest' smart constructor.
 newtype TerminateRequest = TerminateRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Lude.Text
+    workspaceId :: Types.WorkspaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateRequest' with the minimum fields required to make a request.
---
--- * 'workspaceId' - The identifier of the WorkSpace.
+-- | Creates a 'TerminateRequest' value with any optional fields omitted.
 mkTerminateRequest ::
   -- | 'workspaceId'
-  Lude.Text ->
+  Types.WorkspaceId ->
   TerminateRequest
-mkTerminateRequest pWorkspaceId_ =
-  TerminateRequest' {workspaceId = pWorkspaceId_}
+mkTerminateRequest workspaceId = TerminateRequest' {workspaceId}
 
 -- | The identifier of the WorkSpace.
 --
 -- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trWorkspaceId :: Lens.Lens' TerminateRequest Lude.Text
-trWorkspaceId = Lens.lens (workspaceId :: TerminateRequest -> Lude.Text) (\s a -> s {workspaceId = a} :: TerminateRequest)
+trWorkspaceId :: Lens.Lens' TerminateRequest Types.WorkspaceId
+trWorkspaceId = Lens.field @"workspaceId"
 {-# DEPRECATED trWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
-instance Lude.ToJSON TerminateRequest where
-  toJSON TerminateRequest' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("WorkspaceId" Lude..= workspaceId)])
+instance Core.FromJSON TerminateRequest where
+  toJSON TerminateRequest {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("WorkspaceId" Core..= workspaceId)])

@@ -17,93 +17,87 @@ module Network.AWS.SES.Types.SendDataPoint
     mkSendDataPoint,
 
     -- * Lenses
-    sdpRejects,
+    sdpBounces,
     sdpComplaints,
     sdpDeliveryAttempts,
-    sdpBounces,
+    sdpRejects,
     sdpTimestamp,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents sending statistics data. Each @SendDataPoint@ contains statistics for a 15-minute period of sending activity.
 --
 -- /See:/ 'mkSendDataPoint' smart constructor.
 data SendDataPoint = SendDataPoint'
-  { -- | Number of emails rejected by Amazon SES.
-    rejects :: Lude.Maybe Lude.Integer,
+  { -- | Number of emails that have bounced.
+    bounces :: Core.Maybe Core.Integer,
     -- | Number of unwanted emails that were rejected by recipients.
-    complaints :: Lude.Maybe Lude.Integer,
+    complaints :: Core.Maybe Core.Integer,
     -- | Number of emails that have been sent.
-    deliveryAttempts :: Lude.Maybe Lude.Integer,
-    -- | Number of emails that have bounced.
-    bounces :: Lude.Maybe Lude.Integer,
+    deliveryAttempts :: Core.Maybe Core.Integer,
+    -- | Number of emails rejected by Amazon SES.
+    rejects :: Core.Maybe Core.Integer,
     -- | Time of the data point.
-    timestamp :: Lude.Maybe Lude.DateTime
+    timestamp :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SendDataPoint' with the minimum fields required to make a request.
---
--- * 'rejects' - Number of emails rejected by Amazon SES.
--- * 'complaints' - Number of unwanted emails that were rejected by recipients.
--- * 'deliveryAttempts' - Number of emails that have been sent.
--- * 'bounces' - Number of emails that have bounced.
--- * 'timestamp' - Time of the data point.
+-- | Creates a 'SendDataPoint' value with any optional fields omitted.
 mkSendDataPoint ::
   SendDataPoint
 mkSendDataPoint =
   SendDataPoint'
-    { rejects = Lude.Nothing,
-      complaints = Lude.Nothing,
-      deliveryAttempts = Lude.Nothing,
-      bounces = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { bounces = Core.Nothing,
+      complaints = Core.Nothing,
+      deliveryAttempts = Core.Nothing,
+      rejects = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
--- | Number of emails rejected by Amazon SES.
+-- | Number of emails that have bounced.
 --
--- /Note:/ Consider using 'rejects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpRejects :: Lens.Lens' SendDataPoint (Lude.Maybe Lude.Integer)
-sdpRejects = Lens.lens (rejects :: SendDataPoint -> Lude.Maybe Lude.Integer) (\s a -> s {rejects = a} :: SendDataPoint)
-{-# DEPRECATED sdpRejects "Use generic-lens or generic-optics with 'rejects' instead." #-}
+-- /Note:/ Consider using 'bounces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdpBounces :: Lens.Lens' SendDataPoint (Core.Maybe Core.Integer)
+sdpBounces = Lens.field @"bounces"
+{-# DEPRECATED sdpBounces "Use generic-lens or generic-optics with 'bounces' instead." #-}
 
 -- | Number of unwanted emails that were rejected by recipients.
 --
 -- /Note:/ Consider using 'complaints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpComplaints :: Lens.Lens' SendDataPoint (Lude.Maybe Lude.Integer)
-sdpComplaints = Lens.lens (complaints :: SendDataPoint -> Lude.Maybe Lude.Integer) (\s a -> s {complaints = a} :: SendDataPoint)
+sdpComplaints :: Lens.Lens' SendDataPoint (Core.Maybe Core.Integer)
+sdpComplaints = Lens.field @"complaints"
 {-# DEPRECATED sdpComplaints "Use generic-lens or generic-optics with 'complaints' instead." #-}
 
 -- | Number of emails that have been sent.
 --
 -- /Note:/ Consider using 'deliveryAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpDeliveryAttempts :: Lens.Lens' SendDataPoint (Lude.Maybe Lude.Integer)
-sdpDeliveryAttempts = Lens.lens (deliveryAttempts :: SendDataPoint -> Lude.Maybe Lude.Integer) (\s a -> s {deliveryAttempts = a} :: SendDataPoint)
+sdpDeliveryAttempts :: Lens.Lens' SendDataPoint (Core.Maybe Core.Integer)
+sdpDeliveryAttempts = Lens.field @"deliveryAttempts"
 {-# DEPRECATED sdpDeliveryAttempts "Use generic-lens or generic-optics with 'deliveryAttempts' instead." #-}
 
--- | Number of emails that have bounced.
+-- | Number of emails rejected by Amazon SES.
 --
--- /Note:/ Consider using 'bounces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpBounces :: Lens.Lens' SendDataPoint (Lude.Maybe Lude.Integer)
-sdpBounces = Lens.lens (bounces :: SendDataPoint -> Lude.Maybe Lude.Integer) (\s a -> s {bounces = a} :: SendDataPoint)
-{-# DEPRECATED sdpBounces "Use generic-lens or generic-optics with 'bounces' instead." #-}
+-- /Note:/ Consider using 'rejects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdpRejects :: Lens.Lens' SendDataPoint (Core.Maybe Core.Integer)
+sdpRejects = Lens.field @"rejects"
+{-# DEPRECATED sdpRejects "Use generic-lens or generic-optics with 'rejects' instead." #-}
 
 -- | Time of the data point.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpTimestamp :: Lens.Lens' SendDataPoint (Lude.Maybe Lude.DateTime)
-sdpTimestamp = Lens.lens (timestamp :: SendDataPoint -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: SendDataPoint)
+sdpTimestamp :: Lens.Lens' SendDataPoint (Core.Maybe Core.UTCTime)
+sdpTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED sdpTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromXML SendDataPoint where
+instance Core.FromXML SendDataPoint where
   parseXML x =
     SendDataPoint'
-      Lude.<$> (x Lude..@? "Rejects")
-      Lude.<*> (x Lude..@? "Complaints")
-      Lude.<*> (x Lude..@? "DeliveryAttempts")
-      Lude.<*> (x Lude..@? "Bounces")
-      Lude.<*> (x Lude..@? "Timestamp")
+      Core.<$> (x Core..@? "Bounces")
+      Core.<*> (x Core..@? "Complaints")
+      Core.<*> (x Core..@? "DeliveryAttempts")
+      Core.<*> (x Core..@? "Rejects")
+      Core.<*> (x Core..@? "Timestamp")

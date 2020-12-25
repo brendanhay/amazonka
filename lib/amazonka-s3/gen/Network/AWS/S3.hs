@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,34 @@
 -- Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. The service aims to maximize benefits of scale and to pass those benefits on to developers.
 module Network.AWS.S3
   ( -- * Service configuration
-    s3Service,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** BucketAlreadyOwnedByYou
+    _BucketAlreadyOwnedByYou,
+
+    -- ** ObjectAlreadyInActiveTierError
+    _ObjectAlreadyInActiveTierError,
+
+    -- ** BucketAlreadyExists
+    _BucketAlreadyExists,
+
+    -- ** ObjectNotInActiveTierError
+    _ObjectNotInActiveTierError,
+
+    -- ** NoSuchUpload
+    _NoSuchUpload,
+
+    -- ** NoSuchBucket
+    _NoSuchBucket,
+
+    -- ** NoSuchKey
+    _NoSuchKey,
+
+    -- ** InvalidObjectState
+    _InvalidObjectState,
 
     -- * Waiters
     -- $waiters
@@ -64,8 +87,8 @@ module Network.AWS.S3
     -- ** DeleteBucketTagging
     module Network.AWS.S3.DeleteBucketTagging,
 
-    -- ** PutObjectACL
-    module Network.AWS.S3.PutObjectACL,
+    -- ** PutObjectAcl
+    module Network.AWS.S3.PutObjectAcl,
 
     -- ** PutBucketTagging
     module Network.AWS.S3.PutBucketTagging,
@@ -229,8 +252,8 @@ module Network.AWS.S3
     -- ** GetBucketVersioning
     module Network.AWS.S3.GetBucketVersioning,
 
-    -- ** DeleteBucketCORS
-    module Network.AWS.S3.DeleteBucketCORS,
+    -- ** DeleteBucketCors
+    module Network.AWS.S3.DeleteBucketCors,
 
     -- ** DeleteBucketIntelligentTieringConfiguration
     module Network.AWS.S3.DeleteBucketIntelligentTieringConfiguration,
@@ -238,8 +261,8 @@ module Network.AWS.S3
     -- ** ListBucketIntelligentTieringConfigurations
     module Network.AWS.S3.ListBucketIntelligentTieringConfigurations,
 
-    -- ** PutBucketCORS
-    module Network.AWS.S3.PutBucketCORS,
+    -- ** PutBucketCors
+    module Network.AWS.S3.PutBucketCors,
 
     -- ** GetPublicAccessBlock
     module Network.AWS.S3.GetPublicAccessBlock,
@@ -247,11 +270,11 @@ module Network.AWS.S3
     -- ** PutBucketIntelligentTieringConfiguration
     module Network.AWS.S3.PutBucketIntelligentTieringConfiguration,
 
-    -- ** GetBucketCORS
-    module Network.AWS.S3.GetBucketCORS,
+    -- ** GetBucketCors
+    module Network.AWS.S3.GetBucketCors,
 
-    -- ** GetObjectACL
-    module Network.AWS.S3.GetObjectACL,
+    -- ** GetObjectAcl
+    module Network.AWS.S3.GetObjectAcl,
 
     -- ** RestoreObject
     module Network.AWS.S3.RestoreObject,
@@ -283,8 +306,8 @@ module Network.AWS.S3
     -- ** GetBucketLogging
     module Network.AWS.S3.GetBucketLogging,
 
-    -- ** GetBucketACL
-    module Network.AWS.S3.GetBucketACL,
+    -- ** GetBucketAcl
+    module Network.AWS.S3.GetBucketAcl,
 
     -- ** GetBucketLifecycleConfiguration
     module Network.AWS.S3.GetBucketLifecycleConfiguration,
@@ -307,308 +330,383 @@ module Network.AWS.S3
     -- ** PutObjectTagging
     module Network.AWS.S3.PutObjectTagging,
 
-    -- ** PutBucketACL
-    module Network.AWS.S3.PutBucketACL,
+    -- ** PutBucketAcl
+    module Network.AWS.S3.PutBucketAcl,
 
     -- * Types
 
     -- ** Common
     module Network.AWS.S3.Internal,
 
-    -- ** AnalyticsS3ExportFileFormat
-    AnalyticsS3ExportFileFormat (..),
+    -- ** StartAfter
+    StartAfter (..),
 
-    -- ** ArchiveStatus
-    ArchiveStatus (..),
+    -- ** ReplicationConfiguration
+    ReplicationConfiguration (..),
+    mkReplicationConfiguration,
+    rcRole,
+    rcRules,
 
-    -- ** BucketAccelerateStatus
-    BucketAccelerateStatus (..),
+    -- ** IfMatch
+    IfMatch (..),
 
-    -- ** BucketCannedACL
-    BucketCannedACL (..),
-
-    -- ** BucketLogsPermission
-    BucketLogsPermission (..),
-
-    -- ** BucketVersioningStatus
-    BucketVersioningStatus (..),
-
-    -- ** CompressionType
-    CompressionType (..),
-
-    -- ** DeleteMarkerReplicationStatus
-    DeleteMarkerReplicationStatus (..),
-
-    -- ** EncodingType
-    EncodingType (..),
+    -- ** Destination
+    Destination (..),
+    mkDestination,
+    dBucket,
+    dAccessControlTranslation,
+    dAccount,
+    dEncryptionConfiguration,
+    dMetrics,
+    dReplicationTime,
+    dStorageClass,
 
     -- ** Event
     Event (..),
 
-    -- ** ExistingObjectReplicationStatus
-    ExistingObjectReplicationStatus (..),
+    -- ** RequestCharged
+    RequestCharged (..),
+
+    -- ** DeleteMarkerReplication
+    DeleteMarkerReplication (..),
+    mkDeleteMarkerReplication,
+    dmrStatus,
+
+    -- ** Suffix
+    Suffix (..),
+
+    -- ** NoncurrentVersionExpiration
+    NoncurrentVersionExpiration (..),
+    mkNoncurrentVersionExpiration,
+    nveNoncurrentDays,
+
+    -- ** AllowedMethod
+    AllowedMethod (..),
+
+    -- ** Transition
+    Transition (..),
+    mkTransition,
+    tfDate,
+    tfDays,
+    tfStorageClass,
+
+    -- ** DeleteMarkerEntry
+    DeleteMarkerEntry (..),
+    mkDeleteMarkerEntry,
+    dmeIsLatest,
+    dmeKey,
+    dmeLastModified,
+    dmeOwner,
+    dmeVersionId,
+
+    -- ** AnalyticsS3ExportFileFormat
+    AnalyticsS3ExportFileFormat (..),
 
     -- ** ExpirationStatus
     ExpirationStatus (..),
 
-    -- ** ExpressionType
-    ExpressionType (..),
+    -- ** TargetBucket
+    TargetBucket (..),
 
-    -- ** FileHeaderInfo
-    FileHeaderInfo (..),
+    -- ** ServerSideEncryptionRule
+    ServerSideEncryptionRule (..),
+    mkServerSideEncryptionRule,
+    sserApplyServerSideEncryptionByDefault,
 
-    -- ** FilterRuleName
-    FilterRuleName (..),
+    -- ** AllowedHeader
+    AllowedHeader (..),
 
-    -- ** IntelligentTieringAccessTier
-    IntelligentTieringAccessTier (..),
+    -- ** InventoryId
+    InventoryId (..),
 
-    -- ** IntelligentTieringStatus
-    IntelligentTieringStatus (..),
+    -- ** MetricsConfiguration
+    MetricsConfiguration (..),
+    mkMetricsConfiguration,
+    mcId,
+    mcFilter,
 
-    -- ** InventoryFormat
-    InventoryFormat (..),
+    -- ** CopySourceRange
+    CopySourceRange (..),
 
-    -- ** InventoryFrequency
-    InventoryFrequency (..),
+    -- ** Metrics
+    Metrics (..),
+    mkMetrics,
+    mStatus,
+    mEventThreshold,
 
-    -- ** InventoryIncludedObjectVersions
-    InventoryIncludedObjectVersions (..),
+    -- ** Part
+    Part (..),
+    mkPart,
+    pETag,
+    pLastModified,
+    pPartNumber,
+    pSize,
 
-    -- ** InventoryOptionalField
-    InventoryOptionalField (..),
+    -- ** HostName
+    HostName (..),
 
-    -- ** JSONType
-    JSONType (..),
+    -- ** ReplicationTimeValue
+    ReplicationTimeValue (..),
+    mkReplicationTimeValue,
+    rtvMinutes,
 
-    -- ** MFADelete
-    MFADelete (..),
+    -- ** CopySourceSSECustomerKeyMD5
+    CopySourceSSECustomerKeyMD5 (..),
 
-    -- ** MFADeleteStatus
-    MFADeleteStatus (..),
-
-    -- ** MetadataDirective
-    MetadataDirective (..),
-
-    -- ** MetricsStatus
-    MetricsStatus (..),
-
-    -- ** ObjectCannedACL
-    ObjectCannedACL (..),
-
-    -- ** ObjectLockEnabled
-    ObjectLockEnabled (..),
-
-    -- ** ObjectLockLegalHoldStatus
-    ObjectLockLegalHoldStatus (..),
-
-    -- ** ObjectLockMode
-    ObjectLockMode (..),
-
-    -- ** ObjectLockRetentionMode
-    ObjectLockRetentionMode (..),
-
-    -- ** ObjectOwnership
-    ObjectOwnership (..),
-
-    -- ** ObjectStorageClass
-    ObjectStorageClass (..),
-
-    -- ** ObjectVersionStorageClass
-    ObjectVersionStorageClass (..),
-
-    -- ** OwnerOverride
-    OwnerOverride (..),
-
-    -- ** Payer
-    Payer (..),
-
-    -- ** Permission
-    Permission (..),
-
-    -- ** Protocol
-    Protocol (..),
-
-    -- ** QuoteFields
-    QuoteFields (..),
-
-    -- ** ReplicationRuleStatus
-    ReplicationRuleStatus (..),
-
-    -- ** ReplicationStatus
-    ReplicationStatus (..),
-
-    -- ** ReplicationTimeStatus
-    ReplicationTimeStatus (..),
-
-    -- ** RequestCharged
-    RequestCharged (..),
-
-    -- ** RequestPayer
-    RequestPayer (..),
-
-    -- ** RestoreRequestType
-    RestoreRequestType (..),
-
-    -- ** ServerSideEncryption
-    ServerSideEncryption (..),
-
-    -- ** SseKMSEncryptedObjectsStatus
-    SseKMSEncryptedObjectsStatus (..),
-
-    -- ** StorageClass
-    StorageClass (..),
-
-    -- ** StorageClassAnalysisSchemaVersion
-    StorageClassAnalysisSchemaVersion (..),
+    -- ** VersioningConfiguration
+    VersioningConfiguration (..),
+    mkVersioningConfiguration,
+    vcMFADelete,
+    vcStatus,
 
     -- ** TaggingDirective
     TaggingDirective (..),
 
-    -- ** Tier
-    Tier (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** TransitionStorageClass
-    TransitionStorageClass (..),
+    -- ** MFA
+    MFA (..),
 
-    -- ** Type
-    Type (..),
+    -- ** ExpressionType
+    ExpressionType (..),
 
-    -- ** AbortIncompleteMultipartUpload
-    AbortIncompleteMultipartUpload (..),
-    mkAbortIncompleteMultipartUpload,
-    aimuDaysAfterInitiation,
+    -- ** NextVersionIdMarker
+    NextVersionIdMarker (..),
 
-    -- ** AccelerateConfiguration
-    AccelerateConfiguration (..),
-    mkAccelerateConfiguration,
-    acStatus,
+    -- ** TaggingHeader
+    TaggingHeader (..),
 
-    -- ** AccessControlPolicy
-    AccessControlPolicy (..),
-    mkAccessControlPolicy,
-    acpGrants,
-    acpOwner,
+    -- ** ObjectStorageClass
+    ObjectStorageClass (..),
+
+    -- ** InventoryFilter
+    InventoryFilter (..),
+    mkInventoryFilter,
+    ifPrefix,
+
+    -- ** MetadataDirective
+    MetadataDirective (..),
+
+    -- ** ReplicationRule
+    ReplicationRule (..),
+    mkReplicationRule,
+    rrStatus,
+    rrDestination,
+    rrDeleteMarkerReplication,
+    rrExistingObjectReplication,
+    rrFilter,
+    rrID,
+    rrPrefix,
+    rrPriority,
+    rrSourceSelectionCriteria,
+
+    -- ** ResponseContentType
+    ResponseContentType (..),
+
+    -- ** InventoryConfiguration
+    InventoryConfiguration (..),
+    mkInventoryConfiguration,
+    icDestination,
+    icIsEnabled,
+    icId,
+    icIncludedObjectVersions,
+    icSchedule,
+    icFilter,
+    icOptionalFields,
+
+    -- ** ObjectLockRetention
+    ObjectLockRetention (..),
+    mkObjectLockRetention,
+    olrMode,
+    olrRetainUntilDate,
+
+    -- ** RedirectAllRequestsTo
+    RedirectAllRequestsTo (..),
+    mkRedirectAllRequestsTo,
+    rartHostName,
+    rartProtocol,
+
+    -- ** SelectParameters
+    SelectParameters (..),
+    mkSelectParameters,
+    spInputSerialization,
+    spExpressionType,
+    spExpression,
+    spOutputSerialization,
+
+    -- ** RoutingRule
+    RoutingRule (..),
+    mkRoutingRule,
+    rrRedirect,
+    rrCondition,
+
+    -- ** ObjectLockLegalHold
+    ObjectLockLegalHold (..),
+    mkObjectLockLegalHold,
+    ollhStatus,
+
+    -- ** Location
+    Location (..),
+
+    -- ** IntelligentTieringConfiguration
+    IntelligentTieringConfiguration (..),
+    mkIntelligentTieringConfiguration,
+    itcId,
+    itcStatus,
+    itcTierings,
+    itcFilter,
+
+    -- ** NotificationConfiguration
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
+    ncLambdaFunctionConfigurations,
+    ncQueueConfigurations,
+    ncTopicConfigurations,
+
+    -- ** Progress
+    Progress (..),
+    mkProgress,
+    pBytesProcessed,
+    pBytesReturned,
+    pBytesScanned,
+
+    -- ** ResponseContentDisposition
+    ResponseContentDisposition (..),
+
+    -- ** FilterRuleValue
+    FilterRuleValue (..),
+
+    -- ** ContinuationEvent
+    ContinuationEvent (..),
+    mkContinuationEvent,
+
+    -- ** StorageClassAnalysis
+    StorageClassAnalysis (..),
+    mkStorageClassAnalysis,
+    scaDataExport,
+
+    -- ** BucketAccelerateStatus
+    BucketAccelerateStatus (..),
+
+    -- ** InventoryEncryption
+    InventoryEncryption (..),
+    mkInventoryEncryption,
+    ieSSEKMS,
+    ieSSES3,
+
+    -- ** LocationPrefix
+    LocationPrefix (..),
+
+    -- ** ObjectLockToken
+    ObjectLockToken (..),
+
+    -- ** ObjectLockMode
+    ObjectLockMode (..),
+
+    -- ** KeyMarker
+    KeyMarker (..),
+
+    -- ** LifecycleRule
+    LifecycleRule (..),
+    mkLifecycleRule,
+    lrStatus,
+    lrAbortIncompleteMultipartUpload,
+    lrExpiration,
+    lrFilter,
+    lrID,
+    lrNoncurrentVersionExpiration,
+    lrNoncurrentVersionTransitions,
+    lrPrefix,
+    lrTransitions,
+
+    -- ** ObjectCannedACL
+    ObjectCannedACL (..),
 
     -- ** AccessControlTranslation
     AccessControlTranslation (..),
     mkAccessControlTranslation,
     actOwner,
 
-    -- ** AnalyticsAndOperator
-    AnalyticsAndOperator (..),
-    mkAnalyticsAndOperator,
-    aaoPrefix,
-    aaoTags,
+    -- ** BucketVersioningStatus
+    BucketVersioningStatus (..),
 
-    -- ** AnalyticsConfiguration
-    AnalyticsConfiguration (..),
-    mkAnalyticsConfiguration,
-    acStorageClassAnalysis,
-    acId,
-    acFilter,
+    -- ** DeletedObject
+    DeletedObject (..),
+    mkDeletedObject,
+    doDeleteMarker,
+    doDeleteMarkerVersionId,
+    doKey,
+    doVersionId,
 
-    -- ** AnalyticsExportDestination
-    AnalyticsExportDestination (..),
-    mkAnalyticsExportDestination,
-    aedS3BucketDestination,
+    -- ** ObjectVersionStorageClass
+    ObjectVersionStorageClass (..),
 
-    -- ** AnalyticsFilter
-    AnalyticsFilter (..),
-    mkAnalyticsFilter,
-    afTag,
-    afPrefix,
-    afAnd,
-
-    -- ** AnalyticsS3BucketDestination
-    AnalyticsS3BucketDestination (..),
-    mkAnalyticsS3BucketDestination,
-    asbdBucketAccountId,
-    asbdPrefix,
-    asbdFormat,
-    asbdBucket,
-
-    -- ** Bucket
-    Bucket (..),
-    mkBucket,
-    bName,
-    bCreationDate,
-
-    -- ** BucketLifecycleConfiguration
-    BucketLifecycleConfiguration (..),
-    mkBucketLifecycleConfiguration,
-    blcRules,
-
-    -- ** BucketLoggingStatus
-    BucketLoggingStatus (..),
-    mkBucketLoggingStatus,
-    blsLoggingEnabled,
-
-    -- ** CORSConfiguration
-    CORSConfiguration (..),
-    mkCORSConfiguration,
-    ccCORSRules,
-
-    -- ** CORSRule
-    CORSRule (..),
-    mkCORSRule,
-    crAllowedMethods,
-    crMaxAgeSeconds,
-    crAllowedHeaders,
-    crAllowedOrigins,
-    crExposeHeaders,
+    -- ** LambdaFunctionArn
+    LambdaFunctionArn (..),
 
     -- ** CSVInput
     CSVInput (..),
     mkCSVInput,
-    ciQuoteCharacter,
-    ciRecordDelimiter,
-    ciAllowQuotedRecordDelimiter,
-    ciFileHeaderInfo,
-    ciQuoteEscapeCharacter,
-    ciComments,
-    ciFieldDelimiter,
+    csviAllowQuotedRecordDelimiter,
+    csviComments,
+    csviFieldDelimiter,
+    csviFileHeaderInfo,
+    csviQuoteCharacter,
+    csviQuoteEscapeCharacter,
+    csviRecordDelimiter,
 
-    -- ** CSVOutput
-    CSVOutput (..),
-    mkCSVOutput,
-    coQuoteCharacter,
-    coQuoteFields,
-    coRecordDelimiter,
-    coQuoteEscapeCharacter,
-    coFieldDelimiter,
+    -- ** ResponseContentLanguage
+    ResponseContentLanguage (..),
 
-    -- ** CommonPrefix
-    CommonPrefix (..),
-    mkCommonPrefix,
-    cpPrefix,
+    -- ** MultipartUploadId
+    MultipartUploadId (..),
 
-    -- ** CompletedMultipartUpload
-    CompletedMultipartUpload (..),
-    mkCompletedMultipartUpload,
-    cmuParts,
+    -- ** Prefix
+    Prefix (..),
 
-    -- ** CompletedPart
-    CompletedPart (..),
-    mkCompletedPart,
-    cpETag,
-    cpPartNumber,
+    -- ** ParquetInput
+    ParquetInput (..),
+    mkParquetInput,
 
-    -- ** Condition
-    Condition (..),
-    mkCondition,
-    cKeyPrefixEquals,
-    cHTTPErrorCodeReturnedEquals,
+    -- ** S3ServiceError
+    S3ServiceError (..),
+    mkS3ServiceError,
+    sseCode,
+    sseKey,
+    sseMessage,
+    sseVersionId,
 
-    -- ** ContinuationEvent
-    ContinuationEvent (..),
-    mkContinuationEvent,
+    -- ** KeyPrefixEquals
+    KeyPrefixEquals (..),
 
-    -- ** CopyObjectResult
-    CopyObjectResult (..),
-    mkCopyObjectResult,
-    corETag,
-    corLastModified,
+    -- ** Restore
+    Restore (..),
+
+    -- ** ObjectLockEnabled
+    ObjectLockEnabled (..),
+
+    -- ** EndEvent
+    EndEvent (..),
+    mkEndEvent,
+
+    -- ** Token
+    Token (..),
+
+    -- ** MetricsStatus
+    MetricsStatus (..),
+
+    -- ** AnalyticsId
+    AnalyticsId (..),
+
+    -- ** Expiration
+    Expiration (..),
+
+    -- ** QuoteCharacter
+    QuoteCharacter (..),
 
     -- ** CopyPartResult
     CopyPartResult (..),
@@ -616,10 +714,342 @@ module Network.AWS.S3
     cprETag,
     cprLastModified,
 
-    -- ** CreateBucketConfiguration
-    CreateBucketConfiguration (..),
-    mkCreateBucketConfiguration,
-    cbcLocationConstraint,
+    -- ** EncodingType
+    EncodingType (..),
+
+    -- ** ExposeHeader
+    ExposeHeader (..),
+
+    -- ** LifecycleRuleAndOperator
+    LifecycleRuleAndOperator (..),
+    mkLifecycleRuleAndOperator,
+    lraoPrefix,
+    lraoTags,
+
+    -- ** RequestPaymentConfiguration
+    RequestPaymentConfiguration (..),
+    mkRequestPaymentConfiguration,
+    rpcPayer,
+
+    -- ** CORSRule
+    CORSRule (..),
+    mkCORSRule,
+    corsrAllowedMethods,
+    corsrAllowedOrigins,
+    corsrAllowedHeaders,
+    corsrExposeHeaders,
+    corsrMaxAgeSeconds,
+
+    -- ** Value
+    Value (..),
+
+    -- ** WebsiteConfiguration
+    WebsiteConfiguration (..),
+    mkWebsiteConfiguration,
+    wcErrorDocument,
+    wcIndexDocument,
+    wcRedirectAllRequestsTo,
+    wcRoutingRules,
+
+    -- ** NoncurrentVersionTransition
+    NoncurrentVersionTransition (..),
+    mkNoncurrentVersionTransition,
+    nvtNoncurrentDays,
+    nvtStorageClass,
+
+    -- ** DeleteMarkerReplicationStatus
+    DeleteMarkerReplicationStatus (..),
+
+    -- ** QuoteFields
+    QuoteFields (..),
+
+    -- ** Initiator
+    Initiator (..),
+    mkInitiator,
+    iDisplayName,
+    iID,
+
+    -- ** InventoryFrequency
+    InventoryFrequency (..),
+
+    -- ** GrantReadACP
+    GrantReadACP (..),
+
+    -- ** ObjectIdentifier
+    ObjectIdentifier (..),
+    mkObjectIdentifier,
+    oiKey,
+    oiVersionId,
+
+    -- ** CopySourceIfNoneMatch
+    CopySourceIfNoneMatch (..),
+
+    -- ** Bucket
+    Bucket (..),
+    mkBucket,
+    bCreationDate,
+    bName,
+
+    -- ** ExistingObjectReplicationStatus
+    ExistingObjectReplicationStatus (..),
+
+    -- ** ArchiveStatus
+    ArchiveStatus (..),
+
+    -- ** SSECustomerAlgorithm
+    SSECustomerAlgorithm (..),
+
+    -- ** Protocol
+    Protocol (..),
+
+    -- ** InventoryDestination
+    InventoryDestination (..),
+    mkInventoryDestination,
+    idS3BucketDestination,
+
+    -- ** JSONInput
+    JSONInput (..),
+    mkJSONInput,
+    jsoniType,
+
+    -- ** RecordDelimiter
+    RecordDelimiter (..),
+
+    -- ** AnalyticsExportDestination
+    AnalyticsExportDestination (..),
+    mkAnalyticsExportDestination,
+    aedS3BucketDestination,
+
+    -- ** Grant
+    Grant (..),
+    mkGrant,
+    gGrantee,
+    gPermission,
+
+    -- ** ObjectOwnership
+    ObjectOwnership (..),
+
+    -- ** InventoryOptionalField
+    InventoryOptionalField (..),
+
+    -- ** SSECustomerKey
+    SSECustomerKey (..),
+
+    -- ** URI
+    URI (..),
+
+    -- ** IntelligentTieringAndOperator
+    IntelligentTieringAndOperator (..),
+    mkIntelligentTieringAndOperator,
+    itaoPrefix,
+    itaoTags,
+
+    -- ** ObjectLockConfiguration
+    ObjectLockConfiguration (..),
+    mkObjectLockConfiguration,
+    olcObjectLockEnabled,
+    olcRule,
+
+    -- ** StorageClassAnalysisSchemaVersion
+    StorageClassAnalysisSchemaVersion (..),
+
+    -- ** InventoryIncludedObjectVersions
+    InventoryIncludedObjectVersions (..),
+
+    -- ** RequestPayer
+    RequestPayer (..),
+
+    -- ** TopicConfiguration
+    TopicConfiguration (..),
+    mkTopicConfiguration,
+    tcTopicArn,
+    tcEvents,
+    tcFilter,
+    tcId,
+
+    -- ** OwnershipControlsRule
+    OwnershipControlsRule (..),
+    mkOwnershipControlsRule,
+    ocrObjectOwnership,
+
+    -- ** Stats
+    Stats (..),
+    mkStats,
+    sBytesProcessed,
+    sBytesReturned,
+    sBytesScanned,
+
+    -- ** GrantWriteACP
+    GrantWriteACP (..),
+
+    -- ** AbortRuleId
+    AbortRuleId (..),
+
+    -- ** ObjectLockRetentionMode
+    ObjectLockRetentionMode (..),
+
+    -- ** OutputSerialization
+    OutputSerialization (..),
+    mkOutputSerialization,
+    osCSV,
+    osJSON,
+
+    -- ** CSVOutput
+    CSVOutput (..),
+    mkCSVOutput,
+    csvoFieldDelimiter,
+    csvoQuoteCharacter,
+    csvoQuoteEscapeCharacter,
+    csvoQuoteFields,
+    csvoRecordDelimiter,
+
+    -- ** QueueConfiguration
+    QueueConfiguration (..),
+    mkQueueConfiguration,
+    qcQueueArn,
+    qcEvents,
+    qcFilter,
+    qcId,
+
+    -- ** IntelligentTieringStatus
+    IntelligentTieringStatus (..),
+
+    -- ** Owner
+    Owner (..),
+    mkOwner,
+    oDisplayName,
+    oID,
+
+    -- ** BucketLoggingStatus
+    BucketLoggingStatus (..),
+    mkBucketLoggingStatus,
+    blsLoggingEnabled,
+
+    -- ** RestoreRequestType
+    RestoreRequestType (..),
+
+    -- ** ReplicationRuleAndOperator
+    ReplicationRuleAndOperator (..),
+    mkReplicationRuleAndOperator,
+    rraoPrefix,
+    rraoTags,
+
+    -- ** HttpErrorCodeReturnedEquals
+    HttpErrorCodeReturnedEquals (..),
+
+    -- ** StorageClassAnalysisDataExport
+    StorageClassAnalysisDataExport (..),
+    mkStorageClassAnalysisDataExport,
+    scadeOutputSchemaVersion,
+    scadeDestination,
+
+    -- ** ResponseContentEncoding
+    ResponseContentEncoding (..),
+
+    -- ** SelectObjectContentEventStream
+    SelectObjectContentEventStream (..),
+    mkSelectObjectContentEventStream,
+    socesCont,
+    socesEnd,
+    socesProgress,
+    socesRecords,
+    socesStats,
+
+    -- ** QueueArn
+    QueueArn (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** CopySourceIfMatch
+    CopySourceIfMatch (..),
+
+    -- ** AllowedOrigin
+    AllowedOrigin (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** TopicArn
+    TopicArn (..),
+
+    -- ** UploadIdMarker
+    UploadIdMarker (..),
+
+    -- ** SseKmsEncryptedObjectsStatus
+    SseKmsEncryptedObjectsStatus (..),
+
+    -- ** WebsiteRedirectLocation
+    WebsiteRedirectLocation (..),
+
+    -- ** RequestProgress
+    RequestProgress (..),
+    mkRequestProgress,
+    rpEnabled,
+
+    -- ** GrantRead
+    GrantRead (..),
+
+    -- ** PublicAccessBlockConfiguration
+    PublicAccessBlockConfiguration (..),
+    mkPublicAccessBlockConfiguration,
+    pabcBlockPublicAcls,
+    pabcBlockPublicPolicy,
+    pabcIgnorePublicAcls,
+    pabcRestrictPublicBuckets,
+
+    -- ** DeleteMarkerVersionId
+    DeleteMarkerVersionId (..),
+
+    -- ** AnalyticsS3BucketDestination
+    AnalyticsS3BucketDestination (..),
+    mkAnalyticsS3BucketDestination,
+    asbdFormat,
+    asbdBucket,
+    asbdBucketAccountId,
+    asbdPrefix,
+
+    -- ** MetricsAndOperator
+    MetricsAndOperator (..),
+    mkMetricsAndOperator,
+    maoPrefix,
+    maoTags,
+
+    -- ** PolicyStatus
+    PolicyStatus (..),
+    mkPolicyStatus,
+    psIsPublic,
+
+    -- ** Role
+    Role (..),
+
+    -- ** AcceptRanges
+    AcceptRanges (..),
+
+    -- ** ReplicaKmsKeyID
+    ReplicaKmsKeyID (..),
+
+    -- ** Range
+    Range (..),
+
+    -- ** Encryption
+    Encryption (..),
+    mkEncryption,
+    eEncryptionType,
+    eKMSContext,
+    eKMSKeyId,
+
+    -- ** MetricsFilter
+    MetricsFilter (..),
+    mkMetricsFilter,
+    mfAnd,
+    mfPrefix,
+    mfTag,
+
+    -- ** S3KeyFilter
+    S3KeyFilter (..),
+    mkS3KeyFilter,
+    skfFilterRules,
 
     -- ** DefaultRetention
     DefaultRetention (..),
@@ -628,634 +1058,71 @@ module Network.AWS.S3
     drMode,
     drYears,
 
-    -- ** Delete
-    Delete (..),
-    mkDelete,
-    dQuiet,
-    dObjects,
+    -- ** OwnershipControls
+    OwnershipControls (..),
+    mkOwnershipControls,
+    ocRules,
 
-    -- ** DeleteMarkerEntry
-    DeleteMarkerEntry (..),
-    mkDeleteMarkerEntry,
-    dmeVersionId,
-    dmeIsLatest,
-    dmeOwner,
-    dmeKey,
-    dmeLastModified,
-
-    -- ** DeleteMarkerReplication
-    DeleteMarkerReplication (..),
-    mkDeleteMarkerReplication,
-    dmrStatus,
-
-    -- ** DeletedObject
-    DeletedObject (..),
-    mkDeletedObject,
-    doVersionId,
-    doDeleteMarker,
-    doDeleteMarkerVersionId,
-    doKey,
-
-    -- ** Destination
-    Destination (..),
-    mkDestination,
-    dMetrics,
-    dAccessControlTranslation,
-    dBucket,
-    dAccount,
-    dStorageClass,
-    dEncryptionConfiguration,
-    dReplicationTime,
-
-    -- ** Encryption
-    Encryption (..),
-    mkEncryption,
-    eEncryptionType,
-    eKMSKeyId,
-    eKMSContext,
-
-    -- ** EncryptionConfiguration
-    EncryptionConfiguration (..),
-    mkEncryptionConfiguration,
-    ecReplicaKMSKeyId,
-
-    -- ** EndEvent
-    EndEvent (..),
-    mkEndEvent,
-
-    -- ** ErrorDocument
-    ErrorDocument (..),
-    mkErrorDocument,
-    edKey,
-
-    -- ** ExistingObjectReplication
-    ExistingObjectReplication (..),
-    mkExistingObjectReplication,
-    eorStatus,
-
-    -- ** FilterRule
-    FilterRule (..),
-    mkFilterRule,
-    frValue,
-    frName,
-
-    -- ** GlacierJobParameters
-    GlacierJobParameters (..),
-    mkGlacierJobParameters,
-    gjpTier,
-
-    -- ** Grant
-    Grant (..),
-    mkGrant,
-    gPermission,
-    gGrantee,
-
-    -- ** Grantee
-    Grantee (..),
-    mkGrantee,
-    gURI,
-    gEmailAddress,
-    gDisplayName,
-    gId,
-    gType,
-
-    -- ** IndexDocument
-    IndexDocument (..),
-    mkIndexDocument,
-    idSuffix,
-
-    -- ** Initiator
-    Initiator (..),
-    mkInitiator,
-    iDisplayName,
-    iId,
-
-    -- ** InputSerialization
-    InputSerialization (..),
-    mkInputSerialization,
-    isJSON,
-    isCSV,
-    isParquet,
-    isCompressionType,
-
-    -- ** IntelligentTieringAndOperator
-    IntelligentTieringAndOperator (..),
-    mkIntelligentTieringAndOperator,
-    itaoPrefix,
-    itaoTags,
-
-    -- ** IntelligentTieringConfiguration
-    IntelligentTieringConfiguration (..),
-    mkIntelligentTieringConfiguration,
-    itcStatus,
-    itcTierings,
-    itcId,
-    itcFilter,
-
-    -- ** IntelligentTieringFilter
-    IntelligentTieringFilter (..),
-    mkIntelligentTieringFilter,
-    itfTag,
-    itfPrefix,
-    itfAnd,
-
-    -- ** InventoryConfiguration
-    InventoryConfiguration (..),
-    mkInventoryConfiguration,
-    icIncludedObjectVersions,
-    icDestination,
-    icSchedule,
-    icIsEnabled,
-    icOptionalFields,
-    icId,
-    icFilter,
-
-    -- ** InventoryDestination
-    InventoryDestination (..),
-    mkInventoryDestination,
-    idS3BucketDestination,
-
-    -- ** InventoryEncryption
-    InventoryEncryption (..),
-    mkInventoryEncryption,
-    ieSSES3,
-    ieSSEKMS,
-
-    -- ** InventoryFilter
-    InventoryFilter (..),
-    mkInventoryFilter,
-    ifPrefix,
-
-    -- ** InventoryS3BucketDestination
-    InventoryS3BucketDestination (..),
-    mkInventoryS3BucketDestination,
-    isbdPrefix,
-    isbdFormat,
-    isbdBucket,
-    isbdAccountId,
-    isbdEncryption,
+    -- ** JSONOutput
+    JSONOutput (..),
+    mkJSONOutput,
+    jsonoRecordDelimiter,
 
     -- ** InventorySchedule
     InventorySchedule (..),
     mkInventorySchedule,
     isFrequency,
 
-    -- ** JSONInput
-    JSONInput (..),
-    mkJSONInput,
-    jiType,
+    -- ** FileHeaderInfo
+    FileHeaderInfo (..),
 
-    -- ** JSONOutput
-    JSONOutput (..),
-    mkJSONOutput,
-    joRecordDelimiter,
+    -- ** ErrorDocument
+    ErrorDocument (..),
+    mkErrorDocument,
+    edKey,
 
-    -- ** LambdaFunctionConfiguration
-    LambdaFunctionConfiguration (..),
-    mkLambdaFunctionConfiguration,
-    lfcLambdaFunctionARN,
-    lfcEvents,
-    lfcId,
-    lfcFilter,
-
-    -- ** LifecycleExpiration
-    LifecycleExpiration (..),
-    mkLifecycleExpiration,
-    leDays,
-    leDate,
-    leExpiredObjectDeleteMarker,
-
-    -- ** LifecycleRule
-    LifecycleRule (..),
-    mkLifecycleRule,
-    lrStatus,
-    lrTransitions,
-    lrNoncurrentVersionExpiration,
-    lrPrefix,
-    lrNoncurrentVersionTransitions,
-    lrExpiration,
-    lrId,
-    lrFilter,
-    lrAbortIncompleteMultipartUpload,
-
-    -- ** LifecycleRuleAndOperator
-    LifecycleRuleAndOperator (..),
-    mkLifecycleRuleAndOperator,
-    lraoPrefix,
-    lraoTags,
-
-    -- ** LifecycleRuleFilter
-    LifecycleRuleFilter (..),
-    mkLifecycleRuleFilter,
-    lrfTag,
-    lrfPrefix,
-    lrfAnd,
-
-    -- ** LoggingEnabled
-    LoggingEnabled (..),
-    mkLoggingEnabled,
-    leTargetBucket,
-    leTargetGrants,
-    leTargetPrefix,
-
-    -- ** MetadataEntry
-    MetadataEntry (..),
-    mkMetadataEntry,
-    meValue,
-    meName,
-
-    -- ** Metrics
-    Metrics (..),
-    mkMetrics,
-    mStatus,
-    mEventThreshold,
-
-    -- ** MetricsAndOperator
-    MetricsAndOperator (..),
-    mkMetricsAndOperator,
-    maoPrefix,
-    maoTags,
-
-    -- ** MetricsConfiguration
-    MetricsConfiguration (..),
-    mkMetricsConfiguration,
-    mcId,
-    mcFilter,
-
-    -- ** MetricsFilter
-    MetricsFilter (..),
-    mkMetricsFilter,
-    mfTag,
-    mfPrefix,
-    mfAnd,
-
-    -- ** MultipartUpload
-    MultipartUpload (..),
-    mkMultipartUpload,
-    muInitiated,
-    muInitiator,
-    muOwner,
-    muKey,
-    muStorageClass,
-    muUploadId,
-
-    -- ** NoncurrentVersionExpiration
-    NoncurrentVersionExpiration (..),
-    mkNoncurrentVersionExpiration,
-    nveNoncurrentDays,
-
-    -- ** NoncurrentVersionTransition
-    NoncurrentVersionTransition (..),
-    mkNoncurrentVersionTransition,
-    nvtStorageClass,
-    nvtNoncurrentDays,
-
-    -- ** NotificationConfiguration
-    NotificationConfiguration (..),
-    mkNotificationConfiguration,
-    ncQueueConfigurations,
-    ncTopicConfigurations,
-    ncLambdaFunctionConfigurations,
-
-    -- ** NotificationConfigurationFilter
-    NotificationConfigurationFilter (..),
-    mkNotificationConfigurationFilter,
-    ncfKey,
-
-    -- ** Object
-    Object (..),
-    mkObject,
-    oETag,
-    oSize,
-    oOwner,
-    oKey,
-    oStorageClass,
-    oLastModified,
-
-    -- ** ObjectIdentifier
-    ObjectIdentifier (..),
-    mkObjectIdentifier,
-    oiVersionId,
-    oiKey,
-
-    -- ** ObjectLockConfiguration
-    ObjectLockConfiguration (..),
-    mkObjectLockConfiguration,
-    olcObjectLockEnabled,
-    olcRule,
-
-    -- ** ObjectLockLegalHold
-    ObjectLockLegalHold (..),
-    mkObjectLockLegalHold,
-    ollhStatus,
-
-    -- ** ObjectLockRetention
-    ObjectLockRetention (..),
-    mkObjectLockRetention,
-    olrMode,
-    olrRetainUntilDate,
-
-    -- ** ObjectLockRule
-    ObjectLockRule (..),
-    mkObjectLockRule,
-    olrDefaultRetention,
+    -- ** StorageClass
+    StorageClass (..),
 
     -- ** ObjectVersion
     ObjectVersion (..),
     mkObjectVersion,
     ovETag,
-    ovVersionId,
-    ovSize,
     ovIsLatest,
-    ovOwner,
     ovKey,
-    ovStorageClass,
     ovLastModified,
-
-    -- ** OutputLocation
-    OutputLocation (..),
-    mkOutputLocation,
-    olS3,
-
-    -- ** OutputSerialization
-    OutputSerialization (..),
-    mkOutputSerialization,
-    osJSON,
-    osCSV,
-
-    -- ** Owner
-    Owner (..),
-    mkOwner,
-    oDisplayName,
-    oId,
-
-    -- ** OwnershipControls
-    OwnershipControls (..),
-    mkOwnershipControls,
-    ocRules,
-
-    -- ** OwnershipControlsRule
-    OwnershipControlsRule (..),
-    mkOwnershipControlsRule,
-    ocrObjectOwnership,
-
-    -- ** ParquetInput
-    ParquetInput (..),
-    mkParquetInput,
-
-    -- ** Part
-    Part (..),
-    mkPart,
-    pETag,
-    pSize,
-    pPartNumber,
-    pLastModified,
-
-    -- ** PolicyStatus
-    PolicyStatus (..),
-    mkPolicyStatus,
-    psIsPublic,
-
-    -- ** Progress
-    Progress (..),
-    mkProgress,
-    pBytesReturned,
-    pBytesScanned,
-    pBytesProcessed,
-
-    -- ** ProgressEvent
-    ProgressEvent (..),
-    mkProgressEvent,
-    peDetails,
-
-    -- ** PublicAccessBlockConfiguration
-    PublicAccessBlockConfiguration (..),
-    mkPublicAccessBlockConfiguration,
-    pabcIgnorePublicACLs,
-    pabcBlockPublicACLs,
-    pabcRestrictPublicBuckets,
-    pabcBlockPublicPolicy,
-
-    -- ** QueueConfiguration
-    QueueConfiguration (..),
-    mkQueueConfiguration,
-    qcQueueARN,
-    qcEvents,
-    qcId,
-    qcFilter,
-
-    -- ** RecordsEvent
-    RecordsEvent (..),
-    mkRecordsEvent,
-    rePayload,
-
-    -- ** Redirect
-    Redirect (..),
-    mkRedirect,
-    rHostName,
-    rProtocol,
-    rHTTPRedirectCode,
-    rReplaceKeyWith,
-    rReplaceKeyPrefixWith,
-
-    -- ** RedirectAllRequestsTo
-    RedirectAllRequestsTo (..),
-    mkRedirectAllRequestsTo,
-    rartHostName,
-    rartProtocol,
-
-    -- ** ReplicationConfiguration
-    ReplicationConfiguration (..),
-    mkReplicationConfiguration,
-    rcRules,
-    rcRole,
-
-    -- ** ReplicationRule
-    ReplicationRule (..),
-    mkReplicationRule,
-    rrStatus,
-    rrDestination,
-    rrDeleteMarkerReplication,
-    rrPriority,
-    rrPrefix,
-    rrExistingObjectReplication,
-    rrId,
-    rrFilter,
-    rrSourceSelectionCriteria,
-
-    -- ** ReplicationRuleAndOperator
-    ReplicationRuleAndOperator (..),
-    mkReplicationRuleAndOperator,
-    rraoPrefix,
-    rraoTags,
-
-    -- ** ReplicationRuleFilter
-    ReplicationRuleFilter (..),
-    mkReplicationRuleFilter,
-    rrfTag,
-    rrfPrefix,
-    rrfAnd,
-
-    -- ** ReplicationTime
-    ReplicationTime (..),
-    mkReplicationTime,
-    rtStatus,
-    rtTime,
-
-    -- ** ReplicationTimeValue
-    ReplicationTimeValue (..),
-    mkReplicationTimeValue,
-    rtvMinutes,
-
-    -- ** RequestPaymentConfiguration
-    RequestPaymentConfiguration (..),
-    mkRequestPaymentConfiguration,
-    rpcPayer,
-
-    -- ** RequestProgress
-    RequestProgress (..),
-    mkRequestProgress,
-    rpEnabled,
-
-    -- ** RestoreRequest
-    RestoreRequest (..),
-    mkRestoreRequest,
-    rrDays,
-    rrSelectParameters,
-    rrOutputLocation,
-    rrTier,
-    rrGlacierJobParameters,
-    rrType,
-    rrDescription,
-
-    -- ** RoutingRule
-    RoutingRule (..),
-    mkRoutingRule,
-    rrRedirect,
-    rrCondition,
-
-    -- ** S3KeyFilter
-    S3KeyFilter (..),
-    mkS3KeyFilter,
-    skfFilterRules,
-
-    -- ** S3Location
-    S3Location (..),
-    mkS3Location,
-    slCannedACL,
-    slPrefix,
-    slBucketName,
-    slAccessControlList,
-    slUserMetadata,
-    slEncryption,
-    slStorageClass,
-    slTagging,
-
-    -- ** S3ServiceError
-    S3ServiceError (..),
-    mkS3ServiceError,
-    sseVersionId,
-    sseKey,
-    sseCode,
-    sseMessage,
-
-    -- ** SSEKMS
-    SSEKMS (..),
-    mkSSEKMS,
-    ssekKeyId,
-
-    -- ** SSES3
-    SSES3 (..),
-    mkSSES3,
-
-    -- ** ScanRange
-    ScanRange (..),
-    mkScanRange,
-    srStart,
-    srEnd,
-
-    -- ** SelectObjectContentEventStream
-    SelectObjectContentEventStream (..),
-    mkSelectObjectContentEventStream,
-    socesProgress,
-    socesRecords,
-    socesCont,
-    socesStats,
-    socesEnd,
-
-    -- ** SelectParameters
-    SelectParameters (..),
-    mkSelectParameters,
-    spExpressionType,
-    spOutputSerialization,
-    spExpression,
-    spInputSerialization,
-
-    -- ** ServerSideEncryptionByDefault
-    ServerSideEncryptionByDefault (..),
-    mkServerSideEncryptionByDefault,
-    ssebdSSEAlgorithm,
-    ssebdKMSMasterKeyId,
-
-    -- ** ServerSideEncryptionConfiguration
-    ServerSideEncryptionConfiguration (..),
-    mkServerSideEncryptionConfiguration,
-    ssecRules,
-
-    -- ** ServerSideEncryptionRule
-    ServerSideEncryptionRule (..),
-    mkServerSideEncryptionRule,
-    sserApplyServerSideEncryptionByDefault,
-
-    -- ** SourceSelectionCriteria
-    SourceSelectionCriteria (..),
-    mkSourceSelectionCriteria,
-    sscSseKMSEncryptedObjects,
-
-    -- ** SseKMSEncryptedObjects
-    SseKMSEncryptedObjects (..),
-    mkSseKMSEncryptedObjects,
-    skeoStatus,
-
-    -- ** Stats
-    Stats (..),
-    mkStats,
-    sBytesReturned,
-    sBytesScanned,
-    sBytesProcessed,
-
-    -- ** StatsEvent
-    StatsEvent (..),
-    mkStatsEvent,
-    seDetails,
-
-    -- ** StorageClassAnalysis
-    StorageClassAnalysis (..),
-    mkStorageClassAnalysis,
-    scaDataExport,
-
-    -- ** StorageClassAnalysisDataExport
-    StorageClassAnalysisDataExport (..),
-    mkStorageClassAnalysisDataExport,
-    scadeOutputSchemaVersion,
-    scadeDestination,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** Tagging
-    Tagging (..),
-    mkTagging,
-    tTagSet,
+    ovOwner,
+    ovSize,
+    ovStorageClass,
+    ovVersionId,
 
     -- ** TargetGrant
     TargetGrant (..),
     mkTargetGrant,
-    tgPermission,
     tgGrantee,
+    tgPermission,
+
+    -- ** CopySourceVersionId
+    CopySourceVersionId (..),
+
+    -- ** MFADeleteStatus
+    MFADeleteStatus (..),
+
+    -- ** HttpRedirectCode
+    HttpRedirectCode (..),
+
+    -- ** Payer
+    Payer (..),
+
+    -- ** EncryptionConfiguration
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
+    ecReplicaKmsKeyID,
+
+    -- ** AccelerateConfiguration
+    AccelerateConfiguration (..),
+    mkAccelerateConfiguration,
+    acStatus,
 
     -- ** Tiering
     Tiering (..),
@@ -1263,44 +1130,525 @@ module Network.AWS.S3
     tDays,
     tAccessTier,
 
-    -- ** TopicConfiguration
-    TopicConfiguration (..),
-    mkTopicConfiguration,
-    tcTopicARN,
-    tcEvents,
-    tcId,
-    tcFilter,
+    -- ** ExistingObjectReplication
+    ExistingObjectReplication (..),
+    mkExistingObjectReplication,
+    eorStatus,
 
-    -- ** Transition
-    Transition (..),
-    mkTransition,
-    tfDays,
-    tfDate,
-    tfStorageClass,
+    -- ** Redirect
+    Redirect (..),
+    mkRedirect,
+    rHostName,
+    rHttpRedirectCode,
+    rProtocol,
+    rReplaceKeyPrefixWith,
+    rReplaceKeyWith,
 
-    -- ** VersioningConfiguration
-    VersioningConfiguration (..),
-    mkVersioningConfiguration,
-    vcStatus,
-    vcMFADelete,
+    -- ** MetricsId
+    MetricsId (..),
 
-    -- ** WebsiteConfiguration
-    WebsiteConfiguration (..),
-    mkWebsiteConfiguration,
-    wcRedirectAllRequestsTo,
-    wcErrorDocument,
-    wcIndexDocument,
-    wcRoutingRules,
+    -- ** SSECustomerKeyMD5
+    SSECustomerKeyMD5 (..),
+
+    -- ** NextKeyMarker
+    NextKeyMarker (..),
+
+    -- ** OutputLocation
+    OutputLocation (..),
+    mkOutputLocation,
+    olS3,
+
+    -- ** Tier
+    Tier (..),
+
+    -- ** BucketLogsPermission
+    BucketLogsPermission (..),
+
+    -- ** EmailAddress
+    EmailAddress (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** SSEKMSKeyId
+    SSEKMSKeyId (..),
+
+    -- ** KMSContext
+    KMSContext (..),
+
+    -- ** MetadataKey
+    MetadataKey (..),
+
+    -- ** Expression
+    Expression (..),
+
+    -- ** RecordsEvent
+    RecordsEvent (..),
+    mkRecordsEvent,
+    rePayload,
+
+    -- ** GlacierJobParameters
+    GlacierJobParameters (..),
+    mkGlacierJobParameters,
+    gjpTier,
+
+    -- ** QuoteEscapeCharacter
+    QuoteEscapeCharacter (..),
+
+    -- ** RestoreOutputPath
+    RestoreOutputPath (..),
+
+    -- ** CompletedPart
+    CompletedPart (..),
+    mkCompletedPart,
+    cpETag,
+    cpPartNumber,
+
+    -- ** ReplicationRuleFilter
+    ReplicationRuleFilter (..),
+    mkReplicationRuleFilter,
+    rrfAnd,
+    rrfPrefix,
+    rrfTag,
+
+    -- ** GrantFullControl
+    GrantFullControl (..),
+
+    -- ** ContentEncoding
+    ContentEncoding (..),
+
+    -- ** CreateBucketConfiguration
+    CreateBucketConfiguration (..),
+    mkCreateBucketConfiguration,
+    cbcLocationConstraint,
+
+    -- ** Tagging
+    Tagging (..),
+    mkTagging,
+    tTagSet,
+
+    -- ** NextMarker
+    NextMarker (..),
+
+    -- ** LifecycleExpiration
+    LifecycleExpiration (..),
+    mkLifecycleExpiration,
+    leDate,
+    leDays,
+    leExpiredObjectDeleteMarker,
+
+    -- ** ContentMD5
+    ContentMD5 (..),
+
+    -- ** StatsEvent
+    StatsEvent (..),
+    mkStatsEvent,
+    seDetails,
+
+    -- ** IntelligentTieringFilter
+    IntelligentTieringFilter (..),
+    mkIntelligentTieringFilter,
+    itfAnd,
+    itfPrefix,
+    itfTag,
+
+    -- ** CORSConfiguration
+    CORSConfiguration (..),
+    mkCORSConfiguration,
+    corscCORSRules,
+
+    -- ** ReplicationTimeStatus
+    ReplicationTimeStatus (..),
+
+    -- ** AnalyticsAndOperator
+    AnalyticsAndOperator (..),
+    mkAnalyticsAndOperator,
+    aaoPrefix,
+    aaoTags,
+
+    -- ** NotificationConfigurationFilter
+    NotificationConfigurationFilter (..),
+    mkNotificationConfigurationFilter,
+    ncfKey,
+
+    -- ** DisplayName
+    DisplayName (..),
+
+    -- ** ID
+    ID (..),
+
+    -- ** VersionIdMarker
+    VersionIdMarker (..),
+
+    -- ** SSES3
+    SSES3 (..),
+    mkSSES3,
+
+    -- ** Object
+    Object (..),
+    mkObject,
+    oETag,
+    oKey,
+    oLastModified,
+    oOwner,
+    oSize,
+    oStorageClass,
+
+    -- ** CommonPrefix
+    CommonPrefix (..),
+    mkCommonPrefix,
+    cpPrefix,
+
+    -- ** MultipartUpload
+    MultipartUpload (..),
+    mkMultipartUpload,
+    muInitiated,
+    muInitiator,
+    muKey,
+    muOwner,
+    muStorageClass,
+    muUploadId,
+
+    -- ** LambdaFunctionConfiguration
+    LambdaFunctionConfiguration (..),
+    mkLambdaFunctionConfiguration,
+    lfcLambdaFunctionArn,
+    lfcEvents,
+    lfcFilter,
+    lfcId,
+
+    -- ** Code
+    Code (..),
+
+    -- ** OwnerOverride
+    OwnerOverride (..),
+
+    -- ** S3Location
+    S3Location (..),
+    mkS3Location,
+    slBucketName,
+    slPrefix,
+    slAccessControlList,
+    slCannedACL,
+    slEncryption,
+    slStorageClass,
+    slTagging,
+    slUserMetadata,
+
+    -- ** SseKmsEncryptedObjects
+    SseKmsEncryptedObjects (..),
+    mkSseKmsEncryptedObjects,
+    skeoStatus,
+
+    -- ** CopySource
+    CopySource (..),
+
+    -- ** SSEKMS
+    SSEKMS (..),
+    mkSSEKMS,
+    ssekmsKeyId,
+
+    -- ** ResponseCacheControl
+    ResponseCacheControl (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** BucketLifecycleConfiguration
+    BucketLifecycleConfiguration (..),
+    mkBucketLifecycleConfiguration,
+    blcRules,
+
+    -- ** JSONType
+    JSONType (..),
+
+    -- ** ReplicationStatus
+    ReplicationStatus (..),
+
+    -- ** InputSerialization
+    InputSerialization (..),
+    mkInputSerialization,
+    isCSV,
+    isCompressionType,
+    isJSON,
+    isParquet,
+
+    -- ** ScanRange
+    ScanRange (..),
+    mkScanRange,
+    srEnd,
+    srStart,
+
+    -- ** InventoryS3BucketDestination
+    InventoryS3BucketDestination (..),
+    mkInventoryS3BucketDestination,
+    isbdBucket,
+    isbdFormat,
+    isbdAccountId,
+    isbdEncryption,
+    isbdPrefix,
+
+    -- ** ObjectLockRule
+    ObjectLockRule (..),
+    mkObjectLockRule,
+    olrDefaultRetention,
+
+    -- ** LifecycleRuleFilter
+    LifecycleRuleFilter (..),
+    mkLifecycleRuleFilter,
+    lrfAnd,
+    lrfPrefix,
+    lrfTag,
+
+    -- ** SSEKMSEncryptionContext
+    SSEKMSEncryptionContext (..),
+
+    -- ** TransitionStorageClass
+    TransitionStorageClass (..),
+
+    -- ** CompletedMultipartUpload
+    CompletedMultipartUpload (..),
+    mkCompletedMultipartUpload,
+    cmuParts,
+
+    -- ** Comments
+    Comments (..),
+
+    -- ** CacheControl
+    CacheControl (..),
+
+    -- ** Condition
+    Condition (..),
+    mkCondition,
+    cHttpErrorCodeReturnedEquals,
+    cKeyPrefixEquals,
+
+    -- ** IntelligentTieringAccessTier
+    IntelligentTieringAccessTier (..),
+
+    -- ** ContentLanguage
+    ContentLanguage (..),
+
+    -- ** NextUploadIdMarker
+    NextUploadIdMarker (..),
+
+    -- ** Permission
+    Permission (..),
+
+    -- ** AccessControlPolicy
+    AccessControlPolicy (..),
+    mkAccessControlPolicy,
+    acpGrants,
+    acpOwner,
+
+    -- ** Message
+    Message (..),
+
+    -- ** BucketCannedACL
+    BucketCannedACL (..),
+
+    -- ** MFADelete
+    MFADelete (..),
+
+    -- ** GrantWrite
+    GrantWrite (..),
+
+    -- ** SourceSelectionCriteria
+    SourceSelectionCriteria (..),
+    mkSourceSelectionCriteria,
+    sscSseKmsEncryptedObjects,
+
+    -- ** Grantee
+    Grantee (..),
+    mkGrantee,
+    gType,
+    gDisplayName,
+    gEmailAddress,
+    gID,
+    gURI,
+
+    -- ** CompressionType
+    CompressionType (..),
+
+    -- ** CopySourceSSECustomerKey
+    CopySourceSSECustomerKey (..),
+
+    -- ** ObjectLockLegalHoldStatus
+    ObjectLockLegalHoldStatus (..),
+
+    -- ** LoggingEnabled
+    LoggingEnabled (..),
+    mkLoggingEnabled,
+    leTargetBucket,
+    leTargetPrefix,
+    leTargetGrants,
+
+    -- ** Description
+    Description (..),
+
+    -- ** AnalyticsConfiguration
+    AnalyticsConfiguration (..),
+    mkAnalyticsConfiguration,
+    acId,
+    acStorageClassAnalysis,
+    acFilter,
+
+    -- ** MetadataValue
+    MetadataValue (..),
+
+    -- ** CopySourceSSECustomerAlgorithm
+    CopySourceSSECustomerAlgorithm (..),
+
+    -- ** FilterRule
+    FilterRule (..),
+    mkFilterRule,
+    frName,
+    frValue,
+
+    -- ** ContentDisposition
+    ContentDisposition (..),
+
+    -- ** AnalyticsFilter
+    AnalyticsFilter (..),
+    mkAnalyticsFilter,
+    afAnd,
+    afPrefix,
+    afTag,
+
+    -- ** IfNoneMatch
+    IfNoneMatch (..),
+
+    -- ** ContentRange
+    ContentRange (..),
+
+    -- ** ReplicationRuleStatus
+    ReplicationRuleStatus (..),
+
+    -- ** ProgressEvent
+    ProgressEvent (..),
+    mkProgressEvent,
+    peDetails,
+
+    -- ** ServerSideEncryption
+    ServerSideEncryption (..),
+
+    -- ** IndexDocument
+    IndexDocument (..),
+    mkIndexDocument,
+    idSuffix,
+
+    -- ** CopyObjectResult
+    CopyObjectResult (..),
+    mkCopyObjectResult,
+    corETag,
+    corLastModified,
+
+    -- ** TargetPrefix
+    TargetPrefix (..),
+
+    -- ** InventoryFormat
+    InventoryFormat (..),
+
+    -- ** FieldDelimiter
+    FieldDelimiter (..),
+
+    -- ** MetadataEntry
+    MetadataEntry (..),
+    mkMetadataEntry,
+    meName,
+    meValue,
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** AbortIncompleteMultipartUpload
+    AbortIncompleteMultipartUpload (..),
+    mkAbortIncompleteMultipartUpload,
+    aimuDaysAfterInitiation,
+
+    -- ** ReplaceKeyWith
+    ReplaceKeyWith (..),
+
+    -- ** ServerSideEncryptionConfiguration
+    ServerSideEncryptionConfiguration (..),
+    mkServerSideEncryptionConfiguration,
+    ssecRules,
+
+    -- ** Delete
+    Delete (..),
+    mkDelete,
+    dObjects,
+    dQuiet,
+
+    -- ** ReplicationTime
+    ReplicationTime (..),
+    mkReplicationTime,
+    rtStatus,
+    rtTime,
+
+    -- ** ReplaceKeyPrefixWith
+    ReplaceKeyPrefixWith (..),
+
+    -- ** RestoreRequest
+    RestoreRequest (..),
+    mkRestoreRequest,
+    rrDays,
+    rrDescription,
+    rrGlacierJobParameters,
+    rrOutputLocation,
+    rrSelectParameters,
+    rrTier,
+    rrType,
+
+    -- ** FilterRuleName
+    FilterRuleName (..),
+
+    -- ** ServerSideEncryptionByDefault
+    ServerSideEncryptionByDefault (..),
+    mkServerSideEncryptionByDefault,
+    ssebdSSEAlgorithm,
+    ssebdKMSMasterKeyID,
+
+    -- ** ExpectedBucketOwner
+    ExpectedBucketOwner (..),
+
+    -- ** ContinuationToken
+    ContinuationToken (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** Account
+    Account (..),
+
+    -- ** NextContinuationToken
+    NextContinuationToken (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** VersionId
+    VersionId (..),
+
+    -- ** UploadId
+    UploadId (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** ExpectedSourceBucketOwner
+    ExpectedSourceBucketOwner (..),
+
+    -- ** KMSKeyId
+    KMSKeyId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -1312,7 +1660,7 @@ import Network.AWS.S3.CreateBucket
 import Network.AWS.S3.CreateMultipartUpload
 import Network.AWS.S3.DeleteBucket
 import Network.AWS.S3.DeleteBucketAnalyticsConfiguration
-import Network.AWS.S3.DeleteBucketCORS
+import Network.AWS.S3.DeleteBucketCors
 import Network.AWS.S3.DeleteBucketEncryption
 import Network.AWS.S3.DeleteBucketIntelligentTieringConfiguration
 import Network.AWS.S3.DeleteBucketInventoryConfiguration
@@ -1327,10 +1675,10 @@ import Network.AWS.S3.DeleteObject
 import Network.AWS.S3.DeleteObjectTagging
 import Network.AWS.S3.DeleteObjects
 import Network.AWS.S3.DeletePublicAccessBlock
-import Network.AWS.S3.GetBucketACL
 import Network.AWS.S3.GetBucketAccelerateConfiguration
+import Network.AWS.S3.GetBucketAcl
 import Network.AWS.S3.GetBucketAnalyticsConfiguration
-import Network.AWS.S3.GetBucketCORS
+import Network.AWS.S3.GetBucketCors
 import Network.AWS.S3.GetBucketEncryption
 import Network.AWS.S3.GetBucketIntelligentTieringConfiguration
 import Network.AWS.S3.GetBucketInventoryConfiguration
@@ -1348,7 +1696,7 @@ import Network.AWS.S3.GetBucketTagging
 import Network.AWS.S3.GetBucketVersioning
 import Network.AWS.S3.GetBucketWebsite
 import Network.AWS.S3.GetObject
-import Network.AWS.S3.GetObjectACL
+import Network.AWS.S3.GetObjectAcl
 import Network.AWS.S3.GetObjectLegalHold
 import Network.AWS.S3.GetObjectLockConfiguration
 import Network.AWS.S3.GetObjectRetention
@@ -1368,10 +1716,10 @@ import Network.AWS.S3.ListObjectVersions
 import Network.AWS.S3.ListObjects
 import Network.AWS.S3.ListObjectsV2
 import Network.AWS.S3.ListParts
-import Network.AWS.S3.PutBucketACL
 import Network.AWS.S3.PutBucketAccelerateConfiguration
+import Network.AWS.S3.PutBucketAcl
 import Network.AWS.S3.PutBucketAnalyticsConfiguration
-import Network.AWS.S3.PutBucketCORS
+import Network.AWS.S3.PutBucketCors
 import Network.AWS.S3.PutBucketEncryption
 import Network.AWS.S3.PutBucketIntelligentTieringConfiguration
 import Network.AWS.S3.PutBucketInventoryConfiguration
@@ -1387,7 +1735,7 @@ import Network.AWS.S3.PutBucketTagging
 import Network.AWS.S3.PutBucketVersioning
 import Network.AWS.S3.PutBucketWebsite
 import Network.AWS.S3.PutObject
-import Network.AWS.S3.PutObjectACL
+import Network.AWS.S3.PutObjectAcl
 import Network.AWS.S3.PutObjectLegalHold
 import Network.AWS.S3.PutObjectLockConfiguration
 import Network.AWS.S3.PutObjectRetention

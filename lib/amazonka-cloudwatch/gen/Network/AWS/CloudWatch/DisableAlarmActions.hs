@@ -28,60 +28,64 @@ module Network.AWS.CloudWatch.DisableAlarmActions
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisableAlarmActions' smart constructor.
 newtype DisableAlarmActions = DisableAlarmActions'
   { -- | The names of the alarms.
-    alarmNames :: [Lude.Text]
+    alarmNames :: [Types.AlarmName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableAlarmActions' with the minimum fields required to make a request.
---
--- * 'alarmNames' - The names of the alarms.
+-- | Creates a 'DisableAlarmActions' value with any optional fields omitted.
 mkDisableAlarmActions ::
   DisableAlarmActions
 mkDisableAlarmActions =
-  DisableAlarmActions' {alarmNames = Lude.mempty}
+  DisableAlarmActions' {alarmNames = Core.mempty}
 
 -- | The names of the alarms.
 --
 -- /Note:/ Consider using 'alarmNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaAlarmNames :: Lens.Lens' DisableAlarmActions [Lude.Text]
-daaAlarmNames = Lens.lens (alarmNames :: DisableAlarmActions -> [Lude.Text]) (\s a -> s {alarmNames = a} :: DisableAlarmActions)
+daaAlarmNames :: Lens.Lens' DisableAlarmActions [Types.AlarmName]
+daaAlarmNames = Lens.field @"alarmNames"
 {-# DEPRECATED daaAlarmNames "Use generic-lens or generic-optics with 'alarmNames' instead." #-}
 
-instance Lude.AWSRequest DisableAlarmActions where
+instance Core.AWSRequest DisableAlarmActions where
   type Rs DisableAlarmActions = DisableAlarmActionsResponse
-  request = Req.postQuery cloudWatchService
-  response = Res.receiveNull DisableAlarmActionsResponse'
-
-instance Lude.ToHeaders DisableAlarmActions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DisableAlarmActions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisableAlarmActions where
-  toQuery DisableAlarmActions' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DisableAlarmActions" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "AlarmNames" Lude.=: Lude.toQueryList "member" alarmNames
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DisableAlarmActions")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> ( Core.toQueryValue
+                            "AlarmNames"
+                            (Core.toQueryList "member" alarmNames)
+                        )
+            )
+      }
+  response = Response.receiveNull DisableAlarmActionsResponse'
 
 -- | /See:/ 'mkDisableAlarmActionsResponse' smart constructor.
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableAlarmActionsResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisableAlarmActionsResponse' value with any optional fields omitted.
 mkDisableAlarmActionsResponse ::
   DisableAlarmActionsResponse
 mkDisableAlarmActionsResponse = DisableAlarmActionsResponse'

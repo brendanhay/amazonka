@@ -30,120 +30,107 @@ module Network.AWS.Rekognition.GetCelebrityInfo
     mkGetCelebrityInfoResponse,
 
     -- ** Response lenses
-    gcirsURLs,
-    gcirsName,
-    gcirsResponseStatus,
+    gcirrsName,
+    gcirrsUrls,
+    gcirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCelebrityInfo' smart constructor.
 newtype GetCelebrityInfo = GetCelebrityInfo'
   { -- | The ID for the celebrity. You get the celebrity ID from a call to the 'RecognizeCelebrities' operation, which recognizes celebrities in an image.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCelebrityInfo' with the minimum fields required to make a request.
---
--- * 'id' - The ID for the celebrity. You get the celebrity ID from a call to the 'RecognizeCelebrities' operation, which recognizes celebrities in an image.
+-- | Creates a 'GetCelebrityInfo' value with any optional fields omitted.
 mkGetCelebrityInfo ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   GetCelebrityInfo
-mkGetCelebrityInfo pId_ = GetCelebrityInfo' {id = pId_}
+mkGetCelebrityInfo id = GetCelebrityInfo' {id}
 
 -- | The ID for the celebrity. You get the celebrity ID from a call to the 'RecognizeCelebrities' operation, which recognizes celebrities in an image.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gciId :: Lens.Lens' GetCelebrityInfo Lude.Text
-gciId = Lens.lens (id :: GetCelebrityInfo -> Lude.Text) (\s a -> s {id = a} :: GetCelebrityInfo)
+gciId :: Lens.Lens' GetCelebrityInfo Types.Id
+gciId = Lens.field @"id"
 {-# DEPRECATED gciId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetCelebrityInfo where
+instance Core.FromJSON GetCelebrityInfo where
+  toJSON GetCelebrityInfo {..} =
+    Core.object (Core.catMaybes [Core.Just ("Id" Core..= id)])
+
+instance Core.AWSRequest GetCelebrityInfo where
   type Rs GetCelebrityInfo = GetCelebrityInfoResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.GetCelebrityInfo")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCelebrityInfoResponse'
-            Lude.<$> (x Lude..?> "Urls" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Urls")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCelebrityInfo where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.GetCelebrityInfo" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetCelebrityInfo where
-  toJSON GetCelebrityInfo' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
-
-instance Lude.ToPath GetCelebrityInfo where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetCelebrityInfo where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetCelebrityInfoResponse' smart constructor.
 data GetCelebrityInfoResponse = GetCelebrityInfoResponse'
-  { -- | An array of URLs pointing to additional celebrity information.
-    urls :: Lude.Maybe [Lude.Text],
-    -- | The name of the celebrity.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The name of the celebrity.
+    name :: Core.Maybe Types.String,
+    -- | An array of URLs pointing to additional celebrity information.
+    urls :: Core.Maybe [Types.Url],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCelebrityInfoResponse' with the minimum fields required to make a request.
---
--- * 'urls' - An array of URLs pointing to additional celebrity information.
--- * 'name' - The name of the celebrity.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCelebrityInfoResponse' value with any optional fields omitted.
 mkGetCelebrityInfoResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCelebrityInfoResponse
-mkGetCelebrityInfoResponse pResponseStatus_ =
+mkGetCelebrityInfoResponse responseStatus =
   GetCelebrityInfoResponse'
-    { urls = Lude.Nothing,
-      name = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { name = Core.Nothing,
+      urls = Core.Nothing,
+      responseStatus
     }
-
--- | An array of URLs pointing to additional celebrity information.
---
--- /Note:/ Consider using 'urls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcirsURLs :: Lens.Lens' GetCelebrityInfoResponse (Lude.Maybe [Lude.Text])
-gcirsURLs = Lens.lens (urls :: GetCelebrityInfoResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {urls = a} :: GetCelebrityInfoResponse)
-{-# DEPRECATED gcirsURLs "Use generic-lens or generic-optics with 'urls' instead." #-}
 
 -- | The name of the celebrity.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcirsName :: Lens.Lens' GetCelebrityInfoResponse (Lude.Maybe Lude.Text)
-gcirsName = Lens.lens (name :: GetCelebrityInfoResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetCelebrityInfoResponse)
-{-# DEPRECATED gcirsName "Use generic-lens or generic-optics with 'name' instead." #-}
+gcirrsName :: Lens.Lens' GetCelebrityInfoResponse (Core.Maybe Types.String)
+gcirrsName = Lens.field @"name"
+{-# DEPRECATED gcirrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | An array of URLs pointing to additional celebrity information.
+--
+-- /Note:/ Consider using 'urls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirrsUrls :: Lens.Lens' GetCelebrityInfoResponse (Core.Maybe [Types.Url])
+gcirrsUrls = Lens.field @"urls"
+{-# DEPRECATED gcirrsUrls "Use generic-lens or generic-optics with 'urls' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcirsResponseStatus :: Lens.Lens' GetCelebrityInfoResponse Lude.Int
-gcirsResponseStatus = Lens.lens (responseStatus :: GetCelebrityInfoResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCelebrityInfoResponse)
-{-# DEPRECATED gcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcirrsResponseStatus :: Lens.Lens' GetCelebrityInfoResponse Core.Int
+gcirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

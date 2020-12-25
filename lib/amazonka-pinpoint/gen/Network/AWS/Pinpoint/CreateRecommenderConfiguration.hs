@@ -27,120 +27,105 @@ module Network.AWS.Pinpoint.CreateRecommenderConfiguration
     mkCreateRecommenderConfigurationResponse,
 
     -- ** Response lenses
-    crcrsRecommenderConfigurationResponse,
-    crcrsResponseStatus,
+    crcrrsRecommenderConfigurationResponse,
+    crcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateRecommenderConfiguration' smart constructor.
 newtype CreateRecommenderConfiguration = CreateRecommenderConfiguration'
   { createRecommenderConfiguration :: CreateRecommenderConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRecommenderConfiguration' with the minimum fields required to make a request.
---
--- * 'createRecommenderConfiguration' -
+-- | Creates a 'CreateRecommenderConfiguration' value with any optional fields omitted.
 mkCreateRecommenderConfiguration ::
   -- | 'createRecommenderConfiguration'
-  CreateRecommenderConfiguration ->
+  Types.CreateRecommenderConfiguration ->
   CreateRecommenderConfiguration
-mkCreateRecommenderConfiguration pCreateRecommenderConfiguration_ =
-  CreateRecommenderConfiguration'
-    { createRecommenderConfiguration =
-        pCreateRecommenderConfiguration_
-    }
+mkCreateRecommenderConfiguration createRecommenderConfiguration =
+  CreateRecommenderConfiguration' {createRecommenderConfiguration}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'createRecommenderConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crcCreateRecommenderConfiguration :: Lens.Lens' CreateRecommenderConfiguration CreateRecommenderConfiguration
-crcCreateRecommenderConfiguration = Lens.lens (createRecommenderConfiguration :: CreateRecommenderConfiguration -> CreateRecommenderConfiguration) (\s a -> s {createRecommenderConfiguration = a} :: CreateRecommenderConfiguration)
+crcCreateRecommenderConfiguration = Lens.field @"createRecommenderConfiguration"
 {-# DEPRECATED crcCreateRecommenderConfiguration "Use generic-lens or generic-optics with 'createRecommenderConfiguration' instead." #-}
 
-instance Lude.AWSRequest CreateRecommenderConfiguration where
-  type
-    Rs CreateRecommenderConfiguration =
-      CreateRecommenderConfigurationResponse
-  request = Req.postJSON pinpointService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateRecommenderConfigurationResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateRecommenderConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateRecommenderConfiguration where
-  toJSON CreateRecommenderConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON CreateRecommenderConfiguration where
+  toJSON CreateRecommenderConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "CreateRecommenderConfiguration"
-                  Lude..= createRecommenderConfiguration
+                  Core..= createRecommenderConfiguration
               )
           ]
       )
 
-instance Lude.ToPath CreateRecommenderConfiguration where
-  toPath = Lude.const "/v1/recommenders"
-
-instance Lude.ToQuery CreateRecommenderConfiguration where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateRecommenderConfiguration where
+  type
+    Rs CreateRecommenderConfiguration =
+      CreateRecommenderConfigurationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/v1/recommenders",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateRecommenderConfigurationResponse'
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateRecommenderConfigurationResponse' smart constructor.
 data CreateRecommenderConfigurationResponse = CreateRecommenderConfigurationResponse'
-  { recommenderConfigurationResponse :: RecommenderConfigurationResponse,
+  { recommenderConfigurationResponse :: Types.RecommenderConfigurationResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRecommenderConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'recommenderConfigurationResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateRecommenderConfigurationResponse' value with any optional fields omitted.
 mkCreateRecommenderConfigurationResponse ::
   -- | 'recommenderConfigurationResponse'
-  RecommenderConfigurationResponse ->
+  Types.RecommenderConfigurationResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateRecommenderConfigurationResponse
 mkCreateRecommenderConfigurationResponse
-  pRecommenderConfigurationResponse_
-  pResponseStatus_ =
+  recommenderConfigurationResponse
+  responseStatus =
     CreateRecommenderConfigurationResponse'
-      { recommenderConfigurationResponse =
-          pRecommenderConfigurationResponse_,
-        responseStatus = pResponseStatus_
+      { recommenderConfigurationResponse,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'recommenderConfigurationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crcrsRecommenderConfigurationResponse :: Lens.Lens' CreateRecommenderConfigurationResponse RecommenderConfigurationResponse
-crcrsRecommenderConfigurationResponse = Lens.lens (recommenderConfigurationResponse :: CreateRecommenderConfigurationResponse -> RecommenderConfigurationResponse) (\s a -> s {recommenderConfigurationResponse = a} :: CreateRecommenderConfigurationResponse)
-{-# DEPRECATED crcrsRecommenderConfigurationResponse "Use generic-lens or generic-optics with 'recommenderConfigurationResponse' instead." #-}
+crcrrsRecommenderConfigurationResponse :: Lens.Lens' CreateRecommenderConfigurationResponse Types.RecommenderConfigurationResponse
+crcrrsRecommenderConfigurationResponse = Lens.field @"recommenderConfigurationResponse"
+{-# DEPRECATED crcrrsRecommenderConfigurationResponse "Use generic-lens or generic-optics with 'recommenderConfigurationResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crcrsResponseStatus :: Lens.Lens' CreateRecommenderConfigurationResponse Lude.Int
-crcrsResponseStatus = Lens.lens (responseStatus :: CreateRecommenderConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRecommenderConfigurationResponse)
-{-# DEPRECATED crcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crcrrsResponseStatus :: Lens.Lens' CreateRecommenderConfigurationResponse Core.Int
+crcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,59 +22,55 @@ module Network.AWS.CodeBuild.ListBuilds
     mkListBuilds,
 
     -- ** Request lenses
-    lbSortOrder,
     lbNextToken,
+    lbSortOrder,
 
     -- * Destructuring the response
     ListBuildsResponse (..),
     mkListBuildsResponse,
 
     -- ** Response lenses
-    lbrsIds,
-    lbrsNextToken,
-    lbrsResponseStatus,
+    lbrrsIds,
+    lbrrsNextToken,
+    lbrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-  { -- | The order to list build IDs. Valid values include:
+  { -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Core.Maybe Types.String,
+    -- | The order to list build IDs. Valid values include:
     --
     --
     --     * @ASCENDING@ : List the build IDs in ascending order by build ID.
     --
     --
     --     * @DESCENDING@ : List the build IDs in descending order by build ID.
-    sortOrder :: Lude.Maybe SortOrderType,
-    -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-    nextToken :: Lude.Maybe Lude.Text
+    sortOrder :: Core.Maybe Types.SortOrderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBuilds' with the minimum fields required to make a request.
---
--- * 'sortOrder' - The order to list build IDs. Valid values include:
---
---
---     * @ASCENDING@ : List the build IDs in ascending order by build ID.
---
---
---     * @DESCENDING@ : List the build IDs in descending order by build ID.
---
---
--- * 'nextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- | Creates a 'ListBuilds' value with any optional fields omitted.
 mkListBuilds ::
   ListBuilds
 mkListBuilds =
-  ListBuilds' {sortOrder = Lude.Nothing, nextToken = Lude.Nothing}
+  ListBuilds' {nextToken = Core.Nothing, sortOrder = Core.Nothing}
+
+-- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbNextToken :: Lens.Lens' ListBuilds (Core.Maybe Types.String)
+lbNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The order to list build IDs. Valid values include:
 --
@@ -87,109 +83,93 @@ mkListBuilds =
 --
 --
 -- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbSortOrder :: Lens.Lens' ListBuilds (Lude.Maybe SortOrderType)
-lbSortOrder = Lens.lens (sortOrder :: ListBuilds -> Lude.Maybe SortOrderType) (\s a -> s {sortOrder = a} :: ListBuilds)
+lbSortOrder :: Lens.Lens' ListBuilds (Core.Maybe Types.SortOrderType)
+lbSortOrder = Lens.field @"sortOrder"
 {-# DEPRECATED lbSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
--- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbNextToken :: Lens.Lens' ListBuilds (Lude.Maybe Lude.Text)
-lbNextToken = Lens.lens (nextToken :: ListBuilds -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBuilds)
-{-# DEPRECATED lbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+instance Core.FromJSON ListBuilds where
+  toJSON ListBuilds {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("sortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
 
-instance Page.AWSPager ListBuilds where
-  page rq rs
-    | Page.stop (rs Lens.^. lbrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lbrsIds) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lbNextToken Lens..~ rs Lens.^. lbrsNextToken
-
-instance Lude.AWSRequest ListBuilds where
+instance Core.AWSRequest ListBuilds where
   type Rs ListBuilds = ListBuildsResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.ListBuilds")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListBuildsResponse'
-            Lude.<$> (x Lude..?> "ids")
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ids")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListBuilds where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.ListBuilds" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListBuilds where
-  toJSON ListBuilds' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
-            ("nextToken" Lude..=) Lude.<$> nextToken
-          ]
-      )
-
-instance Lude.ToPath ListBuilds where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListBuilds where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListBuilds where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"ids" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
   { -- | A list of build IDs, with each build ID representing a single build.
-    ids :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    ids :: Core.Maybe (Core.NonEmpty Types.NonEmptyString),
     -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBuildsResponse' with the minimum fields required to make a request.
---
--- * 'ids' - A list of build IDs, with each build ID representing a single build.
--- * 'nextToken' - If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListBuildsResponse' value with any optional fields omitted.
 mkListBuildsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListBuildsResponse
-mkListBuildsResponse pResponseStatus_ =
+mkListBuildsResponse responseStatus =
   ListBuildsResponse'
-    { ids = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { ids = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of build IDs, with each build ID representing a single build.
 --
 -- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsIds :: Lens.Lens' ListBuildsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-lbrsIds = Lens.lens (ids :: ListBuildsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {ids = a} :: ListBuildsResponse)
-{-# DEPRECATED lbrsIds "Use generic-lens or generic-optics with 'ids' instead." #-}
+lbrrsIds :: Lens.Lens' ListBuildsResponse (Core.Maybe (Core.NonEmpty Types.NonEmptyString))
+lbrrsIds = Lens.field @"ids"
+{-# DEPRECATED lbrrsIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
 -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsNextToken :: Lens.Lens' ListBuildsResponse (Lude.Maybe Lude.Text)
-lbrsNextToken = Lens.lens (nextToken :: ListBuildsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBuildsResponse)
-{-# DEPRECATED lbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lbrrsNextToken :: Lens.Lens' ListBuildsResponse (Core.Maybe Types.String)
+lbrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsResponseStatus :: Lens.Lens' ListBuildsResponse Lude.Int
-lbrsResponseStatus = Lens.lens (responseStatus :: ListBuildsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBuildsResponse)
-{-# DEPRECATED lbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lbrrsResponseStatus :: Lens.Lens' ListBuildsResponse Core.Int
+lbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

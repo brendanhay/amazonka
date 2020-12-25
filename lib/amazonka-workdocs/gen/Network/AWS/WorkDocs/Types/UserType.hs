@@ -13,61 +13,63 @@
 module Network.AWS.WorkDocs.Types.UserType
   ( UserType
       ( UserType',
-        UTUser,
-        UTAdmin,
-        UTPoweruser,
-        UTMinimaluser,
-        UTWorkspacesuser
+        UserTypeUser,
+        UserTypeAdmin,
+        UserTypePoweruser,
+        UserTypeMinimaluser,
+        UserTypeWorkspacesuser,
+        fromUserType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserType = UserType' Lude.Text
+newtype UserType = UserType' {fromUserType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UTUser :: UserType
-pattern UTUser = UserType' "USER"
+pattern UserTypeUser :: UserType
+pattern UserTypeUser = UserType' "USER"
 
-pattern UTAdmin :: UserType
-pattern UTAdmin = UserType' "ADMIN"
+pattern UserTypeAdmin :: UserType
+pattern UserTypeAdmin = UserType' "ADMIN"
 
-pattern UTPoweruser :: UserType
-pattern UTPoweruser = UserType' "POWERUSER"
+pattern UserTypePoweruser :: UserType
+pattern UserTypePoweruser = UserType' "POWERUSER"
 
-pattern UTMinimaluser :: UserType
-pattern UTMinimaluser = UserType' "MINIMALUSER"
+pattern UserTypeMinimaluser :: UserType
+pattern UserTypeMinimaluser = UserType' "MINIMALUSER"
 
-pattern UTWorkspacesuser :: UserType
-pattern UTWorkspacesuser = UserType' "WORKSPACESUSER"
+pattern UserTypeWorkspacesuser :: UserType
+pattern UserTypeWorkspacesuser = UserType' "WORKSPACESUSER"
 
 {-# COMPLETE
-  UTUser,
-  UTAdmin,
-  UTPoweruser,
-  UTMinimaluser,
-  UTWorkspacesuser,
+  UserTypeUser,
+  UserTypeAdmin,
+  UserTypePoweruser,
+  UserTypeMinimaluser,
+  UserTypeWorkspacesuser,
   UserType'
   #-}

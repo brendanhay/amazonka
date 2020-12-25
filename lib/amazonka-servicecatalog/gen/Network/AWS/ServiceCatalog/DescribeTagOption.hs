@@ -27,109 +27,96 @@ module Network.AWS.ServiceCatalog.DescribeTagOption
     mkDescribeTagOptionResponse,
 
     -- ** Response lenses
-    dtofrsTagOptionDetail,
-    dtofrsResponseStatus,
+    dtorrsTagOptionDetail,
+    dtorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDescribeTagOption' smart constructor.
 newtype DescribeTagOption = DescribeTagOption'
   { -- | The TagOption identifier.
-    id :: Lude.Text
+    id :: Types.TagOptionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTagOption' with the minimum fields required to make a request.
---
--- * 'id' - The TagOption identifier.
+-- | Creates a 'DescribeTagOption' value with any optional fields omitted.
 mkDescribeTagOption ::
   -- | 'id'
-  Lude.Text ->
+  Types.TagOptionId ->
   DescribeTagOption
-mkDescribeTagOption pId_ = DescribeTagOption' {id = pId_}
+mkDescribeTagOption id = DescribeTagOption' {id}
 
 -- | The TagOption identifier.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtoId :: Lens.Lens' DescribeTagOption Lude.Text
-dtoId = Lens.lens (id :: DescribeTagOption -> Lude.Text) (\s a -> s {id = a} :: DescribeTagOption)
+dtoId :: Lens.Lens' DescribeTagOption Types.TagOptionId
+dtoId = Lens.field @"id"
 {-# DEPRECATED dtoId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DescribeTagOption where
+instance Core.FromJSON DescribeTagOption where
+  toJSON DescribeTagOption {..} =
+    Core.object (Core.catMaybes [Core.Just ("Id" Core..= id)])
+
+instance Core.AWSRequest DescribeTagOption where
   type Rs DescribeTagOption = DescribeTagOptionResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.DescribeTagOption")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTagOptionResponse'
-            Lude.<$> (x Lude..?> "TagOptionDetail")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TagOptionDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTagOption where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DescribeTagOption" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTagOption where
-  toJSON DescribeTagOption' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
-
-instance Lude.ToPath DescribeTagOption where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTagOption where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeTagOptionResponse' smart constructor.
 data DescribeTagOptionResponse = DescribeTagOptionResponse'
   { -- | Information about the TagOption.
-    tagOptionDetail :: Lude.Maybe TagOptionDetail,
+    tagOptionDetail :: Core.Maybe Types.TagOptionDetail,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTagOptionResponse' with the minimum fields required to make a request.
---
--- * 'tagOptionDetail' - Information about the TagOption.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTagOptionResponse' value with any optional fields omitted.
 mkDescribeTagOptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTagOptionResponse
-mkDescribeTagOptionResponse pResponseStatus_ =
+mkDescribeTagOptionResponse responseStatus =
   DescribeTagOptionResponse'
-    { tagOptionDetail = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { tagOptionDetail = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the TagOption.
 --
 -- /Note:/ Consider using 'tagOptionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtofrsTagOptionDetail :: Lens.Lens' DescribeTagOptionResponse (Lude.Maybe TagOptionDetail)
-dtofrsTagOptionDetail = Lens.lens (tagOptionDetail :: DescribeTagOptionResponse -> Lude.Maybe TagOptionDetail) (\s a -> s {tagOptionDetail = a} :: DescribeTagOptionResponse)
-{-# DEPRECATED dtofrsTagOptionDetail "Use generic-lens or generic-optics with 'tagOptionDetail' instead." #-}
+dtorrsTagOptionDetail :: Lens.Lens' DescribeTagOptionResponse (Core.Maybe Types.TagOptionDetail)
+dtorrsTagOptionDetail = Lens.field @"tagOptionDetail"
+{-# DEPRECATED dtorrsTagOptionDetail "Use generic-lens or generic-optics with 'tagOptionDetail' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtofrsResponseStatus :: Lens.Lens' DescribeTagOptionResponse Lude.Int
-dtofrsResponseStatus = Lens.lens (responseStatus :: DescribeTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagOptionResponse)
-{-# DEPRECATED dtofrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtorrsResponseStatus :: Lens.Lens' DescribeTagOptionResponse Core.Int
+dtorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

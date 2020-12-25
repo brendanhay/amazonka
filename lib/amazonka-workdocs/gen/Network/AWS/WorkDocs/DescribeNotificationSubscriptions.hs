@@ -22,166 +22,155 @@ module Network.AWS.WorkDocs.DescribeNotificationSubscriptions
     mkDescribeNotificationSubscriptions,
 
     -- ** Request lenses
-    dnssMarker,
-    dnssLimit,
-    dnssOrganizationId,
+    dOrganizationId,
+    dLimit,
+    dMarker,
 
     -- * Destructuring the response
     DescribeNotificationSubscriptionsResponse (..),
     mkDescribeNotificationSubscriptionsResponse,
 
     -- ** Response lenses
-    dnsrsMarker,
-    dnsrsSubscriptions,
-    dnsrsResponseStatus,
+    dnsrrsMarker,
+    dnsrrsSubscriptions,
+    dnsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDescribeNotificationSubscriptions' smart constructor.
 data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
-  { -- | The marker for the next set of results. (You received this marker from a previous call.)
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The ID of the organization.
+    organizationId :: Types.IdType,
     -- | The maximum number of items to return with this call.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The ID of the organization.
-    organizationId :: Lude.Text
+    limit :: Core.Maybe Core.Natural,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Core.Maybe Types.PageMarkerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeNotificationSubscriptions' with the minimum fields required to make a request.
---
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'limit' - The maximum number of items to return with this call.
--- * 'organizationId' - The ID of the organization.
+-- | Creates a 'DescribeNotificationSubscriptions' value with any optional fields omitted.
 mkDescribeNotificationSubscriptions ::
   -- | 'organizationId'
-  Lude.Text ->
+  Types.IdType ->
   DescribeNotificationSubscriptions
-mkDescribeNotificationSubscriptions pOrganizationId_ =
+mkDescribeNotificationSubscriptions organizationId =
   DescribeNotificationSubscriptions'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      organizationId = pOrganizationId_
+    { organizationId,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
-
--- | The marker for the next set of results. (You received this marker from a previous call.)
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnssMarker :: Lens.Lens' DescribeNotificationSubscriptions (Lude.Maybe Lude.Text)
-dnssMarker = Lens.lens (marker :: DescribeNotificationSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeNotificationSubscriptions)
-{-# DEPRECATED dnssMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The maximum number of items to return with this call.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnssLimit :: Lens.Lens' DescribeNotificationSubscriptions (Lude.Maybe Lude.Natural)
-dnssLimit = Lens.lens (limit :: DescribeNotificationSubscriptions -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeNotificationSubscriptions)
-{-# DEPRECATED dnssLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The ID of the organization.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnssOrganizationId :: Lens.Lens' DescribeNotificationSubscriptions Lude.Text
-dnssOrganizationId = Lens.lens (organizationId :: DescribeNotificationSubscriptions -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeNotificationSubscriptions)
-{-# DEPRECATED dnssOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+dOrganizationId :: Lens.Lens' DescribeNotificationSubscriptions Types.IdType
+dOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED dOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Page.AWSPager DescribeNotificationSubscriptions where
-  page rq rs
-    | Page.stop (rs Lens.^. dnsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dnsrsSubscriptions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dnssMarker Lens..~ rs Lens.^. dnsrsMarker
+-- | The maximum number of items to return with this call.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLimit :: Lens.Lens' DescribeNotificationSubscriptions (Core.Maybe Core.Natural)
+dLimit = Lens.field @"limit"
+{-# DEPRECATED dLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest DescribeNotificationSubscriptions where
+-- | The marker for the next set of results. (You received this marker from a previous call.)
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMarker :: Lens.Lens' DescribeNotificationSubscriptions (Core.Maybe Types.PageMarkerType)
+dMarker = Lens.field @"marker"
+{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+instance Core.AWSRequest DescribeNotificationSubscriptions where
   type
     Rs DescribeNotificationSubscriptions =
       DescribeNotificationSubscriptionsResponse
-  request = Req.get workDocsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/organizations/" Core.<> (Core.toText organizationId)
+                Core.<> ("/subscriptions")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "limit" Core.<$> limit
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeNotificationSubscriptionsResponse'
-            Lude.<$> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "Subscriptions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "Subscriptions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeNotificationSubscriptions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeNotificationSubscriptions where
-  toPath DescribeNotificationSubscriptions' {..} =
-    Lude.mconcat
-      [ "/api/v1/organizations/",
-        Lude.toBS organizationId,
-        "/subscriptions"
-      ]
-
-instance Lude.ToQuery DescribeNotificationSubscriptions where
-  toQuery DescribeNotificationSubscriptions' {..} =
-    Lude.mconcat ["marker" Lude.=: marker, "limit" Lude.=: limit]
+instance Pager.AWSPager DescribeNotificationSubscriptions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"subscriptions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeNotificationSubscriptionsResponse' smart constructor.
 data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'
   { -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The subscriptions.
-    subscriptions :: Lude.Maybe [Subscription],
+    subscriptions :: Core.Maybe [Types.Subscription],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeNotificationSubscriptionsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
--- * 'subscriptions' - The subscriptions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeNotificationSubscriptionsResponse' value with any optional fields omitted.
 mkDescribeNotificationSubscriptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeNotificationSubscriptionsResponse
-mkDescribeNotificationSubscriptionsResponse pResponseStatus_ =
+mkDescribeNotificationSubscriptionsResponse responseStatus =
   DescribeNotificationSubscriptionsResponse'
-    { marker = Lude.Nothing,
-      subscriptions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      subscriptions = Core.Nothing,
+      responseStatus
     }
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnsrsMarker :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Lude.Maybe Lude.Text)
-dnsrsMarker = Lens.lens (marker :: DescribeNotificationSubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeNotificationSubscriptionsResponse)
-{-# DEPRECATED dnsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dnsrrsMarker :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Core.Maybe Types.Marker)
+dnsrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dnsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The subscriptions.
 --
 -- /Note:/ Consider using 'subscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnsrsSubscriptions :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Lude.Maybe [Subscription])
-dnsrsSubscriptions = Lens.lens (subscriptions :: DescribeNotificationSubscriptionsResponse -> Lude.Maybe [Subscription]) (\s a -> s {subscriptions = a} :: DescribeNotificationSubscriptionsResponse)
-{-# DEPRECATED dnsrsSubscriptions "Use generic-lens or generic-optics with 'subscriptions' instead." #-}
+dnsrrsSubscriptions :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Core.Maybe [Types.Subscription])
+dnsrrsSubscriptions = Lens.field @"subscriptions"
+{-# DEPRECATED dnsrrsSubscriptions "Use generic-lens or generic-optics with 'subscriptions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnsrsResponseStatus :: Lens.Lens' DescribeNotificationSubscriptionsResponse Lude.Int
-dnsrsResponseStatus = Lens.lens (responseStatus :: DescribeNotificationSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotificationSubscriptionsResponse)
-{-# DEPRECATED dnsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dnsrrsResponseStatus :: Lens.Lens' DescribeNotificationSubscriptionsResponse Core.Int
+dnsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dnsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

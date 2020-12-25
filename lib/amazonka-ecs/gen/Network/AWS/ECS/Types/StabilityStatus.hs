@@ -13,46 +13,51 @@
 module Network.AWS.ECS.Types.StabilityStatus
   ( StabilityStatus
       ( StabilityStatus',
-        SteadyState,
-        Stabilizing
+        StabilityStatusSteadyState,
+        StabilityStatusStabilizing,
+        fromStabilityStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StabilityStatus = StabilityStatus' Lude.Text
+newtype StabilityStatus = StabilityStatus'
+  { fromStabilityStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SteadyState :: StabilityStatus
-pattern SteadyState = StabilityStatus' "STEADY_STATE"
+pattern StabilityStatusSteadyState :: StabilityStatus
+pattern StabilityStatusSteadyState = StabilityStatus' "STEADY_STATE"
 
-pattern Stabilizing :: StabilityStatus
-pattern Stabilizing = StabilityStatus' "STABILIZING"
+pattern StabilityStatusStabilizing :: StabilityStatus
+pattern StabilityStatusStabilizing = StabilityStatus' "STABILIZING"
 
 {-# COMPLETE
-  SteadyState,
-  Stabilizing,
+  StabilityStatusSteadyState,
+  StabilityStatusStabilizing,
   StabilityStatus'
   #-}

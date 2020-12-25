@@ -13,77 +13,79 @@
 module Network.AWS.S3.Types.StorageClass
   ( StorageClass
       ( StorageClass',
-        Standard,
-        ReducedRedundancy,
-        StandardIA,
-        OnezoneIA,
-        IntelligentTiering,
-        Glacier,
-        DeepArchive,
-        Outposts
+        StorageClassStandard,
+        StorageClassReducedRedundancy,
+        StorageClassStandardIa,
+        StorageClassOnezoneIa,
+        StorageClassIntelligentTiering,
+        StorageClassGlacier,
+        StorageClassDeepArchive,
+        StorageClassOutposts,
+        fromStorageClass
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype StorageClass = StorageClass' Lude.Text
+newtype StorageClass = StorageClass' {fromStorageClass :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standard :: StorageClass
-pattern Standard = StorageClass' "STANDARD"
+pattern StorageClassStandard :: StorageClass
+pattern StorageClassStandard = StorageClass' "STANDARD"
 
-pattern ReducedRedundancy :: StorageClass
-pattern ReducedRedundancy = StorageClass' "REDUCED_REDUNDANCY"
+pattern StorageClassReducedRedundancy :: StorageClass
+pattern StorageClassReducedRedundancy = StorageClass' "REDUCED_REDUNDANCY"
 
-pattern StandardIA :: StorageClass
-pattern StandardIA = StorageClass' "STANDARD_IA"
+pattern StorageClassStandardIa :: StorageClass
+pattern StorageClassStandardIa = StorageClass' "STANDARD_IA"
 
-pattern OnezoneIA :: StorageClass
-pattern OnezoneIA = StorageClass' "ONEZONE_IA"
+pattern StorageClassOnezoneIa :: StorageClass
+pattern StorageClassOnezoneIa = StorageClass' "ONEZONE_IA"
 
-pattern IntelligentTiering :: StorageClass
-pattern IntelligentTiering = StorageClass' "INTELLIGENT_TIERING"
+pattern StorageClassIntelligentTiering :: StorageClass
+pattern StorageClassIntelligentTiering = StorageClass' "INTELLIGENT_TIERING"
 
-pattern Glacier :: StorageClass
-pattern Glacier = StorageClass' "GLACIER"
+pattern StorageClassGlacier :: StorageClass
+pattern StorageClassGlacier = StorageClass' "GLACIER"
 
-pattern DeepArchive :: StorageClass
-pattern DeepArchive = StorageClass' "DEEP_ARCHIVE"
+pattern StorageClassDeepArchive :: StorageClass
+pattern StorageClassDeepArchive = StorageClass' "DEEP_ARCHIVE"
 
-pattern Outposts :: StorageClass
-pattern Outposts = StorageClass' "OUTPOSTS"
+pattern StorageClassOutposts :: StorageClass
+pattern StorageClassOutposts = StorageClass' "OUTPOSTS"
 
 {-# COMPLETE
-  Standard,
-  ReducedRedundancy,
-  StandardIA,
-  OnezoneIA,
-  IntelligentTiering,
-  Glacier,
-  DeepArchive,
-  Outposts,
+  StorageClassStandard,
+  StorageClassReducedRedundancy,
+  StorageClassStandardIa,
+  StorageClassOnezoneIa,
+  StorageClassIntelligentTiering,
+  StorageClassGlacier,
+  StorageClassDeepArchive,
+  StorageClassOutposts,
   StorageClass'
   #-}

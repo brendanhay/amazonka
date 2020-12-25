@@ -22,54 +22,50 @@ module Network.AWS.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
   )
 where
 
-import Network.AWS.CodeCommit.Types.OverrideStatus
+import qualified Network.AWS.CodeCommit.Types.OverrideStatus as Types
+import qualified Network.AWS.CodeCommit.Types.RevisionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about an override event for approval rules for a pull request.
 --
 -- /See:/ 'mkApprovalRuleOverriddenEventMetadata' smart constructor.
 data ApprovalRuleOverriddenEventMetadata = ApprovalRuleOverriddenEventMetadata'
   { -- | The status of the override event.
-    overrideStatus :: Lude.Maybe OverrideStatus,
+    overrideStatus :: Core.Maybe Types.OverrideStatus,
     -- | The revision ID of the pull request when the override event occurred.
-    revisionId :: Lude.Maybe Lude.Text
+    revisionId :: Core.Maybe Types.RevisionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApprovalRuleOverriddenEventMetadata' with the minimum fields required to make a request.
---
--- * 'overrideStatus' - The status of the override event.
--- * 'revisionId' - The revision ID of the pull request when the override event occurred.
+-- | Creates a 'ApprovalRuleOverriddenEventMetadata' value with any optional fields omitted.
 mkApprovalRuleOverriddenEventMetadata ::
   ApprovalRuleOverriddenEventMetadata
 mkApprovalRuleOverriddenEventMetadata =
   ApprovalRuleOverriddenEventMetadata'
     { overrideStatus =
-        Lude.Nothing,
-      revisionId = Lude.Nothing
+        Core.Nothing,
+      revisionId = Core.Nothing
     }
 
 -- | The status of the override event.
 --
 -- /Note:/ Consider using 'overrideStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aroemOverrideStatus :: Lens.Lens' ApprovalRuleOverriddenEventMetadata (Lude.Maybe OverrideStatus)
-aroemOverrideStatus = Lens.lens (overrideStatus :: ApprovalRuleOverriddenEventMetadata -> Lude.Maybe OverrideStatus) (\s a -> s {overrideStatus = a} :: ApprovalRuleOverriddenEventMetadata)
+aroemOverrideStatus :: Lens.Lens' ApprovalRuleOverriddenEventMetadata (Core.Maybe Types.OverrideStatus)
+aroemOverrideStatus = Lens.field @"overrideStatus"
 {-# DEPRECATED aroemOverrideStatus "Use generic-lens or generic-optics with 'overrideStatus' instead." #-}
 
 -- | The revision ID of the pull request when the override event occurred.
 --
 -- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aroemRevisionId :: Lens.Lens' ApprovalRuleOverriddenEventMetadata (Lude.Maybe Lude.Text)
-aroemRevisionId = Lens.lens (revisionId :: ApprovalRuleOverriddenEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: ApprovalRuleOverriddenEventMetadata)
+aroemRevisionId :: Lens.Lens' ApprovalRuleOverriddenEventMetadata (Core.Maybe Types.RevisionId)
+aroemRevisionId = Lens.field @"revisionId"
 {-# DEPRECATED aroemRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
-instance Lude.FromJSON ApprovalRuleOverriddenEventMetadata where
+instance Core.FromJSON ApprovalRuleOverriddenEventMetadata where
   parseJSON =
-    Lude.withObject
-      "ApprovalRuleOverriddenEventMetadata"
-      ( \x ->
-          ApprovalRuleOverriddenEventMetadata'
-            Lude.<$> (x Lude..:? "overrideStatus") Lude.<*> (x Lude..:? "revisionId")
-      )
+    Core.withObject "ApprovalRuleOverriddenEventMetadata" Core.$
+      \x ->
+        ApprovalRuleOverriddenEventMetadata'
+          Core.<$> (x Core..:? "overrideStatus") Core.<*> (x Core..:? "revisionId")

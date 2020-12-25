@@ -17,100 +17,94 @@ module Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
     mkFacetAttributeDefinition,
 
     -- * Lenses
-    fadRules,
+    fadType,
     fadDefaultValue,
     fadIsImmutable,
-    fadType,
+    fadRules,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.FacetAttributeType
-import Network.AWS.CloudDirectory.Types.Rule
-import Network.AWS.CloudDirectory.Types.TypedAttributeValue
+import qualified Network.AWS.CloudDirectory.Types.FacetAttributeType as Types
+import qualified Network.AWS.CloudDirectory.Types.Rule as Types
+import qualified Network.AWS.CloudDirectory.Types.RuleKey as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedAttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A facet attribute definition. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
 --
 -- /See:/ 'mkFacetAttributeDefinition' smart constructor.
 data FacetAttributeDefinition = FacetAttributeDefinition'
-  { -- | Validation rules attached to the attribute definition.
-    rules :: Lude.Maybe (Lude.HashMap Lude.Text (Rule)),
+  { -- | The type of the attribute.
+    type' :: Types.FacetAttributeType,
     -- | The default value of the attribute (if configured).
-    defaultValue :: Lude.Maybe TypedAttributeValue,
+    defaultValue :: Core.Maybe Types.TypedAttributeValue,
     -- | Whether the attribute is mutable or not.
-    isImmutable :: Lude.Maybe Lude.Bool,
-    -- | The type of the attribute.
-    type' :: FacetAttributeType
+    isImmutable :: Core.Maybe Core.Bool,
+    -- | Validation rules attached to the attribute definition.
+    rules :: Core.Maybe (Core.HashMap Types.RuleKey Types.Rule)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FacetAttributeDefinition' with the minimum fields required to make a request.
---
--- * 'rules' - Validation rules attached to the attribute definition.
--- * 'defaultValue' - The default value of the attribute (if configured).
--- * 'isImmutable' - Whether the attribute is mutable or not.
--- * 'type'' - The type of the attribute.
+-- | Creates a 'FacetAttributeDefinition' value with any optional fields omitted.
 mkFacetAttributeDefinition ::
-  -- | 'type''
-  FacetAttributeType ->
+  -- | 'type\''
+  Types.FacetAttributeType ->
   FacetAttributeDefinition
-mkFacetAttributeDefinition pType_ =
+mkFacetAttributeDefinition type' =
   FacetAttributeDefinition'
-    { rules = Lude.Nothing,
-      defaultValue = Lude.Nothing,
-      isImmutable = Lude.Nothing,
-      type' = pType_
+    { type',
+      defaultValue = Core.Nothing,
+      isImmutable = Core.Nothing,
+      rules = Core.Nothing
     }
 
--- | Validation rules attached to the attribute definition.
+-- | The type of the attribute.
 --
--- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fadRules :: Lens.Lens' FacetAttributeDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Rule)))
-fadRules = Lens.lens (rules :: FacetAttributeDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Rule))) (\s a -> s {rules = a} :: FacetAttributeDefinition)
-{-# DEPRECATED fadRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fadType :: Lens.Lens' FacetAttributeDefinition Types.FacetAttributeType
+fadType = Lens.field @"type'"
+{-# DEPRECATED fadType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The default value of the attribute (if configured).
 --
 -- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fadDefaultValue :: Lens.Lens' FacetAttributeDefinition (Lude.Maybe TypedAttributeValue)
-fadDefaultValue = Lens.lens (defaultValue :: FacetAttributeDefinition -> Lude.Maybe TypedAttributeValue) (\s a -> s {defaultValue = a} :: FacetAttributeDefinition)
+fadDefaultValue :: Lens.Lens' FacetAttributeDefinition (Core.Maybe Types.TypedAttributeValue)
+fadDefaultValue = Lens.field @"defaultValue"
 {-# DEPRECATED fadDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | Whether the attribute is mutable or not.
 --
 -- /Note:/ Consider using 'isImmutable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fadIsImmutable :: Lens.Lens' FacetAttributeDefinition (Lude.Maybe Lude.Bool)
-fadIsImmutable = Lens.lens (isImmutable :: FacetAttributeDefinition -> Lude.Maybe Lude.Bool) (\s a -> s {isImmutable = a} :: FacetAttributeDefinition)
+fadIsImmutable :: Lens.Lens' FacetAttributeDefinition (Core.Maybe Core.Bool)
+fadIsImmutable = Lens.field @"isImmutable"
 {-# DEPRECATED fadIsImmutable "Use generic-lens or generic-optics with 'isImmutable' instead." #-}
 
--- | The type of the attribute.
+-- | Validation rules attached to the attribute definition.
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fadType :: Lens.Lens' FacetAttributeDefinition FacetAttributeType
-fadType = Lens.lens (type' :: FacetAttributeDefinition -> FacetAttributeType) (\s a -> s {type' = a} :: FacetAttributeDefinition)
-{-# DEPRECATED fadType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fadRules :: Lens.Lens' FacetAttributeDefinition (Core.Maybe (Core.HashMap Types.RuleKey Types.Rule))
+fadRules = Lens.field @"rules"
+{-# DEPRECATED fadRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance Lude.FromJSON FacetAttributeDefinition where
-  parseJSON =
-    Lude.withObject
-      "FacetAttributeDefinition"
-      ( \x ->
-          FacetAttributeDefinition'
-            Lude.<$> (x Lude..:? "Rules" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "DefaultValue")
-            Lude.<*> (x Lude..:? "IsImmutable")
-            Lude.<*> (x Lude..: "Type")
-      )
-
-instance Lude.ToJSON FacetAttributeDefinition where
-  toJSON FacetAttributeDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Rules" Lude..=) Lude.<$> rules,
-            ("DefaultValue" Lude..=) Lude.<$> defaultValue,
-            ("IsImmutable" Lude..=) Lude.<$> isImmutable,
-            Lude.Just ("Type" Lude..= type')
+instance Core.FromJSON FacetAttributeDefinition where
+  toJSON FacetAttributeDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            ("DefaultValue" Core..=) Core.<$> defaultValue,
+            ("IsImmutable" Core..=) Core.<$> isImmutable,
+            ("Rules" Core..=) Core.<$> rules
           ]
       )
+
+instance Core.FromJSON FacetAttributeDefinition where
+  parseJSON =
+    Core.withObject "FacetAttributeDefinition" Core.$
+      \x ->
+        FacetAttributeDefinition'
+          Core.<$> (x Core..: "Type")
+          Core.<*> (x Core..:? "DefaultValue")
+          Core.<*> (x Core..:? "IsImmutable")
+          Core.<*> (x Core..:? "Rules")

@@ -13,56 +13,61 @@
 module Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior
   ( OriginRequestPolicyHeaderBehavior
       ( OriginRequestPolicyHeaderBehavior',
-        ORPHBNone,
-        ORPHBWhitelist,
-        ORPHBAllViewer,
-        ORPHBAllViewerAndWhitelistCloudFront
+        OriginRequestPolicyHeaderBehaviorNone,
+        OriginRequestPolicyHeaderBehaviorWhitelist,
+        OriginRequestPolicyHeaderBehaviorAllViewer,
+        OriginRequestPolicyHeaderBehaviorAllViewerAndWhitelistCloudFront,
+        fromOriginRequestPolicyHeaderBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OriginRequestPolicyHeaderBehavior = OriginRequestPolicyHeaderBehavior' Lude.Text
+newtype OriginRequestPolicyHeaderBehavior = OriginRequestPolicyHeaderBehavior'
+  { fromOriginRequestPolicyHeaderBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ORPHBNone :: OriginRequestPolicyHeaderBehavior
-pattern ORPHBNone = OriginRequestPolicyHeaderBehavior' "none"
+pattern OriginRequestPolicyHeaderBehaviorNone :: OriginRequestPolicyHeaderBehavior
+pattern OriginRequestPolicyHeaderBehaviorNone = OriginRequestPolicyHeaderBehavior' "none"
 
-pattern ORPHBWhitelist :: OriginRequestPolicyHeaderBehavior
-pattern ORPHBWhitelist = OriginRequestPolicyHeaderBehavior' "whitelist"
+pattern OriginRequestPolicyHeaderBehaviorWhitelist :: OriginRequestPolicyHeaderBehavior
+pattern OriginRequestPolicyHeaderBehaviorWhitelist = OriginRequestPolicyHeaderBehavior' "whitelist"
 
-pattern ORPHBAllViewer :: OriginRequestPolicyHeaderBehavior
-pattern ORPHBAllViewer = OriginRequestPolicyHeaderBehavior' "allViewer"
+pattern OriginRequestPolicyHeaderBehaviorAllViewer :: OriginRequestPolicyHeaderBehavior
+pattern OriginRequestPolicyHeaderBehaviorAllViewer = OriginRequestPolicyHeaderBehavior' "allViewer"
 
-pattern ORPHBAllViewerAndWhitelistCloudFront :: OriginRequestPolicyHeaderBehavior
-pattern ORPHBAllViewerAndWhitelistCloudFront = OriginRequestPolicyHeaderBehavior' "allViewerAndWhitelistCloudFront"
+pattern OriginRequestPolicyHeaderBehaviorAllViewerAndWhitelistCloudFront :: OriginRequestPolicyHeaderBehavior
+pattern OriginRequestPolicyHeaderBehaviorAllViewerAndWhitelistCloudFront = OriginRequestPolicyHeaderBehavior' "allViewerAndWhitelistCloudFront"
 
 {-# COMPLETE
-  ORPHBNone,
-  ORPHBWhitelist,
-  ORPHBAllViewer,
-  ORPHBAllViewerAndWhitelistCloudFront,
+  OriginRequestPolicyHeaderBehaviorNone,
+  OriginRequestPolicyHeaderBehaviorWhitelist,
+  OriginRequestPolicyHeaderBehaviorAllViewer,
+  OriginRequestPolicyHeaderBehaviorAllViewerAndWhitelistCloudFront,
   OriginRequestPolicyHeaderBehavior'
   #-}

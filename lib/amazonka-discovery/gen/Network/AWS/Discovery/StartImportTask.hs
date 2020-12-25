@@ -37,155 +37,135 @@ module Network.AWS.Discovery.StartImportTask
 
     -- ** Request lenses
     sitName,
+    sitImportUrl,
     sitClientRequestToken,
-    sitImportURL,
 
     -- * Destructuring the response
     StartImportTaskResponse (..),
     mkStartImportTaskResponse,
 
     -- ** Response lenses
-    sitrsTask,
-    sitrsResponseStatus,
+    sitrrsTask,
+    sitrrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartImportTask' smart constructor.
 data StartImportTask = StartImportTask'
   { -- | A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.
-    name :: Lude.Text,
+    name :: Types.ImportTaskName,
+    -- | The URL for your import file that you've uploaded to Amazon S3.
+    importUrl :: Types.ImportURL,
     -- | Optional. A unique token that you can provide to prevent the same import request from occurring more than once. If you don't provide a token, a token is automatically generated.
     --
     -- Sending more than one @StartImportTask@ request with the same client request token will return information about the original import task with that client request token.
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    -- | The URL for your import file that you've uploaded to Amazon S3.
-    importURL :: Lude.Text
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartImportTask' with the minimum fields required to make a request.
---
--- * 'name' - A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.
--- * 'clientRequestToken' - Optional. A unique token that you can provide to prevent the same import request from occurring more than once. If you don't provide a token, a token is automatically generated.
---
--- Sending more than one @StartImportTask@ request with the same client request token will return information about the original import task with that client request token.
--- * 'importURL' - The URL for your import file that you've uploaded to Amazon S3.
+-- | Creates a 'StartImportTask' value with any optional fields omitted.
 mkStartImportTask ::
   -- | 'name'
-  Lude.Text ->
-  -- | 'importURL'
-  Lude.Text ->
+  Types.ImportTaskName ->
+  -- | 'importUrl'
+  Types.ImportURL ->
   StartImportTask
-mkStartImportTask pName_ pImportURL_ =
+mkStartImportTask name importUrl =
   StartImportTask'
-    { name = pName_,
-      clientRequestToken = Lude.Nothing,
-      importURL = pImportURL_
+    { name,
+      importUrl,
+      clientRequestToken = Core.Nothing
     }
 
 -- | A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sitName :: Lens.Lens' StartImportTask Lude.Text
-sitName = Lens.lens (name :: StartImportTask -> Lude.Text) (\s a -> s {name = a} :: StartImportTask)
+sitName :: Lens.Lens' StartImportTask Types.ImportTaskName
+sitName = Lens.field @"name"
 {-# DEPRECATED sitName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The URL for your import file that you've uploaded to Amazon S3.
+--
+-- /Note:/ Consider using 'importUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sitImportUrl :: Lens.Lens' StartImportTask Types.ImportURL
+sitImportUrl = Lens.field @"importUrl"
+{-# DEPRECATED sitImportUrl "Use generic-lens or generic-optics with 'importUrl' instead." #-}
 
 -- | Optional. A unique token that you can provide to prevent the same import request from occurring more than once. If you don't provide a token, a token is automatically generated.
 --
 -- Sending more than one @StartImportTask@ request with the same client request token will return information about the original import task with that client request token.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sitClientRequestToken :: Lens.Lens' StartImportTask (Lude.Maybe Lude.Text)
-sitClientRequestToken = Lens.lens (clientRequestToken :: StartImportTask -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartImportTask)
+sitClientRequestToken :: Lens.Lens' StartImportTask (Core.Maybe Types.ClientRequestToken)
+sitClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED sitClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
--- | The URL for your import file that you've uploaded to Amazon S3.
---
--- /Note:/ Consider using 'importURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sitImportURL :: Lens.Lens' StartImportTask Lude.Text
-sitImportURL = Lens.lens (importURL :: StartImportTask -> Lude.Text) (\s a -> s {importURL = a} :: StartImportTask)
-{-# DEPRECATED sitImportURL "Use generic-lens or generic-optics with 'importURL' instead." #-}
+instance Core.FromJSON StartImportTask where
+  toJSON StartImportTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("importUrl" Core..= importUrl),
+            ("clientRequestToken" Core..=) Core.<$> clientRequestToken
+          ]
+      )
 
-instance Lude.AWSRequest StartImportTask where
+instance Core.AWSRequest StartImportTask where
   type Rs StartImportTask = StartImportTaskResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSPoseidonService_V2015_11_01.StartImportTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartImportTaskResponse'
-            Lude.<$> (x Lude..?> "task") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "task") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartImportTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.StartImportTask" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartImportTask where
-  toJSON StartImportTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("importUrl" Lude..= importURL)
-          ]
-      )
-
-instance Lude.ToPath StartImportTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartImportTask where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartImportTaskResponse' smart constructor.
 data StartImportTaskResponse = StartImportTaskResponse'
   { -- | An array of information related to the import task request including status information, times, IDs, the Amazon S3 Object URL for the import file, and more.
-    task :: Lude.Maybe ImportTask,
+    task :: Core.Maybe Types.ImportTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartImportTaskResponse' with the minimum fields required to make a request.
---
--- * 'task' - An array of information related to the import task request including status information, times, IDs, the Amazon S3 Object URL for the import file, and more.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartImportTaskResponse' value with any optional fields omitted.
 mkStartImportTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartImportTaskResponse
-mkStartImportTaskResponse pResponseStatus_ =
-  StartImportTaskResponse'
-    { task = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkStartImportTaskResponse responseStatus =
+  StartImportTaskResponse' {task = Core.Nothing, responseStatus}
 
 -- | An array of information related to the import task request including status information, times, IDs, the Amazon S3 Object URL for the import file, and more.
 --
 -- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sitrsTask :: Lens.Lens' StartImportTaskResponse (Lude.Maybe ImportTask)
-sitrsTask = Lens.lens (task :: StartImportTaskResponse -> Lude.Maybe ImportTask) (\s a -> s {task = a} :: StartImportTaskResponse)
-{-# DEPRECATED sitrsTask "Use generic-lens or generic-optics with 'task' instead." #-}
+sitrrsTask :: Lens.Lens' StartImportTaskResponse (Core.Maybe Types.ImportTask)
+sitrrsTask = Lens.field @"task"
+{-# DEPRECATED sitrrsTask "Use generic-lens or generic-optics with 'task' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sitrsResponseStatus :: Lens.Lens' StartImportTaskResponse Lude.Int
-sitrsResponseStatus = Lens.lens (responseStatus :: StartImportTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartImportTaskResponse)
-{-# DEPRECATED sitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sitrrsResponseStatus :: Lens.Lens' StartImportTaskResponse Core.Int
+sitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

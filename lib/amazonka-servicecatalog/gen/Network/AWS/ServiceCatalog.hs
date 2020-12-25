@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,34 @@
 -- <https://aws.amazon.com/servicecatalog/ AWS Service Catalog> enables organizations to create and manage catalogs of IT services that are approved for AWS. To get the most out of this documentation, you should be familiar with the terminology discussed in <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html AWS Service Catalog Concepts> .
 module Network.AWS.ServiceCatalog
   ( -- * Service configuration
-    serviceCatalogService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidParametersException
+    _InvalidParametersException,
+
+    -- ** DuplicateResourceException
+    _DuplicateResourceException,
+
+    -- ** OperationNotSupportedException
+    _OperationNotSupportedException,
+
+    -- ** TagOptionNotMigratedException
+    _TagOptionNotMigratedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -284,136 +307,347 @@ module Network.AWS.ServiceCatalog
 
     -- * Types
 
-    -- ** AccessLevelFilterKey
-    AccessLevelFilterKey (..),
+    -- ** ResourceChange
+    ResourceChange (..),
+    mkResourceChange,
+    rcAction,
+    rcDetails,
+    rcLogicalResourceId,
+    rcPhysicalResourceId,
+    rcReplacement,
+    rcResourceType,
+    rcScope,
 
-    -- ** AccessStatus
-    AccessStatus (..),
-
-    -- ** ChangeAction
-    ChangeAction (..),
-
-    -- ** CopyOption
-    CopyOption (..),
-
-    -- ** CopyProductStatus
-    CopyProductStatus (..),
-
-    -- ** EvaluationType
-    EvaluationType (..),
-
-    -- ** OrganizationNodeType
-    OrganizationNodeType (..),
-
-    -- ** PortfolioShareType
-    PortfolioShareType (..),
-
-    -- ** PrincipalType
-    PrincipalType (..),
-
-    -- ** ProductSource
-    ProductSource (..),
-
-    -- ** ProductType
-    ProductType (..),
-
-    -- ** ProductViewFilterBy
-    ProductViewFilterBy (..),
-
-    -- ** ProductViewSortBy
-    ProductViewSortBy (..),
-
-    -- ** PropertyKey
-    PropertyKey (..),
-
-    -- ** ProvisionedProductPlanStatus
-    ProvisionedProductPlanStatus (..),
-
-    -- ** ProvisionedProductPlanType
-    ProvisionedProductPlanType (..),
-
-    -- ** ProvisionedProductStatus
-    ProvisionedProductStatus (..),
-
-    -- ** ProvisionedProductViewFilterBy
-    ProvisionedProductViewFilterBy (..),
-
-    -- ** ProvisioningArtifactGuidance
-    ProvisioningArtifactGuidance (..),
-
-    -- ** ProvisioningArtifactPropertyName
-    ProvisioningArtifactPropertyName (..),
-
-    -- ** ProvisioningArtifactType
-    ProvisioningArtifactType (..),
-
-    -- ** RecordStatus
-    RecordStatus (..),
-
-    -- ** Replacement
-    Replacement (..),
-
-    -- ** RequestStatus
-    RequestStatus (..),
-
-    -- ** RequiresRecreation
-    RequiresRecreation (..),
-
-    -- ** ResourceAttribute
-    ResourceAttribute (..),
-
-    -- ** ServiceActionAssociationErrorCode
-    ServiceActionAssociationErrorCode (..),
-
-    -- ** ServiceActionDefinitionKey
-    ServiceActionDefinitionKey (..),
-
-    -- ** ServiceActionDefinitionType
-    ServiceActionDefinitionType (..),
-
-    -- ** ShareStatus
-    ShareStatus (..),
-
-    -- ** SortOrder
-    SortOrder (..),
-
-    -- ** StackInstanceStatus
-    StackInstanceStatus (..),
-
-    -- ** StackSetOperationType
-    StackSetOperationType (..),
-
-    -- ** AccessLevelFilter
-    AccessLevelFilter (..),
-    mkAccessLevelFilter,
-    alfValue,
-    alfKey,
-
-    -- ** BudgetDetail
-    BudgetDetail (..),
-    mkBudgetDetail,
-    bdBudgetName,
+    -- ** OutputValue
+    OutputValue (..),
 
     -- ** CloudWatchDashboard
     CloudWatchDashboard (..),
     mkCloudWatchDashboard,
     cwdName,
 
+    -- ** ExecutionParameterKey
+    ExecutionParameterKey (..),
+
+    -- ** IdempotencyToken
+    IdempotencyToken (..),
+
+    -- ** RequestStatus
+    RequestStatus (..),
+
+    -- ** LogicalResourceId
+    LogicalResourceId (..),
+
+    -- ** ServiceActionName
+    ServiceActionName (..),
+
+    -- ** RecordDetail
+    RecordDetail (..),
+    mkRecordDetail,
+    rdCreatedTime,
+    rdLaunchRoleArn,
+    rdPathId,
+    rdProductId,
+    rdProvisionedProductId,
+    rdProvisionedProductName,
+    rdProvisionedProductType,
+    rdProvisioningArtifactId,
+    rdRecordErrors,
+    rdRecordId,
+    rdRecordTags,
+    rdRecordType,
+    rdStatus,
+    rdUpdatedTime,
+
+    -- ** LaunchPathSummary
+    LaunchPathSummary (..),
+    mkLaunchPathSummary,
+    lpsConstraintSummaries,
+    lpsId,
+    lpsName,
+    lpsTags,
+
     -- ** ConstraintDetail
     ConstraintDetail (..),
     mkConstraintDetail,
-    cdPortfolioId,
     cdConstraintId,
-    cdOwner,
-    cdType,
     cdDescription,
+    cdOwner,
+    cdPortfolioId,
     cdProductId,
+    cdType,
 
-    -- ** ConstraintSummary
-    ConstraintSummary (..),
-    mkConstraintSummary,
-    csType,
-    csDescription,
+    -- ** TagOptionId
+    TagOptionId (..),
+
+    -- ** ProvisionedProductNameOrArn
+    ProvisionedProductNameOrArn (..),
+
+    -- ** ProvisionedProductName
+    ProvisionedProductName (..),
+
+    -- ** RecordTag
+    RecordTag (..),
+    mkRecordTag,
+    rtKey,
+    rtValue,
+
+    -- ** ShareDetails
+    ShareDetails (..),
+    mkShareDetails,
+    sdShareErrors,
+    sdSuccessfulShares,
+
+    -- ** ConstraintParameters
+    ConstraintParameters (..),
+
+    -- ** ProductViewOwner
+    ProductViewOwner (..),
+
+    -- ** ServiceActionAssociationErrorCode
+    ServiceActionAssociationErrorCode (..),
+
+    -- ** ProvisionedProductAttribute
+    ProvisionedProductAttribute (..),
+    mkProvisionedProductAttribute,
+    ppaArn,
+    ppaCreatedTime,
+    ppaId,
+    ppaIdempotencyToken,
+    ppaLastProvisioningRecordId,
+    ppaLastRecordId,
+    ppaLastSuccessfulProvisioningRecordId,
+    ppaName,
+    ppaPhysicalId,
+    ppaProductId,
+    ppaProductName,
+    ppaProvisioningArtifactId,
+    ppaProvisioningArtifactName,
+    ppaStatus,
+    ppaStatusMessage,
+    ppaTags,
+    ppaType,
+    ppaUserArn,
+    ppaUserArnSession,
+
+    -- ** ProvisionedProductPlanName
+    ProvisionedProductPlanName (..),
+
+    -- ** ServiceActionSummary
+    ServiceActionSummary (..),
+    mkServiceActionSummary,
+    sasDefinitionType,
+    sasDescription,
+    sasId,
+    sasName,
+
+    -- ** ProvisioningArtifactType
+    ProvisioningArtifactType (..),
+
+    -- ** ProvisioningArtifactPreferences
+    ProvisioningArtifactPreferences (..),
+    mkProvisioningArtifactPreferences,
+    papStackSetAccounts,
+    papStackSetRegions,
+
+    -- ** PortfolioDisplayName
+    PortfolioDisplayName (..),
+
+    -- ** CausingEntity
+    CausingEntity (..),
+
+    -- ** AttributeValue
+    AttributeValue (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** PortfolioShareType
+    PortfolioShareType (..),
+
+    -- ** ProvisioningArtifactPropertyName
+    ProvisioningArtifactPropertyName (..),
+
+    -- ** ServiceActionDetail
+    ServiceActionDetail (..),
+    mkServiceActionDetail,
+    sadDefinition,
+    sadServiceActionSummary,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** TagOptionValue
+    TagOptionValue (..),
+
+    -- ** CopyProductStatus
+    CopyProductStatus (..),
+
+    -- ** PhysicalResourceId
+    PhysicalResourceId (..),
+
+    -- ** ProductViewSummary
+    ProductViewSummary (..),
+    mkProductViewSummary,
+    pvsDistributor,
+    pvsHasDefaultPath,
+    pvsId,
+    pvsName,
+    pvsOwner,
+    pvsProductId,
+    pvsShortDescription,
+    pvsSupportDescription,
+    pvsSupportEmail,
+    pvsSupportUrl,
+    pvsType,
+
+    -- ** ProvisionedProductDetail
+    ProvisionedProductDetail (..),
+    mkProvisionedProductDetail,
+    ppdArn,
+    ppdCreatedTime,
+    ppdId,
+    ppdIdempotencyToken,
+    ppdLastProvisioningRecordId,
+    ppdLastRecordId,
+    ppdLastSuccessfulProvisioningRecordId,
+    ppdLaunchRoleArn,
+    ppdName,
+    ppdProductId,
+    ppdProvisioningArtifactId,
+    ppdStatus,
+    ppdStatusMessage,
+    ppdType,
+
+    -- ** ProvisioningArtifactInfoValue
+    ProvisioningArtifactInfoValue (..),
+
+    -- ** RecordOutput
+    RecordOutput (..),
+    mkRecordOutput,
+    roDescription,
+    roOutputKey,
+    roOutputValue,
+
+    -- ** ProvisioningArtifactView
+    ProvisioningArtifactView (..),
+    mkProvisioningArtifactView,
+    pavProductViewSummary,
+    pavProvisioningArtifact,
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** ProvisionedProductPlanDetails
+    ProvisionedProductPlanDetails (..),
+    mkProvisionedProductPlanDetails,
+    pppdCreatedTime,
+    pppdNotificationArns,
+    pppdPathId,
+    pppdPlanId,
+    pppdPlanName,
+    pppdPlanType,
+    pppdProductId,
+    pppdProvisionProductId,
+    pppdProvisionProductName,
+    pppdProvisioningArtifactId,
+    pppdProvisioningParameters,
+    pppdStatus,
+    pppdStatusMessage,
+    pppdTags,
+    pppdUpdatedTime,
+
+    -- ** PrincipalType
+    PrincipalType (..),
+
+    -- ** ParameterValue
+    ParameterValue (..),
+
+    -- ** ProductViewAggregationType
+    ProductViewAggregationType (..),
+
+    -- ** AccessLevelFilterKey
+    AccessLevelFilterKey (..),
+
+    -- ** ServiceActionDescription
+    ServiceActionDescription (..),
+
+    -- ** PortfolioName
+    PortfolioName (..),
+
+    -- ** TagOptionSummary
+    TagOptionSummary (..),
+    mkTagOptionSummary,
+    tosKey,
+    tosValues,
+
+    -- ** RecordType
+    RecordType (..),
+
+    -- ** ConstraintType
+    ConstraintType (..),
+
+    -- ** RecordError
+    RecordError (..),
+    mkRecordError,
+    reCode,
+    reDescription,
+
+    -- ** ChangeAction
+    ChangeAction (..),
+
+    -- ** AccessStatus
+    AccessStatus (..),
+
+    -- ** InstructionType
+    InstructionType (..),
+
+    -- ** TagOptionDetail
+    TagOptionDetail (..),
+    mkTagOptionDetail,
+    todActive,
+    todId,
+    todKey,
+    todValue,
+
+    -- ** OrganizationNodeValue
+    OrganizationNodeValue (..),
+
+    -- ** ProvisioningArtifactName
+    ProvisioningArtifactName (..),
+
+    -- ** ProvisionedProductPlanType
+    ProvisionedProductPlanType (..),
+
+    -- ** RequiresRecreation
+    RequiresRecreation (..),
+
+    -- ** PropertyKey
+    PropertyKey (..),
+
+    -- ** ProvisioningArtifactOutput
+    ProvisioningArtifactOutput (..),
+    mkProvisioningArtifactOutput,
+    paoDescription,
+    paoKey,
+
+    -- ** LaunchPath
+    LaunchPath (..),
+    mkLaunchPath,
+    lpId,
+    lpName,
+
+    -- ** Error
+    Error (..),
+
+    -- ** ProvisioningParameter
+    ProvisioningParameter (..),
+    mkProvisioningParameter,
+    ppKey,
+    ppValue,
 
     -- ** ExecutionParameter
     ExecutionParameter (..),
@@ -422,354 +656,178 @@ module Network.AWS.ServiceCatalog
     epName,
     epType,
 
-    -- ** FailedServiceActionAssociation
-    FailedServiceActionAssociation (..),
-    mkFailedServiceActionAssociation,
-    fsaaProvisioningArtifactId,
-    fsaaErrorCode,
-    fsaaErrorMessage,
-    fsaaServiceActionId,
-    fsaaProductId,
+    -- ** OrganizationNodeType
+    OrganizationNodeType (..),
 
-    -- ** LaunchPath
-    LaunchPath (..),
-    mkLaunchPath,
-    lpName,
-    lpId,
-
-    -- ** LaunchPathSummary
-    LaunchPathSummary (..),
-    mkLaunchPathSummary,
-    lpsConstraintSummaries,
-    lpsName,
-    lpsId,
-    lpsTags,
-
-    -- ** ListRecordHistorySearchFilter
-    ListRecordHistorySearchFilter (..),
-    mkListRecordHistorySearchFilter,
-    lrhsfValue,
-    lrhsfKey,
-
-    -- ** ListTagOptionsFilters
-    ListTagOptionsFilters (..),
-    mkListTagOptionsFilters,
-    ltofValue,
-    ltofActive,
-    ltofKey,
-
-    -- ** OrganizationNode
-    OrganizationNode (..),
-    mkOrganizationNode,
-    onValue,
-    onType,
-
-    -- ** ParameterConstraints
-    ParameterConstraints (..),
-    mkParameterConstraints,
-    pcAllowedValues,
+    -- ** ProvisionedProductType
+    ProvisionedProductType (..),
 
     -- ** PortfolioDetail
     PortfolioDetail (..),
     mkPortfolioDetail,
     pdARN,
     pdCreatedTime,
-    pdId,
-    pdDisplayName,
     pdDescription,
+    pdDisplayName,
+    pdId,
     pdProviderName,
 
-    -- ** Principal
-    Principal (..),
-    mkPrincipal,
-    pPrincipalType,
-    pPrincipalARN,
-
-    -- ** ProductViewAggregationValue
-    ProductViewAggregationValue (..),
-    mkProductViewAggregationValue,
-    pvavValue,
-    pvavApproximateCount,
-
-    -- ** ProductViewDetail
-    ProductViewDetail (..),
-    mkProductViewDetail,
-    pvdStatus,
-    pvdProductViewSummary,
-    pvdCreatedTime,
-    pvdProductARN,
-
-    -- ** ProductViewSummary
-    ProductViewSummary (..),
-    mkProductViewSummary,
-    pvsOwner,
-    pvsSupportURL,
-    pvsShortDescription,
-    pvsHasDefaultPath,
-    pvsDistributor,
-    pvsName,
-    pvsId,
-    pvsType,
-    pvsSupportEmail,
-    pvsProductId,
-    pvsSupportDescription,
-
-    -- ** ProvisionedProductAttribute
-    ProvisionedProductAttribute (..),
-    mkProvisionedProductAttribute,
-    ppaIdempotencyToken,
-    ppaStatus,
-    ppaProductName,
-    ppaLastSuccessfulProvisioningRecordId,
-    ppaProvisioningArtifactId,
-    ppaARN,
-    ppaCreatedTime,
-    ppaProvisioningArtifactName,
-    ppaUserARN,
-    ppaStatusMessage,
-    ppaName,
-    ppaLastRecordId,
-    ppaUserARNSession,
-    ppaId,
-    ppaType,
-    ppaPhysicalId,
-    ppaLastProvisioningRecordId,
-    ppaProductId,
-    ppaTags,
-
-    -- ** ProvisionedProductDetail
-    ProvisionedProductDetail (..),
-    mkProvisionedProductDetail,
-    ppdLaunchRoleARN,
-    ppdIdempotencyToken,
-    ppdStatus,
-    ppdLastSuccessfulProvisioningRecordId,
-    ppdProvisioningArtifactId,
-    ppdARN,
-    ppdCreatedTime,
-    ppdStatusMessage,
-    ppdName,
-    ppdLastRecordId,
-    ppdId,
-    ppdType,
-    ppdLastProvisioningRecordId,
-    ppdProductId,
-
-    -- ** ProvisionedProductPlanDetails
-    ProvisionedProductPlanDetails (..),
-    mkProvisionedProductPlanDetails,
-    pppdStatus,
-    pppdProvisionProductId,
-    pppdProvisioningArtifactId,
-    pppdProvisionProductName,
-    pppdCreatedTime,
-    pppdNotificationARNs,
-    pppdPlanId,
-    pppdPlanName,
-    pppdStatusMessage,
-    pppdUpdatedTime,
-    pppdPathId,
-    pppdProvisioningParameters,
-    pppdPlanType,
-    pppdProductId,
-    pppdTags,
-
-    -- ** ProvisionedProductPlanSummary
-    ProvisionedProductPlanSummary (..),
-    mkProvisionedProductPlanSummary,
-    pppsProvisionProductId,
-    pppsProvisioningArtifactId,
-    pppsProvisionProductName,
-    pppsPlanId,
-    pppsPlanName,
-    pppsPlanType,
-
-    -- ** ProvisioningArtifact
-    ProvisioningArtifact (..),
-    mkProvisioningArtifact,
-    paCreatedTime,
-    paName,
-    paId,
-    paGuidance,
-    paDescription,
-
-    -- ** ProvisioningArtifactDetail
-    ProvisioningArtifactDetail (..),
-    mkProvisioningArtifactDetail,
-    padCreatedTime,
-    padActive,
-    padName,
-    padId,
-    padType,
-    padGuidance,
-    padDescription,
-
-    -- ** ProvisioningArtifactOutput
-    ProvisioningArtifactOutput (..),
-    mkProvisioningArtifactOutput,
-    paoKey,
-    paoDescription,
-
-    -- ** ProvisioningArtifactParameter
-    ProvisioningArtifactParameter (..),
-    mkProvisioningArtifactParameter,
-    papIsNoEcho,
-    papParameterKey,
-    papParameterType,
-    papParameterConstraints,
-    papDefaultValue,
-    papDescription,
-
-    -- ** ProvisioningArtifactPreferences
-    ProvisioningArtifactPreferences (..),
-    mkProvisioningArtifactPreferences,
-    papStackSetRegions,
-    papStackSetAccounts,
-
-    -- ** ProvisioningArtifactProperties
-    ProvisioningArtifactProperties (..),
-    mkProvisioningArtifactProperties,
-    pDisableTemplateValidation,
-    pName,
-    pType,
-    pDescription,
-    pInfo,
+    -- ** ConstraintDescription
+    ConstraintDescription (..),
 
     -- ** ProvisioningArtifactSummary
     ProvisioningArtifactSummary (..),
     mkProvisioningArtifactSummary,
-    pasProvisioningArtifactMetadata,
     pasCreatedTime,
-    pasName,
-    pasId,
     pasDescription,
+    pasId,
+    pasName,
+    pasProvisioningArtifactMetadata,
 
-    -- ** ProvisioningArtifactView
-    ProvisioningArtifactView (..),
-    mkProvisioningArtifactView,
-    pavProductViewSummary,
-    pavProvisioningArtifact,
-
-    -- ** ProvisioningParameter
-    ProvisioningParameter (..),
-    mkProvisioningParameter,
-    ppValue,
-    ppKey,
-
-    -- ** ProvisioningPreferences
-    ProvisioningPreferences (..),
-    mkProvisioningPreferences,
-    ppStackSetRegions,
-    ppStackSetMaxConcurrencyPercentage,
-    ppStackSetFailureToleranceCount,
-    ppStackSetFailureTolerancePercentage,
-    ppStackSetAccounts,
-    ppStackSetMaxConcurrencyCount,
-
-    -- ** RecordDetail
-    RecordDetail (..),
-    mkRecordDetail,
-    rdLaunchRoleARN,
-    rdStatus,
-    rdRecordTags,
-    rdProvisionedProductName,
-    rdProvisioningArtifactId,
-    rdCreatedTime,
-    rdRecordType,
-    rdRecordId,
-    rdProvisionedProductType,
-    rdUpdatedTime,
-    rdPathId,
-    rdProvisionedProductId,
-    rdRecordErrors,
-    rdProductId,
-
-    -- ** RecordError
-    RecordError (..),
-    mkRecordError,
-    reCode,
-    reDescription,
-
-    -- ** RecordOutput
-    RecordOutput (..),
-    mkRecordOutput,
-    roOutputValue,
-    roOutputKey,
-    roDescription,
-
-    -- ** RecordTag
-    RecordTag (..),
-    mkRecordTag,
-    rtValue,
-    rtKey,
-
-    -- ** ResourceChange
-    ResourceChange (..),
-    mkResourceChange,
-    rcLogicalResourceId,
-    rcPhysicalResourceId,
-    rcResourceType,
-    rcAction,
-    rcScope,
-    rcDetails,
-    rcReplacement,
-
-    -- ** ResourceChangeDetail
-    ResourceChangeDetail (..),
-    mkResourceChangeDetail,
-    rcdCausingEntity,
-    rcdEvaluation,
-    rcdTarget,
+    -- ** ProductType
+    ProductType (..),
 
     -- ** ResourceDetail
     ResourceDetail (..),
     mkResourceDetail,
     rARN,
     rCreatedTime,
-    rName,
-    rId,
     rDescription,
+    rId,
+    rName,
 
-    -- ** ResourceTargetDefinition
-    ResourceTargetDefinition (..),
-    mkResourceTargetDefinition,
-    rtdAttribute,
-    rtdRequiresRecreation,
-    rtdName,
+    -- ** ProvisioningArtifactParameter
+    ProvisioningArtifactParameter (..),
+    mkProvisioningArtifactParameter,
+    papDefaultValue,
+    papDescription,
+    papIsNoEcho,
+    papParameterConstraints,
+    papParameterKey,
+    papParameterType,
 
-    -- ** ServiceActionAssociation
-    ServiceActionAssociation (..),
-    mkServiceActionAssociation,
-    saaProvisioningArtifactId,
-    saaServiceActionId,
-    saaProductId,
+    -- ** ResourceDetailId
+    ResourceDetailId (..),
 
-    -- ** ServiceActionDetail
-    ServiceActionDetail (..),
-    mkServiceActionDetail,
-    sadServiceActionSummary,
-    sadDefinition,
+    -- ** ParameterKey
+    ParameterKey (..),
 
-    -- ** ServiceActionSummary
-    ServiceActionSummary (..),
-    mkServiceActionSummary,
-    sasName,
-    sasId,
-    sasDefinitionType,
-    sasDescription,
+    -- ** ResourceAttribute
+    ResourceAttribute (..),
 
-    -- ** ShareDetails
-    ShareDetails (..),
-    mkShareDetails,
-    sdShareErrors,
-    sdSuccessfulShares,
+    -- ** CopyOption
+    CopyOption (..),
 
-    -- ** ShareError
-    ShareError (..),
-    mkShareError,
-    seAccounts,
-    seError,
-    seMessage,
+    -- ** TagOptionKey
+    TagOptionKey (..),
+
+    -- ** EvaluationType
+    EvaluationType (..),
+
+    -- ** ProvisioningArtifactInfoKey
+    ProvisioningArtifactInfoKey (..),
+
+    -- ** ParameterType
+    ParameterType (..),
+
+    -- ** ProvisioningArtifactDescription
+    ProvisioningArtifactDescription (..),
+
+    -- ** UpdateProvisioningParameter
+    UpdateProvisioningParameter (..),
+    mkUpdateProvisioningParameter,
+    uppKey,
+    uppUsePreviousValue,
+    uppValue,
+
+    -- ** ConstraintSummary
+    ConstraintSummary (..),
+    mkConstraintSummary,
+    csDescription,
+    csType,
+
+    -- ** ServiceActionAssociationErrorMessage
+    ServiceActionAssociationErrorMessage (..),
+
+    -- ** SearchFilterKey
+    SearchFilterKey (..),
+
+    -- ** ServiceActionDefinitionKey
+    ServiceActionDefinitionKey (..),
+
+    -- ** ShareStatus
+    ShareStatus (..),
+
+    -- ** FailedServiceActionAssociation
+    FailedServiceActionAssociation (..),
+    mkFailedServiceActionAssociation,
+    fsaaErrorCode,
+    fsaaErrorMessage,
+    fsaaProductId,
+    fsaaProvisioningArtifactId,
+    fsaaServiceActionId,
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** BudgetDetail
+    BudgetDetail (..),
+    mkBudgetDetail,
+    bdBudgetName,
+
+    -- ** PropertyValue
+    PropertyValue (..),
+
+    -- ** ProvisionedProductPlanSummary
+    ProvisionedProductPlanSummary (..),
+    mkProvisionedProductPlanSummary,
+    pppsPlanId,
+    pppsPlanName,
+    pppsPlanType,
+    pppsProvisionProductId,
+    pppsProvisionProductName,
+    pppsProvisioningArtifactId,
+
+    -- ** SupportUrl
+    SupportUrl (..),
+
+    -- ** ProvisionedProductPlanStatus
+    ProvisionedProductPlanStatus (..),
+
+    -- ** ProvisionedProductStatusMessage
+    ProvisionedProductStatusMessage (..),
+
+    -- ** UserArn
+    UserArn (..),
+
+    -- ** SortOrder
+    SortOrder (..),
+
+    -- ** PortfolioDescription
+    PortfolioDescription (..),
+
+    -- ** ProvisioningArtifact
+    ProvisioningArtifact (..),
+    mkProvisioningArtifact,
+    paCreatedTime,
+    paDescription,
+    paGuidance,
+    paId,
+    paName,
+
+    -- ** ParameterConstraints
+    ParameterConstraints (..),
+    mkParameterConstraints,
+    pcAllowedValues,
+
+    -- ** PrincipalARN
+    PrincipalARN (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** ProductViewSortBy
+    ProductViewSortBy (..),
 
     -- ** StackInstance
     StackInstance (..),
@@ -778,59 +836,337 @@ module Network.AWS.ServiceCatalog
     siRegion,
     siStackInstanceStatus,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ProductViewDetail
+    ProductViewDetail (..),
+    mkProductViewDetail,
+    pvdCreatedTime,
+    pvdProductARN,
+    pvdProductViewSummary,
+    pvdStatus,
 
-    -- ** TagOptionDetail
-    TagOptionDetail (..),
-    mkTagOptionDetail,
-    todValue,
-    todActive,
-    todKey,
-    todId,
+    -- ** StatusMessage
+    StatusMessage (..),
 
-    -- ** TagOptionSummary
-    TagOptionSummary (..),
-    mkTagOptionSummary,
-    tosValues,
-    tosKey,
+    -- ** ProvisionedProductStatus
+    ProvisionedProductStatus (..),
 
-    -- ** UpdateProvisioningParameter
-    UpdateProvisioningParameter (..),
-    mkUpdateProvisioningParameter,
-    uppValue,
-    uppKey,
-    uppUsePreviousValue,
+    -- ** Principal
+    Principal (..),
+    mkPrincipal,
+    pPrincipalARN,
+    pPrincipalType,
 
-    -- ** UpdateProvisioningPreferences
-    UpdateProvisioningPreferences (..),
-    mkUpdateProvisioningPreferences,
-    uppStackSetRegions,
-    uppStackSetMaxConcurrencyPercentage,
-    uppStackSetFailureToleranceCount,
-    uppStackSetFailureTolerancePercentage,
-    uppStackSetAccounts,
-    uppStackSetMaxConcurrencyCount,
-    uppStackSetOperationType,
+    -- ** AcceptLanguage
+    AcceptLanguage (..),
+
+    -- ** AccessLevelFilter
+    AccessLevelFilter (..),
+    mkAccessLevelFilter,
+    alfKey,
+    alfValue,
+
+    -- ** ServiceActionAssociation
+    ServiceActionAssociation (..),
+    mkServiceActionAssociation,
+    saaServiceActionId,
+    saaProductId,
+    saaProvisioningArtifactId,
+
+    -- ** BudgetName
+    BudgetName (..),
+
+    -- ** UserArnSession
+    UserArnSession (..),
+
+    -- ** StatusDetail
+    StatusDetail (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** ProvisionedProductViewFilterValue
+    ProvisionedProductViewFilterValue (..),
+
+    -- ** ProvisionedProductViewFilterBy
+    ProvisionedProductViewFilterBy (..),
+
+    -- ** SearchFilterValue
+    SearchFilterValue (..),
+
+    -- ** ResourceChangeDetail
+    ResourceChangeDetail (..),
+    mkResourceChangeDetail,
+    rcdCausingEntity,
+    rcdEvaluation,
+    rcdTarget,
+
+    -- ** ProductViewFilterValue
+    ProductViewFilterValue (..),
 
     -- ** UsageInstruction
     UsageInstruction (..),
     mkUsageInstruction,
-    uiValue,
     uiType,
+    uiValue,
+
+    -- ** ShareError
+    ShareError (..),
+    mkShareError,
+    seAccounts,
+    seError,
+    seMessage,
+
+    -- ** ServiceActionDefinitionValue
+    ServiceActionDefinitionValue (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** ProductViewFilterBy
+    ProductViewFilterBy (..),
+
+    -- ** DefaultValue
+    DefaultValue (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** NotificationArn
+    NotificationArn (..),
+
+    -- ** PropertyName
+    PropertyName (..),
+
+    -- ** ExecutionParameterValue
+    ExecutionParameterValue (..),
+
+    -- ** OutputKey
+    OutputKey (..),
+
+    -- ** UpdateProvisioningPreferences
+    UpdateProvisioningPreferences (..),
+    mkUpdateProvisioningPreferences,
+    uppStackSetAccounts,
+    uppStackSetFailureToleranceCount,
+    uppStackSetFailureTolerancePercentage,
+    uppStackSetMaxConcurrencyCount,
+    uppStackSetMaxConcurrencyPercentage,
+    uppStackSetOperationType,
+    uppStackSetRegions,
+
+    -- ** PageToken
+    PageToken (..),
+
+    -- ** PhysicalId
+    PhysicalId (..),
+
+    -- ** ListTagOptionsFilters
+    ListTagOptionsFilters (..),
+    mkListTagOptionsFilters,
+    ltofActive,
+    ltofKey,
+    ltofValue,
+
+    -- ** SupportEmail
+    SupportEmail (..),
+
+    -- ** ProvisioningArtifactPropertyValue
+    ProvisioningArtifactPropertyValue (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** StackInstanceStatus
+    StackInstanceStatus (..),
+
+    -- ** OrganizationNode
+    OrganizationNode (..),
+    mkOrganizationNode,
+    onType,
+    onValue,
+
+    -- ** AllowedValue
+    AllowedValue (..),
+
+    -- ** ListRecordHistorySearchFilter
+    ListRecordHistorySearchFilter (..),
+    mkListRecordHistorySearchFilter,
+    lrhsfKey,
+    lrhsfValue,
+
+    -- ** Replacement
+    Replacement (..),
+
+    -- ** ProvisionedProductId
+    ProvisionedProductId (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** ProductSource
+    ProductSource (..),
+
+    -- ** ProviderName
+    ProviderName (..),
+
+    -- ** ProvisioningArtifactProperties
+    ProvisioningArtifactProperties (..),
+    mkProvisioningArtifactProperties,
+    pInfo,
+    pDescription,
+    pDisableTemplateValidation,
+    pName,
+    pType,
+
+    -- ** ProvisioningArtifactDetail
+    ProvisioningArtifactDetail (..),
+    mkProvisioningArtifactDetail,
+    padActive,
+    padCreatedTime,
+    padDescription,
+    padGuidance,
+    padId,
+    padName,
+    padType,
+
+    -- ** ServiceActionDefinitionType
+    ServiceActionDefinitionType (..),
+
+    -- ** ResourceTargetDefinition
+    ResourceTargetDefinition (..),
+    mkResourceTargetDefinition,
+    rtdAttribute,
+    rtdName,
+    rtdRequiresRecreation,
+
+    -- ** RecordStatus
+    RecordStatus (..),
+
+    -- ** ProductViewAggregationValue
+    ProductViewAggregationValue (..),
+    mkProductViewAggregationValue,
+    pvavApproximateCount,
+    pvavValue,
+
+    -- ** SupportDescription
+    SupportDescription (..),
+
+    -- ** ProvisioningArtifactGuidance
+    ProvisioningArtifactGuidance (..),
+
+    -- ** ProvisioningPreferences
+    ProvisioningPreferences (..),
+    mkProvisioningPreferences,
+    ppStackSetAccounts,
+    ppStackSetFailureToleranceCount,
+    ppStackSetFailureTolerancePercentage,
+    ppStackSetMaxConcurrencyCount,
+    ppStackSetMaxConcurrencyPercentage,
+    ppStackSetRegions,
+
+    -- ** StackSetOperationType
+    StackSetOperationType (..),
+
+    -- ** NextPageToken
+    NextPageToken (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Distributor
+    Distributor (..),
+
+    -- ** Owner
+    Owner (..),
+
+    -- ** PortfolioId
+    PortfolioId (..),
+
+    -- ** RecordId
+    RecordId (..),
+
+    -- ** PathId
+    PathId (..),
+
+    -- ** PathName
+    PathName (..),
+
+    -- ** ProductId
+    ProductId (..),
+
+    -- ** ProductName
+    ProductName (..),
+
+    -- ** ProvisioningArtifactId
+    ProvisioningArtifactId (..),
+
+    -- ** LaunchRoleArn
+    LaunchRoleArn (..),
+
+    -- ** ConstraintId
+    ConstraintId (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** PlanId
+    PlanId (..),
+
+    -- ** ProvisionProductId
+    ProvisionProductId (..),
+
+    -- ** LastProvisioningRecordId
+    LastProvisioningRecordId (..),
+
+    -- ** LastRecordId
+    LastRecordId (..),
+
+    -- ** LastSuccessfulProvisioningRecordId
+    LastSuccessfulProvisioningRecordId (..),
+
+    -- ** ShortDescription
+    ShortDescription (..),
+
+    -- ** OrganizationParentId
+    OrganizationParentId (..),
+
+    -- ** Code
+    Code (..),
+
+    -- ** ServiceActionId
+    ServiceActionId (..),
+
+    -- ** SortBy
+    SortBy (..),
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** CopyProductToken
+    CopyProductToken (..),
+
+    -- ** PortfolioShareToken
+    PortfolioShareToken (..),
+
+    -- ** SourceProductArn
+    SourceProductArn (..),
+
+    -- ** TargetProductName
+    TargetProductName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

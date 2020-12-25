@@ -20,136 +20,125 @@ module Network.AWS.ResourceGroups.UpdateGroup
     mkUpdateGroup,
 
     -- ** Request lenses
+    ugDescription,
     ugGroup,
     ugGroupName,
-    ugDescription,
 
     -- * Destructuring the response
     UpdateGroupResponse (..),
     mkUpdateGroupResponse,
 
     -- ** Response lenses
-    ugrsGroup,
-    ugrsResponseStatus,
+    ugrrsGroup,
+    ugrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroups.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroups.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { -- | The name or the ARN of the resource group to modify.
-    group :: Lude.Maybe Lude.Text,
+  { -- | The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
+    description :: Core.Maybe Types.Description,
+    -- | The name or the ARN of the resource group to modify.
+    group :: Core.Maybe Types.GroupString,
     -- | Don't use this parameter. Use @Group@ instead.
-    groupName :: Lude.Maybe Lude.Text,
-    -- | The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
-    description :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
---
--- * 'group' - The name or the ARN of the resource group to modify.
--- * 'groupName' - Don't use this parameter. Use @Group@ instead.
--- * 'description' - The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
+-- | Creates a 'UpdateGroup' value with any optional fields omitted.
 mkUpdateGroup ::
   UpdateGroup
 mkUpdateGroup =
   UpdateGroup'
-    { group = Lude.Nothing,
-      groupName = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      group = Core.Nothing,
+      groupName = Core.Nothing
     }
+
+-- | The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugDescription :: Lens.Lens' UpdateGroup (Core.Maybe Types.Description)
+ugDescription = Lens.field @"description"
+{-# DEPRECATED ugDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name or the ARN of the resource group to modify.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugGroup :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
-ugGroup = Lens.lens (group :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {group = a} :: UpdateGroup)
+ugGroup :: Lens.Lens' UpdateGroup (Core.Maybe Types.GroupString)
+ugGroup = Lens.field @"group"
 {-# DEPRECATED ugGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | Don't use this parameter. Use @Group@ instead.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugGroupName :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
-ugGroupName = Lens.lens (groupName :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: UpdateGroup)
+ugGroupName :: Lens.Lens' UpdateGroup (Core.Maybe Types.GroupName)
+ugGroupName = Lens.field @"groupName"
 {-# DEPRECATED ugGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
--- | The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugDescription :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
-ugDescription = Lens.lens (description :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateGroup)
-{-# DEPRECATED ugDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.AWSRequest UpdateGroup where
-  type Rs UpdateGroup = UpdateGroupResponse
-  request = Req.postJSON resourceGroupsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateGroupResponse'
-            Lude.<$> (x Lude..?> "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateGroup where
-  toJSON UpdateGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Group" Lude..=) Lude.<$> group,
-            ("GroupName" Lude..=) Lude.<$> groupName,
-            ("Description" Lude..=) Lude.<$> description
+instance Core.FromJSON UpdateGroup where
+  toJSON UpdateGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            ("Group" Core..=) Core.<$> group,
+            ("GroupName" Core..=) Core.<$> groupName
           ]
       )
 
-instance Lude.ToPath UpdateGroup where
-  toPath = Lude.const "/update-group"
-
-instance Lude.ToQuery UpdateGroup where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateGroup where
+  type Rs UpdateGroup = UpdateGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/update-group",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateGroupResponse'
+            Core.<$> (x Core..:? "Group") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
   { -- | The update description of the resource group.
-    group :: Lude.Maybe Group,
+    group :: Core.Maybe Types.Group,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
---
--- * 'group' - The update description of the resource group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateGroupResponse' value with any optional fields omitted.
 mkUpdateGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateGroupResponse
-mkUpdateGroupResponse pResponseStatus_ =
-  UpdateGroupResponse'
-    { group = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateGroupResponse responseStatus =
+  UpdateGroupResponse' {group = Core.Nothing, responseStatus}
 
 -- | The update description of the resource group.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugrsGroup :: Lens.Lens' UpdateGroupResponse (Lude.Maybe Group)
-ugrsGroup = Lens.lens (group :: UpdateGroupResponse -> Lude.Maybe Group) (\s a -> s {group = a} :: UpdateGroupResponse)
-{-# DEPRECATED ugrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
+ugrrsGroup :: Lens.Lens' UpdateGroupResponse (Core.Maybe Types.Group)
+ugrrsGroup = Lens.field @"group"
+{-# DEPRECATED ugrrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugrsResponseStatus :: Lens.Lens' UpdateGroupResponse Lude.Int
-ugrsResponseStatus = Lens.lens (responseStatus :: UpdateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGroupResponse)
-{-# DEPRECATED ugrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ugrrsResponseStatus :: Lens.Lens' UpdateGroupResponse Core.Int
+ugrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ugrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

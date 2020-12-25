@@ -17,85 +17,80 @@ module Network.AWS.ECR.Types.Layer
     mkLayer,
 
     -- * Lenses
-    lMediaType,
+    lLayerAvailability,
     lLayerDigest,
     lLayerSize,
-    lLayerAvailability,
+    lMediaType,
   )
 where
 
-import Network.AWS.ECR.Types.LayerAvailability
+import qualified Network.AWS.ECR.Types.LayerAvailability as Types
+import qualified Network.AWS.ECR.Types.LayerDigest as Types
+import qualified Network.AWS.ECR.Types.MediaType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing an Amazon ECR image layer.
 --
 -- /See:/ 'mkLayer' smart constructor.
 data Layer = Layer'
-  { -- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
-    mediaType :: Lude.Maybe Lude.Text,
+  { -- | The availability status of the image layer.
+    layerAvailability :: Core.Maybe Types.LayerAvailability,
     -- | The @sha256@ digest of the image layer.
-    layerDigest :: Lude.Maybe Lude.Text,
+    layerDigest :: Core.Maybe Types.LayerDigest,
     -- | The size, in bytes, of the image layer.
-    layerSize :: Lude.Maybe Lude.Integer,
-    -- | The availability status of the image layer.
-    layerAvailability :: Lude.Maybe LayerAvailability
+    layerSize :: Core.Maybe Core.Integer,
+    -- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
+    mediaType :: Core.Maybe Types.MediaType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Layer' with the minimum fields required to make a request.
---
--- * 'mediaType' - The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
--- * 'layerDigest' - The @sha256@ digest of the image layer.
--- * 'layerSize' - The size, in bytes, of the image layer.
--- * 'layerAvailability' - The availability status of the image layer.
+-- | Creates a 'Layer' value with any optional fields omitted.
 mkLayer ::
   Layer
 mkLayer =
   Layer'
-    { mediaType = Lude.Nothing,
-      layerDigest = Lude.Nothing,
-      layerSize = Lude.Nothing,
-      layerAvailability = Lude.Nothing
+    { layerAvailability = Core.Nothing,
+      layerDigest = Core.Nothing,
+      layerSize = Core.Nothing,
+      mediaType = Core.Nothing
     }
 
--- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
+-- | The availability status of the image layer.
 --
--- /Note:/ Consider using 'mediaType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMediaType :: Lens.Lens' Layer (Lude.Maybe Lude.Text)
-lMediaType = Lens.lens (mediaType :: Layer -> Lude.Maybe Lude.Text) (\s a -> s {mediaType = a} :: Layer)
-{-# DEPRECATED lMediaType "Use generic-lens or generic-optics with 'mediaType' instead." #-}
+-- /Note:/ Consider using 'layerAvailability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lLayerAvailability :: Lens.Lens' Layer (Core.Maybe Types.LayerAvailability)
+lLayerAvailability = Lens.field @"layerAvailability"
+{-# DEPRECATED lLayerAvailability "Use generic-lens or generic-optics with 'layerAvailability' instead." #-}
 
 -- | The @sha256@ digest of the image layer.
 --
 -- /Note:/ Consider using 'layerDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLayerDigest :: Lens.Lens' Layer (Lude.Maybe Lude.Text)
-lLayerDigest = Lens.lens (layerDigest :: Layer -> Lude.Maybe Lude.Text) (\s a -> s {layerDigest = a} :: Layer)
+lLayerDigest :: Lens.Lens' Layer (Core.Maybe Types.LayerDigest)
+lLayerDigest = Lens.field @"layerDigest"
 {-# DEPRECATED lLayerDigest "Use generic-lens or generic-optics with 'layerDigest' instead." #-}
 
 -- | The size, in bytes, of the image layer.
 --
 -- /Note:/ Consider using 'layerSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLayerSize :: Lens.Lens' Layer (Lude.Maybe Lude.Integer)
-lLayerSize = Lens.lens (layerSize :: Layer -> Lude.Maybe Lude.Integer) (\s a -> s {layerSize = a} :: Layer)
+lLayerSize :: Lens.Lens' Layer (Core.Maybe Core.Integer)
+lLayerSize = Lens.field @"layerSize"
 {-# DEPRECATED lLayerSize "Use generic-lens or generic-optics with 'layerSize' instead." #-}
 
--- | The availability status of the image layer.
+-- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
 --
--- /Note:/ Consider using 'layerAvailability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLayerAvailability :: Lens.Lens' Layer (Lude.Maybe LayerAvailability)
-lLayerAvailability = Lens.lens (layerAvailability :: Layer -> Lude.Maybe LayerAvailability) (\s a -> s {layerAvailability = a} :: Layer)
-{-# DEPRECATED lLayerAvailability "Use generic-lens or generic-optics with 'layerAvailability' instead." #-}
+-- /Note:/ Consider using 'mediaType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMediaType :: Lens.Lens' Layer (Core.Maybe Types.MediaType)
+lMediaType = Lens.field @"mediaType"
+{-# DEPRECATED lMediaType "Use generic-lens or generic-optics with 'mediaType' instead." #-}
 
-instance Lude.FromJSON Layer where
+instance Core.FromJSON Layer where
   parseJSON =
-    Lude.withObject
-      "Layer"
-      ( \x ->
-          Layer'
-            Lude.<$> (x Lude..:? "mediaType")
-            Lude.<*> (x Lude..:? "layerDigest")
-            Lude.<*> (x Lude..:? "layerSize")
-            Lude.<*> (x Lude..:? "layerAvailability")
-      )
+    Core.withObject "Layer" Core.$
+      \x ->
+        Layer'
+          Core.<$> (x Core..:? "layerAvailability")
+          Core.<*> (x Core..:? "layerDigest")
+          Core.<*> (x Core..:? "layerSize")
+          Core.<*> (x Core..:? "mediaType")

@@ -13,66 +13,71 @@
 module Network.AWS.WAF.Types.TextTransformation
   ( TextTransformation
       ( TextTransformation',
-        None,
-        CompressWhiteSpace,
-        HTMLEntityDecode,
-        Lowercase,
-        CmdLine,
-        URLDecode
+        TextTransformationNone,
+        TextTransformationCompressWhiteSpace,
+        TextTransformationHtmlEntityDecode,
+        TextTransformationLowercase,
+        TextTransformationCmdLine,
+        TextTransformationUrlDecode,
+        fromTextTransformation
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TextTransformation = TextTransformation' Lude.Text
+newtype TextTransformation = TextTransformation'
+  { fromTextTransformation ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: TextTransformation
-pattern None = TextTransformation' "NONE"
+pattern TextTransformationNone :: TextTransformation
+pattern TextTransformationNone = TextTransformation' "NONE"
 
-pattern CompressWhiteSpace :: TextTransformation
-pattern CompressWhiteSpace = TextTransformation' "COMPRESS_WHITE_SPACE"
+pattern TextTransformationCompressWhiteSpace :: TextTransformation
+pattern TextTransformationCompressWhiteSpace = TextTransformation' "COMPRESS_WHITE_SPACE"
 
-pattern HTMLEntityDecode :: TextTransformation
-pattern HTMLEntityDecode = TextTransformation' "HTML_ENTITY_DECODE"
+pattern TextTransformationHtmlEntityDecode :: TextTransformation
+pattern TextTransformationHtmlEntityDecode = TextTransformation' "HTML_ENTITY_DECODE"
 
-pattern Lowercase :: TextTransformation
-pattern Lowercase = TextTransformation' "LOWERCASE"
+pattern TextTransformationLowercase :: TextTransformation
+pattern TextTransformationLowercase = TextTransformation' "LOWERCASE"
 
-pattern CmdLine :: TextTransformation
-pattern CmdLine = TextTransformation' "CMD_LINE"
+pattern TextTransformationCmdLine :: TextTransformation
+pattern TextTransformationCmdLine = TextTransformation' "CMD_LINE"
 
-pattern URLDecode :: TextTransformation
-pattern URLDecode = TextTransformation' "URL_DECODE"
+pattern TextTransformationUrlDecode :: TextTransformation
+pattern TextTransformationUrlDecode = TextTransformation' "URL_DECODE"
 
 {-# COMPLETE
-  None,
-  CompressWhiteSpace,
-  HTMLEntityDecode,
-  Lowercase,
-  CmdLine,
-  URLDecode,
+  TextTransformationNone,
+  TextTransformationCompressWhiteSpace,
+  TextTransformationHtmlEntityDecode,
+  TextTransformationLowercase,
+  TextTransformationCmdLine,
+  TextTransformationUrlDecode,
   TextTransformation'
   #-}

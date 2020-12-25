@@ -13,66 +13,71 @@
 module Network.AWS.SSM.Types.SessionFilterKey
   ( SessionFilterKey
       ( SessionFilterKey',
-        SFKInvokedAfter,
-        SFKInvokedBefore,
-        SFKTarget,
-        SFKOwner,
-        SFKStatus,
-        SFKSessionId
+        SessionFilterKeyInvokedAfter,
+        SessionFilterKeyInvokedBefore,
+        SessionFilterKeyTarget,
+        SessionFilterKeyOwner,
+        SessionFilterKeyStatus,
+        SessionFilterKeySessionId,
+        fromSessionFilterKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SessionFilterKey = SessionFilterKey' Lude.Text
+newtype SessionFilterKey = SessionFilterKey'
+  { fromSessionFilterKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SFKInvokedAfter :: SessionFilterKey
-pattern SFKInvokedAfter = SessionFilterKey' "InvokedAfter"
+pattern SessionFilterKeyInvokedAfter :: SessionFilterKey
+pattern SessionFilterKeyInvokedAfter = SessionFilterKey' "InvokedAfter"
 
-pattern SFKInvokedBefore :: SessionFilterKey
-pattern SFKInvokedBefore = SessionFilterKey' "InvokedBefore"
+pattern SessionFilterKeyInvokedBefore :: SessionFilterKey
+pattern SessionFilterKeyInvokedBefore = SessionFilterKey' "InvokedBefore"
 
-pattern SFKTarget :: SessionFilterKey
-pattern SFKTarget = SessionFilterKey' "Target"
+pattern SessionFilterKeyTarget :: SessionFilterKey
+pattern SessionFilterKeyTarget = SessionFilterKey' "Target"
 
-pattern SFKOwner :: SessionFilterKey
-pattern SFKOwner = SessionFilterKey' "Owner"
+pattern SessionFilterKeyOwner :: SessionFilterKey
+pattern SessionFilterKeyOwner = SessionFilterKey' "Owner"
 
-pattern SFKStatus :: SessionFilterKey
-pattern SFKStatus = SessionFilterKey' "Status"
+pattern SessionFilterKeyStatus :: SessionFilterKey
+pattern SessionFilterKeyStatus = SessionFilterKey' "Status"
 
-pattern SFKSessionId :: SessionFilterKey
-pattern SFKSessionId = SessionFilterKey' "SessionId"
+pattern SessionFilterKeySessionId :: SessionFilterKey
+pattern SessionFilterKeySessionId = SessionFilterKey' "SessionId"
 
 {-# COMPLETE
-  SFKInvokedAfter,
-  SFKInvokedBefore,
-  SFKTarget,
-  SFKOwner,
-  SFKStatus,
-  SFKSessionId,
+  SessionFilterKeyInvokedAfter,
+  SessionFilterKeyInvokedBefore,
+  SessionFilterKeyTarget,
+  SessionFilterKeyOwner,
+  SessionFilterKeyStatus,
+  SessionFilterKeySessionId,
   SessionFilterKey'
   #-}

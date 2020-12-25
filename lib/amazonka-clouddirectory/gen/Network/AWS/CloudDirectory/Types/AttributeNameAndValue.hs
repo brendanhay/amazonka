@@ -17,71 +17,64 @@ module Network.AWS.CloudDirectory.Types.AttributeNameAndValue
     mkAttributeNameAndValue,
 
     -- * Lenses
-    anavValue,
     anavAttributeName,
+    anavValue,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.TypedAttributeValue
+import qualified Network.AWS.CloudDirectory.Types.AttributeName as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedAttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies the attribute name and value for a typed link.
 --
 -- /See:/ 'mkAttributeNameAndValue' smart constructor.
 data AttributeNameAndValue = AttributeNameAndValue'
-  { -- | The value for the typed link.
-    value :: TypedAttributeValue,
-    -- | The attribute name of the typed link.
-    attributeName :: Lude.Text
+  { -- | The attribute name of the typed link.
+    attributeName :: Types.AttributeName,
+    -- | The value for the typed link.
+    value :: Types.TypedAttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AttributeNameAndValue' with the minimum fields required to make a request.
---
--- * 'value' - The value for the typed link.
--- * 'attributeName' - The attribute name of the typed link.
+-- | Creates a 'AttributeNameAndValue' value with any optional fields omitted.
 mkAttributeNameAndValue ::
-  -- | 'value'
-  TypedAttributeValue ->
   -- | 'attributeName'
-  Lude.Text ->
+  Types.AttributeName ->
+  -- | 'value'
+  Types.TypedAttributeValue ->
   AttributeNameAndValue
-mkAttributeNameAndValue pValue_ pAttributeName_ =
-  AttributeNameAndValue'
-    { value = pValue_,
-      attributeName = pAttributeName_
-    }
-
--- | The value for the typed link.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-anavValue :: Lens.Lens' AttributeNameAndValue TypedAttributeValue
-anavValue = Lens.lens (value :: AttributeNameAndValue -> TypedAttributeValue) (\s a -> s {value = a} :: AttributeNameAndValue)
-{-# DEPRECATED anavValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkAttributeNameAndValue attributeName value =
+  AttributeNameAndValue' {attributeName, value}
 
 -- | The attribute name of the typed link.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-anavAttributeName :: Lens.Lens' AttributeNameAndValue Lude.Text
-anavAttributeName = Lens.lens (attributeName :: AttributeNameAndValue -> Lude.Text) (\s a -> s {attributeName = a} :: AttributeNameAndValue)
+anavAttributeName :: Lens.Lens' AttributeNameAndValue Types.AttributeName
+anavAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED anavAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.FromJSON AttributeNameAndValue where
-  parseJSON =
-    Lude.withObject
-      "AttributeNameAndValue"
-      ( \x ->
-          AttributeNameAndValue'
-            Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "AttributeName")
-      )
+-- | The value for the typed link.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+anavValue :: Lens.Lens' AttributeNameAndValue Types.TypedAttributeValue
+anavValue = Lens.field @"value"
+{-# DEPRECATED anavValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON AttributeNameAndValue where
-  toJSON AttributeNameAndValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Value" Lude..= value),
-            Lude.Just ("AttributeName" Lude..= attributeName)
+instance Core.FromJSON AttributeNameAndValue where
+  toJSON AttributeNameAndValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AttributeName" Core..= attributeName),
+            Core.Just ("Value" Core..= value)
           ]
       )
+
+instance Core.FromJSON AttributeNameAndValue where
+  parseJSON =
+    Core.withObject "AttributeNameAndValue" Core.$
+      \x ->
+        AttributeNameAndValue'
+          Core.<$> (x Core..: "AttributeName") Core.<*> (x Core..: "Value")

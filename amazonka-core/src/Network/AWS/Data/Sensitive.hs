@@ -17,38 +17,31 @@ import Data.String
 import GHC.Generics (Generic)
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
-import Network.AWS.Data.Log (ToLog (..))
 import Network.AWS.Data.Query
-import Network.AWS.Data.Text
+import Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Data.XML
-import Network.AWS.Lens (Iso', iso)
+import qualified Control.Lens as Lens
+import Network.AWS.Prelude
 
--- | /Note/: read . show /= isomorphic
 newtype Sensitive a = Sensitive {fromSensitive :: a}
-  deriving
-    ( Eq,
-      Ord,
-      IsString,
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
+      Hashable,
+      NFData,
       Semigroup,
-      Monoid,
-      Generic,
-      ToByteString,
-      FromText,
+      Monoid
       ToText,
-      FromXML,
-      ToXML,
+      FromText,
       ToQuery,
+      ToXML,
+      FromXML,
       ToJSON,
       FromJSON
     )
 
-instance Show (Sensitive a) where show = const "******"
-
-instance ToLog (Sensitive a) where build = const "******"
-
-instance Hashable a => Hashable (Sensitive a)
-
-instance NFData a => NFData (Sensitive a)
+instance Show (Sensitive a) where
+  showsPrec _ = showString "Sensitive {fromSensitive = ******}"
 
 _Sensitive :: Iso' (Sensitive a) a
-_Sensitive = iso fromSensitive Sensitive
+_Sensitive = Lens.iso fromSensitive Sensitive

@@ -17,72 +17,68 @@ module Network.AWS.DirectoryService.Types.Computer
     mkComputer,
 
     -- * Lenses
-    cComputerId,
     cComputerAttributes,
+    cComputerId,
     cComputerName,
   )
 where
 
-import Network.AWS.DirectoryService.Types.Attribute
+import qualified Network.AWS.DirectoryService.Types.Attribute as Types
+import qualified Network.AWS.DirectoryService.Types.ComputerId as Types
+import qualified Network.AWS.DirectoryService.Types.ComputerName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a computer account in a directory.
 --
 -- /See:/ 'mkComputer' smart constructor.
 data Computer = Computer'
-  { -- | The identifier of the computer.
-    computerId :: Lude.Maybe Lude.Text,
-    -- | An array of 'Attribute' objects containing the LDAP attributes that belong to the computer account.
-    computerAttributes :: Lude.Maybe [Attribute],
+  { -- | An array of 'Attribute' objects containing the LDAP attributes that belong to the computer account.
+    computerAttributes :: Core.Maybe [Types.Attribute],
+    -- | The identifier of the computer.
+    computerId :: Core.Maybe Types.ComputerId,
     -- | The computer name.
-    computerName :: Lude.Maybe Lude.Text
+    computerName :: Core.Maybe Types.ComputerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Computer' with the minimum fields required to make a request.
---
--- * 'computerId' - The identifier of the computer.
--- * 'computerAttributes' - An array of 'Attribute' objects containing the LDAP attributes that belong to the computer account.
--- * 'computerName' - The computer name.
+-- | Creates a 'Computer' value with any optional fields omitted.
 mkComputer ::
   Computer
 mkComputer =
   Computer'
-    { computerId = Lude.Nothing,
-      computerAttributes = Lude.Nothing,
-      computerName = Lude.Nothing
+    { computerAttributes = Core.Nothing,
+      computerId = Core.Nothing,
+      computerName = Core.Nothing
     }
-
--- | The identifier of the computer.
---
--- /Note:/ Consider using 'computerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cComputerId :: Lens.Lens' Computer (Lude.Maybe Lude.Text)
-cComputerId = Lens.lens (computerId :: Computer -> Lude.Maybe Lude.Text) (\s a -> s {computerId = a} :: Computer)
-{-# DEPRECATED cComputerId "Use generic-lens or generic-optics with 'computerId' instead." #-}
 
 -- | An array of 'Attribute' objects containing the LDAP attributes that belong to the computer account.
 --
 -- /Note:/ Consider using 'computerAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cComputerAttributes :: Lens.Lens' Computer (Lude.Maybe [Attribute])
-cComputerAttributes = Lens.lens (computerAttributes :: Computer -> Lude.Maybe [Attribute]) (\s a -> s {computerAttributes = a} :: Computer)
+cComputerAttributes :: Lens.Lens' Computer (Core.Maybe [Types.Attribute])
+cComputerAttributes = Lens.field @"computerAttributes"
 {-# DEPRECATED cComputerAttributes "Use generic-lens or generic-optics with 'computerAttributes' instead." #-}
+
+-- | The identifier of the computer.
+--
+-- /Note:/ Consider using 'computerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cComputerId :: Lens.Lens' Computer (Core.Maybe Types.ComputerId)
+cComputerId = Lens.field @"computerId"
+{-# DEPRECATED cComputerId "Use generic-lens or generic-optics with 'computerId' instead." #-}
 
 -- | The computer name.
 --
 -- /Note:/ Consider using 'computerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cComputerName :: Lens.Lens' Computer (Lude.Maybe Lude.Text)
-cComputerName = Lens.lens (computerName :: Computer -> Lude.Maybe Lude.Text) (\s a -> s {computerName = a} :: Computer)
+cComputerName :: Lens.Lens' Computer (Core.Maybe Types.ComputerName)
+cComputerName = Lens.field @"computerName"
 {-# DEPRECATED cComputerName "Use generic-lens or generic-optics with 'computerName' instead." #-}
 
-instance Lude.FromJSON Computer where
+instance Core.FromJSON Computer where
   parseJSON =
-    Lude.withObject
-      "Computer"
-      ( \x ->
-          Computer'
-            Lude.<$> (x Lude..:? "ComputerId")
-            Lude.<*> (x Lude..:? "ComputerAttributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ComputerName")
-      )
+    Core.withObject "Computer" Core.$
+      \x ->
+        Computer'
+          Core.<$> (x Core..:? "ComputerAttributes")
+          Core.<*> (x Core..:? "ComputerId")
+          Core.<*> (x Core..:? "ComputerName")

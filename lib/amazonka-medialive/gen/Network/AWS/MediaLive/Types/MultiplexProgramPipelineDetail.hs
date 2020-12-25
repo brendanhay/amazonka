@@ -17,58 +17,54 @@ module Network.AWS.MediaLive.Types.MultiplexProgramPipelineDetail
     mkMultiplexProgramPipelineDetail,
 
     -- * Lenses
-    mppdPipelineId,
     mppdActiveChannelPipeline,
+    mppdPipelineId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The current source for one of the pipelines in the multiplex.
 --
 -- /See:/ 'mkMultiplexProgramPipelineDetail' smart constructor.
 data MultiplexProgramPipelineDetail = MultiplexProgramPipelineDetail'
-  { -- | Identifies a specific pipeline in the multiplex.
-    pipelineId :: Lude.Maybe Lude.Text,
-    -- | Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
-    activeChannelPipeline :: Lude.Maybe Lude.Text
+  { -- | Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
+    activeChannelPipeline :: Core.Maybe Core.Text,
+    -- | Identifies a specific pipeline in the multiplex.
+    pipelineId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiplexProgramPipelineDetail' with the minimum fields required to make a request.
---
--- * 'pipelineId' - Identifies a specific pipeline in the multiplex.
--- * 'activeChannelPipeline' - Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
+-- | Creates a 'MultiplexProgramPipelineDetail' value with any optional fields omitted.
 mkMultiplexProgramPipelineDetail ::
   MultiplexProgramPipelineDetail
 mkMultiplexProgramPipelineDetail =
   MultiplexProgramPipelineDetail'
-    { pipelineId = Lude.Nothing,
-      activeChannelPipeline = Lude.Nothing
+    { activeChannelPipeline =
+        Core.Nothing,
+      pipelineId = Core.Nothing
     }
-
--- | Identifies a specific pipeline in the multiplex.
---
--- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mppdPipelineId :: Lens.Lens' MultiplexProgramPipelineDetail (Lude.Maybe Lude.Text)
-mppdPipelineId = Lens.lens (pipelineId :: MultiplexProgramPipelineDetail -> Lude.Maybe Lude.Text) (\s a -> s {pipelineId = a} :: MultiplexProgramPipelineDetail)
-{-# DEPRECATED mppdPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
 --
 -- /Note:/ Consider using 'activeChannelPipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mppdActiveChannelPipeline :: Lens.Lens' MultiplexProgramPipelineDetail (Lude.Maybe Lude.Text)
-mppdActiveChannelPipeline = Lens.lens (activeChannelPipeline :: MultiplexProgramPipelineDetail -> Lude.Maybe Lude.Text) (\s a -> s {activeChannelPipeline = a} :: MultiplexProgramPipelineDetail)
+mppdActiveChannelPipeline :: Lens.Lens' MultiplexProgramPipelineDetail (Core.Maybe Core.Text)
+mppdActiveChannelPipeline = Lens.field @"activeChannelPipeline"
 {-# DEPRECATED mppdActiveChannelPipeline "Use generic-lens or generic-optics with 'activeChannelPipeline' instead." #-}
 
-instance Lude.FromJSON MultiplexProgramPipelineDetail where
+-- | Identifies a specific pipeline in the multiplex.
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mppdPipelineId :: Lens.Lens' MultiplexProgramPipelineDetail (Core.Maybe Core.Text)
+mppdPipelineId = Lens.field @"pipelineId"
+{-# DEPRECATED mppdPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+
+instance Core.FromJSON MultiplexProgramPipelineDetail where
   parseJSON =
-    Lude.withObject
-      "MultiplexProgramPipelineDetail"
-      ( \x ->
-          MultiplexProgramPipelineDetail'
-            Lude.<$> (x Lude..:? "pipelineId")
-            Lude.<*> (x Lude..:? "activeChannelPipeline")
-      )
+    Core.withObject "MultiplexProgramPipelineDetail" Core.$
+      \x ->
+        MultiplexProgramPipelineDetail'
+          Core.<$> (x Core..:? "activeChannelPipeline")
+          Core.<*> (x Core..:? "pipelineId")

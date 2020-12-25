@@ -22,40 +22,37 @@ module Network.AWS.Rekognition.Types.GroundTruthManifest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.S3Object
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.S3Object as Types
 
 -- | The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file.
 --
 -- /See:/ 'mkGroundTruthManifest' smart constructor.
 newtype GroundTruthManifest = GroundTruthManifest'
-  { s3Object :: Lude.Maybe S3Object
+  { s3Object :: Core.Maybe Types.S3Object
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroundTruthManifest' with the minimum fields required to make a request.
---
--- * 's3Object' -
+-- | Creates a 'GroundTruthManifest' value with any optional fields omitted.
 mkGroundTruthManifest ::
   GroundTruthManifest
 mkGroundTruthManifest =
-  GroundTruthManifest' {s3Object = Lude.Nothing}
+  GroundTruthManifest' {s3Object = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 's3Object' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmS3Object :: Lens.Lens' GroundTruthManifest (Lude.Maybe S3Object)
-gtmS3Object = Lens.lens (s3Object :: GroundTruthManifest -> Lude.Maybe S3Object) (\s a -> s {s3Object = a} :: GroundTruthManifest)
+gtmS3Object :: Lens.Lens' GroundTruthManifest (Core.Maybe Types.S3Object)
+gtmS3Object = Lens.field @"s3Object"
 {-# DEPRECATED gtmS3Object "Use generic-lens or generic-optics with 's3Object' instead." #-}
 
-instance Lude.FromJSON GroundTruthManifest where
-  parseJSON =
-    Lude.withObject
-      "GroundTruthManifest"
-      (\x -> GroundTruthManifest' Lude.<$> (x Lude..:? "S3Object"))
+instance Core.FromJSON GroundTruthManifest where
+  toJSON GroundTruthManifest {..} =
+    Core.object
+      (Core.catMaybes [("S3Object" Core..=) Core.<$> s3Object])
 
-instance Lude.ToJSON GroundTruthManifest where
-  toJSON GroundTruthManifest' {..} =
-    Lude.object
-      (Lude.catMaybes [("S3Object" Lude..=) Lude.<$> s3Object])
+instance Core.FromJSON GroundTruthManifest where
+  parseJSON =
+    Core.withObject "GroundTruthManifest" Core.$
+      \x -> GroundTruthManifest' Core.<$> (x Core..:? "S3Object")

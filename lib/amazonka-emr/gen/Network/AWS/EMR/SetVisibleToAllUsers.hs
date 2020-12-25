@@ -29,89 +29,79 @@ module Network.AWS.EMR.SetVisibleToAllUsers
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input to the SetVisibleToAllUsers action.
 --
 -- /See:/ 'mkSetVisibleToAllUsers' smart constructor.
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
   { -- | The unique identifier of the job flow (cluster).
-    jobFlowIds :: [Lude.Text],
+    jobFlowIds :: [Types.XmlString],
     -- | A value of @true@ indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. This is the default. A value of @false@ indicates that only the IAM user who created the cluster can perform actions.
-    visibleToAllUsers :: Lude.Bool
+    visibleToAllUsers :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetVisibleToAllUsers' with the minimum fields required to make a request.
---
--- * 'jobFlowIds' - The unique identifier of the job flow (cluster).
--- * 'visibleToAllUsers' - A value of @true@ indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. This is the default. A value of @false@ indicates that only the IAM user who created the cluster can perform actions.
+-- | Creates a 'SetVisibleToAllUsers' value with any optional fields omitted.
 mkSetVisibleToAllUsers ::
   -- | 'visibleToAllUsers'
-  Lude.Bool ->
+  Core.Bool ->
   SetVisibleToAllUsers
-mkSetVisibleToAllUsers pVisibleToAllUsers_ =
+mkSetVisibleToAllUsers visibleToAllUsers =
   SetVisibleToAllUsers'
-    { jobFlowIds = Lude.mempty,
-      visibleToAllUsers = pVisibleToAllUsers_
+    { jobFlowIds = Core.mempty,
+      visibleToAllUsers
     }
 
 -- | The unique identifier of the job flow (cluster).
 --
 -- /Note:/ Consider using 'jobFlowIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svtauJobFlowIds :: Lens.Lens' SetVisibleToAllUsers [Lude.Text]
-svtauJobFlowIds = Lens.lens (jobFlowIds :: SetVisibleToAllUsers -> [Lude.Text]) (\s a -> s {jobFlowIds = a} :: SetVisibleToAllUsers)
+svtauJobFlowIds :: Lens.Lens' SetVisibleToAllUsers [Types.XmlString]
+svtauJobFlowIds = Lens.field @"jobFlowIds"
 {-# DEPRECATED svtauJobFlowIds "Use generic-lens or generic-optics with 'jobFlowIds' instead." #-}
 
 -- | A value of @true@ indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. This is the default. A value of @false@ indicates that only the IAM user who created the cluster can perform actions.
 --
 -- /Note:/ Consider using 'visibleToAllUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svtauVisibleToAllUsers :: Lens.Lens' SetVisibleToAllUsers Lude.Bool
-svtauVisibleToAllUsers = Lens.lens (visibleToAllUsers :: SetVisibleToAllUsers -> Lude.Bool) (\s a -> s {visibleToAllUsers = a} :: SetVisibleToAllUsers)
+svtauVisibleToAllUsers :: Lens.Lens' SetVisibleToAllUsers Core.Bool
+svtauVisibleToAllUsers = Lens.field @"visibleToAllUsers"
 {-# DEPRECATED svtauVisibleToAllUsers "Use generic-lens or generic-optics with 'visibleToAllUsers' instead." #-}
 
-instance Lude.AWSRequest SetVisibleToAllUsers where
+instance Core.FromJSON SetVisibleToAllUsers where
+  toJSON SetVisibleToAllUsers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobFlowIds" Core..= jobFlowIds),
+            Core.Just ("VisibleToAllUsers" Core..= visibleToAllUsers)
+          ]
+      )
+
+instance Core.AWSRequest SetVisibleToAllUsers where
   type Rs SetVisibleToAllUsers = SetVisibleToAllUsersResponse
-  request = Req.postJSON emrService
-  response = Res.receiveNull SetVisibleToAllUsersResponse'
-
-instance Lude.ToHeaders SetVisibleToAllUsers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.SetVisibleToAllUsers" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetVisibleToAllUsers where
-  toJSON SetVisibleToAllUsers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobFlowIds" Lude..= jobFlowIds),
-            Lude.Just ("VisibleToAllUsers" Lude..= visibleToAllUsers)
-          ]
-      )
-
-instance Lude.ToPath SetVisibleToAllUsers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetVisibleToAllUsers where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.SetVisibleToAllUsers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetVisibleToAllUsersResponse'
 
 -- | /See:/ 'mkSetVisibleToAllUsersResponse' smart constructor.
 data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetVisibleToAllUsersResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetVisibleToAllUsersResponse' value with any optional fields omitted.
 mkSetVisibleToAllUsersResponse ::
   SetVisibleToAllUsersResponse
 mkSetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'

@@ -52,100 +52,87 @@ module Network.AWS.GameLift.DeleteMatchmakingConfiguration
     mkDeleteMatchmakingConfigurationResponse,
 
     -- ** Response lenses
-    dmcrsResponseStatus,
+    dmcrfrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDeleteMatchmakingConfiguration' smart constructor.
 newtype DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
   { -- | A unique identifier for a matchmaking configuration. You can use either the configuration name or ARN value.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMatchmakingConfiguration' with the minimum fields required to make a request.
---
--- * 'name' - A unique identifier for a matchmaking configuration. You can use either the configuration name or ARN value.
+-- | Creates a 'DeleteMatchmakingConfiguration' value with any optional fields omitted.
 mkDeleteMatchmakingConfiguration ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   DeleteMatchmakingConfiguration
-mkDeleteMatchmakingConfiguration pName_ =
-  DeleteMatchmakingConfiguration' {name = pName_}
+mkDeleteMatchmakingConfiguration name =
+  DeleteMatchmakingConfiguration' {name}
 
 -- | A unique identifier for a matchmaking configuration. You can use either the configuration name or ARN value.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcName :: Lens.Lens' DeleteMatchmakingConfiguration Lude.Text
-dmcName = Lens.lens (name :: DeleteMatchmakingConfiguration -> Lude.Text) (\s a -> s {name = a} :: DeleteMatchmakingConfiguration)
+dmcName :: Lens.Lens' DeleteMatchmakingConfiguration Types.Name
+dmcName = Lens.field @"name"
 {-# DEPRECATED dmcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteMatchmakingConfiguration where
+instance Core.FromJSON DeleteMatchmakingConfiguration where
+  toJSON DeleteMatchmakingConfiguration {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteMatchmakingConfiguration where
   type
     Rs DeleteMatchmakingConfiguration =
       DeleteMatchmakingConfigurationResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "GameLift.DeleteMatchmakingConfiguration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteMatchmakingConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteMatchmakingConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DeleteMatchmakingConfiguration" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteMatchmakingConfiguration where
-  toJSON DeleteMatchmakingConfiguration' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteMatchmakingConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteMatchmakingConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteMatchmakingConfigurationResponse' smart constructor.
 newtype DeleteMatchmakingConfigurationResponse = DeleteMatchmakingConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMatchmakingConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteMatchmakingConfigurationResponse' value with any optional fields omitted.
 mkDeleteMatchmakingConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteMatchmakingConfigurationResponse
-mkDeleteMatchmakingConfigurationResponse pResponseStatus_ =
-  DeleteMatchmakingConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteMatchmakingConfigurationResponse responseStatus =
+  DeleteMatchmakingConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcrsResponseStatus :: Lens.Lens' DeleteMatchmakingConfigurationResponse Lude.Int
-dmcrsResponseStatus = Lens.lens (responseStatus :: DeleteMatchmakingConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMatchmakingConfigurationResponse)
-{-# DEPRECATED dmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmcrfrsResponseStatus :: Lens.Lens' DeleteMatchmakingConfigurationResponse Core.Int
+dmcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

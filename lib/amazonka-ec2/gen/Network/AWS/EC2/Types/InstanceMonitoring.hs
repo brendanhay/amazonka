@@ -22,49 +22,47 @@ module Network.AWS.EC2.Types.InstanceMonitoring
   )
 where
 
-import Network.AWS.EC2.Types.Monitoring
+import qualified Network.AWS.EC2.Types.Monitoring as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the monitoring of an instance.
 --
 -- /See:/ 'mkInstanceMonitoring' smart constructor.
 data InstanceMonitoring = InstanceMonitoring'
   { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
+    instanceId :: Core.Maybe Types.String,
     -- | The monitoring for the instance.
-    monitoring :: Lude.Maybe Monitoring
+    monitoring :: Core.Maybe Types.Monitoring
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceMonitoring' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'monitoring' - The monitoring for the instance.
+-- | Creates a 'InstanceMonitoring' value with any optional fields omitted.
 mkInstanceMonitoring ::
   InstanceMonitoring
 mkInstanceMonitoring =
   InstanceMonitoring'
-    { instanceId = Lude.Nothing,
-      monitoring = Lude.Nothing
+    { instanceId = Core.Nothing,
+      monitoring = Core.Nothing
     }
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imInstanceId :: Lens.Lens' InstanceMonitoring (Lude.Maybe Lude.Text)
-imInstanceId = Lens.lens (instanceId :: InstanceMonitoring -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceMonitoring)
+imInstanceId :: Lens.Lens' InstanceMonitoring (Core.Maybe Types.String)
+imInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED imInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The monitoring for the instance.
 --
 -- /Note:/ Consider using 'monitoring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imMonitoring :: Lens.Lens' InstanceMonitoring (Lude.Maybe Monitoring)
-imMonitoring = Lens.lens (monitoring :: InstanceMonitoring -> Lude.Maybe Monitoring) (\s a -> s {monitoring = a} :: InstanceMonitoring)
+imMonitoring :: Lens.Lens' InstanceMonitoring (Core.Maybe Types.Monitoring)
+imMonitoring = Lens.field @"monitoring"
 {-# DEPRECATED imMonitoring "Use generic-lens or generic-optics with 'monitoring' instead." #-}
 
-instance Lude.FromXML InstanceMonitoring where
+instance Core.FromXML InstanceMonitoring where
   parseXML x =
     InstanceMonitoring'
-      Lude.<$> (x Lude..@? "instanceId") Lude.<*> (x Lude..@? "monitoring")
+      Core.<$> (x Core..@? "instanceId") Core.<*> (x Core..@? "monitoring")

@@ -22,28 +22,28 @@ module Network.AWS.Lambda.ListEventSourceMappings
     mkListEventSourceMappings,
 
     -- ** Request lenses
-    lesmEventSourceARN,
+    lesmEventSourceArn,
+    lesmFunctionName,
     lesmMarker,
     lesmMaxItems,
-    lesmFunctionName,
 
     -- * Destructuring the response
     ListEventSourceMappingsResponse (..),
     mkListEventSourceMappingsResponse,
 
     -- ** Response lenses
-    lesmrsEventSourceMappings,
-    lesmrsNextMarker,
-    lesmrsResponseStatus,
+    lesmrrsEventSourceMappings,
+    lesmrrsNextMarker,
+    lesmrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListEventSourceMappings' smart constructor.
 data ListEventSourceMappings = ListEventSourceMappings'
@@ -60,11 +60,7 @@ data ListEventSourceMappings = ListEventSourceMappings'
     --
     --
     --     * __Amazon Managed Streaming for Apache Kafka__ - The ARN of the cluster.
-    eventSourceARN :: Lude.Maybe Lude.Text,
-    -- | A pagination token returned by a previous call.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The maximum number of event source mappings to return.
-    maxItems :: Lude.Maybe Lude.Natural,
+    eventSourceArn :: Core.Maybe Types.EventSourceArn,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -82,55 +78,24 @@ data ListEventSourceMappings = ListEventSourceMappings'
     --
     --
     -- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
-    functionName :: Lude.Maybe Lude.Text
+    functionName :: Core.Maybe Types.FunctionName,
+    -- | A pagination token returned by a previous call.
+    marker :: Core.Maybe Types.Marker,
+    -- | The maximum number of event source mappings to return.
+    maxItems :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListEventSourceMappings' with the minimum fields required to make a request.
---
--- * 'eventSourceARN' - The Amazon Resource Name (ARN) of the event source.
---
---
---     * __Amazon Kinesis__ - The ARN of the data stream or a stream consumer.
---
---
---     * __Amazon DynamoDB Streams__ - The ARN of the stream.
---
---
---     * __Amazon Simple Queue Service__ - The ARN of the queue.
---
---
---     * __Amazon Managed Streaming for Apache Kafka__ - The ARN of the cluster.
---
---
--- * 'marker' - A pagination token returned by a previous call.
--- * 'maxItems' - The maximum number of event source mappings to return.
--- * 'functionName' - The name of the Lambda function.
---
--- __Name formats__
---
---     * __Function name__ - @MyFunction@ .
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
---
---
---     * __Version or Alias ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@ .
---
---
---     * __Partial ARN__ - @123456789012:function:MyFunction@ .
---
---
--- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
+-- | Creates a 'ListEventSourceMappings' value with any optional fields omitted.
 mkListEventSourceMappings ::
   ListEventSourceMappings
 mkListEventSourceMappings =
   ListEventSourceMappings'
-    { eventSourceARN = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      functionName = Lude.Nothing
+    { eventSourceArn = Core.Nothing,
+      functionName = Core.Nothing,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the event source.
@@ -149,24 +114,10 @@ mkListEventSourceMappings =
 --
 --
 --
--- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesmEventSourceARN :: Lens.Lens' ListEventSourceMappings (Lude.Maybe Lude.Text)
-lesmEventSourceARN = Lens.lens (eventSourceARN :: ListEventSourceMappings -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: ListEventSourceMappings)
-{-# DEPRECATED lesmEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
-
--- | A pagination token returned by a previous call.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesmMarker :: Lens.Lens' ListEventSourceMappings (Lude.Maybe Lude.Text)
-lesmMarker = Lens.lens (marker :: ListEventSourceMappings -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListEventSourceMappings)
-{-# DEPRECATED lesmMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The maximum number of event source mappings to return.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesmMaxItems :: Lens.Lens' ListEventSourceMappings (Lude.Maybe Lude.Natural)
-lesmMaxItems = Lens.lens (maxItems :: ListEventSourceMappings -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListEventSourceMappings)
-{-# DEPRECATED lesmMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+-- /Note:/ Consider using 'eventSourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesmEventSourceArn :: Lens.Lens' ListEventSourceMappings (Core.Maybe Types.EventSourceArn)
+lesmEventSourceArn = Lens.field @"eventSourceArn"
+{-# DEPRECATED lesmEventSourceArn "Use generic-lens or generic-optics with 'eventSourceArn' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -187,92 +138,102 @@ lesmMaxItems = Lens.lens (maxItems :: ListEventSourceMappings -> Lude.Maybe Lude
 -- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesmFunctionName :: Lens.Lens' ListEventSourceMappings (Lude.Maybe Lude.Text)
-lesmFunctionName = Lens.lens (functionName :: ListEventSourceMappings -> Lude.Maybe Lude.Text) (\s a -> s {functionName = a} :: ListEventSourceMappings)
+lesmFunctionName :: Lens.Lens' ListEventSourceMappings (Core.Maybe Types.FunctionName)
+lesmFunctionName = Lens.field @"functionName"
 {-# DEPRECATED lesmFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance Page.AWSPager ListEventSourceMappings where
-  page rq rs
-    | Page.stop (rs Lens.^. lesmrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lesmrsEventSourceMappings) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lesmMarker Lens..~ rs Lens.^. lesmrsNextMarker
+-- | A pagination token returned by a previous call.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesmMarker :: Lens.Lens' ListEventSourceMappings (Core.Maybe Types.Marker)
+lesmMarker = Lens.field @"marker"
+{-# DEPRECATED lesmMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListEventSourceMappings where
+-- | The maximum number of event source mappings to return.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesmMaxItems :: Lens.Lens' ListEventSourceMappings (Core.Maybe Core.Natural)
+lesmMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED lesmMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+instance Core.AWSRequest ListEventSourceMappings where
   type Rs ListEventSourceMappings = ListEventSourceMappingsResponse
-  request = Req.get lambdaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2015-03-31/event-source-mappings/",
+        Core._rqQuery =
+          Core.toQueryValue "EventSourceArn" Core.<$> eventSourceArn
+            Core.<> (Core.toQueryValue "FunctionName" Core.<$> functionName)
+            Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListEventSourceMappingsResponse'
-            Lude.<$> (x Lude..?> "EventSourceMappings" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EventSourceMappings")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListEventSourceMappings where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListEventSourceMappings where
-  toPath = Lude.const "/2015-03-31/event-source-mappings/"
-
-instance Lude.ToQuery ListEventSourceMappings where
-  toQuery ListEventSourceMappings' {..} =
-    Lude.mconcat
-      [ "EventSourceArn" Lude.=: eventSourceARN,
-        "Marker" Lude.=: marker,
-        "MaxItems" Lude.=: maxItems,
-        "FunctionName" Lude.=: functionName
-      ]
+instance Pager.AWSPager ListEventSourceMappings where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"eventSourceMappings" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListEventSourceMappingsResponse' smart constructor.
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
   { -- | A list of event source mappings.
-    eventSourceMappings :: Lude.Maybe [EventSourceMappingConfiguration],
+    eventSourceMappings :: Core.Maybe [Types.EventSourceMappingConfiguration],
     -- | A pagination token that's returned when the response doesn't contain all event source mappings.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListEventSourceMappingsResponse' with the minimum fields required to make a request.
---
--- * 'eventSourceMappings' - A list of event source mappings.
--- * 'nextMarker' - A pagination token that's returned when the response doesn't contain all event source mappings.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListEventSourceMappingsResponse' value with any optional fields omitted.
 mkListEventSourceMappingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListEventSourceMappingsResponse
-mkListEventSourceMappingsResponse pResponseStatus_ =
+mkListEventSourceMappingsResponse responseStatus =
   ListEventSourceMappingsResponse'
     { eventSourceMappings =
-        Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of event source mappings.
 --
 -- /Note:/ Consider using 'eventSourceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesmrsEventSourceMappings :: Lens.Lens' ListEventSourceMappingsResponse (Lude.Maybe [EventSourceMappingConfiguration])
-lesmrsEventSourceMappings = Lens.lens (eventSourceMappings :: ListEventSourceMappingsResponse -> Lude.Maybe [EventSourceMappingConfiguration]) (\s a -> s {eventSourceMappings = a} :: ListEventSourceMappingsResponse)
-{-# DEPRECATED lesmrsEventSourceMappings "Use generic-lens or generic-optics with 'eventSourceMappings' instead." #-}
+lesmrrsEventSourceMappings :: Lens.Lens' ListEventSourceMappingsResponse (Core.Maybe [Types.EventSourceMappingConfiguration])
+lesmrrsEventSourceMappings = Lens.field @"eventSourceMappings"
+{-# DEPRECATED lesmrrsEventSourceMappings "Use generic-lens or generic-optics with 'eventSourceMappings' instead." #-}
 
 -- | A pagination token that's returned when the response doesn't contain all event source mappings.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesmrsNextMarker :: Lens.Lens' ListEventSourceMappingsResponse (Lude.Maybe Lude.Text)
-lesmrsNextMarker = Lens.lens (nextMarker :: ListEventSourceMappingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListEventSourceMappingsResponse)
-{-# DEPRECATED lesmrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lesmrrsNextMarker :: Lens.Lens' ListEventSourceMappingsResponse (Core.Maybe Types.String)
+lesmrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lesmrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesmrsResponseStatus :: Lens.Lens' ListEventSourceMappingsResponse Lude.Int
-lesmrsResponseStatus = Lens.lens (responseStatus :: ListEventSourceMappingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEventSourceMappingsResponse)
-{-# DEPRECATED lesmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lesmrrsResponseStatus :: Lens.Lens' ListEventSourceMappingsResponse Core.Int
+lesmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lesmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

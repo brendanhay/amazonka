@@ -13,86 +13,91 @@
 module Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus
   ( AutoMLJobSecondaryStatus
       ( AutoMLJobSecondaryStatus',
-        AMLJSSStarting,
-        AMLJSSAnalyzingData,
-        AMLJSSFeatureEngineering,
-        AMLJSSModelTuning,
-        AMLJSSMaxCandidatesReached,
-        AMLJSSFailed,
-        AMLJSSStopped,
-        AMLJSSMaxAutoMLJobRuntimeReached,
-        AMLJSSStopping,
-        AMLJSSCandidateDefinitionsGenerated
+        AutoMLJobSecondaryStatusStarting,
+        AutoMLJobSecondaryStatusAnalyzingData,
+        AutoMLJobSecondaryStatusFeatureEngineering,
+        AutoMLJobSecondaryStatusModelTuning,
+        AutoMLJobSecondaryStatusMaxCandidatesReached,
+        AutoMLJobSecondaryStatusFailed,
+        AutoMLJobSecondaryStatusStopped,
+        AutoMLJobSecondaryStatusMaxAutoMLJobRuntimeReached,
+        AutoMLJobSecondaryStatusStopping,
+        AutoMLJobSecondaryStatusCandidateDefinitionsGenerated,
+        fromAutoMLJobSecondaryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AutoMLJobSecondaryStatus = AutoMLJobSecondaryStatus' Lude.Text
+newtype AutoMLJobSecondaryStatus = AutoMLJobSecondaryStatus'
+  { fromAutoMLJobSecondaryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AMLJSSStarting :: AutoMLJobSecondaryStatus
-pattern AMLJSSStarting = AutoMLJobSecondaryStatus' "Starting"
+pattern AutoMLJobSecondaryStatusStarting :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusStarting = AutoMLJobSecondaryStatus' "Starting"
 
-pattern AMLJSSAnalyzingData :: AutoMLJobSecondaryStatus
-pattern AMLJSSAnalyzingData = AutoMLJobSecondaryStatus' "AnalyzingData"
+pattern AutoMLJobSecondaryStatusAnalyzingData :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusAnalyzingData = AutoMLJobSecondaryStatus' "AnalyzingData"
 
-pattern AMLJSSFeatureEngineering :: AutoMLJobSecondaryStatus
-pattern AMLJSSFeatureEngineering = AutoMLJobSecondaryStatus' "FeatureEngineering"
+pattern AutoMLJobSecondaryStatusFeatureEngineering :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusFeatureEngineering = AutoMLJobSecondaryStatus' "FeatureEngineering"
 
-pattern AMLJSSModelTuning :: AutoMLJobSecondaryStatus
-pattern AMLJSSModelTuning = AutoMLJobSecondaryStatus' "ModelTuning"
+pattern AutoMLJobSecondaryStatusModelTuning :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusModelTuning = AutoMLJobSecondaryStatus' "ModelTuning"
 
-pattern AMLJSSMaxCandidatesReached :: AutoMLJobSecondaryStatus
-pattern AMLJSSMaxCandidatesReached = AutoMLJobSecondaryStatus' "MaxCandidatesReached"
+pattern AutoMLJobSecondaryStatusMaxCandidatesReached :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusMaxCandidatesReached = AutoMLJobSecondaryStatus' "MaxCandidatesReached"
 
-pattern AMLJSSFailed :: AutoMLJobSecondaryStatus
-pattern AMLJSSFailed = AutoMLJobSecondaryStatus' "Failed"
+pattern AutoMLJobSecondaryStatusFailed :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusFailed = AutoMLJobSecondaryStatus' "Failed"
 
-pattern AMLJSSStopped :: AutoMLJobSecondaryStatus
-pattern AMLJSSStopped = AutoMLJobSecondaryStatus' "Stopped"
+pattern AutoMLJobSecondaryStatusStopped :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusStopped = AutoMLJobSecondaryStatus' "Stopped"
 
-pattern AMLJSSMaxAutoMLJobRuntimeReached :: AutoMLJobSecondaryStatus
-pattern AMLJSSMaxAutoMLJobRuntimeReached = AutoMLJobSecondaryStatus' "MaxAutoMLJobRuntimeReached"
+pattern AutoMLJobSecondaryStatusMaxAutoMLJobRuntimeReached :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusMaxAutoMLJobRuntimeReached = AutoMLJobSecondaryStatus' "MaxAutoMLJobRuntimeReached"
 
-pattern AMLJSSStopping :: AutoMLJobSecondaryStatus
-pattern AMLJSSStopping = AutoMLJobSecondaryStatus' "Stopping"
+pattern AutoMLJobSecondaryStatusStopping :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusStopping = AutoMLJobSecondaryStatus' "Stopping"
 
-pattern AMLJSSCandidateDefinitionsGenerated :: AutoMLJobSecondaryStatus
-pattern AMLJSSCandidateDefinitionsGenerated = AutoMLJobSecondaryStatus' "CandidateDefinitionsGenerated"
+pattern AutoMLJobSecondaryStatusCandidateDefinitionsGenerated :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatusCandidateDefinitionsGenerated = AutoMLJobSecondaryStatus' "CandidateDefinitionsGenerated"
 
 {-# COMPLETE
-  AMLJSSStarting,
-  AMLJSSAnalyzingData,
-  AMLJSSFeatureEngineering,
-  AMLJSSModelTuning,
-  AMLJSSMaxCandidatesReached,
-  AMLJSSFailed,
-  AMLJSSStopped,
-  AMLJSSMaxAutoMLJobRuntimeReached,
-  AMLJSSStopping,
-  AMLJSSCandidateDefinitionsGenerated,
+  AutoMLJobSecondaryStatusStarting,
+  AutoMLJobSecondaryStatusAnalyzingData,
+  AutoMLJobSecondaryStatusFeatureEngineering,
+  AutoMLJobSecondaryStatusModelTuning,
+  AutoMLJobSecondaryStatusMaxCandidatesReached,
+  AutoMLJobSecondaryStatusFailed,
+  AutoMLJobSecondaryStatusStopped,
+  AutoMLJobSecondaryStatusMaxAutoMLJobRuntimeReached,
+  AutoMLJobSecondaryStatusStopping,
+  AutoMLJobSecondaryStatusCandidateDefinitionsGenerated,
   AutoMLJobSecondaryStatus'
   #-}

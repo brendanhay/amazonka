@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,34 @@
 -- Definition of the public APIs exposed by Amazon Machine Learning
 module Network.AWS.MachineLearning
   ( -- * Service configuration
-    machineLearningService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** PredictorNotMountedException
+    _PredictorNotMountedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -123,233 +146,438 @@ module Network.AWS.MachineLearning
 
     -- * Types
 
-    -- ** Algorithm
-    Algorithm (..),
+    -- ** EntityName
+    EntityName (..),
+
+    -- ** RDSDatabaseName
+    RDSDatabaseName (..),
 
     -- ** BatchPredictionFilterVariable
     BatchPredictionFilterVariable (..),
 
-    -- ** DataSourceFilterVariable
-    DataSourceFilterVariable (..),
+    -- ** RDSInstanceIdentifier
+    RDSInstanceIdentifier (..),
 
-    -- ** DetailsAttributes
-    DetailsAttributes (..),
-
-    -- ** EntityStatus
-    EntityStatus (..),
-
-    -- ** EvaluationFilterVariable
-    EvaluationFilterVariable (..),
-
-    -- ** MLModelFilterVariable
-    MLModelFilterVariable (..),
-
-    -- ** MLModelType
-    MLModelType (..),
-
-    -- ** RealtimeEndpointStatus
-    RealtimeEndpointStatus (..),
-
-    -- ** SortOrder
-    SortOrder (..),
-
-    -- ** TaggableResourceType
-    TaggableResourceType (..),
-
-    -- ** BatchPrediction
-    BatchPrediction (..),
-    mkBatchPrediction,
-    bpStatus,
-    bpLastUpdatedAt,
-    bpCreatedAt,
-    bpComputeTime,
-    bpInputDataLocationS3,
-    bpMLModelId,
-    bpBatchPredictionDataSourceId,
-    bpTotalRecordCount,
-    bpStartedAt,
-    bpBatchPredictionId,
-    bpFinishedAt,
-    bpInvalidRecordCount,
-    bpCreatedByIAMUser,
-    bpName,
-    bpMessage,
-    bpOutputURI,
-
-    -- ** DataSource
-    DataSource (..),
-    mkDataSource,
-    dsStatus,
-    dsNumberOfFiles,
-    dsLastUpdatedAt,
-    dsCreatedAt,
-    dsComputeTime,
-    dsDataSourceId,
-    dsRDSMetadata,
-    dsDataSizeInBytes,
-    dsStartedAt,
-    dsFinishedAt,
-    dsCreatedByIAMUser,
-    dsName,
-    dsDataLocationS3,
-    dsComputeStatistics,
-    dsMessage,
-    dsRedshiftMetadata,
-    dsDataRearrangement,
-    dsRoleARN,
-
-    -- ** Evaluation
-    Evaluation (..),
-    mkEvaluation,
-    eStatus,
-    ePerformanceMetrics,
-    eLastUpdatedAt,
-    eCreatedAt,
-    eComputeTime,
-    eInputDataLocationS3,
-    eMLModelId,
-    eStartedAt,
-    eFinishedAt,
-    eCreatedByIAMUser,
-    eName,
-    eEvaluationId,
-    eMessage,
-    eEvaluationDataSourceId,
-
-    -- ** MLModel
-    MLModel (..),
-    mkMLModel,
-    mlmStatus,
-    mlmLastUpdatedAt,
-    mlmTrainingParameters,
-    mlmScoreThresholdLastUpdatedAt,
-    mlmCreatedAt,
-    mlmComputeTime,
-    mlmInputDataLocationS3,
-    mlmMLModelId,
-    mlmSizeInBytes,
-    mlmStartedAt,
-    mlmScoreThreshold,
-    mlmFinishedAt,
-    mlmAlgorithm,
-    mlmCreatedByIAMUser,
-    mlmName,
-    mlmEndpointInfo,
-    mlmTrainingDataSourceId,
-    mlmMessage,
-    mlmMLModelType,
+    -- ** RDSDatabasePassword
+    RDSDatabasePassword (..),
 
     -- ** PerformanceMetrics
     PerformanceMetrics (..),
     mkPerformanceMetrics,
     pmProperties,
 
-    -- ** Prediction
-    Prediction (..),
-    mkPrediction,
-    pPredictedValue,
-    pPredictedLabel,
-    pPredictedScores,
-    pDetails,
+    -- ** EDPResourceRole
+    EDPResourceRole (..),
 
-    -- ** RDSDataSpec
-    RDSDataSpec (..),
-    mkRDSDataSpec,
-    rdsS3StagingLocation,
-    rdsSelectSqlQuery,
-    rdsDataSchemaURI,
-    rdsSecurityGroupIds,
-    rdsSubnetId,
-    rdsDataSchema,
-    rdsDatabaseInformation,
-    rdsDatabaseCredentials,
-    rdsResourceRole,
-    rdsDataRearrangement,
-    rdsServiceRole,
+    -- ** RedshiftClusterIdentifier
+    RedshiftClusterIdentifier (..),
 
-    -- ** RDSDatabase
-    RDSDatabase (..),
-    mkRDSDatabase,
-    rdInstanceIdentifier,
-    rdDatabaseName,
-
-    -- ** RDSDatabaseCredentials
-    RDSDatabaseCredentials (..),
-    mkRDSDatabaseCredentials,
-    rdcUsername,
-    rdcPassword,
-
-    -- ** RDSMetadata
-    RDSMetadata (..),
-    mkRDSMetadata,
-    rmSelectSqlQuery,
-    rmDataPipelineId,
-    rmDatabase,
-    rmDatabaseUserName,
-    rmResourceRole,
-    rmServiceRole,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** RealtimeEndpointInfo
     RealtimeEndpointInfo (..),
     mkRealtimeEndpointInfo,
     reiCreatedAt,
-    reiEndpointURL,
     reiEndpointStatus,
+    reiEndpointUrl,
     reiPeakRequestsPerSecond,
 
-    -- ** RedshiftDataSpec
-    RedshiftDataSpec (..),
-    mkRedshiftDataSpec,
-    rdsfS3StagingLocation,
-    rdsfSelectSqlQuery,
-    rdsfDataSchemaURI,
-    rdsfDataSchema,
-    rdsfDatabaseInformation,
-    rdsfDatabaseCredentials,
-    rdsfDataRearrangement,
+    -- ** Prediction
+    Prediction (..),
+    mkPrediction,
+    pDetails,
+    pPredictedLabel,
+    pPredictedScores,
+    pPredictedValue,
 
-    -- ** RedshiftDatabase
-    RedshiftDatabase (..),
-    mkRedshiftDatabase,
-    rClusterIdentifier,
-    rDatabaseName,
-
-    -- ** RedshiftDatabaseCredentials
-    RedshiftDatabaseCredentials (..),
-    mkRedshiftDatabaseCredentials,
-    rUsername,
-    rPassword,
-
-    -- ** RedshiftMetadata
-    RedshiftMetadata (..),
-    mkRedshiftMetadata,
-    rSelectSqlQuery,
-    rRedshiftDatabase,
-    rDatabaseUserName,
+    -- ** EDPSecurityGroupId
+    EDPSecurityGroupId (..),
 
     -- ** S3DataSpec
     S3DataSpec (..),
     mkS3DataSpec,
-    sdsDataSchema,
-    sdsDataSchemaLocationS3,
     sdsDataLocationS3,
     sdsDataRearrangement,
+    sdsDataSchema,
+    sdsDataSchemaLocationS3,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** DetailsAttributes
+    DetailsAttributes (..),
+
+    -- ** EvaluationFilterVariable
+    EvaluationFilterVariable (..),
+
+    -- ** RealtimeEndpointStatus
+    RealtimeEndpointStatus (..),
+
+    -- ** RDSDataSpec
+    RDSDataSpec (..),
+    mkRDSDataSpec,
+    rdsdsDatabaseInformation,
+    rdsdsSelectSqlQuery,
+    rdsdsDatabaseCredentials,
+    rdsdsS3StagingLocation,
+    rdsdsResourceRole,
+    rdsdsServiceRole,
+    rdsdsSubnetId,
+    rdsdsSecurityGroupIds,
+    rdsdsDataRearrangement,
+    rdsdsDataSchema,
+    rdsdsDataSchemaUri,
+
+    -- ** Recipe
+    Recipe (..),
+
+    -- ** EDPServiceRole
+    EDPServiceRole (..),
+
+    -- ** RDSMetadata
+    RDSMetadata (..),
+    mkRDSMetadata,
+    rdsmDataPipelineId,
+    rdsmDatabase,
+    rdsmDatabaseUserName,
+    rdsmResourceRole,
+    rdsmSelectSqlQuery,
+    rdsmServiceRole,
+
+    -- ** RedshiftDatabaseUsername
+    RedshiftDatabaseUsername (..),
+
+    -- ** PerformanceMetricsPropertyValue
+    PerformanceMetricsPropertyValue (..),
+
+    -- ** RedshiftDatabase
+    RedshiftDatabase (..),
+    mkRedshiftDatabase,
+    rdDatabaseName,
+    rdClusterIdentifier,
+
+    -- ** RedshiftDatabaseCredentials
+    RedshiftDatabaseCredentials (..),
+    mkRedshiftDatabaseCredentials,
+    rdcUsername,
+    rdcPassword,
+
+    -- ** MLModel
+    MLModel (..),
+    mkMLModel,
+    mlmAlgorithm,
+    mlmComputeTime,
+    mlmCreatedAt,
+    mlmCreatedByIamUser,
+    mlmEndpointInfo,
+    mlmFinishedAt,
+    mlmInputDataLocationS3,
+    mlmLastUpdatedAt,
+    mlmMLModelId,
+    mlmMLModelType,
+    mlmMessage,
+    mlmName,
+    mlmScoreThreshold,
+    mlmScoreThresholdLastUpdatedAt,
+    mlmSizeInBytes,
+    mlmStartedAt,
+    mlmStatus,
+    mlmTrainingDataSourceId,
+    mlmTrainingParameters,
+
+    -- ** DataSchema
+    DataSchema (..),
+
+    -- ** AwsUserArn
+    AwsUserArn (..),
+
+    -- ** VariableName
+    VariableName (..),
+
+    -- ** MLModelName
+    MLModelName (..),
+
+    -- ** BatchPrediction
+    BatchPrediction (..),
+    mkBatchPrediction,
+    bpBatchPredictionDataSourceId,
+    bpBatchPredictionId,
+    bpComputeTime,
+    bpCreatedAt,
+    bpCreatedByIamUser,
+    bpFinishedAt,
+    bpInputDataLocationS3,
+    bpInvalidRecordCount,
+    bpLastUpdatedAt,
+    bpMLModelId,
+    bpMessage,
+    bpName,
+    bpOutputUri,
+    bpStartedAt,
+    bpStatus,
+    bpTotalRecordCount,
+
+    -- ** VipURL
+    VipURL (..),
+
+    -- ** SortOrder
+    SortOrder (..),
+
+    -- ** RedshiftSelectSqlQuery
+    RedshiftSelectSqlQuery (..),
+
+    -- ** Algorithm
+    Algorithm (..),
+
+    -- ** PerformanceMetricsPropertyKey
+    PerformanceMetricsPropertyKey (..),
+
+    -- ** EntityStatus
+    EntityStatus (..),
+
+    -- ** DataSource
+    DataSource (..),
+    mkDataSource,
+    dsComputeStatistics,
+    dsComputeTime,
+    dsCreatedAt,
+    dsCreatedByIamUser,
+    dsDataLocationS3,
+    dsDataRearrangement,
+    dsDataSizeInBytes,
+    dsDataSourceId,
+    dsFinishedAt,
+    dsLastUpdatedAt,
+    dsMessage,
+    dsName,
+    dsNumberOfFiles,
+    dsRDSMetadata,
+    dsRedshiftMetadata,
+    dsRoleARN,
+    dsStartedAt,
+    dsStatus,
+
+    -- ** VariableValue
+    VariableValue (..),
+
+    -- ** StringType
+    StringType (..),
+
+    -- ** TaggableResourceType
+    TaggableResourceType (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** RDSDatabase
+    RDSDatabase (..),
+    mkRDSDatabase,
+    rdsdInstanceIdentifier,
+    rdsdDatabaseName,
+
+    -- ** RDSDatabaseCredentials
+    RDSDatabaseCredentials (..),
+    mkRDSDatabaseCredentials,
+    rdsdcUsername,
+    rdsdcPassword,
+
+    -- ** MLModelFilterVariable
+    MLModelFilterVariable (..),
+
+    -- ** S3Url
+    S3Url (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** DataSourceFilterVariable
+    DataSourceFilterVariable (..),
+
+    -- ** RedshiftDataSpec
+    RedshiftDataSpec (..),
+    mkRedshiftDataSpec,
+    rdsDatabaseInformation,
+    rdsSelectSqlQuery,
+    rdsDatabaseCredentials,
+    rdsS3StagingLocation,
+    rdsDataRearrangement,
+    rdsDataSchema,
+    rdsDataSchemaUri,
+
+    -- ** EntityId
+    EntityId (..),
+
+    -- ** Label
+    Label (..),
+
+    -- ** Evaluation
+    Evaluation (..),
+    mkEvaluation,
+    eComputeTime,
+    eCreatedAt,
+    eCreatedByIamUser,
+    eEvaluationDataSourceId,
+    eEvaluationId,
+    eFinishedAt,
+    eInputDataLocationS3,
+    eLastUpdatedAt,
+    eMLModelId,
+    eMessage,
+    eName,
+    ePerformanceMetrics,
+    eStartedAt,
+    eStatus,
+
+    -- ** RedshiftMetadata
+    RedshiftMetadata (..),
+    mkRedshiftMetadata,
+    rmDatabaseUserName,
+    rmRedshiftDatabase,
+    rmSelectSqlQuery,
+
+    -- ** MLModelType
+    MLModelType (..),
+
+    -- ** DetailsValue
+    DetailsValue (..),
+
+    -- ** ComparatorValue
+    ComparatorValue (..),
+
+    -- ** DataRearrangement
+    DataRearrangement (..),
+
+    -- ** RoleARN
+    RoleARN (..),
+
+    -- ** DataSourceId
+    DataSourceId (..),
+
+    -- ** DataSourceName
+    DataSourceName (..),
+
+    -- ** EvaluationId
+    EvaluationId (..),
+
+    -- ** MLModelId
+    MLModelId (..),
+
+    -- ** EvaluationDataSourceId
+    EvaluationDataSourceId (..),
+
+    -- ** EvaluationName
+    EvaluationName (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** CreatedByIamUser
+    CreatedByIamUser (..),
+
+    -- ** InputDataLocationS3
+    InputDataLocationS3 (..),
+
+    -- ** LogUri
+    LogUri (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** BatchPredictionId
+    BatchPredictionId (..),
+
+    -- ** EndpointUrl
+    EndpointUrl (..),
+
+    -- ** PredictedLabel
+    PredictedLabel (..),
+
+    -- ** DataLocationS3
+    DataLocationS3 (..),
+
+    -- ** DataSchemaLocationS3
+    DataSchemaLocationS3 (..),
+
+    -- ** SelectSqlQuery
+    SelectSqlQuery (..),
+
+    -- ** S3StagingLocation
+    S3StagingLocation (..),
+
+    -- ** ServiceRole
+    ServiceRole (..),
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** DataSchemaUri
+    DataSchemaUri (..),
+
+    -- ** DataPipelineId
+    DataPipelineId (..),
+
+    -- ** DatabaseUserName
+    DatabaseUserName (..),
+
+    -- ** BatchPredictionDataSourceId
+    BatchPredictionDataSourceId (..),
+
+    -- ** OutputUri
+    OutputUri (..),
+
+    -- ** DatabaseName
+    DatabaseName (..),
+
+    -- ** Password
+    Password (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** TrainingDataSourceId
+    TrainingDataSourceId (..),
+
+    -- ** RecipeUri
+    RecipeUri (..),
+
+    -- ** EQ
+    EQ (..),
+
+    -- ** GE
+    GE (..),
+
+    -- ** GT
+    GT (..),
+
+    -- ** LE
+    LE (..),
+
+    -- ** LT
+    LT (..),
+
+    -- ** NE
+    NE (..),
+
+    -- ** Prefix
+    Prefix (..),
+
+    -- ** Username
+    Username (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

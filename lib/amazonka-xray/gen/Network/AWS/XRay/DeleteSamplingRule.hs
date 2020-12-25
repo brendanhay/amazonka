@@ -20,124 +20,117 @@ module Network.AWS.XRay.DeleteSamplingRule
     mkDeleteSamplingRule,
 
     -- ** Request lenses
-    dsrRuleName,
     dsrRuleARN,
+    dsrRuleName,
 
     -- * Destructuring the response
     DeleteSamplingRuleResponse (..),
     mkDeleteSamplingRuleResponse,
 
     -- ** Response lenses
-    dsrrsSamplingRuleRecord,
-    dsrrsResponseStatus,
+    dsrrrsSamplingRuleRecord,
+    dsrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkDeleteSamplingRule' smart constructor.
 data DeleteSamplingRule = DeleteSamplingRule'
-  { -- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
-    ruleName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
-    ruleARN :: Lude.Maybe Lude.Text
+  { -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+    ruleARN :: Core.Maybe Types.String,
+    -- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+    ruleName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSamplingRule' with the minimum fields required to make a request.
---
--- * 'ruleName' - The name of the sampling rule. Specify a rule by either name or ARN, but not both.
--- * 'ruleARN' - The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+-- | Creates a 'DeleteSamplingRule' value with any optional fields omitted.
 mkDeleteSamplingRule ::
   DeleteSamplingRule
 mkDeleteSamplingRule =
   DeleteSamplingRule'
-    { ruleName = Lude.Nothing,
-      ruleARN = Lude.Nothing
+    { ruleARN = Core.Nothing,
+      ruleName = Core.Nothing
     }
-
--- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
---
--- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrRuleName :: Lens.Lens' DeleteSamplingRule (Lude.Maybe Lude.Text)
-dsrRuleName = Lens.lens (ruleName :: DeleteSamplingRule -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: DeleteSamplingRule)
-{-# DEPRECATED dsrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
 --
 -- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrRuleARN :: Lens.Lens' DeleteSamplingRule (Lude.Maybe Lude.Text)
-dsrRuleARN = Lens.lens (ruleARN :: DeleteSamplingRule -> Lude.Maybe Lude.Text) (\s a -> s {ruleARN = a} :: DeleteSamplingRule)
+dsrRuleARN :: Lens.Lens' DeleteSamplingRule (Core.Maybe Types.String)
+dsrRuleARN = Lens.field @"ruleARN"
 {-# DEPRECATED dsrRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
 
-instance Lude.AWSRequest DeleteSamplingRule where
-  type Rs DeleteSamplingRule = DeleteSamplingRuleResponse
-  request = Req.postJSON xRayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DeleteSamplingRuleResponse'
-            Lude.<$> (x Lude..?> "SamplingRuleRecord")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrRuleName :: Lens.Lens' DeleteSamplingRule (Core.Maybe Types.String)
+dsrRuleName = Lens.field @"ruleName"
+{-# DEPRECATED dsrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
-instance Lude.ToHeaders DeleteSamplingRule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON DeleteSamplingRule where
-  toJSON DeleteSamplingRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RuleName" Lude..=) Lude.<$> ruleName,
-            ("RuleARN" Lude..=) Lude.<$> ruleARN
+instance Core.FromJSON DeleteSamplingRule where
+  toJSON DeleteSamplingRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("RuleARN" Core..=) Core.<$> ruleARN,
+            ("RuleName" Core..=) Core.<$> ruleName
           ]
       )
 
-instance Lude.ToPath DeleteSamplingRule where
-  toPath = Lude.const "/DeleteSamplingRule"
-
-instance Lude.ToQuery DeleteSamplingRule where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DeleteSamplingRule where
+  type Rs DeleteSamplingRule = DeleteSamplingRuleResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/DeleteSamplingRule",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteSamplingRuleResponse'
+            Core.<$> (x Core..:? "SamplingRuleRecord")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkDeleteSamplingRuleResponse' smart constructor.
 data DeleteSamplingRuleResponse = DeleteSamplingRuleResponse'
   { -- | The deleted rule definition and metadata.
-    samplingRuleRecord :: Lude.Maybe SamplingRuleRecord,
+    samplingRuleRecord :: Core.Maybe Types.SamplingRuleRecord,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteSamplingRuleResponse' with the minimum fields required to make a request.
---
--- * 'samplingRuleRecord' - The deleted rule definition and metadata.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSamplingRuleResponse' value with any optional fields omitted.
 mkDeleteSamplingRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSamplingRuleResponse
-mkDeleteSamplingRuleResponse pResponseStatus_ =
+mkDeleteSamplingRuleResponse responseStatus =
   DeleteSamplingRuleResponse'
-    { samplingRuleRecord = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { samplingRuleRecord = Core.Nothing,
+      responseStatus
     }
 
 -- | The deleted rule definition and metadata.
 --
 -- /Note:/ Consider using 'samplingRuleRecord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrrsSamplingRuleRecord :: Lens.Lens' DeleteSamplingRuleResponse (Lude.Maybe SamplingRuleRecord)
-dsrrsSamplingRuleRecord = Lens.lens (samplingRuleRecord :: DeleteSamplingRuleResponse -> Lude.Maybe SamplingRuleRecord) (\s a -> s {samplingRuleRecord = a} :: DeleteSamplingRuleResponse)
-{-# DEPRECATED dsrrsSamplingRuleRecord "Use generic-lens or generic-optics with 'samplingRuleRecord' instead." #-}
+dsrrrsSamplingRuleRecord :: Lens.Lens' DeleteSamplingRuleResponse (Core.Maybe Types.SamplingRuleRecord)
+dsrrrsSamplingRuleRecord = Lens.field @"samplingRuleRecord"
+{-# DEPRECATED dsrrrsSamplingRuleRecord "Use generic-lens or generic-optics with 'samplingRuleRecord' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrrsResponseStatus :: Lens.Lens' DeleteSamplingRuleResponse Lude.Int
-dsrrsResponseStatus = Lens.lens (responseStatus :: DeleteSamplingRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSamplingRuleResponse)
-{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrrsResponseStatus :: Lens.Lens' DeleteSamplingRuleResponse Core.Int
+dsrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

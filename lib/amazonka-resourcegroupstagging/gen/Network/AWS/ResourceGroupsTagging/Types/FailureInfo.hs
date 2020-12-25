@@ -24,8 +24,9 @@ module Network.AWS.ResourceGroupsTagging.Types.FailureInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroupsTagging.Types.ErrorMessage as Types
+import qualified Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode as Types
 
 -- | Information about the errors that are returned for each failed resource. This information can include @InternalServiceException@ and @InvalidParameterException@ errors. It can also include any valid error code returned by the AWS service that hosts the resource that the ARN key represents.
 --
@@ -42,57 +43,51 @@ import Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
 -- /See:/ 'mkFailureInfo' smart constructor.
 data FailureInfo = FailureInfo'
   { -- | The code of the common error. Valid values include @InternalServiceException@ , @InvalidParameterException@ , and any valid error code returned by the AWS service that hosts the resource that you want to tag.
-    errorCode :: Lude.Maybe ResourceErrorCode,
+    errorCode :: Core.Maybe Types.ResourceErrorCode,
     -- | The message of the common error.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ErrorMessage,
     -- | The HTTP status code of the common error.
-    statusCode :: Lude.Maybe Lude.Int
+    statusCode :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailureInfo' with the minimum fields required to make a request.
---
--- * 'errorCode' - The code of the common error. Valid values include @InternalServiceException@ , @InvalidParameterException@ , and any valid error code returned by the AWS service that hosts the resource that you want to tag.
--- * 'errorMessage' - The message of the common error.
--- * 'statusCode' - The HTTP status code of the common error.
+-- | Creates a 'FailureInfo' value with any optional fields omitted.
 mkFailureInfo ::
   FailureInfo
 mkFailureInfo =
   FailureInfo'
-    { errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      statusCode = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | The code of the common error. Valid values include @InternalServiceException@ , @InvalidParameterException@ , and any valid error code returned by the AWS service that hosts the resource that you want to tag.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fiErrorCode :: Lens.Lens' FailureInfo (Lude.Maybe ResourceErrorCode)
-fiErrorCode = Lens.lens (errorCode :: FailureInfo -> Lude.Maybe ResourceErrorCode) (\s a -> s {errorCode = a} :: FailureInfo)
+fiErrorCode :: Lens.Lens' FailureInfo (Core.Maybe Types.ResourceErrorCode)
+fiErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED fiErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The message of the common error.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fiErrorMessage :: Lens.Lens' FailureInfo (Lude.Maybe Lude.Text)
-fiErrorMessage = Lens.lens (errorMessage :: FailureInfo -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FailureInfo)
+fiErrorMessage :: Lens.Lens' FailureInfo (Core.Maybe Types.ErrorMessage)
+fiErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED fiErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The HTTP status code of the common error.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fiStatusCode :: Lens.Lens' FailureInfo (Lude.Maybe Lude.Int)
-fiStatusCode = Lens.lens (statusCode :: FailureInfo -> Lude.Maybe Lude.Int) (\s a -> s {statusCode = a} :: FailureInfo)
+fiStatusCode :: Lens.Lens' FailureInfo (Core.Maybe Core.Int)
+fiStatusCode = Lens.field @"statusCode"
 {-# DEPRECATED fiStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance Lude.FromJSON FailureInfo where
+instance Core.FromJSON FailureInfo where
   parseJSON =
-    Lude.withObject
-      "FailureInfo"
-      ( \x ->
-          FailureInfo'
-            Lude.<$> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "StatusCode")
-      )
+    Core.withObject "FailureInfo" Core.$
+      \x ->
+        FailureInfo'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "StatusCode")

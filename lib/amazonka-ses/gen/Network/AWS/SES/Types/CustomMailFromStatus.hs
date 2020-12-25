@@ -13,56 +13,61 @@
 module Network.AWS.SES.Types.CustomMailFromStatus
   ( CustomMailFromStatus
       ( CustomMailFromStatus',
-        CMFSPending,
-        CMFSSuccess,
-        CMFSFailed,
-        CMFSTemporaryFailure
+        CustomMailFromStatusPending,
+        CustomMailFromStatusSuccess,
+        CustomMailFromStatusFailed,
+        CustomMailFromStatusTemporaryFailure,
+        fromCustomMailFromStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CustomMailFromStatus = CustomMailFromStatus' Lude.Text
+newtype CustomMailFromStatus = CustomMailFromStatus'
+  { fromCustomMailFromStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CMFSPending :: CustomMailFromStatus
-pattern CMFSPending = CustomMailFromStatus' "Pending"
+pattern CustomMailFromStatusPending :: CustomMailFromStatus
+pattern CustomMailFromStatusPending = CustomMailFromStatus' "Pending"
 
-pattern CMFSSuccess :: CustomMailFromStatus
-pattern CMFSSuccess = CustomMailFromStatus' "Success"
+pattern CustomMailFromStatusSuccess :: CustomMailFromStatus
+pattern CustomMailFromStatusSuccess = CustomMailFromStatus' "Success"
 
-pattern CMFSFailed :: CustomMailFromStatus
-pattern CMFSFailed = CustomMailFromStatus' "Failed"
+pattern CustomMailFromStatusFailed :: CustomMailFromStatus
+pattern CustomMailFromStatusFailed = CustomMailFromStatus' "Failed"
 
-pattern CMFSTemporaryFailure :: CustomMailFromStatus
-pattern CMFSTemporaryFailure = CustomMailFromStatus' "TemporaryFailure"
+pattern CustomMailFromStatusTemporaryFailure :: CustomMailFromStatus
+pattern CustomMailFromStatusTemporaryFailure = CustomMailFromStatus' "TemporaryFailure"
 
 {-# COMPLETE
-  CMFSPending,
-  CMFSSuccess,
-  CMFSFailed,
-  CMFSTemporaryFailure,
+  CustomMailFromStatusPending,
+  CustomMailFromStatusSuccess,
+  CustomMailFromStatusFailed,
+  CustomMailFromStatusTemporaryFailure,
   CustomMailFromStatus'
   #-}

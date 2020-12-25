@@ -28,145 +28,127 @@ module Network.AWS.CodeCommit.GetPullRequestOverrideState
     mkGetPullRequestOverrideStateResponse,
 
     -- ** Response lenses
-    gprosrsOverridden,
-    gprosrsOverrider,
-    gprosrsResponseStatus,
+    gprosrrsOverridden,
+    gprosrrsOverrider,
+    gprosrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPullRequestOverrideState' smart constructor.
 data GetPullRequestOverrideState = GetPullRequestOverrideState'
   { -- | The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).
-    pullRequestId :: Lude.Text,
+    pullRequestId :: Types.PullRequestId,
     -- | The system-generated ID of the revision for the pull request. To retrieve the most recent revision ID, use 'GetPullRequest' .
-    revisionId :: Lude.Text
+    revisionId :: Types.RevisionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPullRequestOverrideState' with the minimum fields required to make a request.
---
--- * 'pullRequestId' - The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).
--- * 'revisionId' - The system-generated ID of the revision for the pull request. To retrieve the most recent revision ID, use 'GetPullRequest' .
+-- | Creates a 'GetPullRequestOverrideState' value with any optional fields omitted.
 mkGetPullRequestOverrideState ::
   -- | 'pullRequestId'
-  Lude.Text ->
+  Types.PullRequestId ->
   -- | 'revisionId'
-  Lude.Text ->
+  Types.RevisionId ->
   GetPullRequestOverrideState
-mkGetPullRequestOverrideState pPullRequestId_ pRevisionId_ =
-  GetPullRequestOverrideState'
-    { pullRequestId = pPullRequestId_,
-      revisionId = pRevisionId_
-    }
+mkGetPullRequestOverrideState pullRequestId revisionId =
+  GetPullRequestOverrideState' {pullRequestId, revisionId}
 
 -- | The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).
 --
 -- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprosPullRequestId :: Lens.Lens' GetPullRequestOverrideState Lude.Text
-gprosPullRequestId = Lens.lens (pullRequestId :: GetPullRequestOverrideState -> Lude.Text) (\s a -> s {pullRequestId = a} :: GetPullRequestOverrideState)
+gprosPullRequestId :: Lens.Lens' GetPullRequestOverrideState Types.PullRequestId
+gprosPullRequestId = Lens.field @"pullRequestId"
 {-# DEPRECATED gprosPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The system-generated ID of the revision for the pull request. To retrieve the most recent revision ID, use 'GetPullRequest' .
 --
 -- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprosRevisionId :: Lens.Lens' GetPullRequestOverrideState Lude.Text
-gprosRevisionId = Lens.lens (revisionId :: GetPullRequestOverrideState -> Lude.Text) (\s a -> s {revisionId = a} :: GetPullRequestOverrideState)
+gprosRevisionId :: Lens.Lens' GetPullRequestOverrideState Types.RevisionId
+gprosRevisionId = Lens.field @"revisionId"
 {-# DEPRECATED gprosRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
-instance Lude.AWSRequest GetPullRequestOverrideState where
+instance Core.FromJSON GetPullRequestOverrideState where
+  toJSON GetPullRequestOverrideState {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pullRequestId" Core..= pullRequestId),
+            Core.Just ("revisionId" Core..= revisionId)
+          ]
+      )
+
+instance Core.AWSRequest GetPullRequestOverrideState where
   type
     Rs GetPullRequestOverrideState =
       GetPullRequestOverrideStateResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.GetPullRequestOverrideState")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPullRequestOverrideStateResponse'
-            Lude.<$> (x Lude..?> "overridden")
-            Lude.<*> (x Lude..?> "overrider")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "overridden")
+            Core.<*> (x Core..:? "overrider")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPullRequestOverrideState where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.GetPullRequestOverrideState" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPullRequestOverrideState where
-  toJSON GetPullRequestOverrideState' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pullRequestId" Lude..= pullRequestId),
-            Lude.Just ("revisionId" Lude..= revisionId)
-          ]
-      )
-
-instance Lude.ToPath GetPullRequestOverrideState where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPullRequestOverrideState where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPullRequestOverrideStateResponse' smart constructor.
 data GetPullRequestOverrideStateResponse = GetPullRequestOverrideStateResponse'
   { -- | A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).
-    overridden :: Lude.Maybe Lude.Bool,
+    overridden :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.
-    overrider :: Lude.Maybe Lude.Text,
+    overrider :: Core.Maybe Types.Arn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPullRequestOverrideStateResponse' with the minimum fields required to make a request.
---
--- * 'overridden' - A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).
--- * 'overrider' - The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPullRequestOverrideStateResponse' value with any optional fields omitted.
 mkGetPullRequestOverrideStateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPullRequestOverrideStateResponse
-mkGetPullRequestOverrideStateResponse pResponseStatus_ =
+mkGetPullRequestOverrideStateResponse responseStatus =
   GetPullRequestOverrideStateResponse'
-    { overridden = Lude.Nothing,
-      overrider = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { overridden = Core.Nothing,
+      overrider = Core.Nothing,
+      responseStatus
     }
 
 -- | A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).
 --
 -- /Note:/ Consider using 'overridden' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprosrsOverridden :: Lens.Lens' GetPullRequestOverrideStateResponse (Lude.Maybe Lude.Bool)
-gprosrsOverridden = Lens.lens (overridden :: GetPullRequestOverrideStateResponse -> Lude.Maybe Lude.Bool) (\s a -> s {overridden = a} :: GetPullRequestOverrideStateResponse)
-{-# DEPRECATED gprosrsOverridden "Use generic-lens or generic-optics with 'overridden' instead." #-}
+gprosrrsOverridden :: Lens.Lens' GetPullRequestOverrideStateResponse (Core.Maybe Core.Bool)
+gprosrrsOverridden = Lens.field @"overridden"
+{-# DEPRECATED gprosrrsOverridden "Use generic-lens or generic-optics with 'overridden' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.
 --
 -- /Note:/ Consider using 'overrider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprosrsOverrider :: Lens.Lens' GetPullRequestOverrideStateResponse (Lude.Maybe Lude.Text)
-gprosrsOverrider = Lens.lens (overrider :: GetPullRequestOverrideStateResponse -> Lude.Maybe Lude.Text) (\s a -> s {overrider = a} :: GetPullRequestOverrideStateResponse)
-{-# DEPRECATED gprosrsOverrider "Use generic-lens or generic-optics with 'overrider' instead." #-}
+gprosrrsOverrider :: Lens.Lens' GetPullRequestOverrideStateResponse (Core.Maybe Types.Arn)
+gprosrrsOverrider = Lens.field @"overrider"
+{-# DEPRECATED gprosrrsOverrider "Use generic-lens or generic-optics with 'overrider' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprosrsResponseStatus :: Lens.Lens' GetPullRequestOverrideStateResponse Lude.Int
-gprosrsResponseStatus = Lens.lens (responseStatus :: GetPullRequestOverrideStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPullRequestOverrideStateResponse)
-{-# DEPRECATED gprosrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprosrrsResponseStatus :: Lens.Lens' GetPullRequestOverrideStateResponse Core.Int
+gprosrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprosrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

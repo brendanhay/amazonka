@@ -17,98 +17,94 @@ module Network.AWS.EC2.Types.TransitGatewayRoute
     mkTransitGatewayRoute,
 
     -- * Lenses
-    tgrState,
+    tgrDestinationCidrBlock,
     tgrPrefixListId,
+    tgrState,
     tgrTransitGatewayAttachments,
     tgrType,
-    tgrDestinationCidrBlock,
   )
 where
 
-import Network.AWS.EC2.Types.TransitGatewayRouteAttachment
-import Network.AWS.EC2.Types.TransitGatewayRouteState
-import Network.AWS.EC2.Types.TransitGatewayRouteType
+import qualified Network.AWS.EC2.Types.PrefixListResourceId as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayRouteAttachment as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayRouteState as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayRouteType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a route for a transit gateway route table.
 --
 -- /See:/ 'mkTransitGatewayRoute' smart constructor.
 data TransitGatewayRoute = TransitGatewayRoute'
-  { -- | The state of the route.
-    state :: Lude.Maybe TransitGatewayRouteState,
+  { -- | The CIDR block used for destination matches.
+    destinationCidrBlock :: Core.Maybe Types.String,
     -- | The ID of the prefix list used for destination matches.
-    prefixListId :: Lude.Maybe Lude.Text,
+    prefixListId :: Core.Maybe Types.PrefixListResourceId,
+    -- | The state of the route.
+    state :: Core.Maybe Types.TransitGatewayRouteState,
     -- | The attachments.
-    transitGatewayAttachments :: Lude.Maybe [TransitGatewayRouteAttachment],
+    transitGatewayAttachments :: Core.Maybe [Types.TransitGatewayRouteAttachment],
     -- | The route type.
-    type' :: Lude.Maybe TransitGatewayRouteType,
-    -- | The CIDR block used for destination matches.
-    destinationCidrBlock :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.TransitGatewayRouteType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransitGatewayRoute' with the minimum fields required to make a request.
---
--- * 'state' - The state of the route.
--- * 'prefixListId' - The ID of the prefix list used for destination matches.
--- * 'transitGatewayAttachments' - The attachments.
--- * 'type'' - The route type.
--- * 'destinationCidrBlock' - The CIDR block used for destination matches.
+-- | Creates a 'TransitGatewayRoute' value with any optional fields omitted.
 mkTransitGatewayRoute ::
   TransitGatewayRoute
 mkTransitGatewayRoute =
   TransitGatewayRoute'
-    { state = Lude.Nothing,
-      prefixListId = Lude.Nothing,
-      transitGatewayAttachments = Lude.Nothing,
-      type' = Lude.Nothing,
-      destinationCidrBlock = Lude.Nothing
+    { destinationCidrBlock = Core.Nothing,
+      prefixListId = Core.Nothing,
+      state = Core.Nothing,
+      transitGatewayAttachments = Core.Nothing,
+      type' = Core.Nothing
     }
 
--- | The state of the route.
+-- | The CIDR block used for destination matches.
 --
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgrState :: Lens.Lens' TransitGatewayRoute (Lude.Maybe TransitGatewayRouteState)
-tgrState = Lens.lens (state :: TransitGatewayRoute -> Lude.Maybe TransitGatewayRouteState) (\s a -> s {state = a} :: TransitGatewayRoute)
-{-# DEPRECATED tgrState "Use generic-lens or generic-optics with 'state' instead." #-}
+-- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgrDestinationCidrBlock :: Lens.Lens' TransitGatewayRoute (Core.Maybe Types.String)
+tgrDestinationCidrBlock = Lens.field @"destinationCidrBlock"
+{-# DEPRECATED tgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
 -- | The ID of the prefix list used for destination matches.
 --
 -- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgrPrefixListId :: Lens.Lens' TransitGatewayRoute (Lude.Maybe Lude.Text)
-tgrPrefixListId = Lens.lens (prefixListId :: TransitGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {prefixListId = a} :: TransitGatewayRoute)
+tgrPrefixListId :: Lens.Lens' TransitGatewayRoute (Core.Maybe Types.PrefixListResourceId)
+tgrPrefixListId = Lens.field @"prefixListId"
 {-# DEPRECATED tgrPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
+
+-- | The state of the route.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgrState :: Lens.Lens' TransitGatewayRoute (Core.Maybe Types.TransitGatewayRouteState)
+tgrState = Lens.field @"state"
+{-# DEPRECATED tgrState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The attachments.
 --
 -- /Note:/ Consider using 'transitGatewayAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgrTransitGatewayAttachments :: Lens.Lens' TransitGatewayRoute (Lude.Maybe [TransitGatewayRouteAttachment])
-tgrTransitGatewayAttachments = Lens.lens (transitGatewayAttachments :: TransitGatewayRoute -> Lude.Maybe [TransitGatewayRouteAttachment]) (\s a -> s {transitGatewayAttachments = a} :: TransitGatewayRoute)
+tgrTransitGatewayAttachments :: Lens.Lens' TransitGatewayRoute (Core.Maybe [Types.TransitGatewayRouteAttachment])
+tgrTransitGatewayAttachments = Lens.field @"transitGatewayAttachments"
 {-# DEPRECATED tgrTransitGatewayAttachments "Use generic-lens or generic-optics with 'transitGatewayAttachments' instead." #-}
 
 -- | The route type.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgrType :: Lens.Lens' TransitGatewayRoute (Lude.Maybe TransitGatewayRouteType)
-tgrType = Lens.lens (type' :: TransitGatewayRoute -> Lude.Maybe TransitGatewayRouteType) (\s a -> s {type' = a} :: TransitGatewayRoute)
+tgrType :: Lens.Lens' TransitGatewayRoute (Core.Maybe Types.TransitGatewayRouteType)
+tgrType = Lens.field @"type'"
 {-# DEPRECATED tgrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The CIDR block used for destination matches.
---
--- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgrDestinationCidrBlock :: Lens.Lens' TransitGatewayRoute (Lude.Maybe Lude.Text)
-tgrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: TransitGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidrBlock = a} :: TransitGatewayRoute)
-{-# DEPRECATED tgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
-
-instance Lude.FromXML TransitGatewayRoute where
+instance Core.FromXML TransitGatewayRoute where
   parseXML x =
     TransitGatewayRoute'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "prefixListId")
-      Lude.<*> ( x Lude..@? "transitGatewayAttachments" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@? "destinationCidrBlock")
+      Core.<*> (x Core..@? "prefixListId")
+      Core.<*> (x Core..@? "state")
+      Core.<*> ( x Core..@? "transitGatewayAttachments"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "type")
-      Lude.<*> (x Lude..@? "destinationCidrBlock")
+      Core.<*> (x Core..@? "type")

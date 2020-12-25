@@ -13,56 +13,61 @@
 module Network.AWS.EMR.Types.ActionOnFailure
   ( ActionOnFailure
       ( ActionOnFailure',
-        AOFTerminateJobFlow,
-        AOFTerminateCluster,
-        AOFCancelAndWait,
-        AOFContinue
+        ActionOnFailureTerminateJobFlow,
+        ActionOnFailureTerminateCluster,
+        ActionOnFailureCancelAndWait,
+        ActionOnFailureContinue,
+        fromActionOnFailure
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionOnFailure = ActionOnFailure' Lude.Text
+newtype ActionOnFailure = ActionOnFailure'
+  { fromActionOnFailure ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AOFTerminateJobFlow :: ActionOnFailure
-pattern AOFTerminateJobFlow = ActionOnFailure' "TERMINATE_JOB_FLOW"
+pattern ActionOnFailureTerminateJobFlow :: ActionOnFailure
+pattern ActionOnFailureTerminateJobFlow = ActionOnFailure' "TERMINATE_JOB_FLOW"
 
-pattern AOFTerminateCluster :: ActionOnFailure
-pattern AOFTerminateCluster = ActionOnFailure' "TERMINATE_CLUSTER"
+pattern ActionOnFailureTerminateCluster :: ActionOnFailure
+pattern ActionOnFailureTerminateCluster = ActionOnFailure' "TERMINATE_CLUSTER"
 
-pattern AOFCancelAndWait :: ActionOnFailure
-pattern AOFCancelAndWait = ActionOnFailure' "CANCEL_AND_WAIT"
+pattern ActionOnFailureCancelAndWait :: ActionOnFailure
+pattern ActionOnFailureCancelAndWait = ActionOnFailure' "CANCEL_AND_WAIT"
 
-pattern AOFContinue :: ActionOnFailure
-pattern AOFContinue = ActionOnFailure' "CONTINUE"
+pattern ActionOnFailureContinue :: ActionOnFailure
+pattern ActionOnFailureContinue = ActionOnFailure' "CONTINUE"
 
 {-# COMPLETE
-  AOFTerminateJobFlow,
-  AOFTerminateCluster,
-  AOFCancelAndWait,
-  AOFContinue,
+  ActionOnFailureTerminateJobFlow,
+  ActionOnFailureTerminateCluster,
+  ActionOnFailureCancelAndWait,
+  ActionOnFailureContinue,
   ActionOnFailure'
   #-}

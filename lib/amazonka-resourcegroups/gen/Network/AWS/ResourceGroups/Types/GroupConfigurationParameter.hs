@@ -17,25 +17,21 @@ module Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
     mkGroupConfigurationParameter,
 
     -- * Lenses
-    gcpValues,
     gcpName,
+    gcpValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.GroupConfigurationParameterValue as Types
+import qualified Network.AWS.ResourceGroups.Types.Name as Types
 
 -- | A parameter for a group configuration item.
 --
 -- /See:/ 'mkGroupConfigurationParameter' smart constructor.
 data GroupConfigurationParameter = GroupConfigurationParameter'
-  { -- | The values of for this parameter.
-    --
-    -- You can specify the following string value:
-    --
-    --     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
-    values :: Lude.Maybe [Lude.Text],
-    -- | The name of the group configuration parameter.
+  { -- | The name of the group configuration parameter.
     --
     -- You can specify the following string values:
     --
@@ -53,60 +49,24 @@ data GroupConfigurationParameter = GroupConfigurationParameter'
     --
     --
     -- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
-    name :: Lude.Text
+    name :: Types.Name,
+    -- | The values of for this parameter.
+    --
+    -- You can specify the following string value:
+    --
+    --     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
+    values :: Core.Maybe [Types.GroupConfigurationParameterValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupConfigurationParameter' with the minimum fields required to make a request.
---
--- * 'values' - The values of for this parameter.
---
--- You can specify the following string value:
---
---     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
---
---
--- * 'name' - The name of the group configuration parameter.
---
--- You can specify the following string values:
---
---     * For configuration item type @AWS::ResourceGroups::Generic@ :
---
---     * @allowed-resource-types@
--- Specifies the types of resources that you can add to this group by using the 'GroupResources' operation.
---
---
---
---
---     * For configuration item type @AWS::EC2::CapacityReservationPool@ :
---
---     * None - This configuration item type doesn't support any parameters.
---
---
--- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
+-- | Creates a 'GroupConfigurationParameter' value with any optional fields omitted.
 mkGroupConfigurationParameter ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   GroupConfigurationParameter
-mkGroupConfigurationParameter pName_ =
-  GroupConfigurationParameter'
-    { values = Lude.Nothing,
-      name = pName_
-    }
-
--- | The values of for this parameter.
---
--- You can specify the following string value:
---
---     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
---
---
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpValues :: Lens.Lens' GroupConfigurationParameter (Lude.Maybe [Lude.Text])
-gcpValues = Lens.lens (values :: GroupConfigurationParameter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: GroupConfigurationParameter)
-{-# DEPRECATED gcpValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkGroupConfigurationParameter name =
+  GroupConfigurationParameter' {name, values = Core.Nothing}
 
 -- | The name of the group configuration parameter.
 --
@@ -130,25 +90,35 @@ gcpValues = Lens.lens (values :: GroupConfigurationParameter -> Lude.Maybe [Lude
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpName :: Lens.Lens' GroupConfigurationParameter Lude.Text
-gcpName = Lens.lens (name :: GroupConfigurationParameter -> Lude.Text) (\s a -> s {name = a} :: GroupConfigurationParameter)
+gcpName :: Lens.Lens' GroupConfigurationParameter Types.Name
+gcpName = Lens.field @"name"
 {-# DEPRECATED gcpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON GroupConfigurationParameter where
-  parseJSON =
-    Lude.withObject
-      "GroupConfigurationParameter"
-      ( \x ->
-          GroupConfigurationParameter'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "Name")
-      )
+-- | The values of for this parameter.
+--
+-- You can specify the following string value:
+--
+--     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
+--
+--
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpValues :: Lens.Lens' GroupConfigurationParameter (Core.Maybe [Types.GroupConfigurationParameterValue])
+gcpValues = Lens.field @"values"
+{-# DEPRECATED gcpValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.ToJSON GroupConfigurationParameter where
-  toJSON GroupConfigurationParameter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Values" Lude..=) Lude.<$> values,
-            Lude.Just ("Name" Lude..= name)
+instance Core.FromJSON GroupConfigurationParameter where
+  toJSON GroupConfigurationParameter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Values" Core..=) Core.<$> values
           ]
       )
+
+instance Core.FromJSON GroupConfigurationParameter where
+  parseJSON =
+    Core.withObject "GroupConfigurationParameter" Core.$
+      \x ->
+        GroupConfigurationParameter'
+          Core.<$> (x Core..: "Name") Core.<*> (x Core..:? "Values")

@@ -20,183 +20,170 @@ module Network.AWS.CloudDirectory.ListObjectChildren
     mkListObjectChildren,
 
     -- ** Request lenses
-    locDirectoryARN,
-    locConsistencyLevel,
-    locNextToken,
+    locDirectoryArn,
     locObjectReference,
+    locConsistencyLevel,
     locMaxResults,
+    locNextToken,
 
     -- * Destructuring the response
     ListObjectChildrenResponse (..),
     mkListObjectChildrenResponse,
 
     -- ** Response lenses
-    locrsChildren,
-    locrsNextToken,
-    locrsResponseStatus,
+    locrrsChildren,
+    locrrsNextToken,
+    locrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListObjectChildren' smart constructor.
 data ListObjectChildren = ListObjectChildren'
   { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
-    directoryARN :: Lude.Text,
-    -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
-    consistencyLevel :: Lude.Maybe ConsistencyLevel,
-    -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    directoryArn :: Types.Arn,
     -- | The reference that identifies the object for which child objects are being listed.
-    objectReference :: ObjectReference,
+    objectReference :: Types.ObjectReference,
+    -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+    consistencyLevel :: Core.Maybe Types.ConsistencyLevel,
     -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListObjectChildren' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
--- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
--- * 'nextToken' - The pagination token.
--- * 'objectReference' - The reference that identifies the object for which child objects are being listed.
--- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | Creates a 'ListObjectChildren' value with any optional fields omitted.
 mkListObjectChildren ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   ListObjectChildren
-mkListObjectChildren pDirectoryARN_ pObjectReference_ =
+mkListObjectChildren directoryArn objectReference =
   ListObjectChildren'
-    { directoryARN = pDirectoryARN_,
-      consistencyLevel = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      objectReference = pObjectReference_,
-      maxResults = Lude.Nothing
+    { directoryArn,
+      objectReference,
+      consistencyLevel = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-locDirectoryARN :: Lens.Lens' ListObjectChildren Lude.Text
-locDirectoryARN = Lens.lens (directoryARN :: ListObjectChildren -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectChildren)
-{-# DEPRECATED locDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
---
--- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-locConsistencyLevel :: Lens.Lens' ListObjectChildren (Lude.Maybe ConsistencyLevel)
-locConsistencyLevel = Lens.lens (consistencyLevel :: ListObjectChildren -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: ListObjectChildren)
-{-# DEPRECATED locConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
-
--- | The pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-locNextToken :: Lens.Lens' ListObjectChildren (Lude.Maybe Lude.Text)
-locNextToken = Lens.lens (nextToken :: ListObjectChildren -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectChildren)
-{-# DEPRECATED locNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locDirectoryArn :: Lens.Lens' ListObjectChildren Types.Arn
+locDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED locDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | The reference that identifies the object for which child objects are being listed.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-locObjectReference :: Lens.Lens' ListObjectChildren ObjectReference
-locObjectReference = Lens.lens (objectReference :: ListObjectChildren -> ObjectReference) (\s a -> s {objectReference = a} :: ListObjectChildren)
+locObjectReference :: Lens.Lens' ListObjectChildren Types.ObjectReference
+locObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED locObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+
+-- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locConsistencyLevel :: Lens.Lens' ListObjectChildren (Core.Maybe Types.ConsistencyLevel)
+locConsistencyLevel = Lens.field @"consistencyLevel"
+{-# DEPRECATED locConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-locMaxResults :: Lens.Lens' ListObjectChildren (Lude.Maybe Lude.Natural)
-locMaxResults = Lens.lens (maxResults :: ListObjectChildren -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectChildren)
+locMaxResults :: Lens.Lens' ListObjectChildren (Core.Maybe Core.Natural)
+locMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED locMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListObjectChildren where
-  type Rs ListObjectChildren = ListObjectChildrenResponse
-  request = Req.postJSON cloudDirectoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListObjectChildrenResponse'
-            Lude.<$> (x Lude..?> "Children" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locNextToken :: Lens.Lens' ListObjectChildren (Core.Maybe Types.NextToken)
+locNextToken = Lens.field @"nextToken"
+{-# DEPRECATED locNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.ToHeaders ListObjectChildren where
-  toHeaders ListObjectChildren' {..} =
-    Lude.mconcat
-      [ "x-amz-data-partition" Lude.=# directoryARN,
-        "x-amz-consistency-level" Lude.=# consistencyLevel
-      ]
-
-instance Lude.ToJSON ListObjectChildren where
-  toJSON ListObjectChildren' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("ObjectReference" Lude..= objectReference),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+instance Core.FromJSON ListObjectChildren where
+  toJSON ListObjectChildren {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ObjectReference" Core..= objectReference),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )
 
-instance Lude.ToPath ListObjectChildren where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/object/children"
-
-instance Lude.ToQuery ListObjectChildren where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest ListObjectChildren where
+  type Rs ListObjectChildren = ListObjectChildrenResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/object/children",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn
+            Core.<> (Core.toHeaders "x-amz-consistency-level" consistencyLevel),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListObjectChildrenResponse'
+            Core.<$> (x Core..:? "Children")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkListObjectChildrenResponse' smart constructor.
 data ListObjectChildrenResponse = ListObjectChildrenResponse'
   { -- | Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
-    children :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    children :: Core.Maybe (Core.HashMap Types.LinkName Types.ObjectIdentifier),
     -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListObjectChildrenResponse' with the minimum fields required to make a request.
---
--- * 'children' - Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
--- * 'nextToken' - The pagination token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListObjectChildrenResponse' value with any optional fields omitted.
 mkListObjectChildrenResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListObjectChildrenResponse
-mkListObjectChildrenResponse pResponseStatus_ =
+mkListObjectChildrenResponse responseStatus =
   ListObjectChildrenResponse'
-    { children = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { children = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
 --
 -- /Note:/ Consider using 'children' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-locrsChildren :: Lens.Lens' ListObjectChildrenResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-locrsChildren = Lens.lens (children :: ListObjectChildrenResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {children = a} :: ListObjectChildrenResponse)
-{-# DEPRECATED locrsChildren "Use generic-lens or generic-optics with 'children' instead." #-}
+locrrsChildren :: Lens.Lens' ListObjectChildrenResponse (Core.Maybe (Core.HashMap Types.LinkName Types.ObjectIdentifier))
+locrrsChildren = Lens.field @"children"
+{-# DEPRECATED locrrsChildren "Use generic-lens or generic-optics with 'children' instead." #-}
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-locrsNextToken :: Lens.Lens' ListObjectChildrenResponse (Lude.Maybe Lude.Text)
-locrsNextToken = Lens.lens (nextToken :: ListObjectChildrenResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectChildrenResponse)
-{-# DEPRECATED locrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+locrrsNextToken :: Lens.Lens' ListObjectChildrenResponse (Core.Maybe Types.NextToken)
+locrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED locrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-locrsResponseStatus :: Lens.Lens' ListObjectChildrenResponse Lude.Int
-locrsResponseStatus = Lens.lens (responseStatus :: ListObjectChildrenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListObjectChildrenResponse)
-{-# DEPRECATED locrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+locrrsResponseStatus :: Lens.Lens' ListObjectChildrenResponse Core.Int
+locrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED locrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

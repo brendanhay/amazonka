@@ -20,7 +20,7 @@ module Network.AWS.SWF.TagResource
     mkTagResource,
 
     -- ** Request lenses
-    trResourceARN,
+    trResourceArn,
     trTags,
 
     -- * Destructuring the response
@@ -30,89 +30,77 @@ module Network.AWS.SWF.TagResource
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) for the Amazon SWF domain.
-    resourceARN :: Lude.Text,
+    resourceArn :: Types.Arn,
     -- | The list of tags to add to a domain.
     --
     -- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
-    tags :: [ResourceTag]
+    tags :: [Types.ResourceTag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) for the Amazon SWF domain.
--- * 'tags' - The list of tags to add to a domain.
---
--- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
+-- | Creates a 'TagResource' value with any optional fields omitted.
 mkTagResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.Arn ->
   TagResource
-mkTagResource pResourceARN_ =
-  TagResource' {resourceARN = pResourceARN_, tags = Lude.mempty}
+mkTagResource resourceArn =
+  TagResource' {resourceArn, tags = Core.mempty}
 
 -- | The Amazon Resource Name (ARN) for the Amazon SWF domain.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceARN :: Lens.Lens' TagResource Lude.Text
-trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
-{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceArn :: Lens.Lens' TagResource Types.Arn
+trResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED trResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The list of tags to add to a domain.
 --
 -- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagResource [ResourceTag]
-trTags = Lens.lens (tags :: TagResource -> [ResourceTag]) (\s a -> s {tags = a} :: TagResource)
+trTags :: Lens.Lens' TagResource [Types.ResourceTag]
+trTags = Lens.field @"tags"
 {-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagResource where
+instance Core.FromJSON TagResource where
+  toJSON TagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceArn" Core..= resourceArn),
+            Core.Just ("tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull TagResourceResponse'
-
-instance Lude.ToHeaders TagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SimpleWorkflowService.TagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TagResource where
-  toJSON TagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("resourceArn" Lude..= resourceARN),
-            Lude.Just ("tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath TagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagResource where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SimpleWorkflowService.TagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull TagResourceResponse'
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'TagResourceResponse' value with any optional fields omitted.
 mkTagResourceResponse ::
   TagResourceResponse
 mkTagResourceResponse = TagResourceResponse'

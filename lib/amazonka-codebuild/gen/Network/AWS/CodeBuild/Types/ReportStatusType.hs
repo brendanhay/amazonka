@@ -13,61 +13,66 @@
 module Network.AWS.CodeBuild.Types.ReportStatusType
   ( ReportStatusType
       ( ReportStatusType',
-        RSTGenerating,
-        RSTSucceeded,
-        RSTFailed,
-        RSTIncomplete,
-        RSTDeleting
+        ReportStatusTypeGenerating,
+        ReportStatusTypeSucceeded,
+        ReportStatusTypeFailed,
+        ReportStatusTypeIncomplete,
+        ReportStatusTypeDeleting,
+        fromReportStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReportStatusType = ReportStatusType' Lude.Text
+newtype ReportStatusType = ReportStatusType'
+  { fromReportStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSTGenerating :: ReportStatusType
-pattern RSTGenerating = ReportStatusType' "GENERATING"
+pattern ReportStatusTypeGenerating :: ReportStatusType
+pattern ReportStatusTypeGenerating = ReportStatusType' "GENERATING"
 
-pattern RSTSucceeded :: ReportStatusType
-pattern RSTSucceeded = ReportStatusType' "SUCCEEDED"
+pattern ReportStatusTypeSucceeded :: ReportStatusType
+pattern ReportStatusTypeSucceeded = ReportStatusType' "SUCCEEDED"
 
-pattern RSTFailed :: ReportStatusType
-pattern RSTFailed = ReportStatusType' "FAILED"
+pattern ReportStatusTypeFailed :: ReportStatusType
+pattern ReportStatusTypeFailed = ReportStatusType' "FAILED"
 
-pattern RSTIncomplete :: ReportStatusType
-pattern RSTIncomplete = ReportStatusType' "INCOMPLETE"
+pattern ReportStatusTypeIncomplete :: ReportStatusType
+pattern ReportStatusTypeIncomplete = ReportStatusType' "INCOMPLETE"
 
-pattern RSTDeleting :: ReportStatusType
-pattern RSTDeleting = ReportStatusType' "DELETING"
+pattern ReportStatusTypeDeleting :: ReportStatusType
+pattern ReportStatusTypeDeleting = ReportStatusType' "DELETING"
 
 {-# COMPLETE
-  RSTGenerating,
-  RSTSucceeded,
-  RSTFailed,
-  RSTIncomplete,
-  RSTDeleting,
+  ReportStatusTypeGenerating,
+  ReportStatusTypeSucceeded,
+  ReportStatusTypeFailed,
+  ReportStatusTypeIncomplete,
+  ReportStatusTypeDeleting,
   ReportStatusType'
   #-}

@@ -22,123 +22,117 @@ module Network.AWS.EC2.DeleteCarrierGateway
     mkDeleteCarrierGateway,
 
     -- ** Request lenses
-    dcgfDryRun,
     dcgfCarrierGatewayId,
+    dcgfDryRun,
 
     -- * Destructuring the response
     DeleteCarrierGatewayResponse (..),
     mkDeleteCarrierGatewayResponse,
 
     -- ** Response lenses
-    dcgrsCarrierGateway,
-    dcgrsResponseStatus,
+    dcgrgrsCarrierGateway,
+    dcgrgrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCarrierGateway' smart constructor.
 data DeleteCarrierGateway = DeleteCarrierGateway'
-  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The ID of the carrier gateway.
-    carrierGatewayId :: Lude.Text
+  { -- | The ID of the carrier gateway.
+    carrierGatewayId :: Types.CarrierGatewayId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCarrierGateway' with the minimum fields required to make a request.
---
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'carrierGatewayId' - The ID of the carrier gateway.
+-- | Creates a 'DeleteCarrierGateway' value with any optional fields omitted.
 mkDeleteCarrierGateway ::
   -- | 'carrierGatewayId'
-  Lude.Text ->
+  Types.CarrierGatewayId ->
   DeleteCarrierGateway
-mkDeleteCarrierGateway pCarrierGatewayId_ =
-  DeleteCarrierGateway'
-    { dryRun = Lude.Nothing,
-      carrierGatewayId = pCarrierGatewayId_
-    }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgfDryRun :: Lens.Lens' DeleteCarrierGateway (Lude.Maybe Lude.Bool)
-dcgfDryRun = Lens.lens (dryRun :: DeleteCarrierGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteCarrierGateway)
-{-# DEPRECATED dcgfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+mkDeleteCarrierGateway carrierGatewayId =
+  DeleteCarrierGateway' {carrierGatewayId, dryRun = Core.Nothing}
 
 -- | The ID of the carrier gateway.
 --
 -- /Note:/ Consider using 'carrierGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgfCarrierGatewayId :: Lens.Lens' DeleteCarrierGateway Lude.Text
-dcgfCarrierGatewayId = Lens.lens (carrierGatewayId :: DeleteCarrierGateway -> Lude.Text) (\s a -> s {carrierGatewayId = a} :: DeleteCarrierGateway)
+dcgfCarrierGatewayId :: Lens.Lens' DeleteCarrierGateway Types.CarrierGatewayId
+dcgfCarrierGatewayId = Lens.field @"carrierGatewayId"
 {-# DEPRECATED dcgfCarrierGatewayId "Use generic-lens or generic-optics with 'carrierGatewayId' instead." #-}
 
-instance Lude.AWSRequest DeleteCarrierGateway where
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgfDryRun :: Lens.Lens' DeleteCarrierGateway (Core.Maybe Core.Bool)
+dcgfDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dcgfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+instance Core.AWSRequest DeleteCarrierGateway where
   type Rs DeleteCarrierGateway = DeleteCarrierGatewayResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteCarrierGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "CarrierGatewayId" carrierGatewayId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteCarrierGatewayResponse'
-            Lude.<$> (x Lude..@? "carrierGateway")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "carrierGateway")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteCarrierGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteCarrierGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCarrierGateway where
-  toQuery DeleteCarrierGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteCarrierGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "CarrierGatewayId" Lude.=: carrierGatewayId
-      ]
 
 -- | /See:/ 'mkDeleteCarrierGatewayResponse' smart constructor.
 data DeleteCarrierGatewayResponse = DeleteCarrierGatewayResponse'
   { -- | Information about the carrier gateway.
-    carrierGateway :: Lude.Maybe CarrierGateway,
+    carrierGateway :: Core.Maybe Types.CarrierGateway,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCarrierGatewayResponse' with the minimum fields required to make a request.
---
--- * 'carrierGateway' - Information about the carrier gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteCarrierGatewayResponse' value with any optional fields omitted.
 mkDeleteCarrierGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteCarrierGatewayResponse
-mkDeleteCarrierGatewayResponse pResponseStatus_ =
+mkDeleteCarrierGatewayResponse responseStatus =
   DeleteCarrierGatewayResponse'
-    { carrierGateway = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { carrierGateway = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the carrier gateway.
 --
 -- /Note:/ Consider using 'carrierGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgrsCarrierGateway :: Lens.Lens' DeleteCarrierGatewayResponse (Lude.Maybe CarrierGateway)
-dcgrsCarrierGateway = Lens.lens (carrierGateway :: DeleteCarrierGatewayResponse -> Lude.Maybe CarrierGateway) (\s a -> s {carrierGateway = a} :: DeleteCarrierGatewayResponse)
-{-# DEPRECATED dcgrsCarrierGateway "Use generic-lens or generic-optics with 'carrierGateway' instead." #-}
+dcgrgrsCarrierGateway :: Lens.Lens' DeleteCarrierGatewayResponse (Core.Maybe Types.CarrierGateway)
+dcgrgrsCarrierGateway = Lens.field @"carrierGateway"
+{-# DEPRECATED dcgrgrsCarrierGateway "Use generic-lens or generic-optics with 'carrierGateway' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgrsResponseStatus :: Lens.Lens' DeleteCarrierGatewayResponse Lude.Int
-dcgrsResponseStatus = Lens.lens (responseStatus :: DeleteCarrierGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCarrierGatewayResponse)
-{-# DEPRECATED dcgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcgrgrsResponseStatus :: Lens.Lens' DeleteCarrierGatewayResponse Core.Int
+dcgrgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcgrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

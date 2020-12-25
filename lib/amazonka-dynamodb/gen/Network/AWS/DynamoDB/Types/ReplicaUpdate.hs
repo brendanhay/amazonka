@@ -22,10 +22,10 @@ module Network.AWS.DynamoDB.Types.ReplicaUpdate
   )
 where
 
-import Network.AWS.DynamoDB.Types.CreateReplicaAction
-import Network.AWS.DynamoDB.Types.DeleteReplicaAction
+import qualified Network.AWS.DynamoDB.Types.CreateReplicaAction as Types
+import qualified Network.AWS.DynamoDB.Types.DeleteReplicaAction as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents one of the following:
 --
@@ -43,41 +43,38 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkReplicaUpdate' smart constructor.
 data ReplicaUpdate = ReplicaUpdate'
   { -- | The parameters required for creating a replica on an existing global table.
-    create :: Lude.Maybe CreateReplicaAction,
+    create :: Core.Maybe Types.CreateReplicaAction,
     -- | The name of the existing replica to be removed.
-    delete :: Lude.Maybe DeleteReplicaAction
+    delete :: Core.Maybe Types.DeleteReplicaAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicaUpdate' with the minimum fields required to make a request.
---
--- * 'create' - The parameters required for creating a replica on an existing global table.
--- * 'delete' - The name of the existing replica to be removed.
+-- | Creates a 'ReplicaUpdate' value with any optional fields omitted.
 mkReplicaUpdate ::
   ReplicaUpdate
 mkReplicaUpdate =
-  ReplicaUpdate' {create = Lude.Nothing, delete = Lude.Nothing}
+  ReplicaUpdate' {create = Core.Nothing, delete = Core.Nothing}
 
 -- | The parameters required for creating a replica on an existing global table.
 --
 -- /Note:/ Consider using 'create' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruCreate :: Lens.Lens' ReplicaUpdate (Lude.Maybe CreateReplicaAction)
-ruCreate = Lens.lens (create :: ReplicaUpdate -> Lude.Maybe CreateReplicaAction) (\s a -> s {create = a} :: ReplicaUpdate)
+ruCreate :: Lens.Lens' ReplicaUpdate (Core.Maybe Types.CreateReplicaAction)
+ruCreate = Lens.field @"create"
 {-# DEPRECATED ruCreate "Use generic-lens or generic-optics with 'create' instead." #-}
 
 -- | The name of the existing replica to be removed.
 --
 -- /Note:/ Consider using 'delete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruDelete :: Lens.Lens' ReplicaUpdate (Lude.Maybe DeleteReplicaAction)
-ruDelete = Lens.lens (delete :: ReplicaUpdate -> Lude.Maybe DeleteReplicaAction) (\s a -> s {delete = a} :: ReplicaUpdate)
+ruDelete :: Lens.Lens' ReplicaUpdate (Core.Maybe Types.DeleteReplicaAction)
+ruDelete = Lens.field @"delete"
 {-# DEPRECATED ruDelete "Use generic-lens or generic-optics with 'delete' instead." #-}
 
-instance Lude.ToJSON ReplicaUpdate where
-  toJSON ReplicaUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Create" Lude..=) Lude.<$> create,
-            ("Delete" Lude..=) Lude.<$> delete
+instance Core.FromJSON ReplicaUpdate where
+  toJSON ReplicaUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Create" Core..=) Core.<$> create,
+            ("Delete" Core..=) Core.<$> delete
           ]
       )

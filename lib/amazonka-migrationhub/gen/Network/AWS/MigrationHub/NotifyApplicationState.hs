@@ -20,150 +20,134 @@ module Network.AWS.MigrationHub.NotifyApplicationState
     mkNotifyApplicationState,
 
     -- ** Request lenses
-    nasStatus,
-    nasUpdateDateTime,
     nasApplicationId,
+    nasStatus,
     nasDryRun,
+    nasUpdateDateTime,
 
     -- * Destructuring the response
     NotifyApplicationStateResponse (..),
     mkNotifyApplicationStateResponse,
 
     -- ** Response lenses
-    nasrsResponseStatus,
+    nasrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MigrationHub.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkNotifyApplicationState' smart constructor.
 data NotifyApplicationState = NotifyApplicationState'
-  { -- | Status of the application - Not Started, In-Progress, Complete.
-    status :: ApplicationStatus,
-    -- | The timestamp when the application state changed.
-    updateDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The configurationId in Application Discovery Service that uniquely identifies the grouped application.
-    applicationId :: Lude.Text,
+  { -- | The configurationId in Application Discovery Service that uniquely identifies the grouped application.
+    applicationId :: Types.ApplicationId,
+    -- | Status of the application - Not Started, In-Progress, Complete.
+    status :: Types.ApplicationStatus,
     -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The timestamp when the application state changed.
+    updateDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'NotifyApplicationState' with the minimum fields required to make a request.
---
--- * 'status' - Status of the application - Not Started, In-Progress, Complete.
--- * 'updateDateTime' - The timestamp when the application state changed.
--- * 'applicationId' - The configurationId in Application Discovery Service that uniquely identifies the grouped application.
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- | Creates a 'NotifyApplicationState' value with any optional fields omitted.
 mkNotifyApplicationState ::
-  -- | 'status'
-  ApplicationStatus ->
   -- | 'applicationId'
-  Lude.Text ->
+  Types.ApplicationId ->
+  -- | 'status'
+  Types.ApplicationStatus ->
   NotifyApplicationState
-mkNotifyApplicationState pStatus_ pApplicationId_ =
+mkNotifyApplicationState applicationId status =
   NotifyApplicationState'
-    { status = pStatus_,
-      updateDateTime = Lude.Nothing,
-      applicationId = pApplicationId_,
-      dryRun = Lude.Nothing
+    { applicationId,
+      status,
+      dryRun = Core.Nothing,
+      updateDateTime = Core.Nothing
     }
-
--- | Status of the application - Not Started, In-Progress, Complete.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nasStatus :: Lens.Lens' NotifyApplicationState ApplicationStatus
-nasStatus = Lens.lens (status :: NotifyApplicationState -> ApplicationStatus) (\s a -> s {status = a} :: NotifyApplicationState)
-{-# DEPRECATED nasStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The timestamp when the application state changed.
---
--- /Note:/ Consider using 'updateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nasUpdateDateTime :: Lens.Lens' NotifyApplicationState (Lude.Maybe Lude.Timestamp)
-nasUpdateDateTime = Lens.lens (updateDateTime :: NotifyApplicationState -> Lude.Maybe Lude.Timestamp) (\s a -> s {updateDateTime = a} :: NotifyApplicationState)
-{-# DEPRECATED nasUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
 
 -- | The configurationId in Application Discovery Service that uniquely identifies the grouped application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nasApplicationId :: Lens.Lens' NotifyApplicationState Lude.Text
-nasApplicationId = Lens.lens (applicationId :: NotifyApplicationState -> Lude.Text) (\s a -> s {applicationId = a} :: NotifyApplicationState)
+nasApplicationId :: Lens.Lens' NotifyApplicationState Types.ApplicationId
+nasApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED nasApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | Status of the application - Not Started, In-Progress, Complete.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nasStatus :: Lens.Lens' NotifyApplicationState Types.ApplicationStatus
+nasStatus = Lens.field @"status"
+{-# DEPRECATED nasStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nasDryRun :: Lens.Lens' NotifyApplicationState (Lude.Maybe Lude.Bool)
-nasDryRun = Lens.lens (dryRun :: NotifyApplicationState -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: NotifyApplicationState)
+nasDryRun :: Lens.Lens' NotifyApplicationState (Core.Maybe Core.Bool)
+nasDryRun = Lens.field @"dryRun"
 {-# DEPRECATED nasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest NotifyApplicationState where
+-- | The timestamp when the application state changed.
+--
+-- /Note:/ Consider using 'updateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nasUpdateDateTime :: Lens.Lens' NotifyApplicationState (Core.Maybe Core.NominalDiffTime)
+nasUpdateDateTime = Lens.field @"updateDateTime"
+{-# DEPRECATED nasUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
+
+instance Core.FromJSON NotifyApplicationState where
+  toJSON NotifyApplicationState {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ApplicationId" Core..= applicationId),
+            Core.Just ("Status" Core..= status),
+            ("DryRun" Core..=) Core.<$> dryRun,
+            ("UpdateDateTime" Core..=) Core.<$> updateDateTime
+          ]
+      )
+
+instance Core.AWSRequest NotifyApplicationState where
   type Rs NotifyApplicationState = NotifyApplicationStateResponse
-  request = Req.postJSON migrationHubService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSMigrationHub.NotifyApplicationState")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           NotifyApplicationStateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders NotifyApplicationState where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSMigrationHub.NotifyApplicationState" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON NotifyApplicationState where
-  toJSON NotifyApplicationState' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Status" Lude..= status),
-            ("UpdateDateTime" Lude..=) Lude.<$> updateDateTime,
-            Lude.Just ("ApplicationId" Lude..= applicationId),
-            ("DryRun" Lude..=) Lude.<$> dryRun
-          ]
-      )
-
-instance Lude.ToPath NotifyApplicationState where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery NotifyApplicationState where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkNotifyApplicationStateResponse' smart constructor.
 newtype NotifyApplicationStateResponse = NotifyApplicationStateResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotifyApplicationStateResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'NotifyApplicationStateResponse' value with any optional fields omitted.
 mkNotifyApplicationStateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   NotifyApplicationStateResponse
-mkNotifyApplicationStateResponse pResponseStatus_ =
-  NotifyApplicationStateResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkNotifyApplicationStateResponse responseStatus =
+  NotifyApplicationStateResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nasrsResponseStatus :: Lens.Lens' NotifyApplicationStateResponse Lude.Int
-nasrsResponseStatus = Lens.lens (responseStatus :: NotifyApplicationStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: NotifyApplicationStateResponse)
-{-# DEPRECATED nasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+nasrrsResponseStatus :: Lens.Lens' NotifyApplicationStateResponse Core.Int
+nasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED nasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

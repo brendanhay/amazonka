@@ -24,61 +24,58 @@ module Network.AWS.Redshift.Types.ClusterVersion
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes a cluster version, including the parameter group family and description of the version.
 --
 -- /See:/ 'mkClusterVersion' smart constructor.
 data ClusterVersion = ClusterVersion'
   { -- | The name of the cluster parameter group family for the cluster.
-    clusterParameterGroupFamily :: Lude.Maybe Lude.Text,
+    clusterParameterGroupFamily :: Core.Maybe Types.String,
     -- | The version number used by the cluster.
-    clusterVersion :: Lude.Maybe Lude.Text,
+    clusterVersion :: Core.Maybe Types.String,
     -- | The description of the cluster version.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClusterVersion' with the minimum fields required to make a request.
---
--- * 'clusterParameterGroupFamily' - The name of the cluster parameter group family for the cluster.
--- * 'clusterVersion' - The version number used by the cluster.
--- * 'description' - The description of the cluster version.
+-- | Creates a 'ClusterVersion' value with any optional fields omitted.
 mkClusterVersion ::
   ClusterVersion
 mkClusterVersion =
   ClusterVersion'
-    { clusterParameterGroupFamily = Lude.Nothing,
-      clusterVersion = Lude.Nothing,
-      description = Lude.Nothing
+    { clusterParameterGroupFamily = Core.Nothing,
+      clusterVersion = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The name of the cluster parameter group family for the cluster.
 --
 -- /Note:/ Consider using 'clusterParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvClusterParameterGroupFamily :: Lens.Lens' ClusterVersion (Lude.Maybe Lude.Text)
-cvClusterParameterGroupFamily = Lens.lens (clusterParameterGroupFamily :: ClusterVersion -> Lude.Maybe Lude.Text) (\s a -> s {clusterParameterGroupFamily = a} :: ClusterVersion)
+cvClusterParameterGroupFamily :: Lens.Lens' ClusterVersion (Core.Maybe Types.String)
+cvClusterParameterGroupFamily = Lens.field @"clusterParameterGroupFamily"
 {-# DEPRECATED cvClusterParameterGroupFamily "Use generic-lens or generic-optics with 'clusterParameterGroupFamily' instead." #-}
 
 -- | The version number used by the cluster.
 --
 -- /Note:/ Consider using 'clusterVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvClusterVersion :: Lens.Lens' ClusterVersion (Lude.Maybe Lude.Text)
-cvClusterVersion = Lens.lens (clusterVersion :: ClusterVersion -> Lude.Maybe Lude.Text) (\s a -> s {clusterVersion = a} :: ClusterVersion)
+cvClusterVersion :: Lens.Lens' ClusterVersion (Core.Maybe Types.String)
+cvClusterVersion = Lens.field @"clusterVersion"
 {-# DEPRECATED cvClusterVersion "Use generic-lens or generic-optics with 'clusterVersion' instead." #-}
 
 -- | The description of the cluster version.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvDescription :: Lens.Lens' ClusterVersion (Lude.Maybe Lude.Text)
-cvDescription = Lens.lens (description :: ClusterVersion -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ClusterVersion)
+cvDescription :: Lens.Lens' ClusterVersion (Core.Maybe Types.String)
+cvDescription = Lens.field @"description"
 {-# DEPRECATED cvDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML ClusterVersion where
+instance Core.FromXML ClusterVersion where
   parseXML x =
     ClusterVersion'
-      Lude.<$> (x Lude..@? "ClusterParameterGroupFamily")
-      Lude.<*> (x Lude..@? "ClusterVersion")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "ClusterParameterGroupFamily")
+      Core.<*> (x Core..@? "ClusterVersion")
+      Core.<*> (x Core..@? "Description")

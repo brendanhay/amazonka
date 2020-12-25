@@ -43,192 +43,175 @@ module Network.AWS.WAF.CreateWebACL
     mkCreateWebACL,
 
     -- ** Request lenses
-    cwaMetricName,
-    cwaName,
-    cwaDefaultAction,
-    cwaChangeToken,
-    cwaTags,
+    cwaclName,
+    cwaclMetricName,
+    cwaclDefaultAction,
+    cwaclChangeToken,
+    cwaclTags,
 
     -- * Destructuring the response
     CreateWebACLResponse (..),
     mkCreateWebACLResponse,
 
     -- ** Response lenses
-    cwarsWebACL,
-    cwarsChangeToken,
-    cwarsResponseStatus,
+    cwaclrrsChangeToken,
+    cwaclrrsWebACL,
+    cwaclrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkCreateWebACL' smart constructor.
 data CreateWebACL = CreateWebACL'
-  { -- | A friendly name or description for the metrics for this @WebACL@ .The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
-    metricName :: Lude.Text,
-    -- | A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
-    name :: Lude.Text,
+  { -- | A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
+    name :: Types.ResourceName,
+    -- | A friendly name or description for the metrics for this @WebACL@ .The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
+    metricName :: Types.MetricName,
     -- | The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
-    defaultAction :: WafAction,
+    defaultAction :: Types.WafAction,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text,
+    changeToken :: Types.ChangeToken,
     -- |
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateWebACL' with the minimum fields required to make a request.
---
--- * 'metricName' - A friendly name or description for the metrics for this @WebACL@ .The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
--- * 'name' - A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
--- * 'defaultAction' - The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
--- * 'tags' -
+-- | Creates a 'CreateWebACL' value with any optional fields omitted.
 mkCreateWebACL ::
-  -- | 'metricName'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
+  -- | 'metricName'
+  Types.MetricName ->
   -- | 'defaultAction'
-  WafAction ->
+  Types.WafAction ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   CreateWebACL
-mkCreateWebACL pMetricName_ pName_ pDefaultAction_ pChangeToken_ =
+mkCreateWebACL name metricName defaultAction changeToken =
   CreateWebACL'
-    { metricName = pMetricName_,
-      name = pName_,
-      defaultAction = pDefaultAction_,
-      changeToken = pChangeToken_,
-      tags = Lude.Nothing
+    { name,
+      metricName,
+      defaultAction,
+      changeToken,
+      tags = Core.Nothing
     }
-
--- | A friendly name or description for the metrics for this @WebACL@ .The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwaMetricName :: Lens.Lens' CreateWebACL Lude.Text
-cwaMetricName = Lens.lens (metricName :: CreateWebACL -> Lude.Text) (\s a -> s {metricName = a} :: CreateWebACL)
-{-# DEPRECATED cwaMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwaName :: Lens.Lens' CreateWebACL Lude.Text
-cwaName = Lens.lens (name :: CreateWebACL -> Lude.Text) (\s a -> s {name = a} :: CreateWebACL)
-{-# DEPRECATED cwaName "Use generic-lens or generic-optics with 'name' instead." #-}
+cwaclName :: Lens.Lens' CreateWebACL Types.ResourceName
+cwaclName = Lens.field @"name"
+{-# DEPRECATED cwaclName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A friendly name or description for the metrics for this @WebACL@ .The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwaclMetricName :: Lens.Lens' CreateWebACL Types.MetricName
+cwaclMetricName = Lens.field @"metricName"
+{-# DEPRECATED cwaclMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
 --
 -- /Note:/ Consider using 'defaultAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwaDefaultAction :: Lens.Lens' CreateWebACL WafAction
-cwaDefaultAction = Lens.lens (defaultAction :: CreateWebACL -> WafAction) (\s a -> s {defaultAction = a} :: CreateWebACL)
-{-# DEPRECATED cwaDefaultAction "Use generic-lens or generic-optics with 'defaultAction' instead." #-}
+cwaclDefaultAction :: Lens.Lens' CreateWebACL Types.WafAction
+cwaclDefaultAction = Lens.field @"defaultAction"
+{-# DEPRECATED cwaclDefaultAction "Use generic-lens or generic-optics with 'defaultAction' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwaChangeToken :: Lens.Lens' CreateWebACL Lude.Text
-cwaChangeToken = Lens.lens (changeToken :: CreateWebACL -> Lude.Text) (\s a -> s {changeToken = a} :: CreateWebACL)
-{-# DEPRECATED cwaChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+cwaclChangeToken :: Lens.Lens' CreateWebACL Types.ChangeToken
+cwaclChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED cwaclChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwaTags :: Lens.Lens' CreateWebACL (Lude.Maybe (Lude.NonEmpty Tag))
-cwaTags = Lens.lens (tags :: CreateWebACL -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateWebACL)
-{-# DEPRECATED cwaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cwaclTags :: Lens.Lens' CreateWebACL (Core.Maybe (Core.NonEmpty Types.Tag))
+cwaclTags = Lens.field @"tags"
+{-# DEPRECATED cwaclTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateWebACL where
+instance Core.FromJSON CreateWebACL where
+  toJSON CreateWebACL {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("MetricName" Core..= metricName),
+            Core.Just ("DefaultAction" Core..= defaultAction),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateWebACL where
   type Rs CreateWebACL = CreateWebACLResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.CreateWebACL")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateWebACLResponse'
-            Lude.<$> (x Lude..?> "WebACL")
-            Lude.<*> (x Lude..?> "ChangeToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken")
+            Core.<*> (x Core..:? "WebACL")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateWebACL where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.CreateWebACL" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateWebACL where
-  toJSON CreateWebACL' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MetricName" Lude..= metricName),
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("DefaultAction" Lude..= defaultAction),
-            Lude.Just ("ChangeToken" Lude..= changeToken),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateWebACL where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateWebACL where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateWebACLResponse' smart constructor.
 data CreateWebACLResponse = CreateWebACLResponse'
-  { -- | The 'WebACL' returned in the @CreateWebACL@ response.
-    webACL :: Lude.Maybe WebACL,
-    -- | The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Core.Maybe Types.ChangeToken,
+    -- | The 'WebACL' returned in the @CreateWebACL@ response.
+    webACL :: Core.Maybe Types.WebACL,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateWebACLResponse' with the minimum fields required to make a request.
---
--- * 'webACL' - The 'WebACL' returned in the @CreateWebACL@ response.
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateWebACLResponse' value with any optional fields omitted.
 mkCreateWebACLResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateWebACLResponse
-mkCreateWebACLResponse pResponseStatus_ =
+mkCreateWebACLResponse responseStatus =
   CreateWebACLResponse'
-    { webACL = Lude.Nothing,
-      changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      webACL = Core.Nothing,
+      responseStatus
     }
-
--- | The 'WebACL' returned in the @CreateWebACL@ response.
---
--- /Note:/ Consider using 'webACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwarsWebACL :: Lens.Lens' CreateWebACLResponse (Lude.Maybe WebACL)
-cwarsWebACL = Lens.lens (webACL :: CreateWebACLResponse -> Lude.Maybe WebACL) (\s a -> s {webACL = a} :: CreateWebACLResponse)
-{-# DEPRECATED cwarsWebACL "Use generic-lens or generic-optics with 'webACL' instead." #-}
 
 -- | The @ChangeToken@ that you used to submit the @CreateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwarsChangeToken :: Lens.Lens' CreateWebACLResponse (Lude.Maybe Lude.Text)
-cwarsChangeToken = Lens.lens (changeToken :: CreateWebACLResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateWebACLResponse)
-{-# DEPRECATED cwarsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+cwaclrrsChangeToken :: Lens.Lens' CreateWebACLResponse (Core.Maybe Types.ChangeToken)
+cwaclrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED cwaclrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | The 'WebACL' returned in the @CreateWebACL@ response.
+--
+-- /Note:/ Consider using 'webACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwaclrrsWebACL :: Lens.Lens' CreateWebACLResponse (Core.Maybe Types.WebACL)
+cwaclrrsWebACL = Lens.field @"webACL"
+{-# DEPRECATED cwaclrrsWebACL "Use generic-lens or generic-optics with 'webACL' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwarsResponseStatus :: Lens.Lens' CreateWebACLResponse Lude.Int
-cwarsResponseStatus = Lens.lens (responseStatus :: CreateWebACLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateWebACLResponse)
-{-# DEPRECATED cwarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cwaclrrsResponseStatus :: Lens.Lens' CreateWebACLResponse Core.Int
+cwaclrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cwaclrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

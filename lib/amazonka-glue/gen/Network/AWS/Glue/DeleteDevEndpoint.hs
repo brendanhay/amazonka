@@ -27,93 +27,81 @@ module Network.AWS.Glue.DeleteDevEndpoint
     mkDeleteDevEndpointResponse,
 
     -- ** Response lenses
-    ddersResponseStatus,
+    dderrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDevEndpoint' smart constructor.
 newtype DeleteDevEndpoint = DeleteDevEndpoint'
   { -- | The name of the @DevEndpoint@ .
-    endpointName :: Lude.Text
+    endpointName :: Types.EndpointName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDevEndpoint' with the minimum fields required to make a request.
---
--- * 'endpointName' - The name of the @DevEndpoint@ .
+-- | Creates a 'DeleteDevEndpoint' value with any optional fields omitted.
 mkDeleteDevEndpoint ::
   -- | 'endpointName'
-  Lude.Text ->
+  Types.EndpointName ->
   DeleteDevEndpoint
-mkDeleteDevEndpoint pEndpointName_ =
-  DeleteDevEndpoint' {endpointName = pEndpointName_}
+mkDeleteDevEndpoint endpointName = DeleteDevEndpoint' {endpointName}
 
 -- | The name of the @DevEndpoint@ .
 --
 -- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddeEndpointName :: Lens.Lens' DeleteDevEndpoint Lude.Text
-ddeEndpointName = Lens.lens (endpointName :: DeleteDevEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: DeleteDevEndpoint)
+ddeEndpointName :: Lens.Lens' DeleteDevEndpoint Types.EndpointName
+ddeEndpointName = Lens.field @"endpointName"
 {-# DEPRECATED ddeEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
-instance Lude.AWSRequest DeleteDevEndpoint where
+instance Core.FromJSON DeleteDevEndpoint where
+  toJSON DeleteDevEndpoint {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("EndpointName" Core..= endpointName)])
+
+instance Core.AWSRequest DeleteDevEndpoint where
   type Rs DeleteDevEndpoint = DeleteDevEndpointResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeleteDevEndpoint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteDevEndpointResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteDevEndpointResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDevEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeleteDevEndpoint" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDevEndpoint where
-  toJSON DeleteDevEndpoint' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("EndpointName" Lude..= endpointName)])
-
-instance Lude.ToPath DeleteDevEndpoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDevEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDevEndpointResponse' smart constructor.
 newtype DeleteDevEndpointResponse = DeleteDevEndpointResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDevEndpointResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDevEndpointResponse' value with any optional fields omitted.
 mkDeleteDevEndpointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDevEndpointResponse
-mkDeleteDevEndpointResponse pResponseStatus_ =
-  DeleteDevEndpointResponse' {responseStatus = pResponseStatus_}
+mkDeleteDevEndpointResponse responseStatus =
+  DeleteDevEndpointResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddersResponseStatus :: Lens.Lens' DeleteDevEndpointResponse Lude.Int
-ddersResponseStatus = Lens.lens (responseStatus :: DeleteDevEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDevEndpointResponse)
-{-# DEPRECATED ddersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dderrsResponseStatus :: Lens.Lens' DeleteDevEndpointResponse Core.Int
+dderrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dderrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

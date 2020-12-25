@@ -13,71 +13,73 @@
 module Network.AWS.EMR.Types.StepState
   ( StepState
       ( StepState',
-        SSPending,
-        SSCancelPending,
-        SSRunning,
-        SSCompleted,
-        SSCancelled,
-        SSFailed,
-        SSInterrupted
+        StepStatePending,
+        StepStateCancelPending,
+        StepStateRunning,
+        StepStateCompleted,
+        StepStateCancelled,
+        StepStateFailed,
+        StepStateInterrupted,
+        fromStepState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StepState = StepState' Lude.Text
+newtype StepState = StepState' {fromStepState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSPending :: StepState
-pattern SSPending = StepState' "PENDING"
+pattern StepStatePending :: StepState
+pattern StepStatePending = StepState' "PENDING"
 
-pattern SSCancelPending :: StepState
-pattern SSCancelPending = StepState' "CANCEL_PENDING"
+pattern StepStateCancelPending :: StepState
+pattern StepStateCancelPending = StepState' "CANCEL_PENDING"
 
-pattern SSRunning :: StepState
-pattern SSRunning = StepState' "RUNNING"
+pattern StepStateRunning :: StepState
+pattern StepStateRunning = StepState' "RUNNING"
 
-pattern SSCompleted :: StepState
-pattern SSCompleted = StepState' "COMPLETED"
+pattern StepStateCompleted :: StepState
+pattern StepStateCompleted = StepState' "COMPLETED"
 
-pattern SSCancelled :: StepState
-pattern SSCancelled = StepState' "CANCELLED"
+pattern StepStateCancelled :: StepState
+pattern StepStateCancelled = StepState' "CANCELLED"
 
-pattern SSFailed :: StepState
-pattern SSFailed = StepState' "FAILED"
+pattern StepStateFailed :: StepState
+pattern StepStateFailed = StepState' "FAILED"
 
-pattern SSInterrupted :: StepState
-pattern SSInterrupted = StepState' "INTERRUPTED"
+pattern StepStateInterrupted :: StepState
+pattern StepStateInterrupted = StepState' "INTERRUPTED"
 
 {-# COMPLETE
-  SSPending,
-  SSCancelPending,
-  SSRunning,
-  SSCompleted,
-  SSCancelled,
-  SSFailed,
-  SSInterrupted,
+  StepStatePending,
+  StepStateCancelPending,
+  StepStateRunning,
+  StepStateCompleted,
+  StepStateCancelled,
+  StepStateFailed,
+  StepStateInterrupted,
   StepState'
   #-}

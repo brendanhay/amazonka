@@ -26,80 +26,86 @@ module Network.AWS.KMS.CreateCustomKeyStore
 
     -- ** Request lenses
     ccksCustomKeyStoreName,
-    ccksKeyStorePassword,
+    ccksCloudHsmClusterId,
     ccksTrustAnchorCertificate,
-    ccksCloudHSMClusterId,
+    ccksKeyStorePassword,
 
     -- * Destructuring the response
     CreateCustomKeyStoreResponse (..),
     mkCreateCustomKeyStoreResponse,
 
     -- ** Response lenses
-    ccksrsCustomKeyStoreId,
-    ccksrsResponseStatus,
+    ccksrrsCustomKeyStoreId,
+    ccksrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateCustomKeyStore' smart constructor.
 data CreateCustomKeyStore = CreateCustomKeyStore'
   { -- | Specifies a friendly name for the custom key store. The name must be unique in your AWS account.
-    customKeyStoreName :: Lude.Text,
+    customKeyStoreName :: Types.CustomKeyStoreNameType,
+    -- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
+    cloudHsmClusterId :: Types.CloudHsmClusterIdType,
+    -- | Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
+    trustAnchorCertificate :: Types.TrustAnchorCertificateType,
     -- | Enter the password of the <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser @kmsuser@ crypto user (CU) account> in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as this user to manage key material on your behalf.
     --
     -- The password must be a string of 7 to 32 characters. Its value is case sensitive.
     -- This parameter tells AWS KMS the @kmsuser@ account password; it does not change the password in the AWS CloudHSM cluster.
-    keyStorePassword :: Lude.Sensitive Lude.Text,
-    -- | Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
-    trustAnchorCertificate :: Lude.Text,
-    -- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
-    cloudHSMClusterId :: Lude.Text
+    keyStorePassword :: Types.KeyStorePasswordType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCustomKeyStore' with the minimum fields required to make a request.
---
--- * 'customKeyStoreName' - Specifies a friendly name for the custom key store. The name must be unique in your AWS account.
--- * 'keyStorePassword' - Enter the password of the <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser @kmsuser@ crypto user (CU) account> in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as this user to manage key material on your behalf.
---
--- The password must be a string of 7 to 32 characters. Its value is case sensitive.
--- This parameter tells AWS KMS the @kmsuser@ account password; it does not change the password in the AWS CloudHSM cluster.
--- * 'trustAnchorCertificate' - Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
--- * 'cloudHSMClusterId' - Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
+-- | Creates a 'CreateCustomKeyStore' value with any optional fields omitted.
 mkCreateCustomKeyStore ::
   -- | 'customKeyStoreName'
-  Lude.Text ->
-  -- | 'keyStorePassword'
-  Lude.Sensitive Lude.Text ->
+  Types.CustomKeyStoreNameType ->
+  -- | 'cloudHsmClusterId'
+  Types.CloudHsmClusterIdType ->
   -- | 'trustAnchorCertificate'
-  Lude.Text ->
-  -- | 'cloudHSMClusterId'
-  Lude.Text ->
+  Types.TrustAnchorCertificateType ->
+  -- | 'keyStorePassword'
+  Types.KeyStorePasswordType ->
   CreateCustomKeyStore
 mkCreateCustomKeyStore
-  pCustomKeyStoreName_
-  pKeyStorePassword_
-  pTrustAnchorCertificate_
-  pCloudHSMClusterId_ =
+  customKeyStoreName
+  cloudHsmClusterId
+  trustAnchorCertificate
+  keyStorePassword =
     CreateCustomKeyStore'
-      { customKeyStoreName = pCustomKeyStoreName_,
-        keyStorePassword = pKeyStorePassword_,
-        trustAnchorCertificate = pTrustAnchorCertificate_,
-        cloudHSMClusterId = pCloudHSMClusterId_
+      { customKeyStoreName,
+        cloudHsmClusterId,
+        trustAnchorCertificate,
+        keyStorePassword
       }
 
 -- | Specifies a friendly name for the custom key store. The name must be unique in your AWS account.
 --
 -- /Note:/ Consider using 'customKeyStoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksCustomKeyStoreName :: Lens.Lens' CreateCustomKeyStore Lude.Text
-ccksCustomKeyStoreName = Lens.lens (customKeyStoreName :: CreateCustomKeyStore -> Lude.Text) (\s a -> s {customKeyStoreName = a} :: CreateCustomKeyStore)
+ccksCustomKeyStoreName :: Lens.Lens' CreateCustomKeyStore Types.CustomKeyStoreNameType
+ccksCustomKeyStoreName = Lens.field @"customKeyStoreName"
 {-# DEPRECATED ccksCustomKeyStoreName "Use generic-lens or generic-optics with 'customKeyStoreName' instead." #-}
+
+-- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
+--
+-- /Note:/ Consider using 'cloudHsmClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccksCloudHsmClusterId :: Lens.Lens' CreateCustomKeyStore Types.CloudHsmClusterIdType
+ccksCloudHsmClusterId = Lens.field @"cloudHsmClusterId"
+{-# DEPRECATED ccksCloudHsmClusterId "Use generic-lens or generic-optics with 'cloudHsmClusterId' instead." #-}
+
+-- | Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
+--
+-- /Note:/ Consider using 'trustAnchorCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccksTrustAnchorCertificate :: Lens.Lens' CreateCustomKeyStore Types.TrustAnchorCertificateType
+ccksTrustAnchorCertificate = Lens.field @"trustAnchorCertificate"
+{-# DEPRECATED ccksTrustAnchorCertificate "Use generic-lens or generic-optics with 'trustAnchorCertificate' instead." #-}
 
 -- | Enter the password of the <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser @kmsuser@ crypto user (CU) account> in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as this user to manage key material on your behalf.
 --
@@ -107,98 +113,74 @@ ccksCustomKeyStoreName = Lens.lens (customKeyStoreName :: CreateCustomKeyStore -
 -- This parameter tells AWS KMS the @kmsuser@ account password; it does not change the password in the AWS CloudHSM cluster.
 --
 -- /Note:/ Consider using 'keyStorePassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksKeyStorePassword :: Lens.Lens' CreateCustomKeyStore (Lude.Sensitive Lude.Text)
-ccksKeyStorePassword = Lens.lens (keyStorePassword :: CreateCustomKeyStore -> Lude.Sensitive Lude.Text) (\s a -> s {keyStorePassword = a} :: CreateCustomKeyStore)
+ccksKeyStorePassword :: Lens.Lens' CreateCustomKeyStore Types.KeyStorePasswordType
+ccksKeyStorePassword = Lens.field @"keyStorePassword"
 {-# DEPRECATED ccksKeyStorePassword "Use generic-lens or generic-optics with 'keyStorePassword' instead." #-}
 
--- | Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
---
--- /Note:/ Consider using 'trustAnchorCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksTrustAnchorCertificate :: Lens.Lens' CreateCustomKeyStore Lude.Text
-ccksTrustAnchorCertificate = Lens.lens (trustAnchorCertificate :: CreateCustomKeyStore -> Lude.Text) (\s a -> s {trustAnchorCertificate = a} :: CreateCustomKeyStore)
-{-# DEPRECATED ccksTrustAnchorCertificate "Use generic-lens or generic-optics with 'trustAnchorCertificate' instead." #-}
+instance Core.FromJSON CreateCustomKeyStore where
+  toJSON CreateCustomKeyStore {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CustomKeyStoreName" Core..= customKeyStoreName),
+            Core.Just ("CloudHsmClusterId" Core..= cloudHsmClusterId),
+            Core.Just
+              ("TrustAnchorCertificate" Core..= trustAnchorCertificate),
+            Core.Just ("KeyStorePassword" Core..= keyStorePassword)
+          ]
+      )
 
--- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
---
--- /Note:/ Consider using 'cloudHSMClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksCloudHSMClusterId :: Lens.Lens' CreateCustomKeyStore Lude.Text
-ccksCloudHSMClusterId = Lens.lens (cloudHSMClusterId :: CreateCustomKeyStore -> Lude.Text) (\s a -> s {cloudHSMClusterId = a} :: CreateCustomKeyStore)
-{-# DEPRECATED ccksCloudHSMClusterId "Use generic-lens or generic-optics with 'cloudHSMClusterId' instead." #-}
-
-instance Lude.AWSRequest CreateCustomKeyStore where
+instance Core.AWSRequest CreateCustomKeyStore where
   type Rs CreateCustomKeyStore = CreateCustomKeyStoreResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.CreateCustomKeyStore")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateCustomKeyStoreResponse'
-            Lude.<$> (x Lude..?> "CustomKeyStoreId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CustomKeyStoreId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCustomKeyStore where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.CreateCustomKeyStore" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateCustomKeyStore where
-  toJSON CreateCustomKeyStore' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CustomKeyStoreName" Lude..= customKeyStoreName),
-            Lude.Just ("KeyStorePassword" Lude..= keyStorePassword),
-            Lude.Just
-              ("TrustAnchorCertificate" Lude..= trustAnchorCertificate),
-            Lude.Just ("CloudHsmClusterId" Lude..= cloudHSMClusterId)
-          ]
-      )
-
-instance Lude.ToPath CreateCustomKeyStore where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCustomKeyStore where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateCustomKeyStoreResponse' smart constructor.
 data CreateCustomKeyStoreResponse = CreateCustomKeyStoreResponse'
   { -- | A unique identifier for the new custom key store.
-    customKeyStoreId :: Lude.Maybe Lude.Text,
+    customKeyStoreId :: Core.Maybe Types.CustomKeyStoreId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCustomKeyStoreResponse' with the minimum fields required to make a request.
---
--- * 'customKeyStoreId' - A unique identifier for the new custom key store.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCustomKeyStoreResponse' value with any optional fields omitted.
 mkCreateCustomKeyStoreResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCustomKeyStoreResponse
-mkCreateCustomKeyStoreResponse pResponseStatus_ =
+mkCreateCustomKeyStoreResponse responseStatus =
   CreateCustomKeyStoreResponse'
-    { customKeyStoreId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { customKeyStoreId = Core.Nothing,
+      responseStatus
     }
 
 -- | A unique identifier for the new custom key store.
 --
 -- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksrsCustomKeyStoreId :: Lens.Lens' CreateCustomKeyStoreResponse (Lude.Maybe Lude.Text)
-ccksrsCustomKeyStoreId = Lens.lens (customKeyStoreId :: CreateCustomKeyStoreResponse -> Lude.Maybe Lude.Text) (\s a -> s {customKeyStoreId = a} :: CreateCustomKeyStoreResponse)
-{-# DEPRECATED ccksrsCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
+ccksrrsCustomKeyStoreId :: Lens.Lens' CreateCustomKeyStoreResponse (Core.Maybe Types.CustomKeyStoreId)
+ccksrrsCustomKeyStoreId = Lens.field @"customKeyStoreId"
+{-# DEPRECATED ccksrrsCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksrsResponseStatus :: Lens.Lens' CreateCustomKeyStoreResponse Lude.Int
-ccksrsResponseStatus = Lens.lens (responseStatus :: CreateCustomKeyStoreResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCustomKeyStoreResponse)
-{-# DEPRECATED ccksrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccksrrsResponseStatus :: Lens.Lens' CreateCustomKeyStoreResponse Core.Int
+ccksrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccksrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

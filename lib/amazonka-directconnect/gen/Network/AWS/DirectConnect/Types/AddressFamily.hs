@@ -13,46 +13,51 @@
 module Network.AWS.DirectConnect.Types.AddressFamily
   ( AddressFamily
       ( AddressFamily',
-        IPV4,
-        IPV6
+        AddressFamilyIPV4,
+        AddressFamilyIPV6,
+        fromAddressFamily
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AddressFamily = AddressFamily' Lude.Text
+newtype AddressFamily = AddressFamily'
+  { fromAddressFamily ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IPV4 :: AddressFamily
-pattern IPV4 = AddressFamily' "ipv4"
+pattern AddressFamilyIPV4 :: AddressFamily
+pattern AddressFamilyIPV4 = AddressFamily' "ipv4"
 
-pattern IPV6 :: AddressFamily
-pattern IPV6 = AddressFamily' "ipv6"
+pattern AddressFamilyIPV6 :: AddressFamily
+pattern AddressFamilyIPV6 = AddressFamily' "ipv6"
 
 {-# COMPLETE
-  IPV4,
-  IPV6,
+  AddressFamilyIPV4,
+  AddressFamilyIPV6,
   AddressFamily'
   #-}

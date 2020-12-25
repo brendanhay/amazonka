@@ -13,71 +13,76 @@
 module Network.AWS.EC2.Types.BundleTaskState
   ( BundleTaskState
       ( BundleTaskState',
-        BTSPending,
-        BTSWaitingForShutdown,
-        BTSBundling,
-        BTSStoring,
-        BTSCancelling,
-        BTSComplete,
-        BTSFailed
+        BundleTaskStatePending,
+        BundleTaskStateWaitingForShutdown,
+        BundleTaskStateBundling,
+        BundleTaskStateStoring,
+        BundleTaskStateCancelling,
+        BundleTaskStateComplete,
+        BundleTaskStateFailed,
+        fromBundleTaskState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BundleTaskState = BundleTaskState' Lude.Text
+newtype BundleTaskState = BundleTaskState'
+  { fromBundleTaskState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BTSPending :: BundleTaskState
-pattern BTSPending = BundleTaskState' "pending"
+pattern BundleTaskStatePending :: BundleTaskState
+pattern BundleTaskStatePending = BundleTaskState' "pending"
 
-pattern BTSWaitingForShutdown :: BundleTaskState
-pattern BTSWaitingForShutdown = BundleTaskState' "waiting-for-shutdown"
+pattern BundleTaskStateWaitingForShutdown :: BundleTaskState
+pattern BundleTaskStateWaitingForShutdown = BundleTaskState' "waiting-for-shutdown"
 
-pattern BTSBundling :: BundleTaskState
-pattern BTSBundling = BundleTaskState' "bundling"
+pattern BundleTaskStateBundling :: BundleTaskState
+pattern BundleTaskStateBundling = BundleTaskState' "bundling"
 
-pattern BTSStoring :: BundleTaskState
-pattern BTSStoring = BundleTaskState' "storing"
+pattern BundleTaskStateStoring :: BundleTaskState
+pattern BundleTaskStateStoring = BundleTaskState' "storing"
 
-pattern BTSCancelling :: BundleTaskState
-pattern BTSCancelling = BundleTaskState' "cancelling"
+pattern BundleTaskStateCancelling :: BundleTaskState
+pattern BundleTaskStateCancelling = BundleTaskState' "cancelling"
 
-pattern BTSComplete :: BundleTaskState
-pattern BTSComplete = BundleTaskState' "complete"
+pattern BundleTaskStateComplete :: BundleTaskState
+pattern BundleTaskStateComplete = BundleTaskState' "complete"
 
-pattern BTSFailed :: BundleTaskState
-pattern BTSFailed = BundleTaskState' "failed"
+pattern BundleTaskStateFailed :: BundleTaskState
+pattern BundleTaskStateFailed = BundleTaskState' "failed"
 
 {-# COMPLETE
-  BTSPending,
-  BTSWaitingForShutdown,
-  BTSBundling,
-  BTSStoring,
-  BTSCancelling,
-  BTSComplete,
-  BTSFailed,
+  BundleTaskStatePending,
+  BundleTaskStateWaitingForShutdown,
+  BundleTaskStateBundling,
+  BundleTaskStateStoring,
+  BundleTaskStateCancelling,
+  BundleTaskStateComplete,
+  BundleTaskStateFailed,
   BundleTaskState'
   #-}

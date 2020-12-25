@@ -34,41 +34,36 @@ module Network.AWS.EC2.TerminateInstances
     mkTerminateInstancesResponse,
 
     -- ** Response lenses
-    tirsTerminatingInstances,
-    tirsResponseStatus,
+    tirrsTerminatingInstances,
+    tirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTerminateInstances' smart constructor.
 data TerminateInstances = TerminateInstances'
   { -- | The IDs of the instances.
     --
     -- Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
-    instanceIds :: [Lude.Text],
+    instanceIds :: [Types.InstanceId],
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateInstances' with the minimum fields required to make a request.
---
--- * 'instanceIds' - The IDs of the instances.
---
--- Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'TerminateInstances' value with any optional fields omitted.
 mkTerminateInstances ::
   TerminateInstances
 mkTerminateInstances =
   TerminateInstances'
-    { instanceIds = Lude.mempty,
-      dryRun = Lude.Nothing
+    { instanceIds = Core.mempty,
+      dryRun = Core.Nothing
     }
 
 -- | The IDs of the instances.
@@ -76,79 +71,77 @@ mkTerminateInstances =
 -- Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiInstanceIds :: Lens.Lens' TerminateInstances [Lude.Text]
-tiInstanceIds = Lens.lens (instanceIds :: TerminateInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: TerminateInstances)
+tiInstanceIds :: Lens.Lens' TerminateInstances [Types.InstanceId]
+tiInstanceIds = Lens.field @"instanceIds"
 {-# DEPRECATED tiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiDryRun :: Lens.Lens' TerminateInstances (Lude.Maybe Lude.Bool)
-tiDryRun = Lens.lens (dryRun :: TerminateInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: TerminateInstances)
+tiDryRun :: Lens.Lens' TerminateInstances (Core.Maybe Core.Bool)
+tiDryRun = Lens.field @"dryRun"
 {-# DEPRECATED tiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest TerminateInstances where
+instance Core.AWSRequest TerminateInstances where
   type Rs TerminateInstances = TerminateInstancesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "TerminateInstances")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "InstanceId" instanceIds)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           TerminateInstancesResponse'
-            Lude.<$> ( x Lude..@? "instancesSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "instancesSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TerminateInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath TerminateInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TerminateInstances where
-  toQuery TerminateInstances' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("TerminateInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "InstanceId" instanceIds,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkTerminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
   { -- | Information about the terminated instances.
-    terminatingInstances :: Lude.Maybe [InstanceStateChange],
+    terminatingInstances :: Core.Maybe [Types.InstanceStateChange],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateInstancesResponse' with the minimum fields required to make a request.
---
--- * 'terminatingInstances' - Information about the terminated instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TerminateInstancesResponse' value with any optional fields omitted.
 mkTerminateInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TerminateInstancesResponse
-mkTerminateInstancesResponse pResponseStatus_ =
+mkTerminateInstancesResponse responseStatus =
   TerminateInstancesResponse'
-    { terminatingInstances = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { terminatingInstances = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the terminated instances.
 --
 -- /Note:/ Consider using 'terminatingInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tirsTerminatingInstances :: Lens.Lens' TerminateInstancesResponse (Lude.Maybe [InstanceStateChange])
-tirsTerminatingInstances = Lens.lens (terminatingInstances :: TerminateInstancesResponse -> Lude.Maybe [InstanceStateChange]) (\s a -> s {terminatingInstances = a} :: TerminateInstancesResponse)
-{-# DEPRECATED tirsTerminatingInstances "Use generic-lens or generic-optics with 'terminatingInstances' instead." #-}
+tirrsTerminatingInstances :: Lens.Lens' TerminateInstancesResponse (Core.Maybe [Types.InstanceStateChange])
+tirrsTerminatingInstances = Lens.field @"terminatingInstances"
+{-# DEPRECATED tirrsTerminatingInstances "Use generic-lens or generic-optics with 'terminatingInstances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tirsResponseStatus :: Lens.Lens' TerminateInstancesResponse Lude.Int
-tirsResponseStatus = Lens.lens (responseStatus :: TerminateInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateInstancesResponse)
-{-# DEPRECATED tirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tirrsResponseStatus :: Lens.Lens' TerminateInstancesResponse Core.Int
+tirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

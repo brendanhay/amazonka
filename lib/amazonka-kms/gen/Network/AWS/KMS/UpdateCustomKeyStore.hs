@@ -37,157 +37,139 @@ module Network.AWS.KMS.UpdateCustomKeyStore
     mkUpdateCustomKeyStore,
 
     -- ** Request lenses
-    ucksKeyStorePassword,
-    ucksCloudHSMClusterId,
-    ucksNewCustomKeyStoreName,
     ucksCustomKeyStoreId,
+    ucksCloudHsmClusterId,
+    ucksKeyStorePassword,
+    ucksNewCustomKeyStoreName,
 
     -- * Destructuring the response
     UpdateCustomKeyStoreResponse (..),
     mkUpdateCustomKeyStoreResponse,
 
     -- ** Response lenses
-    ucksrsResponseStatus,
+    ucksrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateCustomKeyStore' smart constructor.
 data UpdateCustomKeyStore = UpdateCustomKeyStore'
-  { -- | Enter the current password of the @kmsuser@ crypto user (CU) in the AWS CloudHSM cluster that is associated with the custom key store.
-    --
-    -- This parameter tells AWS KMS the current password of the @kmsuser@ crypto user (CU). It does not set or change the password of any users in the AWS CloudHSM cluster.
-    keyStorePassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Identifies the custom key store that you want to update. Enter the ID of the custom key store. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+    customKeyStoreId :: Types.CustomKeyStoreIdType,
     -- | Associates the custom key store with a related AWS CloudHSM cluster.
     --
     -- Enter the cluster ID of the cluster that you used to create the custom key store or a cluster that shares a backup history and has the same cluster certificate as the original cluster. You cannot use this parameter to associate a custom key store with an unrelated cluster. In addition, the replacement cluster must <https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore fulfill the requirements> for a cluster associated with a custom key store. To view the cluster certificate of a cluster, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
-    cloudHSMClusterId :: Lude.Maybe Lude.Text,
+    cloudHsmClusterId :: Core.Maybe Types.CloudHsmClusterIdType,
+    -- | Enter the current password of the @kmsuser@ crypto user (CU) in the AWS CloudHSM cluster that is associated with the custom key store.
+    --
+    -- This parameter tells AWS KMS the current password of the @kmsuser@ crypto user (CU). It does not set or change the password of any users in the AWS CloudHSM cluster.
+    keyStorePassword :: Core.Maybe Types.KeyStorePasswordType,
     -- | Changes the friendly name of the custom key store to the value that you specify. The custom key store name must be unique in the AWS account.
-    newCustomKeyStoreName :: Lude.Maybe Lude.Text,
-    -- | Identifies the custom key store that you want to update. Enter the ID of the custom key store. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
-    customKeyStoreId :: Lude.Text
+    newCustomKeyStoreName :: Core.Maybe Types.CustomKeyStoreNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCustomKeyStore' with the minimum fields required to make a request.
---
--- * 'keyStorePassword' - Enter the current password of the @kmsuser@ crypto user (CU) in the AWS CloudHSM cluster that is associated with the custom key store.
---
--- This parameter tells AWS KMS the current password of the @kmsuser@ crypto user (CU). It does not set or change the password of any users in the AWS CloudHSM cluster.
--- * 'cloudHSMClusterId' - Associates the custom key store with a related AWS CloudHSM cluster.
---
--- Enter the cluster ID of the cluster that you used to create the custom key store or a cluster that shares a backup history and has the same cluster certificate as the original cluster. You cannot use this parameter to associate a custom key store with an unrelated cluster. In addition, the replacement cluster must <https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore fulfill the requirements> for a cluster associated with a custom key store. To view the cluster certificate of a cluster, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
--- * 'newCustomKeyStoreName' - Changes the friendly name of the custom key store to the value that you specify. The custom key store name must be unique in the AWS account.
--- * 'customKeyStoreId' - Identifies the custom key store that you want to update. Enter the ID of the custom key store. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+-- | Creates a 'UpdateCustomKeyStore' value with any optional fields omitted.
 mkUpdateCustomKeyStore ::
   -- | 'customKeyStoreId'
-  Lude.Text ->
+  Types.CustomKeyStoreIdType ->
   UpdateCustomKeyStore
-mkUpdateCustomKeyStore pCustomKeyStoreId_ =
+mkUpdateCustomKeyStore customKeyStoreId =
   UpdateCustomKeyStore'
-    { keyStorePassword = Lude.Nothing,
-      cloudHSMClusterId = Lude.Nothing,
-      newCustomKeyStoreName = Lude.Nothing,
-      customKeyStoreId = pCustomKeyStoreId_
+    { customKeyStoreId,
+      cloudHsmClusterId = Core.Nothing,
+      keyStorePassword = Core.Nothing,
+      newCustomKeyStoreName = Core.Nothing
     }
+
+-- | Identifies the custom key store that you want to update. Enter the ID of the custom key store. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+--
+-- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucksCustomKeyStoreId :: Lens.Lens' UpdateCustomKeyStore Types.CustomKeyStoreIdType
+ucksCustomKeyStoreId = Lens.field @"customKeyStoreId"
+{-# DEPRECATED ucksCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
+
+-- | Associates the custom key store with a related AWS CloudHSM cluster.
+--
+-- Enter the cluster ID of the cluster that you used to create the custom key store or a cluster that shares a backup history and has the same cluster certificate as the original cluster. You cannot use this parameter to associate a custom key store with an unrelated cluster. In addition, the replacement cluster must <https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore fulfill the requirements> for a cluster associated with a custom key store. To view the cluster certificate of a cluster, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
+--
+-- /Note:/ Consider using 'cloudHsmClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucksCloudHsmClusterId :: Lens.Lens' UpdateCustomKeyStore (Core.Maybe Types.CloudHsmClusterIdType)
+ucksCloudHsmClusterId = Lens.field @"cloudHsmClusterId"
+{-# DEPRECATED ucksCloudHsmClusterId "Use generic-lens or generic-optics with 'cloudHsmClusterId' instead." #-}
 
 -- | Enter the current password of the @kmsuser@ crypto user (CU) in the AWS CloudHSM cluster that is associated with the custom key store.
 --
 -- This parameter tells AWS KMS the current password of the @kmsuser@ crypto user (CU). It does not set or change the password of any users in the AWS CloudHSM cluster.
 --
 -- /Note:/ Consider using 'keyStorePassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucksKeyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Lude.Maybe (Lude.Sensitive Lude.Text))
-ucksKeyStorePassword = Lens.lens (keyStorePassword :: UpdateCustomKeyStore -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {keyStorePassword = a} :: UpdateCustomKeyStore)
+ucksKeyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Core.Maybe Types.KeyStorePasswordType)
+ucksKeyStorePassword = Lens.field @"keyStorePassword"
 {-# DEPRECATED ucksKeyStorePassword "Use generic-lens or generic-optics with 'keyStorePassword' instead." #-}
-
--- | Associates the custom key store with a related AWS CloudHSM cluster.
---
--- Enter the cluster ID of the cluster that you used to create the custom key store or a cluster that shares a backup history and has the same cluster certificate as the original cluster. You cannot use this parameter to associate a custom key store with an unrelated cluster. In addition, the replacement cluster must <https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore fulfill the requirements> for a cluster associated with a custom key store. To view the cluster certificate of a cluster, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
---
--- /Note:/ Consider using 'cloudHSMClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucksCloudHSMClusterId :: Lens.Lens' UpdateCustomKeyStore (Lude.Maybe Lude.Text)
-ucksCloudHSMClusterId = Lens.lens (cloudHSMClusterId :: UpdateCustomKeyStore -> Lude.Maybe Lude.Text) (\s a -> s {cloudHSMClusterId = a} :: UpdateCustomKeyStore)
-{-# DEPRECATED ucksCloudHSMClusterId "Use generic-lens or generic-optics with 'cloudHSMClusterId' instead." #-}
 
 -- | Changes the friendly name of the custom key store to the value that you specify. The custom key store name must be unique in the AWS account.
 --
 -- /Note:/ Consider using 'newCustomKeyStoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucksNewCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Lude.Maybe Lude.Text)
-ucksNewCustomKeyStoreName = Lens.lens (newCustomKeyStoreName :: UpdateCustomKeyStore -> Lude.Maybe Lude.Text) (\s a -> s {newCustomKeyStoreName = a} :: UpdateCustomKeyStore)
+ucksNewCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Core.Maybe Types.CustomKeyStoreNameType)
+ucksNewCustomKeyStoreName = Lens.field @"newCustomKeyStoreName"
 {-# DEPRECATED ucksNewCustomKeyStoreName "Use generic-lens or generic-optics with 'newCustomKeyStoreName' instead." #-}
 
--- | Identifies the custom key store that you want to update. Enter the ID of the custom key store. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
---
--- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucksCustomKeyStoreId :: Lens.Lens' UpdateCustomKeyStore Lude.Text
-ucksCustomKeyStoreId = Lens.lens (customKeyStoreId :: UpdateCustomKeyStore -> Lude.Text) (\s a -> s {customKeyStoreId = a} :: UpdateCustomKeyStore)
-{-# DEPRECATED ucksCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
+instance Core.FromJSON UpdateCustomKeyStore where
+  toJSON UpdateCustomKeyStore {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CustomKeyStoreId" Core..= customKeyStoreId),
+            ("CloudHsmClusterId" Core..=) Core.<$> cloudHsmClusterId,
+            ("KeyStorePassword" Core..=) Core.<$> keyStorePassword,
+            ("NewCustomKeyStoreName" Core..=) Core.<$> newCustomKeyStoreName
+          ]
+      )
 
-instance Lude.AWSRequest UpdateCustomKeyStore where
+instance Core.AWSRequest UpdateCustomKeyStore where
   type Rs UpdateCustomKeyStore = UpdateCustomKeyStoreResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.UpdateCustomKeyStore")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateCustomKeyStoreResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateCustomKeyStore where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.UpdateCustomKeyStore" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateCustomKeyStore where
-  toJSON UpdateCustomKeyStore' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KeyStorePassword" Lude..=) Lude.<$> keyStorePassword,
-            ("CloudHsmClusterId" Lude..=) Lude.<$> cloudHSMClusterId,
-            ("NewCustomKeyStoreName" Lude..=) Lude.<$> newCustomKeyStoreName,
-            Lude.Just ("CustomKeyStoreId" Lude..= customKeyStoreId)
-          ]
-      )
-
-instance Lude.ToPath UpdateCustomKeyStore where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateCustomKeyStore where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateCustomKeyStoreResponse' smart constructor.
 newtype UpdateCustomKeyStoreResponse = UpdateCustomKeyStoreResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCustomKeyStoreResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateCustomKeyStoreResponse' value with any optional fields omitted.
 mkUpdateCustomKeyStoreResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateCustomKeyStoreResponse
-mkUpdateCustomKeyStoreResponse pResponseStatus_ =
-  UpdateCustomKeyStoreResponse' {responseStatus = pResponseStatus_}
+mkUpdateCustomKeyStoreResponse responseStatus =
+  UpdateCustomKeyStoreResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucksrsResponseStatus :: Lens.Lens' UpdateCustomKeyStoreResponse Lude.Int
-ucksrsResponseStatus = Lens.lens (responseStatus :: UpdateCustomKeyStoreResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCustomKeyStoreResponse)
-{-# DEPRECATED ucksrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucksrrsResponseStatus :: Lens.Lens' UpdateCustomKeyStoreResponse Core.Int
+ucksrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucksrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

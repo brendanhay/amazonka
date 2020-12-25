@@ -22,28 +22,30 @@ module Network.AWS.Shield.CreateProtection
     mkCreateProtection,
 
     -- ** Request lenses
-    cpResourceARN,
     cpName,
+    cpResourceArn,
 
     -- * Destructuring the response
     CreateProtectionResponse (..),
     mkCreateProtectionResponse,
 
     -- ** Response lenses
-    cprsProtectionId,
-    cprsResponseStatus,
+    cprrsProtectionId,
+    cprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkCreateProtection' smart constructor.
 data CreateProtection = CreateProtection'
-  { -- | The ARN (Amazon Resource Name) of the resource to be protected.
+  { -- | Friendly name for the @Protection@ you are creating.
+    name :: Types.Name,
+    -- | The ARN (Amazon Resource Name) of the resource to be protected.
     --
     -- The ARN should be in one of the following formats:
     --
@@ -63,46 +65,27 @@ data CreateProtection = CreateProtection'
     --
     --
     --     * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
-    resourceARN :: Lude.Text,
-    -- | Friendly name for the @Protection@ you are creating.
-    name :: Lude.Text
+    resourceArn :: Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProtection' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource to be protected.
---
--- The ARN should be in one of the following formats:
---
---     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
---
---
---     * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @
---
---
---     * For an AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @
---
---
---     * For an AWS Global Accelerator accelerator: @arn:aws:globalaccelerator::/account-id/ :accelerator//accelerator-id/ @
---
---
---     * For Amazon Route 53: @arn:aws:route53:::hostedzone//hosted-zone-id/ @
---
---
---     * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
---
---
--- * 'name' - Friendly name for the @Protection@ you are creating.
+-- | Creates a 'CreateProtection' value with any optional fields omitted.
 mkCreateProtection ::
-  -- | 'resourceARN'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   CreateProtection
-mkCreateProtection pResourceARN_ pName_ =
-  CreateProtection' {resourceARN = pResourceARN_, name = pName_}
+mkCreateProtection name resourceArn =
+  CreateProtection' {name, resourceArn}
+
+-- | Friendly name for the @Protection@ you are creating.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreateProtection Types.Name
+cpName = Lens.field @"name"
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ARN (Amazon Resource Name) of the resource to be protected.
 --
@@ -127,88 +110,71 @@ mkCreateProtection pResourceARN_ pName_ =
 --
 --
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpResourceARN :: Lens.Lens' CreateProtection Lude.Text
-cpResourceARN = Lens.lens (resourceARN :: CreateProtection -> Lude.Text) (\s a -> s {resourceARN = a} :: CreateProtection)
-{-# DEPRECATED cpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpResourceArn :: Lens.Lens' CreateProtection Types.ResourceArn
+cpResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED cpResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
--- | Friendly name for the @Protection@ you are creating.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpName :: Lens.Lens' CreateProtection Lude.Text
-cpName = Lens.lens (name :: CreateProtection -> Lude.Text) (\s a -> s {name = a} :: CreateProtection)
-{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
+instance Core.FromJSON CreateProtection where
+  toJSON CreateProtection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ResourceArn" Core..= resourceArn)
+          ]
+      )
 
-instance Lude.AWSRequest CreateProtection where
+instance Core.AWSRequest CreateProtection where
   type Rs CreateProtection = CreateProtectionResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSShield_20160616.CreateProtection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateProtectionResponse'
-            Lude.<$> (x Lude..?> "ProtectionId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ProtectionId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateProtection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.CreateProtection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateProtection where
-  toJSON CreateProtection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath CreateProtection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateProtection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateProtectionResponse' smart constructor.
 data CreateProtectionResponse = CreateProtectionResponse'
   { -- | The unique identifier (ID) for the 'Protection' object that is created.
-    protectionId :: Lude.Maybe Lude.Text,
+    protectionId :: Core.Maybe Types.ProtectionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProtectionResponse' with the minimum fields required to make a request.
---
--- * 'protectionId' - The unique identifier (ID) for the 'Protection' object that is created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateProtectionResponse' value with any optional fields omitted.
 mkCreateProtectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateProtectionResponse
-mkCreateProtectionResponse pResponseStatus_ =
+mkCreateProtectionResponse responseStatus =
   CreateProtectionResponse'
-    { protectionId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { protectionId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier (ID) for the 'Protection' object that is created.
 --
 -- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsProtectionId :: Lens.Lens' CreateProtectionResponse (Lude.Maybe Lude.Text)
-cprsProtectionId = Lens.lens (protectionId :: CreateProtectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {protectionId = a} :: CreateProtectionResponse)
-{-# DEPRECATED cprsProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
+cprrsProtectionId :: Lens.Lens' CreateProtectionResponse (Core.Maybe Types.ProtectionId)
+cprrsProtectionId = Lens.field @"protectionId"
+{-# DEPRECATED cprrsProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsResponseStatus :: Lens.Lens' CreateProtectionResponse Lude.Int
-cprsResponseStatus = Lens.lens (responseStatus :: CreateProtectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProtectionResponse)
-{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cprrsResponseStatus :: Lens.Lens' CreateProtectionResponse Core.Int
+cprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

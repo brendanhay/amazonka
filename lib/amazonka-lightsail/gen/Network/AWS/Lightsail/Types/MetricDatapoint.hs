@@ -17,10 +17,10 @@ module Network.AWS.Lightsail.Types.MetricDatapoint
     mkMetricDatapoint,
 
     -- * Lenses
-    mdSampleCount,
-    mdMaximum,
     mdAverage,
+    mdMaximum,
     mdMinimum,
+    mdSampleCount,
     mdSum,
     mdTimestamp,
     mdUnit,
@@ -28,113 +28,103 @@ module Network.AWS.Lightsail.Types.MetricDatapoint
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.MetricUnit
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.MetricUnit as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the metric data point.
 --
 -- /See:/ 'mkMetricDatapoint' smart constructor.
 data MetricDatapoint = MetricDatapoint'
-  { -- | The sample count.
-    sampleCount :: Lude.Maybe Lude.Double,
+  { -- | The average.
+    average :: Core.Maybe Core.Double,
     -- | The maximum.
-    maximum :: Lude.Maybe Lude.Double,
-    -- | The average.
-    average :: Lude.Maybe Lude.Double,
+    maximum :: Core.Maybe Core.Double,
     -- | The minimum.
-    minimum :: Lude.Maybe Lude.Double,
+    minimum :: Core.Maybe Core.Double,
+    -- | The sample count.
+    sampleCount :: Core.Maybe Core.Double,
     -- | The sum.
-    sum :: Lude.Maybe Lude.Double,
+    sum :: Core.Maybe Core.Double,
     -- | The timestamp (e.g., @1479816991.349@ ).
-    timestamp :: Lude.Maybe Lude.Timestamp,
+    timestamp :: Core.Maybe Core.NominalDiffTime,
     -- | The unit.
-    unit :: Lude.Maybe MetricUnit
+    unit :: Core.Maybe Types.MetricUnit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MetricDatapoint' with the minimum fields required to make a request.
---
--- * 'sampleCount' - The sample count.
--- * 'maximum' - The maximum.
--- * 'average' - The average.
--- * 'minimum' - The minimum.
--- * 'sum' - The sum.
--- * 'timestamp' - The timestamp (e.g., @1479816991.349@ ).
--- * 'unit' - The unit.
+-- | Creates a 'MetricDatapoint' value with any optional fields omitted.
 mkMetricDatapoint ::
   MetricDatapoint
 mkMetricDatapoint =
   MetricDatapoint'
-    { sampleCount = Lude.Nothing,
-      maximum = Lude.Nothing,
-      average = Lude.Nothing,
-      minimum = Lude.Nothing,
-      sum = Lude.Nothing,
-      timestamp = Lude.Nothing,
-      unit = Lude.Nothing
+    { average = Core.Nothing,
+      maximum = Core.Nothing,
+      minimum = Core.Nothing,
+      sampleCount = Core.Nothing,
+      sum = Core.Nothing,
+      timestamp = Core.Nothing,
+      unit = Core.Nothing
     }
-
--- | The sample count.
---
--- /Note:/ Consider using 'sampleCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdSampleCount :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
-mdSampleCount = Lens.lens (sampleCount :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {sampleCount = a} :: MetricDatapoint)
-{-# DEPRECATED mdSampleCount "Use generic-lens or generic-optics with 'sampleCount' instead." #-}
-
--- | The maximum.
---
--- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdMaximum :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
-mdMaximum = Lens.lens (maximum :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {maximum = a} :: MetricDatapoint)
-{-# DEPRECATED mdMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
 
 -- | The average.
 --
 -- /Note:/ Consider using 'average' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdAverage :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
-mdAverage = Lens.lens (average :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {average = a} :: MetricDatapoint)
+mdAverage :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
+mdAverage = Lens.field @"average"
 {-# DEPRECATED mdAverage "Use generic-lens or generic-optics with 'average' instead." #-}
+
+-- | The maximum.
+--
+-- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdMaximum :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
+mdMaximum = Lens.field @"maximum"
+{-# DEPRECATED mdMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
 
 -- | The minimum.
 --
 -- /Note:/ Consider using 'minimum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdMinimum :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
-mdMinimum = Lens.lens (minimum :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {minimum = a} :: MetricDatapoint)
+mdMinimum :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
+mdMinimum = Lens.field @"minimum"
 {-# DEPRECATED mdMinimum "Use generic-lens or generic-optics with 'minimum' instead." #-}
+
+-- | The sample count.
+--
+-- /Note:/ Consider using 'sampleCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdSampleCount :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
+mdSampleCount = Lens.field @"sampleCount"
+{-# DEPRECATED mdSampleCount "Use generic-lens or generic-optics with 'sampleCount' instead." #-}
 
 -- | The sum.
 --
 -- /Note:/ Consider using 'sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdSum :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
-mdSum = Lens.lens (sum :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {sum = a} :: MetricDatapoint)
+mdSum :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
+mdSum = Lens.field @"sum"
 {-# DEPRECATED mdSum "Use generic-lens or generic-optics with 'sum' instead." #-}
 
 -- | The timestamp (e.g., @1479816991.349@ ).
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdTimestamp :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Timestamp)
-mdTimestamp = Lens.lens (timestamp :: MetricDatapoint -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: MetricDatapoint)
+mdTimestamp :: Lens.Lens' MetricDatapoint (Core.Maybe Core.NominalDiffTime)
+mdTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED mdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The unit.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdUnit :: Lens.Lens' MetricDatapoint (Lude.Maybe MetricUnit)
-mdUnit = Lens.lens (unit :: MetricDatapoint -> Lude.Maybe MetricUnit) (\s a -> s {unit = a} :: MetricDatapoint)
+mdUnit :: Lens.Lens' MetricDatapoint (Core.Maybe Types.MetricUnit)
+mdUnit = Lens.field @"unit"
 {-# DEPRECATED mdUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.FromJSON MetricDatapoint where
+instance Core.FromJSON MetricDatapoint where
   parseJSON =
-    Lude.withObject
-      "MetricDatapoint"
-      ( \x ->
-          MetricDatapoint'
-            Lude.<$> (x Lude..:? "sampleCount")
-            Lude.<*> (x Lude..:? "maximum")
-            Lude.<*> (x Lude..:? "average")
-            Lude.<*> (x Lude..:? "minimum")
-            Lude.<*> (x Lude..:? "sum")
-            Lude.<*> (x Lude..:? "timestamp")
-            Lude.<*> (x Lude..:? "unit")
-      )
+    Core.withObject "MetricDatapoint" Core.$
+      \x ->
+        MetricDatapoint'
+          Core.<$> (x Core..:? "average")
+          Core.<*> (x Core..:? "maximum")
+          Core.<*> (x Core..:? "minimum")
+          Core.<*> (x Core..:? "sampleCount")
+          Core.<*> (x Core..:? "sum")
+          Core.<*> (x Core..:? "timestamp")
+          Core.<*> (x Core..:? "unit")

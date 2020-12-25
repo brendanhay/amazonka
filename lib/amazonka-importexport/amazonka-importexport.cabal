@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ImportExport
     Network.AWS.ImportExport.CancelJob
@@ -77,9 +83,39 @@ library
     Network.AWS.ImportExport.Waiters
 
   other-modules:
+    Network.AWS.ImportExport.Types.APIVersion
     Network.AWS.ImportExport.Types.Artifact
+    Network.AWS.ImportExport.Types.Carrier
+    Network.AWS.ImportExport.Types.City
+    Network.AWS.ImportExport.Types.Company
+    Network.AWS.ImportExport.Types.Country
+    Network.AWS.ImportExport.Types.CurrentManifest
+    Network.AWS.ImportExport.Types.Description
+    Network.AWS.ImportExport.Types.GenericString
     Network.AWS.ImportExport.Types.Job
+    Network.AWS.ImportExport.Types.JobId
     Network.AWS.ImportExport.Types.JobType
+    Network.AWS.ImportExport.Types.LocationCode
+    Network.AWS.ImportExport.Types.LocationMessage
+    Network.AWS.ImportExport.Types.LogBucket
+    Network.AWS.ImportExport.Types.LogKey
+    Network.AWS.ImportExport.Types.Manifest
+    Network.AWS.ImportExport.Types.ManifestAddendum
+    Network.AWS.ImportExport.Types.Marker
+    Network.AWS.ImportExport.Types.Name
+    Network.AWS.ImportExport.Types.PhoneNumber
+    Network.AWS.ImportExport.Types.PostalCode
+    Network.AWS.ImportExport.Types.ProgressCode
+    Network.AWS.ImportExport.Types.ProgressMessage
+    Network.AWS.ImportExport.Types.Signature
+    Network.AWS.ImportExport.Types.SignatureFileContents
+    Network.AWS.ImportExport.Types.StateOrProvince
+    Network.AWS.ImportExport.Types.Street1
+    Network.AWS.ImportExport.Types.Street2
+    Network.AWS.ImportExport.Types.Street3
+    Network.AWS.ImportExport.Types.TrackingNumber
+    Network.AWS.ImportExport.Types.URL
+    Network.AWS.ImportExport.Types.WarningMessage
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

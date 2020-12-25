@@ -22,61 +22,58 @@ module Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.WebhookAuthConfigurationAllowedIPRange as Types
+import qualified Network.AWS.CodePipeline.Types.WebhookAuthConfigurationSecretToken as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The authentication applied to incoming webhook trigger requests.
 --
 -- /See:/ 'mkWebhookAuthConfiguration' smart constructor.
 data WebhookAuthConfiguration = WebhookAuthConfiguration'
   { -- | The property used to configure acceptance of webhooks in an IP address range. For IP, only the @AllowedIPRange@ property must be set. This property must be set to a valid CIDR range.
-    allowedIPRange :: Lude.Maybe Lude.Text,
+    allowedIPRange :: Core.Maybe Types.WebhookAuthConfigurationAllowedIPRange,
     -- | The property used to configure GitHub authentication. For GITHUB_HMAC, only the @SecretToken@ property must be set.
-    secretToken :: Lude.Maybe Lude.Text
+    secretToken :: Core.Maybe Types.WebhookAuthConfigurationSecretToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WebhookAuthConfiguration' with the minimum fields required to make a request.
---
--- * 'allowedIPRange' - The property used to configure acceptance of webhooks in an IP address range. For IP, only the @AllowedIPRange@ property must be set. This property must be set to a valid CIDR range.
--- * 'secretToken' - The property used to configure GitHub authentication. For GITHUB_HMAC, only the @SecretToken@ property must be set.
+-- | Creates a 'WebhookAuthConfiguration' value with any optional fields omitted.
 mkWebhookAuthConfiguration ::
   WebhookAuthConfiguration
 mkWebhookAuthConfiguration =
   WebhookAuthConfiguration'
-    { allowedIPRange = Lude.Nothing,
-      secretToken = Lude.Nothing
+    { allowedIPRange = Core.Nothing,
+      secretToken = Core.Nothing
     }
 
 -- | The property used to configure acceptance of webhooks in an IP address range. For IP, only the @AllowedIPRange@ property must be set. This property must be set to a valid CIDR range.
 --
 -- /Note:/ Consider using 'allowedIPRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wacAllowedIPRange :: Lens.Lens' WebhookAuthConfiguration (Lude.Maybe Lude.Text)
-wacAllowedIPRange = Lens.lens (allowedIPRange :: WebhookAuthConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {allowedIPRange = a} :: WebhookAuthConfiguration)
+wacAllowedIPRange :: Lens.Lens' WebhookAuthConfiguration (Core.Maybe Types.WebhookAuthConfigurationAllowedIPRange)
+wacAllowedIPRange = Lens.field @"allowedIPRange"
 {-# DEPRECATED wacAllowedIPRange "Use generic-lens or generic-optics with 'allowedIPRange' instead." #-}
 
 -- | The property used to configure GitHub authentication. For GITHUB_HMAC, only the @SecretToken@ property must be set.
 --
 -- /Note:/ Consider using 'secretToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wacSecretToken :: Lens.Lens' WebhookAuthConfiguration (Lude.Maybe Lude.Text)
-wacSecretToken = Lens.lens (secretToken :: WebhookAuthConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {secretToken = a} :: WebhookAuthConfiguration)
+wacSecretToken :: Lens.Lens' WebhookAuthConfiguration (Core.Maybe Types.WebhookAuthConfigurationSecretToken)
+wacSecretToken = Lens.field @"secretToken"
 {-# DEPRECATED wacSecretToken "Use generic-lens or generic-optics with 'secretToken' instead." #-}
 
-instance Lude.FromJSON WebhookAuthConfiguration where
-  parseJSON =
-    Lude.withObject
-      "WebhookAuthConfiguration"
-      ( \x ->
-          WebhookAuthConfiguration'
-            Lude.<$> (x Lude..:? "AllowedIPRange") Lude.<*> (x Lude..:? "SecretToken")
-      )
-
-instance Lude.ToJSON WebhookAuthConfiguration where
-  toJSON WebhookAuthConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AllowedIPRange" Lude..=) Lude.<$> allowedIPRange,
-            ("SecretToken" Lude..=) Lude.<$> secretToken
+instance Core.FromJSON WebhookAuthConfiguration where
+  toJSON WebhookAuthConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AllowedIPRange" Core..=) Core.<$> allowedIPRange,
+            ("SecretToken" Core..=) Core.<$> secretToken
           ]
       )
+
+instance Core.FromJSON WebhookAuthConfiguration where
+  parseJSON =
+    Core.withObject "WebhookAuthConfiguration" Core.$
+      \x ->
+        WebhookAuthConfiguration'
+          Core.<$> (x Core..:? "AllowedIPRange") Core.<*> (x Core..:? "SecretToken")

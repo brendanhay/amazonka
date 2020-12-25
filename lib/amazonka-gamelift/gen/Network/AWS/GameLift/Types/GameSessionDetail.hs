@@ -22,17 +22,17 @@ module Network.AWS.GameLift.Types.GameSessionDetail
   )
 where
 
-import Network.AWS.GameLift.Types.GameSession
-import Network.AWS.GameLift.Types.ProtectionPolicy
+import qualified Network.AWS.GameLift.Types.GameSession as Types
+import qualified Network.AWS.GameLift.Types.ProtectionPolicy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A game session's properties plus the protection policy currently in force.
 --
 -- /See:/ 'mkGameSessionDetail' smart constructor.
 data GameSessionDetail = GameSessionDetail'
   { -- | Object that describes a game session.
-    gameSession :: Lude.Maybe GameSession,
+    gameSession :: Core.Maybe Types.GameSession,
     -- | Current status of protection for the game session.
     --
     --
@@ -40,34 +40,25 @@ data GameSessionDetail = GameSessionDetail'
     --
     --
     --     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
-    protectionPolicy :: Lude.Maybe ProtectionPolicy
+    protectionPolicy :: Core.Maybe Types.ProtectionPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GameSessionDetail' with the minimum fields required to make a request.
---
--- * 'gameSession' - Object that describes a game session.
--- * 'protectionPolicy' - Current status of protection for the game session.
---
---
---     * __NoProtection__ -- The game session can be terminated during a scale-down event.
---
---
---     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- | Creates a 'GameSessionDetail' value with any optional fields omitted.
 mkGameSessionDetail ::
   GameSessionDetail
 mkGameSessionDetail =
   GameSessionDetail'
-    { gameSession = Lude.Nothing,
-      protectionPolicy = Lude.Nothing
+    { gameSession = Core.Nothing,
+      protectionPolicy = Core.Nothing
     }
 
 -- | Object that describes a game session.
 --
 -- /Note:/ Consider using 'gameSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsdGameSession :: Lens.Lens' GameSessionDetail (Lude.Maybe GameSession)
-gsdGameSession = Lens.lens (gameSession :: GameSessionDetail -> Lude.Maybe GameSession) (\s a -> s {gameSession = a} :: GameSessionDetail)
+gsdGameSession :: Lens.Lens' GameSessionDetail (Core.Maybe Types.GameSession)
+gsdGameSession = Lens.field @"gameSession"
 {-# DEPRECATED gsdGameSession "Use generic-lens or generic-optics with 'gameSession' instead." #-}
 
 -- | Current status of protection for the game session.
@@ -81,16 +72,13 @@ gsdGameSession = Lens.lens (gameSession :: GameSessionDetail -> Lude.Maybe GameS
 --
 --
 -- /Note:/ Consider using 'protectionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsdProtectionPolicy :: Lens.Lens' GameSessionDetail (Lude.Maybe ProtectionPolicy)
-gsdProtectionPolicy = Lens.lens (protectionPolicy :: GameSessionDetail -> Lude.Maybe ProtectionPolicy) (\s a -> s {protectionPolicy = a} :: GameSessionDetail)
+gsdProtectionPolicy :: Lens.Lens' GameSessionDetail (Core.Maybe Types.ProtectionPolicy)
+gsdProtectionPolicy = Lens.field @"protectionPolicy"
 {-# DEPRECATED gsdProtectionPolicy "Use generic-lens or generic-optics with 'protectionPolicy' instead." #-}
 
-instance Lude.FromJSON GameSessionDetail where
+instance Core.FromJSON GameSessionDetail where
   parseJSON =
-    Lude.withObject
-      "GameSessionDetail"
-      ( \x ->
-          GameSessionDetail'
-            Lude.<$> (x Lude..:? "GameSession")
-            Lude.<*> (x Lude..:? "ProtectionPolicy")
-      )
+    Core.withObject "GameSessionDetail" Core.$
+      \x ->
+        GameSessionDetail'
+          Core.<$> (x Core..:? "GameSession") Core.<*> (x Core..:? "ProtectionPolicy")

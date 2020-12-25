@@ -17,99 +17,94 @@ module Network.AWS.ECR.Types.ImageScanFinding
     mkImageScanFinding,
 
     -- * Lenses
-    isfSeverity,
-    isfUri,
-    isfName,
     isfAttributes,
     isfDescription,
+    isfName,
+    isfSeverity,
+    isfUri,
   )
 where
 
-import Network.AWS.ECR.Types.Attribute
-import Network.AWS.ECR.Types.FindingSeverity
+import qualified Network.AWS.ECR.Types.Attribute as Types
+import qualified Network.AWS.ECR.Types.Description as Types
+import qualified Network.AWS.ECR.Types.FindingName as Types
+import qualified Network.AWS.ECR.Types.FindingSeverity as Types
+import qualified Network.AWS.ECR.Types.Url as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an image scan finding.
 --
 -- /See:/ 'mkImageScanFinding' smart constructor.
 data ImageScanFinding = ImageScanFinding'
-  { -- | The finding severity.
-    severity :: Lude.Maybe FindingSeverity,
-    -- | A link containing additional details about the security vulnerability.
-    uri :: Lude.Maybe Lude.Text,
-    -- | The name associated with the finding, usually a CVE number.
-    name :: Lude.Maybe Lude.Text,
-    -- | A collection of attributes of the host from which the finding is generated.
-    attributes :: Lude.Maybe [Attribute],
+  { -- | A collection of attributes of the host from which the finding is generated.
+    attributes :: Core.Maybe [Types.Attribute],
     -- | The description of the finding.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The name associated with the finding, usually a CVE number.
+    name :: Core.Maybe Types.FindingName,
+    -- | The finding severity.
+    severity :: Core.Maybe Types.FindingSeverity,
+    -- | A link containing additional details about the security vulnerability.
+    uri :: Core.Maybe Types.Url
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImageScanFinding' with the minimum fields required to make a request.
---
--- * 'severity' - The finding severity.
--- * 'uri' - A link containing additional details about the security vulnerability.
--- * 'name' - The name associated with the finding, usually a CVE number.
--- * 'attributes' - A collection of attributes of the host from which the finding is generated.
--- * 'description' - The description of the finding.
+-- | Creates a 'ImageScanFinding' value with any optional fields omitted.
 mkImageScanFinding ::
   ImageScanFinding
 mkImageScanFinding =
   ImageScanFinding'
-    { severity = Lude.Nothing,
-      uri = Lude.Nothing,
-      name = Lude.Nothing,
-      attributes = Lude.Nothing,
-      description = Lude.Nothing
+    { attributes = Core.Nothing,
+      description = Core.Nothing,
+      name = Core.Nothing,
+      severity = Core.Nothing,
+      uri = Core.Nothing
     }
-
--- | The finding severity.
---
--- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfSeverity :: Lens.Lens' ImageScanFinding (Lude.Maybe FindingSeverity)
-isfSeverity = Lens.lens (severity :: ImageScanFinding -> Lude.Maybe FindingSeverity) (\s a -> s {severity = a} :: ImageScanFinding)
-{-# DEPRECATED isfSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
-
--- | A link containing additional details about the security vulnerability.
---
--- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfUri :: Lens.Lens' ImageScanFinding (Lude.Maybe Lude.Text)
-isfUri = Lens.lens (uri :: ImageScanFinding -> Lude.Maybe Lude.Text) (\s a -> s {uri = a} :: ImageScanFinding)
-{-# DEPRECATED isfUri "Use generic-lens or generic-optics with 'uri' instead." #-}
-
--- | The name associated with the finding, usually a CVE number.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfName :: Lens.Lens' ImageScanFinding (Lude.Maybe Lude.Text)
-isfName = Lens.lens (name :: ImageScanFinding -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ImageScanFinding)
-{-# DEPRECATED isfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A collection of attributes of the host from which the finding is generated.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfAttributes :: Lens.Lens' ImageScanFinding (Lude.Maybe [Attribute])
-isfAttributes = Lens.lens (attributes :: ImageScanFinding -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: ImageScanFinding)
+isfAttributes :: Lens.Lens' ImageScanFinding (Core.Maybe [Types.Attribute])
+isfAttributes = Lens.field @"attributes"
 {-# DEPRECATED isfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The description of the finding.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfDescription :: Lens.Lens' ImageScanFinding (Lude.Maybe Lude.Text)
-isfDescription = Lens.lens (description :: ImageScanFinding -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImageScanFinding)
+isfDescription :: Lens.Lens' ImageScanFinding (Core.Maybe Types.Description)
+isfDescription = Lens.field @"description"
 {-# DEPRECATED isfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON ImageScanFinding where
+-- | The name associated with the finding, usually a CVE number.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfName :: Lens.Lens' ImageScanFinding (Core.Maybe Types.FindingName)
+isfName = Lens.field @"name"
+{-# DEPRECATED isfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The finding severity.
+--
+-- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfSeverity :: Lens.Lens' ImageScanFinding (Core.Maybe Types.FindingSeverity)
+isfSeverity = Lens.field @"severity"
+{-# DEPRECATED isfSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
+
+-- | A link containing additional details about the security vulnerability.
+--
+-- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfUri :: Lens.Lens' ImageScanFinding (Core.Maybe Types.Url)
+isfUri = Lens.field @"uri"
+{-# DEPRECATED isfUri "Use generic-lens or generic-optics with 'uri' instead." #-}
+
+instance Core.FromJSON ImageScanFinding where
   parseJSON =
-    Lude.withObject
-      "ImageScanFinding"
-      ( \x ->
-          ImageScanFinding'
-            Lude.<$> (x Lude..:? "severity")
-            Lude.<*> (x Lude..:? "uri")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "ImageScanFinding" Core.$
+      \x ->
+        ImageScanFinding'
+          Core.<$> (x Core..:? "attributes")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "severity")
+          Core.<*> (x Core..:? "uri")

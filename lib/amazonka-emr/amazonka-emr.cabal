@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.EMR
     Network.AWS.EMR.AddInstanceFleet
@@ -119,6 +125,8 @@ library
     Network.AWS.EMR.Types.ActionOnFailure
     Network.AWS.EMR.Types.AdjustmentType
     Network.AWS.EMR.Types.Application
+    Network.AWS.EMR.Types.Arn
+    Network.AWS.EMR.Types.ArnType
     Network.AWS.EMR.Types.AuthMode
     Network.AWS.EMR.Types.AutoScalingPolicy
     Network.AWS.EMR.Types.AutoScalingPolicyDescription
@@ -126,6 +134,7 @@ library
     Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason
     Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
     Network.AWS.EMR.Types.AutoScalingPolicyStatus
+    Network.AWS.EMR.Types.BidPrice
     Network.AWS.EMR.Types.BlockPublicAccessConfiguration
     Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata
     Network.AWS.EMR.Types.BootstrapActionConfig
@@ -133,6 +142,8 @@ library
     Network.AWS.EMR.Types.CancelStepsRequestStatus
     Network.AWS.EMR.Types.CloudWatchAlarmDefinition
     Network.AWS.EMR.Types.Cluster
+    Network.AWS.EMR.Types.ClusterArn
+    Network.AWS.EMR.Types.ClusterId
     Network.AWS.EMR.Types.ClusterState
     Network.AWS.EMR.Types.ClusterStateChangeReason
     Network.AWS.EMR.Types.ClusterStateChangeReasonCode
@@ -144,21 +155,33 @@ library
     Network.AWS.EMR.Types.ComputeLimits
     Network.AWS.EMR.Types.ComputeLimitsUnitType
     Network.AWS.EMR.Types.Configuration
-    Network.AWS.EMR.Types.EBSBlockDevice
-    Network.AWS.EMR.Types.EBSBlockDeviceConfig
-    Network.AWS.EMR.Types.EBSConfiguration
-    Network.AWS.EMR.Types.EBSVolume
-    Network.AWS.EMR.Types.EC2InstanceAttributes
+    Network.AWS.EMR.Types.CustomAmiId
+    Network.AWS.EMR.Types.EbsBlockDevice
+    Network.AWS.EMR.Types.EbsBlockDeviceConfig
+    Network.AWS.EMR.Types.EbsConfiguration
+    Network.AWS.EMR.Types.EbsVolume
+    Network.AWS.EMR.Types.Ec2AvailabilityZone
+    Network.AWS.EMR.Types.Ec2InstanceAttributes
+    Network.AWS.EMR.Types.Ec2KeyName
+    Network.AWS.EMR.Types.Ec2SubnetId
+    Network.AWS.EMR.Types.EditorId
+    Network.AWS.EMR.Types.EmrManagedMasterSecurityGroup
+    Network.AWS.EMR.Types.EmrManagedSlaveSecurityGroup
     Network.AWS.EMR.Types.ExecutionEngineConfig
     Network.AWS.EMR.Types.ExecutionEngineType
     Network.AWS.EMR.Types.FailureDetails
-    Network.AWS.EMR.Types.HadoopJARStepConfig
+    Network.AWS.EMR.Types.HadoopJarStepConfig
     Network.AWS.EMR.Types.HadoopStepConfig
+    Network.AWS.EMR.Types.IamInstanceProfile
+    Network.AWS.EMR.Types.Id
+    Network.AWS.EMR.Types.IdentityId
+    Network.AWS.EMR.Types.IdentityName
     Network.AWS.EMR.Types.IdentityType
     Network.AWS.EMR.Types.Instance
     Network.AWS.EMR.Types.InstanceCollectionType
     Network.AWS.EMR.Types.InstanceFleet
     Network.AWS.EMR.Types.InstanceFleetConfig
+    Network.AWS.EMR.Types.InstanceFleetId
     Network.AWS.EMR.Types.InstanceFleetModifyConfig
     Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications
     Network.AWS.EMR.Types.InstanceFleetState
@@ -169,6 +192,7 @@ library
     Network.AWS.EMR.Types.InstanceFleetType
     Network.AWS.EMR.Types.InstanceGroup
     Network.AWS.EMR.Types.InstanceGroupConfig
+    Network.AWS.EMR.Types.InstanceGroupId
     Network.AWS.EMR.Types.InstanceGroupModifyConfig
     Network.AWS.EMR.Types.InstanceGroupState
     Network.AWS.EMR.Types.InstanceGroupStateChangeReason
@@ -176,6 +200,7 @@ library
     Network.AWS.EMR.Types.InstanceGroupStatus
     Network.AWS.EMR.Types.InstanceGroupTimeline
     Network.AWS.EMR.Types.InstanceGroupType
+    Network.AWS.EMR.Types.InstanceId
     Network.AWS.EMR.Types.InstanceResizePolicy
     Network.AWS.EMR.Types.InstanceRoleType
     Network.AWS.EMR.Types.InstanceState
@@ -183,33 +208,58 @@ library
     Network.AWS.EMR.Types.InstanceStateChangeReasonCode
     Network.AWS.EMR.Types.InstanceStatus
     Network.AWS.EMR.Types.InstanceTimeline
+    Network.AWS.EMR.Types.InstanceType
     Network.AWS.EMR.Types.InstanceTypeConfig
     Network.AWS.EMR.Types.InstanceTypeSpecification
+    Network.AWS.EMR.Types.JobFlowId
     Network.AWS.EMR.Types.JobFlowInstancesConfig
     Network.AWS.EMR.Types.KerberosAttributes
+    Network.AWS.EMR.Types.Key
     Network.AWS.EMR.Types.KeyValue
+    Network.AWS.EMR.Types.LogEncryptionKmsKeyId
+    Network.AWS.EMR.Types.LogFile
+    Network.AWS.EMR.Types.LogUri
     Network.AWS.EMR.Types.ManagedScalingPolicy
+    Network.AWS.EMR.Types.Marker
     Network.AWS.EMR.Types.MarketType
+    Network.AWS.EMR.Types.MasterPublicDnsName
+    Network.AWS.EMR.Types.Message
     Network.AWS.EMR.Types.MetricDimension
+    Network.AWS.EMR.Types.Name
     Network.AWS.EMR.Types.NotebookExecution
+    Network.AWS.EMR.Types.NotebookExecutionId
+    Network.AWS.EMR.Types.NotebookExecutionName
     Network.AWS.EMR.Types.NotebookExecutionStatus
     Network.AWS.EMR.Types.NotebookExecutionSummary
+    Network.AWS.EMR.Types.NotebookInstanceSecurityGroupId
     Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
     Network.AWS.EMR.Types.OnDemandProvisioningSpecification
+    Network.AWS.EMR.Types.OptionalArnType
+    Network.AWS.EMR.Types.OutpostArn
     Network.AWS.EMR.Types.PlacementGroupConfig
     Network.AWS.EMR.Types.PlacementGroupStrategy
     Network.AWS.EMR.Types.PlacementType
     Network.AWS.EMR.Types.PortRange
+    Network.AWS.EMR.Types.Reason
+    Network.AWS.EMR.Types.ReleaseLabel
     Network.AWS.EMR.Types.RepoUpgradeOnBoot
+    Network.AWS.EMR.Types.RequestedAmiVersion
+    Network.AWS.EMR.Types.ResourceId
+    Network.AWS.EMR.Types.RunningAmiVersion
     Network.AWS.EMR.Types.ScaleDownBehavior
     Network.AWS.EMR.Types.ScalingAction
     Network.AWS.EMR.Types.ScalingConstraints
     Network.AWS.EMR.Types.ScalingRule
     Network.AWS.EMR.Types.ScalingTrigger
     Network.AWS.EMR.Types.ScriptBootstrapActionConfig
+    Network.AWS.EMR.Types.ScriptPath
+    Network.AWS.EMR.Types.SecurityConfiguration
     Network.AWS.EMR.Types.SecurityConfigurationSummary
+    Network.AWS.EMR.Types.ServiceAccessSecurityGroup
+    Network.AWS.EMR.Types.ServiceRole
     Network.AWS.EMR.Types.SessionMappingDetail
     Network.AWS.EMR.Types.SessionMappingSummary
+    Network.AWS.EMR.Types.SessionPolicyArn
     Network.AWS.EMR.Types.ShrinkPolicy
     Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
     Network.AWS.EMR.Types.SpotProvisioningAllocationStrategy
@@ -219,18 +269,25 @@ library
     Network.AWS.EMR.Types.Step
     Network.AWS.EMR.Types.StepCancellationOption
     Network.AWS.EMR.Types.StepConfig
+    Network.AWS.EMR.Types.StepId
     Network.AWS.EMR.Types.StepState
     Network.AWS.EMR.Types.StepStateChangeReason
     Network.AWS.EMR.Types.StepStateChangeReasonCode
     Network.AWS.EMR.Types.StepStatus
     Network.AWS.EMR.Types.StepSummary
     Network.AWS.EMR.Types.StepTimeline
+    Network.AWS.EMR.Types.String
     Network.AWS.EMR.Types.Studio
+    Network.AWS.EMR.Types.StudioId
     Network.AWS.EMR.Types.StudioSummary
     Network.AWS.EMR.Types.SupportedProductConfig
     Network.AWS.EMR.Types.Tag
     Network.AWS.EMR.Types.Unit
+    Network.AWS.EMR.Types.Value
+    Network.AWS.EMR.Types.Version
     Network.AWS.EMR.Types.VolumeSpecification
+    Network.AWS.EMR.Types.XmlString
+    Network.AWS.EMR.Types.XmlStringMaxLen256
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

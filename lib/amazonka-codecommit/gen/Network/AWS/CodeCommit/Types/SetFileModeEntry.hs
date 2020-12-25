@@ -17,59 +17,57 @@ module Network.AWS.CodeCommit.Types.SetFileModeEntry
     mkSetFileModeEntry,
 
     -- * Lenses
-    sfmeFileMode,
     sfmeFilePath,
+    sfmeFileMode,
   )
 where
 
-import Network.AWS.CodeCommit.Types.FileModeTypeEnum
+import qualified Network.AWS.CodeCommit.Types.FileModeTypeEnum as Types
+import qualified Network.AWS.CodeCommit.Types.Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the file mode changes.
 --
 -- /See:/ 'mkSetFileModeEntry' smart constructor.
 data SetFileModeEntry = SetFileModeEntry'
-  { -- | The file mode for the file.
-    fileMode :: FileModeTypeEnum,
-    -- | The full path to the file, including the name of the file.
-    filePath :: Lude.Text
+  { -- | The full path to the file, including the name of the file.
+    filePath :: Types.Path,
+    -- | The file mode for the file.
+    fileMode :: Types.FileModeTypeEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetFileModeEntry' with the minimum fields required to make a request.
---
--- * 'fileMode' - The file mode for the file.
--- * 'filePath' - The full path to the file, including the name of the file.
+-- | Creates a 'SetFileModeEntry' value with any optional fields omitted.
 mkSetFileModeEntry ::
-  -- | 'fileMode'
-  FileModeTypeEnum ->
   -- | 'filePath'
-  Lude.Text ->
+  Types.Path ->
+  -- | 'fileMode'
+  Types.FileModeTypeEnum ->
   SetFileModeEntry
-mkSetFileModeEntry pFileMode_ pFilePath_ =
-  SetFileModeEntry' {fileMode = pFileMode_, filePath = pFilePath_}
-
--- | The file mode for the file.
---
--- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfmeFileMode :: Lens.Lens' SetFileModeEntry FileModeTypeEnum
-sfmeFileMode = Lens.lens (fileMode :: SetFileModeEntry -> FileModeTypeEnum) (\s a -> s {fileMode = a} :: SetFileModeEntry)
-{-# DEPRECATED sfmeFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
+mkSetFileModeEntry filePath fileMode =
+  SetFileModeEntry' {filePath, fileMode}
 
 -- | The full path to the file, including the name of the file.
 --
 -- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfmeFilePath :: Lens.Lens' SetFileModeEntry Lude.Text
-sfmeFilePath = Lens.lens (filePath :: SetFileModeEntry -> Lude.Text) (\s a -> s {filePath = a} :: SetFileModeEntry)
+sfmeFilePath :: Lens.Lens' SetFileModeEntry Types.Path
+sfmeFilePath = Lens.field @"filePath"
 {-# DEPRECATED sfmeFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
-instance Lude.ToJSON SetFileModeEntry where
-  toJSON SetFileModeEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("fileMode" Lude..= fileMode),
-            Lude.Just ("filePath" Lude..= filePath)
+-- | The file mode for the file.
+--
+-- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfmeFileMode :: Lens.Lens' SetFileModeEntry Types.FileModeTypeEnum
+sfmeFileMode = Lens.field @"fileMode"
+{-# DEPRECATED sfmeFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
+
+instance Core.FromJSON SetFileModeEntry where
+  toJSON SetFileModeEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("filePath" Core..= filePath),
+            Core.Just ("fileMode" Core..= fileMode)
           ]
       )

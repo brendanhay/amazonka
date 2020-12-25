@@ -13,66 +13,71 @@
 module Network.AWS.ServiceCatalog.Types.ResourceAttribute
   ( ResourceAttribute
       ( ResourceAttribute',
-        Properties,
-        Metadata,
-        Creationpolicy,
-        Updatepolicy,
-        Deletionpolicy,
-        Tags
+        ResourceAttributeProperties,
+        ResourceAttributeMetadata,
+        ResourceAttributeCreationpolicy,
+        ResourceAttributeUpdatepolicy,
+        ResourceAttributeDeletionpolicy,
+        ResourceAttributeTags,
+        fromResourceAttribute
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceAttribute = ResourceAttribute' Lude.Text
+newtype ResourceAttribute = ResourceAttribute'
+  { fromResourceAttribute ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Properties :: ResourceAttribute
-pattern Properties = ResourceAttribute' "PROPERTIES"
+pattern ResourceAttributeProperties :: ResourceAttribute
+pattern ResourceAttributeProperties = ResourceAttribute' "PROPERTIES"
 
-pattern Metadata :: ResourceAttribute
-pattern Metadata = ResourceAttribute' "METADATA"
+pattern ResourceAttributeMetadata :: ResourceAttribute
+pattern ResourceAttributeMetadata = ResourceAttribute' "METADATA"
 
-pattern Creationpolicy :: ResourceAttribute
-pattern Creationpolicy = ResourceAttribute' "CREATIONPOLICY"
+pattern ResourceAttributeCreationpolicy :: ResourceAttribute
+pattern ResourceAttributeCreationpolicy = ResourceAttribute' "CREATIONPOLICY"
 
-pattern Updatepolicy :: ResourceAttribute
-pattern Updatepolicy = ResourceAttribute' "UPDATEPOLICY"
+pattern ResourceAttributeUpdatepolicy :: ResourceAttribute
+pattern ResourceAttributeUpdatepolicy = ResourceAttribute' "UPDATEPOLICY"
 
-pattern Deletionpolicy :: ResourceAttribute
-pattern Deletionpolicy = ResourceAttribute' "DELETIONPOLICY"
+pattern ResourceAttributeDeletionpolicy :: ResourceAttribute
+pattern ResourceAttributeDeletionpolicy = ResourceAttribute' "DELETIONPOLICY"
 
-pattern Tags :: ResourceAttribute
-pattern Tags = ResourceAttribute' "TAGS"
+pattern ResourceAttributeTags :: ResourceAttribute
+pattern ResourceAttributeTags = ResourceAttribute' "TAGS"
 
 {-# COMPLETE
-  Properties,
-  Metadata,
-  Creationpolicy,
-  Updatepolicy,
-  Deletionpolicy,
-  Tags,
+  ResourceAttributeProperties,
+  ResourceAttributeMetadata,
+  ResourceAttributeCreationpolicy,
+  ResourceAttributeUpdatepolicy,
+  ResourceAttributeDeletionpolicy,
+  ResourceAttributeTags,
   ResourceAttribute'
   #-}

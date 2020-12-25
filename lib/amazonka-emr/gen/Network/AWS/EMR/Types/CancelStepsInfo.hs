@@ -17,72 +17,68 @@ module Network.AWS.EMR.Types.CancelStepsInfo
     mkCancelStepsInfo,
 
     -- * Lenses
+    csiReason,
     csiStatus,
     csiStepId,
-    csiReason,
   )
 where
 
-import Network.AWS.EMR.Types.CancelStepsRequestStatus
+import qualified Network.AWS.EMR.Types.CancelStepsRequestStatus as Types
+import qualified Network.AWS.EMR.Types.StepId as Types
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and later, excluding version 5.0.0.
 --
 -- /See:/ 'mkCancelStepsInfo' smart constructor.
 data CancelStepsInfo = CancelStepsInfo'
-  { -- | The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
-    status :: Lude.Maybe CancelStepsRequestStatus,
+  { -- | The reason for the failure if the CancelSteps request fails.
+    reason :: Core.Maybe Types.String,
+    -- | The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
+    status :: Core.Maybe Types.CancelStepsRequestStatus,
     -- | The encrypted StepId of a step.
-    stepId :: Lude.Maybe Lude.Text,
-    -- | The reason for the failure if the CancelSteps request fails.
-    reason :: Lude.Maybe Lude.Text
+    stepId :: Core.Maybe Types.StepId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelStepsInfo' with the minimum fields required to make a request.
---
--- * 'status' - The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
--- * 'stepId' - The encrypted StepId of a step.
--- * 'reason' - The reason for the failure if the CancelSteps request fails.
+-- | Creates a 'CancelStepsInfo' value with any optional fields omitted.
 mkCancelStepsInfo ::
   CancelStepsInfo
 mkCancelStepsInfo =
   CancelStepsInfo'
-    { status = Lude.Nothing,
-      stepId = Lude.Nothing,
-      reason = Lude.Nothing
+    { reason = Core.Nothing,
+      status = Core.Nothing,
+      stepId = Core.Nothing
     }
+
+-- | The reason for the failure if the CancelSteps request fails.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csiReason :: Lens.Lens' CancelStepsInfo (Core.Maybe Types.String)
+csiReason = Lens.field @"reason"
+{-# DEPRECATED csiReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiStatus :: Lens.Lens' CancelStepsInfo (Lude.Maybe CancelStepsRequestStatus)
-csiStatus = Lens.lens (status :: CancelStepsInfo -> Lude.Maybe CancelStepsRequestStatus) (\s a -> s {status = a} :: CancelStepsInfo)
+csiStatus :: Lens.Lens' CancelStepsInfo (Core.Maybe Types.CancelStepsRequestStatus)
+csiStatus = Lens.field @"status"
 {-# DEPRECATED csiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The encrypted StepId of a step.
 --
 -- /Note:/ Consider using 'stepId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiStepId :: Lens.Lens' CancelStepsInfo (Lude.Maybe Lude.Text)
-csiStepId = Lens.lens (stepId :: CancelStepsInfo -> Lude.Maybe Lude.Text) (\s a -> s {stepId = a} :: CancelStepsInfo)
+csiStepId :: Lens.Lens' CancelStepsInfo (Core.Maybe Types.StepId)
+csiStepId = Lens.field @"stepId"
 {-# DEPRECATED csiStepId "Use generic-lens or generic-optics with 'stepId' instead." #-}
 
--- | The reason for the failure if the CancelSteps request fails.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiReason :: Lens.Lens' CancelStepsInfo (Lude.Maybe Lude.Text)
-csiReason = Lens.lens (reason :: CancelStepsInfo -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: CancelStepsInfo)
-{-# DEPRECATED csiReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
-instance Lude.FromJSON CancelStepsInfo where
+instance Core.FromJSON CancelStepsInfo where
   parseJSON =
-    Lude.withObject
-      "CancelStepsInfo"
-      ( \x ->
-          CancelStepsInfo'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "StepId")
-            Lude.<*> (x Lude..:? "Reason")
-      )
+    Core.withObject "CancelStepsInfo" Core.$
+      \x ->
+        CancelStepsInfo'
+          Core.<$> (x Core..:? "Reason")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "StepId")

@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening
   ( TemporalFilterPostFilterSharpening
       ( TemporalFilterPostFilterSharpening',
-        TFPFSAuto,
-        TFPFSDisabled,
-        TFPFSEnabled
+        TemporalFilterPostFilterSharpeningAuto,
+        TemporalFilterPostFilterSharpeningDisabled,
+        TemporalFilterPostFilterSharpeningEnabled,
+        fromTemporalFilterPostFilterSharpening
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Temporal Filter Post Filter Sharpening
-newtype TemporalFilterPostFilterSharpening = TemporalFilterPostFilterSharpening' Lude.Text
+newtype TemporalFilterPostFilterSharpening = TemporalFilterPostFilterSharpening'
+  { fromTemporalFilterPostFilterSharpening ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TFPFSAuto :: TemporalFilterPostFilterSharpening
-pattern TFPFSAuto = TemporalFilterPostFilterSharpening' "AUTO"
+pattern TemporalFilterPostFilterSharpeningAuto :: TemporalFilterPostFilterSharpening
+pattern TemporalFilterPostFilterSharpeningAuto = TemporalFilterPostFilterSharpening' "AUTO"
 
-pattern TFPFSDisabled :: TemporalFilterPostFilterSharpening
-pattern TFPFSDisabled = TemporalFilterPostFilterSharpening' "DISABLED"
+pattern TemporalFilterPostFilterSharpeningDisabled :: TemporalFilterPostFilterSharpening
+pattern TemporalFilterPostFilterSharpeningDisabled = TemporalFilterPostFilterSharpening' "DISABLED"
 
-pattern TFPFSEnabled :: TemporalFilterPostFilterSharpening
-pattern TFPFSEnabled = TemporalFilterPostFilterSharpening' "ENABLED"
+pattern TemporalFilterPostFilterSharpeningEnabled :: TemporalFilterPostFilterSharpening
+pattern TemporalFilterPostFilterSharpeningEnabled = TemporalFilterPostFilterSharpening' "ENABLED"
 
 {-# COMPLETE
-  TFPFSAuto,
-  TFPFSDisabled,
-  TFPFSEnabled,
+  TemporalFilterPostFilterSharpeningAuto,
+  TemporalFilterPostFilterSharpeningDisabled,
+  TemporalFilterPostFilterSharpeningEnabled,
   TemporalFilterPostFilterSharpening'
   #-}

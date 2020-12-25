@@ -22,157 +22,148 @@ module Network.AWS.IoT.ListThingRegistrationTasks
     mkListThingRegistrationTasks,
 
     -- ** Request lenses
-    ltrtStatus,
-    ltrtNextToken,
     ltrtMaxResults,
+    ltrtNextToken,
+    ltrtStatus,
 
     -- * Destructuring the response
     ListThingRegistrationTasksResponse (..),
     mkListThingRegistrationTasksResponse,
 
     -- ** Response lenses
-    ltrtrsNextToken,
-    ltrtrsTaskIds,
-    ltrtrsResponseStatus,
+    ltrtrrsNextToken,
+    ltrtrrsTaskIds,
+    ltrtrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListThingRegistrationTasks' smart constructor.
 data ListThingRegistrationTasks = ListThingRegistrationTasks'
-  { -- | The status of the bulk thing provisioning task.
-    status :: Lude.Maybe TaskStatus,
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Core.Maybe Core.Natural,
     -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The status of the bulk thing provisioning task.
+    status :: Core.Maybe Types.TaskStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListThingRegistrationTasks' with the minimum fields required to make a request.
---
--- * 'status' - The status of the bulk thing provisioning task.
--- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
--- * 'maxResults' - The maximum number of results to return at one time.
+-- | Creates a 'ListThingRegistrationTasks' value with any optional fields omitted.
 mkListThingRegistrationTasks ::
   ListThingRegistrationTasks
 mkListThingRegistrationTasks =
   ListThingRegistrationTasks'
-    { status = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the bulk thing provisioning task.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtStatus :: Lens.Lens' ListThingRegistrationTasks (Lude.Maybe TaskStatus)
-ltrtStatus = Lens.lens (status :: ListThingRegistrationTasks -> Lude.Maybe TaskStatus) (\s a -> s {status = a} :: ListThingRegistrationTasks)
-{-# DEPRECATED ltrtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtNextToken :: Lens.Lens' ListThingRegistrationTasks (Lude.Maybe Lude.Text)
-ltrtNextToken = Lens.lens (nextToken :: ListThingRegistrationTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingRegistrationTasks)
-{-# DEPRECATED ltrtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtMaxResults :: Lens.Lens' ListThingRegistrationTasks (Lude.Maybe Lude.Natural)
-ltrtMaxResults = Lens.lens (maxResults :: ListThingRegistrationTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThingRegistrationTasks)
+ltrtMaxResults :: Lens.Lens' ListThingRegistrationTasks (Core.Maybe Core.Natural)
+ltrtMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ltrtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListThingRegistrationTasks where
-  page rq rs
-    | Page.stop (rs Lens.^. ltrtrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltrtrsTaskIds) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltrtNextToken Lens..~ rs Lens.^. ltrtrsNextToken
+-- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtNextToken :: Lens.Lens' ListThingRegistrationTasks (Core.Maybe Types.NextToken)
+ltrtNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListThingRegistrationTasks where
+-- | The status of the bulk thing provisioning task.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtStatus :: Lens.Lens' ListThingRegistrationTasks (Core.Maybe Types.TaskStatus)
+ltrtStatus = Lens.field @"status"
+{-# DEPRECATED ltrtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.AWSRequest ListThingRegistrationTasks where
   type
     Rs ListThingRegistrationTasks =
       ListThingRegistrationTasksResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/thing-registration-tasks",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "status" Core.<$> status),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListThingRegistrationTasksResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "taskIds" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "taskIds")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListThingRegistrationTasks where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListThingRegistrationTasks where
-  toPath = Lude.const "/thing-registration-tasks"
-
-instance Lude.ToQuery ListThingRegistrationTasks where
-  toQuery ListThingRegistrationTasks' {..} =
-    Lude.mconcat
-      [ "status" Lude.=: status,
-        "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListThingRegistrationTasks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"taskIds" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListThingRegistrationTasksResponse' smart constructor.
 data ListThingRegistrationTasksResponse = ListThingRegistrationTasksResponse'
   { -- | The token to use to get the next set of results, or __null__ if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of bulk thing provisioning task IDs.
-    taskIds :: Lude.Maybe [Lude.Text],
+    taskIds :: Core.Maybe [Types.TaskId],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListThingRegistrationTasksResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
--- * 'taskIds' - A list of bulk thing provisioning task IDs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListThingRegistrationTasksResponse' value with any optional fields omitted.
 mkListThingRegistrationTasksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListThingRegistrationTasksResponse
-mkListThingRegistrationTasksResponse pResponseStatus_ =
+mkListThingRegistrationTasksResponse responseStatus =
   ListThingRegistrationTasksResponse'
-    { nextToken = Lude.Nothing,
-      taskIds = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      taskIds = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to get the next set of results, or __null__ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrsNextToken :: Lens.Lens' ListThingRegistrationTasksResponse (Lude.Maybe Lude.Text)
-ltrtrsNextToken = Lens.lens (nextToken :: ListThingRegistrationTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingRegistrationTasksResponse)
-{-# DEPRECATED ltrtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltrtrrsNextToken :: Lens.Lens' ListThingRegistrationTasksResponse (Core.Maybe Types.NextToken)
+ltrtrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrtrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of bulk thing provisioning task IDs.
 --
 -- /Note:/ Consider using 'taskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrsTaskIds :: Lens.Lens' ListThingRegistrationTasksResponse (Lude.Maybe [Lude.Text])
-ltrtrsTaskIds = Lens.lens (taskIds :: ListThingRegistrationTasksResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {taskIds = a} :: ListThingRegistrationTasksResponse)
-{-# DEPRECATED ltrtrsTaskIds "Use generic-lens or generic-optics with 'taskIds' instead." #-}
+ltrtrrsTaskIds :: Lens.Lens' ListThingRegistrationTasksResponse (Core.Maybe [Types.TaskId])
+ltrtrrsTaskIds = Lens.field @"taskIds"
+{-# DEPRECATED ltrtrrsTaskIds "Use generic-lens or generic-optics with 'taskIds' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrsResponseStatus :: Lens.Lens' ListThingRegistrationTasksResponse Lude.Int
-ltrtrsResponseStatus = Lens.lens (responseStatus :: ListThingRegistrationTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListThingRegistrationTasksResponse)
-{-# DEPRECATED ltrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltrtrrsResponseStatus :: Lens.Lens' ListThingRegistrationTasksResponse Core.Int
+ltrtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

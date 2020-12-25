@@ -29,147 +29,133 @@ module Network.AWS.MediaLive.UpdateMultiplexProgram
     mkUpdateMultiplexProgramResponse,
 
     -- ** Response lenses
-    umprsMultiplexProgram,
-    umprsResponseStatus,
+    umprrsMultiplexProgram,
+    umprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request to update a program in a multiplex.
 --
 -- /See:/ 'mkUpdateMultiplexProgram' smart constructor.
 data UpdateMultiplexProgram = UpdateMultiplexProgram'
   { -- | The ID of the multiplex of the program to update.
-    multiplexId :: Lude.Text,
+    multiplexId :: Core.Text,
     -- | The name of the program to update.
-    programName :: Lude.Text,
+    programName :: Core.Text,
     -- | The new settings for a multiplex program.
-    multiplexProgramSettings :: Lude.Maybe MultiplexProgramSettings
+    multiplexProgramSettings :: Core.Maybe Types.MultiplexProgramSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMultiplexProgram' with the minimum fields required to make a request.
---
--- * 'multiplexId' - The ID of the multiplex of the program to update.
--- * 'programName' - The name of the program to update.
--- * 'multiplexProgramSettings' - The new settings for a multiplex program.
+-- | Creates a 'UpdateMultiplexProgram' value with any optional fields omitted.
 mkUpdateMultiplexProgram ::
   -- | 'multiplexId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'programName'
-  Lude.Text ->
+  Core.Text ->
   UpdateMultiplexProgram
-mkUpdateMultiplexProgram pMultiplexId_ pProgramName_ =
+mkUpdateMultiplexProgram multiplexId programName =
   UpdateMultiplexProgram'
-    { multiplexId = pMultiplexId_,
-      programName = pProgramName_,
-      multiplexProgramSettings = Lude.Nothing
+    { multiplexId,
+      programName,
+      multiplexProgramSettings = Core.Nothing
     }
 
 -- | The ID of the multiplex of the program to update.
 --
 -- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpMultiplexId :: Lens.Lens' UpdateMultiplexProgram Lude.Text
-umpMultiplexId = Lens.lens (multiplexId :: UpdateMultiplexProgram -> Lude.Text) (\s a -> s {multiplexId = a} :: UpdateMultiplexProgram)
+umpMultiplexId :: Lens.Lens' UpdateMultiplexProgram Core.Text
+umpMultiplexId = Lens.field @"multiplexId"
 {-# DEPRECATED umpMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 -- | The name of the program to update.
 --
 -- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpProgramName :: Lens.Lens' UpdateMultiplexProgram Lude.Text
-umpProgramName = Lens.lens (programName :: UpdateMultiplexProgram -> Lude.Text) (\s a -> s {programName = a} :: UpdateMultiplexProgram)
+umpProgramName :: Lens.Lens' UpdateMultiplexProgram Core.Text
+umpProgramName = Lens.field @"programName"
 {-# DEPRECATED umpProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
 -- | The new settings for a multiplex program.
 --
 -- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpMultiplexProgramSettings :: Lens.Lens' UpdateMultiplexProgram (Lude.Maybe MultiplexProgramSettings)
-umpMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: UpdateMultiplexProgram -> Lude.Maybe MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: UpdateMultiplexProgram)
+umpMultiplexProgramSettings :: Lens.Lens' UpdateMultiplexProgram (Core.Maybe Types.MultiplexProgramSettings)
+umpMultiplexProgramSettings = Lens.field @"multiplexProgramSettings"
 {-# DEPRECATED umpMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
 
-instance Lude.AWSRequest UpdateMultiplexProgram where
+instance Core.FromJSON UpdateMultiplexProgram where
+  toJSON UpdateMultiplexProgram {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("multiplexProgramSettings" Core..=)
+              Core.<$> multiplexProgramSettings
+          ]
+      )
+
+instance Core.AWSRequest UpdateMultiplexProgram where
   type Rs UpdateMultiplexProgram = UpdateMultiplexProgramResponse
-  request = Req.putJSON mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/multiplexes/" Core.<> (Core.toText multiplexId)
+                Core.<> ("/programs/")
+                Core.<> (Core.toText programName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateMultiplexProgramResponse'
-            Lude.<$> (x Lude..?> "multiplexProgram")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "multiplexProgram")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateMultiplexProgram where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateMultiplexProgram where
-  toJSON UpdateMultiplexProgram' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("multiplexProgramSettings" Lude..=)
-              Lude.<$> multiplexProgramSettings
-          ]
-      )
-
-instance Lude.ToPath UpdateMultiplexProgram where
-  toPath UpdateMultiplexProgram' {..} =
-    Lude.mconcat
-      [ "/prod/multiplexes/",
-        Lude.toBS multiplexId,
-        "/programs/",
-        Lude.toBS programName
-      ]
-
-instance Lude.ToQuery UpdateMultiplexProgram where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for UpdateMultiplexProgramResponse
 --
 -- /See:/ 'mkUpdateMultiplexProgramResponse' smart constructor.
 data UpdateMultiplexProgramResponse = UpdateMultiplexProgramResponse'
   { -- | The updated multiplex program.
-    multiplexProgram :: Lude.Maybe MultiplexProgram,
+    multiplexProgram :: Core.Maybe Types.MultiplexProgram,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMultiplexProgramResponse' with the minimum fields required to make a request.
---
--- * 'multiplexProgram' - The updated multiplex program.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateMultiplexProgramResponse' value with any optional fields omitted.
 mkUpdateMultiplexProgramResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateMultiplexProgramResponse
-mkUpdateMultiplexProgramResponse pResponseStatus_ =
+mkUpdateMultiplexProgramResponse responseStatus =
   UpdateMultiplexProgramResponse'
-    { multiplexProgram = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { multiplexProgram = Core.Nothing,
+      responseStatus
     }
 
 -- | The updated multiplex program.
 --
 -- /Note:/ Consider using 'multiplexProgram' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umprsMultiplexProgram :: Lens.Lens' UpdateMultiplexProgramResponse (Lude.Maybe MultiplexProgram)
-umprsMultiplexProgram = Lens.lens (multiplexProgram :: UpdateMultiplexProgramResponse -> Lude.Maybe MultiplexProgram) (\s a -> s {multiplexProgram = a} :: UpdateMultiplexProgramResponse)
-{-# DEPRECATED umprsMultiplexProgram "Use generic-lens or generic-optics with 'multiplexProgram' instead." #-}
+umprrsMultiplexProgram :: Lens.Lens' UpdateMultiplexProgramResponse (Core.Maybe Types.MultiplexProgram)
+umprrsMultiplexProgram = Lens.field @"multiplexProgram"
+{-# DEPRECATED umprrsMultiplexProgram "Use generic-lens or generic-optics with 'multiplexProgram' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umprsResponseStatus :: Lens.Lens' UpdateMultiplexProgramResponse Lude.Int
-umprsResponseStatus = Lens.lens (responseStatus :: UpdateMultiplexProgramResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMultiplexProgramResponse)
-{-# DEPRECATED umprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+umprrsResponseStatus :: Lens.Lens' UpdateMultiplexProgramResponse Core.Int
+umprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED umprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

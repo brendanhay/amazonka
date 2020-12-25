@@ -17,99 +17,92 @@ module Network.AWS.EC2.Types.DescribeFleetsInstances
     mkDescribeFleetsInstances,
 
     -- * Lenses
-    dfiPlatform,
-    dfiLifecycle,
-    dfiLaunchTemplateAndOverrides,
-    dfiInstanceType,
     dfiInstanceIds,
+    dfiInstanceType,
+    dfiLaunchTemplateAndOverrides,
+    dfiLifecycle,
+    dfiPlatform,
   )
 where
 
-import Network.AWS.EC2.Types.InstanceLifecycle
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse
-import Network.AWS.EC2.Types.PlatformValues
+import qualified Network.AWS.EC2.Types.InstanceId as Types
+import qualified Network.AWS.EC2.Types.InstanceLifecycle as Types
+import qualified Network.AWS.EC2.Types.InstanceType as Types
+import qualified Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse as Types
+import qualified Network.AWS.EC2.Types.PlatformValues as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the instances that were launched by the fleet.
 --
 -- /See:/ 'mkDescribeFleetsInstances' smart constructor.
 data DescribeFleetsInstances = DescribeFleetsInstances'
-  { -- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
-    platform :: Lude.Maybe PlatformValues,
-    -- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
-    lifecycle :: Lude.Maybe InstanceLifecycle,
-    -- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
-    launchTemplateAndOverrides :: Lude.Maybe LaunchTemplateAndOverridesResponse,
+  { -- | The IDs of the instances.
+    instanceIds :: Core.Maybe [Types.InstanceId],
     -- | The instance type.
-    instanceType :: Lude.Maybe InstanceType,
-    -- | The IDs of the instances.
-    instanceIds :: Lude.Maybe [Lude.Text]
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
+    launchTemplateAndOverrides :: Core.Maybe Types.LaunchTemplateAndOverridesResponse,
+    -- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+    lifecycle :: Core.Maybe Types.InstanceLifecycle,
+    -- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
+    platform :: Core.Maybe Types.PlatformValues
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFleetsInstances' with the minimum fields required to make a request.
---
--- * 'platform' - The value is @Windows@ for Windows instances. Otherwise, the value is blank.
--- * 'lifecycle' - Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
--- * 'launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
--- * 'instanceType' - The instance type.
--- * 'instanceIds' - The IDs of the instances.
+-- | Creates a 'DescribeFleetsInstances' value with any optional fields omitted.
 mkDescribeFleetsInstances ::
   DescribeFleetsInstances
 mkDescribeFleetsInstances =
   DescribeFleetsInstances'
-    { platform = Lude.Nothing,
-      lifecycle = Lude.Nothing,
-      launchTemplateAndOverrides = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      instanceIds = Lude.Nothing
+    { instanceIds = Core.Nothing,
+      instanceType = Core.Nothing,
+      launchTemplateAndOverrides = Core.Nothing,
+      lifecycle = Core.Nothing,
+      platform = Core.Nothing
     }
-
--- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfiPlatform :: Lens.Lens' DescribeFleetsInstances (Lude.Maybe PlatformValues)
-dfiPlatform = Lens.lens (platform :: DescribeFleetsInstances -> Lude.Maybe PlatformValues) (\s a -> s {platform = a} :: DescribeFleetsInstances)
-{-# DEPRECATED dfiPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
---
--- /Note:/ Consider using 'lifecycle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfiLifecycle :: Lens.Lens' DescribeFleetsInstances (Lude.Maybe InstanceLifecycle)
-dfiLifecycle = Lens.lens (lifecycle :: DescribeFleetsInstances -> Lude.Maybe InstanceLifecycle) (\s a -> s {lifecycle = a} :: DescribeFleetsInstances)
-{-# DEPRECATED dfiLifecycle "Use generic-lens or generic-optics with 'lifecycle' instead." #-}
-
--- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
---
--- /Note:/ Consider using 'launchTemplateAndOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfiLaunchTemplateAndOverrides :: Lens.Lens' DescribeFleetsInstances (Lude.Maybe LaunchTemplateAndOverridesResponse)
-dfiLaunchTemplateAndOverrides = Lens.lens (launchTemplateAndOverrides :: DescribeFleetsInstances -> Lude.Maybe LaunchTemplateAndOverridesResponse) (\s a -> s {launchTemplateAndOverrides = a} :: DescribeFleetsInstances)
-{-# DEPRECATED dfiLaunchTemplateAndOverrides "Use generic-lens or generic-optics with 'launchTemplateAndOverrides' instead." #-}
-
--- | The instance type.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfiInstanceType :: Lens.Lens' DescribeFleetsInstances (Lude.Maybe InstanceType)
-dfiInstanceType = Lens.lens (instanceType :: DescribeFleetsInstances -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: DescribeFleetsInstances)
-{-# DEPRECATED dfiInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The IDs of the instances.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfiInstanceIds :: Lens.Lens' DescribeFleetsInstances (Lude.Maybe [Lude.Text])
-dfiInstanceIds = Lens.lens (instanceIds :: DescribeFleetsInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: DescribeFleetsInstances)
+dfiInstanceIds :: Lens.Lens' DescribeFleetsInstances (Core.Maybe [Types.InstanceId])
+dfiInstanceIds = Lens.field @"instanceIds"
 {-# DEPRECATED dfiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
-instance Lude.FromXML DescribeFleetsInstances where
+-- | The instance type.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiInstanceType :: Lens.Lens' DescribeFleetsInstances (Core.Maybe Types.InstanceType)
+dfiInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED dfiInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
+--
+-- /Note:/ Consider using 'launchTemplateAndOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiLaunchTemplateAndOverrides :: Lens.Lens' DescribeFleetsInstances (Core.Maybe Types.LaunchTemplateAndOverridesResponse)
+dfiLaunchTemplateAndOverrides = Lens.field @"launchTemplateAndOverrides"
+{-# DEPRECATED dfiLaunchTemplateAndOverrides "Use generic-lens or generic-optics with 'launchTemplateAndOverrides' instead." #-}
+
+-- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+--
+-- /Note:/ Consider using 'lifecycle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiLifecycle :: Lens.Lens' DescribeFleetsInstances (Core.Maybe Types.InstanceLifecycle)
+dfiLifecycle = Lens.field @"lifecycle"
+{-# DEPRECATED dfiLifecycle "Use generic-lens or generic-optics with 'lifecycle' instead." #-}
+
+-- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiPlatform :: Lens.Lens' DescribeFleetsInstances (Core.Maybe Types.PlatformValues)
+dfiPlatform = Lens.field @"platform"
+{-# DEPRECATED dfiPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+
+instance Core.FromXML DescribeFleetsInstances where
   parseXML x =
     DescribeFleetsInstances'
-      Lude.<$> (x Lude..@? "platform")
-      Lude.<*> (x Lude..@? "lifecycle")
-      Lude.<*> (x Lude..@? "launchTemplateAndOverrides")
-      Lude.<*> (x Lude..@? "instanceType")
-      Lude.<*> ( x Lude..@? "instanceIds" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "instanceIds" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "launchTemplateAndOverrides")
+      Core.<*> (x Core..@? "lifecycle")
+      Core.<*> (x Core..@? "platform")

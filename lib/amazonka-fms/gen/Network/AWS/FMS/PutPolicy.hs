@@ -40,144 +40,129 @@ module Network.AWS.FMS.PutPolicy
     mkPutPolicy,
 
     -- ** Request lenses
-    ppTagList,
     ppPolicy,
+    ppTagList,
 
     -- * Destructuring the response
     PutPolicyResponse (..),
     mkPutPolicyResponse,
 
     -- ** Response lenses
-    pprsPolicyARN,
-    pprsPolicy,
-    pprsResponseStatus,
+    pprrsPolicy,
+    pprrsPolicyArn,
+    pprrsResponseStatus,
   )
 where
 
-import Network.AWS.FMS.Types
+import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutPolicy' smart constructor.
 data PutPolicy = PutPolicy'
-  { -- | The tags to add to the AWS resource.
-    tagList :: Lude.Maybe [Tag],
-    -- | The details of the AWS Firewall Manager policy to be created.
-    policy :: Policy
+  { -- | The details of the AWS Firewall Manager policy to be created.
+    policy :: Types.Policy,
+    -- | The tags to add to the AWS resource.
+    tagList :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPolicy' with the minimum fields required to make a request.
---
--- * 'tagList' - The tags to add to the AWS resource.
--- * 'policy' - The details of the AWS Firewall Manager policy to be created.
+-- | Creates a 'PutPolicy' value with any optional fields omitted.
 mkPutPolicy ::
   -- | 'policy'
-  Policy ->
+  Types.Policy ->
   PutPolicy
-mkPutPolicy pPolicy_ =
-  PutPolicy' {tagList = Lude.Nothing, policy = pPolicy_}
-
--- | The tags to add to the AWS resource.
---
--- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppTagList :: Lens.Lens' PutPolicy (Lude.Maybe [Tag])
-ppTagList = Lens.lens (tagList :: PutPolicy -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: PutPolicy)
-{-# DEPRECATED ppTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
+mkPutPolicy policy = PutPolicy' {policy, tagList = Core.Nothing}
 
 -- | The details of the AWS Firewall Manager policy to be created.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppPolicy :: Lens.Lens' PutPolicy Policy
-ppPolicy = Lens.lens (policy :: PutPolicy -> Policy) (\s a -> s {policy = a} :: PutPolicy)
+ppPolicy :: Lens.Lens' PutPolicy Types.Policy
+ppPolicy = Lens.field @"policy"
 {-# DEPRECATED ppPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance Lude.AWSRequest PutPolicy where
+-- | The tags to add to the AWS resource.
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppTagList :: Lens.Lens' PutPolicy (Core.Maybe [Types.Tag])
+ppTagList = Lens.field @"tagList"
+{-# DEPRECATED ppTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
+
+instance Core.FromJSON PutPolicy where
+  toJSON PutPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Policy" Core..= policy),
+            ("TagList" Core..=) Core.<$> tagList
+          ]
+      )
+
+instance Core.AWSRequest PutPolicy where
   type Rs PutPolicy = PutPolicyResponse
-  request = Req.postJSON fmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSFMS_20180101.PutPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutPolicyResponse'
-            Lude.<$> (x Lude..?> "PolicyArn")
-            Lude.<*> (x Lude..?> "Policy")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Policy")
+            Core.<*> (x Core..:? "PolicyArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSFMS_20180101.PutPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutPolicy where
-  toJSON PutPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TagList" Lude..=) Lude.<$> tagList,
-            Lude.Just ("Policy" Lude..= policy)
-          ]
-      )
-
-instance Lude.ToPath PutPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutPolicyResponse' smart constructor.
 data PutPolicyResponse = PutPolicyResponse'
-  { -- | The Amazon Resource Name (ARN) of the policy.
-    policyARN :: Lude.Maybe Lude.Text,
-    -- | The details of the AWS Firewall Manager policy.
-    policy :: Lude.Maybe Policy,
+  { -- | The details of the AWS Firewall Manager policy.
+    policy :: Core.Maybe Types.Policy,
+    -- | The Amazon Resource Name (ARN) of the policy.
+    policyArn :: Core.Maybe Types.PolicyArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPolicyResponse' with the minimum fields required to make a request.
---
--- * 'policyARN' - The Amazon Resource Name (ARN) of the policy.
--- * 'policy' - The details of the AWS Firewall Manager policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutPolicyResponse' value with any optional fields omitted.
 mkPutPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutPolicyResponse
-mkPutPolicyResponse pResponseStatus_ =
+mkPutPolicyResponse responseStatus =
   PutPolicyResponse'
-    { policyARN = Lude.Nothing,
-      policy = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { policy = Core.Nothing,
+      policyArn = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (ARN) of the policy.
---
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pprsPolicyARN :: Lens.Lens' PutPolicyResponse (Lude.Maybe Lude.Text)
-pprsPolicyARN = Lens.lens (policyARN :: PutPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyARN = a} :: PutPolicyResponse)
-{-# DEPRECATED pprsPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
 -- | The details of the AWS Firewall Manager policy.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pprsPolicy :: Lens.Lens' PutPolicyResponse (Lude.Maybe Policy)
-pprsPolicy = Lens.lens (policy :: PutPolicyResponse -> Lude.Maybe Policy) (\s a -> s {policy = a} :: PutPolicyResponse)
-{-# DEPRECATED pprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+pprrsPolicy :: Lens.Lens' PutPolicyResponse (Core.Maybe Types.Policy)
+pprrsPolicy = Lens.field @"policy"
+{-# DEPRECATED pprrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the policy.
+--
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pprrsPolicyArn :: Lens.Lens' PutPolicyResponse (Core.Maybe Types.PolicyArn)
+pprrsPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED pprrsPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pprsResponseStatus :: Lens.Lens' PutPolicyResponse Lude.Int
-pprsResponseStatus = Lens.lens (responseStatus :: PutPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutPolicyResponse)
-{-# DEPRECATED pprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pprrsResponseStatus :: Lens.Lens' PutPolicyResponse Core.Int
+pprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

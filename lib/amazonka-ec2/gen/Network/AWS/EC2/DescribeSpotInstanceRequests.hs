@@ -26,35 +26,37 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     mkDescribeSpotInstanceRequests,
 
     -- ** Request lenses
-    dsirFilters,
-    dsirSpotInstanceRequestIds,
-    dsirNextToken,
     dsirDryRun,
+    dsirFilters,
     dsirMaxResults,
+    dsirNextToken,
+    dsirSpotInstanceRequestIds,
 
     -- * Destructuring the response
     DescribeSpotInstanceRequestsResponse (..),
     mkDescribeSpotInstanceRequestsResponse,
 
     -- ** Response lenses
-    dsirrsNextToken,
-    dsirrsSpotInstanceRequests,
-    dsirrsResponseStatus,
+    dsirrrsNextToken,
+    dsirrrsSpotInstanceRequests,
+    dsirrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeSpotInstanceRequests.
 --
 -- /See:/ 'mkDescribeSpotInstanceRequests' smart constructor.
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
-  { -- | One or more filters.
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | One or more filters.
     --
     --
     --     * @availability-zone-group@ - The Availability Zone group.
@@ -172,155 +174,35 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
     --
     --
     --     * @valid-until@ - The end date of the request.
-    filters :: Lude.Maybe [Filter],
-    -- | One or more Spot Instance request IDs.
-    spotInstanceRequestIds :: Lude.Maybe [Lude.Text],
-    -- | The token to request the next set of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return in a single call. Specify a value between 5 and 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The token to request the next set of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
+    -- | One or more Spot Instance request IDs.
+    spotInstanceRequestIds :: Core.Maybe [Types.SpotInstanceRequestId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSpotInstanceRequests' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters.
---
---
---     * @availability-zone-group@ - The Availability Zone group.
---
---
---     * @create-time@ - The time stamp when the Spot Instance request was created.
---
---
---     * @fault-code@ - The fault code related to the request.
---
---
---     * @fault-message@ - The fault message related to the request.
---
---
---     * @instance-id@ - The ID of the instance that fulfilled the request.
---
---
---     * @launch-group@ - The Spot Instance launch group.
---
---
---     * @launch.block-device-mapping.delete-on-termination@ - Indicates whether the EBS volume is deleted on instance termination.
---
---
---     * @launch.block-device-mapping.device-name@ - The device name for the volume in the block device mapping (for example, @/dev/sdh@ or @xvdh@ ).
---
---
---     * @launch.block-device-mapping.snapshot-id@ - The ID of the snapshot for the EBS volume.
---
---
---     * @launch.block-device-mapping.volume-size@ - The size of the EBS volume, in GiB.
---
---
---     * @launch.block-device-mapping.volume-type@ - The type of EBS volume: @gp2@ for General Purpose SSD, @io1@ or @io2@ for Provisioned IOPS SSD, @st1@ for Throughput Optimized HDD, @sc1@ for Cold HDD, or @standard@ for Magnetic.
---
---
---     * @launch.group-id@ - The ID of the security group for the instance.
---
---
---     * @launch.group-name@ - The name of the security group for the instance.
---
---
---     * @launch.image-id@ - The ID of the AMI.
---
---
---     * @launch.instance-type@ - The type of instance (for example, @m3.medium@ ).
---
---
---     * @launch.kernel-id@ - The kernel ID.
---
---
---     * @launch.key-name@ - The name of the key pair the instance launched with.
---
---
---     * @launch.monitoring-enabled@ - Whether detailed monitoring is enabled for the Spot Instance.
---
---
---     * @launch.ramdisk-id@ - The RAM disk ID.
---
---
---     * @launched-availability-zone@ - The Availability Zone in which the request is launched.
---
---
---     * @network-interface.addresses.primary@ - Indicates whether the IP address is the primary private IP address.
---
---
---     * @network-interface.delete-on-termination@ - Indicates whether the network interface is deleted when the instance is terminated.
---
---
---     * @network-interface.description@ - A description of the network interface.
---
---
---     * @network-interface.device-index@ - The index of the device for the network interface attachment on the instance.
---
---
---     * @network-interface.group-id@ - The ID of the security group associated with the network interface.
---
---
---     * @network-interface.network-interface-id@ - The ID of the network interface.
---
---
---     * @network-interface.private-ip-address@ - The primary private IP address of the network interface.
---
---
---     * @network-interface.subnet-id@ - The ID of the subnet for the instance.
---
---
---     * @product-description@ - The product description associated with the instance (@Linux/UNIX@ | @Windows@ ).
---
---
---     * @spot-instance-request-id@ - The Spot Instance request ID.
---
---
---     * @spot-price@ - The maximum hourly price for any Spot Instance launched to fulfill the request.
---
---
---     * @state@ - The state of the Spot Instance request (@open@ | @active@ | @closed@ | @cancelled@ | @failed@ ). Spot request status information can help you track your Amazon EC2 Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot request status> in the /Amazon EC2 User Guide for Linux Instances/ .
---
---
---     * @status-code@ - The short code describing the most recent evaluation of your Spot Instance request.
---
---
---     * @status-message@ - The message explaining the status of the Spot Instance request.
---
---
---     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
---
---
---     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
---
---
---     * @type@ - The type of Spot Instance request (@one-time@ | @persistent@ ).
---
---
---     * @valid-from@ - The start date of the request.
---
---
---     * @valid-until@ - The end date of the request.
---
---
--- * 'spotInstanceRequestIds' - One or more Spot Instance request IDs.
--- * 'nextToken' - The token to request the next set of results. This value is @null@ when there are no more results to return.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 5 and 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- | Creates a 'DescribeSpotInstanceRequests' value with any optional fields omitted.
 mkDescribeSpotInstanceRequests ::
   DescribeSpotInstanceRequests
 mkDescribeSpotInstanceRequests =
   DescribeSpotInstanceRequests'
-    { filters = Lude.Nothing,
-      spotInstanceRequestIds = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      spotInstanceRequestIds = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsirDryRun :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe Core.Bool)
+dsirDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dsirDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters.
 --
@@ -444,132 +326,125 @@ mkDescribeSpotInstanceRequests =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsirFilters :: Lens.Lens' DescribeSpotInstanceRequests (Lude.Maybe [Filter])
-dsirFilters = Lens.lens (filters :: DescribeSpotInstanceRequests -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeSpotInstanceRequests)
+dsirFilters :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe [Types.Filter])
+dsirFilters = Lens.field @"filters"
 {-# DEPRECATED dsirFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | One or more Spot Instance request IDs.
---
--- /Note:/ Consider using 'spotInstanceRequestIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsirSpotInstanceRequestIds :: Lens.Lens' DescribeSpotInstanceRequests (Lude.Maybe [Lude.Text])
-dsirSpotInstanceRequestIds = Lens.lens (spotInstanceRequestIds :: DescribeSpotInstanceRequests -> Lude.Maybe [Lude.Text]) (\s a -> s {spotInstanceRequestIds = a} :: DescribeSpotInstanceRequests)
-{-# DEPRECATED dsirSpotInstanceRequestIds "Use generic-lens or generic-optics with 'spotInstanceRequestIds' instead." #-}
-
--- | The token to request the next set of results. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsirNextToken :: Lens.Lens' DescribeSpotInstanceRequests (Lude.Maybe Lude.Text)
-dsirNextToken = Lens.lens (nextToken :: DescribeSpotInstanceRequests -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSpotInstanceRequests)
-{-# DEPRECATED dsirNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsirDryRun :: Lens.Lens' DescribeSpotInstanceRequests (Lude.Maybe Lude.Bool)
-dsirDryRun = Lens.lens (dryRun :: DescribeSpotInstanceRequests -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSpotInstanceRequests)
-{-# DEPRECATED dsirDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. Specify a value between 5 and 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsirMaxResults :: Lens.Lens' DescribeSpotInstanceRequests (Lude.Maybe Lude.Int)
-dsirMaxResults = Lens.lens (maxResults :: DescribeSpotInstanceRequests -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeSpotInstanceRequests)
+dsirMaxResults :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe Core.Int)
+dsirMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dsirMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeSpotInstanceRequests where
-  page rq rs
-    | Page.stop (rs Lens.^. dsirrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsirrsSpotInstanceRequests) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsirNextToken Lens..~ rs Lens.^. dsirrsNextToken
+-- | The token to request the next set of results. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsirNextToken :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe Types.String)
+dsirNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsirNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeSpotInstanceRequests where
+-- | One or more Spot Instance request IDs.
+--
+-- /Note:/ Consider using 'spotInstanceRequestIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsirSpotInstanceRequestIds :: Lens.Lens' DescribeSpotInstanceRequests (Core.Maybe [Types.SpotInstanceRequestId])
+dsirSpotInstanceRequestIds = Lens.field @"spotInstanceRequestIds"
+{-# DEPRECATED dsirSpotInstanceRequestIds "Use generic-lens or generic-optics with 'spotInstanceRequestIds' instead." #-}
+
+instance Core.AWSRequest DescribeSpotInstanceRequests where
   type
     Rs DescribeSpotInstanceRequests =
       DescribeSpotInstanceRequestsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeSpotInstanceRequests")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryList "SpotInstanceRequestId"
+                            Core.<$> spotInstanceRequestIds
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeSpotInstanceRequestsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "spotInstanceRequestSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "spotInstanceRequestSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSpotInstanceRequests where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeSpotInstanceRequests where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSpotInstanceRequests where
-  toQuery DescribeSpotInstanceRequests' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeSpotInstanceRequests" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        Lude.toQuery
-          ( Lude.toQueryList "SpotInstanceRequestId"
-              Lude.<$> spotInstanceRequestIds
-          ),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeSpotInstanceRequests where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"spotInstanceRequests" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Contains the output of DescribeSpotInstanceRequests.
 --
 -- /See:/ 'mkDescribeSpotInstanceRequestsResponse' smart constructor.
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
   { -- | The token to use to retrieve the next set of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | One or more Spot Instance requests.
-    spotInstanceRequests :: Lude.Maybe [SpotInstanceRequest],
+    spotInstanceRequests :: Core.Maybe [Types.SpotInstanceRequest],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSpotInstanceRequestsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next set of results. This value is @null@ when there are no more results to return.
--- * 'spotInstanceRequests' - One or more Spot Instance requests.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSpotInstanceRequestsResponse' value with any optional fields omitted.
 mkDescribeSpotInstanceRequestsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSpotInstanceRequestsResponse
-mkDescribeSpotInstanceRequestsResponse pResponseStatus_ =
+mkDescribeSpotInstanceRequestsResponse responseStatus =
   DescribeSpotInstanceRequestsResponse'
-    { nextToken = Lude.Nothing,
-      spotInstanceRequests = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      spotInstanceRequests = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to retrieve the next set of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsirrsNextToken :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Lude.Maybe Lude.Text)
-dsirrsNextToken = Lens.lens (nextToken :: DescribeSpotInstanceRequestsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSpotInstanceRequestsResponse)
-{-# DEPRECATED dsirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsirrrsNextToken :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Core.Maybe Types.NextToken)
+dsirrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsirrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | One or more Spot Instance requests.
 --
 -- /Note:/ Consider using 'spotInstanceRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsirrsSpotInstanceRequests :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Lude.Maybe [SpotInstanceRequest])
-dsirrsSpotInstanceRequests = Lens.lens (spotInstanceRequests :: DescribeSpotInstanceRequestsResponse -> Lude.Maybe [SpotInstanceRequest]) (\s a -> s {spotInstanceRequests = a} :: DescribeSpotInstanceRequestsResponse)
-{-# DEPRECATED dsirrsSpotInstanceRequests "Use generic-lens or generic-optics with 'spotInstanceRequests' instead." #-}
+dsirrrsSpotInstanceRequests :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Core.Maybe [Types.SpotInstanceRequest])
+dsirrrsSpotInstanceRequests = Lens.field @"spotInstanceRequests"
+{-# DEPRECATED dsirrrsSpotInstanceRequests "Use generic-lens or generic-optics with 'spotInstanceRequests' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsirrsResponseStatus :: Lens.Lens' DescribeSpotInstanceRequestsResponse Lude.Int
-dsirrsResponseStatus = Lens.lens (responseStatus :: DescribeSpotInstanceRequestsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSpotInstanceRequestsResponse)
-{-# DEPRECATED dsirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsirrrsResponseStatus :: Lens.Lens' DescribeSpotInstanceRequestsResponse Core.Int
+dsirrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsirrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

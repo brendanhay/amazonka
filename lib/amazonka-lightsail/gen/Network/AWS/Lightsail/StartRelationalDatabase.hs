@@ -29,116 +29,101 @@ module Network.AWS.Lightsail.StartRelationalDatabase
     mkStartRelationalDatabaseResponse,
 
     -- ** Response lenses
-    srdrsOperations,
-    srdrsResponseStatus,
+    srsOperations,
+    srsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartRelationalDatabase' smart constructor.
 newtype StartRelationalDatabase = StartRelationalDatabase'
   { -- | The name of your database to start.
-    relationalDatabaseName :: Lude.Text
+    relationalDatabaseName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartRelationalDatabase' with the minimum fields required to make a request.
---
--- * 'relationalDatabaseName' - The name of your database to start.
+-- | Creates a 'StartRelationalDatabase' value with any optional fields omitted.
 mkStartRelationalDatabase ::
   -- | 'relationalDatabaseName'
-  Lude.Text ->
+  Types.ResourceName ->
   StartRelationalDatabase
-mkStartRelationalDatabase pRelationalDatabaseName_ =
-  StartRelationalDatabase'
-    { relationalDatabaseName =
-        pRelationalDatabaseName_
-    }
+mkStartRelationalDatabase relationalDatabaseName =
+  StartRelationalDatabase' {relationalDatabaseName}
 
 -- | The name of your database to start.
 --
 -- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sRelationalDatabaseName :: Lens.Lens' StartRelationalDatabase Lude.Text
-sRelationalDatabaseName = Lens.lens (relationalDatabaseName :: StartRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: StartRelationalDatabase)
+sRelationalDatabaseName :: Lens.Lens' StartRelationalDatabase Types.ResourceName
+sRelationalDatabaseName = Lens.field @"relationalDatabaseName"
 {-# DEPRECATED sRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
-instance Lude.AWSRequest StartRelationalDatabase where
+instance Core.FromJSON StartRelationalDatabase where
+  toJSON StartRelationalDatabase {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("relationalDatabaseName" Core..= relationalDatabaseName)
+          ]
+      )
+
+instance Core.AWSRequest StartRelationalDatabase where
   type Rs StartRelationalDatabase = StartRelationalDatabaseResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.StartRelationalDatabase")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartRelationalDatabaseResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartRelationalDatabase where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.StartRelationalDatabase" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartRelationalDatabase where
-  toJSON StartRelationalDatabase' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName)
-          ]
-      )
-
-instance Lude.ToPath StartRelationalDatabase where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartRelationalDatabase where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartRelationalDatabaseResponse' smart constructor.
 data StartRelationalDatabaseResponse = StartRelationalDatabaseResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartRelationalDatabaseResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartRelationalDatabaseResponse' value with any optional fields omitted.
 mkStartRelationalDatabaseResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartRelationalDatabaseResponse
-mkStartRelationalDatabaseResponse pResponseStatus_ =
+mkStartRelationalDatabaseResponse responseStatus =
   StartRelationalDatabaseResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdrsOperations :: Lens.Lens' StartRelationalDatabaseResponse (Lude.Maybe [Operation])
-srdrsOperations = Lens.lens (operations :: StartRelationalDatabaseResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StartRelationalDatabaseResponse)
-{-# DEPRECATED srdrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+srsOperations :: Lens.Lens' StartRelationalDatabaseResponse (Core.Maybe [Types.Operation])
+srsOperations = Lens.field @"operations"
+{-# DEPRECATED srsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdrsResponseStatus :: Lens.Lens' StartRelationalDatabaseResponse Lude.Int
-srdrsResponseStatus = Lens.lens (responseStatus :: StartRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartRelationalDatabaseResponse)
-{-# DEPRECATED srdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StartRelationalDatabaseResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

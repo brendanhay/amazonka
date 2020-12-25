@@ -22,40 +22,37 @@ module Network.AWS.MediaLive.Types.VideoSelectorProgramId
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Video Selector Program Id
 --
 -- /See:/ 'mkVideoSelectorProgramId' smart constructor.
 newtype VideoSelectorProgramId = VideoSelectorProgramId'
   { -- | Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
-    programId :: Lude.Maybe Lude.Natural
+    programId :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VideoSelectorProgramId' with the minimum fields required to make a request.
---
--- * 'programId' - Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
+-- | Creates a 'VideoSelectorProgramId' value with any optional fields omitted.
 mkVideoSelectorProgramId ::
   VideoSelectorProgramId
 mkVideoSelectorProgramId =
-  VideoSelectorProgramId' {programId = Lude.Nothing}
+  VideoSelectorProgramId' {programId = Core.Nothing}
 
 -- | Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
 --
 -- /Note:/ Consider using 'programId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vspiProgramId :: Lens.Lens' VideoSelectorProgramId (Lude.Maybe Lude.Natural)
-vspiProgramId = Lens.lens (programId :: VideoSelectorProgramId -> Lude.Maybe Lude.Natural) (\s a -> s {programId = a} :: VideoSelectorProgramId)
+vspiProgramId :: Lens.Lens' VideoSelectorProgramId (Core.Maybe Core.Natural)
+vspiProgramId = Lens.field @"programId"
 {-# DEPRECATED vspiProgramId "Use generic-lens or generic-optics with 'programId' instead." #-}
 
-instance Lude.FromJSON VideoSelectorProgramId where
-  parseJSON =
-    Lude.withObject
-      "VideoSelectorProgramId"
-      (\x -> VideoSelectorProgramId' Lude.<$> (x Lude..:? "programId"))
+instance Core.FromJSON VideoSelectorProgramId where
+  toJSON VideoSelectorProgramId {..} =
+    Core.object
+      (Core.catMaybes [("programId" Core..=) Core.<$> programId])
 
-instance Lude.ToJSON VideoSelectorProgramId where
-  toJSON VideoSelectorProgramId' {..} =
-    Lude.object
-      (Lude.catMaybes [("programId" Lude..=) Lude.<$> programId])
+instance Core.FromJSON VideoSelectorProgramId where
+  parseJSON =
+    Core.withObject "VideoSelectorProgramId" Core.$
+      \x -> VideoSelectorProgramId' Core.<$> (x Core..:? "programId")

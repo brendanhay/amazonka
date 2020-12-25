@@ -22,50 +22,48 @@ module Network.AWS.EC2.Types.TransitGatewayAttachmentPropagation
   )
 where
 
-import Network.AWS.EC2.Types.TransitGatewayPropagationState
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayPropagationState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a propagation route table.
 --
 -- /See:/ 'mkTransitGatewayAttachmentPropagation' smart constructor.
 data TransitGatewayAttachmentPropagation = TransitGatewayAttachmentPropagation'
   { -- | The state of the propagation route table.
-    state :: Lude.Maybe TransitGatewayPropagationState,
+    state :: Core.Maybe Types.TransitGatewayPropagationState,
     -- | The ID of the propagation route table.
-    transitGatewayRouteTableId :: Lude.Maybe Lude.Text
+    transitGatewayRouteTableId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransitGatewayAttachmentPropagation' with the minimum fields required to make a request.
---
--- * 'state' - The state of the propagation route table.
--- * 'transitGatewayRouteTableId' - The ID of the propagation route table.
+-- | Creates a 'TransitGatewayAttachmentPropagation' value with any optional fields omitted.
 mkTransitGatewayAttachmentPropagation ::
   TransitGatewayAttachmentPropagation
 mkTransitGatewayAttachmentPropagation =
   TransitGatewayAttachmentPropagation'
-    { state = Lude.Nothing,
-      transitGatewayRouteTableId = Lude.Nothing
+    { state = Core.Nothing,
+      transitGatewayRouteTableId = Core.Nothing
     }
 
 -- | The state of the propagation route table.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgapState :: Lens.Lens' TransitGatewayAttachmentPropagation (Lude.Maybe TransitGatewayPropagationState)
-tgapState = Lens.lens (state :: TransitGatewayAttachmentPropagation -> Lude.Maybe TransitGatewayPropagationState) (\s a -> s {state = a} :: TransitGatewayAttachmentPropagation)
+tgapState :: Lens.Lens' TransitGatewayAttachmentPropagation (Core.Maybe Types.TransitGatewayPropagationState)
+tgapState = Lens.field @"state"
 {-# DEPRECATED tgapState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the propagation route table.
 --
 -- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgapTransitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentPropagation (Lude.Maybe Lude.Text)
-tgapTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: TransitGatewayAttachmentPropagation -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: TransitGatewayAttachmentPropagation)
+tgapTransitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentPropagation (Core.Maybe Types.String)
+tgapTransitGatewayRouteTableId = Lens.field @"transitGatewayRouteTableId"
 {-# DEPRECATED tgapTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
-instance Lude.FromXML TransitGatewayAttachmentPropagation where
+instance Core.FromXML TransitGatewayAttachmentPropagation where
   parseXML x =
     TransitGatewayAttachmentPropagation'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "transitGatewayRouteTableId")
+      Core.<$> (x Core..@? "state")
+      Core.<*> (x Core..@? "transitGatewayRouteTableId")

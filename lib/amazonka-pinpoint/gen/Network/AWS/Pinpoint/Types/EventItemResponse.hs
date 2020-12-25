@@ -23,51 +23,46 @@ module Network.AWS.Pinpoint.Types.EventItemResponse
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides the status code and message that result from processing an event.
 --
 -- /See:/ 'mkEventItemResponse' smart constructor.
 data EventItemResponse = EventItemResponse'
   { -- | A custom message that's returned in the response as a result of processing the event.
-    message :: Lude.Maybe Lude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.
-    statusCode :: Lude.Maybe Lude.Int
+    statusCode :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventItemResponse' with the minimum fields required to make a request.
---
--- * 'message' - A custom message that's returned in the response as a result of processing the event.
--- * 'statusCode' - The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.
+-- | Creates a 'EventItemResponse' value with any optional fields omitted.
 mkEventItemResponse ::
   EventItemResponse
 mkEventItemResponse =
   EventItemResponse'
-    { message = Lude.Nothing,
-      statusCode = Lude.Nothing
+    { message = Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | A custom message that's returned in the response as a result of processing the event.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eMessage :: Lens.Lens' EventItemResponse (Lude.Maybe Lude.Text)
-eMessage = Lens.lens (message :: EventItemResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EventItemResponse)
+eMessage :: Lens.Lens' EventItemResponse (Core.Maybe Core.Text)
+eMessage = Lens.field @"message"
 {-# DEPRECATED eMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eStatusCode :: Lens.Lens' EventItemResponse (Lude.Maybe Lude.Int)
-eStatusCode = Lens.lens (statusCode :: EventItemResponse -> Lude.Maybe Lude.Int) (\s a -> s {statusCode = a} :: EventItemResponse)
+eStatusCode :: Lens.Lens' EventItemResponse (Core.Maybe Core.Int)
+eStatusCode = Lens.field @"statusCode"
 {-# DEPRECATED eStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance Lude.FromJSON EventItemResponse where
+instance Core.FromJSON EventItemResponse where
   parseJSON =
-    Lude.withObject
-      "EventItemResponse"
-      ( \x ->
-          EventItemResponse'
-            Lude.<$> (x Lude..:? "Message") Lude.<*> (x Lude..:? "StatusCode")
-      )
+    Core.withObject "EventItemResponse" Core.$
+      \x ->
+        EventItemResponse'
+          Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "StatusCode")

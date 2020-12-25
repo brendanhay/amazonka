@@ -21,131 +21,119 @@ module Network.AWS.ECS.DeleteAccountSetting
 
     -- ** Request lenses
     dasName,
-    dasPrincipalARN,
+    dasPrincipalArn,
 
     -- * Destructuring the response
     DeleteAccountSettingResponse (..),
     mkDeleteAccountSettingResponse,
 
     -- ** Response lenses
-    dasrsSetting,
-    dasrsResponseStatus,
+    dasrrsSetting,
+    dasrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAccountSetting' smart constructor.
 data DeleteAccountSetting = DeleteAccountSetting'
   { -- | The resource name for which to disable the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected.
-    name :: SettingName,
+    name :: Types.SettingName,
     -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it disables the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
-    principalARN :: Lude.Maybe Lude.Text
+    principalArn :: Core.Maybe Types.PrincipalArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccountSetting' with the minimum fields required to make a request.
---
--- * 'name' - The resource name for which to disable the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected.
--- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it disables the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
+-- | Creates a 'DeleteAccountSetting' value with any optional fields omitted.
 mkDeleteAccountSetting ::
   -- | 'name'
-  SettingName ->
+  Types.SettingName ->
   DeleteAccountSetting
-mkDeleteAccountSetting pName_ =
-  DeleteAccountSetting' {name = pName_, principalARN = Lude.Nothing}
+mkDeleteAccountSetting name =
+  DeleteAccountSetting' {name, principalArn = Core.Nothing}
 
 -- | The resource name for which to disable the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasName :: Lens.Lens' DeleteAccountSetting SettingName
-dasName = Lens.lens (name :: DeleteAccountSetting -> SettingName) (\s a -> s {name = a} :: DeleteAccountSetting)
+dasName :: Lens.Lens' DeleteAccountSetting Types.SettingName
+dasName = Lens.field @"name"
 {-# DEPRECATED dasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it disables the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
 --
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasPrincipalARN :: Lens.Lens' DeleteAccountSetting (Lude.Maybe Lude.Text)
-dasPrincipalARN = Lens.lens (principalARN :: DeleteAccountSetting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: DeleteAccountSetting)
-{-# DEPRECATED dasPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
+-- /Note:/ Consider using 'principalArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasPrincipalArn :: Lens.Lens' DeleteAccountSetting (Core.Maybe Types.PrincipalArn)
+dasPrincipalArn = Lens.field @"principalArn"
+{-# DEPRECATED dasPrincipalArn "Use generic-lens or generic-optics with 'principalArn' instead." #-}
 
-instance Lude.AWSRequest DeleteAccountSetting where
+instance Core.FromJSON DeleteAccountSetting where
+  toJSON DeleteAccountSetting {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            ("principalArn" Core..=) Core.<$> principalArn
+          ]
+      )
+
+instance Core.AWSRequest DeleteAccountSetting where
   type Rs DeleteAccountSetting = DeleteAccountSettingResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteAccountSettingResponse'
-            Lude.<$> (x Lude..?> "setting") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "setting") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteAccountSetting where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAccountSetting where
-  toJSON DeleteAccountSetting' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            ("principalArn" Lude..=) Lude.<$> principalARN
-          ]
-      )
-
-instance Lude.ToPath DeleteAccountSetting where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAccountSetting where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteAccountSettingResponse' smart constructor.
 data DeleteAccountSettingResponse = DeleteAccountSettingResponse'
   { -- | The account setting for the specified principal ARN.
-    setting :: Lude.Maybe Setting,
+    setting :: Core.Maybe Types.Setting,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccountSettingResponse' with the minimum fields required to make a request.
---
--- * 'setting' - The account setting for the specified principal ARN.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAccountSettingResponse' value with any optional fields omitted.
 mkDeleteAccountSettingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAccountSettingResponse
-mkDeleteAccountSettingResponse pResponseStatus_ =
+mkDeleteAccountSettingResponse responseStatus =
   DeleteAccountSettingResponse'
-    { setting = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { setting = Core.Nothing,
+      responseStatus
     }
 
 -- | The account setting for the specified principal ARN.
 --
 -- /Note:/ Consider using 'setting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsSetting :: Lens.Lens' DeleteAccountSettingResponse (Lude.Maybe Setting)
-dasrsSetting = Lens.lens (setting :: DeleteAccountSettingResponse -> Lude.Maybe Setting) (\s a -> s {setting = a} :: DeleteAccountSettingResponse)
-{-# DEPRECATED dasrsSetting "Use generic-lens or generic-optics with 'setting' instead." #-}
+dasrrsSetting :: Lens.Lens' DeleteAccountSettingResponse (Core.Maybe Types.Setting)
+dasrrsSetting = Lens.field @"setting"
+{-# DEPRECATED dasrrsSetting "Use generic-lens or generic-optics with 'setting' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsResponseStatus :: Lens.Lens' DeleteAccountSettingResponse Lude.Int
-dasrsResponseStatus = Lens.lens (responseStatus :: DeleteAccountSettingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAccountSettingResponse)
-{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dasrrsResponseStatus :: Lens.Lens' DeleteAccountSettingResponse Core.Int
+dasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

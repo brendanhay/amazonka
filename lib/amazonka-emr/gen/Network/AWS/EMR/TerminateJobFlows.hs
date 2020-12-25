@@ -30,69 +30,60 @@ module Network.AWS.EMR.TerminateJobFlows
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the 'TerminateJobFlows' operation.
 --
 -- /See:/ 'mkTerminateJobFlows' smart constructor.
 newtype TerminateJobFlows = TerminateJobFlows'
   { -- | A list of job flows to be shut down.
-    jobFlowIds :: [Lude.Text]
+    jobFlowIds :: [Types.XmlString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateJobFlows' with the minimum fields required to make a request.
---
--- * 'jobFlowIds' - A list of job flows to be shut down.
+-- | Creates a 'TerminateJobFlows' value with any optional fields omitted.
 mkTerminateJobFlows ::
   TerminateJobFlows
-mkTerminateJobFlows = TerminateJobFlows' {jobFlowIds = Lude.mempty}
+mkTerminateJobFlows = TerminateJobFlows' {jobFlowIds = Core.mempty}
 
 -- | A list of job flows to be shut down.
 --
 -- /Note:/ Consider using 'jobFlowIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjfJobFlowIds :: Lens.Lens' TerminateJobFlows [Lude.Text]
-tjfJobFlowIds = Lens.lens (jobFlowIds :: TerminateJobFlows -> [Lude.Text]) (\s a -> s {jobFlowIds = a} :: TerminateJobFlows)
+tjfJobFlowIds :: Lens.Lens' TerminateJobFlows [Types.XmlString]
+tjfJobFlowIds = Lens.field @"jobFlowIds"
 {-# DEPRECATED tjfJobFlowIds "Use generic-lens or generic-optics with 'jobFlowIds' instead." #-}
 
-instance Lude.AWSRequest TerminateJobFlows where
+instance Core.FromJSON TerminateJobFlows where
+  toJSON TerminateJobFlows {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("JobFlowIds" Core..= jobFlowIds)])
+
+instance Core.AWSRequest TerminateJobFlows where
   type Rs TerminateJobFlows = TerminateJobFlowsResponse
-  request = Req.postJSON emrService
-  response = Res.receiveNull TerminateJobFlowsResponse'
-
-instance Lude.ToHeaders TerminateJobFlows where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.TerminateJobFlows" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TerminateJobFlows where
-  toJSON TerminateJobFlows' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("JobFlowIds" Lude..= jobFlowIds)])
-
-instance Lude.ToPath TerminateJobFlows where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TerminateJobFlows where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.TerminateJobFlows")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull TerminateJobFlowsResponse'
 
 -- | /See:/ 'mkTerminateJobFlowsResponse' smart constructor.
 data TerminateJobFlowsResponse = TerminateJobFlowsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateJobFlowsResponse' with the minimum fields required to make a request.
+-- | Creates a 'TerminateJobFlowsResponse' value with any optional fields omitted.
 mkTerminateJobFlowsResponse ::
   TerminateJobFlowsResponse
 mkTerminateJobFlowsResponse = TerminateJobFlowsResponse'

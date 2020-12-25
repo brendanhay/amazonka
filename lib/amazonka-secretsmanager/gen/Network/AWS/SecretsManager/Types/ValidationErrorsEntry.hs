@@ -23,51 +23,48 @@ module Network.AWS.SecretsManager.Types.ValidationErrorsEntry
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SecretsManager.Types.ErrorMessage as Types
+import qualified Network.AWS.SecretsManager.Types.NameType as Types
 
 -- | Displays errors that occurred during validation of the resource policy.
 --
 -- /See:/ 'mkValidationErrorsEntry' smart constructor.
 data ValidationErrorsEntry = ValidationErrorsEntry'
   { -- | Checks the name of the policy.
-    checkName :: Lude.Maybe Lude.Text,
+    checkName :: Core.Maybe Types.NameType,
     -- | Displays error messages if validation encounters problems during validation of the resource policy.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.ErrorMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidationErrorsEntry' with the minimum fields required to make a request.
---
--- * 'checkName' - Checks the name of the policy.
--- * 'errorMessage' - Displays error messages if validation encounters problems during validation of the resource policy.
+-- | Creates a 'ValidationErrorsEntry' value with any optional fields omitted.
 mkValidationErrorsEntry ::
   ValidationErrorsEntry
 mkValidationErrorsEntry =
   ValidationErrorsEntry'
-    { checkName = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { checkName = Core.Nothing,
+      errorMessage = Core.Nothing
     }
 
 -- | Checks the name of the policy.
 --
 -- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-veeCheckName :: Lens.Lens' ValidationErrorsEntry (Lude.Maybe Lude.Text)
-veeCheckName = Lens.lens (checkName :: ValidationErrorsEntry -> Lude.Maybe Lude.Text) (\s a -> s {checkName = a} :: ValidationErrorsEntry)
+veeCheckName :: Lens.Lens' ValidationErrorsEntry (Core.Maybe Types.NameType)
+veeCheckName = Lens.field @"checkName"
 {-# DEPRECATED veeCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | Displays error messages if validation encounters problems during validation of the resource policy.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-veeErrorMessage :: Lens.Lens' ValidationErrorsEntry (Lude.Maybe Lude.Text)
-veeErrorMessage = Lens.lens (errorMessage :: ValidationErrorsEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: ValidationErrorsEntry)
+veeErrorMessage :: Lens.Lens' ValidationErrorsEntry (Core.Maybe Types.ErrorMessage)
+veeErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED veeErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON ValidationErrorsEntry where
+instance Core.FromJSON ValidationErrorsEntry where
   parseJSON =
-    Lude.withObject
-      "ValidationErrorsEntry"
-      ( \x ->
-          ValidationErrorsEntry'
-            Lude.<$> (x Lude..:? "CheckName") Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "ValidationErrorsEntry" Core.$
+      \x ->
+        ValidationErrorsEntry'
+          Core.<$> (x Core..:? "CheckName") Core.<*> (x Core..:? "ErrorMessage")

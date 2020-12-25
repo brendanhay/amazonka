@@ -22,53 +22,49 @@ module Network.AWS.AppStream.Types.StackError
   )
 where
 
-import Network.AWS.AppStream.Types.StackErrorCode
+import qualified Network.AWS.AppStream.Types.StackErrorCode as Types
+import qualified Network.AWS.AppStream.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a stack error.
 --
 -- /See:/ 'mkStackError' smart constructor.
 data StackError = StackError'
   { -- | The error code.
-    errorCode :: Lude.Maybe StackErrorCode,
+    errorCode :: Core.Maybe Types.StackErrorCode,
     -- | The error message.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StackError' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error code.
--- * 'errorMessage' - The error message.
+-- | Creates a 'StackError' value with any optional fields omitted.
 mkStackError ::
   StackError
 mkStackError =
   StackError'
-    { errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing
     }
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seErrorCode :: Lens.Lens' StackError (Lude.Maybe StackErrorCode)
-seErrorCode = Lens.lens (errorCode :: StackError -> Lude.Maybe StackErrorCode) (\s a -> s {errorCode = a} :: StackError)
+seErrorCode :: Lens.Lens' StackError (Core.Maybe Types.StackErrorCode)
+seErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED seErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seErrorMessage :: Lens.Lens' StackError (Lude.Maybe Lude.Text)
-seErrorMessage = Lens.lens (errorMessage :: StackError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: StackError)
+seErrorMessage :: Lens.Lens' StackError (Core.Maybe Types.String)
+seErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED seErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON StackError where
+instance Core.FromJSON StackError where
   parseJSON =
-    Lude.withObject
-      "StackError"
-      ( \x ->
-          StackError'
-            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "StackError" Core.$
+      \x ->
+        StackError'
+          Core.<$> (x Core..:? "ErrorCode") Core.<*> (x Core..:? "ErrorMessage")

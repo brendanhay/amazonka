@@ -17,21 +17,26 @@ module Network.AWS.Cloud9.Types.EnvironmentLifecycle
     mkEnvironmentLifecycle,
 
     -- * Lenses
-    elStatus,
     elFailureResource,
     elReason,
+    elStatus,
   )
 where
 
-import Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
+import qualified Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus as Types
+import qualified Network.AWS.Cloud9.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the current creation or deletion lifecycle state of an AWS Cloud9 development environment.
 --
 -- /See:/ 'mkEnvironmentLifecycle' smart constructor.
 data EnvironmentLifecycle = EnvironmentLifecycle'
-  { -- | The current creation or deletion lifecycle state of the environment.
+  { -- | If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.
+    failureResource :: Core.Maybe Types.String,
+    -- | Any informational message about the lifecycle state of the environment.
+    reason :: Core.Maybe Types.String,
+    -- | The current creation or deletion lifecycle state of the environment.
     --
     --
     --     * @CREATING@ : The environment is in the process of being created.
@@ -47,45 +52,34 @@ data EnvironmentLifecycle = EnvironmentLifecycle'
     --
     --
     --     * @DELETE_FAILED@ : The environment failed to delete.
-    status :: Lude.Maybe EnvironmentLifecycleStatus,
-    -- | If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.
-    failureResource :: Lude.Maybe Lude.Text,
-    -- | Any informational message about the lifecycle state of the environment.
-    reason :: Lude.Maybe Lude.Text
+    status :: Core.Maybe Types.EnvironmentLifecycleStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnvironmentLifecycle' with the minimum fields required to make a request.
---
--- * 'status' - The current creation or deletion lifecycle state of the environment.
---
---
---     * @CREATING@ : The environment is in the process of being created.
---
---
---     * @CREATED@ : The environment was successfully created.
---
---
---     * @CREATE_FAILED@ : The environment failed to be created.
---
---
---     * @DELETING@ : The environment is in the process of being deleted.
---
---
---     * @DELETE_FAILED@ : The environment failed to delete.
---
---
--- * 'failureResource' - If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.
--- * 'reason' - Any informational message about the lifecycle state of the environment.
+-- | Creates a 'EnvironmentLifecycle' value with any optional fields omitted.
 mkEnvironmentLifecycle ::
   EnvironmentLifecycle
 mkEnvironmentLifecycle =
   EnvironmentLifecycle'
-    { status = Lude.Nothing,
-      failureResource = Lude.Nothing,
-      reason = Lude.Nothing
+    { failureResource = Core.Nothing,
+      reason = Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.
+--
+-- /Note:/ Consider using 'failureResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elFailureResource :: Lens.Lens' EnvironmentLifecycle (Core.Maybe Types.String)
+elFailureResource = Lens.field @"failureResource"
+{-# DEPRECATED elFailureResource "Use generic-lens or generic-optics with 'failureResource' instead." #-}
+
+-- | Any informational message about the lifecycle state of the environment.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elReason :: Lens.Lens' EnvironmentLifecycle (Core.Maybe Types.String)
+elReason = Lens.field @"reason"
+{-# DEPRECATED elReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The current creation or deletion lifecycle state of the environment.
 --
@@ -107,31 +101,15 @@ mkEnvironmentLifecycle =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elStatus :: Lens.Lens' EnvironmentLifecycle (Lude.Maybe EnvironmentLifecycleStatus)
-elStatus = Lens.lens (status :: EnvironmentLifecycle -> Lude.Maybe EnvironmentLifecycleStatus) (\s a -> s {status = a} :: EnvironmentLifecycle)
+elStatus :: Lens.Lens' EnvironmentLifecycle (Core.Maybe Types.EnvironmentLifecycleStatus)
+elStatus = Lens.field @"status"
 {-# DEPRECATED elStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.
---
--- /Note:/ Consider using 'failureResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elFailureResource :: Lens.Lens' EnvironmentLifecycle (Lude.Maybe Lude.Text)
-elFailureResource = Lens.lens (failureResource :: EnvironmentLifecycle -> Lude.Maybe Lude.Text) (\s a -> s {failureResource = a} :: EnvironmentLifecycle)
-{-# DEPRECATED elFailureResource "Use generic-lens or generic-optics with 'failureResource' instead." #-}
-
--- | Any informational message about the lifecycle state of the environment.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elReason :: Lens.Lens' EnvironmentLifecycle (Lude.Maybe Lude.Text)
-elReason = Lens.lens (reason :: EnvironmentLifecycle -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: EnvironmentLifecycle)
-{-# DEPRECATED elReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
-instance Lude.FromJSON EnvironmentLifecycle where
+instance Core.FromJSON EnvironmentLifecycle where
   parseJSON =
-    Lude.withObject
-      "EnvironmentLifecycle"
-      ( \x ->
-          EnvironmentLifecycle'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "failureResource")
-            Lude.<*> (x Lude..:? "reason")
-      )
+    Core.withObject "EnvironmentLifecycle" Core.$
+      \x ->
+        EnvironmentLifecycle'
+          Core.<$> (x Core..:? "failureResource")
+          Core.<*> (x Core..:? "reason")
+          Core.<*> (x Core..:? "status")

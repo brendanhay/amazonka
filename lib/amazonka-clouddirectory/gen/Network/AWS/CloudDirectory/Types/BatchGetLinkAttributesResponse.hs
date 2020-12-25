@@ -17,44 +17,39 @@ module Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse
     mkBatchGetLinkAttributesResponse,
 
     -- * Lenses
-    bglaAttributes,
+    bglarAttributes,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+import qualified Network.AWS.CloudDirectory.Types.AttributeKeyAndValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'GetLinkAttributes' response operation.
 --
 -- /See:/ 'mkBatchGetLinkAttributesResponse' smart constructor.
 newtype BatchGetLinkAttributesResponse = BatchGetLinkAttributesResponse'
   { -- | The attributes that are associated with the typed link.
-    attributes :: Lude.Maybe [AttributeKeyAndValue]
+    attributes :: Core.Maybe [Types.AttributeKeyAndValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'BatchGetLinkAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributes' - The attributes that are associated with the typed link.
+-- | Creates a 'BatchGetLinkAttributesResponse' value with any optional fields omitted.
 mkBatchGetLinkAttributesResponse ::
   BatchGetLinkAttributesResponse
 mkBatchGetLinkAttributesResponse =
-  BatchGetLinkAttributesResponse' {attributes = Lude.Nothing}
+  BatchGetLinkAttributesResponse' {attributes = Core.Nothing}
 
 -- | The attributes that are associated with the typed link.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bglaAttributes :: Lens.Lens' BatchGetLinkAttributesResponse (Lude.Maybe [AttributeKeyAndValue])
-bglaAttributes = Lens.lens (attributes :: BatchGetLinkAttributesResponse -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {attributes = a} :: BatchGetLinkAttributesResponse)
-{-# DEPRECATED bglaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+bglarAttributes :: Lens.Lens' BatchGetLinkAttributesResponse (Core.Maybe [Types.AttributeKeyAndValue])
+bglarAttributes = Lens.field @"attributes"
+{-# DEPRECATED bglarAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.FromJSON BatchGetLinkAttributesResponse where
+instance Core.FromJSON BatchGetLinkAttributesResponse where
   parseJSON =
-    Lude.withObject
-      "BatchGetLinkAttributesResponse"
-      ( \x ->
-          BatchGetLinkAttributesResponse'
-            Lude.<$> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BatchGetLinkAttributesResponse" Core.$
+      \x ->
+        BatchGetLinkAttributesResponse' Core.<$> (x Core..:? "Attributes")

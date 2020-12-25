@@ -17,45 +17,45 @@ module Network.AWS.Comprehend.Types.AugmentedManifestsListItem
     mkAugmentedManifestsListItem,
 
     -- * Lenses
+    amliS3Uri,
     amliAttributeNames,
-    amliS3URI,
   )
 where
 
+import qualified Network.AWS.Comprehend.Types.AttributeNamesListItem as Types
+import qualified Network.AWS.Comprehend.Types.S3Uri as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
 --
 -- /See:/ 'mkAugmentedManifestsListItem' smart constructor.
 data AugmentedManifestsListItem = AugmentedManifestsListItem'
-  { -- | The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
+  { -- | The Amazon S3 location of the augmented manifest file.
+    s3Uri :: Types.S3Uri,
+    -- | The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
     --
     -- If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
     -- If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
-    attributeNames :: [Lude.Text],
-    -- | The Amazon S3 location of the augmented manifest file.
-    s3URI :: Lude.Text
+    attributeNames :: [Types.AttributeNamesListItem]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AugmentedManifestsListItem' with the minimum fields required to make a request.
---
--- * 'attributeNames' - The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
---
--- If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
--- If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
--- * 's3URI' - The Amazon S3 location of the augmented manifest file.
+-- | Creates a 'AugmentedManifestsListItem' value with any optional fields omitted.
 mkAugmentedManifestsListItem ::
-  -- | 's3URI'
-  Lude.Text ->
+  -- | 's3Uri'
+  Types.S3Uri ->
   AugmentedManifestsListItem
-mkAugmentedManifestsListItem pS3URI_ =
-  AugmentedManifestsListItem'
-    { attributeNames = Lude.mempty,
-      s3URI = pS3URI_
-    }
+mkAugmentedManifestsListItem s3Uri =
+  AugmentedManifestsListItem' {s3Uri, attributeNames = Core.mempty}
+
+-- | The Amazon S3 location of the augmented manifest file.
+--
+-- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amliS3Uri :: Lens.Lens' AugmentedManifestsListItem Types.S3Uri
+amliS3Uri = Lens.field @"s3Uri"
+{-# DEPRECATED amliS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
 
 -- | The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
 --
@@ -63,32 +63,23 @@ mkAugmentedManifestsListItem pS3URI_ =
 -- If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
 --
 -- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amliAttributeNames :: Lens.Lens' AugmentedManifestsListItem [Lude.Text]
-amliAttributeNames = Lens.lens (attributeNames :: AugmentedManifestsListItem -> [Lude.Text]) (\s a -> s {attributeNames = a} :: AugmentedManifestsListItem)
+amliAttributeNames :: Lens.Lens' AugmentedManifestsListItem [Types.AttributeNamesListItem]
+amliAttributeNames = Lens.field @"attributeNames"
 {-# DEPRECATED amliAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
--- | The Amazon S3 location of the augmented manifest file.
---
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amliS3URI :: Lens.Lens' AugmentedManifestsListItem Lude.Text
-amliS3URI = Lens.lens (s3URI :: AugmentedManifestsListItem -> Lude.Text) (\s a -> s {s3URI = a} :: AugmentedManifestsListItem)
-{-# DEPRECATED amliS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
-
-instance Lude.FromJSON AugmentedManifestsListItem where
-  parseJSON =
-    Lude.withObject
-      "AugmentedManifestsListItem"
-      ( \x ->
-          AugmentedManifestsListItem'
-            Lude.<$> (x Lude..:? "AttributeNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "S3Uri")
-      )
-
-instance Lude.ToJSON AugmentedManifestsListItem where
-  toJSON AugmentedManifestsListItem' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AttributeNames" Lude..= attributeNames),
-            Lude.Just ("S3Uri" Lude..= s3URI)
+instance Core.FromJSON AugmentedManifestsListItem where
+  toJSON AugmentedManifestsListItem {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3Uri" Core..= s3Uri),
+            Core.Just ("AttributeNames" Core..= attributeNames)
           ]
       )
+
+instance Core.FromJSON AugmentedManifestsListItem where
+  parseJSON =
+    Core.withObject "AugmentedManifestsListItem" Core.$
+      \x ->
+        AugmentedManifestsListItem'
+          Core.<$> (x Core..: "S3Uri")
+          Core.<*> (x Core..:? "AttributeNames" Core..!= Core.mempty)

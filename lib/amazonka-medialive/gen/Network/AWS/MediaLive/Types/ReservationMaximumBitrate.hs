@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.ReservationMaximumBitrate
   ( ReservationMaximumBitrate
       ( ReservationMaximumBitrate',
-        RMBMax10Mbps,
-        RMBMax20Mbps,
-        RMBMax50Mbps
+        ReservationMaximumBitrateMax10Mbps,
+        ReservationMaximumBitrateMax20Mbps,
+        ReservationMaximumBitrateMax50Mbps,
+        fromReservationMaximumBitrate
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Maximum bitrate in megabits per second
-newtype ReservationMaximumBitrate = ReservationMaximumBitrate' Lude.Text
+newtype ReservationMaximumBitrate = ReservationMaximumBitrate'
+  { fromReservationMaximumBitrate ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RMBMax10Mbps :: ReservationMaximumBitrate
-pattern RMBMax10Mbps = ReservationMaximumBitrate' "MAX_10_MBPS"
+pattern ReservationMaximumBitrateMax10Mbps :: ReservationMaximumBitrate
+pattern ReservationMaximumBitrateMax10Mbps = ReservationMaximumBitrate' "MAX_10_MBPS"
 
-pattern RMBMax20Mbps :: ReservationMaximumBitrate
-pattern RMBMax20Mbps = ReservationMaximumBitrate' "MAX_20_MBPS"
+pattern ReservationMaximumBitrateMax20Mbps :: ReservationMaximumBitrate
+pattern ReservationMaximumBitrateMax20Mbps = ReservationMaximumBitrate' "MAX_20_MBPS"
 
-pattern RMBMax50Mbps :: ReservationMaximumBitrate
-pattern RMBMax50Mbps = ReservationMaximumBitrate' "MAX_50_MBPS"
+pattern ReservationMaximumBitrateMax50Mbps :: ReservationMaximumBitrate
+pattern ReservationMaximumBitrateMax50Mbps = ReservationMaximumBitrate' "MAX_50_MBPS"
 
 {-# COMPLETE
-  RMBMax10Mbps,
-  RMBMax20Mbps,
-  RMBMax50Mbps,
+  ReservationMaximumBitrateMax10Mbps,
+  ReservationMaximumBitrateMax20Mbps,
+  ReservationMaximumBitrateMax50Mbps,
   ReservationMaximumBitrate'
   #-}

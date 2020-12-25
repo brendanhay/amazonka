@@ -31,122 +31,115 @@ module Network.AWS.KinesisVideo.GetSignalingChannelEndpoint
     mkGetSignalingChannelEndpointResponse,
 
     -- ** Response lenses
-    gscersResourceEndpointList,
-    gscersResponseStatus,
+    gscerrsResourceEndpointList,
+    gscerrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideo.Types
+import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSignalingChannelEndpoint' smart constructor.
 data GetSignalingChannelEndpoint = GetSignalingChannelEndpoint'
   { -- | The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.
-    channelARN :: Lude.Text,
+    channelARN :: Types.ChannelARN,
     -- | A structure containing the endpoint configuration for the @SINGLE_MASTER@ channel type.
-    singleMasterChannelEndpointConfiguration :: Lude.Maybe SingleMasterChannelEndpointConfiguration
+    singleMasterChannelEndpointConfiguration :: Core.Maybe Types.SingleMasterChannelEndpointConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSignalingChannelEndpoint' with the minimum fields required to make a request.
---
--- * 'channelARN' - The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.
--- * 'singleMasterChannelEndpointConfiguration' - A structure containing the endpoint configuration for the @SINGLE_MASTER@ channel type.
+-- | Creates a 'GetSignalingChannelEndpoint' value with any optional fields omitted.
 mkGetSignalingChannelEndpoint ::
   -- | 'channelARN'
-  Lude.Text ->
+  Types.ChannelARN ->
   GetSignalingChannelEndpoint
-mkGetSignalingChannelEndpoint pChannelARN_ =
+mkGetSignalingChannelEndpoint channelARN =
   GetSignalingChannelEndpoint'
-    { channelARN = pChannelARN_,
-      singleMasterChannelEndpointConfiguration = Lude.Nothing
+    { channelARN,
+      singleMasterChannelEndpointConfiguration = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.
 --
 -- /Note:/ Consider using 'channelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsceChannelARN :: Lens.Lens' GetSignalingChannelEndpoint Lude.Text
-gsceChannelARN = Lens.lens (channelARN :: GetSignalingChannelEndpoint -> Lude.Text) (\s a -> s {channelARN = a} :: GetSignalingChannelEndpoint)
+gsceChannelARN :: Lens.Lens' GetSignalingChannelEndpoint Types.ChannelARN
+gsceChannelARN = Lens.field @"channelARN"
 {-# DEPRECATED gsceChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
 
 -- | A structure containing the endpoint configuration for the @SINGLE_MASTER@ channel type.
 --
 -- /Note:/ Consider using 'singleMasterChannelEndpointConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsceSingleMasterChannelEndpointConfiguration :: Lens.Lens' GetSignalingChannelEndpoint (Lude.Maybe SingleMasterChannelEndpointConfiguration)
-gsceSingleMasterChannelEndpointConfiguration = Lens.lens (singleMasterChannelEndpointConfiguration :: GetSignalingChannelEndpoint -> Lude.Maybe SingleMasterChannelEndpointConfiguration) (\s a -> s {singleMasterChannelEndpointConfiguration = a} :: GetSignalingChannelEndpoint)
+gsceSingleMasterChannelEndpointConfiguration :: Lens.Lens' GetSignalingChannelEndpoint (Core.Maybe Types.SingleMasterChannelEndpointConfiguration)
+gsceSingleMasterChannelEndpointConfiguration = Lens.field @"singleMasterChannelEndpointConfiguration"
 {-# DEPRECATED gsceSingleMasterChannelEndpointConfiguration "Use generic-lens or generic-optics with 'singleMasterChannelEndpointConfiguration' instead." #-}
 
-instance Lude.AWSRequest GetSignalingChannelEndpoint where
-  type
-    Rs GetSignalingChannelEndpoint =
-      GetSignalingChannelEndpointResponse
-  request = Req.postJSON kinesisVideoService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetSignalingChannelEndpointResponse'
-            Lude.<$> (x Lude..?> "ResourceEndpointList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetSignalingChannelEndpoint where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetSignalingChannelEndpoint where
-  toJSON GetSignalingChannelEndpoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ChannelARN" Lude..= channelARN),
-            ("SingleMasterChannelEndpointConfiguration" Lude..=)
-              Lude.<$> singleMasterChannelEndpointConfiguration
+instance Core.FromJSON GetSignalingChannelEndpoint where
+  toJSON GetSignalingChannelEndpoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ChannelARN" Core..= channelARN),
+            ("SingleMasterChannelEndpointConfiguration" Core..=)
+              Core.<$> singleMasterChannelEndpointConfiguration
           ]
       )
 
-instance Lude.ToPath GetSignalingChannelEndpoint where
-  toPath = Lude.const "/getSignalingChannelEndpoint"
-
-instance Lude.ToQuery GetSignalingChannelEndpoint where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetSignalingChannelEndpoint where
+  type
+    Rs GetSignalingChannelEndpoint =
+      GetSignalingChannelEndpointResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/getSignalingChannelEndpoint",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetSignalingChannelEndpointResponse'
+            Core.<$> (x Core..:? "ResourceEndpointList")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetSignalingChannelEndpointResponse' smart constructor.
 data GetSignalingChannelEndpointResponse = GetSignalingChannelEndpointResponse'
   { -- | A list of endpoints for the specified signaling channel.
-    resourceEndpointList :: Lude.Maybe [ResourceEndpointListItem],
+    resourceEndpointList :: Core.Maybe [Types.ResourceEndpointListItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSignalingChannelEndpointResponse' with the minimum fields required to make a request.
---
--- * 'resourceEndpointList' - A list of endpoints for the specified signaling channel.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSignalingChannelEndpointResponse' value with any optional fields omitted.
 mkGetSignalingChannelEndpointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSignalingChannelEndpointResponse
-mkGetSignalingChannelEndpointResponse pResponseStatus_ =
+mkGetSignalingChannelEndpointResponse responseStatus =
   GetSignalingChannelEndpointResponse'
     { resourceEndpointList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of endpoints for the specified signaling channel.
 --
 -- /Note:/ Consider using 'resourceEndpointList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gscersResourceEndpointList :: Lens.Lens' GetSignalingChannelEndpointResponse (Lude.Maybe [ResourceEndpointListItem])
-gscersResourceEndpointList = Lens.lens (resourceEndpointList :: GetSignalingChannelEndpointResponse -> Lude.Maybe [ResourceEndpointListItem]) (\s a -> s {resourceEndpointList = a} :: GetSignalingChannelEndpointResponse)
-{-# DEPRECATED gscersResourceEndpointList "Use generic-lens or generic-optics with 'resourceEndpointList' instead." #-}
+gscerrsResourceEndpointList :: Lens.Lens' GetSignalingChannelEndpointResponse (Core.Maybe [Types.ResourceEndpointListItem])
+gscerrsResourceEndpointList = Lens.field @"resourceEndpointList"
+{-# DEPRECATED gscerrsResourceEndpointList "Use generic-lens or generic-optics with 'resourceEndpointList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gscersResponseStatus :: Lens.Lens' GetSignalingChannelEndpointResponse Lude.Int
-gscersResponseStatus = Lens.lens (responseStatus :: GetSignalingChannelEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSignalingChannelEndpointResponse)
-{-# DEPRECATED gscersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gscerrsResponseStatus :: Lens.Lens' GetSignalingChannelEndpointResponse Core.Int
+gscerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gscerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

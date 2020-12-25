@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode
   ( H265UnregisteredSeiTimecode
       ( H265UnregisteredSeiTimecode',
-        HUSTDisabled,
-        HUSTEnabled
+        H265UnregisteredSeiTimecodeDisabled,
+        H265UnregisteredSeiTimecodeEnabled,
+        fromH265UnregisteredSeiTimecode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
-newtype H265UnregisteredSeiTimecode = H265UnregisteredSeiTimecode' Lude.Text
+newtype H265UnregisteredSeiTimecode = H265UnregisteredSeiTimecode'
+  { fromH265UnregisteredSeiTimecode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HUSTDisabled :: H265UnregisteredSeiTimecode
-pattern HUSTDisabled = H265UnregisteredSeiTimecode' "DISABLED"
+pattern H265UnregisteredSeiTimecodeDisabled :: H265UnregisteredSeiTimecode
+pattern H265UnregisteredSeiTimecodeDisabled = H265UnregisteredSeiTimecode' "DISABLED"
 
-pattern HUSTEnabled :: H265UnregisteredSeiTimecode
-pattern HUSTEnabled = H265UnregisteredSeiTimecode' "ENABLED"
+pattern H265UnregisteredSeiTimecodeEnabled :: H265UnregisteredSeiTimecode
+pattern H265UnregisteredSeiTimecodeEnabled = H265UnregisteredSeiTimecode' "ENABLED"
 
 {-# COMPLETE
-  HUSTDisabled,
-  HUSTEnabled,
+  H265UnregisteredSeiTimecodeDisabled,
+  H265UnregisteredSeiTimecodeEnabled,
   H265UnregisteredSeiTimecode'
   #-}

@@ -25,78 +25,71 @@ module Network.AWS.Rekognition.Types.ProtectiveEquipmentPerson
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BoundingBox
-import Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
+import qualified Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart as Types
 
 -- | A person detected by a call to 'DetectProtectiveEquipment' . The API returns all persons detected in the input image in an array of @ProtectiveEquipmentPerson@ objects.
 --
 -- /See:/ 'mkProtectiveEquipmentPerson' smart constructor.
 data ProtectiveEquipmentPerson = ProtectiveEquipmentPerson'
   { -- | An array of body parts detected on a person's body (including body parts without PPE).
-    bodyParts :: Lude.Maybe [ProtectiveEquipmentBodyPart],
+    bodyParts :: Core.Maybe [Types.ProtectiveEquipmentBodyPart],
     -- | A bounding box around the detected person.
-    boundingBox :: Lude.Maybe BoundingBox,
+    boundingBox :: Core.Maybe Types.BoundingBox,
     -- | The confidence that Amazon Rekognition has that the bounding box contains a person.
-    confidence :: Lude.Maybe Lude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | The identifier for the detected person. The identifier is only unique for a single call to @DetectProtectiveEquipment@ .
-    id :: Lude.Maybe Lude.Natural
+    id :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProtectiveEquipmentPerson' with the minimum fields required to make a request.
---
--- * 'bodyParts' - An array of body parts detected on a person's body (including body parts without PPE).
--- * 'boundingBox' - A bounding box around the detected person.
--- * 'confidence' - The confidence that Amazon Rekognition has that the bounding box contains a person.
--- * 'id' - The identifier for the detected person. The identifier is only unique for a single call to @DetectProtectiveEquipment@ .
+-- | Creates a 'ProtectiveEquipmentPerson' value with any optional fields omitted.
 mkProtectiveEquipmentPerson ::
   ProtectiveEquipmentPerson
 mkProtectiveEquipmentPerson =
   ProtectiveEquipmentPerson'
-    { bodyParts = Lude.Nothing,
-      boundingBox = Lude.Nothing,
-      confidence = Lude.Nothing,
-      id = Lude.Nothing
+    { bodyParts = Core.Nothing,
+      boundingBox = Core.Nothing,
+      confidence = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | An array of body parts detected on a person's body (including body parts without PPE).
 --
 -- /Note:/ Consider using 'bodyParts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pepBodyParts :: Lens.Lens' ProtectiveEquipmentPerson (Lude.Maybe [ProtectiveEquipmentBodyPart])
-pepBodyParts = Lens.lens (bodyParts :: ProtectiveEquipmentPerson -> Lude.Maybe [ProtectiveEquipmentBodyPart]) (\s a -> s {bodyParts = a} :: ProtectiveEquipmentPerson)
+pepBodyParts :: Lens.Lens' ProtectiveEquipmentPerson (Core.Maybe [Types.ProtectiveEquipmentBodyPart])
+pepBodyParts = Lens.field @"bodyParts"
 {-# DEPRECATED pepBodyParts "Use generic-lens or generic-optics with 'bodyParts' instead." #-}
 
 -- | A bounding box around the detected person.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pepBoundingBox :: Lens.Lens' ProtectiveEquipmentPerson (Lude.Maybe BoundingBox)
-pepBoundingBox = Lens.lens (boundingBox :: ProtectiveEquipmentPerson -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: ProtectiveEquipmentPerson)
+pepBoundingBox :: Lens.Lens' ProtectiveEquipmentPerson (Core.Maybe Types.BoundingBox)
+pepBoundingBox = Lens.field @"boundingBox"
 {-# DEPRECATED pepBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
 
 -- | The confidence that Amazon Rekognition has that the bounding box contains a person.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pepConfidence :: Lens.Lens' ProtectiveEquipmentPerson (Lude.Maybe Lude.Double)
-pepConfidence = Lens.lens (confidence :: ProtectiveEquipmentPerson -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: ProtectiveEquipmentPerson)
+pepConfidence :: Lens.Lens' ProtectiveEquipmentPerson (Core.Maybe Core.Double)
+pepConfidence = Lens.field @"confidence"
 {-# DEPRECATED pepConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
 -- | The identifier for the detected person. The identifier is only unique for a single call to @DetectProtectiveEquipment@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pepId :: Lens.Lens' ProtectiveEquipmentPerson (Lude.Maybe Lude.Natural)
-pepId = Lens.lens (id :: ProtectiveEquipmentPerson -> Lude.Maybe Lude.Natural) (\s a -> s {id = a} :: ProtectiveEquipmentPerson)
+pepId :: Lens.Lens' ProtectiveEquipmentPerson (Core.Maybe Core.Natural)
+pepId = Lens.field @"id"
 {-# DEPRECATED pepId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON ProtectiveEquipmentPerson where
+instance Core.FromJSON ProtectiveEquipmentPerson where
   parseJSON =
-    Lude.withObject
-      "ProtectiveEquipmentPerson"
-      ( \x ->
-          ProtectiveEquipmentPerson'
-            Lude.<$> (x Lude..:? "BodyParts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "BoundingBox")
-            Lude.<*> (x Lude..:? "Confidence")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "ProtectiveEquipmentPerson" Core.$
+      \x ->
+        ProtectiveEquipmentPerson'
+          Core.<$> (x Core..:? "BodyParts")
+          Core.<*> (x Core..:? "BoundingBox")
+          Core.<*> (x Core..:? "Confidence")
+          Core.<*> (x Core..:? "Id")

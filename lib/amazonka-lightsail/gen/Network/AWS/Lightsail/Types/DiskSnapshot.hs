@@ -17,231 +17,218 @@ module Network.AWS.Lightsail.Types.DiskSnapshot
     mkDiskSnapshot,
 
     -- * Lenses
-    dsFromDiskName,
-    dsIsFromAutoSnapshot,
-    dsState,
-    dsResourceType,
     dsArn,
     dsCreatedAt,
-    dsLocation,
-    dsProgress,
-    dsName,
-    dsSizeInGb,
-    dsSupportCode,
-    dsFromInstanceARN,
+    dsFromDiskArn,
+    dsFromDiskName,
+    dsFromInstanceArn,
     dsFromInstanceName,
-    dsFromDiskARN,
+    dsIsFromAutoSnapshot,
+    dsLocation,
+    dsName,
+    dsProgress,
+    dsResourceType,
+    dsSizeInGb,
+    dsState,
+    dsSupportCode,
     dsTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.DiskSnapshotState
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import Network.AWS.Lightsail.Types.Tag
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.Arn as Types
+import qualified Network.AWS.Lightsail.Types.DiskSnapshotState as Types
+import qualified Network.AWS.Lightsail.Types.FromDiskArn as Types
+import qualified Network.AWS.Lightsail.Types.FromInstanceArn as Types
+import qualified Network.AWS.Lightsail.Types.ResourceLocation as Types
+import qualified Network.AWS.Lightsail.Types.ResourceName as Types
+import qualified Network.AWS.Lightsail.Types.ResourceType as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Lightsail.Types.Tag as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a block storage disk snapshot.
 --
 -- /See:/ 'mkDiskSnapshot' smart constructor.
 data DiskSnapshot = DiskSnapshot'
-  { -- | The unique name of the source disk from which the disk snapshot was created.
-    fromDiskName :: Lude.Maybe Lude.Text,
-    -- | A Boolean value indicating whether the snapshot was created from an automatic snapshot.
-    isFromAutoSnapshot :: Lude.Maybe Lude.Bool,
-    -- | The status of the disk snapshot operation.
-    state :: Lude.Maybe DiskSnapshotState,
-    -- | The Lightsail resource type (e.g., @DiskSnapshot@ ).
-    resourceType :: Lude.Maybe ResourceType,
-    -- | The Amazon Resource Name (ARN) of the disk snapshot.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the disk snapshot.
+    arn :: Core.Maybe Types.Arn,
     -- | The date when the disk snapshot was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The AWS Region and Availability Zone where the disk snapshot was created.
-    location :: Lude.Maybe ResourceLocation,
-    -- | The progress of the disk snapshot operation.
-    progress :: Lude.Maybe Lude.Text,
-    -- | The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
-    name :: Lude.Maybe Lude.Text,
-    -- | The size of the disk in GB.
-    sizeInGb :: Lude.Maybe Lude.Int,
-    -- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-    supportCode :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
-    fromInstanceARN :: Lude.Maybe Lude.Text,
-    -- | The unique name of the source instance from which the disk (system volume) snapshot was created.
-    fromInstanceName :: Lude.Maybe Lude.Text,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
-    fromDiskARN :: Lude.Maybe Lude.Text,
+    fromDiskArn :: Core.Maybe Types.FromDiskArn,
+    -- | The unique name of the source disk from which the disk snapshot was created.
+    fromDiskName :: Core.Maybe Types.ResourceName,
+    -- | The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
+    fromInstanceArn :: Core.Maybe Types.FromInstanceArn,
+    -- | The unique name of the source instance from which the disk (system volume) snapshot was created.
+    fromInstanceName :: Core.Maybe Types.ResourceName,
+    -- | A Boolean value indicating whether the snapshot was created from an automatic snapshot.
+    isFromAutoSnapshot :: Core.Maybe Core.Bool,
+    -- | The AWS Region and Availability Zone where the disk snapshot was created.
+    location :: Core.Maybe Types.ResourceLocation,
+    -- | The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
+    name :: Core.Maybe Types.ResourceName,
+    -- | The progress of the disk snapshot operation.
+    progress :: Core.Maybe Types.String,
+    -- | The Lightsail resource type (e.g., @DiskSnapshot@ ).
+    resourceType :: Core.Maybe Types.ResourceType,
+    -- | The size of the disk in GB.
+    sizeInGb :: Core.Maybe Core.Int,
+    -- | The status of the disk snapshot operation.
+    state :: Core.Maybe Types.DiskSnapshotState,
+    -- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+    supportCode :: Core.Maybe Types.String,
     -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DiskSnapshot' with the minimum fields required to make a request.
---
--- * 'fromDiskName' - The unique name of the source disk from which the disk snapshot was created.
--- * 'isFromAutoSnapshot' - A Boolean value indicating whether the snapshot was created from an automatic snapshot.
--- * 'state' - The status of the disk snapshot operation.
--- * 'resourceType' - The Lightsail resource type (e.g., @DiskSnapshot@ ).
--- * 'arn' - The Amazon Resource Name (ARN) of the disk snapshot.
--- * 'createdAt' - The date when the disk snapshot was created.
--- * 'location' - The AWS Region and Availability Zone where the disk snapshot was created.
--- * 'progress' - The progress of the disk snapshot operation.
--- * 'name' - The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
--- * 'sizeInGb' - The size of the disk in GB.
--- * 'supportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
--- * 'fromInstanceARN' - The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
--- * 'fromInstanceName' - The unique name of the source instance from which the disk (system volume) snapshot was created.
--- * 'fromDiskARN' - The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
--- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+-- | Creates a 'DiskSnapshot' value with any optional fields omitted.
 mkDiskSnapshot ::
   DiskSnapshot
 mkDiskSnapshot =
   DiskSnapshot'
-    { fromDiskName = Lude.Nothing,
-      isFromAutoSnapshot = Lude.Nothing,
-      state = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      location = Lude.Nothing,
-      progress = Lude.Nothing,
-      name = Lude.Nothing,
-      sizeInGb = Lude.Nothing,
-      supportCode = Lude.Nothing,
-      fromInstanceARN = Lude.Nothing,
-      fromInstanceName = Lude.Nothing,
-      fromDiskARN = Lude.Nothing,
-      tags = Lude.Nothing
+    { arn = Core.Nothing,
+      createdAt = Core.Nothing,
+      fromDiskArn = Core.Nothing,
+      fromDiskName = Core.Nothing,
+      fromInstanceArn = Core.Nothing,
+      fromInstanceName = Core.Nothing,
+      isFromAutoSnapshot = Core.Nothing,
+      location = Core.Nothing,
+      name = Core.Nothing,
+      progress = Core.Nothing,
+      resourceType = Core.Nothing,
+      sizeInGb = Core.Nothing,
+      state = Core.Nothing,
+      supportCode = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The unique name of the source disk from which the disk snapshot was created.
---
--- /Note:/ Consider using 'fromDiskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsFromDiskName :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Text)
-dsFromDiskName = Lens.lens (fromDiskName :: DiskSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {fromDiskName = a} :: DiskSnapshot)
-{-# DEPRECATED dsFromDiskName "Use generic-lens or generic-optics with 'fromDiskName' instead." #-}
-
--- | A Boolean value indicating whether the snapshot was created from an automatic snapshot.
---
--- /Note:/ Consider using 'isFromAutoSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsIsFromAutoSnapshot :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Bool)
-dsIsFromAutoSnapshot = Lens.lens (isFromAutoSnapshot :: DiskSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {isFromAutoSnapshot = a} :: DiskSnapshot)
-{-# DEPRECATED dsIsFromAutoSnapshot "Use generic-lens or generic-optics with 'isFromAutoSnapshot' instead." #-}
-
--- | The status of the disk snapshot operation.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsState :: Lens.Lens' DiskSnapshot (Lude.Maybe DiskSnapshotState)
-dsState = Lens.lens (state :: DiskSnapshot -> Lude.Maybe DiskSnapshotState) (\s a -> s {state = a} :: DiskSnapshot)
-{-# DEPRECATED dsState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The Lightsail resource type (e.g., @DiskSnapshot@ ).
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsResourceType :: Lens.Lens' DiskSnapshot (Lude.Maybe ResourceType)
-dsResourceType = Lens.lens (resourceType :: DiskSnapshot -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: DiskSnapshot)
-{-# DEPRECATED dsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the disk snapshot.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsArn :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Text)
-dsArn = Lens.lens (arn :: DiskSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DiskSnapshot)
+dsArn :: Lens.Lens' DiskSnapshot (Core.Maybe Types.Arn)
+dsArn = Lens.field @"arn"
 {-# DEPRECATED dsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date when the disk snapshot was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsCreatedAt :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Timestamp)
-dsCreatedAt = Lens.lens (createdAt :: DiskSnapshot -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: DiskSnapshot)
+dsCreatedAt :: Lens.Lens' DiskSnapshot (Core.Maybe Core.NominalDiffTime)
+dsCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED dsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
--- | The AWS Region and Availability Zone where the disk snapshot was created.
+-- | The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
 --
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsLocation :: Lens.Lens' DiskSnapshot (Lude.Maybe ResourceLocation)
-dsLocation = Lens.lens (location :: DiskSnapshot -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: DiskSnapshot)
-{-# DEPRECATED dsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+-- /Note:/ Consider using 'fromDiskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsFromDiskArn :: Lens.Lens' DiskSnapshot (Core.Maybe Types.FromDiskArn)
+dsFromDiskArn = Lens.field @"fromDiskArn"
+{-# DEPRECATED dsFromDiskArn "Use generic-lens or generic-optics with 'fromDiskArn' instead." #-}
 
--- | The progress of the disk snapshot operation.
+-- | The unique name of the source disk from which the disk snapshot was created.
 --
--- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsProgress :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Text)
-dsProgress = Lens.lens (progress :: DiskSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {progress = a} :: DiskSnapshot)
-{-# DEPRECATED dsProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
-
--- | The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsName :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Text)
-dsName = Lens.lens (name :: DiskSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DiskSnapshot)
-{-# DEPRECATED dsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The size of the disk in GB.
---
--- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSizeInGb :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Int)
-dsSizeInGb = Lens.lens (sizeInGb :: DiskSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {sizeInGb = a} :: DiskSnapshot)
-{-# DEPRECATED dsSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
-
--- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
---
--- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSupportCode :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Text)
-dsSupportCode = Lens.lens (supportCode :: DiskSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {supportCode = a} :: DiskSnapshot)
-{-# DEPRECATED dsSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
+-- /Note:/ Consider using 'fromDiskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsFromDiskName :: Lens.Lens' DiskSnapshot (Core.Maybe Types.ResourceName)
+dsFromDiskName = Lens.field @"fromDiskName"
+{-# DEPRECATED dsFromDiskName "Use generic-lens or generic-optics with 'fromDiskName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
 --
--- /Note:/ Consider using 'fromInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsFromInstanceARN :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Text)
-dsFromInstanceARN = Lens.lens (fromInstanceARN :: DiskSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {fromInstanceARN = a} :: DiskSnapshot)
-{-# DEPRECATED dsFromInstanceARN "Use generic-lens or generic-optics with 'fromInstanceARN' instead." #-}
+-- /Note:/ Consider using 'fromInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsFromInstanceArn :: Lens.Lens' DiskSnapshot (Core.Maybe Types.FromInstanceArn)
+dsFromInstanceArn = Lens.field @"fromInstanceArn"
+{-# DEPRECATED dsFromInstanceArn "Use generic-lens or generic-optics with 'fromInstanceArn' instead." #-}
 
 -- | The unique name of the source instance from which the disk (system volume) snapshot was created.
 --
 -- /Note:/ Consider using 'fromInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsFromInstanceName :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Text)
-dsFromInstanceName = Lens.lens (fromInstanceName :: DiskSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {fromInstanceName = a} :: DiskSnapshot)
+dsFromInstanceName :: Lens.Lens' DiskSnapshot (Core.Maybe Types.ResourceName)
+dsFromInstanceName = Lens.field @"fromInstanceName"
 {-# DEPRECATED dsFromInstanceName "Use generic-lens or generic-optics with 'fromInstanceName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+-- | A Boolean value indicating whether the snapshot was created from an automatic snapshot.
 --
--- /Note:/ Consider using 'fromDiskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsFromDiskARN :: Lens.Lens' DiskSnapshot (Lude.Maybe Lude.Text)
-dsFromDiskARN = Lens.lens (fromDiskARN :: DiskSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {fromDiskARN = a} :: DiskSnapshot)
-{-# DEPRECATED dsFromDiskARN "Use generic-lens or generic-optics with 'fromDiskARN' instead." #-}
+-- /Note:/ Consider using 'isFromAutoSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsIsFromAutoSnapshot :: Lens.Lens' DiskSnapshot (Core.Maybe Core.Bool)
+dsIsFromAutoSnapshot = Lens.field @"isFromAutoSnapshot"
+{-# DEPRECATED dsIsFromAutoSnapshot "Use generic-lens or generic-optics with 'isFromAutoSnapshot' instead." #-}
+
+-- | The AWS Region and Availability Zone where the disk snapshot was created.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsLocation :: Lens.Lens' DiskSnapshot (Core.Maybe Types.ResourceLocation)
+dsLocation = Lens.field @"location"
+{-# DEPRECATED dsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsName :: Lens.Lens' DiskSnapshot (Core.Maybe Types.ResourceName)
+dsName = Lens.field @"name"
+{-# DEPRECATED dsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The progress of the disk snapshot operation.
+--
+-- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsProgress :: Lens.Lens' DiskSnapshot (Core.Maybe Types.String)
+dsProgress = Lens.field @"progress"
+{-# DEPRECATED dsProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
+
+-- | The Lightsail resource type (e.g., @DiskSnapshot@ ).
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsResourceType :: Lens.Lens' DiskSnapshot (Core.Maybe Types.ResourceType)
+dsResourceType = Lens.field @"resourceType"
+{-# DEPRECATED dsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The size of the disk in GB.
+--
+-- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSizeInGb :: Lens.Lens' DiskSnapshot (Core.Maybe Core.Int)
+dsSizeInGb = Lens.field @"sizeInGb"
+{-# DEPRECATED dsSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
+
+-- | The status of the disk snapshot operation.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsState :: Lens.Lens' DiskSnapshot (Core.Maybe Types.DiskSnapshotState)
+dsState = Lens.field @"state"
+{-# DEPRECATED dsState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+--
+-- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSupportCode :: Lens.Lens' DiskSnapshot (Core.Maybe Types.String)
+dsSupportCode = Lens.field @"supportCode"
+{-# DEPRECATED dsSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
 
 -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsTags :: Lens.Lens' DiskSnapshot (Lude.Maybe [Tag])
-dsTags = Lens.lens (tags :: DiskSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DiskSnapshot)
+dsTags :: Lens.Lens' DiskSnapshot (Core.Maybe [Types.Tag])
+dsTags = Lens.field @"tags"
 {-# DEPRECATED dsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON DiskSnapshot where
+instance Core.FromJSON DiskSnapshot where
   parseJSON =
-    Lude.withObject
-      "DiskSnapshot"
-      ( \x ->
-          DiskSnapshot'
-            Lude.<$> (x Lude..:? "fromDiskName")
-            Lude.<*> (x Lude..:? "isFromAutoSnapshot")
-            Lude.<*> (x Lude..:? "state")
-            Lude.<*> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "progress")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "sizeInGb")
-            Lude.<*> (x Lude..:? "supportCode")
-            Lude.<*> (x Lude..:? "fromInstanceArn")
-            Lude.<*> (x Lude..:? "fromInstanceName")
-            Lude.<*> (x Lude..:? "fromDiskArn")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "DiskSnapshot" Core.$
+      \x ->
+        DiskSnapshot'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "fromDiskArn")
+          Core.<*> (x Core..:? "fromDiskName")
+          Core.<*> (x Core..:? "fromInstanceArn")
+          Core.<*> (x Core..:? "fromInstanceName")
+          Core.<*> (x Core..:? "isFromAutoSnapshot")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "progress")
+          Core.<*> (x Core..:? "resourceType")
+          Core.<*> (x Core..:? "sizeInGb")
+          Core.<*> (x Core..:? "state")
+          Core.<*> (x Core..:? "supportCode")
+          Core.<*> (x Core..:? "tags")

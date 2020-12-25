@@ -13,71 +13,73 @@
 module Network.AWS.Rekognition.Types.Reason
   ( Reason
       ( Reason',
-        ExceedsMaxFaces,
-        ExtremePose,
-        LowBrightness,
-        LowSharpness,
-        LowConfidence,
-        SmallBoundingBox,
-        LowFaceQuality
+        ReasonExceedsMaxFaces,
+        ReasonExtremePose,
+        ReasonLowBrightness,
+        ReasonLowSharpness,
+        ReasonLowConfidence,
+        ReasonSmallBoundingBox,
+        ReasonLowFaceQuality,
+        fromReason
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Reason = Reason' Lude.Text
+newtype Reason = Reason' {fromReason :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ExceedsMaxFaces :: Reason
-pattern ExceedsMaxFaces = Reason' "EXCEEDS_MAX_FACES"
+pattern ReasonExceedsMaxFaces :: Reason
+pattern ReasonExceedsMaxFaces = Reason' "EXCEEDS_MAX_FACES"
 
-pattern ExtremePose :: Reason
-pattern ExtremePose = Reason' "EXTREME_POSE"
+pattern ReasonExtremePose :: Reason
+pattern ReasonExtremePose = Reason' "EXTREME_POSE"
 
-pattern LowBrightness :: Reason
-pattern LowBrightness = Reason' "LOW_BRIGHTNESS"
+pattern ReasonLowBrightness :: Reason
+pattern ReasonLowBrightness = Reason' "LOW_BRIGHTNESS"
 
-pattern LowSharpness :: Reason
-pattern LowSharpness = Reason' "LOW_SHARPNESS"
+pattern ReasonLowSharpness :: Reason
+pattern ReasonLowSharpness = Reason' "LOW_SHARPNESS"
 
-pattern LowConfidence :: Reason
-pattern LowConfidence = Reason' "LOW_CONFIDENCE"
+pattern ReasonLowConfidence :: Reason
+pattern ReasonLowConfidence = Reason' "LOW_CONFIDENCE"
 
-pattern SmallBoundingBox :: Reason
-pattern SmallBoundingBox = Reason' "SMALL_BOUNDING_BOX"
+pattern ReasonSmallBoundingBox :: Reason
+pattern ReasonSmallBoundingBox = Reason' "SMALL_BOUNDING_BOX"
 
-pattern LowFaceQuality :: Reason
-pattern LowFaceQuality = Reason' "LOW_FACE_QUALITY"
+pattern ReasonLowFaceQuality :: Reason
+pattern ReasonLowFaceQuality = Reason' "LOW_FACE_QUALITY"
 
 {-# COMPLETE
-  ExceedsMaxFaces,
-  ExtremePose,
-  LowBrightness,
-  LowSharpness,
-  LowConfidence,
-  SmallBoundingBox,
-  LowFaceQuality,
+  ReasonExceedsMaxFaces,
+  ReasonExtremePose,
+  ReasonLowBrightness,
+  ReasonLowSharpness,
+  ReasonLowConfidence,
+  ReasonSmallBoundingBox,
+  ReasonLowFaceQuality,
   Reason'
   #-}

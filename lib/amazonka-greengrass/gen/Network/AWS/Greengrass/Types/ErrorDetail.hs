@@ -23,52 +23,47 @@ module Network.AWS.Greengrass.Types.ErrorDetail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the error.
 --
 -- /See:/ 'mkErrorDetail' smart constructor.
 data ErrorDetail = ErrorDetail'
   { -- | A detailed error code.
-    detailedErrorCode :: Lude.Maybe Lude.Text,
+    detailedErrorCode :: Core.Maybe Core.Text,
     -- | A detailed error message.
-    detailedErrorMessage :: Lude.Maybe Lude.Text
+    detailedErrorMessage :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ErrorDetail' with the minimum fields required to make a request.
---
--- * 'detailedErrorCode' - A detailed error code.
--- * 'detailedErrorMessage' - A detailed error message.
+-- | Creates a 'ErrorDetail' value with any optional fields omitted.
 mkErrorDetail ::
   ErrorDetail
 mkErrorDetail =
   ErrorDetail'
-    { detailedErrorCode = Lude.Nothing,
-      detailedErrorMessage = Lude.Nothing
+    { detailedErrorCode = Core.Nothing,
+      detailedErrorMessage = Core.Nothing
     }
 
 -- | A detailed error code.
 --
 -- /Note:/ Consider using 'detailedErrorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edDetailedErrorCode :: Lens.Lens' ErrorDetail (Lude.Maybe Lude.Text)
-edDetailedErrorCode = Lens.lens (detailedErrorCode :: ErrorDetail -> Lude.Maybe Lude.Text) (\s a -> s {detailedErrorCode = a} :: ErrorDetail)
+edDetailedErrorCode :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
+edDetailedErrorCode = Lens.field @"detailedErrorCode"
 {-# DEPRECATED edDetailedErrorCode "Use generic-lens or generic-optics with 'detailedErrorCode' instead." #-}
 
 -- | A detailed error message.
 --
 -- /Note:/ Consider using 'detailedErrorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edDetailedErrorMessage :: Lens.Lens' ErrorDetail (Lude.Maybe Lude.Text)
-edDetailedErrorMessage = Lens.lens (detailedErrorMessage :: ErrorDetail -> Lude.Maybe Lude.Text) (\s a -> s {detailedErrorMessage = a} :: ErrorDetail)
+edDetailedErrorMessage :: Lens.Lens' ErrorDetail (Core.Maybe Core.Text)
+edDetailedErrorMessage = Lens.field @"detailedErrorMessage"
 {-# DEPRECATED edDetailedErrorMessage "Use generic-lens or generic-optics with 'detailedErrorMessage' instead." #-}
 
-instance Lude.FromJSON ErrorDetail where
+instance Core.FromJSON ErrorDetail where
   parseJSON =
-    Lude.withObject
-      "ErrorDetail"
-      ( \x ->
-          ErrorDetail'
-            Lude.<$> (x Lude..:? "DetailedErrorCode")
-            Lude.<*> (x Lude..:? "DetailedErrorMessage")
-      )
+    Core.withObject "ErrorDetail" Core.$
+      \x ->
+        ErrorDetail'
+          Core.<$> (x Core..:? "DetailedErrorCode")
+          Core.<*> (x Core..:? "DetailedErrorMessage")

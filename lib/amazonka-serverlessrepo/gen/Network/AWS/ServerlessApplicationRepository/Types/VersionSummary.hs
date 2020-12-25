@@ -18,95 +18,86 @@ module Network.AWS.ServerlessApplicationRepository.Types.VersionSummary
 
     -- * Lenses
     vsCreationTime,
-    vsSemanticVersion,
-    vsSourceCodeURL,
     vsApplicationId,
+    vsSemanticVersion,
+    vsSourceCodeUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An application version summary.
 --
 -- /See:/ 'mkVersionSummary' smart constructor.
 data VersionSummary = VersionSummary'
   { -- | The date and time this resource was created.
-    creationTime :: Lude.Text,
+    creationTime :: Core.Text,
+    -- | The application Amazon Resource Name (ARN).
+    applicationId :: Core.Text,
     -- | The semantic version of the application:
     --
     -- <https://semver.org/ https://semver.org/>
-    semanticVersion :: Lude.Text,
+    semanticVersion :: Core.Text,
     -- | A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
-    sourceCodeURL :: Lude.Maybe Lude.Text,
-    -- | The application Amazon Resource Name (ARN).
-    applicationId :: Lude.Text
+    sourceCodeUrl :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VersionSummary' with the minimum fields required to make a request.
---
--- * 'creationTime' - The date and time this resource was created.
--- * 'semanticVersion' - The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
--- * 'sourceCodeURL' - A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
--- * 'applicationId' - The application Amazon Resource Name (ARN).
+-- | Creates a 'VersionSummary' value with any optional fields omitted.
 mkVersionSummary ::
   -- | 'creationTime'
-  Lude.Text ->
-  -- | 'semanticVersion'
-  Lude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'semanticVersion'
+  Core.Text ->
   VersionSummary
-mkVersionSummary pCreationTime_ pSemanticVersion_ pApplicationId_ =
+mkVersionSummary creationTime applicationId semanticVersion =
   VersionSummary'
-    { creationTime = pCreationTime_,
-      semanticVersion = pSemanticVersion_,
-      sourceCodeURL = Lude.Nothing,
-      applicationId = pApplicationId_
+    { creationTime,
+      applicationId,
+      semanticVersion,
+      sourceCodeUrl = Core.Nothing
     }
 
 -- | The date and time this resource was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsCreationTime :: Lens.Lens' VersionSummary Lude.Text
-vsCreationTime = Lens.lens (creationTime :: VersionSummary -> Lude.Text) (\s a -> s {creationTime = a} :: VersionSummary)
+vsCreationTime :: Lens.Lens' VersionSummary Core.Text
+vsCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED vsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The application Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsApplicationId :: Lens.Lens' VersionSummary Core.Text
+vsApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED vsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The semantic version of the application:
 --
 -- <https://semver.org/ https://semver.org/>
 --
 -- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsSemanticVersion :: Lens.Lens' VersionSummary Lude.Text
-vsSemanticVersion = Lens.lens (semanticVersion :: VersionSummary -> Lude.Text) (\s a -> s {semanticVersion = a} :: VersionSummary)
+vsSemanticVersion :: Lens.Lens' VersionSummary Core.Text
+vsSemanticVersion = Lens.field @"semanticVersion"
 {-# DEPRECATED vsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
 
 -- | A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
 --
--- /Note:/ Consider using 'sourceCodeURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsSourceCodeURL :: Lens.Lens' VersionSummary (Lude.Maybe Lude.Text)
-vsSourceCodeURL = Lens.lens (sourceCodeURL :: VersionSummary -> Lude.Maybe Lude.Text) (\s a -> s {sourceCodeURL = a} :: VersionSummary)
-{-# DEPRECATED vsSourceCodeURL "Use generic-lens or generic-optics with 'sourceCodeURL' instead." #-}
+-- /Note:/ Consider using 'sourceCodeUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsSourceCodeUrl :: Lens.Lens' VersionSummary (Core.Maybe Core.Text)
+vsSourceCodeUrl = Lens.field @"sourceCodeUrl"
+{-# DEPRECATED vsSourceCodeUrl "Use generic-lens or generic-optics with 'sourceCodeUrl' instead." #-}
 
--- | The application Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsApplicationId :: Lens.Lens' VersionSummary Lude.Text
-vsApplicationId = Lens.lens (applicationId :: VersionSummary -> Lude.Text) (\s a -> s {applicationId = a} :: VersionSummary)
-{-# DEPRECATED vsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
-instance Lude.FromJSON VersionSummary where
+instance Core.FromJSON VersionSummary where
   parseJSON =
-    Lude.withObject
-      "VersionSummary"
-      ( \x ->
-          VersionSummary'
-            Lude.<$> (x Lude..: "creationTime")
-            Lude.<*> (x Lude..: "semanticVersion")
-            Lude.<*> (x Lude..:? "sourceCodeUrl")
-            Lude.<*> (x Lude..: "applicationId")
-      )
+    Core.withObject "VersionSummary" Core.$
+      \x ->
+        VersionSummary'
+          Core.<$> (x Core..: "creationTime")
+          Core.<*> (x Core..: "applicationId")
+          Core.<*> (x Core..: "semanticVersion")
+          Core.<*> (x Core..:? "sourceCodeUrl")

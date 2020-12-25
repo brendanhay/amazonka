@@ -22,72 +22,53 @@ module Network.AWS.Route53.GetHostedZoneLimit
     mkGetHostedZoneLimit,
 
     -- ** Request lenses
-    ghzlHostedZoneId,
     ghzlType,
+    ghzlHostedZoneId,
 
     -- * Destructuring the response
     GetHostedZoneLimitResponse (..),
     mkGetHostedZoneLimitResponse,
 
     -- ** Response lenses
-    ghzlrsCount,
-    ghzlrsLimit,
-    ghzlrsResponseStatus,
+    ghzlrrsLimit,
+    ghzlrrsCount,
+    ghzlrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains information about the request to create a hosted zone.
 --
 -- /See:/ 'mkGetHostedZoneLimit' smart constructor.
 data GetHostedZoneLimit = GetHostedZoneLimit'
-  { -- | The ID of the hosted zone that you want to get a limit for.
-    hostedZoneId :: ResourceId,
-    -- | The limit that you want to get. Valid values include the following:
+  { -- | The limit that you want to get. Valid values include the following:
     --
     --
     --     * __MAX_RRSETS_BY_ZONE__ : The maximum number of records that you can create in the specified hosted zone.
     --
     --
     --     * __MAX_VPCS_ASSOCIATED_BY_ZONE__ : The maximum number of Amazon VPCs that you can associate with the specified private hosted zone.
-    type' :: HostedZoneLimitType
+    type' :: Types.HostedZoneLimitType,
+    -- | The ID of the hosted zone that you want to get a limit for.
+    hostedZoneId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHostedZoneLimit' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - The ID of the hosted zone that you want to get a limit for.
--- * 'type'' - The limit that you want to get. Valid values include the following:
---
---
---     * __MAX_RRSETS_BY_ZONE__ : The maximum number of records that you can create in the specified hosted zone.
---
---
---     * __MAX_VPCS_ASSOCIATED_BY_ZONE__ : The maximum number of Amazon VPCs that you can associate with the specified private hosted zone.
+-- | Creates a 'GetHostedZoneLimit' value with any optional fields omitted.
 mkGetHostedZoneLimit ::
+  -- | 'type\''
+  Types.HostedZoneLimitType ->
   -- | 'hostedZoneId'
-  ResourceId ->
-  -- | 'type''
-  HostedZoneLimitType ->
+  Types.ResourceId ->
   GetHostedZoneLimit
-mkGetHostedZoneLimit pHostedZoneId_ pType_ =
-  GetHostedZoneLimit'
-    { hostedZoneId = pHostedZoneId_,
-      type' = pType_
-    }
-
--- | The ID of the hosted zone that you want to get a limit for.
---
--- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzlHostedZoneId :: Lens.Lens' GetHostedZoneLimit ResourceId
-ghzlHostedZoneId = Lens.lens (hostedZoneId :: GetHostedZoneLimit -> ResourceId) (\s a -> s {hostedZoneId = a} :: GetHostedZoneLimit)
-{-# DEPRECATED ghzlHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
+mkGetHostedZoneLimit type' hostedZoneId =
+  GetHostedZoneLimit' {type', hostedZoneId}
 
 -- | The limit that you want to get. Valid values include the following:
 --
@@ -100,88 +81,85 @@ ghzlHostedZoneId = Lens.lens (hostedZoneId :: GetHostedZoneLimit -> ResourceId) 
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzlType :: Lens.Lens' GetHostedZoneLimit HostedZoneLimitType
-ghzlType = Lens.lens (type' :: GetHostedZoneLimit -> HostedZoneLimitType) (\s a -> s {type' = a} :: GetHostedZoneLimit)
+ghzlType :: Lens.Lens' GetHostedZoneLimit Types.HostedZoneLimitType
+ghzlType = Lens.field @"type'"
 {-# DEPRECATED ghzlType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.AWSRequest GetHostedZoneLimit where
+-- | The ID of the hosted zone that you want to get a limit for.
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghzlHostedZoneId :: Lens.Lens' GetHostedZoneLimit Types.ResourceId
+ghzlHostedZoneId = Lens.field @"hostedZoneId"
+{-# DEPRECATED ghzlHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
+
+instance Core.AWSRequest GetHostedZoneLimit where
   type Rs GetHostedZoneLimit = GetHostedZoneLimitResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2013-04-01/hostedzonelimit/" Core.<> (Core.toText hostedZoneId)
+                Core.<> ("/")
+                Core.<> (Core.toText type')
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetHostedZoneLimitResponse'
-            Lude.<$> (x Lude..@ "Count")
-            Lude.<*> (x Lude..@ "Limit")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "Limit")
+            Core.<*> (x Core..@ "Count")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetHostedZoneLimit where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetHostedZoneLimit where
-  toPath GetHostedZoneLimit' {..} =
-    Lude.mconcat
-      [ "/2013-04-01/hostedzonelimit/",
-        Lude.toBS hostedZoneId,
-        "/",
-        Lude.toBS type'
-      ]
-
-instance Lude.ToQuery GetHostedZoneLimit where
-  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains the requested limit.
 --
 -- /See:/ 'mkGetHostedZoneLimitResponse' smart constructor.
 data GetHostedZoneLimitResponse = GetHostedZoneLimitResponse'
-  { -- | The current number of entities that you have created of the specified type. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Count@ is the current number of records that you have created in the specified hosted zone.
-    count :: Lude.Natural,
-    -- | The current setting for the specified limit. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Limit@ is the maximum number of records that you can create in the specified hosted zone.
-    limit :: HostedZoneLimit,
+  { -- | The current setting for the specified limit. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Limit@ is the maximum number of records that you can create in the specified hosted zone.
+    limit :: Types.HostedZoneLimit,
+    -- | The current number of entities that you have created of the specified type. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Count@ is the current number of records that you have created in the specified hosted zone.
+    count :: Core.Natural,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHostedZoneLimitResponse' with the minimum fields required to make a request.
---
--- * 'count' - The current number of entities that you have created of the specified type. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Count@ is the current number of records that you have created in the specified hosted zone.
--- * 'limit' - The current setting for the specified limit. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Limit@ is the maximum number of records that you can create in the specified hosted zone.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetHostedZoneLimitResponse' value with any optional fields omitted.
 mkGetHostedZoneLimitResponse ::
-  -- | 'count'
-  Lude.Natural ->
   -- | 'limit'
-  HostedZoneLimit ->
+  Types.HostedZoneLimit ->
+  -- | 'count'
+  Core.Natural ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetHostedZoneLimitResponse
-mkGetHostedZoneLimitResponse pCount_ pLimit_ pResponseStatus_ =
-  GetHostedZoneLimitResponse'
-    { count = pCount_,
-      limit = pLimit_,
-      responseStatus = pResponseStatus_
-    }
-
--- | The current number of entities that you have created of the specified type. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Count@ is the current number of records that you have created in the specified hosted zone.
---
--- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzlrsCount :: Lens.Lens' GetHostedZoneLimitResponse Lude.Natural
-ghzlrsCount = Lens.lens (count :: GetHostedZoneLimitResponse -> Lude.Natural) (\s a -> s {count = a} :: GetHostedZoneLimitResponse)
-{-# DEPRECATED ghzlrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
+mkGetHostedZoneLimitResponse limit count responseStatus =
+  GetHostedZoneLimitResponse' {limit, count, responseStatus}
 
 -- | The current setting for the specified limit. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Limit@ is the maximum number of records that you can create in the specified hosted zone.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzlrsLimit :: Lens.Lens' GetHostedZoneLimitResponse HostedZoneLimit
-ghzlrsLimit = Lens.lens (limit :: GetHostedZoneLimitResponse -> HostedZoneLimit) (\s a -> s {limit = a} :: GetHostedZoneLimitResponse)
-{-# DEPRECATED ghzlrsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+ghzlrrsLimit :: Lens.Lens' GetHostedZoneLimitResponse Types.HostedZoneLimit
+ghzlrrsLimit = Lens.field @"limit"
+{-# DEPRECATED ghzlrrsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The current number of entities that you have created of the specified type. For example, if you specified @MAX_RRSETS_BY_ZONE@ for the value of @Type@ in the request, the value of @Count@ is the current number of records that you have created in the specified hosted zone.
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghzlrrsCount :: Lens.Lens' GetHostedZoneLimitResponse Core.Natural
+ghzlrrsCount = Lens.field @"count"
+{-# DEPRECATED ghzlrrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzlrsResponseStatus :: Lens.Lens' GetHostedZoneLimitResponse Lude.Int
-ghzlrsResponseStatus = Lens.lens (responseStatus :: GetHostedZoneLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHostedZoneLimitResponse)
-{-# DEPRECATED ghzlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ghzlrrsResponseStatus :: Lens.Lens' GetHostedZoneLimitResponse Core.Int
+ghzlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ghzlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

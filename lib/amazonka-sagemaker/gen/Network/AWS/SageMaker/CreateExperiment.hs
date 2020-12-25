@@ -26,160 +26,145 @@ module Network.AWS.SageMaker.CreateExperiment
     mkCreateExperiment,
 
     -- ** Request lenses
-    cefExperimentName,
-    cefDisplayName,
-    cefDescription,
-    cefTags,
+    cExperimentName,
+    cDescription,
+    cDisplayName,
+    cTags,
 
     -- * Destructuring the response
     CreateExperimentResponse (..),
     mkCreateExperimentResponse,
 
     -- ** Response lenses
-    cersExperimentARN,
-    cersResponseStatus,
+    cerrsExperimentArn,
+    cerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateExperiment' smart constructor.
 data CreateExperiment = CreateExperiment'
   { -- | The name of the experiment. The name must be unique in your AWS account and is not case-sensitive.
-    experimentName :: Lude.Text,
-    -- | The name of the experiment as displayed. The name doesn't need to be unique. If you don't specify @DisplayName@ , the value in @ExperimentName@ is displayed.
-    displayName :: Lude.Maybe Lude.Text,
+    experimentName :: Types.ExperimentEntityName,
     -- | The description of the experiment.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The name of the experiment as displayed. The name doesn't need to be unique. If you don't specify @DisplayName@ , the value in @ExperimentName@ is displayed.
+    displayName :: Core.Maybe Types.ExperimentEntityName,
     -- | A list of tags to associate with the experiment. You can use 'Search' API to search on the tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateExperiment' with the minimum fields required to make a request.
---
--- * 'experimentName' - The name of the experiment. The name must be unique in your AWS account and is not case-sensitive.
--- * 'displayName' - The name of the experiment as displayed. The name doesn't need to be unique. If you don't specify @DisplayName@ , the value in @ExperimentName@ is displayed.
--- * 'description' - The description of the experiment.
--- * 'tags' - A list of tags to associate with the experiment. You can use 'Search' API to search on the tags.
+-- | Creates a 'CreateExperiment' value with any optional fields omitted.
 mkCreateExperiment ::
   -- | 'experimentName'
-  Lude.Text ->
+  Types.ExperimentEntityName ->
   CreateExperiment
-mkCreateExperiment pExperimentName_ =
+mkCreateExperiment experimentName =
   CreateExperiment'
-    { experimentName = pExperimentName_,
-      displayName = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { experimentName,
+      description = Core.Nothing,
+      displayName = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The name of the experiment. The name must be unique in your AWS account and is not case-sensitive.
 --
 -- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cefExperimentName :: Lens.Lens' CreateExperiment Lude.Text
-cefExperimentName = Lens.lens (experimentName :: CreateExperiment -> Lude.Text) (\s a -> s {experimentName = a} :: CreateExperiment)
-{-# DEPRECATED cefExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
-
--- | The name of the experiment as displayed. The name doesn't need to be unique. If you don't specify @DisplayName@ , the value in @ExperimentName@ is displayed.
---
--- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cefDisplayName :: Lens.Lens' CreateExperiment (Lude.Maybe Lude.Text)
-cefDisplayName = Lens.lens (displayName :: CreateExperiment -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: CreateExperiment)
-{-# DEPRECATED cefDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+cExperimentName :: Lens.Lens' CreateExperiment Types.ExperimentEntityName
+cExperimentName = Lens.field @"experimentName"
+{-# DEPRECATED cExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | The description of the experiment.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cefDescription :: Lens.Lens' CreateExperiment (Lude.Maybe Lude.Text)
-cefDescription = Lens.lens (description :: CreateExperiment -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateExperiment)
-{-# DEPRECATED cefDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+cDescription :: Lens.Lens' CreateExperiment (Core.Maybe Types.Description)
+cDescription = Lens.field @"description"
+{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The name of the experiment as displayed. The name doesn't need to be unique. If you don't specify @DisplayName@ , the value in @ExperimentName@ is displayed.
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDisplayName :: Lens.Lens' CreateExperiment (Core.Maybe Types.ExperimentEntityName)
+cDisplayName = Lens.field @"displayName"
+{-# DEPRECATED cDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | A list of tags to associate with the experiment. You can use 'Search' API to search on the tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cefTags :: Lens.Lens' CreateExperiment (Lude.Maybe [Tag])
-cefTags = Lens.lens (tags :: CreateExperiment -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateExperiment)
-{-# DEPRECATED cefTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cTags :: Lens.Lens' CreateExperiment (Core.Maybe [Types.Tag])
+cTags = Lens.field @"tags"
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateExperiment where
+instance Core.FromJSON CreateExperiment where
+  toJSON CreateExperiment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ExperimentName" Core..= experimentName),
+            ("Description" Core..=) Core.<$> description,
+            ("DisplayName" Core..=) Core.<$> displayName,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateExperiment where
   type Rs CreateExperiment = CreateExperimentResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateExperiment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateExperimentResponse'
-            Lude.<$> (x Lude..?> "ExperimentArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ExperimentArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateExperiment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateExperiment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateExperiment where
-  toJSON CreateExperiment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ExperimentName" Lude..= experimentName),
-            ("DisplayName" Lude..=) Lude.<$> displayName,
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateExperiment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateExperiment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateExperimentResponse' smart constructor.
 data CreateExperimentResponse = CreateExperimentResponse'
   { -- | The Amazon Resource Name (ARN) of the experiment.
-    experimentARN :: Lude.Maybe Lude.Text,
+    experimentArn :: Core.Maybe Types.ExperimentArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateExperimentResponse' with the minimum fields required to make a request.
---
--- * 'experimentARN' - The Amazon Resource Name (ARN) of the experiment.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateExperimentResponse' value with any optional fields omitted.
 mkCreateExperimentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateExperimentResponse
-mkCreateExperimentResponse pResponseStatus_ =
+mkCreateExperimentResponse responseStatus =
   CreateExperimentResponse'
-    { experimentARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { experimentArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the experiment.
 --
--- /Note:/ Consider using 'experimentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cersExperimentARN :: Lens.Lens' CreateExperimentResponse (Lude.Maybe Lude.Text)
-cersExperimentARN = Lens.lens (experimentARN :: CreateExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentARN = a} :: CreateExperimentResponse)
-{-# DEPRECATED cersExperimentARN "Use generic-lens or generic-optics with 'experimentARN' instead." #-}
+-- /Note:/ Consider using 'experimentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cerrsExperimentArn :: Lens.Lens' CreateExperimentResponse (Core.Maybe Types.ExperimentArn)
+cerrsExperimentArn = Lens.field @"experimentArn"
+{-# DEPRECATED cerrsExperimentArn "Use generic-lens or generic-optics with 'experimentArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cersResponseStatus :: Lens.Lens' CreateExperimentResponse Lude.Int
-cersResponseStatus = Lens.lens (responseStatus :: CreateExperimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateExperimentResponse)
-{-# DEPRECATED cersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cerrsResponseStatus :: Lens.Lens' CreateExperimentResponse Core.Int
+cerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

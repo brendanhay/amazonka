@@ -17,33 +17,74 @@ module Network.AWS.DeviceFarm.Types.Suite
     mkSuite,
 
     -- * Lenses
-    sStatus,
-    sCounters,
     sArn,
+    sCounters,
     sCreated,
-    sStopped,
-    sResult,
-    sName,
     sDeviceMinutes,
-    sType,
     sMessage,
+    sName,
+    sResult,
     sStarted,
+    sStatus,
+    sStopped,
+    sType,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.Counters
-import Network.AWS.DeviceFarm.Types.DeviceMinutes
-import Network.AWS.DeviceFarm.Types.ExecutionResult
-import Network.AWS.DeviceFarm.Types.ExecutionStatus
-import Network.AWS.DeviceFarm.Types.TestType
+import qualified Network.AWS.DeviceFarm.Types.AmazonResourceName as Types
+import qualified Network.AWS.DeviceFarm.Types.Counters as Types
+import qualified Network.AWS.DeviceFarm.Types.DeviceMinutes as Types
+import qualified Network.AWS.DeviceFarm.Types.ExecutionResult as Types
+import qualified Network.AWS.DeviceFarm.Types.ExecutionStatus as Types
+import qualified Network.AWS.DeviceFarm.Types.Message as Types
+import qualified Network.AWS.DeviceFarm.Types.Name as Types
+import qualified Network.AWS.DeviceFarm.Types.TestType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a collection of one or more tests.
 --
 -- /See:/ 'mkSuite' smart constructor.
 data Suite = Suite'
-  { -- | The suite's status.
+  { -- | The suite's ARN.
+    arn :: Core.Maybe Types.AmazonResourceName,
+    -- | The suite's result counters.
+    counters :: Core.Maybe Types.Counters,
+    -- | When the suite was created.
+    created :: Core.Maybe Core.NominalDiffTime,
+    -- | Represents the total (metered or unmetered) minutes used by the test suite.
+    deviceMinutes :: Core.Maybe Types.DeviceMinutes,
+    -- | A message about the suite's result.
+    message :: Core.Maybe Types.Message,
+    -- | The suite's name.
+    name :: Core.Maybe Types.Name,
+    -- | The suite's result.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PASSED
+    --
+    --
+    --     * WARNED
+    --
+    --
+    --     * FAILED
+    --
+    --
+    --     * SKIPPED
+    --
+    --
+    --     * ERRORED
+    --
+    --
+    --     * STOPPED
+    result :: Core.Maybe Types.ExecutionResult,
+    -- | The suite's start time.
+    started :: Core.Maybe Core.NominalDiffTime,
+    -- | The suite's status.
     --
     -- Allowed values include:
     --
@@ -72,43 +113,9 @@ data Suite = Suite'
     --
     --
     --     * STOPPING
-    status :: Lude.Maybe ExecutionStatus,
-    -- | The suite's result counters.
-    counters :: Lude.Maybe Counters,
-    -- | The suite's ARN.
-    arn :: Lude.Maybe Lude.Text,
-    -- | When the suite was created.
-    created :: Lude.Maybe Lude.Timestamp,
+    status :: Core.Maybe Types.ExecutionStatus,
     -- | The suite's stop time.
-    stopped :: Lude.Maybe Lude.Timestamp,
-    -- | The suite's result.
-    --
-    -- Allowed values include:
-    --
-    --     * PENDING
-    --
-    --
-    --     * PASSED
-    --
-    --
-    --     * WARNED
-    --
-    --
-    --     * FAILED
-    --
-    --
-    --     * SKIPPED
-    --
-    --
-    --     * ERRORED
-    --
-    --
-    --     * STOPPED
-    result :: Lude.Maybe ExecutionResult,
-    -- | The suite's name.
-    name :: Lude.Maybe Lude.Text,
-    -- | Represents the total (metered or unmetered) minutes used by the test suite.
-    deviceMinutes :: Lude.Maybe DeviceMinutes,
+    stopped :: Core.Maybe Core.NominalDiffTime,
     -- | The suite's type.
     --
     -- Must be one of the following values:
@@ -165,53 +172,72 @@ data Suite = Suite'
     --
     --
     --     * XCTEST_UI
-    type' :: Lude.Maybe TestType,
-    -- | A message about the suite's result.
-    message :: Lude.Maybe Lude.Text,
-    -- | The suite's start time.
-    started :: Lude.Maybe Lude.Timestamp
+    type' :: Core.Maybe Types.TestType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Suite' with the minimum fields required to make a request.
+-- | Creates a 'Suite' value with any optional fields omitted.
+mkSuite ::
+  Suite
+mkSuite =
+  Suite'
+    { arn = Core.Nothing,
+      counters = Core.Nothing,
+      created = Core.Nothing,
+      deviceMinutes = Core.Nothing,
+      message = Core.Nothing,
+      name = Core.Nothing,
+      result = Core.Nothing,
+      started = Core.Nothing,
+      status = Core.Nothing,
+      stopped = Core.Nothing,
+      type' = Core.Nothing
+    }
+
+-- | The suite's ARN.
 --
--- * 'status' - The suite's status.
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sArn :: Lens.Lens' Suite (Core.Maybe Types.AmazonResourceName)
+sArn = Lens.field @"arn"
+{-# DEPRECATED sArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The suite's result counters.
 --
--- Allowed values include:
+-- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCounters :: Lens.Lens' Suite (Core.Maybe Types.Counters)
+sCounters = Lens.field @"counters"
+{-# DEPRECATED sCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
+
+-- | When the suite was created.
 --
---     * PENDING
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCreated :: Lens.Lens' Suite (Core.Maybe Core.NominalDiffTime)
+sCreated = Lens.field @"created"
+{-# DEPRECATED sCreated "Use generic-lens or generic-optics with 'created' instead." #-}
+
+-- | Represents the total (metered or unmetered) minutes used by the test suite.
 --
+-- /Note:/ Consider using 'deviceMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDeviceMinutes :: Lens.Lens' Suite (Core.Maybe Types.DeviceMinutes)
+sDeviceMinutes = Lens.field @"deviceMinutes"
+{-# DEPRECATED sDeviceMinutes "Use generic-lens or generic-optics with 'deviceMinutes' instead." #-}
+
+-- | A message about the suite's result.
 --
---     * PENDING_CONCURRENCY
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMessage :: Lens.Lens' Suite (Core.Maybe Types.Message)
+sMessage = Lens.field @"message"
+{-# DEPRECATED sMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The suite's name.
 --
---
---     * PENDING_DEVICE
---
---
---     * PROCESSING
---
---
---     * SCHEDULING
---
---
---     * PREPARING
---
---
---     * RUNNING
---
---
---     * COMPLETED
---
---
---     * STOPPING
---
---
--- * 'counters' - The suite's result counters.
--- * 'arn' - The suite's ARN.
--- * 'created' - When the suite was created.
--- * 'stopped' - The suite's stop time.
--- * 'result' - The suite's result.
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' Suite (Core.Maybe Types.Name)
+sName = Lens.field @"name"
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The suite's result.
 --
 -- Allowed values include:
 --
@@ -236,84 +262,18 @@ data Suite = Suite'
 --     * STOPPED
 --
 --
--- * 'name' - The suite's name.
--- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test suite.
--- * 'type'' - The suite's type.
 --
--- Must be one of the following values:
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sResult :: Lens.Lens' Suite (Core.Maybe Types.ExecutionResult)
+sResult = Lens.field @"result"
+{-# DEPRECATED sResult "Use generic-lens or generic-optics with 'result' instead." #-}
+
+-- | The suite's start time.
 --
---     * BUILTIN_FUZZ
---
---
---     * BUILTIN_EXPLORER
---
---
---     * APPIUM_JAVA_JUNIT
---
---
---     * APPIUM_JAVA_TESTNG
---
---
---     * APPIUM_PYTHON
---
---
---     * APPIUM_NODE
---
---
---     * APPIUM_RUBY
---
---
---     * APPIUM_WEB_JAVA_JUNIT
---
---
---     * APPIUM_WEB_JAVA_TESTNG
---
---
---     * APPIUM_WEB_PYTHON
---
---
---     * APPIUM_WEB_NODE
---
---
---     * APPIUM_WEB_RUBY
---
---
---     * CALABASH
---
---
---     * INSTRUMENTATION
---
---
---     * UIAUTOMATION
---
---
---     * UIAUTOMATOR
---
---
---     * XCTEST
---
---
---     * XCTEST_UI
---
---
--- * 'message' - A message about the suite's result.
--- * 'started' - The suite's start time.
-mkSuite ::
-  Suite
-mkSuite =
-  Suite'
-    { status = Lude.Nothing,
-      counters = Lude.Nothing,
-      arn = Lude.Nothing,
-      created = Lude.Nothing,
-      stopped = Lude.Nothing,
-      result = Lude.Nothing,
-      name = Lude.Nothing,
-      deviceMinutes = Lude.Nothing,
-      type' = Lude.Nothing,
-      message = Lude.Nothing,
-      started = Lude.Nothing
-    }
+-- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStarted :: Lens.Lens' Suite (Core.Maybe Core.NominalDiffTime)
+sStarted = Lens.field @"started"
+{-# DEPRECATED sStarted "Use generic-lens or generic-optics with 'started' instead." #-}
 
 -- | The suite's status.
 --
@@ -348,82 +308,16 @@ mkSuite =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStatus :: Lens.Lens' Suite (Lude.Maybe ExecutionStatus)
-sStatus = Lens.lens (status :: Suite -> Lude.Maybe ExecutionStatus) (\s a -> s {status = a} :: Suite)
+sStatus :: Lens.Lens' Suite (Core.Maybe Types.ExecutionStatus)
+sStatus = Lens.field @"status"
 {-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The suite's result counters.
---
--- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sCounters :: Lens.Lens' Suite (Lude.Maybe Counters)
-sCounters = Lens.lens (counters :: Suite -> Lude.Maybe Counters) (\s a -> s {counters = a} :: Suite)
-{-# DEPRECATED sCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
-
--- | The suite's ARN.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sArn :: Lens.Lens' Suite (Lude.Maybe Lude.Text)
-sArn = Lens.lens (arn :: Suite -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Suite)
-{-# DEPRECATED sArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | When the suite was created.
---
--- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sCreated :: Lens.Lens' Suite (Lude.Maybe Lude.Timestamp)
-sCreated = Lens.lens (created :: Suite -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: Suite)
-{-# DEPRECATED sCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The suite's stop time.
 --
 -- /Note:/ Consider using 'stopped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStopped :: Lens.Lens' Suite (Lude.Maybe Lude.Timestamp)
-sStopped = Lens.lens (stopped :: Suite -> Lude.Maybe Lude.Timestamp) (\s a -> s {stopped = a} :: Suite)
+sStopped :: Lens.Lens' Suite (Core.Maybe Core.NominalDiffTime)
+sStopped = Lens.field @"stopped"
 {-# DEPRECATED sStopped "Use generic-lens or generic-optics with 'stopped' instead." #-}
-
--- | The suite's result.
---
--- Allowed values include:
---
---     * PENDING
---
---
---     * PASSED
---
---
---     * WARNED
---
---
---     * FAILED
---
---
---     * SKIPPED
---
---
---     * ERRORED
---
---
---     * STOPPED
---
---
---
--- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sResult :: Lens.Lens' Suite (Lude.Maybe ExecutionResult)
-sResult = Lens.lens (result :: Suite -> Lude.Maybe ExecutionResult) (\s a -> s {result = a} :: Suite)
-{-# DEPRECATED sResult "Use generic-lens or generic-optics with 'result' instead." #-}
-
--- | The suite's name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' Suite (Lude.Maybe Lude.Text)
-sName = Lens.lens (name :: Suite -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Suite)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Represents the total (metered or unmetered) minutes used by the test suite.
---
--- /Note:/ Consider using 'deviceMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDeviceMinutes :: Lens.Lens' Suite (Lude.Maybe DeviceMinutes)
-sDeviceMinutes = Lens.lens (deviceMinutes :: Suite -> Lude.Maybe DeviceMinutes) (\s a -> s {deviceMinutes = a} :: Suite)
-{-# DEPRECATED sDeviceMinutes "Use generic-lens or generic-optics with 'deviceMinutes' instead." #-}
 
 -- | The suite's type.
 --
@@ -485,39 +379,23 @@ sDeviceMinutes = Lens.lens (deviceMinutes :: Suite -> Lude.Maybe DeviceMinutes) 
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sType :: Lens.Lens' Suite (Lude.Maybe TestType)
-sType = Lens.lens (type' :: Suite -> Lude.Maybe TestType) (\s a -> s {type' = a} :: Suite)
+sType :: Lens.Lens' Suite (Core.Maybe Types.TestType)
+sType = Lens.field @"type'"
 {-# DEPRECATED sType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | A message about the suite's result.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sMessage :: Lens.Lens' Suite (Lude.Maybe Lude.Text)
-sMessage = Lens.lens (message :: Suite -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Suite)
-{-# DEPRECATED sMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The suite's start time.
---
--- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStarted :: Lens.Lens' Suite (Lude.Maybe Lude.Timestamp)
-sStarted = Lens.lens (started :: Suite -> Lude.Maybe Lude.Timestamp) (\s a -> s {started = a} :: Suite)
-{-# DEPRECATED sStarted "Use generic-lens or generic-optics with 'started' instead." #-}
-
-instance Lude.FromJSON Suite where
+instance Core.FromJSON Suite where
   parseJSON =
-    Lude.withObject
-      "Suite"
-      ( \x ->
-          Suite'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "counters")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "created")
-            Lude.<*> (x Lude..:? "stopped")
-            Lude.<*> (x Lude..:? "result")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "deviceMinutes")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "message")
-            Lude.<*> (x Lude..:? "started")
-      )
+    Core.withObject "Suite" Core.$
+      \x ->
+        Suite'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "counters")
+          Core.<*> (x Core..:? "created")
+          Core.<*> (x Core..:? "deviceMinutes")
+          Core.<*> (x Core..:? "message")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "result")
+          Core.<*> (x Core..:? "started")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "stopped")
+          Core.<*> (x Core..:? "type")

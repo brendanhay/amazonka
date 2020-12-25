@@ -17,90 +17,83 @@ module Network.AWS.DMS.Types.ReplicationPendingModifiedValues
     mkReplicationPendingModifiedValues,
 
     -- * Lenses
+    rpmvAllocatedStorage,
     rpmvEngineVersion,
     rpmvMultiAZ,
-    rpmvAllocatedStorage,
     rpmvReplicationInstanceClass,
   )
 where
 
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the values of pending modifications to a replication instance. This data type is an object of the <https://docs.aws.amazon.com/dms/latest/APIReference/API_ReplicationInstance.html @ReplicationInstance@ > user-defined data type.
 --
 -- /See:/ 'mkReplicationPendingModifiedValues' smart constructor.
 data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
-  { -- | The engine version number of the replication instance.
-    engineVersion :: Lude.Maybe Lude.Text,
+  { -- | The amount of storage (in gigabytes) that is allocated for the replication instance.
+    allocatedStorage :: Core.Maybe Core.Int,
+    -- | The engine version number of the replication instance.
+    engineVersion :: Core.Maybe Types.String,
     -- | Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
-    multiAZ :: Lude.Maybe Lude.Bool,
-    -- | The amount of storage (in gigabytes) that is allocated for the replication instance.
-    allocatedStorage :: Lude.Maybe Lude.Int,
+    multiAZ :: Core.Maybe Core.Bool,
     -- | The compute and memory capacity of the replication instance as defined for the specified replication instance class.
     --
     -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
-    replicationInstanceClass :: Lude.Maybe Lude.Text
+    replicationInstanceClass :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicationPendingModifiedValues' with the minimum fields required to make a request.
---
--- * 'engineVersion' - The engine version number of the replication instance.
--- * 'multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
--- * 'allocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
--- * 'replicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class.
---
--- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+-- | Creates a 'ReplicationPendingModifiedValues' value with any optional fields omitted.
 mkReplicationPendingModifiedValues ::
   ReplicationPendingModifiedValues
 mkReplicationPendingModifiedValues =
   ReplicationPendingModifiedValues'
-    { engineVersion = Lude.Nothing,
-      multiAZ = Lude.Nothing,
-      allocatedStorage = Lude.Nothing,
-      replicationInstanceClass = Lude.Nothing
+    { allocatedStorage =
+        Core.Nothing,
+      engineVersion = Core.Nothing,
+      multiAZ = Core.Nothing,
+      replicationInstanceClass = Core.Nothing
     }
+
+-- | The amount of storage (in gigabytes) that is allocated for the replication instance.
+--
+-- /Note:/ Consider using 'allocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpmvAllocatedStorage :: Lens.Lens' ReplicationPendingModifiedValues (Core.Maybe Core.Int)
+rpmvAllocatedStorage = Lens.field @"allocatedStorage"
+{-# DEPRECATED rpmvAllocatedStorage "Use generic-lens or generic-optics with 'allocatedStorage' instead." #-}
 
 -- | The engine version number of the replication instance.
 --
 -- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpmvEngineVersion :: Lens.Lens' ReplicationPendingModifiedValues (Lude.Maybe Lude.Text)
-rpmvEngineVersion = Lens.lens (engineVersion :: ReplicationPendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: ReplicationPendingModifiedValues)
+rpmvEngineVersion :: Lens.Lens' ReplicationPendingModifiedValues (Core.Maybe Types.String)
+rpmvEngineVersion = Lens.field @"engineVersion"
 {-# DEPRECATED rpmvEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 --
 -- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpmvMultiAZ :: Lens.Lens' ReplicationPendingModifiedValues (Lude.Maybe Lude.Bool)
-rpmvMultiAZ = Lens.lens (multiAZ :: ReplicationPendingModifiedValues -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: ReplicationPendingModifiedValues)
+rpmvMultiAZ :: Lens.Lens' ReplicationPendingModifiedValues (Core.Maybe Core.Bool)
+rpmvMultiAZ = Lens.field @"multiAZ"
 {-# DEPRECATED rpmvMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
-
--- | The amount of storage (in gigabytes) that is allocated for the replication instance.
---
--- /Note:/ Consider using 'allocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpmvAllocatedStorage :: Lens.Lens' ReplicationPendingModifiedValues (Lude.Maybe Lude.Int)
-rpmvAllocatedStorage = Lens.lens (allocatedStorage :: ReplicationPendingModifiedValues -> Lude.Maybe Lude.Int) (\s a -> s {allocatedStorage = a} :: ReplicationPendingModifiedValues)
-{-# DEPRECATED rpmvAllocatedStorage "Use generic-lens or generic-optics with 'allocatedStorage' instead." #-}
 
 -- | The compute and memory capacity of the replication instance as defined for the specified replication instance class.
 --
 -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
 --
 -- /Note:/ Consider using 'replicationInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpmvReplicationInstanceClass :: Lens.Lens' ReplicationPendingModifiedValues (Lude.Maybe Lude.Text)
-rpmvReplicationInstanceClass = Lens.lens (replicationInstanceClass :: ReplicationPendingModifiedValues -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceClass = a} :: ReplicationPendingModifiedValues)
+rpmvReplicationInstanceClass :: Lens.Lens' ReplicationPendingModifiedValues (Core.Maybe Types.String)
+rpmvReplicationInstanceClass = Lens.field @"replicationInstanceClass"
 {-# DEPRECATED rpmvReplicationInstanceClass "Use generic-lens or generic-optics with 'replicationInstanceClass' instead." #-}
 
-instance Lude.FromJSON ReplicationPendingModifiedValues where
+instance Core.FromJSON ReplicationPendingModifiedValues where
   parseJSON =
-    Lude.withObject
-      "ReplicationPendingModifiedValues"
-      ( \x ->
-          ReplicationPendingModifiedValues'
-            Lude.<$> (x Lude..:? "EngineVersion")
-            Lude.<*> (x Lude..:? "MultiAZ")
-            Lude.<*> (x Lude..:? "AllocatedStorage")
-            Lude.<*> (x Lude..:? "ReplicationInstanceClass")
-      )
+    Core.withObject "ReplicationPendingModifiedValues" Core.$
+      \x ->
+        ReplicationPendingModifiedValues'
+          Core.<$> (x Core..:? "AllocatedStorage")
+          Core.<*> (x Core..:? "EngineVersion")
+          Core.<*> (x Core..:? "MultiAZ")
+          Core.<*> (x Core..:? "ReplicationInstanceClass")

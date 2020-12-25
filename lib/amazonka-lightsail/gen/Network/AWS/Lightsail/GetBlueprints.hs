@@ -30,50 +30,45 @@ module Network.AWS.Lightsail.GetBlueprints
     mkGetBlueprintsResponse,
 
     -- ** Response lenses
-    gbsrsBlueprints,
-    gbsrsNextPageToken,
-    gbsrsResponseStatus,
+    gbrrsBlueprints,
+    gbrrsNextPageToken,
+    gbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetBlueprints' smart constructor.
 data GetBlueprints = GetBlueprints'
   { -- | A Boolean value indicating whether to include inactive results in your request.
-    includeInactive :: Lude.Maybe Lude.Bool,
+    includeInactive :: Core.Maybe Core.Bool,
     -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBlueprints' with the minimum fields required to make a request.
---
--- * 'includeInactive' - A Boolean value indicating whether to include inactive results in your request.
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+-- | Creates a 'GetBlueprints' value with any optional fields omitted.
 mkGetBlueprints ::
   GetBlueprints
 mkGetBlueprints =
   GetBlueprints'
-    { includeInactive = Lude.Nothing,
-      pageToken = Lude.Nothing
+    { includeInactive = Core.Nothing,
+      pageToken = Core.Nothing
     }
 
 -- | A Boolean value indicating whether to include inactive results in your request.
 --
 -- /Note:/ Consider using 'includeInactive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbIncludeInactive :: Lens.Lens' GetBlueprints (Lude.Maybe Lude.Bool)
-gbIncludeInactive = Lens.lens (includeInactive :: GetBlueprints -> Lude.Maybe Lude.Bool) (\s a -> s {includeInactive = a} :: GetBlueprints)
+gbIncludeInactive :: Lens.Lens' GetBlueprints (Core.Maybe Core.Bool)
+gbIncludeInactive = Lens.field @"includeInactive"
 {-# DEPRECATED gbIncludeInactive "Use generic-lens or generic-optics with 'includeInactive' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
@@ -81,97 +76,88 @@ gbIncludeInactive = Lens.lens (includeInactive :: GetBlueprints -> Lude.Maybe Lu
 -- To get a page token, perform an initial @GetBlueprints@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbPageToken :: Lens.Lens' GetBlueprints (Lude.Maybe Lude.Text)
-gbPageToken = Lens.lens (pageToken :: GetBlueprints -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetBlueprints)
+gbPageToken :: Lens.Lens' GetBlueprints (Core.Maybe Types.String)
+gbPageToken = Lens.field @"pageToken"
 {-# DEPRECATED gbPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager GetBlueprints where
-  page rq rs
-    | Page.stop (rs Lens.^. gbsrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gbsrsBlueprints) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gbPageToken Lens..~ rs Lens.^. gbsrsNextPageToken
+instance Core.FromJSON GetBlueprints where
+  toJSON GetBlueprints {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("includeInactive" Core..=) Core.<$> includeInactive,
+            ("pageToken" Core..=) Core.<$> pageToken
+          ]
+      )
 
-instance Lude.AWSRequest GetBlueprints where
+instance Core.AWSRequest GetBlueprints where
   type Rs GetBlueprints = GetBlueprintsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.GetBlueprints")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetBlueprintsResponse'
-            Lude.<$> (x Lude..?> "blueprints" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextPageToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "blueprints")
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetBlueprints where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetBlueprints" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetBlueprints where
-  toJSON GetBlueprints' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("includeInactive" Lude..=) Lude.<$> includeInactive,
-            ("pageToken" Lude..=) Lude.<$> pageToken
-          ]
-      )
-
-instance Lude.ToPath GetBlueprints where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetBlueprints where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetBlueprints where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"blueprints" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkGetBlueprintsResponse' smart constructor.
 data GetBlueprintsResponse = GetBlueprintsResponse'
   { -- | An array of key-value pairs that contains information about the available blueprints.
-    blueprints :: Lude.Maybe [Blueprint],
+    blueprints :: Core.Maybe [Types.Blueprint],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetBlueprints@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBlueprintsResponse' with the minimum fields required to make a request.
---
--- * 'blueprints' - An array of key-value pairs that contains information about the available blueprints.
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetBlueprints@ request and specify the next page token using the @pageToken@ parameter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBlueprintsResponse' value with any optional fields omitted.
 mkGetBlueprintsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBlueprintsResponse
-mkGetBlueprintsResponse pResponseStatus_ =
+mkGetBlueprintsResponse responseStatus =
   GetBlueprintsResponse'
-    { blueprints = Lude.Nothing,
-      nextPageToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { blueprints = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of key-value pairs that contains information about the available blueprints.
 --
 -- /Note:/ Consider using 'blueprints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbsrsBlueprints :: Lens.Lens' GetBlueprintsResponse (Lude.Maybe [Blueprint])
-gbsrsBlueprints = Lens.lens (blueprints :: GetBlueprintsResponse -> Lude.Maybe [Blueprint]) (\s a -> s {blueprints = a} :: GetBlueprintsResponse)
-{-# DEPRECATED gbsrsBlueprints "Use generic-lens or generic-optics with 'blueprints' instead." #-}
+gbrrsBlueprints :: Lens.Lens' GetBlueprintsResponse (Core.Maybe [Types.Blueprint])
+gbrrsBlueprints = Lens.field @"blueprints"
+{-# DEPRECATED gbrrsBlueprints "Use generic-lens or generic-optics with 'blueprints' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -179,13 +165,13 @@ gbsrsBlueprints = Lens.lens (blueprints :: GetBlueprintsResponse -> Lude.Maybe [
 -- To get the next page of results, perform another @GetBlueprints@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbsrsNextPageToken :: Lens.Lens' GetBlueprintsResponse (Lude.Maybe Lude.Text)
-gbsrsNextPageToken = Lens.lens (nextPageToken :: GetBlueprintsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetBlueprintsResponse)
-{-# DEPRECATED gbsrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+gbrrsNextPageToken :: Lens.Lens' GetBlueprintsResponse (Core.Maybe Types.String)
+gbrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gbrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbsrsResponseStatus :: Lens.Lens' GetBlueprintsResponse Lude.Int
-gbsrsResponseStatus = Lens.lens (responseStatus :: GetBlueprintsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBlueprintsResponse)
-{-# DEPRECATED gbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbrrsResponseStatus :: Lens.Lens' GetBlueprintsResponse Core.Int
+gbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

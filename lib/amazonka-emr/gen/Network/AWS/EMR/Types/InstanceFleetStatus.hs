@@ -23,11 +23,11 @@ module Network.AWS.EMR.Types.InstanceFleetStatus
   )
 where
 
-import Network.AWS.EMR.Types.InstanceFleetState
-import Network.AWS.EMR.Types.InstanceFleetStateChangeReason
-import Network.AWS.EMR.Types.InstanceFleetTimeline
+import qualified Network.AWS.EMR.Types.InstanceFleetState as Types
+import qualified Network.AWS.EMR.Types.InstanceFleetStateChangeReason as Types
+import qualified Network.AWS.EMR.Types.InstanceFleetTimeline as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of the instance fleet.
 --
@@ -55,50 +55,23 @@ data InstanceFleetStatus = InstanceFleetStatus'
     --
     --
     --     * @TERMINATED@ —The instance fleet is no longer active, and all EC2 instances have been terminated.
-    state :: Lude.Maybe InstanceFleetState,
+    state :: Core.Maybe Types.InstanceFleetState,
     -- | Provides status change reason details for the instance fleet.
-    stateChangeReason :: Lude.Maybe InstanceFleetStateChangeReason,
+    stateChangeReason :: Core.Maybe Types.InstanceFleetStateChangeReason,
     -- | Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
-    timeline :: Lude.Maybe InstanceFleetTimeline
+    timeline :: Core.Maybe Types.InstanceFleetTimeline
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceFleetStatus' with the minimum fields required to make a request.
---
--- * 'state' - A code representing the instance fleet status.
---
---
---     * @PROVISIONING@ —The instance fleet is provisioning EC2 resources and is not yet ready to run jobs.
---
---
---     * @BOOTSTRAPPING@ —EC2 instances and other resources have been provisioned and the bootstrap actions specified for the instances are underway.
---
---
---     * @RUNNING@ —EC2 instances and other resources are running. They are either executing jobs or waiting to execute jobs.
---
---
---     * @RESIZING@ —A resize operation is underway. EC2 instances are either being added or removed.
---
---
---     * @SUSPENDED@ —A resize operation could not complete. Existing EC2 instances are running, but instances can't be added or removed.
---
---
---     * @TERMINATING@ —The instance fleet is terminating EC2 instances.
---
---
---     * @TERMINATED@ —The instance fleet is no longer active, and all EC2 instances have been terminated.
---
---
--- * 'stateChangeReason' - Provides status change reason details for the instance fleet.
--- * 'timeline' - Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
+-- | Creates a 'InstanceFleetStatus' value with any optional fields omitted.
 mkInstanceFleetStatus ::
   InstanceFleetStatus
 mkInstanceFleetStatus =
   InstanceFleetStatus'
-    { state = Lude.Nothing,
-      stateChangeReason = Lude.Nothing,
-      timeline = Lude.Nothing
+    { state = Core.Nothing,
+      stateChangeReason = Core.Nothing,
+      timeline = Core.Nothing
     }
 
 -- | A code representing the instance fleet status.
@@ -127,31 +100,29 @@ mkInstanceFleetStatus =
 --
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifsState :: Lens.Lens' InstanceFleetStatus (Lude.Maybe InstanceFleetState)
-ifsState = Lens.lens (state :: InstanceFleetStatus -> Lude.Maybe InstanceFleetState) (\s a -> s {state = a} :: InstanceFleetStatus)
+ifsState :: Lens.Lens' InstanceFleetStatus (Core.Maybe Types.InstanceFleetState)
+ifsState = Lens.field @"state"
 {-# DEPRECATED ifsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Provides status change reason details for the instance fleet.
 --
 -- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifsStateChangeReason :: Lens.Lens' InstanceFleetStatus (Lude.Maybe InstanceFleetStateChangeReason)
-ifsStateChangeReason = Lens.lens (stateChangeReason :: InstanceFleetStatus -> Lude.Maybe InstanceFleetStateChangeReason) (\s a -> s {stateChangeReason = a} :: InstanceFleetStatus)
+ifsStateChangeReason :: Lens.Lens' InstanceFleetStatus (Core.Maybe Types.InstanceFleetStateChangeReason)
+ifsStateChangeReason = Lens.field @"stateChangeReason"
 {-# DEPRECATED ifsStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
 -- | Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
 --
 -- /Note:/ Consider using 'timeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifsTimeline :: Lens.Lens' InstanceFleetStatus (Lude.Maybe InstanceFleetTimeline)
-ifsTimeline = Lens.lens (timeline :: InstanceFleetStatus -> Lude.Maybe InstanceFleetTimeline) (\s a -> s {timeline = a} :: InstanceFleetStatus)
+ifsTimeline :: Lens.Lens' InstanceFleetStatus (Core.Maybe Types.InstanceFleetTimeline)
+ifsTimeline = Lens.field @"timeline"
 {-# DEPRECATED ifsTimeline "Use generic-lens or generic-optics with 'timeline' instead." #-}
 
-instance Lude.FromJSON InstanceFleetStatus where
+instance Core.FromJSON InstanceFleetStatus where
   parseJSON =
-    Lude.withObject
-      "InstanceFleetStatus"
-      ( \x ->
-          InstanceFleetStatus'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "StateChangeReason")
-            Lude.<*> (x Lude..:? "Timeline")
-      )
+    Core.withObject "InstanceFleetStatus" Core.$
+      \x ->
+        InstanceFleetStatus'
+          Core.<$> (x Core..:? "State")
+          Core.<*> (x Core..:? "StateChangeReason")
+          Core.<*> (x Core..:? "Timeline")

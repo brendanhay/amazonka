@@ -37,22 +37,16 @@ import qualified Data.Bifunctor as Bifunctor
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import qualified Data.ByteString.Char8 as ByteString.Char8
-import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
-import Data.Coerce (Coercible)
 import qualified Data.Coerce as Coerce
-import Data.DList (DList)
 import qualified Data.DList as DList
-import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HashMap
-import Data.Hashable (Hashable)
-import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
-import Data.Text (Text)
 import qualified Data.Text.Encoding as Text.Encoding
 import qualified Network.AWS.Data.Text as AWS.Text
 import Network.HTTP.Types (HeaderName)
 import qualified Network.HTTP.Types as HTTP.Types
+import Network.AWS.Prelude
 
 -- Note: Chose to use Map rather than HashMap so we can utilise the
 -- lexicographic ordering of keys for signing, without an additional sort pass.

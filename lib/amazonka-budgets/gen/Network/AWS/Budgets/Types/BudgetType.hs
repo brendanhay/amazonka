@@ -13,69 +13,71 @@
 module Network.AWS.Budgets.Types.BudgetType
   ( BudgetType
       ( BudgetType',
-        Usage,
-        Cost,
-        RiUtilization,
-        RiCoverage,
-        SavingsPlansUtilization,
-        SavingsPlansCoverage
+        BudgetTypeUsage,
+        BudgetTypeCost,
+        BudgetTypeRiUtilization,
+        BudgetTypeRiCoverage,
+        BudgetTypeSavingsPlansUtilization,
+        BudgetTypeSavingsPlansCoverage,
+        fromBudgetType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type of a budget. It must be one of the following types:
 --
 -- @COST@ , @USAGE@ , @RI_UTILIZATION@ , @RI_COVERAGE@ , @SAVINGS_PLANS_UTILIZATION@ , or @SAVINGS_PLANS_COVERAGE@ .
-newtype BudgetType = BudgetType' Lude.Text
+newtype BudgetType = BudgetType' {fromBudgetType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Usage :: BudgetType
-pattern Usage = BudgetType' "USAGE"
+pattern BudgetTypeUsage :: BudgetType
+pattern BudgetTypeUsage = BudgetType' "USAGE"
 
-pattern Cost :: BudgetType
-pattern Cost = BudgetType' "COST"
+pattern BudgetTypeCost :: BudgetType
+pattern BudgetTypeCost = BudgetType' "COST"
 
-pattern RiUtilization :: BudgetType
-pattern RiUtilization = BudgetType' "RI_UTILIZATION"
+pattern BudgetTypeRiUtilization :: BudgetType
+pattern BudgetTypeRiUtilization = BudgetType' "RI_UTILIZATION"
 
-pattern RiCoverage :: BudgetType
-pattern RiCoverage = BudgetType' "RI_COVERAGE"
+pattern BudgetTypeRiCoverage :: BudgetType
+pattern BudgetTypeRiCoverage = BudgetType' "RI_COVERAGE"
 
-pattern SavingsPlansUtilization :: BudgetType
-pattern SavingsPlansUtilization = BudgetType' "SAVINGS_PLANS_UTILIZATION"
+pattern BudgetTypeSavingsPlansUtilization :: BudgetType
+pattern BudgetTypeSavingsPlansUtilization = BudgetType' "SAVINGS_PLANS_UTILIZATION"
 
-pattern SavingsPlansCoverage :: BudgetType
-pattern SavingsPlansCoverage = BudgetType' "SAVINGS_PLANS_COVERAGE"
+pattern BudgetTypeSavingsPlansCoverage :: BudgetType
+pattern BudgetTypeSavingsPlansCoverage = BudgetType' "SAVINGS_PLANS_COVERAGE"
 
 {-# COMPLETE
-  Usage,
-  Cost,
-  RiUtilization,
-  RiCoverage,
-  SavingsPlansUtilization,
-  SavingsPlansCoverage,
+  BudgetTypeUsage,
+  BudgetTypeCost,
+  BudgetTypeRiUtilization,
+  BudgetTypeRiCoverage,
+  BudgetTypeSavingsPlansUtilization,
+  BudgetTypeSavingsPlansCoverage,
   BudgetType'
   #-}

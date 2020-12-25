@@ -17,57 +17,54 @@ module Network.AWS.AlexaBusiness.Types.UpdateInstantBooking
     mkUpdateInstantBooking,
 
     -- * Lenses
-    uibEnabled,
     uibDurationInMinutes,
+    uibEnabled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Updates settings for the instant booking feature that are applied to a room profile. If instant booking is enabled, Alexa automatically reserves a room if it is free when a user joins a meeting with Alexa.
 --
 -- /See:/ 'mkUpdateInstantBooking' smart constructor.
 data UpdateInstantBooking = UpdateInstantBooking'
-  { -- | Whether instant booking is enabled or not.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
-    durationInMinutes :: Lude.Maybe Lude.Int
+  { -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+    durationInMinutes :: Core.Maybe Core.Int,
+    -- | Whether instant booking is enabled or not.
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateInstantBooking' with the minimum fields required to make a request.
---
--- * 'enabled' - Whether instant booking is enabled or not.
--- * 'durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+-- | Creates a 'UpdateInstantBooking' value with any optional fields omitted.
 mkUpdateInstantBooking ::
   UpdateInstantBooking
 mkUpdateInstantBooking =
   UpdateInstantBooking'
-    { enabled = Lude.Nothing,
-      durationInMinutes = Lude.Nothing
+    { durationInMinutes = Core.Nothing,
+      enabled = Core.Nothing
     }
-
--- | Whether instant booking is enabled or not.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uibEnabled :: Lens.Lens' UpdateInstantBooking (Lude.Maybe Lude.Bool)
-uibEnabled = Lens.lens (enabled :: UpdateInstantBooking -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateInstantBooking)
-{-# DEPRECATED uibEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
 --
 -- /Note:/ Consider using 'durationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uibDurationInMinutes :: Lens.Lens' UpdateInstantBooking (Lude.Maybe Lude.Int)
-uibDurationInMinutes = Lens.lens (durationInMinutes :: UpdateInstantBooking -> Lude.Maybe Lude.Int) (\s a -> s {durationInMinutes = a} :: UpdateInstantBooking)
+uibDurationInMinutes :: Lens.Lens' UpdateInstantBooking (Core.Maybe Core.Int)
+uibDurationInMinutes = Lens.field @"durationInMinutes"
 {-# DEPRECATED uibDurationInMinutes "Use generic-lens or generic-optics with 'durationInMinutes' instead." #-}
 
-instance Lude.ToJSON UpdateInstantBooking where
-  toJSON UpdateInstantBooking' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            ("DurationInMinutes" Lude..=) Lude.<$> durationInMinutes
+-- | Whether instant booking is enabled or not.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uibEnabled :: Lens.Lens' UpdateInstantBooking (Core.Maybe Core.Bool)
+uibEnabled = Lens.field @"enabled"
+{-# DEPRECATED uibEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+instance Core.FromJSON UpdateInstantBooking where
+  toJSON UpdateInstantBooking {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DurationInMinutes" Core..=) Core.<$> durationInMinutes,
+            ("Enabled" Core..=) Core.<$> enabled
           ]
       )

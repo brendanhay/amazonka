@@ -17,127 +17,122 @@ module Network.AWS.Lambda.Types.CodeSigningConfig
     mkCodeSigningConfig,
 
     -- * Lenses
+    cscCodeSigningConfigId,
+    cscCodeSigningConfigArn,
     cscAllowedPublishers,
     cscCodeSigningPolicies,
-    cscCodeSigningConfigARN,
     cscLastModified,
     cscDescription,
-    cscCodeSigningConfigId,
   )
 where
 
-import Network.AWS.Lambda.Types.AllowedPublishers
-import Network.AWS.Lambda.Types.CodeSigningPolicies
+import qualified Network.AWS.Lambda.Types.AllowedPublishers as Types
+import qualified Network.AWS.Lambda.Types.CodeSigningConfigArn as Types
+import qualified Network.AWS.Lambda.Types.CodeSigningConfigId as Types
+import qualified Network.AWS.Lambda.Types.CodeSigningPolicies as Types
+import qualified Network.AWS.Lambda.Types.Description as Types
+import qualified Network.AWS.Lambda.Types.LastModified as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about a Code signing configuration.
 --
 -- /See:/ 'mkCodeSigningConfig' smart constructor.
 data CodeSigningConfig = CodeSigningConfig'
-  { -- | List of allowed publishers.
-    allowedPublishers :: AllowedPublishers,
-    -- | The code signing policy controls the validation failure action for signature mismatch or expiry.
-    codeSigningPolicies :: CodeSigningPolicies,
+  { -- | Unique identifer for the Code signing configuration.
+    codeSigningConfigId :: Types.CodeSigningConfigId,
     -- | The Amazon Resource Name (ARN) of the Code signing configuration.
-    codeSigningConfigARN :: Lude.Text,
+    codeSigningConfigArn :: Types.CodeSigningConfigArn,
+    -- | List of allowed publishers.
+    allowedPublishers :: Types.AllowedPublishers,
+    -- | The code signing policy controls the validation failure action for signature mismatch or expiry.
+    codeSigningPolicies :: Types.CodeSigningPolicies,
     -- | The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
-    lastModified :: Lude.Text,
+    lastModified :: Types.LastModified,
     -- | Code signing configuration description.
-    description :: Lude.Maybe Lude.Text,
-    -- | Unique identifer for the Code signing configuration.
-    codeSigningConfigId :: Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CodeSigningConfig' with the minimum fields required to make a request.
---
--- * 'allowedPublishers' - List of allowed publishers.
--- * 'codeSigningPolicies' - The code signing policy controls the validation failure action for signature mismatch or expiry.
--- * 'codeSigningConfigARN' - The Amazon Resource Name (ARN) of the Code signing configuration.
--- * 'lastModified' - The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
--- * 'description' - Code signing configuration description.
--- * 'codeSigningConfigId' - Unique identifer for the Code signing configuration.
+-- | Creates a 'CodeSigningConfig' value with any optional fields omitted.
 mkCodeSigningConfig ::
-  -- | 'allowedPublishers'
-  AllowedPublishers ->
-  -- | 'codeSigningPolicies'
-  CodeSigningPolicies ->
-  -- | 'codeSigningConfigARN'
-  Lude.Text ->
-  -- | 'lastModified'
-  Lude.Text ->
   -- | 'codeSigningConfigId'
-  Lude.Text ->
+  Types.CodeSigningConfigId ->
+  -- | 'codeSigningConfigArn'
+  Types.CodeSigningConfigArn ->
+  -- | 'allowedPublishers'
+  Types.AllowedPublishers ->
+  -- | 'codeSigningPolicies'
+  Types.CodeSigningPolicies ->
+  -- | 'lastModified'
+  Types.LastModified ->
   CodeSigningConfig
 mkCodeSigningConfig
-  pAllowedPublishers_
-  pCodeSigningPolicies_
-  pCodeSigningConfigARN_
-  pLastModified_
-  pCodeSigningConfigId_ =
+  codeSigningConfigId
+  codeSigningConfigArn
+  allowedPublishers
+  codeSigningPolicies
+  lastModified =
     CodeSigningConfig'
-      { allowedPublishers = pAllowedPublishers_,
-        codeSigningPolicies = pCodeSigningPolicies_,
-        codeSigningConfigARN = pCodeSigningConfigARN_,
-        lastModified = pLastModified_,
-        description = Lude.Nothing,
-        codeSigningConfigId = pCodeSigningConfigId_
+      { codeSigningConfigId,
+        codeSigningConfigArn,
+        allowedPublishers,
+        codeSigningPolicies,
+        lastModified,
+        description = Core.Nothing
       }
+
+-- | Unique identifer for the Code signing configuration.
+--
+-- /Note:/ Consider using 'codeSigningConfigId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscCodeSigningConfigId :: Lens.Lens' CodeSigningConfig Types.CodeSigningConfigId
+cscCodeSigningConfigId = Lens.field @"codeSigningConfigId"
+{-# DEPRECATED cscCodeSigningConfigId "Use generic-lens or generic-optics with 'codeSigningConfigId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Code signing configuration.
+--
+-- /Note:/ Consider using 'codeSigningConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscCodeSigningConfigArn :: Lens.Lens' CodeSigningConfig Types.CodeSigningConfigArn
+cscCodeSigningConfigArn = Lens.field @"codeSigningConfigArn"
+{-# DEPRECATED cscCodeSigningConfigArn "Use generic-lens or generic-optics with 'codeSigningConfigArn' instead." #-}
 
 -- | List of allowed publishers.
 --
 -- /Note:/ Consider using 'allowedPublishers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscAllowedPublishers :: Lens.Lens' CodeSigningConfig AllowedPublishers
-cscAllowedPublishers = Lens.lens (allowedPublishers :: CodeSigningConfig -> AllowedPublishers) (\s a -> s {allowedPublishers = a} :: CodeSigningConfig)
+cscAllowedPublishers :: Lens.Lens' CodeSigningConfig Types.AllowedPublishers
+cscAllowedPublishers = Lens.field @"allowedPublishers"
 {-# DEPRECATED cscAllowedPublishers "Use generic-lens or generic-optics with 'allowedPublishers' instead." #-}
 
 -- | The code signing policy controls the validation failure action for signature mismatch or expiry.
 --
 -- /Note:/ Consider using 'codeSigningPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscCodeSigningPolicies :: Lens.Lens' CodeSigningConfig CodeSigningPolicies
-cscCodeSigningPolicies = Lens.lens (codeSigningPolicies :: CodeSigningConfig -> CodeSigningPolicies) (\s a -> s {codeSigningPolicies = a} :: CodeSigningConfig)
+cscCodeSigningPolicies :: Lens.Lens' CodeSigningConfig Types.CodeSigningPolicies
+cscCodeSigningPolicies = Lens.field @"codeSigningPolicies"
 {-# DEPRECATED cscCodeSigningPolicies "Use generic-lens or generic-optics with 'codeSigningPolicies' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Code signing configuration.
---
--- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscCodeSigningConfigARN :: Lens.Lens' CodeSigningConfig Lude.Text
-cscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: CodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: CodeSigningConfig)
-{-# DEPRECATED cscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
 -- | The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscLastModified :: Lens.Lens' CodeSigningConfig Lude.Text
-cscLastModified = Lens.lens (lastModified :: CodeSigningConfig -> Lude.Text) (\s a -> s {lastModified = a} :: CodeSigningConfig)
+cscLastModified :: Lens.Lens' CodeSigningConfig Types.LastModified
+cscLastModified = Lens.field @"lastModified"
 {-# DEPRECATED cscLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | Code signing configuration description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscDescription :: Lens.Lens' CodeSigningConfig (Lude.Maybe Lude.Text)
-cscDescription = Lens.lens (description :: CodeSigningConfig -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CodeSigningConfig)
+cscDescription :: Lens.Lens' CodeSigningConfig (Core.Maybe Types.Description)
+cscDescription = Lens.field @"description"
 {-# DEPRECATED cscDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Unique identifer for the Code signing configuration.
---
--- /Note:/ Consider using 'codeSigningConfigId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscCodeSigningConfigId :: Lens.Lens' CodeSigningConfig Lude.Text
-cscCodeSigningConfigId = Lens.lens (codeSigningConfigId :: CodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigId = a} :: CodeSigningConfig)
-{-# DEPRECATED cscCodeSigningConfigId "Use generic-lens or generic-optics with 'codeSigningConfigId' instead." #-}
-
-instance Lude.FromJSON CodeSigningConfig where
+instance Core.FromJSON CodeSigningConfig where
   parseJSON =
-    Lude.withObject
-      "CodeSigningConfig"
-      ( \x ->
-          CodeSigningConfig'
-            Lude.<$> (x Lude..: "AllowedPublishers")
-            Lude.<*> (x Lude..: "CodeSigningPolicies")
-            Lude.<*> (x Lude..: "CodeSigningConfigArn")
-            Lude.<*> (x Lude..: "LastModified")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..: "CodeSigningConfigId")
-      )
+    Core.withObject "CodeSigningConfig" Core.$
+      \x ->
+        CodeSigningConfig'
+          Core.<$> (x Core..: "CodeSigningConfigId")
+          Core.<*> (x Core..: "CodeSigningConfigArn")
+          Core.<*> (x Core..: "AllowedPublishers")
+          Core.<*> (x Core..: "CodeSigningPolicies")
+          Core.<*> (x Core..: "LastModified")
+          Core.<*> (x Core..:? "Description")

@@ -31,11 +31,11 @@ module Network.AWS.Lambda.DeleteFunctionEventInvokeConfig
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFunctionEventInvokeConfig' smart constructor.
 data DeleteFunctionEventInvokeConfig = DeleteFunctionEventInvokeConfig'
@@ -53,38 +53,22 @@ data DeleteFunctionEventInvokeConfig = DeleteFunctionEventInvokeConfig'
     --
     --
     -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Lude.Text,
+    functionName :: Types.FunctionName,
     -- | A version number or alias name.
-    qualifier :: Lude.Maybe Lude.Text
+    qualifier :: Core.Maybe Types.Qualifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFunctionEventInvokeConfig' with the minimum fields required to make a request.
---
--- * 'functionName' - The name of the Lambda function, version, or alias.
---
--- __Name formats__
---
---     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
---
---
---     * __Partial ARN__ - @123456789012:function:my-function@ .
---
---
--- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'qualifier' - A version number or alias name.
+-- | Creates a 'DeleteFunctionEventInvokeConfig' value with any optional fields omitted.
 mkDeleteFunctionEventInvokeConfig ::
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
   DeleteFunctionEventInvokeConfig
-mkDeleteFunctionEventInvokeConfig pFunctionName_ =
+mkDeleteFunctionEventInvokeConfig functionName =
   DeleteFunctionEventInvokeConfig'
-    { functionName = pFunctionName_,
-      qualifier = Lude.Nothing
+    { functionName,
+      qualifier = Core.Nothing
     }
 
 -- | The name of the Lambda function, version, or alias.
@@ -103,45 +87,43 @@ mkDeleteFunctionEventInvokeConfig pFunctionName_ =
 -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeicFunctionName :: Lens.Lens' DeleteFunctionEventInvokeConfig Lude.Text
-dfeicFunctionName = Lens.lens (functionName :: DeleteFunctionEventInvokeConfig -> Lude.Text) (\s a -> s {functionName = a} :: DeleteFunctionEventInvokeConfig)
+dfeicFunctionName :: Lens.Lens' DeleteFunctionEventInvokeConfig Types.FunctionName
+dfeicFunctionName = Lens.field @"functionName"
 {-# DEPRECATED dfeicFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | A version number or alias name.
 --
 -- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeicQualifier :: Lens.Lens' DeleteFunctionEventInvokeConfig (Lude.Maybe Lude.Text)
-dfeicQualifier = Lens.lens (qualifier :: DeleteFunctionEventInvokeConfig -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: DeleteFunctionEventInvokeConfig)
+dfeicQualifier :: Lens.Lens' DeleteFunctionEventInvokeConfig (Core.Maybe Types.Qualifier)
+dfeicQualifier = Lens.field @"qualifier"
 {-# DEPRECATED dfeicQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
-instance Lude.AWSRequest DeleteFunctionEventInvokeConfig where
+instance Core.AWSRequest DeleteFunctionEventInvokeConfig where
   type
     Rs DeleteFunctionEventInvokeConfig =
       DeleteFunctionEventInvokeConfigResponse
-  request = Req.delete lambdaService
-  response = Res.receiveNull DeleteFunctionEventInvokeConfigResponse'
-
-instance Lude.ToHeaders DeleteFunctionEventInvokeConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteFunctionEventInvokeConfig where
-  toPath DeleteFunctionEventInvokeConfig' {..} =
-    Lude.mconcat
-      [ "/2019-09-25/functions/",
-        Lude.toBS functionName,
-        "/event-invoke-config"
-      ]
-
-instance Lude.ToQuery DeleteFunctionEventInvokeConfig where
-  toQuery DeleteFunctionEventInvokeConfig' {..} =
-    Lude.mconcat ["Qualifier" Lude.=: qualifier]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2019-09-25/functions/" Core.<> (Core.toText functionName)
+                Core.<> ("/event-invoke-config")
+            ),
+        Core._rqQuery = Core.toQueryValue "Qualifier" Core.<$> qualifier,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveNull DeleteFunctionEventInvokeConfigResponse'
 
 -- | /See:/ 'mkDeleteFunctionEventInvokeConfigResponse' smart constructor.
 data DeleteFunctionEventInvokeConfigResponse = DeleteFunctionEventInvokeConfigResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFunctionEventInvokeConfigResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteFunctionEventInvokeConfigResponse' value with any optional fields omitted.
 mkDeleteFunctionEventInvokeConfigResponse ::
   DeleteFunctionEventInvokeConfigResponse
 mkDeleteFunctionEventInvokeConfigResponse =

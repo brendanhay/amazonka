@@ -22,194 +22,188 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     mkDescribeApplicationVersions,
 
     -- ** Request lenses
-    dVersionLabels,
-    dNextToken,
-    dMaxRecords,
     dApplicationName,
+    dMaxRecords,
+    dNextToken,
+    dVersionLabels,
 
     -- * Destructuring the response
     DescribeApplicationVersionsResponse (..),
     mkDescribeApplicationVersionsResponse,
 
     -- ** Response lenses
-    davrsApplicationVersions,
-    davrsNextToken,
-    davrsResponseStatus,
+    davrrsApplicationVersions,
+    davrrsNextToken,
+    davrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to describe application versions.
 --
 -- /See:/ 'mkDescribeApplicationVersions' smart constructor.
 data DescribeApplicationVersions = DescribeApplicationVersions'
-  { -- | Specify a version label to show a specific application version.
-    versionLabels :: Lude.Maybe [Lude.Text],
-    -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
-    --
-    -- If no @NextToken@ is specified, the first page is retrieved.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Specify an application name to show only application versions for that application.
+    applicationName :: Core.Maybe Types.ApplicationName,
     -- | For a paginated request. Specify a maximum number of application versions to include in each response.
     --
     -- If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
-    maxRecords :: Lude.Maybe Lude.Natural,
-    -- | Specify an application name to show only application versions for that application.
-    applicationName :: Lude.Maybe Lude.Text
+    maxRecords :: Core.Maybe Core.Natural,
+    -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
+    --
+    -- If no @NextToken@ is specified, the first page is retrieved.
+    nextToken :: Core.Maybe Types.Token,
+    -- | Specify a version label to show a specific application version.
+    versionLabels :: Core.Maybe [Types.VersionLabel]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeApplicationVersions' with the minimum fields required to make a request.
---
--- * 'versionLabels' - Specify a version label to show a specific application version.
--- * 'nextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
---
--- If no @NextToken@ is specified, the first page is retrieved.
--- * 'maxRecords' - For a paginated request. Specify a maximum number of application versions to include in each response.
---
--- If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
--- * 'applicationName' - Specify an application name to show only application versions for that application.
+-- | Creates a 'DescribeApplicationVersions' value with any optional fields omitted.
 mkDescribeApplicationVersions ::
   DescribeApplicationVersions
 mkDescribeApplicationVersions =
   DescribeApplicationVersions'
-    { versionLabels = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      applicationName = Lude.Nothing
+    { applicationName = Core.Nothing,
+      maxRecords = Core.Nothing,
+      nextToken = Core.Nothing,
+      versionLabels = Core.Nothing
     }
 
--- | Specify a version label to show a specific application version.
+-- | Specify an application name to show only application versions for that application.
 --
--- /Note:/ Consider using 'versionLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dVersionLabels :: Lens.Lens' DescribeApplicationVersions (Lude.Maybe [Lude.Text])
-dVersionLabels = Lens.lens (versionLabels :: DescribeApplicationVersions -> Lude.Maybe [Lude.Text]) (\s a -> s {versionLabels = a} :: DescribeApplicationVersions)
-{-# DEPRECATED dVersionLabels "Use generic-lens or generic-optics with 'versionLabels' instead." #-}
-
--- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
---
--- If no @NextToken@ is specified, the first page is retrieved.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNextToken :: Lens.Lens' DescribeApplicationVersions (Lude.Maybe Lude.Text)
-dNextToken = Lens.lens (nextToken :: DescribeApplicationVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeApplicationVersions)
-{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dApplicationName :: Lens.Lens' DescribeApplicationVersions (Core.Maybe Types.ApplicationName)
+dApplicationName = Lens.field @"applicationName"
+{-# DEPRECATED dApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | For a paginated request. Specify a maximum number of application versions to include in each response.
 --
 -- If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMaxRecords :: Lens.Lens' DescribeApplicationVersions (Lude.Maybe Lude.Natural)
-dMaxRecords = Lens.lens (maxRecords :: DescribeApplicationVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeApplicationVersions)
+dMaxRecords :: Lens.Lens' DescribeApplicationVersions (Core.Maybe Core.Natural)
+dMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | Specify an application name to show only application versions for that application.
+-- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
 --
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dApplicationName :: Lens.Lens' DescribeApplicationVersions (Lude.Maybe Lude.Text)
-dApplicationName = Lens.lens (applicationName :: DescribeApplicationVersions -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: DescribeApplicationVersions)
-{-# DEPRECATED dApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+-- If no @NextToken@ is specified, the first page is retrieved.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNextToken :: Lens.Lens' DescribeApplicationVersions (Core.Maybe Types.Token)
+dNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeApplicationVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. davrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. davrsApplicationVersions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dNextToken Lens..~ rs Lens.^. davrsNextToken
+-- | Specify a version label to show a specific application version.
+--
+-- /Note:/ Consider using 'versionLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dVersionLabels :: Lens.Lens' DescribeApplicationVersions (Core.Maybe [Types.VersionLabel])
+dVersionLabels = Lens.field @"versionLabels"
+{-# DEPRECATED dVersionLabels "Use generic-lens or generic-optics with 'versionLabels' instead." #-}
 
-instance Lude.AWSRequest DescribeApplicationVersions where
+instance Core.AWSRequest DescribeApplicationVersions where
   type
     Rs DescribeApplicationVersions =
       DescribeApplicationVersionsResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeApplicationVersions")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ApplicationName" Core.<$> applicationName)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryValue
+                            "VersionLabels"
+                            (Core.toQueryList "member" Core.<$> versionLabels)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeApplicationVersionsResult"
       ( \s h x ->
           DescribeApplicationVersionsResponse'
-            Lude.<$> ( x Lude..@? "ApplicationVersions" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "ApplicationVersions"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeApplicationVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeApplicationVersions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeApplicationVersions where
-  toQuery DescribeApplicationVersions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeApplicationVersions" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "VersionLabels"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> versionLabels),
-        "NextToken" Lude.=: nextToken,
-        "MaxRecords" Lude.=: maxRecords,
-        "ApplicationName" Lude.=: applicationName
-      ]
+instance Pager.AWSPager DescribeApplicationVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"applicationVersions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Result message wrapping a list of application version descriptions.
 --
 -- /See:/ 'mkDescribeApplicationVersionsResponse' smart constructor.
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
   { -- | List of @ApplicationVersionDescription@ objects sorted in order of creation.
-    applicationVersions :: Lude.Maybe [ApplicationVersionDescription],
+    applicationVersions :: Core.Maybe [Types.ApplicationVersionDescription],
     -- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.Token,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeApplicationVersionsResponse' with the minimum fields required to make a request.
---
--- * 'applicationVersions' - List of @ApplicationVersionDescription@ objects sorted in order of creation.
--- * 'nextToken' - In a paginated request, the token that you can pass in a subsequent request to get the next response page.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeApplicationVersionsResponse' value with any optional fields omitted.
 mkDescribeApplicationVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeApplicationVersionsResponse
-mkDescribeApplicationVersionsResponse pResponseStatus_ =
+mkDescribeApplicationVersionsResponse responseStatus =
   DescribeApplicationVersionsResponse'
     { applicationVersions =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | List of @ApplicationVersionDescription@ objects sorted in order of creation.
 --
 -- /Note:/ Consider using 'applicationVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-davrsApplicationVersions :: Lens.Lens' DescribeApplicationVersionsResponse (Lude.Maybe [ApplicationVersionDescription])
-davrsApplicationVersions = Lens.lens (applicationVersions :: DescribeApplicationVersionsResponse -> Lude.Maybe [ApplicationVersionDescription]) (\s a -> s {applicationVersions = a} :: DescribeApplicationVersionsResponse)
-{-# DEPRECATED davrsApplicationVersions "Use generic-lens or generic-optics with 'applicationVersions' instead." #-}
+davrrsApplicationVersions :: Lens.Lens' DescribeApplicationVersionsResponse (Core.Maybe [Types.ApplicationVersionDescription])
+davrrsApplicationVersions = Lens.field @"applicationVersions"
+{-# DEPRECATED davrrsApplicationVersions "Use generic-lens or generic-optics with 'applicationVersions' instead." #-}
 
 -- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-davrsNextToken :: Lens.Lens' DescribeApplicationVersionsResponse (Lude.Maybe Lude.Text)
-davrsNextToken = Lens.lens (nextToken :: DescribeApplicationVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeApplicationVersionsResponse)
-{-# DEPRECATED davrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+davrrsNextToken :: Lens.Lens' DescribeApplicationVersionsResponse (Core.Maybe Types.Token)
+davrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED davrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-davrsResponseStatus :: Lens.Lens' DescribeApplicationVersionsResponse Lude.Int
-davrsResponseStatus = Lens.lens (responseStatus :: DescribeApplicationVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeApplicationVersionsResponse)
-{-# DEPRECATED davrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+davrrsResponseStatus :: Lens.Lens' DescribeApplicationVersionsResponse Core.Int
+davrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED davrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

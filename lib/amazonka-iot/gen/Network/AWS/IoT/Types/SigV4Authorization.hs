@@ -17,87 +17,80 @@ module Network.AWS.IoT.Types.SigV4Authorization
     mkSigV4Authorization,
 
     -- * Lenses
-    svaServiceName,
     svaSigningRegion,
-    svaRoleARN,
+    svaServiceName,
+    svaRoleArn,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.ServiceName as Types
+import qualified Network.AWS.IoT.Types.SigningRegion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | For more information, see <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 signing process> .
 --
 -- /See:/ 'mkSigV4Authorization' smart constructor.
 data SigV4Authorization = SigV4Authorization'
-  { -- | The service name to use while signing with Sig V4.
-    serviceName :: Lude.Text,
-    -- | The signing region.
-    signingRegion :: Lude.Text,
+  { -- | The signing region.
+    signingRegion :: Types.SigningRegion,
+    -- | The service name to use while signing with Sig V4.
+    serviceName :: Types.ServiceName,
     -- | The ARN of the signing role.
-    roleARN :: Lude.Text
+    roleArn :: Types.AwsArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SigV4Authorization' with the minimum fields required to make a request.
---
--- * 'serviceName' - The service name to use while signing with Sig V4.
--- * 'signingRegion' - The signing region.
--- * 'roleARN' - The ARN of the signing role.
+-- | Creates a 'SigV4Authorization' value with any optional fields omitted.
 mkSigV4Authorization ::
-  -- | 'serviceName'
-  Lude.Text ->
   -- | 'signingRegion'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.SigningRegion ->
+  -- | 'serviceName'
+  Types.ServiceName ->
+  -- | 'roleArn'
+  Types.AwsArn ->
   SigV4Authorization
-mkSigV4Authorization pServiceName_ pSigningRegion_ pRoleARN_ =
-  SigV4Authorization'
-    { serviceName = pServiceName_,
-      signingRegion = pSigningRegion_,
-      roleARN = pRoleARN_
-    }
-
--- | The service name to use while signing with Sig V4.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svaServiceName :: Lens.Lens' SigV4Authorization Lude.Text
-svaServiceName = Lens.lens (serviceName :: SigV4Authorization -> Lude.Text) (\s a -> s {serviceName = a} :: SigV4Authorization)
-{-# DEPRECATED svaServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
+mkSigV4Authorization signingRegion serviceName roleArn =
+  SigV4Authorization' {signingRegion, serviceName, roleArn}
 
 -- | The signing region.
 --
 -- /Note:/ Consider using 'signingRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svaSigningRegion :: Lens.Lens' SigV4Authorization Lude.Text
-svaSigningRegion = Lens.lens (signingRegion :: SigV4Authorization -> Lude.Text) (\s a -> s {signingRegion = a} :: SigV4Authorization)
+svaSigningRegion :: Lens.Lens' SigV4Authorization Types.SigningRegion
+svaSigningRegion = Lens.field @"signingRegion"
 {-# DEPRECATED svaSigningRegion "Use generic-lens or generic-optics with 'signingRegion' instead." #-}
+
+-- | The service name to use while signing with Sig V4.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svaServiceName :: Lens.Lens' SigV4Authorization Types.ServiceName
+svaServiceName = Lens.field @"serviceName"
+{-# DEPRECATED svaServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The ARN of the signing role.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svaRoleARN :: Lens.Lens' SigV4Authorization Lude.Text
-svaRoleARN = Lens.lens (roleARN :: SigV4Authorization -> Lude.Text) (\s a -> s {roleARN = a} :: SigV4Authorization)
-{-# DEPRECATED svaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svaRoleArn :: Lens.Lens' SigV4Authorization Types.AwsArn
+svaRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED svaRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON SigV4Authorization where
-  parseJSON =
-    Lude.withObject
-      "SigV4Authorization"
-      ( \x ->
-          SigV4Authorization'
-            Lude.<$> (x Lude..: "serviceName")
-            Lude.<*> (x Lude..: "signingRegion")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON SigV4Authorization where
-  toJSON SigV4Authorization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("serviceName" Lude..= serviceName),
-            Lude.Just ("signingRegion" Lude..= signingRegion),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON SigV4Authorization where
+  toJSON SigV4Authorization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("signingRegion" Core..= signingRegion),
+            Core.Just ("serviceName" Core..= serviceName),
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )
+
+instance Core.FromJSON SigV4Authorization where
+  parseJSON =
+    Core.withObject "SigV4Authorization" Core.$
+      \x ->
+        SigV4Authorization'
+          Core.<$> (x Core..: "signingRegion")
+          Core.<*> (x Core..: "serviceName")
+          Core.<*> (x Core..: "roleArn")

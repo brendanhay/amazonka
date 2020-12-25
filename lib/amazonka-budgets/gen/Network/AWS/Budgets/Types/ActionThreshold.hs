@@ -22,65 +22,57 @@ module Network.AWS.Budgets.Types.ActionThreshold
   )
 where
 
-import Network.AWS.Budgets.Types.ThresholdType
+import qualified Network.AWS.Budgets.Types.ThresholdType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The trigger threshold of the action.
 --
 -- /See:/ 'mkActionThreshold' smart constructor.
 data ActionThreshold = ActionThreshold'
-  { actionThresholdValue :: Lude.Double,
-    actionThresholdType :: ThresholdType
+  { actionThresholdValue :: Core.Double,
+    actionThresholdType :: Types.ThresholdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActionThreshold' with the minimum fields required to make a request.
---
--- * 'actionThresholdValue' -
--- * 'actionThresholdType' -
+-- | Creates a 'ActionThreshold' value with any optional fields omitted.
 mkActionThreshold ::
   -- | 'actionThresholdValue'
-  Lude.Double ->
+  Core.Double ->
   -- | 'actionThresholdType'
-  ThresholdType ->
+  Types.ThresholdType ->
   ActionThreshold
-mkActionThreshold pActionThresholdValue_ pActionThresholdType_ =
-  ActionThreshold'
-    { actionThresholdValue = pActionThresholdValue_,
-      actionThresholdType = pActionThresholdType_
-    }
+mkActionThreshold actionThresholdValue actionThresholdType =
+  ActionThreshold' {actionThresholdValue, actionThresholdType}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'actionThresholdValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atActionThresholdValue :: Lens.Lens' ActionThreshold Lude.Double
-atActionThresholdValue = Lens.lens (actionThresholdValue :: ActionThreshold -> Lude.Double) (\s a -> s {actionThresholdValue = a} :: ActionThreshold)
+atActionThresholdValue :: Lens.Lens' ActionThreshold Core.Double
+atActionThresholdValue = Lens.field @"actionThresholdValue"
 {-# DEPRECATED atActionThresholdValue "Use generic-lens or generic-optics with 'actionThresholdValue' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'actionThresholdType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atActionThresholdType :: Lens.Lens' ActionThreshold ThresholdType
-atActionThresholdType = Lens.lens (actionThresholdType :: ActionThreshold -> ThresholdType) (\s a -> s {actionThresholdType = a} :: ActionThreshold)
+atActionThresholdType :: Lens.Lens' ActionThreshold Types.ThresholdType
+atActionThresholdType = Lens.field @"actionThresholdType"
 {-# DEPRECATED atActionThresholdType "Use generic-lens or generic-optics with 'actionThresholdType' instead." #-}
 
-instance Lude.FromJSON ActionThreshold where
-  parseJSON =
-    Lude.withObject
-      "ActionThreshold"
-      ( \x ->
-          ActionThreshold'
-            Lude.<$> (x Lude..: "ActionThresholdValue")
-            Lude.<*> (x Lude..: "ActionThresholdType")
-      )
-
-instance Lude.ToJSON ActionThreshold where
-  toJSON ActionThreshold' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ActionThresholdValue" Lude..= actionThresholdValue),
-            Lude.Just ("ActionThresholdType" Lude..= actionThresholdType)
+instance Core.FromJSON ActionThreshold where
+  toJSON ActionThreshold {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ActionThresholdValue" Core..= actionThresholdValue),
+            Core.Just ("ActionThresholdType" Core..= actionThresholdType)
           ]
       )
+
+instance Core.FromJSON ActionThreshold where
+  parseJSON =
+    Core.withObject "ActionThreshold" Core.$
+      \x ->
+        ActionThreshold'
+          Core.<$> (x Core..: "ActionThresholdValue")
+          Core.<*> (x Core..: "ActionThresholdType")

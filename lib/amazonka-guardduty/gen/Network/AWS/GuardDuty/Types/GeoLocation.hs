@@ -23,48 +23,43 @@ module Network.AWS.GuardDuty.Types.GeoLocation
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the location of the remote IP address.
 --
 -- /See:/ 'mkGeoLocation' smart constructor.
 data GeoLocation = GeoLocation'
   { -- | The latitude information of the remote IP address.
-    lat :: Lude.Maybe Lude.Double,
+    lat :: Core.Maybe Core.Double,
     -- | The longitude information of the remote IP address.
-    lon :: Lude.Maybe Lude.Double
+    lon :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GeoLocation' with the minimum fields required to make a request.
---
--- * 'lat' - The latitude information of the remote IP address.
--- * 'lon' - The longitude information of the remote IP address.
+-- | Creates a 'GeoLocation' value with any optional fields omitted.
 mkGeoLocation ::
   GeoLocation
 mkGeoLocation =
-  GeoLocation' {lat = Lude.Nothing, lon = Lude.Nothing}
+  GeoLocation' {lat = Core.Nothing, lon = Core.Nothing}
 
 -- | The latitude information of the remote IP address.
 --
 -- /Note:/ Consider using 'lat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glLat :: Lens.Lens' GeoLocation (Lude.Maybe Lude.Double)
-glLat = Lens.lens (lat :: GeoLocation -> Lude.Maybe Lude.Double) (\s a -> s {lat = a} :: GeoLocation)
+glLat :: Lens.Lens' GeoLocation (Core.Maybe Core.Double)
+glLat = Lens.field @"lat"
 {-# DEPRECATED glLat "Use generic-lens or generic-optics with 'lat' instead." #-}
 
 -- | The longitude information of the remote IP address.
 --
 -- /Note:/ Consider using 'lon' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glLon :: Lens.Lens' GeoLocation (Lude.Maybe Lude.Double)
-glLon = Lens.lens (lon :: GeoLocation -> Lude.Maybe Lude.Double) (\s a -> s {lon = a} :: GeoLocation)
+glLon :: Lens.Lens' GeoLocation (Core.Maybe Core.Double)
+glLon = Lens.field @"lon"
 {-# DEPRECATED glLon "Use generic-lens or generic-optics with 'lon' instead." #-}
 
-instance Lude.FromJSON GeoLocation where
+instance Core.FromJSON GeoLocation where
   parseJSON =
-    Lude.withObject
-      "GeoLocation"
-      ( \x ->
-          GeoLocation'
-            Lude.<$> (x Lude..:? "lat") Lude.<*> (x Lude..:? "lon")
-      )
+    Core.withObject "GeoLocation" Core.$
+      \x ->
+        GeoLocation'
+          Core.<$> (x Core..:? "lat") Core.<*> (x Core..:? "lon")

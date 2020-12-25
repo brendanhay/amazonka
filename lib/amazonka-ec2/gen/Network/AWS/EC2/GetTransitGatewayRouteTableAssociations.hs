@@ -23,33 +23,35 @@ module Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
 
     -- ** Request lenses
     gtgrtaTransitGatewayRouteTableId,
-    gtgrtaFilters,
-    gtgrtaNextToken,
     gtgrtaDryRun,
+    gtgrtaFilters,
     gtgrtaMaxResults,
+    gtgrtaNextToken,
 
     -- * Destructuring the response
     GetTransitGatewayRouteTableAssociationsResponse (..),
     mkGetTransitGatewayRouteTableAssociationsResponse,
 
     -- ** Response lenses
-    gtgrtarsNextToken,
-    gtgrtarsAssociations,
-    gtgrtarsResponseStatus,
+    gtgrtarrsAssociations,
+    gtgrtarrsNextToken,
+    gtgrtarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetTransitGatewayRouteTableAssociations' smart constructor.
 data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssociations'
   { -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Lude.Text,
+    transitGatewayRouteTableId :: Types.TransitGatewayRouteTableId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters. The possible values are:
     --
     --
@@ -60,56 +62,43 @@ data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssoci
     --
     --
     --     * @transit-gateway-attachment-id@ - The ID of the attachment.
-    filters :: Lude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTransitGatewayRouteTableAssociations' with the minimum fields required to make a request.
---
--- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
--- * 'filters' - One or more filters. The possible values are:
---
---
---     * @resource-id@ - The ID of the resource.
---
---
---     * @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .
---
---
---     * @transit-gateway-attachment-id@ - The ID of the attachment.
---
---
--- * 'nextToken' - The token for the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'GetTransitGatewayRouteTableAssociations' value with any optional fields omitted.
 mkGetTransitGatewayRouteTableAssociations ::
   -- | 'transitGatewayRouteTableId'
-  Lude.Text ->
+  Types.TransitGatewayRouteTableId ->
   GetTransitGatewayRouteTableAssociations
 mkGetTransitGatewayRouteTableAssociations
-  pTransitGatewayRouteTableId_ =
+  transitGatewayRouteTableId =
     GetTransitGatewayRouteTableAssociations'
-      { transitGatewayRouteTableId =
-          pTransitGatewayRouteTableId_,
-        filters = Lude.Nothing,
-        nextToken = Lude.Nothing,
-        dryRun = Lude.Nothing,
-        maxResults = Lude.Nothing
+      { transitGatewayRouteTableId,
+        dryRun = Core.Nothing,
+        filters = Core.Nothing,
+        maxResults = Core.Nothing,
+        nextToken = Core.Nothing
       }
 
 -- | The ID of the transit gateway route table.
 --
 -- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgrtaTransitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayRouteTableAssociations Lude.Text
-gtgrtaTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: GetTransitGatewayRouteTableAssociations -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: GetTransitGatewayRouteTableAssociations)
+gtgrtaTransitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayRouteTableAssociations Types.TransitGatewayRouteTableId
+gtgrtaTransitGatewayRouteTableId = Lens.field @"transitGatewayRouteTableId"
 {-# DEPRECATED gtgrtaTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgrtaDryRun :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Core.Maybe Core.Bool)
+gtgrtaDryRun = Lens.field @"dryRun"
+{-# DEPRECATED gtgrtaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters. The possible values are:
 --
@@ -125,121 +114,116 @@ gtgrtaTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: GetT
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgrtaFilters :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Lude.Maybe [Filter])
-gtgrtaFilters = Lens.lens (filters :: GetTransitGatewayRouteTableAssociations -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: GetTransitGatewayRouteTableAssociations)
+gtgrtaFilters :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Core.Maybe [Types.Filter])
+gtgrtaFilters = Lens.field @"filters"
 {-# DEPRECATED gtgrtaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgrtaNextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Lude.Maybe Lude.Text)
-gtgrtaNextToken = Lens.lens (nextToken :: GetTransitGatewayRouteTableAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTransitGatewayRouteTableAssociations)
-{-# DEPRECATED gtgrtaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgrtaDryRun :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Lude.Maybe Lude.Bool)
-gtgrtaDryRun = Lens.lens (dryRun :: GetTransitGatewayRouteTableAssociations -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetTransitGatewayRouteTableAssociations)
-{-# DEPRECATED gtgrtaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgrtaMaxResults :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Lude.Maybe Lude.Natural)
-gtgrtaMaxResults = Lens.lens (maxResults :: GetTransitGatewayRouteTableAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTransitGatewayRouteTableAssociations)
+gtgrtaMaxResults :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Core.Maybe Core.Natural)
+gtgrtaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gtgrtaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager GetTransitGatewayRouteTableAssociations where
-  page rq rs
-    | Page.stop (rs Lens.^. gtgrtarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gtgrtarsAssociations) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gtgrtaNextToken Lens..~ rs Lens.^. gtgrtarsNextToken
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgrtaNextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Core.Maybe Types.NextToken)
+gtgrtaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gtgrtaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest GetTransitGatewayRouteTableAssociations where
+instance Core.AWSRequest GetTransitGatewayRouteTableAssociations where
   type
     Rs GetTransitGatewayRouteTableAssociations =
       GetTransitGatewayRouteTableAssociationsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetTransitGatewayRouteTableAssociations")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue
+                            "TransitGatewayRouteTableId"
+                            transitGatewayRouteTableId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetTransitGatewayRouteTableAssociationsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "associations" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "associations" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetTransitGatewayRouteTableAssociations where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetTransitGatewayRouteTableAssociations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTransitGatewayRouteTableAssociations where
-  toQuery GetTransitGatewayRouteTableAssociations' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("GetTransitGatewayRouteTableAssociations" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager GetTransitGatewayRouteTableAssociations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"associations" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetTransitGatewayRouteTableAssociationsResponse' smart constructor.
 data GetTransitGatewayRouteTableAssociationsResponse = GetTransitGatewayRouteTableAssociationsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about the associations.
-    associations :: Lude.Maybe [TransitGatewayRouteTableAssociation],
+  { -- | Information about the associations.
+    associations :: Core.Maybe [Types.TransitGatewayRouteTableAssociation],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTransitGatewayRouteTableAssociationsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'associations' - Information about the associations.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTransitGatewayRouteTableAssociationsResponse' value with any optional fields omitted.
 mkGetTransitGatewayRouteTableAssociationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTransitGatewayRouteTableAssociationsResponse
-mkGetTransitGatewayRouteTableAssociationsResponse pResponseStatus_ =
+mkGetTransitGatewayRouteTableAssociationsResponse responseStatus =
   GetTransitGatewayRouteTableAssociationsResponse'
-    { nextToken =
-        Lude.Nothing,
-      associations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { associations =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgrtarsNextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse (Lude.Maybe Lude.Text)
-gtgrtarsNextToken = Lens.lens (nextToken :: GetTransitGatewayRouteTableAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTransitGatewayRouteTableAssociationsResponse)
-{-# DEPRECATED gtgrtarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the associations.
 --
 -- /Note:/ Consider using 'associations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgrtarsAssociations :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse (Lude.Maybe [TransitGatewayRouteTableAssociation])
-gtgrtarsAssociations = Lens.lens (associations :: GetTransitGatewayRouteTableAssociationsResponse -> Lude.Maybe [TransitGatewayRouteTableAssociation]) (\s a -> s {associations = a} :: GetTransitGatewayRouteTableAssociationsResponse)
-{-# DEPRECATED gtgrtarsAssociations "Use generic-lens or generic-optics with 'associations' instead." #-}
+gtgrtarrsAssociations :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse (Core.Maybe [Types.TransitGatewayRouteTableAssociation])
+gtgrtarrsAssociations = Lens.field @"associations"
+{-# DEPRECATED gtgrtarrsAssociations "Use generic-lens or generic-optics with 'associations' instead." #-}
+
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgrtarrsNextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse (Core.Maybe Types.String)
+gtgrtarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gtgrtarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgrtarsResponseStatus :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse Lude.Int
-gtgrtarsResponseStatus = Lens.lens (responseStatus :: GetTransitGatewayRouteTableAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTransitGatewayRouteTableAssociationsResponse)
-{-# DEPRECATED gtgrtarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtgrtarrsResponseStatus :: Lens.Lens' GetTransitGatewayRouteTableAssociationsResponse Core.Int
+gtgrtarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtgrtarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

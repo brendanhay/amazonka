@@ -52,90 +52,76 @@ module Network.AWS.GameLift.DeregisterGameServer
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeregisterGameServer' smart constructor.
 data DeregisterGameServer = DeregisterGameServer'
   { -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
-    gameServerGroupName :: Lude.Text,
+    gameServerGroupName :: Types.GameServerGroupNameOrArn,
     -- | A custom string that uniquely identifies the game server to deregister.
-    gameServerId :: Lude.Text
+    gameServerId :: Types.GameServerId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterGameServer' with the minimum fields required to make a request.
---
--- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
--- * 'gameServerId' - A custom string that uniquely identifies the game server to deregister.
+-- | Creates a 'DeregisterGameServer' value with any optional fields omitted.
 mkDeregisterGameServer ::
   -- | 'gameServerGroupName'
-  Lude.Text ->
+  Types.GameServerGroupNameOrArn ->
   -- | 'gameServerId'
-  Lude.Text ->
+  Types.GameServerId ->
   DeregisterGameServer
-mkDeregisterGameServer pGameServerGroupName_ pGameServerId_ =
-  DeregisterGameServer'
-    { gameServerGroupName =
-        pGameServerGroupName_,
-      gameServerId = pGameServerId_
-    }
+mkDeregisterGameServer gameServerGroupName gameServerId =
+  DeregisterGameServer' {gameServerGroupName, gameServerId}
 
 -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsGameServerGroupName :: Lens.Lens' DeregisterGameServer Lude.Text
-dgsGameServerGroupName = Lens.lens (gameServerGroupName :: DeregisterGameServer -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DeregisterGameServer)
+dgsGameServerGroupName :: Lens.Lens' DeregisterGameServer Types.GameServerGroupNameOrArn
+dgsGameServerGroupName = Lens.field @"gameServerGroupName"
 {-# DEPRECATED dgsGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 -- | A custom string that uniquely identifies the game server to deregister.
 --
 -- /Note:/ Consider using 'gameServerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsGameServerId :: Lens.Lens' DeregisterGameServer Lude.Text
-dgsGameServerId = Lens.lens (gameServerId :: DeregisterGameServer -> Lude.Text) (\s a -> s {gameServerId = a} :: DeregisterGameServer)
+dgsGameServerId :: Lens.Lens' DeregisterGameServer Types.GameServerId
+dgsGameServerId = Lens.field @"gameServerId"
 {-# DEPRECATED dgsGameServerId "Use generic-lens or generic-optics with 'gameServerId' instead." #-}
 
-instance Lude.AWSRequest DeregisterGameServer where
+instance Core.FromJSON DeregisterGameServer where
+  toJSON DeregisterGameServer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GameServerGroupName" Core..= gameServerGroupName),
+            Core.Just ("GameServerId" Core..= gameServerId)
+          ]
+      )
+
+instance Core.AWSRequest DeregisterGameServer where
   type Rs DeregisterGameServer = DeregisterGameServerResponse
-  request = Req.postJSON gameLiftService
-  response = Res.receiveNull DeregisterGameServerResponse'
-
-instance Lude.ToHeaders DeregisterGameServer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DeregisterGameServer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeregisterGameServer where
-  toJSON DeregisterGameServer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
-            Lude.Just ("GameServerId" Lude..= gameServerId)
-          ]
-      )
-
-instance Lude.ToPath DeregisterGameServer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterGameServer where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DeregisterGameServer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeregisterGameServerResponse'
 
 -- | /See:/ 'mkDeregisterGameServerResponse' smart constructor.
 data DeregisterGameServerResponse = DeregisterGameServerResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterGameServerResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeregisterGameServerResponse' value with any optional fields omitted.
 mkDeregisterGameServerResponse ::
   DeregisterGameServerResponse
 mkDeregisterGameServerResponse = DeregisterGameServerResponse'

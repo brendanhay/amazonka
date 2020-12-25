@@ -17,71 +17,68 @@ module Network.AWS.AlexaBusiness.Types.SkillGroupData
     mkSkillGroupData,
 
     -- * Lenses
-    sgdSkillGroupARN,
     sgdDescription,
+    sgdSkillGroupArn,
     sgdSkillGroupName,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
+import qualified Network.AWS.AlexaBusiness.Types.SkillGroupDescription as Types
+import qualified Network.AWS.AlexaBusiness.Types.SkillGroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The attributes of a skill group.
 --
 -- /See:/ 'mkSkillGroupData' smart constructor.
 data SkillGroupData = SkillGroupData'
-  { -- | The skill group ARN of a skill group.
-    skillGroupARN :: Lude.Maybe Lude.Text,
-    -- | The description of a skill group.
-    description :: Lude.Maybe Lude.Text,
+  { -- | The description of a skill group.
+    description :: Core.Maybe Types.SkillGroupDescription,
+    -- | The skill group ARN of a skill group.
+    skillGroupArn :: Core.Maybe Types.Arn,
     -- | The skill group name of a skill group.
-    skillGroupName :: Lude.Maybe Lude.Text
+    skillGroupName :: Core.Maybe Types.SkillGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SkillGroupData' with the minimum fields required to make a request.
---
--- * 'skillGroupARN' - The skill group ARN of a skill group.
--- * 'description' - The description of a skill group.
--- * 'skillGroupName' - The skill group name of a skill group.
+-- | Creates a 'SkillGroupData' value with any optional fields omitted.
 mkSkillGroupData ::
   SkillGroupData
 mkSkillGroupData =
   SkillGroupData'
-    { skillGroupARN = Lude.Nothing,
-      description = Lude.Nothing,
-      skillGroupName = Lude.Nothing
+    { description = Core.Nothing,
+      skillGroupArn = Core.Nothing,
+      skillGroupName = Core.Nothing
     }
-
--- | The skill group ARN of a skill group.
---
--- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgdSkillGroupARN :: Lens.Lens' SkillGroupData (Lude.Maybe Lude.Text)
-sgdSkillGroupARN = Lens.lens (skillGroupARN :: SkillGroupData -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: SkillGroupData)
-{-# DEPRECATED sgdSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
 -- | The description of a skill group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgdDescription :: Lens.Lens' SkillGroupData (Lude.Maybe Lude.Text)
-sgdDescription = Lens.lens (description :: SkillGroupData -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SkillGroupData)
+sgdDescription :: Lens.Lens' SkillGroupData (Core.Maybe Types.SkillGroupDescription)
+sgdDescription = Lens.field @"description"
 {-# DEPRECATED sgdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The skill group ARN of a skill group.
+--
+-- /Note:/ Consider using 'skillGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgdSkillGroupArn :: Lens.Lens' SkillGroupData (Core.Maybe Types.Arn)
+sgdSkillGroupArn = Lens.field @"skillGroupArn"
+{-# DEPRECATED sgdSkillGroupArn "Use generic-lens or generic-optics with 'skillGroupArn' instead." #-}
 
 -- | The skill group name of a skill group.
 --
 -- /Note:/ Consider using 'skillGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgdSkillGroupName :: Lens.Lens' SkillGroupData (Lude.Maybe Lude.Text)
-sgdSkillGroupName = Lens.lens (skillGroupName :: SkillGroupData -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupName = a} :: SkillGroupData)
+sgdSkillGroupName :: Lens.Lens' SkillGroupData (Core.Maybe Types.SkillGroupName)
+sgdSkillGroupName = Lens.field @"skillGroupName"
 {-# DEPRECATED sgdSkillGroupName "Use generic-lens or generic-optics with 'skillGroupName' instead." #-}
 
-instance Lude.FromJSON SkillGroupData where
+instance Core.FromJSON SkillGroupData where
   parseJSON =
-    Lude.withObject
-      "SkillGroupData"
-      ( \x ->
-          SkillGroupData'
-            Lude.<$> (x Lude..:? "SkillGroupArn")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "SkillGroupName")
-      )
+    Core.withObject "SkillGroupData" Core.$
+      \x ->
+        SkillGroupData'
+          Core.<$> (x Core..:? "Description")
+          Core.<*> (x Core..:? "SkillGroupArn")
+          Core.<*> (x Core..:? "SkillGroupName")

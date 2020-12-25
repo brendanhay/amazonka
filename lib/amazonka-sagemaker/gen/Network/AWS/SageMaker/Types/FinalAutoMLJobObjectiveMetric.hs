@@ -24,70 +24,64 @@ module Network.AWS.SageMaker.Types.FinalAutoMLJobObjectiveMetric
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AutoMLJobObjectiveType
-import Network.AWS.SageMaker.Types.AutoMLMetricEnum
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AutoMLJobObjectiveType as Types
+import qualified Network.AWS.SageMaker.Types.AutoMLMetricEnum as Types
 
 -- | The best candidate result from an AutoML training job.
 --
 -- /See:/ 'mkFinalAutoMLJobObjectiveMetric' smart constructor.
 data FinalAutoMLJobObjectiveMetric = FinalAutoMLJobObjectiveMetric'
   { -- | The name of the metric with the best result. For a description of the possible objective metrics, see 'AutoMLJobObjective$MetricName' .
-    metricName :: AutoMLMetricEnum,
+    metricName :: Types.AutoMLMetricEnum,
     -- | The value of the metric with the best result.
-    value :: Lude.Double,
+    value :: Core.Double,
     -- | The type of metric with the best result.
-    type' :: Lude.Maybe AutoMLJobObjectiveType
+    type' :: Core.Maybe Types.AutoMLJobObjectiveType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FinalAutoMLJobObjectiveMetric' with the minimum fields required to make a request.
---
--- * 'metricName' - The name of the metric with the best result. For a description of the possible objective metrics, see 'AutoMLJobObjective$MetricName' .
--- * 'value' - The value of the metric with the best result.
--- * 'type'' - The type of metric with the best result.
+-- | Creates a 'FinalAutoMLJobObjectiveMetric' value with any optional fields omitted.
 mkFinalAutoMLJobObjectiveMetric ::
   -- | 'metricName'
-  AutoMLMetricEnum ->
+  Types.AutoMLMetricEnum ->
   -- | 'value'
-  Lude.Double ->
+  Core.Double ->
   FinalAutoMLJobObjectiveMetric
-mkFinalAutoMLJobObjectiveMetric pMetricName_ pValue_ =
+mkFinalAutoMLJobObjectiveMetric metricName value =
   FinalAutoMLJobObjectiveMetric'
-    { metricName = pMetricName_,
-      value = pValue_,
-      type' = Lude.Nothing
+    { metricName,
+      value,
+      type' = Core.Nothing
     }
 
 -- | The name of the metric with the best result. For a description of the possible objective metrics, see 'AutoMLJobObjective$MetricName' .
 --
 -- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-famljomMetricName :: Lens.Lens' FinalAutoMLJobObjectiveMetric AutoMLMetricEnum
-famljomMetricName = Lens.lens (metricName :: FinalAutoMLJobObjectiveMetric -> AutoMLMetricEnum) (\s a -> s {metricName = a} :: FinalAutoMLJobObjectiveMetric)
+famljomMetricName :: Lens.Lens' FinalAutoMLJobObjectiveMetric Types.AutoMLMetricEnum
+famljomMetricName = Lens.field @"metricName"
 {-# DEPRECATED famljomMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The value of the metric with the best result.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-famljomValue :: Lens.Lens' FinalAutoMLJobObjectiveMetric Lude.Double
-famljomValue = Lens.lens (value :: FinalAutoMLJobObjectiveMetric -> Lude.Double) (\s a -> s {value = a} :: FinalAutoMLJobObjectiveMetric)
+famljomValue :: Lens.Lens' FinalAutoMLJobObjectiveMetric Core.Double
+famljomValue = Lens.field @"value"
 {-# DEPRECATED famljomValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The type of metric with the best result.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-famljomType :: Lens.Lens' FinalAutoMLJobObjectiveMetric (Lude.Maybe AutoMLJobObjectiveType)
-famljomType = Lens.lens (type' :: FinalAutoMLJobObjectiveMetric -> Lude.Maybe AutoMLJobObjectiveType) (\s a -> s {type' = a} :: FinalAutoMLJobObjectiveMetric)
+famljomType :: Lens.Lens' FinalAutoMLJobObjectiveMetric (Core.Maybe Types.AutoMLJobObjectiveType)
+famljomType = Lens.field @"type'"
 {-# DEPRECATED famljomType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON FinalAutoMLJobObjectiveMetric where
+instance Core.FromJSON FinalAutoMLJobObjectiveMetric where
   parseJSON =
-    Lude.withObject
-      "FinalAutoMLJobObjectiveMetric"
-      ( \x ->
-          FinalAutoMLJobObjectiveMetric'
-            Lude.<$> (x Lude..: "MetricName")
-            Lude.<*> (x Lude..: "Value")
-            Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "FinalAutoMLJobObjectiveMetric" Core.$
+      \x ->
+        FinalAutoMLJobObjectiveMetric'
+          Core.<$> (x Core..: "MetricName")
+          Core.<*> (x Core..: "Value")
+          Core.<*> (x Core..:? "Type")

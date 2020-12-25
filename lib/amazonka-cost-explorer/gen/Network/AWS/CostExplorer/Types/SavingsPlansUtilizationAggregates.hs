@@ -17,77 +17,70 @@ module Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates
     mkSavingsPlansUtilizationAggregates,
 
     -- * Lenses
+    spuaUtilization,
     spuaAmortizedCommitment,
     spuaSavings,
-    spuaUtilization,
   )
 where
 
-import Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
-import Network.AWS.CostExplorer.Types.SavingsPlansSavings
-import Network.AWS.CostExplorer.Types.SavingsPlansUtilization
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansSavings as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansUtilization as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The aggregated utilization metrics for your Savings Plans usage.
 --
 -- /See:/ 'mkSavingsPlansUtilizationAggregates' smart constructor.
 data SavingsPlansUtilizationAggregates = SavingsPlansUtilizationAggregates'
-  { -- | The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
-    amortizedCommitment :: Lude.Maybe SavingsPlansAmortizedCommitment,
+  { -- | A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
+    utilization :: Types.SavingsPlansUtilization,
+    -- | The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
+    amortizedCommitment :: Core.Maybe Types.SavingsPlansAmortizedCommitment,
     -- | The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans, as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
-    savings :: Lude.Maybe SavingsPlansSavings,
-    -- | A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
-    utilization :: SavingsPlansUtilization
+    savings :: Core.Maybe Types.SavingsPlansSavings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SavingsPlansUtilizationAggregates' with the minimum fields required to make a request.
---
--- * 'amortizedCommitment' - The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
--- * 'savings' - The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans, as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
--- * 'utilization' - A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
+-- | Creates a 'SavingsPlansUtilizationAggregates' value with any optional fields omitted.
 mkSavingsPlansUtilizationAggregates ::
   -- | 'utilization'
-  SavingsPlansUtilization ->
+  Types.SavingsPlansUtilization ->
   SavingsPlansUtilizationAggregates
-mkSavingsPlansUtilizationAggregates pUtilization_ =
+mkSavingsPlansUtilizationAggregates utilization =
   SavingsPlansUtilizationAggregates'
-    { amortizedCommitment =
-        Lude.Nothing,
-      savings = Lude.Nothing,
-      utilization = pUtilization_
+    { utilization,
+      amortizedCommitment = Core.Nothing,
+      savings = Core.Nothing
     }
+
+-- | A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
+--
+-- /Note:/ Consider using 'utilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spuaUtilization :: Lens.Lens' SavingsPlansUtilizationAggregates Types.SavingsPlansUtilization
+spuaUtilization = Lens.field @"utilization"
+{-# DEPRECATED spuaUtilization "Use generic-lens or generic-optics with 'utilization' instead." #-}
 
 -- | The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
 --
 -- /Note:/ Consider using 'amortizedCommitment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spuaAmortizedCommitment :: Lens.Lens' SavingsPlansUtilizationAggregates (Lude.Maybe SavingsPlansAmortizedCommitment)
-spuaAmortizedCommitment = Lens.lens (amortizedCommitment :: SavingsPlansUtilizationAggregates -> Lude.Maybe SavingsPlansAmortizedCommitment) (\s a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationAggregates)
+spuaAmortizedCommitment :: Lens.Lens' SavingsPlansUtilizationAggregates (Core.Maybe Types.SavingsPlansAmortizedCommitment)
+spuaAmortizedCommitment = Lens.field @"amortizedCommitment"
 {-# DEPRECATED spuaAmortizedCommitment "Use generic-lens or generic-optics with 'amortizedCommitment' instead." #-}
 
 -- | The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans, as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
 --
 -- /Note:/ Consider using 'savings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spuaSavings :: Lens.Lens' SavingsPlansUtilizationAggregates (Lude.Maybe SavingsPlansSavings)
-spuaSavings = Lens.lens (savings :: SavingsPlansUtilizationAggregates -> Lude.Maybe SavingsPlansSavings) (\s a -> s {savings = a} :: SavingsPlansUtilizationAggregates)
+spuaSavings :: Lens.Lens' SavingsPlansUtilizationAggregates (Core.Maybe Types.SavingsPlansSavings)
+spuaSavings = Lens.field @"savings"
 {-# DEPRECATED spuaSavings "Use generic-lens or generic-optics with 'savings' instead." #-}
 
--- | A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
---
--- /Note:/ Consider using 'utilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spuaUtilization :: Lens.Lens' SavingsPlansUtilizationAggregates SavingsPlansUtilization
-spuaUtilization = Lens.lens (utilization :: SavingsPlansUtilizationAggregates -> SavingsPlansUtilization) (\s a -> s {utilization = a} :: SavingsPlansUtilizationAggregates)
-{-# DEPRECATED spuaUtilization "Use generic-lens or generic-optics with 'utilization' instead." #-}
-
-instance Lude.FromJSON SavingsPlansUtilizationAggregates where
+instance Core.FromJSON SavingsPlansUtilizationAggregates where
   parseJSON =
-    Lude.withObject
-      "SavingsPlansUtilizationAggregates"
-      ( \x ->
-          SavingsPlansUtilizationAggregates'
-            Lude.<$> (x Lude..:? "AmortizedCommitment")
-            Lude.<*> (x Lude..:? "Savings")
-            Lude.<*> (x Lude..: "Utilization")
-      )
+    Core.withObject "SavingsPlansUtilizationAggregates" Core.$
+      \x ->
+        SavingsPlansUtilizationAggregates'
+          Core.<$> (x Core..: "Utilization")
+          Core.<*> (x Core..:? "AmortizedCommitment")
+          Core.<*> (x Core..:? "Savings")

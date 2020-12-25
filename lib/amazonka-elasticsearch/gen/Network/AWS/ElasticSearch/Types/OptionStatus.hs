@@ -17,104 +17,96 @@ module Network.AWS.ElasticSearch.Types.OptionStatus
     mkOptionStatus,
 
     -- * Lenses
-    osState,
-    osUpdateDate,
-    osPendingDeletion,
     osCreationDate,
+    osUpdateDate,
+    osState,
+    osPendingDeletion,
     osUpdateVersion,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.OptionState
+import qualified Network.AWS.ElasticSearch.Types.OptionState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides the current status of the entity.
 --
 -- /See:/ 'mkOptionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-  { -- | Provides the @OptionState@ for the Elasticsearch domain.
-    state :: OptionState,
+  { -- | Timestamp which tells the creation date for the entity.
+    creationDate :: Core.NominalDiffTime,
     -- | Timestamp which tells the last updated time for the entity.
-    updateDate :: Lude.Timestamp,
+    updateDate :: Core.NominalDiffTime,
+    -- | Provides the @OptionState@ for the Elasticsearch domain.
+    state :: Types.OptionState,
     -- | Indicates whether the Elasticsearch domain is being deleted.
-    pendingDeletion :: Lude.Maybe Lude.Bool,
-    -- | Timestamp which tells the creation date for the entity.
-    creationDate :: Lude.Timestamp,
+    pendingDeletion :: Core.Maybe Core.Bool,
     -- | Specifies the latest version for the entity.
-    updateVersion :: Lude.Maybe Lude.Natural
+    updateVersion :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OptionStatus' with the minimum fields required to make a request.
---
--- * 'state' - Provides the @OptionState@ for the Elasticsearch domain.
--- * 'updateDate' - Timestamp which tells the last updated time for the entity.
--- * 'pendingDeletion' - Indicates whether the Elasticsearch domain is being deleted.
--- * 'creationDate' - Timestamp which tells the creation date for the entity.
--- * 'updateVersion' - Specifies the latest version for the entity.
+-- | Creates a 'OptionStatus' value with any optional fields omitted.
 mkOptionStatus ::
-  -- | 'state'
-  OptionState ->
-  -- | 'updateDate'
-  Lude.Timestamp ->
   -- | 'creationDate'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
+  -- | 'updateDate'
+  Core.NominalDiffTime ->
+  -- | 'state'
+  Types.OptionState ->
   OptionStatus
-mkOptionStatus pState_ pUpdateDate_ pCreationDate_ =
+mkOptionStatus creationDate updateDate state =
   OptionStatus'
-    { state = pState_,
-      updateDate = pUpdateDate_,
-      pendingDeletion = Lude.Nothing,
-      creationDate = pCreationDate_,
-      updateVersion = Lude.Nothing
+    { creationDate,
+      updateDate,
+      state,
+      pendingDeletion = Core.Nothing,
+      updateVersion = Core.Nothing
     }
-
--- | Provides the @OptionState@ for the Elasticsearch domain.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osState :: Lens.Lens' OptionStatus OptionState
-osState = Lens.lens (state :: OptionStatus -> OptionState) (\s a -> s {state = a} :: OptionStatus)
-{-# DEPRECATED osState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | Timestamp which tells the last updated time for the entity.
---
--- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osUpdateDate :: Lens.Lens' OptionStatus Lude.Timestamp
-osUpdateDate = Lens.lens (updateDate :: OptionStatus -> Lude.Timestamp) (\s a -> s {updateDate = a} :: OptionStatus)
-{-# DEPRECATED osUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
-
--- | Indicates whether the Elasticsearch domain is being deleted.
---
--- /Note:/ Consider using 'pendingDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osPendingDeletion :: Lens.Lens' OptionStatus (Lude.Maybe Lude.Bool)
-osPendingDeletion = Lens.lens (pendingDeletion :: OptionStatus -> Lude.Maybe Lude.Bool) (\s a -> s {pendingDeletion = a} :: OptionStatus)
-{-# DEPRECATED osPendingDeletion "Use generic-lens or generic-optics with 'pendingDeletion' instead." #-}
 
 -- | Timestamp which tells the creation date for the entity.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osCreationDate :: Lens.Lens' OptionStatus Lude.Timestamp
-osCreationDate = Lens.lens (creationDate :: OptionStatus -> Lude.Timestamp) (\s a -> s {creationDate = a} :: OptionStatus)
+osCreationDate :: Lens.Lens' OptionStatus Core.NominalDiffTime
+osCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED osCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | Timestamp which tells the last updated time for the entity.
+--
+-- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osUpdateDate :: Lens.Lens' OptionStatus Core.NominalDiffTime
+osUpdateDate = Lens.field @"updateDate"
+{-# DEPRECATED osUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
+
+-- | Provides the @OptionState@ for the Elasticsearch domain.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osState :: Lens.Lens' OptionStatus Types.OptionState
+osState = Lens.field @"state"
+{-# DEPRECATED osState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | Indicates whether the Elasticsearch domain is being deleted.
+--
+-- /Note:/ Consider using 'pendingDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osPendingDeletion :: Lens.Lens' OptionStatus (Core.Maybe Core.Bool)
+osPendingDeletion = Lens.field @"pendingDeletion"
+{-# DEPRECATED osPendingDeletion "Use generic-lens or generic-optics with 'pendingDeletion' instead." #-}
 
 -- | Specifies the latest version for the entity.
 --
 -- /Note:/ Consider using 'updateVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osUpdateVersion :: Lens.Lens' OptionStatus (Lude.Maybe Lude.Natural)
-osUpdateVersion = Lens.lens (updateVersion :: OptionStatus -> Lude.Maybe Lude.Natural) (\s a -> s {updateVersion = a} :: OptionStatus)
+osUpdateVersion :: Lens.Lens' OptionStatus (Core.Maybe Core.Natural)
+osUpdateVersion = Lens.field @"updateVersion"
 {-# DEPRECATED osUpdateVersion "Use generic-lens or generic-optics with 'updateVersion' instead." #-}
 
-instance Lude.FromJSON OptionStatus where
+instance Core.FromJSON OptionStatus where
   parseJSON =
-    Lude.withObject
-      "OptionStatus"
-      ( \x ->
-          OptionStatus'
-            Lude.<$> (x Lude..: "State")
-            Lude.<*> (x Lude..: "UpdateDate")
-            Lude.<*> (x Lude..:? "PendingDeletion")
-            Lude.<*> (x Lude..: "CreationDate")
-            Lude.<*> (x Lude..:? "UpdateVersion")
-      )
+    Core.withObject "OptionStatus" Core.$
+      \x ->
+        OptionStatus'
+          Core.<$> (x Core..: "CreationDate")
+          Core.<*> (x Core..: "UpdateDate")
+          Core.<*> (x Core..: "State")
+          Core.<*> (x Core..:? "PendingDeletion")
+          Core.<*> (x Core..:? "UpdateVersion")

@@ -20,131 +20,119 @@ module Network.AWS.CodeBuild.BatchGetReportGroups
     mkBatchGetReportGroups,
 
     -- ** Request lenses
-    bgrgReportGroupARNs,
+    bgrgReportGroupArns,
 
     -- * Destructuring the response
     BatchGetReportGroupsResponse (..),
     mkBatchGetReportGroupsResponse,
 
     -- ** Response lenses
-    bgrgrsReportGroups,
-    bgrgrsReportGroupsNotFound,
-    bgrgrsResponseStatus,
+    bgrgrrsReportGroups,
+    bgrgrrsReportGroupsNotFound,
+    bgrgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchGetReportGroups' smart constructor.
 newtype BatchGetReportGroups = BatchGetReportGroups'
   { -- | An array of report group ARNs that identify the report groups to return.
-    reportGroupARNs :: Lude.NonEmpty Lude.Text
+    reportGroupArns :: Core.NonEmpty Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetReportGroups' with the minimum fields required to make a request.
---
--- * 'reportGroupARNs' - An array of report group ARNs that identify the report groups to return.
+-- | Creates a 'BatchGetReportGroups' value with any optional fields omitted.
 mkBatchGetReportGroups ::
-  -- | 'reportGroupARNs'
-  Lude.NonEmpty Lude.Text ->
+  -- | 'reportGroupArns'
+  Core.NonEmpty Types.NonEmptyString ->
   BatchGetReportGroups
-mkBatchGetReportGroups pReportGroupARNs_ =
-  BatchGetReportGroups' {reportGroupARNs = pReportGroupARNs_}
+mkBatchGetReportGroups reportGroupArns =
+  BatchGetReportGroups' {reportGroupArns}
 
 -- | An array of report group ARNs that identify the report groups to return.
 --
--- /Note:/ Consider using 'reportGroupARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrgReportGroupARNs :: Lens.Lens' BatchGetReportGroups (Lude.NonEmpty Lude.Text)
-bgrgReportGroupARNs = Lens.lens (reportGroupARNs :: BatchGetReportGroups -> Lude.NonEmpty Lude.Text) (\s a -> s {reportGroupARNs = a} :: BatchGetReportGroups)
-{-# DEPRECATED bgrgReportGroupARNs "Use generic-lens or generic-optics with 'reportGroupARNs' instead." #-}
+-- /Note:/ Consider using 'reportGroupArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgrgReportGroupArns :: Lens.Lens' BatchGetReportGroups (Core.NonEmpty Types.NonEmptyString)
+bgrgReportGroupArns = Lens.field @"reportGroupArns"
+{-# DEPRECATED bgrgReportGroupArns "Use generic-lens or generic-optics with 'reportGroupArns' instead." #-}
 
-instance Lude.AWSRequest BatchGetReportGroups where
+instance Core.FromJSON BatchGetReportGroups where
+  toJSON BatchGetReportGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("reportGroupArns" Core..= reportGroupArns)]
+      )
+
+instance Core.AWSRequest BatchGetReportGroups where
   type Rs BatchGetReportGroups = BatchGetReportGroupsResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeBuild_20161006.BatchGetReportGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetReportGroupsResponse'
-            Lude.<$> (x Lude..?> "reportGroups")
-            Lude.<*> (x Lude..?> "reportGroupsNotFound")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "reportGroups")
+            Core.<*> (x Core..:? "reportGroupsNotFound")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetReportGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.BatchGetReportGroups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetReportGroups where
-  toJSON BatchGetReportGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("reportGroupArns" Lude..= reportGroupARNs)]
-      )
-
-instance Lude.ToPath BatchGetReportGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetReportGroups where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchGetReportGroupsResponse' smart constructor.
 data BatchGetReportGroupsResponse = BatchGetReportGroupsResponse'
   { -- | The array of report groups returned by @BatchGetReportGroups@ .
-    reportGroups :: Lude.Maybe (Lude.NonEmpty ReportGroup),
+    reportGroups :: Core.Maybe (Core.NonEmpty Types.ReportGroup),
     -- | An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @ReportGroup@ .
-    reportGroupsNotFound :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    reportGroupsNotFound :: Core.Maybe (Core.NonEmpty Types.NonEmptyString),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetReportGroupsResponse' with the minimum fields required to make a request.
---
--- * 'reportGroups' - The array of report groups returned by @BatchGetReportGroups@ .
--- * 'reportGroupsNotFound' - An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @ReportGroup@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetReportGroupsResponse' value with any optional fields omitted.
 mkBatchGetReportGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetReportGroupsResponse
-mkBatchGetReportGroupsResponse pResponseStatus_ =
+mkBatchGetReportGroupsResponse responseStatus =
   BatchGetReportGroupsResponse'
-    { reportGroups = Lude.Nothing,
-      reportGroupsNotFound = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { reportGroups = Core.Nothing,
+      reportGroupsNotFound = Core.Nothing,
+      responseStatus
     }
 
 -- | The array of report groups returned by @BatchGetReportGroups@ .
 --
 -- /Note:/ Consider using 'reportGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrgrsReportGroups :: Lens.Lens' BatchGetReportGroupsResponse (Lude.Maybe (Lude.NonEmpty ReportGroup))
-bgrgrsReportGroups = Lens.lens (reportGroups :: BatchGetReportGroupsResponse -> Lude.Maybe (Lude.NonEmpty ReportGroup)) (\s a -> s {reportGroups = a} :: BatchGetReportGroupsResponse)
-{-# DEPRECATED bgrgrsReportGroups "Use generic-lens or generic-optics with 'reportGroups' instead." #-}
+bgrgrrsReportGroups :: Lens.Lens' BatchGetReportGroupsResponse (Core.Maybe (Core.NonEmpty Types.ReportGroup))
+bgrgrrsReportGroups = Lens.field @"reportGroups"
+{-# DEPRECATED bgrgrrsReportGroups "Use generic-lens or generic-optics with 'reportGroups' instead." #-}
 
 -- | An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @ReportGroup@ .
 --
 -- /Note:/ Consider using 'reportGroupsNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrgrsReportGroupsNotFound :: Lens.Lens' BatchGetReportGroupsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-bgrgrsReportGroupsNotFound = Lens.lens (reportGroupsNotFound :: BatchGetReportGroupsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {reportGroupsNotFound = a} :: BatchGetReportGroupsResponse)
-{-# DEPRECATED bgrgrsReportGroupsNotFound "Use generic-lens or generic-optics with 'reportGroupsNotFound' instead." #-}
+bgrgrrsReportGroupsNotFound :: Lens.Lens' BatchGetReportGroupsResponse (Core.Maybe (Core.NonEmpty Types.NonEmptyString))
+bgrgrrsReportGroupsNotFound = Lens.field @"reportGroupsNotFound"
+{-# DEPRECATED bgrgrrsReportGroupsNotFound "Use generic-lens or generic-optics with 'reportGroupsNotFound' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrgrsResponseStatus :: Lens.Lens' BatchGetReportGroupsResponse Lude.Int
-bgrgrsResponseStatus = Lens.lens (responseStatus :: BatchGetReportGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetReportGroupsResponse)
-{-# DEPRECATED bgrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgrgrrsResponseStatus :: Lens.Lens' BatchGetReportGroupsResponse Core.Int
+bgrgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgrgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

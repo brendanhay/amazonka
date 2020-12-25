@@ -27,91 +27,80 @@ module Network.AWS.AppStream.DeleteStack
     mkDeleteStackResponse,
 
     -- ** Response lenses
-    dsfrsResponseStatus,
+    dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteStack' smart constructor.
 newtype DeleteStack = DeleteStack'
   { -- | The name of the stack.
-    name :: Lude.Text
+    name :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
---
--- * 'name' - The name of the stack.
+-- | Creates a 'DeleteStack' value with any optional fields omitted.
 mkDeleteStack ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   DeleteStack
-mkDeleteStack pName_ = DeleteStack' {name = pName_}
+mkDeleteStack name = DeleteStack' {name}
 
 -- | The name of the stack.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsName :: Lens.Lens' DeleteStack Lude.Text
-dsName = Lens.lens (name :: DeleteStack -> Lude.Text) (\s a -> s {name = a} :: DeleteStack)
+dsName :: Lens.Lens' DeleteStack Types.String
+dsName = Lens.field @"name"
 {-# DEPRECATED dsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteStack where
+instance Core.FromJSON DeleteStack where
+  toJSON DeleteStack {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteStack where
   type Rs DeleteStack = DeleteStackResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "PhotonAdminProxyService.DeleteStack")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteStackResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteStackResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteStack where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.DeleteStack" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteStack where
-  toJSON DeleteStack' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteStack where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteStack where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteStackResponse' smart constructor.
 newtype DeleteStackResponse = DeleteStackResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteStackResponse' value with any optional fields omitted.
 mkDeleteStackResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteStackResponse
-mkDeleteStackResponse pResponseStatus_ =
-  DeleteStackResponse' {responseStatus = pResponseStatus_}
+mkDeleteStackResponse responseStatus =
+  DeleteStackResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrsResponseStatus :: Lens.Lens' DeleteStackResponse Lude.Int
-dsfrsResponseStatus = Lens.lens (responseStatus :: DeleteStackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStackResponse)
-{-# DEPRECATED dsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DeleteStackResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

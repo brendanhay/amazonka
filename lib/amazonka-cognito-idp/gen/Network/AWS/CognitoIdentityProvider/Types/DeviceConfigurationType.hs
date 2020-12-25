@@ -23,64 +23,59 @@ module Network.AWS.CognitoIdentityProvider.Types.DeviceConfigurationType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configuration for the user pool's device tracking.
 --
 -- /See:/ 'mkDeviceConfigurationType' smart constructor.
 data DeviceConfigurationType = DeviceConfigurationType'
   { -- | Indicates whether a challenge is required on a new device. Only applicable to a new device.
-    challengeRequiredOnNewDevice :: Lude.Maybe Lude.Bool,
+    challengeRequiredOnNewDevice :: Core.Maybe Core.Bool,
     -- | If true, a device is only remembered on user prompt.
-    deviceOnlyRememberedOnUserPrompt :: Lude.Maybe Lude.Bool
+    deviceOnlyRememberedOnUserPrompt :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeviceConfigurationType' with the minimum fields required to make a request.
---
--- * 'challengeRequiredOnNewDevice' - Indicates whether a challenge is required on a new device. Only applicable to a new device.
--- * 'deviceOnlyRememberedOnUserPrompt' - If true, a device is only remembered on user prompt.
+-- | Creates a 'DeviceConfigurationType' value with any optional fields omitted.
 mkDeviceConfigurationType ::
   DeviceConfigurationType
 mkDeviceConfigurationType =
   DeviceConfigurationType'
     { challengeRequiredOnNewDevice =
-        Lude.Nothing,
-      deviceOnlyRememberedOnUserPrompt = Lude.Nothing
+        Core.Nothing,
+      deviceOnlyRememberedOnUserPrompt = Core.Nothing
     }
 
 -- | Indicates whether a challenge is required on a new device. Only applicable to a new device.
 --
 -- /Note:/ Consider using 'challengeRequiredOnNewDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dctChallengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Lude.Maybe Lude.Bool)
-dctChallengeRequiredOnNewDevice = Lens.lens (challengeRequiredOnNewDevice :: DeviceConfigurationType -> Lude.Maybe Lude.Bool) (\s a -> s {challengeRequiredOnNewDevice = a} :: DeviceConfigurationType)
+dctChallengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Core.Maybe Core.Bool)
+dctChallengeRequiredOnNewDevice = Lens.field @"challengeRequiredOnNewDevice"
 {-# DEPRECATED dctChallengeRequiredOnNewDevice "Use generic-lens or generic-optics with 'challengeRequiredOnNewDevice' instead." #-}
 
 -- | If true, a device is only remembered on user prompt.
 --
 -- /Note:/ Consider using 'deviceOnlyRememberedOnUserPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dctDeviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Lude.Maybe Lude.Bool)
-dctDeviceOnlyRememberedOnUserPrompt = Lens.lens (deviceOnlyRememberedOnUserPrompt :: DeviceConfigurationType -> Lude.Maybe Lude.Bool) (\s a -> s {deviceOnlyRememberedOnUserPrompt = a} :: DeviceConfigurationType)
+dctDeviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Core.Maybe Core.Bool)
+dctDeviceOnlyRememberedOnUserPrompt = Lens.field @"deviceOnlyRememberedOnUserPrompt"
 {-# DEPRECATED dctDeviceOnlyRememberedOnUserPrompt "Use generic-lens or generic-optics with 'deviceOnlyRememberedOnUserPrompt' instead." #-}
 
-instance Lude.FromJSON DeviceConfigurationType where
-  parseJSON =
-    Lude.withObject
-      "DeviceConfigurationType"
-      ( \x ->
-          DeviceConfigurationType'
-            Lude.<$> (x Lude..:? "ChallengeRequiredOnNewDevice")
-            Lude.<*> (x Lude..:? "DeviceOnlyRememberedOnUserPrompt")
-      )
-
-instance Lude.ToJSON DeviceConfigurationType where
-  toJSON DeviceConfigurationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ChallengeRequiredOnNewDevice" Lude..=)
-              Lude.<$> challengeRequiredOnNewDevice,
-            ("DeviceOnlyRememberedOnUserPrompt" Lude..=)
-              Lude.<$> deviceOnlyRememberedOnUserPrompt
+instance Core.FromJSON DeviceConfigurationType where
+  toJSON DeviceConfigurationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ChallengeRequiredOnNewDevice" Core..=)
+              Core.<$> challengeRequiredOnNewDevice,
+            ("DeviceOnlyRememberedOnUserPrompt" Core..=)
+              Core.<$> deviceOnlyRememberedOnUserPrompt
           ]
       )
+
+instance Core.FromJSON DeviceConfigurationType where
+  parseJSON =
+    Core.withObject "DeviceConfigurationType" Core.$
+      \x ->
+        DeviceConfigurationType'
+          Core.<$> (x Core..:? "ChallengeRequiredOnNewDevice")
+          Core.<*> (x Core..:? "DeviceOnlyRememberedOnUserPrompt")

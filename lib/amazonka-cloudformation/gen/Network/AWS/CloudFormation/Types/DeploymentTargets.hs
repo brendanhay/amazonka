@@ -22,8 +22,10 @@ module Network.AWS.CloudFormation.Types.DeploymentTargets
   )
 where
 
+import qualified Network.AWS.CloudFormation.Types.Account as Types
+import qualified Network.AWS.CloudFormation.Types.OrganizationalUnitId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | [@Service-managed@ permissions] The AWS Organizations accounts to which StackSets deploys. StackSets does not deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization.
 --
@@ -32,55 +34,40 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkDeploymentTargets' smart constructor.
 data DeploymentTargets = DeploymentTargets'
   { -- | The names of one or more AWS accounts for which you want to deploy stack set updates.
-    accounts :: Lude.Maybe [Lude.Text],
+    accounts :: Core.Maybe [Types.Account],
     -- | The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-    organizationalUnitIds :: Lude.Maybe [Lude.Text]
+    organizationalUnitIds :: Core.Maybe [Types.OrganizationalUnitId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeploymentTargets' with the minimum fields required to make a request.
---
--- * 'accounts' - The names of one or more AWS accounts for which you want to deploy stack set updates.
--- * 'organizationalUnitIds' - The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+-- | Creates a 'DeploymentTargets' value with any optional fields omitted.
 mkDeploymentTargets ::
   DeploymentTargets
 mkDeploymentTargets =
   DeploymentTargets'
-    { accounts = Lude.Nothing,
-      organizationalUnitIds = Lude.Nothing
+    { accounts = Core.Nothing,
+      organizationalUnitIds = Core.Nothing
     }
 
 -- | The names of one or more AWS accounts for which you want to deploy stack set updates.
 --
 -- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtAccounts :: Lens.Lens' DeploymentTargets (Lude.Maybe [Lude.Text])
-dtAccounts = Lens.lens (accounts :: DeploymentTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {accounts = a} :: DeploymentTargets)
+dtAccounts :: Lens.Lens' DeploymentTargets (Core.Maybe [Types.Account])
+dtAccounts = Lens.field @"accounts"
 {-# DEPRECATED dtAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
 
 -- | The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 --
 -- /Note:/ Consider using 'organizationalUnitIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtOrganizationalUnitIds :: Lens.Lens' DeploymentTargets (Lude.Maybe [Lude.Text])
-dtOrganizationalUnitIds = Lens.lens (organizationalUnitIds :: DeploymentTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {organizationalUnitIds = a} :: DeploymentTargets)
+dtOrganizationalUnitIds :: Lens.Lens' DeploymentTargets (Core.Maybe [Types.OrganizationalUnitId])
+dtOrganizationalUnitIds = Lens.field @"organizationalUnitIds"
 {-# DEPRECATED dtOrganizationalUnitIds "Use generic-lens or generic-optics with 'organizationalUnitIds' instead." #-}
 
-instance Lude.FromXML DeploymentTargets where
+instance Core.FromXML DeploymentTargets where
   parseXML x =
     DeploymentTargets'
-      Lude.<$> ( x Lude..@? "Accounts" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "Accounts" Core..<@> Core.parseXMLList "member")
+      Core.<*> ( x Core..@? "OrganizationalUnitIds"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> ( x Lude..@? "OrganizationalUnitIds" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-
-instance Lude.ToQuery DeploymentTargets where
-  toQuery DeploymentTargets' {..} =
-    Lude.mconcat
-      [ "Accounts"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> accounts),
-        "OrganizationalUnitIds"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> organizationalUnitIds)
-      ]

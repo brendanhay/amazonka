@@ -17,84 +17,79 @@ module Network.AWS.IoT.Types.CodeSigning
     mkCodeSigning,
 
     -- * Lenses
+    csAwsSignerJobId,
     csCustomCodeSigning,
     csStartSigningJobParameter,
-    csAwsSignerJobId,
   )
 where
 
-import Network.AWS.IoT.Types.CustomCodeSigning
-import Network.AWS.IoT.Types.StartSigningJobParameter
+import qualified Network.AWS.IoT.Types.AwsSignerJobId as Types
+import qualified Network.AWS.IoT.Types.CustomCodeSigning as Types
+import qualified Network.AWS.IoT.Types.StartSigningJobParameter as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the method to use when code signing a file.
 --
 -- /See:/ 'mkCodeSigning' smart constructor.
 data CodeSigning = CodeSigning'
-  { -- | A custom method for code signing a file.
-    customCodeSigning :: Lude.Maybe CustomCodeSigning,
+  { -- | The ID of the AWSSignerJob which was created to sign the file.
+    awsSignerJobId :: Core.Maybe Types.AwsSignerJobId,
+    -- | A custom method for code signing a file.
+    customCodeSigning :: Core.Maybe Types.CustomCodeSigning,
     -- | Describes the code-signing job.
-    startSigningJobParameter :: Lude.Maybe StartSigningJobParameter,
-    -- | The ID of the AWSSignerJob which was created to sign the file.
-    awsSignerJobId :: Lude.Maybe Lude.Text
+    startSigningJobParameter :: Core.Maybe Types.StartSigningJobParameter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CodeSigning' with the minimum fields required to make a request.
---
--- * 'customCodeSigning' - A custom method for code signing a file.
--- * 'startSigningJobParameter' - Describes the code-signing job.
--- * 'awsSignerJobId' - The ID of the AWSSignerJob which was created to sign the file.
+-- | Creates a 'CodeSigning' value with any optional fields omitted.
 mkCodeSigning ::
   CodeSigning
 mkCodeSigning =
   CodeSigning'
-    { customCodeSigning = Lude.Nothing,
-      startSigningJobParameter = Lude.Nothing,
-      awsSignerJobId = Lude.Nothing
+    { awsSignerJobId = Core.Nothing,
+      customCodeSigning = Core.Nothing,
+      startSigningJobParameter = Core.Nothing
     }
+
+-- | The ID of the AWSSignerJob which was created to sign the file.
+--
+-- /Note:/ Consider using 'awsSignerJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csAwsSignerJobId :: Lens.Lens' CodeSigning (Core.Maybe Types.AwsSignerJobId)
+csAwsSignerJobId = Lens.field @"awsSignerJobId"
+{-# DEPRECATED csAwsSignerJobId "Use generic-lens or generic-optics with 'awsSignerJobId' instead." #-}
 
 -- | A custom method for code signing a file.
 --
 -- /Note:/ Consider using 'customCodeSigning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csCustomCodeSigning :: Lens.Lens' CodeSigning (Lude.Maybe CustomCodeSigning)
-csCustomCodeSigning = Lens.lens (customCodeSigning :: CodeSigning -> Lude.Maybe CustomCodeSigning) (\s a -> s {customCodeSigning = a} :: CodeSigning)
+csCustomCodeSigning :: Lens.Lens' CodeSigning (Core.Maybe Types.CustomCodeSigning)
+csCustomCodeSigning = Lens.field @"customCodeSigning"
 {-# DEPRECATED csCustomCodeSigning "Use generic-lens or generic-optics with 'customCodeSigning' instead." #-}
 
 -- | Describes the code-signing job.
 --
 -- /Note:/ Consider using 'startSigningJobParameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csStartSigningJobParameter :: Lens.Lens' CodeSigning (Lude.Maybe StartSigningJobParameter)
-csStartSigningJobParameter = Lens.lens (startSigningJobParameter :: CodeSigning -> Lude.Maybe StartSigningJobParameter) (\s a -> s {startSigningJobParameter = a} :: CodeSigning)
+csStartSigningJobParameter :: Lens.Lens' CodeSigning (Core.Maybe Types.StartSigningJobParameter)
+csStartSigningJobParameter = Lens.field @"startSigningJobParameter"
 {-# DEPRECATED csStartSigningJobParameter "Use generic-lens or generic-optics with 'startSigningJobParameter' instead." #-}
 
--- | The ID of the AWSSignerJob which was created to sign the file.
---
--- /Note:/ Consider using 'awsSignerJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csAwsSignerJobId :: Lens.Lens' CodeSigning (Lude.Maybe Lude.Text)
-csAwsSignerJobId = Lens.lens (awsSignerJobId :: CodeSigning -> Lude.Maybe Lude.Text) (\s a -> s {awsSignerJobId = a} :: CodeSigning)
-{-# DEPRECATED csAwsSignerJobId "Use generic-lens or generic-optics with 'awsSignerJobId' instead." #-}
-
-instance Lude.FromJSON CodeSigning where
-  parseJSON =
-    Lude.withObject
-      "CodeSigning"
-      ( \x ->
-          CodeSigning'
-            Lude.<$> (x Lude..:? "customCodeSigning")
-            Lude.<*> (x Lude..:? "startSigningJobParameter")
-            Lude.<*> (x Lude..:? "awsSignerJobId")
-      )
-
-instance Lude.ToJSON CodeSigning where
-  toJSON CodeSigning' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("customCodeSigning" Lude..=) Lude.<$> customCodeSigning,
-            ("startSigningJobParameter" Lude..=)
-              Lude.<$> startSigningJobParameter,
-            ("awsSignerJobId" Lude..=) Lude.<$> awsSignerJobId
+instance Core.FromJSON CodeSigning where
+  toJSON CodeSigning {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("awsSignerJobId" Core..=) Core.<$> awsSignerJobId,
+            ("customCodeSigning" Core..=) Core.<$> customCodeSigning,
+            ("startSigningJobParameter" Core..=)
+              Core.<$> startSigningJobParameter
           ]
       )
+
+instance Core.FromJSON CodeSigning where
+  parseJSON =
+    Core.withObject "CodeSigning" Core.$
+      \x ->
+        CodeSigning'
+          Core.<$> (x Core..:? "awsSignerJobId")
+          Core.<*> (x Core..:? "customCodeSigning")
+          Core.<*> (x Core..:? "startSigningJobParameter")

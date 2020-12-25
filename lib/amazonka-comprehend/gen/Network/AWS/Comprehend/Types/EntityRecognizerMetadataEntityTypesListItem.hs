@@ -18,72 +18,67 @@ module Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
 
     -- * Lenses
     ermetliEvaluationMetrics,
-    ermetliType,
     ermetliNumberOfTrainMentions,
+    ermetliType,
   )
 where
 
-import Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
+import qualified Network.AWS.Comprehend.Types.AnyLengthString as Types
+import qualified Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Individual item from the list of entity types in the metadata of an entity recognizer.
 --
 -- /See:/ 'mkEntityRecognizerMetadataEntityTypesListItem' smart constructor.
 data EntityRecognizerMetadataEntityTypesListItem = EntityRecognizerMetadataEntityTypesListItem'
   { -- | Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types.
-    evaluationMetrics :: Lude.Maybe EntityTypesEvaluationMetrics,
-    -- | Type of entity from the list of entity types in the metadata of an entity recognizer.
-    type' :: Lude.Maybe Lude.Text,
+    evaluationMetrics :: Core.Maybe Types.EntityTypesEvaluationMetrics,
     -- | Indicates the number of times the given entity type was seen in the training data.
-    numberOfTrainMentions :: Lude.Maybe Lude.Int
+    numberOfTrainMentions :: Core.Maybe Core.Int,
+    -- | Type of entity from the list of entity types in the metadata of an entity recognizer.
+    type' :: Core.Maybe Types.AnyLengthString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EntityRecognizerMetadataEntityTypesListItem' with the minimum fields required to make a request.
---
--- * 'evaluationMetrics' - Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types.
--- * 'type'' - Type of entity from the list of entity types in the metadata of an entity recognizer.
--- * 'numberOfTrainMentions' - Indicates the number of times the given entity type was seen in the training data.
+-- | Creates a 'EntityRecognizerMetadataEntityTypesListItem' value with any optional fields omitted.
 mkEntityRecognizerMetadataEntityTypesListItem ::
   EntityRecognizerMetadataEntityTypesListItem
 mkEntityRecognizerMetadataEntityTypesListItem =
   EntityRecognizerMetadataEntityTypesListItem'
     { evaluationMetrics =
-        Lude.Nothing,
-      type' = Lude.Nothing,
-      numberOfTrainMentions = Lude.Nothing
+        Core.Nothing,
+      numberOfTrainMentions = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types.
 --
 -- /Note:/ Consider using 'evaluationMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ermetliEvaluationMetrics :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Lude.Maybe EntityTypesEvaluationMetrics)
-ermetliEvaluationMetrics = Lens.lens (evaluationMetrics :: EntityRecognizerMetadataEntityTypesListItem -> Lude.Maybe EntityTypesEvaluationMetrics) (\s a -> s {evaluationMetrics = a} :: EntityRecognizerMetadataEntityTypesListItem)
+ermetliEvaluationMetrics :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Core.Maybe Types.EntityTypesEvaluationMetrics)
+ermetliEvaluationMetrics = Lens.field @"evaluationMetrics"
 {-# DEPRECATED ermetliEvaluationMetrics "Use generic-lens or generic-optics with 'evaluationMetrics' instead." #-}
-
--- | Type of entity from the list of entity types in the metadata of an entity recognizer.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ermetliType :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Lude.Maybe Lude.Text)
-ermetliType = Lens.lens (type' :: EntityRecognizerMetadataEntityTypesListItem -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: EntityRecognizerMetadataEntityTypesListItem)
-{-# DEPRECATED ermetliType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Indicates the number of times the given entity type was seen in the training data.
 --
 -- /Note:/ Consider using 'numberOfTrainMentions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ermetliNumberOfTrainMentions :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Lude.Maybe Lude.Int)
-ermetliNumberOfTrainMentions = Lens.lens (numberOfTrainMentions :: EntityRecognizerMetadataEntityTypesListItem -> Lude.Maybe Lude.Int) (\s a -> s {numberOfTrainMentions = a} :: EntityRecognizerMetadataEntityTypesListItem)
+ermetliNumberOfTrainMentions :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Core.Maybe Core.Int)
+ermetliNumberOfTrainMentions = Lens.field @"numberOfTrainMentions"
 {-# DEPRECATED ermetliNumberOfTrainMentions "Use generic-lens or generic-optics with 'numberOfTrainMentions' instead." #-}
 
-instance Lude.FromJSON EntityRecognizerMetadataEntityTypesListItem where
+-- | Type of entity from the list of entity types in the metadata of an entity recognizer.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ermetliType :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Core.Maybe Types.AnyLengthString)
+ermetliType = Lens.field @"type'"
+{-# DEPRECATED ermetliType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON EntityRecognizerMetadataEntityTypesListItem where
   parseJSON =
-    Lude.withObject
-      "EntityRecognizerMetadataEntityTypesListItem"
-      ( \x ->
-          EntityRecognizerMetadataEntityTypesListItem'
-            Lude.<$> (x Lude..:? "EvaluationMetrics")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "NumberOfTrainMentions")
-      )
+    Core.withObject "EntityRecognizerMetadataEntityTypesListItem" Core.$
+      \x ->
+        EntityRecognizerMetadataEntityTypesListItem'
+          Core.<$> (x Core..:? "EvaluationMetrics")
+          Core.<*> (x Core..:? "NumberOfTrainMentions")
+          Core.<*> (x Core..:? "Type")

@@ -22,8 +22,8 @@ module Network.AWS.FMS.PutNotificationChannel
     mkPutNotificationChannel,
 
     -- ** Request lenses
-    pncSNSTopicARN,
-    pncSNSRoleName,
+    pncSnsTopicArn,
+    pncSnsRoleName,
 
     -- * Destructuring the response
     PutNotificationChannelResponse (..),
@@ -31,89 +31,77 @@ module Network.AWS.FMS.PutNotificationChannel
   )
 where
 
-import Network.AWS.FMS.Types
+import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutNotificationChannel' smart constructor.
 data PutNotificationChannel = PutNotificationChannel'
   { -- | The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager.
-    snsTopicARN :: Lude.Text,
+    snsTopicArn :: Types.SnsTopicArn,
     -- | The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
-    snsRoleName :: Lude.Text
+    snsRoleName :: Types.SnsRoleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutNotificationChannel' with the minimum fields required to make a request.
---
--- * 'snsTopicARN' - The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager.
--- * 'snsRoleName' - The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+-- | Creates a 'PutNotificationChannel' value with any optional fields omitted.
 mkPutNotificationChannel ::
-  -- | 'snsTopicARN'
-  Lude.Text ->
+  -- | 'snsTopicArn'
+  Types.SnsTopicArn ->
   -- | 'snsRoleName'
-  Lude.Text ->
+  Types.SnsRoleName ->
   PutNotificationChannel
-mkPutNotificationChannel pSNSTopicARN_ pSNSRoleName_ =
-  PutNotificationChannel'
-    { snsTopicARN = pSNSTopicARN_,
-      snsRoleName = pSNSRoleName_
-    }
+mkPutNotificationChannel snsTopicArn snsRoleName =
+  PutNotificationChannel' {snsTopicArn, snsRoleName}
 
 -- | The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager.
 --
--- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pncSNSTopicARN :: Lens.Lens' PutNotificationChannel Lude.Text
-pncSNSTopicARN = Lens.lens (snsTopicARN :: PutNotificationChannel -> Lude.Text) (\s a -> s {snsTopicARN = a} :: PutNotificationChannel)
-{-# DEPRECATED pncSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
+-- /Note:/ Consider using 'snsTopicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pncSnsTopicArn :: Lens.Lens' PutNotificationChannel Types.SnsTopicArn
+pncSnsTopicArn = Lens.field @"snsTopicArn"
+{-# DEPRECATED pncSnsTopicArn "Use generic-lens or generic-optics with 'snsTopicArn' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
 --
 -- /Note:/ Consider using 'snsRoleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pncSNSRoleName :: Lens.Lens' PutNotificationChannel Lude.Text
-pncSNSRoleName = Lens.lens (snsRoleName :: PutNotificationChannel -> Lude.Text) (\s a -> s {snsRoleName = a} :: PutNotificationChannel)
-{-# DEPRECATED pncSNSRoleName "Use generic-lens or generic-optics with 'snsRoleName' instead." #-}
+pncSnsRoleName :: Lens.Lens' PutNotificationChannel Types.SnsRoleName
+pncSnsRoleName = Lens.field @"snsRoleName"
+{-# DEPRECATED pncSnsRoleName "Use generic-lens or generic-optics with 'snsRoleName' instead." #-}
 
-instance Lude.AWSRequest PutNotificationChannel where
+instance Core.FromJSON PutNotificationChannel where
+  toJSON PutNotificationChannel {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SnsTopicArn" Core..= snsTopicArn),
+            Core.Just ("SnsRoleName" Core..= snsRoleName)
+          ]
+      )
+
+instance Core.AWSRequest PutNotificationChannel where
   type Rs PutNotificationChannel = PutNotificationChannelResponse
-  request = Req.postJSON fmsService
-  response = Res.receiveNull PutNotificationChannelResponse'
-
-instance Lude.ToHeaders PutNotificationChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSFMS_20180101.PutNotificationChannel" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutNotificationChannel where
-  toJSON PutNotificationChannel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SnsTopicArn" Lude..= snsTopicARN),
-            Lude.Just ("SnsRoleName" Lude..= snsRoleName)
-          ]
-      )
-
-instance Lude.ToPath PutNotificationChannel where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutNotificationChannel where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSFMS_20180101.PutNotificationChannel")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull PutNotificationChannelResponse'
 
 -- | /See:/ 'mkPutNotificationChannelResponse' smart constructor.
 data PutNotificationChannelResponse = PutNotificationChannelResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutNotificationChannelResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutNotificationChannelResponse' value with any optional fields omitted.
 mkPutNotificationChannelResponse ::
   PutNotificationChannelResponse
 mkPutNotificationChannelResponse = PutNotificationChannelResponse'

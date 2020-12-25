@@ -20,131 +20,118 @@ module Network.AWS.CodeStar.UpdateProject
     mkUpdateProject,
 
     -- ** Request lenses
-    uName,
-    uId,
-    uDescription,
+    upId,
+    upDescription,
+    upName,
 
     -- * Destructuring the response
     UpdateProjectResponse (..),
     mkUpdateProjectResponse,
 
     -- ** Response lenses
-    uprsResponseStatus,
+    uprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeStar.Types
+import qualified Network.AWS.CodeStar.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { -- | The name of the project you want to update.
-    name :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The ID of the project you want to update.
-    id :: Lude.Text,
+  { -- | The ID of the project you want to update.
+    id :: Types.Id,
     -- | The description of the project, if any.
-    description :: Lude.Maybe (Lude.Sensitive Lude.Text)
+    description :: Core.Maybe Types.Description,
+    -- | The name of the project you want to update.
+    name :: Core.Maybe Types.ProjectName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
---
--- * 'name' - The name of the project you want to update.
--- * 'id' - The ID of the project you want to update.
--- * 'description' - The description of the project, if any.
+-- | Creates a 'UpdateProject' value with any optional fields omitted.
 mkUpdateProject ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   UpdateProject
-mkUpdateProject pId_ =
+mkUpdateProject id =
   UpdateProject'
-    { name = Lude.Nothing,
-      id = pId_,
-      description = Lude.Nothing
+    { id,
+      description = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The name of the project you want to update.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uName :: Lens.Lens' UpdateProject (Lude.Maybe (Lude.Sensitive Lude.Text))
-uName = Lens.lens (name :: UpdateProject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {name = a} :: UpdateProject)
-{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the project you want to update.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uId :: Lens.Lens' UpdateProject Lude.Text
-uId = Lens.lens (id :: UpdateProject -> Lude.Text) (\s a -> s {id = a} :: UpdateProject)
-{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
+upId :: Lens.Lens' UpdateProject Types.Id
+upId = Lens.field @"id"
+{-# DEPRECATED upId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The description of the project, if any.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uDescription :: Lens.Lens' UpdateProject (Lude.Maybe (Lude.Sensitive Lude.Text))
-uDescription = Lens.lens (description :: UpdateProject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateProject)
-{-# DEPRECATED uDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+upDescription :: Lens.Lens' UpdateProject (Core.Maybe Types.Description)
+upDescription = Lens.field @"description"
+{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest UpdateProject where
+-- | The name of the project you want to update.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upName :: Lens.Lens' UpdateProject (Core.Maybe Types.ProjectName)
+upName = Lens.field @"name"
+{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON UpdateProject where
+  toJSON UpdateProject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            ("description" Core..=) Core.<$> description,
+            ("name" Core..=) Core.<$> name
+          ]
+      )
+
+instance Core.AWSRequest UpdateProject where
   type Rs UpdateProject = UpdateProjectResponse
-  request = Req.postJSON codeStarService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeStar_20170419.UpdateProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateProjectResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateProjectResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeStar_20170419.UpdateProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateProject where
-  toJSON UpdateProject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("name" Lude..=) Lude.<$> name,
-            Lude.Just ("id" Lude..= id),
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath UpdateProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateProjectResponse' smart constructor.
 newtype UpdateProjectResponse = UpdateProjectResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateProjectResponse' value with any optional fields omitted.
 mkUpdateProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateProjectResponse
-mkUpdateProjectResponse pResponseStatus_ =
-  UpdateProjectResponse' {responseStatus = pResponseStatus_}
+mkUpdateProjectResponse responseStatus =
+  UpdateProjectResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsResponseStatus :: Lens.Lens' UpdateProjectResponse Lude.Int
-uprsResponseStatus = Lens.lens (responseStatus :: UpdateProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProjectResponse)
-{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uprrsResponseStatus :: Lens.Lens' UpdateProjectResponse Core.Int
+uprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

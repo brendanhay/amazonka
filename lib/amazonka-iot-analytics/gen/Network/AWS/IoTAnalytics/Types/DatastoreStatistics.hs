@@ -21,36 +21,33 @@ module Network.AWS.IoTAnalytics.Types.DatastoreStatistics
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
+import qualified Network.AWS.IoTAnalytics.Types.EstimatedResourceSize as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Statistical information about the data store.
 --
 -- /See:/ 'mkDatastoreStatistics' smart constructor.
 newtype DatastoreStatistics = DatastoreStatistics'
   { -- | The estimated size of the data store.
-    size :: Lude.Maybe EstimatedResourceSize
+    size :: Core.Maybe Types.EstimatedResourceSize
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'DatastoreStatistics' with the minimum fields required to make a request.
---
--- * 'size' - The estimated size of the data store.
+-- | Creates a 'DatastoreStatistics' value with any optional fields omitted.
 mkDatastoreStatistics ::
   DatastoreStatistics
-mkDatastoreStatistics = DatastoreStatistics' {size = Lude.Nothing}
+mkDatastoreStatistics = DatastoreStatistics' {size = Core.Nothing}
 
 -- | The estimated size of the data store.
 --
 -- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSize :: Lens.Lens' DatastoreStatistics (Lude.Maybe EstimatedResourceSize)
-dsSize = Lens.lens (size :: DatastoreStatistics -> Lude.Maybe EstimatedResourceSize) (\s a -> s {size = a} :: DatastoreStatistics)
+dsSize :: Lens.Lens' DatastoreStatistics (Core.Maybe Types.EstimatedResourceSize)
+dsSize = Lens.field @"size"
 {-# DEPRECATED dsSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
-instance Lude.FromJSON DatastoreStatistics where
+instance Core.FromJSON DatastoreStatistics where
   parseJSON =
-    Lude.withObject
-      "DatastoreStatistics"
-      (\x -> DatastoreStatistics' Lude.<$> (x Lude..:? "size"))
+    Core.withObject "DatastoreStatistics" Core.$
+      \x -> DatastoreStatistics' Core.<$> (x Core..:? "size")

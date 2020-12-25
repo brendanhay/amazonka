@@ -21,179 +21,162 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
 
     -- ** Request lenses
     ugiGatewayARN,
+    ugiCloudWatchLogGroupARN,
     ugiGatewayName,
     ugiGatewayTimezone,
-    ugiCloudWatchLogGroupARN,
 
     -- * Destructuring the response
     UpdateGatewayInformationResponse (..),
     mkUpdateGatewayInformationResponse,
 
     -- ** Response lenses
-    ugirsGatewayARN,
-    ugirsGatewayName,
-    ugirsResponseStatus,
+    ugirrsGatewayARN,
+    ugirrsGatewayName,
+    ugirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkUpdateGatewayInformation' smart constructor.
 data UpdateGatewayInformation = UpdateGatewayInformation'
-  { gatewayARN :: Lude.Text,
-    gatewayName :: Lude.Maybe Lude.Text,
-    -- | A value that indicates the time zone of the gateway.
-    gatewayTimezone :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Types.GatewayARN,
     -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to use to monitor and log events in the gateway.
     --
     -- For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
-    cloudWatchLogGroupARN :: Lude.Maybe Lude.Text
+    cloudWatchLogGroupARN :: Core.Maybe Types.CloudWatchLogGroupARN,
+    gatewayName :: Core.Maybe Types.GatewayName,
+    -- | A value that indicates the time zone of the gateway.
+    gatewayTimezone :: Core.Maybe Types.GatewayTimezone
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGatewayInformation' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'gatewayName' -
--- * 'gatewayTimezone' - A value that indicates the time zone of the gateway.
--- * 'cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to use to monitor and log events in the gateway.
---
--- For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
+-- | Creates a 'UpdateGatewayInformation' value with any optional fields omitted.
 mkUpdateGatewayInformation ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   UpdateGatewayInformation
-mkUpdateGatewayInformation pGatewayARN_ =
+mkUpdateGatewayInformation gatewayARN =
   UpdateGatewayInformation'
-    { gatewayARN = pGatewayARN_,
-      gatewayName = Lude.Nothing,
-      gatewayTimezone = Lude.Nothing,
-      cloudWatchLogGroupARN = Lude.Nothing
+    { gatewayARN,
+      cloudWatchLogGroupARN = Core.Nothing,
+      gatewayName = Core.Nothing,
+      gatewayTimezone = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugiGatewayARN :: Lens.Lens' UpdateGatewayInformation Lude.Text
-ugiGatewayARN = Lens.lens (gatewayARN :: UpdateGatewayInformation -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGatewayInformation)
+ugiGatewayARN :: Lens.Lens' UpdateGatewayInformation Types.GatewayARN
+ugiGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED ugiGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugiGatewayName :: Lens.Lens' UpdateGatewayInformation (Lude.Maybe Lude.Text)
-ugiGatewayName = Lens.lens (gatewayName :: UpdateGatewayInformation -> Lude.Maybe Lude.Text) (\s a -> s {gatewayName = a} :: UpdateGatewayInformation)
-{-# DEPRECATED ugiGatewayName "Use generic-lens or generic-optics with 'gatewayName' instead." #-}
-
--- | A value that indicates the time zone of the gateway.
---
--- /Note:/ Consider using 'gatewayTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugiGatewayTimezone :: Lens.Lens' UpdateGatewayInformation (Lude.Maybe Lude.Text)
-ugiGatewayTimezone = Lens.lens (gatewayTimezone :: UpdateGatewayInformation -> Lude.Maybe Lude.Text) (\s a -> s {gatewayTimezone = a} :: UpdateGatewayInformation)
-{-# DEPRECATED ugiGatewayTimezone "Use generic-lens or generic-optics with 'gatewayTimezone' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to use to monitor and log events in the gateway.
 --
 -- For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
 --
 -- /Note:/ Consider using 'cloudWatchLogGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugiCloudWatchLogGroupARN :: Lens.Lens' UpdateGatewayInformation (Lude.Maybe Lude.Text)
-ugiCloudWatchLogGroupARN = Lens.lens (cloudWatchLogGroupARN :: UpdateGatewayInformation -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLogGroupARN = a} :: UpdateGatewayInformation)
+ugiCloudWatchLogGroupARN :: Lens.Lens' UpdateGatewayInformation (Core.Maybe Types.CloudWatchLogGroupARN)
+ugiCloudWatchLogGroupARN = Lens.field @"cloudWatchLogGroupARN"
 {-# DEPRECATED ugiCloudWatchLogGroupARN "Use generic-lens or generic-optics with 'cloudWatchLogGroupARN' instead." #-}
 
-instance Lude.AWSRequest UpdateGatewayInformation where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugiGatewayName :: Lens.Lens' UpdateGatewayInformation (Core.Maybe Types.GatewayName)
+ugiGatewayName = Lens.field @"gatewayName"
+{-# DEPRECATED ugiGatewayName "Use generic-lens or generic-optics with 'gatewayName' instead." #-}
+
+-- | A value that indicates the time zone of the gateway.
+--
+-- /Note:/ Consider using 'gatewayTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugiGatewayTimezone :: Lens.Lens' UpdateGatewayInformation (Core.Maybe Types.GatewayTimezone)
+ugiGatewayTimezone = Lens.field @"gatewayTimezone"
+{-# DEPRECATED ugiGatewayTimezone "Use generic-lens or generic-optics with 'gatewayTimezone' instead." #-}
+
+instance Core.FromJSON UpdateGatewayInformation where
+  toJSON UpdateGatewayInformation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            ("CloudWatchLogGroupARN" Core..=) Core.<$> cloudWatchLogGroupARN,
+            ("GatewayName" Core..=) Core.<$> gatewayName,
+            ("GatewayTimezone" Core..=) Core.<$> gatewayTimezone
+          ]
+      )
+
+instance Core.AWSRequest UpdateGatewayInformation where
   type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.UpdateGatewayInformation"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateGatewayInformationResponse'
-            Lude.<$> (x Lude..?> "GatewayARN")
-            Lude.<*> (x Lude..?> "GatewayName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN")
+            Core.<*> (x Core..:? "GatewayName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateGatewayInformation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.UpdateGatewayInformation" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateGatewayInformation where
-  toJSON UpdateGatewayInformation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            ("GatewayName" Lude..=) Lude.<$> gatewayName,
-            ("GatewayTimezone" Lude..=) Lude.<$> gatewayTimezone,
-            ("CloudWatchLogGroupARN" Lude..=) Lude.<$> cloudWatchLogGroupARN
-          ]
-      )
-
-instance Lude.ToPath UpdateGatewayInformation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateGatewayInformation where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway that was updated.
 --
 -- /See:/ 'mkUpdateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The name you configured for your gateway.
-    gatewayName :: Lude.Maybe Lude.Text,
+    gatewayName :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGatewayInformationResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'gatewayName' - The name you configured for your gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateGatewayInformationResponse' value with any optional fields omitted.
 mkUpdateGatewayInformationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateGatewayInformationResponse
-mkUpdateGatewayInformationResponse pResponseStatus_ =
+mkUpdateGatewayInformationResponse responseStatus =
   UpdateGatewayInformationResponse'
-    { gatewayARN = Lude.Nothing,
-      gatewayName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      gatewayName = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugirsGatewayARN :: Lens.Lens' UpdateGatewayInformationResponse (Lude.Maybe Lude.Text)
-ugirsGatewayARN = Lens.lens (gatewayARN :: UpdateGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGatewayInformationResponse)
-{-# DEPRECATED ugirsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+ugirrsGatewayARN :: Lens.Lens' UpdateGatewayInformationResponse (Core.Maybe Types.GatewayARN)
+ugirrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED ugirrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The name you configured for your gateway.
 --
 -- /Note:/ Consider using 'gatewayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugirsGatewayName :: Lens.Lens' UpdateGatewayInformationResponse (Lude.Maybe Lude.Text)
-ugirsGatewayName = Lens.lens (gatewayName :: UpdateGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayName = a} :: UpdateGatewayInformationResponse)
-{-# DEPRECATED ugirsGatewayName "Use generic-lens or generic-optics with 'gatewayName' instead." #-}
+ugirrsGatewayName :: Lens.Lens' UpdateGatewayInformationResponse (Core.Maybe Types.String)
+ugirrsGatewayName = Lens.field @"gatewayName"
+{-# DEPRECATED ugirrsGatewayName "Use generic-lens or generic-optics with 'gatewayName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugirsResponseStatus :: Lens.Lens' UpdateGatewayInformationResponse Lude.Int
-ugirsResponseStatus = Lens.lens (responseStatus :: UpdateGatewayInformationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGatewayInformationResponse)
-{-# DEPRECATED ugirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ugirrsResponseStatus :: Lens.Lens' UpdateGatewayInformationResponse Core.Int
+ugirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ugirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

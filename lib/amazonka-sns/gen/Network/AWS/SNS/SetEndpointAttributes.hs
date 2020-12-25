@@ -20,8 +20,8 @@ module Network.AWS.SNS.SetEndpointAttributes
     mkSetEndpointAttributes,
 
     -- ** Request lenses
+    seaEndpointArn,
     seaAttributes,
-    seaEndpointARN,
 
     -- * Destructuring the response
     SetEndpointAttributesResponse (..),
@@ -30,16 +30,18 @@ module Network.AWS.SNS.SetEndpointAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for SetEndpointAttributes action.
 --
 -- /See:/ 'mkSetEndpointAttributes' smart constructor.
 data SetEndpointAttributes = SetEndpointAttributes'
-  { -- | A map of the endpoint attributes. Attributes in this map include the following:
+  { -- | EndpointArn used for SetEndpointAttributes action.
+    endpointArn :: Types.String,
+    -- | A map of the endpoint attributes. Attributes in this map include the following:
     --
     --
     --     * @CustomUserData@ – arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
@@ -49,37 +51,25 @@ data SetEndpointAttributes = SetEndpointAttributes'
     --
     --
     --     * @Token@ – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.
-    attributes :: Lude.HashMap Lude.Text (Lude.Text),
-    -- | EndpointArn used for SetEndpointAttributes action.
-    endpointARN :: Lude.Text
+    attributes :: Core.HashMap Types.String Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetEndpointAttributes' with the minimum fields required to make a request.
---
--- * 'attributes' - A map of the endpoint attributes. Attributes in this map include the following:
---
---
---     * @CustomUserData@ – arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
---
---
---     * @Enabled@ – flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.
---
---
---     * @Token@ – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.
---
---
--- * 'endpointARN' - EndpointArn used for SetEndpointAttributes action.
+-- | Creates a 'SetEndpointAttributes' value with any optional fields omitted.
 mkSetEndpointAttributes ::
-  -- | 'endpointARN'
-  Lude.Text ->
+  -- | 'endpointArn'
+  Types.String ->
   SetEndpointAttributes
-mkSetEndpointAttributes pEndpointARN_ =
-  SetEndpointAttributes'
-    { attributes = Lude.mempty,
-      endpointARN = pEndpointARN_
-    }
+mkSetEndpointAttributes endpointArn =
+  SetEndpointAttributes' {endpointArn, attributes = Core.mempty}
+
+-- | EndpointArn used for SetEndpointAttributes action.
+--
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seaEndpointArn :: Lens.Lens' SetEndpointAttributes Types.String
+seaEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED seaEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
 -- | A map of the endpoint attributes. Attributes in this map include the following:
 --
@@ -95,44 +85,42 @@ mkSetEndpointAttributes pEndpointARN_ =
 --
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seaAttributes :: Lens.Lens' SetEndpointAttributes (Lude.HashMap Lude.Text (Lude.Text))
-seaAttributes = Lens.lens (attributes :: SetEndpointAttributes -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {attributes = a} :: SetEndpointAttributes)
+seaAttributes :: Lens.Lens' SetEndpointAttributes (Core.HashMap Types.String Types.String)
+seaAttributes = Lens.field @"attributes"
 {-# DEPRECATED seaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | EndpointArn used for SetEndpointAttributes action.
---
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seaEndpointARN :: Lens.Lens' SetEndpointAttributes Lude.Text
-seaEndpointARN = Lens.lens (endpointARN :: SetEndpointAttributes -> Lude.Text) (\s a -> s {endpointARN = a} :: SetEndpointAttributes)
-{-# DEPRECATED seaEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
-
-instance Lude.AWSRequest SetEndpointAttributes where
+instance Core.AWSRequest SetEndpointAttributes where
   type Rs SetEndpointAttributes = SetEndpointAttributesResponse
-  request = Req.postQuery snsService
-  response = Res.receiveNull SetEndpointAttributesResponse'
-
-instance Lude.ToHeaders SetEndpointAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetEndpointAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetEndpointAttributes where
-  toQuery SetEndpointAttributes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetEndpointAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "Attributes"
-          Lude.=: Lude.toQueryMap "entry" "key" "value" attributes,
-        "EndpointArn" Lude.=: endpointARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetEndpointAttributes")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "EndpointArn" endpointArn)
+                Core.<> ( Core.toQueryValue
+                            "Attributes"
+                            (Core.toQueryMap "entry" "key" "value" attributes)
+                        )
+            )
+      }
+  response = Response.receiveNull SetEndpointAttributesResponse'
 
 -- | /See:/ 'mkSetEndpointAttributesResponse' smart constructor.
 data SetEndpointAttributesResponse = SetEndpointAttributesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetEndpointAttributesResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetEndpointAttributesResponse' value with any optional fields omitted.
 mkSetEndpointAttributesResponse ::
   SetEndpointAttributesResponse
 mkSetEndpointAttributesResponse = SetEndpointAttributesResponse'

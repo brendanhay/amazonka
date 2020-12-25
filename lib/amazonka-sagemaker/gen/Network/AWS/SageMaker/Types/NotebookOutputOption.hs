@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.NotebookOutputOption
   ( NotebookOutputOption
       ( NotebookOutputOption',
-        Allowed,
-        Disabled
+        NotebookOutputOptionAllowed,
+        NotebookOutputOptionDisabled,
+        fromNotebookOutputOption
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NotebookOutputOption = NotebookOutputOption' Lude.Text
+newtype NotebookOutputOption = NotebookOutputOption'
+  { fromNotebookOutputOption ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Allowed :: NotebookOutputOption
-pattern Allowed = NotebookOutputOption' "Allowed"
+pattern NotebookOutputOptionAllowed :: NotebookOutputOption
+pattern NotebookOutputOptionAllowed = NotebookOutputOption' "Allowed"
 
-pattern Disabled :: NotebookOutputOption
-pattern Disabled = NotebookOutputOption' "Disabled"
+pattern NotebookOutputOptionDisabled :: NotebookOutputOption
+pattern NotebookOutputOptionDisabled = NotebookOutputOption' "Disabled"
 
 {-# COMPLETE
-  Allowed,
-  Disabled,
+  NotebookOutputOptionAllowed,
+  NotebookOutputOptionDisabled,
   NotebookOutputOption'
   #-}

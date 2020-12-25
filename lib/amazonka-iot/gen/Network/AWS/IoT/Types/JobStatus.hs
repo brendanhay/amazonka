@@ -13,56 +13,58 @@
 module Network.AWS.IoT.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        JSInProgress,
-        JSCanceled,
-        JSCompleted,
-        JSDeletionInProgress
+        JobStatusInProgress,
+        JobStatusCanceled,
+        JobStatusCompleted,
+        JobStatusDeletionInProgress,
+        fromJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobStatus = JobStatus' Lude.Text
+newtype JobStatus = JobStatus' {fromJobStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JSInProgress :: JobStatus
-pattern JSInProgress = JobStatus' "IN_PROGRESS"
+pattern JobStatusInProgress :: JobStatus
+pattern JobStatusInProgress = JobStatus' "IN_PROGRESS"
 
-pattern JSCanceled :: JobStatus
-pattern JSCanceled = JobStatus' "CANCELED"
+pattern JobStatusCanceled :: JobStatus
+pattern JobStatusCanceled = JobStatus' "CANCELED"
 
-pattern JSCompleted :: JobStatus
-pattern JSCompleted = JobStatus' "COMPLETED"
+pattern JobStatusCompleted :: JobStatus
+pattern JobStatusCompleted = JobStatus' "COMPLETED"
 
-pattern JSDeletionInProgress :: JobStatus
-pattern JSDeletionInProgress = JobStatus' "DELETION_IN_PROGRESS"
+pattern JobStatusDeletionInProgress :: JobStatus
+pattern JobStatusDeletionInProgress = JobStatus' "DELETION_IN_PROGRESS"
 
 {-# COMPLETE
-  JSInProgress,
-  JSCanceled,
-  JSCompleted,
-  JSDeletionInProgress,
+  JobStatusInProgress,
+  JobStatusCanceled,
+  JobStatusCompleted,
+  JobStatusDeletionInProgress,
   JobStatus'
   #-}

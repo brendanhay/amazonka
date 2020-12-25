@@ -17,84 +17,78 @@ module Network.AWS.CognitoSync.Types.IdentityPoolUsage
     mkIdentityPoolUsage,
 
     -- * Lenses
-    ipuLastModifiedDate,
-    ipuIdentityPoolId,
     ipuDataStorage,
+    ipuIdentityPoolId,
+    ipuLastModifiedDate,
     ipuSyncSessionsCount,
   )
 where
 
+import qualified Network.AWS.CognitoSync.Types.IdentityPoolId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Usage information for the identity pool.
 --
 -- /See:/ 'mkIdentityPoolUsage' smart constructor.
 data IdentityPoolUsage = IdentityPoolUsage'
-  { -- | Date on which the identity pool was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+  { -- | Data storage information for the identity pool.
+    dataStorage :: Core.Maybe Core.Integer,
     -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-    identityPoolId :: Lude.Maybe Lude.Text,
-    -- | Data storage information for the identity pool.
-    dataStorage :: Lude.Maybe Lude.Integer,
+    identityPoolId :: Core.Maybe Types.IdentityPoolId,
+    -- | Date on which the identity pool was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
     -- | Number of sync sessions for the identity pool.
-    syncSessionsCount :: Lude.Maybe Lude.Integer
+    syncSessionsCount :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'IdentityPoolUsage' with the minimum fields required to make a request.
---
--- * 'lastModifiedDate' - Date on which the identity pool was last modified.
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
--- * 'dataStorage' - Data storage information for the identity pool.
--- * 'syncSessionsCount' - Number of sync sessions for the identity pool.
+-- | Creates a 'IdentityPoolUsage' value with any optional fields omitted.
 mkIdentityPoolUsage ::
   IdentityPoolUsage
 mkIdentityPoolUsage =
   IdentityPoolUsage'
-    { lastModifiedDate = Lude.Nothing,
-      identityPoolId = Lude.Nothing,
-      dataStorage = Lude.Nothing,
-      syncSessionsCount = Lude.Nothing
+    { dataStorage = Core.Nothing,
+      identityPoolId = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      syncSessionsCount = Core.Nothing
     }
-
--- | Date on which the identity pool was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipuLastModifiedDate :: Lens.Lens' IdentityPoolUsage (Lude.Maybe Lude.Timestamp)
-ipuLastModifiedDate = Lens.lens (lastModifiedDate :: IdentityPoolUsage -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: IdentityPoolUsage)
-{-# DEPRECATED ipuLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipuIdentityPoolId :: Lens.Lens' IdentityPoolUsage (Lude.Maybe Lude.Text)
-ipuIdentityPoolId = Lens.lens (identityPoolId :: IdentityPoolUsage -> Lude.Maybe Lude.Text) (\s a -> s {identityPoolId = a} :: IdentityPoolUsage)
-{-# DEPRECATED ipuIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | Data storage information for the identity pool.
 --
 -- /Note:/ Consider using 'dataStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipuDataStorage :: Lens.Lens' IdentityPoolUsage (Lude.Maybe Lude.Integer)
-ipuDataStorage = Lens.lens (dataStorage :: IdentityPoolUsage -> Lude.Maybe Lude.Integer) (\s a -> s {dataStorage = a} :: IdentityPoolUsage)
+ipuDataStorage :: Lens.Lens' IdentityPoolUsage (Core.Maybe Core.Integer)
+ipuDataStorage = Lens.field @"dataStorage"
 {-# DEPRECATED ipuDataStorage "Use generic-lens or generic-optics with 'dataStorage' instead." #-}
+
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipuIdentityPoolId :: Lens.Lens' IdentityPoolUsage (Core.Maybe Types.IdentityPoolId)
+ipuIdentityPoolId = Lens.field @"identityPoolId"
+{-# DEPRECATED ipuIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+
+-- | Date on which the identity pool was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipuLastModifiedDate :: Lens.Lens' IdentityPoolUsage (Core.Maybe Core.NominalDiffTime)
+ipuLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED ipuLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | Number of sync sessions for the identity pool.
 --
 -- /Note:/ Consider using 'syncSessionsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipuSyncSessionsCount :: Lens.Lens' IdentityPoolUsage (Lude.Maybe Lude.Integer)
-ipuSyncSessionsCount = Lens.lens (syncSessionsCount :: IdentityPoolUsage -> Lude.Maybe Lude.Integer) (\s a -> s {syncSessionsCount = a} :: IdentityPoolUsage)
+ipuSyncSessionsCount :: Lens.Lens' IdentityPoolUsage (Core.Maybe Core.Integer)
+ipuSyncSessionsCount = Lens.field @"syncSessionsCount"
 {-# DEPRECATED ipuSyncSessionsCount "Use generic-lens or generic-optics with 'syncSessionsCount' instead." #-}
 
-instance Lude.FromJSON IdentityPoolUsage where
+instance Core.FromJSON IdentityPoolUsage where
   parseJSON =
-    Lude.withObject
-      "IdentityPoolUsage"
-      ( \x ->
-          IdentityPoolUsage'
-            Lude.<$> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "IdentityPoolId")
-            Lude.<*> (x Lude..:? "DataStorage")
-            Lude.<*> (x Lude..:? "SyncSessionsCount")
-      )
+    Core.withObject "IdentityPoolUsage" Core.$
+      \x ->
+        IdentityPoolUsage'
+          Core.<$> (x Core..:? "DataStorage")
+          Core.<*> (x Core..:? "IdentityPoolId")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "SyncSessionsCount")

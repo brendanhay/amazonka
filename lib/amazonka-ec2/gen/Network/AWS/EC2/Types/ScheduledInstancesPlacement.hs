@@ -22,50 +22,42 @@ module Network.AWS.EC2.Types.ScheduledInstancesPlacement
   )
 where
 
+import qualified Network.AWS.EC2.Types.GroupName as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the placement for a Scheduled Instance.
 --
 -- /See:/ 'mkScheduledInstancesPlacement' smart constructor.
 data ScheduledInstancesPlacement = ScheduledInstancesPlacement'
   { -- | The Availability Zone.
-    availabilityZone :: Lude.Maybe Lude.Text,
+    availabilityZone :: Core.Maybe Types.String,
     -- | The name of the placement group.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduledInstancesPlacement' with the minimum fields required to make a request.
---
--- * 'availabilityZone' - The Availability Zone.
--- * 'groupName' - The name of the placement group.
+-- | Creates a 'ScheduledInstancesPlacement' value with any optional fields omitted.
 mkScheduledInstancesPlacement ::
   ScheduledInstancesPlacement
 mkScheduledInstancesPlacement =
   ScheduledInstancesPlacement'
-    { availabilityZone = Lude.Nothing,
-      groupName = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      groupName = Core.Nothing
     }
 
 -- | The Availability Zone.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sipAvailabilityZone :: Lens.Lens' ScheduledInstancesPlacement (Lude.Maybe Lude.Text)
-sipAvailabilityZone = Lens.lens (availabilityZone :: ScheduledInstancesPlacement -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ScheduledInstancesPlacement)
+sipAvailabilityZone :: Lens.Lens' ScheduledInstancesPlacement (Core.Maybe Types.String)
+sipAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED sipAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The name of the placement group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sipGroupName :: Lens.Lens' ScheduledInstancesPlacement (Lude.Maybe Lude.Text)
-sipGroupName = Lens.lens (groupName :: ScheduledInstancesPlacement -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: ScheduledInstancesPlacement)
+sipGroupName :: Lens.Lens' ScheduledInstancesPlacement (Core.Maybe Types.GroupName)
+sipGroupName = Lens.field @"groupName"
 {-# DEPRECATED sipGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
-instance Lude.ToQuery ScheduledInstancesPlacement where
-  toQuery ScheduledInstancesPlacement' {..} =
-    Lude.mconcat
-      [ "AvailabilityZone" Lude.=: availabilityZone,
-        "GroupName" Lude.=: groupName
-      ]

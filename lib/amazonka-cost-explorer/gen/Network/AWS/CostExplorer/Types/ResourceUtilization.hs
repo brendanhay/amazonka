@@ -21,40 +21,35 @@ module Network.AWS.CostExplorer.Types.ResourceUtilization
   )
 where
 
-import Network.AWS.CostExplorer.Types.EC2ResourceUtilization
+import qualified Network.AWS.CostExplorer.Types.EC2ResourceUtilization as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Resource utilization of current resource.
 --
 -- /See:/ 'mkResourceUtilization' smart constructor.
 newtype ResourceUtilization = ResourceUtilization'
   { -- | Utilization of current Amazon EC2 instance.
-    ec2ResourceUtilization :: Lude.Maybe EC2ResourceUtilization
+    eC2ResourceUtilization :: Core.Maybe Types.EC2ResourceUtilization
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceUtilization' with the minimum fields required to make a request.
---
--- * 'ec2ResourceUtilization' - Utilization of current Amazon EC2 instance.
+-- | Creates a 'ResourceUtilization' value with any optional fields omitted.
 mkResourceUtilization ::
   ResourceUtilization
 mkResourceUtilization =
-  ResourceUtilization' {ec2ResourceUtilization = Lude.Nothing}
+  ResourceUtilization' {eC2ResourceUtilization = Core.Nothing}
 
 -- | Utilization of current Amazon EC2 instance.
 --
--- /Note:/ Consider using 'ec2ResourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruEC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Lude.Maybe EC2ResourceUtilization)
-ruEC2ResourceUtilization = Lens.lens (ec2ResourceUtilization :: ResourceUtilization -> Lude.Maybe EC2ResourceUtilization) (\s a -> s {ec2ResourceUtilization = a} :: ResourceUtilization)
-{-# DEPRECATED ruEC2ResourceUtilization "Use generic-lens or generic-optics with 'ec2ResourceUtilization' instead." #-}
+-- /Note:/ Consider using 'eC2ResourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ruEC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Core.Maybe Types.EC2ResourceUtilization)
+ruEC2ResourceUtilization = Lens.field @"eC2ResourceUtilization"
+{-# DEPRECATED ruEC2ResourceUtilization "Use generic-lens or generic-optics with 'eC2ResourceUtilization' instead." #-}
 
-instance Lude.FromJSON ResourceUtilization where
+instance Core.FromJSON ResourceUtilization where
   parseJSON =
-    Lude.withObject
-      "ResourceUtilization"
-      ( \x ->
-          ResourceUtilization'
-            Lude.<$> (x Lude..:? "EC2ResourceUtilization")
-      )
+    Core.withObject "ResourceUtilization" Core.$
+      \x ->
+        ResourceUtilization' Core.<$> (x Core..:? "EC2ResourceUtilization")

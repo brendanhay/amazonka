@@ -22,53 +22,49 @@ module Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
+import qualified Network.AWS.CloudDirectory.Types.PathString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns the path to the @ObjectIdentifiers@ that is associated with the directory.
 --
 -- /See:/ 'mkPathToObjectIdentifiers' smart constructor.
 data PathToObjectIdentifiers = PathToObjectIdentifiers'
   { -- | Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
-    objectIdentifiers :: Lude.Maybe [Lude.Text],
+    objectIdentifiers :: Core.Maybe [Types.ObjectIdentifier],
     -- | The path that is used to identify the object starting from directory root.
-    path :: Lude.Maybe Lude.Text
+    path :: Core.Maybe Types.PathString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PathToObjectIdentifiers' with the minimum fields required to make a request.
---
--- * 'objectIdentifiers' - Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
--- * 'path' - The path that is used to identify the object starting from directory root.
+-- | Creates a 'PathToObjectIdentifiers' value with any optional fields omitted.
 mkPathToObjectIdentifiers ::
   PathToObjectIdentifiers
 mkPathToObjectIdentifiers =
   PathToObjectIdentifiers'
-    { objectIdentifiers = Lude.Nothing,
-      path = Lude.Nothing
+    { objectIdentifiers = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
 --
 -- /Note:/ Consider using 'objectIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptoiObjectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Lude.Maybe [Lude.Text])
-ptoiObjectIdentifiers = Lens.lens (objectIdentifiers :: PathToObjectIdentifiers -> Lude.Maybe [Lude.Text]) (\s a -> s {objectIdentifiers = a} :: PathToObjectIdentifiers)
+ptoiObjectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Core.Maybe [Types.ObjectIdentifier])
+ptoiObjectIdentifiers = Lens.field @"objectIdentifiers"
 {-# DEPRECATED ptoiObjectIdentifiers "Use generic-lens or generic-optics with 'objectIdentifiers' instead." #-}
 
 -- | The path that is used to identify the object starting from directory root.
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptoiPath :: Lens.Lens' PathToObjectIdentifiers (Lude.Maybe Lude.Text)
-ptoiPath = Lens.lens (path :: PathToObjectIdentifiers -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: PathToObjectIdentifiers)
+ptoiPath :: Lens.Lens' PathToObjectIdentifiers (Core.Maybe Types.PathString)
+ptoiPath = Lens.field @"path"
 {-# DEPRECATED ptoiPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
-instance Lude.FromJSON PathToObjectIdentifiers where
+instance Core.FromJSON PathToObjectIdentifiers where
   parseJSON =
-    Lude.withObject
-      "PathToObjectIdentifiers"
-      ( \x ->
-          PathToObjectIdentifiers'
-            Lude.<$> (x Lude..:? "ObjectIdentifiers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Path")
-      )
+    Core.withObject "PathToObjectIdentifiers" Core.$
+      \x ->
+        PathToObjectIdentifiers'
+          Core.<$> (x Core..:? "ObjectIdentifiers") Core.<*> (x Core..:? "Path")

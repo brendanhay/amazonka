@@ -24,65 +24,59 @@ module Network.AWS.SSM.Types.InventoryDeletionSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.InventoryDeletionSummaryItem
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.InventoryDeletionSummaryItem as Types
 
 -- | Information about the delete operation.
 --
 -- /See:/ 'mkInventoryDeletionSummary' smart constructor.
 data InventoryDeletionSummary = InventoryDeletionSummary'
   { -- | Remaining number of items to delete.
-    remainingCount :: Lude.Maybe Lude.Int,
+    remainingCount :: Core.Maybe Core.Int,
     -- | A list of counts and versions for deleted items.
-    summaryItems :: Lude.Maybe [InventoryDeletionSummaryItem],
+    summaryItems :: Core.Maybe [Types.InventoryDeletionSummaryItem],
     -- | The total number of items to delete. This count does not change during the delete operation.
-    totalCount :: Lude.Maybe Lude.Int
+    totalCount :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryDeletionSummary' with the minimum fields required to make a request.
---
--- * 'remainingCount' - Remaining number of items to delete.
--- * 'summaryItems' - A list of counts and versions for deleted items.
--- * 'totalCount' - The total number of items to delete. This count does not change during the delete operation.
+-- | Creates a 'InventoryDeletionSummary' value with any optional fields omitted.
 mkInventoryDeletionSummary ::
   InventoryDeletionSummary
 mkInventoryDeletionSummary =
   InventoryDeletionSummary'
-    { remainingCount = Lude.Nothing,
-      summaryItems = Lude.Nothing,
-      totalCount = Lude.Nothing
+    { remainingCount = Core.Nothing,
+      summaryItems = Core.Nothing,
+      totalCount = Core.Nothing
     }
 
 -- | Remaining number of items to delete.
 --
 -- /Note:/ Consider using 'remainingCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsRemainingCount :: Lens.Lens' InventoryDeletionSummary (Lude.Maybe Lude.Int)
-idsRemainingCount = Lens.lens (remainingCount :: InventoryDeletionSummary -> Lude.Maybe Lude.Int) (\s a -> s {remainingCount = a} :: InventoryDeletionSummary)
+idsRemainingCount :: Lens.Lens' InventoryDeletionSummary (Core.Maybe Core.Int)
+idsRemainingCount = Lens.field @"remainingCount"
 {-# DEPRECATED idsRemainingCount "Use generic-lens or generic-optics with 'remainingCount' instead." #-}
 
 -- | A list of counts and versions for deleted items.
 --
 -- /Note:/ Consider using 'summaryItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsSummaryItems :: Lens.Lens' InventoryDeletionSummary (Lude.Maybe [InventoryDeletionSummaryItem])
-idsSummaryItems = Lens.lens (summaryItems :: InventoryDeletionSummary -> Lude.Maybe [InventoryDeletionSummaryItem]) (\s a -> s {summaryItems = a} :: InventoryDeletionSummary)
+idsSummaryItems :: Lens.Lens' InventoryDeletionSummary (Core.Maybe [Types.InventoryDeletionSummaryItem])
+idsSummaryItems = Lens.field @"summaryItems"
 {-# DEPRECATED idsSummaryItems "Use generic-lens or generic-optics with 'summaryItems' instead." #-}
 
 -- | The total number of items to delete. This count does not change during the delete operation.
 --
 -- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsTotalCount :: Lens.Lens' InventoryDeletionSummary (Lude.Maybe Lude.Int)
-idsTotalCount = Lens.lens (totalCount :: InventoryDeletionSummary -> Lude.Maybe Lude.Int) (\s a -> s {totalCount = a} :: InventoryDeletionSummary)
+idsTotalCount :: Lens.Lens' InventoryDeletionSummary (Core.Maybe Core.Int)
+idsTotalCount = Lens.field @"totalCount"
 {-# DEPRECATED idsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance Lude.FromJSON InventoryDeletionSummary where
+instance Core.FromJSON InventoryDeletionSummary where
   parseJSON =
-    Lude.withObject
-      "InventoryDeletionSummary"
-      ( \x ->
-          InventoryDeletionSummary'
-            Lude.<$> (x Lude..:? "RemainingCount")
-            Lude.<*> (x Lude..:? "SummaryItems" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "TotalCount")
-      )
+    Core.withObject "InventoryDeletionSummary" Core.$
+      \x ->
+        InventoryDeletionSummary'
+          Core.<$> (x Core..:? "RemainingCount")
+          Core.<*> (x Core..:? "SummaryItems")
+          Core.<*> (x Core..:? "TotalCount")

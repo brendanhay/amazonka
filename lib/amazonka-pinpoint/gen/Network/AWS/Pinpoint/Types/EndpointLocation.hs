@@ -17,123 +17,114 @@ module Network.AWS.Pinpoint.Types.EndpointLocation
     mkEndpointLocation,
 
     -- * Lenses
-    elPostalCode,
-    elLatitude,
-    elCountry,
     elCity,
-    elRegion,
+    elCountry,
+    elLatitude,
     elLongitude,
+    elPostalCode,
+    elRegion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies geographic information about an endpoint.
 --
 -- /See:/ 'mkEndpointLocation' smart constructor.
 data EndpointLocation = EndpointLocation'
-  { -- | The postal or ZIP code for the area where the endpoint is located.
-    postalCode :: Lude.Maybe Lude.Text,
-    -- | The latitude coordinate of the endpoint location, rounded to one decimal place.
-    latitude :: Lude.Maybe Lude.Double,
+  { -- | The name of the city where the endpoint is located.
+    city :: Core.Maybe Core.Text,
     -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the endpoint is located. For example, US for the United States.
-    country :: Lude.Maybe Lude.Text,
-    -- | The name of the city where the endpoint is located.
-    city :: Lude.Maybe Lude.Text,
-    -- | The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.
-    region :: Lude.Maybe Lude.Text,
+    country :: Core.Maybe Core.Text,
+    -- | The latitude coordinate of the endpoint location, rounded to one decimal place.
+    latitude :: Core.Maybe Core.Double,
     -- | The longitude coordinate of the endpoint location, rounded to one decimal place.
-    longitude :: Lude.Maybe Lude.Double
+    longitude :: Core.Maybe Core.Double,
+    -- | The postal or ZIP code for the area where the endpoint is located.
+    postalCode :: Core.Maybe Core.Text,
+    -- | The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.
+    region :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointLocation' with the minimum fields required to make a request.
---
--- * 'postalCode' - The postal or ZIP code for the area where the endpoint is located.
--- * 'latitude' - The latitude coordinate of the endpoint location, rounded to one decimal place.
--- * 'country' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the endpoint is located. For example, US for the United States.
--- * 'city' - The name of the city where the endpoint is located.
--- * 'region' - The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.
--- * 'longitude' - The longitude coordinate of the endpoint location, rounded to one decimal place.
+-- | Creates a 'EndpointLocation' value with any optional fields omitted.
 mkEndpointLocation ::
   EndpointLocation
 mkEndpointLocation =
   EndpointLocation'
-    { postalCode = Lude.Nothing,
-      latitude = Lude.Nothing,
-      country = Lude.Nothing,
-      city = Lude.Nothing,
-      region = Lude.Nothing,
-      longitude = Lude.Nothing
+    { city = Core.Nothing,
+      country = Core.Nothing,
+      latitude = Core.Nothing,
+      longitude = Core.Nothing,
+      postalCode = Core.Nothing,
+      region = Core.Nothing
     }
-
--- | The postal or ZIP code for the area where the endpoint is located.
---
--- /Note:/ Consider using 'postalCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elPostalCode :: Lens.Lens' EndpointLocation (Lude.Maybe Lude.Text)
-elPostalCode = Lens.lens (postalCode :: EndpointLocation -> Lude.Maybe Lude.Text) (\s a -> s {postalCode = a} :: EndpointLocation)
-{-# DEPRECATED elPostalCode "Use generic-lens or generic-optics with 'postalCode' instead." #-}
-
--- | The latitude coordinate of the endpoint location, rounded to one decimal place.
---
--- /Note:/ Consider using 'latitude' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elLatitude :: Lens.Lens' EndpointLocation (Lude.Maybe Lude.Double)
-elLatitude = Lens.lens (latitude :: EndpointLocation -> Lude.Maybe Lude.Double) (\s a -> s {latitude = a} :: EndpointLocation)
-{-# DEPRECATED elLatitude "Use generic-lens or generic-optics with 'latitude' instead." #-}
-
--- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the endpoint is located. For example, US for the United States.
---
--- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elCountry :: Lens.Lens' EndpointLocation (Lude.Maybe Lude.Text)
-elCountry = Lens.lens (country :: EndpointLocation -> Lude.Maybe Lude.Text) (\s a -> s {country = a} :: EndpointLocation)
-{-# DEPRECATED elCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The name of the city where the endpoint is located.
 --
 -- /Note:/ Consider using 'city' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elCity :: Lens.Lens' EndpointLocation (Lude.Maybe Lude.Text)
-elCity = Lens.lens (city :: EndpointLocation -> Lude.Maybe Lude.Text) (\s a -> s {city = a} :: EndpointLocation)
+elCity :: Lens.Lens' EndpointLocation (Core.Maybe Core.Text)
+elCity = Lens.field @"city"
 {-# DEPRECATED elCity "Use generic-lens or generic-optics with 'city' instead." #-}
 
--- | The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.
+-- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the endpoint is located. For example, US for the United States.
 --
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elRegion :: Lens.Lens' EndpointLocation (Lude.Maybe Lude.Text)
-elRegion = Lens.lens (region :: EndpointLocation -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: EndpointLocation)
-{-# DEPRECATED elRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+-- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elCountry :: Lens.Lens' EndpointLocation (Core.Maybe Core.Text)
+elCountry = Lens.field @"country"
+{-# DEPRECATED elCountry "Use generic-lens or generic-optics with 'country' instead." #-}
+
+-- | The latitude coordinate of the endpoint location, rounded to one decimal place.
+--
+-- /Note:/ Consider using 'latitude' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elLatitude :: Lens.Lens' EndpointLocation (Core.Maybe Core.Double)
+elLatitude = Lens.field @"latitude"
+{-# DEPRECATED elLatitude "Use generic-lens or generic-optics with 'latitude' instead." #-}
 
 -- | The longitude coordinate of the endpoint location, rounded to one decimal place.
 --
 -- /Note:/ Consider using 'longitude' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elLongitude :: Lens.Lens' EndpointLocation (Lude.Maybe Lude.Double)
-elLongitude = Lens.lens (longitude :: EndpointLocation -> Lude.Maybe Lude.Double) (\s a -> s {longitude = a} :: EndpointLocation)
+elLongitude :: Lens.Lens' EndpointLocation (Core.Maybe Core.Double)
+elLongitude = Lens.field @"longitude"
 {-# DEPRECATED elLongitude "Use generic-lens or generic-optics with 'longitude' instead." #-}
 
-instance Lude.FromJSON EndpointLocation where
-  parseJSON =
-    Lude.withObject
-      "EndpointLocation"
-      ( \x ->
-          EndpointLocation'
-            Lude.<$> (x Lude..:? "PostalCode")
-            Lude.<*> (x Lude..:? "Latitude")
-            Lude.<*> (x Lude..:? "Country")
-            Lude.<*> (x Lude..:? "City")
-            Lude.<*> (x Lude..:? "Region")
-            Lude.<*> (x Lude..:? "Longitude")
-      )
+-- | The postal or ZIP code for the area where the endpoint is located.
+--
+-- /Note:/ Consider using 'postalCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elPostalCode :: Lens.Lens' EndpointLocation (Core.Maybe Core.Text)
+elPostalCode = Lens.field @"postalCode"
+{-# DEPRECATED elPostalCode "Use generic-lens or generic-optics with 'postalCode' instead." #-}
 
-instance Lude.ToJSON EndpointLocation where
-  toJSON EndpointLocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PostalCode" Lude..=) Lude.<$> postalCode,
-            ("Latitude" Lude..=) Lude.<$> latitude,
-            ("Country" Lude..=) Lude.<$> country,
-            ("City" Lude..=) Lude.<$> city,
-            ("Region" Lude..=) Lude.<$> region,
-            ("Longitude" Lude..=) Lude.<$> longitude
+-- | The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elRegion :: Lens.Lens' EndpointLocation (Core.Maybe Core.Text)
+elRegion = Lens.field @"region"
+{-# DEPRECATED elRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+instance Core.FromJSON EndpointLocation where
+  toJSON EndpointLocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("City" Core..=) Core.<$> city,
+            ("Country" Core..=) Core.<$> country,
+            ("Latitude" Core..=) Core.<$> latitude,
+            ("Longitude" Core..=) Core.<$> longitude,
+            ("PostalCode" Core..=) Core.<$> postalCode,
+            ("Region" Core..=) Core.<$> region
           ]
       )
+
+instance Core.FromJSON EndpointLocation where
+  parseJSON =
+    Core.withObject "EndpointLocation" Core.$
+      \x ->
+        EndpointLocation'
+          Core.<$> (x Core..:? "City")
+          Core.<*> (x Core..:? "Country")
+          Core.<*> (x Core..:? "Latitude")
+          Core.<*> (x Core..:? "Longitude")
+          Core.<*> (x Core..:? "PostalCode")
+          Core.<*> (x Core..:? "Region")

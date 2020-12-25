@@ -25,150 +25,133 @@ module Network.AWS.ECS.PutAccountSetting
     mkPutAccountSetting,
 
     -- ** Request lenses
-    pasValue,
     pasName,
-    pasPrincipalARN,
+    pasValue,
+    pasPrincipalArn,
 
     -- * Destructuring the response
     PutAccountSettingResponse (..),
     mkPutAccountSettingResponse,
 
     -- ** Response lenses
-    pasrsSetting,
-    pasrsResponseStatus,
+    pasrrsSetting,
+    pasrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutAccountSetting' smart constructor.
 data PutAccountSetting = PutAccountSetting'
-  { -- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
-    value :: Lude.Text,
-    -- | The Amazon ECS resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the elastic network interface (ENI) limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
-    name :: SettingName,
+  { -- | The Amazon ECS resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the elastic network interface (ENI) limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
+    name :: Types.SettingName,
+    -- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
+    value :: Types.Value,
     -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it modifies the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
-    principalARN :: Lude.Maybe Lude.Text
+    principalArn :: Core.Maybe Types.PrincipalArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutAccountSetting' with the minimum fields required to make a request.
---
--- * 'value' - The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
--- * 'name' - The Amazon ECS resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the elastic network interface (ENI) limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
--- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it modifies the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
+-- | Creates a 'PutAccountSetting' value with any optional fields omitted.
 mkPutAccountSetting ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'name'
-  SettingName ->
+  Types.SettingName ->
+  -- | 'value'
+  Types.Value ->
   PutAccountSetting
-mkPutAccountSetting pValue_ pName_ =
-  PutAccountSetting'
-    { value = pValue_,
-      name = pName_,
-      principalARN = Lude.Nothing
-    }
-
--- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pasValue :: Lens.Lens' PutAccountSetting Lude.Text
-pasValue = Lens.lens (value :: PutAccountSetting -> Lude.Text) (\s a -> s {value = a} :: PutAccountSetting)
-{-# DEPRECATED pasValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkPutAccountSetting name value =
+  PutAccountSetting' {name, value, principalArn = Core.Nothing}
 
 -- | The Amazon ECS resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the elastic network interface (ENI) limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pasName :: Lens.Lens' PutAccountSetting SettingName
-pasName = Lens.lens (name :: PutAccountSetting -> SettingName) (\s a -> s {name = a} :: PutAccountSetting)
+pasName :: Lens.Lens' PutAccountSetting Types.SettingName
+pasName = Lens.field @"name"
 {-# DEPRECATED pasName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasValue :: Lens.Lens' PutAccountSetting Types.Value
+pasValue = Lens.field @"value"
+{-# DEPRECATED pasValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it modifies the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
 --
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pasPrincipalARN :: Lens.Lens' PutAccountSetting (Lude.Maybe Lude.Text)
-pasPrincipalARN = Lens.lens (principalARN :: PutAccountSetting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: PutAccountSetting)
-{-# DEPRECATED pasPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
+-- /Note:/ Consider using 'principalArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasPrincipalArn :: Lens.Lens' PutAccountSetting (Core.Maybe Types.PrincipalArn)
+pasPrincipalArn = Lens.field @"principalArn"
+{-# DEPRECATED pasPrincipalArn "Use generic-lens or generic-optics with 'principalArn' instead." #-}
 
-instance Lude.AWSRequest PutAccountSetting where
+instance Core.FromJSON PutAccountSetting where
+  toJSON PutAccountSetting {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("value" Core..= value),
+            ("principalArn" Core..=) Core.<$> principalArn
+          ]
+      )
+
+instance Core.AWSRequest PutAccountSetting where
   type Rs PutAccountSetting = PutAccountSettingResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.PutAccountSetting"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutAccountSettingResponse'
-            Lude.<$> (x Lude..?> "setting") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "setting") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutAccountSetting where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSetting" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutAccountSetting where
-  toJSON PutAccountSetting' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("value" Lude..= value),
-            Lude.Just ("name" Lude..= name),
-            ("principalArn" Lude..=) Lude.<$> principalARN
-          ]
-      )
-
-instance Lude.ToPath PutAccountSetting where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutAccountSetting where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutAccountSettingResponse' smart constructor.
 data PutAccountSettingResponse = PutAccountSettingResponse'
   { -- | The current account setting for a resource.
-    setting :: Lude.Maybe Setting,
+    setting :: Core.Maybe Types.Setting,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutAccountSettingResponse' with the minimum fields required to make a request.
---
--- * 'setting' - The current account setting for a resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutAccountSettingResponse' value with any optional fields omitted.
 mkPutAccountSettingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutAccountSettingResponse
-mkPutAccountSettingResponse pResponseStatus_ =
+mkPutAccountSettingResponse responseStatus =
   PutAccountSettingResponse'
-    { setting = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { setting = Core.Nothing,
+      responseStatus
     }
 
 -- | The current account setting for a resource.
 --
 -- /Note:/ Consider using 'setting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pasrsSetting :: Lens.Lens' PutAccountSettingResponse (Lude.Maybe Setting)
-pasrsSetting = Lens.lens (setting :: PutAccountSettingResponse -> Lude.Maybe Setting) (\s a -> s {setting = a} :: PutAccountSettingResponse)
-{-# DEPRECATED pasrsSetting "Use generic-lens or generic-optics with 'setting' instead." #-}
+pasrrsSetting :: Lens.Lens' PutAccountSettingResponse (Core.Maybe Types.Setting)
+pasrrsSetting = Lens.field @"setting"
+{-# DEPRECATED pasrrsSetting "Use generic-lens or generic-optics with 'setting' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pasrsResponseStatus :: Lens.Lens' PutAccountSettingResponse Lude.Int
-pasrsResponseStatus = Lens.lens (responseStatus :: PutAccountSettingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAccountSettingResponse)
-{-# DEPRECATED pasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pasrrsResponseStatus :: Lens.Lens' PutAccountSettingResponse Core.Int
+pasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

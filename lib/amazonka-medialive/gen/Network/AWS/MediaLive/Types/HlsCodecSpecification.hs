@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.HlsCodecSpecification
   ( HlsCodecSpecification
       ( HlsCodecSpecification',
-        Rfc4281,
-        Rfc6381
+        HlsCodecSpecificationRfc4281,
+        HlsCodecSpecificationRfc6381,
+        fromHlsCodecSpecification
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Codec Specification
-newtype HlsCodecSpecification = HlsCodecSpecification' Lude.Text
+newtype HlsCodecSpecification = HlsCodecSpecification'
+  { fromHlsCodecSpecification ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Rfc4281 :: HlsCodecSpecification
-pattern Rfc4281 = HlsCodecSpecification' "RFC_4281"
+pattern HlsCodecSpecificationRfc4281 :: HlsCodecSpecification
+pattern HlsCodecSpecificationRfc4281 = HlsCodecSpecification' "RFC_4281"
 
-pattern Rfc6381 :: HlsCodecSpecification
-pattern Rfc6381 = HlsCodecSpecification' "RFC_6381"
+pattern HlsCodecSpecificationRfc6381 :: HlsCodecSpecification
+pattern HlsCodecSpecificationRfc6381 = HlsCodecSpecification' "RFC_6381"
 
 {-# COMPLETE
-  Rfc4281,
-  Rfc6381,
+  HlsCodecSpecificationRfc4281,
+  HlsCodecSpecificationRfc6381,
   HlsCodecSpecification'
   #-}

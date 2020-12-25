@@ -282,7 +282,7 @@ responseAddApplicationOutput =
   res
     "AddApplicationOutputResponse"
     "fixture/AddApplicationOutputResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy AddApplicationOutput)
 
 responseDiscoverInputSchema :: DiscoverInputSchemaResponse -> TestTree
@@ -290,7 +290,7 @@ responseDiscoverInputSchema =
   res
     "DiscoverInputSchemaResponse"
     "fixture/DiscoverInputSchemaResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DiscoverInputSchema)
 
 responseDescribeApplication :: DescribeApplicationResponse -> TestTree
@@ -298,7 +298,7 @@ responseDescribeApplication =
   res
     "DescribeApplicationResponse"
     "fixture/DescribeApplicationResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeApplication)
 
 responseStartApplication :: StartApplicationResponse -> TestTree
@@ -306,7 +306,7 @@ responseStartApplication =
   res
     "StartApplicationResponse"
     "fixture/StartApplicationResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy StartApplication)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -314,7 +314,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSourceResponse -> TestTree
@@ -322,7 +322,7 @@ responseDeleteApplicationReferenceDataSource =
   res
     "DeleteApplicationReferenceDataSourceResponse"
     "fixture/DeleteApplicationReferenceDataSourceResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApplicationReferenceDataSource)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
@@ -330,7 +330,7 @@ responseDeleteApplication =
   res
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
@@ -338,7 +338,7 @@ responseUpdateApplication =
   res
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApplication)
 
 responseDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOptionResponse -> TestTree
@@ -346,7 +346,7 @@ responseDeleteApplicationCloudWatchLoggingOption =
   res
     "DeleteApplicationCloudWatchLoggingOptionResponse"
     "fixture/DeleteApplicationCloudWatchLoggingOptionResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApplicationCloudWatchLoggingOption)
 
 responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
@@ -354,7 +354,7 @@ responseAddApplicationInputProcessingConfiguration =
   res
     "AddApplicationInputProcessingConfigurationResponse"
     "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy AddApplicationInputProcessingConfiguration)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
@@ -362,7 +362,7 @@ responseCreateApplication =
   res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy CreateApplication)
 
 responseDeleteApplicationOutput :: DeleteApplicationOutputResponse -> TestTree
@@ -370,7 +370,7 @@ responseDeleteApplicationOutput =
   res
     "DeleteApplicationOutputResponse"
     "fixture/DeleteApplicationOutputResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApplicationOutput)
 
 responseStopApplication :: StopApplicationResponse -> TestTree
@@ -378,7 +378,7 @@ responseStopApplication =
   res
     "StopApplicationResponse"
     "fixture/StopApplicationResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy StopApplication)
 
 responseAddApplicationReferenceDataSource :: AddApplicationReferenceDataSourceResponse -> TestTree
@@ -386,7 +386,7 @@ responseAddApplicationReferenceDataSource =
   res
     "AddApplicationReferenceDataSourceResponse"
     "fixture/AddApplicationReferenceDataSourceResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy AddApplicationReferenceDataSource)
 
 responseAddApplicationInput :: AddApplicationInputResponse -> TestTree
@@ -394,7 +394,7 @@ responseAddApplicationInput =
   res
     "AddApplicationInputResponse"
     "fixture/AddApplicationInputResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy AddApplicationInput)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -402,7 +402,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOptionResponse -> TestTree
@@ -410,7 +410,7 @@ responseAddApplicationCloudWatchLoggingOption =
   res
     "AddApplicationCloudWatchLoggingOptionResponse"
     "fixture/AddApplicationCloudWatchLoggingOptionResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy AddApplicationCloudWatchLoggingOption)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
@@ -418,7 +418,7 @@ responseListApplications =
   res
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy ListApplications)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -426,7 +426,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfigurationResponse -> TestTree
@@ -434,5 +434,5 @@ responseDeleteApplicationInputProcessingConfiguration =
   res
     "DeleteApplicationInputProcessingConfigurationResponse"
     "fixture/DeleteApplicationInputProcessingConfigurationResponse.proto"
-    kinesisAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApplicationInputProcessingConfiguration)

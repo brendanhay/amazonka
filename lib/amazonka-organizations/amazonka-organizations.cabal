@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Organizations
     Network.AWS.Organizations.AcceptHandshake
@@ -123,41 +129,78 @@ library
 
   other-modules:
     Network.AWS.Organizations.Types.Account
+    Network.AWS.Organizations.Types.AccountArn
+    Network.AWS.Organizations.Types.AccountId
     Network.AWS.Organizations.Types.AccountJoinedMethod
+    Network.AWS.Organizations.Types.AccountName
     Network.AWS.Organizations.Types.AccountStatus
     Network.AWS.Organizations.Types.ActionType
+    Network.AWS.Organizations.Types.Arn
     Network.AWS.Organizations.Types.Child
+    Network.AWS.Organizations.Types.ChildId
     Network.AWS.Organizations.Types.ChildType
+    Network.AWS.Organizations.Types.Content
     Network.AWS.Organizations.Types.CreateAccountFailureReason
+    Network.AWS.Organizations.Types.CreateAccountRequestId
     Network.AWS.Organizations.Types.CreateAccountState
     Network.AWS.Organizations.Types.CreateAccountStatus
     Network.AWS.Organizations.Types.DelegatedAdministrator
     Network.AWS.Organizations.Types.DelegatedService
+    Network.AWS.Organizations.Types.Description
+    Network.AWS.Organizations.Types.DestinationParentId
     Network.AWS.Organizations.Types.EffectivePolicy
     Network.AWS.Organizations.Types.EffectivePolicyType
+    Network.AWS.Organizations.Types.Email
     Network.AWS.Organizations.Types.EnabledServicePrincipal
+    Network.AWS.Organizations.Types.GenericArn
     Network.AWS.Organizations.Types.Handshake
     Network.AWS.Organizations.Types.HandshakeFilter
+    Network.AWS.Organizations.Types.HandshakeId
+    Network.AWS.Organizations.Types.HandshakeNotes
     Network.AWS.Organizations.Types.HandshakeParty
+    Network.AWS.Organizations.Types.HandshakePartyId
     Network.AWS.Organizations.Types.HandshakePartyType
     Network.AWS.Organizations.Types.HandshakeResource
     Network.AWS.Organizations.Types.HandshakeResourceType
     Network.AWS.Organizations.Types.HandshakeState
     Network.AWS.Organizations.Types.IAMUserAccessToBilling
+    Network.AWS.Organizations.Types.Id
+    Network.AWS.Organizations.Types.Key
+    Network.AWS.Organizations.Types.Name
+    Network.AWS.Organizations.Types.NextToken
     Network.AWS.Organizations.Types.Organization
     Network.AWS.Organizations.Types.OrganizationalUnit
+    Network.AWS.Organizations.Types.OrganizationalUnitArn
+    Network.AWS.Organizations.Types.OrganizationalUnitId
+    Network.AWS.Organizations.Types.OrganizationalUnitName
     Network.AWS.Organizations.Types.OrganizationFeatureSet
     Network.AWS.Organizations.Types.Parent
+    Network.AWS.Organizations.Types.ParentHandshakeId
+    Network.AWS.Organizations.Types.ParentId
     Network.AWS.Organizations.Types.ParentType
     Network.AWS.Organizations.Types.Policy
+    Network.AWS.Organizations.Types.PolicyContent
+    Network.AWS.Organizations.Types.PolicyDescription
+    Network.AWS.Organizations.Types.PolicyId
+    Network.AWS.Organizations.Types.PolicyName
     Network.AWS.Organizations.Types.PolicySummary
+    Network.AWS.Organizations.Types.PolicyTargetId
     Network.AWS.Organizations.Types.PolicyTargetSummary
     Network.AWS.Organizations.Types.PolicyType
     Network.AWS.Organizations.Types.PolicyTypeStatus
     Network.AWS.Organizations.Types.PolicyTypeSummary
+    Network.AWS.Organizations.Types.ResourceId
+    Network.AWS.Organizations.Types.RoleName
     Network.AWS.Organizations.Types.Root
+    Network.AWS.Organizations.Types.RootId
+    Network.AWS.Organizations.Types.ServicePrincipal
+    Network.AWS.Organizations.Types.SourceParentId
     Network.AWS.Organizations.Types.Tag
+    Network.AWS.Organizations.Types.TaggableResourceId
+    Network.AWS.Organizations.Types.TagKey
+    Network.AWS.Organizations.Types.TargetId
     Network.AWS.Organizations.Types.TargetType
+    Network.AWS.Organizations.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

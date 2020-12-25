@@ -23,9 +23,9 @@ module Network.AWS.MediaStore.Types.MetricPolicy
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types.ContainerLevelMetrics
-import Network.AWS.MediaStore.Types.MetricPolicyRule
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaStore.Types.ContainerLevelMetrics as Types
+import qualified Network.AWS.MediaStore.Types.MetricPolicyRule as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The metric policy that is associated with the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include rules to define groups of objects that you want MediaStore to send object-level metrics for.
 --
@@ -34,56 +34,51 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkMetricPolicy' smart constructor.
 data MetricPolicy = MetricPolicy'
   { -- | A setting to enable or disable metrics at the container level.
-    containerLevelMetrics :: ContainerLevelMetrics,
+    containerLevelMetrics :: Types.ContainerLevelMetrics,
     -- | A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase> to allow up to 300 rules per policy.
-    metricPolicyRules :: Lude.Maybe (Lude.NonEmpty MetricPolicyRule)
+    metricPolicyRules :: Core.Maybe (Core.NonEmpty Types.MetricPolicyRule)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricPolicy' with the minimum fields required to make a request.
---
--- * 'containerLevelMetrics' - A setting to enable or disable metrics at the container level.
--- * 'metricPolicyRules' - A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase> to allow up to 300 rules per policy.
+-- | Creates a 'MetricPolicy' value with any optional fields omitted.
 mkMetricPolicy ::
   -- | 'containerLevelMetrics'
-  ContainerLevelMetrics ->
+  Types.ContainerLevelMetrics ->
   MetricPolicy
-mkMetricPolicy pContainerLevelMetrics_ =
+mkMetricPolicy containerLevelMetrics =
   MetricPolicy'
-    { containerLevelMetrics = pContainerLevelMetrics_,
-      metricPolicyRules = Lude.Nothing
+    { containerLevelMetrics,
+      metricPolicyRules = Core.Nothing
     }
 
 -- | A setting to enable or disable metrics at the container level.
 --
 -- /Note:/ Consider using 'containerLevelMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpContainerLevelMetrics :: Lens.Lens' MetricPolicy ContainerLevelMetrics
-mpContainerLevelMetrics = Lens.lens (containerLevelMetrics :: MetricPolicy -> ContainerLevelMetrics) (\s a -> s {containerLevelMetrics = a} :: MetricPolicy)
+mpContainerLevelMetrics :: Lens.Lens' MetricPolicy Types.ContainerLevelMetrics
+mpContainerLevelMetrics = Lens.field @"containerLevelMetrics"
 {-# DEPRECATED mpContainerLevelMetrics "Use generic-lens or generic-optics with 'containerLevelMetrics' instead." #-}
 
 -- | A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase> to allow up to 300 rules per policy.
 --
 -- /Note:/ Consider using 'metricPolicyRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpMetricPolicyRules :: Lens.Lens' MetricPolicy (Lude.Maybe (Lude.NonEmpty MetricPolicyRule))
-mpMetricPolicyRules = Lens.lens (metricPolicyRules :: MetricPolicy -> Lude.Maybe (Lude.NonEmpty MetricPolicyRule)) (\s a -> s {metricPolicyRules = a} :: MetricPolicy)
+mpMetricPolicyRules :: Lens.Lens' MetricPolicy (Core.Maybe (Core.NonEmpty Types.MetricPolicyRule))
+mpMetricPolicyRules = Lens.field @"metricPolicyRules"
 {-# DEPRECATED mpMetricPolicyRules "Use generic-lens or generic-optics with 'metricPolicyRules' instead." #-}
 
-instance Lude.FromJSON MetricPolicy where
-  parseJSON =
-    Lude.withObject
-      "MetricPolicy"
-      ( \x ->
-          MetricPolicy'
-            Lude.<$> (x Lude..: "ContainerLevelMetrics")
-            Lude.<*> (x Lude..:? "MetricPolicyRules")
-      )
-
-instance Lude.ToJSON MetricPolicy where
-  toJSON MetricPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ContainerLevelMetrics" Lude..= containerLevelMetrics),
-            ("MetricPolicyRules" Lude..=) Lude.<$> metricPolicyRules
+instance Core.FromJSON MetricPolicy where
+  toJSON MetricPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContainerLevelMetrics" Core..= containerLevelMetrics),
+            ("MetricPolicyRules" Core..=) Core.<$> metricPolicyRules
           ]
       )
+
+instance Core.FromJSON MetricPolicy where
+  parseJSON =
+    Core.withObject "MetricPolicy" Core.$
+      \x ->
+        MetricPolicy'
+          Core.<$> (x Core..: "ContainerLevelMetrics")
+          Core.<*> (x Core..:? "MetricPolicyRules")

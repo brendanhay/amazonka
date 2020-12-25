@@ -22,11 +22,11 @@ module Network.AWS.ServiceCatalog.CreatePortfolio
     mkCreatePortfolio,
 
     -- ** Request lenses
+    cpfDisplayName,
+    cpfProviderName,
     cpfIdempotencyToken,
     cpfAcceptLanguage,
-    cpfDisplayName,
     cpfDescription,
-    cpfProviderName,
     cpfTags,
 
     -- * Destructuring the response
@@ -34,22 +34,26 @@ module Network.AWS.ServiceCatalog.CreatePortfolio
     mkCreatePortfolioResponse,
 
     -- ** Response lenses
-    crsPortfolioDetail,
-    crsTags,
-    crsResponseStatus,
+    cprfrsPortfolioDetail,
+    cprfrsTags,
+    cprfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkCreatePortfolio' smart constructor.
 data CreatePortfolio = CreatePortfolio'
-  { -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-    idempotencyToken :: Lude.Text,
+  { -- | The name to use for display purposes.
+    displayName :: Types.PortfolioDisplayName,
+    -- | The name of the portfolio provider.
+    providerName :: Types.ProviderName,
+    -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+    idempotencyToken :: Types.IdempotencyToken,
     -- | The language code.
     --
     --
@@ -60,61 +64,53 @@ data CreatePortfolio = CreatePortfolio'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The name to use for display purposes.
-    displayName :: Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The description of the portfolio.
-    description :: Lude.Maybe Lude.Text,
-    -- | The name of the portfolio provider.
-    providerName :: Lude.Text,
+    description :: Core.Maybe Types.PortfolioDescription,
     -- | One or more tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePortfolio' with the minimum fields required to make a request.
---
--- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'displayName' - The name to use for display purposes.
--- * 'description' - The description of the portfolio.
--- * 'providerName' - The name of the portfolio provider.
--- * 'tags' - One or more tags.
+-- | Creates a 'CreatePortfolio' value with any optional fields omitted.
 mkCreatePortfolio ::
-  -- | 'idempotencyToken'
-  Lude.Text ->
   -- | 'displayName'
-  Lude.Text ->
+  Types.PortfolioDisplayName ->
   -- | 'providerName'
-  Lude.Text ->
+  Types.ProviderName ->
+  -- | 'idempotencyToken'
+  Types.IdempotencyToken ->
   CreatePortfolio
-mkCreatePortfolio pIdempotencyToken_ pDisplayName_ pProviderName_ =
+mkCreatePortfolio displayName providerName idempotencyToken =
   CreatePortfolio'
-    { idempotencyToken = pIdempotencyToken_,
-      acceptLanguage = Lude.Nothing,
-      displayName = pDisplayName_,
-      description = Lude.Nothing,
-      providerName = pProviderName_,
-      tags = Lude.Nothing
+    { displayName,
+      providerName,
+      idempotencyToken,
+      acceptLanguage = Core.Nothing,
+      description = Core.Nothing,
+      tags = Core.Nothing
     }
+
+-- | The name to use for display purposes.
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpfDisplayName :: Lens.Lens' CreatePortfolio Types.PortfolioDisplayName
+cpfDisplayName = Lens.field @"displayName"
+{-# DEPRECATED cpfDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+
+-- | The name of the portfolio provider.
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpfProviderName :: Lens.Lens' CreatePortfolio Types.ProviderName
+cpfProviderName = Lens.field @"providerName"
+{-# DEPRECATED cpfProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 --
 -- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpfIdempotencyToken :: Lens.Lens' CreatePortfolio Lude.Text
-cpfIdempotencyToken = Lens.lens (idempotencyToken :: CreatePortfolio -> Lude.Text) (\s a -> s {idempotencyToken = a} :: CreatePortfolio)
+cpfIdempotencyToken :: Lens.Lens' CreatePortfolio Types.IdempotencyToken
+cpfIdempotencyToken = Lens.field @"idempotencyToken"
 {-# DEPRECATED cpfIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | The language code.
@@ -131,125 +127,101 @@ cpfIdempotencyToken = Lens.lens (idempotencyToken :: CreatePortfolio -> Lude.Tex
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpfAcceptLanguage :: Lens.Lens' CreatePortfolio (Lude.Maybe Lude.Text)
-cpfAcceptLanguage = Lens.lens (acceptLanguage :: CreatePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: CreatePortfolio)
+cpfAcceptLanguage :: Lens.Lens' CreatePortfolio (Core.Maybe Types.AcceptLanguage)
+cpfAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED cpfAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The name to use for display purposes.
---
--- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpfDisplayName :: Lens.Lens' CreatePortfolio Lude.Text
-cpfDisplayName = Lens.lens (displayName :: CreatePortfolio -> Lude.Text) (\s a -> s {displayName = a} :: CreatePortfolio)
-{-# DEPRECATED cpfDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The description of the portfolio.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpfDescription :: Lens.Lens' CreatePortfolio (Lude.Maybe Lude.Text)
-cpfDescription = Lens.lens (description :: CreatePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePortfolio)
+cpfDescription :: Lens.Lens' CreatePortfolio (Core.Maybe Types.PortfolioDescription)
+cpfDescription = Lens.field @"description"
 {-# DEPRECATED cpfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The name of the portfolio provider.
---
--- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpfProviderName :: Lens.Lens' CreatePortfolio Lude.Text
-cpfProviderName = Lens.lens (providerName :: CreatePortfolio -> Lude.Text) (\s a -> s {providerName = a} :: CreatePortfolio)
-{-# DEPRECATED cpfProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | One or more tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpfTags :: Lens.Lens' CreatePortfolio (Lude.Maybe [Tag])
-cpfTags = Lens.lens (tags :: CreatePortfolio -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePortfolio)
+cpfTags :: Lens.Lens' CreatePortfolio (Core.Maybe [Types.Tag])
+cpfTags = Lens.field @"tags"
 {-# DEPRECATED cpfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreatePortfolio where
+instance Core.FromJSON CreatePortfolio where
+  toJSON CreatePortfolio {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DisplayName" Core..= displayName),
+            Core.Just ("ProviderName" Core..= providerName),
+            Core.Just ("IdempotencyToken" Core..= idempotencyToken),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("Description" Core..=) Core.<$> description,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreatePortfolio where
   type Rs CreatePortfolio = CreatePortfolioResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.CreatePortfolio")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreatePortfolioResponse'
-            Lude.<$> (x Lude..?> "PortfolioDetail")
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PortfolioDetail")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreatePortfolio where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWS242ServiceCatalogService.CreatePortfolio" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreatePortfolio where
-  toJSON CreatePortfolio' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("IdempotencyToken" Lude..= idempotencyToken),
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("DisplayName" Lude..= displayName),
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("ProviderName" Lude..= providerName),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreatePortfolio where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreatePortfolio where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreatePortfolioResponse' smart constructor.
 data CreatePortfolioResponse = CreatePortfolioResponse'
   { -- | Information about the portfolio.
-    portfolioDetail :: Lude.Maybe PortfolioDetail,
+    portfolioDetail :: Core.Maybe Types.PortfolioDetail,
     -- | Information about the tags associated with the portfolio.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreatePortfolioResponse' with the minimum fields required to make a request.
---
--- * 'portfolioDetail' - Information about the portfolio.
--- * 'tags' - Information about the tags associated with the portfolio.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePortfolioResponse' value with any optional fields omitted.
 mkCreatePortfolioResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePortfolioResponse
-mkCreatePortfolioResponse pResponseStatus_ =
+mkCreatePortfolioResponse responseStatus =
   CreatePortfolioResponse'
-    { portfolioDetail = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { portfolioDetail = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the portfolio.
 --
 -- /Note:/ Consider using 'portfolioDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsPortfolioDetail :: Lens.Lens' CreatePortfolioResponse (Lude.Maybe PortfolioDetail)
-crsPortfolioDetail = Lens.lens (portfolioDetail :: CreatePortfolioResponse -> Lude.Maybe PortfolioDetail) (\s a -> s {portfolioDetail = a} :: CreatePortfolioResponse)
-{-# DEPRECATED crsPortfolioDetail "Use generic-lens or generic-optics with 'portfolioDetail' instead." #-}
+cprfrsPortfolioDetail :: Lens.Lens' CreatePortfolioResponse (Core.Maybe Types.PortfolioDetail)
+cprfrsPortfolioDetail = Lens.field @"portfolioDetail"
+{-# DEPRECATED cprfrsPortfolioDetail "Use generic-lens or generic-optics with 'portfolioDetail' instead." #-}
 
 -- | Information about the tags associated with the portfolio.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsTags :: Lens.Lens' CreatePortfolioResponse (Lude.Maybe [Tag])
-crsTags = Lens.lens (tags :: CreatePortfolioResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePortfolioResponse)
-{-# DEPRECATED crsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cprfrsTags :: Lens.Lens' CreatePortfolioResponse (Core.Maybe [Types.Tag])
+cprfrsTags = Lens.field @"tags"
+{-# DEPRECATED cprfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CreatePortfolioResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CreatePortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePortfolioResponse)
-{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cprfrsResponseStatus :: Lens.Lens' CreatePortfolioResponse Core.Int
+cprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

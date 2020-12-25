@@ -18,115 +18,108 @@ module Network.AWS.DeviceFarm.Types.InstanceProfile
 
     -- * Lenses
     ipArn,
-    ipRebootAfterUse,
+    ipDescription,
+    ipExcludeAppPackagesFromCleanup,
     ipName,
     ipPackageCleanup,
-    ipExcludeAppPackagesFromCleanup,
-    ipDescription,
+    ipRebootAfterUse,
   )
 where
 
+import qualified Network.AWS.DeviceFarm.Types.Arn as Types
+import qualified Network.AWS.DeviceFarm.Types.Description as Types
+import qualified Network.AWS.DeviceFarm.Types.Name as Types
+import qualified Network.AWS.DeviceFarm.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the instance profile.
 --
 -- /See:/ 'mkInstanceProfile' smart constructor.
 data InstanceProfile = InstanceProfile'
   { -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Lude.Maybe Lude.Text,
-    -- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
-    rebootAfterUse :: Lude.Maybe Lude.Bool,
-    -- | The name of the instance profile.
-    name :: Lude.Maybe Lude.Text,
-    -- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
-    packageCleanup :: Lude.Maybe Lude.Bool,
+    arn :: Core.Maybe Types.Arn,
+    -- | The description of the instance profile.
+    description :: Core.Maybe Types.Description,
     -- | An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
     --
     -- The list of packages is considered only if you set @packageCleanup@ to @true@ .
-    excludeAppPackagesFromCleanup :: Lude.Maybe [Lude.Text],
-    -- | The description of the instance profile.
-    description :: Lude.Maybe Lude.Text
+    excludeAppPackagesFromCleanup :: Core.Maybe [Types.String],
+    -- | The name of the instance profile.
+    name :: Core.Maybe Types.Name,
+    -- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
+    packageCleanup :: Core.Maybe Core.Bool,
+    -- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
+    rebootAfterUse :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceProfile' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the instance profile.
--- * 'rebootAfterUse' - When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
--- * 'name' - The name of the instance profile.
--- * 'packageCleanup' - When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
--- * 'excludeAppPackagesFromCleanup' - An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
---
--- The list of packages is considered only if you set @packageCleanup@ to @true@ .
--- * 'description' - The description of the instance profile.
+-- | Creates a 'InstanceProfile' value with any optional fields omitted.
 mkInstanceProfile ::
   InstanceProfile
 mkInstanceProfile =
   InstanceProfile'
-    { arn = Lude.Nothing,
-      rebootAfterUse = Lude.Nothing,
-      name = Lude.Nothing,
-      packageCleanup = Lude.Nothing,
-      excludeAppPackagesFromCleanup = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      description = Core.Nothing,
+      excludeAppPackagesFromCleanup = Core.Nothing,
+      name = Core.Nothing,
+      packageCleanup = Core.Nothing,
+      rebootAfterUse = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipArn :: Lens.Lens' InstanceProfile (Lude.Maybe Lude.Text)
-ipArn = Lens.lens (arn :: InstanceProfile -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: InstanceProfile)
+ipArn :: Lens.Lens' InstanceProfile (Core.Maybe Types.Arn)
+ipArn = Lens.field @"arn"
 {-# DEPRECATED ipArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
+-- | The description of the instance profile.
 --
--- /Note:/ Consider using 'rebootAfterUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipRebootAfterUse :: Lens.Lens' InstanceProfile (Lude.Maybe Lude.Bool)
-ipRebootAfterUse = Lens.lens (rebootAfterUse :: InstanceProfile -> Lude.Maybe Lude.Bool) (\s a -> s {rebootAfterUse = a} :: InstanceProfile)
-{-# DEPRECATED ipRebootAfterUse "Use generic-lens or generic-optics with 'rebootAfterUse' instead." #-}
-
--- | The name of the instance profile.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipName :: Lens.Lens' InstanceProfile (Lude.Maybe Lude.Text)
-ipName = Lens.lens (name :: InstanceProfile -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InstanceProfile)
-{-# DEPRECATED ipName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
---
--- /Note:/ Consider using 'packageCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipPackageCleanup :: Lens.Lens' InstanceProfile (Lude.Maybe Lude.Bool)
-ipPackageCleanup = Lens.lens (packageCleanup :: InstanceProfile -> Lude.Maybe Lude.Bool) (\s a -> s {packageCleanup = a} :: InstanceProfile)
-{-# DEPRECATED ipPackageCleanup "Use generic-lens or generic-optics with 'packageCleanup' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipDescription :: Lens.Lens' InstanceProfile (Core.Maybe Types.Description)
+ipDescription = Lens.field @"description"
+{-# DEPRECATED ipDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
 --
 -- The list of packages is considered only if you set @packageCleanup@ to @true@ .
 --
 -- /Note:/ Consider using 'excludeAppPackagesFromCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipExcludeAppPackagesFromCleanup :: Lens.Lens' InstanceProfile (Lude.Maybe [Lude.Text])
-ipExcludeAppPackagesFromCleanup = Lens.lens (excludeAppPackagesFromCleanup :: InstanceProfile -> Lude.Maybe [Lude.Text]) (\s a -> s {excludeAppPackagesFromCleanup = a} :: InstanceProfile)
+ipExcludeAppPackagesFromCleanup :: Lens.Lens' InstanceProfile (Core.Maybe [Types.String])
+ipExcludeAppPackagesFromCleanup = Lens.field @"excludeAppPackagesFromCleanup"
 {-# DEPRECATED ipExcludeAppPackagesFromCleanup "Use generic-lens or generic-optics with 'excludeAppPackagesFromCleanup' instead." #-}
 
--- | The description of the instance profile.
+-- | The name of the instance profile.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipDescription :: Lens.Lens' InstanceProfile (Lude.Maybe Lude.Text)
-ipDescription = Lens.lens (description :: InstanceProfile -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: InstanceProfile)
-{-# DEPRECATED ipDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipName :: Lens.Lens' InstanceProfile (Core.Maybe Types.Name)
+ipName = Lens.field @"name"
+{-# DEPRECATED ipName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON InstanceProfile where
+-- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
+--
+-- /Note:/ Consider using 'packageCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipPackageCleanup :: Lens.Lens' InstanceProfile (Core.Maybe Core.Bool)
+ipPackageCleanup = Lens.field @"packageCleanup"
+{-# DEPRECATED ipPackageCleanup "Use generic-lens or generic-optics with 'packageCleanup' instead." #-}
+
+-- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
+--
+-- /Note:/ Consider using 'rebootAfterUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipRebootAfterUse :: Lens.Lens' InstanceProfile (Core.Maybe Core.Bool)
+ipRebootAfterUse = Lens.field @"rebootAfterUse"
+{-# DEPRECATED ipRebootAfterUse "Use generic-lens or generic-optics with 'rebootAfterUse' instead." #-}
+
+instance Core.FromJSON InstanceProfile where
   parseJSON =
-    Lude.withObject
-      "InstanceProfile"
-      ( \x ->
-          InstanceProfile'
-            Lude.<$> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "rebootAfterUse")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "packageCleanup")
-            Lude.<*> (x Lude..:? "excludeAppPackagesFromCleanup" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "InstanceProfile" Core.$
+      \x ->
+        InstanceProfile'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "excludeAppPackagesFromCleanup")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "packageCleanup")
+          Core.<*> (x Core..:? "rebootAfterUse")

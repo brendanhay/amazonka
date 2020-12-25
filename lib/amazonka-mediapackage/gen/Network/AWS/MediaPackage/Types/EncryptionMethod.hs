@@ -13,46 +13,51 @@
 module Network.AWS.MediaPackage.Types.EncryptionMethod
   ( EncryptionMethod
       ( EncryptionMethod',
-        AES128,
-        SampleAES
+        EncryptionMethodAes128,
+        EncryptionMethodSampleAes,
+        fromEncryptionMethod
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EncryptionMethod = EncryptionMethod' Lude.Text
+newtype EncryptionMethod = EncryptionMethod'
+  { fromEncryptionMethod ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AES128 :: EncryptionMethod
-pattern AES128 = EncryptionMethod' "AES_128"
+pattern EncryptionMethodAes128 :: EncryptionMethod
+pattern EncryptionMethodAes128 = EncryptionMethod' "AES_128"
 
-pattern SampleAES :: EncryptionMethod
-pattern SampleAES = EncryptionMethod' "SAMPLE_AES"
+pattern EncryptionMethodSampleAes :: EncryptionMethod
+pattern EncryptionMethodSampleAes = EncryptionMethod' "SAMPLE_AES"
 
 {-# COMPLETE
-  AES128,
-  SampleAES,
+  EncryptionMethodAes128,
+  EncryptionMethodSampleAes,
   EncryptionMethod'
   #-}

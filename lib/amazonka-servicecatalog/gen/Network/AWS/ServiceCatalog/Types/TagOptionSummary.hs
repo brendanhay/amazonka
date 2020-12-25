@@ -17,55 +17,51 @@ module Network.AWS.ServiceCatalog.Types.TagOptionSummary
     mkTagOptionSummary,
 
     -- * Lenses
-    tosValues,
     tosKey,
+    tosValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.Key as Types
+import qualified Network.AWS.ServiceCatalog.Types.TagOptionValue as Types
 
 -- | Summary information about a TagOption.
 --
 -- /See:/ 'mkTagOptionSummary' smart constructor.
 data TagOptionSummary = TagOptionSummary'
-  { -- | The TagOption value.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The TagOption key.
-    key :: Lude.Maybe Lude.Text
+  { -- | The TagOption key.
+    key :: Core.Maybe Types.Key,
+    -- | The TagOption value.
+    values :: Core.Maybe [Types.TagOptionValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagOptionSummary' with the minimum fields required to make a request.
---
--- * 'values' - The TagOption value.
--- * 'key' - The TagOption key.
+-- | Creates a 'TagOptionSummary' value with any optional fields omitted.
 mkTagOptionSummary ::
   TagOptionSummary
 mkTagOptionSummary =
-  TagOptionSummary' {values = Lude.Nothing, key = Lude.Nothing}
-
--- | The TagOption value.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tosValues :: Lens.Lens' TagOptionSummary (Lude.Maybe [Lude.Text])
-tosValues = Lens.lens (values :: TagOptionSummary -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: TagOptionSummary)
-{-# DEPRECATED tosValues "Use generic-lens or generic-optics with 'values' instead." #-}
+  TagOptionSummary' {key = Core.Nothing, values = Core.Nothing}
 
 -- | The TagOption key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tosKey :: Lens.Lens' TagOptionSummary (Lude.Maybe Lude.Text)
-tosKey = Lens.lens (key :: TagOptionSummary -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagOptionSummary)
+tosKey :: Lens.Lens' TagOptionSummary (Core.Maybe Types.Key)
+tosKey = Lens.field @"key"
 {-# DEPRECATED tosKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON TagOptionSummary where
+-- | The TagOption value.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tosValues :: Lens.Lens' TagOptionSummary (Core.Maybe [Types.TagOptionValue])
+tosValues = Lens.field @"values"
+{-# DEPRECATED tosValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON TagOptionSummary where
   parseJSON =
-    Lude.withObject
-      "TagOptionSummary"
-      ( \x ->
-          TagOptionSummary'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Key")
-      )
+    Core.withObject "TagOptionSummary" Core.$
+      \x ->
+        TagOptionSummary'
+          Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Values")

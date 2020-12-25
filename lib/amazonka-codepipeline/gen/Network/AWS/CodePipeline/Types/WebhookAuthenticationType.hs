@@ -13,51 +13,56 @@
 module Network.AWS.CodePipeline.Types.WebhookAuthenticationType
   ( WebhookAuthenticationType
       ( WebhookAuthenticationType',
-        GithubHmac,
-        IP,
-        Unauthenticated
+        WebhookAuthenticationTypeGithubHmac,
+        WebhookAuthenticationTypeIP,
+        WebhookAuthenticationTypeUnauthenticated,
+        fromWebhookAuthenticationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WebhookAuthenticationType = WebhookAuthenticationType' Lude.Text
+newtype WebhookAuthenticationType = WebhookAuthenticationType'
+  { fromWebhookAuthenticationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern GithubHmac :: WebhookAuthenticationType
-pattern GithubHmac = WebhookAuthenticationType' "GITHUB_HMAC"
+pattern WebhookAuthenticationTypeGithubHmac :: WebhookAuthenticationType
+pattern WebhookAuthenticationTypeGithubHmac = WebhookAuthenticationType' "GITHUB_HMAC"
 
-pattern IP :: WebhookAuthenticationType
-pattern IP = WebhookAuthenticationType' "IP"
+pattern WebhookAuthenticationTypeIP :: WebhookAuthenticationType
+pattern WebhookAuthenticationTypeIP = WebhookAuthenticationType' "IP"
 
-pattern Unauthenticated :: WebhookAuthenticationType
-pattern Unauthenticated = WebhookAuthenticationType' "UNAUTHENTICATED"
+pattern WebhookAuthenticationTypeUnauthenticated :: WebhookAuthenticationType
+pattern WebhookAuthenticationTypeUnauthenticated = WebhookAuthenticationType' "UNAUTHENTICATED"
 
 {-# COMPLETE
-  GithubHmac,
-  IP,
-  Unauthenticated,
+  WebhookAuthenticationTypeGithubHmac,
+  WebhookAuthenticationTypeIP,
+  WebhookAuthenticationTypeUnauthenticated,
   WebhookAuthenticationType'
   #-}

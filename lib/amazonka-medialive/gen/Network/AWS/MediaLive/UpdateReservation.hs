@@ -20,130 +20,116 @@ module Network.AWS.MediaLive.UpdateReservation
     mkUpdateReservation,
 
     -- ** Request lenses
-    urName,
     urReservationId,
+    urName,
 
     -- * Destructuring the response
     UpdateReservationResponse (..),
     mkUpdateReservationResponse,
 
     -- ** Response lenses
-    urrsReservation,
-    urrsResponseStatus,
+    urrrsReservation,
+    urrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to update a reservation
 --
 -- /See:/ 'mkUpdateReservation' smart constructor.
 data UpdateReservation = UpdateReservation'
-  { -- | Name of the reservation
-    name :: Lude.Maybe Lude.Text,
-    -- | Unique reservation ID, e.g. '1234567'
-    reservationId :: Lude.Text
+  { -- | Unique reservation ID, e.g. '1234567'
+    reservationId :: Core.Text,
+    -- | Name of the reservation
+    name :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateReservation' with the minimum fields required to make a request.
---
--- * 'name' - Name of the reservation
--- * 'reservationId' - Unique reservation ID, e.g. '1234567'
+-- | Creates a 'UpdateReservation' value with any optional fields omitted.
 mkUpdateReservation ::
   -- | 'reservationId'
-  Lude.Text ->
+  Core.Text ->
   UpdateReservation
-mkUpdateReservation pReservationId_ =
-  UpdateReservation'
-    { name = Lude.Nothing,
-      reservationId = pReservationId_
-    }
-
--- | Name of the reservation
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urName :: Lens.Lens' UpdateReservation (Lude.Maybe Lude.Text)
-urName = Lens.lens (name :: UpdateReservation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateReservation)
-{-# DEPRECATED urName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkUpdateReservation reservationId =
+  UpdateReservation' {reservationId, name = Core.Nothing}
 
 -- | Unique reservation ID, e.g. '1234567'
 --
 -- /Note:/ Consider using 'reservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urReservationId :: Lens.Lens' UpdateReservation Lude.Text
-urReservationId = Lens.lens (reservationId :: UpdateReservation -> Lude.Text) (\s a -> s {reservationId = a} :: UpdateReservation)
+urReservationId :: Lens.Lens' UpdateReservation Core.Text
+urReservationId = Lens.field @"reservationId"
 {-# DEPRECATED urReservationId "Use generic-lens or generic-optics with 'reservationId' instead." #-}
 
-instance Lude.AWSRequest UpdateReservation where
+-- | Name of the reservation
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urName :: Lens.Lens' UpdateReservation (Core.Maybe Core.Text)
+urName = Lens.field @"name"
+{-# DEPRECATED urName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON UpdateReservation where
+  toJSON UpdateReservation {..} =
+    Core.object (Core.catMaybes [("name" Core..=) Core.<$> name])
+
+instance Core.AWSRequest UpdateReservation where
   type Rs UpdateReservation = UpdateReservationResponse
-  request = Req.putJSON mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ("/prod/reservations/" Core.<> (Core.toText reservationId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateReservationResponse'
-            Lude.<$> (x Lude..?> "reservation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "reservation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateReservation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateReservation where
-  toJSON UpdateReservation' {..} =
-    Lude.object (Lude.catMaybes [("name" Lude..=) Lude.<$> name])
-
-instance Lude.ToPath UpdateReservation where
-  toPath UpdateReservation' {..} =
-    Lude.mconcat ["/prod/reservations/", Lude.toBS reservationId]
-
-instance Lude.ToQuery UpdateReservation where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for UpdateReservationResponse
 --
 -- /See:/ 'mkUpdateReservationResponse' smart constructor.
 data UpdateReservationResponse = UpdateReservationResponse'
-  { reservation :: Lude.Maybe Reservation,
+  { reservation :: Core.Maybe Types.Reservation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateReservationResponse' with the minimum fields required to make a request.
---
--- * 'reservation' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateReservationResponse' value with any optional fields omitted.
 mkUpdateReservationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateReservationResponse
-mkUpdateReservationResponse pResponseStatus_ =
+mkUpdateReservationResponse responseStatus =
   UpdateReservationResponse'
-    { reservation = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { reservation = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'reservation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsReservation :: Lens.Lens' UpdateReservationResponse (Lude.Maybe Reservation)
-urrsReservation = Lens.lens (reservation :: UpdateReservationResponse -> Lude.Maybe Reservation) (\s a -> s {reservation = a} :: UpdateReservationResponse)
-{-# DEPRECATED urrsReservation "Use generic-lens or generic-optics with 'reservation' instead." #-}
+urrrsReservation :: Lens.Lens' UpdateReservationResponse (Core.Maybe Types.Reservation)
+urrrsReservation = Lens.field @"reservation"
+{-# DEPRECATED urrrsReservation "Use generic-lens or generic-optics with 'reservation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsResponseStatus :: Lens.Lens' UpdateReservationResponse Lude.Int
-urrsResponseStatus = Lens.lens (responseStatus :: UpdateReservationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateReservationResponse)
-{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrsResponseStatus :: Lens.Lens' UpdateReservationResponse Core.Int
+urrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

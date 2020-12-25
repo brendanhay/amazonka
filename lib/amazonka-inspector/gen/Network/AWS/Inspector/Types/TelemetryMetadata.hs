@@ -17,75 +17,66 @@ module Network.AWS.Inspector.Types.TelemetryMetadata
     mkTelemetryMetadata,
 
     -- * Lenses
-    tmDataSize,
     tmMessageType,
     tmCount,
+    tmDataSize,
   )
 where
 
+import qualified Network.AWS.Inspector.Types.MessageType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The metadata about the Amazon Inspector application data metrics collected by the agent. This data type is used as the response element in the 'GetTelemetryMetadata' action.
 --
 -- /See:/ 'mkTelemetryMetadata' smart constructor.
 data TelemetryMetadata = TelemetryMetadata'
-  { -- | The data size of messages that the agent sends to the Amazon Inspector service.
-    dataSize :: Lude.Maybe Lude.Integer,
-    -- | A specific type of behavioral data that is collected by the agent.
-    messageType :: Lude.Text,
+  { -- | A specific type of behavioral data that is collected by the agent.
+    messageType :: Types.MessageType,
     -- | The count of messages that the agent sends to the Amazon Inspector service.
-    count :: Lude.Integer
+    count :: Core.Integer,
+    -- | The data size of messages that the agent sends to the Amazon Inspector service.
+    dataSize :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TelemetryMetadata' with the minimum fields required to make a request.
---
--- * 'dataSize' - The data size of messages that the agent sends to the Amazon Inspector service.
--- * 'messageType' - A specific type of behavioral data that is collected by the agent.
--- * 'count' - The count of messages that the agent sends to the Amazon Inspector service.
+-- | Creates a 'TelemetryMetadata' value with any optional fields omitted.
 mkTelemetryMetadata ::
   -- | 'messageType'
-  Lude.Text ->
+  Types.MessageType ->
   -- | 'count'
-  Lude.Integer ->
+  Core.Integer ->
   TelemetryMetadata
-mkTelemetryMetadata pMessageType_ pCount_ =
-  TelemetryMetadata'
-    { dataSize = Lude.Nothing,
-      messageType = pMessageType_,
-      count = pCount_
-    }
-
--- | The data size of messages that the agent sends to the Amazon Inspector service.
---
--- /Note:/ Consider using 'dataSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmDataSize :: Lens.Lens' TelemetryMetadata (Lude.Maybe Lude.Integer)
-tmDataSize = Lens.lens (dataSize :: TelemetryMetadata -> Lude.Maybe Lude.Integer) (\s a -> s {dataSize = a} :: TelemetryMetadata)
-{-# DEPRECATED tmDataSize "Use generic-lens or generic-optics with 'dataSize' instead." #-}
+mkTelemetryMetadata messageType count =
+  TelemetryMetadata' {messageType, count, dataSize = Core.Nothing}
 
 -- | A specific type of behavioral data that is collected by the agent.
 --
 -- /Note:/ Consider using 'messageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmMessageType :: Lens.Lens' TelemetryMetadata Lude.Text
-tmMessageType = Lens.lens (messageType :: TelemetryMetadata -> Lude.Text) (\s a -> s {messageType = a} :: TelemetryMetadata)
+tmMessageType :: Lens.Lens' TelemetryMetadata Types.MessageType
+tmMessageType = Lens.field @"messageType"
 {-# DEPRECATED tmMessageType "Use generic-lens or generic-optics with 'messageType' instead." #-}
 
 -- | The count of messages that the agent sends to the Amazon Inspector service.
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmCount :: Lens.Lens' TelemetryMetadata Lude.Integer
-tmCount = Lens.lens (count :: TelemetryMetadata -> Lude.Integer) (\s a -> s {count = a} :: TelemetryMetadata)
+tmCount :: Lens.Lens' TelemetryMetadata Core.Integer
+tmCount = Lens.field @"count"
 {-# DEPRECATED tmCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
-instance Lude.FromJSON TelemetryMetadata where
+-- | The data size of messages that the agent sends to the Amazon Inspector service.
+--
+-- /Note:/ Consider using 'dataSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmDataSize :: Lens.Lens' TelemetryMetadata (Core.Maybe Core.Integer)
+tmDataSize = Lens.field @"dataSize"
+{-# DEPRECATED tmDataSize "Use generic-lens or generic-optics with 'dataSize' instead." #-}
+
+instance Core.FromJSON TelemetryMetadata where
   parseJSON =
-    Lude.withObject
-      "TelemetryMetadata"
-      ( \x ->
-          TelemetryMetadata'
-            Lude.<$> (x Lude..:? "dataSize")
-            Lude.<*> (x Lude..: "messageType")
-            Lude.<*> (x Lude..: "count")
-      )
+    Core.withObject "TelemetryMetadata" Core.$
+      \x ->
+        TelemetryMetadata'
+          Core.<$> (x Core..: "messageType")
+          Core.<*> (x Core..: "count")
+          Core.<*> (x Core..:? "dataSize")

@@ -24,64 +24,57 @@ module Network.AWS.Glue.DeleteSchemaVersions
     mkDeleteSchemaVersions,
 
     -- ** Request lenses
-    dsvVersions,
     dsvSchemaId,
+    dsvVersions,
 
     -- * Destructuring the response
     DeleteSchemaVersionsResponse (..),
     mkDeleteSchemaVersionsResponse,
 
     -- ** Response lenses
-    dsvrsSchemaVersionErrors,
-    dsvrsResponseStatus,
+    dsvrrsSchemaVersionErrors,
+    dsvrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSchemaVersions' smart constructor.
 data DeleteSchemaVersions = DeleteSchemaVersions'
-  { -- | A version range may be supplied which may be of the format:
+  { -- | This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+    schemaId :: Types.SchemaId,
+    -- | A version range may be supplied which may be of the format:
     --
     --
     --     * a single version number, 5
     --
     --
     --     * a range, 5-8 : deletes versions 5, 6, 7, 8
-    versions :: Lude.Text,
-    -- | This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
-    schemaId :: SchemaId
+    versions :: Types.VersionsString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSchemaVersions' with the minimum fields required to make a request.
---
--- * 'versions' - A version range may be supplied which may be of the format:
---
---
---     * a single version number, 5
---
---
---     * a range, 5-8 : deletes versions 5, 6, 7, 8
---
---
--- * 'schemaId' - This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+-- | Creates a 'DeleteSchemaVersions' value with any optional fields omitted.
 mkDeleteSchemaVersions ::
-  -- | 'versions'
-  Lude.Text ->
   -- | 'schemaId'
-  SchemaId ->
+  Types.SchemaId ->
+  -- | 'versions'
+  Types.VersionsString ->
   DeleteSchemaVersions
-mkDeleteSchemaVersions pVersions_ pSchemaId_ =
-  DeleteSchemaVersions'
-    { versions = pVersions_,
-      schemaId = pSchemaId_
-    }
+mkDeleteSchemaVersions schemaId versions =
+  DeleteSchemaVersions' {schemaId, versions}
+
+-- | This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsvSchemaId :: Lens.Lens' DeleteSchemaVersions Types.SchemaId
+dsvSchemaId = Lens.field @"schemaId"
+{-# DEPRECATED dsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
 -- | A version range may be supplied which may be of the format:
 --
@@ -94,88 +87,71 @@ mkDeleteSchemaVersions pVersions_ pSchemaId_ =
 --
 --
 -- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsvVersions :: Lens.Lens' DeleteSchemaVersions Lude.Text
-dsvVersions = Lens.lens (versions :: DeleteSchemaVersions -> Lude.Text) (\s a -> s {versions = a} :: DeleteSchemaVersions)
+dsvVersions :: Lens.Lens' DeleteSchemaVersions Types.VersionsString
+dsvVersions = Lens.field @"versions"
 {-# DEPRECATED dsvVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
--- | This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsvSchemaId :: Lens.Lens' DeleteSchemaVersions SchemaId
-dsvSchemaId = Lens.lens (schemaId :: DeleteSchemaVersions -> SchemaId) (\s a -> s {schemaId = a} :: DeleteSchemaVersions)
-{-# DEPRECATED dsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
+instance Core.FromJSON DeleteSchemaVersions where
+  toJSON DeleteSchemaVersions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaId" Core..= schemaId),
+            Core.Just ("Versions" Core..= versions)
+          ]
+      )
 
-instance Lude.AWSRequest DeleteSchemaVersions where
+instance Core.AWSRequest DeleteSchemaVersions where
   type Rs DeleteSchemaVersions = DeleteSchemaVersionsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeleteSchemaVersions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteSchemaVersionsResponse'
-            Lude.<$> (x Lude..?> "SchemaVersionErrors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SchemaVersionErrors")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSchemaVersions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeleteSchemaVersions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteSchemaVersions where
-  toJSON DeleteSchemaVersions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Versions" Lude..= versions),
-            Lude.Just ("SchemaId" Lude..= schemaId)
-          ]
-      )
-
-instance Lude.ToPath DeleteSchemaVersions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSchemaVersions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSchemaVersionsResponse' smart constructor.
 data DeleteSchemaVersionsResponse = DeleteSchemaVersionsResponse'
   { -- | A list of @SchemaVersionErrorItem@ objects, each containing an error and schema version.
-    schemaVersionErrors :: Lude.Maybe [SchemaVersionErrorItem],
+    schemaVersionErrors :: Core.Maybe [Types.SchemaVersionErrorItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSchemaVersionsResponse' with the minimum fields required to make a request.
---
--- * 'schemaVersionErrors' - A list of @SchemaVersionErrorItem@ objects, each containing an error and schema version.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSchemaVersionsResponse' value with any optional fields omitted.
 mkDeleteSchemaVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSchemaVersionsResponse
-mkDeleteSchemaVersionsResponse pResponseStatus_ =
+mkDeleteSchemaVersionsResponse responseStatus =
   DeleteSchemaVersionsResponse'
-    { schemaVersionErrors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { schemaVersionErrors = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of @SchemaVersionErrorItem@ objects, each containing an error and schema version.
 --
 -- /Note:/ Consider using 'schemaVersionErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsvrsSchemaVersionErrors :: Lens.Lens' DeleteSchemaVersionsResponse (Lude.Maybe [SchemaVersionErrorItem])
-dsvrsSchemaVersionErrors = Lens.lens (schemaVersionErrors :: DeleteSchemaVersionsResponse -> Lude.Maybe [SchemaVersionErrorItem]) (\s a -> s {schemaVersionErrors = a} :: DeleteSchemaVersionsResponse)
-{-# DEPRECATED dsvrsSchemaVersionErrors "Use generic-lens or generic-optics with 'schemaVersionErrors' instead." #-}
+dsvrrsSchemaVersionErrors :: Lens.Lens' DeleteSchemaVersionsResponse (Core.Maybe [Types.SchemaVersionErrorItem])
+dsvrrsSchemaVersionErrors = Lens.field @"schemaVersionErrors"
+{-# DEPRECATED dsvrrsSchemaVersionErrors "Use generic-lens or generic-optics with 'schemaVersionErrors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsvrsResponseStatus :: Lens.Lens' DeleteSchemaVersionsResponse Lude.Int
-dsvrsResponseStatus = Lens.lens (responseStatus :: DeleteSchemaVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSchemaVersionsResponse)
-{-# DEPRECATED dsvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsvrrsResponseStatus :: Lens.Lens' DeleteSchemaVersionsResponse Core.Int
+dsvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -51,71 +51,62 @@ module Network.AWS.GameLift.DeleteFleet
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDeleteFleet' smart constructor.
 newtype DeleteFleet = DeleteFleet'
   { -- | A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text
+    fleetId :: Types.FleetIdOrArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFleet' with the minimum fields required to make a request.
---
--- * 'fleetId' - A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
+-- | Creates a 'DeleteFleet' value with any optional fields omitted.
 mkDeleteFleet ::
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
   DeleteFleet
-mkDeleteFleet pFleetId_ = DeleteFleet' {fleetId = pFleetId_}
+mkDeleteFleet fleetId = DeleteFleet' {fleetId}
 
 -- | A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfFleetId :: Lens.Lens' DeleteFleet Lude.Text
-dfFleetId = Lens.lens (fleetId :: DeleteFleet -> Lude.Text) (\s a -> s {fleetId = a} :: DeleteFleet)
+dfFleetId :: Lens.Lens' DeleteFleet Types.FleetIdOrArn
+dfFleetId = Lens.field @"fleetId"
 {-# DEPRECATED dfFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance Lude.AWSRequest DeleteFleet where
+instance Core.FromJSON DeleteFleet where
+  toJSON DeleteFleet {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("FleetId" Core..= fleetId)])
+
+instance Core.AWSRequest DeleteFleet where
   type Rs DeleteFleet = DeleteFleetResponse
-  request = Req.postJSON gameLiftService
-  response = Res.receiveNull DeleteFleetResponse'
-
-instance Lude.ToHeaders DeleteFleet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DeleteFleet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteFleet where
-  toJSON DeleteFleet' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("FleetId" Lude..= fleetId)])
-
-instance Lude.ToPath DeleteFleet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteFleet where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DeleteFleet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteFleetResponse'
 
 -- | /See:/ 'mkDeleteFleetResponse' smart constructor.
 data DeleteFleetResponse = DeleteFleetResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFleetResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteFleetResponse' value with any optional fields omitted.
 mkDeleteFleetResponse ::
   DeleteFleetResponse
 mkDeleteFleetResponse = DeleteFleetResponse'

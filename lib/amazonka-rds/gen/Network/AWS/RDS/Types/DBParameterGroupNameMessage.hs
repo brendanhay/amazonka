@@ -17,39 +17,38 @@ module Network.AWS.RDS.Types.DBParameterGroupNameMessage
     mkDBParameterGroupNameMessage,
 
     -- * Lenses
-    dpgnmDBParameterGroupName,
+    dbpgnmDBParameterGroupName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Contains the result of a successful invocation of the @ModifyDBParameterGroup@ or @ResetDBParameterGroup@ action.
 --
 -- /See:/ 'mkDBParameterGroupNameMessage' smart constructor.
 newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'
   { -- | The name of the DB parameter group.
-    dbParameterGroupName :: Lude.Maybe Lude.Text
+    dBParameterGroupName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBParameterGroupNameMessage' with the minimum fields required to make a request.
---
--- * 'dbParameterGroupName' - The name of the DB parameter group.
+-- | Creates a 'DBParameterGroupNameMessage' value with any optional fields omitted.
 mkDBParameterGroupNameMessage ::
   DBParameterGroupNameMessage
 mkDBParameterGroupNameMessage =
-  DBParameterGroupNameMessage' {dbParameterGroupName = Lude.Nothing}
+  DBParameterGroupNameMessage' {dBParameterGroupName = Core.Nothing}
 
 -- | The name of the DB parameter group.
 --
--- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgnmDBParameterGroupName :: Lens.Lens' DBParameterGroupNameMessage (Lude.Maybe Lude.Text)
-dpgnmDBParameterGroupName = Lens.lens (dbParameterGroupName :: DBParameterGroupNameMessage -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupName = a} :: DBParameterGroupNameMessage)
-{-# DEPRECATED dpgnmDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'dBParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpgnmDBParameterGroupName :: Lens.Lens' DBParameterGroupNameMessage (Core.Maybe Types.String)
+dbpgnmDBParameterGroupName = Lens.field @"dBParameterGroupName"
+{-# DEPRECATED dbpgnmDBParameterGroupName "Use generic-lens or generic-optics with 'dBParameterGroupName' instead." #-}
 
-instance Lude.FromXML DBParameterGroupNameMessage where
+instance Core.FromXML DBParameterGroupNameMessage where
   parseXML x =
     DBParameterGroupNameMessage'
-      Lude.<$> (x Lude..@? "DBParameterGroupName")
+      Core.<$> (x Core..@? "DBParameterGroupName")

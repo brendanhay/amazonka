@@ -13,56 +13,58 @@
 module Network.AWS.WorkDocs.Types.RoleType
   ( RoleType
       ( RoleType',
-        Viewer,
-        Contributor,
-        Owner,
-        Coowner
+        RoleTypeViewer,
+        RoleTypeContributor,
+        RoleTypeOwner,
+        RoleTypeCoowner,
+        fromRoleType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RoleType = RoleType' Lude.Text
+newtype RoleType = RoleType' {fromRoleType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Viewer :: RoleType
-pattern Viewer = RoleType' "VIEWER"
+pattern RoleTypeViewer :: RoleType
+pattern RoleTypeViewer = RoleType' "VIEWER"
 
-pattern Contributor :: RoleType
-pattern Contributor = RoleType' "CONTRIBUTOR"
+pattern RoleTypeContributor :: RoleType
+pattern RoleTypeContributor = RoleType' "CONTRIBUTOR"
 
-pattern Owner :: RoleType
-pattern Owner = RoleType' "OWNER"
+pattern RoleTypeOwner :: RoleType
+pattern RoleTypeOwner = RoleType' "OWNER"
 
-pattern Coowner :: RoleType
-pattern Coowner = RoleType' "COOWNER"
+pattern RoleTypeCoowner :: RoleType
+pattern RoleTypeCoowner = RoleType' "COOWNER"
 
 {-# COMPLETE
-  Viewer,
-  Contributor,
-  Owner,
-  Coowner,
+  RoleTypeViewer,
+  RoleTypeContributor,
+  RoleTypeOwner,
+  RoleTypeCoowner,
   RoleType'
   #-}

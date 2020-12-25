@@ -22,148 +22,131 @@ module Network.AWS.StepFunctions.StopExecution
     mkStopExecution,
 
     -- ** Request lenses
-    seError,
+    seExecutionArn,
     seCause,
-    seExecutionARN,
+    seError,
 
     -- * Destructuring the response
     StopExecutionResponse (..),
     mkStopExecutionResponse,
 
     -- ** Response lenses
-    srsStopDate,
-    srsResponseStatus,
+    serrsStopDate,
+    serrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StepFunctions.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StepFunctions.Types as Types
 
 -- | /See:/ 'mkStopExecution' smart constructor.
 data StopExecution = StopExecution'
-  { -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The Amazon Resource Name (ARN) of the execution to stop.
+    executionArn :: Types.Arn,
     -- | A more detailed explanation of the cause of the failure.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The Amazon Resource Name (ARN) of the execution to stop.
-    executionARN :: Lude.Text
+    cause :: Core.Maybe Types.SensitiveCause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.SensitiveError
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopExecution' with the minimum fields required to make a request.
---
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the failure.
--- * 'executionARN' - The Amazon Resource Name (ARN) of the execution to stop.
+-- | Creates a 'StopExecution' value with any optional fields omitted.
 mkStopExecution ::
-  -- | 'executionARN'
-  Lude.Text ->
+  -- | 'executionArn'
+  Types.Arn ->
   StopExecution
-mkStopExecution pExecutionARN_ =
+mkStopExecution executionArn =
   StopExecution'
-    { error = Lude.Nothing,
-      cause = Lude.Nothing,
-      executionARN = pExecutionARN_
+    { executionArn,
+      cause = Core.Nothing,
+      error = Core.Nothing
     }
 
--- | The error code of the failure.
+-- | The Amazon Resource Name (ARN) of the execution to stop.
 --
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seError :: Lens.Lens' StopExecution (Lude.Maybe (Lude.Sensitive Lude.Text))
-seError = Lens.lens (error :: StopExecution -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: StopExecution)
-{-# DEPRECATED seError "Use generic-lens or generic-optics with 'error' instead." #-}
+-- /Note:/ Consider using 'executionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seExecutionArn :: Lens.Lens' StopExecution Types.Arn
+seExecutionArn = Lens.field @"executionArn"
+{-# DEPRECATED seExecutionArn "Use generic-lens or generic-optics with 'executionArn' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
 --
 -- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seCause :: Lens.Lens' StopExecution (Lude.Maybe (Lude.Sensitive Lude.Text))
-seCause = Lens.lens (cause :: StopExecution -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: StopExecution)
+seCause :: Lens.Lens' StopExecution (Core.Maybe Types.SensitiveCause)
+seCause = Lens.field @"cause"
 {-# DEPRECATED seCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the execution to stop.
+-- | The error code of the failure.
 --
--- /Note:/ Consider using 'executionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seExecutionARN :: Lens.Lens' StopExecution Lude.Text
-seExecutionARN = Lens.lens (executionARN :: StopExecution -> Lude.Text) (\s a -> s {executionARN = a} :: StopExecution)
-{-# DEPRECATED seExecutionARN "Use generic-lens or generic-optics with 'executionARN' instead." #-}
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seError :: Lens.Lens' StopExecution (Core.Maybe Types.SensitiveError)
+seError = Lens.field @"error"
+{-# DEPRECATED seError "Use generic-lens or generic-optics with 'error' instead." #-}
 
-instance Lude.AWSRequest StopExecution where
+instance Core.FromJSON StopExecution where
+  toJSON StopExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("executionArn" Core..= executionArn),
+            ("cause" Core..=) Core.<$> cause,
+            ("error" Core..=) Core.<$> error
+          ]
+      )
+
+instance Core.AWSRequest StopExecution where
   type Rs StopExecution = StopExecutionResponse
-  request = Req.postJSON stepFunctionsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSStepFunctions.StopExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopExecutionResponse'
-            Lude.<$> (x Lude..:> "stopDate") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "stopDate") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSStepFunctions.StopExecution" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopExecution where
-  toJSON StopExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("error" Lude..=) Lude.<$> error,
-            ("cause" Lude..=) Lude.<$> cause,
-            Lude.Just ("executionArn" Lude..= executionARN)
-          ]
-      )
-
-instance Lude.ToPath StopExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopExecution where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopExecutionResponse' smart constructor.
 data StopExecutionResponse = StopExecutionResponse'
   { -- | The date the execution is stopped.
-    stopDate :: Lude.Timestamp,
+    stopDate :: Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StopExecutionResponse' with the minimum fields required to make a request.
---
--- * 'stopDate' - The date the execution is stopped.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopExecutionResponse' value with any optional fields omitted.
 mkStopExecutionResponse ::
   -- | 'stopDate'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopExecutionResponse
-mkStopExecutionResponse pStopDate_ pResponseStatus_ =
-  StopExecutionResponse'
-    { stopDate = pStopDate_,
-      responseStatus = pResponseStatus_
-    }
+mkStopExecutionResponse stopDate responseStatus =
+  StopExecutionResponse' {stopDate, responseStatus}
 
 -- | The date the execution is stopped.
 --
 -- /Note:/ Consider using 'stopDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsStopDate :: Lens.Lens' StopExecutionResponse Lude.Timestamp
-srsStopDate = Lens.lens (stopDate :: StopExecutionResponse -> Lude.Timestamp) (\s a -> s {stopDate = a} :: StopExecutionResponse)
-{-# DEPRECATED srsStopDate "Use generic-lens or generic-optics with 'stopDate' instead." #-}
+serrsStopDate :: Lens.Lens' StopExecutionResponse Core.NominalDiffTime
+serrsStopDate = Lens.field @"stopDate"
+{-# DEPRECATED serrsStopDate "Use generic-lens or generic-optics with 'stopDate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopExecutionResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopExecutionResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+serrsResponseStatus :: Lens.Lens' StopExecutionResponse Core.Int
+serrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED serrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

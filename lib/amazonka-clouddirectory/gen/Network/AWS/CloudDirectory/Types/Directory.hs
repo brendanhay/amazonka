@@ -17,85 +17,80 @@ module Network.AWS.CloudDirectory.Types.Directory
     mkDirectory,
 
     -- * Lenses
-    dDirectoryARN,
-    dState,
-    dName,
     dCreationDateTime,
+    dDirectoryArn,
+    dName,
+    dState,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.DirectoryState
+import qualified Network.AWS.CloudDirectory.Types.DirectoryArn as Types
+import qualified Network.AWS.CloudDirectory.Types.DirectoryName as Types
+import qualified Network.AWS.CloudDirectory.Types.DirectoryState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Directory structure that includes the directory name and directory ARN.
 --
 -- /See:/ 'mkDirectory' smart constructor.
 data Directory = Directory'
-  { -- | The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
-    directoryARN :: Lude.Maybe Lude.Text,
-    -- | The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
-    state :: Lude.Maybe DirectoryState,
+  { -- | The date and time when the directory was created.
+    creationDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
+    directoryArn :: Core.Maybe Types.DirectoryArn,
     -- | The name of the directory.
-    name :: Lude.Maybe Lude.Text,
-    -- | The date and time when the directory was created.
-    creationDateTime :: Lude.Maybe Lude.Timestamp
+    name :: Core.Maybe Types.DirectoryName,
+    -- | The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
+    state :: Core.Maybe Types.DirectoryState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Directory' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
--- * 'state' - The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
--- * 'name' - The name of the directory.
--- * 'creationDateTime' - The date and time when the directory was created.
+-- | Creates a 'Directory' value with any optional fields omitted.
 mkDirectory ::
   Directory
 mkDirectory =
   Directory'
-    { directoryARN = Lude.Nothing,
-      state = Lude.Nothing,
-      name = Lude.Nothing,
-      creationDateTime = Lude.Nothing
+    { creationDateTime = Core.Nothing,
+      directoryArn = Core.Nothing,
+      name = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
---
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDirectoryARN :: Lens.Lens' Directory (Lude.Maybe Lude.Text)
-dDirectoryARN = Lens.lens (directoryARN :: Directory -> Lude.Maybe Lude.Text) (\s a -> s {directoryARN = a} :: Directory)
-{-# DEPRECATED dDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dState :: Lens.Lens' Directory (Lude.Maybe DirectoryState)
-dState = Lens.lens (state :: Directory -> Lude.Maybe DirectoryState) (\s a -> s {state = a} :: Directory)
-{-# DEPRECATED dState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The name of the directory.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' Directory (Lude.Maybe Lude.Text)
-dName = Lens.lens (name :: Directory -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Directory)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date and time when the directory was created.
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCreationDateTime :: Lens.Lens' Directory (Lude.Maybe Lude.Timestamp)
-dCreationDateTime = Lens.lens (creationDateTime :: Directory -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: Directory)
+dCreationDateTime :: Lens.Lens' Directory (Core.Maybe Core.NominalDiffTime)
+dCreationDateTime = Lens.field @"creationDateTime"
 {-# DEPRECATED dCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
-instance Lude.FromJSON Directory where
+-- | The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
+--
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDirectoryArn :: Lens.Lens' Directory (Core.Maybe Types.DirectoryArn)
+dDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED dDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
+
+-- | The name of the directory.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dName :: Lens.Lens' Directory (Core.Maybe Types.DirectoryName)
+dName = Lens.field @"name"
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dState :: Lens.Lens' Directory (Core.Maybe Types.DirectoryState)
+dState = Lens.field @"state"
+{-# DEPRECATED dState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON Directory where
   parseJSON =
-    Lude.withObject
-      "Directory"
-      ( \x ->
-          Directory'
-            Lude.<$> (x Lude..:? "DirectoryArn")
-            Lude.<*> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "CreationDateTime")
-      )
+    Core.withObject "Directory" Core.$
+      \x ->
+        Directory'
+          Core.<$> (x Core..:? "CreationDateTime")
+          Core.<*> (x Core..:? "DirectoryArn")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "State")

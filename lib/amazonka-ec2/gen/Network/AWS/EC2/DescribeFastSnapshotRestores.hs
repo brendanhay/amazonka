@@ -22,32 +22,34 @@ module Network.AWS.EC2.DescribeFastSnapshotRestores
     mkDescribeFastSnapshotRestores,
 
     -- ** Request lenses
-    dfsrFilters,
-    dfsrNextToken,
     dfsrDryRun,
+    dfsrFilters,
     dfsrMaxResults,
+    dfsrNextToken,
 
     -- * Destructuring the response
     DescribeFastSnapshotRestoresResponse (..),
     mkDescribeFastSnapshotRestoresResponse,
 
     -- ** Response lenses
-    dfsrsrsFastSnapshotRestores,
-    dfsrsrsNextToken,
-    dfsrsrsResponseStatus,
+    dfsrrrsFastSnapshotRestores,
+    dfsrrrsNextToken,
+    dfsrrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeFastSnapshotRestores' smart constructor.
 data DescribeFastSnapshotRestores = DescribeFastSnapshotRestores'
-  { -- | The filters. The possible values are:
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The filters. The possible values are:
     --
     --
     --     * @availability-zone@ : The Availability Zone of the snapshot.
@@ -60,46 +62,32 @@ data DescribeFastSnapshotRestores = DescribeFastSnapshotRestores'
     --
     --
     --     * @state@ : The state of fast snapshot restores for the snapshot (@enabling@ | @optimizing@ | @enabled@ | @disabling@ | @disabled@ ).
-    filters :: Lude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFastSnapshotRestores' with the minimum fields required to make a request.
---
--- * 'filters' - The filters. The possible values are:
---
---
---     * @availability-zone@ : The Availability Zone of the snapshot.
---
---
---     * @owner-id@ : The ID of the AWS account that enabled fast snapshot restore on the snapshot.
---
---
---     * @snapshot-id@ : The ID of the snapshot.
---
---
---     * @state@ : The state of fast snapshot restores for the snapshot (@enabling@ | @optimizing@ | @enabled@ | @disabling@ | @disabled@ ).
---
---
--- * 'nextToken' - The token for the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'DescribeFastSnapshotRestores' value with any optional fields omitted.
 mkDescribeFastSnapshotRestores ::
   DescribeFastSnapshotRestores
 mkDescribeFastSnapshotRestores =
   DescribeFastSnapshotRestores'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrDryRun :: Lens.Lens' DescribeFastSnapshotRestores (Core.Maybe Core.Bool)
+dfsrDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dfsrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The filters. The possible values are:
 --
@@ -118,120 +106,114 @@ mkDescribeFastSnapshotRestores =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrFilters :: Lens.Lens' DescribeFastSnapshotRestores (Lude.Maybe [Filter])
-dfsrFilters = Lens.lens (filters :: DescribeFastSnapshotRestores -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeFastSnapshotRestores)
+dfsrFilters :: Lens.Lens' DescribeFastSnapshotRestores (Core.Maybe [Types.Filter])
+dfsrFilters = Lens.field @"filters"
 {-# DEPRECATED dfsrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrNextToken :: Lens.Lens' DescribeFastSnapshotRestores (Lude.Maybe Lude.Text)
-dfsrNextToken = Lens.lens (nextToken :: DescribeFastSnapshotRestores -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFastSnapshotRestores)
-{-# DEPRECATED dfsrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrDryRun :: Lens.Lens' DescribeFastSnapshotRestores (Lude.Maybe Lude.Bool)
-dfsrDryRun = Lens.lens (dryRun :: DescribeFastSnapshotRestores -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFastSnapshotRestores)
-{-# DEPRECATED dfsrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrMaxResults :: Lens.Lens' DescribeFastSnapshotRestores (Lude.Maybe Lude.Natural)
-dfsrMaxResults = Lens.lens (maxResults :: DescribeFastSnapshotRestores -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeFastSnapshotRestores)
+dfsrMaxResults :: Lens.Lens' DescribeFastSnapshotRestores (Core.Maybe Core.Natural)
+dfsrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dfsrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeFastSnapshotRestores where
-  page rq rs
-    | Page.stop (rs Lens.^. dfsrsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dfsrsrsFastSnapshotRestores) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dfsrNextToken Lens..~ rs Lens.^. dfsrsrsNextToken
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrNextToken :: Lens.Lens' DescribeFastSnapshotRestores (Core.Maybe Types.NextToken)
+dfsrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dfsrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeFastSnapshotRestores where
+instance Core.AWSRequest DescribeFastSnapshotRestores where
   type
     Rs DescribeFastSnapshotRestores =
       DescribeFastSnapshotRestoresResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeFastSnapshotRestores")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeFastSnapshotRestoresResponse'
-            Lude.<$> ( x Lude..@? "fastSnapshotRestoreSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "fastSnapshotRestoreSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeFastSnapshotRestores where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeFastSnapshotRestores where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeFastSnapshotRestores where
-  toQuery DescribeFastSnapshotRestores' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeFastSnapshotRestores" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeFastSnapshotRestores where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"fastSnapshotRestores" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeFastSnapshotRestoresResponse' smart constructor.
 data DescribeFastSnapshotRestoresResponse = DescribeFastSnapshotRestoresResponse'
   { -- | Information about the state of fast snapshot restores.
-    fastSnapshotRestores :: Lude.Maybe [DescribeFastSnapshotRestoreSuccessItem],
+    fastSnapshotRestores :: Core.Maybe [Types.DescribeFastSnapshotRestoreSuccessItem],
     -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeFastSnapshotRestoresResponse' with the minimum fields required to make a request.
---
--- * 'fastSnapshotRestores' - Information about the state of fast snapshot restores.
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeFastSnapshotRestoresResponse' value with any optional fields omitted.
 mkDescribeFastSnapshotRestoresResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeFastSnapshotRestoresResponse
-mkDescribeFastSnapshotRestoresResponse pResponseStatus_ =
+mkDescribeFastSnapshotRestoresResponse responseStatus =
   DescribeFastSnapshotRestoresResponse'
     { fastSnapshotRestores =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the state of fast snapshot restores.
 --
 -- /Note:/ Consider using 'fastSnapshotRestores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsrsFastSnapshotRestores :: Lens.Lens' DescribeFastSnapshotRestoresResponse (Lude.Maybe [DescribeFastSnapshotRestoreSuccessItem])
-dfsrsrsFastSnapshotRestores = Lens.lens (fastSnapshotRestores :: DescribeFastSnapshotRestoresResponse -> Lude.Maybe [DescribeFastSnapshotRestoreSuccessItem]) (\s a -> s {fastSnapshotRestores = a} :: DescribeFastSnapshotRestoresResponse)
-{-# DEPRECATED dfsrsrsFastSnapshotRestores "Use generic-lens or generic-optics with 'fastSnapshotRestores' instead." #-}
+dfsrrrsFastSnapshotRestores :: Lens.Lens' DescribeFastSnapshotRestoresResponse (Core.Maybe [Types.DescribeFastSnapshotRestoreSuccessItem])
+dfsrrrsFastSnapshotRestores = Lens.field @"fastSnapshotRestores"
+{-# DEPRECATED dfsrrrsFastSnapshotRestores "Use generic-lens or generic-optics with 'fastSnapshotRestores' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsrsNextToken :: Lens.Lens' DescribeFastSnapshotRestoresResponse (Lude.Maybe Lude.Text)
-dfsrsrsNextToken = Lens.lens (nextToken :: DescribeFastSnapshotRestoresResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFastSnapshotRestoresResponse)
-{-# DEPRECATED dfsrsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dfsrrrsNextToken :: Lens.Lens' DescribeFastSnapshotRestoresResponse (Core.Maybe Types.NextToken)
+dfsrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dfsrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsrsResponseStatus :: Lens.Lens' DescribeFastSnapshotRestoresResponse Lude.Int
-dfsrsrsResponseStatus = Lens.lens (responseStatus :: DescribeFastSnapshotRestoresResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFastSnapshotRestoresResponse)
-{-# DEPRECATED dfsrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfsrrrsResponseStatus :: Lens.Lens' DescribeFastSnapshotRestoresResponse Core.Int
+dfsrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfsrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

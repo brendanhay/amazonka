@@ -17,13 +17,15 @@ module Network.AWS.SES.Types.AddHeaderAction
     mkAddHeaderAction,
 
     -- * Lenses
-    ahaHeaderValue,
     ahaHeaderName,
+    ahaHeaderValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.HeaderName as Types
+import qualified Network.AWS.SES.Types.HeaderValue as Types
 
 -- | When included in a receipt rule, this action adds a header to the received email.
 --
@@ -31,52 +33,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddHeaderAction' smart constructor.
 data AddHeaderAction = AddHeaderAction'
-  { -- | Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
-    headerValue :: Lude.Text,
-    -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
-    headerName :: Lude.Text
+  { -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+    headerName :: Types.HeaderName,
+    -- | Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+    headerValue :: Types.HeaderValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddHeaderAction' with the minimum fields required to make a request.
---
--- * 'headerValue' - Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
--- * 'headerName' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+-- | Creates a 'AddHeaderAction' value with any optional fields omitted.
 mkAddHeaderAction ::
-  -- | 'headerValue'
-  Lude.Text ->
   -- | 'headerName'
-  Lude.Text ->
+  Types.HeaderName ->
+  -- | 'headerValue'
+  Types.HeaderValue ->
   AddHeaderAction
-mkAddHeaderAction pHeaderValue_ pHeaderName_ =
-  AddHeaderAction'
-    { headerValue = pHeaderValue_,
-      headerName = pHeaderName_
-    }
-
--- | Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
---
--- /Note:/ Consider using 'headerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahaHeaderValue :: Lens.Lens' AddHeaderAction Lude.Text
-ahaHeaderValue = Lens.lens (headerValue :: AddHeaderAction -> Lude.Text) (\s a -> s {headerValue = a} :: AddHeaderAction)
-{-# DEPRECATED ahaHeaderValue "Use generic-lens or generic-optics with 'headerValue' instead." #-}
+mkAddHeaderAction headerName headerValue =
+  AddHeaderAction' {headerName, headerValue}
 
 -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 --
 -- /Note:/ Consider using 'headerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahaHeaderName :: Lens.Lens' AddHeaderAction Lude.Text
-ahaHeaderName = Lens.lens (headerName :: AddHeaderAction -> Lude.Text) (\s a -> s {headerName = a} :: AddHeaderAction)
+ahaHeaderName :: Lens.Lens' AddHeaderAction Types.HeaderName
+ahaHeaderName = Lens.field @"headerName"
 {-# DEPRECATED ahaHeaderName "Use generic-lens or generic-optics with 'headerName' instead." #-}
 
-instance Lude.FromXML AddHeaderAction where
+-- | Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+--
+-- /Note:/ Consider using 'headerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahaHeaderValue :: Lens.Lens' AddHeaderAction Types.HeaderValue
+ahaHeaderValue = Lens.field @"headerValue"
+{-# DEPRECATED ahaHeaderValue "Use generic-lens or generic-optics with 'headerValue' instead." #-}
+
+instance Core.FromXML AddHeaderAction where
   parseXML x =
     AddHeaderAction'
-      Lude.<$> (x Lude..@ "HeaderValue") Lude.<*> (x Lude..@ "HeaderName")
-
-instance Lude.ToQuery AddHeaderAction where
-  toQuery AddHeaderAction' {..} =
-    Lude.mconcat
-      [ "HeaderValue" Lude.=: headerValue,
-        "HeaderName" Lude.=: headerName
-      ]
+      Core.<$> (x Core..@ "HeaderName") Core.<*> (x Core..@ "HeaderValue")

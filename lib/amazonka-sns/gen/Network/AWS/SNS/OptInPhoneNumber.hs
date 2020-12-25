@@ -29,90 +29,88 @@ module Network.AWS.SNS.OptInPhoneNumber
     mkOptInPhoneNumberResponse,
 
     -- ** Response lenses
-    oipnrsResponseStatus,
+    oipnrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for the OptInPhoneNumber action.
 --
 -- /See:/ 'mkOptInPhoneNumber' smart constructor.
 newtype OptInPhoneNumber = OptInPhoneNumber'
   { -- | The phone number to opt in.
-    phoneNumber :: Lude.Text
+    phoneNumber :: Types.PhoneNumber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OptInPhoneNumber' with the minimum fields required to make a request.
---
--- * 'phoneNumber' - The phone number to opt in.
+-- | Creates a 'OptInPhoneNumber' value with any optional fields omitted.
 mkOptInPhoneNumber ::
   -- | 'phoneNumber'
-  Lude.Text ->
+  Types.PhoneNumber ->
   OptInPhoneNumber
-mkOptInPhoneNumber pPhoneNumber_ =
-  OptInPhoneNumber' {phoneNumber = pPhoneNumber_}
+mkOptInPhoneNumber phoneNumber = OptInPhoneNumber' {phoneNumber}
 
 -- | The phone number to opt in.
 --
 -- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oipnPhoneNumber :: Lens.Lens' OptInPhoneNumber Lude.Text
-oipnPhoneNumber = Lens.lens (phoneNumber :: OptInPhoneNumber -> Lude.Text) (\s a -> s {phoneNumber = a} :: OptInPhoneNumber)
+oipnPhoneNumber :: Lens.Lens' OptInPhoneNumber Types.PhoneNumber
+oipnPhoneNumber = Lens.field @"phoneNumber"
 {-# DEPRECATED oipnPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
-instance Lude.AWSRequest OptInPhoneNumber where
+instance Core.AWSRequest OptInPhoneNumber where
   type Rs OptInPhoneNumber = OptInPhoneNumberResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "OptInPhoneNumber")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "phoneNumber" phoneNumber)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "OptInPhoneNumberResult"
       ( \s h x ->
-          OptInPhoneNumberResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          OptInPhoneNumberResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders OptInPhoneNumber where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath OptInPhoneNumber where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery OptInPhoneNumber where
-  toQuery OptInPhoneNumber' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("OptInPhoneNumber" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "phoneNumber" Lude.=: phoneNumber
-      ]
 
 -- | The response for the OptInPhoneNumber action.
 --
 -- /See:/ 'mkOptInPhoneNumberResponse' smart constructor.
 newtype OptInPhoneNumberResponse = OptInPhoneNumberResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OptInPhoneNumberResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'OptInPhoneNumberResponse' value with any optional fields omitted.
 mkOptInPhoneNumberResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   OptInPhoneNumberResponse
-mkOptInPhoneNumberResponse pResponseStatus_ =
-  OptInPhoneNumberResponse' {responseStatus = pResponseStatus_}
+mkOptInPhoneNumberResponse responseStatus =
+  OptInPhoneNumberResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oipnrsResponseStatus :: Lens.Lens' OptInPhoneNumberResponse Lude.Int
-oipnrsResponseStatus = Lens.lens (responseStatus :: OptInPhoneNumberResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: OptInPhoneNumberResponse)
-{-# DEPRECATED oipnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+oipnrrsResponseStatus :: Lens.Lens' OptInPhoneNumberResponse Core.Int
+oipnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED oipnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

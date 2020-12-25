@@ -23,10 +23,10 @@ module Network.AWS.CloudFront.Types.AllowedMethods
   )
 where
 
-import Network.AWS.CloudFront.Types.CachedMethods
-import Network.AWS.CloudFront.Types.Method
+import qualified Network.AWS.CloudFront.Types.CachedMethods as Types
+import qualified Network.AWS.CloudFront.Types.Method as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:
 --
@@ -45,64 +45,58 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkAllowedMethods' smart constructor.
 data AllowedMethods = AllowedMethods'
   { -- | The number of HTTP methods that you want CloudFront to forward to your origin. Valid values are 2 (for @GET@ and @HEAD@ requests), 3 (for @GET@ , @HEAD@ , and @OPTIONS@ requests) and 7 (for @GET, HEAD, OPTIONS, PUT, PATCH, POST@ , and @DELETE@ requests).
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.
-    items :: [Method],
-    cachedMethods :: Lude.Maybe CachedMethods
+    items :: [Types.Method],
+    cachedMethods :: Core.Maybe Types.CachedMethods
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AllowedMethods' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of HTTP methods that you want CloudFront to forward to your origin. Valid values are 2 (for @GET@ and @HEAD@ requests), 3 (for @GET@ , @HEAD@ , and @OPTIONS@ requests) and 7 (for @GET, HEAD, OPTIONS, PUT, PATCH, POST@ , and @DELETE@ requests).
--- * 'items' - A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.
--- * 'cachedMethods' -
+-- | Creates a 'AllowedMethods' value with any optional fields omitted.
 mkAllowedMethods ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   AllowedMethods
-mkAllowedMethods pQuantity_ =
+mkAllowedMethods quantity =
   AllowedMethods'
-    { quantity = pQuantity_,
-      items = Lude.mempty,
-      cachedMethods = Lude.Nothing
+    { quantity,
+      items = Core.mempty,
+      cachedMethods = Core.Nothing
     }
 
 -- | The number of HTTP methods that you want CloudFront to forward to your origin. Valid values are 2 (for @GET@ and @HEAD@ requests), 3 (for @GET@ , @HEAD@ , and @OPTIONS@ requests) and 7 (for @GET, HEAD, OPTIONS, PUT, PATCH, POST@ , and @DELETE@ requests).
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amQuantity :: Lens.Lens' AllowedMethods Lude.Int
-amQuantity = Lens.lens (quantity :: AllowedMethods -> Lude.Int) (\s a -> s {quantity = a} :: AllowedMethods)
+amQuantity :: Lens.Lens' AllowedMethods Core.Int
+amQuantity = Lens.field @"quantity"
 {-# DEPRECATED amQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amItems :: Lens.Lens' AllowedMethods [Method]
-amItems = Lens.lens (items :: AllowedMethods -> [Method]) (\s a -> s {items = a} :: AllowedMethods)
+amItems :: Lens.Lens' AllowedMethods [Types.Method]
+amItems = Lens.field @"items"
 {-# DEPRECATED amItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cachedMethods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amCachedMethods :: Lens.Lens' AllowedMethods (Lude.Maybe CachedMethods)
-amCachedMethods = Lens.lens (cachedMethods :: AllowedMethods -> Lude.Maybe CachedMethods) (\s a -> s {cachedMethods = a} :: AllowedMethods)
+amCachedMethods :: Lens.Lens' AllowedMethods (Core.Maybe Types.CachedMethods)
+amCachedMethods = Lens.field @"cachedMethods"
 {-# DEPRECATED amCachedMethods "Use generic-lens or generic-optics with 'cachedMethods' instead." #-}
 
-instance Lude.FromXML AllowedMethods where
+instance Core.ToXML AllowedMethods where
+  toXML AllowedMethods {..} =
+    Core.toXMLNode "Quantity" quantity
+      Core.<> Core.toXMLNode "Items" (Core.toXMLList "Method" items)
+      Core.<> Core.toXMLNode "CachedMethods" Core.<$> cachedMethods
+
+instance Core.FromXML AllowedMethods where
   parseXML x =
     AllowedMethods'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.parseXMLList "Method"
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> ( x Core..@? "Items" Core..@! Core.mempty
+                   Core..<@> Core.parseXMLList "Method"
                )
-      Lude.<*> (x Lude..@? "CachedMethods")
-
-instance Lude.ToXML AllowedMethods where
-  toXML AllowedMethods' {..} =
-    Lude.mconcat
-      [ "Quantity" Lude.@= quantity,
-        "Items" Lude.@= Lude.toXMLList "Method" items,
-        "CachedMethods" Lude.@= cachedMethods
-      ]
+      Core.<*> (x Core..@? "CachedMethods")

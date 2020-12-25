@@ -20,161 +20,148 @@ module Network.AWS.Connect.CreateUserHierarchyGroup
     mkCreateUserHierarchyGroup,
 
     -- ** Request lenses
+    cuhgName,
     cuhgInstanceId,
     cuhgParentGroupId,
-    cuhgName,
 
     -- * Destructuring the response
     CreateUserHierarchyGroupResponse (..),
     mkCreateUserHierarchyGroupResponse,
 
     -- ** Response lenses
-    cuhgrsHierarchyGroupARN,
-    cuhgrsHierarchyGroupId,
-    cuhgrsResponseStatus,
+    cuhgrrsHierarchyGroupArn,
+    cuhgrrsHierarchyGroupId,
+    cuhgrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateUserHierarchyGroup' smart constructor.
 data CreateUserHierarchyGroup = CreateUserHierarchyGroup'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+  { -- | The name of the user hierarchy group. Must not be more than 100 characters.
+    name :: Types.Name,
+    -- | The identifier of the Amazon Connect instance.
+    instanceId :: Types.InstanceId,
     -- | The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
-    parentGroupId :: Lude.Maybe Lude.Text,
-    -- | The name of the user hierarchy group. Must not be more than 100 characters.
-    name :: Lude.Text
+    parentGroupId :: Core.Maybe Types.ParentGroupId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUserHierarchyGroup' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'parentGroupId' - The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
--- * 'name' - The name of the user hierarchy group. Must not be more than 100 characters.
+-- | Creates a 'CreateUserHierarchyGroup' value with any optional fields omitted.
 mkCreateUserHierarchyGroup ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   CreateUserHierarchyGroup
-mkCreateUserHierarchyGroup pInstanceId_ pName_ =
+mkCreateUserHierarchyGroup name instanceId =
   CreateUserHierarchyGroup'
-    { instanceId = pInstanceId_,
-      parentGroupId = Lude.Nothing,
-      name = pName_
+    { name,
+      instanceId,
+      parentGroupId = Core.Nothing
     }
+
+-- | The name of the user hierarchy group. Must not be more than 100 characters.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuhgName :: Lens.Lens' CreateUserHierarchyGroup Types.Name
+cuhgName = Lens.field @"name"
+{-# DEPRECATED cuhgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuhgInstanceId :: Lens.Lens' CreateUserHierarchyGroup Lude.Text
-cuhgInstanceId = Lens.lens (instanceId :: CreateUserHierarchyGroup -> Lude.Text) (\s a -> s {instanceId = a} :: CreateUserHierarchyGroup)
+cuhgInstanceId :: Lens.Lens' CreateUserHierarchyGroup Types.InstanceId
+cuhgInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED cuhgInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 --
 -- /Note:/ Consider using 'parentGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuhgParentGroupId :: Lens.Lens' CreateUserHierarchyGroup (Lude.Maybe Lude.Text)
-cuhgParentGroupId = Lens.lens (parentGroupId :: CreateUserHierarchyGroup -> Lude.Maybe Lude.Text) (\s a -> s {parentGroupId = a} :: CreateUserHierarchyGroup)
+cuhgParentGroupId :: Lens.Lens' CreateUserHierarchyGroup (Core.Maybe Types.ParentGroupId)
+cuhgParentGroupId = Lens.field @"parentGroupId"
 {-# DEPRECATED cuhgParentGroupId "Use generic-lens or generic-optics with 'parentGroupId' instead." #-}
 
--- | The name of the user hierarchy group. Must not be more than 100 characters.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuhgName :: Lens.Lens' CreateUserHierarchyGroup Lude.Text
-cuhgName = Lens.lens (name :: CreateUserHierarchyGroup -> Lude.Text) (\s a -> s {name = a} :: CreateUserHierarchyGroup)
-{-# DEPRECATED cuhgName "Use generic-lens or generic-optics with 'name' instead." #-}
+instance Core.FromJSON CreateUserHierarchyGroup where
+  toJSON CreateUserHierarchyGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("ParentGroupId" Core..=) Core.<$> parentGroupId
+          ]
+      )
 
-instance Lude.AWSRequest CreateUserHierarchyGroup where
+instance Core.AWSRequest CreateUserHierarchyGroup where
   type Rs CreateUserHierarchyGroup = CreateUserHierarchyGroupResponse
-  request = Req.putJSON connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ("/user-hierarchy-groups/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateUserHierarchyGroupResponse'
-            Lude.<$> (x Lude..?> "HierarchyGroupArn")
-            Lude.<*> (x Lude..?> "HierarchyGroupId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "HierarchyGroupArn")
+            Core.<*> (x Core..:? "HierarchyGroupId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateUserHierarchyGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateUserHierarchyGroup where
-  toJSON CreateUserHierarchyGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ParentGroupId" Lude..=) Lude.<$> parentGroupId,
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath CreateUserHierarchyGroup where
-  toPath CreateUserHierarchyGroup' {..} =
-    Lude.mconcat ["/user-hierarchy-groups/", Lude.toBS instanceId]
-
-instance Lude.ToQuery CreateUserHierarchyGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateUserHierarchyGroupResponse' smart constructor.
 data CreateUserHierarchyGroupResponse = CreateUserHierarchyGroupResponse'
   { -- | The Amazon Resource Name (ARN) of the hierarchy group.
-    hierarchyGroupARN :: Lude.Maybe Lude.Text,
+    hierarchyGroupArn :: Core.Maybe Types.ARN,
     -- | The identifier of the hierarchy group.
-    hierarchyGroupId :: Lude.Maybe Lude.Text,
+    hierarchyGroupId :: Core.Maybe Types.HierarchyGroupId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUserHierarchyGroupResponse' with the minimum fields required to make a request.
---
--- * 'hierarchyGroupARN' - The Amazon Resource Name (ARN) of the hierarchy group.
--- * 'hierarchyGroupId' - The identifier of the hierarchy group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateUserHierarchyGroupResponse' value with any optional fields omitted.
 mkCreateUserHierarchyGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateUserHierarchyGroupResponse
-mkCreateUserHierarchyGroupResponse pResponseStatus_ =
+mkCreateUserHierarchyGroupResponse responseStatus =
   CreateUserHierarchyGroupResponse'
-    { hierarchyGroupARN =
-        Lude.Nothing,
-      hierarchyGroupId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { hierarchyGroupArn =
+        Core.Nothing,
+      hierarchyGroupId = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the hierarchy group.
 --
--- /Note:/ Consider using 'hierarchyGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuhgrsHierarchyGroupARN :: Lens.Lens' CreateUserHierarchyGroupResponse (Lude.Maybe Lude.Text)
-cuhgrsHierarchyGroupARN = Lens.lens (hierarchyGroupARN :: CreateUserHierarchyGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {hierarchyGroupARN = a} :: CreateUserHierarchyGroupResponse)
-{-# DEPRECATED cuhgrsHierarchyGroupARN "Use generic-lens or generic-optics with 'hierarchyGroupARN' instead." #-}
+-- /Note:/ Consider using 'hierarchyGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuhgrrsHierarchyGroupArn :: Lens.Lens' CreateUserHierarchyGroupResponse (Core.Maybe Types.ARN)
+cuhgrrsHierarchyGroupArn = Lens.field @"hierarchyGroupArn"
+{-# DEPRECATED cuhgrrsHierarchyGroupArn "Use generic-lens or generic-optics with 'hierarchyGroupArn' instead." #-}
 
 -- | The identifier of the hierarchy group.
 --
 -- /Note:/ Consider using 'hierarchyGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuhgrsHierarchyGroupId :: Lens.Lens' CreateUserHierarchyGroupResponse (Lude.Maybe Lude.Text)
-cuhgrsHierarchyGroupId = Lens.lens (hierarchyGroupId :: CreateUserHierarchyGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {hierarchyGroupId = a} :: CreateUserHierarchyGroupResponse)
-{-# DEPRECATED cuhgrsHierarchyGroupId "Use generic-lens or generic-optics with 'hierarchyGroupId' instead." #-}
+cuhgrrsHierarchyGroupId :: Lens.Lens' CreateUserHierarchyGroupResponse (Core.Maybe Types.HierarchyGroupId)
+cuhgrrsHierarchyGroupId = Lens.field @"hierarchyGroupId"
+{-# DEPRECATED cuhgrrsHierarchyGroupId "Use generic-lens or generic-optics with 'hierarchyGroupId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuhgrsResponseStatus :: Lens.Lens' CreateUserHierarchyGroupResponse Lude.Int
-cuhgrsResponseStatus = Lens.lens (responseStatus :: CreateUserHierarchyGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserHierarchyGroupResponse)
-{-# DEPRECATED cuhgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cuhgrrsResponseStatus :: Lens.Lens' CreateUserHierarchyGroupResponse Core.Int
+cuhgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cuhgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

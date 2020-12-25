@@ -23,53 +23,47 @@ module Network.AWS.XRay.Types.ErrorRootCause
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.XRay.Types.ErrorRootCauseService
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.ErrorRootCauseService as Types
 
 -- | The root cause of a trace summary error.
 --
 -- /See:/ 'mkErrorRootCause' smart constructor.
 data ErrorRootCause = ErrorRootCause'
   { -- | A flag that denotes that the root cause impacts the trace client.
-    clientImpacting :: Lude.Maybe Lude.Bool,
+    clientImpacting :: Core.Maybe Core.Bool,
     -- | A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
-    services :: Lude.Maybe [ErrorRootCauseService]
+    services :: Core.Maybe [Types.ErrorRootCauseService]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ErrorRootCause' with the minimum fields required to make a request.
---
--- * 'clientImpacting' - A flag that denotes that the root cause impacts the trace client.
--- * 'services' - A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
+-- | Creates a 'ErrorRootCause' value with any optional fields omitted.
 mkErrorRootCause ::
   ErrorRootCause
 mkErrorRootCause =
   ErrorRootCause'
-    { clientImpacting = Lude.Nothing,
-      services = Lude.Nothing
+    { clientImpacting = Core.Nothing,
+      services = Core.Nothing
     }
 
 -- | A flag that denotes that the root cause impacts the trace client.
 --
 -- /Note:/ Consider using 'clientImpacting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ercClientImpacting :: Lens.Lens' ErrorRootCause (Lude.Maybe Lude.Bool)
-ercClientImpacting = Lens.lens (clientImpacting :: ErrorRootCause -> Lude.Maybe Lude.Bool) (\s a -> s {clientImpacting = a} :: ErrorRootCause)
+ercClientImpacting :: Lens.Lens' ErrorRootCause (Core.Maybe Core.Bool)
+ercClientImpacting = Lens.field @"clientImpacting"
 {-# DEPRECATED ercClientImpacting "Use generic-lens or generic-optics with 'clientImpacting' instead." #-}
 
 -- | A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
 --
 -- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ercServices :: Lens.Lens' ErrorRootCause (Lude.Maybe [ErrorRootCauseService])
-ercServices = Lens.lens (services :: ErrorRootCause -> Lude.Maybe [ErrorRootCauseService]) (\s a -> s {services = a} :: ErrorRootCause)
+ercServices :: Lens.Lens' ErrorRootCause (Core.Maybe [Types.ErrorRootCauseService])
+ercServices = Lens.field @"services"
 {-# DEPRECATED ercServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
-instance Lude.FromJSON ErrorRootCause where
+instance Core.FromJSON ErrorRootCause where
   parseJSON =
-    Lude.withObject
-      "ErrorRootCause"
-      ( \x ->
-          ErrorRootCause'
-            Lude.<$> (x Lude..:? "ClientImpacting")
-            Lude.<*> (x Lude..:? "Services" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ErrorRootCause" Core.$
+      \x ->
+        ErrorRootCause'
+          Core.<$> (x Core..:? "ClientImpacting") Core.<*> (x Core..:? "Services")

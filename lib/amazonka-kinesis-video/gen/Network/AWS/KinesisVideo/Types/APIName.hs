@@ -13,71 +13,73 @@
 module Network.AWS.KinesisVideo.Types.APIName
   ( APIName
       ( APIName',
-        PutMedia,
-        GetMedia,
-        ListFragments,
-        GetMediaForFragmentList,
-        GetHlsStreamingSessionURL,
-        GetDashStreamingSessionURL,
-        GetClip
+        APINamePutMedia,
+        APINameGetMedia,
+        APINameListFragments,
+        APINameGetMediaForFragmentList,
+        APINameGetHlsStreamingSessionUrl,
+        APINameGetDashStreamingSessionUrl,
+        APINameGetClip,
+        fromAPIName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype APIName = APIName' Lude.Text
+newtype APIName = APIName' {fromAPIName :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PutMedia :: APIName
-pattern PutMedia = APIName' "PUT_MEDIA"
+pattern APINamePutMedia :: APIName
+pattern APINamePutMedia = APIName' "PUT_MEDIA"
 
-pattern GetMedia :: APIName
-pattern GetMedia = APIName' "GET_MEDIA"
+pattern APINameGetMedia :: APIName
+pattern APINameGetMedia = APIName' "GET_MEDIA"
 
-pattern ListFragments :: APIName
-pattern ListFragments = APIName' "LIST_FRAGMENTS"
+pattern APINameListFragments :: APIName
+pattern APINameListFragments = APIName' "LIST_FRAGMENTS"
 
-pattern GetMediaForFragmentList :: APIName
-pattern GetMediaForFragmentList = APIName' "GET_MEDIA_FOR_FRAGMENT_LIST"
+pattern APINameGetMediaForFragmentList :: APIName
+pattern APINameGetMediaForFragmentList = APIName' "GET_MEDIA_FOR_FRAGMENT_LIST"
 
-pattern GetHlsStreamingSessionURL :: APIName
-pattern GetHlsStreamingSessionURL = APIName' "GET_HLS_STREAMING_SESSION_URL"
+pattern APINameGetHlsStreamingSessionUrl :: APIName
+pattern APINameGetHlsStreamingSessionUrl = APIName' "GET_HLS_STREAMING_SESSION_URL"
 
-pattern GetDashStreamingSessionURL :: APIName
-pattern GetDashStreamingSessionURL = APIName' "GET_DASH_STREAMING_SESSION_URL"
+pattern APINameGetDashStreamingSessionUrl :: APIName
+pattern APINameGetDashStreamingSessionUrl = APIName' "GET_DASH_STREAMING_SESSION_URL"
 
-pattern GetClip :: APIName
-pattern GetClip = APIName' "GET_CLIP"
+pattern APINameGetClip :: APIName
+pattern APINameGetClip = APIName' "GET_CLIP"
 
 {-# COMPLETE
-  PutMedia,
-  GetMedia,
-  ListFragments,
-  GetMediaForFragmentList,
-  GetHlsStreamingSessionURL,
-  GetDashStreamingSessionURL,
-  GetClip,
+  APINamePutMedia,
+  APINameGetMedia,
+  APINameListFragments,
+  APINameGetMediaForFragmentList,
+  APINameGetHlsStreamingSessionUrl,
+  APINameGetDashStreamingSessionUrl,
+  APINameGetClip,
   APIName'
   #-}

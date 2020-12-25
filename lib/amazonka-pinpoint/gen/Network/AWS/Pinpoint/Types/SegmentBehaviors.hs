@@ -22,40 +22,37 @@ module Network.AWS.Pinpoint.Types.SegmentBehaviors
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.RecencyDimension
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.RecencyDimension as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies dimension settings for including or excluding endpoints from a segment based on how recently an endpoint was active.
 --
 -- /See:/ 'mkSegmentBehaviors' smart constructor.
 newtype SegmentBehaviors = SegmentBehaviors'
   { -- | The dimension settings that are based on how recently an endpoint was active.
-    recency :: Lude.Maybe RecencyDimension
+    recency :: Core.Maybe Types.RecencyDimension
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SegmentBehaviors' with the minimum fields required to make a request.
---
--- * 'recency' - The dimension settings that are based on how recently an endpoint was active.
+-- | Creates a 'SegmentBehaviors' value with any optional fields omitted.
 mkSegmentBehaviors ::
   SegmentBehaviors
-mkSegmentBehaviors = SegmentBehaviors' {recency = Lude.Nothing}
+mkSegmentBehaviors = SegmentBehaviors' {recency = Core.Nothing}
 
 -- | The dimension settings that are based on how recently an endpoint was active.
 --
 -- /Note:/ Consider using 'recency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbRecency :: Lens.Lens' SegmentBehaviors (Lude.Maybe RecencyDimension)
-sbRecency = Lens.lens (recency :: SegmentBehaviors -> Lude.Maybe RecencyDimension) (\s a -> s {recency = a} :: SegmentBehaviors)
+sbRecency :: Lens.Lens' SegmentBehaviors (Core.Maybe Types.RecencyDimension)
+sbRecency = Lens.field @"recency"
 {-# DEPRECATED sbRecency "Use generic-lens or generic-optics with 'recency' instead." #-}
 
-instance Lude.FromJSON SegmentBehaviors where
-  parseJSON =
-    Lude.withObject
-      "SegmentBehaviors"
-      (\x -> SegmentBehaviors' Lude.<$> (x Lude..:? "Recency"))
+instance Core.FromJSON SegmentBehaviors where
+  toJSON SegmentBehaviors {..} =
+    Core.object
+      (Core.catMaybes [("Recency" Core..=) Core.<$> recency])
 
-instance Lude.ToJSON SegmentBehaviors where
-  toJSON SegmentBehaviors' {..} =
-    Lude.object
-      (Lude.catMaybes [("Recency" Lude..=) Lude.<$> recency])
+instance Core.FromJSON SegmentBehaviors where
+  parseJSON =
+    Core.withObject "SegmentBehaviors" Core.$
+      \x -> SegmentBehaviors' Core.<$> (x Core..:? "Recency")

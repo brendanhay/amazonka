@@ -23,174 +23,161 @@ module Network.AWS.SSM.DescribeEffectiveInstanceAssociations
 
     -- ** Request lenses
     deiaInstanceId,
-    deiaNextToken,
     deiaMaxResults,
+    deiaNextToken,
 
     -- * Destructuring the response
     DescribeEffectiveInstanceAssociationsResponse (..),
     mkDescribeEffectiveInstanceAssociationsResponse,
 
     -- ** Response lenses
-    deiarsNextToken,
-    deiarsAssociations,
-    deiarsResponseStatus,
+    deiarrsAssociations,
+    deiarrsNextToken,
+    deiarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribeEffectiveInstanceAssociations' smart constructor.
 data DescribeEffectiveInstanceAssociations = DescribeEffectiveInstanceAssociations'
   { -- | The instance ID for which you want to view all associations.
-    instanceId :: Lude.Text,
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEffectiveInstanceAssociations' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID for which you want to view all associations.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'DescribeEffectiveInstanceAssociations' value with any optional fields omitted.
 mkDescribeEffectiveInstanceAssociations ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   DescribeEffectiveInstanceAssociations
-mkDescribeEffectiveInstanceAssociations pInstanceId_ =
+mkDescribeEffectiveInstanceAssociations instanceId =
   DescribeEffectiveInstanceAssociations'
-    { instanceId = pInstanceId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The instance ID for which you want to view all associations.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deiaInstanceId :: Lens.Lens' DescribeEffectiveInstanceAssociations Lude.Text
-deiaInstanceId = Lens.lens (instanceId :: DescribeEffectiveInstanceAssociations -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeEffectiveInstanceAssociations)
+deiaInstanceId :: Lens.Lens' DescribeEffectiveInstanceAssociations Types.InstanceId
+deiaInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED deiaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deiaNextToken :: Lens.Lens' DescribeEffectiveInstanceAssociations (Lude.Maybe Lude.Text)
-deiaNextToken = Lens.lens (nextToken :: DescribeEffectiveInstanceAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEffectiveInstanceAssociations)
-{-# DEPRECATED deiaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deiaMaxResults :: Lens.Lens' DescribeEffectiveInstanceAssociations (Lude.Maybe Lude.Natural)
-deiaMaxResults = Lens.lens (maxResults :: DescribeEffectiveInstanceAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEffectiveInstanceAssociations)
+deiaMaxResults :: Lens.Lens' DescribeEffectiveInstanceAssociations (Core.Maybe Core.Natural)
+deiaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED deiaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeEffectiveInstanceAssociations where
-  page rq rs
-    | Page.stop (rs Lens.^. deiarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. deiarsAssociations) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& deiaNextToken Lens..~ rs Lens.^. deiarsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deiaNextToken :: Lens.Lens' DescribeEffectiveInstanceAssociations (Core.Maybe Types.NextToken)
+deiaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED deiaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeEffectiveInstanceAssociations where
+instance Core.FromJSON DescribeEffectiveInstanceAssociations where
+  toJSON DescribeEffectiveInstanceAssociations {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeEffectiveInstanceAssociations where
   type
     Rs DescribeEffectiveInstanceAssociations =
       DescribeEffectiveInstanceAssociationsResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonSSM.DescribeEffectiveInstanceAssociations")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeEffectiveInstanceAssociationsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Associations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Associations")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeEffectiveInstanceAssociations where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonSSM.DescribeEffectiveInstanceAssociations" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeEffectiveInstanceAssociations where
-  toJSON DescribeEffectiveInstanceAssociations' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeEffectiveInstanceAssociations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEffectiveInstanceAssociations where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeEffectiveInstanceAssociations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"associations" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeEffectiveInstanceAssociationsResponse' smart constructor.
 data DescribeEffectiveInstanceAssociationsResponse = DescribeEffectiveInstanceAssociationsResponse'
-  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The associations for the requested instance.
-    associations :: Lude.Maybe [InstanceAssociation],
+  { -- | The associations for the requested instance.
+    associations :: Core.Maybe [Types.InstanceAssociation],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEffectiveInstanceAssociationsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'associations' - The associations for the requested instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEffectiveInstanceAssociationsResponse' value with any optional fields omitted.
 mkDescribeEffectiveInstanceAssociationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEffectiveInstanceAssociationsResponse
-mkDescribeEffectiveInstanceAssociationsResponse pResponseStatus_ =
+mkDescribeEffectiveInstanceAssociationsResponse responseStatus =
   DescribeEffectiveInstanceAssociationsResponse'
-    { nextToken =
-        Lude.Nothing,
-      associations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { associations =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deiarsNextToken :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Lude.Maybe Lude.Text)
-deiarsNextToken = Lens.lens (nextToken :: DescribeEffectiveInstanceAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEffectiveInstanceAssociationsResponse)
-{-# DEPRECATED deiarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The associations for the requested instance.
 --
 -- /Note:/ Consider using 'associations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deiarsAssociations :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Lude.Maybe [InstanceAssociation])
-deiarsAssociations = Lens.lens (associations :: DescribeEffectiveInstanceAssociationsResponse -> Lude.Maybe [InstanceAssociation]) (\s a -> s {associations = a} :: DescribeEffectiveInstanceAssociationsResponse)
-{-# DEPRECATED deiarsAssociations "Use generic-lens or generic-optics with 'associations' instead." #-}
+deiarrsAssociations :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Core.Maybe [Types.InstanceAssociation])
+deiarrsAssociations = Lens.field @"associations"
+{-# DEPRECATED deiarrsAssociations "Use generic-lens or generic-optics with 'associations' instead." #-}
+
+-- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deiarrsNextToken :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Core.Maybe Types.NextToken)
+deiarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED deiarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deiarsResponseStatus :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse Lude.Int
-deiarsResponseStatus = Lens.lens (responseStatus :: DescribeEffectiveInstanceAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEffectiveInstanceAssociationsResponse)
-{-# DEPRECATED deiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+deiarrsResponseStatus :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse Core.Int
+deiarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED deiarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

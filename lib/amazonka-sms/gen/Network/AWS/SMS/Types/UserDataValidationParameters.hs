@@ -23,62 +23,57 @@ module Network.AWS.SMS.Types.UserDataValidationParameters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.ScriptType
-import Network.AWS.SMS.Types.Source
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.ScriptType as Types
+import qualified Network.AWS.SMS.Types.Source as Types
 
 -- | Contains validation parameters.
 --
 -- /See:/ 'mkUserDataValidationParameters' smart constructor.
 data UserDataValidationParameters = UserDataValidationParameters'
   { -- | The type of validation script.
-    scriptType :: Lude.Maybe ScriptType,
+    scriptType :: Core.Maybe Types.ScriptType,
     -- | The location of the validation script.
-    source :: Lude.Maybe Source
+    source :: Core.Maybe Types.Source
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserDataValidationParameters' with the minimum fields required to make a request.
---
--- * 'scriptType' - The type of validation script.
--- * 'source' - The location of the validation script.
+-- | Creates a 'UserDataValidationParameters' value with any optional fields omitted.
 mkUserDataValidationParameters ::
   UserDataValidationParameters
 mkUserDataValidationParameters =
   UserDataValidationParameters'
-    { scriptType = Lude.Nothing,
-      source = Lude.Nothing
+    { scriptType = Core.Nothing,
+      source = Core.Nothing
     }
 
 -- | The type of validation script.
 --
 -- /Note:/ Consider using 'scriptType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvpScriptType :: Lens.Lens' UserDataValidationParameters (Lude.Maybe ScriptType)
-udvpScriptType = Lens.lens (scriptType :: UserDataValidationParameters -> Lude.Maybe ScriptType) (\s a -> s {scriptType = a} :: UserDataValidationParameters)
+udvpScriptType :: Lens.Lens' UserDataValidationParameters (Core.Maybe Types.ScriptType)
+udvpScriptType = Lens.field @"scriptType"
 {-# DEPRECATED udvpScriptType "Use generic-lens or generic-optics with 'scriptType' instead." #-}
 
 -- | The location of the validation script.
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvpSource :: Lens.Lens' UserDataValidationParameters (Lude.Maybe Source)
-udvpSource = Lens.lens (source :: UserDataValidationParameters -> Lude.Maybe Source) (\s a -> s {source = a} :: UserDataValidationParameters)
+udvpSource :: Lens.Lens' UserDataValidationParameters (Core.Maybe Types.Source)
+udvpSource = Lens.field @"source"
 {-# DEPRECATED udvpSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance Lude.FromJSON UserDataValidationParameters where
-  parseJSON =
-    Lude.withObject
-      "UserDataValidationParameters"
-      ( \x ->
-          UserDataValidationParameters'
-            Lude.<$> (x Lude..:? "scriptType") Lude.<*> (x Lude..:? "source")
-      )
-
-instance Lude.ToJSON UserDataValidationParameters where
-  toJSON UserDataValidationParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("scriptType" Lude..=) Lude.<$> scriptType,
-            ("source" Lude..=) Lude.<$> source
+instance Core.FromJSON UserDataValidationParameters where
+  toJSON UserDataValidationParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("scriptType" Core..=) Core.<$> scriptType,
+            ("source" Core..=) Core.<$> source
           ]
       )
+
+instance Core.FromJSON UserDataValidationParameters where
+  parseJSON =
+    Core.withObject "UserDataValidationParameters" Core.$
+      \x ->
+        UserDataValidationParameters'
+          Core.<$> (x Core..:? "scriptType") Core.<*> (x Core..:? "source")

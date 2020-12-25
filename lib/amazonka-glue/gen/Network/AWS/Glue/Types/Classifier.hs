@@ -17,19 +17,19 @@ module Network.AWS.Glue.Types.Classifier
     mkClassifier,
 
     -- * Lenses
+    cCsvClassifier,
     cGrokClassifier,
+    cJsonClassifier,
     cXMLClassifier,
-    cCSVClassifier,
-    cJSONClassifier,
   )
 where
 
-import Network.AWS.Glue.Types.CSVClassifier
-import Network.AWS.Glue.Types.GrokClassifier
-import Network.AWS.Glue.Types.JSONClassifier
-import Network.AWS.Glue.Types.XMLClassifier
+import qualified Network.AWS.Glue.Types.CsvClassifier as Types
+import qualified Network.AWS.Glue.Types.GrokClassifier as Types
+import qualified Network.AWS.Glue.Types.JsonClassifier as Types
+import qualified Network.AWS.Glue.Types.XMLClassifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Classifiers are triggered during a crawl task. A classifier checks whether a given file is in a format it can handle. If it is, the classifier creates a schema in the form of a @StructType@ object that matches that data format.
 --
@@ -37,70 +37,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClassifier' smart constructor.
 data Classifier = Classifier'
-  { -- | A classifier that uses @grok@ .
-    grokClassifier :: Lude.Maybe GrokClassifier,
-    -- | A classifier for XML content.
-    xmlClassifier :: Lude.Maybe XMLClassifier,
-    -- | A classifier for comma-separated values (CSV).
-    csvClassifier :: Lude.Maybe CSVClassifier,
+  { -- | A classifier for comma-separated values (CSV).
+    csvClassifier :: Core.Maybe Types.CsvClassifier,
+    -- | A classifier that uses @grok@ .
+    grokClassifier :: Core.Maybe Types.GrokClassifier,
     -- | A classifier for JSON content.
-    jsonClassifier :: Lude.Maybe JSONClassifier
+    jsonClassifier :: Core.Maybe Types.JsonClassifier,
+    -- | A classifier for XML content.
+    xMLClassifier :: Core.Maybe Types.XMLClassifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Classifier' with the minimum fields required to make a request.
---
--- * 'grokClassifier' - A classifier that uses @grok@ .
--- * 'xmlClassifier' - A classifier for XML content.
--- * 'csvClassifier' - A classifier for comma-separated values (CSV).
--- * 'jsonClassifier' - A classifier for JSON content.
+-- | Creates a 'Classifier' value with any optional fields omitted.
 mkClassifier ::
   Classifier
 mkClassifier =
   Classifier'
-    { grokClassifier = Lude.Nothing,
-      xmlClassifier = Lude.Nothing,
-      csvClassifier = Lude.Nothing,
-      jsonClassifier = Lude.Nothing
+    { csvClassifier = Core.Nothing,
+      grokClassifier = Core.Nothing,
+      jsonClassifier = Core.Nothing,
+      xMLClassifier = Core.Nothing
     }
-
--- | A classifier that uses @grok@ .
---
--- /Note:/ Consider using 'grokClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGrokClassifier :: Lens.Lens' Classifier (Lude.Maybe GrokClassifier)
-cGrokClassifier = Lens.lens (grokClassifier :: Classifier -> Lude.Maybe GrokClassifier) (\s a -> s {grokClassifier = a} :: Classifier)
-{-# DEPRECATED cGrokClassifier "Use generic-lens or generic-optics with 'grokClassifier' instead." #-}
-
--- | A classifier for XML content.
---
--- /Note:/ Consider using 'xmlClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cXMLClassifier :: Lens.Lens' Classifier (Lude.Maybe XMLClassifier)
-cXMLClassifier = Lens.lens (xmlClassifier :: Classifier -> Lude.Maybe XMLClassifier) (\s a -> s {xmlClassifier = a} :: Classifier)
-{-# DEPRECATED cXMLClassifier "Use generic-lens or generic-optics with 'xmlClassifier' instead." #-}
 
 -- | A classifier for comma-separated values (CSV).
 --
 -- /Note:/ Consider using 'csvClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCSVClassifier :: Lens.Lens' Classifier (Lude.Maybe CSVClassifier)
-cCSVClassifier = Lens.lens (csvClassifier :: Classifier -> Lude.Maybe CSVClassifier) (\s a -> s {csvClassifier = a} :: Classifier)
-{-# DEPRECATED cCSVClassifier "Use generic-lens or generic-optics with 'csvClassifier' instead." #-}
+cCsvClassifier :: Lens.Lens' Classifier (Core.Maybe Types.CsvClassifier)
+cCsvClassifier = Lens.field @"csvClassifier"
+{-# DEPRECATED cCsvClassifier "Use generic-lens or generic-optics with 'csvClassifier' instead." #-}
+
+-- | A classifier that uses @grok@ .
+--
+-- /Note:/ Consider using 'grokClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cGrokClassifier :: Lens.Lens' Classifier (Core.Maybe Types.GrokClassifier)
+cGrokClassifier = Lens.field @"grokClassifier"
+{-# DEPRECATED cGrokClassifier "Use generic-lens or generic-optics with 'grokClassifier' instead." #-}
 
 -- | A classifier for JSON content.
 --
 -- /Note:/ Consider using 'jsonClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cJSONClassifier :: Lens.Lens' Classifier (Lude.Maybe JSONClassifier)
-cJSONClassifier = Lens.lens (jsonClassifier :: Classifier -> Lude.Maybe JSONClassifier) (\s a -> s {jsonClassifier = a} :: Classifier)
-{-# DEPRECATED cJSONClassifier "Use generic-lens or generic-optics with 'jsonClassifier' instead." #-}
+cJsonClassifier :: Lens.Lens' Classifier (Core.Maybe Types.JsonClassifier)
+cJsonClassifier = Lens.field @"jsonClassifier"
+{-# DEPRECATED cJsonClassifier "Use generic-lens or generic-optics with 'jsonClassifier' instead." #-}
 
-instance Lude.FromJSON Classifier where
+-- | A classifier for XML content.
+--
+-- /Note:/ Consider using 'xMLClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cXMLClassifier :: Lens.Lens' Classifier (Core.Maybe Types.XMLClassifier)
+cXMLClassifier = Lens.field @"xMLClassifier"
+{-# DEPRECATED cXMLClassifier "Use generic-lens or generic-optics with 'xMLClassifier' instead." #-}
+
+instance Core.FromJSON Classifier where
   parseJSON =
-    Lude.withObject
-      "Classifier"
-      ( \x ->
-          Classifier'
-            Lude.<$> (x Lude..:? "GrokClassifier")
-            Lude.<*> (x Lude..:? "XMLClassifier")
-            Lude.<*> (x Lude..:? "CsvClassifier")
-            Lude.<*> (x Lude..:? "JsonClassifier")
-      )
+    Core.withObject "Classifier" Core.$
+      \x ->
+        Classifier'
+          Core.<$> (x Core..:? "CsvClassifier")
+          Core.<*> (x Core..:? "GrokClassifier")
+          Core.<*> (x Core..:? "JsonClassifier")
+          Core.<*> (x Core..:? "XMLClassifier")

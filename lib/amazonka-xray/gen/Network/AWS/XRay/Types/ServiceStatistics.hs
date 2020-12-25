@@ -17,99 +17,91 @@ module Network.AWS.XRay.Types.ServiceStatistics
     mkServiceStatistics,
 
     -- * Lenses
-    ssFaultStatistics,
-    ssOKCount,
-    ssTotalResponseTime,
     ssErrorStatistics,
+    ssFaultStatistics,
+    ssOkCount,
     ssTotalCount,
+    ssTotalResponseTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.XRay.Types.ErrorStatistics
-import Network.AWS.XRay.Types.FaultStatistics
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.ErrorStatistics as Types
+import qualified Network.AWS.XRay.Types.FaultStatistics as Types
 
 -- | Response statistics for a service.
 --
 -- /See:/ 'mkServiceStatistics' smart constructor.
 data ServiceStatistics = ServiceStatistics'
-  { -- | Information about requests that failed with a 5xx Server Error status code.
-    faultStatistics :: Lude.Maybe FaultStatistics,
+  { -- | Information about requests that failed with a 4xx Client Error status code.
+    errorStatistics :: Core.Maybe Types.ErrorStatistics,
+    -- | Information about requests that failed with a 5xx Server Error status code.
+    faultStatistics :: Core.Maybe Types.FaultStatistics,
     -- | The number of requests that completed with a 2xx Success status code.
-    okCount :: Lude.Maybe Lude.Integer,
-    -- | The aggregate response time of completed requests.
-    totalResponseTime :: Lude.Maybe Lude.Double,
-    -- | Information about requests that failed with a 4xx Client Error status code.
-    errorStatistics :: Lude.Maybe ErrorStatistics,
+    okCount :: Core.Maybe Core.Integer,
     -- | The total number of completed requests.
-    totalCount :: Lude.Maybe Lude.Integer
+    totalCount :: Core.Maybe Core.Integer,
+    -- | The aggregate response time of completed requests.
+    totalResponseTime :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceStatistics' with the minimum fields required to make a request.
---
--- * 'faultStatistics' - Information about requests that failed with a 5xx Server Error status code.
--- * 'okCount' - The number of requests that completed with a 2xx Success status code.
--- * 'totalResponseTime' - The aggregate response time of completed requests.
--- * 'errorStatistics' - Information about requests that failed with a 4xx Client Error status code.
--- * 'totalCount' - The total number of completed requests.
+-- | Creates a 'ServiceStatistics' value with any optional fields omitted.
 mkServiceStatistics ::
   ServiceStatistics
 mkServiceStatistics =
   ServiceStatistics'
-    { faultStatistics = Lude.Nothing,
-      okCount = Lude.Nothing,
-      totalResponseTime = Lude.Nothing,
-      errorStatistics = Lude.Nothing,
-      totalCount = Lude.Nothing
+    { errorStatistics = Core.Nothing,
+      faultStatistics = Core.Nothing,
+      okCount = Core.Nothing,
+      totalCount = Core.Nothing,
+      totalResponseTime = Core.Nothing
     }
+
+-- | Information about requests that failed with a 4xx Client Error status code.
+--
+-- /Note:/ Consider using 'errorStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssErrorStatistics :: Lens.Lens' ServiceStatistics (Core.Maybe Types.ErrorStatistics)
+ssErrorStatistics = Lens.field @"errorStatistics"
+{-# DEPRECATED ssErrorStatistics "Use generic-lens or generic-optics with 'errorStatistics' instead." #-}
 
 -- | Information about requests that failed with a 5xx Server Error status code.
 --
 -- /Note:/ Consider using 'faultStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssFaultStatistics :: Lens.Lens' ServiceStatistics (Lude.Maybe FaultStatistics)
-ssFaultStatistics = Lens.lens (faultStatistics :: ServiceStatistics -> Lude.Maybe FaultStatistics) (\s a -> s {faultStatistics = a} :: ServiceStatistics)
+ssFaultStatistics :: Lens.Lens' ServiceStatistics (Core.Maybe Types.FaultStatistics)
+ssFaultStatistics = Lens.field @"faultStatistics"
 {-# DEPRECATED ssFaultStatistics "Use generic-lens or generic-optics with 'faultStatistics' instead." #-}
 
 -- | The number of requests that completed with a 2xx Success status code.
 --
 -- /Note:/ Consider using 'okCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssOKCount :: Lens.Lens' ServiceStatistics (Lude.Maybe Lude.Integer)
-ssOKCount = Lens.lens (okCount :: ServiceStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {okCount = a} :: ServiceStatistics)
-{-# DEPRECATED ssOKCount "Use generic-lens or generic-optics with 'okCount' instead." #-}
-
--- | The aggregate response time of completed requests.
---
--- /Note:/ Consider using 'totalResponseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssTotalResponseTime :: Lens.Lens' ServiceStatistics (Lude.Maybe Lude.Double)
-ssTotalResponseTime = Lens.lens (totalResponseTime :: ServiceStatistics -> Lude.Maybe Lude.Double) (\s a -> s {totalResponseTime = a} :: ServiceStatistics)
-{-# DEPRECATED ssTotalResponseTime "Use generic-lens or generic-optics with 'totalResponseTime' instead." #-}
-
--- | Information about requests that failed with a 4xx Client Error status code.
---
--- /Note:/ Consider using 'errorStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssErrorStatistics :: Lens.Lens' ServiceStatistics (Lude.Maybe ErrorStatistics)
-ssErrorStatistics = Lens.lens (errorStatistics :: ServiceStatistics -> Lude.Maybe ErrorStatistics) (\s a -> s {errorStatistics = a} :: ServiceStatistics)
-{-# DEPRECATED ssErrorStatistics "Use generic-lens or generic-optics with 'errorStatistics' instead." #-}
+ssOkCount :: Lens.Lens' ServiceStatistics (Core.Maybe Core.Integer)
+ssOkCount = Lens.field @"okCount"
+{-# DEPRECATED ssOkCount "Use generic-lens or generic-optics with 'okCount' instead." #-}
 
 -- | The total number of completed requests.
 --
 -- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssTotalCount :: Lens.Lens' ServiceStatistics (Lude.Maybe Lude.Integer)
-ssTotalCount = Lens.lens (totalCount :: ServiceStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: ServiceStatistics)
+ssTotalCount :: Lens.Lens' ServiceStatistics (Core.Maybe Core.Integer)
+ssTotalCount = Lens.field @"totalCount"
 {-# DEPRECATED ssTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance Lude.FromJSON ServiceStatistics where
+-- | The aggregate response time of completed requests.
+--
+-- /Note:/ Consider using 'totalResponseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssTotalResponseTime :: Lens.Lens' ServiceStatistics (Core.Maybe Core.Double)
+ssTotalResponseTime = Lens.field @"totalResponseTime"
+{-# DEPRECATED ssTotalResponseTime "Use generic-lens or generic-optics with 'totalResponseTime' instead." #-}
+
+instance Core.FromJSON ServiceStatistics where
   parseJSON =
-    Lude.withObject
-      "ServiceStatistics"
-      ( \x ->
-          ServiceStatistics'
-            Lude.<$> (x Lude..:? "FaultStatistics")
-            Lude.<*> (x Lude..:? "OkCount")
-            Lude.<*> (x Lude..:? "TotalResponseTime")
-            Lude.<*> (x Lude..:? "ErrorStatistics")
-            Lude.<*> (x Lude..:? "TotalCount")
-      )
+    Core.withObject "ServiceStatistics" Core.$
+      \x ->
+        ServiceStatistics'
+          Core.<$> (x Core..:? "ErrorStatistics")
+          Core.<*> (x Core..:? "FaultStatistics")
+          Core.<*> (x Core..:? "OkCount")
+          Core.<*> (x Core..:? "TotalCount")
+          Core.<*> (x Core..:? "TotalResponseTime")

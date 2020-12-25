@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.AutoScaling
     Network.AWS.AutoScaling.AttachInstances
@@ -131,52 +137,111 @@ library
     Network.AWS.AutoScaling.Types.Activity
     Network.AWS.AutoScaling.Types.AdjustmentType
     Network.AWS.AutoScaling.Types.Alarm
+    Network.AWS.AutoScaling.Types.AsciiStringMaxLen255
     Network.AWS.AutoScaling.Types.AutoScalingGroup
+    Network.AWS.AutoScaling.Types.AutoScalingGroupARN
+    Network.AWS.AutoScaling.Types.AutoScalingGroupName
     Network.AWS.AutoScaling.Types.AutoScalingInstanceDetails
     Network.AWS.AutoScaling.Types.BlockDeviceMapping
+    Network.AWS.AutoScaling.Types.ClassicLinkVPCId
     Network.AWS.AutoScaling.Types.CustomizedMetricSpecification
-    Network.AWS.AutoScaling.Types.EBS
+    Network.AWS.AutoScaling.Types.DefaultResult
+    Network.AWS.AutoScaling.Types.DeviceName
+    Network.AWS.AutoScaling.Types.Ebs
     Network.AWS.AutoScaling.Types.EnabledMetric
     Network.AWS.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
     Network.AWS.AutoScaling.Types.Filter
+    Network.AWS.AutoScaling.Types.HealthCheckType
+    Network.AWS.AutoScaling.Types.HealthStatus
+    Network.AWS.AutoScaling.Types.IamInstanceProfile
+    Network.AWS.AutoScaling.Types.ImageId
     Network.AWS.AutoScaling.Types.Instance
+    Network.AWS.AutoScaling.Types.InstanceId
     Network.AWS.AutoScaling.Types.InstanceMetadataEndpointState
-    Network.AWS.AutoScaling.Types.InstanceMetadataHTTPTokensState
+    Network.AWS.AutoScaling.Types.InstanceMetadataHttpTokensState
     Network.AWS.AutoScaling.Types.InstanceMetadataOptions
     Network.AWS.AutoScaling.Types.InstanceMonitoring
     Network.AWS.AutoScaling.Types.InstanceRefresh
+    Network.AWS.AutoScaling.Types.InstanceRefreshId
     Network.AWS.AutoScaling.Types.InstanceRefreshStatus
     Network.AWS.AutoScaling.Types.InstancesDistribution
+    Network.AWS.AutoScaling.Types.InstanceType
+    Network.AWS.AutoScaling.Types.KernelId
+    Network.AWS.AutoScaling.Types.Key
+    Network.AWS.AutoScaling.Types.KeyName
     Network.AWS.AutoScaling.Types.LaunchConfiguration
+    Network.AWS.AutoScaling.Types.LaunchConfigurationARN
+    Network.AWS.AutoScaling.Types.LaunchConfigurationName
     Network.AWS.AutoScaling.Types.LaunchTemplate
+    Network.AWS.AutoScaling.Types.LaunchTemplateName
     Network.AWS.AutoScaling.Types.LaunchTemplateOverrides
     Network.AWS.AutoScaling.Types.LaunchTemplateSpecification
+    Network.AWS.AutoScaling.Types.LifecycleActionResult
+    Network.AWS.AutoScaling.Types.LifecycleActionToken
     Network.AWS.AutoScaling.Types.LifecycleHook
+    Network.AWS.AutoScaling.Types.LifecycleHookName
     Network.AWS.AutoScaling.Types.LifecycleHookSpecification
     Network.AWS.AutoScaling.Types.LifecycleState
+    Network.AWS.AutoScaling.Types.LifecycleTransition
     Network.AWS.AutoScaling.Types.LoadBalancerState
     Network.AWS.AutoScaling.Types.LoadBalancerTargetGroupState
+    Network.AWS.AutoScaling.Types.MetricAggregationType
     Network.AWS.AutoScaling.Types.MetricCollectionType
     Network.AWS.AutoScaling.Types.MetricDimension
+    Network.AWS.AutoScaling.Types.MetricDimensionName
     Network.AWS.AutoScaling.Types.MetricGranularityType
+    Network.AWS.AutoScaling.Types.MetricName
     Network.AWS.AutoScaling.Types.MetricStatistic
     Network.AWS.AutoScaling.Types.MetricType
     Network.AWS.AutoScaling.Types.MixedInstancesPolicy
+    Network.AWS.AutoScaling.Types.Namespace
     Network.AWS.AutoScaling.Types.NotificationConfiguration
+    Network.AWS.AutoScaling.Types.NotificationMetadata
+    Network.AWS.AutoScaling.Types.NotificationTargetARN
+    Network.AWS.AutoScaling.Types.NotificationType
+    Network.AWS.AutoScaling.Types.PlacementGroup
+    Network.AWS.AutoScaling.Types.PlacementTenancy
+    Network.AWS.AutoScaling.Types.PolicyName
     Network.AWS.AutoScaling.Types.PredefinedMetricSpecification
     Network.AWS.AutoScaling.Types.ProcessType
+    Network.AWS.AutoScaling.Types.RamdiskId
     Network.AWS.AutoScaling.Types.RefreshPreferences
     Network.AWS.AutoScaling.Types.RefreshStrategy
+    Network.AWS.AutoScaling.Types.ResourceName
+    Network.AWS.AutoScaling.Types.RoleARN
     Network.AWS.AutoScaling.Types.ScalingActivityStatusCode
     Network.AWS.AutoScaling.Types.ScalingPolicy
     Network.AWS.AutoScaling.Types.ScalingProcessQuery
     Network.AWS.AutoScaling.Types.ScheduledUpdateGroupAction
     Network.AWS.AutoScaling.Types.ScheduledUpdateGroupActionRequest
+    Network.AWS.AutoScaling.Types.ServiceLinkedRoleARN
+    Network.AWS.AutoScaling.Types.SpotMaxPrice
+    Network.AWS.AutoScaling.Types.SpotPrice
+    Network.AWS.AutoScaling.Types.Status
+    Network.AWS.AutoScaling.Types.StatusReason
     Network.AWS.AutoScaling.Types.StepAdjustment
     Network.AWS.AutoScaling.Types.SuspendedProcess
     Network.AWS.AutoScaling.Types.Tag
     Network.AWS.AutoScaling.Types.TagDescription
     Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
+    Network.AWS.AutoScaling.Types.TopicARN
+    Network.AWS.AutoScaling.Types.Unit
+    Network.AWS.AutoScaling.Types.UserData
+    Network.AWS.AutoScaling.Types.Value
+    Network.AWS.AutoScaling.Types.VirtualName
+    Network.AWS.AutoScaling.Types.VolumeType
+    Network.AWS.AutoScaling.Types.VPCZoneIdentifier
+    Network.AWS.AutoScaling.Types.WeightedCapacity
+    Network.AWS.AutoScaling.Types.XmlString
+    Network.AWS.AutoScaling.Types.XmlStringMaxLen1023
+    Network.AWS.AutoScaling.Types.XmlStringMaxLen1600
+    Network.AWS.AutoScaling.Types.XmlStringMaxLen19
+    Network.AWS.AutoScaling.Types.XmlStringMaxLen2047
+    Network.AWS.AutoScaling.Types.XmlStringMaxLen255
+    Network.AWS.AutoScaling.Types.XmlStringMaxLen32
+    Network.AWS.AutoScaling.Types.XmlStringMaxLen511
+    Network.AWS.AutoScaling.Types.XmlStringMaxLen64
+    Network.AWS.AutoScaling.Types.XmlStringUserData
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

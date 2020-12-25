@@ -32,40 +32,35 @@ module Network.AWS.Discovery.DeleteTags
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
   { -- | A list of configuration items with tags that you want to delete.
-    configurationIds :: [Lude.Text],
+    configurationIds :: [Types.ConfigurationId],
     -- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example:
     --
     -- @{"key": "serverType", "value": "webServer"}@
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
---
--- * 'configurationIds' - A list of configuration items with tags that you want to delete.
--- * 'tags' - Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example:
---
--- @{"key": "serverType", "value": "webServer"}@
+-- | Creates a 'DeleteTags' value with any optional fields omitted.
 mkDeleteTags ::
   DeleteTags
 mkDeleteTags =
-  DeleteTags' {configurationIds = Lude.mempty, tags = Lude.Nothing}
+  DeleteTags' {configurationIds = Core.mempty, tags = Core.Nothing}
 
 -- | A list of configuration items with tags that you want to delete.
 --
 -- /Note:/ Consider using 'configurationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtConfigurationIds :: Lens.Lens' DeleteTags [Lude.Text]
-dtConfigurationIds = Lens.lens (configurationIds :: DeleteTags -> [Lude.Text]) (\s a -> s {configurationIds = a} :: DeleteTags)
+dtConfigurationIds :: Lens.Lens' DeleteTags [Types.ConfigurationId]
+dtConfigurationIds = Lens.field @"configurationIds"
 {-# DEPRECATED dtConfigurationIds "Use generic-lens or generic-optics with 'configurationIds' instead." #-}
 
 -- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example:
@@ -73,66 +68,58 @@ dtConfigurationIds = Lens.lens (configurationIds :: DeleteTags -> [Lude.Text]) (
 -- @{"key": "serverType", "value": "webServer"}@
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTags :: Lens.Lens' DeleteTags (Lude.Maybe [Tag])
-dtTags = Lens.lens (tags :: DeleteTags -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DeleteTags)
+dtTags :: Lens.Lens' DeleteTags (Core.Maybe [Types.Tag])
+dtTags = Lens.field @"tags"
 {-# DEPRECATED dtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest DeleteTags where
+instance Core.FromJSON DeleteTags where
+  toJSON DeleteTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("configurationIds" Core..= configurationIds),
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSPoseidonService_V2015_11_01.DeleteTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSPoseidonService_V2015_11_01.DeleteTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteTags where
-  toJSON DeleteTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("configurationIds" Lude..= configurationIds),
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath DeleteTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTagsResponse' value with any optional fields omitted.
 mkDeleteTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTagsResponse
-mkDeleteTagsResponse pResponseStatus_ =
-  DeleteTagsResponse' {responseStatus = pResponseStatus_}
+mkDeleteTagsResponse responseStatus =
+  DeleteTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteTagsResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTagsResponse)
+drsResponseStatus :: Lens.Lens' DeleteTagsResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

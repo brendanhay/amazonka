@@ -30,7 +30,7 @@ import qualified Data.ByteString.Lazy.Builder as Build
 import Data.Char
 import qualified Data.Text.Encoding as Text
 import Data.Time (UTCTime)
-import Network.AWS.Data.Text
+import Network.AWS.Data.Text as AWS.Text
 import Network.HTTP.Types
 import Numeric
 import Numeric.Natural

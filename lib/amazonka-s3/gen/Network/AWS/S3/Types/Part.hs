@@ -18,80 +18,75 @@ module Network.AWS.S3.Types.Part
 
     -- * Lenses
     pETag,
-    pSize,
-    pPartNumber,
     pLastModified,
+    pPartNumber,
+    pSize,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | Container for elements related to a part.
 --
 -- /See:/ 'mkPart' smart constructor.
 data Part = Part'
   { -- | Entity tag returned when the part was uploaded.
-    eTag :: Lude.Maybe ETag,
-    -- | Size in bytes of the uploaded part data.
-    size :: Lude.Maybe Lude.Int,
-    -- | Part number identifying the part. This is a positive integer between 1 and 10,000.
-    partNumber :: Lude.Maybe Lude.Int,
+    eTag :: Core.Maybe Types.ETag,
     -- | Date and time at which the part was uploaded.
-    lastModified :: Lude.Maybe Lude.DateTime
+    lastModified :: Core.Maybe Core.UTCTime,
+    -- | Part number identifying the part. This is a positive integer between 1 and 10,000.
+    partNumber :: Core.Maybe Core.Int,
+    -- | Size in bytes of the uploaded part data.
+    size :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Part' with the minimum fields required to make a request.
---
--- * 'eTag' - Entity tag returned when the part was uploaded.
--- * 'size' - Size in bytes of the uploaded part data.
--- * 'partNumber' - Part number identifying the part. This is a positive integer between 1 and 10,000.
--- * 'lastModified' - Date and time at which the part was uploaded.
+-- | Creates a 'Part' value with any optional fields omitted.
 mkPart ::
   Part
 mkPart =
   Part'
-    { eTag = Lude.Nothing,
-      size = Lude.Nothing,
-      partNumber = Lude.Nothing,
-      lastModified = Lude.Nothing
+    { eTag = Core.Nothing,
+      lastModified = Core.Nothing,
+      partNumber = Core.Nothing,
+      size = Core.Nothing
     }
 
 -- | Entity tag returned when the part was uploaded.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pETag :: Lens.Lens' Part (Lude.Maybe ETag)
-pETag = Lens.lens (eTag :: Part -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: Part)
+pETag :: Lens.Lens' Part (Core.Maybe Types.ETag)
+pETag = Lens.field @"eTag"
 {-# DEPRECATED pETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
-
--- | Size in bytes of the uploaded part data.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSize :: Lens.Lens' Part (Lude.Maybe Lude.Int)
-pSize = Lens.lens (size :: Part -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: Part)
-{-# DEPRECATED pSize "Use generic-lens or generic-optics with 'size' instead." #-}
-
--- | Part number identifying the part. This is a positive integer between 1 and 10,000.
---
--- /Note:/ Consider using 'partNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPartNumber :: Lens.Lens' Part (Lude.Maybe Lude.Int)
-pPartNumber = Lens.lens (partNumber :: Part -> Lude.Maybe Lude.Int) (\s a -> s {partNumber = a} :: Part)
-{-# DEPRECATED pPartNumber "Use generic-lens or generic-optics with 'partNumber' instead." #-}
 
 -- | Date and time at which the part was uploaded.
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pLastModified :: Lens.Lens' Part (Lude.Maybe Lude.DateTime)
-pLastModified = Lens.lens (lastModified :: Part -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: Part)
+pLastModified :: Lens.Lens' Part (Core.Maybe Core.UTCTime)
+pLastModified = Lens.field @"lastModified"
 {-# DEPRECATED pLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
-instance Lude.FromXML Part where
+-- | Part number identifying the part. This is a positive integer between 1 and 10,000.
+--
+-- /Note:/ Consider using 'partNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPartNumber :: Lens.Lens' Part (Core.Maybe Core.Int)
+pPartNumber = Lens.field @"partNumber"
+{-# DEPRECATED pPartNumber "Use generic-lens or generic-optics with 'partNumber' instead." #-}
+
+-- | Size in bytes of the uploaded part data.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSize :: Lens.Lens' Part (Core.Maybe Core.Int)
+pSize = Lens.field @"size"
+{-# DEPRECATED pSize "Use generic-lens or generic-optics with 'size' instead." #-}
+
+instance Core.FromXML Part where
   parseXML x =
     Part'
-      Lude.<$> (x Lude..@? "ETag")
-      Lude.<*> (x Lude..@? "Size")
-      Lude.<*> (x Lude..@? "PartNumber")
-      Lude.<*> (x Lude..@? "LastModified")
+      Core.<$> (x Core..@? "ETag")
+      Core.<*> (x Core..@? "LastModified")
+      Core.<*> (x Core..@? "PartNumber")
+      Core.<*> (x Core..@? "Size")

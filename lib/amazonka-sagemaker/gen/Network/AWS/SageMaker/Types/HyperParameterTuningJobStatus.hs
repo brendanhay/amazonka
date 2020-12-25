@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.HyperParameterTuningJobStatus
   ( HyperParameterTuningJobStatus
       ( HyperParameterTuningJobStatus',
-        HPTJSCompleted,
-        HPTJSInProgress,
-        HPTJSFailed,
-        HPTJSStopped,
-        HPTJSStopping
+        HyperParameterTuningJobStatusCompleted,
+        HyperParameterTuningJobStatusInProgress,
+        HyperParameterTuningJobStatusFailed,
+        HyperParameterTuningJobStatusStopped,
+        HyperParameterTuningJobStatusStopping,
+        fromHyperParameterTuningJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HyperParameterTuningJobStatus = HyperParameterTuningJobStatus' Lude.Text
+newtype HyperParameterTuningJobStatus = HyperParameterTuningJobStatus'
+  { fromHyperParameterTuningJobStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HPTJSCompleted :: HyperParameterTuningJobStatus
-pattern HPTJSCompleted = HyperParameterTuningJobStatus' "Completed"
+pattern HyperParameterTuningJobStatusCompleted :: HyperParameterTuningJobStatus
+pattern HyperParameterTuningJobStatusCompleted = HyperParameterTuningJobStatus' "Completed"
 
-pattern HPTJSInProgress :: HyperParameterTuningJobStatus
-pattern HPTJSInProgress = HyperParameterTuningJobStatus' "InProgress"
+pattern HyperParameterTuningJobStatusInProgress :: HyperParameterTuningJobStatus
+pattern HyperParameterTuningJobStatusInProgress = HyperParameterTuningJobStatus' "InProgress"
 
-pattern HPTJSFailed :: HyperParameterTuningJobStatus
-pattern HPTJSFailed = HyperParameterTuningJobStatus' "Failed"
+pattern HyperParameterTuningJobStatusFailed :: HyperParameterTuningJobStatus
+pattern HyperParameterTuningJobStatusFailed = HyperParameterTuningJobStatus' "Failed"
 
-pattern HPTJSStopped :: HyperParameterTuningJobStatus
-pattern HPTJSStopped = HyperParameterTuningJobStatus' "Stopped"
+pattern HyperParameterTuningJobStatusStopped :: HyperParameterTuningJobStatus
+pattern HyperParameterTuningJobStatusStopped = HyperParameterTuningJobStatus' "Stopped"
 
-pattern HPTJSStopping :: HyperParameterTuningJobStatus
-pattern HPTJSStopping = HyperParameterTuningJobStatus' "Stopping"
+pattern HyperParameterTuningJobStatusStopping :: HyperParameterTuningJobStatus
+pattern HyperParameterTuningJobStatusStopping = HyperParameterTuningJobStatus' "Stopping"
 
 {-# COMPLETE
-  HPTJSCompleted,
-  HPTJSInProgress,
-  HPTJSFailed,
-  HPTJSStopped,
-  HPTJSStopping,
+  HyperParameterTuningJobStatusCompleted,
+  HyperParameterTuningJobStatusInProgress,
+  HyperParameterTuningJobStatusFailed,
+  HyperParameterTuningJobStatusStopped,
+  HyperParameterTuningJobStatusStopping,
   HyperParameterTuningJobStatus'
   #-}

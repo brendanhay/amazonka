@@ -22,34 +22,32 @@ module Network.AWS.Pinpoint.Types.EventsRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EventsBatch
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EventsBatch as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a batch of events to process.
 --
 -- /See:/ 'mkEventsRequest' smart constructor.
 newtype EventsRequest = EventsRequest'
   { -- | The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.
-    batchItem :: Lude.HashMap Lude.Text (EventsBatch)
+    batchItem :: Core.HashMap Core.Text Types.EventsBatch
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventsRequest' with the minimum fields required to make a request.
---
--- * 'batchItem' - The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.
+-- | Creates a 'EventsRequest' value with any optional fields omitted.
 mkEventsRequest ::
   EventsRequest
-mkEventsRequest = EventsRequest' {batchItem = Lude.mempty}
+mkEventsRequest = EventsRequest' {batchItem = Core.mempty}
 
 -- | The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.
 --
 -- /Note:/ Consider using 'batchItem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erBatchItem :: Lens.Lens' EventsRequest (Lude.HashMap Lude.Text (EventsBatch))
-erBatchItem = Lens.lens (batchItem :: EventsRequest -> Lude.HashMap Lude.Text (EventsBatch)) (\s a -> s {batchItem = a} :: EventsRequest)
+erBatchItem :: Lens.Lens' EventsRequest (Core.HashMap Core.Text Types.EventsBatch)
+erBatchItem = Lens.field @"batchItem"
 {-# DEPRECATED erBatchItem "Use generic-lens or generic-optics with 'batchItem' instead." #-}
 
-instance Lude.ToJSON EventsRequest where
-  toJSON EventsRequest' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("BatchItem" Lude..= batchItem)])
+instance Core.FromJSON EventsRequest where
+  toJSON EventsRequest {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("BatchItem" Core..= batchItem)])

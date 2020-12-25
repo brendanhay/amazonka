@@ -23,50 +23,45 @@ module Network.AWS.WorkDocs.Types.PermissionInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.RolePermissionType
-import Network.AWS.WorkDocs.Types.RoleType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.RolePermissionType as Types
+import qualified Network.AWS.WorkDocs.Types.RoleType as Types
 
 -- | Describes the permissions.
 --
 -- /See:/ 'mkPermissionInfo' smart constructor.
 data PermissionInfo = PermissionInfo'
   { -- | The role of the user.
-    role' :: Lude.Maybe RoleType,
+    role' :: Core.Maybe Types.RoleType,
     -- | The type of permissions.
-    type' :: Lude.Maybe RolePermissionType
+    type' :: Core.Maybe Types.RolePermissionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PermissionInfo' with the minimum fields required to make a request.
---
--- * 'role'' - The role of the user.
--- * 'type'' - The type of permissions.
+-- | Creates a 'PermissionInfo' value with any optional fields omitted.
 mkPermissionInfo ::
   PermissionInfo
 mkPermissionInfo =
-  PermissionInfo' {role' = Lude.Nothing, type' = Lude.Nothing}
+  PermissionInfo' {role' = Core.Nothing, type' = Core.Nothing}
 
 -- | The role of the user.
 --
 -- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piRole :: Lens.Lens' PermissionInfo (Lude.Maybe RoleType)
-piRole = Lens.lens (role' :: PermissionInfo -> Lude.Maybe RoleType) (\s a -> s {role' = a} :: PermissionInfo)
+piRole :: Lens.Lens' PermissionInfo (Core.Maybe Types.RoleType)
+piRole = Lens.field @"role'"
 {-# DEPRECATED piRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The type of permissions.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piType :: Lens.Lens' PermissionInfo (Lude.Maybe RolePermissionType)
-piType = Lens.lens (type' :: PermissionInfo -> Lude.Maybe RolePermissionType) (\s a -> s {type' = a} :: PermissionInfo)
+piType :: Lens.Lens' PermissionInfo (Core.Maybe Types.RolePermissionType)
+piType = Lens.field @"type'"
 {-# DEPRECATED piType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON PermissionInfo where
+instance Core.FromJSON PermissionInfo where
   parseJSON =
-    Lude.withObject
-      "PermissionInfo"
-      ( \x ->
-          PermissionInfo'
-            Lude.<$> (x Lude..:? "Role") Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "PermissionInfo" Core.$
+      \x ->
+        PermissionInfo'
+          Core.<$> (x Core..:? "Role") Core.<*> (x Core..:? "Type")

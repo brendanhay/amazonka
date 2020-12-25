@@ -20,106 +20,92 @@ module Network.AWS.MediaLive.DeleteInputSecurityGroup
     mkDeleteInputSecurityGroup,
 
     -- ** Request lenses
-    disgInputSecurityGroupId,
+    dInputSecurityGroupId,
 
     -- * Destructuring the response
     DeleteInputSecurityGroupResponse (..),
     mkDeleteInputSecurityGroupResponse,
 
     -- ** Response lenses
-    disgrsResponseStatus,
+    disgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for DeleteInputSecurityGroupRequest
 --
 -- /See:/ 'mkDeleteInputSecurityGroup' smart constructor.
 newtype DeleteInputSecurityGroup = DeleteInputSecurityGroup'
   { -- | The Input Security Group to delete
-    inputSecurityGroupId :: Lude.Text
+    inputSecurityGroupId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInputSecurityGroup' with the minimum fields required to make a request.
---
--- * 'inputSecurityGroupId' - The Input Security Group to delete
+-- | Creates a 'DeleteInputSecurityGroup' value with any optional fields omitted.
 mkDeleteInputSecurityGroup ::
   -- | 'inputSecurityGroupId'
-  Lude.Text ->
+  Core.Text ->
   DeleteInputSecurityGroup
-mkDeleteInputSecurityGroup pInputSecurityGroupId_ =
-  DeleteInputSecurityGroup'
-    { inputSecurityGroupId =
-        pInputSecurityGroupId_
-    }
+mkDeleteInputSecurityGroup inputSecurityGroupId =
+  DeleteInputSecurityGroup' {inputSecurityGroupId}
 
 -- | The Input Security Group to delete
 --
 -- /Note:/ Consider using 'inputSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgInputSecurityGroupId :: Lens.Lens' DeleteInputSecurityGroup Lude.Text
-disgInputSecurityGroupId = Lens.lens (inputSecurityGroupId :: DeleteInputSecurityGroup -> Lude.Text) (\s a -> s {inputSecurityGroupId = a} :: DeleteInputSecurityGroup)
-{-# DEPRECATED disgInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
+dInputSecurityGroupId :: Lens.Lens' DeleteInputSecurityGroup Core.Text
+dInputSecurityGroupId = Lens.field @"inputSecurityGroupId"
+{-# DEPRECATED dInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
 
-instance Lude.AWSRequest DeleteInputSecurityGroup where
+instance Core.AWSRequest DeleteInputSecurityGroup where
   type Rs DeleteInputSecurityGroup = DeleteInputSecurityGroupResponse
-  request = Req.delete mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/inputSecurityGroups/"
+                Core.<> (Core.toText inputSecurityGroupId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteInputSecurityGroupResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteInputSecurityGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteInputSecurityGroup where
-  toPath DeleteInputSecurityGroup' {..} =
-    Lude.mconcat
-      ["/prod/inputSecurityGroups/", Lude.toBS inputSecurityGroupId]
-
-instance Lude.ToQuery DeleteInputSecurityGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DeleteInputSecurityGroupResponse
 --
 -- /See:/ 'mkDeleteInputSecurityGroupResponse' smart constructor.
 newtype DeleteInputSecurityGroupResponse = DeleteInputSecurityGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInputSecurityGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteInputSecurityGroupResponse' value with any optional fields omitted.
 mkDeleteInputSecurityGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteInputSecurityGroupResponse
-mkDeleteInputSecurityGroupResponse pResponseStatus_ =
-  DeleteInputSecurityGroupResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteInputSecurityGroupResponse responseStatus =
+  DeleteInputSecurityGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disgrsResponseStatus :: Lens.Lens' DeleteInputSecurityGroupResponse Lude.Int
-disgrsResponseStatus = Lens.lens (responseStatus :: DeleteInputSecurityGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInputSecurityGroupResponse)
-{-# DEPRECATED disgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+disgrrsResponseStatus :: Lens.Lens' DeleteInputSecurityGroupResponse Core.Int
+disgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED disgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

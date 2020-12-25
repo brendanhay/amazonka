@@ -13,52 +13,57 @@
 module Network.AWS.MQ.Types.DeploymentMode
   ( DeploymentMode
       ( DeploymentMode',
-        SingleInstance,
-        ActiveStandbyMultiAz,
-        ClusterMultiAz
+        DeploymentModeSingleInstance,
+        DeploymentModeActiveStandbyMultiAz,
+        DeploymentModeClusterMultiAz,
+        fromDeploymentMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The deployment mode of the broker.
-newtype DeploymentMode = DeploymentMode' Lude.Text
+newtype DeploymentMode = DeploymentMode'
+  { fromDeploymentMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SingleInstance :: DeploymentMode
-pattern SingleInstance = DeploymentMode' "SINGLE_INSTANCE"
+pattern DeploymentModeSingleInstance :: DeploymentMode
+pattern DeploymentModeSingleInstance = DeploymentMode' "SINGLE_INSTANCE"
 
-pattern ActiveStandbyMultiAz :: DeploymentMode
-pattern ActiveStandbyMultiAz = DeploymentMode' "ACTIVE_STANDBY_MULTI_AZ"
+pattern DeploymentModeActiveStandbyMultiAz :: DeploymentMode
+pattern DeploymentModeActiveStandbyMultiAz = DeploymentMode' "ACTIVE_STANDBY_MULTI_AZ"
 
-pattern ClusterMultiAz :: DeploymentMode
-pattern ClusterMultiAz = DeploymentMode' "CLUSTER_MULTI_AZ"
+pattern DeploymentModeClusterMultiAz :: DeploymentMode
+pattern DeploymentModeClusterMultiAz = DeploymentMode' "CLUSTER_MULTI_AZ"
 
 {-# COMPLETE
-  SingleInstance,
-  ActiveStandbyMultiAz,
-  ClusterMultiAz,
+  DeploymentModeSingleInstance,
+  DeploymentModeActiveStandbyMultiAz,
+  DeploymentModeClusterMultiAz,
   DeploymentMode'
   #-}

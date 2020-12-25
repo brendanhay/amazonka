@@ -20,144 +20,133 @@ module Network.AWS.Pinpoint.UpdateApplicationSettings
     mkUpdateApplicationSettings,
 
     -- ** Request lenses
-    uasWriteApplicationSettingsRequest,
     uasApplicationId,
+    uasWriteApplicationSettingsRequest,
 
     -- * Destructuring the response
     UpdateApplicationSettingsResponse (..),
     mkUpdateApplicationSettingsResponse,
 
     -- ** Response lenses
-    uasrsApplicationSettingsResource,
-    uasrsResponseStatus,
+    uasrrsApplicationSettingsResource,
+    uasrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateApplicationSettings' smart constructor.
 data UpdateApplicationSettings = UpdateApplicationSettings'
-  { writeApplicationSettingsRequest :: WriteApplicationSettingsRequest,
-    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Core.Text,
+    writeApplicationSettingsRequest :: Types.WriteApplicationSettingsRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplicationSettings' with the minimum fields required to make a request.
---
--- * 'writeApplicationSettingsRequest' -
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- | Creates a 'UpdateApplicationSettings' value with any optional fields omitted.
 mkUpdateApplicationSettings ::
-  -- | 'writeApplicationSettingsRequest'
-  WriteApplicationSettingsRequest ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'writeApplicationSettingsRequest'
+  Types.WriteApplicationSettingsRequest ->
   UpdateApplicationSettings
 mkUpdateApplicationSettings
-  pWriteApplicationSettingsRequest_
-  pApplicationId_ =
+  applicationId
+  writeApplicationSettingsRequest =
     UpdateApplicationSettings'
-      { writeApplicationSettingsRequest =
-          pWriteApplicationSettingsRequest_,
-        applicationId = pApplicationId_
+      { applicationId,
+        writeApplicationSettingsRequest
       }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'writeApplicationSettingsRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasWriteApplicationSettingsRequest :: Lens.Lens' UpdateApplicationSettings WriteApplicationSettingsRequest
-uasWriteApplicationSettingsRequest = Lens.lens (writeApplicationSettingsRequest :: UpdateApplicationSettings -> WriteApplicationSettingsRequest) (\s a -> s {writeApplicationSettingsRequest = a} :: UpdateApplicationSettings)
-{-# DEPRECATED uasWriteApplicationSettingsRequest "Use generic-lens or generic-optics with 'writeApplicationSettingsRequest' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasApplicationId :: Lens.Lens' UpdateApplicationSettings Lude.Text
-uasApplicationId = Lens.lens (applicationId :: UpdateApplicationSettings -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateApplicationSettings)
+uasApplicationId :: Lens.Lens' UpdateApplicationSettings Core.Text
+uasApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED uasApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest UpdateApplicationSettings where
-  type
-    Rs UpdateApplicationSettings =
-      UpdateApplicationSettingsResponse
-  request = Req.putJSON pinpointService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateApplicationSettingsResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'writeApplicationSettingsRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasWriteApplicationSettingsRequest :: Lens.Lens' UpdateApplicationSettings Types.WriteApplicationSettingsRequest
+uasWriteApplicationSettingsRequest = Lens.field @"writeApplicationSettingsRequest"
+{-# DEPRECATED uasWriteApplicationSettingsRequest "Use generic-lens or generic-optics with 'writeApplicationSettingsRequest' instead." #-}
 
-instance Lude.ToHeaders UpdateApplicationSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateApplicationSettings where
-  toJSON UpdateApplicationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON UpdateApplicationSettings where
+  toJSON UpdateApplicationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "WriteApplicationSettingsRequest"
-                  Lude..= writeApplicationSettingsRequest
+                  Core..= writeApplicationSettingsRequest
               )
           ]
       )
 
-instance Lude.ToPath UpdateApplicationSettings where
-  toPath UpdateApplicationSettings' {..} =
-    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/settings"]
-
-instance Lude.ToQuery UpdateApplicationSettings where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateApplicationSettings where
+  type
+    Rs UpdateApplicationSettings =
+      UpdateApplicationSettingsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/settings")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateApplicationSettingsResponse'
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateApplicationSettingsResponse' smart constructor.
 data UpdateApplicationSettingsResponse = UpdateApplicationSettingsResponse'
-  { applicationSettingsResource :: ApplicationSettingsResource,
+  { applicationSettingsResource :: Types.ApplicationSettingsResource,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplicationSettingsResponse' with the minimum fields required to make a request.
---
--- * 'applicationSettingsResource' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateApplicationSettingsResponse' value with any optional fields omitted.
 mkUpdateApplicationSettingsResponse ::
   -- | 'applicationSettingsResource'
-  ApplicationSettingsResource ->
+  Types.ApplicationSettingsResource ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateApplicationSettingsResponse
 mkUpdateApplicationSettingsResponse
-  pApplicationSettingsResource_
-  pResponseStatus_ =
+  applicationSettingsResource
+  responseStatus =
     UpdateApplicationSettingsResponse'
-      { applicationSettingsResource =
-          pApplicationSettingsResource_,
-        responseStatus = pResponseStatus_
+      { applicationSettingsResource,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'applicationSettingsResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasrsApplicationSettingsResource :: Lens.Lens' UpdateApplicationSettingsResponse ApplicationSettingsResource
-uasrsApplicationSettingsResource = Lens.lens (applicationSettingsResource :: UpdateApplicationSettingsResponse -> ApplicationSettingsResource) (\s a -> s {applicationSettingsResource = a} :: UpdateApplicationSettingsResponse)
-{-# DEPRECATED uasrsApplicationSettingsResource "Use generic-lens or generic-optics with 'applicationSettingsResource' instead." #-}
+uasrrsApplicationSettingsResource :: Lens.Lens' UpdateApplicationSettingsResponse Types.ApplicationSettingsResource
+uasrrsApplicationSettingsResource = Lens.field @"applicationSettingsResource"
+{-# DEPRECATED uasrrsApplicationSettingsResource "Use generic-lens or generic-optics with 'applicationSettingsResource' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasrsResponseStatus :: Lens.Lens' UpdateApplicationSettingsResponse Lude.Int
-uasrsResponseStatus = Lens.lens (responseStatus :: UpdateApplicationSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApplicationSettingsResponse)
-{-# DEPRECATED uasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uasrrsResponseStatus :: Lens.Lens' UpdateApplicationSettingsResponse Core.Int
+uasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

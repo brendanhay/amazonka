@@ -43,70 +43,71 @@ module Network.AWS.SES.VerifyDomainDkim
     mkVerifyDomainDkimResponse,
 
     -- ** Response lenses
-    vddrsDkimTokens,
-    vddrsResponseStatus,
+    vddrrsDkimTokens,
+    vddrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to generate the CNAME records needed to set up Easy DKIM with Amazon SES. For more information about setting up Easy DKIM, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkVerifyDomainDkim' smart constructor.
 newtype VerifyDomainDkim = VerifyDomainDkim'
   { -- | The name of the domain to be verified for Easy DKIM signing.
-    domain :: Lude.Text
+    domain :: Types.Domain
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyDomainDkim' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain to be verified for Easy DKIM signing.
+-- | Creates a 'VerifyDomainDkim' value with any optional fields omitted.
 mkVerifyDomainDkim ::
   -- | 'domain'
-  Lude.Text ->
+  Types.Domain ->
   VerifyDomainDkim
-mkVerifyDomainDkim pDomain_ = VerifyDomainDkim' {domain = pDomain_}
+mkVerifyDomainDkim domain = VerifyDomainDkim' {domain}
 
 -- | The name of the domain to be verified for Easy DKIM signing.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vddDomain :: Lens.Lens' VerifyDomainDkim Lude.Text
-vddDomain = Lens.lens (domain :: VerifyDomainDkim -> Lude.Text) (\s a -> s {domain = a} :: VerifyDomainDkim)
+vddDomain :: Lens.Lens' VerifyDomainDkim Types.Domain
+vddDomain = Lens.field @"domain"
 {-# DEPRECATED vddDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
-instance Lude.AWSRequest VerifyDomainDkim where
+instance Core.AWSRequest VerifyDomainDkim where
   type Rs VerifyDomainDkim = VerifyDomainDkimResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "VerifyDomainDkim")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Domain" domain)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "VerifyDomainDkimResult"
       ( \s h x ->
           VerifyDomainDkimResponse'
-            Lude.<$> ( x Lude..@? "DkimTokens" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "member"
+            Core.<$> ( x Core..@? "DkimTokens" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders VerifyDomainDkim where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath VerifyDomainDkim where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery VerifyDomainDkim where
-  toQuery VerifyDomainDkim' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("VerifyDomainDkim" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Domain" Lude.=: domain
-      ]
 
 -- | Returns CNAME records that you must publish to the DNS server of your domain to set up Easy DKIM with Amazon SES.
 --
@@ -116,28 +117,22 @@ data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
     --
     -- Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)
     -- For more information about creating DNS records using DKIM tokens, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
-    dkimTokens :: [Lude.Text],
+    dkimTokens :: [Types.VerificationToken],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyDomainDkimResponse' with the minimum fields required to make a request.
---
--- * 'dkimTokens' - A set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.
---
--- Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)
--- For more information about creating DNS records using DKIM tokens, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'VerifyDomainDkimResponse' value with any optional fields omitted.
 mkVerifyDomainDkimResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   VerifyDomainDkimResponse
-mkVerifyDomainDkimResponse pResponseStatus_ =
+mkVerifyDomainDkimResponse responseStatus =
   VerifyDomainDkimResponse'
-    { dkimTokens = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { dkimTokens = Core.mempty,
+      responseStatus
     }
 
 -- | A set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.
@@ -146,13 +141,13 @@ mkVerifyDomainDkimResponse pResponseStatus_ =
 -- For more information about creating DNS records using DKIM tokens, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
 --
 -- /Note:/ Consider using 'dkimTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vddrsDkimTokens :: Lens.Lens' VerifyDomainDkimResponse [Lude.Text]
-vddrsDkimTokens = Lens.lens (dkimTokens :: VerifyDomainDkimResponse -> [Lude.Text]) (\s a -> s {dkimTokens = a} :: VerifyDomainDkimResponse)
-{-# DEPRECATED vddrsDkimTokens "Use generic-lens or generic-optics with 'dkimTokens' instead." #-}
+vddrrsDkimTokens :: Lens.Lens' VerifyDomainDkimResponse [Types.VerificationToken]
+vddrrsDkimTokens = Lens.field @"dkimTokens"
+{-# DEPRECATED vddrrsDkimTokens "Use generic-lens or generic-optics with 'dkimTokens' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vddrsResponseStatus :: Lens.Lens' VerifyDomainDkimResponse Lude.Int
-vddrsResponseStatus = Lens.lens (responseStatus :: VerifyDomainDkimResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: VerifyDomainDkimResponse)
-{-# DEPRECATED vddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+vddrrsResponseStatus :: Lens.Lens' VerifyDomainDkimResponse Core.Int
+vddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED vddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

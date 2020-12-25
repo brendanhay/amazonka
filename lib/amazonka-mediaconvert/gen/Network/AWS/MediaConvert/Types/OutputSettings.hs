@@ -22,40 +22,37 @@ module Network.AWS.MediaConvert.Types.OutputSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.HlsSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.HlsSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specific settings for this type of output.
 --
 -- /See:/ 'mkOutputSettings' smart constructor.
 newtype OutputSettings = OutputSettings'
   { -- | Settings for HLS output groups
-    hlsSettings :: Lude.Maybe HlsSettings
+    hlsSettings :: Core.Maybe Types.HlsSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputSettings' with the minimum fields required to make a request.
---
--- * 'hlsSettings' - Settings for HLS output groups
+-- | Creates a 'OutputSettings' value with any optional fields omitted.
 mkOutputSettings ::
   OutputSettings
-mkOutputSettings = OutputSettings' {hlsSettings = Lude.Nothing}
+mkOutputSettings = OutputSettings' {hlsSettings = Core.Nothing}
 
 -- | Settings for HLS output groups
 --
 -- /Note:/ Consider using 'hlsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osHlsSettings :: Lens.Lens' OutputSettings (Lude.Maybe HlsSettings)
-osHlsSettings = Lens.lens (hlsSettings :: OutputSettings -> Lude.Maybe HlsSettings) (\s a -> s {hlsSettings = a} :: OutputSettings)
+osHlsSettings :: Lens.Lens' OutputSettings (Core.Maybe Types.HlsSettings)
+osHlsSettings = Lens.field @"hlsSettings"
 {-# DEPRECATED osHlsSettings "Use generic-lens or generic-optics with 'hlsSettings' instead." #-}
 
-instance Lude.FromJSON OutputSettings where
-  parseJSON =
-    Lude.withObject
-      "OutputSettings"
-      (\x -> OutputSettings' Lude.<$> (x Lude..:? "hlsSettings"))
+instance Core.FromJSON OutputSettings where
+  toJSON OutputSettings {..} =
+    Core.object
+      (Core.catMaybes [("hlsSettings" Core..=) Core.<$> hlsSettings])
 
-instance Lude.ToJSON OutputSettings where
-  toJSON OutputSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("hlsSettings" Lude..=) Lude.<$> hlsSettings])
+instance Core.FromJSON OutputSettings where
+  parseJSON =
+    Core.withObject "OutputSettings" Core.$
+      \x -> OutputSettings' Core.<$> (x Core..:? "hlsSettings")

@@ -20,145 +20,132 @@ module Network.AWS.Glue.UpdateTable
     mkUpdateTable,
 
     -- ** Request lenses
-    utSkipArchive,
-    utCatalogId,
     utDatabaseName,
     utTableInput,
+    utCatalogId,
+    utSkipArchive,
 
     -- * Destructuring the response
     UpdateTableResponse (..),
     mkUpdateTableResponse,
 
     -- ** Response lenses
-    utrsResponseStatus,
+    utrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTable' smart constructor.
 data UpdateTable = UpdateTable'
-  { -- | By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
-    skipArchive :: Lude.Maybe Lude.Bool,
-    -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
-    databaseName :: Lude.Text,
+  { -- | The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
+    databaseName :: Types.NameString,
     -- | An updated @TableInput@ object to define the metadata table in the catalog.
-    tableInput :: TableInput
+    tableInput :: Types.TableInput,
+    -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Core.Maybe Types.CatalogIdString,
+    -- | By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
+    skipArchive :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateTable' with the minimum fields required to make a request.
---
--- * 'skipArchive' - By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
--- * 'catalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
--- * 'databaseName' - The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
--- * 'tableInput' - An updated @TableInput@ object to define the metadata table in the catalog.
+-- | Creates a 'UpdateTable' value with any optional fields omitted.
 mkUpdateTable ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.NameString ->
   -- | 'tableInput'
-  TableInput ->
+  Types.TableInput ->
   UpdateTable
-mkUpdateTable pDatabaseName_ pTableInput_ =
+mkUpdateTable databaseName tableInput =
   UpdateTable'
-    { skipArchive = Lude.Nothing,
-      catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      tableInput = pTableInput_
+    { databaseName,
+      tableInput,
+      catalogId = Core.Nothing,
+      skipArchive = Core.Nothing
     }
-
--- | By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
---
--- /Note:/ Consider using 'skipArchive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utSkipArchive :: Lens.Lens' UpdateTable (Lude.Maybe Lude.Bool)
-utSkipArchive = Lens.lens (skipArchive :: UpdateTable -> Lude.Maybe Lude.Bool) (\s a -> s {skipArchive = a} :: UpdateTable)
-{-# DEPRECATED utSkipArchive "Use generic-lens or generic-optics with 'skipArchive' instead." #-}
-
--- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utCatalogId :: Lens.Lens' UpdateTable (Lude.Maybe Lude.Text)
-utCatalogId = Lens.lens (catalogId :: UpdateTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: UpdateTable)
-{-# DEPRECATED utCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utDatabaseName :: Lens.Lens' UpdateTable Lude.Text
-utDatabaseName = Lens.lens (databaseName :: UpdateTable -> Lude.Text) (\s a -> s {databaseName = a} :: UpdateTable)
+utDatabaseName :: Lens.Lens' UpdateTable Types.NameString
+utDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED utDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | An updated @TableInput@ object to define the metadata table in the catalog.
 --
 -- /Note:/ Consider using 'tableInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utTableInput :: Lens.Lens' UpdateTable TableInput
-utTableInput = Lens.lens (tableInput :: UpdateTable -> TableInput) (\s a -> s {tableInput = a} :: UpdateTable)
+utTableInput :: Lens.Lens' UpdateTable Types.TableInput
+utTableInput = Lens.field @"tableInput"
 {-# DEPRECATED utTableInput "Use generic-lens or generic-optics with 'tableInput' instead." #-}
 
-instance Lude.AWSRequest UpdateTable where
+-- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utCatalogId :: Lens.Lens' UpdateTable (Core.Maybe Types.CatalogIdString)
+utCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED utCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+-- | By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
+--
+-- /Note:/ Consider using 'skipArchive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utSkipArchive :: Lens.Lens' UpdateTable (Core.Maybe Core.Bool)
+utSkipArchive = Lens.field @"skipArchive"
+{-# DEPRECATED utSkipArchive "Use generic-lens or generic-optics with 'skipArchive' instead." #-}
+
+instance Core.FromJSON UpdateTable where
+  toJSON UpdateTable {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableInput" Core..= tableInput),
+            ("CatalogId" Core..=) Core.<$> catalogId,
+            ("SkipArchive" Core..=) Core.<$> skipArchive
+          ]
+      )
+
+instance Core.AWSRequest UpdateTable where
   type Rs UpdateTable = UpdateTableResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.UpdateTable")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateTableResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateTableResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTable where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.UpdateTable" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTable where
-  toJSON UpdateTable' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SkipArchive" Lude..=) Lude.<$> skipArchive,
-            ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableInput" Lude..= tableInput)
-          ]
-      )
-
-instance Lude.ToPath UpdateTable where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTable where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTableResponse' smart constructor.
 newtype UpdateTableResponse = UpdateTableResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTableResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTableResponse' value with any optional fields omitted.
 mkUpdateTableResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTableResponse
-mkUpdateTableResponse pResponseStatus_ =
-  UpdateTableResponse' {responseStatus = pResponseStatus_}
+mkUpdateTableResponse responseStatus =
+  UpdateTableResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsResponseStatus :: Lens.Lens' UpdateTableResponse Lude.Int
-utrsResponseStatus = Lens.lens (responseStatus :: UpdateTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTableResponse)
-{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrrsResponseStatus :: Lens.Lens' UpdateTableResponse Core.Int
+utrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

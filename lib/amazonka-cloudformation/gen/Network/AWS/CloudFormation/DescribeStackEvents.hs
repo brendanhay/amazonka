@@ -30,25 +30,25 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     mkDescribeStackEventsResponse,
 
     -- ** Response lenses
-    dsersNextToken,
-    dsersStackEvents,
-    dsersResponseStatus,
+    dserrsNextToken,
+    dserrsStackEvents,
+    dserrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for 'DescribeStackEvents' action.
 --
 -- /See:/ 'mkDescribeStackEvents' smart constructor.
 data DescribeStackEvents = DescribeStackEvents'
   { -- | A string that identifies the next page of events that you want to retrieve.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
     --
     --
@@ -59,37 +59,25 @@ data DescribeStackEvents = DescribeStackEvents'
     --
     --
     -- Default: There is no default value.
-    stackName :: Lude.Maybe Lude.Text
+    stackName :: Core.Maybe Types.StackName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeStackEvents' with the minimum fields required to make a request.
---
--- * 'nextToken' - A string that identifies the next page of events that you want to retrieve.
--- * 'stackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
---
---
---     * Running stacks: You can specify either the stack's name or its unique stack ID.
---
---
---     * Deleted stacks: You must specify the unique stack ID.
---
---
--- Default: There is no default value.
+-- | Creates a 'DescribeStackEvents' value with any optional fields omitted.
 mkDescribeStackEvents ::
   DescribeStackEvents
 mkDescribeStackEvents =
   DescribeStackEvents'
-    { nextToken = Lude.Nothing,
-      stackName = Lude.Nothing
+    { nextToken = Core.Nothing,
+      stackName = Core.Nothing
     }
 
 -- | A string that identifies the next page of events that you want to retrieve.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dseNextToken :: Lens.Lens' DescribeStackEvents (Lude.Maybe Lude.Text)
-dseNextToken = Lens.lens (nextToken :: DescribeStackEvents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeStackEvents)
+dseNextToken :: Lens.Lens' DescribeStackEvents (Core.Maybe Types.NextToken)
+dseNextToken = Lens.field @"nextToken"
 {-# DEPRECATED dseNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
@@ -104,96 +92,96 @@ dseNextToken = Lens.lens (nextToken :: DescribeStackEvents -> Lude.Maybe Lude.Te
 -- Default: There is no default value.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dseStackName :: Lens.Lens' DescribeStackEvents (Lude.Maybe Lude.Text)
-dseStackName = Lens.lens (stackName :: DescribeStackEvents -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DescribeStackEvents)
+dseStackName :: Lens.Lens' DescribeStackEvents (Core.Maybe Types.StackName)
+dseStackName = Lens.field @"stackName"
 {-# DEPRECATED dseStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Page.AWSPager DescribeStackEvents where
-  page rq rs
-    | Page.stop (rs Lens.^. dsersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsersStackEvents) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dseNextToken Lens..~ rs Lens.^. dsersNextToken
-
-instance Lude.AWSRequest DescribeStackEvents where
+instance Core.AWSRequest DescribeStackEvents where
   type Rs DescribeStackEvents = DescribeStackEventsResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeStackEvents")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryValue "StackName" Core.<$> stackName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeStackEventsResult"
       ( \s h x ->
           DescribeStackEventsResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "StackEvents" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (x Core..@? "StackEvents" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeStackEvents where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeStackEvents where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeStackEvents where
-  toQuery DescribeStackEvents' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeStackEvents" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "StackName" Lude.=: stackName
-      ]
+instance Pager.AWSPager DescribeStackEvents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"stackEvents" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | The output for a 'DescribeStackEvents' action.
 --
 -- /See:/ 'mkDescribeStackEventsResponse' smart constructor.
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
   { -- | If the output exceeds 1 MB in size, a string that identifies the next page of events. If no additional page exists, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of @StackEvents@ structures.
-    stackEvents :: Lude.Maybe [StackEvent],
+    stackEvents :: Core.Maybe [Types.StackEvent],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeStackEventsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of events. If no additional page exists, this value is null.
--- * 'stackEvents' - A list of @StackEvents@ structures.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeStackEventsResponse' value with any optional fields omitted.
 mkDescribeStackEventsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeStackEventsResponse
-mkDescribeStackEventsResponse pResponseStatus_ =
+mkDescribeStackEventsResponse responseStatus =
   DescribeStackEventsResponse'
-    { nextToken = Lude.Nothing,
-      stackEvents = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      stackEvents = Core.Nothing,
+      responseStatus
     }
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next page of events. If no additional page exists, this value is null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsersNextToken :: Lens.Lens' DescribeStackEventsResponse (Lude.Maybe Lude.Text)
-dsersNextToken = Lens.lens (nextToken :: DescribeStackEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeStackEventsResponse)
-{-# DEPRECATED dsersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dserrsNextToken :: Lens.Lens' DescribeStackEventsResponse (Core.Maybe Types.NextToken)
+dserrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dserrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @StackEvents@ structures.
 --
 -- /Note:/ Consider using 'stackEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsersStackEvents :: Lens.Lens' DescribeStackEventsResponse (Lude.Maybe [StackEvent])
-dsersStackEvents = Lens.lens (stackEvents :: DescribeStackEventsResponse -> Lude.Maybe [StackEvent]) (\s a -> s {stackEvents = a} :: DescribeStackEventsResponse)
-{-# DEPRECATED dsersStackEvents "Use generic-lens or generic-optics with 'stackEvents' instead." #-}
+dserrsStackEvents :: Lens.Lens' DescribeStackEventsResponse (Core.Maybe [Types.StackEvent])
+dserrsStackEvents = Lens.field @"stackEvents"
+{-# DEPRECATED dserrsStackEvents "Use generic-lens or generic-optics with 'stackEvents' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsersResponseStatus :: Lens.Lens' DescribeStackEventsResponse Lude.Int
-dsersResponseStatus = Lens.lens (responseStatus :: DescribeStackEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackEventsResponse)
-{-# DEPRECATED dsersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dserrsResponseStatus :: Lens.Lens' DescribeStackEventsResponse Core.Int
+dserrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dserrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

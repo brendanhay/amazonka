@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.InputMaximumBitrate
   ( InputMaximumBitrate
       ( InputMaximumBitrate',
-        Max10Mbps,
-        Max20Mbps,
-        Max50Mbps
+        InputMaximumBitrateMax10Mbps,
+        InputMaximumBitrateMax20Mbps,
+        InputMaximumBitrateMax50Mbps,
+        fromInputMaximumBitrate
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Maximum input bitrate in megabits per second. Bitrates up to 50 Mbps are supported currently.
-newtype InputMaximumBitrate = InputMaximumBitrate' Lude.Text
+newtype InputMaximumBitrate = InputMaximumBitrate'
+  { fromInputMaximumBitrate ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Max10Mbps :: InputMaximumBitrate
-pattern Max10Mbps = InputMaximumBitrate' "MAX_10_MBPS"
+pattern InputMaximumBitrateMax10Mbps :: InputMaximumBitrate
+pattern InputMaximumBitrateMax10Mbps = InputMaximumBitrate' "MAX_10_MBPS"
 
-pattern Max20Mbps :: InputMaximumBitrate
-pattern Max20Mbps = InputMaximumBitrate' "MAX_20_MBPS"
+pattern InputMaximumBitrateMax20Mbps :: InputMaximumBitrate
+pattern InputMaximumBitrateMax20Mbps = InputMaximumBitrate' "MAX_20_MBPS"
 
-pattern Max50Mbps :: InputMaximumBitrate
-pattern Max50Mbps = InputMaximumBitrate' "MAX_50_MBPS"
+pattern InputMaximumBitrateMax50Mbps :: InputMaximumBitrate
+pattern InputMaximumBitrateMax50Mbps = InputMaximumBitrate' "MAX_50_MBPS"
 
 {-# COMPLETE
-  Max10Mbps,
-  Max20Mbps,
-  Max50Mbps,
+  InputMaximumBitrateMax10Mbps,
+  InputMaximumBitrateMax20Mbps,
+  InputMaximumBitrateMax50Mbps,
   InputMaximumBitrate'
   #-}

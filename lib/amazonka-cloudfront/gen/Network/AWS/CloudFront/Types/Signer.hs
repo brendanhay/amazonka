@@ -17,54 +17,52 @@ module Network.AWS.CloudFront.Types.Signer
     mkSigner,
 
     -- * Lenses
-    sAWSAccountNumber,
+    sAwsAccountNumber,
     sKeyPairIds,
   )
 where
 
-import Network.AWS.CloudFront.Types.KeyPairIds
+import qualified Network.AWS.CloudFront.Types.AwsAccountNumber as Types
+import qualified Network.AWS.CloudFront.Types.KeyPairIds as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of AWS accounts and the active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
 -- /See:/ 'mkSigner' smart constructor.
 data Signer = Signer'
   { -- | An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is @self@ .
-    awsAccountNumber :: Lude.Maybe Lude.Text,
+    awsAccountNumber :: Core.Maybe Types.AwsAccountNumber,
     -- | A list of CloudFront key pair identifiers.
-    keyPairIds :: Lude.Maybe KeyPairIds
+    keyPairIds :: Core.Maybe Types.KeyPairIds
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Signer' with the minimum fields required to make a request.
---
--- * 'awsAccountNumber' - An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is @self@ .
--- * 'keyPairIds' - A list of CloudFront key pair identifiers.
+-- | Creates a 'Signer' value with any optional fields omitted.
 mkSigner ::
   Signer
 mkSigner =
   Signer'
-    { awsAccountNumber = Lude.Nothing,
-      keyPairIds = Lude.Nothing
+    { awsAccountNumber = Core.Nothing,
+      keyPairIds = Core.Nothing
     }
 
 -- | An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is @self@ .
 --
 -- /Note:/ Consider using 'awsAccountNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAWSAccountNumber :: Lens.Lens' Signer (Lude.Maybe Lude.Text)
-sAWSAccountNumber = Lens.lens (awsAccountNumber :: Signer -> Lude.Maybe Lude.Text) (\s a -> s {awsAccountNumber = a} :: Signer)
-{-# DEPRECATED sAWSAccountNumber "Use generic-lens or generic-optics with 'awsAccountNumber' instead." #-}
+sAwsAccountNumber :: Lens.Lens' Signer (Core.Maybe Types.AwsAccountNumber)
+sAwsAccountNumber = Lens.field @"awsAccountNumber"
+{-# DEPRECATED sAwsAccountNumber "Use generic-lens or generic-optics with 'awsAccountNumber' instead." #-}
 
 -- | A list of CloudFront key pair identifiers.
 --
 -- /Note:/ Consider using 'keyPairIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sKeyPairIds :: Lens.Lens' Signer (Lude.Maybe KeyPairIds)
-sKeyPairIds = Lens.lens (keyPairIds :: Signer -> Lude.Maybe KeyPairIds) (\s a -> s {keyPairIds = a} :: Signer)
+sKeyPairIds :: Lens.Lens' Signer (Core.Maybe Types.KeyPairIds)
+sKeyPairIds = Lens.field @"keyPairIds"
 {-# DEPRECATED sKeyPairIds "Use generic-lens or generic-optics with 'keyPairIds' instead." #-}
 
-instance Lude.FromXML Signer where
+instance Core.FromXML Signer where
   parseXML x =
     Signer'
-      Lude.<$> (x Lude..@? "AwsAccountNumber") Lude.<*> (x Lude..@? "KeyPairIds")
+      Core.<$> (x Core..@? "AwsAccountNumber") Core.<*> (x Core..@? "KeyPairIds")

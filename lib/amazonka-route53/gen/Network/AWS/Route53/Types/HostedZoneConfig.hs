@@ -17,59 +17,57 @@ module Network.AWS.Route53.Types.HostedZoneConfig
     mkHostedZoneConfig,
 
     -- * Lenses
-    hzcPrivateZone,
     hzcComment,
+    hzcPrivateZone,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
+import qualified Network.AWS.Route53.Types.ResourceDescription as Types
 
 -- | A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the @HostedZoneConfig@ and @Comment@ elements.
 --
 -- /See:/ 'mkHostedZoneConfig' smart constructor.
 data HostedZoneConfig = HostedZoneConfig'
-  { -- | A value that indicates whether this is a private hosted zone.
-    privateZone :: Lude.Maybe Lude.Bool,
-    -- | Any comments that you want to include about the hosted zone.
-    comment :: Lude.Maybe Lude.Text
+  { -- | Any comments that you want to include about the hosted zone.
+    comment :: Core.Maybe Types.ResourceDescription,
+    -- | A value that indicates whether this is a private hosted zone.
+    privateZone :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HostedZoneConfig' with the minimum fields required to make a request.
---
--- * 'privateZone' - A value that indicates whether this is a private hosted zone.
--- * 'comment' - Any comments that you want to include about the hosted zone.
+-- | Creates a 'HostedZoneConfig' value with any optional fields omitted.
 mkHostedZoneConfig ::
   HostedZoneConfig
 mkHostedZoneConfig =
   HostedZoneConfig'
-    { privateZone = Lude.Nothing,
-      comment = Lude.Nothing
+    { comment = Core.Nothing,
+      privateZone = Core.Nothing
     }
-
--- | A value that indicates whether this is a private hosted zone.
---
--- /Note:/ Consider using 'privateZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hzcPrivateZone :: Lens.Lens' HostedZoneConfig (Lude.Maybe Lude.Bool)
-hzcPrivateZone = Lens.lens (privateZone :: HostedZoneConfig -> Lude.Maybe Lude.Bool) (\s a -> s {privateZone = a} :: HostedZoneConfig)
-{-# DEPRECATED hzcPrivateZone "Use generic-lens or generic-optics with 'privateZone' instead." #-}
 
 -- | Any comments that you want to include about the hosted zone.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hzcComment :: Lens.Lens' HostedZoneConfig (Lude.Maybe Lude.Text)
-hzcComment = Lens.lens (comment :: HostedZoneConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: HostedZoneConfig)
+hzcComment :: Lens.Lens' HostedZoneConfig (Core.Maybe Types.ResourceDescription)
+hzcComment = Lens.field @"comment"
 {-# DEPRECATED hzcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.FromXML HostedZoneConfig where
+-- | A value that indicates whether this is a private hosted zone.
+--
+-- /Note:/ Consider using 'privateZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzcPrivateZone :: Lens.Lens' HostedZoneConfig (Core.Maybe Core.Bool)
+hzcPrivateZone = Lens.field @"privateZone"
+{-# DEPRECATED hzcPrivateZone "Use generic-lens or generic-optics with 'privateZone' instead." #-}
+
+instance Core.ToXML HostedZoneConfig where
+  toXML HostedZoneConfig {..} =
+    Core.toXMLNode "Comment" Core.<$> comment
+      Core.<> Core.toXMLNode "PrivateZone" Core.<$> privateZone
+
+instance Core.FromXML HostedZoneConfig where
   parseXML x =
     HostedZoneConfig'
-      Lude.<$> (x Lude..@? "PrivateZone") Lude.<*> (x Lude..@? "Comment")
-
-instance Lude.ToXML HostedZoneConfig where
-  toXML HostedZoneConfig' {..} =
-    Lude.mconcat
-      ["PrivateZone" Lude.@= privateZone, "Comment" Lude.@= comment]
+      Core.<$> (x Core..@? "Comment") Core.<*> (x Core..@? "PrivateZone")

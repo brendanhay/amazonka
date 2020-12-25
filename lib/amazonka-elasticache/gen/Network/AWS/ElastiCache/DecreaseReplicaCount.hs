@@ -20,31 +20,35 @@ module Network.AWS.ElastiCache.DecreaseReplicaCount
     mkDecreaseReplicaCount,
 
     -- ** Request lenses
-    drcNewReplicaCount,
+    drcReplicationGroupId,
     drcApplyImmediately,
+    drcNewReplicaCount,
     drcReplicaConfiguration,
     drcReplicasToRemove,
-    drcReplicationGroupId,
 
     -- * Destructuring the response
     DecreaseReplicaCountResponse (..),
     mkDecreaseReplicaCountResponse,
 
     -- ** Response lenses
-    drcrsReplicationGroup,
-    drcrsResponseStatus,
+    drcrrsReplicationGroup,
+    drcrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDecreaseReplicaCount' smart constructor.
 data DecreaseReplicaCount = DecreaseReplicaCount'
-  { -- | The number of read replica nodes you want at the completion of this operation. For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Redis (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group's node groups.
+  { -- | The id of the replication group from which you want to remove replica nodes.
+    replicationGroupId :: Types.ReplicationGroupId,
+    -- | If @True@ , the number of replica nodes is decreased immediately. @ApplyImmediately=False@ is not currently supported.
+    applyImmediately :: Core.Bool,
+    -- | The number of read replica nodes you want at the completion of this operation. For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Redis (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group's node groups.
     --
     -- The minimum number of replicas in a shard or replication group is:
     --
@@ -59,56 +63,44 @@ data DecreaseReplicaCount = DecreaseReplicaCount'
     --
     --
     --     * Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica if your primary node fails)
-    newReplicaCount :: Lude.Maybe Lude.Int,
-    -- | If @True@ , the number of replica nodes is decreased immediately. @ApplyImmediately=False@ is not currently supported.
-    applyImmediately :: Lude.Bool,
+    newReplicaCount :: Core.Maybe Core.Int,
     -- | A list of @ConfigureShard@ objects that can be used to configure each shard in a Redis (cluster mode enabled) replication group. The @ConfigureShard@ has three members: @NewReplicaCount@ , @NodeGroupId@ , and @PreferredAvailabilityZones@ .
-    replicaConfiguration :: Lude.Maybe [ConfigureShard],
+    replicaConfiguration :: Core.Maybe [Types.ConfigureShard],
     -- | A list of the node ids to remove from the replication group or node group (shard).
-    replicasToRemove :: Lude.Maybe [Lude.Text],
-    -- | The id of the replication group from which you want to remove replica nodes.
-    replicationGroupId :: Lude.Text
+    replicasToRemove :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DecreaseReplicaCount' with the minimum fields required to make a request.
---
--- * 'newReplicaCount' - The number of read replica nodes you want at the completion of this operation. For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Redis (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group's node groups.
---
--- The minimum number of replicas in a shard or replication group is:
---
---     * Redis (cluster mode disabled)
---
---     * If Multi-AZ is enabled: 1
---
---
---     * If Multi-AZ is not enabled: 0
---
---
---
---
---     * Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica if your primary node fails)
---
---
--- * 'applyImmediately' - If @True@ , the number of replica nodes is decreased immediately. @ApplyImmediately=False@ is not currently supported.
--- * 'replicaConfiguration' - A list of @ConfigureShard@ objects that can be used to configure each shard in a Redis (cluster mode enabled) replication group. The @ConfigureShard@ has three members: @NewReplicaCount@ , @NodeGroupId@ , and @PreferredAvailabilityZones@ .
--- * 'replicasToRemove' - A list of the node ids to remove from the replication group or node group (shard).
--- * 'replicationGroupId' - The id of the replication group from which you want to remove replica nodes.
+-- | Creates a 'DecreaseReplicaCount' value with any optional fields omitted.
 mkDecreaseReplicaCount ::
-  -- | 'applyImmediately'
-  Lude.Bool ->
   -- | 'replicationGroupId'
-  Lude.Text ->
+  Types.ReplicationGroupId ->
+  -- | 'applyImmediately'
+  Core.Bool ->
   DecreaseReplicaCount
-mkDecreaseReplicaCount pApplyImmediately_ pReplicationGroupId_ =
+mkDecreaseReplicaCount replicationGroupId applyImmediately =
   DecreaseReplicaCount'
-    { newReplicaCount = Lude.Nothing,
-      applyImmediately = pApplyImmediately_,
-      replicaConfiguration = Lude.Nothing,
-      replicasToRemove = Lude.Nothing,
-      replicationGroupId = pReplicationGroupId_
+    { replicationGroupId,
+      applyImmediately,
+      newReplicaCount = Core.Nothing,
+      replicaConfiguration = Core.Nothing,
+      replicasToRemove = Core.Nothing
     }
+
+-- | The id of the replication group from which you want to remove replica nodes.
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcReplicationGroupId :: Lens.Lens' DecreaseReplicaCount Types.ReplicationGroupId
+drcReplicationGroupId = Lens.field @"replicationGroupId"
+{-# DEPRECATED drcReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
+
+-- | If @True@ , the number of replica nodes is decreased immediately. @ApplyImmediately=False@ is not currently supported.
+--
+-- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcApplyImmediately :: Lens.Lens' DecreaseReplicaCount Core.Bool
+drcApplyImmediately = Lens.field @"applyImmediately"
+{-# DEPRECATED drcApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
 -- | The number of read replica nodes you want at the completion of this operation. For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the replication group. For Redis (cluster mode enabled) replication groups, this is the number of replica nodes in each of the replication group's node groups.
 --
@@ -129,104 +121,95 @@ mkDecreaseReplicaCount pApplyImmediately_ pReplicationGroupId_ =
 --
 --
 -- /Note:/ Consider using 'newReplicaCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcNewReplicaCount :: Lens.Lens' DecreaseReplicaCount (Lude.Maybe Lude.Int)
-drcNewReplicaCount = Lens.lens (newReplicaCount :: DecreaseReplicaCount -> Lude.Maybe Lude.Int) (\s a -> s {newReplicaCount = a} :: DecreaseReplicaCount)
+drcNewReplicaCount :: Lens.Lens' DecreaseReplicaCount (Core.Maybe Core.Int)
+drcNewReplicaCount = Lens.field @"newReplicaCount"
 {-# DEPRECATED drcNewReplicaCount "Use generic-lens or generic-optics with 'newReplicaCount' instead." #-}
-
--- | If @True@ , the number of replica nodes is decreased immediately. @ApplyImmediately=False@ is not currently supported.
---
--- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcApplyImmediately :: Lens.Lens' DecreaseReplicaCount Lude.Bool
-drcApplyImmediately = Lens.lens (applyImmediately :: DecreaseReplicaCount -> Lude.Bool) (\s a -> s {applyImmediately = a} :: DecreaseReplicaCount)
-{-# DEPRECATED drcApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
 -- | A list of @ConfigureShard@ objects that can be used to configure each shard in a Redis (cluster mode enabled) replication group. The @ConfigureShard@ has three members: @NewReplicaCount@ , @NodeGroupId@ , and @PreferredAvailabilityZones@ .
 --
 -- /Note:/ Consider using 'replicaConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcReplicaConfiguration :: Lens.Lens' DecreaseReplicaCount (Lude.Maybe [ConfigureShard])
-drcReplicaConfiguration = Lens.lens (replicaConfiguration :: DecreaseReplicaCount -> Lude.Maybe [ConfigureShard]) (\s a -> s {replicaConfiguration = a} :: DecreaseReplicaCount)
+drcReplicaConfiguration :: Lens.Lens' DecreaseReplicaCount (Core.Maybe [Types.ConfigureShard])
+drcReplicaConfiguration = Lens.field @"replicaConfiguration"
 {-# DEPRECATED drcReplicaConfiguration "Use generic-lens or generic-optics with 'replicaConfiguration' instead." #-}
 
 -- | A list of the node ids to remove from the replication group or node group (shard).
 --
 -- /Note:/ Consider using 'replicasToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcReplicasToRemove :: Lens.Lens' DecreaseReplicaCount (Lude.Maybe [Lude.Text])
-drcReplicasToRemove = Lens.lens (replicasToRemove :: DecreaseReplicaCount -> Lude.Maybe [Lude.Text]) (\s a -> s {replicasToRemove = a} :: DecreaseReplicaCount)
+drcReplicasToRemove :: Lens.Lens' DecreaseReplicaCount (Core.Maybe [Types.String])
+drcReplicasToRemove = Lens.field @"replicasToRemove"
 {-# DEPRECATED drcReplicasToRemove "Use generic-lens or generic-optics with 'replicasToRemove' instead." #-}
 
--- | The id of the replication group from which you want to remove replica nodes.
---
--- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcReplicationGroupId :: Lens.Lens' DecreaseReplicaCount Lude.Text
-drcReplicationGroupId = Lens.lens (replicationGroupId :: DecreaseReplicaCount -> Lude.Text) (\s a -> s {replicationGroupId = a} :: DecreaseReplicaCount)
-{-# DEPRECATED drcReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
-
-instance Lude.AWSRequest DecreaseReplicaCount where
+instance Core.AWSRequest DecreaseReplicaCount where
   type Rs DecreaseReplicaCount = DecreaseReplicaCountResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DecreaseReplicaCount")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "ReplicationGroupId" replicationGroupId)
+                Core.<> (Core.toQueryValue "ApplyImmediately" applyImmediately)
+                Core.<> (Core.toQueryValue "NewReplicaCount" Core.<$> newReplicaCount)
+                Core.<> ( Core.toQueryValue
+                            "ReplicaConfiguration"
+                            ( Core.toQueryList "ConfigureShard"
+                                Core.<$> replicaConfiguration
+                            )
+                        )
+                Core.<> ( Core.toQueryValue
+                            "ReplicasToRemove"
+                            (Core.toQueryList "member" Core.<$> replicasToRemove)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DecreaseReplicaCountResult"
       ( \s h x ->
           DecreaseReplicaCountResponse'
-            Lude.<$> (x Lude..@? "ReplicationGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DecreaseReplicaCount where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DecreaseReplicaCount where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DecreaseReplicaCount where
-  toQuery DecreaseReplicaCount' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DecreaseReplicaCount" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "NewReplicaCount" Lude.=: newReplicaCount,
-        "ApplyImmediately" Lude.=: applyImmediately,
-        "ReplicaConfiguration"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "ConfigureShard" Lude.<$> replicaConfiguration),
-        "ReplicasToRemove"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> replicasToRemove),
-        "ReplicationGroupId" Lude.=: replicationGroupId
-      ]
 
 -- | /See:/ 'mkDecreaseReplicaCountResponse' smart constructor.
 data DecreaseReplicaCountResponse = DecreaseReplicaCountResponse'
-  { replicationGroup :: Lude.Maybe ReplicationGroup,
+  { replicationGroup :: Core.Maybe Types.ReplicationGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DecreaseReplicaCountResponse' with the minimum fields required to make a request.
---
--- * 'replicationGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DecreaseReplicaCountResponse' value with any optional fields omitted.
 mkDecreaseReplicaCountResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DecreaseReplicaCountResponse
-mkDecreaseReplicaCountResponse pResponseStatus_ =
+mkDecreaseReplicaCountResponse responseStatus =
   DecreaseReplicaCountResponse'
-    { replicationGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { replicationGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'replicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsReplicationGroup :: Lens.Lens' DecreaseReplicaCountResponse (Lude.Maybe ReplicationGroup)
-drcrsReplicationGroup = Lens.lens (replicationGroup :: DecreaseReplicaCountResponse -> Lude.Maybe ReplicationGroup) (\s a -> s {replicationGroup = a} :: DecreaseReplicaCountResponse)
-{-# DEPRECATED drcrsReplicationGroup "Use generic-lens or generic-optics with 'replicationGroup' instead." #-}
+drcrrsReplicationGroup :: Lens.Lens' DecreaseReplicaCountResponse (Core.Maybe Types.ReplicationGroup)
+drcrrsReplicationGroup = Lens.field @"replicationGroup"
+{-# DEPRECATED drcrrsReplicationGroup "Use generic-lens or generic-optics with 'replicationGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsResponseStatus :: Lens.Lens' DecreaseReplicaCountResponse Lude.Int
-drcrsResponseStatus = Lens.lens (responseStatus :: DecreaseReplicaCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DecreaseReplicaCountResponse)
-{-# DEPRECATED drcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drcrrsResponseStatus :: Lens.Lens' DecreaseReplicaCountResponse Core.Int
+drcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

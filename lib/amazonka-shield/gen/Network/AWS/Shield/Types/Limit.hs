@@ -23,46 +23,42 @@ module Network.AWS.Shield.Types.Limit
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.String as Types
 
 -- | Specifies how many protections of a given type you can create.
 --
 -- /See:/ 'mkLimit' smart constructor.
 data Limit = Limit'
   { -- | The maximum number of protections that can be created for the specified @Type@ .
-    max :: Lude.Maybe Lude.Integer,
+    max :: Core.Maybe Core.Integer,
     -- | The type of protection.
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Limit' with the minimum fields required to make a request.
---
--- * 'max' - The maximum number of protections that can be created for the specified @Type@ .
--- * 'type'' - The type of protection.
+-- | Creates a 'Limit' value with any optional fields omitted.
 mkLimit ::
   Limit
-mkLimit = Limit' {max = Lude.Nothing, type' = Lude.Nothing}
+mkLimit = Limit' {max = Core.Nothing, type' = Core.Nothing}
 
 -- | The maximum number of protections that can be created for the specified @Type@ .
 --
 -- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMax :: Lens.Lens' Limit (Lude.Maybe Lude.Integer)
-lMax = Lens.lens (max :: Limit -> Lude.Maybe Lude.Integer) (\s a -> s {max = a} :: Limit)
+lMax :: Lens.Lens' Limit (Core.Maybe Core.Integer)
+lMax = Lens.field @"max"
 {-# DEPRECATED lMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
 -- | The type of protection.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lType :: Lens.Lens' Limit (Lude.Maybe Lude.Text)
-lType = Lens.lens (type' :: Limit -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Limit)
+lType :: Lens.Lens' Limit (Core.Maybe Types.String)
+lType = Lens.field @"type'"
 {-# DEPRECATED lType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Limit where
+instance Core.FromJSON Limit where
   parseJSON =
-    Lude.withObject
-      "Limit"
-      ( \x ->
-          Limit' Lude.<$> (x Lude..:? "Max") Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "Limit" Core.$
+      \x ->
+        Limit' Core.<$> (x Core..:? "Max") Core.<*> (x Core..:? "Type")

@@ -17,141 +17,86 @@ module Network.AWS.MediaLive.Types.AacSettings
     mkAacSettings,
 
     -- * Lenses
-    aRawFormat,
-    aCodingMode,
-    aProfile,
-    aRateControlMode,
-    aSampleRate,
-    aSpec,
-    aBitrate,
-    aVbrQuality,
-    aInputType,
+    asBitrate,
+    asCodingMode,
+    asInputType,
+    asProfile,
+    asRateControlMode,
+    asRawFormat,
+    asSampleRate,
+    asSpec,
+    asVbrQuality,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AacCodingMode
-import Network.AWS.MediaLive.Types.AacInputType
-import Network.AWS.MediaLive.Types.AacProfile
-import Network.AWS.MediaLive.Types.AacRateControlMode
-import Network.AWS.MediaLive.Types.AacRawFormat
-import Network.AWS.MediaLive.Types.AacSpec
-import Network.AWS.MediaLive.Types.AacVbrQuality
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AacCodingMode as Types
+import qualified Network.AWS.MediaLive.Types.AacInputType as Types
+import qualified Network.AWS.MediaLive.Types.AacProfile as Types
+import qualified Network.AWS.MediaLive.Types.AacRateControlMode as Types
+import qualified Network.AWS.MediaLive.Types.AacRawFormat as Types
+import qualified Network.AWS.MediaLive.Types.AacSpec as Types
+import qualified Network.AWS.MediaLive.Types.AacVbrQuality as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Aac Settings
 --
 -- /See:/ 'mkAacSettings' smart constructor.
 data AacSettings = AacSettings'
-  { -- | Sets LATM / LOAS AAC output for raw containers.
-    rawFormat :: Lude.Maybe AacRawFormat,
+  { -- | Average bitrate in bits/second. Valid values depend on rate control mode and profile.
+    bitrate :: Core.Maybe Core.Double,
     -- | Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
-    codingMode :: Lude.Maybe AacCodingMode,
-    -- | AAC Profile.
-    profile :: Lude.Maybe AacProfile,
-    -- | Rate Control Mode.
-    rateControlMode :: Lude.Maybe AacRateControlMode,
-    -- | Sample rate in Hz. Valid values depend on rate control mode and profile.
-    sampleRate :: Lude.Maybe Lude.Double,
-    -- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-    spec :: Lude.Maybe AacSpec,
-    -- | Average bitrate in bits/second. Valid values depend on rate control mode and profile.
-    bitrate :: Lude.Maybe Lude.Double,
-    -- | VBR Quality Level - Only used if rateControlMode is VBR.
-    vbrQuality :: Lude.Maybe AacVbrQuality,
+    codingMode :: Core.Maybe Types.AacCodingMode,
     -- | Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.  The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.
     --
     --
     -- Leave set to "normal" when input does not contain pre-mixed audio + AD.
-    inputType :: Lude.Maybe AacInputType
+    inputType :: Core.Maybe Types.AacInputType,
+    -- | AAC Profile.
+    profile :: Core.Maybe Types.AacProfile,
+    -- | Rate Control Mode.
+    rateControlMode :: Core.Maybe Types.AacRateControlMode,
+    -- | Sets LATM / LOAS AAC output for raw containers.
+    rawFormat :: Core.Maybe Types.AacRawFormat,
+    -- | Sample rate in Hz. Valid values depend on rate control mode and profile.
+    sampleRate :: Core.Maybe Core.Double,
+    -- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+    spec :: Core.Maybe Types.AacSpec,
+    -- | VBR Quality Level - Only used if rateControlMode is VBR.
+    vbrQuality :: Core.Maybe Types.AacVbrQuality
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AacSettings' with the minimum fields required to make a request.
---
--- * 'rawFormat' - Sets LATM / LOAS AAC output for raw containers.
--- * 'codingMode' - Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
--- * 'profile' - AAC Profile.
--- * 'rateControlMode' - Rate Control Mode.
--- * 'sampleRate' - Sample rate in Hz. Valid values depend on rate control mode and profile.
--- * 'spec' - Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
--- * 'bitrate' - Average bitrate in bits/second. Valid values depend on rate control mode and profile.
--- * 'vbrQuality' - VBR Quality Level - Only used if rateControlMode is VBR.
--- * 'inputType' - Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.  The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.
---
---
--- Leave set to "normal" when input does not contain pre-mixed audio + AD.
+-- | Creates a 'AacSettings' value with any optional fields omitted.
 mkAacSettings ::
   AacSettings
 mkAacSettings =
   AacSettings'
-    { rawFormat = Lude.Nothing,
-      codingMode = Lude.Nothing,
-      profile = Lude.Nothing,
-      rateControlMode = Lude.Nothing,
-      sampleRate = Lude.Nothing,
-      spec = Lude.Nothing,
-      bitrate = Lude.Nothing,
-      vbrQuality = Lude.Nothing,
-      inputType = Lude.Nothing
+    { bitrate = Core.Nothing,
+      codingMode = Core.Nothing,
+      inputType = Core.Nothing,
+      profile = Core.Nothing,
+      rateControlMode = Core.Nothing,
+      rawFormat = Core.Nothing,
+      sampleRate = Core.Nothing,
+      spec = Core.Nothing,
+      vbrQuality = Core.Nothing
     }
-
--- | Sets LATM / LOAS AAC output for raw containers.
---
--- /Note:/ Consider using 'rawFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aRawFormat :: Lens.Lens' AacSettings (Lude.Maybe AacRawFormat)
-aRawFormat = Lens.lens (rawFormat :: AacSettings -> Lude.Maybe AacRawFormat) (\s a -> s {rawFormat = a} :: AacSettings)
-{-# DEPRECATED aRawFormat "Use generic-lens or generic-optics with 'rawFormat' instead." #-}
-
--- | Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
---
--- /Note:/ Consider using 'codingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCodingMode :: Lens.Lens' AacSettings (Lude.Maybe AacCodingMode)
-aCodingMode = Lens.lens (codingMode :: AacSettings -> Lude.Maybe AacCodingMode) (\s a -> s {codingMode = a} :: AacSettings)
-{-# DEPRECATED aCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
-
--- | AAC Profile.
---
--- /Note:/ Consider using 'profile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aProfile :: Lens.Lens' AacSettings (Lude.Maybe AacProfile)
-aProfile = Lens.lens (profile :: AacSettings -> Lude.Maybe AacProfile) (\s a -> s {profile = a} :: AacSettings)
-{-# DEPRECATED aProfile "Use generic-lens or generic-optics with 'profile' instead." #-}
-
--- | Rate Control Mode.
---
--- /Note:/ Consider using 'rateControlMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aRateControlMode :: Lens.Lens' AacSettings (Lude.Maybe AacRateControlMode)
-aRateControlMode = Lens.lens (rateControlMode :: AacSettings -> Lude.Maybe AacRateControlMode) (\s a -> s {rateControlMode = a} :: AacSettings)
-{-# DEPRECATED aRateControlMode "Use generic-lens or generic-optics with 'rateControlMode' instead." #-}
-
--- | Sample rate in Hz. Valid values depend on rate control mode and profile.
---
--- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aSampleRate :: Lens.Lens' AacSettings (Lude.Maybe Lude.Double)
-aSampleRate = Lens.lens (sampleRate :: AacSettings -> Lude.Maybe Lude.Double) (\s a -> s {sampleRate = a} :: AacSettings)
-{-# DEPRECATED aSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
-
--- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
---
--- /Note:/ Consider using 'spec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aSpec :: Lens.Lens' AacSettings (Lude.Maybe AacSpec)
-aSpec = Lens.lens (spec :: AacSettings -> Lude.Maybe AacSpec) (\s a -> s {spec = a} :: AacSettings)
-{-# DEPRECATED aSpec "Use generic-lens or generic-optics with 'spec' instead." #-}
 
 -- | Average bitrate in bits/second. Valid values depend on rate control mode and profile.
 --
 -- /Note:/ Consider using 'bitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aBitrate :: Lens.Lens' AacSettings (Lude.Maybe Lude.Double)
-aBitrate = Lens.lens (bitrate :: AacSettings -> Lude.Maybe Lude.Double) (\s a -> s {bitrate = a} :: AacSettings)
-{-# DEPRECATED aBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
+asBitrate :: Lens.Lens' AacSettings (Core.Maybe Core.Double)
+asBitrate = Lens.field @"bitrate"
+{-# DEPRECATED asBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
 
--- | VBR Quality Level - Only used if rateControlMode is VBR.
+-- | Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
 --
--- /Note:/ Consider using 'vbrQuality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aVbrQuality :: Lens.Lens' AacSettings (Lude.Maybe AacVbrQuality)
-aVbrQuality = Lens.lens (vbrQuality :: AacSettings -> Lude.Maybe AacVbrQuality) (\s a -> s {vbrQuality = a} :: AacSettings)
-{-# DEPRECATED aVbrQuality "Use generic-lens or generic-optics with 'vbrQuality' instead." #-}
+-- /Note:/ Consider using 'codingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asCodingMode :: Lens.Lens' AacSettings (Core.Maybe Types.AacCodingMode)
+asCodingMode = Lens.field @"codingMode"
+{-# DEPRECATED asCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
 
 -- | Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.  The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.
 --
@@ -159,39 +104,79 @@ aVbrQuality = Lens.lens (vbrQuality :: AacSettings -> Lude.Maybe AacVbrQuality) 
 -- Leave set to "normal" when input does not contain pre-mixed audio + AD.
 --
 -- /Note:/ Consider using 'inputType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aInputType :: Lens.Lens' AacSettings (Lude.Maybe AacInputType)
-aInputType = Lens.lens (inputType :: AacSettings -> Lude.Maybe AacInputType) (\s a -> s {inputType = a} :: AacSettings)
-{-# DEPRECATED aInputType "Use generic-lens or generic-optics with 'inputType' instead." #-}
+asInputType :: Lens.Lens' AacSettings (Core.Maybe Types.AacInputType)
+asInputType = Lens.field @"inputType"
+{-# DEPRECATED asInputType "Use generic-lens or generic-optics with 'inputType' instead." #-}
 
-instance Lude.FromJSON AacSettings where
-  parseJSON =
-    Lude.withObject
-      "AacSettings"
-      ( \x ->
-          AacSettings'
-            Lude.<$> (x Lude..:? "rawFormat")
-            Lude.<*> (x Lude..:? "codingMode")
-            Lude.<*> (x Lude..:? "profile")
-            Lude.<*> (x Lude..:? "rateControlMode")
-            Lude.<*> (x Lude..:? "sampleRate")
-            Lude.<*> (x Lude..:? "spec")
-            Lude.<*> (x Lude..:? "bitrate")
-            Lude.<*> (x Lude..:? "vbrQuality")
-            Lude.<*> (x Lude..:? "inputType")
-      )
+-- | AAC Profile.
+--
+-- /Note:/ Consider using 'profile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asProfile :: Lens.Lens' AacSettings (Core.Maybe Types.AacProfile)
+asProfile = Lens.field @"profile"
+{-# DEPRECATED asProfile "Use generic-lens or generic-optics with 'profile' instead." #-}
 
-instance Lude.ToJSON AacSettings where
-  toJSON AacSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("rawFormat" Lude..=) Lude.<$> rawFormat,
-            ("codingMode" Lude..=) Lude.<$> codingMode,
-            ("profile" Lude..=) Lude.<$> profile,
-            ("rateControlMode" Lude..=) Lude.<$> rateControlMode,
-            ("sampleRate" Lude..=) Lude.<$> sampleRate,
-            ("spec" Lude..=) Lude.<$> spec,
-            ("bitrate" Lude..=) Lude.<$> bitrate,
-            ("vbrQuality" Lude..=) Lude.<$> vbrQuality,
-            ("inputType" Lude..=) Lude.<$> inputType
+-- | Rate Control Mode.
+--
+-- /Note:/ Consider using 'rateControlMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asRateControlMode :: Lens.Lens' AacSettings (Core.Maybe Types.AacRateControlMode)
+asRateControlMode = Lens.field @"rateControlMode"
+{-# DEPRECATED asRateControlMode "Use generic-lens or generic-optics with 'rateControlMode' instead." #-}
+
+-- | Sets LATM / LOAS AAC output for raw containers.
+--
+-- /Note:/ Consider using 'rawFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asRawFormat :: Lens.Lens' AacSettings (Core.Maybe Types.AacRawFormat)
+asRawFormat = Lens.field @"rawFormat"
+{-# DEPRECATED asRawFormat "Use generic-lens or generic-optics with 'rawFormat' instead." #-}
+
+-- | Sample rate in Hz. Valid values depend on rate control mode and profile.
+--
+-- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asSampleRate :: Lens.Lens' AacSettings (Core.Maybe Core.Double)
+asSampleRate = Lens.field @"sampleRate"
+{-# DEPRECATED asSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
+
+-- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+--
+-- /Note:/ Consider using 'spec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asSpec :: Lens.Lens' AacSettings (Core.Maybe Types.AacSpec)
+asSpec = Lens.field @"spec"
+{-# DEPRECATED asSpec "Use generic-lens or generic-optics with 'spec' instead." #-}
+
+-- | VBR Quality Level - Only used if rateControlMode is VBR.
+--
+-- /Note:/ Consider using 'vbrQuality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asVbrQuality :: Lens.Lens' AacSettings (Core.Maybe Types.AacVbrQuality)
+asVbrQuality = Lens.field @"vbrQuality"
+{-# DEPRECATED asVbrQuality "Use generic-lens or generic-optics with 'vbrQuality' instead." #-}
+
+instance Core.FromJSON AacSettings where
+  toJSON AacSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bitrate" Core..=) Core.<$> bitrate,
+            ("codingMode" Core..=) Core.<$> codingMode,
+            ("inputType" Core..=) Core.<$> inputType,
+            ("profile" Core..=) Core.<$> profile,
+            ("rateControlMode" Core..=) Core.<$> rateControlMode,
+            ("rawFormat" Core..=) Core.<$> rawFormat,
+            ("sampleRate" Core..=) Core.<$> sampleRate,
+            ("spec" Core..=) Core.<$> spec,
+            ("vbrQuality" Core..=) Core.<$> vbrQuality
           ]
       )
+
+instance Core.FromJSON AacSettings where
+  parseJSON =
+    Core.withObject "AacSettings" Core.$
+      \x ->
+        AacSettings'
+          Core.<$> (x Core..:? "bitrate")
+          Core.<*> (x Core..:? "codingMode")
+          Core.<*> (x Core..:? "inputType")
+          Core.<*> (x Core..:? "profile")
+          Core.<*> (x Core..:? "rateControlMode")
+          Core.<*> (x Core..:? "rawFormat")
+          Core.<*> (x Core..:? "sampleRate")
+          Core.<*> (x Core..:? "spec")
+          Core.<*> (x Core..:? "vbrQuality")

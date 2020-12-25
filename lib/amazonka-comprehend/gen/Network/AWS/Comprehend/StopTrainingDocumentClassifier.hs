@@ -22,115 +22,99 @@ module Network.AWS.Comprehend.StopTrainingDocumentClassifier
     mkStopTrainingDocumentClassifier,
 
     -- ** Request lenses
-    stdcDocumentClassifierARN,
+    stdcDocumentClassifierArn,
 
     -- * Destructuring the response
     StopTrainingDocumentClassifierResponse (..),
     mkStopTrainingDocumentClassifierResponse,
 
     -- ** Response lenses
-    stdcrsResponseStatus,
+    stdcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopTrainingDocumentClassifier' smart constructor.
 newtype StopTrainingDocumentClassifier = StopTrainingDocumentClassifier'
   { -- | The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.
-    documentClassifierARN :: Lude.Text
+    documentClassifierArn :: Types.DocumentClassifierArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTrainingDocumentClassifier' with the minimum fields required to make a request.
---
--- * 'documentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.
+-- | Creates a 'StopTrainingDocumentClassifier' value with any optional fields omitted.
 mkStopTrainingDocumentClassifier ::
-  -- | 'documentClassifierARN'
-  Lude.Text ->
+  -- | 'documentClassifierArn'
+  Types.DocumentClassifierArn ->
   StopTrainingDocumentClassifier
-mkStopTrainingDocumentClassifier pDocumentClassifierARN_ =
-  StopTrainingDocumentClassifier'
-    { documentClassifierARN =
-        pDocumentClassifierARN_
-    }
+mkStopTrainingDocumentClassifier documentClassifierArn =
+  StopTrainingDocumentClassifier' {documentClassifierArn}
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.
 --
--- /Note:/ Consider using 'documentClassifierARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdcDocumentClassifierARN :: Lens.Lens' StopTrainingDocumentClassifier Lude.Text
-stdcDocumentClassifierARN = Lens.lens (documentClassifierARN :: StopTrainingDocumentClassifier -> Lude.Text) (\s a -> s {documentClassifierARN = a} :: StopTrainingDocumentClassifier)
-{-# DEPRECATED stdcDocumentClassifierARN "Use generic-lens or generic-optics with 'documentClassifierARN' instead." #-}
+-- /Note:/ Consider using 'documentClassifierArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdcDocumentClassifierArn :: Lens.Lens' StopTrainingDocumentClassifier Types.DocumentClassifierArn
+stdcDocumentClassifierArn = Lens.field @"documentClassifierArn"
+{-# DEPRECATED stdcDocumentClassifierArn "Use generic-lens or generic-optics with 'documentClassifierArn' instead." #-}
 
-instance Lude.AWSRequest StopTrainingDocumentClassifier where
+instance Core.FromJSON StopTrainingDocumentClassifier where
+  toJSON StopTrainingDocumentClassifier {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DocumentClassifierArn" Core..= documentClassifierArn)
+          ]
+      )
+
+instance Core.AWSRequest StopTrainingDocumentClassifier where
   type
     Rs StopTrainingDocumentClassifier =
       StopTrainingDocumentClassifierResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.StopTrainingDocumentClassifier"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           StopTrainingDocumentClassifierResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopTrainingDocumentClassifier where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.StopTrainingDocumentClassifier" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopTrainingDocumentClassifier where
-  toJSON StopTrainingDocumentClassifier' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("DocumentClassifierArn" Lude..= documentClassifierARN)
-          ]
-      )
-
-instance Lude.ToPath StopTrainingDocumentClassifier where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopTrainingDocumentClassifier where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopTrainingDocumentClassifierResponse' smart constructor.
 newtype StopTrainingDocumentClassifierResponse = StopTrainingDocumentClassifierResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTrainingDocumentClassifierResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopTrainingDocumentClassifierResponse' value with any optional fields omitted.
 mkStopTrainingDocumentClassifierResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopTrainingDocumentClassifierResponse
-mkStopTrainingDocumentClassifierResponse pResponseStatus_ =
-  StopTrainingDocumentClassifierResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkStopTrainingDocumentClassifierResponse responseStatus =
+  StopTrainingDocumentClassifierResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdcrsResponseStatus :: Lens.Lens' StopTrainingDocumentClassifierResponse Lude.Int
-stdcrsResponseStatus = Lens.lens (responseStatus :: StopTrainingDocumentClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopTrainingDocumentClassifierResponse)
-{-# DEPRECATED stdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+stdcrrsResponseStatus :: Lens.Lens' StopTrainingDocumentClassifierResponse Core.Int
+stdcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED stdcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -35,19 +35,16 @@ module Network.AWS.Data.Time
   )
 where
 
-import Control.Applicative ((<|>))
-import Control.DeepSeq (NFData)
 import qualified Data.Aeson as Aeson
-import qualified Data.Attoparsec.Text as AText
-import qualified Data.ByteString.Char8 as BS
-import Data.Hashable (Hashable (hashWithSalt))
-import Data.Text (Text)
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import qualified Data.Text.Read as Text.Read
+import qualified Data.Hashable as Hashable 
 import qualified Data.Text as Text
-import Data.Time (Day (..), NominalDiffTime, UTCTime (..))
+import Data.Time (Day (..), UTCTime (..))
 import qualified Data.Time as Time
 import qualified Data.Time.Clock.POSIX as Time.POSIX
-import GHC.Generics (Generic)
 import Network.AWS.Lens (Iso', iso)
+import Network.AWS.Prelude
 
 -- newtype Time a = Time {fromTime :: a}
 --   deriving (Show, Read, Eq, Ord, Generic, NFData)
@@ -121,13 +118,24 @@ parseDateTime format string =
 formatTimestamp :: NominalDiffTime -> Integer
 formatTimestamp = floor . Time.nominalDiffTimeToSeconds
 
-parseTimestamp :: Text -> Either String NominalDiffTime
-parseTimestamp =
-  let parser = fromInteger . floor <$> AText.scientific
-   in AText.parseOnly
-        ( parser <* AText.endOfInput
-            <|> fail "Failure parsing unix timestamp"
-        )
+parseTimestamp :: Text -> Either Text NominalDiffTime
+parseTimestamp text = 
+  case Text.Read.decimal text of
+    Right (x, "") -> pure (fromInteger x)
+    Right (x, rest) -> failure ("leftover input " <> rest)
+    Left _ ->
+      case Text.Read.double text of
+        Right (x, "") -> pure (realToFrac x)
+        Right (x, rest) -> failure ("leftover input " <> rest)
+        Left err -> failure (Text.pack err)
+
+ where
+   failure msg =
+     Left $
+      "(parseTimestamp) failure parsing unix timestamp from "
+       <> text
+       <> ", "
+       <> msg
 
 -- instance ToText Timestamp where
 --   toText = toText . formatTimestamp

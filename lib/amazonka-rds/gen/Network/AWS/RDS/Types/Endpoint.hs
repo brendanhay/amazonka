@@ -17,14 +17,15 @@ module Network.AWS.RDS.Types.Endpoint
     mkEndpoint,
 
     -- * Lenses
-    eHostedZoneId,
     eAddress,
+    eHostedZoneId,
     ePort,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
 --
@@ -42,54 +43,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-    hostedZoneId :: Lude.Maybe Lude.Text,
-    -- | Specifies the DNS address of the DB instance.
-    address :: Lude.Maybe Lude.Text,
+  { -- | Specifies the DNS address of the DB instance.
+    address :: Core.Maybe Types.String,
+    -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+    hostedZoneId :: Core.Maybe Types.String,
     -- | Specifies the port that the database engine is listening on.
-    port :: Lude.Maybe Lude.Int
+    port :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
--- * 'address' - Specifies the DNS address of the DB instance.
--- * 'port' - Specifies the port that the database engine is listening on.
+-- | Creates a 'Endpoint' value with any optional fields omitted.
 mkEndpoint ::
   Endpoint
 mkEndpoint =
   Endpoint'
-    { hostedZoneId = Lude.Nothing,
-      address = Lude.Nothing,
-      port = Lude.Nothing
+    { address = Core.Nothing,
+      hostedZoneId = Core.Nothing,
+      port = Core.Nothing
     }
-
--- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
---
--- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eHostedZoneId :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eHostedZoneId = Lens.lens (hostedZoneId :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {hostedZoneId = a} :: Endpoint)
-{-# DEPRECATED eHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | Specifies the DNS address of the DB instance.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eAddress :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eAddress = Lens.lens (address :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: Endpoint)
+eAddress :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eAddress = Lens.field @"address"
 {-# DEPRECATED eAddress "Use generic-lens or generic-optics with 'address' instead." #-}
+
+-- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eHostedZoneId :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eHostedZoneId = Lens.field @"hostedZoneId"
+{-# DEPRECATED eHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | Specifies the port that the database engine is listening on.
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ePort :: Lens.Lens' Endpoint (Lude.Maybe Lude.Int)
-ePort = Lens.lens (port :: Endpoint -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: Endpoint)
+ePort :: Lens.Lens' Endpoint (Core.Maybe Core.Int)
+ePort = Lens.field @"port"
 {-# DEPRECATED ePort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.FromXML Endpoint where
+instance Core.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Lude.<$> (x Lude..@? "HostedZoneId")
-      Lude.<*> (x Lude..@? "Address")
-      Lude.<*> (x Lude..@? "Port")
+      Core.<$> (x Core..@? "Address")
+      Core.<*> (x Core..@? "HostedZoneId")
+      Core.<*> (x Core..@? "Port")

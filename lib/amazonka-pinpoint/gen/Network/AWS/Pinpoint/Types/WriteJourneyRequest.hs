@@ -17,55 +17,46 @@ module Network.AWS.Pinpoint.Types.WriteJourneyRequest
     mkWriteJourneyRequest,
 
     -- * Lenses
-    wjrState,
-    wjrLastModifiedDate,
-    wjrSchedule,
-    wjrLocalTime,
-    wjrActivities,
-    wjrLimits,
-    wjrQuietTime,
     wjrName,
-    wjrStartActivity,
+    wjrActivities,
     wjrCreationDate,
-    wjrStartCondition,
+    wjrLastModifiedDate,
+    wjrLimits,
+    wjrLocalTime,
+    wjrQuietTime,
     wjrRefreshFrequency,
+    wjrSchedule,
+    wjrStartActivity,
+    wjrStartCondition,
+    wjrState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.Activity
-import Network.AWS.Pinpoint.Types.JourneyLimits
-import Network.AWS.Pinpoint.Types.JourneySchedule
-import Network.AWS.Pinpoint.Types.QuietTime
-import Network.AWS.Pinpoint.Types.StartCondition
-import Network.AWS.Pinpoint.Types.State
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.Activity as Types
+import qualified Network.AWS.Pinpoint.Types.JourneyLimits as Types
+import qualified Network.AWS.Pinpoint.Types.JourneySchedule as Types
+import qualified Network.AWS.Pinpoint.Types.QuietTime as Types
+import qualified Network.AWS.Pinpoint.Types.StartCondition as Types
+import qualified Network.AWS.Pinpoint.Types.State as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the configuration and other settings for a journey.
 --
 -- /See:/ 'mkWriteJourneyRequest' smart constructor.
 data WriteJourneyRequest = WriteJourneyRequest'
-  { -- | The status of the journey. Valid values are:
-    --
-    --
-    --     * DRAFT - Saves the journey and doesn't publish it.
-    --
-    --
-    --     * ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.
-    --
-    --
-    -- The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link>Journey State resource.
-    state :: Lude.Maybe State,
-    -- | The date, in ISO 8601 format, when the journey was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Text,
-    -- | The schedule settings for the journey.
-    schedule :: Lude.Maybe JourneySchedule,
-    -- | Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.
-    localTime :: Lude.Maybe Lude.Bool,
+  { -- | The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
+    name :: Core.Text,
     -- | A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.
-    activities :: Lude.Maybe (Lude.HashMap Lude.Text (Activity)),
+    activities :: Core.Maybe (Core.HashMap Core.Text Types.Activity),
+    -- | The date, in ISO 8601 format, when the journey was created.
+    creationDate :: Core.Maybe Core.Text,
+    -- | The date, in ISO 8601 format, when the journey was last modified.
+    lastModifiedDate :: Core.Maybe Core.Text,
     -- | The messaging and entry limits for the journey.
-    limits :: Lude.Maybe JourneyLimits,
+    limits :: Core.Maybe Types.JourneyLimits,
+    -- | Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.
+    localTime :: Core.Maybe Core.Bool,
     -- | The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:
     --
     --
@@ -79,126 +70,92 @@ data WriteJourneyRequest = WriteJourneyRequest'
     --
     --
     -- If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.
-    quietTime :: Lude.Maybe QuietTime,
-    -- | The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
-    name :: Lude.Text,
-    -- | The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.
-    startActivity :: Lude.Maybe Lude.Text,
-    -- | The date, in ISO 8601 format, when the journey was created.
-    creationDate :: Lude.Maybe Lude.Text,
-    -- | The segment that defines which users are participants in the journey.
-    startCondition :: Lude.Maybe StartCondition,
+    quietTime :: Core.Maybe Types.QuietTime,
     -- | The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.
-    refreshFrequency :: Lude.Maybe Lude.Text
+    refreshFrequency :: Core.Maybe Core.Text,
+    -- | The schedule settings for the journey.
+    schedule :: Core.Maybe Types.JourneySchedule,
+    -- | The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.
+    startActivity :: Core.Maybe Core.Text,
+    -- | The segment that defines which users are participants in the journey.
+    startCondition :: Core.Maybe Types.StartCondition,
+    -- | The status of the journey. Valid values are:
+    --
+    --
+    --     * DRAFT - Saves the journey and doesn't publish it.
+    --
+    --
+    --     * ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.
+    --
+    --
+    -- The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link>Journey State resource.
+    state :: Core.Maybe Types.State
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'WriteJourneyRequest' with the minimum fields required to make a request.
---
--- * 'state' - The status of the journey. Valid values are:
---
---
---     * DRAFT - Saves the journey and doesn't publish it.
---
---
---     * ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.
---
---
--- The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link>Journey State resource.
--- * 'lastModifiedDate' - The date, in ISO 8601 format, when the journey was last modified.
--- * 'schedule' - The schedule settings for the journey.
--- * 'localTime' - Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.
--- * 'activities' - A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.
--- * 'limits' - The messaging and entry limits for the journey.
--- * 'quietTime' - The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:
---
---
---     * The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.
---
---
---     * The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.
---
---
---     * The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.
---
---
--- If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.
--- * 'name' - The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
--- * 'startActivity' - The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.
--- * 'creationDate' - The date, in ISO 8601 format, when the journey was created.
--- * 'startCondition' - The segment that defines which users are participants in the journey.
--- * 'refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.
+-- | Creates a 'WriteJourneyRequest' value with any optional fields omitted.
 mkWriteJourneyRequest ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   WriteJourneyRequest
-mkWriteJourneyRequest pName_ =
+mkWriteJourneyRequest name =
   WriteJourneyRequest'
-    { state = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      schedule = Lude.Nothing,
-      localTime = Lude.Nothing,
-      activities = Lude.Nothing,
-      limits = Lude.Nothing,
-      quietTime = Lude.Nothing,
-      name = pName_,
-      startActivity = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      startCondition = Lude.Nothing,
-      refreshFrequency = Lude.Nothing
+    { name,
+      activities = Core.Nothing,
+      creationDate = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      limits = Core.Nothing,
+      localTime = Core.Nothing,
+      quietTime = Core.Nothing,
+      refreshFrequency = Core.Nothing,
+      schedule = Core.Nothing,
+      startActivity = Core.Nothing,
+      startCondition = Core.Nothing,
+      state = Core.Nothing
     }
 
--- | The status of the journey. Valid values are:
+-- | The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
 --
---
---     * DRAFT - Saves the journey and doesn't publish it.
---
---
---     * ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.
---
---
--- The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link>Journey State resource.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrState :: Lens.Lens' WriteJourneyRequest (Lude.Maybe State)
-wjrState = Lens.lens (state :: WriteJourneyRequest -> Lude.Maybe State) (\s a -> s {state = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The date, in ISO 8601 format, when the journey was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrLastModifiedDate :: Lens.Lens' WriteJourneyRequest (Lude.Maybe Lude.Text)
-wjrLastModifiedDate = Lens.lens (lastModifiedDate :: WriteJourneyRequest -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The schedule settings for the journey.
---
--- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrSchedule :: Lens.Lens' WriteJourneyRequest (Lude.Maybe JourneySchedule)
-wjrSchedule = Lens.lens (schedule :: WriteJourneyRequest -> Lude.Maybe JourneySchedule) (\s a -> s {schedule = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
-
--- | Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.
---
--- /Note:/ Consider using 'localTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrLocalTime :: Lens.Lens' WriteJourneyRequest (Lude.Maybe Lude.Bool)
-wjrLocalTime = Lens.lens (localTime :: WriteJourneyRequest -> Lude.Maybe Lude.Bool) (\s a -> s {localTime = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrLocalTime "Use generic-lens or generic-optics with 'localTime' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrName :: Lens.Lens' WriteJourneyRequest Core.Text
+wjrName = Lens.field @"name"
+{-# DEPRECATED wjrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.
 --
 -- /Note:/ Consider using 'activities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrActivities :: Lens.Lens' WriteJourneyRequest (Lude.Maybe (Lude.HashMap Lude.Text (Activity)))
-wjrActivities = Lens.lens (activities :: WriteJourneyRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Activity))) (\s a -> s {activities = a} :: WriteJourneyRequest)
+wjrActivities :: Lens.Lens' WriteJourneyRequest (Core.Maybe (Core.HashMap Core.Text Types.Activity))
+wjrActivities = Lens.field @"activities"
 {-# DEPRECATED wjrActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
+
+-- | The date, in ISO 8601 format, when the journey was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrCreationDate :: Lens.Lens' WriteJourneyRequest (Core.Maybe Core.Text)
+wjrCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED wjrCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The date, in ISO 8601 format, when the journey was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrLastModifiedDate :: Lens.Lens' WriteJourneyRequest (Core.Maybe Core.Text)
+wjrLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED wjrLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The messaging and entry limits for the journey.
 --
 -- /Note:/ Consider using 'limits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrLimits :: Lens.Lens' WriteJourneyRequest (Lude.Maybe JourneyLimits)
-wjrLimits = Lens.lens (limits :: WriteJourneyRequest -> Lude.Maybe JourneyLimits) (\s a -> s {limits = a} :: WriteJourneyRequest)
+wjrLimits :: Lens.Lens' WriteJourneyRequest (Core.Maybe Types.JourneyLimits)
+wjrLimits = Lens.field @"limits"
 {-# DEPRECATED wjrLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
+
+-- | Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.
+--
+-- /Note:/ Consider using 'localTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrLocalTime :: Lens.Lens' WriteJourneyRequest (Core.Maybe Core.Bool)
+wjrLocalTime = Lens.field @"localTime"
+{-# DEPRECATED wjrLocalTime "Use generic-lens or generic-optics with 'localTime' instead." #-}
 
 -- | The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:
 --
@@ -215,60 +172,69 @@ wjrLimits = Lens.lens (limits :: WriteJourneyRequest -> Lude.Maybe JourneyLimits
 -- If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.
 --
 -- /Note:/ Consider using 'quietTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrQuietTime :: Lens.Lens' WriteJourneyRequest (Lude.Maybe QuietTime)
-wjrQuietTime = Lens.lens (quietTime :: WriteJourneyRequest -> Lude.Maybe QuietTime) (\s a -> s {quietTime = a} :: WriteJourneyRequest)
+wjrQuietTime :: Lens.Lens' WriteJourneyRequest (Core.Maybe Types.QuietTime)
+wjrQuietTime = Lens.field @"quietTime"
 {-# DEPRECATED wjrQuietTime "Use generic-lens or generic-optics with 'quietTime' instead." #-}
-
--- | The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrName :: Lens.Lens' WriteJourneyRequest Lude.Text
-wjrName = Lens.lens (name :: WriteJourneyRequest -> Lude.Text) (\s a -> s {name = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.
---
--- /Note:/ Consider using 'startActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrStartActivity :: Lens.Lens' WriteJourneyRequest (Lude.Maybe Lude.Text)
-wjrStartActivity = Lens.lens (startActivity :: WriteJourneyRequest -> Lude.Maybe Lude.Text) (\s a -> s {startActivity = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrStartActivity "Use generic-lens or generic-optics with 'startActivity' instead." #-}
-
--- | The date, in ISO 8601 format, when the journey was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrCreationDate :: Lens.Lens' WriteJourneyRequest (Lude.Maybe Lude.Text)
-wjrCreationDate = Lens.lens (creationDate :: WriteJourneyRequest -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The segment that defines which users are participants in the journey.
---
--- /Note:/ Consider using 'startCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrStartCondition :: Lens.Lens' WriteJourneyRequest (Lude.Maybe StartCondition)
-wjrStartCondition = Lens.lens (startCondition :: WriteJourneyRequest -> Lude.Maybe StartCondition) (\s a -> s {startCondition = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrStartCondition "Use generic-lens or generic-optics with 'startCondition' instead." #-}
 
 -- | The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.
 --
 -- /Note:/ Consider using 'refreshFrequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrRefreshFrequency :: Lens.Lens' WriteJourneyRequest (Lude.Maybe Lude.Text)
-wjrRefreshFrequency = Lens.lens (refreshFrequency :: WriteJourneyRequest -> Lude.Maybe Lude.Text) (\s a -> s {refreshFrequency = a} :: WriteJourneyRequest)
+wjrRefreshFrequency :: Lens.Lens' WriteJourneyRequest (Core.Maybe Core.Text)
+wjrRefreshFrequency = Lens.field @"refreshFrequency"
 {-# DEPRECATED wjrRefreshFrequency "Use generic-lens or generic-optics with 'refreshFrequency' instead." #-}
 
-instance Lude.ToJSON WriteJourneyRequest where
-  toJSON WriteJourneyRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("State" Lude..=) Lude.<$> state,
-            ("LastModifiedDate" Lude..=) Lude.<$> lastModifiedDate,
-            ("Schedule" Lude..=) Lude.<$> schedule,
-            ("LocalTime" Lude..=) Lude.<$> localTime,
-            ("Activities" Lude..=) Lude.<$> activities,
-            ("Limits" Lude..=) Lude.<$> limits,
-            ("QuietTime" Lude..=) Lude.<$> quietTime,
-            Lude.Just ("Name" Lude..= name),
-            ("StartActivity" Lude..=) Lude.<$> startActivity,
-            ("CreationDate" Lude..=) Lude.<$> creationDate,
-            ("StartCondition" Lude..=) Lude.<$> startCondition,
-            ("RefreshFrequency" Lude..=) Lude.<$> refreshFrequency
+-- | The schedule settings for the journey.
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrSchedule :: Lens.Lens' WriteJourneyRequest (Core.Maybe Types.JourneySchedule)
+wjrSchedule = Lens.field @"schedule"
+{-# DEPRECATED wjrSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
+
+-- | The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.
+--
+-- /Note:/ Consider using 'startActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrStartActivity :: Lens.Lens' WriteJourneyRequest (Core.Maybe Core.Text)
+wjrStartActivity = Lens.field @"startActivity"
+{-# DEPRECATED wjrStartActivity "Use generic-lens or generic-optics with 'startActivity' instead." #-}
+
+-- | The segment that defines which users are participants in the journey.
+--
+-- /Note:/ Consider using 'startCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrStartCondition :: Lens.Lens' WriteJourneyRequest (Core.Maybe Types.StartCondition)
+wjrStartCondition = Lens.field @"startCondition"
+{-# DEPRECATED wjrStartCondition "Use generic-lens or generic-optics with 'startCondition' instead." #-}
+
+-- | The status of the journey. Valid values are:
+--
+--
+--     * DRAFT - Saves the journey and doesn't publish it.
+--
+--
+--     * ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.
+--
+--
+-- The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link>Journey State resource.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrState :: Lens.Lens' WriteJourneyRequest (Core.Maybe Types.State)
+wjrState = Lens.field @"state"
+{-# DEPRECATED wjrState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON WriteJourneyRequest where
+  toJSON WriteJourneyRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Activities" Core..=) Core.<$> activities,
+            ("CreationDate" Core..=) Core.<$> creationDate,
+            ("LastModifiedDate" Core..=) Core.<$> lastModifiedDate,
+            ("Limits" Core..=) Core.<$> limits,
+            ("LocalTime" Core..=) Core.<$> localTime,
+            ("QuietTime" Core..=) Core.<$> quietTime,
+            ("RefreshFrequency" Core..=) Core.<$> refreshFrequency,
+            ("Schedule" Core..=) Core.<$> schedule,
+            ("StartActivity" Core..=) Core.<$> startActivity,
+            ("StartCondition" Core..=) Core.<$> startCondition,
+            ("State" Core..=) Core.<$> state
           ]
       )

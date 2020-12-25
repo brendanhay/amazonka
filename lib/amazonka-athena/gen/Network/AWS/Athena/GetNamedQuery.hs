@@ -27,108 +27,92 @@ module Network.AWS.Athena.GetNamedQuery
     mkGetNamedQueryResponse,
 
     -- ** Response lenses
-    gnqrsNamedQuery,
-    gnqrsResponseStatus,
+    gnqrrsNamedQuery,
+    gnqrrsResponseStatus,
   )
 where
 
-import Network.AWS.Athena.Types
+import qualified Network.AWS.Athena.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetNamedQuery' smart constructor.
 newtype GetNamedQuery = GetNamedQuery'
   { -- | The unique ID of the query. Use 'ListNamedQueries' to get query IDs.
-    namedQueryId :: Lude.Text
+    namedQueryId :: Types.NamedQueryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetNamedQuery' with the minimum fields required to make a request.
---
--- * 'namedQueryId' - The unique ID of the query. Use 'ListNamedQueries' to get query IDs.
+-- | Creates a 'GetNamedQuery' value with any optional fields omitted.
 mkGetNamedQuery ::
   -- | 'namedQueryId'
-  Lude.Text ->
+  Types.NamedQueryId ->
   GetNamedQuery
-mkGetNamedQuery pNamedQueryId_ =
-  GetNamedQuery' {namedQueryId = pNamedQueryId_}
+mkGetNamedQuery namedQueryId = GetNamedQuery' {namedQueryId}
 
 -- | The unique ID of the query. Use 'ListNamedQueries' to get query IDs.
 --
 -- /Note:/ Consider using 'namedQueryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gnqNamedQueryId :: Lens.Lens' GetNamedQuery Lude.Text
-gnqNamedQueryId = Lens.lens (namedQueryId :: GetNamedQuery -> Lude.Text) (\s a -> s {namedQueryId = a} :: GetNamedQuery)
+gnqNamedQueryId :: Lens.Lens' GetNamedQuery Types.NamedQueryId
+gnqNamedQueryId = Lens.field @"namedQueryId"
 {-# DEPRECATED gnqNamedQueryId "Use generic-lens or generic-optics with 'namedQueryId' instead." #-}
 
-instance Lude.AWSRequest GetNamedQuery where
+instance Core.FromJSON GetNamedQuery where
+  toJSON GetNamedQuery {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("NamedQueryId" Core..= namedQueryId)])
+
+instance Core.AWSRequest GetNamedQuery where
   type Rs GetNamedQuery = GetNamedQueryResponse
-  request = Req.postJSON athenaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonAthena.GetNamedQuery")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetNamedQueryResponse'
-            Lude.<$> (x Lude..?> "NamedQuery") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NamedQuery") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetNamedQuery where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonAthena.GetNamedQuery" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetNamedQuery where
-  toJSON GetNamedQuery' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("NamedQueryId" Lude..= namedQueryId)])
-
-instance Lude.ToPath GetNamedQuery where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetNamedQuery where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetNamedQueryResponse' smart constructor.
 data GetNamedQueryResponse = GetNamedQueryResponse'
   { -- | Information about the query.
-    namedQuery :: Lude.Maybe NamedQuery,
+    namedQuery :: Core.Maybe Types.NamedQuery,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetNamedQueryResponse' with the minimum fields required to make a request.
---
--- * 'namedQuery' - Information about the query.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetNamedQueryResponse' value with any optional fields omitted.
 mkGetNamedQueryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetNamedQueryResponse
-mkGetNamedQueryResponse pResponseStatus_ =
-  GetNamedQueryResponse'
-    { namedQuery = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetNamedQueryResponse responseStatus =
+  GetNamedQueryResponse' {namedQuery = Core.Nothing, responseStatus}
 
 -- | Information about the query.
 --
 -- /Note:/ Consider using 'namedQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gnqrsNamedQuery :: Lens.Lens' GetNamedQueryResponse (Lude.Maybe NamedQuery)
-gnqrsNamedQuery = Lens.lens (namedQuery :: GetNamedQueryResponse -> Lude.Maybe NamedQuery) (\s a -> s {namedQuery = a} :: GetNamedQueryResponse)
-{-# DEPRECATED gnqrsNamedQuery "Use generic-lens or generic-optics with 'namedQuery' instead." #-}
+gnqrrsNamedQuery :: Lens.Lens' GetNamedQueryResponse (Core.Maybe Types.NamedQuery)
+gnqrrsNamedQuery = Lens.field @"namedQuery"
+{-# DEPRECATED gnqrrsNamedQuery "Use generic-lens or generic-optics with 'namedQuery' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gnqrsResponseStatus :: Lens.Lens' GetNamedQueryResponse Lude.Int
-gnqrsResponseStatus = Lens.lens (responseStatus :: GetNamedQueryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetNamedQueryResponse)
-{-# DEPRECATED gnqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gnqrrsResponseStatus :: Lens.Lens' GetNamedQueryResponse Core.Int
+gnqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gnqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

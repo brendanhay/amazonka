@@ -17,97 +17,91 @@ module Network.AWS.CodeDeploy.Types.GenericRevisionInfo
     mkGenericRevisionInfo,
 
     -- * Lenses
-    griRegisterTime,
-    griFirstUsedTime,
     griDeploymentGroups,
-    griLastUsedTime,
     griDescription,
+    griFirstUsedTime,
+    griLastUsedTime,
+    griRegisterTime,
   )
 where
 
+import qualified Network.AWS.CodeDeploy.Types.DeploymentGroupName as Types
+import qualified Network.AWS.CodeDeploy.Types.Description as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an application revision.
 --
 -- /See:/ 'mkGenericRevisionInfo' smart constructor.
 data GenericRevisionInfo = GenericRevisionInfo'
-  { -- | When the revision was registered with AWS CodeDeploy.
-    registerTime :: Lude.Maybe Lude.Timestamp,
-    -- | When the revision was first used by AWS CodeDeploy.
-    firstUsedTime :: Lude.Maybe Lude.Timestamp,
-    -- | The deployment groups for which this is the current target revision.
-    deploymentGroups :: Lude.Maybe [Lude.Text],
-    -- | When the revision was last used by AWS CodeDeploy.
-    lastUsedTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The deployment groups for which this is the current target revision.
+    deploymentGroups :: Core.Maybe [Types.DeploymentGroupName],
     -- | A comment about the revision.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | When the revision was first used by AWS CodeDeploy.
+    firstUsedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | When the revision was last used by AWS CodeDeploy.
+    lastUsedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | When the revision was registered with AWS CodeDeploy.
+    registerTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GenericRevisionInfo' with the minimum fields required to make a request.
---
--- * 'registerTime' - When the revision was registered with AWS CodeDeploy.
--- * 'firstUsedTime' - When the revision was first used by AWS CodeDeploy.
--- * 'deploymentGroups' - The deployment groups for which this is the current target revision.
--- * 'lastUsedTime' - When the revision was last used by AWS CodeDeploy.
--- * 'description' - A comment about the revision.
+-- | Creates a 'GenericRevisionInfo' value with any optional fields omitted.
 mkGenericRevisionInfo ::
   GenericRevisionInfo
 mkGenericRevisionInfo =
   GenericRevisionInfo'
-    { registerTime = Lude.Nothing,
-      firstUsedTime = Lude.Nothing,
-      deploymentGroups = Lude.Nothing,
-      lastUsedTime = Lude.Nothing,
-      description = Lude.Nothing
+    { deploymentGroups = Core.Nothing,
+      description = Core.Nothing,
+      firstUsedTime = Core.Nothing,
+      lastUsedTime = Core.Nothing,
+      registerTime = Core.Nothing
     }
-
--- | When the revision was registered with AWS CodeDeploy.
---
--- /Note:/ Consider using 'registerTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-griRegisterTime :: Lens.Lens' GenericRevisionInfo (Lude.Maybe Lude.Timestamp)
-griRegisterTime = Lens.lens (registerTime :: GenericRevisionInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {registerTime = a} :: GenericRevisionInfo)
-{-# DEPRECATED griRegisterTime "Use generic-lens or generic-optics with 'registerTime' instead." #-}
-
--- | When the revision was first used by AWS CodeDeploy.
---
--- /Note:/ Consider using 'firstUsedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-griFirstUsedTime :: Lens.Lens' GenericRevisionInfo (Lude.Maybe Lude.Timestamp)
-griFirstUsedTime = Lens.lens (firstUsedTime :: GenericRevisionInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {firstUsedTime = a} :: GenericRevisionInfo)
-{-# DEPRECATED griFirstUsedTime "Use generic-lens or generic-optics with 'firstUsedTime' instead." #-}
 
 -- | The deployment groups for which this is the current target revision.
 --
 -- /Note:/ Consider using 'deploymentGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-griDeploymentGroups :: Lens.Lens' GenericRevisionInfo (Lude.Maybe [Lude.Text])
-griDeploymentGroups = Lens.lens (deploymentGroups :: GenericRevisionInfo -> Lude.Maybe [Lude.Text]) (\s a -> s {deploymentGroups = a} :: GenericRevisionInfo)
+griDeploymentGroups :: Lens.Lens' GenericRevisionInfo (Core.Maybe [Types.DeploymentGroupName])
+griDeploymentGroups = Lens.field @"deploymentGroups"
 {-# DEPRECATED griDeploymentGroups "Use generic-lens or generic-optics with 'deploymentGroups' instead." #-}
-
--- | When the revision was last used by AWS CodeDeploy.
---
--- /Note:/ Consider using 'lastUsedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-griLastUsedTime :: Lens.Lens' GenericRevisionInfo (Lude.Maybe Lude.Timestamp)
-griLastUsedTime = Lens.lens (lastUsedTime :: GenericRevisionInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUsedTime = a} :: GenericRevisionInfo)
-{-# DEPRECATED griLastUsedTime "Use generic-lens or generic-optics with 'lastUsedTime' instead." #-}
 
 -- | A comment about the revision.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-griDescription :: Lens.Lens' GenericRevisionInfo (Lude.Maybe Lude.Text)
-griDescription = Lens.lens (description :: GenericRevisionInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GenericRevisionInfo)
+griDescription :: Lens.Lens' GenericRevisionInfo (Core.Maybe Types.Description)
+griDescription = Lens.field @"description"
 {-# DEPRECATED griDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON GenericRevisionInfo where
+-- | When the revision was first used by AWS CodeDeploy.
+--
+-- /Note:/ Consider using 'firstUsedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+griFirstUsedTime :: Lens.Lens' GenericRevisionInfo (Core.Maybe Core.NominalDiffTime)
+griFirstUsedTime = Lens.field @"firstUsedTime"
+{-# DEPRECATED griFirstUsedTime "Use generic-lens or generic-optics with 'firstUsedTime' instead." #-}
+
+-- | When the revision was last used by AWS CodeDeploy.
+--
+-- /Note:/ Consider using 'lastUsedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+griLastUsedTime :: Lens.Lens' GenericRevisionInfo (Core.Maybe Core.NominalDiffTime)
+griLastUsedTime = Lens.field @"lastUsedTime"
+{-# DEPRECATED griLastUsedTime "Use generic-lens or generic-optics with 'lastUsedTime' instead." #-}
+
+-- | When the revision was registered with AWS CodeDeploy.
+--
+-- /Note:/ Consider using 'registerTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+griRegisterTime :: Lens.Lens' GenericRevisionInfo (Core.Maybe Core.NominalDiffTime)
+griRegisterTime = Lens.field @"registerTime"
+{-# DEPRECATED griRegisterTime "Use generic-lens or generic-optics with 'registerTime' instead." #-}
+
+instance Core.FromJSON GenericRevisionInfo where
   parseJSON =
-    Lude.withObject
-      "GenericRevisionInfo"
-      ( \x ->
-          GenericRevisionInfo'
-            Lude.<$> (x Lude..:? "registerTime")
-            Lude.<*> (x Lude..:? "firstUsedTime")
-            Lude.<*> (x Lude..:? "deploymentGroups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "lastUsedTime")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "GenericRevisionInfo" Core.$
+      \x ->
+        GenericRevisionInfo'
+          Core.<$> (x Core..:? "deploymentGroups")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "firstUsedTime")
+          Core.<*> (x Core..:? "lastUsedTime")
+          Core.<*> (x Core..:? "registerTime")

@@ -9,163 +9,344 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types
   ( -- * Service configuration
-    cloudDirectoryService,
+    mkServiceConfig,
 
     -- * Errors
+    _UnsupportedIndexTypeException,
+    _NotIndexException,
+    _ValidationException,
+    _AccessDeniedException,
+    _FacetAlreadyExistsException,
+    _InvalidSchemaDocException,
+    _InvalidAttachmentException,
+    _CannotListParentOfRootException,
+    _NotPolicyException,
+    _InvalidTaggingRequestException,
+    _InvalidFacetUpdateException,
+    _InvalidRuleException,
+    _SchemaAlreadyPublishedException,
+    _DirectoryAlreadyExistsException,
+    _DirectoryNotDisabledException,
+    _BatchWriteException,
+    _DirectoryNotEnabledException,
+    _FacetInUseException,
+    _FacetValidationException,
+    _StillContainsLinksException,
+    _IncompatibleSchemaException,
+    _NotNodeException,
+    _InvalidNextTokenException,
+    _ObjectAlreadyDetachedException,
+    _LinkNameAlreadyInUseException,
+    _InternalServiceException,
+    _SchemaAlreadyExistsException,
+    _IndexedAttributeMissingException,
+    _DirectoryDeletedException,
+    _RetryableConflictException,
+    _InvalidArnException,
+    _ResourceNotFoundException,
+    _FacetNotFoundException,
+    _LimitExceededException,
+    _ObjectNotDetachedException,
 
-    -- * BatchReadExceptionType
-    BatchReadExceptionType (..),
+    -- * BatchListObjectAttributes
+    BatchListObjectAttributes (..),
+    mkBatchListObjectAttributes,
+    bloaObjectReference,
+    bloaFacetFilter,
+    bloaMaxResults,
+    bloaNextToken,
 
-    -- * ConsistencyLevel
-    ConsistencyLevel (..),
+    -- * BatchListIncomingTypedLinksResponse
+    BatchListIncomingTypedLinksResponse (..),
+    mkBatchListIncomingTypedLinksResponse,
+    blitlrLinkSpecifiers,
+    blitlrNextToken,
 
-    -- * DirectoryState
-    DirectoryState (..),
+    -- * DirectoryArn
+    DirectoryArn (..),
 
-    -- * FacetAttributeType
-    FacetAttributeType (..),
+    -- * ExceptionMessage
+    ExceptionMessage (..),
+
+    -- * TypedAttributeValueRange
+    TypedAttributeValueRange (..),
+    mkTypedAttributeValueRange,
+    tavrStartMode,
+    tavrEndMode,
+    tavrEndValue,
+    tavrStartValue,
+
+    -- * FacetAttributeDefinition
+    FacetAttributeDefinition (..),
+    mkFacetAttributeDefinition,
+    fadType,
+    fadDefaultValue,
+    fadIsImmutable,
+    fadRules,
+
+    -- * SchemaFacet
+    SchemaFacet (..),
+    mkSchemaFacet,
+    sfFacetName,
+    sfSchemaArn,
+
+    -- * BatchRemoveFacetFromObject
+    BatchRemoveFacetFromObject (..),
+    mkBatchRemoveFacetFromObject,
+    brffoSchemaFacet,
+    brffoObjectReference,
+
+    -- * BatchListObjectAttributesResponse
+    BatchListObjectAttributesResponse (..),
+    mkBatchListObjectAttributesResponse,
+    bloarAttributes,
+    bloarNextToken,
+
+    -- * IndexAttachment
+    IndexAttachment (..),
+    mkIndexAttachment,
+    iaIndexedAttributes,
+    iaObjectIdentifier,
+
+    -- * BatchRemoveFacetFromObjectResponse
+    BatchRemoveFacetFromObjectResponse (..),
+    mkBatchRemoveFacetFromObjectResponse,
+
+    -- * BatchListIncomingTypedLinks
+    BatchListIncomingTypedLinks (..),
+    mkBatchListIncomingTypedLinks,
+    blitlObjectReference,
+    blitlFilterAttributeRanges,
+    blitlFilterTypedLink,
+    blitlMaxResults,
+    blitlNextToken,
+
+    -- * Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * StringAttributeValue
+    StringAttributeValue (..),
 
     -- * FacetStyle
     FacetStyle (..),
 
-    -- * ObjectType
-    ObjectType (..),
+    -- * BatchUpdateLinkAttributes
+    BatchUpdateLinkAttributes (..),
+    mkBatchUpdateLinkAttributes,
+    bulaTypedLinkSpecifier,
+    bulaAttributeUpdates,
 
-    -- * RangeMode
-    RangeMode (..),
+    -- * FacetName
+    FacetName (..),
 
-    -- * RequiredAttributeBehavior
-    RequiredAttributeBehavior (..),
-
-    -- * RuleType
-    RuleType (..),
-
-    -- * UpdateActionType
-    UpdateActionType (..),
-
-    -- * AttributeKey
-    AttributeKey (..),
-    mkAttributeKey,
-    akFacetName,
-    akSchemaARN,
-    akName,
-
-    -- * AttributeKeyAndValue
-    AttributeKeyAndValue (..),
-    mkAttributeKeyAndValue,
-    akavValue,
-    akavKey,
-
-    -- * AttributeNameAndValue
-    AttributeNameAndValue (..),
-    mkAttributeNameAndValue,
-    anavValue,
-    anavAttributeName,
-
-    -- * BatchAddFacetToObject
-    BatchAddFacetToObject (..),
-    mkBatchAddFacetToObject,
-    baftoSchemaFacet,
-    baftoObjectAttributeList,
-    baftoObjectReference,
-
-    -- * BatchAddFacetToObjectResponse
-    BatchAddFacetToObjectResponse (..),
-    mkBatchAddFacetToObjectResponse,
-
-    -- * BatchAttachObject
-    BatchAttachObject (..),
-    mkBatchAttachObject,
-    baoParentReference,
-    baoChildReference,
-    baoLinkName,
-
-    -- * BatchAttachObjectResponse
-    BatchAttachObjectResponse (..),
-    mkBatchAttachObjectResponse,
-    baoAttachedObjectIdentifier,
-
-    -- * BatchAttachPolicy
-    BatchAttachPolicy (..),
-    mkBatchAttachPolicy,
-    bapPolicyReference,
-    bapObjectReference,
-
-    -- * BatchAttachPolicyResponse
-    BatchAttachPolicyResponse (..),
-    mkBatchAttachPolicyResponse,
+    -- * BatchListObjectParentPathsResponse
+    BatchListObjectParentPathsResponse (..),
+    mkBatchListObjectParentPathsResponse,
+    blopprNextToken,
+    blopprPathToObjectIdentifiersList,
 
     -- * BatchAttachToIndex
     BatchAttachToIndex (..),
     mkBatchAttachToIndex,
-    batiTargetReference,
     batiIndexReference,
+    batiTargetReference,
 
-    -- * BatchAttachToIndexResponse
-    BatchAttachToIndexResponse (..),
-    mkBatchAttachToIndexResponse,
-    batiAttachedObjectIdentifier,
+    -- * ObjectIdentifierAndLinkNameTuple
+    ObjectIdentifierAndLinkNameTuple (..),
+    mkObjectIdentifierAndLinkNameTuple,
+    oialntLinkName,
+    oialntObjectIdentifier,
 
-    -- * BatchAttachTypedLink
-    BatchAttachTypedLink (..),
-    mkBatchAttachTypedLink,
-    batlTargetObjectReference,
-    batlSourceObjectReference,
-    batlAttributes,
-    batlTypedLinkFacet,
+    -- * ObjectType
+    ObjectType (..),
 
-    -- * BatchAttachTypedLinkResponse
-    BatchAttachTypedLinkResponse (..),
-    mkBatchAttachTypedLinkResponse,
-    batlTypedLinkSpecifier,
-
-    -- * BatchCreateIndex
-    BatchCreateIndex (..),
-    mkBatchCreateIndex,
-    bciParentReference,
-    bciOrderedIndexedAttributeList,
-    bciLinkName,
-    bciBatchReferenceName,
-    bciIsUnique,
-
-    -- * BatchCreateIndexResponse
-    BatchCreateIndexResponse (..),
-    mkBatchCreateIndexResponse,
-    bciObjectIdentifier,
+    -- * TypedLinkAttributeDefinition
+    TypedLinkAttributeDefinition (..),
+    mkTypedLinkAttributeDefinition,
+    tladName,
+    tladType,
+    tladRequiredBehavior,
+    tladDefaultValue,
+    tladIsImmutable,
+    tladRules,
 
     -- * BatchCreateObject
     BatchCreateObject (..),
     mkBatchCreateObject,
     bcoSchemaFacet,
-    bcoParentReference,
     bcoObjectAttributeList,
-    bcoLinkName,
     bcoBatchReferenceName,
+    bcoLinkName,
+    bcoParentReference,
 
-    -- * BatchCreateObjectResponse
-    BatchCreateObjectResponse (..),
-    mkBatchCreateObjectResponse,
-    bcoObjectIdentifier,
+    -- * Arn
+    Arn (..),
+
+    -- * BatchGetLinkAttributes
+    BatchGetLinkAttributes (..),
+    mkBatchGetLinkAttributes,
+    bglaTypedLinkSpecifier,
+    bglaAttributeNames,
+
+    -- * BatchLookupPolicyResponse
+    BatchLookupPolicyResponse (..),
+    mkBatchLookupPolicyResponse,
+    blprNextToken,
+    blprPolicyToPathList,
+
+    -- * BatchGetObjectInformationResponse
+    BatchGetObjectInformationResponse (..),
+    mkBatchGetObjectInformationResponse,
+    bgoirObjectIdentifier,
+    bgoirSchemaFacets,
 
     -- * BatchDeleteObject
     BatchDeleteObject (..),
     mkBatchDeleteObject,
     bdoObjectReference,
 
-    -- * BatchDeleteObjectResponse
-    BatchDeleteObjectResponse (..),
-    mkBatchDeleteObjectResponse,
+    -- * BatchListAttachedIndicesResponse
+    BatchListAttachedIndicesResponse (..),
+    mkBatchListAttachedIndicesResponse,
+    blairIndexAttachments,
+    blairNextToken,
 
-    -- * BatchDetachFromIndex
-    BatchDetachFromIndex (..),
-    mkBatchDetachFromIndex,
-    bdfiTargetReference,
-    bdfiIndexReference,
+    -- * ConsistencyLevel
+    ConsistencyLevel (..),
+
+    -- * RuleParameterKey
+    RuleParameterKey (..),
+
+    -- * BatchListIndex
+    BatchListIndex (..),
+    mkBatchListIndex,
+    bliIndexReference,
+    bliMaxResults,
+    bliNextToken,
+    bliRangesOnIndexedValues,
+
+    -- * BatchReadOperationResponse
+    BatchReadOperationResponse (..),
+    mkBatchReadOperationResponse,
+    brorExceptionResponse,
+    brorSuccessfulResponse,
+
+    -- * PolicyType
+    PolicyType (..),
+
+    -- * PathString
+    PathString (..),
 
     -- * BatchDetachFromIndexResponse
     BatchDetachFromIndexResponse (..),
     mkBatchDetachFromIndexResponse,
-    bdfiDetachedObjectIdentifier,
+    bdfirDetachedObjectIdentifier,
+
+    -- * BatchDetachFromIndex
+    BatchDetachFromIndex (..),
+    mkBatchDetachFromIndex,
+    bdfiIndexReference,
+    bdfiTargetReference,
+
+    -- * AttributeNameAndValue
+    AttributeNameAndValue (..),
+    mkAttributeNameAndValue,
+    anavAttributeName,
+    anavValue,
+
+    -- * BatchListAttachedIndices
+    BatchListAttachedIndices (..),
+    mkBatchListAttachedIndices,
+    blaiTargetReference,
+    blaiMaxResults,
+    blaiNextToken,
+
+    -- * BatchListIndexResponse
+    BatchListIndexResponse (..),
+    mkBatchListIndexResponse,
+    blirIndexAttachments,
+    blirNextToken,
+
+    -- * BatchDeleteObjectResponse
+    BatchDeleteObjectResponse (..),
+    mkBatchDeleteObjectResponse,
+
+    -- * TypedAttributeValue
+    TypedAttributeValue (..),
+    mkTypedAttributeValue,
+    tavBinaryValue,
+    tavBooleanValue,
+    tavDatetimeValue,
+    tavNumberValue,
+    tavStringValue,
+
+    -- * PathToObjectIdentifiers
+    PathToObjectIdentifiers (..),
+    mkPathToObjectIdentifiers,
+    ptoiObjectIdentifiers,
+    ptoiPath,
+
+    -- * BatchReadOperation
+    BatchReadOperation (..),
+    mkBatchReadOperation,
+    broGetLinkAttributes,
+    broGetObjectAttributes,
+    broGetObjectInformation,
+    broListAttachedIndices,
+    broListIncomingTypedLinks,
+    broListIndex,
+    broListObjectAttributes,
+    broListObjectChildren,
+    broListObjectParentPaths,
+    broListObjectParents,
+    broListObjectPolicies,
+    broListOutgoingTypedLinks,
+    broListPolicyAttachments,
+    broLookupPolicy,
+
+    -- * AttributeKeyAndValue
+    AttributeKeyAndValue (..),
+    mkAttributeKeyAndValue,
+    akavKey,
+    akavValue,
+
+    -- * BatchGetObjectInformation
+    BatchGetObjectInformation (..),
+    mkBatchGetObjectInformation,
+    bgoiObjectReference,
+
+    -- * ObjectIdentifier
+    ObjectIdentifier (..),
+
+    -- * SchemaJsonDocument
+    SchemaJsonDocument (..),
+
+    -- * BatchListObjectPoliciesResponse
+    BatchListObjectPoliciesResponse (..),
+    mkBatchListObjectPoliciesResponse,
+    bAttachedPolicyIds,
+    bNextToken,
+
+    -- * PolicyToPath
+    PolicyToPath (..),
+    mkPolicyToPath,
+    ptpPath,
+    ptpPolicies,
+
+    -- * SchemaName
+    SchemaName (..),
+
+    -- * BatchCreateIndex
+    BatchCreateIndex (..),
+    mkBatchCreateIndex,
+    bciOrderedIndexedAttributeList,
+    bciIsUnique,
+    bciBatchReferenceName,
+    bciLinkName,
+    bciParentReference,
 
     -- * BatchDetachObject
     BatchDetachObject (..),
@@ -174,496 +355,75 @@ module Network.AWS.CloudDirectory.Types
     bdoLinkName,
     bdoBatchReferenceName,
 
-    -- * BatchDetachObjectResponse
-    BatchDetachObjectResponse (..),
-    mkBatchDetachObjectResponse,
-    bdoDetachedObjectIdentifier,
-
-    -- * BatchDetachPolicy
-    BatchDetachPolicy (..),
-    mkBatchDetachPolicy,
-    bdpPolicyReference,
-    bdpObjectReference,
-
-    -- * BatchDetachPolicyResponse
-    BatchDetachPolicyResponse (..),
-    mkBatchDetachPolicyResponse,
-
-    -- * BatchDetachTypedLink
-    BatchDetachTypedLink (..),
-    mkBatchDetachTypedLink,
-    bdtlTypedLinkSpecifier,
-
-    -- * BatchDetachTypedLinkResponse
-    BatchDetachTypedLinkResponse (..),
-    mkBatchDetachTypedLinkResponse,
-
-    -- * BatchGetLinkAttributes
-    BatchGetLinkAttributes (..),
-    mkBatchGetLinkAttributes,
-    bglaAttributeNames,
-    bglaTypedLinkSpecifier,
-
-    -- * BatchGetLinkAttributesResponse
-    BatchGetLinkAttributesResponse (..),
-    mkBatchGetLinkAttributesResponse,
-    bglaAttributes,
-
-    -- * BatchGetObjectAttributes
-    BatchGetObjectAttributes (..),
-    mkBatchGetObjectAttributes,
-    bgoaSchemaFacet,
-    bgoaAttributeNames,
-    bgoaObjectReference,
-
-    -- * BatchGetObjectAttributesResponse
-    BatchGetObjectAttributesResponse (..),
-    mkBatchGetObjectAttributesResponse,
-    bgoaAttributes,
-
-    -- * BatchGetObjectInformation
-    BatchGetObjectInformation (..),
-    mkBatchGetObjectInformation,
-    bgoiObjectReference,
-
-    -- * BatchGetObjectInformationResponse
-    BatchGetObjectInformationResponse (..),
-    mkBatchGetObjectInformationResponse,
-    bgoiObjectIdentifier,
-    bgoiSchemaFacets,
-
-    -- * BatchListAttachedIndices
-    BatchListAttachedIndices (..),
-    mkBatchListAttachedIndices,
-    blaisTargetReference,
-    blaisNextToken,
-    blaisMaxResults,
-
-    -- * BatchListAttachedIndicesResponse
-    BatchListAttachedIndicesResponse (..),
-    mkBatchListAttachedIndicesResponse,
-    blaiIndexAttachments,
-    blaiNextToken,
-
-    -- * BatchListIncomingTypedLinks
-    BatchListIncomingTypedLinks (..),
-    mkBatchListIncomingTypedLinks,
-    blitlsFilterAttributeRanges,
-    blitlsNextToken,
-    blitlsFilterTypedLink,
-    blitlsObjectReference,
-    blitlsMaxResults,
-
-    -- * BatchListIncomingTypedLinksResponse
-    BatchListIncomingTypedLinksResponse (..),
-    mkBatchListIncomingTypedLinksResponse,
-    blitlLinkSpecifiers,
-    blitlNextToken,
-
-    -- * BatchListIndex
-    BatchListIndex (..),
-    mkBatchListIndex,
-    blifRangesOnIndexedValues,
-    blifIndexReference,
-    blifNextToken,
-    blifMaxResults,
-
-    -- * BatchListIndexResponse
-    BatchListIndexResponse (..),
-    mkBatchListIndexResponse,
-    bliIndexAttachments,
-    bliNextToken,
-
-    -- * BatchListObjectAttributes
-    BatchListObjectAttributes (..),
-    mkBatchListObjectAttributes,
-    bloaFacetFilter,
-    bloaNextToken,
-    bloaObjectReference,
-    bloaMaxResults,
-
-    -- * BatchListObjectAttributesResponse
-    BatchListObjectAttributesResponse (..),
-    mkBatchListObjectAttributesResponse,
-    bNextToken,
-    bAttributes,
-
-    -- * BatchListObjectChildren
-    BatchListObjectChildren (..),
-    mkBatchListObjectChildren,
-    blocfNextToken,
-    blocfObjectReference,
-    blocfMaxResults,
-
-    -- * BatchListObjectChildrenResponse
-    BatchListObjectChildrenResponse (..),
-    mkBatchListObjectChildrenResponse,
-    blocChildren,
-    blocNextToken,
-
-    -- * BatchListObjectParentPaths
-    BatchListObjectParentPaths (..),
-    mkBatchListObjectParentPaths,
-    bloppsNextToken,
-    bloppsObjectReference,
-    bloppsMaxResults,
-
-    -- * BatchListObjectParentPathsResponse
-    BatchListObjectParentPathsResponse (..),
-    mkBatchListObjectParentPathsResponse,
-    bloppPathToObjectIdentifiersList,
-    bloppNextToken,
-
-    -- * BatchListObjectParents
-    BatchListObjectParents (..),
-    mkBatchListObjectParents,
-    blopfNextToken,
-    blopfObjectReference,
-    blopfMaxResults,
-
-    -- * BatchListObjectParentsResponse
-    BatchListObjectParentsResponse (..),
-    mkBatchListObjectParentsResponse,
-    blopNextToken,
-    blopParentLinks,
-
-    -- * BatchListObjectPolicies
-    BatchListObjectPolicies (..),
-    mkBatchListObjectPolicies,
-    blopgNextToken,
-    blopgObjectReference,
-    blopgMaxResults,
-
-    -- * BatchListObjectPoliciesResponse
-    BatchListObjectPoliciesResponse (..),
-    mkBatchListObjectPoliciesResponse,
-    blopsNextToken,
-    blopsAttachedPolicyIds,
-
-    -- * BatchListOutgoingTypedLinks
-    BatchListOutgoingTypedLinks (..),
-    mkBatchListOutgoingTypedLinks,
-    blotlsFilterAttributeRanges,
-    blotlsNextToken,
-    blotlsFilterTypedLink,
-    blotlsObjectReference,
-    blotlsMaxResults,
-
-    -- * BatchListOutgoingTypedLinksResponse
-    BatchListOutgoingTypedLinksResponse (..),
-    mkBatchListOutgoingTypedLinksResponse,
-    blotlTypedLinkSpecifiers,
-    blotlNextToken,
-
-    -- * BatchListPolicyAttachments
-    BatchListPolicyAttachments (..),
-    mkBatchListPolicyAttachments,
-    blpasNextToken,
-    blpasPolicyReference,
-    blpasMaxResults,
-
-    -- * BatchListPolicyAttachmentsResponse
-    BatchListPolicyAttachmentsResponse (..),
-    mkBatchListPolicyAttachmentsResponse,
-    blpaObjectIdentifiers,
-    blpaNextToken,
-
-    -- * BatchLookupPolicy
-    BatchLookupPolicy (..),
-    mkBatchLookupPolicy,
-    blpfNextToken,
-    blpfObjectReference,
-    blpfMaxResults,
-
-    -- * BatchLookupPolicyResponse
-    BatchLookupPolicyResponse (..),
-    mkBatchLookupPolicyResponse,
-    blpNextToken,
-    blpPolicyToPathList,
-
-    -- * BatchReadException
-    BatchReadException (..),
-    mkBatchReadException,
-    breType,
-    breMessage,
-
-    -- * BatchReadOperation
-    BatchReadOperation (..),
-    mkBatchReadOperation,
-    broListIndex,
-    broGetObjectInformation,
-    broListAttachedIndices,
-    broLookupPolicy,
-    broListObjectParentPaths,
-    broListObjectAttributes,
-    broListIncomingTypedLinks,
-    broGetLinkAttributes,
-    broGetObjectAttributes,
-    broListObjectChildren,
-    broListObjectParents,
-    broListPolicyAttachments,
-    broListOutgoingTypedLinks,
-    broListObjectPolicies,
-
-    -- * BatchReadOperationResponse
-    BatchReadOperationResponse (..),
-    mkBatchReadOperationResponse,
-    broExceptionResponse,
-    broSuccessfulResponse,
-
-    -- * BatchReadSuccessfulResponse
-    BatchReadSuccessfulResponse (..),
-    mkBatchReadSuccessfulResponse,
-    brsListIndex,
-    brsGetObjectInformation,
-    brsListAttachedIndices,
-    brsLookupPolicy,
-    brsListObjectParentPaths,
-    brsListObjectAttributes,
-    brsListIncomingTypedLinks,
-    brsGetLinkAttributes,
-    brsGetObjectAttributes,
-    brsListObjectChildren,
-    brsListObjectParents,
-    brsListPolicyAttachments,
-    brsListOutgoingTypedLinks,
-    brsListObjectPolicies,
-
-    -- * BatchRemoveFacetFromObject
-    BatchRemoveFacetFromObject (..),
-    mkBatchRemoveFacetFromObject,
-    brffoSchemaFacet,
-    brffoObjectReference,
-
-    -- * BatchRemoveFacetFromObjectResponse
-    BatchRemoveFacetFromObjectResponse (..),
-    mkBatchRemoveFacetFromObjectResponse,
-
-    -- * BatchUpdateLinkAttributes
-    BatchUpdateLinkAttributes (..),
-    mkBatchUpdateLinkAttributes,
-    bulaAttributeUpdates,
-    bulaTypedLinkSpecifier,
-
-    -- * BatchUpdateLinkAttributesResponse
-    BatchUpdateLinkAttributesResponse (..),
-    mkBatchUpdateLinkAttributesResponse,
-
-    -- * BatchUpdateObjectAttributes
-    BatchUpdateObjectAttributes (..),
-    mkBatchUpdateObjectAttributes,
-    buoaAttributeUpdates,
-    buoaObjectReference,
-
-    -- * BatchUpdateObjectAttributesResponse
-    BatchUpdateObjectAttributesResponse (..),
-    mkBatchUpdateObjectAttributesResponse,
-    buoaObjectIdentifier,
-
-    -- * BatchWriteOperation
-    BatchWriteOperation (..),
-    mkBatchWriteOperation,
-    bDeleteObject,
-    bDetachFromIndex,
-    bRemoveFacetFromObject,
-    bAttachObject,
-    bCreateObject,
-    bAttachTypedLink,
-    bDetachPolicy,
-    bCreateIndex,
-    bDetachObject,
-    bAddFacetToObject,
-    bDetachTypedLink,
-    bUpdateObjectAttributes,
-    bAttachPolicy,
-    bUpdateLinkAttributes,
-    bAttachToIndex,
-
-    -- * BatchWriteOperationResponse
-    BatchWriteOperationResponse (..),
-    mkBatchWriteOperationResponse,
-    bwoDeleteObject,
-    bwoDetachFromIndex,
-    bwoRemoveFacetFromObject,
-    bwoAttachObject,
-    bwoCreateObject,
-    bwoAttachTypedLink,
-    bwoDetachPolicy,
-    bwoCreateIndex,
-    bwoDetachObject,
-    bwoAddFacetToObject,
-    bwoDetachTypedLink,
-    bwoUpdateObjectAttributes,
-    bwoAttachPolicy,
-    bwoUpdateLinkAttributes,
-    bwoAttachToIndex,
-
-    -- * Directory
-    Directory (..),
-    mkDirectory,
-    dDirectoryARN,
-    dState,
-    dName,
-    dCreationDateTime,
-
-    -- * Facet
-    Facet (..),
-    mkFacet,
-    fFacetStyle,
-    fObjectType,
-    fName,
-
-    -- * FacetAttribute
-    FacetAttribute (..),
-    mkFacetAttribute,
-    faAttributeReference,
-    faAttributeDefinition,
-    faName,
-    faRequiredBehavior,
-
-    -- * FacetAttributeDefinition
-    FacetAttributeDefinition (..),
-    mkFacetAttributeDefinition,
-    fadRules,
-    fadDefaultValue,
-    fadIsImmutable,
-    fadType,
-
-    -- * FacetAttributeReference
-    FacetAttributeReference (..),
-    mkFacetAttributeReference,
-    farTargetFacetName,
-    farTargetAttributeName,
-
-    -- * FacetAttributeUpdate
-    FacetAttributeUpdate (..),
-    mkFacetAttributeUpdate,
-    fauAttribute,
-    fauAction,
-
-    -- * IndexAttachment
-    IndexAttachment (..),
-    mkIndexAttachment,
-    iaIndexedAttributes,
-    iaObjectIdentifier,
-
-    -- * LinkAttributeAction
-    LinkAttributeAction (..),
-    mkLinkAttributeAction,
-    laaAttributeActionType,
-    laaAttributeUpdateValue,
-
-    -- * LinkAttributeUpdate
-    LinkAttributeUpdate (..),
-    mkLinkAttributeUpdate,
-    lauAttributeAction,
-    lauAttributeKey,
-
-    -- * ObjectAttributeAction
-    ObjectAttributeAction (..),
-    mkObjectAttributeAction,
-    oaaObjectAttributeActionType,
-    oaaObjectAttributeUpdateValue,
-
-    -- * ObjectAttributeRange
-    ObjectAttributeRange (..),
-    mkObjectAttributeRange,
-    oarRange,
-    oarAttributeKey,
-
-    -- * ObjectAttributeUpdate
-    ObjectAttributeUpdate (..),
-    mkObjectAttributeUpdate,
-    oauObjectAttributeAction,
-    oauObjectAttributeKey,
-
-    -- * ObjectIdentifierAndLinkNameTuple
-    ObjectIdentifierAndLinkNameTuple (..),
-    mkObjectIdentifierAndLinkNameTuple,
-    oialntObjectIdentifier,
-    oialntLinkName,
-
-    -- * ObjectReference
-    ObjectReference (..),
-    mkObjectReference,
-    orSelector,
-
-    -- * PathToObjectIdentifiers
-    PathToObjectIdentifiers (..),
-    mkPathToObjectIdentifiers,
-    ptoiObjectIdentifiers,
-    ptoiPath,
-
-    -- * PolicyAttachment
-    PolicyAttachment (..),
-    mkPolicyAttachment,
-    paPolicyId,
-    paPolicyType,
-    paObjectIdentifier,
-
-    -- * PolicyToPath
-    PolicyToPath (..),
-    mkPolicyToPath,
-    ptpPath,
-    ptpPolicies,
-
     -- * Rule
     Rule (..),
     mkRule,
     rParameters,
     rType,
 
-    -- * SchemaFacet
-    SchemaFacet (..),
-    mkSchemaFacet,
-    sfFacetName,
-    sfSchemaARN,
+    -- * BatchAddFacetToObject
+    BatchAddFacetToObject (..),
+    mkBatchAddFacetToObject,
+    baftoSchemaFacet,
+    baftoObjectAttributeList,
+    baftoObjectReference,
 
-    -- * Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- * FacetAttribute
+    FacetAttribute (..),
+    mkFacetAttribute,
+    faName,
+    faAttributeDefinition,
+    faAttributeReference,
+    faRequiredBehavior,
 
-    -- * TypedAttributeValue
-    TypedAttributeValue (..),
-    mkTypedAttributeValue,
-    tavBinaryValue,
-    tavDatetimeValue,
-    tavNumberValue,
-    tavStringValue,
-    tavBooleanValue,
+    -- * RuleKey
+    RuleKey (..),
 
-    -- * TypedAttributeValueRange
-    TypedAttributeValueRange (..),
-    mkTypedAttributeValueRange,
-    tavrEndValue,
-    tavrStartValue,
-    tavrStartMode,
-    tavrEndMode,
+    -- * BatchAttachToIndexResponse
+    BatchAttachToIndexResponse (..),
+    mkBatchAttachToIndexResponse,
+    batirAttachedObjectIdentifier,
 
-    -- * TypedLinkAttributeDefinition
-    TypedLinkAttributeDefinition (..),
-    mkTypedLinkAttributeDefinition,
-    tladRules,
-    tladName,
-    tladRequiredBehavior,
-    tladDefaultValue,
-    tladIsImmutable,
-    tladType,
+    -- * BatchUpdateLinkAttributesResponse
+    BatchUpdateLinkAttributesResponse (..),
+    mkBatchUpdateLinkAttributesResponse,
 
-    -- * TypedLinkAttributeRange
-    TypedLinkAttributeRange (..),
-    mkTypedLinkAttributeRange,
-    tlarRange,
-    tlarAttributeName,
+    -- * RequiredAttributeBehavior
+    RequiredAttributeBehavior (..),
 
-    -- * TypedLinkFacet
-    TypedLinkFacet (..),
-    mkTypedLinkFacet,
-    tlfIdentityAttributeOrder,
-    tlfAttributes,
-    tlfName,
+    -- * BatchReadException
+    BatchReadException (..),
+    mkBatchReadException,
+    breMessage,
+    breType,
+
+    -- * BatchListObjectParentPaths
+    BatchListObjectParentPaths (..),
+    mkBatchListObjectParentPaths,
+    bloppObjectReference,
+    bloppMaxResults,
+    bloppNextToken,
+
+    -- * BatchAttachPolicyResponse
+    BatchAttachPolicyResponse (..),
+    mkBatchAttachPolicyResponse,
+
+    -- * TypedLinkSchemaAndFacetName
+    TypedLinkSchemaAndFacetName (..),
+    mkTypedLinkSchemaAndFacetName,
+    tlsafnSchemaArn,
+    tlsafnTypedLinkName,
+
+    -- * RangeMode
+    RangeMode (..),
+
+    -- * NextToken
+    NextToken (..),
+
+    -- * BatchUpdateObjectAttributesResponse
+    BatchUpdateObjectAttributesResponse (..),
+    mkBatchUpdateObjectAttributesResponse,
+    buoarObjectIdentifier,
 
     -- * TypedLinkFacetAttributeUpdate
     TypedLinkFacetAttributeUpdate (..),
@@ -671,24 +431,398 @@ module Network.AWS.CloudDirectory.Types
     tlfauAttribute,
     tlfauAction,
 
-    -- * TypedLinkSchemaAndFacetName
-    TypedLinkSchemaAndFacetName (..),
-    mkTypedLinkSchemaAndFacetName,
-    tlsafnSchemaARN,
-    tlsafnTypedLinkName,
+    -- * BatchListPolicyAttachments
+    BatchListPolicyAttachments (..),
+    mkBatchListPolicyAttachments,
+    blpaPolicyReference,
+    blpaMaxResults,
+    blpaNextToken,
+
+    -- * BatchDetachTypedLinkResponse
+    BatchDetachTypedLinkResponse (..),
+    mkBatchDetachTypedLinkResponse,
+
+    -- * BatchListObjectParents
+    BatchListObjectParents (..),
+    mkBatchListObjectParents,
+    blopObjectReference,
+    blopMaxResults,
+    blopNextToken,
+
+    -- * BatchWriteOperation
+    BatchWriteOperation (..),
+    mkBatchWriteOperation,
+    bwoAddFacetToObject,
+    bwoAttachObject,
+    bwoAttachPolicy,
+    bwoAttachToIndex,
+    bwoAttachTypedLink,
+    bwoCreateIndex,
+    bwoCreateObject,
+    bwoDeleteObject,
+    bwoDetachFromIndex,
+    bwoDetachObject,
+    bwoDetachPolicy,
+    bwoDetachTypedLink,
+    bwoRemoveFacetFromObject,
+    bwoUpdateLinkAttributes,
+    bwoUpdateObjectAttributes,
+
+    -- * RuleParameterValue
+    RuleParameterValue (..),
+
+    -- * BatchListOutgoingTypedLinksResponse
+    BatchListOutgoingTypedLinksResponse (..),
+    mkBatchListOutgoingTypedLinksResponse,
+    blotlrNextToken,
+    blotlrTypedLinkSpecifiers,
+
+    -- * BatchDetachTypedLink
+    BatchDetachTypedLink (..),
+    mkBatchDetachTypedLink,
+    bdtlTypedLinkSpecifier,
+
+    -- * BatchAttachPolicy
+    BatchAttachPolicy (..),
+    mkBatchAttachPolicy,
+    bapPolicyReference,
+    bapObjectReference,
+
+    -- * ObjectAttributeAction
+    ObjectAttributeAction (..),
+    mkObjectAttributeAction,
+    oaaObjectAttributeActionType,
+    oaaObjectAttributeUpdateValue,
+
+    -- * BatchListOutgoingTypedLinks
+    BatchListOutgoingTypedLinks (..),
+    mkBatchListOutgoingTypedLinks,
+    blotlObjectReference,
+    blotlFilterAttributeRanges,
+    blotlFilterTypedLink,
+    blotlMaxResults,
+    blotlNextToken,
+
+    -- * BatchListObjectParentsResponse
+    BatchListObjectParentsResponse (..),
+    mkBatchListObjectParentsResponse,
+    bloprNextToken,
+    bloprParentLinks,
+
+    -- * BatchListPolicyAttachmentsResponse
+    BatchListPolicyAttachmentsResponse (..),
+    mkBatchListPolicyAttachmentsResponse,
+    blparNextToken,
+    blparObjectIdentifiers,
+
+    -- * UpdateActionType
+    UpdateActionType (..),
+
+    -- * BatchUpdateObjectAttributes
+    BatchUpdateObjectAttributes (..),
+    mkBatchUpdateObjectAttributes,
+    buoaObjectReference,
+    buoaAttributeUpdates,
+
+    -- * TypedLinkAttributeRange
+    TypedLinkAttributeRange (..),
+    mkTypedLinkAttributeRange,
+    tlarRange,
+    tlarAttributeName,
+
+    -- * LinkName
+    LinkName (..),
+
+    -- * BatchWriteOperationResponse
+    BatchWriteOperationResponse (..),
+    mkBatchWriteOperationResponse,
+    bworAddFacetToObject,
+    bworAttachObject,
+    bworAttachPolicy,
+    bworAttachToIndex,
+    bworAttachTypedLink,
+    bworCreateIndex,
+    bworCreateObject,
+    bworDeleteObject,
+    bworDetachFromIndex,
+    bworDetachObject,
+    bworDetachPolicy,
+    bworDetachTypedLink,
+    bworRemoveFacetFromObject,
+    bworUpdateLinkAttributes,
+    bworUpdateObjectAttributes,
+
+    -- * BatchAttachObject
+    BatchAttachObject (..),
+    mkBatchAttachObject,
+    baoParentReference,
+    baoChildReference,
+    baoLinkName,
+
+    -- * Version
+    Version (..),
+
+    -- * LinkAttributeAction
+    LinkAttributeAction (..),
+    mkLinkAttributeAction,
+    laaAttributeActionType,
+    laaAttributeUpdateValue,
+
+    -- * FacetAttributeReference
+    FacetAttributeReference (..),
+    mkFacetAttributeReference,
+    farTargetFacetName,
+    farTargetAttributeName,
+
+    -- * BatchListObjectPolicies
+    BatchListObjectPolicies (..),
+    mkBatchListObjectPolicies,
+    blopsObjectReference,
+    blopsMaxResults,
+    blopsNextToken,
+
+    -- * BatchAddFacetToObjectResponse
+    BatchAddFacetToObjectResponse (..),
+    mkBatchAddFacetToObjectResponse,
+
+    -- * Facet
+    Facet (..),
+    mkFacet,
+    fFacetStyle,
+    fName,
+    fObjectType,
+
+    -- * LinkAttributeUpdate
+    LinkAttributeUpdate (..),
+    mkLinkAttributeUpdate,
+    lauAttributeAction,
+    lauAttributeKey,
+
+    -- * BatchDetachObjectResponse
+    BatchDetachObjectResponse (..),
+    mkBatchDetachObjectResponse,
+    bdorDetachedObjectIdentifier,
+
+    -- * BatchCreateIndexResponse
+    BatchCreateIndexResponse (..),
+    mkBatchCreateIndexResponse,
+    bcirObjectIdentifier,
+
+    -- * TagKey
+    TagKey (..),
+
+    -- * BatchReferenceName
+    BatchReferenceName (..),
+
+    -- * BatchListObjectChildren
+    BatchListObjectChildren (..),
+    mkBatchListObjectChildren,
+    blocObjectReference,
+    blocMaxResults,
+    blocNextToken,
+
+    -- * ObjectAttributeUpdate
+    ObjectAttributeUpdate (..),
+    mkObjectAttributeUpdate,
+    oauObjectAttributeAction,
+    oauObjectAttributeKey,
+
+    -- * FacetAttributeUpdate
+    FacetAttributeUpdate (..),
+    mkFacetAttributeUpdate,
+    fauAction,
+    fauAttribute,
+
+    -- * BatchAttachTypedLinkResponse
+    BatchAttachTypedLinkResponse (..),
+    mkBatchAttachTypedLinkResponse,
+    batlrTypedLinkSpecifier,
+
+    -- * BatchDetachPolicyResponse
+    BatchDetachPolicyResponse (..),
+    mkBatchDetachPolicyResponse,
 
     -- * TypedLinkSpecifier
     TypedLinkSpecifier (..),
     mkTypedLinkSpecifier,
+    tlsTypedLinkFacet,
+    tlsSourceObjectReference,
     tlsTargetObjectReference,
     tlsIdentityAttributeValues,
-    tlsSourceObjectReference,
-    tlsTypedLinkFacet,
+
+    -- * BatchGetObjectAttributes
+    BatchGetObjectAttributes (..),
+    mkBatchGetObjectAttributes,
+    bgoaObjectReference,
+    bgoaSchemaFacet,
+    bgoaAttributeNames,
+
+    -- * TypedLinkName
+    TypedLinkName (..),
+
+    -- * SelectorObjectReference
+    SelectorObjectReference (..),
+
+    -- * AttributeKey
+    AttributeKey (..),
+    mkAttributeKey,
+    akSchemaArn,
+    akFacetName,
+    akName,
+
+    -- * BatchAttachTypedLink
+    BatchAttachTypedLink (..),
+    mkBatchAttachTypedLink,
+    batlSourceObjectReference,
+    batlTargetObjectReference,
+    batlTypedLinkFacet,
+    batlAttributes,
+
+    -- * BatchGetObjectAttributesResponse
+    BatchGetObjectAttributesResponse (..),
+    mkBatchGetObjectAttributesResponse,
+    bgoarAttributes,
+
+    -- * AttributeName
+    AttributeName (..),
+
+    -- * BatchListObjectChildrenResponse
+    BatchListObjectChildrenResponse (..),
+    mkBatchListObjectChildrenResponse,
+    blocrChildren,
+    blocrNextToken,
+
+    -- * BatchDetachPolicy
+    BatchDetachPolicy (..),
+    mkBatchDetachPolicy,
+    bdpPolicyReference,
+    bdpObjectReference,
+
+    -- * BatchLookupPolicy
+    BatchLookupPolicy (..),
+    mkBatchLookupPolicy,
+    blpObjectReference,
+    blpMaxResults,
+    blpNextToken,
+
+    -- * BatchCreateObjectResponse
+    BatchCreateObjectResponse (..),
+    mkBatchCreateObjectResponse,
+    bcorObjectIdentifier,
+
+    -- * RuleType
+    RuleType (..),
+
+    -- * DirectoryName
+    DirectoryName (..),
+
+    -- * ObjectAttributeRange
+    ObjectAttributeRange (..),
+    mkObjectAttributeRange,
+    oarAttributeKey,
+    oarRange,
+
+    -- * BatchGetLinkAttributesResponse
+    BatchGetLinkAttributesResponse (..),
+    mkBatchGetLinkAttributesResponse,
+    bglarAttributes,
+
+    -- * DirectoryState
+    DirectoryState (..),
+
+    -- * ObjectReference
+    ObjectReference (..),
+    mkObjectReference,
+    orSelector,
+
+    -- * BatchReadSuccessfulResponse
+    BatchReadSuccessfulResponse (..),
+    mkBatchReadSuccessfulResponse,
+    brsrGetLinkAttributes,
+    brsrGetObjectAttributes,
+    brsrGetObjectInformation,
+    brsrListAttachedIndices,
+    brsrListIncomingTypedLinks,
+    brsrListIndex,
+    brsrListObjectAttributes,
+    brsrListObjectChildren,
+    brsrListObjectParentPaths,
+    brsrListObjectParents,
+    brsrListObjectPolicies,
+    brsrListOutgoingTypedLinks,
+    brsrListPolicyAttachments,
+    brsrLookupPolicy,
+
+    -- * BatchAttachObjectResponse
+    BatchAttachObjectResponse (..),
+    mkBatchAttachObjectResponse,
+    baorAttachedObjectIdentifier,
+
+    -- * FacetAttributeType
+    FacetAttributeType (..),
+
+    -- * Directory
+    Directory (..),
+    mkDirectory,
+    dCreationDateTime,
+    dDirectoryArn,
+    dName,
+    dState,
+
+    -- * BatchReadExceptionType
+    BatchReadExceptionType (..),
+
+    -- * TypedLinkFacet
+    TypedLinkFacet (..),
+    mkTypedLinkFacet,
+    tlfName,
+    tlfAttributes,
+    tlfIdentityAttributeOrder,
+
+    -- * PolicyAttachment
+    PolicyAttachment (..),
+    mkPolicyAttachment,
+    paObjectIdentifier,
+    paPolicyId,
+    paPolicyType,
+
+    -- * SchemaArn
+    SchemaArn (..),
+
+    -- * Name
+    Name (..),
+
+    -- * DetachedObjectIdentifier
+    DetachedObjectIdentifier (..),
+
+    -- * UpgradedSchemaArn
+    UpgradedSchemaArn (..),
+
+    -- * Key
+    Key (..),
+
+    -- * Value
+    Value (..),
+
+    -- * AttachedObjectIdentifier
+    AttachedObjectIdentifier (..),
+
+    -- * MinorVersion
+    MinorVersion (..),
+
+    -- * NumberValue
+    NumberValue (..),
+
+    -- * TargetAttributeName
+    TargetAttributeName (..),
   )
 where
 
+import Network.AWS.CloudDirectory.Types.Arn
+import Network.AWS.CloudDirectory.Types.AttachedObjectIdentifier
 import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+import Network.AWS.CloudDirectory.Types.AttributeName
 import Network.AWS.CloudDirectory.Types.AttributeNameAndValue
 import Network.AWS.CloudDirectory.Types.BatchAddFacetToObject
 import Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse
@@ -747,6 +881,7 @@ import Network.AWS.CloudDirectory.Types.BatchReadExceptionType
 import Network.AWS.CloudDirectory.Types.BatchReadOperation
 import Network.AWS.CloudDirectory.Types.BatchReadOperationResponse
 import Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse
+import Network.AWS.CloudDirectory.Types.BatchReferenceName
 import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject
 import Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
 import Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes
@@ -756,96 +891,416 @@ import Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
 import Network.AWS.CloudDirectory.Types.BatchWriteOperation
 import Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse
 import Network.AWS.CloudDirectory.Types.ConsistencyLevel
+import Network.AWS.CloudDirectory.Types.DetachedObjectIdentifier
 import Network.AWS.CloudDirectory.Types.Directory
+import Network.AWS.CloudDirectory.Types.DirectoryArn
+import Network.AWS.CloudDirectory.Types.DirectoryName
 import Network.AWS.CloudDirectory.Types.DirectoryState
+import Network.AWS.CloudDirectory.Types.ExceptionMessage
 import Network.AWS.CloudDirectory.Types.Facet
 import Network.AWS.CloudDirectory.Types.FacetAttribute
 import Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
 import Network.AWS.CloudDirectory.Types.FacetAttributeReference
 import Network.AWS.CloudDirectory.Types.FacetAttributeType
 import Network.AWS.CloudDirectory.Types.FacetAttributeUpdate
+import Network.AWS.CloudDirectory.Types.FacetName
 import Network.AWS.CloudDirectory.Types.FacetStyle
 import Network.AWS.CloudDirectory.Types.IndexAttachment
+import Network.AWS.CloudDirectory.Types.Key
 import Network.AWS.CloudDirectory.Types.LinkAttributeAction
 import Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
+import Network.AWS.CloudDirectory.Types.LinkName
+import Network.AWS.CloudDirectory.Types.MinorVersion
+import Network.AWS.CloudDirectory.Types.Name
+import Network.AWS.CloudDirectory.Types.NextToken
+import Network.AWS.CloudDirectory.Types.NumberValue
 import Network.AWS.CloudDirectory.Types.ObjectAttributeAction
 import Network.AWS.CloudDirectory.Types.ObjectAttributeRange
 import Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate
+import Network.AWS.CloudDirectory.Types.ObjectIdentifier
 import Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.ObjectType
+import Network.AWS.CloudDirectory.Types.PathString
 import Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
 import Network.AWS.CloudDirectory.Types.PolicyAttachment
 import Network.AWS.CloudDirectory.Types.PolicyToPath
+import Network.AWS.CloudDirectory.Types.PolicyType
 import Network.AWS.CloudDirectory.Types.RangeMode
 import Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
 import Network.AWS.CloudDirectory.Types.Rule
+import Network.AWS.CloudDirectory.Types.RuleKey
+import Network.AWS.CloudDirectory.Types.RuleParameterKey
+import Network.AWS.CloudDirectory.Types.RuleParameterValue
 import Network.AWS.CloudDirectory.Types.RuleType
+import Network.AWS.CloudDirectory.Types.SchemaArn
 import Network.AWS.CloudDirectory.Types.SchemaFacet
+import Network.AWS.CloudDirectory.Types.SchemaJsonDocument
+import Network.AWS.CloudDirectory.Types.SchemaName
+import Network.AWS.CloudDirectory.Types.SelectorObjectReference
+import Network.AWS.CloudDirectory.Types.StringAttributeValue
 import Network.AWS.CloudDirectory.Types.Tag
+import Network.AWS.CloudDirectory.Types.TagKey
+import Network.AWS.CloudDirectory.Types.TargetAttributeName
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
 import Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
 import Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
 import Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange
 import Network.AWS.CloudDirectory.Types.TypedLinkFacet
 import Network.AWS.CloudDirectory.Types.TypedLinkFacetAttributeUpdate
+import Network.AWS.CloudDirectory.Types.TypedLinkName
 import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
 import Network.AWS.CloudDirectory.Types.UpdateActionType
+import Network.AWS.CloudDirectory.Types.UpgradedSchemaArn
+import Network.AWS.CloudDirectory.Types.Value
+import Network.AWS.CloudDirectory.Types.Version
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-01-11@ of the Amazon CloudDirectory SDK configuration.
-cloudDirectoryService :: Lude.Service
-cloudDirectoryService =
-  Lude.Service
-    { Lude._svcAbbrev = "CloudDirectory",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "clouddirectory",
-      Lude._svcVersion = "2017-01-11",
-      Lude._svcEndpoint = Lude.defaultEndpoint cloudDirectoryService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "CloudDirectory",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "CloudDirectory",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "clouddirectory",
+      Core._svcVersion = "2017-01-11",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "CloudDirectory",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | Indicates that the requested index type is not supported.
+_UnsupportedIndexTypeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedIndexTypeException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "UnsupportedIndexTypeException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _UnsupportedIndexTypeException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that the requested operation can only operate on index objects.
+_NotIndexException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotIndexException =
+  Core._MatchServiceError mkServiceConfig "NotIndexException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _NotIndexException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that your request is malformed in some manner. See the exception message.
+_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError mkServiceConfig "ValidationException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ValidationException "Use generic-lens or generic-optics instead." #-}
+
+-- | Access denied. Check your permissions.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError mkServiceConfig "AccessDeniedException"
+    Core.. Core.hasStatues 403
+{-# DEPRECATED _AccessDeniedException "Use generic-lens or generic-optics instead." #-}
+
+-- | A facet with the same name already exists.
+_FacetAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FacetAlreadyExistsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "FacetAlreadyExistsException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _FacetAlreadyExistsException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that the provided @SchemaDoc@ value is not valid.
+_InvalidSchemaDocException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSchemaDocException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidSchemaDocException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidSchemaDocException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.
+_InvalidAttachmentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidAttachmentException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidAttachmentException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidAttachmentException "Use generic-lens or generic-optics instead." #-}
+
+-- | Cannot list the parents of a 'Directory' root.
+_CannotListParentOfRootException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CannotListParentOfRootException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "CannotListParentOfRootException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _CannotListParentOfRootException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that the requested operation can only operate on policy objects.
+_NotPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotPolicyException =
+  Core._MatchServiceError mkServiceConfig "NotPolicyException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _NotPolicyException "Use generic-lens or generic-optics instead." #-}
+
+-- | Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.
+_InvalidTaggingRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidTaggingRequestException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidTaggingRequestException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidTaggingRequestException "Use generic-lens or generic-optics instead." #-}
+
+-- | An attempt to modify a 'Facet' resulted in an invalid schema exception.
+_InvalidFacetUpdateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidFacetUpdateException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidFacetUpdateException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidFacetUpdateException "Use generic-lens or generic-optics instead." #-}
+
+-- | Occurs when any of the rule parameter keys or values are invalid.
+_InvalidRuleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidRuleException =
+  Core._MatchServiceError mkServiceConfig "InvalidRuleException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidRuleException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that a schema is already published.
+_SchemaAlreadyPublishedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SchemaAlreadyPublishedException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "SchemaAlreadyPublishedException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _SchemaAlreadyPublishedException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that a 'Directory' could not be created due to a naming conflict. Choose a different name and try again.
+_DirectoryAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DirectoryAlreadyExistsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "DirectoryAlreadyExistsException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DirectoryAlreadyExistsException "Use generic-lens or generic-optics instead." #-}
+
+-- | An operation can only operate on a disabled directory.
+_DirectoryNotDisabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DirectoryNotDisabledException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "DirectoryNotDisabledException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DirectoryNotDisabledException "Use generic-lens or generic-optics instead." #-}
+
+-- | A @BatchWrite@ exception has occurred.
+_BatchWriteException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BatchWriteException =
+  Core._MatchServiceError mkServiceConfig "BatchWriteException"
+{-# DEPRECATED _BatchWriteException "Use generic-lens or generic-optics instead." #-}
+
+-- | Operations are only permitted on enabled directories.
+_DirectoryNotEnabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DirectoryNotEnabledException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "DirectoryNotEnabledException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DirectoryNotEnabledException "Use generic-lens or generic-optics instead." #-}
+
+-- | Occurs when deleting a facet that contains an attribute that is a target to an attribute reference in a different facet.
+_FacetInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FacetInUseException =
+  Core._MatchServiceError mkServiceConfig "FacetInUseException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _FacetInUseException "Use generic-lens or generic-optics instead." #-}
+
+-- | The 'Facet' that you provided was not well formed or could not be validated with the schema.
+_FacetValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FacetValidationException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "FacetValidationException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _FacetValidationException "Use generic-lens or generic-optics instead." #-}
+
+-- | The object could not be deleted because links still exist. Remove the links and then try the operation again.
+_StillContainsLinksException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_StillContainsLinksException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "StillContainsLinksException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _StillContainsLinksException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.
+_IncompatibleSchemaException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IncompatibleSchemaException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "IncompatibleSchemaException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _IncompatibleSchemaException "Use generic-lens or generic-optics instead." #-}
+
+-- | Occurs when any invalid operations are performed on an object that is not a node, such as calling @ListObjectChildren@ for a leaf node object.
+_NotNodeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotNodeException =
+  Core._MatchServiceError mkServiceConfig "NotNodeException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _NotNodeException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that the @NextToken@ value is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidNextTokenException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidNextTokenException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that the object is not attached to the index.
+_ObjectAlreadyDetachedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ObjectAlreadyDetachedException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ObjectAlreadyDetachedException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ObjectAlreadyDetachedException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.
+_LinkNameAlreadyInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LinkNameAlreadyInUseException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "LinkNameAlreadyInUseException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _LinkNameAlreadyInUseException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <http://status.aws.amazon.com/ AWS Service Health Dashboard> site to see if there are any operational issues with the service.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalServiceException"
+    Core.. Core.hasStatues 500
+{-# DEPRECATED _InternalServiceException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.
+_SchemaAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SchemaAlreadyExistsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "SchemaAlreadyExistsException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _SchemaAlreadyExistsException "Use generic-lens or generic-optics instead." #-}
+
+-- | An object has been attempted to be attached to an object that does not have the appropriate attribute value.
+_IndexedAttributeMissingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IndexedAttributeMissingException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "IndexedAttributeMissingException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _IndexedAttributeMissingException "Use generic-lens or generic-optics instead." #-}
+
+-- | A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.
+_DirectoryDeletedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DirectoryDeletedException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "DirectoryDeletedException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DirectoryDeletedException "Use generic-lens or generic-optics instead." #-}
+
+-- | Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
+_RetryableConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RetryableConflictException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "RetryableConflictException"
+    Core.. Core.hasStatues 409
+{-# DEPRECATED _RetryableConflictException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that the provided ARN value is not valid.
+_InvalidArnException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidArnException =
+  Core._MatchServiceError mkServiceConfig "InvalidArnException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidArnException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ResourceNotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _ResourceNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified 'Facet' could not be found.
+_FacetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_FacetNotFoundException =
+  Core._MatchServiceError mkServiceConfig "FacetNotFoundException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _FacetNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that limits are exceeded. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Limits> for more information.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError mkServiceConfig "LimitExceededException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that the requested operation cannot be completed because the object has not been detached from the tree.
+_ObjectNotDetachedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ObjectNotDetachedException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ObjectNotDetachedException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ObjectNotDetachedException "Use generic-lens or generic-optics instead." #-}

@@ -17,82 +17,78 @@ module Network.AWS.Glue.Types.SkewedInfo
     mkSkewedInfo,
 
     -- * Lenses
+    siSkewedColumnNames,
     siSkewedColumnValueLocationMaps,
     siSkewedColumnValues,
-    siSkewedColumnNames,
   )
 where
 
+import qualified Network.AWS.Glue.Types.ColumnValuesString as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
 --
 -- /See:/ 'mkSkewedInfo' smart constructor.
 data SkewedInfo = SkewedInfo'
-  { -- | A mapping of skewed values to the columns that contain them.
-    skewedColumnValueLocationMaps :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A list of names of columns that contain skewed values.
+    skewedColumnNames :: Core.Maybe [Types.NameString],
+    -- | A mapping of skewed values to the columns that contain them.
+    skewedColumnValueLocationMaps :: Core.Maybe (Core.HashMap Types.ColumnValuesString Types.ColumnValuesString),
     -- | A list of values that appear so frequently as to be considered skewed.
-    skewedColumnValues :: Lude.Maybe [Lude.Text],
-    -- | A list of names of columns that contain skewed values.
-    skewedColumnNames :: Lude.Maybe [Lude.Text]
+    skewedColumnValues :: Core.Maybe [Types.ColumnValuesString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SkewedInfo' with the minimum fields required to make a request.
---
--- * 'skewedColumnValueLocationMaps' - A mapping of skewed values to the columns that contain them.
--- * 'skewedColumnValues' - A list of values that appear so frequently as to be considered skewed.
--- * 'skewedColumnNames' - A list of names of columns that contain skewed values.
+-- | Creates a 'SkewedInfo' value with any optional fields omitted.
 mkSkewedInfo ::
   SkewedInfo
 mkSkewedInfo =
   SkewedInfo'
-    { skewedColumnValueLocationMaps = Lude.Nothing,
-      skewedColumnValues = Lude.Nothing,
-      skewedColumnNames = Lude.Nothing
+    { skewedColumnNames = Core.Nothing,
+      skewedColumnValueLocationMaps = Core.Nothing,
+      skewedColumnValues = Core.Nothing
     }
+
+-- | A list of names of columns that contain skewed values.
+--
+-- /Note:/ Consider using 'skewedColumnNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siSkewedColumnNames :: Lens.Lens' SkewedInfo (Core.Maybe [Types.NameString])
+siSkewedColumnNames = Lens.field @"skewedColumnNames"
+{-# DEPRECATED siSkewedColumnNames "Use generic-lens or generic-optics with 'skewedColumnNames' instead." #-}
 
 -- | A mapping of skewed values to the columns that contain them.
 --
 -- /Note:/ Consider using 'skewedColumnValueLocationMaps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siSkewedColumnValueLocationMaps :: Lens.Lens' SkewedInfo (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-siSkewedColumnValueLocationMaps = Lens.lens (skewedColumnValueLocationMaps :: SkewedInfo -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {skewedColumnValueLocationMaps = a} :: SkewedInfo)
+siSkewedColumnValueLocationMaps :: Lens.Lens' SkewedInfo (Core.Maybe (Core.HashMap Types.ColumnValuesString Types.ColumnValuesString))
+siSkewedColumnValueLocationMaps = Lens.field @"skewedColumnValueLocationMaps"
 {-# DEPRECATED siSkewedColumnValueLocationMaps "Use generic-lens or generic-optics with 'skewedColumnValueLocationMaps' instead." #-}
 
 -- | A list of values that appear so frequently as to be considered skewed.
 --
 -- /Note:/ Consider using 'skewedColumnValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siSkewedColumnValues :: Lens.Lens' SkewedInfo (Lude.Maybe [Lude.Text])
-siSkewedColumnValues = Lens.lens (skewedColumnValues :: SkewedInfo -> Lude.Maybe [Lude.Text]) (\s a -> s {skewedColumnValues = a} :: SkewedInfo)
+siSkewedColumnValues :: Lens.Lens' SkewedInfo (Core.Maybe [Types.ColumnValuesString])
+siSkewedColumnValues = Lens.field @"skewedColumnValues"
 {-# DEPRECATED siSkewedColumnValues "Use generic-lens or generic-optics with 'skewedColumnValues' instead." #-}
 
--- | A list of names of columns that contain skewed values.
---
--- /Note:/ Consider using 'skewedColumnNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siSkewedColumnNames :: Lens.Lens' SkewedInfo (Lude.Maybe [Lude.Text])
-siSkewedColumnNames = Lens.lens (skewedColumnNames :: SkewedInfo -> Lude.Maybe [Lude.Text]) (\s a -> s {skewedColumnNames = a} :: SkewedInfo)
-{-# DEPRECATED siSkewedColumnNames "Use generic-lens or generic-optics with 'skewedColumnNames' instead." #-}
-
-instance Lude.FromJSON SkewedInfo where
-  parseJSON =
-    Lude.withObject
-      "SkewedInfo"
-      ( \x ->
-          SkewedInfo'
-            Lude.<$> (x Lude..:? "SkewedColumnValueLocationMaps" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SkewedColumnValues" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SkewedColumnNames" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON SkewedInfo where
-  toJSON SkewedInfo' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SkewedColumnValueLocationMaps" Lude..=)
-              Lude.<$> skewedColumnValueLocationMaps,
-            ("SkewedColumnValues" Lude..=) Lude.<$> skewedColumnValues,
-            ("SkewedColumnNames" Lude..=) Lude.<$> skewedColumnNames
+instance Core.FromJSON SkewedInfo where
+  toJSON SkewedInfo {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("SkewedColumnNames" Core..=) Core.<$> skewedColumnNames,
+            ("SkewedColumnValueLocationMaps" Core..=)
+              Core.<$> skewedColumnValueLocationMaps,
+            ("SkewedColumnValues" Core..=) Core.<$> skewedColumnValues
           ]
       )
+
+instance Core.FromJSON SkewedInfo where
+  parseJSON =
+    Core.withObject "SkewedInfo" Core.$
+      \x ->
+        SkewedInfo'
+          Core.<$> (x Core..:? "SkewedColumnNames")
+          Core.<*> (x Core..:? "SkewedColumnValueLocationMaps")
+          Core.<*> (x Core..:? "SkewedColumnValues")

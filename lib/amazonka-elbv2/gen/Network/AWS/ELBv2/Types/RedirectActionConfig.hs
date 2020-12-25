@@ -17,18 +17,23 @@ module Network.AWS.ELBv2.Types.RedirectActionConfig
     mkRedirectActionConfig,
 
     -- * Lenses
+    racStatusCode,
+    racHost,
     racPath,
+    racPort,
     racProtocol,
     racQuery,
-    racHost,
-    racPort,
-    racStatusCode,
   )
 where
 
-import Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
+import qualified Network.AWS.ELBv2.Types.RedirectActionHost as Types
+import qualified Network.AWS.ELBv2.Types.RedirectActionPath as Types
+import qualified Network.AWS.ELBv2.Types.RedirectActionPort as Types
+import qualified Network.AWS.ELBv2.Types.RedirectActionProtocol as Types
+import qualified Network.AWS.ELBv2.Types.RedirectActionQuery as Types
+import qualified Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a redirect action.
 --
@@ -54,103 +59,85 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRedirectActionConfig' smart constructor.
 data RedirectActionConfig = RedirectActionConfig'
-  { -- | The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
-    path :: Lude.Maybe Lude.Text,
-    -- | The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
-    protocol :: Lude.Maybe Lude.Text,
-    -- | The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
-    query :: Lude.Maybe Lude.Text,
+  { -- | The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+    statusCode :: Types.RedirectActionStatusCodeEnum,
     -- | The hostname. This component is not percent-encoded. The hostname can contain #{host}.
-    host :: Lude.Maybe Lude.Text,
+    host :: Core.Maybe Types.RedirectActionHost,
+    -- | The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+    path :: Core.Maybe Types.RedirectActionPath,
     -- | The port. You can specify a value from 1 to 65535 or #{port}.
-    port :: Lude.Maybe Lude.Text,
-    -- | The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
-    statusCode :: RedirectActionStatusCodeEnum
+    port :: Core.Maybe Types.RedirectActionPort,
+    -- | The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+    protocol :: Core.Maybe Types.RedirectActionProtocol,
+    -- | The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+    query :: Core.Maybe Types.RedirectActionQuery
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RedirectActionConfig' with the minimum fields required to make a request.
---
--- * 'path' - The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
--- * 'protocol' - The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
--- * 'query' - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
--- * 'host' - The hostname. This component is not percent-encoded. The hostname can contain #{host}.
--- * 'port' - The port. You can specify a value from 1 to 65535 or #{port}.
--- * 'statusCode' - The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+-- | Creates a 'RedirectActionConfig' value with any optional fields omitted.
 mkRedirectActionConfig ::
   -- | 'statusCode'
-  RedirectActionStatusCodeEnum ->
+  Types.RedirectActionStatusCodeEnum ->
   RedirectActionConfig
-mkRedirectActionConfig pStatusCode_ =
+mkRedirectActionConfig statusCode =
   RedirectActionConfig'
-    { path = Lude.Nothing,
-      protocol = Lude.Nothing,
-      query = Lude.Nothing,
-      host = Lude.Nothing,
-      port = Lude.Nothing,
-      statusCode = pStatusCode_
+    { statusCode,
+      host = Core.Nothing,
+      path = Core.Nothing,
+      port = Core.Nothing,
+      protocol = Core.Nothing,
+      query = Core.Nothing
     }
+
+-- | The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+racStatusCode :: Lens.Lens' RedirectActionConfig Types.RedirectActionStatusCodeEnum
+racStatusCode = Lens.field @"statusCode"
+{-# DEPRECATED racStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
+
+-- | The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+--
+-- /Note:/ Consider using 'host' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+racHost :: Lens.Lens' RedirectActionConfig (Core.Maybe Types.RedirectActionHost)
+racHost = Lens.field @"host"
+{-# DEPRECATED racHost "Use generic-lens or generic-optics with 'host' instead." #-}
 
 -- | The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-racPath :: Lens.Lens' RedirectActionConfig (Lude.Maybe Lude.Text)
-racPath = Lens.lens (path :: RedirectActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: RedirectActionConfig)
+racPath :: Lens.Lens' RedirectActionConfig (Core.Maybe Types.RedirectActionPath)
+racPath = Lens.field @"path"
 {-# DEPRECATED racPath "Use generic-lens or generic-optics with 'path' instead." #-}
+
+-- | The port. You can specify a value from 1 to 65535 or #{port}.
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+racPort :: Lens.Lens' RedirectActionConfig (Core.Maybe Types.RedirectActionPort)
+racPort = Lens.field @"port"
+{-# DEPRECATED racPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
 -- | The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
 --
 -- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-racProtocol :: Lens.Lens' RedirectActionConfig (Lude.Maybe Lude.Text)
-racProtocol = Lens.lens (protocol :: RedirectActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {protocol = a} :: RedirectActionConfig)
+racProtocol :: Lens.Lens' RedirectActionConfig (Core.Maybe Types.RedirectActionProtocol)
+racProtocol = Lens.field @"protocol"
 {-# DEPRECATED racProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 --
 -- /Note:/ Consider using 'query' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-racQuery :: Lens.Lens' RedirectActionConfig (Lude.Maybe Lude.Text)
-racQuery = Lens.lens (query :: RedirectActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {query = a} :: RedirectActionConfig)
+racQuery :: Lens.Lens' RedirectActionConfig (Core.Maybe Types.RedirectActionQuery)
+racQuery = Lens.field @"query"
 {-# DEPRECATED racQuery "Use generic-lens or generic-optics with 'query' instead." #-}
 
--- | The hostname. This component is not percent-encoded. The hostname can contain #{host}.
---
--- /Note:/ Consider using 'host' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-racHost :: Lens.Lens' RedirectActionConfig (Lude.Maybe Lude.Text)
-racHost = Lens.lens (host :: RedirectActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {host = a} :: RedirectActionConfig)
-{-# DEPRECATED racHost "Use generic-lens or generic-optics with 'host' instead." #-}
-
--- | The port. You can specify a value from 1 to 65535 or #{port}.
---
--- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-racPort :: Lens.Lens' RedirectActionConfig (Lude.Maybe Lude.Text)
-racPort = Lens.lens (port :: RedirectActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {port = a} :: RedirectActionConfig)
-{-# DEPRECATED racPort "Use generic-lens or generic-optics with 'port' instead." #-}
-
--- | The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
---
--- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-racStatusCode :: Lens.Lens' RedirectActionConfig RedirectActionStatusCodeEnum
-racStatusCode = Lens.lens (statusCode :: RedirectActionConfig -> RedirectActionStatusCodeEnum) (\s a -> s {statusCode = a} :: RedirectActionConfig)
-{-# DEPRECATED racStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
-
-instance Lude.FromXML RedirectActionConfig where
+instance Core.FromXML RedirectActionConfig where
   parseXML x =
     RedirectActionConfig'
-      Lude.<$> (x Lude..@? "Path")
-      Lude.<*> (x Lude..@? "Protocol")
-      Lude.<*> (x Lude..@? "Query")
-      Lude.<*> (x Lude..@? "Host")
-      Lude.<*> (x Lude..@? "Port")
-      Lude.<*> (x Lude..@ "StatusCode")
-
-instance Lude.ToQuery RedirectActionConfig where
-  toQuery RedirectActionConfig' {..} =
-    Lude.mconcat
-      [ "Path" Lude.=: path,
-        "Protocol" Lude.=: protocol,
-        "Query" Lude.=: query,
-        "Host" Lude.=: host,
-        "Port" Lude.=: port,
-        "StatusCode" Lude.=: statusCode
-      ]
+      Core.<$> (x Core..@ "StatusCode")
+      Core.<*> (x Core..@? "Host")
+      Core.<*> (x Core..@? "Path")
+      Core.<*> (x Core..@? "Port")
+      Core.<*> (x Core..@? "Protocol")
+      Core.<*> (x Core..@? "Query")

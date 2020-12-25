@@ -22,170 +22,162 @@ module Network.AWS.EC2.CreateInstanceExportTask
     mkCreateInstanceExportTask,
 
     -- ** Request lenses
-    cietTargetEnvironment,
-    cietInstanceId,
     cietExportToS3Task,
-    cietTagSpecifications,
+    cietInstanceId,
+    cietTargetEnvironment,
     cietDescription,
+    cietTagSpecifications,
 
     -- * Destructuring the response
     CreateInstanceExportTaskResponse (..),
     mkCreateInstanceExportTaskResponse,
 
     -- ** Response lenses
-    cietrsExportTask,
-    cietrsResponseStatus,
+    cietrrsExportTask,
+    cietrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateInstanceExportTask' smart constructor.
 data CreateInstanceExportTask = CreateInstanceExportTask'
-  { -- | The target virtualization environment.
-    targetEnvironment :: ExportEnvironment,
+  { -- | The format and location for an instance export task.
+    exportToS3Task :: Types.ExportToS3TaskSpecification,
     -- | The ID of the instance.
-    instanceId :: Lude.Text,
-    -- | The format and location for an instance export task.
-    exportToS3Task :: ExportToS3TaskSpecification,
-    -- | The tags to apply to the instance export task during creation.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+    instanceId :: Types.InstanceId,
+    -- | The target virtualization environment.
+    targetEnvironment :: Types.ExportEnvironment,
     -- | A description for the conversion task or the resource being exported. The maximum length is 255 characters.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The tags to apply to the instance export task during creation.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInstanceExportTask' with the minimum fields required to make a request.
---
--- * 'targetEnvironment' - The target virtualization environment.
--- * 'instanceId' - The ID of the instance.
--- * 'exportToS3Task' - The format and location for an instance export task.
--- * 'tagSpecifications' - The tags to apply to the instance export task during creation.
--- * 'description' - A description for the conversion task or the resource being exported. The maximum length is 255 characters.
+-- | Creates a 'CreateInstanceExportTask' value with any optional fields omitted.
 mkCreateInstanceExportTask ::
-  -- | 'targetEnvironment'
-  ExportEnvironment ->
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'exportToS3Task'
-  ExportToS3TaskSpecification ->
+  Types.ExportToS3TaskSpecification ->
+  -- | 'instanceId'
+  Types.InstanceId ->
+  -- | 'targetEnvironment'
+  Types.ExportEnvironment ->
   CreateInstanceExportTask
 mkCreateInstanceExportTask
-  pTargetEnvironment_
-  pInstanceId_
-  pExportToS3Task_ =
+  exportToS3Task
+  instanceId
+  targetEnvironment =
     CreateInstanceExportTask'
-      { targetEnvironment =
-          pTargetEnvironment_,
-        instanceId = pInstanceId_,
-        exportToS3Task = pExportToS3Task_,
-        tagSpecifications = Lude.Nothing,
-        description = Lude.Nothing
+      { exportToS3Task,
+        instanceId,
+        targetEnvironment,
+        description = Core.Nothing,
+        tagSpecifications = Core.Nothing
       }
-
--- | The target virtualization environment.
---
--- /Note:/ Consider using 'targetEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cietTargetEnvironment :: Lens.Lens' CreateInstanceExportTask ExportEnvironment
-cietTargetEnvironment = Lens.lens (targetEnvironment :: CreateInstanceExportTask -> ExportEnvironment) (\s a -> s {targetEnvironment = a} :: CreateInstanceExportTask)
-{-# DEPRECATED cietTargetEnvironment "Use generic-lens or generic-optics with 'targetEnvironment' instead." #-}
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cietInstanceId :: Lens.Lens' CreateInstanceExportTask Lude.Text
-cietInstanceId = Lens.lens (instanceId :: CreateInstanceExportTask -> Lude.Text) (\s a -> s {instanceId = a} :: CreateInstanceExportTask)
-{-# DEPRECATED cietInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The format and location for an instance export task.
 --
 -- /Note:/ Consider using 'exportToS3Task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cietExportToS3Task :: Lens.Lens' CreateInstanceExportTask ExportToS3TaskSpecification
-cietExportToS3Task = Lens.lens (exportToS3Task :: CreateInstanceExportTask -> ExportToS3TaskSpecification) (\s a -> s {exportToS3Task = a} :: CreateInstanceExportTask)
+cietExportToS3Task :: Lens.Lens' CreateInstanceExportTask Types.ExportToS3TaskSpecification
+cietExportToS3Task = Lens.field @"exportToS3Task"
 {-# DEPRECATED cietExportToS3Task "Use generic-lens or generic-optics with 'exportToS3Task' instead." #-}
 
--- | The tags to apply to the instance export task during creation.
+-- | The ID of the instance.
 --
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cietTagSpecifications :: Lens.Lens' CreateInstanceExportTask (Lude.Maybe [TagSpecification])
-cietTagSpecifications = Lens.lens (tagSpecifications :: CreateInstanceExportTask -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateInstanceExportTask)
-{-# DEPRECATED cietTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cietInstanceId :: Lens.Lens' CreateInstanceExportTask Types.InstanceId
+cietInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED cietInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The target virtualization environment.
+--
+-- /Note:/ Consider using 'targetEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cietTargetEnvironment :: Lens.Lens' CreateInstanceExportTask Types.ExportEnvironment
+cietTargetEnvironment = Lens.field @"targetEnvironment"
+{-# DEPRECATED cietTargetEnvironment "Use generic-lens or generic-optics with 'targetEnvironment' instead." #-}
 
 -- | A description for the conversion task or the resource being exported. The maximum length is 255 characters.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cietDescription :: Lens.Lens' CreateInstanceExportTask (Lude.Maybe Lude.Text)
-cietDescription = Lens.lens (description :: CreateInstanceExportTask -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateInstanceExportTask)
+cietDescription :: Lens.Lens' CreateInstanceExportTask (Core.Maybe Types.Description)
+cietDescription = Lens.field @"description"
 {-# DEPRECATED cietDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest CreateInstanceExportTask where
+-- | The tags to apply to the instance export task during creation.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cietTagSpecifications :: Lens.Lens' CreateInstanceExportTask (Core.Maybe [Types.TagSpecification])
+cietTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED cietTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateInstanceExportTask where
   type Rs CreateInstanceExportTask = CreateInstanceExportTaskResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateInstanceExportTask")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "ExportToS3" exportToS3Task)
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "TargetEnvironment" targetEnvironment)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateInstanceExportTaskResponse'
-            Lude.<$> (x Lude..@? "exportTask") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "exportTask") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateInstanceExportTask where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateInstanceExportTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateInstanceExportTask where
-  toQuery CreateInstanceExportTask' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateInstanceExportTask" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "TargetEnvironment" Lude.=: targetEnvironment,
-        "InstanceId" Lude.=: instanceId,
-        "ExportToS3" Lude.=: exportToS3Task,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "Description" Lude.=: description
-      ]
 
 -- | /See:/ 'mkCreateInstanceExportTaskResponse' smart constructor.
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
   { -- | Information about the instance export task.
-    exportTask :: Lude.Maybe ExportTask,
+    exportTask :: Core.Maybe Types.ExportTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInstanceExportTaskResponse' with the minimum fields required to make a request.
---
--- * 'exportTask' - Information about the instance export task.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateInstanceExportTaskResponse' value with any optional fields omitted.
 mkCreateInstanceExportTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateInstanceExportTaskResponse
-mkCreateInstanceExportTaskResponse pResponseStatus_ =
+mkCreateInstanceExportTaskResponse responseStatus =
   CreateInstanceExportTaskResponse'
-    { exportTask = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { exportTask = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the instance export task.
 --
 -- /Note:/ Consider using 'exportTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cietrsExportTask :: Lens.Lens' CreateInstanceExportTaskResponse (Lude.Maybe ExportTask)
-cietrsExportTask = Lens.lens (exportTask :: CreateInstanceExportTaskResponse -> Lude.Maybe ExportTask) (\s a -> s {exportTask = a} :: CreateInstanceExportTaskResponse)
-{-# DEPRECATED cietrsExportTask "Use generic-lens or generic-optics with 'exportTask' instead." #-}
+cietrrsExportTask :: Lens.Lens' CreateInstanceExportTaskResponse (Core.Maybe Types.ExportTask)
+cietrrsExportTask = Lens.field @"exportTask"
+{-# DEPRECATED cietrrsExportTask "Use generic-lens or generic-optics with 'exportTask' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cietrsResponseStatus :: Lens.Lens' CreateInstanceExportTaskResponse Lude.Int
-cietrsResponseStatus = Lens.lens (responseStatus :: CreateInstanceExportTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateInstanceExportTaskResponse)
-{-# DEPRECATED cietrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cietrrsResponseStatus :: Lens.Lens' CreateInstanceExportTaskResponse Core.Int
+cietrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cietrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

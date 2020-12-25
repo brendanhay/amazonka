@@ -20,98 +20,87 @@ module Network.AWS.Glue.StartCrawler
     mkStartCrawler,
 
     -- ** Request lenses
-    scgName,
+    scfName,
 
     -- * Destructuring the response
     StartCrawlerResponse (..),
     mkStartCrawlerResponse,
 
     -- ** Response lenses
-    scrsResponseStatus,
+    scrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartCrawler' smart constructor.
 newtype StartCrawler = StartCrawler'
   { -- | Name of the crawler to start.
-    name :: Lude.Text
+    name :: Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartCrawler' with the minimum fields required to make a request.
---
--- * 'name' - Name of the crawler to start.
+-- | Creates a 'StartCrawler' value with any optional fields omitted.
 mkStartCrawler ::
   -- | 'name'
-  Lude.Text ->
+  Types.NameString ->
   StartCrawler
-mkStartCrawler pName_ = StartCrawler' {name = pName_}
+mkStartCrawler name = StartCrawler' {name}
 
 -- | Name of the crawler to start.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scgName :: Lens.Lens' StartCrawler Lude.Text
-scgName = Lens.lens (name :: StartCrawler -> Lude.Text) (\s a -> s {name = a} :: StartCrawler)
-{-# DEPRECATED scgName "Use generic-lens or generic-optics with 'name' instead." #-}
+scfName :: Lens.Lens' StartCrawler Types.NameString
+scfName = Lens.field @"name"
+{-# DEPRECATED scfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest StartCrawler where
+instance Core.FromJSON StartCrawler where
+  toJSON StartCrawler {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest StartCrawler where
   type Rs StartCrawler = StartCrawlerResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.StartCrawler")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StartCrawlerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StartCrawlerResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartCrawler where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.StartCrawler" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartCrawler where
-  toJSON StartCrawler' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath StartCrawler where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartCrawler where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartCrawlerResponse' smart constructor.
 newtype StartCrawlerResponse = StartCrawlerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartCrawlerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartCrawlerResponse' value with any optional fields omitted.
 mkStartCrawlerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartCrawlerResponse
-mkStartCrawlerResponse pResponseStatus_ =
-  StartCrawlerResponse' {responseStatus = pResponseStatus_}
+mkStartCrawlerResponse responseStatus =
+  StartCrawlerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrsResponseStatus :: Lens.Lens' StartCrawlerResponse Lude.Int
-scrsResponseStatus = Lens.lens (responseStatus :: StartCrawlerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartCrawlerResponse)
-{-# DEPRECATED scrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scrrsResponseStatus :: Lens.Lens' StartCrawlerResponse Core.Int
+scrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

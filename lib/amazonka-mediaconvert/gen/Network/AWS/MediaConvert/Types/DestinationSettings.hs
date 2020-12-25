@@ -22,41 +22,38 @@ module Network.AWS.MediaConvert.Types.DestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.S3DestinationSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.S3DestinationSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings associated with the destination. Will vary based on the type of destination
 --
 -- /See:/ 'mkDestinationSettings' smart constructor.
 newtype DestinationSettings = DestinationSettings'
   { -- | Settings associated with S3 destination
-    s3Settings :: Lude.Maybe S3DestinationSettings
+    s3Settings :: Core.Maybe Types.S3DestinationSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DestinationSettings' with the minimum fields required to make a request.
---
--- * 's3Settings' - Settings associated with S3 destination
+-- | Creates a 'DestinationSettings' value with any optional fields omitted.
 mkDestinationSettings ::
   DestinationSettings
 mkDestinationSettings =
-  DestinationSettings' {s3Settings = Lude.Nothing}
+  DestinationSettings' {s3Settings = Core.Nothing}
 
 -- | Settings associated with S3 destination
 --
 -- /Note:/ Consider using 's3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsS3Settings :: Lens.Lens' DestinationSettings (Lude.Maybe S3DestinationSettings)
-dsS3Settings = Lens.lens (s3Settings :: DestinationSettings -> Lude.Maybe S3DestinationSettings) (\s a -> s {s3Settings = a} :: DestinationSettings)
+dsS3Settings :: Lens.Lens' DestinationSettings (Core.Maybe Types.S3DestinationSettings)
+dsS3Settings = Lens.field @"s3Settings"
 {-# DEPRECATED dsS3Settings "Use generic-lens or generic-optics with 's3Settings' instead." #-}
 
-instance Lude.FromJSON DestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "DestinationSettings"
-      (\x -> DestinationSettings' Lude.<$> (x Lude..:? "s3Settings"))
+instance Core.FromJSON DestinationSettings where
+  toJSON DestinationSettings {..} =
+    Core.object
+      (Core.catMaybes [("s3Settings" Core..=) Core.<$> s3Settings])
 
-instance Lude.ToJSON DestinationSettings where
-  toJSON DestinationSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("s3Settings" Lude..=) Lude.<$> s3Settings])
+instance Core.FromJSON DestinationSettings where
+  parseJSON =
+    Core.withObject "DestinationSettings" Core.$
+      \x -> DestinationSettings' Core.<$> (x Core..:? "s3Settings")

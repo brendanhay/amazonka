@@ -13,52 +13,54 @@
 module Network.AWS.ElasticSearch.Types.VolumeType
   ( VolumeType
       ( VolumeType',
-        Standard,
-        GP2,
-        IO1
+        VolumeTypeStandard,
+        VolumeTypeGP2,
+        VolumeTypeIO1,
+        fromVolumeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type of EBS volume, standard, gp2, or io1. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
-newtype VolumeType = VolumeType' Lude.Text
+newtype VolumeType = VolumeType' {fromVolumeType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standard :: VolumeType
-pattern Standard = VolumeType' "standard"
+pattern VolumeTypeStandard :: VolumeType
+pattern VolumeTypeStandard = VolumeType' "standard"
 
-pattern GP2 :: VolumeType
-pattern GP2 = VolumeType' "gp2"
+pattern VolumeTypeGP2 :: VolumeType
+pattern VolumeTypeGP2 = VolumeType' "gp2"
 
-pattern IO1 :: VolumeType
-pattern IO1 = VolumeType' "io1"
+pattern VolumeTypeIO1 :: VolumeType
+pattern VolumeTypeIO1 = VolumeType' "io1"
 
 {-# COMPLETE
-  Standard,
-  GP2,
-  IO1,
+  VolumeTypeStandard,
+  VolumeTypeGP2,
+  VolumeTypeIO1,
   VolumeType'
   #-}

@@ -22,26 +22,26 @@ module Network.AWS.ElasticSearch.ListElasticsearchVersions
     mkListElasticsearchVersions,
 
     -- ** Request lenses
-    levNextToken,
     levMaxResults,
+    levNextToken,
 
     -- * Destructuring the response
     ListElasticsearchVersionsResponse (..),
     mkListElasticsearchVersionsResponse,
 
     -- ** Response lenses
-    levrsNextToken,
-    levrsElasticsearchVersions,
-    levrsResponseStatus,
+    levrrsElasticsearchVersions,
+    levrrsNextToken,
+    levrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'ListElasticsearchVersions' @ operation. Use @'MaxResults' @ to control the maximum number of results to retrieve in a single call.
 --
@@ -50,118 +50,114 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListElasticsearchVersions' smart constructor.
 data ListElasticsearchVersions = ListElasticsearchVersions'
-  { nextToken :: Lude.Maybe Lude.Text,
-    -- | Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored.
-    maxResults :: Lude.Maybe Lude.Int
+  { -- | Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored.
+    maxResults :: Core.Maybe Core.Int,
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListElasticsearchVersions' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'maxResults' - Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored.
+-- | Creates a 'ListElasticsearchVersions' value with any optional fields omitted.
 mkListElasticsearchVersions ::
   ListElasticsearchVersions
 mkListElasticsearchVersions =
   ListElasticsearchVersions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-levNextToken :: Lens.Lens' ListElasticsearchVersions (Lude.Maybe Lude.Text)
-levNextToken = Lens.lens (nextToken :: ListElasticsearchVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListElasticsearchVersions)
-{-# DEPRECATED levNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-levMaxResults :: Lens.Lens' ListElasticsearchVersions (Lude.Maybe Lude.Int)
-levMaxResults = Lens.lens (maxResults :: ListElasticsearchVersions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListElasticsearchVersions)
+levMaxResults :: Lens.Lens' ListElasticsearchVersions (Core.Maybe Core.Int)
+levMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED levMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListElasticsearchVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. levrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. levrsElasticsearchVersions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& levNextToken Lens..~ rs Lens.^. levrsNextToken
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+levNextToken :: Lens.Lens' ListElasticsearchVersions (Core.Maybe Types.NextToken)
+levNextToken = Lens.field @"nextToken"
+{-# DEPRECATED levNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListElasticsearchVersions where
+instance Core.AWSRequest ListElasticsearchVersions where
   type
     Rs ListElasticsearchVersions =
       ListElasticsearchVersionsResponse
-  request = Req.get elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2015-01-01/es/versions",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListElasticsearchVersionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "ElasticsearchVersions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ElasticsearchVersions")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListElasticsearchVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListElasticsearchVersions where
-  toPath = Lude.const "/2015-01-01/es/versions"
-
-instance Lude.ToQuery ListElasticsearchVersions where
-  toQuery ListElasticsearchVersions' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListElasticsearchVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"elasticsearchVersions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Container for the parameters for response received from @'ListElasticsearchVersions' @ operation.
 --
 -- /See:/ 'mkListElasticsearchVersionsResponse' smart constructor.
 data ListElasticsearchVersionsResponse = ListElasticsearchVersionsResponse'
-  { nextToken :: Lude.Maybe Lude.Text,
-    elasticsearchVersions :: Lude.Maybe [Lude.Text],
+  { elasticsearchVersions :: Core.Maybe [Types.ElasticsearchVersionString],
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListElasticsearchVersionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'elasticsearchVersions' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListElasticsearchVersionsResponse' value with any optional fields omitted.
 mkListElasticsearchVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListElasticsearchVersionsResponse
-mkListElasticsearchVersionsResponse pResponseStatus_ =
+mkListElasticsearchVersionsResponse responseStatus =
   ListElasticsearchVersionsResponse'
-    { nextToken = Lude.Nothing,
-      elasticsearchVersions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { elasticsearchVersions =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-levrsNextToken :: Lens.Lens' ListElasticsearchVersionsResponse (Lude.Maybe Lude.Text)
-levrsNextToken = Lens.lens (nextToken :: ListElasticsearchVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListElasticsearchVersionsResponse)
-{-# DEPRECATED levrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'elasticsearchVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+levrrsElasticsearchVersions :: Lens.Lens' ListElasticsearchVersionsResponse (Core.Maybe [Types.ElasticsearchVersionString])
+levrrsElasticsearchVersions = Lens.field @"elasticsearchVersions"
+{-# DEPRECATED levrrsElasticsearchVersions "Use generic-lens or generic-optics with 'elasticsearchVersions' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'elasticsearchVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-levrsElasticsearchVersions :: Lens.Lens' ListElasticsearchVersionsResponse (Lude.Maybe [Lude.Text])
-levrsElasticsearchVersions = Lens.lens (elasticsearchVersions :: ListElasticsearchVersionsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {elasticsearchVersions = a} :: ListElasticsearchVersionsResponse)
-{-# DEPRECATED levrsElasticsearchVersions "Use generic-lens or generic-optics with 'elasticsearchVersions' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+levrrsNextToken :: Lens.Lens' ListElasticsearchVersionsResponse (Core.Maybe Types.NextToken)
+levrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED levrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-levrsResponseStatus :: Lens.Lens' ListElasticsearchVersionsResponse Lude.Int
-levrsResponseStatus = Lens.lens (responseStatus :: ListElasticsearchVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListElasticsearchVersionsResponse)
-{-# DEPRECATED levrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+levrrsResponseStatus :: Lens.Lens' ListElasticsearchVersionsResponse Core.Int
+levrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED levrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

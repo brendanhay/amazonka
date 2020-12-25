@@ -17,152 +17,146 @@ module Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration
     mkScheduleRunConfiguration,
 
     -- * Lenses
+    srcAuxiliaryApps,
     srcBillingMethod,
     srcCustomerArtifactPaths,
-    srcRadios,
-    srcLocation,
+    srcExtraDataPackageArn,
     srcLocale,
-    srcNetworkProfileARN,
-    srcExtraDataPackageARN,
-    srcAuxiliaryApps,
-    srcVpceConfigurationARNs,
+    srcLocation,
+    srcNetworkProfileArn,
+    srcRadios,
+    srcVpceConfigurationArns,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.BillingMethod
-import Network.AWS.DeviceFarm.Types.CustomerArtifactPaths
-import Network.AWS.DeviceFarm.Types.Location
-import Network.AWS.DeviceFarm.Types.Radios
+import qualified Network.AWS.DeviceFarm.Types.AmazonResourceName as Types
+import qualified Network.AWS.DeviceFarm.Types.BillingMethod as Types
+import qualified Network.AWS.DeviceFarm.Types.CustomerArtifactPaths as Types
+import qualified Network.AWS.DeviceFarm.Types.ExtraDataPackageArn as Types
+import qualified Network.AWS.DeviceFarm.Types.Locale as Types
+import qualified Network.AWS.DeviceFarm.Types.Location as Types
+import qualified Network.AWS.DeviceFarm.Types.NetworkProfileArn as Types
+import qualified Network.AWS.DeviceFarm.Types.Radios as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the settings for a run. Includes things like location, radio states, auxiliary apps, and network profiles.
 --
 -- /See:/ 'mkScheduleRunConfiguration' smart constructor.
 data ScheduleRunConfiguration = ScheduleRunConfiguration'
-  { -- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
-    billingMethod :: Lude.Maybe BillingMethod,
+  { -- | A list of upload ARNs for app packages to be installed with your app.
+    auxiliaryApps :: Core.Maybe [Types.AmazonResourceName],
+    -- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
+    billingMethod :: Core.Maybe Types.BillingMethod,
     -- | Input @CustomerArtifactPaths@ object for the scheduled run configuration.
-    customerArtifactPaths :: Lude.Maybe CustomerArtifactPaths,
-    -- | Information about the radio states for the run.
-    radios :: Lude.Maybe Radios,
-    -- | Information about the location that is used for the run.
-    location :: Lude.Maybe Location,
-    -- | Information about the locale that is used for the run.
-    locale :: Lude.Maybe Lude.Text,
-    -- | Reserved for internal use.
-    networkProfileARN :: Lude.Maybe Lude.Text,
+    customerArtifactPaths :: Core.Maybe Types.CustomerArtifactPaths,
     -- | The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to external data for Android or the app's sandbox for iOS.
-    extraDataPackageARN :: Lude.Maybe Lude.Text,
-    -- | A list of upload ARNs for app packages to be installed with your app.
-    auxiliaryApps :: Lude.Maybe [Lude.Text],
+    extraDataPackageArn :: Core.Maybe Types.ExtraDataPackageArn,
+    -- | Information about the locale that is used for the run.
+    locale :: Core.Maybe Types.Locale,
+    -- | Information about the location that is used for the run.
+    location :: Core.Maybe Types.Location,
+    -- | Reserved for internal use.
+    networkProfileArn :: Core.Maybe Types.NetworkProfileArn,
+    -- | Information about the radio states for the run.
+    radios :: Core.Maybe Types.Radios,
     -- | An array of ARNs for your VPC endpoint configurations.
-    vpceConfigurationARNs :: Lude.Maybe [Lude.Text]
+    vpceConfigurationArns :: Core.Maybe [Types.AmazonResourceName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduleRunConfiguration' with the minimum fields required to make a request.
---
--- * 'billingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
--- * 'customerArtifactPaths' - Input @CustomerArtifactPaths@ object for the scheduled run configuration.
--- * 'radios' - Information about the radio states for the run.
--- * 'location' - Information about the location that is used for the run.
--- * 'locale' - Information about the locale that is used for the run.
--- * 'networkProfileARN' - Reserved for internal use.
--- * 'extraDataPackageARN' - The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to external data for Android or the app's sandbox for iOS.
--- * 'auxiliaryApps' - A list of upload ARNs for app packages to be installed with your app.
--- * 'vpceConfigurationARNs' - An array of ARNs for your VPC endpoint configurations.
+-- | Creates a 'ScheduleRunConfiguration' value with any optional fields omitted.
 mkScheduleRunConfiguration ::
   ScheduleRunConfiguration
 mkScheduleRunConfiguration =
   ScheduleRunConfiguration'
-    { billingMethod = Lude.Nothing,
-      customerArtifactPaths = Lude.Nothing,
-      radios = Lude.Nothing,
-      location = Lude.Nothing,
-      locale = Lude.Nothing,
-      networkProfileARN = Lude.Nothing,
-      extraDataPackageARN = Lude.Nothing,
-      auxiliaryApps = Lude.Nothing,
-      vpceConfigurationARNs = Lude.Nothing
+    { auxiliaryApps = Core.Nothing,
+      billingMethod = Core.Nothing,
+      customerArtifactPaths = Core.Nothing,
+      extraDataPackageArn = Core.Nothing,
+      locale = Core.Nothing,
+      location = Core.Nothing,
+      networkProfileArn = Core.Nothing,
+      radios = Core.Nothing,
+      vpceConfigurationArns = Core.Nothing
     }
+
+-- | A list of upload ARNs for app packages to be installed with your app.
+--
+-- /Note:/ Consider using 'auxiliaryApps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcAuxiliaryApps :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe [Types.AmazonResourceName])
+srcAuxiliaryApps = Lens.field @"auxiliaryApps"
+{-# DEPRECATED srcAuxiliaryApps "Use generic-lens or generic-optics with 'auxiliaryApps' instead." #-}
 
 -- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
 --
 -- /Note:/ Consider using 'billingMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcBillingMethod :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe BillingMethod)
-srcBillingMethod = Lens.lens (billingMethod :: ScheduleRunConfiguration -> Lude.Maybe BillingMethod) (\s a -> s {billingMethod = a} :: ScheduleRunConfiguration)
+srcBillingMethod :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe Types.BillingMethod)
+srcBillingMethod = Lens.field @"billingMethod"
 {-# DEPRECATED srcBillingMethod "Use generic-lens or generic-optics with 'billingMethod' instead." #-}
 
 -- | Input @CustomerArtifactPaths@ object for the scheduled run configuration.
 --
 -- /Note:/ Consider using 'customerArtifactPaths' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcCustomerArtifactPaths :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe CustomerArtifactPaths)
-srcCustomerArtifactPaths = Lens.lens (customerArtifactPaths :: ScheduleRunConfiguration -> Lude.Maybe CustomerArtifactPaths) (\s a -> s {customerArtifactPaths = a} :: ScheduleRunConfiguration)
+srcCustomerArtifactPaths :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe Types.CustomerArtifactPaths)
+srcCustomerArtifactPaths = Lens.field @"customerArtifactPaths"
 {-# DEPRECATED srcCustomerArtifactPaths "Use generic-lens or generic-optics with 'customerArtifactPaths' instead." #-}
 
--- | Information about the radio states for the run.
+-- | The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to external data for Android or the app's sandbox for iOS.
 --
--- /Note:/ Consider using 'radios' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcRadios :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe Radios)
-srcRadios = Lens.lens (radios :: ScheduleRunConfiguration -> Lude.Maybe Radios) (\s a -> s {radios = a} :: ScheduleRunConfiguration)
-{-# DEPRECATED srcRadios "Use generic-lens or generic-optics with 'radios' instead." #-}
-
--- | Information about the location that is used for the run.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcLocation :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe Location)
-srcLocation = Lens.lens (location :: ScheduleRunConfiguration -> Lude.Maybe Location) (\s a -> s {location = a} :: ScheduleRunConfiguration)
-{-# DEPRECATED srcLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+-- /Note:/ Consider using 'extraDataPackageArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcExtraDataPackageArn :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe Types.ExtraDataPackageArn)
+srcExtraDataPackageArn = Lens.field @"extraDataPackageArn"
+{-# DEPRECATED srcExtraDataPackageArn "Use generic-lens or generic-optics with 'extraDataPackageArn' instead." #-}
 
 -- | Information about the locale that is used for the run.
 --
 -- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcLocale :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe Lude.Text)
-srcLocale = Lens.lens (locale :: ScheduleRunConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: ScheduleRunConfiguration)
+srcLocale :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe Types.Locale)
+srcLocale = Lens.field @"locale"
 {-# DEPRECATED srcLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+
+-- | Information about the location that is used for the run.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcLocation :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe Types.Location)
+srcLocation = Lens.field @"location"
+{-# DEPRECATED srcLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | Reserved for internal use.
 --
--- /Note:/ Consider using 'networkProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcNetworkProfileARN :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe Lude.Text)
-srcNetworkProfileARN = Lens.lens (networkProfileARN :: ScheduleRunConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {networkProfileARN = a} :: ScheduleRunConfiguration)
-{-# DEPRECATED srcNetworkProfileARN "Use generic-lens or generic-optics with 'networkProfileARN' instead." #-}
+-- /Note:/ Consider using 'networkProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcNetworkProfileArn :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe Types.NetworkProfileArn)
+srcNetworkProfileArn = Lens.field @"networkProfileArn"
+{-# DEPRECATED srcNetworkProfileArn "Use generic-lens or generic-optics with 'networkProfileArn' instead." #-}
 
--- | The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to external data for Android or the app's sandbox for iOS.
+-- | Information about the radio states for the run.
 --
--- /Note:/ Consider using 'extraDataPackageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcExtraDataPackageARN :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe Lude.Text)
-srcExtraDataPackageARN = Lens.lens (extraDataPackageARN :: ScheduleRunConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {extraDataPackageARN = a} :: ScheduleRunConfiguration)
-{-# DEPRECATED srcExtraDataPackageARN "Use generic-lens or generic-optics with 'extraDataPackageARN' instead." #-}
-
--- | A list of upload ARNs for app packages to be installed with your app.
---
--- /Note:/ Consider using 'auxiliaryApps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcAuxiliaryApps :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe [Lude.Text])
-srcAuxiliaryApps = Lens.lens (auxiliaryApps :: ScheduleRunConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {auxiliaryApps = a} :: ScheduleRunConfiguration)
-{-# DEPRECATED srcAuxiliaryApps "Use generic-lens or generic-optics with 'auxiliaryApps' instead." #-}
+-- /Note:/ Consider using 'radios' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcRadios :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe Types.Radios)
+srcRadios = Lens.field @"radios"
+{-# DEPRECATED srcRadios "Use generic-lens or generic-optics with 'radios' instead." #-}
 
 -- | An array of ARNs for your VPC endpoint configurations.
 --
--- /Note:/ Consider using 'vpceConfigurationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcVpceConfigurationARNs :: Lens.Lens' ScheduleRunConfiguration (Lude.Maybe [Lude.Text])
-srcVpceConfigurationARNs = Lens.lens (vpceConfigurationARNs :: ScheduleRunConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {vpceConfigurationARNs = a} :: ScheduleRunConfiguration)
-{-# DEPRECATED srcVpceConfigurationARNs "Use generic-lens or generic-optics with 'vpceConfigurationARNs' instead." #-}
+-- /Note:/ Consider using 'vpceConfigurationArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcVpceConfigurationArns :: Lens.Lens' ScheduleRunConfiguration (Core.Maybe [Types.AmazonResourceName])
+srcVpceConfigurationArns = Lens.field @"vpceConfigurationArns"
+{-# DEPRECATED srcVpceConfigurationArns "Use generic-lens or generic-optics with 'vpceConfigurationArns' instead." #-}
 
-instance Lude.ToJSON ScheduleRunConfiguration where
-  toJSON ScheduleRunConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("billingMethod" Lude..=) Lude.<$> billingMethod,
-            ("customerArtifactPaths" Lude..=) Lude.<$> customerArtifactPaths,
-            ("radios" Lude..=) Lude.<$> radios,
-            ("location" Lude..=) Lude.<$> location,
-            ("locale" Lude..=) Lude.<$> locale,
-            ("networkProfileArn" Lude..=) Lude.<$> networkProfileARN,
-            ("extraDataPackageArn" Lude..=) Lude.<$> extraDataPackageARN,
-            ("auxiliaryApps" Lude..=) Lude.<$> auxiliaryApps,
-            ("vpceConfigurationArns" Lude..=) Lude.<$> vpceConfigurationARNs
+instance Core.FromJSON ScheduleRunConfiguration where
+  toJSON ScheduleRunConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("auxiliaryApps" Core..=) Core.<$> auxiliaryApps,
+            ("billingMethod" Core..=) Core.<$> billingMethod,
+            ("customerArtifactPaths" Core..=) Core.<$> customerArtifactPaths,
+            ("extraDataPackageArn" Core..=) Core.<$> extraDataPackageArn,
+            ("locale" Core..=) Core.<$> locale,
+            ("location" Core..=) Core.<$> location,
+            ("networkProfileArn" Core..=) Core.<$> networkProfileArn,
+            ("radios" Core..=) Core.<$> radios,
+            ("vpceConfigurationArns" Core..=) Core.<$> vpceConfigurationArns
           ]
       )

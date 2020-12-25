@@ -20,136 +20,123 @@ module Network.AWS.DeviceFarm.RenewOffering
     mkRenewOffering,
 
     -- ** Request lenses
-    roQuantity,
     roOfferingId,
+    roQuantity,
 
     -- * Destructuring the response
     RenewOfferingResponse (..),
     mkRenewOfferingResponse,
 
     -- ** Response lenses
-    rorsOfferingTransaction,
-    rorsResponseStatus,
+    rorrsOfferingTransaction,
+    rorrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request that represents an offering renewal.
 --
 -- /See:/ 'mkRenewOffering' smart constructor.
 data RenewOffering = RenewOffering'
-  { -- | The quantity requested in an offering renewal.
-    quantity :: Lude.Maybe Lude.Int,
-    -- | The ID of a request to renew an offering.
-    offeringId :: Lude.Maybe Lude.Text
+  { -- | The ID of a request to renew an offering.
+    offeringId :: Core.Maybe Types.OfferingId,
+    -- | The quantity requested in an offering renewal.
+    quantity :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RenewOffering' with the minimum fields required to make a request.
---
--- * 'quantity' - The quantity requested in an offering renewal.
--- * 'offeringId' - The ID of a request to renew an offering.
+-- | Creates a 'RenewOffering' value with any optional fields omitted.
 mkRenewOffering ::
   RenewOffering
 mkRenewOffering =
   RenewOffering'
-    { quantity = Lude.Nothing,
-      offeringId = Lude.Nothing
+    { offeringId = Core.Nothing,
+      quantity = Core.Nothing
     }
-
--- | The quantity requested in an offering renewal.
---
--- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roQuantity :: Lens.Lens' RenewOffering (Lude.Maybe Lude.Int)
-roQuantity = Lens.lens (quantity :: RenewOffering -> Lude.Maybe Lude.Int) (\s a -> s {quantity = a} :: RenewOffering)
-{-# DEPRECATED roQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | The ID of a request to renew an offering.
 --
 -- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roOfferingId :: Lens.Lens' RenewOffering (Lude.Maybe Lude.Text)
-roOfferingId = Lens.lens (offeringId :: RenewOffering -> Lude.Maybe Lude.Text) (\s a -> s {offeringId = a} :: RenewOffering)
+roOfferingId :: Lens.Lens' RenewOffering (Core.Maybe Types.OfferingId)
+roOfferingId = Lens.field @"offeringId"
 {-# DEPRECATED roOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
-instance Lude.AWSRequest RenewOffering where
+-- | The quantity requested in an offering renewal.
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roQuantity :: Lens.Lens' RenewOffering (Core.Maybe Core.Int)
+roQuantity = Lens.field @"quantity"
+{-# DEPRECATED roQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
+
+instance Core.FromJSON RenewOffering where
+  toJSON RenewOffering {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("offeringId" Core..=) Core.<$> offeringId,
+            ("quantity" Core..=) Core.<$> quantity
+          ]
+      )
+
+instance Core.AWSRequest RenewOffering where
   type Rs RenewOffering = RenewOfferingResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DeviceFarm_20150623.RenewOffering")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RenewOfferingResponse'
-            Lude.<$> (x Lude..?> "offeringTransaction")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "offeringTransaction")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RenewOffering where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.RenewOffering" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RenewOffering where
-  toJSON RenewOffering' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("quantity" Lude..=) Lude.<$> quantity,
-            ("offeringId" Lude..=) Lude.<$> offeringId
-          ]
-      )
-
-instance Lude.ToPath RenewOffering where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RenewOffering where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result of a renewal offering.
 --
 -- /See:/ 'mkRenewOfferingResponse' smart constructor.
 data RenewOfferingResponse = RenewOfferingResponse'
   { -- | Represents the status of the offering transaction for the renewal.
-    offeringTransaction :: Lude.Maybe OfferingTransaction,
+    offeringTransaction :: Core.Maybe Types.OfferingTransaction,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RenewOfferingResponse' with the minimum fields required to make a request.
---
--- * 'offeringTransaction' - Represents the status of the offering transaction for the renewal.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RenewOfferingResponse' value with any optional fields omitted.
 mkRenewOfferingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RenewOfferingResponse
-mkRenewOfferingResponse pResponseStatus_ =
+mkRenewOfferingResponse responseStatus =
   RenewOfferingResponse'
-    { offeringTransaction = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { offeringTransaction = Core.Nothing,
+      responseStatus
     }
 
 -- | Represents the status of the offering transaction for the renewal.
 --
 -- /Note:/ Consider using 'offeringTransaction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rorsOfferingTransaction :: Lens.Lens' RenewOfferingResponse (Lude.Maybe OfferingTransaction)
-rorsOfferingTransaction = Lens.lens (offeringTransaction :: RenewOfferingResponse -> Lude.Maybe OfferingTransaction) (\s a -> s {offeringTransaction = a} :: RenewOfferingResponse)
-{-# DEPRECATED rorsOfferingTransaction "Use generic-lens or generic-optics with 'offeringTransaction' instead." #-}
+rorrsOfferingTransaction :: Lens.Lens' RenewOfferingResponse (Core.Maybe Types.OfferingTransaction)
+rorrsOfferingTransaction = Lens.field @"offeringTransaction"
+{-# DEPRECATED rorrsOfferingTransaction "Use generic-lens or generic-optics with 'offeringTransaction' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rorsResponseStatus :: Lens.Lens' RenewOfferingResponse Lude.Int
-rorsResponseStatus = Lens.lens (responseStatus :: RenewOfferingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RenewOfferingResponse)
-{-# DEPRECATED rorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rorrsResponseStatus :: Lens.Lens' RenewOfferingResponse Core.Int
+rorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -134,238 +134,173 @@ module Network.AWS.S3.CreateMultipartUpload
     mkCreateMultipartUpload,
 
     -- ** Request lenses
-    cObjectLockMode,
-    cExpires,
-    cGrantReadACP,
-    cBucket,
-    cSSECustomerAlgorithm,
-    cSSECustomerKey,
-    cRequestPayer,
-    cGrantWriteACP,
-    cWebsiteRedirectLocation,
-    cGrantRead,
-    cKey,
-    cStorageClass,
-    cSSECustomerKeyMD5,
-    cSSEKMSKeyId,
-    cGrantFullControl,
-    cContentEncoding,
-    cTagging,
-    cObjectLockRetainUntilDate,
-    cMetadata,
-    cSSEKMSEncryptionContext,
-    cCacheControl,
-    cContentLanguage,
-    cObjectLockLegalHoldStatus,
-    cACL,
-    cContentDisposition,
-    cExpectedBucketOwner,
-    cServerSideEncryption,
-    cContentType,
+    cmuBucket,
+    cmuKey,
+    cmuACL,
+    cmuCacheControl,
+    cmuContentDisposition,
+    cmuContentEncoding,
+    cmuContentLanguage,
+    cmuContentType,
+    cmuExpectedBucketOwner,
+    cmuExpires,
+    cmuGrantFullControl,
+    cmuGrantRead,
+    cmuGrantReadACP,
+    cmuGrantWriteACP,
+    cmuMetadata,
+    cmuObjectLockLegalHoldStatus,
+    cmuObjectLockMode,
+    cmuObjectLockRetainUntilDate,
+    cmuRequestPayer,
+    cmuSSECustomerAlgorithm,
+    cmuSSECustomerKey,
+    cmuSSECustomerKeyMD5,
+    cmuSSEKMSEncryptionContext,
+    cmuSSEKMSKeyId,
+    cmuServerSideEncryption,
+    cmuStorageClass,
+    cmuTagging,
+    cmuWebsiteRedirectLocation,
 
     -- * Destructuring the response
     CreateMultipartUploadResponse (..),
     mkCreateMultipartUploadResponse,
 
     -- ** Response lenses
-    crsRequestCharged,
-    crsBucket,
-    crsSSECustomerAlgorithm,
-    crsAbortDate,
-    crsAbortRuleId,
-    crsKey,
-    crsSSECustomerKeyMD5,
-    crsSSEKMSKeyId,
-    crsSSEKMSEncryptionContext,
-    crsUploadId,
-    crsServerSideEncryption,
-    crsResponseStatus,
+    cmurrsAbortDate,
+    cmurrsAbortRuleId,
+    cmurrsBucket,
+    cmurrsKey,
+    cmurrsRequestCharged,
+    cmurrsSSECustomerAlgorithm,
+    cmurrsSSECustomerKeyMD5,
+    cmurrsSSEKMSEncryptionContext,
+    cmurrsSSEKMSKeyId,
+    cmurrsServerSideEncryption,
+    cmurrsUploadId,
+    cmurrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkCreateMultipartUpload' smart constructor.
 data CreateMultipartUpload = CreateMultipartUpload'
-  { -- | Specifies the Object Lock mode that you want to apply to the uploaded object.
-    objectLockMode :: Lude.Maybe ObjectLockMode,
-    -- | The date and time at which the object is no longer cacheable.
-    expires :: Lude.Maybe Lude.DateTime,
-    -- | Allows grantee to read the object ACL.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantReadACP :: Lude.Maybe Lude.Text,
-    -- | The name of the bucket to which to initiate the upload
+  { -- | The name of the bucket to which to initiate the upload
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
-    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    requestPayer :: Lude.Maybe RequestPayer,
-    -- | Allows grantee to write the ACL for the applicable object.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantWriteACP :: Lude.Maybe Lude.Text,
-    -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
-    websiteRedirectLocation :: Lude.Maybe Lude.Text,
-    -- | Allows grantee to read the object data and its metadata.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantRead :: Lude.Maybe Lude.Text,
+    bucket :: Types.BucketName,
     -- | Object key for which the multipart upload is to be initiated.
-    key :: ObjectKey,
-    -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
-    storageClass :: Lude.Maybe StorageClass,
-    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    -- | Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
-    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantFullControl :: Lude.Maybe Lude.Text,
-    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
-    contentEncoding :: Lude.Maybe Lude.Text,
-    -- | The tag-set for the object. The tag-set must be encoded as URL Query parameters.
-    tagging :: Lude.Maybe Lude.Text,
-    -- | Specifies the date and time when you want the Object Lock to expire.
-    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
-    -- | A map of metadata to store with the object in S3.
-    metadata :: Lude.HashMap Lude.Text (Lude.Text),
-    -- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Specifies caching behavior along the request/reply chain.
-    cacheControl :: Lude.Maybe Lude.Text,
-    -- | The language the content is in.
-    contentLanguage :: Lude.Maybe Lude.Text,
-    -- | Specifies whether you want to apply a Legal Hold to the uploaded object.
-    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
+    key :: Types.Key,
     -- | The canned ACL to apply to the object.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    acl :: Lude.Maybe ObjectCannedACL,
+    acl :: Core.Maybe Types.ObjectCannedACL,
+    -- | Specifies caching behavior along the request/reply chain.
+    cacheControl :: Core.Maybe Types.CacheControl,
     -- | Specifies presentational information for the object.
-    contentDisposition :: Lude.Maybe Lude.Text,
-    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    contentDisposition :: Core.Maybe Types.ContentDisposition,
+    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+    contentEncoding :: Core.Maybe Types.ContentEncoding,
+    -- | The language the content is in.
+    contentLanguage :: Core.Maybe Types.ContentLanguage,
     -- | A standard MIME type describing the format of the object data.
-    contentType :: Lude.Maybe Lude.Text
+    contentType :: Core.Maybe Types.ContentType,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    -- | The date and time at which the object is no longer cacheable.
+    expires :: Core.Maybe Core.UTCTime,
+    -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantFullControl :: Core.Maybe Types.GrantFullControl,
+    -- | Allows grantee to read the object data and its metadata.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantRead :: Core.Maybe Types.GrantRead,
+    -- | Allows grantee to read the object ACL.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantReadACP :: Core.Maybe Types.GrantReadACP,
+    -- | Allows grantee to write the ACL for the applicable object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantWriteACP :: Core.Maybe Types.GrantWriteACP,
+    -- | A map of metadata to store with the object in S3.
+    metadata :: Core.HashMap Types.MetadataKey Types.MetadataValue,
+    -- | Specifies whether you want to apply a Legal Hold to the uploaded object.
+    objectLockLegalHoldStatus :: Core.Maybe Types.ObjectLockLegalHoldStatus,
+    -- | Specifies the Object Lock mode that you want to apply to the uploaded object.
+    objectLockMode :: Core.Maybe Types.ObjectLockMode,
+    -- | Specifies the date and time when you want the Object Lock to expire.
+    objectLockRetainUntilDate :: Core.Maybe Core.UTCTime,
+    requestPayer :: Core.Maybe Types.RequestPayer,
+    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+    sSECustomerKey :: Core.Maybe Types.SSECustomerKey,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5,
+    -- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+    sSEKMSEncryptionContext :: Core.Maybe Types.SSEKMSEncryptionContext,
+    -- | Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
+    sSEKMSKeyId :: Core.Maybe Types.SSEKMSKeyId,
+    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Core.Maybe Types.ServerSideEncryption,
+    -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
+    storageClass :: Core.Maybe Types.StorageClass,
+    -- | The tag-set for the object. The tag-set must be encoded as URL Query parameters.
+    tagging :: Core.Maybe Types.TaggingHeader,
+    -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+    websiteRedirectLocation :: Core.Maybe Types.WebsiteRedirectLocation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateMultipartUpload' with the minimum fields required to make a request.
---
--- * 'objectLockMode' - Specifies the Object Lock mode that you want to apply to the uploaded object.
--- * 'expires' - The date and time at which the object is no longer cacheable.
--- * 'grantReadACP' - Allows grantee to read the object ACL.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'bucket' - The name of the bucket to which to initiate the upload
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
--- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
--- * 'requestPayer' -
--- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable object.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
--- * 'grantRead' - Allows grantee to read the object data and its metadata.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'key' - Object key for which the multipart upload is to be initiated.
--- * 'storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
--- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
--- * 'sSEKMSKeyId' - Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
--- * 'grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
--- * 'tagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters.
--- * 'objectLockRetainUntilDate' - Specifies the date and time when you want the Object Lock to expire.
--- * 'metadata' - A map of metadata to store with the object in S3.
--- * 'sSEKMSEncryptionContext' - Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
--- * 'cacheControl' - Specifies caching behavior along the request/reply chain.
--- * 'contentLanguage' - The language the content is in.
--- * 'objectLockLegalHoldStatus' - Specifies whether you want to apply a Legal Hold to the uploaded object.
--- * 'acl' - The canned ACL to apply to the object.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'contentDisposition' - Specifies presentational information for the object.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
--- * 'contentType' - A standard MIME type describing the format of the object data.
+-- | Creates a 'CreateMultipartUpload' value with any optional fields omitted.
 mkCreateMultipartUpload ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'key'
-  ObjectKey ->
+  Types.Key ->
   CreateMultipartUpload
-mkCreateMultipartUpload pBucket_ pKey_ =
+mkCreateMultipartUpload bucket key =
   CreateMultipartUpload'
-    { objectLockMode = Lude.Nothing,
-      expires = Lude.Nothing,
-      grantReadACP = Lude.Nothing,
-      bucket = pBucket_,
-      sSECustomerAlgorithm = Lude.Nothing,
-      sSECustomerKey = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      grantWriteACP = Lude.Nothing,
-      websiteRedirectLocation = Lude.Nothing,
-      grantRead = Lude.Nothing,
-      key = pKey_,
-      storageClass = Lude.Nothing,
-      sSECustomerKeyMD5 = Lude.Nothing,
-      sSEKMSKeyId = Lude.Nothing,
-      grantFullControl = Lude.Nothing,
-      contentEncoding = Lude.Nothing,
-      tagging = Lude.Nothing,
-      objectLockRetainUntilDate = Lude.Nothing,
-      metadata = Lude.mempty,
-      sSEKMSEncryptionContext = Lude.Nothing,
-      cacheControl = Lude.Nothing,
-      contentLanguage = Lude.Nothing,
-      objectLockLegalHoldStatus = Lude.Nothing,
-      acl = Lude.Nothing,
-      contentDisposition = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      serverSideEncryption = Lude.Nothing,
-      contentType = Lude.Nothing
+    { bucket,
+      key,
+      acl = Core.Nothing,
+      cacheControl = Core.Nothing,
+      contentDisposition = Core.Nothing,
+      contentEncoding = Core.Nothing,
+      contentLanguage = Core.Nothing,
+      contentType = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      expires = Core.Nothing,
+      grantFullControl = Core.Nothing,
+      grantRead = Core.Nothing,
+      grantReadACP = Core.Nothing,
+      grantWriteACP = Core.Nothing,
+      metadata = Core.mempty,
+      objectLockLegalHoldStatus = Core.Nothing,
+      objectLockMode = Core.Nothing,
+      objectLockRetainUntilDate = Core.Nothing,
+      requestPayer = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      sSECustomerKey = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      sSEKMSEncryptionContext = Core.Nothing,
+      sSEKMSKeyId = Core.Nothing,
+      serverSideEncryption = Core.Nothing,
+      storageClass = Core.Nothing,
+      tagging = Core.Nothing,
+      websiteRedirectLocation = Core.Nothing
     }
-
--- | Specifies the Object Lock mode that you want to apply to the uploaded object.
---
--- /Note:/ Consider using 'objectLockMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cObjectLockMode :: Lens.Lens' CreateMultipartUpload (Lude.Maybe ObjectLockMode)
-cObjectLockMode = Lens.lens (objectLockMode :: CreateMultipartUpload -> Lude.Maybe ObjectLockMode) (\s a -> s {objectLockMode = a} :: CreateMultipartUpload)
-{-# DEPRECATED cObjectLockMode "Use generic-lens or generic-optics with 'objectLockMode' instead." #-}
-
--- | The date and time at which the object is no longer cacheable.
---
--- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cExpires :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.DateTime)
-cExpires = Lens.lens (expires :: CreateMultipartUpload -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: CreateMultipartUpload)
-{-# DEPRECATED cExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
-
--- | Allows grantee to read the object ACL.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- /Note:/ Consider using 'grantReadACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGrantReadACP :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cGrantReadACP = Lens.lens (grantReadACP :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {grantReadACP = a} :: CreateMultipartUpload)
-{-# DEPRECATED cGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
 
 -- | The name of the bucket to which to initiate the upload
 --
@@ -373,328 +308,374 @@ cGrantReadACP = Lens.lens (grantReadACP :: CreateMultipartUpload -> Lude.Maybe L
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cBucket :: Lens.Lens' CreateMultipartUpload BucketName
-cBucket = Lens.lens (bucket :: CreateMultipartUpload -> BucketName) (\s a -> s {bucket = a} :: CreateMultipartUpload)
-{-# DEPRECATED cBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
---
--- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSSECustomerAlgorithm :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: CreateMultipartUpload)
-{-# DEPRECATED cSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
-
--- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
---
--- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSSECustomerKey :: Lens.Lens' CreateMultipartUpload (Lude.Maybe (Lude.Sensitive Lude.Text))
-cSSECustomerKey = Lens.lens (sSECustomerKey :: CreateMultipartUpload -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSECustomerKey = a} :: CreateMultipartUpload)
-{-# DEPRECATED cSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cRequestPayer :: Lens.Lens' CreateMultipartUpload (Lude.Maybe RequestPayer)
-cRequestPayer = Lens.lens (requestPayer :: CreateMultipartUpload -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: CreateMultipartUpload)
-{-# DEPRECATED cRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
-
--- | Allows grantee to write the ACL for the applicable object.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- /Note:/ Consider using 'grantWriteACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGrantWriteACP :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cGrantWriteACP = Lens.lens (grantWriteACP :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {grantWriteACP = a} :: CreateMultipartUpload)
-{-# DEPRECATED cGrantWriteACP "Use generic-lens or generic-optics with 'grantWriteACP' instead." #-}
-
--- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
---
--- /Note:/ Consider using 'websiteRedirectLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cWebsiteRedirectLocation :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cWebsiteRedirectLocation = Lens.lens (websiteRedirectLocation :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {websiteRedirectLocation = a} :: CreateMultipartUpload)
-{-# DEPRECATED cWebsiteRedirectLocation "Use generic-lens or generic-optics with 'websiteRedirectLocation' instead." #-}
-
--- | Allows grantee to read the object data and its metadata.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- /Note:/ Consider using 'grantRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGrantRead :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cGrantRead = Lens.lens (grantRead :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {grantRead = a} :: CreateMultipartUpload)
-{-# DEPRECATED cGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
+cmuBucket :: Lens.Lens' CreateMultipartUpload Types.BucketName
+cmuBucket = Lens.field @"bucket"
+{-# DEPRECATED cmuBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Object key for which the multipart upload is to be initiated.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cKey :: Lens.Lens' CreateMultipartUpload ObjectKey
-cKey = Lens.lens (key :: CreateMultipartUpload -> ObjectKey) (\s a -> s {key = a} :: CreateMultipartUpload)
-{-# DEPRECATED cKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
--- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
---
--- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cStorageClass :: Lens.Lens' CreateMultipartUpload (Lude.Maybe StorageClass)
-cStorageClass = Lens.lens (storageClass :: CreateMultipartUpload -> Lude.Maybe StorageClass) (\s a -> s {storageClass = a} :: CreateMultipartUpload)
-{-# DEPRECATED cStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
-
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
---
--- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSSECustomerKeyMD5 :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: CreateMultipartUpload)
-{-# DEPRECATED cSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
-
--- | Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
---
--- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSSEKMSKeyId :: Lens.Lens' CreateMultipartUpload (Lude.Maybe (Lude.Sensitive Lude.Text))
-cSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: CreateMultipartUpload -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: CreateMultipartUpload)
-{-# DEPRECATED cSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
-
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- /Note:/ Consider using 'grantFullControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGrantFullControl :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cGrantFullControl = Lens.lens (grantFullControl :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {grantFullControl = a} :: CreateMultipartUpload)
-{-# DEPRECATED cGrantFullControl "Use generic-lens or generic-optics with 'grantFullControl' instead." #-}
-
--- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
---
--- /Note:/ Consider using 'contentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cContentEncoding :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cContentEncoding = Lens.lens (contentEncoding :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {contentEncoding = a} :: CreateMultipartUpload)
-{-# DEPRECATED cContentEncoding "Use generic-lens or generic-optics with 'contentEncoding' instead." #-}
-
--- | The tag-set for the object. The tag-set must be encoded as URL Query parameters.
---
--- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTagging :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cTagging = Lens.lens (tagging :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {tagging = a} :: CreateMultipartUpload)
-{-# DEPRECATED cTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
-
--- | Specifies the date and time when you want the Object Lock to expire.
---
--- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cObjectLockRetainUntilDate :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.DateTime)
-cObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: CreateMultipartUpload -> Lude.Maybe Lude.DateTime) (\s a -> s {objectLockRetainUntilDate = a} :: CreateMultipartUpload)
-{-# DEPRECATED cObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
-
--- | A map of metadata to store with the object in S3.
---
--- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cMetadata :: Lens.Lens' CreateMultipartUpload (Lude.HashMap Lude.Text (Lude.Text))
-cMetadata = Lens.lens (metadata :: CreateMultipartUpload -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metadata = a} :: CreateMultipartUpload)
-{-# DEPRECATED cMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
-
--- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
---
--- /Note:/ Consider using 'sSEKMSEncryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUpload (Lude.Maybe (Lude.Sensitive Lude.Text))
-cSSEKMSEncryptionContext = Lens.lens (sSEKMSEncryptionContext :: CreateMultipartUpload -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSEncryptionContext = a} :: CreateMultipartUpload)
-{-# DEPRECATED cSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
-
--- | Specifies caching behavior along the request/reply chain.
---
--- /Note:/ Consider using 'cacheControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCacheControl :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cCacheControl = Lens.lens (cacheControl :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {cacheControl = a} :: CreateMultipartUpload)
-{-# DEPRECATED cCacheControl "Use generic-lens or generic-optics with 'cacheControl' instead." #-}
-
--- | The language the content is in.
---
--- /Note:/ Consider using 'contentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cContentLanguage :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cContentLanguage = Lens.lens (contentLanguage :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {contentLanguage = a} :: CreateMultipartUpload)
-{-# DEPRECATED cContentLanguage "Use generic-lens or generic-optics with 'contentLanguage' instead." #-}
-
--- | Specifies whether you want to apply a Legal Hold to the uploaded object.
---
--- /Note:/ Consider using 'objectLockLegalHoldStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cObjectLockLegalHoldStatus :: Lens.Lens' CreateMultipartUpload (Lude.Maybe ObjectLockLegalHoldStatus)
-cObjectLockLegalHoldStatus = Lens.lens (objectLockLegalHoldStatus :: CreateMultipartUpload -> Lude.Maybe ObjectLockLegalHoldStatus) (\s a -> s {objectLockLegalHoldStatus = a} :: CreateMultipartUpload)
-{-# DEPRECATED cObjectLockLegalHoldStatus "Use generic-lens or generic-optics with 'objectLockLegalHoldStatus' instead." #-}
+cmuKey :: Lens.Lens' CreateMultipartUpload Types.Key
+cmuKey = Lens.field @"key"
+{-# DEPRECATED cmuKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The canned ACL to apply to the object.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
 -- /Note:/ Consider using 'acl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cACL :: Lens.Lens' CreateMultipartUpload (Lude.Maybe ObjectCannedACL)
-cACL = Lens.lens (acl :: CreateMultipartUpload -> Lude.Maybe ObjectCannedACL) (\s a -> s {acl = a} :: CreateMultipartUpload)
-{-# DEPRECATED cACL "Use generic-lens or generic-optics with 'acl' instead." #-}
+cmuACL :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ObjectCannedACL)
+cmuACL = Lens.field @"acl"
+{-# DEPRECATED cmuACL "Use generic-lens or generic-optics with 'acl' instead." #-}
+
+-- | Specifies caching behavior along the request/reply chain.
+--
+-- /Note:/ Consider using 'cacheControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuCacheControl :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.CacheControl)
+cmuCacheControl = Lens.field @"cacheControl"
+{-# DEPRECATED cmuCacheControl "Use generic-lens or generic-optics with 'cacheControl' instead." #-}
 
 -- | Specifies presentational information for the object.
 --
 -- /Note:/ Consider using 'contentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cContentDisposition :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cContentDisposition = Lens.lens (contentDisposition :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {contentDisposition = a} :: CreateMultipartUpload)
-{-# DEPRECATED cContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
+cmuContentDisposition :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ContentDisposition)
+cmuContentDisposition = Lens.field @"contentDisposition"
+{-# DEPRECATED cmuContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cExpectedBucketOwner :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cExpectedBucketOwner = Lens.lens (expectedBucketOwner :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: CreateMultipartUpload)
-{-# DEPRECATED cExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+-- /Note:/ Consider using 'contentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuContentEncoding :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ContentEncoding)
+cmuContentEncoding = Lens.field @"contentEncoding"
+{-# DEPRECATED cmuContentEncoding "Use generic-lens or generic-optics with 'contentEncoding' instead." #-}
 
--- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+-- | The language the content is in.
 --
--- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cServerSideEncryption :: Lens.Lens' CreateMultipartUpload (Lude.Maybe ServerSideEncryption)
-cServerSideEncryption = Lens.lens (serverSideEncryption :: CreateMultipartUpload -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: CreateMultipartUpload)
-{-# DEPRECATED cServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+-- /Note:/ Consider using 'contentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuContentLanguage :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ContentLanguage)
+cmuContentLanguage = Lens.field @"contentLanguage"
+{-# DEPRECATED cmuContentLanguage "Use generic-lens or generic-optics with 'contentLanguage' instead." #-}
 
 -- | A standard MIME type describing the format of the object data.
 --
 -- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cContentType :: Lens.Lens' CreateMultipartUpload (Lude.Maybe Lude.Text)
-cContentType = Lens.lens (contentType :: CreateMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: CreateMultipartUpload)
-{-# DEPRECATED cContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+cmuContentType :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ContentType)
+cmuContentType = Lens.field @"contentType"
+{-# DEPRECATED cmuContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
-instance Lude.AWSRequest CreateMultipartUpload where
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuExpectedBucketOwner :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ExpectedBucketOwner)
+cmuExpectedBucketOwner = Lens.field @"expectedBucketOwner"
+{-# DEPRECATED cmuExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+
+-- | The date and time at which the object is no longer cacheable.
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuExpires :: Lens.Lens' CreateMultipartUpload (Core.Maybe Core.UTCTime)
+cmuExpires = Lens.field @"expires"
+{-# DEPRECATED cmuExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
+
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantFullControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuGrantFullControl :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.GrantFullControl)
+cmuGrantFullControl = Lens.field @"grantFullControl"
+{-# DEPRECATED cmuGrantFullControl "Use generic-lens or generic-optics with 'grantFullControl' instead." #-}
+
+-- | Allows grantee to read the object data and its metadata.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuGrantRead :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.GrantRead)
+cmuGrantRead = Lens.field @"grantRead"
+{-# DEPRECATED cmuGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
+
+-- | Allows grantee to read the object ACL.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantReadACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuGrantReadACP :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.GrantReadACP)
+cmuGrantReadACP = Lens.field @"grantReadACP"
+{-# DEPRECATED cmuGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
+
+-- | Allows grantee to write the ACL for the applicable object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantWriteACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuGrantWriteACP :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.GrantWriteACP)
+cmuGrantWriteACP = Lens.field @"grantWriteACP"
+{-# DEPRECATED cmuGrantWriteACP "Use generic-lens or generic-optics with 'grantWriteACP' instead." #-}
+
+-- | A map of metadata to store with the object in S3.
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuMetadata :: Lens.Lens' CreateMultipartUpload (Core.HashMap Types.MetadataKey Types.MetadataValue)
+cmuMetadata = Lens.field @"metadata"
+{-# DEPRECATED cmuMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | Specifies whether you want to apply a Legal Hold to the uploaded object.
+--
+-- /Note:/ Consider using 'objectLockLegalHoldStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuObjectLockLegalHoldStatus :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ObjectLockLegalHoldStatus)
+cmuObjectLockLegalHoldStatus = Lens.field @"objectLockLegalHoldStatus"
+{-# DEPRECATED cmuObjectLockLegalHoldStatus "Use generic-lens or generic-optics with 'objectLockLegalHoldStatus' instead." #-}
+
+-- | Specifies the Object Lock mode that you want to apply to the uploaded object.
+--
+-- /Note:/ Consider using 'objectLockMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuObjectLockMode :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ObjectLockMode)
+cmuObjectLockMode = Lens.field @"objectLockMode"
+{-# DEPRECATED cmuObjectLockMode "Use generic-lens or generic-optics with 'objectLockMode' instead." #-}
+
+-- | Specifies the date and time when you want the Object Lock to expire.
+--
+-- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuObjectLockRetainUntilDate :: Lens.Lens' CreateMultipartUpload (Core.Maybe Core.UTCTime)
+cmuObjectLockRetainUntilDate = Lens.field @"objectLockRetainUntilDate"
+{-# DEPRECATED cmuObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuRequestPayer :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.RequestPayer)
+cmuRequestPayer = Lens.field @"requestPayer"
+{-# DEPRECATED cmuRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
+-- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
+--
+-- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuSSECustomerAlgorithm :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.SSECustomerAlgorithm)
+cmuSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
+{-# DEPRECATED cmuSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
+
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+--
+-- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuSSECustomerKey :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.SSECustomerKey)
+cmuSSECustomerKey = Lens.field @"sSECustomerKey"
+{-# DEPRECATED cmuSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
+
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+--
+-- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuSSECustomerKeyMD5 :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.SSECustomerKeyMD5)
+cmuSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
+{-# DEPRECATED cmuSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
+
+-- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+--
+-- /Note:/ Consider using 'sSEKMSEncryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuSSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.SSEKMSEncryptionContext)
+cmuSSEKMSEncryptionContext = Lens.field @"sSEKMSEncryptionContext"
+{-# DEPRECATED cmuSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
+
+-- | Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
+--
+-- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuSSEKMSKeyId :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.SSEKMSKeyId)
+cmuSSEKMSKeyId = Lens.field @"sSEKMSKeyId"
+{-# DEPRECATED cmuSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
+
+-- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+--
+-- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuServerSideEncryption :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.ServerSideEncryption)
+cmuServerSideEncryption = Lens.field @"serverSideEncryption"
+{-# DEPRECATED cmuServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+
+-- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuStorageClass :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.StorageClass)
+cmuStorageClass = Lens.field @"storageClass"
+{-# DEPRECATED cmuStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
+
+-- | The tag-set for the object. The tag-set must be encoded as URL Query parameters.
+--
+-- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuTagging :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.TaggingHeader)
+cmuTagging = Lens.field @"tagging"
+{-# DEPRECATED cmuTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
+
+-- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+--
+-- /Note:/ Consider using 'websiteRedirectLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuWebsiteRedirectLocation :: Lens.Lens' CreateMultipartUpload (Core.Maybe Types.WebsiteRedirectLocation)
+cmuWebsiteRedirectLocation = Lens.field @"websiteRedirectLocation"
+{-# DEPRECATED cmuWebsiteRedirectLocation "Use generic-lens or generic-optics with 'websiteRedirectLocation' instead." #-}
+
+instance Core.AWSRequest CreateMultipartUpload where
   type Rs CreateMultipartUpload = CreateMultipartUploadResponse
-  request = Req.post s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText bucket) Core.<> ("/")
+                Core.<> (Core.toText key)
+            ),
+        Core._rqQuery = Core.pure ("uploads", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-acl" acl
+            Core.<> (Core.toHeaders "Cache-Control" cacheControl)
+            Core.<> (Core.toHeaders "Content-Disposition" contentDisposition)
+            Core.<> (Core.toHeaders "Content-Encoding" contentEncoding)
+            Core.<> (Core.toHeaders "Content-Language" contentLanguage)
+            Core.<> (Core.toHeaders "Content-Type" contentType)
+            Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner)
+            Core.<> (Core.toHeaders "Expires" expires)
+            Core.<> (Core.toHeaders "x-amz-grant-full-control" grantFullControl)
+            Core.<> (Core.toHeaders "x-amz-grant-read" grantRead)
+            Core.<> (Core.toHeaders "x-amz-grant-read-acp" grantReadACP)
+            Core.<> (Core.toHeaders "x-amz-grant-write-acp" grantWriteACP)
+            Core.<> (Core.toHeaders "x-amz-meta-" metadata)
+            Core.<> ( Core.toHeaders
+                        "x-amz-object-lock-legal-hold"
+                        objectLockLegalHoldStatus
+                    )
+            Core.<> (Core.toHeaders "x-amz-object-lock-mode" objectLockMode)
+            Core.<> ( Core.toHeaders
+                        "x-amz-object-lock-retain-until-date"
+                        objectLockRetainUntilDate
+                    )
+            Core.<> (Core.toHeaders "x-amz-request-payer" requestPayer)
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-algorithm"
+                        sSECustomerAlgorithm
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-key"
+                        sSECustomerKey
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-key-MD5"
+                        sSECustomerKeyMD5
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-context"
+                        sSEKMSEncryptionContext
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-aws-kms-key-id"
+                        sSEKMSKeyId
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption"
+                        serverSideEncryption
+                    )
+            Core.<> (Core.toHeaders "x-amz-storage-class" storageClass)
+            Core.<> (Core.toHeaders "x-amz-tagging" tagging)
+            Core.<> ( Core.toHeaders
+                        "x-amz-website-redirect-location"
+                        websiteRedirectLocation
+                    ),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateMultipartUploadResponse'
-            Lude.<$> (h Lude..#? "x-amz-request-charged")
-            Lude.<*> (x Lude..@? "Bucket")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-algorithm")
-            Lude.<*> (h Lude..#? "x-amz-abort-date")
-            Lude.<*> (h Lude..#? "x-amz-abort-rule-id")
-            Lude.<*> (x Lude..@? "Key")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-key-MD5")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-aws-kms-key-id")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-context")
-            Lude.<*> (x Lude..@? "UploadId")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "x-amz-abort-date" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-abort-rule-id" h)
+            Core.<*> (x Core..@? "Bucket")
+            Core.<*> (x Core..@? "Key")
+            Core.<*> (Core.parseHeaderMaybe "x-amz-request-charged" h)
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-customer-algorithm"
+                         h
+                     )
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-customer-key-MD5"
+                         h
+                     )
+            Core.<*> (Core.parseHeaderMaybe "x-amz-server-side-encryption-context" h)
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-aws-kms-key-id"
+                         h
+                     )
+            Core.<*> (Core.parseHeaderMaybe "x-amz-server-side-encryption" h)
+            Core.<*> (x Core..@? "UploadId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateMultipartUpload where
-  toHeaders CreateMultipartUpload' {..} =
-    Lude.mconcat
-      [ "x-amz-object-lock-mode" Lude.=# objectLockMode,
-        "Expires" Lude.=# expires,
-        "x-amz-grant-read-acp" Lude.=# grantReadACP,
-        "x-amz-server-side-encryption-customer-algorithm"
-          Lude.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key" Lude.=# sSECustomerKey,
-        "x-amz-request-payer" Lude.=# requestPayer,
-        "x-amz-grant-write-acp" Lude.=# grantWriteACP,
-        "x-amz-website-redirect-location" Lude.=# websiteRedirectLocation,
-        "x-amz-grant-read" Lude.=# grantRead,
-        "x-amz-storage-class" Lude.=# storageClass,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Lude.=# sSECustomerKeyMD5,
-        "x-amz-server-side-encryption-aws-kms-key-id" Lude.=# sSEKMSKeyId,
-        "x-amz-grant-full-control" Lude.=# grantFullControl,
-        "Content-Encoding" Lude.=# contentEncoding,
-        "x-amz-tagging" Lude.=# tagging,
-        "x-amz-object-lock-retain-until-date"
-          Lude.=# objectLockRetainUntilDate,
-        "x-amz-meta-" Lude.=# metadata,
-        "x-amz-server-side-encryption-context"
-          Lude.=# sSEKMSEncryptionContext,
-        "Cache-Control" Lude.=# cacheControl,
-        "Content-Language" Lude.=# contentLanguage,
-        "x-amz-object-lock-legal-hold" Lude.=# objectLockLegalHoldStatus,
-        "x-amz-acl" Lude.=# acl,
-        "Content-Disposition" Lude.=# contentDisposition,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner,
-        "x-amz-server-side-encryption" Lude.=# serverSideEncryption,
-        "Content-Type" Lude.=# contentType
-      ]
-
-instance Lude.ToPath CreateMultipartUpload where
-  toPath CreateMultipartUpload' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
-
-instance Lude.ToQuery CreateMultipartUpload where
-  toQuery = Lude.const (Lude.mconcat ["uploads"])
 
 -- | /See:/ 'mkCreateMultipartUploadResponse' smart constructor.
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
-  { requestCharged :: Lude.Maybe RequestCharged,
+  { -- | If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> .
+    --
+    -- The response also includes the @x-amz-abort-rule-id@ header that provides the ID of the lifecycle configuration rule that defines this action.
+    abortDate :: Core.Maybe Core.UTCTime,
+    -- | This header is returned along with the @x-amz-abort-date@ header. It identifies the applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
+    abortRuleId :: Core.Maybe Types.AbortRuleId,
     -- | The name of the bucket to which the multipart upload was initiated.
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: Lude.Maybe BucketName,
-    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    -- | If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> .
-    --
-    -- The response also includes the @x-amz-abort-rule-id@ header that provides the ID of the lifecycle configuration rule that defines this action.
-    abortDate :: Lude.Maybe Lude.DateTime,
-    -- | This header is returned along with the @x-amz-abort-date@ header. It identifies the applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
-    abortRuleId :: Lude.Maybe Lude.Text,
+    bucket :: Core.Maybe Types.BucketName,
     -- | Object key for which the multipart upload was initiated.
-    key :: Lude.Maybe ObjectKey,
+    key :: Core.Maybe Types.Key,
+    requestCharged :: Core.Maybe Types.RequestCharged,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
     -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
-    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5,
     -- | If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | ID for the initiated multipart upload.
-    uploadId :: Lude.Maybe Lude.Text,
+    sSEKMSEncryptionContext :: Core.Maybe Types.SSEKMSEncryptionContext,
+    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+    sSEKMSKeyId :: Core.Maybe Types.SSEKMSKeyId,
     -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    serverSideEncryption :: Core.Maybe Types.ServerSideEncryption,
+    -- | ID for the initiated multipart upload.
+    uploadId :: Core.Maybe Types.MultipartUploadId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateMultipartUploadResponse' with the minimum fields required to make a request.
---
--- * 'requestCharged' -
--- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
--- * 'abortDate' - If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> .
---
--- The response also includes the @x-amz-abort-rule-id@ header that provides the ID of the lifecycle configuration rule that defines this action.
--- * 'abortRuleId' - This header is returned along with the @x-amz-abort-date@ header. It identifies the applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
--- * 'key' - Object key for which the multipart upload was initiated.
--- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
--- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
--- * 'sSEKMSEncryptionContext' - If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
--- * 'uploadId' - ID for the initiated multipart upload.
--- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateMultipartUploadResponse' value with any optional fields omitted.
 mkCreateMultipartUploadResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateMultipartUploadResponse
-mkCreateMultipartUploadResponse pResponseStatus_ =
+mkCreateMultipartUploadResponse responseStatus =
   CreateMultipartUploadResponse'
-    { requestCharged = Lude.Nothing,
-      bucket = Lude.Nothing,
-      sSECustomerAlgorithm = Lude.Nothing,
-      abortDate = Lude.Nothing,
-      abortRuleId = Lude.Nothing,
-      key = Lude.Nothing,
-      sSECustomerKeyMD5 = Lude.Nothing,
-      sSEKMSKeyId = Lude.Nothing,
-      sSEKMSEncryptionContext = Lude.Nothing,
-      uploadId = Lude.Nothing,
-      serverSideEncryption = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { abortDate = Core.Nothing,
+      abortRuleId = Core.Nothing,
+      bucket = Core.Nothing,
+      key = Core.Nothing,
+      requestCharged = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      sSEKMSEncryptionContext = Core.Nothing,
+      sSEKMSKeyId = Core.Nothing,
+      serverSideEncryption = Core.Nothing,
+      uploadId = Core.Nothing,
+      responseStatus
     }
 
--- | Undocumented field.
+-- | If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> .
 --
--- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsRequestCharged :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe RequestCharged)
-crsRequestCharged = Lens.lens (requestCharged :: CreateMultipartUploadResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
+-- The response also includes the @x-amz-abort-rule-id@ header that provides the ID of the lifecycle configuration rule that defines this action.
+--
+-- /Note:/ Consider using 'abortDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmurrsAbortDate :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Core.UTCTime)
+cmurrsAbortDate = Lens.field @"abortDate"
+{-# DEPRECATED cmurrsAbortDate "Use generic-lens or generic-optics with 'abortDate' instead." #-}
+
+-- | This header is returned along with the @x-amz-abort-date@ header. It identifies the applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
+--
+-- /Note:/ Consider using 'abortRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmurrsAbortRuleId :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.AbortRuleId)
+cmurrsAbortRuleId = Lens.field @"abortRuleId"
+{-# DEPRECATED cmurrsAbortRuleId "Use generic-lens or generic-optics with 'abortRuleId' instead." #-}
 
 -- | The name of the bucket to which the multipart upload was initiated.
 --
@@ -702,78 +683,69 @@ crsRequestCharged = Lens.lens (requestCharged :: CreateMultipartUploadResponse -
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsBucket :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe BucketName)
-crsBucket = Lens.lens (bucket :: CreateMultipartUploadResponse -> Lude.Maybe BucketName) (\s a -> s {bucket = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
---
--- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsSSECustomerAlgorithm :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe Lude.Text)
-crsSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: CreateMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
-
--- | If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> .
---
--- The response also includes the @x-amz-abort-rule-id@ header that provides the ID of the lifecycle configuration rule that defines this action.
---
--- /Note:/ Consider using 'abortDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsAbortDate :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe Lude.DateTime)
-crsAbortDate = Lens.lens (abortDate :: CreateMultipartUploadResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {abortDate = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsAbortDate "Use generic-lens or generic-optics with 'abortDate' instead." #-}
-
--- | This header is returned along with the @x-amz-abort-date@ header. It identifies the applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
---
--- /Note:/ Consider using 'abortRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsAbortRuleId :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe Lude.Text)
-crsAbortRuleId = Lens.lens (abortRuleId :: CreateMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {abortRuleId = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsAbortRuleId "Use generic-lens or generic-optics with 'abortRuleId' instead." #-}
+cmurrsBucket :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.BucketName)
+cmurrsBucket = Lens.field @"bucket"
+{-# DEPRECATED cmurrsBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Object key for which the multipart upload was initiated.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsKey :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe ObjectKey)
-crsKey = Lens.lens (key :: CreateMultipartUploadResponse -> Lude.Maybe ObjectKey) (\s a -> s {key = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsKey "Use generic-lens or generic-optics with 'key' instead." #-}
+cmurrsKey :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.Key)
+cmurrsKey = Lens.field @"key"
+{-# DEPRECATED cmurrsKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmurrsRequestCharged :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.RequestCharged)
+cmurrsRequestCharged = Lens.field @"requestCharged"
+{-# DEPRECATED cmurrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
+
+-- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+--
+-- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmurrsSSECustomerAlgorithm :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.SSECustomerAlgorithm)
+cmurrsSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
+{-# DEPRECATED cmurrsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
 --
 -- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsSSECustomerKeyMD5 :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe Lude.Text)
-crsSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: CreateMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
-
--- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
---
--- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsSSEKMSKeyId :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-crsSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: CreateMultipartUploadResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
+cmurrsSSECustomerKeyMD5 :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.SSECustomerKeyMD5)
+cmurrsSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
+{-# DEPRECATED cmurrsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
 
 -- | If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
 --
 -- /Note:/ Consider using 'sSEKMSEncryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsSSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-crsSSEKMSEncryptionContext = Lens.lens (sSEKMSEncryptionContext :: CreateMultipartUploadResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSEncryptionContext = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
+cmurrsSSEKMSEncryptionContext :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.SSEKMSEncryptionContext)
+cmurrsSSEKMSEncryptionContext = Lens.field @"sSEKMSEncryptionContext"
+{-# DEPRECATED cmurrsSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
 
--- | ID for the initiated multipart upload.
+-- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
 --
--- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsUploadId :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe Lude.Text)
-crsUploadId = Lens.lens (uploadId :: CreateMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {uploadId = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+-- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmurrsSSEKMSKeyId :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.SSEKMSKeyId)
+cmurrsSSEKMSKeyId = Lens.field @"sSEKMSKeyId"
+{-# DEPRECATED cmurrsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
 
 -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
 --
 -- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsServerSideEncryption :: Lens.Lens' CreateMultipartUploadResponse (Lude.Maybe ServerSideEncryption)
-crsServerSideEncryption = Lens.lens (serverSideEncryption :: CreateMultipartUploadResponse -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+cmurrsServerSideEncryption :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.ServerSideEncryption)
+cmurrsServerSideEncryption = Lens.field @"serverSideEncryption"
+{-# DEPRECATED cmurrsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+
+-- | ID for the initiated multipart upload.
+--
+-- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmurrsUploadId :: Lens.Lens' CreateMultipartUploadResponse (Core.Maybe Types.MultipartUploadId)
+cmurrsUploadId = Lens.field @"uploadId"
+{-# DEPRECATED cmurrsUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CreateMultipartUploadResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CreateMultipartUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMultipartUploadResponse)
-{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmurrsResponseStatus :: Lens.Lens' CreateMultipartUploadResponse Core.Int
+cmurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cmurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

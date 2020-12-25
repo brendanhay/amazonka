@@ -17,57 +17,54 @@ module Network.AWS.CodeStar.Types.ProjectSummary
     mkProjectSummary,
 
     -- * Lenses
-    psProjectARN,
+    psProjectArn,
     psProjectId,
   )
 where
 
+import qualified Network.AWS.CodeStar.Types.ProjectArn as Types
+import qualified Network.AWS.CodeStar.Types.ProjectId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the metadata for a project.
 --
 -- /See:/ 'mkProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
   { -- | The Amazon Resource Name (ARN) of the project.
-    projectARN :: Lude.Maybe Lude.Text,
+    projectArn :: Core.Maybe Types.ProjectArn,
     -- | The ID of the project.
-    projectId :: Lude.Maybe Lude.Text
+    projectId :: Core.Maybe Types.ProjectId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProjectSummary' with the minimum fields required to make a request.
---
--- * 'projectARN' - The Amazon Resource Name (ARN) of the project.
--- * 'projectId' - The ID of the project.
+-- | Creates a 'ProjectSummary' value with any optional fields omitted.
 mkProjectSummary ::
   ProjectSummary
 mkProjectSummary =
   ProjectSummary'
-    { projectARN = Lude.Nothing,
-      projectId = Lude.Nothing
+    { projectArn = Core.Nothing,
+      projectId = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the project.
 --
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psProjectARN :: Lens.Lens' ProjectSummary (Lude.Maybe Lude.Text)
-psProjectARN = Lens.lens (projectARN :: ProjectSummary -> Lude.Maybe Lude.Text) (\s a -> s {projectARN = a} :: ProjectSummary)
-{-# DEPRECATED psProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
+-- /Note:/ Consider using 'projectArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psProjectArn :: Lens.Lens' ProjectSummary (Core.Maybe Types.ProjectArn)
+psProjectArn = Lens.field @"projectArn"
+{-# DEPRECATED psProjectArn "Use generic-lens or generic-optics with 'projectArn' instead." #-}
 
 -- | The ID of the project.
 --
 -- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psProjectId :: Lens.Lens' ProjectSummary (Lude.Maybe Lude.Text)
-psProjectId = Lens.lens (projectId :: ProjectSummary -> Lude.Maybe Lude.Text) (\s a -> s {projectId = a} :: ProjectSummary)
+psProjectId :: Lens.Lens' ProjectSummary (Core.Maybe Types.ProjectId)
+psProjectId = Lens.field @"projectId"
 {-# DEPRECATED psProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
-instance Lude.FromJSON ProjectSummary where
+instance Core.FromJSON ProjectSummary where
   parseJSON =
-    Lude.withObject
-      "ProjectSummary"
-      ( \x ->
-          ProjectSummary'
-            Lude.<$> (x Lude..:? "projectArn") Lude.<*> (x Lude..:? "projectId")
-      )
+    Core.withObject "ProjectSummary" Core.$
+      \x ->
+        ProjectSummary'
+          Core.<$> (x Core..:? "projectArn") Core.<*> (x Core..:? "projectId")

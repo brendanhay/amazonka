@@ -13,56 +13,61 @@
 module Network.AWS.SageMaker.Types.DetailedModelPackageStatus
   ( DetailedModelPackageStatus
       ( DetailedModelPackageStatus',
-        DMPSNotStarted,
-        DMPSInProgress,
-        DMPSCompleted,
-        DMPSFailed
+        DetailedModelPackageStatusNotStarted,
+        DetailedModelPackageStatusInProgress,
+        DetailedModelPackageStatusCompleted,
+        DetailedModelPackageStatusFailed,
+        fromDetailedModelPackageStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DetailedModelPackageStatus = DetailedModelPackageStatus' Lude.Text
+newtype DetailedModelPackageStatus = DetailedModelPackageStatus'
+  { fromDetailedModelPackageStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DMPSNotStarted :: DetailedModelPackageStatus
-pattern DMPSNotStarted = DetailedModelPackageStatus' "NotStarted"
+pattern DetailedModelPackageStatusNotStarted :: DetailedModelPackageStatus
+pattern DetailedModelPackageStatusNotStarted = DetailedModelPackageStatus' "NotStarted"
 
-pattern DMPSInProgress :: DetailedModelPackageStatus
-pattern DMPSInProgress = DetailedModelPackageStatus' "InProgress"
+pattern DetailedModelPackageStatusInProgress :: DetailedModelPackageStatus
+pattern DetailedModelPackageStatusInProgress = DetailedModelPackageStatus' "InProgress"
 
-pattern DMPSCompleted :: DetailedModelPackageStatus
-pattern DMPSCompleted = DetailedModelPackageStatus' "Completed"
+pattern DetailedModelPackageStatusCompleted :: DetailedModelPackageStatus
+pattern DetailedModelPackageStatusCompleted = DetailedModelPackageStatus' "Completed"
 
-pattern DMPSFailed :: DetailedModelPackageStatus
-pattern DMPSFailed = DetailedModelPackageStatus' "Failed"
+pattern DetailedModelPackageStatusFailed :: DetailedModelPackageStatus
+pattern DetailedModelPackageStatusFailed = DetailedModelPackageStatus' "Failed"
 
 {-# COMPLETE
-  DMPSNotStarted,
-  DMPSInProgress,
-  DMPSCompleted,
-  DMPSFailed,
+  DetailedModelPackageStatusNotStarted,
+  DetailedModelPackageStatusInProgress,
+  DetailedModelPackageStatusCompleted,
+  DetailedModelPackageStatusFailed,
   DetailedModelPackageStatus'
   #-}

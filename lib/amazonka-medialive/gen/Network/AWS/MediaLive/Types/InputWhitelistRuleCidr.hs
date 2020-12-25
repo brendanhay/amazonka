@@ -22,33 +22,31 @@ module Network.AWS.MediaLive.Types.InputWhitelistRuleCidr
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An IPv4 CIDR to whitelist.
 --
 -- /See:/ 'mkInputWhitelistRuleCidr' smart constructor.
 newtype InputWhitelistRuleCidr = InputWhitelistRuleCidr'
   { -- | The IPv4 CIDR to whitelist.
-    cidr :: Lude.Maybe Lude.Text
+    cidr :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputWhitelistRuleCidr' with the minimum fields required to make a request.
---
--- * 'cidr' - The IPv4 CIDR to whitelist.
+-- | Creates a 'InputWhitelistRuleCidr' value with any optional fields omitted.
 mkInputWhitelistRuleCidr ::
   InputWhitelistRuleCidr
 mkInputWhitelistRuleCidr =
-  InputWhitelistRuleCidr' {cidr = Lude.Nothing}
+  InputWhitelistRuleCidr' {cidr = Core.Nothing}
 
 -- | The IPv4 CIDR to whitelist.
 --
 -- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iwrcCidr :: Lens.Lens' InputWhitelistRuleCidr (Lude.Maybe Lude.Text)
-iwrcCidr = Lens.lens (cidr :: InputWhitelistRuleCidr -> Lude.Maybe Lude.Text) (\s a -> s {cidr = a} :: InputWhitelistRuleCidr)
+iwrcCidr :: Lens.Lens' InputWhitelistRuleCidr (Core.Maybe Core.Text)
+iwrcCidr = Lens.field @"cidr"
 {-# DEPRECATED iwrcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
-instance Lude.ToJSON InputWhitelistRuleCidr where
-  toJSON InputWhitelistRuleCidr' {..} =
-    Lude.object (Lude.catMaybes [("cidr" Lude..=) Lude.<$> cidr])
+instance Core.FromJSON InputWhitelistRuleCidr where
+  toJSON InputWhitelistRuleCidr {..} =
+    Core.object (Core.catMaybes [("cidr" Core..=) Core.<$> cidr])

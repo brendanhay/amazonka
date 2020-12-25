@@ -37,79 +37,70 @@ module Network.AWS.Organizations.RemoveAccountFromOrganization
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveAccountFromOrganization' smart constructor.
 newtype RemoveAccountFromOrganization = RemoveAccountFromOrganization'
   { -- | The unique identifier (ID) of the member account that you want to remove from the organization.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
-    accountId :: Lude.Text
+    accountId :: Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveAccountFromOrganization' with the minimum fields required to make a request.
---
--- * 'accountId' - The unique identifier (ID) of the member account that you want to remove from the organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+-- | Creates a 'RemoveAccountFromOrganization' value with any optional fields omitted.
 mkRemoveAccountFromOrganization ::
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
   RemoveAccountFromOrganization
-mkRemoveAccountFromOrganization pAccountId_ =
-  RemoveAccountFromOrganization' {accountId = pAccountId_}
+mkRemoveAccountFromOrganization accountId =
+  RemoveAccountFromOrganization' {accountId}
 
 -- | The unique identifier (ID) of the member account that you want to remove from the organization.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rafoAccountId :: Lens.Lens' RemoveAccountFromOrganization Lude.Text
-rafoAccountId = Lens.lens (accountId :: RemoveAccountFromOrganization -> Lude.Text) (\s a -> s {accountId = a} :: RemoveAccountFromOrganization)
+rafoAccountId :: Lens.Lens' RemoveAccountFromOrganization Types.AccountId
+rafoAccountId = Lens.field @"accountId"
 {-# DEPRECATED rafoAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest RemoveAccountFromOrganization where
+instance Core.FromJSON RemoveAccountFromOrganization where
+  toJSON RemoveAccountFromOrganization {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("AccountId" Core..= accountId)])
+
+instance Core.AWSRequest RemoveAccountFromOrganization where
   type
     Rs RemoveAccountFromOrganization =
       RemoveAccountFromOrganizationResponse
-  request = Req.postJSON organizationsService
-  response = Res.receiveNull RemoveAccountFromOrganizationResponse'
-
-instance Lude.ToHeaders RemoveAccountFromOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.RemoveAccountFromOrganization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveAccountFromOrganization where
-  toJSON RemoveAccountFromOrganization' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("AccountId" Lude..= accountId)])
-
-instance Lude.ToPath RemoveAccountFromOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveAccountFromOrganization where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrganizationsV20161128.RemoveAccountFromOrganization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull RemoveAccountFromOrganizationResponse'
 
 -- | /See:/ 'mkRemoveAccountFromOrganizationResponse' smart constructor.
 data RemoveAccountFromOrganizationResponse = RemoveAccountFromOrganizationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveAccountFromOrganizationResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveAccountFromOrganizationResponse' value with any optional fields omitted.
 mkRemoveAccountFromOrganizationResponse ::
   RemoveAccountFromOrganizationResponse
 mkRemoveAccountFromOrganizationResponse =

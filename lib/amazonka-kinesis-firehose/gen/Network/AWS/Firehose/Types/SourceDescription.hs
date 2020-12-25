@@ -21,40 +21,36 @@ module Network.AWS.Firehose.Types.SourceDescription
   )
 where
 
-import Network.AWS.Firehose.Types.KinesisStreamSourceDescription
+import qualified Network.AWS.Firehose.Types.KinesisStreamSourceDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about a Kinesis data stream used as the source for a Kinesis Data Firehose delivery stream.
 --
 -- /See:/ 'mkSourceDescription' smart constructor.
 newtype SourceDescription = SourceDescription'
   { -- | The 'KinesisStreamSourceDescription' value for the source Kinesis data stream.
-    kinesisStreamSourceDescription :: Lude.Maybe KinesisStreamSourceDescription
+    kinesisStreamSourceDescription :: Core.Maybe Types.KinesisStreamSourceDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'SourceDescription' with the minimum fields required to make a request.
---
--- * 'kinesisStreamSourceDescription' - The 'KinesisStreamSourceDescription' value for the source Kinesis data stream.
+-- | Creates a 'SourceDescription' value with any optional fields omitted.
 mkSourceDescription ::
   SourceDescription
 mkSourceDescription =
-  SourceDescription' {kinesisStreamSourceDescription = Lude.Nothing}
+  SourceDescription' {kinesisStreamSourceDescription = Core.Nothing}
 
 -- | The 'KinesisStreamSourceDescription' value for the source Kinesis data stream.
 --
 -- /Note:/ Consider using 'kinesisStreamSourceDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdKinesisStreamSourceDescription :: Lens.Lens' SourceDescription (Lude.Maybe KinesisStreamSourceDescription)
-sdKinesisStreamSourceDescription = Lens.lens (kinesisStreamSourceDescription :: SourceDescription -> Lude.Maybe KinesisStreamSourceDescription) (\s a -> s {kinesisStreamSourceDescription = a} :: SourceDescription)
+sdKinesisStreamSourceDescription :: Lens.Lens' SourceDescription (Core.Maybe Types.KinesisStreamSourceDescription)
+sdKinesisStreamSourceDescription = Lens.field @"kinesisStreamSourceDescription"
 {-# DEPRECATED sdKinesisStreamSourceDescription "Use generic-lens or generic-optics with 'kinesisStreamSourceDescription' instead." #-}
 
-instance Lude.FromJSON SourceDescription where
+instance Core.FromJSON SourceDescription where
   parseJSON =
-    Lude.withObject
-      "SourceDescription"
-      ( \x ->
-          SourceDescription'
-            Lude.<$> (x Lude..:? "KinesisStreamSourceDescription")
-      )
+    Core.withObject "SourceDescription" Core.$
+      \x ->
+        SourceDescription'
+          Core.<$> (x Core..:? "KinesisStreamSourceDescription")

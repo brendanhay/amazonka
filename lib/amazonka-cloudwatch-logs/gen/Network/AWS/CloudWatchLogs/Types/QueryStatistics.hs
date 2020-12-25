@@ -17,71 +17,65 @@ module Network.AWS.CloudWatchLogs.Types.QueryStatistics
     mkQueryStatistics,
 
     -- * Lenses
-    qsRecordsScanned,
     qsBytesScanned,
     qsRecordsMatched,
+    qsRecordsScanned,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the number of log events scanned by the query, the number of log events that matched the query criteria, and the total number of bytes in the log events that were scanned.
 --
 -- /See:/ 'mkQueryStatistics' smart constructor.
 data QueryStatistics = QueryStatistics'
-  { -- | The total number of log events scanned during the query.
-    recordsScanned :: Lude.Maybe Lude.Double,
-    -- | The total number of bytes in the log events scanned during the query.
-    bytesScanned :: Lude.Maybe Lude.Double,
+  { -- | The total number of bytes in the log events scanned during the query.
+    bytesScanned :: Core.Maybe Core.Double,
     -- | The number of log events that matched the query string.
-    recordsMatched :: Lude.Maybe Lude.Double
+    recordsMatched :: Core.Maybe Core.Double,
+    -- | The total number of log events scanned during the query.
+    recordsScanned :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QueryStatistics' with the minimum fields required to make a request.
---
--- * 'recordsScanned' - The total number of log events scanned during the query.
--- * 'bytesScanned' - The total number of bytes in the log events scanned during the query.
--- * 'recordsMatched' - The number of log events that matched the query string.
+-- | Creates a 'QueryStatistics' value with any optional fields omitted.
 mkQueryStatistics ::
   QueryStatistics
 mkQueryStatistics =
   QueryStatistics'
-    { recordsScanned = Lude.Nothing,
-      bytesScanned = Lude.Nothing,
-      recordsMatched = Lude.Nothing
+    { bytesScanned = Core.Nothing,
+      recordsMatched = Core.Nothing,
+      recordsScanned = Core.Nothing
     }
-
--- | The total number of log events scanned during the query.
---
--- /Note:/ Consider using 'recordsScanned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsRecordsScanned :: Lens.Lens' QueryStatistics (Lude.Maybe Lude.Double)
-qsRecordsScanned = Lens.lens (recordsScanned :: QueryStatistics -> Lude.Maybe Lude.Double) (\s a -> s {recordsScanned = a} :: QueryStatistics)
-{-# DEPRECATED qsRecordsScanned "Use generic-lens or generic-optics with 'recordsScanned' instead." #-}
 
 -- | The total number of bytes in the log events scanned during the query.
 --
 -- /Note:/ Consider using 'bytesScanned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsBytesScanned :: Lens.Lens' QueryStatistics (Lude.Maybe Lude.Double)
-qsBytesScanned = Lens.lens (bytesScanned :: QueryStatistics -> Lude.Maybe Lude.Double) (\s a -> s {bytesScanned = a} :: QueryStatistics)
+qsBytesScanned :: Lens.Lens' QueryStatistics (Core.Maybe Core.Double)
+qsBytesScanned = Lens.field @"bytesScanned"
 {-# DEPRECATED qsBytesScanned "Use generic-lens or generic-optics with 'bytesScanned' instead." #-}
 
 -- | The number of log events that matched the query string.
 --
 -- /Note:/ Consider using 'recordsMatched' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsRecordsMatched :: Lens.Lens' QueryStatistics (Lude.Maybe Lude.Double)
-qsRecordsMatched = Lens.lens (recordsMatched :: QueryStatistics -> Lude.Maybe Lude.Double) (\s a -> s {recordsMatched = a} :: QueryStatistics)
+qsRecordsMatched :: Lens.Lens' QueryStatistics (Core.Maybe Core.Double)
+qsRecordsMatched = Lens.field @"recordsMatched"
 {-# DEPRECATED qsRecordsMatched "Use generic-lens or generic-optics with 'recordsMatched' instead." #-}
 
-instance Lude.FromJSON QueryStatistics where
+-- | The total number of log events scanned during the query.
+--
+-- /Note:/ Consider using 'recordsScanned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsRecordsScanned :: Lens.Lens' QueryStatistics (Core.Maybe Core.Double)
+qsRecordsScanned = Lens.field @"recordsScanned"
+{-# DEPRECATED qsRecordsScanned "Use generic-lens or generic-optics with 'recordsScanned' instead." #-}
+
+instance Core.FromJSON QueryStatistics where
   parseJSON =
-    Lude.withObject
-      "QueryStatistics"
-      ( \x ->
-          QueryStatistics'
-            Lude.<$> (x Lude..:? "recordsScanned")
-            Lude.<*> (x Lude..:? "bytesScanned")
-            Lude.<*> (x Lude..:? "recordsMatched")
-      )
+    Core.withObject "QueryStatistics" Core.$
+      \x ->
+        QueryStatistics'
+          Core.<$> (x Core..:? "bytesScanned")
+          Core.<*> (x Core..:? "recordsMatched")
+          Core.<*> (x Core..:? "recordsScanned")

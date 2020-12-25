@@ -20,8 +20,8 @@ module Network.AWS.Connect.DeleteUserHierarchyGroup
     mkDeleteUserHierarchyGroup,
 
     -- ** Request lenses
-    dInstanceId,
-    dHierarchyGroupId,
+    duhgfHierarchyGroupId,
+    duhgfInstanceId,
 
     -- * Destructuring the response
     DeleteUserHierarchyGroupResponse (..),
@@ -29,84 +29,71 @@ module Network.AWS.Connect.DeleteUserHierarchyGroup
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteUserHierarchyGroup' smart constructor.
 data DeleteUserHierarchyGroup = DeleteUserHierarchyGroup'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The identifier of the hierarchy group.
-    hierarchyGroupId :: Lude.Text
+  { -- | The identifier of the hierarchy group.
+    hierarchyGroupId :: Types.HierarchyGroupId,
+    -- | The identifier of the Amazon Connect instance.
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserHierarchyGroup' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'hierarchyGroupId' - The identifier of the hierarchy group.
+-- | Creates a 'DeleteUserHierarchyGroup' value with any optional fields omitted.
 mkDeleteUserHierarchyGroup ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'hierarchyGroupId'
-  Lude.Text ->
+  Types.HierarchyGroupId ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   DeleteUserHierarchyGroup
-mkDeleteUserHierarchyGroup pInstanceId_ pHierarchyGroupId_ =
-  DeleteUserHierarchyGroup'
-    { instanceId = pInstanceId_,
-      hierarchyGroupId = pHierarchyGroupId_
-    }
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInstanceId :: Lens.Lens' DeleteUserHierarchyGroup Lude.Text
-dInstanceId = Lens.lens (instanceId :: DeleteUserHierarchyGroup -> Lude.Text) (\s a -> s {instanceId = a} :: DeleteUserHierarchyGroup)
-{-# DEPRECATED dInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+mkDeleteUserHierarchyGroup hierarchyGroupId instanceId =
+  DeleteUserHierarchyGroup' {hierarchyGroupId, instanceId}
 
 -- | The identifier of the hierarchy group.
 --
 -- /Note:/ Consider using 'hierarchyGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dHierarchyGroupId :: Lens.Lens' DeleteUserHierarchyGroup Lude.Text
-dHierarchyGroupId = Lens.lens (hierarchyGroupId :: DeleteUserHierarchyGroup -> Lude.Text) (\s a -> s {hierarchyGroupId = a} :: DeleteUserHierarchyGroup)
-{-# DEPRECATED dHierarchyGroupId "Use generic-lens or generic-optics with 'hierarchyGroupId' instead." #-}
+duhgfHierarchyGroupId :: Lens.Lens' DeleteUserHierarchyGroup Types.HierarchyGroupId
+duhgfHierarchyGroupId = Lens.field @"hierarchyGroupId"
+{-# DEPRECATED duhgfHierarchyGroupId "Use generic-lens or generic-optics with 'hierarchyGroupId' instead." #-}
 
-instance Lude.AWSRequest DeleteUserHierarchyGroup where
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duhgfInstanceId :: Lens.Lens' DeleteUserHierarchyGroup Types.InstanceId
+duhgfInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED duhgfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.AWSRequest DeleteUserHierarchyGroup where
   type Rs DeleteUserHierarchyGroup = DeleteUserHierarchyGroupResponse
-  request = Req.delete connectService
-  response = Res.receiveNull DeleteUserHierarchyGroupResponse'
-
-instance Lude.ToHeaders DeleteUserHierarchyGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteUserHierarchyGroup where
-  toPath DeleteUserHierarchyGroup' {..} =
-    Lude.mconcat
-      [ "/user-hierarchy-groups/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS hierarchyGroupId
-      ]
-
-instance Lude.ToQuery DeleteUserHierarchyGroup where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/user-hierarchy-groups/" Core.<> (Core.toText instanceId)
+                Core.<> ("/")
+                Core.<> (Core.toText hierarchyGroupId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteUserHierarchyGroupResponse'
 
 -- | /See:/ 'mkDeleteUserHierarchyGroupResponse' smart constructor.
 data DeleteUserHierarchyGroupResponse = DeleteUserHierarchyGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserHierarchyGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteUserHierarchyGroupResponse' value with any optional fields omitted.
 mkDeleteUserHierarchyGroupResponse ::
   DeleteUserHierarchyGroupResponse
 mkDeleteUserHierarchyGroupResponse =

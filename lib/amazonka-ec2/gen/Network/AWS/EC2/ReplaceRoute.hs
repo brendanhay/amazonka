@@ -22,22 +22,22 @@ module Network.AWS.EC2.ReplaceRoute
     mkReplaceRoute,
 
     -- ** Request lenses
-    rrVPCPeeringConnectionId,
-    rrInstanceId,
-    rrEgressOnlyInternetGatewayId,
     rrRouteTableId,
-    rrDestinationIPv6CidrBlock,
-    rrLocalGatewayId,
-    rrNatGatewayId,
-    rrNetworkInterfaceId,
-    rrLocalTarget,
-    rrTransitGatewayId,
-    rrGatewayId,
-    rrVPCEndpointId,
-    rrDestinationPrefixListId,
-    rrDryRun,
     rrCarrierGatewayId,
     rrDestinationCidrBlock,
+    rrDestinationIpv6CidrBlock,
+    rrDestinationPrefixListId,
+    rrDryRun,
+    rrEgressOnlyInternetGatewayId,
+    rrGatewayId,
+    rrInstanceId,
+    rrLocalGatewayId,
+    rrLocalTarget,
+    rrNatGatewayId,
+    rrNetworkInterfaceId,
+    rrTransitGatewayId,
+    rrVpcEndpointId,
+    rrVpcPeeringConnectionId,
 
     -- * Destructuring the response
     ReplaceRouteResponse (..),
@@ -45,244 +45,242 @@ module Network.AWS.EC2.ReplaceRoute
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkReplaceRoute' smart constructor.
 data ReplaceRoute = ReplaceRoute'
-  { -- | The ID of a VPC peering connection.
-    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
-    -- | The ID of a NAT instance in your VPC.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | [IPv6 traffic only] The ID of an egress-only internet gateway.
-    egressOnlyInternetGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of the route table.
-    routeTableId :: Lude.Text,
-    -- | The IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.
-    destinationIPv6CidrBlock :: Lude.Maybe Lude.Text,
-    -- | The ID of the local gateway.
-    localGatewayId :: Lude.Maybe Lude.Text,
-    -- | [IPv4 traffic only] The ID of a NAT gateway.
-    natGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of a network interface.
-    networkInterfaceId :: Lude.Maybe Lude.Text,
-    -- | Specifies whether to reset the local route to its default target (@local@ ).
-    localTarget :: Lude.Maybe Lude.Bool,
-    -- | The ID of a transit gateway.
-    transitGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of an internet gateway or virtual private gateway.
-    gatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
-    vpcEndpointId :: Lude.Maybe Lude.Text,
-    -- | The ID of the prefix list for the route.
-    destinationPrefixListId :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the route table.
+    routeTableId :: Types.RouteTableId,
     -- | [IPv4 traffic only] The ID of a carrier gateway.
-    carrierGatewayId :: Lude.Maybe Lude.Text,
+    carrierGatewayId :: Core.Maybe Types.CarrierGatewayId,
     -- | The IPv4 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.
-    destinationCidrBlock :: Lude.Maybe Lude.Text
+    destinationCidrBlock :: Core.Maybe Types.DestinationCidrBlock,
+    -- | The IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.
+    destinationIpv6CidrBlock :: Core.Maybe Types.DestinationIpv6CidrBlock,
+    -- | The ID of the prefix list for the route.
+    destinationPrefixListId :: Core.Maybe Types.DestinationPrefixListId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | [IPv6 traffic only] The ID of an egress-only internet gateway.
+    egressOnlyInternetGatewayId :: Core.Maybe Types.EgressOnlyInternetGatewayId,
+    -- | The ID of an internet gateway or virtual private gateway.
+    gatewayId :: Core.Maybe Types.GatewayId,
+    -- | The ID of a NAT instance in your VPC.
+    instanceId :: Core.Maybe Types.InstanceId,
+    -- | The ID of the local gateway.
+    localGatewayId :: Core.Maybe Types.LocalGatewayId,
+    -- | Specifies whether to reset the local route to its default target (@local@ ).
+    localTarget :: Core.Maybe Core.Bool,
+    -- | [IPv4 traffic only] The ID of a NAT gateway.
+    natGatewayId :: Core.Maybe Types.NatGatewayId,
+    -- | The ID of a network interface.
+    networkInterfaceId :: Core.Maybe Types.NetworkInterfaceId,
+    -- | The ID of a transit gateway.
+    transitGatewayId :: Core.Maybe Types.TransitGatewayId,
+    -- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+    vpcEndpointId :: Core.Maybe Types.VpcEndpointId,
+    -- | The ID of a VPC peering connection.
+    vpcPeeringConnectionId :: Core.Maybe Types.VpcPeeringConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceRoute' with the minimum fields required to make a request.
---
--- * 'vpcPeeringConnectionId' - The ID of a VPC peering connection.
--- * 'instanceId' - The ID of a NAT instance in your VPC.
--- * 'egressOnlyInternetGatewayId' - [IPv6 traffic only] The ID of an egress-only internet gateway.
--- * 'routeTableId' - The ID of the route table.
--- * 'destinationIPv6CidrBlock' - The IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.
--- * 'localGatewayId' - The ID of the local gateway.
--- * 'natGatewayId' - [IPv4 traffic only] The ID of a NAT gateway.
--- * 'networkInterfaceId' - The ID of a network interface.
--- * 'localTarget' - Specifies whether to reset the local route to its default target (@local@ ).
--- * 'transitGatewayId' - The ID of a transit gateway.
--- * 'gatewayId' - The ID of an internet gateway or virtual private gateway.
--- * 'vpcEndpointId' - The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
--- * 'destinationPrefixListId' - The ID of the prefix list for the route.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'carrierGatewayId' - [IPv4 traffic only] The ID of a carrier gateway.
--- * 'destinationCidrBlock' - The IPv4 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.
+-- | Creates a 'ReplaceRoute' value with any optional fields omitted.
 mkReplaceRoute ::
   -- | 'routeTableId'
-  Lude.Text ->
+  Types.RouteTableId ->
   ReplaceRoute
-mkReplaceRoute pRouteTableId_ =
+mkReplaceRoute routeTableId =
   ReplaceRoute'
-    { vpcPeeringConnectionId = Lude.Nothing,
-      instanceId = Lude.Nothing,
-      egressOnlyInternetGatewayId = Lude.Nothing,
-      routeTableId = pRouteTableId_,
-      destinationIPv6CidrBlock = Lude.Nothing,
-      localGatewayId = Lude.Nothing,
-      natGatewayId = Lude.Nothing,
-      networkInterfaceId = Lude.Nothing,
-      localTarget = Lude.Nothing,
-      transitGatewayId = Lude.Nothing,
-      gatewayId = Lude.Nothing,
-      vpcEndpointId = Lude.Nothing,
-      destinationPrefixListId = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      carrierGatewayId = Lude.Nothing,
-      destinationCidrBlock = Lude.Nothing
+    { routeTableId,
+      carrierGatewayId = Core.Nothing,
+      destinationCidrBlock = Core.Nothing,
+      destinationIpv6CidrBlock = Core.Nothing,
+      destinationPrefixListId = Core.Nothing,
+      dryRun = Core.Nothing,
+      egressOnlyInternetGatewayId = Core.Nothing,
+      gatewayId = Core.Nothing,
+      instanceId = Core.Nothing,
+      localGatewayId = Core.Nothing,
+      localTarget = Core.Nothing,
+      natGatewayId = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      transitGatewayId = Core.Nothing,
+      vpcEndpointId = Core.Nothing,
+      vpcPeeringConnectionId = Core.Nothing
     }
-
--- | The ID of a VPC peering connection.
---
--- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrVPCPeeringConnectionId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: ReplaceRoute)
-{-# DEPRECATED rrVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
-
--- | The ID of a NAT instance in your VPC.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrInstanceId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrInstanceId = Lens.lens (instanceId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ReplaceRoute)
-{-# DEPRECATED rrInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | [IPv6 traffic only] The ID of an egress-only internet gateway.
---
--- /Note:/ Consider using 'egressOnlyInternetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrEgressOnlyInternetGatewayId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrEgressOnlyInternetGatewayId = Lens.lens (egressOnlyInternetGatewayId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {egressOnlyInternetGatewayId = a} :: ReplaceRoute)
-{-# DEPRECATED rrEgressOnlyInternetGatewayId "Use generic-lens or generic-optics with 'egressOnlyInternetGatewayId' instead." #-}
 
 -- | The ID of the route table.
 --
 -- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrRouteTableId :: Lens.Lens' ReplaceRoute Lude.Text
-rrRouteTableId = Lens.lens (routeTableId :: ReplaceRoute -> Lude.Text) (\s a -> s {routeTableId = a} :: ReplaceRoute)
+rrRouteTableId :: Lens.Lens' ReplaceRoute Types.RouteTableId
+rrRouteTableId = Lens.field @"routeTableId"
 {-# DEPRECATED rrRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
-
--- | The IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.
---
--- /Note:/ Consider using 'destinationIPv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrDestinationIPv6CidrBlock :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrDestinationIPv6CidrBlock = Lens.lens (destinationIPv6CidrBlock :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationIPv6CidrBlock = a} :: ReplaceRoute)
-{-# DEPRECATED rrDestinationIPv6CidrBlock "Use generic-lens or generic-optics with 'destinationIPv6CidrBlock' instead." #-}
-
--- | The ID of the local gateway.
---
--- /Note:/ Consider using 'localGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrLocalGatewayId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrLocalGatewayId = Lens.lens (localGatewayId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayId = a} :: ReplaceRoute)
-{-# DEPRECATED rrLocalGatewayId "Use generic-lens or generic-optics with 'localGatewayId' instead." #-}
-
--- | [IPv4 traffic only] The ID of a NAT gateway.
---
--- /Note:/ Consider using 'natGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrNatGatewayId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrNatGatewayId = Lens.lens (natGatewayId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {natGatewayId = a} :: ReplaceRoute)
-{-# DEPRECATED rrNatGatewayId "Use generic-lens or generic-optics with 'natGatewayId' instead." #-}
-
--- | The ID of a network interface.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrNetworkInterfaceId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrNetworkInterfaceId = Lens.lens (networkInterfaceId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: ReplaceRoute)
-{-# DEPRECATED rrNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
-
--- | Specifies whether to reset the local route to its default target (@local@ ).
---
--- /Note:/ Consider using 'localTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrLocalTarget :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Bool)
-rrLocalTarget = Lens.lens (localTarget :: ReplaceRoute -> Lude.Maybe Lude.Bool) (\s a -> s {localTarget = a} :: ReplaceRoute)
-{-# DEPRECATED rrLocalTarget "Use generic-lens or generic-optics with 'localTarget' instead." #-}
-
--- | The ID of a transit gateway.
---
--- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrTransitGatewayId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrTransitGatewayId = Lens.lens (transitGatewayId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayId = a} :: ReplaceRoute)
-{-# DEPRECATED rrTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
-
--- | The ID of an internet gateway or virtual private gateway.
---
--- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrGatewayId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrGatewayId = Lens.lens (gatewayId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {gatewayId = a} :: ReplaceRoute)
-{-# DEPRECATED rrGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
-
--- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
---
--- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrVPCEndpointId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrVPCEndpointId = Lens.lens (vpcEndpointId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {vpcEndpointId = a} :: ReplaceRoute)
-{-# DEPRECATED rrVPCEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
-
--- | The ID of the prefix list for the route.
---
--- /Note:/ Consider using 'destinationPrefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrDestinationPrefixListId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrDestinationPrefixListId = Lens.lens (destinationPrefixListId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationPrefixListId = a} :: ReplaceRoute)
-{-# DEPRECATED rrDestinationPrefixListId "Use generic-lens or generic-optics with 'destinationPrefixListId' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrDryRun :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Bool)
-rrDryRun = Lens.lens (dryRun :: ReplaceRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ReplaceRoute)
-{-# DEPRECATED rrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | [IPv4 traffic only] The ID of a carrier gateway.
 --
 -- /Note:/ Consider using 'carrierGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrCarrierGatewayId :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrCarrierGatewayId = Lens.lens (carrierGatewayId :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {carrierGatewayId = a} :: ReplaceRoute)
+rrCarrierGatewayId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.CarrierGatewayId)
+rrCarrierGatewayId = Lens.field @"carrierGatewayId"
 {-# DEPRECATED rrCarrierGatewayId "Use generic-lens or generic-optics with 'carrierGatewayId' instead." #-}
 
 -- | The IPv4 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.
 --
 -- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrDestinationCidrBlock :: Lens.Lens' ReplaceRoute (Lude.Maybe Lude.Text)
-rrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: ReplaceRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidrBlock = a} :: ReplaceRoute)
+rrDestinationCidrBlock :: Lens.Lens' ReplaceRoute (Core.Maybe Types.DestinationCidrBlock)
+rrDestinationCidrBlock = Lens.field @"destinationCidrBlock"
 {-# DEPRECATED rrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
-instance Lude.AWSRequest ReplaceRoute where
+-- | The IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.
+--
+-- /Note:/ Consider using 'destinationIpv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrDestinationIpv6CidrBlock :: Lens.Lens' ReplaceRoute (Core.Maybe Types.DestinationIpv6CidrBlock)
+rrDestinationIpv6CidrBlock = Lens.field @"destinationIpv6CidrBlock"
+{-# DEPRECATED rrDestinationIpv6CidrBlock "Use generic-lens or generic-optics with 'destinationIpv6CidrBlock' instead." #-}
+
+-- | The ID of the prefix list for the route.
+--
+-- /Note:/ Consider using 'destinationPrefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrDestinationPrefixListId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.DestinationPrefixListId)
+rrDestinationPrefixListId = Lens.field @"destinationPrefixListId"
+{-# DEPRECATED rrDestinationPrefixListId "Use generic-lens or generic-optics with 'destinationPrefixListId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrDryRun :: Lens.Lens' ReplaceRoute (Core.Maybe Core.Bool)
+rrDryRun = Lens.field @"dryRun"
+{-# DEPRECATED rrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | [IPv6 traffic only] The ID of an egress-only internet gateway.
+--
+-- /Note:/ Consider using 'egressOnlyInternetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrEgressOnlyInternetGatewayId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.EgressOnlyInternetGatewayId)
+rrEgressOnlyInternetGatewayId = Lens.field @"egressOnlyInternetGatewayId"
+{-# DEPRECATED rrEgressOnlyInternetGatewayId "Use generic-lens or generic-optics with 'egressOnlyInternetGatewayId' instead." #-}
+
+-- | The ID of an internet gateway or virtual private gateway.
+--
+-- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrGatewayId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.GatewayId)
+rrGatewayId = Lens.field @"gatewayId"
+{-# DEPRECATED rrGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
+
+-- | The ID of a NAT instance in your VPC.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrInstanceId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.InstanceId)
+rrInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED rrInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The ID of the local gateway.
+--
+-- /Note:/ Consider using 'localGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrLocalGatewayId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.LocalGatewayId)
+rrLocalGatewayId = Lens.field @"localGatewayId"
+{-# DEPRECATED rrLocalGatewayId "Use generic-lens or generic-optics with 'localGatewayId' instead." #-}
+
+-- | Specifies whether to reset the local route to its default target (@local@ ).
+--
+-- /Note:/ Consider using 'localTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrLocalTarget :: Lens.Lens' ReplaceRoute (Core.Maybe Core.Bool)
+rrLocalTarget = Lens.field @"localTarget"
+{-# DEPRECATED rrLocalTarget "Use generic-lens or generic-optics with 'localTarget' instead." #-}
+
+-- | [IPv4 traffic only] The ID of a NAT gateway.
+--
+-- /Note:/ Consider using 'natGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrNatGatewayId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.NatGatewayId)
+rrNatGatewayId = Lens.field @"natGatewayId"
+{-# DEPRECATED rrNatGatewayId "Use generic-lens or generic-optics with 'natGatewayId' instead." #-}
+
+-- | The ID of a network interface.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrNetworkInterfaceId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.NetworkInterfaceId)
+rrNetworkInterfaceId = Lens.field @"networkInterfaceId"
+{-# DEPRECATED rrNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | The ID of a transit gateway.
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrTransitGatewayId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.TransitGatewayId)
+rrTransitGatewayId = Lens.field @"transitGatewayId"
+{-# DEPRECATED rrTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
+
+-- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+--
+-- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrVpcEndpointId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.VpcEndpointId)
+rrVpcEndpointId = Lens.field @"vpcEndpointId"
+{-# DEPRECATED rrVpcEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
+
+-- | The ID of a VPC peering connection.
+--
+-- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrVpcPeeringConnectionId :: Lens.Lens' ReplaceRoute (Core.Maybe Types.VpcPeeringConnectionId)
+rrVpcPeeringConnectionId = Lens.field @"vpcPeeringConnectionId"
+{-# DEPRECATED rrVpcPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
+
+instance Core.AWSRequest ReplaceRoute where
   type Rs ReplaceRoute = ReplaceRouteResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull ReplaceRouteResponse'
-
-instance Lude.ToHeaders ReplaceRoute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ReplaceRoute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ReplaceRoute where
-  toQuery ReplaceRoute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ReplaceRoute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "VpcPeeringConnectionId" Lude.=: vpcPeeringConnectionId,
-        "InstanceId" Lude.=: instanceId,
-        "EgressOnlyInternetGatewayId" Lude.=: egressOnlyInternetGatewayId,
-        "RouteTableId" Lude.=: routeTableId,
-        "DestinationIpv6CidrBlock" Lude.=: destinationIPv6CidrBlock,
-        "LocalGatewayId" Lude.=: localGatewayId,
-        "NatGatewayId" Lude.=: natGatewayId,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId,
-        "LocalTarget" Lude.=: localTarget,
-        "TransitGatewayId" Lude.=: transitGatewayId,
-        "GatewayId" Lude.=: gatewayId,
-        "VpcEndpointId" Lude.=: vpcEndpointId,
-        "DestinationPrefixListId" Lude.=: destinationPrefixListId,
-        "DryRun" Lude.=: dryRun,
-        "CarrierGatewayId" Lude.=: carrierGatewayId,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ReplaceRoute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "RouteTableId" routeTableId)
+                Core.<> (Core.toQueryValue "CarrierGatewayId" Core.<$> carrierGatewayId)
+                Core.<> ( Core.toQueryValue "DestinationCidrBlock"
+                            Core.<$> destinationCidrBlock
+                        )
+                Core.<> ( Core.toQueryValue "DestinationIpv6CidrBlock"
+                            Core.<$> destinationIpv6CidrBlock
+                        )
+                Core.<> ( Core.toQueryValue "DestinationPrefixListId"
+                            Core.<$> destinationPrefixListId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> ( Core.toQueryValue "EgressOnlyInternetGatewayId"
+                            Core.<$> egressOnlyInternetGatewayId
+                        )
+                Core.<> (Core.toQueryValue "GatewayId" Core.<$> gatewayId)
+                Core.<> (Core.toQueryValue "InstanceId" Core.<$> instanceId)
+                Core.<> (Core.toQueryValue "LocalGatewayId" Core.<$> localGatewayId)
+                Core.<> (Core.toQueryValue "LocalTarget" Core.<$> localTarget)
+                Core.<> (Core.toQueryValue "NatGatewayId" Core.<$> natGatewayId)
+                Core.<> ( Core.toQueryValue "NetworkInterfaceId"
+                            Core.<$> networkInterfaceId
+                        )
+                Core.<> (Core.toQueryValue "TransitGatewayId" Core.<$> transitGatewayId)
+                Core.<> (Core.toQueryValue "VpcEndpointId" Core.<$> vpcEndpointId)
+                Core.<> ( Core.toQueryValue "VpcPeeringConnectionId"
+                            Core.<$> vpcPeeringConnectionId
+                        )
+            )
+      }
+  response = Response.receiveNull ReplaceRouteResponse'
 
 -- | /See:/ 'mkReplaceRouteResponse' smart constructor.
 data ReplaceRouteResponse = ReplaceRouteResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceRouteResponse' with the minimum fields required to make a request.
+-- | Creates a 'ReplaceRouteResponse' value with any optional fields omitted.
 mkReplaceRouteResponse ::
   ReplaceRouteResponse
 mkReplaceRouteResponse = ReplaceRouteResponse'

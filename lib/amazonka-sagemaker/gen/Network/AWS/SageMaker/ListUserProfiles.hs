@@ -23,207 +23,192 @@ module Network.AWS.SageMaker.ListUserProfiles
 
     -- ** Request lenses
     lupDomainIdEquals,
-    lupUserProfileNameContains,
-    lupNextToken,
-    lupSortOrder,
     lupMaxResults,
+    lupNextToken,
     lupSortBy,
+    lupSortOrder,
+    lupUserProfileNameContains,
 
     -- * Destructuring the response
     ListUserProfilesResponse (..),
     mkListUserProfilesResponse,
 
     -- ** Response lenses
-    luprsUserProfiles,
-    luprsNextToken,
-    luprsResponseStatus,
+    luprrsNextToken,
+    luprrsUserProfiles,
+    luprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListUserProfiles' smart constructor.
 data ListUserProfiles = ListUserProfiles'
   { -- | A parameter by which to filter the results.
-    domainIdEquals :: Lude.Maybe Lude.Text,
-    -- | A parameter by which to filter the results.
-    userProfileNameContains :: Lude.Maybe Lude.Text,
-    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for the results. The default is Ascending.
-    sortOrder :: Lude.Maybe SortOrder,
+    domainIdEquals :: Core.Maybe Types.DomainIdEquals,
     -- | Returns a list up to a specified limit.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The parameter by which to sort the results. The default is CreationTime.
-    sortBy :: Lude.Maybe UserProfileSortKey
+    sortBy :: Core.Maybe Types.UserProfileSortKey,
+    -- | The sort order for the results. The default is Ascending.
+    sortOrder :: Core.Maybe Types.SortOrder,
+    -- | A parameter by which to filter the results.
+    userProfileNameContains :: Core.Maybe Types.UserProfileNameContains
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUserProfiles' with the minimum fields required to make a request.
---
--- * 'domainIdEquals' - A parameter by which to filter the results.
--- * 'userProfileNameContains' - A parameter by which to filter the results.
--- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
--- * 'sortOrder' - The sort order for the results. The default is Ascending.
--- * 'maxResults' - Returns a list up to a specified limit.
--- * 'sortBy' - The parameter by which to sort the results. The default is CreationTime.
+-- | Creates a 'ListUserProfiles' value with any optional fields omitted.
 mkListUserProfiles ::
   ListUserProfiles
 mkListUserProfiles =
   ListUserProfiles'
-    { domainIdEquals = Lude.Nothing,
-      userProfileNameContains = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { domainIdEquals = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing,
+      userProfileNameContains = Core.Nothing
     }
 
 -- | A parameter by which to filter the results.
 --
 -- /Note:/ Consider using 'domainIdEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupDomainIdEquals :: Lens.Lens' ListUserProfiles (Lude.Maybe Lude.Text)
-lupDomainIdEquals = Lens.lens (domainIdEquals :: ListUserProfiles -> Lude.Maybe Lude.Text) (\s a -> s {domainIdEquals = a} :: ListUserProfiles)
+lupDomainIdEquals :: Lens.Lens' ListUserProfiles (Core.Maybe Types.DomainIdEquals)
+lupDomainIdEquals = Lens.field @"domainIdEquals"
 {-# DEPRECATED lupDomainIdEquals "Use generic-lens or generic-optics with 'domainIdEquals' instead." #-}
-
--- | A parameter by which to filter the results.
---
--- /Note:/ Consider using 'userProfileNameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupUserProfileNameContains :: Lens.Lens' ListUserProfiles (Lude.Maybe Lude.Text)
-lupUserProfileNameContains = Lens.lens (userProfileNameContains :: ListUserProfiles -> Lude.Maybe Lude.Text) (\s a -> s {userProfileNameContains = a} :: ListUserProfiles)
-{-# DEPRECATED lupUserProfileNameContains "Use generic-lens or generic-optics with 'userProfileNameContains' instead." #-}
-
--- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupNextToken :: Lens.Lens' ListUserProfiles (Lude.Maybe Lude.Text)
-lupNextToken = Lens.lens (nextToken :: ListUserProfiles -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUserProfiles)
-{-# DEPRECATED lupNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for the results. The default is Ascending.
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupSortOrder :: Lens.Lens' ListUserProfiles (Lude.Maybe SortOrder)
-lupSortOrder = Lens.lens (sortOrder :: ListUserProfiles -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListUserProfiles)
-{-# DEPRECATED lupSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | Returns a list up to a specified limit.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupMaxResults :: Lens.Lens' ListUserProfiles (Lude.Maybe Lude.Natural)
-lupMaxResults = Lens.lens (maxResults :: ListUserProfiles -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUserProfiles)
+lupMaxResults :: Lens.Lens' ListUserProfiles (Core.Maybe Core.Natural)
+lupMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lupMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The parameter by which to sort the results. The default is CreationTime.
---
--- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupSortBy :: Lens.Lens' ListUserProfiles (Lude.Maybe UserProfileSortKey)
-lupSortBy = Lens.lens (sortBy :: ListUserProfiles -> Lude.Maybe UserProfileSortKey) (\s a -> s {sortBy = a} :: ListUserProfiles)
-{-# DEPRECATED lupSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
-
-instance Page.AWSPager ListUserProfiles where
-  page rq rs
-    | Page.stop (rs Lens.^. luprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. luprsUserProfiles) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lupNextToken Lens..~ rs Lens.^. luprsNextToken
-
-instance Lude.AWSRequest ListUserProfiles where
-  type Rs ListUserProfiles = ListUserProfilesResponse
-  request = Req.postJSON sageMakerService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListUserProfilesResponse'
-            Lude.<$> (x Lude..?> "UserProfiles" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListUserProfiles where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListUserProfiles" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListUserProfiles where
-  toJSON ListUserProfiles' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DomainIdEquals" Lude..=) Lude.<$> domainIdEquals,
-            ("UserProfileNameContains" Lude..=)
-              Lude.<$> userProfileNameContains,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListUserProfiles where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListUserProfiles where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkListUserProfilesResponse' smart constructor.
-data ListUserProfilesResponse = ListUserProfilesResponse'
-  { -- | The list of user profiles.
-    userProfiles :: Lude.Maybe [UserProfileDetails],
-    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListUserProfilesResponse' with the minimum fields required to make a request.
---
--- * 'userProfiles' - The list of user profiles.
--- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
--- * 'responseStatus' - The response status code.
-mkListUserProfilesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListUserProfilesResponse
-mkListUserProfilesResponse pResponseStatus_ =
-  ListUserProfilesResponse'
-    { userProfiles = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | The list of user profiles.
---
--- /Note:/ Consider using 'userProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luprsUserProfiles :: Lens.Lens' ListUserProfilesResponse (Lude.Maybe [UserProfileDetails])
-luprsUserProfiles = Lens.lens (userProfiles :: ListUserProfilesResponse -> Lude.Maybe [UserProfileDetails]) (\s a -> s {userProfiles = a} :: ListUserProfilesResponse)
-{-# DEPRECATED luprsUserProfiles "Use generic-lens or generic-optics with 'userProfiles' instead." #-}
 
 -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luprsNextToken :: Lens.Lens' ListUserProfilesResponse (Lude.Maybe Lude.Text)
-luprsNextToken = Lens.lens (nextToken :: ListUserProfilesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUserProfilesResponse)
-{-# DEPRECATED luprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lupNextToken :: Lens.Lens' ListUserProfiles (Core.Maybe Types.NextToken)
+lupNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lupNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The parameter by which to sort the results. The default is CreationTime.
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupSortBy :: Lens.Lens' ListUserProfiles (Core.Maybe Types.UserProfileSortKey)
+lupSortBy = Lens.field @"sortBy"
+{-# DEPRECATED lupSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
+
+-- | The sort order for the results. The default is Ascending.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupSortOrder :: Lens.Lens' ListUserProfiles (Core.Maybe Types.SortOrder)
+lupSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED lupSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+
+-- | A parameter by which to filter the results.
+--
+-- /Note:/ Consider using 'userProfileNameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupUserProfileNameContains :: Lens.Lens' ListUserProfiles (Core.Maybe Types.UserProfileNameContains)
+lupUserProfileNameContains = Lens.field @"userProfileNameContains"
+{-# DEPRECATED lupUserProfileNameContains "Use generic-lens or generic-optics with 'userProfileNameContains' instead." #-}
+
+instance Core.FromJSON ListUserProfiles where
+  toJSON ListUserProfiles {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DomainIdEquals" Core..=) Core.<$> domainIdEquals,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("UserProfileNameContains" Core..=)
+              Core.<$> userProfileNameContains
+          ]
+      )
+
+instance Core.AWSRequest ListUserProfiles where
+  type Rs ListUserProfiles = ListUserProfilesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListUserProfiles")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListUserProfilesResponse'
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "UserProfiles")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListUserProfiles where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"userProfiles" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListUserProfilesResponse' smart constructor.
+data ListUserProfilesResponse = ListUserProfilesResponse'
+  { -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The list of user profiles.
+    userProfiles :: Core.Maybe [Types.UserProfileDetails],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListUserProfilesResponse' value with any optional fields omitted.
+mkListUserProfilesResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListUserProfilesResponse
+mkListUserProfilesResponse responseStatus =
+  ListUserProfilesResponse'
+    { nextToken = Core.Nothing,
+      userProfiles = Core.Nothing,
+      responseStatus
+    }
+
+-- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprrsNextToken :: Lens.Lens' ListUserProfilesResponse (Core.Maybe Types.NextToken)
+luprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED luprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The list of user profiles.
+--
+-- /Note:/ Consider using 'userProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprrsUserProfiles :: Lens.Lens' ListUserProfilesResponse (Core.Maybe [Types.UserProfileDetails])
+luprrsUserProfiles = Lens.field @"userProfiles"
+{-# DEPRECATED luprrsUserProfiles "Use generic-lens or generic-optics with 'userProfiles' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luprsResponseStatus :: Lens.Lens' ListUserProfilesResponse Lude.Int
-luprsResponseStatus = Lens.lens (responseStatus :: ListUserProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUserProfilesResponse)
-{-# DEPRECATED luprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+luprrsResponseStatus :: Lens.Lens' ListUserProfilesResponse Core.Int
+luprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED luprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

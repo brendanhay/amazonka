@@ -17,53 +17,44 @@ module Network.AWS.Kinesis.Types.PutRecordsRequestEntry
     mkPutRecordsRequestEntry,
 
     -- * Lenses
-    prrePartitionKey,
     prreData,
+    prrePartitionKey,
     prreExplicitHashKey,
   )
 where
 
+import qualified Network.AWS.Kinesis.Types.ExplicitHashKey as Types
+import qualified Network.AWS.Kinesis.Types.PartitionKey as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output for @PutRecords@ .
 --
 -- /See:/ 'mkPutRecordsRequestEntry' smart constructor.
 data PutRecordsRequestEntry = PutRecordsRequestEntry'
-  { -- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
-    partitionKey :: Lude.Text,
-    -- | The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
-    data' :: Lude.Base64,
+  { -- | The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
+    data' :: Core.Base64,
+    -- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+    partitionKey :: Types.PartitionKey,
     -- | The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.
-    explicitHashKey :: Lude.Maybe Lude.Text
+    explicitHashKey :: Core.Maybe Types.ExplicitHashKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecordsRequestEntry' with the minimum fields required to make a request.
---
--- * 'partitionKey' - Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
--- * 'data'' - The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
--- * 'explicitHashKey' - The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.
+-- | Creates a 'PutRecordsRequestEntry' value with any optional fields omitted.
 mkPutRecordsRequestEntry ::
+  -- | 'data\''
+  Core.Base64 ->
   -- | 'partitionKey'
-  Lude.Text ->
-  -- | 'data''
-  Lude.Base64 ->
+  Types.PartitionKey ->
   PutRecordsRequestEntry
-mkPutRecordsRequestEntry pPartitionKey_ pData_ =
+mkPutRecordsRequestEntry data' partitionKey =
   PutRecordsRequestEntry'
-    { partitionKey = pPartitionKey_,
-      data' = pData_,
-      explicitHashKey = Lude.Nothing
+    { data',
+      partitionKey,
+      explicitHashKey = Core.Nothing
     }
-
--- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
---
--- /Note:/ Consider using 'partitionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prrePartitionKey :: Lens.Lens' PutRecordsRequestEntry Lude.Text
-prrePartitionKey = Lens.lens (partitionKey :: PutRecordsRequestEntry -> Lude.Text) (\s a -> s {partitionKey = a} :: PutRecordsRequestEntry)
-{-# DEPRECATED prrePartitionKey "Use generic-lens or generic-optics with 'partitionKey' instead." #-}
 
 -- | The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -72,23 +63,30 @@ prrePartitionKey = Lens.lens (partitionKey :: PutRecordsRequestEntry -> Lude.Tex
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prreData :: Lens.Lens' PutRecordsRequestEntry Lude.Base64
-prreData = Lens.lens (data' :: PutRecordsRequestEntry -> Lude.Base64) (\s a -> s {data' = a} :: PutRecordsRequestEntry)
+prreData :: Lens.Lens' PutRecordsRequestEntry Core.Base64
+prreData = Lens.field @"data'"
 {-# DEPRECATED prreData "Use generic-lens or generic-optics with 'data'' instead." #-}
+
+-- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+--
+-- /Note:/ Consider using 'partitionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrePartitionKey :: Lens.Lens' PutRecordsRequestEntry Types.PartitionKey
+prrePartitionKey = Lens.field @"partitionKey"
+{-# DEPRECATED prrePartitionKey "Use generic-lens or generic-optics with 'partitionKey' instead." #-}
 
 -- | The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.
 --
 -- /Note:/ Consider using 'explicitHashKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prreExplicitHashKey :: Lens.Lens' PutRecordsRequestEntry (Lude.Maybe Lude.Text)
-prreExplicitHashKey = Lens.lens (explicitHashKey :: PutRecordsRequestEntry -> Lude.Maybe Lude.Text) (\s a -> s {explicitHashKey = a} :: PutRecordsRequestEntry)
+prreExplicitHashKey :: Lens.Lens' PutRecordsRequestEntry (Core.Maybe Types.ExplicitHashKey)
+prreExplicitHashKey = Lens.field @"explicitHashKey"
 {-# DEPRECATED prreExplicitHashKey "Use generic-lens or generic-optics with 'explicitHashKey' instead." #-}
 
-instance Lude.ToJSON PutRecordsRequestEntry where
-  toJSON PutRecordsRequestEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PartitionKey" Lude..= partitionKey),
-            Lude.Just ("Data" Lude..= data'),
-            ("ExplicitHashKey" Lude..=) Lude.<$> explicitHashKey
+instance Core.FromJSON PutRecordsRequestEntry where
+  toJSON PutRecordsRequestEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Data" Core..= data'),
+            Core.Just ("PartitionKey" Core..= partitionKey),
+            ("ExplicitHashKey" Core..=) Core.<$> explicitHashKey
           ]
       )

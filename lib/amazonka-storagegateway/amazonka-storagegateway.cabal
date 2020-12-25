@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.StorageGateway
     Network.AWS.StorageGateway.ActivateGateway
@@ -155,41 +161,135 @@ library
     Network.AWS.StorageGateway.Waiters
 
   other-modules:
+    Network.AWS.StorageGateway.Types.ActivationKey
     Network.AWS.StorageGateway.Types.ActiveDirectoryStatus
+    Network.AWS.StorageGateway.Types.AuditDestinationARN
+    Network.AWS.StorageGateway.Types.Authentication
     Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo
     Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
     Network.AWS.StorageGateway.Types.AvailabilityMonitorTestStatus
     Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval
+    Network.AWS.StorageGateway.Types.BandwidthType
     Network.AWS.StorageGateway.Types.CacheAttributes
     Network.AWS.StorageGateway.Types.CachediSCSIVolume
     Network.AWS.StorageGateway.Types.CaseSensitivity
     Network.AWS.StorageGateway.Types.ChapInfo
+    Network.AWS.StorageGateway.Types.ClientToken
+    Network.AWS.StorageGateway.Types.CloudWatchLogGroupARN
+    Network.AWS.StorageGateway.Types.DefaultStorageClass
+    Network.AWS.StorageGateway.Types.DeprecationDate
+    Network.AWS.StorageGateway.Types.Description
     Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
+    Network.AWS.StorageGateway.Types.DeviceType
+    Network.AWS.StorageGateway.Types.DirectoryMode
     Network.AWS.StorageGateway.Types.Disk
+    Network.AWS.StorageGateway.Types.DiskAllocationResource
+    Network.AWS.StorageGateway.Types.DiskAllocationType
+    Network.AWS.StorageGateway.Types.DiskAttribute
+    Network.AWS.StorageGateway.Types.DiskId
+    Network.AWS.StorageGateway.Types.DiskNode
+    Network.AWS.StorageGateway.Types.DiskPath
+    Network.AWS.StorageGateway.Types.DiskStatus
+    Network.AWS.StorageGateway.Types.DomainName
+    Network.AWS.StorageGateway.Types.DomainUserName
+    Network.AWS.StorageGateway.Types.DomainUserPassword
+    Network.AWS.StorageGateway.Types.Ec2InstanceId
+    Network.AWS.StorageGateway.Types.Ec2InstanceRegion
+    Network.AWS.StorageGateway.Types.EndpointType
+    Network.AWS.StorageGateway.Types.FileMode
+    Network.AWS.StorageGateway.Types.FileShareARN
+    Network.AWS.StorageGateway.Types.FileShareId
     Network.AWS.StorageGateway.Types.FileShareInfo
+    Network.AWS.StorageGateway.Types.FileShareName
+    Network.AWS.StorageGateway.Types.FileShareStatus
     Network.AWS.StorageGateway.Types.FileShareType
+    Network.AWS.StorageGateway.Types.FileShareUser
+    Network.AWS.StorageGateway.Types.Folder
+    Network.AWS.StorageGateway.Types.GatewayARN
+    Network.AWS.StorageGateway.Types.GatewayId
     Network.AWS.StorageGateway.Types.GatewayInfo
+    Network.AWS.StorageGateway.Types.GatewayName
+    Network.AWS.StorageGateway.Types.GatewayOperationalState
+    Network.AWS.StorageGateway.Types.GatewayState
+    Network.AWS.StorageGateway.Types.GatewayTimezone
+    Network.AWS.StorageGateway.Types.GatewayType
+    Network.AWS.StorageGateway.Types.Host
     Network.AWS.StorageGateway.Types.HostEnvironment
+    Network.AWS.StorageGateway.Types.Initiator
+    Network.AWS.StorageGateway.Types.InitiatorName
+    Network.AWS.StorageGateway.Types.IPV4AddressCIDR
+    Network.AWS.StorageGateway.Types.IqnName
+    Network.AWS.StorageGateway.Types.Key
+    Network.AWS.StorageGateway.Types.KMSKey
+    Network.AWS.StorageGateway.Types.LastSoftwareUpdate
+    Network.AWS.StorageGateway.Types.LocalConsolePassword
+    Network.AWS.StorageGateway.Types.LocationARN
+    Network.AWS.StorageGateway.Types.Marker
+    Network.AWS.StorageGateway.Types.MediumChangerType
     Network.AWS.StorageGateway.Types.NetworkInterface
+    Network.AWS.StorageGateway.Types.NetworkInterfaceId
+    Network.AWS.StorageGateway.Types.NextUpdateAvailabilityDate
     Network.AWS.StorageGateway.Types.NFSFileShareDefaults
     Network.AWS.StorageGateway.Types.NFSFileShareInfo
+    Network.AWS.StorageGateway.Types.NotificationId
+    Network.AWS.StorageGateway.Types.NotificationPolicy
     Network.AWS.StorageGateway.Types.ObjectACL
+    Network.AWS.StorageGateway.Types.OrganizationalUnit
+    Network.AWS.StorageGateway.Types.Password
+    Network.AWS.StorageGateway.Types.Path
+    Network.AWS.StorageGateway.Types.PoolARN
+    Network.AWS.StorageGateway.Types.PoolId
     Network.AWS.StorageGateway.Types.PoolInfo
+    Network.AWS.StorageGateway.Types.PoolName
     Network.AWS.StorageGateway.Types.PoolStatus
+    Network.AWS.StorageGateway.Types.RegionId
+    Network.AWS.StorageGateway.Types.ResourceARN
     Network.AWS.StorageGateway.Types.RetentionLockType
+    Network.AWS.StorageGateway.Types.Role
+    Network.AWS.StorageGateway.Types.SecretToAuthenticateInitiator
+    Network.AWS.StorageGateway.Types.SecretToAuthenticateTarget
     Network.AWS.StorageGateway.Types.SMBFileShareInfo
     Network.AWS.StorageGateway.Types.SMBSecurityStrategy
+    Network.AWS.StorageGateway.Types.SnapshotDescription
+    Network.AWS.StorageGateway.Types.SnapshotId
+    Network.AWS.StorageGateway.Types.SoftwareUpdatesEndDate
+    Network.AWS.StorageGateway.Types.SourceSnapshotId
+    Network.AWS.StorageGateway.Types.Squash
+    Network.AWS.StorageGateway.Types.StorageClass
     Network.AWS.StorageGateway.Types.StorediSCSIVolume
+    Network.AWS.StorageGateway.Types.String
     Network.AWS.StorageGateway.Types.Tag
+    Network.AWS.StorageGateway.Types.TagKey
     Network.AWS.StorageGateway.Types.Tape
     Network.AWS.StorageGateway.Types.TapeArchive
+    Network.AWS.StorageGateway.Types.TapeArchiveStatus
+    Network.AWS.StorageGateway.Types.TapeARN
+    Network.AWS.StorageGateway.Types.TapeBarcode
+    Network.AWS.StorageGateway.Types.TapeBarcodePrefix
+    Network.AWS.StorageGateway.Types.TapeDriveType
     Network.AWS.StorageGateway.Types.TapeInfo
     Network.AWS.StorageGateway.Types.TapeRecoveryPointInfo
+    Network.AWS.StorageGateway.Types.TapeRecoveryPointStatus
+    Network.AWS.StorageGateway.Types.TapeStatus
     Network.AWS.StorageGateway.Types.TapeStorageClass
+    Network.AWS.StorageGateway.Types.TargetARN
+    Network.AWS.StorageGateway.Types.TargetName
+    Network.AWS.StorageGateway.Types.Timezone
+    Network.AWS.StorageGateway.Types.Value
+    Network.AWS.StorageGateway.Types.VolumeARN
+    Network.AWS.StorageGateway.Types.VolumeAttachmentStatus
+    Network.AWS.StorageGateway.Types.VolumeDiskId
+    Network.AWS.StorageGateway.Types.VolumeId
     Network.AWS.StorageGateway.Types.VolumeInfo
     Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes
     Network.AWS.StorageGateway.Types.VolumeRecoveryPointInfo
+    Network.AWS.StorageGateway.Types.VolumeStatus
+    Network.AWS.StorageGateway.Types.VolumeType
     Network.AWS.StorageGateway.Types.VTLDevice
+    Network.AWS.StorageGateway.Types.VTLDeviceARN
+    Network.AWS.StorageGateway.Types.VTLDeviceProductIdentifier
+    Network.AWS.StorageGateway.Types.VTLDeviceType
+    Network.AWS.StorageGateway.Types.VTLDeviceVendor
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

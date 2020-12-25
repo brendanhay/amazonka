@@ -17,19 +17,24 @@ module Network.AWS.CostExplorer.Types.CostCategoryReference
     mkCostCategoryReference,
 
     -- * Lenses
-    ccrEffectiveStart,
-    ccrValues,
-    ccrCostCategoryARN,
-    ccrProcessingStatus,
-    ccrNumberOfRules,
-    ccrName,
+    ccrCostCategoryArn,
     ccrEffectiveEnd,
+    ccrEffectiveStart,
+    ccrName,
+    ccrNumberOfRules,
+    ccrProcessingStatus,
+    ccrValues,
   )
 where
 
-import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
+import qualified Network.AWS.CostExplorer.Types.Arn as Types
+import qualified Network.AWS.CostExplorer.Types.CostCategoryName as Types
+import qualified Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus as Types
+import qualified Network.AWS.CostExplorer.Types.CostCategoryValue as Types
+import qualified Network.AWS.CostExplorer.Types.EffectiveEnd as Types
+import qualified Network.AWS.CostExplorer.Types.EffectiveStart as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A reference to a Cost Category containing only enough information to identify the Cost Category.
 --
@@ -37,105 +42,95 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCostCategoryReference' smart constructor.
 data CostCategoryReference = CostCategoryReference'
-  { -- | The Cost Category's effective start date.
-    effectiveStart :: Lude.Maybe Lude.Text,
-    -- | A list of unique cost category values in a specific cost category.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The unique identifier for your Cost Category.
-    costCategoryARN :: Lude.Maybe Lude.Text,
-    -- | The list of processing statuses for Cost Management products for a specific cost category.
-    processingStatus :: Lude.Maybe [CostCategoryProcessingStatus],
-    -- | The number of rules associated with a specific Cost Category.
-    numberOfRules :: Lude.Maybe Lude.Natural,
-    name :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier for your Cost Category.
+    costCategoryArn :: Core.Maybe Types.Arn,
     -- | The Cost Category's effective end date.
-    effectiveEnd :: Lude.Maybe Lude.Text
+    effectiveEnd :: Core.Maybe Types.EffectiveEnd,
+    -- | The Cost Category's effective start date.
+    effectiveStart :: Core.Maybe Types.EffectiveStart,
+    name :: Core.Maybe Types.CostCategoryName,
+    -- | The number of rules associated with a specific Cost Category.
+    numberOfRules :: Core.Maybe Core.Natural,
+    -- | The list of processing statuses for Cost Management products for a specific cost category.
+    processingStatus :: Core.Maybe [Types.CostCategoryProcessingStatus],
+    -- | A list of unique cost category values in a specific cost category.
+    values :: Core.Maybe [Types.CostCategoryValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CostCategoryReference' with the minimum fields required to make a request.
---
--- * 'effectiveStart' - The Cost Category's effective start date.
--- * 'values' - A list of unique cost category values in a specific cost category.
--- * 'costCategoryARN' - The unique identifier for your Cost Category.
--- * 'processingStatus' - The list of processing statuses for Cost Management products for a specific cost category.
--- * 'numberOfRules' - The number of rules associated with a specific Cost Category.
--- * 'name' -
--- * 'effectiveEnd' - The Cost Category's effective end date.
+-- | Creates a 'CostCategoryReference' value with any optional fields omitted.
 mkCostCategoryReference ::
   CostCategoryReference
 mkCostCategoryReference =
   CostCategoryReference'
-    { effectiveStart = Lude.Nothing,
-      values = Lude.Nothing,
-      costCategoryARN = Lude.Nothing,
-      processingStatus = Lude.Nothing,
-      numberOfRules = Lude.Nothing,
-      name = Lude.Nothing,
-      effectiveEnd = Lude.Nothing
+    { costCategoryArn = Core.Nothing,
+      effectiveEnd = Core.Nothing,
+      effectiveStart = Core.Nothing,
+      name = Core.Nothing,
+      numberOfRules = Core.Nothing,
+      processingStatus = Core.Nothing,
+      values = Core.Nothing
     }
-
--- | The Cost Category's effective start date.
---
--- /Note:/ Consider using 'effectiveStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrEffectiveStart :: Lens.Lens' CostCategoryReference (Lude.Maybe Lude.Text)
-ccrEffectiveStart = Lens.lens (effectiveStart :: CostCategoryReference -> Lude.Maybe Lude.Text) (\s a -> s {effectiveStart = a} :: CostCategoryReference)
-{-# DEPRECATED ccrEffectiveStart "Use generic-lens or generic-optics with 'effectiveStart' instead." #-}
-
--- | A list of unique cost category values in a specific cost category.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrValues :: Lens.Lens' CostCategoryReference (Lude.Maybe [Lude.Text])
-ccrValues = Lens.lens (values :: CostCategoryReference -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: CostCategoryReference)
-{-# DEPRECATED ccrValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The unique identifier for your Cost Category.
 --
--- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrCostCategoryARN :: Lens.Lens' CostCategoryReference (Lude.Maybe Lude.Text)
-ccrCostCategoryARN = Lens.lens (costCategoryARN :: CostCategoryReference -> Lude.Maybe Lude.Text) (\s a -> s {costCategoryARN = a} :: CostCategoryReference)
-{-# DEPRECATED ccrCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
-
--- | The list of processing statuses for Cost Management products for a specific cost category.
---
--- /Note:/ Consider using 'processingStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrProcessingStatus :: Lens.Lens' CostCategoryReference (Lude.Maybe [CostCategoryProcessingStatus])
-ccrProcessingStatus = Lens.lens (processingStatus :: CostCategoryReference -> Lude.Maybe [CostCategoryProcessingStatus]) (\s a -> s {processingStatus = a} :: CostCategoryReference)
-{-# DEPRECATED ccrProcessingStatus "Use generic-lens or generic-optics with 'processingStatus' instead." #-}
-
--- | The number of rules associated with a specific Cost Category.
---
--- /Note:/ Consider using 'numberOfRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrNumberOfRules :: Lens.Lens' CostCategoryReference (Lude.Maybe Lude.Natural)
-ccrNumberOfRules = Lens.lens (numberOfRules :: CostCategoryReference -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfRules = a} :: CostCategoryReference)
-{-# DEPRECATED ccrNumberOfRules "Use generic-lens or generic-optics with 'numberOfRules' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrName :: Lens.Lens' CostCategoryReference (Lude.Maybe Lude.Text)
-ccrName = Lens.lens (name :: CostCategoryReference -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CostCategoryReference)
-{-# DEPRECATED ccrName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'costCategoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrCostCategoryArn :: Lens.Lens' CostCategoryReference (Core.Maybe Types.Arn)
+ccrCostCategoryArn = Lens.field @"costCategoryArn"
+{-# DEPRECATED ccrCostCategoryArn "Use generic-lens or generic-optics with 'costCategoryArn' instead." #-}
 
 -- | The Cost Category's effective end date.
 --
 -- /Note:/ Consider using 'effectiveEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrEffectiveEnd :: Lens.Lens' CostCategoryReference (Lude.Maybe Lude.Text)
-ccrEffectiveEnd = Lens.lens (effectiveEnd :: CostCategoryReference -> Lude.Maybe Lude.Text) (\s a -> s {effectiveEnd = a} :: CostCategoryReference)
+ccrEffectiveEnd :: Lens.Lens' CostCategoryReference (Core.Maybe Types.EffectiveEnd)
+ccrEffectiveEnd = Lens.field @"effectiveEnd"
 {-# DEPRECATED ccrEffectiveEnd "Use generic-lens or generic-optics with 'effectiveEnd' instead." #-}
 
-instance Lude.FromJSON CostCategoryReference where
+-- | The Cost Category's effective start date.
+--
+-- /Note:/ Consider using 'effectiveStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrEffectiveStart :: Lens.Lens' CostCategoryReference (Core.Maybe Types.EffectiveStart)
+ccrEffectiveStart = Lens.field @"effectiveStart"
+{-# DEPRECATED ccrEffectiveStart "Use generic-lens or generic-optics with 'effectiveStart' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrName :: Lens.Lens' CostCategoryReference (Core.Maybe Types.CostCategoryName)
+ccrName = Lens.field @"name"
+{-# DEPRECATED ccrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The number of rules associated with a specific Cost Category.
+--
+-- /Note:/ Consider using 'numberOfRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrNumberOfRules :: Lens.Lens' CostCategoryReference (Core.Maybe Core.Natural)
+ccrNumberOfRules = Lens.field @"numberOfRules"
+{-# DEPRECATED ccrNumberOfRules "Use generic-lens or generic-optics with 'numberOfRules' instead." #-}
+
+-- | The list of processing statuses for Cost Management products for a specific cost category.
+--
+-- /Note:/ Consider using 'processingStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrProcessingStatus :: Lens.Lens' CostCategoryReference (Core.Maybe [Types.CostCategoryProcessingStatus])
+ccrProcessingStatus = Lens.field @"processingStatus"
+{-# DEPRECATED ccrProcessingStatus "Use generic-lens or generic-optics with 'processingStatus' instead." #-}
+
+-- | A list of unique cost category values in a specific cost category.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrValues :: Lens.Lens' CostCategoryReference (Core.Maybe [Types.CostCategoryValue])
+ccrValues = Lens.field @"values"
+{-# DEPRECATED ccrValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON CostCategoryReference where
   parseJSON =
-    Lude.withObject
-      "CostCategoryReference"
-      ( \x ->
-          CostCategoryReference'
-            Lude.<$> (x Lude..:? "EffectiveStart")
-            Lude.<*> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CostCategoryArn")
-            Lude.<*> (x Lude..:? "ProcessingStatus" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NumberOfRules")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "EffectiveEnd")
-      )
+    Core.withObject "CostCategoryReference" Core.$
+      \x ->
+        CostCategoryReference'
+          Core.<$> (x Core..:? "CostCategoryArn")
+          Core.<*> (x Core..:? "EffectiveEnd")
+          Core.<*> (x Core..:? "EffectiveStart")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "NumberOfRules")
+          Core.<*> (x Core..:? "ProcessingStatus")
+          Core.<*> (x Core..:? "Values")

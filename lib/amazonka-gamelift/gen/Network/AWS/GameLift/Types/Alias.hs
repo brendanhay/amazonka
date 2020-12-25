@@ -17,19 +17,23 @@ module Network.AWS.GameLift.Types.Alias
     mkAlias,
 
     -- * Lenses
-    aCreationTime,
-    aLastUpdatedTime,
+    aAliasArn,
     aAliasId,
-    aRoutingStrategy,
-    aName,
-    aAliasARN,
+    aCreationTime,
     aDescription,
+    aLastUpdatedTime,
+    aName,
+    aRoutingStrategy,
   )
 where
 
-import Network.AWS.GameLift.Types.RoutingStrategy
+import qualified Network.AWS.GameLift.Types.AliasArn as Types
+import qualified Network.AWS.GameLift.Types.AliasId as Types
+import qualified Network.AWS.GameLift.Types.Description as Types
+import qualified Network.AWS.GameLift.Types.Name as Types
+import qualified Network.AWS.GameLift.Types.RoutingStrategy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Properties that describe an alias resource.
 --
@@ -55,106 +59,96 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAlias' smart constructor.
 data Alias = Alias'
-  { -- | A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
+  { -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.
+    aliasArn :: Core.Maybe Types.AliasArn,
     -- | A unique identifier for an alias. Alias IDs are unique within a Region.
-    aliasId :: Lude.Maybe Lude.Text,
-    -- | The routing configuration, including routing type and fleet target, for the alias.
-    routingStrategy :: Lude.Maybe RoutingStrategy,
-    -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
-    name :: Lude.Maybe Lude.Text,
-    -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.
-    aliasARN :: Lude.Maybe Lude.Text,
+    aliasId :: Core.Maybe Types.AliasId,
+    -- | A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | A human-readable description of an alias.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    lastUpdatedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
+    name :: Core.Maybe Types.Name,
+    -- | The routing configuration, including routing type and fleet target, for the alias.
+    routingStrategy :: Core.Maybe Types.RoutingStrategy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Alias' with the minimum fields required to make a request.
---
--- * 'creationTime' - A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'lastUpdatedTime' - The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'aliasId' - A unique identifier for an alias. Alias IDs are unique within a Region.
--- * 'routingStrategy' - The routing configuration, including routing type and fleet target, for the alias.
--- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
--- * 'aliasARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.
--- * 'description' - A human-readable description of an alias.
+-- | Creates a 'Alias' value with any optional fields omitted.
 mkAlias ::
   Alias
 mkAlias =
   Alias'
-    { creationTime = Lude.Nothing,
-      lastUpdatedTime = Lude.Nothing,
-      aliasId = Lude.Nothing,
-      routingStrategy = Lude.Nothing,
-      name = Lude.Nothing,
-      aliasARN = Lude.Nothing,
-      description = Lude.Nothing
+    { aliasArn = Core.Nothing,
+      aliasId = Core.Nothing,
+      creationTime = Core.Nothing,
+      description = Core.Nothing,
+      lastUpdatedTime = Core.Nothing,
+      name = Core.Nothing,
+      routingStrategy = Core.Nothing
     }
 
--- | A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.
 --
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCreationTime :: Lens.Lens' Alias (Lude.Maybe Lude.Timestamp)
-aCreationTime = Lens.lens (creationTime :: Alias -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Alias)
-{-# DEPRECATED aCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
---
--- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aLastUpdatedTime :: Lens.Lens' Alias (Lude.Maybe Lude.Timestamp)
-aLastUpdatedTime = Lens.lens (lastUpdatedTime :: Alias -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedTime = a} :: Alias)
-{-# DEPRECATED aLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
+-- /Note:/ Consider using 'aliasArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAliasArn :: Lens.Lens' Alias (Core.Maybe Types.AliasArn)
+aAliasArn = Lens.field @"aliasArn"
+{-# DEPRECATED aAliasArn "Use generic-lens or generic-optics with 'aliasArn' instead." #-}
 
 -- | A unique identifier for an alias. Alias IDs are unique within a Region.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAliasId :: Lens.Lens' Alias (Lude.Maybe Lude.Text)
-aAliasId = Lens.lens (aliasId :: Alias -> Lude.Maybe Lude.Text) (\s a -> s {aliasId = a} :: Alias)
+aAliasId :: Lens.Lens' Alias (Core.Maybe Types.AliasId)
+aAliasId = Lens.field @"aliasId"
 {-# DEPRECATED aAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
--- | The routing configuration, including routing type and fleet target, for the alias.
+-- | A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- /Note:/ Consider using 'routingStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aRoutingStrategy :: Lens.Lens' Alias (Lude.Maybe RoutingStrategy)
-aRoutingStrategy = Lens.lens (routingStrategy :: Alias -> Lude.Maybe RoutingStrategy) (\s a -> s {routingStrategy = a} :: Alias)
-{-# DEPRECATED aRoutingStrategy "Use generic-lens or generic-optics with 'routingStrategy' instead." #-}
-
--- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aName :: Lens.Lens' Alias (Lude.Maybe Lude.Text)
-aName = Lens.lens (name :: Alias -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Alias)
-{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.
---
--- /Note:/ Consider using 'aliasARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAliasARN :: Lens.Lens' Alias (Lude.Maybe Lude.Text)
-aAliasARN = Lens.lens (aliasARN :: Alias -> Lude.Maybe Lude.Text) (\s a -> s {aliasARN = a} :: Alias)
-{-# DEPRECATED aAliasARN "Use generic-lens or generic-optics with 'aliasARN' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCreationTime :: Lens.Lens' Alias (Core.Maybe Core.NominalDiffTime)
+aCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED aCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A human-readable description of an alias.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aDescription :: Lens.Lens' Alias (Lude.Maybe Lude.Text)
-aDescription = Lens.lens (description :: Alias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Alias)
+aDescription :: Lens.Lens' Alias (Core.Maybe Types.Description)
+aDescription = Lens.field @"description"
 {-# DEPRECATED aDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON Alias where
+-- | The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLastUpdatedTime :: Lens.Lens' Alias (Core.Maybe Core.NominalDiffTime)
+aLastUpdatedTime = Lens.field @"lastUpdatedTime"
+{-# DEPRECATED aLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
+
+-- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aName :: Lens.Lens' Alias (Core.Maybe Types.Name)
+aName = Lens.field @"name"
+{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The routing configuration, including routing type and fleet target, for the alias.
+--
+-- /Note:/ Consider using 'routingStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRoutingStrategy :: Lens.Lens' Alias (Core.Maybe Types.RoutingStrategy)
+aRoutingStrategy = Lens.field @"routingStrategy"
+{-# DEPRECATED aRoutingStrategy "Use generic-lens or generic-optics with 'routingStrategy' instead." #-}
+
+instance Core.FromJSON Alias where
   parseJSON =
-    Lude.withObject
-      "Alias"
-      ( \x ->
-          Alias'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "LastUpdatedTime")
-            Lude.<*> (x Lude..:? "AliasId")
-            Lude.<*> (x Lude..:? "RoutingStrategy")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "AliasArn")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "Alias" Core.$
+      \x ->
+        Alias'
+          Core.<$> (x Core..:? "AliasArn")
+          Core.<*> (x Core..:? "AliasId")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "LastUpdatedTime")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "RoutingStrategy")

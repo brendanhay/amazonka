@@ -13,56 +13,61 @@
 module Network.AWS.CognitoSync.Types.BulkPublishStatus
   ( BulkPublishStatus
       ( BulkPublishStatus',
-        NotStarted,
-        InProgress,
-        Failed,
-        Succeeded
+        BulkPublishStatusNotStarted,
+        BulkPublishStatusInProgress,
+        BulkPublishStatusFailed,
+        BulkPublishStatusSucceeded,
+        fromBulkPublishStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BulkPublishStatus = BulkPublishStatus' Lude.Text
+newtype BulkPublishStatus = BulkPublishStatus'
+  { fromBulkPublishStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotStarted :: BulkPublishStatus
-pattern NotStarted = BulkPublishStatus' "NOT_STARTED"
+pattern BulkPublishStatusNotStarted :: BulkPublishStatus
+pattern BulkPublishStatusNotStarted = BulkPublishStatus' "NOT_STARTED"
 
-pattern InProgress :: BulkPublishStatus
-pattern InProgress = BulkPublishStatus' "IN_PROGRESS"
+pattern BulkPublishStatusInProgress :: BulkPublishStatus
+pattern BulkPublishStatusInProgress = BulkPublishStatus' "IN_PROGRESS"
 
-pattern Failed :: BulkPublishStatus
-pattern Failed = BulkPublishStatus' "FAILED"
+pattern BulkPublishStatusFailed :: BulkPublishStatus
+pattern BulkPublishStatusFailed = BulkPublishStatus' "FAILED"
 
-pattern Succeeded :: BulkPublishStatus
-pattern Succeeded = BulkPublishStatus' "SUCCEEDED"
+pattern BulkPublishStatusSucceeded :: BulkPublishStatus
+pattern BulkPublishStatusSucceeded = BulkPublishStatus' "SUCCEEDED"
 
 {-# COMPLETE
-  NotStarted,
-  InProgress,
-  Failed,
-  Succeeded,
+  BulkPublishStatusNotStarted,
+  BulkPublishStatusInProgress,
+  BulkPublishStatusFailed,
+  BulkPublishStatusSucceeded,
   BulkPublishStatus'
   #-}

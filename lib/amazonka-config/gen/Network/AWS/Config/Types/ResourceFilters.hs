@@ -17,83 +17,82 @@ module Network.AWS.Config.Types.ResourceFilters
     mkResourceFilters,
 
     -- * Lenses
-    rfResourceId,
-    rfResourceName,
     rfAccountId,
     rfRegion,
+    rfResourceId,
+    rfResourceName,
   )
 where
 
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.AwsRegion as Types
+import qualified Network.AWS.Config.Types.ResourceId as Types
+import qualified Network.AWS.Config.Types.ResourceName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filters the results by resource account ID, region, resource ID, and resource name.
 --
 -- /See:/ 'mkResourceFilters' smart constructor.
 data ResourceFilters = ResourceFilters'
-  { -- | The ID of the resource.
-    resourceId :: Lude.Maybe Lude.Text,
-    -- | The name of the resource.
-    resourceName :: Lude.Maybe Lude.Text,
-    -- | The 12-digit source account ID.
-    accountId :: Lude.Maybe Lude.Text,
+  { -- | The 12-digit source account ID.
+    accountId :: Core.Maybe Types.AccountId,
     -- | The source region.
-    region :: Lude.Maybe Lude.Text
+    region :: Core.Maybe Types.AwsRegion,
+    -- | The ID of the resource.
+    resourceId :: Core.Maybe Types.ResourceId,
+    -- | The name of the resource.
+    resourceName :: Core.Maybe Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceFilters' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource.
--- * 'resourceName' - The name of the resource.
--- * 'accountId' - The 12-digit source account ID.
--- * 'region' - The source region.
+-- | Creates a 'ResourceFilters' value with any optional fields omitted.
 mkResourceFilters ::
   ResourceFilters
 mkResourceFilters =
   ResourceFilters'
-    { resourceId = Lude.Nothing,
-      resourceName = Lude.Nothing,
-      accountId = Lude.Nothing,
-      region = Lude.Nothing
+    { accountId = Core.Nothing,
+      region = Core.Nothing,
+      resourceId = Core.Nothing,
+      resourceName = Core.Nothing
     }
-
--- | The ID of the resource.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfResourceId :: Lens.Lens' ResourceFilters (Lude.Maybe Lude.Text)
-rfResourceId = Lens.lens (resourceId :: ResourceFilters -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ResourceFilters)
-{-# DEPRECATED rfResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | The name of the resource.
---
--- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfResourceName :: Lens.Lens' ResourceFilters (Lude.Maybe Lude.Text)
-rfResourceName = Lens.lens (resourceName :: ResourceFilters -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: ResourceFilters)
-{-# DEPRECATED rfResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The 12-digit source account ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfAccountId :: Lens.Lens' ResourceFilters (Lude.Maybe Lude.Text)
-rfAccountId = Lens.lens (accountId :: ResourceFilters -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ResourceFilters)
+rfAccountId :: Lens.Lens' ResourceFilters (Core.Maybe Types.AccountId)
+rfAccountId = Lens.field @"accountId"
 {-# DEPRECATED rfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The source region.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfRegion :: Lens.Lens' ResourceFilters (Lude.Maybe Lude.Text)
-rfRegion = Lens.lens (region :: ResourceFilters -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: ResourceFilters)
+rfRegion :: Lens.Lens' ResourceFilters (Core.Maybe Types.AwsRegion)
+rfRegion = Lens.field @"region"
 {-# DEPRECATED rfRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.ToJSON ResourceFilters where
-  toJSON ResourceFilters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceId" Lude..=) Lude.<$> resourceId,
-            ("ResourceName" Lude..=) Lude.<$> resourceName,
-            ("AccountId" Lude..=) Lude.<$> accountId,
-            ("Region" Lude..=) Lude.<$> region
+-- | The ID of the resource.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfResourceId :: Lens.Lens' ResourceFilters (Core.Maybe Types.ResourceId)
+rfResourceId = Lens.field @"resourceId"
+{-# DEPRECATED rfResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The name of the resource.
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfResourceName :: Lens.Lens' ResourceFilters (Core.Maybe Types.ResourceName)
+rfResourceName = Lens.field @"resourceName"
+{-# DEPRECATED rfResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+
+instance Core.FromJSON ResourceFilters where
+  toJSON ResourceFilters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AccountId" Core..=) Core.<$> accountId,
+            ("Region" Core..=) Core.<$> region,
+            ("ResourceId" Core..=) Core.<$> resourceId,
+            ("ResourceName" Core..=) Core.<$> resourceName
           ]
       )

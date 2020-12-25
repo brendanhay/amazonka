@@ -17,164 +17,153 @@ module Network.AWS.GuardDuty.Types.ServiceInfo
     mkServiceInfo,
 
     -- * Lenses
-    siCount,
-    siEventFirstSeen,
     siAction,
+    siArchived,
+    siCount,
     siDetectorId,
+    siEventFirstSeen,
+    siEventLastSeen,
+    siEvidence,
+    siResourceRole,
     siServiceName,
     siUserFeedback,
-    siEvidence,
-    siEventLastSeen,
-    siResourceRole,
-    siArchived,
   )
 where
 
-import Network.AWS.GuardDuty.Types.Action
-import Network.AWS.GuardDuty.Types.Evidence
+import qualified Network.AWS.GuardDuty.Types.Action as Types
+import qualified Network.AWS.GuardDuty.Types.DetectorId as Types
+import qualified Network.AWS.GuardDuty.Types.Evidence as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains additional information about the generated finding.
 --
 -- /See:/ 'mkServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { -- | The total count of the occurrences of this finding type.
-    count :: Lude.Maybe Lude.Int,
-    -- | The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.
-    eventFirstSeen :: Lude.Maybe Lude.Text,
-    -- | Information about the activity that is described in a finding.
-    action :: Lude.Maybe Action,
-    -- | The detector ID for the GuardDuty service.
-    detectorId :: Lude.Maybe Lude.Text,
-    -- | The name of the AWS service (GuardDuty) that generated a finding.
-    serviceName :: Lude.Maybe Lude.Text,
-    -- | Feedback that was submitted about the finding.
-    userFeedback :: Lude.Maybe Lude.Text,
-    -- | An evidence object associated with the service.
-    evidence :: Lude.Maybe Evidence,
-    -- | The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.
-    eventLastSeen :: Lude.Maybe Lude.Text,
-    -- | The resource role information for this finding.
-    resourceRole :: Lude.Maybe Lude.Text,
+  { -- | Information about the activity that is described in a finding.
+    action :: Core.Maybe Types.Action,
     -- | Indicates whether this finding is archived.
-    archived :: Lude.Maybe Lude.Bool
+    archived :: Core.Maybe Core.Bool,
+    -- | The total count of the occurrences of this finding type.
+    count :: Core.Maybe Core.Int,
+    -- | The detector ID for the GuardDuty service.
+    detectorId :: Core.Maybe Types.DetectorId,
+    -- | The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.
+    eventFirstSeen :: Core.Maybe Types.String,
+    -- | The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.
+    eventLastSeen :: Core.Maybe Types.String,
+    -- | An evidence object associated with the service.
+    evidence :: Core.Maybe Types.Evidence,
+    -- | The resource role information for this finding.
+    resourceRole :: Core.Maybe Types.String,
+    -- | The name of the AWS service (GuardDuty) that generated a finding.
+    serviceName :: Core.Maybe Types.String,
+    -- | Feedback that was submitted about the finding.
+    userFeedback :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
---
--- * 'count' - The total count of the occurrences of this finding type.
--- * 'eventFirstSeen' - The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.
--- * 'action' - Information about the activity that is described in a finding.
--- * 'detectorId' - The detector ID for the GuardDuty service.
--- * 'serviceName' - The name of the AWS service (GuardDuty) that generated a finding.
--- * 'userFeedback' - Feedback that was submitted about the finding.
--- * 'evidence' - An evidence object associated with the service.
--- * 'eventLastSeen' - The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.
--- * 'resourceRole' - The resource role information for this finding.
--- * 'archived' - Indicates whether this finding is archived.
+-- | Creates a 'ServiceInfo' value with any optional fields omitted.
 mkServiceInfo ::
   ServiceInfo
 mkServiceInfo =
   ServiceInfo'
-    { count = Lude.Nothing,
-      eventFirstSeen = Lude.Nothing,
-      action = Lude.Nothing,
-      detectorId = Lude.Nothing,
-      serviceName = Lude.Nothing,
-      userFeedback = Lude.Nothing,
-      evidence = Lude.Nothing,
-      eventLastSeen = Lude.Nothing,
-      resourceRole = Lude.Nothing,
-      archived = Lude.Nothing
+    { action = Core.Nothing,
+      archived = Core.Nothing,
+      count = Core.Nothing,
+      detectorId = Core.Nothing,
+      eventFirstSeen = Core.Nothing,
+      eventLastSeen = Core.Nothing,
+      evidence = Core.Nothing,
+      resourceRole = Core.Nothing,
+      serviceName = Core.Nothing,
+      userFeedback = Core.Nothing
     }
-
--- | The total count of the occurrences of this finding type.
---
--- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siCount :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Int)
-siCount = Lens.lens (count :: ServiceInfo -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: ServiceInfo)
-{-# DEPRECATED siCount "Use generic-lens or generic-optics with 'count' instead." #-}
-
--- | The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.
---
--- /Note:/ Consider using 'eventFirstSeen' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siEventFirstSeen :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
-siEventFirstSeen = Lens.lens (eventFirstSeen :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {eventFirstSeen = a} :: ServiceInfo)
-{-# DEPRECATED siEventFirstSeen "Use generic-lens or generic-optics with 'eventFirstSeen' instead." #-}
 
 -- | Information about the activity that is described in a finding.
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siAction :: Lens.Lens' ServiceInfo (Lude.Maybe Action)
-siAction = Lens.lens (action :: ServiceInfo -> Lude.Maybe Action) (\s a -> s {action = a} :: ServiceInfo)
+siAction :: Lens.Lens' ServiceInfo (Core.Maybe Types.Action)
+siAction = Lens.field @"action"
 {-# DEPRECATED siAction "Use generic-lens or generic-optics with 'action' instead." #-}
+
+-- | Indicates whether this finding is archived.
+--
+-- /Note:/ Consider using 'archived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siArchived :: Lens.Lens' ServiceInfo (Core.Maybe Core.Bool)
+siArchived = Lens.field @"archived"
+{-# DEPRECATED siArchived "Use generic-lens or generic-optics with 'archived' instead." #-}
+
+-- | The total count of the occurrences of this finding type.
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siCount :: Lens.Lens' ServiceInfo (Core.Maybe Core.Int)
+siCount = Lens.field @"count"
+{-# DEPRECATED siCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The detector ID for the GuardDuty service.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siDetectorId :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
-siDetectorId = Lens.lens (detectorId :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {detectorId = a} :: ServiceInfo)
+siDetectorId :: Lens.Lens' ServiceInfo (Core.Maybe Types.DetectorId)
+siDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED siDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
+-- | The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.
+--
+-- /Note:/ Consider using 'eventFirstSeen' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siEventFirstSeen :: Lens.Lens' ServiceInfo (Core.Maybe Types.String)
+siEventFirstSeen = Lens.field @"eventFirstSeen"
+{-# DEPRECATED siEventFirstSeen "Use generic-lens or generic-optics with 'eventFirstSeen' instead." #-}
+
+-- | The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.
+--
+-- /Note:/ Consider using 'eventLastSeen' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siEventLastSeen :: Lens.Lens' ServiceInfo (Core.Maybe Types.String)
+siEventLastSeen = Lens.field @"eventLastSeen"
+{-# DEPRECATED siEventLastSeen "Use generic-lens or generic-optics with 'eventLastSeen' instead." #-}
+
+-- | An evidence object associated with the service.
+--
+-- /Note:/ Consider using 'evidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siEvidence :: Lens.Lens' ServiceInfo (Core.Maybe Types.Evidence)
+siEvidence = Lens.field @"evidence"
+{-# DEPRECATED siEvidence "Use generic-lens or generic-optics with 'evidence' instead." #-}
+
+-- | The resource role information for this finding.
+--
+-- /Note:/ Consider using 'resourceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siResourceRole :: Lens.Lens' ServiceInfo (Core.Maybe Types.String)
+siResourceRole = Lens.field @"resourceRole"
+{-# DEPRECATED siResourceRole "Use generic-lens or generic-optics with 'resourceRole' instead." #-}
 
 -- | The name of the AWS service (GuardDuty) that generated a finding.
 --
 -- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siServiceName :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
-siServiceName = Lens.lens (serviceName :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: ServiceInfo)
+siServiceName :: Lens.Lens' ServiceInfo (Core.Maybe Types.String)
+siServiceName = Lens.field @"serviceName"
 {-# DEPRECATED siServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | Feedback that was submitted about the finding.
 --
 -- /Note:/ Consider using 'userFeedback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siUserFeedback :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
-siUserFeedback = Lens.lens (userFeedback :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {userFeedback = a} :: ServiceInfo)
+siUserFeedback :: Lens.Lens' ServiceInfo (Core.Maybe Types.String)
+siUserFeedback = Lens.field @"userFeedback"
 {-# DEPRECATED siUserFeedback "Use generic-lens or generic-optics with 'userFeedback' instead." #-}
 
--- | An evidence object associated with the service.
---
--- /Note:/ Consider using 'evidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siEvidence :: Lens.Lens' ServiceInfo (Lude.Maybe Evidence)
-siEvidence = Lens.lens (evidence :: ServiceInfo -> Lude.Maybe Evidence) (\s a -> s {evidence = a} :: ServiceInfo)
-{-# DEPRECATED siEvidence "Use generic-lens or generic-optics with 'evidence' instead." #-}
-
--- | The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.
---
--- /Note:/ Consider using 'eventLastSeen' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siEventLastSeen :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
-siEventLastSeen = Lens.lens (eventLastSeen :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {eventLastSeen = a} :: ServiceInfo)
-{-# DEPRECATED siEventLastSeen "Use generic-lens or generic-optics with 'eventLastSeen' instead." #-}
-
--- | The resource role information for this finding.
---
--- /Note:/ Consider using 'resourceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siResourceRole :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Text)
-siResourceRole = Lens.lens (resourceRole :: ServiceInfo -> Lude.Maybe Lude.Text) (\s a -> s {resourceRole = a} :: ServiceInfo)
-{-# DEPRECATED siResourceRole "Use generic-lens or generic-optics with 'resourceRole' instead." #-}
-
--- | Indicates whether this finding is archived.
---
--- /Note:/ Consider using 'archived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siArchived :: Lens.Lens' ServiceInfo (Lude.Maybe Lude.Bool)
-siArchived = Lens.lens (archived :: ServiceInfo -> Lude.Maybe Lude.Bool) (\s a -> s {archived = a} :: ServiceInfo)
-{-# DEPRECATED siArchived "Use generic-lens or generic-optics with 'archived' instead." #-}
-
-instance Lude.FromJSON ServiceInfo where
+instance Core.FromJSON ServiceInfo where
   parseJSON =
-    Lude.withObject
-      "ServiceInfo"
-      ( \x ->
-          ServiceInfo'
-            Lude.<$> (x Lude..:? "count")
-            Lude.<*> (x Lude..:? "eventFirstSeen")
-            Lude.<*> (x Lude..:? "action")
-            Lude.<*> (x Lude..:? "detectorId")
-            Lude.<*> (x Lude..:? "serviceName")
-            Lude.<*> (x Lude..:? "userFeedback")
-            Lude.<*> (x Lude..:? "evidence")
-            Lude.<*> (x Lude..:? "eventLastSeen")
-            Lude.<*> (x Lude..:? "resourceRole")
-            Lude.<*> (x Lude..:? "archived")
-      )
+    Core.withObject "ServiceInfo" Core.$
+      \x ->
+        ServiceInfo'
+          Core.<$> (x Core..:? "action")
+          Core.<*> (x Core..:? "archived")
+          Core.<*> (x Core..:? "count")
+          Core.<*> (x Core..:? "detectorId")
+          Core.<*> (x Core..:? "eventFirstSeen")
+          Core.<*> (x Core..:? "eventLastSeen")
+          Core.<*> (x Core..:? "evidence")
+          Core.<*> (x Core..:? "resourceRole")
+          Core.<*> (x Core..:? "serviceName")
+          Core.<*> (x Core..:? "userFeedback")

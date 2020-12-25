@@ -17,93 +17,84 @@ module Network.AWS.Glue.Types.DynamoDBTarget
     mkDynamoDBTarget,
 
     -- * Lenses
-    ddtPath,
-    ddtScanRate,
-    ddtScanAll,
+    ddbtPath,
+    ddbtScanAll,
+    ddbtScanRate,
   )
 where
 
+import qualified Network.AWS.Glue.Types.Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies an Amazon DynamoDB table to crawl.
 --
 -- /See:/ 'mkDynamoDBTarget' smart constructor.
 data DynamoDBTarget = DynamoDBTarget'
   { -- | The name of the DynamoDB table to crawl.
-    path :: Lude.Maybe Lude.Text,
-    -- | The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
-    --
-    -- The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).
-    scanRate :: Lude.Maybe Lude.Double,
+    path :: Core.Maybe Types.Path,
     -- | Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.
     --
     -- A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .
-    scanAll :: Lude.Maybe Lude.Bool
+    scanAll :: Core.Maybe Core.Bool,
+    -- | The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
+    --
+    -- The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).
+    scanRate :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DynamoDBTarget' with the minimum fields required to make a request.
---
--- * 'path' - The name of the DynamoDB table to crawl.
--- * 'scanRate' - The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
---
--- The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).
--- * 'scanAll' - Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.
---
--- A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .
+-- | Creates a 'DynamoDBTarget' value with any optional fields omitted.
 mkDynamoDBTarget ::
   DynamoDBTarget
 mkDynamoDBTarget =
   DynamoDBTarget'
-    { path = Lude.Nothing,
-      scanRate = Lude.Nothing,
-      scanAll = Lude.Nothing
+    { path = Core.Nothing,
+      scanAll = Core.Nothing,
+      scanRate = Core.Nothing
     }
 
 -- | The name of the DynamoDB table to crawl.
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddtPath :: Lens.Lens' DynamoDBTarget (Lude.Maybe Lude.Text)
-ddtPath = Lens.lens (path :: DynamoDBTarget -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: DynamoDBTarget)
-{-# DEPRECATED ddtPath "Use generic-lens or generic-optics with 'path' instead." #-}
-
--- | The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
---
--- The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).
---
--- /Note:/ Consider using 'scanRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddtScanRate :: Lens.Lens' DynamoDBTarget (Lude.Maybe Lude.Double)
-ddtScanRate = Lens.lens (scanRate :: DynamoDBTarget -> Lude.Maybe Lude.Double) (\s a -> s {scanRate = a} :: DynamoDBTarget)
-{-# DEPRECATED ddtScanRate "Use generic-lens or generic-optics with 'scanRate' instead." #-}
+ddbtPath :: Lens.Lens' DynamoDBTarget (Core.Maybe Types.Path)
+ddbtPath = Lens.field @"path"
+{-# DEPRECATED ddbtPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.
 --
 -- A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .
 --
 -- /Note:/ Consider using 'scanAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddtScanAll :: Lens.Lens' DynamoDBTarget (Lude.Maybe Lude.Bool)
-ddtScanAll = Lens.lens (scanAll :: DynamoDBTarget -> Lude.Maybe Lude.Bool) (\s a -> s {scanAll = a} :: DynamoDBTarget)
-{-# DEPRECATED ddtScanAll "Use generic-lens or generic-optics with 'scanAll' instead." #-}
+ddbtScanAll :: Lens.Lens' DynamoDBTarget (Core.Maybe Core.Bool)
+ddbtScanAll = Lens.field @"scanAll"
+{-# DEPRECATED ddbtScanAll "Use generic-lens or generic-optics with 'scanAll' instead." #-}
 
-instance Lude.FromJSON DynamoDBTarget where
-  parseJSON =
-    Lude.withObject
-      "DynamoDBTarget"
-      ( \x ->
-          DynamoDBTarget'
-            Lude.<$> (x Lude..:? "Path")
-            Lude.<*> (x Lude..:? "scanRate")
-            Lude.<*> (x Lude..:? "scanAll")
-      )
+-- | The percentage of the configured read capacity units to use by the AWS Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.
+--
+-- The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).
+--
+-- /Note:/ Consider using 'scanRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbtScanRate :: Lens.Lens' DynamoDBTarget (Core.Maybe Core.Double)
+ddbtScanRate = Lens.field @"scanRate"
+{-# DEPRECATED ddbtScanRate "Use generic-lens or generic-optics with 'scanRate' instead." #-}
 
-instance Lude.ToJSON DynamoDBTarget where
-  toJSON DynamoDBTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Path" Lude..=) Lude.<$> path,
-            ("scanRate" Lude..=) Lude.<$> scanRate,
-            ("scanAll" Lude..=) Lude.<$> scanAll
+instance Core.FromJSON DynamoDBTarget where
+  toJSON DynamoDBTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Path" Core..=) Core.<$> path,
+            ("scanAll" Core..=) Core.<$> scanAll,
+            ("scanRate" Core..=) Core.<$> scanRate
           ]
       )
+
+instance Core.FromJSON DynamoDBTarget where
+  parseJSON =
+    Core.withObject "DynamoDBTarget" Core.$
+      \x ->
+        DynamoDBTarget'
+          Core.<$> (x Core..:? "Path")
+          Core.<*> (x Core..:? "scanAll")
+          Core.<*> (x Core..:? "scanRate")

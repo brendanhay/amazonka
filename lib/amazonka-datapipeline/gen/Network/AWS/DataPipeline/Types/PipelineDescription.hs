@@ -19,101 +19,96 @@ module Network.AWS.DataPipeline.Types.PipelineDescription
     -- * Lenses
     pdPipelineId,
     pdName,
+    pdFields,
     pdDescription,
     pdTags,
-    pdFields,
   )
 where
 
-import Network.AWS.DataPipeline.Types.Field
-import Network.AWS.DataPipeline.Types.Tag
+import qualified Network.AWS.DataPipeline.Types.Field as Types
+import qualified Network.AWS.DataPipeline.Types.Name as Types
+import qualified Network.AWS.DataPipeline.Types.PipelineId as Types
+import qualified Network.AWS.DataPipeline.Types.String as Types
+import qualified Network.AWS.DataPipeline.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains pipeline metadata.
 --
 -- /See:/ 'mkPipelineDescription' smart constructor.
 data PipelineDescription = PipelineDescription'
   { -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
-    pipelineId :: Lude.Text,
+    pipelineId :: Types.PipelineId,
     -- | The name of the pipeline.
-    name :: Lude.Text,
-    -- | Description of the pipeline.
-    description :: Lude.Maybe Lude.Text,
-    -- | A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
-    tags :: Lude.Maybe [Tag],
+    name :: Types.Name,
     -- | A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.
-    fields :: [Field]
+    fields :: [Types.Field],
+    -- | Description of the pipeline.
+    description :: Core.Maybe Types.String,
+    -- | A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PipelineDescription' with the minimum fields required to make a request.
---
--- * 'pipelineId' - The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
--- * 'name' - The name of the pipeline.
--- * 'description' - Description of the pipeline.
--- * 'tags' - A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
--- * 'fields' - A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.
+-- | Creates a 'PipelineDescription' value with any optional fields omitted.
 mkPipelineDescription ::
   -- | 'pipelineId'
-  Lude.Text ->
+  Types.PipelineId ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   PipelineDescription
-mkPipelineDescription pPipelineId_ pName_ =
+mkPipelineDescription pipelineId name =
   PipelineDescription'
-    { pipelineId = pPipelineId_,
-      name = pName_,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
-      fields = Lude.mempty
+    { pipelineId,
+      name,
+      fields = Core.mempty,
+      description = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPipelineId :: Lens.Lens' PipelineDescription Lude.Text
-pdPipelineId = Lens.lens (pipelineId :: PipelineDescription -> Lude.Text) (\s a -> s {pipelineId = a} :: PipelineDescription)
+pdPipelineId :: Lens.Lens' PipelineDescription Types.PipelineId
+pdPipelineId = Lens.field @"pipelineId"
 {-# DEPRECATED pdPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The name of the pipeline.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdName :: Lens.Lens' PipelineDescription Lude.Text
-pdName = Lens.lens (name :: PipelineDescription -> Lude.Text) (\s a -> s {name = a} :: PipelineDescription)
+pdName :: Lens.Lens' PipelineDescription Types.Name
+pdName = Lens.field @"name"
 {-# DEPRECATED pdName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.
+--
+-- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdFields :: Lens.Lens' PipelineDescription [Types.Field]
+pdFields = Lens.field @"fields"
+{-# DEPRECATED pdFields "Use generic-lens or generic-optics with 'fields' instead." #-}
 
 -- | Description of the pipeline.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDescription :: Lens.Lens' PipelineDescription (Lude.Maybe Lude.Text)
-pdDescription = Lens.lens (description :: PipelineDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PipelineDescription)
+pdDescription :: Lens.Lens' PipelineDescription (Core.Maybe Types.String)
+pdDescription = Lens.field @"description"
 {-# DEPRECATED pdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdTags :: Lens.Lens' PipelineDescription (Lude.Maybe [Tag])
-pdTags = Lens.lens (tags :: PipelineDescription -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PipelineDescription)
+pdTags :: Lens.Lens' PipelineDescription (Core.Maybe [Types.Tag])
+pdTags = Lens.field @"tags"
 {-# DEPRECATED pdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.
---
--- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdFields :: Lens.Lens' PipelineDescription [Field]
-pdFields = Lens.lens (fields :: PipelineDescription -> [Field]) (\s a -> s {fields = a} :: PipelineDescription)
-{-# DEPRECATED pdFields "Use generic-lens or generic-optics with 'fields' instead." #-}
-
-instance Lude.FromJSON PipelineDescription where
+instance Core.FromJSON PipelineDescription where
   parseJSON =
-    Lude.withObject
-      "PipelineDescription"
-      ( \x ->
-          PipelineDescription'
-            Lude.<$> (x Lude..: "pipelineId")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..:? "description")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "fields" Lude..!= Lude.mempty)
-      )
+    Core.withObject "PipelineDescription" Core.$
+      \x ->
+        PipelineDescription'
+          Core.<$> (x Core..: "pipelineId")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..:? "fields" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "tags")

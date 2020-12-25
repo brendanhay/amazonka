@@ -20,30 +20,32 @@ module Network.AWS.Cloud9.CreateEnvironmentMembership
     mkCreateEnvironmentMembership,
 
     -- ** Request lenses
-    cemUserARN,
-    cemPermissions,
     cemEnvironmentId,
+    cemUserArn,
+    cemPermissions,
 
     -- * Destructuring the response
     CreateEnvironmentMembershipResponse (..),
     mkCreateEnvironmentMembershipResponse,
 
     -- ** Response lenses
-    cemrsMembership,
-    cemrsResponseStatus,
+    cemrrsMembership,
+    cemrrsResponseStatus,
   )
 where
 
-import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Cloud9.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateEnvironmentMembership' smart constructor.
 data CreateEnvironmentMembership = CreateEnvironmentMembership'
-  { -- | The Amazon Resource Name (ARN) of the environment member you want to add.
-    userARN :: Lude.Text,
+  { -- | The ID of the environment that contains the environment member you want to add.
+    environmentId :: Types.EnvironmentId,
+    -- | The Amazon Resource Name (ARN) of the environment member you want to add.
+    userArn :: Types.UserArn,
     -- | The type of environment member permissions you want to associate with this environment member. Available values include:
     --
     --
@@ -51,50 +53,36 @@ data CreateEnvironmentMembership = CreateEnvironmentMembership'
     --
     --
     --     * @read-write@ : Has read-write access to the environment.
-    permissions :: MemberPermissions,
-    -- | The ID of the environment that contains the environment member you want to add.
-    environmentId :: Lude.Text
+    permissions :: Types.MemberPermissions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEnvironmentMembership' with the minimum fields required to make a request.
---
--- * 'userARN' - The Amazon Resource Name (ARN) of the environment member you want to add.
--- * 'permissions' - The type of environment member permissions you want to associate with this environment member. Available values include:
---
---
---     * @read-only@ : Has read-only access to the environment.
---
---
---     * @read-write@ : Has read-write access to the environment.
---
---
--- * 'environmentId' - The ID of the environment that contains the environment member you want to add.
+-- | Creates a 'CreateEnvironmentMembership' value with any optional fields omitted.
 mkCreateEnvironmentMembership ::
-  -- | 'userARN'
-  Lude.Text ->
-  -- | 'permissions'
-  MemberPermissions ->
   -- | 'environmentId'
-  Lude.Text ->
+  Types.EnvironmentId ->
+  -- | 'userArn'
+  Types.UserArn ->
+  -- | 'permissions'
+  Types.MemberPermissions ->
   CreateEnvironmentMembership
-mkCreateEnvironmentMembership
-  pUserARN_
-  pPermissions_
-  pEnvironmentId_ =
-    CreateEnvironmentMembership'
-      { userARN = pUserARN_,
-        permissions = pPermissions_,
-        environmentId = pEnvironmentId_
-      }
+mkCreateEnvironmentMembership environmentId userArn permissions =
+  CreateEnvironmentMembership' {environmentId, userArn, permissions}
+
+-- | The ID of the environment that contains the environment member you want to add.
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemEnvironmentId :: Lens.Lens' CreateEnvironmentMembership Types.EnvironmentId
+cemEnvironmentId = Lens.field @"environmentId"
+{-# DEPRECATED cemEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the environment member you want to add.
 --
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cemUserARN :: Lens.Lens' CreateEnvironmentMembership Lude.Text
-cemUserARN = Lens.lens (userARN :: CreateEnvironmentMembership -> Lude.Text) (\s a -> s {userARN = a} :: CreateEnvironmentMembership)
-{-# DEPRECATED cemUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemUserArn :: Lens.Lens' CreateEnvironmentMembership Types.UserArn
+cemUserArn = Lens.field @"userArn"
+{-# DEPRECATED cemUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
 -- | The type of environment member permissions you want to associate with this environment member. Available values include:
 --
@@ -107,92 +95,76 @@ cemUserARN = Lens.lens (userARN :: CreateEnvironmentMembership -> Lude.Text) (\s
 --
 --
 -- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cemPermissions :: Lens.Lens' CreateEnvironmentMembership MemberPermissions
-cemPermissions = Lens.lens (permissions :: CreateEnvironmentMembership -> MemberPermissions) (\s a -> s {permissions = a} :: CreateEnvironmentMembership)
+cemPermissions :: Lens.Lens' CreateEnvironmentMembership Types.MemberPermissions
+cemPermissions = Lens.field @"permissions"
 {-# DEPRECATED cemPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
--- | The ID of the environment that contains the environment member you want to add.
---
--- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cemEnvironmentId :: Lens.Lens' CreateEnvironmentMembership Lude.Text
-cemEnvironmentId = Lens.lens (environmentId :: CreateEnvironmentMembership -> Lude.Text) (\s a -> s {environmentId = a} :: CreateEnvironmentMembership)
-{-# DEPRECATED cemEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+instance Core.FromJSON CreateEnvironmentMembership where
+  toJSON CreateEnvironmentMembership {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("environmentId" Core..= environmentId),
+            Core.Just ("userArn" Core..= userArn),
+            Core.Just ("permissions" Core..= permissions)
+          ]
+      )
 
-instance Lude.AWSRequest CreateEnvironmentMembership where
+instance Core.AWSRequest CreateEnvironmentMembership where
   type
     Rs CreateEnvironmentMembership =
       CreateEnvironmentMembershipResponse
-  request = Req.postJSON cloud9Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateEnvironmentMembershipResponse'
-            Lude.<$> (x Lude..?> "membership") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "membership") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateEnvironmentMembership where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateEnvironmentMembership where
-  toJSON CreateEnvironmentMembership' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("userArn" Lude..= userARN),
-            Lude.Just ("permissions" Lude..= permissions),
-            Lude.Just ("environmentId" Lude..= environmentId)
-          ]
-      )
-
-instance Lude.ToPath CreateEnvironmentMembership where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateEnvironmentMembership where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateEnvironmentMembershipResponse' smart constructor.
 data CreateEnvironmentMembershipResponse = CreateEnvironmentMembershipResponse'
   { -- | Information about the environment member that was added.
-    membership :: Lude.Maybe EnvironmentMember,
+    membership :: Core.Maybe Types.EnvironmentMember,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateEnvironmentMembershipResponse' with the minimum fields required to make a request.
---
--- * 'membership' - Information about the environment member that was added.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateEnvironmentMembershipResponse' value with any optional fields omitted.
 mkCreateEnvironmentMembershipResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateEnvironmentMembershipResponse
-mkCreateEnvironmentMembershipResponse pResponseStatus_ =
+mkCreateEnvironmentMembershipResponse responseStatus =
   CreateEnvironmentMembershipResponse'
-    { membership = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { membership = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the environment member that was added.
 --
 -- /Note:/ Consider using 'membership' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cemrsMembership :: Lens.Lens' CreateEnvironmentMembershipResponse (Lude.Maybe EnvironmentMember)
-cemrsMembership = Lens.lens (membership :: CreateEnvironmentMembershipResponse -> Lude.Maybe EnvironmentMember) (\s a -> s {membership = a} :: CreateEnvironmentMembershipResponse)
-{-# DEPRECATED cemrsMembership "Use generic-lens or generic-optics with 'membership' instead." #-}
+cemrrsMembership :: Lens.Lens' CreateEnvironmentMembershipResponse (Core.Maybe Types.EnvironmentMember)
+cemrrsMembership = Lens.field @"membership"
+{-# DEPRECATED cemrrsMembership "Use generic-lens or generic-optics with 'membership' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cemrsResponseStatus :: Lens.Lens' CreateEnvironmentMembershipResponse Lude.Int
-cemrsResponseStatus = Lens.lens (responseStatus :: CreateEnvironmentMembershipResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEnvironmentMembershipResponse)
-{-# DEPRECATED cemrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cemrrsResponseStatus :: Lens.Lens' CreateEnvironmentMembershipResponse Core.Int
+cemrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cemrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,47 +17,42 @@ module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation
     mkDirectConnectGatewayAssociation,
 
     -- * Lenses
-    dcgaVirtualGatewayId,
-    dcgaAssociationId,
-    dcgaDirectConnectGatewayId,
-    dcgaVirtualGatewayOwnerAccount,
-    dcgaStateChangeError,
-    dcgaVirtualGatewayRegion,
-    dcgaAssociatedGateway,
-    dcgaDirectConnectGatewayOwnerAccount,
     dcgaAllowedPrefixesToDirectConnectGateway,
+    dcgaAssociatedGateway,
+    dcgaAssociationId,
     dcgaAssociationState,
+    dcgaDirectConnectGatewayId,
+    dcgaDirectConnectGatewayOwnerAccount,
+    dcgaStateChangeError,
+    dcgaVirtualGatewayId,
+    dcgaVirtualGatewayOwnerAccount,
+    dcgaVirtualGatewayRegion,
   )
 where
 
-import Network.AWS.DirectConnect.Types.AssociatedGateway
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState
-import Network.AWS.DirectConnect.Types.RouteFilterPrefix
+import qualified Network.AWS.DirectConnect.Types.AssociatedGateway as Types
+import qualified Network.AWS.DirectConnect.Types.AssociationId as Types
+import qualified Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState as Types
+import qualified Network.AWS.DirectConnect.Types.DirectConnectGatewayId as Types
+import qualified Network.AWS.DirectConnect.Types.DirectConnectGatewayOwnerAccount as Types
+import qualified Network.AWS.DirectConnect.Types.RouteFilterPrefix as Types
+import qualified Network.AWS.DirectConnect.Types.StateChangeError as Types
+import qualified Network.AWS.DirectConnect.Types.VirtualGatewayId as Types
+import qualified Network.AWS.DirectConnect.Types.VirtualGatewayOwnerAccount as Types
+import qualified Network.AWS.DirectConnect.Types.VirtualGatewayRegion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.
 --
 -- /See:/ 'mkDirectConnectGatewayAssociation' smart constructor.
 data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
-  { -- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
-    virtualGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of the Direct Connect gateway association.
-    associationId :: Lude.Maybe Lude.Text,
-    -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of the AWS account that owns the virtual private gateway.
-    virtualGatewayOwnerAccount :: Lude.Maybe Lude.Text,
-    -- | The error message if the state of an object failed to advance.
-    stateChangeError :: Lude.Maybe Lude.Text,
-    -- | The AWS Region where the virtual private gateway is located.
-    virtualGatewayRegion :: Lude.Maybe Lude.Text,
+  { -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+    allowedPrefixesToDirectConnectGateway :: Core.Maybe [Types.RouteFilterPrefix],
     -- | Information about the associated gateway.
-    associatedGateway :: Lude.Maybe AssociatedGateway,
-    -- | The ID of the AWS account that owns the associated gateway.
-    directConnectGatewayOwnerAccount :: Lude.Maybe Lude.Text,
-    -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
-    allowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix],
+    associatedGateway :: Core.Maybe Types.AssociatedGateway,
+    -- | The ID of the Direct Connect gateway association.
+    associationId :: Core.Maybe Types.AssociationId,
     -- | The state of the association. The following are the possible values:
     --
     --
@@ -71,113 +66,61 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
     --
     --
     --     * @disassociated@ : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.
-    associationState :: Lude.Maybe DirectConnectGatewayAssociationState
+    associationState :: Core.Maybe Types.DirectConnectGatewayAssociationState,
+    -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Core.Maybe Types.DirectConnectGatewayId,
+    -- | The ID of the AWS account that owns the associated gateway.
+    directConnectGatewayOwnerAccount :: Core.Maybe Types.DirectConnectGatewayOwnerAccount,
+    -- | The error message if the state of an object failed to advance.
+    stateChangeError :: Core.Maybe Types.StateChangeError,
+    -- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
+    virtualGatewayId :: Core.Maybe Types.VirtualGatewayId,
+    -- | The ID of the AWS account that owns the virtual private gateway.
+    virtualGatewayOwnerAccount :: Core.Maybe Types.VirtualGatewayOwnerAccount,
+    -- | The AWS Region where the virtual private gateway is located.
+    virtualGatewayRegion :: Core.Maybe Types.VirtualGatewayRegion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DirectConnectGatewayAssociation' with the minimum fields required to make a request.
---
--- * 'virtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual interfaces.
--- * 'associationId' - The ID of the Direct Connect gateway association.
--- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
--- * 'virtualGatewayOwnerAccount' - The ID of the AWS account that owns the virtual private gateway.
--- * 'stateChangeError' - The error message if the state of an object failed to advance.
--- * 'virtualGatewayRegion' - The AWS Region where the virtual private gateway is located.
--- * 'associatedGateway' - Information about the associated gateway.
--- * 'directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the associated gateway.
--- * 'allowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
--- * 'associationState' - The state of the association. The following are the possible values:
---
---
---     * @associating@ : The initial state after calling 'CreateDirectConnectGatewayAssociation' .
---
---
---     * @associated@ : The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic.
---
---
---     * @disassociating@ : The initial state after calling 'DeleteDirectConnectGatewayAssociation' .
---
---
---     * @disassociated@ : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.
+-- | Creates a 'DirectConnectGatewayAssociation' value with any optional fields omitted.
 mkDirectConnectGatewayAssociation ::
   DirectConnectGatewayAssociation
 mkDirectConnectGatewayAssociation =
   DirectConnectGatewayAssociation'
-    { virtualGatewayId = Lude.Nothing,
-      associationId = Lude.Nothing,
-      directConnectGatewayId = Lude.Nothing,
-      virtualGatewayOwnerAccount = Lude.Nothing,
-      stateChangeError = Lude.Nothing,
-      virtualGatewayRegion = Lude.Nothing,
-      associatedGateway = Lude.Nothing,
-      directConnectGatewayOwnerAccount = Lude.Nothing,
-      allowedPrefixesToDirectConnectGateway = Lude.Nothing,
-      associationState = Lude.Nothing
+    { allowedPrefixesToDirectConnectGateway =
+        Core.Nothing,
+      associatedGateway = Core.Nothing,
+      associationId = Core.Nothing,
+      associationState = Core.Nothing,
+      directConnectGatewayId = Core.Nothing,
+      directConnectGatewayOwnerAccount = Core.Nothing,
+      stateChangeError = Core.Nothing,
+      virtualGatewayId = Core.Nothing,
+      virtualGatewayOwnerAccount = Core.Nothing,
+      virtualGatewayRegion = Core.Nothing
     }
-
--- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
---
--- /Note:/ Consider using 'virtualGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaVirtualGatewayId :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-dcgaVirtualGatewayId = Lens.lens (virtualGatewayId :: DirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayId = a} :: DirectConnectGatewayAssociation)
-{-# DEPRECATED dcgaVirtualGatewayId "Use generic-lens or generic-optics with 'virtualGatewayId' instead." #-}
-
--- | The ID of the Direct Connect gateway association.
---
--- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaAssociationId :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-dcgaAssociationId = Lens.lens (associationId :: DirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: DirectConnectGatewayAssociation)
-{-# DEPRECATED dcgaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
-
--- | The ID of the Direct Connect gateway.
---
--- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaDirectConnectGatewayId :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-dcgaDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: DirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayId = a} :: DirectConnectGatewayAssociation)
-{-# DEPRECATED dcgaDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
-
--- | The ID of the AWS account that owns the virtual private gateway.
---
--- /Note:/ Consider using 'virtualGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaVirtualGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-dcgaVirtualGatewayOwnerAccount = Lens.lens (virtualGatewayOwnerAccount :: DirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayOwnerAccount = a} :: DirectConnectGatewayAssociation)
-{-# DEPRECATED dcgaVirtualGatewayOwnerAccount "Use generic-lens or generic-optics with 'virtualGatewayOwnerAccount' instead." #-}
-
--- | The error message if the state of an object failed to advance.
---
--- /Note:/ Consider using 'stateChangeError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaStateChangeError :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-dcgaStateChangeError = Lens.lens (stateChangeError :: DirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {stateChangeError = a} :: DirectConnectGatewayAssociation)
-{-# DEPRECATED dcgaStateChangeError "Use generic-lens or generic-optics with 'stateChangeError' instead." #-}
-
--- | The AWS Region where the virtual private gateway is located.
---
--- /Note:/ Consider using 'virtualGatewayRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaVirtualGatewayRegion :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-dcgaVirtualGatewayRegion = Lens.lens (virtualGatewayRegion :: DirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayRegion = a} :: DirectConnectGatewayAssociation)
-{-# DEPRECATED dcgaVirtualGatewayRegion "Use generic-lens or generic-optics with 'virtualGatewayRegion' instead." #-}
-
--- | Information about the associated gateway.
---
--- /Note:/ Consider using 'associatedGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaAssociatedGateway :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe AssociatedGateway)
-dcgaAssociatedGateway = Lens.lens (associatedGateway :: DirectConnectGatewayAssociation -> Lude.Maybe AssociatedGateway) (\s a -> s {associatedGateway = a} :: DirectConnectGatewayAssociation)
-{-# DEPRECATED dcgaAssociatedGateway "Use generic-lens or generic-optics with 'associatedGateway' instead." #-}
-
--- | The ID of the AWS account that owns the associated gateway.
---
--- /Note:/ Consider using 'directConnectGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaDirectConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-dcgaDirectConnectGatewayOwnerAccount = Lens.lens (directConnectGatewayOwnerAccount :: DirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayOwnerAccount = a} :: DirectConnectGatewayAssociation)
-{-# DEPRECATED dcgaDirectConnectGatewayOwnerAccount "Use generic-lens or generic-optics with 'directConnectGatewayOwnerAccount' instead." #-}
 
 -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 --
 -- /Note:/ Consider using 'allowedPrefixesToDirectConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe [RouteFilterPrefix])
-dcgaAllowedPrefixesToDirectConnectGateway = Lens.lens (allowedPrefixesToDirectConnectGateway :: DirectConnectGatewayAssociation -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {allowedPrefixesToDirectConnectGateway = a} :: DirectConnectGatewayAssociation)
+dcgaAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe [Types.RouteFilterPrefix])
+dcgaAllowedPrefixesToDirectConnectGateway = Lens.field @"allowedPrefixesToDirectConnectGateway"
 {-# DEPRECATED dcgaAllowedPrefixesToDirectConnectGateway "Use generic-lens or generic-optics with 'allowedPrefixesToDirectConnectGateway' instead." #-}
+
+-- | Information about the associated gateway.
+--
+-- /Note:/ Consider using 'associatedGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgaAssociatedGateway :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.AssociatedGateway)
+dcgaAssociatedGateway = Lens.field @"associatedGateway"
+{-# DEPRECATED dcgaAssociatedGateway "Use generic-lens or generic-optics with 'associatedGateway' instead." #-}
+
+-- | The ID of the Direct Connect gateway association.
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgaAssociationId :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.AssociationId)
+dcgaAssociationId = Lens.field @"associationId"
+{-# DEPRECATED dcgaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The state of the association. The following are the possible values:
 --
@@ -196,26 +139,64 @@ dcgaAllowedPrefixesToDirectConnectGateway = Lens.lens (allowedPrefixesToDirectCo
 --
 --
 -- /Note:/ Consider using 'associationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgaAssociationState :: Lens.Lens' DirectConnectGatewayAssociation (Lude.Maybe DirectConnectGatewayAssociationState)
-dcgaAssociationState = Lens.lens (associationState :: DirectConnectGatewayAssociation -> Lude.Maybe DirectConnectGatewayAssociationState) (\s a -> s {associationState = a} :: DirectConnectGatewayAssociation)
+dcgaAssociationState :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.DirectConnectGatewayAssociationState)
+dcgaAssociationState = Lens.field @"associationState"
 {-# DEPRECATED dcgaAssociationState "Use generic-lens or generic-optics with 'associationState' instead." #-}
 
-instance Lude.FromJSON DirectConnectGatewayAssociation where
+-- | The ID of the Direct Connect gateway.
+--
+-- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgaDirectConnectGatewayId :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.DirectConnectGatewayId)
+dcgaDirectConnectGatewayId = Lens.field @"directConnectGatewayId"
+{-# DEPRECATED dcgaDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
+
+-- | The ID of the AWS account that owns the associated gateway.
+--
+-- /Note:/ Consider using 'directConnectGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgaDirectConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.DirectConnectGatewayOwnerAccount)
+dcgaDirectConnectGatewayOwnerAccount = Lens.field @"directConnectGatewayOwnerAccount"
+{-# DEPRECATED dcgaDirectConnectGatewayOwnerAccount "Use generic-lens or generic-optics with 'directConnectGatewayOwnerAccount' instead." #-}
+
+-- | The error message if the state of an object failed to advance.
+--
+-- /Note:/ Consider using 'stateChangeError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgaStateChangeError :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.StateChangeError)
+dcgaStateChangeError = Lens.field @"stateChangeError"
+{-# DEPRECATED dcgaStateChangeError "Use generic-lens or generic-optics with 'stateChangeError' instead." #-}
+
+-- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
+--
+-- /Note:/ Consider using 'virtualGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgaVirtualGatewayId :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.VirtualGatewayId)
+dcgaVirtualGatewayId = Lens.field @"virtualGatewayId"
+{-# DEPRECATED dcgaVirtualGatewayId "Use generic-lens or generic-optics with 'virtualGatewayId' instead." #-}
+
+-- | The ID of the AWS account that owns the virtual private gateway.
+--
+-- /Note:/ Consider using 'virtualGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgaVirtualGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.VirtualGatewayOwnerAccount)
+dcgaVirtualGatewayOwnerAccount = Lens.field @"virtualGatewayOwnerAccount"
+{-# DEPRECATED dcgaVirtualGatewayOwnerAccount "Use generic-lens or generic-optics with 'virtualGatewayOwnerAccount' instead." #-}
+
+-- | The AWS Region where the virtual private gateway is located.
+--
+-- /Note:/ Consider using 'virtualGatewayRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgaVirtualGatewayRegion :: Lens.Lens' DirectConnectGatewayAssociation (Core.Maybe Types.VirtualGatewayRegion)
+dcgaVirtualGatewayRegion = Lens.field @"virtualGatewayRegion"
+{-# DEPRECATED dcgaVirtualGatewayRegion "Use generic-lens or generic-optics with 'virtualGatewayRegion' instead." #-}
+
+instance Core.FromJSON DirectConnectGatewayAssociation where
   parseJSON =
-    Lude.withObject
-      "DirectConnectGatewayAssociation"
-      ( \x ->
-          DirectConnectGatewayAssociation'
-            Lude.<$> (x Lude..:? "virtualGatewayId")
-            Lude.<*> (x Lude..:? "associationId")
-            Lude.<*> (x Lude..:? "directConnectGatewayId")
-            Lude.<*> (x Lude..:? "virtualGatewayOwnerAccount")
-            Lude.<*> (x Lude..:? "stateChangeError")
-            Lude.<*> (x Lude..:? "virtualGatewayRegion")
-            Lude.<*> (x Lude..:? "associatedGateway")
-            Lude.<*> (x Lude..:? "directConnectGatewayOwnerAccount")
-            Lude.<*> ( x Lude..:? "allowedPrefixesToDirectConnectGateway"
-                         Lude..!= Lude.mempty
-                     )
-            Lude.<*> (x Lude..:? "associationState")
-      )
+    Core.withObject "DirectConnectGatewayAssociation" Core.$
+      \x ->
+        DirectConnectGatewayAssociation'
+          Core.<$> (x Core..:? "allowedPrefixesToDirectConnectGateway")
+          Core.<*> (x Core..:? "associatedGateway")
+          Core.<*> (x Core..:? "associationId")
+          Core.<*> (x Core..:? "associationState")
+          Core.<*> (x Core..:? "directConnectGatewayId")
+          Core.<*> (x Core..:? "directConnectGatewayOwnerAccount")
+          Core.<*> (x Core..:? "stateChangeError")
+          Core.<*> (x Core..:? "virtualGatewayId")
+          Core.<*> (x Core..:? "virtualGatewayOwnerAccount")
+          Core.<*> (x Core..:? "virtualGatewayRegion")

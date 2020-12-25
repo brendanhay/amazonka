@@ -17,71 +17,67 @@ module Network.AWS.SMS.Types.LaunchDetails
     mkLaunchDetails,
 
     -- * Lenses
-    ldStackId,
     ldLatestLaunchTime,
+    ldStackId,
     ldStackName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.StackId as Types
+import qualified Network.AWS.SMS.Types.StackName as Types
 
 -- | Details about the latest launch of an application.
 --
 -- /See:/ 'mkLaunchDetails' smart constructor.
 data LaunchDetails = LaunchDetails'
-  { -- | The ID of the latest stack launched for this application.
-    stackId :: Lude.Maybe Lude.Text,
-    -- | The latest time that this application was launched successfully.
-    latestLaunchTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The latest time that this application was launched successfully.
+    latestLaunchTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the latest stack launched for this application.
+    stackId :: Core.Maybe Types.StackId,
     -- | The name of the latest stack launched for this application.
-    stackName :: Lude.Maybe Lude.Text
+    stackName :: Core.Maybe Types.StackName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LaunchDetails' with the minimum fields required to make a request.
---
--- * 'stackId' - The ID of the latest stack launched for this application.
--- * 'latestLaunchTime' - The latest time that this application was launched successfully.
--- * 'stackName' - The name of the latest stack launched for this application.
+-- | Creates a 'LaunchDetails' value with any optional fields omitted.
 mkLaunchDetails ::
   LaunchDetails
 mkLaunchDetails =
   LaunchDetails'
-    { stackId = Lude.Nothing,
-      latestLaunchTime = Lude.Nothing,
-      stackName = Lude.Nothing
+    { latestLaunchTime = Core.Nothing,
+      stackId = Core.Nothing,
+      stackName = Core.Nothing
     }
-
--- | The ID of the latest stack launched for this application.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldStackId :: Lens.Lens' LaunchDetails (Lude.Maybe Lude.Text)
-ldStackId = Lens.lens (stackId :: LaunchDetails -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: LaunchDetails)
-{-# DEPRECATED ldStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The latest time that this application was launched successfully.
 --
 -- /Note:/ Consider using 'latestLaunchTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldLatestLaunchTime :: Lens.Lens' LaunchDetails (Lude.Maybe Lude.Timestamp)
-ldLatestLaunchTime = Lens.lens (latestLaunchTime :: LaunchDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {latestLaunchTime = a} :: LaunchDetails)
+ldLatestLaunchTime :: Lens.Lens' LaunchDetails (Core.Maybe Core.NominalDiffTime)
+ldLatestLaunchTime = Lens.field @"latestLaunchTime"
 {-# DEPRECATED ldLatestLaunchTime "Use generic-lens or generic-optics with 'latestLaunchTime' instead." #-}
+
+-- | The ID of the latest stack launched for this application.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldStackId :: Lens.Lens' LaunchDetails (Core.Maybe Types.StackId)
+ldStackId = Lens.field @"stackId"
+{-# DEPRECATED ldStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The name of the latest stack launched for this application.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldStackName :: Lens.Lens' LaunchDetails (Lude.Maybe Lude.Text)
-ldStackName = Lens.lens (stackName :: LaunchDetails -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: LaunchDetails)
+ldStackName :: Lens.Lens' LaunchDetails (Core.Maybe Types.StackName)
+ldStackName = Lens.field @"stackName"
 {-# DEPRECATED ldStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Lude.FromJSON LaunchDetails where
+instance Core.FromJSON LaunchDetails where
   parseJSON =
-    Lude.withObject
-      "LaunchDetails"
-      ( \x ->
-          LaunchDetails'
-            Lude.<$> (x Lude..:? "stackId")
-            Lude.<*> (x Lude..:? "latestLaunchTime")
-            Lude.<*> (x Lude..:? "stackName")
-      )
+    Core.withObject "LaunchDetails" Core.$
+      \x ->
+        LaunchDetails'
+          Core.<$> (x Core..:? "latestLaunchTime")
+          Core.<*> (x Core..:? "stackId")
+          Core.<*> (x Core..:? "stackName")

@@ -13,46 +13,51 @@
 module Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel
   ( ReviewPolicyLevel
       ( ReviewPolicyLevel',
-        Assignment,
-        Hit
+        ReviewPolicyLevelAssignment,
+        ReviewPolicyLevelHit,
+        fromReviewPolicyLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReviewPolicyLevel = ReviewPolicyLevel' Lude.Text
+newtype ReviewPolicyLevel = ReviewPolicyLevel'
+  { fromReviewPolicyLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Assignment :: ReviewPolicyLevel
-pattern Assignment = ReviewPolicyLevel' "Assignment"
+pattern ReviewPolicyLevelAssignment :: ReviewPolicyLevel
+pattern ReviewPolicyLevelAssignment = ReviewPolicyLevel' "Assignment"
 
-pattern Hit :: ReviewPolicyLevel
-pattern Hit = ReviewPolicyLevel' "HIT"
+pattern ReviewPolicyLevelHit :: ReviewPolicyLevel
+pattern ReviewPolicyLevelHit = ReviewPolicyLevel' "HIT"
 
 {-# COMPLETE
-  Assignment,
-  Hit,
+  ReviewPolicyLevelAssignment,
+  ReviewPolicyLevelHit,
   ReviewPolicyLevel'
   #-}

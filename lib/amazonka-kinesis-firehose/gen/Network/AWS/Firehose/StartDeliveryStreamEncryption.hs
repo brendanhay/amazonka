@@ -36,120 +36,103 @@ module Network.AWS.Firehose.StartDeliveryStreamEncryption
     mkStartDeliveryStreamEncryptionResponse,
 
     -- ** Response lenses
-    sdsersResponseStatus,
+    srsResponseStatus,
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartDeliveryStreamEncryption' smart constructor.
 data StartDeliveryStreamEncryption = StartDeliveryStreamEncryption'
   { -- | The name of the delivery stream for which you want to enable server-side encryption (SSE).
-    deliveryStreamName :: Lude.Text,
+    deliveryStreamName :: Types.DeliveryStreamName,
     -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
-    deliveryStreamEncryptionConfigurationInput :: Lude.Maybe DeliveryStreamEncryptionConfigurationInput
+    deliveryStreamEncryptionConfigurationInput :: Core.Maybe Types.DeliveryStreamEncryptionConfigurationInput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartDeliveryStreamEncryption' with the minimum fields required to make a request.
---
--- * 'deliveryStreamName' - The name of the delivery stream for which you want to enable server-side encryption (SSE).
--- * 'deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
+-- | Creates a 'StartDeliveryStreamEncryption' value with any optional fields omitted.
 mkStartDeliveryStreamEncryption ::
   -- | 'deliveryStreamName'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
   StartDeliveryStreamEncryption
-mkStartDeliveryStreamEncryption pDeliveryStreamName_ =
+mkStartDeliveryStreamEncryption deliveryStreamName =
   StartDeliveryStreamEncryption'
-    { deliveryStreamName =
-        pDeliveryStreamName_,
-      deliveryStreamEncryptionConfigurationInput = Lude.Nothing
+    { deliveryStreamName,
+      deliveryStreamEncryptionConfigurationInput = Core.Nothing
     }
 
 -- | The name of the delivery stream for which you want to enable server-side encryption (SSE).
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDeliveryStreamName :: Lens.Lens' StartDeliveryStreamEncryption Lude.Text
-sDeliveryStreamName = Lens.lens (deliveryStreamName :: StartDeliveryStreamEncryption -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: StartDeliveryStreamEncryption)
+sDeliveryStreamName :: Lens.Lens' StartDeliveryStreamEncryption Types.DeliveryStreamName
+sDeliveryStreamName = Lens.field @"deliveryStreamName"
 {-# DEPRECATED sDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
 --
 -- /Note:/ Consider using 'deliveryStreamEncryptionConfigurationInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDeliveryStreamEncryptionConfigurationInput :: Lens.Lens' StartDeliveryStreamEncryption (Lude.Maybe DeliveryStreamEncryptionConfigurationInput)
-sDeliveryStreamEncryptionConfigurationInput = Lens.lens (deliveryStreamEncryptionConfigurationInput :: StartDeliveryStreamEncryption -> Lude.Maybe DeliveryStreamEncryptionConfigurationInput) (\s a -> s {deliveryStreamEncryptionConfigurationInput = a} :: StartDeliveryStreamEncryption)
+sDeliveryStreamEncryptionConfigurationInput :: Lens.Lens' StartDeliveryStreamEncryption (Core.Maybe Types.DeliveryStreamEncryptionConfigurationInput)
+sDeliveryStreamEncryptionConfigurationInput = Lens.field @"deliveryStreamEncryptionConfigurationInput"
 {-# DEPRECATED sDeliveryStreamEncryptionConfigurationInput "Use generic-lens or generic-optics with 'deliveryStreamEncryptionConfigurationInput' instead." #-}
 
-instance Lude.AWSRequest StartDeliveryStreamEncryption where
+instance Core.FromJSON StartDeliveryStreamEncryption where
+  toJSON StartDeliveryStreamEncryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+            ("DeliveryStreamEncryptionConfigurationInput" Core..=)
+              Core.<$> deliveryStreamEncryptionConfigurationInput
+          ]
+      )
+
+instance Core.AWSRequest StartDeliveryStreamEncryption where
   type
     Rs StartDeliveryStreamEncryption =
       StartDeliveryStreamEncryptionResponse
-  request = Req.postJSON firehoseService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Firehose_20150804.StartDeliveryStreamEncryption")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           StartDeliveryStreamEncryptionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartDeliveryStreamEncryption where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Firehose_20150804.StartDeliveryStreamEncryption" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartDeliveryStreamEncryption where
-  toJSON StartDeliveryStreamEncryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
-            ("DeliveryStreamEncryptionConfigurationInput" Lude..=)
-              Lude.<$> deliveryStreamEncryptionConfigurationInput
-          ]
-      )
-
-instance Lude.ToPath StartDeliveryStreamEncryption where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartDeliveryStreamEncryption where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartDeliveryStreamEncryptionResponse' smart constructor.
 newtype StartDeliveryStreamEncryptionResponse = StartDeliveryStreamEncryptionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartDeliveryStreamEncryptionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartDeliveryStreamEncryptionResponse' value with any optional fields omitted.
 mkStartDeliveryStreamEncryptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartDeliveryStreamEncryptionResponse
-mkStartDeliveryStreamEncryptionResponse pResponseStatus_ =
-  StartDeliveryStreamEncryptionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkStartDeliveryStreamEncryptionResponse responseStatus =
+  StartDeliveryStreamEncryptionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsersResponseStatus :: Lens.Lens' StartDeliveryStreamEncryptionResponse Lude.Int
-sdsersResponseStatus = Lens.lens (responseStatus :: StartDeliveryStreamEncryptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDeliveryStreamEncryptionResponse)
-{-# DEPRECATED sdsersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StartDeliveryStreamEncryptionResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

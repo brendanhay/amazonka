@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.DashIsoSegmentControl
   ( DashIsoSegmentControl
       ( DashIsoSegmentControl',
-        DISCSingleFile,
-        DISCSegmentedFiles
+        DashIsoSegmentControlSingleFile,
+        DashIsoSegmentControlSegmentedFiles,
+        fromDashIsoSegmentControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
-newtype DashIsoSegmentControl = DashIsoSegmentControl' Lude.Text
+newtype DashIsoSegmentControl = DashIsoSegmentControl'
+  { fromDashIsoSegmentControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DISCSingleFile :: DashIsoSegmentControl
-pattern DISCSingleFile = DashIsoSegmentControl' "SINGLE_FILE"
+pattern DashIsoSegmentControlSingleFile :: DashIsoSegmentControl
+pattern DashIsoSegmentControlSingleFile = DashIsoSegmentControl' "SINGLE_FILE"
 
-pattern DISCSegmentedFiles :: DashIsoSegmentControl
-pattern DISCSegmentedFiles = DashIsoSegmentControl' "SEGMENTED_FILES"
+pattern DashIsoSegmentControlSegmentedFiles :: DashIsoSegmentControl
+pattern DashIsoSegmentControlSegmentedFiles = DashIsoSegmentControl' "SEGMENTED_FILES"
 
 {-# COMPLETE
-  DISCSingleFile,
-  DISCSegmentedFiles,
+  DashIsoSegmentControlSingleFile,
+  DashIsoSegmentControlSegmentedFiles,
   DashIsoSegmentControl'
   #-}

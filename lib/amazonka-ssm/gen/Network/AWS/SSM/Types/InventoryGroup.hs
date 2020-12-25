@@ -17,59 +17,56 @@ module Network.AWS.SSM.Types.InventoryGroup
     mkInventoryGroup,
 
     -- * Lenses
-    igFilters,
     igName,
+    igFilters,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.InventoryFilter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.InventoryFilter as Types
+import qualified Network.AWS.SSM.Types.InventoryGroupName as Types
 
 -- | A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
 --
 -- /See:/ 'mkInventoryGroup' smart constructor.
 data InventoryGroup = InventoryGroup'
-  { -- | Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
-    filters :: Lude.NonEmpty InventoryFilter,
-    -- | The name of the group.
-    name :: Lude.Text
+  { -- | The name of the group.
+    name :: Types.InventoryGroupName,
+    -- | Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
+    filters :: Core.NonEmpty Types.InventoryFilter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryGroup' with the minimum fields required to make a request.
---
--- * 'filters' - Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
--- * 'name' - The name of the group.
+-- | Creates a 'InventoryGroup' value with any optional fields omitted.
 mkInventoryGroup ::
-  -- | 'filters'
-  Lude.NonEmpty InventoryFilter ->
   -- | 'name'
-  Lude.Text ->
+  Types.InventoryGroupName ->
+  -- | 'filters'
+  Core.NonEmpty Types.InventoryFilter ->
   InventoryGroup
-mkInventoryGroup pFilters_ pName_ =
-  InventoryGroup' {filters = pFilters_, name = pName_}
-
--- | Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igFilters :: Lens.Lens' InventoryGroup (Lude.NonEmpty InventoryFilter)
-igFilters = Lens.lens (filters :: InventoryGroup -> Lude.NonEmpty InventoryFilter) (\s a -> s {filters = a} :: InventoryGroup)
-{-# DEPRECATED igFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+mkInventoryGroup name filters = InventoryGroup' {name, filters}
 
 -- | The name of the group.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igName :: Lens.Lens' InventoryGroup Lude.Text
-igName = Lens.lens (name :: InventoryGroup -> Lude.Text) (\s a -> s {name = a} :: InventoryGroup)
+igName :: Lens.Lens' InventoryGroup Types.InventoryGroupName
+igName = Lens.field @"name"
 {-# DEPRECATED igName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON InventoryGroup where
-  toJSON InventoryGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Filters" Lude..= filters),
-            Lude.Just ("Name" Lude..= name)
+-- | Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igFilters :: Lens.Lens' InventoryGroup (Core.NonEmpty Types.InventoryFilter)
+igFilters = Lens.field @"filters"
+{-# DEPRECATED igFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+instance Core.FromJSON InventoryGroup where
+  toJSON InventoryGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Filters" Core..= filters)
           ]
       )

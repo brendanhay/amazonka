@@ -20,118 +20,110 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     mkDeleteLoadBalancerPolicy,
 
     -- ** Request lenses
-    dPolicyName,
     dLoadBalancerName,
+    dPolicyName,
 
     -- * Destructuring the response
     DeleteLoadBalancerPolicyResponse (..),
     mkDeleteLoadBalancerPolicyResponse,
 
     -- ** Response lenses
-    dlbprsResponseStatus,
+    dlbprfrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DeleteLoadBalancerPolicy.
 --
 -- /See:/ 'mkDeleteLoadBalancerPolicy' smart constructor.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
-  { -- | The name of the policy.
-    policyName :: Lude.Text,
-    -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text
+  { -- | The name of the load balancer.
+    loadBalancerName :: Types.AccessPointName,
+    -- | The name of the policy.
+    policyName :: Types.PolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLoadBalancerPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the policy.
--- * 'loadBalancerName' - The name of the load balancer.
+-- | Creates a 'DeleteLoadBalancerPolicy' value with any optional fields omitted.
 mkDeleteLoadBalancerPolicy ::
-  -- | 'policyName'
-  Lude.Text ->
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
+  -- | 'policyName'
+  Types.PolicyName ->
   DeleteLoadBalancerPolicy
-mkDeleteLoadBalancerPolicy pPolicyName_ pLoadBalancerName_ =
-  DeleteLoadBalancerPolicy'
-    { policyName = pPolicyName_,
-      loadBalancerName = pLoadBalancerName_
-    }
-
--- | The name of the policy.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPolicyName :: Lens.Lens' DeleteLoadBalancerPolicy Lude.Text
-dPolicyName = Lens.lens (policyName :: DeleteLoadBalancerPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteLoadBalancerPolicy)
-{-# DEPRECATED dPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+mkDeleteLoadBalancerPolicy loadBalancerName policyName =
+  DeleteLoadBalancerPolicy' {loadBalancerName, policyName}
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLoadBalancerName :: Lens.Lens' DeleteLoadBalancerPolicy Lude.Text
-dLoadBalancerName = Lens.lens (loadBalancerName :: DeleteLoadBalancerPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DeleteLoadBalancerPolicy)
+dLoadBalancerName :: Lens.Lens' DeleteLoadBalancerPolicy Types.AccessPointName
+dLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED dLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
-instance Lude.AWSRequest DeleteLoadBalancerPolicy where
+-- | The name of the policy.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPolicyName :: Lens.Lens' DeleteLoadBalancerPolicy Types.PolicyName
+dPolicyName = Lens.field @"policyName"
+{-# DEPRECATED dPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+instance Core.AWSRequest DeleteLoadBalancerPolicy where
   type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteLoadBalancerPolicy")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> (Core.toQueryValue "PolicyName" policyName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteLoadBalancerPolicyResult"
       ( \s h x ->
           DeleteLoadBalancerPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteLoadBalancerPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteLoadBalancerPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLoadBalancerPolicy where
-  toQuery DeleteLoadBalancerPolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteLoadBalancerPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "PolicyName" Lude.=: policyName,
-        "LoadBalancerName" Lude.=: loadBalancerName
-      ]
 
 -- | Contains the output of DeleteLoadBalancerPolicy.
 --
 -- /See:/ 'mkDeleteLoadBalancerPolicyResponse' smart constructor.
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLoadBalancerPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteLoadBalancerPolicyResponse' value with any optional fields omitted.
 mkDeleteLoadBalancerPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteLoadBalancerPolicyResponse
-mkDeleteLoadBalancerPolicyResponse pResponseStatus_ =
-  DeleteLoadBalancerPolicyResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteLoadBalancerPolicyResponse responseStatus =
+  DeleteLoadBalancerPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbprsResponseStatus :: Lens.Lens' DeleteLoadBalancerPolicyResponse Lude.Int
-dlbprsResponseStatus = Lens.lens (responseStatus :: DeleteLoadBalancerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLoadBalancerPolicyResponse)
-{-# DEPRECATED dlbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbprfrsResponseStatus :: Lens.Lens' DeleteLoadBalancerPolicyResponse Core.Int
+dlbprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,35 +21,33 @@ module Network.AWS.IoT.Types.ValidationError
   )
 where
 
+import qualified Network.AWS.IoT.Types.ErrorMessage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an error found in a behavior specification.
 --
 -- /See:/ 'mkValidationError' smart constructor.
 newtype ValidationError = ValidationError'
   { -- | The description of an error found in the behaviors.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.ErrorMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidationError' with the minimum fields required to make a request.
---
--- * 'errorMessage' - The description of an error found in the behaviors.
+-- | Creates a 'ValidationError' value with any optional fields omitted.
 mkValidationError ::
   ValidationError
-mkValidationError = ValidationError' {errorMessage = Lude.Nothing}
+mkValidationError = ValidationError' {errorMessage = Core.Nothing}
 
 -- | The description of an error found in the behaviors.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-veErrorMessage :: Lens.Lens' ValidationError (Lude.Maybe Lude.Text)
-veErrorMessage = Lens.lens (errorMessage :: ValidationError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: ValidationError)
+veErrorMessage :: Lens.Lens' ValidationError (Core.Maybe Types.ErrorMessage)
+veErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED veErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON ValidationError where
+instance Core.FromJSON ValidationError where
   parseJSON =
-    Lude.withObject
-      "ValidationError"
-      (\x -> ValidationError' Lude.<$> (x Lude..:? "errorMessage"))
+    Core.withObject "ValidationError" Core.$
+      \x -> ValidationError' Core.<$> (x Core..:? "errorMessage")

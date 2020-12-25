@@ -27,112 +27,96 @@ module Network.AWS.MediaStore.GetMetricPolicy
     mkGetMetricPolicyResponse,
 
     -- ** Response lenses
-    gmprsMetricPolicy,
-    gmprsResponseStatus,
+    gmprrsMetricPolicy,
+    gmprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetMetricPolicy' smart constructor.
 newtype GetMetricPolicy = GetMetricPolicy'
   { -- | The name of the container that is associated with the metric policy.
-    containerName :: Lude.Text
+    containerName :: Types.ContainerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMetricPolicy' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of the container that is associated with the metric policy.
+-- | Creates a 'GetMetricPolicy' value with any optional fields omitted.
 mkGetMetricPolicy ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.ContainerName ->
   GetMetricPolicy
-mkGetMetricPolicy pContainerName_ =
-  GetMetricPolicy' {containerName = pContainerName_}
+mkGetMetricPolicy containerName = GetMetricPolicy' {containerName}
 
 -- | The name of the container that is associated with the metric policy.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmpContainerName :: Lens.Lens' GetMetricPolicy Lude.Text
-gmpContainerName = Lens.lens (containerName :: GetMetricPolicy -> Lude.Text) (\s a -> s {containerName = a} :: GetMetricPolicy)
+gmpContainerName :: Lens.Lens' GetMetricPolicy Types.ContainerName
+gmpContainerName = Lens.field @"containerName"
 {-# DEPRECATED gmpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance Lude.AWSRequest GetMetricPolicy where
+instance Core.FromJSON GetMetricPolicy where
+  toJSON GetMetricPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ContainerName" Core..= containerName)]
+      )
+
+instance Core.AWSRequest GetMetricPolicy where
   type Rs GetMetricPolicy = GetMetricPolicyResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "MediaStore_20170901.GetMetricPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetMetricPolicyResponse'
-            Lude.<$> (x Lude..:> "MetricPolicy") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "MetricPolicy") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetMetricPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.GetMetricPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetMetricPolicy where
-  toJSON GetMetricPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ContainerName" Lude..= containerName)]
-      )
-
-instance Lude.ToPath GetMetricPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetMetricPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetMetricPolicyResponse' smart constructor.
 data GetMetricPolicyResponse = GetMetricPolicyResponse'
   { -- | The metric policy that is associated with the specific container.
-    metricPolicy :: MetricPolicy,
+    metricPolicy :: Types.MetricPolicy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMetricPolicyResponse' with the minimum fields required to make a request.
---
--- * 'metricPolicy' - The metric policy that is associated with the specific container.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetMetricPolicyResponse' value with any optional fields omitted.
 mkGetMetricPolicyResponse ::
   -- | 'metricPolicy'
-  MetricPolicy ->
+  Types.MetricPolicy ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetMetricPolicyResponse
-mkGetMetricPolicyResponse pMetricPolicy_ pResponseStatus_ =
-  GetMetricPolicyResponse'
-    { metricPolicy = pMetricPolicy_,
-      responseStatus = pResponseStatus_
-    }
+mkGetMetricPolicyResponse metricPolicy responseStatus =
+  GetMetricPolicyResponse' {metricPolicy, responseStatus}
 
 -- | The metric policy that is associated with the specific container.
 --
 -- /Note:/ Consider using 'metricPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmprsMetricPolicy :: Lens.Lens' GetMetricPolicyResponse MetricPolicy
-gmprsMetricPolicy = Lens.lens (metricPolicy :: GetMetricPolicyResponse -> MetricPolicy) (\s a -> s {metricPolicy = a} :: GetMetricPolicyResponse)
-{-# DEPRECATED gmprsMetricPolicy "Use generic-lens or generic-optics with 'metricPolicy' instead." #-}
+gmprrsMetricPolicy :: Lens.Lens' GetMetricPolicyResponse Types.MetricPolicy
+gmprrsMetricPolicy = Lens.field @"metricPolicy"
+{-# DEPRECATED gmprrsMetricPolicy "Use generic-lens or generic-optics with 'metricPolicy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmprsResponseStatus :: Lens.Lens' GetMetricPolicyResponse Lude.Int
-gmprsResponseStatus = Lens.lens (responseStatus :: GetMetricPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMetricPolicyResponse)
-{-# DEPRECATED gmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gmprrsResponseStatus :: Lens.Lens' GetMetricPolicyResponse Core.Int
+gmprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gmprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

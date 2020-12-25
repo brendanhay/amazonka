@@ -22,183 +22,171 @@ module Network.AWS.EMR.ListClusters
     mkListClusters,
 
     -- ** Request lenses
-    lcCreatedAfter,
-    lcMarker,
     lcClusterStates,
+    lcCreatedAfter,
     lcCreatedBefore,
+    lcMarker,
 
     -- * Destructuring the response
     ListClustersResponse (..),
     mkListClustersResponse,
 
     -- ** Response lenses
-    lcrsMarker,
-    lcrsClusters,
-    lcrsResponseStatus,
+    lcrrsClusters,
+    lcrrsMarker,
+    lcrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This input determines how the ListClusters action filters the list of clusters that it returns.
 --
 -- /See:/ 'mkListClusters' smart constructor.
 data ListClusters = ListClusters'
-  { -- | The creation date and time beginning value filter for listing clusters.
-    createdAfter :: Lude.Maybe Lude.Timestamp,
-    -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The cluster state filters to apply when listing clusters.
-    clusterStates :: Lude.Maybe [ClusterState],
+  { -- | The cluster state filters to apply when listing clusters.
+    clusterStates :: Core.Maybe [Types.ClusterState],
+    -- | The creation date and time beginning value filter for listing clusters.
+    createdAfter :: Core.Maybe Core.NominalDiffTime,
     -- | The creation date and time end value filter for listing clusters.
-    createdBefore :: Lude.Maybe Lude.Timestamp
+    createdBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
---
--- * 'createdAfter' - The creation date and time beginning value filter for listing clusters.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
--- * 'clusterStates' - The cluster state filters to apply when listing clusters.
--- * 'createdBefore' - The creation date and time end value filter for listing clusters.
+-- | Creates a 'ListClusters' value with any optional fields omitted.
 mkListClusters ::
   ListClusters
 mkListClusters =
   ListClusters'
-    { createdAfter = Lude.Nothing,
-      marker = Lude.Nothing,
-      clusterStates = Lude.Nothing,
-      createdBefore = Lude.Nothing
+    { clusterStates = Core.Nothing,
+      createdAfter = Core.Nothing,
+      createdBefore = Core.Nothing,
+      marker = Core.Nothing
     }
-
--- | The creation date and time beginning value filter for listing clusters.
---
--- /Note:/ Consider using 'createdAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcCreatedAfter :: Lens.Lens' ListClusters (Lude.Maybe Lude.Timestamp)
-lcCreatedAfter = Lens.lens (createdAfter :: ListClusters -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAfter = a} :: ListClusters)
-{-# DEPRECATED lcCreatedAfter "Use generic-lens or generic-optics with 'createdAfter' instead." #-}
-
--- | The pagination token that indicates the next set of results to retrieve.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcMarker :: Lens.Lens' ListClusters (Lude.Maybe Lude.Text)
-lcMarker = Lens.lens (marker :: ListClusters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListClusters)
-{-# DEPRECATED lcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The cluster state filters to apply when listing clusters.
 --
 -- /Note:/ Consider using 'clusterStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcClusterStates :: Lens.Lens' ListClusters (Lude.Maybe [ClusterState])
-lcClusterStates = Lens.lens (clusterStates :: ListClusters -> Lude.Maybe [ClusterState]) (\s a -> s {clusterStates = a} :: ListClusters)
+lcClusterStates :: Lens.Lens' ListClusters (Core.Maybe [Types.ClusterState])
+lcClusterStates = Lens.field @"clusterStates"
 {-# DEPRECATED lcClusterStates "Use generic-lens or generic-optics with 'clusterStates' instead." #-}
+
+-- | The creation date and time beginning value filter for listing clusters.
+--
+-- /Note:/ Consider using 'createdAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcCreatedAfter :: Lens.Lens' ListClusters (Core.Maybe Core.NominalDiffTime)
+lcCreatedAfter = Lens.field @"createdAfter"
+{-# DEPRECATED lcCreatedAfter "Use generic-lens or generic-optics with 'createdAfter' instead." #-}
 
 -- | The creation date and time end value filter for listing clusters.
 --
 -- /Note:/ Consider using 'createdBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcCreatedBefore :: Lens.Lens' ListClusters (Lude.Maybe Lude.Timestamp)
-lcCreatedBefore = Lens.lens (createdBefore :: ListClusters -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdBefore = a} :: ListClusters)
+lcCreatedBefore :: Lens.Lens' ListClusters (Core.Maybe Core.NominalDiffTime)
+lcCreatedBefore = Lens.field @"createdBefore"
 {-# DEPRECATED lcCreatedBefore "Use generic-lens or generic-optics with 'createdBefore' instead." #-}
 
-instance Page.AWSPager ListClusters where
-  page rq rs
-    | Page.stop (rs Lens.^. lcrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcrsClusters) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lcMarker Lens..~ rs Lens.^. lcrsMarker
+-- | The pagination token that indicates the next set of results to retrieve.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcMarker :: Lens.Lens' ListClusters (Core.Maybe Types.Marker)
+lcMarker = Lens.field @"marker"
+{-# DEPRECATED lcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListClusters where
+instance Core.FromJSON ListClusters where
+  toJSON ListClusters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ClusterStates" Core..=) Core.<$> clusterStates,
+            ("CreatedAfter" Core..=) Core.<$> createdAfter,
+            ("CreatedBefore" Core..=) Core.<$> createdBefore,
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
+
+instance Core.AWSRequest ListClusters where
   type Rs ListClusters = ListClustersResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ListClusters")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Lude.<$> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "Clusters" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Clusters")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListClusters where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ListClusters" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListClusters where
-  toJSON ListClusters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CreatedAfter" Lude..=) Lude.<$> createdAfter,
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("ClusterStates" Lude..=) Lude.<$> clusterStates,
-            ("CreatedBefore" Lude..=) Lude.<$> createdBefore
-          ]
-      )
-
-instance Lude.ToPath ListClusters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListClusters where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListClusters where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"clusters" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | This contains a ClusterSummaryList with the cluster details; for example, the cluster IDs, names, and status.
 --
 -- /See:/ 'mkListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-  { -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The list of clusters for the account based on the given filters.
-    clusters :: Lude.Maybe [ClusterSummary],
+  { -- | The list of clusters for the account based on the given filters.
+    clusters :: Core.Maybe [Types.ClusterSummary],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
---
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
--- * 'clusters' - The list of clusters for the account based on the given filters.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListClustersResponse' value with any optional fields omitted.
 mkListClustersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListClustersResponse
-mkListClustersResponse pResponseStatus_ =
+mkListClustersResponse responseStatus =
   ListClustersResponse'
-    { marker = Lude.Nothing,
-      clusters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clusters = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
-
--- | The pagination token that indicates the next set of results to retrieve.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsMarker :: Lens.Lens' ListClustersResponse (Lude.Maybe Lude.Text)
-lcrsMarker = Lens.lens (marker :: ListClustersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The list of clusters for the account based on the given filters.
 --
 -- /Note:/ Consider using 'clusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsClusters :: Lens.Lens' ListClustersResponse (Lude.Maybe [ClusterSummary])
-lcrsClusters = Lens.lens (clusters :: ListClustersResponse -> Lude.Maybe [ClusterSummary]) (\s a -> s {clusters = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
+lcrrsClusters :: Lens.Lens' ListClustersResponse (Core.Maybe [Types.ClusterSummary])
+lcrrsClusters = Lens.field @"clusters"
+{-# DEPRECATED lcrrsClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrrsMarker :: Lens.Lens' ListClustersResponse (Core.Maybe Types.Marker)
+lcrrsMarker = Lens.field @"marker"
+{-# DEPRECATED lcrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsResponseStatus :: Lens.Lens' ListClustersResponse Lude.Int
-lcrsResponseStatus = Lens.lens (responseStatus :: ListClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcrrsResponseStatus :: Lens.Lens' ListClustersResponse Core.Int
+lcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

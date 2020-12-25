@@ -13,61 +13,63 @@
 module Network.AWS.Route53Domains.Types.ContactType
   ( ContactType
       ( ContactType',
-        Person,
-        Company,
-        Association,
-        PublicBody,
-        Reseller
+        ContactTypePerson,
+        ContactTypeCompany,
+        ContactTypeAssociation,
+        ContactTypePublicBody,
+        ContactTypeReseller,
+        fromContactType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContactType = ContactType' Lude.Text
+newtype ContactType = ContactType' {fromContactType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Person :: ContactType
-pattern Person = ContactType' "PERSON"
+pattern ContactTypePerson :: ContactType
+pattern ContactTypePerson = ContactType' "PERSON"
 
-pattern Company :: ContactType
-pattern Company = ContactType' "COMPANY"
+pattern ContactTypeCompany :: ContactType
+pattern ContactTypeCompany = ContactType' "COMPANY"
 
-pattern Association :: ContactType
-pattern Association = ContactType' "ASSOCIATION"
+pattern ContactTypeAssociation :: ContactType
+pattern ContactTypeAssociation = ContactType' "ASSOCIATION"
 
-pattern PublicBody :: ContactType
-pattern PublicBody = ContactType' "PUBLIC_BODY"
+pattern ContactTypePublicBody :: ContactType
+pattern ContactTypePublicBody = ContactType' "PUBLIC_BODY"
 
-pattern Reseller :: ContactType
-pattern Reseller = ContactType' "RESELLER"
+pattern ContactTypeReseller :: ContactType
+pattern ContactTypeReseller = ContactType' "RESELLER"
 
 {-# COMPLETE
-  Person,
-  Company,
-  Association,
-  PublicBody,
-  Reseller,
+  ContactTypePerson,
+  ContactTypeCompany,
+  ContactTypeAssociation,
+  ContactTypePublicBody,
+  ContactTypeReseller,
   ContactType'
   #-}

@@ -17,12 +17,13 @@ module Network.AWS.SageMaker.Types.LabelingJobResourceConfig
     mkLabelingJobResourceConfig,
 
     -- * Lenses
-    ljrcVolumeKMSKeyId,
+    ljrcVolumeKmsKeyId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.VolumeKmsKeyId as Types
 
 -- | Provides configuration information for labeling jobs.
 --
@@ -37,26 +38,16 @@ newtype LabelingJobResourceConfig = LabelingJobResourceConfig'
     --
     --     * // Amazon Resource Name (ARN) of a KMS Key
     -- @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-    volumeKMSKeyId :: Lude.Maybe Lude.Text
+    volumeKmsKeyId :: Core.Maybe Types.VolumeKmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LabelingJobResourceConfig' with the minimum fields required to make a request.
---
--- * 'volumeKMSKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job. The @VolumeKmsKeyId@ can be any of the following formats:
---
---
---     * // KMS Key ID
--- @"1234abcd-12ab-34cd-56ef-1234567890ab"@
---
---
---     * // Amazon Resource Name (ARN) of a KMS Key
--- @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+-- | Creates a 'LabelingJobResourceConfig' value with any optional fields omitted.
 mkLabelingJobResourceConfig ::
   LabelingJobResourceConfig
 mkLabelingJobResourceConfig =
-  LabelingJobResourceConfig' {volumeKMSKeyId = Lude.Nothing}
+  LabelingJobResourceConfig' {volumeKmsKeyId = Core.Nothing}
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job. The @VolumeKmsKeyId@ can be any of the following formats:
 --
@@ -70,22 +61,20 @@ mkLabelingJobResourceConfig =
 --
 --
 --
--- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrcVolumeKMSKeyId :: Lens.Lens' LabelingJobResourceConfig (Lude.Maybe Lude.Text)
-ljrcVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: LabelingJobResourceConfig -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: LabelingJobResourceConfig)
-{-# DEPRECATED ljrcVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
+-- /Note:/ Consider using 'volumeKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrcVolumeKmsKeyId :: Lens.Lens' LabelingJobResourceConfig (Core.Maybe Types.VolumeKmsKeyId)
+ljrcVolumeKmsKeyId = Lens.field @"volumeKmsKeyId"
+{-# DEPRECATED ljrcVolumeKmsKeyId "Use generic-lens or generic-optics with 'volumeKmsKeyId' instead." #-}
 
-instance Lude.FromJSON LabelingJobResourceConfig where
+instance Core.FromJSON LabelingJobResourceConfig where
+  toJSON LabelingJobResourceConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId]
+      )
+
+instance Core.FromJSON LabelingJobResourceConfig where
   parseJSON =
-    Lude.withObject
-      "LabelingJobResourceConfig"
-      ( \x ->
-          LabelingJobResourceConfig' Lude.<$> (x Lude..:? "VolumeKmsKeyId")
-      )
-
-instance Lude.ToJSON LabelingJobResourceConfig where
-  toJSON LabelingJobResourceConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId]
-      )
+    Core.withObject "LabelingJobResourceConfig" Core.$
+      \x ->
+        LabelingJobResourceConfig' Core.<$> (x Core..:? "VolumeKmsKeyId")

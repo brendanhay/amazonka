@@ -13,56 +13,61 @@
 module Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode
   ( InstanceGroupStateChangeReasonCode
       ( InstanceGroupStateChangeReasonCode',
-        InternalError,
-        ValidationError,
-        InstanceFailure,
-        ClusterTerminated
+        InstanceGroupStateChangeReasonCodeInternalError,
+        InstanceGroupStateChangeReasonCodeValidationError,
+        InstanceGroupStateChangeReasonCodeInstanceFailure,
+        InstanceGroupStateChangeReasonCodeClusterTerminated,
+        fromInstanceGroupStateChangeReasonCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceGroupStateChangeReasonCode = InstanceGroupStateChangeReasonCode' Lude.Text
+newtype InstanceGroupStateChangeReasonCode = InstanceGroupStateChangeReasonCode'
+  { fromInstanceGroupStateChangeReasonCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InternalError :: InstanceGroupStateChangeReasonCode
-pattern InternalError = InstanceGroupStateChangeReasonCode' "INTERNAL_ERROR"
+pattern InstanceGroupStateChangeReasonCodeInternalError :: InstanceGroupStateChangeReasonCode
+pattern InstanceGroupStateChangeReasonCodeInternalError = InstanceGroupStateChangeReasonCode' "INTERNAL_ERROR"
 
-pattern ValidationError :: InstanceGroupStateChangeReasonCode
-pattern ValidationError = InstanceGroupStateChangeReasonCode' "VALIDATION_ERROR"
+pattern InstanceGroupStateChangeReasonCodeValidationError :: InstanceGroupStateChangeReasonCode
+pattern InstanceGroupStateChangeReasonCodeValidationError = InstanceGroupStateChangeReasonCode' "VALIDATION_ERROR"
 
-pattern InstanceFailure :: InstanceGroupStateChangeReasonCode
-pattern InstanceFailure = InstanceGroupStateChangeReasonCode' "INSTANCE_FAILURE"
+pattern InstanceGroupStateChangeReasonCodeInstanceFailure :: InstanceGroupStateChangeReasonCode
+pattern InstanceGroupStateChangeReasonCodeInstanceFailure = InstanceGroupStateChangeReasonCode' "INSTANCE_FAILURE"
 
-pattern ClusterTerminated :: InstanceGroupStateChangeReasonCode
-pattern ClusterTerminated = InstanceGroupStateChangeReasonCode' "CLUSTER_TERMINATED"
+pattern InstanceGroupStateChangeReasonCodeClusterTerminated :: InstanceGroupStateChangeReasonCode
+pattern InstanceGroupStateChangeReasonCodeClusterTerminated = InstanceGroupStateChangeReasonCode' "CLUSTER_TERMINATED"
 
 {-# COMPLETE
-  InternalError,
-  ValidationError,
-  InstanceFailure,
-  ClusterTerminated,
+  InstanceGroupStateChangeReasonCodeInternalError,
+  InstanceGroupStateChangeReasonCodeValidationError,
+  InstanceGroupStateChangeReasonCodeInstanceFailure,
+  InstanceGroupStateChangeReasonCodeClusterTerminated,
   InstanceGroupStateChangeReasonCode'
   #-}

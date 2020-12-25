@@ -22,32 +22,30 @@ module Network.AWS.MediaLive.Types.InputDeviceRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for an input device.
 --
 -- /See:/ 'mkInputDeviceRequest' smart constructor.
 newtype InputDeviceRequest = InputDeviceRequest'
   { -- | The unique ID for the device.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputDeviceRequest' with the minimum fields required to make a request.
---
--- * 'id' - The unique ID for the device.
+-- | Creates a 'InputDeviceRequest' value with any optional fields omitted.
 mkInputDeviceRequest ::
   InputDeviceRequest
-mkInputDeviceRequest = InputDeviceRequest' {id = Lude.Nothing}
+mkInputDeviceRequest = InputDeviceRequest' {id = Core.Nothing}
 
 -- | The unique ID for the device.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idrId :: Lens.Lens' InputDeviceRequest (Lude.Maybe Lude.Text)
-idrId = Lens.lens (id :: InputDeviceRequest -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InputDeviceRequest)
+idrId :: Lens.Lens' InputDeviceRequest (Core.Maybe Core.Text)
+idrId = Lens.field @"id"
 {-# DEPRECATED idrId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.ToJSON InputDeviceRequest where
-  toJSON InputDeviceRequest' {..} =
-    Lude.object (Lude.catMaybes [("id" Lude..=) Lude.<$> id])
+instance Core.FromJSON InputDeviceRequest where
+  toJSON InputDeviceRequest {..} =
+    Core.object (Core.catMaybes [("id" Core..=) Core.<$> id])

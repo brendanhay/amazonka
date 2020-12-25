@@ -13,51 +13,56 @@
 module Network.AWS.DynamoDB.Types.ScalarAttributeType
   ( ScalarAttributeType
       ( ScalarAttributeType',
-        S,
-        N,
-        B
+        ScalarAttributeTypeS,
+        ScalarAttributeTypeN,
+        ScalarAttributeTypeB,
+        fromScalarAttributeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScalarAttributeType = ScalarAttributeType' Lude.Text
+newtype ScalarAttributeType = ScalarAttributeType'
+  { fromScalarAttributeType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern S :: ScalarAttributeType
-pattern S = ScalarAttributeType' "S"
+pattern ScalarAttributeTypeS :: ScalarAttributeType
+pattern ScalarAttributeTypeS = ScalarAttributeType' "S"
 
-pattern N :: ScalarAttributeType
-pattern N = ScalarAttributeType' "N"
+pattern ScalarAttributeTypeN :: ScalarAttributeType
+pattern ScalarAttributeTypeN = ScalarAttributeType' "N"
 
-pattern B :: ScalarAttributeType
-pattern B = ScalarAttributeType' "B"
+pattern ScalarAttributeTypeB :: ScalarAttributeType
+pattern ScalarAttributeTypeB = ScalarAttributeType' "B"
 
 {-# COMPLETE
-  S,
-  N,
-  B,
+  ScalarAttributeTypeS,
+  ScalarAttributeTypeN,
+  ScalarAttributeTypeB,
   ScalarAttributeType'
   #-}

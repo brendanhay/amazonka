@@ -22,157 +22,147 @@ module Network.AWS.AlexaBusiness.ListSkillsStoreCategories
     mkListSkillsStoreCategories,
 
     -- ** Request lenses
-    lsscNextToken,
     lsscMaxResults,
+    lsscNextToken,
 
     -- * Destructuring the response
     ListSkillsStoreCategoriesResponse (..),
     mkListSkillsStoreCategoriesResponse,
 
     -- ** Response lenses
-    lsscrsCategoryList,
-    lsscrsNextToken,
-    lsscrsResponseStatus,
+    lsscrrsCategoryList,
+    lsscrrsNextToken,
+    lsscrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSkillsStoreCategories' smart constructor.
 data ListSkillsStoreCategories = ListSkillsStoreCategories'
-  { -- | The tokens used for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of categories returned, per paginated calls.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of categories returned, per paginated calls.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The tokens used for pagination.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSkillsStoreCategories' with the minimum fields required to make a request.
---
--- * 'nextToken' - The tokens used for pagination.
--- * 'maxResults' - The maximum number of categories returned, per paginated calls.
+-- | Creates a 'ListSkillsStoreCategories' value with any optional fields omitted.
 mkListSkillsStoreCategories ::
   ListSkillsStoreCategories
 mkListSkillsStoreCategories =
   ListSkillsStoreCategories'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The tokens used for pagination.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscNextToken :: Lens.Lens' ListSkillsStoreCategories (Lude.Maybe Lude.Text)
-lsscNextToken = Lens.lens (nextToken :: ListSkillsStoreCategories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSkillsStoreCategories)
-{-# DEPRECATED lsscNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of categories returned, per paginated calls.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscMaxResults :: Lens.Lens' ListSkillsStoreCategories (Lude.Maybe Lude.Natural)
-lsscMaxResults = Lens.lens (maxResults :: ListSkillsStoreCategories -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSkillsStoreCategories)
+lsscMaxResults :: Lens.Lens' ListSkillsStoreCategories (Core.Maybe Core.Natural)
+lsscMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lsscMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListSkillsStoreCategories where
-  page rq rs
-    | Page.stop (rs Lens.^. lsscrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsscrsCategoryList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsscNextToken Lens..~ rs Lens.^. lsscrsNextToken
+-- | The tokens used for pagination.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsscNextToken :: Lens.Lens' ListSkillsStoreCategories (Core.Maybe Types.NextToken)
+lsscNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsscNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListSkillsStoreCategories where
+instance Core.FromJSON ListSkillsStoreCategories where
+  toJSON ListSkillsStoreCategories {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListSkillsStoreCategories where
   type
     Rs ListSkillsStoreCategories =
       ListSkillsStoreCategoriesResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.ListSkillsStoreCategories")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListSkillsStoreCategoriesResponse'
-            Lude.<$> (x Lude..?> "CategoryList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CategoryList")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSkillsStoreCategories where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.ListSkillsStoreCategories" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSkillsStoreCategories where
-  toJSON ListSkillsStoreCategories' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListSkillsStoreCategories where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSkillsStoreCategories where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListSkillsStoreCategories where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"categoryList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListSkillsStoreCategoriesResponse' smart constructor.
 data ListSkillsStoreCategoriesResponse = ListSkillsStoreCategoriesResponse'
   { -- | The list of categories.
-    categoryList :: Lude.Maybe [Category],
+    categoryList :: Core.Maybe [Types.Category],
     -- | The tokens used for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSkillsStoreCategoriesResponse' with the minimum fields required to make a request.
---
--- * 'categoryList' - The list of categories.
--- * 'nextToken' - The tokens used for pagination.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSkillsStoreCategoriesResponse' value with any optional fields omitted.
 mkListSkillsStoreCategoriesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSkillsStoreCategoriesResponse
-mkListSkillsStoreCategoriesResponse pResponseStatus_ =
+mkListSkillsStoreCategoriesResponse responseStatus =
   ListSkillsStoreCategoriesResponse'
-    { categoryList = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { categoryList = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of categories.
 --
 -- /Note:/ Consider using 'categoryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscrsCategoryList :: Lens.Lens' ListSkillsStoreCategoriesResponse (Lude.Maybe [Category])
-lsscrsCategoryList = Lens.lens (categoryList :: ListSkillsStoreCategoriesResponse -> Lude.Maybe [Category]) (\s a -> s {categoryList = a} :: ListSkillsStoreCategoriesResponse)
-{-# DEPRECATED lsscrsCategoryList "Use generic-lens or generic-optics with 'categoryList' instead." #-}
+lsscrrsCategoryList :: Lens.Lens' ListSkillsStoreCategoriesResponse (Core.Maybe [Types.Category])
+lsscrrsCategoryList = Lens.field @"categoryList"
+{-# DEPRECATED lsscrrsCategoryList "Use generic-lens or generic-optics with 'categoryList' instead." #-}
 
 -- | The tokens used for pagination.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscrsNextToken :: Lens.Lens' ListSkillsStoreCategoriesResponse (Lude.Maybe Lude.Text)
-lsscrsNextToken = Lens.lens (nextToken :: ListSkillsStoreCategoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSkillsStoreCategoriesResponse)
-{-# DEPRECATED lsscrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsscrrsNextToken :: Lens.Lens' ListSkillsStoreCategoriesResponse (Core.Maybe Types.NextToken)
+lsscrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsscrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscrsResponseStatus :: Lens.Lens' ListSkillsStoreCategoriesResponse Lude.Int
-lsscrsResponseStatus = Lens.lens (responseStatus :: ListSkillsStoreCategoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSkillsStoreCategoriesResponse)
-{-# DEPRECATED lsscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsscrrsResponseStatus :: Lens.Lens' ListSkillsStoreCategoriesResponse Core.Int
+lsscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

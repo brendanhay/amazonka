@@ -13,61 +13,66 @@
 module Network.AWS.KMS.Types.ConnectionStateType
   ( ConnectionStateType
       ( ConnectionStateType',
-        Connected,
-        Connecting,
-        Failed,
-        Disconnected,
-        Disconnecting
+        ConnectionStateTypeConnected,
+        ConnectionStateTypeConnecting,
+        ConnectionStateTypeFailed,
+        ConnectionStateTypeDisconnected,
+        ConnectionStateTypeDisconnecting,
+        fromConnectionStateType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConnectionStateType = ConnectionStateType' Lude.Text
+newtype ConnectionStateType = ConnectionStateType'
+  { fromConnectionStateType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Connected :: ConnectionStateType
-pattern Connected = ConnectionStateType' "CONNECTED"
+pattern ConnectionStateTypeConnected :: ConnectionStateType
+pattern ConnectionStateTypeConnected = ConnectionStateType' "CONNECTED"
 
-pattern Connecting :: ConnectionStateType
-pattern Connecting = ConnectionStateType' "CONNECTING"
+pattern ConnectionStateTypeConnecting :: ConnectionStateType
+pattern ConnectionStateTypeConnecting = ConnectionStateType' "CONNECTING"
 
-pattern Failed :: ConnectionStateType
-pattern Failed = ConnectionStateType' "FAILED"
+pattern ConnectionStateTypeFailed :: ConnectionStateType
+pattern ConnectionStateTypeFailed = ConnectionStateType' "FAILED"
 
-pattern Disconnected :: ConnectionStateType
-pattern Disconnected = ConnectionStateType' "DISCONNECTED"
+pattern ConnectionStateTypeDisconnected :: ConnectionStateType
+pattern ConnectionStateTypeDisconnected = ConnectionStateType' "DISCONNECTED"
 
-pattern Disconnecting :: ConnectionStateType
-pattern Disconnecting = ConnectionStateType' "DISCONNECTING"
+pattern ConnectionStateTypeDisconnecting :: ConnectionStateType
+pattern ConnectionStateTypeDisconnecting = ConnectionStateType' "DISCONNECTING"
 
 {-# COMPLETE
-  Connected,
-  Connecting,
-  Failed,
-  Disconnected,
-  Disconnecting,
+  ConnectionStateTypeConnected,
+  ConnectionStateTypeConnecting,
+  ConnectionStateTypeFailed,
+  ConnectionStateTypeDisconnected,
+  ConnectionStateTypeDisconnecting,
   ConnectionStateType'
   #-}

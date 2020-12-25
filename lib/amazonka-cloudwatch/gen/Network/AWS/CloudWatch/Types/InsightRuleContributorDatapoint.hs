@@ -17,13 +17,13 @@ module Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint
     mkInsightRuleContributorDatapoint,
 
     -- * Lenses
-    ircdApproximateValue,
     ircdTimestamp,
+    ircdApproximateValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | One data point related to one contributor.
 --
@@ -31,46 +31,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInsightRuleContributorDatapoint' smart constructor.
 data InsightRuleContributorDatapoint = InsightRuleContributorDatapoint'
-  { -- | The approximate value that this contributor added during this timestamp.
-    approximateValue :: Lude.Double,
-    -- | The timestamp of the data point.
-    timestamp :: Lude.DateTime
+  { -- | The timestamp of the data point.
+    timestamp :: Core.UTCTime,
+    -- | The approximate value that this contributor added during this timestamp.
+    approximateValue :: Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InsightRuleContributorDatapoint' with the minimum fields required to make a request.
---
--- * 'approximateValue' - The approximate value that this contributor added during this timestamp.
--- * 'timestamp' - The timestamp of the data point.
+-- | Creates a 'InsightRuleContributorDatapoint' value with any optional fields omitted.
 mkInsightRuleContributorDatapoint ::
-  -- | 'approximateValue'
-  Lude.Double ->
   -- | 'timestamp'
-  Lude.DateTime ->
+  Core.UTCTime ->
+  -- | 'approximateValue'
+  Core.Double ->
   InsightRuleContributorDatapoint
-mkInsightRuleContributorDatapoint pApproximateValue_ pTimestamp_ =
-  InsightRuleContributorDatapoint'
-    { approximateValue =
-        pApproximateValue_,
-      timestamp = pTimestamp_
-    }
-
--- | The approximate value that this contributor added during this timestamp.
---
--- /Note:/ Consider using 'approximateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ircdApproximateValue :: Lens.Lens' InsightRuleContributorDatapoint Lude.Double
-ircdApproximateValue = Lens.lens (approximateValue :: InsightRuleContributorDatapoint -> Lude.Double) (\s a -> s {approximateValue = a} :: InsightRuleContributorDatapoint)
-{-# DEPRECATED ircdApproximateValue "Use generic-lens or generic-optics with 'approximateValue' instead." #-}
+mkInsightRuleContributorDatapoint timestamp approximateValue =
+  InsightRuleContributorDatapoint' {timestamp, approximateValue}
 
 -- | The timestamp of the data point.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ircdTimestamp :: Lens.Lens' InsightRuleContributorDatapoint Lude.DateTime
-ircdTimestamp = Lens.lens (timestamp :: InsightRuleContributorDatapoint -> Lude.DateTime) (\s a -> s {timestamp = a} :: InsightRuleContributorDatapoint)
+ircdTimestamp :: Lens.Lens' InsightRuleContributorDatapoint Core.UTCTime
+ircdTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED ircdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromXML InsightRuleContributorDatapoint where
+-- | The approximate value that this contributor added during this timestamp.
+--
+-- /Note:/ Consider using 'approximateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ircdApproximateValue :: Lens.Lens' InsightRuleContributorDatapoint Core.Double
+ircdApproximateValue = Lens.field @"approximateValue"
+{-# DEPRECATED ircdApproximateValue "Use generic-lens or generic-optics with 'approximateValue' instead." #-}
+
+instance Core.FromXML InsightRuleContributorDatapoint where
   parseXML x =
     InsightRuleContributorDatapoint'
-      Lude.<$> (x Lude..@ "ApproximateValue") Lude.<*> (x Lude..@ "Timestamp")
+      Core.<$> (x Core..@ "Timestamp") Core.<*> (x Core..@ "ApproximateValue")

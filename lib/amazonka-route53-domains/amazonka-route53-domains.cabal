@@ -46,29 +46,35 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Route53Domains
-    Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAWSAccount
-    Network.AWS.Route53Domains.CancelDomainTransferToAnotherAWSAccount
+    Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+    Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
     Network.AWS.Route53Domains.CheckDomainAvailability
     Network.AWS.Route53Domains.CheckDomainTransferability
     Network.AWS.Route53Domains.DeleteTagsForDomain
@@ -84,12 +90,12 @@ library
     Network.AWS.Route53Domains.ListOperations
     Network.AWS.Route53Domains.ListTagsForDomain
     Network.AWS.Route53Domains.RegisterDomain
-    Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAWSAccount
+    Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
     Network.AWS.Route53Domains.RenewDomain
     Network.AWS.Route53Domains.ResendContactReachabilityEmail
     Network.AWS.Route53Domains.RetrieveDomainAuthCode
     Network.AWS.Route53Domains.TransferDomain
-    Network.AWS.Route53Domains.TransferDomainToAnotherAWSAccount
+    Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
     Network.AWS.Route53Domains.Types
     Network.AWS.Route53Domains.UpdateDomainContact
     Network.AWS.Route53Domains.UpdateDomainContactPrivacy
@@ -99,23 +105,57 @@ library
     Network.AWS.Route53Domains.Waiters
 
   other-modules:
+    Network.AWS.Route53Domains.Types.AbuseContactPhone
+    Network.AWS.Route53Domains.Types.AccountId
+    Network.AWS.Route53Domains.Types.AddressLine
+    Network.AWS.Route53Domains.Types.AuthCode
+    Network.AWS.Route53Domains.Types.Availability
     Network.AWS.Route53Domains.Types.BillingRecord
+    Network.AWS.Route53Domains.Types.City
     Network.AWS.Route53Domains.Types.ContactDetail
+    Network.AWS.Route53Domains.Types.ContactName
+    Network.AWS.Route53Domains.Types.ContactNumber
     Network.AWS.Route53Domains.Types.ContactType
     Network.AWS.Route53Domains.Types.CountryCode
+    Network.AWS.Route53Domains.Types.DNSSec
+    Network.AWS.Route53Domains.Types.DomainAuthCode
     Network.AWS.Route53Domains.Types.DomainAvailability
+    Network.AWS.Route53Domains.Types.DomainName
+    Network.AWS.Route53Domains.Types.DomainStatus
     Network.AWS.Route53Domains.Types.DomainSuggestion
     Network.AWS.Route53Domains.Types.DomainSummary
     Network.AWS.Route53Domains.Types.DomainTransferability
+    Network.AWS.Route53Domains.Types.Email
     Network.AWS.Route53Domains.Types.ExtraParam
     Network.AWS.Route53Domains.Types.ExtraParamName
+    Network.AWS.Route53Domains.Types.FIAuthKey
+    Network.AWS.Route53Domains.Types.GlueIp
+    Network.AWS.Route53Domains.Types.HostName
+    Network.AWS.Route53Domains.Types.IdnLangCode
+    Network.AWS.Route53Domains.Types.InvoiceId
+    Network.AWS.Route53Domains.Types.Key
+    Network.AWS.Route53Domains.Types.LangCode
+    Network.AWS.Route53Domains.Types.Marker
+    Network.AWS.Route53Domains.Types.Message
     Network.AWS.Route53Domains.Types.Nameserver
+    Network.AWS.Route53Domains.Types.NextPageMarker
+    Network.AWS.Route53Domains.Types.OperationId
     Network.AWS.Route53Domains.Types.OperationStatus
     Network.AWS.Route53Domains.Types.OperationSummary
     Network.AWS.Route53Domains.Types.OperationType
     Network.AWS.Route53Domains.Types.ReachabilityStatus
+    Network.AWS.Route53Domains.Types.RegistrarName
+    Network.AWS.Route53Domains.Types.RegistrarUrl
+    Network.AWS.Route53Domains.Types.RegistryDomainId
+    Network.AWS.Route53Domains.Types.Reseller
+    Network.AWS.Route53Domains.Types.State
+    Network.AWS.Route53Domains.Types.String
     Network.AWS.Route53Domains.Types.Tag
+    Network.AWS.Route53Domains.Types.TagKey
     Network.AWS.Route53Domains.Types.Transferable
+    Network.AWS.Route53Domains.Types.Value
+    Network.AWS.Route53Domains.Types.WhoIsServer
+    Network.AWS.Route53Domains.Types.ZipCode
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

@@ -26,157 +26,141 @@ module Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig
     mkCreateNotebookInstanceLifecycleConfig,
 
     -- ** Request lenses
+    cnilcNotebookInstanceLifecycleConfigName,
     cnilcOnCreate,
     cnilcOnStart,
-    cnilcNotebookInstanceLifecycleConfigName,
 
     -- * Destructuring the response
     CreateNotebookInstanceLifecycleConfigResponse (..),
     mkCreateNotebookInstanceLifecycleConfigResponse,
 
     -- ** Response lenses
-    cnilcrsNotebookInstanceLifecycleConfigARN,
-    cnilcrsResponseStatus,
+    cnilcrrsNotebookInstanceLifecycleConfigArn,
+    cnilcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateNotebookInstanceLifecycleConfig' smart constructor.
 data CreateNotebookInstanceLifecycleConfig = CreateNotebookInstanceLifecycleConfig'
-  { -- | A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
-    onCreate :: Lude.Maybe [NotebookInstanceLifecycleHook],
+  { -- | The name of the lifecycle configuration.
+    notebookInstanceLifecycleConfigName :: Types.NotebookInstanceLifecycleConfigName,
+    -- | A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
+    onCreate :: Core.Maybe [Types.NotebookInstanceLifecycleHook],
     -- | A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
-    onStart :: Lude.Maybe [NotebookInstanceLifecycleHook],
-    -- | The name of the lifecycle configuration.
-    notebookInstanceLifecycleConfigName :: Lude.Text
+    onStart :: Core.Maybe [Types.NotebookInstanceLifecycleHook]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNotebookInstanceLifecycleConfig' with the minimum fields required to make a request.
---
--- * 'onCreate' - A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
--- * 'onStart' - A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
--- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
+-- | Creates a 'CreateNotebookInstanceLifecycleConfig' value with any optional fields omitted.
 mkCreateNotebookInstanceLifecycleConfig ::
   -- | 'notebookInstanceLifecycleConfigName'
-  Lude.Text ->
+  Types.NotebookInstanceLifecycleConfigName ->
   CreateNotebookInstanceLifecycleConfig
 mkCreateNotebookInstanceLifecycleConfig
-  pNotebookInstanceLifecycleConfigName_ =
+  notebookInstanceLifecycleConfigName =
     CreateNotebookInstanceLifecycleConfig'
-      { onCreate = Lude.Nothing,
-        onStart = Lude.Nothing,
-        notebookInstanceLifecycleConfigName =
-          pNotebookInstanceLifecycleConfigName_
+      { notebookInstanceLifecycleConfigName,
+        onCreate = Core.Nothing,
+        onStart = Core.Nothing
       }
+
+-- | The name of the lifecycle configuration.
+--
+-- /Note:/ Consider using 'notebookInstanceLifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnilcNotebookInstanceLifecycleConfigName :: Lens.Lens' CreateNotebookInstanceLifecycleConfig Types.NotebookInstanceLifecycleConfigName
+cnilcNotebookInstanceLifecycleConfigName = Lens.field @"notebookInstanceLifecycleConfigName"
+{-# DEPRECATED cnilcNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
 
 -- | A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
 --
 -- /Note:/ Consider using 'onCreate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnilcOnCreate :: Lens.Lens' CreateNotebookInstanceLifecycleConfig (Lude.Maybe [NotebookInstanceLifecycleHook])
-cnilcOnCreate = Lens.lens (onCreate :: CreateNotebookInstanceLifecycleConfig -> Lude.Maybe [NotebookInstanceLifecycleHook]) (\s a -> s {onCreate = a} :: CreateNotebookInstanceLifecycleConfig)
+cnilcOnCreate :: Lens.Lens' CreateNotebookInstanceLifecycleConfig (Core.Maybe [Types.NotebookInstanceLifecycleHook])
+cnilcOnCreate = Lens.field @"onCreate"
 {-# DEPRECATED cnilcOnCreate "Use generic-lens or generic-optics with 'onCreate' instead." #-}
 
 -- | A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
 --
 -- /Note:/ Consider using 'onStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnilcOnStart :: Lens.Lens' CreateNotebookInstanceLifecycleConfig (Lude.Maybe [NotebookInstanceLifecycleHook])
-cnilcOnStart = Lens.lens (onStart :: CreateNotebookInstanceLifecycleConfig -> Lude.Maybe [NotebookInstanceLifecycleHook]) (\s a -> s {onStart = a} :: CreateNotebookInstanceLifecycleConfig)
+cnilcOnStart :: Lens.Lens' CreateNotebookInstanceLifecycleConfig (Core.Maybe [Types.NotebookInstanceLifecycleHook])
+cnilcOnStart = Lens.field @"onStart"
 {-# DEPRECATED cnilcOnStart "Use generic-lens or generic-optics with 'onStart' instead." #-}
 
--- | The name of the lifecycle configuration.
---
--- /Note:/ Consider using 'notebookInstanceLifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnilcNotebookInstanceLifecycleConfigName :: Lens.Lens' CreateNotebookInstanceLifecycleConfig Lude.Text
-cnilcNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: CreateNotebookInstanceLifecycleConfig -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: CreateNotebookInstanceLifecycleConfig)
-{-# DEPRECATED cnilcNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
+instance Core.FromJSON CreateNotebookInstanceLifecycleConfig where
+  toJSON CreateNotebookInstanceLifecycleConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ( "NotebookInstanceLifecycleConfigName"
+                  Core..= notebookInstanceLifecycleConfigName
+              ),
+            ("OnCreate" Core..=) Core.<$> onCreate,
+            ("OnStart" Core..=) Core.<$> onStart
+          ]
+      )
 
-instance Lude.AWSRequest CreateNotebookInstanceLifecycleConfig where
+instance Core.AWSRequest CreateNotebookInstanceLifecycleConfig where
   type
     Rs CreateNotebookInstanceLifecycleConfig =
       CreateNotebookInstanceLifecycleConfigResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SageMaker.CreateNotebookInstanceLifecycleConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateNotebookInstanceLifecycleConfigResponse'
-            Lude.<$> (x Lude..?> "NotebookInstanceLifecycleConfigArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NotebookInstanceLifecycleConfigArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateNotebookInstanceLifecycleConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SageMaker.CreateNotebookInstanceLifecycleConfig" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateNotebookInstanceLifecycleConfig where
-  toJSON CreateNotebookInstanceLifecycleConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("OnCreate" Lude..=) Lude.<$> onCreate,
-            ("OnStart" Lude..=) Lude.<$> onStart,
-            Lude.Just
-              ( "NotebookInstanceLifecycleConfigName"
-                  Lude..= notebookInstanceLifecycleConfigName
-              )
-          ]
-      )
-
-instance Lude.ToPath CreateNotebookInstanceLifecycleConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateNotebookInstanceLifecycleConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateNotebookInstanceLifecycleConfigResponse' smart constructor.
 data CreateNotebookInstanceLifecycleConfigResponse = CreateNotebookInstanceLifecycleConfigResponse'
   { -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
-    notebookInstanceLifecycleConfigARN :: Lude.Maybe Lude.Text,
+    notebookInstanceLifecycleConfigArn :: Core.Maybe Types.NotebookInstanceLifecycleConfigArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNotebookInstanceLifecycleConfigResponse' with the minimum fields required to make a request.
---
--- * 'notebookInstanceLifecycleConfigARN' - The Amazon Resource Name (ARN) of the lifecycle configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateNotebookInstanceLifecycleConfigResponse' value with any optional fields omitted.
 mkCreateNotebookInstanceLifecycleConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateNotebookInstanceLifecycleConfigResponse
-mkCreateNotebookInstanceLifecycleConfigResponse pResponseStatus_ =
+mkCreateNotebookInstanceLifecycleConfigResponse responseStatus =
   CreateNotebookInstanceLifecycleConfigResponse'
-    { notebookInstanceLifecycleConfigARN =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { notebookInstanceLifecycleConfigArn =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
 --
--- /Note:/ Consider using 'notebookInstanceLifecycleConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnilcrsNotebookInstanceLifecycleConfigARN :: Lens.Lens' CreateNotebookInstanceLifecycleConfigResponse (Lude.Maybe Lude.Text)
-cnilcrsNotebookInstanceLifecycleConfigARN = Lens.lens (notebookInstanceLifecycleConfigARN :: CreateNotebookInstanceLifecycleConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigARN = a} :: CreateNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED cnilcrsNotebookInstanceLifecycleConfigARN "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigARN' instead." #-}
+-- /Note:/ Consider using 'notebookInstanceLifecycleConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnilcrrsNotebookInstanceLifecycleConfigArn :: Lens.Lens' CreateNotebookInstanceLifecycleConfigResponse (Core.Maybe Types.NotebookInstanceLifecycleConfigArn)
+cnilcrrsNotebookInstanceLifecycleConfigArn = Lens.field @"notebookInstanceLifecycleConfigArn"
+{-# DEPRECATED cnilcrrsNotebookInstanceLifecycleConfigArn "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnilcrsResponseStatus :: Lens.Lens' CreateNotebookInstanceLifecycleConfigResponse Lude.Int
-cnilcrsResponseStatus = Lens.lens (responseStatus :: CreateNotebookInstanceLifecycleConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED cnilcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cnilcrrsResponseStatus :: Lens.Lens' CreateNotebookInstanceLifecycleConfigResponse Core.Int
+cnilcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cnilcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

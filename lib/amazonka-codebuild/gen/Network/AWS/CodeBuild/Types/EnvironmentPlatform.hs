@@ -17,60 +17,54 @@ module Network.AWS.CodeBuild.Types.EnvironmentPlatform
     mkEnvironmentPlatform,
 
     -- * Lenses
-    epPlatform,
     epLanguages,
+    epPlatform,
   )
 where
 
-import Network.AWS.CodeBuild.Types.EnvironmentLanguage
-import Network.AWS.CodeBuild.Types.PlatformType
+import qualified Network.AWS.CodeBuild.Types.EnvironmentLanguage as Types
+import qualified Network.AWS.CodeBuild.Types.PlatformType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A set of Docker images that are related by platform and are managed by AWS CodeBuild.
 --
 -- /See:/ 'mkEnvironmentPlatform' smart constructor.
 data EnvironmentPlatform = EnvironmentPlatform'
-  { -- | The platform's name.
-    platform :: Lude.Maybe PlatformType,
-    -- | The list of programming languages that are available for the specified platform.
-    languages :: Lude.Maybe [EnvironmentLanguage]
+  { -- | The list of programming languages that are available for the specified platform.
+    languages :: Core.Maybe [Types.EnvironmentLanguage],
+    -- | The platform's name.
+    platform :: Core.Maybe Types.PlatformType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnvironmentPlatform' with the minimum fields required to make a request.
---
--- * 'platform' - The platform's name.
--- * 'languages' - The list of programming languages that are available for the specified platform.
+-- | Creates a 'EnvironmentPlatform' value with any optional fields omitted.
 mkEnvironmentPlatform ::
   EnvironmentPlatform
 mkEnvironmentPlatform =
   EnvironmentPlatform'
-    { platform = Lude.Nothing,
-      languages = Lude.Nothing
+    { languages = Core.Nothing,
+      platform = Core.Nothing
     }
-
--- | The platform's name.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epPlatform :: Lens.Lens' EnvironmentPlatform (Lude.Maybe PlatformType)
-epPlatform = Lens.lens (platform :: EnvironmentPlatform -> Lude.Maybe PlatformType) (\s a -> s {platform = a} :: EnvironmentPlatform)
-{-# DEPRECATED epPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The list of programming languages that are available for the specified platform.
 --
 -- /Note:/ Consider using 'languages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epLanguages :: Lens.Lens' EnvironmentPlatform (Lude.Maybe [EnvironmentLanguage])
-epLanguages = Lens.lens (languages :: EnvironmentPlatform -> Lude.Maybe [EnvironmentLanguage]) (\s a -> s {languages = a} :: EnvironmentPlatform)
+epLanguages :: Lens.Lens' EnvironmentPlatform (Core.Maybe [Types.EnvironmentLanguage])
+epLanguages = Lens.field @"languages"
 {-# DEPRECATED epLanguages "Use generic-lens or generic-optics with 'languages' instead." #-}
 
-instance Lude.FromJSON EnvironmentPlatform where
+-- | The platform's name.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epPlatform :: Lens.Lens' EnvironmentPlatform (Core.Maybe Types.PlatformType)
+epPlatform = Lens.field @"platform"
+{-# DEPRECATED epPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+
+instance Core.FromJSON EnvironmentPlatform where
   parseJSON =
-    Lude.withObject
-      "EnvironmentPlatform"
-      ( \x ->
-          EnvironmentPlatform'
-            Lude.<$> (x Lude..:? "platform")
-            Lude.<*> (x Lude..:? "languages" Lude..!= Lude.mempty)
-      )
+    Core.withObject "EnvironmentPlatform" Core.$
+      \x ->
+        EnvironmentPlatform'
+          Core.<$> (x Core..:? "languages") Core.<*> (x Core..:? "platform")

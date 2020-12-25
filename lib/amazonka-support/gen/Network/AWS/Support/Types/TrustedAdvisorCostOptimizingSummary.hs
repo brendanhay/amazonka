@@ -23,60 +23,53 @@ module Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The estimated cost savings that might be realized if the recommended operations are taken.
 --
 -- /See:/ 'mkTrustedAdvisorCostOptimizingSummary' smart constructor.
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
   { -- | The estimated monthly savings that might be realized if the recommended operations are taken.
-    estimatedMonthlySavings :: Lude.Double,
+    estimatedMonthlySavings :: Core.Double,
     -- | The estimated percentage of savings that might be realized if the recommended operations are taken.
-    estimatedPercentMonthlySavings :: Lude.Double
+    estimatedPercentMonthlySavings :: Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrustedAdvisorCostOptimizingSummary' with the minimum fields required to make a request.
---
--- * 'estimatedMonthlySavings' - The estimated monthly savings that might be realized if the recommended operations are taken.
--- * 'estimatedPercentMonthlySavings' - The estimated percentage of savings that might be realized if the recommended operations are taken.
+-- | Creates a 'TrustedAdvisorCostOptimizingSummary' value with any optional fields omitted.
 mkTrustedAdvisorCostOptimizingSummary ::
   -- | 'estimatedMonthlySavings'
-  Lude.Double ->
+  Core.Double ->
   -- | 'estimatedPercentMonthlySavings'
-  Lude.Double ->
+  Core.Double ->
   TrustedAdvisorCostOptimizingSummary
 mkTrustedAdvisorCostOptimizingSummary
-  pEstimatedMonthlySavings_
-  pEstimatedPercentMonthlySavings_ =
+  estimatedMonthlySavings
+  estimatedPercentMonthlySavings =
     TrustedAdvisorCostOptimizingSummary'
-      { estimatedMonthlySavings =
-          pEstimatedMonthlySavings_,
-        estimatedPercentMonthlySavings =
-          pEstimatedPercentMonthlySavings_
+      { estimatedMonthlySavings,
+        estimatedPercentMonthlySavings
       }
 
 -- | The estimated monthly savings that might be realized if the recommended operations are taken.
 --
 -- /Note:/ Consider using 'estimatedMonthlySavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacosEstimatedMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Lude.Double
-tacosEstimatedMonthlySavings = Lens.lens (estimatedMonthlySavings :: TrustedAdvisorCostOptimizingSummary -> Lude.Double) (\s a -> s {estimatedMonthlySavings = a} :: TrustedAdvisorCostOptimizingSummary)
+tacosEstimatedMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Core.Double
+tacosEstimatedMonthlySavings = Lens.field @"estimatedMonthlySavings"
 {-# DEPRECATED tacosEstimatedMonthlySavings "Use generic-lens or generic-optics with 'estimatedMonthlySavings' instead." #-}
 
 -- | The estimated percentage of savings that might be realized if the recommended operations are taken.
 --
 -- /Note:/ Consider using 'estimatedPercentMonthlySavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacosEstimatedPercentMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Lude.Double
-tacosEstimatedPercentMonthlySavings = Lens.lens (estimatedPercentMonthlySavings :: TrustedAdvisorCostOptimizingSummary -> Lude.Double) (\s a -> s {estimatedPercentMonthlySavings = a} :: TrustedAdvisorCostOptimizingSummary)
+tacosEstimatedPercentMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Core.Double
+tacosEstimatedPercentMonthlySavings = Lens.field @"estimatedPercentMonthlySavings"
 {-# DEPRECATED tacosEstimatedPercentMonthlySavings "Use generic-lens or generic-optics with 'estimatedPercentMonthlySavings' instead." #-}
 
-instance Lude.FromJSON TrustedAdvisorCostOptimizingSummary where
+instance Core.FromJSON TrustedAdvisorCostOptimizingSummary where
   parseJSON =
-    Lude.withObject
-      "TrustedAdvisorCostOptimizingSummary"
-      ( \x ->
-          TrustedAdvisorCostOptimizingSummary'
-            Lude.<$> (x Lude..: "estimatedMonthlySavings")
-            Lude.<*> (x Lude..: "estimatedPercentMonthlySavings")
-      )
+    Core.withObject "TrustedAdvisorCostOptimizingSummary" Core.$
+      \x ->
+        TrustedAdvisorCostOptimizingSummary'
+          Core.<$> (x Core..: "estimatedMonthlySavings")
+          Core.<*> (x Core..: "estimatedPercentMonthlySavings")

@@ -22,60 +22,56 @@ module Network.AWS.CostExplorer.Types.DateInterval
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.End as Types
+import qualified Network.AWS.CostExplorer.Types.Start as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The time period that you want the usage and costs for.
 --
 -- /See:/ 'mkDateInterval' smart constructor.
 data DateInterval = DateInterval'
   { -- | The beginning of the time period that you want the usage and costs for. The start date is inclusive. For example, if @start@ is @2017-01-01@ , AWS retrieves cost and usage data starting at @2017-01-01@ up to the end date.
-    start :: Lude.Text,
+    start :: Types.Start,
     -- | The end of the time period that you want the usage and costs for. The end date is exclusive. For example, if @end@ is @2017-05-01@ , AWS retrieves cost and usage data from the start date up to, but not including, @2017-05-01@ .
-    end :: Lude.Text
+    end :: Types.End
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DateInterval' with the minimum fields required to make a request.
---
--- * 'start' - The beginning of the time period that you want the usage and costs for. The start date is inclusive. For example, if @start@ is @2017-01-01@ , AWS retrieves cost and usage data starting at @2017-01-01@ up to the end date.
--- * 'end' - The end of the time period that you want the usage and costs for. The end date is exclusive. For example, if @end@ is @2017-05-01@ , AWS retrieves cost and usage data from the start date up to, but not including, @2017-05-01@ .
+-- | Creates a 'DateInterval' value with any optional fields omitted.
 mkDateInterval ::
   -- | 'start'
-  Lude.Text ->
+  Types.Start ->
   -- | 'end'
-  Lude.Text ->
+  Types.End ->
   DateInterval
-mkDateInterval pStart_ pEnd_ =
-  DateInterval' {start = pStart_, end = pEnd_}
+mkDateInterval start end = DateInterval' {start, end}
 
 -- | The beginning of the time period that you want the usage and costs for. The start date is inclusive. For example, if @start@ is @2017-01-01@ , AWS retrieves cost and usage data starting at @2017-01-01@ up to the end date.
 --
 -- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diStart :: Lens.Lens' DateInterval Lude.Text
-diStart = Lens.lens (start :: DateInterval -> Lude.Text) (\s a -> s {start = a} :: DateInterval)
+diStart :: Lens.Lens' DateInterval Types.Start
+diStart = Lens.field @"start"
 {-# DEPRECATED diStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | The end of the time period that you want the usage and costs for. The end date is exclusive. For example, if @end@ is @2017-05-01@ , AWS retrieves cost and usage data from the start date up to, but not including, @2017-05-01@ .
 --
 -- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diEnd :: Lens.Lens' DateInterval Lude.Text
-diEnd = Lens.lens (end :: DateInterval -> Lude.Text) (\s a -> s {end = a} :: DateInterval)
+diEnd :: Lens.Lens' DateInterval Types.End
+diEnd = Lens.field @"end"
 {-# DEPRECATED diEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
-instance Lude.FromJSON DateInterval where
-  parseJSON =
-    Lude.withObject
-      "DateInterval"
-      ( \x ->
-          DateInterval'
-            Lude.<$> (x Lude..: "Start") Lude.<*> (x Lude..: "End")
+instance Core.FromJSON DateInterval where
+  toJSON DateInterval {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Start" Core..= start), Core.Just ("End" Core..= end)]
       )
 
-instance Lude.ToJSON DateInterval where
-  toJSON DateInterval' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("Start" Lude..= start), Lude.Just ("End" Lude..= end)]
-      )
+instance Core.FromJSON DateInterval where
+  parseJSON =
+    Core.withObject "DateInterval" Core.$
+      \x ->
+        DateInterval'
+          Core.<$> (x Core..: "Start") Core.<*> (x Core..: "End")

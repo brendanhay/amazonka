@@ -20,30 +20,28 @@ module Network.AWS.KMS.GetKeyPolicy
     mkGetKeyPolicy,
 
     -- ** Request lenses
-    gkpPolicyName,
     gkpKeyId,
+    gkpPolicyName,
 
     -- * Destructuring the response
     GetKeyPolicyResponse (..),
     mkGetKeyPolicyResponse,
 
     -- ** Response lenses
-    gkprsPolicy,
-    gkprsResponseStatus,
+    gkprrsPolicy,
+    gkprrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetKeyPolicy' smart constructor.
 data GetKeyPolicy = GetKeyPolicy'
-  { -- | Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
-    policyName :: Lude.Text,
-    -- | A unique identifier for the customer master key (CMK).
+  { -- | A unique identifier for the customer master key (CMK).
     --
     -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
     -- For example:
@@ -55,41 +53,21 @@ data GetKeyPolicy = GetKeyPolicy'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text
+    keyId :: Types.KeyIdType,
+    -- | Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
+    policyName :: Types.PolicyNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetKeyPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
--- * 'keyId' - A unique identifier for the customer master key (CMK).
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- | Creates a 'GetKeyPolicy' value with any optional fields omitted.
 mkGetKeyPolicy ::
-  -- | 'policyName'
-  Lude.Text ->
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyIdType ->
+  -- | 'policyName'
+  Types.PolicyNameType ->
   GetKeyPolicy
-mkGetKeyPolicy pPolicyName_ pKeyId_ =
-  GetKeyPolicy' {policyName = pPolicyName_, keyId = pKeyId_}
-
--- | Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkpPolicyName :: Lens.Lens' GetKeyPolicy Lude.Text
-gkpPolicyName = Lens.lens (policyName :: GetKeyPolicy -> Lude.Text) (\s a -> s {policyName = a} :: GetKeyPolicy)
-{-# DEPRECATED gkpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+mkGetKeyPolicy keyId policyName = GetKeyPolicy' {keyId, policyName}
 
 -- | A unique identifier for the customer master key (CMK).
 --
@@ -105,80 +83,74 @@ gkpPolicyName = Lens.lens (policyName :: GetKeyPolicy -> Lude.Text) (\s a -> s {
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkpKeyId :: Lens.Lens' GetKeyPolicy Lude.Text
-gkpKeyId = Lens.lens (keyId :: GetKeyPolicy -> Lude.Text) (\s a -> s {keyId = a} :: GetKeyPolicy)
+gkpKeyId :: Lens.Lens' GetKeyPolicy Types.KeyIdType
+gkpKeyId = Lens.field @"keyId"
 {-# DEPRECATED gkpKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance Lude.AWSRequest GetKeyPolicy where
+-- | Specifies the name of the key policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gkpPolicyName :: Lens.Lens' GetKeyPolicy Types.PolicyNameType
+gkpPolicyName = Lens.field @"policyName"
+{-# DEPRECATED gkpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+instance Core.FromJSON GetKeyPolicy where
+  toJSON GetKeyPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("PolicyName" Core..= policyName)
+          ]
+      )
+
+instance Core.AWSRequest GetKeyPolicy where
   type Rs GetKeyPolicy = GetKeyPolicyResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.GetKeyPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetKeyPolicyResponse'
-            Lude.<$> (x Lude..?> "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Policy") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetKeyPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.GetKeyPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetKeyPolicy where
-  toJSON GetKeyPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyName" Lude..= policyName),
-            Lude.Just ("KeyId" Lude..= keyId)
-          ]
-      )
-
-instance Lude.ToPath GetKeyPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetKeyPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetKeyPolicyResponse' smart constructor.
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
   { -- | A key policy document in JSON format.
-    policy :: Lude.Maybe Lude.Text,
+    policy :: Core.Maybe Types.PolicyType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetKeyPolicyResponse' with the minimum fields required to make a request.
---
--- * 'policy' - A key policy document in JSON format.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetKeyPolicyResponse' value with any optional fields omitted.
 mkGetKeyPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetKeyPolicyResponse
-mkGetKeyPolicyResponse pResponseStatus_ =
-  GetKeyPolicyResponse'
-    { policy = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetKeyPolicyResponse responseStatus =
+  GetKeyPolicyResponse' {policy = Core.Nothing, responseStatus}
 
 -- | A key policy document in JSON format.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkprsPolicy :: Lens.Lens' GetKeyPolicyResponse (Lude.Maybe Lude.Text)
-gkprsPolicy = Lens.lens (policy :: GetKeyPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetKeyPolicyResponse)
-{-# DEPRECATED gkprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+gkprrsPolicy :: Lens.Lens' GetKeyPolicyResponse (Core.Maybe Types.PolicyType)
+gkprrsPolicy = Lens.field @"policy"
+{-# DEPRECATED gkprrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkprsResponseStatus :: Lens.Lens' GetKeyPolicyResponse Lude.Int
-gkprsResponseStatus = Lens.lens (responseStatus :: GetKeyPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetKeyPolicyResponse)
-{-# DEPRECATED gkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gkprrsResponseStatus :: Lens.Lens' GetKeyPolicyResponse Core.Int
+gkprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gkprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.DashIsoMpdProfile
   ( DashIsoMpdProfile
       ( DashIsoMpdProfile',
-        DIMPMainProfile,
-        DIMPOnDemandProfile
+        DashIsoMpdProfileMainProfile,
+        DashIsoMpdProfileOnDemandProfile,
+        fromDashIsoMpdProfile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
-newtype DashIsoMpdProfile = DashIsoMpdProfile' Lude.Text
+newtype DashIsoMpdProfile = DashIsoMpdProfile'
+  { fromDashIsoMpdProfile ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DIMPMainProfile :: DashIsoMpdProfile
-pattern DIMPMainProfile = DashIsoMpdProfile' "MAIN_PROFILE"
+pattern DashIsoMpdProfileMainProfile :: DashIsoMpdProfile
+pattern DashIsoMpdProfileMainProfile = DashIsoMpdProfile' "MAIN_PROFILE"
 
-pattern DIMPOnDemandProfile :: DashIsoMpdProfile
-pattern DIMPOnDemandProfile = DashIsoMpdProfile' "ON_DEMAND_PROFILE"
+pattern DashIsoMpdProfileOnDemandProfile :: DashIsoMpdProfile
+pattern DashIsoMpdProfileOnDemandProfile = DashIsoMpdProfile' "ON_DEMAND_PROFILE"
 
 {-# COMPLETE
-  DIMPMainProfile,
-  DIMPOnDemandProfile,
+  DashIsoMpdProfileMainProfile,
+  DashIsoMpdProfileOnDemandProfile,
   DashIsoMpdProfile'
   #-}

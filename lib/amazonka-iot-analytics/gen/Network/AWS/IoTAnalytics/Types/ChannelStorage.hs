@@ -17,69 +17,64 @@ module Network.AWS.IoTAnalytics.Types.ChannelStorage
     mkChannelStorage,
 
     -- * Lenses
-    csServiceManagedS3,
     csCustomerManagedS3,
+    csServiceManagedS3,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3Storage
-import Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3Storage
+import qualified Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3Storage as Types
+import qualified Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3Storage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Where channel data is stored. You may choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . This cannot be changed after creation of the channel.
 --
 -- /See:/ 'mkChannelStorage' smart constructor.
 data ChannelStorage = ChannelStorage'
-  { -- | Use this to store channel data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
-    serviceManagedS3 :: Lude.Maybe ServiceManagedChannelS3Storage,
-    -- | Use this to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the @retentionPeriod@ parameter is ignored. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
-    customerManagedS3 :: Lude.Maybe CustomerManagedChannelS3Storage
+  { -- | Use this to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the @retentionPeriod@ parameter is ignored. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
+    customerManagedS3 :: Core.Maybe Types.CustomerManagedChannelS3Storage,
+    -- | Use this to store channel data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
+    serviceManagedS3 :: Core.Maybe Types.ServiceManagedChannelS3Storage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChannelStorage' with the minimum fields required to make a request.
---
--- * 'serviceManagedS3' - Use this to store channel data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
--- * 'customerManagedS3' - Use this to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the @retentionPeriod@ parameter is ignored. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
+-- | Creates a 'ChannelStorage' value with any optional fields omitted.
 mkChannelStorage ::
   ChannelStorage
 mkChannelStorage =
   ChannelStorage'
-    { serviceManagedS3 = Lude.Nothing,
-      customerManagedS3 = Lude.Nothing
+    { customerManagedS3 = Core.Nothing,
+      serviceManagedS3 = Core.Nothing
     }
-
--- | Use this to store channel data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
---
--- /Note:/ Consider using 'serviceManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csServiceManagedS3 :: Lens.Lens' ChannelStorage (Lude.Maybe ServiceManagedChannelS3Storage)
-csServiceManagedS3 = Lens.lens (serviceManagedS3 :: ChannelStorage -> Lude.Maybe ServiceManagedChannelS3Storage) (\s a -> s {serviceManagedS3 = a} :: ChannelStorage)
-{-# DEPRECATED csServiceManagedS3 "Use generic-lens or generic-optics with 'serviceManagedS3' instead." #-}
 
 -- | Use this to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the @retentionPeriod@ parameter is ignored. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
 --
 -- /Note:/ Consider using 'customerManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csCustomerManagedS3 :: Lens.Lens' ChannelStorage (Lude.Maybe CustomerManagedChannelS3Storage)
-csCustomerManagedS3 = Lens.lens (customerManagedS3 :: ChannelStorage -> Lude.Maybe CustomerManagedChannelS3Storage) (\s a -> s {customerManagedS3 = a} :: ChannelStorage)
+csCustomerManagedS3 :: Lens.Lens' ChannelStorage (Core.Maybe Types.CustomerManagedChannelS3Storage)
+csCustomerManagedS3 = Lens.field @"customerManagedS3"
 {-# DEPRECATED csCustomerManagedS3 "Use generic-lens or generic-optics with 'customerManagedS3' instead." #-}
 
-instance Lude.FromJSON ChannelStorage where
-  parseJSON =
-    Lude.withObject
-      "ChannelStorage"
-      ( \x ->
-          ChannelStorage'
-            Lude.<$> (x Lude..:? "serviceManagedS3")
-            Lude.<*> (x Lude..:? "customerManagedS3")
-      )
+-- | Use this to store channel data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
+--
+-- /Note:/ Consider using 'serviceManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csServiceManagedS3 :: Lens.Lens' ChannelStorage (Core.Maybe Types.ServiceManagedChannelS3Storage)
+csServiceManagedS3 = Lens.field @"serviceManagedS3"
+{-# DEPRECATED csServiceManagedS3 "Use generic-lens or generic-optics with 'serviceManagedS3' instead." #-}
 
-instance Lude.ToJSON ChannelStorage where
-  toJSON ChannelStorage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serviceManagedS3" Lude..=) Lude.<$> serviceManagedS3,
-            ("customerManagedS3" Lude..=) Lude.<$> customerManagedS3
+instance Core.FromJSON ChannelStorage where
+  toJSON ChannelStorage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("customerManagedS3" Core..=) Core.<$> customerManagedS3,
+            ("serviceManagedS3" Core..=) Core.<$> serviceManagedS3
           ]
       )
+
+instance Core.FromJSON ChannelStorage where
+  parseJSON =
+    Core.withObject "ChannelStorage" Core.$
+      \x ->
+        ChannelStorage'
+          Core.<$> (x Core..:? "customerManagedS3")
+          Core.<*> (x Core..:? "serviceManagedS3")

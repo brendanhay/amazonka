@@ -13,71 +13,73 @@
 module Network.AWS.EMR.Types.ClusterState
   ( ClusterState
       ( ClusterState',
-        CSStarting,
-        CSBootstrapping,
-        CSRunning,
-        CSWaiting,
-        CSTerminating,
-        CSTerminated,
-        CSTerminatedWithErrors
+        ClusterStateStarting,
+        ClusterStateBootstrapping,
+        ClusterStateRunning,
+        ClusterStateWaiting,
+        ClusterStateTerminating,
+        ClusterStateTerminated,
+        ClusterStateTerminatedWithErrors,
+        fromClusterState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ClusterState = ClusterState' Lude.Text
+newtype ClusterState = ClusterState' {fromClusterState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSStarting :: ClusterState
-pattern CSStarting = ClusterState' "STARTING"
+pattern ClusterStateStarting :: ClusterState
+pattern ClusterStateStarting = ClusterState' "STARTING"
 
-pattern CSBootstrapping :: ClusterState
-pattern CSBootstrapping = ClusterState' "BOOTSTRAPPING"
+pattern ClusterStateBootstrapping :: ClusterState
+pattern ClusterStateBootstrapping = ClusterState' "BOOTSTRAPPING"
 
-pattern CSRunning :: ClusterState
-pattern CSRunning = ClusterState' "RUNNING"
+pattern ClusterStateRunning :: ClusterState
+pattern ClusterStateRunning = ClusterState' "RUNNING"
 
-pattern CSWaiting :: ClusterState
-pattern CSWaiting = ClusterState' "WAITING"
+pattern ClusterStateWaiting :: ClusterState
+pattern ClusterStateWaiting = ClusterState' "WAITING"
 
-pattern CSTerminating :: ClusterState
-pattern CSTerminating = ClusterState' "TERMINATING"
+pattern ClusterStateTerminating :: ClusterState
+pattern ClusterStateTerminating = ClusterState' "TERMINATING"
 
-pattern CSTerminated :: ClusterState
-pattern CSTerminated = ClusterState' "TERMINATED"
+pattern ClusterStateTerminated :: ClusterState
+pattern ClusterStateTerminated = ClusterState' "TERMINATED"
 
-pattern CSTerminatedWithErrors :: ClusterState
-pattern CSTerminatedWithErrors = ClusterState' "TERMINATED_WITH_ERRORS"
+pattern ClusterStateTerminatedWithErrors :: ClusterState
+pattern ClusterStateTerminatedWithErrors = ClusterState' "TERMINATED_WITH_ERRORS"
 
 {-# COMPLETE
-  CSStarting,
-  CSBootstrapping,
-  CSRunning,
-  CSWaiting,
-  CSTerminating,
-  CSTerminated,
-  CSTerminatedWithErrors,
+  ClusterStateStarting,
+  ClusterStateBootstrapping,
+  ClusterStateRunning,
+  ClusterStateWaiting,
+  ClusterStateTerminating,
+  ClusterStateTerminated,
+  ClusterStateTerminatedWithErrors,
   ClusterState'
   #-}

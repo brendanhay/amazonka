@@ -27,95 +27,81 @@ module Network.AWS.Greengrass.DeleteDeviceDefinition
     mkDeleteDeviceDefinitionResponse,
 
     -- ** Response lenses
-    dddrsResponseStatus,
+    dddrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDeviceDefinition' smart constructor.
 newtype DeleteDeviceDefinition = DeleteDeviceDefinition'
   { -- | The ID of the device definition.
-    deviceDefinitionId :: Lude.Text
+    deviceDefinitionId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDeviceDefinition' with the minimum fields required to make a request.
---
--- * 'deviceDefinitionId' - The ID of the device definition.
+-- | Creates a 'DeleteDeviceDefinition' value with any optional fields omitted.
 mkDeleteDeviceDefinition ::
   -- | 'deviceDefinitionId'
-  Lude.Text ->
+  Core.Text ->
   DeleteDeviceDefinition
-mkDeleteDeviceDefinition pDeviceDefinitionId_ =
-  DeleteDeviceDefinition'
-    { deviceDefinitionId =
-        pDeviceDefinitionId_
-    }
+mkDeleteDeviceDefinition deviceDefinitionId =
+  DeleteDeviceDefinition' {deviceDefinitionId}
 
 -- | The ID of the device definition.
 --
 -- /Note:/ Consider using 'deviceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddDeviceDefinitionId :: Lens.Lens' DeleteDeviceDefinition Lude.Text
-dddDeviceDefinitionId = Lens.lens (deviceDefinitionId :: DeleteDeviceDefinition -> Lude.Text) (\s a -> s {deviceDefinitionId = a} :: DeleteDeviceDefinition)
+dddDeviceDefinitionId :: Lens.Lens' DeleteDeviceDefinition Core.Text
+dddDeviceDefinitionId = Lens.field @"deviceDefinitionId"
 {-# DEPRECATED dddDeviceDefinitionId "Use generic-lens or generic-optics with 'deviceDefinitionId' instead." #-}
 
-instance Lude.AWSRequest DeleteDeviceDefinition where
+instance Core.AWSRequest DeleteDeviceDefinition where
   type Rs DeleteDeviceDefinition = DeleteDeviceDefinitionResponse
-  request = Req.delete greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/devices/"
+                Core.<> (Core.toText deviceDefinitionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteDeviceDefinitionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDeviceDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteDeviceDefinition where
-  toPath DeleteDeviceDefinition' {..} =
-    Lude.mconcat
-      ["/greengrass/definition/devices/", Lude.toBS deviceDefinitionId]
-
-instance Lude.ToQuery DeleteDeviceDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDeviceDefinitionResponse' smart constructor.
 newtype DeleteDeviceDefinitionResponse = DeleteDeviceDefinitionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDeviceDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDeviceDefinitionResponse' value with any optional fields omitted.
 mkDeleteDeviceDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDeviceDefinitionResponse
-mkDeleteDeviceDefinitionResponse pResponseStatus_ =
-  DeleteDeviceDefinitionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteDeviceDefinitionResponse responseStatus =
+  DeleteDeviceDefinitionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddrsResponseStatus :: Lens.Lens' DeleteDeviceDefinitionResponse Lude.Int
-dddrsResponseStatus = Lens.lens (responseStatus :: DeleteDeviceDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDeviceDefinitionResponse)
-{-# DEPRECATED dddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dddrrsResponseStatus :: Lens.Lens' DeleteDeviceDefinitionResponse Core.Int
+dddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

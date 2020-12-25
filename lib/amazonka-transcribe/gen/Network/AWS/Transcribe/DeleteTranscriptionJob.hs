@@ -29,74 +29,62 @@ module Network.AWS.Transcribe.DeleteTranscriptionJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Transcribe.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Transcribe.Types as Types
 
 -- | /See:/ 'mkDeleteTranscriptionJob' smart constructor.
 newtype DeleteTranscriptionJob = DeleteTranscriptionJob'
   { -- | The name of the transcription job to be deleted.
-    transcriptionJobName :: Lude.Text
+    transcriptionJobName :: Types.TranscriptionJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTranscriptionJob' with the minimum fields required to make a request.
---
--- * 'transcriptionJobName' - The name of the transcription job to be deleted.
+-- | Creates a 'DeleteTranscriptionJob' value with any optional fields omitted.
 mkDeleteTranscriptionJob ::
   -- | 'transcriptionJobName'
-  Lude.Text ->
+  Types.TranscriptionJobName ->
   DeleteTranscriptionJob
-mkDeleteTranscriptionJob pTranscriptionJobName_ =
-  DeleteTranscriptionJob'
-    { transcriptionJobName =
-        pTranscriptionJobName_
-    }
+mkDeleteTranscriptionJob transcriptionJobName =
+  DeleteTranscriptionJob' {transcriptionJobName}
 
 -- | The name of the transcription job to be deleted.
 --
 -- /Note:/ Consider using 'transcriptionJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtjTranscriptionJobName :: Lens.Lens' DeleteTranscriptionJob Lude.Text
-dtjTranscriptionJobName = Lens.lens (transcriptionJobName :: DeleteTranscriptionJob -> Lude.Text) (\s a -> s {transcriptionJobName = a} :: DeleteTranscriptionJob)
+dtjTranscriptionJobName :: Lens.Lens' DeleteTranscriptionJob Types.TranscriptionJobName
+dtjTranscriptionJobName = Lens.field @"transcriptionJobName"
 {-# DEPRECATED dtjTranscriptionJobName "Use generic-lens or generic-optics with 'transcriptionJobName' instead." #-}
 
-instance Lude.AWSRequest DeleteTranscriptionJob where
+instance Core.FromJSON DeleteTranscriptionJob where
+  toJSON DeleteTranscriptionJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TranscriptionJobName" Core..= transcriptionJobName)]
+      )
+
+instance Core.AWSRequest DeleteTranscriptionJob where
   type Rs DeleteTranscriptionJob = DeleteTranscriptionJobResponse
-  request = Req.postJSON transcribeService
-  response = Res.receiveNull DeleteTranscriptionJobResponse'
-
-instance Lude.ToHeaders DeleteTranscriptionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Transcribe.DeleteTranscriptionJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteTranscriptionJob where
-  toJSON DeleteTranscriptionJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("TranscriptionJobName" Lude..= transcriptionJobName)]
-      )
-
-instance Lude.ToPath DeleteTranscriptionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTranscriptionJob where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Transcribe.DeleteTranscriptionJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteTranscriptionJobResponse'
 
 -- | /See:/ 'mkDeleteTranscriptionJobResponse' smart constructor.
 data DeleteTranscriptionJobResponse = DeleteTranscriptionJobResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTranscriptionJobResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteTranscriptionJobResponse' value with any optional fields omitted.
 mkDeleteTranscriptionJobResponse ::
   DeleteTranscriptionJobResponse
 mkDeleteTranscriptionJobResponse = DeleteTranscriptionJobResponse'

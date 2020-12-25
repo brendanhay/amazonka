@@ -17,155 +17,145 @@ module Network.AWS.Glacier.Types.S3Location
     mkS3Location,
 
     -- * Lenses
-    slCannedACL,
-    slPrefix,
-    slBucketName,
     slAccessControlList,
-    slUserMetadata,
+    slBucketName,
+    slCannedACL,
     slEncryption,
+    slPrefix,
     slStorageClass,
     slTagging,
+    slUserMetadata,
   )
 where
 
-import Network.AWS.Glacier.Types.CannedACL
-import Network.AWS.Glacier.Types.Encryption
-import Network.AWS.Glacier.Types.Grant
-import Network.AWS.Glacier.Types.StorageClass
+import qualified Network.AWS.Glacier.Types.CannedACL as Types
+import qualified Network.AWS.Glacier.Types.Encryption as Types
+import qualified Network.AWS.Glacier.Types.Grant as Types
+import qualified Network.AWS.Glacier.Types.StorageClass as Types
+import qualified Network.AWS.Glacier.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the location in Amazon S3 where the select job results are stored.
 --
 -- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The canned access control list (ACL) to apply to the job results.
-    cannedACL :: Lude.Maybe CannedACL,
-    -- | The prefix that is prepended to the results for this request.
-    prefix :: Lude.Maybe Lude.Text,
+  { -- | A list of grants that control access to the staged results.
+    accessControlList :: Core.Maybe [Types.Grant],
     -- | The name of the Amazon S3 bucket where the job results are stored.
-    bucketName :: Lude.Maybe Lude.Text,
-    -- | A list of grants that control access to the staged results.
-    accessControlList :: Lude.Maybe [Grant],
-    -- | A map of metadata to store with the job results in Amazon S3.
-    userMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    bucketName :: Core.Maybe Types.String,
+    -- | The canned access control list (ACL) to apply to the job results.
+    cannedACL :: Core.Maybe Types.CannedACL,
     -- | Contains information about the encryption used to store the job results in Amazon S3.
-    encryption :: Lude.Maybe Encryption,
+    encryption :: Core.Maybe Types.Encryption,
+    -- | The prefix that is prepended to the results for this request.
+    prefix :: Core.Maybe Types.String,
     -- | The storage class used to store the job results.
-    storageClass :: Lude.Maybe StorageClass,
+    storageClass :: Core.Maybe Types.StorageClass,
     -- | The tag-set that is applied to the job results.
-    tagging :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tagging :: Core.Maybe (Core.HashMap Types.String Types.String),
+    -- | A map of metadata to store with the job results in Amazon S3.
+    userMetadata :: Core.Maybe (Core.HashMap Types.String Types.String)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Location' with the minimum fields required to make a request.
---
--- * 'cannedACL' - The canned access control list (ACL) to apply to the job results.
--- * 'prefix' - The prefix that is prepended to the results for this request.
--- * 'bucketName' - The name of the Amazon S3 bucket where the job results are stored.
--- * 'accessControlList' - A list of grants that control access to the staged results.
--- * 'userMetadata' - A map of metadata to store with the job results in Amazon S3.
--- * 'encryption' - Contains information about the encryption used to store the job results in Amazon S3.
--- * 'storageClass' - The storage class used to store the job results.
--- * 'tagging' - The tag-set that is applied to the job results.
+-- | Creates a 'S3Location' value with any optional fields omitted.
 mkS3Location ::
   S3Location
 mkS3Location =
   S3Location'
-    { cannedACL = Lude.Nothing,
-      prefix = Lude.Nothing,
-      bucketName = Lude.Nothing,
-      accessControlList = Lude.Nothing,
-      userMetadata = Lude.Nothing,
-      encryption = Lude.Nothing,
-      storageClass = Lude.Nothing,
-      tagging = Lude.Nothing
+    { accessControlList = Core.Nothing,
+      bucketName = Core.Nothing,
+      cannedACL = Core.Nothing,
+      encryption = Core.Nothing,
+      prefix = Core.Nothing,
+      storageClass = Core.Nothing,
+      tagging = Core.Nothing,
+      userMetadata = Core.Nothing
     }
-
--- | The canned access control list (ACL) to apply to the job results.
---
--- /Note:/ Consider using 'cannedACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slCannedACL :: Lens.Lens' S3Location (Lude.Maybe CannedACL)
-slCannedACL = Lens.lens (cannedACL :: S3Location -> Lude.Maybe CannedACL) (\s a -> s {cannedACL = a} :: S3Location)
-{-# DEPRECATED slCannedACL "Use generic-lens or generic-optics with 'cannedACL' instead." #-}
-
--- | The prefix that is prepended to the results for this request.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slPrefix :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
-slPrefix = Lens.lens (prefix :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: S3Location)
-{-# DEPRECATED slPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
-
--- | The name of the Amazon S3 bucket where the job results are stored.
---
--- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slBucketName :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
-slBucketName = Lens.lens (bucketName :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {bucketName = a} :: S3Location)
-{-# DEPRECATED slBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | A list of grants that control access to the staged results.
 --
 -- /Note:/ Consider using 'accessControlList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slAccessControlList :: Lens.Lens' S3Location (Lude.Maybe [Grant])
-slAccessControlList = Lens.lens (accessControlList :: S3Location -> Lude.Maybe [Grant]) (\s a -> s {accessControlList = a} :: S3Location)
+slAccessControlList :: Lens.Lens' S3Location (Core.Maybe [Types.Grant])
+slAccessControlList = Lens.field @"accessControlList"
 {-# DEPRECATED slAccessControlList "Use generic-lens or generic-optics with 'accessControlList' instead." #-}
 
--- | A map of metadata to store with the job results in Amazon S3.
+-- | The name of the Amazon S3 bucket where the job results are stored.
 --
--- /Note:/ Consider using 'userMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slUserMetadata :: Lens.Lens' S3Location (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-slUserMetadata = Lens.lens (userMetadata :: S3Location -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {userMetadata = a} :: S3Location)
-{-# DEPRECATED slUserMetadata "Use generic-lens or generic-optics with 'userMetadata' instead." #-}
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slBucketName :: Lens.Lens' S3Location (Core.Maybe Types.String)
+slBucketName = Lens.field @"bucketName"
+{-# DEPRECATED slBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
+
+-- | The canned access control list (ACL) to apply to the job results.
+--
+-- /Note:/ Consider using 'cannedACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slCannedACL :: Lens.Lens' S3Location (Core.Maybe Types.CannedACL)
+slCannedACL = Lens.field @"cannedACL"
+{-# DEPRECATED slCannedACL "Use generic-lens or generic-optics with 'cannedACL' instead." #-}
 
 -- | Contains information about the encryption used to store the job results in Amazon S3.
 --
 -- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slEncryption :: Lens.Lens' S3Location (Lude.Maybe Encryption)
-slEncryption = Lens.lens (encryption :: S3Location -> Lude.Maybe Encryption) (\s a -> s {encryption = a} :: S3Location)
+slEncryption :: Lens.Lens' S3Location (Core.Maybe Types.Encryption)
+slEncryption = Lens.field @"encryption"
 {-# DEPRECATED slEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
+
+-- | The prefix that is prepended to the results for this request.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slPrefix :: Lens.Lens' S3Location (Core.Maybe Types.String)
+slPrefix = Lens.field @"prefix"
+{-# DEPRECATED slPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | The storage class used to store the job results.
 --
 -- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slStorageClass :: Lens.Lens' S3Location (Lude.Maybe StorageClass)
-slStorageClass = Lens.lens (storageClass :: S3Location -> Lude.Maybe StorageClass) (\s a -> s {storageClass = a} :: S3Location)
+slStorageClass :: Lens.Lens' S3Location (Core.Maybe Types.StorageClass)
+slStorageClass = Lens.field @"storageClass"
 {-# DEPRECATED slStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
 
 -- | The tag-set that is applied to the job results.
 --
 -- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slTagging :: Lens.Lens' S3Location (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-slTagging = Lens.lens (tagging :: S3Location -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tagging = a} :: S3Location)
+slTagging :: Lens.Lens' S3Location (Core.Maybe (Core.HashMap Types.String Types.String))
+slTagging = Lens.field @"tagging"
 {-# DEPRECATED slTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
 
-instance Lude.FromJSON S3Location where
-  parseJSON =
-    Lude.withObject
-      "S3Location"
-      ( \x ->
-          S3Location'
-            Lude.<$> (x Lude..:? "CannedACL")
-            Lude.<*> (x Lude..:? "Prefix")
-            Lude.<*> (x Lude..:? "BucketName")
-            Lude.<*> (x Lude..:? "AccessControlList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "UserMetadata" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Encryption")
-            Lude.<*> (x Lude..:? "StorageClass")
-            Lude.<*> (x Lude..:? "Tagging" Lude..!= Lude.mempty)
-      )
+-- | A map of metadata to store with the job results in Amazon S3.
+--
+-- /Note:/ Consider using 'userMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slUserMetadata :: Lens.Lens' S3Location (Core.Maybe (Core.HashMap Types.String Types.String))
+slUserMetadata = Lens.field @"userMetadata"
+{-# DEPRECATED slUserMetadata "Use generic-lens or generic-optics with 'userMetadata' instead." #-}
 
-instance Lude.ToJSON S3Location where
-  toJSON S3Location' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CannedACL" Lude..=) Lude.<$> cannedACL,
-            ("Prefix" Lude..=) Lude.<$> prefix,
-            ("BucketName" Lude..=) Lude.<$> bucketName,
-            ("AccessControlList" Lude..=) Lude.<$> accessControlList,
-            ("UserMetadata" Lude..=) Lude.<$> userMetadata,
-            ("Encryption" Lude..=) Lude.<$> encryption,
-            ("StorageClass" Lude..=) Lude.<$> storageClass,
-            ("Tagging" Lude..=) Lude.<$> tagging
+instance Core.FromJSON S3Location where
+  toJSON S3Location {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AccessControlList" Core..=) Core.<$> accessControlList,
+            ("BucketName" Core..=) Core.<$> bucketName,
+            ("CannedACL" Core..=) Core.<$> cannedACL,
+            ("Encryption" Core..=) Core.<$> encryption,
+            ("Prefix" Core..=) Core.<$> prefix,
+            ("StorageClass" Core..=) Core.<$> storageClass,
+            ("Tagging" Core..=) Core.<$> tagging,
+            ("UserMetadata" Core..=) Core.<$> userMetadata
           ]
       )
+
+instance Core.FromJSON S3Location where
+  parseJSON =
+    Core.withObject "S3Location" Core.$
+      \x ->
+        S3Location'
+          Core.<$> (x Core..:? "AccessControlList")
+          Core.<*> (x Core..:? "BucketName")
+          Core.<*> (x Core..:? "CannedACL")
+          Core.<*> (x Core..:? "Encryption")
+          Core.<*> (x Core..:? "Prefix")
+          Core.<*> (x Core..:? "StorageClass")
+          Core.<*> (x Core..:? "Tagging")
+          Core.<*> (x Core..:? "UserMetadata")

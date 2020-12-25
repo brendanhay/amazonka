@@ -13,71 +13,76 @@
 module Network.AWS.GuardDuty.Types.ThreatIntelSetStatus
   ( ThreatIntelSetStatus
       ( ThreatIntelSetStatus',
-        Inactive,
-        Activating,
-        Active,
-        Deactivating,
-        Error,
-        DeletePending,
-        Deleted
+        ThreatIntelSetStatusInactive,
+        ThreatIntelSetStatusActivating,
+        ThreatIntelSetStatusActive,
+        ThreatIntelSetStatusDeactivating,
+        ThreatIntelSetStatusError,
+        ThreatIntelSetStatusDeletePending,
+        ThreatIntelSetStatusDeleted,
+        fromThreatIntelSetStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ThreatIntelSetStatus = ThreatIntelSetStatus' Lude.Text
+newtype ThreatIntelSetStatus = ThreatIntelSetStatus'
+  { fromThreatIntelSetStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Inactive :: ThreatIntelSetStatus
-pattern Inactive = ThreatIntelSetStatus' "INACTIVE"
+pattern ThreatIntelSetStatusInactive :: ThreatIntelSetStatus
+pattern ThreatIntelSetStatusInactive = ThreatIntelSetStatus' "INACTIVE"
 
-pattern Activating :: ThreatIntelSetStatus
-pattern Activating = ThreatIntelSetStatus' "ACTIVATING"
+pattern ThreatIntelSetStatusActivating :: ThreatIntelSetStatus
+pattern ThreatIntelSetStatusActivating = ThreatIntelSetStatus' "ACTIVATING"
 
-pattern Active :: ThreatIntelSetStatus
-pattern Active = ThreatIntelSetStatus' "ACTIVE"
+pattern ThreatIntelSetStatusActive :: ThreatIntelSetStatus
+pattern ThreatIntelSetStatusActive = ThreatIntelSetStatus' "ACTIVE"
 
-pattern Deactivating :: ThreatIntelSetStatus
-pattern Deactivating = ThreatIntelSetStatus' "DEACTIVATING"
+pattern ThreatIntelSetStatusDeactivating :: ThreatIntelSetStatus
+pattern ThreatIntelSetStatusDeactivating = ThreatIntelSetStatus' "DEACTIVATING"
 
-pattern Error :: ThreatIntelSetStatus
-pattern Error = ThreatIntelSetStatus' "ERROR"
+pattern ThreatIntelSetStatusError :: ThreatIntelSetStatus
+pattern ThreatIntelSetStatusError = ThreatIntelSetStatus' "ERROR"
 
-pattern DeletePending :: ThreatIntelSetStatus
-pattern DeletePending = ThreatIntelSetStatus' "DELETE_PENDING"
+pattern ThreatIntelSetStatusDeletePending :: ThreatIntelSetStatus
+pattern ThreatIntelSetStatusDeletePending = ThreatIntelSetStatus' "DELETE_PENDING"
 
-pattern Deleted :: ThreatIntelSetStatus
-pattern Deleted = ThreatIntelSetStatus' "DELETED"
+pattern ThreatIntelSetStatusDeleted :: ThreatIntelSetStatus
+pattern ThreatIntelSetStatusDeleted = ThreatIntelSetStatus' "DELETED"
 
 {-# COMPLETE
-  Inactive,
-  Activating,
-  Active,
-  Deactivating,
-  Error,
-  DeletePending,
-  Deleted,
+  ThreatIntelSetStatusInactive,
+  ThreatIntelSetStatusActivating,
+  ThreatIntelSetStatusActive,
+  ThreatIntelSetStatusDeactivating,
+  ThreatIntelSetStatusError,
+  ThreatIntelSetStatusDeletePending,
+  ThreatIntelSetStatusDeleted,
   ThreatIntelSetStatus'
   #-}

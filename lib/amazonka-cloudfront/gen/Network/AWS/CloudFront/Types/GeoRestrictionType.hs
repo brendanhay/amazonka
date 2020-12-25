@@ -13,51 +13,56 @@
 module Network.AWS.CloudFront.Types.GeoRestrictionType
   ( GeoRestrictionType
       ( GeoRestrictionType',
-        Blacklist,
-        Whitelist,
-        None
+        GeoRestrictionTypeBlacklist,
+        GeoRestrictionTypeWhitelist,
+        GeoRestrictionTypeNone,
+        fromGeoRestrictionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype GeoRestrictionType = GeoRestrictionType' Lude.Text
+newtype GeoRestrictionType = GeoRestrictionType'
+  { fromGeoRestrictionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Blacklist :: GeoRestrictionType
-pattern Blacklist = GeoRestrictionType' "blacklist"
+pattern GeoRestrictionTypeBlacklist :: GeoRestrictionType
+pattern GeoRestrictionTypeBlacklist = GeoRestrictionType' "blacklist"
 
-pattern Whitelist :: GeoRestrictionType
-pattern Whitelist = GeoRestrictionType' "whitelist"
+pattern GeoRestrictionTypeWhitelist :: GeoRestrictionType
+pattern GeoRestrictionTypeWhitelist = GeoRestrictionType' "whitelist"
 
-pattern None :: GeoRestrictionType
-pattern None = GeoRestrictionType' "none"
+pattern GeoRestrictionTypeNone :: GeoRestrictionType
+pattern GeoRestrictionTypeNone = GeoRestrictionType' "none"
 
 {-# COMPLETE
-  Blacklist,
-  Whitelist,
-  None,
+  GeoRestrictionTypeBlacklist,
+  GeoRestrictionTypeWhitelist,
+  GeoRestrictionTypeNone,
   GeoRestrictionType'
   #-}

@@ -26,106 +26,92 @@ module Network.AWS.Shield.AssociateDRTRole
     mkAssociateDRTRole,
 
     -- ** Request lenses
-    adrtrRoleARN,
+    adrtrRoleArn,
 
     -- * Destructuring the response
     AssociateDRTRoleResponse (..),
     mkAssociateDRTRoleResponse,
 
     -- ** Response lenses
-    adrtrrsResponseStatus,
+    adrtrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkAssociateDRTRole' smart constructor.
 newtype AssociateDRTRole = AssociateDRTRole'
   { -- | The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.
     --
     -- Prior to making the @AssociateDRTRole@ request, you must attach the <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy> managed policy to this role. For more information see < https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html Attaching and Detaching IAM Policies> .
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateDRTRole' with the minimum fields required to make a request.
---
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.
---
--- Prior to making the @AssociateDRTRole@ request, you must attach the <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy> managed policy to this role. For more information see < https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html Attaching and Detaching IAM Policies> .
+-- | Creates a 'AssociateDRTRole' value with any optional fields omitted.
 mkAssociateDRTRole ::
-  -- | 'roleARN'
-  Lude.Text ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   AssociateDRTRole
-mkAssociateDRTRole pRoleARN_ =
-  AssociateDRTRole' {roleARN = pRoleARN_}
+mkAssociateDRTRole roleArn = AssociateDRTRole' {roleArn}
 
 -- | The Amazon Resource Name (ARN) of the role the DRT will use to access your AWS account.
 --
 -- Prior to making the @AssociateDRTRole@ request, you must attach the <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy> managed policy to this role. For more information see < https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html Attaching and Detaching IAM Policies> .
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adrtrRoleARN :: Lens.Lens' AssociateDRTRole Lude.Text
-adrtrRoleARN = Lens.lens (roleARN :: AssociateDRTRole -> Lude.Text) (\s a -> s {roleARN = a} :: AssociateDRTRole)
-{-# DEPRECATED adrtrRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adrtrRoleArn :: Lens.Lens' AssociateDRTRole Types.RoleArn
+adrtrRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED adrtrRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest AssociateDRTRole where
+instance Core.FromJSON AssociateDRTRole where
+  toJSON AssociateDRTRole {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RoleArn" Core..= roleArn)])
+
+instance Core.AWSRequest AssociateDRTRole where
   type Rs AssociateDRTRole = AssociateDRTRoleResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSShield_20160616.AssociateDRTRole")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          AssociateDRTRoleResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AssociateDRTRoleResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateDRTRole where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.AssociateDRTRole" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateDRTRole where
-  toJSON AssociateDRTRole' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RoleArn" Lude..= roleARN)])
-
-instance Lude.ToPath AssociateDRTRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateDRTRole where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateDRTRoleResponse' smart constructor.
 newtype AssociateDRTRoleResponse = AssociateDRTRoleResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateDRTRoleResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateDRTRoleResponse' value with any optional fields omitted.
 mkAssociateDRTRoleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateDRTRoleResponse
-mkAssociateDRTRoleResponse pResponseStatus_ =
-  AssociateDRTRoleResponse' {responseStatus = pResponseStatus_}
+mkAssociateDRTRoleResponse responseStatus =
+  AssociateDRTRoleResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adrtrrsResponseStatus :: Lens.Lens' AssociateDRTRoleResponse Lude.Int
-adrtrrsResponseStatus = Lens.lens (responseStatus :: AssociateDRTRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateDRTRoleResponse)
-{-# DEPRECATED adrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+adrtrrrsResponseStatus :: Lens.Lens' AssociateDRTRoleResponse Core.Int
+adrtrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED adrtrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

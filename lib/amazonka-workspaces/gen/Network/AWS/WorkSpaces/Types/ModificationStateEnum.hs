@@ -13,46 +13,51 @@
 module Network.AWS.WorkSpaces.Types.ModificationStateEnum
   ( ModificationStateEnum
       ( ModificationStateEnum',
-        UpdateInitiated,
-        UpdateInProgress
+        ModificationStateEnumUpdateInitiated,
+        ModificationStateEnumUpdateInProgress,
+        fromModificationStateEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ModificationStateEnum = ModificationStateEnum' Lude.Text
+newtype ModificationStateEnum = ModificationStateEnum'
+  { fromModificationStateEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UpdateInitiated :: ModificationStateEnum
-pattern UpdateInitiated = ModificationStateEnum' "UPDATE_INITIATED"
+pattern ModificationStateEnumUpdateInitiated :: ModificationStateEnum
+pattern ModificationStateEnumUpdateInitiated = ModificationStateEnum' "UPDATE_INITIATED"
 
-pattern UpdateInProgress :: ModificationStateEnum
-pattern UpdateInProgress = ModificationStateEnum' "UPDATE_IN_PROGRESS"
+pattern ModificationStateEnumUpdateInProgress :: ModificationStateEnum
+pattern ModificationStateEnumUpdateInProgress = ModificationStateEnum' "UPDATE_IN_PROGRESS"
 
 {-# COMPLETE
-  UpdateInitiated,
-  UpdateInProgress,
+  ModificationStateEnumUpdateInitiated,
+  ModificationStateEnumUpdateInProgress,
   ModificationStateEnum'
   #-}

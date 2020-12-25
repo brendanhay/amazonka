@@ -29,69 +29,68 @@ module Network.AWS.IAM.GetUser
     mkGetUserResponse,
 
     -- ** Response lenses
-    gursUser,
-    gursResponseStatus,
+    gurrsUser,
+    gurrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetUser' smart constructor.
 newtype GetUser = GetUser'
   { -- | The name of the user to get information about.
     --
     -- This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Maybe Lude.Text
+    userName :: Core.Maybe Types.UserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetUser' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the user to get information about.
---
--- This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'GetUser' value with any optional fields omitted.
 mkGetUser ::
   GetUser
-mkGetUser = GetUser' {userName = Lude.Nothing}
+mkGetUser = GetUser' {userName = Core.Nothing}
 
 -- | The name of the user to get information about.
 --
 -- This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guUserName :: Lens.Lens' GetUser (Lude.Maybe Lude.Text)
-guUserName = Lens.lens (userName :: GetUser -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: GetUser)
+guUserName :: Lens.Lens' GetUser (Core.Maybe Types.UserName)
+guUserName = Lens.field @"userName"
 {-# DEPRECATED guUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance Lude.AWSRequest GetUser where
+instance Core.AWSRequest GetUser where
   type Rs GetUser = GetUserResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetUser")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" Core.<$> userName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetUserResult"
       ( \s h x ->
           GetUserResponse'
-            Lude.<$> (x Lude..@ "User") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "User") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetUser where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetUser where
-  toQuery GetUser' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetUser" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName
-      ]
 
 -- | Contains the response to a successful 'GetUser' request.
 --
@@ -101,31 +100,22 @@ data GetUserResponse = GetUserResponse'
     --
     -- /Important:/ Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html last sign-in> dates shown in the IAM console and password last used dates in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html IAM credential report> , and returned by this GetUser API. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.
     -- You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to AWS in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access AWS programmatically you can refer to access key last used information because it is accurate for all dates.
-    user :: User,
+    user :: Types.User,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetUserResponse' with the minimum fields required to make a request.
---
--- * 'user' - A structure containing details about the IAM user.
---
--- /Important:/ Due to a service issue, password last used data does not include password use from May 3, 2018 22:50 PDT to May 23, 2018 14:08 PDT. This affects <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_finding-unused.html last sign-in> dates shown in the IAM console and password last used dates in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html IAM credential report> , and returned by this GetUser API. If users signed in during the affected time, the password last used date that is returned is the date the user last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08 PDT, the returned password last used date is accurate.
--- You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to AWS in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access AWS programmatically you can refer to access key last used information because it is accurate for all dates.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetUserResponse' value with any optional fields omitted.
 mkGetUserResponse ::
   -- | 'user'
-  User ->
+  Types.User ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetUserResponse
-mkGetUserResponse pUser_ pResponseStatus_ =
-  GetUserResponse'
-    { user = pUser_,
-      responseStatus = pResponseStatus_
-    }
+mkGetUserResponse user responseStatus =
+  GetUserResponse' {user, responseStatus}
 
 -- | A structure containing details about the IAM user.
 --
@@ -133,13 +123,13 @@ mkGetUserResponse pUser_ pResponseStatus_ =
 -- You can use password last used information to identify unused credentials for deletion. For example, you might delete users who did not sign in to AWS in the last 90 days. In cases like this, we recommend that you adjust your evaluation window to include dates after May 23, 2018. Alternatively, if your users use access keys to access AWS programmatically you can refer to access key last used information because it is accurate for all dates.
 --
 -- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gursUser :: Lens.Lens' GetUserResponse User
-gursUser = Lens.lens (user :: GetUserResponse -> User) (\s a -> s {user = a} :: GetUserResponse)
-{-# DEPRECATED gursUser "Use generic-lens or generic-optics with 'user' instead." #-}
+gurrsUser :: Lens.Lens' GetUserResponse Types.User
+gurrsUser = Lens.field @"user"
+{-# DEPRECATED gurrsUser "Use generic-lens or generic-optics with 'user' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gursResponseStatus :: Lens.Lens' GetUserResponse Lude.Int
-gursResponseStatus = Lens.lens (responseStatus :: GetUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUserResponse)
-{-# DEPRECATED gursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gurrsResponseStatus :: Lens.Lens' GetUserResponse Core.Int
+gurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

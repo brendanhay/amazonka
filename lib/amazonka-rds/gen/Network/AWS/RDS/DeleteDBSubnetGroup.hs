@@ -20,7 +20,7 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
     mkDeleteDBSubnetGroup,
 
     -- ** Request lenses
-    ddbsgDBSubnetGroupName,
+    ddbsgfDBSubnetGroupName,
 
     -- * Destructuring the response
     DeleteDBSubnetGroupResponse (..),
@@ -29,10 +29,10 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -43,24 +43,18 @@ newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
     -- Constraints:
     -- Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.
     -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Lude.Text
+    dBSubnetGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDBSubnetGroup' with the minimum fields required to make a request.
---
--- * 'dbSubnetGroupName' - The name of the database subnet group to delete.
---
--- Constraints:
--- Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.
--- Example: @mySubnetgroup@
+-- | Creates a 'DeleteDBSubnetGroup' value with any optional fields omitted.
 mkDeleteDBSubnetGroup ::
-  -- | 'dbSubnetGroupName'
-  Lude.Text ->
+  -- | 'dBSubnetGroupName'
+  Types.String ->
   DeleteDBSubnetGroup
-mkDeleteDBSubnetGroup pDBSubnetGroupName_ =
-  DeleteDBSubnetGroup' {dbSubnetGroupName = pDBSubnetGroupName_}
+mkDeleteDBSubnetGroup dBSubnetGroupName =
+  DeleteDBSubnetGroup' {dBSubnetGroupName}
 
 -- | The name of the database subnet group to delete.
 --
@@ -68,36 +62,39 @@ mkDeleteDBSubnetGroup pDBSubnetGroupName_ =
 -- Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.
 -- Example: @mySubnetgroup@
 --
--- /Note:/ Consider using 'dbSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsgDBSubnetGroupName :: Lens.Lens' DeleteDBSubnetGroup Lude.Text
-ddbsgDBSubnetGroupName = Lens.lens (dbSubnetGroupName :: DeleteDBSubnetGroup -> Lude.Text) (\s a -> s {dbSubnetGroupName = a} :: DeleteDBSubnetGroup)
-{-# DEPRECATED ddbsgDBSubnetGroupName "Use generic-lens or generic-optics with 'dbSubnetGroupName' instead." #-}
+-- /Note:/ Consider using 'dBSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsgfDBSubnetGroupName :: Lens.Lens' DeleteDBSubnetGroup Types.String
+ddbsgfDBSubnetGroupName = Lens.field @"dBSubnetGroupName"
+{-# DEPRECATED ddbsgfDBSubnetGroupName "Use generic-lens or generic-optics with 'dBSubnetGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteDBSubnetGroup where
+instance Core.AWSRequest DeleteDBSubnetGroup where
   type Rs DeleteDBSubnetGroup = DeleteDBSubnetGroupResponse
-  request = Req.postQuery rdsService
-  response = Res.receiveNull DeleteDBSubnetGroupResponse'
-
-instance Lude.ToHeaders DeleteDBSubnetGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteDBSubnetGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDBSubnetGroup where
-  toQuery DeleteDBSubnetGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteDBSubnetGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBSubnetGroupName" Lude.=: dbSubnetGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteDBSubnetGroup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBSubnetGroupName" dBSubnetGroupName)
+            )
+      }
+  response = Response.receiveNull DeleteDBSubnetGroupResponse'
 
 -- | /See:/ 'mkDeleteDBSubnetGroupResponse' smart constructor.
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDBSubnetGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteDBSubnetGroupResponse' value with any optional fields omitted.
 mkDeleteDBSubnetGroupResponse ::
   DeleteDBSubnetGroupResponse
 mkDeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'

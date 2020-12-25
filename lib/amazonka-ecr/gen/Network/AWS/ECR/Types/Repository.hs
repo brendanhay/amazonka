@@ -17,138 +17,131 @@ module Network.AWS.ECR.Types.Repository
     mkRepository,
 
     -- * Lenses
-    rRepositoryARN,
     rCreatedAt,
-    rRegistryId,
-    rImageScanningConfiguration,
-    rRepositoryURI,
     rEncryptionConfiguration,
-    rRepositoryName,
+    rImageScanningConfiguration,
     rImageTagMutability,
+    rRegistryId,
+    rRepositoryArn,
+    rRepositoryName,
+    rRepositoryUri,
   )
 where
 
-import Network.AWS.ECR.Types.EncryptionConfiguration
-import Network.AWS.ECR.Types.ImageScanningConfiguration
-import Network.AWS.ECR.Types.ImageTagMutability
+import qualified Network.AWS.ECR.Types.EncryptionConfiguration as Types
+import qualified Network.AWS.ECR.Types.ImageScanningConfiguration as Types
+import qualified Network.AWS.ECR.Types.ImageTagMutability as Types
+import qualified Network.AWS.ECR.Types.RegistryId as Types
+import qualified Network.AWS.ECR.Types.RepositoryArn as Types
+import qualified Network.AWS.ECR.Types.RepositoryName as Types
+import qualified Network.AWS.ECR.Types.RepositoryUri as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a repository.
 --
 -- /See:/ 'mkRepository' smart constructor.
 data Repository = Repository'
-  { -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
-    repositoryARN :: Lude.Maybe Lude.Text,
-    -- | The date and time, in JavaScript date format, when the repository was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The AWS account ID associated with the registry that contains the repository.
-    registryId :: Lude.Maybe Lude.Text,
-    imageScanningConfiguration :: Lude.Maybe ImageScanningConfiguration,
-    -- | The URI for the repository. You can use this URI for container image @push@ and @pull@ operations.
-    repositoryURI :: Lude.Maybe Lude.Text,
+  { -- | The date and time, in JavaScript date format, when the repository was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-    encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
-    -- | The name of the repository.
-    repositoryName :: Lude.Maybe Lude.Text,
+    encryptionConfiguration :: Core.Maybe Types.EncryptionConfiguration,
+    imageScanningConfiguration :: Core.Maybe Types.ImageScanningConfiguration,
     -- | The tag mutability setting for the repository.
-    imageTagMutability :: Lude.Maybe ImageTagMutability
+    imageTagMutability :: Core.Maybe Types.ImageTagMutability,
+    -- | The AWS account ID associated with the registry that contains the repository.
+    registryId :: Core.Maybe Types.RegistryId,
+    -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
+    repositoryArn :: Core.Maybe Types.RepositoryArn,
+    -- | The name of the repository.
+    repositoryName :: Core.Maybe Types.RepositoryName,
+    -- | The URI for the repository. You can use this URI for container image @push@ and @pull@ operations.
+    repositoryUri :: Core.Maybe Types.RepositoryUri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Repository' with the minimum fields required to make a request.
---
--- * 'repositoryARN' - The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
--- * 'createdAt' - The date and time, in JavaScript date format, when the repository was created.
--- * 'registryId' - The AWS account ID associated with the registry that contains the repository.
--- * 'imageScanningConfiguration' -
--- * 'repositoryURI' - The URI for the repository. You can use this URI for container image @push@ and @pull@ operations.
--- * 'encryptionConfiguration' - The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
--- * 'repositoryName' - The name of the repository.
--- * 'imageTagMutability' - The tag mutability setting for the repository.
+-- | Creates a 'Repository' value with any optional fields omitted.
 mkRepository ::
   Repository
 mkRepository =
   Repository'
-    { repositoryARN = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      registryId = Lude.Nothing,
-      imageScanningConfiguration = Lude.Nothing,
-      repositoryURI = Lude.Nothing,
-      encryptionConfiguration = Lude.Nothing,
-      repositoryName = Lude.Nothing,
-      imageTagMutability = Lude.Nothing
+    { createdAt = Core.Nothing,
+      encryptionConfiguration = Core.Nothing,
+      imageScanningConfiguration = Core.Nothing,
+      imageTagMutability = Core.Nothing,
+      registryId = Core.Nothing,
+      repositoryArn = Core.Nothing,
+      repositoryName = Core.Nothing,
+      repositoryUri = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
---
--- /Note:/ Consider using 'repositoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRepositoryARN :: Lens.Lens' Repository (Lude.Maybe Lude.Text)
-rRepositoryARN = Lens.lens (repositoryARN :: Repository -> Lude.Maybe Lude.Text) (\s a -> s {repositoryARN = a} :: Repository)
-{-# DEPRECATED rRepositoryARN "Use generic-lens or generic-optics with 'repositoryARN' instead." #-}
 
 -- | The date and time, in JavaScript date format, when the repository was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rCreatedAt :: Lens.Lens' Repository (Lude.Maybe Lude.Timestamp)
-rCreatedAt = Lens.lens (createdAt :: Repository -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Repository)
+rCreatedAt :: Lens.Lens' Repository (Core.Maybe Core.NominalDiffTime)
+rCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED rCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The AWS account ID associated with the registry that contains the repository.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRegistryId :: Lens.Lens' Repository (Lude.Maybe Lude.Text)
-rRegistryId = Lens.lens (registryId :: Repository -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: Repository)
-{-# DEPRECATED rRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'imageScanningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rImageScanningConfiguration :: Lens.Lens' Repository (Lude.Maybe ImageScanningConfiguration)
-rImageScanningConfiguration = Lens.lens (imageScanningConfiguration :: Repository -> Lude.Maybe ImageScanningConfiguration) (\s a -> s {imageScanningConfiguration = a} :: Repository)
-{-# DEPRECATED rImageScanningConfiguration "Use generic-lens or generic-optics with 'imageScanningConfiguration' instead." #-}
-
--- | The URI for the repository. You can use this URI for container image @push@ and @pull@ operations.
---
--- /Note:/ Consider using 'repositoryURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRepositoryURI :: Lens.Lens' Repository (Lude.Maybe Lude.Text)
-rRepositoryURI = Lens.lens (repositoryURI :: Repository -> Lude.Maybe Lude.Text) (\s a -> s {repositoryURI = a} :: Repository)
-{-# DEPRECATED rRepositoryURI "Use generic-lens or generic-optics with 'repositoryURI' instead." #-}
 
 -- | The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 --
 -- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEncryptionConfiguration :: Lens.Lens' Repository (Lude.Maybe EncryptionConfiguration)
-rEncryptionConfiguration = Lens.lens (encryptionConfiguration :: Repository -> Lude.Maybe EncryptionConfiguration) (\s a -> s {encryptionConfiguration = a} :: Repository)
+rEncryptionConfiguration :: Lens.Lens' Repository (Core.Maybe Types.EncryptionConfiguration)
+rEncryptionConfiguration = Lens.field @"encryptionConfiguration"
 {-# DEPRECATED rEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
 
--- | The name of the repository.
+-- | Undocumented field.
 --
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRepositoryName :: Lens.Lens' Repository (Lude.Maybe Lude.Text)
-rRepositoryName = Lens.lens (repositoryName :: Repository -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: Repository)
-{-# DEPRECATED rRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+-- /Note:/ Consider using 'imageScanningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rImageScanningConfiguration :: Lens.Lens' Repository (Core.Maybe Types.ImageScanningConfiguration)
+rImageScanningConfiguration = Lens.field @"imageScanningConfiguration"
+{-# DEPRECATED rImageScanningConfiguration "Use generic-lens or generic-optics with 'imageScanningConfiguration' instead." #-}
 
 -- | The tag mutability setting for the repository.
 --
 -- /Note:/ Consider using 'imageTagMutability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rImageTagMutability :: Lens.Lens' Repository (Lude.Maybe ImageTagMutability)
-rImageTagMutability = Lens.lens (imageTagMutability :: Repository -> Lude.Maybe ImageTagMutability) (\s a -> s {imageTagMutability = a} :: Repository)
+rImageTagMutability :: Lens.Lens' Repository (Core.Maybe Types.ImageTagMutability)
+rImageTagMutability = Lens.field @"imageTagMutability"
 {-# DEPRECATED rImageTagMutability "Use generic-lens or generic-optics with 'imageTagMutability' instead." #-}
 
-instance Lude.FromJSON Repository where
+-- | The AWS account ID associated with the registry that contains the repository.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRegistryId :: Lens.Lens' Repository (Core.Maybe Types.RegistryId)
+rRegistryId = Lens.field @"registryId"
+{-# DEPRECATED rRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
+--
+-- /Note:/ Consider using 'repositoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRepositoryArn :: Lens.Lens' Repository (Core.Maybe Types.RepositoryArn)
+rRepositoryArn = Lens.field @"repositoryArn"
+{-# DEPRECATED rRepositoryArn "Use generic-lens or generic-optics with 'repositoryArn' instead." #-}
+
+-- | The name of the repository.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRepositoryName :: Lens.Lens' Repository (Core.Maybe Types.RepositoryName)
+rRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED rRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The URI for the repository. You can use this URI for container image @push@ and @pull@ operations.
+--
+-- /Note:/ Consider using 'repositoryUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRepositoryUri :: Lens.Lens' Repository (Core.Maybe Types.RepositoryUri)
+rRepositoryUri = Lens.field @"repositoryUri"
+{-# DEPRECATED rRepositoryUri "Use generic-lens or generic-optics with 'repositoryUri' instead." #-}
+
+instance Core.FromJSON Repository where
   parseJSON =
-    Lude.withObject
-      "Repository"
-      ( \x ->
-          Repository'
-            Lude.<$> (x Lude..:? "repositoryArn")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "registryId")
-            Lude.<*> (x Lude..:? "imageScanningConfiguration")
-            Lude.<*> (x Lude..:? "repositoryUri")
-            Lude.<*> (x Lude..:? "encryptionConfiguration")
-            Lude.<*> (x Lude..:? "repositoryName")
-            Lude.<*> (x Lude..:? "imageTagMutability")
-      )
+    Core.withObject "Repository" Core.$
+      \x ->
+        Repository'
+          Core.<$> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "encryptionConfiguration")
+          Core.<*> (x Core..:? "imageScanningConfiguration")
+          Core.<*> (x Core..:? "imageTagMutability")
+          Core.<*> (x Core..:? "registryId")
+          Core.<*> (x Core..:? "repositoryArn")
+          Core.<*> (x Core..:? "repositoryName")
+          Core.<*> (x Core..:? "repositoryUri")

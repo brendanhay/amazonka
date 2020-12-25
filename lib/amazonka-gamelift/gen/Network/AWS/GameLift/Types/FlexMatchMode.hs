@@ -13,46 +13,51 @@
 module Network.AWS.GameLift.Types.FlexMatchMode
   ( FlexMatchMode
       ( FlexMatchMode',
-        Standalone,
-        WithQueue
+        FlexMatchModeStandalone,
+        FlexMatchModeWithQueue,
+        fromFlexMatchMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FlexMatchMode = FlexMatchMode' Lude.Text
+newtype FlexMatchMode = FlexMatchMode'
+  { fromFlexMatchMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standalone :: FlexMatchMode
-pattern Standalone = FlexMatchMode' "STANDALONE"
+pattern FlexMatchModeStandalone :: FlexMatchMode
+pattern FlexMatchModeStandalone = FlexMatchMode' "STANDALONE"
 
-pattern WithQueue :: FlexMatchMode
-pattern WithQueue = FlexMatchMode' "WITH_QUEUE"
+pattern FlexMatchModeWithQueue :: FlexMatchMode
+pattern FlexMatchModeWithQueue = FlexMatchMode' "WITH_QUEUE"
 
 {-# COMPLETE
-  Standalone,
-  WithQueue,
+  FlexMatchModeStandalone,
+  FlexMatchModeWithQueue,
   FlexMatchMode'
   #-}

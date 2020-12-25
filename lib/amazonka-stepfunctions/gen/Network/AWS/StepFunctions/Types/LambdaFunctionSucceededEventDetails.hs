@@ -23,52 +23,48 @@ module Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveData as Types
 
 -- | Contains details about a lambda function that successfully terminated during an execution.
 --
 -- /See:/ 'mkLambdaFunctionSucceededEventDetails' smart constructor.
 data LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
   { -- | The JSON data output by the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    output :: Core.Maybe Types.SensitiveData,
     -- | Contains details about the output of an execution history event.
-    outputDetails :: Lude.Maybe HistoryEventExecutionDataDetails
+    outputDetails :: Core.Maybe Types.HistoryEventExecutionDataDetails
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaFunctionSucceededEventDetails' with the minimum fields required to make a request.
---
--- * 'output' - The JSON data output by the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
--- * 'outputDetails' - Contains details about the output of an execution history event.
+-- | Creates a 'LambdaFunctionSucceededEventDetails' value with any optional fields omitted.
 mkLambdaFunctionSucceededEventDetails ::
   LambdaFunctionSucceededEventDetails
 mkLambdaFunctionSucceededEventDetails =
   LambdaFunctionSucceededEventDetails'
-    { output = Lude.Nothing,
-      outputDetails = Lude.Nothing
+    { output = Core.Nothing,
+      outputDetails = Core.Nothing
     }
 
 -- | The JSON data output by the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 --
 -- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsedOutput :: Lens.Lens' LambdaFunctionSucceededEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-lfsedOutput = Lens.lens (output :: LambdaFunctionSucceededEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {output = a} :: LambdaFunctionSucceededEventDetails)
+lfsedOutput :: Lens.Lens' LambdaFunctionSucceededEventDetails (Core.Maybe Types.SensitiveData)
+lfsedOutput = Lens.field @"output"
 {-# DEPRECATED lfsedOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | Contains details about the output of an execution history event.
 --
 -- /Note:/ Consider using 'outputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsedOutputDetails :: Lens.Lens' LambdaFunctionSucceededEventDetails (Lude.Maybe HistoryEventExecutionDataDetails)
-lfsedOutputDetails = Lens.lens (outputDetails :: LambdaFunctionSucceededEventDetails -> Lude.Maybe HistoryEventExecutionDataDetails) (\s a -> s {outputDetails = a} :: LambdaFunctionSucceededEventDetails)
+lfsedOutputDetails :: Lens.Lens' LambdaFunctionSucceededEventDetails (Core.Maybe Types.HistoryEventExecutionDataDetails)
+lfsedOutputDetails = Lens.field @"outputDetails"
 {-# DEPRECATED lfsedOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
 
-instance Lude.FromJSON LambdaFunctionSucceededEventDetails where
+instance Core.FromJSON LambdaFunctionSucceededEventDetails where
   parseJSON =
-    Lude.withObject
-      "LambdaFunctionSucceededEventDetails"
-      ( \x ->
-          LambdaFunctionSucceededEventDetails'
-            Lude.<$> (x Lude..:? "output") Lude.<*> (x Lude..:? "outputDetails")
-      )
+    Core.withObject "LambdaFunctionSucceededEventDetails" Core.$
+      \x ->
+        LambdaFunctionSucceededEventDetails'
+          Core.<$> (x Core..:? "output") Core.<*> (x Core..:? "outputDetails")

@@ -13,56 +13,61 @@
 module Network.AWS.AutoScalingPlans.Types.LoadMetricType
   ( LoadMetricType
       ( LoadMetricType',
-        ASGTotalCPUUtilization,
-        ASGTotalNetworkIn,
-        ASGTotalNetworkOut,
-        ALBTargetGroupRequestCount
+        LoadMetricTypeASGTotalCPUUtilization,
+        LoadMetricTypeASGTotalNetworkIn,
+        LoadMetricTypeASGTotalNetworkOut,
+        LoadMetricTypeALBTargetGroupRequestCount,
+        fromLoadMetricType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LoadMetricType = LoadMetricType' Lude.Text
+newtype LoadMetricType = LoadMetricType'
+  { fromLoadMetricType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASGTotalCPUUtilization :: LoadMetricType
-pattern ASGTotalCPUUtilization = LoadMetricType' "ASGTotalCPUUtilization"
+pattern LoadMetricTypeASGTotalCPUUtilization :: LoadMetricType
+pattern LoadMetricTypeASGTotalCPUUtilization = LoadMetricType' "ASGTotalCPUUtilization"
 
-pattern ASGTotalNetworkIn :: LoadMetricType
-pattern ASGTotalNetworkIn = LoadMetricType' "ASGTotalNetworkIn"
+pattern LoadMetricTypeASGTotalNetworkIn :: LoadMetricType
+pattern LoadMetricTypeASGTotalNetworkIn = LoadMetricType' "ASGTotalNetworkIn"
 
-pattern ASGTotalNetworkOut :: LoadMetricType
-pattern ASGTotalNetworkOut = LoadMetricType' "ASGTotalNetworkOut"
+pattern LoadMetricTypeASGTotalNetworkOut :: LoadMetricType
+pattern LoadMetricTypeASGTotalNetworkOut = LoadMetricType' "ASGTotalNetworkOut"
 
-pattern ALBTargetGroupRequestCount :: LoadMetricType
-pattern ALBTargetGroupRequestCount = LoadMetricType' "ALBTargetGroupRequestCount"
+pattern LoadMetricTypeALBTargetGroupRequestCount :: LoadMetricType
+pattern LoadMetricTypeALBTargetGroupRequestCount = LoadMetricType' "ALBTargetGroupRequestCount"
 
 {-# COMPLETE
-  ASGTotalCPUUtilization,
-  ASGTotalNetworkIn,
-  ASGTotalNetworkOut,
-  ALBTargetGroupRequestCount,
+  LoadMetricTypeASGTotalCPUUtilization,
+  LoadMetricTypeASGTotalNetworkIn,
+  LoadMetricTypeASGTotalNetworkOut,
+  LoadMetricTypeALBTargetGroupRequestCount,
   LoadMetricType'
   #-}

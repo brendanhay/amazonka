@@ -23,65 +23,61 @@ module Network.AWS.DirectoryService.Types.LogSubscription
   )
 where
 
+import qualified Network.AWS.DirectoryService.Types.DirectoryId as Types
+import qualified Network.AWS.DirectoryService.Types.LogGroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a log subscription, which tracks real-time data from a chosen log group to a specified destination.
 --
 -- /See:/ 'mkLogSubscription' smart constructor.
 data LogSubscription = LogSubscription'
   { -- | Identifier (ID) of the directory that you want to associate with the log subscription.
-    directoryId :: Lude.Maybe Lude.Text,
+    directoryId :: Core.Maybe Types.DirectoryId,
     -- | The name of the log group.
-    logGroupName :: Lude.Maybe Lude.Text,
+    logGroupName :: Core.Maybe Types.LogGroupName,
     -- | The date and time that the log subscription was created.
-    subscriptionCreatedDateTime :: Lude.Maybe Lude.Timestamp
+    subscriptionCreatedDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LogSubscription' with the minimum fields required to make a request.
---
--- * 'directoryId' - Identifier (ID) of the directory that you want to associate with the log subscription.
--- * 'logGroupName' - The name of the log group.
--- * 'subscriptionCreatedDateTime' - The date and time that the log subscription was created.
+-- | Creates a 'LogSubscription' value with any optional fields omitted.
 mkLogSubscription ::
   LogSubscription
 mkLogSubscription =
   LogSubscription'
-    { directoryId = Lude.Nothing,
-      logGroupName = Lude.Nothing,
-      subscriptionCreatedDateTime = Lude.Nothing
+    { directoryId = Core.Nothing,
+      logGroupName = Core.Nothing,
+      subscriptionCreatedDateTime = Core.Nothing
     }
 
 -- | Identifier (ID) of the directory that you want to associate with the log subscription.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsDirectoryId :: Lens.Lens' LogSubscription (Lude.Maybe Lude.Text)
-lsDirectoryId = Lens.lens (directoryId :: LogSubscription -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: LogSubscription)
+lsDirectoryId :: Lens.Lens' LogSubscription (Core.Maybe Types.DirectoryId)
+lsDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED lsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The name of the log group.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsLogGroupName :: Lens.Lens' LogSubscription (Lude.Maybe Lude.Text)
-lsLogGroupName = Lens.lens (logGroupName :: LogSubscription -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: LogSubscription)
+lsLogGroupName :: Lens.Lens' LogSubscription (Core.Maybe Types.LogGroupName)
+lsLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED lsLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The date and time that the log subscription was created.
 --
 -- /Note:/ Consider using 'subscriptionCreatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsSubscriptionCreatedDateTime :: Lens.Lens' LogSubscription (Lude.Maybe Lude.Timestamp)
-lsSubscriptionCreatedDateTime = Lens.lens (subscriptionCreatedDateTime :: LogSubscription -> Lude.Maybe Lude.Timestamp) (\s a -> s {subscriptionCreatedDateTime = a} :: LogSubscription)
+lsSubscriptionCreatedDateTime :: Lens.Lens' LogSubscription (Core.Maybe Core.NominalDiffTime)
+lsSubscriptionCreatedDateTime = Lens.field @"subscriptionCreatedDateTime"
 {-# DEPRECATED lsSubscriptionCreatedDateTime "Use generic-lens or generic-optics with 'subscriptionCreatedDateTime' instead." #-}
 
-instance Lude.FromJSON LogSubscription where
+instance Core.FromJSON LogSubscription where
   parseJSON =
-    Lude.withObject
-      "LogSubscription"
-      ( \x ->
-          LogSubscription'
-            Lude.<$> (x Lude..:? "DirectoryId")
-            Lude.<*> (x Lude..:? "LogGroupName")
-            Lude.<*> (x Lude..:? "SubscriptionCreatedDateTime")
-      )
+    Core.withObject "LogSubscription" Core.$
+      \x ->
+        LogSubscription'
+          Core.<$> (x Core..:? "DirectoryId")
+          Core.<*> (x Core..:? "LogGroupName")
+          Core.<*> (x Core..:? "SubscriptionCreatedDateTime")

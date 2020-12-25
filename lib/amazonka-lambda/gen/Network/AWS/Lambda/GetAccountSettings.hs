@@ -24,94 +24,89 @@ module Network.AWS.Lambda.GetAccountSettings
     mkGetAccountSettingsResponse,
 
     -- ** Response lenses
-    gasrsAccountLimit,
-    gasrsAccountUsage,
-    gasrsResponseStatus,
+    gasrrsAccountLimit,
+    gasrrsAccountUsage,
+    gasrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAccountSettings' smart constructor.
 data GetAccountSettings = GetAccountSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccountSettings' with the minimum fields required to make a request.
+-- | Creates a 'GetAccountSettings' value with any optional fields omitted.
 mkGetAccountSettings ::
   GetAccountSettings
 mkGetAccountSettings = GetAccountSettings'
 
-instance Lude.AWSRequest GetAccountSettings where
+instance Core.AWSRequest GetAccountSettings where
   type Rs GetAccountSettings = GetAccountSettingsResponse
-  request = Req.get lambdaService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2016-08-19/account-settings/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAccountSettingsResponse'
-            Lude.<$> (x Lude..?> "AccountLimit")
-            Lude.<*> (x Lude..?> "AccountUsage")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AccountLimit")
+            Core.<*> (x Core..:? "AccountUsage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAccountSettings where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetAccountSettings where
-  toPath = Lude.const "/2016-08-19/account-settings/"
-
-instance Lude.ToQuery GetAccountSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
   { -- | Limits that are related to concurrency and code storage.
-    accountLimit :: Lude.Maybe AccountLimit,
+    accountLimit :: Core.Maybe Types.AccountLimit,
     -- | The number of functions and amount of storage in use.
-    accountUsage :: Lude.Maybe AccountUsage,
+    accountUsage :: Core.Maybe Types.AccountUsage,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccountSettingsResponse' with the minimum fields required to make a request.
---
--- * 'accountLimit' - Limits that are related to concurrency and code storage.
--- * 'accountUsage' - The number of functions and amount of storage in use.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAccountSettingsResponse' value with any optional fields omitted.
 mkGetAccountSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAccountSettingsResponse
-mkGetAccountSettingsResponse pResponseStatus_ =
+mkGetAccountSettingsResponse responseStatus =
   GetAccountSettingsResponse'
-    { accountLimit = Lude.Nothing,
-      accountUsage = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { accountLimit = Core.Nothing,
+      accountUsage = Core.Nothing,
+      responseStatus
     }
 
 -- | Limits that are related to concurrency and code storage.
 --
 -- /Note:/ Consider using 'accountLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasrsAccountLimit :: Lens.Lens' GetAccountSettingsResponse (Lude.Maybe AccountLimit)
-gasrsAccountLimit = Lens.lens (accountLimit :: GetAccountSettingsResponse -> Lude.Maybe AccountLimit) (\s a -> s {accountLimit = a} :: GetAccountSettingsResponse)
-{-# DEPRECATED gasrsAccountLimit "Use generic-lens or generic-optics with 'accountLimit' instead." #-}
+gasrrsAccountLimit :: Lens.Lens' GetAccountSettingsResponse (Core.Maybe Types.AccountLimit)
+gasrrsAccountLimit = Lens.field @"accountLimit"
+{-# DEPRECATED gasrrsAccountLimit "Use generic-lens or generic-optics with 'accountLimit' instead." #-}
 
 -- | The number of functions and amount of storage in use.
 --
 -- /Note:/ Consider using 'accountUsage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasrsAccountUsage :: Lens.Lens' GetAccountSettingsResponse (Lude.Maybe AccountUsage)
-gasrsAccountUsage = Lens.lens (accountUsage :: GetAccountSettingsResponse -> Lude.Maybe AccountUsage) (\s a -> s {accountUsage = a} :: GetAccountSettingsResponse)
-{-# DEPRECATED gasrsAccountUsage "Use generic-lens or generic-optics with 'accountUsage' instead." #-}
+gasrrsAccountUsage :: Lens.Lens' GetAccountSettingsResponse (Core.Maybe Types.AccountUsage)
+gasrrsAccountUsage = Lens.field @"accountUsage"
+{-# DEPRECATED gasrrsAccountUsage "Use generic-lens or generic-optics with 'accountUsage' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasrsResponseStatus :: Lens.Lens' GetAccountSettingsResponse Lude.Int
-gasrsResponseStatus = Lens.lens (responseStatus :: GetAccountSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountSettingsResponse)
-{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gasrrsResponseStatus :: Lens.Lens' GetAccountSettingsResponse Core.Int
+gasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,152 +20,134 @@ module Network.AWS.Glue.CheckSchemaVersionValidity
     mkCheckSchemaVersionValidity,
 
     -- ** Request lenses
-    csvvSchemaDefinition,
     csvvDataFormat,
+    csvvSchemaDefinition,
 
     -- * Destructuring the response
     CheckSchemaVersionValidityResponse (..),
     mkCheckSchemaVersionValidityResponse,
 
     -- ** Response lenses
-    csvvrsError,
-    csvvrsValid,
-    csvvrsResponseStatus,
+    csvvrrsError,
+    csvvrrsValid,
+    csvvrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCheckSchemaVersionValidity' smart constructor.
 data CheckSchemaVersionValidity = CheckSchemaVersionValidity'
-  { -- | The definition of the schema that has to be validated.
-    schemaDefinition :: Lude.Text,
-    -- | The data format of the schema definition. Currently only @AVRO@ is supported.
-    dataFormat :: DataFormat
+  { -- | The data format of the schema definition. Currently only @AVRO@ is supported.
+    dataFormat :: Types.DataFormat,
+    -- | The definition of the schema that has to be validated.
+    schemaDefinition :: Types.SchemaDefinitionString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CheckSchemaVersionValidity' with the minimum fields required to make a request.
---
--- * 'schemaDefinition' - The definition of the schema that has to be validated.
--- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
+-- | Creates a 'CheckSchemaVersionValidity' value with any optional fields omitted.
 mkCheckSchemaVersionValidity ::
-  -- | 'schemaDefinition'
-  Lude.Text ->
   -- | 'dataFormat'
-  DataFormat ->
+  Types.DataFormat ->
+  -- | 'schemaDefinition'
+  Types.SchemaDefinitionString ->
   CheckSchemaVersionValidity
-mkCheckSchemaVersionValidity pSchemaDefinition_ pDataFormat_ =
-  CheckSchemaVersionValidity'
-    { schemaDefinition =
-        pSchemaDefinition_,
-      dataFormat = pDataFormat_
-    }
-
--- | The definition of the schema that has to be validated.
---
--- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvvSchemaDefinition :: Lens.Lens' CheckSchemaVersionValidity Lude.Text
-csvvSchemaDefinition = Lens.lens (schemaDefinition :: CheckSchemaVersionValidity -> Lude.Text) (\s a -> s {schemaDefinition = a} :: CheckSchemaVersionValidity)
-{-# DEPRECATED csvvSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
+mkCheckSchemaVersionValidity dataFormat schemaDefinition =
+  CheckSchemaVersionValidity' {dataFormat, schemaDefinition}
 
 -- | The data format of the schema definition. Currently only @AVRO@ is supported.
 --
 -- /Note:/ Consider using 'dataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvvDataFormat :: Lens.Lens' CheckSchemaVersionValidity DataFormat
-csvvDataFormat = Lens.lens (dataFormat :: CheckSchemaVersionValidity -> DataFormat) (\s a -> s {dataFormat = a} :: CheckSchemaVersionValidity)
+csvvDataFormat :: Lens.Lens' CheckSchemaVersionValidity Types.DataFormat
+csvvDataFormat = Lens.field @"dataFormat"
 {-# DEPRECATED csvvDataFormat "Use generic-lens or generic-optics with 'dataFormat' instead." #-}
 
-instance Lude.AWSRequest CheckSchemaVersionValidity where
+-- | The definition of the schema that has to be validated.
+--
+-- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csvvSchemaDefinition :: Lens.Lens' CheckSchemaVersionValidity Types.SchemaDefinitionString
+csvvSchemaDefinition = Lens.field @"schemaDefinition"
+{-# DEPRECATED csvvSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
+
+instance Core.FromJSON CheckSchemaVersionValidity where
+  toJSON CheckSchemaVersionValidity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DataFormat" Core..= dataFormat),
+            Core.Just ("SchemaDefinition" Core..= schemaDefinition)
+          ]
+      )
+
+instance Core.AWSRequest CheckSchemaVersionValidity where
   type
     Rs CheckSchemaVersionValidity =
       CheckSchemaVersionValidityResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.CheckSchemaVersionValidity")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CheckSchemaVersionValidityResponse'
-            Lude.<$> (x Lude..?> "Error")
-            Lude.<*> (x Lude..?> "Valid")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Error")
+            Core.<*> (x Core..:? "Valid")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CheckSchemaVersionValidity where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.CheckSchemaVersionValidity" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CheckSchemaVersionValidity where
-  toJSON CheckSchemaVersionValidity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SchemaDefinition" Lude..= schemaDefinition),
-            Lude.Just ("DataFormat" Lude..= dataFormat)
-          ]
-      )
-
-instance Lude.ToPath CheckSchemaVersionValidity where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CheckSchemaVersionValidity where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCheckSchemaVersionValidityResponse' smart constructor.
 data CheckSchemaVersionValidityResponse = CheckSchemaVersionValidityResponse'
   { -- | A validation failure error message.
-    error :: Lude.Maybe Lude.Text,
+    error :: Core.Maybe Types.Error,
     -- | Return true, if the schema is valid and false otherwise.
-    valid :: Lude.Maybe Lude.Bool,
+    valid :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CheckSchemaVersionValidityResponse' with the minimum fields required to make a request.
---
--- * 'error' - A validation failure error message.
--- * 'valid' - Return true, if the schema is valid and false otherwise.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CheckSchemaVersionValidityResponse' value with any optional fields omitted.
 mkCheckSchemaVersionValidityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CheckSchemaVersionValidityResponse
-mkCheckSchemaVersionValidityResponse pResponseStatus_ =
+mkCheckSchemaVersionValidityResponse responseStatus =
   CheckSchemaVersionValidityResponse'
-    { error = Lude.Nothing,
-      valid = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { error = Core.Nothing,
+      valid = Core.Nothing,
+      responseStatus
     }
 
 -- | A validation failure error message.
 --
 -- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvvrsError :: Lens.Lens' CheckSchemaVersionValidityResponse (Lude.Maybe Lude.Text)
-csvvrsError = Lens.lens (error :: CheckSchemaVersionValidityResponse -> Lude.Maybe Lude.Text) (\s a -> s {error = a} :: CheckSchemaVersionValidityResponse)
-{-# DEPRECATED csvvrsError "Use generic-lens or generic-optics with 'error' instead." #-}
+csvvrrsError :: Lens.Lens' CheckSchemaVersionValidityResponse (Core.Maybe Types.Error)
+csvvrrsError = Lens.field @"error"
+{-# DEPRECATED csvvrrsError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | Return true, if the schema is valid and false otherwise.
 --
 -- /Note:/ Consider using 'valid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvvrsValid :: Lens.Lens' CheckSchemaVersionValidityResponse (Lude.Maybe Lude.Bool)
-csvvrsValid = Lens.lens (valid :: CheckSchemaVersionValidityResponse -> Lude.Maybe Lude.Bool) (\s a -> s {valid = a} :: CheckSchemaVersionValidityResponse)
-{-# DEPRECATED csvvrsValid "Use generic-lens or generic-optics with 'valid' instead." #-}
+csvvrrsValid :: Lens.Lens' CheckSchemaVersionValidityResponse (Core.Maybe Core.Bool)
+csvvrrsValid = Lens.field @"valid"
+{-# DEPRECATED csvvrrsValid "Use generic-lens or generic-optics with 'valid' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvvrsResponseStatus :: Lens.Lens' CheckSchemaVersionValidityResponse Lude.Int
-csvvrsResponseStatus = Lens.lens (responseStatus :: CheckSchemaVersionValidityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CheckSchemaVersionValidityResponse)
-{-# DEPRECATED csvvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csvvrrsResponseStatus :: Lens.Lens' CheckSchemaVersionValidityResponse Core.Int
+csvvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csvvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

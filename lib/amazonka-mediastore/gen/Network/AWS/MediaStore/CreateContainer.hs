@@ -28,90 +28,77 @@ module Network.AWS.MediaStore.CreateContainer
     mkCreateContainerResponse,
 
     -- ** Response lenses
-    ccrsContainer,
-    ccrsResponseStatus,
+    ccrrsContainer,
+    ccrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateContainer' smart constructor.
 data CreateContainer = CreateContainer'
   { -- | The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named @movies@ in every region, as long as you don’t have an existing container with that name.
-    containerName :: Lude.Text,
+    containerName :: Types.ContainerName,
     -- | An array of key:value pairs that you define. These values can be anything that you want. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each container. For more information about tagging, including naming and usage conventions, see <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore> .
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateContainer' with the minimum fields required to make a request.
---
--- * 'containerName' - The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named @movies@ in every region, as long as you don’t have an existing container with that name.
--- * 'tags' - An array of key:value pairs that you define. These values can be anything that you want. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each container. For more information about tagging, including naming and usage conventions, see <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore> .
+-- | Creates a 'CreateContainer' value with any optional fields omitted.
 mkCreateContainer ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.ContainerName ->
   CreateContainer
-mkCreateContainer pContainerName_ =
-  CreateContainer'
-    { containerName = pContainerName_,
-      tags = Lude.Nothing
-    }
+mkCreateContainer containerName =
+  CreateContainer' {containerName, tags = Core.Nothing}
 
 -- | The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named @movies@ in every region, as long as you don’t have an existing container with that name.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccContainerName :: Lens.Lens' CreateContainer Lude.Text
-ccContainerName = Lens.lens (containerName :: CreateContainer -> Lude.Text) (\s a -> s {containerName = a} :: CreateContainer)
+ccContainerName :: Lens.Lens' CreateContainer Types.ContainerName
+ccContainerName = Lens.field @"containerName"
 {-# DEPRECATED ccContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 -- | An array of key:value pairs that you define. These values can be anything that you want. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each container. For more information about tagging, including naming and usage conventions, see <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore> .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTags :: Lens.Lens' CreateContainer (Lude.Maybe (Lude.NonEmpty Tag))
-ccTags = Lens.lens (tags :: CreateContainer -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateContainer)
+ccTags :: Lens.Lens' CreateContainer (Core.Maybe (Core.NonEmpty Types.Tag))
+ccTags = Lens.field @"tags"
 {-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateContainer where
+instance Core.FromJSON CreateContainer where
+  toJSON CreateContainer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContainerName" Core..= containerName),
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateContainer where
   type Rs CreateContainer = CreateContainerResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "MediaStore_20170901.CreateContainer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateContainerResponse'
-            Lude.<$> (x Lude..:> "Container") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "Container") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateContainer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.CreateContainer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateContainer where
-  toJSON CreateContainer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ContainerName" Lude..= containerName),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateContainer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateContainer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateContainerResponse' smart constructor.
 data CreateContainerResponse = CreateContainerResponse'
@@ -121,33 +108,22 @@ data CreateContainerResponse = CreateContainerResponse'
     -- CreationTime: Unix time stamp.
     -- Status: The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When an endpoint is available, the status changes to @ACTIVE@ .
     -- The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using 'DescribeContainer' or 'ListContainers' .
-    container :: Container,
+    container :: Types.Container,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateContainerResponse' with the minimum fields required to make a request.
---
--- * 'container' - ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN has the following format: arn:aws:<region>:<account that owns this container>:container/<name of container>. For example: arn:aws:mediastore:us-west-2:111122223333:container/movies
---
--- ContainerName: The container name as specified in the request.
--- CreationTime: Unix time stamp.
--- Status: The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When an endpoint is available, the status changes to @ACTIVE@ .
--- The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using 'DescribeContainer' or 'ListContainers' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateContainerResponse' value with any optional fields omitted.
 mkCreateContainerResponse ::
   -- | 'container'
-  Container ->
+  Types.Container ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateContainerResponse
-mkCreateContainerResponse pContainer_ pResponseStatus_ =
-  CreateContainerResponse'
-    { container = pContainer_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateContainerResponse container responseStatus =
+  CreateContainerResponse' {container, responseStatus}
 
 -- | ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN has the following format: arn:aws:<region>:<account that owns this container>:container/<name of container>. For example: arn:aws:mediastore:us-west-2:111122223333:container/movies
 --
@@ -157,13 +133,13 @@ mkCreateContainerResponse pContainer_ pResponseStatus_ =
 -- The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using 'DescribeContainer' or 'ListContainers' .
 --
 -- /Note:/ Consider using 'container' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsContainer :: Lens.Lens' CreateContainerResponse Container
-ccrsContainer = Lens.lens (container :: CreateContainerResponse -> Container) (\s a -> s {container = a} :: CreateContainerResponse)
-{-# DEPRECATED ccrsContainer "Use generic-lens or generic-optics with 'container' instead." #-}
+ccrrsContainer :: Lens.Lens' CreateContainerResponse Types.Container
+ccrrsContainer = Lens.field @"container"
+{-# DEPRECATED ccrrsContainer "Use generic-lens or generic-optics with 'container' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsResponseStatus :: Lens.Lens' CreateContainerResponse Lude.Int
-ccrsResponseStatus = Lens.lens (responseStatus :: CreateContainerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateContainerResponse)
-{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccrrsResponseStatus :: Lens.Lens' CreateContainerResponse Core.Int
+ccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

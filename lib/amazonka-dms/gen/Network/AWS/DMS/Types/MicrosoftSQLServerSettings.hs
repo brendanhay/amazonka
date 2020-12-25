@@ -18,111 +18,116 @@ module Network.AWS.DMS.Types.MicrosoftSQLServerSettings
 
     -- * Lenses
     msqlssBcpPacketSize,
-    msqlssUseBcpFullLoad,
-    msqlssServerName,
-    msqlssUsername,
-    msqlssSafeguardPolicy,
-    msqlssPassword,
-    msqlssDatabaseName,
-    msqlssReadBackupOnly,
     msqlssControlTablesFileGroup,
+    msqlssDatabaseName,
+    msqlssPassword,
     msqlssPort,
+    msqlssReadBackupOnly,
+    msqlssSafeguardPolicy,
+    msqlssServerName,
+    msqlssUseBcpFullLoad,
+    msqlssUsername,
   )
 where
 
-import Network.AWS.DMS.Types.SafeguardPolicy
+import qualified Network.AWS.DMS.Types.ControlTablesFileGroup as Types
+import qualified Network.AWS.DMS.Types.DatabaseName as Types
+import qualified Network.AWS.DMS.Types.Password as Types
+import qualified Network.AWS.DMS.Types.SafeguardPolicy as Types
+import qualified Network.AWS.DMS.Types.ServerName as Types
+import qualified Network.AWS.DMS.Types.Username as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information that defines a Microsoft SQL Server endpoint.
 --
 -- /See:/ 'mkMicrosoftSQLServerSettings' smart constructor.
 data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
   { -- | The maximum size of the packets (in bytes) used to transfer data using BCP.
-    bcpPacketSize :: Lude.Maybe Lude.Int,
-    -- | Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
-    useBcpFullLoad :: Lude.Maybe Lude.Bool,
-    -- | Fully qualified domain name of the endpoint.
-    serverName :: Lude.Maybe Lude.Text,
-    -- | Endpoint connection user name.
-    username :: Lude.Maybe Lude.Text,
+    bcpPacketSize :: Core.Maybe Core.Int,
+    -- | Specify a filegroup for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created on the specified filegroup.
+    controlTablesFileGroup :: Core.Maybe Types.ControlTablesFileGroup,
+    -- | Database name for the endpoint.
+    databaseName :: Core.Maybe Types.DatabaseName,
+    -- | Endpoint connection password.
+    password :: Core.Maybe Types.Password,
+    -- | Endpoint TCP port.
+    port :: Core.Maybe Core.Int,
+    -- | When this attribute is set to @Y@ , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to @Y@ enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+    readBackupOnly :: Core.Maybe Core.Bool,
     -- | Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
     --
     -- /Start transactions in the database:/ This is the default method. When this method is used, AWS DMS prevents TLOG truncation by mimicking a transaction in the database. As long as such a transaction is open, changes that appear after the transaction started aren't truncated. If you need Microsoft Replication to be enabled in your database, then you must choose this method.
     -- /Exclusively use sp_repldone within a single task/ : When this method is used, AWS DMS reads the changes and then uses sp_repldone to mark the TLOG transactions as ready for truncation. Although this method doesn't involve any transactional activities, it can only be used when Microsoft Replication isn't running. Also, when using this method, only one AWS DMS task can access the database at any given time. Therefore, if you need to run parallel AWS DMS tasks against the same database, use the default method.
-    safeguardPolicy :: Lude.Maybe SafeguardPolicy,
-    -- | Endpoint connection password.
-    password :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Database name for the endpoint.
-    databaseName :: Lude.Maybe Lude.Text,
-    -- | When this attribute is set to @Y@ , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to @Y@ enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
-    readBackupOnly :: Lude.Maybe Lude.Bool,
-    -- | Specify a filegroup for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created on the specified filegroup.
-    controlTablesFileGroup :: Lude.Maybe Lude.Text,
-    -- | Endpoint TCP port.
-    port :: Lude.Maybe Lude.Int
+    safeguardPolicy :: Core.Maybe Types.SafeguardPolicy,
+    -- | Fully qualified domain name of the endpoint.
+    serverName :: Core.Maybe Types.ServerName,
+    -- | Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+    useBcpFullLoad :: Core.Maybe Core.Bool,
+    -- | Endpoint connection user name.
+    username :: Core.Maybe Types.Username
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MicrosoftSQLServerSettings' with the minimum fields required to make a request.
---
--- * 'bcpPacketSize' - The maximum size of the packets (in bytes) used to transfer data using BCP.
--- * 'useBcpFullLoad' - Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
--- * 'serverName' - Fully qualified domain name of the endpoint.
--- * 'username' - Endpoint connection user name.
--- * 'safeguardPolicy' - Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
---
--- /Start transactions in the database:/ This is the default method. When this method is used, AWS DMS prevents TLOG truncation by mimicking a transaction in the database. As long as such a transaction is open, changes that appear after the transaction started aren't truncated. If you need Microsoft Replication to be enabled in your database, then you must choose this method.
--- /Exclusively use sp_repldone within a single task/ : When this method is used, AWS DMS reads the changes and then uses sp_repldone to mark the TLOG transactions as ready for truncation. Although this method doesn't involve any transactional activities, it can only be used when Microsoft Replication isn't running. Also, when using this method, only one AWS DMS task can access the database at any given time. Therefore, if you need to run parallel AWS DMS tasks against the same database, use the default method.
--- * 'password' - Endpoint connection password.
--- * 'databaseName' - Database name for the endpoint.
--- * 'readBackupOnly' - When this attribute is set to @Y@ , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to @Y@ enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
--- * 'controlTablesFileGroup' - Specify a filegroup for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created on the specified filegroup.
--- * 'port' - Endpoint TCP port.
+-- | Creates a 'MicrosoftSQLServerSettings' value with any optional fields omitted.
 mkMicrosoftSQLServerSettings ::
   MicrosoftSQLServerSettings
 mkMicrosoftSQLServerSettings =
   MicrosoftSQLServerSettings'
-    { bcpPacketSize = Lude.Nothing,
-      useBcpFullLoad = Lude.Nothing,
-      serverName = Lude.Nothing,
-      username = Lude.Nothing,
-      safeguardPolicy = Lude.Nothing,
-      password = Lude.Nothing,
-      databaseName = Lude.Nothing,
-      readBackupOnly = Lude.Nothing,
-      controlTablesFileGroup = Lude.Nothing,
-      port = Lude.Nothing
+    { bcpPacketSize = Core.Nothing,
+      controlTablesFileGroup = Core.Nothing,
+      databaseName = Core.Nothing,
+      password = Core.Nothing,
+      port = Core.Nothing,
+      readBackupOnly = Core.Nothing,
+      safeguardPolicy = Core.Nothing,
+      serverName = Core.Nothing,
+      useBcpFullLoad = Core.Nothing,
+      username = Core.Nothing
     }
 
 -- | The maximum size of the packets (in bytes) used to transfer data using BCP.
 --
 -- /Note:/ Consider using 'bcpPacketSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssBcpPacketSize :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe Lude.Int)
-msqlssBcpPacketSize = Lens.lens (bcpPacketSize :: MicrosoftSQLServerSettings -> Lude.Maybe Lude.Int) (\s a -> s {bcpPacketSize = a} :: MicrosoftSQLServerSettings)
+msqlssBcpPacketSize :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Int)
+msqlssBcpPacketSize = Lens.field @"bcpPacketSize"
 {-# DEPRECATED msqlssBcpPacketSize "Use generic-lens or generic-optics with 'bcpPacketSize' instead." #-}
 
--- | Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+-- | Specify a filegroup for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created on the specified filegroup.
 --
--- /Note:/ Consider using 'useBcpFullLoad' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssUseBcpFullLoad :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe Lude.Bool)
-msqlssUseBcpFullLoad = Lens.lens (useBcpFullLoad :: MicrosoftSQLServerSettings -> Lude.Maybe Lude.Bool) (\s a -> s {useBcpFullLoad = a} :: MicrosoftSQLServerSettings)
-{-# DEPRECATED msqlssUseBcpFullLoad "Use generic-lens or generic-optics with 'useBcpFullLoad' instead." #-}
+-- /Note:/ Consider using 'controlTablesFileGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msqlssControlTablesFileGroup :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Types.ControlTablesFileGroup)
+msqlssControlTablesFileGroup = Lens.field @"controlTablesFileGroup"
+{-# DEPRECATED msqlssControlTablesFileGroup "Use generic-lens or generic-optics with 'controlTablesFileGroup' instead." #-}
 
--- | Fully qualified domain name of the endpoint.
+-- | Database name for the endpoint.
 --
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssServerName :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe Lude.Text)
-msqlssServerName = Lens.lens (serverName :: MicrosoftSQLServerSettings -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: MicrosoftSQLServerSettings)
-{-# DEPRECATED msqlssServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msqlssDatabaseName :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Types.DatabaseName)
+msqlssDatabaseName = Lens.field @"databaseName"
+{-# DEPRECATED msqlssDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
--- | Endpoint connection user name.
+-- | Endpoint connection password.
 --
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssUsername :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe Lude.Text)
-msqlssUsername = Lens.lens (username :: MicrosoftSQLServerSettings -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: MicrosoftSQLServerSettings)
-{-# DEPRECATED msqlssUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msqlssPassword :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Types.Password)
+msqlssPassword = Lens.field @"password"
+{-# DEPRECATED msqlssPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+
+-- | Endpoint TCP port.
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msqlssPort :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Int)
+msqlssPort = Lens.field @"port"
+{-# DEPRECATED msqlssPort "Use generic-lens or generic-optics with 'port' instead." #-}
+
+-- | When this attribute is set to @Y@ , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to @Y@ enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+--
+-- /Note:/ Consider using 'readBackupOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msqlssReadBackupOnly :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Bool)
+msqlssReadBackupOnly = Lens.field @"readBackupOnly"
+{-# DEPRECATED msqlssReadBackupOnly "Use generic-lens or generic-optics with 'readBackupOnly' instead." #-}
 
 -- | Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
 --
@@ -130,76 +135,60 @@ msqlssUsername = Lens.lens (username :: MicrosoftSQLServerSettings -> Lude.Maybe
 -- /Exclusively use sp_repldone within a single task/ : When this method is used, AWS DMS reads the changes and then uses sp_repldone to mark the TLOG transactions as ready for truncation. Although this method doesn't involve any transactional activities, it can only be used when Microsoft Replication isn't running. Also, when using this method, only one AWS DMS task can access the database at any given time. Therefore, if you need to run parallel AWS DMS tasks against the same database, use the default method.
 --
 -- /Note:/ Consider using 'safeguardPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssSafeguardPolicy :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe SafeguardPolicy)
-msqlssSafeguardPolicy = Lens.lens (safeguardPolicy :: MicrosoftSQLServerSettings -> Lude.Maybe SafeguardPolicy) (\s a -> s {safeguardPolicy = a} :: MicrosoftSQLServerSettings)
+msqlssSafeguardPolicy :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Types.SafeguardPolicy)
+msqlssSafeguardPolicy = Lens.field @"safeguardPolicy"
 {-# DEPRECATED msqlssSafeguardPolicy "Use generic-lens or generic-optics with 'safeguardPolicy' instead." #-}
 
--- | Endpoint connection password.
+-- | Fully qualified domain name of the endpoint.
 --
--- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssPassword :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe (Lude.Sensitive Lude.Text))
-msqlssPassword = Lens.lens (password :: MicrosoftSQLServerSettings -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {password = a} :: MicrosoftSQLServerSettings)
-{-# DEPRECATED msqlssPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msqlssServerName :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Types.ServerName)
+msqlssServerName = Lens.field @"serverName"
+{-# DEPRECATED msqlssServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
--- | Database name for the endpoint.
+-- | Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
 --
--- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssDatabaseName :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe Lude.Text)
-msqlssDatabaseName = Lens.lens (databaseName :: MicrosoftSQLServerSettings -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: MicrosoftSQLServerSettings)
-{-# DEPRECATED msqlssDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+-- /Note:/ Consider using 'useBcpFullLoad' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msqlssUseBcpFullLoad :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Bool)
+msqlssUseBcpFullLoad = Lens.field @"useBcpFullLoad"
+{-# DEPRECATED msqlssUseBcpFullLoad "Use generic-lens or generic-optics with 'useBcpFullLoad' instead." #-}
 
--- | When this attribute is set to @Y@ , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to @Y@ enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+-- | Endpoint connection user name.
 --
--- /Note:/ Consider using 'readBackupOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssReadBackupOnly :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe Lude.Bool)
-msqlssReadBackupOnly = Lens.lens (readBackupOnly :: MicrosoftSQLServerSettings -> Lude.Maybe Lude.Bool) (\s a -> s {readBackupOnly = a} :: MicrosoftSQLServerSettings)
-{-# DEPRECATED msqlssReadBackupOnly "Use generic-lens or generic-optics with 'readBackupOnly' instead." #-}
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msqlssUsername :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Types.Username)
+msqlssUsername = Lens.field @"username"
+{-# DEPRECATED msqlssUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
--- | Specify a filegroup for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created on the specified filegroup.
---
--- /Note:/ Consider using 'controlTablesFileGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssControlTablesFileGroup :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe Lude.Text)
-msqlssControlTablesFileGroup = Lens.lens (controlTablesFileGroup :: MicrosoftSQLServerSettings -> Lude.Maybe Lude.Text) (\s a -> s {controlTablesFileGroup = a} :: MicrosoftSQLServerSettings)
-{-# DEPRECATED msqlssControlTablesFileGroup "Use generic-lens or generic-optics with 'controlTablesFileGroup' instead." #-}
-
--- | Endpoint TCP port.
---
--- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msqlssPort :: Lens.Lens' MicrosoftSQLServerSettings (Lude.Maybe Lude.Int)
-msqlssPort = Lens.lens (port :: MicrosoftSQLServerSettings -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: MicrosoftSQLServerSettings)
-{-# DEPRECATED msqlssPort "Use generic-lens or generic-optics with 'port' instead." #-}
-
-instance Lude.FromJSON MicrosoftSQLServerSettings where
-  parseJSON =
-    Lude.withObject
-      "MicrosoftSQLServerSettings"
-      ( \x ->
-          MicrosoftSQLServerSettings'
-            Lude.<$> (x Lude..:? "BcpPacketSize")
-            Lude.<*> (x Lude..:? "UseBcpFullLoad")
-            Lude.<*> (x Lude..:? "ServerName")
-            Lude.<*> (x Lude..:? "Username")
-            Lude.<*> (x Lude..:? "SafeguardPolicy")
-            Lude.<*> (x Lude..:? "Password")
-            Lude.<*> (x Lude..:? "DatabaseName")
-            Lude.<*> (x Lude..:? "ReadBackupOnly")
-            Lude.<*> (x Lude..:? "ControlTablesFileGroup")
-            Lude.<*> (x Lude..:? "Port")
-      )
-
-instance Lude.ToJSON MicrosoftSQLServerSettings where
-  toJSON MicrosoftSQLServerSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("BcpPacketSize" Lude..=) Lude.<$> bcpPacketSize,
-            ("UseBcpFullLoad" Lude..=) Lude.<$> useBcpFullLoad,
-            ("ServerName" Lude..=) Lude.<$> serverName,
-            ("Username" Lude..=) Lude.<$> username,
-            ("SafeguardPolicy" Lude..=) Lude.<$> safeguardPolicy,
-            ("Password" Lude..=) Lude.<$> password,
-            ("DatabaseName" Lude..=) Lude.<$> databaseName,
-            ("ReadBackupOnly" Lude..=) Lude.<$> readBackupOnly,
-            ("ControlTablesFileGroup" Lude..=) Lude.<$> controlTablesFileGroup,
-            ("Port" Lude..=) Lude.<$> port
+instance Core.FromJSON MicrosoftSQLServerSettings where
+  toJSON MicrosoftSQLServerSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BcpPacketSize" Core..=) Core.<$> bcpPacketSize,
+            ("ControlTablesFileGroup" Core..=) Core.<$> controlTablesFileGroup,
+            ("DatabaseName" Core..=) Core.<$> databaseName,
+            ("Password" Core..=) Core.<$> password,
+            ("Port" Core..=) Core.<$> port,
+            ("ReadBackupOnly" Core..=) Core.<$> readBackupOnly,
+            ("SafeguardPolicy" Core..=) Core.<$> safeguardPolicy,
+            ("ServerName" Core..=) Core.<$> serverName,
+            ("UseBcpFullLoad" Core..=) Core.<$> useBcpFullLoad,
+            ("Username" Core..=) Core.<$> username
           ]
       )
+
+instance Core.FromJSON MicrosoftSQLServerSettings where
+  parseJSON =
+    Core.withObject "MicrosoftSQLServerSettings" Core.$
+      \x ->
+        MicrosoftSQLServerSettings'
+          Core.<$> (x Core..:? "BcpPacketSize")
+          Core.<*> (x Core..:? "ControlTablesFileGroup")
+          Core.<*> (x Core..:? "DatabaseName")
+          Core.<*> (x Core..:? "Password")
+          Core.<*> (x Core..:? "Port")
+          Core.<*> (x Core..:? "ReadBackupOnly")
+          Core.<*> (x Core..:? "SafeguardPolicy")
+          Core.<*> (x Core..:? "ServerName")
+          Core.<*> (x Core..:? "UseBcpFullLoad")
+          Core.<*> (x Core..:? "Username")

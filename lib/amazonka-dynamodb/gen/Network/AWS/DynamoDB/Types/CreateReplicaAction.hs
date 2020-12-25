@@ -21,37 +21,35 @@ module Network.AWS.DynamoDB.Types.CreateReplicaAction
   )
 where
 
+import qualified Network.AWS.DynamoDB.Types.RegionName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a replica to be added.
 --
 -- /See:/ 'mkCreateReplicaAction' smart constructor.
 newtype CreateReplicaAction = CreateReplicaAction'
   { -- | The Region of the replica to be added.
-    regionName :: Lude.Text
+    regionName :: Types.RegionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateReplicaAction' with the minimum fields required to make a request.
---
--- * 'regionName' - The Region of the replica to be added.
+-- | Creates a 'CreateReplicaAction' value with any optional fields omitted.
 mkCreateReplicaAction ::
   -- | 'regionName'
-  Lude.Text ->
+  Types.RegionName ->
   CreateReplicaAction
-mkCreateReplicaAction pRegionName_ =
-  CreateReplicaAction' {regionName = pRegionName_}
+mkCreateReplicaAction regionName = CreateReplicaAction' {regionName}
 
 -- | The Region of the replica to be added.
 --
 -- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-craRegionName :: Lens.Lens' CreateReplicaAction Lude.Text
-craRegionName = Lens.lens (regionName :: CreateReplicaAction -> Lude.Text) (\s a -> s {regionName = a} :: CreateReplicaAction)
+craRegionName :: Lens.Lens' CreateReplicaAction Types.RegionName
+craRegionName = Lens.field @"regionName"
 {-# DEPRECATED craRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
-instance Lude.ToJSON CreateReplicaAction where
-  toJSON CreateReplicaAction' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RegionName" Lude..= regionName)])
+instance Core.FromJSON CreateReplicaAction where
+  toJSON CreateReplicaAction {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RegionName" Core..= regionName)])

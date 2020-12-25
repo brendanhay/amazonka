@@ -17,57 +17,54 @@ module Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails
     mkActivityTimedOutEventDetails,
 
     -- * Lenses
-    atoedError,
     atoedCause,
+    atoedError,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.SensitiveCause as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveError as Types
 
 -- | Contains details about an activity timeout that occurred during an execution.
 --
 -- /See:/ 'mkActivityTimedOutEventDetails' smart constructor.
 data ActivityTimedOutEventDetails = ActivityTimedOutEventDetails'
-  { -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A more detailed explanation of the cause of the timeout.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
+  { -- | A more detailed explanation of the cause of the timeout.
+    cause :: Core.Maybe Types.SensitiveCause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.SensitiveError
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivityTimedOutEventDetails' with the minimum fields required to make a request.
---
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the timeout.
+-- | Creates a 'ActivityTimedOutEventDetails' value with any optional fields omitted.
 mkActivityTimedOutEventDetails ::
   ActivityTimedOutEventDetails
 mkActivityTimedOutEventDetails =
   ActivityTimedOutEventDetails'
-    { error = Lude.Nothing,
-      cause = Lude.Nothing
+    { cause = Core.Nothing,
+      error = Core.Nothing
     }
-
--- | The error code of the failure.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atoedError :: Lens.Lens' ActivityTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-atoedError = Lens.lens (error :: ActivityTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: ActivityTimedOutEventDetails)
-{-# DEPRECATED atoedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the timeout.
 --
 -- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atoedCause :: Lens.Lens' ActivityTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-atoedCause = Lens.lens (cause :: ActivityTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: ActivityTimedOutEventDetails)
+atoedCause :: Lens.Lens' ActivityTimedOutEventDetails (Core.Maybe Types.SensitiveCause)
+atoedCause = Lens.field @"cause"
 {-# DEPRECATED atoedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
-instance Lude.FromJSON ActivityTimedOutEventDetails where
+-- | The error code of the failure.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atoedError :: Lens.Lens' ActivityTimedOutEventDetails (Core.Maybe Types.SensitiveError)
+atoedError = Lens.field @"error"
+{-# DEPRECATED atoedError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON ActivityTimedOutEventDetails where
   parseJSON =
-    Lude.withObject
-      "ActivityTimedOutEventDetails"
-      ( \x ->
-          ActivityTimedOutEventDetails'
-            Lude.<$> (x Lude..:? "error") Lude.<*> (x Lude..:? "cause")
-      )
+    Core.withObject "ActivityTimedOutEventDetails" Core.$
+      \x ->
+        ActivityTimedOutEventDetails'
+          Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")

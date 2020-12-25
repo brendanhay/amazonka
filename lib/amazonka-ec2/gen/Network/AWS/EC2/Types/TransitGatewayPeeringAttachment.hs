@@ -17,125 +17,116 @@ module Network.AWS.EC2.Types.TransitGatewayPeeringAttachment
     mkTransitGatewayPeeringAttachment,
 
     -- * Lenses
+    tgpaAccepterTgwInfo,
     tgpaCreationTime,
     tgpaRequesterTgwInfo,
-    tgpaStatus,
     tgpaState,
-    tgpaAccepterTgwInfo,
-    tgpaTransitGatewayAttachmentId,
+    tgpaStatus,
     tgpaTags,
+    tgpaTransitGatewayAttachmentId,
   )
 where
 
-import Network.AWS.EC2.Types.PeeringAttachmentStatus
-import Network.AWS.EC2.Types.PeeringTgwInfo
-import Network.AWS.EC2.Types.Tag
-import Network.AWS.EC2.Types.TransitGatewayAttachmentState
+import qualified Network.AWS.EC2.Types.PeeringAttachmentStatus as Types
+import qualified Network.AWS.EC2.Types.PeeringTgwInfo as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAttachmentState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the transit gateway peering attachment.
 --
 -- /See:/ 'mkTransitGatewayPeeringAttachment' smart constructor.
 data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
-  { -- | The time the transit gateway peering attachment was created.
-    creationTime :: Lude.Maybe Lude.DateTime,
+  { -- | Information about the accepter transit gateway.
+    accepterTgwInfo :: Core.Maybe Types.PeeringTgwInfo,
+    -- | The time the transit gateway peering attachment was created.
+    creationTime :: Core.Maybe Core.UTCTime,
     -- | Information about the requester transit gateway.
-    requesterTgwInfo :: Lude.Maybe PeeringTgwInfo,
-    -- | The status of the transit gateway peering attachment.
-    status :: Lude.Maybe PeeringAttachmentStatus,
+    requesterTgwInfo :: Core.Maybe Types.PeeringTgwInfo,
     -- | The state of the transit gateway peering attachment. Note that the @initiating@ state has been deprecated.
-    state :: Lude.Maybe TransitGatewayAttachmentState,
-    -- | Information about the accepter transit gateway.
-    accepterTgwInfo :: Lude.Maybe PeeringTgwInfo,
-    -- | The ID of the transit gateway peering attachment.
-    transitGatewayAttachmentId :: Lude.Maybe Lude.Text,
+    state :: Core.Maybe Types.TransitGatewayAttachmentState,
+    -- | The status of the transit gateway peering attachment.
+    status :: Core.Maybe Types.PeeringAttachmentStatus,
     -- | The tags for the transit gateway peering attachment.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The ID of the transit gateway peering attachment.
+    transitGatewayAttachmentId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TransitGatewayPeeringAttachment' with the minimum fields required to make a request.
---
--- * 'creationTime' - The time the transit gateway peering attachment was created.
--- * 'requesterTgwInfo' - Information about the requester transit gateway.
--- * 'status' - The status of the transit gateway peering attachment.
--- * 'state' - The state of the transit gateway peering attachment. Note that the @initiating@ state has been deprecated.
--- * 'accepterTgwInfo' - Information about the accepter transit gateway.
--- * 'transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.
--- * 'tags' - The tags for the transit gateway peering attachment.
+-- | Creates a 'TransitGatewayPeeringAttachment' value with any optional fields omitted.
 mkTransitGatewayPeeringAttachment ::
   TransitGatewayPeeringAttachment
 mkTransitGatewayPeeringAttachment =
   TransitGatewayPeeringAttachment'
-    { creationTime = Lude.Nothing,
-      requesterTgwInfo = Lude.Nothing,
-      status = Lude.Nothing,
-      state = Lude.Nothing,
-      accepterTgwInfo = Lude.Nothing,
-      transitGatewayAttachmentId = Lude.Nothing,
-      tags = Lude.Nothing
+    { accepterTgwInfo = Core.Nothing,
+      creationTime = Core.Nothing,
+      requesterTgwInfo = Core.Nothing,
+      state = Core.Nothing,
+      status = Core.Nothing,
+      tags = Core.Nothing,
+      transitGatewayAttachmentId = Core.Nothing
     }
+
+-- | Information about the accepter transit gateway.
+--
+-- /Note:/ Consider using 'accepterTgwInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpaAccepterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Core.Maybe Types.PeeringTgwInfo)
+tgpaAccepterTgwInfo = Lens.field @"accepterTgwInfo"
+{-# DEPRECATED tgpaAccepterTgwInfo "Use generic-lens or generic-optics with 'accepterTgwInfo' instead." #-}
 
 -- | The time the transit gateway peering attachment was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpaCreationTime :: Lens.Lens' TransitGatewayPeeringAttachment (Lude.Maybe Lude.DateTime)
-tgpaCreationTime = Lens.lens (creationTime :: TransitGatewayPeeringAttachment -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTime = a} :: TransitGatewayPeeringAttachment)
+tgpaCreationTime :: Lens.Lens' TransitGatewayPeeringAttachment (Core.Maybe Core.UTCTime)
+tgpaCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED tgpaCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Information about the requester transit gateway.
 --
 -- /Note:/ Consider using 'requesterTgwInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpaRequesterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Lude.Maybe PeeringTgwInfo)
-tgpaRequesterTgwInfo = Lens.lens (requesterTgwInfo :: TransitGatewayPeeringAttachment -> Lude.Maybe PeeringTgwInfo) (\s a -> s {requesterTgwInfo = a} :: TransitGatewayPeeringAttachment)
+tgpaRequesterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Core.Maybe Types.PeeringTgwInfo)
+tgpaRequesterTgwInfo = Lens.field @"requesterTgwInfo"
 {-# DEPRECATED tgpaRequesterTgwInfo "Use generic-lens or generic-optics with 'requesterTgwInfo' instead." #-}
-
--- | The status of the transit gateway peering attachment.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpaStatus :: Lens.Lens' TransitGatewayPeeringAttachment (Lude.Maybe PeeringAttachmentStatus)
-tgpaStatus = Lens.lens (status :: TransitGatewayPeeringAttachment -> Lude.Maybe PeeringAttachmentStatus) (\s a -> s {status = a} :: TransitGatewayPeeringAttachment)
-{-# DEPRECATED tgpaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The state of the transit gateway peering attachment. Note that the @initiating@ state has been deprecated.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpaState :: Lens.Lens' TransitGatewayPeeringAttachment (Lude.Maybe TransitGatewayAttachmentState)
-tgpaState = Lens.lens (state :: TransitGatewayPeeringAttachment -> Lude.Maybe TransitGatewayAttachmentState) (\s a -> s {state = a} :: TransitGatewayPeeringAttachment)
+tgpaState :: Lens.Lens' TransitGatewayPeeringAttachment (Core.Maybe Types.TransitGatewayAttachmentState)
+tgpaState = Lens.field @"state"
 {-# DEPRECATED tgpaState "Use generic-lens or generic-optics with 'state' instead." #-}
 
--- | Information about the accepter transit gateway.
+-- | The status of the transit gateway peering attachment.
 --
--- /Note:/ Consider using 'accepterTgwInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpaAccepterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Lude.Maybe PeeringTgwInfo)
-tgpaAccepterTgwInfo = Lens.lens (accepterTgwInfo :: TransitGatewayPeeringAttachment -> Lude.Maybe PeeringTgwInfo) (\s a -> s {accepterTgwInfo = a} :: TransitGatewayPeeringAttachment)
-{-# DEPRECATED tgpaAccepterTgwInfo "Use generic-lens or generic-optics with 'accepterTgwInfo' instead." #-}
-
--- | The ID of the transit gateway peering attachment.
---
--- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpaTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayPeeringAttachment (Lude.Maybe Lude.Text)
-tgpaTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: TransitGatewayPeeringAttachment -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: TransitGatewayPeeringAttachment)
-{-# DEPRECATED tgpaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpaStatus :: Lens.Lens' TransitGatewayPeeringAttachment (Core.Maybe Types.PeeringAttachmentStatus)
+tgpaStatus = Lens.field @"status"
+{-# DEPRECATED tgpaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The tags for the transit gateway peering attachment.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpaTags :: Lens.Lens' TransitGatewayPeeringAttachment (Lude.Maybe [Tag])
-tgpaTags = Lens.lens (tags :: TransitGatewayPeeringAttachment -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TransitGatewayPeeringAttachment)
+tgpaTags :: Lens.Lens' TransitGatewayPeeringAttachment (Core.Maybe [Types.Tag])
+tgpaTags = Lens.field @"tags"
 {-# DEPRECATED tgpaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML TransitGatewayPeeringAttachment where
+-- | The ID of the transit gateway peering attachment.
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpaTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayPeeringAttachment (Core.Maybe Types.String)
+tgpaTransitGatewayAttachmentId = Lens.field @"transitGatewayAttachmentId"
+{-# DEPRECATED tgpaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+
+instance Core.FromXML TransitGatewayPeeringAttachment where
   parseXML x =
     TransitGatewayPeeringAttachment'
-      Lude.<$> (x Lude..@? "creationTime")
-      Lude.<*> (x Lude..@? "requesterTgwInfo")
-      Lude.<*> (x Lude..@? "status")
-      Lude.<*> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "accepterTgwInfo")
-      Lude.<*> (x Lude..@? "transitGatewayAttachmentId")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "accepterTgwInfo")
+      Core.<*> (x Core..@? "creationTime")
+      Core.<*> (x Core..@? "requesterTgwInfo")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "status")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "transitGatewayAttachmentId")

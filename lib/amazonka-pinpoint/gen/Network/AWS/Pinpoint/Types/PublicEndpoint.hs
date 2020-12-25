@@ -17,184 +17,170 @@ module Network.AWS.Pinpoint.Types.PublicEndpoint
     mkPublicEndpoint,
 
     -- * Lenses
-    peRequestId,
-    peMetrics,
-    peLocation,
-    peDemographic,
     peAddress,
-    peEffectiveDate,
-    peUser,
     peAttributes,
-    peEndpointStatus,
-    peOptOut,
     peChannelType,
+    peDemographic,
+    peEffectiveDate,
+    peEndpointStatus,
+    peLocation,
+    peMetrics,
+    peOptOut,
+    peRequestId,
+    peUser,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ChannelType
-import Network.AWS.Pinpoint.Types.EndpointDemographic
-import Network.AWS.Pinpoint.Types.EndpointLocation
-import Network.AWS.Pinpoint.Types.EndpointUser
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ChannelType as Types
+import qualified Network.AWS.Pinpoint.Types.EndpointDemographic as Types
+import qualified Network.AWS.Pinpoint.Types.EndpointLocation as Types
+import qualified Network.AWS.Pinpoint.Types.EndpointUser as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the properties and attributes of an endpoint that's associated with an event.
 --
 -- /See:/ 'mkPublicEndpoint' smart constructor.
 data PublicEndpoint = PublicEndpoint'
-  { -- | A unique identifier that's generated each time the endpoint is updated.
-    requestId :: Lude.Maybe Lude.Text,
-    -- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
-    metrics :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
-    -- | The geographic information for the endpoint.
-    location :: Lude.Maybe EndpointLocation,
-    -- | The demographic information for the endpoint, such as the time zone and platform.
-    demographic :: Lude.Maybe EndpointDemographic,
-    -- | The unique identifier for the recipient, such as a device token, email address, or mobile phone number.
-    address :: Lude.Maybe Lude.Text,
-    -- | The date and time, in ISO 8601 format, when the endpoint was last updated.
-    effectiveDate :: Lude.Maybe Lude.Text,
-    -- | One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
-    user :: Lude.Maybe EndpointUser,
+  { -- | The unique identifier for the recipient, such as a device token, email address, or mobile phone number.
+    address :: Core.Maybe Core.Text,
     -- | One or more custom attributes that describe the endpoint by associating a name with an array of values. You can use these attributes as filter criteria when you create segments.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    attributes :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    -- | The channel that's used when sending messages or push notifications to the endpoint.
+    channelType :: Core.Maybe Types.ChannelType,
+    -- | The demographic information for the endpoint, such as the time zone and platform.
+    demographic :: Core.Maybe Types.EndpointDemographic,
+    -- | The date and time, in ISO 8601 format, when the endpoint was last updated.
+    effectiveDate :: Core.Maybe Core.Text,
     -- | Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
     --
     -- Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.
-    endpointStatus :: Lude.Maybe Lude.Text,
+    endpointStatus :: Core.Maybe Core.Text,
+    -- | The geographic information for the endpoint.
+    location :: Core.Maybe Types.EndpointLocation,
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
+    metrics :: Core.Maybe (Core.HashMap Core.Text Core.Double),
     -- | Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
-    optOut :: Lude.Maybe Lude.Text,
-    -- | The channel that's used when sending messages or push notifications to the endpoint.
-    channelType :: Lude.Maybe ChannelType
+    optOut :: Core.Maybe Core.Text,
+    -- | A unique identifier that's generated each time the endpoint is updated.
+    requestId :: Core.Maybe Core.Text,
+    -- | One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
+    user :: Core.Maybe Types.EndpointUser
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PublicEndpoint' with the minimum fields required to make a request.
---
--- * 'requestId' - A unique identifier that's generated each time the endpoint is updated.
--- * 'metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
--- * 'location' - The geographic information for the endpoint.
--- * 'demographic' - The demographic information for the endpoint, such as the time zone and platform.
--- * 'address' - The unique identifier for the recipient, such as a device token, email address, or mobile phone number.
--- * 'effectiveDate' - The date and time, in ISO 8601 format, when the endpoint was last updated.
--- * 'user' - One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
--- * 'attributes' - One or more custom attributes that describe the endpoint by associating a name with an array of values. You can use these attributes as filter criteria when you create segments.
--- * 'endpointStatus' - Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
---
--- Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.
--- * 'optOut' - Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
--- * 'channelType' - The channel that's used when sending messages or push notifications to the endpoint.
+-- | Creates a 'PublicEndpoint' value with any optional fields omitted.
 mkPublicEndpoint ::
   PublicEndpoint
 mkPublicEndpoint =
   PublicEndpoint'
-    { requestId = Lude.Nothing,
-      metrics = Lude.Nothing,
-      location = Lude.Nothing,
-      demographic = Lude.Nothing,
-      address = Lude.Nothing,
-      effectiveDate = Lude.Nothing,
-      user = Lude.Nothing,
-      attributes = Lude.Nothing,
-      endpointStatus = Lude.Nothing,
-      optOut = Lude.Nothing,
-      channelType = Lude.Nothing
+    { address = Core.Nothing,
+      attributes = Core.Nothing,
+      channelType = Core.Nothing,
+      demographic = Core.Nothing,
+      effectiveDate = Core.Nothing,
+      endpointStatus = Core.Nothing,
+      location = Core.Nothing,
+      metrics = Core.Nothing,
+      optOut = Core.Nothing,
+      requestId = Core.Nothing,
+      user = Core.Nothing
     }
-
--- | A unique identifier that's generated each time the endpoint is updated.
---
--- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peRequestId :: Lens.Lens' PublicEndpoint (Lude.Maybe Lude.Text)
-peRequestId = Lens.lens (requestId :: PublicEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: PublicEndpoint)
-{-# DEPRECATED peRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
-
--- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
---
--- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peMetrics :: Lens.Lens' PublicEndpoint (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)))
-peMetrics = Lens.lens (metrics :: PublicEndpoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))) (\s a -> s {metrics = a} :: PublicEndpoint)
-{-# DEPRECATED peMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
-
--- | The geographic information for the endpoint.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peLocation :: Lens.Lens' PublicEndpoint (Lude.Maybe EndpointLocation)
-peLocation = Lens.lens (location :: PublicEndpoint -> Lude.Maybe EndpointLocation) (\s a -> s {location = a} :: PublicEndpoint)
-{-# DEPRECATED peLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | The demographic information for the endpoint, such as the time zone and platform.
---
--- /Note:/ Consider using 'demographic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peDemographic :: Lens.Lens' PublicEndpoint (Lude.Maybe EndpointDemographic)
-peDemographic = Lens.lens (demographic :: PublicEndpoint -> Lude.Maybe EndpointDemographic) (\s a -> s {demographic = a} :: PublicEndpoint)
-{-# DEPRECATED peDemographic "Use generic-lens or generic-optics with 'demographic' instead." #-}
 
 -- | The unique identifier for the recipient, such as a device token, email address, or mobile phone number.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peAddress :: Lens.Lens' PublicEndpoint (Lude.Maybe Lude.Text)
-peAddress = Lens.lens (address :: PublicEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: PublicEndpoint)
+peAddress :: Lens.Lens' PublicEndpoint (Core.Maybe Core.Text)
+peAddress = Lens.field @"address"
 {-# DEPRECATED peAddress "Use generic-lens or generic-optics with 'address' instead." #-}
-
--- | The date and time, in ISO 8601 format, when the endpoint was last updated.
---
--- /Note:/ Consider using 'effectiveDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peEffectiveDate :: Lens.Lens' PublicEndpoint (Lude.Maybe Lude.Text)
-peEffectiveDate = Lens.lens (effectiveDate :: PublicEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {effectiveDate = a} :: PublicEndpoint)
-{-# DEPRECATED peEffectiveDate "Use generic-lens or generic-optics with 'effectiveDate' instead." #-}
-
--- | One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
---
--- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peUser :: Lens.Lens' PublicEndpoint (Lude.Maybe EndpointUser)
-peUser = Lens.lens (user :: PublicEndpoint -> Lude.Maybe EndpointUser) (\s a -> s {user = a} :: PublicEndpoint)
-{-# DEPRECATED peUser "Use generic-lens or generic-optics with 'user' instead." #-}
 
 -- | One or more custom attributes that describe the endpoint by associating a name with an array of values. You can use these attributes as filter criteria when you create segments.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peAttributes :: Lens.Lens' PublicEndpoint (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-peAttributes = Lens.lens (attributes :: PublicEndpoint -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {attributes = a} :: PublicEndpoint)
+peAttributes :: Lens.Lens' PublicEndpoint (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+peAttributes = Lens.field @"attributes"
 {-# DEPRECATED peAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The channel that's used when sending messages or push notifications to the endpoint.
+--
+-- /Note:/ Consider using 'channelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peChannelType :: Lens.Lens' PublicEndpoint (Core.Maybe Types.ChannelType)
+peChannelType = Lens.field @"channelType"
+{-# DEPRECATED peChannelType "Use generic-lens or generic-optics with 'channelType' instead." #-}
+
+-- | The demographic information for the endpoint, such as the time zone and platform.
+--
+-- /Note:/ Consider using 'demographic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peDemographic :: Lens.Lens' PublicEndpoint (Core.Maybe Types.EndpointDemographic)
+peDemographic = Lens.field @"demographic"
+{-# DEPRECATED peDemographic "Use generic-lens or generic-optics with 'demographic' instead." #-}
+
+-- | The date and time, in ISO 8601 format, when the endpoint was last updated.
+--
+-- /Note:/ Consider using 'effectiveDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peEffectiveDate :: Lens.Lens' PublicEndpoint (Core.Maybe Core.Text)
+peEffectiveDate = Lens.field @"effectiveDate"
+{-# DEPRECATED peEffectiveDate "Use generic-lens or generic-optics with 'effectiveDate' instead." #-}
 
 -- | Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
 --
 -- Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.
 --
 -- /Note:/ Consider using 'endpointStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peEndpointStatus :: Lens.Lens' PublicEndpoint (Lude.Maybe Lude.Text)
-peEndpointStatus = Lens.lens (endpointStatus :: PublicEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpointStatus = a} :: PublicEndpoint)
+peEndpointStatus :: Lens.Lens' PublicEndpoint (Core.Maybe Core.Text)
+peEndpointStatus = Lens.field @"endpointStatus"
 {-# DEPRECATED peEndpointStatus "Use generic-lens or generic-optics with 'endpointStatus' instead." #-}
+
+-- | The geographic information for the endpoint.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peLocation :: Lens.Lens' PublicEndpoint (Core.Maybe Types.EndpointLocation)
+peLocation = Lens.field @"location"
+{-# DEPRECATED peLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peMetrics :: Lens.Lens' PublicEndpoint (Core.Maybe (Core.HashMap Core.Text Core.Double))
+peMetrics = Lens.field @"metrics"
+{-# DEPRECATED peMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
 --
 -- /Note:/ Consider using 'optOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peOptOut :: Lens.Lens' PublicEndpoint (Lude.Maybe Lude.Text)
-peOptOut = Lens.lens (optOut :: PublicEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {optOut = a} :: PublicEndpoint)
+peOptOut :: Lens.Lens' PublicEndpoint (Core.Maybe Core.Text)
+peOptOut = Lens.field @"optOut"
 {-# DEPRECATED peOptOut "Use generic-lens or generic-optics with 'optOut' instead." #-}
 
--- | The channel that's used when sending messages or push notifications to the endpoint.
+-- | A unique identifier that's generated each time the endpoint is updated.
 --
--- /Note:/ Consider using 'channelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peChannelType :: Lens.Lens' PublicEndpoint (Lude.Maybe ChannelType)
-peChannelType = Lens.lens (channelType :: PublicEndpoint -> Lude.Maybe ChannelType) (\s a -> s {channelType = a} :: PublicEndpoint)
-{-# DEPRECATED peChannelType "Use generic-lens or generic-optics with 'channelType' instead." #-}
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peRequestId :: Lens.Lens' PublicEndpoint (Core.Maybe Core.Text)
+peRequestId = Lens.field @"requestId"
+{-# DEPRECATED peRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
-instance Lude.ToJSON PublicEndpoint where
-  toJSON PublicEndpoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RequestId" Lude..=) Lude.<$> requestId,
-            ("Metrics" Lude..=) Lude.<$> metrics,
-            ("Location" Lude..=) Lude.<$> location,
-            ("Demographic" Lude..=) Lude.<$> demographic,
-            ("Address" Lude..=) Lude.<$> address,
-            ("EffectiveDate" Lude..=) Lude.<$> effectiveDate,
-            ("User" Lude..=) Lude.<$> user,
-            ("Attributes" Lude..=) Lude.<$> attributes,
-            ("EndpointStatus" Lude..=) Lude.<$> endpointStatus,
-            ("OptOut" Lude..=) Lude.<$> optOut,
-            ("ChannelType" Lude..=) Lude.<$> channelType
+-- | One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.
+--
+-- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peUser :: Lens.Lens' PublicEndpoint (Core.Maybe Types.EndpointUser)
+peUser = Lens.field @"user"
+{-# DEPRECATED peUser "Use generic-lens or generic-optics with 'user' instead." #-}
+
+instance Core.FromJSON PublicEndpoint where
+  toJSON PublicEndpoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Address" Core..=) Core.<$> address,
+            ("Attributes" Core..=) Core.<$> attributes,
+            ("ChannelType" Core..=) Core.<$> channelType,
+            ("Demographic" Core..=) Core.<$> demographic,
+            ("EffectiveDate" Core..=) Core.<$> effectiveDate,
+            ("EndpointStatus" Core..=) Core.<$> endpointStatus,
+            ("Location" Core..=) Core.<$> location,
+            ("Metrics" Core..=) Core.<$> metrics,
+            ("OptOut" Core..=) Core.<$> optOut,
+            ("RequestId" Core..=) Core.<$> requestId,
+            ("User" Core..=) Core.<$> user
           ]
       )

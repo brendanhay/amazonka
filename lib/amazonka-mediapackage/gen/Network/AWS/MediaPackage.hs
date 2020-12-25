@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,28 @@
 -- AWS Elemental MediaPackage
 module Network.AWS.MediaPackage
   ( -- * Service configuration
-    mediaPackageService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- * Waiters
     -- $waiters
@@ -81,261 +98,259 @@ module Network.AWS.MediaPackage
 
     -- * Types
 
-    -- ** AdMarkers
-    AdMarkers (..),
-
-    -- ** AdTriggersElement
-    AdTriggersElement (..),
-
     -- ** AdsOnDeliveryRestrictions
     AdsOnDeliveryRestrictions (..),
 
-    -- ** EncryptionMethod
-    EncryptionMethod (..),
-
-    -- ** ManifestLayout
-    ManifestLayout (..),
-
-    -- ** Origination
-    Origination (..),
-
-    -- ** PeriodTriggersElement
-    PeriodTriggersElement (..),
-
-    -- ** PlaylistType
-    PlaylistType (..),
-
-    -- ** Profile
-    Profile (..),
-
-    -- ** SegmentTemplateFormat
-    SegmentTemplateFormat (..),
-
     -- ** Status
     Status (..),
-
-    -- ** StreamOrder
-    StreamOrder (..),
-
-    -- ** UtcTiming
-    UtcTiming (..),
-
-    -- ** Authorization
-    Authorization (..),
-    mkAuthorization,
-    aCdnIdentifierSecret,
-    aSecretsRoleARN,
-
-    -- ** Channel
-    Channel (..),
-    mkChannel,
-    cIngressAccessLogs,
-    cHlsIngest,
-    cARN,
-    cId,
-    cDescription,
-    cEgressAccessLogs,
-    cTags,
-
-    -- ** CmafEncryption
-    CmafEncryption (..),
-    mkCmafEncryption,
-    ceKeyRotationIntervalSeconds,
-    ceSpekeKeyProvider,
-
-    -- ** CmafPackage
-    CmafPackage (..),
-    mkCmafPackage,
-    cpHlsManifests,
-    cpSegmentDurationSeconds,
-    cpStreamSelection,
-    cpEncryption,
-    cpSegmentPrefix,
-
-    -- ** CmafPackageCreateOrUpdateParameters
-    CmafPackageCreateOrUpdateParameters (..),
-    mkCmafPackageCreateOrUpdateParameters,
-    cpcoupHlsManifests,
-    cpcoupSegmentDurationSeconds,
-    cpcoupStreamSelection,
-    cpcoupEncryption,
-    cpcoupSegmentPrefix,
-
-    -- ** DashEncryption
-    DashEncryption (..),
-    mkDashEncryption,
-    deKeyRotationIntervalSeconds,
-    deSpekeKeyProvider,
-
-    -- ** DashPackage
-    DashPackage (..),
-    mkDashPackage,
-    dpAdsOnDeliveryRestrictions,
-    dpMinBufferTimeSeconds,
-    dpUtcTiming,
-    dpSegmentTemplateFormat,
-    dpProfile,
-    dpSegmentDurationSeconds,
-    dpUtcTimingURI,
-    dpStreamSelection,
-    dpEncryption,
-    dpMinUpdatePeriodSeconds,
-    dpManifestLayout,
-    dpSuggestedPresentationDelaySeconds,
-    dpManifestWindowSeconds,
-    dpAdTriggers,
-    dpPeriodTriggers,
-
-    -- ** EgressAccessLogs
-    EgressAccessLogs (..),
-    mkEgressAccessLogs,
-    ealLogGroupName,
-
-    -- ** HarvestJob
-    HarvestJob (..),
-    mkHarvestJob,
-    hjStatus,
-    hjOriginEndpointId,
-    hjStartTime,
-    hjARN,
-    hjCreatedAt,
-    hjChannelId,
-    hjS3Destination,
-    hjEndTime,
-    hjId,
-
-    -- ** HlsEncryption
-    HlsEncryption (..),
-    mkHlsEncryption,
-    heEncryptionMethod,
-    heKeyRotationIntervalSeconds,
-    heConstantInitializationVector,
-    heSpekeKeyProvider,
-    heRepeatExtXKey,
-
-    -- ** HlsIngest
-    HlsIngest (..),
-    mkHlsIngest,
-    hiIngestEndpoints,
-
-    -- ** HlsManifest
-    HlsManifest (..),
-    mkHlsManifest,
-    hmManifestName,
-    hmURL,
-    hmPlaylistType,
-    hmProgramDateTimeIntervalSeconds,
-    hmAdMarkers,
-    hmId,
-    hmIncludeIframeOnlyStream,
-    hmPlaylistWindowSeconds,
-
-    -- ** HlsManifestCreateOrUpdateParameters
-    HlsManifestCreateOrUpdateParameters (..),
-    mkHlsManifestCreateOrUpdateParameters,
-    hmcoupAdsOnDeliveryRestrictions,
-    hmcoupManifestName,
-    hmcoupPlaylistType,
-    hmcoupProgramDateTimeIntervalSeconds,
-    hmcoupAdMarkers,
-    hmcoupId,
-    hmcoupIncludeIframeOnlyStream,
-    hmcoupAdTriggers,
-    hmcoupPlaylistWindowSeconds,
-
-    -- ** HlsPackage
-    HlsPackage (..),
-    mkHlsPackage,
-    hpAdsOnDeliveryRestrictions,
-    hpUseAudioRenditionGroup,
-    hpPlaylistType,
-    hpSegmentDurationSeconds,
-    hpProgramDateTimeIntervalSeconds,
-    hpStreamSelection,
-    hpAdMarkers,
-    hpEncryption,
-    hpIncludeIframeOnlyStream,
-    hpAdTriggers,
-    hpPlaylistWindowSeconds,
-
-    -- ** IngestEndpoint
-    IngestEndpoint (..),
-    mkIngestEndpoint,
-    ieURL,
-    ieUsername,
-    iePassword,
-    ieId,
 
     -- ** IngressAccessLogs
     IngressAccessLogs (..),
     mkIngressAccessLogs,
     ialLogGroupName,
 
+    -- ** UtcTiming
+    UtcTiming (..),
+
     -- ** MssEncryption
     MssEncryption (..),
     mkMssEncryption,
     meSpekeKeyProvider,
 
-    -- ** MssPackage
-    MssPackage (..),
-    mkMssPackage,
-    mpSegmentDurationSeconds,
-    mpStreamSelection,
-    mpEncryption,
-    mpManifestWindowSeconds,
+    -- ** StreamOrder
+    StreamOrder (..),
 
-    -- ** OriginEndpoint
-    OriginEndpoint (..),
-    mkOriginEndpoint,
-    oeWhitelist,
-    oeHlsPackage,
-    oeARN,
-    oeManifestName,
-    oeURL,
-    oeAuthorization,
-    oeChannelId,
-    oeStartoverWindowSeconds,
-    oeDashPackage,
-    oeMssPackage,
-    oeId,
-    oeTimeDelaySeconds,
-    oeCmafPackage,
-    oeDescription,
-    oeTags,
-    oeOrigination,
+    -- ** HlsIngest
+    HlsIngest (..),
+    mkHlsIngest,
+    hiIngestEndpoints,
+
+    -- ** HlsPackage
+    HlsPackage (..),
+    mkHlsPackage,
+    hpAdMarkers,
+    hpAdTriggers,
+    hpAdsOnDeliveryRestrictions,
+    hpEncryption,
+    hpIncludeIframeOnlyStream,
+    hpPlaylistType,
+    hpPlaylistWindowSeconds,
+    hpProgramDateTimeIntervalSeconds,
+    hpSegmentDurationSeconds,
+    hpStreamSelection,
+    hpUseAudioRenditionGroup,
+
+    -- ** EncryptionMethod
+    EncryptionMethod (..),
+
+    -- ** SegmentTemplateFormat
+    SegmentTemplateFormat (..),
+
+    -- ** Authorization
+    Authorization (..),
+    mkAuthorization,
+    aSecretsRoleArn,
+    aCdnIdentifierSecret,
+
+    -- ** Channel
+    Channel (..),
+    mkChannel,
+    cArn,
+    cDescription,
+    cEgressAccessLogs,
+    cHlsIngest,
+    cId,
+    cIngressAccessLogs,
+    cTags,
+
+    -- ** Profile
+    Profile (..),
+
+    -- ** PlaylistType
+    PlaylistType (..),
+
+    -- ** StreamSelection
+    StreamSelection (..),
+    mkStreamSelection,
+    ssMaxVideoBitsPerSecond,
+    ssMinVideoBitsPerSecond,
+    ssStreamOrder,
+
+    -- ** AdMarkers
+    AdMarkers (..),
 
     -- ** S3Destination
     S3Destination (..),
     mkS3Destination,
-    sdBucketName,
     sdManifestKey,
-    sdRoleARN,
+    sdBucketName,
+    sdRoleArn,
+
+    -- ** DashPackage
+    DashPackage (..),
+    mkDashPackage,
+    dpAdTriggers,
+    dpAdsOnDeliveryRestrictions,
+    dpEncryption,
+    dpManifestLayout,
+    dpManifestWindowSeconds,
+    dpMinBufferTimeSeconds,
+    dpMinUpdatePeriodSeconds,
+    dpPeriodTriggers,
+    dpProfile,
+    dpSegmentDurationSeconds,
+    dpSegmentTemplateFormat,
+    dpStreamSelection,
+    dpSuggestedPresentationDelaySeconds,
+    dpUtcTiming,
+    dpUtcTimingUri,
+
+    -- ** MssPackage
+    MssPackage (..),
+    mkMssPackage,
+    mpEncryption,
+    mpManifestWindowSeconds,
+    mpSegmentDurationSeconds,
+    mpStreamSelection,
+
+    -- ** OriginEndpoint
+    OriginEndpoint (..),
+    mkOriginEndpoint,
+    oeArn,
+    oeAuthorization,
+    oeChannelId,
+    oeCmafPackage,
+    oeDashPackage,
+    oeDescription,
+    oeHlsPackage,
+    oeId,
+    oeManifestName,
+    oeMssPackage,
+    oeOrigination,
+    oeStartoverWindowSeconds,
+    oeTags,
+    oeTimeDelaySeconds,
+    oeUrl,
+    oeWhitelist,
+
+    -- ** HlsManifestCreateOrUpdateParameters
+    HlsManifestCreateOrUpdateParameters (..),
+    mkHlsManifestCreateOrUpdateParameters,
+    hmcoupId,
+    hmcoupAdMarkers,
+    hmcoupAdTriggers,
+    hmcoupAdsOnDeliveryRestrictions,
+    hmcoupIncludeIframeOnlyStream,
+    hmcoupManifestName,
+    hmcoupPlaylistType,
+    hmcoupPlaylistWindowSeconds,
+    hmcoupProgramDateTimeIntervalSeconds,
+
+    -- ** ManifestLayout
+    ManifestLayout (..),
+
+    -- ** AdTriggersElement
+    AdTriggersElement (..),
+
+    -- ** HlsManifest
+    HlsManifest (..),
+    mkHlsManifest,
+    hmId,
+    hmAdMarkers,
+    hmIncludeIframeOnlyStream,
+    hmManifestName,
+    hmPlaylistType,
+    hmPlaylistWindowSeconds,
+    hmProgramDateTimeIntervalSeconds,
+    hmUrl,
+
+    -- ** HlsEncryption
+    HlsEncryption (..),
+    mkHlsEncryption,
+    heSpekeKeyProvider,
+    heConstantInitializationVector,
+    heEncryptionMethod,
+    heKeyRotationIntervalSeconds,
+    heRepeatExtXKey,
+
+    -- ** HarvestJob
+    HarvestJob (..),
+    mkHarvestJob,
+    hjArn,
+    hjChannelId,
+    hjCreatedAt,
+    hjEndTime,
+    hjId,
+    hjOriginEndpointId,
+    hjS3Destination,
+    hjStartTime,
+    hjStatus,
+
+    -- ** PeriodTriggersElement
+    PeriodTriggersElement (..),
+
+    -- ** CmafPackage
+    CmafPackage (..),
+    mkCmafPackage,
+    cpEncryption,
+    cpHlsManifests,
+    cpSegmentDurationSeconds,
+    cpSegmentPrefix,
+    cpStreamSelection,
+
+    -- ** CmafEncryption
+    CmafEncryption (..),
+    mkCmafEncryption,
+    ceSpekeKeyProvider,
+    ceKeyRotationIntervalSeconds,
 
     -- ** SpekeKeyProvider
     SpekeKeyProvider (..),
     mkSpekeKeyProvider,
     skpResourceId,
-    skpCertificateARN,
-    skpURL,
     skpSystemIds,
-    skpRoleARN,
+    skpUrl,
+    skpRoleArn,
+    skpCertificateArn,
 
-    -- ** StreamSelection
-    StreamSelection (..),
-    mkStreamSelection,
-    ssStreamOrder,
-    ssMinVideoBitsPerSecond,
-    ssMaxVideoBitsPerSecond,
+    -- ** EgressAccessLogs
+    EgressAccessLogs (..),
+    mkEgressAccessLogs,
+    ealLogGroupName,
+
+    -- ** CmafPackageCreateOrUpdateParameters
+    CmafPackageCreateOrUpdateParameters (..),
+    mkCmafPackageCreateOrUpdateParameters,
+    cpcoupEncryption,
+    cpcoupHlsManifests,
+    cpcoupSegmentDurationSeconds,
+    cpcoupSegmentPrefix,
+    cpcoupStreamSelection,
+
+    -- ** Origination
+    Origination (..),
+
+    -- ** IngestEndpoint
+    IngestEndpoint (..),
+    mkIngestEndpoint,
+    ieId,
+    iePassword,
+    ieUrl,
+    ieUsername,
+
+    -- ** DashEncryption
+    DashEncryption (..),
+    mkDashEncryption,
+    deSpekeKeyProvider,
+    deKeyRotationIntervalSeconds,
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

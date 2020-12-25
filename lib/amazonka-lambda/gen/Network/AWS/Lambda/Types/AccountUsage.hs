@@ -17,57 +17,52 @@ module Network.AWS.Lambda.Types.AccountUsage
     mkAccountUsage,
 
     -- * Lenses
-    auTotalCodeSize,
     auFunctionCount,
+    auTotalCodeSize,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The number of functions and amount of storage in use.
 --
 -- /See:/ 'mkAccountUsage' smart constructor.
 data AccountUsage = AccountUsage'
-  { -- | The amount of storage space, in bytes, that's being used by deployment packages and layer archives.
-    totalCodeSize :: Lude.Maybe Lude.Integer,
-    -- | The number of Lambda functions.
-    functionCount :: Lude.Maybe Lude.Integer
+  { -- | The number of Lambda functions.
+    functionCount :: Core.Maybe Core.Integer,
+    -- | The amount of storage space, in bytes, that's being used by deployment packages and layer archives.
+    totalCodeSize :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountUsage' with the minimum fields required to make a request.
---
--- * 'totalCodeSize' - The amount of storage space, in bytes, that's being used by deployment packages and layer archives.
--- * 'functionCount' - The number of Lambda functions.
+-- | Creates a 'AccountUsage' value with any optional fields omitted.
 mkAccountUsage ::
   AccountUsage
 mkAccountUsage =
   AccountUsage'
-    { totalCodeSize = Lude.Nothing,
-      functionCount = Lude.Nothing
+    { functionCount = Core.Nothing,
+      totalCodeSize = Core.Nothing
     }
-
--- | The amount of storage space, in bytes, that's being used by deployment packages and layer archives.
---
--- /Note:/ Consider using 'totalCodeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auTotalCodeSize :: Lens.Lens' AccountUsage (Lude.Maybe Lude.Integer)
-auTotalCodeSize = Lens.lens (totalCodeSize :: AccountUsage -> Lude.Maybe Lude.Integer) (\s a -> s {totalCodeSize = a} :: AccountUsage)
-{-# DEPRECATED auTotalCodeSize "Use generic-lens or generic-optics with 'totalCodeSize' instead." #-}
 
 -- | The number of Lambda functions.
 --
 -- /Note:/ Consider using 'functionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auFunctionCount :: Lens.Lens' AccountUsage (Lude.Maybe Lude.Integer)
-auFunctionCount = Lens.lens (functionCount :: AccountUsage -> Lude.Maybe Lude.Integer) (\s a -> s {functionCount = a} :: AccountUsage)
+auFunctionCount :: Lens.Lens' AccountUsage (Core.Maybe Core.Integer)
+auFunctionCount = Lens.field @"functionCount"
 {-# DEPRECATED auFunctionCount "Use generic-lens or generic-optics with 'functionCount' instead." #-}
 
-instance Lude.FromJSON AccountUsage where
+-- | The amount of storage space, in bytes, that's being used by deployment packages and layer archives.
+--
+-- /Note:/ Consider using 'totalCodeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auTotalCodeSize :: Lens.Lens' AccountUsage (Core.Maybe Core.Integer)
+auTotalCodeSize = Lens.field @"totalCodeSize"
+{-# DEPRECATED auTotalCodeSize "Use generic-lens or generic-optics with 'totalCodeSize' instead." #-}
+
+instance Core.FromJSON AccountUsage where
   parseJSON =
-    Lude.withObject
-      "AccountUsage"
-      ( \x ->
-          AccountUsage'
-            Lude.<$> (x Lude..:? "TotalCodeSize") Lude.<*> (x Lude..:? "FunctionCount")
-      )
+    Core.withObject "AccountUsage" Core.$
+      \x ->
+        AccountUsage'
+          Core.<$> (x Core..:? "FunctionCount") Core.<*> (x Core..:? "TotalCodeSize")

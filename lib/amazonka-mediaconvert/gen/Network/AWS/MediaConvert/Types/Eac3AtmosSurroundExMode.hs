@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
   ( Eac3AtmosSurroundExMode
       ( Eac3AtmosSurroundExMode',
-        EASEMNotIndicated,
-        EASEMEnabled,
-        EASEMDisabled
+        Eac3AtmosSurroundExModeNotIndicated,
+        Eac3AtmosSurroundExModeEnabled,
+        Eac3AtmosSurroundExModeDisabled,
+        fromEac3AtmosSurroundExMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify whether your input audio has an additional center rear surround channel matrix encoded into your left and right surround channels.
-newtype Eac3AtmosSurroundExMode = Eac3AtmosSurroundExMode' Lude.Text
+newtype Eac3AtmosSurroundExMode = Eac3AtmosSurroundExMode'
+  { fromEac3AtmosSurroundExMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EASEMNotIndicated :: Eac3AtmosSurroundExMode
-pattern EASEMNotIndicated = Eac3AtmosSurroundExMode' "NOT_INDICATED"
+pattern Eac3AtmosSurroundExModeNotIndicated :: Eac3AtmosSurroundExMode
+pattern Eac3AtmosSurroundExModeNotIndicated = Eac3AtmosSurroundExMode' "NOT_INDICATED"
 
-pattern EASEMEnabled :: Eac3AtmosSurroundExMode
-pattern EASEMEnabled = Eac3AtmosSurroundExMode' "ENABLED"
+pattern Eac3AtmosSurroundExModeEnabled :: Eac3AtmosSurroundExMode
+pattern Eac3AtmosSurroundExModeEnabled = Eac3AtmosSurroundExMode' "ENABLED"
 
-pattern EASEMDisabled :: Eac3AtmosSurroundExMode
-pattern EASEMDisabled = Eac3AtmosSurroundExMode' "DISABLED"
+pattern Eac3AtmosSurroundExModeDisabled :: Eac3AtmosSurroundExMode
+pattern Eac3AtmosSurroundExModeDisabled = Eac3AtmosSurroundExMode' "DISABLED"
 
 {-# COMPLETE
-  EASEMNotIndicated,
-  EASEMEnabled,
-  EASEMDisabled,
+  Eac3AtmosSurroundExModeNotIndicated,
+  Eac3AtmosSurroundExModeEnabled,
+  Eac3AtmosSurroundExModeDisabled,
   Eac3AtmosSurroundExMode'
   #-}

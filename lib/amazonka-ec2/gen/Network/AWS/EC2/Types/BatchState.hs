@@ -13,71 +13,73 @@
 module Network.AWS.EC2.Types.BatchState
   ( BatchState
       ( BatchState',
-        BSSubmitted,
-        BSActive,
-        BSCancelled,
-        BSFailed,
-        BSCancelledRunning,
-        BSCancelledTerminating,
-        BSModifying
+        BatchStateSubmitted,
+        BatchStateActive,
+        BatchStateCancelled,
+        BatchStateFailed,
+        BatchStateCancelledRunning,
+        BatchStateCancelledTerminating,
+        BatchStateModifying,
+        fromBatchState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BatchState = BatchState' Lude.Text
+newtype BatchState = BatchState' {fromBatchState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BSSubmitted :: BatchState
-pattern BSSubmitted = BatchState' "submitted"
+pattern BatchStateSubmitted :: BatchState
+pattern BatchStateSubmitted = BatchState' "submitted"
 
-pattern BSActive :: BatchState
-pattern BSActive = BatchState' "active"
+pattern BatchStateActive :: BatchState
+pattern BatchStateActive = BatchState' "active"
 
-pattern BSCancelled :: BatchState
-pattern BSCancelled = BatchState' "cancelled"
+pattern BatchStateCancelled :: BatchState
+pattern BatchStateCancelled = BatchState' "cancelled"
 
-pattern BSFailed :: BatchState
-pattern BSFailed = BatchState' "failed"
+pattern BatchStateFailed :: BatchState
+pattern BatchStateFailed = BatchState' "failed"
 
-pattern BSCancelledRunning :: BatchState
-pattern BSCancelledRunning = BatchState' "cancelled_running"
+pattern BatchStateCancelledRunning :: BatchState
+pattern BatchStateCancelledRunning = BatchState' "cancelled_running"
 
-pattern BSCancelledTerminating :: BatchState
-pattern BSCancelledTerminating = BatchState' "cancelled_terminating"
+pattern BatchStateCancelledTerminating :: BatchState
+pattern BatchStateCancelledTerminating = BatchState' "cancelled_terminating"
 
-pattern BSModifying :: BatchState
-pattern BSModifying = BatchState' "modifying"
+pattern BatchStateModifying :: BatchState
+pattern BatchStateModifying = BatchState' "modifying"
 
 {-# COMPLETE
-  BSSubmitted,
-  BSActive,
-  BSCancelled,
-  BSFailed,
-  BSCancelledRunning,
-  BSCancelledTerminating,
-  BSModifying,
+  BatchStateSubmitted,
+  BatchStateActive,
+  BatchStateCancelled,
+  BatchStateFailed,
+  BatchStateCancelledRunning,
+  BatchStateCancelledTerminating,
+  BatchStateModifying,
   BatchState'
   #-}

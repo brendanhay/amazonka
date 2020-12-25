@@ -17,89 +17,81 @@ module Network.AWS.CloudFront.Types.Invalidation
     mkInvalidation,
 
     -- * Lenses
-    iStatus,
-    iInvalidationBatch,
     iId,
+    iStatus,
     iCreateTime,
+    iInvalidationBatch,
   )
 where
 
-import Network.AWS.CloudFront.Types.InvalidationBatch
+import qualified Network.AWS.CloudFront.Types.Id as Types
+import qualified Network.AWS.CloudFront.Types.InvalidationBatch as Types
+import qualified Network.AWS.CloudFront.Types.Status as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An invalidation.
 --
 -- /See:/ 'mkInvalidation' smart constructor.
 data Invalidation = Invalidation'
-  { -- | The status of the invalidation request. When the invalidation batch is finished, the status is @Completed@ .
-    status :: Lude.Text,
-    -- | The current invalidation information for the batch request.
-    invalidationBatch :: InvalidationBatch,
-    -- | The identifier for the invalidation request. For example: @IDFDVBD632BHDS5@ .
-    id :: Lude.Text,
+  { -- | The identifier for the invalidation request. For example: @IDFDVBD632BHDS5@ .
+    id :: Types.Id,
+    -- | The status of the invalidation request. When the invalidation batch is finished, the status is @Completed@ .
+    status :: Types.Status,
     -- | The date and time the invalidation request was first made.
-    createTime :: Lude.DateTime
+    createTime :: Core.UTCTime,
+    -- | The current invalidation information for the batch request.
+    invalidationBatch :: Types.InvalidationBatch
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Invalidation' with the minimum fields required to make a request.
---
--- * 'status' - The status of the invalidation request. When the invalidation batch is finished, the status is @Completed@ .
--- * 'invalidationBatch' - The current invalidation information for the batch request.
--- * 'id' - The identifier for the invalidation request. For example: @IDFDVBD632BHDS5@ .
--- * 'createTime' - The date and time the invalidation request was first made.
+-- | Creates a 'Invalidation' value with any optional fields omitted.
 mkInvalidation ::
-  -- | 'status'
-  Lude.Text ->
-  -- | 'invalidationBatch'
-  InvalidationBatch ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
+  -- | 'status'
+  Types.Status ->
   -- | 'createTime'
-  Lude.DateTime ->
+  Core.UTCTime ->
+  -- | 'invalidationBatch'
+  Types.InvalidationBatch ->
   Invalidation
-mkInvalidation pStatus_ pInvalidationBatch_ pId_ pCreateTime_ =
-  Invalidation'
-    { status = pStatus_,
-      invalidationBatch = pInvalidationBatch_,
-      id = pId_,
-      createTime = pCreateTime_
-    }
-
--- | The status of the invalidation request. When the invalidation batch is finished, the status is @Completed@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iStatus :: Lens.Lens' Invalidation Lude.Text
-iStatus = Lens.lens (status :: Invalidation -> Lude.Text) (\s a -> s {status = a} :: Invalidation)
-{-# DEPRECATED iStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The current invalidation information for the batch request.
---
--- /Note:/ Consider using 'invalidationBatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInvalidationBatch :: Lens.Lens' Invalidation InvalidationBatch
-iInvalidationBatch = Lens.lens (invalidationBatch :: Invalidation -> InvalidationBatch) (\s a -> s {invalidationBatch = a} :: Invalidation)
-{-# DEPRECATED iInvalidationBatch "Use generic-lens or generic-optics with 'invalidationBatch' instead." #-}
+mkInvalidation id status createTime invalidationBatch =
+  Invalidation' {id, status, createTime, invalidationBatch}
 
 -- | The identifier for the invalidation request. For example: @IDFDVBD632BHDS5@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iId :: Lens.Lens' Invalidation Lude.Text
-iId = Lens.lens (id :: Invalidation -> Lude.Text) (\s a -> s {id = a} :: Invalidation)
+iId :: Lens.Lens' Invalidation Types.Id
+iId = Lens.field @"id"
 {-# DEPRECATED iId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The status of the invalidation request. When the invalidation batch is finished, the status is @Completed@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStatus :: Lens.Lens' Invalidation Types.Status
+iStatus = Lens.field @"status"
+{-# DEPRECATED iStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date and time the invalidation request was first made.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iCreateTime :: Lens.Lens' Invalidation Lude.DateTime
-iCreateTime = Lens.lens (createTime :: Invalidation -> Lude.DateTime) (\s a -> s {createTime = a} :: Invalidation)
+iCreateTime :: Lens.Lens' Invalidation Core.UTCTime
+iCreateTime = Lens.field @"createTime"
 {-# DEPRECATED iCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
-instance Lude.FromXML Invalidation where
+-- | The current invalidation information for the batch request.
+--
+-- /Note:/ Consider using 'invalidationBatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInvalidationBatch :: Lens.Lens' Invalidation Types.InvalidationBatch
+iInvalidationBatch = Lens.field @"invalidationBatch"
+{-# DEPRECATED iInvalidationBatch "Use generic-lens or generic-optics with 'invalidationBatch' instead." #-}
+
+instance Core.FromXML Invalidation where
   parseXML x =
     Invalidation'
-      Lude.<$> (x Lude..@ "Status")
-      Lude.<*> (x Lude..@ "InvalidationBatch")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "CreateTime")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@ "CreateTime")
+      Core.<*> (x Core..@ "InvalidationBatch")

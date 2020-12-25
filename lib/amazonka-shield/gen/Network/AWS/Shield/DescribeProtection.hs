@@ -21,130 +21,117 @@ module Network.AWS.Shield.DescribeProtection
 
     -- ** Request lenses
     dpProtectionId,
-    dpResourceARN,
+    dpResourceArn,
 
     -- * Destructuring the response
     DescribeProtectionResponse (..),
     mkDescribeProtectionResponse,
 
     -- ** Response lenses
-    dprsProtection,
-    dprsResponseStatus,
+    dprrsProtection,
+    dprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkDescribeProtection' smart constructor.
 data DescribeProtection = DescribeProtection'
   { -- | The unique identifier (ID) for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
-    protectionId :: Lude.Maybe Lude.Text,
+    protectionId :: Core.Maybe Types.ProtectionId,
     -- | The ARN (Amazon Resource Name) of the AWS resource for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
-    resourceARN :: Lude.Maybe Lude.Text
+    resourceArn :: Core.Maybe Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeProtection' with the minimum fields required to make a request.
---
--- * 'protectionId' - The unique identifier (ID) for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
--- * 'resourceARN' - The ARN (Amazon Resource Name) of the AWS resource for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
+-- | Creates a 'DescribeProtection' value with any optional fields omitted.
 mkDescribeProtection ::
   DescribeProtection
 mkDescribeProtection =
   DescribeProtection'
-    { protectionId = Lude.Nothing,
-      resourceARN = Lude.Nothing
+    { protectionId = Core.Nothing,
+      resourceArn = Core.Nothing
     }
 
 -- | The unique identifier (ID) for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
 --
 -- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpProtectionId :: Lens.Lens' DescribeProtection (Lude.Maybe Lude.Text)
-dpProtectionId = Lens.lens (protectionId :: DescribeProtection -> Lude.Maybe Lude.Text) (\s a -> s {protectionId = a} :: DescribeProtection)
+dpProtectionId :: Lens.Lens' DescribeProtection (Core.Maybe Types.ProtectionId)
+dpProtectionId = Lens.field @"protectionId"
 {-# DEPRECATED dpProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
 -- | The ARN (Amazon Resource Name) of the AWS resource for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpResourceARN :: Lens.Lens' DescribeProtection (Lude.Maybe Lude.Text)
-dpResourceARN = Lens.lens (resourceARN :: DescribeProtection -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: DescribeProtection)
-{-# DEPRECATED dpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpResourceArn :: Lens.Lens' DescribeProtection (Core.Maybe Types.ResourceArn)
+dpResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED dpResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest DescribeProtection where
+instance Core.FromJSON DescribeProtection where
+  toJSON DescribeProtection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ProtectionId" Core..=) Core.<$> protectionId,
+            ("ResourceArn" Core..=) Core.<$> resourceArn
+          ]
+      )
+
+instance Core.AWSRequest DescribeProtection where
   type Rs DescribeProtection = DescribeProtectionResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSShield_20160616.DescribeProtection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeProtectionResponse'
-            Lude.<$> (x Lude..?> "Protection") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Protection") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeProtection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.DescribeProtection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeProtection where
-  toJSON DescribeProtection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProtectionId" Lude..=) Lude.<$> protectionId,
-            ("ResourceArn" Lude..=) Lude.<$> resourceARN
-          ]
-      )
-
-instance Lude.ToPath DescribeProtection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeProtection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeProtectionResponse' smart constructor.
 data DescribeProtectionResponse = DescribeProtectionResponse'
   { -- | The 'Protection' object that is described.
-    protection :: Lude.Maybe Protection,
+    protection :: Core.Maybe Types.Protection,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeProtectionResponse' with the minimum fields required to make a request.
---
--- * 'protection' - The 'Protection' object that is described.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeProtectionResponse' value with any optional fields omitted.
 mkDescribeProtectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeProtectionResponse
-mkDescribeProtectionResponse pResponseStatus_ =
+mkDescribeProtectionResponse responseStatus =
   DescribeProtectionResponse'
-    { protection = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { protection = Core.Nothing,
+      responseStatus
     }
 
 -- | The 'Protection' object that is described.
 --
 -- /Note:/ Consider using 'protection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsProtection :: Lens.Lens' DescribeProtectionResponse (Lude.Maybe Protection)
-dprsProtection = Lens.lens (protection :: DescribeProtectionResponse -> Lude.Maybe Protection) (\s a -> s {protection = a} :: DescribeProtectionResponse)
-{-# DEPRECATED dprsProtection "Use generic-lens or generic-optics with 'protection' instead." #-}
+dprrsProtection :: Lens.Lens' DescribeProtectionResponse (Core.Maybe Types.Protection)
+dprrsProtection = Lens.field @"protection"
+{-# DEPRECATED dprrsProtection "Use generic-lens or generic-optics with 'protection' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DescribeProtectionResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DescribeProtectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProtectionResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DescribeProtectionResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

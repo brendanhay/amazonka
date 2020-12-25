@@ -22,40 +22,37 @@ module Network.AWS.MediaConvert.Types.F4vSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.F4vMoovPlacement
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.F4vMoovPlacement as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for F4v container
 --
 -- /See:/ 'mkF4vSettings' smart constructor.
 newtype F4vSettings = F4vSettings'
   { -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-    moovPlacement :: Lude.Maybe F4vMoovPlacement
+    moovPlacement :: Core.Maybe Types.F4vMoovPlacement
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'F4vSettings' with the minimum fields required to make a request.
---
--- * 'moovPlacement' - If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
+-- | Creates a 'F4vSettings' value with any optional fields omitted.
 mkF4vSettings ::
   F4vSettings
-mkF4vSettings = F4vSettings' {moovPlacement = Lude.Nothing}
+mkF4vSettings = F4vSettings' {moovPlacement = Core.Nothing}
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
 --
 -- /Note:/ Consider using 'moovPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsMoovPlacement :: Lens.Lens' F4vSettings (Lude.Maybe F4vMoovPlacement)
-fsMoovPlacement = Lens.lens (moovPlacement :: F4vSettings -> Lude.Maybe F4vMoovPlacement) (\s a -> s {moovPlacement = a} :: F4vSettings)
+fsMoovPlacement :: Lens.Lens' F4vSettings (Core.Maybe Types.F4vMoovPlacement)
+fsMoovPlacement = Lens.field @"moovPlacement"
 {-# DEPRECATED fsMoovPlacement "Use generic-lens or generic-optics with 'moovPlacement' instead." #-}
 
-instance Lude.FromJSON F4vSettings where
-  parseJSON =
-    Lude.withObject
-      "F4vSettings"
-      (\x -> F4vSettings' Lude.<$> (x Lude..:? "moovPlacement"))
+instance Core.FromJSON F4vSettings where
+  toJSON F4vSettings {..} =
+    Core.object
+      (Core.catMaybes [("moovPlacement" Core..=) Core.<$> moovPlacement])
 
-instance Lude.ToJSON F4vSettings where
-  toJSON F4vSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("moovPlacement" Lude..=) Lude.<$> moovPlacement])
+instance Core.FromJSON F4vSettings where
+  parseJSON =
+    Core.withObject "F4vSettings" Core.$
+      \x -> F4vSettings' Core.<$> (x Core..:? "moovPlacement")

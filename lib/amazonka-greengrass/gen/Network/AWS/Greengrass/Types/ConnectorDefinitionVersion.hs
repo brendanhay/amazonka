@@ -21,45 +21,40 @@ module Network.AWS.Greengrass.Types.ConnectorDefinitionVersion
   )
 where
 
-import Network.AWS.Greengrass.Types.Connector
+import qualified Network.AWS.Greengrass.Types.Connector as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the connector definition version, which is a container for connectors.
 --
 -- /See:/ 'mkConnectorDefinitionVersion' smart constructor.
 newtype ConnectorDefinitionVersion = ConnectorDefinitionVersion'
   { -- | A list of references to connectors in this version, with their corresponding configuration settings.
-    connectors :: Lude.Maybe [Connector]
+    connectors :: Core.Maybe [Types.Connector]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectorDefinitionVersion' with the minimum fields required to make a request.
---
--- * 'connectors' - A list of references to connectors in this version, with their corresponding configuration settings.
+-- | Creates a 'ConnectorDefinitionVersion' value with any optional fields omitted.
 mkConnectorDefinitionVersion ::
   ConnectorDefinitionVersion
 mkConnectorDefinitionVersion =
-  ConnectorDefinitionVersion' {connectors = Lude.Nothing}
+  ConnectorDefinitionVersion' {connectors = Core.Nothing}
 
 -- | A list of references to connectors in this version, with their corresponding configuration settings.
 --
 -- /Note:/ Consider using 'connectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdvConnectors :: Lens.Lens' ConnectorDefinitionVersion (Lude.Maybe [Connector])
-cdvConnectors = Lens.lens (connectors :: ConnectorDefinitionVersion -> Lude.Maybe [Connector]) (\s a -> s {connectors = a} :: ConnectorDefinitionVersion)
+cdvConnectors :: Lens.Lens' ConnectorDefinitionVersion (Core.Maybe [Types.Connector])
+cdvConnectors = Lens.field @"connectors"
 {-# DEPRECATED cdvConnectors "Use generic-lens or generic-optics with 'connectors' instead." #-}
 
-instance Lude.FromJSON ConnectorDefinitionVersion where
-  parseJSON =
-    Lude.withObject
-      "ConnectorDefinitionVersion"
-      ( \x ->
-          ConnectorDefinitionVersion'
-            Lude.<$> (x Lude..:? "Connectors" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON ConnectorDefinitionVersion where
+  toJSON ConnectorDefinitionVersion {..} =
+    Core.object
+      (Core.catMaybes [("Connectors" Core..=) Core.<$> connectors])
 
-instance Lude.ToJSON ConnectorDefinitionVersion where
-  toJSON ConnectorDefinitionVersion' {..} =
-    Lude.object
-      (Lude.catMaybes [("Connectors" Lude..=) Lude.<$> connectors])
+instance Core.FromJSON ConnectorDefinitionVersion where
+  parseJSON =
+    Core.withObject "ConnectorDefinitionVersion" Core.$
+      \x ->
+        ConnectorDefinitionVersion' Core.<$> (x Core..:? "Connectors")

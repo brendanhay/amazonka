@@ -17,58 +17,53 @@ module Network.AWS.SSM.Types.ResolvedTargets
     mkResolvedTargets,
 
     -- * Lenses
-    rtTruncated,
     rtParameterValues,
+    rtTruncated,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.ParameterValue as Types
 
 -- | Information about targets that resolved during the Automation execution.
 --
 -- /See:/ 'mkResolvedTargets' smart constructor.
 data ResolvedTargets = ResolvedTargets'
-  { -- | A boolean value indicating whether the resolved target list is truncated.
-    truncated :: Lude.Maybe Lude.Bool,
-    -- | A list of parameter values sent to targets that resolved during the Automation execution.
-    parameterValues :: Lude.Maybe [Lude.Text]
+  { -- | A list of parameter values sent to targets that resolved during the Automation execution.
+    parameterValues :: Core.Maybe [Types.ParameterValue],
+    -- | A boolean value indicating whether the resolved target list is truncated.
+    truncated :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResolvedTargets' with the minimum fields required to make a request.
---
--- * 'truncated' - A boolean value indicating whether the resolved target list is truncated.
--- * 'parameterValues' - A list of parameter values sent to targets that resolved during the Automation execution.
+-- | Creates a 'ResolvedTargets' value with any optional fields omitted.
 mkResolvedTargets ::
   ResolvedTargets
 mkResolvedTargets =
   ResolvedTargets'
-    { truncated = Lude.Nothing,
-      parameterValues = Lude.Nothing
+    { parameterValues = Core.Nothing,
+      truncated = Core.Nothing
     }
-
--- | A boolean value indicating whether the resolved target list is truncated.
---
--- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTruncated :: Lens.Lens' ResolvedTargets (Lude.Maybe Lude.Bool)
-rtTruncated = Lens.lens (truncated :: ResolvedTargets -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: ResolvedTargets)
-{-# DEPRECATED rtTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | A list of parameter values sent to targets that resolved during the Automation execution.
 --
 -- /Note:/ Consider using 'parameterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtParameterValues :: Lens.Lens' ResolvedTargets (Lude.Maybe [Lude.Text])
-rtParameterValues = Lens.lens (parameterValues :: ResolvedTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {parameterValues = a} :: ResolvedTargets)
+rtParameterValues :: Lens.Lens' ResolvedTargets (Core.Maybe [Types.ParameterValue])
+rtParameterValues = Lens.field @"parameterValues"
 {-# DEPRECATED rtParameterValues "Use generic-lens or generic-optics with 'parameterValues' instead." #-}
 
-instance Lude.FromJSON ResolvedTargets where
+-- | A boolean value indicating whether the resolved target list is truncated.
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtTruncated :: Lens.Lens' ResolvedTargets (Core.Maybe Core.Bool)
+rtTruncated = Lens.field @"truncated"
+{-# DEPRECATED rtTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
+
+instance Core.FromJSON ResolvedTargets where
   parseJSON =
-    Lude.withObject
-      "ResolvedTargets"
-      ( \x ->
-          ResolvedTargets'
-            Lude.<$> (x Lude..:? "Truncated")
-            Lude.<*> (x Lude..:? "ParameterValues" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ResolvedTargets" Core.$
+      \x ->
+        ResolvedTargets'
+          Core.<$> (x Core..:? "ParameterValues") Core.<*> (x Core..:? "Truncated")

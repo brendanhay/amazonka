@@ -13,57 +13,62 @@
 module Network.AWS.MediaConvert.Types.BillingTagsSource
   ( BillingTagsSource
       ( BillingTagsSource',
-        Queue,
-        Preset,
-        JobTemplate,
-        Job
+        BillingTagsSourceQueue,
+        BillingTagsSourcePreset,
+        BillingTagsSourceJobTemplate,
+        BillingTagsSourceJob,
+        fromBillingTagsSource
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
-newtype BillingTagsSource = BillingTagsSource' Lude.Text
+newtype BillingTagsSource = BillingTagsSource'
+  { fromBillingTagsSource ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Queue :: BillingTagsSource
-pattern Queue = BillingTagsSource' "QUEUE"
+pattern BillingTagsSourceQueue :: BillingTagsSource
+pattern BillingTagsSourceQueue = BillingTagsSource' "QUEUE"
 
-pattern Preset :: BillingTagsSource
-pattern Preset = BillingTagsSource' "PRESET"
+pattern BillingTagsSourcePreset :: BillingTagsSource
+pattern BillingTagsSourcePreset = BillingTagsSource' "PRESET"
 
-pattern JobTemplate :: BillingTagsSource
-pattern JobTemplate = BillingTagsSource' "JOB_TEMPLATE"
+pattern BillingTagsSourceJobTemplate :: BillingTagsSource
+pattern BillingTagsSourceJobTemplate = BillingTagsSource' "JOB_TEMPLATE"
 
-pattern Job :: BillingTagsSource
-pattern Job = BillingTagsSource' "JOB"
+pattern BillingTagsSourceJob :: BillingTagsSource
+pattern BillingTagsSourceJob = BillingTagsSource' "JOB"
 
 {-# COMPLETE
-  Queue,
-  Preset,
-  JobTemplate,
-  Job,
+  BillingTagsSourceQueue,
+  BillingTagsSourcePreset,
+  BillingTagsSourceJobTemplate,
+  BillingTagsSourceJob,
   BillingTagsSource'
   #-}

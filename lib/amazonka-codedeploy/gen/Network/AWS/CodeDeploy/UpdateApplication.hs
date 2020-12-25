@@ -20,8 +20,8 @@ module Network.AWS.CodeDeploy.UpdateApplication
     mkUpdateApplication,
 
     -- ** Request lenses
-    uaNewApplicationName,
     uaApplicationName,
+    uaNewApplicationName,
 
     -- * Destructuring the response
     UpdateApplicationResponse (..),
@@ -29,87 +29,77 @@ module Network.AWS.CodeDeploy.UpdateApplication
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of an @UpdateApplication@ operation.
 --
 -- /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | The new name to give the application.
-    newApplicationName :: Lude.Maybe Lude.Text,
-    -- | The current name of the application you want to change.
-    applicationName :: Lude.Maybe Lude.Text
+  { -- | The current name of the application you want to change.
+    applicationName :: Core.Maybe Types.ApplicationName,
+    -- | The new name to give the application.
+    newApplicationName :: Core.Maybe Types.NewApplicationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
---
--- * 'newApplicationName' - The new name to give the application.
--- * 'applicationName' - The current name of the application you want to change.
+-- | Creates a 'UpdateApplication' value with any optional fields omitted.
 mkUpdateApplication ::
   UpdateApplication
 mkUpdateApplication =
   UpdateApplication'
-    { newApplicationName = Lude.Nothing,
-      applicationName = Lude.Nothing
+    { applicationName = Core.Nothing,
+      newApplicationName = Core.Nothing
     }
-
--- | The new name to give the application.
---
--- /Note:/ Consider using 'newApplicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaNewApplicationName :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uaNewApplicationName = Lens.lens (newApplicationName :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {newApplicationName = a} :: UpdateApplication)
-{-# DEPRECATED uaNewApplicationName "Use generic-lens or generic-optics with 'newApplicationName' instead." #-}
 
 -- | The current name of the application you want to change.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaApplicationName :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplication)
+uaApplicationName :: Lens.Lens' UpdateApplication (Core.Maybe Types.ApplicationName)
+uaApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED uaApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance Lude.AWSRequest UpdateApplication where
+-- | The new name to give the application.
+--
+-- /Note:/ Consider using 'newApplicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaNewApplicationName :: Lens.Lens' UpdateApplication (Core.Maybe Types.NewApplicationName)
+uaNewApplicationName = Lens.field @"newApplicationName"
+{-# DEPRECATED uaNewApplicationName "Use generic-lens or generic-optics with 'newApplicationName' instead." #-}
+
+instance Core.FromJSON UpdateApplication where
+  toJSON UpdateApplication {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("applicationName" Core..=) Core.<$> applicationName,
+            ("newApplicationName" Core..=) Core.<$> newApplicationName
+          ]
+      )
+
+instance Core.AWSRequest UpdateApplication where
   type Rs UpdateApplication = UpdateApplicationResponse
-  request = Req.postJSON codeDeployService
-  response = Res.receiveNull UpdateApplicationResponse'
-
-instance Lude.ToHeaders UpdateApplication where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.UpdateApplication" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateApplication where
-  toJSON UpdateApplication' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("newApplicationName" Lude..=) Lude.<$> newApplicationName,
-            ("applicationName" Lude..=) Lude.<$> applicationName
-          ]
-      )
-
-instance Lude.ToPath UpdateApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateApplication where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeDeploy_20141006.UpdateApplication")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateApplicationResponse'
 
 -- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
 data UpdateApplicationResponse = UpdateApplicationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateApplicationResponse' value with any optional fields omitted.
 mkUpdateApplicationResponse ::
   UpdateApplicationResponse
 mkUpdateApplicationResponse = UpdateApplicationResponse'

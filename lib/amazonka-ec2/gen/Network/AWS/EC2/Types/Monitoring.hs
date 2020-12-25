@@ -21,33 +21,31 @@ module Network.AWS.EC2.Types.Monitoring
   )
 where
 
-import Network.AWS.EC2.Types.MonitoringState
+import qualified Network.AWS.EC2.Types.MonitoringState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the monitoring of an instance.
 --
 -- /See:/ 'mkMonitoring' smart constructor.
 newtype Monitoring = Monitoring'
   { -- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-    state :: Lude.Maybe MonitoringState
+    state :: Core.Maybe Types.MonitoringState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Monitoring' with the minimum fields required to make a request.
---
--- * 'state' - Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+-- | Creates a 'Monitoring' value with any optional fields omitted.
 mkMonitoring ::
   Monitoring
-mkMonitoring = Monitoring' {state = Lude.Nothing}
+mkMonitoring = Monitoring' {state = Core.Nothing}
 
 -- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mState :: Lens.Lens' Monitoring (Lude.Maybe MonitoringState)
-mState = Lens.lens (state :: Monitoring -> Lude.Maybe MonitoringState) (\s a -> s {state = a} :: Monitoring)
+mState :: Lens.Lens' Monitoring (Core.Maybe Types.MonitoringState)
+mState = Lens.field @"state"
 {-# DEPRECATED mState "Use generic-lens or generic-optics with 'state' instead." #-}
 
-instance Lude.FromXML Monitoring where
-  parseXML x = Monitoring' Lude.<$> (x Lude..@? "state")
+instance Core.FromXML Monitoring where
+  parseXML x = Monitoring' Core.<$> (x Core..@? "state")

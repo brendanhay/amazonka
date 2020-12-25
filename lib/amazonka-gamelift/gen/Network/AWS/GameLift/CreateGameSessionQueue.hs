@@ -39,177 +39,161 @@ module Network.AWS.GameLift.CreateGameSessionQueue
     mkCreateGameSessionQueue,
 
     -- ** Request lenses
-    cgsqPlayerLatencyPolicies,
-    cgsqTimeoutInSeconds,
-    cgsqDestinations,
     cgsqName,
+    cgsqDestinations,
+    cgsqPlayerLatencyPolicies,
     cgsqTags,
+    cgsqTimeoutInSeconds,
 
     -- * Destructuring the response
     CreateGameSessionQueueResponse (..),
     mkCreateGameSessionQueueResponse,
 
     -- ** Response lenses
-    cgsqrsGameSessionQueue,
-    cgsqrsResponseStatus,
+    cgsqrrsGameSessionQueue,
+    cgsqrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkCreateGameSessionQueue' smart constructor.
 data CreateGameSessionQueue = CreateGameSessionQueue'
-  { -- | A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement. A player latency policy must set a value for @MaximumIndividualPlayerLatencyMilliseconds@ . If none is set, this API request fails.
-    playerLatencyPolicies :: Lude.Maybe [PlayerLatencyPolicy],
-    -- | The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
-    timeoutInSeconds :: Lude.Maybe Lude.Natural,
+  { -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+    name :: Types.Name,
     -- | A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
-    destinations :: Lude.Maybe [GameSessionQueueDestination],
-    -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
-    name :: Lude.Text,
+    destinations :: Core.Maybe [Types.GameSessionQueueDestination],
+    -- | A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement. A player latency policy must set a value for @MaximumIndividualPlayerLatencyMilliseconds@ . If none is set, this API request fails.
+    playerLatencyPolicies :: Core.Maybe [Types.PlayerLatencyPolicy],
     -- | A list of labels to assign to the new game session queue resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
+    timeoutInSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGameSessionQueue' with the minimum fields required to make a request.
---
--- * 'playerLatencyPolicies' - A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement. A player latency policy must set a value for @MaximumIndividualPlayerLatencyMilliseconds@ . If none is set, this API request fails.
--- * 'timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
--- * 'destinations' - A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
--- * 'name' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
--- * 'tags' - A list of labels to assign to the new game session queue resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+-- | Creates a 'CreateGameSessionQueue' value with any optional fields omitted.
 mkCreateGameSessionQueue ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   CreateGameSessionQueue
-mkCreateGameSessionQueue pName_ =
+mkCreateGameSessionQueue name =
   CreateGameSessionQueue'
-    { playerLatencyPolicies = Lude.Nothing,
-      timeoutInSeconds = Lude.Nothing,
-      destinations = Lude.Nothing,
-      name = pName_,
-      tags = Lude.Nothing
+    { name,
+      destinations = Core.Nothing,
+      playerLatencyPolicies = Core.Nothing,
+      tags = Core.Nothing,
+      timeoutInSeconds = Core.Nothing
     }
-
--- | A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement. A player latency policy must set a value for @MaximumIndividualPlayerLatencyMilliseconds@ . If none is set, this API request fails.
---
--- /Note:/ Consider using 'playerLatencyPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsqPlayerLatencyPolicies :: Lens.Lens' CreateGameSessionQueue (Lude.Maybe [PlayerLatencyPolicy])
-cgsqPlayerLatencyPolicies = Lens.lens (playerLatencyPolicies :: CreateGameSessionQueue -> Lude.Maybe [PlayerLatencyPolicy]) (\s a -> s {playerLatencyPolicies = a} :: CreateGameSessionQueue)
-{-# DEPRECATED cgsqPlayerLatencyPolicies "Use generic-lens or generic-optics with 'playerLatencyPolicies' instead." #-}
-
--- | The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
---
--- /Note:/ Consider using 'timeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsqTimeoutInSeconds :: Lens.Lens' CreateGameSessionQueue (Lude.Maybe Lude.Natural)
-cgsqTimeoutInSeconds = Lens.lens (timeoutInSeconds :: CreateGameSessionQueue -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInSeconds = a} :: CreateGameSessionQueue)
-{-# DEPRECATED cgsqTimeoutInSeconds "Use generic-lens or generic-optics with 'timeoutInSeconds' instead." #-}
-
--- | A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
---
--- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsqDestinations :: Lens.Lens' CreateGameSessionQueue (Lude.Maybe [GameSessionQueueDestination])
-cgsqDestinations = Lens.lens (destinations :: CreateGameSessionQueue -> Lude.Maybe [GameSessionQueueDestination]) (\s a -> s {destinations = a} :: CreateGameSessionQueue)
-{-# DEPRECATED cgsqDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsqName :: Lens.Lens' CreateGameSessionQueue Lude.Text
-cgsqName = Lens.lens (name :: CreateGameSessionQueue -> Lude.Text) (\s a -> s {name = a} :: CreateGameSessionQueue)
+cgsqName :: Lens.Lens' CreateGameSessionQueue Types.Name
+cgsqName = Lens.field @"name"
 {-# DEPRECATED cgsqName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsqDestinations :: Lens.Lens' CreateGameSessionQueue (Core.Maybe [Types.GameSessionQueueDestination])
+cgsqDestinations = Lens.field @"destinations"
+{-# DEPRECATED cgsqDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
+
+-- | A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement. A player latency policy must set a value for @MaximumIndividualPlayerLatencyMilliseconds@ . If none is set, this API request fails.
+--
+-- /Note:/ Consider using 'playerLatencyPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsqPlayerLatencyPolicies :: Lens.Lens' CreateGameSessionQueue (Core.Maybe [Types.PlayerLatencyPolicy])
+cgsqPlayerLatencyPolicies = Lens.field @"playerLatencyPolicies"
+{-# DEPRECATED cgsqPlayerLatencyPolicies "Use generic-lens or generic-optics with 'playerLatencyPolicies' instead." #-}
 
 -- | A list of labels to assign to the new game session queue resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsqTags :: Lens.Lens' CreateGameSessionQueue (Lude.Maybe [Tag])
-cgsqTags = Lens.lens (tags :: CreateGameSessionQueue -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateGameSessionQueue)
+cgsqTags :: Lens.Lens' CreateGameSessionQueue (Core.Maybe [Types.Tag])
+cgsqTags = Lens.field @"tags"
 {-# DEPRECATED cgsqTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateGameSessionQueue where
+-- | The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
+--
+-- /Note:/ Consider using 'timeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsqTimeoutInSeconds :: Lens.Lens' CreateGameSessionQueue (Core.Maybe Core.Natural)
+cgsqTimeoutInSeconds = Lens.field @"timeoutInSeconds"
+{-# DEPRECATED cgsqTimeoutInSeconds "Use generic-lens or generic-optics with 'timeoutInSeconds' instead." #-}
+
+instance Core.FromJSON CreateGameSessionQueue where
+  toJSON CreateGameSessionQueue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Destinations" Core..=) Core.<$> destinations,
+            ("PlayerLatencyPolicies" Core..=) Core.<$> playerLatencyPolicies,
+            ("Tags" Core..=) Core.<$> tags,
+            ("TimeoutInSeconds" Core..=) Core.<$> timeoutInSeconds
+          ]
+      )
+
+instance Core.AWSRequest CreateGameSessionQueue where
   type Rs CreateGameSessionQueue = CreateGameSessionQueueResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.CreateGameSessionQueue")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateGameSessionQueueResponse'
-            Lude.<$> (x Lude..?> "GameSessionQueue")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GameSessionQueue")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateGameSessionQueue where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.CreateGameSessionQueue" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateGameSessionQueue where
-  toJSON CreateGameSessionQueue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PlayerLatencyPolicies" Lude..=) Lude.<$> playerLatencyPolicies,
-            ("TimeoutInSeconds" Lude..=) Lude.<$> timeoutInSeconds,
-            ("Destinations" Lude..=) Lude.<$> destinations,
-            Lude.Just ("Name" Lude..= name),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateGameSessionQueue where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateGameSessionQueue where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkCreateGameSessionQueueResponse' smart constructor.
 data CreateGameSessionQueueResponse = CreateGameSessionQueueResponse'
   { -- | An object that describes the newly created game session queue.
-    gameSessionQueue :: Lude.Maybe GameSessionQueue,
+    gameSessionQueue :: Core.Maybe Types.GameSessionQueue,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGameSessionQueueResponse' with the minimum fields required to make a request.
---
--- * 'gameSessionQueue' - An object that describes the newly created game session queue.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateGameSessionQueueResponse' value with any optional fields omitted.
 mkCreateGameSessionQueueResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateGameSessionQueueResponse
-mkCreateGameSessionQueueResponse pResponseStatus_ =
+mkCreateGameSessionQueueResponse responseStatus =
   CreateGameSessionQueueResponse'
-    { gameSessionQueue = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gameSessionQueue = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes the newly created game session queue.
 --
 -- /Note:/ Consider using 'gameSessionQueue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsqrsGameSessionQueue :: Lens.Lens' CreateGameSessionQueueResponse (Lude.Maybe GameSessionQueue)
-cgsqrsGameSessionQueue = Lens.lens (gameSessionQueue :: CreateGameSessionQueueResponse -> Lude.Maybe GameSessionQueue) (\s a -> s {gameSessionQueue = a} :: CreateGameSessionQueueResponse)
-{-# DEPRECATED cgsqrsGameSessionQueue "Use generic-lens or generic-optics with 'gameSessionQueue' instead." #-}
+cgsqrrsGameSessionQueue :: Lens.Lens' CreateGameSessionQueueResponse (Core.Maybe Types.GameSessionQueue)
+cgsqrrsGameSessionQueue = Lens.field @"gameSessionQueue"
+{-# DEPRECATED cgsqrrsGameSessionQueue "Use generic-lens or generic-optics with 'gameSessionQueue' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsqrsResponseStatus :: Lens.Lens' CreateGameSessionQueueResponse Lude.Int
-cgsqrsResponseStatus = Lens.lens (responseStatus :: CreateGameSessionQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGameSessionQueueResponse)
-{-# DEPRECATED cgsqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cgsqrrsResponseStatus :: Lens.Lens' CreateGameSessionQueueResponse Core.Int
+cgsqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cgsqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

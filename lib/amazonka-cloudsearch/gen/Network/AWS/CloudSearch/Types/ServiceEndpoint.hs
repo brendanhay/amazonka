@@ -21,31 +21,30 @@ module Network.AWS.CloudSearch.Types.ServiceEndpoint
   )
 where
 
+import qualified Network.AWS.CloudSearch.Types.Endpoint as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The endpoint to which service requests can be submitted.
 --
 -- /See:/ 'mkServiceEndpoint' smart constructor.
 newtype ServiceEndpoint = ServiceEndpoint'
-  { endpoint :: Lude.Maybe Lude.Text
+  { endpoint :: Core.Maybe Types.Endpoint
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceEndpoint' with the minimum fields required to make a request.
---
--- * 'endpoint' -
+-- | Creates a 'ServiceEndpoint' value with any optional fields omitted.
 mkServiceEndpoint ::
   ServiceEndpoint
-mkServiceEndpoint = ServiceEndpoint' {endpoint = Lude.Nothing}
+mkServiceEndpoint = ServiceEndpoint' {endpoint = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seEndpoint :: Lens.Lens' ServiceEndpoint (Lude.Maybe Lude.Text)
-seEndpoint = Lens.lens (endpoint :: ServiceEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: ServiceEndpoint)
+seEndpoint :: Lens.Lens' ServiceEndpoint (Core.Maybe Types.Endpoint)
+seEndpoint = Lens.field @"endpoint"
 {-# DEPRECATED seEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance Lude.FromXML ServiceEndpoint where
-  parseXML x = ServiceEndpoint' Lude.<$> (x Lude..@? "Endpoint")
+instance Core.FromXML ServiceEndpoint where
+  parseXML x = ServiceEndpoint' Core.<$> (x Core..@? "Endpoint")

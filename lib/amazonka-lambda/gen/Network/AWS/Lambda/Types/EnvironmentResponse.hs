@@ -17,59 +17,55 @@ module Network.AWS.Lambda.Types.EnvironmentResponse
     mkEnvironmentResponse,
 
     -- * Lenses
-    efVariables,
-    efError,
+    erError,
+    erVariables,
   )
 where
 
-import Network.AWS.Lambda.Types.EnvironmentError
+import qualified Network.AWS.Lambda.Types.EnvironmentError as Types
+import qualified Network.AWS.Lambda.Types.EnvironmentVariableName as Types
+import qualified Network.AWS.Lambda.Types.EnvironmentVariableValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The results of an operation to update or read environment variables. If the operation is successful, the response contains the environment variables. If it failed, the response contains details about the error.
 --
 -- /See:/ 'mkEnvironmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'
-  { -- | Environment variable key-value pairs.
-    variables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)),
-    -- | Error messages for environment variables that couldn't be applied.
-    error :: Lude.Maybe EnvironmentError
+  { -- | Error messages for environment variables that couldn't be applied.
+    error :: Core.Maybe Types.EnvironmentError,
+    -- | Environment variable key-value pairs.
+    variables :: Core.Maybe (Core.HashMap Types.EnvironmentVariableName Types.EnvironmentVariableValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnvironmentResponse' with the minimum fields required to make a request.
---
--- * 'variables' - Environment variable key-value pairs.
--- * 'error' - Error messages for environment variables that couldn't be applied.
+-- | Creates a 'EnvironmentResponse' value with any optional fields omitted.
 mkEnvironmentResponse ::
   EnvironmentResponse
 mkEnvironmentResponse =
   EnvironmentResponse'
-    { variables = Lude.Nothing,
-      error = Lude.Nothing
+    { error = Core.Nothing,
+      variables = Core.Nothing
     }
-
--- | Environment variable key-value pairs.
---
--- /Note:/ Consider using 'variables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efVariables :: Lens.Lens' EnvironmentResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)))
-efVariables = Lens.lens (variables :: EnvironmentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text))) (\s a -> s {variables = a} :: EnvironmentResponse)
-{-# DEPRECATED efVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
 
 -- | Error messages for environment variables that couldn't be applied.
 --
 -- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efError :: Lens.Lens' EnvironmentResponse (Lude.Maybe EnvironmentError)
-efError = Lens.lens (error :: EnvironmentResponse -> Lude.Maybe EnvironmentError) (\s a -> s {error = a} :: EnvironmentResponse)
-{-# DEPRECATED efError "Use generic-lens or generic-optics with 'error' instead." #-}
+erError :: Lens.Lens' EnvironmentResponse (Core.Maybe Types.EnvironmentError)
+erError = Lens.field @"error"
+{-# DEPRECATED erError "Use generic-lens or generic-optics with 'error' instead." #-}
 
-instance Lude.FromJSON EnvironmentResponse where
+-- | Environment variable key-value pairs.
+--
+-- /Note:/ Consider using 'variables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erVariables :: Lens.Lens' EnvironmentResponse (Core.Maybe (Core.HashMap Types.EnvironmentVariableName Types.EnvironmentVariableValue))
+erVariables = Lens.field @"variables"
+{-# DEPRECATED erVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
+
+instance Core.FromJSON EnvironmentResponse where
   parseJSON =
-    Lude.withObject
-      "EnvironmentResponse"
-      ( \x ->
-          EnvironmentResponse'
-            Lude.<$> (x Lude..:? "Variables" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Error")
-      )
+    Core.withObject "EnvironmentResponse" Core.$
+      \x ->
+        EnvironmentResponse'
+          Core.<$> (x Core..:? "Error") Core.<*> (x Core..:? "Variables")

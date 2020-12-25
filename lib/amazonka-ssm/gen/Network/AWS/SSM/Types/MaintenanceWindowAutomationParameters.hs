@@ -17,73 +17,69 @@ module Network.AWS.SSM.Types.MaintenanceWindowAutomationParameters
     mkMaintenanceWindowAutomationParameters,
 
     -- * Lenses
-    mwapParameters,
     mwapDocumentVersion,
+    mwapParameters,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AutomationParameterKey as Types
+import qualified Network.AWS.SSM.Types.AutomationParameterValue as Types
+import qualified Network.AWS.SSM.Types.DocumentVersion as Types
 
 -- | The parameters for an AUTOMATION task type.
 --
 -- /See:/ 'mkMaintenanceWindowAutomationParameters' smart constructor.
 data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParameters'
-  { -- | The parameters for the AUTOMATION task.
+  { -- | The version of an Automation document to use during task execution.
+    documentVersion :: Core.Maybe Types.DocumentVersion,
+    -- | The parameters for the AUTOMATION task.
     --
     -- For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | The version of an Automation document to use during task execution.
-    documentVersion :: Lude.Maybe Lude.Text
+    parameters :: Core.Maybe (Core.HashMap Types.AutomationParameterKey [Types.AutomationParameterValue])
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MaintenanceWindowAutomationParameters' with the minimum fields required to make a request.
---
--- * 'parameters' - The parameters for the AUTOMATION task.
---
--- For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
--- * 'documentVersion' - The version of an Automation document to use during task execution.
+-- | Creates a 'MaintenanceWindowAutomationParameters' value with any optional fields omitted.
 mkMaintenanceWindowAutomationParameters ::
   MaintenanceWindowAutomationParameters
 mkMaintenanceWindowAutomationParameters =
   MaintenanceWindowAutomationParameters'
-    { parameters = Lude.Nothing,
-      documentVersion = Lude.Nothing
+    { documentVersion =
+        Core.Nothing,
+      parameters = Core.Nothing
     }
+
+-- | The version of an Automation document to use during task execution.
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwapDocumentVersion :: Lens.Lens' MaintenanceWindowAutomationParameters (Core.Maybe Types.DocumentVersion)
+mwapDocumentVersion = Lens.field @"documentVersion"
+{-# DEPRECATED mwapDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 -- | The parameters for the AUTOMATION task.
 --
 -- For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwapParameters :: Lens.Lens' MaintenanceWindowAutomationParameters (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-mwapParameters = Lens.lens (parameters :: MaintenanceWindowAutomationParameters -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {parameters = a} :: MaintenanceWindowAutomationParameters)
+mwapParameters :: Lens.Lens' MaintenanceWindowAutomationParameters (Core.Maybe (Core.HashMap Types.AutomationParameterKey [Types.AutomationParameterValue]))
+mwapParameters = Lens.field @"parameters"
 {-# DEPRECATED mwapParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The version of an Automation document to use during task execution.
---
--- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwapDocumentVersion :: Lens.Lens' MaintenanceWindowAutomationParameters (Lude.Maybe Lude.Text)
-mwapDocumentVersion = Lens.lens (documentVersion :: MaintenanceWindowAutomationParameters -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: MaintenanceWindowAutomationParameters)
-{-# DEPRECATED mwapDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
-
-instance Lude.FromJSON MaintenanceWindowAutomationParameters where
-  parseJSON =
-    Lude.withObject
-      "MaintenanceWindowAutomationParameters"
-      ( \x ->
-          MaintenanceWindowAutomationParameters'
-            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "DocumentVersion")
-      )
-
-instance Lude.ToJSON MaintenanceWindowAutomationParameters where
-  toJSON MaintenanceWindowAutomationParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Parameters" Lude..=) Lude.<$> parameters,
-            ("DocumentVersion" Lude..=) Lude.<$> documentVersion
+instance Core.FromJSON MaintenanceWindowAutomationParameters where
+  toJSON MaintenanceWindowAutomationParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DocumentVersion" Core..=) Core.<$> documentVersion,
+            ("Parameters" Core..=) Core.<$> parameters
           ]
       )
+
+instance Core.FromJSON MaintenanceWindowAutomationParameters where
+  parseJSON =
+    Core.withObject "MaintenanceWindowAutomationParameters" Core.$
+      \x ->
+        MaintenanceWindowAutomationParameters'
+          Core.<$> (x Core..:? "DocumentVersion") Core.<*> (x Core..:? "Parameters")

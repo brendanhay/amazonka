@@ -13,76 +13,78 @@
 module Network.AWS.Glue.Types.TriggerState
   ( TriggerState
       ( TriggerState',
-        Creating,
-        Created,
-        Activating,
-        Activated,
-        Deactivating,
-        Deactivated,
-        Deleting,
-        Updating
+        TriggerStateCreating,
+        TriggerStateCreated,
+        TriggerStateActivating,
+        TriggerStateActivated,
+        TriggerStateDeactivating,
+        TriggerStateDeactivated,
+        TriggerStateDeleting,
+        TriggerStateUpdating,
+        fromTriggerState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TriggerState = TriggerState' Lude.Text
+newtype TriggerState = TriggerState' {fromTriggerState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Creating :: TriggerState
-pattern Creating = TriggerState' "CREATING"
+pattern TriggerStateCreating :: TriggerState
+pattern TriggerStateCreating = TriggerState' "CREATING"
 
-pattern Created :: TriggerState
-pattern Created = TriggerState' "CREATED"
+pattern TriggerStateCreated :: TriggerState
+pattern TriggerStateCreated = TriggerState' "CREATED"
 
-pattern Activating :: TriggerState
-pattern Activating = TriggerState' "ACTIVATING"
+pattern TriggerStateActivating :: TriggerState
+pattern TriggerStateActivating = TriggerState' "ACTIVATING"
 
-pattern Activated :: TriggerState
-pattern Activated = TriggerState' "ACTIVATED"
+pattern TriggerStateActivated :: TriggerState
+pattern TriggerStateActivated = TriggerState' "ACTIVATED"
 
-pattern Deactivating :: TriggerState
-pattern Deactivating = TriggerState' "DEACTIVATING"
+pattern TriggerStateDeactivating :: TriggerState
+pattern TriggerStateDeactivating = TriggerState' "DEACTIVATING"
 
-pattern Deactivated :: TriggerState
-pattern Deactivated = TriggerState' "DEACTIVATED"
+pattern TriggerStateDeactivated :: TriggerState
+pattern TriggerStateDeactivated = TriggerState' "DEACTIVATED"
 
-pattern Deleting :: TriggerState
-pattern Deleting = TriggerState' "DELETING"
+pattern TriggerStateDeleting :: TriggerState
+pattern TriggerStateDeleting = TriggerState' "DELETING"
 
-pattern Updating :: TriggerState
-pattern Updating = TriggerState' "UPDATING"
+pattern TriggerStateUpdating :: TriggerState
+pattern TriggerStateUpdating = TriggerState' "UPDATING"
 
 {-# COMPLETE
-  Creating,
-  Created,
-  Activating,
-  Activated,
-  Deactivating,
-  Deactivated,
-  Deleting,
-  Updating,
+  TriggerStateCreating,
+  TriggerStateCreated,
+  TriggerStateActivating,
+  TriggerStateActivated,
+  TriggerStateDeactivating,
+  TriggerStateDeactivated,
+  TriggerStateDeleting,
+  TriggerStateUpdating,
   TriggerState'
   #-}

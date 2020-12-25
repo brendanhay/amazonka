@@ -22,53 +22,47 @@ module Network.AWS.EC2.Types.CreateVolumePermission
   )
 where
 
-import Network.AWS.EC2.Types.PermissionGroup
+import qualified Network.AWS.EC2.Types.PermissionGroup as Types
+import qualified Network.AWS.EC2.Types.UserId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the user or group to be added or removed from the list of create volume permissions for a volume.
 --
 -- /See:/ 'mkCreateVolumePermission' smart constructor.
 data CreateVolumePermission = CreateVolumePermission'
   { -- | The group to be added or removed. The possible value is @all@ .
-    group :: Lude.Maybe PermissionGroup,
+    group :: Core.Maybe Types.PermissionGroup,
     -- | The AWS account ID to be added or removed.
-    userId :: Lude.Maybe Lude.Text
+    userId :: Core.Maybe Types.UserId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateVolumePermission' with the minimum fields required to make a request.
---
--- * 'group' - The group to be added or removed. The possible value is @all@ .
--- * 'userId' - The AWS account ID to be added or removed.
+-- | Creates a 'CreateVolumePermission' value with any optional fields omitted.
 mkCreateVolumePermission ::
   CreateVolumePermission
 mkCreateVolumePermission =
   CreateVolumePermission'
-    { group = Lude.Nothing,
-      userId = Lude.Nothing
+    { group = Core.Nothing,
+      userId = Core.Nothing
     }
 
 -- | The group to be added or removed. The possible value is @all@ .
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvpGroup :: Lens.Lens' CreateVolumePermission (Lude.Maybe PermissionGroup)
-cvpGroup = Lens.lens (group :: CreateVolumePermission -> Lude.Maybe PermissionGroup) (\s a -> s {group = a} :: CreateVolumePermission)
+cvpGroup :: Lens.Lens' CreateVolumePermission (Core.Maybe Types.PermissionGroup)
+cvpGroup = Lens.field @"group"
 {-# DEPRECATED cvpGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The AWS account ID to be added or removed.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvpUserId :: Lens.Lens' CreateVolumePermission (Lude.Maybe Lude.Text)
-cvpUserId = Lens.lens (userId :: CreateVolumePermission -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: CreateVolumePermission)
+cvpUserId :: Lens.Lens' CreateVolumePermission (Core.Maybe Types.UserId)
+cvpUserId = Lens.field @"userId"
 {-# DEPRECATED cvpUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.FromXML CreateVolumePermission where
+instance Core.FromXML CreateVolumePermission where
   parseXML x =
     CreateVolumePermission'
-      Lude.<$> (x Lude..@? "group") Lude.<*> (x Lude..@? "userId")
-
-instance Lude.ToQuery CreateVolumePermission where
-  toQuery CreateVolumePermission' {..} =
-    Lude.mconcat ["Group" Lude.=: group, "UserId" Lude.=: userId]
+      Core.<$> (x Core..@? "group") Core.<*> (x Core..@? "userId")

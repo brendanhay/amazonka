@@ -27,107 +27,95 @@ module Network.AWS.CodeBuild.DeleteSourceCredentials
     mkDeleteSourceCredentialsResponse,
 
     -- ** Response lenses
-    dscrsArn,
-    dscrsResponseStatus,
+    dscrrsArn,
+    dscrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSourceCredentials' smart constructor.
 newtype DeleteSourceCredentials = DeleteSourceCredentials'
   { -- | The Amazon Resource Name (ARN) of the token.
-    arn :: Lude.Text
+    arn :: Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSourceCredentials' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the token.
+-- | Creates a 'DeleteSourceCredentials' value with any optional fields omitted.
 mkDeleteSourceCredentials ::
   -- | 'arn'
-  Lude.Text ->
+  Types.NonEmptyString ->
   DeleteSourceCredentials
-mkDeleteSourceCredentials pArn_ =
-  DeleteSourceCredentials' {arn = pArn_}
+mkDeleteSourceCredentials arn = DeleteSourceCredentials' {arn}
 
 -- | The Amazon Resource Name (ARN) of the token.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscArn :: Lens.Lens' DeleteSourceCredentials Lude.Text
-dscArn = Lens.lens (arn :: DeleteSourceCredentials -> Lude.Text) (\s a -> s {arn = a} :: DeleteSourceCredentials)
+dscArn :: Lens.Lens' DeleteSourceCredentials Types.NonEmptyString
+dscArn = Lens.field @"arn"
 {-# DEPRECATED dscArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.AWSRequest DeleteSourceCredentials where
+instance Core.FromJSON DeleteSourceCredentials where
+  toJSON DeleteSourceCredentials {..} =
+    Core.object (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+
+instance Core.AWSRequest DeleteSourceCredentials where
   type Rs DeleteSourceCredentials = DeleteSourceCredentialsResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeBuild_20161006.DeleteSourceCredentials")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteSourceCredentialsResponse'
-            Lude.<$> (x Lude..?> "arn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSourceCredentials where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.DeleteSourceCredentials" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteSourceCredentials where
-  toJSON DeleteSourceCredentials' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
-
-instance Lude.ToPath DeleteSourceCredentials where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSourceCredentials where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSourceCredentialsResponse' smart constructor.
 data DeleteSourceCredentialsResponse = DeleteSourceCredentialsResponse'
   { -- | The Amazon Resource Name (ARN) of the token.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.NonEmptyString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSourceCredentialsResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSourceCredentialsResponse' value with any optional fields omitted.
 mkDeleteSourceCredentialsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSourceCredentialsResponse
-mkDeleteSourceCredentialsResponse pResponseStatus_ =
+mkDeleteSourceCredentialsResponse responseStatus =
   DeleteSourceCredentialsResponse'
-    { arn = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the token.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsArn :: Lens.Lens' DeleteSourceCredentialsResponse (Lude.Maybe Lude.Text)
-dscrsArn = Lens.lens (arn :: DeleteSourceCredentialsResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DeleteSourceCredentialsResponse)
-{-# DEPRECATED dscrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+dscrrsArn :: Lens.Lens' DeleteSourceCredentialsResponse (Core.Maybe Types.NonEmptyString)
+dscrrsArn = Lens.field @"arn"
+{-# DEPRECATED dscrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DeleteSourceCredentialsResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DeleteSourceCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSourceCredentialsResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscrrsResponseStatus :: Lens.Lens' DeleteSourceCredentialsResponse Core.Int
+dscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -26,115 +26,104 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     cpvifNewPrivateVirtualInterface,
 
     -- * Destructuring the response
-    VirtualInterface (..),
-    mkVirtualInterface,
+    Types.VirtualInterface (..),
+    Types.mkVirtualInterface,
 
     -- ** Response lenses
-    viBgpPeers,
-    viVirtualGatewayId,
-    viMtu,
-    viRouteFilterPrefixes,
-    viCustomerAddress,
-    viVlan,
-    viLocation,
-    viAmazonAddress,
-    viAddressFamily,
-    viVirtualInterfaceState,
-    viConnectionId,
-    viDirectConnectGatewayId,
-    viAmazonSideASN,
-    viVirtualInterfaceType,
-    viAsn,
-    viAuthKey,
-    viJumboFrameCapable,
-    viCustomerRouterConfig,
-    viOwnerAccount,
-    viRegion,
-    viVirtualInterfaceName,
-    viAwsDeviceV2,
-    viVirtualInterfaceId,
-    viTags,
+    Types.viAddressFamily,
+    Types.viAmazonAddress,
+    Types.viAmazonSideAsn,
+    Types.viAsn,
+    Types.viAuthKey,
+    Types.viAwsDeviceV2,
+    Types.viBgpPeers,
+    Types.viConnectionId,
+    Types.viCustomerAddress,
+    Types.viCustomerRouterConfig,
+    Types.viDirectConnectGatewayId,
+    Types.viJumboFrameCapable,
+    Types.viLocation,
+    Types.viMtu,
+    Types.viOwnerAccount,
+    Types.viRegion,
+    Types.viRouteFilterPrefixes,
+    Types.viTags,
+    Types.viVirtualGatewayId,
+    Types.viVirtualInterfaceId,
+    Types.viVirtualInterfaceName,
+    Types.viVirtualInterfaceState,
+    Types.viVirtualInterfaceType,
+    Types.viVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreatePrivateVirtualInterface' smart constructor.
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
   { -- | The ID of the connection.
-    connectionId :: Lude.Text,
+    connectionId :: Types.ConnectionId,
     -- | Information about the private virtual interface.
-    newPrivateVirtualInterface :: NewPrivateVirtualInterface
+    newPrivateVirtualInterface :: Types.NewPrivateVirtualInterface
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePrivateVirtualInterface' with the minimum fields required to make a request.
---
--- * 'connectionId' - The ID of the connection.
--- * 'newPrivateVirtualInterface' - Information about the private virtual interface.
+-- | Creates a 'CreatePrivateVirtualInterface' value with any optional fields omitted.
 mkCreatePrivateVirtualInterface ::
   -- | 'connectionId'
-  Lude.Text ->
+  Types.ConnectionId ->
   -- | 'newPrivateVirtualInterface'
-  NewPrivateVirtualInterface ->
+  Types.NewPrivateVirtualInterface ->
   CreatePrivateVirtualInterface
 mkCreatePrivateVirtualInterface
-  pConnectionId_
-  pNewPrivateVirtualInterface_ =
+  connectionId
+  newPrivateVirtualInterface =
     CreatePrivateVirtualInterface'
-      { connectionId = pConnectionId_,
-        newPrivateVirtualInterface = pNewPrivateVirtualInterface_
+      { connectionId,
+        newPrivateVirtualInterface
       }
 
 -- | The ID of the connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvifConnectionId :: Lens.Lens' CreatePrivateVirtualInterface Lude.Text
-cpvifConnectionId = Lens.lens (connectionId :: CreatePrivateVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: CreatePrivateVirtualInterface)
+cpvifConnectionId :: Lens.Lens' CreatePrivateVirtualInterface Types.ConnectionId
+cpvifConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED cpvifConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | Information about the private virtual interface.
 --
 -- /Note:/ Consider using 'newPrivateVirtualInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvifNewPrivateVirtualInterface :: Lens.Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
-cpvifNewPrivateVirtualInterface = Lens.lens (newPrivateVirtualInterface :: CreatePrivateVirtualInterface -> NewPrivateVirtualInterface) (\s a -> s {newPrivateVirtualInterface = a} :: CreatePrivateVirtualInterface)
+cpvifNewPrivateVirtualInterface :: Lens.Lens' CreatePrivateVirtualInterface Types.NewPrivateVirtualInterface
+cpvifNewPrivateVirtualInterface = Lens.field @"newPrivateVirtualInterface"
 {-# DEPRECATED cpvifNewPrivateVirtualInterface "Use generic-lens or generic-optics with 'newPrivateVirtualInterface' instead." #-}
 
-instance Lude.AWSRequest CreatePrivateVirtualInterface where
-  type Rs CreatePrivateVirtualInterface = VirtualInterface
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders CreatePrivateVirtualInterface where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OvertureService.CreatePrivateVirtualInterface" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON CreatePrivateVirtualInterface where
+  toJSON CreatePrivateVirtualInterface {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("connectionId" Core..= connectionId),
+            Core.Just
+              ("newPrivateVirtualInterface" Core..= newPrivateVirtualInterface)
           ]
       )
 
-instance Lude.ToJSON CreatePrivateVirtualInterface where
-  toJSON CreatePrivateVirtualInterface' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("connectionId" Lude..= connectionId),
-            Lude.Just
-              ("newPrivateVirtualInterface" Lude..= newPrivateVirtualInterface)
-          ]
-      )
-
-instance Lude.ToPath CreatePrivateVirtualInterface where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreatePrivateVirtualInterface where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreatePrivateVirtualInterface where
+  type Rs CreatePrivateVirtualInterface = Types.VirtualInterface
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.CreatePrivateVirtualInterface")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

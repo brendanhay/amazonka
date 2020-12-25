@@ -24,158 +24,144 @@ module Network.AWS.DirectConnect.CreateInterconnect
     mkCreateInterconnect,
 
     -- ** Request lenses
-    ciLagId,
-    ciLocation,
     ciInterconnectName,
     ciBandwidth,
+    ciLocation,
+    ciLagId,
     ciProviderName,
     ciTags,
 
     -- * Destructuring the response
-    Interconnect (..),
-    mkInterconnect,
+    Types.Interconnect (..),
+    Types.mkInterconnect,
 
     -- ** Response lenses
-    iLagId,
-    iInterconnectId,
-    iLocation,
-    iInterconnectName,
-    iAwsDevice,
-    iHasLogicalRedundancy,
-    iLoaIssueTime,
-    iBandwidth,
-    iJumboFrameCapable,
-    iInterconnectState,
-    iRegion,
-    iProviderName,
-    iAwsDeviceV2,
-    iTags,
+    Types.iAwsDevice,
+    Types.iAwsDeviceV2,
+    Types.iBandwidth,
+    Types.iHasLogicalRedundancy,
+    Types.iInterconnectId,
+    Types.iInterconnectName,
+    Types.iInterconnectState,
+    Types.iJumboFrameCapable,
+    Types.iLagId,
+    Types.iLoaIssueTime,
+    Types.iLocation,
+    Types.iProviderName,
+    Types.iRegion,
+    Types.iTags,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
-  { -- | The ID of the LAG.
-    lagId :: Lude.Maybe Lude.Text,
-    -- | The location of the interconnect.
-    location :: Lude.Text,
-    -- | The name of the interconnect.
-    interconnectName :: Lude.Text,
+  { -- | The name of the interconnect.
+    interconnectName :: Types.InterconnectName,
     -- | The port bandwidth, in Gbps. The possible values are 1 and 10.
-    bandwidth :: Lude.Text,
+    bandwidth :: Types.Bandwidth,
+    -- | The location of the interconnect.
+    location :: Types.LocationCode,
+    -- | The ID of the LAG.
+    lagId :: Core.Maybe Types.LagId,
     -- | The name of the service provider associated with the interconnect.
-    providerName :: Lude.Maybe Lude.Text,
+    providerName :: Core.Maybe Types.ProviderName,
     -- | The tags to associate with the interconnect.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInterconnect' with the minimum fields required to make a request.
---
--- * 'lagId' - The ID of the LAG.
--- * 'location' - The location of the interconnect.
--- * 'interconnectName' - The name of the interconnect.
--- * 'bandwidth' - The port bandwidth, in Gbps. The possible values are 1 and 10.
--- * 'providerName' - The name of the service provider associated with the interconnect.
--- * 'tags' - The tags to associate with the interconnect.
+-- | Creates a 'CreateInterconnect' value with any optional fields omitted.
 mkCreateInterconnect ::
-  -- | 'location'
-  Lude.Text ->
   -- | 'interconnectName'
-  Lude.Text ->
+  Types.InterconnectName ->
   -- | 'bandwidth'
-  Lude.Text ->
+  Types.Bandwidth ->
+  -- | 'location'
+  Types.LocationCode ->
   CreateInterconnect
-mkCreateInterconnect pLocation_ pInterconnectName_ pBandwidth_ =
+mkCreateInterconnect interconnectName bandwidth location =
   CreateInterconnect'
-    { lagId = Lude.Nothing,
-      location = pLocation_,
-      interconnectName = pInterconnectName_,
-      bandwidth = pBandwidth_,
-      providerName = Lude.Nothing,
-      tags = Lude.Nothing
+    { interconnectName,
+      bandwidth,
+      location,
+      lagId = Core.Nothing,
+      providerName = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The ID of the LAG.
---
--- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciLagId :: Lens.Lens' CreateInterconnect (Lude.Maybe Lude.Text)
-ciLagId = Lens.lens (lagId :: CreateInterconnect -> Lude.Maybe Lude.Text) (\s a -> s {lagId = a} :: CreateInterconnect)
-{-# DEPRECATED ciLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
-
--- | The location of the interconnect.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciLocation :: Lens.Lens' CreateInterconnect Lude.Text
-ciLocation = Lens.lens (location :: CreateInterconnect -> Lude.Text) (\s a -> s {location = a} :: CreateInterconnect)
-{-# DEPRECATED ciLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The name of the interconnect.
 --
 -- /Note:/ Consider using 'interconnectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciInterconnectName :: Lens.Lens' CreateInterconnect Lude.Text
-ciInterconnectName = Lens.lens (interconnectName :: CreateInterconnect -> Lude.Text) (\s a -> s {interconnectName = a} :: CreateInterconnect)
+ciInterconnectName :: Lens.Lens' CreateInterconnect Types.InterconnectName
+ciInterconnectName = Lens.field @"interconnectName"
 {-# DEPRECATED ciInterconnectName "Use generic-lens or generic-optics with 'interconnectName' instead." #-}
 
 -- | The port bandwidth, in Gbps. The possible values are 1 and 10.
 --
 -- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciBandwidth :: Lens.Lens' CreateInterconnect Lude.Text
-ciBandwidth = Lens.lens (bandwidth :: CreateInterconnect -> Lude.Text) (\s a -> s {bandwidth = a} :: CreateInterconnect)
+ciBandwidth :: Lens.Lens' CreateInterconnect Types.Bandwidth
+ciBandwidth = Lens.field @"bandwidth"
 {-# DEPRECATED ciBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
+
+-- | The location of the interconnect.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciLocation :: Lens.Lens' CreateInterconnect Types.LocationCode
+ciLocation = Lens.field @"location"
+{-# DEPRECATED ciLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The ID of the LAG.
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciLagId :: Lens.Lens' CreateInterconnect (Core.Maybe Types.LagId)
+ciLagId = Lens.field @"lagId"
+{-# DEPRECATED ciLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
 -- | The name of the service provider associated with the interconnect.
 --
 -- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciProviderName :: Lens.Lens' CreateInterconnect (Lude.Maybe Lude.Text)
-ciProviderName = Lens.lens (providerName :: CreateInterconnect -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: CreateInterconnect)
+ciProviderName :: Lens.Lens' CreateInterconnect (Core.Maybe Types.ProviderName)
+ciProviderName = Lens.field @"providerName"
 {-# DEPRECATED ciProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | The tags to associate with the interconnect.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciTags :: Lens.Lens' CreateInterconnect (Lude.Maybe (Lude.NonEmpty Tag))
-ciTags = Lens.lens (tags :: CreateInterconnect -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateInterconnect)
+ciTags :: Lens.Lens' CreateInterconnect (Core.Maybe (Core.NonEmpty Types.Tag))
+ciTags = Lens.field @"tags"
 {-# DEPRECATED ciTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateInterconnect where
-  type Rs CreateInterconnect = Interconnect
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders CreateInterconnect where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.CreateInterconnect" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON CreateInterconnect where
+  toJSON CreateInterconnect {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("interconnectName" Core..= interconnectName),
+            Core.Just ("bandwidth" Core..= bandwidth),
+            Core.Just ("location" Core..= location),
+            ("lagId" Core..=) Core.<$> lagId,
+            ("providerName" Core..=) Core.<$> providerName,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToJSON CreateInterconnect where
-  toJSON CreateInterconnect' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("lagId" Lude..=) Lude.<$> lagId,
-            Lude.Just ("location" Lude..= location),
-            Lude.Just ("interconnectName" Lude..= interconnectName),
-            Lude.Just ("bandwidth" Lude..= bandwidth),
-            ("providerName" Lude..=) Lude.<$> providerName,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateInterconnect where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateInterconnect where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateInterconnect where
+  type Rs CreateInterconnect = Types.Interconnect
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.CreateInterconnect")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

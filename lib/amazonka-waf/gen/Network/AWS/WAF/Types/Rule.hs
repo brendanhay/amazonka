@@ -17,16 +17,19 @@ module Network.AWS.WAF.Types.Rule
     mkRule,
 
     -- * Lenses
+    rRuleId,
     rPredicates,
     rMetricName,
-    rRuleId,
     rName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.Predicate
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.MetricName as Types
+import qualified Network.AWS.WAF.Types.Predicate as Types
+import qualified Network.AWS.WAF.Types.ResourceId as Types
+import qualified Network.AWS.WAF.Types.ResourceName as Types
 
 -- | A combination of 'ByteMatchSet' , 'IPSet' , and/or 'SqlInjectionMatchSet' objects that identify the web requests that you want to allow, block, or count. For example, you might create a @Rule@ that includes the following predicates:
 --
@@ -41,78 +44,69 @@ import Network.AWS.WAF.Types.Predicate
 --
 -- /See:/ 'mkRule' smart constructor.
 data Rule = Rule'
-  { -- | The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @Rule@ .
-    predicates :: [Predicate],
-    -- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @Rule@ .
-    metricName :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
+  { -- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
     --
     -- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
-    ruleId :: Lude.Text,
+    ruleId :: Types.ResourceId,
+    -- | The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @Rule@ .
+    predicates :: [Types.Predicate],
+    -- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @Rule@ .
+    metricName :: Core.Maybe Types.MetricName,
     -- | The friendly name or description for the @Rule@ . You can't change the name of a @Rule@ after you create it.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Rule' with the minimum fields required to make a request.
---
--- * 'predicates' - The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @Rule@ .
--- * 'metricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @Rule@ .
--- * 'ruleId' - A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
---
--- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
--- * 'name' - The friendly name or description for the @Rule@ . You can't change the name of a @Rule@ after you create it.
+-- | Creates a 'Rule' value with any optional fields omitted.
 mkRule ::
   -- | 'ruleId'
-  Lude.Text ->
+  Types.ResourceId ->
   Rule
-mkRule pRuleId_ =
+mkRule ruleId =
   Rule'
-    { predicates = Lude.mempty,
-      metricName = Lude.Nothing,
-      ruleId = pRuleId_,
-      name = Lude.Nothing
+    { ruleId,
+      predicates = Core.mempty,
+      metricName = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @Rule@ .
---
--- /Note:/ Consider using 'predicates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPredicates :: Lens.Lens' Rule [Predicate]
-rPredicates = Lens.lens (predicates :: Rule -> [Predicate]) (\s a -> s {predicates = a} :: Rule)
-{-# DEPRECATED rPredicates "Use generic-lens or generic-optics with 'predicates' instead." #-}
-
--- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @Rule@ .
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rMetricName :: Lens.Lens' Rule (Lude.Maybe Lude.Text)
-rMetricName = Lens.lens (metricName :: Rule -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: Rule)
-{-# DEPRECATED rMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete a one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
 --
 -- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 --
 -- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRuleId :: Lens.Lens' Rule Lude.Text
-rRuleId = Lens.lens (ruleId :: Rule -> Lude.Text) (\s a -> s {ruleId = a} :: Rule)
+rRuleId :: Lens.Lens' Rule Types.ResourceId
+rRuleId = Lens.field @"ruleId"
 {-# DEPRECATED rRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
+
+-- | The @Predicates@ object contains one @Predicate@ element for each 'ByteMatchSet' , 'IPSet' , or 'SqlInjectionMatchSet' object that you want to include in a @Rule@ .
+--
+-- /Note:/ Consider using 'predicates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPredicates :: Lens.Lens' Rule [Types.Predicate]
+rPredicates = Lens.field @"predicates"
+{-# DEPRECATED rPredicates "Use generic-lens or generic-optics with 'predicates' instead." #-}
+
+-- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @Rule@ .
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rMetricName :: Lens.Lens' Rule (Core.Maybe Types.MetricName)
+rMetricName = Lens.field @"metricName"
+{-# DEPRECATED rMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The friendly name or description for the @Rule@ . You can't change the name of a @Rule@ after you create it.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rName :: Lens.Lens' Rule (Lude.Maybe Lude.Text)
-rName = Lens.lens (name :: Rule -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Rule)
+rName :: Lens.Lens' Rule (Core.Maybe Types.ResourceName)
+rName = Lens.field @"name"
 {-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON Rule where
+instance Core.FromJSON Rule where
   parseJSON =
-    Lude.withObject
-      "Rule"
-      ( \x ->
-          Rule'
-            Lude.<$> (x Lude..:? "Predicates" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "MetricName")
-            Lude.<*> (x Lude..: "RuleId")
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "Rule" Core.$
+      \x ->
+        Rule'
+          Core.<$> (x Core..: "RuleId")
+          Core.<*> (x Core..:? "Predicates" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "MetricName")
+          Core.<*> (x Core..:? "Name")

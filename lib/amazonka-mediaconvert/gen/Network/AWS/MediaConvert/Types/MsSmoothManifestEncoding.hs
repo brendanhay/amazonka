@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding
   ( MsSmoothManifestEncoding
       ( MsSmoothManifestEncoding',
-        UTF8,
-        UTF16
+        MsSmoothManifestEncodingUTF8,
+        MsSmoothManifestEncodingUTF16,
+        fromMsSmoothManifestEncoding
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
-newtype MsSmoothManifestEncoding = MsSmoothManifestEncoding' Lude.Text
+newtype MsSmoothManifestEncoding = MsSmoothManifestEncoding'
+  { fromMsSmoothManifestEncoding ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UTF8 :: MsSmoothManifestEncoding
-pattern UTF8 = MsSmoothManifestEncoding' "UTF8"
+pattern MsSmoothManifestEncodingUTF8 :: MsSmoothManifestEncoding
+pattern MsSmoothManifestEncodingUTF8 = MsSmoothManifestEncoding' "UTF8"
 
-pattern UTF16 :: MsSmoothManifestEncoding
-pattern UTF16 = MsSmoothManifestEncoding' "UTF16"
+pattern MsSmoothManifestEncodingUTF16 :: MsSmoothManifestEncoding
+pattern MsSmoothManifestEncodingUTF16 = MsSmoothManifestEncoding' "UTF16"
 
 {-# COMPLETE
-  UTF8,
-  UTF16,
+  MsSmoothManifestEncodingUTF8,
+  MsSmoothManifestEncodingUTF16,
   MsSmoothManifestEncoding'
   #-}

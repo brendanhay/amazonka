@@ -17,96 +17,90 @@ module Network.AWS.EC2.Types.LocalGateway
     mkLocalGateway,
 
     -- * Lenses
-    lgState,
     lgLocalGatewayId,
-    lgOutpostARN,
+    lgOutpostArn,
     lgOwnerId,
+    lgState,
     lgTags,
   )
 where
 
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.LocalGatewayId as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a local gateway.
 --
 -- /See:/ 'mkLocalGateway' smart constructor.
 data LocalGateway = LocalGateway'
-  { -- | The state of the local gateway.
-    state :: Lude.Maybe Lude.Text,
-    -- | The ID of the local gateway.
-    localGatewayId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the local gateway.
+    localGatewayId :: Core.Maybe Types.LocalGatewayId,
     -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostARN :: Lude.Maybe Lude.Text,
+    outpostArn :: Core.Maybe Types.String,
     -- | The AWS account ID that owns the local gateway.
-    ownerId :: Lude.Maybe Lude.Text,
+    ownerId :: Core.Maybe Types.String,
+    -- | The state of the local gateway.
+    state :: Core.Maybe Types.String,
     -- | The tags assigned to the local gateway.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LocalGateway' with the minimum fields required to make a request.
---
--- * 'state' - The state of the local gateway.
--- * 'localGatewayId' - The ID of the local gateway.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
--- * 'ownerId' - The AWS account ID that owns the local gateway.
--- * 'tags' - The tags assigned to the local gateway.
+-- | Creates a 'LocalGateway' value with any optional fields omitted.
 mkLocalGateway ::
   LocalGateway
 mkLocalGateway =
   LocalGateway'
-    { state = Lude.Nothing,
-      localGatewayId = Lude.Nothing,
-      outpostARN = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      tags = Lude.Nothing
+    { localGatewayId = Core.Nothing,
+      outpostArn = Core.Nothing,
+      ownerId = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The state of the local gateway.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgState :: Lens.Lens' LocalGateway (Lude.Maybe Lude.Text)
-lgState = Lens.lens (state :: LocalGateway -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: LocalGateway)
-{-# DEPRECATED lgState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the local gateway.
 --
 -- /Note:/ Consider using 'localGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgLocalGatewayId :: Lens.Lens' LocalGateway (Lude.Maybe Lude.Text)
-lgLocalGatewayId = Lens.lens (localGatewayId :: LocalGateway -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayId = a} :: LocalGateway)
+lgLocalGatewayId :: Lens.Lens' LocalGateway (Core.Maybe Types.LocalGatewayId)
+lgLocalGatewayId = Lens.field @"localGatewayId"
 {-# DEPRECATED lgLocalGatewayId "Use generic-lens or generic-optics with 'localGatewayId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
 --
--- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgOutpostARN :: Lens.Lens' LocalGateway (Lude.Maybe Lude.Text)
-lgOutpostARN = Lens.lens (outpostARN :: LocalGateway -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: LocalGateway)
-{-# DEPRECATED lgOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
+-- /Note:/ Consider using 'outpostArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgOutpostArn :: Lens.Lens' LocalGateway (Core.Maybe Types.String)
+lgOutpostArn = Lens.field @"outpostArn"
+{-# DEPRECATED lgOutpostArn "Use generic-lens or generic-optics with 'outpostArn' instead." #-}
 
 -- | The AWS account ID that owns the local gateway.
 --
 -- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgOwnerId :: Lens.Lens' LocalGateway (Lude.Maybe Lude.Text)
-lgOwnerId = Lens.lens (ownerId :: LocalGateway -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: LocalGateway)
+lgOwnerId :: Lens.Lens' LocalGateway (Core.Maybe Types.String)
+lgOwnerId = Lens.field @"ownerId"
 {-# DEPRECATED lgOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | The state of the local gateway.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgState :: Lens.Lens' LocalGateway (Core.Maybe Types.String)
+lgState = Lens.field @"state"
+{-# DEPRECATED lgState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The tags assigned to the local gateway.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgTags :: Lens.Lens' LocalGateway (Lude.Maybe [Tag])
-lgTags = Lens.lens (tags :: LocalGateway -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LocalGateway)
+lgTags :: Lens.Lens' LocalGateway (Core.Maybe [Types.Tag])
+lgTags = Lens.field @"tags"
 {-# DEPRECATED lgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML LocalGateway where
+instance Core.FromXML LocalGateway where
   parseXML x =
     LocalGateway'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "localGatewayId")
-      Lude.<*> (x Lude..@? "outpostArn")
-      Lude.<*> (x Lude..@? "ownerId")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "localGatewayId")
+      Core.<*> (x Core..@? "outpostArn")
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

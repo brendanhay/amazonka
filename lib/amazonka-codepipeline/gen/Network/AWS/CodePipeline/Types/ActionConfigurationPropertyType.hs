@@ -13,51 +13,56 @@
 module Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
   ( ActionConfigurationPropertyType
       ( ActionConfigurationPropertyType',
-        String,
-        Number,
-        Boolean
+        ActionConfigurationPropertyTypeString,
+        ActionConfigurationPropertyTypeNumber,
+        ActionConfigurationPropertyTypeBoolean,
+        fromActionConfigurationPropertyType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionConfigurationPropertyType = ActionConfigurationPropertyType' Lude.Text
+newtype ActionConfigurationPropertyType = ActionConfigurationPropertyType'
+  { fromActionConfigurationPropertyType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern String :: ActionConfigurationPropertyType
-pattern String = ActionConfigurationPropertyType' "String"
+pattern ActionConfigurationPropertyTypeString :: ActionConfigurationPropertyType
+pattern ActionConfigurationPropertyTypeString = ActionConfigurationPropertyType' "String"
 
-pattern Number :: ActionConfigurationPropertyType
-pattern Number = ActionConfigurationPropertyType' "Number"
+pattern ActionConfigurationPropertyTypeNumber :: ActionConfigurationPropertyType
+pattern ActionConfigurationPropertyTypeNumber = ActionConfigurationPropertyType' "Number"
 
-pattern Boolean :: ActionConfigurationPropertyType
-pattern Boolean = ActionConfigurationPropertyType' "Boolean"
+pattern ActionConfigurationPropertyTypeBoolean :: ActionConfigurationPropertyType
+pattern ActionConfigurationPropertyTypeBoolean = ActionConfigurationPropertyType' "Boolean"
 
 {-# COMPLETE
-  String,
-  Number,
-  Boolean,
+  ActionConfigurationPropertyTypeString,
+  ActionConfigurationPropertyTypeNumber,
+  ActionConfigurationPropertyTypeBoolean,
   ActionConfigurationPropertyType'
   #-}

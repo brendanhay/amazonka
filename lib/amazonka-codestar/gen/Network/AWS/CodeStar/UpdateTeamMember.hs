@@ -20,188 +20,171 @@ module Network.AWS.CodeStar.UpdateTeamMember
     mkUpdateTeamMember,
 
     -- ** Request lenses
-    utmUserARN,
     utmProjectId,
-    utmRemoteAccessAllowed,
+    utmUserArn,
     utmProjectRole,
+    utmRemoteAccessAllowed,
 
     -- * Destructuring the response
     UpdateTeamMemberResponse (..),
     mkUpdateTeamMemberResponse,
 
     -- ** Response lenses
-    utmrsUserARN,
-    utmrsRemoteAccessAllowed,
-    utmrsProjectRole,
-    utmrsResponseStatus,
+    utmrrsProjectRole,
+    utmrrsRemoteAccessAllowed,
+    utmrrsUserArn,
+    utmrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeStar.Types
+import qualified Network.AWS.CodeStar.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTeamMember' smart constructor.
 data UpdateTeamMember = UpdateTeamMember'
-  { -- | The Amazon Resource Name (ARN) of the user for whom you want to change team membership attributes.
-    userARN :: Lude.Text,
-    -- | The ID of the project.
-    projectId :: Lude.Text,
-    -- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
-    remoteAccessAllowed :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the project.
+    projectId :: Types.ProjectId,
+    -- | The Amazon Resource Name (ARN) of the user for whom you want to change team membership attributes.
+    userArn :: Types.UserArn,
     -- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
-    projectRole :: Lude.Maybe Lude.Text
+    projectRole :: Core.Maybe Types.ProjectRole,
+    -- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
+    remoteAccessAllowed :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTeamMember' with the minimum fields required to make a request.
---
--- * 'userARN' - The Amazon Resource Name (ARN) of the user for whom you want to change team membership attributes.
--- * 'projectId' - The ID of the project.
--- * 'remoteAccessAllowed' - Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
--- * 'projectRole' - The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
+-- | Creates a 'UpdateTeamMember' value with any optional fields omitted.
 mkUpdateTeamMember ::
-  -- | 'userARN'
-  Lude.Text ->
   -- | 'projectId'
-  Lude.Text ->
+  Types.ProjectId ->
+  -- | 'userArn'
+  Types.UserArn ->
   UpdateTeamMember
-mkUpdateTeamMember pUserARN_ pProjectId_ =
+mkUpdateTeamMember projectId userArn =
   UpdateTeamMember'
-    { userARN = pUserARN_,
-      projectId = pProjectId_,
-      remoteAccessAllowed = Lude.Nothing,
-      projectRole = Lude.Nothing
+    { projectId,
+      userArn,
+      projectRole = Core.Nothing,
+      remoteAccessAllowed = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the user for whom you want to change team membership attributes.
---
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utmUserARN :: Lens.Lens' UpdateTeamMember Lude.Text
-utmUserARN = Lens.lens (userARN :: UpdateTeamMember -> Lude.Text) (\s a -> s {userARN = a} :: UpdateTeamMember)
-{-# DEPRECATED utmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
 -- | The ID of the project.
 --
 -- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utmProjectId :: Lens.Lens' UpdateTeamMember Lude.Text
-utmProjectId = Lens.lens (projectId :: UpdateTeamMember -> Lude.Text) (\s a -> s {projectId = a} :: UpdateTeamMember)
+utmProjectId :: Lens.Lens' UpdateTeamMember Types.ProjectId
+utmProjectId = Lens.field @"projectId"
 {-# DEPRECATED utmProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
--- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
+-- | The Amazon Resource Name (ARN) of the user for whom you want to change team membership attributes.
 --
--- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utmRemoteAccessAllowed :: Lens.Lens' UpdateTeamMember (Lude.Maybe Lude.Bool)
-utmRemoteAccessAllowed = Lens.lens (remoteAccessAllowed :: UpdateTeamMember -> Lude.Maybe Lude.Bool) (\s a -> s {remoteAccessAllowed = a} :: UpdateTeamMember)
-{-# DEPRECATED utmRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utmUserArn :: Lens.Lens' UpdateTeamMember Types.UserArn
+utmUserArn = Lens.field @"userArn"
+{-# DEPRECATED utmUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
 -- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
 --
 -- /Note:/ Consider using 'projectRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utmProjectRole :: Lens.Lens' UpdateTeamMember (Lude.Maybe Lude.Text)
-utmProjectRole = Lens.lens (projectRole :: UpdateTeamMember -> Lude.Maybe Lude.Text) (\s a -> s {projectRole = a} :: UpdateTeamMember)
+utmProjectRole :: Lens.Lens' UpdateTeamMember (Core.Maybe Types.ProjectRole)
+utmProjectRole = Lens.field @"projectRole"
 {-# DEPRECATED utmProjectRole "Use generic-lens or generic-optics with 'projectRole' instead." #-}
 
-instance Lude.AWSRequest UpdateTeamMember where
+-- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
+--
+-- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utmRemoteAccessAllowed :: Lens.Lens' UpdateTeamMember (Core.Maybe Core.Bool)
+utmRemoteAccessAllowed = Lens.field @"remoteAccessAllowed"
+{-# DEPRECATED utmRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
+
+instance Core.FromJSON UpdateTeamMember where
+  toJSON UpdateTeamMember {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("projectId" Core..= projectId),
+            Core.Just ("userArn" Core..= userArn),
+            ("projectRole" Core..=) Core.<$> projectRole,
+            ("remoteAccessAllowed" Core..=) Core.<$> remoteAccessAllowed
+          ]
+      )
+
+instance Core.AWSRequest UpdateTeamMember where
   type Rs UpdateTeamMember = UpdateTeamMemberResponse
-  request = Req.postJSON codeStarService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeStar_20170419.UpdateTeamMember")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateTeamMemberResponse'
-            Lude.<$> (x Lude..?> "userArn")
-            Lude.<*> (x Lude..?> "remoteAccessAllowed")
-            Lude.<*> (x Lude..?> "projectRole")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "projectRole")
+            Core.<*> (x Core..:? "remoteAccessAllowed")
+            Core.<*> (x Core..:? "userArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTeamMember where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeStar_20170419.UpdateTeamMember" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTeamMember where
-  toJSON UpdateTeamMember' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("userArn" Lude..= userARN),
-            Lude.Just ("projectId" Lude..= projectId),
-            ("remoteAccessAllowed" Lude..=) Lude.<$> remoteAccessAllowed,
-            ("projectRole" Lude..=) Lude.<$> projectRole
-          ]
-      )
-
-instance Lude.ToPath UpdateTeamMember where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTeamMember where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTeamMemberResponse' smart constructor.
 data UpdateTeamMemberResponse = UpdateTeamMemberResponse'
-  { -- | The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
-    userARN :: Lude.Maybe Lude.Text,
+  { -- | The project role granted to the user.
+    projectRole :: Core.Maybe Types.Role,
     -- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
-    remoteAccessAllowed :: Lude.Maybe Lude.Bool,
-    -- | The project role granted to the user.
-    projectRole :: Lude.Maybe Lude.Text,
+    remoteAccessAllowed :: Core.Maybe Core.Bool,
+    -- | The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
+    userArn :: Core.Maybe Types.UserArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTeamMemberResponse' with the minimum fields required to make a request.
---
--- * 'userARN' - The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
--- * 'remoteAccessAllowed' - Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
--- * 'projectRole' - The project role granted to the user.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTeamMemberResponse' value with any optional fields omitted.
 mkUpdateTeamMemberResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTeamMemberResponse
-mkUpdateTeamMemberResponse pResponseStatus_ =
+mkUpdateTeamMemberResponse responseStatus =
   UpdateTeamMemberResponse'
-    { userARN = Lude.Nothing,
-      remoteAccessAllowed = Lude.Nothing,
-      projectRole = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { projectRole = Core.Nothing,
+      remoteAccessAllowed = Core.Nothing,
+      userArn = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
---
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utmrsUserARN :: Lens.Lens' UpdateTeamMemberResponse (Lude.Maybe Lude.Text)
-utmrsUserARN = Lens.lens (userARN :: UpdateTeamMemberResponse -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: UpdateTeamMemberResponse)
-{-# DEPRECATED utmrsUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
-
--- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
---
--- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utmrsRemoteAccessAllowed :: Lens.Lens' UpdateTeamMemberResponse (Lude.Maybe Lude.Bool)
-utmrsRemoteAccessAllowed = Lens.lens (remoteAccessAllowed :: UpdateTeamMemberResponse -> Lude.Maybe Lude.Bool) (\s a -> s {remoteAccessAllowed = a} :: UpdateTeamMemberResponse)
-{-# DEPRECATED utmrsRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
 
 -- | The project role granted to the user.
 --
 -- /Note:/ Consider using 'projectRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utmrsProjectRole :: Lens.Lens' UpdateTeamMemberResponse (Lude.Maybe Lude.Text)
-utmrsProjectRole = Lens.lens (projectRole :: UpdateTeamMemberResponse -> Lude.Maybe Lude.Text) (\s a -> s {projectRole = a} :: UpdateTeamMemberResponse)
-{-# DEPRECATED utmrsProjectRole "Use generic-lens or generic-optics with 'projectRole' instead." #-}
+utmrrsProjectRole :: Lens.Lens' UpdateTeamMemberResponse (Core.Maybe Types.Role)
+utmrrsProjectRole = Lens.field @"projectRole"
+{-# DEPRECATED utmrrsProjectRole "Use generic-lens or generic-optics with 'projectRole' instead." #-}
+
+-- | Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
+--
+-- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utmrrsRemoteAccessAllowed :: Lens.Lens' UpdateTeamMemberResponse (Core.Maybe Core.Bool)
+utmrrsRemoteAccessAllowed = Lens.field @"remoteAccessAllowed"
+{-# DEPRECATED utmrrsRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
+--
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utmrrsUserArn :: Lens.Lens' UpdateTeamMemberResponse (Core.Maybe Types.UserArn)
+utmrrsUserArn = Lens.field @"userArn"
+{-# DEPRECATED utmrrsUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utmrsResponseStatus :: Lens.Lens' UpdateTeamMemberResponse Lude.Int
-utmrsResponseStatus = Lens.lens (responseStatus :: UpdateTeamMemberResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTeamMemberResponse)
-{-# DEPRECATED utmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utmrrsResponseStatus :: Lens.Lens' UpdateTeamMemberResponse Core.Int
+utmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

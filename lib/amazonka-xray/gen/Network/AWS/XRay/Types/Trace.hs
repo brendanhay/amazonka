@@ -17,85 +17,79 @@ module Network.AWS.XRay.Types.Trace
     mkTrace,
 
     -- * Lenses
-    tLimitExceeded,
-    tId,
-    tSegments,
     tDuration,
+    tId,
+    tLimitExceeded,
+    tSegments,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.XRay.Types.Segment
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.Segment as Types
+import qualified Network.AWS.XRay.Types.TraceId as Types
 
 -- | A collection of segment documents with matching trace IDs.
 --
 -- /See:/ 'mkTrace' smart constructor.
 data Trace = Trace'
-  { -- | LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For more information about quotas, see <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas> .
-    limitExceeded :: Lude.Maybe Lude.Bool,
+  { -- | The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
+    duration :: Core.Maybe Core.Double,
     -- | The unique identifier for the request that generated the trace's segments and subsegments.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.TraceId,
+    -- | LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For more information about quotas, see <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas> .
+    limitExceeded :: Core.Maybe Core.Bool,
     -- | Segment documents for the segments and subsegments that comprise the trace.
-    segments :: Lude.Maybe [Segment],
-    -- | The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
-    duration :: Lude.Maybe Lude.Double
+    segments :: Core.Maybe [Types.Segment]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Trace' with the minimum fields required to make a request.
---
--- * 'limitExceeded' - LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For more information about quotas, see <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas> .
--- * 'id' - The unique identifier for the request that generated the trace's segments and subsegments.
--- * 'segments' - Segment documents for the segments and subsegments that comprise the trace.
--- * 'duration' - The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
+-- | Creates a 'Trace' value with any optional fields omitted.
 mkTrace ::
   Trace
 mkTrace =
   Trace'
-    { limitExceeded = Lude.Nothing,
-      id = Lude.Nothing,
-      segments = Lude.Nothing,
-      duration = Lude.Nothing
+    { duration = Core.Nothing,
+      id = Core.Nothing,
+      limitExceeded = Core.Nothing,
+      segments = Core.Nothing
     }
-
--- | LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For more information about quotas, see <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas> .
---
--- /Note:/ Consider using 'limitExceeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tLimitExceeded :: Lens.Lens' Trace (Lude.Maybe Lude.Bool)
-tLimitExceeded = Lens.lens (limitExceeded :: Trace -> Lude.Maybe Lude.Bool) (\s a -> s {limitExceeded = a} :: Trace)
-{-# DEPRECATED tLimitExceeded "Use generic-lens or generic-optics with 'limitExceeded' instead." #-}
-
--- | The unique identifier for the request that generated the trace's segments and subsegments.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tId :: Lens.Lens' Trace (Lude.Maybe Lude.Text)
-tId = Lens.lens (id :: Trace -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Trace)
-{-# DEPRECATED tId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | Segment documents for the segments and subsegments that comprise the trace.
---
--- /Note:/ Consider using 'segments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tSegments :: Lens.Lens' Trace (Lude.Maybe [Segment])
-tSegments = Lens.lens (segments :: Trace -> Lude.Maybe [Segment]) (\s a -> s {segments = a} :: Trace)
-{-# DEPRECATED tSegments "Use generic-lens or generic-optics with 'segments' instead." #-}
 
 -- | The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
 --
 -- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tDuration :: Lens.Lens' Trace (Lude.Maybe Lude.Double)
-tDuration = Lens.lens (duration :: Trace -> Lude.Maybe Lude.Double) (\s a -> s {duration = a} :: Trace)
+tDuration :: Lens.Lens' Trace (Core.Maybe Core.Double)
+tDuration = Lens.field @"duration"
 {-# DEPRECATED tDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance Lude.FromJSON Trace where
+-- | The unique identifier for the request that generated the trace's segments and subsegments.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tId :: Lens.Lens' Trace (Core.Maybe Types.TraceId)
+tId = Lens.field @"id"
+{-# DEPRECATED tId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For more information about quotas, see <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas> .
+--
+-- /Note:/ Consider using 'limitExceeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tLimitExceeded :: Lens.Lens' Trace (Core.Maybe Core.Bool)
+tLimitExceeded = Lens.field @"limitExceeded"
+{-# DEPRECATED tLimitExceeded "Use generic-lens or generic-optics with 'limitExceeded' instead." #-}
+
+-- | Segment documents for the segments and subsegments that comprise the trace.
+--
+-- /Note:/ Consider using 'segments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSegments :: Lens.Lens' Trace (Core.Maybe [Types.Segment])
+tSegments = Lens.field @"segments"
+{-# DEPRECATED tSegments "Use generic-lens or generic-optics with 'segments' instead." #-}
+
+instance Core.FromJSON Trace where
   parseJSON =
-    Lude.withObject
-      "Trace"
-      ( \x ->
-          Trace'
-            Lude.<$> (x Lude..:? "LimitExceeded")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Segments" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Duration")
-      )
+    Core.withObject "Trace" Core.$
+      \x ->
+        Trace'
+          Core.<$> (x Core..:? "Duration")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "LimitExceeded")
+          Core.<*> (x Core..:? "Segments")

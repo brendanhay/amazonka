@@ -21,37 +21,35 @@ module Network.AWS.DynamoDB.Types.DeleteReplicaAction
   )
 where
 
+import qualified Network.AWS.DynamoDB.Types.RegionName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a replica to be removed.
 --
 -- /See:/ 'mkDeleteReplicaAction' smart constructor.
 newtype DeleteReplicaAction = DeleteReplicaAction'
   { -- | The Region of the replica to be removed.
-    regionName :: Lude.Text
+    regionName :: Types.RegionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReplicaAction' with the minimum fields required to make a request.
---
--- * 'regionName' - The Region of the replica to be removed.
+-- | Creates a 'DeleteReplicaAction' value with any optional fields omitted.
 mkDeleteReplicaAction ::
   -- | 'regionName'
-  Lude.Text ->
+  Types.RegionName ->
   DeleteReplicaAction
-mkDeleteReplicaAction pRegionName_ =
-  DeleteReplicaAction' {regionName = pRegionName_}
+mkDeleteReplicaAction regionName = DeleteReplicaAction' {regionName}
 
 -- | The Region of the replica to be removed.
 --
 -- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-draRegionName :: Lens.Lens' DeleteReplicaAction Lude.Text
-draRegionName = Lens.lens (regionName :: DeleteReplicaAction -> Lude.Text) (\s a -> s {regionName = a} :: DeleteReplicaAction)
+draRegionName :: Lens.Lens' DeleteReplicaAction Types.RegionName
+draRegionName = Lens.field @"regionName"
 {-# DEPRECATED draRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
-instance Lude.ToJSON DeleteReplicaAction where
-  toJSON DeleteReplicaAction' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RegionName" Lude..= regionName)])
+instance Core.FromJSON DeleteReplicaAction where
+  toJSON DeleteReplicaAction {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RegionName" Core..= regionName)])

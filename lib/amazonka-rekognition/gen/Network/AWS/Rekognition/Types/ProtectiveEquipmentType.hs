@@ -13,51 +13,56 @@
 module Network.AWS.Rekognition.Types.ProtectiveEquipmentType
   ( ProtectiveEquipmentType
       ( ProtectiveEquipmentType',
-        FaceCover,
-        HandCover,
-        HeadCover
+        ProtectiveEquipmentTypeFaceCover,
+        ProtectiveEquipmentTypeHandCover,
+        ProtectiveEquipmentTypeHeadCover,
+        fromProtectiveEquipmentType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProtectiveEquipmentType = ProtectiveEquipmentType' Lude.Text
+newtype ProtectiveEquipmentType = ProtectiveEquipmentType'
+  { fromProtectiveEquipmentType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FaceCover :: ProtectiveEquipmentType
-pattern FaceCover = ProtectiveEquipmentType' "FACE_COVER"
+pattern ProtectiveEquipmentTypeFaceCover :: ProtectiveEquipmentType
+pattern ProtectiveEquipmentTypeFaceCover = ProtectiveEquipmentType' "FACE_COVER"
 
-pattern HandCover :: ProtectiveEquipmentType
-pattern HandCover = ProtectiveEquipmentType' "HAND_COVER"
+pattern ProtectiveEquipmentTypeHandCover :: ProtectiveEquipmentType
+pattern ProtectiveEquipmentTypeHandCover = ProtectiveEquipmentType' "HAND_COVER"
 
-pattern HeadCover :: ProtectiveEquipmentType
-pattern HeadCover = ProtectiveEquipmentType' "HEAD_COVER"
+pattern ProtectiveEquipmentTypeHeadCover :: ProtectiveEquipmentType
+pattern ProtectiveEquipmentTypeHeadCover = ProtectiveEquipmentType' "HEAD_COVER"
 
 {-# COMPLETE
-  FaceCover,
-  HandCover,
-  HeadCover,
+  ProtectiveEquipmentTypeFaceCover,
+  ProtectiveEquipmentTypeHandCover,
+  ProtectiveEquipmentTypeHeadCover,
   ProtectiveEquipmentType'
   #-}

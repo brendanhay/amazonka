@@ -13,86 +13,88 @@
 module Network.AWS.Budgets.Types.ActionStatus
   ( ActionStatus
       ( ActionStatus',
-        Standby,
-        Pending,
-        ExecutionInProgress,
-        ExecutionSuccess,
-        ExecutionFailure,
-        ReverseInProgress,
-        ReverseSuccess,
-        ReverseFailure,
-        ResetInProgress,
-        ResetFailure
+        ActionStatusStandby,
+        ActionStatusPending,
+        ActionStatusExecutionInProgress,
+        ActionStatusExecutionSuccess,
+        ActionStatusExecutionFailure,
+        ActionStatusReverseInProgress,
+        ActionStatusReverseSuccess,
+        ActionStatusReverseFailure,
+        ActionStatusResetInProgress,
+        ActionStatusResetFailure,
+        fromActionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionStatus = ActionStatus' Lude.Text
+newtype ActionStatus = ActionStatus' {fromActionStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standby :: ActionStatus
-pattern Standby = ActionStatus' "STANDBY"
+pattern ActionStatusStandby :: ActionStatus
+pattern ActionStatusStandby = ActionStatus' "STANDBY"
 
-pattern Pending :: ActionStatus
-pattern Pending = ActionStatus' "PENDING"
+pattern ActionStatusPending :: ActionStatus
+pattern ActionStatusPending = ActionStatus' "PENDING"
 
-pattern ExecutionInProgress :: ActionStatus
-pattern ExecutionInProgress = ActionStatus' "EXECUTION_IN_PROGRESS"
+pattern ActionStatusExecutionInProgress :: ActionStatus
+pattern ActionStatusExecutionInProgress = ActionStatus' "EXECUTION_IN_PROGRESS"
 
-pattern ExecutionSuccess :: ActionStatus
-pattern ExecutionSuccess = ActionStatus' "EXECUTION_SUCCESS"
+pattern ActionStatusExecutionSuccess :: ActionStatus
+pattern ActionStatusExecutionSuccess = ActionStatus' "EXECUTION_SUCCESS"
 
-pattern ExecutionFailure :: ActionStatus
-pattern ExecutionFailure = ActionStatus' "EXECUTION_FAILURE"
+pattern ActionStatusExecutionFailure :: ActionStatus
+pattern ActionStatusExecutionFailure = ActionStatus' "EXECUTION_FAILURE"
 
-pattern ReverseInProgress :: ActionStatus
-pattern ReverseInProgress = ActionStatus' "REVERSE_IN_PROGRESS"
+pattern ActionStatusReverseInProgress :: ActionStatus
+pattern ActionStatusReverseInProgress = ActionStatus' "REVERSE_IN_PROGRESS"
 
-pattern ReverseSuccess :: ActionStatus
-pattern ReverseSuccess = ActionStatus' "REVERSE_SUCCESS"
+pattern ActionStatusReverseSuccess :: ActionStatus
+pattern ActionStatusReverseSuccess = ActionStatus' "REVERSE_SUCCESS"
 
-pattern ReverseFailure :: ActionStatus
-pattern ReverseFailure = ActionStatus' "REVERSE_FAILURE"
+pattern ActionStatusReverseFailure :: ActionStatus
+pattern ActionStatusReverseFailure = ActionStatus' "REVERSE_FAILURE"
 
-pattern ResetInProgress :: ActionStatus
-pattern ResetInProgress = ActionStatus' "RESET_IN_PROGRESS"
+pattern ActionStatusResetInProgress :: ActionStatus
+pattern ActionStatusResetInProgress = ActionStatus' "RESET_IN_PROGRESS"
 
-pattern ResetFailure :: ActionStatus
-pattern ResetFailure = ActionStatus' "RESET_FAILURE"
+pattern ActionStatusResetFailure :: ActionStatus
+pattern ActionStatusResetFailure = ActionStatus' "RESET_FAILURE"
 
 {-# COMPLETE
-  Standby,
-  Pending,
-  ExecutionInProgress,
-  ExecutionSuccess,
-  ExecutionFailure,
-  ReverseInProgress,
-  ReverseSuccess,
-  ReverseFailure,
-  ResetInProgress,
-  ResetFailure,
+  ActionStatusStandby,
+  ActionStatusPending,
+  ActionStatusExecutionInProgress,
+  ActionStatusExecutionSuccess,
+  ActionStatusExecutionFailure,
+  ActionStatusReverseInProgress,
+  ActionStatusReverseSuccess,
+  ActionStatusReverseFailure,
+  ActionStatusResetInProgress,
+  ActionStatusResetFailure,
   ActionStatus'
   #-}

@@ -23,121 +23,107 @@ module Network.AWS.Organizations.DescribeHandshake
     mkDescribeHandshake,
 
     -- ** Request lenses
-    dHandshakeId,
+    dhHandshakeId,
 
     -- * Destructuring the response
     DescribeHandshakeResponse (..),
     mkDescribeHandshakeResponse,
 
     -- ** Response lenses
-    dhrsHandshake,
-    dhrsResponseStatus,
+    dhrrsHandshake,
+    dhrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeHandshake' smart constructor.
 newtype DescribeHandshake = DescribeHandshake'
   { -- | The unique identifier (ID) of the handshake that you want information about. You can get the ID from the original call to 'InviteAccountToOrganization' , or from a call to 'ListHandshakesForAccount' or 'ListHandshakesForOrganization' .
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
-    handshakeId :: Lude.Text
+    handshakeId :: Types.HandshakeId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeHandshake' with the minimum fields required to make a request.
---
--- * 'handshakeId' - The unique identifier (ID) of the handshake that you want information about. You can get the ID from the original call to 'InviteAccountToOrganization' , or from a call to 'ListHandshakesForAccount' or 'ListHandshakesForOrganization' .
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+-- | Creates a 'DescribeHandshake' value with any optional fields omitted.
 mkDescribeHandshake ::
   -- | 'handshakeId'
-  Lude.Text ->
+  Types.HandshakeId ->
   DescribeHandshake
-mkDescribeHandshake pHandshakeId_ =
-  DescribeHandshake' {handshakeId = pHandshakeId_}
+mkDescribeHandshake handshakeId = DescribeHandshake' {handshakeId}
 
 -- | The unique identifier (ID) of the handshake that you want information about. You can get the ID from the original call to 'InviteAccountToOrganization' , or from a call to 'ListHandshakesForAccount' or 'ListHandshakesForOrganization' .
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
 --
 -- /Note:/ Consider using 'handshakeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dHandshakeId :: Lens.Lens' DescribeHandshake Lude.Text
-dHandshakeId = Lens.lens (handshakeId :: DescribeHandshake -> Lude.Text) (\s a -> s {handshakeId = a} :: DescribeHandshake)
-{-# DEPRECATED dHandshakeId "Use generic-lens or generic-optics with 'handshakeId' instead." #-}
+dhHandshakeId :: Lens.Lens' DescribeHandshake Types.HandshakeId
+dhHandshakeId = Lens.field @"handshakeId"
+{-# DEPRECATED dhHandshakeId "Use generic-lens or generic-optics with 'handshakeId' instead." #-}
 
-instance Lude.AWSRequest DescribeHandshake where
+instance Core.FromJSON DescribeHandshake where
+  toJSON DescribeHandshake {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("HandshakeId" Core..= handshakeId)])
+
+instance Core.AWSRequest DescribeHandshake where
   type Rs DescribeHandshake = DescribeHandshakeResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.DescribeHandshake")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeHandshakeResponse'
-            Lude.<$> (x Lude..?> "Handshake") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Handshake") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeHandshake where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSOrganizationsV20161128.DescribeHandshake" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeHandshake where
-  toJSON DescribeHandshake' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("HandshakeId" Lude..= handshakeId)])
-
-instance Lude.ToPath DescribeHandshake where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeHandshake where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeHandshakeResponse' smart constructor.
 data DescribeHandshakeResponse = DescribeHandshakeResponse'
   { -- | A structure that contains information about the specified handshake.
-    handshake :: Lude.Maybe Handshake,
+    handshake :: Core.Maybe Types.Handshake,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeHandshakeResponse' with the minimum fields required to make a request.
---
--- * 'handshake' - A structure that contains information about the specified handshake.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeHandshakeResponse' value with any optional fields omitted.
 mkDescribeHandshakeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeHandshakeResponse
-mkDescribeHandshakeResponse pResponseStatus_ =
+mkDescribeHandshakeResponse responseStatus =
   DescribeHandshakeResponse'
-    { handshake = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { handshake = Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that contains information about the specified handshake.
 --
 -- /Note:/ Consider using 'handshake' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhrsHandshake :: Lens.Lens' DescribeHandshakeResponse (Lude.Maybe Handshake)
-dhrsHandshake = Lens.lens (handshake :: DescribeHandshakeResponse -> Lude.Maybe Handshake) (\s a -> s {handshake = a} :: DescribeHandshakeResponse)
-{-# DEPRECATED dhrsHandshake "Use generic-lens or generic-optics with 'handshake' instead." #-}
+dhrrsHandshake :: Lens.Lens' DescribeHandshakeResponse (Core.Maybe Types.Handshake)
+dhrrsHandshake = Lens.field @"handshake"
+{-# DEPRECATED dhrrsHandshake "Use generic-lens or generic-optics with 'handshake' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhrsResponseStatus :: Lens.Lens' DescribeHandshakeResponse Lude.Int
-dhrsResponseStatus = Lens.lens (responseStatus :: DescribeHandshakeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHandshakeResponse)
-{-# DEPRECATED dhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dhrrsResponseStatus :: Lens.Lens' DescribeHandshakeResponse Core.Int
+dhrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dhrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

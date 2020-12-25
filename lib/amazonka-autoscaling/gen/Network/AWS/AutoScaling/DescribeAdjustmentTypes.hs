@@ -34,90 +34,86 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     mkDescribeAdjustmentTypesResponse,
 
     -- ** Response lenses
-    datrsAdjustmentTypes,
-    datrsResponseStatus,
+    datrrsAdjustmentTypes,
+    datrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAdjustmentTypes' smart constructor.
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAdjustmentTypes' with the minimum fields required to make a request.
+-- | Creates a 'DescribeAdjustmentTypes' value with any optional fields omitted.
 mkDescribeAdjustmentTypes ::
   DescribeAdjustmentTypes
 mkDescribeAdjustmentTypes = DescribeAdjustmentTypes'
 
-instance Lude.AWSRequest DescribeAdjustmentTypes where
+instance Core.AWSRequest DescribeAdjustmentTypes where
   type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
-  request = Req.postQuery autoScalingService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAdjustmentTypes")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeAdjustmentTypesResult"
       ( \s h x ->
           DescribeAdjustmentTypesResponse'
-            Lude.<$> ( x Lude..@? "AdjustmentTypes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeAdjustmentTypes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAdjustmentTypes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAdjustmentTypes where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("DescribeAdjustmentTypes" :: Lude.ByteString),
-            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
-          ]
+            Core.<$> (x Core..@? "AdjustmentTypes" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | /See:/ 'mkDescribeAdjustmentTypesResponse' smart constructor.
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
   { -- | The policy adjustment types.
-    adjustmentTypes :: Lude.Maybe [AdjustmentType],
+    adjustmentTypes :: Core.Maybe [Types.AdjustmentType],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAdjustmentTypesResponse' with the minimum fields required to make a request.
---
--- * 'adjustmentTypes' - The policy adjustment types.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAdjustmentTypesResponse' value with any optional fields omitted.
 mkDescribeAdjustmentTypesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAdjustmentTypesResponse
-mkDescribeAdjustmentTypesResponse pResponseStatus_ =
+mkDescribeAdjustmentTypesResponse responseStatus =
   DescribeAdjustmentTypesResponse'
-    { adjustmentTypes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { adjustmentTypes = Core.Nothing,
+      responseStatus
     }
 
 -- | The policy adjustment types.
 --
 -- /Note:/ Consider using 'adjustmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datrsAdjustmentTypes :: Lens.Lens' DescribeAdjustmentTypesResponse (Lude.Maybe [AdjustmentType])
-datrsAdjustmentTypes = Lens.lens (adjustmentTypes :: DescribeAdjustmentTypesResponse -> Lude.Maybe [AdjustmentType]) (\s a -> s {adjustmentTypes = a} :: DescribeAdjustmentTypesResponse)
-{-# DEPRECATED datrsAdjustmentTypes "Use generic-lens or generic-optics with 'adjustmentTypes' instead." #-}
+datrrsAdjustmentTypes :: Lens.Lens' DescribeAdjustmentTypesResponse (Core.Maybe [Types.AdjustmentType])
+datrrsAdjustmentTypes = Lens.field @"adjustmentTypes"
+{-# DEPRECATED datrrsAdjustmentTypes "Use generic-lens or generic-optics with 'adjustmentTypes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datrsResponseStatus :: Lens.Lens' DescribeAdjustmentTypesResponse Lude.Int
-datrsResponseStatus = Lens.lens (responseStatus :: DescribeAdjustmentTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAdjustmentTypesResponse)
-{-# DEPRECATED datrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+datrrsResponseStatus :: Lens.Lens' DescribeAdjustmentTypesResponse Core.Int
+datrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED datrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

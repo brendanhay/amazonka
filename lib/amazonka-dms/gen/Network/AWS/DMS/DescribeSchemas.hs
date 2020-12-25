@@ -24,69 +24,69 @@ module Network.AWS.DMS.DescribeSchemas
     mkDescribeSchemas,
 
     -- ** Request lenses
+    dsEndpointArn,
     dsMarker,
     dsMaxRecords,
-    dsEndpointARN,
 
     -- * Destructuring the response
     DescribeSchemasResponse (..),
     mkDescribeSchemasResponse,
 
     -- ** Response lenses
-    dsrsSchemas,
-    dsrsMarker,
-    dsrsResponseStatus,
+    dsrrsMarker,
+    dsrrsSchemas,
+    dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeSchemas' smart constructor.
 data DescribeSchemas = DescribeSchemas'
-  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+    endpointArn :: Types.EndpointArn,
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.Marker,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-    endpointARN :: Lude.Text
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSchemas' with the minimum fields required to make a request.
---
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- | Creates a 'DescribeSchemas' value with any optional fields omitted.
 mkDescribeSchemas ::
-  -- | 'endpointARN'
-  Lude.Text ->
+  -- | 'endpointArn'
+  Types.EndpointArn ->
   DescribeSchemas
-mkDescribeSchemas pEndpointARN_ =
+mkDescribeSchemas endpointArn =
   DescribeSchemas'
-    { marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      endpointARN = pEndpointARN_
+    { endpointArn,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+--
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsEndpointArn :: Lens.Lens' DescribeSchemas Types.EndpointArn
+dsEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED dsEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsMarker :: Lens.Lens' DescribeSchemas (Lude.Maybe Lude.Text)
-dsMarker = Lens.lens (marker :: DescribeSchemas -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSchemas)
+dsMarker :: Lens.Lens' DescribeSchemas (Core.Maybe Types.Marker)
+dsMarker = Lens.field @"marker"
 {-# DEPRECATED dsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
@@ -95,110 +95,96 @@ dsMarker = Lens.lens (marker :: DescribeSchemas -> Lude.Maybe Lude.Text) (\s a -
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsMaxRecords :: Lens.Lens' DescribeSchemas (Lude.Maybe Lude.Int)
-dsMaxRecords = Lens.lens (maxRecords :: DescribeSchemas -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeSchemas)
+dsMaxRecords :: Lens.Lens' DescribeSchemas (Core.Maybe Core.Int)
+dsMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
---
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsEndpointARN :: Lens.Lens' DescribeSchemas Lude.Text
-dsEndpointARN = Lens.lens (endpointARN :: DescribeSchemas -> Lude.Text) (\s a -> s {endpointARN = a} :: DescribeSchemas)
-{-# DEPRECATED dsEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+instance Core.FromJSON DescribeSchemas where
+  toJSON DescribeSchemas {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EndpointArn" Core..= endpointArn),
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords
+          ]
+      )
 
-instance Page.AWSPager DescribeSchemas where
-  page rq rs
-    | Page.stop (rs Lens.^. dsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsrsSchemas) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dsMarker Lens..~ rs Lens.^. dsrsMarker
-
-instance Lude.AWSRequest DescribeSchemas where
+instance Core.AWSRequest DescribeSchemas where
   type Rs DescribeSchemas = DescribeSchemasResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonDMSv20160101.DescribeSchemas")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeSchemasResponse'
-            Lude.<$> (x Lude..?> "Schemas" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "Schemas")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSchemas where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDMSv20160101.DescribeSchemas" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeSchemas where
-  toJSON DescribeSchemas' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            ("MaxRecords" Lude..=) Lude.<$> maxRecords,
-            Lude.Just ("EndpointArn" Lude..= endpointARN)
-          ]
-      )
-
-instance Lude.ToPath DescribeSchemas where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSchemas where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeSchemas where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"schemas" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeSchemasResponse' smart constructor.
 data DescribeSchemasResponse = DescribeSchemasResponse'
-  { -- | The described schema.
-    schemas :: Lude.Maybe [Lude.Text],
-    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.Marker,
+    -- | The described schema.
+    schemas :: Core.Maybe [Types.String],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSchemasResponse' with the minimum fields required to make a request.
---
--- * 'schemas' - The described schema.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSchemasResponse' value with any optional fields omitted.
 mkDescribeSchemasResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSchemasResponse
-mkDescribeSchemasResponse pResponseStatus_ =
+mkDescribeSchemasResponse responseStatus =
   DescribeSchemasResponse'
-    { schemas = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      schemas = Core.Nothing,
+      responseStatus
     }
-
--- | The described schema.
---
--- /Note:/ Consider using 'schemas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSchemas :: Lens.Lens' DescribeSchemasResponse (Lude.Maybe [Lude.Text])
-dsrsSchemas = Lens.lens (schemas :: DescribeSchemasResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {schemas = a} :: DescribeSchemasResponse)
-{-# DEPRECATED dsrsSchemas "Use generic-lens or generic-optics with 'schemas' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsMarker :: Lens.Lens' DescribeSchemasResponse (Lude.Maybe Lude.Text)
-dsrsMarker = Lens.lens (marker :: DescribeSchemasResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSchemasResponse)
-{-# DEPRECATED dsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dsrrsMarker :: Lens.Lens' DescribeSchemasResponse (Core.Maybe Types.Marker)
+dsrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The described schema.
+--
+-- /Note:/ Consider using 'schemas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrrsSchemas :: Lens.Lens' DescribeSchemasResponse (Core.Maybe [Types.String])
+dsrrsSchemas = Lens.field @"schemas"
+{-# DEPRECATED dsrrsSchemas "Use generic-lens or generic-optics with 'schemas' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DescribeSchemasResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DescribeSchemasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSchemasResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DescribeSchemasResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

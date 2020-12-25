@@ -17,12 +17,13 @@ module Network.AWS.RDS.Types.DBClusterParameterGroupNameMessage
     mkDBClusterParameterGroupNameMessage,
 
     -- * Lenses
-    dcpgnmDBClusterParameterGroupName,
+    dbcpgnmDBClusterParameterGroupName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- |
 --
@@ -39,30 +40,18 @@ newtype DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
     --
     --
     --     * Can't end with a hyphen or contain two consecutive hyphens
-    dbClusterParameterGroupName :: Lude.Maybe Lude.Text
+    dBClusterParameterGroupName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBClusterParameterGroupNameMessage' with the minimum fields required to make a request.
---
--- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group.
---
--- Constraints:
---
---     * Must be 1 to 255 letters or numbers.
---
---
---     * First character must be a letter
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens
+-- | Creates a 'DBClusterParameterGroupNameMessage' value with any optional fields omitted.
 mkDBClusterParameterGroupNameMessage ::
   DBClusterParameterGroupNameMessage
 mkDBClusterParameterGroupNameMessage =
   DBClusterParameterGroupNameMessage'
-    { dbClusterParameterGroupName =
-        Lude.Nothing
+    { dBClusterParameterGroupName =
+        Core.Nothing
     }
 
 -- | The name of the DB cluster parameter group.
@@ -79,12 +68,12 @@ mkDBClusterParameterGroupNameMessage =
 --
 --
 --
--- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgnmDBClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroupNameMessage (Lude.Maybe Lude.Text)
-dcpgnmDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: DBClusterParameterGroupNameMessage -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: DBClusterParameterGroupNameMessage)
-{-# DEPRECATED dcpgnmDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'dBClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcpgnmDBClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroupNameMessage (Core.Maybe Types.String)
+dbcpgnmDBClusterParameterGroupName = Lens.field @"dBClusterParameterGroupName"
+{-# DEPRECATED dbcpgnmDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dBClusterParameterGroupName' instead." #-}
 
-instance Lude.FromXML DBClusterParameterGroupNameMessage where
+instance Core.FromXML DBClusterParameterGroupNameMessage where
   parseXML x =
     DBClusterParameterGroupNameMessage'
-      Lude.<$> (x Lude..@? "DBClusterParameterGroupName")
+      Core.<$> (x Core..@? "DBClusterParameterGroupName")

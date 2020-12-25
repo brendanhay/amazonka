@@ -17,52 +17,57 @@ module Network.AWS.OpsWorks.Types.Volume
     mkVolume,
 
     -- * Lenses
-    vInstanceId,
-    vStatus,
-    vSize,
-    vIOPS,
-    vDevice,
-    vEncrypted,
     vAvailabilityZone,
-    vName,
-    vRAIDArrayId,
-    vVolumeId,
-    vRegion,
-    vVolumeType,
-    vEC2VolumeId,
+    vDevice,
+    vEc2VolumeId,
+    vEncrypted,
+    vInstanceId,
+    vIops,
     vMountPoint,
+    vName,
+    vRaidArrayId,
+    vRegion,
+    vSize,
+    vStatus,
+    vVolumeId,
+    vVolumeType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance's Amazon EBS volume.
 --
 -- /See:/ 'mkVolume' smart constructor.
 data Volume = Volume'
-  { -- | The instance ID.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The value returned by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
-    status :: Lude.Maybe Lude.Text,
-    -- | The volume size.
-    size :: Lude.Maybe Lude.Int,
-    -- | For PIOPS volumes, the IOPS per disk.
-    iops :: Lude.Maybe Lude.Int,
+  { -- | The volume Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+    availabilityZone :: Core.Maybe Types.String,
     -- | The device name.
-    device :: Lude.Maybe Lude.Text,
+    device :: Core.Maybe Types.String,
+    -- | The Amazon EC2 volume ID.
+    ec2VolumeId :: Core.Maybe Types.String,
     -- | Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
-    encrypted :: Lude.Maybe Lude.Bool,
-    -- | The volume Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
-    availabilityZone :: Lude.Maybe Lude.Text,
+    encrypted :: Core.Maybe Core.Bool,
+    -- | The instance ID.
+    instanceId :: Core.Maybe Types.String,
+    -- | For PIOPS volumes, the IOPS per disk.
+    iops :: Core.Maybe Core.Int,
+    -- | The volume mount point. For example, "/mnt/disk1".
+    mountPoint :: Core.Maybe Types.String,
     -- | The volume name.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.String,
     -- | The RAID array ID.
-    raidArrayId :: Lude.Maybe Lude.Text,
-    -- | The volume ID.
-    volumeId :: Lude.Maybe Lude.Text,
+    raidArrayId :: Core.Maybe Types.String,
     -- | The AWS region. For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
-    region :: Lude.Maybe Lude.Text,
+    region :: Core.Maybe Types.String,
+    -- | The volume size.
+    size :: Core.Maybe Core.Int,
+    -- | The value returned by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
+    status :: Core.Maybe Types.String,
+    -- | The volume ID.
+    volumeId :: Core.Maybe Types.String,
     -- | The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
     --
     --
@@ -79,144 +84,122 @@ data Volume = Volume'
     --
     --
     --     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
-    volumeType :: Lude.Maybe Lude.Text,
-    -- | The Amazon EC2 volume ID.
-    ec2VolumeId :: Lude.Maybe Lude.Text,
-    -- | The volume mount point. For example, "/mnt/disk1".
-    mountPoint :: Lude.Maybe Lude.Text
+    volumeType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Volume' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID.
--- * 'status' - The value returned by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
--- * 'size' - The volume size.
--- * 'iops' - For PIOPS volumes, the IOPS per disk.
--- * 'device' - The device name.
--- * 'encrypted' - Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
--- * 'availabilityZone' - The volume Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'name' - The volume name.
--- * 'raidArrayId' - The RAID array ID.
--- * 'volumeId' - The volume ID.
--- * 'region' - The AWS region. For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'volumeType' - The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
---
---
---     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.
---
---
---     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.
---
---
---     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.
---
---
---     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
---
---
---     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
---
---
--- * 'ec2VolumeId' - The Amazon EC2 volume ID.
--- * 'mountPoint' - The volume mount point. For example, "/mnt/disk1".
+-- | Creates a 'Volume' value with any optional fields omitted.
 mkVolume ::
   Volume
 mkVolume =
   Volume'
-    { instanceId = Lude.Nothing,
-      status = Lude.Nothing,
-      size = Lude.Nothing,
-      iops = Lude.Nothing,
-      device = Lude.Nothing,
-      encrypted = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      name = Lude.Nothing,
-      raidArrayId = Lude.Nothing,
-      volumeId = Lude.Nothing,
-      region = Lude.Nothing,
-      volumeType = Lude.Nothing,
-      ec2VolumeId = Lude.Nothing,
-      mountPoint = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      device = Core.Nothing,
+      ec2VolumeId = Core.Nothing,
+      encrypted = Core.Nothing,
+      instanceId = Core.Nothing,
+      iops = Core.Nothing,
+      mountPoint = Core.Nothing,
+      name = Core.Nothing,
+      raidArrayId = Core.Nothing,
+      region = Core.Nothing,
+      size = Core.Nothing,
+      status = Core.Nothing,
+      volumeId = Core.Nothing,
+      volumeType = Core.Nothing
     }
-
--- | The instance ID.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vInstanceId :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vInstanceId = Lens.lens (instanceId :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: Volume)
-{-# DEPRECATED vInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The value returned by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vStatus :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vStatus = Lens.lens (status :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Volume)
-{-# DEPRECATED vStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The volume size.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vSize :: Lens.Lens' Volume (Lude.Maybe Lude.Int)
-vSize = Lens.lens (size :: Volume -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: Volume)
-{-# DEPRECATED vSize "Use generic-lens or generic-optics with 'size' instead." #-}
-
--- | For PIOPS volumes, the IOPS per disk.
---
--- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vIOPS :: Lens.Lens' Volume (Lude.Maybe Lude.Int)
-vIOPS = Lens.lens (iops :: Volume -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: Volume)
-{-# DEPRECATED vIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
-
--- | The device name.
---
--- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vDevice :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vDevice = Lens.lens (device :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: Volume)
-{-# DEPRECATED vDevice "Use generic-lens or generic-optics with 'device' instead." #-}
-
--- | Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
---
--- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vEncrypted :: Lens.Lens' Volume (Lude.Maybe Lude.Bool)
-vEncrypted = Lens.lens (encrypted :: Volume -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: Volume)
-{-# DEPRECATED vEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | The volume Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vAvailabilityZone :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vAvailabilityZone = Lens.lens (availabilityZone :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: Volume)
+vAvailabilityZone :: Lens.Lens' Volume (Core.Maybe Types.String)
+vAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED vAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | The device name.
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vDevice :: Lens.Lens' Volume (Core.Maybe Types.String)
+vDevice = Lens.field @"device"
+{-# DEPRECATED vDevice "Use generic-lens or generic-optics with 'device' instead." #-}
+
+-- | The Amazon EC2 volume ID.
+--
+-- /Note:/ Consider using 'ec2VolumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vEc2VolumeId :: Lens.Lens' Volume (Core.Maybe Types.String)
+vEc2VolumeId = Lens.field @"ec2VolumeId"
+{-# DEPRECATED vEc2VolumeId "Use generic-lens or generic-optics with 'ec2VolumeId' instead." #-}
+
+-- | Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vEncrypted :: Lens.Lens' Volume (Core.Maybe Core.Bool)
+vEncrypted = Lens.field @"encrypted"
+{-# DEPRECATED vEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
+
+-- | The instance ID.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vInstanceId :: Lens.Lens' Volume (Core.Maybe Types.String)
+vInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED vInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | For PIOPS volumes, the IOPS per disk.
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vIops :: Lens.Lens' Volume (Core.Maybe Core.Int)
+vIops = Lens.field @"iops"
+{-# DEPRECATED vIops "Use generic-lens or generic-optics with 'iops' instead." #-}
+
+-- | The volume mount point. For example, "/mnt/disk1".
+--
+-- /Note:/ Consider using 'mountPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vMountPoint :: Lens.Lens' Volume (Core.Maybe Types.String)
+vMountPoint = Lens.field @"mountPoint"
+{-# DEPRECATED vMountPoint "Use generic-lens or generic-optics with 'mountPoint' instead." #-}
 
 -- | The volume name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vName :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vName = Lens.lens (name :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Volume)
+vName :: Lens.Lens' Volume (Core.Maybe Types.String)
+vName = Lens.field @"name"
 {-# DEPRECATED vName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The RAID array ID.
 --
 -- /Note:/ Consider using 'raidArrayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vRAIDArrayId :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vRAIDArrayId = Lens.lens (raidArrayId :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {raidArrayId = a} :: Volume)
-{-# DEPRECATED vRAIDArrayId "Use generic-lens or generic-optics with 'raidArrayId' instead." #-}
-
--- | The volume ID.
---
--- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vVolumeId :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vVolumeId = Lens.lens (volumeId :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: Volume)
-{-# DEPRECATED vVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+vRaidArrayId :: Lens.Lens' Volume (Core.Maybe Types.String)
+vRaidArrayId = Lens.field @"raidArrayId"
+{-# DEPRECATED vRaidArrayId "Use generic-lens or generic-optics with 'raidArrayId' instead." #-}
 
 -- | The AWS region. For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vRegion :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vRegion = Lens.lens (region :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: Volume)
+vRegion :: Lens.Lens' Volume (Core.Maybe Types.String)
+vRegion = Lens.field @"region"
 {-# DEPRECATED vRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+-- | The volume size.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vSize :: Lens.Lens' Volume (Core.Maybe Core.Int)
+vSize = Lens.field @"size"
+{-# DEPRECATED vSize "Use generic-lens or generic-optics with 'size' instead." #-}
+
+-- | The value returned by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vStatus :: Lens.Lens' Volume (Core.Maybe Types.String)
+vStatus = Lens.field @"status"
+{-# DEPRECATED vStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The volume ID.
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vVolumeId :: Lens.Lens' Volume (Core.Maybe Types.String)
+vVolumeId = Lens.field @"volumeId"
+{-# DEPRECATED vVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
 --
@@ -238,42 +221,26 @@ vRegion = Lens.lens (region :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {regio
 --
 --
 -- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vVolumeType :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vVolumeType = Lens.lens (volumeType :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {volumeType = a} :: Volume)
+vVolumeType :: Lens.Lens' Volume (Core.Maybe Types.String)
+vVolumeType = Lens.field @"volumeType"
 {-# DEPRECATED vVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
--- | The Amazon EC2 volume ID.
---
--- /Note:/ Consider using 'ec2VolumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vEC2VolumeId :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vEC2VolumeId = Lens.lens (ec2VolumeId :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {ec2VolumeId = a} :: Volume)
-{-# DEPRECATED vEC2VolumeId "Use generic-lens or generic-optics with 'ec2VolumeId' instead." #-}
-
--- | The volume mount point. For example, "/mnt/disk1".
---
--- /Note:/ Consider using 'mountPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vMountPoint :: Lens.Lens' Volume (Lude.Maybe Lude.Text)
-vMountPoint = Lens.lens (mountPoint :: Volume -> Lude.Maybe Lude.Text) (\s a -> s {mountPoint = a} :: Volume)
-{-# DEPRECATED vMountPoint "Use generic-lens or generic-optics with 'mountPoint' instead." #-}
-
-instance Lude.FromJSON Volume where
+instance Core.FromJSON Volume where
   parseJSON =
-    Lude.withObject
-      "Volume"
-      ( \x ->
-          Volume'
-            Lude.<$> (x Lude..:? "InstanceId")
-            Lude.<*> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "Size")
-            Lude.<*> (x Lude..:? "Iops")
-            Lude.<*> (x Lude..:? "Device")
-            Lude.<*> (x Lude..:? "Encrypted")
-            Lude.<*> (x Lude..:? "AvailabilityZone")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "RaidArrayId")
-            Lude.<*> (x Lude..:? "VolumeId")
-            Lude.<*> (x Lude..:? "Region")
-            Lude.<*> (x Lude..:? "VolumeType")
-            Lude.<*> (x Lude..:? "Ec2VolumeId")
-            Lude.<*> (x Lude..:? "MountPoint")
-      )
+    Core.withObject "Volume" Core.$
+      \x ->
+        Volume'
+          Core.<$> (x Core..:? "AvailabilityZone")
+          Core.<*> (x Core..:? "Device")
+          Core.<*> (x Core..:? "Ec2VolumeId")
+          Core.<*> (x Core..:? "Encrypted")
+          Core.<*> (x Core..:? "InstanceId")
+          Core.<*> (x Core..:? "Iops")
+          Core.<*> (x Core..:? "MountPoint")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "RaidArrayId")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "Size")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "VolumeId")
+          Core.<*> (x Core..:? "VolumeType")

@@ -24,103 +24,100 @@ module Network.AWS.IAM.GenerateCredentialReport
     mkGenerateCredentialReportResponse,
 
     -- ** Response lenses
-    gcrrsState,
-    gcrrsDescription,
-    gcrrsResponseStatus,
+    gcrrrsDescription,
+    gcrrrsState,
+    gcrrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGenerateCredentialReport' smart constructor.
 data GenerateCredentialReport = GenerateCredentialReport'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateCredentialReport' with the minimum fields required to make a request.
+-- | Creates a 'GenerateCredentialReport' value with any optional fields omitted.
 mkGenerateCredentialReport ::
   GenerateCredentialReport
 mkGenerateCredentialReport = GenerateCredentialReport'
 
-instance Lude.AWSRequest GenerateCredentialReport where
+instance Core.AWSRequest GenerateCredentialReport where
   type Rs GenerateCredentialReport = GenerateCredentialReportResponse
-  request = Req.postQuery iamService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GenerateCredentialReport")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GenerateCredentialReportResult"
       ( \s h x ->
           GenerateCredentialReportResponse'
-            Lude.<$> (x Lude..@? "State")
-            Lude.<*> (x Lude..@? "Description")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GenerateCredentialReport where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GenerateCredentialReport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GenerateCredentialReport where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("GenerateCredentialReport" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
-          ]
+            Core.<$> (x Core..@? "Description")
+            Core.<*> (x Core..@? "State")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | Contains the response to a successful 'GenerateCredentialReport' request.
 --
 -- /See:/ 'mkGenerateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
-  { -- | Information about the state of the credential report.
-    state :: Lude.Maybe ReportStateType,
-    -- | Information about the credential report.
-    description :: Lude.Maybe Lude.Text,
+  { -- | Information about the credential report.
+    description :: Core.Maybe Types.Description,
+    -- | Information about the state of the credential report.
+    state :: Core.Maybe Types.ReportStateType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateCredentialReportResponse' with the minimum fields required to make a request.
---
--- * 'state' - Information about the state of the credential report.
--- * 'description' - Information about the credential report.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GenerateCredentialReportResponse' value with any optional fields omitted.
 mkGenerateCredentialReportResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GenerateCredentialReportResponse
-mkGenerateCredentialReportResponse pResponseStatus_ =
+mkGenerateCredentialReportResponse responseStatus =
   GenerateCredentialReportResponse'
-    { state = Lude.Nothing,
-      description = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { description = Core.Nothing,
+      state = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the state of the credential report.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrrsState :: Lens.Lens' GenerateCredentialReportResponse (Lude.Maybe ReportStateType)
-gcrrsState = Lens.lens (state :: GenerateCredentialReportResponse -> Lude.Maybe ReportStateType) (\s a -> s {state = a} :: GenerateCredentialReportResponse)
-{-# DEPRECATED gcrrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Information about the credential report.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrrsDescription :: Lens.Lens' GenerateCredentialReportResponse (Lude.Maybe Lude.Text)
-gcrrsDescription = Lens.lens (description :: GenerateCredentialReportResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GenerateCredentialReportResponse)
-{-# DEPRECATED gcrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+gcrrrsDescription :: Lens.Lens' GenerateCredentialReportResponse (Core.Maybe Types.Description)
+gcrrrsDescription = Lens.field @"description"
+{-# DEPRECATED gcrrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Information about the state of the credential report.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrrsState :: Lens.Lens' GenerateCredentialReportResponse (Core.Maybe Types.ReportStateType)
+gcrrrsState = Lens.field @"state"
+{-# DEPRECATED gcrrrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrrsResponseStatus :: Lens.Lens' GenerateCredentialReportResponse Lude.Int
-gcrrsResponseStatus = Lens.lens (responseStatus :: GenerateCredentialReportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateCredentialReportResponse)
-{-# DEPRECATED gcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcrrrsResponseStatus :: Lens.Lens' GenerateCredentialReportResponse Core.Int
+gcrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

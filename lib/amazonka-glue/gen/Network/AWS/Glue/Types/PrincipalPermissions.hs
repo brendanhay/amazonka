@@ -17,69 +17,63 @@ module Network.AWS.Glue.Types.PrincipalPermissions
     mkPrincipalPermissions,
 
     -- * Lenses
-    ppPrincipal,
     ppPermissions,
+    ppPrincipal,
   )
 where
 
-import Network.AWS.Glue.Types.DataLakePrincipal
-import Network.AWS.Glue.Types.Permission
+import qualified Network.AWS.Glue.Types.DataLakePrincipal as Types
+import qualified Network.AWS.Glue.Types.Permission as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Permissions granted to a principal.
 --
 -- /See:/ 'mkPrincipalPermissions' smart constructor.
 data PrincipalPermissions = PrincipalPermissions'
-  { -- | The principal who is granted permissions.
-    principal :: Lude.Maybe DataLakePrincipal,
-    -- | The permissions that are granted to the principal.
-    permissions :: Lude.Maybe [Permission]
+  { -- | The permissions that are granted to the principal.
+    permissions :: Core.Maybe [Types.Permission],
+    -- | The principal who is granted permissions.
+    principal :: Core.Maybe Types.DataLakePrincipal
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PrincipalPermissions' with the minimum fields required to make a request.
---
--- * 'principal' - The principal who is granted permissions.
--- * 'permissions' - The permissions that are granted to the principal.
+-- | Creates a 'PrincipalPermissions' value with any optional fields omitted.
 mkPrincipalPermissions ::
   PrincipalPermissions
 mkPrincipalPermissions =
   PrincipalPermissions'
-    { principal = Lude.Nothing,
-      permissions = Lude.Nothing
+    { permissions = Core.Nothing,
+      principal = Core.Nothing
     }
-
--- | The principal who is granted permissions.
---
--- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppPrincipal :: Lens.Lens' PrincipalPermissions (Lude.Maybe DataLakePrincipal)
-ppPrincipal = Lens.lens (principal :: PrincipalPermissions -> Lude.Maybe DataLakePrincipal) (\s a -> s {principal = a} :: PrincipalPermissions)
-{-# DEPRECATED ppPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
 -- | The permissions that are granted to the principal.
 --
 -- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppPermissions :: Lens.Lens' PrincipalPermissions (Lude.Maybe [Permission])
-ppPermissions = Lens.lens (permissions :: PrincipalPermissions -> Lude.Maybe [Permission]) (\s a -> s {permissions = a} :: PrincipalPermissions)
+ppPermissions :: Lens.Lens' PrincipalPermissions (Core.Maybe [Types.Permission])
+ppPermissions = Lens.field @"permissions"
 {-# DEPRECATED ppPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
-instance Lude.FromJSON PrincipalPermissions where
-  parseJSON =
-    Lude.withObject
-      "PrincipalPermissions"
-      ( \x ->
-          PrincipalPermissions'
-            Lude.<$> (x Lude..:? "Principal")
-            Lude.<*> (x Lude..:? "Permissions" Lude..!= Lude.mempty)
-      )
+-- | The principal who is granted permissions.
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppPrincipal :: Lens.Lens' PrincipalPermissions (Core.Maybe Types.DataLakePrincipal)
+ppPrincipal = Lens.field @"principal"
+{-# DEPRECATED ppPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
-instance Lude.ToJSON PrincipalPermissions where
-  toJSON PrincipalPermissions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Principal" Lude..=) Lude.<$> principal,
-            ("Permissions" Lude..=) Lude.<$> permissions
+instance Core.FromJSON PrincipalPermissions where
+  toJSON PrincipalPermissions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Permissions" Core..=) Core.<$> permissions,
+            ("Principal" Core..=) Core.<$> principal
           ]
       )
+
+instance Core.FromJSON PrincipalPermissions where
+  parseJSON =
+    Core.withObject "PrincipalPermissions" Core.$
+      \x ->
+        PrincipalPermissions'
+          Core.<$> (x Core..:? "Permissions") Core.<*> (x Core..:? "Principal")

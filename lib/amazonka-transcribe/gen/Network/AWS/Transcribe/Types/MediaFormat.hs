@@ -13,71 +13,73 @@
 module Network.AWS.Transcribe.Types.MediaFormat
   ( MediaFormat
       ( MediaFormat',
-        MP3,
-        MP4,
-        Wav,
-        Flac,
-        Ogg,
-        Amr,
-        Webm
+        MediaFormatMP3,
+        MediaFormatMP4,
+        MediaFormatWav,
+        MediaFormatFlac,
+        MediaFormatOgg,
+        MediaFormatAmr,
+        MediaFormatWebm,
+        fromMediaFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MediaFormat = MediaFormat' Lude.Text
+newtype MediaFormat = MediaFormat' {fromMediaFormat :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MP3 :: MediaFormat
-pattern MP3 = MediaFormat' "mp3"
+pattern MediaFormatMP3 :: MediaFormat
+pattern MediaFormatMP3 = MediaFormat' "mp3"
 
-pattern MP4 :: MediaFormat
-pattern MP4 = MediaFormat' "mp4"
+pattern MediaFormatMP4 :: MediaFormat
+pattern MediaFormatMP4 = MediaFormat' "mp4"
 
-pattern Wav :: MediaFormat
-pattern Wav = MediaFormat' "wav"
+pattern MediaFormatWav :: MediaFormat
+pattern MediaFormatWav = MediaFormat' "wav"
 
-pattern Flac :: MediaFormat
-pattern Flac = MediaFormat' "flac"
+pattern MediaFormatFlac :: MediaFormat
+pattern MediaFormatFlac = MediaFormat' "flac"
 
-pattern Ogg :: MediaFormat
-pattern Ogg = MediaFormat' "ogg"
+pattern MediaFormatOgg :: MediaFormat
+pattern MediaFormatOgg = MediaFormat' "ogg"
 
-pattern Amr :: MediaFormat
-pattern Amr = MediaFormat' "amr"
+pattern MediaFormatAmr :: MediaFormat
+pattern MediaFormatAmr = MediaFormat' "amr"
 
-pattern Webm :: MediaFormat
-pattern Webm = MediaFormat' "webm"
+pattern MediaFormatWebm :: MediaFormat
+pattern MediaFormatWebm = MediaFormat' "webm"
 
 {-# COMPLETE
-  MP3,
-  MP4,
-  Wav,
-  Flac,
-  Ogg,
-  Amr,
-  Webm,
+  MediaFormatMP3,
+  MediaFormatMP4,
+  MediaFormatWav,
+  MediaFormatFlac,
+  MediaFormatOgg,
+  MediaFormatAmr,
+  MediaFormatWebm,
   MediaFormat'
   #-}

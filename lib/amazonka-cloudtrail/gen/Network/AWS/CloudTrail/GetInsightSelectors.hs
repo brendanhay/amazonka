@@ -29,17 +29,17 @@ module Network.AWS.CloudTrail.GetInsightSelectors
     mkGetInsightSelectorsResponse,
 
     -- ** Response lenses
-    gisrsTrailARN,
-    gisrsInsightSelectors,
-    gisrsResponseStatus,
+    gisrrsInsightSelectors,
+    gisrrsTrailARN,
+    gisrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.CloudTrail.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetInsightSelectors' smart constructor.
 newtype GetInsightSelectors = GetInsightSelectors'
@@ -63,39 +63,17 @@ newtype GetInsightSelectors = GetInsightSelectors'
     --
     -- If you specify a trail ARN, it must be in the format:
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
-    trailName :: Lude.Text
+    trailName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInsightSelectors' with the minimum fields required to make a request.
---
--- * 'trailName' - Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:
---
---
---     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
---
---
---     * Start with a letter or number, and end with a letter or number
---
---
---     * Be between 3 and 128 characters
---
---
---     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are not valid.
---
---
---     * Not be in IP address format (for example, 192.168.5.4)
---
---
--- If you specify a trail ARN, it must be in the format:
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- | Creates a 'GetInsightSelectors' value with any optional fields omitted.
 mkGetInsightSelectors ::
   -- | 'trailName'
-  Lude.Text ->
+  Types.String ->
   GetInsightSelectors
-mkGetInsightSelectors pTrailName_ =
-  GetInsightSelectors' {trailName = pTrailName_}
+mkGetInsightSelectors trailName = GetInsightSelectors' {trailName}
 
 -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:
 --
@@ -119,91 +97,81 @@ mkGetInsightSelectors pTrailName_ =
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- /Note:/ Consider using 'trailName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisTrailName :: Lens.Lens' GetInsightSelectors Lude.Text
-gisTrailName = Lens.lens (trailName :: GetInsightSelectors -> Lude.Text) (\s a -> s {trailName = a} :: GetInsightSelectors)
+gisTrailName :: Lens.Lens' GetInsightSelectors Types.String
+gisTrailName = Lens.field @"trailName"
 {-# DEPRECATED gisTrailName "Use generic-lens or generic-optics with 'trailName' instead." #-}
 
-instance Lude.AWSRequest GetInsightSelectors where
+instance Core.FromJSON GetInsightSelectors where
+  toJSON GetInsightSelectors {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TrailName" Core..= trailName)])
+
+instance Core.AWSRequest GetInsightSelectors where
   type Rs GetInsightSelectors = GetInsightSelectorsResponse
-  request = Req.postJSON cloudTrailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetInsightSelectors"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInsightSelectorsResponse'
-            Lude.<$> (x Lude..?> "TrailARN")
-            Lude.<*> (x Lude..?> "InsightSelectors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InsightSelectors")
+            Core.<*> (x Core..:? "TrailARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInsightSelectors where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetInsightSelectors" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInsightSelectors where
-  toJSON GetInsightSelectors' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TrailName" Lude..= trailName)])
-
-instance Lude.ToPath GetInsightSelectors where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInsightSelectors where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetInsightSelectorsResponse' smart constructor.
 data GetInsightSelectorsResponse = GetInsightSelectorsResponse'
-  { -- | The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.
-    trailARN :: Lude.Maybe Lude.Text,
-    -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
-    insightSelectors :: Lude.Maybe [InsightSelector],
+  { -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
+    insightSelectors :: Core.Maybe [Types.InsightSelector],
+    -- | The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.
+    trailARN :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInsightSelectorsResponse' with the minimum fields required to make a request.
---
--- * 'trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.
--- * 'insightSelectors' - A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInsightSelectorsResponse' value with any optional fields omitted.
 mkGetInsightSelectorsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInsightSelectorsResponse
-mkGetInsightSelectorsResponse pResponseStatus_ =
+mkGetInsightSelectorsResponse responseStatus =
   GetInsightSelectorsResponse'
-    { trailARN = Lude.Nothing,
-      insightSelectors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { insightSelectors = Core.Nothing,
+      trailARN = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.
---
--- /Note:/ Consider using 'trailARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisrsTrailARN :: Lens.Lens' GetInsightSelectorsResponse (Lude.Maybe Lude.Text)
-gisrsTrailARN = Lens.lens (trailARN :: GetInsightSelectorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {trailARN = a} :: GetInsightSelectorsResponse)
-{-# DEPRECATED gisrsTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
 
 -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
 --
 -- /Note:/ Consider using 'insightSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisrsInsightSelectors :: Lens.Lens' GetInsightSelectorsResponse (Lude.Maybe [InsightSelector])
-gisrsInsightSelectors = Lens.lens (insightSelectors :: GetInsightSelectorsResponse -> Lude.Maybe [InsightSelector]) (\s a -> s {insightSelectors = a} :: GetInsightSelectorsResponse)
-{-# DEPRECATED gisrsInsightSelectors "Use generic-lens or generic-optics with 'insightSelectors' instead." #-}
+gisrrsInsightSelectors :: Lens.Lens' GetInsightSelectorsResponse (Core.Maybe [Types.InsightSelector])
+gisrrsInsightSelectors = Lens.field @"insightSelectors"
+{-# DEPRECATED gisrrsInsightSelectors "Use generic-lens or generic-optics with 'insightSelectors' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.
+--
+-- /Note:/ Consider using 'trailARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrrsTrailARN :: Lens.Lens' GetInsightSelectorsResponse (Core.Maybe Types.String)
+gisrrsTrailARN = Lens.field @"trailARN"
+{-# DEPRECATED gisrrsTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisrsResponseStatus :: Lens.Lens' GetInsightSelectorsResponse Lude.Int
-gisrsResponseStatus = Lens.lens (responseStatus :: GetInsightSelectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInsightSelectorsResponse)
-{-# DEPRECATED gisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gisrrsResponseStatus :: Lens.Lens' GetInsightSelectorsResponse Core.Int
+gisrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

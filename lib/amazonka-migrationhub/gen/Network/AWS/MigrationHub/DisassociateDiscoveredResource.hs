@@ -20,9 +20,9 @@ module Network.AWS.MigrationHub.DisassociateDiscoveredResource
     mkDisassociateDiscoveredResource,
 
     -- ** Request lenses
-    ddrConfigurationId,
     ddrProgressUpdateStream,
     ddrMigrationTaskName,
+    ddrConfigurationId,
     ddrDryRun,
 
     -- * Destructuring the response
@@ -30,150 +30,131 @@ module Network.AWS.MigrationHub.DisassociateDiscoveredResource
     mkDisassociateDiscoveredResourceResponse,
 
     -- ** Response lenses
-    ddrrsResponseStatus,
+    ddrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MigrationHub.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateDiscoveredResource' smart constructor.
 data DisassociateDiscoveredResource = DisassociateDiscoveredResource'
-  { -- | ConfigurationId of the Application Discovery Service resource to be disassociated.
-    configurationId :: Lude.Text,
-    -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Lude.Text,
+  { -- | The name of the ProgressUpdateStream.
+    progressUpdateStream :: Types.ProgressUpdateStream,
     -- | The identifier given to the MigrationTask. /Do not store personal data in this field./
-    migrationTaskName :: Lude.Text,
+    migrationTaskName :: Types.MigrationTaskName,
+    -- | ConfigurationId of the Application Discovery Service resource to be disassociated.
+    configurationId :: Types.ConfigurationId,
     -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateDiscoveredResource' with the minimum fields required to make a request.
---
--- * 'configurationId' - ConfigurationId of the Application Discovery Service resource to be disassociated.
--- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
--- * 'migrationTaskName' - The identifier given to the MigrationTask. /Do not store personal data in this field./
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- | Creates a 'DisassociateDiscoveredResource' value with any optional fields omitted.
 mkDisassociateDiscoveredResource ::
-  -- | 'configurationId'
-  Lude.Text ->
   -- | 'progressUpdateStream'
-  Lude.Text ->
+  Types.ProgressUpdateStream ->
   -- | 'migrationTaskName'
-  Lude.Text ->
+  Types.MigrationTaskName ->
+  -- | 'configurationId'
+  Types.ConfigurationId ->
   DisassociateDiscoveredResource
 mkDisassociateDiscoveredResource
-  pConfigurationId_
-  pProgressUpdateStream_
-  pMigrationTaskName_ =
+  progressUpdateStream
+  migrationTaskName
+  configurationId =
     DisassociateDiscoveredResource'
-      { configurationId =
-          pConfigurationId_,
-        progressUpdateStream = pProgressUpdateStream_,
-        migrationTaskName = pMigrationTaskName_,
-        dryRun = Lude.Nothing
+      { progressUpdateStream,
+        migrationTaskName,
+        configurationId,
+        dryRun = Core.Nothing
       }
-
--- | ConfigurationId of the Application Discovery Service resource to be disassociated.
---
--- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrConfigurationId :: Lens.Lens' DisassociateDiscoveredResource Lude.Text
-ddrConfigurationId = Lens.lens (configurationId :: DisassociateDiscoveredResource -> Lude.Text) (\s a -> s {configurationId = a} :: DisassociateDiscoveredResource)
-{-# DEPRECATED ddrConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | The name of the ProgressUpdateStream.
 --
 -- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrProgressUpdateStream :: Lens.Lens' DisassociateDiscoveredResource Lude.Text
-ddrProgressUpdateStream = Lens.lens (progressUpdateStream :: DisassociateDiscoveredResource -> Lude.Text) (\s a -> s {progressUpdateStream = a} :: DisassociateDiscoveredResource)
+ddrProgressUpdateStream :: Lens.Lens' DisassociateDiscoveredResource Types.ProgressUpdateStream
+ddrProgressUpdateStream = Lens.field @"progressUpdateStream"
 {-# DEPRECATED ddrProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
 
 -- | The identifier given to the MigrationTask. /Do not store personal data in this field./
 --
 -- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrMigrationTaskName :: Lens.Lens' DisassociateDiscoveredResource Lude.Text
-ddrMigrationTaskName = Lens.lens (migrationTaskName :: DisassociateDiscoveredResource -> Lude.Text) (\s a -> s {migrationTaskName = a} :: DisassociateDiscoveredResource)
+ddrMigrationTaskName :: Lens.Lens' DisassociateDiscoveredResource Types.MigrationTaskName
+ddrMigrationTaskName = Lens.field @"migrationTaskName"
 {-# DEPRECATED ddrMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
+
+-- | ConfigurationId of the Application Discovery Service resource to be disassociated.
+--
+-- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrConfigurationId :: Lens.Lens' DisassociateDiscoveredResource Types.ConfigurationId
+ddrConfigurationId = Lens.field @"configurationId"
+{-# DEPRECATED ddrConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrDryRun :: Lens.Lens' DisassociateDiscoveredResource (Lude.Maybe Lude.Bool)
-ddrDryRun = Lens.lens (dryRun :: DisassociateDiscoveredResource -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DisassociateDiscoveredResource)
+ddrDryRun :: Lens.Lens' DisassociateDiscoveredResource (Core.Maybe Core.Bool)
+ddrDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ddrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DisassociateDiscoveredResource where
+instance Core.FromJSON DisassociateDiscoveredResource where
+  toJSON DisassociateDiscoveredResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProgressUpdateStream" Core..= progressUpdateStream),
+            Core.Just ("MigrationTaskName" Core..= migrationTaskName),
+            Core.Just ("ConfigurationId" Core..= configurationId),
+            ("DryRun" Core..=) Core.<$> dryRun
+          ]
+      )
+
+instance Core.AWSRequest DisassociateDiscoveredResource where
   type
     Rs DisassociateDiscoveredResource =
       DisassociateDiscoveredResourceResponse
-  request = Req.postJSON migrationHubService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSMigrationHub.DisassociateDiscoveredResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateDiscoveredResourceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateDiscoveredResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSMigrationHub.DisassociateDiscoveredResource" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateDiscoveredResource where
-  toJSON DisassociateDiscoveredResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConfigurationId" Lude..= configurationId),
-            Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
-            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName),
-            ("DryRun" Lude..=) Lude.<$> dryRun
-          ]
-      )
-
-instance Lude.ToPath DisassociateDiscoveredResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateDiscoveredResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateDiscoveredResourceResponse' smart constructor.
 newtype DisassociateDiscoveredResourceResponse = DisassociateDiscoveredResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateDiscoveredResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateDiscoveredResourceResponse' value with any optional fields omitted.
 mkDisassociateDiscoveredResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateDiscoveredResourceResponse
-mkDisassociateDiscoveredResourceResponse pResponseStatus_ =
-  DisassociateDiscoveredResourceResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateDiscoveredResourceResponse responseStatus =
+  DisassociateDiscoveredResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrrsResponseStatus :: Lens.Lens' DisassociateDiscoveredResourceResponse Lude.Int
-ddrrsResponseStatus = Lens.lens (responseStatus :: DisassociateDiscoveredResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateDiscoveredResourceResponse)
-{-# DEPRECATED ddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrrrsResponseStatus :: Lens.Lens' DisassociateDiscoveredResourceResponse Core.Int
+ddrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

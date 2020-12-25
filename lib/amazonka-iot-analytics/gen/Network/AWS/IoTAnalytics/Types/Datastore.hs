@@ -17,29 +17,44 @@ module Network.AWS.IoTAnalytics.Types.Datastore
     mkDatastore,
 
     -- * Lenses
-    dfCreationTime,
-    dfStatus,
-    dfLastMessageArrivalTime,
     dfArn,
-    dfStorage,
-    dfRetentionPeriod,
-    dfName,
+    dfCreationTime,
+    dfLastMessageArrivalTime,
     dfLastUpdateTime,
+    dfName,
+    dfRetentionPeriod,
+    dfStatus,
+    dfStorage,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.DatastoreStatus
-import Network.AWS.IoTAnalytics.Types.DatastoreStorage
-import Network.AWS.IoTAnalytics.Types.RetentionPeriod
+import qualified Network.AWS.IoTAnalytics.Types.DatastoreArn as Types
+import qualified Network.AWS.IoTAnalytics.Types.DatastoreName as Types
+import qualified Network.AWS.IoTAnalytics.Types.DatastoreStatus as Types
+import qualified Network.AWS.IoTAnalytics.Types.DatastoreStorage as Types
+import qualified Network.AWS.IoTAnalytics.Types.RetentionPeriod as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a data store.
 --
 -- /See:/ 'mkDatastore' smart constructor.
 data Datastore = Datastore'
-  { -- | When the data store was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The ARN of the data store.
+    arn :: Core.Maybe Types.DatastoreArn,
+    -- | When the data store was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The last time when a new message arrived in the data store.
+    --
+    -- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
+    -- This feature only applies to messages that arrived in the data store after October 23, 2020.
+    lastMessageArrivalTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The last time the data store was updated.
+    lastUpdateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the data store.
+    name :: Core.Maybe Types.DatastoreName,
+    -- | How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
+    retentionPeriod :: Core.Maybe Types.RetentionPeriod,
     -- | The status of a data store:
     --
     --
@@ -56,76 +71,72 @@ data Datastore = Datastore'
     --     * DELETING
     --
     --     * The data store is being deleted.
-    status :: Lude.Maybe DatastoreStatus,
-    -- | The last time when a new message arrived in the data store.
-    --
-    -- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
-    -- This feature only applies to messages that arrived in the data store after October 23, 2020.
-    lastMessageArrivalTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ARN of the data store.
-    arn :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.DatastoreStatus,
     -- | Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the data store is created.
-    storage :: Lude.Maybe DatastoreStorage,
-    -- | How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
-    retentionPeriod :: Lude.Maybe RetentionPeriod,
-    -- | The name of the data store.
-    name :: Lude.Maybe Lude.Text,
-    -- | The last time the data store was updated.
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp
+    storage :: Core.Maybe Types.DatastoreStorage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Datastore' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the data store was created.
--- * 'status' - The status of a data store:
---
---
---     * CREATING
---
---     * The data store is being created.
---
---
---     * ACTIVE
---
---     * The data store has been created and can be used.
---
---
---     * DELETING
---
---     * The data store is being deleted.
---
---
--- * 'lastMessageArrivalTime' - The last time when a new message arrived in the data store.
---
--- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
--- This feature only applies to messages that arrived in the data store after October 23, 2020.
--- * 'arn' - The ARN of the data store.
--- * 'storage' - Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the data store is created.
--- * 'retentionPeriod' - How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
--- * 'name' - The name of the data store.
--- * 'lastUpdateTime' - The last time the data store was updated.
+-- | Creates a 'Datastore' value with any optional fields omitted.
 mkDatastore ::
   Datastore
 mkDatastore =
   Datastore'
-    { creationTime = Lude.Nothing,
-      status = Lude.Nothing,
-      lastMessageArrivalTime = Lude.Nothing,
-      arn = Lude.Nothing,
-      storage = Lude.Nothing,
-      retentionPeriod = Lude.Nothing,
-      name = Lude.Nothing,
-      lastUpdateTime = Lude.Nothing
+    { arn = Core.Nothing,
+      creationTime = Core.Nothing,
+      lastMessageArrivalTime = Core.Nothing,
+      lastUpdateTime = Core.Nothing,
+      name = Core.Nothing,
+      retentionPeriod = Core.Nothing,
+      status = Core.Nothing,
+      storage = Core.Nothing
     }
+
+-- | The ARN of the data store.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfArn :: Lens.Lens' Datastore (Core.Maybe Types.DatastoreArn)
+dfArn = Lens.field @"arn"
+{-# DEPRECATED dfArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | When the data store was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfCreationTime :: Lens.Lens' Datastore (Lude.Maybe Lude.Timestamp)
-dfCreationTime = Lens.lens (creationTime :: Datastore -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Datastore)
+dfCreationTime :: Lens.Lens' Datastore (Core.Maybe Core.NominalDiffTime)
+dfCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED dfCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The last time when a new message arrived in the data store.
+--
+-- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
+-- This feature only applies to messages that arrived in the data store after October 23, 2020.
+--
+-- /Note:/ Consider using 'lastMessageArrivalTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfLastMessageArrivalTime :: Lens.Lens' Datastore (Core.Maybe Core.NominalDiffTime)
+dfLastMessageArrivalTime = Lens.field @"lastMessageArrivalTime"
+{-# DEPRECATED dfLastMessageArrivalTime "Use generic-lens or generic-optics with 'lastMessageArrivalTime' instead." #-}
+
+-- | The last time the data store was updated.
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfLastUpdateTime :: Lens.Lens' Datastore (Core.Maybe Core.NominalDiffTime)
+dfLastUpdateTime = Lens.field @"lastUpdateTime"
+{-# DEPRECATED dfLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
+
+-- | The name of the data store.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfName :: Lens.Lens' Datastore (Core.Maybe Types.DatastoreName)
+dfName = Lens.field @"name"
+{-# DEPRECATED dfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfRetentionPeriod :: Lens.Lens' Datastore (Core.Maybe Types.RetentionPeriod)
+dfRetentionPeriod = Lens.field @"retentionPeriod"
+{-# DEPRECATED dfRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
 -- | The status of a data store:
 --
@@ -147,67 +158,27 @@ dfCreationTime = Lens.lens (creationTime :: Datastore -> Lude.Maybe Lude.Timesta
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfStatus :: Lens.Lens' Datastore (Lude.Maybe DatastoreStatus)
-dfStatus = Lens.lens (status :: Datastore -> Lude.Maybe DatastoreStatus) (\s a -> s {status = a} :: Datastore)
+dfStatus :: Lens.Lens' Datastore (Core.Maybe Types.DatastoreStatus)
+dfStatus = Lens.field @"status"
 {-# DEPRECATED dfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The last time when a new message arrived in the data store.
---
--- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
--- This feature only applies to messages that arrived in the data store after October 23, 2020.
---
--- /Note:/ Consider using 'lastMessageArrivalTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfLastMessageArrivalTime :: Lens.Lens' Datastore (Lude.Maybe Lude.Timestamp)
-dfLastMessageArrivalTime = Lens.lens (lastMessageArrivalTime :: Datastore -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastMessageArrivalTime = a} :: Datastore)
-{-# DEPRECATED dfLastMessageArrivalTime "Use generic-lens or generic-optics with 'lastMessageArrivalTime' instead." #-}
-
--- | The ARN of the data store.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfArn :: Lens.Lens' Datastore (Lude.Maybe Lude.Text)
-dfArn = Lens.lens (arn :: Datastore -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Datastore)
-{-# DEPRECATED dfArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the data store is created.
 --
 -- /Note:/ Consider using 'storage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfStorage :: Lens.Lens' Datastore (Lude.Maybe DatastoreStorage)
-dfStorage = Lens.lens (storage :: Datastore -> Lude.Maybe DatastoreStorage) (\s a -> s {storage = a} :: Datastore)
+dfStorage :: Lens.Lens' Datastore (Core.Maybe Types.DatastoreStorage)
+dfStorage = Lens.field @"storage"
 {-# DEPRECATED dfStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
 
--- | How long, in days, message data is kept for the data store. When @customerManagedS3@ storage is selected, this parameter is ignored.
---
--- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfRetentionPeriod :: Lens.Lens' Datastore (Lude.Maybe RetentionPeriod)
-dfRetentionPeriod = Lens.lens (retentionPeriod :: Datastore -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: Datastore)
-{-# DEPRECATED dfRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
-
--- | The name of the data store.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfName :: Lens.Lens' Datastore (Lude.Maybe Lude.Text)
-dfName = Lens.lens (name :: Datastore -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Datastore)
-{-# DEPRECATED dfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The last time the data store was updated.
---
--- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfLastUpdateTime :: Lens.Lens' Datastore (Lude.Maybe Lude.Timestamp)
-dfLastUpdateTime = Lens.lens (lastUpdateTime :: Datastore -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: Datastore)
-{-# DEPRECATED dfLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
-
-instance Lude.FromJSON Datastore where
+instance Core.FromJSON Datastore where
   parseJSON =
-    Lude.withObject
-      "Datastore"
-      ( \x ->
-          Datastore'
-            Lude.<$> (x Lude..:? "creationTime")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "lastMessageArrivalTime")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "storage")
-            Lude.<*> (x Lude..:? "retentionPeriod")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "lastUpdateTime")
-      )
+    Core.withObject "Datastore" Core.$
+      \x ->
+        Datastore'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "creationTime")
+          Core.<*> (x Core..:? "lastMessageArrivalTime")
+          Core.<*> (x Core..:? "lastUpdateTime")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "retentionPeriod")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "storage")

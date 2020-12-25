@@ -22,7 +22,8 @@ module Network.AWS.SES.Types.ConfigurationSet
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.ConfigurationSetName as Types
 
 -- | The name of the configuration set.
 --
@@ -37,25 +38,17 @@ newtype ConfigurationSet = ConfigurationSet'
     --
     --
     --     * Contain 64 characters or fewer.
-    name :: Lude.Text
+    name :: Types.ConfigurationSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfigurationSet' with the minimum fields required to make a request.
---
--- * 'name' - The name of the configuration set. The name must meet the following requirements:
---
---
---     * Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
---
---
---     * Contain 64 characters or fewer.
+-- | Creates a 'ConfigurationSet' value with any optional fields omitted.
 mkConfigurationSet ::
   -- | 'name'
-  Lude.Text ->
+  Types.ConfigurationSetName ->
   ConfigurationSet
-mkConfigurationSet pName_ = ConfigurationSet' {name = pName_}
+mkConfigurationSet name = ConfigurationSet' {name}
 
 -- | The name of the configuration set. The name must meet the following requirements:
 --
@@ -68,12 +61,9 @@ mkConfigurationSet pName_ = ConfigurationSet' {name = pName_}
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' ConfigurationSet Lude.Text
-csName = Lens.lens (name :: ConfigurationSet -> Lude.Text) (\s a -> s {name = a} :: ConfigurationSet)
+csName :: Lens.Lens' ConfigurationSet Types.ConfigurationSetName
+csName = Lens.field @"name"
 {-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML ConfigurationSet where
-  parseXML x = ConfigurationSet' Lude.<$> (x Lude..@ "Name")
-
-instance Lude.ToQuery ConfigurationSet where
-  toQuery ConfigurationSet' {..} = Lude.mconcat ["Name" Lude.=: name]
+instance Core.FromXML ConfigurationSet where
+  parseXML x = ConfigurationSet' Core.<$> (x Core..@ "Name")

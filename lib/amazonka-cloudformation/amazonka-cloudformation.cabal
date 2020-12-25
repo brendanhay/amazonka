@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudFormation
     Network.AWS.CloudFormation.CancelUpdateStack
@@ -126,64 +132,134 @@ library
     Network.AWS.CloudFormation.Waiters
 
   other-modules:
+    Network.AWS.CloudFormation.Types.Account
     Network.AWS.CloudFormation.Types.AccountGateResult
     Network.AWS.CloudFormation.Types.AccountGateStatus
     Network.AWS.CloudFormation.Types.AccountLimit
+    Network.AWS.CloudFormation.Types.ActualProperties
+    Network.AWS.CloudFormation.Types.AdministrationRoleARN
+    Network.AWS.CloudFormation.Types.AllowedValue
+    Network.AWS.CloudFormation.Types.Arn
     Network.AWS.CloudFormation.Types.AutoDeployment
+    Network.AWS.CloudFormation.Types.CapabilitiesReason
     Network.AWS.CloudFormation.Types.Capability
+    Network.AWS.CloudFormation.Types.CausingEntity
     Network.AWS.CloudFormation.Types.Change
     Network.AWS.CloudFormation.Types.ChangeAction
+    Network.AWS.CloudFormation.Types.ChangeSetId
+    Network.AWS.CloudFormation.Types.ChangeSetName
+    Network.AWS.CloudFormation.Types.ChangeSetNameOrId
     Network.AWS.CloudFormation.Types.ChangeSetStatus
+    Network.AWS.CloudFormation.Types.ChangeSetStatusReason
     Network.AWS.CloudFormation.Types.ChangeSetSummary
     Network.AWS.CloudFormation.Types.ChangeSetType
     Network.AWS.CloudFormation.Types.ChangeSource
     Network.AWS.CloudFormation.Types.ChangeType
+    Network.AWS.CloudFormation.Types.ClientRequestToken
+    Network.AWS.CloudFormation.Types.ClientToken
+    Network.AWS.CloudFormation.Types.DefaultVersionId
     Network.AWS.CloudFormation.Types.DeploymentTargets
     Network.AWS.CloudFormation.Types.DeprecatedStatus
+    Network.AWS.CloudFormation.Types.Description
     Network.AWS.CloudFormation.Types.DifferenceType
+    Network.AWS.CloudFormation.Types.DocumentationUrl
     Network.AWS.CloudFormation.Types.EvaluationType
+    Network.AWS.CloudFormation.Types.EventId
+    Network.AWS.CloudFormation.Types.ExecutionRoleArn
+    Network.AWS.CloudFormation.Types.ExecutionRoleName
     Network.AWS.CloudFormation.Types.ExecutionStatus
+    Network.AWS.CloudFormation.Types.ExpectedProperties
     Network.AWS.CloudFormation.Types.Export
+    Network.AWS.CloudFormation.Types.ExportingStackId
+    Network.AWS.CloudFormation.Types.ExportName
     Network.AWS.CloudFormation.Types.HandlerErrorCode
+    Network.AWS.CloudFormation.Types.Key
     Network.AWS.CloudFormation.Types.LoggingConfig
+    Network.AWS.CloudFormation.Types.LogGroupName
+    Network.AWS.CloudFormation.Types.LogicalIdHierarchy
+    Network.AWS.CloudFormation.Types.LogicalResourceId
+    Network.AWS.CloudFormation.Types.LogRoleArn
+    Network.AWS.CloudFormation.Types.Metadata
     Network.AWS.CloudFormation.Types.ModuleInfo
+    Network.AWS.CloudFormation.Types.Name
+    Network.AWS.CloudFormation.Types.NextToken
+    Network.AWS.CloudFormation.Types.NotificationARN
     Network.AWS.CloudFormation.Types.OnFailure
+    Network.AWS.CloudFormation.Types.OperationId
     Network.AWS.CloudFormation.Types.OperationStatus
+    Network.AWS.CloudFormation.Types.OrganizationalUnitId
     Network.AWS.CloudFormation.Types.Output
+    Network.AWS.CloudFormation.Types.OutputKey
+    Network.AWS.CloudFormation.Types.OutputValue
     Network.AWS.CloudFormation.Types.Parameter
     Network.AWS.CloudFormation.Types.ParameterConstraints
     Network.AWS.CloudFormation.Types.ParameterDeclaration
+    Network.AWS.CloudFormation.Types.ParameterKey
+    Network.AWS.CloudFormation.Types.ParameterType
+    Network.AWS.CloudFormation.Types.ParameterValue
+    Network.AWS.CloudFormation.Types.ParentId
     Network.AWS.CloudFormation.Types.PermissionModels
+    Network.AWS.CloudFormation.Types.PhysicalResourceId
     Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
+    Network.AWS.CloudFormation.Types.PrivateTypeArn
     Network.AWS.CloudFormation.Types.PropertyDifference
+    Network.AWS.CloudFormation.Types.PropertyName
+    Network.AWS.CloudFormation.Types.PropertyPath
+    Network.AWS.CloudFormation.Types.PropertyValue
     Network.AWS.CloudFormation.Types.ProvisioningType
+    Network.AWS.CloudFormation.Types.Reason
+    Network.AWS.CloudFormation.Types.Region
     Network.AWS.CloudFormation.Types.RegistrationStatus
+    Network.AWS.CloudFormation.Types.RegistrationToken
     Network.AWS.CloudFormation.Types.RegistryType
     Network.AWS.CloudFormation.Types.Replacement
+    Network.AWS.CloudFormation.Types.RequestToken
     Network.AWS.CloudFormation.Types.RequiresRecreation
     Network.AWS.CloudFormation.Types.ResourceAttribute
     Network.AWS.CloudFormation.Types.ResourceChange
     Network.AWS.CloudFormation.Types.ResourceChangeDetail
+    Network.AWS.CloudFormation.Types.ResourceIdentifierPropertyKey
+    Network.AWS.CloudFormation.Types.ResourceIdentifierPropertyValue
     Network.AWS.CloudFormation.Types.ResourceIdentifierSummary
+    Network.AWS.CloudFormation.Types.ResourceModel
+    Network.AWS.CloudFormation.Types.ResourceProperties
     Network.AWS.CloudFormation.Types.ResourceSignalStatus
     Network.AWS.CloudFormation.Types.ResourceStatus
+    Network.AWS.CloudFormation.Types.ResourceStatusReason
     Network.AWS.CloudFormation.Types.ResourceTargetDefinition
     Network.AWS.CloudFormation.Types.ResourceToImport
+    Network.AWS.CloudFormation.Types.ResourceToSkip
+    Network.AWS.CloudFormation.Types.ResourceType
+    Network.AWS.CloudFormation.Types.RoleARN
     Network.AWS.CloudFormation.Types.RollbackConfiguration
     Network.AWS.CloudFormation.Types.RollbackTrigger
+    Network.AWS.CloudFormation.Types.RootId
+    Network.AWS.CloudFormation.Types.Schema
+    Network.AWS.CloudFormation.Types.SchemaHandlerPackage
+    Network.AWS.CloudFormation.Types.SourceUrl
     Network.AWS.CloudFormation.Types.Stack
+    Network.AWS.CloudFormation.Types.StackDriftDetectionId
     Network.AWS.CloudFormation.Types.StackDriftDetectionStatus
+    Network.AWS.CloudFormation.Types.StackDriftDetectionStatusReason
     Network.AWS.CloudFormation.Types.StackDriftInformation
     Network.AWS.CloudFormation.Types.StackDriftInformationSummary
     Network.AWS.CloudFormation.Types.StackDriftStatus
     Network.AWS.CloudFormation.Types.StackEvent
+    Network.AWS.CloudFormation.Types.StackId
     Network.AWS.CloudFormation.Types.StackInstance
+    Network.AWS.CloudFormation.Types.StackInstanceAccount
     Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus
     Network.AWS.CloudFormation.Types.StackInstanceDetailedStatus
     Network.AWS.CloudFormation.Types.StackInstanceFilter
     Network.AWS.CloudFormation.Types.StackInstanceFilterName
+    Network.AWS.CloudFormation.Types.StackInstanceRegion
     Network.AWS.CloudFormation.Types.StackInstanceStatus
     Network.AWS.CloudFormation.Types.StackInstanceSummary
+    Network.AWS.CloudFormation.Types.StackName
+    Network.AWS.CloudFormation.Types.StackPolicyBody
+    Network.AWS.CloudFormation.Types.StackPolicyDuringUpdateBody
+    Network.AWS.CloudFormation.Types.StackPolicyDuringUpdateURL
+    Network.AWS.CloudFormation.Types.StackPolicyURL
     Network.AWS.CloudFormation.Types.StackResource
     Network.AWS.CloudFormation.Types.StackResourceDetail
     Network.AWS.CloudFormation.Types.StackResourceDrift
@@ -192,9 +268,12 @@ library
     Network.AWS.CloudFormation.Types.StackResourceDriftStatus
     Network.AWS.CloudFormation.Types.StackResourceSummary
     Network.AWS.CloudFormation.Types.StackSet
+    Network.AWS.CloudFormation.Types.StackSetARN
     Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails
     Network.AWS.CloudFormation.Types.StackSetDriftDetectionStatus
     Network.AWS.CloudFormation.Types.StackSetDriftStatus
+    Network.AWS.CloudFormation.Types.StackSetId
+    Network.AWS.CloudFormation.Types.StackSetName
     Network.AWS.CloudFormation.Types.StackSetOperation
     Network.AWS.CloudFormation.Types.StackSetOperationAction
     Network.AWS.CloudFormation.Types.StackSetOperationPreferences
@@ -205,12 +284,31 @@ library
     Network.AWS.CloudFormation.Types.StackSetStatus
     Network.AWS.CloudFormation.Types.StackSetSummary
     Network.AWS.CloudFormation.Types.StackStatus
+    Network.AWS.CloudFormation.Types.StackStatusReason
     Network.AWS.CloudFormation.Types.StackSummary
+    Network.AWS.CloudFormation.Types.StatusMessage
+    Network.AWS.CloudFormation.Types.StatusReason
     Network.AWS.CloudFormation.Types.Tag
+    Network.AWS.CloudFormation.Types.TemplateBody
+    Network.AWS.CloudFormation.Types.TemplateDescription
     Network.AWS.CloudFormation.Types.TemplateParameter
     Network.AWS.CloudFormation.Types.TemplateStage
+    Network.AWS.CloudFormation.Types.TemplateURL
+    Network.AWS.CloudFormation.Types.TransformName
+    Network.AWS.CloudFormation.Types.Type
+    Network.AWS.CloudFormation.Types.TypeArn
+    Network.AWS.CloudFormation.Types.TypeHierarchy
+    Network.AWS.CloudFormation.Types.TypeName
     Network.AWS.CloudFormation.Types.TypeSummary
+    Network.AWS.CloudFormation.Types.TypeVersionArn
+    Network.AWS.CloudFormation.Types.TypeVersionId
     Network.AWS.CloudFormation.Types.TypeVersionSummary
+    Network.AWS.CloudFormation.Types.UniqueId
+    Network.AWS.CloudFormation.Types.Url
+    Network.AWS.CloudFormation.Types.Value
+    Network.AWS.CloudFormation.Types.Values
+    Network.AWS.CloudFormation.Types.Version
+    Network.AWS.CloudFormation.Types.VersionId
     Network.AWS.CloudFormation.Types.Visibility
 
   build-depends:   amazonka-core ==2.0.0.0.*

@@ -13,76 +13,81 @@
 module Network.AWS.Route53Domains.Types.DomainAvailability
   ( DomainAvailability
       ( DomainAvailability',
-        DAAvailable,
-        DAAvailableReserved,
-        DAAvailablePreorder,
-        DAUnavailable,
-        DAUnavailablePremium,
-        DAUnavailableRestricted,
-        DAReserved,
-        DADontKnow
+        DomainAvailabilityAvailable,
+        DomainAvailabilityAvailableReserved,
+        DomainAvailabilityAvailablePreorder,
+        DomainAvailabilityUnavailable,
+        DomainAvailabilityUnavailablePremium,
+        DomainAvailabilityUnavailableRestricted,
+        DomainAvailabilityReserved,
+        DomainAvailabilityDontKnow,
+        fromDomainAvailability
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DomainAvailability = DomainAvailability' Lude.Text
+newtype DomainAvailability = DomainAvailability'
+  { fromDomainAvailability ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DAAvailable :: DomainAvailability
-pattern DAAvailable = DomainAvailability' "AVAILABLE"
+pattern DomainAvailabilityAvailable :: DomainAvailability
+pattern DomainAvailabilityAvailable = DomainAvailability' "AVAILABLE"
 
-pattern DAAvailableReserved :: DomainAvailability
-pattern DAAvailableReserved = DomainAvailability' "AVAILABLE_RESERVED"
+pattern DomainAvailabilityAvailableReserved :: DomainAvailability
+pattern DomainAvailabilityAvailableReserved = DomainAvailability' "AVAILABLE_RESERVED"
 
-pattern DAAvailablePreorder :: DomainAvailability
-pattern DAAvailablePreorder = DomainAvailability' "AVAILABLE_PREORDER"
+pattern DomainAvailabilityAvailablePreorder :: DomainAvailability
+pattern DomainAvailabilityAvailablePreorder = DomainAvailability' "AVAILABLE_PREORDER"
 
-pattern DAUnavailable :: DomainAvailability
-pattern DAUnavailable = DomainAvailability' "UNAVAILABLE"
+pattern DomainAvailabilityUnavailable :: DomainAvailability
+pattern DomainAvailabilityUnavailable = DomainAvailability' "UNAVAILABLE"
 
-pattern DAUnavailablePremium :: DomainAvailability
-pattern DAUnavailablePremium = DomainAvailability' "UNAVAILABLE_PREMIUM"
+pattern DomainAvailabilityUnavailablePremium :: DomainAvailability
+pattern DomainAvailabilityUnavailablePremium = DomainAvailability' "UNAVAILABLE_PREMIUM"
 
-pattern DAUnavailableRestricted :: DomainAvailability
-pattern DAUnavailableRestricted = DomainAvailability' "UNAVAILABLE_RESTRICTED"
+pattern DomainAvailabilityUnavailableRestricted :: DomainAvailability
+pattern DomainAvailabilityUnavailableRestricted = DomainAvailability' "UNAVAILABLE_RESTRICTED"
 
-pattern DAReserved :: DomainAvailability
-pattern DAReserved = DomainAvailability' "RESERVED"
+pattern DomainAvailabilityReserved :: DomainAvailability
+pattern DomainAvailabilityReserved = DomainAvailability' "RESERVED"
 
-pattern DADontKnow :: DomainAvailability
-pattern DADontKnow = DomainAvailability' "DONT_KNOW"
+pattern DomainAvailabilityDontKnow :: DomainAvailability
+pattern DomainAvailabilityDontKnow = DomainAvailability' "DONT_KNOW"
 
 {-# COMPLETE
-  DAAvailable,
-  DAAvailableReserved,
-  DAAvailablePreorder,
-  DAUnavailable,
-  DAUnavailablePremium,
-  DAUnavailableRestricted,
-  DAReserved,
-  DADontKnow,
+  DomainAvailabilityAvailable,
+  DomainAvailabilityAvailableReserved,
+  DomainAvailabilityAvailablePreorder,
+  DomainAvailabilityUnavailable,
+  DomainAvailabilityUnavailablePremium,
+  DomainAvailabilityUnavailableRestricted,
+  DomainAvailabilityReserved,
+  DomainAvailabilityDontKnow,
   DomainAvailability'
   #-}

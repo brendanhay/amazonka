@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,31 @@
 -- AWS IoT Jobs sends a message to inform the targets that a job is available. The target starts the execution of the job by downloading the job document, performing the operations it specifies, and reporting its progress to AWS IoT. The Jobs service provides commands to track the progress of a job on a specific target and for all the targets of the job
 module Network.AWS.IoTJobsData
   ( -- * Service configuration
-    ioTJobsDataService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** TerminalStateException
+    _TerminalStateException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** CertificateValidationException
+    _CertificateValidationException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -42,23 +62,8 @@ module Network.AWS.IoTJobsData
 
     -- * Types
 
-    -- ** JobExecutionStatus
-    JobExecutionStatus (..),
-
-    -- ** JobExecution
-    JobExecution (..),
-    mkJobExecution,
-    jeStatus,
-    jeJobId,
-    jeLastUpdatedAt,
-    jeApproximateSecondsBeforeTimedOut,
-    jeQueuedAt,
-    jeJobDocument,
-    jeStatusDetails,
-    jeExecutionNumber,
-    jeVersionNumber,
-    jeStartedAt,
-    jeThingName,
+    -- ** DescribeJobExecutionJobId
+    DescribeJobExecutionJobId (..),
 
     -- ** JobExecutionState
     JobExecutionState (..),
@@ -67,25 +72,56 @@ module Network.AWS.IoTJobsData
     jesStatusDetails,
     jesVersionNumber,
 
+    -- ** JobId
+    JobId (..),
+
+    -- ** DetailsKey
+    DetailsKey (..),
+
+    -- ** JobDocument
+    JobDocument (..),
+
     -- ** JobExecutionSummary
     JobExecutionSummary (..),
     mkJobExecutionSummary,
+    jExecutionNumber,
     jJobId,
     jLastUpdatedAt,
     jQueuedAt,
-    jExecutionNumber,
-    jVersionNumber,
     jStartedAt,
+    jVersionNumber,
+
+    -- ** JobExecution
+    JobExecution (..),
+    mkJobExecution,
+    jeApproximateSecondsBeforeTimedOut,
+    jeExecutionNumber,
+    jeJobDocument,
+    jeJobId,
+    jeLastUpdatedAt,
+    jeQueuedAt,
+    jeStartedAt,
+    jeStatus,
+    jeStatusDetails,
+    jeThingName,
+    jeVersionNumber,
+
+    -- ** ThingName
+    ThingName (..),
+
+    -- ** DetailsValue
+    DetailsValue (..),
+
+    -- ** JobExecutionStatus
+    JobExecutionStatus (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

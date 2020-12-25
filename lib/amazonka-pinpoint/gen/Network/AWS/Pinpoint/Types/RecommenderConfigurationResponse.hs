@@ -17,36 +17,46 @@ module Network.AWS.Pinpoint.Types.RecommenderConfigurationResponse
     mkRecommenderConfigurationResponse,
 
     -- * Lenses
-    rcRecommendationTransformerURI,
-    rcRecommendationsDisplayName,
-    rcLastModifiedDate,
-    rcRecommendationProviderIdType,
-    rcRecommendationProviderURI,
-    rcAttributes,
-    rcName,
-    rcId,
-    rcCreationDate,
-    rcDescription,
-    rcRecommendationsPerMessage,
-    rcRecommendationProviderRoleARN,
+    rcrRecommendationProviderUri,
+    rcrLastModifiedDate,
+    rcrCreationDate,
+    rcrRecommendationProviderRoleArn,
+    rcrId,
+    rcrAttributes,
+    rcrDescription,
+    rcrName,
+    rcrRecommendationProviderIdType,
+    rcrRecommendationTransformerUri,
+    rcrRecommendationsDisplayName,
+    rcrRecommendationsPerMessage,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.
 --
 -- /See:/ 'mkRecommenderConfigurationResponse' smart constructor.
 data RecommenderConfigurationResponse = RecommenderConfigurationResponse'
-  { -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to perform additional processing of recommendation data that it retrieves from the recommender model.
-    recommendationTransformerURI :: Lude.Maybe Lude.Text,
-    -- | The custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This name appears in the __Attribute finder__ of the template editor on the Amazon Pinpoint console.
+  { -- | The Amazon Resource Name (ARN) of the recommender model that Amazon Pinpoint retrieves the recommendation data from. This value is the ARN of an Amazon Personalize campaign.
+    recommendationProviderUri :: Core.Text,
+    -- | The date, in extended ISO 8601 format, when the configuration for the recommender model was last modified.
+    lastModifiedDate :: Core.Text,
+    -- | The date, in extended ISO 8601 format, when the configuration was created for the recommender model.
+    creationDate :: Core.Text,
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to retrieve recommendation data from the recommender model.
+    recommendationProviderRoleArn :: Core.Text,
+    -- | The unique identifier for the recommender model configuration.
+    id :: Core.Text,
+    -- | A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.
     --
     -- This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.
-    recommendationsDisplayName :: Lude.Maybe Lude.Text,
-    -- | The date, in extended ISO 8601 format, when the configuration for the recommender model was last modified.
-    lastModifiedDate :: Lude.Text,
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    -- | The custom description of the configuration for the recommender model.
+    description :: Core.Maybe Core.Text,
+    -- | The custom name of the configuration for the recommender model.
+    name :: Core.Maybe Core.Text,
     -- | The type of Amazon Pinpoint ID that's associated with unique user IDs in the recommender model. This value enables the model to use attribute and event data that’s specific to a particular endpoint or user in an Amazon Pinpoint application. Possible values are:
     --
     --
@@ -54,112 +64,110 @@ data RecommenderConfigurationResponse = RecommenderConfigurationResponse'
     --
     --
     --     * PINPOINT_USER_ID - Each user in the model is associated with a particular user and endpoint in Amazon Pinpoint. The data is correlated based on user IDs in Amazon Pinpoint. If this value is specified, an endpoint definition in Amazon Pinpoint has to specify both a user ID (UserId) and an endpoint ID. Otherwise, messages won’t be sent to the user's endpoint.
-    recommendationProviderIdType :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the recommender model that Amazon Pinpoint retrieves the recommendation data from. This value is the ARN of an Amazon Personalize campaign.
-    recommendationProviderURI :: Lude.Text,
-    -- | A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.
+    recommendationProviderIdType :: Core.Maybe Core.Text,
+    -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to perform additional processing of recommendation data that it retrieves from the recommender model.
+    recommendationTransformerUri :: Core.Maybe Core.Text,
+    -- | The custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This name appears in the __Attribute finder__ of the template editor on the Amazon Pinpoint console.
     --
     -- This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The custom name of the configuration for the recommender model.
-    name :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the recommender model configuration.
-    id :: Lude.Text,
-    -- | The date, in extended ISO 8601 format, when the configuration was created for the recommender model.
-    creationDate :: Lude.Text,
-    -- | The custom description of the configuration for the recommender model.
-    description :: Lude.Maybe Lude.Text,
+    recommendationsDisplayName :: Core.Maybe Core.Text,
     -- | The number of recommended items that are retrieved from the model for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This number determines how many recommended items are available for use in message variables.
-    recommendationsPerMessage :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to retrieve recommendation data from the recommender model.
-    recommendationProviderRoleARN :: Lude.Text
+    recommendationsPerMessage :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecommenderConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'recommendationTransformerURI' - The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to perform additional processing of recommendation data that it retrieves from the recommender model.
--- * 'recommendationsDisplayName' - The custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This name appears in the __Attribute finder__ of the template editor on the Amazon Pinpoint console.
---
--- This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.
--- * 'lastModifiedDate' - The date, in extended ISO 8601 format, when the configuration for the recommender model was last modified.
--- * 'recommendationProviderIdType' - The type of Amazon Pinpoint ID that's associated with unique user IDs in the recommender model. This value enables the model to use attribute and event data that’s specific to a particular endpoint or user in an Amazon Pinpoint application. Possible values are:
---
---
---     * PINPOINT_ENDPOINT_ID - Each user in the model is associated with a particular endpoint in Amazon Pinpoint. The data is correlated based on endpoint IDs in Amazon Pinpoint. This is the default value.
---
---
---     * PINPOINT_USER_ID - Each user in the model is associated with a particular user and endpoint in Amazon Pinpoint. The data is correlated based on user IDs in Amazon Pinpoint. If this value is specified, an endpoint definition in Amazon Pinpoint has to specify both a user ID (UserId) and an endpoint ID. Otherwise, messages won’t be sent to the user's endpoint.
---
---
--- * 'recommendationProviderURI' - The Amazon Resource Name (ARN) of the recommender model that Amazon Pinpoint retrieves the recommendation data from. This value is the ARN of an Amazon Personalize campaign.
--- * 'attributes' - A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.
---
--- This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.
--- * 'name' - The custom name of the configuration for the recommender model.
--- * 'id' - The unique identifier for the recommender model configuration.
--- * 'creationDate' - The date, in extended ISO 8601 format, when the configuration was created for the recommender model.
--- * 'description' - The custom description of the configuration for the recommender model.
--- * 'recommendationsPerMessage' - The number of recommended items that are retrieved from the model for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This number determines how many recommended items are available for use in message variables.
--- * 'recommendationProviderRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to retrieve recommendation data from the recommender model.
+-- | Creates a 'RecommenderConfigurationResponse' value with any optional fields omitted.
 mkRecommenderConfigurationResponse ::
+  -- | 'recommendationProviderUri'
+  Core.Text ->
   -- | 'lastModifiedDate'
-  Lude.Text ->
-  -- | 'recommendationProviderURI'
-  Lude.Text ->
-  -- | 'id'
-  Lude.Text ->
+  Core.Text ->
   -- | 'creationDate'
-  Lude.Text ->
-  -- | 'recommendationProviderRoleARN'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'recommendationProviderRoleArn'
+  Core.Text ->
+  -- | 'id'
+  Core.Text ->
   RecommenderConfigurationResponse
 mkRecommenderConfigurationResponse
-  pLastModifiedDate_
-  pRecommendationProviderURI_
-  pId_
-  pCreationDate_
-  pRecommendationProviderRoleARN_ =
+  recommendationProviderUri
+  lastModifiedDate
+  creationDate
+  recommendationProviderRoleArn
+  id =
     RecommenderConfigurationResponse'
-      { recommendationTransformerURI =
-          Lude.Nothing,
-        recommendationsDisplayName = Lude.Nothing,
-        lastModifiedDate = pLastModifiedDate_,
-        recommendationProviderIdType = Lude.Nothing,
-        recommendationProviderURI = pRecommendationProviderURI_,
-        attributes = Lude.Nothing,
-        name = Lude.Nothing,
-        id = pId_,
-        creationDate = pCreationDate_,
-        description = Lude.Nothing,
-        recommendationsPerMessage = Lude.Nothing,
-        recommendationProviderRoleARN =
-          pRecommendationProviderRoleARN_
+      { recommendationProviderUri,
+        lastModifiedDate,
+        creationDate,
+        recommendationProviderRoleArn,
+        id,
+        attributes = Core.Nothing,
+        description = Core.Nothing,
+        name = Core.Nothing,
+        recommendationProviderIdType = Core.Nothing,
+        recommendationTransformerUri = Core.Nothing,
+        recommendationsDisplayName = Core.Nothing,
+        recommendationsPerMessage = Core.Nothing
       }
 
--- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to perform additional processing of recommendation data that it retrieves from the recommender model.
+-- | The Amazon Resource Name (ARN) of the recommender model that Amazon Pinpoint retrieves the recommendation data from. This value is the ARN of an Amazon Personalize campaign.
 --
--- /Note:/ Consider using 'recommendationTransformerURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRecommendationTransformerURI :: Lens.Lens' RecommenderConfigurationResponse (Lude.Maybe Lude.Text)
-rcRecommendationTransformerURI = Lens.lens (recommendationTransformerURI :: RecommenderConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {recommendationTransformerURI = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcRecommendationTransformerURI "Use generic-lens or generic-optics with 'recommendationTransformerURI' instead." #-}
-
--- | The custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This name appears in the __Attribute finder__ of the template editor on the Amazon Pinpoint console.
---
--- This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.
---
--- /Note:/ Consider using 'recommendationsDisplayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRecommendationsDisplayName :: Lens.Lens' RecommenderConfigurationResponse (Lude.Maybe Lude.Text)
-rcRecommendationsDisplayName = Lens.lens (recommendationsDisplayName :: RecommenderConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {recommendationsDisplayName = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcRecommendationsDisplayName "Use generic-lens or generic-optics with 'recommendationsDisplayName' instead." #-}
+-- /Note:/ Consider using 'recommendationProviderUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrRecommendationProviderUri :: Lens.Lens' RecommenderConfigurationResponse Core.Text
+rcrRecommendationProviderUri = Lens.field @"recommendationProviderUri"
+{-# DEPRECATED rcrRecommendationProviderUri "Use generic-lens or generic-optics with 'recommendationProviderUri' instead." #-}
 
 -- | The date, in extended ISO 8601 format, when the configuration for the recommender model was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcLastModifiedDate :: Lens.Lens' RecommenderConfigurationResponse Lude.Text
-rcLastModifiedDate = Lens.lens (lastModifiedDate :: RecommenderConfigurationResponse -> Lude.Text) (\s a -> s {lastModifiedDate = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+rcrLastModifiedDate :: Lens.Lens' RecommenderConfigurationResponse Core.Text
+rcrLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED rcrLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The date, in extended ISO 8601 format, when the configuration was created for the recommender model.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrCreationDate :: Lens.Lens' RecommenderConfigurationResponse Core.Text
+rcrCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED rcrCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to retrieve recommendation data from the recommender model.
+--
+-- /Note:/ Consider using 'recommendationProviderRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrRecommendationProviderRoleArn :: Lens.Lens' RecommenderConfigurationResponse Core.Text
+rcrRecommendationProviderRoleArn = Lens.field @"recommendationProviderRoleArn"
+{-# DEPRECATED rcrRecommendationProviderRoleArn "Use generic-lens or generic-optics with 'recommendationProviderRoleArn' instead." #-}
+
+-- | The unique identifier for the recommender model configuration.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrId :: Lens.Lens' RecommenderConfigurationResponse Core.Text
+rcrId = Lens.field @"id"
+{-# DEPRECATED rcrId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.
+--
+-- This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrAttributes :: Lens.Lens' RecommenderConfigurationResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+rcrAttributes = Lens.field @"attributes"
+{-# DEPRECATED rcrAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The custom description of the configuration for the recommender model.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrDescription :: Lens.Lens' RecommenderConfigurationResponse (Core.Maybe Core.Text)
+rcrDescription = Lens.field @"description"
+{-# DEPRECATED rcrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The custom name of the configuration for the recommender model.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrName :: Lens.Lens' RecommenderConfigurationResponse (Core.Maybe Core.Text)
+rcrName = Lens.field @"name"
+{-# DEPRECATED rcrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of Amazon Pinpoint ID that's associated with unique user IDs in the recommender model. This value enables the model to use attribute and event data that’s specific to a particular endpoint or user in an Amazon Pinpoint application. Possible values are:
 --
@@ -172,84 +180,47 @@ rcLastModifiedDate = Lens.lens (lastModifiedDate :: RecommenderConfigurationResp
 --
 --
 -- /Note:/ Consider using 'recommendationProviderIdType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRecommendationProviderIdType :: Lens.Lens' RecommenderConfigurationResponse (Lude.Maybe Lude.Text)
-rcRecommendationProviderIdType = Lens.lens (recommendationProviderIdType :: RecommenderConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {recommendationProviderIdType = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcRecommendationProviderIdType "Use generic-lens or generic-optics with 'recommendationProviderIdType' instead." #-}
+rcrRecommendationProviderIdType :: Lens.Lens' RecommenderConfigurationResponse (Core.Maybe Core.Text)
+rcrRecommendationProviderIdType = Lens.field @"recommendationProviderIdType"
+{-# DEPRECATED rcrRecommendationProviderIdType "Use generic-lens or generic-optics with 'recommendationProviderIdType' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the recommender model that Amazon Pinpoint retrieves the recommendation data from. This value is the ARN of an Amazon Personalize campaign.
+-- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to perform additional processing of recommendation data that it retrieves from the recommender model.
 --
--- /Note:/ Consider using 'recommendationProviderURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRecommendationProviderURI :: Lens.Lens' RecommenderConfigurationResponse Lude.Text
-rcRecommendationProviderURI = Lens.lens (recommendationProviderURI :: RecommenderConfigurationResponse -> Lude.Text) (\s a -> s {recommendationProviderURI = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcRecommendationProviderURI "Use generic-lens or generic-optics with 'recommendationProviderURI' instead." #-}
+-- /Note:/ Consider using 'recommendationTransformerUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrRecommendationTransformerUri :: Lens.Lens' RecommenderConfigurationResponse (Core.Maybe Core.Text)
+rcrRecommendationTransformerUri = Lens.field @"recommendationTransformerUri"
+{-# DEPRECATED rcrRecommendationTransformerUri "Use generic-lens or generic-optics with 'recommendationTransformerUri' instead." #-}
 
--- | A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.
+-- | The custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This name appears in the __Attribute finder__ of the template editor on the Amazon Pinpoint console.
 --
 -- This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.
 --
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcAttributes :: Lens.Lens' RecommenderConfigurationResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-rcAttributes = Lens.lens (attributes :: RecommenderConfigurationResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The custom name of the configuration for the recommender model.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcName :: Lens.Lens' RecommenderConfigurationResponse (Lude.Maybe Lude.Text)
-rcName = Lens.lens (name :: RecommenderConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The unique identifier for the recommender model configuration.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcId :: Lens.Lens' RecommenderConfigurationResponse Lude.Text
-rcId = Lens.lens (id :: RecommenderConfigurationResponse -> Lude.Text) (\s a -> s {id = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The date, in extended ISO 8601 format, when the configuration was created for the recommender model.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCreationDate :: Lens.Lens' RecommenderConfigurationResponse Lude.Text
-rcCreationDate = Lens.lens (creationDate :: RecommenderConfigurationResponse -> Lude.Text) (\s a -> s {creationDate = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The custom description of the configuration for the recommender model.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcDescription :: Lens.Lens' RecommenderConfigurationResponse (Lude.Maybe Lude.Text)
-rcDescription = Lens.lens (description :: RecommenderConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'recommendationsDisplayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcrRecommendationsDisplayName :: Lens.Lens' RecommenderConfigurationResponse (Core.Maybe Core.Text)
+rcrRecommendationsDisplayName = Lens.field @"recommendationsDisplayName"
+{-# DEPRECATED rcrRecommendationsDisplayName "Use generic-lens or generic-optics with 'recommendationsDisplayName' instead." #-}
 
 -- | The number of recommended items that are retrieved from the model for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This number determines how many recommended items are available for use in message variables.
 --
 -- /Note:/ Consider using 'recommendationsPerMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRecommendationsPerMessage :: Lens.Lens' RecommenderConfigurationResponse (Lude.Maybe Lude.Int)
-rcRecommendationsPerMessage = Lens.lens (recommendationsPerMessage :: RecommenderConfigurationResponse -> Lude.Maybe Lude.Int) (\s a -> s {recommendationsPerMessage = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcRecommendationsPerMessage "Use generic-lens or generic-optics with 'recommendationsPerMessage' instead." #-}
+rcrRecommendationsPerMessage :: Lens.Lens' RecommenderConfigurationResponse (Core.Maybe Core.Int)
+rcrRecommendationsPerMessage = Lens.field @"recommendationsPerMessage"
+{-# DEPRECATED rcrRecommendationsPerMessage "Use generic-lens or generic-optics with 'recommendationsPerMessage' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to retrieve recommendation data from the recommender model.
---
--- /Note:/ Consider using 'recommendationProviderRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRecommendationProviderRoleARN :: Lens.Lens' RecommenderConfigurationResponse Lude.Text
-rcRecommendationProviderRoleARN = Lens.lens (recommendationProviderRoleARN :: RecommenderConfigurationResponse -> Lude.Text) (\s a -> s {recommendationProviderRoleARN = a} :: RecommenderConfigurationResponse)
-{-# DEPRECATED rcRecommendationProviderRoleARN "Use generic-lens or generic-optics with 'recommendationProviderRoleARN' instead." #-}
-
-instance Lude.FromJSON RecommenderConfigurationResponse where
+instance Core.FromJSON RecommenderConfigurationResponse where
   parseJSON =
-    Lude.withObject
-      "RecommenderConfigurationResponse"
-      ( \x ->
-          RecommenderConfigurationResponse'
-            Lude.<$> (x Lude..:? "RecommendationTransformerUri")
-            Lude.<*> (x Lude..:? "RecommendationsDisplayName")
-            Lude.<*> (x Lude..: "LastModifiedDate")
-            Lude.<*> (x Lude..:? "RecommendationProviderIdType")
-            Lude.<*> (x Lude..: "RecommendationProviderUri")
-            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..: "CreationDate")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "RecommendationsPerMessage")
-            Lude.<*> (x Lude..: "RecommendationProviderRoleArn")
-      )
+    Core.withObject "RecommenderConfigurationResponse" Core.$
+      \x ->
+        RecommenderConfigurationResponse'
+          Core.<$> (x Core..: "RecommendationProviderUri")
+          Core.<*> (x Core..: "LastModifiedDate")
+          Core.<*> (x Core..: "CreationDate")
+          Core.<*> (x Core..: "RecommendationProviderRoleArn")
+          Core.<*> (x Core..: "Id")
+          Core.<*> (x Core..:? "Attributes")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "RecommendationProviderIdType")
+          Core.<*> (x Core..:? "RecommendationTransformerUri")
+          Core.<*> (x Core..:? "RecommendationsDisplayName")
+          Core.<*> (x Core..:? "RecommendationsPerMessage")

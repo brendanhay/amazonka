@@ -20,128 +20,111 @@ module Network.AWS.ServiceCatalog.DisassociateBudgetFromResource
     mkDisassociateBudgetFromResource,
 
     -- ** Request lenses
-    dbfrResourceId,
     dbfrBudgetName,
+    dbfrResourceId,
 
     -- * Destructuring the response
     DisassociateBudgetFromResourceResponse (..),
     mkDisassociateBudgetFromResourceResponse,
 
     -- ** Response lenses
-    dbfrrsResponseStatus,
+    dbfrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDisassociateBudgetFromResource' smart constructor.
 data DisassociateBudgetFromResource = DisassociateBudgetFromResource'
-  { -- | The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
-    resourceId :: Lude.Text,
-    -- | The name of the budget you want to disassociate.
-    budgetName :: Lude.Text
+  { -- | The name of the budget you want to disassociate.
+    budgetName :: Types.BudgetName,
+    -- | The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
+    resourceId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateBudgetFromResource' with the minimum fields required to make a request.
---
--- * 'resourceId' - The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
--- * 'budgetName' - The name of the budget you want to disassociate.
+-- | Creates a 'DisassociateBudgetFromResource' value with any optional fields omitted.
 mkDisassociateBudgetFromResource ::
-  -- | 'resourceId'
-  Lude.Text ->
   -- | 'budgetName'
-  Lude.Text ->
+  Types.BudgetName ->
+  -- | 'resourceId'
+  Types.ResourceId ->
   DisassociateBudgetFromResource
-mkDisassociateBudgetFromResource pResourceId_ pBudgetName_ =
-  DisassociateBudgetFromResource'
-    { resourceId = pResourceId_,
-      budgetName = pBudgetName_
-    }
-
--- | The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbfrResourceId :: Lens.Lens' DisassociateBudgetFromResource Lude.Text
-dbfrResourceId = Lens.lens (resourceId :: DisassociateBudgetFromResource -> Lude.Text) (\s a -> s {resourceId = a} :: DisassociateBudgetFromResource)
-{-# DEPRECATED dbfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+mkDisassociateBudgetFromResource budgetName resourceId =
+  DisassociateBudgetFromResource' {budgetName, resourceId}
 
 -- | The name of the budget you want to disassociate.
 --
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbfrBudgetName :: Lens.Lens' DisassociateBudgetFromResource Lude.Text
-dbfrBudgetName = Lens.lens (budgetName :: DisassociateBudgetFromResource -> Lude.Text) (\s a -> s {budgetName = a} :: DisassociateBudgetFromResource)
+dbfrBudgetName :: Lens.Lens' DisassociateBudgetFromResource Types.BudgetName
+dbfrBudgetName = Lens.field @"budgetName"
 {-# DEPRECATED dbfrBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
-instance Lude.AWSRequest DisassociateBudgetFromResource where
+-- | The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbfrResourceId :: Lens.Lens' DisassociateBudgetFromResource Types.ResourceId
+dbfrResourceId = Lens.field @"resourceId"
+{-# DEPRECATED dbfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+instance Core.FromJSON DisassociateBudgetFromResource where
+  toJSON DisassociateBudgetFromResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just ("ResourceId" Core..= resourceId)
+          ]
+      )
+
+instance Core.AWSRequest DisassociateBudgetFromResource where
   type
     Rs DisassociateBudgetFromResource =
       DisassociateBudgetFromResourceResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.DisassociateBudgetFromResource"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateBudgetFromResourceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateBudgetFromResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DisassociateBudgetFromResource" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateBudgetFromResource where
-  toJSON DisassociateBudgetFromResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("BudgetName" Lude..= budgetName)
-          ]
-      )
-
-instance Lude.ToPath DisassociateBudgetFromResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateBudgetFromResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateBudgetFromResourceResponse' smart constructor.
 newtype DisassociateBudgetFromResourceResponse = DisassociateBudgetFromResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateBudgetFromResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateBudgetFromResourceResponse' value with any optional fields omitted.
 mkDisassociateBudgetFromResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateBudgetFromResourceResponse
-mkDisassociateBudgetFromResourceResponse pResponseStatus_ =
-  DisassociateBudgetFromResourceResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateBudgetFromResourceResponse responseStatus =
+  DisassociateBudgetFromResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbfrrsResponseStatus :: Lens.Lens' DisassociateBudgetFromResourceResponse Lude.Int
-dbfrrsResponseStatus = Lens.lens (responseStatus :: DisassociateBudgetFromResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateBudgetFromResourceResponse)
-{-# DEPRECATED dbfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbfrrrsResponseStatus :: Lens.Lens' DisassociateBudgetFromResourceResponse Core.Int
+dbfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

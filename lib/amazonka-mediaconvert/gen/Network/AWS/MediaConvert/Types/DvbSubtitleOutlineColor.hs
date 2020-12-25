@@ -13,67 +13,72 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
   ( DvbSubtitleOutlineColor
       ( DvbSubtitleOutlineColor',
-        Black,
-        White,
-        Yellow,
-        Red,
-        Green,
-        Blue
+        DvbSubtitleOutlineColorBlack,
+        DvbSubtitleOutlineColorWhite,
+        DvbSubtitleOutlineColorYellow,
+        DvbSubtitleOutlineColorRed,
+        DvbSubtitleOutlineColorGreen,
+        DvbSubtitleOutlineColorBlue,
+        fromDvbSubtitleOutlineColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-newtype DvbSubtitleOutlineColor = DvbSubtitleOutlineColor' Lude.Text
+newtype DvbSubtitleOutlineColor = DvbSubtitleOutlineColor'
+  { fromDvbSubtitleOutlineColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Black :: DvbSubtitleOutlineColor
-pattern Black = DvbSubtitleOutlineColor' "BLACK"
+pattern DvbSubtitleOutlineColorBlack :: DvbSubtitleOutlineColor
+pattern DvbSubtitleOutlineColorBlack = DvbSubtitleOutlineColor' "BLACK"
 
-pattern White :: DvbSubtitleOutlineColor
-pattern White = DvbSubtitleOutlineColor' "WHITE"
+pattern DvbSubtitleOutlineColorWhite :: DvbSubtitleOutlineColor
+pattern DvbSubtitleOutlineColorWhite = DvbSubtitleOutlineColor' "WHITE"
 
-pattern Yellow :: DvbSubtitleOutlineColor
-pattern Yellow = DvbSubtitleOutlineColor' "YELLOW"
+pattern DvbSubtitleOutlineColorYellow :: DvbSubtitleOutlineColor
+pattern DvbSubtitleOutlineColorYellow = DvbSubtitleOutlineColor' "YELLOW"
 
-pattern Red :: DvbSubtitleOutlineColor
-pattern Red = DvbSubtitleOutlineColor' "RED"
+pattern DvbSubtitleOutlineColorRed :: DvbSubtitleOutlineColor
+pattern DvbSubtitleOutlineColorRed = DvbSubtitleOutlineColor' "RED"
 
-pattern Green :: DvbSubtitleOutlineColor
-pattern Green = DvbSubtitleOutlineColor' "GREEN"
+pattern DvbSubtitleOutlineColorGreen :: DvbSubtitleOutlineColor
+pattern DvbSubtitleOutlineColorGreen = DvbSubtitleOutlineColor' "GREEN"
 
-pattern Blue :: DvbSubtitleOutlineColor
-pattern Blue = DvbSubtitleOutlineColor' "BLUE"
+pattern DvbSubtitleOutlineColorBlue :: DvbSubtitleOutlineColor
+pattern DvbSubtitleOutlineColorBlue = DvbSubtitleOutlineColor' "BLUE"
 
 {-# COMPLETE
-  Black,
-  White,
-  Yellow,
-  Red,
-  Green,
-  Blue,
+  DvbSubtitleOutlineColorBlack,
+  DvbSubtitleOutlineColorWhite,
+  DvbSubtitleOutlineColorYellow,
+  DvbSubtitleOutlineColorRed,
+  DvbSubtitleOutlineColorGreen,
+  DvbSubtitleOutlineColorBlue,
   DvbSubtitleOutlineColor'
   #-}

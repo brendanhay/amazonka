@@ -22,65 +22,60 @@ module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfiguratio
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionsType
-import Network.AWS.CognitoIdentityProvider.Types.NotifyConfigurationType
+import qualified Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionsType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.NotifyConfigurationType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
 --
 -- /See:/ 'mkAccountTakeoverRiskConfigurationType' smart constructor.
 data AccountTakeoverRiskConfigurationType = AccountTakeoverRiskConfigurationType'
   { -- | Account takeover risk configuration actions
-    actions :: AccountTakeoverActionsType,
+    actions :: Types.AccountTakeoverActionsType,
     -- | The notify configuration used to construct email notifications.
-    notifyConfiguration :: Lude.Maybe NotifyConfigurationType
+    notifyConfiguration :: Core.Maybe Types.NotifyConfigurationType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountTakeoverRiskConfigurationType' with the minimum fields required to make a request.
---
--- * 'actions' - Account takeover risk configuration actions
--- * 'notifyConfiguration' - The notify configuration used to construct email notifications.
+-- | Creates a 'AccountTakeoverRiskConfigurationType' value with any optional fields omitted.
 mkAccountTakeoverRiskConfigurationType ::
   -- | 'actions'
-  AccountTakeoverActionsType ->
+  Types.AccountTakeoverActionsType ->
   AccountTakeoverRiskConfigurationType
-mkAccountTakeoverRiskConfigurationType pActions_ =
+mkAccountTakeoverRiskConfigurationType actions =
   AccountTakeoverRiskConfigurationType'
-    { actions = pActions_,
-      notifyConfiguration = Lude.Nothing
+    { actions,
+      notifyConfiguration = Core.Nothing
     }
 
 -- | Account takeover risk configuration actions
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrctActions :: Lens.Lens' AccountTakeoverRiskConfigurationType AccountTakeoverActionsType
-atrctActions = Lens.lens (actions :: AccountTakeoverRiskConfigurationType -> AccountTakeoverActionsType) (\s a -> s {actions = a} :: AccountTakeoverRiskConfigurationType)
+atrctActions :: Lens.Lens' AccountTakeoverRiskConfigurationType Types.AccountTakeoverActionsType
+atrctActions = Lens.field @"actions"
 {-# DEPRECATED atrctActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | The notify configuration used to construct email notifications.
 --
 -- /Note:/ Consider using 'notifyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrctNotifyConfiguration :: Lens.Lens' AccountTakeoverRiskConfigurationType (Lude.Maybe NotifyConfigurationType)
-atrctNotifyConfiguration = Lens.lens (notifyConfiguration :: AccountTakeoverRiskConfigurationType -> Lude.Maybe NotifyConfigurationType) (\s a -> s {notifyConfiguration = a} :: AccountTakeoverRiskConfigurationType)
+atrctNotifyConfiguration :: Lens.Lens' AccountTakeoverRiskConfigurationType (Core.Maybe Types.NotifyConfigurationType)
+atrctNotifyConfiguration = Lens.field @"notifyConfiguration"
 {-# DEPRECATED atrctNotifyConfiguration "Use generic-lens or generic-optics with 'notifyConfiguration' instead." #-}
 
-instance Lude.FromJSON AccountTakeoverRiskConfigurationType where
-  parseJSON =
-    Lude.withObject
-      "AccountTakeoverRiskConfigurationType"
-      ( \x ->
-          AccountTakeoverRiskConfigurationType'
-            Lude.<$> (x Lude..: "Actions") Lude.<*> (x Lude..:? "NotifyConfiguration")
-      )
-
-instance Lude.ToJSON AccountTakeoverRiskConfigurationType where
-  toJSON AccountTakeoverRiskConfigurationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Actions" Lude..= actions),
-            ("NotifyConfiguration" Lude..=) Lude.<$> notifyConfiguration
+instance Core.FromJSON AccountTakeoverRiskConfigurationType where
+  toJSON AccountTakeoverRiskConfigurationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Actions" Core..= actions),
+            ("NotifyConfiguration" Core..=) Core.<$> notifyConfiguration
           ]
       )
+
+instance Core.FromJSON AccountTakeoverRiskConfigurationType where
+  parseJSON =
+    Core.withObject "AccountTakeoverRiskConfigurationType" Core.$
+      \x ->
+        AccountTakeoverRiskConfigurationType'
+          Core.<$> (x Core..: "Actions") Core.<*> (x Core..:? "NotifyConfiguration")

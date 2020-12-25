@@ -31,138 +31,123 @@ module Network.AWS.OpsWorks.DescribeDeployments
     mkDescribeDeploymentsResponse,
 
     -- ** Response lenses
-    ddrsDeployments,
-    ddrsResponseStatus,
+    ddrrsDeployments,
+    ddrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeDeployments' smart constructor.
 data DescribeDeployments = DescribeDeployments'
   { -- | The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.
-    appId :: Lude.Maybe Lude.Text,
+    appId :: Core.Maybe Types.String,
     -- | An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
-    deploymentIds :: Lude.Maybe [Lude.Text],
+    deploymentIds :: Core.Maybe [Types.String],
     -- | The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.
-    stackId :: Lude.Maybe Lude.Text
+    stackId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDeployments' with the minimum fields required to make a request.
---
--- * 'appId' - The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.
--- * 'deploymentIds' - An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
--- * 'stackId' - The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.
+-- | Creates a 'DescribeDeployments' value with any optional fields omitted.
 mkDescribeDeployments ::
   DescribeDeployments
 mkDescribeDeployments =
   DescribeDeployments'
-    { appId = Lude.Nothing,
-      deploymentIds = Lude.Nothing,
-      stackId = Lude.Nothing
+    { appId = Core.Nothing,
+      deploymentIds = Core.Nothing,
+      stackId = Core.Nothing
     }
 
 -- | The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddAppId :: Lens.Lens' DescribeDeployments (Lude.Maybe Lude.Text)
-ddAppId = Lens.lens (appId :: DescribeDeployments -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: DescribeDeployments)
+ddAppId :: Lens.Lens' DescribeDeployments (Core.Maybe Types.String)
+ddAppId = Lens.field @"appId"
 {-# DEPRECATED ddAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
 -- | An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
 --
 -- /Note:/ Consider using 'deploymentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDeploymentIds :: Lens.Lens' DescribeDeployments (Lude.Maybe [Lude.Text])
-ddDeploymentIds = Lens.lens (deploymentIds :: DescribeDeployments -> Lude.Maybe [Lude.Text]) (\s a -> s {deploymentIds = a} :: DescribeDeployments)
+ddDeploymentIds :: Lens.Lens' DescribeDeployments (Core.Maybe [Types.String])
+ddDeploymentIds = Lens.field @"deploymentIds"
 {-# DEPRECATED ddDeploymentIds "Use generic-lens or generic-optics with 'deploymentIds' instead." #-}
 
 -- | The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddStackId :: Lens.Lens' DescribeDeployments (Lude.Maybe Lude.Text)
-ddStackId = Lens.lens (stackId :: DescribeDeployments -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribeDeployments)
+ddStackId :: Lens.Lens' DescribeDeployments (Core.Maybe Types.String)
+ddStackId = Lens.field @"stackId"
 {-# DEPRECATED ddStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance Lude.AWSRequest DescribeDeployments where
+instance Core.FromJSON DescribeDeployments where
+  toJSON DescribeDeployments {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AppId" Core..=) Core.<$> appId,
+            ("DeploymentIds" Core..=) Core.<$> deploymentIds,
+            ("StackId" Core..=) Core.<$> stackId
+          ]
+      )
+
+instance Core.AWSRequest DescribeDeployments where
   type Rs DescribeDeployments = DescribeDeploymentsResponse
-  request = Req.postJSON opsWorksService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DescribeDeployments")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDeploymentsResponse'
-            Lude.<$> (x Lude..?> "Deployments" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Deployments") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDeployments where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DescribeDeployments" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeDeployments where
-  toJSON DescribeDeployments' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AppId" Lude..=) Lude.<$> appId,
-            ("DeploymentIds" Lude..=) Lude.<$> deploymentIds,
-            ("StackId" Lude..=) Lude.<$> stackId
-          ]
-      )
-
-instance Lude.ToPath DescribeDeployments where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDeployments where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeDeployments@ request.
 --
 -- /See:/ 'mkDescribeDeploymentsResponse' smart constructor.
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
   { -- | An array of @Deployment@ objects that describe the deployments.
-    deployments :: Lude.Maybe [Deployment],
+    deployments :: Core.Maybe [Types.Deployment],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDeploymentsResponse' with the minimum fields required to make a request.
---
--- * 'deployments' - An array of @Deployment@ objects that describe the deployments.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDeploymentsResponse' value with any optional fields omitted.
 mkDescribeDeploymentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDeploymentsResponse
-mkDescribeDeploymentsResponse pResponseStatus_ =
+mkDescribeDeploymentsResponse responseStatus =
   DescribeDeploymentsResponse'
-    { deployments = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deployments = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @Deployment@ objects that describe the deployments.
 --
 -- /Note:/ Consider using 'deployments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsDeployments :: Lens.Lens' DescribeDeploymentsResponse (Lude.Maybe [Deployment])
-ddrsDeployments = Lens.lens (deployments :: DescribeDeploymentsResponse -> Lude.Maybe [Deployment]) (\s a -> s {deployments = a} :: DescribeDeploymentsResponse)
-{-# DEPRECATED ddrsDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
+ddrrsDeployments :: Lens.Lens' DescribeDeploymentsResponse (Core.Maybe [Types.Deployment])
+ddrrsDeployments = Lens.field @"deployments"
+{-# DEPRECATED ddrrsDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DescribeDeploymentsResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DescribeDeploymentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDeploymentsResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrrsResponseStatus :: Lens.Lens' DescribeDeploymentsResponse Core.Int
+ddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

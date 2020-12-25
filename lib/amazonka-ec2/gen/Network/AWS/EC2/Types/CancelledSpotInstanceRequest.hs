@@ -17,54 +17,53 @@ module Network.AWS.EC2.Types.CancelledSpotInstanceRequest
     mkCancelledSpotInstanceRequest,
 
     -- * Lenses
-    csirState,
     csirSpotInstanceRequestId,
+    csirState,
   )
 where
 
-import Network.AWS.EC2.Types.CancelSpotInstanceRequestState
+import qualified Network.AWS.EC2.Types.CancelSpotInstanceRequestState as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a request to cancel a Spot Instance.
 --
 -- /See:/ 'mkCancelledSpotInstanceRequest' smart constructor.
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
-  { -- | The state of the Spot Instance request.
-    state :: Lude.Maybe CancelSpotInstanceRequestState,
-    -- | The ID of the Spot Instance request.
-    spotInstanceRequestId :: Lude.Maybe Lude.Text
+  { -- | The ID of the Spot Instance request.
+    spotInstanceRequestId :: Core.Maybe Types.String,
+    -- | The state of the Spot Instance request.
+    state :: Core.Maybe Types.CancelSpotInstanceRequestState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelledSpotInstanceRequest' with the minimum fields required to make a request.
---
--- * 'state' - The state of the Spot Instance request.
--- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
+-- | Creates a 'CancelledSpotInstanceRequest' value with any optional fields omitted.
 mkCancelledSpotInstanceRequest ::
   CancelledSpotInstanceRequest
 mkCancelledSpotInstanceRequest =
   CancelledSpotInstanceRequest'
-    { state = Lude.Nothing,
-      spotInstanceRequestId = Lude.Nothing
+    { spotInstanceRequestId =
+        Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The state of the Spot Instance request.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csirState :: Lens.Lens' CancelledSpotInstanceRequest (Lude.Maybe CancelSpotInstanceRequestState)
-csirState = Lens.lens (state :: CancelledSpotInstanceRequest -> Lude.Maybe CancelSpotInstanceRequestState) (\s a -> s {state = a} :: CancelledSpotInstanceRequest)
-{-# DEPRECATED csirState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the Spot Instance request.
 --
 -- /Note:/ Consider using 'spotInstanceRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csirSpotInstanceRequestId :: Lens.Lens' CancelledSpotInstanceRequest (Lude.Maybe Lude.Text)
-csirSpotInstanceRequestId = Lens.lens (spotInstanceRequestId :: CancelledSpotInstanceRequest -> Lude.Maybe Lude.Text) (\s a -> s {spotInstanceRequestId = a} :: CancelledSpotInstanceRequest)
+csirSpotInstanceRequestId :: Lens.Lens' CancelledSpotInstanceRequest (Core.Maybe Types.String)
+csirSpotInstanceRequestId = Lens.field @"spotInstanceRequestId"
 {-# DEPRECATED csirSpotInstanceRequestId "Use generic-lens or generic-optics with 'spotInstanceRequestId' instead." #-}
 
-instance Lude.FromXML CancelledSpotInstanceRequest where
+-- | The state of the Spot Instance request.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csirState :: Lens.Lens' CancelledSpotInstanceRequest (Core.Maybe Types.CancelSpotInstanceRequestState)
+csirState = Lens.field @"state"
+{-# DEPRECATED csirState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromXML CancelledSpotInstanceRequest where
   parseXML x =
     CancelledSpotInstanceRequest'
-      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "spotInstanceRequestId")
+      Core.<$> (x Core..@? "spotInstanceRequestId") Core.<*> (x Core..@? "state")

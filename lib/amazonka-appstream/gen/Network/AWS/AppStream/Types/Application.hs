@@ -17,123 +17,117 @@ module Network.AWS.AppStream.Types.Application
     mkApplication,
 
     -- * Lenses
-    afEnabled,
-    afLaunchPath,
-    afLaunchParameters,
-    afName,
-    afDisplayName,
-    afMetadata,
-    afIconURL,
+    aDisplayName,
+    aEnabled,
+    aIconURL,
+    aLaunchParameters,
+    aLaunchPath,
+    aMetadata,
+    aName,
   )
 where
 
+import qualified Network.AWS.AppStream.Types.IconURL as Types
+import qualified Network.AWS.AppStream.Types.LaunchParameters as Types
+import qualified Network.AWS.AppStream.Types.LaunchPath as Types
+import qualified Network.AWS.AppStream.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an application in the application catalog.
 --
 -- /See:/ 'mkApplication' smart constructor.
 data Application = Application'
-  { -- | If there is a problem, the application can be disabled after image creation.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | The path to the application executable in the instance.
-    launchPath :: Lude.Maybe Lude.Text,
-    -- | The arguments that are passed to the application at launch.
-    launchParameters :: Lude.Maybe Lude.Text,
-    -- | The name of the application.
-    name :: Lude.Maybe Lude.Text,
-    -- | The application name to display.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | Additional attributes that describe the application.
-    metadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The application name to display.
+    displayName :: Core.Maybe Types.String,
+    -- | If there is a problem, the application can be disabled after image creation.
+    enabled :: Core.Maybe Core.Bool,
     -- | The URL for the application icon. This URL might be time-limited.
-    iconURL :: Lude.Maybe Lude.Text
+    iconURL :: Core.Maybe Types.IconURL,
+    -- | The arguments that are passed to the application at launch.
+    launchParameters :: Core.Maybe Types.LaunchParameters,
+    -- | The path to the application executable in the instance.
+    launchPath :: Core.Maybe Types.LaunchPath,
+    -- | Additional attributes that describe the application.
+    metadata :: Core.Maybe (Core.HashMap Types.String Types.String),
+    -- | The name of the application.
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Application' with the minimum fields required to make a request.
---
--- * 'enabled' - If there is a problem, the application can be disabled after image creation.
--- * 'launchPath' - The path to the application executable in the instance.
--- * 'launchParameters' - The arguments that are passed to the application at launch.
--- * 'name' - The name of the application.
--- * 'displayName' - The application name to display.
--- * 'metadata' - Additional attributes that describe the application.
--- * 'iconURL' - The URL for the application icon. This URL might be time-limited.
+-- | Creates a 'Application' value with any optional fields omitted.
 mkApplication ::
   Application
 mkApplication =
   Application'
-    { enabled = Lude.Nothing,
-      launchPath = Lude.Nothing,
-      launchParameters = Lude.Nothing,
-      name = Lude.Nothing,
-      displayName = Lude.Nothing,
-      metadata = Lude.Nothing,
-      iconURL = Lude.Nothing
+    { displayName = Core.Nothing,
+      enabled = Core.Nothing,
+      iconURL = Core.Nothing,
+      launchParameters = Core.Nothing,
+      launchPath = Core.Nothing,
+      metadata = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | If there is a problem, the application can be disabled after image creation.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afEnabled :: Lens.Lens' Application (Lude.Maybe Lude.Bool)
-afEnabled = Lens.lens (enabled :: Application -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: Application)
-{-# DEPRECATED afEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | The path to the application executable in the instance.
---
--- /Note:/ Consider using 'launchPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afLaunchPath :: Lens.Lens' Application (Lude.Maybe Lude.Text)
-afLaunchPath = Lens.lens (launchPath :: Application -> Lude.Maybe Lude.Text) (\s a -> s {launchPath = a} :: Application)
-{-# DEPRECATED afLaunchPath "Use generic-lens or generic-optics with 'launchPath' instead." #-}
-
--- | The arguments that are passed to the application at launch.
---
--- /Note:/ Consider using 'launchParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afLaunchParameters :: Lens.Lens' Application (Lude.Maybe Lude.Text)
-afLaunchParameters = Lens.lens (launchParameters :: Application -> Lude.Maybe Lude.Text) (\s a -> s {launchParameters = a} :: Application)
-{-# DEPRECATED afLaunchParameters "Use generic-lens or generic-optics with 'launchParameters' instead." #-}
-
--- | The name of the application.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afName :: Lens.Lens' Application (Lude.Maybe Lude.Text)
-afName = Lens.lens (name :: Application -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Application)
-{-# DEPRECATED afName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The application name to display.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afDisplayName :: Lens.Lens' Application (Lude.Maybe Lude.Text)
-afDisplayName = Lens.lens (displayName :: Application -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Application)
-{-# DEPRECATED afDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+aDisplayName :: Lens.Lens' Application (Core.Maybe Types.String)
+aDisplayName = Lens.field @"displayName"
+{-# DEPRECATED aDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
--- | Additional attributes that describe the application.
+-- | If there is a problem, the application can be disabled after image creation.
 --
--- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afMetadata :: Lens.Lens' Application (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-afMetadata = Lens.lens (metadata :: Application -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {metadata = a} :: Application)
-{-# DEPRECATED afMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aEnabled :: Lens.Lens' Application (Core.Maybe Core.Bool)
+aEnabled = Lens.field @"enabled"
+{-# DEPRECATED aEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The URL for the application icon. This URL might be time-limited.
 --
 -- /Note:/ Consider using 'iconURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afIconURL :: Lens.Lens' Application (Lude.Maybe Lude.Text)
-afIconURL = Lens.lens (iconURL :: Application -> Lude.Maybe Lude.Text) (\s a -> s {iconURL = a} :: Application)
-{-# DEPRECATED afIconURL "Use generic-lens or generic-optics with 'iconURL' instead." #-}
+aIconURL :: Lens.Lens' Application (Core.Maybe Types.IconURL)
+aIconURL = Lens.field @"iconURL"
+{-# DEPRECATED aIconURL "Use generic-lens or generic-optics with 'iconURL' instead." #-}
 
-instance Lude.FromJSON Application where
+-- | The arguments that are passed to the application at launch.
+--
+-- /Note:/ Consider using 'launchParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLaunchParameters :: Lens.Lens' Application (Core.Maybe Types.LaunchParameters)
+aLaunchParameters = Lens.field @"launchParameters"
+{-# DEPRECATED aLaunchParameters "Use generic-lens or generic-optics with 'launchParameters' instead." #-}
+
+-- | The path to the application executable in the instance.
+--
+-- /Note:/ Consider using 'launchPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLaunchPath :: Lens.Lens' Application (Core.Maybe Types.LaunchPath)
+aLaunchPath = Lens.field @"launchPath"
+{-# DEPRECATED aLaunchPath "Use generic-lens or generic-optics with 'launchPath' instead." #-}
+
+-- | Additional attributes that describe the application.
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aMetadata :: Lens.Lens' Application (Core.Maybe (Core.HashMap Types.String Types.String))
+aMetadata = Lens.field @"metadata"
+{-# DEPRECATED aMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | The name of the application.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aName :: Lens.Lens' Application (Core.Maybe Types.String)
+aName = Lens.field @"name"
+{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON Application where
   parseJSON =
-    Lude.withObject
-      "Application"
-      ( \x ->
-          Application'
-            Lude.<$> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "LaunchPath")
-            Lude.<*> (x Lude..:? "LaunchParameters")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "DisplayName")
-            Lude.<*> (x Lude..:? "Metadata" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "IconURL")
-      )
+    Core.withObject "Application" Core.$
+      \x ->
+        Application'
+          Core.<$> (x Core..:? "DisplayName")
+          Core.<*> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "IconURL")
+          Core.<*> (x Core..:? "LaunchParameters")
+          Core.<*> (x Core..:? "LaunchPath")
+          Core.<*> (x Core..:? "Metadata")
+          Core.<*> (x Core..:? "Name")

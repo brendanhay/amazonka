@@ -24,170 +24,160 @@ module Network.AWS.Lambda.ListFunctions
     mkListFunctions,
 
     -- ** Request lenses
-    lfMasterRegion,
-    lfMarker,
-    lfMaxItems,
     lfFunctionVersion,
+    lfMarker,
+    lfMasterRegion,
+    lfMaxItems,
 
     -- * Destructuring the response
     ListFunctionsResponse (..),
     mkListFunctionsResponse,
 
     -- ** Response lenses
-    lfrsNextMarker,
-    lfrsFunctions,
-    lfrsResponseStatus,
+    lfrrsFunctions,
+    lfrrsNextMarker,
+    lfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListFunctions' smart constructor.
 data ListFunctions = ListFunctions'
-  { -- | For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-1@ filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set @FunctionVersion@ to @ALL@ .
-    masterRegion :: Lude.Maybe Lude.Text,
+  { -- | Set to @ALL@ to include entries for all published versions of each function.
+    functionVersion :: Core.Maybe Types.FunctionVersion,
     -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
+    -- | For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-1@ filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set @FunctionVersion@ to @ALL@ .
+    masterRegion :: Core.Maybe Types.MasterRegion,
     -- | The maximum number of functions to return.
-    maxItems :: Lude.Maybe Lude.Natural,
-    -- | Set to @ALL@ to include entries for all published versions of each function.
-    functionVersion :: Lude.Maybe FunctionVersion
+    maxItems :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFunctions' with the minimum fields required to make a request.
---
--- * 'masterRegion' - For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-1@ filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set @FunctionVersion@ to @ALL@ .
--- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
--- * 'maxItems' - The maximum number of functions to return.
--- * 'functionVersion' - Set to @ALL@ to include entries for all published versions of each function.
+-- | Creates a 'ListFunctions' value with any optional fields omitted.
 mkListFunctions ::
   ListFunctions
 mkListFunctions =
   ListFunctions'
-    { masterRegion = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      functionVersion = Lude.Nothing
+    { functionVersion = Core.Nothing,
+      marker = Core.Nothing,
+      masterRegion = Core.Nothing,
+      maxItems = Core.Nothing
     }
-
--- | For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-1@ filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set @FunctionVersion@ to @ALL@ .
---
--- /Note:/ Consider using 'masterRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfMasterRegion :: Lens.Lens' ListFunctions (Lude.Maybe Lude.Text)
-lfMasterRegion = Lens.lens (masterRegion :: ListFunctions -> Lude.Maybe Lude.Text) (\s a -> s {masterRegion = a} :: ListFunctions)
-{-# DEPRECATED lfMasterRegion "Use generic-lens or generic-optics with 'masterRegion' instead." #-}
-
--- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfMarker :: Lens.Lens' ListFunctions (Lude.Maybe Lude.Text)
-lfMarker = Lens.lens (marker :: ListFunctions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListFunctions)
-{-# DEPRECATED lfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The maximum number of functions to return.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfMaxItems :: Lens.Lens' ListFunctions (Lude.Maybe Lude.Natural)
-lfMaxItems = Lens.lens (maxItems :: ListFunctions -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListFunctions)
-{-# DEPRECATED lfMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | Set to @ALL@ to include entries for all published versions of each function.
 --
 -- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfFunctionVersion :: Lens.Lens' ListFunctions (Lude.Maybe FunctionVersion)
-lfFunctionVersion = Lens.lens (functionVersion :: ListFunctions -> Lude.Maybe FunctionVersion) (\s a -> s {functionVersion = a} :: ListFunctions)
+lfFunctionVersion :: Lens.Lens' ListFunctions (Core.Maybe Types.FunctionVersion)
+lfFunctionVersion = Lens.field @"functionVersion"
 {-# DEPRECATED lfFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
 
-instance Page.AWSPager ListFunctions where
-  page rq rs
-    | Page.stop (rs Lens.^. lfrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lfrsFunctions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lfMarker Lens..~ rs Lens.^. lfrsNextMarker
+-- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfMarker :: Lens.Lens' ListFunctions (Core.Maybe Types.String)
+lfMarker = Lens.field @"marker"
+{-# DEPRECATED lfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListFunctions where
+-- | For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-1@ filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set @FunctionVersion@ to @ALL@ .
+--
+-- /Note:/ Consider using 'masterRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfMasterRegion :: Lens.Lens' ListFunctions (Core.Maybe Types.MasterRegion)
+lfMasterRegion = Lens.field @"masterRegion"
+{-# DEPRECATED lfMasterRegion "Use generic-lens or generic-optics with 'masterRegion' instead." #-}
+
+-- | The maximum number of functions to return.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfMaxItems :: Lens.Lens' ListFunctions (Core.Maybe Core.Natural)
+lfMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED lfMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+instance Core.AWSRequest ListFunctions where
   type Rs ListFunctions = ListFunctionsResponse
-  request = Req.get lambdaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2015-03-31/functions/",
+        Core._rqQuery =
+          Core.toQueryValue "FunctionVersion" Core.<$> functionVersion
+            Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "MasterRegion" Core.<$> masterRegion)
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListFunctionsResponse'
-            Lude.<$> (x Lude..?> "NextMarker")
-            Lude.<*> (x Lude..?> "Functions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Functions")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListFunctions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListFunctions where
-  toPath = Lude.const "/2015-03-31/functions/"
-
-instance Lude.ToQuery ListFunctions where
-  toQuery ListFunctions' {..} =
-    Lude.mconcat
-      [ "MasterRegion" Lude.=: masterRegion,
-        "Marker" Lude.=: marker,
-        "MaxItems" Lude.=: maxItems,
-        "FunctionVersion" Lude.=: functionVersion
-      ]
+instance Pager.AWSPager ListFunctions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"functions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | A list of Lambda functions.
 --
 -- /See:/ 'mkListFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
-  { -- | The pagination token that's included if more results are available.
-    nextMarker :: Lude.Maybe Lude.Text,
-    -- | A list of Lambda functions.
-    functions :: Lude.Maybe [FunctionConfiguration],
+  { -- | A list of Lambda functions.
+    functions :: Core.Maybe [Types.FunctionConfiguration],
+    -- | The pagination token that's included if more results are available.
+    nextMarker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFunctionsResponse' with the minimum fields required to make a request.
---
--- * 'nextMarker' - The pagination token that's included if more results are available.
--- * 'functions' - A list of Lambda functions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListFunctionsResponse' value with any optional fields omitted.
 mkListFunctionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListFunctionsResponse
-mkListFunctionsResponse pResponseStatus_ =
+mkListFunctionsResponse responseStatus =
   ListFunctionsResponse'
-    { nextMarker = Lude.Nothing,
-      functions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { functions = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
-
--- | The pagination token that's included if more results are available.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsNextMarker :: Lens.Lens' ListFunctionsResponse (Lude.Maybe Lude.Text)
-lfrsNextMarker = Lens.lens (nextMarker :: ListFunctionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListFunctionsResponse)
-{-# DEPRECATED lfrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | A list of Lambda functions.
 --
 -- /Note:/ Consider using 'functions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsFunctions :: Lens.Lens' ListFunctionsResponse (Lude.Maybe [FunctionConfiguration])
-lfrsFunctions = Lens.lens (functions :: ListFunctionsResponse -> Lude.Maybe [FunctionConfiguration]) (\s a -> s {functions = a} :: ListFunctionsResponse)
-{-# DEPRECATED lfrsFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
+lfrrsFunctions :: Lens.Lens' ListFunctionsResponse (Core.Maybe [Types.FunctionConfiguration])
+lfrrsFunctions = Lens.field @"functions"
+{-# DEPRECATED lfrrsFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
+
+-- | The pagination token that's included if more results are available.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrrsNextMarker :: Lens.Lens' ListFunctionsResponse (Core.Maybe Types.String)
+lfrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lfrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsResponseStatus :: Lens.Lens' ListFunctionsResponse Lude.Int
-lfrsResponseStatus = Lens.lens (responseStatus :: ListFunctionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFunctionsResponse)
-{-# DEPRECATED lfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lfrrsResponseStatus :: Lens.Lens' ListFunctionsResponse Core.Int
+lfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

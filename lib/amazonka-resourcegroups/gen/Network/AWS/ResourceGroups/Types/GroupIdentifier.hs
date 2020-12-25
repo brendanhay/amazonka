@@ -17,57 +17,54 @@ module Network.AWS.ResourceGroups.Types.GroupIdentifier
     mkGroupIdentifier,
 
     -- * Lenses
-    giGroupARN,
+    giGroupArn,
     giGroupName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.GroupArn as Types
+import qualified Network.AWS.ResourceGroups.Types.GroupName as Types
 
 -- | The unique identifiers for a resource group.
 --
 -- /See:/ 'mkGroupIdentifier' smart constructor.
 data GroupIdentifier = GroupIdentifier'
   { -- | The ARN of the resource group.
-    groupARN :: Lude.Maybe Lude.Text,
+    groupArn :: Core.Maybe Types.GroupArn,
     -- | The name of the resource group.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupIdentifier' with the minimum fields required to make a request.
---
--- * 'groupARN' - The ARN of the resource group.
--- * 'groupName' - The name of the resource group.
+-- | Creates a 'GroupIdentifier' value with any optional fields omitted.
 mkGroupIdentifier ::
   GroupIdentifier
 mkGroupIdentifier =
   GroupIdentifier'
-    { groupARN = Lude.Nothing,
-      groupName = Lude.Nothing
+    { groupArn = Core.Nothing,
+      groupName = Core.Nothing
     }
 
 -- | The ARN of the resource group.
 --
--- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giGroupARN :: Lens.Lens' GroupIdentifier (Lude.Maybe Lude.Text)
-giGroupARN = Lens.lens (groupARN :: GroupIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: GroupIdentifier)
-{-# DEPRECATED giGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
+-- /Note:/ Consider using 'groupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giGroupArn :: Lens.Lens' GroupIdentifier (Core.Maybe Types.GroupArn)
+giGroupArn = Lens.field @"groupArn"
+{-# DEPRECATED giGroupArn "Use generic-lens or generic-optics with 'groupArn' instead." #-}
 
 -- | The name of the resource group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giGroupName :: Lens.Lens' GroupIdentifier (Lude.Maybe Lude.Text)
-giGroupName = Lens.lens (groupName :: GroupIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GroupIdentifier)
+giGroupName :: Lens.Lens' GroupIdentifier (Core.Maybe Types.GroupName)
+giGroupName = Lens.field @"groupName"
 {-# DEPRECATED giGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.FromJSON GroupIdentifier where
+instance Core.FromJSON GroupIdentifier where
   parseJSON =
-    Lude.withObject
-      "GroupIdentifier"
-      ( \x ->
-          GroupIdentifier'
-            Lude.<$> (x Lude..:? "GroupArn") Lude.<*> (x Lude..:? "GroupName")
-      )
+    Core.withObject "GroupIdentifier" Core.$
+      \x ->
+        GroupIdentifier'
+          Core.<$> (x Core..:? "GroupArn") Core.<*> (x Core..:? "GroupName")

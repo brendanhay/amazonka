@@ -13,46 +13,51 @@
 module Network.AWS.IoT.Types.ServerCertificateStatus
   ( ServerCertificateStatus
       ( ServerCertificateStatus',
-        Invalid,
-        Valid
+        ServerCertificateStatusInvalid,
+        ServerCertificateStatusValid,
+        fromServerCertificateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServerCertificateStatus = ServerCertificateStatus' Lude.Text
+newtype ServerCertificateStatus = ServerCertificateStatus'
+  { fromServerCertificateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Invalid :: ServerCertificateStatus
-pattern Invalid = ServerCertificateStatus' "INVALID"
+pattern ServerCertificateStatusInvalid :: ServerCertificateStatus
+pattern ServerCertificateStatusInvalid = ServerCertificateStatus' "INVALID"
 
-pattern Valid :: ServerCertificateStatus
-pattern Valid = ServerCertificateStatus' "VALID"
+pattern ServerCertificateStatusValid :: ServerCertificateStatus
+pattern ServerCertificateStatusValid = ServerCertificateStatus' "VALID"
 
 {-# COMPLETE
-  Invalid,
-  Valid,
+  ServerCertificateStatusInvalid,
+  ServerCertificateStatusValid,
   ServerCertificateStatus'
   #-}

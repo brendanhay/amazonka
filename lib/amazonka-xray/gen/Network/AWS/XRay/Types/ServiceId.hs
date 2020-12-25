@@ -18,83 +18,77 @@ module Network.AWS.XRay.Types.ServiceId
 
     -- * Lenses
     siAccountId,
-    siNames,
     siName,
+    siNames,
     siType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- |
 --
 -- /See:/ 'mkServiceId' smart constructor.
 data ServiceId = ServiceId'
   { -- |
-    accountId :: Lude.Maybe Lude.Text,
+    accountId :: Core.Maybe Types.String,
     -- |
-    names :: Lude.Maybe [Lude.Text],
+    name :: Core.Maybe Types.String,
     -- |
-    name :: Lude.Maybe Lude.Text,
+    names :: Core.Maybe [Types.String],
     -- |
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceId' with the minimum fields required to make a request.
---
--- * 'accountId' -
--- * 'names' -
--- * 'name' -
--- * 'type'' -
+-- | Creates a 'ServiceId' value with any optional fields omitted.
 mkServiceId ::
   ServiceId
 mkServiceId =
   ServiceId'
-    { accountId = Lude.Nothing,
-      names = Lude.Nothing,
-      name = Lude.Nothing,
-      type' = Lude.Nothing
+    { accountId = Core.Nothing,
+      name = Core.Nothing,
+      names = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- |
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siAccountId :: Lens.Lens' ServiceId (Lude.Maybe Lude.Text)
-siAccountId = Lens.lens (accountId :: ServiceId -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ServiceId)
+siAccountId :: Lens.Lens' ServiceId (Core.Maybe Types.String)
+siAccountId = Lens.field @"accountId"
 {-# DEPRECATED siAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- |
 --
--- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siNames :: Lens.Lens' ServiceId (Lude.Maybe [Lude.Text])
-siNames = Lens.lens (names :: ServiceId -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: ServiceId)
-{-# DEPRECATED siNames "Use generic-lens or generic-optics with 'names' instead." #-}
-
--- |
---
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siName :: Lens.Lens' ServiceId (Lude.Maybe Lude.Text)
-siName = Lens.lens (name :: ServiceId -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ServiceId)
+siName :: Lens.Lens' ServiceId (Core.Maybe Types.String)
+siName = Lens.field @"name"
 {-# DEPRECATED siName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- |
 --
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siNames :: Lens.Lens' ServiceId (Core.Maybe [Types.String])
+siNames = Lens.field @"names"
+{-# DEPRECATED siNames "Use generic-lens or generic-optics with 'names' instead." #-}
+
+-- |
+--
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siType :: Lens.Lens' ServiceId (Lude.Maybe Lude.Text)
-siType = Lens.lens (type' :: ServiceId -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ServiceId)
+siType :: Lens.Lens' ServiceId (Core.Maybe Types.String)
+siType = Lens.field @"type'"
 {-# DEPRECATED siType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON ServiceId where
+instance Core.FromJSON ServiceId where
   parseJSON =
-    Lude.withObject
-      "ServiceId"
-      ( \x ->
-          ServiceId'
-            Lude.<$> (x Lude..:? "AccountId")
-            Lude.<*> (x Lude..:? "Names" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "ServiceId" Core.$
+      \x ->
+        ServiceId'
+          Core.<$> (x Core..:? "AccountId")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Names")
+          Core.<*> (x Core..:? "Type")

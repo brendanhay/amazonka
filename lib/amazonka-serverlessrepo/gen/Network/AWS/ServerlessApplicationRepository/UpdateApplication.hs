@@ -20,141 +20,96 @@ module Network.AWS.ServerlessApplicationRepository.UpdateApplication
     mkUpdateApplication,
 
     -- ** Request lenses
-    uaHomePageURL,
-    uaReadmeBody,
-    uaReadmeURL,
-    uaApplicationId,
-    uaAuthor,
-    uaLabels,
-    uaDescription,
+    uApplicationId,
+    uAuthor,
+    uDescription,
+    uHomePageUrl,
+    uLabels,
+    uReadmeBody,
+    uReadmeUrl,
 
     -- * Destructuring the response
     UpdateApplicationResponse (..),
     mkUpdateApplicationResponse,
 
     -- ** Response lenses
-    uarsCreationTime,
-    uarsHomePageURL,
-    uarsLicenseURL,
-    uarsReadmeURL,
-    uarsApplicationId,
-    uarsName,
-    uarsVersion,
-    uarsAuthor,
-    uarsLabels,
-    uarsVerifiedAuthorURL,
-    uarsDescription,
-    uarsSpdxLicenseId,
-    uarsIsVerifiedAuthor,
-    uarsResponseStatus,
+    uarrsApplicationId,
+    uarrsAuthor,
+    uarrsCreationTime,
+    uarrsDescription,
+    uarrsHomePageUrl,
+    uarrsIsVerifiedAuthor,
+    uarrsLabels,
+    uarrsLicenseUrl,
+    uarrsName,
+    uarrsReadmeUrl,
+    uarrsSpdxLicenseId,
+    uarrsVerifiedAuthorUrl,
+    uarrsVersion,
+    uarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServerlessApplicationRepository.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServerlessApplicationRepository.Types as Types
 
 -- | /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
-    homePageURL :: Lude.Maybe Lude.Text,
-    -- | A text readme file in Markdown language that contains a more detailed description of the application and how it works.
-    --
-    -- Maximum size 5 MB
-    readmeBody :: Lude.Maybe Lude.Text,
-    -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
-    --
-    -- Maximum size 5 MB
-    readmeURL :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the application.
+    applicationId :: Core.Text,
     -- | The name of the author publishing the app.
     --
     -- Minimum length=1. Maximum length=127.
     -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
-    author :: Lude.Maybe Lude.Text,
+    author :: Core.Maybe Core.Text,
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
+    description :: Core.Maybe Core.Text,
+    -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
+    homePageUrl :: Core.Maybe Core.Text,
     -- | Labels to improve discovery of apps in search results.
     --
     -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
     -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
-    labels :: Lude.Maybe [Lude.Text],
-    -- | The description of the application.
+    labels :: Core.Maybe [Core.Text],
+    -- | A text readme file in Markdown language that contains a more detailed description of the application and how it works.
     --
-    -- Minimum length=1. Maximum length=256
-    description :: Lude.Maybe Lude.Text
+    -- Maximum size 5 MB
+    readmeBody :: Core.Maybe Core.Text,
+    -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
+    readmeUrl :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
---
--- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
--- * 'readmeBody' - A text readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
--- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
--- * 'author' - The name of the author publishing the app.
---
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
--- * 'labels' - Labels to improve discovery of apps in search results.
---
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
--- * 'description' - The description of the application.
---
--- Minimum length=1. Maximum length=256
+-- | Creates a 'UpdateApplication' value with any optional fields omitted.
 mkUpdateApplication ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   UpdateApplication
-mkUpdateApplication pApplicationId_ =
+mkUpdateApplication applicationId =
   UpdateApplication'
-    { homePageURL = Lude.Nothing,
-      readmeBody = Lude.Nothing,
-      readmeURL = Lude.Nothing,
-      applicationId = pApplicationId_,
-      author = Lude.Nothing,
-      labels = Lude.Nothing,
-      description = Lude.Nothing
+    { applicationId,
+      author = Core.Nothing,
+      description = Core.Nothing,
+      homePageUrl = Core.Nothing,
+      labels = Core.Nothing,
+      readmeBody = Core.Nothing,
+      readmeUrl = Core.Nothing
     }
-
--- | A URL with more information about the application, for example the location of your GitHub repository for the application.
---
--- /Note:/ Consider using 'homePageURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaHomePageURL :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uaHomePageURL = Lens.lens (homePageURL :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {homePageURL = a} :: UpdateApplication)
-{-# DEPRECATED uaHomePageURL "Use generic-lens or generic-optics with 'homePageURL' instead." #-}
-
--- | A text readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
---
--- /Note:/ Consider using 'readmeBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaReadmeBody :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uaReadmeBody = Lens.lens (readmeBody :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {readmeBody = a} :: UpdateApplication)
-{-# DEPRECATED uaReadmeBody "Use generic-lens or generic-optics with 'readmeBody' instead." #-}
-
--- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
---
--- /Note:/ Consider using 'readmeURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaReadmeURL :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uaReadmeURL = Lens.lens (readmeURL :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {readmeURL = a} :: UpdateApplication)
-{-# DEPRECATED uaReadmeURL "Use generic-lens or generic-optics with 'readmeURL' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaApplicationId :: Lens.Lens' UpdateApplication Lude.Text
-uaApplicationId = Lens.lens (applicationId :: UpdateApplication -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateApplication)
-{-# DEPRECATED uaApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+uApplicationId :: Lens.Lens' UpdateApplication Core.Text
+uApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED uApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The name of the author publishing the app.
 --
@@ -162,9 +117,25 @@ uaApplicationId = Lens.lens (applicationId :: UpdateApplication -> Lude.Text) (\
 -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 --
 -- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaAuthor :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uaAuthor = Lens.lens (author :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {author = a} :: UpdateApplication)
-{-# DEPRECATED uaAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
+uAuthor :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
+uAuthor = Lens.field @"author"
+{-# DEPRECATED uAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
+
+-- | The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDescription :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
+uDescription = Lens.field @"description"
+{-# DEPRECATED uDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | A URL with more information about the application, for example the location of your GitHub repository for the application.
+--
+-- /Note:/ Consider using 'homePageUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uHomePageUrl :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
+uHomePageUrl = Lens.field @"homePageUrl"
+{-# DEPRECATED uHomePageUrl "Use generic-lens or generic-optics with 'homePageUrl' instead." #-}
 
 -- | Labels to improve discovery of apps in search results.
 --
@@ -172,211 +143,212 @@ uaAuthor = Lens.lens (author :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a
 -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 --
 -- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaLabels :: Lens.Lens' UpdateApplication (Lude.Maybe [Lude.Text])
-uaLabels = Lens.lens (labels :: UpdateApplication -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: UpdateApplication)
-{-# DEPRECATED uaLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
+uLabels :: Lens.Lens' UpdateApplication (Core.Maybe [Core.Text])
+uLabels = Lens.field @"labels"
+{-# DEPRECATED uLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
+
+-- | A text readme file in Markdown language that contains a more detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+--
+-- /Note:/ Consider using 'readmeBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uReadmeBody :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
+uReadmeBody = Lens.field @"readmeBody"
+{-# DEPRECATED uReadmeBody "Use generic-lens or generic-optics with 'readmeBody' instead." #-}
+
+-- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+--
+-- /Note:/ Consider using 'readmeUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uReadmeUrl :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
+uReadmeUrl = Lens.field @"readmeUrl"
+{-# DEPRECATED uReadmeUrl "Use generic-lens or generic-optics with 'readmeUrl' instead." #-}
+
+instance Core.FromJSON UpdateApplication where
+  toJSON UpdateApplication {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("author" Core..=) Core.<$> author,
+            ("description" Core..=) Core.<$> description,
+            ("homePageUrl" Core..=) Core.<$> homePageUrl,
+            ("labels" Core..=) Core.<$> labels,
+            ("readmeBody" Core..=) Core.<$> readmeBody,
+            ("readmeUrl" Core..=) Core.<$> readmeUrl
+          ]
+      )
+
+instance Core.AWSRequest UpdateApplication where
+  type Rs UpdateApplication = UpdateApplicationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath
+            ("/applications/" Core.<> (Core.toText applicationId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateApplicationResponse'
+            Core.<$> (x Core..:? "applicationId")
+            Core.<*> (x Core..:? "author")
+            Core.<*> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "homePageUrl")
+            Core.<*> (x Core..:? "isVerifiedAuthor")
+            Core.<*> (x Core..:? "labels")
+            Core.<*> (x Core..:? "licenseUrl")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "readmeUrl")
+            Core.<*> (x Core..:? "spdxLicenseId")
+            Core.<*> (x Core..:? "verifiedAuthorUrl")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
+data UpdateApplicationResponse = UpdateApplicationResponse'
+  { -- | The application Amazon Resource Name (ARN).
+    applicationId :: Core.Maybe Core.Text,
+    -- | The name of the author publishing the app.
+    --
+    -- Minimum length=1. Maximum length=127.
+    -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+    author :: Core.Maybe Core.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Core.Maybe Core.Text,
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
+    description :: Core.Maybe Core.Text,
+    -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
+    homePageUrl :: Core.Maybe Core.Text,
+    -- | Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+    isVerifiedAuthor :: Core.Maybe Core.Bool,
+    -- | Labels to improve discovery of apps in search results.
+    --
+    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+    -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+    labels :: Core.Maybe [Core.Text],
+    -- | A link to a license file of the app that matches the spdxLicenseID value of your application.
+    --
+    -- Maximum size 5 MB
+    licenseUrl :: Core.Maybe Core.Text,
+    -- | The name of the application.
+    --
+    -- Minimum length=1. Maximum length=140
+    -- Pattern: "[a-zA-Z0-9\\-]+";
+    name :: Core.Maybe Core.Text,
+    -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
+    readmeUrl :: Core.Maybe Core.Text,
+    -- | A valid identifier from https://spdx.org/licenses/.
+    spdxLicenseId :: Core.Maybe Core.Text,
+    -- | The URL to the public profile of a verified author. This URL is submitted by the author.
+    verifiedAuthorUrl :: Core.Maybe Core.Text,
+    -- | Version information about the application.
+    version :: Core.Maybe Types.Version,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'UpdateApplicationResponse' value with any optional fields omitted.
+mkUpdateApplicationResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  UpdateApplicationResponse
+mkUpdateApplicationResponse responseStatus =
+  UpdateApplicationResponse'
+    { applicationId = Core.Nothing,
+      author = Core.Nothing,
+      creationTime = Core.Nothing,
+      description = Core.Nothing,
+      homePageUrl = Core.Nothing,
+      isVerifiedAuthor = Core.Nothing,
+      labels = Core.Nothing,
+      licenseUrl = Core.Nothing,
+      name = Core.Nothing,
+      readmeUrl = Core.Nothing,
+      spdxLicenseId = Core.Nothing,
+      verifiedAuthorUrl = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
+    }
+
+-- | The application Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsApplicationId :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED uarrsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+--
+-- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsAuthor :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsAuthor = Lens.field @"author"
+{-# DEPRECATED uarrsAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
+
+-- | The date and time this resource was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsCreationTime :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED uarrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The description of the application.
 --
 -- Minimum length=1. Maximum length=256
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaDescription :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uaDescription = Lens.lens (description :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplication)
-{-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.AWSRequest UpdateApplication where
-  type Rs UpdateApplication = UpdateApplicationResponse
-  request = Req.patchJSON serverlessApplicationRepositoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateApplicationResponse'
-            Lude.<$> (x Lude..?> "creationTime")
-            Lude.<*> (x Lude..?> "homePageUrl")
-            Lude.<*> (x Lude..?> "licenseUrl")
-            Lude.<*> (x Lude..?> "readmeUrl")
-            Lude.<*> (x Lude..?> "applicationId")
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (x Lude..?> "version")
-            Lude.<*> (x Lude..?> "author")
-            Lude.<*> (x Lude..?> "labels" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "verifiedAuthorUrl")
-            Lude.<*> (x Lude..?> "description")
-            Lude.<*> (x Lude..?> "spdxLicenseId")
-            Lude.<*> (x Lude..?> "isVerifiedAuthor")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateApplication where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateApplication where
-  toJSON UpdateApplication' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("homePageUrl" Lude..=) Lude.<$> homePageURL,
-            ("readmeBody" Lude..=) Lude.<$> readmeBody,
-            ("readmeUrl" Lude..=) Lude.<$> readmeURL,
-            ("author" Lude..=) Lude.<$> author,
-            ("labels" Lude..=) Lude.<$> labels,
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath UpdateApplication where
-  toPath UpdateApplication' {..} =
-    Lude.mconcat ["/applications/", Lude.toBS applicationId]
-
-instance Lude.ToQuery UpdateApplication where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
-data UpdateApplicationResponse = UpdateApplicationResponse'
-  { -- | The date and time this resource was created.
-    creationTime :: Lude.Maybe Lude.Text,
-    -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
-    homePageURL :: Lude.Maybe Lude.Text,
-    -- | A link to a license file of the app that matches the spdxLicenseID value of your application.
-    --
-    -- Maximum size 5 MB
-    licenseURL :: Lude.Maybe Lude.Text,
-    -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
-    --
-    -- Maximum size 5 MB
-    readmeURL :: Lude.Maybe Lude.Text,
-    -- | The application Amazon Resource Name (ARN).
-    applicationId :: Lude.Maybe Lude.Text,
-    -- | The name of the application.
-    --
-    -- Minimum length=1. Maximum length=140
-    -- Pattern: "[a-zA-Z0-9\\-]+";
-    name :: Lude.Maybe Lude.Text,
-    -- | Version information about the application.
-    version :: Lude.Maybe Version,
-    -- | The name of the author publishing the app.
-    --
-    -- Minimum length=1. Maximum length=127.
-    -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
-    author :: Lude.Maybe Lude.Text,
-    -- | Labels to improve discovery of apps in search results.
-    --
-    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
-    -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
-    labels :: Lude.Maybe [Lude.Text],
-    -- | The URL to the public profile of a verified author. This URL is submitted by the author.
-    verifiedAuthorURL :: Lude.Maybe Lude.Text,
-    -- | The description of the application.
-    --
-    -- Minimum length=1. Maximum length=256
-    description :: Lude.Maybe Lude.Text,
-    -- | A valid identifier from https://spdx.org/licenses/.
-    spdxLicenseId :: Lude.Maybe Lude.Text,
-    -- | Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
-    isVerifiedAuthor :: Lude.Maybe Lude.Bool,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - The date and time this resource was created.
--- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
--- * 'licenseURL' - A link to a license file of the app that matches the spdxLicenseID value of your application.
---
--- Maximum size 5 MB
--- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
--- * 'applicationId' - The application Amazon Resource Name (ARN).
--- * 'name' - The name of the application.
---
--- Minimum length=1. Maximum length=140
--- Pattern: "[a-zA-Z0-9\\-]+";
--- * 'version' - Version information about the application.
--- * 'author' - The name of the author publishing the app.
---
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
--- * 'labels' - Labels to improve discovery of apps in search results.
---
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
--- * 'verifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
--- * 'description' - The description of the application.
---
--- Minimum length=1. Maximum length=256
--- * 'spdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
--- * 'isVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
--- * 'responseStatus' - The response status code.
-mkUpdateApplicationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  UpdateApplicationResponse
-mkUpdateApplicationResponse pResponseStatus_ =
-  UpdateApplicationResponse'
-    { creationTime = Lude.Nothing,
-      homePageURL = Lude.Nothing,
-      licenseURL = Lude.Nothing,
-      readmeURL = Lude.Nothing,
-      applicationId = Lude.Nothing,
-      name = Lude.Nothing,
-      version = Lude.Nothing,
-      author = Lude.Nothing,
-      labels = Lude.Nothing,
-      verifiedAuthorURL = Lude.Nothing,
-      description = Lude.Nothing,
-      spdxLicenseId = Lude.Nothing,
-      isVerifiedAuthor = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | The date and time this resource was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsCreationTime :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsCreationTime = Lens.lens (creationTime :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTime = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+uarrsDescription :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsDescription = Lens.field @"description"
+{-# DEPRECATED uarrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
 --
--- /Note:/ Consider using 'homePageURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsHomePageURL :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsHomePageURL = Lens.lens (homePageURL :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {homePageURL = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsHomePageURL "Use generic-lens or generic-optics with 'homePageURL' instead." #-}
+-- /Note:/ Consider using 'homePageUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsHomePageUrl :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsHomePageUrl = Lens.field @"homePageUrl"
+{-# DEPRECATED uarrsHomePageUrl "Use generic-lens or generic-optics with 'homePageUrl' instead." #-}
+
+-- | Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+--
+-- /Note:/ Consider using 'isVerifiedAuthor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsIsVerifiedAuthor :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Bool)
+uarrsIsVerifiedAuthor = Lens.field @"isVerifiedAuthor"
+{-# DEPRECATED uarrsIsVerifiedAuthor "Use generic-lens or generic-optics with 'isVerifiedAuthor' instead." #-}
+
+-- | Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+-- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+--
+-- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsLabels :: Lens.Lens' UpdateApplicationResponse (Core.Maybe [Core.Text])
+uarrsLabels = Lens.field @"labels"
+{-# DEPRECATED uarrsLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
 -- | A link to a license file of the app that matches the spdxLicenseID value of your application.
 --
 -- Maximum size 5 MB
 --
--- /Note:/ Consider using 'licenseURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsLicenseURL :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsLicenseURL = Lens.lens (licenseURL :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {licenseURL = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsLicenseURL "Use generic-lens or generic-optics with 'licenseURL' instead." #-}
-
--- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
---
--- /Note:/ Consider using 'readmeURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsReadmeURL :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsReadmeURL = Lens.lens (readmeURL :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {readmeURL = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsReadmeURL "Use generic-lens or generic-optics with 'readmeURL' instead." #-}
-
--- | The application Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsApplicationId :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsApplicationId = Lens.lens (applicationId :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+-- /Note:/ Consider using 'licenseUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsLicenseUrl :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsLicenseUrl = Lens.field @"licenseUrl"
+{-# DEPRECATED uarrsLicenseUrl "Use generic-lens or generic-optics with 'licenseUrl' instead." #-}
 
 -- | The name of the application.
 --
@@ -384,70 +356,43 @@ uarsApplicationId = Lens.lens (applicationId :: UpdateApplicationResponse -> Lud
 -- Pattern: "[a-zA-Z0-9\\-]+";
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsName :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsName = Lens.lens (name :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsName "Use generic-lens or generic-optics with 'name' instead." #-}
+uarrsName :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsName = Lens.field @"name"
+{-# DEPRECATED uarrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Version information about the application.
+-- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
 --
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsVersion :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Version)
-uarsVersion = Lens.lens (version :: UpdateApplicationResponse -> Lude.Maybe Version) (\s a -> s {version = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The name of the author publishing the app.
+-- Maximum size 5 MB
 --
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
---
--- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsAuthor :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsAuthor = Lens.lens (author :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {author = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
-
--- | Labels to improve discovery of apps in search results.
---
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
---
--- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsLabels :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe [Lude.Text])
-uarsLabels = Lens.lens (labels :: UpdateApplicationResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
-
--- | The URL to the public profile of a verified author. This URL is submitted by the author.
---
--- /Note:/ Consider using 'verifiedAuthorURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsVerifiedAuthorURL :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsVerifiedAuthorURL = Lens.lens (verifiedAuthorURL :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {verifiedAuthorURL = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsVerifiedAuthorURL "Use generic-lens or generic-optics with 'verifiedAuthorURL' instead." #-}
-
--- | The description of the application.
---
--- Minimum length=1. Maximum length=256
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsDescription :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsDescription = Lens.lens (description :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'readmeUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsReadmeUrl :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsReadmeUrl = Lens.field @"readmeUrl"
+{-# DEPRECATED uarrsReadmeUrl "Use generic-lens or generic-optics with 'readmeUrl' instead." #-}
 
 -- | A valid identifier from https://spdx.org/licenses/.
 --
 -- /Note:/ Consider using 'spdxLicenseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsSpdxLicenseId :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Text)
-uarsSpdxLicenseId = Lens.lens (spdxLicenseId :: UpdateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {spdxLicenseId = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsSpdxLicenseId "Use generic-lens or generic-optics with 'spdxLicenseId' instead." #-}
+uarrsSpdxLicenseId :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsSpdxLicenseId = Lens.field @"spdxLicenseId"
+{-# DEPRECATED uarrsSpdxLicenseId "Use generic-lens or generic-optics with 'spdxLicenseId' instead." #-}
 
--- | Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+-- | The URL to the public profile of a verified author. This URL is submitted by the author.
 --
--- /Note:/ Consider using 'isVerifiedAuthor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsIsVerifiedAuthor :: Lens.Lens' UpdateApplicationResponse (Lude.Maybe Lude.Bool)
-uarsIsVerifiedAuthor = Lens.lens (isVerifiedAuthor :: UpdateApplicationResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isVerifiedAuthor = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsIsVerifiedAuthor "Use generic-lens or generic-optics with 'isVerifiedAuthor' instead." #-}
+-- /Note:/ Consider using 'verifiedAuthorUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsVerifiedAuthorUrl :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Core.Text)
+uarrsVerifiedAuthorUrl = Lens.field @"verifiedAuthorUrl"
+{-# DEPRECATED uarrsVerifiedAuthorUrl "Use generic-lens or generic-optics with 'verifiedAuthorUrl' instead." #-}
+
+-- | Version information about the application.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarrsVersion :: Lens.Lens' UpdateApplicationResponse (Core.Maybe Types.Version)
+uarrsVersion = Lens.field @"version"
+{-# DEPRECATED uarrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsResponseStatus :: Lens.Lens' UpdateApplicationResponse Lude.Int
-uarsResponseStatus = Lens.lens (responseStatus :: UpdateApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uarrsResponseStatus :: Lens.Lens' UpdateApplicationResponse Core.Int
+uarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

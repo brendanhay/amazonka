@@ -18,14 +18,15 @@ module Network.AWS.Lightsail.Types.ContainerServiceRegistryLogin
 
     -- * Lenses
     csrlExpiresAt,
-    csrlUsername,
     csrlPassword,
     csrlRegistry,
+    csrlUsername,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the login information for the container image registry of an Amazon Lightsail account.
 --
@@ -34,33 +35,26 @@ data ContainerServiceRegistryLogin = ContainerServiceRegistryLogin'
   { -- | The timestamp of when the container image registry username and password expire.
     --
     -- The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials using the @CreateContainerServiceRegistryLogin@ action.
-    expiresAt :: Lude.Maybe Lude.Timestamp,
-    -- | The container service registry username to use to push container images to the container image registry of a Lightsail account.
-    username :: Lude.Maybe Lude.Text,
+    expiresAt :: Core.Maybe Core.NominalDiffTime,
     -- | The container service registry password to use to push container images to the container image registry of a Lightsail account
-    password :: Lude.Maybe Lude.Text,
+    password :: Core.Maybe Types.String,
     -- | The address to use to push container images to the container image registry of a Lightsail account.
-    registry :: Lude.Maybe Lude.Text
+    registry :: Core.Maybe Types.String,
+    -- | The container service registry username to use to push container images to the container image registry of a Lightsail account.
+    username :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ContainerServiceRegistryLogin' with the minimum fields required to make a request.
---
--- * 'expiresAt' - The timestamp of when the container image registry username and password expire.
---
--- The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials using the @CreateContainerServiceRegistryLogin@ action.
--- * 'username' - The container service registry username to use to push container images to the container image registry of a Lightsail account.
--- * 'password' - The container service registry password to use to push container images to the container image registry of a Lightsail account
--- * 'registry' - The address to use to push container images to the container image registry of a Lightsail account.
+-- | Creates a 'ContainerServiceRegistryLogin' value with any optional fields omitted.
 mkContainerServiceRegistryLogin ::
   ContainerServiceRegistryLogin
 mkContainerServiceRegistryLogin =
   ContainerServiceRegistryLogin'
-    { expiresAt = Lude.Nothing,
-      username = Lude.Nothing,
-      password = Lude.Nothing,
-      registry = Lude.Nothing
+    { expiresAt = Core.Nothing,
+      password = Core.Nothing,
+      registry = Core.Nothing,
+      username = Core.Nothing
     }
 
 -- | The timestamp of when the container image registry username and password expire.
@@ -68,39 +62,37 @@ mkContainerServiceRegistryLogin =
 -- The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials using the @CreateContainerServiceRegistryLogin@ action.
 --
 -- /Note:/ Consider using 'expiresAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrlExpiresAt :: Lens.Lens' ContainerServiceRegistryLogin (Lude.Maybe Lude.Timestamp)
-csrlExpiresAt = Lens.lens (expiresAt :: ContainerServiceRegistryLogin -> Lude.Maybe Lude.Timestamp) (\s a -> s {expiresAt = a} :: ContainerServiceRegistryLogin)
+csrlExpiresAt :: Lens.Lens' ContainerServiceRegistryLogin (Core.Maybe Core.NominalDiffTime)
+csrlExpiresAt = Lens.field @"expiresAt"
 {-# DEPRECATED csrlExpiresAt "Use generic-lens or generic-optics with 'expiresAt' instead." #-}
-
--- | The container service registry username to use to push container images to the container image registry of a Lightsail account.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrlUsername :: Lens.Lens' ContainerServiceRegistryLogin (Lude.Maybe Lude.Text)
-csrlUsername = Lens.lens (username :: ContainerServiceRegistryLogin -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: ContainerServiceRegistryLogin)
-{-# DEPRECATED csrlUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The container service registry password to use to push container images to the container image registry of a Lightsail account
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrlPassword :: Lens.Lens' ContainerServiceRegistryLogin (Lude.Maybe Lude.Text)
-csrlPassword = Lens.lens (password :: ContainerServiceRegistryLogin -> Lude.Maybe Lude.Text) (\s a -> s {password = a} :: ContainerServiceRegistryLogin)
+csrlPassword :: Lens.Lens' ContainerServiceRegistryLogin (Core.Maybe Types.String)
+csrlPassword = Lens.field @"password"
 {-# DEPRECATED csrlPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | The address to use to push container images to the container image registry of a Lightsail account.
 --
 -- /Note:/ Consider using 'registry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrlRegistry :: Lens.Lens' ContainerServiceRegistryLogin (Lude.Maybe Lude.Text)
-csrlRegistry = Lens.lens (registry :: ContainerServiceRegistryLogin -> Lude.Maybe Lude.Text) (\s a -> s {registry = a} :: ContainerServiceRegistryLogin)
+csrlRegistry :: Lens.Lens' ContainerServiceRegistryLogin (Core.Maybe Types.String)
+csrlRegistry = Lens.field @"registry"
 {-# DEPRECATED csrlRegistry "Use generic-lens or generic-optics with 'registry' instead." #-}
 
-instance Lude.FromJSON ContainerServiceRegistryLogin where
+-- | The container service registry username to use to push container images to the container image registry of a Lightsail account.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrlUsername :: Lens.Lens' ContainerServiceRegistryLogin (Core.Maybe Types.String)
+csrlUsername = Lens.field @"username"
+{-# DEPRECATED csrlUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+instance Core.FromJSON ContainerServiceRegistryLogin where
   parseJSON =
-    Lude.withObject
-      "ContainerServiceRegistryLogin"
-      ( \x ->
-          ContainerServiceRegistryLogin'
-            Lude.<$> (x Lude..:? "expiresAt")
-            Lude.<*> (x Lude..:? "username")
-            Lude.<*> (x Lude..:? "password")
-            Lude.<*> (x Lude..:? "registry")
-      )
+    Core.withObject "ContainerServiceRegistryLogin" Core.$
+      \x ->
+        ContainerServiceRegistryLogin'
+          Core.<$> (x Core..:? "expiresAt")
+          Core.<*> (x Core..:? "password")
+          Core.<*> (x Core..:? "registry")
+          Core.<*> (x Core..:? "username")

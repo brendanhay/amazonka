@@ -20,8 +20,8 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     mkCancelUpdateStack,
 
     -- ** Request lenses
-    cusClientRequestToken,
     cusStackName,
+    cusClientRequestToken,
 
     -- * Destructuring the response
     CancelUpdateStackResponse (..),
@@ -29,78 +29,77 @@ module Network.AWS.CloudFormation.CancelUpdateStack
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'CancelUpdateStack' action.
 --
 -- /See:/ 'mkCancelUpdateStack' smart constructor.
 data CancelUpdateStack = CancelUpdateStack'
-  { -- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    -- | The name or the unique stack ID that is associated with the stack.
-    stackName :: Lude.Text
+  { -- | The name or the unique stack ID that is associated with the stack.
+    stackName :: Types.StackName,
+    -- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelUpdateStack' with the minimum fields required to make a request.
---
--- * 'clientRequestToken' - A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
--- * 'stackName' - The name or the unique stack ID that is associated with the stack.
+-- | Creates a 'CancelUpdateStack' value with any optional fields omitted.
 mkCancelUpdateStack ::
   -- | 'stackName'
-  Lude.Text ->
+  Types.StackName ->
   CancelUpdateStack
-mkCancelUpdateStack pStackName_ =
-  CancelUpdateStack'
-    { clientRequestToken = Lude.Nothing,
-      stackName = pStackName_
-    }
-
--- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cusClientRequestToken :: Lens.Lens' CancelUpdateStack (Lude.Maybe Lude.Text)
-cusClientRequestToken = Lens.lens (clientRequestToken :: CancelUpdateStack -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CancelUpdateStack)
-{-# DEPRECATED cusClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+mkCancelUpdateStack stackName =
+  CancelUpdateStack' {stackName, clientRequestToken = Core.Nothing}
 
 -- | The name or the unique stack ID that is associated with the stack.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cusStackName :: Lens.Lens' CancelUpdateStack Lude.Text
-cusStackName = Lens.lens (stackName :: CancelUpdateStack -> Lude.Text) (\s a -> s {stackName = a} :: CancelUpdateStack)
+cusStackName :: Lens.Lens' CancelUpdateStack Types.StackName
+cusStackName = Lens.field @"stackName"
 {-# DEPRECATED cusStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Lude.AWSRequest CancelUpdateStack where
+-- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cusClientRequestToken :: Lens.Lens' CancelUpdateStack (Core.Maybe Types.ClientRequestToken)
+cusClientRequestToken = Lens.field @"clientRequestToken"
+{-# DEPRECATED cusClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+instance Core.AWSRequest CancelUpdateStack where
   type Rs CancelUpdateStack = CancelUpdateStackResponse
-  request = Req.postQuery cloudFormationService
-  response = Res.receiveNull CancelUpdateStackResponse'
-
-instance Lude.ToHeaders CancelUpdateStack where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelUpdateStack where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelUpdateStack where
-  toQuery CancelUpdateStack' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CancelUpdateStack" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "ClientRequestToken" Lude.=: clientRequestToken,
-        "StackName" Lude.=: stackName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CancelUpdateStack")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "StackName" stackName)
+                Core.<> ( Core.toQueryValue "ClientRequestToken"
+                            Core.<$> clientRequestToken
+                        )
+            )
+      }
+  response = Response.receiveNull CancelUpdateStackResponse'
 
 -- | /See:/ 'mkCancelUpdateStackResponse' smart constructor.
 data CancelUpdateStackResponse = CancelUpdateStackResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelUpdateStackResponse' with the minimum fields required to make a request.
+-- | Creates a 'CancelUpdateStackResponse' value with any optional fields omitted.
 mkCancelUpdateStackResponse ::
   CancelUpdateStackResponse
 mkCancelUpdateStackResponse = CancelUpdateStackResponse'

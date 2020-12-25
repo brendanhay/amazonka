@@ -28,161 +28,145 @@ module Network.AWS.Rekognition.DetectCustomLabels
     mkDetectCustomLabels,
 
     -- ** Request lenses
+    dclProjectVersionArn,
     dclImage,
-    dclProjectVersionARN,
-    dclMinConfidence,
     dclMaxResults,
+    dclMinConfidence,
 
     -- * Destructuring the response
     DetectCustomLabelsResponse (..),
     mkDetectCustomLabelsResponse,
 
     -- ** Response lenses
-    dclrsCustomLabels,
-    dclrsResponseStatus,
+    dclrrsCustomLabels,
+    dclrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectCustomLabels' smart constructor.
 data DetectCustomLabels = DetectCustomLabels'
-  { image :: Image,
-    -- | The ARN of the model version that you want to use.
-    projectVersionARN :: Lude.Text,
-    -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a value of 0, all labels are return, regardless of the default thresholds that the model version applies.
-    minConfidence :: Lude.Maybe Lude.Double,
+  { -- | The ARN of the model version that you want to use.
+    projectVersionArn :: Types.ProjectVersionArn,
+    image :: Types.Image,
     -- | Maximum number of results you want the service to return in the response. The service returns the specified number of highest confidence labels ranked from highest confidence to lowest.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a value of 0, all labels are return, regardless of the default thresholds that the model version applies.
+    minConfidence :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectCustomLabels' with the minimum fields required to make a request.
---
--- * 'image' -
--- * 'projectVersionARN' - The ARN of the model version that you want to use.
--- * 'minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a value of 0, all labels are return, regardless of the default thresholds that the model version applies.
--- * 'maxResults' - Maximum number of results you want the service to return in the response. The service returns the specified number of highest confidence labels ranked from highest confidence to lowest.
+-- | Creates a 'DetectCustomLabels' value with any optional fields omitted.
 mkDetectCustomLabels ::
+  -- | 'projectVersionArn'
+  Types.ProjectVersionArn ->
   -- | 'image'
-  Image ->
-  -- | 'projectVersionARN'
-  Lude.Text ->
+  Types.Image ->
   DetectCustomLabels
-mkDetectCustomLabels pImage_ pProjectVersionARN_ =
+mkDetectCustomLabels projectVersionArn image =
   DetectCustomLabels'
-    { image = pImage_,
-      projectVersionARN = pProjectVersionARN_,
-      minConfidence = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { projectVersionArn,
+      image,
+      maxResults = Core.Nothing,
+      minConfidence = Core.Nothing
     }
+
+-- | The ARN of the model version that you want to use.
+--
+-- /Note:/ Consider using 'projectVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dclProjectVersionArn :: Lens.Lens' DetectCustomLabels Types.ProjectVersionArn
+dclProjectVersionArn = Lens.field @"projectVersionArn"
+{-# DEPRECATED dclProjectVersionArn "Use generic-lens or generic-optics with 'projectVersionArn' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dclImage :: Lens.Lens' DetectCustomLabels Image
-dclImage = Lens.lens (image :: DetectCustomLabels -> Image) (\s a -> s {image = a} :: DetectCustomLabels)
+dclImage :: Lens.Lens' DetectCustomLabels Types.Image
+dclImage = Lens.field @"image"
 {-# DEPRECATED dclImage "Use generic-lens or generic-optics with 'image' instead." #-}
-
--- | The ARN of the model version that you want to use.
---
--- /Note:/ Consider using 'projectVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dclProjectVersionARN :: Lens.Lens' DetectCustomLabels Lude.Text
-dclProjectVersionARN = Lens.lens (projectVersionARN :: DetectCustomLabels -> Lude.Text) (\s a -> s {projectVersionARN = a} :: DetectCustomLabels)
-{-# DEPRECATED dclProjectVersionARN "Use generic-lens or generic-optics with 'projectVersionARN' instead." #-}
-
--- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a value of 0, all labels are return, regardless of the default thresholds that the model version applies.
---
--- /Note:/ Consider using 'minConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dclMinConfidence :: Lens.Lens' DetectCustomLabels (Lude.Maybe Lude.Double)
-dclMinConfidence = Lens.lens (minConfidence :: DetectCustomLabels -> Lude.Maybe Lude.Double) (\s a -> s {minConfidence = a} :: DetectCustomLabels)
-{-# DEPRECATED dclMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
 
 -- | Maximum number of results you want the service to return in the response. The service returns the specified number of highest confidence labels ranked from highest confidence to lowest.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dclMaxResults :: Lens.Lens' DetectCustomLabels (Lude.Maybe Lude.Natural)
-dclMaxResults = Lens.lens (maxResults :: DetectCustomLabels -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DetectCustomLabels)
+dclMaxResults :: Lens.Lens' DetectCustomLabels (Core.Maybe Core.Natural)
+dclMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dclMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest DetectCustomLabels where
+-- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a value of 0, all labels are return, regardless of the default thresholds that the model version applies.
+--
+-- /Note:/ Consider using 'minConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dclMinConfidence :: Lens.Lens' DetectCustomLabels (Core.Maybe Core.Double)
+dclMinConfidence = Lens.field @"minConfidence"
+{-# DEPRECATED dclMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
+
+instance Core.FromJSON DetectCustomLabels where
+  toJSON DetectCustomLabels {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProjectVersionArn" Core..= projectVersionArn),
+            Core.Just ("Image" Core..= image),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("MinConfidence" Core..=) Core.<$> minConfidence
+          ]
+      )
+
+instance Core.AWSRequest DetectCustomLabels where
   type Rs DetectCustomLabels = DetectCustomLabelsResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.DetectCustomLabels")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetectCustomLabelsResponse'
-            Lude.<$> (x Lude..?> "CustomLabels" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CustomLabels") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetectCustomLabels where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.DetectCustomLabels" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetectCustomLabels where
-  toJSON DetectCustomLabels' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Image" Lude..= image),
-            Lude.Just ("ProjectVersionArn" Lude..= projectVersionARN),
-            ("MinConfidence" Lude..=) Lude.<$> minConfidence,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DetectCustomLabels where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetectCustomLabels where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetectCustomLabelsResponse' smart constructor.
 data DetectCustomLabelsResponse = DetectCustomLabelsResponse'
   { -- | An array of custom labels detected in the input image.
-    customLabels :: Lude.Maybe [CustomLabel],
+    customLabels :: Core.Maybe [Types.CustomLabel],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectCustomLabelsResponse' with the minimum fields required to make a request.
---
--- * 'customLabels' - An array of custom labels detected in the input image.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetectCustomLabelsResponse' value with any optional fields omitted.
 mkDetectCustomLabelsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetectCustomLabelsResponse
-mkDetectCustomLabelsResponse pResponseStatus_ =
+mkDetectCustomLabelsResponse responseStatus =
   DetectCustomLabelsResponse'
-    { customLabels = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { customLabels = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of custom labels detected in the input image.
 --
 -- /Note:/ Consider using 'customLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dclrsCustomLabels :: Lens.Lens' DetectCustomLabelsResponse (Lude.Maybe [CustomLabel])
-dclrsCustomLabels = Lens.lens (customLabels :: DetectCustomLabelsResponse -> Lude.Maybe [CustomLabel]) (\s a -> s {customLabels = a} :: DetectCustomLabelsResponse)
-{-# DEPRECATED dclrsCustomLabels "Use generic-lens or generic-optics with 'customLabels' instead." #-}
+dclrrsCustomLabels :: Lens.Lens' DetectCustomLabelsResponse (Core.Maybe [Types.CustomLabel])
+dclrrsCustomLabels = Lens.field @"customLabels"
+{-# DEPRECATED dclrrsCustomLabels "Use generic-lens or generic-optics with 'customLabels' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dclrsResponseStatus :: Lens.Lens' DetectCustomLabelsResponse Lude.Int
-dclrsResponseStatus = Lens.lens (responseStatus :: DetectCustomLabelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectCustomLabelsResponse)
-{-# DEPRECATED dclrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dclrrsResponseStatus :: Lens.Lens' DetectCustomLabelsResponse Core.Int
+dclrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dclrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

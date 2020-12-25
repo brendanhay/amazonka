@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.ReservationSpecialFeature
   ( ReservationSpecialFeature
       ( ReservationSpecialFeature',
-        AdvancedAudio,
-        AudioNormalization
+        ReservationSpecialFeatureAdvancedAudio,
+        ReservationSpecialFeatureAudioNormalization,
+        fromReservationSpecialFeature
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Special features, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
-newtype ReservationSpecialFeature = ReservationSpecialFeature' Lude.Text
+newtype ReservationSpecialFeature = ReservationSpecialFeature'
+  { fromReservationSpecialFeature ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AdvancedAudio :: ReservationSpecialFeature
-pattern AdvancedAudio = ReservationSpecialFeature' "ADVANCED_AUDIO"
+pattern ReservationSpecialFeatureAdvancedAudio :: ReservationSpecialFeature
+pattern ReservationSpecialFeatureAdvancedAudio = ReservationSpecialFeature' "ADVANCED_AUDIO"
 
-pattern AudioNormalization :: ReservationSpecialFeature
-pattern AudioNormalization = ReservationSpecialFeature' "AUDIO_NORMALIZATION"
+pattern ReservationSpecialFeatureAudioNormalization :: ReservationSpecialFeature
+pattern ReservationSpecialFeatureAudioNormalization = ReservationSpecialFeature' "AUDIO_NORMALIZATION"
 
 {-# COMPLETE
-  AdvancedAudio,
-  AudioNormalization,
+  ReservationSpecialFeatureAdvancedAudio,
+  ReservationSpecialFeatureAudioNormalization,
   ReservationSpecialFeature'
   #-}

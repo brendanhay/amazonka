@@ -17,66 +17,57 @@ module Network.AWS.Lightsail.Types.AddOn
     mkAddOn,
 
     -- * Lenses
-    aoStatus,
+    aoName,
     aoNextSnapshotTimeOfDay,
     aoSnapshotTimeOfDay,
-    aoName,
+    aoStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Lightsail.Types.TimeOfDay as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an add-on that is enabled for an Amazon Lightsail resource.
 --
 -- /See:/ 'mkAddOn' smart constructor.
 data AddOn = AddOn'
-  { -- | The status of the add-on.
-    status :: Lude.Maybe Lude.Text,
+  { -- | The name of the add-on.
+    name :: Core.Maybe Types.String,
     -- | The next daily time an automatic snapshot will be created.
     --
     -- The time shown is in @HH:00@ format, and in Coordinated Universal Time (UTC).
     -- The snapshot is automatically created between the time shown and up to 45 minutes after.
-    nextSnapshotTimeOfDay :: Lude.Maybe Lude.Text,
+    nextSnapshotTimeOfDay :: Core.Maybe Types.TimeOfDay,
     -- | The daily time when an automatic snapshot is created.
     --
     -- The time shown is in @HH:00@ format, and in Coordinated Universal Time (UTC).
     -- The snapshot is automatically created between the time shown and up to 45 minutes after.
-    snapshotTimeOfDay :: Lude.Maybe Lude.Text,
-    -- | The name of the add-on.
-    name :: Lude.Maybe Lude.Text
+    snapshotTimeOfDay :: Core.Maybe Types.TimeOfDay,
+    -- | The status of the add-on.
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddOn' with the minimum fields required to make a request.
---
--- * 'status' - The status of the add-on.
--- * 'nextSnapshotTimeOfDay' - The next daily time an automatic snapshot will be created.
---
--- The time shown is in @HH:00@ format, and in Coordinated Universal Time (UTC).
--- The snapshot is automatically created between the time shown and up to 45 minutes after.
--- * 'snapshotTimeOfDay' - The daily time when an automatic snapshot is created.
---
--- The time shown is in @HH:00@ format, and in Coordinated Universal Time (UTC).
--- The snapshot is automatically created between the time shown and up to 45 minutes after.
--- * 'name' - The name of the add-on.
+-- | Creates a 'AddOn' value with any optional fields omitted.
 mkAddOn ::
   AddOn
 mkAddOn =
   AddOn'
-    { status = Lude.Nothing,
-      nextSnapshotTimeOfDay = Lude.Nothing,
-      snapshotTimeOfDay = Lude.Nothing,
-      name = Lude.Nothing
+    { name = Core.Nothing,
+      nextSnapshotTimeOfDay = Core.Nothing,
+      snapshotTimeOfDay = Core.Nothing,
+      status = Core.Nothing
     }
 
--- | The status of the add-on.
+-- | The name of the add-on.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aoStatus :: Lens.Lens' AddOn (Lude.Maybe Lude.Text)
-aoStatus = Lens.lens (status :: AddOn -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: AddOn)
-{-# DEPRECATED aoStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoName :: Lens.Lens' AddOn (Core.Maybe Types.String)
+aoName = Lens.field @"name"
+{-# DEPRECATED aoName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The next daily time an automatic snapshot will be created.
 --
@@ -84,8 +75,8 @@ aoStatus = Lens.lens (status :: AddOn -> Lude.Maybe Lude.Text) (\s a -> s {statu
 -- The snapshot is automatically created between the time shown and up to 45 minutes after.
 --
 -- /Note:/ Consider using 'nextSnapshotTimeOfDay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aoNextSnapshotTimeOfDay :: Lens.Lens' AddOn (Lude.Maybe Lude.Text)
-aoNextSnapshotTimeOfDay = Lens.lens (nextSnapshotTimeOfDay :: AddOn -> Lude.Maybe Lude.Text) (\s a -> s {nextSnapshotTimeOfDay = a} :: AddOn)
+aoNextSnapshotTimeOfDay :: Lens.Lens' AddOn (Core.Maybe Types.TimeOfDay)
+aoNextSnapshotTimeOfDay = Lens.field @"nextSnapshotTimeOfDay"
 {-# DEPRECATED aoNextSnapshotTimeOfDay "Use generic-lens or generic-optics with 'nextSnapshotTimeOfDay' instead." #-}
 
 -- | The daily time when an automatic snapshot is created.
@@ -94,25 +85,23 @@ aoNextSnapshotTimeOfDay = Lens.lens (nextSnapshotTimeOfDay :: AddOn -> Lude.Mayb
 -- The snapshot is automatically created between the time shown and up to 45 minutes after.
 --
 -- /Note:/ Consider using 'snapshotTimeOfDay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aoSnapshotTimeOfDay :: Lens.Lens' AddOn (Lude.Maybe Lude.Text)
-aoSnapshotTimeOfDay = Lens.lens (snapshotTimeOfDay :: AddOn -> Lude.Maybe Lude.Text) (\s a -> s {snapshotTimeOfDay = a} :: AddOn)
+aoSnapshotTimeOfDay :: Lens.Lens' AddOn (Core.Maybe Types.TimeOfDay)
+aoSnapshotTimeOfDay = Lens.field @"snapshotTimeOfDay"
 {-# DEPRECATED aoSnapshotTimeOfDay "Use generic-lens or generic-optics with 'snapshotTimeOfDay' instead." #-}
 
--- | The name of the add-on.
+-- | The status of the add-on.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aoName :: Lens.Lens' AddOn (Lude.Maybe Lude.Text)
-aoName = Lens.lens (name :: AddOn -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AddOn)
-{-# DEPRECATED aoName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoStatus :: Lens.Lens' AddOn (Core.Maybe Types.String)
+aoStatus = Lens.field @"status"
+{-# DEPRECATED aoStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromJSON AddOn where
+instance Core.FromJSON AddOn where
   parseJSON =
-    Lude.withObject
-      "AddOn"
-      ( \x ->
-          AddOn'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "nextSnapshotTimeOfDay")
-            Lude.<*> (x Lude..:? "snapshotTimeOfDay")
-            Lude.<*> (x Lude..:? "name")
-      )
+    Core.withObject "AddOn" Core.$
+      \x ->
+        AddOn'
+          Core.<$> (x Core..:? "name")
+          Core.<*> (x Core..:? "nextSnapshotTimeOfDay")
+          Core.<*> (x Core..:? "snapshotTimeOfDay")
+          Core.<*> (x Core..:? "status")

@@ -18,17 +18,17 @@ module Network.AWS.Pinpoint.Types.EndpointMessageResult
 
     -- * Lenses
     emrDeliveryStatus,
+    emrStatusCode,
     emrAddress,
+    emrMessageId,
     emrStatusMessage,
     emrUpdatedToken,
-    emrMessageId,
-    emrStatusCode,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.DeliveryStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.DeliveryStatus as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the delivery status and results of sending a message directly to an endpoint.
 --
@@ -59,69 +59,36 @@ data EndpointMessageResult = EndpointMessageResult'
     --
     --
     --     * UNKNOWN_FAILURE - An unknown error occurred.
-    deliveryStatus :: DeliveryStatus,
-    -- | The endpoint address that the message was delivered to.
-    address :: Lude.Maybe Lude.Text,
-    -- | The status message for delivering the message.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.
-    updatedToken :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the message that was sent.
-    messageId :: Lude.Maybe Lude.Text,
+    deliveryStatus :: Types.DeliveryStatus,
     -- | The downstream service status code for delivering the message.
-    statusCode :: Lude.Int
+    statusCode :: Core.Int,
+    -- | The endpoint address that the message was delivered to.
+    address :: Core.Maybe Core.Text,
+    -- | The unique identifier for the message that was sent.
+    messageId :: Core.Maybe Core.Text,
+    -- | The status message for delivering the message.
+    statusMessage :: Core.Maybe Core.Text,
+    -- | For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.
+    updatedToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointMessageResult' with the minimum fields required to make a request.
---
--- * 'deliveryStatus' - The delivery status of the message. Possible values are:
---
---
---     * DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.
---
---
---     * OPT_OUT - The user who's associated with the endpoint has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.
---
---
---     * PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again.
---
---
---     * SUCCESSFUL - The message was successfully delivered to the endpoint.
---
---
---     * TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.
---
---
---     * THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint.
---
---
---     * TIMEOUT - The message couldn't be sent within the timeout period.
---
---
---     * UNKNOWN_FAILURE - An unknown error occurred.
---
---
--- * 'address' - The endpoint address that the message was delivered to.
--- * 'statusMessage' - The status message for delivering the message.
--- * 'updatedToken' - For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.
--- * 'messageId' - The unique identifier for the message that was sent.
--- * 'statusCode' - The downstream service status code for delivering the message.
+-- | Creates a 'EndpointMessageResult' value with any optional fields omitted.
 mkEndpointMessageResult ::
   -- | 'deliveryStatus'
-  DeliveryStatus ->
+  Types.DeliveryStatus ->
   -- | 'statusCode'
-  Lude.Int ->
+  Core.Int ->
   EndpointMessageResult
-mkEndpointMessageResult pDeliveryStatus_ pStatusCode_ =
+mkEndpointMessageResult deliveryStatus statusCode =
   EndpointMessageResult'
-    { deliveryStatus = pDeliveryStatus_,
-      address = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      updatedToken = Lude.Nothing,
-      messageId = Lude.Nothing,
-      statusCode = pStatusCode_
+    { deliveryStatus,
+      statusCode,
+      address = Core.Nothing,
+      messageId = Core.Nothing,
+      statusMessage = Core.Nothing,
+      updatedToken = Core.Nothing
     }
 
 -- | The delivery status of the message. Possible values are:
@@ -153,55 +120,53 @@ mkEndpointMessageResult pDeliveryStatus_ pStatusCode_ =
 --
 --
 -- /Note:/ Consider using 'deliveryStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emrDeliveryStatus :: Lens.Lens' EndpointMessageResult DeliveryStatus
-emrDeliveryStatus = Lens.lens (deliveryStatus :: EndpointMessageResult -> DeliveryStatus) (\s a -> s {deliveryStatus = a} :: EndpointMessageResult)
+emrDeliveryStatus :: Lens.Lens' EndpointMessageResult Types.DeliveryStatus
+emrDeliveryStatus = Lens.field @"deliveryStatus"
 {-# DEPRECATED emrDeliveryStatus "Use generic-lens or generic-optics with 'deliveryStatus' instead." #-}
+
+-- | The downstream service status code for delivering the message.
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emrStatusCode :: Lens.Lens' EndpointMessageResult Core.Int
+emrStatusCode = Lens.field @"statusCode"
+{-# DEPRECATED emrStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
 -- | The endpoint address that the message was delivered to.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emrAddress :: Lens.Lens' EndpointMessageResult (Lude.Maybe Lude.Text)
-emrAddress = Lens.lens (address :: EndpointMessageResult -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: EndpointMessageResult)
+emrAddress :: Lens.Lens' EndpointMessageResult (Core.Maybe Core.Text)
+emrAddress = Lens.field @"address"
 {-# DEPRECATED emrAddress "Use generic-lens or generic-optics with 'address' instead." #-}
+
+-- | The unique identifier for the message that was sent.
+--
+-- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emrMessageId :: Lens.Lens' EndpointMessageResult (Core.Maybe Core.Text)
+emrMessageId = Lens.field @"messageId"
+{-# DEPRECATED emrMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
 -- | The status message for delivering the message.
 --
 -- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emrStatusMessage :: Lens.Lens' EndpointMessageResult (Lude.Maybe Lude.Text)
-emrStatusMessage = Lens.lens (statusMessage :: EndpointMessageResult -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: EndpointMessageResult)
+emrStatusMessage :: Lens.Lens' EndpointMessageResult (Core.Maybe Core.Text)
+emrStatusMessage = Lens.field @"statusMessage"
 {-# DEPRECATED emrStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.
 --
 -- /Note:/ Consider using 'updatedToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emrUpdatedToken :: Lens.Lens' EndpointMessageResult (Lude.Maybe Lude.Text)
-emrUpdatedToken = Lens.lens (updatedToken :: EndpointMessageResult -> Lude.Maybe Lude.Text) (\s a -> s {updatedToken = a} :: EndpointMessageResult)
+emrUpdatedToken :: Lens.Lens' EndpointMessageResult (Core.Maybe Core.Text)
+emrUpdatedToken = Lens.field @"updatedToken"
 {-# DEPRECATED emrUpdatedToken "Use generic-lens or generic-optics with 'updatedToken' instead." #-}
 
--- | The unique identifier for the message that was sent.
---
--- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emrMessageId :: Lens.Lens' EndpointMessageResult (Lude.Maybe Lude.Text)
-emrMessageId = Lens.lens (messageId :: EndpointMessageResult -> Lude.Maybe Lude.Text) (\s a -> s {messageId = a} :: EndpointMessageResult)
-{-# DEPRECATED emrMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
-
--- | The downstream service status code for delivering the message.
---
--- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emrStatusCode :: Lens.Lens' EndpointMessageResult Lude.Int
-emrStatusCode = Lens.lens (statusCode :: EndpointMessageResult -> Lude.Int) (\s a -> s {statusCode = a} :: EndpointMessageResult)
-{-# DEPRECATED emrStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
-
-instance Lude.FromJSON EndpointMessageResult where
+instance Core.FromJSON EndpointMessageResult where
   parseJSON =
-    Lude.withObject
-      "EndpointMessageResult"
-      ( \x ->
-          EndpointMessageResult'
-            Lude.<$> (x Lude..: "DeliveryStatus")
-            Lude.<*> (x Lude..:? "Address")
-            Lude.<*> (x Lude..:? "StatusMessage")
-            Lude.<*> (x Lude..:? "UpdatedToken")
-            Lude.<*> (x Lude..:? "MessageId")
-            Lude.<*> (x Lude..: "StatusCode")
-      )
+    Core.withObject "EndpointMessageResult" Core.$
+      \x ->
+        EndpointMessageResult'
+          Core.<$> (x Core..: "DeliveryStatus")
+          Core.<*> (x Core..: "StatusCode")
+          Core.<*> (x Core..:? "Address")
+          Core.<*> (x Core..:? "MessageId")
+          Core.<*> (x Core..:? "StatusMessage")
+          Core.<*> (x Core..:? "UpdatedToken")

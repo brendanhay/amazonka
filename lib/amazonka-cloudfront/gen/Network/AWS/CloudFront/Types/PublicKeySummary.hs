@@ -17,101 +17,96 @@ module Network.AWS.CloudFront.Types.PublicKeySummary
     mkPublicKeySummary,
 
     -- * Lenses
-    pksEncodedKey,
-    pksCreatedTime,
-    pksName,
     pksId,
+    pksName,
+    pksCreatedTime,
+    pksEncodedKey,
     pksComment,
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a public key.
 --
 -- /See:/ 'mkPublicKeySummary' smart constructor.
 data PublicKeySummary = PublicKeySummary'
-  { -- | The public key.
-    encodedKey :: Lude.Text,
-    -- | The date and time when the public key was uploaded.
-    createdTime :: Lude.DateTime,
+  { -- | The identifier of the public key.
+    id :: Types.String,
     -- | A name to help identify the public key.
-    name :: Lude.Text,
-    -- | The identifier of the public key.
-    id :: Lude.Text,
+    name :: Types.String,
+    -- | The date and time when the public key was uploaded.
+    createdTime :: Core.UTCTime,
+    -- | The public key.
+    encodedKey :: Types.String,
     -- | A comment to describe the public key.
-    comment :: Lude.Maybe Lude.Text
+    comment :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PublicKeySummary' with the minimum fields required to make a request.
---
--- * 'encodedKey' - The public key.
--- * 'createdTime' - The date and time when the public key was uploaded.
--- * 'name' - A name to help identify the public key.
--- * 'id' - The identifier of the public key.
--- * 'comment' - A comment to describe the public key.
+-- | Creates a 'PublicKeySummary' value with any optional fields omitted.
 mkPublicKeySummary ::
-  -- | 'encodedKey'
-  Lude.Text ->
-  -- | 'createdTime'
-  Lude.DateTime ->
-  -- | 'name'
-  Lude.Text ->
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
+  -- | 'name'
+  Types.String ->
+  -- | 'createdTime'
+  Core.UTCTime ->
+  -- | 'encodedKey'
+  Types.String ->
   PublicKeySummary
-mkPublicKeySummary pEncodedKey_ pCreatedTime_ pName_ pId_ =
+mkPublicKeySummary id name createdTime encodedKey =
   PublicKeySummary'
-    { encodedKey = pEncodedKey_,
-      createdTime = pCreatedTime_,
-      name = pName_,
-      id = pId_,
-      comment = Lude.Nothing
+    { id,
+      name,
+      createdTime,
+      encodedKey,
+      comment = Core.Nothing
     }
-
--- | The public key.
---
--- /Note:/ Consider using 'encodedKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pksEncodedKey :: Lens.Lens' PublicKeySummary Lude.Text
-pksEncodedKey = Lens.lens (encodedKey :: PublicKeySummary -> Lude.Text) (\s a -> s {encodedKey = a} :: PublicKeySummary)
-{-# DEPRECATED pksEncodedKey "Use generic-lens or generic-optics with 'encodedKey' instead." #-}
-
--- | The date and time when the public key was uploaded.
---
--- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pksCreatedTime :: Lens.Lens' PublicKeySummary Lude.DateTime
-pksCreatedTime = Lens.lens (createdTime :: PublicKeySummary -> Lude.DateTime) (\s a -> s {createdTime = a} :: PublicKeySummary)
-{-# DEPRECATED pksCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
-
--- | A name to help identify the public key.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pksName :: Lens.Lens' PublicKeySummary Lude.Text
-pksName = Lens.lens (name :: PublicKeySummary -> Lude.Text) (\s a -> s {name = a} :: PublicKeySummary)
-{-# DEPRECATED pksName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the public key.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pksId :: Lens.Lens' PublicKeySummary Lude.Text
-pksId = Lens.lens (id :: PublicKeySummary -> Lude.Text) (\s a -> s {id = a} :: PublicKeySummary)
+pksId :: Lens.Lens' PublicKeySummary Types.String
+pksId = Lens.field @"id"
 {-# DEPRECATED pksId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | A name to help identify the public key.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pksName :: Lens.Lens' PublicKeySummary Types.String
+pksName = Lens.field @"name"
+{-# DEPRECATED pksName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The date and time when the public key was uploaded.
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pksCreatedTime :: Lens.Lens' PublicKeySummary Core.UTCTime
+pksCreatedTime = Lens.field @"createdTime"
+{-# DEPRECATED pksCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
+
+-- | The public key.
+--
+-- /Note:/ Consider using 'encodedKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pksEncodedKey :: Lens.Lens' PublicKeySummary Types.String
+pksEncodedKey = Lens.field @"encodedKey"
+{-# DEPRECATED pksEncodedKey "Use generic-lens or generic-optics with 'encodedKey' instead." #-}
 
 -- | A comment to describe the public key.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pksComment :: Lens.Lens' PublicKeySummary (Lude.Maybe Lude.Text)
-pksComment = Lens.lens (comment :: PublicKeySummary -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: PublicKeySummary)
+pksComment :: Lens.Lens' PublicKeySummary (Core.Maybe Types.String)
+pksComment = Lens.field @"comment"
 {-# DEPRECATED pksComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.FromXML PublicKeySummary where
+instance Core.FromXML PublicKeySummary where
   parseXML x =
     PublicKeySummary'
-      Lude.<$> (x Lude..@ "EncodedKey")
-      Lude.<*> (x Lude..@ "CreatedTime")
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@? "Comment")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "CreatedTime")
+      Core.<*> (x Core..@ "EncodedKey")
+      Core.<*> (x Core..@? "Comment")

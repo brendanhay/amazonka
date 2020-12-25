@@ -17,99 +17,78 @@ module Network.AWS.Config.Types.Evaluation
     mkEvaluation,
 
     -- * Lenses
-    eAnnotation,
     eComplianceResourceType,
     eComplianceResourceId,
-    eOrderingTimestamp,
     eComplianceType,
+    eOrderingTimestamp,
+    eAnnotation,
   )
 where
 
-import Network.AWS.Config.Types.ComplianceType
+import qualified Network.AWS.Config.Types.BaseResourceId as Types
+import qualified Network.AWS.Config.Types.ComplianceType as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies an AWS resource and indicates whether it complies with the AWS Config rule that it was evaluated against.
 --
 -- /See:/ 'mkEvaluation' smart constructor.
 data Evaluation = Evaluation'
-  { -- | Supplementary information about how the evaluation determined the compliance.
-    annotation :: Lude.Maybe Lude.Text,
-    -- | The type of AWS resource that was evaluated.
-    complianceResourceType :: Lude.Text,
+  { -- | The type of AWS resource that was evaluated.
+    complianceResourceType :: Types.StringWithCharLimit256,
     -- | The ID of the AWS resource that was evaluated.
-    complianceResourceId :: Lude.Text,
-    -- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
-    orderingTimestamp :: Lude.Timestamp,
+    complianceResourceId :: Types.BaseResourceId,
     -- | Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.
     --
     -- For the @Evaluation@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for this data type.
     -- Similarly, AWS Config does not accept @INSUFFICIENT_DATA@ as the value for @ComplianceType@ from a @PutEvaluations@ request. For example, an AWS Lambda function for a custom AWS Config rule cannot pass an @INSUFFICIENT_DATA@ value to AWS Config.
-    complianceType :: ComplianceType
+    complianceType :: Types.ComplianceType,
+    -- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
+    orderingTimestamp :: Core.NominalDiffTime,
+    -- | Supplementary information about how the evaluation determined the compliance.
+    annotation :: Core.Maybe Types.StringWithCharLimit256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
---
--- * 'annotation' - Supplementary information about how the evaluation determined the compliance.
--- * 'complianceResourceType' - The type of AWS resource that was evaluated.
--- * 'complianceResourceId' - The ID of the AWS resource that was evaluated.
--- * 'orderingTimestamp' - The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
--- * 'complianceType' - Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.
---
--- For the @Evaluation@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for this data type.
--- Similarly, AWS Config does not accept @INSUFFICIENT_DATA@ as the value for @ComplianceType@ from a @PutEvaluations@ request. For example, an AWS Lambda function for a custom AWS Config rule cannot pass an @INSUFFICIENT_DATA@ value to AWS Config.
+-- | Creates a 'Evaluation' value with any optional fields omitted.
 mkEvaluation ::
   -- | 'complianceResourceType'
-  Lude.Text ->
+  Types.StringWithCharLimit256 ->
   -- | 'complianceResourceId'
-  Lude.Text ->
-  -- | 'orderingTimestamp'
-  Lude.Timestamp ->
+  Types.BaseResourceId ->
   -- | 'complianceType'
-  ComplianceType ->
+  Types.ComplianceType ->
+  -- | 'orderingTimestamp'
+  Core.NominalDiffTime ->
   Evaluation
 mkEvaluation
-  pComplianceResourceType_
-  pComplianceResourceId_
-  pOrderingTimestamp_
-  pComplianceType_ =
+  complianceResourceType
+  complianceResourceId
+  complianceType
+  orderingTimestamp =
     Evaluation'
-      { annotation = Lude.Nothing,
-        complianceResourceType = pComplianceResourceType_,
-        complianceResourceId = pComplianceResourceId_,
-        orderingTimestamp = pOrderingTimestamp_,
-        complianceType = pComplianceType_
+      { complianceResourceType,
+        complianceResourceId,
+        complianceType,
+        orderingTimestamp,
+        annotation = Core.Nothing
       }
-
--- | Supplementary information about how the evaluation determined the compliance.
---
--- /Note:/ Consider using 'annotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eAnnotation :: Lens.Lens' Evaluation (Lude.Maybe Lude.Text)
-eAnnotation = Lens.lens (annotation :: Evaluation -> Lude.Maybe Lude.Text) (\s a -> s {annotation = a} :: Evaluation)
-{-# DEPRECATED eAnnotation "Use generic-lens or generic-optics with 'annotation' instead." #-}
 
 -- | The type of AWS resource that was evaluated.
 --
 -- /Note:/ Consider using 'complianceResourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eComplianceResourceType :: Lens.Lens' Evaluation Lude.Text
-eComplianceResourceType = Lens.lens (complianceResourceType :: Evaluation -> Lude.Text) (\s a -> s {complianceResourceType = a} :: Evaluation)
+eComplianceResourceType :: Lens.Lens' Evaluation Types.StringWithCharLimit256
+eComplianceResourceType = Lens.field @"complianceResourceType"
 {-# DEPRECATED eComplianceResourceType "Use generic-lens or generic-optics with 'complianceResourceType' instead." #-}
 
 -- | The ID of the AWS resource that was evaluated.
 --
 -- /Note:/ Consider using 'complianceResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eComplianceResourceId :: Lens.Lens' Evaluation Lude.Text
-eComplianceResourceId = Lens.lens (complianceResourceId :: Evaluation -> Lude.Text) (\s a -> s {complianceResourceId = a} :: Evaluation)
+eComplianceResourceId :: Lens.Lens' Evaluation Types.BaseResourceId
+eComplianceResourceId = Lens.field @"complianceResourceId"
 {-# DEPRECATED eComplianceResourceId "Use generic-lens or generic-optics with 'complianceResourceId' instead." #-}
-
--- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
---
--- /Note:/ Consider using 'orderingTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eOrderingTimestamp :: Lens.Lens' Evaluation Lude.Timestamp
-eOrderingTimestamp = Lens.lens (orderingTimestamp :: Evaluation -> Lude.Timestamp) (\s a -> s {orderingTimestamp = a} :: Evaluation)
-{-# DEPRECATED eOrderingTimestamp "Use generic-lens or generic-optics with 'orderingTimestamp' instead." #-}
 
 -- | Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.
 --
@@ -117,32 +96,44 @@ eOrderingTimestamp = Lens.lens (orderingTimestamp :: Evaluation -> Lude.Timestam
 -- Similarly, AWS Config does not accept @INSUFFICIENT_DATA@ as the value for @ComplianceType@ from a @PutEvaluations@ request. For example, an AWS Lambda function for a custom AWS Config rule cannot pass an @INSUFFICIENT_DATA@ value to AWS Config.
 --
 -- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eComplianceType :: Lens.Lens' Evaluation ComplianceType
-eComplianceType = Lens.lens (complianceType :: Evaluation -> ComplianceType) (\s a -> s {complianceType = a} :: Evaluation)
+eComplianceType :: Lens.Lens' Evaluation Types.ComplianceType
+eComplianceType = Lens.field @"complianceType"
 {-# DEPRECATED eComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
-instance Lude.FromJSON Evaluation where
-  parseJSON =
-    Lude.withObject
-      "Evaluation"
-      ( \x ->
-          Evaluation'
-            Lude.<$> (x Lude..:? "Annotation")
-            Lude.<*> (x Lude..: "ComplianceResourceType")
-            Lude.<*> (x Lude..: "ComplianceResourceId")
-            Lude.<*> (x Lude..: "OrderingTimestamp")
-            Lude.<*> (x Lude..: "ComplianceType")
-      )
+-- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
+--
+-- /Note:/ Consider using 'orderingTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOrderingTimestamp :: Lens.Lens' Evaluation Core.NominalDiffTime
+eOrderingTimestamp = Lens.field @"orderingTimestamp"
+{-# DEPRECATED eOrderingTimestamp "Use generic-lens or generic-optics with 'orderingTimestamp' instead." #-}
 
-instance Lude.ToJSON Evaluation where
-  toJSON Evaluation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Annotation" Lude..=) Lude.<$> annotation,
-            Lude.Just
-              ("ComplianceResourceType" Lude..= complianceResourceType),
-            Lude.Just ("ComplianceResourceId" Lude..= complianceResourceId),
-            Lude.Just ("OrderingTimestamp" Lude..= orderingTimestamp),
-            Lude.Just ("ComplianceType" Lude..= complianceType)
+-- | Supplementary information about how the evaluation determined the compliance.
+--
+-- /Note:/ Consider using 'annotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eAnnotation :: Lens.Lens' Evaluation (Core.Maybe Types.StringWithCharLimit256)
+eAnnotation = Lens.field @"annotation"
+{-# DEPRECATED eAnnotation "Use generic-lens or generic-optics with 'annotation' instead." #-}
+
+instance Core.FromJSON Evaluation where
+  toJSON Evaluation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ComplianceResourceType" Core..= complianceResourceType),
+            Core.Just ("ComplianceResourceId" Core..= complianceResourceId),
+            Core.Just ("ComplianceType" Core..= complianceType),
+            Core.Just ("OrderingTimestamp" Core..= orderingTimestamp),
+            ("Annotation" Core..=) Core.<$> annotation
           ]
       )
+
+instance Core.FromJSON Evaluation where
+  parseJSON =
+    Core.withObject "Evaluation" Core.$
+      \x ->
+        Evaluation'
+          Core.<$> (x Core..: "ComplianceResourceType")
+          Core.<*> (x Core..: "ComplianceResourceId")
+          Core.<*> (x Core..: "ComplianceType")
+          Core.<*> (x Core..: "OrderingTimestamp")
+          Core.<*> (x Core..:? "Annotation")

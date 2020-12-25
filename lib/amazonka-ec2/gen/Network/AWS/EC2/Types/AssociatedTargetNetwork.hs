@@ -22,49 +22,47 @@ module Network.AWS.EC2.Types.AssociatedTargetNetwork
   )
 where
 
-import Network.AWS.EC2.Types.AssociatedNetworkType
+import qualified Network.AWS.EC2.Types.AssociatedNetworkType as Types
+import qualified Network.AWS.EC2.Types.NetworkId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.
 --
 -- /See:/ 'mkAssociatedTargetNetwork' smart constructor.
 data AssociatedTargetNetwork = AssociatedTargetNetwork'
   { -- | The ID of the subnet.
-    networkId :: Lude.Maybe Lude.Text,
+    networkId :: Core.Maybe Types.NetworkId,
     -- | The target network type.
-    networkType :: Lude.Maybe AssociatedNetworkType
+    networkType :: Core.Maybe Types.AssociatedNetworkType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociatedTargetNetwork' with the minimum fields required to make a request.
---
--- * 'networkId' - The ID of the subnet.
--- * 'networkType' - The target network type.
+-- | Creates a 'AssociatedTargetNetwork' value with any optional fields omitted.
 mkAssociatedTargetNetwork ::
   AssociatedTargetNetwork
 mkAssociatedTargetNetwork =
   AssociatedTargetNetwork'
-    { networkId = Lude.Nothing,
-      networkType = Lude.Nothing
+    { networkId = Core.Nothing,
+      networkType = Core.Nothing
     }
 
 -- | The ID of the subnet.
 --
 -- /Note:/ Consider using 'networkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atnNetworkId :: Lens.Lens' AssociatedTargetNetwork (Lude.Maybe Lude.Text)
-atnNetworkId = Lens.lens (networkId :: AssociatedTargetNetwork -> Lude.Maybe Lude.Text) (\s a -> s {networkId = a} :: AssociatedTargetNetwork)
+atnNetworkId :: Lens.Lens' AssociatedTargetNetwork (Core.Maybe Types.NetworkId)
+atnNetworkId = Lens.field @"networkId"
 {-# DEPRECATED atnNetworkId "Use generic-lens or generic-optics with 'networkId' instead." #-}
 
 -- | The target network type.
 --
 -- /Note:/ Consider using 'networkType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atnNetworkType :: Lens.Lens' AssociatedTargetNetwork (Lude.Maybe AssociatedNetworkType)
-atnNetworkType = Lens.lens (networkType :: AssociatedTargetNetwork -> Lude.Maybe AssociatedNetworkType) (\s a -> s {networkType = a} :: AssociatedTargetNetwork)
+atnNetworkType :: Lens.Lens' AssociatedTargetNetwork (Core.Maybe Types.AssociatedNetworkType)
+atnNetworkType = Lens.field @"networkType"
 {-# DEPRECATED atnNetworkType "Use generic-lens or generic-optics with 'networkType' instead." #-}
 
-instance Lude.FromXML AssociatedTargetNetwork where
+instance Core.FromXML AssociatedTargetNetwork where
   parseXML x =
     AssociatedTargetNetwork'
-      Lude.<$> (x Lude..@? "networkId") Lude.<*> (x Lude..@? "networkType")
+      Core.<$> (x Core..@? "networkId") Core.<*> (x Core..@? "networkType")

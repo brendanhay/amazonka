@@ -17,97 +17,94 @@ module Network.AWS.DirectConnect.Types.NewBGPPeer
     mkNewBGPPeer,
 
     -- * Lenses
-    nbpCustomerAddress,
-    nbpAmazonAddress,
-    nbpAddressFamily,
-    nbpAsn,
-    nbpAuthKey,
+    nbgppAddressFamily,
+    nbgppAmazonAddress,
+    nbgppAsn,
+    nbgppAuthKey,
+    nbgppCustomerAddress,
   )
 where
 
-import Network.AWS.DirectConnect.Types.AddressFamily
+import qualified Network.AWS.DirectConnect.Types.AddressFamily as Types
+import qualified Network.AWS.DirectConnect.Types.AmazonAddress as Types
+import qualified Network.AWS.DirectConnect.Types.BGPAuthKey as Types
+import qualified Network.AWS.DirectConnect.Types.CustomerAddress as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a new BGP peer.
 --
 -- /See:/ 'mkNewBGPPeer' smart constructor.
 data NewBGPPeer = NewBGPPeer'
-  { -- | The IP address assigned to the customer interface.
-    customerAddress :: Lude.Maybe Lude.Text,
+  { -- | The address family for the BGP peer.
+    addressFamily :: Core.Maybe Types.AddressFamily,
     -- | The IP address assigned to the Amazon interface.
-    amazonAddress :: Lude.Maybe Lude.Text,
-    -- | The address family for the BGP peer.
-    addressFamily :: Lude.Maybe AddressFamily,
+    amazonAddress :: Core.Maybe Types.AmazonAddress,
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-    asn :: Lude.Maybe Lude.Int,
+    asn :: Core.Maybe Core.Int,
     -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Lude.Maybe Lude.Text
+    authKey :: Core.Maybe Types.BGPAuthKey,
+    -- | The IP address assigned to the customer interface.
+    customerAddress :: Core.Maybe Types.CustomerAddress
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NewBGPPeer' with the minimum fields required to make a request.
---
--- * 'customerAddress' - The IP address assigned to the customer interface.
--- * 'amazonAddress' - The IP address assigned to the Amazon interface.
--- * 'addressFamily' - The address family for the BGP peer.
--- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
--- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+-- | Creates a 'NewBGPPeer' value with any optional fields omitted.
 mkNewBGPPeer ::
   NewBGPPeer
 mkNewBGPPeer =
   NewBGPPeer'
-    { customerAddress = Lude.Nothing,
-      amazonAddress = Lude.Nothing,
-      addressFamily = Lude.Nothing,
-      asn = Lude.Nothing,
-      authKey = Lude.Nothing
+    { addressFamily = Core.Nothing,
+      amazonAddress = Core.Nothing,
+      asn = Core.Nothing,
+      authKey = Core.Nothing,
+      customerAddress = Core.Nothing
     }
-
--- | The IP address assigned to the customer interface.
---
--- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbpCustomerAddress :: Lens.Lens' NewBGPPeer (Lude.Maybe Lude.Text)
-nbpCustomerAddress = Lens.lens (customerAddress :: NewBGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {customerAddress = a} :: NewBGPPeer)
-{-# DEPRECATED nbpCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
-
--- | The IP address assigned to the Amazon interface.
---
--- /Note:/ Consider using 'amazonAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbpAmazonAddress :: Lens.Lens' NewBGPPeer (Lude.Maybe Lude.Text)
-nbpAmazonAddress = Lens.lens (amazonAddress :: NewBGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {amazonAddress = a} :: NewBGPPeer)
-{-# DEPRECATED nbpAmazonAddress "Use generic-lens or generic-optics with 'amazonAddress' instead." #-}
 
 -- | The address family for the BGP peer.
 --
 -- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbpAddressFamily :: Lens.Lens' NewBGPPeer (Lude.Maybe AddressFamily)
-nbpAddressFamily = Lens.lens (addressFamily :: NewBGPPeer -> Lude.Maybe AddressFamily) (\s a -> s {addressFamily = a} :: NewBGPPeer)
-{-# DEPRECATED nbpAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
+nbgppAddressFamily :: Lens.Lens' NewBGPPeer (Core.Maybe Types.AddressFamily)
+nbgppAddressFamily = Lens.field @"addressFamily"
+{-# DEPRECATED nbgppAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
+
+-- | The IP address assigned to the Amazon interface.
+--
+-- /Note:/ Consider using 'amazonAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nbgppAmazonAddress :: Lens.Lens' NewBGPPeer (Core.Maybe Types.AmazonAddress)
+nbgppAmazonAddress = Lens.field @"amazonAddress"
+{-# DEPRECATED nbgppAmazonAddress "Use generic-lens or generic-optics with 'amazonAddress' instead." #-}
 
 -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
 -- /Note:/ Consider using 'asn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbpAsn :: Lens.Lens' NewBGPPeer (Lude.Maybe Lude.Int)
-nbpAsn = Lens.lens (asn :: NewBGPPeer -> Lude.Maybe Lude.Int) (\s a -> s {asn = a} :: NewBGPPeer)
-{-# DEPRECATED nbpAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
+nbgppAsn :: Lens.Lens' NewBGPPeer (Core.Maybe Core.Int)
+nbgppAsn = Lens.field @"asn"
+{-# DEPRECATED nbgppAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
 
 -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
 --
 -- /Note:/ Consider using 'authKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nbpAuthKey :: Lens.Lens' NewBGPPeer (Lude.Maybe Lude.Text)
-nbpAuthKey = Lens.lens (authKey :: NewBGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {authKey = a} :: NewBGPPeer)
-{-# DEPRECATED nbpAuthKey "Use generic-lens or generic-optics with 'authKey' instead." #-}
+nbgppAuthKey :: Lens.Lens' NewBGPPeer (Core.Maybe Types.BGPAuthKey)
+nbgppAuthKey = Lens.field @"authKey"
+{-# DEPRECATED nbgppAuthKey "Use generic-lens or generic-optics with 'authKey' instead." #-}
 
-instance Lude.ToJSON NewBGPPeer where
-  toJSON NewBGPPeer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("customerAddress" Lude..=) Lude.<$> customerAddress,
-            ("amazonAddress" Lude..=) Lude.<$> amazonAddress,
-            ("addressFamily" Lude..=) Lude.<$> addressFamily,
-            ("asn" Lude..=) Lude.<$> asn,
-            ("authKey" Lude..=) Lude.<$> authKey
+-- | The IP address assigned to the customer interface.
+--
+-- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nbgppCustomerAddress :: Lens.Lens' NewBGPPeer (Core.Maybe Types.CustomerAddress)
+nbgppCustomerAddress = Lens.field @"customerAddress"
+{-# DEPRECATED nbgppCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
+
+instance Core.FromJSON NewBGPPeer where
+  toJSON NewBGPPeer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("addressFamily" Core..=) Core.<$> addressFamily,
+            ("amazonAddress" Core..=) Core.<$> amazonAddress,
+            ("asn" Core..=) Core.<$> asn,
+            ("authKey" Core..=) Core.<$> authKey,
+            ("customerAddress" Core..=) Core.<$> customerAddress
           ]
       )

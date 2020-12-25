@@ -40,72 +40,63 @@ module Network.AWS.S3.DeleteBucketPolicy
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkDeleteBucketPolicy' smart constructor.
 data DeleteBucketPolicy = DeleteBucketPolicy'
   { -- | The bucket name.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketPolicy' with the minimum fields required to make a request.
---
--- * 'bucket' - The bucket name.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'DeleteBucketPolicy' value with any optional fields omitted.
 mkDeleteBucketPolicy ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   DeleteBucketPolicy
-mkDeleteBucketPolicy pBucket_ =
-  DeleteBucketPolicy'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkDeleteBucketPolicy bucket =
+  DeleteBucketPolicy' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The bucket name.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpBucket :: Lens.Lens' DeleteBucketPolicy BucketName
-dbpBucket = Lens.lens (bucket :: DeleteBucketPolicy -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketPolicy)
+dbpBucket :: Lens.Lens' DeleteBucketPolicy Types.BucketName
+dbpBucket = Lens.field @"bucket"
 {-# DEPRECATED dbpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpExpectedBucketOwner :: Lens.Lens' DeleteBucketPolicy (Lude.Maybe Lude.Text)
-dbpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketPolicy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketPolicy)
+dbpExpectedBucketOwner :: Lens.Lens' DeleteBucketPolicy (Core.Maybe Types.ExpectedBucketOwner)
+dbpExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED dbpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest DeleteBucketPolicy where
+instance Core.AWSRequest DeleteBucketPolicy where
   type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
-  request = Req.delete s3Service
-  response = Res.receiveNull DeleteBucketPolicyResponse'
-
-instance Lude.ToHeaders DeleteBucketPolicy where
-  toHeaders DeleteBucketPolicy' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath DeleteBucketPolicy where
-  toPath DeleteBucketPolicy' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery DeleteBucketPolicy where
-  toQuery = Lude.const (Lude.mconcat ["policy"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("policy", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteBucketPolicyResponse'
 
 -- | /See:/ 'mkDeleteBucketPolicyResponse' smart constructor.
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBucketPolicyResponse' value with any optional fields omitted.
 mkDeleteBucketPolicyResponse ::
   DeleteBucketPolicyResponse
 mkDeleteBucketPolicyResponse = DeleteBucketPolicyResponse'

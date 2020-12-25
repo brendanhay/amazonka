@@ -32,77 +32,66 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     mkDescribeCacheParametersResponse,
 
     -- ** Response lenses
-    dcprsCacheNodeTypeSpecificParameters,
-    dcprsMarker,
-    dcprsParameters,
-    dcprsResponseStatus,
+    dcprrsCacheNodeTypeSpecificParameters,
+    dcprrsMarker,
+    dcprrsParameters,
+    dcprrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeCacheParameters@ operation.
 --
 -- /See:/ 'mkDescribeCacheParameters' smart constructor.
 data DescribeCacheParameters = DescribeCacheParameters'
   { -- | The name of a specific cache parameter group to return details for.
-    cacheParameterGroupName :: Lude.Text,
+    cacheParameterGroupName :: Types.String,
     -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
+    maxRecords :: Core.Maybe Core.Int,
     -- | The parameter types to return.
     --
     -- Valid values: @user@ | @system@ | @engine-default@
-    source :: Lude.Maybe Lude.Text
+    source :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeCacheParameters' with the minimum fields required to make a request.
---
--- * 'cacheParameterGroupName' - The name of a specific cache parameter group to return details for.
--- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: minimum 20; maximum 100.
--- * 'source' - The parameter types to return.
---
--- Valid values: @user@ | @system@ | @engine-default@
+-- | Creates a 'DescribeCacheParameters' value with any optional fields omitted.
 mkDescribeCacheParameters ::
   -- | 'cacheParameterGroupName'
-  Lude.Text ->
+  Types.String ->
   DescribeCacheParameters
-mkDescribeCacheParameters pCacheParameterGroupName_ =
+mkDescribeCacheParameters cacheParameterGroupName =
   DescribeCacheParameters'
-    { cacheParameterGroupName =
-        pCacheParameterGroupName_,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      source = Lude.Nothing
+    { cacheParameterGroupName,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      source = Core.Nothing
     }
 
 -- | The name of a specific cache parameter group to return details for.
 --
 -- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpCacheParameterGroupName :: Lens.Lens' DescribeCacheParameters Lude.Text
-dcpCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: DescribeCacheParameters -> Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: DescribeCacheParameters)
+dcpCacheParameterGroupName :: Lens.Lens' DescribeCacheParameters Types.String
+dcpCacheParameterGroupName = Lens.field @"cacheParameterGroupName"
 {-# DEPRECATED dcpCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpMarker :: Lens.Lens' DescribeCacheParameters (Lude.Maybe Lude.Text)
-dcpMarker = Lens.lens (marker :: DescribeCacheParameters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheParameters)
+dcpMarker :: Lens.Lens' DescribeCacheParameters (Core.Maybe Types.String)
+dcpMarker = Lens.field @"marker"
 {-# DEPRECATED dcpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
@@ -111,8 +100,8 @@ dcpMarker = Lens.lens (marker :: DescribeCacheParameters -> Lude.Maybe Lude.Text
 -- Constraints: minimum 20; maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpMaxRecords :: Lens.Lens' DescribeCacheParameters (Lude.Maybe Lude.Int)
-dcpMaxRecords = Lens.lens (maxRecords :: DescribeCacheParameters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeCacheParameters)
+dcpMaxRecords :: Lens.Lens' DescribeCacheParameters (Core.Maybe Core.Int)
+dcpMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dcpMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The parameter types to return.
@@ -120,111 +109,115 @@ dcpMaxRecords = Lens.lens (maxRecords :: DescribeCacheParameters -> Lude.Maybe L
 -- Valid values: @user@ | @system@ | @engine-default@
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpSource :: Lens.Lens' DescribeCacheParameters (Lude.Maybe Lude.Text)
-dcpSource = Lens.lens (source :: DescribeCacheParameters -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: DescribeCacheParameters)
+dcpSource :: Lens.Lens' DescribeCacheParameters (Core.Maybe Types.String)
+dcpSource = Lens.field @"source"
 {-# DEPRECATED dcpSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance Page.AWSPager DescribeCacheParameters where
-  page rq rs
-    | Page.stop (rs Lens.^. dcprsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcprsParameters) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dcpMarker Lens..~ rs Lens.^. dcprsMarker
-
-instance Lude.AWSRequest DescribeCacheParameters where
+instance Core.AWSRequest DescribeCacheParameters where
   type Rs DescribeCacheParameters = DescribeCacheParametersResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeCacheParameters")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue
+                            "CacheParameterGroupName"
+                            cacheParameterGroupName
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "Source" Core.<$> source)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeCacheParametersResult"
       ( \s h x ->
           DescribeCacheParametersResponse'
-            Lude.<$> ( x Lude..@? "CacheNodeTypeSpecificParameters" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "CacheNodeTypeSpecificParameter")
+            Core.<$> ( x Core..@? "CacheNodeTypeSpecificParameters"
+                         Core..<@> Core.parseXMLList "CacheNodeTypeSpecificParameter"
                      )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "Parameters" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "Parameter")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (x Core..@? "Parameters" Core..<@> Core.parseXMLList "Parameter")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeCacheParameters where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeCacheParameters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeCacheParameters where
-  toQuery DescribeCacheParameters' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeCacheParameters" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheParameterGroupName" Lude.=: cacheParameterGroupName,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "Source" Lude.=: source
-      ]
+instance Pager.AWSPager DescribeCacheParameters where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"parameters" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Represents the output of a @DescribeCacheParameters@ operation.
 --
 -- /See:/ 'mkDescribeCacheParametersResponse' smart constructor.
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
   { -- | A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.
-    cacheNodeTypeSpecificParameters :: Lude.Maybe [CacheNodeTypeSpecificParameter],
+    cacheNodeTypeSpecificParameters :: Core.Maybe [Types.CacheNodeTypeSpecificParameter],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | A list of 'Parameter' instances.
-    parameters :: Lude.Maybe [Parameter],
+    parameters :: Core.Maybe [Types.Parameter],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeCacheParametersResponse' with the minimum fields required to make a request.
---
--- * 'cacheNodeTypeSpecificParameters' - A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.
--- * 'marker' - Provides an identifier to allow retrieval of paginated results.
--- * 'parameters' - A list of 'Parameter' instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeCacheParametersResponse' value with any optional fields omitted.
 mkDescribeCacheParametersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeCacheParametersResponse
-mkDescribeCacheParametersResponse pResponseStatus_ =
+mkDescribeCacheParametersResponse responseStatus =
   DescribeCacheParametersResponse'
     { cacheNodeTypeSpecificParameters =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      parameters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      marker = Core.Nothing,
+      parameters = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.
 --
 -- /Note:/ Consider using 'cacheNodeTypeSpecificParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcprsCacheNodeTypeSpecificParameters :: Lens.Lens' DescribeCacheParametersResponse (Lude.Maybe [CacheNodeTypeSpecificParameter])
-dcprsCacheNodeTypeSpecificParameters = Lens.lens (cacheNodeTypeSpecificParameters :: DescribeCacheParametersResponse -> Lude.Maybe [CacheNodeTypeSpecificParameter]) (\s a -> s {cacheNodeTypeSpecificParameters = a} :: DescribeCacheParametersResponse)
-{-# DEPRECATED dcprsCacheNodeTypeSpecificParameters "Use generic-lens or generic-optics with 'cacheNodeTypeSpecificParameters' instead." #-}
+dcprrsCacheNodeTypeSpecificParameters :: Lens.Lens' DescribeCacheParametersResponse (Core.Maybe [Types.CacheNodeTypeSpecificParameter])
+dcprrsCacheNodeTypeSpecificParameters = Lens.field @"cacheNodeTypeSpecificParameters"
+{-# DEPRECATED dcprrsCacheNodeTypeSpecificParameters "Use generic-lens or generic-optics with 'cacheNodeTypeSpecificParameters' instead." #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcprsMarker :: Lens.Lens' DescribeCacheParametersResponse (Lude.Maybe Lude.Text)
-dcprsMarker = Lens.lens (marker :: DescribeCacheParametersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheParametersResponse)
-{-# DEPRECATED dcprsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcprrsMarker :: Lens.Lens' DescribeCacheParametersResponse (Core.Maybe Types.String)
+dcprrsMarker = Lens.field @"marker"
+{-# DEPRECATED dcprrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of 'Parameter' instances.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcprsParameters :: Lens.Lens' DescribeCacheParametersResponse (Lude.Maybe [Parameter])
-dcprsParameters = Lens.lens (parameters :: DescribeCacheParametersResponse -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: DescribeCacheParametersResponse)
-{-# DEPRECATED dcprsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+dcprrsParameters :: Lens.Lens' DescribeCacheParametersResponse (Core.Maybe [Types.Parameter])
+dcprrsParameters = Lens.field @"parameters"
+{-# DEPRECATED dcprrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcprsResponseStatus :: Lens.Lens' DescribeCacheParametersResponse Lude.Int
-dcprsResponseStatus = Lens.lens (responseStatus :: DescribeCacheParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheParametersResponse)
-{-# DEPRECATED dcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcprrsResponseStatus :: Lens.Lens' DescribeCacheParametersResponse Core.Int
+dcprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

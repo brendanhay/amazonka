@@ -20,133 +20,129 @@ module Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
     mkBatchPutScheduledUpdateGroupAction,
 
     -- ** Request lenses
-    bpsugaScheduledUpdateGroupActions,
     bpsugaAutoScalingGroupName,
+    bpsugaScheduledUpdateGroupActions,
 
     -- * Destructuring the response
     BatchPutScheduledUpdateGroupActionResponse (..),
     mkBatchPutScheduledUpdateGroupActionResponse,
 
     -- ** Response lenses
-    bpsugarsFailedScheduledUpdateGroupActions,
-    bpsugarsResponseStatus,
+    bpsugarrsFailedScheduledUpdateGroupActions,
+    bpsugarrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchPutScheduledUpdateGroupAction' smart constructor.
 data BatchPutScheduledUpdateGroupAction = BatchPutScheduledUpdateGroupAction'
-  { -- | One or more scheduled actions. The maximum number allowed is 50.
-    scheduledUpdateGroupActions :: [ScheduledUpdateGroupActionRequest],
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.AutoScalingGroupName,
+    -- | One or more scheduled actions. The maximum number allowed is 50.
+    scheduledUpdateGroupActions :: [Types.ScheduledUpdateGroupActionRequest]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchPutScheduledUpdateGroupAction' with the minimum fields required to make a request.
---
--- * 'scheduledUpdateGroupActions' - One or more scheduled actions. The maximum number allowed is 50.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'BatchPutScheduledUpdateGroupAction' value with any optional fields omitted.
 mkBatchPutScheduledUpdateGroupAction ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.AutoScalingGroupName ->
   BatchPutScheduledUpdateGroupAction
-mkBatchPutScheduledUpdateGroupAction pAutoScalingGroupName_ =
+mkBatchPutScheduledUpdateGroupAction autoScalingGroupName =
   BatchPutScheduledUpdateGroupAction'
-    { scheduledUpdateGroupActions =
-        Lude.mempty,
-      autoScalingGroupName = pAutoScalingGroupName_
+    { autoScalingGroupName,
+      scheduledUpdateGroupActions = Core.mempty
     }
-
--- | One or more scheduled actions. The maximum number allowed is 50.
---
--- /Note:/ Consider using 'scheduledUpdateGroupActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpsugaScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupAction [ScheduledUpdateGroupActionRequest]
-bpsugaScheduledUpdateGroupActions = Lens.lens (scheduledUpdateGroupActions :: BatchPutScheduledUpdateGroupAction -> [ScheduledUpdateGroupActionRequest]) (\s a -> s {scheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupAction)
-{-# DEPRECATED bpsugaScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'scheduledUpdateGroupActions' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpsugaAutoScalingGroupName :: Lens.Lens' BatchPutScheduledUpdateGroupAction Lude.Text
-bpsugaAutoScalingGroupName = Lens.lens (autoScalingGroupName :: BatchPutScheduledUpdateGroupAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: BatchPutScheduledUpdateGroupAction)
+bpsugaAutoScalingGroupName :: Lens.Lens' BatchPutScheduledUpdateGroupAction Types.AutoScalingGroupName
+bpsugaAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED bpsugaAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest BatchPutScheduledUpdateGroupAction where
+-- | One or more scheduled actions. The maximum number allowed is 50.
+--
+-- /Note:/ Consider using 'scheduledUpdateGroupActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpsugaScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupAction [Types.ScheduledUpdateGroupActionRequest]
+bpsugaScheduledUpdateGroupActions = Lens.field @"scheduledUpdateGroupActions"
+{-# DEPRECATED bpsugaScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'scheduledUpdateGroupActions' instead." #-}
+
+instance Core.AWSRequest BatchPutScheduledUpdateGroupAction where
   type
     Rs BatchPutScheduledUpdateGroupAction =
       BatchPutScheduledUpdateGroupActionResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "BatchPutScheduledUpdateGroupAction")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> ( Core.toQueryValue
+                            "ScheduledUpdateGroupActions"
+                            (Core.toQueryList "member" scheduledUpdateGroupActions)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "BatchPutScheduledUpdateGroupActionResult"
       ( \s h x ->
           BatchPutScheduledUpdateGroupActionResponse'
-            Lude.<$> ( x Lude..@? "FailedScheduledUpdateGroupActions"
-                         Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "FailedScheduledUpdateGroupActions"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchPutScheduledUpdateGroupAction where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath BatchPutScheduledUpdateGroupAction where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchPutScheduledUpdateGroupAction where
-  toQuery BatchPutScheduledUpdateGroupAction' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("BatchPutScheduledUpdateGroupAction" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "ScheduledUpdateGroupActions"
-          Lude.=: Lude.toQueryList "member" scheduledUpdateGroupActions,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
 
 -- | /See:/ 'mkBatchPutScheduledUpdateGroupActionResponse' smart constructor.
 data BatchPutScheduledUpdateGroupActionResponse = BatchPutScheduledUpdateGroupActionResponse'
   { -- | The names of the scheduled actions that could not be created or updated, including an error message.
-    failedScheduledUpdateGroupActions :: Lude.Maybe [FailedScheduledUpdateGroupActionRequest],
+    failedScheduledUpdateGroupActions :: Core.Maybe [Types.FailedScheduledUpdateGroupActionRequest],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchPutScheduledUpdateGroupActionResponse' with the minimum fields required to make a request.
---
--- * 'failedScheduledUpdateGroupActions' - The names of the scheduled actions that could not be created or updated, including an error message.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchPutScheduledUpdateGroupActionResponse' value with any optional fields omitted.
 mkBatchPutScheduledUpdateGroupActionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchPutScheduledUpdateGroupActionResponse
-mkBatchPutScheduledUpdateGroupActionResponse pResponseStatus_ =
+mkBatchPutScheduledUpdateGroupActionResponse responseStatus =
   BatchPutScheduledUpdateGroupActionResponse'
     { failedScheduledUpdateGroupActions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The names of the scheduled actions that could not be created or updated, including an error message.
 --
 -- /Note:/ Consider using 'failedScheduledUpdateGroupActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpsugarsFailedScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse (Lude.Maybe [FailedScheduledUpdateGroupActionRequest])
-bpsugarsFailedScheduledUpdateGroupActions = Lens.lens (failedScheduledUpdateGroupActions :: BatchPutScheduledUpdateGroupActionResponse -> Lude.Maybe [FailedScheduledUpdateGroupActionRequest]) (\s a -> s {failedScheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupActionResponse)
-{-# DEPRECATED bpsugarsFailedScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'failedScheduledUpdateGroupActions' instead." #-}
+bpsugarrsFailedScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse (Core.Maybe [Types.FailedScheduledUpdateGroupActionRequest])
+bpsugarrsFailedScheduledUpdateGroupActions = Lens.field @"failedScheduledUpdateGroupActions"
+{-# DEPRECATED bpsugarrsFailedScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'failedScheduledUpdateGroupActions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpsugarsResponseStatus :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse Lude.Int
-bpsugarsResponseStatus = Lens.lens (responseStatus :: BatchPutScheduledUpdateGroupActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchPutScheduledUpdateGroupActionResponse)
-{-# DEPRECATED bpsugarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bpsugarrsResponseStatus :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse Core.Int
+bpsugarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bpsugarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

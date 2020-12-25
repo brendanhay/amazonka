@@ -21,141 +21,125 @@ module Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
 
     -- ** Request lenses
     vuaAccessToken,
-    vuaCode,
     vuaAttributeName,
+    vuaCode,
 
     -- * Destructuring the response
     VerifyUserAttributeResponse (..),
     mkVerifyUserAttributeResponse,
 
     -- ** Response lenses
-    vuarsResponseStatus,
+    vuarrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to verify user attributes.
 --
 -- /See:/ 'mkVerifyUserAttribute' smart constructor.
 data VerifyUserAttribute = VerifyUserAttribute'
   { -- | Represents the access token of the request to verify user attributes.
-    accessToken :: Lude.Sensitive Lude.Text,
-    -- | The verification code in the request to verify user attributes.
-    code :: Lude.Text,
+    accessToken :: Types.TokenModelType,
     -- | The attribute name in the request to verify user attributes.
-    attributeName :: Lude.Text
+    attributeName :: Types.AttributeNameType,
+    -- | The verification code in the request to verify user attributes.
+    code :: Types.ConfirmationCodeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyUserAttribute' with the minimum fields required to make a request.
---
--- * 'accessToken' - Represents the access token of the request to verify user attributes.
--- * 'code' - The verification code in the request to verify user attributes.
--- * 'attributeName' - The attribute name in the request to verify user attributes.
+-- | Creates a 'VerifyUserAttribute' value with any optional fields omitted.
 mkVerifyUserAttribute ::
   -- | 'accessToken'
-  Lude.Sensitive Lude.Text ->
-  -- | 'code'
-  Lude.Text ->
+  Types.TokenModelType ->
   -- | 'attributeName'
-  Lude.Text ->
+  Types.AttributeNameType ->
+  -- | 'code'
+  Types.ConfirmationCodeType ->
   VerifyUserAttribute
-mkVerifyUserAttribute pAccessToken_ pCode_ pAttributeName_ =
-  VerifyUserAttribute'
-    { accessToken = pAccessToken_,
-      code = pCode_,
-      attributeName = pAttributeName_
-    }
+mkVerifyUserAttribute accessToken attributeName code =
+  VerifyUserAttribute' {accessToken, attributeName, code}
 
 -- | Represents the access token of the request to verify user attributes.
 --
 -- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vuaAccessToken :: Lens.Lens' VerifyUserAttribute (Lude.Sensitive Lude.Text)
-vuaAccessToken = Lens.lens (accessToken :: VerifyUserAttribute -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: VerifyUserAttribute)
+vuaAccessToken :: Lens.Lens' VerifyUserAttribute Types.TokenModelType
+vuaAccessToken = Lens.field @"accessToken"
 {-# DEPRECATED vuaAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
-
--- | The verification code in the request to verify user attributes.
---
--- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vuaCode :: Lens.Lens' VerifyUserAttribute Lude.Text
-vuaCode = Lens.lens (code :: VerifyUserAttribute -> Lude.Text) (\s a -> s {code = a} :: VerifyUserAttribute)
-{-# DEPRECATED vuaCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The attribute name in the request to verify user attributes.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vuaAttributeName :: Lens.Lens' VerifyUserAttribute Lude.Text
-vuaAttributeName = Lens.lens (attributeName :: VerifyUserAttribute -> Lude.Text) (\s a -> s {attributeName = a} :: VerifyUserAttribute)
+vuaAttributeName :: Lens.Lens' VerifyUserAttribute Types.AttributeNameType
+vuaAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED vuaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.AWSRequest VerifyUserAttribute where
+-- | The verification code in the request to verify user attributes.
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vuaCode :: Lens.Lens' VerifyUserAttribute Types.ConfirmationCodeType
+vuaCode = Lens.field @"code"
+{-# DEPRECATED vuaCode "Use generic-lens or generic-optics with 'code' instead." #-}
+
+instance Core.FromJSON VerifyUserAttribute where
+  toJSON VerifyUserAttribute {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccessToken" Core..= accessToken),
+            Core.Just ("AttributeName" Core..= attributeName),
+            Core.Just ("Code" Core..= code)
+          ]
+      )
+
+instance Core.AWSRequest VerifyUserAttribute where
   type Rs VerifyUserAttribute = VerifyUserAttributeResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.VerifyUserAttribute"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           VerifyUserAttributeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders VerifyUserAttribute where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.VerifyUserAttribute" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON VerifyUserAttribute where
-  toJSON VerifyUserAttribute' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccessToken" Lude..= accessToken),
-            Lude.Just ("Code" Lude..= code),
-            Lude.Just ("AttributeName" Lude..= attributeName)
-          ]
-      )
-
-instance Lude.ToPath VerifyUserAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery VerifyUserAttribute where
-  toQuery = Lude.const Lude.mempty
 
 -- | A container representing the response from the server from the request to verify user attributes.
 --
 -- /See:/ 'mkVerifyUserAttributeResponse' smart constructor.
 newtype VerifyUserAttributeResponse = VerifyUserAttributeResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyUserAttributeResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'VerifyUserAttributeResponse' value with any optional fields omitted.
 mkVerifyUserAttributeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   VerifyUserAttributeResponse
-mkVerifyUserAttributeResponse pResponseStatus_ =
-  VerifyUserAttributeResponse' {responseStatus = pResponseStatus_}
+mkVerifyUserAttributeResponse responseStatus =
+  VerifyUserAttributeResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vuarsResponseStatus :: Lens.Lens' VerifyUserAttributeResponse Lude.Int
-vuarsResponseStatus = Lens.lens (responseStatus :: VerifyUserAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: VerifyUserAttributeResponse)
-{-# DEPRECATED vuarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+vuarrsResponseStatus :: Lens.Lens' VerifyUserAttributeResponse Core.Int
+vuarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED vuarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

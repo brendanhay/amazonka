@@ -22,7 +22,8 @@ module Network.AWS.SWF.Types.RequestCancelActivityTaskDecisionAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.ActivityId as Types
 
 -- | Provides the details of the @RequestCancelActivityTask@ decision.
 --
@@ -43,32 +44,27 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkRequestCancelActivityTaskDecisionAttributes' smart constructor.
 newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDecisionAttributes'
   { -- | The @activityId@ of the activity task to be canceled.
-    activityId :: Lude.Text
+    activityId :: Types.ActivityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestCancelActivityTaskDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'activityId' - The @activityId@ of the activity task to be canceled.
+-- | Creates a 'RequestCancelActivityTaskDecisionAttributes' value with any optional fields omitted.
 mkRequestCancelActivityTaskDecisionAttributes ::
   -- | 'activityId'
-  Lude.Text ->
+  Types.ActivityId ->
   RequestCancelActivityTaskDecisionAttributes
-mkRequestCancelActivityTaskDecisionAttributes pActivityId_ =
-  RequestCancelActivityTaskDecisionAttributes'
-    { activityId =
-        pActivityId_
-    }
+mkRequestCancelActivityTaskDecisionAttributes activityId =
+  RequestCancelActivityTaskDecisionAttributes' {activityId}
 
 -- | The @activityId@ of the activity task to be canceled.
 --
 -- /Note:/ Consider using 'activityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcatdaActivityId :: Lens.Lens' RequestCancelActivityTaskDecisionAttributes Lude.Text
-rcatdaActivityId = Lens.lens (activityId :: RequestCancelActivityTaskDecisionAttributes -> Lude.Text) (\s a -> s {activityId = a} :: RequestCancelActivityTaskDecisionAttributes)
+rcatdaActivityId :: Lens.Lens' RequestCancelActivityTaskDecisionAttributes Types.ActivityId
+rcatdaActivityId = Lens.field @"activityId"
 {-# DEPRECATED rcatdaActivityId "Use generic-lens or generic-optics with 'activityId' instead." #-}
 
-instance Lude.ToJSON RequestCancelActivityTaskDecisionAttributes where
-  toJSON RequestCancelActivityTaskDecisionAttributes' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("activityId" Lude..= activityId)])
+instance Core.FromJSON RequestCancelActivityTaskDecisionAttributes where
+  toJSON RequestCancelActivityTaskDecisionAttributes {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("activityId" Core..= activityId)])

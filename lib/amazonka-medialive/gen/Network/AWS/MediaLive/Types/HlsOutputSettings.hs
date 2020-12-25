@@ -19,59 +19,52 @@ module Network.AWS.MediaLive.Types.HlsOutputSettings
     -- * Lenses
     hosHlsSettings,
     hosH265PackagingType,
-    hosSegmentModifier,
     hosNameModifier,
+    hosSegmentModifier,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.HlsH265PackagingType
-import Network.AWS.MediaLive.Types.HlsSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.HlsH265PackagingType as Types
+import qualified Network.AWS.MediaLive.Types.HlsSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Output Settings
 --
 -- /See:/ 'mkHlsOutputSettings' smart constructor.
 data HlsOutputSettings = HlsOutputSettings'
   { -- | Settings regarding the underlying stream. These settings are different for audio-only outputs.
-    hlsSettings :: HlsSettings,
+    hlsSettings :: Types.HlsSettings,
     -- | Only applicable when this output is referencing an H.265 video description.
     --
     -- Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
-    h265PackagingType :: Lude.Maybe HlsH265PackagingType,
-    -- | String concatenated to end of segment filenames.
-    segmentModifier :: Lude.Maybe Lude.Text,
+    h265PackagingType :: Core.Maybe Types.HlsH265PackagingType,
     -- | String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
-    nameModifier :: Lude.Maybe Lude.Text
+    nameModifier :: Core.Maybe Core.Text,
+    -- | String concatenated to end of segment filenames.
+    segmentModifier :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsOutputSettings' with the minimum fields required to make a request.
---
--- * 'hlsSettings' - Settings regarding the underlying stream. These settings are different for audio-only outputs.
--- * 'h265PackagingType' - Only applicable when this output is referencing an H.265 video description.
---
--- Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
--- * 'segmentModifier' - String concatenated to end of segment filenames.
--- * 'nameModifier' - String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
+-- | Creates a 'HlsOutputSettings' value with any optional fields omitted.
 mkHlsOutputSettings ::
   -- | 'hlsSettings'
-  HlsSettings ->
+  Types.HlsSettings ->
   HlsOutputSettings
-mkHlsOutputSettings pHlsSettings_ =
+mkHlsOutputSettings hlsSettings =
   HlsOutputSettings'
-    { hlsSettings = pHlsSettings_,
-      h265PackagingType = Lude.Nothing,
-      segmentModifier = Lude.Nothing,
-      nameModifier = Lude.Nothing
+    { hlsSettings,
+      h265PackagingType = Core.Nothing,
+      nameModifier = Core.Nothing,
+      segmentModifier = Core.Nothing
     }
 
 -- | Settings regarding the underlying stream. These settings are different for audio-only outputs.
 --
 -- /Note:/ Consider using 'hlsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hosHlsSettings :: Lens.Lens' HlsOutputSettings HlsSettings
-hosHlsSettings = Lens.lens (hlsSettings :: HlsOutputSettings -> HlsSettings) (\s a -> s {hlsSettings = a} :: HlsOutputSettings)
+hosHlsSettings :: Lens.Lens' HlsOutputSettings Types.HlsSettings
+hosHlsSettings = Lens.field @"hlsSettings"
 {-# DEPRECATED hosHlsSettings "Use generic-lens or generic-optics with 'hlsSettings' instead." #-}
 
 -- | Only applicable when this output is referencing an H.265 video description.
@@ -79,43 +72,41 @@ hosHlsSettings = Lens.lens (hlsSettings :: HlsOutputSettings -> HlsSettings) (\s
 -- Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
 --
 -- /Note:/ Consider using 'h265PackagingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hosH265PackagingType :: Lens.Lens' HlsOutputSettings (Lude.Maybe HlsH265PackagingType)
-hosH265PackagingType = Lens.lens (h265PackagingType :: HlsOutputSettings -> Lude.Maybe HlsH265PackagingType) (\s a -> s {h265PackagingType = a} :: HlsOutputSettings)
+hosH265PackagingType :: Lens.Lens' HlsOutputSettings (Core.Maybe Types.HlsH265PackagingType)
+hosH265PackagingType = Lens.field @"h265PackagingType"
 {-# DEPRECATED hosH265PackagingType "Use generic-lens or generic-optics with 'h265PackagingType' instead." #-}
-
--- | String concatenated to end of segment filenames.
---
--- /Note:/ Consider using 'segmentModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hosSegmentModifier :: Lens.Lens' HlsOutputSettings (Lude.Maybe Lude.Text)
-hosSegmentModifier = Lens.lens (segmentModifier :: HlsOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {segmentModifier = a} :: HlsOutputSettings)
-{-# DEPRECATED hosSegmentModifier "Use generic-lens or generic-optics with 'segmentModifier' instead." #-}
 
 -- | String concatenated to the end of the destination filename. Accepts \"Format Identifiers\":#formatIdentifierParameters.
 --
 -- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hosNameModifier :: Lens.Lens' HlsOutputSettings (Lude.Maybe Lude.Text)
-hosNameModifier = Lens.lens (nameModifier :: HlsOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {nameModifier = a} :: HlsOutputSettings)
+hosNameModifier :: Lens.Lens' HlsOutputSettings (Core.Maybe Core.Text)
+hosNameModifier = Lens.field @"nameModifier"
 {-# DEPRECATED hosNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
 
-instance Lude.FromJSON HlsOutputSettings where
-  parseJSON =
-    Lude.withObject
-      "HlsOutputSettings"
-      ( \x ->
-          HlsOutputSettings'
-            Lude.<$> (x Lude..: "hlsSettings")
-            Lude.<*> (x Lude..:? "h265PackagingType")
-            Lude.<*> (x Lude..:? "segmentModifier")
-            Lude.<*> (x Lude..:? "nameModifier")
-      )
+-- | String concatenated to end of segment filenames.
+--
+-- /Note:/ Consider using 'segmentModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hosSegmentModifier :: Lens.Lens' HlsOutputSettings (Core.Maybe Core.Text)
+hosSegmentModifier = Lens.field @"segmentModifier"
+{-# DEPRECATED hosSegmentModifier "Use generic-lens or generic-optics with 'segmentModifier' instead." #-}
 
-instance Lude.ToJSON HlsOutputSettings where
-  toJSON HlsOutputSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("hlsSettings" Lude..= hlsSettings),
-            ("h265PackagingType" Lude..=) Lude.<$> h265PackagingType,
-            ("segmentModifier" Lude..=) Lude.<$> segmentModifier,
-            ("nameModifier" Lude..=) Lude.<$> nameModifier
+instance Core.FromJSON HlsOutputSettings where
+  toJSON HlsOutputSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("hlsSettings" Core..= hlsSettings),
+            ("h265PackagingType" Core..=) Core.<$> h265PackagingType,
+            ("nameModifier" Core..=) Core.<$> nameModifier,
+            ("segmentModifier" Core..=) Core.<$> segmentModifier
           ]
       )
+
+instance Core.FromJSON HlsOutputSettings where
+  parseJSON =
+    Core.withObject "HlsOutputSettings" Core.$
+      \x ->
+        HlsOutputSettings'
+          Core.<$> (x Core..: "hlsSettings")
+          Core.<*> (x Core..:? "h265PackagingType")
+          Core.<*> (x Core..:? "nameModifier")
+          Core.<*> (x Core..:? "segmentModifier")

@@ -17,41 +17,57 @@ module Network.AWS.AutoScalingPlans.Types.ScalingPlanResource
     mkScalingPlanResource,
 
     -- * Lenses
-    sprScalingStatusCode,
-    sprScalingPlanVersion,
-    sprScalableDimension,
-    sprResourceId,
-    sprServiceNamespace,
     sprScalingPlanName,
-    sprScalingStatusMessage,
+    sprScalingPlanVersion,
+    sprServiceNamespace,
+    sprResourceId,
+    sprScalableDimension,
+    sprScalingStatusCode,
     sprScalingPolicies,
+    sprScalingStatusMessage,
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types.ScalableDimension
-import Network.AWS.AutoScalingPlans.Types.ScalingPolicy
-import Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
-import Network.AWS.AutoScalingPlans.Types.ServiceNamespace
+import qualified Network.AWS.AutoScalingPlans.Types.ResourceId as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalableDimension as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalingPlanName as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalingPolicy as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalingStatusCode as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalingStatusMessage as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ServiceNamespace as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a scalable resource.
 --
 -- /See:/ 'mkScalingPlanResource' smart constructor.
 data ScalingPlanResource = ScalingPlanResource'
-  { -- | The scaling status of the resource.
-    --
-    --
-    --     * @Active@ - The scaling configuration is active.
-    --
-    --
-    --     * @Inactive@ - The scaling configuration is not active because the scaling plan is being created or the scaling configuration could not be applied. Check the status message for more information.
-    --
-    --
-    --     * @PartiallyActive@ - The scaling configuration is partially active because the scaling plan is being created or deleted or the scaling configuration could not be fully applied. Check the status message for more information.
-    scalingStatusCode :: ScalingStatusCode,
+  { -- | The name of the scaling plan.
+    scalingPlanName :: Types.ScalingPlanName,
     -- | The version number of the scaling plan.
-    scalingPlanVersion :: Lude.Integer,
+    scalingPlanVersion :: Core.Integer,
+    -- | The namespace of the AWS service.
+    serviceNamespace :: Types.ServiceNamespace,
+    -- | The ID of the resource. This string consists of the resource type and unique identifier.
+    --
+    --
+    --     * Auto Scaling group - The resource type is @autoScalingGroup@ and the unique identifier is the name of the Auto Scaling group. Example: @autoScalingGroup/my-asg@ .
+    --
+    --
+    --     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .
+    --
+    --
+    --     * Spot Fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot Fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+    --
+    --
+    --     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .
+    --
+    --
+    --     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
+    --
+    --
+    --     * Aurora DB cluster - The resource type is @cluster@ and the unique identifier is the cluster name. Example: @cluster:my-db-cluster@ .
+    resourceId :: Types.ResourceId,
     -- | The scalable dimension for the resource.
     --
     --
@@ -77,82 +93,81 @@ data ScalingPlanResource = ScalingPlanResource'
     --
     --
     --     * @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
-    scalableDimension :: ScalableDimension,
-    -- | The ID of the resource. This string consists of the resource type and unique identifier.
+    scalableDimension :: Types.ScalableDimension,
+    -- | The scaling status of the resource.
     --
     --
-    --     * Auto Scaling group - The resource type is @autoScalingGroup@ and the unique identifier is the name of the Auto Scaling group. Example: @autoScalingGroup/my-asg@ .
+    --     * @Active@ - The scaling configuration is active.
     --
     --
-    --     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .
+    --     * @Inactive@ - The scaling configuration is not active because the scaling plan is being created or the scaling configuration could not be applied. Check the status message for more information.
     --
     --
-    --     * Spot Fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot Fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
-    --
-    --
-    --     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .
-    --
-    --
-    --     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
-    --
-    --
-    --     * Aurora DB cluster - The resource type is @cluster@ and the unique identifier is the cluster name. Example: @cluster:my-db-cluster@ .
-    resourceId :: Lude.Text,
-    -- | The namespace of the AWS service.
-    serviceNamespace :: ServiceNamespace,
-    -- | The name of the scaling plan.
-    scalingPlanName :: Lude.Text,
-    -- | A simple message about the current scaling status of the resource.
-    scalingStatusMessage :: Lude.Maybe Lude.Text,
+    --     * @PartiallyActive@ - The scaling configuration is partially active because the scaling plan is being created or deleted or the scaling configuration could not be fully applied. Check the status message for more information.
+    scalingStatusCode :: Types.ScalingStatusCode,
     -- | The scaling policies.
-    scalingPolicies :: Lude.Maybe [ScalingPolicy]
+    scalingPolicies :: Core.Maybe [Types.ScalingPolicy],
+    -- | A simple message about the current scaling status of the resource.
+    scalingStatusMessage :: Core.Maybe Types.ScalingStatusMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalingPlanResource' with the minimum fields required to make a request.
+-- | Creates a 'ScalingPlanResource' value with any optional fields omitted.
+mkScalingPlanResource ::
+  -- | 'scalingPlanName'
+  Types.ScalingPlanName ->
+  -- | 'scalingPlanVersion'
+  Core.Integer ->
+  -- | 'serviceNamespace'
+  Types.ServiceNamespace ->
+  -- | 'resourceId'
+  Types.ResourceId ->
+  -- | 'scalableDimension'
+  Types.ScalableDimension ->
+  -- | 'scalingStatusCode'
+  Types.ScalingStatusCode ->
+  ScalingPlanResource
+mkScalingPlanResource
+  scalingPlanName
+  scalingPlanVersion
+  serviceNamespace
+  resourceId
+  scalableDimension
+  scalingStatusCode =
+    ScalingPlanResource'
+      { scalingPlanName,
+        scalingPlanVersion,
+        serviceNamespace,
+        resourceId,
+        scalableDimension,
+        scalingStatusCode,
+        scalingPolicies = Core.Nothing,
+        scalingStatusMessage = Core.Nothing
+      }
+
+-- | The name of the scaling plan.
 --
--- * 'scalingStatusCode' - The scaling status of the resource.
+-- /Note:/ Consider using 'scalingPlanName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprScalingPlanName :: Lens.Lens' ScalingPlanResource Types.ScalingPlanName
+sprScalingPlanName = Lens.field @"scalingPlanName"
+{-# DEPRECATED sprScalingPlanName "Use generic-lens or generic-optics with 'scalingPlanName' instead." #-}
+
+-- | The version number of the scaling plan.
 --
+-- /Note:/ Consider using 'scalingPlanVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprScalingPlanVersion :: Lens.Lens' ScalingPlanResource Core.Integer
+sprScalingPlanVersion = Lens.field @"scalingPlanVersion"
+{-# DEPRECATED sprScalingPlanVersion "Use generic-lens or generic-optics with 'scalingPlanVersion' instead." #-}
+
+-- | The namespace of the AWS service.
 --
---     * @Active@ - The scaling configuration is active.
---
---
---     * @Inactive@ - The scaling configuration is not active because the scaling plan is being created or the scaling configuration could not be applied. Check the status message for more information.
---
---
---     * @PartiallyActive@ - The scaling configuration is partially active because the scaling plan is being created or deleted or the scaling configuration could not be fully applied. Check the status message for more information.
---
---
--- * 'scalingPlanVersion' - The version number of the scaling plan.
--- * 'scalableDimension' - The scalable dimension for the resource.
---
---
---     * @autoscaling:autoScalingGroup:DesiredCapacity@ - The desired capacity of an Auto Scaling group.
---
---
---     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.
---
---
---     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot Fleet request.
---
---
---     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.
---
---
---     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.
---
---
---     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.
---
---
---     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
---
---
---     * @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
---
---
--- * 'resourceId' - The ID of the resource. This string consists of the resource type and unique identifier.
+-- /Note:/ Consider using 'serviceNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprServiceNamespace :: Lens.Lens' ScalingPlanResource Types.ServiceNamespace
+sprServiceNamespace = Lens.field @"serviceNamespace"
+{-# DEPRECATED sprServiceNamespace "Use generic-lens or generic-optics with 'serviceNamespace' instead." #-}
+
+-- | The ID of the resource. This string consists of the resource type and unique identifier.
 --
 --
 --     * Auto Scaling group - The resource type is @autoScalingGroup@ and the unique identifier is the name of the Auto Scaling group. Example: @autoScalingGroup/my-asg@ .
@@ -173,66 +188,11 @@ data ScalingPlanResource = ScalingPlanResource'
 --     * Aurora DB cluster - The resource type is @cluster@ and the unique identifier is the cluster name. Example: @cluster:my-db-cluster@ .
 --
 --
--- * 'serviceNamespace' - The namespace of the AWS service.
--- * 'scalingPlanName' - The name of the scaling plan.
--- * 'scalingStatusMessage' - A simple message about the current scaling status of the resource.
--- * 'scalingPolicies' - The scaling policies.
-mkScalingPlanResource ::
-  -- | 'scalingStatusCode'
-  ScalingStatusCode ->
-  -- | 'scalingPlanVersion'
-  Lude.Integer ->
-  -- | 'scalableDimension'
-  ScalableDimension ->
-  -- | 'resourceId'
-  Lude.Text ->
-  -- | 'serviceNamespace'
-  ServiceNamespace ->
-  -- | 'scalingPlanName'
-  Lude.Text ->
-  ScalingPlanResource
-mkScalingPlanResource
-  pScalingStatusCode_
-  pScalingPlanVersion_
-  pScalableDimension_
-  pResourceId_
-  pServiceNamespace_
-  pScalingPlanName_ =
-    ScalingPlanResource'
-      { scalingStatusCode = pScalingStatusCode_,
-        scalingPlanVersion = pScalingPlanVersion_,
-        scalableDimension = pScalableDimension_,
-        resourceId = pResourceId_,
-        serviceNamespace = pServiceNamespace_,
-        scalingPlanName = pScalingPlanName_,
-        scalingStatusMessage = Lude.Nothing,
-        scalingPolicies = Lude.Nothing
-      }
-
--- | The scaling status of the resource.
 --
---
---     * @Active@ - The scaling configuration is active.
---
---
---     * @Inactive@ - The scaling configuration is not active because the scaling plan is being created or the scaling configuration could not be applied. Check the status message for more information.
---
---
---     * @PartiallyActive@ - The scaling configuration is partially active because the scaling plan is being created or deleted or the scaling configuration could not be fully applied. Check the status message for more information.
---
---
---
--- /Note:/ Consider using 'scalingStatusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprScalingStatusCode :: Lens.Lens' ScalingPlanResource ScalingStatusCode
-sprScalingStatusCode = Lens.lens (scalingStatusCode :: ScalingPlanResource -> ScalingStatusCode) (\s a -> s {scalingStatusCode = a} :: ScalingPlanResource)
-{-# DEPRECATED sprScalingStatusCode "Use generic-lens or generic-optics with 'scalingStatusCode' instead." #-}
-
--- | The version number of the scaling plan.
---
--- /Note:/ Consider using 'scalingPlanVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprScalingPlanVersion :: Lens.Lens' ScalingPlanResource Lude.Integer
-sprScalingPlanVersion = Lens.lens (scalingPlanVersion :: ScalingPlanResource -> Lude.Integer) (\s a -> s {scalingPlanVersion = a} :: ScalingPlanResource)
-{-# DEPRECATED sprScalingPlanVersion "Use generic-lens or generic-optics with 'scalingPlanVersion' instead." #-}
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprResourceId :: Lens.Lens' ScalingPlanResource Types.ResourceId
+sprResourceId = Lens.field @"resourceId"
+{-# DEPRECATED sprResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The scalable dimension for the resource.
 --
@@ -263,77 +223,52 @@ sprScalingPlanVersion = Lens.lens (scalingPlanVersion :: ScalingPlanResource -> 
 --
 --
 -- /Note:/ Consider using 'scalableDimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprScalableDimension :: Lens.Lens' ScalingPlanResource ScalableDimension
-sprScalableDimension = Lens.lens (scalableDimension :: ScalingPlanResource -> ScalableDimension) (\s a -> s {scalableDimension = a} :: ScalingPlanResource)
+sprScalableDimension :: Lens.Lens' ScalingPlanResource Types.ScalableDimension
+sprScalableDimension = Lens.field @"scalableDimension"
 {-# DEPRECATED sprScalableDimension "Use generic-lens or generic-optics with 'scalableDimension' instead." #-}
 
--- | The ID of the resource. This string consists of the resource type and unique identifier.
+-- | The scaling status of the resource.
 --
 --
---     * Auto Scaling group - The resource type is @autoScalingGroup@ and the unique identifier is the name of the Auto Scaling group. Example: @autoScalingGroup/my-asg@ .
+--     * @Active@ - The scaling configuration is active.
 --
 --
---     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .
+--     * @Inactive@ - The scaling configuration is not active because the scaling plan is being created or the scaling configuration could not be applied. Check the status message for more information.
 --
 --
---     * Spot Fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot Fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
---
---
---     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .
---
---
---     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
---
---
---     * Aurora DB cluster - The resource type is @cluster@ and the unique identifier is the cluster name. Example: @cluster:my-db-cluster@ .
+--     * @PartiallyActive@ - The scaling configuration is partially active because the scaling plan is being created or deleted or the scaling configuration could not be fully applied. Check the status message for more information.
 --
 --
 --
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprResourceId :: Lens.Lens' ScalingPlanResource Lude.Text
-sprResourceId = Lens.lens (resourceId :: ScalingPlanResource -> Lude.Text) (\s a -> s {resourceId = a} :: ScalingPlanResource)
-{-# DEPRECATED sprResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | The namespace of the AWS service.
---
--- /Note:/ Consider using 'serviceNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprServiceNamespace :: Lens.Lens' ScalingPlanResource ServiceNamespace
-sprServiceNamespace = Lens.lens (serviceNamespace :: ScalingPlanResource -> ServiceNamespace) (\s a -> s {serviceNamespace = a} :: ScalingPlanResource)
-{-# DEPRECATED sprServiceNamespace "Use generic-lens or generic-optics with 'serviceNamespace' instead." #-}
-
--- | The name of the scaling plan.
---
--- /Note:/ Consider using 'scalingPlanName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprScalingPlanName :: Lens.Lens' ScalingPlanResource Lude.Text
-sprScalingPlanName = Lens.lens (scalingPlanName :: ScalingPlanResource -> Lude.Text) (\s a -> s {scalingPlanName = a} :: ScalingPlanResource)
-{-# DEPRECATED sprScalingPlanName "Use generic-lens or generic-optics with 'scalingPlanName' instead." #-}
-
--- | A simple message about the current scaling status of the resource.
---
--- /Note:/ Consider using 'scalingStatusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprScalingStatusMessage :: Lens.Lens' ScalingPlanResource (Lude.Maybe Lude.Text)
-sprScalingStatusMessage = Lens.lens (scalingStatusMessage :: ScalingPlanResource -> Lude.Maybe Lude.Text) (\s a -> s {scalingStatusMessage = a} :: ScalingPlanResource)
-{-# DEPRECATED sprScalingStatusMessage "Use generic-lens or generic-optics with 'scalingStatusMessage' instead." #-}
+-- /Note:/ Consider using 'scalingStatusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprScalingStatusCode :: Lens.Lens' ScalingPlanResource Types.ScalingStatusCode
+sprScalingStatusCode = Lens.field @"scalingStatusCode"
+{-# DEPRECATED sprScalingStatusCode "Use generic-lens or generic-optics with 'scalingStatusCode' instead." #-}
 
 -- | The scaling policies.
 --
 -- /Note:/ Consider using 'scalingPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprScalingPolicies :: Lens.Lens' ScalingPlanResource (Lude.Maybe [ScalingPolicy])
-sprScalingPolicies = Lens.lens (scalingPolicies :: ScalingPlanResource -> Lude.Maybe [ScalingPolicy]) (\s a -> s {scalingPolicies = a} :: ScalingPlanResource)
+sprScalingPolicies :: Lens.Lens' ScalingPlanResource (Core.Maybe [Types.ScalingPolicy])
+sprScalingPolicies = Lens.field @"scalingPolicies"
 {-# DEPRECATED sprScalingPolicies "Use generic-lens or generic-optics with 'scalingPolicies' instead." #-}
 
-instance Lude.FromJSON ScalingPlanResource where
+-- | A simple message about the current scaling status of the resource.
+--
+-- /Note:/ Consider using 'scalingStatusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprScalingStatusMessage :: Lens.Lens' ScalingPlanResource (Core.Maybe Types.ScalingStatusMessage)
+sprScalingStatusMessage = Lens.field @"scalingStatusMessage"
+{-# DEPRECATED sprScalingStatusMessage "Use generic-lens or generic-optics with 'scalingStatusMessage' instead." #-}
+
+instance Core.FromJSON ScalingPlanResource where
   parseJSON =
-    Lude.withObject
-      "ScalingPlanResource"
-      ( \x ->
-          ScalingPlanResource'
-            Lude.<$> (x Lude..: "ScalingStatusCode")
-            Lude.<*> (x Lude..: "ScalingPlanVersion")
-            Lude.<*> (x Lude..: "ScalableDimension")
-            Lude.<*> (x Lude..: "ResourceId")
-            Lude.<*> (x Lude..: "ServiceNamespace")
-            Lude.<*> (x Lude..: "ScalingPlanName")
-            Lude.<*> (x Lude..:? "ScalingStatusMessage")
-            Lude.<*> (x Lude..:? "ScalingPolicies" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ScalingPlanResource" Core.$
+      \x ->
+        ScalingPlanResource'
+          Core.<$> (x Core..: "ScalingPlanName")
+          Core.<*> (x Core..: "ScalingPlanVersion")
+          Core.<*> (x Core..: "ServiceNamespace")
+          Core.<*> (x Core..: "ResourceId")
+          Core.<*> (x Core..: "ScalableDimension")
+          Core.<*> (x Core..: "ScalingStatusCode")
+          Core.<*> (x Core..:? "ScalingPolicies")
+          Core.<*> (x Core..:? "ScalingStatusMessage")

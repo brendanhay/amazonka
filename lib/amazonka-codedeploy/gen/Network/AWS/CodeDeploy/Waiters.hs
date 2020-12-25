@@ -17,42 +17,39 @@ module Network.AWS.CodeDeploy.Waiters
 where
 
 import Network.AWS.CodeDeploy.GetDeployment
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.CodeDeploy.GetDeployment' every 15 seconds until a successful state is reached. An error is returned after 120 failed checks.
-mkDeploymentSuccessful :: Wait.Wait GetDeployment
+mkDeploymentSuccessful :: Waiter.Wait GetDeployment
 mkDeploymentSuccessful =
-  Wait.Wait
-    { Wait._waitName = "DeploymentSuccessful",
-      Wait._waitAttempts = 120,
-      Wait._waitDelay = 15,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "DeploymentSuccessful",
+      Waiter._waitAttempts = 120,
+      Waiter._waitDelay = 15,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Succeeded"
-            Wait.AcceptSuccess
-            ( gdrsDeploymentInfo Lude.. Lens._Just
-                Lude.. diStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"deploymentInfo" Core.. Lens._Just
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "Failed"
-            Wait.AcceptFailure
-            ( gdrsDeploymentInfo Lude.. Lens._Just
-                Lude.. diStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"deploymentInfo" Core.. Lens._Just
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "Stopped"
-            Wait.AcceptFailure
-            ( gdrsDeploymentInfo Lude.. Lens._Just
-                Lude.. diStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"deploymentInfo" Core.. Lens._Just
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }

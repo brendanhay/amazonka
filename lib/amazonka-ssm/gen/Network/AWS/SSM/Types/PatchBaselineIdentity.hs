@@ -17,98 +17,93 @@ module Network.AWS.SSM.Types.PatchBaselineIdentity
     mkPatchBaselineIdentity,
 
     -- * Lenses
-    pbiBaselineName,
     pbiBaselineDescription,
-    pbiOperatingSystem,
-    pbiDefaultBaseline,
     pbiBaselineId,
+    pbiBaselineName,
+    pbiDefaultBaseline,
+    pbiOperatingSystem,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.OperatingSystem
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.BaselineDescription as Types
+import qualified Network.AWS.SSM.Types.BaselineId as Types
+import qualified Network.AWS.SSM.Types.BaselineName as Types
+import qualified Network.AWS.SSM.Types.OperatingSystem as Types
 
 -- | Defines the basic information about a patch baseline.
 --
 -- /See:/ 'mkPatchBaselineIdentity' smart constructor.
 data PatchBaselineIdentity = PatchBaselineIdentity'
-  { -- | The name of the patch baseline.
-    baselineName :: Lude.Maybe Lude.Text,
-    -- | The description of the patch baseline.
-    baselineDescription :: Lude.Maybe Lude.Text,
-    -- | Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
-    operatingSystem :: Lude.Maybe OperatingSystem,
-    -- | Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
-    defaultBaseline :: Lude.Maybe Lude.Bool,
+  { -- | The description of the patch baseline.
+    baselineDescription :: Core.Maybe Types.BaselineDescription,
     -- | The ID of the patch baseline.
-    baselineId :: Lude.Maybe Lude.Text
+    baselineId :: Core.Maybe Types.BaselineId,
+    -- | The name of the patch baseline.
+    baselineName :: Core.Maybe Types.BaselineName,
+    -- | Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+    defaultBaseline :: Core.Maybe Core.Bool,
+    -- | Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+    operatingSystem :: Core.Maybe Types.OperatingSystem
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PatchBaselineIdentity' with the minimum fields required to make a request.
---
--- * 'baselineName' - The name of the patch baseline.
--- * 'baselineDescription' - The description of the patch baseline.
--- * 'operatingSystem' - Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
--- * 'defaultBaseline' - Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
--- * 'baselineId' - The ID of the patch baseline.
+-- | Creates a 'PatchBaselineIdentity' value with any optional fields omitted.
 mkPatchBaselineIdentity ::
   PatchBaselineIdentity
 mkPatchBaselineIdentity =
   PatchBaselineIdentity'
-    { baselineName = Lude.Nothing,
-      baselineDescription = Lude.Nothing,
-      operatingSystem = Lude.Nothing,
-      defaultBaseline = Lude.Nothing,
-      baselineId = Lude.Nothing
+    { baselineDescription = Core.Nothing,
+      baselineId = Core.Nothing,
+      baselineName = Core.Nothing,
+      defaultBaseline = Core.Nothing,
+      operatingSystem = Core.Nothing
     }
-
--- | The name of the patch baseline.
---
--- /Note:/ Consider using 'baselineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbiBaselineName :: Lens.Lens' PatchBaselineIdentity (Lude.Maybe Lude.Text)
-pbiBaselineName = Lens.lens (baselineName :: PatchBaselineIdentity -> Lude.Maybe Lude.Text) (\s a -> s {baselineName = a} :: PatchBaselineIdentity)
-{-# DEPRECATED pbiBaselineName "Use generic-lens or generic-optics with 'baselineName' instead." #-}
 
 -- | The description of the patch baseline.
 --
 -- /Note:/ Consider using 'baselineDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbiBaselineDescription :: Lens.Lens' PatchBaselineIdentity (Lude.Maybe Lude.Text)
-pbiBaselineDescription = Lens.lens (baselineDescription :: PatchBaselineIdentity -> Lude.Maybe Lude.Text) (\s a -> s {baselineDescription = a} :: PatchBaselineIdentity)
+pbiBaselineDescription :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Types.BaselineDescription)
+pbiBaselineDescription = Lens.field @"baselineDescription"
 {-# DEPRECATED pbiBaselineDescription "Use generic-lens or generic-optics with 'baselineDescription' instead." #-}
-
--- | Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
---
--- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbiOperatingSystem :: Lens.Lens' PatchBaselineIdentity (Lude.Maybe OperatingSystem)
-pbiOperatingSystem = Lens.lens (operatingSystem :: PatchBaselineIdentity -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: PatchBaselineIdentity)
-{-# DEPRECATED pbiOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
-
--- | Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
---
--- /Note:/ Consider using 'defaultBaseline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbiDefaultBaseline :: Lens.Lens' PatchBaselineIdentity (Lude.Maybe Lude.Bool)
-pbiDefaultBaseline = Lens.lens (defaultBaseline :: PatchBaselineIdentity -> Lude.Maybe Lude.Bool) (\s a -> s {defaultBaseline = a} :: PatchBaselineIdentity)
-{-# DEPRECATED pbiDefaultBaseline "Use generic-lens or generic-optics with 'defaultBaseline' instead." #-}
 
 -- | The ID of the patch baseline.
 --
 -- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbiBaselineId :: Lens.Lens' PatchBaselineIdentity (Lude.Maybe Lude.Text)
-pbiBaselineId = Lens.lens (baselineId :: PatchBaselineIdentity -> Lude.Maybe Lude.Text) (\s a -> s {baselineId = a} :: PatchBaselineIdentity)
+pbiBaselineId :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Types.BaselineId)
+pbiBaselineId = Lens.field @"baselineId"
 {-# DEPRECATED pbiBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
-instance Lude.FromJSON PatchBaselineIdentity where
+-- | The name of the patch baseline.
+--
+-- /Note:/ Consider using 'baselineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbiBaselineName :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Types.BaselineName)
+pbiBaselineName = Lens.field @"baselineName"
+{-# DEPRECATED pbiBaselineName "Use generic-lens or generic-optics with 'baselineName' instead." #-}
+
+-- | Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+--
+-- /Note:/ Consider using 'defaultBaseline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbiDefaultBaseline :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Core.Bool)
+pbiDefaultBaseline = Lens.field @"defaultBaseline"
+{-# DEPRECATED pbiDefaultBaseline "Use generic-lens or generic-optics with 'defaultBaseline' instead." #-}
+
+-- | Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbiOperatingSystem :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Types.OperatingSystem)
+pbiOperatingSystem = Lens.field @"operatingSystem"
+{-# DEPRECATED pbiOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
+
+instance Core.FromJSON PatchBaselineIdentity where
   parseJSON =
-    Lude.withObject
-      "PatchBaselineIdentity"
-      ( \x ->
-          PatchBaselineIdentity'
-            Lude.<$> (x Lude..:? "BaselineName")
-            Lude.<*> (x Lude..:? "BaselineDescription")
-            Lude.<*> (x Lude..:? "OperatingSystem")
-            Lude.<*> (x Lude..:? "DefaultBaseline")
-            Lude.<*> (x Lude..:? "BaselineId")
-      )
+    Core.withObject "PatchBaselineIdentity" Core.$
+      \x ->
+        PatchBaselineIdentity'
+          Core.<$> (x Core..:? "BaselineDescription")
+          Core.<*> (x Core..:? "BaselineId")
+          Core.<*> (x Core..:? "BaselineName")
+          Core.<*> (x Core..:? "DefaultBaseline")
+          Core.<*> (x Core..:? "OperatingSystem")

@@ -22,48 +22,48 @@ module Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValueExpression
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValue as Types
 
 -- | Defines the values for a task parameter.
 --
 -- /See:/ 'mkMaintenanceWindowTaskParameterValueExpression' smart constructor.
 newtype MaintenanceWindowTaskParameterValueExpression = MaintenanceWindowTaskParameterValueExpression'
   { -- | This field contains an array of 0 or more strings, each 1 to 255 characters in length.
-    values :: Lude.Maybe [Lude.Sensitive Lude.Text]
+    values :: Core.Maybe [Types.MaintenanceWindowTaskParameterValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MaintenanceWindowTaskParameterValueExpression' with the minimum fields required to make a request.
---
--- * 'values' - This field contains an array of 0 or more strings, each 1 to 255 characters in length.
+-- | Creates a 'MaintenanceWindowTaskParameterValueExpression' value with any optional fields omitted.
 mkMaintenanceWindowTaskParameterValueExpression ::
   MaintenanceWindowTaskParameterValueExpression
 mkMaintenanceWindowTaskParameterValueExpression =
   MaintenanceWindowTaskParameterValueExpression'
     { values =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | This field contains an array of 0 or more strings, each 1 to 255 characters in length.
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwtpveValues :: Lens.Lens' MaintenanceWindowTaskParameterValueExpression (Lude.Maybe [Lude.Sensitive Lude.Text])
-mwtpveValues = Lens.lens (values :: MaintenanceWindowTaskParameterValueExpression -> Lude.Maybe [Lude.Sensitive Lude.Text]) (\s a -> s {values = a} :: MaintenanceWindowTaskParameterValueExpression)
+mwtpveValues :: Lens.Lens' MaintenanceWindowTaskParameterValueExpression (Core.Maybe [Types.MaintenanceWindowTaskParameterValue])
+mwtpveValues = Lens.field @"values"
 {-# DEPRECATED mwtpveValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 instance
-  Lude.FromJSON
+  Core.FromJSON
+    MaintenanceWindowTaskParameterValueExpression
+  where
+  toJSON MaintenanceWindowTaskParameterValueExpression {..} =
+    Core.object (Core.catMaybes [("Values" Core..=) Core.<$> values])
+
+instance
+  Core.FromJSON
     MaintenanceWindowTaskParameterValueExpression
   where
   parseJSON =
-    Lude.withObject
-      "MaintenanceWindowTaskParameterValueExpression"
-      ( \x ->
-          MaintenanceWindowTaskParameterValueExpression'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON MaintenanceWindowTaskParameterValueExpression where
-  toJSON MaintenanceWindowTaskParameterValueExpression' {..} =
-    Lude.object (Lude.catMaybes [("Values" Lude..=) Lude.<$> values])
+    Core.withObject "MaintenanceWindowTaskParameterValueExpression" Core.$
+      \x ->
+        MaintenanceWindowTaskParameterValueExpression'
+          Core.<$> (x Core..:? "Values")

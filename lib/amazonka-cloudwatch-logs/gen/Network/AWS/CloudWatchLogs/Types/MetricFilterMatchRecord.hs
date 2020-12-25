@@ -17,71 +17,68 @@ module Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord
     mkMetricFilterMatchRecord,
 
     -- * Lenses
-    mfmrExtractedValues,
-    mfmrEventNumber,
     mfmrEventMessage,
+    mfmrEventNumber,
+    mfmrExtractedValues,
   )
 where
 
+import qualified Network.AWS.CloudWatchLogs.Types.EventMessage as Types
+import qualified Network.AWS.CloudWatchLogs.Types.Token as Types
+import qualified Network.AWS.CloudWatchLogs.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a matched event.
 --
 -- /See:/ 'mkMetricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
-  { -- | The values extracted from the event data by the filter.
-    extractedValues :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The raw event data.
+    eventMessage :: Core.Maybe Types.EventMessage,
     -- | The event number.
-    eventNumber :: Lude.Maybe Lude.Integer,
-    -- | The raw event data.
-    eventMessage :: Lude.Maybe Lude.Text
+    eventNumber :: Core.Maybe Core.Integer,
+    -- | The values extracted from the event data by the filter.
+    extractedValues :: Core.Maybe (Core.HashMap Types.Token Types.Value)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricFilterMatchRecord' with the minimum fields required to make a request.
---
--- * 'extractedValues' - The values extracted from the event data by the filter.
--- * 'eventNumber' - The event number.
--- * 'eventMessage' - The raw event data.
+-- | Creates a 'MetricFilterMatchRecord' value with any optional fields omitted.
 mkMetricFilterMatchRecord ::
   MetricFilterMatchRecord
 mkMetricFilterMatchRecord =
   MetricFilterMatchRecord'
-    { extractedValues = Lude.Nothing,
-      eventNumber = Lude.Nothing,
-      eventMessage = Lude.Nothing
+    { eventMessage = Core.Nothing,
+      eventNumber = Core.Nothing,
+      extractedValues = Core.Nothing
     }
-
--- | The values extracted from the event data by the filter.
---
--- /Note:/ Consider using 'extractedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfmrExtractedValues :: Lens.Lens' MetricFilterMatchRecord (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-mfmrExtractedValues = Lens.lens (extractedValues :: MetricFilterMatchRecord -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {extractedValues = a} :: MetricFilterMatchRecord)
-{-# DEPRECATED mfmrExtractedValues "Use generic-lens or generic-optics with 'extractedValues' instead." #-}
-
--- | The event number.
---
--- /Note:/ Consider using 'eventNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfmrEventNumber :: Lens.Lens' MetricFilterMatchRecord (Lude.Maybe Lude.Integer)
-mfmrEventNumber = Lens.lens (eventNumber :: MetricFilterMatchRecord -> Lude.Maybe Lude.Integer) (\s a -> s {eventNumber = a} :: MetricFilterMatchRecord)
-{-# DEPRECATED mfmrEventNumber "Use generic-lens or generic-optics with 'eventNumber' instead." #-}
 
 -- | The raw event data.
 --
 -- /Note:/ Consider using 'eventMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfmrEventMessage :: Lens.Lens' MetricFilterMatchRecord (Lude.Maybe Lude.Text)
-mfmrEventMessage = Lens.lens (eventMessage :: MetricFilterMatchRecord -> Lude.Maybe Lude.Text) (\s a -> s {eventMessage = a} :: MetricFilterMatchRecord)
+mfmrEventMessage :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe Types.EventMessage)
+mfmrEventMessage = Lens.field @"eventMessage"
 {-# DEPRECATED mfmrEventMessage "Use generic-lens or generic-optics with 'eventMessage' instead." #-}
 
-instance Lude.FromJSON MetricFilterMatchRecord where
+-- | The event number.
+--
+-- /Note:/ Consider using 'eventNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfmrEventNumber :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe Core.Integer)
+mfmrEventNumber = Lens.field @"eventNumber"
+{-# DEPRECATED mfmrEventNumber "Use generic-lens or generic-optics with 'eventNumber' instead." #-}
+
+-- | The values extracted from the event data by the filter.
+--
+-- /Note:/ Consider using 'extractedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfmrExtractedValues :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe (Core.HashMap Types.Token Types.Value))
+mfmrExtractedValues = Lens.field @"extractedValues"
+{-# DEPRECATED mfmrExtractedValues "Use generic-lens or generic-optics with 'extractedValues' instead." #-}
+
+instance Core.FromJSON MetricFilterMatchRecord where
   parseJSON =
-    Lude.withObject
-      "MetricFilterMatchRecord"
-      ( \x ->
-          MetricFilterMatchRecord'
-            Lude.<$> (x Lude..:? "extractedValues" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "eventNumber")
-            Lude.<*> (x Lude..:? "eventMessage")
-      )
+    Core.withObject "MetricFilterMatchRecord" Core.$
+      \x ->
+        MetricFilterMatchRecord'
+          Core.<$> (x Core..:? "eventMessage")
+          Core.<*> (x Core..:? "eventNumber")
+          Core.<*> (x Core..:? "extractedValues")

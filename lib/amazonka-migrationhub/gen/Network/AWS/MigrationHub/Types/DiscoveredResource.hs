@@ -23,62 +23,56 @@ module Network.AWS.MigrationHub.Types.DiscoveredResource
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MigrationHub.Types.ConfigurationId as Types
+import qualified Network.AWS.MigrationHub.Types.Description as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Object representing the on-premises resource being migrated.
 --
 -- /See:/ 'mkDiscoveredResource' smart constructor.
 data DiscoveredResource = DiscoveredResource'
   { -- | The configurationId in Application Discovery Service that uniquely identifies the on-premise resource.
-    configurationId :: Lude.Text,
+    configurationId :: Types.ConfigurationId,
     -- | A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiscoveredResource' with the minimum fields required to make a request.
---
--- * 'configurationId' - The configurationId in Application Discovery Service that uniquely identifies the on-premise resource.
--- * 'description' - A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.
+-- | Creates a 'DiscoveredResource' value with any optional fields omitted.
 mkDiscoveredResource ::
   -- | 'configurationId'
-  Lude.Text ->
+  Types.ConfigurationId ->
   DiscoveredResource
-mkDiscoveredResource pConfigurationId_ =
-  DiscoveredResource'
-    { configurationId = pConfigurationId_,
-      description = Lude.Nothing
-    }
+mkDiscoveredResource configurationId =
+  DiscoveredResource' {configurationId, description = Core.Nothing}
 
 -- | The configurationId in Application Discovery Service that uniquely identifies the on-premise resource.
 --
 -- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drConfigurationId :: Lens.Lens' DiscoveredResource Lude.Text
-drConfigurationId = Lens.lens (configurationId :: DiscoveredResource -> Lude.Text) (\s a -> s {configurationId = a} :: DiscoveredResource)
+drConfigurationId :: Lens.Lens' DiscoveredResource Types.ConfigurationId
+drConfigurationId = Lens.field @"configurationId"
 {-# DEPRECATED drConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drDescription :: Lens.Lens' DiscoveredResource (Lude.Maybe Lude.Text)
-drDescription = Lens.lens (description :: DiscoveredResource -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DiscoveredResource)
+drDescription :: Lens.Lens' DiscoveredResource (Core.Maybe Types.Description)
+drDescription = Lens.field @"description"
 {-# DEPRECATED drDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON DiscoveredResource where
-  parseJSON =
-    Lude.withObject
-      "DiscoveredResource"
-      ( \x ->
-          DiscoveredResource'
-            Lude.<$> (x Lude..: "ConfigurationId") Lude.<*> (x Lude..:? "Description")
-      )
-
-instance Lude.ToJSON DiscoveredResource where
-  toJSON DiscoveredResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConfigurationId" Lude..= configurationId),
-            ("Description" Lude..=) Lude.<$> description
+instance Core.FromJSON DiscoveredResource where
+  toJSON DiscoveredResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConfigurationId" Core..= configurationId),
+            ("Description" Core..=) Core.<$> description
           ]
       )
+
+instance Core.FromJSON DiscoveredResource where
+  parseJSON =
+    Core.withObject "DiscoveredResource" Core.$
+      \x ->
+        DiscoveredResource'
+          Core.<$> (x Core..: "ConfigurationId") Core.<*> (x Core..:? "Description")

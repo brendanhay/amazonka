@@ -13,66 +13,71 @@
 module Network.AWS.CostExplorer.Types.PaymentOption
   ( PaymentOption
       ( PaymentOption',
-        NoUpfront,
-        PartialUpfront,
-        AllUpfront,
-        LightUtilization,
-        MediumUtilization,
-        HeavyUtilization
+        PaymentOptionNoUpfront,
+        PaymentOptionPartialUpfront,
+        PaymentOptionAllUpfront,
+        PaymentOptionLightUtilization,
+        PaymentOptionMediumUtilization,
+        PaymentOptionHeavyUtilization,
+        fromPaymentOption
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PaymentOption = PaymentOption' Lude.Text
+newtype PaymentOption = PaymentOption'
+  { fromPaymentOption ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NoUpfront :: PaymentOption
-pattern NoUpfront = PaymentOption' "NO_UPFRONT"
+pattern PaymentOptionNoUpfront :: PaymentOption
+pattern PaymentOptionNoUpfront = PaymentOption' "NO_UPFRONT"
 
-pattern PartialUpfront :: PaymentOption
-pattern PartialUpfront = PaymentOption' "PARTIAL_UPFRONT"
+pattern PaymentOptionPartialUpfront :: PaymentOption
+pattern PaymentOptionPartialUpfront = PaymentOption' "PARTIAL_UPFRONT"
 
-pattern AllUpfront :: PaymentOption
-pattern AllUpfront = PaymentOption' "ALL_UPFRONT"
+pattern PaymentOptionAllUpfront :: PaymentOption
+pattern PaymentOptionAllUpfront = PaymentOption' "ALL_UPFRONT"
 
-pattern LightUtilization :: PaymentOption
-pattern LightUtilization = PaymentOption' "LIGHT_UTILIZATION"
+pattern PaymentOptionLightUtilization :: PaymentOption
+pattern PaymentOptionLightUtilization = PaymentOption' "LIGHT_UTILIZATION"
 
-pattern MediumUtilization :: PaymentOption
-pattern MediumUtilization = PaymentOption' "MEDIUM_UTILIZATION"
+pattern PaymentOptionMediumUtilization :: PaymentOption
+pattern PaymentOptionMediumUtilization = PaymentOption' "MEDIUM_UTILIZATION"
 
-pattern HeavyUtilization :: PaymentOption
-pattern HeavyUtilization = PaymentOption' "HEAVY_UTILIZATION"
+pattern PaymentOptionHeavyUtilization :: PaymentOption
+pattern PaymentOptionHeavyUtilization = PaymentOption' "HEAVY_UTILIZATION"
 
 {-# COMPLETE
-  NoUpfront,
-  PartialUpfront,
-  AllUpfront,
-  LightUtilization,
-  MediumUtilization,
-  HeavyUtilization,
+  PaymentOptionNoUpfront,
+  PaymentOptionPartialUpfront,
+  PaymentOptionAllUpfront,
+  PaymentOptionLightUtilization,
+  PaymentOptionMediumUtilization,
+  PaymentOptionHeavyUtilization,
   PaymentOption'
   #-}

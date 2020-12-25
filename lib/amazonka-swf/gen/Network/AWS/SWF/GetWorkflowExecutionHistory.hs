@@ -36,217 +36,199 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     mkGetWorkflowExecutionHistory,
 
     -- ** Request lenses
-    gwehNextPageToken,
     gwehDomain,
-    gwehReverseOrder,
     gwehExecution,
     gwehMaximumPageSize,
+    gwehNextPageToken,
+    gwehReverseOrder,
 
     -- * Destructuring the response
     GetWorkflowExecutionHistoryResponse (..),
     mkGetWorkflowExecutionHistoryResponse,
 
     -- ** Response lenses
-    gwehrsNextPageToken,
-    gwehrsEvents,
-    gwehrsResponseStatus,
+    gwehrrsEvents,
+    gwehrrsNextPageToken,
+    gwehrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkGetWorkflowExecutionHistory' smart constructor.
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
-  { -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
+  { -- | The name of the domain containing the workflow execution.
+    domain :: Types.DomainName,
+    -- | Specifies the workflow execution for which to return the history.
+    execution :: Types.WorkflowExecution,
+    -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+    maximumPageSize :: Core.Maybe Core.Natural,
+    -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
     --
     -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | The name of the domain containing the workflow execution.
-    domain :: Lude.Text,
+    nextPageToken :: Core.Maybe Types.PageToken,
     -- | When set to @true@ , returns the events in reverse order. By default the results are returned in ascending order of the @eventTimeStamp@ of the events.
-    reverseOrder :: Lude.Maybe Lude.Bool,
-    -- | Specifies the workflow execution for which to return the history.
-    execution :: WorkflowExecution,
-    -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
-    maximumPageSize :: Lude.Maybe Lude.Natural
+    reverseOrder :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetWorkflowExecutionHistory' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
---
--- The configured @maximumPageSize@ determines how many results can be returned in a single call.
--- * 'domain' - The name of the domain containing the workflow execution.
--- * 'reverseOrder' - When set to @true@ , returns the events in reverse order. By default the results are returned in ascending order of the @eventTimeStamp@ of the events.
--- * 'execution' - Specifies the workflow execution for which to return the history.
--- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+-- | Creates a 'GetWorkflowExecutionHistory' value with any optional fields omitted.
 mkGetWorkflowExecutionHistory ::
   -- | 'domain'
-  Lude.Text ->
+  Types.DomainName ->
   -- | 'execution'
-  WorkflowExecution ->
+  Types.WorkflowExecution ->
   GetWorkflowExecutionHistory
-mkGetWorkflowExecutionHistory pDomain_ pExecution_ =
+mkGetWorkflowExecutionHistory domain execution =
   GetWorkflowExecutionHistory'
-    { nextPageToken = Lude.Nothing,
-      domain = pDomain_,
-      reverseOrder = Lude.Nothing,
-      execution = pExecution_,
-      maximumPageSize = Lude.Nothing
+    { domain,
+      execution,
+      maximumPageSize = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      reverseOrder = Core.Nothing
     }
+
+-- | The name of the domain containing the workflow execution.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwehDomain :: Lens.Lens' GetWorkflowExecutionHistory Types.DomainName
+gwehDomain = Lens.field @"domain"
+{-# DEPRECATED gwehDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
+-- | Specifies the workflow execution for which to return the history.
+--
+-- /Note:/ Consider using 'execution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwehExecution :: Lens.Lens' GetWorkflowExecutionHistory Types.WorkflowExecution
+gwehExecution = Lens.field @"execution"
+{-# DEPRECATED gwehExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
+
+-- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+--
+-- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwehMaximumPageSize :: Lens.Lens' GetWorkflowExecutionHistory (Core.Maybe Core.Natural)
+gwehMaximumPageSize = Lens.field @"maximumPageSize"
+{-# DEPRECATED gwehMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
 
 -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwehNextPageToken :: Lens.Lens' GetWorkflowExecutionHistory (Lude.Maybe Lude.Text)
-gwehNextPageToken = Lens.lens (nextPageToken :: GetWorkflowExecutionHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetWorkflowExecutionHistory)
+gwehNextPageToken :: Lens.Lens' GetWorkflowExecutionHistory (Core.Maybe Types.PageToken)
+gwehNextPageToken = Lens.field @"nextPageToken"
 {-# DEPRECATED gwehNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | The name of the domain containing the workflow execution.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwehDomain :: Lens.Lens' GetWorkflowExecutionHistory Lude.Text
-gwehDomain = Lens.lens (domain :: GetWorkflowExecutionHistory -> Lude.Text) (\s a -> s {domain = a} :: GetWorkflowExecutionHistory)
-{-# DEPRECATED gwehDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | When set to @true@ , returns the events in reverse order. By default the results are returned in ascending order of the @eventTimeStamp@ of the events.
 --
 -- /Note:/ Consider using 'reverseOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwehReverseOrder :: Lens.Lens' GetWorkflowExecutionHistory (Lude.Maybe Lude.Bool)
-gwehReverseOrder = Lens.lens (reverseOrder :: GetWorkflowExecutionHistory -> Lude.Maybe Lude.Bool) (\s a -> s {reverseOrder = a} :: GetWorkflowExecutionHistory)
+gwehReverseOrder :: Lens.Lens' GetWorkflowExecutionHistory (Core.Maybe Core.Bool)
+gwehReverseOrder = Lens.field @"reverseOrder"
 {-# DEPRECATED gwehReverseOrder "Use generic-lens or generic-optics with 'reverseOrder' instead." #-}
 
--- | Specifies the workflow execution for which to return the history.
---
--- /Note:/ Consider using 'execution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwehExecution :: Lens.Lens' GetWorkflowExecutionHistory WorkflowExecution
-gwehExecution = Lens.lens (execution :: GetWorkflowExecutionHistory -> WorkflowExecution) (\s a -> s {execution = a} :: GetWorkflowExecutionHistory)
-{-# DEPRECATED gwehExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
+instance Core.FromJSON GetWorkflowExecutionHistory where
+  toJSON GetWorkflowExecutionHistory {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("execution" Core..= execution),
+            ("maximumPageSize" Core..=) Core.<$> maximumPageSize,
+            ("nextPageToken" Core..=) Core.<$> nextPageToken,
+            ("reverseOrder" Core..=) Core.<$> reverseOrder
+          ]
+      )
 
--- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
---
--- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwehMaximumPageSize :: Lens.Lens' GetWorkflowExecutionHistory (Lude.Maybe Lude.Natural)
-gwehMaximumPageSize = Lens.lens (maximumPageSize :: GetWorkflowExecutionHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPageSize = a} :: GetWorkflowExecutionHistory)
-{-# DEPRECATED gwehMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
-
-instance Page.AWSPager GetWorkflowExecutionHistory where
-  page rq rs
-    | Page.stop (rs Lens.^. gwehrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gwehrsEvents) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gwehNextPageToken Lens..~ rs Lens.^. gwehrsNextPageToken
-
-instance Lude.AWSRequest GetWorkflowExecutionHistory where
+instance Core.AWSRequest GetWorkflowExecutionHistory where
   type
     Rs GetWorkflowExecutionHistory =
       GetWorkflowExecutionHistoryResponse
-  request = Req.postJSON swfService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "SimpleWorkflowService.GetWorkflowExecutionHistory"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetWorkflowExecutionHistoryResponse'
-            Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (x Lude..?> "events" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "events" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetWorkflowExecutionHistory where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SimpleWorkflowService.GetWorkflowExecutionHistory" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetWorkflowExecutionHistory where
-  toJSON GetWorkflowExecutionHistory' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextPageToken" Lude..=) Lude.<$> nextPageToken,
-            Lude.Just ("domain" Lude..= domain),
-            ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
-            Lude.Just ("execution" Lude..= execution),
-            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize
-          ]
-      )
-
-instance Lude.ToPath GetWorkflowExecutionHistory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetWorkflowExecutionHistory where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetWorkflowExecutionHistory where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"events") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextPageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | Paginated representation of a workflow history for a workflow execution. This is the up to date, complete and authoritative record of the events related to all tasks and events in the life of the workflow execution.
 --
 -- /See:/ 'mkGetWorkflowExecutionHistoryResponse' smart constructor.
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
-  { -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
+  { -- | The list of history events.
+    events :: [Types.HistoryEvent],
+    -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
     --
     -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | The list of history events.
-    events :: [HistoryEvent],
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetWorkflowExecutionHistoryResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
---
--- The configured @maximumPageSize@ determines how many results can be returned in a single call.
--- * 'events' - The list of history events.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetWorkflowExecutionHistoryResponse' value with any optional fields omitted.
 mkGetWorkflowExecutionHistoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetWorkflowExecutionHistoryResponse
-mkGetWorkflowExecutionHistoryResponse pResponseStatus_ =
+mkGetWorkflowExecutionHistoryResponse responseStatus =
   GetWorkflowExecutionHistoryResponse'
-    { nextPageToken =
-        Lude.Nothing,
-      events = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { events = Core.mempty,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
+
+-- | The list of history events.
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwehrrsEvents :: Lens.Lens' GetWorkflowExecutionHistoryResponse [Types.HistoryEvent]
+gwehrrsEvents = Lens.field @"events"
+{-# DEPRECATED gwehrrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwehrsNextPageToken :: Lens.Lens' GetWorkflowExecutionHistoryResponse (Lude.Maybe Lude.Text)
-gwehrsNextPageToken = Lens.lens (nextPageToken :: GetWorkflowExecutionHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetWorkflowExecutionHistoryResponse)
-{-# DEPRECATED gwehrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | The list of history events.
---
--- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwehrsEvents :: Lens.Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
-gwehrsEvents = Lens.lens (events :: GetWorkflowExecutionHistoryResponse -> [HistoryEvent]) (\s a -> s {events = a} :: GetWorkflowExecutionHistoryResponse)
-{-# DEPRECATED gwehrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+gwehrrsNextPageToken :: Lens.Lens' GetWorkflowExecutionHistoryResponse (Core.Maybe Types.NextPageToken)
+gwehrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gwehrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwehrsResponseStatus :: Lens.Lens' GetWorkflowExecutionHistoryResponse Lude.Int
-gwehrsResponseStatus = Lens.lens (responseStatus :: GetWorkflowExecutionHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetWorkflowExecutionHistoryResponse)
-{-# DEPRECATED gwehrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gwehrrsResponseStatus :: Lens.Lens' GetWorkflowExecutionHistoryResponse Core.Int
+gwehrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gwehrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

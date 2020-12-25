@@ -13,51 +13,56 @@
 module Network.AWS.WorkDocs.Types.FolderContentType
   ( FolderContentType
       ( FolderContentType',
-        All,
-        Document,
-        Folder
+        FolderContentTypeAll,
+        FolderContentTypeDocument,
+        FolderContentTypeFolder,
+        fromFolderContentType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FolderContentType = FolderContentType' Lude.Text
+newtype FolderContentType = FolderContentType'
+  { fromFolderContentType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern All :: FolderContentType
-pattern All = FolderContentType' "ALL"
+pattern FolderContentTypeAll :: FolderContentType
+pattern FolderContentTypeAll = FolderContentType' "ALL"
 
-pattern Document :: FolderContentType
-pattern Document = FolderContentType' "DOCUMENT"
+pattern FolderContentTypeDocument :: FolderContentType
+pattern FolderContentTypeDocument = FolderContentType' "DOCUMENT"
 
-pattern Folder :: FolderContentType
-pattern Folder = FolderContentType' "FOLDER"
+pattern FolderContentTypeFolder :: FolderContentType
+pattern FolderContentTypeFolder = FolderContentType' "FOLDER"
 
 {-# COMPLETE
-  All,
-  Document,
-  Folder,
+  FolderContentTypeAll,
+  FolderContentTypeDocument,
+  FolderContentTypeFolder,
   FolderContentType'
   #-}

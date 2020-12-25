@@ -27,111 +27,100 @@ module Network.AWS.WAFRegional.GetRegexPatternSet
     mkGetRegexPatternSetResponse,
 
     -- ** Response lenses
-    grpsrsRegexPatternSet,
-    grpsrsResponseStatus,
+    grpsrrsRegexPatternSet,
+    grpsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkGetRegexPatternSet' smart constructor.
 newtype GetRegexPatternSet = GetRegexPatternSet'
   { -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to get. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
-    regexPatternSetId :: Lude.Text
+    regexPatternSetId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRegexPatternSet' with the minimum fields required to make a request.
---
--- * 'regexPatternSetId' - The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to get. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+-- | Creates a 'GetRegexPatternSet' value with any optional fields omitted.
 mkGetRegexPatternSet ::
   -- | 'regexPatternSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   GetRegexPatternSet
-mkGetRegexPatternSet pRegexPatternSetId_ =
-  GetRegexPatternSet' {regexPatternSetId = pRegexPatternSetId_}
+mkGetRegexPatternSet regexPatternSetId =
+  GetRegexPatternSet' {regexPatternSetId}
 
 -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to get. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
 --
 -- /Note:/ Consider using 'regexPatternSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpsRegexPatternSetId :: Lens.Lens' GetRegexPatternSet Lude.Text
-grpsRegexPatternSetId = Lens.lens (regexPatternSetId :: GetRegexPatternSet -> Lude.Text) (\s a -> s {regexPatternSetId = a} :: GetRegexPatternSet)
+grpsRegexPatternSetId :: Lens.Lens' GetRegexPatternSet Types.ResourceId
+grpsRegexPatternSetId = Lens.field @"regexPatternSetId"
 {-# DEPRECATED grpsRegexPatternSetId "Use generic-lens or generic-optics with 'regexPatternSetId' instead." #-}
 
-instance Lude.AWSRequest GetRegexPatternSet where
+instance Core.FromJSON GetRegexPatternSet where
+  toJSON GetRegexPatternSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RegexPatternSetId" Core..= regexPatternSetId)]
+      )
+
+instance Core.AWSRequest GetRegexPatternSet where
   type Rs GetRegexPatternSet = GetRegexPatternSetResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.GetRegexPatternSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRegexPatternSetResponse'
-            Lude.<$> (x Lude..?> "RegexPatternSet")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RegexPatternSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetRegexPatternSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.GetRegexPatternSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetRegexPatternSet where
-  toJSON GetRegexPatternSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("RegexPatternSetId" Lude..= regexPatternSetId)]
-      )
-
-instance Lude.ToPath GetRegexPatternSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRegexPatternSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetRegexPatternSetResponse' smart constructor.
 data GetRegexPatternSetResponse = GetRegexPatternSetResponse'
   { -- | Information about the 'RegexPatternSet' that you specified in the @GetRegexPatternSet@ request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for.
-    regexPatternSet :: Lude.Maybe RegexPatternSet,
+    regexPatternSet :: Core.Maybe Types.RegexPatternSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRegexPatternSetResponse' with the minimum fields required to make a request.
---
--- * 'regexPatternSet' - Information about the 'RegexPatternSet' that you specified in the @GetRegexPatternSet@ request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRegexPatternSetResponse' value with any optional fields omitted.
 mkGetRegexPatternSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRegexPatternSetResponse
-mkGetRegexPatternSetResponse pResponseStatus_ =
+mkGetRegexPatternSetResponse responseStatus =
   GetRegexPatternSetResponse'
-    { regexPatternSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { regexPatternSet = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the 'RegexPatternSet' that you specified in the @GetRegexPatternSet@ request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for.
 --
 -- /Note:/ Consider using 'regexPatternSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpsrsRegexPatternSet :: Lens.Lens' GetRegexPatternSetResponse (Lude.Maybe RegexPatternSet)
-grpsrsRegexPatternSet = Lens.lens (regexPatternSet :: GetRegexPatternSetResponse -> Lude.Maybe RegexPatternSet) (\s a -> s {regexPatternSet = a} :: GetRegexPatternSetResponse)
-{-# DEPRECATED grpsrsRegexPatternSet "Use generic-lens or generic-optics with 'regexPatternSet' instead." #-}
+grpsrrsRegexPatternSet :: Lens.Lens' GetRegexPatternSetResponse (Core.Maybe Types.RegexPatternSet)
+grpsrrsRegexPatternSet = Lens.field @"regexPatternSet"
+{-# DEPRECATED grpsrrsRegexPatternSet "Use generic-lens or generic-optics with 'regexPatternSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpsrsResponseStatus :: Lens.Lens' GetRegexPatternSetResponse Lude.Int
-grpsrsResponseStatus = Lens.lens (responseStatus :: GetRegexPatternSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRegexPatternSetResponse)
-{-# DEPRECATED grpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grpsrrsResponseStatus :: Lens.Lens' GetRegexPatternSetResponse Core.Int
+grpsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grpsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

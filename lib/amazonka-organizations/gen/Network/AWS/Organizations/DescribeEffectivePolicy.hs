@@ -24,30 +24,28 @@ module Network.AWS.Organizations.DescribeEffectivePolicy
     mkDescribeEffectivePolicy,
 
     -- ** Request lenses
-    depTargetId,
     depPolicyType,
+    depTargetId,
 
     -- * Destructuring the response
     DescribeEffectivePolicyResponse (..),
     mkDescribeEffectivePolicyResponse,
 
     -- ** Response lenses
-    deprsEffectivePolicy,
-    deprsResponseStatus,
+    deprrsEffectivePolicy,
+    deprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeEffectivePolicy' smart constructor.
 data DescribeEffectivePolicy = DescribeEffectivePolicy'
-  { -- | When you're signed in as the management account, specify the ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.
-    targetId :: Lude.Maybe Lude.Text,
-    -- | The type of policy that you want information about. You can specify one of the following values:
+  { -- | The type of policy that you want information about. You can specify one of the following values:
     --
     --
     --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
@@ -57,40 +55,20 @@ data DescribeEffectivePolicy = DescribeEffectivePolicy'
     --
     --
     --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
-    policyType :: EffectivePolicyType
+    policyType :: Types.EffectivePolicyType,
+    -- | When you're signed in as the management account, specify the ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.
+    targetId :: Core.Maybe Types.PolicyTargetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEffectivePolicy' with the minimum fields required to make a request.
---
--- * 'targetId' - When you're signed in as the management account, specify the ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.
--- * 'policyType' - The type of policy that you want information about. You can specify one of the following values:
---
---
---     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
---
---
---     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
---
---
---     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+-- | Creates a 'DescribeEffectivePolicy' value with any optional fields omitted.
 mkDescribeEffectivePolicy ::
   -- | 'policyType'
-  EffectivePolicyType ->
+  Types.EffectivePolicyType ->
   DescribeEffectivePolicy
-mkDescribeEffectivePolicy pPolicyType_ =
-  DescribeEffectivePolicy'
-    { targetId = Lude.Nothing,
-      policyType = pPolicyType_
-    }
-
--- | When you're signed in as the management account, specify the ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.
---
--- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-depTargetId :: Lens.Lens' DescribeEffectivePolicy (Lude.Maybe Lude.Text)
-depTargetId = Lens.lens (targetId :: DescribeEffectivePolicy -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: DescribeEffectivePolicy)
-{-# DEPRECATED depTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+mkDescribeEffectivePolicy policyType =
+  DescribeEffectivePolicy' {policyType, targetId = Core.Nothing}
 
 -- | The type of policy that you want information about. You can specify one of the following values:
 --
@@ -106,83 +84,81 @@ depTargetId = Lens.lens (targetId :: DescribeEffectivePolicy -> Lude.Maybe Lude.
 --
 --
 -- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-depPolicyType :: Lens.Lens' DescribeEffectivePolicy EffectivePolicyType
-depPolicyType = Lens.lens (policyType :: DescribeEffectivePolicy -> EffectivePolicyType) (\s a -> s {policyType = a} :: DescribeEffectivePolicy)
+depPolicyType :: Lens.Lens' DescribeEffectivePolicy Types.EffectivePolicyType
+depPolicyType = Lens.field @"policyType"
 {-# DEPRECATED depPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
 
-instance Lude.AWSRequest DescribeEffectivePolicy where
+-- | When you're signed in as the management account, specify the ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depTargetId :: Lens.Lens' DescribeEffectivePolicy (Core.Maybe Types.PolicyTargetId)
+depTargetId = Lens.field @"targetId"
+{-# DEPRECATED depTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+
+instance Core.FromJSON DescribeEffectivePolicy where
+  toJSON DescribeEffectivePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyType" Core..= policyType),
+            ("TargetId" Core..=) Core.<$> targetId
+          ]
+      )
+
+instance Core.AWSRequest DescribeEffectivePolicy where
   type Rs DescribeEffectivePolicy = DescribeEffectivePolicyResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrganizationsV20161128.DescribeEffectivePolicy"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeEffectivePolicyResponse'
-            Lude.<$> (x Lude..?> "EffectivePolicy")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EffectivePolicy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEffectivePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.DescribeEffectivePolicy" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeEffectivePolicy where
-  toJSON DescribeEffectivePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TargetId" Lude..=) Lude.<$> targetId,
-            Lude.Just ("PolicyType" Lude..= policyType)
-          ]
-      )
-
-instance Lude.ToPath DescribeEffectivePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEffectivePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeEffectivePolicyResponse' smart constructor.
 data DescribeEffectivePolicyResponse = DescribeEffectivePolicyResponse'
   { -- | The contents of the effective policy.
-    effectivePolicy :: Lude.Maybe EffectivePolicy,
+    effectivePolicy :: Core.Maybe Types.EffectivePolicy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEffectivePolicyResponse' with the minimum fields required to make a request.
---
--- * 'effectivePolicy' - The contents of the effective policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEffectivePolicyResponse' value with any optional fields omitted.
 mkDescribeEffectivePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEffectivePolicyResponse
-mkDescribeEffectivePolicyResponse pResponseStatus_ =
+mkDescribeEffectivePolicyResponse responseStatus =
   DescribeEffectivePolicyResponse'
-    { effectivePolicy = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { effectivePolicy = Core.Nothing,
+      responseStatus
     }
 
 -- | The contents of the effective policy.
 --
 -- /Note:/ Consider using 'effectivePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deprsEffectivePolicy :: Lens.Lens' DescribeEffectivePolicyResponse (Lude.Maybe EffectivePolicy)
-deprsEffectivePolicy = Lens.lens (effectivePolicy :: DescribeEffectivePolicyResponse -> Lude.Maybe EffectivePolicy) (\s a -> s {effectivePolicy = a} :: DescribeEffectivePolicyResponse)
-{-# DEPRECATED deprsEffectivePolicy "Use generic-lens or generic-optics with 'effectivePolicy' instead." #-}
+deprrsEffectivePolicy :: Lens.Lens' DescribeEffectivePolicyResponse (Core.Maybe Types.EffectivePolicy)
+deprrsEffectivePolicy = Lens.field @"effectivePolicy"
+{-# DEPRECATED deprrsEffectivePolicy "Use generic-lens or generic-optics with 'effectivePolicy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deprsResponseStatus :: Lens.Lens' DescribeEffectivePolicyResponse Lude.Int
-deprsResponseStatus = Lens.lens (responseStatus :: DescribeEffectivePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEffectivePolicyResponse)
-{-# DEPRECATED deprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+deprrsResponseStatus :: Lens.Lens' DescribeEffectivePolicyResponse Core.Int
+deprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED deprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

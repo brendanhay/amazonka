@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.Vc3SlowPal
   ( Vc3SlowPal
       ( Vc3SlowPal',
-        VSPDisabled,
-        VSPEnabled
+        Vc3SlowPalDisabled,
+        Vc3SlowPalEnabled,
+        fromVc3SlowPal
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output by relabeling the video frames and resampling your audio. Note that enabling this setting will slightly reduce the duration of your video. Related settings: You must also set Framerate to 25. In your JSON job specification, set (framerateControl) to (SPECIFIED), (framerateNumerator) to 25 and (framerateDenominator) to 1.
-newtype Vc3SlowPal = Vc3SlowPal' Lude.Text
+newtype Vc3SlowPal = Vc3SlowPal' {fromVc3SlowPal :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VSPDisabled :: Vc3SlowPal
-pattern VSPDisabled = Vc3SlowPal' "DISABLED"
+pattern Vc3SlowPalDisabled :: Vc3SlowPal
+pattern Vc3SlowPalDisabled = Vc3SlowPal' "DISABLED"
 
-pattern VSPEnabled :: Vc3SlowPal
-pattern VSPEnabled = Vc3SlowPal' "ENABLED"
+pattern Vc3SlowPalEnabled :: Vc3SlowPal
+pattern Vc3SlowPalEnabled = Vc3SlowPal' "ENABLED"
 
 {-# COMPLETE
-  VSPDisabled,
-  VSPEnabled,
+  Vc3SlowPalDisabled,
+  Vc3SlowPalEnabled,
   Vc3SlowPal'
   #-}

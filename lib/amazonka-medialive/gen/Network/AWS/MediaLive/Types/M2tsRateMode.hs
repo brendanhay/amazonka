@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.M2tsRateMode
   ( M2tsRateMode
       ( M2tsRateMode',
-        MRMCbr,
-        MRMVbr
+        M2tsRateModeCbr,
+        M2tsRateModeVbr,
+        fromM2tsRateMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Rate Mode
-newtype M2tsRateMode = M2tsRateMode' Lude.Text
+newtype M2tsRateMode = M2tsRateMode' {fromM2tsRateMode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MRMCbr :: M2tsRateMode
-pattern MRMCbr = M2tsRateMode' "CBR"
+pattern M2tsRateModeCbr :: M2tsRateMode
+pattern M2tsRateModeCbr = M2tsRateMode' "CBR"
 
-pattern MRMVbr :: M2tsRateMode
-pattern MRMVbr = M2tsRateMode' "VBR"
+pattern M2tsRateModeVbr :: M2tsRateMode
+pattern M2tsRateModeVbr = M2tsRateMode' "VBR"
 
 {-# COMPLETE
-  MRMCbr,
-  MRMVbr,
+  M2tsRateModeCbr,
+  M2tsRateModeVbr,
   M2tsRateMode'
   #-}

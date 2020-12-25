@@ -13,71 +13,76 @@
 module Network.AWS.GameLift.Types.ScalingStatusType
   ( ScalingStatusType
       ( ScalingStatusType',
-        SSTActive,
-        SSTUpdateRequested,
-        SSTUpdating,
-        SSTDeleteRequested,
-        SSTDeleting,
-        SSTDeleted,
-        SSTError
+        ScalingStatusTypeActive,
+        ScalingStatusTypeUpdateRequested,
+        ScalingStatusTypeUpdating,
+        ScalingStatusTypeDeleteRequested,
+        ScalingStatusTypeDeleting,
+        ScalingStatusTypeDeleted,
+        ScalingStatusTypeError,
+        fromScalingStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScalingStatusType = ScalingStatusType' Lude.Text
+newtype ScalingStatusType = ScalingStatusType'
+  { fromScalingStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSTActive :: ScalingStatusType
-pattern SSTActive = ScalingStatusType' "ACTIVE"
+pattern ScalingStatusTypeActive :: ScalingStatusType
+pattern ScalingStatusTypeActive = ScalingStatusType' "ACTIVE"
 
-pattern SSTUpdateRequested :: ScalingStatusType
-pattern SSTUpdateRequested = ScalingStatusType' "UPDATE_REQUESTED"
+pattern ScalingStatusTypeUpdateRequested :: ScalingStatusType
+pattern ScalingStatusTypeUpdateRequested = ScalingStatusType' "UPDATE_REQUESTED"
 
-pattern SSTUpdating :: ScalingStatusType
-pattern SSTUpdating = ScalingStatusType' "UPDATING"
+pattern ScalingStatusTypeUpdating :: ScalingStatusType
+pattern ScalingStatusTypeUpdating = ScalingStatusType' "UPDATING"
 
-pattern SSTDeleteRequested :: ScalingStatusType
-pattern SSTDeleteRequested = ScalingStatusType' "DELETE_REQUESTED"
+pattern ScalingStatusTypeDeleteRequested :: ScalingStatusType
+pattern ScalingStatusTypeDeleteRequested = ScalingStatusType' "DELETE_REQUESTED"
 
-pattern SSTDeleting :: ScalingStatusType
-pattern SSTDeleting = ScalingStatusType' "DELETING"
+pattern ScalingStatusTypeDeleting :: ScalingStatusType
+pattern ScalingStatusTypeDeleting = ScalingStatusType' "DELETING"
 
-pattern SSTDeleted :: ScalingStatusType
-pattern SSTDeleted = ScalingStatusType' "DELETED"
+pattern ScalingStatusTypeDeleted :: ScalingStatusType
+pattern ScalingStatusTypeDeleted = ScalingStatusType' "DELETED"
 
-pattern SSTError :: ScalingStatusType
-pattern SSTError = ScalingStatusType' "ERROR"
+pattern ScalingStatusTypeError :: ScalingStatusType
+pattern ScalingStatusTypeError = ScalingStatusType' "ERROR"
 
 {-# COMPLETE
-  SSTActive,
-  SSTUpdateRequested,
-  SSTUpdating,
-  SSTDeleteRequested,
-  SSTDeleting,
-  SSTDeleted,
-  SSTError,
+  ScalingStatusTypeActive,
+  ScalingStatusTypeUpdateRequested,
+  ScalingStatusTypeUpdating,
+  ScalingStatusTypeDeleteRequested,
+  ScalingStatusTypeDeleting,
+  ScalingStatusTypeDeleted,
+  ScalingStatusTypeError,
   ScalingStatusType'
   #-}

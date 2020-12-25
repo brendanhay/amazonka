@@ -18,81 +18,76 @@ module Network.AWS.Glacier.Types.Encryption
 
     -- * Lenses
     eEncryptionType,
-    eKMSKeyId,
     eKMSContext,
+    eKMSKeyId,
   )
 where
 
-import Network.AWS.Glacier.Types.EncryptionType
+import qualified Network.AWS.Glacier.Types.EncryptionType as Types
+import qualified Network.AWS.Glacier.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the encryption used to store the job results in Amazon S3.
 --
 -- /See:/ 'mkEncryption' smart constructor.
 data Encryption = Encryption'
   { -- | The server-side encryption algorithm used when storing job results in Amazon S3, for example @AES256@ or @aws:kms@ .
-    encryptionType :: Lude.Maybe EncryptionType,
-    -- | The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4.
-    kmsKeyId :: Lude.Maybe Lude.Text,
+    encryptionType :: Core.Maybe Types.EncryptionType,
     -- | Optional. If the encryption type is @aws:kms@ , you can use this value to specify the encryption context for the job results.
-    kmsContext :: Lude.Maybe Lude.Text
+    kMSContext :: Core.Maybe Types.String,
+    -- | The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4.
+    kMSKeyId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Encryption' with the minimum fields required to make a request.
---
--- * 'encryptionType' - The server-side encryption algorithm used when storing job results in Amazon S3, for example @AES256@ or @aws:kms@ .
--- * 'kmsKeyId' - The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4.
--- * 'kmsContext' - Optional. If the encryption type is @aws:kms@ , you can use this value to specify the encryption context for the job results.
+-- | Creates a 'Encryption' value with any optional fields omitted.
 mkEncryption ::
   Encryption
 mkEncryption =
   Encryption'
-    { encryptionType = Lude.Nothing,
-      kmsKeyId = Lude.Nothing,
-      kmsContext = Lude.Nothing
+    { encryptionType = Core.Nothing,
+      kMSContext = Core.Nothing,
+      kMSKeyId = Core.Nothing
     }
 
 -- | The server-side encryption algorithm used when storing job results in Amazon S3, for example @AES256@ or @aws:kms@ .
 --
 -- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEncryptionType :: Lens.Lens' Encryption (Lude.Maybe EncryptionType)
-eEncryptionType = Lens.lens (encryptionType :: Encryption -> Lude.Maybe EncryptionType) (\s a -> s {encryptionType = a} :: Encryption)
+eEncryptionType :: Lens.Lens' Encryption (Core.Maybe Types.EncryptionType)
+eEncryptionType = Lens.field @"encryptionType"
 {-# DEPRECATED eEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
-
--- | The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4.
---
--- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eKMSKeyId :: Lens.Lens' Encryption (Lude.Maybe Lude.Text)
-eKMSKeyId = Lens.lens (kmsKeyId :: Encryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: Encryption)
-{-# DEPRECATED eKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | Optional. If the encryption type is @aws:kms@ , you can use this value to specify the encryption context for the job results.
 --
--- /Note:/ Consider using 'kmsContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eKMSContext :: Lens.Lens' Encryption (Lude.Maybe Lude.Text)
-eKMSContext = Lens.lens (kmsContext :: Encryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsContext = a} :: Encryption)
-{-# DEPRECATED eKMSContext "Use generic-lens or generic-optics with 'kmsContext' instead." #-}
+-- /Note:/ Consider using 'kMSContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eKMSContext :: Lens.Lens' Encryption (Core.Maybe Types.String)
+eKMSContext = Lens.field @"kMSContext"
+{-# DEPRECATED eKMSContext "Use generic-lens or generic-optics with 'kMSContext' instead." #-}
 
-instance Lude.FromJSON Encryption where
-  parseJSON =
-    Lude.withObject
-      "Encryption"
-      ( \x ->
-          Encryption'
-            Lude.<$> (x Lude..:? "EncryptionType")
-            Lude.<*> (x Lude..:? "KMSKeyId")
-            Lude.<*> (x Lude..:? "KMSContext")
-      )
+-- | The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4.
+--
+-- /Note:/ Consider using 'kMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eKMSKeyId :: Lens.Lens' Encryption (Core.Maybe Types.String)
+eKMSKeyId = Lens.field @"kMSKeyId"
+{-# DEPRECATED eKMSKeyId "Use generic-lens or generic-optics with 'kMSKeyId' instead." #-}
 
-instance Lude.ToJSON Encryption where
-  toJSON Encryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EncryptionType" Lude..=) Lude.<$> encryptionType,
-            ("KMSKeyId" Lude..=) Lude.<$> kmsKeyId,
-            ("KMSContext" Lude..=) Lude.<$> kmsContext
+instance Core.FromJSON Encryption where
+  toJSON Encryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EncryptionType" Core..=) Core.<$> encryptionType,
+            ("KMSContext" Core..=) Core.<$> kMSContext,
+            ("KMSKeyId" Core..=) Core.<$> kMSKeyId
           ]
       )
+
+instance Core.FromJSON Encryption where
+  parseJSON =
+    Core.withObject "Encryption" Core.$
+      \x ->
+        Encryption'
+          Core.<$> (x Core..:? "EncryptionType")
+          Core.<*> (x Core..:? "KMSContext")
+          Core.<*> (x Core..:? "KMSKeyId")

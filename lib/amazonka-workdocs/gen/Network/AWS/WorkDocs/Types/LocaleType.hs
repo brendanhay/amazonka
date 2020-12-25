@@ -13,91 +13,93 @@
 module Network.AWS.WorkDocs.Types.LocaleType
   ( LocaleType
       ( LocaleType',
-        EN,
-        FR,
-        KO,
-        DE,
-        ES,
-        JA,
-        RU,
-        ZhCn,
-        ZhTw,
-        PtBr,
-        Default
+        LocaleTypeEN,
+        LocaleTypeFR,
+        LocaleTypeKO,
+        LocaleTypeDE,
+        LocaleTypeES,
+        LocaleTypeJA,
+        LocaleTypeRU,
+        LocaleTypeZhCn,
+        LocaleTypeZhTw,
+        LocaleTypePtBr,
+        LocaleTypeDefault,
+        fromLocaleType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LocaleType = LocaleType' Lude.Text
+newtype LocaleType = LocaleType' {fromLocaleType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EN :: LocaleType
-pattern EN = LocaleType' "en"
+pattern LocaleTypeEN :: LocaleType
+pattern LocaleTypeEN = LocaleType' "en"
 
-pattern FR :: LocaleType
-pattern FR = LocaleType' "fr"
+pattern LocaleTypeFR :: LocaleType
+pattern LocaleTypeFR = LocaleType' "fr"
 
-pattern KO :: LocaleType
-pattern KO = LocaleType' "ko"
+pattern LocaleTypeKO :: LocaleType
+pattern LocaleTypeKO = LocaleType' "ko"
 
-pattern DE :: LocaleType
-pattern DE = LocaleType' "de"
+pattern LocaleTypeDE :: LocaleType
+pattern LocaleTypeDE = LocaleType' "de"
 
-pattern ES :: LocaleType
-pattern ES = LocaleType' "es"
+pattern LocaleTypeES :: LocaleType
+pattern LocaleTypeES = LocaleType' "es"
 
-pattern JA :: LocaleType
-pattern JA = LocaleType' "ja"
+pattern LocaleTypeJA :: LocaleType
+pattern LocaleTypeJA = LocaleType' "ja"
 
-pattern RU :: LocaleType
-pattern RU = LocaleType' "ru"
+pattern LocaleTypeRU :: LocaleType
+pattern LocaleTypeRU = LocaleType' "ru"
 
-pattern ZhCn :: LocaleType
-pattern ZhCn = LocaleType' "zh_CN"
+pattern LocaleTypeZhCn :: LocaleType
+pattern LocaleTypeZhCn = LocaleType' "zh_CN"
 
-pattern ZhTw :: LocaleType
-pattern ZhTw = LocaleType' "zh_TW"
+pattern LocaleTypeZhTw :: LocaleType
+pattern LocaleTypeZhTw = LocaleType' "zh_TW"
 
-pattern PtBr :: LocaleType
-pattern PtBr = LocaleType' "pt_BR"
+pattern LocaleTypePtBr :: LocaleType
+pattern LocaleTypePtBr = LocaleType' "pt_BR"
 
-pattern Default :: LocaleType
-pattern Default = LocaleType' "default"
+pattern LocaleTypeDefault :: LocaleType
+pattern LocaleTypeDefault = LocaleType' "default"
 
 {-# COMPLETE
-  EN,
-  FR,
-  KO,
-  DE,
-  ES,
-  JA,
-  RU,
-  ZhCn,
-  ZhTw,
-  PtBr,
-  Default,
+  LocaleTypeEN,
+  LocaleTypeFR,
+  LocaleTypeKO,
+  LocaleTypeDE,
+  LocaleTypeES,
+  LocaleTypeJA,
+  LocaleTypeRU,
+  LocaleTypeZhCn,
+  LocaleTypeZhTw,
+  LocaleTypePtBr,
+  LocaleTypeDefault,
   LocaleType'
   #-}

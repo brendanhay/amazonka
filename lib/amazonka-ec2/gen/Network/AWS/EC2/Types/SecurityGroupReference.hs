@@ -17,67 +17,64 @@ module Network.AWS.EC2.Types.SecurityGroupReference
     mkSecurityGroupReference,
 
     -- * Lenses
-    sgrVPCPeeringConnectionId,
-    sgrReferencingVPCId,
     sgrGroupId,
+    sgrReferencingVpcId,
+    sgrVpcPeeringConnectionId,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a VPC with a security group that references your security group.
 --
 -- /See:/ 'mkSecurityGroupReference' smart constructor.
 data SecurityGroupReference = SecurityGroupReference'
-  { -- | The ID of the VPC peering connection.
-    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
+  { -- | The ID of your security group.
+    groupId :: Core.Maybe Types.String,
     -- | The ID of the VPC with the referencing security group.
-    referencingVPCId :: Lude.Maybe Lude.Text,
-    -- | The ID of your security group.
-    groupId :: Lude.Maybe Lude.Text
+    referencingVpcId :: Core.Maybe Types.String,
+    -- | The ID of the VPC peering connection.
+    vpcPeeringConnectionId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SecurityGroupReference' with the minimum fields required to make a request.
---
--- * 'vpcPeeringConnectionId' - The ID of the VPC peering connection.
--- * 'referencingVPCId' - The ID of the VPC with the referencing security group.
--- * 'groupId' - The ID of your security group.
+-- | Creates a 'SecurityGroupReference' value with any optional fields omitted.
 mkSecurityGroupReference ::
   SecurityGroupReference
 mkSecurityGroupReference =
   SecurityGroupReference'
-    { vpcPeeringConnectionId = Lude.Nothing,
-      referencingVPCId = Lude.Nothing,
-      groupId = Lude.Nothing
+    { groupId = Core.Nothing,
+      referencingVpcId = Core.Nothing,
+      vpcPeeringConnectionId = Core.Nothing
     }
-
--- | The ID of the VPC peering connection.
---
--- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgrVPCPeeringConnectionId :: Lens.Lens' SecurityGroupReference (Lude.Maybe Lude.Text)
-sgrVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: SecurityGroupReference -> Lude.Maybe Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: SecurityGroupReference)
-{-# DEPRECATED sgrVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
-
--- | The ID of the VPC with the referencing security group.
---
--- /Note:/ Consider using 'referencingVPCId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgrReferencingVPCId :: Lens.Lens' SecurityGroupReference (Lude.Maybe Lude.Text)
-sgrReferencingVPCId = Lens.lens (referencingVPCId :: SecurityGroupReference -> Lude.Maybe Lude.Text) (\s a -> s {referencingVPCId = a} :: SecurityGroupReference)
-{-# DEPRECATED sgrReferencingVPCId "Use generic-lens or generic-optics with 'referencingVPCId' instead." #-}
 
 -- | The ID of your security group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgrGroupId :: Lens.Lens' SecurityGroupReference (Lude.Maybe Lude.Text)
-sgrGroupId = Lens.lens (groupId :: SecurityGroupReference -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: SecurityGroupReference)
+sgrGroupId :: Lens.Lens' SecurityGroupReference (Core.Maybe Types.String)
+sgrGroupId = Lens.field @"groupId"
 {-# DEPRECATED sgrGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance Lude.FromXML SecurityGroupReference where
+-- | The ID of the VPC with the referencing security group.
+--
+-- /Note:/ Consider using 'referencingVpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrReferencingVpcId :: Lens.Lens' SecurityGroupReference (Core.Maybe Types.String)
+sgrReferencingVpcId = Lens.field @"referencingVpcId"
+{-# DEPRECATED sgrReferencingVpcId "Use generic-lens or generic-optics with 'referencingVpcId' instead." #-}
+
+-- | The ID of the VPC peering connection.
+--
+-- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrVpcPeeringConnectionId :: Lens.Lens' SecurityGroupReference (Core.Maybe Types.String)
+sgrVpcPeeringConnectionId = Lens.field @"vpcPeeringConnectionId"
+{-# DEPRECATED sgrVpcPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
+
+instance Core.FromXML SecurityGroupReference where
   parseXML x =
     SecurityGroupReference'
-      Lude.<$> (x Lude..@? "vpcPeeringConnectionId")
-      Lude.<*> (x Lude..@? "referencingVpcId")
-      Lude.<*> (x Lude..@? "groupId")
+      Core.<$> (x Core..@? "groupId")
+      Core.<*> (x Core..@? "referencingVpcId")
+      Core.<*> (x Core..@? "vpcPeeringConnectionId")

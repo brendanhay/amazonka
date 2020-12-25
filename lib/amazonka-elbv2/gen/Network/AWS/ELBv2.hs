@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,10 +28,121 @@
 -- All Elastic Load Balancing operations are idempotent, which means that they complete at most one time. If you repeat an operation, it succeeds.
 module Network.AWS.ELBv2
   ( -- * Service configuration
-    eLBv2Service,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidConfigurationRequestException
+    _InvalidConfigurationRequestException,
+
+    -- ** SubnetNotFoundException
+    _SubnetNotFoundException,
+
+    -- ** TooManyTargetsException
+    _TooManyTargetsException,
+
+    -- ** RuleNotFoundException
+    _RuleNotFoundException,
+
+    -- ** InvalidSubnetException
+    _InvalidSubnetException,
+
+    -- ** TooManyRulesException
+    _TooManyRulesException,
+
+    -- ** TooManyTargetGroupsException
+    _TooManyTargetGroupsException,
+
+    -- ** TooManyActionsException
+    _TooManyActionsException,
+
+    -- ** DuplicateLoadBalancerNameException
+    _DuplicateLoadBalancerNameException,
+
+    -- ** IncompatibleProtocolsException
+    _IncompatibleProtocolsException,
+
+    -- ** TooManyCertificatesException
+    _TooManyCertificatesException,
+
+    -- ** DuplicateTagKeysException
+    _DuplicateTagKeysException,
+
+    -- ** DuplicateListenerException
+    _DuplicateListenerException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** DuplicateTargetGroupNameException
+    _DuplicateTargetGroupNameException,
+
+    -- ** HealthUnavailableException
+    _HealthUnavailableException,
+
+    -- ** AllocationIdNotFoundException
+    _AllocationIdNotFoundException,
+
+    -- ** PriorityInUseException
+    _PriorityInUseException,
+
+    -- ** TooManyLoadBalancersException
+    _TooManyLoadBalancersException,
+
+    -- ** UnsupportedProtocolException
+    _UnsupportedProtocolException,
+
+    -- ** ALPNPolicyNotSupportedException
+    _ALPNPolicyNotSupportedException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
+
+    -- ** InvalidSecurityGroupException
+    _InvalidSecurityGroupException,
+
+    -- ** TargetGroupNotFoundException
+    _TargetGroupNotFoundException,
+
+    -- ** ListenerNotFoundException
+    _ListenerNotFoundException,
+
+    -- ** InvalidLoadBalancerActionException
+    _InvalidLoadBalancerActionException,
+
+    -- ** TooManyRegistrationsForTargetIdException
+    _TooManyRegistrationsForTargetIdException,
+
+    -- ** TooManyListenersException
+    _TooManyListenersException,
+
+    -- ** TargetGroupAssociationLimitException
+    _TargetGroupAssociationLimitException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** SSLPolicyNotFoundException
+    _SSLPolicyNotFoundException,
+
+    -- ** InvalidSchemeException
+    _InvalidSchemeException,
+
+    -- ** AvailabilityZoneNotSupportedException
+    _AvailabilityZoneNotSupportedException,
+
+    -- ** TooManyUniqueTargetGroupsPerLoadBalancerException
+    _TooManyUniqueTargetGroupsPerLoadBalancerException,
+
+    -- ** LoadBalancerNotFoundException
+    _LoadBalancerNotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** CertificateNotFoundException
+    _CertificateNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -130,8 +240,8 @@ module Network.AWS.ELBv2
     -- ** ModifyLoadBalancerAttributes
     module Network.AWS.ELBv2.ModifyLoadBalancerAttributes,
 
-    -- ** SetIPAddressType
-    module Network.AWS.ELBv2.SetIPAddressType,
+    -- ** SetIpAddressType
+    module Network.AWS.ELBv2.SetIpAddressType,
 
     -- ** AddTags
     module Network.AWS.ELBv2.AddTags,
@@ -159,130 +269,318 @@ module Network.AWS.ELBv2
 
     -- * Types
 
-    -- ** ActionTypeEnum
-    ActionTypeEnum (..),
+    -- ** ProtocolVersion
+    ProtocolVersion (..),
 
-    -- ** AuthenticateCognitoActionConditionalBehaviorEnum
-    AuthenticateCognitoActionConditionalBehaviorEnum (..),
+    -- ** LoadBalancerAddress
+    LoadBalancerAddress (..),
+    mkLoadBalancerAddress,
+    lbaAllocationId,
+    lbaIPv6Address,
+    lbaIpAddress,
+    lbaPrivateIPv4Address,
 
-    -- ** AuthenticateOidcActionConditionalBehaviorEnum
-    AuthenticateOidcActionConditionalBehaviorEnum (..),
+    -- ** SslPolicy
+    SslPolicy (..),
+    mkSslPolicy,
+    spCiphers,
+    spName,
+    spSslProtocols,
 
-    -- ** IPAddressType
-    IPAddressType (..),
+    -- ** AuthenticateCognitoActionUserPoolArn
+    AuthenticateCognitoActionUserPoolArn (..),
 
-    -- ** LoadBalancerSchemeEnum
-    LoadBalancerSchemeEnum (..),
+    -- ** TargetId
+    TargetId (..),
 
-    -- ** LoadBalancerStateEnum
-    LoadBalancerStateEnum (..),
+    -- ** Matcher
+    Matcher (..),
+    mkMatcher,
+    mGrpcCode,
+    mHttpCode,
 
-    -- ** LoadBalancerTypeEnum
-    LoadBalancerTypeEnum (..),
+    -- ** TagDescription
+    TagDescription (..),
+    mkTagDescription,
+    tdResourceArn,
+    tdTags,
 
-    -- ** ProtocolEnum
-    ProtocolEnum (..),
+    -- ** Max
+    Max (..),
 
-    -- ** RedirectActionStatusCodeEnum
-    RedirectActionStatusCodeEnum (..),
+    -- ** HttpRequestMethodConditionConfig
+    HttpRequestMethodConditionConfig (..),
+    mkHttpRequestMethodConditionConfig,
+    hrmccValues,
+
+    -- ** AuthenticateOidcActionAuthenticationRequestParamValue
+    AuthenticateOidcActionAuthenticationRequestParamValue (..),
+
+    -- ** TargetDescription
+    TargetDescription (..),
+    mkTargetDescription,
+    tdId,
+    tdAvailabilityZone,
+    tdPort,
+
+    -- ** IPv6Address
+    IPv6Address (..),
+
+    -- ** IpAddress
+    IpAddress (..),
+
+    -- ** SubnetMapping
+    SubnetMapping (..),
+    mkSubnetMapping,
+    smAllocationId,
+    smIPv6Address,
+    smPrivateIPv4Address,
+    smSubnetId,
+
+    -- ** AuthenticateOidcActionSessionCookieName
+    AuthenticateOidcActionSessionCookieName (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TargetHealthReasonEnum
     TargetHealthReasonEnum (..),
 
-    -- ** TargetHealthStateEnum
-    TargetHealthStateEnum (..),
+    -- ** FixedResponseActionStatusCode
+    FixedResponseActionStatusCode (..),
 
-    -- ** TargetTypeEnum
-    TargetTypeEnum (..),
+    -- ** SslProtocol
+    SslProtocol (..),
+
+    -- ** TargetGroupAttribute
+    TargetGroupAttribute (..),
+    mkTargetGroupAttribute,
+    tgaKey,
+    tgaValue,
+
+    -- ** AuthenticateOidcActionAuthorizationEndpoint
+    AuthenticateOidcActionAuthorizationEndpoint (..),
+
+    -- ** AuthenticateOidcActionTokenEndpoint
+    AuthenticateOidcActionTokenEndpoint (..),
+
+    -- ** CipherName
+    CipherName (..),
+
+    -- ** LoadBalancerName
+    LoadBalancerName (..),
+
+    -- ** TargetHealth
+    TargetHealth (..),
+    mkTargetHealth,
+    thDescription,
+    thReason,
+    thState,
+
+    -- ** AuthenticateCognitoActionAuthenticationRequestParamName
+    AuthenticateCognitoActionAuthenticationRequestParamName (..),
+
+    -- ** AllocationId
+    AllocationId (..),
+
+    -- ** HttpCode
+    HttpCode (..),
+
+    -- ** String
+    String (..),
+
+    -- ** ProtocolEnum
+    ProtocolEnum (..),
+
+    -- ** Path
+    Path (..),
+
+    -- ** RuleCondition
+    RuleCondition (..),
+    mkRuleCondition,
+    rcField,
+    rcHostHeaderConfig,
+    rcHttpHeaderConfig,
+    rcHttpRequestMethodConfig,
+    rcPathPatternConfig,
+    rcQueryStringConfig,
+    rcSourceIpConfig,
+    rcValues,
+
+    -- ** AuthenticateCognitoActionConditionalBehaviorEnum
+    AuthenticateCognitoActionConditionalBehaviorEnum (..),
+
+    -- ** SourceIpConditionConfig
+    SourceIpConditionConfig (..),
+    mkSourceIpConditionConfig,
+    siccValues,
+
+    -- ** CertificateArn
+    CertificateArn (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** AlpnPolicyValue
+    AlpnPolicyValue (..),
+
+    -- ** CanonicalHostedZoneId
+    CanonicalHostedZoneId (..),
+
+    -- ** AuthenticateOidcActionScope
+    AuthenticateOidcActionScope (..),
+
+    -- ** PrivateIPv4Address
+    PrivateIPv4Address (..),
+
+    -- ** TargetGroupArn
+    TargetGroupArn (..),
+
+    -- ** GrpcCode
+    GrpcCode (..),
+
+    -- ** ListenerArn
+    ListenerArn (..),
+
+    -- ** AuthenticateCognitoActionScope
+    AuthenticateCognitoActionScope (..),
+
+    -- ** QueryStringConditionConfig
+    QueryStringConditionConfig (..),
+    mkQueryStringConditionConfig,
+    qsccValues,
+
+    -- ** LoadBalancerAttribute
+    LoadBalancerAttribute (..),
+    mkLoadBalancerAttribute,
+    lbaKey,
+    lbaValue,
 
     -- ** Action
     Action (..),
     mkAction,
-    aFixedResponseConfig,
-    aTargetGroupARN,
-    aForwardConfig,
-    aRedirectConfig,
     aType,
     aAuthenticateCognitoConfig,
-    aOrder,
     aAuthenticateOidcConfig,
+    aFixedResponseConfig,
+    aForwardConfig,
+    aOrder,
+    aRedirectConfig,
+    aTargetGroupArn,
 
-    -- ** AuthenticateCognitoActionConfig
-    AuthenticateCognitoActionConfig (..),
-    mkAuthenticateCognitoActionConfig,
-    acacUserPoolARN,
-    acacAuthenticationRequestExtraParams,
-    acacScope,
-    acacOnUnauthenticatedRequest,
-    acacSessionCookieName,
-    acacSessionTimeout,
-    acacUserPoolDomain,
-    acacUserPoolClientId,
+    -- ** StringValue
+    StringValue (..),
 
-    -- ** AuthenticateOidcActionConfig
-    AuthenticateOidcActionConfig (..),
-    mkAuthenticateOidcActionConfig,
-    aoacClientId,
-    aoacClientSecret,
-    aoacUserInfoEndpoint,
-    aoacUseExistingClientSecret,
-    aoacAuthenticationRequestExtraParams,
-    aoacScope,
-    aoacOnUnauthenticatedRequest,
-    aoacSessionCookieName,
-    aoacSessionTimeout,
-    aoacAuthorizationEndpoint,
-    aoacTokenEndpoint,
-    aoacIssuer,
+    -- ** RedirectActionQuery
+    RedirectActionQuery (..),
 
-    -- ** AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azSubnetId,
-    azZoneName,
-    azLoadBalancerAddresses,
-    azOutpostId,
+    -- ** Rule
+    Rule (..),
+    mkRule,
+    rActions,
+    rConditions,
+    rIsDefault,
+    rPriority,
+    rRuleArn,
 
-    -- ** Certificate
-    Certificate (..),
-    mkCertificate,
-    cCertificateARN,
-    cIsDefault,
+    -- ** SubnetId
+    SubnetId (..),
 
-    -- ** Cipher
-    Cipher (..),
-    mkCipher,
-    cPriority,
-    cName,
+    -- ** AuthenticateOidcActionClientId
+    AuthenticateOidcActionClientId (..),
 
-    -- ** FixedResponseActionConfig
-    FixedResponseActionConfig (..),
-    mkFixedResponseActionConfig,
-    fracMessageBody,
-    fracContentType,
-    fracStatusCode,
+    -- ** TargetHealthStateEnum
+    TargetHealthStateEnum (..),
+
+    -- ** AuthenticateOidcActionIssuer
+    AuthenticateOidcActionIssuer (..),
+
+    -- ** RedirectActionPath
+    RedirectActionPath (..),
+
+    -- ** ZoneName
+    ZoneName (..),
+
+    -- ** QueryStringKeyValuePair
+    QueryStringKeyValuePair (..),
+    mkQueryStringKeyValuePair,
+    qskvpKey,
+    qskvpValue,
+
+    -- ** SecurityGroupId
+    SecurityGroupId (..),
+
+    -- ** LoadBalancerSchemeEnum
+    LoadBalancerSchemeEnum (..),
+
+    -- ** PathPatternConditionConfig
+    PathPatternConditionConfig (..),
+    mkPathPatternConditionConfig,
+    ppccValues,
+
+    -- ** RedirectActionHost
+    RedirectActionHost (..),
+
+    -- ** CustomerOwnedIpv4Pool
+    CustomerOwnedIpv4Pool (..),
 
     -- ** ForwardActionConfig
     ForwardActionConfig (..),
     mkForwardActionConfig,
-    facTargetGroups,
     facTargetGroupStickinessConfig,
+    facTargetGroups,
 
-    -- ** HTTPHeaderConditionConfig
-    HTTPHeaderConditionConfig (..),
-    mkHTTPHeaderConditionConfig,
-    httphccValues,
-    httphccHTTPHeaderName,
+    -- ** LoadBalancerArn
+    LoadBalancerArn (..),
 
-    -- ** HTTPRequestMethodConditionConfig
-    HTTPRequestMethodConditionConfig (..),
-    mkHTTPRequestMethodConditionConfig,
-    httprmccValues,
+    -- ** IpAddressType
+    IpAddressType (..),
 
-    -- ** HostHeaderConditionConfig
-    HostHeaderConditionConfig (..),
-    mkHostHeaderConditionConfig,
-    hhccValues,
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azLoadBalancerAddresses,
+    azOutpostId,
+    azSubnetId,
+    azZoneName,
+
+    -- ** Name
+    Name (..),
+
+    -- ** RedirectActionProtocol
+    RedirectActionProtocol (..),
+
+    -- ** LoadBalancer
+    LoadBalancer (..),
+    mkLoadBalancer,
+    lbAvailabilityZones,
+    lbCanonicalHostedZoneId,
+    lbCreatedTime,
+    lbCustomerOwnedIpv4Pool,
+    lbDNSName,
+    lbIpAddressType,
+    lbLoadBalancerArn,
+    lbLoadBalancerName,
+    lbScheme,
+    lbSecurityGroups,
+    lbState,
+    lbType,
+    lbVpcId,
+
+    -- ** FixedResponseActionContentType
+    FixedResponseActionContentType (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** TargetTypeEnum
+    TargetTypeEnum (..),
 
     -- ** Limit
     Limit (..),
@@ -290,215 +588,232 @@ module Network.AWS.ELBv2
     lMax,
     lName,
 
-    -- ** Listener
-    Listener (..),
-    mkListener,
-    lSSLPolicy,
-    lListenerARN,
-    lProtocol,
-    lDefaultActions,
-    lCertificates,
-    lLoadBalancerARN,
-    lAlpnPolicy,
-    lPort,
+    -- ** AuthenticateOidcActionClientSecret
+    AuthenticateOidcActionClientSecret (..),
 
-    -- ** LoadBalancer
-    LoadBalancer (..),
-    mkLoadBalancer,
-    lbState,
-    lbSecurityGroups,
-    lbLoadBalancerName,
-    lbCreatedTime,
-    lbVPCId,
-    lbCanonicalHostedZoneId,
-    lbAvailabilityZones,
-    lbCustomerOwnedIPv4Pool,
-    lbLoadBalancerARN,
-    lbIPAddressType,
-    lbScheme,
-    lbType,
-    lbDNSName,
+    -- ** Certificate
+    Certificate (..),
+    mkCertificate,
+    cCertificateArn,
+    cIsDefault,
 
-    -- ** LoadBalancerAddress
-    LoadBalancerAddress (..),
-    mkLoadBalancerAddress,
-    lbaIPv6Address,
-    lbaIPAddress,
-    lbaAllocationId,
-    lbaPrivateIPv4Address,
-
-    -- ** LoadBalancerAttribute
-    LoadBalancerAttribute (..),
-    mkLoadBalancerAttribute,
-    lbaValue,
-    lbaKey,
+    -- ** AuthenticateCognitoActionUserPoolClientId
+    AuthenticateCognitoActionUserPoolClientId (..),
 
     -- ** LoadBalancerState
     LoadBalancerState (..),
     mkLoadBalancerState,
-    lbsReason,
     lbsCode,
+    lbsReason,
 
-    -- ** Matcher
-    Matcher (..),
-    mkMatcher,
-    mHTTPCode,
-    mGrpcCode,
+    -- ** RedirectActionPort
+    RedirectActionPort (..),
 
-    -- ** PathPatternConditionConfig
-    PathPatternConditionConfig (..),
-    mkPathPatternConditionConfig,
-    ppccValues,
+    -- ** Cipher
+    Cipher (..),
+    mkCipher,
+    cName,
+    cPriority,
 
-    -- ** QueryStringConditionConfig
-    QueryStringConditionConfig (..),
-    mkQueryStringConditionConfig,
-    qsccValues,
+    -- ** ActionTypeEnum
+    ActionTypeEnum (..),
 
-    -- ** QueryStringKeyValuePair
-    QueryStringKeyValuePair (..),
-    mkQueryStringKeyValuePair,
-    qskvpValue,
-    qskvpKey,
+    -- ** TagKey
+    TagKey (..),
 
-    -- ** RedirectActionConfig
-    RedirectActionConfig (..),
-    mkRedirectActionConfig,
-    racPath,
-    racProtocol,
-    racQuery,
-    racHost,
-    racPort,
-    racStatusCode,
+    -- ** TargetGroupStickinessConfig
+    TargetGroupStickinessConfig (..),
+    mkTargetGroupStickinessConfig,
+    tgscDurationSeconds,
+    tgscEnabled,
 
-    -- ** Rule
-    Rule (..),
-    mkRule,
-    rPriority,
-    rActions,
-    rConditions,
-    rRuleARN,
-    rIsDefault,
+    -- ** FixedResponseActionMessage
+    FixedResponseActionMessage (..),
 
-    -- ** RuleCondition
-    RuleCondition (..),
-    mkRuleCondition,
-    rcField,
-    rcHTTPHeaderConfig,
-    rcHostHeaderConfig,
-    rcValues,
-    rcSourceIPConfig,
-    rcHTTPRequestMethodConfig,
-    rcPathPatternConfig,
-    rcQueryStringConfig,
+    -- ** AuthenticateOidcActionConfig
+    AuthenticateOidcActionConfig (..),
+    mkAuthenticateOidcActionConfig,
+    aoacIssuer,
+    aoacAuthorizationEndpoint,
+    aoacTokenEndpoint,
+    aoacUserInfoEndpoint,
+    aoacClientId,
+    aoacAuthenticationRequestExtraParams,
+    aoacClientSecret,
+    aoacOnUnauthenticatedRequest,
+    aoacScope,
+    aoacSessionCookieName,
+    aoacSessionTimeout,
+    aoacUseExistingClientSecret,
+
+    -- ** AuthenticateOidcActionAuthenticationRequestParamName
+    AuthenticateOidcActionAuthenticationRequestParamName (..),
+
+    -- ** HealthCheckPort
+    HealthCheckPort (..),
+
+    -- ** SslPolicyName
+    SslPolicyName (..),
+
+    -- ** HttpHeaderConditionName
+    HttpHeaderConditionName (..),
+
+    -- ** AuthenticateOidcActionConditionalBehaviorEnum
+    AuthenticateOidcActionConditionalBehaviorEnum (..),
+
+    -- ** RuleArn
+    RuleArn (..),
+
+    -- ** TargetHealthDescription
+    TargetHealthDescription (..),
+    mkTargetHealthDescription,
+    thdHealthCheckPort,
+    thdTarget,
+    thdTargetHealth,
+
+    -- ** OutpostId
+    OutpostId (..),
+
+    -- ** HttpHeaderConditionConfig
+    HttpHeaderConditionConfig (..),
+    mkHttpHeaderConditionConfig,
+    hHttpHeaderName,
+    hValues,
+
+    -- ** AuthenticateCognitoActionConfig
+    AuthenticateCognitoActionConfig (..),
+    mkAuthenticateCognitoActionConfig,
+    acacUserPoolArn,
+    acacUserPoolClientId,
+    acacUserPoolDomain,
+    acacAuthenticationRequestExtraParams,
+    acacOnUnauthenticatedRequest,
+    acacScope,
+    acacSessionCookieName,
+    acacSessionTimeout,
 
     -- ** RulePriorityPair
     RulePriorityPair (..),
     mkRulePriorityPair,
     rppPriority,
-    rppRuleARN,
+    rppRuleArn,
 
-    -- ** SSLPolicy
-    SSLPolicy (..),
-    mkSSLPolicy,
-    spCiphers,
-    spName,
-    spSSLProtocols,
+    -- ** Description
+    Description (..),
 
-    -- ** SourceIPConditionConfig
-    SourceIPConditionConfig (..),
-    mkSourceIPConditionConfig,
-    siccValues,
+    -- ** RedirectActionConfig
+    RedirectActionConfig (..),
+    mkRedirectActionConfig,
+    racStatusCode,
+    racHost,
+    racPath,
+    racPort,
+    racProtocol,
+    racQuery,
 
-    -- ** SubnetMapping
-    SubnetMapping (..),
-    mkSubnetMapping,
-    smIPv6Address,
-    smAllocationId,
-    smPrivateIPv4Address,
-    smSubnetId,
+    -- ** DNSName
+    DNSName (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** RedirectActionStatusCodeEnum
+    RedirectActionStatusCodeEnum (..),
 
-    -- ** TagDescription
-    TagDescription (..),
-    mkTagDescription,
-    tdResourceARN,
-    tdTags,
+    -- ** Listener
+    Listener (..),
+    mkListener,
+    lAlpnPolicy,
+    lCertificates,
+    lDefaultActions,
+    lListenerArn,
+    lLoadBalancerArn,
+    lPort,
+    lProtocol,
+    lSslPolicy,
 
-    -- ** TargetDescription
-    TargetDescription (..),
-    mkTargetDescription,
-    tdAvailabilityZone,
-    tdId,
-    tdPort,
+    -- ** LoadBalancerStateEnum
+    LoadBalancerStateEnum (..),
 
-    -- ** TargetGroup
-    TargetGroup (..),
-    mkTargetGroup,
-    tgProtocolVersion,
-    tgMatcher,
-    tgHealthCheckPath,
-    tgHealthCheckEnabled,
-    tgUnhealthyThresholdCount,
-    tgVPCId,
-    tgTargetGroupARN,
-    tgProtocol,
-    tgHealthCheckIntervalSeconds,
-    tgTargetType,
-    tgHealthyThresholdCount,
-    tgHealthCheckProtocol,
-    tgLoadBalancerARNs,
-    tgHealthCheckTimeoutSeconds,
-    tgHealthCheckPort,
-    tgTargetGroupName,
-    tgPort,
-
-    -- ** TargetGroupAttribute
-    TargetGroupAttribute (..),
-    mkTargetGroupAttribute,
-    tgaValue,
-    tgaKey,
-
-    -- ** TargetGroupStickinessConfig
-    TargetGroupStickinessConfig (..),
-    mkTargetGroupStickinessConfig,
-    tgscEnabled,
-    tgscDurationSeconds,
+    -- ** HostHeaderConditionConfig
+    HostHeaderConditionConfig (..),
+    mkHostHeaderConditionConfig,
+    hhccValues,
 
     -- ** TargetGroupTuple
     TargetGroupTuple (..),
     mkTargetGroupTuple,
+    tgtTargetGroupArn,
     tgtWeight,
-    tgtTargetGroupARN,
 
-    -- ** TargetHealth
-    TargetHealth (..),
-    mkTargetHealth,
-    thState,
-    thReason,
-    thDescription,
+    -- ** TargetGroup
+    TargetGroup (..),
+    mkTargetGroup,
+    tgHealthCheckEnabled,
+    tgHealthCheckIntervalSeconds,
+    tgHealthCheckPath,
+    tgHealthCheckPort,
+    tgHealthCheckProtocol,
+    tgHealthCheckTimeoutSeconds,
+    tgHealthyThresholdCount,
+    tgLoadBalancerArns,
+    tgMatcher,
+    tgPort,
+    tgProtocol,
+    tgProtocolVersion,
+    tgTargetGroupArn,
+    tgTargetGroupName,
+    tgTargetType,
+    tgUnhealthyThresholdCount,
+    tgVpcId,
 
-    -- ** TargetHealthDescription
-    TargetHealthDescription (..),
-    mkTargetHealthDescription,
-    thdTargetHealth,
-    thdHealthCheckPort,
-    thdTarget,
+    -- ** TargetGroupName
+    TargetGroupName (..),
+
+    -- ** LoadBalancerTypeEnum
+    LoadBalancerTypeEnum (..),
+
+    -- ** AuthenticateCognitoActionAuthenticationRequestParamValue
+    AuthenticateCognitoActionAuthenticationRequestParamValue (..),
+
+    -- ** FixedResponseActionConfig
+    FixedResponseActionConfig (..),
+    mkFixedResponseActionConfig,
+    fracStatusCode,
+    fracContentType,
+    fracMessageBody,
+
+    -- ** HealthCheckPath
+    HealthCheckPath (..),
+
+    -- ** NextMarker
+    NextMarker (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Field
+    Field (..),
+
+    -- ** Reason
+    Reason (..),
+
+    -- ** UserInfoEndpoint
+    UserInfoEndpoint (..),
+
+    -- ** UserPoolDomain
+    UserPoolDomain (..),
+
+    -- ** SessionCookieName
+    SessionCookieName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -532,7 +847,7 @@ import Network.AWS.ELBv2.ModifyTargetGroupAttributes
 import Network.AWS.ELBv2.RegisterTargets
 import Network.AWS.ELBv2.RemoveListenerCertificates
 import Network.AWS.ELBv2.RemoveTags
-import Network.AWS.ELBv2.SetIPAddressType
+import Network.AWS.ELBv2.SetIpAddressType
 import Network.AWS.ELBv2.SetRulePriorities
 import Network.AWS.ELBv2.SetSecurityGroups
 import Network.AWS.ELBv2.SetSubnets

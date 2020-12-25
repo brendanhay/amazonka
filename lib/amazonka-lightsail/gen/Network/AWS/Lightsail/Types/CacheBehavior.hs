@@ -22,8 +22,8 @@ module Network.AWS.Lightsail.Types.CacheBehavior
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.BehaviorEnum
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.BehaviorEnum as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
 --
@@ -37,24 +37,15 @@ newtype CacheBehavior = CacheBehavior'
     --
     --
     --     * __@dont-cache@ __ - This option is best for sites that serve a mix of static and dynamic content. When specified, your distribution caches and serve only the content that is specified in the distribution's @CacheBehaviorPerPath@ parameter. This behavior is ideal for websites or web applications that use cookies, headers, and query strings to personalize content for individual users.
-    behavior :: Lude.Maybe BehaviorEnum
+    behavior :: Core.Maybe Types.BehaviorEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CacheBehavior' with the minimum fields required to make a request.
---
--- * 'behavior' - The cache behavior of the distribution.
---
--- The following cache behaviors can be specified:
---
---     * __@cache@ __ - This option is best for static sites. When specified, your distribution caches and serves your entire website as static content. This behavior is ideal for websites with static content that doesn't change depending on who views it, or for websites that don't use cookies, headers, or query strings to personalize content.
---
---
---     * __@dont-cache@ __ - This option is best for sites that serve a mix of static and dynamic content. When specified, your distribution caches and serve only the content that is specified in the distribution's @CacheBehaviorPerPath@ parameter. This behavior is ideal for websites or web applications that use cookies, headers, and query strings to personalize content for individual users.
+-- | Creates a 'CacheBehavior' value with any optional fields omitted.
 mkCacheBehavior ::
   CacheBehavior
-mkCacheBehavior = CacheBehavior' {behavior = Lude.Nothing}
+mkCacheBehavior = CacheBehavior' {behavior = Core.Nothing}
 
 -- | The cache behavior of the distribution.
 --
@@ -68,17 +59,16 @@ mkCacheBehavior = CacheBehavior' {behavior = Lude.Nothing}
 --
 --
 -- /Note:/ Consider using 'behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbBehavior :: Lens.Lens' CacheBehavior (Lude.Maybe BehaviorEnum)
-cbBehavior = Lens.lens (behavior :: CacheBehavior -> Lude.Maybe BehaviorEnum) (\s a -> s {behavior = a} :: CacheBehavior)
+cbBehavior :: Lens.Lens' CacheBehavior (Core.Maybe Types.BehaviorEnum)
+cbBehavior = Lens.field @"behavior"
 {-# DEPRECATED cbBehavior "Use generic-lens or generic-optics with 'behavior' instead." #-}
 
-instance Lude.FromJSON CacheBehavior where
-  parseJSON =
-    Lude.withObject
-      "CacheBehavior"
-      (\x -> CacheBehavior' Lude.<$> (x Lude..:? "behavior"))
+instance Core.FromJSON CacheBehavior where
+  toJSON CacheBehavior {..} =
+    Core.object
+      (Core.catMaybes [("behavior" Core..=) Core.<$> behavior])
 
-instance Lude.ToJSON CacheBehavior where
-  toJSON CacheBehavior' {..} =
-    Lude.object
-      (Lude.catMaybes [("behavior" Lude..=) Lude.<$> behavior])
+instance Core.FromJSON CacheBehavior where
+  parseJSON =
+    Core.withObject "CacheBehavior" Core.$
+      \x -> CacheBehavior' Core.<$> (x Core..:? "behavior")

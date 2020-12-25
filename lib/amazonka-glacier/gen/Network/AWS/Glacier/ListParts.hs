@@ -26,256 +26,243 @@ module Network.AWS.Glacier.ListParts
     mkListParts,
 
     -- ** Request lenses
-    lpVaultName,
     lpAccountId,
-    lpMarker,
-    lpLimit,
+    lpVaultName,
     lpUploadId,
+    lpLimit,
+    lpMarker,
 
     -- * Destructuring the response
     ListPartsResponse (..),
     mkListPartsResponse,
 
     -- ** Response lenses
-    lprsParts,
-    lprsMultipartUploadId,
-    lprsPartSizeInBytes,
-    lprsArchiveDescription,
-    lprsVaultARN,
-    lprsMarker,
-    lprsCreationDate,
-    lprsResponseStatus,
+    lprrsArchiveDescription,
+    lprrsCreationDate,
+    lprrsMarker,
+    lprrsMultipartUploadId,
+    lprrsPartSizeInBytes,
+    lprrsParts,
+    lprrsVaultARN,
+    lprrsResponseStatus,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options for retrieving a list of parts of an archive that have been uploaded in a specific multipart upload.
 --
 -- /See:/ 'mkListParts' smart constructor.
 data ListParts = ListParts'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text,
-    -- | An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
-    limit :: Lude.Maybe Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String,
     -- | The upload ID of the multipart upload.
-    uploadId :: Lude.Text
+    uploadId :: Types.String,
+    -- | The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
+    limit :: Core.Maybe Types.String,
+    -- | An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
+    marker :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListParts' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'marker' - An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
--- * 'limit' - The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
--- * 'uploadId' - The upload ID of the multipart upload.
+-- | Creates a 'ListParts' value with any optional fields omitted.
 mkListParts ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   -- | 'uploadId'
-  Lude.Text ->
+  Types.String ->
   ListParts
-mkListParts pVaultName_ pAccountId_ pUploadId_ =
+mkListParts accountId vaultName uploadId =
   ListParts'
-    { vaultName = pVaultName_,
-      accountId = pAccountId_,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      uploadId = pUploadId_
+    { accountId,
+      vaultName,
+      uploadId,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpVaultName :: Lens.Lens' ListParts Lude.Text
-lpVaultName = Lens.lens (vaultName :: ListParts -> Lude.Text) (\s a -> s {vaultName = a} :: ListParts)
-{-# DEPRECATED lpVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpAccountId :: Lens.Lens' ListParts Lude.Text
-lpAccountId = Lens.lens (accountId :: ListParts -> Lude.Text) (\s a -> s {accountId = a} :: ListParts)
+lpAccountId :: Lens.Lens' ListParts Types.String
+lpAccountId = Lens.field @"accountId"
 {-# DEPRECATED lpAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpMarker :: Lens.Lens' ListParts (Lude.Maybe Lude.Text)
-lpMarker = Lens.lens (marker :: ListParts -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListParts)
-{-# DEPRECATED lpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpLimit :: Lens.Lens' ListParts (Lude.Maybe Lude.Text)
-lpLimit = Lens.lens (limit :: ListParts -> Lude.Maybe Lude.Text) (\s a -> s {limit = a} :: ListParts)
-{-# DEPRECATED lpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpVaultName :: Lens.Lens' ListParts Types.String
+lpVaultName = Lens.field @"vaultName"
+{-# DEPRECATED lpVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The upload ID of the multipart upload.
 --
 -- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpUploadId :: Lens.Lens' ListParts Lude.Text
-lpUploadId = Lens.lens (uploadId :: ListParts -> Lude.Text) (\s a -> s {uploadId = a} :: ListParts)
+lpUploadId :: Lens.Lens' ListParts Types.String
+lpUploadId = Lens.field @"uploadId"
 {-# DEPRECATED lpUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
 
-instance Page.AWSPager ListParts where
-  page rq rs
-    | Page.stop (rs Lens.^. lprsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lprsParts) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lpMarker Lens..~ rs Lens.^. lprsMarker
+-- | The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpLimit :: Lens.Lens' ListParts (Core.Maybe Types.String)
+lpLimit = Lens.field @"limit"
+{-# DEPRECATED lpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListParts where
+-- | An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpMarker :: Lens.Lens' ListParts (Core.Maybe Types.String)
+lpMarker = Lens.field @"marker"
+{-# DEPRECATED lpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+instance Core.AWSRequest ListParts where
   type Rs ListParts = ListPartsResponse
-  request = Req.get glacierService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/multipart-uploads/")
+                Core.<> (Core.toText uploadId)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "limit" Core.<$> limit
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListPartsResponse'
-            Lude.<$> (x Lude..?> "Parts" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "MultipartUploadId")
-            Lude.<*> (x Lude..?> "PartSizeInBytes")
-            Lude.<*> (x Lude..?> "ArchiveDescription")
-            Lude.<*> (x Lude..?> "VaultARN")
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "CreationDate")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ArchiveDescription")
+            Core.<*> (x Core..:? "CreationDate")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "MultipartUploadId")
+            Core.<*> (x Core..:? "PartSizeInBytes")
+            Core.<*> (x Core..:? "Parts")
+            Core.<*> (x Core..:? "VaultARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListParts where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListParts where
-  toPath ListParts' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/multipart-uploads/",
-        Lude.toBS uploadId
-      ]
-
-instance Lude.ToQuery ListParts where
-  toQuery ListParts' {..} =
-    Lude.mconcat ["marker" Lude.=: marker, "limit" Lude.=: limit]
+instance Pager.AWSPager ListParts where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"parts" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'mkListPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-  { -- | A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
-    parts :: Lude.Maybe [PartListElement],
-    -- | The ID of the upload to which the parts are associated.
-    multipartUploadId :: Lude.Maybe Lude.Text,
-    -- | The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
-    partSizeInBytes :: Lude.Maybe Lude.Integer,
-    -- | The description of the archive that was specified in the Initiate Multipart Upload request.
-    archiveDescription :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
-    vaultARN :: Lude.Maybe Lude.Text,
-    -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The description of the archive that was specified in the Initiate Multipart Upload request.
+    archiveDescription :: Core.Maybe Types.String,
     -- | The UTC time at which the multipart upload was initiated.
-    creationDate :: Lude.Maybe Lude.Text,
+    creationDate :: Core.Maybe Types.String,
+    -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
+    marker :: Core.Maybe Types.String,
+    -- | The ID of the upload to which the parts are associated.
+    multipartUploadId :: Core.Maybe Types.String,
+    -- | The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
+    partSizeInBytes :: Core.Maybe Core.Integer,
+    -- | A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
+    parts :: Core.Maybe [Types.PartListElement],
+    -- | The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
+    vaultARN :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
---
--- * 'parts' - A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
--- * 'multipartUploadId' - The ID of the upload to which the parts are associated.
--- * 'partSizeInBytes' - The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
--- * 'archiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
--- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
--- * 'marker' - An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
--- * 'creationDate' - The UTC time at which the multipart upload was initiated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPartsResponse' value with any optional fields omitted.
 mkListPartsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPartsResponse
-mkListPartsResponse pResponseStatus_ =
+mkListPartsResponse responseStatus =
   ListPartsResponse'
-    { parts = Lude.Nothing,
-      multipartUploadId = Lude.Nothing,
-      partSizeInBytes = Lude.Nothing,
-      archiveDescription = Lude.Nothing,
-      vaultARN = Lude.Nothing,
-      marker = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { archiveDescription = Core.Nothing,
+      creationDate = Core.Nothing,
+      marker = Core.Nothing,
+      multipartUploadId = Core.Nothing,
+      partSizeInBytes = Core.Nothing,
+      parts = Core.Nothing,
+      vaultARN = Core.Nothing,
+      responseStatus
     }
-
--- | A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
---
--- /Note:/ Consider using 'parts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsParts :: Lens.Lens' ListPartsResponse (Lude.Maybe [PartListElement])
-lprsParts = Lens.lens (parts :: ListPartsResponse -> Lude.Maybe [PartListElement]) (\s a -> s {parts = a} :: ListPartsResponse)
-{-# DEPRECATED lprsParts "Use generic-lens or generic-optics with 'parts' instead." #-}
-
--- | The ID of the upload to which the parts are associated.
---
--- /Note:/ Consider using 'multipartUploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsMultipartUploadId :: Lens.Lens' ListPartsResponse (Lude.Maybe Lude.Text)
-lprsMultipartUploadId = Lens.lens (multipartUploadId :: ListPartsResponse -> Lude.Maybe Lude.Text) (\s a -> s {multipartUploadId = a} :: ListPartsResponse)
-{-# DEPRECATED lprsMultipartUploadId "Use generic-lens or generic-optics with 'multipartUploadId' instead." #-}
-
--- | The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
---
--- /Note:/ Consider using 'partSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsPartSizeInBytes :: Lens.Lens' ListPartsResponse (Lude.Maybe Lude.Integer)
-lprsPartSizeInBytes = Lens.lens (partSizeInBytes :: ListPartsResponse -> Lude.Maybe Lude.Integer) (\s a -> s {partSizeInBytes = a} :: ListPartsResponse)
-{-# DEPRECATED lprsPartSizeInBytes "Use generic-lens or generic-optics with 'partSizeInBytes' instead." #-}
 
 -- | The description of the archive that was specified in the Initiate Multipart Upload request.
 --
 -- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsArchiveDescription :: Lens.Lens' ListPartsResponse (Lude.Maybe Lude.Text)
-lprsArchiveDescription = Lens.lens (archiveDescription :: ListPartsResponse -> Lude.Maybe Lude.Text) (\s a -> s {archiveDescription = a} :: ListPartsResponse)
-{-# DEPRECATED lprsArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
---
--- /Note:/ Consider using 'vaultARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsVaultARN :: Lens.Lens' ListPartsResponse (Lude.Maybe Lude.Text)
-lprsVaultARN = Lens.lens (vaultARN :: ListPartsResponse -> Lude.Maybe Lude.Text) (\s a -> s {vaultARN = a} :: ListPartsResponse)
-{-# DEPRECATED lprsVaultARN "Use generic-lens or generic-optics with 'vaultARN' instead." #-}
-
--- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsMarker :: Lens.Lens' ListPartsResponse (Lude.Maybe Lude.Text)
-lprsMarker = Lens.lens (marker :: ListPartsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListPartsResponse)
-{-# DEPRECATED lprsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lprrsArchiveDescription :: Lens.Lens' ListPartsResponse (Core.Maybe Types.String)
+lprrsArchiveDescription = Lens.field @"archiveDescription"
+{-# DEPRECATED lprrsArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
 
 -- | The UTC time at which the multipart upload was initiated.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsCreationDate :: Lens.Lens' ListPartsResponse (Lude.Maybe Lude.Text)
-lprsCreationDate = Lens.lens (creationDate :: ListPartsResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: ListPartsResponse)
-{-# DEPRECATED lprsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+lprrsCreationDate :: Lens.Lens' ListPartsResponse (Core.Maybe Types.String)
+lprrsCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED lprrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprrsMarker :: Lens.Lens' ListPartsResponse (Core.Maybe Types.String)
+lprrsMarker = Lens.field @"marker"
+{-# DEPRECATED lprrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The ID of the upload to which the parts are associated.
+--
+-- /Note:/ Consider using 'multipartUploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprrsMultipartUploadId :: Lens.Lens' ListPartsResponse (Core.Maybe Types.String)
+lprrsMultipartUploadId = Lens.field @"multipartUploadId"
+{-# DEPRECATED lprrsMultipartUploadId "Use generic-lens or generic-optics with 'multipartUploadId' instead." #-}
+
+-- | The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
+--
+-- /Note:/ Consider using 'partSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprrsPartSizeInBytes :: Lens.Lens' ListPartsResponse (Core.Maybe Core.Integer)
+lprrsPartSizeInBytes = Lens.field @"partSizeInBytes"
+{-# DEPRECATED lprrsPartSizeInBytes "Use generic-lens or generic-optics with 'partSizeInBytes' instead." #-}
+
+-- | A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
+--
+-- /Note:/ Consider using 'parts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprrsParts :: Lens.Lens' ListPartsResponse (Core.Maybe [Types.PartListElement])
+lprrsParts = Lens.field @"parts"
+{-# DEPRECATED lprrsParts "Use generic-lens or generic-optics with 'parts' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
+--
+-- /Note:/ Consider using 'vaultARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprrsVaultARN :: Lens.Lens' ListPartsResponse (Core.Maybe Types.String)
+lprrsVaultARN = Lens.field @"vaultARN"
+{-# DEPRECATED lprrsVaultARN "Use generic-lens or generic-optics with 'vaultARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsResponseStatus :: Lens.Lens' ListPartsResponse Lude.Int
-lprsResponseStatus = Lens.lens (responseStatus :: ListPartsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPartsResponse)
-{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lprrsResponseStatus :: Lens.Lens' ListPartsResponse Core.Int
+lprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

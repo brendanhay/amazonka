@@ -28,126 +28,114 @@ module Network.AWS.DirectoryService.CreateSnapshot
     mkCreateSnapshotResponse,
 
     -- ** Response lenses
-    csrsSnapshotId,
-    csrsResponseStatus,
+    csrrsSnapshotId,
+    csrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the inputs for the 'CreateSnapshot' operation.
 --
 -- /See:/ 'mkCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
   { -- | The identifier of the directory of which to take a snapshot.
-    directoryId :: Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The descriptive name to apply to the snapshot.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory of which to take a snapshot.
--- * 'name' - The descriptive name to apply to the snapshot.
+-- | Creates a 'CreateSnapshot' value with any optional fields omitted.
 mkCreateSnapshot ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   CreateSnapshot
-mkCreateSnapshot pDirectoryId_ =
-  CreateSnapshot' {directoryId = pDirectoryId_, name = Lude.Nothing}
+mkCreateSnapshot directoryId =
+  CreateSnapshot' {directoryId, name = Core.Nothing}
 
 -- | The identifier of the directory of which to take a snapshot.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csDirectoryId :: Lens.Lens' CreateSnapshot Lude.Text
-csDirectoryId = Lens.lens (directoryId :: CreateSnapshot -> Lude.Text) (\s a -> s {directoryId = a} :: CreateSnapshot)
+csDirectoryId :: Lens.Lens' CreateSnapshot Types.DirectoryId
+csDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED csDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The descriptive name to apply to the snapshot.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
-csName = Lens.lens (name :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateSnapshot)
+csName :: Lens.Lens' CreateSnapshot (Core.Maybe Types.Name)
+csName = Lens.field @"name"
 {-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest CreateSnapshot where
+instance Core.FromJSON CreateSnapshot where
+  toJSON CreateSnapshot {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            ("Name" Core..=) Core.<$> name
+          ]
+      )
+
+instance Core.AWSRequest CreateSnapshot where
   type Rs CreateSnapshot = CreateSnapshotResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.CreateSnapshot")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateSnapshotResponse'
-            Lude.<$> (x Lude..?> "SnapshotId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SnapshotId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSnapshot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.CreateSnapshot" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateSnapshot where
-  toJSON CreateSnapshot' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            ("Name" Lude..=) Lude.<$> name
-          ]
-      )
-
-instance Lude.ToPath CreateSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSnapshot where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'CreateSnapshot' operation.
 --
 -- /See:/ 'mkCreateSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
   { -- | The identifier of the snapshot that was created.
-    snapshotId :: Lude.Maybe Lude.Text,
+    snapshotId :: Core.Maybe Types.SnapshotId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'snapshotId' - The identifier of the snapshot that was created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSnapshotResponse' value with any optional fields omitted.
 mkCreateSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSnapshotResponse
-mkCreateSnapshotResponse pResponseStatus_ =
+mkCreateSnapshotResponse responseStatus =
   CreateSnapshotResponse'
-    { snapshotId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { snapshotId = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier of the snapshot that was created.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsSnapshotId :: Lens.Lens' CreateSnapshotResponse (Lude.Maybe Lude.Text)
-csrsSnapshotId = Lens.lens (snapshotId :: CreateSnapshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateSnapshotResponse)
-{-# DEPRECATED csrsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+csrrsSnapshotId :: Lens.Lens' CreateSnapshotResponse (Core.Maybe Types.SnapshotId)
+csrrsSnapshotId = Lens.field @"snapshotId"
+{-# DEPRECATED csrrsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CreateSnapshotResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CreateSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSnapshotResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrrsResponseStatus :: Lens.Lens' CreateSnapshotResponse Core.Int
+csrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

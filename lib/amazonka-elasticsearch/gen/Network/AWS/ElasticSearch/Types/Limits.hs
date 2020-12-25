@@ -17,17 +17,17 @@ module Network.AWS.ElasticSearch.Types.Limits
     mkLimits,
 
     -- * Lenses
-    lInstanceLimits,
     lAdditionalLimits,
+    lInstanceLimits,
     lStorageTypes,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.AdditionalLimit
-import Network.AWS.ElasticSearch.Types.InstanceLimits
-import Network.AWS.ElasticSearch.Types.StorageType
+import qualified Network.AWS.ElasticSearch.Types.AdditionalLimit as Types
+import qualified Network.AWS.ElasticSearch.Types.InstanceLimits as Types
+import qualified Network.AWS.ElasticSearch.Types.StorageType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Limits for given InstanceType and for each of it's role.
 --
@@ -35,57 +35,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLimits' smart constructor.
 data Limits = Limits'
-  { instanceLimits :: Lude.Maybe InstanceLimits,
-    -- | List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
-    additionalLimits :: Lude.Maybe [AdditionalLimit],
+  { -- | List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
+    additionalLimits :: Core.Maybe [Types.AdditionalLimit],
+    instanceLimits :: Core.Maybe Types.InstanceLimits,
     -- | StorageType represents the list of storage related types and attributes that are available for given InstanceType.
-    storageTypes :: Lude.Maybe [StorageType]
+    storageTypes :: Core.Maybe [Types.StorageType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Limits' with the minimum fields required to make a request.
---
--- * 'instanceLimits' -
--- * 'additionalLimits' - List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
--- * 'storageTypes' - StorageType represents the list of storage related types and attributes that are available for given InstanceType.
+-- | Creates a 'Limits' value with any optional fields omitted.
 mkLimits ::
   Limits
 mkLimits =
   Limits'
-    { instanceLimits = Lude.Nothing,
-      additionalLimits = Lude.Nothing,
-      storageTypes = Lude.Nothing
+    { additionalLimits = Core.Nothing,
+      instanceLimits = Core.Nothing,
+      storageTypes = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'instanceLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lInstanceLimits :: Lens.Lens' Limits (Lude.Maybe InstanceLimits)
-lInstanceLimits = Lens.lens (instanceLimits :: Limits -> Lude.Maybe InstanceLimits) (\s a -> s {instanceLimits = a} :: Limits)
-{-# DEPRECATED lInstanceLimits "Use generic-lens or generic-optics with 'instanceLimits' instead." #-}
 
 -- | List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
 --
 -- /Note:/ Consider using 'additionalLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lAdditionalLimits :: Lens.Lens' Limits (Lude.Maybe [AdditionalLimit])
-lAdditionalLimits = Lens.lens (additionalLimits :: Limits -> Lude.Maybe [AdditionalLimit]) (\s a -> s {additionalLimits = a} :: Limits)
+lAdditionalLimits :: Lens.Lens' Limits (Core.Maybe [Types.AdditionalLimit])
+lAdditionalLimits = Lens.field @"additionalLimits"
 {-# DEPRECATED lAdditionalLimits "Use generic-lens or generic-optics with 'additionalLimits' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'instanceLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lInstanceLimits :: Lens.Lens' Limits (Core.Maybe Types.InstanceLimits)
+lInstanceLimits = Lens.field @"instanceLimits"
+{-# DEPRECATED lInstanceLimits "Use generic-lens or generic-optics with 'instanceLimits' instead." #-}
 
 -- | StorageType represents the list of storage related types and attributes that are available for given InstanceType.
 --
 -- /Note:/ Consider using 'storageTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lStorageTypes :: Lens.Lens' Limits (Lude.Maybe [StorageType])
-lStorageTypes = Lens.lens (storageTypes :: Limits -> Lude.Maybe [StorageType]) (\s a -> s {storageTypes = a} :: Limits)
+lStorageTypes :: Lens.Lens' Limits (Core.Maybe [Types.StorageType])
+lStorageTypes = Lens.field @"storageTypes"
 {-# DEPRECATED lStorageTypes "Use generic-lens or generic-optics with 'storageTypes' instead." #-}
 
-instance Lude.FromJSON Limits where
+instance Core.FromJSON Limits where
   parseJSON =
-    Lude.withObject
-      "Limits"
-      ( \x ->
-          Limits'
-            Lude.<$> (x Lude..:? "InstanceLimits")
-            Lude.<*> (x Lude..:? "AdditionalLimits" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "StorageTypes" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Limits" Core.$
+      \x ->
+        Limits'
+          Core.<$> (x Core..:? "AdditionalLimits")
+          Core.<*> (x Core..:? "InstanceLimits")
+          Core.<*> (x Core..:? "StorageTypes")

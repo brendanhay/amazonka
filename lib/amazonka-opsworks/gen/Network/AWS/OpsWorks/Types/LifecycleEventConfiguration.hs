@@ -22,43 +22,39 @@ module Network.AWS.OpsWorks.Types.LifecycleEventConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.ShutdownEventConfiguration as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the lifecycle event configuration
 --
 -- /See:/ 'mkLifecycleEventConfiguration' smart constructor.
 newtype LifecycleEventConfiguration = LifecycleEventConfiguration'
   { -- | A @ShutdownEventConfiguration@ object that specifies the Shutdown event configuration.
-    shutdown :: Lude.Maybe ShutdownEventConfiguration
+    shutdown :: Core.Maybe Types.ShutdownEventConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LifecycleEventConfiguration' with the minimum fields required to make a request.
---
--- * 'shutdown' - A @ShutdownEventConfiguration@ object that specifies the Shutdown event configuration.
+-- | Creates a 'LifecycleEventConfiguration' value with any optional fields omitted.
 mkLifecycleEventConfiguration ::
   LifecycleEventConfiguration
 mkLifecycleEventConfiguration =
-  LifecycleEventConfiguration' {shutdown = Lude.Nothing}
+  LifecycleEventConfiguration' {shutdown = Core.Nothing}
 
 -- | A @ShutdownEventConfiguration@ object that specifies the Shutdown event configuration.
 --
 -- /Note:/ Consider using 'shutdown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lecShutdown :: Lens.Lens' LifecycleEventConfiguration (Lude.Maybe ShutdownEventConfiguration)
-lecShutdown = Lens.lens (shutdown :: LifecycleEventConfiguration -> Lude.Maybe ShutdownEventConfiguration) (\s a -> s {shutdown = a} :: LifecycleEventConfiguration)
+lecShutdown :: Lens.Lens' LifecycleEventConfiguration (Core.Maybe Types.ShutdownEventConfiguration)
+lecShutdown = Lens.field @"shutdown"
 {-# DEPRECATED lecShutdown "Use generic-lens or generic-optics with 'shutdown' instead." #-}
 
-instance Lude.FromJSON LifecycleEventConfiguration where
-  parseJSON =
-    Lude.withObject
-      "LifecycleEventConfiguration"
-      ( \x ->
-          LifecycleEventConfiguration' Lude.<$> (x Lude..:? "Shutdown")
-      )
+instance Core.FromJSON LifecycleEventConfiguration where
+  toJSON LifecycleEventConfiguration {..} =
+    Core.object
+      (Core.catMaybes [("Shutdown" Core..=) Core.<$> shutdown])
 
-instance Lude.ToJSON LifecycleEventConfiguration where
-  toJSON LifecycleEventConfiguration' {..} =
-    Lude.object
-      (Lude.catMaybes [("Shutdown" Lude..=) Lude.<$> shutdown])
+instance Core.FromJSON LifecycleEventConfiguration where
+  parseJSON =
+    Core.withObject "LifecycleEventConfiguration" Core.$
+      \x ->
+        LifecycleEventConfiguration' Core.<$> (x Core..:? "Shutdown")

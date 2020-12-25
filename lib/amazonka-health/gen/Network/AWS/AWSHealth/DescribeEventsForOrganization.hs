@@ -36,185 +36,172 @@ module Network.AWS.AWSHealth.DescribeEventsForOrganization
     mkDescribeEventsForOrganization,
 
     -- ** Request lenses
-    defoLocale,
-    defoNextToken,
     defoFilter,
+    defoLocale,
     defoMaxResults,
+    defoNextToken,
 
     -- * Destructuring the response
     DescribeEventsForOrganizationResponse (..),
     mkDescribeEventsForOrganizationResponse,
 
     -- ** Response lenses
-    deforsNextToken,
-    deforsEvents,
-    deforsResponseStatus,
+    deforrsEvents,
+    deforrsNextToken,
+    deforrsResponseStatus,
   )
 where
 
-import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.AWSHealth.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeEventsForOrganization' smart constructor.
 data DescribeEventsForOrganization = DescribeEventsForOrganization'
-  { -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
-    locale :: Lude.Maybe Lude.Text,
-    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Values to narrow the results returned.
-    filter :: Lude.Maybe OrganizationEventFilter,
+  { -- | Values to narrow the results returned.
+    filter :: Core.Maybe Types.OrganizationEventFilter,
+    -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+    locale :: Core.Maybe Types.Locale,
     -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEventsForOrganization' with the minimum fields required to make a request.
---
--- * 'locale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
--- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
--- * 'filter' - Values to narrow the results returned.
--- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
+-- | Creates a 'DescribeEventsForOrganization' value with any optional fields omitted.
 mkDescribeEventsForOrganization ::
   DescribeEventsForOrganization
 mkDescribeEventsForOrganization =
   DescribeEventsForOrganization'
-    { locale = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      filter = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filter = Core.Nothing,
+      locale = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
---
--- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defoLocale :: Lens.Lens' DescribeEventsForOrganization (Lude.Maybe Lude.Text)
-defoLocale = Lens.lens (locale :: DescribeEventsForOrganization -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: DescribeEventsForOrganization)
-{-# DEPRECATED defoLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
-
--- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defoNextToken :: Lens.Lens' DescribeEventsForOrganization (Lude.Maybe Lude.Text)
-defoNextToken = Lens.lens (nextToken :: DescribeEventsForOrganization -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEventsForOrganization)
-{-# DEPRECATED defoNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Values to narrow the results returned.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defoFilter :: Lens.Lens' DescribeEventsForOrganization (Lude.Maybe OrganizationEventFilter)
-defoFilter = Lens.lens (filter :: DescribeEventsForOrganization -> Lude.Maybe OrganizationEventFilter) (\s a -> s {filter = a} :: DescribeEventsForOrganization)
+defoFilter :: Lens.Lens' DescribeEventsForOrganization (Core.Maybe Types.OrganizationEventFilter)
+defoFilter = Lens.field @"filter"
 {-# DEPRECATED defoFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
+-- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+defoLocale :: Lens.Lens' DescribeEventsForOrganization (Core.Maybe Types.Locale)
+defoLocale = Lens.field @"locale"
+{-# DEPRECATED defoLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defoMaxResults :: Lens.Lens' DescribeEventsForOrganization (Lude.Maybe Lude.Natural)
-defoMaxResults = Lens.lens (maxResults :: DescribeEventsForOrganization -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEventsForOrganization)
+defoMaxResults :: Lens.Lens' DescribeEventsForOrganization (Core.Maybe Core.Natural)
+defoMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED defoMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager DescribeEventsForOrganization where
-  page rq rs
-    | Page.stop (rs Lens.^. deforsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. deforsEvents) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& defoNextToken Lens..~ rs Lens.^. deforsNextToken
-
-instance Lude.AWSRequest DescribeEventsForOrganization where
-  type
-    Rs DescribeEventsForOrganization =
-      DescribeEventsForOrganizationResponse
-  request = Req.postJSON awsHealthService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribeEventsForOrganizationResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "events" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeEventsForOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSHealth_20160804.DescribeEventsForOrganization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeEventsForOrganization where
-  toJSON DescribeEventsForOrganization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("locale" Lude..=) Lude.<$> locale,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeEventsForOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEventsForOrganization where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkDescribeEventsForOrganizationResponse' smart constructor.
-data DescribeEventsForOrganizationResponse = DescribeEventsForOrganizationResponse'
-  { -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The events that match the specified filter criteria.
-    events :: Lude.Maybe [OrganizationEvent],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'DescribeEventsForOrganizationResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
--- * 'events' - The events that match the specified filter criteria.
--- * 'responseStatus' - The response status code.
-mkDescribeEventsForOrganizationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  DescribeEventsForOrganizationResponse
-mkDescribeEventsForOrganizationResponse pResponseStatus_ =
-  DescribeEventsForOrganizationResponse'
-    { nextToken = Lude.Nothing,
-      events = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deforsNextToken :: Lens.Lens' DescribeEventsForOrganizationResponse (Lude.Maybe Lude.Text)
-deforsNextToken = Lens.lens (nextToken :: DescribeEventsForOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEventsForOrganizationResponse)
-{-# DEPRECATED deforsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+defoNextToken :: Lens.Lens' DescribeEventsForOrganization (Core.Maybe Types.NextToken)
+defoNextToken = Lens.field @"nextToken"
+{-# DEPRECATED defoNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON DescribeEventsForOrganization where
+  toJSON DescribeEventsForOrganization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("filter" Core..=) Core.<$> filter,
+            ("locale" Core..=) Core.<$> locale,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeEventsForOrganization where
+  type
+    Rs DescribeEventsForOrganization =
+      DescribeEventsForOrganizationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSHealth_20160804.DescribeEventsForOrganization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeEventsForOrganizationResponse'
+            Core.<$> (x Core..:? "events")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager DescribeEventsForOrganization where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"events" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkDescribeEventsForOrganizationResponse' smart constructor.
+data DescribeEventsForOrganizationResponse = DescribeEventsForOrganizationResponse'
+  { -- | The events that match the specified filter criteria.
+    events :: Core.Maybe [Types.OrganizationEvent],
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'DescribeEventsForOrganizationResponse' value with any optional fields omitted.
+mkDescribeEventsForOrganizationResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  DescribeEventsForOrganizationResponse
+mkDescribeEventsForOrganizationResponse responseStatus =
+  DescribeEventsForOrganizationResponse'
+    { events = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | The events that match the specified filter criteria.
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deforsEvents :: Lens.Lens' DescribeEventsForOrganizationResponse (Lude.Maybe [OrganizationEvent])
-deforsEvents = Lens.lens (events :: DescribeEventsForOrganizationResponse -> Lude.Maybe [OrganizationEvent]) (\s a -> s {events = a} :: DescribeEventsForOrganizationResponse)
-{-# DEPRECATED deforsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+deforrsEvents :: Lens.Lens' DescribeEventsForOrganizationResponse (Core.Maybe [Types.OrganizationEvent])
+deforrsEvents = Lens.field @"events"
+{-# DEPRECATED deforrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+
+-- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deforrsNextToken :: Lens.Lens' DescribeEventsForOrganizationResponse (Core.Maybe Types.NextToken)
+deforrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED deforrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deforsResponseStatus :: Lens.Lens' DescribeEventsForOrganizationResponse Lude.Int
-deforsResponseStatus = Lens.lens (responseStatus :: DescribeEventsForOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventsForOrganizationResponse)
-{-# DEPRECATED deforsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+deforrsResponseStatus :: Lens.Lens' DescribeEventsForOrganizationResponse Core.Int
+deforrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED deforrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

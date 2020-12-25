@@ -22,46 +22,41 @@ module Network.AWS.CodeBuild.Types.GitSubmodulesConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the Git submodules configuration for an AWS CodeBuild build project.
 --
 -- /See:/ 'mkGitSubmodulesConfig' smart constructor.
 newtype GitSubmodulesConfig = GitSubmodulesConfig'
   { -- | Set to true to fetch Git submodules for your AWS CodeBuild build project.
-    fetchSubmodules :: Lude.Bool
+    fetchSubmodules :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GitSubmodulesConfig' with the minimum fields required to make a request.
---
--- * 'fetchSubmodules' - Set to true to fetch Git submodules for your AWS CodeBuild build project.
+-- | Creates a 'GitSubmodulesConfig' value with any optional fields omitted.
 mkGitSubmodulesConfig ::
   -- | 'fetchSubmodules'
-  Lude.Bool ->
+  Core.Bool ->
   GitSubmodulesConfig
-mkGitSubmodulesConfig pFetchSubmodules_ =
-  GitSubmodulesConfig' {fetchSubmodules = pFetchSubmodules_}
+mkGitSubmodulesConfig fetchSubmodules =
+  GitSubmodulesConfig' {fetchSubmodules}
 
 -- | Set to true to fetch Git submodules for your AWS CodeBuild build project.
 --
 -- /Note:/ Consider using 'fetchSubmodules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gscFetchSubmodules :: Lens.Lens' GitSubmodulesConfig Lude.Bool
-gscFetchSubmodules = Lens.lens (fetchSubmodules :: GitSubmodulesConfig -> Lude.Bool) (\s a -> s {fetchSubmodules = a} :: GitSubmodulesConfig)
+gscFetchSubmodules :: Lens.Lens' GitSubmodulesConfig Core.Bool
+gscFetchSubmodules = Lens.field @"fetchSubmodules"
 {-# DEPRECATED gscFetchSubmodules "Use generic-lens or generic-optics with 'fetchSubmodules' instead." #-}
 
-instance Lude.FromJSON GitSubmodulesConfig where
-  parseJSON =
-    Lude.withObject
-      "GitSubmodulesConfig"
-      ( \x ->
-          GitSubmodulesConfig' Lude.<$> (x Lude..: "fetchSubmodules")
+instance Core.FromJSON GitSubmodulesConfig where
+  toJSON GitSubmodulesConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("fetchSubmodules" Core..= fetchSubmodules)]
       )
 
-instance Lude.ToJSON GitSubmodulesConfig where
-  toJSON GitSubmodulesConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("fetchSubmodules" Lude..= fetchSubmodules)]
-      )
+instance Core.FromJSON GitSubmodulesConfig where
+  parseJSON =
+    Core.withObject "GitSubmodulesConfig" Core.$
+      \x -> GitSubmodulesConfig' Core.<$> (x Core..: "fetchSubmodules")

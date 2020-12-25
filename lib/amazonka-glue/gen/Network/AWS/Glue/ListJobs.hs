@@ -22,8 +22,8 @@ module Network.AWS.Glue.ListJobs
     mkListJobs,
 
     -- ** Request lenses
-    ljNextToken,
     ljMaxResults,
+    ljNextToken,
     ljTags,
 
     -- * Destructuring the response
@@ -31,148 +31,134 @@ module Network.AWS.Glue.ListJobs
     mkListJobsResponse,
 
     -- ** Response lenses
-    ljrsNextToken,
-    ljrsJobNames,
-    ljrsResponseStatus,
+    ljrrsJobNames,
+    ljrrsNextToken,
+    ljrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | A continuation token, if this is a continuation request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum size of a list to return.
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The maximum size of a list to return.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A continuation token, if this is a continuation request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Specifies to return only these tagged resources.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
---
--- * 'nextToken' - A continuation token, if this is a continuation request.
--- * 'maxResults' - The maximum size of a list to return.
--- * 'tags' - Specifies to return only these tagged resources.
+-- | Creates a 'ListJobs' value with any optional fields omitted.
 mkListJobs ::
   ListJobs
 mkListJobs =
   ListJobs'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      tags = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | A continuation token, if this is a continuation request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljNextToken :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobs)
-{-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of a list to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljMaxResults :: Lens.Lens' ListJobs (Lude.Maybe Lude.Natural)
-ljMaxResults = Lens.lens (maxResults :: ListJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobs)
+ljMaxResults :: Lens.Lens' ListJobs (Core.Maybe Core.Natural)
+ljMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ljMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A continuation token, if this is a continuation request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljNextToken :: Lens.Lens' ListJobs (Core.Maybe Types.NextToken)
+ljNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specifies to return only these tagged resources.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljTags :: Lens.Lens' ListJobs (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ljTags = Lens.lens (tags :: ListJobs -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListJobs)
+ljTags :: Lens.Lens' ListJobs (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+ljTags = Lens.field @"tags"
 {-# DEPRECATED ljTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest ListJobs where
+instance Core.FromJSON ListJobs where
+  toJSON ListJobs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest ListJobs where
   type Rs ListJobs = ListJobsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.ListJobs")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "JobNames" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobNames")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.ListJobs" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListJobs where
-  toJSON ListJobs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath ListJobs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListJobs where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { -- | A continuation token, if the returned list does not contain the last metric available.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The names of all jobs in the account, or the jobs with the specified tags.
-    jobNames :: Lude.Maybe [Lude.Text],
+  { -- | The names of all jobs in the account, or the jobs with the specified tags.
+    jobNames :: Core.Maybe [Types.NameString],
+    -- | A continuation token, if the returned list does not contain the last metric available.
+    nextToken :: Core.Maybe Types.GenericString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A continuation token, if the returned list does not contain the last metric available.
--- * 'jobNames' - The names of all jobs in the account, or the jobs with the specified tags.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListJobsResponse' value with any optional fields omitted.
 mkListJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListJobsResponse
-mkListJobsResponse pResponseStatus_ =
+mkListJobsResponse responseStatus =
   ListJobsResponse'
-    { nextToken = Lude.Nothing,
-      jobNames = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobNames = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | A continuation token, if the returned list does not contain the last metric available.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsNextToken :: Lens.Lens' ListJobsResponse (Lude.Maybe Lude.Text)
-ljrsNextToken = Lens.lens (nextToken :: ListJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of all jobs in the account, or the jobs with the specified tags.
 --
 -- /Note:/ Consider using 'jobNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsJobNames :: Lens.Lens' ListJobsResponse (Lude.Maybe [Lude.Text])
-ljrsJobNames = Lens.lens (jobNames :: ListJobsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {jobNames = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsJobNames "Use generic-lens or generic-optics with 'jobNames' instead." #-}
+ljrrsJobNames :: Lens.Lens' ListJobsResponse (Core.Maybe [Types.NameString])
+ljrrsJobNames = Lens.field @"jobNames"
+{-# DEPRECATED ljrrsJobNames "Use generic-lens or generic-optics with 'jobNames' instead." #-}
+
+-- | A continuation token, if the returned list does not contain the last metric available.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrrsNextToken :: Lens.Lens' ListJobsResponse (Core.Maybe Types.GenericString)
+ljrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ljrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsResponseStatus :: Lens.Lens' ListJobsResponse Lude.Int
-ljrsResponseStatus = Lens.lens (responseStatus :: ListJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ljrrsResponseStatus :: Lens.Lens' ListJobsResponse Core.Int
+ljrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ljrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

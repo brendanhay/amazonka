@@ -27,178 +27,161 @@ module Network.AWS.Route53Domains.GetOperationDetail
     mkGetOperationDetailResponse,
 
     -- ** Response lenses
-    godrsStatus,
-    godrsSubmittedDate,
-    godrsDomainName,
-    godrsOperationId,
-    godrsType,
-    godrsMessage,
-    godrsResponseStatus,
+    godrrsDomainName,
+    godrrsMessage,
+    godrrsOperationId,
+    godrrsStatus,
+    godrrsSubmittedDate,
+    godrrsType,
+    godrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | The <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> request includes the following element.
 --
 -- /See:/ 'mkGetOperationDetail' smart constructor.
 newtype GetOperationDetail = GetOperationDetail'
   { -- | The identifier for the operation for which you want to get the status. Route 53 returned the identifier in the response to the original request.
-    operationId :: Lude.Text
+    operationId :: Types.OperationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetOperationDetail' with the minimum fields required to make a request.
---
--- * 'operationId' - The identifier for the operation for which you want to get the status. Route 53 returned the identifier in the response to the original request.
+-- | Creates a 'GetOperationDetail' value with any optional fields omitted.
 mkGetOperationDetail ::
   -- | 'operationId'
-  Lude.Text ->
+  Types.OperationId ->
   GetOperationDetail
-mkGetOperationDetail pOperationId_ =
-  GetOperationDetail' {operationId = pOperationId_}
+mkGetOperationDetail operationId = GetOperationDetail' {operationId}
 
 -- | The identifier for the operation for which you want to get the status. Route 53 returned the identifier in the response to the original request.
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-godOperationId :: Lens.Lens' GetOperationDetail Lude.Text
-godOperationId = Lens.lens (operationId :: GetOperationDetail -> Lude.Text) (\s a -> s {operationId = a} :: GetOperationDetail)
+godOperationId :: Lens.Lens' GetOperationDetail Types.OperationId
+godOperationId = Lens.field @"operationId"
 {-# DEPRECATED godOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
-instance Lude.AWSRequest GetOperationDetail where
+instance Core.FromJSON GetOperationDetail where
+  toJSON GetOperationDetail {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("OperationId" Core..= operationId)])
+
+instance Core.AWSRequest GetOperationDetail where
   type Rs GetOperationDetail = GetOperationDetailResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53Domains_v20140515.GetOperationDetail")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetOperationDetailResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "SubmittedDate")
-            Lude.<*> (x Lude..?> "DomainName")
-            Lude.<*> (x Lude..?> "OperationId")
-            Lude.<*> (x Lude..?> "Type")
-            Lude.<*> (x Lude..?> "Message")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DomainName")
+            Core.<*> (x Core..:? "Message")
+            Core.<*> (x Core..:? "OperationId")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "SubmittedDate")
+            Core.<*> (x Core..:? "Type")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetOperationDetail where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53Domains_v20140515.GetOperationDetail" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetOperationDetail where
-  toJSON GetOperationDetail' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("OperationId" Lude..= operationId)])
-
-instance Lude.ToPath GetOperationDetail where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetOperationDetail where
-  toQuery = Lude.const Lude.mempty
 
 -- | The GetOperationDetail response includes the following elements.
 --
 -- /See:/ 'mkGetOperationDetailResponse' smart constructor.
 data GetOperationDetailResponse = GetOperationDetailResponse'
-  { -- | The current status of the requested operation in the system.
-    status :: Lude.Maybe OperationStatus,
-    -- | The date when the request was submitted.
-    submittedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of a domain.
-    domainName :: Lude.Maybe Lude.Text,
-    -- | The identifier for the operation.
-    operationId :: Lude.Maybe Lude.Text,
-    -- | The type of operation that was requested.
-    type' :: Lude.Maybe OperationType,
+  { -- | The name of a domain.
+    domainName :: Core.Maybe Types.DomainName,
     -- | Detailed information on the status including possible errors.
-    message :: Lude.Maybe Lude.Text,
+    message :: Core.Maybe Types.Message,
+    -- | The identifier for the operation.
+    operationId :: Core.Maybe Types.OperationId,
+    -- | The current status of the requested operation in the system.
+    status :: Core.Maybe Types.OperationStatus,
+    -- | The date when the request was submitted.
+    submittedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The type of operation that was requested.
+    type' :: Core.Maybe Types.OperationType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetOperationDetailResponse' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the requested operation in the system.
--- * 'submittedDate' - The date when the request was submitted.
--- * 'domainName' - The name of a domain.
--- * 'operationId' - The identifier for the operation.
--- * 'type'' - The type of operation that was requested.
--- * 'message' - Detailed information on the status including possible errors.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetOperationDetailResponse' value with any optional fields omitted.
 mkGetOperationDetailResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetOperationDetailResponse
-mkGetOperationDetailResponse pResponseStatus_ =
+mkGetOperationDetailResponse responseStatus =
   GetOperationDetailResponse'
-    { status = Lude.Nothing,
-      submittedDate = Lude.Nothing,
-      domainName = Lude.Nothing,
-      operationId = Lude.Nothing,
-      type' = Lude.Nothing,
-      message = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { domainName = Core.Nothing,
+      message = Core.Nothing,
+      operationId = Core.Nothing,
+      status = Core.Nothing,
+      submittedDate = Core.Nothing,
+      type' = Core.Nothing,
+      responseStatus
     }
-
--- | The current status of the requested operation in the system.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-godrsStatus :: Lens.Lens' GetOperationDetailResponse (Lude.Maybe OperationStatus)
-godrsStatus = Lens.lens (status :: GetOperationDetailResponse -> Lude.Maybe OperationStatus) (\s a -> s {status = a} :: GetOperationDetailResponse)
-{-# DEPRECATED godrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date when the request was submitted.
---
--- /Note:/ Consider using 'submittedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-godrsSubmittedDate :: Lens.Lens' GetOperationDetailResponse (Lude.Maybe Lude.Timestamp)
-godrsSubmittedDate = Lens.lens (submittedDate :: GetOperationDetailResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {submittedDate = a} :: GetOperationDetailResponse)
-{-# DEPRECATED godrsSubmittedDate "Use generic-lens or generic-optics with 'submittedDate' instead." #-}
 
 -- | The name of a domain.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-godrsDomainName :: Lens.Lens' GetOperationDetailResponse (Lude.Maybe Lude.Text)
-godrsDomainName = Lens.lens (domainName :: GetOperationDetailResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: GetOperationDetailResponse)
-{-# DEPRECATED godrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
--- | The identifier for the operation.
---
--- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-godrsOperationId :: Lens.Lens' GetOperationDetailResponse (Lude.Maybe Lude.Text)
-godrsOperationId = Lens.lens (operationId :: GetOperationDetailResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: GetOperationDetailResponse)
-{-# DEPRECATED godrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
-
--- | The type of operation that was requested.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-godrsType :: Lens.Lens' GetOperationDetailResponse (Lude.Maybe OperationType)
-godrsType = Lens.lens (type' :: GetOperationDetailResponse -> Lude.Maybe OperationType) (\s a -> s {type' = a} :: GetOperationDetailResponse)
-{-# DEPRECATED godrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+godrrsDomainName :: Lens.Lens' GetOperationDetailResponse (Core.Maybe Types.DomainName)
+godrrsDomainName = Lens.field @"domainName"
+{-# DEPRECATED godrrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Detailed information on the status including possible errors.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-godrsMessage :: Lens.Lens' GetOperationDetailResponse (Lude.Maybe Lude.Text)
-godrsMessage = Lens.lens (message :: GetOperationDetailResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: GetOperationDetailResponse)
-{-# DEPRECATED godrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+godrrsMessage :: Lens.Lens' GetOperationDetailResponse (Core.Maybe Types.Message)
+godrrsMessage = Lens.field @"message"
+{-# DEPRECATED godrrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The identifier for the operation.
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+godrrsOperationId :: Lens.Lens' GetOperationDetailResponse (Core.Maybe Types.OperationId)
+godrrsOperationId = Lens.field @"operationId"
+{-# DEPRECATED godrrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The current status of the requested operation in the system.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+godrrsStatus :: Lens.Lens' GetOperationDetailResponse (Core.Maybe Types.OperationStatus)
+godrrsStatus = Lens.field @"status"
+{-# DEPRECATED godrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The date when the request was submitted.
+--
+-- /Note:/ Consider using 'submittedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+godrrsSubmittedDate :: Lens.Lens' GetOperationDetailResponse (Core.Maybe Core.NominalDiffTime)
+godrrsSubmittedDate = Lens.field @"submittedDate"
+{-# DEPRECATED godrrsSubmittedDate "Use generic-lens or generic-optics with 'submittedDate' instead." #-}
+
+-- | The type of operation that was requested.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+godrrsType :: Lens.Lens' GetOperationDetailResponse (Core.Maybe Types.OperationType)
+godrrsType = Lens.field @"type'"
+{-# DEPRECATED godrrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-godrsResponseStatus :: Lens.Lens' GetOperationDetailResponse Lude.Int
-godrsResponseStatus = Lens.lens (responseStatus :: GetOperationDetailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOperationDetailResponse)
-{-# DEPRECATED godrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+godrrsResponseStatus :: Lens.Lens' GetOperationDetailResponse Core.Int
+godrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED godrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

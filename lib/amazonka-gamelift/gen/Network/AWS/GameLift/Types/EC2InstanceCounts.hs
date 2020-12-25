@@ -17,18 +17,18 @@ module Network.AWS.GameLift.Types.EC2InstanceCounts
     mkEC2InstanceCounts,
 
     -- * Lenses
-    eicIdLE,
-    eicTERMINATING,
-    eicPENDING,
-    eicMAXIMUM,
-    eicDESIRED,
-    eicMINIMUM,
-    eicACTIVE,
+    ecicACTIVE,
+    ecicDESIRED,
+    ecicIDLE,
+    ecicMAXIMUM,
+    ecicMINIMUM,
+    ecicPENDING,
+    ecicTERMINATING,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Current status of fleet capacity. The number of active instances should match or be in the process of matching the number of desired instances. Pending and terminating counts are non-zero only if fleet capacity is adjusting to an 'UpdateFleetCapacity' request, or if access to resources is temporarily affected.
 --
@@ -54,106 +54,96 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2InstanceCounts' smart constructor.
 data EC2InstanceCounts = EC2InstanceCounts'
-  { -- | Number of active instances in the fleet that are not currently hosting a game session.
-    idLE :: Lude.Maybe Lude.Natural,
-    -- | Number of instances in the fleet that are no longer active but haven't yet been terminated.
-    tERMINATING :: Lude.Maybe Lude.Natural,
-    -- | Number of instances in the fleet that are starting but not yet active.
-    pENDING :: Lude.Maybe Lude.Natural,
-    -- | The maximum value allowed for the fleet's instance count.
-    mAXIMUM :: Lude.Maybe Lude.Natural,
+  { -- | Actual number of active instances in the fleet.
+    active :: Core.Maybe Core.Natural,
     -- | Ideal number of active instances in the fleet.
-    dESIRED :: Lude.Maybe Lude.Natural,
+    desired :: Core.Maybe Core.Natural,
+    -- | Number of active instances in the fleet that are not currently hosting a game session.
+    idle :: Core.Maybe Core.Natural,
+    -- | The maximum value allowed for the fleet's instance count.
+    maximum :: Core.Maybe Core.Natural,
     -- | The minimum value allowed for the fleet's instance count.
-    mINIMUM :: Lude.Maybe Lude.Natural,
-    -- | Actual number of active instances in the fleet.
-    aCTIVE :: Lude.Maybe Lude.Natural
+    minimum :: Core.Maybe Core.Natural,
+    -- | Number of instances in the fleet that are starting but not yet active.
+    pending :: Core.Maybe Core.Natural,
+    -- | Number of instances in the fleet that are no longer active but haven't yet been terminated.
+    terminating :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EC2InstanceCounts' with the minimum fields required to make a request.
---
--- * 'idLE' - Number of active instances in the fleet that are not currently hosting a game session.
--- * 'tERMINATING' - Number of instances in the fleet that are no longer active but haven't yet been terminated.
--- * 'pENDING' - Number of instances in the fleet that are starting but not yet active.
--- * 'mAXIMUM' - The maximum value allowed for the fleet's instance count.
--- * 'dESIRED' - Ideal number of active instances in the fleet.
--- * 'mINIMUM' - The minimum value allowed for the fleet's instance count.
--- * 'aCTIVE' - Actual number of active instances in the fleet.
+-- | Creates a 'EC2InstanceCounts' value with any optional fields omitted.
 mkEC2InstanceCounts ::
   EC2InstanceCounts
 mkEC2InstanceCounts =
   EC2InstanceCounts'
-    { idLE = Lude.Nothing,
-      tERMINATING = Lude.Nothing,
-      pENDING = Lude.Nothing,
-      mAXIMUM = Lude.Nothing,
-      dESIRED = Lude.Nothing,
-      mINIMUM = Lude.Nothing,
-      aCTIVE = Lude.Nothing
+    { active = Core.Nothing,
+      desired = Core.Nothing,
+      idle = Core.Nothing,
+      maximum = Core.Nothing,
+      minimum = Core.Nothing,
+      pending = Core.Nothing,
+      terminating = Core.Nothing
     }
-
--- | Number of active instances in the fleet that are not currently hosting a game session.
---
--- /Note:/ Consider using 'idLE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eicIdLE :: Lens.Lens' EC2InstanceCounts (Lude.Maybe Lude.Natural)
-eicIdLE = Lens.lens (idLE :: EC2InstanceCounts -> Lude.Maybe Lude.Natural) (\s a -> s {idLE = a} :: EC2InstanceCounts)
-{-# DEPRECATED eicIdLE "Use generic-lens or generic-optics with 'idLE' instead." #-}
-
--- | Number of instances in the fleet that are no longer active but haven't yet been terminated.
---
--- /Note:/ Consider using 'tERMINATING' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eicTERMINATING :: Lens.Lens' EC2InstanceCounts (Lude.Maybe Lude.Natural)
-eicTERMINATING = Lens.lens (tERMINATING :: EC2InstanceCounts -> Lude.Maybe Lude.Natural) (\s a -> s {tERMINATING = a} :: EC2InstanceCounts)
-{-# DEPRECATED eicTERMINATING "Use generic-lens or generic-optics with 'tERMINATING' instead." #-}
-
--- | Number of instances in the fleet that are starting but not yet active.
---
--- /Note:/ Consider using 'pENDING' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eicPENDING :: Lens.Lens' EC2InstanceCounts (Lude.Maybe Lude.Natural)
-eicPENDING = Lens.lens (pENDING :: EC2InstanceCounts -> Lude.Maybe Lude.Natural) (\s a -> s {pENDING = a} :: EC2InstanceCounts)
-{-# DEPRECATED eicPENDING "Use generic-lens or generic-optics with 'pENDING' instead." #-}
-
--- | The maximum value allowed for the fleet's instance count.
---
--- /Note:/ Consider using 'mAXIMUM' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eicMAXIMUM :: Lens.Lens' EC2InstanceCounts (Lude.Maybe Lude.Natural)
-eicMAXIMUM = Lens.lens (mAXIMUM :: EC2InstanceCounts -> Lude.Maybe Lude.Natural) (\s a -> s {mAXIMUM = a} :: EC2InstanceCounts)
-{-# DEPRECATED eicMAXIMUM "Use generic-lens or generic-optics with 'mAXIMUM' instead." #-}
-
--- | Ideal number of active instances in the fleet.
---
--- /Note:/ Consider using 'dESIRED' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eicDESIRED :: Lens.Lens' EC2InstanceCounts (Lude.Maybe Lude.Natural)
-eicDESIRED = Lens.lens (dESIRED :: EC2InstanceCounts -> Lude.Maybe Lude.Natural) (\s a -> s {dESIRED = a} :: EC2InstanceCounts)
-{-# DEPRECATED eicDESIRED "Use generic-lens or generic-optics with 'dESIRED' instead." #-}
-
--- | The minimum value allowed for the fleet's instance count.
---
--- /Note:/ Consider using 'mINIMUM' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eicMINIMUM :: Lens.Lens' EC2InstanceCounts (Lude.Maybe Lude.Natural)
-eicMINIMUM = Lens.lens (mINIMUM :: EC2InstanceCounts -> Lude.Maybe Lude.Natural) (\s a -> s {mINIMUM = a} :: EC2InstanceCounts)
-{-# DEPRECATED eicMINIMUM "Use generic-lens or generic-optics with 'mINIMUM' instead." #-}
 
 -- | Actual number of active instances in the fleet.
 --
--- /Note:/ Consider using 'aCTIVE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eicACTIVE :: Lens.Lens' EC2InstanceCounts (Lude.Maybe Lude.Natural)
-eicACTIVE = Lens.lens (aCTIVE :: EC2InstanceCounts -> Lude.Maybe Lude.Natural) (\s a -> s {aCTIVE = a} :: EC2InstanceCounts)
-{-# DEPRECATED eicACTIVE "Use generic-lens or generic-optics with 'aCTIVE' instead." #-}
+-- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecicACTIVE :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
+ecicACTIVE = Lens.field @"active"
+{-# DEPRECATED ecicACTIVE "Use generic-lens or generic-optics with 'active' instead." #-}
 
-instance Lude.FromJSON EC2InstanceCounts where
+-- | Ideal number of active instances in the fleet.
+--
+-- /Note:/ Consider using 'desired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecicDESIRED :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
+ecicDESIRED = Lens.field @"desired"
+{-# DEPRECATED ecicDESIRED "Use generic-lens or generic-optics with 'desired' instead." #-}
+
+-- | Number of active instances in the fleet that are not currently hosting a game session.
+--
+-- /Note:/ Consider using 'idle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecicIDLE :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
+ecicIDLE = Lens.field @"idle"
+{-# DEPRECATED ecicIDLE "Use generic-lens or generic-optics with 'idle' instead." #-}
+
+-- | The maximum value allowed for the fleet's instance count.
+--
+-- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecicMAXIMUM :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
+ecicMAXIMUM = Lens.field @"maximum"
+{-# DEPRECATED ecicMAXIMUM "Use generic-lens or generic-optics with 'maximum' instead." #-}
+
+-- | The minimum value allowed for the fleet's instance count.
+--
+-- /Note:/ Consider using 'minimum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecicMINIMUM :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
+ecicMINIMUM = Lens.field @"minimum"
+{-# DEPRECATED ecicMINIMUM "Use generic-lens or generic-optics with 'minimum' instead." #-}
+
+-- | Number of instances in the fleet that are starting but not yet active.
+--
+-- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecicPENDING :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
+ecicPENDING = Lens.field @"pending"
+{-# DEPRECATED ecicPENDING "Use generic-lens or generic-optics with 'pending' instead." #-}
+
+-- | Number of instances in the fleet that are no longer active but haven't yet been terminated.
+--
+-- /Note:/ Consider using 'terminating' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecicTERMINATING :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
+ecicTERMINATING = Lens.field @"terminating"
+{-# DEPRECATED ecicTERMINATING "Use generic-lens or generic-optics with 'terminating' instead." #-}
+
+instance Core.FromJSON EC2InstanceCounts where
   parseJSON =
-    Lude.withObject
-      "EC2InstanceCounts"
-      ( \x ->
-          EC2InstanceCounts'
-            Lude.<$> (x Lude..:? "IDLE")
-            Lude.<*> (x Lude..:? "TERMINATING")
-            Lude.<*> (x Lude..:? "PENDING")
-            Lude.<*> (x Lude..:? "MAXIMUM")
-            Lude.<*> (x Lude..:? "DESIRED")
-            Lude.<*> (x Lude..:? "MINIMUM")
-            Lude.<*> (x Lude..:? "ACTIVE")
-      )
+    Core.withObject "EC2InstanceCounts" Core.$
+      \x ->
+        EC2InstanceCounts'
+          Core.<$> (x Core..:? "ACTIVE")
+          Core.<*> (x Core..:? "DESIRED")
+          Core.<*> (x Core..:? "IDLE")
+          Core.<*> (x Core..:? "MAXIMUM")
+          Core.<*> (x Core..:? "MINIMUM")
+          Core.<*> (x Core..:? "PENDING")
+          Core.<*> (x Core..:? "TERMINATING")

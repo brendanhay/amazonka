@@ -17,56 +17,46 @@ module Network.AWS.EC2.Types.LaunchPermissionModifications
     mkLaunchPermissionModifications,
 
     -- * Lenses
-    lpmRemove,
-    lpmAdd,
+    lAdd,
+    lRemove,
   )
 where
 
-import Network.AWS.EC2.Types.LaunchPermission
+import qualified Network.AWS.EC2.Types.LaunchPermission as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a launch permission modification.
 --
 -- /See:/ 'mkLaunchPermissionModifications' smart constructor.
 data LaunchPermissionModifications = LaunchPermissionModifications'
-  { -- | The AWS account ID to remove from the list of launch permissions for the AMI.
-    remove :: Lude.Maybe [LaunchPermission],
-    -- | The AWS account ID to add to the list of launch permissions for the AMI.
-    add :: Lude.Maybe [LaunchPermission]
+  { -- | The AWS account ID to add to the list of launch permissions for the AMI.
+    add :: Core.Maybe [Types.LaunchPermission],
+    -- | The AWS account ID to remove from the list of launch permissions for the AMI.
+    remove :: Core.Maybe [Types.LaunchPermission]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchPermissionModifications' with the minimum fields required to make a request.
---
--- * 'remove' - The AWS account ID to remove from the list of launch permissions for the AMI.
--- * 'add' - The AWS account ID to add to the list of launch permissions for the AMI.
+-- | Creates a 'LaunchPermissionModifications' value with any optional fields omitted.
 mkLaunchPermissionModifications ::
   LaunchPermissionModifications
 mkLaunchPermissionModifications =
   LaunchPermissionModifications'
-    { remove = Lude.Nothing,
-      add = Lude.Nothing
+    { add = Core.Nothing,
+      remove = Core.Nothing
     }
-
--- | The AWS account ID to remove from the list of launch permissions for the AMI.
---
--- /Note:/ Consider using 'remove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpmRemove :: Lens.Lens' LaunchPermissionModifications (Lude.Maybe [LaunchPermission])
-lpmRemove = Lens.lens (remove :: LaunchPermissionModifications -> Lude.Maybe [LaunchPermission]) (\s a -> s {remove = a} :: LaunchPermissionModifications)
-{-# DEPRECATED lpmRemove "Use generic-lens or generic-optics with 'remove' instead." #-}
 
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
 --
 -- /Note:/ Consider using 'add' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpmAdd :: Lens.Lens' LaunchPermissionModifications (Lude.Maybe [LaunchPermission])
-lpmAdd = Lens.lens (add :: LaunchPermissionModifications -> Lude.Maybe [LaunchPermission]) (\s a -> s {add = a} :: LaunchPermissionModifications)
-{-# DEPRECATED lpmAdd "Use generic-lens or generic-optics with 'add' instead." #-}
+lAdd :: Lens.Lens' LaunchPermissionModifications (Core.Maybe [Types.LaunchPermission])
+lAdd = Lens.field @"add"
+{-# DEPRECATED lAdd "Use generic-lens or generic-optics with 'add' instead." #-}
 
-instance Lude.ToQuery LaunchPermissionModifications where
-  toQuery LaunchPermissionModifications' {..} =
-    Lude.mconcat
-      [ Lude.toQuery (Lude.toQueryList "Remove" Lude.<$> remove),
-        Lude.toQuery (Lude.toQueryList "Add" Lude.<$> add)
-      ]
+-- | The AWS account ID to remove from the list of launch permissions for the AMI.
+--
+-- /Note:/ Consider using 'remove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lRemove :: Lens.Lens' LaunchPermissionModifications (Core.Maybe [Types.LaunchPermission])
+lRemove = Lens.field @"remove"
+{-# DEPRECATED lRemove "Use generic-lens or generic-optics with 'remove' instead." #-}

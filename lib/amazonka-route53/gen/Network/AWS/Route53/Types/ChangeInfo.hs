@@ -17,94 +17,83 @@ module Network.AWS.Route53.Types.ChangeInfo
     mkChangeInfo,
 
     -- * Lenses
+    ciId,
     ciStatus,
     ciSubmittedAt,
-    ciId,
     ciComment,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
-import Network.AWS.Route53.Types.ChangeStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
+import qualified Network.AWS.Route53.Types.ChangeStatus as Types
+import qualified Network.AWS.Route53.Types.ResourceDescription as Types
 
 -- | A complex type that describes change information about changes made to your hosted zone.
 --
 -- /See:/ 'mkChangeInfo' smart constructor.
 data ChangeInfo = ChangeInfo'
-  { -- | The current state of the request. @PENDING@ indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.
-    status :: ChangeStatus,
+  { -- | The ID of the request.
+    id :: Types.ResourceId,
+    -- | The current state of the request. @PENDING@ indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.
+    status :: Types.ChangeStatus,
     -- | The date and time that the change request was submitted in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
-    submittedAt :: Lude.DateTime,
-    -- | The ID of the request.
-    id :: ResourceId,
+    submittedAt :: Core.UTCTime,
     -- | A complex type that describes change information about changes made to your hosted zone.
     --
     -- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
-    comment :: Lude.Maybe Lude.Text
+    comment :: Core.Maybe Types.ResourceDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ChangeInfo' with the minimum fields required to make a request.
---
--- * 'status' - The current state of the request. @PENDING@ indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.
--- * 'submittedAt' - The date and time that the change request was submitted in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
--- * 'id' - The ID of the request.
--- * 'comment' - A complex type that describes change information about changes made to your hosted zone.
---
--- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
+-- | Creates a 'ChangeInfo' value with any optional fields omitted.
 mkChangeInfo ::
-  -- | 'status'
-  ChangeStatus ->
-  -- | 'submittedAt'
-  Lude.DateTime ->
   -- | 'id'
-  ResourceId ->
+  Types.ResourceId ->
+  -- | 'status'
+  Types.ChangeStatus ->
+  -- | 'submittedAt'
+  Core.UTCTime ->
   ChangeInfo
-mkChangeInfo pStatus_ pSubmittedAt_ pId_ =
-  ChangeInfo'
-    { status = pStatus_,
-      submittedAt = pSubmittedAt_,
-      id = pId_,
-      comment = Lude.Nothing
-    }
+mkChangeInfo id status submittedAt =
+  ChangeInfo' {id, status, submittedAt, comment = Core.Nothing}
+
+-- | The ID of the request.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciId :: Lens.Lens' ChangeInfo Types.ResourceId
+ciId = Lens.field @"id"
+{-# DEPRECATED ciId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The current state of the request. @PENDING@ indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciStatus :: Lens.Lens' ChangeInfo ChangeStatus
-ciStatus = Lens.lens (status :: ChangeInfo -> ChangeStatus) (\s a -> s {status = a} :: ChangeInfo)
+ciStatus :: Lens.Lens' ChangeInfo Types.ChangeStatus
+ciStatus = Lens.field @"status"
 {-# DEPRECATED ciStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date and time that the change request was submitted in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
 --
 -- /Note:/ Consider using 'submittedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciSubmittedAt :: Lens.Lens' ChangeInfo Lude.DateTime
-ciSubmittedAt = Lens.lens (submittedAt :: ChangeInfo -> Lude.DateTime) (\s a -> s {submittedAt = a} :: ChangeInfo)
+ciSubmittedAt :: Lens.Lens' ChangeInfo Core.UTCTime
+ciSubmittedAt = Lens.field @"submittedAt"
 {-# DEPRECATED ciSubmittedAt "Use generic-lens or generic-optics with 'submittedAt' instead." #-}
-
--- | The ID of the request.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciId :: Lens.Lens' ChangeInfo ResourceId
-ciId = Lens.lens (id :: ChangeInfo -> ResourceId) (\s a -> s {id = a} :: ChangeInfo)
-{-# DEPRECATED ciId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A complex type that describes change information about changes made to your hosted zone.
 --
 -- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciComment :: Lens.Lens' ChangeInfo (Lude.Maybe Lude.Text)
-ciComment = Lens.lens (comment :: ChangeInfo -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ChangeInfo)
+ciComment :: Lens.Lens' ChangeInfo (Core.Maybe Types.ResourceDescription)
+ciComment = Lens.field @"comment"
 {-# DEPRECATED ciComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.FromXML ChangeInfo where
+instance Core.FromXML ChangeInfo where
   parseXML x =
     ChangeInfo'
-      Lude.<$> (x Lude..@ "Status")
-      Lude.<*> (x Lude..@ "SubmittedAt")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@? "Comment")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@ "SubmittedAt")
+      Core.<*> (x Core..@? "Comment")

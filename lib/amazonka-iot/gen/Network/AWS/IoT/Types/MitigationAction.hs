@@ -18,84 +18,80 @@ module Network.AWS.IoT.Types.MitigationAction
 
     -- * Lenses
     maActionParams,
-    maName,
     maId,
-    maRoleARN,
+    maName,
+    maRoleArn,
   )
 where
 
-import Network.AWS.IoT.Types.MitigationActionParams
+import qualified Network.AWS.IoT.Types.MitigationActionId as Types
+import qualified Network.AWS.IoT.Types.MitigationActionName as Types
+import qualified Network.AWS.IoT.Types.MitigationActionParams as Types
+import qualified Network.AWS.IoT.Types.RoleArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes which changes should be applied as part of a mitigation action.
 --
 -- /See:/ 'mkMitigationAction' smart constructor.
 data MitigationAction = MitigationAction'
   { -- | The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
-    actionParams :: Lude.Maybe MitigationActionParams,
-    -- | A user-friendly name for the mitigation action.
-    name :: Lude.Maybe Lude.Text,
+    actionParams :: Core.Maybe Types.MitigationActionParams,
     -- | A unique identifier for the mitigation action.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.MitigationActionId,
+    -- | A user-friendly name for the mitigation action.
+    name :: Core.Maybe Types.MitigationActionName,
     -- | The IAM role ARN used to apply this mitigation action.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MitigationAction' with the minimum fields required to make a request.
---
--- * 'actionParams' - The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
--- * 'name' - A user-friendly name for the mitigation action.
--- * 'id' - A unique identifier for the mitigation action.
--- * 'roleARN' - The IAM role ARN used to apply this mitigation action.
+-- | Creates a 'MitigationAction' value with any optional fields omitted.
 mkMitigationAction ::
   MitigationAction
 mkMitigationAction =
   MitigationAction'
-    { actionParams = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { actionParams = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      roleArn = Core.Nothing
     }
 
 -- | The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
 --
 -- /Note:/ Consider using 'actionParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maActionParams :: Lens.Lens' MitigationAction (Lude.Maybe MitigationActionParams)
-maActionParams = Lens.lens (actionParams :: MitigationAction -> Lude.Maybe MitigationActionParams) (\s a -> s {actionParams = a} :: MitigationAction)
+maActionParams :: Lens.Lens' MitigationAction (Core.Maybe Types.MitigationActionParams)
+maActionParams = Lens.field @"actionParams"
 {-# DEPRECATED maActionParams "Use generic-lens or generic-optics with 'actionParams' instead." #-}
-
--- | A user-friendly name for the mitigation action.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maName :: Lens.Lens' MitigationAction (Lude.Maybe Lude.Text)
-maName = Lens.lens (name :: MitigationAction -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MitigationAction)
-{-# DEPRECATED maName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for the mitigation action.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maId :: Lens.Lens' MitigationAction (Lude.Maybe Lude.Text)
-maId = Lens.lens (id :: MitigationAction -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: MitigationAction)
+maId :: Lens.Lens' MitigationAction (Core.Maybe Types.MitigationActionId)
+maId = Lens.field @"id"
 {-# DEPRECATED maId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | A user-friendly name for the mitigation action.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maName :: Lens.Lens' MitigationAction (Core.Maybe Types.MitigationActionName)
+maName = Lens.field @"name"
+{-# DEPRECATED maName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The IAM role ARN used to apply this mitigation action.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maRoleARN :: Lens.Lens' MitigationAction (Lude.Maybe Lude.Text)
-maRoleARN = Lens.lens (roleARN :: MitigationAction -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: MitigationAction)
-{-# DEPRECATED maRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maRoleArn :: Lens.Lens' MitigationAction (Core.Maybe Types.RoleArn)
+maRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED maRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON MitigationAction where
+instance Core.FromJSON MitigationAction where
   parseJSON =
-    Lude.withObject
-      "MitigationAction"
-      ( \x ->
-          MitigationAction'
-            Lude.<$> (x Lude..:? "actionParams")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "roleArn")
-      )
+    Core.withObject "MitigationAction" Core.$
+      \x ->
+        MitigationAction'
+          Core.<$> (x Core..:? "actionParams")
+          Core.<*> (x Core..:? "id")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "roleArn")

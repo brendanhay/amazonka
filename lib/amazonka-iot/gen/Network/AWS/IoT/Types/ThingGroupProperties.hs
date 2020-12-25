@@ -22,63 +22,59 @@ module Network.AWS.IoT.Types.ThingGroupProperties
   )
 where
 
-import Network.AWS.IoT.Types.AttributePayload
+import qualified Network.AWS.IoT.Types.AttributePayload as Types
+import qualified Network.AWS.IoT.Types.ThingGroupDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Thing group properties.
 --
 -- /See:/ 'mkThingGroupProperties' smart constructor.
 data ThingGroupProperties = ThingGroupProperties'
   { -- | The thing group attributes in JSON format.
-    attributePayload :: Lude.Maybe AttributePayload,
+    attributePayload :: Core.Maybe Types.AttributePayload,
     -- | The thing group description.
-    thingGroupDescription :: Lude.Maybe Lude.Text
+    thingGroupDescription :: Core.Maybe Types.ThingGroupDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ThingGroupProperties' with the minimum fields required to make a request.
---
--- * 'attributePayload' - The thing group attributes in JSON format.
--- * 'thingGroupDescription' - The thing group description.
+-- | Creates a 'ThingGroupProperties' value with any optional fields omitted.
 mkThingGroupProperties ::
   ThingGroupProperties
 mkThingGroupProperties =
   ThingGroupProperties'
-    { attributePayload = Lude.Nothing,
-      thingGroupDescription = Lude.Nothing
+    { attributePayload = Core.Nothing,
+      thingGroupDescription = Core.Nothing
     }
 
 -- | The thing group attributes in JSON format.
 --
 -- /Note:/ Consider using 'attributePayload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpAttributePayload :: Lens.Lens' ThingGroupProperties (Lude.Maybe AttributePayload)
-tgpAttributePayload = Lens.lens (attributePayload :: ThingGroupProperties -> Lude.Maybe AttributePayload) (\s a -> s {attributePayload = a} :: ThingGroupProperties)
+tgpAttributePayload :: Lens.Lens' ThingGroupProperties (Core.Maybe Types.AttributePayload)
+tgpAttributePayload = Lens.field @"attributePayload"
 {-# DEPRECATED tgpAttributePayload "Use generic-lens or generic-optics with 'attributePayload' instead." #-}
 
 -- | The thing group description.
 --
 -- /Note:/ Consider using 'thingGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpThingGroupDescription :: Lens.Lens' ThingGroupProperties (Lude.Maybe Lude.Text)
-tgpThingGroupDescription = Lens.lens (thingGroupDescription :: ThingGroupProperties -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupDescription = a} :: ThingGroupProperties)
+tgpThingGroupDescription :: Lens.Lens' ThingGroupProperties (Core.Maybe Types.ThingGroupDescription)
+tgpThingGroupDescription = Lens.field @"thingGroupDescription"
 {-# DEPRECATED tgpThingGroupDescription "Use generic-lens or generic-optics with 'thingGroupDescription' instead." #-}
 
-instance Lude.FromJSON ThingGroupProperties where
-  parseJSON =
-    Lude.withObject
-      "ThingGroupProperties"
-      ( \x ->
-          ThingGroupProperties'
-            Lude.<$> (x Lude..:? "attributePayload")
-            Lude.<*> (x Lude..:? "thingGroupDescription")
-      )
-
-instance Lude.ToJSON ThingGroupProperties where
-  toJSON ThingGroupProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("attributePayload" Lude..=) Lude.<$> attributePayload,
-            ("thingGroupDescription" Lude..=) Lude.<$> thingGroupDescription
+instance Core.FromJSON ThingGroupProperties where
+  toJSON ThingGroupProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("attributePayload" Core..=) Core.<$> attributePayload,
+            ("thingGroupDescription" Core..=) Core.<$> thingGroupDescription
           ]
       )
+
+instance Core.FromJSON ThingGroupProperties where
+  parseJSON =
+    Core.withObject "ThingGroupProperties" Core.$
+      \x ->
+        ThingGroupProperties'
+          Core.<$> (x Core..:? "attributePayload")
+          Core.<*> (x Core..:? "thingGroupDescription")

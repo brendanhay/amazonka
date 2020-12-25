@@ -22,21 +22,19 @@ module Network.AWS.EC2.Types.BlobAttributeValue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkBlobAttributeValue' smart constructor.
 newtype BlobAttributeValue = BlobAttributeValue'
-  { value :: Lude.Maybe Lude.Base64
+  { value :: Core.Maybe Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BlobAttributeValue' with the minimum fields required to make a request.
---
--- * 'value' -
+-- | Creates a 'BlobAttributeValue' value with any optional fields omitted.
 mkBlobAttributeValue ::
   BlobAttributeValue
-mkBlobAttributeValue = BlobAttributeValue' {value = Lude.Nothing}
+mkBlobAttributeValue = BlobAttributeValue' {value = Core.Nothing}
 
 -- | Undocumented field.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -45,10 +43,6 @@ mkBlobAttributeValue = BlobAttributeValue' {value = Lude.Nothing}
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bavValue :: Lens.Lens' BlobAttributeValue (Lude.Maybe Lude.Base64)
-bavValue = Lens.lens (value :: BlobAttributeValue -> Lude.Maybe Lude.Base64) (\s a -> s {value = a} :: BlobAttributeValue)
+bavValue :: Lens.Lens' BlobAttributeValue (Core.Maybe Core.Base64)
+bavValue = Lens.field @"value"
 {-# DEPRECATED bavValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
-instance Lude.ToQuery BlobAttributeValue where
-  toQuery BlobAttributeValue' {..} =
-    Lude.mconcat ["Value" Lude.=: value]

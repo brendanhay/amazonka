@@ -17,165 +17,156 @@ module Network.AWS.CodePipeline.Types.ActionExecutionDetail
     mkActionExecutionDetail,
 
     -- * Lenses
-    aedStatus,
-    aedStartTime,
-    aedPipelineVersion,
-    aedInput,
+    aedActionExecutionId,
     aedActionName,
+    aedInput,
+    aedLastUpdateTime,
     aedOutput,
     aedPipelineExecutionId,
+    aedPipelineVersion,
     aedStageName,
-    aedLastUpdateTime,
-    aedActionExecutionId,
+    aedStartTime,
+    aedStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types.ActionExecutionInput
-import Network.AWS.CodePipeline.Types.ActionExecutionOutput
-import Network.AWS.CodePipeline.Types.ActionExecutionStatus
+import qualified Network.AWS.CodePipeline.Types.ActionExecutionId as Types
+import qualified Network.AWS.CodePipeline.Types.ActionExecutionInput as Types
+import qualified Network.AWS.CodePipeline.Types.ActionExecutionOutput as Types
+import qualified Network.AWS.CodePipeline.Types.ActionExecutionStatus as Types
+import qualified Network.AWS.CodePipeline.Types.ActionName as Types
+import qualified Network.AWS.CodePipeline.Types.PipelineExecutionId as Types
+import qualified Network.AWS.CodePipeline.Types.StageName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about an execution of an action, including the action execution ID, and the name, version, and timing of the action.
 --
 -- /See:/ 'mkActionExecutionDetail' smart constructor.
 data ActionExecutionDetail = ActionExecutionDetail'
-  { -- | The status of the action execution. Status categories are @InProgress@ , @Succeeded@ , and @Failed@ .
-    status :: Lude.Maybe ActionExecutionStatus,
-    -- | The start time of the action execution.
-    startTime :: Lude.Maybe Lude.Timestamp,
-    -- | The version of the pipeline where the action was run.
-    pipelineVersion :: Lude.Maybe Lude.Natural,
-    -- | Input details for the action execution, such as role ARN, Region, and input artifacts.
-    input :: Lude.Maybe ActionExecutionInput,
+  { -- | The action execution ID.
+    actionExecutionId :: Core.Maybe Types.ActionExecutionId,
     -- | The name of the action.
-    actionName :: Lude.Maybe Lude.Text,
-    -- | Output details for the action execution, such as the action execution result.
-    output :: Lude.Maybe ActionExecutionOutput,
-    -- | The pipeline execution ID for the action execution.
-    pipelineExecutionId :: Lude.Maybe Lude.Text,
-    -- | The name of the stage that contains the action.
-    stageName :: Lude.Maybe Lude.Text,
+    actionName :: Core.Maybe Types.ActionName,
+    -- | Input details for the action execution, such as role ARN, Region, and input artifacts.
+    input :: Core.Maybe Types.ActionExecutionInput,
     -- | The last update time of the action execution.
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The action execution ID.
-    actionExecutionId :: Lude.Maybe Lude.Text
+    lastUpdateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Output details for the action execution, such as the action execution result.
+    output :: Core.Maybe Types.ActionExecutionOutput,
+    -- | The pipeline execution ID for the action execution.
+    pipelineExecutionId :: Core.Maybe Types.PipelineExecutionId,
+    -- | The version of the pipeline where the action was run.
+    pipelineVersion :: Core.Maybe Core.Natural,
+    -- | The name of the stage that contains the action.
+    stageName :: Core.Maybe Types.StageName,
+    -- | The start time of the action execution.
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the action execution. Status categories are @InProgress@ , @Succeeded@ , and @Failed@ .
+    status :: Core.Maybe Types.ActionExecutionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ActionExecutionDetail' with the minimum fields required to make a request.
---
--- * 'status' - The status of the action execution. Status categories are @InProgress@ , @Succeeded@ , and @Failed@ .
--- * 'startTime' - The start time of the action execution.
--- * 'pipelineVersion' - The version of the pipeline where the action was run.
--- * 'input' - Input details for the action execution, such as role ARN, Region, and input artifacts.
--- * 'actionName' - The name of the action.
--- * 'output' - Output details for the action execution, such as the action execution result.
--- * 'pipelineExecutionId' - The pipeline execution ID for the action execution.
--- * 'stageName' - The name of the stage that contains the action.
--- * 'lastUpdateTime' - The last update time of the action execution.
--- * 'actionExecutionId' - The action execution ID.
+-- | Creates a 'ActionExecutionDetail' value with any optional fields omitted.
 mkActionExecutionDetail ::
   ActionExecutionDetail
 mkActionExecutionDetail =
   ActionExecutionDetail'
-    { status = Lude.Nothing,
-      startTime = Lude.Nothing,
-      pipelineVersion = Lude.Nothing,
-      input = Lude.Nothing,
-      actionName = Lude.Nothing,
-      output = Lude.Nothing,
-      pipelineExecutionId = Lude.Nothing,
-      stageName = Lude.Nothing,
-      lastUpdateTime = Lude.Nothing,
-      actionExecutionId = Lude.Nothing
+    { actionExecutionId = Core.Nothing,
+      actionName = Core.Nothing,
+      input = Core.Nothing,
+      lastUpdateTime = Core.Nothing,
+      output = Core.Nothing,
+      pipelineExecutionId = Core.Nothing,
+      pipelineVersion = Core.Nothing,
+      stageName = Core.Nothing,
+      startTime = Core.Nothing,
+      status = Core.Nothing
     }
 
--- | The status of the action execution. Status categories are @InProgress@ , @Succeeded@ , and @Failed@ .
+-- | The action execution ID.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedStatus :: Lens.Lens' ActionExecutionDetail (Lude.Maybe ActionExecutionStatus)
-aedStatus = Lens.lens (status :: ActionExecutionDetail -> Lude.Maybe ActionExecutionStatus) (\s a -> s {status = a} :: ActionExecutionDetail)
-{-# DEPRECATED aedStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The start time of the action execution.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedStartTime :: Lens.Lens' ActionExecutionDetail (Lude.Maybe Lude.Timestamp)
-aedStartTime = Lens.lens (startTime :: ActionExecutionDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: ActionExecutionDetail)
-{-# DEPRECATED aedStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The version of the pipeline where the action was run.
---
--- /Note:/ Consider using 'pipelineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedPipelineVersion :: Lens.Lens' ActionExecutionDetail (Lude.Maybe Lude.Natural)
-aedPipelineVersion = Lens.lens (pipelineVersion :: ActionExecutionDetail -> Lude.Maybe Lude.Natural) (\s a -> s {pipelineVersion = a} :: ActionExecutionDetail)
-{-# DEPRECATED aedPipelineVersion "Use generic-lens or generic-optics with 'pipelineVersion' instead." #-}
-
--- | Input details for the action execution, such as role ARN, Region, and input artifacts.
---
--- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedInput :: Lens.Lens' ActionExecutionDetail (Lude.Maybe ActionExecutionInput)
-aedInput = Lens.lens (input :: ActionExecutionDetail -> Lude.Maybe ActionExecutionInput) (\s a -> s {input = a} :: ActionExecutionDetail)
-{-# DEPRECATED aedInput "Use generic-lens or generic-optics with 'input' instead." #-}
+-- /Note:/ Consider using 'actionExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aedActionExecutionId :: Lens.Lens' ActionExecutionDetail (Core.Maybe Types.ActionExecutionId)
+aedActionExecutionId = Lens.field @"actionExecutionId"
+{-# DEPRECATED aedActionExecutionId "Use generic-lens or generic-optics with 'actionExecutionId' instead." #-}
 
 -- | The name of the action.
 --
 -- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedActionName :: Lens.Lens' ActionExecutionDetail (Lude.Maybe Lude.Text)
-aedActionName = Lens.lens (actionName :: ActionExecutionDetail -> Lude.Maybe Lude.Text) (\s a -> s {actionName = a} :: ActionExecutionDetail)
+aedActionName :: Lens.Lens' ActionExecutionDetail (Core.Maybe Types.ActionName)
+aedActionName = Lens.field @"actionName"
 {-# DEPRECATED aedActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
+
+-- | Input details for the action execution, such as role ARN, Region, and input artifacts.
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aedInput :: Lens.Lens' ActionExecutionDetail (Core.Maybe Types.ActionExecutionInput)
+aedInput = Lens.field @"input"
+{-# DEPRECATED aedInput "Use generic-lens or generic-optics with 'input' instead." #-}
+
+-- | The last update time of the action execution.
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aedLastUpdateTime :: Lens.Lens' ActionExecutionDetail (Core.Maybe Core.NominalDiffTime)
+aedLastUpdateTime = Lens.field @"lastUpdateTime"
+{-# DEPRECATED aedLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
 -- | Output details for the action execution, such as the action execution result.
 --
 -- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedOutput :: Lens.Lens' ActionExecutionDetail (Lude.Maybe ActionExecutionOutput)
-aedOutput = Lens.lens (output :: ActionExecutionDetail -> Lude.Maybe ActionExecutionOutput) (\s a -> s {output = a} :: ActionExecutionDetail)
+aedOutput :: Lens.Lens' ActionExecutionDetail (Core.Maybe Types.ActionExecutionOutput)
+aedOutput = Lens.field @"output"
 {-# DEPRECATED aedOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | The pipeline execution ID for the action execution.
 --
 -- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedPipelineExecutionId :: Lens.Lens' ActionExecutionDetail (Lude.Maybe Lude.Text)
-aedPipelineExecutionId = Lens.lens (pipelineExecutionId :: ActionExecutionDetail -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: ActionExecutionDetail)
+aedPipelineExecutionId :: Lens.Lens' ActionExecutionDetail (Core.Maybe Types.PipelineExecutionId)
+aedPipelineExecutionId = Lens.field @"pipelineExecutionId"
 {-# DEPRECATED aedPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
+
+-- | The version of the pipeline where the action was run.
+--
+-- /Note:/ Consider using 'pipelineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aedPipelineVersion :: Lens.Lens' ActionExecutionDetail (Core.Maybe Core.Natural)
+aedPipelineVersion = Lens.field @"pipelineVersion"
+{-# DEPRECATED aedPipelineVersion "Use generic-lens or generic-optics with 'pipelineVersion' instead." #-}
 
 -- | The name of the stage that contains the action.
 --
 -- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedStageName :: Lens.Lens' ActionExecutionDetail (Lude.Maybe Lude.Text)
-aedStageName = Lens.lens (stageName :: ActionExecutionDetail -> Lude.Maybe Lude.Text) (\s a -> s {stageName = a} :: ActionExecutionDetail)
+aedStageName :: Lens.Lens' ActionExecutionDetail (Core.Maybe Types.StageName)
+aedStageName = Lens.field @"stageName"
 {-# DEPRECATED aedStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
--- | The last update time of the action execution.
+-- | The start time of the action execution.
 --
--- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedLastUpdateTime :: Lens.Lens' ActionExecutionDetail (Lude.Maybe Lude.Timestamp)
-aedLastUpdateTime = Lens.lens (lastUpdateTime :: ActionExecutionDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: ActionExecutionDetail)
-{-# DEPRECATED aedLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aedStartTime :: Lens.Lens' ActionExecutionDetail (Core.Maybe Core.NominalDiffTime)
+aedStartTime = Lens.field @"startTime"
+{-# DEPRECATED aedStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | The action execution ID.
+-- | The status of the action execution. Status categories are @InProgress@ , @Succeeded@ , and @Failed@ .
 --
--- /Note:/ Consider using 'actionExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedActionExecutionId :: Lens.Lens' ActionExecutionDetail (Lude.Maybe Lude.Text)
-aedActionExecutionId = Lens.lens (actionExecutionId :: ActionExecutionDetail -> Lude.Maybe Lude.Text) (\s a -> s {actionExecutionId = a} :: ActionExecutionDetail)
-{-# DEPRECATED aedActionExecutionId "Use generic-lens or generic-optics with 'actionExecutionId' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aedStatus :: Lens.Lens' ActionExecutionDetail (Core.Maybe Types.ActionExecutionStatus)
+aedStatus = Lens.field @"status"
+{-# DEPRECATED aedStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromJSON ActionExecutionDetail where
+instance Core.FromJSON ActionExecutionDetail where
   parseJSON =
-    Lude.withObject
-      "ActionExecutionDetail"
-      ( \x ->
-          ActionExecutionDetail'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "startTime")
-            Lude.<*> (x Lude..:? "pipelineVersion")
-            Lude.<*> (x Lude..:? "input")
-            Lude.<*> (x Lude..:? "actionName")
-            Lude.<*> (x Lude..:? "output")
-            Lude.<*> (x Lude..:? "pipelineExecutionId")
-            Lude.<*> (x Lude..:? "stageName")
-            Lude.<*> (x Lude..:? "lastUpdateTime")
-            Lude.<*> (x Lude..:? "actionExecutionId")
-      )
+    Core.withObject "ActionExecutionDetail" Core.$
+      \x ->
+        ActionExecutionDetail'
+          Core.<$> (x Core..:? "actionExecutionId")
+          Core.<*> (x Core..:? "actionName")
+          Core.<*> (x Core..:? "input")
+          Core.<*> (x Core..:? "lastUpdateTime")
+          Core.<*> (x Core..:? "output")
+          Core.<*> (x Core..:? "pipelineExecutionId")
+          Core.<*> (x Core..:? "pipelineVersion")
+          Core.<*> (x Core..:? "stageName")
+          Core.<*> (x Core..:? "startTime")
+          Core.<*> (x Core..:? "status")

@@ -23,161 +23,155 @@ module Network.AWS.EC2.AssociateRouteTable
 
     -- ** Request lenses
     artRouteTableId,
-    artSubnetId,
-    artGatewayId,
     artDryRun,
+    artGatewayId,
+    artSubnetId,
 
     -- * Destructuring the response
     AssociateRouteTableResponse (..),
     mkAssociateRouteTableResponse,
 
     -- ** Response lenses
-    artrsAssociationId,
-    artrsAssociationState,
-    artrsResponseStatus,
+    artrrsAssociationId,
+    artrrsAssociationState,
+    artrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateRouteTable' smart constructor.
 data AssociateRouteTable = AssociateRouteTable'
   { -- | The ID of the route table.
-    routeTableId :: Lude.Text,
-    -- | The ID of the subnet.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The ID of the internet gateway or virtual private gateway.
-    gatewayId :: Lude.Maybe Lude.Text,
+    routeTableId :: Types.RouteTableId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The ID of the internet gateway or virtual private gateway.
+    gatewayId :: Core.Maybe Types.RouteGatewayId,
+    -- | The ID of the subnet.
+    subnetId :: Core.Maybe Types.SubnetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateRouteTable' with the minimum fields required to make a request.
---
--- * 'routeTableId' - The ID of the route table.
--- * 'subnetId' - The ID of the subnet.
--- * 'gatewayId' - The ID of the internet gateway or virtual private gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'AssociateRouteTable' value with any optional fields omitted.
 mkAssociateRouteTable ::
   -- | 'routeTableId'
-  Lude.Text ->
+  Types.RouteTableId ->
   AssociateRouteTable
-mkAssociateRouteTable pRouteTableId_ =
+mkAssociateRouteTable routeTableId =
   AssociateRouteTable'
-    { routeTableId = pRouteTableId_,
-      subnetId = Lude.Nothing,
-      gatewayId = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { routeTableId,
+      dryRun = Core.Nothing,
+      gatewayId = Core.Nothing,
+      subnetId = Core.Nothing
     }
 
 -- | The ID of the route table.
 --
 -- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artRouteTableId :: Lens.Lens' AssociateRouteTable Lude.Text
-artRouteTableId = Lens.lens (routeTableId :: AssociateRouteTable -> Lude.Text) (\s a -> s {routeTableId = a} :: AssociateRouteTable)
+artRouteTableId :: Lens.Lens' AssociateRouteTable Types.RouteTableId
+artRouteTableId = Lens.field @"routeTableId"
 {-# DEPRECATED artRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
-
--- | The ID of the subnet.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artSubnetId :: Lens.Lens' AssociateRouteTable (Lude.Maybe Lude.Text)
-artSubnetId = Lens.lens (subnetId :: AssociateRouteTable -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: AssociateRouteTable)
-{-# DEPRECATED artSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The ID of the internet gateway or virtual private gateway.
---
--- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artGatewayId :: Lens.Lens' AssociateRouteTable (Lude.Maybe Lude.Text)
-artGatewayId = Lens.lens (gatewayId :: AssociateRouteTable -> Lude.Maybe Lude.Text) (\s a -> s {gatewayId = a} :: AssociateRouteTable)
-{-# DEPRECATED artGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artDryRun :: Lens.Lens' AssociateRouteTable (Lude.Maybe Lude.Bool)
-artDryRun = Lens.lens (dryRun :: AssociateRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateRouteTable)
+artDryRun :: Lens.Lens' AssociateRouteTable (Core.Maybe Core.Bool)
+artDryRun = Lens.field @"dryRun"
 {-# DEPRECATED artDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest AssociateRouteTable where
+-- | The ID of the internet gateway or virtual private gateway.
+--
+-- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artGatewayId :: Lens.Lens' AssociateRouteTable (Core.Maybe Types.RouteGatewayId)
+artGatewayId = Lens.field @"gatewayId"
+{-# DEPRECATED artGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
+
+-- | The ID of the subnet.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artSubnetId :: Lens.Lens' AssociateRouteTable (Core.Maybe Types.SubnetId)
+artSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED artSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
+instance Core.AWSRequest AssociateRouteTable where
   type Rs AssociateRouteTable = AssociateRouteTableResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AssociateRouteTable")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "RouteTableId" routeTableId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "GatewayId" Core.<$> gatewayId)
+                Core.<> (Core.toQueryValue "SubnetId" Core.<$> subnetId)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           AssociateRouteTableResponse'
-            Lude.<$> (x Lude..@? "associationId")
-            Lude.<*> (x Lude..@? "associationState")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "associationId")
+            Core.<*> (x Core..@? "associationState")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateRouteTable where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AssociateRouteTable where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateRouteTable where
-  toQuery AssociateRouteTable' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AssociateRouteTable" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "RouteTableId" Lude.=: routeTableId,
-        "SubnetId" Lude.=: subnetId,
-        "GatewayId" Lude.=: gatewayId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkAssociateRouteTableResponse' smart constructor.
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
   { -- | The route table association ID. This ID is required for disassociating the route table.
-    associationId :: Lude.Maybe Lude.Text,
+    associationId :: Core.Maybe Types.String,
     -- | The state of the association.
-    associationState :: Lude.Maybe RouteTableAssociationState,
+    associationState :: Core.Maybe Types.RouteTableAssociationState,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateRouteTableResponse' with the minimum fields required to make a request.
---
--- * 'associationId' - The route table association ID. This ID is required for disassociating the route table.
--- * 'associationState' - The state of the association.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateRouteTableResponse' value with any optional fields omitted.
 mkAssociateRouteTableResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateRouteTableResponse
-mkAssociateRouteTableResponse pResponseStatus_ =
+mkAssociateRouteTableResponse responseStatus =
   AssociateRouteTableResponse'
-    { associationId = Lude.Nothing,
-      associationState = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { associationId = Core.Nothing,
+      associationState = Core.Nothing,
+      responseStatus
     }
 
 -- | The route table association ID. This ID is required for disassociating the route table.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artrsAssociationId :: Lens.Lens' AssociateRouteTableResponse (Lude.Maybe Lude.Text)
-artrsAssociationId = Lens.lens (associationId :: AssociateRouteTableResponse -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: AssociateRouteTableResponse)
-{-# DEPRECATED artrsAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+artrrsAssociationId :: Lens.Lens' AssociateRouteTableResponse (Core.Maybe Types.String)
+artrrsAssociationId = Lens.field @"associationId"
+{-# DEPRECATED artrrsAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The state of the association.
 --
 -- /Note:/ Consider using 'associationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artrsAssociationState :: Lens.Lens' AssociateRouteTableResponse (Lude.Maybe RouteTableAssociationState)
-artrsAssociationState = Lens.lens (associationState :: AssociateRouteTableResponse -> Lude.Maybe RouteTableAssociationState) (\s a -> s {associationState = a} :: AssociateRouteTableResponse)
-{-# DEPRECATED artrsAssociationState "Use generic-lens or generic-optics with 'associationState' instead." #-}
+artrrsAssociationState :: Lens.Lens' AssociateRouteTableResponse (Core.Maybe Types.RouteTableAssociationState)
+artrrsAssociationState = Lens.field @"associationState"
+{-# DEPRECATED artrrsAssociationState "Use generic-lens or generic-optics with 'associationState' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artrsResponseStatus :: Lens.Lens' AssociateRouteTableResponse Lude.Int
-artrsResponseStatus = Lens.lens (responseStatus :: AssociateRouteTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateRouteTableResponse)
-{-# DEPRECATED artrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+artrrsResponseStatus :: Lens.Lens' AssociateRouteTableResponse Core.Int
+artrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED artrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

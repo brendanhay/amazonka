@@ -20,7 +20,7 @@ module Network.AWS.IoTAnalytics.DeleteChannel
     mkDeleteChannel,
 
     -- ** Request lenses
-    dChannelName,
+    dcChannelName,
 
     -- * Destructuring the response
     DeleteChannelResponse (..),
@@ -28,58 +28,54 @@ module Network.AWS.IoTAnalytics.DeleteChannel
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteChannel' smart constructor.
 newtype DeleteChannel = DeleteChannel'
   { -- | The name of the channel to delete.
-    channelName :: Lude.Text
+    channelName :: Types.ChannelName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteChannel' with the minimum fields required to make a request.
---
--- * 'channelName' - The name of the channel to delete.
+-- | Creates a 'DeleteChannel' value with any optional fields omitted.
 mkDeleteChannel ::
   -- | 'channelName'
-  Lude.Text ->
+  Types.ChannelName ->
   DeleteChannel
-mkDeleteChannel pChannelName_ =
-  DeleteChannel' {channelName = pChannelName_}
+mkDeleteChannel channelName = DeleteChannel' {channelName}
 
 -- | The name of the channel to delete.
 --
 -- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dChannelName :: Lens.Lens' DeleteChannel Lude.Text
-dChannelName = Lens.lens (channelName :: DeleteChannel -> Lude.Text) (\s a -> s {channelName = a} :: DeleteChannel)
-{-# DEPRECATED dChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
+dcChannelName :: Lens.Lens' DeleteChannel Types.ChannelName
+dcChannelName = Lens.field @"channelName"
+{-# DEPRECATED dcChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
-instance Lude.AWSRequest DeleteChannel where
+instance Core.AWSRequest DeleteChannel where
   type Rs DeleteChannel = DeleteChannelResponse
-  request = Req.delete ioTAnalyticsService
-  response = Res.receiveNull DeleteChannelResponse'
-
-instance Lude.ToHeaders DeleteChannel where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteChannel where
-  toPath DeleteChannel' {..} =
-    Lude.mconcat ["/channels/", Lude.toBS channelName]
-
-instance Lude.ToQuery DeleteChannel where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/channels/" Core.<> (Core.toText channelName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteChannelResponse'
 
 -- | /See:/ 'mkDeleteChannelResponse' smart constructor.
 data DeleteChannelResponse = DeleteChannelResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteChannelResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteChannelResponse' value with any optional fields omitted.
 mkDeleteChannelResponse ::
   DeleteChannelResponse
 mkDeleteChannelResponse = DeleteChannelResponse'

@@ -22,8 +22,8 @@ module Network.AWS.SageMaker.Types.ImageConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.RepositoryAccessMode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.RepositoryAccessMode as Types
 
 -- | Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
 --
@@ -36,26 +36,18 @@ newtype ImageConfig = ImageConfig'
     --
     --
     --     * @Vpc@ - The model image is hosted in a private Docker registry in your VPC.
-    repositoryAccessMode :: RepositoryAccessMode
+    repositoryAccessMode :: Types.RepositoryAccessMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImageConfig' with the minimum fields required to make a request.
---
--- * 'repositoryAccessMode' - Set this to one of the following values:
---
---
---     * @Platform@ - The model image is hosted in Amazon ECR.
---
---
---     * @Vpc@ - The model image is hosted in a private Docker registry in your VPC.
+-- | Creates a 'ImageConfig' value with any optional fields omitted.
 mkImageConfig ::
   -- | 'repositoryAccessMode'
-  RepositoryAccessMode ->
+  Types.RepositoryAccessMode ->
   ImageConfig
-mkImageConfig pRepositoryAccessMode_ =
-  ImageConfig' {repositoryAccessMode = pRepositoryAccessMode_}
+mkImageConfig repositoryAccessMode =
+  ImageConfig' {repositoryAccessMode}
 
 -- | Set this to one of the following values:
 --
@@ -68,19 +60,18 @@ mkImageConfig pRepositoryAccessMode_ =
 --
 --
 -- /Note:/ Consider using 'repositoryAccessMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icRepositoryAccessMode :: Lens.Lens' ImageConfig RepositoryAccessMode
-icRepositoryAccessMode = Lens.lens (repositoryAccessMode :: ImageConfig -> RepositoryAccessMode) (\s a -> s {repositoryAccessMode = a} :: ImageConfig)
+icRepositoryAccessMode :: Lens.Lens' ImageConfig Types.RepositoryAccessMode
+icRepositoryAccessMode = Lens.field @"repositoryAccessMode"
 {-# DEPRECATED icRepositoryAccessMode "Use generic-lens or generic-optics with 'repositoryAccessMode' instead." #-}
 
-instance Lude.FromJSON ImageConfig where
-  parseJSON =
-    Lude.withObject
-      "ImageConfig"
-      (\x -> ImageConfig' Lude.<$> (x Lude..: "RepositoryAccessMode"))
-
-instance Lude.ToJSON ImageConfig where
-  toJSON ImageConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("RepositoryAccessMode" Lude..= repositoryAccessMode)]
+instance Core.FromJSON ImageConfig where
+  toJSON ImageConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RepositoryAccessMode" Core..= repositoryAccessMode)]
       )
+
+instance Core.FromJSON ImageConfig where
+  parseJSON =
+    Core.withObject "ImageConfig" Core.$
+      \x -> ImageConfig' Core.<$> (x Core..: "RepositoryAccessMode")

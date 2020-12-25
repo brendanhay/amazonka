@@ -17,70 +17,59 @@ module Network.AWS.EC2.Types.DiskImage
     mkDiskImage,
 
     -- * Lenses
+    diDescription,
     diImage,
     diVolume,
-    diDescription,
   )
 where
 
-import Network.AWS.EC2.Types.DiskImageDetail
-import Network.AWS.EC2.Types.VolumeDetail
+import qualified Network.AWS.EC2.Types.DiskImageDetail as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.VolumeDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a disk image.
 --
 -- /See:/ 'mkDiskImage' smart constructor.
 data DiskImage = DiskImage'
-  { -- | Information about the disk image.
-    image :: Lude.Maybe DiskImageDetail,
+  { -- | A description of the disk image.
+    description :: Core.Maybe Types.String,
+    -- | Information about the disk image.
+    image :: Core.Maybe Types.DiskImageDetail,
     -- | Information about the volume.
-    volume :: Lude.Maybe VolumeDetail,
-    -- | A description of the disk image.
-    description :: Lude.Maybe Lude.Text
+    volume :: Core.Maybe Types.VolumeDetail
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiskImage' with the minimum fields required to make a request.
---
--- * 'image' - Information about the disk image.
--- * 'volume' - Information about the volume.
--- * 'description' - A description of the disk image.
+-- | Creates a 'DiskImage' value with any optional fields omitted.
 mkDiskImage ::
   DiskImage
 mkDiskImage =
   DiskImage'
-    { image = Lude.Nothing,
-      volume = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      image = Core.Nothing,
+      volume = Core.Nothing
     }
+
+-- | A description of the disk image.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDescription :: Lens.Lens' DiskImage (Core.Maybe Types.String)
+diDescription = Lens.field @"description"
+{-# DEPRECATED diDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Information about the disk image.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diImage :: Lens.Lens' DiskImage (Lude.Maybe DiskImageDetail)
-diImage = Lens.lens (image :: DiskImage -> Lude.Maybe DiskImageDetail) (\s a -> s {image = a} :: DiskImage)
+diImage :: Lens.Lens' DiskImage (Core.Maybe Types.DiskImageDetail)
+diImage = Lens.field @"image"
 {-# DEPRECATED diImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | Information about the volume.
 --
 -- /Note:/ Consider using 'volume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diVolume :: Lens.Lens' DiskImage (Lude.Maybe VolumeDetail)
-diVolume = Lens.lens (volume :: DiskImage -> Lude.Maybe VolumeDetail) (\s a -> s {volume = a} :: DiskImage)
+diVolume :: Lens.Lens' DiskImage (Core.Maybe Types.VolumeDetail)
+diVolume = Lens.field @"volume"
 {-# DEPRECATED diVolume "Use generic-lens or generic-optics with 'volume' instead." #-}
-
--- | A description of the disk image.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diDescription :: Lens.Lens' DiskImage (Lude.Maybe Lude.Text)
-diDescription = Lens.lens (description :: DiskImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DiskImage)
-{-# DEPRECATED diDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.ToQuery DiskImage where
-  toQuery DiskImage' {..} =
-    Lude.mconcat
-      [ "Image" Lude.=: image,
-        "Volume" Lude.=: volume,
-        "Description" Lude.=: description
-      ]

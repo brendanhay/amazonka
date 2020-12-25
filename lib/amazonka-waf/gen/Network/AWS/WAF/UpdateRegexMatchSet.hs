@@ -47,150 +47,132 @@ module Network.AWS.WAF.UpdateRegexMatchSet
     mkUpdateRegexMatchSet,
 
     -- ** Request lenses
+    urmsRegexMatchSetId,
     urmsUpdates,
     urmsChangeToken,
-    urmsRegexMatchSetId,
 
     -- * Destructuring the response
     UpdateRegexMatchSetResponse (..),
     mkUpdateRegexMatchSetResponse,
 
     -- ** Response lenses
-    urmsrsChangeToken,
-    urmsrsResponseStatus,
+    urmsrrsChangeToken,
+    urmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkUpdateRegexMatchSet' smart constructor.
 data UpdateRegexMatchSet = UpdateRegexMatchSet'
-  { -- | An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
-    updates :: Lude.NonEmpty RegexMatchSetUpdate,
+  { -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+    regexMatchSetId :: Types.RegexMatchSetId,
+    -- | An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
+    updates :: Core.NonEmpty Types.RegexMatchSetUpdate,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text,
-    -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
-    regexMatchSetId :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRegexMatchSet' with the minimum fields required to make a request.
---
--- * 'updates' - An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
--- * 'regexMatchSetId' - The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+-- | Creates a 'UpdateRegexMatchSet' value with any optional fields omitted.
 mkUpdateRegexMatchSet ::
-  -- | 'updates'
-  Lude.NonEmpty RegexMatchSetUpdate ->
-  -- | 'changeToken'
-  Lude.Text ->
   -- | 'regexMatchSetId'
-  Lude.Text ->
+  Types.RegexMatchSetId ->
+  -- | 'updates'
+  Core.NonEmpty Types.RegexMatchSetUpdate ->
+  -- | 'changeToken'
+  Types.ChangeToken ->
   UpdateRegexMatchSet
-mkUpdateRegexMatchSet pUpdates_ pChangeToken_ pRegexMatchSetId_ =
-  UpdateRegexMatchSet'
-    { updates = pUpdates_,
-      changeToken = pChangeToken_,
-      regexMatchSetId = pRegexMatchSetId_
-    }
+mkUpdateRegexMatchSet regexMatchSetId updates changeToken =
+  UpdateRegexMatchSet' {regexMatchSetId, updates, changeToken}
+
+-- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+--
+-- /Note:/ Consider using 'regexMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urmsRegexMatchSetId :: Lens.Lens' UpdateRegexMatchSet Types.RegexMatchSetId
+urmsRegexMatchSetId = Lens.field @"regexMatchSetId"
+{-# DEPRECATED urmsRegexMatchSetId "Use generic-lens or generic-optics with 'regexMatchSetId' instead." #-}
 
 -- | An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
 --
 -- /Note:/ Consider using 'updates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urmsUpdates :: Lens.Lens' UpdateRegexMatchSet (Lude.NonEmpty RegexMatchSetUpdate)
-urmsUpdates = Lens.lens (updates :: UpdateRegexMatchSet -> Lude.NonEmpty RegexMatchSetUpdate) (\s a -> s {updates = a} :: UpdateRegexMatchSet)
+urmsUpdates :: Lens.Lens' UpdateRegexMatchSet (Core.NonEmpty Types.RegexMatchSetUpdate)
+urmsUpdates = Lens.field @"updates"
 {-# DEPRECATED urmsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urmsChangeToken :: Lens.Lens' UpdateRegexMatchSet Lude.Text
-urmsChangeToken = Lens.lens (changeToken :: UpdateRegexMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateRegexMatchSet)
+urmsChangeToken :: Lens.Lens' UpdateRegexMatchSet Types.ChangeToken
+urmsChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED urmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
---
--- /Note:/ Consider using 'regexMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urmsRegexMatchSetId :: Lens.Lens' UpdateRegexMatchSet Lude.Text
-urmsRegexMatchSetId = Lens.lens (regexMatchSetId :: UpdateRegexMatchSet -> Lude.Text) (\s a -> s {regexMatchSetId = a} :: UpdateRegexMatchSet)
-{-# DEPRECATED urmsRegexMatchSetId "Use generic-lens or generic-optics with 'regexMatchSetId' instead." #-}
+instance Core.FromJSON UpdateRegexMatchSet where
+  toJSON UpdateRegexMatchSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RegexMatchSetId" Core..= regexMatchSetId),
+            Core.Just ("Updates" Core..= updates),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
 
-instance Lude.AWSRequest UpdateRegexMatchSet where
+instance Core.AWSRequest UpdateRegexMatchSet where
   type Rs UpdateRegexMatchSet = UpdateRegexMatchSetResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.UpdateRegexMatchSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateRegexMatchSetResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateRegexMatchSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.UpdateRegexMatchSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateRegexMatchSet where
-  toJSON UpdateRegexMatchSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Updates" Lude..= updates),
-            Lude.Just ("ChangeToken" Lude..= changeToken),
-            Lude.Just ("RegexMatchSetId" Lude..= regexMatchSetId)
-          ]
-      )
-
-instance Lude.ToPath UpdateRegexMatchSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateRegexMatchSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateRegexMatchSetResponse' smart constructor.
 data UpdateRegexMatchSetResponse = UpdateRegexMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRegexMatchSetResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @UpdateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateRegexMatchSetResponse' value with any optional fields omitted.
 mkUpdateRegexMatchSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateRegexMatchSetResponse
-mkUpdateRegexMatchSetResponse pResponseStatus_ =
+mkUpdateRegexMatchSetResponse responseStatus =
   UpdateRegexMatchSetResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urmsrsChangeToken :: Lens.Lens' UpdateRegexMatchSetResponse (Lude.Maybe Lude.Text)
-urmsrsChangeToken = Lens.lens (changeToken :: UpdateRegexMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: UpdateRegexMatchSetResponse)
-{-# DEPRECATED urmsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+urmsrrsChangeToken :: Lens.Lens' UpdateRegexMatchSetResponse (Core.Maybe Types.ChangeToken)
+urmsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED urmsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urmsrsResponseStatus :: Lens.Lens' UpdateRegexMatchSetResponse Lude.Int
-urmsrsResponseStatus = Lens.lens (responseStatus :: UpdateRegexMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRegexMatchSetResponse)
-{-# DEPRECATED urmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urmsrrsResponseStatus :: Lens.Lens' UpdateRegexMatchSetResponse Core.Int
+urmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

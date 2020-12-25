@@ -20,40 +20,31 @@ module Network.AWS.RDS.CreateDBClusterSnapshot
     mkCreateDBClusterSnapshot,
 
     -- ** Request lenses
-    cdcsDBClusterIdentifier,
-    cdcsDBClusterSnapshotIdentifier,
-    cdcsTags,
+    cdbcsDBClusterSnapshotIdentifier,
+    cdbcsDBClusterIdentifier,
+    cdbcsTags,
 
     -- * Destructuring the response
     CreateDBClusterSnapshotResponse (..),
     mkCreateDBClusterSnapshotResponse,
 
     -- ** Response lenses
-    cdbcsrsDBClusterSnapshot,
-    cdbcsrsResponseStatus,
+    cdbcsrrsDBClusterSnapshot,
+    cdbcsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkCreateDBClusterSnapshot' smart constructor.
 data CreateDBClusterSnapshot = CreateDBClusterSnapshot'
-  { -- | The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.
-    --
-    -- Constraints:
-    --
-    --     * Must match the identifier of an existing DBCluster.
-    --
-    --
-    -- Example: @my-cluster1@
-    dbClusterIdentifier :: Lude.Text,
-    -- | The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string.
+  { -- | The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string.
     --
     -- Constraints:
     --
@@ -67,67 +58,37 @@ data CreateDBClusterSnapshot = CreateDBClusterSnapshot'
     --
     --
     -- Example: @my-cluster1-snapshot1@
-    dbClusterSnapshotIdentifier :: Lude.Text,
+    dBClusterSnapshotIdentifier :: Types.DBClusterSnapshotIdentifier,
+    -- | The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing DBCluster.
+    --
+    --
+    -- Example: @my-cluster1@
+    dBClusterIdentifier :: Types.DBClusterIdentifier,
     -- | The tags to be assigned to the DB cluster snapshot.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDBClusterSnapshot' with the minimum fields required to make a request.
---
--- * 'dbClusterIdentifier' - The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBCluster.
---
---
--- Example: @my-cluster1@
--- * 'dbClusterSnapshotIdentifier' - The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string.
---
--- Constraints:
---
---     * Must contain from 1 to 63 letters, numbers, or hyphens.
---
---
---     * First character must be a letter.
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens.
---
---
--- Example: @my-cluster1-snapshot1@
--- * 'tags' - The tags to be assigned to the DB cluster snapshot.
+-- | Creates a 'CreateDBClusterSnapshot' value with any optional fields omitted.
 mkCreateDBClusterSnapshot ::
-  -- | 'dbClusterIdentifier'
-  Lude.Text ->
-  -- | 'dbClusterSnapshotIdentifier'
-  Lude.Text ->
+  -- | 'dBClusterSnapshotIdentifier'
+  Types.DBClusterSnapshotIdentifier ->
+  -- | 'dBClusterIdentifier'
+  Types.DBClusterIdentifier ->
   CreateDBClusterSnapshot
 mkCreateDBClusterSnapshot
-  pDBClusterIdentifier_
-  pDBClusterSnapshotIdentifier_ =
+  dBClusterSnapshotIdentifier
+  dBClusterIdentifier =
     CreateDBClusterSnapshot'
-      { dbClusterIdentifier =
-          pDBClusterIdentifier_,
-        dbClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_,
-        tags = Lude.Nothing
+      { dBClusterSnapshotIdentifier,
+        dBClusterIdentifier,
+        tags = Core.Nothing
       }
-
--- | The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBCluster.
---
---
--- Example: @my-cluster1@
---
--- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcsDBClusterIdentifier :: Lens.Lens' CreateDBClusterSnapshot Lude.Text
-cdcsDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: CreateDBClusterSnapshot -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: CreateDBClusterSnapshot)
-{-# DEPRECATED cdcsDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string.
 --
@@ -144,80 +105,97 @@ cdcsDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: CreateDBClusterSnaps
 --
 -- Example: @my-cluster1-snapshot1@
 --
--- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcsDBClusterSnapshotIdentifier :: Lens.Lens' CreateDBClusterSnapshot Lude.Text
-cdcsDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: CreateDBClusterSnapshot -> Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: CreateDBClusterSnapshot)
-{-# DEPRECATED cdcsDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbcsDBClusterSnapshotIdentifier :: Lens.Lens' CreateDBClusterSnapshot Types.DBClusterSnapshotIdentifier
+cdbcsDBClusterSnapshotIdentifier = Lens.field @"dBClusterSnapshotIdentifier"
+{-# DEPRECATED cdbcsDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dBClusterSnapshotIdentifier' instead." #-}
+
+-- | The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DBCluster.
+--
+--
+-- Example: @my-cluster1@
+--
+-- /Note:/ Consider using 'dBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbcsDBClusterIdentifier :: Lens.Lens' CreateDBClusterSnapshot Types.DBClusterIdentifier
+cdbcsDBClusterIdentifier = Lens.field @"dBClusterIdentifier"
+{-# DEPRECATED cdbcsDBClusterIdentifier "Use generic-lens or generic-optics with 'dBClusterIdentifier' instead." #-}
 
 -- | The tags to be assigned to the DB cluster snapshot.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcsTags :: Lens.Lens' CreateDBClusterSnapshot (Lude.Maybe [Tag])
-cdcsTags = Lens.lens (tags :: CreateDBClusterSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBClusterSnapshot)
-{-# DEPRECATED cdcsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cdbcsTags :: Lens.Lens' CreateDBClusterSnapshot (Core.Maybe [Types.Tag])
+cdbcsTags = Lens.field @"tags"
+{-# DEPRECATED cdbcsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDBClusterSnapshot where
+instance Core.AWSRequest CreateDBClusterSnapshot where
   type Rs CreateDBClusterSnapshot = CreateDBClusterSnapshotResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateDBClusterSnapshot")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue
+                            "DBClusterSnapshotIdentifier"
+                            dBClusterSnapshotIdentifier
+                        )
+                Core.<> (Core.toQueryValue "DBClusterIdentifier" dBClusterIdentifier)
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" Core.<$> tags))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateDBClusterSnapshotResult"
       ( \s h x ->
           CreateDBClusterSnapshotResponse'
-            Lude.<$> (x Lude..@? "DBClusterSnapshot")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBClusterSnapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDBClusterSnapshot where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDBClusterSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDBClusterSnapshot where
-  toQuery CreateDBClusterSnapshot' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateDBClusterSnapshot" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
-        "DBClusterSnapshotIdentifier" Lude.=: dbClusterSnapshotIdentifier,
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
 
 -- | /See:/ 'mkCreateDBClusterSnapshotResponse' smart constructor.
 data CreateDBClusterSnapshotResponse = CreateDBClusterSnapshotResponse'
-  { dbClusterSnapshot :: Lude.Maybe DBClusterSnapshot,
+  { dBClusterSnapshot :: Core.Maybe Types.DBClusterSnapshot,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateDBClusterSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'dbClusterSnapshot' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDBClusterSnapshotResponse' value with any optional fields omitted.
 mkCreateDBClusterSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDBClusterSnapshotResponse
-mkCreateDBClusterSnapshotResponse pResponseStatus_ =
+mkCreateDBClusterSnapshotResponse responseStatus =
   CreateDBClusterSnapshotResponse'
-    { dbClusterSnapshot =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBClusterSnapshot =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbClusterSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdbcsrsDBClusterSnapshot :: Lens.Lens' CreateDBClusterSnapshotResponse (Lude.Maybe DBClusterSnapshot)
-cdbcsrsDBClusterSnapshot = Lens.lens (dbClusterSnapshot :: CreateDBClusterSnapshotResponse -> Lude.Maybe DBClusterSnapshot) (\s a -> s {dbClusterSnapshot = a} :: CreateDBClusterSnapshotResponse)
-{-# DEPRECATED cdbcsrsDBClusterSnapshot "Use generic-lens or generic-optics with 'dbClusterSnapshot' instead." #-}
+-- /Note:/ Consider using 'dBClusterSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbcsrrsDBClusterSnapshot :: Lens.Lens' CreateDBClusterSnapshotResponse (Core.Maybe Types.DBClusterSnapshot)
+cdbcsrrsDBClusterSnapshot = Lens.field @"dBClusterSnapshot"
+{-# DEPRECATED cdbcsrrsDBClusterSnapshot "Use generic-lens or generic-optics with 'dBClusterSnapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdbcsrsResponseStatus :: Lens.Lens' CreateDBClusterSnapshotResponse Lude.Int
-cdbcsrsResponseStatus = Lens.lens (responseStatus :: CreateDBClusterSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDBClusterSnapshotResponse)
-{-# DEPRECATED cdbcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdbcsrrsResponseStatus :: Lens.Lens' CreateDBClusterSnapshotResponse Core.Int
+cdbcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdbcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,20 +17,23 @@ module Network.AWS.DynamoDB.Types.AttributeDefinition
     mkAttributeDefinition,
 
     -- * Lenses
-    adAttributeType,
     adAttributeName,
+    adAttributeType,
   )
 where
 
-import Network.AWS.DynamoDB.Types.ScalarAttributeType
+import qualified Network.AWS.DynamoDB.Types.KeySchemaAttributeName as Types
+import qualified Network.AWS.DynamoDB.Types.ScalarAttributeType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an attribute for describing the key schema for the table and indexes.
 --
 -- /See:/ 'mkAttributeDefinition' smart constructor.
 data AttributeDefinition = AttributeDefinition'
-  { -- | The data type for the attribute, where:
+  { -- | A name for the attribute.
+    attributeName :: Types.KeySchemaAttributeName,
+    -- | The data type for the attribute, where:
     --
     --
     --     * @S@ - the attribute is of type String
@@ -40,39 +43,27 @@ data AttributeDefinition = AttributeDefinition'
     --
     --
     --     * @B@ - the attribute is of type Binary
-    attributeType :: ScalarAttributeType,
-    -- | A name for the attribute.
-    attributeName :: Lude.Text
+    attributeType :: Types.ScalarAttributeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributeDefinition' with the minimum fields required to make a request.
---
--- * 'attributeType' - The data type for the attribute, where:
---
---
---     * @S@ - the attribute is of type String
---
---
---     * @N@ - the attribute is of type Number
---
---
---     * @B@ - the attribute is of type Binary
---
---
--- * 'attributeName' - A name for the attribute.
+-- | Creates a 'AttributeDefinition' value with any optional fields omitted.
 mkAttributeDefinition ::
-  -- | 'attributeType'
-  ScalarAttributeType ->
   -- | 'attributeName'
-  Lude.Text ->
+  Types.KeySchemaAttributeName ->
+  -- | 'attributeType'
+  Types.ScalarAttributeType ->
   AttributeDefinition
-mkAttributeDefinition pAttributeType_ pAttributeName_ =
-  AttributeDefinition'
-    { attributeType = pAttributeType_,
-      attributeName = pAttributeName_
-    }
+mkAttributeDefinition attributeName attributeType =
+  AttributeDefinition' {attributeName, attributeType}
+
+-- | A name for the attribute.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAttributeName :: Lens.Lens' AttributeDefinition Types.KeySchemaAttributeName
+adAttributeName = Lens.field @"attributeName"
+{-# DEPRECATED adAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The data type for the attribute, where:
 --
@@ -88,31 +79,22 @@ mkAttributeDefinition pAttributeType_ pAttributeName_ =
 --
 --
 -- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAttributeType :: Lens.Lens' AttributeDefinition ScalarAttributeType
-adAttributeType = Lens.lens (attributeType :: AttributeDefinition -> ScalarAttributeType) (\s a -> s {attributeType = a} :: AttributeDefinition)
+adAttributeType :: Lens.Lens' AttributeDefinition Types.ScalarAttributeType
+adAttributeType = Lens.field @"attributeType"
 {-# DEPRECATED adAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
--- | A name for the attribute.
---
--- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAttributeName :: Lens.Lens' AttributeDefinition Lude.Text
-adAttributeName = Lens.lens (attributeName :: AttributeDefinition -> Lude.Text) (\s a -> s {attributeName = a} :: AttributeDefinition)
-{-# DEPRECATED adAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
-
-instance Lude.FromJSON AttributeDefinition where
-  parseJSON =
-    Lude.withObject
-      "AttributeDefinition"
-      ( \x ->
-          AttributeDefinition'
-            Lude.<$> (x Lude..: "AttributeType") Lude.<*> (x Lude..: "AttributeName")
-      )
-
-instance Lude.ToJSON AttributeDefinition where
-  toJSON AttributeDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AttributeType" Lude..= attributeType),
-            Lude.Just ("AttributeName" Lude..= attributeName)
+instance Core.FromJSON AttributeDefinition where
+  toJSON AttributeDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AttributeName" Core..= attributeName),
+            Core.Just ("AttributeType" Core..= attributeType)
           ]
       )
+
+instance Core.FromJSON AttributeDefinition where
+  parseJSON =
+    Core.withObject "AttributeDefinition" Core.$
+      \x ->
+        AttributeDefinition'
+          Core.<$> (x Core..: "AttributeName") Core.<*> (x Core..: "AttributeType")

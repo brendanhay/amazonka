@@ -22,53 +22,48 @@ module Network.AWS.CodeCommit.Types.MergeOperations
   )
 where
 
-import Network.AWS.CodeCommit.Types.ChangeTypeEnum
+import qualified Network.AWS.CodeCommit.Types.ChangeTypeEnum as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the file operation conflicts in a merge operation.
 --
 -- /See:/ 'mkMergeOperations' smart constructor.
 data MergeOperations = MergeOperations'
   { -- | The operation on a file in the destination of a merge or pull request.
-    destination :: Lude.Maybe ChangeTypeEnum,
+    destination :: Core.Maybe Types.ChangeTypeEnum,
     -- | The operation (add, modify, or delete) on a file in the source of a merge or pull request.
-    source :: Lude.Maybe ChangeTypeEnum
+    source :: Core.Maybe Types.ChangeTypeEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergeOperations' with the minimum fields required to make a request.
---
--- * 'destination' - The operation on a file in the destination of a merge or pull request.
--- * 'source' - The operation (add, modify, or delete) on a file in the source of a merge or pull request.
+-- | Creates a 'MergeOperations' value with any optional fields omitted.
 mkMergeOperations ::
   MergeOperations
 mkMergeOperations =
   MergeOperations'
-    { destination = Lude.Nothing,
-      source = Lude.Nothing
+    { destination = Core.Nothing,
+      source = Core.Nothing
     }
 
 -- | The operation on a file in the destination of a merge or pull request.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-moDestination :: Lens.Lens' MergeOperations (Lude.Maybe ChangeTypeEnum)
-moDestination = Lens.lens (destination :: MergeOperations -> Lude.Maybe ChangeTypeEnum) (\s a -> s {destination = a} :: MergeOperations)
+moDestination :: Lens.Lens' MergeOperations (Core.Maybe Types.ChangeTypeEnum)
+moDestination = Lens.field @"destination"
 {-# DEPRECATED moDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The operation (add, modify, or delete) on a file in the source of a merge or pull request.
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-moSource :: Lens.Lens' MergeOperations (Lude.Maybe ChangeTypeEnum)
-moSource = Lens.lens (source :: MergeOperations -> Lude.Maybe ChangeTypeEnum) (\s a -> s {source = a} :: MergeOperations)
+moSource :: Lens.Lens' MergeOperations (Core.Maybe Types.ChangeTypeEnum)
+moSource = Lens.field @"source"
 {-# DEPRECATED moSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance Lude.FromJSON MergeOperations where
+instance Core.FromJSON MergeOperations where
   parseJSON =
-    Lude.withObject
-      "MergeOperations"
-      ( \x ->
-          MergeOperations'
-            Lude.<$> (x Lude..:? "destination") Lude.<*> (x Lude..:? "source")
-      )
+    Core.withObject "MergeOperations" Core.$
+      \x ->
+        MergeOperations'
+          Core.<$> (x Core..:? "destination") Core.<*> (x Core..:? "source")

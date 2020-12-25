@@ -13,61 +13,66 @@
 module Network.AWS.WorkDocs.Types.PrincipalType
   ( PrincipalType
       ( PrincipalType',
-        User,
-        Group,
-        Invite,
-        Anonymous,
-        Organization
+        PrincipalTypeUser,
+        PrincipalTypeGroup,
+        PrincipalTypeInvite,
+        PrincipalTypeAnonymous,
+        PrincipalTypeOrganization,
+        fromPrincipalType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PrincipalType = PrincipalType' Lude.Text
+newtype PrincipalType = PrincipalType'
+  { fromPrincipalType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern User :: PrincipalType
-pattern User = PrincipalType' "USER"
+pattern PrincipalTypeUser :: PrincipalType
+pattern PrincipalTypeUser = PrincipalType' "USER"
 
-pattern Group :: PrincipalType
-pattern Group = PrincipalType' "GROUP"
+pattern PrincipalTypeGroup :: PrincipalType
+pattern PrincipalTypeGroup = PrincipalType' "GROUP"
 
-pattern Invite :: PrincipalType
-pattern Invite = PrincipalType' "INVITE"
+pattern PrincipalTypeInvite :: PrincipalType
+pattern PrincipalTypeInvite = PrincipalType' "INVITE"
 
-pattern Anonymous :: PrincipalType
-pattern Anonymous = PrincipalType' "ANONYMOUS"
+pattern PrincipalTypeAnonymous :: PrincipalType
+pattern PrincipalTypeAnonymous = PrincipalType' "ANONYMOUS"
 
-pattern Organization :: PrincipalType
-pattern Organization = PrincipalType' "ORGANIZATION"
+pattern PrincipalTypeOrganization :: PrincipalType
+pattern PrincipalTypeOrganization = PrincipalType' "ORGANIZATION"
 
 {-# COMPLETE
-  User,
-  Group,
-  Invite,
-  Anonymous,
-  Organization,
+  PrincipalTypeUser,
+  PrincipalTypeGroup,
+  PrincipalTypeInvite,
+  PrincipalTypeAnonymous,
+  PrincipalTypeOrganization,
   PrincipalType'
   #-}

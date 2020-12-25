@@ -13,51 +13,56 @@
 module Network.AWS.Config.Types.ResourceCountGroupKey
   ( ResourceCountGroupKey
       ( ResourceCountGroupKey',
-        RCGKResourceType,
-        RCGKAccountId,
-        RCGKAWSRegion
+        ResourceCountGroupKeyResourceType,
+        ResourceCountGroupKeyAccountId,
+        ResourceCountGroupKeyAwsRegion,
+        fromResourceCountGroupKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceCountGroupKey = ResourceCountGroupKey' Lude.Text
+newtype ResourceCountGroupKey = ResourceCountGroupKey'
+  { fromResourceCountGroupKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RCGKResourceType :: ResourceCountGroupKey
-pattern RCGKResourceType = ResourceCountGroupKey' "RESOURCE_TYPE"
+pattern ResourceCountGroupKeyResourceType :: ResourceCountGroupKey
+pattern ResourceCountGroupKeyResourceType = ResourceCountGroupKey' "RESOURCE_TYPE"
 
-pattern RCGKAccountId :: ResourceCountGroupKey
-pattern RCGKAccountId = ResourceCountGroupKey' "ACCOUNT_ID"
+pattern ResourceCountGroupKeyAccountId :: ResourceCountGroupKey
+pattern ResourceCountGroupKeyAccountId = ResourceCountGroupKey' "ACCOUNT_ID"
 
-pattern RCGKAWSRegion :: ResourceCountGroupKey
-pattern RCGKAWSRegion = ResourceCountGroupKey' "AWS_REGION"
+pattern ResourceCountGroupKeyAwsRegion :: ResourceCountGroupKey
+pattern ResourceCountGroupKeyAwsRegion = ResourceCountGroupKey' "AWS_REGION"
 
 {-# COMPLETE
-  RCGKResourceType,
-  RCGKAccountId,
-  RCGKAWSRegion,
+  ResourceCountGroupKeyResourceType,
+  ResourceCountGroupKeyAccountId,
+  ResourceCountGroupKeyAwsRegion,
   ResourceCountGroupKey'
   #-}

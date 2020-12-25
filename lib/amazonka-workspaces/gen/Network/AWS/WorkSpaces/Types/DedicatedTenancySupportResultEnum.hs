@@ -13,46 +13,51 @@
 module Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
   ( DedicatedTenancySupportResultEnum
       ( DedicatedTenancySupportResultEnum',
-        DTSREEnabled,
-        DTSREDisabled
+        DedicatedTenancySupportResultEnumEnabled,
+        DedicatedTenancySupportResultEnumDisabled,
+        fromDedicatedTenancySupportResultEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DedicatedTenancySupportResultEnum = DedicatedTenancySupportResultEnum' Lude.Text
+newtype DedicatedTenancySupportResultEnum = DedicatedTenancySupportResultEnum'
+  { fromDedicatedTenancySupportResultEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DTSREEnabled :: DedicatedTenancySupportResultEnum
-pattern DTSREEnabled = DedicatedTenancySupportResultEnum' "ENABLED"
+pattern DedicatedTenancySupportResultEnumEnabled :: DedicatedTenancySupportResultEnum
+pattern DedicatedTenancySupportResultEnumEnabled = DedicatedTenancySupportResultEnum' "ENABLED"
 
-pattern DTSREDisabled :: DedicatedTenancySupportResultEnum
-pattern DTSREDisabled = DedicatedTenancySupportResultEnum' "DISABLED"
+pattern DedicatedTenancySupportResultEnumDisabled :: DedicatedTenancySupportResultEnum
+pattern DedicatedTenancySupportResultEnumDisabled = DedicatedTenancySupportResultEnum' "DISABLED"
 
 {-# COMPLETE
-  DTSREEnabled,
-  DTSREDisabled,
+  DedicatedTenancySupportResultEnumEnabled,
+  DedicatedTenancySupportResultEnumDisabled,
   DedicatedTenancySupportResultEnum'
   #-}

@@ -23,217 +23,196 @@ module Network.AWS.KinesisAnalytics.DiscoverInputSchema
     mkDiscoverInputSchema,
 
     -- ** Request lenses
-    disInputStartingPositionConfiguration,
     disInputProcessingConfiguration,
-    disS3Configuration,
+    disInputStartingPositionConfiguration,
     disResourceARN,
     disRoleARN,
+    disS3Configuration,
 
     -- * Destructuring the response
     DiscoverInputSchemaResponse (..),
     mkDiscoverInputSchemaResponse,
 
     -- ** Response lenses
-    disrsRawInputRecords,
-    disrsInputSchema,
-    disrsProcessedInputRecords,
-    disrsParsedInputRecords,
-    disrsResponseStatus,
+    disrrsInputSchema,
+    disrrsParsedInputRecords,
+    disrrsProcessedInputRecords,
+    disrrsRawInputRecords,
+    disrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types
+import qualified Network.AWS.KinesisAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDiscoverInputSchema' smart constructor.
 data DiscoverInputSchema = DiscoverInputSchema'
-  { -- | Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
-    inputStartingPositionConfiguration :: Lude.Maybe InputStartingPositionConfiguration,
-    -- | The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> to use to preprocess the records before discovering the schema of the records.
-    inputProcessingConfiguration :: Lude.Maybe InputProcessingConfiguration,
-    -- | Specify this parameter to discover a schema from data in an Amazon S3 object.
-    s3Configuration :: Lude.Maybe S3Configuration,
+  { -- | The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> to use to preprocess the records before discovering the schema of the records.
+    inputProcessingConfiguration :: Core.Maybe Types.InputProcessingConfiguration,
+    -- | Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
+    inputStartingPositionConfiguration :: Core.Maybe Types.InputStartingPositionConfiguration,
     -- | Amazon Resource Name (ARN) of the streaming source.
-    resourceARN :: Lude.Maybe Lude.Text,
+    resourceARN :: Core.Maybe Types.ResourceARN,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.
-    roleARN :: Lude.Maybe Lude.Text
+    roleARN :: Core.Maybe Types.RoleARN,
+    -- | Specify this parameter to discover a schema from data in an Amazon S3 object.
+    s3Configuration :: Core.Maybe Types.S3Configuration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiscoverInputSchema' with the minimum fields required to make a request.
---
--- * 'inputStartingPositionConfiguration' - Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
--- * 'inputProcessingConfiguration' - The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> to use to preprocess the records before discovering the schema of the records.
--- * 's3Configuration' - Specify this parameter to discover a schema from data in an Amazon S3 object.
--- * 'resourceARN' - Amazon Resource Name (ARN) of the streaming source.
--- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.
+-- | Creates a 'DiscoverInputSchema' value with any optional fields omitted.
 mkDiscoverInputSchema ::
   DiscoverInputSchema
 mkDiscoverInputSchema =
   DiscoverInputSchema'
-    { inputStartingPositionConfiguration =
-        Lude.Nothing,
-      inputProcessingConfiguration = Lude.Nothing,
-      s3Configuration = Lude.Nothing,
-      resourceARN = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { inputProcessingConfiguration = Core.Nothing,
+      inputStartingPositionConfiguration = Core.Nothing,
+      resourceARN = Core.Nothing,
+      roleARN = Core.Nothing,
+      s3Configuration = Core.Nothing
     }
-
--- | Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
---
--- /Note:/ Consider using 'inputStartingPositionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disInputStartingPositionConfiguration :: Lens.Lens' DiscoverInputSchema (Lude.Maybe InputStartingPositionConfiguration)
-disInputStartingPositionConfiguration = Lens.lens (inputStartingPositionConfiguration :: DiscoverInputSchema -> Lude.Maybe InputStartingPositionConfiguration) (\s a -> s {inputStartingPositionConfiguration = a} :: DiscoverInputSchema)
-{-# DEPRECATED disInputStartingPositionConfiguration "Use generic-lens or generic-optics with 'inputStartingPositionConfiguration' instead." #-}
 
 -- | The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> to use to preprocess the records before discovering the schema of the records.
 --
 -- /Note:/ Consider using 'inputProcessingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disInputProcessingConfiguration :: Lens.Lens' DiscoverInputSchema (Lude.Maybe InputProcessingConfiguration)
-disInputProcessingConfiguration = Lens.lens (inputProcessingConfiguration :: DiscoverInputSchema -> Lude.Maybe InputProcessingConfiguration) (\s a -> s {inputProcessingConfiguration = a} :: DiscoverInputSchema)
+disInputProcessingConfiguration :: Lens.Lens' DiscoverInputSchema (Core.Maybe Types.InputProcessingConfiguration)
+disInputProcessingConfiguration = Lens.field @"inputProcessingConfiguration"
 {-# DEPRECATED disInputProcessingConfiguration "Use generic-lens or generic-optics with 'inputProcessingConfiguration' instead." #-}
 
--- | Specify this parameter to discover a schema from data in an Amazon S3 object.
+-- | Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
 --
--- /Note:/ Consider using 's3Configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disS3Configuration :: Lens.Lens' DiscoverInputSchema (Lude.Maybe S3Configuration)
-disS3Configuration = Lens.lens (s3Configuration :: DiscoverInputSchema -> Lude.Maybe S3Configuration) (\s a -> s {s3Configuration = a} :: DiscoverInputSchema)
-{-# DEPRECATED disS3Configuration "Use generic-lens or generic-optics with 's3Configuration' instead." #-}
+-- /Note:/ Consider using 'inputStartingPositionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disInputStartingPositionConfiguration :: Lens.Lens' DiscoverInputSchema (Core.Maybe Types.InputStartingPositionConfiguration)
+disInputStartingPositionConfiguration = Lens.field @"inputStartingPositionConfiguration"
+{-# DEPRECATED disInputStartingPositionConfiguration "Use generic-lens or generic-optics with 'inputStartingPositionConfiguration' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the streaming source.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disResourceARN :: Lens.Lens' DiscoverInputSchema (Lude.Maybe Lude.Text)
-disResourceARN = Lens.lens (resourceARN :: DiscoverInputSchema -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: DiscoverInputSchema)
+disResourceARN :: Lens.Lens' DiscoverInputSchema (Core.Maybe Types.ResourceARN)
+disResourceARN = Lens.field @"resourceARN"
 {-# DEPRECATED disResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disRoleARN :: Lens.Lens' DiscoverInputSchema (Lude.Maybe Lude.Text)
-disRoleARN = Lens.lens (roleARN :: DiscoverInputSchema -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DiscoverInputSchema)
+disRoleARN :: Lens.Lens' DiscoverInputSchema (Core.Maybe Types.RoleARN)
+disRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED disRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.AWSRequest DiscoverInputSchema where
+-- | Specify this parameter to discover a schema from data in an Amazon S3 object.
+--
+-- /Note:/ Consider using 's3Configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disS3Configuration :: Lens.Lens' DiscoverInputSchema (Core.Maybe Types.S3Configuration)
+disS3Configuration = Lens.field @"s3Configuration"
+{-# DEPRECATED disS3Configuration "Use generic-lens or generic-optics with 's3Configuration' instead." #-}
+
+instance Core.FromJSON DiscoverInputSchema where
+  toJSON DiscoverInputSchema {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("InputProcessingConfiguration" Core..=)
+              Core.<$> inputProcessingConfiguration,
+            ("InputStartingPositionConfiguration" Core..=)
+              Core.<$> inputStartingPositionConfiguration,
+            ("ResourceARN" Core..=) Core.<$> resourceARN,
+            ("RoleARN" Core..=) Core.<$> roleARN,
+            ("S3Configuration" Core..=) Core.<$> s3Configuration
+          ]
+      )
+
+instance Core.AWSRequest DiscoverInputSchema where
   type Rs DiscoverInputSchema = DiscoverInputSchemaResponse
-  request = Req.postJSON kinesisAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "KinesisAnalytics_20150814.DiscoverInputSchema")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DiscoverInputSchemaResponse'
-            Lude.<$> (x Lude..?> "RawInputRecords" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "InputSchema")
-            Lude.<*> (x Lude..?> "ProcessedInputRecords" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "ParsedInputRecords" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InputSchema")
+            Core.<*> (x Core..:? "ParsedInputRecords")
+            Core.<*> (x Core..:? "ProcessedInputRecords")
+            Core.<*> (x Core..:? "RawInputRecords")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DiscoverInputSchema where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "KinesisAnalytics_20150814.DiscoverInputSchema" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DiscoverInputSchema where
-  toJSON DiscoverInputSchema' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("InputStartingPositionConfiguration" Lude..=)
-              Lude.<$> inputStartingPositionConfiguration,
-            ("InputProcessingConfiguration" Lude..=)
-              Lude.<$> inputProcessingConfiguration,
-            ("S3Configuration" Lude..=) Lude.<$> s3Configuration,
-            ("ResourceARN" Lude..=) Lude.<$> resourceARN,
-            ("RoleARN" Lude..=) Lude.<$> roleARN
-          ]
-      )
-
-instance Lude.ToPath DiscoverInputSchema where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DiscoverInputSchema where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkDiscoverInputSchemaResponse' smart constructor.
 data DiscoverInputSchemaResponse = DiscoverInputSchemaResponse'
-  { -- | Raw stream data that was sampled to infer the schema.
-    rawInputRecords :: Lude.Maybe [Lude.Text],
-    -- | Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
-    inputSchema :: Lude.Maybe SourceSchema,
-    -- | Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
-    processedInputRecords :: Lude.Maybe [Lude.Text],
+  { -- | Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
+    inputSchema :: Core.Maybe Types.SourceSchema,
     -- | An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
-    parsedInputRecords :: Lude.Maybe [[Lude.Text]],
+    parsedInputRecords :: Core.Maybe [[Types.ParsedInputRecordField]],
+    -- | Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
+    processedInputRecords :: Core.Maybe [Types.ProcessedInputRecord],
+    -- | Raw stream data that was sampled to infer the schema.
+    rawInputRecords :: Core.Maybe [Types.RawInputRecord],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiscoverInputSchemaResponse' with the minimum fields required to make a request.
---
--- * 'rawInputRecords' - Raw stream data that was sampled to infer the schema.
--- * 'inputSchema' - Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
--- * 'processedInputRecords' - Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
--- * 'parsedInputRecords' - An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DiscoverInputSchemaResponse' value with any optional fields omitted.
 mkDiscoverInputSchemaResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DiscoverInputSchemaResponse
-mkDiscoverInputSchemaResponse pResponseStatus_ =
+mkDiscoverInputSchemaResponse responseStatus =
   DiscoverInputSchemaResponse'
-    { rawInputRecords = Lude.Nothing,
-      inputSchema = Lude.Nothing,
-      processedInputRecords = Lude.Nothing,
-      parsedInputRecords = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { inputSchema = Core.Nothing,
+      parsedInputRecords = Core.Nothing,
+      processedInputRecords = Core.Nothing,
+      rawInputRecords = Core.Nothing,
+      responseStatus
     }
-
--- | Raw stream data that was sampled to infer the schema.
---
--- /Note:/ Consider using 'rawInputRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsRawInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Lude.Maybe [Lude.Text])
-disrsRawInputRecords = Lens.lens (rawInputRecords :: DiscoverInputSchemaResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {rawInputRecords = a} :: DiscoverInputSchemaResponse)
-{-# DEPRECATED disrsRawInputRecords "Use generic-lens or generic-optics with 'rawInputRecords' instead." #-}
 
 -- | Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
 --
 -- /Note:/ Consider using 'inputSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsInputSchema :: Lens.Lens' DiscoverInputSchemaResponse (Lude.Maybe SourceSchema)
-disrsInputSchema = Lens.lens (inputSchema :: DiscoverInputSchemaResponse -> Lude.Maybe SourceSchema) (\s a -> s {inputSchema = a} :: DiscoverInputSchemaResponse)
-{-# DEPRECATED disrsInputSchema "Use generic-lens or generic-optics with 'inputSchema' instead." #-}
-
--- | Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
---
--- /Note:/ Consider using 'processedInputRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsProcessedInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Lude.Maybe [Lude.Text])
-disrsProcessedInputRecords = Lens.lens (processedInputRecords :: DiscoverInputSchemaResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {processedInputRecords = a} :: DiscoverInputSchemaResponse)
-{-# DEPRECATED disrsProcessedInputRecords "Use generic-lens or generic-optics with 'processedInputRecords' instead." #-}
+disrrsInputSchema :: Lens.Lens' DiscoverInputSchemaResponse (Core.Maybe Types.SourceSchema)
+disrrsInputSchema = Lens.field @"inputSchema"
+{-# DEPRECATED disrrsInputSchema "Use generic-lens or generic-optics with 'inputSchema' instead." #-}
 
 -- | An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
 --
 -- /Note:/ Consider using 'parsedInputRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsParsedInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Lude.Maybe [[Lude.Text]])
-disrsParsedInputRecords = Lens.lens (parsedInputRecords :: DiscoverInputSchemaResponse -> Lude.Maybe [[Lude.Text]]) (\s a -> s {parsedInputRecords = a} :: DiscoverInputSchemaResponse)
-{-# DEPRECATED disrsParsedInputRecords "Use generic-lens or generic-optics with 'parsedInputRecords' instead." #-}
+disrrsParsedInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Core.Maybe [[Types.ParsedInputRecordField]])
+disrrsParsedInputRecords = Lens.field @"parsedInputRecords"
+{-# DEPRECATED disrrsParsedInputRecords "Use generic-lens or generic-optics with 'parsedInputRecords' instead." #-}
+
+-- | Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
+--
+-- /Note:/ Consider using 'processedInputRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disrrsProcessedInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Core.Maybe [Types.ProcessedInputRecord])
+disrrsProcessedInputRecords = Lens.field @"processedInputRecords"
+{-# DEPRECATED disrrsProcessedInputRecords "Use generic-lens or generic-optics with 'processedInputRecords' instead." #-}
+
+-- | Raw stream data that was sampled to infer the schema.
+--
+-- /Note:/ Consider using 'rawInputRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disrrsRawInputRecords :: Lens.Lens' DiscoverInputSchemaResponse (Core.Maybe [Types.RawInputRecord])
+disrrsRawInputRecords = Lens.field @"rawInputRecords"
+{-# DEPRECATED disrrsRawInputRecords "Use generic-lens or generic-optics with 'rawInputRecords' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DiscoverInputSchemaResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DiscoverInputSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DiscoverInputSchemaResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+disrrsResponseStatus :: Lens.Lens' DiscoverInputSchemaResponse Core.Int
+disrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED disrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

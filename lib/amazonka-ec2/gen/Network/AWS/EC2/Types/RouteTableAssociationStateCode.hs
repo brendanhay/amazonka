@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.RouteTableAssociationStateCode
   ( RouteTableAssociationStateCode
       ( RouteTableAssociationStateCode',
-        RTASCAssociating,
-        RTASCAssociated,
-        RTASCDisassociating,
-        RTASCDisassociated,
-        RTASCFailed
+        RouteTableAssociationStateCodeAssociating,
+        RouteTableAssociationStateCodeAssociated,
+        RouteTableAssociationStateCodeDisassociating,
+        RouteTableAssociationStateCodeDisassociated,
+        RouteTableAssociationStateCodeFailed,
+        fromRouteTableAssociationStateCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RouteTableAssociationStateCode = RouteTableAssociationStateCode' Lude.Text
+newtype RouteTableAssociationStateCode = RouteTableAssociationStateCode'
+  { fromRouteTableAssociationStateCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RTASCAssociating :: RouteTableAssociationStateCode
-pattern RTASCAssociating = RouteTableAssociationStateCode' "associating"
+pattern RouteTableAssociationStateCodeAssociating :: RouteTableAssociationStateCode
+pattern RouteTableAssociationStateCodeAssociating = RouteTableAssociationStateCode' "associating"
 
-pattern RTASCAssociated :: RouteTableAssociationStateCode
-pattern RTASCAssociated = RouteTableAssociationStateCode' "associated"
+pattern RouteTableAssociationStateCodeAssociated :: RouteTableAssociationStateCode
+pattern RouteTableAssociationStateCodeAssociated = RouteTableAssociationStateCode' "associated"
 
-pattern RTASCDisassociating :: RouteTableAssociationStateCode
-pattern RTASCDisassociating = RouteTableAssociationStateCode' "disassociating"
+pattern RouteTableAssociationStateCodeDisassociating :: RouteTableAssociationStateCode
+pattern RouteTableAssociationStateCodeDisassociating = RouteTableAssociationStateCode' "disassociating"
 
-pattern RTASCDisassociated :: RouteTableAssociationStateCode
-pattern RTASCDisassociated = RouteTableAssociationStateCode' "disassociated"
+pattern RouteTableAssociationStateCodeDisassociated :: RouteTableAssociationStateCode
+pattern RouteTableAssociationStateCodeDisassociated = RouteTableAssociationStateCode' "disassociated"
 
-pattern RTASCFailed :: RouteTableAssociationStateCode
-pattern RTASCFailed = RouteTableAssociationStateCode' "failed"
+pattern RouteTableAssociationStateCodeFailed :: RouteTableAssociationStateCode
+pattern RouteTableAssociationStateCodeFailed = RouteTableAssociationStateCode' "failed"
 
 {-# COMPLETE
-  RTASCAssociating,
-  RTASCAssociated,
-  RTASCDisassociating,
-  RTASCDisassociated,
-  RTASCFailed,
+  RouteTableAssociationStateCodeAssociating,
+  RouteTableAssociationStateCodeAssociated,
+  RouteTableAssociationStateCodeDisassociating,
+  RouteTableAssociationStateCodeDisassociated,
+  RouteTableAssociationStateCodeFailed,
   RouteTableAssociationStateCode'
   #-}

@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.AacCodecProfile
   ( AacCodecProfile
       ( AacCodecProfile',
-        ACPLC,
-        ACPHEV1,
-        ACPHEV2
+        AacCodecProfileLC,
+        AacCodecProfileHEV1,
+        AacCodecProfileHEV2,
+        fromAacCodecProfile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | AAC Profile.
-newtype AacCodecProfile = AacCodecProfile' Lude.Text
+newtype AacCodecProfile = AacCodecProfile'
+  { fromAacCodecProfile ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ACPLC :: AacCodecProfile
-pattern ACPLC = AacCodecProfile' "LC"
+pattern AacCodecProfileLC :: AacCodecProfile
+pattern AacCodecProfileLC = AacCodecProfile' "LC"
 
-pattern ACPHEV1 :: AacCodecProfile
-pattern ACPHEV1 = AacCodecProfile' "HEV1"
+pattern AacCodecProfileHEV1 :: AacCodecProfile
+pattern AacCodecProfileHEV1 = AacCodecProfile' "HEV1"
 
-pattern ACPHEV2 :: AacCodecProfile
-pattern ACPHEV2 = AacCodecProfile' "HEV2"
+pattern AacCodecProfileHEV2 :: AacCodecProfile
+pattern AacCodecProfileHEV2 = AacCodecProfile' "HEV2"
 
 {-# COMPLETE
-  ACPLC,
-  ACPHEV1,
-  ACPHEV2,
+  AacCodecProfileLC,
+  AacCodecProfileHEV1,
+  AacCodecProfileHEV2,
   AacCodecProfile'
   #-}

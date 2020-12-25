@@ -23,7 +23,7 @@ module Network.AWS.Pinpoint.Types.EndpointUser
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies data for one or more attributes that describe the user who's associated with an endpoint.
 --
@@ -32,25 +32,20 @@ data EndpointUser = EndpointUser'
   { -- | One or more custom attributes that describe the user by associating a name with an array of values. For example, the value of an attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.
     --
     -- An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.
-    userAttributes :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    userAttributes :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The unique identifier for the user.
-    userId :: Lude.Maybe Lude.Text
+    userId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointUser' with the minimum fields required to make a request.
---
--- * 'userAttributes' - One or more custom attributes that describe the user by associating a name with an array of values. For example, the value of an attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.
---
--- An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.
--- * 'userId' - The unique identifier for the user.
+-- | Creates a 'EndpointUser' value with any optional fields omitted.
 mkEndpointUser ::
   EndpointUser
 mkEndpointUser =
   EndpointUser'
-    { userAttributes = Lude.Nothing,
-      userId = Lude.Nothing
+    { userAttributes = Core.Nothing,
+      userId = Core.Nothing
     }
 
 -- | One or more custom attributes that describe the user by associating a name with an array of values. For example, the value of an attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.
@@ -58,32 +53,29 @@ mkEndpointUser =
 -- An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.
 --
 -- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-euUserAttributes :: Lens.Lens' EndpointUser (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-euUserAttributes = Lens.lens (userAttributes :: EndpointUser -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {userAttributes = a} :: EndpointUser)
+euUserAttributes :: Lens.Lens' EndpointUser (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+euUserAttributes = Lens.field @"userAttributes"
 {-# DEPRECATED euUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
 
 -- | The unique identifier for the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-euUserId :: Lens.Lens' EndpointUser (Lude.Maybe Lude.Text)
-euUserId = Lens.lens (userId :: EndpointUser -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: EndpointUser)
+euUserId :: Lens.Lens' EndpointUser (Core.Maybe Core.Text)
+euUserId = Lens.field @"userId"
 {-# DEPRECATED euUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.FromJSON EndpointUser where
-  parseJSON =
-    Lude.withObject
-      "EndpointUser"
-      ( \x ->
-          EndpointUser'
-            Lude.<$> (x Lude..:? "UserAttributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "UserId")
-      )
-
-instance Lude.ToJSON EndpointUser where
-  toJSON EndpointUser' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UserAttributes" Lude..=) Lude.<$> userAttributes,
-            ("UserId" Lude..=) Lude.<$> userId
+instance Core.FromJSON EndpointUser where
+  toJSON EndpointUser {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("UserAttributes" Core..=) Core.<$> userAttributes,
+            ("UserId" Core..=) Core.<$> userId
           ]
       )
+
+instance Core.FromJSON EndpointUser where
+  parseJSON =
+    Core.withObject "EndpointUser" Core.$
+      \x ->
+        EndpointUser'
+          Core.<$> (x Core..:? "UserAttributes") Core.<*> (x Core..:? "UserId")

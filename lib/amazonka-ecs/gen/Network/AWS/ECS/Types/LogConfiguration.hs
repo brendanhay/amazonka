@@ -23,10 +23,11 @@ module Network.AWS.ECS.Types.LogConfiguration
   )
 where
 
-import Network.AWS.ECS.Types.LogDriver
-import Network.AWS.ECS.Types.Secret
+import qualified Network.AWS.ECS.Types.LogDriver as Types
+import qualified Network.AWS.ECS.Types.Secret as Types
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The log configuration for the container. This parameter maps to @LogConfig@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the @--log-driver@ option to <https://docs.docker.com/engine/reference/commandline/run/ @docker run@ > .
 --
@@ -54,34 +55,25 @@ data LogConfiguration = LogConfiguration'
     -- For tasks hosted on Amazon EC2 instances, the supported log drivers are @awslogs@ , @fluentd@ , @gelf@ , @json-file@ , @journald@ , @logentries@ ,@syslog@ , @splunk@ , and @awsfirelens@ .
     -- For more information about using the @awslogs@ log driver, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html Using the awslogs log driver> in the /Amazon Elastic Container Service Developer Guide/ .
     -- For more information about using the @awsfirelens@ log driver, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom log routing> in the /Amazon Elastic Container Service Developer Guide/ .
-    logDriver :: LogDriver,
+    logDriver :: Types.LogDriver,
     -- | The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: @sudo docker version --format '{{.Server.APIVersion}}'@
-    options :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    options :: Core.Maybe (Core.HashMap Types.String Types.String),
     -- | The secrets to pass to the log configuration. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data> in the /Amazon Elastic Container Service Developer Guide/ .
-    secretOptions :: Lude.Maybe [Secret]
+    secretOptions :: Core.Maybe [Types.Secret]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LogConfiguration' with the minimum fields required to make a request.
---
--- * 'logDriver' - The log driver to use for the container.
---
--- For tasks on AWS Fargate, the supported log drivers are @awslogs@ , @splunk@ , and @awsfirelens@ .
--- For tasks hosted on Amazon EC2 instances, the supported log drivers are @awslogs@ , @fluentd@ , @gelf@ , @json-file@ , @journald@ , @logentries@ ,@syslog@ , @splunk@ , and @awsfirelens@ .
--- For more information about using the @awslogs@ log driver, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html Using the awslogs log driver> in the /Amazon Elastic Container Service Developer Guide/ .
--- For more information about using the @awsfirelens@ log driver, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom log routing> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'options' - The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: @sudo docker version --format '{{.Server.APIVersion}}'@
--- * 'secretOptions' - The secrets to pass to the log configuration. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data> in the /Amazon Elastic Container Service Developer Guide/ .
+-- | Creates a 'LogConfiguration' value with any optional fields omitted.
 mkLogConfiguration ::
   -- | 'logDriver'
-  LogDriver ->
+  Types.LogDriver ->
   LogConfiguration
-mkLogConfiguration pLogDriver_ =
+mkLogConfiguration logDriver =
   LogConfiguration'
-    { logDriver = pLogDriver_,
-      options = Lude.Nothing,
-      secretOptions = Lude.Nothing
+    { logDriver,
+      options = Core.Nothing,
+      secretOptions = Core.Nothing
     }
 
 -- | The log driver to use for the container.
@@ -92,41 +84,39 @@ mkLogConfiguration pLogDriver_ =
 -- For more information about using the @awsfirelens@ log driver, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom log routing> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'logDriver' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcLogDriver :: Lens.Lens' LogConfiguration LogDriver
-lcLogDriver = Lens.lens (logDriver :: LogConfiguration -> LogDriver) (\s a -> s {logDriver = a} :: LogConfiguration)
+lcLogDriver :: Lens.Lens' LogConfiguration Types.LogDriver
+lcLogDriver = Lens.field @"logDriver"
 {-# DEPRECATED lcLogDriver "Use generic-lens or generic-optics with 'logDriver' instead." #-}
 
 -- | The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: @sudo docker version --format '{{.Server.APIVersion}}'@
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcOptions :: Lens.Lens' LogConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-lcOptions = Lens.lens (options :: LogConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {options = a} :: LogConfiguration)
+lcOptions :: Lens.Lens' LogConfiguration (Core.Maybe (Core.HashMap Types.String Types.String))
+lcOptions = Lens.field @"options"
 {-# DEPRECATED lcOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | The secrets to pass to the log configuration. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'secretOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcSecretOptions :: Lens.Lens' LogConfiguration (Lude.Maybe [Secret])
-lcSecretOptions = Lens.lens (secretOptions :: LogConfiguration -> Lude.Maybe [Secret]) (\s a -> s {secretOptions = a} :: LogConfiguration)
+lcSecretOptions :: Lens.Lens' LogConfiguration (Core.Maybe [Types.Secret])
+lcSecretOptions = Lens.field @"secretOptions"
 {-# DEPRECATED lcSecretOptions "Use generic-lens or generic-optics with 'secretOptions' instead." #-}
 
-instance Lude.FromJSON LogConfiguration where
-  parseJSON =
-    Lude.withObject
-      "LogConfiguration"
-      ( \x ->
-          LogConfiguration'
-            Lude.<$> (x Lude..: "logDriver")
-            Lude.<*> (x Lude..:? "options" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "secretOptions" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON LogConfiguration where
-  toJSON LogConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("logDriver" Lude..= logDriver),
-            ("options" Lude..=) Lude.<$> options,
-            ("secretOptions" Lude..=) Lude.<$> secretOptions
+instance Core.FromJSON LogConfiguration where
+  toJSON LogConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logDriver" Core..= logDriver),
+            ("options" Core..=) Core.<$> options,
+            ("secretOptions" Core..=) Core.<$> secretOptions
           ]
       )
+
+instance Core.FromJSON LogConfiguration where
+  parseJSON =
+    Core.withObject "LogConfiguration" Core.$
+      \x ->
+        LogConfiguration'
+          Core.<$> (x Core..: "logDriver")
+          Core.<*> (x Core..:? "options")
+          Core.<*> (x Core..:? "secretOptions")

@@ -22,52 +22,49 @@ module Network.AWS.EC2.Types.ProcessorInfo
   )
 where
 
-import Network.AWS.EC2.Types.ArchitectureType
+import qualified Network.AWS.EC2.Types.ArchitectureType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the processor used by the instance type.
 --
 -- /See:/ 'mkProcessorInfo' smart constructor.
 data ProcessorInfo = ProcessorInfo'
   { -- | The architectures supported by the instance type.
-    supportedArchitectures :: Lude.Maybe [ArchitectureType],
+    supportedArchitectures :: Core.Maybe [Types.ArchitectureType],
     -- | The speed of the processor, in GHz.
-    sustainedClockSpeedInGhz :: Lude.Maybe Lude.Double
+    sustainedClockSpeedInGhz :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProcessorInfo' with the minimum fields required to make a request.
---
--- * 'supportedArchitectures' - The architectures supported by the instance type.
--- * 'sustainedClockSpeedInGhz' - The speed of the processor, in GHz.
+-- | Creates a 'ProcessorInfo' value with any optional fields omitted.
 mkProcessorInfo ::
   ProcessorInfo
 mkProcessorInfo =
   ProcessorInfo'
-    { supportedArchitectures = Lude.Nothing,
-      sustainedClockSpeedInGhz = Lude.Nothing
+    { supportedArchitectures = Core.Nothing,
+      sustainedClockSpeedInGhz = Core.Nothing
     }
 
 -- | The architectures supported by the instance type.
 --
 -- /Note:/ Consider using 'supportedArchitectures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piSupportedArchitectures :: Lens.Lens' ProcessorInfo (Lude.Maybe [ArchitectureType])
-piSupportedArchitectures = Lens.lens (supportedArchitectures :: ProcessorInfo -> Lude.Maybe [ArchitectureType]) (\s a -> s {supportedArchitectures = a} :: ProcessorInfo)
+piSupportedArchitectures :: Lens.Lens' ProcessorInfo (Core.Maybe [Types.ArchitectureType])
+piSupportedArchitectures = Lens.field @"supportedArchitectures"
 {-# DEPRECATED piSupportedArchitectures "Use generic-lens or generic-optics with 'supportedArchitectures' instead." #-}
 
 -- | The speed of the processor, in GHz.
 --
 -- /Note:/ Consider using 'sustainedClockSpeedInGhz' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piSustainedClockSpeedInGhz :: Lens.Lens' ProcessorInfo (Lude.Maybe Lude.Double)
-piSustainedClockSpeedInGhz = Lens.lens (sustainedClockSpeedInGhz :: ProcessorInfo -> Lude.Maybe Lude.Double) (\s a -> s {sustainedClockSpeedInGhz = a} :: ProcessorInfo)
+piSustainedClockSpeedInGhz :: Lens.Lens' ProcessorInfo (Core.Maybe Core.Double)
+piSustainedClockSpeedInGhz = Lens.field @"sustainedClockSpeedInGhz"
 {-# DEPRECATED piSustainedClockSpeedInGhz "Use generic-lens or generic-optics with 'sustainedClockSpeedInGhz' instead." #-}
 
-instance Lude.FromXML ProcessorInfo where
+instance Core.FromXML ProcessorInfo where
   parseXML x =
     ProcessorInfo'
-      Lude.<$> ( x Lude..@? "supportedArchitectures" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> ( x Core..@? "supportedArchitectures"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "sustainedClockSpeedInGhz")
+      Core.<*> (x Core..@? "sustainedClockSpeedInGhz")

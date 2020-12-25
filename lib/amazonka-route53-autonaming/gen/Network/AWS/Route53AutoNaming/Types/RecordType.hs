@@ -13,56 +13,58 @@
 module Network.AWS.Route53AutoNaming.Types.RecordType
   ( RecordType
       ( RecordType',
-        Srv,
-        A,
-        Aaaa,
-        Cname
+        RecordTypeSrv,
+        RecordTypeA,
+        RecordTypeAaaa,
+        RecordTypeCname,
+        fromRecordType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RecordType = RecordType' Lude.Text
+newtype RecordType = RecordType' {fromRecordType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Srv :: RecordType
-pattern Srv = RecordType' "SRV"
+pattern RecordTypeSrv :: RecordType
+pattern RecordTypeSrv = RecordType' "SRV"
 
-pattern A :: RecordType
-pattern A = RecordType' "A"
+pattern RecordTypeA :: RecordType
+pattern RecordTypeA = RecordType' "A"
 
-pattern Aaaa :: RecordType
-pattern Aaaa = RecordType' "AAAA"
+pattern RecordTypeAaaa :: RecordType
+pattern RecordTypeAaaa = RecordType' "AAAA"
 
-pattern Cname :: RecordType
-pattern Cname = RecordType' "CNAME"
+pattern RecordTypeCname :: RecordType
+pattern RecordTypeCname = RecordType' "CNAME"
 
 {-# COMPLETE
-  Srv,
-  A,
-  Aaaa,
-  Cname,
+  RecordTypeSrv,
+  RecordTypeA,
+  RecordTypeAaaa,
+  RecordTypeCname,
   RecordType'
   #-}

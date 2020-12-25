@@ -13,56 +13,61 @@
 module Network.AWS.Lightsail.Types.PortInfoSourceType
   ( PortInfoSourceType
       ( PortInfoSourceType',
-        PISTDefault,
-        PISTInstance,
-        PISTNone,
-        PISTClosed
+        PortInfoSourceTypeDefault,
+        PortInfoSourceTypeInstance,
+        PortInfoSourceTypeNone,
+        PortInfoSourceTypeClosed,
+        fromPortInfoSourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PortInfoSourceType = PortInfoSourceType' Lude.Text
+newtype PortInfoSourceType = PortInfoSourceType'
+  { fromPortInfoSourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PISTDefault :: PortInfoSourceType
-pattern PISTDefault = PortInfoSourceType' "DEFAULT"
+pattern PortInfoSourceTypeDefault :: PortInfoSourceType
+pattern PortInfoSourceTypeDefault = PortInfoSourceType' "DEFAULT"
 
-pattern PISTInstance :: PortInfoSourceType
-pattern PISTInstance = PortInfoSourceType' "INSTANCE"
+pattern PortInfoSourceTypeInstance :: PortInfoSourceType
+pattern PortInfoSourceTypeInstance = PortInfoSourceType' "INSTANCE"
 
-pattern PISTNone :: PortInfoSourceType
-pattern PISTNone = PortInfoSourceType' "NONE"
+pattern PortInfoSourceTypeNone :: PortInfoSourceType
+pattern PortInfoSourceTypeNone = PortInfoSourceType' "NONE"
 
-pattern PISTClosed :: PortInfoSourceType
-pattern PISTClosed = PortInfoSourceType' "CLOSED"
+pattern PortInfoSourceTypeClosed :: PortInfoSourceType
+pattern PortInfoSourceTypeClosed = PortInfoSourceType' "CLOSED"
 
 {-# COMPLETE
-  PISTDefault,
-  PISTInstance,
-  PISTNone,
-  PISTClosed,
+  PortInfoSourceTypeDefault,
+  PortInfoSourceTypeInstance,
+  PortInfoSourceTypeNone,
+  PortInfoSourceTypeClosed,
   PortInfoSourceType'
   #-}

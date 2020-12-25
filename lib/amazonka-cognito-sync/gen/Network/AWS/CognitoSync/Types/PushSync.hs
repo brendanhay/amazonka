@@ -17,64 +17,60 @@ module Network.AWS.CognitoSync.Types.PushSync
     mkPushSync,
 
     -- * Lenses
-    psApplicationARNs,
-    psRoleARN,
+    psApplicationArns,
+    psRoleArn,
   )
 where
 
+import qualified Network.AWS.CognitoSync.Types.ApplicationArn as Types
+import qualified Network.AWS.CognitoSync.Types.AssumeRoleArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration options to be applied to the identity pool.
 --
 -- /See:/ 'mkPushSync' smart constructor.
 data PushSync = PushSync'
   { -- | List of SNS platform application ARNs that could be used by clients.
-    applicationARNs :: Lude.Maybe [Lude.Text],
+    applicationArns :: Core.Maybe [Types.ApplicationArn],
     -- | A role configured to allow Cognito to call SNS on behalf of the developer.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.AssumeRoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PushSync' with the minimum fields required to make a request.
---
--- * 'applicationARNs' - List of SNS platform application ARNs that could be used by clients.
--- * 'roleARN' - A role configured to allow Cognito to call SNS on behalf of the developer.
+-- | Creates a 'PushSync' value with any optional fields omitted.
 mkPushSync ::
   PushSync
 mkPushSync =
-  PushSync' {applicationARNs = Lude.Nothing, roleARN = Lude.Nothing}
+  PushSync' {applicationArns = Core.Nothing, roleArn = Core.Nothing}
 
 -- | List of SNS platform application ARNs that could be used by clients.
 --
--- /Note:/ Consider using 'applicationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psApplicationARNs :: Lens.Lens' PushSync (Lude.Maybe [Lude.Text])
-psApplicationARNs = Lens.lens (applicationARNs :: PushSync -> Lude.Maybe [Lude.Text]) (\s a -> s {applicationARNs = a} :: PushSync)
-{-# DEPRECATED psApplicationARNs "Use generic-lens or generic-optics with 'applicationARNs' instead." #-}
+-- /Note:/ Consider using 'applicationArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psApplicationArns :: Lens.Lens' PushSync (Core.Maybe [Types.ApplicationArn])
+psApplicationArns = Lens.field @"applicationArns"
+{-# DEPRECATED psApplicationArns "Use generic-lens or generic-optics with 'applicationArns' instead." #-}
 
 -- | A role configured to allow Cognito to call SNS on behalf of the developer.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psRoleARN :: Lens.Lens' PushSync (Lude.Maybe Lude.Text)
-psRoleARN = Lens.lens (roleARN :: PushSync -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: PushSync)
-{-# DEPRECATED psRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psRoleArn :: Lens.Lens' PushSync (Core.Maybe Types.AssumeRoleArn)
+psRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED psRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON PushSync where
-  parseJSON =
-    Lude.withObject
-      "PushSync"
-      ( \x ->
-          PushSync'
-            Lude.<$> (x Lude..:? "ApplicationArns" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "RoleArn")
-      )
-
-instance Lude.ToJSON PushSync where
-  toJSON PushSync' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ApplicationArns" Lude..=) Lude.<$> applicationARNs,
-            ("RoleArn" Lude..=) Lude.<$> roleARN
+instance Core.FromJSON PushSync where
+  toJSON PushSync {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ApplicationArns" Core..=) Core.<$> applicationArns,
+            ("RoleArn" Core..=) Core.<$> roleArn
           ]
       )
+
+instance Core.FromJSON PushSync where
+  parseJSON =
+    Core.withObject "PushSync" Core.$
+      \x ->
+        PushSync'
+          Core.<$> (x Core..:? "ApplicationArns") Core.<*> (x Core..:? "RoleArn")

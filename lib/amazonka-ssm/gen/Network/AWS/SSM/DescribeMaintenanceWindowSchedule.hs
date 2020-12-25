@@ -22,11 +22,11 @@ module Network.AWS.SSM.DescribeMaintenanceWindowSchedule
     mkDescribeMaintenanceWindowSchedule,
 
     -- ** Request lenses
-    dmwsResourceType,
     dmwsFilters,
-    dmwsNextToken,
-    dmwsTargets,
     dmwsMaxResults,
+    dmwsNextToken,
+    dmwsResourceType,
+    dmwsTargets,
     dmwsWindowId,
 
     -- * Destructuring the response
@@ -34,199 +34,186 @@ module Network.AWS.SSM.DescribeMaintenanceWindowSchedule
     mkDescribeMaintenanceWindowScheduleResponse,
 
     -- ** Response lenses
-    dmwsrsScheduledWindowExecutions,
-    dmwsrsNextToken,
-    dmwsrsResponseStatus,
+    dmwsrrsNextToken,
+    dmwsrrsScheduledWindowExecutions,
+    dmwsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribeMaintenanceWindowSchedule' smart constructor.
 data DescribeMaintenanceWindowSchedule = DescribeMaintenanceWindowSchedule'
-  { -- | The type of resource you want to retrieve information about. For example, "INSTANCE".
-    resourceType :: Lude.Maybe MaintenanceWindowResourceType,
-    -- | Filters used to limit the range of results. For example, you can limit maintenance window executions to only those scheduled before or after a certain date and time.
-    filters :: Lude.Maybe [PatchOrchestratorFilter],
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The instance ID or key/value pair to retrieve information about.
-    targets :: Lude.Maybe [Target],
+  { -- | Filters used to limit the range of results. For example, you can limit maintenance window executions to only those scheduled before or after a certain date and time.
+    filters :: Core.Maybe [Types.PatchOrchestratorFilter],
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The type of resource you want to retrieve information about. For example, "INSTANCE".
+    resourceType :: Core.Maybe Types.MaintenanceWindowResourceType,
+    -- | The instance ID or key/value pair to retrieve information about.
+    targets :: Core.Maybe [Types.Target],
     -- | The ID of the maintenance window to retrieve information about.
-    windowId :: Lude.Maybe Lude.Text
+    windowId :: Core.Maybe Types.WindowId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMaintenanceWindowSchedule' with the minimum fields required to make a request.
---
--- * 'resourceType' - The type of resource you want to retrieve information about. For example, "INSTANCE".
--- * 'filters' - Filters used to limit the range of results. For example, you can limit maintenance window executions to only those scheduled before or after a certain date and time.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'targets' - The instance ID or key/value pair to retrieve information about.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'windowId' - The ID of the maintenance window to retrieve information about.
+-- | Creates a 'DescribeMaintenanceWindowSchedule' value with any optional fields omitted.
 mkDescribeMaintenanceWindowSchedule ::
   DescribeMaintenanceWindowSchedule
 mkDescribeMaintenanceWindowSchedule =
   DescribeMaintenanceWindowSchedule'
-    { resourceType = Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      targets = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      windowId = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      resourceType = Core.Nothing,
+      targets = Core.Nothing,
+      windowId = Core.Nothing
     }
-
--- | The type of resource you want to retrieve information about. For example, "INSTANCE".
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsResourceType :: Lens.Lens' DescribeMaintenanceWindowSchedule (Lude.Maybe MaintenanceWindowResourceType)
-dmwsResourceType = Lens.lens (resourceType :: DescribeMaintenanceWindowSchedule -> Lude.Maybe MaintenanceWindowResourceType) (\s a -> s {resourceType = a} :: DescribeMaintenanceWindowSchedule)
-{-# DEPRECATED dmwsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Filters used to limit the range of results. For example, you can limit maintenance window executions to only those scheduled before or after a certain date and time.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsFilters :: Lens.Lens' DescribeMaintenanceWindowSchedule (Lude.Maybe [PatchOrchestratorFilter])
-dmwsFilters = Lens.lens (filters :: DescribeMaintenanceWindowSchedule -> Lude.Maybe [PatchOrchestratorFilter]) (\s a -> s {filters = a} :: DescribeMaintenanceWindowSchedule)
+dmwsFilters :: Lens.Lens' DescribeMaintenanceWindowSchedule (Core.Maybe [Types.PatchOrchestratorFilter])
+dmwsFilters = Lens.field @"filters"
 {-# DEPRECATED dmwsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsNextToken :: Lens.Lens' DescribeMaintenanceWindowSchedule (Lude.Maybe Lude.Text)
-dmwsNextToken = Lens.lens (nextToken :: DescribeMaintenanceWindowSchedule -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMaintenanceWindowSchedule)
-{-# DEPRECATED dmwsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The instance ID or key/value pair to retrieve information about.
---
--- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsTargets :: Lens.Lens' DescribeMaintenanceWindowSchedule (Lude.Maybe [Target])
-dmwsTargets = Lens.lens (targets :: DescribeMaintenanceWindowSchedule -> Lude.Maybe [Target]) (\s a -> s {targets = a} :: DescribeMaintenanceWindowSchedule)
-{-# DEPRECATED dmwsTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsMaxResults :: Lens.Lens' DescribeMaintenanceWindowSchedule (Lude.Maybe Lude.Natural)
-dmwsMaxResults = Lens.lens (maxResults :: DescribeMaintenanceWindowSchedule -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeMaintenanceWindowSchedule)
+dmwsMaxResults :: Lens.Lens' DescribeMaintenanceWindowSchedule (Core.Maybe Core.Natural)
+dmwsMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dmwsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwsNextToken :: Lens.Lens' DescribeMaintenanceWindowSchedule (Core.Maybe Types.NextToken)
+dmwsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dmwsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The type of resource you want to retrieve information about. For example, "INSTANCE".
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwsResourceType :: Lens.Lens' DescribeMaintenanceWindowSchedule (Core.Maybe Types.MaintenanceWindowResourceType)
+dmwsResourceType = Lens.field @"resourceType"
+{-# DEPRECATED dmwsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The instance ID or key/value pair to retrieve information about.
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwsTargets :: Lens.Lens' DescribeMaintenanceWindowSchedule (Core.Maybe [Types.Target])
+dmwsTargets = Lens.field @"targets"
+{-# DEPRECATED dmwsTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The ID of the maintenance window to retrieve information about.
 --
 -- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsWindowId :: Lens.Lens' DescribeMaintenanceWindowSchedule (Lude.Maybe Lude.Text)
-dmwsWindowId = Lens.lens (windowId :: DescribeMaintenanceWindowSchedule -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: DescribeMaintenanceWindowSchedule)
+dmwsWindowId :: Lens.Lens' DescribeMaintenanceWindowSchedule (Core.Maybe Types.WindowId)
+dmwsWindowId = Lens.field @"windowId"
 {-# DEPRECATED dmwsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance Page.AWSPager DescribeMaintenanceWindowSchedule where
-  page rq rs
-    | Page.stop (rs Lens.^. dmwsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dmwsrsScheduledWindowExecutions) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dmwsNextToken Lens..~ rs Lens.^. dmwsrsNextToken
+instance Core.FromJSON DescribeMaintenanceWindowSchedule where
+  toJSON DescribeMaintenanceWindowSchedule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("ResourceType" Core..=) Core.<$> resourceType,
+            ("Targets" Core..=) Core.<$> targets,
+            ("WindowId" Core..=) Core.<$> windowId
+          ]
+      )
 
-instance Lude.AWSRequest DescribeMaintenanceWindowSchedule where
+instance Core.AWSRequest DescribeMaintenanceWindowSchedule where
   type
     Rs DescribeMaintenanceWindowSchedule =
       DescribeMaintenanceWindowScheduleResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonSSM.DescribeMaintenanceWindowSchedule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowScheduleResponse'
-            Lude.<$> (x Lude..?> "ScheduledWindowExecutions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "ScheduledWindowExecutions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeMaintenanceWindowSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DescribeMaintenanceWindowSchedule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeMaintenanceWindowSchedule where
-  toJSON DescribeMaintenanceWindowSchedule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceType" Lude..=) Lude.<$> resourceType,
-            ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Targets" Lude..=) Lude.<$> targets,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("WindowId" Lude..=) Lude.<$> windowId
-          ]
-      )
-
-instance Lude.ToPath DescribeMaintenanceWindowSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeMaintenanceWindowSchedule where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeMaintenanceWindowSchedule where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"scheduledWindowExecutions" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeMaintenanceWindowScheduleResponse' smart constructor.
 data DescribeMaintenanceWindowScheduleResponse = DescribeMaintenanceWindowScheduleResponse'
-  { -- | Information about maintenance window executions scheduled for the specified time range.
-    scheduledWindowExecutions :: Lude.Maybe [ScheduledWindowExecution],
-    -- | The token for the next set of items to return. (You use this token in the next call.)
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token for the next set of items to return. (You use this token in the next call.)
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Information about maintenance window executions scheduled for the specified time range.
+    scheduledWindowExecutions :: Core.Maybe [Types.ScheduledWindowExecution],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMaintenanceWindowScheduleResponse' with the minimum fields required to make a request.
---
--- * 'scheduledWindowExecutions' - Information about maintenance window executions scheduled for the specified time range.
--- * 'nextToken' - The token for the next set of items to return. (You use this token in the next call.)
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMaintenanceWindowScheduleResponse' value with any optional fields omitted.
 mkDescribeMaintenanceWindowScheduleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMaintenanceWindowScheduleResponse
-mkDescribeMaintenanceWindowScheduleResponse pResponseStatus_ =
+mkDescribeMaintenanceWindowScheduleResponse responseStatus =
   DescribeMaintenanceWindowScheduleResponse'
-    { scheduledWindowExecutions =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken =
+        Core.Nothing,
+      scheduledWindowExecutions = Core.Nothing,
+      responseStatus
     }
-
--- | Information about maintenance window executions scheduled for the specified time range.
---
--- /Note:/ Consider using 'scheduledWindowExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsrsScheduledWindowExecutions :: Lens.Lens' DescribeMaintenanceWindowScheduleResponse (Lude.Maybe [ScheduledWindowExecution])
-dmwsrsScheduledWindowExecutions = Lens.lens (scheduledWindowExecutions :: DescribeMaintenanceWindowScheduleResponse -> Lude.Maybe [ScheduledWindowExecution]) (\s a -> s {scheduledWindowExecutions = a} :: DescribeMaintenanceWindowScheduleResponse)
-{-# DEPRECATED dmwsrsScheduledWindowExecutions "Use generic-lens or generic-optics with 'scheduledWindowExecutions' instead." #-}
 
 -- | The token for the next set of items to return. (You use this token in the next call.)
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsrsNextToken :: Lens.Lens' DescribeMaintenanceWindowScheduleResponse (Lude.Maybe Lude.Text)
-dmwsrsNextToken = Lens.lens (nextToken :: DescribeMaintenanceWindowScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMaintenanceWindowScheduleResponse)
-{-# DEPRECATED dmwsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dmwsrrsNextToken :: Lens.Lens' DescribeMaintenanceWindowScheduleResponse (Core.Maybe Types.NextToken)
+dmwsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dmwsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about maintenance window executions scheduled for the specified time range.
+--
+-- /Note:/ Consider using 'scheduledWindowExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwsrrsScheduledWindowExecutions :: Lens.Lens' DescribeMaintenanceWindowScheduleResponse (Core.Maybe [Types.ScheduledWindowExecution])
+dmwsrrsScheduledWindowExecutions = Lens.field @"scheduledWindowExecutions"
+{-# DEPRECATED dmwsrrsScheduledWindowExecutions "Use generic-lens or generic-optics with 'scheduledWindowExecutions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwsrsResponseStatus :: Lens.Lens' DescribeMaintenanceWindowScheduleResponse Lude.Int
-dmwsrsResponseStatus = Lens.lens (responseStatus :: DescribeMaintenanceWindowScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMaintenanceWindowScheduleResponse)
-{-# DEPRECATED dmwsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmwsrrsResponseStatus :: Lens.Lens' DescribeMaintenanceWindowScheduleResponse Core.Int
+dmwsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmwsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

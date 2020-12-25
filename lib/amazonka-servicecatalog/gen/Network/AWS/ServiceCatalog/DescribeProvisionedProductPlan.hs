@@ -20,33 +20,33 @@ module Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
     mkDescribeProvisionedProductPlan,
 
     -- ** Request lenses
-    dpppfPlanId,
-    dpppfAcceptLanguage,
-    dpppfPageToken,
-    dpppfPageSize,
+    dpppPlanId,
+    dpppAcceptLanguage,
+    dpppPageSize,
+    dpppPageToken,
 
     -- * Destructuring the response
     DescribeProvisionedProductPlanResponse (..),
     mkDescribeProvisionedProductPlanResponse,
 
     -- ** Response lenses
-    dpppfrsNextPageToken,
-    dpppfrsProvisionedProductPlanDetails,
-    dpppfrsResourceChanges,
-    dpppfrsResponseStatus,
+    dppprrsNextPageToken,
+    dppprrsProvisionedProductPlanDetails,
+    dppprrsResourceChanges,
+    dppprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDescribeProvisionedProductPlan' smart constructor.
 data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
   { -- | The plan identifier.
-    planId :: Lude.Text,
+    planId :: Types.PlanId,
     -- | The language code.
     --
     --
@@ -57,50 +57,34 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of results, use null.
-    pageToken :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The maximum number of items to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Core.Maybe Types.PageToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeProvisionedProductPlan' with the minimum fields required to make a request.
---
--- * 'planId' - The plan identifier.
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'pageSize' - The maximum number of items to return with this call.
+-- | Creates a 'DescribeProvisionedProductPlan' value with any optional fields omitted.
 mkDescribeProvisionedProductPlan ::
   -- | 'planId'
-  Lude.Text ->
+  Types.PlanId ->
   DescribeProvisionedProductPlan
-mkDescribeProvisionedProductPlan pPlanId_ =
+mkDescribeProvisionedProductPlan planId =
   DescribeProvisionedProductPlan'
-    { planId = pPlanId_,
-      acceptLanguage = Lude.Nothing,
-      pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { planId,
+      acceptLanguage = Core.Nothing,
+      pageSize = Core.Nothing,
+      pageToken = Core.Nothing
     }
 
 -- | The plan identifier.
 --
 -- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpppfPlanId :: Lens.Lens' DescribeProvisionedProductPlan Lude.Text
-dpppfPlanId = Lens.lens (planId :: DescribeProvisionedProductPlan -> Lude.Text) (\s a -> s {planId = a} :: DescribeProvisionedProductPlan)
-{-# DEPRECATED dpppfPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
+dpppPlanId :: Lens.Lens' DescribeProvisionedProductPlan Types.PlanId
+dpppPlanId = Lens.field @"planId"
+{-# DEPRECATED dpppPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
 
 -- | The language code.
 --
@@ -116,126 +100,115 @@ dpppfPlanId = Lens.lens (planId :: DescribeProvisionedProductPlan -> Lude.Text) 
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpppfAcceptLanguage :: Lens.Lens' DescribeProvisionedProductPlan (Lude.Maybe Lude.Text)
-dpppfAcceptLanguage = Lens.lens (acceptLanguage :: DescribeProvisionedProductPlan -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeProvisionedProductPlan)
-{-# DEPRECATED dpppfAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
---
--- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpppfPageToken :: Lens.Lens' DescribeProvisionedProductPlan (Lude.Maybe Lude.Text)
-dpppfPageToken = Lens.lens (pageToken :: DescribeProvisionedProductPlan -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: DescribeProvisionedProductPlan)
-{-# DEPRECATED dpppfPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
+dpppAcceptLanguage :: Lens.Lens' DescribeProvisionedProductPlan (Core.Maybe Types.AcceptLanguage)
+dpppAcceptLanguage = Lens.field @"acceptLanguage"
+{-# DEPRECATED dpppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpppfPageSize :: Lens.Lens' DescribeProvisionedProductPlan (Lude.Maybe Lude.Natural)
-dpppfPageSize = Lens.lens (pageSize :: DescribeProvisionedProductPlan -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeProvisionedProductPlan)
-{-# DEPRECATED dpppfPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+dpppPageSize :: Lens.Lens' DescribeProvisionedProductPlan (Core.Maybe Core.Natural)
+dpppPageSize = Lens.field @"pageSize"
+{-# DEPRECATED dpppPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Lude.AWSRequest DescribeProvisionedProductPlan where
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpppPageToken :: Lens.Lens' DescribeProvisionedProductPlan (Core.Maybe Types.PageToken)
+dpppPageToken = Lens.field @"pageToken"
+{-# DEPRECATED dpppPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
+
+instance Core.FromJSON DescribeProvisionedProductPlan where
+  toJSON DescribeProvisionedProductPlan {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PlanId" Core..= planId),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeProvisionedProductPlan where
   type
     Rs DescribeProvisionedProductPlan =
       DescribeProvisionedProductPlanResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.DescribeProvisionedProductPlan"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeProvisionedProductPlanResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "ProvisionedProductPlanDetails")
-            Lude.<*> (x Lude..?> "ResourceChanges" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "ProvisionedProductPlanDetails")
+            Core.<*> (x Core..:? "ResourceChanges")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeProvisionedProductPlan where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DescribeProvisionedProductPlan" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeProvisionedProductPlan where
-  toJSON DescribeProvisionedProductPlan' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PlanId" Lude..= planId),
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize
-          ]
-      )
-
-instance Lude.ToPath DescribeProvisionedProductPlan where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeProvisionedProductPlan where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeProvisionedProductPlanResponse' smart constructor.
 data DescribeProvisionedProductPlanResponse = DescribeProvisionedProductPlanResponse'
   { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | Information about the plan.
-    provisionedProductPlanDetails :: Lude.Maybe ProvisionedProductPlanDetails,
+    provisionedProductPlanDetails :: Core.Maybe Types.ProvisionedProductPlanDetails,
     -- | Information about the resource changes that will occur when the plan is executed.
-    resourceChanges :: Lude.Maybe [ResourceChange],
+    resourceChanges :: Core.Maybe [Types.ResourceChange],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeProvisionedProductPlanResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'provisionedProductPlanDetails' - Information about the plan.
--- * 'resourceChanges' - Information about the resource changes that will occur when the plan is executed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeProvisionedProductPlanResponse' value with any optional fields omitted.
 mkDescribeProvisionedProductPlanResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeProvisionedProductPlanResponse
-mkDescribeProvisionedProductPlanResponse pResponseStatus_ =
+mkDescribeProvisionedProductPlanResponse responseStatus =
   DescribeProvisionedProductPlanResponse'
     { nextPageToken =
-        Lude.Nothing,
-      provisionedProductPlanDetails = Lude.Nothing,
-      resourceChanges = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      provisionedProductPlanDetails = Core.Nothing,
+      resourceChanges = Core.Nothing,
+      responseStatus
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpppfrsNextPageToken :: Lens.Lens' DescribeProvisionedProductPlanResponse (Lude.Maybe Lude.Text)
-dpppfrsNextPageToken = Lens.lens (nextPageToken :: DescribeProvisionedProductPlanResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: DescribeProvisionedProductPlanResponse)
-{-# DEPRECATED dpppfrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+dppprrsNextPageToken :: Lens.Lens' DescribeProvisionedProductPlanResponse (Core.Maybe Types.NextPageToken)
+dppprrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED dppprrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the plan.
 --
 -- /Note:/ Consider using 'provisionedProductPlanDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpppfrsProvisionedProductPlanDetails :: Lens.Lens' DescribeProvisionedProductPlanResponse (Lude.Maybe ProvisionedProductPlanDetails)
-dpppfrsProvisionedProductPlanDetails = Lens.lens (provisionedProductPlanDetails :: DescribeProvisionedProductPlanResponse -> Lude.Maybe ProvisionedProductPlanDetails) (\s a -> s {provisionedProductPlanDetails = a} :: DescribeProvisionedProductPlanResponse)
-{-# DEPRECATED dpppfrsProvisionedProductPlanDetails "Use generic-lens or generic-optics with 'provisionedProductPlanDetails' instead." #-}
+dppprrsProvisionedProductPlanDetails :: Lens.Lens' DescribeProvisionedProductPlanResponse (Core.Maybe Types.ProvisionedProductPlanDetails)
+dppprrsProvisionedProductPlanDetails = Lens.field @"provisionedProductPlanDetails"
+{-# DEPRECATED dppprrsProvisionedProductPlanDetails "Use generic-lens or generic-optics with 'provisionedProductPlanDetails' instead." #-}
 
 -- | Information about the resource changes that will occur when the plan is executed.
 --
 -- /Note:/ Consider using 'resourceChanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpppfrsResourceChanges :: Lens.Lens' DescribeProvisionedProductPlanResponse (Lude.Maybe [ResourceChange])
-dpppfrsResourceChanges = Lens.lens (resourceChanges :: DescribeProvisionedProductPlanResponse -> Lude.Maybe [ResourceChange]) (\s a -> s {resourceChanges = a} :: DescribeProvisionedProductPlanResponse)
-{-# DEPRECATED dpppfrsResourceChanges "Use generic-lens or generic-optics with 'resourceChanges' instead." #-}
+dppprrsResourceChanges :: Lens.Lens' DescribeProvisionedProductPlanResponse (Core.Maybe [Types.ResourceChange])
+dppprrsResourceChanges = Lens.field @"resourceChanges"
+{-# DEPRECATED dppprrsResourceChanges "Use generic-lens or generic-optics with 'resourceChanges' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpppfrsResponseStatus :: Lens.Lens' DescribeProvisionedProductPlanResponse Lude.Int
-dpppfrsResponseStatus = Lens.lens (responseStatus :: DescribeProvisionedProductPlanResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProvisionedProductPlanResponse)
-{-# DEPRECATED dpppfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dppprrsResponseStatus :: Lens.Lens' DescribeProvisionedProductPlanResponse Core.Int
+dppprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dppprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

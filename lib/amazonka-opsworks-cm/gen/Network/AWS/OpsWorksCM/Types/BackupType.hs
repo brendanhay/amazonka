@@ -13,46 +13,48 @@
 module Network.AWS.OpsWorksCM.Types.BackupType
   ( BackupType
       ( BackupType',
-        Automated,
-        Manual
+        BackupTypeAutomated,
+        BackupTypeManual,
+        fromBackupType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BackupType = BackupType' Lude.Text
+newtype BackupType = BackupType' {fromBackupType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Automated :: BackupType
-pattern Automated = BackupType' "AUTOMATED"
+pattern BackupTypeAutomated :: BackupType
+pattern BackupTypeAutomated = BackupType' "AUTOMATED"
 
-pattern Manual :: BackupType
-pattern Manual = BackupType' "MANUAL"
+pattern BackupTypeManual :: BackupType
+pattern BackupTypeManual = BackupType' "MANUAL"
 
 {-# COMPLETE
-  Automated,
-  Manual,
+  BackupTypeAutomated,
+  BackupTypeManual,
   BackupType'
   #-}

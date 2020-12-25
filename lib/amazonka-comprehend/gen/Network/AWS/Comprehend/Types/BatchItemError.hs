@@ -23,65 +23,60 @@ module Network.AWS.Comprehend.Types.BatchItemError
   )
 where
 
+import qualified Network.AWS.Comprehend.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an error that occurred while processing a document in a batch. The operation returns on @BatchItemError@ object for each document that contained an error.
 --
 -- /See:/ 'mkBatchItemError' smart constructor.
 data BatchItemError = BatchItemError'
   { -- | The numeric error code of the error.
-    errorCode :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.String,
     -- | A text description of the error.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.String,
     -- | The zero-based index of the document in the input list.
-    index :: Lude.Maybe Lude.Int
+    index :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchItemError' with the minimum fields required to make a request.
---
--- * 'errorCode' - The numeric error code of the error.
--- * 'errorMessage' - A text description of the error.
--- * 'index' - The zero-based index of the document in the input list.
+-- | Creates a 'BatchItemError' value with any optional fields omitted.
 mkBatchItemError ::
   BatchItemError
 mkBatchItemError =
   BatchItemError'
-    { errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      index = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      index = Core.Nothing
     }
 
 -- | The numeric error code of the error.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bieErrorCode :: Lens.Lens' BatchItemError (Lude.Maybe Lude.Text)
-bieErrorCode = Lens.lens (errorCode :: BatchItemError -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: BatchItemError)
+bieErrorCode :: Lens.Lens' BatchItemError (Core.Maybe Types.String)
+bieErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED bieErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | A text description of the error.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bieErrorMessage :: Lens.Lens' BatchItemError (Lude.Maybe Lude.Text)
-bieErrorMessage = Lens.lens (errorMessage :: BatchItemError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: BatchItemError)
+bieErrorMessage :: Lens.Lens' BatchItemError (Core.Maybe Types.String)
+bieErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED bieErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The zero-based index of the document in the input list.
 --
 -- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bieIndex :: Lens.Lens' BatchItemError (Lude.Maybe Lude.Int)
-bieIndex = Lens.lens (index :: BatchItemError -> Lude.Maybe Lude.Int) (\s a -> s {index = a} :: BatchItemError)
+bieIndex :: Lens.Lens' BatchItemError (Core.Maybe Core.Int)
+bieIndex = Lens.field @"index"
 {-# DEPRECATED bieIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
-instance Lude.FromJSON BatchItemError where
+instance Core.FromJSON BatchItemError where
   parseJSON =
-    Lude.withObject
-      "BatchItemError"
-      ( \x ->
-          BatchItemError'
-            Lude.<$> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "Index")
-      )
+    Core.withObject "BatchItemError" Core.$
+      \x ->
+        BatchItemError'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "Index")

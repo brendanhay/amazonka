@@ -20,141 +20,142 @@ module Network.AWS.Redshift.CreateSnapshotSchedule
     mkCreateSnapshotSchedule,
 
     -- ** Request lenses
+    cssDryRun,
     cssNextInvocations,
     cssScheduleDefinitions,
     cssScheduleDescription,
     cssScheduleIdentifier,
-    cssDryRun,
     cssTags,
 
     -- * Destructuring the response
-    SnapshotSchedule (..),
-    mkSnapshotSchedule,
+    Types.SnapshotSchedule (..),
+    Types.mkSnapshotSchedule,
 
     -- ** Response lenses
-    ssAssociatedClusters,
-    ssNextInvocations,
-    ssScheduleDefinitions,
-    ssScheduleDescription,
-    ssScheduleIdentifier,
-    ssAssociatedClusterCount,
-    ssTags,
+    Types.ssAssociatedClusterCount,
+    Types.ssAssociatedClusters,
+    Types.ssNextInvocations,
+    Types.ssScheduleDefinitions,
+    Types.ssScheduleDescription,
+    Types.ssScheduleIdentifier,
+    Types.ssTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateSnapshotSchedule' smart constructor.
 data CreateSnapshotSchedule = CreateSnapshotSchedule'
   { -- |
-    nextInvocations :: Lude.Maybe Lude.Int,
-    -- | The definition of the snapshot schedule. The definition is made up of schedule expressions, for example "cron(30 12 *)" or "rate(12 hours)".
-    scheduleDefinitions :: Lude.Maybe [Lude.Text],
-    -- | The description of the snapshot schedule.
-    scheduleDescription :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for a snapshot schedule. Only alphanumeric characters are allowed for the identifier.
-    scheduleIdentifier :: Lude.Maybe Lude.Text,
+    dryRun :: Core.Maybe Core.Bool,
     -- |
-    dryRun :: Lude.Maybe Lude.Bool,
+    nextInvocations :: Core.Maybe Core.Int,
+    -- | The definition of the snapshot schedule. The definition is made up of schedule expressions, for example "cron(30 12 *)" or "rate(12 hours)".
+    scheduleDefinitions :: Core.Maybe [Types.String],
+    -- | The description of the snapshot schedule.
+    scheduleDescription :: Core.Maybe Types.String,
+    -- | A unique identifier for a snapshot schedule. Only alphanumeric characters are allowed for the identifier.
+    scheduleIdentifier :: Core.Maybe Types.String,
     -- | An optional set of tags you can use to search for the schedule.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSnapshotSchedule' with the minimum fields required to make a request.
---
--- * 'nextInvocations' -
--- * 'scheduleDefinitions' - The definition of the snapshot schedule. The definition is made up of schedule expressions, for example "cron(30 12 *)" or "rate(12 hours)".
--- * 'scheduleDescription' - The description of the snapshot schedule.
--- * 'scheduleIdentifier' - A unique identifier for a snapshot schedule. Only alphanumeric characters are allowed for the identifier.
--- * 'dryRun' -
--- * 'tags' - An optional set of tags you can use to search for the schedule.
+-- | Creates a 'CreateSnapshotSchedule' value with any optional fields omitted.
 mkCreateSnapshotSchedule ::
   CreateSnapshotSchedule
 mkCreateSnapshotSchedule =
   CreateSnapshotSchedule'
-    { nextInvocations = Lude.Nothing,
-      scheduleDefinitions = Lude.Nothing,
-      scheduleDescription = Lude.Nothing,
-      scheduleIdentifier = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      tags = Lude.Nothing
+    { dryRun = Core.Nothing,
+      nextInvocations = Core.Nothing,
+      scheduleDefinitions = Core.Nothing,
+      scheduleDescription = Core.Nothing,
+      scheduleIdentifier = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- |
 --
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cssDryRun :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe Core.Bool)
+cssDryRun = Lens.field @"dryRun"
+{-# DEPRECATED cssDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- |
+--
 -- /Note:/ Consider using 'nextInvocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssNextInvocations :: Lens.Lens' CreateSnapshotSchedule (Lude.Maybe Lude.Int)
-cssNextInvocations = Lens.lens (nextInvocations :: CreateSnapshotSchedule -> Lude.Maybe Lude.Int) (\s a -> s {nextInvocations = a} :: CreateSnapshotSchedule)
+cssNextInvocations :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe Core.Int)
+cssNextInvocations = Lens.field @"nextInvocations"
 {-# DEPRECATED cssNextInvocations "Use generic-lens or generic-optics with 'nextInvocations' instead." #-}
 
 -- | The definition of the snapshot schedule. The definition is made up of schedule expressions, for example "cron(30 12 *)" or "rate(12 hours)".
 --
 -- /Note:/ Consider using 'scheduleDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssScheduleDefinitions :: Lens.Lens' CreateSnapshotSchedule (Lude.Maybe [Lude.Text])
-cssScheduleDefinitions = Lens.lens (scheduleDefinitions :: CreateSnapshotSchedule -> Lude.Maybe [Lude.Text]) (\s a -> s {scheduleDefinitions = a} :: CreateSnapshotSchedule)
+cssScheduleDefinitions :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe [Types.String])
+cssScheduleDefinitions = Lens.field @"scheduleDefinitions"
 {-# DEPRECATED cssScheduleDefinitions "Use generic-lens or generic-optics with 'scheduleDefinitions' instead." #-}
 
 -- | The description of the snapshot schedule.
 --
 -- /Note:/ Consider using 'scheduleDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssScheduleDescription :: Lens.Lens' CreateSnapshotSchedule (Lude.Maybe Lude.Text)
-cssScheduleDescription = Lens.lens (scheduleDescription :: CreateSnapshotSchedule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleDescription = a} :: CreateSnapshotSchedule)
+cssScheduleDescription :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe Types.String)
+cssScheduleDescription = Lens.field @"scheduleDescription"
 {-# DEPRECATED cssScheduleDescription "Use generic-lens or generic-optics with 'scheduleDescription' instead." #-}
 
 -- | A unique identifier for a snapshot schedule. Only alphanumeric characters are allowed for the identifier.
 --
 -- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssScheduleIdentifier :: Lens.Lens' CreateSnapshotSchedule (Lude.Maybe Lude.Text)
-cssScheduleIdentifier = Lens.lens (scheduleIdentifier :: CreateSnapshotSchedule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleIdentifier = a} :: CreateSnapshotSchedule)
+cssScheduleIdentifier :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe Types.String)
+cssScheduleIdentifier = Lens.field @"scheduleIdentifier"
 {-# DEPRECATED cssScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
-
--- |
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssDryRun :: Lens.Lens' CreateSnapshotSchedule (Lude.Maybe Lude.Bool)
-cssDryRun = Lens.lens (dryRun :: CreateSnapshotSchedule -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSnapshotSchedule)
-{-# DEPRECATED cssDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | An optional set of tags you can use to search for the schedule.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssTags :: Lens.Lens' CreateSnapshotSchedule (Lude.Maybe [Tag])
-cssTags = Lens.lens (tags :: CreateSnapshotSchedule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSnapshotSchedule)
+cssTags :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe [Types.Tag])
+cssTags = Lens.field @"tags"
 {-# DEPRECATED cssTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateSnapshotSchedule where
-  type Rs CreateSnapshotSchedule = SnapshotSchedule
-  request = Req.postQuery redshiftService
-  response =
-    Res.receiveXMLWrapper
-      "CreateSnapshotScheduleResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders CreateSnapshotSchedule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateSnapshotSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSnapshotSchedule where
-  toQuery CreateSnapshotSchedule' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateSnapshotSchedule" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "NextInvocations" Lude.=: nextInvocations,
-        "ScheduleDefinitions"
-          Lude.=: Lude.toQuery
-            ( Lude.toQueryList "ScheduleDefinition"
-                Lude.<$> scheduleDefinitions
+instance Core.AWSRequest CreateSnapshotSchedule where
+  type Rs CreateSnapshotSchedule = Types.SnapshotSchedule
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
             ),
-        "ScheduleDescription" Lude.=: scheduleDescription,
-        "ScheduleIdentifier" Lude.=: scheduleIdentifier,
-        "DryRun" Lude.=: dryRun,
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateSnapshotSchedule")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "NextInvocations" Core.<$> nextInvocations)
+                Core.<> ( Core.toQueryValue
+                            "ScheduleDefinitions"
+                            ( Core.toQueryList "ScheduleDefinition"
+                                Core.<$> scheduleDefinitions
+                            )
+                        )
+                Core.<> ( Core.toQueryValue "ScheduleDescription"
+                            Core.<$> scheduleDescription
+                        )
+                Core.<> ( Core.toQueryValue "ScheduleIdentifier"
+                            Core.<$> scheduleIdentifier
+                        )
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" Core.<$> tags))
+            )
+      }
+  response =
+    Response.receiveXMLWrapper
+      "CreateSnapshotScheduleResult"
+      (\s h x -> Core.parseXML x)

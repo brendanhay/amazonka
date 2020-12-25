@@ -13,56 +13,58 @@
 module Network.AWS.MediaPackage.Types.AdMarkers
   ( AdMarkers
       ( AdMarkers',
-        AMNone,
-        AMSCTE35Enhanced,
-        AMPassthrough,
-        AMDaterange
+        AdMarkersNone,
+        AdMarkersSCTE35Enhanced,
+        AdMarkersPassthrough,
+        AdMarkersDaterange,
+        fromAdMarkers
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AdMarkers = AdMarkers' Lude.Text
+newtype AdMarkers = AdMarkers' {fromAdMarkers :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AMNone :: AdMarkers
-pattern AMNone = AdMarkers' "NONE"
+pattern AdMarkersNone :: AdMarkers
+pattern AdMarkersNone = AdMarkers' "NONE"
 
-pattern AMSCTE35Enhanced :: AdMarkers
-pattern AMSCTE35Enhanced = AdMarkers' "SCTE35_ENHANCED"
+pattern AdMarkersSCTE35Enhanced :: AdMarkers
+pattern AdMarkersSCTE35Enhanced = AdMarkers' "SCTE35_ENHANCED"
 
-pattern AMPassthrough :: AdMarkers
-pattern AMPassthrough = AdMarkers' "PASSTHROUGH"
+pattern AdMarkersPassthrough :: AdMarkers
+pattern AdMarkersPassthrough = AdMarkers' "PASSTHROUGH"
 
-pattern AMDaterange :: AdMarkers
-pattern AMDaterange = AdMarkers' "DATERANGE"
+pattern AdMarkersDaterange :: AdMarkers
+pattern AdMarkersDaterange = AdMarkers' "DATERANGE"
 
 {-# COMPLETE
-  AMNone,
-  AMSCTE35Enhanced,
-  AMPassthrough,
-  AMDaterange,
+  AdMarkersNone,
+  AdMarkersSCTE35Enhanced,
+  AdMarkersPassthrough,
+  AdMarkersDaterange,
   AdMarkers'
   #-}

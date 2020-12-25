@@ -20,41 +20,35 @@ module Network.AWS.SSM.CreateDocument
     mkCreateDocument,
 
     -- ** Request lenses
-    cdDocumentType,
-    cdAttachments,
-    cdVersionName,
     cdContent,
-    cdTargetType,
-    cdDocumentFormat,
     cdName,
+    cdAttachments,
+    cdDocumentFormat,
+    cdDocumentType,
     cdRequires,
     cdTags,
+    cdTargetType,
+    cdVersionName,
 
     -- * Destructuring the response
     CreateDocumentResponse (..),
     mkCreateDocumentResponse,
 
     -- ** Response lenses
-    cdrsDocumentDescription,
-    cdrsResponseStatus,
+    cdrrsDocumentDescription,
+    cdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkCreateDocument' smart constructor.
 data CreateDocument = CreateDocument'
-  { -- | The type of document to create.
-    documentType :: Lude.Maybe DocumentType,
-    -- | A list of key and value pairs that describe attachments to a version of a document.
-    attachments :: Lude.Maybe [AttachmentsSource],
-    -- | An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-    versionName :: Lude.Maybe Lude.Text,
-    -- | The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
+  { -- | The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
     --
     -- For examples, see the following topics in the /AWS Systems Manager User Guide/ .
     --
@@ -65,11 +59,7 @@ data CreateDocument = CreateDocument'
     --
     --
     --     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
-    content :: Lude.Text,
-    -- | Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
-    targetType :: Lude.Maybe Lude.Text,
-    -- | Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.
-    documentFormat :: Lude.Maybe DocumentFormat,
+    content :: Types.Content,
     -- | A name for the Systems Manager document.
     --
     -- /Important:/ You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
@@ -81,9 +71,15 @@ data CreateDocument = CreateDocument'
     --
     --
     --     * @amzn@
-    name :: Lude.Text,
+    name :: Types.Name,
+    -- | A list of key and value pairs that describe attachments to a version of a document.
+    attachments :: Core.Maybe [Types.AttachmentsSource],
+    -- | Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.
+    documentFormat :: Core.Maybe Types.DocumentFormat,
+    -- | The type of document to create.
+    documentType :: Core.Maybe Types.DocumentType,
     -- | A list of SSM documents required by a document. This parameter is used exclusively by AWS AppConfig. When a user creates an AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document for validation purposes. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html AWS AppConfig> in the /AWS Systems Manager User Guide/ .
-    requires :: Lude.Maybe (Lude.NonEmpty DocumentRequires),
+    requires :: Core.Maybe (Core.NonEmpty Types.DocumentRequires),
     -- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an SSM document to identify the types of targets or the environment where it will run. In this case, you could specify the following key name/value pairs:
     --
     --
@@ -91,91 +87,34 @@ data CreateDocument = CreateDocument'
     --
     --
     --     * @Key=Environment,Value=Production@
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
+    targetType :: Core.Maybe Types.TargetType,
+    -- | An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+    versionName :: Core.Maybe Types.VersionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDocument' with the minimum fields required to make a request.
---
--- * 'documentType' - The type of document to create.
--- * 'attachments' - A list of key and value pairs that describe attachments to a version of a document.
--- * 'versionName' - An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
--- * 'content' - The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
---
--- For examples, see the following topics in the /AWS Systems Manager User Guide/ .
---
---     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (AWS API)>
---
---
---     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html Create an SSM document (AWS CLI)>
---
---
---     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
---
---
--- * 'targetType' - Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
--- * 'documentFormat' - Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.
--- * 'name' - A name for the Systems Manager document.
---
--- /Important:/ You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
---
---     * @aws-@
---
---
---     * @amazon@
---
---
---     * @amzn@
---
---
--- * 'requires' - A list of SSM documents required by a document. This parameter is used exclusively by AWS AppConfig. When a user creates an AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document for validation purposes. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html AWS AppConfig> in the /AWS Systems Manager User Guide/ .
--- * 'tags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an SSM document to identify the types of targets or the environment where it will run. In this case, you could specify the following key name/value pairs:
---
---
---     * @Key=OS,Value=Windows@
---
---
---     * @Key=Environment,Value=Production@
+-- | Creates a 'CreateDocument' value with any optional fields omitted.
 mkCreateDocument ::
   -- | 'content'
-  Lude.Text ->
+  Types.Content ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   CreateDocument
-mkCreateDocument pContent_ pName_ =
+mkCreateDocument content name =
   CreateDocument'
-    { documentType = Lude.Nothing,
-      attachments = Lude.Nothing,
-      versionName = Lude.Nothing,
-      content = pContent_,
-      targetType = Lude.Nothing,
-      documentFormat = Lude.Nothing,
-      name = pName_,
-      requires = Lude.Nothing,
-      tags = Lude.Nothing
+    { content,
+      name,
+      attachments = Core.Nothing,
+      documentFormat = Core.Nothing,
+      documentType = Core.Nothing,
+      requires = Core.Nothing,
+      tags = Core.Nothing,
+      targetType = Core.Nothing,
+      versionName = Core.Nothing
     }
-
--- | The type of document to create.
---
--- /Note:/ Consider using 'documentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDocumentType :: Lens.Lens' CreateDocument (Lude.Maybe DocumentType)
-cdDocumentType = Lens.lens (documentType :: CreateDocument -> Lude.Maybe DocumentType) (\s a -> s {documentType = a} :: CreateDocument)
-{-# DEPRECATED cdDocumentType "Use generic-lens or generic-optics with 'documentType' instead." #-}
-
--- | A list of key and value pairs that describe attachments to a version of a document.
---
--- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdAttachments :: Lens.Lens' CreateDocument (Lude.Maybe [AttachmentsSource])
-cdAttachments = Lens.lens (attachments :: CreateDocument -> Lude.Maybe [AttachmentsSource]) (\s a -> s {attachments = a} :: CreateDocument)
-{-# DEPRECATED cdAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
-
--- | An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
---
--- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdVersionName :: Lens.Lens' CreateDocument (Lude.Maybe Lude.Text)
-cdVersionName = Lens.lens (versionName :: CreateDocument -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: CreateDocument)
-{-# DEPRECATED cdVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
 
 -- | The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
 --
@@ -192,23 +131,9 @@ cdVersionName = Lens.lens (versionName :: CreateDocument -> Lude.Maybe Lude.Text
 --
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdContent :: Lens.Lens' CreateDocument Lude.Text
-cdContent = Lens.lens (content :: CreateDocument -> Lude.Text) (\s a -> s {content = a} :: CreateDocument)
+cdContent :: Lens.Lens' CreateDocument Types.Content
+cdContent = Lens.field @"content"
 {-# DEPRECATED cdContent "Use generic-lens or generic-optics with 'content' instead." #-}
-
--- | Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
---
--- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdTargetType :: Lens.Lens' CreateDocument (Lude.Maybe Lude.Text)
-cdTargetType = Lens.lens (targetType :: CreateDocument -> Lude.Maybe Lude.Text) (\s a -> s {targetType = a} :: CreateDocument)
-{-# DEPRECATED cdTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
-
--- | Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.
---
--- /Note:/ Consider using 'documentFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDocumentFormat :: Lens.Lens' CreateDocument (Lude.Maybe DocumentFormat)
-cdDocumentFormat = Lens.lens (documentFormat :: CreateDocument -> Lude.Maybe DocumentFormat) (\s a -> s {documentFormat = a} :: CreateDocument)
-{-# DEPRECATED cdDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
 
 -- | A name for the Systems Manager document.
 --
@@ -225,15 +150,36 @@ cdDocumentFormat = Lens.lens (documentFormat :: CreateDocument -> Lude.Maybe Doc
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdName :: Lens.Lens' CreateDocument Lude.Text
-cdName = Lens.lens (name :: CreateDocument -> Lude.Text) (\s a -> s {name = a} :: CreateDocument)
+cdName :: Lens.Lens' CreateDocument Types.Name
+cdName = Lens.field @"name"
 {-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A list of key and value pairs that describe attachments to a version of a document.
+--
+-- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdAttachments :: Lens.Lens' CreateDocument (Core.Maybe [Types.AttachmentsSource])
+cdAttachments = Lens.field @"attachments"
+{-# DEPRECATED cdAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
+
+-- | Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.
+--
+-- /Note:/ Consider using 'documentFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDocumentFormat :: Lens.Lens' CreateDocument (Core.Maybe Types.DocumentFormat)
+cdDocumentFormat = Lens.field @"documentFormat"
+{-# DEPRECATED cdDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
+
+-- | The type of document to create.
+--
+-- /Note:/ Consider using 'documentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDocumentType :: Lens.Lens' CreateDocument (Core.Maybe Types.DocumentType)
+cdDocumentType = Lens.field @"documentType"
+{-# DEPRECATED cdDocumentType "Use generic-lens or generic-optics with 'documentType' instead." #-}
 
 -- | A list of SSM documents required by a document. This parameter is used exclusively by AWS AppConfig. When a user creates an AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document for validation purposes. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html AWS AppConfig> in the /AWS Systems Manager User Guide/ .
 --
 -- /Note:/ Consider using 'requires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdRequires :: Lens.Lens' CreateDocument (Lude.Maybe (Lude.NonEmpty DocumentRequires))
-cdRequires = Lens.lens (requires :: CreateDocument -> Lude.Maybe (Lude.NonEmpty DocumentRequires)) (\s a -> s {requires = a} :: CreateDocument)
+cdRequires :: Lens.Lens' CreateDocument (Core.Maybe (Core.NonEmpty Types.DocumentRequires))
+cdRequires = Lens.field @"requires"
 {-# DEPRECATED cdRequires "Use generic-lens or generic-optics with 'requires' instead." #-}
 
 -- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an SSM document to identify the types of targets or the environment where it will run. In this case, you could specify the following key name/value pairs:
@@ -247,88 +193,92 @@ cdRequires = Lens.lens (requires :: CreateDocument -> Lude.Maybe (Lude.NonEmpty 
 --
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdTags :: Lens.Lens' CreateDocument (Lude.Maybe [Tag])
-cdTags = Lens.lens (tags :: CreateDocument -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDocument)
+cdTags :: Lens.Lens' CreateDocument (Core.Maybe [Types.Tag])
+cdTags = Lens.field @"tags"
 {-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDocument where
+-- | Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTargetType :: Lens.Lens' CreateDocument (Core.Maybe Types.TargetType)
+cdTargetType = Lens.field @"targetType"
+{-# DEPRECATED cdTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
+
+-- | An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+--
+-- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdVersionName :: Lens.Lens' CreateDocument (Core.Maybe Types.VersionName)
+cdVersionName = Lens.field @"versionName"
+{-# DEPRECATED cdVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
+
+instance Core.FromJSON CreateDocument where
+  toJSON CreateDocument {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Content" Core..= content),
+            Core.Just ("Name" Core..= name),
+            ("Attachments" Core..=) Core.<$> attachments,
+            ("DocumentFormat" Core..=) Core.<$> documentFormat,
+            ("DocumentType" Core..=) Core.<$> documentType,
+            ("Requires" Core..=) Core.<$> requires,
+            ("Tags" Core..=) Core.<$> tags,
+            ("TargetType" Core..=) Core.<$> targetType,
+            ("VersionName" Core..=) Core.<$> versionName
+          ]
+      )
+
+instance Core.AWSRequest CreateDocument where
   type Rs CreateDocument = CreateDocumentResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.CreateDocument")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateDocumentResponse'
-            Lude.<$> (x Lude..?> "DocumentDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DocumentDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDocument where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.CreateDocument" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateDocument where
-  toJSON CreateDocument' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DocumentType" Lude..=) Lude.<$> documentType,
-            ("Attachments" Lude..=) Lude.<$> attachments,
-            ("VersionName" Lude..=) Lude.<$> versionName,
-            Lude.Just ("Content" Lude..= content),
-            ("TargetType" Lude..=) Lude.<$> targetType,
-            ("DocumentFormat" Lude..=) Lude.<$> documentFormat,
-            Lude.Just ("Name" Lude..= name),
-            ("Requires" Lude..=) Lude.<$> requires,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateDocument where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDocument where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateDocumentResponse' smart constructor.
 data CreateDocumentResponse = CreateDocumentResponse'
   { -- | Information about the Systems Manager document.
-    documentDescription :: Lude.Maybe DocumentDescription,
+    documentDescription :: Core.Maybe Types.DocumentDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateDocumentResponse' with the minimum fields required to make a request.
---
--- * 'documentDescription' - Information about the Systems Manager document.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDocumentResponse' value with any optional fields omitted.
 mkCreateDocumentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDocumentResponse
-mkCreateDocumentResponse pResponseStatus_ =
+mkCreateDocumentResponse responseStatus =
   CreateDocumentResponse'
-    { documentDescription = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { documentDescription = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the Systems Manager document.
 --
 -- /Note:/ Consider using 'documentDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsDocumentDescription :: Lens.Lens' CreateDocumentResponse (Lude.Maybe DocumentDescription)
-cdrsDocumentDescription = Lens.lens (documentDescription :: CreateDocumentResponse -> Lude.Maybe DocumentDescription) (\s a -> s {documentDescription = a} :: CreateDocumentResponse)
-{-# DEPRECATED cdrsDocumentDescription "Use generic-lens or generic-optics with 'documentDescription' instead." #-}
+cdrrsDocumentDescription :: Lens.Lens' CreateDocumentResponse (Core.Maybe Types.DocumentDescription)
+cdrrsDocumentDescription = Lens.field @"documentDescription"
+{-# DEPRECATED cdrrsDocumentDescription "Use generic-lens or generic-optics with 'documentDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsResponseStatus :: Lens.Lens' CreateDocumentResponse Lude.Int
-cdrsResponseStatus = Lens.lens (responseStatus :: CreateDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDocumentResponse)
-{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrrsResponseStatus :: Lens.Lens' CreateDocumentResponse Core.Int
+cdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

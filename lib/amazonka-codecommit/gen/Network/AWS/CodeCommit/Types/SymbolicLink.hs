@@ -18,84 +18,80 @@ module Network.AWS.CodeCommit.Types.SymbolicLink
 
     -- * Lenses
     slAbsolutePath,
-    slFileMode,
     slBlobId,
+    slFileMode,
     slRelativePath,
   )
 where
 
-import Network.AWS.CodeCommit.Types.FileModeTypeEnum
+import qualified Network.AWS.CodeCommit.Types.AbsolutePath as Types
+import qualified Network.AWS.CodeCommit.Types.BlobId as Types
+import qualified Network.AWS.CodeCommit.Types.FileModeTypeEnum as Types
+import qualified Network.AWS.CodeCommit.Types.RelativePath as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about a symbolic link in a repository folder.
 --
 -- /See:/ 'mkSymbolicLink' smart constructor.
 data SymbolicLink = SymbolicLink'
   { -- | The fully qualified path to the folder that contains the symbolic link.
-    absolutePath :: Lude.Maybe Lude.Text,
-    -- | The file mode permissions of the blob that cotains information about the symbolic link.
-    fileMode :: Lude.Maybe FileModeTypeEnum,
+    absolutePath :: Core.Maybe Types.AbsolutePath,
     -- | The blob ID that contains the information about the symbolic link.
-    blobId :: Lude.Maybe Lude.Text,
+    blobId :: Core.Maybe Types.BlobId,
+    -- | The file mode permissions of the blob that cotains information about the symbolic link.
+    fileMode :: Core.Maybe Types.FileModeTypeEnum,
     -- | The relative path of the symbolic link from the folder where the query originated.
-    relativePath :: Lude.Maybe Lude.Text
+    relativePath :: Core.Maybe Types.RelativePath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SymbolicLink' with the minimum fields required to make a request.
---
--- * 'absolutePath' - The fully qualified path to the folder that contains the symbolic link.
--- * 'fileMode' - The file mode permissions of the blob that cotains information about the symbolic link.
--- * 'blobId' - The blob ID that contains the information about the symbolic link.
--- * 'relativePath' - The relative path of the symbolic link from the folder where the query originated.
+-- | Creates a 'SymbolicLink' value with any optional fields omitted.
 mkSymbolicLink ::
   SymbolicLink
 mkSymbolicLink =
   SymbolicLink'
-    { absolutePath = Lude.Nothing,
-      fileMode = Lude.Nothing,
-      blobId = Lude.Nothing,
-      relativePath = Lude.Nothing
+    { absolutePath = Core.Nothing,
+      blobId = Core.Nothing,
+      fileMode = Core.Nothing,
+      relativePath = Core.Nothing
     }
 
 -- | The fully qualified path to the folder that contains the symbolic link.
 --
 -- /Note:/ Consider using 'absolutePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slAbsolutePath :: Lens.Lens' SymbolicLink (Lude.Maybe Lude.Text)
-slAbsolutePath = Lens.lens (absolutePath :: SymbolicLink -> Lude.Maybe Lude.Text) (\s a -> s {absolutePath = a} :: SymbolicLink)
+slAbsolutePath :: Lens.Lens' SymbolicLink (Core.Maybe Types.AbsolutePath)
+slAbsolutePath = Lens.field @"absolutePath"
 {-# DEPRECATED slAbsolutePath "Use generic-lens or generic-optics with 'absolutePath' instead." #-}
-
--- | The file mode permissions of the blob that cotains information about the symbolic link.
---
--- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slFileMode :: Lens.Lens' SymbolicLink (Lude.Maybe FileModeTypeEnum)
-slFileMode = Lens.lens (fileMode :: SymbolicLink -> Lude.Maybe FileModeTypeEnum) (\s a -> s {fileMode = a} :: SymbolicLink)
-{-# DEPRECATED slFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
 
 -- | The blob ID that contains the information about the symbolic link.
 --
 -- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slBlobId :: Lens.Lens' SymbolicLink (Lude.Maybe Lude.Text)
-slBlobId = Lens.lens (blobId :: SymbolicLink -> Lude.Maybe Lude.Text) (\s a -> s {blobId = a} :: SymbolicLink)
+slBlobId :: Lens.Lens' SymbolicLink (Core.Maybe Types.BlobId)
+slBlobId = Lens.field @"blobId"
 {-# DEPRECATED slBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
+
+-- | The file mode permissions of the blob that cotains information about the symbolic link.
+--
+-- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slFileMode :: Lens.Lens' SymbolicLink (Core.Maybe Types.FileModeTypeEnum)
+slFileMode = Lens.field @"fileMode"
+{-# DEPRECATED slFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
 
 -- | The relative path of the symbolic link from the folder where the query originated.
 --
 -- /Note:/ Consider using 'relativePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slRelativePath :: Lens.Lens' SymbolicLink (Lude.Maybe Lude.Text)
-slRelativePath = Lens.lens (relativePath :: SymbolicLink -> Lude.Maybe Lude.Text) (\s a -> s {relativePath = a} :: SymbolicLink)
+slRelativePath :: Lens.Lens' SymbolicLink (Core.Maybe Types.RelativePath)
+slRelativePath = Lens.field @"relativePath"
 {-# DEPRECATED slRelativePath "Use generic-lens or generic-optics with 'relativePath' instead." #-}
 
-instance Lude.FromJSON SymbolicLink where
+instance Core.FromJSON SymbolicLink where
   parseJSON =
-    Lude.withObject
-      "SymbolicLink"
-      ( \x ->
-          SymbolicLink'
-            Lude.<$> (x Lude..:? "absolutePath")
-            Lude.<*> (x Lude..:? "fileMode")
-            Lude.<*> (x Lude..:? "blobId")
-            Lude.<*> (x Lude..:? "relativePath")
-      )
+    Core.withObject "SymbolicLink" Core.$
+      \x ->
+        SymbolicLink'
+          Core.<$> (x Core..:? "absolutePath")
+          Core.<*> (x Core..:? "blobId")
+          Core.<*> (x Core..:? "fileMode")
+          Core.<*> (x Core..:? "relativePath")

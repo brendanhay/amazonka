@@ -13,61 +13,66 @@
 module Network.AWS.EMR.Types.InstanceStateChangeReasonCode
   ( InstanceStateChangeReasonCode
       ( InstanceStateChangeReasonCode',
-        ISCRCInternalError,
-        ISCRCValidationError,
-        ISCRCInstanceFailure,
-        ISCRCBootstrapFailure,
-        ISCRCClusterTerminated
+        InstanceStateChangeReasonCodeInternalError,
+        InstanceStateChangeReasonCodeValidationError,
+        InstanceStateChangeReasonCodeInstanceFailure,
+        InstanceStateChangeReasonCodeBootstrapFailure,
+        InstanceStateChangeReasonCodeClusterTerminated,
+        fromInstanceStateChangeReasonCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceStateChangeReasonCode = InstanceStateChangeReasonCode' Lude.Text
+newtype InstanceStateChangeReasonCode = InstanceStateChangeReasonCode'
+  { fromInstanceStateChangeReasonCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISCRCInternalError :: InstanceStateChangeReasonCode
-pattern ISCRCInternalError = InstanceStateChangeReasonCode' "INTERNAL_ERROR"
+pattern InstanceStateChangeReasonCodeInternalError :: InstanceStateChangeReasonCode
+pattern InstanceStateChangeReasonCodeInternalError = InstanceStateChangeReasonCode' "INTERNAL_ERROR"
 
-pattern ISCRCValidationError :: InstanceStateChangeReasonCode
-pattern ISCRCValidationError = InstanceStateChangeReasonCode' "VALIDATION_ERROR"
+pattern InstanceStateChangeReasonCodeValidationError :: InstanceStateChangeReasonCode
+pattern InstanceStateChangeReasonCodeValidationError = InstanceStateChangeReasonCode' "VALIDATION_ERROR"
 
-pattern ISCRCInstanceFailure :: InstanceStateChangeReasonCode
-pattern ISCRCInstanceFailure = InstanceStateChangeReasonCode' "INSTANCE_FAILURE"
+pattern InstanceStateChangeReasonCodeInstanceFailure :: InstanceStateChangeReasonCode
+pattern InstanceStateChangeReasonCodeInstanceFailure = InstanceStateChangeReasonCode' "INSTANCE_FAILURE"
 
-pattern ISCRCBootstrapFailure :: InstanceStateChangeReasonCode
-pattern ISCRCBootstrapFailure = InstanceStateChangeReasonCode' "BOOTSTRAP_FAILURE"
+pattern InstanceStateChangeReasonCodeBootstrapFailure :: InstanceStateChangeReasonCode
+pattern InstanceStateChangeReasonCodeBootstrapFailure = InstanceStateChangeReasonCode' "BOOTSTRAP_FAILURE"
 
-pattern ISCRCClusterTerminated :: InstanceStateChangeReasonCode
-pattern ISCRCClusterTerminated = InstanceStateChangeReasonCode' "CLUSTER_TERMINATED"
+pattern InstanceStateChangeReasonCodeClusterTerminated :: InstanceStateChangeReasonCode
+pattern InstanceStateChangeReasonCodeClusterTerminated = InstanceStateChangeReasonCode' "CLUSTER_TERMINATED"
 
 {-# COMPLETE
-  ISCRCInternalError,
-  ISCRCValidationError,
-  ISCRCInstanceFailure,
-  ISCRCBootstrapFailure,
-  ISCRCClusterTerminated,
+  InstanceStateChangeReasonCodeInternalError,
+  InstanceStateChangeReasonCodeValidationError,
+  InstanceStateChangeReasonCodeInstanceFailure,
+  InstanceStateChangeReasonCodeBootstrapFailure,
+  InstanceStateChangeReasonCodeClusterTerminated,
   InstanceStateChangeReasonCode'
   #-}

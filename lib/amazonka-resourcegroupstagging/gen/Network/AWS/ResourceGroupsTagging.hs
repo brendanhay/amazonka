@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -425,10 +424,28 @@
 --     * <https://docs.aws.amazon.com/workspaces Amazon WorkSpaces>
 module Network.AWS.ResourceGroupsTagging
   ( -- * Service configuration
-    resourceGroupsTaggingService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** ConstraintViolationException
+    _ConstraintViolationException,
+
+    -- ** ThrottledException
+    _ThrottledException,
+
+    -- ** PaginationTokenExpiredException
+    _PaginationTokenExpiredException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
 
     -- * Waiters
     -- $waiters
@@ -462,21 +479,50 @@ module Network.AWS.ResourceGroupsTagging
 
     -- * Types
 
-    -- ** GroupByAttribute
-    GroupByAttribute (..),
+    -- ** ResourceTagMapping
+    ResourceTagMapping (..),
+    mkResourceTagMapping,
+    rtmComplianceDetails,
+    rtmResourceARN,
+    rtmTags,
 
-    -- ** ResourceErrorCode
-    ResourceErrorCode (..),
+    -- ** Status
+    Status (..),
 
-    -- ** TargetIdType
-    TargetIdType (..),
+    -- ** TargetId
+    TargetId (..),
+
+    -- ** Summary
+    Summary (..),
+    mkSummary,
+    sLastUpdated,
+    sNonCompliantResources,
+    sRegion,
+    sResourceType,
+    sTargetId,
+    sTargetIdType,
+
+    -- ** PaginationToken
+    PaginationToken (..),
 
     -- ** ComplianceDetails
     ComplianceDetails (..),
     mkComplianceDetails,
-    cdKeysWithNoncompliantValues,
     cdComplianceStatus,
+    cdKeysWithNoncompliantValues,
     cdNoncompliantKeys,
+
+    -- ** LastUpdated
+    LastUpdated (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** GroupByAttribute
+    GroupByAttribute (..),
 
     -- ** FailureInfo
     FailureInfo (..),
@@ -485,44 +531,58 @@ module Network.AWS.ResourceGroupsTagging
     fiErrorMessage,
     fiStatusCode,
 
-    -- ** ResourceTagMapping
-    ResourceTagMapping (..),
-    mkResourceTagMapping,
-    rtmComplianceDetails,
-    rtmResourceARN,
-    rtmTags,
+    -- ** TagValue
+    TagValue (..),
 
-    -- ** Summary
-    Summary (..),
-    mkSummary,
-    sTargetId,
-    sLastUpdated,
-    sResourceType,
-    sNonCompliantResources,
-    sTargetIdType,
-    sRegion,
+    -- ** AmazonResourceType
+    AmazonResourceType (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** TargetIdType
+    TargetIdType (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
 
     -- ** TagFilter
     TagFilter (..),
     mkTagFilter,
-    tfValues,
     tfKey,
+    tfValues,
+
+    -- ** ResourceErrorCode
+    ResourceErrorCode (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** S3Location
+    S3Location (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

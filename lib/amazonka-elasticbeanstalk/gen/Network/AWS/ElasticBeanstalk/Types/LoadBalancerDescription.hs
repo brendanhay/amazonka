@@ -17,70 +17,65 @@ module Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription
     mkLoadBalancerDescription,
 
     -- * Lenses
-    lbdLoadBalancerName,
     lbdDomain,
     lbdListeners,
+    lbdLoadBalancerName,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.Listener
+import qualified Network.AWS.ElasticBeanstalk.Types.Listener as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the details of a LoadBalancer.
 --
 -- /See:/ 'mkLoadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
-  { -- | The name of the LoadBalancer.
-    loadBalancerName :: Lude.Maybe Lude.Text,
-    -- | The domain name of the LoadBalancer.
-    domain :: Lude.Maybe Lude.Text,
+  { -- | The domain name of the LoadBalancer.
+    domain :: Core.Maybe Types.String,
     -- | A list of Listeners used by the LoadBalancer.
-    listeners :: Lude.Maybe [Listener]
+    listeners :: Core.Maybe [Types.Listener],
+    -- | The name of the LoadBalancer.
+    loadBalancerName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoadBalancerDescription' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the LoadBalancer.
--- * 'domain' - The domain name of the LoadBalancer.
--- * 'listeners' - A list of Listeners used by the LoadBalancer.
+-- | Creates a 'LoadBalancerDescription' value with any optional fields omitted.
 mkLoadBalancerDescription ::
   LoadBalancerDescription
 mkLoadBalancerDescription =
   LoadBalancerDescription'
-    { loadBalancerName = Lude.Nothing,
-      domain = Lude.Nothing,
-      listeners = Lude.Nothing
+    { domain = Core.Nothing,
+      listeners = Core.Nothing,
+      loadBalancerName = Core.Nothing
     }
-
--- | The name of the LoadBalancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbdLoadBalancerName :: Lens.Lens' LoadBalancerDescription (Lude.Maybe Lude.Text)
-lbdLoadBalancerName = Lens.lens (loadBalancerName :: LoadBalancerDescription -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerName = a} :: LoadBalancerDescription)
-{-# DEPRECATED lbdLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The domain name of the LoadBalancer.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbdDomain :: Lens.Lens' LoadBalancerDescription (Lude.Maybe Lude.Text)
-lbdDomain = Lens.lens (domain :: LoadBalancerDescription -> Lude.Maybe Lude.Text) (\s a -> s {domain = a} :: LoadBalancerDescription)
+lbdDomain :: Lens.Lens' LoadBalancerDescription (Core.Maybe Types.String)
+lbdDomain = Lens.field @"domain"
 {-# DEPRECATED lbdDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | A list of Listeners used by the LoadBalancer.
 --
 -- /Note:/ Consider using 'listeners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbdListeners :: Lens.Lens' LoadBalancerDescription (Lude.Maybe [Listener])
-lbdListeners = Lens.lens (listeners :: LoadBalancerDescription -> Lude.Maybe [Listener]) (\s a -> s {listeners = a} :: LoadBalancerDescription)
+lbdListeners :: Lens.Lens' LoadBalancerDescription (Core.Maybe [Types.Listener])
+lbdListeners = Lens.field @"listeners"
 {-# DEPRECATED lbdListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
 
-instance Lude.FromXML LoadBalancerDescription where
+-- | The name of the LoadBalancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbdLoadBalancerName :: Lens.Lens' LoadBalancerDescription (Core.Maybe Types.String)
+lbdLoadBalancerName = Lens.field @"loadBalancerName"
+{-# DEPRECATED lbdLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
+
+instance Core.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
-      Lude.<$> (x Lude..@? "LoadBalancerName")
-      Lude.<*> (x Lude..@? "Domain")
-      Lude.<*> ( x Lude..@? "Listeners" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<$> (x Core..@? "Domain")
+      Core.<*> (x Core..@? "Listeners" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "LoadBalancerName")

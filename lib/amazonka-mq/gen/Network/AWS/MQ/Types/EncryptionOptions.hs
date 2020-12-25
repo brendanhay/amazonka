@@ -17,68 +17,60 @@ module Network.AWS.MQ.Types.EncryptionOptions
     mkEncryptionOptions,
 
     -- * Lenses
-    eoUseAWSOwnedKey,
-    eoKMSKeyId,
+    eoUseAwsOwnedKey,
+    eoKmsKeyId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Encryption options for the broker.
 --
 -- /See:/ 'mkEncryptionOptions' smart constructor.
 data EncryptionOptions = EncryptionOptions'
   { -- | Enables the use of an AWS owned CMK using AWS Key Management Service (KMS).
-    useAWSOwnedKey :: Lude.Bool,
+    useAwsOwnedKey :: Core.Bool,
     -- | The symmetric customer master key (CMK) to use for the AWS Key Management Service (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
-    kmsKeyId :: Lude.Maybe Lude.Text
+    kmsKeyId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EncryptionOptions' with the minimum fields required to make a request.
---
--- * 'useAWSOwnedKey' - Enables the use of an AWS owned CMK using AWS Key Management Service (KMS).
--- * 'kmsKeyId' - The symmetric customer master key (CMK) to use for the AWS Key Management Service (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
+-- | Creates a 'EncryptionOptions' value with any optional fields omitted.
 mkEncryptionOptions ::
-  -- | 'useAWSOwnedKey'
-  Lude.Bool ->
+  -- | 'useAwsOwnedKey'
+  Core.Bool ->
   EncryptionOptions
-mkEncryptionOptions pUseAWSOwnedKey_ =
-  EncryptionOptions'
-    { useAWSOwnedKey = pUseAWSOwnedKey_,
-      kmsKeyId = Lude.Nothing
-    }
+mkEncryptionOptions useAwsOwnedKey =
+  EncryptionOptions' {useAwsOwnedKey, kmsKeyId = Core.Nothing}
 
 -- | Enables the use of an AWS owned CMK using AWS Key Management Service (KMS).
 --
--- /Note:/ Consider using 'useAWSOwnedKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoUseAWSOwnedKey :: Lens.Lens' EncryptionOptions Lude.Bool
-eoUseAWSOwnedKey = Lens.lens (useAWSOwnedKey :: EncryptionOptions -> Lude.Bool) (\s a -> s {useAWSOwnedKey = a} :: EncryptionOptions)
-{-# DEPRECATED eoUseAWSOwnedKey "Use generic-lens or generic-optics with 'useAWSOwnedKey' instead." #-}
+-- /Note:/ Consider using 'useAwsOwnedKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoUseAwsOwnedKey :: Lens.Lens' EncryptionOptions Core.Bool
+eoUseAwsOwnedKey = Lens.field @"useAwsOwnedKey"
+{-# DEPRECATED eoUseAwsOwnedKey "Use generic-lens or generic-optics with 'useAwsOwnedKey' instead." #-}
 
 -- | The symmetric customer master key (CMK) to use for the AWS Key Management Service (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoKMSKeyId :: Lens.Lens' EncryptionOptions (Lude.Maybe Lude.Text)
-eoKMSKeyId = Lens.lens (kmsKeyId :: EncryptionOptions -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: EncryptionOptions)
-{-# DEPRECATED eoKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+eoKmsKeyId :: Lens.Lens' EncryptionOptions (Core.Maybe Core.Text)
+eoKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED eoKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
-instance Lude.FromJSON EncryptionOptions where
-  parseJSON =
-    Lude.withObject
-      "EncryptionOptions"
-      ( \x ->
-          EncryptionOptions'
-            Lude.<$> (x Lude..: "useAwsOwnedKey") Lude.<*> (x Lude..:? "kmsKeyId")
-      )
-
-instance Lude.ToJSON EncryptionOptions where
-  toJSON EncryptionOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("useAwsOwnedKey" Lude..= useAWSOwnedKey),
-            ("kmsKeyId" Lude..=) Lude.<$> kmsKeyId
+instance Core.FromJSON EncryptionOptions where
+  toJSON EncryptionOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("useAwsOwnedKey" Core..= useAwsOwnedKey),
+            ("kmsKeyId" Core..=) Core.<$> kmsKeyId
           ]
       )
+
+instance Core.FromJSON EncryptionOptions where
+  parseJSON =
+    Core.withObject "EncryptionOptions" Core.$
+      \x ->
+        EncryptionOptions'
+          Core.<$> (x Core..: "useAwsOwnedKey") Core.<*> (x Core..:? "kmsKeyId")

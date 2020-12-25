@@ -23,8 +23,8 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     mkRemoveTagsFromStream,
 
     -- ** Request lenses
-    rtfsTagKeys,
     rtfsStreamName,
+    rtfsTagKeys,
 
     -- * Destructuring the response
     RemoveTagsFromStreamResponse (..),
@@ -32,91 +32,78 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for @RemoveTagsFromStream@ .
 --
 -- /See:/ 'mkRemoveTagsFromStream' smart constructor.
 data RemoveTagsFromStream = RemoveTagsFromStream'
-  { -- | A list of tag keys. Each corresponding tag is removed from the stream.
-    tagKeys :: Lude.NonEmpty Lude.Text,
-    -- | The name of the stream.
-    streamName :: Lude.Text
+  { -- | The name of the stream.
+    streamName :: Types.StreamName,
+    -- | A list of tag keys. Each corresponding tag is removed from the stream.
+    tagKeys :: Core.NonEmpty Types.TagKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromStream' with the minimum fields required to make a request.
---
--- * 'tagKeys' - A list of tag keys. Each corresponding tag is removed from the stream.
--- * 'streamName' - The name of the stream.
+-- | Creates a 'RemoveTagsFromStream' value with any optional fields omitted.
 mkRemoveTagsFromStream ::
-  -- | 'tagKeys'
-  Lude.NonEmpty Lude.Text ->
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
+  -- | 'tagKeys'
+  Core.NonEmpty Types.TagKey ->
   RemoveTagsFromStream
-mkRemoveTagsFromStream pTagKeys_ pStreamName_ =
-  RemoveTagsFromStream'
-    { tagKeys = pTagKeys_,
-      streamName = pStreamName_
-    }
-
--- | A list of tag keys. Each corresponding tag is removed from the stream.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfsTagKeys :: Lens.Lens' RemoveTagsFromStream (Lude.NonEmpty Lude.Text)
-rtfsTagKeys = Lens.lens (tagKeys :: RemoveTagsFromStream -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: RemoveTagsFromStream)
-{-# DEPRECATED rtfsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+mkRemoveTagsFromStream streamName tagKeys =
+  RemoveTagsFromStream' {streamName, tagKeys}
 
 -- | The name of the stream.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfsStreamName :: Lens.Lens' RemoveTagsFromStream Lude.Text
-rtfsStreamName = Lens.lens (streamName :: RemoveTagsFromStream -> Lude.Text) (\s a -> s {streamName = a} :: RemoveTagsFromStream)
+rtfsStreamName :: Lens.Lens' RemoveTagsFromStream Types.StreamName
+rtfsStreamName = Lens.field @"streamName"
 {-# DEPRECATED rtfsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest RemoveTagsFromStream where
+-- | A list of tag keys. Each corresponding tag is removed from the stream.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfsTagKeys :: Lens.Lens' RemoveTagsFromStream (Core.NonEmpty Types.TagKey)
+rtfsTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED rtfsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+instance Core.FromJSON RemoveTagsFromStream where
+  toJSON RemoveTagsFromStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
+
+instance Core.AWSRequest RemoveTagsFromStream where
   type Rs RemoveTagsFromStream = RemoveTagsFromStreamResponse
-  request = Req.postJSON kinesisService
-  response = Res.receiveNull RemoveTagsFromStreamResponse'
-
-instance Lude.ToHeaders RemoveTagsFromStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.RemoveTagsFromStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveTagsFromStream where
-  toJSON RemoveTagsFromStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TagKeys" Lude..= tagKeys),
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath RemoveTagsFromStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTagsFromStream where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.RemoveTagsFromStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RemoveTagsFromStreamResponse'
 
 -- | /See:/ 'mkRemoveTagsFromStreamResponse' smart constructor.
 data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromStreamResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveTagsFromStreamResponse' value with any optional fields omitted.
 mkRemoveTagsFromStreamResponse ::
   RemoveTagsFromStreamResponse
 mkRemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse'

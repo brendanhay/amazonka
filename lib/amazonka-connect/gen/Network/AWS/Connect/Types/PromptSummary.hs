@@ -17,71 +17,68 @@ module Network.AWS.Connect.Types.PromptSummary
     mkPromptSummary,
 
     -- * Lenses
-    psARN,
-    psName,
+    psArn,
     psId,
+    psName,
   )
 where
 
+import qualified Network.AWS.Connect.Types.ARN as Types
+import qualified Network.AWS.Connect.Types.Id as Types
+import qualified Network.AWS.Connect.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the prompt.
 --
 -- /See:/ 'mkPromptSummary' smart constructor.
 data PromptSummary = PromptSummary'
   { -- | The Amazon Resource Name (ARN) of the prompt.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the prompt.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.ARN,
     -- | The identifier of the prompt.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.Id,
+    -- | The name of the prompt.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PromptSummary' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the prompt.
--- * 'name' - The name of the prompt.
--- * 'id' - The identifier of the prompt.
+-- | Creates a 'PromptSummary' value with any optional fields omitted.
 mkPromptSummary ::
   PromptSummary
 mkPromptSummary =
   PromptSummary'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the prompt.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psARN :: Lens.Lens' PromptSummary (Lude.Maybe Lude.Text)
-psARN = Lens.lens (arn :: PromptSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PromptSummary)
-{-# DEPRECATED psARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the prompt.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psName :: Lens.Lens' PromptSummary (Lude.Maybe Lude.Text)
-psName = Lens.lens (name :: PromptSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PromptSummary)
-{-# DEPRECATED psName "Use generic-lens or generic-optics with 'name' instead." #-}
+psArn :: Lens.Lens' PromptSummary (Core.Maybe Types.ARN)
+psArn = Lens.field @"arn"
+{-# DEPRECATED psArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The identifier of the prompt.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psId :: Lens.Lens' PromptSummary (Lude.Maybe Lude.Text)
-psId = Lens.lens (id :: PromptSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: PromptSummary)
+psId :: Lens.Lens' PromptSummary (Core.Maybe Types.Id)
+psId = Lens.field @"id"
 {-# DEPRECATED psId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON PromptSummary where
+-- | The name of the prompt.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psName :: Lens.Lens' PromptSummary (Core.Maybe Types.Name)
+psName = Lens.field @"name"
+{-# DEPRECATED psName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON PromptSummary where
   parseJSON =
-    Lude.withObject
-      "PromptSummary"
-      ( \x ->
-          PromptSummary'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "PromptSummary" Core.$
+      \x ->
+        PromptSummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")

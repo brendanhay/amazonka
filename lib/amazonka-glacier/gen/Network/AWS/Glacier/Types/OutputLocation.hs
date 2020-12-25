@@ -21,40 +21,37 @@ module Network.AWS.Glacier.Types.OutputLocation
   )
 where
 
-import Network.AWS.Glacier.Types.S3Location
+import qualified Network.AWS.Glacier.Types.S3Location as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the location where the select job results are stored.
 --
 -- /See:/ 'mkOutputLocation' smart constructor.
 newtype OutputLocation = OutputLocation'
   { -- | Describes an S3 location that will receive the results of the job request.
-    s3 :: Lude.Maybe S3Location
+    s3 :: Core.Maybe Types.S3Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputLocation' with the minimum fields required to make a request.
---
--- * 's3' - Describes an S3 location that will receive the results of the job request.
+-- | Creates a 'OutputLocation' value with any optional fields omitted.
 mkOutputLocation ::
   OutputLocation
-mkOutputLocation = OutputLocation' {s3 = Lude.Nothing}
+mkOutputLocation = OutputLocation' {s3 = Core.Nothing}
 
 -- | Describes an S3 location that will receive the results of the job request.
 --
 -- /Note:/ Consider using 's3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-olS3 :: Lens.Lens' OutputLocation (Lude.Maybe S3Location)
-olS3 = Lens.lens (s3 :: OutputLocation -> Lude.Maybe S3Location) (\s a -> s {s3 = a} :: OutputLocation)
+olS3 :: Lens.Lens' OutputLocation (Core.Maybe Types.S3Location)
+olS3 = Lens.field @"s3"
 {-# DEPRECATED olS3 "Use generic-lens or generic-optics with 's3' instead." #-}
 
-instance Lude.FromJSON OutputLocation where
-  parseJSON =
-    Lude.withObject
-      "OutputLocation"
-      (\x -> OutputLocation' Lude.<$> (x Lude..:? "S3"))
+instance Core.FromJSON OutputLocation where
+  toJSON OutputLocation {..} =
+    Core.object (Core.catMaybes [("S3" Core..=) Core.<$> s3])
 
-instance Lude.ToJSON OutputLocation where
-  toJSON OutputLocation' {..} =
-    Lude.object (Lude.catMaybes [("S3" Lude..=) Lude.<$> s3])
+instance Core.FromJSON OutputLocation where
+  parseJSON =
+    Core.withObject "OutputLocation" Core.$
+      \x -> OutputLocation' Core.<$> (x Core..:? "S3")

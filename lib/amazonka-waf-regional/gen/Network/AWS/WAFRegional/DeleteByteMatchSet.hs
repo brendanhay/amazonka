@@ -39,127 +39,112 @@ module Network.AWS.WAFRegional.DeleteByteMatchSet
     mkDeleteByteMatchSetResponse,
 
     -- ** Response lenses
-    dbmsrsChangeToken,
-    dbmsrsResponseStatus,
+    dbmsrrsChangeToken,
+    dbmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkDeleteByteMatchSet' smart constructor.
 data DeleteByteMatchSet = DeleteByteMatchSet'
   { -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to delete. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
-    byteMatchSetId :: Lude.Text,
+    byteMatchSetId :: Types.ResourceId,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteByteMatchSet' with the minimum fields required to make a request.
---
--- * 'byteMatchSetId' - The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to delete. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'DeleteByteMatchSet' value with any optional fields omitted.
 mkDeleteByteMatchSet ::
   -- | 'byteMatchSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   DeleteByteMatchSet
-mkDeleteByteMatchSet pByteMatchSetId_ pChangeToken_ =
-  DeleteByteMatchSet'
-    { byteMatchSetId = pByteMatchSetId_,
-      changeToken = pChangeToken_
-    }
+mkDeleteByteMatchSet byteMatchSetId changeToken =
+  DeleteByteMatchSet' {byteMatchSetId, changeToken}
 
 -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to delete. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 --
 -- /Note:/ Consider using 'byteMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbmsByteMatchSetId :: Lens.Lens' DeleteByteMatchSet Lude.Text
-dbmsByteMatchSetId = Lens.lens (byteMatchSetId :: DeleteByteMatchSet -> Lude.Text) (\s a -> s {byteMatchSetId = a} :: DeleteByteMatchSet)
+dbmsByteMatchSetId :: Lens.Lens' DeleteByteMatchSet Types.ResourceId
+dbmsByteMatchSetId = Lens.field @"byteMatchSetId"
 {-# DEPRECATED dbmsByteMatchSetId "Use generic-lens or generic-optics with 'byteMatchSetId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbmsChangeToken :: Lens.Lens' DeleteByteMatchSet Lude.Text
-dbmsChangeToken = Lens.lens (changeToken :: DeleteByteMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteByteMatchSet)
+dbmsChangeToken :: Lens.Lens' DeleteByteMatchSet Types.ChangeToken
+dbmsChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED dbmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest DeleteByteMatchSet where
+instance Core.FromJSON DeleteByteMatchSet where
+  toJSON DeleteByteMatchSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ByteMatchSetId" Core..= byteMatchSetId),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest DeleteByteMatchSet where
   type Rs DeleteByteMatchSet = DeleteByteMatchSetResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.DeleteByteMatchSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteByteMatchSetResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteByteMatchSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.DeleteByteMatchSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteByteMatchSet where
-  toJSON DeleteByteMatchSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ByteMatchSetId" Lude..= byteMatchSetId),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath DeleteByteMatchSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteByteMatchSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteByteMatchSetResponse' smart constructor.
 data DeleteByteMatchSetResponse = DeleteByteMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteByteMatchSetResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteByteMatchSetResponse' value with any optional fields omitted.
 mkDeleteByteMatchSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteByteMatchSetResponse
-mkDeleteByteMatchSetResponse pResponseStatus_ =
+mkDeleteByteMatchSetResponse responseStatus =
   DeleteByteMatchSetResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbmsrsChangeToken :: Lens.Lens' DeleteByteMatchSetResponse (Lude.Maybe Lude.Text)
-dbmsrsChangeToken = Lens.lens (changeToken :: DeleteByteMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteByteMatchSetResponse)
-{-# DEPRECATED dbmsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+dbmsrrsChangeToken :: Lens.Lens' DeleteByteMatchSetResponse (Core.Maybe Types.ChangeToken)
+dbmsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED dbmsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbmsrsResponseStatus :: Lens.Lens' DeleteByteMatchSetResponse Lude.Int
-dbmsrsResponseStatus = Lens.lens (responseStatus :: DeleteByteMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteByteMatchSetResponse)
-{-# DEPRECATED dbmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbmsrrsResponseStatus :: Lens.Lens' DeleteByteMatchSetResponse Core.Int
+dbmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

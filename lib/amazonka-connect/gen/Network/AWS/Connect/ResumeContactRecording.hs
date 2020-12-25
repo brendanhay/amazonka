@@ -31,131 +31,109 @@ module Network.AWS.Connect.ResumeContactRecording
     mkResumeContactRecordingResponse,
 
     -- ** Response lenses
-    rcrrsResponseStatus,
+    rcrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkResumeContactRecording' smart constructor.
 data ResumeContactRecording = ResumeContactRecording'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The identifier of the contact.
-    contactId :: Lude.Text,
+    contactId :: Types.ContactId,
     -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
-    initialContactId :: Lude.Text
+    initialContactId :: Types.InitialContactId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResumeContactRecording' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'contactId' - The identifier of the contact.
--- * 'initialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
+-- | Creates a 'ResumeContactRecording' value with any optional fields omitted.
 mkResumeContactRecording ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'contactId'
-  Lude.Text ->
+  Types.ContactId ->
   -- | 'initialContactId'
-  Lude.Text ->
+  Types.InitialContactId ->
   ResumeContactRecording
-mkResumeContactRecording
-  pInstanceId_
-  pContactId_
-  pInitialContactId_ =
-    ResumeContactRecording'
-      { instanceId = pInstanceId_,
-        contactId = pContactId_,
-        initialContactId = pInitialContactId_
-      }
+mkResumeContactRecording instanceId contactId initialContactId =
+  ResumeContactRecording' {instanceId, contactId, initialContactId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrInstanceId :: Lens.Lens' ResumeContactRecording Lude.Text
-rcrInstanceId = Lens.lens (instanceId :: ResumeContactRecording -> Lude.Text) (\s a -> s {instanceId = a} :: ResumeContactRecording)
+rcrInstanceId :: Lens.Lens' ResumeContactRecording Types.InstanceId
+rcrInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED rcrInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the contact.
 --
 -- /Note:/ Consider using 'contactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrContactId :: Lens.Lens' ResumeContactRecording Lude.Text
-rcrContactId = Lens.lens (contactId :: ResumeContactRecording -> Lude.Text) (\s a -> s {contactId = a} :: ResumeContactRecording)
+rcrContactId :: Lens.Lens' ResumeContactRecording Types.ContactId
+rcrContactId = Lens.field @"contactId"
 {-# DEPRECATED rcrContactId "Use generic-lens or generic-optics with 'contactId' instead." #-}
 
 -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
 --
 -- /Note:/ Consider using 'initialContactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrInitialContactId :: Lens.Lens' ResumeContactRecording Lude.Text
-rcrInitialContactId = Lens.lens (initialContactId :: ResumeContactRecording -> Lude.Text) (\s a -> s {initialContactId = a} :: ResumeContactRecording)
+rcrInitialContactId :: Lens.Lens' ResumeContactRecording Types.InitialContactId
+rcrInitialContactId = Lens.field @"initialContactId"
 {-# DEPRECATED rcrInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
 
-instance Lude.AWSRequest ResumeContactRecording where
+instance Core.FromJSON ResumeContactRecording where
+  toJSON ResumeContactRecording {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("ContactId" Core..= contactId),
+            Core.Just ("InitialContactId" Core..= initialContactId)
+          ]
+      )
+
+instance Core.AWSRequest ResumeContactRecording where
   type Rs ResumeContactRecording = ResumeContactRecordingResponse
-  request = Req.postJSON connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/contact/resume-recording",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ResumeContactRecordingResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResumeContactRecording where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResumeContactRecording where
-  toJSON ResumeContactRecording' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("ContactId" Lude..= contactId),
-            Lude.Just ("InitialContactId" Lude..= initialContactId)
-          ]
-      )
-
-instance Lude.ToPath ResumeContactRecording where
-  toPath = Lude.const "/contact/resume-recording"
-
-instance Lude.ToQuery ResumeContactRecording where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkResumeContactRecordingResponse' smart constructor.
 newtype ResumeContactRecordingResponse = ResumeContactRecordingResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResumeContactRecordingResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResumeContactRecordingResponse' value with any optional fields omitted.
 mkResumeContactRecordingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResumeContactRecordingResponse
-mkResumeContactRecordingResponse pResponseStatus_ =
-  ResumeContactRecordingResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkResumeContactRecordingResponse responseStatus =
+  ResumeContactRecordingResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrrsResponseStatus :: Lens.Lens' ResumeContactRecordingResponse Lude.Int
-rcrrsResponseStatus = Lens.lens (responseStatus :: ResumeContactRecordingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResumeContactRecordingResponse)
-{-# DEPRECATED rcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rcrrrsResponseStatus :: Lens.Lens' ResumeContactRecordingResponse Core.Int
+rcrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rcrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

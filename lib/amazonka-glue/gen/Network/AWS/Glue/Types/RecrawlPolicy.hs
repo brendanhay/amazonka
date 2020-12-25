@@ -21,9 +21,9 @@ module Network.AWS.Glue.Types.RecrawlPolicy
   )
 where
 
-import Network.AWS.Glue.Types.RecrawlBehavior
+import qualified Network.AWS.Glue.Types.RecrawlBehavior as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html Incremental Crawls in AWS Glue> in the developer guide.
 --
@@ -33,20 +33,15 @@ newtype RecrawlPolicy = RecrawlPolicy'
     --
     -- A value of @CRAWL_EVERYTHING@ specifies crawling the entire dataset again.
     -- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that were added since the last crawler run.
-    recrawlBehavior :: Lude.Maybe RecrawlBehavior
+    recrawlBehavior :: Core.Maybe Types.RecrawlBehavior
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecrawlPolicy' with the minimum fields required to make a request.
---
--- * 'recrawlBehavior' - Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
---
--- A value of @CRAWL_EVERYTHING@ specifies crawling the entire dataset again.
--- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that were added since the last crawler run.
+-- | Creates a 'RecrawlPolicy' value with any optional fields omitted.
 mkRecrawlPolicy ::
   RecrawlPolicy
-mkRecrawlPolicy = RecrawlPolicy' {recrawlBehavior = Lude.Nothing}
+mkRecrawlPolicy = RecrawlPolicy' {recrawlBehavior = Core.Nothing}
 
 -- | Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
 --
@@ -54,19 +49,18 @@ mkRecrawlPolicy = RecrawlPolicy' {recrawlBehavior = Lude.Nothing}
 -- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that were added since the last crawler run.
 --
 -- /Note:/ Consider using 'recrawlBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpRecrawlBehavior :: Lens.Lens' RecrawlPolicy (Lude.Maybe RecrawlBehavior)
-rpRecrawlBehavior = Lens.lens (recrawlBehavior :: RecrawlPolicy -> Lude.Maybe RecrawlBehavior) (\s a -> s {recrawlBehavior = a} :: RecrawlPolicy)
+rpRecrawlBehavior :: Lens.Lens' RecrawlPolicy (Core.Maybe Types.RecrawlBehavior)
+rpRecrawlBehavior = Lens.field @"recrawlBehavior"
 {-# DEPRECATED rpRecrawlBehavior "Use generic-lens or generic-optics with 'recrawlBehavior' instead." #-}
 
-instance Lude.FromJSON RecrawlPolicy where
-  parseJSON =
-    Lude.withObject
-      "RecrawlPolicy"
-      (\x -> RecrawlPolicy' Lude.<$> (x Lude..:? "RecrawlBehavior"))
-
-instance Lude.ToJSON RecrawlPolicy where
-  toJSON RecrawlPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("RecrawlBehavior" Lude..=) Lude.<$> recrawlBehavior]
+instance Core.FromJSON RecrawlPolicy where
+  toJSON RecrawlPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [("RecrawlBehavior" Core..=) Core.<$> recrawlBehavior]
       )
+
+instance Core.FromJSON RecrawlPolicy where
+  parseJSON =
+    Core.withObject "RecrawlPolicy" Core.$
+      \x -> RecrawlPolicy' Core.<$> (x Core..:? "RecrawlBehavior")

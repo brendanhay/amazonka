@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.STS
     Network.AWS.STS.AssumeRole
@@ -79,10 +85,44 @@ library
     Network.AWS.STS.Waiters
 
   other-modules:
+    Network.AWS.STS.Types.AccessKeyId
+    Network.AWS.STS.Types.Account
+    Network.AWS.STS.Types.Arn
+    Network.AWS.STS.Types.ArnType
+    Network.AWS.STS.Types.AssumedRoleId
     Network.AWS.STS.Types.AssumedRoleUser
+    Network.AWS.STS.Types.Audience
+    Network.AWS.STS.Types.DecodedMessageType
+    Network.AWS.STS.Types.EncodedMessage
+    Network.AWS.STS.Types.ExternalIdType
     Network.AWS.STS.Types.FederatedUser
+    Network.AWS.STS.Types.FederatedUserId
+    Network.AWS.STS.Types.Issuer
+    Network.AWS.STS.Types.Key
+    Network.AWS.STS.Types.Name
+    Network.AWS.STS.Types.NameQualifier
+    Network.AWS.STS.Types.Policy
     Network.AWS.STS.Types.PolicyDescriptorType
+    Network.AWS.STS.Types.Provider
+    Network.AWS.STS.Types.ProviderId
+    Network.AWS.STS.Types.RoleArn
+    Network.AWS.STS.Types.RoleSessionName
+    Network.AWS.STS.Types.RoleSessionNameType
+    Network.AWS.STS.Types.SAMLAssertionType
+    Network.AWS.STS.Types.SecretAccessKey
+    Network.AWS.STS.Types.SerialNumberType
+    Network.AWS.STS.Types.SessionPolicyDocumentType
+    Network.AWS.STS.Types.SessionToken
+    Network.AWS.STS.Types.Subject
+    Network.AWS.STS.Types.SubjectType
     Network.AWS.STS.Types.Tag
+    Network.AWS.STS.Types.TagKeyType
+    Network.AWS.STS.Types.TokenCode
+    Network.AWS.STS.Types.TokenCodeType
+    Network.AWS.STS.Types.UserIdType
+    Network.AWS.STS.Types.Value
+    Network.AWS.STS.Types.WebIdentitySubjectType
+    Network.AWS.STS.Types.WebIdentityToken
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

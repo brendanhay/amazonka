@@ -22,41 +22,37 @@ module Network.AWS.ECR.Types.LifecyclePolicyPreviewSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The summary of the lifecycle policy preview request.
 --
 -- /See:/ 'mkLifecyclePolicyPreviewSummary' smart constructor.
 newtype LifecyclePolicyPreviewSummary = LifecyclePolicyPreviewSummary'
   { -- | The number of expiring images.
-    expiringImageTotalCount :: Lude.Maybe Lude.Natural
+    expiringImageTotalCount :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LifecyclePolicyPreviewSummary' with the minimum fields required to make a request.
---
--- * 'expiringImageTotalCount' - The number of expiring images.
+-- | Creates a 'LifecyclePolicyPreviewSummary' value with any optional fields omitted.
 mkLifecyclePolicyPreviewSummary ::
   LifecyclePolicyPreviewSummary
 mkLifecyclePolicyPreviewSummary =
   LifecyclePolicyPreviewSummary'
     { expiringImageTotalCount =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The number of expiring images.
 --
 -- /Note:/ Consider using 'expiringImageTotalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lppsExpiringImageTotalCount :: Lens.Lens' LifecyclePolicyPreviewSummary (Lude.Maybe Lude.Natural)
-lppsExpiringImageTotalCount = Lens.lens (expiringImageTotalCount :: LifecyclePolicyPreviewSummary -> Lude.Maybe Lude.Natural) (\s a -> s {expiringImageTotalCount = a} :: LifecyclePolicyPreviewSummary)
+lppsExpiringImageTotalCount :: Lens.Lens' LifecyclePolicyPreviewSummary (Core.Maybe Core.Natural)
+lppsExpiringImageTotalCount = Lens.field @"expiringImageTotalCount"
 {-# DEPRECATED lppsExpiringImageTotalCount "Use generic-lens or generic-optics with 'expiringImageTotalCount' instead." #-}
 
-instance Lude.FromJSON LifecyclePolicyPreviewSummary where
+instance Core.FromJSON LifecyclePolicyPreviewSummary where
   parseJSON =
-    Lude.withObject
-      "LifecyclePolicyPreviewSummary"
-      ( \x ->
-          LifecyclePolicyPreviewSummary'
-            Lude.<$> (x Lude..:? "expiringImageTotalCount")
-      )
+    Core.withObject "LifecyclePolicyPreviewSummary" Core.$
+      \x ->
+        LifecyclePolicyPreviewSummary'
+          Core.<$> (x Core..:? "expiringImageTotalCount")

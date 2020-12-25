@@ -22,151 +22,127 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     mkDescribeReservedDBInstances,
 
     -- ** Request lenses
-    drdiProductDescription,
-    drdiFilters,
-    drdiLeaseId,
-    drdiReservedDBInstanceId,
-    drdiDBInstanceClass,
-    drdiMarker,
-    drdiMaxRecords,
-    drdiMultiAZ,
-    drdiReservedDBInstancesOfferingId,
-    drdiOfferingType,
-    drdiDuration,
+    drdbiDBInstanceClass,
+    drdbiDuration,
+    drdbiFilters,
+    drdbiLeaseId,
+    drdbiMarker,
+    drdbiMaxRecords,
+    drdbiMultiAZ,
+    drdbiOfferingType,
+    drdbiProductDescription,
+    drdbiReservedDBInstanceId,
+    drdbiReservedDBInstancesOfferingId,
 
     -- * Destructuring the response
     DescribeReservedDBInstancesResponse (..),
     mkDescribeReservedDBInstancesResponse,
 
     -- ** Response lenses
-    drdirsReservedDBInstances,
-    drdirsMarker,
-    drdirsResponseStatus,
+    drdbirrsMarker,
+    drdbirrsReservedDBInstances,
+    drdbirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeReservedDBInstances' smart constructor.
 data DescribeReservedDBInstances = DescribeReservedDBInstances'
-  { -- | The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
-    productDescription :: Lude.Maybe Lude.Text,
+  { -- | The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
+    dBInstanceClass :: Core.Maybe Types.String,
+    -- | The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
+    --
+    -- Valid Values: @1 | 3 | 31536000 | 94608000@
+    duration :: Core.Maybe Types.String,
     -- | This parameter isn't currently supported.
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
     -- | The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.
-    leaseId :: Lude.Maybe Lude.Text,
-    -- | The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
-    reservedDBInstanceId :: Lude.Maybe Lude.Text,
-    -- | The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
-    dbInstanceClass :: Lude.Maybe Lude.Text,
+    leaseId :: Core.Maybe Types.String,
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
+    maxRecords :: Core.Maybe Core.Int,
     -- | A value that indicates whether to show only those reservations that support Multi-AZ.
-    multiAZ :: Lude.Maybe Lude.Bool,
-    -- | The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
-    reservedDBInstancesOfferingId :: Lude.Maybe Lude.Text,
+    multiAZ :: Core.Maybe Core.Bool,
     -- | The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.
     --
     -- Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
-    offeringType :: Lude.Maybe Lude.Text,
-    -- | The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
-    --
-    -- Valid Values: @1 | 3 | 31536000 | 94608000@
-    duration :: Lude.Maybe Lude.Text
+    offeringType :: Core.Maybe Types.String,
+    -- | The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
+    productDescription :: Core.Maybe Types.String,
+    -- | The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
+    reservedDBInstanceId :: Core.Maybe Types.String,
+    -- | The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
+    reservedDBInstancesOfferingId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReservedDBInstances' with the minimum fields required to make a request.
---
--- * 'productDescription' - The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
--- * 'filters' - This parameter isn't currently supported.
--- * 'leaseId' - The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.
--- * 'reservedDBInstanceId' - The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
--- * 'dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
--- * 'multiAZ' - A value that indicates whether to show only those reservations that support Multi-AZ.
--- * 'reservedDBInstancesOfferingId' - The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
--- * 'offeringType' - The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.
---
--- Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
--- * 'duration' - The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
---
--- Valid Values: @1 | 3 | 31536000 | 94608000@
+-- | Creates a 'DescribeReservedDBInstances' value with any optional fields omitted.
 mkDescribeReservedDBInstances ::
   DescribeReservedDBInstances
 mkDescribeReservedDBInstances =
   DescribeReservedDBInstances'
-    { productDescription = Lude.Nothing,
-      filters = Lude.Nothing,
-      leaseId = Lude.Nothing,
-      reservedDBInstanceId = Lude.Nothing,
-      dbInstanceClass = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      multiAZ = Lude.Nothing,
-      reservedDBInstancesOfferingId = Lude.Nothing,
-      offeringType = Lude.Nothing,
-      duration = Lude.Nothing
+    { dBInstanceClass = Core.Nothing,
+      duration = Core.Nothing,
+      filters = Core.Nothing,
+      leaseId = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      multiAZ = Core.Nothing,
+      offeringType = Core.Nothing,
+      productDescription = Core.Nothing,
+      reservedDBInstanceId = Core.Nothing,
+      reservedDBInstancesOfferingId = Core.Nothing
     }
 
--- | The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
+-- | The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
 --
--- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiProductDescription :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Text)
-drdiProductDescription = Lens.lens (productDescription :: DescribeReservedDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {productDescription = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
+-- /Note:/ Consider using 'dBInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdbiDBInstanceClass :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Types.String)
+drdbiDBInstanceClass = Lens.field @"dBInstanceClass"
+{-# DEPRECATED drdbiDBInstanceClass "Use generic-lens or generic-optics with 'dBInstanceClass' instead." #-}
+
+-- | The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
+--
+-- Valid Values: @1 | 3 | 31536000 | 94608000@
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdbiDuration :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Types.String)
+drdbiDuration = Lens.field @"duration"
+{-# DEPRECATED drdbiDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | This parameter isn't currently supported.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiFilters :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe [Filter])
-drdiFilters = Lens.lens (filters :: DescribeReservedDBInstances -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+drdbiFilters :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe [Types.Filter])
+drdbiFilters = Lens.field @"filters"
+{-# DEPRECATED drdbiFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.
 --
 -- /Note:/ Consider using 'leaseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiLeaseId :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Text)
-drdiLeaseId = Lens.lens (leaseId :: DescribeReservedDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {leaseId = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiLeaseId "Use generic-lens or generic-optics with 'leaseId' instead." #-}
-
--- | The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
---
--- /Note:/ Consider using 'reservedDBInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiReservedDBInstanceId :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Text)
-drdiReservedDBInstanceId = Lens.lens (reservedDBInstanceId :: DescribeReservedDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {reservedDBInstanceId = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiReservedDBInstanceId "Use generic-lens or generic-optics with 'reservedDBInstanceId' instead." #-}
-
--- | The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
---
--- /Note:/ Consider using 'dbInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiDBInstanceClass :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Text)
-drdiDBInstanceClass = Lens.lens (dbInstanceClass :: DescribeReservedDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceClass = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiDBInstanceClass "Use generic-lens or generic-optics with 'dbInstanceClass' instead." #-}
+drdbiLeaseId :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Types.String)
+drdbiLeaseId = Lens.field @"leaseId"
+{-# DEPRECATED drdbiLeaseId "Use generic-lens or generic-optics with 'leaseId' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiMarker :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Text)
-drdiMarker = Lens.lens (marker :: DescribeReservedDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drdbiMarker :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Types.String)
+drdbiMarker = Lens.field @"marker"
+{-# DEPRECATED drdbiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
@@ -174,143 +150,155 @@ drdiMarker = Lens.lens (marker :: DescribeReservedDBInstances -> Lude.Maybe Lude
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiMaxRecords :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Int)
-drdiMaxRecords = Lens.lens (maxRecords :: DescribeReservedDBInstances -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+drdbiMaxRecords :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Core.Int)
+drdbiMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED drdbiMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | A value that indicates whether to show only those reservations that support Multi-AZ.
 --
 -- /Note:/ Consider using 'multiAZ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiMultiAZ :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Bool)
-drdiMultiAZ = Lens.lens (multiAZ :: DescribeReservedDBInstances -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
-
--- | The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
---
--- /Note:/ Consider using 'reservedDBInstancesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiReservedDBInstancesOfferingId :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Text)
-drdiReservedDBInstancesOfferingId = Lens.lens (reservedDBInstancesOfferingId :: DescribeReservedDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {reservedDBInstancesOfferingId = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiReservedDBInstancesOfferingId "Use generic-lens or generic-optics with 'reservedDBInstancesOfferingId' instead." #-}
+drdbiMultiAZ :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Core.Bool)
+drdbiMultiAZ = Lens.field @"multiAZ"
+{-# DEPRECATED drdbiMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
 -- | The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.
 --
 -- Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
 --
 -- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiOfferingType :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Text)
-drdiOfferingType = Lens.lens (offeringType :: DescribeReservedDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {offeringType = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
+drdbiOfferingType :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Types.String)
+drdbiOfferingType = Lens.field @"offeringType"
+{-# DEPRECATED drdbiOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
 
--- | The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
+-- | The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
 --
--- Valid Values: @1 | 3 | 31536000 | 94608000@
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdbiProductDescription :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Types.String)
+drdbiProductDescription = Lens.field @"productDescription"
+{-# DEPRECATED drdbiProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
+
+-- | The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
 --
--- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdiDuration :: Lens.Lens' DescribeReservedDBInstances (Lude.Maybe Lude.Text)
-drdiDuration = Lens.lens (duration :: DescribeReservedDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {duration = a} :: DescribeReservedDBInstances)
-{-# DEPRECATED drdiDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
+-- /Note:/ Consider using 'reservedDBInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdbiReservedDBInstanceId :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Types.String)
+drdbiReservedDBInstanceId = Lens.field @"reservedDBInstanceId"
+{-# DEPRECATED drdbiReservedDBInstanceId "Use generic-lens or generic-optics with 'reservedDBInstanceId' instead." #-}
 
-instance Page.AWSPager DescribeReservedDBInstances where
-  page rq rs
-    | Page.stop (rs Lens.^. drdirsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. drdirsReservedDBInstances) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& drdiMarker Lens..~ rs Lens.^. drdirsMarker
+-- | The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
+--
+-- /Note:/ Consider using 'reservedDBInstancesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdbiReservedDBInstancesOfferingId :: Lens.Lens' DescribeReservedDBInstances (Core.Maybe Types.String)
+drdbiReservedDBInstancesOfferingId = Lens.field @"reservedDBInstancesOfferingId"
+{-# DEPRECATED drdbiReservedDBInstancesOfferingId "Use generic-lens or generic-optics with 'reservedDBInstancesOfferingId' instead." #-}
 
-instance Lude.AWSRequest DescribeReservedDBInstances where
+instance Core.AWSRequest DescribeReservedDBInstances where
   type
     Rs DescribeReservedDBInstances =
       DescribeReservedDBInstancesResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeReservedDBInstances")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBInstanceClass" Core.<$> dBInstanceClass)
+                Core.<> (Core.toQueryValue "Duration" Core.<$> duration)
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "LeaseId" Core.<$> leaseId)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "MultiAZ" Core.<$> multiAZ)
+                Core.<> (Core.toQueryValue "OfferingType" Core.<$> offeringType)
+                Core.<> ( Core.toQueryValue "ProductDescription"
+                            Core.<$> productDescription
+                        )
+                Core.<> ( Core.toQueryValue "ReservedDBInstanceId"
+                            Core.<$> reservedDBInstanceId
+                        )
+                Core.<> ( Core.toQueryValue "ReservedDBInstancesOfferingId"
+                            Core.<$> reservedDBInstancesOfferingId
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeReservedDBInstancesResult"
       ( \s h x ->
           DescribeReservedDBInstancesResponse'
-            Lude.<$> ( x Lude..@? "ReservedDBInstances" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "ReservedDBInstance")
+            Core.<$> (x Core..@? "Marker")
+            Core.<*> ( x Core..@? "ReservedDBInstances"
+                         Core..<@> Core.parseXMLList "ReservedDBInstance"
                      )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeReservedDBInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeReservedDBInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReservedDBInstances where
-  toQuery DescribeReservedDBInstances' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeReservedDBInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "ProductDescription" Lude.=: productDescription,
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "LeaseId" Lude.=: leaseId,
-        "ReservedDBInstanceId" Lude.=: reservedDBInstanceId,
-        "DBInstanceClass" Lude.=: dbInstanceClass,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "MultiAZ" Lude.=: multiAZ,
-        "ReservedDBInstancesOfferingId"
-          Lude.=: reservedDBInstancesOfferingId,
-        "OfferingType" Lude.=: offeringType,
-        "Duration" Lude.=: duration
-      ]
+instance Pager.AWSPager DescribeReservedDBInstances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"reservedDBInstances" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the result of a successful invocation of the @DescribeReservedDBInstances@ action.
 --
 -- /See:/ 'mkDescribeReservedDBInstancesResponse' smart constructor.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
-  { -- | A list of reserved DB instances.
-    reservedDBInstances :: Lude.Maybe [ReservedDBInstance],
-    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
+    -- | A list of reserved DB instances.
+    reservedDBInstances :: Core.Maybe [Types.ReservedDBInstance],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeReservedDBInstancesResponse' with the minimum fields required to make a request.
---
--- * 'reservedDBInstances' - A list of reserved DB instances.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReservedDBInstancesResponse' value with any optional fields omitted.
 mkDescribeReservedDBInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReservedDBInstancesResponse
-mkDescribeReservedDBInstancesResponse pResponseStatus_ =
+mkDescribeReservedDBInstancesResponse responseStatus =
   DescribeReservedDBInstancesResponse'
-    { reservedDBInstances =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      reservedDBInstances = Core.Nothing,
+      responseStatus
     }
-
--- | A list of reserved DB instances.
---
--- /Note:/ Consider using 'reservedDBInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdirsReservedDBInstances :: Lens.Lens' DescribeReservedDBInstancesResponse (Lude.Maybe [ReservedDBInstance])
-drdirsReservedDBInstances = Lens.lens (reservedDBInstances :: DescribeReservedDBInstancesResponse -> Lude.Maybe [ReservedDBInstance]) (\s a -> s {reservedDBInstances = a} :: DescribeReservedDBInstancesResponse)
-{-# DEPRECATED drdirsReservedDBInstances "Use generic-lens or generic-optics with 'reservedDBInstances' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdirsMarker :: Lens.Lens' DescribeReservedDBInstancesResponse (Lude.Maybe Lude.Text)
-drdirsMarker = Lens.lens (marker :: DescribeReservedDBInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReservedDBInstancesResponse)
-{-# DEPRECATED drdirsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drdbirrsMarker :: Lens.Lens' DescribeReservedDBInstancesResponse (Core.Maybe Types.String)
+drdbirrsMarker = Lens.field @"marker"
+{-# DEPRECATED drdbirrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A list of reserved DB instances.
+--
+-- /Note:/ Consider using 'reservedDBInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdbirrsReservedDBInstances :: Lens.Lens' DescribeReservedDBInstancesResponse (Core.Maybe [Types.ReservedDBInstance])
+drdbirrsReservedDBInstances = Lens.field @"reservedDBInstances"
+{-# DEPRECATED drdbirrsReservedDBInstances "Use generic-lens or generic-optics with 'reservedDBInstances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdirsResponseStatus :: Lens.Lens' DescribeReservedDBInstancesResponse Lude.Int
-drdirsResponseStatus = Lens.lens (responseStatus :: DescribeReservedDBInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReservedDBInstancesResponse)
-{-# DEPRECATED drdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drdbirrsResponseStatus :: Lens.Lens' DescribeReservedDBInstancesResponse Core.Int
+drdbirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drdbirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

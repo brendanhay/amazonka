@@ -72,7 +72,7 @@ responseSuggest =
   res
     "SuggestResponse"
     "fixture/SuggestResponse.proto"
-    cloudSearchDomainsService
+    mkServiceConfig
     (Proxy :: Proxy Suggest)
 
 responseUploadDocuments :: UploadDocumentsResponse -> TestTree
@@ -80,7 +80,7 @@ responseUploadDocuments =
   res
     "UploadDocumentsResponse"
     "fixture/UploadDocumentsResponse.proto"
-    cloudSearchDomainsService
+    mkServiceConfig
     (Proxy :: Proxy UploadDocuments)
 
 responseSearch :: SearchResponse -> TestTree
@@ -88,5 +88,5 @@ responseSearch =
   res
     "SearchResponse"
     "fixture/SearchResponse.proto"
-    cloudSearchDomainsService
+    mkServiceConfig
     (Proxy :: Proxy Search)

@@ -20,256 +20,241 @@ module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     mkUpdateElasticsearchDomainConfig,
 
     -- ** Request lenses
-    uedcEBSOptions,
-    uedcAccessPolicies,
-    uedcLogPublishingOptions,
-    uedcAdvancedSecurityOptions,
-    uedcElasticsearchClusterConfig,
-    uedcSnapshotOptions,
     uedcDomainName,
-    uedcCognitoOptions,
-    uedcVPCOptions,
-    uedcDomainEndpointOptions,
+    uedcAccessPolicies,
     uedcAdvancedOptions,
+    uedcAdvancedSecurityOptions,
+    uedcCognitoOptions,
+    uedcDomainEndpointOptions,
+    uedcEBSOptions,
+    uedcElasticsearchClusterConfig,
+    uedcLogPublishingOptions,
+    uedcSnapshotOptions,
+    uedcVPCOptions,
 
     -- * Destructuring the response
     UpdateElasticsearchDomainConfigResponse (..),
     mkUpdateElasticsearchDomainConfigResponse,
 
     -- ** Response lenses
-    uedcrsDomainConfig,
-    uedcrsResponseStatus,
+    uedcrrsDomainConfig,
+    uedcrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'UpdateElasticsearchDomain' @ operation. Specifies the type and number of instances in the domain cluster.
 --
 -- /See:/ 'mkUpdateElasticsearchDomainConfig' smart constructor.
 data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
-  { -- | Specify the type and size of the EBS volume that you want to use.
-    ebsOptions :: Lude.Maybe EBSOptions,
+  { -- | The name of the Elasticsearch domain that you are updating.
+    domainName :: Types.DomainName,
     -- | IAM access policy as a JSON-formatted string.
-    accessPolicies :: Lude.Maybe Lude.Text,
-    -- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
-    logPublishingOptions :: Lude.Maybe (Lude.HashMap LogType (LogPublishingOption)),
-    -- | Specifies advanced security options.
-    advancedSecurityOptions :: Lude.Maybe AdvancedSecurityOptionsInput,
-    -- | The type and number of instances to instantiate for the domain cluster.
-    elasticsearchClusterConfig :: Lude.Maybe ElasticsearchClusterConfig,
-    -- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
-    snapshotOptions :: Lude.Maybe SnapshotOptions,
-    -- | The name of the Elasticsearch domain that you are updating.
-    domainName :: Lude.Text,
-    -- | Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
-    cognitoOptions :: Lude.Maybe CognitoOptions,
-    -- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
-    vpcOptions :: Lude.Maybe VPCOptions,
-    -- | Options to specify configuration that will be applied to the domain endpoint.
-    domainEndpointOptions :: Lude.Maybe DomainEndpointOptions,
+    accessPolicies :: Core.Maybe Types.PolicyDocument,
     -- | Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
-    advancedOptions :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    advancedOptions :: Core.Maybe (Core.HashMap Types.String Types.String),
+    -- | Specifies advanced security options.
+    advancedSecurityOptions :: Core.Maybe Types.AdvancedSecurityOptionsInput,
+    -- | Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+    cognitoOptions :: Core.Maybe Types.CognitoOptions,
+    -- | Options to specify configuration that will be applied to the domain endpoint.
+    domainEndpointOptions :: Core.Maybe Types.DomainEndpointOptions,
+    -- | Specify the type and size of the EBS volume that you want to use.
+    eBSOptions :: Core.Maybe Types.EBSOptions,
+    -- | The type and number of instances to instantiate for the domain cluster.
+    elasticsearchClusterConfig :: Core.Maybe Types.ElasticsearchClusterConfig,
+    -- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+    logPublishingOptions :: Core.Maybe (Core.HashMap Types.LogType Types.LogPublishingOption),
+    -- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
+    snapshotOptions :: Core.Maybe Types.SnapshotOptions,
+    -- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+    vPCOptions :: Core.Maybe Types.VPCOptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateElasticsearchDomainConfig' with the minimum fields required to make a request.
---
--- * 'ebsOptions' - Specify the type and size of the EBS volume that you want to use.
--- * 'accessPolicies' - IAM access policy as a JSON-formatted string.
--- * 'logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
--- * 'advancedSecurityOptions' - Specifies advanced security options.
--- * 'elasticsearchClusterConfig' - The type and number of instances to instantiate for the domain cluster.
--- * 'snapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
--- * 'domainName' - The name of the Elasticsearch domain that you are updating.
--- * 'cognitoOptions' - Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
--- * 'vpcOptions' - Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
--- * 'domainEndpointOptions' - Options to specify configuration that will be applied to the domain endpoint.
--- * 'advancedOptions' - Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+-- | Creates a 'UpdateElasticsearchDomainConfig' value with any optional fields omitted.
 mkUpdateElasticsearchDomainConfig ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   UpdateElasticsearchDomainConfig
-mkUpdateElasticsearchDomainConfig pDomainName_ =
+mkUpdateElasticsearchDomainConfig domainName =
   UpdateElasticsearchDomainConfig'
-    { ebsOptions = Lude.Nothing,
-      accessPolicies = Lude.Nothing,
-      logPublishingOptions = Lude.Nothing,
-      advancedSecurityOptions = Lude.Nothing,
-      elasticsearchClusterConfig = Lude.Nothing,
-      snapshotOptions = Lude.Nothing,
-      domainName = pDomainName_,
-      cognitoOptions = Lude.Nothing,
-      vpcOptions = Lude.Nothing,
-      domainEndpointOptions = Lude.Nothing,
-      advancedOptions = Lude.Nothing
+    { domainName,
+      accessPolicies = Core.Nothing,
+      advancedOptions = Core.Nothing,
+      advancedSecurityOptions = Core.Nothing,
+      cognitoOptions = Core.Nothing,
+      domainEndpointOptions = Core.Nothing,
+      eBSOptions = Core.Nothing,
+      elasticsearchClusterConfig = Core.Nothing,
+      logPublishingOptions = Core.Nothing,
+      snapshotOptions = Core.Nothing,
+      vPCOptions = Core.Nothing
     }
-
--- | Specify the type and size of the EBS volume that you want to use.
---
--- /Note:/ Consider using 'ebsOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcEBSOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe EBSOptions)
-uedcEBSOptions = Lens.lens (ebsOptions :: UpdateElasticsearchDomainConfig -> Lude.Maybe EBSOptions) (\s a -> s {ebsOptions = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcEBSOptions "Use generic-lens or generic-optics with 'ebsOptions' instead." #-}
-
--- | IAM access policy as a JSON-formatted string.
---
--- /Note:/ Consider using 'accessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcAccessPolicies :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe Lude.Text)
-uedcAccessPolicies = Lens.lens (accessPolicies :: UpdateElasticsearchDomainConfig -> Lude.Maybe Lude.Text) (\s a -> s {accessPolicies = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}
-
--- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
---
--- /Note:/ Consider using 'logPublishingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcLogPublishingOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe (Lude.HashMap LogType (LogPublishingOption)))
-uedcLogPublishingOptions = Lens.lens (logPublishingOptions :: UpdateElasticsearchDomainConfig -> Lude.Maybe (Lude.HashMap LogType (LogPublishingOption))) (\s a -> s {logPublishingOptions = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcLogPublishingOptions "Use generic-lens or generic-optics with 'logPublishingOptions' instead." #-}
-
--- | Specifies advanced security options.
---
--- /Note:/ Consider using 'advancedSecurityOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcAdvancedSecurityOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe AdvancedSecurityOptionsInput)
-uedcAdvancedSecurityOptions = Lens.lens (advancedSecurityOptions :: UpdateElasticsearchDomainConfig -> Lude.Maybe AdvancedSecurityOptionsInput) (\s a -> s {advancedSecurityOptions = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcAdvancedSecurityOptions "Use generic-lens or generic-optics with 'advancedSecurityOptions' instead." #-}
-
--- | The type and number of instances to instantiate for the domain cluster.
---
--- /Note:/ Consider using 'elasticsearchClusterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcElasticsearchClusterConfig :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe ElasticsearchClusterConfig)
-uedcElasticsearchClusterConfig = Lens.lens (elasticsearchClusterConfig :: UpdateElasticsearchDomainConfig -> Lude.Maybe ElasticsearchClusterConfig) (\s a -> s {elasticsearchClusterConfig = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcElasticsearchClusterConfig "Use generic-lens or generic-optics with 'elasticsearchClusterConfig' instead." #-}
-
--- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
---
--- /Note:/ Consider using 'snapshotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcSnapshotOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe SnapshotOptions)
-uedcSnapshotOptions = Lens.lens (snapshotOptions :: UpdateElasticsearchDomainConfig -> Lude.Maybe SnapshotOptions) (\s a -> s {snapshotOptions = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcSnapshotOptions "Use generic-lens or generic-optics with 'snapshotOptions' instead." #-}
 
 -- | The name of the Elasticsearch domain that you are updating.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcDomainName :: Lens.Lens' UpdateElasticsearchDomainConfig Lude.Text
-uedcDomainName = Lens.lens (domainName :: UpdateElasticsearchDomainConfig -> Lude.Text) (\s a -> s {domainName = a} :: UpdateElasticsearchDomainConfig)
+uedcDomainName :: Lens.Lens' UpdateElasticsearchDomainConfig Types.DomainName
+uedcDomainName = Lens.field @"domainName"
 {-# DEPRECATED uedcDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
--- | Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+-- | IAM access policy as a JSON-formatted string.
 --
--- /Note:/ Consider using 'cognitoOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcCognitoOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe CognitoOptions)
-uedcCognitoOptions = Lens.lens (cognitoOptions :: UpdateElasticsearchDomainConfig -> Lude.Maybe CognitoOptions) (\s a -> s {cognitoOptions = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcCognitoOptions "Use generic-lens or generic-optics with 'cognitoOptions' instead." #-}
-
--- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
---
--- /Note:/ Consider using 'vpcOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcVPCOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe VPCOptions)
-uedcVPCOptions = Lens.lens (vpcOptions :: UpdateElasticsearchDomainConfig -> Lude.Maybe VPCOptions) (\s a -> s {vpcOptions = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcVPCOptions "Use generic-lens or generic-optics with 'vpcOptions' instead." #-}
-
--- | Options to specify configuration that will be applied to the domain endpoint.
---
--- /Note:/ Consider using 'domainEndpointOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcDomainEndpointOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe DomainEndpointOptions)
-uedcDomainEndpointOptions = Lens.lens (domainEndpointOptions :: UpdateElasticsearchDomainConfig -> Lude.Maybe DomainEndpointOptions) (\s a -> s {domainEndpointOptions = a} :: UpdateElasticsearchDomainConfig)
-{-# DEPRECATED uedcDomainEndpointOptions "Use generic-lens or generic-optics with 'domainEndpointOptions' instead." #-}
+-- /Note:/ Consider using 'accessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcAccessPolicies :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe Types.PolicyDocument)
+uedcAccessPolicies = Lens.field @"accessPolicies"
+{-# DEPRECATED uedcAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}
 
 -- | Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 --
 -- /Note:/ Consider using 'advancedOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcAdvancedOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-uedcAdvancedOptions = Lens.lens (advancedOptions :: UpdateElasticsearchDomainConfig -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {advancedOptions = a} :: UpdateElasticsearchDomainConfig)
+uedcAdvancedOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe (Core.HashMap Types.String Types.String))
+uedcAdvancedOptions = Lens.field @"advancedOptions"
 {-# DEPRECATED uedcAdvancedOptions "Use generic-lens or generic-optics with 'advancedOptions' instead." #-}
 
-instance Lude.AWSRequest UpdateElasticsearchDomainConfig where
-  type
-    Rs UpdateElasticsearchDomainConfig =
-      UpdateElasticsearchDomainConfigResponse
-  request = Req.postJSON elasticSearchService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateElasticsearchDomainConfigResponse'
-            Lude.<$> (x Lude..:> "DomainConfig") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Specifies advanced security options.
+--
+-- /Note:/ Consider using 'advancedSecurityOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcAdvancedSecurityOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe Types.AdvancedSecurityOptionsInput)
+uedcAdvancedSecurityOptions = Lens.field @"advancedSecurityOptions"
+{-# DEPRECATED uedcAdvancedSecurityOptions "Use generic-lens or generic-optics with 'advancedSecurityOptions' instead." #-}
 
-instance Lude.ToHeaders UpdateElasticsearchDomainConfig where
-  toHeaders = Lude.const Lude.mempty
+-- | Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+--
+-- /Note:/ Consider using 'cognitoOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcCognitoOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe Types.CognitoOptions)
+uedcCognitoOptions = Lens.field @"cognitoOptions"
+{-# DEPRECATED uedcCognitoOptions "Use generic-lens or generic-optics with 'cognitoOptions' instead." #-}
 
-instance Lude.ToJSON UpdateElasticsearchDomainConfig where
-  toJSON UpdateElasticsearchDomainConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EBSOptions" Lude..=) Lude.<$> ebsOptions,
-            ("AccessPolicies" Lude..=) Lude.<$> accessPolicies,
-            ("LogPublishingOptions" Lude..=) Lude.<$> logPublishingOptions,
-            ("AdvancedSecurityOptions" Lude..=)
-              Lude.<$> advancedSecurityOptions,
-            ("ElasticsearchClusterConfig" Lude..=)
-              Lude.<$> elasticsearchClusterConfig,
-            ("SnapshotOptions" Lude..=) Lude.<$> snapshotOptions,
-            ("CognitoOptions" Lude..=) Lude.<$> cognitoOptions,
-            ("VPCOptions" Lude..=) Lude.<$> vpcOptions,
-            ("DomainEndpointOptions" Lude..=) Lude.<$> domainEndpointOptions,
-            ("AdvancedOptions" Lude..=) Lude.<$> advancedOptions
+-- | Options to specify configuration that will be applied to the domain endpoint.
+--
+-- /Note:/ Consider using 'domainEndpointOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcDomainEndpointOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe Types.DomainEndpointOptions)
+uedcDomainEndpointOptions = Lens.field @"domainEndpointOptions"
+{-# DEPRECATED uedcDomainEndpointOptions "Use generic-lens or generic-optics with 'domainEndpointOptions' instead." #-}
+
+-- | Specify the type and size of the EBS volume that you want to use.
+--
+-- /Note:/ Consider using 'eBSOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcEBSOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe Types.EBSOptions)
+uedcEBSOptions = Lens.field @"eBSOptions"
+{-# DEPRECATED uedcEBSOptions "Use generic-lens or generic-optics with 'eBSOptions' instead." #-}
+
+-- | The type and number of instances to instantiate for the domain cluster.
+--
+-- /Note:/ Consider using 'elasticsearchClusterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcElasticsearchClusterConfig :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe Types.ElasticsearchClusterConfig)
+uedcElasticsearchClusterConfig = Lens.field @"elasticsearchClusterConfig"
+{-# DEPRECATED uedcElasticsearchClusterConfig "Use generic-lens or generic-optics with 'elasticsearchClusterConfig' instead." #-}
+
+-- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+--
+-- /Note:/ Consider using 'logPublishingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcLogPublishingOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe (Core.HashMap Types.LogType Types.LogPublishingOption))
+uedcLogPublishingOptions = Lens.field @"logPublishingOptions"
+{-# DEPRECATED uedcLogPublishingOptions "Use generic-lens or generic-optics with 'logPublishingOptions' instead." #-}
+
+-- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
+--
+-- /Note:/ Consider using 'snapshotOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcSnapshotOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe Types.SnapshotOptions)
+uedcSnapshotOptions = Lens.field @"snapshotOptions"
+{-# DEPRECATED uedcSnapshotOptions "Use generic-lens or generic-optics with 'snapshotOptions' instead." #-}
+
+-- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+--
+-- /Note:/ Consider using 'vPCOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedcVPCOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Core.Maybe Types.VPCOptions)
+uedcVPCOptions = Lens.field @"vPCOptions"
+{-# DEPRECATED uedcVPCOptions "Use generic-lens or generic-optics with 'vPCOptions' instead." #-}
+
+instance Core.FromJSON UpdateElasticsearchDomainConfig where
+  toJSON UpdateElasticsearchDomainConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AccessPolicies" Core..=) Core.<$> accessPolicies,
+            ("AdvancedOptions" Core..=) Core.<$> advancedOptions,
+            ("AdvancedSecurityOptions" Core..=)
+              Core.<$> advancedSecurityOptions,
+            ("CognitoOptions" Core..=) Core.<$> cognitoOptions,
+            ("DomainEndpointOptions" Core..=) Core.<$> domainEndpointOptions,
+            ("EBSOptions" Core..=) Core.<$> eBSOptions,
+            ("ElasticsearchClusterConfig" Core..=)
+              Core.<$> elasticsearchClusterConfig,
+            ("LogPublishingOptions" Core..=) Core.<$> logPublishingOptions,
+            ("SnapshotOptions" Core..=) Core.<$> snapshotOptions,
+            ("VPCOptions" Core..=) Core.<$> vPCOptions
           ]
       )
 
-instance Lude.ToPath UpdateElasticsearchDomainConfig where
-  toPath UpdateElasticsearchDomainConfig' {..} =
-    Lude.mconcat
-      ["/2015-01-01/es/domain/", Lude.toBS domainName, "/config"]
-
-instance Lude.ToQuery UpdateElasticsearchDomainConfig where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateElasticsearchDomainConfig where
+  type
+    Rs UpdateElasticsearchDomainConfig =
+      UpdateElasticsearchDomainConfigResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-01-01/es/domain/" Core.<> (Core.toText domainName)
+                Core.<> ("/config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateElasticsearchDomainConfigResponse'
+            Core.<$> (x Core..: "DomainConfig") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | The result of an @UpdateElasticsearchDomain@ request. Contains the status of the Elasticsearch domain being updated.
 --
 -- /See:/ 'mkUpdateElasticsearchDomainConfigResponse' smart constructor.
 data UpdateElasticsearchDomainConfigResponse = UpdateElasticsearchDomainConfigResponse'
   { -- | The status of the updated Elasticsearch domain.
-    domainConfig :: ElasticsearchDomainConfig,
+    domainConfig :: Types.ElasticsearchDomainConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateElasticsearchDomainConfigResponse' with the minimum fields required to make a request.
---
--- * 'domainConfig' - The status of the updated Elasticsearch domain.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateElasticsearchDomainConfigResponse' value with any optional fields omitted.
 mkUpdateElasticsearchDomainConfigResponse ::
   -- | 'domainConfig'
-  ElasticsearchDomainConfig ->
+  Types.ElasticsearchDomainConfig ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateElasticsearchDomainConfigResponse
 mkUpdateElasticsearchDomainConfigResponse
-  pDomainConfig_
-  pResponseStatus_ =
+  domainConfig
+  responseStatus =
     UpdateElasticsearchDomainConfigResponse'
-      { domainConfig =
-          pDomainConfig_,
-        responseStatus = pResponseStatus_
+      { domainConfig,
+        responseStatus
       }
 
 -- | The status of the updated Elasticsearch domain.
 --
 -- /Note:/ Consider using 'domainConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcrsDomainConfig :: Lens.Lens' UpdateElasticsearchDomainConfigResponse ElasticsearchDomainConfig
-uedcrsDomainConfig = Lens.lens (domainConfig :: UpdateElasticsearchDomainConfigResponse -> ElasticsearchDomainConfig) (\s a -> s {domainConfig = a} :: UpdateElasticsearchDomainConfigResponse)
-{-# DEPRECATED uedcrsDomainConfig "Use generic-lens or generic-optics with 'domainConfig' instead." #-}
+uedcrrsDomainConfig :: Lens.Lens' UpdateElasticsearchDomainConfigResponse Types.ElasticsearchDomainConfig
+uedcrrsDomainConfig = Lens.field @"domainConfig"
+{-# DEPRECATED uedcrrsDomainConfig "Use generic-lens or generic-optics with 'domainConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedcrsResponseStatus :: Lens.Lens' UpdateElasticsearchDomainConfigResponse Lude.Int
-uedcrsResponseStatus = Lens.lens (responseStatus :: UpdateElasticsearchDomainConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateElasticsearchDomainConfigResponse)
-{-# DEPRECATED uedcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uedcrrsResponseStatus :: Lens.Lens' UpdateElasticsearchDomainConfigResponse Core.Int
+uedcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uedcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,51 +13,56 @@
 module Network.AWS.IAM.Types.PolicyEvaluationDecisionType
   ( PolicyEvaluationDecisionType
       ( PolicyEvaluationDecisionType',
-        Allowed,
-        ExplicitDeny,
-        ImplicitDeny
+        PolicyEvaluationDecisionTypeAllowed,
+        PolicyEvaluationDecisionTypeExplicitDeny,
+        PolicyEvaluationDecisionTypeImplicitDeny,
+        fromPolicyEvaluationDecisionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PolicyEvaluationDecisionType = PolicyEvaluationDecisionType' Lude.Text
+newtype PolicyEvaluationDecisionType = PolicyEvaluationDecisionType'
+  { fromPolicyEvaluationDecisionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Allowed :: PolicyEvaluationDecisionType
-pattern Allowed = PolicyEvaluationDecisionType' "allowed"
+pattern PolicyEvaluationDecisionTypeAllowed :: PolicyEvaluationDecisionType
+pattern PolicyEvaluationDecisionTypeAllowed = PolicyEvaluationDecisionType' "allowed"
 
-pattern ExplicitDeny :: PolicyEvaluationDecisionType
-pattern ExplicitDeny = PolicyEvaluationDecisionType' "explicitDeny"
+pattern PolicyEvaluationDecisionTypeExplicitDeny :: PolicyEvaluationDecisionType
+pattern PolicyEvaluationDecisionTypeExplicitDeny = PolicyEvaluationDecisionType' "explicitDeny"
 
-pattern ImplicitDeny :: PolicyEvaluationDecisionType
-pattern ImplicitDeny = PolicyEvaluationDecisionType' "implicitDeny"
+pattern PolicyEvaluationDecisionTypeImplicitDeny :: PolicyEvaluationDecisionType
+pattern PolicyEvaluationDecisionTypeImplicitDeny = PolicyEvaluationDecisionType' "implicitDeny"
 
 {-# COMPLETE
-  Allowed,
-  ExplicitDeny,
-  ImplicitDeny,
+  PolicyEvaluationDecisionTypeAllowed,
+  PolicyEvaluationDecisionTypeExplicitDeny,
+  PolicyEvaluationDecisionTypeImplicitDeny,
   PolicyEvaluationDecisionType'
   #-}

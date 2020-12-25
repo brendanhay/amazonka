@@ -30,85 +30,57 @@ module Network.AWS.Organizations.InviteAccountToOrganization
     mkInviteAccountToOrganization,
 
     -- ** Request lenses
+    iatoTarget,
     iatoNotes,
     iatoTags,
-    iatoTarget,
 
     -- * Destructuring the response
     InviteAccountToOrganizationResponse (..),
     mkInviteAccountToOrganizationResponse,
 
     -- ** Response lenses
-    iatorsHandshake,
-    iatorsResponseStatus,
+    iatorrsHandshake,
+    iatorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkInviteAccountToOrganization' smart constructor.
 data InviteAccountToOrganization = InviteAccountToOrganization'
-  { -- | Additional information that you want to include in the generated email to the recipient account owner.
-    notes :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A list of tags that you want to attach to the account when it becomes a member of the organization. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
-    --
-    -- /Important:/ Any tags in the request are checked for compliance with any applicable tag policies when the request is made. The request is rejected if the tags in the request don't match the requirements of the policy at that time. Tag policy compliance is /__not__ / checked again when the invitation is accepted and the tags are actually attached to the account. That means that if the tag policy changes between the invitation and the acceptance, then that tags could potentially be non-compliant.
-    tags :: Lude.Maybe [Tag],
-    -- | The identifier (ID) of the AWS account that you want to invite to join your organization. This is a JSON object that contains the following elements:
+  { -- | The identifier (ID) of the AWS account that you want to invite to join your organization. This is a JSON object that contains the following elements:
     --
     -- @{ "Type": "ACCOUNT", "Id": "</__account id number__ / >" }@
     -- If you use the AWS CLI, you can submit this as a single string, similar to the following example:
     -- @--target Id=123456789012,Type=ACCOUNT@
     -- If you specify @"Type": "ACCOUNT"@ , you must provide the AWS account ID number as the @Id@ . If you specify @"Type": "EMAIL"@ , you must specify the email address that is associated with the account.
     -- @--target Id=diego@example.com,Type=EMAIL@
-    target :: HandshakeParty
+    target :: Types.HandshakeParty,
+    -- | Additional information that you want to include in the generated email to the recipient account owner.
+    notes :: Core.Maybe Types.HandshakeNotes,
+    -- | A list of tags that you want to attach to the account when it becomes a member of the organization. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+    --
+    -- /Important:/ Any tags in the request are checked for compliance with any applicable tag policies when the request is made. The request is rejected if the tags in the request don't match the requirements of the policy at that time. Tag policy compliance is /__not__ / checked again when the invitation is accepted and the tags are actually attached to the account. That means that if the tag policy changes between the invitation and the acceptance, then that tags could potentially be non-compliant.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InviteAccountToOrganization' with the minimum fields required to make a request.
---
--- * 'notes' - Additional information that you want to include in the generated email to the recipient account owner.
--- * 'tags' - A list of tags that you want to attach to the account when it becomes a member of the organization. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
---
--- /Important:/ Any tags in the request are checked for compliance with any applicable tag policies when the request is made. The request is rejected if the tags in the request don't match the requirements of the policy at that time. Tag policy compliance is /__not__ / checked again when the invitation is accepted and the tags are actually attached to the account. That means that if the tag policy changes between the invitation and the acceptance, then that tags could potentially be non-compliant.
--- * 'target' - The identifier (ID) of the AWS account that you want to invite to join your organization. This is a JSON object that contains the following elements:
---
--- @{ "Type": "ACCOUNT", "Id": "</__account id number__ / >" }@
--- If you use the AWS CLI, you can submit this as a single string, similar to the following example:
--- @--target Id=123456789012,Type=ACCOUNT@
--- If you specify @"Type": "ACCOUNT"@ , you must provide the AWS account ID number as the @Id@ . If you specify @"Type": "EMAIL"@ , you must specify the email address that is associated with the account.
--- @--target Id=diego@example.com,Type=EMAIL@
+-- | Creates a 'InviteAccountToOrganization' value with any optional fields omitted.
 mkInviteAccountToOrganization ::
   -- | 'target'
-  HandshakeParty ->
+  Types.HandshakeParty ->
   InviteAccountToOrganization
-mkInviteAccountToOrganization pTarget_ =
+mkInviteAccountToOrganization target =
   InviteAccountToOrganization'
-    { notes = Lude.Nothing,
-      tags = Lude.Nothing,
-      target = pTarget_
+    { target,
+      notes = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | Additional information that you want to include in the generated email to the recipient account owner.
---
--- /Note:/ Consider using 'notes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iatoNotes :: Lens.Lens' InviteAccountToOrganization (Lude.Maybe (Lude.Sensitive Lude.Text))
-iatoNotes = Lens.lens (notes :: InviteAccountToOrganization -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {notes = a} :: InviteAccountToOrganization)
-{-# DEPRECATED iatoNotes "Use generic-lens or generic-optics with 'notes' instead." #-}
-
--- | A list of tags that you want to attach to the account when it becomes a member of the organization. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
---
--- /Important:/ Any tags in the request are checked for compliance with any applicable tag policies when the request is made. The request is rejected if the tags in the request don't match the requirements of the policy at that time. Tag policy compliance is /__not__ / checked again when the invitation is accepted and the tags are actually attached to the account. That means that if the tag policy changes between the invitation and the acceptance, then that tags could potentially be non-compliant.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iatoTags :: Lens.Lens' InviteAccountToOrganization (Lude.Maybe [Tag])
-iatoTags = Lens.lens (tags :: InviteAccountToOrganization -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: InviteAccountToOrganization)
-{-# DEPRECATED iatoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier (ID) of the AWS account that you want to invite to join your organization. This is a JSON object that contains the following elements:
 --
@@ -119,85 +91,92 @@ iatoTags = Lens.lens (tags :: InviteAccountToOrganization -> Lude.Maybe [Tag]) (
 -- @--target Id=diego@example.com,Type=EMAIL@
 --
 -- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iatoTarget :: Lens.Lens' InviteAccountToOrganization HandshakeParty
-iatoTarget = Lens.lens (target :: InviteAccountToOrganization -> HandshakeParty) (\s a -> s {target = a} :: InviteAccountToOrganization)
+iatoTarget :: Lens.Lens' InviteAccountToOrganization Types.HandshakeParty
+iatoTarget = Lens.field @"target"
 {-# DEPRECATED iatoTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance Lude.AWSRequest InviteAccountToOrganization where
+-- | Additional information that you want to include in the generated email to the recipient account owner.
+--
+-- /Note:/ Consider using 'notes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iatoNotes :: Lens.Lens' InviteAccountToOrganization (Core.Maybe Types.HandshakeNotes)
+iatoNotes = Lens.field @"notes"
+{-# DEPRECATED iatoNotes "Use generic-lens or generic-optics with 'notes' instead." #-}
+
+-- | A list of tags that you want to attach to the account when it becomes a member of the organization. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+--
+-- /Important:/ Any tags in the request are checked for compliance with any applicable tag policies when the request is made. The request is rejected if the tags in the request don't match the requirements of the policy at that time. Tag policy compliance is /__not__ / checked again when the invitation is accepted and the tags are actually attached to the account. That means that if the tag policy changes between the invitation and the acceptance, then that tags could potentially be non-compliant.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iatoTags :: Lens.Lens' InviteAccountToOrganization (Core.Maybe [Types.Tag])
+iatoTags = Lens.field @"tags"
+{-# DEPRECATED iatoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.FromJSON InviteAccountToOrganization where
+  toJSON InviteAccountToOrganization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Target" Core..= target),
+            ("Notes" Core..=) Core.<$> notes,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest InviteAccountToOrganization where
   type
     Rs InviteAccountToOrganization =
       InviteAccountToOrganizationResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrganizationsV20161128.InviteAccountToOrganization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           InviteAccountToOrganizationResponse'
-            Lude.<$> (x Lude..?> "Handshake") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Handshake") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders InviteAccountToOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.InviteAccountToOrganization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON InviteAccountToOrganization where
-  toJSON InviteAccountToOrganization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Notes" Lude..=) Lude.<$> notes,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Target" Lude..= target)
-          ]
-      )
-
-instance Lude.ToPath InviteAccountToOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery InviteAccountToOrganization where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkInviteAccountToOrganizationResponse' smart constructor.
 data InviteAccountToOrganizationResponse = InviteAccountToOrganizationResponse'
   { -- | A structure that contains details about the handshake that is created to support this invitation request.
-    handshake :: Lude.Maybe Handshake,
+    handshake :: Core.Maybe Types.Handshake,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InviteAccountToOrganizationResponse' with the minimum fields required to make a request.
---
--- * 'handshake' - A structure that contains details about the handshake that is created to support this invitation request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'InviteAccountToOrganizationResponse' value with any optional fields omitted.
 mkInviteAccountToOrganizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   InviteAccountToOrganizationResponse
-mkInviteAccountToOrganizationResponse pResponseStatus_ =
+mkInviteAccountToOrganizationResponse responseStatus =
   InviteAccountToOrganizationResponse'
-    { handshake = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { handshake = Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that contains details about the handshake that is created to support this invitation request.
 --
 -- /Note:/ Consider using 'handshake' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iatorsHandshake :: Lens.Lens' InviteAccountToOrganizationResponse (Lude.Maybe Handshake)
-iatorsHandshake = Lens.lens (handshake :: InviteAccountToOrganizationResponse -> Lude.Maybe Handshake) (\s a -> s {handshake = a} :: InviteAccountToOrganizationResponse)
-{-# DEPRECATED iatorsHandshake "Use generic-lens or generic-optics with 'handshake' instead." #-}
+iatorrsHandshake :: Lens.Lens' InviteAccountToOrganizationResponse (Core.Maybe Types.Handshake)
+iatorrsHandshake = Lens.field @"handshake"
+{-# DEPRECATED iatorrsHandshake "Use generic-lens or generic-optics with 'handshake' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iatorsResponseStatus :: Lens.Lens' InviteAccountToOrganizationResponse Lude.Int
-iatorsResponseStatus = Lens.lens (responseStatus :: InviteAccountToOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InviteAccountToOrganizationResponse)
-{-# DEPRECATED iatorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+iatorrsResponseStatus :: Lens.Lens' InviteAccountToOrganizationResponse Core.Int
+iatorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED iatorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

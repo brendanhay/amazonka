@@ -22,37 +22,35 @@ module Network.AWS.Rekognition.Types.HumanLoopDataAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.ContentClassifier
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.ContentClassifier as Types
 
 -- | Allows you to set attributes of the image. Currently, you can declare an image as free of personally identifiable information.
 --
 -- /See:/ 'mkHumanLoopDataAttributes' smart constructor.
 newtype HumanLoopDataAttributes = HumanLoopDataAttributes'
   { -- | Sets whether the input image is free of personally identifiable information.
-    contentClassifiers :: Lude.Maybe [ContentClassifier]
+    contentClassifiers :: Core.Maybe [Types.ContentClassifier]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HumanLoopDataAttributes' with the minimum fields required to make a request.
---
--- * 'contentClassifiers' - Sets whether the input image is free of personally identifiable information.
+-- | Creates a 'HumanLoopDataAttributes' value with any optional fields omitted.
 mkHumanLoopDataAttributes ::
   HumanLoopDataAttributes
 mkHumanLoopDataAttributes =
-  HumanLoopDataAttributes' {contentClassifiers = Lude.Nothing}
+  HumanLoopDataAttributes' {contentClassifiers = Core.Nothing}
 
 -- | Sets whether the input image is free of personally identifiable information.
 --
 -- /Note:/ Consider using 'contentClassifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hldaContentClassifiers :: Lens.Lens' HumanLoopDataAttributes (Lude.Maybe [ContentClassifier])
-hldaContentClassifiers = Lens.lens (contentClassifiers :: HumanLoopDataAttributes -> Lude.Maybe [ContentClassifier]) (\s a -> s {contentClassifiers = a} :: HumanLoopDataAttributes)
+hldaContentClassifiers :: Lens.Lens' HumanLoopDataAttributes (Core.Maybe [Types.ContentClassifier])
+hldaContentClassifiers = Lens.field @"contentClassifiers"
 {-# DEPRECATED hldaContentClassifiers "Use generic-lens or generic-optics with 'contentClassifiers' instead." #-}
 
-instance Lude.ToJSON HumanLoopDataAttributes where
-  toJSON HumanLoopDataAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("ContentClassifiers" Lude..=) Lude.<$> contentClassifiers]
+instance Core.FromJSON HumanLoopDataAttributes where
+  toJSON HumanLoopDataAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [("ContentClassifiers" Core..=) Core.<$> contentClassifiers]
       )

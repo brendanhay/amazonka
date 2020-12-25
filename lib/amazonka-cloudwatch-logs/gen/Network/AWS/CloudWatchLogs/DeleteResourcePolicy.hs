@@ -28,68 +28,59 @@ module Network.AWS.CloudWatchLogs.DeleteResourcePolicy
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteResourcePolicy' smart constructor.
 newtype DeleteResourcePolicy = DeleteResourcePolicy'
   { -- | The name of the policy to be revoked. This parameter is required.
-    policyName :: Lude.Maybe Lude.Text
+    policyName :: Core.Maybe Types.PolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteResourcePolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the policy to be revoked. This parameter is required.
+-- | Creates a 'DeleteResourcePolicy' value with any optional fields omitted.
 mkDeleteResourcePolicy ::
   DeleteResourcePolicy
 mkDeleteResourcePolicy =
-  DeleteResourcePolicy' {policyName = Lude.Nothing}
+  DeleteResourcePolicy' {policyName = Core.Nothing}
 
 -- | The name of the policy to be revoked. This parameter is required.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpPolicyName :: Lens.Lens' DeleteResourcePolicy (Lude.Maybe Lude.Text)
-drpPolicyName = Lens.lens (policyName :: DeleteResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: DeleteResourcePolicy)
+drpPolicyName :: Lens.Lens' DeleteResourcePolicy (Core.Maybe Types.PolicyName)
+drpPolicyName = Lens.field @"policyName"
 {-# DEPRECATED drpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance Lude.AWSRequest DeleteResourcePolicy where
+instance Core.FromJSON DeleteResourcePolicy where
+  toJSON DeleteResourcePolicy {..} =
+    Core.object
+      (Core.catMaybes [("policyName" Core..=) Core.<$> policyName])
+
+instance Core.AWSRequest DeleteResourcePolicy where
   type Rs DeleteResourcePolicy = DeleteResourcePolicyResponse
-  request = Req.postJSON cloudWatchLogsService
-  response = Res.receiveNull DeleteResourcePolicyResponse'
-
-instance Lude.ToHeaders DeleteResourcePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.DeleteResourcePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteResourcePolicy where
-  toJSON DeleteResourcePolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [("policyName" Lude..=) Lude.<$> policyName])
-
-instance Lude.ToPath DeleteResourcePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteResourcePolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.DeleteResourcePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteResourcePolicyResponse'
 
 -- | /See:/ 'mkDeleteResourcePolicyResponse' smart constructor.
 data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteResourcePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteResourcePolicyResponse' value with any optional fields omitted.
 mkDeleteResourcePolicyResponse ::
   DeleteResourcePolicyResponse
 mkDeleteResourcePolicyResponse = DeleteResourcePolicyResponse'

@@ -22,8 +22,8 @@ module Network.AWS.Pinpoint.Types.CampaignState
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.CampaignStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.CampaignStatus as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the status of a campaign.
 --
@@ -32,31 +32,26 @@ newtype CampaignState = CampaignState'
   { -- | The current status of the campaign, or the current status of a treatment that belongs to an A/B test campaign.
     --
     -- If a campaign uses A/B testing, the campaign has a status of COMPLETED only if all campaign treatments have a status of COMPLETED. If you delete the segment that's associated with a campaign, the campaign fails and has a status of DELETED.
-    campaignStatus :: Lude.Maybe CampaignStatus
+    campaignStatus :: Core.Maybe Types.CampaignStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CampaignState' with the minimum fields required to make a request.
---
--- * 'campaignStatus' - The current status of the campaign, or the current status of a treatment that belongs to an A/B test campaign.
---
--- If a campaign uses A/B testing, the campaign has a status of COMPLETED only if all campaign treatments have a status of COMPLETED. If you delete the segment that's associated with a campaign, the campaign fails and has a status of DELETED.
+-- | Creates a 'CampaignState' value with any optional fields omitted.
 mkCampaignState ::
   CampaignState
-mkCampaignState = CampaignState' {campaignStatus = Lude.Nothing}
+mkCampaignState = CampaignState' {campaignStatus = Core.Nothing}
 
 -- | The current status of the campaign, or the current status of a treatment that belongs to an A/B test campaign.
 --
 -- If a campaign uses A/B testing, the campaign has a status of COMPLETED only if all campaign treatments have a status of COMPLETED. If you delete the segment that's associated with a campaign, the campaign fails and has a status of DELETED.
 --
 -- /Note:/ Consider using 'campaignStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csCampaignStatus :: Lens.Lens' CampaignState (Lude.Maybe CampaignStatus)
-csCampaignStatus = Lens.lens (campaignStatus :: CampaignState -> Lude.Maybe CampaignStatus) (\s a -> s {campaignStatus = a} :: CampaignState)
+csCampaignStatus :: Lens.Lens' CampaignState (Core.Maybe Types.CampaignStatus)
+csCampaignStatus = Lens.field @"campaignStatus"
 {-# DEPRECATED csCampaignStatus "Use generic-lens or generic-optics with 'campaignStatus' instead." #-}
 
-instance Lude.FromJSON CampaignState where
+instance Core.FromJSON CampaignState where
   parseJSON =
-    Lude.withObject
-      "CampaignState"
-      (\x -> CampaignState' Lude.<$> (x Lude..:? "CampaignStatus"))
+    Core.withObject "CampaignState" Core.$
+      \x -> CampaignState' Core.<$> (x Core..:? "CampaignStatus")

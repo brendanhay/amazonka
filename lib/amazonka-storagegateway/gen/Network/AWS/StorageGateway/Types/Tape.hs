@@ -17,212 +17,198 @@ module Network.AWS.StorageGateway.Types.Tape
     mkTape,
 
     -- * Lenses
-    tTapeBarcode,
-    tTapeStatus,
     tKMSKey,
-    tTapeARN,
-    tProgress,
-    tTapeSizeInBytes,
-    tVTLDevice,
-    tPoolId,
-    tTapeUsedInBytes,
-    tTapeCreatedDate,
     tPoolEntryDate,
-    tWorm,
+    tPoolId,
+    tProgress,
     tRetentionStartDate,
+    tTapeARN,
+    tTapeBarcode,
+    tTapeCreatedDate,
+    tTapeSizeInBytes,
+    tTapeStatus,
+    tTapeUsedInBytes,
+    tVTLDevice,
+    tWorm,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StorageGateway.Types.KMSKey as Types
+import qualified Network.AWS.StorageGateway.Types.PoolId as Types
+import qualified Network.AWS.StorageGateway.Types.TapeARN as Types
+import qualified Network.AWS.StorageGateway.Types.TapeBarcode as Types
+import qualified Network.AWS.StorageGateway.Types.TapeStatus as Types
+import qualified Network.AWS.StorageGateway.Types.VTLDeviceARN as Types
 
 -- | Describes a virtual tape object.
 --
 -- /See:/ 'mkTape' smart constructor.
 data Tape = Tape'
-  { -- | The barcode that identifies a specific virtual tape.
-    tapeBarcode :: Lude.Maybe Lude.Text,
-    -- | The current state of the virtual tape.
-    tapeStatus :: Lude.Maybe Lude.Text,
-    kmsKey :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the virtual tape.
-    tapeARN :: Lude.Maybe Lude.Text,
-    -- | For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.
-    --
-    -- Range: 0 (not started) to 100 (complete).
-    progress :: Lude.Maybe Lude.Double,
-    -- | The size, in bytes, of the virtual tape capacity.
-    tapeSizeInBytes :: Lude.Maybe Lude.Integer,
-    -- | The virtual tape library (VTL) device that the virtual tape is associated with.
-    vTLDevice :: Lude.Maybe Lude.Text,
+  { kMSKey :: Core.Maybe Types.KMSKey,
+    -- | The date that the tape enters a custom tape pool.
+    poolEntryDate :: Core.Maybe Core.NominalDiffTime,
     -- | The ID of the pool that contains tapes that will be archived. The tapes in this pool are archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-    poolId :: Lude.Maybe Lude.Text,
-    -- | The size, in bytes, of data stored on the virtual tape.
-    tapeUsedInBytes :: Lude.Maybe Lude.Integer,
-    -- | The date the virtual tape was created.
-    tapeCreatedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The date that the tape enters a custom tape pool.
-    poolEntryDate :: Lude.Maybe Lude.Timestamp,
-    -- | If the tape is archived as write-once-read-many (WORM), this value is @true@ .
-    worm :: Lude.Maybe Lude.Bool,
+    poolId :: Core.Maybe Types.PoolId,
+    -- | For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.
+    --
+    -- Range: 0 (not started) to 100 (complete).
+    progress :: Core.Maybe Core.Double,
     -- | The date that the tape is first archived with tape retention lock enabled.
-    retentionStartDate :: Lude.Maybe Lude.Timestamp
+    retentionStartDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) of the virtual tape.
+    tapeARN :: Core.Maybe Types.TapeARN,
+    -- | The barcode that identifies a specific virtual tape.
+    tapeBarcode :: Core.Maybe Types.TapeBarcode,
+    -- | The date the virtual tape was created.
+    tapeCreatedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The size, in bytes, of the virtual tape capacity.
+    tapeSizeInBytes :: Core.Maybe Core.Integer,
+    -- | The current state of the virtual tape.
+    tapeStatus :: Core.Maybe Types.TapeStatus,
+    -- | The size, in bytes, of data stored on the virtual tape.
+    tapeUsedInBytes :: Core.Maybe Core.Integer,
+    -- | The virtual tape library (VTL) device that the virtual tape is associated with.
+    vTLDevice :: Core.Maybe Types.VTLDeviceARN,
+    -- | If the tape is archived as write-once-read-many (WORM), this value is @true@ .
+    worm :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Tape' with the minimum fields required to make a request.
---
--- * 'tapeBarcode' - The barcode that identifies a specific virtual tape.
--- * 'tapeStatus' - The current state of the virtual tape.
--- * 'kmsKey' -
--- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape.
--- * 'progress' - For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.
---
--- Range: 0 (not started) to 100 (complete).
--- * 'tapeSizeInBytes' - The size, in bytes, of the virtual tape capacity.
--- * 'vTLDevice' - The virtual tape library (VTL) device that the virtual tape is associated with.
--- * 'poolId' - The ID of the pool that contains tapes that will be archived. The tapes in this pool are archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
--- * 'tapeUsedInBytes' - The size, in bytes, of data stored on the virtual tape.
--- * 'tapeCreatedDate' - The date the virtual tape was created.
--- * 'poolEntryDate' - The date that the tape enters a custom tape pool.
--- * 'worm' - If the tape is archived as write-once-read-many (WORM), this value is @true@ .
--- * 'retentionStartDate' - The date that the tape is first archived with tape retention lock enabled.
+-- | Creates a 'Tape' value with any optional fields omitted.
 mkTape ::
   Tape
 mkTape =
   Tape'
-    { tapeBarcode = Lude.Nothing,
-      tapeStatus = Lude.Nothing,
-      kmsKey = Lude.Nothing,
-      tapeARN = Lude.Nothing,
-      progress = Lude.Nothing,
-      tapeSizeInBytes = Lude.Nothing,
-      vTLDevice = Lude.Nothing,
-      poolId = Lude.Nothing,
-      tapeUsedInBytes = Lude.Nothing,
-      tapeCreatedDate = Lude.Nothing,
-      poolEntryDate = Lude.Nothing,
-      worm = Lude.Nothing,
-      retentionStartDate = Lude.Nothing
+    { kMSKey = Core.Nothing,
+      poolEntryDate = Core.Nothing,
+      poolId = Core.Nothing,
+      progress = Core.Nothing,
+      retentionStartDate = Core.Nothing,
+      tapeARN = Core.Nothing,
+      tapeBarcode = Core.Nothing,
+      tapeCreatedDate = Core.Nothing,
+      tapeSizeInBytes = Core.Nothing,
+      tapeStatus = Core.Nothing,
+      tapeUsedInBytes = Core.Nothing,
+      vTLDevice = Core.Nothing,
+      worm = Core.Nothing
     }
-
--- | The barcode that identifies a specific virtual tape.
---
--- /Note:/ Consider using 'tapeBarcode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTapeBarcode :: Lens.Lens' Tape (Lude.Maybe Lude.Text)
-tTapeBarcode = Lens.lens (tapeBarcode :: Tape -> Lude.Maybe Lude.Text) (\s a -> s {tapeBarcode = a} :: Tape)
-{-# DEPRECATED tTapeBarcode "Use generic-lens or generic-optics with 'tapeBarcode' instead." #-}
-
--- | The current state of the virtual tape.
---
--- /Note:/ Consider using 'tapeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTapeStatus :: Lens.Lens' Tape (Lude.Maybe Lude.Text)
-tTapeStatus = Lens.lens (tapeStatus :: Tape -> Lude.Maybe Lude.Text) (\s a -> s {tapeStatus = a} :: Tape)
-{-# DEPRECATED tTapeStatus "Use generic-lens or generic-optics with 'tapeStatus' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKMSKey :: Lens.Lens' Tape (Lude.Maybe Lude.Text)
-tKMSKey = Lens.lens (kmsKey :: Tape -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: Tape)
-{-# DEPRECATED tKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
+-- /Note:/ Consider using 'kMSKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKMSKey :: Lens.Lens' Tape (Core.Maybe Types.KMSKey)
+tKMSKey = Lens.field @"kMSKey"
+{-# DEPRECATED tKMSKey "Use generic-lens or generic-optics with 'kMSKey' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the virtual tape.
+-- | The date that the tape enters a custom tape pool.
 --
--- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTapeARN :: Lens.Lens' Tape (Lude.Maybe Lude.Text)
-tTapeARN = Lens.lens (tapeARN :: Tape -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: Tape)
-{-# DEPRECATED tTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
-
--- | For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.
---
--- Range: 0 (not started) to 100 (complete).
---
--- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tProgress :: Lens.Lens' Tape (Lude.Maybe Lude.Double)
-tProgress = Lens.lens (progress :: Tape -> Lude.Maybe Lude.Double) (\s a -> s {progress = a} :: Tape)
-{-# DEPRECATED tProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
-
--- | The size, in bytes, of the virtual tape capacity.
---
--- /Note:/ Consider using 'tapeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTapeSizeInBytes :: Lens.Lens' Tape (Lude.Maybe Lude.Integer)
-tTapeSizeInBytes = Lens.lens (tapeSizeInBytes :: Tape -> Lude.Maybe Lude.Integer) (\s a -> s {tapeSizeInBytes = a} :: Tape)
-{-# DEPRECATED tTapeSizeInBytes "Use generic-lens or generic-optics with 'tapeSizeInBytes' instead." #-}
-
--- | The virtual tape library (VTL) device that the virtual tape is associated with.
---
--- /Note:/ Consider using 'vTLDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tVTLDevice :: Lens.Lens' Tape (Lude.Maybe Lude.Text)
-tVTLDevice = Lens.lens (vTLDevice :: Tape -> Lude.Maybe Lude.Text) (\s a -> s {vTLDevice = a} :: Tape)
-{-# DEPRECATED tVTLDevice "Use generic-lens or generic-optics with 'vTLDevice' instead." #-}
+-- /Note:/ Consider using 'poolEntryDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tPoolEntryDate :: Lens.Lens' Tape (Core.Maybe Core.NominalDiffTime)
+tPoolEntryDate = Lens.field @"poolEntryDate"
+{-# DEPRECATED tPoolEntryDate "Use generic-lens or generic-optics with 'poolEntryDate' instead." #-}
 
 -- | The ID of the pool that contains tapes that will be archived. The tapes in this pool are archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 --
 -- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tPoolId :: Lens.Lens' Tape (Lude.Maybe Lude.Text)
-tPoolId = Lens.lens (poolId :: Tape -> Lude.Maybe Lude.Text) (\s a -> s {poolId = a} :: Tape)
+tPoolId :: Lens.Lens' Tape (Core.Maybe Types.PoolId)
+tPoolId = Lens.field @"poolId"
 {-# DEPRECATED tPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
--- | The size, in bytes, of data stored on the virtual tape.
+-- | For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.
 --
--- /Note:/ Consider using 'tapeUsedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTapeUsedInBytes :: Lens.Lens' Tape (Lude.Maybe Lude.Integer)
-tTapeUsedInBytes = Lens.lens (tapeUsedInBytes :: Tape -> Lude.Maybe Lude.Integer) (\s a -> s {tapeUsedInBytes = a} :: Tape)
-{-# DEPRECATED tTapeUsedInBytes "Use generic-lens or generic-optics with 'tapeUsedInBytes' instead." #-}
-
--- | The date the virtual tape was created.
+-- Range: 0 (not started) to 100 (complete).
 --
--- /Note:/ Consider using 'tapeCreatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTapeCreatedDate :: Lens.Lens' Tape (Lude.Maybe Lude.Timestamp)
-tTapeCreatedDate = Lens.lens (tapeCreatedDate :: Tape -> Lude.Maybe Lude.Timestamp) (\s a -> s {tapeCreatedDate = a} :: Tape)
-{-# DEPRECATED tTapeCreatedDate "Use generic-lens or generic-optics with 'tapeCreatedDate' instead." #-}
-
--- | The date that the tape enters a custom tape pool.
---
--- /Note:/ Consider using 'poolEntryDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tPoolEntryDate :: Lens.Lens' Tape (Lude.Maybe Lude.Timestamp)
-tPoolEntryDate = Lens.lens (poolEntryDate :: Tape -> Lude.Maybe Lude.Timestamp) (\s a -> s {poolEntryDate = a} :: Tape)
-{-# DEPRECATED tPoolEntryDate "Use generic-lens or generic-optics with 'poolEntryDate' instead." #-}
-
--- | If the tape is archived as write-once-read-many (WORM), this value is @true@ .
---
--- /Note:/ Consider using 'worm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tWorm :: Lens.Lens' Tape (Lude.Maybe Lude.Bool)
-tWorm = Lens.lens (worm :: Tape -> Lude.Maybe Lude.Bool) (\s a -> s {worm = a} :: Tape)
-{-# DEPRECATED tWorm "Use generic-lens or generic-optics with 'worm' instead." #-}
+-- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tProgress :: Lens.Lens' Tape (Core.Maybe Core.Double)
+tProgress = Lens.field @"progress"
+{-# DEPRECATED tProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
 
 -- | The date that the tape is first archived with tape retention lock enabled.
 --
 -- /Note:/ Consider using 'retentionStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tRetentionStartDate :: Lens.Lens' Tape (Lude.Maybe Lude.Timestamp)
-tRetentionStartDate = Lens.lens (retentionStartDate :: Tape -> Lude.Maybe Lude.Timestamp) (\s a -> s {retentionStartDate = a} :: Tape)
+tRetentionStartDate :: Lens.Lens' Tape (Core.Maybe Core.NominalDiffTime)
+tRetentionStartDate = Lens.field @"retentionStartDate"
 {-# DEPRECATED tRetentionStartDate "Use generic-lens or generic-optics with 'retentionStartDate' instead." #-}
 
-instance Lude.FromJSON Tape where
+-- | The Amazon Resource Name (ARN) of the virtual tape.
+--
+-- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTapeARN :: Lens.Lens' Tape (Core.Maybe Types.TapeARN)
+tTapeARN = Lens.field @"tapeARN"
+{-# DEPRECATED tTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
+
+-- | The barcode that identifies a specific virtual tape.
+--
+-- /Note:/ Consider using 'tapeBarcode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTapeBarcode :: Lens.Lens' Tape (Core.Maybe Types.TapeBarcode)
+tTapeBarcode = Lens.field @"tapeBarcode"
+{-# DEPRECATED tTapeBarcode "Use generic-lens or generic-optics with 'tapeBarcode' instead." #-}
+
+-- | The date the virtual tape was created.
+--
+-- /Note:/ Consider using 'tapeCreatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTapeCreatedDate :: Lens.Lens' Tape (Core.Maybe Core.NominalDiffTime)
+tTapeCreatedDate = Lens.field @"tapeCreatedDate"
+{-# DEPRECATED tTapeCreatedDate "Use generic-lens or generic-optics with 'tapeCreatedDate' instead." #-}
+
+-- | The size, in bytes, of the virtual tape capacity.
+--
+-- /Note:/ Consider using 'tapeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTapeSizeInBytes :: Lens.Lens' Tape (Core.Maybe Core.Integer)
+tTapeSizeInBytes = Lens.field @"tapeSizeInBytes"
+{-# DEPRECATED tTapeSizeInBytes "Use generic-lens or generic-optics with 'tapeSizeInBytes' instead." #-}
+
+-- | The current state of the virtual tape.
+--
+-- /Note:/ Consider using 'tapeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTapeStatus :: Lens.Lens' Tape (Core.Maybe Types.TapeStatus)
+tTapeStatus = Lens.field @"tapeStatus"
+{-# DEPRECATED tTapeStatus "Use generic-lens or generic-optics with 'tapeStatus' instead." #-}
+
+-- | The size, in bytes, of data stored on the virtual tape.
+--
+-- /Note:/ Consider using 'tapeUsedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTapeUsedInBytes :: Lens.Lens' Tape (Core.Maybe Core.Integer)
+tTapeUsedInBytes = Lens.field @"tapeUsedInBytes"
+{-# DEPRECATED tTapeUsedInBytes "Use generic-lens or generic-optics with 'tapeUsedInBytes' instead." #-}
+
+-- | The virtual tape library (VTL) device that the virtual tape is associated with.
+--
+-- /Note:/ Consider using 'vTLDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tVTLDevice :: Lens.Lens' Tape (Core.Maybe Types.VTLDeviceARN)
+tVTLDevice = Lens.field @"vTLDevice"
+{-# DEPRECATED tVTLDevice "Use generic-lens or generic-optics with 'vTLDevice' instead." #-}
+
+-- | If the tape is archived as write-once-read-many (WORM), this value is @true@ .
+--
+-- /Note:/ Consider using 'worm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tWorm :: Lens.Lens' Tape (Core.Maybe Core.Bool)
+tWorm = Lens.field @"worm"
+{-# DEPRECATED tWorm "Use generic-lens or generic-optics with 'worm' instead." #-}
+
+instance Core.FromJSON Tape where
   parseJSON =
-    Lude.withObject
-      "Tape"
-      ( \x ->
-          Tape'
-            Lude.<$> (x Lude..:? "TapeBarcode")
-            Lude.<*> (x Lude..:? "TapeStatus")
-            Lude.<*> (x Lude..:? "KMSKey")
-            Lude.<*> (x Lude..:? "TapeARN")
-            Lude.<*> (x Lude..:? "Progress")
-            Lude.<*> (x Lude..:? "TapeSizeInBytes")
-            Lude.<*> (x Lude..:? "VTLDevice")
-            Lude.<*> (x Lude..:? "PoolId")
-            Lude.<*> (x Lude..:? "TapeUsedInBytes")
-            Lude.<*> (x Lude..:? "TapeCreatedDate")
-            Lude.<*> (x Lude..:? "PoolEntryDate")
-            Lude.<*> (x Lude..:? "Worm")
-            Lude.<*> (x Lude..:? "RetentionStartDate")
-      )
+    Core.withObject "Tape" Core.$
+      \x ->
+        Tape'
+          Core.<$> (x Core..:? "KMSKey")
+          Core.<*> (x Core..:? "PoolEntryDate")
+          Core.<*> (x Core..:? "PoolId")
+          Core.<*> (x Core..:? "Progress")
+          Core.<*> (x Core..:? "RetentionStartDate")
+          Core.<*> (x Core..:? "TapeARN")
+          Core.<*> (x Core..:? "TapeBarcode")
+          Core.<*> (x Core..:? "TapeCreatedDate")
+          Core.<*> (x Core..:? "TapeSizeInBytes")
+          Core.<*> (x Core..:? "TapeStatus")
+          Core.<*> (x Core..:? "TapeUsedInBytes")
+          Core.<*> (x Core..:? "VTLDevice")
+          Core.<*> (x Core..:? "Worm")

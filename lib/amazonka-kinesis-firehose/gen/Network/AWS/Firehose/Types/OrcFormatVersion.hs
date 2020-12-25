@@ -13,46 +13,51 @@
 module Network.AWS.Firehose.Types.OrcFormatVersion
   ( OrcFormatVersion
       ( OrcFormatVersion',
-        V011,
-        V012
+        OrcFormatVersionV011,
+        OrcFormatVersionV012,
+        fromOrcFormatVersion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OrcFormatVersion = OrcFormatVersion' Lude.Text
+newtype OrcFormatVersion = OrcFormatVersion'
+  { fromOrcFormatVersion ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern V011 :: OrcFormatVersion
-pattern V011 = OrcFormatVersion' "V0_11"
+pattern OrcFormatVersionV011 :: OrcFormatVersion
+pattern OrcFormatVersionV011 = OrcFormatVersion' "V0_11"
 
-pattern V012 :: OrcFormatVersion
-pattern V012 = OrcFormatVersion' "V0_12"
+pattern OrcFormatVersionV012 :: OrcFormatVersion
+pattern OrcFormatVersionV012 = OrcFormatVersion' "V0_12"
 
 {-# COMPLETE
-  V011,
-  V012,
+  OrcFormatVersionV011,
+  OrcFormatVersionV012,
   OrcFormatVersion'
   #-}

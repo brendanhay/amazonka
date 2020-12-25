@@ -17,98 +17,93 @@ module Network.AWS.Rekognition.Types.Face
     mkFace,
 
     -- * Lenses
-    fFaceId,
     fBoundingBox,
-    fExternalImageId,
     fConfidence,
+    fExternalImageId,
+    fFaceId,
     fImageId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BoundingBox
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
+import qualified Network.AWS.Rekognition.Types.ExternalImageId as Types
+import qualified Network.AWS.Rekognition.Types.FaceId as Types
+import qualified Network.AWS.Rekognition.Types.ImageId as Types
 
 -- | Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
 --
 -- /See:/ 'mkFace' smart constructor.
 data Face = Face'
-  { -- | Unique identifier that Amazon Rekognition assigns to the face.
-    faceId :: Lude.Maybe Lude.Text,
-    -- | Bounding box of the face.
-    boundingBox :: Lude.Maybe BoundingBox,
-    -- | Identifier that you assign to all the faces in the input image.
-    externalImageId :: Lude.Maybe Lude.Text,
+  { -- | Bounding box of the face.
+    boundingBox :: Core.Maybe Types.BoundingBox,
     -- | Confidence level that the bounding box contains a face (and not a different object such as a tree).
-    confidence :: Lude.Maybe Lude.Double,
+    confidence :: Core.Maybe Core.Double,
+    -- | Identifier that you assign to all the faces in the input image.
+    externalImageId :: Core.Maybe Types.ExternalImageId,
+    -- | Unique identifier that Amazon Rekognition assigns to the face.
+    faceId :: Core.Maybe Types.FaceId,
     -- | Unique identifier that Amazon Rekognition assigns to the input image.
-    imageId :: Lude.Maybe Lude.Text
+    imageId :: Core.Maybe Types.ImageId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Face' with the minimum fields required to make a request.
---
--- * 'faceId' - Unique identifier that Amazon Rekognition assigns to the face.
--- * 'boundingBox' - Bounding box of the face.
--- * 'externalImageId' - Identifier that you assign to all the faces in the input image.
--- * 'confidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree).
--- * 'imageId' - Unique identifier that Amazon Rekognition assigns to the input image.
+-- | Creates a 'Face' value with any optional fields omitted.
 mkFace ::
   Face
 mkFace =
   Face'
-    { faceId = Lude.Nothing,
-      boundingBox = Lude.Nothing,
-      externalImageId = Lude.Nothing,
-      confidence = Lude.Nothing,
-      imageId = Lude.Nothing
+    { boundingBox = Core.Nothing,
+      confidence = Core.Nothing,
+      externalImageId = Core.Nothing,
+      faceId = Core.Nothing,
+      imageId = Core.Nothing
     }
-
--- | Unique identifier that Amazon Rekognition assigns to the face.
---
--- /Note:/ Consider using 'faceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fFaceId :: Lens.Lens' Face (Lude.Maybe Lude.Text)
-fFaceId = Lens.lens (faceId :: Face -> Lude.Maybe Lude.Text) (\s a -> s {faceId = a} :: Face)
-{-# DEPRECATED fFaceId "Use generic-lens or generic-optics with 'faceId' instead." #-}
 
 -- | Bounding box of the face.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fBoundingBox :: Lens.Lens' Face (Lude.Maybe BoundingBox)
-fBoundingBox = Lens.lens (boundingBox :: Face -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: Face)
+fBoundingBox :: Lens.Lens' Face (Core.Maybe Types.BoundingBox)
+fBoundingBox = Lens.field @"boundingBox"
 {-# DEPRECATED fBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
-
--- | Identifier that you assign to all the faces in the input image.
---
--- /Note:/ Consider using 'externalImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fExternalImageId :: Lens.Lens' Face (Lude.Maybe Lude.Text)
-fExternalImageId = Lens.lens (externalImageId :: Face -> Lude.Maybe Lude.Text) (\s a -> s {externalImageId = a} :: Face)
-{-# DEPRECATED fExternalImageId "Use generic-lens or generic-optics with 'externalImageId' instead." #-}
 
 -- | Confidence level that the bounding box contains a face (and not a different object such as a tree).
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fConfidence :: Lens.Lens' Face (Lude.Maybe Lude.Double)
-fConfidence = Lens.lens (confidence :: Face -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Face)
+fConfidence :: Lens.Lens' Face (Core.Maybe Core.Double)
+fConfidence = Lens.field @"confidence"
 {-# DEPRECATED fConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
+
+-- | Identifier that you assign to all the faces in the input image.
+--
+-- /Note:/ Consider using 'externalImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fExternalImageId :: Lens.Lens' Face (Core.Maybe Types.ExternalImageId)
+fExternalImageId = Lens.field @"externalImageId"
+{-# DEPRECATED fExternalImageId "Use generic-lens or generic-optics with 'externalImageId' instead." #-}
+
+-- | Unique identifier that Amazon Rekognition assigns to the face.
+--
+-- /Note:/ Consider using 'faceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fFaceId :: Lens.Lens' Face (Core.Maybe Types.FaceId)
+fFaceId = Lens.field @"faceId"
+{-# DEPRECATED fFaceId "Use generic-lens or generic-optics with 'faceId' instead." #-}
 
 -- | Unique identifier that Amazon Rekognition assigns to the input image.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fImageId :: Lens.Lens' Face (Lude.Maybe Lude.Text)
-fImageId = Lens.lens (imageId :: Face -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: Face)
+fImageId :: Lens.Lens' Face (Core.Maybe Types.ImageId)
+fImageId = Lens.field @"imageId"
 {-# DEPRECATED fImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance Lude.FromJSON Face where
+instance Core.FromJSON Face where
   parseJSON =
-    Lude.withObject
-      "Face"
-      ( \x ->
-          Face'
-            Lude.<$> (x Lude..:? "FaceId")
-            Lude.<*> (x Lude..:? "BoundingBox")
-            Lude.<*> (x Lude..:? "ExternalImageId")
-            Lude.<*> (x Lude..:? "Confidence")
-            Lude.<*> (x Lude..:? "ImageId")
-      )
+    Core.withObject "Face" Core.$
+      \x ->
+        Face'
+          Core.<$> (x Core..:? "BoundingBox")
+          Core.<*> (x Core..:? "Confidence")
+          Core.<*> (x Core..:? "ExternalImageId")
+          Core.<*> (x Core..:? "FaceId")
+          Core.<*> (x Core..:? "ImageId")

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MediaStoreData
     Network.AWS.MediaStoreData.DeleteObject
@@ -76,9 +82,19 @@ library
     Network.AWS.MediaStoreData.Waiters
 
   other-modules:
+    Network.AWS.MediaStoreData.Types.ContentRange
+    Network.AWS.MediaStoreData.Types.ContentSHA256
+    Network.AWS.MediaStoreData.Types.ContentType
+    Network.AWS.MediaStoreData.Types.ETag
     Network.AWS.MediaStoreData.Types.Item
+    Network.AWS.MediaStoreData.Types.ItemName
     Network.AWS.MediaStoreData.Types.ItemType
+    Network.AWS.MediaStoreData.Types.PaginationToken
+    Network.AWS.MediaStoreData.Types.Path
+    Network.AWS.MediaStoreData.Types.PathNaming
+    Network.AWS.MediaStoreData.Types.RangePattern
     Network.AWS.MediaStoreData.Types.StorageClass
+    Network.AWS.MediaStoreData.Types.StringPrimitive
     Network.AWS.MediaStoreData.Types.UploadAvailability
 
   build-depends:   amazonka-core ==2.0.0.0.*

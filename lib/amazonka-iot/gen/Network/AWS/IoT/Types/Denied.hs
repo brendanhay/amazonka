@@ -17,56 +17,51 @@ module Network.AWS.IoT.Types.Denied
     mkDenied,
 
     -- * Lenses
-    dImplicitDeny,
     dExplicitDeny,
+    dImplicitDeny,
   )
 where
 
-import Network.AWS.IoT.Types.ExplicitDeny
-import Network.AWS.IoT.Types.ImplicitDeny
+import qualified Network.AWS.IoT.Types.ExplicitDeny as Types
+import qualified Network.AWS.IoT.Types.ImplicitDeny as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information that denied the authorization.
 --
 -- /See:/ 'mkDenied' smart constructor.
 data Denied = Denied'
-  { -- | Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
-    implicitDeny :: Lude.Maybe ImplicitDeny,
-    -- | Information that explicitly denies the authorization.
-    explicitDeny :: Lude.Maybe ExplicitDeny
+  { -- | Information that explicitly denies the authorization.
+    explicitDeny :: Core.Maybe Types.ExplicitDeny,
+    -- | Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
+    implicitDeny :: Core.Maybe Types.ImplicitDeny
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Denied' with the minimum fields required to make a request.
---
--- * 'implicitDeny' - Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
--- * 'explicitDeny' - Information that explicitly denies the authorization.
+-- | Creates a 'Denied' value with any optional fields omitted.
 mkDenied ::
   Denied
 mkDenied =
-  Denied' {implicitDeny = Lude.Nothing, explicitDeny = Lude.Nothing}
-
--- | Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
---
--- /Note:/ Consider using 'implicitDeny' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dImplicitDeny :: Lens.Lens' Denied (Lude.Maybe ImplicitDeny)
-dImplicitDeny = Lens.lens (implicitDeny :: Denied -> Lude.Maybe ImplicitDeny) (\s a -> s {implicitDeny = a} :: Denied)
-{-# DEPRECATED dImplicitDeny "Use generic-lens or generic-optics with 'implicitDeny' instead." #-}
+  Denied' {explicitDeny = Core.Nothing, implicitDeny = Core.Nothing}
 
 -- | Information that explicitly denies the authorization.
 --
 -- /Note:/ Consider using 'explicitDeny' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dExplicitDeny :: Lens.Lens' Denied (Lude.Maybe ExplicitDeny)
-dExplicitDeny = Lens.lens (explicitDeny :: Denied -> Lude.Maybe ExplicitDeny) (\s a -> s {explicitDeny = a} :: Denied)
+dExplicitDeny :: Lens.Lens' Denied (Core.Maybe Types.ExplicitDeny)
+dExplicitDeny = Lens.field @"explicitDeny"
 {-# DEPRECATED dExplicitDeny "Use generic-lens or generic-optics with 'explicitDeny' instead." #-}
 
-instance Lude.FromJSON Denied where
+-- | Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
+--
+-- /Note:/ Consider using 'implicitDeny' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dImplicitDeny :: Lens.Lens' Denied (Core.Maybe Types.ImplicitDeny)
+dImplicitDeny = Lens.field @"implicitDeny"
+{-# DEPRECATED dImplicitDeny "Use generic-lens or generic-optics with 'implicitDeny' instead." #-}
+
+instance Core.FromJSON Denied where
   parseJSON =
-    Lude.withObject
-      "Denied"
-      ( \x ->
-          Denied'
-            Lude.<$> (x Lude..:? "implicitDeny") Lude.<*> (x Lude..:? "explicitDeny")
-      )
+    Core.withObject "Denied" Core.$
+      \x ->
+        Denied'
+          Core.<$> (x Core..:? "explicitDeny") Core.<*> (x Core..:? "implicitDeny")

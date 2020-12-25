@@ -26,8 +26,8 @@ module Network.AWS.LexModels.GetUtterancesView
     mkGetUtterancesView,
 
     -- ** Request lenses
-    guvBotVersions,
     guvBotName,
+    guvBotVersions,
     guvStatusType,
 
     -- * Destructuring the response
@@ -35,149 +35,132 @@ module Network.AWS.LexModels.GetUtterancesView
     mkGetUtterancesViewResponse,
 
     -- ** Response lenses
-    guvrsBotName,
-    guvrsUtterances,
-    guvrsResponseStatus,
+    guvrrsBotName,
+    guvrrsUtterances,
+    guvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetUtterancesView' smart constructor.
 data GetUtterancesView = GetUtterancesView'
-  { -- | An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
-    botVersions :: Lude.NonEmpty Lude.Text,
-    -- | The name of the bot for which utterance information should be returned.
-    botName :: Lude.Text,
+  { -- | The name of the bot for which utterance information should be returned.
+    botName :: Types.BotName,
+    -- | An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
+    botVersions :: Core.NonEmpty Types.Version,
     -- | To return utterances that were recognized and handled, use @Detected@ . To return utterances that were not recognized, use @Missed@ .
-    statusType :: StatusType
+    statusType :: Types.StatusType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetUtterancesView' with the minimum fields required to make a request.
---
--- * 'botVersions' - An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
--- * 'botName' - The name of the bot for which utterance information should be returned.
--- * 'statusType' - To return utterances that were recognized and handled, use @Detected@ . To return utterances that were not recognized, use @Missed@ .
+-- | Creates a 'GetUtterancesView' value with any optional fields omitted.
 mkGetUtterancesView ::
-  -- | 'botVersions'
-  Lude.NonEmpty Lude.Text ->
   -- | 'botName'
-  Lude.Text ->
+  Types.BotName ->
+  -- | 'botVersions'
+  Core.NonEmpty Types.Version ->
   -- | 'statusType'
-  StatusType ->
+  Types.StatusType ->
   GetUtterancesView
-mkGetUtterancesView pBotVersions_ pBotName_ pStatusType_ =
-  GetUtterancesView'
-    { botVersions = pBotVersions_,
-      botName = pBotName_,
-      statusType = pStatusType_
-    }
-
--- | An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
---
--- /Note:/ Consider using 'botVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guvBotVersions :: Lens.Lens' GetUtterancesView (Lude.NonEmpty Lude.Text)
-guvBotVersions = Lens.lens (botVersions :: GetUtterancesView -> Lude.NonEmpty Lude.Text) (\s a -> s {botVersions = a} :: GetUtterancesView)
-{-# DEPRECATED guvBotVersions "Use generic-lens or generic-optics with 'botVersions' instead." #-}
+mkGetUtterancesView botName botVersions statusType =
+  GetUtterancesView' {botName, botVersions, statusType}
 
 -- | The name of the bot for which utterance information should be returned.
 --
 -- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guvBotName :: Lens.Lens' GetUtterancesView Lude.Text
-guvBotName = Lens.lens (botName :: GetUtterancesView -> Lude.Text) (\s a -> s {botName = a} :: GetUtterancesView)
+guvBotName :: Lens.Lens' GetUtterancesView Types.BotName
+guvBotName = Lens.field @"botName"
 {-# DEPRECATED guvBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+
+-- | An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
+--
+-- /Note:/ Consider using 'botVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guvBotVersions :: Lens.Lens' GetUtterancesView (Core.NonEmpty Types.Version)
+guvBotVersions = Lens.field @"botVersions"
+{-# DEPRECATED guvBotVersions "Use generic-lens or generic-optics with 'botVersions' instead." #-}
 
 -- | To return utterances that were recognized and handled, use @Detected@ . To return utterances that were not recognized, use @Missed@ .
 --
 -- /Note:/ Consider using 'statusType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guvStatusType :: Lens.Lens' GetUtterancesView StatusType
-guvStatusType = Lens.lens (statusType :: GetUtterancesView -> StatusType) (\s a -> s {statusType = a} :: GetUtterancesView)
+guvStatusType :: Lens.Lens' GetUtterancesView Types.StatusType
+guvStatusType = Lens.field @"statusType"
 {-# DEPRECATED guvStatusType "Use generic-lens or generic-optics with 'statusType' instead." #-}
 
-instance Lude.AWSRequest GetUtterancesView where
+instance Core.AWSRequest GetUtterancesView where
   type Rs GetUtterancesView = GetUtterancesViewResponse
-  request = Req.get lexModelsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/bots/" Core.<> (Core.toText botName) Core.<> ("/utterances")),
+        Core._rqQuery =
+          Core.toQueryValue
+            "bot_versions"
+            (Core.toQueryList "member" botVersions)
+            Core.<> (Core.toQueryValue "status_type" statusType)
+            Core.<> (Core.pure ("view=aggregation", "")),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetUtterancesViewResponse'
-            Lude.<$> (x Lude..?> "botName")
-            Lude.<*> (x Lude..?> "utterances" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "botName")
+            Core.<*> (x Core..:? "utterances")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetUtterancesView where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetUtterancesView where
-  toPath GetUtterancesView' {..} =
-    Lude.mconcat ["/bots/", Lude.toBS botName, "/utterances"]
-
-instance Lude.ToQuery GetUtterancesView where
-  toQuery GetUtterancesView' {..} =
-    Lude.mconcat
-      [ "bot_versions" Lude.=: Lude.toQueryList "member" botVersions,
-        "status_type" Lude.=: statusType,
-        "view=aggregation"
-      ]
 
 -- | /See:/ 'mkGetUtterancesViewResponse' smart constructor.
 data GetUtterancesViewResponse = GetUtterancesViewResponse'
   { -- | The name of the bot for which utterance information was returned.
-    botName :: Lude.Maybe Lude.Text,
+    botName :: Core.Maybe Types.BotName,
     -- | An array of 'UtteranceList' objects, each containing a list of 'UtteranceData' objects describing the utterances that were processed by your bot. The response contains a maximum of 100 @UtteranceData@ objects for each version. Amazon Lex returns the most frequent utterances received by the bot in the last 15 days.
-    utterances :: Lude.Maybe [UtteranceList],
+    utterances :: Core.Maybe [Types.UtteranceList],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetUtterancesViewResponse' with the minimum fields required to make a request.
---
--- * 'botName' - The name of the bot for which utterance information was returned.
--- * 'utterances' - An array of 'UtteranceList' objects, each containing a list of 'UtteranceData' objects describing the utterances that were processed by your bot. The response contains a maximum of 100 @UtteranceData@ objects for each version. Amazon Lex returns the most frequent utterances received by the bot in the last 15 days.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetUtterancesViewResponse' value with any optional fields omitted.
 mkGetUtterancesViewResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetUtterancesViewResponse
-mkGetUtterancesViewResponse pResponseStatus_ =
+mkGetUtterancesViewResponse responseStatus =
   GetUtterancesViewResponse'
-    { botName = Lude.Nothing,
-      utterances = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { botName = Core.Nothing,
+      utterances = Core.Nothing,
+      responseStatus
     }
 
 -- | The name of the bot for which utterance information was returned.
 --
 -- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guvrsBotName :: Lens.Lens' GetUtterancesViewResponse (Lude.Maybe Lude.Text)
-guvrsBotName = Lens.lens (botName :: GetUtterancesViewResponse -> Lude.Maybe Lude.Text) (\s a -> s {botName = a} :: GetUtterancesViewResponse)
-{-# DEPRECATED guvrsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+guvrrsBotName :: Lens.Lens' GetUtterancesViewResponse (Core.Maybe Types.BotName)
+guvrrsBotName = Lens.field @"botName"
+{-# DEPRECATED guvrrsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | An array of 'UtteranceList' objects, each containing a list of 'UtteranceData' objects describing the utterances that were processed by your bot. The response contains a maximum of 100 @UtteranceData@ objects for each version. Amazon Lex returns the most frequent utterances received by the bot in the last 15 days.
 --
 -- /Note:/ Consider using 'utterances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guvrsUtterances :: Lens.Lens' GetUtterancesViewResponse (Lude.Maybe [UtteranceList])
-guvrsUtterances = Lens.lens (utterances :: GetUtterancesViewResponse -> Lude.Maybe [UtteranceList]) (\s a -> s {utterances = a} :: GetUtterancesViewResponse)
-{-# DEPRECATED guvrsUtterances "Use generic-lens or generic-optics with 'utterances' instead." #-}
+guvrrsUtterances :: Lens.Lens' GetUtterancesViewResponse (Core.Maybe [Types.UtteranceList])
+guvrrsUtterances = Lens.field @"utterances"
+{-# DEPRECATED guvrrsUtterances "Use generic-lens or generic-optics with 'utterances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guvrsResponseStatus :: Lens.Lens' GetUtterancesViewResponse Lude.Int
-guvrsResponseStatus = Lens.lens (responseStatus :: GetUtterancesViewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUtterancesViewResponse)
-{-# DEPRECATED guvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+guvrrsResponseStatus :: Lens.Lens' GetUtterancesViewResponse Core.Int
+guvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED guvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

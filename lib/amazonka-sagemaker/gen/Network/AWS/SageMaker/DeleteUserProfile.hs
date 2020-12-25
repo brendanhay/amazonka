@@ -20,8 +20,8 @@ module Network.AWS.SageMaker.DeleteUserProfile
     mkDeleteUserProfile,
 
     -- ** Request lenses
-    dupfUserProfileName,
     dupfDomainId,
+    dupfUserProfileName,
 
     -- * Destructuring the response
     DeleteUserProfileResponse (..),
@@ -30,88 +30,75 @@ module Network.AWS.SageMaker.DeleteUserProfile
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteUserProfile' smart constructor.
 data DeleteUserProfile = DeleteUserProfile'
-  { -- | The user profile name.
-    userProfileName :: Lude.Text,
-    -- | The domain ID.
-    domainId :: Lude.Text
+  { -- | The domain ID.
+    domainId :: Types.DomainId,
+    -- | The user profile name.
+    userProfileName :: Types.UserProfileName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
---
--- * 'userProfileName' - The user profile name.
--- * 'domainId' - The domain ID.
+-- | Creates a 'DeleteUserProfile' value with any optional fields omitted.
 mkDeleteUserProfile ::
-  -- | 'userProfileName'
-  Lude.Text ->
   -- | 'domainId'
-  Lude.Text ->
+  Types.DomainId ->
+  -- | 'userProfileName'
+  Types.UserProfileName ->
   DeleteUserProfile
-mkDeleteUserProfile pUserProfileName_ pDomainId_ =
-  DeleteUserProfile'
-    { userProfileName = pUserProfileName_,
-      domainId = pDomainId_
-    }
-
--- | The user profile name.
---
--- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupfUserProfileName :: Lens.Lens' DeleteUserProfile Lude.Text
-dupfUserProfileName = Lens.lens (userProfileName :: DeleteUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: DeleteUserProfile)
-{-# DEPRECATED dupfUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+mkDeleteUserProfile domainId userProfileName =
+  DeleteUserProfile' {domainId, userProfileName}
 
 -- | The domain ID.
 --
 -- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupfDomainId :: Lens.Lens' DeleteUserProfile Lude.Text
-dupfDomainId = Lens.lens (domainId :: DeleteUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: DeleteUserProfile)
+dupfDomainId :: Lens.Lens' DeleteUserProfile Types.DomainId
+dupfDomainId = Lens.field @"domainId"
 {-# DEPRECATED dupfDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
-instance Lude.AWSRequest DeleteUserProfile where
+-- | The user profile name.
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupfUserProfileName :: Lens.Lens' DeleteUserProfile Types.UserProfileName
+dupfUserProfileName = Lens.field @"userProfileName"
+{-# DEPRECATED dupfUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+
+instance Core.FromJSON DeleteUserProfile where
+  toJSON DeleteUserProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainId" Core..= domainId),
+            Core.Just ("UserProfileName" Core..= userProfileName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteUserProfile where
   type Rs DeleteUserProfile = DeleteUserProfileResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull DeleteUserProfileResponse'
-
-instance Lude.ToHeaders DeleteUserProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteUserProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteUserProfile where
-  toJSON DeleteUserProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserProfileName" Lude..= userProfileName),
-            Lude.Just ("DomainId" Lude..= domainId)
-          ]
-      )
-
-instance Lude.ToPath DeleteUserProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteUserProfile where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteUserProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteUserProfileResponse'
 
 -- | /See:/ 'mkDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteUserProfileResponse' value with any optional fields omitted.
 mkDeleteUserProfileResponse ::
   DeleteUserProfileResponse
 mkDeleteUserProfileResponse = DeleteUserProfileResponse'

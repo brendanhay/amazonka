@@ -20,164 +20,145 @@ module Network.AWS.MachineLearning.AddTags
     mkAddTags,
 
     -- ** Request lenses
+    atTags,
     atResourceId,
     atResourceType,
-    atTags,
 
     -- * Destructuring the response
     AddTagsResponse (..),
     mkAddTagsResponse,
 
     -- ** Response lenses
-    atrsResourceId,
-    atrsResourceType,
-    atrsResponseStatus,
+    atrrsResourceId,
+    atrrsResourceType,
+    atrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
-  { -- | The ID of the ML object to tag. For example, @exampleModelId@ .
-    resourceId :: Lude.Text,
+  { -- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
+    tags :: [Types.Tag],
+    -- | The ID of the ML object to tag. For example, @exampleModelId@ .
+    resourceId :: Types.EntityId,
     -- | The type of the ML object to tag.
-    resourceType :: TaggableResourceType,
-    -- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
-    tags :: [Tag]
+    resourceType :: Types.TaggableResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTags' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the ML object to tag. For example, @exampleModelId@ .
--- * 'resourceType' - The type of the ML object to tag.
--- * 'tags' - The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
+-- | Creates a 'AddTags' value with any optional fields omitted.
 mkAddTags ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.EntityId ->
   -- | 'resourceType'
-  TaggableResourceType ->
+  Types.TaggableResourceType ->
   AddTags
-mkAddTags pResourceId_ pResourceType_ =
-  AddTags'
-    { resourceId = pResourceId_,
-      resourceType = pResourceType_,
-      tags = Lude.mempty
-    }
+mkAddTags resourceId resourceType =
+  AddTags' {tags = Core.mempty, resourceId, resourceType}
+
+-- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atTags :: Lens.Lens' AddTags [Types.Tag]
+atTags = Lens.field @"tags"
+{-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the ML object to tag. For example, @exampleModelId@ .
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atResourceId :: Lens.Lens' AddTags Lude.Text
-atResourceId = Lens.lens (resourceId :: AddTags -> Lude.Text) (\s a -> s {resourceId = a} :: AddTags)
+atResourceId :: Lens.Lens' AddTags Types.EntityId
+atResourceId = Lens.field @"resourceId"
 {-# DEPRECATED atResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the ML object to tag.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atResourceType :: Lens.Lens' AddTags TaggableResourceType
-atResourceType = Lens.lens (resourceType :: AddTags -> TaggableResourceType) (\s a -> s {resourceType = a} :: AddTags)
+atResourceType :: Lens.Lens' AddTags Types.TaggableResourceType
+atResourceType = Lens.field @"resourceType"
 {-# DEPRECATED atResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atTags :: Lens.Lens' AddTags [Tag]
-atTags = Lens.lens (tags :: AddTags -> [Tag]) (\s a -> s {tags = a} :: AddTags)
-{-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+instance Core.FromJSON AddTags where
+  toJSON AddTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Tags" Core..= tags),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("ResourceType" Core..= resourceType)
+          ]
+      )
 
-instance Lude.AWSRequest AddTags where
+instance Core.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.AddTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AddTagsResponse'
-            Lude.<$> (x Lude..?> "ResourceId")
-            Lude.<*> (x Lude..?> "ResourceType")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ResourceId")
+            Core.<*> (x Core..:? "ResourceType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.AddTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddTags where
-  toJSON AddTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("ResourceType" Lude..= resourceType),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath AddTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | Amazon ML returns the following elements.
 --
 -- /See:/ 'mkAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   { -- | The ID of the ML object that was tagged.
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.ResourceId,
     -- | The type of the ML object that was tagged.
-    resourceType :: Lude.Maybe TaggableResourceType,
+    resourceType :: Core.Maybe Types.TaggableResourceType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the ML object that was tagged.
--- * 'resourceType' - The type of the ML object that was tagged.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddTagsResponse' value with any optional fields omitted.
 mkAddTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddTagsResponse
-mkAddTagsResponse pResponseStatus_ =
+mkAddTagsResponse responseStatus =
   AddTagsResponse'
-    { resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the ML object that was tagged.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrsResourceId :: Lens.Lens' AddTagsResponse (Lude.Maybe Lude.Text)
-atrsResourceId = Lens.lens (resourceId :: AddTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: AddTagsResponse)
-{-# DEPRECATED atrsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+atrrsResourceId :: Lens.Lens' AddTagsResponse (Core.Maybe Types.ResourceId)
+atrrsResourceId = Lens.field @"resourceId"
+{-# DEPRECATED atrrsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the ML object that was tagged.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrsResourceType :: Lens.Lens' AddTagsResponse (Lude.Maybe TaggableResourceType)
-atrsResourceType = Lens.lens (resourceType :: AddTagsResponse -> Lude.Maybe TaggableResourceType) (\s a -> s {resourceType = a} :: AddTagsResponse)
-{-# DEPRECATED atrsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+atrrsResourceType :: Lens.Lens' AddTagsResponse (Core.Maybe Types.TaggableResourceType)
+atrrsResourceType = Lens.field @"resourceType"
+{-# DEPRECATED atrrsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrsResponseStatus :: Lens.Lens' AddTagsResponse Lude.Int
-atrsResponseStatus = Lens.lens (responseStatus :: AddTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsResponse)
-{-# DEPRECATED atrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atrrsResponseStatus :: Lens.Lens' AddTagsResponse Core.Int
+atrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

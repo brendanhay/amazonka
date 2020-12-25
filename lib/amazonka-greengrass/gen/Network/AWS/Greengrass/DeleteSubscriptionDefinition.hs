@@ -27,99 +27,83 @@ module Network.AWS.Greengrass.DeleteSubscriptionDefinition
     mkDeleteSubscriptionDefinitionResponse,
 
     -- ** Response lenses
-    dsdrsResponseStatus,
+    dsdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSubscriptionDefinition' smart constructor.
 newtype DeleteSubscriptionDefinition = DeleteSubscriptionDefinition'
   { -- | The ID of the subscription definition.
-    subscriptionDefinitionId :: Lude.Text
+    subscriptionDefinitionId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSubscriptionDefinition' with the minimum fields required to make a request.
---
--- * 'subscriptionDefinitionId' - The ID of the subscription definition.
+-- | Creates a 'DeleteSubscriptionDefinition' value with any optional fields omitted.
 mkDeleteSubscriptionDefinition ::
   -- | 'subscriptionDefinitionId'
-  Lude.Text ->
+  Core.Text ->
   DeleteSubscriptionDefinition
-mkDeleteSubscriptionDefinition pSubscriptionDefinitionId_ =
-  DeleteSubscriptionDefinition'
-    { subscriptionDefinitionId =
-        pSubscriptionDefinitionId_
-    }
+mkDeleteSubscriptionDefinition subscriptionDefinitionId =
+  DeleteSubscriptionDefinition' {subscriptionDefinitionId}
 
 -- | The ID of the subscription definition.
 --
 -- /Note:/ Consider using 'subscriptionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdSubscriptionDefinitionId :: Lens.Lens' DeleteSubscriptionDefinition Lude.Text
-dsdSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: DeleteSubscriptionDefinition -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: DeleteSubscriptionDefinition)
+dsdSubscriptionDefinitionId :: Lens.Lens' DeleteSubscriptionDefinition Core.Text
+dsdSubscriptionDefinitionId = Lens.field @"subscriptionDefinitionId"
 {-# DEPRECATED dsdSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
 
-instance Lude.AWSRequest DeleteSubscriptionDefinition where
+instance Core.AWSRequest DeleteSubscriptionDefinition where
   type
     Rs DeleteSubscriptionDefinition =
       DeleteSubscriptionDefinitionResponse
-  request = Req.delete greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/subscriptions/"
+                Core.<> (Core.toText subscriptionDefinitionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteSubscriptionDefinitionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSubscriptionDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteSubscriptionDefinition where
-  toPath DeleteSubscriptionDefinition' {..} =
-    Lude.mconcat
-      [ "/greengrass/definition/subscriptions/",
-        Lude.toBS subscriptionDefinitionId
-      ]
-
-instance Lude.ToQuery DeleteSubscriptionDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSubscriptionDefinitionResponse' smart constructor.
 newtype DeleteSubscriptionDefinitionResponse = DeleteSubscriptionDefinitionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSubscriptionDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSubscriptionDefinitionResponse' value with any optional fields omitted.
 mkDeleteSubscriptionDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSubscriptionDefinitionResponse
-mkDeleteSubscriptionDefinitionResponse pResponseStatus_ =
-  DeleteSubscriptionDefinitionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteSubscriptionDefinitionResponse responseStatus =
+  DeleteSubscriptionDefinitionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdrsResponseStatus :: Lens.Lens' DeleteSubscriptionDefinitionResponse Lude.Int
-dsdrsResponseStatus = Lens.lens (responseStatus :: DeleteSubscriptionDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSubscriptionDefinitionResponse)
-{-# DEPRECATED dsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsdrrsResponseStatus :: Lens.Lens' DeleteSubscriptionDefinitionResponse Core.Int
+dsdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

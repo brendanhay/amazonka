@@ -17,61 +17,57 @@ module Network.AWS.EMR.Types.MetricDimension
     mkMetricDimension,
 
     -- * Lenses
-    mdValue,
     mdKey,
+    mdValue,
   )
 where
 
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A CloudWatch dimension, which is specified using a @Key@ (known as a @Name@ in CloudWatch), @Value@ pair. By default, Amazon EMR uses one dimension whose @Key@ is @JobFlowID@ and @Value@ is a variable representing the cluster ID, which is @> {emr.clusterId}@ . This enables the rule to bootstrap when the cluster ID becomes available.
 --
 -- /See:/ 'mkMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { -- | The dimension value.
-    value :: Lude.Maybe Lude.Text,
-    -- | The dimension name.
-    key :: Lude.Maybe Lude.Text
+  { -- | The dimension name.
+    key :: Core.Maybe Types.String,
+    -- | The dimension value.
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
---
--- * 'value' - The dimension value.
--- * 'key' - The dimension name.
+-- | Creates a 'MetricDimension' value with any optional fields omitted.
 mkMetricDimension ::
   MetricDimension
 mkMetricDimension =
-  MetricDimension' {value = Lude.Nothing, key = Lude.Nothing}
-
--- | The dimension value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdValue :: Lens.Lens' MetricDimension (Lude.Maybe Lude.Text)
-mdValue = Lens.lens (value :: MetricDimension -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: MetricDimension)
-{-# DEPRECATED mdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  MetricDimension' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The dimension name.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdKey :: Lens.Lens' MetricDimension (Lude.Maybe Lude.Text)
-mdKey = Lens.lens (key :: MetricDimension -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: MetricDimension)
+mdKey :: Lens.Lens' MetricDimension (Core.Maybe Types.String)
+mdKey = Lens.field @"key"
 {-# DEPRECATED mdKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON MetricDimension where
-  parseJSON =
-    Lude.withObject
-      "MetricDimension"
-      ( \x ->
-          MetricDimension'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Key")
+-- | The dimension value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdValue :: Lens.Lens' MetricDimension (Core.Maybe Types.String)
+mdValue = Lens.field @"value"
+{-# DEPRECATED mdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON MetricDimension where
+  toJSON MetricDimension {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Value" Core..=) Core.<$> value]
       )
 
-instance Lude.ToJSON MetricDimension where
-  toJSON MetricDimension' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
-      )
+instance Core.FromJSON MetricDimension where
+  parseJSON =
+    Core.withObject "MetricDimension" Core.$
+      \x ->
+        MetricDimension'
+          Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Value")

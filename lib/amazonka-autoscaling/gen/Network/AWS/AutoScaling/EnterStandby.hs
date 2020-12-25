@@ -24,145 +24,138 @@ module Network.AWS.AutoScaling.EnterStandby
     mkEnterStandby,
 
     -- ** Request lenses
-    esInstanceIds,
     esAutoScalingGroupName,
     esShouldDecrementDesiredCapacity,
+    esInstanceIds,
 
     -- * Destructuring the response
     EnterStandbyResponse (..),
     mkEnterStandbyResponse,
 
     -- ** Response lenses
-    esrsActivities,
-    esrsResponseStatus,
+    esrrsActivities,
+    esrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnterStandby' smart constructor.
 data EnterStandby = EnterStandby'
-  { -- | The IDs of the instances. You can specify up to 20 instances.
-    instanceIds :: Lude.Maybe [Lude.Text],
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text,
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.AutoScalingGroupName,
     -- | Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to @Standby@ mode.
-    shouldDecrementDesiredCapacity :: Lude.Bool
+    shouldDecrementDesiredCapacity :: Core.Bool,
+    -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Core.Maybe [Types.XmlStringMaxLen19]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnterStandby' with the minimum fields required to make a request.
---
--- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'shouldDecrementDesiredCapacity' - Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to @Standby@ mode.
+-- | Creates a 'EnterStandby' value with any optional fields omitted.
 mkEnterStandby ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.AutoScalingGroupName ->
   -- | 'shouldDecrementDesiredCapacity'
-  Lude.Bool ->
+  Core.Bool ->
   EnterStandby
-mkEnterStandby
-  pAutoScalingGroupName_
-  pShouldDecrementDesiredCapacity_ =
-    EnterStandby'
-      { instanceIds = Lude.Nothing,
-        autoScalingGroupName = pAutoScalingGroupName_,
-        shouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
-      }
-
--- | The IDs of the instances. You can specify up to 20 instances.
---
--- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esInstanceIds :: Lens.Lens' EnterStandby (Lude.Maybe [Lude.Text])
-esInstanceIds = Lens.lens (instanceIds :: EnterStandby -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: EnterStandby)
-{-# DEPRECATED esInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+mkEnterStandby autoScalingGroupName shouldDecrementDesiredCapacity =
+  EnterStandby'
+    { autoScalingGroupName,
+      shouldDecrementDesiredCapacity,
+      instanceIds = Core.Nothing
+    }
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esAutoScalingGroupName :: Lens.Lens' EnterStandby Lude.Text
-esAutoScalingGroupName = Lens.lens (autoScalingGroupName :: EnterStandby -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: EnterStandby)
+esAutoScalingGroupName :: Lens.Lens' EnterStandby Types.AutoScalingGroupName
+esAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED esAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to @Standby@ mode.
 --
 -- /Note:/ Consider using 'shouldDecrementDesiredCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esShouldDecrementDesiredCapacity :: Lens.Lens' EnterStandby Lude.Bool
-esShouldDecrementDesiredCapacity = Lens.lens (shouldDecrementDesiredCapacity :: EnterStandby -> Lude.Bool) (\s a -> s {shouldDecrementDesiredCapacity = a} :: EnterStandby)
+esShouldDecrementDesiredCapacity :: Lens.Lens' EnterStandby Core.Bool
+esShouldDecrementDesiredCapacity = Lens.field @"shouldDecrementDesiredCapacity"
 {-# DEPRECATED esShouldDecrementDesiredCapacity "Use generic-lens or generic-optics with 'shouldDecrementDesiredCapacity' instead." #-}
 
-instance Lude.AWSRequest EnterStandby where
+-- | The IDs of the instances. You can specify up to 20 instances.
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esInstanceIds :: Lens.Lens' EnterStandby (Core.Maybe [Types.XmlStringMaxLen19])
+esInstanceIds = Lens.field @"instanceIds"
+{-# DEPRECATED esInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+instance Core.AWSRequest EnterStandby where
   type Rs EnterStandby = EnterStandbyResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "EnterStandby")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> ( Core.toQueryValue
+                            "ShouldDecrementDesiredCapacity"
+                            shouldDecrementDesiredCapacity
+                        )
+                Core.<> ( Core.toQueryValue
+                            "InstanceIds"
+                            (Core.toQueryList "member" Core.<$> instanceIds)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "EnterStandbyResult"
       ( \s h x ->
           EnterStandbyResponse'
-            Lude.<$> ( x Lude..@? "Activities" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Activities" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnterStandby where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath EnterStandby where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnterStandby where
-  toQuery EnterStandby' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("EnterStandby" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "InstanceIds"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> instanceIds),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "ShouldDecrementDesiredCapacity"
-          Lude.=: shouldDecrementDesiredCapacity
-      ]
 
 -- | /See:/ 'mkEnterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
   { -- | The activities related to moving instances into @Standby@ mode.
-    activities :: Lude.Maybe [Activity],
+    activities :: Core.Maybe [Types.Activity],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EnterStandbyResponse' with the minimum fields required to make a request.
---
--- * 'activities' - The activities related to moving instances into @Standby@ mode.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnterStandbyResponse' value with any optional fields omitted.
 mkEnterStandbyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnterStandbyResponse
-mkEnterStandbyResponse pResponseStatus_ =
-  EnterStandbyResponse'
-    { activities = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkEnterStandbyResponse responseStatus =
+  EnterStandbyResponse' {activities = Core.Nothing, responseStatus}
 
 -- | The activities related to moving instances into @Standby@ mode.
 --
 -- /Note:/ Consider using 'activities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrsActivities :: Lens.Lens' EnterStandbyResponse (Lude.Maybe [Activity])
-esrsActivities = Lens.lens (activities :: EnterStandbyResponse -> Lude.Maybe [Activity]) (\s a -> s {activities = a} :: EnterStandbyResponse)
-{-# DEPRECATED esrsActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
+esrrsActivities :: Lens.Lens' EnterStandbyResponse (Core.Maybe [Types.Activity])
+esrrsActivities = Lens.field @"activities"
+{-# DEPRECATED esrrsActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrsResponseStatus :: Lens.Lens' EnterStandbyResponse Lude.Int
-esrsResponseStatus = Lens.lens (responseStatus :: EnterStandbyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnterStandbyResponse)
-{-# DEPRECATED esrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+esrrsResponseStatus :: Lens.Lens' EnterStandbyResponse Core.Int
+esrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED esrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

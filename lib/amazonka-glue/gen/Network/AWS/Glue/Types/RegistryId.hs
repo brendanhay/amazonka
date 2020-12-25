@@ -17,57 +17,56 @@ module Network.AWS.Glue.Types.RegistryId
     mkRegistryId,
 
     -- * Lenses
+    riRegistryArn,
     riRegistryName,
-    riRegistryARN,
   )
 where
 
+import qualified Network.AWS.Glue.Types.GlueResourceArn as Types
+import qualified Network.AWS.Glue.Types.RegistryName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
 --
 -- /See:/ 'mkRegistryId' smart constructor.
 data RegistryId = RegistryId'
-  { -- | Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
-    registryName :: Lude.Maybe Lude.Text,
-    -- | Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
-    registryARN :: Lude.Maybe Lude.Text
+  { -- | Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
+    registryArn :: Core.Maybe Types.GlueResourceArn,
+    -- | Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
+    registryName :: Core.Maybe Types.RegistryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegistryId' with the minimum fields required to make a request.
---
--- * 'registryName' - Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
--- * 'registryARN' - Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
+-- | Creates a 'RegistryId' value with any optional fields omitted.
 mkRegistryId ::
   RegistryId
 mkRegistryId =
   RegistryId'
-    { registryName = Lude.Nothing,
-      registryARN = Lude.Nothing
+    { registryArn = Core.Nothing,
+      registryName = Core.Nothing
     }
+
+-- | Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
+--
+-- /Note:/ Consider using 'registryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRegistryArn :: Lens.Lens' RegistryId (Core.Maybe Types.GlueResourceArn)
+riRegistryArn = Lens.field @"registryArn"
+{-# DEPRECATED riRegistryArn "Use generic-lens or generic-optics with 'registryArn' instead." #-}
 
 -- | Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
 --
 -- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRegistryName :: Lens.Lens' RegistryId (Lude.Maybe Lude.Text)
-riRegistryName = Lens.lens (registryName :: RegistryId -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: RegistryId)
+riRegistryName :: Lens.Lens' RegistryId (Core.Maybe Types.RegistryName)
+riRegistryName = Lens.field @"registryName"
 {-# DEPRECATED riRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
--- | Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
---
--- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRegistryARN :: Lens.Lens' RegistryId (Lude.Maybe Lude.Text)
-riRegistryARN = Lens.lens (registryARN :: RegistryId -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: RegistryId)
-{-# DEPRECATED riRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
-
-instance Lude.ToJSON RegistryId where
-  toJSON RegistryId' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RegistryName" Lude..=) Lude.<$> registryName,
-            ("RegistryArn" Lude..=) Lude.<$> registryARN
+instance Core.FromJSON RegistryId where
+  toJSON RegistryId {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("RegistryArn" Core..=) Core.<$> registryArn,
+            ("RegistryName" Core..=) Core.<$> registryName
           ]
       )

@@ -27,109 +27,93 @@ module Network.AWS.Snowball.CreateAddress
     mkCreateAddressResponse,
 
     -- ** Response lenses
-    carsAddressId,
-    carsResponseStatus,
+    carrsAddressId,
+    carrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkCreateAddress' smart constructor.
 newtype CreateAddress = CreateAddress'
   { -- | The address that you want the Snow device shipped to.
-    address :: Address
+    address :: Types.Address
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAddress' with the minimum fields required to make a request.
---
--- * 'address' - The address that you want the Snow device shipped to.
+-- | Creates a 'CreateAddress' value with any optional fields omitted.
 mkCreateAddress ::
   -- | 'address'
-  Address ->
+  Types.Address ->
   CreateAddress
-mkCreateAddress pAddress_ = CreateAddress' {address = pAddress_}
+mkCreateAddress address = CreateAddress' {address}
 
 -- | The address that you want the Snow device shipped to.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAddress :: Lens.Lens' CreateAddress Address
-caAddress = Lens.lens (address :: CreateAddress -> Address) (\s a -> s {address = a} :: CreateAddress)
+caAddress :: Lens.Lens' CreateAddress Types.Address
+caAddress = Lens.field @"address"
 {-# DEPRECATED caAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
-instance Lude.AWSRequest CreateAddress where
+instance Core.FromJSON CreateAddress where
+  toJSON CreateAddress {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Address" Core..= address)])
+
+instance Core.AWSRequest CreateAddress where
   type Rs CreateAddress = CreateAddressResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSIESnowballJobManagementService.CreateAddress")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateAddressResponse'
-            Lude.<$> (x Lude..?> "AddressId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AddressId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateAddress where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.CreateAddress" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateAddress where
-  toJSON CreateAddress' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Address" Lude..= address)])
-
-instance Lude.ToPath CreateAddress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAddress where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateAddressResponse' smart constructor.
 data CreateAddressResponse = CreateAddressResponse'
   { -- | The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snow device for that job shipped to.
-    addressId :: Lude.Maybe Lude.Text,
+    addressId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAddressResponse' with the minimum fields required to make a request.
---
--- * 'addressId' - The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snow device for that job shipped to.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAddressResponse' value with any optional fields omitted.
 mkCreateAddressResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAddressResponse
-mkCreateAddressResponse pResponseStatus_ =
-  CreateAddressResponse'
-    { addressId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateAddressResponse responseStatus =
+  CreateAddressResponse' {addressId = Core.Nothing, responseStatus}
 
 -- | The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snow device for that job shipped to.
 --
 -- /Note:/ Consider using 'addressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsAddressId :: Lens.Lens' CreateAddressResponse (Lude.Maybe Lude.Text)
-carsAddressId = Lens.lens (addressId :: CreateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {addressId = a} :: CreateAddressResponse)
-{-# DEPRECATED carsAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
+carrsAddressId :: Lens.Lens' CreateAddressResponse (Core.Maybe Types.String)
+carrsAddressId = Lens.field @"addressId"
+{-# DEPRECATED carrsAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsResponseStatus :: Lens.Lens' CreateAddressResponse Lude.Int
-carsResponseStatus = Lens.lens (responseStatus :: CreateAddressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAddressResponse)
-{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+carrsResponseStatus :: Lens.Lens' CreateAddressResponse Core.Int
+carrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED carrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

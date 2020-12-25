@@ -17,61 +17,56 @@ module Network.AWS.Shield.Types.SummarizedAttackVector
     mkSummarizedAttackVector,
 
     -- * Lenses
-    savVectorCounters,
     savVectorType,
+    savVectorCounters,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Shield.Types.SummarizedCounter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.String as Types
+import qualified Network.AWS.Shield.Types.SummarizedCounter as Types
 
 -- | A summary of information about the attack.
 --
 -- /See:/ 'mkSummarizedAttackVector' smart constructor.
 data SummarizedAttackVector = SummarizedAttackVector'
-  { -- | The list of counters that describe the details of the attack.
-    vectorCounters :: Lude.Maybe [SummarizedCounter],
-    -- | The attack type, for example, SNMP reflection or SYN flood.
-    vectorType :: Lude.Text
+  { -- | The attack type, for example, SNMP reflection or SYN flood.
+    vectorType :: Types.String,
+    -- | The list of counters that describe the details of the attack.
+    vectorCounters :: Core.Maybe [Types.SummarizedCounter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SummarizedAttackVector' with the minimum fields required to make a request.
---
--- * 'vectorCounters' - The list of counters that describe the details of the attack.
--- * 'vectorType' - The attack type, for example, SNMP reflection or SYN flood.
+-- | Creates a 'SummarizedAttackVector' value with any optional fields omitted.
 mkSummarizedAttackVector ::
   -- | 'vectorType'
-  Lude.Text ->
+  Types.String ->
   SummarizedAttackVector
-mkSummarizedAttackVector pVectorType_ =
+mkSummarizedAttackVector vectorType =
   SummarizedAttackVector'
-    { vectorCounters = Lude.Nothing,
-      vectorType = pVectorType_
+    { vectorType,
+      vectorCounters = Core.Nothing
     }
-
--- | The list of counters that describe the details of the attack.
---
--- /Note:/ Consider using 'vectorCounters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-savVectorCounters :: Lens.Lens' SummarizedAttackVector (Lude.Maybe [SummarizedCounter])
-savVectorCounters = Lens.lens (vectorCounters :: SummarizedAttackVector -> Lude.Maybe [SummarizedCounter]) (\s a -> s {vectorCounters = a} :: SummarizedAttackVector)
-{-# DEPRECATED savVectorCounters "Use generic-lens or generic-optics with 'vectorCounters' instead." #-}
 
 -- | The attack type, for example, SNMP reflection or SYN flood.
 --
 -- /Note:/ Consider using 'vectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-savVectorType :: Lens.Lens' SummarizedAttackVector Lude.Text
-savVectorType = Lens.lens (vectorType :: SummarizedAttackVector -> Lude.Text) (\s a -> s {vectorType = a} :: SummarizedAttackVector)
+savVectorType :: Lens.Lens' SummarizedAttackVector Types.String
+savVectorType = Lens.field @"vectorType"
 {-# DEPRECATED savVectorType "Use generic-lens or generic-optics with 'vectorType' instead." #-}
 
-instance Lude.FromJSON SummarizedAttackVector where
+-- | The list of counters that describe the details of the attack.
+--
+-- /Note:/ Consider using 'vectorCounters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+savVectorCounters :: Lens.Lens' SummarizedAttackVector (Core.Maybe [Types.SummarizedCounter])
+savVectorCounters = Lens.field @"vectorCounters"
+{-# DEPRECATED savVectorCounters "Use generic-lens or generic-optics with 'vectorCounters' instead." #-}
+
+instance Core.FromJSON SummarizedAttackVector where
   parseJSON =
-    Lude.withObject
-      "SummarizedAttackVector"
-      ( \x ->
-          SummarizedAttackVector'
-            Lude.<$> (x Lude..:? "VectorCounters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "VectorType")
-      )
+    Core.withObject "SummarizedAttackVector" Core.$
+      \x ->
+        SummarizedAttackVector'
+          Core.<$> (x Core..: "VectorType") Core.<*> (x Core..:? "VectorCounters")

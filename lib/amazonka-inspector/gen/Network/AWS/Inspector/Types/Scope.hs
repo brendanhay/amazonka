@@ -17,53 +17,49 @@ module Network.AWS.Inspector.Types.Scope
     mkScope,
 
     -- * Lenses
-    sValue,
     sKey,
+    sValue,
   )
 where
 
-import Network.AWS.Inspector.Types.ScopeType
+import qualified Network.AWS.Inspector.Types.ScopeType as Types
+import qualified Network.AWS.Inspector.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This data type contains key-value pairs that identify various Amazon resources.
 --
 -- /See:/ 'mkScope' smart constructor.
 data Scope = Scope'
-  { -- | The resource identifier for the specified scope type.
-    value :: Lude.Maybe Lude.Text,
-    -- | The type of the scope.
-    key :: Lude.Maybe ScopeType
+  { -- | The type of the scope.
+    key :: Core.Maybe Types.ScopeType,
+    -- | The resource identifier for the specified scope type.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Scope' with the minimum fields required to make a request.
---
--- * 'value' - The resource identifier for the specified scope type.
--- * 'key' - The type of the scope.
+-- | Creates a 'Scope' value with any optional fields omitted.
 mkScope ::
   Scope
-mkScope = Scope' {value = Lude.Nothing, key = Lude.Nothing}
-
--- | The resource identifier for the specified scope type.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sValue :: Lens.Lens' Scope (Lude.Maybe Lude.Text)
-sValue = Lens.lens (value :: Scope -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Scope)
-{-# DEPRECATED sValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkScope = Scope' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The type of the scope.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sKey :: Lens.Lens' Scope (Lude.Maybe ScopeType)
-sKey = Lens.lens (key :: Scope -> Lude.Maybe ScopeType) (\s a -> s {key = a} :: Scope)
+sKey :: Lens.Lens' Scope (Core.Maybe Types.ScopeType)
+sKey = Lens.field @"key"
 {-# DEPRECATED sKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON Scope where
+-- | The resource identifier for the specified scope type.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sValue :: Lens.Lens' Scope (Core.Maybe Types.Value)
+sValue = Lens.field @"value"
+{-# DEPRECATED sValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Scope where
   parseJSON =
-    Lude.withObject
-      "Scope"
-      ( \x ->
-          Scope' Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "key")
-      )
+    Core.withObject "Scope" Core.$
+      \x ->
+        Scope' Core.<$> (x Core..:? "key") Core.<*> (x Core..:? "value")

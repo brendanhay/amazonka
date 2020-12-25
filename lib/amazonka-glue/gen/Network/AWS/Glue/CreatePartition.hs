@@ -20,148 +20,134 @@ module Network.AWS.Glue.CreatePartition
     mkCreatePartition,
 
     -- ** Request lenses
-    cpPartitionInput,
-    cpCatalogId,
     cpDatabaseName,
     cpTableName,
+    cpPartitionInput,
+    cpCatalogId,
 
     -- * Destructuring the response
     CreatePartitionResponse (..),
     mkCreatePartitionResponse,
 
     -- ** Response lenses
-    cprsResponseStatus,
+    cprrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreatePartition' smart constructor.
 data CreatePartition = CreatePartition'
-  { -- | A @PartitionInput@ structure defining the partition to be created.
-    partitionInput :: PartitionInput,
-    -- | The AWS account ID of the catalog in which the partition is to be created.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the metadata database in which the partition is to be created.
-    databaseName :: Lude.Text,
+  { -- | The name of the metadata database in which the partition is to be created.
+    databaseName :: Types.DatabaseName,
     -- | The name of the metadata table in which the partition is to be created.
-    tableName :: Lude.Text
+    tableName :: Types.TableName,
+    -- | A @PartitionInput@ structure defining the partition to be created.
+    partitionInput :: Types.PartitionInput,
+    -- | The AWS account ID of the catalog in which the partition is to be created.
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreatePartition' with the minimum fields required to make a request.
---
--- * 'partitionInput' - A @PartitionInput@ structure defining the partition to be created.
--- * 'catalogId' - The AWS account ID of the catalog in which the partition is to be created.
--- * 'databaseName' - The name of the metadata database in which the partition is to be created.
--- * 'tableName' - The name of the metadata table in which the partition is to be created.
+-- | Creates a 'CreatePartition' value with any optional fields omitted.
 mkCreatePartition ::
-  -- | 'partitionInput'
-  PartitionInput ->
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
+  -- | 'partitionInput'
+  Types.PartitionInput ->
   CreatePartition
-mkCreatePartition pPartitionInput_ pDatabaseName_ pTableName_ =
+mkCreatePartition databaseName tableName partitionInput =
   CreatePartition'
-    { partitionInput = pPartitionInput_,
-      catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      tableName = pTableName_
+    { databaseName,
+      tableName,
+      partitionInput,
+      catalogId = Core.Nothing
     }
-
--- | A @PartitionInput@ structure defining the partition to be created.
---
--- /Note:/ Consider using 'partitionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPartitionInput :: Lens.Lens' CreatePartition PartitionInput
-cpPartitionInput = Lens.lens (partitionInput :: CreatePartition -> PartitionInput) (\s a -> s {partitionInput = a} :: CreatePartition)
-{-# DEPRECATED cpPartitionInput "Use generic-lens or generic-optics with 'partitionInput' instead." #-}
-
--- | The AWS account ID of the catalog in which the partition is to be created.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpCatalogId :: Lens.Lens' CreatePartition (Lude.Maybe Lude.Text)
-cpCatalogId = Lens.lens (catalogId :: CreatePartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreatePartition)
-{-# DEPRECATED cpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the metadata database in which the partition is to be created.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpDatabaseName :: Lens.Lens' CreatePartition Lude.Text
-cpDatabaseName = Lens.lens (databaseName :: CreatePartition -> Lude.Text) (\s a -> s {databaseName = a} :: CreatePartition)
+cpDatabaseName :: Lens.Lens' CreatePartition Types.DatabaseName
+cpDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED cpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the metadata table in which the partition is to be created.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpTableName :: Lens.Lens' CreatePartition Lude.Text
-cpTableName = Lens.lens (tableName :: CreatePartition -> Lude.Text) (\s a -> s {tableName = a} :: CreatePartition)
+cpTableName :: Lens.Lens' CreatePartition Types.TableName
+cpTableName = Lens.field @"tableName"
 {-# DEPRECATED cpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest CreatePartition where
+-- | A @PartitionInput@ structure defining the partition to be created.
+--
+-- /Note:/ Consider using 'partitionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPartitionInput :: Lens.Lens' CreatePartition Types.PartitionInput
+cpPartitionInput = Lens.field @"partitionInput"
+{-# DEPRECATED cpPartitionInput "Use generic-lens or generic-optics with 'partitionInput' instead." #-}
+
+-- | The AWS account ID of the catalog in which the partition is to be created.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpCatalogId :: Lens.Lens' CreatePartition (Core.Maybe Types.CatalogId)
+cpCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED cpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON CreatePartition where
+  toJSON CreatePartition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("PartitionInput" Core..= partitionInput),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest CreatePartition where
   type Rs CreatePartition = CreatePartitionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.CreatePartition")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreatePartitionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreatePartitionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreatePartition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.CreatePartition" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreatePartition where
-  toJSON CreatePartition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PartitionInput" Lude..= partitionInput),
-            ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath CreatePartition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreatePartition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreatePartitionResponse' smart constructor.
 newtype CreatePartitionResponse = CreatePartitionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePartitionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePartitionResponse' value with any optional fields omitted.
 mkCreatePartitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePartitionResponse
-mkCreatePartitionResponse pResponseStatus_ =
-  CreatePartitionResponse' {responseStatus = pResponseStatus_}
+mkCreatePartitionResponse responseStatus =
+  CreatePartitionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsResponseStatus :: Lens.Lens' CreatePartitionResponse Lude.Int
-cprsResponseStatus = Lens.lens (responseStatus :: CreatePartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePartitionResponse)
-{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cprrsResponseStatus :: Lens.Lens' CreatePartitionResponse Core.Int
+cprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

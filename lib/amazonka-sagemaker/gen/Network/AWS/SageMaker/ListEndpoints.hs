@@ -22,259 +22,238 @@ module Network.AWS.SageMaker.ListEndpoints
     mkListEndpoints,
 
     -- ** Request lenses
-    leNameContains,
-    leLastModifiedTimeBefore,
-    leCreationTimeAfter,
-    leNextToken,
-    leSortOrder,
-    leLastModifiedTimeAfter,
-    leCreationTimeBefore,
-    leStatusEquals,
-    leMaxResults,
-    leSortBy,
+    lesCreationTimeAfter,
+    lesCreationTimeBefore,
+    lesLastModifiedTimeAfter,
+    lesLastModifiedTimeBefore,
+    lesMaxResults,
+    lesNameContains,
+    lesNextToken,
+    lesSortBy,
+    lesSortOrder,
+    lesStatusEquals,
 
     -- * Destructuring the response
     ListEndpointsResponse (..),
     mkListEndpointsResponse,
 
     -- ** Response lenses
-    lersNextToken,
-    lersEndpoints,
-    lersResponseStatus,
+    lerfrsEndpoints,
+    lerfrsNextToken,
+    lerfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListEndpoints' smart constructor.
 data ListEndpoints = ListEndpoints'
-  { -- | A string in endpoint names. This filter returns only endpoints whose name contains the specified string.
-    nameContains :: Lude.Maybe Lude.Text,
-    -- | A filter that returns only endpoints that were modified before the specified timestamp.
-    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that returns only endpoints with a creation time greater than or equal to the specified time (timestamp).
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | If the result of a @ListEndpoints@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoints, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for results. The default is @Descending@ .
-    sortOrder :: Lude.Maybe OrderKey,
-    -- | A filter that returns only endpoints that were modified after the specified timestamp.
-    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+  { -- | A filter that returns only endpoints with a creation time greater than or equal to the specified time (timestamp).
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only endpoints that were created before the specified time (timestamp).
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that returns only endpoints with the specified status.
-    statusEquals :: Lude.Maybe EndpointStatus,
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | A filter that returns only endpoints that were modified after the specified timestamp.
+    lastModifiedTimeAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | A filter that returns only endpoints that were modified before the specified timestamp.
+    lastModifiedTimeBefore :: Core.Maybe Core.NominalDiffTime,
     -- | The maximum number of endpoints to return in the response.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string in endpoint names. This filter returns only endpoints whose name contains the specified string.
+    nameContains :: Core.Maybe Types.NameContains,
+    -- | If the result of a @ListEndpoints@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoints, use the token in the next request.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | Sorts the list of results. The default is @CreationTime@ .
-    sortBy :: Lude.Maybe EndpointSortKey
+    sortBy :: Core.Maybe Types.EndpointSortKey,
+    -- | The sort order for results. The default is @Descending@ .
+    sortOrder :: Core.Maybe Types.OrderKey,
+    -- | A filter that returns only endpoints with the specified status.
+    statusEquals :: Core.Maybe Types.EndpointStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListEndpoints' with the minimum fields required to make a request.
---
--- * 'nameContains' - A string in endpoint names. This filter returns only endpoints whose name contains the specified string.
--- * 'lastModifiedTimeBefore' - A filter that returns only endpoints that were modified before the specified timestamp.
--- * 'creationTimeAfter' - A filter that returns only endpoints with a creation time greater than or equal to the specified time (timestamp).
--- * 'nextToken' - If the result of a @ListEndpoints@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoints, use the token in the next request.
--- * 'sortOrder' - The sort order for results. The default is @Descending@ .
--- * 'lastModifiedTimeAfter' - A filter that returns only endpoints that were modified after the specified timestamp.
--- * 'creationTimeBefore' - A filter that returns only endpoints that were created before the specified time (timestamp).
--- * 'statusEquals' - A filter that returns only endpoints with the specified status.
--- * 'maxResults' - The maximum number of endpoints to return in the response.
--- * 'sortBy' - Sorts the list of results. The default is @CreationTime@ .
+-- | Creates a 'ListEndpoints' value with any optional fields omitted.
 mkListEndpoints ::
   ListEndpoints
 mkListEndpoints =
   ListEndpoints'
-    { nameContains = Lude.Nothing,
-      lastModifiedTimeBefore = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      lastModifiedTimeAfter = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing,
-      statusEquals = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      lastModifiedTimeAfter = Core.Nothing,
+      lastModifiedTimeBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing,
+      statusEquals = Core.Nothing
     }
-
--- | A string in endpoint names. This filter returns only endpoints whose name contains the specified string.
---
--- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leNameContains :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Text)
-leNameContains = Lens.lens (nameContains :: ListEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListEndpoints)
-{-# DEPRECATED leNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
-
--- | A filter that returns only endpoints that were modified before the specified timestamp.
---
--- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leLastModifiedTimeBefore :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Timestamp)
-leLastModifiedTimeBefore = Lens.lens (lastModifiedTimeBefore :: ListEndpoints -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeBefore = a} :: ListEndpoints)
-{-# DEPRECATED leLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | A filter that returns only endpoints with a creation time greater than or equal to the specified time (timestamp).
 --
 -- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leCreationTimeAfter :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Timestamp)
-leCreationTimeAfter = Lens.lens (creationTimeAfter :: ListEndpoints -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListEndpoints)
-{-# DEPRECATED leCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
-
--- | If the result of a @ListEndpoints@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoints, use the token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leNextToken :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Text)
-leNextToken = Lens.lens (nextToken :: ListEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpoints)
-{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for results. The default is @Descending@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leSortOrder :: Lens.Lens' ListEndpoints (Lude.Maybe OrderKey)
-leSortOrder = Lens.lens (sortOrder :: ListEndpoints -> Lude.Maybe OrderKey) (\s a -> s {sortOrder = a} :: ListEndpoints)
-{-# DEPRECATED leSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | A filter that returns only endpoints that were modified after the specified timestamp.
---
--- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leLastModifiedTimeAfter :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Timestamp)
-leLastModifiedTimeAfter = Lens.lens (lastModifiedTimeAfter :: ListEndpoints -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeAfter = a} :: ListEndpoints)
-{-# DEPRECATED leLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
+lesCreationTimeAfter :: Lens.Lens' ListEndpoints (Core.Maybe Core.NominalDiffTime)
+lesCreationTimeAfter = Lens.field @"creationTimeAfter"
+{-# DEPRECATED lesCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | A filter that returns only endpoints that were created before the specified time (timestamp).
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leCreationTimeBefore :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Timestamp)
-leCreationTimeBefore = Lens.lens (creationTimeBefore :: ListEndpoints -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListEndpoints)
-{-# DEPRECATED leCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
+lesCreationTimeBefore :: Lens.Lens' ListEndpoints (Core.Maybe Core.NominalDiffTime)
+lesCreationTimeBefore = Lens.field @"creationTimeBefore"
+{-# DEPRECATED lesCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
--- | A filter that returns only endpoints with the specified status.
+-- | A filter that returns only endpoints that were modified after the specified timestamp.
 --
--- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leStatusEquals :: Lens.Lens' ListEndpoints (Lude.Maybe EndpointStatus)
-leStatusEquals = Lens.lens (statusEquals :: ListEndpoints -> Lude.Maybe EndpointStatus) (\s a -> s {statusEquals = a} :: ListEndpoints)
-{-# DEPRECATED leStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+-- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesLastModifiedTimeAfter :: Lens.Lens' ListEndpoints (Core.Maybe Core.NominalDiffTime)
+lesLastModifiedTimeAfter = Lens.field @"lastModifiedTimeAfter"
+{-# DEPRECATED lesLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
+
+-- | A filter that returns only endpoints that were modified before the specified timestamp.
+--
+-- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesLastModifiedTimeBefore :: Lens.Lens' ListEndpoints (Core.Maybe Core.NominalDiffTime)
+lesLastModifiedTimeBefore = Lens.field @"lastModifiedTimeBefore"
+{-# DEPRECATED lesLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | The maximum number of endpoints to return in the response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leMaxResults :: Lens.Lens' ListEndpoints (Lude.Maybe Lude.Natural)
-leMaxResults = Lens.lens (maxResults :: ListEndpoints -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEndpoints)
-{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lesMaxResults :: Lens.Lens' ListEndpoints (Core.Maybe Core.Natural)
+lesMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lesMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A string in endpoint names. This filter returns only endpoints whose name contains the specified string.
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesNameContains :: Lens.Lens' ListEndpoints (Core.Maybe Types.NameContains)
+lesNameContains = Lens.field @"nameContains"
+{-# DEPRECATED lesNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+
+-- | If the result of a @ListEndpoints@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoints, use the token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesNextToken :: Lens.Lens' ListEndpoints (Core.Maybe Types.PaginationToken)
+lesNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lesNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Sorts the list of results. The default is @CreationTime@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leSortBy :: Lens.Lens' ListEndpoints (Lude.Maybe EndpointSortKey)
-leSortBy = Lens.lens (sortBy :: ListEndpoints -> Lude.Maybe EndpointSortKey) (\s a -> s {sortBy = a} :: ListEndpoints)
-{-# DEPRECATED leSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
+lesSortBy :: Lens.Lens' ListEndpoints (Core.Maybe Types.EndpointSortKey)
+lesSortBy = Lens.field @"sortBy"
+{-# DEPRECATED lesSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListEndpoints where
-  page rq rs
-    | Page.stop (rs Lens.^. lersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lersEndpoints) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& leNextToken Lens..~ rs Lens.^. lersNextToken
+-- | The sort order for results. The default is @Descending@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesSortOrder :: Lens.Lens' ListEndpoints (Core.Maybe Types.OrderKey)
+lesSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED lesSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListEndpoints where
+-- | A filter that returns only endpoints with the specified status.
+--
+-- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesStatusEquals :: Lens.Lens' ListEndpoints (Core.Maybe Types.EndpointStatus)
+lesStatusEquals = Lens.field @"statusEquals"
+{-# DEPRECATED lesStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+
+instance Core.FromJSON ListEndpoints where
+  toJSON ListEndpoints {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CreationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("CreationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("LastModifiedTimeAfter" Core..=) Core.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Core..=) Core.<$> lastModifiedTimeBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("StatusEquals" Core..=) Core.<$> statusEquals
+          ]
+      )
+
+instance Core.AWSRequest ListEndpoints where
   type Rs ListEndpoints = ListEndpointsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListEndpoints")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListEndpointsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Endpoints" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Endpoints" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListEndpoints where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListEndpoints" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListEndpoints where
-  toJSON ListEndpoints' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("LastModifiedTimeBefore" Lude..=) Lude.<$> lastModifiedTimeBefore,
-            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
-            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
-            ("StatusEquals" Lude..=) Lude.<$> statusEquals,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListEndpoints where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListEndpoints where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListEndpoints where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"endpoints") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListEndpointsResponse' smart constructor.
 data ListEndpointsResponse = ListEndpointsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array or endpoint objects.
-    endpoints :: [EndpointSummary],
+  { -- | An array or endpoint objects.
+    endpoints :: [Types.EndpointSummary],
+    -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListEndpointsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.
--- * 'endpoints' - An array or endpoint objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListEndpointsResponse' value with any optional fields omitted.
 mkListEndpointsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListEndpointsResponse
-mkListEndpointsResponse pResponseStatus_ =
+mkListEndpointsResponse responseStatus =
   ListEndpointsResponse'
-    { nextToken = Lude.Nothing,
-      endpoints = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { endpoints = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersNextToken :: Lens.Lens' ListEndpointsResponse (Lude.Maybe Lude.Text)
-lersNextToken = Lens.lens (nextToken :: ListEndpointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointsResponse)
-{-# DEPRECATED lersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array or endpoint objects.
 --
 -- /Note:/ Consider using 'endpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersEndpoints :: Lens.Lens' ListEndpointsResponse [EndpointSummary]
-lersEndpoints = Lens.lens (endpoints :: ListEndpointsResponse -> [EndpointSummary]) (\s a -> s {endpoints = a} :: ListEndpointsResponse)
-{-# DEPRECATED lersEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
+lerfrsEndpoints :: Lens.Lens' ListEndpointsResponse [Types.EndpointSummary]
+lerfrsEndpoints = Lens.field @"endpoints"
+{-# DEPRECATED lerfrsEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
+
+-- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lerfrsNextToken :: Lens.Lens' ListEndpointsResponse (Core.Maybe Types.PaginationToken)
+lerfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lerfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersResponseStatus :: Lens.Lens' ListEndpointsResponse Lude.Int
-lersResponseStatus = Lens.lens (responseStatus :: ListEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEndpointsResponse)
-{-# DEPRECATED lersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lerfrsResponseStatus :: Lens.Lens' ListEndpointsResponse Core.Int
+lerfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lerfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

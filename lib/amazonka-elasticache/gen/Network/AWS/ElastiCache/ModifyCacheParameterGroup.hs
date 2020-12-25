@@ -24,81 +24,87 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     mcpgParameterNameValues,
 
     -- * Destructuring the response
-    CacheParameterGroupNameMessage (..),
-    mkCacheParameterGroupNameMessage,
+    Types.CacheParameterGroupNameMessage (..),
+    Types.mkCacheParameterGroupNameMessage,
 
     -- ** Response lenses
-    cpgnmCacheParameterGroupName,
+    Types.cpgnmCacheParameterGroupName,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @ModifyCacheParameterGroup@ operation.
 --
 -- /See:/ 'mkModifyCacheParameterGroup' smart constructor.
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
   { -- | The name of the cache parameter group to modify.
-    cacheParameterGroupName :: Lude.Text,
+    cacheParameterGroupName :: Types.String,
     -- | An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.
-    parameterNameValues :: [ParameterNameValue]
+    parameterNameValues :: [Types.ParameterNameValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyCacheParameterGroup' with the minimum fields required to make a request.
---
--- * 'cacheParameterGroupName' - The name of the cache parameter group to modify.
--- * 'parameterNameValues' - An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.
+-- | Creates a 'ModifyCacheParameterGroup' value with any optional fields omitted.
 mkModifyCacheParameterGroup ::
   -- | 'cacheParameterGroupName'
-  Lude.Text ->
+  Types.String ->
   ModifyCacheParameterGroup
-mkModifyCacheParameterGroup pCacheParameterGroupName_ =
+mkModifyCacheParameterGroup cacheParameterGroupName =
   ModifyCacheParameterGroup'
-    { cacheParameterGroupName =
-        pCacheParameterGroupName_,
-      parameterNameValues = Lude.mempty
+    { cacheParameterGroupName,
+      parameterNameValues = Core.mempty
     }
 
 -- | The name of the cache parameter group to modify.
 --
 -- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcpgCacheParameterGroupName :: Lens.Lens' ModifyCacheParameterGroup Lude.Text
-mcpgCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: ModifyCacheParameterGroup -> Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: ModifyCacheParameterGroup)
+mcpgCacheParameterGroupName :: Lens.Lens' ModifyCacheParameterGroup Types.String
+mcpgCacheParameterGroupName = Lens.field @"cacheParameterGroupName"
 {-# DEPRECATED mcpgCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
 -- | An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.
 --
 -- /Note:/ Consider using 'parameterNameValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcpgParameterNameValues :: Lens.Lens' ModifyCacheParameterGroup [ParameterNameValue]
-mcpgParameterNameValues = Lens.lens (parameterNameValues :: ModifyCacheParameterGroup -> [ParameterNameValue]) (\s a -> s {parameterNameValues = a} :: ModifyCacheParameterGroup)
+mcpgParameterNameValues :: Lens.Lens' ModifyCacheParameterGroup [Types.ParameterNameValue]
+mcpgParameterNameValues = Lens.field @"parameterNameValues"
 {-# DEPRECATED mcpgParameterNameValues "Use generic-lens or generic-optics with 'parameterNameValues' instead." #-}
 
-instance Lude.AWSRequest ModifyCacheParameterGroup where
-  type Rs ModifyCacheParameterGroup = CacheParameterGroupNameMessage
-  request = Req.postQuery elastiCacheService
+instance Core.AWSRequest ModifyCacheParameterGroup where
+  type
+    Rs ModifyCacheParameterGroup =
+      Types.CacheParameterGroupNameMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyCacheParameterGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue
+                            "CacheParameterGroupName"
+                            cacheParameterGroupName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "ParameterNameValues"
+                            (Core.toQueryList "ParameterNameValue" parameterNameValues)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifyCacheParameterGroupResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ModifyCacheParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyCacheParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyCacheParameterGroup where
-  toQuery ModifyCacheParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyCacheParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheParameterGroupName" Lude.=: cacheParameterGroupName,
-        "ParameterNameValues"
-          Lude.=: Lude.toQueryList "ParameterNameValue" parameterNameValues
-      ]
+      (\s h x -> Core.parseXML x)

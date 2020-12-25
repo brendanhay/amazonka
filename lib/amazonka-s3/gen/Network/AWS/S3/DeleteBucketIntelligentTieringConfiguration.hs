@@ -43,80 +43,73 @@ module Network.AWS.S3.DeleteBucketIntelligentTieringConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkDeleteBucketIntelligentTieringConfiguration' smart constructor.
 data DeleteBucketIntelligentTieringConfiguration = DeleteBucketIntelligentTieringConfiguration'
   { -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketIntelligentTieringConfiguration' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
--- * 'id' - The ID used to identify the S3 Intelligent-Tiering configuration.
+-- | Creates a 'DeleteBucketIntelligentTieringConfiguration' value with any optional fields omitted.
 mkDeleteBucketIntelligentTieringConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeleteBucketIntelligentTieringConfiguration
-mkDeleteBucketIntelligentTieringConfiguration pBucket_ pId_ =
-  DeleteBucketIntelligentTieringConfiguration'
-    { bucket = pBucket_,
-      id = pId_
-    }
+mkDeleteBucketIntelligentTieringConfiguration bucket id =
+  DeleteBucketIntelligentTieringConfiguration' {bucket, id}
 
 -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbitcBucket :: Lens.Lens' DeleteBucketIntelligentTieringConfiguration BucketName
-dbitcBucket = Lens.lens (bucket :: DeleteBucketIntelligentTieringConfiguration -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketIntelligentTieringConfiguration)
+dbitcBucket :: Lens.Lens' DeleteBucketIntelligentTieringConfiguration Types.BucketName
+dbitcBucket = Lens.field @"bucket"
 {-# DEPRECATED dbitcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the S3 Intelligent-Tiering configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbitcId :: Lens.Lens' DeleteBucketIntelligentTieringConfiguration Lude.Text
-dbitcId = Lens.lens (id :: DeleteBucketIntelligentTieringConfiguration -> Lude.Text) (\s a -> s {id = a} :: DeleteBucketIntelligentTieringConfiguration)
+dbitcId :: Lens.Lens' DeleteBucketIntelligentTieringConfiguration Types.Id
+dbitcId = Lens.field @"id"
 {-# DEPRECATED dbitcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance
-  Lude.AWSRequest
+  Core.AWSRequest
     DeleteBucketIntelligentTieringConfiguration
   where
   type
     Rs DeleteBucketIntelligentTieringConfiguration =
       DeleteBucketIntelligentTieringConfigurationResponse
-  request = Req.delete s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "id" id
+            Core.<> (Core.pure ("intelligent-tiering", "")),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveNull
+    Response.receiveNull
       DeleteBucketIntelligentTieringConfigurationResponse'
-
-instance Lude.ToHeaders DeleteBucketIntelligentTieringConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteBucketIntelligentTieringConfiguration where
-  toPath DeleteBucketIntelligentTieringConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery DeleteBucketIntelligentTieringConfiguration where
-  toQuery DeleteBucketIntelligentTieringConfiguration' {..} =
-    Lude.mconcat ["id" Lude.=: id, "intelligent-tiering"]
 
 -- | /See:/ 'mkDeleteBucketIntelligentTieringConfigurationResponse' smart constructor.
 data DeleteBucketIntelligentTieringConfigurationResponse = DeleteBucketIntelligentTieringConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketIntelligentTieringConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBucketIntelligentTieringConfigurationResponse' value with any optional fields omitted.
 mkDeleteBucketIntelligentTieringConfigurationResponse ::
   DeleteBucketIntelligentTieringConfigurationResponse
 mkDeleteBucketIntelligentTieringConfigurationResponse =

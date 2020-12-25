@@ -17,90 +17,78 @@ module Network.AWS.Pinpoint.Types.ApplicationResponse
     mkApplicationResponse,
 
     -- * Lenses
-    afARN,
-    afName,
-    afId,
-    afTags,
+    arId,
+    arArn,
+    arName,
+    arTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about an application.
 --
 -- /See:/ 'mkApplicationResponse' smart constructor.
 data ApplicationResponse = ApplicationResponse'
-  { -- | The Amazon Resource Name (ARN) of the application.
-    arn :: Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    id :: Core.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
+    arn :: Core.Text,
     -- | The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
-    name :: Lude.Text,
-    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    id :: Lude.Text,
+    name :: Core.Text,
     -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the application.
--- * 'name' - The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
--- * 'id' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.
+-- | Creates a 'ApplicationResponse' value with any optional fields omitted.
 mkApplicationResponse ::
-  -- | 'arn'
-  Lude.Text ->
-  -- | 'name'
-  Lude.Text ->
   -- | 'id'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'arn'
+  Core.Text ->
+  -- | 'name'
+  Core.Text ->
   ApplicationResponse
-mkApplicationResponse pARN_ pName_ pId_ =
-  ApplicationResponse'
-    { arn = pARN_,
-      name = pName_,
-      id = pId_,
-      tags = Lude.Nothing
-    }
-
--- | The Amazon Resource Name (ARN) of the application.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afARN :: Lens.Lens' ApplicationResponse Lude.Text
-afARN = Lens.lens (arn :: ApplicationResponse -> Lude.Text) (\s a -> s {arn = a} :: ApplicationResponse)
-{-# DEPRECATED afARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afName :: Lens.Lens' ApplicationResponse Lude.Text
-afName = Lens.lens (name :: ApplicationResponse -> Lude.Text) (\s a -> s {name = a} :: ApplicationResponse)
-{-# DEPRECATED afName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkApplicationResponse id arn name =
+  ApplicationResponse' {id, arn, name, tags = Core.Nothing}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afId :: Lens.Lens' ApplicationResponse Lude.Text
-afId = Lens.lens (id :: ApplicationResponse -> Lude.Text) (\s a -> s {id = a} :: ApplicationResponse)
-{-# DEPRECATED afId "Use generic-lens or generic-optics with 'id' instead." #-}
+arId :: Lens.Lens' ApplicationResponse Core.Text
+arId = Lens.field @"id"
+{-# DEPRECATED arId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the application.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arArn :: Lens.Lens' ApplicationResponse Core.Text
+arArn = Lens.field @"arn"
+{-# DEPRECATED arArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arName :: Lens.Lens' ApplicationResponse Core.Text
+arName = Lens.field @"name"
+{-# DEPRECATED arName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afTags :: Lens.Lens' ApplicationResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-afTags = Lens.lens (tags :: ApplicationResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ApplicationResponse)
-{-# DEPRECATED afTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+arTags :: Lens.Lens' ApplicationResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+arTags = Lens.field @"tags"
+{-# DEPRECATED arTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ApplicationResponse where
+instance Core.FromJSON ApplicationResponse where
   parseJSON =
-    Lude.withObject
-      "ApplicationResponse"
-      ( \x ->
-          ApplicationResponse'
-            Lude.<$> (x Lude..: "Arn")
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ApplicationResponse" Core.$
+      \x ->
+        ApplicationResponse'
+          Core.<$> (x Core..: "Id")
+          Core.<*> (x Core..: "Arn")
+          Core.<*> (x Core..: "Name")
+          Core.<*> (x Core..:? "tags")

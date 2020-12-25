@@ -17,16 +17,17 @@ module Network.AWS.DAX.Types.SubnetGroup
     mkSubnetGroup,
 
     -- * Lenses
-    sgVPCId,
-    sgSubnets,
-    sgSubnetGroupName,
     sgDescription,
+    sgSubnetGroupName,
+    sgSubnets,
+    sgVpcId,
   )
 where
 
-import Network.AWS.DAX.Types.Subnet
+import qualified Network.AWS.DAX.Types.String as Types
+import qualified Network.AWS.DAX.Types.Subnet as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of one of the following actions:
 --
@@ -40,70 +41,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnetGroup' smart constructor.
 data SubnetGroup = SubnetGroup'
-  { -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | A list of subnets associated with the subnet group.
-    subnets :: Lude.Maybe [Subnet],
+  { -- | The description of the subnet group.
+    description :: Core.Maybe Types.String,
     -- | The name of the subnet group.
-    subnetGroupName :: Lude.Maybe Lude.Text,
-    -- | The description of the subnet group.
-    description :: Lude.Maybe Lude.Text
+    subnetGroupName :: Core.Maybe Types.String,
+    -- | A list of subnets associated with the subnet group.
+    subnets :: Core.Maybe [Types.Subnet],
+    -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubnetGroup' with the minimum fields required to make a request.
---
--- * 'vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
--- * 'subnets' - A list of subnets associated with the subnet group.
--- * 'subnetGroupName' - The name of the subnet group.
--- * 'description' - The description of the subnet group.
+-- | Creates a 'SubnetGroup' value with any optional fields omitted.
 mkSubnetGroup ::
   SubnetGroup
 mkSubnetGroup =
   SubnetGroup'
-    { vpcId = Lude.Nothing,
-      subnets = Lude.Nothing,
-      subnetGroupName = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      subnetGroupName = Core.Nothing,
+      subnets = Core.Nothing,
+      vpcId = Core.Nothing
     }
-
--- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgVPCId :: Lens.Lens' SubnetGroup (Lude.Maybe Lude.Text)
-sgVPCId = Lens.lens (vpcId :: SubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: SubnetGroup)
-{-# DEPRECATED sgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | A list of subnets associated with the subnet group.
---
--- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgSubnets :: Lens.Lens' SubnetGroup (Lude.Maybe [Subnet])
-sgSubnets = Lens.lens (subnets :: SubnetGroup -> Lude.Maybe [Subnet]) (\s a -> s {subnets = a} :: SubnetGroup)
-{-# DEPRECATED sgSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
-
--- | The name of the subnet group.
---
--- /Note:/ Consider using 'subnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgSubnetGroupName :: Lens.Lens' SubnetGroup (Lude.Maybe Lude.Text)
-sgSubnetGroupName = Lens.lens (subnetGroupName :: SubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {subnetGroupName = a} :: SubnetGroup)
-{-# DEPRECATED sgSubnetGroupName "Use generic-lens or generic-optics with 'subnetGroupName' instead." #-}
 
 -- | The description of the subnet group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgDescription :: Lens.Lens' SubnetGroup (Lude.Maybe Lude.Text)
-sgDescription = Lens.lens (description :: SubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SubnetGroup)
+sgDescription :: Lens.Lens' SubnetGroup (Core.Maybe Types.String)
+sgDescription = Lens.field @"description"
 {-# DEPRECATED sgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON SubnetGroup where
+-- | The name of the subnet group.
+--
+-- /Note:/ Consider using 'subnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgSubnetGroupName :: Lens.Lens' SubnetGroup (Core.Maybe Types.String)
+sgSubnetGroupName = Lens.field @"subnetGroupName"
+{-# DEPRECATED sgSubnetGroupName "Use generic-lens or generic-optics with 'subnetGroupName' instead." #-}
+
+-- | A list of subnets associated with the subnet group.
+--
+-- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgSubnets :: Lens.Lens' SubnetGroup (Core.Maybe [Types.Subnet])
+sgSubnets = Lens.field @"subnets"
+{-# DEPRECATED sgSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
+
+-- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgVpcId :: Lens.Lens' SubnetGroup (Core.Maybe Types.String)
+sgVpcId = Lens.field @"vpcId"
+{-# DEPRECATED sgVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromJSON SubnetGroup where
   parseJSON =
-    Lude.withObject
-      "SubnetGroup"
-      ( \x ->
-          SubnetGroup'
-            Lude.<$> (x Lude..:? "VpcId")
-            Lude.<*> (x Lude..:? "Subnets" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SubnetGroupName")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "SubnetGroup" Core.$
+      \x ->
+        SubnetGroup'
+          Core.<$> (x Core..:? "Description")
+          Core.<*> (x Core..:? "SubnetGroupName")
+          Core.<*> (x Core..:? "Subnets")
+          Core.<*> (x Core..:? "VpcId")

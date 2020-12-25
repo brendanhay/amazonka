@@ -20,230 +20,212 @@ module Network.AWS.Greengrass.CreateSoftwareUpdateJob
     mkCreateSoftwareUpdateJob,
 
     -- ** Request lenses
-    csujUpdateAgentLogLevel,
-    csujAmznClientToken,
-    csujSoftwareToUpdate,
-    csujUpdateTargetsOperatingSystem,
-    csujS3URLSignerRole,
-    csujUpdateTargets,
+    csujS3UrlSignerRole,
     csujUpdateTargetsArchitecture,
+    csujSoftwareToUpdate,
+    csujUpdateTargets,
+    csujUpdateTargetsOperatingSystem,
+    csujAmznClientToken,
+    csujUpdateAgentLogLevel,
 
     -- * Destructuring the response
     CreateSoftwareUpdateJobResponse (..),
     mkCreateSoftwareUpdateJobResponse,
 
     -- ** Response lenses
-    csujrsPlatformSoftwareVersion,
-    csujrsIotJobARN,
-    csujrsIotJobId,
-    csujrsResponseStatus,
+    csujrrsIotJobArn,
+    csujrrsIotJobId,
+    csujrrsPlatformSoftwareVersion,
+    csujrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateSoftwareUpdateJob' smart constructor.
 data CreateSoftwareUpdateJob = CreateSoftwareUpdateJob'
-  { updateAgentLogLevel :: Lude.Maybe UpdateAgentLogLevel,
+  { s3UrlSignerRole :: Types.S3UrlSignerRole,
+    updateTargetsArchitecture :: Types.UpdateTargetsArchitecture,
+    softwareToUpdate :: Types.SoftwareToUpdate,
+    updateTargets :: [Core.Text],
+    updateTargetsOperatingSystem :: Types.UpdateTargetsOperatingSystem,
     -- | A client token used to correlate requests and responses.
-    amznClientToken :: Lude.Maybe Lude.Text,
-    softwareToUpdate :: SoftwareToUpdate,
-    updateTargetsOperatingSystem :: UpdateTargetsOperatingSystem,
-    s3URLSignerRole :: Lude.Text,
-    updateTargets :: [Lude.Text],
-    updateTargetsArchitecture :: UpdateTargetsArchitecture
+    amznClientToken :: Core.Maybe Core.Text,
+    updateAgentLogLevel :: Core.Maybe Types.UpdateAgentLogLevel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSoftwareUpdateJob' with the minimum fields required to make a request.
---
--- * 'updateAgentLogLevel' -
--- * 'amznClientToken' - A client token used to correlate requests and responses.
--- * 'softwareToUpdate' -
--- * 'updateTargetsOperatingSystem' -
--- * 's3URLSignerRole' -
--- * 'updateTargets' -
--- * 'updateTargetsArchitecture' -
+-- | Creates a 'CreateSoftwareUpdateJob' value with any optional fields omitted.
 mkCreateSoftwareUpdateJob ::
-  -- | 'softwareToUpdate'
-  SoftwareToUpdate ->
-  -- | 'updateTargetsOperatingSystem'
-  UpdateTargetsOperatingSystem ->
-  -- | 's3URLSignerRole'
-  Lude.Text ->
+  -- | 's3UrlSignerRole'
+  Types.S3UrlSignerRole ->
   -- | 'updateTargetsArchitecture'
-  UpdateTargetsArchitecture ->
+  Types.UpdateTargetsArchitecture ->
+  -- | 'softwareToUpdate'
+  Types.SoftwareToUpdate ->
+  -- | 'updateTargetsOperatingSystem'
+  Types.UpdateTargetsOperatingSystem ->
   CreateSoftwareUpdateJob
 mkCreateSoftwareUpdateJob
-  pSoftwareToUpdate_
-  pUpdateTargetsOperatingSystem_
-  pS3URLSignerRole_
-  pUpdateTargetsArchitecture_ =
+  s3UrlSignerRole
+  updateTargetsArchitecture
+  softwareToUpdate
+  updateTargetsOperatingSystem =
     CreateSoftwareUpdateJob'
-      { updateAgentLogLevel = Lude.Nothing,
-        amznClientToken = Lude.Nothing,
-        softwareToUpdate = pSoftwareToUpdate_,
-        updateTargetsOperatingSystem = pUpdateTargetsOperatingSystem_,
-        s3URLSignerRole = pS3URLSignerRole_,
-        updateTargets = Lude.mempty,
-        updateTargetsArchitecture = pUpdateTargetsArchitecture_
+      { s3UrlSignerRole,
+        updateTargetsArchitecture,
+        softwareToUpdate,
+        updateTargets = Core.mempty,
+        updateTargetsOperatingSystem,
+        amznClientToken = Core.Nothing,
+        updateAgentLogLevel = Core.Nothing
       }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'updateAgentLogLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujUpdateAgentLogLevel :: Lens.Lens' CreateSoftwareUpdateJob (Lude.Maybe UpdateAgentLogLevel)
-csujUpdateAgentLogLevel = Lens.lens (updateAgentLogLevel :: CreateSoftwareUpdateJob -> Lude.Maybe UpdateAgentLogLevel) (\s a -> s {updateAgentLogLevel = a} :: CreateSoftwareUpdateJob)
-{-# DEPRECATED csujUpdateAgentLogLevel "Use generic-lens or generic-optics with 'updateAgentLogLevel' instead." #-}
-
--- | A client token used to correlate requests and responses.
---
--- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujAmznClientToken :: Lens.Lens' CreateSoftwareUpdateJob (Lude.Maybe Lude.Text)
-csujAmznClientToken = Lens.lens (amznClientToken :: CreateSoftwareUpdateJob -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateSoftwareUpdateJob)
-{-# DEPRECATED csujAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'softwareToUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujSoftwareToUpdate :: Lens.Lens' CreateSoftwareUpdateJob SoftwareToUpdate
-csujSoftwareToUpdate = Lens.lens (softwareToUpdate :: CreateSoftwareUpdateJob -> SoftwareToUpdate) (\s a -> s {softwareToUpdate = a} :: CreateSoftwareUpdateJob)
-{-# DEPRECATED csujSoftwareToUpdate "Use generic-lens or generic-optics with 'softwareToUpdate' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'updateTargetsOperatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujUpdateTargetsOperatingSystem :: Lens.Lens' CreateSoftwareUpdateJob UpdateTargetsOperatingSystem
-csujUpdateTargetsOperatingSystem = Lens.lens (updateTargetsOperatingSystem :: CreateSoftwareUpdateJob -> UpdateTargetsOperatingSystem) (\s a -> s {updateTargetsOperatingSystem = a} :: CreateSoftwareUpdateJob)
-{-# DEPRECATED csujUpdateTargetsOperatingSystem "Use generic-lens or generic-optics with 'updateTargetsOperatingSystem' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 's3URLSignerRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujS3URLSignerRole :: Lens.Lens' CreateSoftwareUpdateJob Lude.Text
-csujS3URLSignerRole = Lens.lens (s3URLSignerRole :: CreateSoftwareUpdateJob -> Lude.Text) (\s a -> s {s3URLSignerRole = a} :: CreateSoftwareUpdateJob)
-{-# DEPRECATED csujS3URLSignerRole "Use generic-lens or generic-optics with 's3URLSignerRole' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'updateTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujUpdateTargets :: Lens.Lens' CreateSoftwareUpdateJob [Lude.Text]
-csujUpdateTargets = Lens.lens (updateTargets :: CreateSoftwareUpdateJob -> [Lude.Text]) (\s a -> s {updateTargets = a} :: CreateSoftwareUpdateJob)
-{-# DEPRECATED csujUpdateTargets "Use generic-lens or generic-optics with 'updateTargets' instead." #-}
+-- /Note:/ Consider using 's3UrlSignerRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csujS3UrlSignerRole :: Lens.Lens' CreateSoftwareUpdateJob Types.S3UrlSignerRole
+csujS3UrlSignerRole = Lens.field @"s3UrlSignerRole"
+{-# DEPRECATED csujS3UrlSignerRole "Use generic-lens or generic-optics with 's3UrlSignerRole' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'updateTargetsArchitecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujUpdateTargetsArchitecture :: Lens.Lens' CreateSoftwareUpdateJob UpdateTargetsArchitecture
-csujUpdateTargetsArchitecture = Lens.lens (updateTargetsArchitecture :: CreateSoftwareUpdateJob -> UpdateTargetsArchitecture) (\s a -> s {updateTargetsArchitecture = a} :: CreateSoftwareUpdateJob)
+csujUpdateTargetsArchitecture :: Lens.Lens' CreateSoftwareUpdateJob Types.UpdateTargetsArchitecture
+csujUpdateTargetsArchitecture = Lens.field @"updateTargetsArchitecture"
 {-# DEPRECATED csujUpdateTargetsArchitecture "Use generic-lens or generic-optics with 'updateTargetsArchitecture' instead." #-}
 
-instance Lude.AWSRequest CreateSoftwareUpdateJob where
-  type Rs CreateSoftwareUpdateJob = CreateSoftwareUpdateJobResponse
-  request = Req.postJSON greengrassService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateSoftwareUpdateJobResponse'
-            Lude.<$> (x Lude..?> "PlatformSoftwareVersion")
-            Lude.<*> (x Lude..?> "IotJobArn")
-            Lude.<*> (x Lude..?> "IotJobId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'softwareToUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csujSoftwareToUpdate :: Lens.Lens' CreateSoftwareUpdateJob Types.SoftwareToUpdate
+csujSoftwareToUpdate = Lens.field @"softwareToUpdate"
+{-# DEPRECATED csujSoftwareToUpdate "Use generic-lens or generic-optics with 'softwareToUpdate' instead." #-}
 
-instance Lude.ToHeaders CreateSoftwareUpdateJob where
-  toHeaders CreateSoftwareUpdateJob' {..} =
-    Lude.mconcat
-      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'updateTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csujUpdateTargets :: Lens.Lens' CreateSoftwareUpdateJob [Core.Text]
+csujUpdateTargets = Lens.field @"updateTargets"
+{-# DEPRECATED csujUpdateTargets "Use generic-lens or generic-optics with 'updateTargets' instead." #-}
 
-instance Lude.ToJSON CreateSoftwareUpdateJob where
-  toJSON CreateSoftwareUpdateJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UpdateAgentLogLevel" Lude..=) Lude.<$> updateAgentLogLevel,
-            Lude.Just ("SoftwareToUpdate" Lude..= softwareToUpdate),
-            Lude.Just
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'updateTargetsOperatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csujUpdateTargetsOperatingSystem :: Lens.Lens' CreateSoftwareUpdateJob Types.UpdateTargetsOperatingSystem
+csujUpdateTargetsOperatingSystem = Lens.field @"updateTargetsOperatingSystem"
+{-# DEPRECATED csujUpdateTargetsOperatingSystem "Use generic-lens or generic-optics with 'updateTargetsOperatingSystem' instead." #-}
+
+-- | A client token used to correlate requests and responses.
+--
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csujAmznClientToken :: Lens.Lens' CreateSoftwareUpdateJob (Core.Maybe Core.Text)
+csujAmznClientToken = Lens.field @"amznClientToken"
+{-# DEPRECATED csujAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'updateAgentLogLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csujUpdateAgentLogLevel :: Lens.Lens' CreateSoftwareUpdateJob (Core.Maybe Types.UpdateAgentLogLevel)
+csujUpdateAgentLogLevel = Lens.field @"updateAgentLogLevel"
+{-# DEPRECATED csujUpdateAgentLogLevel "Use generic-lens or generic-optics with 'updateAgentLogLevel' instead." #-}
+
+instance Core.FromJSON CreateSoftwareUpdateJob where
+  toJSON CreateSoftwareUpdateJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3UrlSignerRole" Core..= s3UrlSignerRole),
+            Core.Just
+              ("UpdateTargetsArchitecture" Core..= updateTargetsArchitecture),
+            Core.Just ("SoftwareToUpdate" Core..= softwareToUpdate),
+            Core.Just ("UpdateTargets" Core..= updateTargets),
+            Core.Just
               ( "UpdateTargetsOperatingSystem"
-                  Lude..= updateTargetsOperatingSystem
+                  Core..= updateTargetsOperatingSystem
               ),
-            Lude.Just ("S3UrlSignerRole" Lude..= s3URLSignerRole),
-            Lude.Just ("UpdateTargets" Lude..= updateTargets),
-            Lude.Just
-              ("UpdateTargetsArchitecture" Lude..= updateTargetsArchitecture)
+            ("UpdateAgentLogLevel" Core..=) Core.<$> updateAgentLogLevel
           ]
       )
 
-instance Lude.ToPath CreateSoftwareUpdateJob where
-  toPath = Lude.const "/greengrass/updates"
-
-instance Lude.ToQuery CreateSoftwareUpdateJob where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateSoftwareUpdateJob where
+  type Rs CreateSoftwareUpdateJob = CreateSoftwareUpdateJobResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/greengrass/updates",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "X-Amzn-Client-Token" amznClientToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateSoftwareUpdateJobResponse'
+            Core.<$> (x Core..:? "IotJobArn")
+            Core.<*> (x Core..:? "IotJobId")
+            Core.<*> (x Core..:? "PlatformSoftwareVersion")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateSoftwareUpdateJobResponse' smart constructor.
 data CreateSoftwareUpdateJobResponse = CreateSoftwareUpdateJobResponse'
-  { -- | The software version installed on the device or devices after the update.
-    platformSoftwareVersion :: Lude.Maybe Lude.Text,
-    -- | The IoT Job ARN corresponding to this update.
-    iotJobARN :: Lude.Maybe Lude.Text,
+  { -- | The IoT Job ARN corresponding to this update.
+    iotJobArn :: Core.Maybe Core.Text,
     -- | The IoT Job Id corresponding to this update.
-    iotJobId :: Lude.Maybe Lude.Text,
+    iotJobId :: Core.Maybe Core.Text,
+    -- | The software version installed on the device or devices after the update.
+    platformSoftwareVersion :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSoftwareUpdateJobResponse' with the minimum fields required to make a request.
---
--- * 'platformSoftwareVersion' - The software version installed on the device or devices after the update.
--- * 'iotJobARN' - The IoT Job ARN corresponding to this update.
--- * 'iotJobId' - The IoT Job Id corresponding to this update.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSoftwareUpdateJobResponse' value with any optional fields omitted.
 mkCreateSoftwareUpdateJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSoftwareUpdateJobResponse
-mkCreateSoftwareUpdateJobResponse pResponseStatus_ =
+mkCreateSoftwareUpdateJobResponse responseStatus =
   CreateSoftwareUpdateJobResponse'
-    { platformSoftwareVersion =
-        Lude.Nothing,
-      iotJobARN = Lude.Nothing,
-      iotJobId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { iotJobArn = Core.Nothing,
+      iotJobId = Core.Nothing,
+      platformSoftwareVersion = Core.Nothing,
+      responseStatus
     }
-
--- | The software version installed on the device or devices after the update.
---
--- /Note:/ Consider using 'platformSoftwareVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujrsPlatformSoftwareVersion :: Lens.Lens' CreateSoftwareUpdateJobResponse (Lude.Maybe Lude.Text)
-csujrsPlatformSoftwareVersion = Lens.lens (platformSoftwareVersion :: CreateSoftwareUpdateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {platformSoftwareVersion = a} :: CreateSoftwareUpdateJobResponse)
-{-# DEPRECATED csujrsPlatformSoftwareVersion "Use generic-lens or generic-optics with 'platformSoftwareVersion' instead." #-}
 
 -- | The IoT Job ARN corresponding to this update.
 --
--- /Note:/ Consider using 'iotJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujrsIotJobARN :: Lens.Lens' CreateSoftwareUpdateJobResponse (Lude.Maybe Lude.Text)
-csujrsIotJobARN = Lens.lens (iotJobARN :: CreateSoftwareUpdateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {iotJobARN = a} :: CreateSoftwareUpdateJobResponse)
-{-# DEPRECATED csujrsIotJobARN "Use generic-lens or generic-optics with 'iotJobARN' instead." #-}
+-- /Note:/ Consider using 'iotJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csujrrsIotJobArn :: Lens.Lens' CreateSoftwareUpdateJobResponse (Core.Maybe Core.Text)
+csujrrsIotJobArn = Lens.field @"iotJobArn"
+{-# DEPRECATED csujrrsIotJobArn "Use generic-lens or generic-optics with 'iotJobArn' instead." #-}
 
 -- | The IoT Job Id corresponding to this update.
 --
 -- /Note:/ Consider using 'iotJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujrsIotJobId :: Lens.Lens' CreateSoftwareUpdateJobResponse (Lude.Maybe Lude.Text)
-csujrsIotJobId = Lens.lens (iotJobId :: CreateSoftwareUpdateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {iotJobId = a} :: CreateSoftwareUpdateJobResponse)
-{-# DEPRECATED csujrsIotJobId "Use generic-lens or generic-optics with 'iotJobId' instead." #-}
+csujrrsIotJobId :: Lens.Lens' CreateSoftwareUpdateJobResponse (Core.Maybe Core.Text)
+csujrrsIotJobId = Lens.field @"iotJobId"
+{-# DEPRECATED csujrrsIotJobId "Use generic-lens or generic-optics with 'iotJobId' instead." #-}
+
+-- | The software version installed on the device or devices after the update.
+--
+-- /Note:/ Consider using 'platformSoftwareVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csujrrsPlatformSoftwareVersion :: Lens.Lens' CreateSoftwareUpdateJobResponse (Core.Maybe Core.Text)
+csujrrsPlatformSoftwareVersion = Lens.field @"platformSoftwareVersion"
+{-# DEPRECATED csujrrsPlatformSoftwareVersion "Use generic-lens or generic-optics with 'platformSoftwareVersion' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csujrsResponseStatus :: Lens.Lens' CreateSoftwareUpdateJobResponse Lude.Int
-csujrsResponseStatus = Lens.lens (responseStatus :: CreateSoftwareUpdateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSoftwareUpdateJobResponse)
-{-# DEPRECATED csujrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csujrrsResponseStatus :: Lens.Lens' CreateSoftwareUpdateJobResponse Core.Int
+csujrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csujrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

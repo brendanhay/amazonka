@@ -24,219 +24,200 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     mkDescribeWorkspaces,
 
     -- ** Request lenses
-    dwDirectoryId,
-    dwWorkspaceIds,
-    dwUserName,
     dwBundleId,
-    dwNextToken,
+    dwDirectoryId,
     dwLimit,
+    dwNextToken,
+    dwUserName,
+    dwWorkspaceIds,
 
     -- * Destructuring the response
     DescribeWorkspacesResponse (..),
     mkDescribeWorkspacesResponse,
 
     -- ** Response lenses
-    dwrsNextToken,
-    dwrsWorkspaces,
-    dwrsResponseStatus,
+    dwrrsNextToken,
+    dwrrsWorkspaces,
+    dwrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkDescribeWorkspaces' smart constructor.
 data DescribeWorkspaces = DescribeWorkspaces'
-  { -- | The identifier of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). You cannot combine this parameter with any other filter.
-    directoryId :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
+    bundleId :: Core.Maybe Types.BundleId,
+    -- | The identifier of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). You cannot combine this parameter with any other filter.
+    directoryId :: Core.Maybe Types.DirectoryId,
+    -- | The maximum number of items to return.
+    limit :: Core.Maybe Core.Natural,
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+    nextToken :: Core.Maybe Types.PaginationToken,
+    -- | The name of the directory user. You must specify this parameter with @DirectoryId@ .
+    userName :: Core.Maybe Types.UserName,
     -- | The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
     --
     -- Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
-    workspaceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The name of the directory user. You must specify this parameter with @DirectoryId@ .
-    userName :: Lude.Maybe Lude.Text,
-    -- | The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
-    bundleId :: Lude.Maybe Lude.Text,
-    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of items to return.
-    limit :: Lude.Maybe Lude.Natural
+    workspaceIds :: Core.Maybe (Core.NonEmpty Types.WorkspaceId)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeWorkspaces' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). You cannot combine this parameter with any other filter.
--- * 'workspaceIds' - The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
---
--- Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
--- * 'userName' - The name of the directory user. You must specify this parameter with @DirectoryId@ .
--- * 'bundleId' - The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
--- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
--- * 'limit' - The maximum number of items to return.
+-- | Creates a 'DescribeWorkspaces' value with any optional fields omitted.
 mkDescribeWorkspaces ::
   DescribeWorkspaces
 mkDescribeWorkspaces =
   DescribeWorkspaces'
-    { directoryId = Lude.Nothing,
-      workspaceIds = Lude.Nothing,
-      userName = Lude.Nothing,
-      bundleId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing
+    { bundleId = Core.Nothing,
+      directoryId = Core.Nothing,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing,
+      userName = Core.Nothing,
+      workspaceIds = Core.Nothing
     }
+
+-- | The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwBundleId :: Lens.Lens' DescribeWorkspaces (Core.Maybe Types.BundleId)
+dwBundleId = Lens.field @"bundleId"
+{-# DEPRECATED dwBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | The identifier of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). You cannot combine this parameter with any other filter.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwDirectoryId :: Lens.Lens' DescribeWorkspaces (Lude.Maybe Lude.Text)
-dwDirectoryId = Lens.lens (directoryId :: DescribeWorkspaces -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DescribeWorkspaces)
+dwDirectoryId :: Lens.Lens' DescribeWorkspaces (Core.Maybe Types.DirectoryId)
+dwDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED dwDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+
+-- | The maximum number of items to return.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwLimit :: Lens.Lens' DescribeWorkspaces (Core.Maybe Core.Natural)
+dwLimit = Lens.field @"limit"
+{-# DEPRECATED dwLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwNextToken :: Lens.Lens' DescribeWorkspaces (Core.Maybe Types.PaginationToken)
+dwNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dwNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The name of the directory user. You must specify this parameter with @DirectoryId@ .
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwUserName :: Lens.Lens' DescribeWorkspaces (Core.Maybe Types.UserName)
+dwUserName = Lens.field @"userName"
+{-# DEPRECATED dwUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
 --
 -- Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
 --
 -- /Note:/ Consider using 'workspaceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwWorkspaceIds :: Lens.Lens' DescribeWorkspaces (Lude.Maybe (Lude.NonEmpty Lude.Text))
-dwWorkspaceIds = Lens.lens (workspaceIds :: DescribeWorkspaces -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {workspaceIds = a} :: DescribeWorkspaces)
+dwWorkspaceIds :: Lens.Lens' DescribeWorkspaces (Core.Maybe (Core.NonEmpty Types.WorkspaceId))
+dwWorkspaceIds = Lens.field @"workspaceIds"
 {-# DEPRECATED dwWorkspaceIds "Use generic-lens or generic-optics with 'workspaceIds' instead." #-}
 
--- | The name of the directory user. You must specify this parameter with @DirectoryId@ .
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwUserName :: Lens.Lens' DescribeWorkspaces (Lude.Maybe Lude.Text)
-dwUserName = Lens.lens (userName :: DescribeWorkspaces -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: DescribeWorkspaces)
-{-# DEPRECATED dwUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+instance Core.FromJSON DescribeWorkspaces where
+  toJSON DescribeWorkspaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BundleId" Core..=) Core.<$> bundleId,
+            ("DirectoryId" Core..=) Core.<$> directoryId,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("UserName" Core..=) Core.<$> userName,
+            ("WorkspaceIds" Core..=) Core.<$> workspaceIds
+          ]
+      )
 
--- | The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
---
--- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwBundleId :: Lens.Lens' DescribeWorkspaces (Lude.Maybe Lude.Text)
-dwBundleId = Lens.lens (bundleId :: DescribeWorkspaces -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: DescribeWorkspaces)
-{-# DEPRECATED dwBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
-
--- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwNextToken :: Lens.Lens' DescribeWorkspaces (Lude.Maybe Lude.Text)
-dwNextToken = Lens.lens (nextToken :: DescribeWorkspaces -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspaces)
-{-# DEPRECATED dwNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of items to return.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwLimit :: Lens.Lens' DescribeWorkspaces (Lude.Maybe Lude.Natural)
-dwLimit = Lens.lens (limit :: DescribeWorkspaces -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeWorkspaces)
-{-# DEPRECATED dwLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
-instance Page.AWSPager DescribeWorkspaces where
-  page rq rs
-    | Page.stop (rs Lens.^. dwrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dwrsWorkspaces) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dwNextToken Lens..~ rs Lens.^. dwrsNextToken
-
-instance Lude.AWSRequest DescribeWorkspaces where
+instance Core.AWSRequest DescribeWorkspaces where
   type Rs DescribeWorkspaces = DescribeWorkspacesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkspacesService.DescribeWorkspaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeWorkspacesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Workspaces" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Workspaces")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeWorkspaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.DescribeWorkspaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeWorkspaces where
-  toJSON DescribeWorkspaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DirectoryId" Lude..=) Lude.<$> directoryId,
-            ("WorkspaceIds" Lude..=) Lude.<$> workspaceIds,
-            ("UserName" Lude..=) Lude.<$> userName,
-            ("BundleId" Lude..=) Lude.<$> bundleId,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeWorkspaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeWorkspaces where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeWorkspaces where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"workspaces" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
   { -- | The token to use to retrieve the next set of results, or null if no more results are available.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | Information about the WorkSpaces.
     --
     -- Because 'CreateWorkspaces' is an asynchronous operation, some of the returned information could be incomplete.
-    workspaces :: Lude.Maybe [Workspace],
+    workspaces :: Core.Maybe [Types.Workspace],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeWorkspacesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
--- * 'workspaces' - Information about the WorkSpaces.
---
--- Because 'CreateWorkspaces' is an asynchronous operation, some of the returned information could be incomplete.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeWorkspacesResponse' value with any optional fields omitted.
 mkDescribeWorkspacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeWorkspacesResponse
-mkDescribeWorkspacesResponse pResponseStatus_ =
+mkDescribeWorkspacesResponse responseStatus =
   DescribeWorkspacesResponse'
-    { nextToken = Lude.Nothing,
-      workspaces = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      workspaces = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwrsNextToken :: Lens.Lens' DescribeWorkspacesResponse (Lude.Maybe Lude.Text)
-dwrsNextToken = Lens.lens (nextToken :: DescribeWorkspacesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspacesResponse)
-{-# DEPRECATED dwrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dwrrsNextToken :: Lens.Lens' DescribeWorkspacesResponse (Core.Maybe Types.PaginationToken)
+dwrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dwrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the WorkSpaces.
 --
 -- Because 'CreateWorkspaces' is an asynchronous operation, some of the returned information could be incomplete.
 --
 -- /Note:/ Consider using 'workspaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwrsWorkspaces :: Lens.Lens' DescribeWorkspacesResponse (Lude.Maybe [Workspace])
-dwrsWorkspaces = Lens.lens (workspaces :: DescribeWorkspacesResponse -> Lude.Maybe [Workspace]) (\s a -> s {workspaces = a} :: DescribeWorkspacesResponse)
-{-# DEPRECATED dwrsWorkspaces "Use generic-lens or generic-optics with 'workspaces' instead." #-}
+dwrrsWorkspaces :: Lens.Lens' DescribeWorkspacesResponse (Core.Maybe [Types.Workspace])
+dwrrsWorkspaces = Lens.field @"workspaces"
+{-# DEPRECATED dwrrsWorkspaces "Use generic-lens or generic-optics with 'workspaces' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwrsResponseStatus :: Lens.Lens' DescribeWorkspacesResponse Lude.Int
-dwrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkspacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkspacesResponse)
-{-# DEPRECATED dwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwrrsResponseStatus :: Lens.Lens' DescribeWorkspacesResponse Core.Int
+dwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,91 @@
 -- AWS Identity and Access Management (IAM) is a web service for securely controlling access to AWS services. With IAM, you can centrally manage users, security credentials such as access keys, and permissions that control which AWS resources users and applications can access. For more information about IAM, see <http://aws.amazon.com/iam/ AWS Identity and Access Management (IAM)> and the <https://docs.aws.amazon.com/IAM/latest/UserGuide/ AWS Identity and Access Management User Guide> .
 module Network.AWS.IAM
   ( -- * Service configuration
-    iamService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** CredentialReportNotPresentException
+    _CredentialReportNotPresentException,
+
+    -- ** CredentialReportNotReadyException
+    _CredentialReportNotReadyException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** EntityAlreadyExistsException
+    _EntityAlreadyExistsException,
+
+    -- ** MalformedCertificateException
+    _MalformedCertificateException,
+
+    -- ** CredentialReportExpiredException
+    _CredentialReportExpiredException,
+
+    -- ** UnmodifiableEntityException
+    _UnmodifiableEntityException,
+
+    -- ** DuplicateCertificateException
+    _DuplicateCertificateException,
+
+    -- ** DeleteConflictException
+    _DeleteConflictException,
+
+    -- ** NoSuchEntityException
+    _NoSuchEntityException,
+
+    -- ** InvalidCertificateException
+    _InvalidCertificateException,
+
+    -- ** PolicyNotAttachableException
+    _PolicyNotAttachableException,
+
+    -- ** ServiceNotSupportedException
+    _ServiceNotSupportedException,
+
+    -- ** UnrecognizedPublicKeyEncodingException
+    _UnrecognizedPublicKeyEncodingException,
+
+    -- ** ReportGenerationLimitExceededException
+    _ReportGenerationLimitExceededException,
+
+    -- ** InvalidUserTypeException
+    _InvalidUserTypeException,
+
+    -- ** ServiceFailureException
+    _ServiceFailureException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** InvalidPublicKeyException
+    _InvalidPublicKeyException,
+
+    -- ** InvalidAuthenticationCodeException
+    _InvalidAuthenticationCodeException,
+
+    -- ** EntityTemporarilyUnmodifiableException
+    _EntityTemporarilyUnmodifiableException,
+
+    -- ** DuplicateSSHPublicKeyException
+    _DuplicateSSHPublicKeyException,
+
+    -- ** KeyPairMismatchException
+    _KeyPairMismatchException,
+
+    -- ** PolicyEvaluationException
+    _PolicyEvaluationException,
+
+    -- ** PasswordPolicyViolationException
+    _PasswordPolicyViolationException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -63,8 +143,8 @@ module Network.AWS.IAM
     -- ** ListSSHPublicKeys (Paginated)
     module Network.AWS.IAM.ListSSHPublicKeys,
 
-    -- ** ListOpenIdConnectProviders
-    module Network.AWS.IAM.ListOpenIdConnectProviders,
+    -- ** ListOpenIDConnectProviders
+    module Network.AWS.IAM.ListOpenIDConnectProviders,
 
     -- ** CreateVirtualMFADevice
     module Network.AWS.IAM.CreateVirtualMFADevice,
@@ -102,8 +182,8 @@ module Network.AWS.IAM
     -- ** DeactivateMFADevice
     module Network.AWS.IAM.DeactivateMFADevice,
 
-    -- ** CreateOpenIdConnectProvider
-    module Network.AWS.IAM.CreateOpenIdConnectProvider,
+    -- ** CreateOpenIDConnectProvider
+    module Network.AWS.IAM.CreateOpenIDConnectProvider,
 
     -- ** DeleteVirtualMFADevice
     module Network.AWS.IAM.DeleteVirtualMFADevice,
@@ -135,8 +215,8 @@ module Network.AWS.IAM
     -- ** ListUsers (Paginated)
     module Network.AWS.IAM.ListUsers,
 
-    -- ** UpdateOpenIdConnectProviderThumbprint
-    module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint,
+    -- ** UpdateOpenIDConnectProviderThumbprint
+    module Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint,
 
     -- ** PutUserPolicy
     module Network.AWS.IAM.PutUserPolicy,
@@ -150,8 +230,8 @@ module Network.AWS.IAM
     -- ** DetachGroupPolicy
     module Network.AWS.IAM.DetachGroupPolicy,
 
-    -- ** GetOpenIdConnectProvider
-    module Network.AWS.IAM.GetOpenIdConnectProvider,
+    -- ** GetOpenIDConnectProvider
+    module Network.AWS.IAM.GetOpenIDConnectProvider,
 
     -- ** PutUserPermissionsBoundary
     module Network.AWS.IAM.PutUserPermissionsBoundary,
@@ -291,8 +371,8 @@ module Network.AWS.IAM
     -- ** ListServiceSpecificCredentials
     module Network.AWS.IAM.ListServiceSpecificCredentials,
 
-    -- ** DeleteOpenIdConnectProvider
-    module Network.AWS.IAM.DeleteOpenIdConnectProvider,
+    -- ** DeleteOpenIDConnectProvider
+    module Network.AWS.IAM.DeleteOpenIDConnectProvider,
 
     -- ** GetUser
     module Network.AWS.IAM.GetUser,
@@ -309,8 +389,8 @@ module Network.AWS.IAM
     -- ** ListAttachedUserPolicies (Paginated)
     module Network.AWS.IAM.ListAttachedUserPolicies,
 
-    -- ** RemoveClientIdFromOpenIdConnectProvider
-    module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider,
+    -- ** RemoveClientIDFromOpenIDConnectProvider
+    module Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider,
 
     -- ** AttachUserPolicy
     module Network.AWS.IAM.AttachUserPolicy,
@@ -372,8 +452,8 @@ module Network.AWS.IAM
     -- ** DeleteUser
     module Network.AWS.IAM.DeleteUser,
 
-    -- ** AddClientIdToOpenIdConnectProvider
-    module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider,
+    -- ** AddClientIDToOpenIDConnectProvider
+    module Network.AWS.IAM.AddClientIDToOpenIDConnectProvider,
 
     -- ** ListRolePolicies (Paginated)
     module Network.AWS.IAM.ListRolePolicies,
@@ -461,35 +541,416 @@ module Network.AWS.IAM
 
     -- * Types
 
-    -- ** AccessAdvisorUsageGranularityType
-    AccessAdvisorUsageGranularityType (..),
+    -- ** ManagedPolicyDetail
+    ManagedPolicyDetail (..),
+    mkManagedPolicyDetail,
+    mpdArn,
+    mpdAttachmentCount,
+    mpdCreateDate,
+    mpdDefaultVersionId,
+    mpdDescription,
+    mpdIsAttachable,
+    mpdPath,
+    mpdPermissionsBoundaryUsageCount,
+    mpdPolicyId,
+    mpdPolicyName,
+    mpdPolicyVersionList,
+    mpdUpdateDate,
+
+    -- ** VirtualMFADeviceName
+    VirtualMFADeviceName (..),
+
+    -- ** ReasonType
+    ReasonType (..),
+
+    -- ** PolicyRole
+    PolicyRole (..),
+    mkPolicyRole,
+    prRoleId,
+    prRoleName,
 
     -- ** AssignmentStatusType
     AssignmentStatusType (..),
 
-    -- ** ContextKeyTypeEnum
-    ContextKeyTypeEnum (..),
+    -- ** PasswordPolicy
+    PasswordPolicy (..),
+    mkPasswordPolicy,
+    ppAllowUsersToChangePassword,
+    ppExpirePasswords,
+    ppHardExpiry,
+    ppMaxPasswordAge,
+    ppMinimumPasswordLength,
+    ppPasswordReusePrevention,
+    ppRequireLowercaseCharacters,
+    ppRequireNumbers,
+    ppRequireSymbols,
+    ppRequireUppercaseCharacters,
+
+    -- ** Group
+    Group (..),
+    mkGroup,
+    gPath,
+    gGroupName,
+    gGroupId,
+    gArn,
+    gCreateDate,
+
+    -- ** ThumbprintType
+    ThumbprintType (..),
+
+    -- ** PasswordType
+    PasswordType (..),
+
+    -- ** ContextKeyNameType
+    ContextKeyNameType (..),
+
+    -- ** PolicyVersionIdType
+    PolicyVersionIdType (..),
+
+    -- ** EvaluationResult
+    EvaluationResult (..),
+    mkEvaluationResult,
+    erEvalActionName,
+    erEvalDecision,
+    erEvalDecisionDetails,
+    erEvalResourceName,
+    erMatchedStatements,
+    erMissingContextValues,
+    erOrganizationsDecisionDetail,
+    erPermissionsBoundaryDecisionDetail,
+    erResourceSpecificResults,
+
+    -- ** TrackedActionLastAccessed
+    TrackedActionLastAccessed (..),
+    mkTrackedActionLastAccessed,
+    talaActionName,
+    talaLastAccessedEntity,
+    talaLastAccessedRegion,
+    talaLastAccessedTime,
+
+    -- ** PolicyGrantingServiceAccess
+    PolicyGrantingServiceAccess (..),
+    mkPolicyGrantingServiceAccess,
+    pgsaPolicyName,
+    pgsaPolicyType,
+    pgsaEntityName,
+    pgsaEntityType,
+    pgsaPolicyArn,
+
+    -- ** MarkerType
+    MarkerType (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** AttachedPolicy
+    AttachedPolicy (..),
+    mkAttachedPolicy,
+    apPolicyArn,
+    apPolicyName,
+
+    -- ** ServiceLastAccessed
+    ServiceLastAccessed (..),
+    mkServiceLastAccessed,
+    slaServiceName,
+    slaServiceNamespace,
+    slaLastAuthenticated,
+    slaLastAuthenticatedEntity,
+    slaLastAuthenticatedRegion,
+    slaTotalAuthenticatedEntities,
+    slaTrackedActionsLastAccessed,
+
+    -- ** MFADevice
+    MFADevice (..),
+    mkMFADevice,
+    mfadUserName,
+    mfadSerialNumber,
+    mfadEnableDate,
+
+    -- ** PolicyVersion
+    PolicyVersion (..),
+    mkPolicyVersion,
+    pvCreateDate,
+    pvDocument,
+    pvIsDefaultVersion,
+    pvVersionId,
+
+    -- ** ServiceNameType
+    ServiceNameType (..),
+
+    -- ** AttachedPermissionsBoundary
+    AttachedPermissionsBoundary (..),
+    mkAttachedPermissionsBoundary,
+    apbPermissionsBoundaryArn,
+    apbPermissionsBoundaryType,
+
+    -- ** InstanceProfile
+    InstanceProfile (..),
+    mkInstanceProfile,
+    ipPath,
+    ipInstanceProfileName,
+    ipInstanceProfileId,
+    ipArn,
+    ipCreateDate,
+    ipRoles,
+
+    -- ** RoleDescriptionType
+    RoleDescriptionType (..),
+
+    -- ** PublicKeyMaterialType
+    PublicKeyMaterialType (..),
+
+    -- ** RoleDetail
+    RoleDetail (..),
+    mkRoleDetail,
+    rdArn,
+    rdAssumeRolePolicyDocument,
+    rdAttachedManagedPolicies,
+    rdCreateDate,
+    rdInstanceProfileList,
+    rdPath,
+    rdPermissionsBoundary,
+    rdRoleId,
+    rdRoleLastUsed,
+    rdRoleName,
+    rdRolePolicyList,
+    rdTags,
+
+    -- ** SimulatePolicyResponse
+    SimulatePolicyResponse (..),
+    mkSimulatePolicyResponse,
+    sprEvaluationResults,
+    sprIsTruncated,
+    sprMarker,
+
+    -- ** ReportFormatType
+    ReportFormatType (..),
+
+    -- ** Statement
+    Statement (..),
+    mkStatement,
+    sEndPosition,
+    sSourcePolicyId,
+    sSourcePolicyType,
+    sStartPosition,
+
+    -- ** InstanceProfileNameType
+    InstanceProfileNameType (..),
+
+    -- ** TagKeyType
+    TagKeyType (..),
+
+    -- ** AuthenticationCodeType
+    AuthenticationCodeType (..),
+
+    -- ** IdType
+    IdType (..),
+
+    -- ** OrganizationsPolicyIdType
+    OrganizationsPolicyIdType (..),
+
+    -- ** OpenIDConnectProviderUrlType
+    OpenIDConnectProviderUrlType (..),
+
+    -- ** CertificateBodyType
+    CertificateBodyType (..),
+
+    -- ** ServerCertificateMetadata
+    ServerCertificateMetadata (..),
+    mkServerCertificateMetadata,
+    scmPath,
+    scmServerCertificateName,
+    scmServerCertificateId,
+    scmArn,
+    scmExpiration,
+    scmUploadDate,
 
     -- ** DeletionTaskStatusType
     DeletionTaskStatusType (..),
 
+    -- ** PolicyPathType
+    PolicyPathType (..),
+
+    -- ** GroupNameType
+    GroupNameType (..),
+
+    -- ** CertificateChainType
+    CertificateChainType (..),
+
+    -- ** PolicyType
+    PolicyType (..),
+
+    -- ** OpenIDConnectProviderListEntry
+    OpenIDConnectProviderListEntry (..),
+    mkOpenIDConnectProviderListEntry,
+    oidcpleArn,
+
+    -- ** LoginProfile
+    LoginProfile (..),
+    mkLoginProfile,
+    lpUserName,
+    lpCreateDate,
+    lpPasswordResetRequired,
+
     -- ** EncodingType
     EncodingType (..),
+
+    -- ** SerialNumberType
+    SerialNumberType (..),
 
     -- ** EntityType
     EntityType (..),
 
-    -- ** GlobalEndpointTokenVersion
-    GlobalEndpointTokenVersion (..),
+    -- ** SSHPublicKeyMetadata
+    SSHPublicKeyMetadata (..),
+    mkSSHPublicKeyMetadata,
+    sshpkmUserName,
+    sshpkmSSHPublicKeyId,
+    sshpkmStatus,
+    sshpkmUploadDate,
+
+    -- ** SummaryKeyType
+    SummaryKeyType (..),
+
+    -- ** ContextEntry
+    ContextEntry (..),
+    mkContextEntry,
+    ceContextKeyName,
+    ceContextKeyType,
+    ceContextKeyValues,
+
+    -- ** EvalDecisionSourceType
+    EvalDecisionSourceType (..),
 
     -- ** JobStatusType
     JobStatusType (..),
 
-    -- ** PermissionsBoundaryAttachmentType
-    PermissionsBoundaryAttachmentType (..),
+    -- ** ContextKeyTypeEnum
+    ContextKeyTypeEnum (..),
+
+    -- ** OrganizationsEntityPathType
+    OrganizationsEntityPathType (..),
+
+    -- ** SSHPublicKey
+    SSHPublicKey (..),
+    mkSSHPublicKey,
+    sshpkUserName,
+    sshpkSSHPublicKeyId,
+    sshpkFingerprint,
+    sshpkSSHPublicKeyBody,
+    sshpkStatus,
+    sshpkUploadDate,
 
     -- ** PolicyEvaluationDecisionType
     PolicyEvaluationDecisionType (..),
+
+    -- ** GroupDetail
+    GroupDetail (..),
+    mkGroupDetail,
+    gdArn,
+    gdAttachedManagedPolicies,
+    gdCreateDate,
+    gdGroupId,
+    gdGroupName,
+    gdGroupPolicyList,
+    gdPath,
+
+    -- ** ReportStateType
+    ReportStateType (..),
+
+    -- ** PermissionsBoundaryAttachmentType
+    PermissionsBoundaryAttachmentType (..),
+
+    -- ** ResponseMarkerType
+    ResponseMarkerType (..),
+
+    -- ** User
+    User (..),
+    mkUser,
+    uPath,
+    uUserName,
+    uUserId,
+    uArn,
+    uCreateDate,
+    uPasswordLastUsed,
+    uPermissionsBoundary,
+    uTags,
+
+    -- ** RoleLastUsed
+    RoleLastUsed (..),
+    mkRoleLastUsed,
+    rluLastUsedDate,
+    rluRegion,
+
+    -- ** PolicyDetail
+    PolicyDetail (..),
+    mkPolicyDetail,
+    pdPolicyDocument,
+    pdPolicyName,
+
+    -- ** SAMLMetadataDocumentType
+    SAMLMetadataDocumentType (..),
+
+    -- ** GlobalEndpointTokenVersion
+    GlobalEndpointTokenVersion (..),
+
+    -- ** StatusType
+    StatusType (..),
+
+    -- ** SAMLProviderListEntry
+    SAMLProviderListEntry (..),
+    mkSAMLProviderListEntry,
+    samlpleArn,
+    samlpleCreateDate,
+    samlpleValidUntil,
+
+    -- ** ClientIDType
+    ClientIDType (..),
+
+    -- ** Role
+    Role (..),
+    mkRole,
+    rPath,
+    rRoleName,
+    rRoleId,
+    rArn,
+    rCreateDate,
+    rAssumeRolePolicyDocument,
+    rDescription,
+    rMaxSessionDuration,
+    rPermissionsBoundary,
+    rRoleLastUsed,
+    rTags,
+
+    -- ** PolicyNameType
+    PolicyNameType (..),
+
+    -- ** PolicyDocumentType
+    PolicyDocumentType (..),
+
+    -- ** AccountAliasType
+    AccountAliasType (..),
+
+    -- ** PolicyGroup
+    PolicyGroup (..),
+    mkPolicyGroup,
+    pgGroupId,
+    pgGroupName,
+
+    -- ** ServerCertificateNameType
+    ServerCertificateNameType (..),
+
+    -- ** RegionNameType
+    RegionNameType (..),
+
+    -- ** ListPoliciesGrantingServiceAccessEntry
+    ListPoliciesGrantingServiceAccessEntry (..),
+    mkListPoliciesGrantingServiceAccessEntry,
+    lpgsaePolicies,
+    lpgsaeServiceNamespace,
 
     -- ** PolicyOwnerEntityType
     PolicyOwnerEntityType (..),
@@ -497,48 +958,198 @@ module Network.AWS.IAM
     -- ** PolicyScopeType
     PolicyScopeType (..),
 
-    -- ** PolicySourceType
-    PolicySourceType (..),
+    -- ** PrivateKeyType
+    PrivateKeyType (..),
 
-    -- ** PolicyType
-    PolicyType (..),
+    -- ** ErrorDetails
+    ErrorDetails (..),
+    mkErrorDetails,
+    edMessage,
+    edCode,
 
-    -- ** PolicyUsageType
-    PolicyUsageType (..),
+    -- ** ServiceName
+    ServiceName (..),
 
-    -- ** ReportFormatType
-    ReportFormatType (..),
+    -- ** ServicePassword
+    ServicePassword (..),
 
-    -- ** ReportStateType
-    ReportStateType (..),
+    -- ** StringType
+    StringType (..),
 
-    -- ** SortKeyType
-    SortKeyType (..),
+    -- ** ExistingUserNameType
+    ExistingUserNameType (..),
 
-    -- ** StatusType
-    StatusType (..),
+    -- ** GetContextKeysForPolicyResponse
+    GetContextKeysForPolicyResponse (..),
+    mkGetContextKeysForPolicyResponse,
+    gckfprContextKeyNames,
 
-    -- ** SummaryKeyType
-    SummaryKeyType (..),
+    -- ** ResourceNameType
+    ResourceNameType (..),
 
     -- ** AccessDetail
     AccessDetail (..),
     mkAccessDetail,
-    adEntityPath,
-    adServiceNamespace,
     adServiceName,
-    adRegion,
+    adServiceNamespace,
+    adEntityPath,
     adLastAuthenticatedTime,
+    adRegion,
     adTotalAuthenticatedEntities,
+
+    -- ** PolicySourceType
+    PolicySourceType (..),
+
+    -- ** ArnType
+    ArnType (..),
+
+    -- ** PathType
+    PathType (..),
+
+    -- ** SortKeyType
+    SortKeyType (..),
+
+    -- ** EntityInfo
+    EntityInfo (..),
+    mkEntityInfo,
+    eiArn,
+    eiName,
+    eiType,
+    eiId,
+    eiPath,
+
+    -- ** DeletionTaskFailureReasonType
+    DeletionTaskFailureReasonType (..),
+    mkDeletionTaskFailureReasonType,
+    dtfrtReason,
+    dtfrtRoleUsageList,
+
+    -- ** AccessKeySecretType
+    AccessKeySecretType (..),
+
+    -- ** PolicyUsageType
+    PolicyUsageType (..),
+
+    -- ** PathPrefixType
+    PathPrefixType (..),
+
+    -- ** UserDetail
+    UserDetail (..),
+    mkUserDetail,
+    udArn,
+    udAttachedManagedPolicies,
+    udCreateDate,
+    udGroupList,
+    udPath,
+    udPermissionsBoundary,
+    udTags,
+    udUserId,
+    udUserName,
+    udUserPolicyList,
+
+    -- ** Policy
+    Policy (..),
+    mkPolicy,
+    pArn,
+    pAttachmentCount,
+    pCreateDate,
+    pDefaultVersionId,
+    pDescription,
+    pIsAttachable,
+    pPath,
+    pPermissionsBoundaryUsageCount,
+    pPolicyId,
+    pPolicyName,
+    pUpdateDate,
+
+    -- ** CertificateIdType
+    CertificateIdType (..),
+
+    -- ** ServerCertificate
+    ServerCertificate (..),
+    mkServerCertificate,
+    sServerCertificateMetadata,
+    sCertificateBody,
+    sCertificateChain,
+
+    -- ** ContextKeyValueType
+    ContextKeyValueType (..),
+
+    -- ** PublicKeyIdType
+    PublicKeyIdType (..),
+
+    -- ** ResourceSpecificResult
+    ResourceSpecificResult (..),
+    mkResourceSpecificResult,
+    rsrEvalResourceName,
+    rsrEvalResourceDecision,
+    rsrEvalDecisionDetails,
+    rsrMatchedStatements,
+    rsrMissingContextValues,
+    rsrPermissionsBoundaryDecisionDetail,
+
+    -- ** ServiceSpecificCredentialMetadata
+    ServiceSpecificCredentialMetadata (..),
+    mkServiceSpecificCredentialMetadata,
+    sscmUserName,
+    sscmStatus,
+    sscmServiceUserName,
+    sscmCreateDate,
+    sscmServiceSpecificCredentialId,
+    sscmServiceName,
 
     -- ** AccessKeyInfo
     AccessKeyInfo (..),
     mkAccessKeyInfo,
+    akiUserName,
+    akiAccessKeyId,
     akiStatus,
     akiSecretAccessKey,
     akiCreateDate,
-    akiUserName,
-    akiAccessKeyId,
+
+    -- ** ServiceSpecificCredentialId
+    ServiceSpecificCredentialId (..),
+
+    -- ** ServiceUserName
+    ServiceUserName (..),
+
+    -- ** RoleNameType
+    RoleNameType (..),
+
+    -- ** VirtualMFADevice
+    VirtualMFADevice (..),
+    mkVirtualMFADevice,
+    vmfadSerialNumber,
+    vmfadBase32StringSeed,
+    vmfadEnableDate,
+    vmfadQRCodePNG,
+    vmfadUser,
+
+    -- ** SigningCertificate
+    SigningCertificate (..),
+    mkSigningCertificate,
+    scUserName,
+    scCertificateId,
+    scCertificateBody,
+    scStatus,
+    scUploadDate,
+
+    -- ** UserNameType
+    UserNameType (..),
+
+    -- ** ServiceNamespaceType
+    ServiceNamespaceType (..),
+
+    -- ** ServiceSpecificCredential
+    ServiceSpecificCredential (..),
+    mkServiceSpecificCredential,
+    sscCreateDate,
+    sscServiceName,
+    sscServiceUserName,
+    sscServicePassword,
+    sscServiceSpecificCredentialId,
+    sscUserName,
+    sscStatus,
 
     -- ** AccessKeyLastUsed
     AccessKeyLastUsed (..),
@@ -550,445 +1161,254 @@ module Network.AWS.IAM
     -- ** AccessKeyMetadata
     AccessKeyMetadata (..),
     mkAccessKeyMetadata,
-    akmStatus,
-    akmCreateDate,
-    akmUserName,
     akmAccessKeyId,
+    akmCreateDate,
+    akmStatus,
+    akmUserName,
 
-    -- ** AttachedPermissionsBoundary
-    AttachedPermissionsBoundary (..),
-    mkAttachedPermissionsBoundary,
-    apbPermissionsBoundaryType,
-    apbPermissionsBoundaryARN,
+    -- ** AccessAdvisorUsageGranularityType
+    AccessAdvisorUsageGranularityType (..),
 
-    -- ** AttachedPolicy
-    AttachedPolicy (..),
-    mkAttachedPolicy,
-    apPolicyName,
-    apPolicyARN,
+    -- ** PolicyUser
+    PolicyUser (..),
+    mkPolicyUser,
+    puUserId,
+    puUserName,
 
-    -- ** ContextEntry
-    ContextEntry (..),
-    mkContextEntry,
-    ceContextKeyValues,
-    ceContextKeyName,
-    ceContextKeyType,
-
-    -- ** DeletionTaskFailureReasonType
-    DeletionTaskFailureReasonType (..),
-    mkDeletionTaskFailureReasonType,
-    dtfrtRoleUsageList,
-    dtfrtReason,
-
-    -- ** EntityDetails
-    EntityDetails (..),
-    mkEntityDetails,
-    edLastAuthenticated,
-    edEntityInfo,
-
-    -- ** EntityInfo
-    EntityInfo (..),
-    mkEntityInfo,
-    eiARN,
-    eiPath,
-    eiName,
-    eiId,
-    eiType,
-
-    -- ** ErrorDetails
-    ErrorDetails (..),
-    mkErrorDetails,
-    edCode,
-    edMessage,
-
-    -- ** EvaluationResult
-    EvaluationResult (..),
-    mkEvaluationResult,
-    erMatchedStatements,
-    erEvalDecisionDetails,
-    erEvalActionName,
-    erResourceSpecificResults,
-    erEvalResourceName,
-    erMissingContextValues,
-    erEvalDecision,
-    erPermissionsBoundaryDecisionDetail,
-    erOrganizationsDecisionDetail,
-
-    -- ** GetContextKeysForPolicyResponse
-    GetContextKeysForPolicyResponse (..),
-    mkGetContextKeysForPolicyResponse,
-    gckfpContextKeyNames,
-
-    -- ** Group
-    Group (..),
-    mkGroup,
-    gARN,
-    gPath,
-    gCreateDate,
-    gGroupId,
-    gGroupName,
-
-    -- ** GroupDetail
-    GroupDetail (..),
-    mkGroupDetail,
-    gdARN,
-    gdPath,
-    gdCreateDate,
-    gdGroupId,
-    gdGroupPolicyList,
-    gdGroupName,
-    gdAttachedManagedPolicies,
-
-    -- ** InstanceProfile
-    InstanceProfile (..),
-    mkInstanceProfile,
-    ipRoles,
-    ipARN,
-    ipPath,
-    ipCreateDate,
-    ipInstanceProfileId,
-    ipInstanceProfileName,
-
-    -- ** ListPoliciesGrantingServiceAccessEntry
-    ListPoliciesGrantingServiceAccessEntry (..),
-    mkListPoliciesGrantingServiceAccessEntry,
-    lpgsaeServiceNamespace,
-    lpgsaePolicies,
-
-    -- ** LoginProfile
-    LoginProfile (..),
-    mkLoginProfile,
-    lpCreateDate,
-    lpUserName,
-    lpPasswordResetRequired,
-
-    -- ** MFADevice
-    MFADevice (..),
-    mkMFADevice,
-    mdUserName,
-    mdEnableDate,
-    mdSerialNumber,
-
-    -- ** ManagedPolicyDetail
-    ManagedPolicyDetail (..),
-    mkManagedPolicyDetail,
-    mpdPolicyName,
-    mpdARN,
-    mpdUpdateDate,
-    mpdPolicyId,
-    mpdPath,
-    mpdPolicyVersionList,
-    mpdCreateDate,
-    mpdIsAttachable,
-    mpdPermissionsBoundaryUsageCount,
-    mpdDefaultVersionId,
-    mpdAttachmentCount,
-    mpdDescription,
-
-    -- ** OpenIdConnectProviderListEntry
-    OpenIdConnectProviderListEntry (..),
-    mkOpenIdConnectProviderListEntry,
-    oicpleARN,
-
-    -- ** OrganizationsDecisionDetail
-    OrganizationsDecisionDetail (..),
-    mkOrganizationsDecisionDetail,
-    oddAllowedByOrganizations,
-
-    -- ** PasswordPolicy
-    PasswordPolicy (..),
-    mkPasswordPolicy,
-    ppExpirePasswords,
-    ppMinimumPasswordLength,
-    ppRequireNumbers,
-    ppPasswordReusePrevention,
-    ppRequireLowercaseCharacters,
-    ppMaxPasswordAge,
-    ppHardExpiry,
-    ppRequireSymbols,
-    ppRequireUppercaseCharacters,
-    ppAllowUsersToChangePassword,
+    -- ** RoleUsageType
+    RoleUsageType (..),
+    mkRoleUsageType,
+    rutRegion,
+    rutResources,
 
     -- ** PermissionsBoundaryDecisionDetail
     PermissionsBoundaryDecisionDetail (..),
     mkPermissionsBoundaryDecisionDetail,
     pbddAllowedByPermissionsBoundary,
 
-    -- ** Policy
-    Policy (..),
-    mkPolicy,
-    pPolicyName,
-    pARN,
-    pUpdateDate,
-    pPolicyId,
-    pPath,
-    pCreateDate,
-    pIsAttachable,
-    pPermissionsBoundaryUsageCount,
-    pDefaultVersionId,
-    pAttachmentCount,
-    pDescription,
-
-    -- ** PolicyDetail
-    PolicyDetail (..),
-    mkPolicyDetail,
-    pdPolicyDocument,
-    pdPolicyName,
-
-    -- ** PolicyGrantingServiceAccess
-    PolicyGrantingServiceAccess (..),
-    mkPolicyGrantingServiceAccess,
-    pgsaEntityName,
-    pgsaPolicyName,
-    pgsaPolicyType,
-    pgsaEntityType,
-    pgsaPolicyARN,
-
-    -- ** PolicyGroup
-    PolicyGroup (..),
-    mkPolicyGroup,
-    pgGroupId,
-    pgGroupName,
-
-    -- ** PolicyRole
-    PolicyRole (..),
-    mkPolicyRole,
-    prRoleName,
-    prRoleId,
-
-    -- ** PolicyUser
-    PolicyUser (..),
-    mkPolicyUser,
-    puUserName,
-    puUserId,
-
-    -- ** PolicyVersion
-    PolicyVersion (..),
-    mkPolicyVersion,
-    pvVersionId,
-    pvCreateDate,
-    pvDocument,
-    pvIsDefaultVersion,
+    -- ** OrganizationsDecisionDetail
+    OrganizationsDecisionDetail (..),
+    mkOrganizationsDecisionDetail,
+    oddAllowedByOrganizations,
 
     -- ** Position
     Position (..),
     mkPosition,
-    pLine,
     pColumn,
+    pLine,
 
-    -- ** ResourceSpecificResult
-    ResourceSpecificResult (..),
-    mkResourceSpecificResult,
-    rsrMatchedStatements,
-    rsrEvalDecisionDetails,
-    rsrEvalResourceDecision,
-    rsrEvalResourceName,
-    rsrMissingContextValues,
-    rsrPermissionsBoundaryDecisionDetail,
+    -- ** EntityDetails
+    EntityDetails (..),
+    mkEntityDetails,
+    edEntityInfo,
+    edLastAuthenticated,
 
-    -- ** Role
-    Role (..),
-    mkRole,
-    rMaxSessionDuration,
-    rAssumeRolePolicyDocument,
-    rARN,
-    rPath,
-    rCreateDate,
-    rRoleName,
-    rRoleId,
-    rRoleLastUsed,
-    rPermissionsBoundary,
-    rDescription,
-    rTags,
+    -- ** ActionNameType
+    ActionNameType (..),
 
-    -- ** RoleDetail
-    RoleDetail (..),
-    mkRoleDetail,
-    rdAssumeRolePolicyDocument,
-    rdARN,
-    rdPath,
-    rdInstanceProfileList,
-    rdCreateDate,
-    rdRoleName,
-    rdRoleId,
-    rdRoleLastUsed,
-    rdPermissionsBoundary,
-    rdRolePolicyList,
-    rdTags,
-    rdAttachedManagedPolicies,
+    -- ** Arn
+    Arn (..),
 
-    -- ** RoleLastUsed
-    RoleLastUsed (..),
-    mkRoleLastUsed,
-    rluLastUsedDate,
-    rluRegion,
+    -- ** DefaultVersionId
+    DefaultVersionId (..),
 
-    -- ** RoleUsageType
-    RoleUsageType (..),
-    mkRoleUsageType,
-    rutResources,
-    rutRegion,
+    -- ** Description
+    Description (..),
 
-    -- ** SAMLProviderListEntry
-    SAMLProviderListEntry (..),
-    mkSAMLProviderListEntry,
-    samlpleARN,
-    samlpleCreateDate,
-    samlpleValidUntil,
+    -- ** Path
+    Path (..),
 
-    -- ** SSHPublicKey
-    SSHPublicKey (..),
-    mkSSHPublicKey,
-    spkStatus,
-    spkUploadDate,
-    spkFingerprint,
-    spkSSHPublicKeyId,
-    spkUserName,
-    spkSSHPublicKeyBody,
+    -- ** PolicyId
+    PolicyId (..),
 
-    -- ** SSHPublicKeyMetadata
-    SSHPublicKeyMetadata (..),
-    mkSSHPublicKeyMetadata,
-    spkmStatus,
-    spkmUploadDate,
-    spkmSSHPublicKeyId,
-    spkmUserName,
+    -- ** PolicyName
+    PolicyName (..),
 
-    -- ** ServerCertificate
-    ServerCertificate (..),
-    mkServerCertificate,
-    sServerCertificateMetadata,
-    sCertificateBody,
-    sCertificateChain,
+    -- ** UserName
+    UserName (..),
 
-    -- ** ServerCertificateMetadata
-    ServerCertificateMetadata (..),
-    mkServerCertificateMetadata,
-    scmServerCertificateName,
-    scmUploadDate,
-    scmServerCertificateId,
-    scmARN,
-    scmPath,
-    scmExpiration,
+    -- ** PolicyDocument
+    PolicyDocument (..),
 
-    -- ** ServiceLastAccessed
-    ServiceLastAccessed (..),
-    mkServiceLastAccessed,
-    slaLastAuthenticated,
-    slaServiceNamespace,
-    slaTrackedActionsLastAccessed,
-    slaServiceName,
-    slaLastAuthenticatedEntity,
-    slaLastAuthenticatedRegion,
-    slaTotalAuthenticatedEntities,
+    -- ** Marker
+    Marker (..),
 
-    -- ** ServiceSpecificCredential
-    ServiceSpecificCredential (..),
-    mkServiceSpecificCredential,
-    sscStatus,
-    sscCreateDate,
-    sscUserName,
-    sscServiceName,
-    sscServicePassword,
-    sscServiceSpecificCredentialId,
-    sscServiceUserName,
+    -- ** PathPrefix
+    PathPrefix (..),
 
-    -- ** ServiceSpecificCredentialMetadata
-    ServiceSpecificCredentialMetadata (..),
-    mkServiceSpecificCredentialMetadata,
-    sscmStatus,
-    sscmCreateDate,
-    sscmUserName,
-    sscmServiceName,
-    sscmServiceSpecificCredentialId,
-    sscmServiceUserName,
+    -- ** RoleName
+    RoleName (..),
 
-    -- ** SigningCertificate
-    SigningCertificate (..),
-    mkSigningCertificate,
-    scStatus,
-    scUploadDate,
-    scCertificateId,
-    scUserName,
-    scCertificateBody,
+    -- ** Message
+    Message (..),
 
-    -- ** SimulatePolicyResponse
-    SimulatePolicyResponse (..),
-    mkSimulatePolicyResponse,
-    spEvaluationResults,
-    spMarker,
-    spIsTruncated,
+    -- ** RoleId
+    RoleId (..),
 
-    -- ** Statement
-    Statement (..),
-    mkStatement,
-    sSourcePolicyType,
-    sSourcePolicyId,
-    sEndPosition,
-    sStartPosition,
+    -- ** CallerArn
+    CallerArn (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ResourceHandlingOption
+    ResourceHandlingOption (..),
 
-    -- ** TrackedActionLastAccessed
-    TrackedActionLastAccessed (..),
-    mkTrackedActionLastAccessed,
-    talaLastAccessedTime,
-    talaActionName,
-    talaLastAccessedEntity,
-    talaLastAccessedRegion,
+    -- ** ResourceOwner
+    ResourceOwner (..),
 
-    -- ** User
-    User (..),
-    mkUser,
-    uPasswordLastUsed,
-    uARN,
-    uPath,
-    uCreateDate,
-    uUserName,
-    uUserId,
-    uPermissionsBoundary,
-    uTags,
+    -- ** ResourcePolicy
+    ResourcePolicy (..),
 
-    -- ** UserDetail
-    UserDetail (..),
-    mkUserDetail,
-    udGroupList,
-    udARN,
-    udPath,
-    udCreateDate,
-    udUserName,
-    udUserId,
-    udPermissionsBoundary,
-    udUserPolicyList,
-    udTags,
-    udAttachedManagedPolicies,
+    -- ** SSHPublicKeyBody
+    SSHPublicKeyBody (..),
 
-    -- ** VirtualMFADevice
-    VirtualMFADevice (..),
-    mkVirtualMFADevice,
-    vmdQRCodePNG,
-    vmdBase32StringSeed,
-    vmdUser,
-    vmdEnableDate,
-    vmdSerialNumber,
+    -- ** PermissionsBoundary
+    PermissionsBoundary (..),
+
+    -- ** InstanceProfileName
+    InstanceProfileName (..),
+
+    -- ** GroupName
+    GroupName (..),
+
+    -- ** GroupId
+    GroupId (..),
+
+    -- ** PolicyArn
+    PolicyArn (..),
+
+    -- ** EvalActionName
+    EvalActionName (..),
+
+    -- ** EvalResourceName
+    EvalResourceName (..),
+
+    -- ** AccountAlias
+    AccountAlias (..),
+
+    -- ** DeletionTaskId
+    DeletionTaskId (..),
+
+    -- ** ActionName
+    ActionName (..),
+
+    -- ** LastAccessedEntity
+    LastAccessedEntity (..),
+
+    -- ** LastAccessedRegion
+    LastAccessedRegion (..),
+
+    -- ** SAMLMetadataDocument
+    SAMLMetadataDocument (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** EntityName
+    EntityName (..),
+
+    -- ** ServiceSpecificCredentialId
+    ServiceSpecificCredentialId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ServiceName
+    ServiceName (..),
+
+    -- ** ServiceNamespace
+    ServiceNamespace (..),
+
+    -- ** LastAuthenticatedEntity
+    LastAuthenticatedEntity (..),
+
+    -- ** LastAuthenticatedRegion
+    LastAuthenticatedRegion (..),
+
+    -- ** SerialNumber
+    SerialNumber (..),
+
+    -- ** Document
+    Document (..),
+
+    -- ** PermissionsBoundaryArn
+    PermissionsBoundaryArn (..),
+
+    -- ** InstanceProfileId
+    InstanceProfileId (..),
+
+    -- ** JobId
+    JobId (..),
+
+    -- ** SAMLProviderArn
+    SAMLProviderArn (..),
+
+    -- ** PolicySourceArn
+    PolicySourceArn (..),
+
+    -- ** AssumeRolePolicyDocument
+    AssumeRolePolicyDocument (..),
+
+    -- ** SourcePolicyId
+    SourcePolicyId (..),
+
+    -- ** ServerCertificateName
+    ServerCertificateName (..),
+
+    -- ** AWSServiceName
+    AWSServiceName (..),
+
+    -- ** CustomSuffix
+    CustomSuffix (..),
+
+    -- ** EntityPath
+    EntityPath (..),
+
+    -- ** AccessKeyId
+    AccessKeyId (..),
+
+    -- ** SSHPublicKeyId
+    SSHPublicKeyId (..),
+
+    -- ** OpenIDConnectProviderArn
+    OpenIDConnectProviderArn (..),
+
+    -- ** ClientID
+    ClientID (..),
+
+    -- ** Fingerprint
+    Fingerprint (..),
+
+    -- ** CertificateId
+    CertificateId (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** NewPath
+    NewPath (..),
+
+    -- ** NewUserName
+    NewUserName (..),
+
+    -- ** Code
+    Code (..),
+
+    -- ** ServiceUserName
+    ServiceUserName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
-import Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
+import Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
 import Network.AWS.IAM.AddRoleToInstanceProfile
 import Network.AWS.IAM.AddUserToGroup
 import Network.AWS.IAM.AttachGroupPolicy
@@ -1000,7 +1420,7 @@ import Network.AWS.IAM.CreateAccountAlias
 import Network.AWS.IAM.CreateGroup
 import Network.AWS.IAM.CreateInstanceProfile
 import Network.AWS.IAM.CreateLoginProfile
-import Network.AWS.IAM.CreateOpenIdConnectProvider
+import Network.AWS.IAM.CreateOpenIDConnectProvider
 import Network.AWS.IAM.CreatePolicy
 import Network.AWS.IAM.CreatePolicyVersion
 import Network.AWS.IAM.CreateRole
@@ -1017,7 +1437,7 @@ import Network.AWS.IAM.DeleteGroup
 import Network.AWS.IAM.DeleteGroupPolicy
 import Network.AWS.IAM.DeleteInstanceProfile
 import Network.AWS.IAM.DeleteLoginProfile
-import Network.AWS.IAM.DeleteOpenIdConnectProvider
+import Network.AWS.IAM.DeleteOpenIDConnectProvider
 import Network.AWS.IAM.DeletePolicy
 import Network.AWS.IAM.DeletePolicyVersion
 import Network.AWS.IAM.DeleteRole
@@ -1051,7 +1471,7 @@ import Network.AWS.IAM.GetGroup
 import Network.AWS.IAM.GetGroupPolicy
 import Network.AWS.IAM.GetInstanceProfile
 import Network.AWS.IAM.GetLoginProfile
-import Network.AWS.IAM.GetOpenIdConnectProvider
+import Network.AWS.IAM.GetOpenIDConnectProvider
 import Network.AWS.IAM.GetOrganizationsAccessReport
 import Network.AWS.IAM.GetPolicy
 import Network.AWS.IAM.GetPolicyVersion
@@ -1077,7 +1497,7 @@ import Network.AWS.IAM.ListGroupsForUser
 import Network.AWS.IAM.ListInstanceProfiles
 import Network.AWS.IAM.ListInstanceProfilesForRole
 import Network.AWS.IAM.ListMFADevices
-import Network.AWS.IAM.ListOpenIdConnectProviders
+import Network.AWS.IAM.ListOpenIDConnectProviders
 import Network.AWS.IAM.ListPolicies
 import Network.AWS.IAM.ListPoliciesGrantingServiceAccess
 import Network.AWS.IAM.ListPolicyVersions
@@ -1098,7 +1518,7 @@ import Network.AWS.IAM.PutRolePermissionsBoundary
 import Network.AWS.IAM.PutRolePolicy
 import Network.AWS.IAM.PutUserPermissionsBoundary
 import Network.AWS.IAM.PutUserPolicy
-import Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
+import Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
 import Network.AWS.IAM.RemoveRoleFromInstanceProfile
 import Network.AWS.IAM.RemoveUserFromGroup
 import Network.AWS.IAM.ResetServiceSpecificCredential
@@ -1117,7 +1537,7 @@ import Network.AWS.IAM.UpdateAccountPasswordPolicy
 import Network.AWS.IAM.UpdateAssumeRolePolicy
 import Network.AWS.IAM.UpdateGroup
 import Network.AWS.IAM.UpdateLoginProfile
-import Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
+import Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
 import Network.AWS.IAM.UpdateRole
 import Network.AWS.IAM.UpdateRoleDescription
 import Network.AWS.IAM.UpdateSAMLProvider

@@ -13,61 +13,66 @@
 module Network.AWS.SMS.Types.ValidationStatus
   ( ValidationStatus
       ( ValidationStatus',
-        ReadyForValidation,
-        Pending,
-        InProgress,
-        Succeeded,
-        Failed
+        ValidationStatusReadyForValidation,
+        ValidationStatusPending,
+        ValidationStatusInProgress,
+        ValidationStatusSucceeded,
+        ValidationStatusFailed,
+        fromValidationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ValidationStatus = ValidationStatus' Lude.Text
+newtype ValidationStatus = ValidationStatus'
+  { fromValidationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ReadyForValidation :: ValidationStatus
-pattern ReadyForValidation = ValidationStatus' "READY_FOR_VALIDATION"
+pattern ValidationStatusReadyForValidation :: ValidationStatus
+pattern ValidationStatusReadyForValidation = ValidationStatus' "READY_FOR_VALIDATION"
 
-pattern Pending :: ValidationStatus
-pattern Pending = ValidationStatus' "PENDING"
+pattern ValidationStatusPending :: ValidationStatus
+pattern ValidationStatusPending = ValidationStatus' "PENDING"
 
-pattern InProgress :: ValidationStatus
-pattern InProgress = ValidationStatus' "IN_PROGRESS"
+pattern ValidationStatusInProgress :: ValidationStatus
+pattern ValidationStatusInProgress = ValidationStatus' "IN_PROGRESS"
 
-pattern Succeeded :: ValidationStatus
-pattern Succeeded = ValidationStatus' "SUCCEEDED"
+pattern ValidationStatusSucceeded :: ValidationStatus
+pattern ValidationStatusSucceeded = ValidationStatus' "SUCCEEDED"
 
-pattern Failed :: ValidationStatus
-pattern Failed = ValidationStatus' "FAILED"
+pattern ValidationStatusFailed :: ValidationStatus
+pattern ValidationStatusFailed = ValidationStatus' "FAILED"
 
 {-# COMPLETE
-  ReadyForValidation,
-  Pending,
-  InProgress,
-  Succeeded,
-  Failed,
+  ValidationStatusReadyForValidation,
+  ValidationStatusPending,
+  ValidationStatusInProgress,
+  ValidationStatusSucceeded,
+  ValidationStatusFailed,
   ValidationStatus'
   #-}

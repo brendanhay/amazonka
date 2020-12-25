@@ -13,51 +13,53 @@
 module Network.AWS.IoT.Types.IndexStatus
   ( IndexStatus
       ( IndexStatus',
-        ISActive,
-        ISBuilding,
-        ISRebuilding
+        IndexStatusActive,
+        IndexStatusBuilding,
+        IndexStatusRebuilding,
+        fromIndexStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype IndexStatus = IndexStatus' Lude.Text
+newtype IndexStatus = IndexStatus' {fromIndexStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISActive :: IndexStatus
-pattern ISActive = IndexStatus' "ACTIVE"
+pattern IndexStatusActive :: IndexStatus
+pattern IndexStatusActive = IndexStatus' "ACTIVE"
 
-pattern ISBuilding :: IndexStatus
-pattern ISBuilding = IndexStatus' "BUILDING"
+pattern IndexStatusBuilding :: IndexStatus
+pattern IndexStatusBuilding = IndexStatus' "BUILDING"
 
-pattern ISRebuilding :: IndexStatus
-pattern ISRebuilding = IndexStatus' "REBUILDING"
+pattern IndexStatusRebuilding :: IndexStatus
+pattern IndexStatusRebuilding = IndexStatus' "REBUILDING"
 
 {-# COMPLETE
-  ISActive,
-  ISBuilding,
-  ISRebuilding,
+  IndexStatusActive,
+  IndexStatusBuilding,
+  IndexStatusRebuilding,
   IndexStatus'
   #-}

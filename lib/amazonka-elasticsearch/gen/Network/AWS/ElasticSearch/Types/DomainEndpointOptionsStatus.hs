@@ -17,63 +17,55 @@ module Network.AWS.ElasticSearch.Types.DomainEndpointOptionsStatus
     mkDomainEndpointOptionsStatus,
 
     -- * Lenses
-    deosStatus,
     deosOptions,
+    deosStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.DomainEndpointOptions
-import Network.AWS.ElasticSearch.Types.OptionStatus
+import qualified Network.AWS.ElasticSearch.Types.DomainEndpointOptions as Types
+import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configured endpoint options for the domain and their current status.
 --
 -- /See:/ 'mkDomainEndpointOptionsStatus' smart constructor.
 data DomainEndpointOptionsStatus = DomainEndpointOptionsStatus'
-  { -- | The status of the endpoint options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
-    status :: OptionStatus,
-    -- | Options to configure endpoint for the Elasticsearch domain.
-    options :: DomainEndpointOptions
+  { -- | Options to configure endpoint for the Elasticsearch domain.
+    options :: Types.DomainEndpointOptions,
+    -- | The status of the endpoint options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DomainEndpointOptionsStatus' with the minimum fields required to make a request.
---
--- * 'status' - The status of the endpoint options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
--- * 'options' - Options to configure endpoint for the Elasticsearch domain.
+-- | Creates a 'DomainEndpointOptionsStatus' value with any optional fields omitted.
 mkDomainEndpointOptionsStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  DomainEndpointOptions ->
+  Types.DomainEndpointOptions ->
+  -- | 'status'
+  Types.OptionStatus ->
   DomainEndpointOptionsStatus
-mkDomainEndpointOptionsStatus pStatus_ pOptions_ =
-  DomainEndpointOptionsStatus'
-    { status = pStatus_,
-      options = pOptions_
-    }
-
--- | The status of the endpoint options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deosStatus :: Lens.Lens' DomainEndpointOptionsStatus OptionStatus
-deosStatus = Lens.lens (status :: DomainEndpointOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: DomainEndpointOptionsStatus)
-{-# DEPRECATED deosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkDomainEndpointOptionsStatus options status =
+  DomainEndpointOptionsStatus' {options, status}
 
 -- | Options to configure endpoint for the Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deosOptions :: Lens.Lens' DomainEndpointOptionsStatus DomainEndpointOptions
-deosOptions = Lens.lens (options :: DomainEndpointOptionsStatus -> DomainEndpointOptions) (\s a -> s {options = a} :: DomainEndpointOptionsStatus)
+deosOptions :: Lens.Lens' DomainEndpointOptionsStatus Types.DomainEndpointOptions
+deosOptions = Lens.field @"options"
 {-# DEPRECATED deosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromJSON DomainEndpointOptionsStatus where
+-- | The status of the endpoint options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deosStatus :: Lens.Lens' DomainEndpointOptionsStatus Types.OptionStatus
+deosStatus = Lens.field @"status"
+{-# DEPRECATED deosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON DomainEndpointOptionsStatus where
   parseJSON =
-    Lude.withObject
-      "DomainEndpointOptionsStatus"
-      ( \x ->
-          DomainEndpointOptionsStatus'
-            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
-      )
+    Core.withObject "DomainEndpointOptionsStatus" Core.$
+      \x ->
+        DomainEndpointOptionsStatus'
+          Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")

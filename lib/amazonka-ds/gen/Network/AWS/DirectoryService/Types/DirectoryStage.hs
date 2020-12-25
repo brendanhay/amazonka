@@ -13,91 +13,96 @@
 module Network.AWS.DirectoryService.Types.DirectoryStage
   ( DirectoryStage
       ( DirectoryStage',
-        DSRequested,
-        DSCreating,
-        DSCreated,
-        DSActive,
-        DSInoperable,
-        DSImpaired,
-        DSRestoring,
-        DSRestoreFailed,
-        DSDeleting,
-        DSDeleted,
-        DSFailed
+        DirectoryStageRequested,
+        DirectoryStageCreating,
+        DirectoryStageCreated,
+        DirectoryStageActive,
+        DirectoryStageInoperable,
+        DirectoryStageImpaired,
+        DirectoryStageRestoring,
+        DirectoryStageRestoreFailed,
+        DirectoryStageDeleting,
+        DirectoryStageDeleted,
+        DirectoryStageFailed,
+        fromDirectoryStage
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DirectoryStage = DirectoryStage' Lude.Text
+newtype DirectoryStage = DirectoryStage'
+  { fromDirectoryStage ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSRequested :: DirectoryStage
-pattern DSRequested = DirectoryStage' "Requested"
+pattern DirectoryStageRequested :: DirectoryStage
+pattern DirectoryStageRequested = DirectoryStage' "Requested"
 
-pattern DSCreating :: DirectoryStage
-pattern DSCreating = DirectoryStage' "Creating"
+pattern DirectoryStageCreating :: DirectoryStage
+pattern DirectoryStageCreating = DirectoryStage' "Creating"
 
-pattern DSCreated :: DirectoryStage
-pattern DSCreated = DirectoryStage' "Created"
+pattern DirectoryStageCreated :: DirectoryStage
+pattern DirectoryStageCreated = DirectoryStage' "Created"
 
-pattern DSActive :: DirectoryStage
-pattern DSActive = DirectoryStage' "Active"
+pattern DirectoryStageActive :: DirectoryStage
+pattern DirectoryStageActive = DirectoryStage' "Active"
 
-pattern DSInoperable :: DirectoryStage
-pattern DSInoperable = DirectoryStage' "Inoperable"
+pattern DirectoryStageInoperable :: DirectoryStage
+pattern DirectoryStageInoperable = DirectoryStage' "Inoperable"
 
-pattern DSImpaired :: DirectoryStage
-pattern DSImpaired = DirectoryStage' "Impaired"
+pattern DirectoryStageImpaired :: DirectoryStage
+pattern DirectoryStageImpaired = DirectoryStage' "Impaired"
 
-pattern DSRestoring :: DirectoryStage
-pattern DSRestoring = DirectoryStage' "Restoring"
+pattern DirectoryStageRestoring :: DirectoryStage
+pattern DirectoryStageRestoring = DirectoryStage' "Restoring"
 
-pattern DSRestoreFailed :: DirectoryStage
-pattern DSRestoreFailed = DirectoryStage' "RestoreFailed"
+pattern DirectoryStageRestoreFailed :: DirectoryStage
+pattern DirectoryStageRestoreFailed = DirectoryStage' "RestoreFailed"
 
-pattern DSDeleting :: DirectoryStage
-pattern DSDeleting = DirectoryStage' "Deleting"
+pattern DirectoryStageDeleting :: DirectoryStage
+pattern DirectoryStageDeleting = DirectoryStage' "Deleting"
 
-pattern DSDeleted :: DirectoryStage
-pattern DSDeleted = DirectoryStage' "Deleted"
+pattern DirectoryStageDeleted :: DirectoryStage
+pattern DirectoryStageDeleted = DirectoryStage' "Deleted"
 
-pattern DSFailed :: DirectoryStage
-pattern DSFailed = DirectoryStage' "Failed"
+pattern DirectoryStageFailed :: DirectoryStage
+pattern DirectoryStageFailed = DirectoryStage' "Failed"
 
 {-# COMPLETE
-  DSRequested,
-  DSCreating,
-  DSCreated,
-  DSActive,
-  DSInoperable,
-  DSImpaired,
-  DSRestoring,
-  DSRestoreFailed,
-  DSDeleting,
-  DSDeleted,
-  DSFailed,
+  DirectoryStageRequested,
+  DirectoryStageCreating,
+  DirectoryStageCreated,
+  DirectoryStageActive,
+  DirectoryStageInoperable,
+  DirectoryStageImpaired,
+  DirectoryStageRestoring,
+  DirectoryStageRestoreFailed,
+  DirectoryStageDeleting,
+  DirectoryStageDeleted,
+  DirectoryStageFailed,
   DirectoryStage'
   #-}

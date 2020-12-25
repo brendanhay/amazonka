@@ -20,94 +20,84 @@ module Network.AWS.MediaPackage.DeleteOriginEndpoint
     mkDeleteOriginEndpoint,
 
     -- ** Request lenses
-    doeId,
+    doefId,
 
     -- * Destructuring the response
     DeleteOriginEndpointResponse (..),
     mkDeleteOriginEndpointResponse,
 
     -- ** Response lenses
-    doersResponseStatus,
+    doerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaPackage.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteOriginEndpoint' smart constructor.
 newtype DeleteOriginEndpoint = DeleteOriginEndpoint'
   { -- | The ID of the OriginEndpoint to delete.
-    id :: Lude.Text
+    id :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteOriginEndpoint' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the OriginEndpoint to delete.
+-- | Creates a 'DeleteOriginEndpoint' value with any optional fields omitted.
 mkDeleteOriginEndpoint ::
   -- | 'id'
-  Lude.Text ->
+  Core.Text ->
   DeleteOriginEndpoint
-mkDeleteOriginEndpoint pId_ = DeleteOriginEndpoint' {id = pId_}
+mkDeleteOriginEndpoint id = DeleteOriginEndpoint' {id}
 
 -- | The ID of the OriginEndpoint to delete.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doeId :: Lens.Lens' DeleteOriginEndpoint Lude.Text
-doeId = Lens.lens (id :: DeleteOriginEndpoint -> Lude.Text) (\s a -> s {id = a} :: DeleteOriginEndpoint)
-{-# DEPRECATED doeId "Use generic-lens or generic-optics with 'id' instead." #-}
+doefId :: Lens.Lens' DeleteOriginEndpoint Core.Text
+doefId = Lens.field @"id"
+{-# DEPRECATED doefId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeleteOriginEndpoint where
+instance Core.AWSRequest DeleteOriginEndpoint where
   type Rs DeleteOriginEndpoint = DeleteOriginEndpointResponse
-  request = Req.delete mediaPackageService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/origin_endpoints/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteOriginEndpointResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteOriginEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteOriginEndpoint where
-  toPath DeleteOriginEndpoint' {..} =
-    Lude.mconcat ["/origin_endpoints/", Lude.toBS id]
-
-instance Lude.ToQuery DeleteOriginEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteOriginEndpointResponse' smart constructor.
 newtype DeleteOriginEndpointResponse = DeleteOriginEndpointResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteOriginEndpointResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteOriginEndpointResponse' value with any optional fields omitted.
 mkDeleteOriginEndpointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteOriginEndpointResponse
-mkDeleteOriginEndpointResponse pResponseStatus_ =
-  DeleteOriginEndpointResponse' {responseStatus = pResponseStatus_}
+mkDeleteOriginEndpointResponse responseStatus =
+  DeleteOriginEndpointResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doersResponseStatus :: Lens.Lens' DeleteOriginEndpointResponse Lude.Int
-doersResponseStatus = Lens.lens (responseStatus :: DeleteOriginEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteOriginEndpointResponse)
-{-# DEPRECATED doersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+doerrsResponseStatus :: Lens.Lens' DeleteOriginEndpointResponse Core.Int
+doerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED doerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

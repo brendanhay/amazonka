@@ -13,46 +13,51 @@
 module Network.AWS.XRay.Types.SamplingStrategyName
   ( SamplingStrategyName
       ( SamplingStrategyName',
-        PartialScan,
-        FixedRate
+        SamplingStrategyNamePartialScan,
+        SamplingStrategyNameFixedRate,
+        fromSamplingStrategyName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SamplingStrategyName = SamplingStrategyName' Lude.Text
+newtype SamplingStrategyName = SamplingStrategyName'
+  { fromSamplingStrategyName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PartialScan :: SamplingStrategyName
-pattern PartialScan = SamplingStrategyName' "PartialScan"
+pattern SamplingStrategyNamePartialScan :: SamplingStrategyName
+pattern SamplingStrategyNamePartialScan = SamplingStrategyName' "PartialScan"
 
-pattern FixedRate :: SamplingStrategyName
-pattern FixedRate = SamplingStrategyName' "FixedRate"
+pattern SamplingStrategyNameFixedRate :: SamplingStrategyName
+pattern SamplingStrategyNameFixedRate = SamplingStrategyName' "FixedRate"
 
 {-# COMPLETE
-  PartialScan,
-  FixedRate,
+  SamplingStrategyNamePartialScan,
+  SamplingStrategyNameFixedRate,
   SamplingStrategyName'
   #-}

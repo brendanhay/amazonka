@@ -24,148 +24,131 @@ module Network.AWS.SSM.CreateResourceDataSync
     mkCreateResourceDataSync,
 
     -- ** Request lenses
-    crdsSyncType,
-    crdsSyncSource,
     crdsSyncName,
     crdsS3Destination,
+    crdsSyncSource,
+    crdsSyncType,
 
     -- * Destructuring the response
     CreateResourceDataSyncResponse (..),
     mkCreateResourceDataSyncResponse,
 
     -- ** Response lenses
-    crdsrsResponseStatus,
+    crdsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkCreateResourceDataSync' smart constructor.
 data CreateResourceDataSync = CreateResourceDataSync'
-  { -- | Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
-    syncType :: Lude.Maybe Lude.Text,
-    -- | Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
-    syncSource :: Lude.Maybe ResourceDataSyncSource,
-    -- | A name for the configuration.
-    syncName :: Lude.Text,
+  { -- | A name for the configuration.
+    syncName :: Types.ResourceDataSyncName,
     -- | Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
-    s3Destination :: Lude.Maybe ResourceDataSyncS3Destination
+    s3Destination :: Core.Maybe Types.ResourceDataSyncS3Destination,
+    -- | Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
+    syncSource :: Core.Maybe Types.ResourceDataSyncSource,
+    -- | Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
+    syncType :: Core.Maybe Types.ResourceDataSyncType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateResourceDataSync' with the minimum fields required to make a request.
---
--- * 'syncType' - Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
--- * 'syncSource' - Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
--- * 'syncName' - A name for the configuration.
--- * 's3Destination' - Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
+-- | Creates a 'CreateResourceDataSync' value with any optional fields omitted.
 mkCreateResourceDataSync ::
   -- | 'syncName'
-  Lude.Text ->
+  Types.ResourceDataSyncName ->
   CreateResourceDataSync
-mkCreateResourceDataSync pSyncName_ =
+mkCreateResourceDataSync syncName =
   CreateResourceDataSync'
-    { syncType = Lude.Nothing,
-      syncSource = Lude.Nothing,
-      syncName = pSyncName_,
-      s3Destination = Lude.Nothing
+    { syncName,
+      s3Destination = Core.Nothing,
+      syncSource = Core.Nothing,
+      syncType = Core.Nothing
     }
-
--- | Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
---
--- /Note:/ Consider using 'syncType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsSyncType :: Lens.Lens' CreateResourceDataSync (Lude.Maybe Lude.Text)
-crdsSyncType = Lens.lens (syncType :: CreateResourceDataSync -> Lude.Maybe Lude.Text) (\s a -> s {syncType = a} :: CreateResourceDataSync)
-{-# DEPRECATED crdsSyncType "Use generic-lens or generic-optics with 'syncType' instead." #-}
-
--- | Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
---
--- /Note:/ Consider using 'syncSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsSyncSource :: Lens.Lens' CreateResourceDataSync (Lude.Maybe ResourceDataSyncSource)
-crdsSyncSource = Lens.lens (syncSource :: CreateResourceDataSync -> Lude.Maybe ResourceDataSyncSource) (\s a -> s {syncSource = a} :: CreateResourceDataSync)
-{-# DEPRECATED crdsSyncSource "Use generic-lens or generic-optics with 'syncSource' instead." #-}
 
 -- | A name for the configuration.
 --
 -- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsSyncName :: Lens.Lens' CreateResourceDataSync Lude.Text
-crdsSyncName = Lens.lens (syncName :: CreateResourceDataSync -> Lude.Text) (\s a -> s {syncName = a} :: CreateResourceDataSync)
+crdsSyncName :: Lens.Lens' CreateResourceDataSync Types.ResourceDataSyncName
+crdsSyncName = Lens.field @"syncName"
 {-# DEPRECATED crdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
 
 -- | Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
 --
 -- /Note:/ Consider using 's3Destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsS3Destination :: Lens.Lens' CreateResourceDataSync (Lude.Maybe ResourceDataSyncS3Destination)
-crdsS3Destination = Lens.lens (s3Destination :: CreateResourceDataSync -> Lude.Maybe ResourceDataSyncS3Destination) (\s a -> s {s3Destination = a} :: CreateResourceDataSync)
+crdsS3Destination :: Lens.Lens' CreateResourceDataSync (Core.Maybe Types.ResourceDataSyncS3Destination)
+crdsS3Destination = Lens.field @"s3Destination"
 {-# DEPRECATED crdsS3Destination "Use generic-lens or generic-optics with 's3Destination' instead." #-}
 
-instance Lude.AWSRequest CreateResourceDataSync where
+-- | Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
+--
+-- /Note:/ Consider using 'syncSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdsSyncSource :: Lens.Lens' CreateResourceDataSync (Core.Maybe Types.ResourceDataSyncSource)
+crdsSyncSource = Lens.field @"syncSource"
+{-# DEPRECATED crdsSyncSource "Use generic-lens or generic-optics with 'syncSource' instead." #-}
+
+-- | Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
+--
+-- /Note:/ Consider using 'syncType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdsSyncType :: Lens.Lens' CreateResourceDataSync (Core.Maybe Types.ResourceDataSyncType)
+crdsSyncType = Lens.field @"syncType"
+{-# DEPRECATED crdsSyncType "Use generic-lens or generic-optics with 'syncType' instead." #-}
+
+instance Core.FromJSON CreateResourceDataSync where
+  toJSON CreateResourceDataSync {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SyncName" Core..= syncName),
+            ("S3Destination" Core..=) Core.<$> s3Destination,
+            ("SyncSource" Core..=) Core.<$> syncSource,
+            ("SyncType" Core..=) Core.<$> syncType
+          ]
+      )
+
+instance Core.AWSRequest CreateResourceDataSync where
   type Rs CreateResourceDataSync = CreateResourceDataSyncResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.CreateResourceDataSync")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CreateResourceDataSyncResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateResourceDataSync where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.CreateResourceDataSync" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateResourceDataSync where
-  toJSON CreateResourceDataSync' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SyncType" Lude..=) Lude.<$> syncType,
-            ("SyncSource" Lude..=) Lude.<$> syncSource,
-            Lude.Just ("SyncName" Lude..= syncName),
-            ("S3Destination" Lude..=) Lude.<$> s3Destination
-          ]
-      )
-
-instance Lude.ToPath CreateResourceDataSync where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateResourceDataSync where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateResourceDataSyncResponse' smart constructor.
 newtype CreateResourceDataSyncResponse = CreateResourceDataSyncResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateResourceDataSyncResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateResourceDataSyncResponse' value with any optional fields omitted.
 mkCreateResourceDataSyncResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateResourceDataSyncResponse
-mkCreateResourceDataSyncResponse pResponseStatus_ =
-  CreateResourceDataSyncResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCreateResourceDataSyncResponse responseStatus =
+  CreateResourceDataSyncResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsrsResponseStatus :: Lens.Lens' CreateResourceDataSyncResponse Lude.Int
-crdsrsResponseStatus = Lens.lens (responseStatus :: CreateResourceDataSyncResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateResourceDataSyncResponse)
-{-# DEPRECATED crdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crdsrrsResponseStatus :: Lens.Lens' CreateResourceDataSyncResponse Core.Int
+crdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,136 +17,125 @@ module Network.AWS.Greengrass.Types.DefinitionInformation
     mkDefinitionInformation,
 
     -- * Lenses
-    diLatestVersionARN,
-    diARN,
-    diName,
+    diArn,
     diCreationTimestamp,
     diId,
-    diTags,
-    diLatestVersion,
     diLastUpdatedTimestamp,
+    diLatestVersion,
+    diLatestVersionArn,
+    diName,
+    diTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a definition.
 --
 -- /See:/ 'mkDefinitionInformation' smart constructor.
 data DefinitionInformation = DefinitionInformation'
-  { -- | The ARN of the latest version associated with the definition.
-    latestVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the definition.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the definition.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the definition.
+    arn :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was created.
-    creationTimestamp :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The ID of the definition.
-    id :: Lude.Maybe Lude.Text,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last updated.
-    lastUpdatedTimestamp :: Lude.Maybe Lude.Text
+    lastUpdatedTimestamp :: Core.Maybe Core.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Core.Maybe Core.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Core.Maybe Core.Text,
+    -- | The name of the definition.
+    name :: Core.Maybe Core.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DefinitionInformation' with the minimum fields required to make a request.
---
--- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
--- * 'arn' - The ARN of the definition.
--- * 'name' - The name of the definition.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
--- * 'id' - The ID of the definition.
--- * 'tags' - Tag(s) attached to the resource arn.
--- * 'latestVersion' - The ID of the latest version associated with the definition.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
+-- | Creates a 'DefinitionInformation' value with any optional fields omitted.
 mkDefinitionInformation ::
   DefinitionInformation
 mkDefinitionInformation =
   DefinitionInformation'
-    { latestVersionARN = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      id = Lude.Nothing,
-      tags = Lude.Nothing,
-      latestVersion = Lude.Nothing,
-      lastUpdatedTimestamp = Lude.Nothing
+    { arn = Core.Nothing,
+      creationTimestamp = Core.Nothing,
+      id = Core.Nothing,
+      lastUpdatedTimestamp = Core.Nothing,
+      latestVersion = Core.Nothing,
+      latestVersionArn = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The ARN of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diLatestVersionARN :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
-diLatestVersionARN = Lens.lens (latestVersionARN :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: DefinitionInformation)
-{-# DEPRECATED diLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diARN :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
-diARN = Lens.lens (arn :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DefinitionInformation)
-{-# DEPRECATED diARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the definition.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diName :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
-diName = Lens.lens (name :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DefinitionInformation)
-{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
+diArn :: Lens.Lens' DefinitionInformation (Core.Maybe Core.Text)
+diArn = Lens.field @"arn"
+{-# DEPRECATED diArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diCreationTimestamp :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
-diCreationTimestamp = Lens.lens (creationTimestamp :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: DefinitionInformation)
+diCreationTimestamp :: Lens.Lens' DefinitionInformation (Core.Maybe Core.Text)
+diCreationTimestamp = Lens.field @"creationTimestamp"
 {-# DEPRECATED diCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diId :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
-diId = Lens.lens (id :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DefinitionInformation)
+diId :: Lens.Lens' DefinitionInformation (Core.Maybe Core.Text)
+diId = Lens.field @"id"
 {-# DEPRECATED diId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | Tag(s) attached to the resource arn.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diTags :: Lens.Lens' DefinitionInformation (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-diTags = Lens.lens (tags :: DefinitionInformation -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DefinitionInformation)
-{-# DEPRECATED diTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The ID of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diLatestVersion :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
-diLatestVersion = Lens.lens (latestVersion :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: DefinitionInformation)
-{-# DEPRECATED diLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diLastUpdatedTimestamp :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
-diLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: DefinitionInformation)
+diLastUpdatedTimestamp :: Lens.Lens' DefinitionInformation (Core.Maybe Core.Text)
+diLastUpdatedTimestamp = Lens.field @"lastUpdatedTimestamp"
 {-# DEPRECATED diLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
 
-instance Lude.FromJSON DefinitionInformation where
+-- | The ID of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLatestVersion :: Lens.Lens' DefinitionInformation (Core.Maybe Core.Text)
+diLatestVersion = Lens.field @"latestVersion"
+{-# DEPRECATED diLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+
+-- | The ARN of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLatestVersionArn :: Lens.Lens' DefinitionInformation (Core.Maybe Core.Text)
+diLatestVersionArn = Lens.field @"latestVersionArn"
+{-# DEPRECATED diLatestVersionArn "Use generic-lens or generic-optics with 'latestVersionArn' instead." #-}
+
+-- | The name of the definition.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diName :: Lens.Lens' DefinitionInformation (Core.Maybe Core.Text)
+diName = Lens.field @"name"
+{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Tag(s) attached to the resource arn.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTags :: Lens.Lens' DefinitionInformation (Core.Maybe (Core.HashMap Core.Text Core.Text))
+diTags = Lens.field @"tags"
+{-# DEPRECATED diTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.FromJSON DefinitionInformation where
   parseJSON =
-    Lude.withObject
-      "DefinitionInformation"
-      ( \x ->
-          DefinitionInformation'
-            Lude.<$> (x Lude..:? "LatestVersionArn")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "CreationTimestamp")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LatestVersion")
-            Lude.<*> (x Lude..:? "LastUpdatedTimestamp")
-      )
+    Core.withObject "DefinitionInformation" Core.$
+      \x ->
+        DefinitionInformation'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "CreationTimestamp")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "LastUpdatedTimestamp")
+          Core.<*> (x Core..:? "LatestVersion")
+          Core.<*> (x Core..:? "LatestVersionArn")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "tags")

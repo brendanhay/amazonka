@@ -17,56 +17,46 @@ module Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges
     mkNetworkInterfaceAttachmentChanges,
 
     -- * Lenses
-    niacDeleteOnTermination,
     niacAttachmentId,
+    niacDeleteOnTermination,
   )
 where
 
+import qualified Network.AWS.EC2.Types.AttachmentId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an attachment change.
 --
 -- /See:/ 'mkNetworkInterfaceAttachmentChanges' smart constructor.
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'
-  { -- | Indicates whether the network interface is deleted when the instance is terminated.
-    deleteOnTermination :: Lude.Maybe Lude.Bool,
-    -- | The ID of the network interface attachment.
-    attachmentId :: Lude.Maybe Lude.Text
+  { -- | The ID of the network interface attachment.
+    attachmentId :: Core.Maybe Types.AttachmentId,
+    -- | Indicates whether the network interface is deleted when the instance is terminated.
+    deleteOnTermination :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkInterfaceAttachmentChanges' with the minimum fields required to make a request.
---
--- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
--- * 'attachmentId' - The ID of the network interface attachment.
+-- | Creates a 'NetworkInterfaceAttachmentChanges' value with any optional fields omitted.
 mkNetworkInterfaceAttachmentChanges ::
   NetworkInterfaceAttachmentChanges
 mkNetworkInterfaceAttachmentChanges =
   NetworkInterfaceAttachmentChanges'
-    { deleteOnTermination =
-        Lude.Nothing,
-      attachmentId = Lude.Nothing
+    { attachmentId = Core.Nothing,
+      deleteOnTermination = Core.Nothing
     }
-
--- | Indicates whether the network interface is deleted when the instance is terminated.
---
--- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niacDeleteOnTermination :: Lens.Lens' NetworkInterfaceAttachmentChanges (Lude.Maybe Lude.Bool)
-niacDeleteOnTermination = Lens.lens (deleteOnTermination :: NetworkInterfaceAttachmentChanges -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: NetworkInterfaceAttachmentChanges)
-{-# DEPRECATED niacDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
 
 -- | The ID of the network interface attachment.
 --
 -- /Note:/ Consider using 'attachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niacAttachmentId :: Lens.Lens' NetworkInterfaceAttachmentChanges (Lude.Maybe Lude.Text)
-niacAttachmentId = Lens.lens (attachmentId :: NetworkInterfaceAttachmentChanges -> Lude.Maybe Lude.Text) (\s a -> s {attachmentId = a} :: NetworkInterfaceAttachmentChanges)
+niacAttachmentId :: Lens.Lens' NetworkInterfaceAttachmentChanges (Core.Maybe Types.AttachmentId)
+niacAttachmentId = Lens.field @"attachmentId"
 {-# DEPRECATED niacAttachmentId "Use generic-lens or generic-optics with 'attachmentId' instead." #-}
 
-instance Lude.ToQuery NetworkInterfaceAttachmentChanges where
-  toQuery NetworkInterfaceAttachmentChanges' {..} =
-    Lude.mconcat
-      [ "DeleteOnTermination" Lude.=: deleteOnTermination,
-        "AttachmentId" Lude.=: attachmentId
-      ]
+-- | Indicates whether the network interface is deleted when the instance is terminated.
+--
+-- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niacDeleteOnTermination :: Lens.Lens' NetworkInterfaceAttachmentChanges (Core.Maybe Core.Bool)
+niacDeleteOnTermination = Lens.field @"deleteOnTermination"
+{-# DEPRECATED niacDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}

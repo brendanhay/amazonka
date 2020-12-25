@@ -20,7 +20,7 @@ module Network.AWS.CloudDirectory.DetachTypedLink
     mkDetachTypedLink,
 
     -- ** Request lenses
-    dtlDirectoryARN,
+    dtlDirectoryArn,
     dtlTypedLinkSpecifier,
 
     -- * Destructuring the response
@@ -29,81 +29,74 @@ module Network.AWS.CloudDirectory.DetachTypedLink
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachTypedLink' smart constructor.
 data DetachTypedLink = DetachTypedLink'
   { -- | The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.
-    directoryARN :: Lude.Text,
+    directoryArn :: Types.Arn,
     -- | Used to accept a typed link specifier as input.
-    typedLinkSpecifier :: TypedLinkSpecifier
+    typedLinkSpecifier :: Types.TypedLinkSpecifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DetachTypedLink' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.
--- * 'typedLinkSpecifier' - Used to accept a typed link specifier as input.
+-- | Creates a 'DetachTypedLink' value with any optional fields omitted.
 mkDetachTypedLink ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'typedLinkSpecifier'
-  TypedLinkSpecifier ->
+  Types.TypedLinkSpecifier ->
   DetachTypedLink
-mkDetachTypedLink pDirectoryARN_ pTypedLinkSpecifier_ =
-  DetachTypedLink'
-    { directoryARN = pDirectoryARN_,
-      typedLinkSpecifier = pTypedLinkSpecifier_
-    }
+mkDetachTypedLink directoryArn typedLinkSpecifier =
+  DetachTypedLink' {directoryArn, typedLinkSpecifier}
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtlDirectoryARN :: Lens.Lens' DetachTypedLink Lude.Text
-dtlDirectoryARN = Lens.lens (directoryARN :: DetachTypedLink -> Lude.Text) (\s a -> s {directoryARN = a} :: DetachTypedLink)
-{-# DEPRECATED dtlDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtlDirectoryArn :: Lens.Lens' DetachTypedLink Types.Arn
+dtlDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED dtlDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | Used to accept a typed link specifier as input.
 --
 -- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtlTypedLinkSpecifier :: Lens.Lens' DetachTypedLink TypedLinkSpecifier
-dtlTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: DetachTypedLink -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: DetachTypedLink)
+dtlTypedLinkSpecifier :: Lens.Lens' DetachTypedLink Types.TypedLinkSpecifier
+dtlTypedLinkSpecifier = Lens.field @"typedLinkSpecifier"
 {-# DEPRECATED dtlTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
-instance Lude.AWSRequest DetachTypedLink where
-  type Rs DetachTypedLink = DetachTypedLinkResponse
-  request = Req.putJSON cloudDirectoryService
-  response = Res.receiveNull DetachTypedLinkResponse'
-
-instance Lude.ToHeaders DetachTypedLink where
-  toHeaders DetachTypedLink' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON DetachTypedLink where
-  toJSON DetachTypedLink' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)]
+instance Core.FromJSON DetachTypedLink where
+  toJSON DetachTypedLink {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TypedLinkSpecifier" Core..= typedLinkSpecifier)]
       )
 
-instance Lude.ToPath DetachTypedLink where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/typedlink/detach"
-
-instance Lude.ToQuery DetachTypedLink where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DetachTypedLink where
+  type Rs DetachTypedLink = DetachTypedLinkResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/typedlink/detach",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DetachTypedLinkResponse'
 
 -- | /See:/ 'mkDetachTypedLinkResponse' smart constructor.
 data DetachTypedLinkResponse = DetachTypedLinkResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachTypedLinkResponse' with the minimum fields required to make a request.
+-- | Creates a 'DetachTypedLinkResponse' value with any optional fields omitted.
 mkDetachTypedLinkResponse ::
   DetachTypedLinkResponse
 mkDetachTypedLinkResponse = DetachTypedLinkResponse'

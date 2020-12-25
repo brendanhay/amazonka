@@ -18,87 +18,79 @@ module Network.AWS.EC2.Types.InternetGateway
 
     -- * Lenses
     igAttachments,
-    igOwnerId,
     igInternetGatewayId,
+    igOwnerId,
     igTags,
   )
 where
 
-import Network.AWS.EC2.Types.InternetGatewayAttachment
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.InternetGatewayAttachment as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an internet gateway.
 --
 -- /See:/ 'mkInternetGateway' smart constructor.
 data InternetGateway = InternetGateway'
   { -- | Any VPCs attached to the internet gateway.
-    attachments :: Lude.Maybe [InternetGatewayAttachment],
-    -- | The ID of the AWS account that owns the internet gateway.
-    ownerId :: Lude.Maybe Lude.Text,
+    attachments :: Core.Maybe [Types.InternetGatewayAttachment],
     -- | The ID of the internet gateway.
-    internetGatewayId :: Lude.Text,
+    internetGatewayId :: Types.String,
+    -- | The ID of the AWS account that owns the internet gateway.
+    ownerId :: Core.Maybe Types.String,
     -- | Any tags assigned to the internet gateway.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InternetGateway' with the minimum fields required to make a request.
---
--- * 'attachments' - Any VPCs attached to the internet gateway.
--- * 'ownerId' - The ID of the AWS account that owns the internet gateway.
--- * 'internetGatewayId' - The ID of the internet gateway.
--- * 'tags' - Any tags assigned to the internet gateway.
+-- | Creates a 'InternetGateway' value with any optional fields omitted.
 mkInternetGateway ::
   -- | 'internetGatewayId'
-  Lude.Text ->
+  Types.String ->
   InternetGateway
-mkInternetGateway pInternetGatewayId_ =
+mkInternetGateway internetGatewayId =
   InternetGateway'
-    { attachments = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      internetGatewayId = pInternetGatewayId_,
-      tags = Lude.Nothing
+    { attachments = Core.Nothing,
+      internetGatewayId,
+      ownerId = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | Any VPCs attached to the internet gateway.
 --
 -- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igAttachments :: Lens.Lens' InternetGateway (Lude.Maybe [InternetGatewayAttachment])
-igAttachments = Lens.lens (attachments :: InternetGateway -> Lude.Maybe [InternetGatewayAttachment]) (\s a -> s {attachments = a} :: InternetGateway)
+igAttachments :: Lens.Lens' InternetGateway (Core.Maybe [Types.InternetGatewayAttachment])
+igAttachments = Lens.field @"attachments"
 {-# DEPRECATED igAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
-
--- | The ID of the AWS account that owns the internet gateway.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igOwnerId :: Lens.Lens' InternetGateway (Lude.Maybe Lude.Text)
-igOwnerId = Lens.lens (ownerId :: InternetGateway -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: InternetGateway)
-{-# DEPRECATED igOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The ID of the internet gateway.
 --
 -- /Note:/ Consider using 'internetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igInternetGatewayId :: Lens.Lens' InternetGateway Lude.Text
-igInternetGatewayId = Lens.lens (internetGatewayId :: InternetGateway -> Lude.Text) (\s a -> s {internetGatewayId = a} :: InternetGateway)
+igInternetGatewayId :: Lens.Lens' InternetGateway Types.String
+igInternetGatewayId = Lens.field @"internetGatewayId"
 {-# DEPRECATED igInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
+
+-- | The ID of the AWS account that owns the internet gateway.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igOwnerId :: Lens.Lens' InternetGateway (Core.Maybe Types.String)
+igOwnerId = Lens.field @"ownerId"
+{-# DEPRECATED igOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | Any tags assigned to the internet gateway.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igTags :: Lens.Lens' InternetGateway (Lude.Maybe [Tag])
-igTags = Lens.lens (tags :: InternetGateway -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: InternetGateway)
+igTags :: Lens.Lens' InternetGateway (Core.Maybe [Types.Tag])
+igTags = Lens.field @"tags"
 {-# DEPRECATED igTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML InternetGateway where
+instance Core.FromXML InternetGateway where
   parseXML x =
     InternetGateway'
-      Lude.<$> ( x Lude..@? "attachmentSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "ownerId")
-      Lude.<*> (x Lude..@ "internetGatewayId")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "attachmentSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@ "internetGatewayId")
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

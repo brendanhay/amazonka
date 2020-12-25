@@ -17,99 +17,94 @@ module Network.AWS.IoT.Types.ScheduledAuditMetadata
     mkScheduledAuditMetadata,
 
     -- * Lenses
-    samFrequency,
-    samScheduledAuditName,
     samDayOfMonth,
     samDayOfWeek,
-    samScheduledAuditARN,
+    samFrequency,
+    samScheduledAuditArn,
+    samScheduledAuditName,
   )
 where
 
-import Network.AWS.IoT.Types.AuditFrequency
-import Network.AWS.IoT.Types.DayOfWeek
+import qualified Network.AWS.IoT.Types.AuditFrequency as Types
+import qualified Network.AWS.IoT.Types.DayOfMonth as Types
+import qualified Network.AWS.IoT.Types.DayOfWeek as Types
+import qualified Network.AWS.IoT.Types.ScheduledAuditArn as Types
+import qualified Network.AWS.IoT.Types.ScheduledAuditName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the scheduled audit.
 --
 -- /See:/ 'mkScheduledAuditMetadata' smart constructor.
 data ScheduledAuditMetadata = ScheduledAuditMetadata'
-  { -- | How often the scheduled audit occurs.
-    frequency :: Lude.Maybe AuditFrequency,
-    -- | The name of the scheduled audit.
-    scheduledAuditName :: Lude.Maybe Lude.Text,
-    -- | The day of the month on which the scheduled audit is run (if the @frequency@ is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
-    dayOfMonth :: Lude.Maybe Lude.Text,
+  { -- | The day of the month on which the scheduled audit is run (if the @frequency@ is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+    dayOfMonth :: Core.Maybe Types.DayOfMonth,
     -- | The day of the week on which the scheduled audit is run (if the @frequency@ is "WEEKLY" or "BIWEEKLY").
-    dayOfWeek :: Lude.Maybe DayOfWeek,
+    dayOfWeek :: Core.Maybe Types.DayOfWeek,
+    -- | How often the scheduled audit occurs.
+    frequency :: Core.Maybe Types.AuditFrequency,
     -- | The ARN of the scheduled audit.
-    scheduledAuditARN :: Lude.Maybe Lude.Text
+    scheduledAuditArn :: Core.Maybe Types.ScheduledAuditArn,
+    -- | The name of the scheduled audit.
+    scheduledAuditName :: Core.Maybe Types.ScheduledAuditName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduledAuditMetadata' with the minimum fields required to make a request.
---
--- * 'frequency' - How often the scheduled audit occurs.
--- * 'scheduledAuditName' - The name of the scheduled audit.
--- * 'dayOfMonth' - The day of the month on which the scheduled audit is run (if the @frequency@ is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
--- * 'dayOfWeek' - The day of the week on which the scheduled audit is run (if the @frequency@ is "WEEKLY" or "BIWEEKLY").
--- * 'scheduledAuditARN' - The ARN of the scheduled audit.
+-- | Creates a 'ScheduledAuditMetadata' value with any optional fields omitted.
 mkScheduledAuditMetadata ::
   ScheduledAuditMetadata
 mkScheduledAuditMetadata =
   ScheduledAuditMetadata'
-    { frequency = Lude.Nothing,
-      scheduledAuditName = Lude.Nothing,
-      dayOfMonth = Lude.Nothing,
-      dayOfWeek = Lude.Nothing,
-      scheduledAuditARN = Lude.Nothing
+    { dayOfMonth = Core.Nothing,
+      dayOfWeek = Core.Nothing,
+      frequency = Core.Nothing,
+      scheduledAuditArn = Core.Nothing,
+      scheduledAuditName = Core.Nothing
     }
-
--- | How often the scheduled audit occurs.
---
--- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samFrequency :: Lens.Lens' ScheduledAuditMetadata (Lude.Maybe AuditFrequency)
-samFrequency = Lens.lens (frequency :: ScheduledAuditMetadata -> Lude.Maybe AuditFrequency) (\s a -> s {frequency = a} :: ScheduledAuditMetadata)
-{-# DEPRECATED samFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
-
--- | The name of the scheduled audit.
---
--- /Note:/ Consider using 'scheduledAuditName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samScheduledAuditName :: Lens.Lens' ScheduledAuditMetadata (Lude.Maybe Lude.Text)
-samScheduledAuditName = Lens.lens (scheduledAuditName :: ScheduledAuditMetadata -> Lude.Maybe Lude.Text) (\s a -> s {scheduledAuditName = a} :: ScheduledAuditMetadata)
-{-# DEPRECATED samScheduledAuditName "Use generic-lens or generic-optics with 'scheduledAuditName' instead." #-}
 
 -- | The day of the month on which the scheduled audit is run (if the @frequency@ is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
 --
 -- /Note:/ Consider using 'dayOfMonth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samDayOfMonth :: Lens.Lens' ScheduledAuditMetadata (Lude.Maybe Lude.Text)
-samDayOfMonth = Lens.lens (dayOfMonth :: ScheduledAuditMetadata -> Lude.Maybe Lude.Text) (\s a -> s {dayOfMonth = a} :: ScheduledAuditMetadata)
+samDayOfMonth :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe Types.DayOfMonth)
+samDayOfMonth = Lens.field @"dayOfMonth"
 {-# DEPRECATED samDayOfMonth "Use generic-lens or generic-optics with 'dayOfMonth' instead." #-}
 
 -- | The day of the week on which the scheduled audit is run (if the @frequency@ is "WEEKLY" or "BIWEEKLY").
 --
 -- /Note:/ Consider using 'dayOfWeek' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samDayOfWeek :: Lens.Lens' ScheduledAuditMetadata (Lude.Maybe DayOfWeek)
-samDayOfWeek = Lens.lens (dayOfWeek :: ScheduledAuditMetadata -> Lude.Maybe DayOfWeek) (\s a -> s {dayOfWeek = a} :: ScheduledAuditMetadata)
+samDayOfWeek :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe Types.DayOfWeek)
+samDayOfWeek = Lens.field @"dayOfWeek"
 {-# DEPRECATED samDayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead." #-}
+
+-- | How often the scheduled audit occurs.
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samFrequency :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe Types.AuditFrequency)
+samFrequency = Lens.field @"frequency"
+{-# DEPRECATED samFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
 -- | The ARN of the scheduled audit.
 --
--- /Note:/ Consider using 'scheduledAuditARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samScheduledAuditARN :: Lens.Lens' ScheduledAuditMetadata (Lude.Maybe Lude.Text)
-samScheduledAuditARN = Lens.lens (scheduledAuditARN :: ScheduledAuditMetadata -> Lude.Maybe Lude.Text) (\s a -> s {scheduledAuditARN = a} :: ScheduledAuditMetadata)
-{-# DEPRECATED samScheduledAuditARN "Use generic-lens or generic-optics with 'scheduledAuditARN' instead." #-}
+-- /Note:/ Consider using 'scheduledAuditArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samScheduledAuditArn :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe Types.ScheduledAuditArn)
+samScheduledAuditArn = Lens.field @"scheduledAuditArn"
+{-# DEPRECATED samScheduledAuditArn "Use generic-lens or generic-optics with 'scheduledAuditArn' instead." #-}
 
-instance Lude.FromJSON ScheduledAuditMetadata where
+-- | The name of the scheduled audit.
+--
+-- /Note:/ Consider using 'scheduledAuditName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samScheduledAuditName :: Lens.Lens' ScheduledAuditMetadata (Core.Maybe Types.ScheduledAuditName)
+samScheduledAuditName = Lens.field @"scheduledAuditName"
+{-# DEPRECATED samScheduledAuditName "Use generic-lens or generic-optics with 'scheduledAuditName' instead." #-}
+
+instance Core.FromJSON ScheduledAuditMetadata where
   parseJSON =
-    Lude.withObject
-      "ScheduledAuditMetadata"
-      ( \x ->
-          ScheduledAuditMetadata'
-            Lude.<$> (x Lude..:? "frequency")
-            Lude.<*> (x Lude..:? "scheduledAuditName")
-            Lude.<*> (x Lude..:? "dayOfMonth")
-            Lude.<*> (x Lude..:? "dayOfWeek")
-            Lude.<*> (x Lude..:? "scheduledAuditArn")
-      )
+    Core.withObject "ScheduledAuditMetadata" Core.$
+      \x ->
+        ScheduledAuditMetadata'
+          Core.<$> (x Core..:? "dayOfMonth")
+          Core.<*> (x Core..:? "dayOfWeek")
+          Core.<*> (x Core..:? "frequency")
+          Core.<*> (x Core..:? "scheduledAuditArn")
+          Core.<*> (x Core..:? "scheduledAuditName")

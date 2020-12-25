@@ -17,116 +17,107 @@ module Network.AWS.Pinpoint.Types.AddressConfiguration
     mkAddressConfiguration,
 
     -- * Lenses
-    acSubstitutions,
-    acTitleOverride,
-    acContext,
-    acRawContent,
     acBodyOverride,
     acChannelType,
+    acContext,
+    acRawContent,
+    acSubstitutions,
+    acTitleOverride,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ChannelType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ChannelType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies address-based configuration settings for a message that's sent directly to an endpoint.
 --
 -- /See:/ 'mkAddressConfiguration' smart constructor.
 data AddressConfiguration = AddressConfiguration'
-  { -- | A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.
-    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | The message title to use instead of the default message title. This value overrides the default message title.
-    titleOverride :: Lude.Maybe Lude.Text,
+  { -- | The message body to use instead of the default message body. This value overrides the default message body.
+    bodyOverride :: Core.Maybe Core.Text,
+    -- | The channel to use when sending the message.
+    channelType :: Core.Maybe Types.ChannelType,
     -- | An object that maps custom attributes to attributes for the address and is attached to the message. Attribute names are case sensitive.
     --
     -- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
-    context :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    context :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
-    rawContent :: Lude.Maybe Lude.Text,
-    -- | The message body to use instead of the default message body. This value overrides the default message body.
-    bodyOverride :: Lude.Maybe Lude.Text,
-    -- | The channel to use when sending the message.
-    channelType :: Lude.Maybe ChannelType
+    rawContent :: Core.Maybe Core.Text,
+    -- | A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
+    -- | The message title to use instead of the default message title. This value overrides the default message title.
+    titleOverride :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddressConfiguration' with the minimum fields required to make a request.
---
--- * 'substitutions' - A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.
--- * 'titleOverride' - The message title to use instead of the default message title. This value overrides the default message title.
--- * 'context' - An object that maps custom attributes to attributes for the address and is attached to the message. Attribute names are case sensitive.
---
--- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
--- * 'rawContent' - The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
--- * 'bodyOverride' - The message body to use instead of the default message body. This value overrides the default message body.
--- * 'channelType' - The channel to use when sending the message.
+-- | Creates a 'AddressConfiguration' value with any optional fields omitted.
 mkAddressConfiguration ::
   AddressConfiguration
 mkAddressConfiguration =
   AddressConfiguration'
-    { substitutions = Lude.Nothing,
-      titleOverride = Lude.Nothing,
-      context = Lude.Nothing,
-      rawContent = Lude.Nothing,
-      bodyOverride = Lude.Nothing,
-      channelType = Lude.Nothing
+    { bodyOverride = Core.Nothing,
+      channelType = Core.Nothing,
+      context = Core.Nothing,
+      rawContent = Core.Nothing,
+      substitutions = Core.Nothing,
+      titleOverride = Core.Nothing
     }
 
--- | A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.
+-- | The message body to use instead of the default message body. This value overrides the default message body.
 --
--- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acSubstitutions :: Lens.Lens' AddressConfiguration (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-acSubstitutions = Lens.lens (substitutions :: AddressConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: AddressConfiguration)
-{-# DEPRECATED acSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
+-- /Note:/ Consider using 'bodyOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acBodyOverride :: Lens.Lens' AddressConfiguration (Core.Maybe Core.Text)
+acBodyOverride = Lens.field @"bodyOverride"
+{-# DEPRECATED acBodyOverride "Use generic-lens or generic-optics with 'bodyOverride' instead." #-}
 
--- | The message title to use instead of the default message title. This value overrides the default message title.
+-- | The channel to use when sending the message.
 --
--- /Note:/ Consider using 'titleOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acTitleOverride :: Lens.Lens' AddressConfiguration (Lude.Maybe Lude.Text)
-acTitleOverride = Lens.lens (titleOverride :: AddressConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {titleOverride = a} :: AddressConfiguration)
-{-# DEPRECATED acTitleOverride "Use generic-lens or generic-optics with 'titleOverride' instead." #-}
+-- /Note:/ Consider using 'channelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acChannelType :: Lens.Lens' AddressConfiguration (Core.Maybe Types.ChannelType)
+acChannelType = Lens.field @"channelType"
+{-# DEPRECATED acChannelType "Use generic-lens or generic-optics with 'channelType' instead." #-}
 
 -- | An object that maps custom attributes to attributes for the address and is attached to the message. Attribute names are case sensitive.
 --
 -- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
 --
 -- /Note:/ Consider using 'context' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acContext :: Lens.Lens' AddressConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-acContext = Lens.lens (context :: AddressConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {context = a} :: AddressConfiguration)
+acContext :: Lens.Lens' AddressConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
+acContext = Lens.field @"context"
 {-# DEPRECATED acContext "Use generic-lens or generic-optics with 'context' instead." #-}
 
 -- | The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
 --
 -- /Note:/ Consider using 'rawContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acRawContent :: Lens.Lens' AddressConfiguration (Lude.Maybe Lude.Text)
-acRawContent = Lens.lens (rawContent :: AddressConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {rawContent = a} :: AddressConfiguration)
+acRawContent :: Lens.Lens' AddressConfiguration (Core.Maybe Core.Text)
+acRawContent = Lens.field @"rawContent"
 {-# DEPRECATED acRawContent "Use generic-lens or generic-optics with 'rawContent' instead." #-}
 
--- | The message body to use instead of the default message body. This value overrides the default message body.
+-- | A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.
 --
--- /Note:/ Consider using 'bodyOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acBodyOverride :: Lens.Lens' AddressConfiguration (Lude.Maybe Lude.Text)
-acBodyOverride = Lens.lens (bodyOverride :: AddressConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {bodyOverride = a} :: AddressConfiguration)
-{-# DEPRECATED acBodyOverride "Use generic-lens or generic-optics with 'bodyOverride' instead." #-}
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acSubstitutions :: Lens.Lens' AddressConfiguration (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+acSubstitutions = Lens.field @"substitutions"
+{-# DEPRECATED acSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
 
--- | The channel to use when sending the message.
+-- | The message title to use instead of the default message title. This value overrides the default message title.
 --
--- /Note:/ Consider using 'channelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acChannelType :: Lens.Lens' AddressConfiguration (Lude.Maybe ChannelType)
-acChannelType = Lens.lens (channelType :: AddressConfiguration -> Lude.Maybe ChannelType) (\s a -> s {channelType = a} :: AddressConfiguration)
-{-# DEPRECATED acChannelType "Use generic-lens or generic-optics with 'channelType' instead." #-}
+-- /Note:/ Consider using 'titleOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acTitleOverride :: Lens.Lens' AddressConfiguration (Core.Maybe Core.Text)
+acTitleOverride = Lens.field @"titleOverride"
+{-# DEPRECATED acTitleOverride "Use generic-lens or generic-optics with 'titleOverride' instead." #-}
 
-instance Lude.ToJSON AddressConfiguration where
-  toJSON AddressConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
-            ("TitleOverride" Lude..=) Lude.<$> titleOverride,
-            ("Context" Lude..=) Lude.<$> context,
-            ("RawContent" Lude..=) Lude.<$> rawContent,
-            ("BodyOverride" Lude..=) Lude.<$> bodyOverride,
-            ("ChannelType" Lude..=) Lude.<$> channelType
+instance Core.FromJSON AddressConfiguration where
+  toJSON AddressConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BodyOverride" Core..=) Core.<$> bodyOverride,
+            ("ChannelType" Core..=) Core.<$> channelType,
+            ("Context" Core..=) Core.<$> context,
+            ("RawContent" Core..=) Core.<$> rawContent,
+            ("Substitutions" Core..=) Core.<$> substitutions,
+            ("TitleOverride" Core..=) Core.<$> titleOverride
           ]
       )

@@ -35,164 +35,151 @@ module Network.AWS.ECS.UpdateContainerInstancesState
     mkUpdateContainerInstancesState,
 
     -- ** Request lenses
+    ucisContainerInstances,
     ucisStatus,
     ucisCluster,
-    ucisContainerInstances,
 
     -- * Destructuring the response
     UpdateContainerInstancesStateResponse (..),
     mkUpdateContainerInstancesStateResponse,
 
     -- ** Response lenses
-    ucisrsFailures,
-    ucisrsContainerInstances,
-    ucisrsResponseStatus,
+    ucisrrsContainerInstances,
+    ucisrrsFailures,
+    ucisrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateContainerInstancesState' smart constructor.
 data UpdateContainerInstancesState = UpdateContainerInstancesState'
-  { -- | The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
-    status :: ContainerInstanceStatus,
+  { -- | A list of container instance IDs or full ARN entries.
+    containerInstances :: [Types.String],
+    -- | The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
+    status :: Types.ContainerInstanceStatus,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
-    cluster :: Lude.Maybe Lude.Text,
-    -- | A list of container instance IDs or full ARN entries.
-    containerInstances :: [Lude.Text]
+    cluster :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateContainerInstancesState' with the minimum fields required to make a request.
---
--- * 'status' - The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
--- * 'containerInstances' - A list of container instance IDs or full ARN entries.
+-- | Creates a 'UpdateContainerInstancesState' value with any optional fields omitted.
 mkUpdateContainerInstancesState ::
   -- | 'status'
-  ContainerInstanceStatus ->
+  Types.ContainerInstanceStatus ->
   UpdateContainerInstancesState
-mkUpdateContainerInstancesState pStatus_ =
+mkUpdateContainerInstancesState status =
   UpdateContainerInstancesState'
-    { status = pStatus_,
-      cluster = Lude.Nothing,
-      containerInstances = Lude.mempty
+    { containerInstances = Core.mempty,
+      status,
+      cluster = Core.Nothing
     }
+
+-- | A list of container instance IDs or full ARN entries.
+--
+-- /Note:/ Consider using 'containerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucisContainerInstances :: Lens.Lens' UpdateContainerInstancesState [Types.String]
+ucisContainerInstances = Lens.field @"containerInstances"
+{-# DEPRECATED ucisContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
 
 -- | The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisStatus :: Lens.Lens' UpdateContainerInstancesState ContainerInstanceStatus
-ucisStatus = Lens.lens (status :: UpdateContainerInstancesState -> ContainerInstanceStatus) (\s a -> s {status = a} :: UpdateContainerInstancesState)
+ucisStatus :: Lens.Lens' UpdateContainerInstancesState Types.ContainerInstanceStatus
+ucisStatus = Lens.field @"status"
 {-# DEPRECATED ucisStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisCluster :: Lens.Lens' UpdateContainerInstancesState (Lude.Maybe Lude.Text)
-ucisCluster = Lens.lens (cluster :: UpdateContainerInstancesState -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: UpdateContainerInstancesState)
+ucisCluster :: Lens.Lens' UpdateContainerInstancesState (Core.Maybe Types.String)
+ucisCluster = Lens.field @"cluster"
 {-# DEPRECATED ucisCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | A list of container instance IDs or full ARN entries.
---
--- /Note:/ Consider using 'containerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisContainerInstances :: Lens.Lens' UpdateContainerInstancesState [Lude.Text]
-ucisContainerInstances = Lens.lens (containerInstances :: UpdateContainerInstancesState -> [Lude.Text]) (\s a -> s {containerInstances = a} :: UpdateContainerInstancesState)
-{-# DEPRECATED ucisContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
+instance Core.FromJSON UpdateContainerInstancesState where
+  toJSON UpdateContainerInstancesState {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("containerInstances" Core..= containerInstances),
+            Core.Just ("status" Core..= status),
+            ("cluster" Core..=) Core.<$> cluster
+          ]
+      )
 
-instance Lude.AWSRequest UpdateContainerInstancesState where
+instance Core.AWSRequest UpdateContainerInstancesState where
   type
     Rs UpdateContainerInstancesState =
       UpdateContainerInstancesStateResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateContainerInstancesStateResponse'
-            Lude.<$> (x Lude..?> "failures" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "containerInstances" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "containerInstances")
+            Core.<*> (x Core..:? "failures")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateContainerInstancesState where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateContainerInstancesState where
-  toJSON UpdateContainerInstancesState' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("status" Lude..= status),
-            ("cluster" Lude..=) Lude.<$> cluster,
-            Lude.Just ("containerInstances" Lude..= containerInstances)
-          ]
-      )
-
-instance Lude.ToPath UpdateContainerInstancesState where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateContainerInstancesState where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateContainerInstancesStateResponse' smart constructor.
 data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse'
-  { -- | Any failures associated with the call.
-    failures :: Lude.Maybe [Failure],
-    -- | The list of container instances.
-    containerInstances :: Lude.Maybe [ContainerInstance],
+  { -- | The list of container instances.
+    containerInstances :: Core.Maybe [Types.ContainerInstance],
+    -- | Any failures associated with the call.
+    failures :: Core.Maybe [Types.Failure],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateContainerInstancesStateResponse' with the minimum fields required to make a request.
---
--- * 'failures' - Any failures associated with the call.
--- * 'containerInstances' - The list of container instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateContainerInstancesStateResponse' value with any optional fields omitted.
 mkUpdateContainerInstancesStateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateContainerInstancesStateResponse
-mkUpdateContainerInstancesStateResponse pResponseStatus_ =
+mkUpdateContainerInstancesStateResponse responseStatus =
   UpdateContainerInstancesStateResponse'
-    { failures = Lude.Nothing,
-      containerInstances = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { containerInstances =
+        Core.Nothing,
+      failures = Core.Nothing,
+      responseStatus
     }
-
--- | Any failures associated with the call.
---
--- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisrsFailures :: Lens.Lens' UpdateContainerInstancesStateResponse (Lude.Maybe [Failure])
-ucisrsFailures = Lens.lens (failures :: UpdateContainerInstancesStateResponse -> Lude.Maybe [Failure]) (\s a -> s {failures = a} :: UpdateContainerInstancesStateResponse)
-{-# DEPRECATED ucisrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The list of container instances.
 --
 -- /Note:/ Consider using 'containerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisrsContainerInstances :: Lens.Lens' UpdateContainerInstancesStateResponse (Lude.Maybe [ContainerInstance])
-ucisrsContainerInstances = Lens.lens (containerInstances :: UpdateContainerInstancesStateResponse -> Lude.Maybe [ContainerInstance]) (\s a -> s {containerInstances = a} :: UpdateContainerInstancesStateResponse)
-{-# DEPRECATED ucisrsContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
+ucisrrsContainerInstances :: Lens.Lens' UpdateContainerInstancesStateResponse (Core.Maybe [Types.ContainerInstance])
+ucisrrsContainerInstances = Lens.field @"containerInstances"
+{-# DEPRECATED ucisrrsContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
+
+-- | Any failures associated with the call.
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucisrrsFailures :: Lens.Lens' UpdateContainerInstancesStateResponse (Core.Maybe [Types.Failure])
+ucisrrsFailures = Lens.field @"failures"
+{-# DEPRECATED ucisrrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisrsResponseStatus :: Lens.Lens' UpdateContainerInstancesStateResponse Lude.Int
-ucisrsResponseStatus = Lens.lens (responseStatus :: UpdateContainerInstancesStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateContainerInstancesStateResponse)
-{-# DEPRECATED ucisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucisrrsResponseStatus :: Lens.Lens' UpdateContainerInstancesStateResponse Core.Int
+ucisrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

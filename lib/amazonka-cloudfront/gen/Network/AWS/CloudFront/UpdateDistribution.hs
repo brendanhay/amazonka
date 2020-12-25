@@ -60,157 +60,143 @@ module Network.AWS.CloudFront.UpdateDistribution
     mkUpdateDistribution,
 
     -- ** Request lenses
-    udIfMatch,
     udDistributionConfig,
     udId,
+    udIfMatch,
 
     -- * Destructuring the response
     UpdateDistributionResponse (..),
     mkUpdateDistributionResponse,
 
     -- ** Response lenses
-    udrsETag,
-    udrsDistribution,
-    udrsResponseStatus,
+    udrrsDistribution,
+    udrrsETag,
+    udrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to update a distribution.
 --
 -- /See:/ 'mkUpdateDistribution' smart constructor.
 data UpdateDistribution = UpdateDistribution'
-  { -- | The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | The distribution's configuration information.
-    distributionConfig :: DistributionConfig,
+  { -- | The distribution's configuration information.
+    distributionConfig :: Types.DistributionConfig,
     -- | The distribution's id.
-    id :: Lude.Text
+    id :: Types.String,
+    -- | The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDistribution' with the minimum fields required to make a request.
---
--- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
--- * 'distributionConfig' - The distribution's configuration information.
--- * 'id' - The distribution's id.
+-- | Creates a 'UpdateDistribution' value with any optional fields omitted.
 mkUpdateDistribution ::
   -- | 'distributionConfig'
-  DistributionConfig ->
+  Types.DistributionConfig ->
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   UpdateDistribution
-mkUpdateDistribution pDistributionConfig_ pId_ =
+mkUpdateDistribution distributionConfig id =
   UpdateDistribution'
-    { ifMatch = Lude.Nothing,
-      distributionConfig = pDistributionConfig_,
-      id = pId_
+    { distributionConfig,
+      id,
+      ifMatch = Core.Nothing
     }
-
--- | The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udIfMatch :: Lens.Lens' UpdateDistribution (Lude.Maybe Lude.Text)
-udIfMatch = Lens.lens (ifMatch :: UpdateDistribution -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: UpdateDistribution)
-{-# DEPRECATED udIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | The distribution's configuration information.
 --
 -- /Note:/ Consider using 'distributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDistributionConfig :: Lens.Lens' UpdateDistribution DistributionConfig
-udDistributionConfig = Lens.lens (distributionConfig :: UpdateDistribution -> DistributionConfig) (\s a -> s {distributionConfig = a} :: UpdateDistribution)
+udDistributionConfig :: Lens.Lens' UpdateDistribution Types.DistributionConfig
+udDistributionConfig = Lens.field @"distributionConfig"
 {-# DEPRECATED udDistributionConfig "Use generic-lens or generic-optics with 'distributionConfig' instead." #-}
 
 -- | The distribution's id.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udId :: Lens.Lens' UpdateDistribution Lude.Text
-udId = Lens.lens (id :: UpdateDistribution -> Lude.Text) (\s a -> s {id = a} :: UpdateDistribution)
+udId :: Lens.Lens' UpdateDistribution Types.String
+udId = Lens.field @"id"
 {-# DEPRECATED udId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest UpdateDistribution where
+-- | The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udIfMatch :: Lens.Lens' UpdateDistribution (Core.Maybe Types.String)
+udIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED udIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+
+instance Core.AWSRequest UpdateDistribution where
   type Rs UpdateDistribution = UpdateDistributionResponse
-  request = Req.putXML cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/distribution/" Core.<> (Core.toText id)
+                Core.<> ("/config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           UpdateDistributionResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement UpdateDistribution where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfig"
-      Lude.. distributionConfig
-
-instance Lude.ToHeaders UpdateDistribution where
-  toHeaders UpdateDistribution' {..} =
-    Lude.mconcat ["If-Match" Lude.=# ifMatch]
-
-instance Lude.ToPath UpdateDistribution where
-  toPath UpdateDistribution' {..} =
-    Lude.mconcat
-      ["/2020-05-31/distribution/", Lude.toBS id, "/config"]
-
-instance Lude.ToQuery UpdateDistribution where
-  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'mkUpdateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
-  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-    eTag :: Lude.Maybe Lude.Text,
-    -- | The distribution's information.
-    distribution :: Lude.Maybe Distribution,
+  { -- | The distribution's information.
+    distribution :: Core.Maybe Types.Distribution,
+    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateDistributionResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
--- * 'distribution' - The distribution's information.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDistributionResponse' value with any optional fields omitted.
 mkUpdateDistributionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDistributionResponse
-mkUpdateDistributionResponse pResponseStatus_ =
+mkUpdateDistributionResponse responseStatus =
   UpdateDistributionResponse'
-    { eTag = Lude.Nothing,
-      distribution = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { distribution = Core.Nothing,
+      eTag = Core.Nothing,
+      responseStatus
     }
-
--- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
---
--- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsETag :: Lens.Lens' UpdateDistributionResponse (Lude.Maybe Lude.Text)
-udrsETag = Lens.lens (eTag :: UpdateDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: UpdateDistributionResponse)
-{-# DEPRECATED udrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The distribution's information.
 --
 -- /Note:/ Consider using 'distribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsDistribution :: Lens.Lens' UpdateDistributionResponse (Lude.Maybe Distribution)
-udrsDistribution = Lens.lens (distribution :: UpdateDistributionResponse -> Lude.Maybe Distribution) (\s a -> s {distribution = a} :: UpdateDistributionResponse)
-{-# DEPRECATED udrsDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
+udrrsDistribution :: Lens.Lens' UpdateDistributionResponse (Core.Maybe Types.Distribution)
+udrrsDistribution = Lens.field @"distribution"
+{-# DEPRECATED udrrsDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
+
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrrsETag :: Lens.Lens' UpdateDistributionResponse (Core.Maybe Types.String)
+udrrsETag = Lens.field @"eTag"
+{-# DEPRECATED udrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsResponseStatus :: Lens.Lens' UpdateDistributionResponse Lude.Int
-udrsResponseStatus = Lens.lens (responseStatus :: UpdateDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDistributionResponse)
-{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udrrsResponseStatus :: Lens.Lens' UpdateDistributionResponse Core.Int
+udrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

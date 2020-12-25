@@ -17,196 +17,186 @@ module Network.AWS.Budgets.Types.Action
     mkAction,
 
     -- * Lenses
-    aStatus,
-    aDefinition,
-    aExecutionRoleARN,
     aActionId,
-    aActionThreshold,
     aBudgetName,
     aNotificationType,
-    aApprovalModel,
     aActionType,
+    aActionThreshold,
+    aDefinition,
+    aExecutionRoleArn,
+    aApprovalModel,
+    aStatus,
     aSubscribers,
   )
 where
 
-import Network.AWS.Budgets.Types.ActionStatus
-import Network.AWS.Budgets.Types.ActionThreshold
-import Network.AWS.Budgets.Types.ActionType
-import Network.AWS.Budgets.Types.ApprovalModel
-import Network.AWS.Budgets.Types.Definition
-import Network.AWS.Budgets.Types.NotificationType
-import Network.AWS.Budgets.Types.Subscriber
+import qualified Network.AWS.Budgets.Types.ActionId as Types
+import qualified Network.AWS.Budgets.Types.ActionStatus as Types
+import qualified Network.AWS.Budgets.Types.ActionThreshold as Types
+import qualified Network.AWS.Budgets.Types.ActionType as Types
+import qualified Network.AWS.Budgets.Types.ApprovalModel as Types
+import qualified Network.AWS.Budgets.Types.BudgetName as Types
+import qualified Network.AWS.Budgets.Types.Definition as Types
+import qualified Network.AWS.Budgets.Types.ExecutionRoleArn as Types
+import qualified Network.AWS.Budgets.Types.NotificationType as Types
+import qualified Network.AWS.Budgets.Types.Subscriber as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A budget action resource.
 --
 -- /See:/ 'mkAction' smart constructor.
 data Action = Action'
-  { -- | The status of action.
-    status :: ActionStatus,
-    -- | Where you specify all of the type-specific parameters.
-    definition :: Definition,
-    -- | The role passed for action execution and reversion. Roles and actions must be in the same account.
-    executionRoleARN :: Lude.Text,
-    -- | A system-generated universally unique identifier (UUID) for the action.
-    actionId :: Lude.Text,
-    -- | The trigger threshold of the action.
-    actionThreshold :: ActionThreshold,
-    budgetName :: Lude.Text,
-    notificationType :: NotificationType,
-    -- | This specifies if the action needs manual or automatic approval.
-    approvalModel :: ApprovalModel,
+  { -- | A system-generated universally unique identifier (UUID) for the action.
+    actionId :: Types.ActionId,
+    budgetName :: Types.BudgetName,
+    notificationType :: Types.NotificationType,
     -- | The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
-    actionType :: ActionType,
-    subscribers :: Lude.NonEmpty Subscriber
+    actionType :: Types.ActionType,
+    -- | The trigger threshold of the action.
+    actionThreshold :: Types.ActionThreshold,
+    -- | Where you specify all of the type-specific parameters.
+    definition :: Types.Definition,
+    -- | The role passed for action execution and reversion. Roles and actions must be in the same account.
+    executionRoleArn :: Types.ExecutionRoleArn,
+    -- | This specifies if the action needs manual or automatic approval.
+    approvalModel :: Types.ApprovalModel,
+    -- | The status of action.
+    status :: Types.ActionStatus,
+    subscribers :: Core.NonEmpty Types.Subscriber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Action' with the minimum fields required to make a request.
---
--- * 'status' - The status of action.
--- * 'definition' - Where you specify all of the type-specific parameters.
--- * 'executionRoleARN' - The role passed for action execution and reversion. Roles and actions must be in the same account.
--- * 'actionId' - A system-generated universally unique identifier (UUID) for the action.
--- * 'actionThreshold' - The trigger threshold of the action.
--- * 'budgetName' -
--- * 'notificationType' -
--- * 'approvalModel' - This specifies if the action needs manual or automatic approval.
--- * 'actionType' - The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
--- * 'subscribers' -
+-- | Creates a 'Action' value with any optional fields omitted.
 mkAction ::
-  -- | 'status'
-  ActionStatus ->
-  -- | 'definition'
-  Definition ->
-  -- | 'executionRoleARN'
-  Lude.Text ->
   -- | 'actionId'
-  Lude.Text ->
-  -- | 'actionThreshold'
-  ActionThreshold ->
+  Types.ActionId ->
   -- | 'budgetName'
-  Lude.Text ->
+  Types.BudgetName ->
   -- | 'notificationType'
-  NotificationType ->
-  -- | 'approvalModel'
-  ApprovalModel ->
+  Types.NotificationType ->
   -- | 'actionType'
-  ActionType ->
+  Types.ActionType ->
+  -- | 'actionThreshold'
+  Types.ActionThreshold ->
+  -- | 'definition'
+  Types.Definition ->
+  -- | 'executionRoleArn'
+  Types.ExecutionRoleArn ->
+  -- | 'approvalModel'
+  Types.ApprovalModel ->
+  -- | 'status'
+  Types.ActionStatus ->
   -- | 'subscribers'
-  Lude.NonEmpty Subscriber ->
+  Core.NonEmpty Types.Subscriber ->
   Action
 mkAction
-  pStatus_
-  pDefinition_
-  pExecutionRoleARN_
-  pActionId_
-  pActionThreshold_
-  pBudgetName_
-  pNotificationType_
-  pApprovalModel_
-  pActionType_
-  pSubscribers_ =
+  actionId
+  budgetName
+  notificationType
+  actionType
+  actionThreshold
+  definition
+  executionRoleArn
+  approvalModel
+  status
+  subscribers =
     Action'
-      { status = pStatus_,
-        definition = pDefinition_,
-        executionRoleARN = pExecutionRoleARN_,
-        actionId = pActionId_,
-        actionThreshold = pActionThreshold_,
-        budgetName = pBudgetName_,
-        notificationType = pNotificationType_,
-        approvalModel = pApprovalModel_,
-        actionType = pActionType_,
-        subscribers = pSubscribers_
+      { actionId,
+        budgetName,
+        notificationType,
+        actionType,
+        actionThreshold,
+        definition,
+        executionRoleArn,
+        approvalModel,
+        status,
+        subscribers
       }
-
--- | The status of action.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aStatus :: Lens.Lens' Action ActionStatus
-aStatus = Lens.lens (status :: Action -> ActionStatus) (\s a -> s {status = a} :: Action)
-{-# DEPRECATED aStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Where you specify all of the type-specific parameters.
---
--- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aDefinition :: Lens.Lens' Action Definition
-aDefinition = Lens.lens (definition :: Action -> Definition) (\s a -> s {definition = a} :: Action)
-{-# DEPRECATED aDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
-
--- | The role passed for action execution and reversion. Roles and actions must be in the same account.
---
--- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aExecutionRoleARN :: Lens.Lens' Action Lude.Text
-aExecutionRoleARN = Lens.lens (executionRoleARN :: Action -> Lude.Text) (\s a -> s {executionRoleARN = a} :: Action)
-{-# DEPRECATED aExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
 
 -- | A system-generated universally unique identifier (UUID) for the action.
 --
 -- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aActionId :: Lens.Lens' Action Lude.Text
-aActionId = Lens.lens (actionId :: Action -> Lude.Text) (\s a -> s {actionId = a} :: Action)
+aActionId :: Lens.Lens' Action Types.ActionId
+aActionId = Lens.field @"actionId"
 {-# DEPRECATED aActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
-
--- | The trigger threshold of the action.
---
--- /Note:/ Consider using 'actionThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aActionThreshold :: Lens.Lens' Action ActionThreshold
-aActionThreshold = Lens.lens (actionThreshold :: Action -> ActionThreshold) (\s a -> s {actionThreshold = a} :: Action)
-{-# DEPRECATED aActionThreshold "Use generic-lens or generic-optics with 'actionThreshold' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aBudgetName :: Lens.Lens' Action Lude.Text
-aBudgetName = Lens.lens (budgetName :: Action -> Lude.Text) (\s a -> s {budgetName = a} :: Action)
+aBudgetName :: Lens.Lens' Action Types.BudgetName
+aBudgetName = Lens.field @"budgetName"
 {-# DEPRECATED aBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'notificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aNotificationType :: Lens.Lens' Action NotificationType
-aNotificationType = Lens.lens (notificationType :: Action -> NotificationType) (\s a -> s {notificationType = a} :: Action)
+aNotificationType :: Lens.Lens' Action Types.NotificationType
+aNotificationType = Lens.field @"notificationType"
 {-# DEPRECATED aNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
-
--- | This specifies if the action needs manual or automatic approval.
---
--- /Note:/ Consider using 'approvalModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aApprovalModel :: Lens.Lens' Action ApprovalModel
-aApprovalModel = Lens.lens (approvalModel :: Action -> ApprovalModel) (\s a -> s {approvalModel = a} :: Action)
-{-# DEPRECATED aApprovalModel "Use generic-lens or generic-optics with 'approvalModel' instead." #-}
 
 -- | The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
 --
 -- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aActionType :: Lens.Lens' Action ActionType
-aActionType = Lens.lens (actionType :: Action -> ActionType) (\s a -> s {actionType = a} :: Action)
+aActionType :: Lens.Lens' Action Types.ActionType
+aActionType = Lens.field @"actionType"
 {-# DEPRECATED aActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
+
+-- | The trigger threshold of the action.
+--
+-- /Note:/ Consider using 'actionThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aActionThreshold :: Lens.Lens' Action Types.ActionThreshold
+aActionThreshold = Lens.field @"actionThreshold"
+{-# DEPRECATED aActionThreshold "Use generic-lens or generic-optics with 'actionThreshold' instead." #-}
+
+-- | Where you specify all of the type-specific parameters.
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDefinition :: Lens.Lens' Action Types.Definition
+aDefinition = Lens.field @"definition"
+{-# DEPRECATED aDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
+
+-- | The role passed for action execution and reversion. Roles and actions must be in the same account.
+--
+-- /Note:/ Consider using 'executionRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aExecutionRoleArn :: Lens.Lens' Action Types.ExecutionRoleArn
+aExecutionRoleArn = Lens.field @"executionRoleArn"
+{-# DEPRECATED aExecutionRoleArn "Use generic-lens or generic-optics with 'executionRoleArn' instead." #-}
+
+-- | This specifies if the action needs manual or automatic approval.
+--
+-- /Note:/ Consider using 'approvalModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aApprovalModel :: Lens.Lens' Action Types.ApprovalModel
+aApprovalModel = Lens.field @"approvalModel"
+{-# DEPRECATED aApprovalModel "Use generic-lens or generic-optics with 'approvalModel' instead." #-}
+
+-- | The status of action.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStatus :: Lens.Lens' Action Types.ActionStatus
+aStatus = Lens.field @"status"
+{-# DEPRECATED aStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'subscribers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aSubscribers :: Lens.Lens' Action (Lude.NonEmpty Subscriber)
-aSubscribers = Lens.lens (subscribers :: Action -> Lude.NonEmpty Subscriber) (\s a -> s {subscribers = a} :: Action)
+aSubscribers :: Lens.Lens' Action (Core.NonEmpty Types.Subscriber)
+aSubscribers = Lens.field @"subscribers"
 {-# DEPRECATED aSubscribers "Use generic-lens or generic-optics with 'subscribers' instead." #-}
 
-instance Lude.FromJSON Action where
+instance Core.FromJSON Action where
   parseJSON =
-    Lude.withObject
-      "Action"
-      ( \x ->
-          Action'
-            Lude.<$> (x Lude..: "Status")
-            Lude.<*> (x Lude..: "Definition")
-            Lude.<*> (x Lude..: "ExecutionRoleArn")
-            Lude.<*> (x Lude..: "ActionId")
-            Lude.<*> (x Lude..: "ActionThreshold")
-            Lude.<*> (x Lude..: "BudgetName")
-            Lude.<*> (x Lude..: "NotificationType")
-            Lude.<*> (x Lude..: "ApprovalModel")
-            Lude.<*> (x Lude..: "ActionType")
-            Lude.<*> (x Lude..: "Subscribers")
-      )
+    Core.withObject "Action" Core.$
+      \x ->
+        Action'
+          Core.<$> (x Core..: "ActionId")
+          Core.<*> (x Core..: "BudgetName")
+          Core.<*> (x Core..: "NotificationType")
+          Core.<*> (x Core..: "ActionType")
+          Core.<*> (x Core..: "ActionThreshold")
+          Core.<*> (x Core..: "Definition")
+          Core.<*> (x Core..: "ExecutionRoleArn")
+          Core.<*> (x Core..: "ApprovalModel")
+          Core.<*> (x Core..: "Status")
+          Core.<*> (x Core..: "Subscribers")

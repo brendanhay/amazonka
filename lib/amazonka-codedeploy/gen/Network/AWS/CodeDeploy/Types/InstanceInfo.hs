@@ -17,124 +17,118 @@ module Network.AWS.CodeDeploy.Types.InstanceInfo
     mkInstanceInfo,
 
     -- * Lenses
-    iiRegisterTime,
-    iiInstanceARN,
     iiDeregisterTime,
-    iiIamUserARN,
+    iiIamSessionArn,
+    iiIamUserArn,
+    iiInstanceArn,
     iiInstanceName,
-    iiIamSessionARN,
+    iiRegisterTime,
     iiTags,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.Tag
+import qualified Network.AWS.CodeDeploy.Types.IamSessionArn as Types
+import qualified Network.AWS.CodeDeploy.Types.IamUserArn as Types
+import qualified Network.AWS.CodeDeploy.Types.InstanceArn as Types
+import qualified Network.AWS.CodeDeploy.Types.InstanceName as Types
+import qualified Network.AWS.CodeDeploy.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an on-premises instance.
 --
 -- /See:/ 'mkInstanceInfo' smart constructor.
 data InstanceInfo = InstanceInfo'
-  { -- | The time at which the on-premises instance was registered.
-    registerTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ARN of the on-premises instance.
-    instanceARN :: Lude.Maybe Lude.Text,
-    -- | If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
-    deregisterTime :: Lude.Maybe Lude.Timestamp,
-    -- | The IAM user ARN associated with the on-premises instance.
-    iamUserARN :: Lude.Maybe Lude.Text,
-    -- | The name of the on-premises instance.
-    instanceName :: Lude.Maybe Lude.Text,
+  { -- | If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
+    deregisterTime :: Core.Maybe Core.NominalDiffTime,
     -- | The ARN of the IAM session associated with the on-premises instance.
-    iamSessionARN :: Lude.Maybe Lude.Text,
+    iamSessionArn :: Core.Maybe Types.IamSessionArn,
+    -- | The IAM user ARN associated with the on-premises instance.
+    iamUserArn :: Core.Maybe Types.IamUserArn,
+    -- | The ARN of the on-premises instance.
+    instanceArn :: Core.Maybe Types.InstanceArn,
+    -- | The name of the on-premises instance.
+    instanceName :: Core.Maybe Types.InstanceName,
+    -- | The time at which the on-premises instance was registered.
+    registerTime :: Core.Maybe Core.NominalDiffTime,
     -- | The tags currently associated with the on-premises instance.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceInfo' with the minimum fields required to make a request.
---
--- * 'registerTime' - The time at which the on-premises instance was registered.
--- * 'instanceARN' - The ARN of the on-premises instance.
--- * 'deregisterTime' - If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
--- * 'iamUserARN' - The IAM user ARN associated with the on-premises instance.
--- * 'instanceName' - The name of the on-premises instance.
--- * 'iamSessionARN' - The ARN of the IAM session associated with the on-premises instance.
--- * 'tags' - The tags currently associated with the on-premises instance.
+-- | Creates a 'InstanceInfo' value with any optional fields omitted.
 mkInstanceInfo ::
   InstanceInfo
 mkInstanceInfo =
   InstanceInfo'
-    { registerTime = Lude.Nothing,
-      instanceARN = Lude.Nothing,
-      deregisterTime = Lude.Nothing,
-      iamUserARN = Lude.Nothing,
-      instanceName = Lude.Nothing,
-      iamSessionARN = Lude.Nothing,
-      tags = Lude.Nothing
+    { deregisterTime = Core.Nothing,
+      iamSessionArn = Core.Nothing,
+      iamUserArn = Core.Nothing,
+      instanceArn = Core.Nothing,
+      instanceName = Core.Nothing,
+      registerTime = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The time at which the on-premises instance was registered.
---
--- /Note:/ Consider using 'registerTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiRegisterTime :: Lens.Lens' InstanceInfo (Lude.Maybe Lude.Timestamp)
-iiRegisterTime = Lens.lens (registerTime :: InstanceInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {registerTime = a} :: InstanceInfo)
-{-# DEPRECATED iiRegisterTime "Use generic-lens or generic-optics with 'registerTime' instead." #-}
-
--- | The ARN of the on-premises instance.
---
--- /Note:/ Consider using 'instanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiInstanceARN :: Lens.Lens' InstanceInfo (Lude.Maybe Lude.Text)
-iiInstanceARN = Lens.lens (instanceARN :: InstanceInfo -> Lude.Maybe Lude.Text) (\s a -> s {instanceARN = a} :: InstanceInfo)
-{-# DEPRECATED iiInstanceARN "Use generic-lens or generic-optics with 'instanceARN' instead." #-}
 
 -- | If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
 --
 -- /Note:/ Consider using 'deregisterTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiDeregisterTime :: Lens.Lens' InstanceInfo (Lude.Maybe Lude.Timestamp)
-iiDeregisterTime = Lens.lens (deregisterTime :: InstanceInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {deregisterTime = a} :: InstanceInfo)
+iiDeregisterTime :: Lens.Lens' InstanceInfo (Core.Maybe Core.NominalDiffTime)
+iiDeregisterTime = Lens.field @"deregisterTime"
 {-# DEPRECATED iiDeregisterTime "Use generic-lens or generic-optics with 'deregisterTime' instead." #-}
+
+-- | The ARN of the IAM session associated with the on-premises instance.
+--
+-- /Note:/ Consider using 'iamSessionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiIamSessionArn :: Lens.Lens' InstanceInfo (Core.Maybe Types.IamSessionArn)
+iiIamSessionArn = Lens.field @"iamSessionArn"
+{-# DEPRECATED iiIamSessionArn "Use generic-lens or generic-optics with 'iamSessionArn' instead." #-}
 
 -- | The IAM user ARN associated with the on-premises instance.
 --
--- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiIamUserARN :: Lens.Lens' InstanceInfo (Lude.Maybe Lude.Text)
-iiIamUserARN = Lens.lens (iamUserARN :: InstanceInfo -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: InstanceInfo)
-{-# DEPRECATED iiIamUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
+-- /Note:/ Consider using 'iamUserArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiIamUserArn :: Lens.Lens' InstanceInfo (Core.Maybe Types.IamUserArn)
+iiIamUserArn = Lens.field @"iamUserArn"
+{-# DEPRECATED iiIamUserArn "Use generic-lens or generic-optics with 'iamUserArn' instead." #-}
+
+-- | The ARN of the on-premises instance.
+--
+-- /Note:/ Consider using 'instanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiInstanceArn :: Lens.Lens' InstanceInfo (Core.Maybe Types.InstanceArn)
+iiInstanceArn = Lens.field @"instanceArn"
+{-# DEPRECATED iiInstanceArn "Use generic-lens or generic-optics with 'instanceArn' instead." #-}
 
 -- | The name of the on-premises instance.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiInstanceName :: Lens.Lens' InstanceInfo (Lude.Maybe Lude.Text)
-iiInstanceName = Lens.lens (instanceName :: InstanceInfo -> Lude.Maybe Lude.Text) (\s a -> s {instanceName = a} :: InstanceInfo)
+iiInstanceName :: Lens.Lens' InstanceInfo (Core.Maybe Types.InstanceName)
+iiInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED iiInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
--- | The ARN of the IAM session associated with the on-premises instance.
+-- | The time at which the on-premises instance was registered.
 --
--- /Note:/ Consider using 'iamSessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiIamSessionARN :: Lens.Lens' InstanceInfo (Lude.Maybe Lude.Text)
-iiIamSessionARN = Lens.lens (iamSessionARN :: InstanceInfo -> Lude.Maybe Lude.Text) (\s a -> s {iamSessionARN = a} :: InstanceInfo)
-{-# DEPRECATED iiIamSessionARN "Use generic-lens or generic-optics with 'iamSessionARN' instead." #-}
+-- /Note:/ Consider using 'registerTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiRegisterTime :: Lens.Lens' InstanceInfo (Core.Maybe Core.NominalDiffTime)
+iiRegisterTime = Lens.field @"registerTime"
+{-# DEPRECATED iiRegisterTime "Use generic-lens or generic-optics with 'registerTime' instead." #-}
 
 -- | The tags currently associated with the on-premises instance.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiTags :: Lens.Lens' InstanceInfo (Lude.Maybe [Tag])
-iiTags = Lens.lens (tags :: InstanceInfo -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: InstanceInfo)
+iiTags :: Lens.Lens' InstanceInfo (Core.Maybe [Types.Tag])
+iiTags = Lens.field @"tags"
 {-# DEPRECATED iiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON InstanceInfo where
+instance Core.FromJSON InstanceInfo where
   parseJSON =
-    Lude.withObject
-      "InstanceInfo"
-      ( \x ->
-          InstanceInfo'
-            Lude.<$> (x Lude..:? "registerTime")
-            Lude.<*> (x Lude..:? "instanceArn")
-            Lude.<*> (x Lude..:? "deregisterTime")
-            Lude.<*> (x Lude..:? "iamUserArn")
-            Lude.<*> (x Lude..:? "instanceName")
-            Lude.<*> (x Lude..:? "iamSessionArn")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "InstanceInfo" Core.$
+      \x ->
+        InstanceInfo'
+          Core.<$> (x Core..:? "deregisterTime")
+          Core.<*> (x Core..:? "iamSessionArn")
+          Core.<*> (x Core..:? "iamUserArn")
+          Core.<*> (x Core..:? "instanceArn")
+          Core.<*> (x Core..:? "instanceName")
+          Core.<*> (x Core..:? "registerTime")
+          Core.<*> (x Core..:? "tags")

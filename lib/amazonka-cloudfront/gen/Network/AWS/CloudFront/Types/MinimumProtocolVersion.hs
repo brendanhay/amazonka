@@ -13,66 +13,71 @@
 module Network.AWS.CloudFront.Types.MinimumProtocolVersion
   ( MinimumProtocolVersion
       ( MinimumProtocolVersion',
-        SSLV3,
-        TLSV1,
-        TLSV12016,
-        TLSV1_12016,
-        TLSV1_22018,
-        TLSV1_22019
+        MinimumProtocolVersionSSLV3,
+        MinimumProtocolVersionTLSV1,
+        MinimumProtocolVersionTLSV12016,
+        MinimumProtocolVersionTLSV1_12016,
+        MinimumProtocolVersionTLSV1_22018,
+        MinimumProtocolVersionTLSV1_22019,
+        fromMinimumProtocolVersion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MinimumProtocolVersion = MinimumProtocolVersion' Lude.Text
+newtype MinimumProtocolVersion = MinimumProtocolVersion'
+  { fromMinimumProtocolVersion ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSLV3 :: MinimumProtocolVersion
-pattern SSLV3 = MinimumProtocolVersion' "SSLv3"
+pattern MinimumProtocolVersionSSLV3 :: MinimumProtocolVersion
+pattern MinimumProtocolVersionSSLV3 = MinimumProtocolVersion' "SSLv3"
 
-pattern TLSV1 :: MinimumProtocolVersion
-pattern TLSV1 = MinimumProtocolVersion' "TLSv1"
+pattern MinimumProtocolVersionTLSV1 :: MinimumProtocolVersion
+pattern MinimumProtocolVersionTLSV1 = MinimumProtocolVersion' "TLSv1"
 
-pattern TLSV12016 :: MinimumProtocolVersion
-pattern TLSV12016 = MinimumProtocolVersion' "TLSv1_2016"
+pattern MinimumProtocolVersionTLSV12016 :: MinimumProtocolVersion
+pattern MinimumProtocolVersionTLSV12016 = MinimumProtocolVersion' "TLSv1_2016"
 
-pattern TLSV1_12016 :: MinimumProtocolVersion
-pattern TLSV1_12016 = MinimumProtocolVersion' "TLSv1.1_2016"
+pattern MinimumProtocolVersionTLSV1_12016 :: MinimumProtocolVersion
+pattern MinimumProtocolVersionTLSV1_12016 = MinimumProtocolVersion' "TLSv1.1_2016"
 
-pattern TLSV1_22018 :: MinimumProtocolVersion
-pattern TLSV1_22018 = MinimumProtocolVersion' "TLSv1.2_2018"
+pattern MinimumProtocolVersionTLSV1_22018 :: MinimumProtocolVersion
+pattern MinimumProtocolVersionTLSV1_22018 = MinimumProtocolVersion' "TLSv1.2_2018"
 
-pattern TLSV1_22019 :: MinimumProtocolVersion
-pattern TLSV1_22019 = MinimumProtocolVersion' "TLSv1.2_2019"
+pattern MinimumProtocolVersionTLSV1_22019 :: MinimumProtocolVersion
+pattern MinimumProtocolVersionTLSV1_22019 = MinimumProtocolVersion' "TLSv1.2_2019"
 
 {-# COMPLETE
-  SSLV3,
-  TLSV1,
-  TLSV12016,
-  TLSV1_12016,
-  TLSV1_22018,
-  TLSV1_22019,
+  MinimumProtocolVersionSSLV3,
+  MinimumProtocolVersionTLSV1,
+  MinimumProtocolVersionTLSV12016,
+  MinimumProtocolVersionTLSV1_12016,
+  MinimumProtocolVersionTLSV1_22018,
+  MinimumProtocolVersionTLSV1_22019,
   MinimumProtocolVersion'
   #-}

@@ -65,10 +65,10 @@ module Network.AWS.WAF.CreateRateBasedRule
     mkCreateRateBasedRule,
 
     -- ** Request lenses
-    crbrRateLimit,
-    crbrRateKey,
-    crbrMetricName,
     crbrName,
+    crbrMetricName,
+    crbrRateKey,
+    crbrRateLimit,
     crbrChangeToken,
     crbrTags,
 
@@ -77,200 +77,177 @@ module Network.AWS.WAF.CreateRateBasedRule
     mkCreateRateBasedRuleResponse,
 
     -- ** Response lenses
-    crbrrsRule,
-    crbrrsChangeToken,
-    crbrrsResponseStatus,
+    crbrrrsChangeToken,
+    crbrrrsRule,
+    crbrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkCreateRateBasedRule' smart constructor.
 data CreateRateBasedRule = CreateRateBasedRule'
-  { -- | The maximum number of requests, which have an identical value in the field that is specified by @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
-    rateLimit :: Lude.Natural,
-    -- | The field that AWS WAF uses to determine if requests are likely arriving from a single source and thus subject to rate monitoring. The only valid value for @RateKey@ is @IP@ . @IP@ indicates that requests that arrive from the same IP address are subject to the @RateLimit@ that is specified in the @RateBasedRule@ .
-    rateKey :: RateKey,
+  { -- | A friendly name or description of the 'RateBasedRule' . You can't change the name of a @RateBasedRule@ after you create it.
+    name :: Types.ResourceName,
     -- | A friendly name or description for the metrics for this @RateBasedRule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RateBasedRule@ .
-    metricName :: Lude.Text,
-    -- | A friendly name or description of the 'RateBasedRule' . You can't change the name of a @RateBasedRule@ after you create it.
-    name :: Lude.Text,
+    metricName :: Types.MetricName,
+    -- | The field that AWS WAF uses to determine if requests are likely arriving from a single source and thus subject to rate monitoring. The only valid value for @RateKey@ is @IP@ . @IP@ indicates that requests that arrive from the same IP address are subject to the @RateLimit@ that is specified in the @RateBasedRule@ .
+    rateKey :: Types.RateKey,
+    -- | The maximum number of requests, which have an identical value in the field that is specified by @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
+    rateLimit :: Core.Natural,
     -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Text,
+    changeToken :: Types.ChangeToken,
     -- |
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRateBasedRule' with the minimum fields required to make a request.
---
--- * 'rateLimit' - The maximum number of requests, which have an identical value in the field that is specified by @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
--- * 'rateKey' - The field that AWS WAF uses to determine if requests are likely arriving from a single source and thus subject to rate monitoring. The only valid value for @RateKey@ is @IP@ . @IP@ indicates that requests that arrive from the same IP address are subject to the @RateLimit@ that is specified in the @RateBasedRule@ .
--- * 'metricName' - A friendly name or description for the metrics for this @RateBasedRule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RateBasedRule@ .
--- * 'name' - A friendly name or description of the 'RateBasedRule' . You can't change the name of a @RateBasedRule@ after you create it.
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'tags' -
+-- | Creates a 'CreateRateBasedRule' value with any optional fields omitted.
 mkCreateRateBasedRule ::
-  -- | 'rateLimit'
-  Lude.Natural ->
-  -- | 'rateKey'
-  RateKey ->
-  -- | 'metricName'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
+  -- | 'metricName'
+  Types.MetricName ->
+  -- | 'rateKey'
+  Types.RateKey ->
+  -- | 'rateLimit'
+  Core.Natural ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   CreateRateBasedRule
-mkCreateRateBasedRule
-  pRateLimit_
-  pRateKey_
-  pMetricName_
-  pName_
-  pChangeToken_ =
-    CreateRateBasedRule'
-      { rateLimit = pRateLimit_,
-        rateKey = pRateKey_,
-        metricName = pMetricName_,
-        name = pName_,
-        changeToken = pChangeToken_,
-        tags = Lude.Nothing
-      }
-
--- | The maximum number of requests, which have an identical value in the field that is specified by @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
---
--- /Note:/ Consider using 'rateLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrRateLimit :: Lens.Lens' CreateRateBasedRule Lude.Natural
-crbrRateLimit = Lens.lens (rateLimit :: CreateRateBasedRule -> Lude.Natural) (\s a -> s {rateLimit = a} :: CreateRateBasedRule)
-{-# DEPRECATED crbrRateLimit "Use generic-lens or generic-optics with 'rateLimit' instead." #-}
-
--- | The field that AWS WAF uses to determine if requests are likely arriving from a single source and thus subject to rate monitoring. The only valid value for @RateKey@ is @IP@ . @IP@ indicates that requests that arrive from the same IP address are subject to the @RateLimit@ that is specified in the @RateBasedRule@ .
---
--- /Note:/ Consider using 'rateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrRateKey :: Lens.Lens' CreateRateBasedRule RateKey
-crbrRateKey = Lens.lens (rateKey :: CreateRateBasedRule -> RateKey) (\s a -> s {rateKey = a} :: CreateRateBasedRule)
-{-# DEPRECATED crbrRateKey "Use generic-lens or generic-optics with 'rateKey' instead." #-}
-
--- | A friendly name or description for the metrics for this @RateBasedRule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RateBasedRule@ .
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrMetricName :: Lens.Lens' CreateRateBasedRule Lude.Text
-crbrMetricName = Lens.lens (metricName :: CreateRateBasedRule -> Lude.Text) (\s a -> s {metricName = a} :: CreateRateBasedRule)
-{-# DEPRECATED crbrMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+mkCreateRateBasedRule name metricName rateKey rateLimit changeToken =
+  CreateRateBasedRule'
+    { name,
+      metricName,
+      rateKey,
+      rateLimit,
+      changeToken,
+      tags = Core.Nothing
+    }
 
 -- | A friendly name or description of the 'RateBasedRule' . You can't change the name of a @RateBasedRule@ after you create it.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrName :: Lens.Lens' CreateRateBasedRule Lude.Text
-crbrName = Lens.lens (name :: CreateRateBasedRule -> Lude.Text) (\s a -> s {name = a} :: CreateRateBasedRule)
+crbrName :: Lens.Lens' CreateRateBasedRule Types.ResourceName
+crbrName = Lens.field @"name"
 {-# DEPRECATED crbrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A friendly name or description for the metrics for this @RateBasedRule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RateBasedRule@ .
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crbrMetricName :: Lens.Lens' CreateRateBasedRule Types.MetricName
+crbrMetricName = Lens.field @"metricName"
+{-# DEPRECATED crbrMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+
+-- | The field that AWS WAF uses to determine if requests are likely arriving from a single source and thus subject to rate monitoring. The only valid value for @RateKey@ is @IP@ . @IP@ indicates that requests that arrive from the same IP address are subject to the @RateLimit@ that is specified in the @RateBasedRule@ .
+--
+-- /Note:/ Consider using 'rateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crbrRateKey :: Lens.Lens' CreateRateBasedRule Types.RateKey
+crbrRateKey = Lens.field @"rateKey"
+{-# DEPRECATED crbrRateKey "Use generic-lens or generic-optics with 'rateKey' instead." #-}
+
+-- | The maximum number of requests, which have an identical value in the field that is specified by @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
+--
+-- /Note:/ Consider using 'rateLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crbrRateLimit :: Lens.Lens' CreateRateBasedRule Core.Natural
+crbrRateLimit = Lens.field @"rateLimit"
+{-# DEPRECATED crbrRateLimit "Use generic-lens or generic-optics with 'rateLimit' instead." #-}
 
 -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrChangeToken :: Lens.Lens' CreateRateBasedRule Lude.Text
-crbrChangeToken = Lens.lens (changeToken :: CreateRateBasedRule -> Lude.Text) (\s a -> s {changeToken = a} :: CreateRateBasedRule)
+crbrChangeToken :: Lens.Lens' CreateRateBasedRule Types.ChangeToken
+crbrChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED crbrChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrTags :: Lens.Lens' CreateRateBasedRule (Lude.Maybe (Lude.NonEmpty Tag))
-crbrTags = Lens.lens (tags :: CreateRateBasedRule -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateRateBasedRule)
+crbrTags :: Lens.Lens' CreateRateBasedRule (Core.Maybe (Core.NonEmpty Types.Tag))
+crbrTags = Lens.field @"tags"
 {-# DEPRECATED crbrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateRateBasedRule where
+instance Core.FromJSON CreateRateBasedRule where
+  toJSON CreateRateBasedRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("MetricName" Core..= metricName),
+            Core.Just ("RateKey" Core..= rateKey),
+            Core.Just ("RateLimit" Core..= rateLimit),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateRateBasedRule where
   type Rs CreateRateBasedRule = CreateRateBasedRuleResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.CreateRateBasedRule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateRateBasedRuleResponse'
-            Lude.<$> (x Lude..?> "Rule")
-            Lude.<*> (x Lude..?> "ChangeToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken")
+            Core.<*> (x Core..:? "Rule")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateRateBasedRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.CreateRateBasedRule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateRateBasedRule where
-  toJSON CreateRateBasedRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RateLimit" Lude..= rateLimit),
-            Lude.Just ("RateKey" Lude..= rateKey),
-            Lude.Just ("MetricName" Lude..= metricName),
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ChangeToken" Lude..= changeToken),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateRateBasedRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateRateBasedRule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateRateBasedRuleResponse' smart constructor.
 data CreateRateBasedRuleResponse = CreateRateBasedRuleResponse'
-  { -- | The 'RateBasedRule' that is returned in the @CreateRateBasedRule@ response.
-    rule :: Lude.Maybe RateBasedRule,
-    -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Core.Maybe Types.ChangeToken,
+    -- | The 'RateBasedRule' that is returned in the @CreateRateBasedRule@ response.
+    rule :: Core.Maybe Types.RateBasedRule,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateRateBasedRuleResponse' with the minimum fields required to make a request.
---
--- * 'rule' - The 'RateBasedRule' that is returned in the @CreateRateBasedRule@ response.
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateRateBasedRuleResponse' value with any optional fields omitted.
 mkCreateRateBasedRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateRateBasedRuleResponse
-mkCreateRateBasedRuleResponse pResponseStatus_ =
+mkCreateRateBasedRuleResponse responseStatus =
   CreateRateBasedRuleResponse'
-    { rule = Lude.Nothing,
-      changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      rule = Core.Nothing,
+      responseStatus
     }
-
--- | The 'RateBasedRule' that is returned in the @CreateRateBasedRule@ response.
---
--- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrrsRule :: Lens.Lens' CreateRateBasedRuleResponse (Lude.Maybe RateBasedRule)
-crbrrsRule = Lens.lens (rule :: CreateRateBasedRuleResponse -> Lude.Maybe RateBasedRule) (\s a -> s {rule = a} :: CreateRateBasedRuleResponse)
-{-# DEPRECATED crbrrsRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
 -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrrsChangeToken :: Lens.Lens' CreateRateBasedRuleResponse (Lude.Maybe Lude.Text)
-crbrrsChangeToken = Lens.lens (changeToken :: CreateRateBasedRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateRateBasedRuleResponse)
-{-# DEPRECATED crbrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+crbrrrsChangeToken :: Lens.Lens' CreateRateBasedRuleResponse (Core.Maybe Types.ChangeToken)
+crbrrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED crbrrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | The 'RateBasedRule' that is returned in the @CreateRateBasedRule@ response.
+--
+-- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crbrrrsRule :: Lens.Lens' CreateRateBasedRuleResponse (Core.Maybe Types.RateBasedRule)
+crbrrrsRule = Lens.field @"rule"
+{-# DEPRECATED crbrrrsRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crbrrsResponseStatus :: Lens.Lens' CreateRateBasedRuleResponse Lude.Int
-crbrrsResponseStatus = Lens.lens (responseStatus :: CreateRateBasedRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRateBasedRuleResponse)
-{-# DEPRECATED crbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crbrrrsResponseStatus :: Lens.Lens' CreateRateBasedRuleResponse Core.Int
+crbrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crbrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

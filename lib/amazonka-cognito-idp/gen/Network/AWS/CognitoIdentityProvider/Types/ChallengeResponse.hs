@@ -13,46 +13,51 @@
 module Network.AWS.CognitoIdentityProvider.Types.ChallengeResponse
   ( ChallengeResponse
       ( ChallengeResponse',
-        CSuccess,
-        CFailure
+        ChallengeResponseSuccess,
+        ChallengeResponseFailure,
+        fromChallengeResponse
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ChallengeResponse = ChallengeResponse' Lude.Text
+newtype ChallengeResponse = ChallengeResponse'
+  { fromChallengeResponse ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSuccess :: ChallengeResponse
-pattern CSuccess = ChallengeResponse' "Success"
+pattern ChallengeResponseSuccess :: ChallengeResponse
+pattern ChallengeResponseSuccess = ChallengeResponse' "Success"
 
-pattern CFailure :: ChallengeResponse
-pattern CFailure = ChallengeResponse' "Failure"
+pattern ChallengeResponseFailure :: ChallengeResponse
+pattern ChallengeResponseFailure = ChallengeResponse' "Failure"
 
 {-# COMPLETE
-  CSuccess,
-  CFailure,
+  ChallengeResponseSuccess,
+  ChallengeResponseFailure,
   ChallengeResponse'
   #-}

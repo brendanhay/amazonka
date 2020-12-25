@@ -22,15 +22,15 @@ module Network.AWS.Translate.StartTextTranslationJob
     mkStartTextTranslationJob,
 
     -- ** Request lenses
-    sttjClientToken,
-    sttjTargetLanguageCodes,
-    sttjJobName,
     sttjInputDataConfig,
+    sttjOutputDataConfig,
+    sttjDataAccessRoleArn,
+    sttjSourceLanguageCode,
+    sttjTargetLanguageCodes,
+    sttjClientToken,
+    sttjJobName,
     sttjParallelDataNames,
     sttjTerminologyNames,
-    sttjSourceLanguageCode,
-    sttjOutputDataConfig,
-    sttjDataAccessRoleARN,
 
     -- * Destructuring the response
     StartTextTranslationJobResponse (..),
@@ -44,199 +44,181 @@ module Network.AWS.Translate.StartTextTranslationJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkStartTextTranslationJob' smart constructor.
 data StartTextTranslationJob = StartTextTranslationJob'
-  { -- | A unique identifier for the request. This token is auto-generated when using the Amazon Translate SDK.
-    clientToken :: Lude.Text,
-    -- | The language code of the output language.
-    targetLanguageCodes :: Lude.NonEmpty Lude.Text,
-    -- | The name of the batch translation job to be performed.
-    jobName :: Lude.Maybe Lude.Text,
-    -- | Specifies the format and S3 location of the input documents for the translation job.
-    inputDataConfig :: InputDataConfig,
-    -- | The names of the parallel data resources to use in the batch translation job. For a list of available parallel data resources, use the 'ListParallelData' operation.
-    parallelDataNames :: Lude.Maybe [Lude.Text],
-    -- | The name of the terminology to use in the batch translation job. For a list of available terminologies, use the 'ListTerminologies' operation.
-    terminologyNames :: Lude.Maybe [Lude.Text],
+  { -- | Specifies the format and S3 location of the input documents for the translation job.
+    inputDataConfig :: Types.InputDataConfig,
+    -- | Specifies the S3 folder to which your job output will be saved.
+    outputDataConfig :: Types.OutputDataConfig,
+    -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more nformation, see 'identity-and-access-management' .
+    dataAccessRoleArn :: Types.IamRoleArn,
     -- | The language code of the input language. For a list of language codes, see 'what-is-languages' .
     --
     -- Amazon Translate does not automatically detect a source language during batch translation jobs.
-    sourceLanguageCode :: Lude.Text,
-    -- | Specifies the S3 folder to which your job output will be saved.
-    outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more nformation, see 'identity-and-access-management' .
-    dataAccessRoleARN :: Lude.Text
+    sourceLanguageCode :: Types.LanguageCodeString,
+    -- | The language code of the output language.
+    targetLanguageCodes :: Core.NonEmpty Types.LanguageCodeString,
+    -- | A unique identifier for the request. This token is auto-generated when using the Amazon Translate SDK.
+    clientToken :: Types.ClientTokenString,
+    -- | The name of the batch translation job to be performed.
+    jobName :: Core.Maybe Types.JobName,
+    -- | The names of the parallel data resources to use in the batch translation job. For a list of available parallel data resources, use the 'ListParallelData' operation.
+    parallelDataNames :: Core.Maybe [Types.ResourceName],
+    -- | The name of the terminology to use in the batch translation job. For a list of available terminologies, use the 'ListTerminologies' operation.
+    terminologyNames :: Core.Maybe [Types.ResourceName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartTextTranslationJob' with the minimum fields required to make a request.
---
--- * 'clientToken' - A unique identifier for the request. This token is auto-generated when using the Amazon Translate SDK.
--- * 'targetLanguageCodes' - The language code of the output language.
--- * 'jobName' - The name of the batch translation job to be performed.
--- * 'inputDataConfig' - Specifies the format and S3 location of the input documents for the translation job.
--- * 'parallelDataNames' - The names of the parallel data resources to use in the batch translation job. For a list of available parallel data resources, use the 'ListParallelData' operation.
--- * 'terminologyNames' - The name of the terminology to use in the batch translation job. For a list of available terminologies, use the 'ListTerminologies' operation.
--- * 'sourceLanguageCode' - The language code of the input language. For a list of language codes, see 'what-is-languages' .
---
--- Amazon Translate does not automatically detect a source language during batch translation jobs.
--- * 'outputDataConfig' - Specifies the S3 folder to which your job output will be saved.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more nformation, see 'identity-and-access-management' .
+-- | Creates a 'StartTextTranslationJob' value with any optional fields omitted.
 mkStartTextTranslationJob ::
-  -- | 'clientToken'
-  Lude.Text ->
-  -- | 'targetLanguageCodes'
-  Lude.NonEmpty Lude.Text ->
   -- | 'inputDataConfig'
-  InputDataConfig ->
-  -- | 'sourceLanguageCode'
-  Lude.Text ->
+  Types.InputDataConfig ->
   -- | 'outputDataConfig'
-  OutputDataConfig ->
-  -- | 'dataAccessRoleARN'
-  Lude.Text ->
+  Types.OutputDataConfig ->
+  -- | 'dataAccessRoleArn'
+  Types.IamRoleArn ->
+  -- | 'sourceLanguageCode'
+  Types.LanguageCodeString ->
+  -- | 'targetLanguageCodes'
+  Core.NonEmpty Types.LanguageCodeString ->
+  -- | 'clientToken'
+  Types.ClientTokenString ->
   StartTextTranslationJob
 mkStartTextTranslationJob
-  pClientToken_
-  pTargetLanguageCodes_
-  pInputDataConfig_
-  pSourceLanguageCode_
-  pOutputDataConfig_
-  pDataAccessRoleARN_ =
+  inputDataConfig
+  outputDataConfig
+  dataAccessRoleArn
+  sourceLanguageCode
+  targetLanguageCodes
+  clientToken =
     StartTextTranslationJob'
-      { clientToken = pClientToken_,
-        targetLanguageCodes = pTargetLanguageCodes_,
-        jobName = Lude.Nothing,
-        inputDataConfig = pInputDataConfig_,
-        parallelDataNames = Lude.Nothing,
-        terminologyNames = Lude.Nothing,
-        sourceLanguageCode = pSourceLanguageCode_,
-        outputDataConfig = pOutputDataConfig_,
-        dataAccessRoleARN = pDataAccessRoleARN_
+      { inputDataConfig,
+        outputDataConfig,
+        dataAccessRoleArn,
+        sourceLanguageCode,
+        targetLanguageCodes,
+        clientToken,
+        jobName = Core.Nothing,
+        parallelDataNames = Core.Nothing,
+        terminologyNames = Core.Nothing
       }
-
--- | A unique identifier for the request. This token is auto-generated when using the Amazon Translate SDK.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjClientToken :: Lens.Lens' StartTextTranslationJob Lude.Text
-sttjClientToken = Lens.lens (clientToken :: StartTextTranslationJob -> Lude.Text) (\s a -> s {clientToken = a} :: StartTextTranslationJob)
-{-# DEPRECATED sttjClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The language code of the output language.
---
--- /Note:/ Consider using 'targetLanguageCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjTargetLanguageCodes :: Lens.Lens' StartTextTranslationJob (Lude.NonEmpty Lude.Text)
-sttjTargetLanguageCodes = Lens.lens (targetLanguageCodes :: StartTextTranslationJob -> Lude.NonEmpty Lude.Text) (\s a -> s {targetLanguageCodes = a} :: StartTextTranslationJob)
-{-# DEPRECATED sttjTargetLanguageCodes "Use generic-lens or generic-optics with 'targetLanguageCodes' instead." #-}
-
--- | The name of the batch translation job to be performed.
---
--- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjJobName :: Lens.Lens' StartTextTranslationJob (Lude.Maybe Lude.Text)
-sttjJobName = Lens.lens (jobName :: StartTextTranslationJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartTextTranslationJob)
-{-# DEPRECATED sttjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Specifies the format and S3 location of the input documents for the translation job.
 --
 -- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjInputDataConfig :: Lens.Lens' StartTextTranslationJob InputDataConfig
-sttjInputDataConfig = Lens.lens (inputDataConfig :: StartTextTranslationJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartTextTranslationJob)
+sttjInputDataConfig :: Lens.Lens' StartTextTranslationJob Types.InputDataConfig
+sttjInputDataConfig = Lens.field @"inputDataConfig"
 {-# DEPRECATED sttjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
--- | The names of the parallel data resources to use in the batch translation job. For a list of available parallel data resources, use the 'ListParallelData' operation.
+-- | Specifies the S3 folder to which your job output will be saved.
 --
--- /Note:/ Consider using 'parallelDataNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjParallelDataNames :: Lens.Lens' StartTextTranslationJob (Lude.Maybe [Lude.Text])
-sttjParallelDataNames = Lens.lens (parallelDataNames :: StartTextTranslationJob -> Lude.Maybe [Lude.Text]) (\s a -> s {parallelDataNames = a} :: StartTextTranslationJob)
-{-# DEPRECATED sttjParallelDataNames "Use generic-lens or generic-optics with 'parallelDataNames' instead." #-}
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sttjOutputDataConfig :: Lens.Lens' StartTextTranslationJob Types.OutputDataConfig
+sttjOutputDataConfig = Lens.field @"outputDataConfig"
+{-# DEPRECATED sttjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
--- | The name of the terminology to use in the batch translation job. For a list of available terminologies, use the 'ListTerminologies' operation.
+-- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more nformation, see 'identity-and-access-management' .
 --
--- /Note:/ Consider using 'terminologyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjTerminologyNames :: Lens.Lens' StartTextTranslationJob (Lude.Maybe [Lude.Text])
-sttjTerminologyNames = Lens.lens (terminologyNames :: StartTextTranslationJob -> Lude.Maybe [Lude.Text]) (\s a -> s {terminologyNames = a} :: StartTextTranslationJob)
-{-# DEPRECATED sttjTerminologyNames "Use generic-lens or generic-optics with 'terminologyNames' instead." #-}
+-- /Note:/ Consider using 'dataAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sttjDataAccessRoleArn :: Lens.Lens' StartTextTranslationJob Types.IamRoleArn
+sttjDataAccessRoleArn = Lens.field @"dataAccessRoleArn"
+{-# DEPRECATED sttjDataAccessRoleArn "Use generic-lens or generic-optics with 'dataAccessRoleArn' instead." #-}
 
 -- | The language code of the input language. For a list of language codes, see 'what-is-languages' .
 --
 -- Amazon Translate does not automatically detect a source language during batch translation jobs.
 --
 -- /Note:/ Consider using 'sourceLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjSourceLanguageCode :: Lens.Lens' StartTextTranslationJob Lude.Text
-sttjSourceLanguageCode = Lens.lens (sourceLanguageCode :: StartTextTranslationJob -> Lude.Text) (\s a -> s {sourceLanguageCode = a} :: StartTextTranslationJob)
+sttjSourceLanguageCode :: Lens.Lens' StartTextTranslationJob Types.LanguageCodeString
+sttjSourceLanguageCode = Lens.field @"sourceLanguageCode"
 {-# DEPRECATED sttjSourceLanguageCode "Use generic-lens or generic-optics with 'sourceLanguageCode' instead." #-}
 
--- | Specifies the S3 folder to which your job output will be saved.
+-- | The language code of the output language.
 --
--- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjOutputDataConfig :: Lens.Lens' StartTextTranslationJob OutputDataConfig
-sttjOutputDataConfig = Lens.lens (outputDataConfig :: StartTextTranslationJob -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: StartTextTranslationJob)
-{-# DEPRECATED sttjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
+-- /Note:/ Consider using 'targetLanguageCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sttjTargetLanguageCodes :: Lens.Lens' StartTextTranslationJob (Core.NonEmpty Types.LanguageCodeString)
+sttjTargetLanguageCodes = Lens.field @"targetLanguageCodes"
+{-# DEPRECATED sttjTargetLanguageCodes "Use generic-lens or generic-optics with 'targetLanguageCodes' instead." #-}
 
--- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that grants Amazon Translate read access to your input data. For more nformation, see 'identity-and-access-management' .
+-- | A unique identifier for the request. This token is auto-generated when using the Amazon Translate SDK.
 --
--- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjDataAccessRoleARN :: Lens.Lens' StartTextTranslationJob Lude.Text
-sttjDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartTextTranslationJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartTextTranslationJob)
-{-# DEPRECATED sttjDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sttjClientToken :: Lens.Lens' StartTextTranslationJob Types.ClientTokenString
+sttjClientToken = Lens.field @"clientToken"
+{-# DEPRECATED sttjClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
-instance Lude.AWSRequest StartTextTranslationJob where
+-- | The name of the batch translation job to be performed.
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sttjJobName :: Lens.Lens' StartTextTranslationJob (Core.Maybe Types.JobName)
+sttjJobName = Lens.field @"jobName"
+{-# DEPRECATED sttjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+
+-- | The names of the parallel data resources to use in the batch translation job. For a list of available parallel data resources, use the 'ListParallelData' operation.
+--
+-- /Note:/ Consider using 'parallelDataNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sttjParallelDataNames :: Lens.Lens' StartTextTranslationJob (Core.Maybe [Types.ResourceName])
+sttjParallelDataNames = Lens.field @"parallelDataNames"
+{-# DEPRECATED sttjParallelDataNames "Use generic-lens or generic-optics with 'parallelDataNames' instead." #-}
+
+-- | The name of the terminology to use in the batch translation job. For a list of available terminologies, use the 'ListTerminologies' operation.
+--
+-- /Note:/ Consider using 'terminologyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sttjTerminologyNames :: Lens.Lens' StartTextTranslationJob (Core.Maybe [Types.ResourceName])
+sttjTerminologyNames = Lens.field @"terminologyNames"
+{-# DEPRECATED sttjTerminologyNames "Use generic-lens or generic-optics with 'terminologyNames' instead." #-}
+
+instance Core.FromJSON StartTextTranslationJob where
+  toJSON StartTextTranslationJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InputDataConfig" Core..= inputDataConfig),
+            Core.Just ("OutputDataConfig" Core..= outputDataConfig),
+            Core.Just ("DataAccessRoleArn" Core..= dataAccessRoleArn),
+            Core.Just ("SourceLanguageCode" Core..= sourceLanguageCode),
+            Core.Just ("TargetLanguageCodes" Core..= targetLanguageCodes),
+            Core.Just ("ClientToken" Core..= clientToken),
+            ("JobName" Core..=) Core.<$> jobName,
+            ("ParallelDataNames" Core..=) Core.<$> parallelDataNames,
+            ("TerminologyNames" Core..=) Core.<$> terminologyNames
+          ]
+      )
+
+instance Core.AWSRequest StartTextTranslationJob where
   type Rs StartTextTranslationJob = StartTextTranslationJobResponse
-  request = Req.postJSON translateService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShineFrontendService_20170701.StartTextTranslationJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartTextTranslationJobResponse'
-            Lude.<$> (x Lude..?> "JobId")
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId")
+            Core.<*> (x Core..:? "JobStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartTextTranslationJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.StartTextTranslationJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartTextTranslationJob where
-  toJSON StartTextTranslationJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClientToken" Lude..= clientToken),
-            Lude.Just ("TargetLanguageCodes" Lude..= targetLanguageCodes),
-            ("JobName" Lude..=) Lude.<$> jobName,
-            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
-            ("ParallelDataNames" Lude..=) Lude.<$> parallelDataNames,
-            ("TerminologyNames" Lude..=) Lude.<$> terminologyNames,
-            Lude.Just ("SourceLanguageCode" Lude..= sourceLanguageCode),
-            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
-            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN)
-          ]
-      )
-
-instance Lude.ToPath StartTextTranslationJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartTextTranslationJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartTextTranslationJobResponse' smart constructor.
 data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
   { -- | The identifier generated for the job. To get the status of a job, use this ID with the 'DescribeTextTranslationJob' operation.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The status of the job. Possible values include:
     --
     --
@@ -259,57 +241,30 @@ data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
     --
     --
     --     * @STOPPED@ - The job has been stopped.
-    jobStatus :: Lude.Maybe JobStatus,
+    jobStatus :: Core.Maybe Types.JobStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartTextTranslationJobResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier generated for the job. To get the status of a job, use this ID with the 'DescribeTextTranslationJob' operation.
--- * 'jobStatus' - The status of the job. Possible values include:
---
---
---     * @SUBMITTED@ - The job has been received and is queued for processing.
---
---
---     * @IN_PROGRESS@ - Amazon Translate is processing the job.
---
---
---     * @COMPLETED@ - The job was successfully completed and the output is available.
---
---
---     * @COMPLETED_WITH_ERROR@ - The job was completed with errors. The errors can be analyzed in the job's output.
---
---
---     * @FAILED@ - The job did not complete. To get details, use the 'DescribeTextTranslationJob' operation.
---
---
---     * @STOP_REQUESTED@ - The user who started the job has requested that it be stopped.
---
---
---     * @STOPPED@ - The job has been stopped.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartTextTranslationJobResponse' value with any optional fields omitted.
 mkStartTextTranslationJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartTextTranslationJobResponse
-mkStartTextTranslationJobResponse pResponseStatus_ =
+mkStartTextTranslationJobResponse responseStatus =
   StartTextTranslationJobResponse'
-    { jobId = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      jobStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier generated for the job. To get the status of a job, use this ID with the 'DescribeTextTranslationJob' operation.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsJobId :: Lens.Lens' StartTextTranslationJobResponse (Lude.Maybe Lude.Text)
-srsJobId = Lens.lens (jobId :: StartTextTranslationJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartTextTranslationJobResponse)
+srsJobId :: Lens.Lens' StartTextTranslationJobResponse (Core.Maybe Types.JobId)
+srsJobId = Lens.field @"jobId"
 {-# DEPRECATED srsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The status of the job. Possible values include:
@@ -338,13 +293,13 @@ srsJobId = Lens.lens (jobId :: StartTextTranslationJobResponse -> Lude.Maybe Lud
 --
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsJobStatus :: Lens.Lens' StartTextTranslationJobResponse (Lude.Maybe JobStatus)
-srsJobStatus = Lens.lens (jobStatus :: StartTextTranslationJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StartTextTranslationJobResponse)
+srsJobStatus :: Lens.Lens' StartTextTranslationJobResponse (Core.Maybe Types.JobStatus)
+srsJobStatus = Lens.field @"jobStatus"
 {-# DEPRECATED srsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartTextTranslationJobResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartTextTranslationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartTextTranslationJobResponse)
+srsResponseStatus :: Lens.Lens' StartTextTranslationJobResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

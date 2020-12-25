@@ -17,67 +17,62 @@ module Network.AWS.Pinpoint.Types.MultiConditionalBranch
     mkMultiConditionalBranch,
 
     -- * Lenses
-    mcbNextActivity,
     mcbCondition,
+    mcbNextActivity,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.SimpleCondition
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.SimpleCondition as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a condition to evaluate for an activity path in a journey.
 --
 -- /See:/ 'mkMultiConditionalBranch' smart constructor.
 data MultiConditionalBranch = MultiConditionalBranch'
-  { -- | The unique identifier for the next activity to perform, after completing the activity for the path.
-    nextActivity :: Lude.Maybe Lude.Text,
-    -- | The condition to evaluate for the activity path.
-    condition :: Lude.Maybe SimpleCondition
+  { -- | The condition to evaluate for the activity path.
+    condition :: Core.Maybe Types.SimpleCondition,
+    -- | The unique identifier for the next activity to perform, after completing the activity for the path.
+    nextActivity :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiConditionalBranch' with the minimum fields required to make a request.
---
--- * 'nextActivity' - The unique identifier for the next activity to perform, after completing the activity for the path.
--- * 'condition' - The condition to evaluate for the activity path.
+-- | Creates a 'MultiConditionalBranch' value with any optional fields omitted.
 mkMultiConditionalBranch ::
   MultiConditionalBranch
 mkMultiConditionalBranch =
   MultiConditionalBranch'
-    { nextActivity = Lude.Nothing,
-      condition = Lude.Nothing
+    { condition = Core.Nothing,
+      nextActivity = Core.Nothing
     }
-
--- | The unique identifier for the next activity to perform, after completing the activity for the path.
---
--- /Note:/ Consider using 'nextActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcbNextActivity :: Lens.Lens' MultiConditionalBranch (Lude.Maybe Lude.Text)
-mcbNextActivity = Lens.lens (nextActivity :: MultiConditionalBranch -> Lude.Maybe Lude.Text) (\s a -> s {nextActivity = a} :: MultiConditionalBranch)
-{-# DEPRECATED mcbNextActivity "Use generic-lens or generic-optics with 'nextActivity' instead." #-}
 
 -- | The condition to evaluate for the activity path.
 --
 -- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcbCondition :: Lens.Lens' MultiConditionalBranch (Lude.Maybe SimpleCondition)
-mcbCondition = Lens.lens (condition :: MultiConditionalBranch -> Lude.Maybe SimpleCondition) (\s a -> s {condition = a} :: MultiConditionalBranch)
+mcbCondition :: Lens.Lens' MultiConditionalBranch (Core.Maybe Types.SimpleCondition)
+mcbCondition = Lens.field @"condition"
 {-# DEPRECATED mcbCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance Lude.FromJSON MultiConditionalBranch where
-  parseJSON =
-    Lude.withObject
-      "MultiConditionalBranch"
-      ( \x ->
-          MultiConditionalBranch'
-            Lude.<$> (x Lude..:? "NextActivity") Lude.<*> (x Lude..:? "Condition")
-      )
+-- | The unique identifier for the next activity to perform, after completing the activity for the path.
+--
+-- /Note:/ Consider using 'nextActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcbNextActivity :: Lens.Lens' MultiConditionalBranch (Core.Maybe Core.Text)
+mcbNextActivity = Lens.field @"nextActivity"
+{-# DEPRECATED mcbNextActivity "Use generic-lens or generic-optics with 'nextActivity' instead." #-}
 
-instance Lude.ToJSON MultiConditionalBranch where
-  toJSON MultiConditionalBranch' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextActivity" Lude..=) Lude.<$> nextActivity,
-            ("Condition" Lude..=) Lude.<$> condition
+instance Core.FromJSON MultiConditionalBranch where
+  toJSON MultiConditionalBranch {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Condition" Core..=) Core.<$> condition,
+            ("NextActivity" Core..=) Core.<$> nextActivity
           ]
       )
+
+instance Core.FromJSON MultiConditionalBranch where
+  parseJSON =
+    Core.withObject "MultiConditionalBranch" Core.$
+      \x ->
+        MultiConditionalBranch'
+          Core.<$> (x Core..:? "Condition") Core.<*> (x Core..:? "NextActivity")

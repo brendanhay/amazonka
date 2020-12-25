@@ -22,34 +22,31 @@ module Network.AWS.XRay.Types.AnomalousService
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.XRay.Types.ServiceId
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.ServiceId as Types
 
 -- | The service within the service graph that has anomalously high fault rates.
 --
 -- /See:/ 'mkAnomalousService' smart constructor.
 newtype AnomalousService = AnomalousService'
-  { serviceId :: Lude.Maybe ServiceId
+  { serviceId :: Core.Maybe Types.ServiceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnomalousService' with the minimum fields required to make a request.
---
--- * 'serviceId' -
+-- | Creates a 'AnomalousService' value with any optional fields omitted.
 mkAnomalousService ::
   AnomalousService
-mkAnomalousService = AnomalousService' {serviceId = Lude.Nothing}
+mkAnomalousService = AnomalousService' {serviceId = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asServiceId :: Lens.Lens' AnomalousService (Lude.Maybe ServiceId)
-asServiceId = Lens.lens (serviceId :: AnomalousService -> Lude.Maybe ServiceId) (\s a -> s {serviceId = a} :: AnomalousService)
+asServiceId :: Lens.Lens' AnomalousService (Core.Maybe Types.ServiceId)
+asServiceId = Lens.field @"serviceId"
 {-# DEPRECATED asServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
-instance Lude.FromJSON AnomalousService where
+instance Core.FromJSON AnomalousService where
   parseJSON =
-    Lude.withObject
-      "AnomalousService"
-      (\x -> AnomalousService' Lude.<$> (x Lude..:? "ServiceId"))
+    Core.withObject "AnomalousService" Core.$
+      \x -> AnomalousService' Core.<$> (x Core..:? "ServiceId")

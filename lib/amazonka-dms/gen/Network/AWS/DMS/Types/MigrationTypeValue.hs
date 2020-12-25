@@ -13,51 +13,56 @@
 module Network.AWS.DMS.Types.MigrationTypeValue
   ( MigrationTypeValue
       ( MigrationTypeValue',
-        FullLoad,
-        Cdc,
-        FullLoadAndCdc
+        MigrationTypeValueFullLoad,
+        MigrationTypeValueCdc,
+        MigrationTypeValueFullLoadAndCdc,
+        fromMigrationTypeValue
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MigrationTypeValue = MigrationTypeValue' Lude.Text
+newtype MigrationTypeValue = MigrationTypeValue'
+  { fromMigrationTypeValue ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FullLoad :: MigrationTypeValue
-pattern FullLoad = MigrationTypeValue' "full-load"
+pattern MigrationTypeValueFullLoad :: MigrationTypeValue
+pattern MigrationTypeValueFullLoad = MigrationTypeValue' "full-load"
 
-pattern Cdc :: MigrationTypeValue
-pattern Cdc = MigrationTypeValue' "cdc"
+pattern MigrationTypeValueCdc :: MigrationTypeValue
+pattern MigrationTypeValueCdc = MigrationTypeValue' "cdc"
 
-pattern FullLoadAndCdc :: MigrationTypeValue
-pattern FullLoadAndCdc = MigrationTypeValue' "full-load-and-cdc"
+pattern MigrationTypeValueFullLoadAndCdc :: MigrationTypeValue
+pattern MigrationTypeValueFullLoadAndCdc = MigrationTypeValue' "full-load-and-cdc"
 
 {-# COMPLETE
-  FullLoad,
-  Cdc,
-  FullLoadAndCdc,
+  MigrationTypeValueFullLoad,
+  MigrationTypeValueCdc,
+  MigrationTypeValueFullLoadAndCdc,
   MigrationTypeValue'
   #-}

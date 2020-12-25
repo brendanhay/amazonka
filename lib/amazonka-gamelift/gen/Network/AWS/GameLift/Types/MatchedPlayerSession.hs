@@ -17,13 +17,15 @@ module Network.AWS.GameLift.Types.MatchedPlayerSession
     mkMatchedPlayerSession,
 
     -- * Lenses
-    mpsPlayerSessionId,
     mpsPlayerId,
+    mpsPlayerSessionId,
   )
 where
 
+import qualified Network.AWS.GameLift.Types.NonZeroAndMaxString as Types
+import qualified Network.AWS.GameLift.Types.PlayerSessionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a new player session that is created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request.
 --
@@ -31,45 +33,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMatchedPlayerSession' smart constructor.
 data MatchedPlayerSession = MatchedPlayerSession'
-  { -- | A unique identifier for a player session
-    playerSessionId :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for a player
-    playerId :: Lude.Maybe Lude.Text
+  { -- | A unique identifier for a player
+    playerId :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | A unique identifier for a player session
+    playerSessionId :: Core.Maybe Types.PlayerSessionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MatchedPlayerSession' with the minimum fields required to make a request.
---
--- * 'playerSessionId' - A unique identifier for a player session
--- * 'playerId' - A unique identifier for a player
+-- | Creates a 'MatchedPlayerSession' value with any optional fields omitted.
 mkMatchedPlayerSession ::
   MatchedPlayerSession
 mkMatchedPlayerSession =
   MatchedPlayerSession'
-    { playerSessionId = Lude.Nothing,
-      playerId = Lude.Nothing
+    { playerId = Core.Nothing,
+      playerSessionId = Core.Nothing
     }
-
--- | A unique identifier for a player session
---
--- /Note:/ Consider using 'playerSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsPlayerSessionId :: Lens.Lens' MatchedPlayerSession (Lude.Maybe Lude.Text)
-mpsPlayerSessionId = Lens.lens (playerSessionId :: MatchedPlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerSessionId = a} :: MatchedPlayerSession)
-{-# DEPRECATED mpsPlayerSessionId "Use generic-lens or generic-optics with 'playerSessionId' instead." #-}
 
 -- | A unique identifier for a player
 --
 -- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsPlayerId :: Lens.Lens' MatchedPlayerSession (Lude.Maybe Lude.Text)
-mpsPlayerId = Lens.lens (playerId :: MatchedPlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerId = a} :: MatchedPlayerSession)
+mpsPlayerId :: Lens.Lens' MatchedPlayerSession (Core.Maybe Types.NonZeroAndMaxString)
+mpsPlayerId = Lens.field @"playerId"
 {-# DEPRECATED mpsPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
 
-instance Lude.FromJSON MatchedPlayerSession where
+-- | A unique identifier for a player session
+--
+-- /Note:/ Consider using 'playerSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsPlayerSessionId :: Lens.Lens' MatchedPlayerSession (Core.Maybe Types.PlayerSessionId)
+mpsPlayerSessionId = Lens.field @"playerSessionId"
+{-# DEPRECATED mpsPlayerSessionId "Use generic-lens or generic-optics with 'playerSessionId' instead." #-}
+
+instance Core.FromJSON MatchedPlayerSession where
   parseJSON =
-    Lude.withObject
-      "MatchedPlayerSession"
-      ( \x ->
-          MatchedPlayerSession'
-            Lude.<$> (x Lude..:? "PlayerSessionId") Lude.<*> (x Lude..:? "PlayerId")
-      )
+    Core.withObject "MatchedPlayerSession" Core.$
+      \x ->
+        MatchedPlayerSession'
+          Core.<$> (x Core..:? "PlayerId") Core.<*> (x Core..:? "PlayerSessionId")

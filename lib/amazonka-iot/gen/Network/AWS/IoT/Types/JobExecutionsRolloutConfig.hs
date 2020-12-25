@@ -22,63 +22,58 @@ module Network.AWS.IoT.Types.JobExecutionsRolloutConfig
   )
 where
 
-import Network.AWS.IoT.Types.ExponentialRolloutRate
+import qualified Network.AWS.IoT.Types.ExponentialRolloutRate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Allows you to create a staged rollout of a job.
 --
 -- /See:/ 'mkJobExecutionsRolloutConfig' smart constructor.
 data JobExecutionsRolloutConfig = JobExecutionsRolloutConfig'
   { -- | The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
-    exponentialRate :: Lude.Maybe ExponentialRolloutRate,
+    exponentialRate :: Core.Maybe Types.ExponentialRolloutRate,
     -- | The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
-    maximumPerMinute :: Lude.Maybe Lude.Natural
+    maximumPerMinute :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobExecutionsRolloutConfig' with the minimum fields required to make a request.
---
--- * 'exponentialRate' - The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
--- * 'maximumPerMinute' - The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+-- | Creates a 'JobExecutionsRolloutConfig' value with any optional fields omitted.
 mkJobExecutionsRolloutConfig ::
   JobExecutionsRolloutConfig
 mkJobExecutionsRolloutConfig =
   JobExecutionsRolloutConfig'
-    { exponentialRate = Lude.Nothing,
-      maximumPerMinute = Lude.Nothing
+    { exponentialRate = Core.Nothing,
+      maximumPerMinute = Core.Nothing
     }
 
 -- | The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
 --
 -- /Note:/ Consider using 'exponentialRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jercExponentialRate :: Lens.Lens' JobExecutionsRolloutConfig (Lude.Maybe ExponentialRolloutRate)
-jercExponentialRate = Lens.lens (exponentialRate :: JobExecutionsRolloutConfig -> Lude.Maybe ExponentialRolloutRate) (\s a -> s {exponentialRate = a} :: JobExecutionsRolloutConfig)
+jercExponentialRate :: Lens.Lens' JobExecutionsRolloutConfig (Core.Maybe Types.ExponentialRolloutRate)
+jercExponentialRate = Lens.field @"exponentialRate"
 {-# DEPRECATED jercExponentialRate "Use generic-lens or generic-optics with 'exponentialRate' instead." #-}
 
 -- | The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
 --
 -- /Note:/ Consider using 'maximumPerMinute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jercMaximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Lude.Maybe Lude.Natural)
-jercMaximumPerMinute = Lens.lens (maximumPerMinute :: JobExecutionsRolloutConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPerMinute = a} :: JobExecutionsRolloutConfig)
+jercMaximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Core.Maybe Core.Natural)
+jercMaximumPerMinute = Lens.field @"maximumPerMinute"
 {-# DEPRECATED jercMaximumPerMinute "Use generic-lens or generic-optics with 'maximumPerMinute' instead." #-}
 
-instance Lude.FromJSON JobExecutionsRolloutConfig where
-  parseJSON =
-    Lude.withObject
-      "JobExecutionsRolloutConfig"
-      ( \x ->
-          JobExecutionsRolloutConfig'
-            Lude.<$> (x Lude..:? "exponentialRate")
-            Lude.<*> (x Lude..:? "maximumPerMinute")
-      )
-
-instance Lude.ToJSON JobExecutionsRolloutConfig where
-  toJSON JobExecutionsRolloutConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("exponentialRate" Lude..=) Lude.<$> exponentialRate,
-            ("maximumPerMinute" Lude..=) Lude.<$> maximumPerMinute
+instance Core.FromJSON JobExecutionsRolloutConfig where
+  toJSON JobExecutionsRolloutConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("exponentialRate" Core..=) Core.<$> exponentialRate,
+            ("maximumPerMinute" Core..=) Core.<$> maximumPerMinute
           ]
       )
+
+instance Core.FromJSON JobExecutionsRolloutConfig where
+  parseJSON =
+    Core.withObject "JobExecutionsRolloutConfig" Core.$
+      \x ->
+        JobExecutionsRolloutConfig'
+          Core.<$> (x Core..:? "exponentialRate")
+          Core.<*> (x Core..:? "maximumPerMinute")

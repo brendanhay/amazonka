@@ -23,175 +23,159 @@ module Network.AWS.CloudWatchEvents.RemoveTargets
     mkRemoveTargets,
 
     -- ** Request lenses
-    rtForce,
-    rtIds,
     rtRule,
+    rtIds,
     rtEventBusName,
+    rtForce,
 
     -- * Destructuring the response
     RemoveTargetsResponse (..),
     mkRemoveTargetsResponse,
 
     -- ** Response lenses
-    rtrsFailedEntryCount,
-    rtrsFailedEntries,
-    rtrsResponseStatus,
+    rtrrsFailedEntries,
+    rtrrsFailedEntryCount,
+    rtrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveTargets' smart constructor.
 data RemoveTargets = RemoveTargets'
-  { -- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
-    force :: Lude.Maybe Lude.Bool,
+  { -- | The name of the rule.
+    rule :: Types.RuleName,
     -- | The IDs of the targets to remove from the rule.
-    ids :: Lude.NonEmpty Lude.Text,
-    -- | The name of the rule.
-    rule :: Lude.Text,
+    ids :: Core.NonEmpty Types.TargetId,
     -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-    eventBusName :: Lude.Maybe Lude.Text
+    eventBusName :: Core.Maybe Types.EventBusNameOrArn,
+    -- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
+    force :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTargets' with the minimum fields required to make a request.
---
--- * 'force' - If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
--- * 'ids' - The IDs of the targets to remove from the rule.
--- * 'rule' - The name of the rule.
--- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- | Creates a 'RemoveTargets' value with any optional fields omitted.
 mkRemoveTargets ::
-  -- | 'ids'
-  Lude.NonEmpty Lude.Text ->
   -- | 'rule'
-  Lude.Text ->
+  Types.RuleName ->
+  -- | 'ids'
+  Core.NonEmpty Types.TargetId ->
   RemoveTargets
-mkRemoveTargets pIds_ pRule_ =
+mkRemoveTargets rule ids =
   RemoveTargets'
-    { force = Lude.Nothing,
-      ids = pIds_,
-      rule = pRule_,
-      eventBusName = Lude.Nothing
+    { rule,
+      ids,
+      eventBusName = Core.Nothing,
+      force = Core.Nothing
     }
-
--- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
---
--- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtForce :: Lens.Lens' RemoveTargets (Lude.Maybe Lude.Bool)
-rtForce = Lens.lens (force :: RemoveTargets -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: RemoveTargets)
-{-# DEPRECATED rtForce "Use generic-lens or generic-optics with 'force' instead." #-}
-
--- | The IDs of the targets to remove from the rule.
---
--- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtIds :: Lens.Lens' RemoveTargets (Lude.NonEmpty Lude.Text)
-rtIds = Lens.lens (ids :: RemoveTargets -> Lude.NonEmpty Lude.Text) (\s a -> s {ids = a} :: RemoveTargets)
-{-# DEPRECATED rtIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtRule :: Lens.Lens' RemoveTargets Lude.Text
-rtRule = Lens.lens (rule :: RemoveTargets -> Lude.Text) (\s a -> s {rule = a} :: RemoveTargets)
+rtRule :: Lens.Lens' RemoveTargets Types.RuleName
+rtRule = Lens.field @"rule"
 {-# DEPRECATED rtRule "Use generic-lens or generic-optics with 'rule' instead." #-}
+
+-- | The IDs of the targets to remove from the rule.
+--
+-- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtIds :: Lens.Lens' RemoveTargets (Core.NonEmpty Types.TargetId)
+rtIds = Lens.field @"ids"
+{-# DEPRECATED rtIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
 -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 --
 -- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtEventBusName :: Lens.Lens' RemoveTargets (Lude.Maybe Lude.Text)
-rtEventBusName = Lens.lens (eventBusName :: RemoveTargets -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: RemoveTargets)
+rtEventBusName :: Lens.Lens' RemoveTargets (Core.Maybe Types.EventBusNameOrArn)
+rtEventBusName = Lens.field @"eventBusName"
 {-# DEPRECATED rtEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
-instance Lude.AWSRequest RemoveTargets where
+-- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtForce :: Lens.Lens' RemoveTargets (Core.Maybe Core.Bool)
+rtForce = Lens.field @"force"
+{-# DEPRECATED rtForce "Use generic-lens or generic-optics with 'force' instead." #-}
+
+instance Core.FromJSON RemoveTargets where
+  toJSON RemoveTargets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Rule" Core..= rule),
+            Core.Just ("Ids" Core..= ids),
+            ("EventBusName" Core..=) Core.<$> eventBusName,
+            ("Force" Core..=) Core.<$> force
+          ]
+      )
+
+instance Core.AWSRequest RemoveTargets where
   type Rs RemoveTargets = RemoveTargetsResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.RemoveTargets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RemoveTargetsResponse'
-            Lude.<$> (x Lude..?> "FailedEntryCount")
-            Lude.<*> (x Lude..?> "FailedEntries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedEntries")
+            Core.<*> (x Core..:? "FailedEntryCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveTargets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.RemoveTargets" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveTargets where
-  toJSON RemoveTargets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Force" Lude..=) Lude.<$> force,
-            Lude.Just ("Ids" Lude..= ids),
-            Lude.Just ("Rule" Lude..= rule),
-            ("EventBusName" Lude..=) Lude.<$> eventBusName
-          ]
-      )
-
-instance Lude.ToPath RemoveTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTargets where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRemoveTargetsResponse' smart constructor.
 data RemoveTargetsResponse = RemoveTargetsResponse'
-  { -- | The number of failed entries.
-    failedEntryCount :: Lude.Maybe Lude.Int,
-    -- | The failed target entries.
-    failedEntries :: Lude.Maybe [RemoveTargetsResultEntry],
+  { -- | The failed target entries.
+    failedEntries :: Core.Maybe [Types.RemoveTargetsResultEntry],
+    -- | The number of failed entries.
+    failedEntryCount :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTargetsResponse' with the minimum fields required to make a request.
---
--- * 'failedEntryCount' - The number of failed entries.
--- * 'failedEntries' - The failed target entries.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveTargetsResponse' value with any optional fields omitted.
 mkRemoveTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveTargetsResponse
-mkRemoveTargetsResponse pResponseStatus_ =
+mkRemoveTargetsResponse responseStatus =
   RemoveTargetsResponse'
-    { failedEntryCount = Lude.Nothing,
-      failedEntries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedEntries = Core.Nothing,
+      failedEntryCount = Core.Nothing,
+      responseStatus
     }
-
--- | The number of failed entries.
---
--- /Note:/ Consider using 'failedEntryCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsFailedEntryCount :: Lens.Lens' RemoveTargetsResponse (Lude.Maybe Lude.Int)
-rtrsFailedEntryCount = Lens.lens (failedEntryCount :: RemoveTargetsResponse -> Lude.Maybe Lude.Int) (\s a -> s {failedEntryCount = a} :: RemoveTargetsResponse)
-{-# DEPRECATED rtrsFailedEntryCount "Use generic-lens or generic-optics with 'failedEntryCount' instead." #-}
 
 -- | The failed target entries.
 --
 -- /Note:/ Consider using 'failedEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsFailedEntries :: Lens.Lens' RemoveTargetsResponse (Lude.Maybe [RemoveTargetsResultEntry])
-rtrsFailedEntries = Lens.lens (failedEntries :: RemoveTargetsResponse -> Lude.Maybe [RemoveTargetsResultEntry]) (\s a -> s {failedEntries = a} :: RemoveTargetsResponse)
-{-# DEPRECATED rtrsFailedEntries "Use generic-lens or generic-optics with 'failedEntries' instead." #-}
+rtrrsFailedEntries :: Lens.Lens' RemoveTargetsResponse (Core.Maybe [Types.RemoveTargetsResultEntry])
+rtrrsFailedEntries = Lens.field @"failedEntries"
+{-# DEPRECATED rtrrsFailedEntries "Use generic-lens or generic-optics with 'failedEntries' instead." #-}
+
+-- | The number of failed entries.
+--
+-- /Note:/ Consider using 'failedEntryCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrrsFailedEntryCount :: Lens.Lens' RemoveTargetsResponse (Core.Maybe Core.Int)
+rtrrsFailedEntryCount = Lens.field @"failedEntryCount"
+{-# DEPRECATED rtrrsFailedEntryCount "Use generic-lens or generic-optics with 'failedEntryCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsResponseStatus :: Lens.Lens' RemoveTargetsResponse Lude.Int
-rtrsResponseStatus = Lens.lens (responseStatus :: RemoveTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTargetsResponse)
-{-# DEPRECATED rtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtrrsResponseStatus :: Lens.Lens' RemoveTargetsResponse Core.Int
+rtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

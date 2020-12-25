@@ -17,24 +17,30 @@ module Network.AWS.IAM.Types.ManagedPolicyDetail
     mkManagedPolicyDetail,
 
     -- * Lenses
-    mpdPolicyName,
-    mpdARN,
-    mpdUpdateDate,
-    mpdPolicyId,
-    mpdPath,
-    mpdPolicyVersionList,
-    mpdCreateDate,
-    mpdIsAttachable,
-    mpdPermissionsBoundaryUsageCount,
-    mpdDefaultVersionId,
+    mpdArn,
     mpdAttachmentCount,
+    mpdCreateDate,
+    mpdDefaultVersionId,
     mpdDescription,
+    mpdIsAttachable,
+    mpdPath,
+    mpdPermissionsBoundaryUsageCount,
+    mpdPolicyId,
+    mpdPolicyName,
+    mpdPolicyVersionList,
+    mpdUpdateDate,
   )
 where
 
-import Network.AWS.IAM.Types.PolicyVersion
+import qualified Network.AWS.IAM.Types.Arn as Types
+import qualified Network.AWS.IAM.Types.DefaultVersionId as Types
+import qualified Network.AWS.IAM.Types.Description as Types
+import qualified Network.AWS.IAM.Types.Path as Types
+import qualified Network.AWS.IAM.Types.PolicyId as Types
+import qualified Network.AWS.IAM.Types.PolicyName as Types
+import qualified Network.AWS.IAM.Types.PolicyVersion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
 --
@@ -43,193 +49,170 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkManagedPolicyDetail' smart constructor.
 data ManagedPolicyDetail = ManagedPolicyDetail'
-  { -- | The friendly name (not ARN) identifying the policy.
-    policyName :: Lude.Maybe Lude.Text,
-    arn :: Lude.Maybe Lude.Text,
-    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
-    --
-    -- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
-    updateDate :: Lude.Maybe Lude.DateTime,
-    -- | The stable and unique string identifying the policy.
-    --
-    -- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    policyId :: Lude.Maybe Lude.Text,
-    -- | The path to the policy.
-    --
-    -- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    path :: Lude.Maybe Lude.Text,
-    -- | A list containing information about the versions of the policy.
-    policyVersionList :: Lude.Maybe [PolicyVersion],
+  { arn :: Core.Maybe Types.Arn,
+    -- | The number of principal entities (users, groups, and roles) that the policy is attached to.
+    attachmentCount :: Core.Maybe Core.Int,
     -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
-    createDate :: Lude.Maybe Lude.DateTime,
-    -- | Specifies whether the policy can be attached to an IAM user, group, or role.
-    isAttachable :: Lude.Maybe Lude.Bool,
-    -- | The number of entities (users and roles) for which the policy is used as the permissions boundary.
-    --
-    -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
-    permissionsBoundaryUsageCount :: Lude.Maybe Lude.Int,
+    createDate :: Core.Maybe Core.UTCTime,
     -- | The identifier for the version of the policy that is set as the default (operative) version.
     --
     -- For more information about policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
-    defaultVersionId :: Lude.Maybe Lude.Text,
-    -- | The number of principal entities (users, groups, and roles) that the policy is attached to.
-    attachmentCount :: Lude.Maybe Lude.Int,
+    defaultVersionId :: Core.Maybe Types.DefaultVersionId,
     -- | A friendly description of the policy.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | Specifies whether the policy can be attached to an IAM user, group, or role.
+    isAttachable :: Core.Maybe Core.Bool,
+    -- | The path to the policy.
+    --
+    -- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    path :: Core.Maybe Types.Path,
+    -- | The number of entities (users and roles) for which the policy is used as the permissions boundary.
+    --
+    -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+    permissionsBoundaryUsageCount :: Core.Maybe Core.Int,
+    -- | The stable and unique string identifying the policy.
+    --
+    -- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    policyId :: Core.Maybe Types.PolicyId,
+    -- | The friendly name (not ARN) identifying the policy.
+    policyName :: Core.Maybe Types.PolicyName,
+    -- | A list containing information about the versions of the policy.
+    policyVersionList :: Core.Maybe [Types.PolicyVersion],
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
+    --
+    -- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+    updateDate :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ManagedPolicyDetail' with the minimum fields required to make a request.
---
--- * 'policyName' - The friendly name (not ARN) identifying the policy.
--- * 'arn' -
--- * 'updateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
---
--- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
--- * 'policyId' - The stable and unique string identifying the policy.
---
--- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'path' - The path to the policy.
---
--- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'policyVersionList' - A list containing information about the versions of the policy.
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
--- * 'isAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
--- * 'permissionsBoundaryUsageCount' - The number of entities (users and roles) for which the policy is used as the permissions boundary.
---
--- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
--- * 'defaultVersionId' - The identifier for the version of the policy that is set as the default (operative) version.
---
--- For more information about policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
--- * 'attachmentCount' - The number of principal entities (users, groups, and roles) that the policy is attached to.
--- * 'description' - A friendly description of the policy.
+-- | Creates a 'ManagedPolicyDetail' value with any optional fields omitted.
 mkManagedPolicyDetail ::
   ManagedPolicyDetail
 mkManagedPolicyDetail =
   ManagedPolicyDetail'
-    { policyName = Lude.Nothing,
-      arn = Lude.Nothing,
-      updateDate = Lude.Nothing,
-      policyId = Lude.Nothing,
-      path = Lude.Nothing,
-      policyVersionList = Lude.Nothing,
-      createDate = Lude.Nothing,
-      isAttachable = Lude.Nothing,
-      permissionsBoundaryUsageCount = Lude.Nothing,
-      defaultVersionId = Lude.Nothing,
-      attachmentCount = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      attachmentCount = Core.Nothing,
+      createDate = Core.Nothing,
+      defaultVersionId = Core.Nothing,
+      description = Core.Nothing,
+      isAttachable = Core.Nothing,
+      path = Core.Nothing,
+      permissionsBoundaryUsageCount = Core.Nothing,
+      policyId = Core.Nothing,
+      policyName = Core.Nothing,
+      policyVersionList = Core.Nothing,
+      updateDate = Core.Nothing
     }
-
--- | The friendly name (not ARN) identifying the policy.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdPolicyName :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Text)
-mpdPolicyName = Lens.lens (policyName :: ManagedPolicyDetail -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdARN :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Text)
-mpdARN = Lens.lens (arn :: ManagedPolicyDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+mpdArn :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Types.Arn)
+mpdArn = Lens.field @"arn"
+{-# DEPRECATED mpdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
+-- | The number of principal entities (users, groups, and roles) that the policy is attached to.
 --
--- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
---
--- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdUpdateDate :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.DateTime)
-mpdUpdateDate = Lens.lens (updateDate :: ManagedPolicyDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {updateDate = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
-
--- | The stable and unique string identifying the policy.
---
--- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdPolicyId :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Text)
-mpdPolicyId = Lens.lens (policyId :: ManagedPolicyDetail -> Lude.Maybe Lude.Text) (\s a -> s {policyId = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
-
--- | The path to the policy.
---
--- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdPath :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Text)
-mpdPath = Lens.lens (path :: ManagedPolicyDetail -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdPath "Use generic-lens or generic-optics with 'path' instead." #-}
-
--- | A list containing information about the versions of the policy.
---
--- /Note:/ Consider using 'policyVersionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdPolicyVersionList :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe [PolicyVersion])
-mpdPolicyVersionList = Lens.lens (policyVersionList :: ManagedPolicyDetail -> Lude.Maybe [PolicyVersion]) (\s a -> s {policyVersionList = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdPolicyVersionList "Use generic-lens or generic-optics with 'policyVersionList' instead." #-}
+-- /Note:/ Consider using 'attachmentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdAttachmentCount :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Core.Int)
+mpdAttachmentCount = Lens.field @"attachmentCount"
+{-# DEPRECATED mpdAttachmentCount "Use generic-lens or generic-optics with 'attachmentCount' instead." #-}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdCreateDate :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.DateTime)
-mpdCreateDate = Lens.lens (createDate :: ManagedPolicyDetail -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: ManagedPolicyDetail)
+mpdCreateDate :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Core.UTCTime)
+mpdCreateDate = Lens.field @"createDate"
 {-# DEPRECATED mpdCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
-
--- | Specifies whether the policy can be attached to an IAM user, group, or role.
---
--- /Note:/ Consider using 'isAttachable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdIsAttachable :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Bool)
-mpdIsAttachable = Lens.lens (isAttachable :: ManagedPolicyDetail -> Lude.Maybe Lude.Bool) (\s a -> s {isAttachable = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdIsAttachable "Use generic-lens or generic-optics with 'isAttachable' instead." #-}
-
--- | The number of entities (users and roles) for which the policy is used as the permissions boundary.
---
--- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'permissionsBoundaryUsageCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdPermissionsBoundaryUsageCount :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Int)
-mpdPermissionsBoundaryUsageCount = Lens.lens (permissionsBoundaryUsageCount :: ManagedPolicyDetail -> Lude.Maybe Lude.Int) (\s a -> s {permissionsBoundaryUsageCount = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdPermissionsBoundaryUsageCount "Use generic-lens or generic-optics with 'permissionsBoundaryUsageCount' instead." #-}
 
 -- | The identifier for the version of the policy that is set as the default (operative) version.
 --
 -- For more information about policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'defaultVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdDefaultVersionId :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Text)
-mpdDefaultVersionId = Lens.lens (defaultVersionId :: ManagedPolicyDetail -> Lude.Maybe Lude.Text) (\s a -> s {defaultVersionId = a} :: ManagedPolicyDetail)
+mpdDefaultVersionId :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Types.DefaultVersionId)
+mpdDefaultVersionId = Lens.field @"defaultVersionId"
 {-# DEPRECATED mpdDefaultVersionId "Use generic-lens or generic-optics with 'defaultVersionId' instead." #-}
-
--- | The number of principal entities (users, groups, and roles) that the policy is attached to.
---
--- /Note:/ Consider using 'attachmentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdAttachmentCount :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Int)
-mpdAttachmentCount = Lens.lens (attachmentCount :: ManagedPolicyDetail -> Lude.Maybe Lude.Int) (\s a -> s {attachmentCount = a} :: ManagedPolicyDetail)
-{-# DEPRECATED mpdAttachmentCount "Use generic-lens or generic-optics with 'attachmentCount' instead." #-}
 
 -- | A friendly description of the policy.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpdDescription :: Lens.Lens' ManagedPolicyDetail (Lude.Maybe Lude.Text)
-mpdDescription = Lens.lens (description :: ManagedPolicyDetail -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ManagedPolicyDetail)
+mpdDescription :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Types.Description)
+mpdDescription = Lens.field @"description"
 {-# DEPRECATED mpdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML ManagedPolicyDetail where
+-- | Specifies whether the policy can be attached to an IAM user, group, or role.
+--
+-- /Note:/ Consider using 'isAttachable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdIsAttachable :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Core.Bool)
+mpdIsAttachable = Lens.field @"isAttachable"
+{-# DEPRECATED mpdIsAttachable "Use generic-lens or generic-optics with 'isAttachable' instead." #-}
+
+-- | The path to the policy.
+--
+-- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdPath :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Types.Path)
+mpdPath = Lens.field @"path"
+{-# DEPRECATED mpdPath "Use generic-lens or generic-optics with 'path' instead." #-}
+
+-- | The number of entities (users and roles) for which the policy is used as the permissions boundary.
+--
+-- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'permissionsBoundaryUsageCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdPermissionsBoundaryUsageCount :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Core.Int)
+mpdPermissionsBoundaryUsageCount = Lens.field @"permissionsBoundaryUsageCount"
+{-# DEPRECATED mpdPermissionsBoundaryUsageCount "Use generic-lens or generic-optics with 'permissionsBoundaryUsageCount' instead." #-}
+
+-- | The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdPolicyId :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Types.PolicyId)
+mpdPolicyId = Lens.field @"policyId"
+{-# DEPRECATED mpdPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
+
+-- | The friendly name (not ARN) identifying the policy.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdPolicyName :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Types.PolicyName)
+mpdPolicyName = Lens.field @"policyName"
+{-# DEPRECATED mpdPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | A list containing information about the versions of the policy.
+--
+-- /Note:/ Consider using 'policyVersionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdPolicyVersionList :: Lens.Lens' ManagedPolicyDetail (Core.Maybe [Types.PolicyVersion])
+mpdPolicyVersionList = Lens.field @"policyVersionList"
+{-# DEPRECATED mpdPolicyVersionList "Use generic-lens or generic-optics with 'policyVersionList' instead." #-}
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
+--
+-- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+--
+-- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdUpdateDate :: Lens.Lens' ManagedPolicyDetail (Core.Maybe Core.UTCTime)
+mpdUpdateDate = Lens.field @"updateDate"
+{-# DEPRECATED mpdUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
+
+instance Core.FromXML ManagedPolicyDetail where
   parseXML x =
     ManagedPolicyDetail'
-      Lude.<$> (x Lude..@? "PolicyName")
-      Lude.<*> (x Lude..@? "Arn")
-      Lude.<*> (x Lude..@? "UpdateDate")
-      Lude.<*> (x Lude..@? "PolicyId")
-      Lude.<*> (x Lude..@? "Path")
-      Lude.<*> ( x Lude..@? "PolicyVersionList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "Arn")
+      Core.<*> (x Core..@? "AttachmentCount")
+      Core.<*> (x Core..@? "CreateDate")
+      Core.<*> (x Core..@? "DefaultVersionId")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "IsAttachable")
+      Core.<*> (x Core..@? "Path")
+      Core.<*> (x Core..@? "PermissionsBoundaryUsageCount")
+      Core.<*> (x Core..@? "PolicyId")
+      Core.<*> (x Core..@? "PolicyName")
+      Core.<*> ( x Core..@? "PolicyVersionList"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "CreateDate")
-      Lude.<*> (x Lude..@? "IsAttachable")
-      Lude.<*> (x Lude..@? "PermissionsBoundaryUsageCount")
-      Lude.<*> (x Lude..@? "DefaultVersionId")
-      Lude.<*> (x Lude..@? "AttachmentCount")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<*> (x Core..@? "UpdateDate")

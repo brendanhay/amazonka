@@ -17,63 +17,57 @@ module Network.AWS.Glue.Types.TaskRunSortCriteria
     mkTaskRunSortCriteria,
 
     -- * Lenses
-    trscSortDirection,
     trscColumn,
+    trscSortDirection,
   )
 where
 
-import Network.AWS.Glue.Types.SortDirectionType
-import Network.AWS.Glue.Types.TaskRunSortColumnType
+import qualified Network.AWS.Glue.Types.SortDirectionType as Types
+import qualified Network.AWS.Glue.Types.TaskRunSortColumnType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The sorting criteria that are used to sort the list of task runs for the machine learning transform.
 --
 -- /See:/ 'mkTaskRunSortCriteria' smart constructor.
 data TaskRunSortCriteria = TaskRunSortCriteria'
-  { -- | The sort direction to be used to sort the list of task runs for the machine learning transform.
-    sortDirection :: SortDirectionType,
-    -- | The column to be used to sort the list of task runs for the machine learning transform.
-    column :: TaskRunSortColumnType
+  { -- | The column to be used to sort the list of task runs for the machine learning transform.
+    column :: Types.TaskRunSortColumnType,
+    -- | The sort direction to be used to sort the list of task runs for the machine learning transform.
+    sortDirection :: Types.SortDirectionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskRunSortCriteria' with the minimum fields required to make a request.
---
--- * 'sortDirection' - The sort direction to be used to sort the list of task runs for the machine learning transform.
--- * 'column' - The column to be used to sort the list of task runs for the machine learning transform.
+-- | Creates a 'TaskRunSortCriteria' value with any optional fields omitted.
 mkTaskRunSortCriteria ::
-  -- | 'sortDirection'
-  SortDirectionType ->
   -- | 'column'
-  TaskRunSortColumnType ->
+  Types.TaskRunSortColumnType ->
+  -- | 'sortDirection'
+  Types.SortDirectionType ->
   TaskRunSortCriteria
-mkTaskRunSortCriteria pSortDirection_ pColumn_ =
-  TaskRunSortCriteria'
-    { sortDirection = pSortDirection_,
-      column = pColumn_
-    }
-
--- | The sort direction to be used to sort the list of task runs for the machine learning transform.
---
--- /Note:/ Consider using 'sortDirection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trscSortDirection :: Lens.Lens' TaskRunSortCriteria SortDirectionType
-trscSortDirection = Lens.lens (sortDirection :: TaskRunSortCriteria -> SortDirectionType) (\s a -> s {sortDirection = a} :: TaskRunSortCriteria)
-{-# DEPRECATED trscSortDirection "Use generic-lens or generic-optics with 'sortDirection' instead." #-}
+mkTaskRunSortCriteria column sortDirection =
+  TaskRunSortCriteria' {column, sortDirection}
 
 -- | The column to be used to sort the list of task runs for the machine learning transform.
 --
 -- /Note:/ Consider using 'column' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trscColumn :: Lens.Lens' TaskRunSortCriteria TaskRunSortColumnType
-trscColumn = Lens.lens (column :: TaskRunSortCriteria -> TaskRunSortColumnType) (\s a -> s {column = a} :: TaskRunSortCriteria)
+trscColumn :: Lens.Lens' TaskRunSortCriteria Types.TaskRunSortColumnType
+trscColumn = Lens.field @"column"
 {-# DEPRECATED trscColumn "Use generic-lens or generic-optics with 'column' instead." #-}
 
-instance Lude.ToJSON TaskRunSortCriteria where
-  toJSON TaskRunSortCriteria' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SortDirection" Lude..= sortDirection),
-            Lude.Just ("Column" Lude..= column)
+-- | The sort direction to be used to sort the list of task runs for the machine learning transform.
+--
+-- /Note:/ Consider using 'sortDirection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trscSortDirection :: Lens.Lens' TaskRunSortCriteria Types.SortDirectionType
+trscSortDirection = Lens.field @"sortDirection"
+{-# DEPRECATED trscSortDirection "Use generic-lens or generic-optics with 'sortDirection' instead." #-}
+
+instance Core.FromJSON TaskRunSortCriteria where
+  toJSON TaskRunSortCriteria {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Column" Core..= column),
+            Core.Just ("SortDirection" Core..= sortDirection)
           ]
       )

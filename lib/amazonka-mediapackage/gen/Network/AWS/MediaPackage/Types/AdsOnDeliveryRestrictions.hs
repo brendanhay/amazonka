@@ -13,15 +13,16 @@
 module Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
   ( AdsOnDeliveryRestrictions
       ( AdsOnDeliveryRestrictions',
-        None,
-        Restricted,
-        Unrestricted,
-        Both
+        AdsOnDeliveryRestrictionsNone,
+        AdsOnDeliveryRestrictionsRestricted,
+        AdsOnDeliveryRestrictionsUnrestricted,
+        AdsOnDeliveryRestrictionsBoth,
+        fromAdsOnDeliveryRestrictions
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
 --
@@ -32,46 +33,50 @@ import qualified Network.AWS.Prelude as Lude
 -- be treated as ads.  Choosing "BOTH" means all SCTE-35 messages of the types specified in
 -- AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
 -- and are always treated as ads if specified in AdTriggers.
-newtype AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions' Lude.Text
+newtype AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions'
+  { fromAdsOnDeliveryRestrictions ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: AdsOnDeliveryRestrictions
-pattern None = AdsOnDeliveryRestrictions' "NONE"
+pattern AdsOnDeliveryRestrictionsNone :: AdsOnDeliveryRestrictions
+pattern AdsOnDeliveryRestrictionsNone = AdsOnDeliveryRestrictions' "NONE"
 
-pattern Restricted :: AdsOnDeliveryRestrictions
-pattern Restricted = AdsOnDeliveryRestrictions' "RESTRICTED"
+pattern AdsOnDeliveryRestrictionsRestricted :: AdsOnDeliveryRestrictions
+pattern AdsOnDeliveryRestrictionsRestricted = AdsOnDeliveryRestrictions' "RESTRICTED"
 
-pattern Unrestricted :: AdsOnDeliveryRestrictions
-pattern Unrestricted = AdsOnDeliveryRestrictions' "UNRESTRICTED"
+pattern AdsOnDeliveryRestrictionsUnrestricted :: AdsOnDeliveryRestrictions
+pattern AdsOnDeliveryRestrictionsUnrestricted = AdsOnDeliveryRestrictions' "UNRESTRICTED"
 
-pattern Both :: AdsOnDeliveryRestrictions
-pattern Both = AdsOnDeliveryRestrictions' "BOTH"
+pattern AdsOnDeliveryRestrictionsBoth :: AdsOnDeliveryRestrictions
+pattern AdsOnDeliveryRestrictionsBoth = AdsOnDeliveryRestrictions' "BOTH"
 
 {-# COMPLETE
-  None,
-  Restricted,
-  Unrestricted,
-  Both,
+  AdsOnDeliveryRestrictionsNone,
+  AdsOnDeliveryRestrictionsRestricted,
+  AdsOnDeliveryRestrictionsUnrestricted,
+  AdsOnDeliveryRestrictionsBoth,
   AdsOnDeliveryRestrictions'
   #-}

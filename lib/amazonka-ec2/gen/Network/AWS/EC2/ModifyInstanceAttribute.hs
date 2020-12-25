@@ -24,21 +24,21 @@ module Network.AWS.EC2.ModifyInstanceAttribute
 
     -- ** Request lenses
     mInstanceId,
-    mGroups,
     mAttribute,
-    mEnaSupport,
-    mSourceDestCheck,
-    mDisableAPITermination,
-    mKernel,
-    mRAMDisk,
-    mValue,
-    mInstanceType,
-    mSRIOVNetSupport,
-    mEBSOptimized,
-    mUserData,
-    mInstanceInitiatedShutdownBehavior,
     mBlockDeviceMappings,
+    mDisableApiTermination,
     mDryRun,
+    mEbsOptimized,
+    mEnaSupport,
+    mGroups,
+    mInstanceInitiatedShutdownBehavior,
+    mInstanceType,
+    mKernel,
+    mRamdisk,
+    mSourceDestCheck,
+    mSriovNetSupport,
+    mUserData,
+    mValue,
 
     -- * Destructuring the response
     ModifyInstanceAttributeResponse (..),
@@ -46,177 +46,176 @@ module Network.AWS.EC2.ModifyInstanceAttribute
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyInstanceAttribute' smart constructor.
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
   { -- | The ID of the instance.
-    instanceId :: Lude.Text,
-    -- | [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
-    groups :: Lude.Maybe [Lude.Text],
+    instanceId :: Types.InstanceId,
     -- | The name of the attribute.
-    attribute :: Lude.Maybe InstanceAttributeName,
+    attribute :: Core.Maybe Types.InstanceAttributeName,
+    -- | Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated.
+    --
+    -- To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+    blockDeviceMappings :: Core.Maybe [Types.InstanceBlockDeviceMappingSpecification],
+    -- | If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
+    disableApiTermination :: Core.Maybe Types.AttributeBooleanValue,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+    ebsOptimized :: Core.Maybe Types.AttributeBooleanValue,
     -- | Set to @true@ to enable enhanced networking with ENA for the instance.
     --
     -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
-    enaSupport :: Lude.Maybe AttributeBooleanValue,
-    -- | Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
-    sourceDestCheck :: Lude.Maybe AttributeBooleanValue,
-    -- | If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
-    disableAPITermination :: Lude.Maybe AttributeBooleanValue,
-    -- | Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
-    kernel :: Lude.Maybe AttributeValue,
-    -- | Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
-    ramdisk :: Lude.Maybe AttributeValue,
-    -- | A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
-    value :: Lude.Maybe Lude.Text,
+    enaSupport :: Core.Maybe Types.AttributeBooleanValue,
+    -- | [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
+    groups :: Core.Maybe [Types.String],
+    -- | Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+    instanceInitiatedShutdownBehavior :: Core.Maybe Types.AttributeValue,
     -- | Changes the instance type to the specified value. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types> . If the instance type is not valid, the error returned is @InvalidInstanceAttributeValue@ .
-    instanceType :: Lude.Maybe AttributeValue,
+    instanceType :: Core.Maybe Types.AttributeValue,
+    -- | Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
+    kernel :: Core.Maybe Types.AttributeValue,
+    -- | Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
+    ramdisk :: Core.Maybe Types.AttributeValue,
+    -- | Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+    sourceDestCheck :: Core.Maybe Types.AttributeBooleanValue,
     -- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the instance.
     --
     -- There is no way to disable enhanced networking with the Intel 82599 Virtual Function interface at this time.
     -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
-    sriovNetSupport :: Lude.Maybe AttributeValue,
-    -- | Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
-    ebsOptimized :: Lude.Maybe AttributeBooleanValue,
+    sriovNetSupport :: Core.Maybe Types.AttributeValue,
     -- | Changes the instance's user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
-    userData :: Lude.Maybe BlobAttributeValue,
-    -- | Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
-    instanceInitiatedShutdownBehavior :: Lude.Maybe AttributeValue,
-    -- | Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated.
-    --
-    -- To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance> in the /Amazon Elastic Compute Cloud User Guide/ .
-    blockDeviceMappings :: Lude.Maybe [InstanceBlockDeviceMappingSpecification],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    userData :: Core.Maybe Types.BlobAttributeValue,
+    -- | A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceAttribute' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'groups' - [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
--- * 'attribute' - The name of the attribute.
--- * 'enaSupport' - Set to @true@ to enable enhanced networking with ENA for the instance.
---
--- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
--- * 'sourceDestCheck' - Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
--- * 'disableAPITermination' - If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
--- * 'kernel' - Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
--- * 'ramdisk' - Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
--- * 'value' - A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
--- * 'instanceType' - Changes the instance type to the specified value. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types> . If the instance type is not valid, the error returned is @InvalidInstanceAttributeValue@ .
--- * 'sriovNetSupport' - Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the instance.
---
--- There is no way to disable enhanced networking with the Intel 82599 Virtual Function interface at this time.
--- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
--- * 'ebsOptimized' - Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
--- * 'userData' - Changes the instance's user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
--- * 'instanceInitiatedShutdownBehavior' - Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
--- * 'blockDeviceMappings' - Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated.
---
--- To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ModifyInstanceAttribute' value with any optional fields omitted.
 mkModifyInstanceAttribute ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   ModifyInstanceAttribute
-mkModifyInstanceAttribute pInstanceId_ =
+mkModifyInstanceAttribute instanceId =
   ModifyInstanceAttribute'
-    { instanceId = pInstanceId_,
-      groups = Lude.Nothing,
-      attribute = Lude.Nothing,
-      enaSupport = Lude.Nothing,
-      sourceDestCheck = Lude.Nothing,
-      disableAPITermination = Lude.Nothing,
-      kernel = Lude.Nothing,
-      ramdisk = Lude.Nothing,
-      value = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      sriovNetSupport = Lude.Nothing,
-      ebsOptimized = Lude.Nothing,
-      userData = Lude.Nothing,
-      instanceInitiatedShutdownBehavior = Lude.Nothing,
-      blockDeviceMappings = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { instanceId,
+      attribute = Core.Nothing,
+      blockDeviceMappings = Core.Nothing,
+      disableApiTermination = Core.Nothing,
+      dryRun = Core.Nothing,
+      ebsOptimized = Core.Nothing,
+      enaSupport = Core.Nothing,
+      groups = Core.Nothing,
+      instanceInitiatedShutdownBehavior = Core.Nothing,
+      instanceType = Core.Nothing,
+      kernel = Core.Nothing,
+      ramdisk = Core.Nothing,
+      sourceDestCheck = Core.Nothing,
+      sriovNetSupport = Core.Nothing,
+      userData = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mInstanceId :: Lens.Lens' ModifyInstanceAttribute Lude.Text
-mInstanceId = Lens.lens (instanceId :: ModifyInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: ModifyInstanceAttribute)
+mInstanceId :: Lens.Lens' ModifyInstanceAttribute Types.InstanceId
+mInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED mInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
---
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mGroups :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe [Lude.Text])
-mGroups = Lens.lens (groups :: ModifyInstanceAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The name of the attribute.
 --
 -- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mAttribute :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe InstanceAttributeName)
-mAttribute = Lens.lens (attribute :: ModifyInstanceAttribute -> Lude.Maybe InstanceAttributeName) (\s a -> s {attribute = a} :: ModifyInstanceAttribute)
+mAttribute :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.InstanceAttributeName)
+mAttribute = Lens.field @"attribute"
 {-# DEPRECATED mAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
+
+-- | Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated.
+--
+-- To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mBlockDeviceMappings :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe [Types.InstanceBlockDeviceMappingSpecification])
+mBlockDeviceMappings = Lens.field @"blockDeviceMappings"
+{-# DEPRECATED mBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
+
+-- | If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
+--
+-- /Note:/ Consider using 'disableApiTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mDisableApiTermination :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeBooleanValue)
+mDisableApiTermination = Lens.field @"disableApiTermination"
+{-# DEPRECATED mDisableApiTermination "Use generic-lens or generic-optics with 'disableApiTermination' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mDryRun :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Core.Bool)
+mDryRun = Lens.field @"dryRun"
+{-# DEPRECATED mDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mEbsOptimized :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeBooleanValue)
+mEbsOptimized = Lens.field @"ebsOptimized"
+{-# DEPRECATED mEbsOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
 
 -- | Set to @true@ to enable enhanced networking with ENA for the instance.
 --
 -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
 --
 -- /Note:/ Consider using 'enaSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mEnaSupport :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeBooleanValue)
-mEnaSupport = Lens.lens (enaSupport :: ModifyInstanceAttribute -> Lude.Maybe AttributeBooleanValue) (\s a -> s {enaSupport = a} :: ModifyInstanceAttribute)
+mEnaSupport :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeBooleanValue)
+mEnaSupport = Lens.field @"enaSupport"
 {-# DEPRECATED mEnaSupport "Use generic-lens or generic-optics with 'enaSupport' instead." #-}
 
--- | Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- | [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
 --
--- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mSourceDestCheck :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeBooleanValue)
-mSourceDestCheck = Lens.lens (sourceDestCheck :: ModifyInstanceAttribute -> Lude.Maybe AttributeBooleanValue) (\s a -> s {sourceDestCheck = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mGroups :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe [Types.String])
+mGroups = Lens.field @"groups"
+{-# DEPRECATED mGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
--- | If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
+-- | Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 --
--- /Note:/ Consider using 'disableAPITermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mDisableAPITermination :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeBooleanValue)
-mDisableAPITermination = Lens.lens (disableAPITermination :: ModifyInstanceAttribute -> Lude.Maybe AttributeBooleanValue) (\s a -> s {disableAPITermination = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mDisableAPITermination "Use generic-lens or generic-optics with 'disableAPITermination' instead." #-}
+-- /Note:/ Consider using 'instanceInitiatedShutdownBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mInstanceInitiatedShutdownBehavior :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeValue)
+mInstanceInitiatedShutdownBehavior = Lens.field @"instanceInitiatedShutdownBehavior"
+{-# DEPRECATED mInstanceInitiatedShutdownBehavior "Use generic-lens or generic-optics with 'instanceInitiatedShutdownBehavior' instead." #-}
+
+-- | Changes the instance type to the specified value. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types> . If the instance type is not valid, the error returned is @InvalidInstanceAttributeValue@ .
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mInstanceType :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeValue)
+mInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED mInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
 --
 -- /Note:/ Consider using 'kernel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mKernel :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeValue)
-mKernel = Lens.lens (kernel :: ModifyInstanceAttribute -> Lude.Maybe AttributeValue) (\s a -> s {kernel = a} :: ModifyInstanceAttribute)
+mKernel :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeValue)
+mKernel = Lens.field @"kernel"
 {-# DEPRECATED mKernel "Use generic-lens or generic-optics with 'kernel' instead." #-}
 
 -- | Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
 --
 -- /Note:/ Consider using 'ramdisk' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mRAMDisk :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeValue)
-mRAMDisk = Lens.lens (ramdisk :: ModifyInstanceAttribute -> Lude.Maybe AttributeValue) (\s a -> s {ramdisk = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mRAMDisk "Use generic-lens or generic-optics with 'ramdisk' instead." #-}
+mRamdisk :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeValue)
+mRamdisk = Lens.field @"ramdisk"
+{-# DEPRECATED mRamdisk "Use generic-lens or generic-optics with 'ramdisk' instead." #-}
 
--- | A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
+-- | Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
 --
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mValue :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe Lude.Text)
-mValue = Lens.lens (value :: ModifyInstanceAttribute -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | Changes the instance type to the specified value. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types> . If the instance type is not valid, the error returned is @InvalidInstanceAttributeValue@ .
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mInstanceType :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeValue)
-mInstanceType = Lens.lens (instanceType :: ModifyInstanceAttribute -> Lude.Maybe AttributeValue) (\s a -> s {instanceType = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+-- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mSourceDestCheck :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeBooleanValue)
+mSourceDestCheck = Lens.field @"sourceDestCheck"
+{-# DEPRECATED mSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
 
 -- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the instance.
 --
@@ -224,91 +223,73 @@ mInstanceType = Lens.lens (instanceType :: ModifyInstanceAttribute -> Lude.Maybe
 -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
 --
 -- /Note:/ Consider using 'sriovNetSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mSRIOVNetSupport :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeValue)
-mSRIOVNetSupport = Lens.lens (sriovNetSupport :: ModifyInstanceAttribute -> Lude.Maybe AttributeValue) (\s a -> s {sriovNetSupport = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mSRIOVNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
-
--- | Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
---
--- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mEBSOptimized :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeBooleanValue)
-mEBSOptimized = Lens.lens (ebsOptimized :: ModifyInstanceAttribute -> Lude.Maybe AttributeBooleanValue) (\s a -> s {ebsOptimized = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
+mSriovNetSupport :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.AttributeValue)
+mSriovNetSupport = Lens.field @"sriovNetSupport"
+{-# DEPRECATED mSriovNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
 
 -- | Changes the instance's user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
 --
 -- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mUserData :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe BlobAttributeValue)
-mUserData = Lens.lens (userData :: ModifyInstanceAttribute -> Lude.Maybe BlobAttributeValue) (\s a -> s {userData = a} :: ModifyInstanceAttribute)
+mUserData :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.BlobAttributeValue)
+mUserData = Lens.field @"userData"
 {-# DEPRECATED mUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
 
--- | Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+-- | A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
 --
--- /Note:/ Consider using 'instanceInitiatedShutdownBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mInstanceInitiatedShutdownBehavior :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe AttributeValue)
-mInstanceInitiatedShutdownBehavior = Lens.lens (instanceInitiatedShutdownBehavior :: ModifyInstanceAttribute -> Lude.Maybe AttributeValue) (\s a -> s {instanceInitiatedShutdownBehavior = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mInstanceInitiatedShutdownBehavior "Use generic-lens or generic-optics with 'instanceInitiatedShutdownBehavior' instead." #-}
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mValue :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Types.String)
+mValue = Lens.field @"value"
+{-# DEPRECATED mValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated.
---
--- To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mBlockDeviceMappings :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe [InstanceBlockDeviceMappingSpecification])
-mBlockDeviceMappings = Lens.lens (blockDeviceMappings :: ModifyInstanceAttribute -> Lude.Maybe [InstanceBlockDeviceMappingSpecification]) (\s a -> s {blockDeviceMappings = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mDryRun :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe Lude.Bool)
-mDryRun = Lens.lens (dryRun :: ModifyInstanceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest ModifyInstanceAttribute where
+instance Core.AWSRequest ModifyInstanceAttribute where
   type Rs ModifyInstanceAttribute = ModifyInstanceAttributeResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull ModifyInstanceAttributeResponse'
-
-instance Lude.ToHeaders ModifyInstanceAttribute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyInstanceAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyInstanceAttribute where
-  toQuery ModifyInstanceAttribute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyInstanceAttribute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        Lude.toQuery (Lude.toQueryList "GroupId" Lude.<$> groups),
-        "Attribute" Lude.=: attribute,
-        "EnaSupport" Lude.=: enaSupport,
-        "SourceDestCheck" Lude.=: sourceDestCheck,
-        "DisableApiTermination" Lude.=: disableAPITermination,
-        "Kernel" Lude.=: kernel,
-        "Ramdisk" Lude.=: ramdisk,
-        "Value" Lude.=: value,
-        "InstanceType" Lude.=: instanceType,
-        "SriovNetSupport" Lude.=: sriovNetSupport,
-        "EbsOptimized" Lude.=: ebsOptimized,
-        "UserData" Lude.=: userData,
-        "InstanceInitiatedShutdownBehavior"
-          Lude.=: instanceInitiatedShutdownBehavior,
-        Lude.toQuery
-          ( Lude.toQueryList "BlockDeviceMapping"
-              Lude.<$> blockDeviceMappings
-          ),
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyInstanceAttribute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "Attribute" Core.<$> attribute)
+                Core.<> ( Core.toQueryList "BlockDeviceMapping"
+                            Core.<$> blockDeviceMappings
+                        )
+                Core.<> ( Core.toQueryValue "DisableApiTermination"
+                            Core.<$> disableApiTermination
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "EbsOptimized" Core.<$> ebsOptimized)
+                Core.<> (Core.toQueryValue "EnaSupport" Core.<$> enaSupport)
+                Core.<> (Core.toQueryList "GroupId" Core.<$> groups)
+                Core.<> ( Core.toQueryValue "InstanceInitiatedShutdownBehavior"
+                            Core.<$> instanceInitiatedShutdownBehavior
+                        )
+                Core.<> (Core.toQueryValue "InstanceType" Core.<$> instanceType)
+                Core.<> (Core.toQueryValue "Kernel" Core.<$> kernel)
+                Core.<> (Core.toQueryValue "Ramdisk" Core.<$> ramdisk)
+                Core.<> (Core.toQueryValue "SourceDestCheck" Core.<$> sourceDestCheck)
+                Core.<> (Core.toQueryValue "SriovNetSupport" Core.<$> sriovNetSupport)
+                Core.<> (Core.toQueryValue "UserData" Core.<$> userData)
+                Core.<> (Core.toQueryValue "Value" Core.<$> value)
+            )
+      }
+  response = Response.receiveNull ModifyInstanceAttributeResponse'
 
 -- | /See:/ 'mkModifyInstanceAttributeResponse' smart constructor.
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceAttributeResponse' with the minimum fields required to make a request.
+-- | Creates a 'ModifyInstanceAttributeResponse' value with any optional fields omitted.
 mkModifyInstanceAttributeResponse ::
   ModifyInstanceAttributeResponse
 mkModifyInstanceAttributeResponse =

@@ -13,46 +13,51 @@
 module Network.AWS.ECS.Types.PlacementConstraintType
   ( PlacementConstraintType
       ( PlacementConstraintType',
-        PCTDistinctInstance,
-        PCTMemberOf
+        PlacementConstraintTypeDistinctInstance,
+        PlacementConstraintTypeMemberOf,
+        fromPlacementConstraintType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PlacementConstraintType = PlacementConstraintType' Lude.Text
+newtype PlacementConstraintType = PlacementConstraintType'
+  { fromPlacementConstraintType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PCTDistinctInstance :: PlacementConstraintType
-pattern PCTDistinctInstance = PlacementConstraintType' "distinctInstance"
+pattern PlacementConstraintTypeDistinctInstance :: PlacementConstraintType
+pattern PlacementConstraintTypeDistinctInstance = PlacementConstraintType' "distinctInstance"
 
-pattern PCTMemberOf :: PlacementConstraintType
-pattern PCTMemberOf = PlacementConstraintType' "memberOf"
+pattern PlacementConstraintTypeMemberOf :: PlacementConstraintType
+pattern PlacementConstraintTypeMemberOf = PlacementConstraintType' "memberOf"
 
 {-# COMPLETE
-  PCTDistinctInstance,
-  PCTMemberOf,
+  PlacementConstraintTypeDistinctInstance,
+  PlacementConstraintTypeMemberOf,
   PlacementConstraintType'
   #-}

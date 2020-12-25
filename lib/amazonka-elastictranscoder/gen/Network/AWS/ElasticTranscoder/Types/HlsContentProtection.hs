@@ -17,17 +17,23 @@ module Network.AWS.ElasticTranscoder.Types.HlsContentProtection
     mkHlsContentProtection,
 
     -- * Lenses
-    hcpKeyMD5,
-    hcpKeyStoragePolicy,
-    hcpKey,
-    hcpMethod,
     hcpInitializationVector,
-    hcpLicenseAcquisitionURL,
+    hcpKey,
+    hcpKeyMd5,
+    hcpKeyStoragePolicy,
+    hcpLicenseAcquisitionUrl,
+    hcpMethod,
   )
 where
 
+import qualified Network.AWS.ElasticTranscoder.Types.HlsContentProtectionMethod as Types
+import qualified Network.AWS.ElasticTranscoder.Types.InitializationVector as Types
+import qualified Network.AWS.ElasticTranscoder.Types.Key as Types
+import qualified Network.AWS.ElasticTranscoder.Types.KeyMd5 as Types
+import qualified Network.AWS.ElasticTranscoder.Types.KeyStoragePolicy as Types
+import qualified Network.AWS.ElasticTranscoder.Types.ZeroTo512String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The HLS content protection settings, if any, that you want Elastic Transcoder to apply to your output files.
 --
@@ -35,73 +41,50 @@ import qualified Network.AWS.Prelude as Lude
 data HlsContentProtection = HlsContentProtection'
   { -- | If Elastic Transcoder is generating your key for you, you must leave this field blank.
     --
-    -- The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
-    keyMD5 :: Lude.Maybe Lude.Text,
-    -- | Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@ , @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes your data key into the same bucket as the associated playlist.
-    keyStoragePolicy :: Lude.Maybe Lude.Text,
+    -- The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
+    initializationVector :: Core.Maybe Types.InitializationVector,
     -- | If you want Elastic Transcoder to generate a key for you, leave this field blank.
     --
     -- If you choose to supply your own key, you must encrypt the key by using AWS KMS. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded:
     -- @128@ , @192@ , or @256@ .
-    key :: Lude.Maybe Lude.Text,
+    key :: Core.Maybe Types.Key,
+    -- | If Elastic Transcoder is generating your key for you, you must leave this field blank.
+    --
+    -- The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
+    keyMd5 :: Core.Maybe Types.KeyMd5,
+    -- | Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@ , @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes your data key into the same bucket as the associated playlist.
+    keyStoragePolicy :: Core.Maybe Types.KeyStoragePolicy,
+    -- | The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file.
+    licenseAcquisitionUrl :: Core.Maybe Types.ZeroTo512String,
     -- | The content protection method for your output. The only valid value is: @aes-128@ .
     --
     -- This value is written into the method attribute of the @EXT-X-KEY@ metadata tag in the output playlist.
-    method :: Lude.Maybe Lude.Text,
-    -- | If Elastic Transcoder is generating your key for you, you must leave this field blank.
-    --
-    -- The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
-    initializationVector :: Lude.Maybe Lude.Text,
-    -- | The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file.
-    licenseAcquisitionURL :: Lude.Maybe Lude.Text
+    method :: Core.Maybe Types.HlsContentProtectionMethod
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsContentProtection' with the minimum fields required to make a request.
---
--- * 'keyMD5' - If Elastic Transcoder is generating your key for you, you must leave this field blank.
---
--- The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
--- * 'keyStoragePolicy' - Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@ , @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes your data key into the same bucket as the associated playlist.
--- * 'key' - If you want Elastic Transcoder to generate a key for you, leave this field blank.
---
--- If you choose to supply your own key, you must encrypt the key by using AWS KMS. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded:
--- @128@ , @192@ , or @256@ .
--- * 'method' - The content protection method for your output. The only valid value is: @aes-128@ .
---
--- This value is written into the method attribute of the @EXT-X-KEY@ metadata tag in the output playlist.
--- * 'initializationVector' - If Elastic Transcoder is generating your key for you, you must leave this field blank.
---
--- The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
--- * 'licenseAcquisitionURL' - The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file.
+-- | Creates a 'HlsContentProtection' value with any optional fields omitted.
 mkHlsContentProtection ::
   HlsContentProtection
 mkHlsContentProtection =
   HlsContentProtection'
-    { keyMD5 = Lude.Nothing,
-      keyStoragePolicy = Lude.Nothing,
-      key = Lude.Nothing,
-      method = Lude.Nothing,
-      initializationVector = Lude.Nothing,
-      licenseAcquisitionURL = Lude.Nothing
+    { initializationVector = Core.Nothing,
+      key = Core.Nothing,
+      keyMd5 = Core.Nothing,
+      keyStoragePolicy = Core.Nothing,
+      licenseAcquisitionUrl = Core.Nothing,
+      method = Core.Nothing
     }
 
 -- | If Elastic Transcoder is generating your key for you, you must leave this field blank.
 --
--- The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
+-- The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
 --
--- /Note:/ Consider using 'keyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcpKeyMD5 :: Lens.Lens' HlsContentProtection (Lude.Maybe Lude.Text)
-hcpKeyMD5 = Lens.lens (keyMD5 :: HlsContentProtection -> Lude.Maybe Lude.Text) (\s a -> s {keyMD5 = a} :: HlsContentProtection)
-{-# DEPRECATED hcpKeyMD5 "Use generic-lens or generic-optics with 'keyMD5' instead." #-}
-
--- | Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@ , @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes your data key into the same bucket as the associated playlist.
---
--- /Note:/ Consider using 'keyStoragePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcpKeyStoragePolicy :: Lens.Lens' HlsContentProtection (Lude.Maybe Lude.Text)
-hcpKeyStoragePolicy = Lens.lens (keyStoragePolicy :: HlsContentProtection -> Lude.Maybe Lude.Text) (\s a -> s {keyStoragePolicy = a} :: HlsContentProtection)
-{-# DEPRECATED hcpKeyStoragePolicy "Use generic-lens or generic-optics with 'keyStoragePolicy' instead." #-}
+-- /Note:/ Consider using 'initializationVector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcpInitializationVector :: Lens.Lens' HlsContentProtection (Core.Maybe Types.InitializationVector)
+hcpInitializationVector = Lens.field @"initializationVector"
+{-# DEPRECATED hcpInitializationVector "Use generic-lens or generic-optics with 'initializationVector' instead." #-}
 
 -- | If you want Elastic Transcoder to generate a key for you, leave this field blank.
 --
@@ -109,58 +92,63 @@ hcpKeyStoragePolicy = Lens.lens (keyStoragePolicy :: HlsContentProtection -> Lud
 -- @128@ , @192@ , or @256@ .
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcpKey :: Lens.Lens' HlsContentProtection (Lude.Maybe Lude.Text)
-hcpKey = Lens.lens (key :: HlsContentProtection -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: HlsContentProtection)
+hcpKey :: Lens.Lens' HlsContentProtection (Core.Maybe Types.Key)
+hcpKey = Lens.field @"key"
 {-# DEPRECATED hcpKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | If Elastic Transcoder is generating your key for you, you must leave this field blank.
+--
+-- The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
+--
+-- /Note:/ Consider using 'keyMd5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcpKeyMd5 :: Lens.Lens' HlsContentProtection (Core.Maybe Types.KeyMd5)
+hcpKeyMd5 = Lens.field @"keyMd5"
+{-# DEPRECATED hcpKeyMd5 "Use generic-lens or generic-optics with 'keyMd5' instead." #-}
+
+-- | Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@ , @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes your data key into the same bucket as the associated playlist.
+--
+-- /Note:/ Consider using 'keyStoragePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcpKeyStoragePolicy :: Lens.Lens' HlsContentProtection (Core.Maybe Types.KeyStoragePolicy)
+hcpKeyStoragePolicy = Lens.field @"keyStoragePolicy"
+{-# DEPRECATED hcpKeyStoragePolicy "Use generic-lens or generic-optics with 'keyStoragePolicy' instead." #-}
+
+-- | The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file.
+--
+-- /Note:/ Consider using 'licenseAcquisitionUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcpLicenseAcquisitionUrl :: Lens.Lens' HlsContentProtection (Core.Maybe Types.ZeroTo512String)
+hcpLicenseAcquisitionUrl = Lens.field @"licenseAcquisitionUrl"
+{-# DEPRECATED hcpLicenseAcquisitionUrl "Use generic-lens or generic-optics with 'licenseAcquisitionUrl' instead." #-}
 
 -- | The content protection method for your output. The only valid value is: @aes-128@ .
 --
 -- This value is written into the method attribute of the @EXT-X-KEY@ metadata tag in the output playlist.
 --
 -- /Note:/ Consider using 'method' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcpMethod :: Lens.Lens' HlsContentProtection (Lude.Maybe Lude.Text)
-hcpMethod = Lens.lens (method :: HlsContentProtection -> Lude.Maybe Lude.Text) (\s a -> s {method = a} :: HlsContentProtection)
+hcpMethod :: Lens.Lens' HlsContentProtection (Core.Maybe Types.HlsContentProtectionMethod)
+hcpMethod = Lens.field @"method"
 {-# DEPRECATED hcpMethod "Use generic-lens or generic-optics with 'method' instead." #-}
 
--- | If Elastic Transcoder is generating your key for you, you must leave this field blank.
---
--- The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
---
--- /Note:/ Consider using 'initializationVector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcpInitializationVector :: Lens.Lens' HlsContentProtection (Lude.Maybe Lude.Text)
-hcpInitializationVector = Lens.lens (initializationVector :: HlsContentProtection -> Lude.Maybe Lude.Text) (\s a -> s {initializationVector = a} :: HlsContentProtection)
-{-# DEPRECATED hcpInitializationVector "Use generic-lens or generic-optics with 'initializationVector' instead." #-}
-
--- | The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file.
---
--- /Note:/ Consider using 'licenseAcquisitionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcpLicenseAcquisitionURL :: Lens.Lens' HlsContentProtection (Lude.Maybe Lude.Text)
-hcpLicenseAcquisitionURL = Lens.lens (licenseAcquisitionURL :: HlsContentProtection -> Lude.Maybe Lude.Text) (\s a -> s {licenseAcquisitionURL = a} :: HlsContentProtection)
-{-# DEPRECATED hcpLicenseAcquisitionURL "Use generic-lens or generic-optics with 'licenseAcquisitionURL' instead." #-}
-
-instance Lude.FromJSON HlsContentProtection where
-  parseJSON =
-    Lude.withObject
-      "HlsContentProtection"
-      ( \x ->
-          HlsContentProtection'
-            Lude.<$> (x Lude..:? "KeyMd5")
-            Lude.<*> (x Lude..:? "KeyStoragePolicy")
-            Lude.<*> (x Lude..:? "Key")
-            Lude.<*> (x Lude..:? "Method")
-            Lude.<*> (x Lude..:? "InitializationVector")
-            Lude.<*> (x Lude..:? "LicenseAcquisitionUrl")
-      )
-
-instance Lude.ToJSON HlsContentProtection where
-  toJSON HlsContentProtection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KeyMd5" Lude..=) Lude.<$> keyMD5,
-            ("KeyStoragePolicy" Lude..=) Lude.<$> keyStoragePolicy,
-            ("Key" Lude..=) Lude.<$> key,
-            ("Method" Lude..=) Lude.<$> method,
-            ("InitializationVector" Lude..=) Lude.<$> initializationVector,
-            ("LicenseAcquisitionUrl" Lude..=) Lude.<$> licenseAcquisitionURL
+instance Core.FromJSON HlsContentProtection where
+  toJSON HlsContentProtection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("InitializationVector" Core..=) Core.<$> initializationVector,
+            ("Key" Core..=) Core.<$> key,
+            ("KeyMd5" Core..=) Core.<$> keyMd5,
+            ("KeyStoragePolicy" Core..=) Core.<$> keyStoragePolicy,
+            ("LicenseAcquisitionUrl" Core..=) Core.<$> licenseAcquisitionUrl,
+            ("Method" Core..=) Core.<$> method
           ]
       )
+
+instance Core.FromJSON HlsContentProtection where
+  parseJSON =
+    Core.withObject "HlsContentProtection" Core.$
+      \x ->
+        HlsContentProtection'
+          Core.<$> (x Core..:? "InitializationVector")
+          Core.<*> (x Core..:? "Key")
+          Core.<*> (x Core..:? "KeyMd5")
+          Core.<*> (x Core..:? "KeyStoragePolicy")
+          Core.<*> (x Core..:? "LicenseAcquisitionUrl")
+          Core.<*> (x Core..:? "Method")

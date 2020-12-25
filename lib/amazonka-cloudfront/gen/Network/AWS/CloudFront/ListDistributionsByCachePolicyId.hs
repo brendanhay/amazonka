@@ -22,137 +22,129 @@ module Network.AWS.CloudFront.ListDistributionsByCachePolicyId
     mkListDistributionsByCachePolicyId,
 
     -- ** Request lenses
+    ldbcpiCachePolicyId,
     ldbcpiMarker,
     ldbcpiMaxItems,
-    ldbcpiCachePolicyId,
 
     -- * Destructuring the response
     ListDistributionsByCachePolicyIdResponse (..),
     mkListDistributionsByCachePolicyIdResponse,
 
     -- ** Response lenses
-    ldbcpirsDistributionIdList,
-    ldbcpirsResponseStatus,
+    ldbcpirrsDistributionIdList,
+    ldbcpirrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDistributionsByCachePolicyId' smart constructor.
 data ListDistributionsByCachePolicyId = ListDistributionsByCachePolicyId'
-  { -- | Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The ID of the cache policy whose associated distribution IDs you want to list.
+    cachePolicyId :: Types.String,
+    -- | Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of distribution IDs that you want in the response.
-    maxItems :: Lude.Maybe Lude.Text,
-    -- | The ID of the cache policy whose associated distribution IDs you want to list.
-    cachePolicyId :: Lude.Text
+    maxItems :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDistributionsByCachePolicyId' with the minimum fields required to make a request.
---
--- * 'marker' - Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
--- * 'maxItems' - The maximum number of distribution IDs that you want in the response.
--- * 'cachePolicyId' - The ID of the cache policy whose associated distribution IDs you want to list.
+-- | Creates a 'ListDistributionsByCachePolicyId' value with any optional fields omitted.
 mkListDistributionsByCachePolicyId ::
   -- | 'cachePolicyId'
-  Lude.Text ->
+  Types.String ->
   ListDistributionsByCachePolicyId
-mkListDistributionsByCachePolicyId pCachePolicyId_ =
+mkListDistributionsByCachePolicyId cachePolicyId =
   ListDistributionsByCachePolicyId'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      cachePolicyId = pCachePolicyId_
+    { cachePolicyId,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
+
+-- | The ID of the cache policy whose associated distribution IDs you want to list.
+--
+-- /Note:/ Consider using 'cachePolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldbcpiCachePolicyId :: Lens.Lens' ListDistributionsByCachePolicyId Types.String
+ldbcpiCachePolicyId = Lens.field @"cachePolicyId"
+{-# DEPRECATED ldbcpiCachePolicyId "Use generic-lens or generic-optics with 'cachePolicyId' instead." #-}
 
 -- | Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbcpiMarker :: Lens.Lens' ListDistributionsByCachePolicyId (Lude.Maybe Lude.Text)
-ldbcpiMarker = Lens.lens (marker :: ListDistributionsByCachePolicyId -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListDistributionsByCachePolicyId)
+ldbcpiMarker :: Lens.Lens' ListDistributionsByCachePolicyId (Core.Maybe Types.String)
+ldbcpiMarker = Lens.field @"marker"
 {-# DEPRECATED ldbcpiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of distribution IDs that you want in the response.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbcpiMaxItems :: Lens.Lens' ListDistributionsByCachePolicyId (Lude.Maybe Lude.Text)
-ldbcpiMaxItems = Lens.lens (maxItems :: ListDistributionsByCachePolicyId -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListDistributionsByCachePolicyId)
+ldbcpiMaxItems :: Lens.Lens' ListDistributionsByCachePolicyId (Core.Maybe Types.String)
+ldbcpiMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED ldbcpiMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The ID of the cache policy whose associated distribution IDs you want to list.
---
--- /Note:/ Consider using 'cachePolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbcpiCachePolicyId :: Lens.Lens' ListDistributionsByCachePolicyId Lude.Text
-ldbcpiCachePolicyId = Lens.lens (cachePolicyId :: ListDistributionsByCachePolicyId -> Lude.Text) (\s a -> s {cachePolicyId = a} :: ListDistributionsByCachePolicyId)
-{-# DEPRECATED ldbcpiCachePolicyId "Use generic-lens or generic-optics with 'cachePolicyId' instead." #-}
-
-instance Lude.AWSRequest ListDistributionsByCachePolicyId where
+instance Core.AWSRequest ListDistributionsByCachePolicyId where
   type
     Rs ListDistributionsByCachePolicyId =
       ListDistributionsByCachePolicyIdResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/distributionsByCachePolicyId/"
+                Core.<> (Core.toText cachePolicyId)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListDistributionsByCachePolicyIdResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListDistributionsByCachePolicyId where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListDistributionsByCachePolicyId where
-  toPath ListDistributionsByCachePolicyId' {..} =
-    Lude.mconcat
-      [ "/2020-05-31/distributionsByCachePolicyId/",
-        Lude.toBS cachePolicyId
-      ]
-
-instance Lude.ToQuery ListDistributionsByCachePolicyId where
-  toQuery ListDistributionsByCachePolicyId' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | /See:/ 'mkListDistributionsByCachePolicyIdResponse' smart constructor.
 data ListDistributionsByCachePolicyIdResponse = ListDistributionsByCachePolicyIdResponse'
   { -- | A list of distribution IDs.
-    distributionIdList :: Lude.Maybe DistributionIdList,
+    distributionIdList :: Core.Maybe Types.DistributionIdList,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDistributionsByCachePolicyIdResponse' with the minimum fields required to make a request.
---
--- * 'distributionIdList' - A list of distribution IDs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDistributionsByCachePolicyIdResponse' value with any optional fields omitted.
 mkListDistributionsByCachePolicyIdResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDistributionsByCachePolicyIdResponse
-mkListDistributionsByCachePolicyIdResponse pResponseStatus_ =
+mkListDistributionsByCachePolicyIdResponse responseStatus =
   ListDistributionsByCachePolicyIdResponse'
     { distributionIdList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of distribution IDs.
 --
 -- /Note:/ Consider using 'distributionIdList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbcpirsDistributionIdList :: Lens.Lens' ListDistributionsByCachePolicyIdResponse (Lude.Maybe DistributionIdList)
-ldbcpirsDistributionIdList = Lens.lens (distributionIdList :: ListDistributionsByCachePolicyIdResponse -> Lude.Maybe DistributionIdList) (\s a -> s {distributionIdList = a} :: ListDistributionsByCachePolicyIdResponse)
-{-# DEPRECATED ldbcpirsDistributionIdList "Use generic-lens or generic-optics with 'distributionIdList' instead." #-}
+ldbcpirrsDistributionIdList :: Lens.Lens' ListDistributionsByCachePolicyIdResponse (Core.Maybe Types.DistributionIdList)
+ldbcpirrsDistributionIdList = Lens.field @"distributionIdList"
+{-# DEPRECATED ldbcpirrsDistributionIdList "Use generic-lens or generic-optics with 'distributionIdList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbcpirsResponseStatus :: Lens.Lens' ListDistributionsByCachePolicyIdResponse Lude.Int
-ldbcpirsResponseStatus = Lens.lens (responseStatus :: ListDistributionsByCachePolicyIdResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDistributionsByCachePolicyIdResponse)
-{-# DEPRECATED ldbcpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldbcpirrsResponseStatus :: Lens.Lens' ListDistributionsByCachePolicyIdResponse Core.Int
+ldbcpirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldbcpirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

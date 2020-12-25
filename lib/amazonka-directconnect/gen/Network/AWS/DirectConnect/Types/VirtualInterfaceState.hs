@@ -13,81 +13,86 @@
 module Network.AWS.DirectConnect.Types.VirtualInterfaceState
   ( VirtualInterfaceState
       ( VirtualInterfaceState',
-        VISConfirming,
-        VISVerifying,
-        VISPending,
-        VISAvailable,
-        VISDown,
-        VISDeleting,
-        VISDeleted,
-        VISRejected,
-        VISUnknown
+        VirtualInterfaceStateConfirming,
+        VirtualInterfaceStateVerifying,
+        VirtualInterfaceStatePending,
+        VirtualInterfaceStateAvailable,
+        VirtualInterfaceStateDown,
+        VirtualInterfaceStateDeleting,
+        VirtualInterfaceStateDeleted,
+        VirtualInterfaceStateRejected,
+        VirtualInterfaceStateUnknown,
+        fromVirtualInterfaceState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VirtualInterfaceState = VirtualInterfaceState' Lude.Text
+newtype VirtualInterfaceState = VirtualInterfaceState'
+  { fromVirtualInterfaceState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VISConfirming :: VirtualInterfaceState
-pattern VISConfirming = VirtualInterfaceState' "confirming"
+pattern VirtualInterfaceStateConfirming :: VirtualInterfaceState
+pattern VirtualInterfaceStateConfirming = VirtualInterfaceState' "confirming"
 
-pattern VISVerifying :: VirtualInterfaceState
-pattern VISVerifying = VirtualInterfaceState' "verifying"
+pattern VirtualInterfaceStateVerifying :: VirtualInterfaceState
+pattern VirtualInterfaceStateVerifying = VirtualInterfaceState' "verifying"
 
-pattern VISPending :: VirtualInterfaceState
-pattern VISPending = VirtualInterfaceState' "pending"
+pattern VirtualInterfaceStatePending :: VirtualInterfaceState
+pattern VirtualInterfaceStatePending = VirtualInterfaceState' "pending"
 
-pattern VISAvailable :: VirtualInterfaceState
-pattern VISAvailable = VirtualInterfaceState' "available"
+pattern VirtualInterfaceStateAvailable :: VirtualInterfaceState
+pattern VirtualInterfaceStateAvailable = VirtualInterfaceState' "available"
 
-pattern VISDown :: VirtualInterfaceState
-pattern VISDown = VirtualInterfaceState' "down"
+pattern VirtualInterfaceStateDown :: VirtualInterfaceState
+pattern VirtualInterfaceStateDown = VirtualInterfaceState' "down"
 
-pattern VISDeleting :: VirtualInterfaceState
-pattern VISDeleting = VirtualInterfaceState' "deleting"
+pattern VirtualInterfaceStateDeleting :: VirtualInterfaceState
+pattern VirtualInterfaceStateDeleting = VirtualInterfaceState' "deleting"
 
-pattern VISDeleted :: VirtualInterfaceState
-pattern VISDeleted = VirtualInterfaceState' "deleted"
+pattern VirtualInterfaceStateDeleted :: VirtualInterfaceState
+pattern VirtualInterfaceStateDeleted = VirtualInterfaceState' "deleted"
 
-pattern VISRejected :: VirtualInterfaceState
-pattern VISRejected = VirtualInterfaceState' "rejected"
+pattern VirtualInterfaceStateRejected :: VirtualInterfaceState
+pattern VirtualInterfaceStateRejected = VirtualInterfaceState' "rejected"
 
-pattern VISUnknown :: VirtualInterfaceState
-pattern VISUnknown = VirtualInterfaceState' "unknown"
+pattern VirtualInterfaceStateUnknown :: VirtualInterfaceState
+pattern VirtualInterfaceStateUnknown = VirtualInterfaceState' "unknown"
 
 {-# COMPLETE
-  VISConfirming,
-  VISVerifying,
-  VISPending,
-  VISAvailable,
-  VISDown,
-  VISDeleting,
-  VISDeleted,
-  VISRejected,
-  VISUnknown,
+  VirtualInterfaceStateConfirming,
+  VirtualInterfaceStateVerifying,
+  VirtualInterfaceStatePending,
+  VirtualInterfaceStateAvailable,
+  VirtualInterfaceStateDown,
+  VirtualInterfaceStateDeleting,
+  VirtualInterfaceStateDeleted,
+  VirtualInterfaceStateRejected,
+  VirtualInterfaceStateUnknown,
   VirtualInterfaceState'
   #-}

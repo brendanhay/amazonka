@@ -17,65 +17,60 @@ module Network.AWS.Glue.Types.DevEndpoint
     mkDevEndpoint,
 
     -- * Lenses
-    deStatus,
-    deFailureReason,
-    deEndpointName,
-    deNumberOfWorkers,
-    deExtraPythonLibsS3Path,
-    deLastUpdateStatus,
-    deSecurityGroupIds,
-    deLastModifiedTimestamp,
-    dePublicKeys,
-    deVPCId,
     deArguments,
-    dePrivateAddress,
-    deWorkerType,
-    deSecurityConfiguration,
-    dePublicKey,
-    deSubnetId,
-    deGlueVersion,
-    deNumberOfNodes,
-    dePublicAddress,
     deAvailabilityZone,
-    deZeppelinRemoteSparkInterpreterPort,
-    deExtraJARsS3Path,
     deCreatedTimestamp,
+    deEndpointName,
+    deExtraJarsS3Path,
+    deExtraPythonLibsS3Path,
+    deFailureReason,
+    deGlueVersion,
+    deLastModifiedTimestamp,
+    deLastUpdateStatus,
+    deNumberOfNodes,
+    deNumberOfWorkers,
+    dePrivateAddress,
+    dePublicAddress,
+    dePublicKey,
+    dePublicKeys,
+    deRoleArn,
+    deSecurityConfiguration,
+    deSecurityGroupIds,
+    deStatus,
+    deSubnetId,
+    deVpcId,
+    deWorkerType,
     deYarnEndpointAddress,
-    deRoleARN,
+    deZeppelinRemoteSparkInterpreterPort,
   )
 where
 
-import Network.AWS.Glue.Types.WorkerType
+import qualified Network.AWS.Glue.Types.AvailabilityZone as Types
+import qualified Network.AWS.Glue.Types.EndpointName as Types
+import qualified Network.AWS.Glue.Types.ExtraJarsS3Path as Types
+import qualified Network.AWS.Glue.Types.ExtraPythonLibsS3Path as Types
+import qualified Network.AWS.Glue.Types.FailureReason as Types
+import qualified Network.AWS.Glue.Types.GenericString as Types
+import qualified Network.AWS.Glue.Types.GlueVersionString as Types
+import qualified Network.AWS.Glue.Types.LastUpdateStatus as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
+import qualified Network.AWS.Glue.Types.PrivateAddress as Types
+import qualified Network.AWS.Glue.Types.PublicAddress as Types
+import qualified Network.AWS.Glue.Types.PublicKey as Types
+import qualified Network.AWS.Glue.Types.RoleArn as Types
+import qualified Network.AWS.Glue.Types.Status as Types
+import qualified Network.AWS.Glue.Types.SubnetId as Types
+import qualified Network.AWS.Glue.Types.VpcId as Types
+import qualified Network.AWS.Glue.Types.WorkerType as Types
+import qualified Network.AWS.Glue.Types.YarnEndpointAddress as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A development endpoint where a developer can remotely debug extract, transform, and load (ETL) scripts.
 --
 -- /See:/ 'mkDevEndpoint' smart constructor.
 data DevEndpoint = DevEndpoint'
-  { -- | The current status of this @DevEndpoint@ .
-    status :: Lude.Maybe Lude.Text,
-    -- | The reason for a current failure in this @DevEndpoint@ .
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | The name of the @DevEndpoint@ .
-    endpointName :: Lude.Maybe Lude.Text,
-    -- | The number of workers of a defined @workerType@ that are allocated to the development endpoint.
-    --
-    -- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
-    numberOfWorkers :: Lude.Maybe Lude.Int,
-    -- | The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
-    extraPythonLibsS3Path :: Lude.Maybe Lude.Text,
-    -- | The status of the last update.
-    lastUpdateStatus :: Lude.Maybe Lude.Text,
-    -- | A list of security group identifiers used in this @DevEndpoint@ .
-    securityGroupIds :: Lude.Maybe [Lude.Text],
-    -- | The point in time at which this @DevEndpoint@ was last modified.
-    lastModifiedTimestamp :: Lude.Maybe Lude.Timestamp,
-    -- | A list of public keys to be used by the @DevEndpoints@ for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
-    publicKeys :: Lude.Maybe [Lude.Text],
-    -- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | A map of arguments used to configure the @DevEndpoint@ .
+  { -- | A map of arguments used to configure the @DevEndpoint@ .
     --
     -- Valid arguments are:
     --
@@ -89,9 +84,55 @@ data DevEndpoint = DevEndpoint'
     --
     --
     -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
-    arguments :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    arguments :: Core.Maybe (Core.HashMap Types.GenericString Types.GenericString),
+    -- | The AWS Availability Zone where this @DevEndpoint@ is located.
+    availabilityZone :: Core.Maybe Types.AvailabilityZone,
+    -- | The point in time at which this DevEndpoint was created.
+    createdTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the @DevEndpoint@ .
+    endpointName :: Core.Maybe Types.EndpointName,
+    -- | The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
+    extraJarsS3Path :: Core.Maybe Types.ExtraJarsS3Path,
+    -- | The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
+    extraPythonLibsS3Path :: Core.Maybe Types.ExtraPythonLibsS3Path,
+    -- | The reason for a current failure in this @DevEndpoint@ .
+    failureReason :: Core.Maybe Types.FailureReason,
+    -- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
+    --
+    -- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+    -- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
+    -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
+    glueVersion :: Core.Maybe Types.GlueVersionString,
+    -- | The point in time at which this @DevEndpoint@ was last modified.
+    lastModifiedTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the last update.
+    lastUpdateStatus :: Core.Maybe Types.LastUpdateStatus,
+    -- | The number of AWS Glue Data Processing Units (DPUs) allocated to this @DevEndpoint@ .
+    numberOfNodes :: Core.Maybe Core.Int,
+    -- | The number of workers of a defined @workerType@ that are allocated to the development endpoint.
+    --
+    -- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+    numberOfWorkers :: Core.Maybe Core.Int,
     -- | A private IP address to access the @DevEndpoint@ within a VPC if the @DevEndpoint@ is created within one. The @PrivateAddress@ field is present only when you create the @DevEndpoint@ within your VPC.
-    privateAddress :: Lude.Maybe Lude.Text,
+    privateAddress :: Core.Maybe Types.PrivateAddress,
+    -- | The public IP address used by this @DevEndpoint@ . The @PublicAddress@ field is present only when you create a non-virtual private cloud (VPC) @DevEndpoint@ .
+    publicAddress :: Core.Maybe Types.PublicAddress,
+    -- | The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
+    publicKey :: Core.Maybe Types.PublicKey,
+    -- | A list of public keys to be used by the @DevEndpoints@ for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
+    publicKeys :: Core.Maybe [Types.GenericString],
+    -- | The Amazon Resource Name (ARN) of the IAM role used in this @DevEndpoint@ .
+    roleArn :: Core.Maybe Types.RoleArn,
+    -- | The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
+    securityConfiguration :: Core.Maybe Types.NameString,
+    -- | A list of security group identifiers used in this @DevEndpoint@ .
+    securityGroupIds :: Core.Maybe [Types.GenericString],
+    -- | The current status of this @DevEndpoint@ .
+    status :: Core.Maybe Types.Status,
+    -- | The subnet ID for this @DevEndpoint@ .
+    subnetId :: Core.Maybe Types.SubnetId,
+    -- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
+    vpcId :: Core.Maybe Types.VpcId,
     -- | The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.
     --
     --
@@ -105,199 +146,46 @@ data DevEndpoint = DevEndpoint'
     --
     --
     -- Known issue: when a development endpoint is created with the @G.2X@ @WorkerType@ configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
-    workerType :: Lude.Maybe WorkerType,
-    -- | The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
-    securityConfiguration :: Lude.Maybe Lude.Text,
-    -- | The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
-    publicKey :: Lude.Maybe Lude.Text,
-    -- | The subnet ID for this @DevEndpoint@ .
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
-    --
-    -- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
-    -- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
-    -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
-    glueVersion :: Lude.Maybe Lude.Text,
-    -- | The number of AWS Glue Data Processing Units (DPUs) allocated to this @DevEndpoint@ .
-    numberOfNodes :: Lude.Maybe Lude.Int,
-    -- | The public IP address used by this @DevEndpoint@ . The @PublicAddress@ field is present only when you create a non-virtual private cloud (VPC) @DevEndpoint@ .
-    publicAddress :: Lude.Maybe Lude.Text,
-    -- | The AWS Availability Zone where this @DevEndpoint@ is located.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The Apache Zeppelin port for the remote Apache Spark interpreter.
-    zeppelinRemoteSparkInterpreterPort :: Lude.Maybe Lude.Int,
-    -- | The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
-    extraJARsS3Path :: Lude.Maybe Lude.Text,
-    -- | The point in time at which this DevEndpoint was created.
-    createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    workerType :: Core.Maybe Types.WorkerType,
     -- | The YARN endpoint address used by this @DevEndpoint@ .
-    yarnEndpointAddress :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role used in this @DevEndpoint@ .
-    roleARN :: Lude.Maybe Lude.Text
+    yarnEndpointAddress :: Core.Maybe Types.YarnEndpointAddress,
+    -- | The Apache Zeppelin port for the remote Apache Spark interpreter.
+    zeppelinRemoteSparkInterpreterPort :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DevEndpoint' with the minimum fields required to make a request.
---
--- * 'status' - The current status of this @DevEndpoint@ .
--- * 'failureReason' - The reason for a current failure in this @DevEndpoint@ .
--- * 'endpointName' - The name of the @DevEndpoint@ .
--- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to the development endpoint.
---
--- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
--- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
--- * 'lastUpdateStatus' - The status of the last update.
--- * 'securityGroupIds' - A list of security group identifiers used in this @DevEndpoint@ .
--- * 'lastModifiedTimestamp' - The point in time at which this @DevEndpoint@ was last modified.
--- * 'publicKeys' - A list of public keys to be used by the @DevEndpoints@ for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
--- * 'vpcId' - The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
--- * 'arguments' - A map of arguments used to configure the @DevEndpoint@ .
---
--- Valid arguments are:
---
---     * @"--enable-glue-datacatalog": ""@
---
---
---     * @"GLUE_PYTHON_VERSION": "3"@
---
---
---     * @"GLUE_PYTHON_VERSION": "2"@
---
---
--- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
--- * 'privateAddress' - A private IP address to access the @DevEndpoint@ within a VPC if the @DevEndpoint@ is created within one. The @PrivateAddress@ field is present only when you create the @DevEndpoint@ within your VPC.
--- * 'workerType' - The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.
---
---
---     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
---
---
---     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
---
---
---     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
---
---
--- Known issue: when a development endpoint is created with the @G.2X@ @WorkerType@ configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
--- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
--- * 'publicKey' - The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
--- * 'subnetId' - The subnet ID for this @DevEndpoint@ .
--- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
---
--- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
--- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
--- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
--- * 'numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) allocated to this @DevEndpoint@ .
--- * 'publicAddress' - The public IP address used by this @DevEndpoint@ . The @PublicAddress@ field is present only when you create a non-virtual private cloud (VPC) @DevEndpoint@ .
--- * 'availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
--- * 'zeppelinRemoteSparkInterpreterPort' - The Apache Zeppelin port for the remote Apache Spark interpreter.
--- * 'extraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
--- * 'createdTimestamp' - The point in time at which this DevEndpoint was created.
--- * 'yarnEndpointAddress' - The YARN endpoint address used by this @DevEndpoint@ .
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role used in this @DevEndpoint@ .
+-- | Creates a 'DevEndpoint' value with any optional fields omitted.
 mkDevEndpoint ::
   DevEndpoint
 mkDevEndpoint =
   DevEndpoint'
-    { status = Lude.Nothing,
-      failureReason = Lude.Nothing,
-      endpointName = Lude.Nothing,
-      numberOfWorkers = Lude.Nothing,
-      extraPythonLibsS3Path = Lude.Nothing,
-      lastUpdateStatus = Lude.Nothing,
-      securityGroupIds = Lude.Nothing,
-      lastModifiedTimestamp = Lude.Nothing,
-      publicKeys = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      arguments = Lude.Nothing,
-      privateAddress = Lude.Nothing,
-      workerType = Lude.Nothing,
-      securityConfiguration = Lude.Nothing,
-      publicKey = Lude.Nothing,
-      subnetId = Lude.Nothing,
-      glueVersion = Lude.Nothing,
-      numberOfNodes = Lude.Nothing,
-      publicAddress = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      zeppelinRemoteSparkInterpreterPort = Lude.Nothing,
-      extraJARsS3Path = Lude.Nothing,
-      createdTimestamp = Lude.Nothing,
-      yarnEndpointAddress = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { arguments = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      createdTimestamp = Core.Nothing,
+      endpointName = Core.Nothing,
+      extraJarsS3Path = Core.Nothing,
+      extraPythonLibsS3Path = Core.Nothing,
+      failureReason = Core.Nothing,
+      glueVersion = Core.Nothing,
+      lastModifiedTimestamp = Core.Nothing,
+      lastUpdateStatus = Core.Nothing,
+      numberOfNodes = Core.Nothing,
+      numberOfWorkers = Core.Nothing,
+      privateAddress = Core.Nothing,
+      publicAddress = Core.Nothing,
+      publicKey = Core.Nothing,
+      publicKeys = Core.Nothing,
+      roleArn = Core.Nothing,
+      securityConfiguration = Core.Nothing,
+      securityGroupIds = Core.Nothing,
+      status = Core.Nothing,
+      subnetId = Core.Nothing,
+      vpcId = Core.Nothing,
+      workerType = Core.Nothing,
+      yarnEndpointAddress = Core.Nothing,
+      zeppelinRemoteSparkInterpreterPort = Core.Nothing
     }
-
--- | The current status of this @DevEndpoint@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deStatus :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deStatus = Lens.lens (status :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DevEndpoint)
-{-# DEPRECATED deStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The reason for a current failure in this @DevEndpoint@ .
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deFailureReason :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deFailureReason = Lens.lens (failureReason :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DevEndpoint)
-{-# DEPRECATED deFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | The name of the @DevEndpoint@ .
---
--- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndpointName :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deEndpointName = Lens.lens (endpointName :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpointName = a} :: DevEndpoint)
-{-# DEPRECATED deEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
-
--- | The number of workers of a defined @workerType@ that are allocated to the development endpoint.
---
--- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
---
--- /Note:/ Consider using 'numberOfWorkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deNumberOfWorkers :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Int)
-deNumberOfWorkers = Lens.lens (numberOfWorkers :: DevEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {numberOfWorkers = a} :: DevEndpoint)
-{-# DEPRECATED deNumberOfWorkers "Use generic-lens or generic-optics with 'numberOfWorkers' instead." #-}
-
--- | The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
---
--- /Note:/ Consider using 'extraPythonLibsS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deExtraPythonLibsS3Path :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deExtraPythonLibsS3Path = Lens.lens (extraPythonLibsS3Path :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {extraPythonLibsS3Path = a} :: DevEndpoint)
-{-# DEPRECATED deExtraPythonLibsS3Path "Use generic-lens or generic-optics with 'extraPythonLibsS3Path' instead." #-}
-
--- | The status of the last update.
---
--- /Note:/ Consider using 'lastUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deLastUpdateStatus :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deLastUpdateStatus = Lens.lens (lastUpdateStatus :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdateStatus = a} :: DevEndpoint)
-{-# DEPRECATED deLastUpdateStatus "Use generic-lens or generic-optics with 'lastUpdateStatus' instead." #-}
-
--- | A list of security group identifiers used in this @DevEndpoint@ .
---
--- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSecurityGroupIds :: Lens.Lens' DevEndpoint (Lude.Maybe [Lude.Text])
-deSecurityGroupIds = Lens.lens (securityGroupIds :: DevEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: DevEndpoint)
-{-# DEPRECATED deSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
-
--- | The point in time at which this @DevEndpoint@ was last modified.
---
--- /Note:/ Consider using 'lastModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deLastModifiedTimestamp :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Timestamp)
-deLastModifiedTimestamp = Lens.lens (lastModifiedTimestamp :: DevEndpoint -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimestamp = a} :: DevEndpoint)
-{-# DEPRECATED deLastModifiedTimestamp "Use generic-lens or generic-optics with 'lastModifiedTimestamp' instead." #-}
-
--- | A list of public keys to be used by the @DevEndpoints@ for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
---
--- /Note:/ Consider using 'publicKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dePublicKeys :: Lens.Lens' DevEndpoint (Lude.Maybe [Lude.Text])
-dePublicKeys = Lens.lens (publicKeys :: DevEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {publicKeys = a} :: DevEndpoint)
-{-# DEPRECATED dePublicKeys "Use generic-lens or generic-optics with 'publicKeys' instead." #-}
-
--- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deVPCId :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deVPCId = Lens.lens (vpcId :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DevEndpoint)
-{-# DEPRECATED deVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | A map of arguments used to configure the @DevEndpoint@ .
 --
@@ -315,16 +203,162 @@ deVPCId = Lens.lens (vpcId :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {v
 -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
 --
 -- /Note:/ Consider using 'arguments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deArguments :: Lens.Lens' DevEndpoint (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-deArguments = Lens.lens (arguments :: DevEndpoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {arguments = a} :: DevEndpoint)
+deArguments :: Lens.Lens' DevEndpoint (Core.Maybe (Core.HashMap Types.GenericString Types.GenericString))
+deArguments = Lens.field @"arguments"
 {-# DEPRECATED deArguments "Use generic-lens or generic-optics with 'arguments' instead." #-}
+
+-- | The AWS Availability Zone where this @DevEndpoint@ is located.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deAvailabilityZone :: Lens.Lens' DevEndpoint (Core.Maybe Types.AvailabilityZone)
+deAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED deAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | The point in time at which this DevEndpoint was created.
+--
+-- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deCreatedTimestamp :: Lens.Lens' DevEndpoint (Core.Maybe Core.NominalDiffTime)
+deCreatedTimestamp = Lens.field @"createdTimestamp"
+{-# DEPRECATED deCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
+
+-- | The name of the @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEndpointName :: Lens.Lens' DevEndpoint (Core.Maybe Types.EndpointName)
+deEndpointName = Lens.field @"endpointName"
+{-# DEPRECATED deEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
+
+-- | The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'extraJarsS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deExtraJarsS3Path :: Lens.Lens' DevEndpoint (Core.Maybe Types.ExtraJarsS3Path)
+deExtraJarsS3Path = Lens.field @"extraJarsS3Path"
+{-# DEPRECATED deExtraJarsS3Path "Use generic-lens or generic-optics with 'extraJarsS3Path' instead." #-}
+
+-- | The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
+--
+-- /Note:/ Consider using 'extraPythonLibsS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deExtraPythonLibsS3Path :: Lens.Lens' DevEndpoint (Core.Maybe Types.ExtraPythonLibsS3Path)
+deExtraPythonLibsS3Path = Lens.field @"extraPythonLibsS3Path"
+{-# DEPRECATED deExtraPythonLibsS3Path "Use generic-lens or generic-optics with 'extraPythonLibsS3Path' instead." #-}
+
+-- | The reason for a current failure in this @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deFailureReason :: Lens.Lens' DevEndpoint (Core.Maybe Types.FailureReason)
+deFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED deFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+
+-- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
+--
+-- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+-- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
+-- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
+--
+-- /Note:/ Consider using 'glueVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deGlueVersion :: Lens.Lens' DevEndpoint (Core.Maybe Types.GlueVersionString)
+deGlueVersion = Lens.field @"glueVersion"
+{-# DEPRECATED deGlueVersion "Use generic-lens or generic-optics with 'glueVersion' instead." #-}
+
+-- | The point in time at which this @DevEndpoint@ was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deLastModifiedTimestamp :: Lens.Lens' DevEndpoint (Core.Maybe Core.NominalDiffTime)
+deLastModifiedTimestamp = Lens.field @"lastModifiedTimestamp"
+{-# DEPRECATED deLastModifiedTimestamp "Use generic-lens or generic-optics with 'lastModifiedTimestamp' instead." #-}
+
+-- | The status of the last update.
+--
+-- /Note:/ Consider using 'lastUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deLastUpdateStatus :: Lens.Lens' DevEndpoint (Core.Maybe Types.LastUpdateStatus)
+deLastUpdateStatus = Lens.field @"lastUpdateStatus"
+{-# DEPRECATED deLastUpdateStatus "Use generic-lens or generic-optics with 'lastUpdateStatus' instead." #-}
+
+-- | The number of AWS Glue Data Processing Units (DPUs) allocated to this @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deNumberOfNodes :: Lens.Lens' DevEndpoint (Core.Maybe Core.Int)
+deNumberOfNodes = Lens.field @"numberOfNodes"
+{-# DEPRECATED deNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
+
+-- | The number of workers of a defined @workerType@ that are allocated to the development endpoint.
+--
+-- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+--
+-- /Note:/ Consider using 'numberOfWorkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deNumberOfWorkers :: Lens.Lens' DevEndpoint (Core.Maybe Core.Int)
+deNumberOfWorkers = Lens.field @"numberOfWorkers"
+{-# DEPRECATED deNumberOfWorkers "Use generic-lens or generic-optics with 'numberOfWorkers' instead." #-}
 
 -- | A private IP address to access the @DevEndpoint@ within a VPC if the @DevEndpoint@ is created within one. The @PrivateAddress@ field is present only when you create the @DevEndpoint@ within your VPC.
 --
 -- /Note:/ Consider using 'privateAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dePrivateAddress :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-dePrivateAddress = Lens.lens (privateAddress :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {privateAddress = a} :: DevEndpoint)
+dePrivateAddress :: Lens.Lens' DevEndpoint (Core.Maybe Types.PrivateAddress)
+dePrivateAddress = Lens.field @"privateAddress"
 {-# DEPRECATED dePrivateAddress "Use generic-lens or generic-optics with 'privateAddress' instead." #-}
+
+-- | The public IP address used by this @DevEndpoint@ . The @PublicAddress@ field is present only when you create a non-virtual private cloud (VPC) @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'publicAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dePublicAddress :: Lens.Lens' DevEndpoint (Core.Maybe Types.PublicAddress)
+dePublicAddress = Lens.field @"publicAddress"
+{-# DEPRECATED dePublicAddress "Use generic-lens or generic-optics with 'publicAddress' instead." #-}
+
+-- | The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
+--
+-- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dePublicKey :: Lens.Lens' DevEndpoint (Core.Maybe Types.PublicKey)
+dePublicKey = Lens.field @"publicKey"
+{-# DEPRECATED dePublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
+
+-- | A list of public keys to be used by the @DevEndpoints@ for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
+--
+-- /Note:/ Consider using 'publicKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dePublicKeys :: Lens.Lens' DevEndpoint (Core.Maybe [Types.GenericString])
+dePublicKeys = Lens.field @"publicKeys"
+{-# DEPRECATED dePublicKeys "Use generic-lens or generic-optics with 'publicKeys' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM role used in this @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deRoleArn :: Lens.Lens' DevEndpoint (Core.Maybe Types.RoleArn)
+deRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED deRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'securityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSecurityConfiguration :: Lens.Lens' DevEndpoint (Core.Maybe Types.NameString)
+deSecurityConfiguration = Lens.field @"securityConfiguration"
+{-# DEPRECATED deSecurityConfiguration "Use generic-lens or generic-optics with 'securityConfiguration' instead." #-}
+
+-- | A list of security group identifiers used in this @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSecurityGroupIds :: Lens.Lens' DevEndpoint (Core.Maybe [Types.GenericString])
+deSecurityGroupIds = Lens.field @"securityGroupIds"
+{-# DEPRECATED deSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
+
+-- | The current status of this @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deStatus :: Lens.Lens' DevEndpoint (Core.Maybe Types.Status)
+deStatus = Lens.field @"status"
+{-# DEPRECATED deStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The subnet ID for this @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deSubnetId :: Lens.Lens' DevEndpoint (Core.Maybe Types.SubnetId)
+deSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED deSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
+-- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deVpcId :: Lens.Lens' DevEndpoint (Core.Maybe Types.VpcId)
+deVpcId = Lens.field @"vpcId"
+{-# DEPRECATED deVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.
 --
@@ -341,127 +375,51 @@ dePrivateAddress = Lens.lens (privateAddress :: DevEndpoint -> Lude.Maybe Lude.T
 -- Known issue: when a development endpoint is created with the @G.2X@ @WorkerType@ configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
 --
 -- /Note:/ Consider using 'workerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deWorkerType :: Lens.Lens' DevEndpoint (Lude.Maybe WorkerType)
-deWorkerType = Lens.lens (workerType :: DevEndpoint -> Lude.Maybe WorkerType) (\s a -> s {workerType = a} :: DevEndpoint)
+deWorkerType :: Lens.Lens' DevEndpoint (Core.Maybe Types.WorkerType)
+deWorkerType = Lens.field @"workerType"
 {-# DEPRECATED deWorkerType "Use generic-lens or generic-optics with 'workerType' instead." #-}
-
--- | The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
---
--- /Note:/ Consider using 'securityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSecurityConfiguration :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deSecurityConfiguration = Lens.lens (securityConfiguration :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {securityConfiguration = a} :: DevEndpoint)
-{-# DEPRECATED deSecurityConfiguration "Use generic-lens or generic-optics with 'securityConfiguration' instead." #-}
-
--- | The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
---
--- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dePublicKey :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-dePublicKey = Lens.lens (publicKey :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {publicKey = a} :: DevEndpoint)
-{-# DEPRECATED dePublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
-
--- | The subnet ID for this @DevEndpoint@ .
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSubnetId :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deSubnetId = Lens.lens (subnetId :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: DevEndpoint)
-{-# DEPRECATED deSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
---
--- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
--- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
--- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
---
--- /Note:/ Consider using 'glueVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deGlueVersion :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deGlueVersion = Lens.lens (glueVersion :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {glueVersion = a} :: DevEndpoint)
-{-# DEPRECATED deGlueVersion "Use generic-lens or generic-optics with 'glueVersion' instead." #-}
-
--- | The number of AWS Glue Data Processing Units (DPUs) allocated to this @DevEndpoint@ .
---
--- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deNumberOfNodes :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Int)
-deNumberOfNodes = Lens.lens (numberOfNodes :: DevEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {numberOfNodes = a} :: DevEndpoint)
-{-# DEPRECATED deNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
-
--- | The public IP address used by this @DevEndpoint@ . The @PublicAddress@ field is present only when you create a non-virtual private cloud (VPC) @DevEndpoint@ .
---
--- /Note:/ Consider using 'publicAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dePublicAddress :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-dePublicAddress = Lens.lens (publicAddress :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {publicAddress = a} :: DevEndpoint)
-{-# DEPRECATED dePublicAddress "Use generic-lens or generic-optics with 'publicAddress' instead." #-}
-
--- | The AWS Availability Zone where this @DevEndpoint@ is located.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deAvailabilityZone :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deAvailabilityZone = Lens.lens (availabilityZone :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: DevEndpoint)
-{-# DEPRECATED deAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The Apache Zeppelin port for the remote Apache Spark interpreter.
---
--- /Note:/ Consider using 'zeppelinRemoteSparkInterpreterPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deZeppelinRemoteSparkInterpreterPort :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Int)
-deZeppelinRemoteSparkInterpreterPort = Lens.lens (zeppelinRemoteSparkInterpreterPort :: DevEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {zeppelinRemoteSparkInterpreterPort = a} :: DevEndpoint)
-{-# DEPRECATED deZeppelinRemoteSparkInterpreterPort "Use generic-lens or generic-optics with 'zeppelinRemoteSparkInterpreterPort' instead." #-}
-
--- | The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
---
--- /Note:/ Consider using 'extraJARsS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deExtraJARsS3Path :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deExtraJARsS3Path = Lens.lens (extraJARsS3Path :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {extraJARsS3Path = a} :: DevEndpoint)
-{-# DEPRECATED deExtraJARsS3Path "Use generic-lens or generic-optics with 'extraJARsS3Path' instead." #-}
-
--- | The point in time at which this DevEndpoint was created.
---
--- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deCreatedTimestamp :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Timestamp)
-deCreatedTimestamp = Lens.lens (createdTimestamp :: DevEndpoint -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimestamp = a} :: DevEndpoint)
-{-# DEPRECATED deCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
 -- | The YARN endpoint address used by this @DevEndpoint@ .
 --
 -- /Note:/ Consider using 'yarnEndpointAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deYarnEndpointAddress :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deYarnEndpointAddress = Lens.lens (yarnEndpointAddress :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {yarnEndpointAddress = a} :: DevEndpoint)
+deYarnEndpointAddress :: Lens.Lens' DevEndpoint (Core.Maybe Types.YarnEndpointAddress)
+deYarnEndpointAddress = Lens.field @"yarnEndpointAddress"
 {-# DEPRECATED deYarnEndpointAddress "Use generic-lens or generic-optics with 'yarnEndpointAddress' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM role used in this @DevEndpoint@ .
+-- | The Apache Zeppelin port for the remote Apache Spark interpreter.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deRoleARN :: Lens.Lens' DevEndpoint (Lude.Maybe Lude.Text)
-deRoleARN = Lens.lens (roleARN :: DevEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DevEndpoint)
-{-# DEPRECATED deRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'zeppelinRemoteSparkInterpreterPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deZeppelinRemoteSparkInterpreterPort :: Lens.Lens' DevEndpoint (Core.Maybe Core.Int)
+deZeppelinRemoteSparkInterpreterPort = Lens.field @"zeppelinRemoteSparkInterpreterPort"
+{-# DEPRECATED deZeppelinRemoteSparkInterpreterPort "Use generic-lens or generic-optics with 'zeppelinRemoteSparkInterpreterPort' instead." #-}
 
-instance Lude.FromJSON DevEndpoint where
+instance Core.FromJSON DevEndpoint where
   parseJSON =
-    Lude.withObject
-      "DevEndpoint"
-      ( \x ->
-          DevEndpoint'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..:? "EndpointName")
-            Lude.<*> (x Lude..:? "NumberOfWorkers")
-            Lude.<*> (x Lude..:? "ExtraPythonLibsS3Path")
-            Lude.<*> (x Lude..:? "LastUpdateStatus")
-            Lude.<*> (x Lude..:? "SecurityGroupIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LastModifiedTimestamp")
-            Lude.<*> (x Lude..:? "PublicKeys" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "VpcId")
-            Lude.<*> (x Lude..:? "Arguments" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "PrivateAddress")
-            Lude.<*> (x Lude..:? "WorkerType")
-            Lude.<*> (x Lude..:? "SecurityConfiguration")
-            Lude.<*> (x Lude..:? "PublicKey")
-            Lude.<*> (x Lude..:? "SubnetId")
-            Lude.<*> (x Lude..:? "GlueVersion")
-            Lude.<*> (x Lude..:? "NumberOfNodes")
-            Lude.<*> (x Lude..:? "PublicAddress")
-            Lude.<*> (x Lude..:? "AvailabilityZone")
-            Lude.<*> (x Lude..:? "ZeppelinRemoteSparkInterpreterPort")
-            Lude.<*> (x Lude..:? "ExtraJarsS3Path")
-            Lude.<*> (x Lude..:? "CreatedTimestamp")
-            Lude.<*> (x Lude..:? "YarnEndpointAddress")
-            Lude.<*> (x Lude..:? "RoleArn")
-      )
+    Core.withObject "DevEndpoint" Core.$
+      \x ->
+        DevEndpoint'
+          Core.<$> (x Core..:? "Arguments")
+          Core.<*> (x Core..:? "AvailabilityZone")
+          Core.<*> (x Core..:? "CreatedTimestamp")
+          Core.<*> (x Core..:? "EndpointName")
+          Core.<*> (x Core..:? "ExtraJarsS3Path")
+          Core.<*> (x Core..:? "ExtraPythonLibsS3Path")
+          Core.<*> (x Core..:? "FailureReason")
+          Core.<*> (x Core..:? "GlueVersion")
+          Core.<*> (x Core..:? "LastModifiedTimestamp")
+          Core.<*> (x Core..:? "LastUpdateStatus")
+          Core.<*> (x Core..:? "NumberOfNodes")
+          Core.<*> (x Core..:? "NumberOfWorkers")
+          Core.<*> (x Core..:? "PrivateAddress")
+          Core.<*> (x Core..:? "PublicAddress")
+          Core.<*> (x Core..:? "PublicKey")
+          Core.<*> (x Core..:? "PublicKeys")
+          Core.<*> (x Core..:? "RoleArn")
+          Core.<*> (x Core..:? "SecurityConfiguration")
+          Core.<*> (x Core..:? "SecurityGroupIds")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "SubnetId")
+          Core.<*> (x Core..:? "VpcId")
+          Core.<*> (x Core..:? "WorkerType")
+          Core.<*> (x Core..:? "YarnEndpointAddress")
+          Core.<*> (x Core..:? "ZeppelinRemoteSparkInterpreterPort")

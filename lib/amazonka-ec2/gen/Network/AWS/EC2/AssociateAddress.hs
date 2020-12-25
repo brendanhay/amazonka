@@ -27,13 +27,13 @@ module Network.AWS.EC2.AssociateAddress
     mkAssociateAddress,
 
     -- ** Request lenses
-    aasInstanceId,
     aasAllocationId,
-    aasNetworkInterfaceId,
     aasAllowReassociation,
-    aasPrivateIPAddress,
-    aasPublicIP,
     aasDryRun,
+    aasInstanceId,
+    aasNetworkInterfaceId,
+    aasPrivateIpAddress,
+    aasPublicIp,
 
     -- * Destructuring the response
     AssociateAddressResponse (..),
@@ -45,174 +45,168 @@ module Network.AWS.EC2.AssociateAddress
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateAddress' smart constructor.
 data AssociateAddress = AssociateAddress'
-  { -- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-    allocationId :: Lude.Maybe Lude.Text,
+  { -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
+    allocationId :: Core.Maybe Types.AllocationId,
+    -- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
+    allowReassociation :: Core.Maybe Core.Bool,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
+    instanceId :: Core.Maybe Types.InstanceId,
     -- | [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
     --
     -- For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both.
-    networkInterfaceId :: Lude.Maybe Lude.Text,
-    -- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
-    allowReassociation :: Lude.Maybe Lude.Bool,
+    networkInterfaceId :: Core.Maybe Types.NetworkInterfaceId,
     -- | [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
-    privateIPAddress :: Lude.Maybe Lude.Text,
+    privateIpAddress :: Core.Maybe Types.String,
     -- | The Elastic IP address to associate with the instance. This is required for EC2-Classic.
-    publicIP :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    publicIp :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateAddress' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
--- * 'allocationId' - [EC2-VPC] The allocation ID. This is required for EC2-VPC.
--- * 'networkInterfaceId' - [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
---
--- For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both.
--- * 'allowReassociation' - [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
--- * 'privateIPAddress' - [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
--- * 'publicIP' - The Elastic IP address to associate with the instance. This is required for EC2-Classic.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'AssociateAddress' value with any optional fields omitted.
 mkAssociateAddress ::
   AssociateAddress
 mkAssociateAddress =
   AssociateAddress'
-    { instanceId = Lude.Nothing,
-      allocationId = Lude.Nothing,
-      networkInterfaceId = Lude.Nothing,
-      allowReassociation = Lude.Nothing,
-      privateIPAddress = Lude.Nothing,
-      publicIP = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { allocationId = Core.Nothing,
+      allowReassociation = Core.Nothing,
+      dryRun = Core.Nothing,
+      instanceId = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      privateIpAddress = Core.Nothing,
+      publicIp = Core.Nothing
     }
-
--- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasInstanceId :: Lens.Lens' AssociateAddress (Lude.Maybe Lude.Text)
-aasInstanceId = Lens.lens (instanceId :: AssociateAddress -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: AssociateAddress)
-{-# DEPRECATED aasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
 --
 -- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasAllocationId :: Lens.Lens' AssociateAddress (Lude.Maybe Lude.Text)
-aasAllocationId = Lens.lens (allocationId :: AssociateAddress -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: AssociateAddress)
+aasAllocationId :: Lens.Lens' AssociateAddress (Core.Maybe Types.AllocationId)
+aasAllocationId = Lens.field @"allocationId"
 {-# DEPRECATED aasAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
+
+-- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
+--
+-- /Note:/ Consider using 'allowReassociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aasAllowReassociation :: Lens.Lens' AssociateAddress (Core.Maybe Core.Bool)
+aasAllowReassociation = Lens.field @"allowReassociation"
+{-# DEPRECATED aasAllowReassociation "Use generic-lens or generic-optics with 'allowReassociation' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aasDryRun :: Lens.Lens' AssociateAddress (Core.Maybe Core.Bool)
+aasDryRun = Lens.field @"dryRun"
+{-# DEPRECATED aasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. The operation fails if you specify an instance ID unless exactly one network interface is attached.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aasInstanceId :: Lens.Lens' AssociateAddress (Core.Maybe Types.InstanceId)
+aasInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED aasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.
 --
 -- For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both.
 --
 -- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasNetworkInterfaceId :: Lens.Lens' AssociateAddress (Lude.Maybe Lude.Text)
-aasNetworkInterfaceId = Lens.lens (networkInterfaceId :: AssociateAddress -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: AssociateAddress)
+aasNetworkInterfaceId :: Lens.Lens' AssociateAddress (Core.Maybe Types.NetworkInterfaceId)
+aasNetworkInterfaceId = Lens.field @"networkInterfaceId"
 {-# DEPRECATED aasNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
-
--- | [EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP address that is already associated with an instance or network interface to be reassociated with the specified instance or network interface. Otherwise, the operation fails. In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can specify false to ensure the operation fails if the Elastic IP address is already associated with another resource.
---
--- /Note:/ Consider using 'allowReassociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasAllowReassociation :: Lens.Lens' AssociateAddress (Lude.Maybe Lude.Bool)
-aasAllowReassociation = Lens.lens (allowReassociation :: AssociateAddress -> Lude.Maybe Lude.Bool) (\s a -> s {allowReassociation = a} :: AssociateAddress)
-{-# DEPRECATED aasAllowReassociation "Use generic-lens or generic-optics with 'allowReassociation' instead." #-}
 
 -- | [EC2-VPC] The primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
 --
--- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasPrivateIPAddress :: Lens.Lens' AssociateAddress (Lude.Maybe Lude.Text)
-aasPrivateIPAddress = Lens.lens (privateIPAddress :: AssociateAddress -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: AssociateAddress)
-{-# DEPRECATED aasPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
+-- /Note:/ Consider using 'privateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aasPrivateIpAddress :: Lens.Lens' AssociateAddress (Core.Maybe Types.String)
+aasPrivateIpAddress = Lens.field @"privateIpAddress"
+{-# DEPRECATED aasPrivateIpAddress "Use generic-lens or generic-optics with 'privateIpAddress' instead." #-}
 
 -- | The Elastic IP address to associate with the instance. This is required for EC2-Classic.
 --
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasPublicIP :: Lens.Lens' AssociateAddress (Lude.Maybe Lude.Text)
-aasPublicIP = Lens.lens (publicIP :: AssociateAddress -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: AssociateAddress)
-{-# DEPRECATED aasPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aasPublicIp :: Lens.Lens' AssociateAddress (Core.Maybe Types.String)
+aasPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED aasPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aasDryRun :: Lens.Lens' AssociateAddress (Lude.Maybe Lude.Bool)
-aasDryRun = Lens.lens (dryRun :: AssociateAddress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateAddress)
-{-# DEPRECATED aasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest AssociateAddress where
+instance Core.AWSRequest AssociateAddress where
   type Rs AssociateAddress = AssociateAddressResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AssociateAddress")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AllocationId" Core.<$> allocationId)
+                Core.<> ( Core.toQueryValue "AllowReassociation"
+                            Core.<$> allowReassociation
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "InstanceId" Core.<$> instanceId)
+                Core.<> ( Core.toQueryValue "NetworkInterfaceId"
+                            Core.<$> networkInterfaceId
+                        )
+                Core.<> (Core.toQueryValue "PrivateIpAddress" Core.<$> privateIpAddress)
+                Core.<> (Core.toQueryValue "PublicIp" Core.<$> publicIp)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           AssociateAddressResponse'
-            Lude.<$> (x Lude..@? "associationId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "associationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateAddress where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AssociateAddress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateAddress where
-  toQuery AssociateAddress' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AssociateAddress" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "AllocationId" Lude.=: allocationId,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId,
-        "AllowReassociation" Lude.=: allowReassociation,
-        "PrivateIpAddress" Lude.=: privateIPAddress,
-        "PublicIp" Lude.=: publicIP,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkAssociateAddressResponse' smart constructor.
 data AssociateAddressResponse = AssociateAddressResponse'
   { -- | [EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.
-    associationId :: Lude.Maybe Lude.Text,
+    associationId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateAddressResponse' with the minimum fields required to make a request.
---
--- * 'associationId' - [EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateAddressResponse' value with any optional fields omitted.
 mkAssociateAddressResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateAddressResponse
-mkAssociateAddressResponse pResponseStatus_ =
+mkAssociateAddressResponse responseStatus =
   AssociateAddressResponse'
-    { associationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { associationId = Core.Nothing,
+      responseStatus
     }
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP address with an instance.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arsAssociationId :: Lens.Lens' AssociateAddressResponse (Lude.Maybe Lude.Text)
-arsAssociationId = Lens.lens (associationId :: AssociateAddressResponse -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: AssociateAddressResponse)
+arsAssociationId :: Lens.Lens' AssociateAddressResponse (Core.Maybe Types.String)
+arsAssociationId = Lens.field @"associationId"
 {-# DEPRECATED arsAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arsResponseStatus :: Lens.Lens' AssociateAddressResponse Lude.Int
-arsResponseStatus = Lens.lens (responseStatus :: AssociateAddressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateAddressResponse)
+arsResponseStatus :: Lens.Lens' AssociateAddressResponse Core.Int
+arsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED arsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

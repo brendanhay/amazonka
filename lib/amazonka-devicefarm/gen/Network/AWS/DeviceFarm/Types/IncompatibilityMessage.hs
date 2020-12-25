@@ -17,20 +17,23 @@ module Network.AWS.DeviceFarm.Types.IncompatibilityMessage
     mkIncompatibilityMessage,
 
     -- * Lenses
-    imType,
     imMessage,
+    imType,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.DeviceAttribute
+import qualified Network.AWS.DeviceFarm.Types.DeviceAttribute as Types
+import qualified Network.AWS.DeviceFarm.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about incompatibility.
 --
 -- /See:/ 'mkIncompatibilityMessage' smart constructor.
 data IncompatibilityMessage = IncompatibilityMessage'
-  { -- | The type of incompatibility.
+  { -- | A message about the incompatibility.
+    message :: Core.Maybe Types.Message,
+    -- | The type of incompatibility.
     --
     -- Allowed values include:
     --
@@ -50,45 +53,26 @@ data IncompatibilityMessage = IncompatibilityMessage'
     --
     --
     --     * APPIUM_VERSION
-    type' :: Lude.Maybe DeviceAttribute,
-    -- | A message about the incompatibility.
-    message :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.DeviceAttribute
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IncompatibilityMessage' with the minimum fields required to make a request.
---
--- * 'type'' - The type of incompatibility.
---
--- Allowed values include:
---
---     * ARN
---
---
---     * FORM_FACTOR (for example, phone or tablet)
---
---
---     * MANUFACTURER
---
---
---     * PLATFORM (for example, Android or iOS)
---
---
---     * REMOTE_ACCESS_ENABLED
---
---
---     * APPIUM_VERSION
---
---
--- * 'message' - A message about the incompatibility.
+-- | Creates a 'IncompatibilityMessage' value with any optional fields omitted.
 mkIncompatibilityMessage ::
   IncompatibilityMessage
 mkIncompatibilityMessage =
   IncompatibilityMessage'
-    { type' = Lude.Nothing,
-      message = Lude.Nothing
+    { message = Core.Nothing,
+      type' = Core.Nothing
     }
+
+-- | A message about the incompatibility.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+imMessage :: Lens.Lens' IncompatibilityMessage (Core.Maybe Types.Message)
+imMessage = Lens.field @"message"
+{-# DEPRECATED imMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The type of incompatibility.
 --
@@ -114,22 +98,13 @@ mkIncompatibilityMessage =
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imType :: Lens.Lens' IncompatibilityMessage (Lude.Maybe DeviceAttribute)
-imType = Lens.lens (type' :: IncompatibilityMessage -> Lude.Maybe DeviceAttribute) (\s a -> s {type' = a} :: IncompatibilityMessage)
+imType :: Lens.Lens' IncompatibilityMessage (Core.Maybe Types.DeviceAttribute)
+imType = Lens.field @"type'"
 {-# DEPRECATED imType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | A message about the incompatibility.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imMessage :: Lens.Lens' IncompatibilityMessage (Lude.Maybe Lude.Text)
-imMessage = Lens.lens (message :: IncompatibilityMessage -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: IncompatibilityMessage)
-{-# DEPRECATED imMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
-instance Lude.FromJSON IncompatibilityMessage where
+instance Core.FromJSON IncompatibilityMessage where
   parseJSON =
-    Lude.withObject
-      "IncompatibilityMessage"
-      ( \x ->
-          IncompatibilityMessage'
-            Lude.<$> (x Lude..:? "type") Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "IncompatibilityMessage" Core.$
+      \x ->
+        IncompatibilityMessage'
+          Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "type")

@@ -21,45 +21,39 @@ module Network.AWS.Greengrass.Types.DeviceDefinitionVersion
   )
 where
 
-import Network.AWS.Greengrass.Types.Device
+import qualified Network.AWS.Greengrass.Types.Device as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a device definition version.
 --
 -- /See:/ 'mkDeviceDefinitionVersion' smart constructor.
 newtype DeviceDefinitionVersion = DeviceDefinitionVersion'
   { -- | A list of devices in the definition version.
-    devices :: Lude.Maybe [Device]
+    devices :: Core.Maybe [Types.Device]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeviceDefinitionVersion' with the minimum fields required to make a request.
---
--- * 'devices' - A list of devices in the definition version.
+-- | Creates a 'DeviceDefinitionVersion' value with any optional fields omitted.
 mkDeviceDefinitionVersion ::
   DeviceDefinitionVersion
 mkDeviceDefinitionVersion =
-  DeviceDefinitionVersion' {devices = Lude.Nothing}
+  DeviceDefinitionVersion' {devices = Core.Nothing}
 
 -- | A list of devices in the definition version.
 --
 -- /Note:/ Consider using 'devices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvDevices :: Lens.Lens' DeviceDefinitionVersion (Lude.Maybe [Device])
-ddvDevices = Lens.lens (devices :: DeviceDefinitionVersion -> Lude.Maybe [Device]) (\s a -> s {devices = a} :: DeviceDefinitionVersion)
+ddvDevices :: Lens.Lens' DeviceDefinitionVersion (Core.Maybe [Types.Device])
+ddvDevices = Lens.field @"devices"
 {-# DEPRECATED ddvDevices "Use generic-lens or generic-optics with 'devices' instead." #-}
 
-instance Lude.FromJSON DeviceDefinitionVersion where
-  parseJSON =
-    Lude.withObject
-      "DeviceDefinitionVersion"
-      ( \x ->
-          DeviceDefinitionVersion'
-            Lude.<$> (x Lude..:? "Devices" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON DeviceDefinitionVersion where
+  toJSON DeviceDefinitionVersion {..} =
+    Core.object
+      (Core.catMaybes [("Devices" Core..=) Core.<$> devices])
 
-instance Lude.ToJSON DeviceDefinitionVersion where
-  toJSON DeviceDefinitionVersion' {..} =
-    Lude.object
-      (Lude.catMaybes [("Devices" Lude..=) Lude.<$> devices])
+instance Core.FromJSON DeviceDefinitionVersion where
+  parseJSON =
+    Core.withObject "DeviceDefinitionVersion" Core.$
+      \x -> DeviceDefinitionVersion' Core.<$> (x Core..:? "Devices")

@@ -22,37 +22,33 @@ module Network.AWS.SageMaker.Types.PropertyNameSuggestion
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ResourcePropertyName as Types
 
 -- | A property name returned from a @GetSearchSuggestions@ call that specifies a value in the @PropertyNameQuery@ field.
 --
 -- /See:/ 'mkPropertyNameSuggestion' smart constructor.
 newtype PropertyNameSuggestion = PropertyNameSuggestion'
   { -- | A suggested property name based on what you entered in the search textbox in the Amazon SageMaker console.
-    propertyName :: Lude.Maybe Lude.Text
+    propertyName :: Core.Maybe Types.ResourcePropertyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PropertyNameSuggestion' with the minimum fields required to make a request.
---
--- * 'propertyName' - A suggested property name based on what you entered in the search textbox in the Amazon SageMaker console.
+-- | Creates a 'PropertyNameSuggestion' value with any optional fields omitted.
 mkPropertyNameSuggestion ::
   PropertyNameSuggestion
 mkPropertyNameSuggestion =
-  PropertyNameSuggestion' {propertyName = Lude.Nothing}
+  PropertyNameSuggestion' {propertyName = Core.Nothing}
 
 -- | A suggested property name based on what you entered in the search textbox in the Amazon SageMaker console.
 --
 -- /Note:/ Consider using 'propertyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pnsPropertyName :: Lens.Lens' PropertyNameSuggestion (Lude.Maybe Lude.Text)
-pnsPropertyName = Lens.lens (propertyName :: PropertyNameSuggestion -> Lude.Maybe Lude.Text) (\s a -> s {propertyName = a} :: PropertyNameSuggestion)
+pnsPropertyName :: Lens.Lens' PropertyNameSuggestion (Core.Maybe Types.ResourcePropertyName)
+pnsPropertyName = Lens.field @"propertyName"
 {-# DEPRECATED pnsPropertyName "Use generic-lens or generic-optics with 'propertyName' instead." #-}
 
-instance Lude.FromJSON PropertyNameSuggestion where
+instance Core.FromJSON PropertyNameSuggestion where
   parseJSON =
-    Lude.withObject
-      "PropertyNameSuggestion"
-      ( \x ->
-          PropertyNameSuggestion' Lude.<$> (x Lude..:? "PropertyName")
-      )
+    Core.withObject "PropertyNameSuggestion" Core.$
+      \x -> PropertyNameSuggestion' Core.<$> (x Core..:? "PropertyName")

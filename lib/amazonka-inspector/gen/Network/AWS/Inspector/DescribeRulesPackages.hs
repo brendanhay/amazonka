@@ -20,147 +20,131 @@ module Network.AWS.Inspector.DescribeRulesPackages
     mkDescribeRulesPackages,
 
     -- ** Request lenses
+    drpRulesPackageArns,
     drpLocale,
-    drpRulesPackageARNs,
 
     -- * Destructuring the response
     DescribeRulesPackagesResponse (..),
     mkDescribeRulesPackagesResponse,
 
     -- ** Response lenses
-    drprsRulesPackages,
-    drprsFailedItems,
-    drprsResponseStatus,
+    drprrsRulesPackages,
+    drprrsFailedItems,
+    drprrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeRulesPackages' smart constructor.
 data DescribeRulesPackages = DescribeRulesPackages'
-  { -- | The locale that you want to translate a rules package description into.
-    locale :: Lude.Maybe Locale,
-    -- | The ARN that specifies the rules package that you want to describe.
-    rulesPackageARNs :: Lude.NonEmpty Lude.Text
+  { -- | The ARN that specifies the rules package that you want to describe.
+    rulesPackageArns :: Core.NonEmpty Types.Arn,
+    -- | The locale that you want to translate a rules package description into.
+    locale :: Core.Maybe Types.Locale
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRulesPackages' with the minimum fields required to make a request.
---
--- * 'locale' - The locale that you want to translate a rules package description into.
--- * 'rulesPackageARNs' - The ARN that specifies the rules package that you want to describe.
+-- | Creates a 'DescribeRulesPackages' value with any optional fields omitted.
 mkDescribeRulesPackages ::
-  -- | 'rulesPackageARNs'
-  Lude.NonEmpty Lude.Text ->
+  -- | 'rulesPackageArns'
+  Core.NonEmpty Types.Arn ->
   DescribeRulesPackages
-mkDescribeRulesPackages pRulesPackageARNs_ =
-  DescribeRulesPackages'
-    { locale = Lude.Nothing,
-      rulesPackageARNs = pRulesPackageARNs_
-    }
+mkDescribeRulesPackages rulesPackageArns =
+  DescribeRulesPackages' {rulesPackageArns, locale = Core.Nothing}
+
+-- | The ARN that specifies the rules package that you want to describe.
+--
+-- /Note:/ Consider using 'rulesPackageArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpRulesPackageArns :: Lens.Lens' DescribeRulesPackages (Core.NonEmpty Types.Arn)
+drpRulesPackageArns = Lens.field @"rulesPackageArns"
+{-# DEPRECATED drpRulesPackageArns "Use generic-lens or generic-optics with 'rulesPackageArns' instead." #-}
 
 -- | The locale that you want to translate a rules package description into.
 --
 -- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpLocale :: Lens.Lens' DescribeRulesPackages (Lude.Maybe Locale)
-drpLocale = Lens.lens (locale :: DescribeRulesPackages -> Lude.Maybe Locale) (\s a -> s {locale = a} :: DescribeRulesPackages)
+drpLocale :: Lens.Lens' DescribeRulesPackages (Core.Maybe Types.Locale)
+drpLocale = Lens.field @"locale"
 {-# DEPRECATED drpLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
--- | The ARN that specifies the rules package that you want to describe.
---
--- /Note:/ Consider using 'rulesPackageARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpRulesPackageARNs :: Lens.Lens' DescribeRulesPackages (Lude.NonEmpty Lude.Text)
-drpRulesPackageARNs = Lens.lens (rulesPackageARNs :: DescribeRulesPackages -> Lude.NonEmpty Lude.Text) (\s a -> s {rulesPackageARNs = a} :: DescribeRulesPackages)
-{-# DEPRECATED drpRulesPackageARNs "Use generic-lens or generic-optics with 'rulesPackageARNs' instead." #-}
+instance Core.FromJSON DescribeRulesPackages where
+  toJSON DescribeRulesPackages {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("rulesPackageArns" Core..= rulesPackageArns),
+            ("locale" Core..=) Core.<$> locale
+          ]
+      )
 
-instance Lude.AWSRequest DescribeRulesPackages where
+instance Core.AWSRequest DescribeRulesPackages where
   type Rs DescribeRulesPackages = DescribeRulesPackagesResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.DescribeRulesPackages")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeRulesPackagesResponse'
-            Lude.<$> (x Lude..?> "rulesPackages" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "rulesPackages" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "failedItems" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeRulesPackages where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.DescribeRulesPackages" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeRulesPackages where
-  toJSON DescribeRulesPackages' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("locale" Lude..=) Lude.<$> locale,
-            Lude.Just ("rulesPackageArns" Lude..= rulesPackageARNs)
-          ]
-      )
-
-instance Lude.ToPath DescribeRulesPackages where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeRulesPackages where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeRulesPackagesResponse' smart constructor.
 data DescribeRulesPackagesResponse = DescribeRulesPackagesResponse'
   { -- | Information about the rules package.
-    rulesPackages :: [RulesPackage],
+    rulesPackages :: [Types.RulesPackage],
     -- | Rules package details that cannot be described. An error code is provided for each failed item.
-    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    failedItems :: Core.HashMap Types.Arn Types.FailedItemDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRulesPackagesResponse' with the minimum fields required to make a request.
---
--- * 'rulesPackages' - Information about the rules package.
--- * 'failedItems' - Rules package details that cannot be described. An error code is provided for each failed item.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeRulesPackagesResponse' value with any optional fields omitted.
 mkDescribeRulesPackagesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeRulesPackagesResponse
-mkDescribeRulesPackagesResponse pResponseStatus_ =
+mkDescribeRulesPackagesResponse responseStatus =
   DescribeRulesPackagesResponse'
-    { rulesPackages = Lude.mempty,
-      failedItems = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { rulesPackages = Core.mempty,
+      failedItems = Core.mempty,
+      responseStatus
     }
 
 -- | Information about the rules package.
 --
 -- /Note:/ Consider using 'rulesPackages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsRulesPackages :: Lens.Lens' DescribeRulesPackagesResponse [RulesPackage]
-drprsRulesPackages = Lens.lens (rulesPackages :: DescribeRulesPackagesResponse -> [RulesPackage]) (\s a -> s {rulesPackages = a} :: DescribeRulesPackagesResponse)
-{-# DEPRECATED drprsRulesPackages "Use generic-lens or generic-optics with 'rulesPackages' instead." #-}
+drprrsRulesPackages :: Lens.Lens' DescribeRulesPackagesResponse [Types.RulesPackage]
+drprrsRulesPackages = Lens.field @"rulesPackages"
+{-# DEPRECATED drprrsRulesPackages "Use generic-lens or generic-optics with 'rulesPackages' instead." #-}
 
 -- | Rules package details that cannot be described. An error code is provided for each failed item.
 --
 -- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsFailedItems :: Lens.Lens' DescribeRulesPackagesResponse (Lude.HashMap Lude.Text (FailedItemDetails))
-drprsFailedItems = Lens.lens (failedItems :: DescribeRulesPackagesResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeRulesPackagesResponse)
-{-# DEPRECATED drprsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
+drprrsFailedItems :: Lens.Lens' DescribeRulesPackagesResponse (Core.HashMap Types.Arn Types.FailedItemDetails)
+drprrsFailedItems = Lens.field @"failedItems"
+{-# DEPRECATED drprrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsResponseStatus :: Lens.Lens' DescribeRulesPackagesResponse Lude.Int
-drprsResponseStatus = Lens.lens (responseStatus :: DescribeRulesPackagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRulesPackagesResponse)
-{-# DEPRECATED drprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drprrsResponseStatus :: Lens.Lens' DescribeRulesPackagesResponse Core.Int
+drprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

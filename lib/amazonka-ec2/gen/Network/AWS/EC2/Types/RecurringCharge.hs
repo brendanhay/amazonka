@@ -22,46 +22,43 @@ module Network.AWS.EC2.Types.RecurringCharge
   )
 where
 
-import Network.AWS.EC2.Types.RecurringChargeFrequency
+import qualified Network.AWS.EC2.Types.RecurringChargeFrequency as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a recurring charge.
 --
 -- /See:/ 'mkRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
   { -- | The amount of the recurring charge.
-    amount :: Lude.Maybe Lude.Double,
+    amount :: Core.Maybe Core.Double,
     -- | The frequency of the recurring charge.
-    frequency :: Lude.Maybe RecurringChargeFrequency
+    frequency :: Core.Maybe Types.RecurringChargeFrequency
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
---
--- * 'amount' - The amount of the recurring charge.
--- * 'frequency' - The frequency of the recurring charge.
+-- | Creates a 'RecurringCharge' value with any optional fields omitted.
 mkRecurringCharge ::
   RecurringCharge
 mkRecurringCharge =
-  RecurringCharge' {amount = Lude.Nothing, frequency = Lude.Nothing}
+  RecurringCharge' {amount = Core.Nothing, frequency = Core.Nothing}
 
 -- | The amount of the recurring charge.
 --
 -- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcAmount :: Lens.Lens' RecurringCharge (Lude.Maybe Lude.Double)
-rcAmount = Lens.lens (amount :: RecurringCharge -> Lude.Maybe Lude.Double) (\s a -> s {amount = a} :: RecurringCharge)
+rcAmount :: Lens.Lens' RecurringCharge (Core.Maybe Core.Double)
+rcAmount = Lens.field @"amount"
 {-# DEPRECATED rcAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The frequency of the recurring charge.
 --
 -- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcFrequency :: Lens.Lens' RecurringCharge (Lude.Maybe RecurringChargeFrequency)
-rcFrequency = Lens.lens (frequency :: RecurringCharge -> Lude.Maybe RecurringChargeFrequency) (\s a -> s {frequency = a} :: RecurringCharge)
+rcFrequency :: Lens.Lens' RecurringCharge (Core.Maybe Types.RecurringChargeFrequency)
+rcFrequency = Lens.field @"frequency"
 {-# DEPRECATED rcFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
-instance Lude.FromXML RecurringCharge where
+instance Core.FromXML RecurringCharge where
   parseXML x =
     RecurringCharge'
-      Lude.<$> (x Lude..@? "amount") Lude.<*> (x Lude..@? "frequency")
+      Core.<$> (x Core..@? "amount") Core.<*> (x Core..@? "frequency")

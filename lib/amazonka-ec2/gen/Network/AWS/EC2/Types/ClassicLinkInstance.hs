@@ -17,86 +17,79 @@ module Network.AWS.EC2.Types.ClassicLinkInstance
     mkClassicLinkInstance,
 
     -- * Lenses
-    cliInstanceId,
     cliGroups,
-    cliVPCId,
+    cliInstanceId,
     cliTags,
+    cliVpcId,
   )
 where
 
-import Network.AWS.EC2.Types.GroupIdentifier
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.GroupIdentifier as Types
+import qualified Network.AWS.EC2.Types.InstanceId as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
+import qualified Network.AWS.EC2.Types.VpcId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a linked EC2-Classic instance.
 --
 -- /See:/ 'mkClassicLinkInstance' smart constructor.
 data ClassicLinkInstance = ClassicLinkInstance'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | A list of security groups.
-    groups :: Lude.Maybe [GroupIdentifier],
-    -- | The ID of the VPC.
-    vpcId :: Lude.Maybe Lude.Text,
+  { -- | A list of security groups.
+    groups :: Core.Maybe [Types.GroupIdentifier],
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.InstanceId,
     -- | Any tags assigned to the instance.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The ID of the VPC.
+    vpcId :: Core.Maybe Types.VpcId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClassicLinkInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'groups' - A list of security groups.
--- * 'vpcId' - The ID of the VPC.
--- * 'tags' - Any tags assigned to the instance.
+-- | Creates a 'ClassicLinkInstance' value with any optional fields omitted.
 mkClassicLinkInstance ::
   ClassicLinkInstance
 mkClassicLinkInstance =
   ClassicLinkInstance'
-    { instanceId = Lude.Nothing,
-      groups = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      tags = Lude.Nothing
+    { groups = Core.Nothing,
+      instanceId = Core.Nothing,
+      tags = Core.Nothing,
+      vpcId = Core.Nothing
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cliInstanceId :: Lens.Lens' ClassicLinkInstance (Lude.Maybe Lude.Text)
-cliInstanceId = Lens.lens (instanceId :: ClassicLinkInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ClassicLinkInstance)
-{-# DEPRECATED cliInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | A list of security groups.
 --
 -- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cliGroups :: Lens.Lens' ClassicLinkInstance (Lude.Maybe [GroupIdentifier])
-cliGroups = Lens.lens (groups :: ClassicLinkInstance -> Lude.Maybe [GroupIdentifier]) (\s a -> s {groups = a} :: ClassicLinkInstance)
+cliGroups :: Lens.Lens' ClassicLinkInstance (Core.Maybe [Types.GroupIdentifier])
+cliGroups = Lens.field @"groups"
 {-# DEPRECATED cliGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
--- | The ID of the VPC.
+-- | The ID of the instance.
 --
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cliVPCId :: Lens.Lens' ClassicLinkInstance (Lude.Maybe Lude.Text)
-cliVPCId = Lens.lens (vpcId :: ClassicLinkInstance -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: ClassicLinkInstance)
-{-# DEPRECATED cliVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cliInstanceId :: Lens.Lens' ClassicLinkInstance (Core.Maybe Types.InstanceId)
+cliInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED cliInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Any tags assigned to the instance.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cliTags :: Lens.Lens' ClassicLinkInstance (Lude.Maybe [Tag])
-cliTags = Lens.lens (tags :: ClassicLinkInstance -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ClassicLinkInstance)
+cliTags :: Lens.Lens' ClassicLinkInstance (Core.Maybe [Types.Tag])
+cliTags = Lens.field @"tags"
 {-# DEPRECATED cliTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML ClassicLinkInstance where
+-- | The ID of the VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cliVpcId :: Lens.Lens' ClassicLinkInstance (Core.Maybe Types.VpcId)
+cliVpcId = Lens.field @"vpcId"
+{-# DEPRECATED cliVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromXML ClassicLinkInstance where
   parseXML x =
     ClassicLinkInstance'
-      Lude.<$> (x Lude..@? "instanceId")
-      Lude.<*> ( x Lude..@? "groupSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "vpcId")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "groupSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "vpcId")

@@ -17,83 +17,77 @@ module Network.AWS.RDS.Types.GlobalClusterMember
     mkGlobalClusterMember,
 
     -- * Lenses
-    gcmReaders,
-    gcmDBClusterARN,
-    gcmIsWriter,
+    gcmDBClusterArn,
     gcmGlobalWriteForwardingStatus,
+    gcmIsWriter,
+    gcmReaders,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.WriteForwardingStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
+import qualified Network.AWS.RDS.Types.WriteForwardingStatus as Types
 
 -- | A data structure with information about any primary and secondary clusters associated with an Aurora global database.
 --
 -- /See:/ 'mkGlobalClusterMember' smart constructor.
 data GlobalClusterMember = GlobalClusterMember'
-  { -- | The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
-    readers :: Lude.Maybe [Lude.Text],
-    -- | The Amazon Resource Name (ARN) for each Aurora cluster.
-    dbClusterARN :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
-    isWriter :: Lude.Maybe Lude.Bool,
+  { -- | The Amazon Resource Name (ARN) for each Aurora cluster.
+    dBClusterArn :: Core.Maybe Types.String,
     -- | Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
-    globalWriteForwardingStatus :: Lude.Maybe WriteForwardingStatus
+    globalWriteForwardingStatus :: Core.Maybe Types.WriteForwardingStatus,
+    -- | Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
+    isWriter :: Core.Maybe Core.Bool,
+    -- | The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
+    readers :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlobalClusterMember' with the minimum fields required to make a request.
---
--- * 'readers' - The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
--- * 'dbClusterARN' - The Amazon Resource Name (ARN) for each Aurora cluster.
--- * 'isWriter' - Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
--- * 'globalWriteForwardingStatus' - Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
+-- | Creates a 'GlobalClusterMember' value with any optional fields omitted.
 mkGlobalClusterMember ::
   GlobalClusterMember
 mkGlobalClusterMember =
   GlobalClusterMember'
-    { readers = Lude.Nothing,
-      dbClusterARN = Lude.Nothing,
-      isWriter = Lude.Nothing,
-      globalWriteForwardingStatus = Lude.Nothing
+    { dBClusterArn = Core.Nothing,
+      globalWriteForwardingStatus = Core.Nothing,
+      isWriter = Core.Nothing,
+      readers = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
---
--- /Note:/ Consider using 'readers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmReaders :: Lens.Lens' GlobalClusterMember (Lude.Maybe [Lude.Text])
-gcmReaders = Lens.lens (readers :: GlobalClusterMember -> Lude.Maybe [Lude.Text]) (\s a -> s {readers = a} :: GlobalClusterMember)
-{-# DEPRECATED gcmReaders "Use generic-lens or generic-optics with 'readers' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for each Aurora cluster.
 --
--- /Note:/ Consider using 'dbClusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmDBClusterARN :: Lens.Lens' GlobalClusterMember (Lude.Maybe Lude.Text)
-gcmDBClusterARN = Lens.lens (dbClusterARN :: GlobalClusterMember -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterARN = a} :: GlobalClusterMember)
-{-# DEPRECATED gcmDBClusterARN "Use generic-lens or generic-optics with 'dbClusterARN' instead." #-}
-
--- | Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
---
--- /Note:/ Consider using 'isWriter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmIsWriter :: Lens.Lens' GlobalClusterMember (Lude.Maybe Lude.Bool)
-gcmIsWriter = Lens.lens (isWriter :: GlobalClusterMember -> Lude.Maybe Lude.Bool) (\s a -> s {isWriter = a} :: GlobalClusterMember)
-{-# DEPRECATED gcmIsWriter "Use generic-lens or generic-optics with 'isWriter' instead." #-}
+-- /Note:/ Consider using 'dBClusterArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmDBClusterArn :: Lens.Lens' GlobalClusterMember (Core.Maybe Types.String)
+gcmDBClusterArn = Lens.field @"dBClusterArn"
+{-# DEPRECATED gcmDBClusterArn "Use generic-lens or generic-optics with 'dBClusterArn' instead." #-}
 
 -- | Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
 --
 -- /Note:/ Consider using 'globalWriteForwardingStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmGlobalWriteForwardingStatus :: Lens.Lens' GlobalClusterMember (Lude.Maybe WriteForwardingStatus)
-gcmGlobalWriteForwardingStatus = Lens.lens (globalWriteForwardingStatus :: GlobalClusterMember -> Lude.Maybe WriteForwardingStatus) (\s a -> s {globalWriteForwardingStatus = a} :: GlobalClusterMember)
+gcmGlobalWriteForwardingStatus :: Lens.Lens' GlobalClusterMember (Core.Maybe Types.WriteForwardingStatus)
+gcmGlobalWriteForwardingStatus = Lens.field @"globalWriteForwardingStatus"
 {-# DEPRECATED gcmGlobalWriteForwardingStatus "Use generic-lens or generic-optics with 'globalWriteForwardingStatus' instead." #-}
 
-instance Lude.FromXML GlobalClusterMember where
+-- | Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
+--
+-- /Note:/ Consider using 'isWriter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmIsWriter :: Lens.Lens' GlobalClusterMember (Core.Maybe Core.Bool)
+gcmIsWriter = Lens.field @"isWriter"
+{-# DEPRECATED gcmIsWriter "Use generic-lens or generic-optics with 'isWriter' instead." #-}
+
+-- | The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
+--
+-- /Note:/ Consider using 'readers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmReaders :: Lens.Lens' GlobalClusterMember (Core.Maybe [Types.String])
+gcmReaders = Lens.field @"readers"
+{-# DEPRECATED gcmReaders "Use generic-lens or generic-optics with 'readers' instead." #-}
+
+instance Core.FromXML GlobalClusterMember where
   parseXML x =
     GlobalClusterMember'
-      Lude.<$> ( x Lude..@? "Readers" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "DBClusterArn")
-      Lude.<*> (x Lude..@? "IsWriter")
-      Lude.<*> (x Lude..@? "GlobalWriteForwardingStatus")
+      Core.<$> (x Core..@? "DBClusterArn")
+      Core.<*> (x Core..@? "GlobalWriteForwardingStatus")
+      Core.<*> (x Core..@? "IsWriter")
+      Core.<*> (x Core..@? "Readers" Core..<@> Core.parseXMLList "member")

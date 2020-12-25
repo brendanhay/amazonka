@@ -17,14 +17,15 @@ module Network.AWS.SageMaker.Types.NestedFilters
     mkNestedFilters,
 
     -- * Lenses
-    nfFilters,
     nfNestedPropertyName,
+    nfFilters,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.Filter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.Filter as Types
+import qualified Network.AWS.SageMaker.Types.ResourcePropertyName as Types
 
 -- | A list of nested 'Filter' objects. A resource must satisfy the conditions of all filters to be included in the results returned from the 'Search' API.
 --
@@ -39,49 +40,43 @@ import Network.AWS.SageMaker.Types.Filter
 --
 -- /See:/ 'mkNestedFilters' smart constructor.
 data NestedFilters = NestedFilters'
-  { -- | A list of filters. Each filter acts on a property. Filters must contain at least one @Filters@ value. For example, a @NestedFilters@ call might include a filter on the @PropertyName@ parameter of the @InputDataConfig@ property: @InputDataConfig.DataSource.S3DataSource.S3Uri@ .
-    filters :: Lude.NonEmpty Filter,
-    -- | The name of the property to use in the nested filters. The value must match a listed property name, such as @InputDataConfig@ .
-    nestedPropertyName :: Lude.Text
+  { -- | The name of the property to use in the nested filters. The value must match a listed property name, such as @InputDataConfig@ .
+    nestedPropertyName :: Types.ResourcePropertyName,
+    -- | A list of filters. Each filter acts on a property. Filters must contain at least one @Filters@ value. For example, a @NestedFilters@ call might include a filter on the @PropertyName@ parameter of the @InputDataConfig@ property: @InputDataConfig.DataSource.S3DataSource.S3Uri@ .
+    filters :: Core.NonEmpty Types.Filter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NestedFilters' with the minimum fields required to make a request.
---
--- * 'filters' - A list of filters. Each filter acts on a property. Filters must contain at least one @Filters@ value. For example, a @NestedFilters@ call might include a filter on the @PropertyName@ parameter of the @InputDataConfig@ property: @InputDataConfig.DataSource.S3DataSource.S3Uri@ .
--- * 'nestedPropertyName' - The name of the property to use in the nested filters. The value must match a listed property name, such as @InputDataConfig@ .
+-- | Creates a 'NestedFilters' value with any optional fields omitted.
 mkNestedFilters ::
-  -- | 'filters'
-  Lude.NonEmpty Filter ->
   -- | 'nestedPropertyName'
-  Lude.Text ->
+  Types.ResourcePropertyName ->
+  -- | 'filters'
+  Core.NonEmpty Types.Filter ->
   NestedFilters
-mkNestedFilters pFilters_ pNestedPropertyName_ =
-  NestedFilters'
-    { filters = pFilters_,
-      nestedPropertyName = pNestedPropertyName_
-    }
-
--- | A list of filters. Each filter acts on a property. Filters must contain at least one @Filters@ value. For example, a @NestedFilters@ call might include a filter on the @PropertyName@ parameter of the @InputDataConfig@ property: @InputDataConfig.DataSource.S3DataSource.S3Uri@ .
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfFilters :: Lens.Lens' NestedFilters (Lude.NonEmpty Filter)
-nfFilters = Lens.lens (filters :: NestedFilters -> Lude.NonEmpty Filter) (\s a -> s {filters = a} :: NestedFilters)
-{-# DEPRECATED nfFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+mkNestedFilters nestedPropertyName filters =
+  NestedFilters' {nestedPropertyName, filters}
 
 -- | The name of the property to use in the nested filters. The value must match a listed property name, such as @InputDataConfig@ .
 --
 -- /Note:/ Consider using 'nestedPropertyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfNestedPropertyName :: Lens.Lens' NestedFilters Lude.Text
-nfNestedPropertyName = Lens.lens (nestedPropertyName :: NestedFilters -> Lude.Text) (\s a -> s {nestedPropertyName = a} :: NestedFilters)
+nfNestedPropertyName :: Lens.Lens' NestedFilters Types.ResourcePropertyName
+nfNestedPropertyName = Lens.field @"nestedPropertyName"
 {-# DEPRECATED nfNestedPropertyName "Use generic-lens or generic-optics with 'nestedPropertyName' instead." #-}
 
-instance Lude.ToJSON NestedFilters where
-  toJSON NestedFilters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Filters" Lude..= filters),
-            Lude.Just ("NestedPropertyName" Lude..= nestedPropertyName)
+-- | A list of filters. Each filter acts on a property. Filters must contain at least one @Filters@ value. For example, a @NestedFilters@ call might include a filter on the @PropertyName@ parameter of the @InputDataConfig@ property: @InputDataConfig.DataSource.S3DataSource.S3Uri@ .
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfFilters :: Lens.Lens' NestedFilters (Core.NonEmpty Types.Filter)
+nfFilters = Lens.field @"filters"
+{-# DEPRECATED nfFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+instance Core.FromJSON NestedFilters where
+  toJSON NestedFilters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("NestedPropertyName" Core..= nestedPropertyName),
+            Core.Just ("Filters" Core..= filters)
           ]
       )

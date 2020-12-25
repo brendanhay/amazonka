@@ -20,156 +20,145 @@ module Network.AWS.CloudDirectory.GetObjectInformation
     mkGetObjectInformation,
 
     -- ** Request lenses
-    goiDirectoryARN,
-    goiConsistencyLevel,
+    goiDirectoryArn,
     goiObjectReference,
+    goiConsistencyLevel,
 
     -- * Destructuring the response
     GetObjectInformationResponse (..),
     mkGetObjectInformationResponse,
 
     -- ** Response lenses
-    goirsObjectIdentifier,
-    goirsSchemaFacets,
-    goirsResponseStatus,
+    goirrsObjectIdentifier,
+    goirrsSchemaFacets,
+    goirrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetObjectInformation' smart constructor.
 data GetObjectInformation = GetObjectInformation'
   { -- | The ARN of the directory being retrieved.
-    directoryARN :: Lude.Text,
-    -- | The consistency level at which to retrieve the object information.
-    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    directoryArn :: Types.Arn,
     -- | A reference to the object.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference,
+    -- | The consistency level at which to retrieve the object information.
+    consistencyLevel :: Core.Maybe Types.ConsistencyLevel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetObjectInformation' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The ARN of the directory being retrieved.
--- * 'consistencyLevel' - The consistency level at which to retrieve the object information.
--- * 'objectReference' - A reference to the object.
+-- | Creates a 'GetObjectInformation' value with any optional fields omitted.
 mkGetObjectInformation ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   GetObjectInformation
-mkGetObjectInformation pDirectoryARN_ pObjectReference_ =
+mkGetObjectInformation directoryArn objectReference =
   GetObjectInformation'
-    { directoryARN = pDirectoryARN_,
-      consistencyLevel = Lude.Nothing,
-      objectReference = pObjectReference_
+    { directoryArn,
+      objectReference,
+      consistencyLevel = Core.Nothing
     }
 
 -- | The ARN of the directory being retrieved.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goiDirectoryARN :: Lens.Lens' GetObjectInformation Lude.Text
-goiDirectoryARN = Lens.lens (directoryARN :: GetObjectInformation -> Lude.Text) (\s a -> s {directoryARN = a} :: GetObjectInformation)
-{-# DEPRECATED goiDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | The consistency level at which to retrieve the object information.
---
--- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goiConsistencyLevel :: Lens.Lens' GetObjectInformation (Lude.Maybe ConsistencyLevel)
-goiConsistencyLevel = Lens.lens (consistencyLevel :: GetObjectInformation -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: GetObjectInformation)
-{-# DEPRECATED goiConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goiDirectoryArn :: Lens.Lens' GetObjectInformation Types.Arn
+goiDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED goiDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | A reference to the object.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goiObjectReference :: Lens.Lens' GetObjectInformation ObjectReference
-goiObjectReference = Lens.lens (objectReference :: GetObjectInformation -> ObjectReference) (\s a -> s {objectReference = a} :: GetObjectInformation)
+goiObjectReference :: Lens.Lens' GetObjectInformation Types.ObjectReference
+goiObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED goiObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.AWSRequest GetObjectInformation where
+-- | The consistency level at which to retrieve the object information.
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goiConsistencyLevel :: Lens.Lens' GetObjectInformation (Core.Maybe Types.ConsistencyLevel)
+goiConsistencyLevel = Lens.field @"consistencyLevel"
+{-# DEPRECATED goiConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
+
+instance Core.FromJSON GetObjectInformation where
+  toJSON GetObjectInformation {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ObjectReference" Core..= objectReference)]
+      )
+
+instance Core.AWSRequest GetObjectInformation where
   type Rs GetObjectInformation = GetObjectInformationResponse
-  request = Req.postJSON cloudDirectoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/object/information",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn
+            Core.<> (Core.toHeaders "x-amz-consistency-level" consistencyLevel),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetObjectInformationResponse'
-            Lude.<$> (x Lude..?> "ObjectIdentifier")
-            Lude.<*> (x Lude..?> "SchemaFacets" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ObjectIdentifier")
+            Core.<*> (x Core..:? "SchemaFacets")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetObjectInformation where
-  toHeaders GetObjectInformation' {..} =
-    Lude.mconcat
-      [ "x-amz-data-partition" Lude.=# directoryARN,
-        "x-amz-consistency-level" Lude.=# consistencyLevel
-      ]
-
-instance Lude.ToJSON GetObjectInformation where
-  toJSON GetObjectInformation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ObjectReference" Lude..= objectReference)]
-      )
-
-instance Lude.ToPath GetObjectInformation where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/object/information"
-
-instance Lude.ToQuery GetObjectInformation where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetObjectInformationResponse' smart constructor.
 data GetObjectInformationResponse = GetObjectInformationResponse'
   { -- | The @ObjectIdentifier@ of the specified object.
-    objectIdentifier :: Lude.Maybe Lude.Text,
+    objectIdentifier :: Core.Maybe Types.ObjectIdentifier,
     -- | The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See 'GetAppliedSchemaVersion' for details.
-    schemaFacets :: Lude.Maybe [SchemaFacet],
+    schemaFacets :: Core.Maybe [Types.SchemaFacet],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetObjectInformationResponse' with the minimum fields required to make a request.
---
--- * 'objectIdentifier' - The @ObjectIdentifier@ of the specified object.
--- * 'schemaFacets' - The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See 'GetAppliedSchemaVersion' for details.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetObjectInformationResponse' value with any optional fields omitted.
 mkGetObjectInformationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetObjectInformationResponse
-mkGetObjectInformationResponse pResponseStatus_ =
+mkGetObjectInformationResponse responseStatus =
   GetObjectInformationResponse'
-    { objectIdentifier = Lude.Nothing,
-      schemaFacets = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { objectIdentifier = Core.Nothing,
+      schemaFacets = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ObjectIdentifier@ of the specified object.
 --
 -- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goirsObjectIdentifier :: Lens.Lens' GetObjectInformationResponse (Lude.Maybe Lude.Text)
-goirsObjectIdentifier = Lens.lens (objectIdentifier :: GetObjectInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: GetObjectInformationResponse)
-{-# DEPRECATED goirsObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
+goirrsObjectIdentifier :: Lens.Lens' GetObjectInformationResponse (Core.Maybe Types.ObjectIdentifier)
+goirrsObjectIdentifier = Lens.field @"objectIdentifier"
+{-# DEPRECATED goirrsObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
 -- | The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See 'GetAppliedSchemaVersion' for details.
 --
 -- /Note:/ Consider using 'schemaFacets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goirsSchemaFacets :: Lens.Lens' GetObjectInformationResponse (Lude.Maybe [SchemaFacet])
-goirsSchemaFacets = Lens.lens (schemaFacets :: GetObjectInformationResponse -> Lude.Maybe [SchemaFacet]) (\s a -> s {schemaFacets = a} :: GetObjectInformationResponse)
-{-# DEPRECATED goirsSchemaFacets "Use generic-lens or generic-optics with 'schemaFacets' instead." #-}
+goirrsSchemaFacets :: Lens.Lens' GetObjectInformationResponse (Core.Maybe [Types.SchemaFacet])
+goirrsSchemaFacets = Lens.field @"schemaFacets"
+{-# DEPRECATED goirrsSchemaFacets "Use generic-lens or generic-optics with 'schemaFacets' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goirsResponseStatus :: Lens.Lens' GetObjectInformationResponse Lude.Int
-goirsResponseStatus = Lens.lens (responseStatus :: GetObjectInformationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetObjectInformationResponse)
-{-# DEPRECATED goirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+goirrsResponseStatus :: Lens.Lens' GetObjectInformationResponse Core.Int
+goirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED goirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

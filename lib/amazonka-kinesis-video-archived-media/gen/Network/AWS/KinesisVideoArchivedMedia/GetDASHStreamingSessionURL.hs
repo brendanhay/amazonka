@@ -75,57 +75,57 @@ module Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
     mkGetDASHStreamingSessionURL,
 
     -- ** Request lenses
-    gdashssuDisplayFragmentTimestamp,
-    gdashssuExpires,
-    gdashssuDASHFragmentSelector,
-    gdashssuMaxManifestFragmentResults,
-    gdashssuStreamARN,
-    gdashssuPlaybackMode,
-    gdashssuStreamName,
-    gdashssuDisplayFragmentNumber,
+    gdashssurlDASHFragmentSelector,
+    gdashssurlDisplayFragmentNumber,
+    gdashssurlDisplayFragmentTimestamp,
+    gdashssurlExpires,
+    gdashssurlMaxManifestFragmentResults,
+    gdashssurlPlaybackMode,
+    gdashssurlStreamARN,
+    gdashssurlStreamName,
 
     -- * Destructuring the response
     GetDASHStreamingSessionURLResponse (..),
     mkGetDASHStreamingSessionURLResponse,
 
     -- ** Response lenses
-    gdashssursDASHStreamingSessionURL,
-    gdashssursResponseStatus,
+    gdashssurlrrsDASHStreamingSessionURL,
+    gdashssurlrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideoArchivedMedia.Types
+import qualified Network.AWS.KinesisVideoArchivedMedia.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDASHStreamingSessionURL' smart constructor.
 data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
-  { -- | Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file can be derived using attributes in the manifest itself. However, typically, MPEG-DASH compatible media players do not properly handle gaps in the media timeline. Kinesis Video Streams adjusts the media timeline in the manifest file to enable playback of media with discontinuities. Therefore, the wall-clock time derived from the manifest file may be inaccurate. If DisplayFragmentTimestamp is set to @ALWAYS@ , the accurate fragment timestamp is added to each S element in the manifest file with the attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this custom attribute.
+  { -- | The time range of the requested fragment and the source of the timestamps.
+    --
+    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
+    dASHFragmentSelector :: Core.Maybe Types.DASHFragmentSelector,
+    -- | Fragments are identified in the manifest file based on their sequence number in the session. If DisplayFragmentNumber is set to @ALWAYS@ , the Kinesis Video Streams fragment number is added to each S element in the manifest file with the attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with other APIs (e.g. @GetMedia@ and @GetMediaForFragmentList@ ). A custom MPEG-DASH media player is necessary to leverage these this custom attribute.
+    --
+    -- The default value is @NEVER@ .
+    displayFragmentNumber :: Core.Maybe Types.DASHDisplayFragmentNumber,
+    -- | Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file can be derived using attributes in the manifest itself. However, typically, MPEG-DASH compatible media players do not properly handle gaps in the media timeline. Kinesis Video Streams adjusts the media timeline in the manifest file to enable playback of media with discontinuities. Therefore, the wall-clock time derived from the manifest file may be inaccurate. If DisplayFragmentTimestamp is set to @ALWAYS@ , the accurate fragment timestamp is added to each S element in the manifest file with the attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this custom attribute.
     --
     -- The default value is @NEVER@ . When 'DASHFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'DASHFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
-    displayFragmentTimestamp :: Lude.Maybe DASHDisplayFragmentTimestamp,
+    displayFragmentTimestamp :: Core.Maybe Types.DASHDisplayFragmentTimestamp,
     -- | The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
     --
     -- When a session expires, no new calls to @GetDashManifest@ , @GetMP4InitFragment@ , or @GetMP4MediaFragment@ can be made for that session.
     -- The default is 300 (5 minutes).
-    expires :: Lude.Maybe Lude.Natural,
-    -- | The time range of the requested fragment and the source of the timestamps.
-    --
-    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
-    dASHFragmentSelector :: Lude.Maybe DASHFragmentSelector,
+    expires :: Core.Maybe Core.Natural,
     -- | The maximum number of fragments that are returned in the MPEG-DASH manifest.
     --
     -- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
     -- When there are a higher number of fragments available in a live MPEG-DASH manifest, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live MPEG-DASH manifest have a minimum of 3 fragments and a maximum of 10 fragments.
     -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
     -- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
-    maxManifestFragmentResults :: Lude.Maybe Lude.Natural,
-    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
-    --
-    -- You must specify either the @StreamName@ or the @StreamARN@ .
-    streamARN :: Lude.Maybe Lude.Text,
+    maxManifestFragmentResults :: Core.Maybe Core.Natural,
     -- | Whether to retrieve live, live replay, or archived, on-demand data.
     --
     -- Features of the three types of sessions include the following:
@@ -141,84 +141,60 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
     --
     -- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the MPEG-DASH manifest. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the MPEG-DASH manifest. This can lead to unexpected behavior in the media player.
     -- The default is @LIVE@ .
-    playbackMode :: Lude.Maybe DASHPlaybackMode,
+    playbackMode :: Core.Maybe Types.DASHPlaybackMode,
+    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
+    --
+    -- You must specify either the @StreamName@ or the @StreamARN@ .
+    streamARN :: Core.Maybe Types.ResourceARN,
     -- | The name of the stream for which to retrieve the MPEG-DASH manifest URL.
     --
     -- You must specify either the @StreamName@ or the @StreamARN@ .
-    streamName :: Lude.Maybe Lude.Text,
-    -- | Fragments are identified in the manifest file based on their sequence number in the session. If DisplayFragmentNumber is set to @ALWAYS@ , the Kinesis Video Streams fragment number is added to each S element in the manifest file with the attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with other APIs (e.g. @GetMedia@ and @GetMediaForFragmentList@ ). A custom MPEG-DASH media player is necessary to leverage these this custom attribute.
-    --
-    -- The default value is @NEVER@ .
-    displayFragmentNumber :: Lude.Maybe DASHDisplayFragmentNumber
+    streamName :: Core.Maybe Types.StreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetDASHStreamingSessionURL' with the minimum fields required to make a request.
---
--- * 'displayFragmentTimestamp' - Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file can be derived using attributes in the manifest itself. However, typically, MPEG-DASH compatible media players do not properly handle gaps in the media timeline. Kinesis Video Streams adjusts the media timeline in the manifest file to enable playback of media with discontinuities. Therefore, the wall-clock time derived from the manifest file may be inaccurate. If DisplayFragmentTimestamp is set to @ALWAYS@ , the accurate fragment timestamp is added to each S element in the manifest file with the attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this custom attribute.
---
--- The default value is @NEVER@ . When 'DASHFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'DASHFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
--- * 'expires' - The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
---
--- When a session expires, no new calls to @GetDashManifest@ , @GetMP4InitFragment@ , or @GetMP4MediaFragment@ can be made for that session.
--- The default is 300 (5 minutes).
--- * 'dASHFragmentSelector' - The time range of the requested fragment and the source of the timestamps.
---
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
--- * 'maxManifestFragmentResults' - The maximum number of fragments that are returned in the MPEG-DASH manifest.
---
--- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
--- When there are a higher number of fragments available in a live MPEG-DASH manifest, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live MPEG-DASH manifest have a minimum of 3 fragments and a maximum of 10 fragments.
--- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
--- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
--- * 'streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@ .
--- * 'playbackMode' - Whether to retrieve live, live replay, or archived, on-demand data.
---
--- Features of the three types of sessions include the following:
---
---     * __@LIVE@ __ : For sessions of this type, the MPEG-DASH manifest is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new manifest on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display.
---
---
---     * __@LIVE_REPLAY@ __ : For sessions of this type, the MPEG-DASH manifest is updated similarly to how it is updated for @LIVE@ mode except that it starts by including fragments from a given start time. Instead of fragments being added as they are ingested, fragments are added as the duration of the next fragment elapses. For example, if the fragments in the session are two seconds long, then a new fragment is added to the manifest every two seconds. This mode is useful to be able to start playback from when an event is detected and continue live streaming media that has not yet been ingested as of the time of the session creation. This mode is also useful to stream previously archived media without being limited by the 1,000 fragment limit in the @ON_DEMAND@ mode.
---
---
---     * __@ON_DEMAND@ __ : For sessions of this type, the MPEG-DASH manifest contains all the fragments for the session, up to the number that is specified in @MaxMediaPlaylistFragmentResults@ . The manifest must be retrieved only once for each session. When this type of session is played in a media player, the user interface typically displays a scrubber control for choosing the position in the playback window to display.
---
---
--- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the MPEG-DASH manifest. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the MPEG-DASH manifest. This can lead to unexpected behavior in the media player.
--- The default is @LIVE@ .
--- * 'streamName' - The name of the stream for which to retrieve the MPEG-DASH manifest URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@ .
--- * 'displayFragmentNumber' - Fragments are identified in the manifest file based on their sequence number in the session. If DisplayFragmentNumber is set to @ALWAYS@ , the Kinesis Video Streams fragment number is added to each S element in the manifest file with the attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with other APIs (e.g. @GetMedia@ and @GetMediaForFragmentList@ ). A custom MPEG-DASH media player is necessary to leverage these this custom attribute.
---
--- The default value is @NEVER@ .
+-- | Creates a 'GetDASHStreamingSessionURL' value with any optional fields omitted.
 mkGetDASHStreamingSessionURL ::
   GetDASHStreamingSessionURL
 mkGetDASHStreamingSessionURL =
   GetDASHStreamingSessionURL'
-    { displayFragmentTimestamp =
-        Lude.Nothing,
-      expires = Lude.Nothing,
-      dASHFragmentSelector = Lude.Nothing,
-      maxManifestFragmentResults = Lude.Nothing,
-      streamARN = Lude.Nothing,
-      playbackMode = Lude.Nothing,
-      streamName = Lude.Nothing,
-      displayFragmentNumber = Lude.Nothing
+    { dASHFragmentSelector = Core.Nothing,
+      displayFragmentNumber = Core.Nothing,
+      displayFragmentTimestamp = Core.Nothing,
+      expires = Core.Nothing,
+      maxManifestFragmentResults = Core.Nothing,
+      playbackMode = Core.Nothing,
+      streamARN = Core.Nothing,
+      streamName = Core.Nothing
     }
+
+-- | The time range of the requested fragment and the source of the timestamps.
+--
+-- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
+--
+-- /Note:/ Consider using 'dASHFragmentSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdashssurlDASHFragmentSelector :: Lens.Lens' GetDASHStreamingSessionURL (Core.Maybe Types.DASHFragmentSelector)
+gdashssurlDASHFragmentSelector = Lens.field @"dASHFragmentSelector"
+{-# DEPRECATED gdashssurlDASHFragmentSelector "Use generic-lens or generic-optics with 'dASHFragmentSelector' instead." #-}
+
+-- | Fragments are identified in the manifest file based on their sequence number in the session. If DisplayFragmentNumber is set to @ALWAYS@ , the Kinesis Video Streams fragment number is added to each S element in the manifest file with the attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with other APIs (e.g. @GetMedia@ and @GetMediaForFragmentList@ ). A custom MPEG-DASH media player is necessary to leverage these this custom attribute.
+--
+-- The default value is @NEVER@ .
+--
+-- /Note:/ Consider using 'displayFragmentNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdashssurlDisplayFragmentNumber :: Lens.Lens' GetDASHStreamingSessionURL (Core.Maybe Types.DASHDisplayFragmentNumber)
+gdashssurlDisplayFragmentNumber = Lens.field @"displayFragmentNumber"
+{-# DEPRECATED gdashssurlDisplayFragmentNumber "Use generic-lens or generic-optics with 'displayFragmentNumber' instead." #-}
 
 -- | Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file can be derived using attributes in the manifest itself. However, typically, MPEG-DASH compatible media players do not properly handle gaps in the media timeline. Kinesis Video Streams adjusts the media timeline in the manifest file to enable playback of media with discontinuities. Therefore, the wall-clock time derived from the manifest file may be inaccurate. If DisplayFragmentTimestamp is set to @ALWAYS@ , the accurate fragment timestamp is added to each S element in the manifest file with the attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this custom attribute.
 --
 -- The default value is @NEVER@ . When 'DASHFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'DASHFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
 --
 -- /Note:/ Consider using 'displayFragmentTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssuDisplayFragmentTimestamp :: Lens.Lens' GetDASHStreamingSessionURL (Lude.Maybe DASHDisplayFragmentTimestamp)
-gdashssuDisplayFragmentTimestamp = Lens.lens (displayFragmentTimestamp :: GetDASHStreamingSessionURL -> Lude.Maybe DASHDisplayFragmentTimestamp) (\s a -> s {displayFragmentTimestamp = a} :: GetDASHStreamingSessionURL)
-{-# DEPRECATED gdashssuDisplayFragmentTimestamp "Use generic-lens or generic-optics with 'displayFragmentTimestamp' instead." #-}
+gdashssurlDisplayFragmentTimestamp :: Lens.Lens' GetDASHStreamingSessionURL (Core.Maybe Types.DASHDisplayFragmentTimestamp)
+gdashssurlDisplayFragmentTimestamp = Lens.field @"displayFragmentTimestamp"
+{-# DEPRECATED gdashssurlDisplayFragmentTimestamp "Use generic-lens or generic-optics with 'displayFragmentTimestamp' instead." #-}
 
 -- | The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
 --
@@ -226,18 +202,9 @@ gdashssuDisplayFragmentTimestamp = Lens.lens (displayFragmentTimestamp :: GetDAS
 -- The default is 300 (5 minutes).
 --
 -- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssuExpires :: Lens.Lens' GetDASHStreamingSessionURL (Lude.Maybe Lude.Natural)
-gdashssuExpires = Lens.lens (expires :: GetDASHStreamingSessionURL -> Lude.Maybe Lude.Natural) (\s a -> s {expires = a} :: GetDASHStreamingSessionURL)
-{-# DEPRECATED gdashssuExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
-
--- | The time range of the requested fragment and the source of the timestamps.
---
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
---
--- /Note:/ Consider using 'dASHFragmentSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssuDASHFragmentSelector :: Lens.Lens' GetDASHStreamingSessionURL (Lude.Maybe DASHFragmentSelector)
-gdashssuDASHFragmentSelector = Lens.lens (dASHFragmentSelector :: GetDASHStreamingSessionURL -> Lude.Maybe DASHFragmentSelector) (\s a -> s {dASHFragmentSelector = a} :: GetDASHStreamingSessionURL)
-{-# DEPRECATED gdashssuDASHFragmentSelector "Use generic-lens or generic-optics with 'dASHFragmentSelector' instead." #-}
+gdashssurlExpires :: Lens.Lens' GetDASHStreamingSessionURL (Core.Maybe Core.Natural)
+gdashssurlExpires = Lens.field @"expires"
+{-# DEPRECATED gdashssurlExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | The maximum number of fragments that are returned in the MPEG-DASH manifest.
 --
@@ -247,18 +214,9 @@ gdashssuDASHFragmentSelector = Lens.lens (dASHFragmentSelector :: GetDASHStreami
 -- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
 --
 -- /Note:/ Consider using 'maxManifestFragmentResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssuMaxManifestFragmentResults :: Lens.Lens' GetDASHStreamingSessionURL (Lude.Maybe Lude.Natural)
-gdashssuMaxManifestFragmentResults = Lens.lens (maxManifestFragmentResults :: GetDASHStreamingSessionURL -> Lude.Maybe Lude.Natural) (\s a -> s {maxManifestFragmentResults = a} :: GetDASHStreamingSessionURL)
-{-# DEPRECATED gdashssuMaxManifestFragmentResults "Use generic-lens or generic-optics with 'maxManifestFragmentResults' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@ .
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssuStreamARN :: Lens.Lens' GetDASHStreamingSessionURL (Lude.Maybe Lude.Text)
-gdashssuStreamARN = Lens.lens (streamARN :: GetDASHStreamingSessionURL -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: GetDASHStreamingSessionURL)
-{-# DEPRECATED gdashssuStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+gdashssurlMaxManifestFragmentResults :: Lens.Lens' GetDASHStreamingSessionURL (Core.Maybe Core.Natural)
+gdashssurlMaxManifestFragmentResults = Lens.field @"maxManifestFragmentResults"
+{-# DEPRECATED gdashssurlMaxManifestFragmentResults "Use generic-lens or generic-optics with 'maxManifestFragmentResults' instead." #-}
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
 --
@@ -277,102 +235,98 @@ gdashssuStreamARN = Lens.lens (streamARN :: GetDASHStreamingSessionURL -> Lude.M
 -- The default is @LIVE@ .
 --
 -- /Note:/ Consider using 'playbackMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssuPlaybackMode :: Lens.Lens' GetDASHStreamingSessionURL (Lude.Maybe DASHPlaybackMode)
-gdashssuPlaybackMode = Lens.lens (playbackMode :: GetDASHStreamingSessionURL -> Lude.Maybe DASHPlaybackMode) (\s a -> s {playbackMode = a} :: GetDASHStreamingSessionURL)
-{-# DEPRECATED gdashssuPlaybackMode "Use generic-lens or generic-optics with 'playbackMode' instead." #-}
+gdashssurlPlaybackMode :: Lens.Lens' GetDASHStreamingSessionURL (Core.Maybe Types.DASHPlaybackMode)
+gdashssurlPlaybackMode = Lens.field @"playbackMode"
+{-# DEPRECATED gdashssurlPlaybackMode "Use generic-lens or generic-optics with 'playbackMode' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
+--
+-- You must specify either the @StreamName@ or the @StreamARN@ .
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdashssurlStreamARN :: Lens.Lens' GetDASHStreamingSessionURL (Core.Maybe Types.ResourceARN)
+gdashssurlStreamARN = Lens.field @"streamARN"
+{-# DEPRECATED gdashssurlStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream for which to retrieve the MPEG-DASH manifest URL.
 --
 -- You must specify either the @StreamName@ or the @StreamARN@ .
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssuStreamName :: Lens.Lens' GetDASHStreamingSessionURL (Lude.Maybe Lude.Text)
-gdashssuStreamName = Lens.lens (streamName :: GetDASHStreamingSessionURL -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: GetDASHStreamingSessionURL)
-{-# DEPRECATED gdashssuStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+gdashssurlStreamName :: Lens.Lens' GetDASHStreamingSessionURL (Core.Maybe Types.StreamName)
+gdashssurlStreamName = Lens.field @"streamName"
+{-# DEPRECATED gdashssurlStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
--- | Fragments are identified in the manifest file based on their sequence number in the session. If DisplayFragmentNumber is set to @ALWAYS@ , the Kinesis Video Streams fragment number is added to each S element in the manifest file with the attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with other APIs (e.g. @GetMedia@ and @GetMediaForFragmentList@ ). A custom MPEG-DASH media player is necessary to leverage these this custom attribute.
---
--- The default value is @NEVER@ .
---
--- /Note:/ Consider using 'displayFragmentNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssuDisplayFragmentNumber :: Lens.Lens' GetDASHStreamingSessionURL (Lude.Maybe DASHDisplayFragmentNumber)
-gdashssuDisplayFragmentNumber = Lens.lens (displayFragmentNumber :: GetDASHStreamingSessionURL -> Lude.Maybe DASHDisplayFragmentNumber) (\s a -> s {displayFragmentNumber = a} :: GetDASHStreamingSessionURL)
-{-# DEPRECATED gdashssuDisplayFragmentNumber "Use generic-lens or generic-optics with 'displayFragmentNumber' instead." #-}
-
-instance Lude.AWSRequest GetDASHStreamingSessionURL where
-  type
-    Rs GetDASHStreamingSessionURL =
-      GetDASHStreamingSessionURLResponse
-  request = Req.postJSON kinesisVideoArchivedMediaService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetDASHStreamingSessionURLResponse'
-            Lude.<$> (x Lude..?> "DASHStreamingSessionURL")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetDASHStreamingSessionURL where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetDASHStreamingSessionURL where
-  toJSON GetDASHStreamingSessionURL' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DisplayFragmentTimestamp" Lude..=)
-              Lude.<$> displayFragmentTimestamp,
-            ("Expires" Lude..=) Lude.<$> expires,
-            ("DASHFragmentSelector" Lude..=) Lude.<$> dASHFragmentSelector,
-            ("MaxManifestFragmentResults" Lude..=)
-              Lude.<$> maxManifestFragmentResults,
-            ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("PlaybackMode" Lude..=) Lude.<$> playbackMode,
-            ("StreamName" Lude..=) Lude.<$> streamName,
-            ("DisplayFragmentNumber" Lude..=) Lude.<$> displayFragmentNumber
+instance Core.FromJSON GetDASHStreamingSessionURL where
+  toJSON GetDASHStreamingSessionURL {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DASHFragmentSelector" Core..=) Core.<$> dASHFragmentSelector,
+            ("DisplayFragmentNumber" Core..=) Core.<$> displayFragmentNumber,
+            ("DisplayFragmentTimestamp" Core..=)
+              Core.<$> displayFragmentTimestamp,
+            ("Expires" Core..=) Core.<$> expires,
+            ("MaxManifestFragmentResults" Core..=)
+              Core.<$> maxManifestFragmentResults,
+            ("PlaybackMode" Core..=) Core.<$> playbackMode,
+            ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName
           ]
       )
 
-instance Lude.ToPath GetDASHStreamingSessionURL where
-  toPath = Lude.const "/getDASHStreamingSessionURL"
-
-instance Lude.ToQuery GetDASHStreamingSessionURL where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetDASHStreamingSessionURL where
+  type
+    Rs GetDASHStreamingSessionURL =
+      GetDASHStreamingSessionURLResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/getDASHStreamingSessionURL",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDASHStreamingSessionURLResponse'
+            Core.<$> (x Core..:? "DASHStreamingSessionURL")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetDASHStreamingSessionURLResponse' smart constructor.
 data GetDASHStreamingSessionURLResponse = GetDASHStreamingSessionURLResponse'
   { -- | The URL (containing the session token) that a media player can use to retrieve the MPEG-DASH manifest.
-    dASHStreamingSessionURL :: Lude.Maybe Lude.Text,
+    dASHStreamingSessionURL :: Core.Maybe Types.DASHStreamingSessionURL,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDASHStreamingSessionURLResponse' with the minimum fields required to make a request.
---
--- * 'dASHStreamingSessionURL' - The URL (containing the session token) that a media player can use to retrieve the MPEG-DASH manifest.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDASHStreamingSessionURLResponse' value with any optional fields omitted.
 mkGetDASHStreamingSessionURLResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDASHStreamingSessionURLResponse
-mkGetDASHStreamingSessionURLResponse pResponseStatus_ =
+mkGetDASHStreamingSessionURLResponse responseStatus =
   GetDASHStreamingSessionURLResponse'
     { dASHStreamingSessionURL =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The URL (containing the session token) that a media player can use to retrieve the MPEG-DASH manifest.
 --
 -- /Note:/ Consider using 'dASHStreamingSessionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssursDASHStreamingSessionURL :: Lens.Lens' GetDASHStreamingSessionURLResponse (Lude.Maybe Lude.Text)
-gdashssursDASHStreamingSessionURL = Lens.lens (dASHStreamingSessionURL :: GetDASHStreamingSessionURLResponse -> Lude.Maybe Lude.Text) (\s a -> s {dASHStreamingSessionURL = a} :: GetDASHStreamingSessionURLResponse)
-{-# DEPRECATED gdashssursDASHStreamingSessionURL "Use generic-lens or generic-optics with 'dASHStreamingSessionURL' instead." #-}
+gdashssurlrrsDASHStreamingSessionURL :: Lens.Lens' GetDASHStreamingSessionURLResponse (Core.Maybe Types.DASHStreamingSessionURL)
+gdashssurlrrsDASHStreamingSessionURL = Lens.field @"dASHStreamingSessionURL"
+{-# DEPRECATED gdashssurlrrsDASHStreamingSessionURL "Use generic-lens or generic-optics with 'dASHStreamingSessionURL' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdashssursResponseStatus :: Lens.Lens' GetDASHStreamingSessionURLResponse Lude.Int
-gdashssursResponseStatus = Lens.lens (responseStatus :: GetDASHStreamingSessionURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDASHStreamingSessionURLResponse)
-{-# DEPRECATED gdashssursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdashssurlrrsResponseStatus :: Lens.Lens' GetDASHStreamingSessionURLResponse Core.Int
+gdashssurlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdashssurlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

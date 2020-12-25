@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,10 +25,43 @@
 -- For more information about the features of Amazon EventBridge, see the <https://docs.aws.amazon.com/eventbridge/latest/userguide Amazon EventBridge User Guide> .
 module Network.AWS.CloudWatchEvents
   ( -- * Service configuration
-    cloudWatchEventsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ManagedRuleException
+    _ManagedRuleException,
+
+    -- ** IllegalStatusException
+    _IllegalStatusException,
+
+    -- ** PolicyLengthExceededException
+    _PolicyLengthExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** OperationDisabledException
+    _OperationDisabledException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InvalidEventPatternException
+    _InvalidEventPatternException,
+
+    -- ** InternalException
+    _InternalException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -159,162 +191,75 @@ module Network.AWS.CloudWatchEvents
 
     -- * Types
 
-    -- ** ArchiveState
-    ArchiveState (..),
+    -- ** QueryStringValue
+    QueryStringValue (..),
 
-    -- ** AssignPublicIP
-    AssignPublicIP (..),
+    -- ** PathParameter
+    PathParameter (..),
 
-    -- ** EventSourceState
-    EventSourceState (..),
+    -- ** TargetId
+    TargetId (..),
 
-    -- ** LaunchType
-    LaunchType (..),
+    -- ** TargetArn
+    TargetArn (..),
 
-    -- ** ReplayState
-    ReplayState (..),
+    -- ** RunCommandParameters
+    RunCommandParameters (..),
+    mkRunCommandParameters,
+    rcpRunCommandTargets,
 
-    -- ** RuleState
-    RuleState (..),
+    -- ** EventPattern
+    EventPattern (..),
 
-    -- ** AWSVPCConfiguration
-    AWSVPCConfiguration (..),
-    mkAWSVPCConfiguration,
-    avcSecurityGroups,
-    avcSubnets,
-    avcAssignPublicIP,
+    -- ** HeaderValue
+    HeaderValue (..),
 
-    -- ** Archive
-    Archive (..),
-    mkArchive,
-    aCreationTime,
-    aSizeBytes,
-    aEventSourceARN,
-    aState,
-    aEventCount,
-    aArchiveName,
-    aRetentionDays,
-    aStateReason,
+    -- ** RunCommandTarget
+    RunCommandTarget (..),
+    mkRunCommandTarget,
+    rctKey,
+    rctValues,
 
-    -- ** BatchArrayProperties
-    BatchArrayProperties (..),
-    mkBatchArrayProperties,
-    bapSize,
+    -- ** DbUser
+    DbUser (..),
 
-    -- ** BatchParameters
-    BatchParameters (..),
-    mkBatchParameters,
-    bpJobName,
-    bpRetryStrategy,
-    bpJobDefinition,
-    bpArrayProperties,
+    -- ** EventBusNameOrArn
+    EventBusNameOrArn (..),
+
+    -- ** PartnerEventSource
+    PartnerEventSource (..),
+    mkPartnerEventSource,
+    pesArn,
+    pesName,
 
     -- ** BatchRetryStrategy
     BatchRetryStrategy (..),
     mkBatchRetryStrategy,
     brsAttempts,
 
-    -- ** Condition
-    Condition (..),
-    mkCondition,
-    cValue,
-    cKey,
-    cType,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** DeadLetterConfig
-    DeadLetterConfig (..),
-    mkDeadLetterConfig,
-    dlcARN,
-
-    -- ** EcsParameters
-    EcsParameters (..),
-    mkEcsParameters,
-    epGroup,
-    epPlatformVersion,
-    epTaskDefinitionARN,
-    epLaunchType,
-    epTaskCount,
-    epNetworkConfiguration,
-
-    -- ** EventBus
-    EventBus (..),
-    mkEventBus,
-    ebARN,
-    ebName,
-    ebPolicy,
-
-    -- ** EventSource
-    EventSource (..),
-    mkEventSource,
-    esCreationTime,
-    esState,
-    esARN,
-    esCreatedBy,
-    esName,
-    esExpirationTime,
-
-    -- ** HTTPParameters
-    HTTPParameters (..),
-    mkHTTPParameters,
-    httppPathParameterValues,
-    httppQueryStringParameters,
-    httppHeaderParameters,
-
-    -- ** InputTransformer
-    InputTransformer (..),
-    mkInputTransformer,
-    itInputPathsMap,
-    itInputTemplate,
+    -- ** HttpParameters
+    HttpParameters (..),
+    mkHttpParameters,
+    hpHeaderParameters,
+    hpPathParameterValues,
+    hpQueryStringParameters,
 
     -- ** KinesisParameters
     KinesisParameters (..),
     mkKinesisParameters,
     kpPartitionKeyPath,
 
-    -- ** NetworkConfiguration
-    NetworkConfiguration (..),
-    mkNetworkConfiguration,
-    ncAwsvpcConfiguration,
+    -- ** Arn
+    Arn (..),
 
-    -- ** PartnerEventSource
-    PartnerEventSource (..),
-    mkPartnerEventSource,
-    pesARN,
-    pesName,
-
-    -- ** PartnerEventSourceAccount
-    PartnerEventSourceAccount (..),
-    mkPartnerEventSourceAccount,
-    pesaCreationTime,
-    pesaState,
-    pesaAccount,
-    pesaExpirationTime,
-
-    -- ** PutEventsRequestEntry
-    PutEventsRequestEntry (..),
-    mkPutEventsRequestEntry,
-    pereTime,
-    pereDetailType,
-    pereResources,
-    pereEventBusName,
-    pereSource,
-    pereDetail,
-
-    -- ** PutEventsResultEntry
-    PutEventsResultEntry (..),
-    mkPutEventsResultEntry,
-    pereErrorCode,
-    pereErrorMessage,
-    pereEventId,
-
-    -- ** PutPartnerEventsRequestEntry
-    PutPartnerEventsRequestEntry (..),
-    mkPutPartnerEventsRequestEntry,
-    ppereTime,
-    ppereDetailType,
-    ppereResources,
-    ppereSource,
-    ppereDetail,
+    -- ** Database
+    Database (..),
 
     -- ** PutPartnerEventsResultEntry
     PutPartnerEventsResultEntry (..),
@@ -323,48 +268,245 @@ module Network.AWS.CloudWatchEvents
     ppereErrorMessage,
     ppereEventId,
 
-    -- ** PutTargetsResultEntry
-    PutTargetsResultEntry (..),
-    mkPutTargetsResultEntry,
-    ptreTargetId,
-    ptreErrorCode,
-    ptreErrorMessage,
+    -- ** String
+    String (..),
+
+    -- ** InputTransformer
+    InputTransformer (..),
+    mkInputTransformer,
+    itInputTemplate,
+    itInputPathsMap,
+
+    -- ** ArchiveName
+    ArchiveName (..),
+
+    -- ** ReplayStateReason
+    ReplayStateReason (..),
+
+    -- ** DeadLetterConfig
+    DeadLetterConfig (..),
+    mkDeadLetterConfig,
+    dlcArn,
+
+    -- ** EventBus
+    EventBus (..),
+    mkEventBus,
+    ebArn,
+    ebName,
+    ebPolicy,
+
+    -- ** SqsParameters
+    SqsParameters (..),
+    mkSqsParameters,
+    spMessageGroupId,
+
+    -- ** Replay
+    Replay (..),
+    mkReplay,
+    rfEventEndTime,
+    rfEventLastReplayedTime,
+    rfEventSourceArn,
+    rfEventStartTime,
+    rfReplayEndTime,
+    rfReplayName,
+    rfReplayStartTime,
+    rfState,
+    rfStateReason,
+
+    -- ** PutEventsResultEntry
+    PutEventsResultEntry (..),
+    mkPutEventsResultEntry,
+    pereErrorCode,
+    pereErrorMessage,
+    pereEventId,
+
+    -- ** CreatedBy
+    CreatedBy (..),
+
+    -- ** PartnerEventSourceAccount
+    PartnerEventSourceAccount (..),
+    mkPartnerEventSourceAccount,
+    pesaAccount,
+    pesaCreationTime,
+    pesaExpirationTime,
+    pesaState,
+
+    -- ** NonPartnerEventBusName
+    NonPartnerEventBusName (..),
+
+    -- ** Action
+    Action (..),
+
+    -- ** EventResource
+    EventResource (..),
+
+    -- ** Rule
+    Rule (..),
+    mkRule,
+    rArn,
+    rDescription,
+    rEventBusName,
+    rEventPattern,
+    rManagedBy,
+    rName,
+    rRoleArn,
+    rScheduleExpression,
+    rState,
+
+    -- ** ReplayArn
+    ReplayArn (..),
+
+    -- ** NonPartnerEventBusNameOrArn
+    NonPartnerEventBusNameOrArn (..),
+
+    -- ** BatchParameters
+    BatchParameters (..),
+    mkBatchParameters,
+    bpJobDefinition,
+    bpJobName,
+    bpArrayProperties,
+    bpRetryStrategy,
+
+    -- ** ArchiveStateReason
+    ArchiveStateReason (..),
+
+    -- ** AssignPublicIp
+    AssignPublicIp (..),
+
+    -- ** RuleName
+    RuleName (..),
 
     -- ** RedshiftDataParameters
     RedshiftDataParameters (..),
     mkRedshiftDataParameters,
-    rdpDBUser,
     rdpDatabase,
-    rdpSecretManagerARN,
-    rdpStatementName,
     rdpSql,
+    rdpDbUser,
+    rdpSecretManagerArn,
+    rdpStatementName,
     rdpWithEvent,
 
     -- ** RemoveTargetsResultEntry
     RemoveTargetsResultEntry (..),
     mkRemoveTargetsResultEntry,
-    rtreTargetId,
     rtreErrorCode,
     rtreErrorMessage,
+    rtreTargetId,
 
-    -- ** Replay
-    Replay (..),
-    mkReplay,
-    rfEventSourceARN,
-    rfState,
-    rfEventEndTime,
-    rfReplayStartTime,
-    rfReplayEndTime,
-    rfEventLastReplayedTime,
-    rfEventStartTime,
-    rfReplayName,
-    rfStateReason,
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** ReplayState
+    ReplayState (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** RunCommandTargetValue
+    RunCommandTargetValue (..),
+
+    -- ** BatchArrayProperties
+    BatchArrayProperties (..),
+    mkBatchArrayProperties,
+    bapSize,
+
+    -- ** ArchiveDescription
+    ArchiveDescription (..),
+
+    -- ** ReplayName
+    ReplayName (..),
+
+    -- ** EcsParameters
+    EcsParameters (..),
+    mkEcsParameters,
+    epTaskDefinitionArn,
+    epGroup,
+    epLaunchType,
+    epNetworkConfiguration,
+    epPlatformVersion,
+    epTaskCount,
+
+    -- ** TargetInput
+    TargetInput (..),
+
+    -- ** EventBusName
+    EventBusName (..),
 
     -- ** ReplayDestination
     ReplayDestination (..),
     mkReplayDestination,
-    rdARN,
-    rdFilterARNs,
+    rdArn,
+    rdFilterArns,
+
+    -- ** ArchiveArn
+    ArchiveArn (..),
+
+    -- ** ScheduleExpression
+    ScheduleExpression (..),
+
+    -- ** InputTransformerPathKey
+    InputTransformerPathKey (..),
+
+    -- ** Principal
+    Principal (..),
+
+    -- ** TargetInputPath
+    TargetInputPath (..),
+
+    -- ** StatementName
+    StatementName (..),
+
+    -- ** Archive
+    Archive (..),
+    mkArchive,
+    aArchiveName,
+    aCreationTime,
+    aEventCount,
+    aEventSourceArn,
+    aRetentionDays,
+    aSizeBytes,
+    aState,
+    aStateReason,
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** PutPartnerEventsRequestEntry
+    PutPartnerEventsRequestEntry (..),
+    mkPutPartnerEventsRequestEntry,
+    ppereDetail,
+    ppereDetailType,
+    ppereResources,
+    ppereSource,
+    ppereTime,
+
+    -- ** ReplayDescription
+    ReplayDescription (..),
+
+    -- ** ArchiveState
+    ArchiveState (..),
+
+    -- ** LaunchType
+    LaunchType (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** HeaderKey
+    HeaderKey (..),
+
+    -- ** RuleDescription
+    RuleDescription (..),
+
+    -- ** AwsVpcConfiguration
+    AwsVpcConfiguration (..),
+    mkAwsVpcConfiguration,
+    avcSubnets,
+    avcAssignPublicIp,
+    avcSecurityGroups,
+
+    -- ** QueryStringKey
+    QueryStringKey (..),
 
     -- ** RetryPolicy
     RetryPolicy (..),
@@ -372,69 +514,140 @@ module Network.AWS.CloudWatchEvents
     rpMaximumEventAgeInSeconds,
     rpMaximumRetryAttempts,
 
-    -- ** Rule
-    Rule (..),
-    mkRule,
-    rEventPattern,
-    rState,
-    rARN,
-    rEventBusName,
-    rScheduleExpression,
-    rName,
-    rDescription,
-    rManagedBy,
-    rRoleARN,
+    -- ** StatementId
+    StatementId (..),
 
-    -- ** RunCommandParameters
-    RunCommandParameters (..),
-    mkRunCommandParameters,
-    rcpRunCommandTargets,
+    -- ** Condition
+    Condition (..),
+    mkCondition,
+    cType,
+    cKey,
+    cValue,
 
-    -- ** RunCommandTarget
-    RunCommandTarget (..),
-    mkRunCommandTarget,
-    rctValues,
-    rctKey,
+    -- ** ErrorMessage
+    ErrorMessage (..),
 
-    -- ** SqsParameters
-    SqsParameters (..),
-    mkSqsParameters,
-    spMessageGroupId,
+    -- ** RuleArn
+    RuleArn (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** PutEventsRequestEntry
+    PutEventsRequestEntry (..),
+    mkPutEventsRequestEntry,
+    pereDetail,
+    pereDetailType,
+    pereEventBusName,
+    pereResources,
+    pereSource,
+    pereTime,
+
+    -- ** EventSourceName
+    EventSourceName (..),
+
+    -- ** ManagedBy
+    ManagedBy (..),
+
+    -- ** PutTargetsResultEntry
+    PutTargetsResultEntry (..),
+    mkPutTargetsResultEntry,
+    ptreErrorCode,
+    ptreErrorMessage,
+    ptreTargetId,
+
+    -- ** Sql
+    Sql (..),
+
+    -- ** EventSourceState
+    EventSourceState (..),
+
+    -- ** NetworkConfiguration
+    NetworkConfiguration (..),
+    mkNetworkConfiguration,
+    ncAwsvpcConfiguration,
+
+    -- ** EventSource
+    EventSource (..),
+    mkEventSource,
+    esArn,
+    esCreatedBy,
+    esCreationTime,
+    esExpirationTime,
+    esName,
+    esState,
+
+    -- ** RuleState
+    RuleState (..),
+
+    -- ** MessageGroupId
+    MessageGroupId (..),
+
+    -- ** EventId
+    EventId (..),
 
     -- ** Target
     Target (..),
     mkTarget,
-    tRunCommandParameters,
-    tHTTPParameters,
-    tKinesisParameters,
-    tARN,
-    tInputTransformer,
-    tDeadLetterConfig,
-    tSqsParameters,
-    tInput,
-    tBatchParameters,
-    tRedshiftDataParameters,
-    tEcsParameters,
     tId,
-    tRetryPolicy,
+    tArn,
+    tBatchParameters,
+    tDeadLetterConfig,
+    tEcsParameters,
+    tHttpParameters,
+    tInput,
     tInputPath,
-    tRoleARN,
+    tInputTransformer,
+    tKinesisParameters,
+    tRedshiftDataParameters,
+    tRetryPolicy,
+    tRoleArn,
+    tRunCommandParameters,
+    tSqsParameters,
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Account
+    Account (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** EventSourceArn
+    EventSourceArn (..),
+
+    -- ** NamePrefix
+    NamePrefix (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** PartitionKeyPath
+    PartitionKeyPath (..),
+
+    -- ** StateReason
+    StateReason (..),
+
+    -- ** InputTemplate
+    InputTemplate (..),
+
+    -- ** SecretManagerArn
+    SecretManagerArn (..),
+
+    -- ** Source
+    Source (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -13,66 +13,71 @@
 module Network.AWS.Organizations.Types.HandshakeState
   ( HandshakeState
       ( HandshakeState',
-        Requested,
-        Open,
-        Canceled,
-        Accepted,
-        Declined,
-        Expired
+        HandshakeStateRequested,
+        HandshakeStateOpen,
+        HandshakeStateCanceled,
+        HandshakeStateAccepted,
+        HandshakeStateDeclined,
+        HandshakeStateExpired,
+        fromHandshakeState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HandshakeState = HandshakeState' Lude.Text
+newtype HandshakeState = HandshakeState'
+  { fromHandshakeState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Requested :: HandshakeState
-pattern Requested = HandshakeState' "REQUESTED"
+pattern HandshakeStateRequested :: HandshakeState
+pattern HandshakeStateRequested = HandshakeState' "REQUESTED"
 
-pattern Open :: HandshakeState
-pattern Open = HandshakeState' "OPEN"
+pattern HandshakeStateOpen :: HandshakeState
+pattern HandshakeStateOpen = HandshakeState' "OPEN"
 
-pattern Canceled :: HandshakeState
-pattern Canceled = HandshakeState' "CANCELED"
+pattern HandshakeStateCanceled :: HandshakeState
+pattern HandshakeStateCanceled = HandshakeState' "CANCELED"
 
-pattern Accepted :: HandshakeState
-pattern Accepted = HandshakeState' "ACCEPTED"
+pattern HandshakeStateAccepted :: HandshakeState
+pattern HandshakeStateAccepted = HandshakeState' "ACCEPTED"
 
-pattern Declined :: HandshakeState
-pattern Declined = HandshakeState' "DECLINED"
+pattern HandshakeStateDeclined :: HandshakeState
+pattern HandshakeStateDeclined = HandshakeState' "DECLINED"
 
-pattern Expired :: HandshakeState
-pattern Expired = HandshakeState' "EXPIRED"
+pattern HandshakeStateExpired :: HandshakeState
+pattern HandshakeStateExpired = HandshakeState' "EXPIRED"
 
 {-# COMPLETE
-  Requested,
-  Open,
-  Canceled,
-  Accepted,
-  Declined,
-  Expired,
+  HandshakeStateRequested,
+  HandshakeStateOpen,
+  HandshakeStateCanceled,
+  HandshakeStateAccepted,
+  HandshakeStateDeclined,
+  HandshakeStateExpired,
   HandshakeState'
   #-}

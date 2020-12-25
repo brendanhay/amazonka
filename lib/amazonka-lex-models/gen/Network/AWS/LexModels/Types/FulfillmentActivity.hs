@@ -17,15 +17,15 @@ module Network.AWS.LexModels.Types.FulfillmentActivity
     mkFulfillmentActivity,
 
     -- * Lenses
-    faCodeHook,
     faType,
+    faCodeHook,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.CodeHook
-import Network.AWS.LexModels.Types.FulfillmentActivityType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.CodeHook as Types
+import qualified Network.AWS.LexModels.Types.FulfillmentActivityType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes how the intent is fulfilled after the user provides all of the information required for the intent. You can provide a Lambda function to process the intent, or you can return the intent information to the client application. We recommend that you use a Lambda function so that the relevant logic lives in the Cloud and limit the client-side code primarily to presentation. If you need to update the logic, you only update the Lambda function; you don't need to upgrade your client application.
 --
@@ -40,53 +40,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFulfillmentActivity' smart constructor.
 data FulfillmentActivity = FulfillmentActivity'
-  { -- | A description of the Lambda function that is run to fulfill the intent.
-    codeHook :: Lude.Maybe CodeHook,
-    -- | How the intent should be fulfilled, either by running a Lambda function or by returning the slot data to the client application.
-    type' :: FulfillmentActivityType
+  { -- | How the intent should be fulfilled, either by running a Lambda function or by returning the slot data to the client application.
+    type' :: Types.FulfillmentActivityType,
+    -- | A description of the Lambda function that is run to fulfill the intent.
+    codeHook :: Core.Maybe Types.CodeHook
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FulfillmentActivity' with the minimum fields required to make a request.
---
--- * 'codeHook' - A description of the Lambda function that is run to fulfill the intent.
--- * 'type'' - How the intent should be fulfilled, either by running a Lambda function or by returning the slot data to the client application.
+-- | Creates a 'FulfillmentActivity' value with any optional fields omitted.
 mkFulfillmentActivity ::
-  -- | 'type''
-  FulfillmentActivityType ->
+  -- | 'type\''
+  Types.FulfillmentActivityType ->
   FulfillmentActivity
-mkFulfillmentActivity pType_ =
-  FulfillmentActivity' {codeHook = Lude.Nothing, type' = pType_}
-
--- | A description of the Lambda function that is run to fulfill the intent.
---
--- /Note:/ Consider using 'codeHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faCodeHook :: Lens.Lens' FulfillmentActivity (Lude.Maybe CodeHook)
-faCodeHook = Lens.lens (codeHook :: FulfillmentActivity -> Lude.Maybe CodeHook) (\s a -> s {codeHook = a} :: FulfillmentActivity)
-{-# DEPRECATED faCodeHook "Use generic-lens or generic-optics with 'codeHook' instead." #-}
+mkFulfillmentActivity type' =
+  FulfillmentActivity' {type', codeHook = Core.Nothing}
 
 -- | How the intent should be fulfilled, either by running a Lambda function or by returning the slot data to the client application.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faType :: Lens.Lens' FulfillmentActivity FulfillmentActivityType
-faType = Lens.lens (type' :: FulfillmentActivity -> FulfillmentActivityType) (\s a -> s {type' = a} :: FulfillmentActivity)
+faType :: Lens.Lens' FulfillmentActivity Types.FulfillmentActivityType
+faType = Lens.field @"type'"
 {-# DEPRECATED faType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON FulfillmentActivity where
-  parseJSON =
-    Lude.withObject
-      "FulfillmentActivity"
-      ( \x ->
-          FulfillmentActivity'
-            Lude.<$> (x Lude..:? "codeHook") Lude.<*> (x Lude..: "type")
-      )
+-- | A description of the Lambda function that is run to fulfill the intent.
+--
+-- /Note:/ Consider using 'codeHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faCodeHook :: Lens.Lens' FulfillmentActivity (Core.Maybe Types.CodeHook)
+faCodeHook = Lens.field @"codeHook"
+{-# DEPRECATED faCodeHook "Use generic-lens or generic-optics with 'codeHook' instead." #-}
 
-instance Lude.ToJSON FulfillmentActivity where
-  toJSON FulfillmentActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("codeHook" Lude..=) Lude.<$> codeHook,
-            Lude.Just ("type" Lude..= type')
+instance Core.FromJSON FulfillmentActivity where
+  toJSON FulfillmentActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("type" Core..= type'),
+            ("codeHook" Core..=) Core.<$> codeHook
           ]
       )
+
+instance Core.FromJSON FulfillmentActivity where
+  parseJSON =
+    Core.withObject "FulfillmentActivity" Core.$
+      \x ->
+        FulfillmentActivity'
+          Core.<$> (x Core..: "type") Core.<*> (x Core..:? "codeHook")

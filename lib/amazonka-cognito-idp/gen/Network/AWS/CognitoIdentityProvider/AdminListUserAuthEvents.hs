@@ -24,185 +24,173 @@ module Network.AWS.CognitoIdentityProvider.AdminListUserAuthEvents
     -- ** Request lenses
     aluaeUserPoolId,
     aluaeUsername,
-    aluaeNextToken,
     aluaeMaxResults,
+    aluaeNextToken,
 
     -- * Destructuring the response
     AdminListUserAuthEventsResponse (..),
     mkAdminListUserAuthEventsResponse,
 
     -- ** Response lenses
-    aluaersNextToken,
-    aluaersAuthEvents,
-    aluaersResponseStatus,
+    aluaerrsAuthEvents,
+    aluaerrsNextToken,
+    aluaerrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAdminListUserAuthEvents' smart constructor.
 data AdminListUserAuthEvents = AdminListUserAuthEvents'
   { -- | The user pool ID.
-    userPoolId :: Lude.Text,
+    userPoolId :: Types.UserPoolId,
     -- | The user pool username or an alias.
-    username :: Lude.Sensitive Lude.Text,
-    -- | A pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    username :: Types.Username,
     -- | The maximum number of authentication events to return.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A pagination token.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminListUserAuthEvents' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID.
--- * 'username' - The user pool username or an alias.
--- * 'nextToken' - A pagination token.
--- * 'maxResults' - The maximum number of authentication events to return.
+-- | Creates a 'AdminListUserAuthEvents' value with any optional fields omitted.
 mkAdminListUserAuthEvents ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'username'
-  Lude.Sensitive Lude.Text ->
+  Types.Username ->
   AdminListUserAuthEvents
-mkAdminListUserAuthEvents pUserPoolId_ pUsername_ =
+mkAdminListUserAuthEvents userPoolId username =
   AdminListUserAuthEvents'
-    { userPoolId = pUserPoolId_,
-      username = pUsername_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { userPoolId,
+      username,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aluaeUserPoolId :: Lens.Lens' AdminListUserAuthEvents Lude.Text
-aluaeUserPoolId = Lens.lens (userPoolId :: AdminListUserAuthEvents -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminListUserAuthEvents)
+aluaeUserPoolId :: Lens.Lens' AdminListUserAuthEvents Types.UserPoolId
+aluaeUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED aluaeUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user pool username or an alias.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aluaeUsername :: Lens.Lens' AdminListUserAuthEvents (Lude.Sensitive Lude.Text)
-aluaeUsername = Lens.lens (username :: AdminListUserAuthEvents -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminListUserAuthEvents)
+aluaeUsername :: Lens.Lens' AdminListUserAuthEvents Types.Username
+aluaeUsername = Lens.field @"username"
 {-# DEPRECATED aluaeUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
--- | A pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aluaeNextToken :: Lens.Lens' AdminListUserAuthEvents (Lude.Maybe Lude.Text)
-aluaeNextToken = Lens.lens (nextToken :: AdminListUserAuthEvents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: AdminListUserAuthEvents)
-{-# DEPRECATED aluaeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of authentication events to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aluaeMaxResults :: Lens.Lens' AdminListUserAuthEvents (Lude.Maybe Lude.Natural)
-aluaeMaxResults = Lens.lens (maxResults :: AdminListUserAuthEvents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: AdminListUserAuthEvents)
+aluaeMaxResults :: Lens.Lens' AdminListUserAuthEvents (Core.Maybe Core.Natural)
+aluaeMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED aluaeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager AdminListUserAuthEvents where
-  page rq rs
-    | Page.stop (rs Lens.^. aluaersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. aluaersAuthEvents) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& aluaeNextToken Lens..~ rs Lens.^. aluaersNextToken
-
-instance Lude.AWSRequest AdminListUserAuthEvents where
-  type Rs AdminListUserAuthEvents = AdminListUserAuthEventsResponse
-  request = Req.postJSON cognitoIdentityProviderService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          AdminListUserAuthEventsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "AuthEvents" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders AdminListUserAuthEvents where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminListUserAuthEvents where
-  toJSON AdminListUserAuthEvents' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Username" Lude..= username),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath AdminListUserAuthEvents where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminListUserAuthEvents where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkAdminListUserAuthEventsResponse' smart constructor.
-data AdminListUserAuthEventsResponse = AdminListUserAuthEventsResponse'
-  { -- | A pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The response object. It includes the @EventID@ , @EventType@ , @CreationDate@ , @EventRisk@ , and @EventResponse@ .
-    authEvents :: Lude.Maybe [AuthEventType],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'AdminListUserAuthEventsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A pagination token.
--- * 'authEvents' - The response object. It includes the @EventID@ , @EventType@ , @CreationDate@ , @EventRisk@ , and @EventResponse@ .
--- * 'responseStatus' - The response status code.
-mkAdminListUserAuthEventsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  AdminListUserAuthEventsResponse
-mkAdminListUserAuthEventsResponse pResponseStatus_ =
-  AdminListUserAuthEventsResponse'
-    { nextToken = Lude.Nothing,
-      authEvents = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | A pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aluaersNextToken :: Lens.Lens' AdminListUserAuthEventsResponse (Lude.Maybe Lude.Text)
-aluaersNextToken = Lens.lens (nextToken :: AdminListUserAuthEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: AdminListUserAuthEventsResponse)
-{-# DEPRECATED aluaersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+aluaeNextToken :: Lens.Lens' AdminListUserAuthEvents (Core.Maybe Types.NextToken)
+aluaeNextToken = Lens.field @"nextToken"
+{-# DEPRECATED aluaeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON AdminListUserAuthEvents where
+  toJSON AdminListUserAuthEvents {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest AdminListUserAuthEvents where
+  type Rs AdminListUserAuthEvents = AdminListUserAuthEventsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminListUserAuthEvents"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AdminListUserAuthEventsResponse'
+            Core.<$> (x Core..:? "AuthEvents")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager AdminListUserAuthEvents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"authEvents" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkAdminListUserAuthEventsResponse' smart constructor.
+data AdminListUserAuthEventsResponse = AdminListUserAuthEventsResponse'
+  { -- | The response object. It includes the @EventID@ , @EventType@ , @CreationDate@ , @EventRisk@ , and @EventResponse@ .
+    authEvents :: Core.Maybe [Types.AuthEventType],
+    -- | A pagination token.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'AdminListUserAuthEventsResponse' value with any optional fields omitted.
+mkAdminListUserAuthEventsResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  AdminListUserAuthEventsResponse
+mkAdminListUserAuthEventsResponse responseStatus =
+  AdminListUserAuthEventsResponse'
+    { authEvents = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | The response object. It includes the @EventID@ , @EventType@ , @CreationDate@ , @EventRisk@ , and @EventResponse@ .
 --
 -- /Note:/ Consider using 'authEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aluaersAuthEvents :: Lens.Lens' AdminListUserAuthEventsResponse (Lude.Maybe [AuthEventType])
-aluaersAuthEvents = Lens.lens (authEvents :: AdminListUserAuthEventsResponse -> Lude.Maybe [AuthEventType]) (\s a -> s {authEvents = a} :: AdminListUserAuthEventsResponse)
-{-# DEPRECATED aluaersAuthEvents "Use generic-lens or generic-optics with 'authEvents' instead." #-}
+aluaerrsAuthEvents :: Lens.Lens' AdminListUserAuthEventsResponse (Core.Maybe [Types.AuthEventType])
+aluaerrsAuthEvents = Lens.field @"authEvents"
+{-# DEPRECATED aluaerrsAuthEvents "Use generic-lens or generic-optics with 'authEvents' instead." #-}
+
+-- | A pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aluaerrsNextToken :: Lens.Lens' AdminListUserAuthEventsResponse (Core.Maybe Types.NextToken)
+aluaerrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED aluaerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aluaersResponseStatus :: Lens.Lens' AdminListUserAuthEventsResponse Lude.Int
-aluaersResponseStatus = Lens.lens (responseStatus :: AdminListUserAuthEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminListUserAuthEventsResponse)
-{-# DEPRECATED aluaersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aluaerrsResponseStatus :: Lens.Lens' AdminListUserAuthEventsResponse Core.Int
+aluaerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aluaerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

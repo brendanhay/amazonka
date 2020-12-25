@@ -29,123 +29,117 @@ module Network.AWS.Lightsail.GetActiveNames
     mkGetActiveNamesResponse,
 
     -- ** Response lenses
-    ganrsNextPageToken,
-    ganrsActiveNames,
-    ganrsResponseStatus,
+    ganrrsActiveNames,
+    ganrrsNextPageToken,
+    ganrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetActiveNames' smart constructor.
 newtype GetActiveNames = GetActiveNames'
   { -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetActiveNames@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.PageToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetActiveNames' with the minimum fields required to make a request.
---
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetActiveNames@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+-- | Creates a 'GetActiveNames' value with any optional fields omitted.
 mkGetActiveNames ::
   GetActiveNames
-mkGetActiveNames = GetActiveNames' {pageToken = Lude.Nothing}
+mkGetActiveNames = GetActiveNames' {pageToken = Core.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetActiveNames@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ganPageToken :: Lens.Lens' GetActiveNames (Lude.Maybe Lude.Text)
-ganPageToken = Lens.lens (pageToken :: GetActiveNames -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetActiveNames)
+ganPageToken :: Lens.Lens' GetActiveNames (Core.Maybe Types.PageToken)
+ganPageToken = Lens.field @"pageToken"
 {-# DEPRECATED ganPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager GetActiveNames where
-  page rq rs
-    | Page.stop (rs Lens.^. ganrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ganrsActiveNames) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ganPageToken Lens..~ rs Lens.^. ganrsNextPageToken
+instance Core.FromJSON GetActiveNames where
+  toJSON GetActiveNames {..} =
+    Core.object
+      (Core.catMaybes [("pageToken" Core..=) Core.<$> pageToken])
 
-instance Lude.AWSRequest GetActiveNames where
+instance Core.AWSRequest GetActiveNames where
   type Rs GetActiveNames = GetActiveNamesResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.GetActiveNames")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetActiveNamesResponse'
-            Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (x Lude..?> "activeNames" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "activeNames")
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetActiveNames where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetActiveNames" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetActiveNames where
-  toJSON GetActiveNames' {..} =
-    Lude.object
-      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
-
-instance Lude.ToPath GetActiveNames where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetActiveNames where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetActiveNames where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"activeNames" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkGetActiveNamesResponse' smart constructor.
 data GetActiveNamesResponse = GetActiveNamesResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | The list of active names returned by the get active names request.
+    activeNames :: Core.Maybe [Types.String],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetActiveNames@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | The list of active names returned by the get active names request.
-    activeNames :: Lude.Maybe [Lude.Text],
+    nextPageToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetActiveNamesResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetActiveNames@ request and specify the next page token using the @pageToken@ parameter.
--- * 'activeNames' - The list of active names returned by the get active names request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetActiveNamesResponse' value with any optional fields omitted.
 mkGetActiveNamesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetActiveNamesResponse
-mkGetActiveNamesResponse pResponseStatus_ =
+mkGetActiveNamesResponse responseStatus =
   GetActiveNamesResponse'
-    { nextPageToken = Lude.Nothing,
-      activeNames = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { activeNames = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
+
+-- | The list of active names returned by the get active names request.
+--
+-- /Note:/ Consider using 'activeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ganrrsActiveNames :: Lens.Lens' GetActiveNamesResponse (Core.Maybe [Types.String])
+ganrrsActiveNames = Lens.field @"activeNames"
+{-# DEPRECATED ganrrsActiveNames "Use generic-lens or generic-optics with 'activeNames' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -153,20 +147,13 @@ mkGetActiveNamesResponse pResponseStatus_ =
 -- To get the next page of results, perform another @GetActiveNames@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ganrsNextPageToken :: Lens.Lens' GetActiveNamesResponse (Lude.Maybe Lude.Text)
-ganrsNextPageToken = Lens.lens (nextPageToken :: GetActiveNamesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetActiveNamesResponse)
-{-# DEPRECATED ganrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | The list of active names returned by the get active names request.
---
--- /Note:/ Consider using 'activeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ganrsActiveNames :: Lens.Lens' GetActiveNamesResponse (Lude.Maybe [Lude.Text])
-ganrsActiveNames = Lens.lens (activeNames :: GetActiveNamesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {activeNames = a} :: GetActiveNamesResponse)
-{-# DEPRECATED ganrsActiveNames "Use generic-lens or generic-optics with 'activeNames' instead." #-}
+ganrrsNextPageToken :: Lens.Lens' GetActiveNamesResponse (Core.Maybe Types.String)
+ganrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED ganrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ganrsResponseStatus :: Lens.Lens' GetActiveNamesResponse Lude.Int
-ganrsResponseStatus = Lens.lens (responseStatus :: GetActiveNamesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetActiveNamesResponse)
-{-# DEPRECATED ganrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ganrrsResponseStatus :: Lens.Lens' GetActiveNamesResponse Core.Int
+ganrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ganrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

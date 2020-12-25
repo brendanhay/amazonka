@@ -13,46 +13,51 @@
 module Network.AWS.EC2.Types.ExcessCapacityTerminationPolicy
   ( ExcessCapacityTerminationPolicy
       ( ExcessCapacityTerminationPolicy',
-        ECTPNoTermination,
-        ECTPDefault
+        ExcessCapacityTerminationPolicyNoTermination,
+        ExcessCapacityTerminationPolicyDefault,
+        fromExcessCapacityTerminationPolicy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy' Lude.Text
+newtype ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy'
+  { fromExcessCapacityTerminationPolicy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ECTPNoTermination :: ExcessCapacityTerminationPolicy
-pattern ECTPNoTermination = ExcessCapacityTerminationPolicy' "noTermination"
+pattern ExcessCapacityTerminationPolicyNoTermination :: ExcessCapacityTerminationPolicy
+pattern ExcessCapacityTerminationPolicyNoTermination = ExcessCapacityTerminationPolicy' "noTermination"
 
-pattern ECTPDefault :: ExcessCapacityTerminationPolicy
-pattern ECTPDefault = ExcessCapacityTerminationPolicy' "default"
+pattern ExcessCapacityTerminationPolicyDefault :: ExcessCapacityTerminationPolicy
+pattern ExcessCapacityTerminationPolicyDefault = ExcessCapacityTerminationPolicy' "default"
 
 {-# COMPLETE
-  ECTPNoTermination,
-  ECTPDefault,
+  ExcessCapacityTerminationPolicyNoTermination,
+  ExcessCapacityTerminationPolicyDefault,
   ExcessCapacityTerminationPolicy'
   #-}

@@ -13,46 +13,48 @@
 module Network.AWS.WorkMail.Types.MemberType
   ( MemberType
       ( MemberType',
-        Group,
-        User
+        MemberTypeGroup,
+        MemberTypeUser,
+        fromMemberType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MemberType = MemberType' Lude.Text
+newtype MemberType = MemberType' {fromMemberType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Group :: MemberType
-pattern Group = MemberType' "GROUP"
+pattern MemberTypeGroup :: MemberType
+pattern MemberTypeGroup = MemberType' "GROUP"
 
-pattern User :: MemberType
-pattern User = MemberType' "USER"
+pattern MemberTypeUser :: MemberType
+pattern MemberTypeUser = MemberType' "USER"
 
 {-# COMPLETE
-  Group,
-  User,
+  MemberTypeGroup,
+  MemberTypeUser,
   MemberType'
   #-}

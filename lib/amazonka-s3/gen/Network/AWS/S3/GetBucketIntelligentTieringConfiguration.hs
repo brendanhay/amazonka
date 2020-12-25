@@ -41,115 +41,105 @@ module Network.AWS.S3.GetBucketIntelligentTieringConfiguration
     mkGetBucketIntelligentTieringConfigurationResponse,
 
     -- ** Response lenses
-    gbitcrsIntelligentTieringConfiguration,
-    gbitcrsResponseStatus,
+    gbitcrrsIntelligentTieringConfiguration,
+    gbitcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketIntelligentTieringConfiguration' smart constructor.
 data GetBucketIntelligentTieringConfiguration = GetBucketIntelligentTieringConfiguration'
   { -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketIntelligentTieringConfiguration' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
--- * 'id' - The ID used to identify the S3 Intelligent-Tiering configuration.
+-- | Creates a 'GetBucketIntelligentTieringConfiguration' value with any optional fields omitted.
 mkGetBucketIntelligentTieringConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   GetBucketIntelligentTieringConfiguration
-mkGetBucketIntelligentTieringConfiguration pBucket_ pId_ =
-  GetBucketIntelligentTieringConfiguration'
-    { bucket = pBucket_,
-      id = pId_
-    }
+mkGetBucketIntelligentTieringConfiguration bucket id =
+  GetBucketIntelligentTieringConfiguration' {bucket, id}
 
 -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbitcBucket :: Lens.Lens' GetBucketIntelligentTieringConfiguration BucketName
-gbitcBucket = Lens.lens (bucket :: GetBucketIntelligentTieringConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketIntelligentTieringConfiguration)
+gbitcBucket :: Lens.Lens' GetBucketIntelligentTieringConfiguration Types.BucketName
+gbitcBucket = Lens.field @"bucket"
 {-# DEPRECATED gbitcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the S3 Intelligent-Tiering configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbitcId :: Lens.Lens' GetBucketIntelligentTieringConfiguration Lude.Text
-gbitcId = Lens.lens (id :: GetBucketIntelligentTieringConfiguration -> Lude.Text) (\s a -> s {id = a} :: GetBucketIntelligentTieringConfiguration)
+gbitcId :: Lens.Lens' GetBucketIntelligentTieringConfiguration Types.Id
+gbitcId = Lens.field @"id"
 {-# DEPRECATED gbitcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetBucketIntelligentTieringConfiguration where
+instance Core.AWSRequest GetBucketIntelligentTieringConfiguration where
   type
     Rs GetBucketIntelligentTieringConfiguration =
       GetBucketIntelligentTieringConfigurationResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "id" id
+            Core.<> (Core.pure ("intelligent-tiering", "")),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketIntelligentTieringConfigurationResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketIntelligentTieringConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetBucketIntelligentTieringConfiguration where
-  toPath GetBucketIntelligentTieringConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketIntelligentTieringConfiguration where
-  toQuery GetBucketIntelligentTieringConfiguration' {..} =
-    Lude.mconcat ["id" Lude.=: id, "intelligent-tiering"]
 
 -- | /See:/ 'mkGetBucketIntelligentTieringConfigurationResponse' smart constructor.
 data GetBucketIntelligentTieringConfigurationResponse = GetBucketIntelligentTieringConfigurationResponse'
   { -- | Container for S3 Intelligent-Tiering configuration.
-    intelligentTieringConfiguration :: Lude.Maybe IntelligentTieringConfiguration,
+    intelligentTieringConfiguration :: Core.Maybe Types.IntelligentTieringConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketIntelligentTieringConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'intelligentTieringConfiguration' - Container for S3 Intelligent-Tiering configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketIntelligentTieringConfigurationResponse' value with any optional fields omitted.
 mkGetBucketIntelligentTieringConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketIntelligentTieringConfigurationResponse
-mkGetBucketIntelligentTieringConfigurationResponse pResponseStatus_ =
+mkGetBucketIntelligentTieringConfigurationResponse responseStatus =
   GetBucketIntelligentTieringConfigurationResponse'
     { intelligentTieringConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Container for S3 Intelligent-Tiering configuration.
 --
 -- /Note:/ Consider using 'intelligentTieringConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbitcrsIntelligentTieringConfiguration :: Lens.Lens' GetBucketIntelligentTieringConfigurationResponse (Lude.Maybe IntelligentTieringConfiguration)
-gbitcrsIntelligentTieringConfiguration = Lens.lens (intelligentTieringConfiguration :: GetBucketIntelligentTieringConfigurationResponse -> Lude.Maybe IntelligentTieringConfiguration) (\s a -> s {intelligentTieringConfiguration = a} :: GetBucketIntelligentTieringConfigurationResponse)
-{-# DEPRECATED gbitcrsIntelligentTieringConfiguration "Use generic-lens or generic-optics with 'intelligentTieringConfiguration' instead." #-}
+gbitcrrsIntelligentTieringConfiguration :: Lens.Lens' GetBucketIntelligentTieringConfigurationResponse (Core.Maybe Types.IntelligentTieringConfiguration)
+gbitcrrsIntelligentTieringConfiguration = Lens.field @"intelligentTieringConfiguration"
+{-# DEPRECATED gbitcrrsIntelligentTieringConfiguration "Use generic-lens or generic-optics with 'intelligentTieringConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbitcrsResponseStatus :: Lens.Lens' GetBucketIntelligentTieringConfigurationResponse Lude.Int
-gbitcrsResponseStatus = Lens.lens (responseStatus :: GetBucketIntelligentTieringConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketIntelligentTieringConfigurationResponse)
-{-# DEPRECATED gbitcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbitcrrsResponseStatus :: Lens.Lens' GetBucketIntelligentTieringConfigurationResponse Core.Int
+gbitcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbitcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

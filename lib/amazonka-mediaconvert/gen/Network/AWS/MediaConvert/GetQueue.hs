@@ -27,101 +27,87 @@ module Network.AWS.MediaConvert.GetQueue
     mkGetQueueResponse,
 
     -- ** Response lenses
-    gqrsQueue,
-    gqrsResponseStatus,
+    gqrrsQueue,
+    gqrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetQueue' smart constructor.
 newtype GetQueue = GetQueue'
   { -- | The name of the queue that you want information about.
-    name :: Lude.Text
+    name :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetQueue' with the minimum fields required to make a request.
---
--- * 'name' - The name of the queue that you want information about.
+-- | Creates a 'GetQueue' value with any optional fields omitted.
 mkGetQueue ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   GetQueue
-mkGetQueue pName_ = GetQueue' {name = pName_}
+mkGetQueue name = GetQueue' {name}
 
 -- | The name of the queue that you want information about.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gqName :: Lens.Lens' GetQueue Lude.Text
-gqName = Lens.lens (name :: GetQueue -> Lude.Text) (\s a -> s {name = a} :: GetQueue)
+gqName :: Lens.Lens' GetQueue Core.Text
+gqName = Lens.field @"name"
 {-# DEPRECATED gqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetQueue where
+instance Core.AWSRequest GetQueue where
   type Rs GetQueue = GetQueueResponse
-  request = Req.get mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/2017-08-29/queues/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetQueueResponse'
-            Lude.<$> (x Lude..?> "queue") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "queue") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetQueue where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetQueue where
-  toPath GetQueue' {..} =
-    Lude.mconcat ["/2017-08-29/queues/", Lude.toBS name]
-
-instance Lude.ToQuery GetQueue where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetQueueResponse' smart constructor.
 data GetQueueResponse = GetQueueResponse'
   { -- | You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-    queue :: Lude.Maybe Queue,
+    queue :: Core.Maybe Types.Queue,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetQueueResponse' with the minimum fields required to make a request.
---
--- * 'queue' - You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetQueueResponse' value with any optional fields omitted.
 mkGetQueueResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetQueueResponse
-mkGetQueueResponse pResponseStatus_ =
-  GetQueueResponse'
-    { queue = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetQueueResponse responseStatus =
+  GetQueueResponse' {queue = Core.Nothing, responseStatus}
 
 -- | You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
 --
 -- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gqrsQueue :: Lens.Lens' GetQueueResponse (Lude.Maybe Queue)
-gqrsQueue = Lens.lens (queue :: GetQueueResponse -> Lude.Maybe Queue) (\s a -> s {queue = a} :: GetQueueResponse)
-{-# DEPRECATED gqrsQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
+gqrrsQueue :: Lens.Lens' GetQueueResponse (Core.Maybe Types.Queue)
+gqrrsQueue = Lens.field @"queue"
+{-# DEPRECATED gqrrsQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gqrsResponseStatus :: Lens.Lens' GetQueueResponse Lude.Int
-gqrsResponseStatus = Lens.lens (responseStatus :: GetQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetQueueResponse)
-{-# DEPRECATED gqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gqrrsResponseStatus :: Lens.Lens' GetQueueResponse Core.Int
+gqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

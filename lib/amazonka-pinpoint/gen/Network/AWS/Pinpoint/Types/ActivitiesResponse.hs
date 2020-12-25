@@ -17,56 +17,51 @@ module Network.AWS.Pinpoint.Types.ActivitiesResponse
     mkActivitiesResponse,
 
     -- * Lenses
-    aNextToken,
-    aItem,
+    arItem,
+    arNextToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ActivityResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ActivityResponse as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the activities that were performed by a campaign.
 --
 -- /See:/ 'mkActivitiesResponse' smart constructor.
 data ActivitiesResponse = ActivitiesResponse'
-  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of responses, one for each activity that was performed by the campaign.
-    item :: [ActivityResponse]
+  { -- | An array of responses, one for each activity that was performed by the campaign.
+    item :: [Types.ActivityResponse],
+    -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivitiesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
--- * 'item' - An array of responses, one for each activity that was performed by the campaign.
+-- | Creates a 'ActivitiesResponse' value with any optional fields omitted.
 mkActivitiesResponse ::
   ActivitiesResponse
 mkActivitiesResponse =
-  ActivitiesResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
-
--- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aNextToken :: Lens.Lens' ActivitiesResponse (Lude.Maybe Lude.Text)
-aNextToken = Lens.lens (nextToken :: ActivitiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ActivitiesResponse)
-{-# DEPRECATED aNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ActivitiesResponse' {item = Core.mempty, nextToken = Core.Nothing}
 
 -- | An array of responses, one for each activity that was performed by the campaign.
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aItem :: Lens.Lens' ActivitiesResponse [ActivityResponse]
-aItem = Lens.lens (item :: ActivitiesResponse -> [ActivityResponse]) (\s a -> s {item = a} :: ActivitiesResponse)
-{-# DEPRECATED aItem "Use generic-lens or generic-optics with 'item' instead." #-}
+arItem :: Lens.Lens' ActivitiesResponse [Types.ActivityResponse]
+arItem = Lens.field @"item"
+{-# DEPRECATED arItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.FromJSON ActivitiesResponse where
+-- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arNextToken :: Lens.Lens' ActivitiesResponse (Core.Maybe Core.Text)
+arNextToken = Lens.field @"nextToken"
+{-# DEPRECATED arNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ActivitiesResponse where
   parseJSON =
-    Lude.withObject
-      "ActivitiesResponse"
-      ( \x ->
-          ActivitiesResponse'
-            Lude.<$> (x Lude..:? "NextToken")
-            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ActivitiesResponse" Core.$
+      \x ->
+        ActivitiesResponse'
+          Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "NextToken")

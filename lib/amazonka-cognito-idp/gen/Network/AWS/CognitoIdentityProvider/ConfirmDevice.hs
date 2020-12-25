@@ -20,169 +20,153 @@ module Network.AWS.CognitoIdentityProvider.ConfirmDevice
     mkConfirmDevice,
 
     -- ** Request lenses
-    cdDeviceSecretVerifierConfig,
     cdAccessToken,
-    cdDeviceName,
     cdDeviceKey,
+    cdDeviceName,
+    cdDeviceSecretVerifierConfig,
 
     -- * Destructuring the response
     ConfirmDeviceResponse (..),
     mkConfirmDeviceResponse,
 
     -- ** Response lenses
-    cdrsUserConfirmationNecessary,
-    cdrsResponseStatus,
+    cdrrsUserConfirmationNecessary,
+    cdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Confirms the device request.
 --
 -- /See:/ 'mkConfirmDevice' smart constructor.
 data ConfirmDevice = ConfirmDevice'
-  { -- | The configuration of the device secret verifier.
-    deviceSecretVerifierConfig :: Lude.Maybe DeviceSecretVerifierConfigType,
-    -- | The access token.
-    accessToken :: Lude.Sensitive Lude.Text,
-    -- | The device name.
-    deviceName :: Lude.Maybe Lude.Text,
+  { -- | The access token.
+    accessToken :: Types.TokenModelType,
     -- | The device key.
-    deviceKey :: Lude.Text
+    deviceKey :: Types.DeviceKeyType,
+    -- | The device name.
+    deviceName :: Core.Maybe Types.DeviceNameType,
+    -- | The configuration of the device secret verifier.
+    deviceSecretVerifierConfig :: Core.Maybe Types.DeviceSecretVerifierConfigType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmDevice' with the minimum fields required to make a request.
---
--- * 'deviceSecretVerifierConfig' - The configuration of the device secret verifier.
--- * 'accessToken' - The access token.
--- * 'deviceName' - The device name.
--- * 'deviceKey' - The device key.
+-- | Creates a 'ConfirmDevice' value with any optional fields omitted.
 mkConfirmDevice ::
   -- | 'accessToken'
-  Lude.Sensitive Lude.Text ->
+  Types.TokenModelType ->
   -- | 'deviceKey'
-  Lude.Text ->
+  Types.DeviceKeyType ->
   ConfirmDevice
-mkConfirmDevice pAccessToken_ pDeviceKey_ =
+mkConfirmDevice accessToken deviceKey =
   ConfirmDevice'
-    { deviceSecretVerifierConfig = Lude.Nothing,
-      accessToken = pAccessToken_,
-      deviceName = Lude.Nothing,
-      deviceKey = pDeviceKey_
+    { accessToken,
+      deviceKey,
+      deviceName = Core.Nothing,
+      deviceSecretVerifierConfig = Core.Nothing
     }
-
--- | The configuration of the device secret verifier.
---
--- /Note:/ Consider using 'deviceSecretVerifierConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDeviceSecretVerifierConfig :: Lens.Lens' ConfirmDevice (Lude.Maybe DeviceSecretVerifierConfigType)
-cdDeviceSecretVerifierConfig = Lens.lens (deviceSecretVerifierConfig :: ConfirmDevice -> Lude.Maybe DeviceSecretVerifierConfigType) (\s a -> s {deviceSecretVerifierConfig = a} :: ConfirmDevice)
-{-# DEPRECATED cdDeviceSecretVerifierConfig "Use generic-lens or generic-optics with 'deviceSecretVerifierConfig' instead." #-}
 
 -- | The access token.
 --
 -- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdAccessToken :: Lens.Lens' ConfirmDevice (Lude.Sensitive Lude.Text)
-cdAccessToken = Lens.lens (accessToken :: ConfirmDevice -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: ConfirmDevice)
+cdAccessToken :: Lens.Lens' ConfirmDevice Types.TokenModelType
+cdAccessToken = Lens.field @"accessToken"
 {-# DEPRECATED cdAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
-
--- | The device name.
---
--- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDeviceName :: Lens.Lens' ConfirmDevice (Lude.Maybe Lude.Text)
-cdDeviceName = Lens.lens (deviceName :: ConfirmDevice -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: ConfirmDevice)
-{-# DEPRECATED cdDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
 -- | The device key.
 --
 -- /Note:/ Consider using 'deviceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDeviceKey :: Lens.Lens' ConfirmDevice Lude.Text
-cdDeviceKey = Lens.lens (deviceKey :: ConfirmDevice -> Lude.Text) (\s a -> s {deviceKey = a} :: ConfirmDevice)
+cdDeviceKey :: Lens.Lens' ConfirmDevice Types.DeviceKeyType
+cdDeviceKey = Lens.field @"deviceKey"
 {-# DEPRECATED cdDeviceKey "Use generic-lens or generic-optics with 'deviceKey' instead." #-}
 
-instance Lude.AWSRequest ConfirmDevice where
+-- | The device name.
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDeviceName :: Lens.Lens' ConfirmDevice (Core.Maybe Types.DeviceNameType)
+cdDeviceName = Lens.field @"deviceName"
+{-# DEPRECATED cdDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
+
+-- | The configuration of the device secret verifier.
+--
+-- /Note:/ Consider using 'deviceSecretVerifierConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDeviceSecretVerifierConfig :: Lens.Lens' ConfirmDevice (Core.Maybe Types.DeviceSecretVerifierConfigType)
+cdDeviceSecretVerifierConfig = Lens.field @"deviceSecretVerifierConfig"
+{-# DEPRECATED cdDeviceSecretVerifierConfig "Use generic-lens or generic-optics with 'deviceSecretVerifierConfig' instead." #-}
+
+instance Core.FromJSON ConfirmDevice where
+  toJSON ConfirmDevice {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccessToken" Core..= accessToken),
+            Core.Just ("DeviceKey" Core..= deviceKey),
+            ("DeviceName" Core..=) Core.<$> deviceName,
+            ("DeviceSecretVerifierConfig" Core..=)
+              Core.<$> deviceSecretVerifierConfig
+          ]
+      )
+
+instance Core.AWSRequest ConfirmDevice where
   type Rs ConfirmDevice = ConfirmDeviceResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityProviderService.ConfirmDevice")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ConfirmDeviceResponse'
-            Lude.<$> (x Lude..?> "UserConfirmationNecessary")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "UserConfirmationNecessary")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ConfirmDevice where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.ConfirmDevice" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ConfirmDevice where
-  toJSON ConfirmDevice' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeviceSecretVerifierConfig" Lude..=)
-              Lude.<$> deviceSecretVerifierConfig,
-            Lude.Just ("AccessToken" Lude..= accessToken),
-            ("DeviceName" Lude..=) Lude.<$> deviceName,
-            Lude.Just ("DeviceKey" Lude..= deviceKey)
-          ]
-      )
-
-instance Lude.ToPath ConfirmDevice where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ConfirmDevice where
-  toQuery = Lude.const Lude.mempty
 
 -- | Confirms the device response.
 --
 -- /See:/ 'mkConfirmDeviceResponse' smart constructor.
 data ConfirmDeviceResponse = ConfirmDeviceResponse'
   { -- | Indicates whether the user confirmation is necessary to confirm the device response.
-    userConfirmationNecessary :: Lude.Maybe Lude.Bool,
+    userConfirmationNecessary :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmDeviceResponse' with the minimum fields required to make a request.
---
--- * 'userConfirmationNecessary' - Indicates whether the user confirmation is necessary to confirm the device response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ConfirmDeviceResponse' value with any optional fields omitted.
 mkConfirmDeviceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ConfirmDeviceResponse
-mkConfirmDeviceResponse pResponseStatus_ =
+mkConfirmDeviceResponse responseStatus =
   ConfirmDeviceResponse'
-    { userConfirmationNecessary = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { userConfirmationNecessary = Core.Nothing,
+      responseStatus
     }
 
 -- | Indicates whether the user confirmation is necessary to confirm the device response.
 --
 -- /Note:/ Consider using 'userConfirmationNecessary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsUserConfirmationNecessary :: Lens.Lens' ConfirmDeviceResponse (Lude.Maybe Lude.Bool)
-cdrsUserConfirmationNecessary = Lens.lens (userConfirmationNecessary :: ConfirmDeviceResponse -> Lude.Maybe Lude.Bool) (\s a -> s {userConfirmationNecessary = a} :: ConfirmDeviceResponse)
-{-# DEPRECATED cdrsUserConfirmationNecessary "Use generic-lens or generic-optics with 'userConfirmationNecessary' instead." #-}
+cdrrsUserConfirmationNecessary :: Lens.Lens' ConfirmDeviceResponse (Core.Maybe Core.Bool)
+cdrrsUserConfirmationNecessary = Lens.field @"userConfirmationNecessary"
+{-# DEPRECATED cdrrsUserConfirmationNecessary "Use generic-lens or generic-optics with 'userConfirmationNecessary' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsResponseStatus :: Lens.Lens' ConfirmDeviceResponse Lude.Int
-cdrsResponseStatus = Lens.lens (responseStatus :: ConfirmDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfirmDeviceResponse)
-{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrrsResponseStatus :: Lens.Lens' ConfirmDeviceResponse Core.Int
+cdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

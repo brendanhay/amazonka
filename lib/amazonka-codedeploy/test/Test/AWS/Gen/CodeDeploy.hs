@@ -558,7 +558,7 @@ responseRemoveTagsFromOnPremisesInstances =
   res
     "RemoveTagsFromOnPremisesInstancesResponse"
     "fixture/RemoveTagsFromOnPremisesInstancesResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy RemoveTagsFromOnPremisesInstances)
 
 responseBatchGetDeploymentGroups :: BatchGetDeploymentGroupsResponse -> TestTree
@@ -566,7 +566,7 @@ responseBatchGetDeploymentGroups =
   res
     "BatchGetDeploymentGroupsResponse"
     "fixture/BatchGetDeploymentGroupsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetDeploymentGroups)
 
 responseDeleteDeploymentGroup :: DeleteDeploymentGroupResponse -> TestTree
@@ -574,7 +574,7 @@ responseDeleteDeploymentGroup =
   res
     "DeleteDeploymentGroupResponse"
     "fixture/DeleteDeploymentGroupResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDeploymentGroup)
 
 responseUpdateDeploymentGroup :: UpdateDeploymentGroupResponse -> TestTree
@@ -582,7 +582,7 @@ responseUpdateDeploymentGroup =
   res
     "UpdateDeploymentGroupResponse"
     "fixture/UpdateDeploymentGroupResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDeploymentGroup)
 
 responseListOnPremisesInstances :: ListOnPremisesInstancesResponse -> TestTree
@@ -590,7 +590,7 @@ responseListOnPremisesInstances =
   res
     "ListOnPremisesInstancesResponse"
     "fixture/ListOnPremisesInstancesResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListOnPremisesInstances)
 
 responseCreateDeploymentConfig :: CreateDeploymentConfigResponse -> TestTree
@@ -598,7 +598,7 @@ responseCreateDeploymentConfig =
   res
     "CreateDeploymentConfigResponse"
     "fixture/CreateDeploymentConfigResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy CreateDeploymentConfig)
 
 responseGetApplicationRevision :: GetApplicationRevisionResponse -> TestTree
@@ -606,7 +606,7 @@ responseGetApplicationRevision =
   res
     "GetApplicationRevisionResponse"
     "fixture/GetApplicationRevisionResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy GetApplicationRevision)
 
 responseGetDeployment :: GetDeploymentResponse -> TestTree
@@ -614,7 +614,7 @@ responseGetDeployment =
   res
     "GetDeploymentResponse"
     "fixture/GetDeploymentResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy GetDeployment)
 
 responseDeleteDeploymentConfig :: DeleteDeploymentConfigResponse -> TestTree
@@ -622,7 +622,7 @@ responseDeleteDeploymentConfig =
   res
     "DeleteDeploymentConfigResponse"
     "fixture/DeleteDeploymentConfigResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDeploymentConfig)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -630,7 +630,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetDeploymentConfig :: GetDeploymentConfigResponse -> TestTree
@@ -638,7 +638,7 @@ responseGetDeploymentConfig =
   res
     "GetDeploymentConfigResponse"
     "fixture/GetDeploymentConfigResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy GetDeploymentConfig)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
@@ -646,7 +646,7 @@ responseCreateDeployment =
   res
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy CreateDeployment)
 
 responseBatchGetApplicationRevisions :: BatchGetApplicationRevisionsResponse -> TestTree
@@ -654,7 +654,7 @@ responseBatchGetApplicationRevisions =
   res
     "BatchGetApplicationRevisionsResponse"
     "fixture/BatchGetApplicationRevisionsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetApplicationRevisions)
 
 responseBatchGetDeployments :: BatchGetDeploymentsResponse -> TestTree
@@ -662,7 +662,7 @@ responseBatchGetDeployments =
   res
     "BatchGetDeploymentsResponse"
     "fixture/BatchGetDeploymentsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetDeployments)
 
 responseGetOnPremisesInstance :: GetOnPremisesInstanceResponse -> TestTree
@@ -670,7 +670,7 @@ responseGetOnPremisesInstance =
   res
     "GetOnPremisesInstanceResponse"
     "fixture/GetOnPremisesInstanceResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy GetOnPremisesInstance)
 
 responseRegisterApplicationRevision :: RegisterApplicationRevisionResponse -> TestTree
@@ -678,7 +678,7 @@ responseRegisterApplicationRevision =
   res
     "RegisterApplicationRevisionResponse"
     "fixture/RegisterApplicationRevisionResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy RegisterApplicationRevision)
 
 responseContinueDeployment :: ContinueDeploymentResponse -> TestTree
@@ -686,7 +686,7 @@ responseContinueDeployment =
   res
     "ContinueDeploymentResponse"
     "fixture/ContinueDeploymentResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ContinueDeployment)
 
 responseBatchGetApplications :: BatchGetApplicationsResponse -> TestTree
@@ -694,7 +694,7 @@ responseBatchGetApplications =
   res
     "BatchGetApplicationsResponse"
     "fixture/BatchGetApplicationsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetApplications)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
@@ -702,7 +702,7 @@ responseDeleteApplication =
   res
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
@@ -710,7 +710,7 @@ responseUpdateApplication =
   res
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApplication)
 
 responseDeleteGitHubAccountToken :: DeleteGitHubAccountTokenResponse -> TestTree
@@ -718,7 +718,7 @@ responseDeleteGitHubAccountToken =
   res
     "DeleteGitHubAccountTokenResponse"
     "fixture/DeleteGitHubAccountTokenResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy DeleteGitHubAccountToken)
 
 responseDeregisterOnPremisesInstance :: DeregisterOnPremisesInstanceResponse -> TestTree
@@ -726,7 +726,7 @@ responseDeregisterOnPremisesInstance =
   res
     "DeregisterOnPremisesInstanceResponse"
     "fixture/DeregisterOnPremisesInstanceResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterOnPremisesInstance)
 
 responsePutLifecycleEventHookExecutionStatus :: PutLifecycleEventHookExecutionStatusResponse -> TestTree
@@ -734,7 +734,7 @@ responsePutLifecycleEventHookExecutionStatus =
   res
     "PutLifecycleEventHookExecutionStatusResponse"
     "fixture/PutLifecycleEventHookExecutionStatusResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy PutLifecycleEventHookExecutionStatus)
 
 responseGetDeploymentTarget :: GetDeploymentTargetResponse -> TestTree
@@ -742,7 +742,7 @@ responseGetDeploymentTarget =
   res
     "GetDeploymentTargetResponse"
     "fixture/GetDeploymentTargetResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy GetDeploymentTarget)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
@@ -750,7 +750,7 @@ responseCreateApplication =
   res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy CreateApplication)
 
 responseBatchGetDeploymentTargets :: BatchGetDeploymentTargetsResponse -> TestTree
@@ -758,7 +758,7 @@ responseBatchGetDeploymentTargets =
   res
     "BatchGetDeploymentTargetsResponse"
     "fixture/BatchGetDeploymentTargetsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetDeploymentTargets)
 
 responseStopDeployment :: StopDeploymentResponse -> TestTree
@@ -766,7 +766,7 @@ responseStopDeployment =
   res
     "StopDeploymentResponse"
     "fixture/StopDeploymentResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy StopDeployment)
 
 responseListGitHubAccountTokenNames :: ListGitHubAccountTokenNamesResponse -> TestTree
@@ -774,7 +774,7 @@ responseListGitHubAccountTokenNames =
   res
     "ListGitHubAccountTokenNamesResponse"
     "fixture/ListGitHubAccountTokenNamesResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListGitHubAccountTokenNames)
 
 responseGetApplication :: GetApplicationResponse -> TestTree
@@ -782,7 +782,7 @@ responseGetApplication =
   res
     "GetApplicationResponse"
     "fixture/GetApplicationResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy GetApplication)
 
 responseListDeploymentGroups :: ListDeploymentGroupsResponse -> TestTree
@@ -790,7 +790,7 @@ responseListDeploymentGroups =
   res
     "ListDeploymentGroupsResponse"
     "fixture/ListDeploymentGroupsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListDeploymentGroups)
 
 responseBatchGetOnPremisesInstances :: BatchGetOnPremisesInstancesResponse -> TestTree
@@ -798,7 +798,7 @@ responseBatchGetOnPremisesInstances =
   res
     "BatchGetOnPremisesInstancesResponse"
     "fixture/BatchGetOnPremisesInstancesResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetOnPremisesInstances)
 
 responseRegisterOnPremisesInstance :: RegisterOnPremisesInstanceResponse -> TestTree
@@ -806,7 +806,7 @@ responseRegisterOnPremisesInstance =
   res
     "RegisterOnPremisesInstanceResponse"
     "fixture/RegisterOnPremisesInstanceResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy RegisterOnPremisesInstance)
 
 responseCreateDeploymentGroup :: CreateDeploymentGroupResponse -> TestTree
@@ -814,7 +814,7 @@ responseCreateDeploymentGroup =
   res
     "CreateDeploymentGroupResponse"
     "fixture/CreateDeploymentGroupResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy CreateDeploymentGroup)
 
 responseListDeploymentConfigs :: ListDeploymentConfigsResponse -> TestTree
@@ -822,7 +822,7 @@ responseListDeploymentConfigs =
   res
     "ListDeploymentConfigsResponse"
     "fixture/ListDeploymentConfigsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListDeploymentConfigs)
 
 responseGetDeploymentGroup :: GetDeploymentGroupResponse -> TestTree
@@ -830,7 +830,7 @@ responseGetDeploymentGroup =
   res
     "GetDeploymentGroupResponse"
     "fixture/GetDeploymentGroupResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy GetDeploymentGroup)
 
 responseListDeployments :: ListDeploymentsResponse -> TestTree
@@ -838,7 +838,7 @@ responseListDeployments =
   res
     "ListDeploymentsResponse"
     "fixture/ListDeploymentsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListDeployments)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -846,7 +846,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseListApplicationRevisions :: ListApplicationRevisionsResponse -> TestTree
@@ -854,7 +854,7 @@ responseListApplicationRevisions =
   res
     "ListApplicationRevisionsResponse"
     "fixture/ListApplicationRevisionsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListApplicationRevisions)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
@@ -862,7 +862,7 @@ responseListApplications =
   res
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListApplications)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -870,7 +870,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDeleteResourcesByExternalId :: DeleteResourcesByExternalIdResponse -> TestTree
@@ -878,7 +878,7 @@ responseDeleteResourcesByExternalId =
   res
     "DeleteResourcesByExternalIdResponse"
     "fixture/DeleteResourcesByExternalIdResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy DeleteResourcesByExternalId)
 
 responseAddTagsToOnPremisesInstances :: AddTagsToOnPremisesInstancesResponse -> TestTree
@@ -886,7 +886,7 @@ responseAddTagsToOnPremisesInstances =
   res
     "AddTagsToOnPremisesInstancesResponse"
     "fixture/AddTagsToOnPremisesInstancesResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy AddTagsToOnPremisesInstances)
 
 responseListDeploymentTargets :: ListDeploymentTargetsResponse -> TestTree
@@ -894,5 +894,5 @@ responseListDeploymentTargets =
   res
     "ListDeploymentTargetsResponse"
     "fixture/ListDeploymentTargetsResponse.proto"
-    codeDeployService
+    mkServiceConfig
     (Proxy :: Proxy ListDeploymentTargets)

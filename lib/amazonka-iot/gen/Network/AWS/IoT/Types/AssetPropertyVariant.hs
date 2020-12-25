@@ -17,95 +17,92 @@ module Network.AWS.IoT.Types.AssetPropertyVariant
     mkAssetPropertyVariant,
 
     -- * Lenses
-    apvIntegerValue,
-    apvDoubleValue,
-    apvStringValue,
     apvBooleanValue,
+    apvDoubleValue,
+    apvIntegerValue,
+    apvStringValue,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AssetPropertyDoubleValue as Types
+import qualified Network.AWS.IoT.Types.AssetPropertyIntegerValue as Types
+import qualified Network.AWS.IoT.Types.AssetPropertyStringValue as Types
+import qualified Network.AWS.IoT.Types.BooleanValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains an asset property value (of a single type).
 --
 -- /See:/ 'mkAssetPropertyVariant' smart constructor.
 data AssetPropertyVariant = AssetPropertyVariant'
-  { -- | Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
-    integerValue :: Lude.Maybe Lude.Text,
+  { -- | Optional. A string that contains the boolean value (@true@ or @false@ ) of the value entry. Accepts substitution templates.
+    booleanValue :: Core.Maybe Types.BooleanValue,
     -- | Optional. A string that contains the double value of the value entry. Accepts substitution templates.
-    doubleValue :: Lude.Maybe Lude.Text,
+    doubleValue :: Core.Maybe Types.AssetPropertyDoubleValue,
+    -- | Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+    integerValue :: Core.Maybe Types.AssetPropertyIntegerValue,
     -- | Optional. The string value of the value entry. Accepts substitution templates.
-    stringValue :: Lude.Maybe Lude.Text,
-    -- | Optional. A string that contains the boolean value (@true@ or @false@ ) of the value entry. Accepts substitution templates.
-    booleanValue :: Lude.Maybe Lude.Text
+    stringValue :: Core.Maybe Types.AssetPropertyStringValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssetPropertyVariant' with the minimum fields required to make a request.
---
--- * 'integerValue' - Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
--- * 'doubleValue' - Optional. A string that contains the double value of the value entry. Accepts substitution templates.
--- * 'stringValue' - Optional. The string value of the value entry. Accepts substitution templates.
--- * 'booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@ ) of the value entry. Accepts substitution templates.
+-- | Creates a 'AssetPropertyVariant' value with any optional fields omitted.
 mkAssetPropertyVariant ::
   AssetPropertyVariant
 mkAssetPropertyVariant =
   AssetPropertyVariant'
-    { integerValue = Lude.Nothing,
-      doubleValue = Lude.Nothing,
-      stringValue = Lude.Nothing,
-      booleanValue = Lude.Nothing
+    { booleanValue = Core.Nothing,
+      doubleValue = Core.Nothing,
+      integerValue = Core.Nothing,
+      stringValue = Core.Nothing
     }
-
--- | Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
---
--- /Note:/ Consider using 'integerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apvIntegerValue :: Lens.Lens' AssetPropertyVariant (Lude.Maybe Lude.Text)
-apvIntegerValue = Lens.lens (integerValue :: AssetPropertyVariant -> Lude.Maybe Lude.Text) (\s a -> s {integerValue = a} :: AssetPropertyVariant)
-{-# DEPRECATED apvIntegerValue "Use generic-lens or generic-optics with 'integerValue' instead." #-}
-
--- | Optional. A string that contains the double value of the value entry. Accepts substitution templates.
---
--- /Note:/ Consider using 'doubleValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apvDoubleValue :: Lens.Lens' AssetPropertyVariant (Lude.Maybe Lude.Text)
-apvDoubleValue = Lens.lens (doubleValue :: AssetPropertyVariant -> Lude.Maybe Lude.Text) (\s a -> s {doubleValue = a} :: AssetPropertyVariant)
-{-# DEPRECATED apvDoubleValue "Use generic-lens or generic-optics with 'doubleValue' instead." #-}
-
--- | Optional. The string value of the value entry. Accepts substitution templates.
---
--- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apvStringValue :: Lens.Lens' AssetPropertyVariant (Lude.Maybe Lude.Text)
-apvStringValue = Lens.lens (stringValue :: AssetPropertyVariant -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: AssetPropertyVariant)
-{-# DEPRECATED apvStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
 -- | Optional. A string that contains the boolean value (@true@ or @false@ ) of the value entry. Accepts substitution templates.
 --
 -- /Note:/ Consider using 'booleanValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apvBooleanValue :: Lens.Lens' AssetPropertyVariant (Lude.Maybe Lude.Text)
-apvBooleanValue = Lens.lens (booleanValue :: AssetPropertyVariant -> Lude.Maybe Lude.Text) (\s a -> s {booleanValue = a} :: AssetPropertyVariant)
+apvBooleanValue :: Lens.Lens' AssetPropertyVariant (Core.Maybe Types.BooleanValue)
+apvBooleanValue = Lens.field @"booleanValue"
 {-# DEPRECATED apvBooleanValue "Use generic-lens or generic-optics with 'booleanValue' instead." #-}
 
-instance Lude.FromJSON AssetPropertyVariant where
-  parseJSON =
-    Lude.withObject
-      "AssetPropertyVariant"
-      ( \x ->
-          AssetPropertyVariant'
-            Lude.<$> (x Lude..:? "integerValue")
-            Lude.<*> (x Lude..:? "doubleValue")
-            Lude.<*> (x Lude..:? "stringValue")
-            Lude.<*> (x Lude..:? "booleanValue")
-      )
+-- | Optional. A string that contains the double value of the value entry. Accepts substitution templates.
+--
+-- /Note:/ Consider using 'doubleValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apvDoubleValue :: Lens.Lens' AssetPropertyVariant (Core.Maybe Types.AssetPropertyDoubleValue)
+apvDoubleValue = Lens.field @"doubleValue"
+{-# DEPRECATED apvDoubleValue "Use generic-lens or generic-optics with 'doubleValue' instead." #-}
 
-instance Lude.ToJSON AssetPropertyVariant where
-  toJSON AssetPropertyVariant' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("integerValue" Lude..=) Lude.<$> integerValue,
-            ("doubleValue" Lude..=) Lude.<$> doubleValue,
-            ("stringValue" Lude..=) Lude.<$> stringValue,
-            ("booleanValue" Lude..=) Lude.<$> booleanValue
+-- | Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+--
+-- /Note:/ Consider using 'integerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apvIntegerValue :: Lens.Lens' AssetPropertyVariant (Core.Maybe Types.AssetPropertyIntegerValue)
+apvIntegerValue = Lens.field @"integerValue"
+{-# DEPRECATED apvIntegerValue "Use generic-lens or generic-optics with 'integerValue' instead." #-}
+
+-- | Optional. The string value of the value entry. Accepts substitution templates.
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apvStringValue :: Lens.Lens' AssetPropertyVariant (Core.Maybe Types.AssetPropertyStringValue)
+apvStringValue = Lens.field @"stringValue"
+{-# DEPRECATED apvStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
+
+instance Core.FromJSON AssetPropertyVariant where
+  toJSON AssetPropertyVariant {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("booleanValue" Core..=) Core.<$> booleanValue,
+            ("doubleValue" Core..=) Core.<$> doubleValue,
+            ("integerValue" Core..=) Core.<$> integerValue,
+            ("stringValue" Core..=) Core.<$> stringValue
           ]
       )
+
+instance Core.FromJSON AssetPropertyVariant where
+  parseJSON =
+    Core.withObject "AssetPropertyVariant" Core.$
+      \x ->
+        AssetPropertyVariant'
+          Core.<$> (x Core..:? "booleanValue")
+          Core.<*> (x Core..:? "doubleValue")
+          Core.<*> (x Core..:? "integerValue")
+          Core.<*> (x Core..:? "stringValue")

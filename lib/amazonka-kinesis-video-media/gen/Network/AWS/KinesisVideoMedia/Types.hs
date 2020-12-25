@@ -9,79 +9,157 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoMedia.Types
   ( -- * Service configuration
-    kinesisVideoMediaService,
+    mkServiceConfig,
 
     -- * Errors
+    _ConnectionLimitExceededException,
+    _InvalidArgumentException,
+    _NotAuthorizedException,
+    _ClientLimitExceededException,
+    _InvalidEndpointException,
+    _ResourceNotFoundException,
 
-    -- * StartSelectorType
-    StartSelectorType (..),
+    -- * ContinuationToken
+    ContinuationToken (..),
 
     -- * StartSelector
     StartSelector (..),
     mkStartSelector,
-    ssContinuationToken,
-    ssAfterFragmentNumber,
     ssStartSelectorType,
+    ssAfterFragmentNumber,
+    ssContinuationToken,
     ssStartTimestamp,
+
+    -- * StartSelectorType
+    StartSelectorType (..),
+
+    -- * StreamName
+    StreamName (..),
+
+    -- * ContentType
+    ContentType (..),
+
+    -- * AfterFragmentNumber
+    AfterFragmentNumber (..),
+
+    -- * StreamARN
+    StreamARN (..),
   )
 where
 
+import Network.AWS.KinesisVideoMedia.Types.AfterFragmentNumber
+import Network.AWS.KinesisVideoMedia.Types.ContentType
+import Network.AWS.KinesisVideoMedia.Types.ContinuationToken
 import Network.AWS.KinesisVideoMedia.Types.StartSelector
 import Network.AWS.KinesisVideoMedia.Types.StartSelectorType
+import Network.AWS.KinesisVideoMedia.Types.StreamARN
+import Network.AWS.KinesisVideoMedia.Types.StreamName
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-30@ of the Amazon Kinesis Video Streams Media SDK configuration.
-kinesisVideoMediaService :: Lude.Service
-kinesisVideoMediaService =
-  Lude.Service
-    { Lude._svcAbbrev = "KinesisVideoMedia",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "kinesisvideo",
-      Lude._svcVersion = "2017-09-30",
-      Lude._svcEndpoint = Lude.defaultEndpoint kinesisVideoMediaService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "KinesisVideoMedia",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "KinesisVideoMedia",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "kinesisvideo",
+      Core._svcVersion = "2017-09-30",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "KinesisVideoMedia",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client connections.
+_ConnectionLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConnectionLimitExceededException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ConnectionLimitExceededException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ConnectionLimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | The value for this input parameter is invalid.
+_InvalidArgumentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidArgumentException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidArgumentException "Use generic-lens or generic-optics instead." #-}
+
+-- | Status Code: 403, The caller is not authorized to perform an operation on the given stream, or the token has expired.
+_NotAuthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException =
+  Core._MatchServiceError mkServiceConfig "NotAuthorizedException"
+    Core.. Core.hasStatues 401
+{-# DEPRECATED _NotAuthorizedException "Use generic-lens or generic-optics instead." #-}
+
+-- | Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
+_ClientLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ClientLimitExceededException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ClientLimitExceededException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ClientLimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving such an exception, the user must call @GetDataEndpoint@ with @AccessMode@ set to "READ" and use the endpoint Kinesis Video returns in the next @GetMedia@ call.
+_InvalidEndpointException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidEndpointException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidEndpointException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidEndpointException "Use generic-lens or generic-optics instead." #-}
+
+-- | Status Code: 404, The stream with the given name does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ResourceNotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _ResourceNotFoundException "Use generic-lens or generic-optics instead." #-}

@@ -9,134 +9,359 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types
   ( -- * Service configuration
-    eLBv2Service,
+    mkServiceConfig,
 
     -- * Errors
+    _InvalidConfigurationRequestException,
+    _SubnetNotFoundException,
+    _TooManyTargetsException,
+    _RuleNotFoundException,
+    _InvalidSubnetException,
+    _TooManyRulesException,
+    _TooManyTargetGroupsException,
+    _TooManyActionsException,
+    _DuplicateLoadBalancerNameException,
+    _IncompatibleProtocolsException,
+    _TooManyCertificatesException,
+    _DuplicateTagKeysException,
+    _DuplicateListenerException,
+    _TooManyTagsException,
+    _DuplicateTargetGroupNameException,
+    _HealthUnavailableException,
+    _AllocationIdNotFoundException,
+    _PriorityInUseException,
+    _TooManyLoadBalancersException,
+    _UnsupportedProtocolException,
+    _ALPNPolicyNotSupportedException,
+    _InvalidTargetException,
+    _InvalidSecurityGroupException,
+    _TargetGroupNotFoundException,
+    _ListenerNotFoundException,
+    _InvalidLoadBalancerActionException,
+    _TooManyRegistrationsForTargetIdException,
+    _TooManyListenersException,
+    _TargetGroupAssociationLimitException,
+    _OperationNotPermittedException,
+    _SSLPolicyNotFoundException,
+    _InvalidSchemeException,
+    _AvailabilityZoneNotSupportedException,
+    _TooManyUniqueTargetGroupsPerLoadBalancerException,
+    _LoadBalancerNotFoundException,
+    _ResourceInUseException,
+    _CertificateNotFoundException,
 
-    -- * ActionTypeEnum
-    ActionTypeEnum (..),
+    -- * ProtocolVersion
+    ProtocolVersion (..),
 
-    -- * AuthenticateCognitoActionConditionalBehaviorEnum
-    AuthenticateCognitoActionConditionalBehaviorEnum (..),
+    -- * LoadBalancerAddress
+    LoadBalancerAddress (..),
+    mkLoadBalancerAddress,
+    lbaAllocationId,
+    lbaIPv6Address,
+    lbaIpAddress,
+    lbaPrivateIPv4Address,
 
-    -- * AuthenticateOidcActionConditionalBehaviorEnum
-    AuthenticateOidcActionConditionalBehaviorEnum (..),
+    -- * SslPolicy
+    SslPolicy (..),
+    mkSslPolicy,
+    spCiphers,
+    spName,
+    spSslProtocols,
 
-    -- * IPAddressType
-    IPAddressType (..),
+    -- * AuthenticateCognitoActionUserPoolArn
+    AuthenticateCognitoActionUserPoolArn (..),
 
-    -- * LoadBalancerSchemeEnum
-    LoadBalancerSchemeEnum (..),
+    -- * TargetId
+    TargetId (..),
 
-    -- * LoadBalancerStateEnum
-    LoadBalancerStateEnum (..),
+    -- * Matcher
+    Matcher (..),
+    mkMatcher,
+    mGrpcCode,
+    mHttpCode,
 
-    -- * LoadBalancerTypeEnum
-    LoadBalancerTypeEnum (..),
+    -- * TagDescription
+    TagDescription (..),
+    mkTagDescription,
+    tdResourceArn,
+    tdTags,
 
-    -- * ProtocolEnum
-    ProtocolEnum (..),
+    -- * Max
+    Max (..),
 
-    -- * RedirectActionStatusCodeEnum
-    RedirectActionStatusCodeEnum (..),
+    -- * HttpRequestMethodConditionConfig
+    HttpRequestMethodConditionConfig (..),
+    mkHttpRequestMethodConditionConfig,
+    hrmccValues,
+
+    -- * AuthenticateOidcActionAuthenticationRequestParamValue
+    AuthenticateOidcActionAuthenticationRequestParamValue (..),
+
+    -- * TargetDescription
+    TargetDescription (..),
+    mkTargetDescription,
+    tdId,
+    tdAvailabilityZone,
+    tdPort,
+
+    -- * IPv6Address
+    IPv6Address (..),
+
+    -- * IpAddress
+    IpAddress (..),
+
+    -- * SubnetMapping
+    SubnetMapping (..),
+    mkSubnetMapping,
+    smAllocationId,
+    smIPv6Address,
+    smPrivateIPv4Address,
+    smSubnetId,
+
+    -- * AuthenticateOidcActionSessionCookieName
+    AuthenticateOidcActionSessionCookieName (..),
+
+    -- * Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * TargetHealthReasonEnum
     TargetHealthReasonEnum (..),
 
-    -- * TargetHealthStateEnum
-    TargetHealthStateEnum (..),
+    -- * FixedResponseActionStatusCode
+    FixedResponseActionStatusCode (..),
 
-    -- * TargetTypeEnum
-    TargetTypeEnum (..),
+    -- * SslProtocol
+    SslProtocol (..),
+
+    -- * TargetGroupAttribute
+    TargetGroupAttribute (..),
+    mkTargetGroupAttribute,
+    tgaKey,
+    tgaValue,
+
+    -- * AuthenticateOidcActionAuthorizationEndpoint
+    AuthenticateOidcActionAuthorizationEndpoint (..),
+
+    -- * AuthenticateOidcActionTokenEndpoint
+    AuthenticateOidcActionTokenEndpoint (..),
+
+    -- * CipherName
+    CipherName (..),
+
+    -- * LoadBalancerName
+    LoadBalancerName (..),
+
+    -- * TargetHealth
+    TargetHealth (..),
+    mkTargetHealth,
+    thDescription,
+    thReason,
+    thState,
+
+    -- * AuthenticateCognitoActionAuthenticationRequestParamName
+    AuthenticateCognitoActionAuthenticationRequestParamName (..),
+
+    -- * AllocationId
+    AllocationId (..),
+
+    -- * HttpCode
+    HttpCode (..),
+
+    -- * String
+    String (..),
+
+    -- * ProtocolEnum
+    ProtocolEnum (..),
+
+    -- * Path
+    Path (..),
+
+    -- * RuleCondition
+    RuleCondition (..),
+    mkRuleCondition,
+    rcField,
+    rcHostHeaderConfig,
+    rcHttpHeaderConfig,
+    rcHttpRequestMethodConfig,
+    rcPathPatternConfig,
+    rcQueryStringConfig,
+    rcSourceIpConfig,
+    rcValues,
+
+    -- * AuthenticateCognitoActionConditionalBehaviorEnum
+    AuthenticateCognitoActionConditionalBehaviorEnum (..),
+
+    -- * SourceIpConditionConfig
+    SourceIpConditionConfig (..),
+    mkSourceIpConditionConfig,
+    siccValues,
+
+    -- * CertificateArn
+    CertificateArn (..),
+
+    -- * VpcId
+    VpcId (..),
+
+    -- * AlpnPolicyValue
+    AlpnPolicyValue (..),
+
+    -- * CanonicalHostedZoneId
+    CanonicalHostedZoneId (..),
+
+    -- * AuthenticateOidcActionScope
+    AuthenticateOidcActionScope (..),
+
+    -- * PrivateIPv4Address
+    PrivateIPv4Address (..),
+
+    -- * TargetGroupArn
+    TargetGroupArn (..),
+
+    -- * GrpcCode
+    GrpcCode (..),
+
+    -- * ListenerArn
+    ListenerArn (..),
+
+    -- * AuthenticateCognitoActionScope
+    AuthenticateCognitoActionScope (..),
+
+    -- * QueryStringConditionConfig
+    QueryStringConditionConfig (..),
+    mkQueryStringConditionConfig,
+    qsccValues,
+
+    -- * LoadBalancerAttribute
+    LoadBalancerAttribute (..),
+    mkLoadBalancerAttribute,
+    lbaKey,
+    lbaValue,
 
     -- * Action
     Action (..),
     mkAction,
-    aFixedResponseConfig,
-    aTargetGroupARN,
-    aForwardConfig,
-    aRedirectConfig,
     aType,
     aAuthenticateCognitoConfig,
-    aOrder,
     aAuthenticateOidcConfig,
+    aFixedResponseConfig,
+    aForwardConfig,
+    aOrder,
+    aRedirectConfig,
+    aTargetGroupArn,
 
-    -- * AuthenticateCognitoActionConfig
-    AuthenticateCognitoActionConfig (..),
-    mkAuthenticateCognitoActionConfig,
-    acacUserPoolARN,
-    acacAuthenticationRequestExtraParams,
-    acacScope,
-    acacOnUnauthenticatedRequest,
-    acacSessionCookieName,
-    acacSessionTimeout,
-    acacUserPoolDomain,
-    acacUserPoolClientId,
+    -- * StringValue
+    StringValue (..),
 
-    -- * AuthenticateOidcActionConfig
-    AuthenticateOidcActionConfig (..),
-    mkAuthenticateOidcActionConfig,
-    aoacClientId,
-    aoacClientSecret,
-    aoacUserInfoEndpoint,
-    aoacUseExistingClientSecret,
-    aoacAuthenticationRequestExtraParams,
-    aoacScope,
-    aoacOnUnauthenticatedRequest,
-    aoacSessionCookieName,
-    aoacSessionTimeout,
-    aoacAuthorizationEndpoint,
-    aoacTokenEndpoint,
-    aoacIssuer,
+    -- * RedirectActionQuery
+    RedirectActionQuery (..),
 
-    -- * AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azSubnetId,
-    azZoneName,
-    azLoadBalancerAddresses,
-    azOutpostId,
+    -- * Rule
+    Rule (..),
+    mkRule,
+    rActions,
+    rConditions,
+    rIsDefault,
+    rPriority,
+    rRuleArn,
 
-    -- * Certificate
-    Certificate (..),
-    mkCertificate,
-    cCertificateARN,
-    cIsDefault,
+    -- * SubnetId
+    SubnetId (..),
 
-    -- * Cipher
-    Cipher (..),
-    mkCipher,
-    cPriority,
-    cName,
+    -- * AuthenticateOidcActionClientId
+    AuthenticateOidcActionClientId (..),
 
-    -- * FixedResponseActionConfig
-    FixedResponseActionConfig (..),
-    mkFixedResponseActionConfig,
-    fracMessageBody,
-    fracContentType,
-    fracStatusCode,
+    -- * TargetHealthStateEnum
+    TargetHealthStateEnum (..),
+
+    -- * AuthenticateOidcActionIssuer
+    AuthenticateOidcActionIssuer (..),
+
+    -- * RedirectActionPath
+    RedirectActionPath (..),
+
+    -- * ZoneName
+    ZoneName (..),
+
+    -- * QueryStringKeyValuePair
+    QueryStringKeyValuePair (..),
+    mkQueryStringKeyValuePair,
+    qskvpKey,
+    qskvpValue,
+
+    -- * SecurityGroupId
+    SecurityGroupId (..),
+
+    -- * LoadBalancerSchemeEnum
+    LoadBalancerSchemeEnum (..),
+
+    -- * PathPatternConditionConfig
+    PathPatternConditionConfig (..),
+    mkPathPatternConditionConfig,
+    ppccValues,
+
+    -- * RedirectActionHost
+    RedirectActionHost (..),
+
+    -- * CustomerOwnedIpv4Pool
+    CustomerOwnedIpv4Pool (..),
 
     -- * ForwardActionConfig
     ForwardActionConfig (..),
     mkForwardActionConfig,
-    facTargetGroups,
     facTargetGroupStickinessConfig,
+    facTargetGroups,
 
-    -- * HTTPHeaderConditionConfig
-    HTTPHeaderConditionConfig (..),
-    mkHTTPHeaderConditionConfig,
-    httphccValues,
-    httphccHTTPHeaderName,
+    -- * LoadBalancerArn
+    LoadBalancerArn (..),
 
-    -- * HTTPRequestMethodConditionConfig
-    HTTPRequestMethodConditionConfig (..),
-    mkHTTPRequestMethodConditionConfig,
-    httprmccValues,
+    -- * IpAddressType
+    IpAddressType (..),
 
-    -- * HostHeaderConditionConfig
-    HostHeaderConditionConfig (..),
-    mkHostHeaderConditionConfig,
-    hhccValues,
+    -- * ResourceArn
+    ResourceArn (..),
+
+    -- * AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azLoadBalancerAddresses,
+    azOutpostId,
+    azSubnetId,
+    azZoneName,
+
+    -- * Name
+    Name (..),
+
+    -- * RedirectActionProtocol
+    RedirectActionProtocol (..),
+
+    -- * LoadBalancer
+    LoadBalancer (..),
+    mkLoadBalancer,
+    lbAvailabilityZones,
+    lbCanonicalHostedZoneId,
+    lbCreatedTime,
+    lbCustomerOwnedIpv4Pool,
+    lbDNSName,
+    lbIpAddressType,
+    lbLoadBalancerArn,
+    lbLoadBalancerName,
+    lbScheme,
+    lbSecurityGroups,
+    lbState,
+    lbType,
+    lbVpcId,
+
+    -- * FixedResponseActionContentType
+    FixedResponseActionContentType (..),
+
+    -- * Marker
+    Marker (..),
+
+    -- * TargetTypeEnum
+    TargetTypeEnum (..),
 
     -- * Limit
     Limit (..),
@@ -144,311 +369,674 @@ module Network.AWS.ELBv2.Types
     lMax,
     lName,
 
-    -- * Listener
-    Listener (..),
-    mkListener,
-    lSSLPolicy,
-    lListenerARN,
-    lProtocol,
-    lDefaultActions,
-    lCertificates,
-    lLoadBalancerARN,
-    lAlpnPolicy,
-    lPort,
+    -- * AuthenticateOidcActionClientSecret
+    AuthenticateOidcActionClientSecret (..),
 
-    -- * LoadBalancer
-    LoadBalancer (..),
-    mkLoadBalancer,
-    lbState,
-    lbSecurityGroups,
-    lbLoadBalancerName,
-    lbCreatedTime,
-    lbVPCId,
-    lbCanonicalHostedZoneId,
-    lbAvailabilityZones,
-    lbCustomerOwnedIPv4Pool,
-    lbLoadBalancerARN,
-    lbIPAddressType,
-    lbScheme,
-    lbType,
-    lbDNSName,
+    -- * Certificate
+    Certificate (..),
+    mkCertificate,
+    cCertificateArn,
+    cIsDefault,
 
-    -- * LoadBalancerAddress
-    LoadBalancerAddress (..),
-    mkLoadBalancerAddress,
-    lbaIPv6Address,
-    lbaIPAddress,
-    lbaAllocationId,
-    lbaPrivateIPv4Address,
-
-    -- * LoadBalancerAttribute
-    LoadBalancerAttribute (..),
-    mkLoadBalancerAttribute,
-    lbaValue,
-    lbaKey,
+    -- * AuthenticateCognitoActionUserPoolClientId
+    AuthenticateCognitoActionUserPoolClientId (..),
 
     -- * LoadBalancerState
     LoadBalancerState (..),
     mkLoadBalancerState,
-    lbsReason,
     lbsCode,
+    lbsReason,
 
-    -- * Matcher
-    Matcher (..),
-    mkMatcher,
-    mHTTPCode,
-    mGrpcCode,
+    -- * RedirectActionPort
+    RedirectActionPort (..),
 
-    -- * PathPatternConditionConfig
-    PathPatternConditionConfig (..),
-    mkPathPatternConditionConfig,
-    ppccValues,
+    -- * Cipher
+    Cipher (..),
+    mkCipher,
+    cName,
+    cPriority,
 
-    -- * QueryStringConditionConfig
-    QueryStringConditionConfig (..),
-    mkQueryStringConditionConfig,
-    qsccValues,
+    -- * ActionTypeEnum
+    ActionTypeEnum (..),
 
-    -- * QueryStringKeyValuePair
-    QueryStringKeyValuePair (..),
-    mkQueryStringKeyValuePair,
-    qskvpValue,
-    qskvpKey,
+    -- * TagKey
+    TagKey (..),
 
-    -- * RedirectActionConfig
-    RedirectActionConfig (..),
-    mkRedirectActionConfig,
-    racPath,
-    racProtocol,
-    racQuery,
-    racHost,
-    racPort,
-    racStatusCode,
+    -- * TargetGroupStickinessConfig
+    TargetGroupStickinessConfig (..),
+    mkTargetGroupStickinessConfig,
+    tgscDurationSeconds,
+    tgscEnabled,
 
-    -- * Rule
-    Rule (..),
-    mkRule,
-    rPriority,
-    rActions,
-    rConditions,
-    rRuleARN,
-    rIsDefault,
+    -- * FixedResponseActionMessage
+    FixedResponseActionMessage (..),
 
-    -- * RuleCondition
-    RuleCondition (..),
-    mkRuleCondition,
-    rcField,
-    rcHTTPHeaderConfig,
-    rcHostHeaderConfig,
-    rcValues,
-    rcSourceIPConfig,
-    rcHTTPRequestMethodConfig,
-    rcPathPatternConfig,
-    rcQueryStringConfig,
+    -- * AuthenticateOidcActionConfig
+    AuthenticateOidcActionConfig (..),
+    mkAuthenticateOidcActionConfig,
+    aoacIssuer,
+    aoacAuthorizationEndpoint,
+    aoacTokenEndpoint,
+    aoacUserInfoEndpoint,
+    aoacClientId,
+    aoacAuthenticationRequestExtraParams,
+    aoacClientSecret,
+    aoacOnUnauthenticatedRequest,
+    aoacScope,
+    aoacSessionCookieName,
+    aoacSessionTimeout,
+    aoacUseExistingClientSecret,
+
+    -- * AuthenticateOidcActionAuthenticationRequestParamName
+    AuthenticateOidcActionAuthenticationRequestParamName (..),
+
+    -- * HealthCheckPort
+    HealthCheckPort (..),
+
+    -- * SslPolicyName
+    SslPolicyName (..),
+
+    -- * HttpHeaderConditionName
+    HttpHeaderConditionName (..),
+
+    -- * AuthenticateOidcActionConditionalBehaviorEnum
+    AuthenticateOidcActionConditionalBehaviorEnum (..),
+
+    -- * RuleArn
+    RuleArn (..),
+
+    -- * TargetHealthDescription
+    TargetHealthDescription (..),
+    mkTargetHealthDescription,
+    thdHealthCheckPort,
+    thdTarget,
+    thdTargetHealth,
+
+    -- * OutpostId
+    OutpostId (..),
+
+    -- * HttpHeaderConditionConfig
+    HttpHeaderConditionConfig (..),
+    mkHttpHeaderConditionConfig,
+    hHttpHeaderName,
+    hValues,
+
+    -- * AuthenticateCognitoActionConfig
+    AuthenticateCognitoActionConfig (..),
+    mkAuthenticateCognitoActionConfig,
+    acacUserPoolArn,
+    acacUserPoolClientId,
+    acacUserPoolDomain,
+    acacAuthenticationRequestExtraParams,
+    acacOnUnauthenticatedRequest,
+    acacScope,
+    acacSessionCookieName,
+    acacSessionTimeout,
 
     -- * RulePriorityPair
     RulePriorityPair (..),
     mkRulePriorityPair,
     rppPriority,
-    rppRuleARN,
+    rppRuleArn,
 
-    -- * SSLPolicy
-    SSLPolicy (..),
-    mkSSLPolicy,
-    spCiphers,
-    spName,
-    spSSLProtocols,
+    -- * Description
+    Description (..),
 
-    -- * SourceIPConditionConfig
-    SourceIPConditionConfig (..),
-    mkSourceIPConditionConfig,
-    siccValues,
+    -- * RedirectActionConfig
+    RedirectActionConfig (..),
+    mkRedirectActionConfig,
+    racStatusCode,
+    racHost,
+    racPath,
+    racPort,
+    racProtocol,
+    racQuery,
 
-    -- * SubnetMapping
-    SubnetMapping (..),
-    mkSubnetMapping,
-    smIPv6Address,
-    smAllocationId,
-    smPrivateIPv4Address,
-    smSubnetId,
+    -- * DNSName
+    DNSName (..),
 
-    -- * Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- * RedirectActionStatusCodeEnum
+    RedirectActionStatusCodeEnum (..),
 
-    -- * TagDescription
-    TagDescription (..),
-    mkTagDescription,
-    tdResourceARN,
-    tdTags,
+    -- * Listener
+    Listener (..),
+    mkListener,
+    lAlpnPolicy,
+    lCertificates,
+    lDefaultActions,
+    lListenerArn,
+    lLoadBalancerArn,
+    lPort,
+    lProtocol,
+    lSslPolicy,
 
-    -- * TargetDescription
-    TargetDescription (..),
-    mkTargetDescription,
-    tdAvailabilityZone,
-    tdId,
-    tdPort,
+    -- * LoadBalancerStateEnum
+    LoadBalancerStateEnum (..),
 
-    -- * TargetGroup
-    TargetGroup (..),
-    mkTargetGroup,
-    tgProtocolVersion,
-    tgMatcher,
-    tgHealthCheckPath,
-    tgHealthCheckEnabled,
-    tgUnhealthyThresholdCount,
-    tgVPCId,
-    tgTargetGroupARN,
-    tgProtocol,
-    tgHealthCheckIntervalSeconds,
-    tgTargetType,
-    tgHealthyThresholdCount,
-    tgHealthCheckProtocol,
-    tgLoadBalancerARNs,
-    tgHealthCheckTimeoutSeconds,
-    tgHealthCheckPort,
-    tgTargetGroupName,
-    tgPort,
-
-    -- * TargetGroupAttribute
-    TargetGroupAttribute (..),
-    mkTargetGroupAttribute,
-    tgaValue,
-    tgaKey,
-
-    -- * TargetGroupStickinessConfig
-    TargetGroupStickinessConfig (..),
-    mkTargetGroupStickinessConfig,
-    tgscEnabled,
-    tgscDurationSeconds,
+    -- * HostHeaderConditionConfig
+    HostHeaderConditionConfig (..),
+    mkHostHeaderConditionConfig,
+    hhccValues,
 
     -- * TargetGroupTuple
     TargetGroupTuple (..),
     mkTargetGroupTuple,
+    tgtTargetGroupArn,
     tgtWeight,
-    tgtTargetGroupARN,
 
-    -- * TargetHealth
-    TargetHealth (..),
-    mkTargetHealth,
-    thState,
-    thReason,
-    thDescription,
+    -- * TargetGroup
+    TargetGroup (..),
+    mkTargetGroup,
+    tgHealthCheckEnabled,
+    tgHealthCheckIntervalSeconds,
+    tgHealthCheckPath,
+    tgHealthCheckPort,
+    tgHealthCheckProtocol,
+    tgHealthCheckTimeoutSeconds,
+    tgHealthyThresholdCount,
+    tgLoadBalancerArns,
+    tgMatcher,
+    tgPort,
+    tgProtocol,
+    tgProtocolVersion,
+    tgTargetGroupArn,
+    tgTargetGroupName,
+    tgTargetType,
+    tgUnhealthyThresholdCount,
+    tgVpcId,
 
-    -- * TargetHealthDescription
-    TargetHealthDescription (..),
-    mkTargetHealthDescription,
-    thdTargetHealth,
-    thdHealthCheckPort,
-    thdTarget,
+    -- * TargetGroupName
+    TargetGroupName (..),
+
+    -- * LoadBalancerTypeEnum
+    LoadBalancerTypeEnum (..),
+
+    -- * AuthenticateCognitoActionAuthenticationRequestParamValue
+    AuthenticateCognitoActionAuthenticationRequestParamValue (..),
+
+    -- * FixedResponseActionConfig
+    FixedResponseActionConfig (..),
+    mkFixedResponseActionConfig,
+    fracStatusCode,
+    fracContentType,
+    fracMessageBody,
+
+    -- * HealthCheckPath
+    HealthCheckPath (..),
+
+    -- * NextMarker
+    NextMarker (..),
+
+    -- * Key
+    Key (..),
+
+    -- * Value
+    Value (..),
+
+    -- * Field
+    Field (..),
+
+    -- * Reason
+    Reason (..),
+
+    -- * UserInfoEndpoint
+    UserInfoEndpoint (..),
+
+    -- * UserPoolDomain
+    UserPoolDomain (..),
+
+    -- * SessionCookieName
+    SessionCookieName (..),
   )
 where
 
 import Network.AWS.ELBv2.Types.Action
 import Network.AWS.ELBv2.Types.ActionTypeEnum
+import Network.AWS.ELBv2.Types.AllocationId
+import Network.AWS.ELBv2.Types.AlpnPolicyValue
+import Network.AWS.ELBv2.Types.AuthenticateCognitoActionAuthenticationRequestParamName
+import Network.AWS.ELBv2.Types.AuthenticateCognitoActionAuthenticationRequestParamValue
 import Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
 import Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig
+import Network.AWS.ELBv2.Types.AuthenticateCognitoActionScope
+import Network.AWS.ELBv2.Types.AuthenticateCognitoActionUserPoolArn
+import Network.AWS.ELBv2.Types.AuthenticateCognitoActionUserPoolClientId
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthenticationRequestParamName
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthenticationRequestParamValue
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthorizationEndpoint
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionClientId
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionClientSecret
 import Network.AWS.ELBv2.Types.AuthenticateOidcActionConditionalBehaviorEnum
 import Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionIssuer
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionScope
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionSessionCookieName
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionTokenEndpoint
 import Network.AWS.ELBv2.Types.AvailabilityZone
+import Network.AWS.ELBv2.Types.CanonicalHostedZoneId
 import Network.AWS.ELBv2.Types.Certificate
+import Network.AWS.ELBv2.Types.CertificateArn
 import Network.AWS.ELBv2.Types.Cipher
+import Network.AWS.ELBv2.Types.CipherName
+import Network.AWS.ELBv2.Types.CustomerOwnedIpv4Pool
+import Network.AWS.ELBv2.Types.DNSName
+import Network.AWS.ELBv2.Types.Description
+import Network.AWS.ELBv2.Types.Field
 import Network.AWS.ELBv2.Types.FixedResponseActionConfig
+import Network.AWS.ELBv2.Types.FixedResponseActionContentType
+import Network.AWS.ELBv2.Types.FixedResponseActionMessage
+import Network.AWS.ELBv2.Types.FixedResponseActionStatusCode
 import Network.AWS.ELBv2.Types.ForwardActionConfig
-import Network.AWS.ELBv2.Types.HTTPHeaderConditionConfig
-import Network.AWS.ELBv2.Types.HTTPRequestMethodConditionConfig
+import Network.AWS.ELBv2.Types.GrpcCode
+import Network.AWS.ELBv2.Types.HealthCheckPath
+import Network.AWS.ELBv2.Types.HealthCheckPort
 import Network.AWS.ELBv2.Types.HostHeaderConditionConfig
-import Network.AWS.ELBv2.Types.IPAddressType
+import Network.AWS.ELBv2.Types.HttpCode
+import Network.AWS.ELBv2.Types.HttpHeaderConditionConfig
+import Network.AWS.ELBv2.Types.HttpHeaderConditionName
+import Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig
+import Network.AWS.ELBv2.Types.IPv6Address
+import Network.AWS.ELBv2.Types.IpAddress
+import Network.AWS.ELBv2.Types.IpAddressType
+import Network.AWS.ELBv2.Types.Key
 import Network.AWS.ELBv2.Types.Limit
 import Network.AWS.ELBv2.Types.Listener
+import Network.AWS.ELBv2.Types.ListenerArn
 import Network.AWS.ELBv2.Types.LoadBalancer
 import Network.AWS.ELBv2.Types.LoadBalancerAddress
+import Network.AWS.ELBv2.Types.LoadBalancerArn
 import Network.AWS.ELBv2.Types.LoadBalancerAttribute
+import Network.AWS.ELBv2.Types.LoadBalancerName
 import Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
 import Network.AWS.ELBv2.Types.LoadBalancerState
 import Network.AWS.ELBv2.Types.LoadBalancerStateEnum
 import Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
+import Network.AWS.ELBv2.Types.Marker
 import Network.AWS.ELBv2.Types.Matcher
+import Network.AWS.ELBv2.Types.Max
+import Network.AWS.ELBv2.Types.Name
+import Network.AWS.ELBv2.Types.NextMarker
+import Network.AWS.ELBv2.Types.OutpostId
+import Network.AWS.ELBv2.Types.Path
 import Network.AWS.ELBv2.Types.PathPatternConditionConfig
+import Network.AWS.ELBv2.Types.PrivateIPv4Address
 import Network.AWS.ELBv2.Types.ProtocolEnum
+import Network.AWS.ELBv2.Types.ProtocolVersion
 import Network.AWS.ELBv2.Types.QueryStringConditionConfig
 import Network.AWS.ELBv2.Types.QueryStringKeyValuePair
+import Network.AWS.ELBv2.Types.Reason
 import Network.AWS.ELBv2.Types.RedirectActionConfig
+import Network.AWS.ELBv2.Types.RedirectActionHost
+import Network.AWS.ELBv2.Types.RedirectActionPath
+import Network.AWS.ELBv2.Types.RedirectActionPort
+import Network.AWS.ELBv2.Types.RedirectActionProtocol
+import Network.AWS.ELBv2.Types.RedirectActionQuery
 import Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
+import Network.AWS.ELBv2.Types.ResourceArn
 import Network.AWS.ELBv2.Types.Rule
+import Network.AWS.ELBv2.Types.RuleArn
 import Network.AWS.ELBv2.Types.RuleCondition
 import Network.AWS.ELBv2.Types.RulePriorityPair
-import Network.AWS.ELBv2.Types.SSLPolicy
-import Network.AWS.ELBv2.Types.SourceIPConditionConfig
+import Network.AWS.ELBv2.Types.SecurityGroupId
+import Network.AWS.ELBv2.Types.SessionCookieName
+import Network.AWS.ELBv2.Types.SourceIpConditionConfig
+import Network.AWS.ELBv2.Types.SslPolicy
+import Network.AWS.ELBv2.Types.SslPolicyName
+import Network.AWS.ELBv2.Types.SslProtocol
+import Network.AWS.ELBv2.Types.String
+import Network.AWS.ELBv2.Types.StringValue
+import Network.AWS.ELBv2.Types.SubnetId
 import Network.AWS.ELBv2.Types.SubnetMapping
 import Network.AWS.ELBv2.Types.Tag
 import Network.AWS.ELBv2.Types.TagDescription
+import Network.AWS.ELBv2.Types.TagKey
 import Network.AWS.ELBv2.Types.TargetDescription
 import Network.AWS.ELBv2.Types.TargetGroup
+import Network.AWS.ELBv2.Types.TargetGroupArn
 import Network.AWS.ELBv2.Types.TargetGroupAttribute
+import Network.AWS.ELBv2.Types.TargetGroupName
 import Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
 import Network.AWS.ELBv2.Types.TargetGroupTuple
 import Network.AWS.ELBv2.Types.TargetHealth
 import Network.AWS.ELBv2.Types.TargetHealthDescription
 import Network.AWS.ELBv2.Types.TargetHealthReasonEnum
 import Network.AWS.ELBv2.Types.TargetHealthStateEnum
+import Network.AWS.ELBv2.Types.TargetId
 import Network.AWS.ELBv2.Types.TargetTypeEnum
+import Network.AWS.ELBv2.Types.UserInfoEndpoint
+import Network.AWS.ELBv2.Types.UserPoolDomain
+import Network.AWS.ELBv2.Types.Value
+import Network.AWS.ELBv2.Types.VpcId
+import Network.AWS.ELBv2.Types.ZoneName
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-12-01@ of the Amazon Elastic Load Balancing SDK configuration.
-eLBv2Service :: Lude.Service
-eLBv2Service =
-  Lude.Service
-    { Lude._svcAbbrev = "ELBv2",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "elasticloadbalancing",
-      Lude._svcVersion = "2015-12-01",
-      Lude._svcEndpoint = Lude.defaultEndpoint eLBv2Service,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseXMLError "ELBv2",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "ELBv2",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "elasticloadbalancing",
+      Core._svcVersion = "2015-12-01",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseXMLError "ELBv2",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | The requested configuration is not valid.
+_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationRequestException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidConfigurationRequest"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidConfigurationRequestException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified subnet does not exist.
+_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SubnetNotFoundException =
+  Core._MatchServiceError mkServiceConfig "SubnetNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _SubnetNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of targets.
+_TooManyTargetsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTargetsException =
+  Core._MatchServiceError mkServiceConfig "TooManyTargets"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyTargetsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified rule does not exist.
+_RuleNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RuleNotFoundException =
+  Core._MatchServiceError mkServiceConfig "RuleNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _RuleNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified subnet is out of available addresses.
+_InvalidSubnetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnetException =
+  Core._MatchServiceError mkServiceConfig "InvalidSubnet"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidSubnetException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of rules per load balancer.
+_TooManyRulesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRulesException =
+  Core._MatchServiceError mkServiceConfig "TooManyRules"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyRulesException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of target groups for your AWS account.
+_TooManyTargetGroupsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTargetGroupsException =
+  Core._MatchServiceError mkServiceConfig "TooManyTargetGroups"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyTargetGroupsException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of actions per rule.
+_TooManyActionsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyActionsException =
+  Core._MatchServiceError mkServiceConfig "TooManyActions"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyActionsException "Use generic-lens or generic-optics instead." #-}
+
+-- | A load balancer with the specified name already exists.
+_DuplicateLoadBalancerNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateLoadBalancerNameException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "DuplicateLoadBalancerName"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DuplicateLoadBalancerNameException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified configuration is not valid with this protocol.
+_IncompatibleProtocolsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IncompatibleProtocolsException =
+  Core._MatchServiceError mkServiceConfig "IncompatibleProtocols"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _IncompatibleProtocolsException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of certificates per load balancer.
+_TooManyCertificatesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyCertificatesException =
+  Core._MatchServiceError mkServiceConfig "TooManyCertificates"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyCertificatesException "Use generic-lens or generic-optics instead." #-}
+
+-- | A tag key was specified more than once.
+_DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateTagKeysException =
+  Core._MatchServiceError mkServiceConfig "DuplicateTagKeys"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DuplicateTagKeysException "Use generic-lens or generic-optics instead." #-}
+
+-- | A listener with the specified port already exists.
+_DuplicateListenerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateListenerException =
+  Core._MatchServiceError mkServiceConfig "DuplicateListener"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DuplicateListenerException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of tags per load balancer.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError mkServiceConfig "TooManyTags"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyTagsException "Use generic-lens or generic-optics instead." #-}
+
+-- | A target group with the specified name already exists.
+_DuplicateTargetGroupNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DuplicateTargetGroupNameException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "DuplicateTargetGroupName"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _DuplicateTargetGroupNameException "Use generic-lens or generic-optics instead." #-}
+
+-- | The health of the specified targets could not be retrieved due to an internal error.
+_HealthUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_HealthUnavailableException =
+  Core._MatchServiceError mkServiceConfig "HealthUnavailable"
+    Core.. Core.hasStatues 500
+{-# DEPRECATED _HealthUnavailableException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified allocation ID does not exist.
+_AllocationIdNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AllocationIdNotFoundException =
+  Core._MatchServiceError mkServiceConfig "AllocationIdNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _AllocationIdNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified priority is in use.
+_PriorityInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PriorityInUseException =
+  Core._MatchServiceError mkServiceConfig "PriorityInUse"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _PriorityInUseException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of load balancers for your AWS account.
+_TooManyLoadBalancersException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyLoadBalancersException =
+  Core._MatchServiceError mkServiceConfig "TooManyLoadBalancers"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyLoadBalancersException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified protocol is not supported.
+_UnsupportedProtocolException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedProtocolException =
+  Core._MatchServiceError mkServiceConfig "UnsupportedProtocol"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _UnsupportedProtocolException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified ALPN policy is not supported.
+_ALPNPolicyNotSupportedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ALPNPolicyNotSupportedException =
+  Core._MatchServiceError mkServiceConfig "ALPNPolicyNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ALPNPolicyNotSupportedException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
+_InvalidTargetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidTargetException =
+  Core._MatchServiceError mkServiceConfig "InvalidTarget"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidTargetException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified security group does not exist.
+_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSecurityGroupException =
+  Core._MatchServiceError mkServiceConfig "InvalidSecurityGroup"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidSecurityGroupException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified target group does not exist.
+_TargetGroupNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TargetGroupNotFoundException =
+  Core._MatchServiceError mkServiceConfig "TargetGroupNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TargetGroupNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified listener does not exist.
+_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ListenerNotFoundException =
+  Core._MatchServiceError mkServiceConfig "ListenerNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ListenerNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The requested action is not valid.
+_InvalidLoadBalancerActionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidLoadBalancerActionException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidLoadBalancerAction"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidLoadBalancerActionException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of times a target can be registered with a load balancer.
+_TooManyRegistrationsForTargetIdException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRegistrationsForTargetIdException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "TooManyRegistrationsForTargetId"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyRegistrationsForTargetIdException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of listeners per load balancer.
+_TooManyListenersException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyListenersException =
+  Core._MatchServiceError mkServiceConfig "TooManyListeners"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyListenersException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of load balancers per target group.
+_TargetGroupAssociationLimitException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TargetGroupAssociationLimitException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "TargetGroupAssociationLimit"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TargetGroupAssociationLimitException "Use generic-lens or generic-optics instead." #-}
+
+-- | This operation is not allowed.
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException =
+  Core._MatchServiceError mkServiceConfig "OperationNotPermitted"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _OperationNotPermittedException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified SSL policy does not exist.
+_SSLPolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SSLPolicyNotFoundException =
+  Core._MatchServiceError mkServiceConfig "SSLPolicyNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _SSLPolicyNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The requested scheme is not valid.
+_InvalidSchemeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidSchemeException =
+  Core._MatchServiceError mkServiceConfig "InvalidScheme"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _InvalidSchemeException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified Availability Zone is not supported.
+_AvailabilityZoneNotSupportedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AvailabilityZoneNotSupportedException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "AvailabilityZoneNotSupported"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _AvailabilityZoneNotSupportedException "Use generic-lens or generic-optics instead." #-}
+
+-- | You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.
+_TooManyUniqueTargetGroupsPerLoadBalancerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyUniqueTargetGroupsPerLoadBalancerException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "TooManyUniqueTargetGroupsPerLoadBalancer"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _TooManyUniqueTargetGroupsPerLoadBalancerException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified load balancer does not exist.
+_LoadBalancerNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LoadBalancerNotFoundException =
+  Core._MatchServiceError mkServiceConfig "LoadBalancerNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _LoadBalancerNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | A specified resource is in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError mkServiceConfig "ResourceInUse"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ResourceInUseException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified certificate does not exist.
+_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CertificateNotFoundException =
+  Core._MatchServiceError mkServiceConfig "CertificateNotFound"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _CertificateNotFoundException "Use generic-lens or generic-optics instead." #-}

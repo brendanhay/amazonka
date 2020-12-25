@@ -13,51 +13,56 @@
 module Network.AWS.DirectConnect.Types.HasLogicalRedundancy
   ( HasLogicalRedundancy
       ( HasLogicalRedundancy',
-        HLRUnknown,
-        HLRYes,
-        HLRNO
+        HasLogicalRedundancyUnknown,
+        HasLogicalRedundancyYes,
+        HasLogicalRedundancyNO,
+        fromHasLogicalRedundancy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HasLogicalRedundancy = HasLogicalRedundancy' Lude.Text
+newtype HasLogicalRedundancy = HasLogicalRedundancy'
+  { fromHasLogicalRedundancy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HLRUnknown :: HasLogicalRedundancy
-pattern HLRUnknown = HasLogicalRedundancy' "unknown"
+pattern HasLogicalRedundancyUnknown :: HasLogicalRedundancy
+pattern HasLogicalRedundancyUnknown = HasLogicalRedundancy' "unknown"
 
-pattern HLRYes :: HasLogicalRedundancy
-pattern HLRYes = HasLogicalRedundancy' "yes"
+pattern HasLogicalRedundancyYes :: HasLogicalRedundancy
+pattern HasLogicalRedundancyYes = HasLogicalRedundancy' "yes"
 
-pattern HLRNO :: HasLogicalRedundancy
-pattern HLRNO = HasLogicalRedundancy' "no"
+pattern HasLogicalRedundancyNO :: HasLogicalRedundancy
+pattern HasLogicalRedundancyNO = HasLogicalRedundancy' "no"
 
 {-# COMPLETE
-  HLRUnknown,
-  HLRYes,
-  HLRNO,
+  HasLogicalRedundancyUnknown,
+  HasLogicalRedundancyYes,
+  HasLogicalRedundancyNO,
   HasLogicalRedundancy'
   #-}

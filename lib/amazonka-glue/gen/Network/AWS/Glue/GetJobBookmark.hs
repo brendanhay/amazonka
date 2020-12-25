@@ -28,123 +28,110 @@ module Network.AWS.Glue.GetJobBookmark
     mkGetJobBookmarkResponse,
 
     -- ** Response lenses
-    gjbrsJobBookmarkEntry,
-    gjbrsResponseStatus,
+    gjbrrsJobBookmarkEntry,
+    gjbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetJobBookmark' smart constructor.
 data GetJobBookmark = GetJobBookmark'
   { -- | The name of the job in question.
-    jobName :: Lude.Text,
+    jobName :: Types.JobName,
     -- | The unique run identifier associated with this job run.
-    runId :: Lude.Maybe Lude.Text
+    runId :: Core.Maybe Types.RunId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetJobBookmark' with the minimum fields required to make a request.
---
--- * 'jobName' - The name of the job in question.
--- * 'runId' - The unique run identifier associated with this job run.
+-- | Creates a 'GetJobBookmark' value with any optional fields omitted.
 mkGetJobBookmark ::
   -- | 'jobName'
-  Lude.Text ->
+  Types.JobName ->
   GetJobBookmark
-mkGetJobBookmark pJobName_ =
-  GetJobBookmark' {jobName = pJobName_, runId = Lude.Nothing}
+mkGetJobBookmark jobName =
+  GetJobBookmark' {jobName, runId = Core.Nothing}
 
 -- | The name of the job in question.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjbJobName :: Lens.Lens' GetJobBookmark Lude.Text
-gjbJobName = Lens.lens (jobName :: GetJobBookmark -> Lude.Text) (\s a -> s {jobName = a} :: GetJobBookmark)
+gjbJobName :: Lens.Lens' GetJobBookmark Types.JobName
+gjbJobName = Lens.field @"jobName"
 {-# DEPRECATED gjbJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The unique run identifier associated with this job run.
 --
 -- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjbRunId :: Lens.Lens' GetJobBookmark (Lude.Maybe Lude.Text)
-gjbRunId = Lens.lens (runId :: GetJobBookmark -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: GetJobBookmark)
+gjbRunId :: Lens.Lens' GetJobBookmark (Core.Maybe Types.RunId)
+gjbRunId = Lens.field @"runId"
 {-# DEPRECATED gjbRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
-instance Lude.AWSRequest GetJobBookmark where
+instance Core.FromJSON GetJobBookmark where
+  toJSON GetJobBookmark {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobName" Core..= jobName),
+            ("RunId" Core..=) Core.<$> runId
+          ]
+      )
+
+instance Core.AWSRequest GetJobBookmark where
   type Rs GetJobBookmark = GetJobBookmarkResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetJobBookmark")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetJobBookmarkResponse'
-            Lude.<$> (x Lude..?> "JobBookmarkEntry")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobBookmarkEntry")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetJobBookmark where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetJobBookmark" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetJobBookmark where
-  toJSON GetJobBookmark' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobName" Lude..= jobName),
-            ("RunId" Lude..=) Lude.<$> runId
-          ]
-      )
-
-instance Lude.ToPath GetJobBookmark where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetJobBookmark where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetJobBookmarkResponse' smart constructor.
 data GetJobBookmarkResponse = GetJobBookmarkResponse'
   { -- | A structure that defines a point that a job can resume processing.
-    jobBookmarkEntry :: Lude.Maybe JobBookmarkEntry,
+    jobBookmarkEntry :: Core.Maybe Types.JobBookmarkEntry,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetJobBookmarkResponse' with the minimum fields required to make a request.
---
--- * 'jobBookmarkEntry' - A structure that defines a point that a job can resume processing.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetJobBookmarkResponse' value with any optional fields omitted.
 mkGetJobBookmarkResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetJobBookmarkResponse
-mkGetJobBookmarkResponse pResponseStatus_ =
+mkGetJobBookmarkResponse responseStatus =
   GetJobBookmarkResponse'
-    { jobBookmarkEntry = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobBookmarkEntry = Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that defines a point that a job can resume processing.
 --
 -- /Note:/ Consider using 'jobBookmarkEntry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjbrsJobBookmarkEntry :: Lens.Lens' GetJobBookmarkResponse (Lude.Maybe JobBookmarkEntry)
-gjbrsJobBookmarkEntry = Lens.lens (jobBookmarkEntry :: GetJobBookmarkResponse -> Lude.Maybe JobBookmarkEntry) (\s a -> s {jobBookmarkEntry = a} :: GetJobBookmarkResponse)
-{-# DEPRECATED gjbrsJobBookmarkEntry "Use generic-lens or generic-optics with 'jobBookmarkEntry' instead." #-}
+gjbrrsJobBookmarkEntry :: Lens.Lens' GetJobBookmarkResponse (Core.Maybe Types.JobBookmarkEntry)
+gjbrrsJobBookmarkEntry = Lens.field @"jobBookmarkEntry"
+{-# DEPRECATED gjbrrsJobBookmarkEntry "Use generic-lens or generic-optics with 'jobBookmarkEntry' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjbrsResponseStatus :: Lens.Lens' GetJobBookmarkResponse Lude.Int
-gjbrsResponseStatus = Lens.lens (responseStatus :: GetJobBookmarkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJobBookmarkResponse)
-{-# DEPRECATED gjbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gjbrrsResponseStatus :: Lens.Lens' GetJobBookmarkResponse Core.Int
+gjbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gjbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

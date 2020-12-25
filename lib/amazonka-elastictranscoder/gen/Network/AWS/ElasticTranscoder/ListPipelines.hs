@@ -30,136 +30,132 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     mkListPipelinesResponse,
 
     -- ** Response lenses
-    lprsNextPageToken,
-    lprsPipelines,
-    lprsResponseStatus,
+    lprrsNextPageToken,
+    lprrsPipelines,
+    lprrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @ListPipelineRequest@ structure.
 --
 -- /See:/ 'mkListPipelines' smart constructor.
 data ListPipelines = ListPipelines'
   { -- | To list pipelines in chronological order by the date and time that they were created, enter @true@ . To list pipelines in reverse chronological order, enter @false@ .
-    ascending :: Lude.Maybe Lude.Text,
+    ascending :: Core.Maybe Types.Ascending,
     -- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.PageToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
---
--- * 'ascending' - To list pipelines in chronological order by the date and time that they were created, enter @true@ . To list pipelines in reverse chronological order, enter @false@ .
--- * 'pageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
+-- | Creates a 'ListPipelines' value with any optional fields omitted.
 mkListPipelines ::
   ListPipelines
 mkListPipelines =
   ListPipelines'
-    { ascending = Lude.Nothing,
-      pageToken = Lude.Nothing
+    { ascending = Core.Nothing,
+      pageToken = Core.Nothing
     }
 
 -- | To list pipelines in chronological order by the date and time that they were created, enter @true@ . To list pipelines in reverse chronological order, enter @false@ .
 --
 -- /Note:/ Consider using 'ascending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpAscending :: Lens.Lens' ListPipelines (Lude.Maybe Lude.Text)
-lpAscending = Lens.lens (ascending :: ListPipelines -> Lude.Maybe Lude.Text) (\s a -> s {ascending = a} :: ListPipelines)
+lpAscending :: Lens.Lens' ListPipelines (Core.Maybe Types.Ascending)
+lpAscending = Lens.field @"ascending"
 {-# DEPRECATED lpAscending "Use generic-lens or generic-optics with 'ascending' instead." #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpPageToken :: Lens.Lens' ListPipelines (Lude.Maybe Lude.Text)
-lpPageToken = Lens.lens (pageToken :: ListPipelines -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListPipelines)
+lpPageToken :: Lens.Lens' ListPipelines (Core.Maybe Types.PageToken)
+lpPageToken = Lens.field @"pageToken"
 {-# DEPRECATED lpPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager ListPipelines where
-  page rq rs
-    | Page.stop (rs Lens.^. lprsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lprsPipelines) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpPageToken Lens..~ rs Lens.^. lprsNextPageToken
-
-instance Lude.AWSRequest ListPipelines where
+instance Core.AWSRequest ListPipelines where
   type Rs ListPipelines = ListPipelinesResponse
-  request = Req.get elasticTranscoderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2012-09-25/pipelines",
+        Core._rqQuery =
+          Core.toQueryValue "Ascending" Core.<$> ascending
+            Core.<> (Core.toQueryValue "PageToken" Core.<$> pageToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "Pipelines" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "Pipelines")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListPipelines where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListPipelines where
-  toPath = Lude.const "/2012-09-25/pipelines"
-
-instance Lude.ToQuery ListPipelines where
-  toQuery ListPipelines' {..} =
-    Lude.mconcat
-      ["Ascending" Lude.=: ascending, "PageToken" Lude.=: pageToken]
+instance Pager.AWSPager ListPipelines where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"pipelines" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | A list of the pipelines associated with the current AWS account.
 --
 -- /See:/ 'mkListPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
   { -- | A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | An array of @Pipeline@ objects.
-    pipelines :: Lude.Maybe [Pipeline],
+    pipelines :: Core.Maybe [Types.Pipeline],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
--- * 'pipelines' - An array of @Pipeline@ objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPipelinesResponse' value with any optional fields omitted.
 mkListPipelinesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPipelinesResponse
-mkListPipelinesResponse pResponseStatus_ =
+mkListPipelinesResponse responseStatus =
   ListPipelinesResponse'
-    { nextPageToken = Lude.Nothing,
-      pipelines = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextPageToken = Core.Nothing,
+      pipelines = Core.Nothing,
+      responseStatus
     }
 
 -- | A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsNextPageToken :: Lens.Lens' ListPipelinesResponse (Lude.Maybe Lude.Text)
-lprsNextPageToken = Lens.lens (nextPageToken :: ListPipelinesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListPipelinesResponse)
-{-# DEPRECATED lprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+lprrsNextPageToken :: Lens.Lens' ListPipelinesResponse (Core.Maybe Types.NextPageToken)
+lprrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED lprrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of @Pipeline@ objects.
 --
 -- /Note:/ Consider using 'pipelines' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsPipelines :: Lens.Lens' ListPipelinesResponse (Lude.Maybe [Pipeline])
-lprsPipelines = Lens.lens (pipelines :: ListPipelinesResponse -> Lude.Maybe [Pipeline]) (\s a -> s {pipelines = a} :: ListPipelinesResponse)
-{-# DEPRECATED lprsPipelines "Use generic-lens or generic-optics with 'pipelines' instead." #-}
+lprrsPipelines :: Lens.Lens' ListPipelinesResponse (Core.Maybe [Types.Pipeline])
+lprrsPipelines = Lens.field @"pipelines"
+{-# DEPRECATED lprrsPipelines "Use generic-lens or generic-optics with 'pipelines' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsResponseStatus :: Lens.Lens' ListPipelinesResponse Lude.Int
-lprsResponseStatus = Lens.lens (responseStatus :: ListPipelinesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPipelinesResponse)
-{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lprrsResponseStatus :: Lens.Lens' ListPipelinesResponse Core.Int
+lprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

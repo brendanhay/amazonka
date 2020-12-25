@@ -13,92 +13,97 @@
 module Network.AWS.MediaConvert.Types.ContainerType
   ( ContainerType
       ( ContainerType',
-        CTF4V,
-        CTIsmv,
-        CTM2TS,
-        CTM3U8,
-        CTCmfc,
-        CTMov,
-        CTMP4,
-        CTMpd,
-        CTMxf,
-        CTWebm,
-        CTRaw
+        ContainerTypeF4V,
+        ContainerTypeIsmv,
+        ContainerTypeM2TS,
+        ContainerTypeM3U8,
+        ContainerTypeCmfc,
+        ContainerTypeMov,
+        ContainerTypeMP4,
+        ContainerTypeMpd,
+        ContainerTypeMxf,
+        ContainerTypeWebm,
+        ContainerTypeRaw,
+        fromContainerType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
-newtype ContainerType = ContainerType' Lude.Text
+newtype ContainerType = ContainerType'
+  { fromContainerType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CTF4V :: ContainerType
-pattern CTF4V = ContainerType' "F4V"
+pattern ContainerTypeF4V :: ContainerType
+pattern ContainerTypeF4V = ContainerType' "F4V"
 
-pattern CTIsmv :: ContainerType
-pattern CTIsmv = ContainerType' "ISMV"
+pattern ContainerTypeIsmv :: ContainerType
+pattern ContainerTypeIsmv = ContainerType' "ISMV"
 
-pattern CTM2TS :: ContainerType
-pattern CTM2TS = ContainerType' "M2TS"
+pattern ContainerTypeM2TS :: ContainerType
+pattern ContainerTypeM2TS = ContainerType' "M2TS"
 
-pattern CTM3U8 :: ContainerType
-pattern CTM3U8 = ContainerType' "M3U8"
+pattern ContainerTypeM3U8 :: ContainerType
+pattern ContainerTypeM3U8 = ContainerType' "M3U8"
 
-pattern CTCmfc :: ContainerType
-pattern CTCmfc = ContainerType' "CMFC"
+pattern ContainerTypeCmfc :: ContainerType
+pattern ContainerTypeCmfc = ContainerType' "CMFC"
 
-pattern CTMov :: ContainerType
-pattern CTMov = ContainerType' "MOV"
+pattern ContainerTypeMov :: ContainerType
+pattern ContainerTypeMov = ContainerType' "MOV"
 
-pattern CTMP4 :: ContainerType
-pattern CTMP4 = ContainerType' "MP4"
+pattern ContainerTypeMP4 :: ContainerType
+pattern ContainerTypeMP4 = ContainerType' "MP4"
 
-pattern CTMpd :: ContainerType
-pattern CTMpd = ContainerType' "MPD"
+pattern ContainerTypeMpd :: ContainerType
+pattern ContainerTypeMpd = ContainerType' "MPD"
 
-pattern CTMxf :: ContainerType
-pattern CTMxf = ContainerType' "MXF"
+pattern ContainerTypeMxf :: ContainerType
+pattern ContainerTypeMxf = ContainerType' "MXF"
 
-pattern CTWebm :: ContainerType
-pattern CTWebm = ContainerType' "WEBM"
+pattern ContainerTypeWebm :: ContainerType
+pattern ContainerTypeWebm = ContainerType' "WEBM"
 
-pattern CTRaw :: ContainerType
-pattern CTRaw = ContainerType' "RAW"
+pattern ContainerTypeRaw :: ContainerType
+pattern ContainerTypeRaw = ContainerType' "RAW"
 
 {-# COMPLETE
-  CTF4V,
-  CTIsmv,
-  CTM2TS,
-  CTM3U8,
-  CTCmfc,
-  CTMov,
-  CTMP4,
-  CTMpd,
-  CTMxf,
-  CTWebm,
-  CTRaw,
+  ContainerTypeF4V,
+  ContainerTypeIsmv,
+  ContainerTypeM2TS,
+  ContainerTypeM3U8,
+  ContainerTypeCmfc,
+  ContainerTypeMov,
+  ContainerTypeMP4,
+  ContainerTypeMpd,
+  ContainerTypeMxf,
+  ContainerTypeWebm,
+  ContainerTypeRaw,
   ContainerType'
   #-}

@@ -17,70 +17,64 @@ module Network.AWS.IoTAnalytics.Types.DatastoreActivity
     mkDatastoreActivity,
 
     -- * Lenses
-    daDatastoreName,
     daName,
+    daDatastoreName,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.ActivityName as Types
+import qualified Network.AWS.IoTAnalytics.Types.DatastoreName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The datastore activity that specifies where to store the processed data.
 --
 -- /See:/ 'mkDatastoreActivity' smart constructor.
 data DatastoreActivity = DatastoreActivity'
-  { -- | The name of the data store where processed messages are stored.
-    datastoreName :: Lude.Text,
-    -- | The name of the datastore activity.
-    name :: Lude.Text
+  { -- | The name of the datastore activity.
+    name :: Types.ActivityName,
+    -- | The name of the data store where processed messages are stored.
+    datastoreName :: Types.DatastoreName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DatastoreActivity' with the minimum fields required to make a request.
---
--- * 'datastoreName' - The name of the data store where processed messages are stored.
--- * 'name' - The name of the datastore activity.
+-- | Creates a 'DatastoreActivity' value with any optional fields omitted.
 mkDatastoreActivity ::
-  -- | 'datastoreName'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.ActivityName ->
+  -- | 'datastoreName'
+  Types.DatastoreName ->
   DatastoreActivity
-mkDatastoreActivity pDatastoreName_ pName_ =
-  DatastoreActivity'
-    { datastoreName = pDatastoreName_,
-      name = pName_
-    }
-
--- | The name of the data store where processed messages are stored.
---
--- /Note:/ Consider using 'datastoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daDatastoreName :: Lens.Lens' DatastoreActivity Lude.Text
-daDatastoreName = Lens.lens (datastoreName :: DatastoreActivity -> Lude.Text) (\s a -> s {datastoreName = a} :: DatastoreActivity)
-{-# DEPRECATED daDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
+mkDatastoreActivity name datastoreName =
+  DatastoreActivity' {name, datastoreName}
 
 -- | The name of the datastore activity.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daName :: Lens.Lens' DatastoreActivity Lude.Text
-daName = Lens.lens (name :: DatastoreActivity -> Lude.Text) (\s a -> s {name = a} :: DatastoreActivity)
+daName :: Lens.Lens' DatastoreActivity Types.ActivityName
+daName = Lens.field @"name"
 {-# DEPRECATED daName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON DatastoreActivity where
-  parseJSON =
-    Lude.withObject
-      "DatastoreActivity"
-      ( \x ->
-          DatastoreActivity'
-            Lude.<$> (x Lude..: "datastoreName") Lude.<*> (x Lude..: "name")
-      )
+-- | The name of the data store where processed messages are stored.
+--
+-- /Note:/ Consider using 'datastoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daDatastoreName :: Lens.Lens' DatastoreActivity Types.DatastoreName
+daDatastoreName = Lens.field @"datastoreName"
+{-# DEPRECATED daDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
 
-instance Lude.ToJSON DatastoreActivity where
-  toJSON DatastoreActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("datastoreName" Lude..= datastoreName),
-            Lude.Just ("name" Lude..= name)
+instance Core.FromJSON DatastoreActivity where
+  toJSON DatastoreActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("datastoreName" Core..= datastoreName)
           ]
       )
+
+instance Core.FromJSON DatastoreActivity where
+  parseJSON =
+    Core.withObject "DatastoreActivity" Core.$
+      \x ->
+        DatastoreActivity'
+          Core.<$> (x Core..: "name") Core.<*> (x Core..: "datastoreName")

@@ -22,24 +22,22 @@ module Network.AWS.Pinpoint.Types.RawEmail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the contents of an email message, represented as a raw MIME message.
 --
 -- /See:/ 'mkRawEmail' smart constructor.
 newtype RawEmail = RawEmail'
   { -- | The email message, represented as a raw MIME message. The entire message must be base64 encoded.
-    data' :: Lude.Maybe Lude.Base64
+    data' :: Core.Maybe Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RawEmail' with the minimum fields required to make a request.
---
--- * 'data'' - The email message, represented as a raw MIME message. The entire message must be base64 encoded.
+-- | Creates a 'RawEmail' value with any optional fields omitted.
 mkRawEmail ::
   RawEmail
-mkRawEmail = RawEmail' {data' = Lude.Nothing}
+mkRawEmail = RawEmail' {data' = Core.Nothing}
 
 -- | The email message, represented as a raw MIME message. The entire message must be base64 encoded.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -48,10 +46,10 @@ mkRawEmail = RawEmail' {data' = Lude.Nothing}
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reData :: Lens.Lens' RawEmail (Lude.Maybe Lude.Base64)
-reData = Lens.lens (data' :: RawEmail -> Lude.Maybe Lude.Base64) (\s a -> s {data' = a} :: RawEmail)
+reData :: Lens.Lens' RawEmail (Core.Maybe Core.Base64)
+reData = Lens.field @"data'"
 {-# DEPRECATED reData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
-instance Lude.ToJSON RawEmail where
-  toJSON RawEmail' {..} =
-    Lude.object (Lude.catMaybes [("Data" Lude..=) Lude.<$> data'])
+instance Core.FromJSON RawEmail where
+  toJSON RawEmail {..} =
+    Core.object (Core.catMaybes [("Data" Core..=) Core.<$> data'])

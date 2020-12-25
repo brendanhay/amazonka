@@ -114,9 +114,9 @@ module Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
     mkImportCertificateAuthorityCertificate,
 
     -- ** Request lenses
+    icacCertificateAuthorityArn,
     icacCertificate,
     icacCertificateChain,
-    icacCertificateAuthorityARN,
 
     -- * Destructuring the response
     ImportCertificateAuthorityCertificateResponse (..),
@@ -124,52 +124,52 @@ module Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkImportCertificateAuthorityCertificate' smart constructor.
 data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertificate'
-  { -- | The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.
-    certificate :: Lude.Base64,
+  { -- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+    certificateAuthorityArn :: Types.Arn,
+    -- | The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.
+    certificate :: Core.Base64,
     -- | A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding.
     --
     -- This parameter must be supplied when you import a subordinate CA. When you import a root CA, there is no chain.
-    certificateChain :: Lude.Maybe Lude.Base64,
-    -- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
-    --
-    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
-    certificateAuthorityARN :: Lude.Text
+    certificateChain :: Core.Maybe Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportCertificateAuthorityCertificate' with the minimum fields required to make a request.
---
--- * 'certificate' - The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.
--- * 'certificateChain' - A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding.
---
--- This parameter must be supplied when you import a subordinate CA. When you import a root CA, there is no chain.
--- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | Creates a 'ImportCertificateAuthorityCertificate' value with any optional fields omitted.
 mkImportCertificateAuthorityCertificate ::
+  -- | 'certificateAuthorityArn'
+  Types.Arn ->
   -- | 'certificate'
-  Lude.Base64 ->
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
+  Core.Base64 ->
   ImportCertificateAuthorityCertificate
 mkImportCertificateAuthorityCertificate
-  pCertificate_
-  pCertificateAuthorityARN_ =
+  certificateAuthorityArn
+  certificate =
     ImportCertificateAuthorityCertificate'
-      { certificate =
-          pCertificate_,
-        certificateChain = Lude.Nothing,
-        certificateAuthorityARN = pCertificateAuthorityARN_
+      { certificateAuthorityArn,
+        certificate,
+        certificateChain = Core.Nothing
       }
+
+-- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
+--
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+--
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icacCertificateAuthorityArn :: Lens.Lens' ImportCertificateAuthorityCertificate Types.Arn
+icacCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED icacCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
 -- | The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -178,8 +178,8 @@ mkImportCertificateAuthorityCertificate
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icacCertificate :: Lens.Lens' ImportCertificateAuthorityCertificate Lude.Base64
-icacCertificate = Lens.lens (certificate :: ImportCertificateAuthorityCertificate -> Lude.Base64) (\s a -> s {certificate = a} :: ImportCertificateAuthorityCertificate)
+icacCertificate :: Lens.Lens' ImportCertificateAuthorityCertificate Core.Base64
+icacCertificate = Lens.field @"certificate"
 {-# DEPRECATED icacCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding.
@@ -191,63 +191,49 @@ icacCertificate = Lens.lens (certificate :: ImportCertificateAuthorityCertificat
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'certificateChain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icacCertificateChain :: Lens.Lens' ImportCertificateAuthorityCertificate (Lude.Maybe Lude.Base64)
-icacCertificateChain = Lens.lens (certificateChain :: ImportCertificateAuthorityCertificate -> Lude.Maybe Lude.Base64) (\s a -> s {certificateChain = a} :: ImportCertificateAuthorityCertificate)
+icacCertificateChain :: Lens.Lens' ImportCertificateAuthorityCertificate (Core.Maybe Core.Base64)
+icacCertificateChain = Lens.field @"certificateChain"
 {-# DEPRECATED icacCertificateChain "Use generic-lens or generic-optics with 'certificateChain' instead." #-}
 
--- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
---
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icacCertificateAuthorityARN :: Lens.Lens' ImportCertificateAuthorityCertificate Lude.Text
-icacCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: ImportCertificateAuthorityCertificate -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: ImportCertificateAuthorityCertificate)
-{-# DEPRECATED icacCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+instance Core.FromJSON ImportCertificateAuthorityCertificate where
+  toJSON ImportCertificateAuthorityCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateAuthorityArn" Core..= certificateAuthorityArn),
+            Core.Just ("Certificate" Core..= certificate),
+            ("CertificateChain" Core..=) Core.<$> certificateChain
+          ]
+      )
 
-instance Lude.AWSRequest ImportCertificateAuthorityCertificate where
+instance Core.AWSRequest ImportCertificateAuthorityCertificate where
   type
     Rs ImportCertificateAuthorityCertificate =
       ImportCertificateAuthorityCertificateResponse
-  request = Req.postJSON certificateManagerPCAService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "ACMPrivateCA.ImportCertificateAuthorityCertificate"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveNull ImportCertificateAuthorityCertificateResponse'
-
-instance Lude.ToHeaders ImportCertificateAuthorityCertificate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "ACMPrivateCA.ImportCertificateAuthorityCertificate" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ImportCertificateAuthorityCertificate where
-  toJSON ImportCertificateAuthorityCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Certificate" Lude..= certificate),
-            ("CertificateChain" Lude..=) Lude.<$> certificateChain,
-            Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
-          ]
-      )
-
-instance Lude.ToPath ImportCertificateAuthorityCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ImportCertificateAuthorityCertificate where
-  toQuery = Lude.const Lude.mempty
+    Response.receiveNull
+      ImportCertificateAuthorityCertificateResponse'
 
 -- | /See:/ 'mkImportCertificateAuthorityCertificateResponse' smart constructor.
 data ImportCertificateAuthorityCertificateResponse = ImportCertificateAuthorityCertificateResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportCertificateAuthorityCertificateResponse' with the minimum fields required to make a request.
+-- | Creates a 'ImportCertificateAuthorityCertificateResponse' value with any optional fields omitted.
 mkImportCertificateAuthorityCertificateResponse ::
   ImportCertificateAuthorityCertificateResponse
 mkImportCertificateAuthorityCertificateResponse =

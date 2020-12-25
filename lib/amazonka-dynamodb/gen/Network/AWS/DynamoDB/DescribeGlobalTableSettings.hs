@@ -27,129 +27,115 @@ module Network.AWS.DynamoDB.DescribeGlobalTableSettings
     mkDescribeGlobalTableSettingsResponse,
 
     -- ** Response lenses
-    dgtsrsReplicaSettings,
-    dgtsrsGlobalTableName,
-    dgtsrsResponseStatus,
+    dgtsrrsGlobalTableName,
+    dgtsrrsReplicaSettings,
+    dgtsrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeGlobalTableSettings' smart constructor.
 newtype DescribeGlobalTableSettings = DescribeGlobalTableSettings'
   { -- | The name of the global table to describe.
-    globalTableName :: Lude.Text
+    globalTableName :: Types.GlobalTableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeGlobalTableSettings' with the minimum fields required to make a request.
---
--- * 'globalTableName' - The name of the global table to describe.
+-- | Creates a 'DescribeGlobalTableSettings' value with any optional fields omitted.
 mkDescribeGlobalTableSettings ::
   -- | 'globalTableName'
-  Lude.Text ->
+  Types.GlobalTableName ->
   DescribeGlobalTableSettings
-mkDescribeGlobalTableSettings pGlobalTableName_ =
-  DescribeGlobalTableSettings' {globalTableName = pGlobalTableName_}
+mkDescribeGlobalTableSettings globalTableName =
+  DescribeGlobalTableSettings' {globalTableName}
 
 -- | The name of the global table to describe.
 --
 -- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgtsGlobalTableName :: Lens.Lens' DescribeGlobalTableSettings Lude.Text
-dgtsGlobalTableName = Lens.lens (globalTableName :: DescribeGlobalTableSettings -> Lude.Text) (\s a -> s {globalTableName = a} :: DescribeGlobalTableSettings)
+dgtsGlobalTableName :: Lens.Lens' DescribeGlobalTableSettings Types.GlobalTableName
+dgtsGlobalTableName = Lens.field @"globalTableName"
 {-# DEPRECATED dgtsGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
-instance Lude.AWSRequest DescribeGlobalTableSettings where
+instance Core.FromJSON DescribeGlobalTableSettings where
+  toJSON DescribeGlobalTableSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("GlobalTableName" Core..= globalTableName)]
+      )
+
+instance Core.AWSRequest DescribeGlobalTableSettings where
   type
     Rs DescribeGlobalTableSettings =
       DescribeGlobalTableSettingsResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DynamoDB_20120810.DescribeGlobalTableSettings")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeGlobalTableSettingsResponse'
-            Lude.<$> (x Lude..?> "ReplicaSettings" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "GlobalTableName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GlobalTableName")
+            Core.<*> (x Core..:? "ReplicaSettings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeGlobalTableSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DynamoDB_20120810.DescribeGlobalTableSettings" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeGlobalTableSettings where
-  toJSON DescribeGlobalTableSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("GlobalTableName" Lude..= globalTableName)]
-      )
-
-instance Lude.ToPath DescribeGlobalTableSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeGlobalTableSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeGlobalTableSettingsResponse' smart constructor.
 data DescribeGlobalTableSettingsResponse = DescribeGlobalTableSettingsResponse'
-  { -- | The Region-specific settings for the global table.
-    replicaSettings :: Lude.Maybe [ReplicaSettingsDescription],
-    -- | The name of the global table.
-    globalTableName :: Lude.Maybe Lude.Text,
+  { -- | The name of the global table.
+    globalTableName :: Core.Maybe Types.GlobalTableName,
+    -- | The Region-specific settings for the global table.
+    replicaSettings :: Core.Maybe [Types.ReplicaSettingsDescription],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeGlobalTableSettingsResponse' with the minimum fields required to make a request.
---
--- * 'replicaSettings' - The Region-specific settings for the global table.
--- * 'globalTableName' - The name of the global table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeGlobalTableSettingsResponse' value with any optional fields omitted.
 mkDescribeGlobalTableSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeGlobalTableSettingsResponse
-mkDescribeGlobalTableSettingsResponse pResponseStatus_ =
+mkDescribeGlobalTableSettingsResponse responseStatus =
   DescribeGlobalTableSettingsResponse'
-    { replicaSettings =
-        Lude.Nothing,
-      globalTableName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { globalTableName =
+        Core.Nothing,
+      replicaSettings = Core.Nothing,
+      responseStatus
     }
-
--- | The Region-specific settings for the global table.
---
--- /Note:/ Consider using 'replicaSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgtsrsReplicaSettings :: Lens.Lens' DescribeGlobalTableSettingsResponse (Lude.Maybe [ReplicaSettingsDescription])
-dgtsrsReplicaSettings = Lens.lens (replicaSettings :: DescribeGlobalTableSettingsResponse -> Lude.Maybe [ReplicaSettingsDescription]) (\s a -> s {replicaSettings = a} :: DescribeGlobalTableSettingsResponse)
-{-# DEPRECATED dgtsrsReplicaSettings "Use generic-lens or generic-optics with 'replicaSettings' instead." #-}
 
 -- | The name of the global table.
 --
 -- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgtsrsGlobalTableName :: Lens.Lens' DescribeGlobalTableSettingsResponse (Lude.Maybe Lude.Text)
-dgtsrsGlobalTableName = Lens.lens (globalTableName :: DescribeGlobalTableSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {globalTableName = a} :: DescribeGlobalTableSettingsResponse)
-{-# DEPRECATED dgtsrsGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
+dgtsrrsGlobalTableName :: Lens.Lens' DescribeGlobalTableSettingsResponse (Core.Maybe Types.GlobalTableName)
+dgtsrrsGlobalTableName = Lens.field @"globalTableName"
+{-# DEPRECATED dgtsrrsGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
+
+-- | The Region-specific settings for the global table.
+--
+-- /Note:/ Consider using 'replicaSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgtsrrsReplicaSettings :: Lens.Lens' DescribeGlobalTableSettingsResponse (Core.Maybe [Types.ReplicaSettingsDescription])
+dgtsrrsReplicaSettings = Lens.field @"replicaSettings"
+{-# DEPRECATED dgtsrrsReplicaSettings "Use generic-lens or generic-optics with 'replicaSettings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgtsrsResponseStatus :: Lens.Lens' DescribeGlobalTableSettingsResponse Lude.Int
-dgtsrsResponseStatus = Lens.lens (responseStatus :: DescribeGlobalTableSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGlobalTableSettingsResponse)
-{-# DEPRECATED dgtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgtsrrsResponseStatus :: Lens.Lens' DescribeGlobalTableSettingsResponse Core.Int
+dgtsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgtsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,8 +22,8 @@ module Network.AWS.WAFRegional.GetSampledRequests
     mkGetSampledRequests,
 
     -- ** Request lenses
+    gsrWebAclId,
     gsrRuleId,
-    gsrWebACLId,
     gsrTimeWindow,
     gsrMaxItems,
 
@@ -32,70 +32,59 @@ module Network.AWS.WAFRegional.GetSampledRequests
     mkGetSampledRequestsResponse,
 
     -- ** Response lenses
-    gsrrsSampledRequests,
-    gsrrsPopulationSize,
-    gsrrsTimeWindow,
-    gsrrsResponseStatus,
+    gsrrrsPopulationSize,
+    gsrrrsSampledRequests,
+    gsrrrsTimeWindow,
+    gsrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkGetSampledRequests' smart constructor.
 data GetSampledRequests = GetSampledRequests'
-  { -- | @RuleId@ is one of three values:
+  { -- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
+    webAclId :: Types.WebAclId,
+    -- | @RuleId@ is one of three values:
     --
     --
     --     * The @RuleId@ of the @Rule@ or the @RuleGroupId@ of the @RuleGroup@ for which you want @GetSampledRequests@ to return a sample of requests.
     --
     --
     --     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
-    ruleId :: Lude.Text,
-    -- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
-    webACLId :: Lude.Text,
+    ruleId :: Types.RuleId,
     -- | The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
-    timeWindow :: TimeWindow,
+    timeWindow :: Types.TimeWindow,
     -- | The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of @MaxItems@ , @GetSampledRequests@ returns information about all of them.
-    maxItems :: Lude.Natural
+    maxItems :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetSampledRequests' with the minimum fields required to make a request.
---
--- * 'ruleId' - @RuleId@ is one of three values:
---
---
---     * The @RuleId@ of the @Rule@ or the @RuleGroupId@ of the @RuleGroup@ for which you want @GetSampledRequests@ to return a sample of requests.
---
---
---     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
---
---
--- * 'webACLId' - The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
--- * 'timeWindow' - The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
--- * 'maxItems' - The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of @MaxItems@ , @GetSampledRequests@ returns information about all of them.
+-- | Creates a 'GetSampledRequests' value with any optional fields omitted.
 mkGetSampledRequests ::
+  -- | 'webAclId'
+  Types.WebAclId ->
   -- | 'ruleId'
-  Lude.Text ->
-  -- | 'webACLId'
-  Lude.Text ->
+  Types.RuleId ->
   -- | 'timeWindow'
-  TimeWindow ->
+  Types.TimeWindow ->
   -- | 'maxItems'
-  Lude.Natural ->
+  Core.Natural ->
   GetSampledRequests
-mkGetSampledRequests pRuleId_ pWebACLId_ pTimeWindow_ pMaxItems_ =
-  GetSampledRequests'
-    { ruleId = pRuleId_,
-      webACLId = pWebACLId_,
-      timeWindow = pTimeWindow_,
-      maxItems = pMaxItems_
-    }
+mkGetSampledRequests webAclId ruleId timeWindow maxItems =
+  GetSampledRequests' {webAclId, ruleId, timeWindow, maxItems}
+
+-- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
+--
+-- /Note:/ Consider using 'webAclId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrWebAclId :: Lens.Lens' GetSampledRequests Types.WebAclId
+gsrWebAclId = Lens.field @"webAclId"
+{-# DEPRECATED gsrWebAclId "Use generic-lens or generic-optics with 'webAclId' instead." #-}
 
 -- | @RuleId@ is one of three values:
 --
@@ -108,128 +97,110 @@ mkGetSampledRequests pRuleId_ pWebACLId_ pTimeWindow_ pMaxItems_ =
 --
 --
 -- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrRuleId :: Lens.Lens' GetSampledRequests Lude.Text
-gsrRuleId = Lens.lens (ruleId :: GetSampledRequests -> Lude.Text) (\s a -> s {ruleId = a} :: GetSampledRequests)
+gsrRuleId :: Lens.Lens' GetSampledRequests Types.RuleId
+gsrRuleId = Lens.field @"ruleId"
 {-# DEPRECATED gsrRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
-
--- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
---
--- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrWebACLId :: Lens.Lens' GetSampledRequests Lude.Text
-gsrWebACLId = Lens.lens (webACLId :: GetSampledRequests -> Lude.Text) (\s a -> s {webACLId = a} :: GetSampledRequests)
-{-# DEPRECATED gsrWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 --
 -- /Note:/ Consider using 'timeWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrTimeWindow :: Lens.Lens' GetSampledRequests TimeWindow
-gsrTimeWindow = Lens.lens (timeWindow :: GetSampledRequests -> TimeWindow) (\s a -> s {timeWindow = a} :: GetSampledRequests)
+gsrTimeWindow :: Lens.Lens' GetSampledRequests Types.TimeWindow
+gsrTimeWindow = Lens.field @"timeWindow"
 {-# DEPRECATED gsrTimeWindow "Use generic-lens or generic-optics with 'timeWindow' instead." #-}
 
 -- | The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of @MaxItems@ , @GetSampledRequests@ returns information about all of them.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrMaxItems :: Lens.Lens' GetSampledRequests Lude.Natural
-gsrMaxItems = Lens.lens (maxItems :: GetSampledRequests -> Lude.Natural) (\s a -> s {maxItems = a} :: GetSampledRequests)
+gsrMaxItems :: Lens.Lens' GetSampledRequests Core.Natural
+gsrMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED gsrMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Lude.AWSRequest GetSampledRequests where
+instance Core.FromJSON GetSampledRequests where
+  toJSON GetSampledRequests {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WebAclId" Core..= webAclId),
+            Core.Just ("RuleId" Core..= ruleId),
+            Core.Just ("TimeWindow" Core..= timeWindow),
+            Core.Just ("MaxItems" Core..= maxItems)
+          ]
+      )
+
+instance Core.AWSRequest GetSampledRequests where
   type Rs GetSampledRequests = GetSampledRequestsResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.GetSampledRequests")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSampledRequestsResponse'
-            Lude.<$> (x Lude..?> "SampledRequests" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "PopulationSize")
-            Lude.<*> (x Lude..?> "TimeWindow")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PopulationSize")
+            Core.<*> (x Core..:? "SampledRequests")
+            Core.<*> (x Core..:? "TimeWindow")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSampledRequests where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.GetSampledRequests" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetSampledRequests where
-  toJSON GetSampledRequests' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RuleId" Lude..= ruleId),
-            Lude.Just ("WebAclId" Lude..= webACLId),
-            Lude.Just ("TimeWindow" Lude..= timeWindow),
-            Lude.Just ("MaxItems" Lude..= maxItems)
-          ]
-      )
-
-instance Lude.ToPath GetSampledRequests where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSampledRequests where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSampledRequestsResponse' smart constructor.
 data GetSampledRequestsResponse = GetSampledRequestsResponse'
-  { -- | A complex type that contains detailed information about each of the requests in the sample.
-    sampledRequests :: Lude.Maybe [SampledHTTPRequest],
-    -- | The total number of requests from which @GetSampledRequests@ got a sample of @MaxItems@ requests. If @PopulationSize@ is less than @MaxItems@ , the sample includes every request that your AWS resource received during the specified time range.
-    populationSize :: Lude.Maybe Lude.Integer,
+  { -- | The total number of requests from which @GetSampledRequests@ got a sample of @MaxItems@ requests. If @PopulationSize@ is less than @MaxItems@ , the sample includes every request that your AWS resource received during the specified time range.
+    populationSize :: Core.Maybe Core.Integer,
+    -- | A complex type that contains detailed information about each of the requests in the sample.
+    sampledRequests :: Core.Maybe [Types.SampledHTTPRequest],
     -- | Usually, @TimeWindow@ is the time range that you specified in the @GetSampledRequests@ request. However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, @GetSampledRequests@ returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.
-    timeWindow :: Lude.Maybe TimeWindow,
+    timeWindow :: Core.Maybe Types.TimeWindow,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetSampledRequestsResponse' with the minimum fields required to make a request.
---
--- * 'sampledRequests' - A complex type that contains detailed information about each of the requests in the sample.
--- * 'populationSize' - The total number of requests from which @GetSampledRequests@ got a sample of @MaxItems@ requests. If @PopulationSize@ is less than @MaxItems@ , the sample includes every request that your AWS resource received during the specified time range.
--- * 'timeWindow' - Usually, @TimeWindow@ is the time range that you specified in the @GetSampledRequests@ request. However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, @GetSampledRequests@ returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSampledRequestsResponse' value with any optional fields omitted.
 mkGetSampledRequestsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSampledRequestsResponse
-mkGetSampledRequestsResponse pResponseStatus_ =
+mkGetSampledRequestsResponse responseStatus =
   GetSampledRequestsResponse'
-    { sampledRequests = Lude.Nothing,
-      populationSize = Lude.Nothing,
-      timeWindow = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { populationSize = Core.Nothing,
+      sampledRequests = Core.Nothing,
+      timeWindow = Core.Nothing,
+      responseStatus
     }
-
--- | A complex type that contains detailed information about each of the requests in the sample.
---
--- /Note:/ Consider using 'sampledRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrrsSampledRequests :: Lens.Lens' GetSampledRequestsResponse (Lude.Maybe [SampledHTTPRequest])
-gsrrsSampledRequests = Lens.lens (sampledRequests :: GetSampledRequestsResponse -> Lude.Maybe [SampledHTTPRequest]) (\s a -> s {sampledRequests = a} :: GetSampledRequestsResponse)
-{-# DEPRECATED gsrrsSampledRequests "Use generic-lens or generic-optics with 'sampledRequests' instead." #-}
 
 -- | The total number of requests from which @GetSampledRequests@ got a sample of @MaxItems@ requests. If @PopulationSize@ is less than @MaxItems@ , the sample includes every request that your AWS resource received during the specified time range.
 --
 -- /Note:/ Consider using 'populationSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrrsPopulationSize :: Lens.Lens' GetSampledRequestsResponse (Lude.Maybe Lude.Integer)
-gsrrsPopulationSize = Lens.lens (populationSize :: GetSampledRequestsResponse -> Lude.Maybe Lude.Integer) (\s a -> s {populationSize = a} :: GetSampledRequestsResponse)
-{-# DEPRECATED gsrrsPopulationSize "Use generic-lens or generic-optics with 'populationSize' instead." #-}
+gsrrrsPopulationSize :: Lens.Lens' GetSampledRequestsResponse (Core.Maybe Core.Integer)
+gsrrrsPopulationSize = Lens.field @"populationSize"
+{-# DEPRECATED gsrrrsPopulationSize "Use generic-lens or generic-optics with 'populationSize' instead." #-}
+
+-- | A complex type that contains detailed information about each of the requests in the sample.
+--
+-- /Note:/ Consider using 'sampledRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrrrsSampledRequests :: Lens.Lens' GetSampledRequestsResponse (Core.Maybe [Types.SampledHTTPRequest])
+gsrrrsSampledRequests = Lens.field @"sampledRequests"
+{-# DEPRECATED gsrrrsSampledRequests "Use generic-lens or generic-optics with 'sampledRequests' instead." #-}
 
 -- | Usually, @TimeWindow@ is the time range that you specified in the @GetSampledRequests@ request. However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, @GetSampledRequests@ returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.
 --
 -- /Note:/ Consider using 'timeWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrrsTimeWindow :: Lens.Lens' GetSampledRequestsResponse (Lude.Maybe TimeWindow)
-gsrrsTimeWindow = Lens.lens (timeWindow :: GetSampledRequestsResponse -> Lude.Maybe TimeWindow) (\s a -> s {timeWindow = a} :: GetSampledRequestsResponse)
-{-# DEPRECATED gsrrsTimeWindow "Use generic-lens or generic-optics with 'timeWindow' instead." #-}
+gsrrrsTimeWindow :: Lens.Lens' GetSampledRequestsResponse (Core.Maybe Types.TimeWindow)
+gsrrrsTimeWindow = Lens.field @"timeWindow"
+{-# DEPRECATED gsrrrsTimeWindow "Use generic-lens or generic-optics with 'timeWindow' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrrsResponseStatus :: Lens.Lens' GetSampledRequestsResponse Lude.Int
-gsrrsResponseStatus = Lens.lens (responseStatus :: GetSampledRequestsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSampledRequestsResponse)
-{-# DEPRECATED gsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsrrrsResponseStatus :: Lens.Lens' GetSampledRequestsResponse Core.Int
+gsrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

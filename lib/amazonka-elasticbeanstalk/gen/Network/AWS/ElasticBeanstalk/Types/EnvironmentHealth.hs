@@ -13,56 +13,61 @@
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth
   ( EnvironmentHealth
       ( EnvironmentHealth',
-        Green,
-        Yellow,
-        Red,
-        Grey
+        EnvironmentHealthGreen,
+        EnvironmentHealthYellow,
+        EnvironmentHealthRed,
+        EnvironmentHealthGrey,
+        fromEnvironmentHealth
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EnvironmentHealth = EnvironmentHealth' Lude.Text
+newtype EnvironmentHealth = EnvironmentHealth'
+  { fromEnvironmentHealth ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Green :: EnvironmentHealth
-pattern Green = EnvironmentHealth' "Green"
+pattern EnvironmentHealthGreen :: EnvironmentHealth
+pattern EnvironmentHealthGreen = EnvironmentHealth' "Green"
 
-pattern Yellow :: EnvironmentHealth
-pattern Yellow = EnvironmentHealth' "Yellow"
+pattern EnvironmentHealthYellow :: EnvironmentHealth
+pattern EnvironmentHealthYellow = EnvironmentHealth' "Yellow"
 
-pattern Red :: EnvironmentHealth
-pattern Red = EnvironmentHealth' "Red"
+pattern EnvironmentHealthRed :: EnvironmentHealth
+pattern EnvironmentHealthRed = EnvironmentHealth' "Red"
 
-pattern Grey :: EnvironmentHealth
-pattern Grey = EnvironmentHealth' "Grey"
+pattern EnvironmentHealthGrey :: EnvironmentHealth
+pattern EnvironmentHealthGrey = EnvironmentHealth' "Grey"
 
 {-# COMPLETE
-  Green,
-  Yellow,
-  Red,
-  Grey,
+  EnvironmentHealthGreen,
+  EnvironmentHealthYellow,
+  EnvironmentHealthRed,
+  EnvironmentHealthGrey,
   EnvironmentHealth'
   #-}

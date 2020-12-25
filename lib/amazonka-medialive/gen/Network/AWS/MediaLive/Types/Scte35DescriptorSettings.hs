@@ -22,56 +22,49 @@ module Network.AWS.MediaLive.Types.Scte35DescriptorSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | SCTE-35 Descriptor settings.
 --
 -- /See:/ 'mkScte35DescriptorSettings' smart constructor.
 newtype Scte35DescriptorSettings = Scte35DescriptorSettings'
   { -- | SCTE-35 Segmentation Descriptor.
-    segmentationDescriptorScte35DescriptorSettings :: Scte35SegmentationDescriptor
+    segmentationDescriptorScte35DescriptorSettings :: Types.Scte35SegmentationDescriptor
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Scte35DescriptorSettings' with the minimum fields required to make a request.
---
--- * 'segmentationDescriptorScte35DescriptorSettings' - SCTE-35 Segmentation Descriptor.
+-- | Creates a 'Scte35DescriptorSettings' value with any optional fields omitted.
 mkScte35DescriptorSettings ::
   -- | 'segmentationDescriptorScte35DescriptorSettings'
-  Scte35SegmentationDescriptor ->
+  Types.Scte35SegmentationDescriptor ->
   Scte35DescriptorSettings
 mkScte35DescriptorSettings
-  pSegmentationDescriptorScte35DescriptorSettings_ =
-    Scte35DescriptorSettings'
-      { segmentationDescriptorScte35DescriptorSettings =
-          pSegmentationDescriptorScte35DescriptorSettings_
-      }
+  segmentationDescriptorScte35DescriptorSettings =
+    Scte35DescriptorSettings' {segmentationDescriptorScte35DescriptorSettings}
 
 -- | SCTE-35 Segmentation Descriptor.
 --
 -- /Note:/ Consider using 'segmentationDescriptorScte35DescriptorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsSegmentationDescriptorScte35DescriptorSettings :: Lens.Lens' Scte35DescriptorSettings Scte35SegmentationDescriptor
-sdsSegmentationDescriptorScte35DescriptorSettings = Lens.lens (segmentationDescriptorScte35DescriptorSettings :: Scte35DescriptorSettings -> Scte35SegmentationDescriptor) (\s a -> s {segmentationDescriptorScte35DescriptorSettings = a} :: Scte35DescriptorSettings)
+sdsSegmentationDescriptorScte35DescriptorSettings :: Lens.Lens' Scte35DescriptorSettings Types.Scte35SegmentationDescriptor
+sdsSegmentationDescriptorScte35DescriptorSettings = Lens.field @"segmentationDescriptorScte35DescriptorSettings"
 {-# DEPRECATED sdsSegmentationDescriptorScte35DescriptorSettings "Use generic-lens or generic-optics with 'segmentationDescriptorScte35DescriptorSettings' instead." #-}
 
-instance Lude.FromJSON Scte35DescriptorSettings where
-  parseJSON =
-    Lude.withObject
-      "Scte35DescriptorSettings"
-      ( \x ->
-          Scte35DescriptorSettings'
-            Lude.<$> (x Lude..: "segmentationDescriptorScte35DescriptorSettings")
-      )
-
-instance Lude.ToJSON Scte35DescriptorSettings where
-  toJSON Scte35DescriptorSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON Scte35DescriptorSettings where
+  toJSON Scte35DescriptorSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "segmentationDescriptorScte35DescriptorSettings"
-                  Lude..= segmentationDescriptorScte35DescriptorSettings
+                  Core..= segmentationDescriptorScte35DescriptorSettings
               )
           ]
       )
+
+instance Core.FromJSON Scte35DescriptorSettings where
+  parseJSON =
+    Core.withObject "Scte35DescriptorSettings" Core.$
+      \x ->
+        Scte35DescriptorSettings'
+          Core.<$> (x Core..: "segmentationDescriptorScte35DescriptorSettings")

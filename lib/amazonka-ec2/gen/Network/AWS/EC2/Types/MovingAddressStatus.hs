@@ -18,53 +18,51 @@ module Network.AWS.EC2.Types.MovingAddressStatus
 
     -- * Lenses
     masMoveStatus,
-    masPublicIP,
+    masPublicIp,
   )
 where
 
-import Network.AWS.EC2.Types.MoveStatus
+import qualified Network.AWS.EC2.Types.MoveStatus as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the status of a moving Elastic IP address.
 --
 -- /See:/ 'mkMovingAddressStatus' smart constructor.
 data MovingAddressStatus = MovingAddressStatus'
   { -- | The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
-    moveStatus :: Lude.Maybe MoveStatus,
+    moveStatus :: Core.Maybe Types.MoveStatus,
     -- | The Elastic IP address.
-    publicIP :: Lude.Maybe Lude.Text
+    publicIp :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MovingAddressStatus' with the minimum fields required to make a request.
---
--- * 'moveStatus' - The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
--- * 'publicIP' - The Elastic IP address.
+-- | Creates a 'MovingAddressStatus' value with any optional fields omitted.
 mkMovingAddressStatus ::
   MovingAddressStatus
 mkMovingAddressStatus =
   MovingAddressStatus'
-    { moveStatus = Lude.Nothing,
-      publicIP = Lude.Nothing
+    { moveStatus = Core.Nothing,
+      publicIp = Core.Nothing
     }
 
 -- | The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
 --
 -- /Note:/ Consider using 'moveStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-masMoveStatus :: Lens.Lens' MovingAddressStatus (Lude.Maybe MoveStatus)
-masMoveStatus = Lens.lens (moveStatus :: MovingAddressStatus -> Lude.Maybe MoveStatus) (\s a -> s {moveStatus = a} :: MovingAddressStatus)
+masMoveStatus :: Lens.Lens' MovingAddressStatus (Core.Maybe Types.MoveStatus)
+masMoveStatus = Lens.field @"moveStatus"
 {-# DEPRECATED masMoveStatus "Use generic-lens or generic-optics with 'moveStatus' instead." #-}
 
 -- | The Elastic IP address.
 --
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-masPublicIP :: Lens.Lens' MovingAddressStatus (Lude.Maybe Lude.Text)
-masPublicIP = Lens.lens (publicIP :: MovingAddressStatus -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: MovingAddressStatus)
-{-# DEPRECATED masPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+masPublicIp :: Lens.Lens' MovingAddressStatus (Core.Maybe Types.String)
+masPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED masPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
 
-instance Lude.FromXML MovingAddressStatus where
+instance Core.FromXML MovingAddressStatus where
   parseXML x =
     MovingAddressStatus'
-      Lude.<$> (x Lude..@? "moveStatus") Lude.<*> (x Lude..@? "publicIp")
+      Core.<$> (x Core..@? "moveStatus") Core.<*> (x Core..@? "publicIp")

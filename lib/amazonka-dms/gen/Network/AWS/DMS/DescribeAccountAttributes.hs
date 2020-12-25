@@ -26,113 +26,101 @@ module Network.AWS.DMS.DescribeAccountAttributes
     mkDescribeAccountAttributesResponse,
 
     -- ** Response lenses
-    daarsAccountQuotas,
-    daarsUniqueAccountIdentifier,
-    daarsResponseStatus,
+    daarrsAccountQuotas,
+    daarrsUniqueAccountIdentifier,
+    daarrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
+-- | Creates a 'DescribeAccountAttributes' value with any optional fields omitted.
 mkDescribeAccountAttributes ::
   DescribeAccountAttributes
 mkDescribeAccountAttributes = DescribeAccountAttributes'
 
-instance Lude.AWSRequest DescribeAccountAttributes where
+instance Core.FromJSON DescribeAccountAttributes where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeAccountAttributes where
   type
     Rs DescribeAccountAttributes =
       DescribeAccountAttributesResponse
-  request = Req.postJSON dmsService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.DescribeAccountAttributes")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Lude.<$> (x Lude..?> "AccountQuotas" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "UniqueAccountIdentifier")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AccountQuotas")
+            Core.<*> (x Core..:? "UniqueAccountIdentifier")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAccountAttributes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonDMSv20160101.DescribeAccountAttributes" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAccountAttributes where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeAccountAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAccountAttributes where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
   { -- | Account quota information.
-    accountQuotas :: Lude.Maybe [AccountQuota],
+    accountQuotas :: Core.Maybe [Types.AccountQuota],
     -- | A unique AWS DMS identifier for an account in a particular AWS Region. The value of this identifier has the following format: @c99999999999@ . DMS uses this identifier to name artifacts. For example, DMS uses this identifier to name the default Amazon S3 bucket for storing task assessment reports in a given AWS Region. The format of this S3 bucket name is the following: @dms-/AccountNumber/ -/UniqueAccountIdentifier/ .@ Here is an example name for this default S3 bucket: @dms-111122223333-c44445555666@ .
-    uniqueAccountIdentifier :: Lude.Maybe Lude.Text,
+    uniqueAccountIdentifier :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
---
--- * 'accountQuotas' - Account quota information.
--- * 'uniqueAccountIdentifier' - A unique AWS DMS identifier for an account in a particular AWS Region. The value of this identifier has the following format: @c99999999999@ . DMS uses this identifier to name artifacts. For example, DMS uses this identifier to name the default Amazon S3 bucket for storing task assessment reports in a given AWS Region. The format of this S3 bucket name is the following: @dms-/AccountNumber/ -/UniqueAccountIdentifier/ .@ Here is an example name for this default S3 bucket: @dms-111122223333-c44445555666@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAccountAttributesResponse' value with any optional fields omitted.
 mkDescribeAccountAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAccountAttributesResponse
-mkDescribeAccountAttributesResponse pResponseStatus_ =
+mkDescribeAccountAttributesResponse responseStatus =
   DescribeAccountAttributesResponse'
-    { accountQuotas = Lude.Nothing,
-      uniqueAccountIdentifier = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { accountQuotas = Core.Nothing,
+      uniqueAccountIdentifier = Core.Nothing,
+      responseStatus
     }
 
 -- | Account quota information.
 --
 -- /Note:/ Consider using 'accountQuotas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAccountQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Lude.Maybe [AccountQuota])
-daarsAccountQuotas = Lens.lens (accountQuotas :: DescribeAccountAttributesResponse -> Lude.Maybe [AccountQuota]) (\s a -> s {accountQuotas = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsAccountQuotas "Use generic-lens or generic-optics with 'accountQuotas' instead." #-}
+daarrsAccountQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Core.Maybe [Types.AccountQuota])
+daarrsAccountQuotas = Lens.field @"accountQuotas"
+{-# DEPRECATED daarrsAccountQuotas "Use generic-lens or generic-optics with 'accountQuotas' instead." #-}
 
 -- | A unique AWS DMS identifier for an account in a particular AWS Region. The value of this identifier has the following format: @c99999999999@ . DMS uses this identifier to name artifacts. For example, DMS uses this identifier to name the default Amazon S3 bucket for storing task assessment reports in a given AWS Region. The format of this S3 bucket name is the following: @dms-/AccountNumber/ -/UniqueAccountIdentifier/ .@ Here is an example name for this default S3 bucket: @dms-111122223333-c44445555666@ .
 --
 -- /Note:/ Consider using 'uniqueAccountIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsUniqueAccountIdentifier :: Lens.Lens' DescribeAccountAttributesResponse (Lude.Maybe Lude.Text)
-daarsUniqueAccountIdentifier = Lens.lens (uniqueAccountIdentifier :: DescribeAccountAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {uniqueAccountIdentifier = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsUniqueAccountIdentifier "Use generic-lens or generic-optics with 'uniqueAccountIdentifier' instead." #-}
+daarrsUniqueAccountIdentifier :: Lens.Lens' DescribeAccountAttributesResponse (Core.Maybe Types.String)
+daarrsUniqueAccountIdentifier = Lens.field @"uniqueAccountIdentifier"
+{-# DEPRECATED daarrsUniqueAccountIdentifier "Use generic-lens or generic-optics with 'uniqueAccountIdentifier' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Lude.Int
-daarsResponseStatus = Lens.lens (responseStatus :: DescribeAccountAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daarrsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Core.Int
+daarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

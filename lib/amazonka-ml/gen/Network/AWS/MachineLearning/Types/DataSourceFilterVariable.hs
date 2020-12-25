@@ -13,17 +13,18 @@
 module Network.AWS.MachineLearning.Types.DataSourceFilterVariable
   ( DataSourceFilterVariable
       ( DataSourceFilterVariable',
-        DataCreatedAt,
-        DataLastUpdatedAt,
-        DataStatus,
-        DataName,
-        DataDATALOCATIONS3,
-        DataIAMUser
+        DataSourceFilterVariableDataCreatedAt,
+        DataSourceFilterVariableDataLastUpdatedAt,
+        DataSourceFilterVariableDataStatus,
+        DataSourceFilterVariableDataName,
+        DataSourceFilterVariableDataDATALOCATIONS3,
+        DataSourceFilterVariableDataIAMUser,
+        fromDataSourceFilterVariable
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of the variables to use in searching or filtering @DataSource@ .
 --
@@ -37,54 +38,58 @@ import qualified Network.AWS.Prelude as Lude
 --     * @DataUri@ - Sets the search criteria to the URI of data files used to create the @DataSource@ . The URI can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
 --
 --     * @IAMUser@ - Sets the search criteria to the user account that invoked the @DataSource@ creation.
-newtype DataSourceFilterVariable = DataSourceFilterVariable' Lude.Text
+newtype DataSourceFilterVariable = DataSourceFilterVariable'
+  { fromDataSourceFilterVariable ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DataCreatedAt :: DataSourceFilterVariable
-pattern DataCreatedAt = DataSourceFilterVariable' "CreatedAt"
+pattern DataSourceFilterVariableDataCreatedAt :: DataSourceFilterVariable
+pattern DataSourceFilterVariableDataCreatedAt = DataSourceFilterVariable' "CreatedAt"
 
-pattern DataLastUpdatedAt :: DataSourceFilterVariable
-pattern DataLastUpdatedAt = DataSourceFilterVariable' "LastUpdatedAt"
+pattern DataSourceFilterVariableDataLastUpdatedAt :: DataSourceFilterVariable
+pattern DataSourceFilterVariableDataLastUpdatedAt = DataSourceFilterVariable' "LastUpdatedAt"
 
-pattern DataStatus :: DataSourceFilterVariable
-pattern DataStatus = DataSourceFilterVariable' "Status"
+pattern DataSourceFilterVariableDataStatus :: DataSourceFilterVariable
+pattern DataSourceFilterVariableDataStatus = DataSourceFilterVariable' "Status"
 
-pattern DataName :: DataSourceFilterVariable
-pattern DataName = DataSourceFilterVariable' "Name"
+pattern DataSourceFilterVariableDataName :: DataSourceFilterVariable
+pattern DataSourceFilterVariableDataName = DataSourceFilterVariable' "Name"
 
-pattern DataDATALOCATIONS3 :: DataSourceFilterVariable
-pattern DataDATALOCATIONS3 = DataSourceFilterVariable' "DataLocationS3"
+pattern DataSourceFilterVariableDataDATALOCATIONS3 :: DataSourceFilterVariable
+pattern DataSourceFilterVariableDataDATALOCATIONS3 = DataSourceFilterVariable' "DataLocationS3"
 
-pattern DataIAMUser :: DataSourceFilterVariable
-pattern DataIAMUser = DataSourceFilterVariable' "IAMUser"
+pattern DataSourceFilterVariableDataIAMUser :: DataSourceFilterVariable
+pattern DataSourceFilterVariableDataIAMUser = DataSourceFilterVariable' "IAMUser"
 
 {-# COMPLETE
-  DataCreatedAt,
-  DataLastUpdatedAt,
-  DataStatus,
-  DataName,
-  DataDATALOCATIONS3,
-  DataIAMUser,
+  DataSourceFilterVariableDataCreatedAt,
+  DataSourceFilterVariableDataLastUpdatedAt,
+  DataSourceFilterVariableDataStatus,
+  DataSourceFilterVariableDataName,
+  DataSourceFilterVariableDataDATALOCATIONS3,
+  DataSourceFilterVariableDataIAMUser,
   DataSourceFilterVariable'
   #-}

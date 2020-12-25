@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.H264DynamicSubGop
   ( H264DynamicSubGop
       ( H264DynamicSubGop',
-        HAdaptive,
-        HStatic
+        H264DynamicSubGopAdaptive,
+        H264DynamicSubGopStatic,
+        fromH264DynamicSubGop
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-newtype H264DynamicSubGop = H264DynamicSubGop' Lude.Text
+newtype H264DynamicSubGop = H264DynamicSubGop'
+  { fromH264DynamicSubGop ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HAdaptive :: H264DynamicSubGop
-pattern HAdaptive = H264DynamicSubGop' "ADAPTIVE"
+pattern H264DynamicSubGopAdaptive :: H264DynamicSubGop
+pattern H264DynamicSubGopAdaptive = H264DynamicSubGop' "ADAPTIVE"
 
-pattern HStatic :: H264DynamicSubGop
-pattern HStatic = H264DynamicSubGop' "STATIC"
+pattern H264DynamicSubGopStatic :: H264DynamicSubGop
+pattern H264DynamicSubGopStatic = H264DynamicSubGop' "STATIC"
 
 {-# COMPLETE
-  HAdaptive,
-  HStatic,
+  H264DynamicSubGopAdaptive,
+  H264DynamicSubGopStatic,
   H264DynamicSubGop'
   #-}

@@ -21,149 +21,138 @@ module Network.AWS.MediaLive.UpdateChannelClass
 
     -- ** Request lenses
     uccChannelId,
-    uccDestinations,
     uccChannelClass,
+    uccDestinations,
 
     -- * Destructuring the response
     UpdateChannelClassResponse (..),
     mkUpdateChannelClassResponse,
 
     -- ** Response lenses
-    uccrsChannel,
-    uccrsResponseStatus,
+    uccrrsChannel,
+    uccrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Channel class that the channel should be updated to.
 --
 -- /See:/ 'mkUpdateChannelClass' smart constructor.
 data UpdateChannelClass = UpdateChannelClass'
   { -- | Channel Id of the channel whose class should be updated.
-    channelId :: Lude.Text,
-    -- | A list of output destinations for this channel.
-    destinations :: Lude.Maybe [OutputDestination],
+    channelId :: Core.Text,
     -- | The channel class that you wish to update this channel to use.
-    channelClass :: ChannelClass
+    channelClass :: Types.ChannelClass,
+    -- | A list of output destinations for this channel.
+    destinations :: Core.Maybe [Types.OutputDestination]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateChannelClass' with the minimum fields required to make a request.
---
--- * 'channelId' - Channel Id of the channel whose class should be updated.
--- * 'destinations' - A list of output destinations for this channel.
--- * 'channelClass' - The channel class that you wish to update this channel to use.
+-- | Creates a 'UpdateChannelClass' value with any optional fields omitted.
 mkUpdateChannelClass ::
   -- | 'channelId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'channelClass'
-  ChannelClass ->
+  Types.ChannelClass ->
   UpdateChannelClass
-mkUpdateChannelClass pChannelId_ pChannelClass_ =
+mkUpdateChannelClass channelId channelClass =
   UpdateChannelClass'
-    { channelId = pChannelId_,
-      destinations = Lude.Nothing,
-      channelClass = pChannelClass_
+    { channelId,
+      channelClass,
+      destinations = Core.Nothing
     }
 
 -- | Channel Id of the channel whose class should be updated.
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccChannelId :: Lens.Lens' UpdateChannelClass Lude.Text
-uccChannelId = Lens.lens (channelId :: UpdateChannelClass -> Lude.Text) (\s a -> s {channelId = a} :: UpdateChannelClass)
+uccChannelId :: Lens.Lens' UpdateChannelClass Core.Text
+uccChannelId = Lens.field @"channelId"
 {-# DEPRECATED uccChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
-
--- | A list of output destinations for this channel.
---
--- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccDestinations :: Lens.Lens' UpdateChannelClass (Lude.Maybe [OutputDestination])
-uccDestinations = Lens.lens (destinations :: UpdateChannelClass -> Lude.Maybe [OutputDestination]) (\s a -> s {destinations = a} :: UpdateChannelClass)
-{-# DEPRECATED uccDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The channel class that you wish to update this channel to use.
 --
 -- /Note:/ Consider using 'channelClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccChannelClass :: Lens.Lens' UpdateChannelClass ChannelClass
-uccChannelClass = Lens.lens (channelClass :: UpdateChannelClass -> ChannelClass) (\s a -> s {channelClass = a} :: UpdateChannelClass)
+uccChannelClass :: Lens.Lens' UpdateChannelClass Types.ChannelClass
+uccChannelClass = Lens.field @"channelClass"
 {-# DEPRECATED uccChannelClass "Use generic-lens or generic-optics with 'channelClass' instead." #-}
 
-instance Lude.AWSRequest UpdateChannelClass where
+-- | A list of output destinations for this channel.
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccDestinations :: Lens.Lens' UpdateChannelClass (Core.Maybe [Types.OutputDestination])
+uccDestinations = Lens.field @"destinations"
+{-# DEPRECATED uccDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
+
+instance Core.FromJSON UpdateChannelClass where
+  toJSON UpdateChannelClass {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("channelClass" Core..= channelClass),
+            ("destinations" Core..=) Core.<$> destinations
+          ]
+      )
+
+instance Core.AWSRequest UpdateChannelClass where
   type Rs UpdateChannelClass = UpdateChannelClassResponse
-  request = Req.putJSON mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/channels/" Core.<> (Core.toText channelId)
+                Core.<> ("/channelClass")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateChannelClassResponse'
-            Lude.<$> (x Lude..?> "channel") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "channel") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateChannelClass where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateChannelClass where
-  toJSON UpdateChannelClass' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("destinations" Lude..=) Lude.<$> destinations,
-            Lude.Just ("channelClass" Lude..= channelClass)
-          ]
-      )
-
-instance Lude.ToPath UpdateChannelClass where
-  toPath UpdateChannelClass' {..} =
-    Lude.mconcat
-      ["/prod/channels/", Lude.toBS channelId, "/channelClass"]
-
-instance Lude.ToQuery UpdateChannelClass where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for UpdateChannelClassResponse
 --
 -- /See:/ 'mkUpdateChannelClassResponse' smart constructor.
 data UpdateChannelClassResponse = UpdateChannelClassResponse'
-  { channel :: Lude.Maybe Channel,
+  { channel :: Core.Maybe Types.Channel,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateChannelClassResponse' with the minimum fields required to make a request.
---
--- * 'channel' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateChannelClassResponse' value with any optional fields omitted.
 mkUpdateChannelClassResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateChannelClassResponse
-mkUpdateChannelClassResponse pResponseStatus_ =
+mkUpdateChannelClassResponse responseStatus =
   UpdateChannelClassResponse'
-    { channel = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { channel = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccrsChannel :: Lens.Lens' UpdateChannelClassResponse (Lude.Maybe Channel)
-uccrsChannel = Lens.lens (channel :: UpdateChannelClassResponse -> Lude.Maybe Channel) (\s a -> s {channel = a} :: UpdateChannelClassResponse)
-{-# DEPRECATED uccrsChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
+uccrrsChannel :: Lens.Lens' UpdateChannelClassResponse (Core.Maybe Types.Channel)
+uccrrsChannel = Lens.field @"channel"
+{-# DEPRECATED uccrrsChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccrsResponseStatus :: Lens.Lens' UpdateChannelClassResponse Lude.Int
-uccrsResponseStatus = Lens.lens (responseStatus :: UpdateChannelClassResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateChannelClassResponse)
-{-# DEPRECATED uccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uccrrsResponseStatus :: Lens.Lens' UpdateChannelClassResponse Core.Int
+uccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

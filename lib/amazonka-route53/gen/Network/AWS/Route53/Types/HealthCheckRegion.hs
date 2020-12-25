@@ -13,77 +13,82 @@
 module Network.AWS.Route53.Types.HealthCheckRegion
   ( HealthCheckRegion
       ( HealthCheckRegion',
-        UsEast1,
-        UsWest1,
-        UsWest2,
-        EuWest1,
-        ApSoutheast1,
-        ApSoutheast2,
-        ApNortheast1,
-        SaEast1
+        HealthCheckRegionUsEast1,
+        HealthCheckRegionUsWest1,
+        HealthCheckRegionUsWest2,
+        HealthCheckRegionEuWest1,
+        HealthCheckRegionApSoutheast1,
+        HealthCheckRegionApSoutheast2,
+        HealthCheckRegionApNortheast1,
+        HealthCheckRegionSaEast1,
+        fromHealthCheckRegion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
 
-newtype HealthCheckRegion = HealthCheckRegion' Lude.Text
+newtype HealthCheckRegion = HealthCheckRegion'
+  { fromHealthCheckRegion ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UsEast1 :: HealthCheckRegion
-pattern UsEast1 = HealthCheckRegion' "us-east-1"
+pattern HealthCheckRegionUsEast1 :: HealthCheckRegion
+pattern HealthCheckRegionUsEast1 = HealthCheckRegion' "us-east-1"
 
-pattern UsWest1 :: HealthCheckRegion
-pattern UsWest1 = HealthCheckRegion' "us-west-1"
+pattern HealthCheckRegionUsWest1 :: HealthCheckRegion
+pattern HealthCheckRegionUsWest1 = HealthCheckRegion' "us-west-1"
 
-pattern UsWest2 :: HealthCheckRegion
-pattern UsWest2 = HealthCheckRegion' "us-west-2"
+pattern HealthCheckRegionUsWest2 :: HealthCheckRegion
+pattern HealthCheckRegionUsWest2 = HealthCheckRegion' "us-west-2"
 
-pattern EuWest1 :: HealthCheckRegion
-pattern EuWest1 = HealthCheckRegion' "eu-west-1"
+pattern HealthCheckRegionEuWest1 :: HealthCheckRegion
+pattern HealthCheckRegionEuWest1 = HealthCheckRegion' "eu-west-1"
 
-pattern ApSoutheast1 :: HealthCheckRegion
-pattern ApSoutheast1 = HealthCheckRegion' "ap-southeast-1"
+pattern HealthCheckRegionApSoutheast1 :: HealthCheckRegion
+pattern HealthCheckRegionApSoutheast1 = HealthCheckRegion' "ap-southeast-1"
 
-pattern ApSoutheast2 :: HealthCheckRegion
-pattern ApSoutheast2 = HealthCheckRegion' "ap-southeast-2"
+pattern HealthCheckRegionApSoutheast2 :: HealthCheckRegion
+pattern HealthCheckRegionApSoutheast2 = HealthCheckRegion' "ap-southeast-2"
 
-pattern ApNortheast1 :: HealthCheckRegion
-pattern ApNortheast1 = HealthCheckRegion' "ap-northeast-1"
+pattern HealthCheckRegionApNortheast1 :: HealthCheckRegion
+pattern HealthCheckRegionApNortheast1 = HealthCheckRegion' "ap-northeast-1"
 
-pattern SaEast1 :: HealthCheckRegion
-pattern SaEast1 = HealthCheckRegion' "sa-east-1"
+pattern HealthCheckRegionSaEast1 :: HealthCheckRegion
+pattern HealthCheckRegionSaEast1 = HealthCheckRegion' "sa-east-1"
 
 {-# COMPLETE
-  UsEast1,
-  UsWest1,
-  UsWest2,
-  EuWest1,
-  ApSoutheast1,
-  ApSoutheast2,
-  ApNortheast1,
-  SaEast1,
+  HealthCheckRegionUsEast1,
+  HealthCheckRegionUsWest1,
+  HealthCheckRegionUsWest2,
+  HealthCheckRegionEuWest1,
+  HealthCheckRegionApSoutheast1,
+  HealthCheckRegionApSoutheast2,
+  HealthCheckRegionApNortheast1,
+  HealthCheckRegionSaEast1,
   HealthCheckRegion'
   #-}

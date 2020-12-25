@@ -25,8 +25,8 @@ module Network.AWS.KMS.UpdateAlias
     mkUpdateAlias,
 
     -- ** Request lenses
-    uaTargetKeyId,
     uaAliasName,
+    uaTargetKeyId,
 
     -- * Destructuring the response
     UpdateAliasResponse (..),
@@ -34,15 +34,17 @@ module Network.AWS.KMS.UpdateAlias
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { -- | Identifies the CMK to associate with the alias. When the update operation completes, the alias will point to this CMK.
+  { -- | Identifies the alias that is changing its CMK. This value must begin with @alias/@ followed by the alias name, such as @alias/ExampleAlias@ . You cannot use UpdateAlias to change the alias name.
+    aliasName :: Types.AliasName,
+    -- | Identifies the CMK to associate with the alias. When the update operation completes, the alias will point to this CMK.
     --
     -- The CMK must be in the same AWS account and Region as the alias. Also, the new target CMK must be the same type as the current target CMK (both symmetric or both asymmetric) and they must have the same key usage.
     -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
@@ -56,41 +58,27 @@ data UpdateAlias = UpdateAlias'
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
     -- To verify that the alias is mapped to the correct CMK, use 'ListAliases' .
-    targetKeyId :: Lude.Text,
-    -- | Identifies the alias that is changing its CMK. This value must begin with @alias/@ followed by the alias name, such as @alias/ExampleAlias@ . You cannot use UpdateAlias to change the alias name.
-    aliasName :: Lude.Text
+    targetKeyId :: Types.TargetKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAlias' with the minimum fields required to make a request.
---
--- * 'targetKeyId' - Identifies the CMK to associate with the alias. When the update operation completes, the alias will point to this CMK.
---
--- The CMK must be in the same AWS account and Region as the alias. Also, the new target CMK must be the same type as the current target CMK (both symmetric or both asymmetric) and they must have the same key usage.
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
--- To verify that the alias is mapped to the correct CMK, use 'ListAliases' .
--- * 'aliasName' - Identifies the alias that is changing its CMK. This value must begin with @alias/@ followed by the alias name, such as @alias/ExampleAlias@ . You cannot use UpdateAlias to change the alias name.
+-- | Creates a 'UpdateAlias' value with any optional fields omitted.
 mkUpdateAlias ::
-  -- | 'targetKeyId'
-  Lude.Text ->
   -- | 'aliasName'
-  Lude.Text ->
+  Types.AliasName ->
+  -- | 'targetKeyId'
+  Types.TargetKeyId ->
   UpdateAlias
-mkUpdateAlias pTargetKeyId_ pAliasName_ =
-  UpdateAlias'
-    { targetKeyId = pTargetKeyId_,
-      aliasName = pAliasName_
-    }
+mkUpdateAlias aliasName targetKeyId =
+  UpdateAlias' {aliasName, targetKeyId}
+
+-- | Identifies the alias that is changing its CMK. This value must begin with @alias/@ followed by the alias name, such as @alias/ExampleAlias@ . You cannot use UpdateAlias to change the alias name.
+--
+-- /Note:/ Consider using 'aliasName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAliasName :: Lens.Lens' UpdateAlias Types.AliasName
+uaAliasName = Lens.field @"aliasName"
+{-# DEPRECATED uaAliasName "Use generic-lens or generic-optics with 'aliasName' instead." #-}
 
 -- | Identifies the CMK to associate with the alias. When the update operation completes, the alias will point to this CMK.
 --
@@ -108,54 +96,40 @@ mkUpdateAlias pTargetKeyId_ pAliasName_ =
 -- To verify that the alias is mapped to the correct CMK, use 'ListAliases' .
 --
 -- /Note:/ Consider using 'targetKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaTargetKeyId :: Lens.Lens' UpdateAlias Lude.Text
-uaTargetKeyId = Lens.lens (targetKeyId :: UpdateAlias -> Lude.Text) (\s a -> s {targetKeyId = a} :: UpdateAlias)
+uaTargetKeyId :: Lens.Lens' UpdateAlias Types.TargetKeyId
+uaTargetKeyId = Lens.field @"targetKeyId"
 {-# DEPRECATED uaTargetKeyId "Use generic-lens or generic-optics with 'targetKeyId' instead." #-}
 
--- | Identifies the alias that is changing its CMK. This value must begin with @alias/@ followed by the alias name, such as @alias/ExampleAlias@ . You cannot use UpdateAlias to change the alias name.
---
--- /Note:/ Consider using 'aliasName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaAliasName :: Lens.Lens' UpdateAlias Lude.Text
-uaAliasName = Lens.lens (aliasName :: UpdateAlias -> Lude.Text) (\s a -> s {aliasName = a} :: UpdateAlias)
-{-# DEPRECATED uaAliasName "Use generic-lens or generic-optics with 'aliasName' instead." #-}
+instance Core.FromJSON UpdateAlias where
+  toJSON UpdateAlias {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AliasName" Core..= aliasName),
+            Core.Just ("TargetKeyId" Core..= targetKeyId)
+          ]
+      )
 
-instance Lude.AWSRequest UpdateAlias where
+instance Core.AWSRequest UpdateAlias where
   type Rs UpdateAlias = UpdateAliasResponse
-  request = Req.postJSON kmsService
-  response = Res.receiveNull UpdateAliasResponse'
-
-instance Lude.ToHeaders UpdateAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.UpdateAlias" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateAlias where
-  toJSON UpdateAlias' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TargetKeyId" Lude..= targetKeyId),
-            Lude.Just ("AliasName" Lude..= aliasName)
-          ]
-      )
-
-instance Lude.ToPath UpdateAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateAlias where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.UpdateAlias")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateAliasResponse'
 
 -- | /See:/ 'mkUpdateAliasResponse' smart constructor.
 data UpdateAliasResponse = UpdateAliasResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAliasResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateAliasResponse' value with any optional fields omitted.
 mkUpdateAliasResponse ::
   UpdateAliasResponse
 mkUpdateAliasResponse = UpdateAliasResponse'

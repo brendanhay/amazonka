@@ -13,51 +13,53 @@
 module Network.AWS.ServerlessApplicationRepository.Types.Status
   ( Status
       ( Status',
-        Preparing,
-        Active,
-        Expired
+        StatusPreparing,
+        StatusActive,
+        StatusExpired,
+        fromStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Status = Status' Lude.Text
+newtype Status = Status' {fromStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Preparing :: Status
-pattern Preparing = Status' "PREPARING"
+pattern StatusPreparing :: Status
+pattern StatusPreparing = Status' "PREPARING"
 
-pattern Active :: Status
-pattern Active = Status' "ACTIVE"
+pattern StatusActive :: Status
+pattern StatusActive = Status' "ACTIVE"
 
-pattern Expired :: Status
-pattern Expired = Status' "EXPIRED"
+pattern StatusExpired :: Status
+pattern StatusExpired = Status' "EXPIRED"
 
 {-# COMPLETE
-  Preparing,
-  Active,
-  Expired,
+  StatusPreparing,
+  StatusActive,
+  StatusExpired,
   Status'
   #-}

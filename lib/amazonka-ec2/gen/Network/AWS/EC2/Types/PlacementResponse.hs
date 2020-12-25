@@ -17,36 +17,35 @@ module Network.AWS.EC2.Types.PlacementResponse
     mkPlacementResponse,
 
     -- * Lenses
-    pGroupName,
+    prGroupName,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the placement of an instance.
 --
 -- /See:/ 'mkPlacementResponse' smart constructor.
 newtype PlacementResponse = PlacementResponse'
   { -- | The name of the placement group that the instance is in.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlacementResponse' with the minimum fields required to make a request.
---
--- * 'groupName' - The name of the placement group that the instance is in.
+-- | Creates a 'PlacementResponse' value with any optional fields omitted.
 mkPlacementResponse ::
   PlacementResponse
-mkPlacementResponse = PlacementResponse' {groupName = Lude.Nothing}
+mkPlacementResponse = PlacementResponse' {groupName = Core.Nothing}
 
 -- | The name of the placement group that the instance is in.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pGroupName :: Lens.Lens' PlacementResponse (Lude.Maybe Lude.Text)
-pGroupName = Lens.lens (groupName :: PlacementResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: PlacementResponse)
-{-# DEPRECATED pGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+prGroupName :: Lens.Lens' PlacementResponse (Core.Maybe Types.String)
+prGroupName = Lens.field @"groupName"
+{-# DEPRECATED prGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.FromXML PlacementResponse where
-  parseXML x = PlacementResponse' Lude.<$> (x Lude..@? "groupName")
+instance Core.FromXML PlacementResponse where
+  parseXML x = PlacementResponse' Core.<$> (x Core..@? "groupName")

@@ -21,43 +21,39 @@ module Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.StartDate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The recurrence of the reports.
 --
 -- /See:/ 'mkBusinessReportRecurrence' smart constructor.
 newtype BusinessReportRecurrence = BusinessReportRecurrence'
   { -- | The start date.
-    startDate :: Lude.Maybe Lude.Text
+    startDate :: Core.Maybe Types.StartDate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BusinessReportRecurrence' with the minimum fields required to make a request.
---
--- * 'startDate' - The start date.
+-- | Creates a 'BusinessReportRecurrence' value with any optional fields omitted.
 mkBusinessReportRecurrence ::
   BusinessReportRecurrence
 mkBusinessReportRecurrence =
-  BusinessReportRecurrence' {startDate = Lude.Nothing}
+  BusinessReportRecurrence' {startDate = Core.Nothing}
 
 -- | The start date.
 --
 -- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brrStartDate :: Lens.Lens' BusinessReportRecurrence (Lude.Maybe Lude.Text)
-brrStartDate = Lens.lens (startDate :: BusinessReportRecurrence -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: BusinessReportRecurrence)
+brrStartDate :: Lens.Lens' BusinessReportRecurrence (Core.Maybe Types.StartDate)
+brrStartDate = Lens.field @"startDate"
 {-# DEPRECATED brrStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
-instance Lude.FromJSON BusinessReportRecurrence where
-  parseJSON =
-    Lude.withObject
-      "BusinessReportRecurrence"
-      ( \x ->
-          BusinessReportRecurrence' Lude.<$> (x Lude..:? "StartDate")
-      )
+instance Core.FromJSON BusinessReportRecurrence where
+  toJSON BusinessReportRecurrence {..} =
+    Core.object
+      (Core.catMaybes [("StartDate" Core..=) Core.<$> startDate])
 
-instance Lude.ToJSON BusinessReportRecurrence where
-  toJSON BusinessReportRecurrence' {..} =
-    Lude.object
-      (Lude.catMaybes [("StartDate" Lude..=) Lude.<$> startDate])
+instance Core.FromJSON BusinessReportRecurrence where
+  parseJSON =
+    Core.withObject "BusinessReportRecurrence" Core.$
+      \x -> BusinessReportRecurrence' Core.<$> (x Core..:? "StartDate")

@@ -31,125 +31,111 @@ module Network.AWS.Comprehend.StopSentimentDetectionJob
     mkStopSentimentDetectionJobResponse,
 
     -- ** Response lenses
-    ssdjfrsJobId,
-    ssdjfrsJobStatus,
-    ssdjfrsResponseStatus,
+    ssdjrfrsJobId,
+    ssdjrfrsJobStatus,
+    ssdjrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopSentimentDetectionJob' smart constructor.
 newtype StopSentimentDetectionJob = StopSentimentDetectionJob'
   { -- | The identifier of the sentiment detection job to stop.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopSentimentDetectionJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier of the sentiment detection job to stop.
+-- | Creates a 'StopSentimentDetectionJob' value with any optional fields omitted.
 mkStopSentimentDetectionJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   StopSentimentDetectionJob
-mkStopSentimentDetectionJob pJobId_ =
-  StopSentimentDetectionJob' {jobId = pJobId_}
+mkStopSentimentDetectionJob jobId =
+  StopSentimentDetectionJob' {jobId}
 
 -- | The identifier of the sentiment detection job to stop.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdjJobId :: Lens.Lens' StopSentimentDetectionJob Lude.Text
-ssdjJobId = Lens.lens (jobId :: StopSentimentDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: StopSentimentDetectionJob)
+ssdjJobId :: Lens.Lens' StopSentimentDetectionJob Types.JobId
+ssdjJobId = Lens.field @"jobId"
 {-# DEPRECATED ssdjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest StopSentimentDetectionJob where
+instance Core.FromJSON StopSentimentDetectionJob where
+  toJSON StopSentimentDetectionJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest StopSentimentDetectionJob where
   type
     Rs StopSentimentDetectionJob =
       StopSentimentDetectionJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Comprehend_20171127.StopSentimentDetectionJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopSentimentDetectionJobResponse'
-            Lude.<$> (x Lude..?> "JobId")
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId")
+            Core.<*> (x Core..:? "JobStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopSentimentDetectionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.StopSentimentDetectionJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopSentimentDetectionJob where
-  toJSON StopSentimentDetectionJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath StopSentimentDetectionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopSentimentDetectionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopSentimentDetectionJobResponse' smart constructor.
 data StopSentimentDetectionJobResponse = StopSentimentDetectionJobResponse'
   { -- | The identifier of the sentiment detection job to stop.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopSentimentDetectionJob@ operation.
-    jobStatus :: Lude.Maybe JobStatus,
+    jobStatus :: Core.Maybe Types.JobStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopSentimentDetectionJobResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier of the sentiment detection job to stop.
--- * 'jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopSentimentDetectionJob@ operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopSentimentDetectionJobResponse' value with any optional fields omitted.
 mkStopSentimentDetectionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopSentimentDetectionJobResponse
-mkStopSentimentDetectionJobResponse pResponseStatus_ =
+mkStopSentimentDetectionJobResponse responseStatus =
   StopSentimentDetectionJobResponse'
-    { jobId = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      jobStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier of the sentiment detection job to stop.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdjfrsJobId :: Lens.Lens' StopSentimentDetectionJobResponse (Lude.Maybe Lude.Text)
-ssdjfrsJobId = Lens.lens (jobId :: StopSentimentDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopSentimentDetectionJobResponse)
-{-# DEPRECATED ssdjfrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+ssdjrfrsJobId :: Lens.Lens' StopSentimentDetectionJobResponse (Core.Maybe Types.JobId)
+ssdjrfrsJobId = Lens.field @"jobId"
+{-# DEPRECATED ssdjrfrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopSentimentDetectionJob@ operation.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdjfrsJobStatus :: Lens.Lens' StopSentimentDetectionJobResponse (Lude.Maybe JobStatus)
-ssdjfrsJobStatus = Lens.lens (jobStatus :: StopSentimentDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopSentimentDetectionJobResponse)
-{-# DEPRECATED ssdjfrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+ssdjrfrsJobStatus :: Lens.Lens' StopSentimentDetectionJobResponse (Core.Maybe Types.JobStatus)
+ssdjrfrsJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED ssdjrfrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdjfrsResponseStatus :: Lens.Lens' StopSentimentDetectionJobResponse Lude.Int
-ssdjfrsResponseStatus = Lens.lens (responseStatus :: StopSentimentDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopSentimentDetectionJobResponse)
-{-# DEPRECATED ssdjfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ssdjrfrsResponseStatus :: Lens.Lens' StopSentimentDetectionJobResponse Core.Int
+ssdjrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ssdjrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

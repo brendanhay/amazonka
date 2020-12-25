@@ -17,86 +17,81 @@ module Network.AWS.WAF.Types.LoggingConfiguration
     mkLoggingConfiguration,
 
     -- * Lenses
-    lcRedactedFields,
-    lcResourceARN,
+    lcResourceArn,
     lcLogDestinationConfigs,
+    lcRedactedFields,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.FieldToMatch
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.FieldToMatch as Types
+import qualified Network.AWS.WAF.Types.ResourceArn as Types
 
 -- | The Amazon Kinesis Data Firehose, @RedactedFields@ information, and the web ACL Amazon Resource Name (ARN).
 --
 -- /See:/ 'mkLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'
-  { -- | The parts of the request that you want redacted from the logs. For example, if you redact the cookie field, the cookie field in the firehose will be @xxx@ .
-    redactedFields :: Lude.Maybe [FieldToMatch],
-    -- | The Amazon Resource Name (ARN) of the web ACL that you want to associate with @LogDestinationConfigs@ .
-    resourceARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the web ACL that you want to associate with @LogDestinationConfigs@ .
+    resourceArn :: Types.ResourceArn,
     -- | An array of Amazon Kinesis Data Firehose ARNs.
-    logDestinationConfigs :: Lude.NonEmpty Lude.Text
+    logDestinationConfigs :: Core.NonEmpty Types.ResourceArn,
+    -- | The parts of the request that you want redacted from the logs. For example, if you redact the cookie field, the cookie field in the firehose will be @xxx@ .
+    redactedFields :: Core.Maybe [Types.FieldToMatch]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoggingConfiguration' with the minimum fields required to make a request.
---
--- * 'redactedFields' - The parts of the request that you want redacted from the logs. For example, if you redact the cookie field, the cookie field in the firehose will be @xxx@ .
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the web ACL that you want to associate with @LogDestinationConfigs@ .
--- * 'logDestinationConfigs' - An array of Amazon Kinesis Data Firehose ARNs.
+-- | Creates a 'LoggingConfiguration' value with any optional fields omitted.
 mkLoggingConfiguration ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   -- | 'logDestinationConfigs'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.ResourceArn ->
   LoggingConfiguration
-mkLoggingConfiguration pResourceARN_ pLogDestinationConfigs_ =
+mkLoggingConfiguration resourceArn logDestinationConfigs =
   LoggingConfiguration'
-    { redactedFields = Lude.Nothing,
-      resourceARN = pResourceARN_,
-      logDestinationConfigs = pLogDestinationConfigs_
+    { resourceArn,
+      logDestinationConfigs,
+      redactedFields = Core.Nothing
     }
-
--- | The parts of the request that you want redacted from the logs. For example, if you redact the cookie field, the cookie field in the firehose will be @xxx@ .
---
--- /Note:/ Consider using 'redactedFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcRedactedFields :: Lens.Lens' LoggingConfiguration (Lude.Maybe [FieldToMatch])
-lcRedactedFields = Lens.lens (redactedFields :: LoggingConfiguration -> Lude.Maybe [FieldToMatch]) (\s a -> s {redactedFields = a} :: LoggingConfiguration)
-{-# DEPRECATED lcRedactedFields "Use generic-lens or generic-optics with 'redactedFields' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the web ACL that you want to associate with @LogDestinationConfigs@ .
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcResourceARN :: Lens.Lens' LoggingConfiguration Lude.Text
-lcResourceARN = Lens.lens (resourceARN :: LoggingConfiguration -> Lude.Text) (\s a -> s {resourceARN = a} :: LoggingConfiguration)
-{-# DEPRECATED lcResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcResourceArn :: Lens.Lens' LoggingConfiguration Types.ResourceArn
+lcResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED lcResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | An array of Amazon Kinesis Data Firehose ARNs.
 --
 -- /Note:/ Consider using 'logDestinationConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcLogDestinationConfigs :: Lens.Lens' LoggingConfiguration (Lude.NonEmpty Lude.Text)
-lcLogDestinationConfigs = Lens.lens (logDestinationConfigs :: LoggingConfiguration -> Lude.NonEmpty Lude.Text) (\s a -> s {logDestinationConfigs = a} :: LoggingConfiguration)
+lcLogDestinationConfigs :: Lens.Lens' LoggingConfiguration (Core.NonEmpty Types.ResourceArn)
+lcLogDestinationConfigs = Lens.field @"logDestinationConfigs"
 {-# DEPRECATED lcLogDestinationConfigs "Use generic-lens or generic-optics with 'logDestinationConfigs' instead." #-}
 
-instance Lude.FromJSON LoggingConfiguration where
-  parseJSON =
-    Lude.withObject
-      "LoggingConfiguration"
-      ( \x ->
-          LoggingConfiguration'
-            Lude.<$> (x Lude..:? "RedactedFields" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "ResourceArn")
-            Lude.<*> (x Lude..: "LogDestinationConfigs")
-      )
+-- | The parts of the request that you want redacted from the logs. For example, if you redact the cookie field, the cookie field in the firehose will be @xxx@ .
+--
+-- /Note:/ Consider using 'redactedFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcRedactedFields :: Lens.Lens' LoggingConfiguration (Core.Maybe [Types.FieldToMatch])
+lcRedactedFields = Lens.field @"redactedFields"
+{-# DEPRECATED lcRedactedFields "Use generic-lens or generic-optics with 'redactedFields' instead." #-}
 
-instance Lude.ToJSON LoggingConfiguration where
-  toJSON LoggingConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RedactedFields" Lude..=) Lude.<$> redactedFields,
-            Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("LogDestinationConfigs" Lude..= logDestinationConfigs)
+instance Core.FromJSON LoggingConfiguration where
+  toJSON LoggingConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("LogDestinationConfigs" Core..= logDestinationConfigs),
+            ("RedactedFields" Core..=) Core.<$> redactedFields
           ]
       )
+
+instance Core.FromJSON LoggingConfiguration where
+  parseJSON =
+    Core.withObject "LoggingConfiguration" Core.$
+      \x ->
+        LoggingConfiguration'
+          Core.<$> (x Core..: "ResourceArn")
+          Core.<*> (x Core..: "LogDestinationConfigs")
+          Core.<*> (x Core..:? "RedactedFields")

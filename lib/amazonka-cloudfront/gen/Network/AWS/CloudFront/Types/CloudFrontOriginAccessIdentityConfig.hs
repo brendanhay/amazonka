@@ -17,56 +17,41 @@ module Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityConfig
     mkCloudFrontOriginAccessIdentityConfig,
 
     -- * Lenses
-    cfoaicComment,
     cfoaicCallerReference,
+    cfoaicComment,
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.CallerReference as Types
+import qualified Network.AWS.CloudFront.Types.Comment as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Origin access identity configuration. Send a @GET@ request to the @//CloudFront API version/ /CloudFront/identity ID/config@ resource.
 --
 -- /See:/ 'mkCloudFrontOriginAccessIdentityConfig' smart constructor.
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'
-  { -- | Any comments you want to include about the origin access identity.
-    comment :: Lude.Text,
-    -- | A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
+  { -- | A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
     --
     -- If the value of @CallerReference@ is new (regardless of the content of the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access identity is created.
     -- If the @CallerReference@ is a value already sent in a previous identity request, and the content of the @CloudFrontOriginAccessIdentityConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request.
     -- If the @CallerReference@ is a value you already sent in a previous request to create an identity, but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
-    callerReference :: Lude.Text
+    callerReference :: Types.CallerReference,
+    -- | Any comments you want to include about the origin access identity.
+    comment :: Types.Comment
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudFrontOriginAccessIdentityConfig' with the minimum fields required to make a request.
---
--- * 'comment' - Any comments you want to include about the origin access identity.
--- * 'callerReference' - A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
---
--- If the value of @CallerReference@ is new (regardless of the content of the @CloudFrontOriginAccessIdentityConfig@ object), a new origin access identity is created.
--- If the @CallerReference@ is a value already sent in a previous identity request, and the content of the @CloudFrontOriginAccessIdentityConfig@ is identical to the original request (ignoring white space), the response includes the same information returned to the original request.
--- If the @CallerReference@ is a value you already sent in a previous request to create an identity, but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
+-- | Creates a 'CloudFrontOriginAccessIdentityConfig' value with any optional fields omitted.
 mkCloudFrontOriginAccessIdentityConfig ::
-  -- | 'comment'
-  Lude.Text ->
   -- | 'callerReference'
-  Lude.Text ->
+  Types.CallerReference ->
+  -- | 'comment'
+  Types.Comment ->
   CloudFrontOriginAccessIdentityConfig
-mkCloudFrontOriginAccessIdentityConfig pComment_ pCallerReference_ =
-  CloudFrontOriginAccessIdentityConfig'
-    { comment = pComment_,
-      callerReference = pCallerReference_
-    }
-
--- | Any comments you want to include about the origin access identity.
---
--- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfoaicComment :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Lude.Text
-cfoaicComment = Lens.lens (comment :: CloudFrontOriginAccessIdentityConfig -> Lude.Text) (\s a -> s {comment = a} :: CloudFrontOriginAccessIdentityConfig)
-{-# DEPRECATED cfoaicComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+mkCloudFrontOriginAccessIdentityConfig callerReference comment =
+  CloudFrontOriginAccessIdentityConfig' {callerReference, comment}
 
 -- | A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.
 --
@@ -75,18 +60,23 @@ cfoaicComment = Lens.lens (comment :: CloudFrontOriginAccessIdentityConfig -> Lu
 -- If the @CallerReference@ is a value you already sent in a previous request to create an identity, but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
 --
 -- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfoaicCallerReference :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Lude.Text
-cfoaicCallerReference = Lens.lens (callerReference :: CloudFrontOriginAccessIdentityConfig -> Lude.Text) (\s a -> s {callerReference = a} :: CloudFrontOriginAccessIdentityConfig)
+cfoaicCallerReference :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Types.CallerReference
+cfoaicCallerReference = Lens.field @"callerReference"
 {-# DEPRECATED cfoaicCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
-instance Lude.FromXML CloudFrontOriginAccessIdentityConfig where
+-- | Any comments you want to include about the origin access identity.
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfoaicComment :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Types.Comment
+cfoaicComment = Lens.field @"comment"
+{-# DEPRECATED cfoaicComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+
+instance Core.ToXML CloudFrontOriginAccessIdentityConfig where
+  toXML CloudFrontOriginAccessIdentityConfig {..} =
+    Core.toXMLNode "CallerReference" callerReference
+      Core.<> Core.toXMLNode "Comment" comment
+
+instance Core.FromXML CloudFrontOriginAccessIdentityConfig where
   parseXML x =
     CloudFrontOriginAccessIdentityConfig'
-      Lude.<$> (x Lude..@ "Comment") Lude.<*> (x Lude..@ "CallerReference")
-
-instance Lude.ToXML CloudFrontOriginAccessIdentityConfig where
-  toXML CloudFrontOriginAccessIdentityConfig' {..} =
-    Lude.mconcat
-      [ "Comment" Lude.@= comment,
-        "CallerReference" Lude.@= callerReference
-      ]
+      Core.<$> (x Core..@ "CallerReference") Core.<*> (x Core..@ "Comment")

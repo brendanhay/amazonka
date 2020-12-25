@@ -20,7 +20,7 @@ module Network.AWS.Inspector.SetTagsForResource
     mkSetTagsForResource,
 
     -- ** Request lenses
-    stfrResourceARN,
+    stfrResourceArn,
     stfrTags,
 
     -- * Destructuring the response
@@ -29,87 +29,74 @@ module Network.AWS.Inspector.SetTagsForResource
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetTagsForResource' smart constructor.
 data SetTagsForResource = SetTagsForResource'
   { -- | The ARN of the assessment template that you want to set tags to.
-    resourceARN :: Lude.Text,
+    resourceArn :: Types.Arn,
     -- | A collection of key and value pairs that you want to set to the assessment template.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetTagsForResource' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The ARN of the assessment template that you want to set tags to.
--- * 'tags' - A collection of key and value pairs that you want to set to the assessment template.
+-- | Creates a 'SetTagsForResource' value with any optional fields omitted.
 mkSetTagsForResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.Arn ->
   SetTagsForResource
-mkSetTagsForResource pResourceARN_ =
-  SetTagsForResource'
-    { resourceARN = pResourceARN_,
-      tags = Lude.Nothing
-    }
+mkSetTagsForResource resourceArn =
+  SetTagsForResource' {resourceArn, tags = Core.Nothing}
 
 -- | The ARN of the assessment template that you want to set tags to.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stfrResourceARN :: Lens.Lens' SetTagsForResource Lude.Text
-stfrResourceARN = Lens.lens (resourceARN :: SetTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: SetTagsForResource)
-{-# DEPRECATED stfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stfrResourceArn :: Lens.Lens' SetTagsForResource Types.Arn
+stfrResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED stfrResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | A collection of key and value pairs that you want to set to the assessment template.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stfrTags :: Lens.Lens' SetTagsForResource (Lude.Maybe [Tag])
-stfrTags = Lens.lens (tags :: SetTagsForResource -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SetTagsForResource)
+stfrTags :: Lens.Lens' SetTagsForResource (Core.Maybe [Types.Tag])
+stfrTags = Lens.field @"tags"
 {-# DEPRECATED stfrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest SetTagsForResource where
+instance Core.FromJSON SetTagsForResource where
+  toJSON SetTagsForResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceArn" Core..= resourceArn),
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest SetTagsForResource where
   type Rs SetTagsForResource = SetTagsForResourceResponse
-  request = Req.postJSON inspectorService
-  response = Res.receiveNull SetTagsForResourceResponse'
-
-instance Lude.ToHeaders SetTagsForResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.SetTagsForResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetTagsForResource where
-  toJSON SetTagsForResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("resourceArn" Lude..= resourceARN),
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath SetTagsForResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetTagsForResource where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "InspectorService.SetTagsForResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetTagsForResourceResponse'
 
 -- | /See:/ 'mkSetTagsForResourceResponse' smart constructor.
 data SetTagsForResourceResponse = SetTagsForResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetTagsForResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetTagsForResourceResponse' value with any optional fields omitted.
 mkSetTagsForResourceResponse ::
   SetTagsForResourceResponse
 mkSetTagsForResourceResponse = SetTagsForResourceResponse'

@@ -13,61 +13,66 @@
 module Network.AWS.FMS.Types.AccountRoleStatus
   ( AccountRoleStatus
       ( AccountRoleStatus',
-        Ready,
-        Creating,
-        PendingDeletion,
-        Deleting,
-        Deleted
+        AccountRoleStatusReady,
+        AccountRoleStatusCreating,
+        AccountRoleStatusPendingDeletion,
+        AccountRoleStatusDeleting,
+        AccountRoleStatusDeleted,
+        fromAccountRoleStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AccountRoleStatus = AccountRoleStatus' Lude.Text
+newtype AccountRoleStatus = AccountRoleStatus'
+  { fromAccountRoleStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ready :: AccountRoleStatus
-pattern Ready = AccountRoleStatus' "READY"
+pattern AccountRoleStatusReady :: AccountRoleStatus
+pattern AccountRoleStatusReady = AccountRoleStatus' "READY"
 
-pattern Creating :: AccountRoleStatus
-pattern Creating = AccountRoleStatus' "CREATING"
+pattern AccountRoleStatusCreating :: AccountRoleStatus
+pattern AccountRoleStatusCreating = AccountRoleStatus' "CREATING"
 
-pattern PendingDeletion :: AccountRoleStatus
-pattern PendingDeletion = AccountRoleStatus' "PENDING_DELETION"
+pattern AccountRoleStatusPendingDeletion :: AccountRoleStatus
+pattern AccountRoleStatusPendingDeletion = AccountRoleStatus' "PENDING_DELETION"
 
-pattern Deleting :: AccountRoleStatus
-pattern Deleting = AccountRoleStatus' "DELETING"
+pattern AccountRoleStatusDeleting :: AccountRoleStatus
+pattern AccountRoleStatusDeleting = AccountRoleStatus' "DELETING"
 
-pattern Deleted :: AccountRoleStatus
-pattern Deleted = AccountRoleStatus' "DELETED"
+pattern AccountRoleStatusDeleted :: AccountRoleStatus
+pattern AccountRoleStatusDeleted = AccountRoleStatus' "DELETED"
 
 {-# COMPLETE
-  Ready,
-  Creating,
-  PendingDeletion,
-  Deleting,
-  Deleted,
+  AccountRoleStatusReady,
+  AccountRoleStatusCreating,
+  AccountRoleStatusPendingDeletion,
+  AccountRoleStatusDeleting,
+  AccountRoleStatusDeleted,
   AccountRoleStatus'
   #-}

@@ -23,7 +23,7 @@ module Network.AWS.DynamoDB.Types.ProvisionedThroughput
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation.
 --
@@ -34,42 +34,32 @@ data ProvisionedThroughput = ProvisionedThroughput'
   { -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
     --
     -- If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-    readCapacityUnits :: Lude.Natural,
+    readCapacityUnits :: Core.Natural,
     -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
     --
     -- If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
-    writeCapacityUnits :: Lude.Natural
+    writeCapacityUnits :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProvisionedThroughput' with the minimum fields required to make a request.
---
--- * 'readCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
---
--- If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
--- * 'writeCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
---
--- If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
+-- | Creates a 'ProvisionedThroughput' value with any optional fields omitted.
 mkProvisionedThroughput ::
   -- | 'readCapacityUnits'
-  Lude.Natural ->
+  Core.Natural ->
   -- | 'writeCapacityUnits'
-  Lude.Natural ->
+  Core.Natural ->
   ProvisionedThroughput
-mkProvisionedThroughput pReadCapacityUnits_ pWriteCapacityUnits_ =
-  ProvisionedThroughput'
-    { readCapacityUnits = pReadCapacityUnits_,
-      writeCapacityUnits = pWriteCapacityUnits_
-    }
+mkProvisionedThroughput readCapacityUnits writeCapacityUnits =
+  ProvisionedThroughput' {readCapacityUnits, writeCapacityUnits}
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
 --
 -- /Note:/ Consider using 'readCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptReadCapacityUnits :: Lens.Lens' ProvisionedThroughput Lude.Natural
-ptReadCapacityUnits = Lens.lens (readCapacityUnits :: ProvisionedThroughput -> Lude.Natural) (\s a -> s {readCapacityUnits = a} :: ProvisionedThroughput)
+ptReadCapacityUnits :: Lens.Lens' ProvisionedThroughput Core.Natural
+ptReadCapacityUnits = Lens.field @"readCapacityUnits"
 {-# DEPRECATED ptReadCapacityUnits "Use generic-lens or generic-optics with 'readCapacityUnits' instead." #-}
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
@@ -77,25 +67,23 @@ ptReadCapacityUnits = Lens.lens (readCapacityUnits :: ProvisionedThroughput -> L
 -- If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
 --
 -- /Note:/ Consider using 'writeCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptWriteCapacityUnits :: Lens.Lens' ProvisionedThroughput Lude.Natural
-ptWriteCapacityUnits = Lens.lens (writeCapacityUnits :: ProvisionedThroughput -> Lude.Natural) (\s a -> s {writeCapacityUnits = a} :: ProvisionedThroughput)
+ptWriteCapacityUnits :: Lens.Lens' ProvisionedThroughput Core.Natural
+ptWriteCapacityUnits = Lens.field @"writeCapacityUnits"
 {-# DEPRECATED ptWriteCapacityUnits "Use generic-lens or generic-optics with 'writeCapacityUnits' instead." #-}
 
-instance Lude.FromJSON ProvisionedThroughput where
-  parseJSON =
-    Lude.withObject
-      "ProvisionedThroughput"
-      ( \x ->
-          ProvisionedThroughput'
-            Lude.<$> (x Lude..: "ReadCapacityUnits")
-            Lude.<*> (x Lude..: "WriteCapacityUnits")
-      )
-
-instance Lude.ToJSON ProvisionedThroughput where
-  toJSON ProvisionedThroughput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ReadCapacityUnits" Lude..= readCapacityUnits),
-            Lude.Just ("WriteCapacityUnits" Lude..= writeCapacityUnits)
+instance Core.FromJSON ProvisionedThroughput where
+  toJSON ProvisionedThroughput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ReadCapacityUnits" Core..= readCapacityUnits),
+            Core.Just ("WriteCapacityUnits" Core..= writeCapacityUnits)
           ]
       )
+
+instance Core.FromJSON ProvisionedThroughput where
+  parseJSON =
+    Core.withObject "ProvisionedThroughput" Core.$
+      \x ->
+        ProvisionedThroughput'
+          Core.<$> (x Core..: "ReadCapacityUnits")
+          Core.<*> (x Core..: "WriteCapacityUnits")

@@ -13,51 +13,56 @@
 module Network.AWS.CertificateManagerPCA.Types.FailureReason
   ( FailureReason
       ( FailureReason',
-        RequestTimedOut,
-        UnsupportedAlgorithm,
-        Other
+        FailureReasonRequestTimedOut,
+        FailureReasonUnsupportedAlgorithm,
+        FailureReasonOther,
+        fromFailureReason
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FailureReason = FailureReason' Lude.Text
+newtype FailureReason = FailureReason'
+  { fromFailureReason ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RequestTimedOut :: FailureReason
-pattern RequestTimedOut = FailureReason' "REQUEST_TIMED_OUT"
+pattern FailureReasonRequestTimedOut :: FailureReason
+pattern FailureReasonRequestTimedOut = FailureReason' "REQUEST_TIMED_OUT"
 
-pattern UnsupportedAlgorithm :: FailureReason
-pattern UnsupportedAlgorithm = FailureReason' "UNSUPPORTED_ALGORITHM"
+pattern FailureReasonUnsupportedAlgorithm :: FailureReason
+pattern FailureReasonUnsupportedAlgorithm = FailureReason' "UNSUPPORTED_ALGORITHM"
 
-pattern Other :: FailureReason
-pattern Other = FailureReason' "OTHER"
+pattern FailureReasonOther :: FailureReason
+pattern FailureReasonOther = FailureReason' "OTHER"
 
 {-# COMPLETE
-  RequestTimedOut,
-  UnsupportedAlgorithm,
-  Other,
+  FailureReasonRequestTimedOut,
+  FailureReasonUnsupportedAlgorithm,
+  FailureReasonOther,
   FailureReason'
   #-}

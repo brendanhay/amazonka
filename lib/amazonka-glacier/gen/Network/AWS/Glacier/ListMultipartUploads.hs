@@ -27,176 +27,170 @@ module Network.AWS.Glacier.ListMultipartUploads
     mkListMultipartUploads,
 
     -- ** Request lenses
-    lmuVaultName,
     lmuAccountId,
-    lmuMarker,
+    lmuVaultName,
     lmuLimit,
+    lmuMarker,
 
     -- * Destructuring the response
     ListMultipartUploadsResponse (..),
     mkListMultipartUploadsResponse,
 
     -- ** Response lenses
-    lmursUploadsList,
-    lmursMarker,
-    lmursResponseStatus,
+    lmurrsMarker,
+    lmurrsUploadsList,
+    lmurrsResponseStatus,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options for retrieving list of in-progress multipart uploads for an Amazon Glacier vault.
 --
 -- /See:/ 'mkListMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text,
-    -- | An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.AccountId,
+    -- | The name of the vault.
+    vaultName :: Types.VaultName,
     -- | Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.
-    limit :: Lude.Maybe Lude.Text
+    limit :: Core.Maybe Types.Limit,
+    -- | An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMultipartUploads' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'marker' - An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
--- * 'limit' - Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.
+-- | Creates a 'ListMultipartUploads' value with any optional fields omitted.
 mkListMultipartUploads ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'vaultName'
+  Types.VaultName ->
   ListMultipartUploads
-mkListMultipartUploads pVaultName_ pAccountId_ =
+mkListMultipartUploads accountId vaultName =
   ListMultipartUploads'
-    { vaultName = pVaultName_,
-      accountId = pAccountId_,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing
+    { accountId,
+      vaultName,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuVaultName :: Lens.Lens' ListMultipartUploads Lude.Text
-lmuVaultName = Lens.lens (vaultName :: ListMultipartUploads -> Lude.Text) (\s a -> s {vaultName = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuAccountId :: Lens.Lens' ListMultipartUploads Lude.Text
-lmuAccountId = Lens.lens (accountId :: ListMultipartUploads -> Lude.Text) (\s a -> s {accountId = a} :: ListMultipartUploads)
+lmuAccountId :: Lens.Lens' ListMultipartUploads Types.AccountId
+lmuAccountId = Lens.field @"accountId"
 {-# DEPRECATED lmuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuMarker :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Text)
-lmuMarker = Lens.lens (marker :: ListMultipartUploads -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuVaultName :: Lens.Lens' ListMultipartUploads Types.VaultName
+lmuVaultName = Lens.field @"vaultName"
+{-# DEPRECATED lmuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuLimit :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Text)
-lmuLimit = Lens.lens (limit :: ListMultipartUploads -> Lude.Maybe Lude.Text) (\s a -> s {limit = a} :: ListMultipartUploads)
+lmuLimit :: Lens.Lens' ListMultipartUploads (Core.Maybe Types.Limit)
+lmuLimit = Lens.field @"limit"
 {-# DEPRECATED lmuLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListMultipartUploads where
-  page rq rs
-    | Page.stop (rs Lens.^. lmursMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lmursUploadsList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lmuMarker Lens..~ rs Lens.^. lmursMarker
+-- | An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuMarker :: Lens.Lens' ListMultipartUploads (Core.Maybe Types.Marker)
+lmuMarker = Lens.field @"marker"
+{-# DEPRECATED lmuMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListMultipartUploads where
+instance Core.AWSRequest ListMultipartUploads where
   type Rs ListMultipartUploads = ListMultipartUploadsResponse
-  request = Req.get glacierService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/multipart-uploads")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "limit" Core.<$> limit
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListMultipartUploadsResponse'
-            Lude.<$> (x Lude..?> "UploadsList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "UploadsList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListMultipartUploads where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListMultipartUploads where
-  toPath ListMultipartUploads' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/multipart-uploads"
-      ]
-
-instance Lude.ToQuery ListMultipartUploads where
-  toQuery ListMultipartUploads' {..} =
-    Lude.mconcat ["marker" Lude.=: marker, "limit" Lude.=: limit]
+instance Pager.AWSPager ListMultipartUploads where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"uploadsList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'mkListMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-  { -- | A list of in-progress multipart uploads.
-    uploadsList :: Lude.Maybe [UploadListElement],
-    -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
+    marker :: Core.Maybe Types.String,
+    -- | A list of in-progress multipart uploads.
+    uploadsList :: Core.Maybe [Types.UploadListElement],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
---
--- * 'uploadsList' - A list of in-progress multipart uploads.
--- * 'marker' - An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListMultipartUploadsResponse' value with any optional fields omitted.
 mkListMultipartUploadsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListMultipartUploadsResponse
-mkListMultipartUploadsResponse pResponseStatus_ =
+mkListMultipartUploadsResponse responseStatus =
   ListMultipartUploadsResponse'
-    { uploadsList = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      uploadsList = Core.Nothing,
+      responseStatus
     }
-
--- | A list of in-progress multipart uploads.
---
--- /Note:/ Consider using 'uploadsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursUploadsList :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe [UploadListElement])
-lmursUploadsList = Lens.lens (uploadsList :: ListMultipartUploadsResponse -> Lude.Maybe [UploadListElement]) (\s a -> s {uploadsList = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursUploadsList "Use generic-lens or generic-optics with 'uploadsList' instead." #-}
 
 -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursMarker :: Lens.Lens' ListMultipartUploadsResponse (Lude.Maybe Lude.Text)
-lmursMarker = Lens.lens (marker :: ListMultipartUploadsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lmurrsMarker :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe Types.String)
+lmurrsMarker = Lens.field @"marker"
+{-# DEPRECATED lmurrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A list of in-progress multipart uploads.
+--
+-- /Note:/ Consider using 'uploadsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmurrsUploadsList :: Lens.Lens' ListMultipartUploadsResponse (Core.Maybe [Types.UploadListElement])
+lmurrsUploadsList = Lens.field @"uploadsList"
+{-# DEPRECATED lmurrsUploadsList "Use generic-lens or generic-optics with 'uploadsList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmursResponseStatus :: Lens.Lens' ListMultipartUploadsResponse Lude.Int
-lmursResponseStatus = Lens.lens (responseStatus :: ListMultipartUploadsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMultipartUploadsResponse)
-{-# DEPRECATED lmursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmurrsResponseStatus :: Lens.Lens' ListMultipartUploadsResponse Core.Int
+lmurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

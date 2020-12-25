@@ -58,246 +58,226 @@ module Network.AWS.DynamoDB.RestoreTableToPointInTime
     mkRestoreTableToPointInTime,
 
     -- ** Request lenses
-    rttpitBillingModeOverride,
-    rttpitUseLatestRestorableTime,
-    rttpitGlobalSecondaryIndexOverride,
-    rttpitProvisionedThroughputOverride,
-    rttpitSourceTableARN,
-    rttpitSSESpecificationOverride,
-    rttpitSourceTableName,
-    rttpitLocalSecondaryIndexOverride,
     rttpitTargetTableName,
+    rttpitBillingModeOverride,
+    rttpitGlobalSecondaryIndexOverride,
+    rttpitLocalSecondaryIndexOverride,
+    rttpitProvisionedThroughputOverride,
     rttpitRestoreDateTime,
+    rttpitSSESpecificationOverride,
+    rttpitSourceTableArn,
+    rttpitSourceTableName,
+    rttpitUseLatestRestorableTime,
 
     -- * Destructuring the response
     RestoreTableToPointInTimeResponse (..),
     mkRestoreTableToPointInTimeResponse,
 
     -- ** Response lenses
-    rttpitrsTableDescription,
-    rttpitrsResponseStatus,
+    rttpitrrsTableDescription,
+    rttpitrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRestoreTableToPointInTime' smart constructor.
 data RestoreTableToPointInTime = RestoreTableToPointInTime'
-  { -- | The billing mode of the restored table.
-    billingModeOverride :: Lude.Maybe BillingMode,
-    -- | Restore the table to the latest possible time. @LatestRestorableDateTime@ is typically 5 minutes before the current time.
-    useLatestRestorableTime :: Lude.Maybe Lude.Bool,
+  { -- | The name of the new table to which it must be restored to.
+    targetTableName :: Types.TargetTableName,
+    -- | The billing mode of the restored table.
+    billingModeOverride :: Core.Maybe Types.BillingMode,
     -- | List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
-    globalSecondaryIndexOverride :: Lude.Maybe [GlobalSecondaryIndex],
-    -- | Provisioned throughput settings for the restored table.
-    provisionedThroughputOverride :: Lude.Maybe ProvisionedThroughput,
-    -- | The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).
-    sourceTableARN :: Lude.Maybe Lude.Text,
-    -- | The new server-side encryption settings for the restored table.
-    sSESpecificationOverride :: Lude.Maybe SSESpecification,
-    -- | Name of the source table that is being restored.
-    sourceTableName :: Lude.Maybe Lude.Text,
+    globalSecondaryIndexOverride :: Core.Maybe [Types.GlobalSecondaryIndex],
     -- | List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
-    localSecondaryIndexOverride :: Lude.Maybe [LocalSecondaryIndex],
-    -- | The name of the new table to which it must be restored to.
-    targetTableName :: Lude.Text,
+    localSecondaryIndexOverride :: Core.Maybe [Types.LocalSecondaryIndex],
+    -- | Provisioned throughput settings for the restored table.
+    provisionedThroughputOverride :: Core.Maybe Types.ProvisionedThroughput,
     -- | Time in the past to restore the table to.
-    restoreDateTime :: Lude.Maybe Lude.Timestamp
+    restoreDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The new server-side encryption settings for the restored table.
+    sSESpecificationOverride :: Core.Maybe Types.SSESpecification,
+    -- | The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).
+    sourceTableArn :: Core.Maybe Types.TableArn,
+    -- | Name of the source table that is being restored.
+    sourceTableName :: Core.Maybe Types.SourceTableName,
+    -- | Restore the table to the latest possible time. @LatestRestorableDateTime@ is typically 5 minutes before the current time.
+    useLatestRestorableTime :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RestoreTableToPointInTime' with the minimum fields required to make a request.
---
--- * 'billingModeOverride' - The billing mode of the restored table.
--- * 'useLatestRestorableTime' - Restore the table to the latest possible time. @LatestRestorableDateTime@ is typically 5 minutes before the current time.
--- * 'globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
--- * 'provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
--- * 'sourceTableARN' - The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).
--- * 'sSESpecificationOverride' - The new server-side encryption settings for the restored table.
--- * 'sourceTableName' - Name of the source table that is being restored.
--- * 'localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
--- * 'targetTableName' - The name of the new table to which it must be restored to.
--- * 'restoreDateTime' - Time in the past to restore the table to.
+-- | Creates a 'RestoreTableToPointInTime' value with any optional fields omitted.
 mkRestoreTableToPointInTime ::
   -- | 'targetTableName'
-  Lude.Text ->
+  Types.TargetTableName ->
   RestoreTableToPointInTime
-mkRestoreTableToPointInTime pTargetTableName_ =
+mkRestoreTableToPointInTime targetTableName =
   RestoreTableToPointInTime'
-    { billingModeOverride = Lude.Nothing,
-      useLatestRestorableTime = Lude.Nothing,
-      globalSecondaryIndexOverride = Lude.Nothing,
-      provisionedThroughputOverride = Lude.Nothing,
-      sourceTableARN = Lude.Nothing,
-      sSESpecificationOverride = Lude.Nothing,
-      sourceTableName = Lude.Nothing,
-      localSecondaryIndexOverride = Lude.Nothing,
-      targetTableName = pTargetTableName_,
-      restoreDateTime = Lude.Nothing
+    { targetTableName,
+      billingModeOverride = Core.Nothing,
+      globalSecondaryIndexOverride = Core.Nothing,
+      localSecondaryIndexOverride = Core.Nothing,
+      provisionedThroughputOverride = Core.Nothing,
+      restoreDateTime = Core.Nothing,
+      sSESpecificationOverride = Core.Nothing,
+      sourceTableArn = Core.Nothing,
+      sourceTableName = Core.Nothing,
+      useLatestRestorableTime = Core.Nothing
     }
-
--- | The billing mode of the restored table.
---
--- /Note:/ Consider using 'billingModeOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitBillingModeOverride :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe BillingMode)
-rttpitBillingModeOverride = Lens.lens (billingModeOverride :: RestoreTableToPointInTime -> Lude.Maybe BillingMode) (\s a -> s {billingModeOverride = a} :: RestoreTableToPointInTime)
-{-# DEPRECATED rttpitBillingModeOverride "Use generic-lens or generic-optics with 'billingModeOverride' instead." #-}
-
--- | Restore the table to the latest possible time. @LatestRestorableDateTime@ is typically 5 minutes before the current time.
---
--- /Note:/ Consider using 'useLatestRestorableTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitUseLatestRestorableTime :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe Lude.Bool)
-rttpitUseLatestRestorableTime = Lens.lens (useLatestRestorableTime :: RestoreTableToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {useLatestRestorableTime = a} :: RestoreTableToPointInTime)
-{-# DEPRECATED rttpitUseLatestRestorableTime "Use generic-lens or generic-optics with 'useLatestRestorableTime' instead." #-}
-
--- | List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
---
--- /Note:/ Consider using 'globalSecondaryIndexOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitGlobalSecondaryIndexOverride :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe [GlobalSecondaryIndex])
-rttpitGlobalSecondaryIndexOverride = Lens.lens (globalSecondaryIndexOverride :: RestoreTableToPointInTime -> Lude.Maybe [GlobalSecondaryIndex]) (\s a -> s {globalSecondaryIndexOverride = a} :: RestoreTableToPointInTime)
-{-# DEPRECATED rttpitGlobalSecondaryIndexOverride "Use generic-lens or generic-optics with 'globalSecondaryIndexOverride' instead." #-}
-
--- | Provisioned throughput settings for the restored table.
---
--- /Note:/ Consider using 'provisionedThroughputOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitProvisionedThroughputOverride :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe ProvisionedThroughput)
-rttpitProvisionedThroughputOverride = Lens.lens (provisionedThroughputOverride :: RestoreTableToPointInTime -> Lude.Maybe ProvisionedThroughput) (\s a -> s {provisionedThroughputOverride = a} :: RestoreTableToPointInTime)
-{-# DEPRECATED rttpitProvisionedThroughputOverride "Use generic-lens or generic-optics with 'provisionedThroughputOverride' instead." #-}
-
--- | The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'sourceTableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitSourceTableARN :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe Lude.Text)
-rttpitSourceTableARN = Lens.lens (sourceTableARN :: RestoreTableToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {sourceTableARN = a} :: RestoreTableToPointInTime)
-{-# DEPRECATED rttpitSourceTableARN "Use generic-lens or generic-optics with 'sourceTableARN' instead." #-}
-
--- | The new server-side encryption settings for the restored table.
---
--- /Note:/ Consider using 'sSESpecificationOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitSSESpecificationOverride :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe SSESpecification)
-rttpitSSESpecificationOverride = Lens.lens (sSESpecificationOverride :: RestoreTableToPointInTime -> Lude.Maybe SSESpecification) (\s a -> s {sSESpecificationOverride = a} :: RestoreTableToPointInTime)
-{-# DEPRECATED rttpitSSESpecificationOverride "Use generic-lens or generic-optics with 'sSESpecificationOverride' instead." #-}
-
--- | Name of the source table that is being restored.
---
--- /Note:/ Consider using 'sourceTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitSourceTableName :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe Lude.Text)
-rttpitSourceTableName = Lens.lens (sourceTableName :: RestoreTableToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {sourceTableName = a} :: RestoreTableToPointInTime)
-{-# DEPRECATED rttpitSourceTableName "Use generic-lens or generic-optics with 'sourceTableName' instead." #-}
-
--- | List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
---
--- /Note:/ Consider using 'localSecondaryIndexOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitLocalSecondaryIndexOverride :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe [LocalSecondaryIndex])
-rttpitLocalSecondaryIndexOverride = Lens.lens (localSecondaryIndexOverride :: RestoreTableToPointInTime -> Lude.Maybe [LocalSecondaryIndex]) (\s a -> s {localSecondaryIndexOverride = a} :: RestoreTableToPointInTime)
-{-# DEPRECATED rttpitLocalSecondaryIndexOverride "Use generic-lens or generic-optics with 'localSecondaryIndexOverride' instead." #-}
 
 -- | The name of the new table to which it must be restored to.
 --
 -- /Note:/ Consider using 'targetTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitTargetTableName :: Lens.Lens' RestoreTableToPointInTime Lude.Text
-rttpitTargetTableName = Lens.lens (targetTableName :: RestoreTableToPointInTime -> Lude.Text) (\s a -> s {targetTableName = a} :: RestoreTableToPointInTime)
+rttpitTargetTableName :: Lens.Lens' RestoreTableToPointInTime Types.TargetTableName
+rttpitTargetTableName = Lens.field @"targetTableName"
 {-# DEPRECATED rttpitTargetTableName "Use generic-lens or generic-optics with 'targetTableName' instead." #-}
+
+-- | The billing mode of the restored table.
+--
+-- /Note:/ Consider using 'billingModeOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rttpitBillingModeOverride :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe Types.BillingMode)
+rttpitBillingModeOverride = Lens.field @"billingModeOverride"
+{-# DEPRECATED rttpitBillingModeOverride "Use generic-lens or generic-optics with 'billingModeOverride' instead." #-}
+
+-- | List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
+--
+-- /Note:/ Consider using 'globalSecondaryIndexOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rttpitGlobalSecondaryIndexOverride :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe [Types.GlobalSecondaryIndex])
+rttpitGlobalSecondaryIndexOverride = Lens.field @"globalSecondaryIndexOverride"
+{-# DEPRECATED rttpitGlobalSecondaryIndexOverride "Use generic-lens or generic-optics with 'globalSecondaryIndexOverride' instead." #-}
+
+-- | List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
+--
+-- /Note:/ Consider using 'localSecondaryIndexOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rttpitLocalSecondaryIndexOverride :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe [Types.LocalSecondaryIndex])
+rttpitLocalSecondaryIndexOverride = Lens.field @"localSecondaryIndexOverride"
+{-# DEPRECATED rttpitLocalSecondaryIndexOverride "Use generic-lens or generic-optics with 'localSecondaryIndexOverride' instead." #-}
+
+-- | Provisioned throughput settings for the restored table.
+--
+-- /Note:/ Consider using 'provisionedThroughputOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rttpitProvisionedThroughputOverride :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe Types.ProvisionedThroughput)
+rttpitProvisionedThroughputOverride = Lens.field @"provisionedThroughputOverride"
+{-# DEPRECATED rttpitProvisionedThroughputOverride "Use generic-lens or generic-optics with 'provisionedThroughputOverride' instead." #-}
 
 -- | Time in the past to restore the table to.
 --
 -- /Note:/ Consider using 'restoreDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitRestoreDateTime :: Lens.Lens' RestoreTableToPointInTime (Lude.Maybe Lude.Timestamp)
-rttpitRestoreDateTime = Lens.lens (restoreDateTime :: RestoreTableToPointInTime -> Lude.Maybe Lude.Timestamp) (\s a -> s {restoreDateTime = a} :: RestoreTableToPointInTime)
+rttpitRestoreDateTime :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe Core.NominalDiffTime)
+rttpitRestoreDateTime = Lens.field @"restoreDateTime"
 {-# DEPRECATED rttpitRestoreDateTime "Use generic-lens or generic-optics with 'restoreDateTime' instead." #-}
 
-instance Lude.AWSRequest RestoreTableToPointInTime where
+-- | The new server-side encryption settings for the restored table.
+--
+-- /Note:/ Consider using 'sSESpecificationOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rttpitSSESpecificationOverride :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe Types.SSESpecification)
+rttpitSSESpecificationOverride = Lens.field @"sSESpecificationOverride"
+{-# DEPRECATED rttpitSSESpecificationOverride "Use generic-lens or generic-optics with 'sSESpecificationOverride' instead." #-}
+
+-- | The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'sourceTableArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rttpitSourceTableArn :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe Types.TableArn)
+rttpitSourceTableArn = Lens.field @"sourceTableArn"
+{-# DEPRECATED rttpitSourceTableArn "Use generic-lens or generic-optics with 'sourceTableArn' instead." #-}
+
+-- | Name of the source table that is being restored.
+--
+-- /Note:/ Consider using 'sourceTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rttpitSourceTableName :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe Types.SourceTableName)
+rttpitSourceTableName = Lens.field @"sourceTableName"
+{-# DEPRECATED rttpitSourceTableName "Use generic-lens or generic-optics with 'sourceTableName' instead." #-}
+
+-- | Restore the table to the latest possible time. @LatestRestorableDateTime@ is typically 5 minutes before the current time.
+--
+-- /Note:/ Consider using 'useLatestRestorableTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rttpitUseLatestRestorableTime :: Lens.Lens' RestoreTableToPointInTime (Core.Maybe Core.Bool)
+rttpitUseLatestRestorableTime = Lens.field @"useLatestRestorableTime"
+{-# DEPRECATED rttpitUseLatestRestorableTime "Use generic-lens or generic-optics with 'useLatestRestorableTime' instead." #-}
+
+instance Core.FromJSON RestoreTableToPointInTime where
+  toJSON RestoreTableToPointInTime {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TargetTableName" Core..= targetTableName),
+            ("BillingModeOverride" Core..=) Core.<$> billingModeOverride,
+            ("GlobalSecondaryIndexOverride" Core..=)
+              Core.<$> globalSecondaryIndexOverride,
+            ("LocalSecondaryIndexOverride" Core..=)
+              Core.<$> localSecondaryIndexOverride,
+            ("ProvisionedThroughputOverride" Core..=)
+              Core.<$> provisionedThroughputOverride,
+            ("RestoreDateTime" Core..=) Core.<$> restoreDateTime,
+            ("SSESpecificationOverride" Core..=)
+              Core.<$> sSESpecificationOverride,
+            ("SourceTableArn" Core..=) Core.<$> sourceTableArn,
+            ("SourceTableName" Core..=) Core.<$> sourceTableName,
+            ("UseLatestRestorableTime" Core..=)
+              Core.<$> useLatestRestorableTime
+          ]
+      )
+
+instance Core.AWSRequest RestoreTableToPointInTime where
   type
     Rs RestoreTableToPointInTime =
       RestoreTableToPointInTimeResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DynamoDB_20120810.RestoreTableToPointInTime")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RestoreTableToPointInTimeResponse'
-            Lude.<$> (x Lude..?> "TableDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TableDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RestoreTableToPointInTime where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.RestoreTableToPointInTime" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RestoreTableToPointInTime where
-  toJSON RestoreTableToPointInTime' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("BillingModeOverride" Lude..=) Lude.<$> billingModeOverride,
-            ("UseLatestRestorableTime" Lude..=)
-              Lude.<$> useLatestRestorableTime,
-            ("GlobalSecondaryIndexOverride" Lude..=)
-              Lude.<$> globalSecondaryIndexOverride,
-            ("ProvisionedThroughputOverride" Lude..=)
-              Lude.<$> provisionedThroughputOverride,
-            ("SourceTableArn" Lude..=) Lude.<$> sourceTableARN,
-            ("SSESpecificationOverride" Lude..=)
-              Lude.<$> sSESpecificationOverride,
-            ("SourceTableName" Lude..=) Lude.<$> sourceTableName,
-            ("LocalSecondaryIndexOverride" Lude..=)
-              Lude.<$> localSecondaryIndexOverride,
-            Lude.Just ("TargetTableName" Lude..= targetTableName),
-            ("RestoreDateTime" Lude..=) Lude.<$> restoreDateTime
-          ]
-      )
-
-instance Lude.ToPath RestoreTableToPointInTime where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RestoreTableToPointInTime where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRestoreTableToPointInTimeResponse' smart constructor.
 data RestoreTableToPointInTimeResponse = RestoreTableToPointInTimeResponse'
   { -- | Represents the properties of a table.
-    tableDescription :: Lude.Maybe TableDescription,
+    tableDescription :: Core.Maybe Types.TableDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RestoreTableToPointInTimeResponse' with the minimum fields required to make a request.
---
--- * 'tableDescription' - Represents the properties of a table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RestoreTableToPointInTimeResponse' value with any optional fields omitted.
 mkRestoreTableToPointInTimeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RestoreTableToPointInTimeResponse
-mkRestoreTableToPointInTimeResponse pResponseStatus_ =
+mkRestoreTableToPointInTimeResponse responseStatus =
   RestoreTableToPointInTimeResponse'
     { tableDescription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Represents the properties of a table.
 --
 -- /Note:/ Consider using 'tableDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitrsTableDescription :: Lens.Lens' RestoreTableToPointInTimeResponse (Lude.Maybe TableDescription)
-rttpitrsTableDescription = Lens.lens (tableDescription :: RestoreTableToPointInTimeResponse -> Lude.Maybe TableDescription) (\s a -> s {tableDescription = a} :: RestoreTableToPointInTimeResponse)
-{-# DEPRECATED rttpitrsTableDescription "Use generic-lens or generic-optics with 'tableDescription' instead." #-}
+rttpitrrsTableDescription :: Lens.Lens' RestoreTableToPointInTimeResponse (Core.Maybe Types.TableDescription)
+rttpitrrsTableDescription = Lens.field @"tableDescription"
+{-# DEPRECATED rttpitrrsTableDescription "Use generic-lens or generic-optics with 'tableDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rttpitrsResponseStatus :: Lens.Lens' RestoreTableToPointInTimeResponse Lude.Int
-rttpitrsResponseStatus = Lens.lens (responseStatus :: RestoreTableToPointInTimeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreTableToPointInTimeResponse)
-{-# DEPRECATED rttpitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rttpitrrsResponseStatus :: Lens.Lens' RestoreTableToPointInTimeResponse Core.Int
+rttpitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rttpitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

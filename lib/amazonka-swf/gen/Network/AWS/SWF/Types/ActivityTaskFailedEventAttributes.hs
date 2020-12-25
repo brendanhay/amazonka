@@ -18,90 +18,82 @@ module Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes
 
     -- * Lenses
     atfeaScheduledEventId,
-    atfeaReason,
-    atfeaDetails,
     atfeaStartedEventId,
+    atfeaDetails,
+    atfeaReason,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.FailureReason as Types
 
 -- | Provides the details of the @ActivityTaskFailed@ event.
 --
 -- /See:/ 'mkActivityTaskFailedEventAttributes' smart constructor.
 data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes'
   { -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    scheduledEventId :: Lude.Integer,
-    -- | The reason provided for the failure.
-    reason :: Lude.Maybe Lude.Text,
-    -- | The details of the failure.
-    details :: Lude.Maybe Lude.Text,
+    scheduledEventId :: Core.Integer,
     -- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    startedEventId :: Lude.Integer
+    startedEventId :: Core.Integer,
+    -- | The details of the failure.
+    details :: Core.Maybe Types.Data,
+    -- | The reason provided for the failure.
+    reason :: Core.Maybe Types.FailureReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivityTaskFailedEventAttributes' with the minimum fields required to make a request.
---
--- * 'scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'reason' - The reason provided for the failure.
--- * 'details' - The details of the failure.
--- * 'startedEventId' - The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | Creates a 'ActivityTaskFailedEventAttributes' value with any optional fields omitted.
 mkActivityTaskFailedEventAttributes ::
   -- | 'scheduledEventId'
-  Lude.Integer ->
+  Core.Integer ->
   -- | 'startedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   ActivityTaskFailedEventAttributes
-mkActivityTaskFailedEventAttributes
-  pScheduledEventId_
-  pStartedEventId_ =
-    ActivityTaskFailedEventAttributes'
-      { scheduledEventId =
-          pScheduledEventId_,
-        reason = Lude.Nothing,
-        details = Lude.Nothing,
-        startedEventId = pStartedEventId_
-      }
+mkActivityTaskFailedEventAttributes scheduledEventId startedEventId =
+  ActivityTaskFailedEventAttributes'
+    { scheduledEventId,
+      startedEventId,
+      details = Core.Nothing,
+      reason = Core.Nothing
+    }
 
 -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atfeaScheduledEventId :: Lens.Lens' ActivityTaskFailedEventAttributes Lude.Integer
-atfeaScheduledEventId = Lens.lens (scheduledEventId :: ActivityTaskFailedEventAttributes -> Lude.Integer) (\s a -> s {scheduledEventId = a} :: ActivityTaskFailedEventAttributes)
+atfeaScheduledEventId :: Lens.Lens' ActivityTaskFailedEventAttributes Core.Integer
+atfeaScheduledEventId = Lens.field @"scheduledEventId"
 {-# DEPRECATED atfeaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
-
--- | The reason provided for the failure.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atfeaReason :: Lens.Lens' ActivityTaskFailedEventAttributes (Lude.Maybe Lude.Text)
-atfeaReason = Lens.lens (reason :: ActivityTaskFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: ActivityTaskFailedEventAttributes)
-{-# DEPRECATED atfeaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
--- | The details of the failure.
---
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atfeaDetails :: Lens.Lens' ActivityTaskFailedEventAttributes (Lude.Maybe Lude.Text)
-atfeaDetails = Lens.lens (details :: ActivityTaskFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: ActivityTaskFailedEventAttributes)
-{-# DEPRECATED atfeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atfeaStartedEventId :: Lens.Lens' ActivityTaskFailedEventAttributes Lude.Integer
-atfeaStartedEventId = Lens.lens (startedEventId :: ActivityTaskFailedEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: ActivityTaskFailedEventAttributes)
+atfeaStartedEventId :: Lens.Lens' ActivityTaskFailedEventAttributes Core.Integer
+atfeaStartedEventId = Lens.field @"startedEventId"
 {-# DEPRECATED atfeaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
 
-instance Lude.FromJSON ActivityTaskFailedEventAttributes where
+-- | The details of the failure.
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atfeaDetails :: Lens.Lens' ActivityTaskFailedEventAttributes (Core.Maybe Types.Data)
+atfeaDetails = Lens.field @"details"
+{-# DEPRECATED atfeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+
+-- | The reason provided for the failure.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atfeaReason :: Lens.Lens' ActivityTaskFailedEventAttributes (Core.Maybe Types.FailureReason)
+atfeaReason = Lens.field @"reason"
+{-# DEPRECATED atfeaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromJSON ActivityTaskFailedEventAttributes where
   parseJSON =
-    Lude.withObject
-      "ActivityTaskFailedEventAttributes"
-      ( \x ->
-          ActivityTaskFailedEventAttributes'
-            Lude.<$> (x Lude..: "scheduledEventId")
-            Lude.<*> (x Lude..:? "reason")
-            Lude.<*> (x Lude..:? "details")
-            Lude.<*> (x Lude..: "startedEventId")
-      )
+    Core.withObject "ActivityTaskFailedEventAttributes" Core.$
+      \x ->
+        ActivityTaskFailedEventAttributes'
+          Core.<$> (x Core..: "scheduledEventId")
+          Core.<*> (x Core..: "startedEventId")
+          Core.<*> (x Core..:? "details")
+          Core.<*> (x Core..:? "reason")

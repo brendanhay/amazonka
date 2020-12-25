@@ -24,7 +24,7 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     mkModifyLunaClient,
 
     -- ** Request lenses
-    mlcClientARN,
+    mlcClientArn,
     mlcCertificate,
 
     -- * Destructuring the response
@@ -32,127 +32,112 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     mkModifyLunaClientResponse,
 
     -- ** Response lenses
-    mlcrsClientARN,
-    mlcrsResponseStatus,
+    mlcrrsClientArn,
+    mlcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.CloudHSM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyLunaClient' smart constructor.
 data ModifyLunaClient = ModifyLunaClient'
   { -- | The ARN of the client.
-    clientARN :: Lude.Text,
+    clientArn :: Types.ClientArn,
     -- | The new certificate for the client.
-    certificate :: Lude.Text
+    certificate :: Types.Certificate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyLunaClient' with the minimum fields required to make a request.
---
--- * 'clientARN' - The ARN of the client.
--- * 'certificate' - The new certificate for the client.
+-- | Creates a 'ModifyLunaClient' value with any optional fields omitted.
 mkModifyLunaClient ::
-  -- | 'clientARN'
-  Lude.Text ->
+  -- | 'clientArn'
+  Types.ClientArn ->
   -- | 'certificate'
-  Lude.Text ->
+  Types.Certificate ->
   ModifyLunaClient
-mkModifyLunaClient pClientARN_ pCertificate_ =
-  ModifyLunaClient'
-    { clientARN = pClientARN_,
-      certificate = pCertificate_
-    }
+mkModifyLunaClient clientArn certificate =
+  ModifyLunaClient' {clientArn, certificate}
 
 -- | The ARN of the client.
 --
--- /Note:/ Consider using 'clientARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlcClientARN :: Lens.Lens' ModifyLunaClient Lude.Text
-mlcClientARN = Lens.lens (clientARN :: ModifyLunaClient -> Lude.Text) (\s a -> s {clientARN = a} :: ModifyLunaClient)
-{-# DEPRECATED mlcClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
+-- /Note:/ Consider using 'clientArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mlcClientArn :: Lens.Lens' ModifyLunaClient Types.ClientArn
+mlcClientArn = Lens.field @"clientArn"
+{-# DEPRECATED mlcClientArn "Use generic-lens or generic-optics with 'clientArn' instead." #-}
 
 -- | The new certificate for the client.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlcCertificate :: Lens.Lens' ModifyLunaClient Lude.Text
-mlcCertificate = Lens.lens (certificate :: ModifyLunaClient -> Lude.Text) (\s a -> s {certificate = a} :: ModifyLunaClient)
+mlcCertificate :: Lens.Lens' ModifyLunaClient Types.Certificate
+mlcCertificate = Lens.field @"certificate"
 {-# DEPRECATED mlcCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
-instance Lude.AWSRequest ModifyLunaClient where
+instance Core.FromJSON ModifyLunaClient where
+  toJSON ModifyLunaClient {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClientArn" Core..= clientArn),
+            Core.Just ("Certificate" Core..= certificate)
+          ]
+      )
+
+instance Core.AWSRequest ModifyLunaClient where
   type Rs ModifyLunaClient = ModifyLunaClientResponse
-  request = Req.postJSON cloudHSMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CloudHsmFrontendService.ModifyLunaClient")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ModifyLunaClientResponse'
-            Lude.<$> (x Lude..?> "ClientArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ClientArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyLunaClient where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CloudHsmFrontendService.ModifyLunaClient" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifyLunaClient where
-  toJSON ModifyLunaClient' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClientArn" Lude..= clientARN),
-            Lude.Just ("Certificate" Lude..= certificate)
-          ]
-      )
-
-instance Lude.ToPath ModifyLunaClient where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyLunaClient where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkModifyLunaClientResponse' smart constructor.
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
   { -- | The ARN of the client.
-    clientARN :: Lude.Maybe Lude.Text,
+    clientArn :: Core.Maybe Types.ClientArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyLunaClientResponse' with the minimum fields required to make a request.
---
--- * 'clientARN' - The ARN of the client.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyLunaClientResponse' value with any optional fields omitted.
 mkModifyLunaClientResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyLunaClientResponse
-mkModifyLunaClientResponse pResponseStatus_ =
+mkModifyLunaClientResponse responseStatus =
   ModifyLunaClientResponse'
-    { clientARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clientArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the client.
 --
--- /Note:/ Consider using 'clientARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlcrsClientARN :: Lens.Lens' ModifyLunaClientResponse (Lude.Maybe Lude.Text)
-mlcrsClientARN = Lens.lens (clientARN :: ModifyLunaClientResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientARN = a} :: ModifyLunaClientResponse)
-{-# DEPRECATED mlcrsClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
+-- /Note:/ Consider using 'clientArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mlcrrsClientArn :: Lens.Lens' ModifyLunaClientResponse (Core.Maybe Types.ClientArn)
+mlcrrsClientArn = Lens.field @"clientArn"
+{-# DEPRECATED mlcrrsClientArn "Use generic-lens or generic-optics with 'clientArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mlcrsResponseStatus :: Lens.Lens' ModifyLunaClientResponse Lude.Int
-mlcrsResponseStatus = Lens.lens (responseStatus :: ModifyLunaClientResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyLunaClientResponse)
-{-# DEPRECATED mlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mlcrrsResponseStatus :: Lens.Lens' ModifyLunaClientResponse Core.Int
+mlcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

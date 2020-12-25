@@ -27,138 +27,125 @@ module Network.AWS.Route53Domains.ResendContactReachabilityEmail
     mkResendContactReachabilityEmailResponse,
 
     -- ** Response lenses
-    rcrersDomainName,
-    rcrersEmailAddress,
-    rcrersIsAlreadyVerified,
-    rcrersResponseStatus,
+    rcrerrsDomainName,
+    rcrerrsEmailAddress,
+    rcrerrsIsAlreadyVerified,
+    rcrerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | /See:/ 'mkResendContactReachabilityEmail' smart constructor.
 newtype ResendContactReachabilityEmail = ResendContactReachabilityEmail'
   { -- | The name of the domain for which you want Route 53 to resend a confirmation email to the registrant contact.
-    domainName :: Lude.Maybe Lude.Text
+    domainName :: Core.Maybe Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResendContactReachabilityEmail' with the minimum fields required to make a request.
---
--- * 'domainName' - The name of the domain for which you want Route 53 to resend a confirmation email to the registrant contact.
+-- | Creates a 'ResendContactReachabilityEmail' value with any optional fields omitted.
 mkResendContactReachabilityEmail ::
   ResendContactReachabilityEmail
 mkResendContactReachabilityEmail =
-  ResendContactReachabilityEmail' {domainName = Lude.Nothing}
+  ResendContactReachabilityEmail' {domainName = Core.Nothing}
 
 -- | The name of the domain for which you want Route 53 to resend a confirmation email to the registrant contact.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcreDomainName :: Lens.Lens' ResendContactReachabilityEmail (Lude.Maybe Lude.Text)
-rcreDomainName = Lens.lens (domainName :: ResendContactReachabilityEmail -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: ResendContactReachabilityEmail)
+rcreDomainName :: Lens.Lens' ResendContactReachabilityEmail (Core.Maybe Types.DomainName)
+rcreDomainName = Lens.field @"domainName"
 {-# DEPRECATED rcreDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest ResendContactReachabilityEmail where
+instance Core.FromJSON ResendContactReachabilityEmail where
+  toJSON ResendContactReachabilityEmail {..} =
+    Core.object
+      (Core.catMaybes [("domainName" Core..=) Core.<$> domainName])
+
+instance Core.AWSRequest ResendContactReachabilityEmail where
   type
     Rs ResendContactReachabilityEmail =
       ResendContactReachabilityEmailResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Route53Domains_v20140515.ResendContactReachabilityEmail"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ResendContactReachabilityEmailResponse'
-            Lude.<$> (x Lude..?> "domainName")
-            Lude.<*> (x Lude..?> "emailAddress")
-            Lude.<*> (x Lude..?> "isAlreadyVerified")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "domainName")
+            Core.<*> (x Core..:? "emailAddress")
+            Core.<*> (x Core..:? "isAlreadyVerified")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResendContactReachabilityEmail where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Route53Domains_v20140515.ResendContactReachabilityEmail" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResendContactReachabilityEmail where
-  toJSON ResendContactReachabilityEmail' {..} =
-    Lude.object
-      (Lude.catMaybes [("domainName" Lude..=) Lude.<$> domainName])
-
-instance Lude.ToPath ResendContactReachabilityEmail where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResendContactReachabilityEmail where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkResendContactReachabilityEmailResponse' smart constructor.
 data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResponse'
   { -- | The domain name for which you requested a confirmation email.
-    domainName :: Lude.Maybe Lude.Text,
+    domainName :: Core.Maybe Types.DomainName,
     -- | The email address for the registrant contact at the time that we sent the verification email.
-    emailAddress :: Lude.Maybe Lude.Text,
+    emailAddress :: Core.Maybe Types.Email,
     -- | @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
-    isAlreadyVerified :: Lude.Maybe Lude.Bool,
+    isAlreadyVerified :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResendContactReachabilityEmailResponse' with the minimum fields required to make a request.
---
--- * 'domainName' - The domain name for which you requested a confirmation email.
--- * 'emailAddress' - The email address for the registrant contact at the time that we sent the verification email.
--- * 'isAlreadyVerified' - @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResendContactReachabilityEmailResponse' value with any optional fields omitted.
 mkResendContactReachabilityEmailResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResendContactReachabilityEmailResponse
-mkResendContactReachabilityEmailResponse pResponseStatus_ =
+mkResendContactReachabilityEmailResponse responseStatus =
   ResendContactReachabilityEmailResponse'
     { domainName =
-        Lude.Nothing,
-      emailAddress = Lude.Nothing,
-      isAlreadyVerified = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      emailAddress = Core.Nothing,
+      isAlreadyVerified = Core.Nothing,
+      responseStatus
     }
 
 -- | The domain name for which you requested a confirmation email.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrersDomainName :: Lens.Lens' ResendContactReachabilityEmailResponse (Lude.Maybe Lude.Text)
-rcrersDomainName = Lens.lens (domainName :: ResendContactReachabilityEmailResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: ResendContactReachabilityEmailResponse)
-{-# DEPRECATED rcrersDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+rcrerrsDomainName :: Lens.Lens' ResendContactReachabilityEmailResponse (Core.Maybe Types.DomainName)
+rcrerrsDomainName = Lens.field @"domainName"
+{-# DEPRECATED rcrerrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The email address for the registrant contact at the time that we sent the verification email.
 --
 -- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrersEmailAddress :: Lens.Lens' ResendContactReachabilityEmailResponse (Lude.Maybe Lude.Text)
-rcrersEmailAddress = Lens.lens (emailAddress :: ResendContactReachabilityEmailResponse -> Lude.Maybe Lude.Text) (\s a -> s {emailAddress = a} :: ResendContactReachabilityEmailResponse)
-{-# DEPRECATED rcrersEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
+rcrerrsEmailAddress :: Lens.Lens' ResendContactReachabilityEmailResponse (Core.Maybe Types.Email)
+rcrerrsEmailAddress = Lens.field @"emailAddress"
+{-# DEPRECATED rcrerrsEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
 
 -- | @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
 --
 -- /Note:/ Consider using 'isAlreadyVerified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrersIsAlreadyVerified :: Lens.Lens' ResendContactReachabilityEmailResponse (Lude.Maybe Lude.Bool)
-rcrersIsAlreadyVerified = Lens.lens (isAlreadyVerified :: ResendContactReachabilityEmailResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isAlreadyVerified = a} :: ResendContactReachabilityEmailResponse)
-{-# DEPRECATED rcrersIsAlreadyVerified "Use generic-lens or generic-optics with 'isAlreadyVerified' instead." #-}
+rcrerrsIsAlreadyVerified :: Lens.Lens' ResendContactReachabilityEmailResponse (Core.Maybe Core.Bool)
+rcrerrsIsAlreadyVerified = Lens.field @"isAlreadyVerified"
+{-# DEPRECATED rcrerrsIsAlreadyVerified "Use generic-lens or generic-optics with 'isAlreadyVerified' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrersResponseStatus :: Lens.Lens' ResendContactReachabilityEmailResponse Lude.Int
-rcrersResponseStatus = Lens.lens (responseStatus :: ResendContactReachabilityEmailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResendContactReachabilityEmailResponse)
-{-# DEPRECATED rcrersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rcrerrsResponseStatus :: Lens.Lens' ResendContactReachabilityEmailResponse Core.Int
+rcrerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rcrerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

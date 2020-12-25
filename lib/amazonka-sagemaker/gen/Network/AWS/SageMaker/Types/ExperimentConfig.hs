@@ -17,14 +17,15 @@ module Network.AWS.SageMaker.Types.ExperimentConfig
     mkExperimentConfig,
 
     -- * Lenses
-    ecTrialComponentDisplayName,
     ecExperimentName,
+    ecTrialComponentDisplayName,
     ecTrialName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ExperimentEntityName as Types
 
 -- | Associates a SageMaker job as a trial component with an experiment and trial. Specified when you call the following APIs:
 --
@@ -41,69 +42,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExperimentConfig' smart constructor.
 data ExperimentConfig = ExperimentConfig'
-  { -- | The display name for the trial component. If this key isn't specified, the display name is the trial component name.
-    trialComponentDisplayName :: Lude.Maybe Lude.Text,
-    -- | The name of an existing experiment to associate the trial component with.
-    experimentName :: Lude.Maybe Lude.Text,
+  { -- | The name of an existing experiment to associate the trial component with.
+    experimentName :: Core.Maybe Types.ExperimentEntityName,
+    -- | The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+    trialComponentDisplayName :: Core.Maybe Types.ExperimentEntityName,
     -- | The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
-    trialName :: Lude.Maybe Lude.Text
+    trialName :: Core.Maybe Types.ExperimentEntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExperimentConfig' with the minimum fields required to make a request.
---
--- * 'trialComponentDisplayName' - The display name for the trial component. If this key isn't specified, the display name is the trial component name.
--- * 'experimentName' - The name of an existing experiment to associate the trial component with.
--- * 'trialName' - The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
+-- | Creates a 'ExperimentConfig' value with any optional fields omitted.
 mkExperimentConfig ::
   ExperimentConfig
 mkExperimentConfig =
   ExperimentConfig'
-    { trialComponentDisplayName = Lude.Nothing,
-      experimentName = Lude.Nothing,
-      trialName = Lude.Nothing
+    { experimentName = Core.Nothing,
+      trialComponentDisplayName = Core.Nothing,
+      trialName = Core.Nothing
     }
-
--- | The display name for the trial component. If this key isn't specified, the display name is the trial component name.
---
--- /Note:/ Consider using 'trialComponentDisplayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecTrialComponentDisplayName :: Lens.Lens' ExperimentConfig (Lude.Maybe Lude.Text)
-ecTrialComponentDisplayName = Lens.lens (trialComponentDisplayName :: ExperimentConfig -> Lude.Maybe Lude.Text) (\s a -> s {trialComponentDisplayName = a} :: ExperimentConfig)
-{-# DEPRECATED ecTrialComponentDisplayName "Use generic-lens or generic-optics with 'trialComponentDisplayName' instead." #-}
 
 -- | The name of an existing experiment to associate the trial component with.
 --
 -- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecExperimentName :: Lens.Lens' ExperimentConfig (Lude.Maybe Lude.Text)
-ecExperimentName = Lens.lens (experimentName :: ExperimentConfig -> Lude.Maybe Lude.Text) (\s a -> s {experimentName = a} :: ExperimentConfig)
+ecExperimentName :: Lens.Lens' ExperimentConfig (Core.Maybe Types.ExperimentEntityName)
+ecExperimentName = Lens.field @"experimentName"
 {-# DEPRECATED ecExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
+
+-- | The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+--
+-- /Note:/ Consider using 'trialComponentDisplayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecTrialComponentDisplayName :: Lens.Lens' ExperimentConfig (Core.Maybe Types.ExperimentEntityName)
+ecTrialComponentDisplayName = Lens.field @"trialComponentDisplayName"
+{-# DEPRECATED ecTrialComponentDisplayName "Use generic-lens or generic-optics with 'trialComponentDisplayName' instead." #-}
 
 -- | The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecTrialName :: Lens.Lens' ExperimentConfig (Lude.Maybe Lude.Text)
-ecTrialName = Lens.lens (trialName :: ExperimentConfig -> Lude.Maybe Lude.Text) (\s a -> s {trialName = a} :: ExperimentConfig)
+ecTrialName :: Lens.Lens' ExperimentConfig (Core.Maybe Types.ExperimentEntityName)
+ecTrialName = Lens.field @"trialName"
 {-# DEPRECATED ecTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
-instance Lude.FromJSON ExperimentConfig where
-  parseJSON =
-    Lude.withObject
-      "ExperimentConfig"
-      ( \x ->
-          ExperimentConfig'
-            Lude.<$> (x Lude..:? "TrialComponentDisplayName")
-            Lude.<*> (x Lude..:? "ExperimentName")
-            Lude.<*> (x Lude..:? "TrialName")
-      )
-
-instance Lude.ToJSON ExperimentConfig where
-  toJSON ExperimentConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TrialComponentDisplayName" Lude..=)
-              Lude.<$> trialComponentDisplayName,
-            ("ExperimentName" Lude..=) Lude.<$> experimentName,
-            ("TrialName" Lude..=) Lude.<$> trialName
+instance Core.FromJSON ExperimentConfig where
+  toJSON ExperimentConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ExperimentName" Core..=) Core.<$> experimentName,
+            ("TrialComponentDisplayName" Core..=)
+              Core.<$> trialComponentDisplayName,
+            ("TrialName" Core..=) Core.<$> trialName
           ]
       )
+
+instance Core.FromJSON ExperimentConfig where
+  parseJSON =
+    Core.withObject "ExperimentConfig" Core.$
+      \x ->
+        ExperimentConfig'
+          Core.<$> (x Core..:? "ExperimentName")
+          Core.<*> (x Core..:? "TrialComponentDisplayName")
+          Core.<*> (x Core..:? "TrialName")

@@ -22,117 +22,105 @@ module Network.AWS.WorkMail.DeleteUser
     mkDeleteUser,
 
     -- ** Request lenses
-    dUserId,
-    dOrganizationId,
+    dufOrganizationId,
+    dufUserId,
 
     -- * Destructuring the response
     DeleteUserResponse (..),
     mkDeleteUserResponse,
 
     -- ** Response lenses
-    dufrsResponseStatus,
+    durfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { -- | The identifier of the user to be deleted.
-    userId :: Lude.Text,
-    -- | The organization that contains the user to be deleted.
-    organizationId :: Lude.Text
+  { -- | The organization that contains the user to be deleted.
+    organizationId :: Types.OrganizationId,
+    -- | The identifier of the user to be deleted.
+    userId :: Types.WorkMailIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
---
--- * 'userId' - The identifier of the user to be deleted.
--- * 'organizationId' - The organization that contains the user to be deleted.
+-- | Creates a 'DeleteUser' value with any optional fields omitted.
 mkDeleteUser ::
-  -- | 'userId'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'userId'
+  Types.WorkMailIdentifier ->
   DeleteUser
-mkDeleteUser pUserId_ pOrganizationId_ =
-  DeleteUser' {userId = pUserId_, organizationId = pOrganizationId_}
-
--- | The identifier of the user to be deleted.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dUserId :: Lens.Lens' DeleteUser Lude.Text
-dUserId = Lens.lens (userId :: DeleteUser -> Lude.Text) (\s a -> s {userId = a} :: DeleteUser)
-{-# DEPRECATED dUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+mkDeleteUser organizationId userId =
+  DeleteUser' {organizationId, userId}
 
 -- | The organization that contains the user to be deleted.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dOrganizationId :: Lens.Lens' DeleteUser Lude.Text
-dOrganizationId = Lens.lens (organizationId :: DeleteUser -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteUser)
-{-# DEPRECATED dOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+dufOrganizationId :: Lens.Lens' DeleteUser Types.OrganizationId
+dufOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED dufOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest DeleteUser where
+-- | The identifier of the user to be deleted.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dufUserId :: Lens.Lens' DeleteUser Types.WorkMailIdentifier
+dufUserId = Lens.field @"userId"
+{-# DEPRECATED dufUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+instance Core.FromJSON DeleteUser where
+  toJSON DeleteUser {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("UserId" Core..= userId)
+          ]
+      )
+
+instance Core.AWSRequest DeleteUser where
   type Rs DeleteUser = DeleteUserResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.DeleteUser")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteUserResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteUser where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.DeleteUser" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteUser where
-  toJSON DeleteUser' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserId" Lude..= userId),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath DeleteUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteUser where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteUserResponse' smart constructor.
 newtype DeleteUserResponse = DeleteUserResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteUserResponse' value with any optional fields omitted.
 mkDeleteUserResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteUserResponse
-mkDeleteUserResponse pResponseStatus_ =
-  DeleteUserResponse' {responseStatus = pResponseStatus_}
+mkDeleteUserResponse responseStatus =
+  DeleteUserResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dufrsResponseStatus :: Lens.Lens' DeleteUserResponse Lude.Int
-dufrsResponseStatus = Lens.lens (responseStatus :: DeleteUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserResponse)
-{-# DEPRECATED dufrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+durfrsResponseStatus :: Lens.Lens' DeleteUserResponse Core.Int
+durfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED durfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

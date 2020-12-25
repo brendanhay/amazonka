@@ -510,7 +510,7 @@ responseCreateOutboundCrossClusterSearchConnection =
   res
     "CreateOutboundCrossClusterSearchConnectionResponse"
     "fixture/CreateOutboundCrossClusterSearchConnectionResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy CreateOutboundCrossClusterSearchConnection)
 
 responseDescribeInboundCrossClusterSearchConnections :: DescribeInboundCrossClusterSearchConnectionsResponse -> TestTree
@@ -518,7 +518,7 @@ responseDescribeInboundCrossClusterSearchConnections =
   res
     "DescribeInboundCrossClusterSearchConnectionsResponse"
     "fixture/DescribeInboundCrossClusterSearchConnectionsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeInboundCrossClusterSearchConnections)
 
 responseCreateElasticsearchDomain :: CreateElasticsearchDomainResponse -> TestTree
@@ -526,7 +526,7 @@ responseCreateElasticsearchDomain =
   res
     "CreateElasticsearchDomainResponse"
     "fixture/CreateElasticsearchDomainResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy CreateElasticsearchDomain)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
@@ -534,7 +534,7 @@ responseRemoveTags =
   res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseGetCompatibleElasticsearchVersions :: GetCompatibleElasticsearchVersionsResponse -> TestTree
@@ -542,7 +542,7 @@ responseGetCompatibleElasticsearchVersions =
   res
     "GetCompatibleElasticsearchVersionsResponse"
     "fixture/GetCompatibleElasticsearchVersionsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy GetCompatibleElasticsearchVersions)
 
 responseDescribeElasticsearchDomains :: DescribeElasticsearchDomainsResponse -> TestTree
@@ -550,7 +550,7 @@ responseDescribeElasticsearchDomains =
   res
     "DescribeElasticsearchDomainsResponse"
     "fixture/DescribeElasticsearchDomainsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeElasticsearchDomains)
 
 responseListDomainsForPackage :: ListDomainsForPackageResponse -> TestTree
@@ -558,7 +558,7 @@ responseListDomainsForPackage =
   res
     "ListDomainsForPackageResponse"
     "fixture/ListDomainsForPackageResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy ListDomainsForPackage)
 
 responseListPackagesForDomain :: ListPackagesForDomainResponse -> TestTree
@@ -566,7 +566,7 @@ responseListPackagesForDomain =
   res
     "ListPackagesForDomainResponse"
     "fixture/ListPackagesForDomainResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy ListPackagesForDomain)
 
 responseStartElasticsearchServiceSoftwareUpdate :: StartElasticsearchServiceSoftwareUpdateResponse -> TestTree
@@ -574,7 +574,7 @@ responseStartElasticsearchServiceSoftwareUpdate =
   res
     "StartElasticsearchServiceSoftwareUpdateResponse"
     "fixture/StartElasticsearchServiceSoftwareUpdateResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy StartElasticsearchServiceSoftwareUpdate)
 
 responseListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypesResponse -> TestTree
@@ -582,7 +582,7 @@ responseListElasticsearchInstanceTypes =
   res
     "ListElasticsearchInstanceTypesResponse"
     "fixture/ListElasticsearchInstanceTypesResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy ListElasticsearchInstanceTypes)
 
 responseDeleteElasticsearchServiceRole :: DeleteElasticsearchServiceRoleResponse -> TestTree
@@ -590,7 +590,7 @@ responseDeleteElasticsearchServiceRole =
   res
     "DeleteElasticsearchServiceRoleResponse"
     "fixture/DeleteElasticsearchServiceRoleResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteElasticsearchServiceRole)
 
 responseDescribeElasticsearchDomain :: DescribeElasticsearchDomainResponse -> TestTree
@@ -598,7 +598,7 @@ responseDescribeElasticsearchDomain =
   res
     "DescribeElasticsearchDomainResponse"
     "fixture/DescribeElasticsearchDomainResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeElasticsearchDomain)
 
 responseListDomainNames :: ListDomainNamesResponse -> TestTree
@@ -606,7 +606,7 @@ responseListDomainNames =
   res
     "ListDomainNamesResponse"
     "fixture/ListDomainNamesResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy ListDomainNames)
 
 responseAssociatePackage :: AssociatePackageResponse -> TestTree
@@ -614,7 +614,7 @@ responseAssociatePackage =
   res
     "AssociatePackageResponse"
     "fixture/AssociatePackageResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy AssociatePackage)
 
 responseDeleteOutboundCrossClusterSearchConnection :: DeleteOutboundCrossClusterSearchConnectionResponse -> TestTree
@@ -622,7 +622,7 @@ responseDeleteOutboundCrossClusterSearchConnection =
   res
     "DeleteOutboundCrossClusterSearchConnectionResponse"
     "fixture/DeleteOutboundCrossClusterSearchConnectionResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteOutboundCrossClusterSearchConnection)
 
 responseDescribeElasticsearchInstanceTypeLimits :: DescribeElasticsearchInstanceTypeLimitsResponse -> TestTree
@@ -630,7 +630,7 @@ responseDescribeElasticsearchInstanceTypeLimits =
   res
     "DescribeElasticsearchInstanceTypeLimitsResponse"
     "fixture/DescribeElasticsearchInstanceTypeLimitsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeElasticsearchInstanceTypeLimits)
 
 responseGetPackageVersionHistory :: GetPackageVersionHistoryResponse -> TestTree
@@ -638,7 +638,7 @@ responseGetPackageVersionHistory =
   res
     "GetPackageVersionHistoryResponse"
     "fixture/GetPackageVersionHistoryResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy GetPackageVersionHistory)
 
 responseGetUpgradeHistory :: GetUpgradeHistoryResponse -> TestTree
@@ -646,7 +646,7 @@ responseGetUpgradeHistory =
   res
     "GetUpgradeHistoryResponse"
     "fixture/GetUpgradeHistoryResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy GetUpgradeHistory)
 
 responseDescribePackages :: DescribePackagesResponse -> TestTree
@@ -654,7 +654,7 @@ responseDescribePackages =
   res
     "DescribePackagesResponse"
     "fixture/DescribePackagesResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribePackages)
 
 responseDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfigResponse -> TestTree
@@ -662,7 +662,7 @@ responseDescribeElasticsearchDomainConfig =
   res
     "DescribeElasticsearchDomainConfigResponse"
     "fixture/DescribeElasticsearchDomainConfigResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeElasticsearchDomainConfig)
 
 responseGetUpgradeStatus :: GetUpgradeStatusResponse -> TestTree
@@ -670,7 +670,7 @@ responseGetUpgradeStatus =
   res
     "GetUpgradeStatusResponse"
     "fixture/GetUpgradeStatusResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy GetUpgradeStatus)
 
 responseDeleteElasticsearchDomain :: DeleteElasticsearchDomainResponse -> TestTree
@@ -678,7 +678,7 @@ responseDeleteElasticsearchDomain =
   res
     "DeleteElasticsearchDomainResponse"
     "fixture/DeleteElasticsearchDomainResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteElasticsearchDomain)
 
 responseDissociatePackage :: DissociatePackageResponse -> TestTree
@@ -686,7 +686,7 @@ responseDissociatePackage =
   res
     "DissociatePackageResponse"
     "fixture/DissociatePackageResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DissociatePackage)
 
 responsePurchaseReservedElasticsearchInstanceOffering :: PurchaseReservedElasticsearchInstanceOfferingResponse -> TestTree
@@ -694,7 +694,7 @@ responsePurchaseReservedElasticsearchInstanceOffering =
   res
     "PurchaseReservedElasticsearchInstanceOfferingResponse"
     "fixture/PurchaseReservedElasticsearchInstanceOfferingResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy PurchaseReservedElasticsearchInstanceOffering)
 
 responseDescribeReservedElasticsearchInstances :: DescribeReservedElasticsearchInstancesResponse -> TestTree
@@ -702,7 +702,7 @@ responseDescribeReservedElasticsearchInstances =
   res
     "DescribeReservedElasticsearchInstancesResponse"
     "fixture/DescribeReservedElasticsearchInstancesResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReservedElasticsearchInstances)
 
 responseUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfigResponse -> TestTree
@@ -710,7 +710,7 @@ responseUpdateElasticsearchDomainConfig =
   res
     "UpdateElasticsearchDomainConfigResponse"
     "fixture/UpdateElasticsearchDomainConfigResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy UpdateElasticsearchDomainConfig)
 
 responseListElasticsearchVersions :: ListElasticsearchVersionsResponse -> TestTree
@@ -718,7 +718,7 @@ responseListElasticsearchVersions =
   res
     "ListElasticsearchVersionsResponse"
     "fixture/ListElasticsearchVersionsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy ListElasticsearchVersions)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -726,7 +726,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseDeleteInboundCrossClusterSearchConnection :: DeleteInboundCrossClusterSearchConnectionResponse -> TestTree
@@ -734,7 +734,7 @@ responseDeleteInboundCrossClusterSearchConnection =
   res
     "DeleteInboundCrossClusterSearchConnectionResponse"
     "fixture/DeleteInboundCrossClusterSearchConnectionResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteInboundCrossClusterSearchConnection)
 
 responseDescribeReservedElasticsearchInstanceOfferings :: DescribeReservedElasticsearchInstanceOfferingsResponse -> TestTree
@@ -742,7 +742,7 @@ responseDescribeReservedElasticsearchInstanceOfferings =
   res
     "DescribeReservedElasticsearchInstanceOfferingsResponse"
     "fixture/DescribeReservedElasticsearchInstanceOfferingsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReservedElasticsearchInstanceOfferings)
 
 responseUpgradeElasticsearchDomain :: UpgradeElasticsearchDomainResponse -> TestTree
@@ -750,7 +750,7 @@ responseUpgradeElasticsearchDomain =
   res
     "UpgradeElasticsearchDomainResponse"
     "fixture/UpgradeElasticsearchDomainResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy UpgradeElasticsearchDomain)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -758,7 +758,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseDeletePackage :: DeletePackageResponse -> TestTree
@@ -766,7 +766,7 @@ responseDeletePackage =
   res
     "DeletePackageResponse"
     "fixture/DeletePackageResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeletePackage)
 
 responseUpdatePackage :: UpdatePackageResponse -> TestTree
@@ -774,7 +774,7 @@ responseUpdatePackage =
   res
     "UpdatePackageResponse"
     "fixture/UpdatePackageResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePackage)
 
 responseCancelElasticsearchServiceSoftwareUpdate :: CancelElasticsearchServiceSoftwareUpdateResponse -> TestTree
@@ -782,7 +782,7 @@ responseCancelElasticsearchServiceSoftwareUpdate =
   res
     "CancelElasticsearchServiceSoftwareUpdateResponse"
     "fixture/CancelElasticsearchServiceSoftwareUpdateResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy CancelElasticsearchServiceSoftwareUpdate)
 
 responseCreatePackage :: CreatePackageResponse -> TestTree
@@ -790,7 +790,7 @@ responseCreatePackage =
   res
     "CreatePackageResponse"
     "fixture/CreatePackageResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy CreatePackage)
 
 responseRejectInboundCrossClusterSearchConnection :: RejectInboundCrossClusterSearchConnectionResponse -> TestTree
@@ -798,7 +798,7 @@ responseRejectInboundCrossClusterSearchConnection =
   res
     "RejectInboundCrossClusterSearchConnectionResponse"
     "fixture/RejectInboundCrossClusterSearchConnectionResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy RejectInboundCrossClusterSearchConnection)
 
 responseDescribeOutboundCrossClusterSearchConnections :: DescribeOutboundCrossClusterSearchConnectionsResponse -> TestTree
@@ -806,7 +806,7 @@ responseDescribeOutboundCrossClusterSearchConnections =
   res
     "DescribeOutboundCrossClusterSearchConnectionsResponse"
     "fixture/DescribeOutboundCrossClusterSearchConnectionsResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOutboundCrossClusterSearchConnections)
 
 responseAcceptInboundCrossClusterSearchConnection :: AcceptInboundCrossClusterSearchConnectionResponse -> TestTree
@@ -814,5 +814,5 @@ responseAcceptInboundCrossClusterSearchConnection =
   res
     "AcceptInboundCrossClusterSearchConnectionResponse"
     "fixture/AcceptInboundCrossClusterSearchConnectionResponse.proto"
-    elasticSearchService
+    mkServiceConfig
     (Proxy :: Proxy AcceptInboundCrossClusterSearchConnection)

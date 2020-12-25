@@ -17,84 +17,79 @@ module Network.AWS.Lightsail.Types.DiskInfo
     mkDiskInfo,
 
     -- * Lenses
-    diPath,
-    diName,
-    diSizeInGb,
     diIsSystemDisk,
+    diName,
+    diPath,
+    diSizeInGb,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.Path as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a disk.
 --
 -- /See:/ 'mkDiskInfo' smart constructor.
 data DiskInfo = DiskInfo'
-  { -- | The disk path.
-    path :: Lude.Maybe Lude.Text,
+  { -- | A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
+    isSystemDisk :: Core.Maybe Core.Bool,
     -- | The disk name.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.String,
+    -- | The disk path.
+    path :: Core.Maybe Types.Path,
     -- | The size of the disk in GB (e.g., @32@ ).
-    sizeInGb :: Lude.Maybe Lude.Int,
-    -- | A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
-    isSystemDisk :: Lude.Maybe Lude.Bool
+    sizeInGb :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiskInfo' with the minimum fields required to make a request.
---
--- * 'path' - The disk path.
--- * 'name' - The disk name.
--- * 'sizeInGb' - The size of the disk in GB (e.g., @32@ ).
--- * 'isSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
+-- | Creates a 'DiskInfo' value with any optional fields omitted.
 mkDiskInfo ::
   DiskInfo
 mkDiskInfo =
   DiskInfo'
-    { path = Lude.Nothing,
-      name = Lude.Nothing,
-      sizeInGb = Lude.Nothing,
-      isSystemDisk = Lude.Nothing
+    { isSystemDisk = Core.Nothing,
+      name = Core.Nothing,
+      path = Core.Nothing,
+      sizeInGb = Core.Nothing
     }
-
--- | The disk path.
---
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diPath :: Lens.Lens' DiskInfo (Lude.Maybe Lude.Text)
-diPath = Lens.lens (path :: DiskInfo -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: DiskInfo)
-{-# DEPRECATED diPath "Use generic-lens or generic-optics with 'path' instead." #-}
-
--- | The disk name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diName :: Lens.Lens' DiskInfo (Lude.Maybe Lude.Text)
-diName = Lens.lens (name :: DiskInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DiskInfo)
-{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The size of the disk in GB (e.g., @32@ ).
---
--- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diSizeInGb :: Lens.Lens' DiskInfo (Lude.Maybe Lude.Int)
-diSizeInGb = Lens.lens (sizeInGb :: DiskInfo -> Lude.Maybe Lude.Int) (\s a -> s {sizeInGb = a} :: DiskInfo)
-{-# DEPRECATED diSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
 
 -- | A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
 --
 -- /Note:/ Consider using 'isSystemDisk' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diIsSystemDisk :: Lens.Lens' DiskInfo (Lude.Maybe Lude.Bool)
-diIsSystemDisk = Lens.lens (isSystemDisk :: DiskInfo -> Lude.Maybe Lude.Bool) (\s a -> s {isSystemDisk = a} :: DiskInfo)
+diIsSystemDisk :: Lens.Lens' DiskInfo (Core.Maybe Core.Bool)
+diIsSystemDisk = Lens.field @"isSystemDisk"
 {-# DEPRECATED diIsSystemDisk "Use generic-lens or generic-optics with 'isSystemDisk' instead." #-}
 
-instance Lude.FromJSON DiskInfo where
+-- | The disk name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diName :: Lens.Lens' DiskInfo (Core.Maybe Types.String)
+diName = Lens.field @"name"
+{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The disk path.
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diPath :: Lens.Lens' DiskInfo (Core.Maybe Types.Path)
+diPath = Lens.field @"path"
+{-# DEPRECATED diPath "Use generic-lens or generic-optics with 'path' instead." #-}
+
+-- | The size of the disk in GB (e.g., @32@ ).
+--
+-- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diSizeInGb :: Lens.Lens' DiskInfo (Core.Maybe Core.Int)
+diSizeInGb = Lens.field @"sizeInGb"
+{-# DEPRECATED diSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
+
+instance Core.FromJSON DiskInfo where
   parseJSON =
-    Lude.withObject
-      "DiskInfo"
-      ( \x ->
-          DiskInfo'
-            Lude.<$> (x Lude..:? "path")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "sizeInGb")
-            Lude.<*> (x Lude..:? "isSystemDisk")
-      )
+    Core.withObject "DiskInfo" Core.$
+      \x ->
+        DiskInfo'
+          Core.<$> (x Core..:? "isSystemDisk")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "path")
+          Core.<*> (x Core..:? "sizeInGb")

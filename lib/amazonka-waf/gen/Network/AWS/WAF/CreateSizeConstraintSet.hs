@@ -44,142 +44,125 @@ module Network.AWS.WAF.CreateSizeConstraintSet
     mkCreateSizeConstraintSetResponse,
 
     -- ** Response lenses
-    cscsrsSizeConstraintSet,
-    cscsrsChangeToken,
-    cscsrsResponseStatus,
+    cscsrrsChangeToken,
+    cscsrrsSizeConstraintSet,
+    cscsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkCreateSizeConstraintSet' smart constructor.
 data CreateSizeConstraintSet = CreateSizeConstraintSet'
   { -- | A friendly name or description of the 'SizeConstraintSet' . You can't change @Name@ after you create a @SizeConstraintSet@ .
-    name :: Lude.Text,
+    name :: Types.ResourceName,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSizeConstraintSet' with the minimum fields required to make a request.
---
--- * 'name' - A friendly name or description of the 'SizeConstraintSet' . You can't change @Name@ after you create a @SizeConstraintSet@ .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'CreateSizeConstraintSet' value with any optional fields omitted.
 mkCreateSizeConstraintSet ::
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   CreateSizeConstraintSet
-mkCreateSizeConstraintSet pName_ pChangeToken_ =
-  CreateSizeConstraintSet'
-    { name = pName_,
-      changeToken = pChangeToken_
-    }
+mkCreateSizeConstraintSet name changeToken =
+  CreateSizeConstraintSet' {name, changeToken}
 
 -- | A friendly name or description of the 'SizeConstraintSet' . You can't change @Name@ after you create a @SizeConstraintSet@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscsName :: Lens.Lens' CreateSizeConstraintSet Lude.Text
-cscsName = Lens.lens (name :: CreateSizeConstraintSet -> Lude.Text) (\s a -> s {name = a} :: CreateSizeConstraintSet)
+cscsName :: Lens.Lens' CreateSizeConstraintSet Types.ResourceName
+cscsName = Lens.field @"name"
 {-# DEPRECATED cscsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscsChangeToken :: Lens.Lens' CreateSizeConstraintSet Lude.Text
-cscsChangeToken = Lens.lens (changeToken :: CreateSizeConstraintSet -> Lude.Text) (\s a -> s {changeToken = a} :: CreateSizeConstraintSet)
+cscsChangeToken :: Lens.Lens' CreateSizeConstraintSet Types.ChangeToken
+cscsChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED cscsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest CreateSizeConstraintSet where
+instance Core.FromJSON CreateSizeConstraintSet where
+  toJSON CreateSizeConstraintSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest CreateSizeConstraintSet where
   type Rs CreateSizeConstraintSet = CreateSizeConstraintSetResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_20150824.CreateSizeConstraintSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateSizeConstraintSetResponse'
-            Lude.<$> (x Lude..?> "SizeConstraintSet")
-            Lude.<*> (x Lude..?> "ChangeToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken")
+            Core.<*> (x Core..:? "SizeConstraintSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSizeConstraintSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.CreateSizeConstraintSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateSizeConstraintSet where
-  toJSON CreateSizeConstraintSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath CreateSizeConstraintSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSizeConstraintSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateSizeConstraintSetResponse' smart constructor.
 data CreateSizeConstraintSetResponse = CreateSizeConstraintSetResponse'
-  { -- | A 'SizeConstraintSet' that contains no @SizeConstraint@ objects.
-    sizeConstraintSet :: Lude.Maybe SizeConstraintSet,
-    -- | The @ChangeToken@ that you used to submit the @CreateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @CreateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Core.Maybe Types.ChangeToken,
+    -- | A 'SizeConstraintSet' that contains no @SizeConstraint@ objects.
+    sizeConstraintSet :: Core.Maybe Types.SizeConstraintSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSizeConstraintSetResponse' with the minimum fields required to make a request.
---
--- * 'sizeConstraintSet' - A 'SizeConstraintSet' that contains no @SizeConstraint@ objects.
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSizeConstraintSetResponse' value with any optional fields omitted.
 mkCreateSizeConstraintSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSizeConstraintSetResponse
-mkCreateSizeConstraintSetResponse pResponseStatus_ =
+mkCreateSizeConstraintSetResponse responseStatus =
   CreateSizeConstraintSetResponse'
-    { sizeConstraintSet =
-        Lude.Nothing,
-      changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      sizeConstraintSet = Core.Nothing,
+      responseStatus
     }
-
--- | A 'SizeConstraintSet' that contains no @SizeConstraint@ objects.
---
--- /Note:/ Consider using 'sizeConstraintSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscsrsSizeConstraintSet :: Lens.Lens' CreateSizeConstraintSetResponse (Lude.Maybe SizeConstraintSet)
-cscsrsSizeConstraintSet = Lens.lens (sizeConstraintSet :: CreateSizeConstraintSetResponse -> Lude.Maybe SizeConstraintSet) (\s a -> s {sizeConstraintSet = a} :: CreateSizeConstraintSetResponse)
-{-# DEPRECATED cscsrsSizeConstraintSet "Use generic-lens or generic-optics with 'sizeConstraintSet' instead." #-}
 
 -- | The @ChangeToken@ that you used to submit the @CreateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscsrsChangeToken :: Lens.Lens' CreateSizeConstraintSetResponse (Lude.Maybe Lude.Text)
-cscsrsChangeToken = Lens.lens (changeToken :: CreateSizeConstraintSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateSizeConstraintSetResponse)
-{-# DEPRECATED cscsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+cscsrrsChangeToken :: Lens.Lens' CreateSizeConstraintSetResponse (Core.Maybe Types.ChangeToken)
+cscsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED cscsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | A 'SizeConstraintSet' that contains no @SizeConstraint@ objects.
+--
+-- /Note:/ Consider using 'sizeConstraintSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscsrrsSizeConstraintSet :: Lens.Lens' CreateSizeConstraintSetResponse (Core.Maybe Types.SizeConstraintSet)
+cscsrrsSizeConstraintSet = Lens.field @"sizeConstraintSet"
+{-# DEPRECATED cscsrrsSizeConstraintSet "Use generic-lens or generic-optics with 'sizeConstraintSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscsrsResponseStatus :: Lens.Lens' CreateSizeConstraintSetResponse Lude.Int
-cscsrsResponseStatus = Lens.lens (responseStatus :: CreateSizeConstraintSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSizeConstraintSetResponse)
-{-# DEPRECATED cscsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cscsrrsResponseStatus :: Lens.Lens' CreateSizeConstraintSetResponse Core.Int
+cscsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cscsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

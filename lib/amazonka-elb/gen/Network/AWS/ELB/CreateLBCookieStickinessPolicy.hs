@@ -24,134 +24,129 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     mkCreateLBCookieStickinessPolicy,
 
     -- ** Request lenses
+    clbcspLoadBalancerName,
     clbcspPolicyName,
     clbcspCookieExpirationPeriod,
-    clbcspLoadBalancerName,
 
     -- * Destructuring the response
     CreateLBCookieStickinessPolicyResponse (..),
     mkCreateLBCookieStickinessPolicyResponse,
 
     -- ** Response lenses
-    clbcsprsResponseStatus,
+    clbcsprrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateLBCookieStickinessPolicy.
 --
 -- /See:/ 'mkCreateLBCookieStickinessPolicy' smart constructor.
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
-  { -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
-    policyName :: Lude.Text,
+  { -- | The name of the load balancer.
+    loadBalancerName :: Types.AccessPointName,
+    -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
+    policyName :: Types.PolicyName,
     -- | The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.
-    cookieExpirationPeriod :: Lude.Maybe Lude.Integer,
-    -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text
+    cookieExpirationPeriod :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLBCookieStickinessPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
--- * 'cookieExpirationPeriod' - The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.
--- * 'loadBalancerName' - The name of the load balancer.
+-- | Creates a 'CreateLBCookieStickinessPolicy' value with any optional fields omitted.
 mkCreateLBCookieStickinessPolicy ::
-  -- | 'policyName'
-  Lude.Text ->
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
+  -- | 'policyName'
+  Types.PolicyName ->
   CreateLBCookieStickinessPolicy
-mkCreateLBCookieStickinessPolicy pPolicyName_ pLoadBalancerName_ =
+mkCreateLBCookieStickinessPolicy loadBalancerName policyName =
   CreateLBCookieStickinessPolicy'
-    { policyName = pPolicyName_,
-      cookieExpirationPeriod = Lude.Nothing,
-      loadBalancerName = pLoadBalancerName_
+    { loadBalancerName,
+      policyName,
+      cookieExpirationPeriod = Core.Nothing
     }
+
+-- | The name of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbcspLoadBalancerName :: Lens.Lens' CreateLBCookieStickinessPolicy Types.AccessPointName
+clbcspLoadBalancerName = Lens.field @"loadBalancerName"
+{-# DEPRECATED clbcspLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbcspPolicyName :: Lens.Lens' CreateLBCookieStickinessPolicy Lude.Text
-clbcspPolicyName = Lens.lens (policyName :: CreateLBCookieStickinessPolicy -> Lude.Text) (\s a -> s {policyName = a} :: CreateLBCookieStickinessPolicy)
+clbcspPolicyName :: Lens.Lens' CreateLBCookieStickinessPolicy Types.PolicyName
+clbcspPolicyName = Lens.field @"policyName"
 {-# DEPRECATED clbcspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.
 --
 -- /Note:/ Consider using 'cookieExpirationPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbcspCookieExpirationPeriod :: Lens.Lens' CreateLBCookieStickinessPolicy (Lude.Maybe Lude.Integer)
-clbcspCookieExpirationPeriod = Lens.lens (cookieExpirationPeriod :: CreateLBCookieStickinessPolicy -> Lude.Maybe Lude.Integer) (\s a -> s {cookieExpirationPeriod = a} :: CreateLBCookieStickinessPolicy)
+clbcspCookieExpirationPeriod :: Lens.Lens' CreateLBCookieStickinessPolicy (Core.Maybe Core.Integer)
+clbcspCookieExpirationPeriod = Lens.field @"cookieExpirationPeriod"
 {-# DEPRECATED clbcspCookieExpirationPeriod "Use generic-lens or generic-optics with 'cookieExpirationPeriod' instead." #-}
 
--- | The name of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbcspLoadBalancerName :: Lens.Lens' CreateLBCookieStickinessPolicy Lude.Text
-clbcspLoadBalancerName = Lens.lens (loadBalancerName :: CreateLBCookieStickinessPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLBCookieStickinessPolicy)
-{-# DEPRECATED clbcspLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
-
-instance Lude.AWSRequest CreateLBCookieStickinessPolicy where
+instance Core.AWSRequest CreateLBCookieStickinessPolicy where
   type
     Rs CreateLBCookieStickinessPolicy =
       CreateLBCookieStickinessPolicyResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateLBCookieStickinessPolicy")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> (Core.toQueryValue "PolicyName" policyName)
+                Core.<> ( Core.toQueryValue "CookieExpirationPeriod"
+                            Core.<$> cookieExpirationPeriod
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateLBCookieStickinessPolicyResult"
       ( \s h x ->
           CreateLBCookieStickinessPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLBCookieStickinessPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateLBCookieStickinessPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLBCookieStickinessPolicy where
-  toQuery CreateLBCookieStickinessPolicy' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateLBCookieStickinessPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "PolicyName" Lude.=: policyName,
-        "CookieExpirationPeriod" Lude.=: cookieExpirationPeriod,
-        "LoadBalancerName" Lude.=: loadBalancerName
-      ]
 
 -- | Contains the output for CreateLBCookieStickinessPolicy.
 --
 -- /See:/ 'mkCreateLBCookieStickinessPolicyResponse' smart constructor.
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLBCookieStickinessPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLBCookieStickinessPolicyResponse' value with any optional fields omitted.
 mkCreateLBCookieStickinessPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLBCookieStickinessPolicyResponse
-mkCreateLBCookieStickinessPolicyResponse pResponseStatus_ =
-  CreateLBCookieStickinessPolicyResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCreateLBCookieStickinessPolicyResponse responseStatus =
+  CreateLBCookieStickinessPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbcsprsResponseStatus :: Lens.Lens' CreateLBCookieStickinessPolicyResponse Lude.Int
-clbcsprsResponseStatus = Lens.lens (responseStatus :: CreateLBCookieStickinessPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLBCookieStickinessPolicyResponse)
-{-# DEPRECATED clbcsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clbcsprrsResponseStatus :: Lens.Lens' CreateLBCookieStickinessPolicyResponse Core.Int
+clbcsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clbcsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

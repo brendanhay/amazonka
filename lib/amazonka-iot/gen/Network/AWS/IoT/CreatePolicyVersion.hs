@@ -31,174 +31,166 @@ module Network.AWS.IoT.CreatePolicyVersion
     mkCreatePolicyVersionResponse,
 
     -- ** Response lenses
-    cpvrsPolicyDocument,
-    cpvrsPolicyVersionId,
-    cpvrsPolicyARN,
-    cpvrsIsDefaultVersion,
-    cpvrsResponseStatus,
+    cpvrrsIsDefaultVersion,
+    cpvrrsPolicyArn,
+    cpvrrsPolicyDocument,
+    cpvrrsPolicyVersionId,
+    cpvrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the CreatePolicyVersion operation.
 --
 -- /See:/ 'mkCreatePolicyVersion' smart constructor.
 data CreatePolicyVersion = CreatePolicyVersion'
   { -- | The policy name.
-    policyName :: Lude.Text,
+    policyName :: Types.PolicyName,
     -- | The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.
-    policyDocument :: Lude.Text,
+    policyDocument :: Types.PolicyDocument,
     -- | Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
-    setAsDefault :: Lude.Maybe Lude.Bool
+    setAsDefault :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePolicyVersion' with the minimum fields required to make a request.
---
--- * 'policyName' - The policy name.
--- * 'policyDocument' - The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.
--- * 'setAsDefault' - Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
+-- | Creates a 'CreatePolicyVersion' value with any optional fields omitted.
 mkCreatePolicyVersion ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   -- | 'policyDocument'
-  Lude.Text ->
+  Types.PolicyDocument ->
   CreatePolicyVersion
-mkCreatePolicyVersion pPolicyName_ pPolicyDocument_ =
+mkCreatePolicyVersion policyName policyDocument =
   CreatePolicyVersion'
-    { policyName = pPolicyName_,
-      policyDocument = pPolicyDocument_,
-      setAsDefault = Lude.Nothing
+    { policyName,
+      policyDocument,
+      setAsDefault = Core.Nothing
     }
 
 -- | The policy name.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvPolicyName :: Lens.Lens' CreatePolicyVersion Lude.Text
-cpvPolicyName = Lens.lens (policyName :: CreatePolicyVersion -> Lude.Text) (\s a -> s {policyName = a} :: CreatePolicyVersion)
+cpvPolicyName :: Lens.Lens' CreatePolicyVersion Types.PolicyName
+cpvPolicyName = Lens.field @"policyName"
 {-# DEPRECATED cpvPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.
 --
 -- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvPolicyDocument :: Lens.Lens' CreatePolicyVersion Lude.Text
-cpvPolicyDocument = Lens.lens (policyDocument :: CreatePolicyVersion -> Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicyVersion)
+cpvPolicyDocument :: Lens.Lens' CreatePolicyVersion Types.PolicyDocument
+cpvPolicyDocument = Lens.field @"policyDocument"
 {-# DEPRECATED cpvPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
 -- | Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
 --
 -- /Note:/ Consider using 'setAsDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvSetAsDefault :: Lens.Lens' CreatePolicyVersion (Lude.Maybe Lude.Bool)
-cpvSetAsDefault = Lens.lens (setAsDefault :: CreatePolicyVersion -> Lude.Maybe Lude.Bool) (\s a -> s {setAsDefault = a} :: CreatePolicyVersion)
+cpvSetAsDefault :: Lens.Lens' CreatePolicyVersion (Core.Maybe Core.Bool)
+cpvSetAsDefault = Lens.field @"setAsDefault"
 {-# DEPRECATED cpvSetAsDefault "Use generic-lens or generic-optics with 'setAsDefault' instead." #-}
 
-instance Lude.AWSRequest CreatePolicyVersion where
+instance Core.FromJSON CreatePolicyVersion where
+  toJSON CreatePolicyVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("policyDocument" Core..= policyDocument)]
+      )
+
+instance Core.AWSRequest CreatePolicyVersion where
   type Rs CreatePolicyVersion = CreatePolicyVersionResponse
-  request = Req.postJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/policies/" Core.<> (Core.toText policyName)
+                Core.<> ("/version")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "setAsDefault" Core.<$> setAsDefault,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreatePolicyVersionResponse'
-            Lude.<$> (x Lude..?> "policyDocument")
-            Lude.<*> (x Lude..?> "policyVersionId")
-            Lude.<*> (x Lude..?> "policyArn")
-            Lude.<*> (x Lude..?> "isDefaultVersion")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "isDefaultVersion")
+            Core.<*> (x Core..:? "policyArn")
+            Core.<*> (x Core..:? "policyDocument")
+            Core.<*> (x Core..:? "policyVersionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreatePolicyVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreatePolicyVersion where
-  toJSON CreatePolicyVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("policyDocument" Lude..= policyDocument)]
-      )
-
-instance Lude.ToPath CreatePolicyVersion where
-  toPath CreatePolicyVersion' {..} =
-    Lude.mconcat ["/policies/", Lude.toBS policyName, "/version"]
-
-instance Lude.ToQuery CreatePolicyVersion where
-  toQuery CreatePolicyVersion' {..} =
-    Lude.mconcat ["setAsDefault" Lude.=: setAsDefault]
 
 -- | The output of the CreatePolicyVersion operation.
 --
 -- /See:/ 'mkCreatePolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-  { -- | The JSON document that describes the policy.
-    policyDocument :: Lude.Maybe Lude.Text,
-    -- | The policy version ID.
-    policyVersionId :: Lude.Maybe Lude.Text,
+  { -- | Specifies whether the policy version is the default.
+    isDefaultVersion :: Core.Maybe Core.Bool,
     -- | The policy ARN.
-    policyARN :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the policy version is the default.
-    isDefaultVersion :: Lude.Maybe Lude.Bool,
+    policyArn :: Core.Maybe Types.PolicyArn,
+    -- | The JSON document that describes the policy.
+    policyDocument :: Core.Maybe Types.PolicyDocument,
+    -- | The policy version ID.
+    policyVersionId :: Core.Maybe Types.PolicyVersionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePolicyVersionResponse' with the minimum fields required to make a request.
---
--- * 'policyDocument' - The JSON document that describes the policy.
--- * 'policyVersionId' - The policy version ID.
--- * 'policyARN' - The policy ARN.
--- * 'isDefaultVersion' - Specifies whether the policy version is the default.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePolicyVersionResponse' value with any optional fields omitted.
 mkCreatePolicyVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePolicyVersionResponse
-mkCreatePolicyVersionResponse pResponseStatus_ =
+mkCreatePolicyVersionResponse responseStatus =
   CreatePolicyVersionResponse'
-    { policyDocument = Lude.Nothing,
-      policyVersionId = Lude.Nothing,
-      policyARN = Lude.Nothing,
-      isDefaultVersion = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { isDefaultVersion = Core.Nothing,
+      policyArn = Core.Nothing,
+      policyDocument = Core.Nothing,
+      policyVersionId = Core.Nothing,
+      responseStatus
     }
-
--- | The JSON document that describes the policy.
---
--- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvrsPolicyDocument :: Lens.Lens' CreatePolicyVersionResponse (Lude.Maybe Lude.Text)
-cpvrsPolicyDocument = Lens.lens (policyDocument :: CreatePolicyVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicyVersionResponse)
-{-# DEPRECATED cpvrsPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
-
--- | The policy version ID.
---
--- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvrsPolicyVersionId :: Lens.Lens' CreatePolicyVersionResponse (Lude.Maybe Lude.Text)
-cpvrsPolicyVersionId = Lens.lens (policyVersionId :: CreatePolicyVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyVersionId = a} :: CreatePolicyVersionResponse)
-{-# DEPRECATED cpvrsPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
-
--- | The policy ARN.
---
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvrsPolicyARN :: Lens.Lens' CreatePolicyVersionResponse (Lude.Maybe Lude.Text)
-cpvrsPolicyARN = Lens.lens (policyARN :: CreatePolicyVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyARN = a} :: CreatePolicyVersionResponse)
-{-# DEPRECATED cpvrsPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
 -- | Specifies whether the policy version is the default.
 --
 -- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvrsIsDefaultVersion :: Lens.Lens' CreatePolicyVersionResponse (Lude.Maybe Lude.Bool)
-cpvrsIsDefaultVersion = Lens.lens (isDefaultVersion :: CreatePolicyVersionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultVersion = a} :: CreatePolicyVersionResponse)
-{-# DEPRECATED cpvrsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
+cpvrrsIsDefaultVersion :: Lens.Lens' CreatePolicyVersionResponse (Core.Maybe Core.Bool)
+cpvrrsIsDefaultVersion = Lens.field @"isDefaultVersion"
+{-# DEPRECATED cpvrrsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
+
+-- | The policy ARN.
+--
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvrrsPolicyArn :: Lens.Lens' CreatePolicyVersionResponse (Core.Maybe Types.PolicyArn)
+cpvrrsPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED cpvrrsPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
+
+-- | The JSON document that describes the policy.
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvrrsPolicyDocument :: Lens.Lens' CreatePolicyVersionResponse (Core.Maybe Types.PolicyDocument)
+cpvrrsPolicyDocument = Lens.field @"policyDocument"
+{-# DEPRECATED cpvrrsPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
+
+-- | The policy version ID.
+--
+-- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvrrsPolicyVersionId :: Lens.Lens' CreatePolicyVersionResponse (Core.Maybe Types.PolicyVersionId)
+cpvrrsPolicyVersionId = Lens.field @"policyVersionId"
+{-# DEPRECATED cpvrrsPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvrsResponseStatus :: Lens.Lens' CreatePolicyVersionResponse Lude.Int
-cpvrsResponseStatus = Lens.lens (responseStatus :: CreatePolicyVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePolicyVersionResponse)
-{-# DEPRECATED cpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cpvrrsResponseStatus :: Lens.Lens' CreatePolicyVersionResponse Core.Int
+cpvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cpvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

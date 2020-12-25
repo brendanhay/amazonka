@@ -17,71 +17,65 @@ module Network.AWS.EMR.Types.InstanceTimeline
     mkInstanceTimeline,
 
     -- * Lenses
-    itReadyDateTime,
     itCreationDateTime,
     itEndDateTime,
+    itReadyDateTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The timeline of the instance lifecycle.
 --
 -- /See:/ 'mkInstanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
-  { -- | The date and time when the instance was ready to perform tasks.
-    readyDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The creation date and time of the instance.
-    creationDateTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The creation date and time of the instance.
+    creationDateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The date and time when the instance was terminated.
-    endDateTime :: Lude.Maybe Lude.Timestamp
+    endDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The date and time when the instance was ready to perform tasks.
+    readyDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceTimeline' with the minimum fields required to make a request.
---
--- * 'readyDateTime' - The date and time when the instance was ready to perform tasks.
--- * 'creationDateTime' - The creation date and time of the instance.
--- * 'endDateTime' - The date and time when the instance was terminated.
+-- | Creates a 'InstanceTimeline' value with any optional fields omitted.
 mkInstanceTimeline ::
   InstanceTimeline
 mkInstanceTimeline =
   InstanceTimeline'
-    { readyDateTime = Lude.Nothing,
-      creationDateTime = Lude.Nothing,
-      endDateTime = Lude.Nothing
+    { creationDateTime = Core.Nothing,
+      endDateTime = Core.Nothing,
+      readyDateTime = Core.Nothing
     }
-
--- | The date and time when the instance was ready to perform tasks.
---
--- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itReadyDateTime :: Lens.Lens' InstanceTimeline (Lude.Maybe Lude.Timestamp)
-itReadyDateTime = Lens.lens (readyDateTime :: InstanceTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {readyDateTime = a} :: InstanceTimeline)
-{-# DEPRECATED itReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
 
 -- | The creation date and time of the instance.
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itCreationDateTime :: Lens.Lens' InstanceTimeline (Lude.Maybe Lude.Timestamp)
-itCreationDateTime = Lens.lens (creationDateTime :: InstanceTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: InstanceTimeline)
+itCreationDateTime :: Lens.Lens' InstanceTimeline (Core.Maybe Core.NominalDiffTime)
+itCreationDateTime = Lens.field @"creationDateTime"
 {-# DEPRECATED itCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The date and time when the instance was terminated.
 --
 -- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itEndDateTime :: Lens.Lens' InstanceTimeline (Lude.Maybe Lude.Timestamp)
-itEndDateTime = Lens.lens (endDateTime :: InstanceTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: InstanceTimeline)
+itEndDateTime :: Lens.Lens' InstanceTimeline (Core.Maybe Core.NominalDiffTime)
+itEndDateTime = Lens.field @"endDateTime"
 {-# DEPRECATED itEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
 
-instance Lude.FromJSON InstanceTimeline where
+-- | The date and time when the instance was ready to perform tasks.
+--
+-- /Note:/ Consider using 'readyDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itReadyDateTime :: Lens.Lens' InstanceTimeline (Core.Maybe Core.NominalDiffTime)
+itReadyDateTime = Lens.field @"readyDateTime"
+{-# DEPRECATED itReadyDateTime "Use generic-lens or generic-optics with 'readyDateTime' instead." #-}
+
+instance Core.FromJSON InstanceTimeline where
   parseJSON =
-    Lude.withObject
-      "InstanceTimeline"
-      ( \x ->
-          InstanceTimeline'
-            Lude.<$> (x Lude..:? "ReadyDateTime")
-            Lude.<*> (x Lude..:? "CreationDateTime")
-            Lude.<*> (x Lude..:? "EndDateTime")
-      )
+    Core.withObject "InstanceTimeline" Core.$
+      \x ->
+        InstanceTimeline'
+          Core.<$> (x Core..:? "CreationDateTime")
+          Core.<*> (x Core..:? "EndDateTime")
+          Core.<*> (x Core..:? "ReadyDateTime")

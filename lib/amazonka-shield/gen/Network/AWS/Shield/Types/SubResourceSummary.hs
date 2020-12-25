@@ -17,87 +17,81 @@ module Network.AWS.Shield.Types.SubResourceSummary
     mkSubResourceSummary,
 
     -- * Lenses
-    srsCounters,
     srsAttackVectors,
+    srsCounters,
     srsId,
     srsType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Shield.Types.SubResourceType
-import Network.AWS.Shield.Types.SummarizedAttackVector
-import Network.AWS.Shield.Types.SummarizedCounter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.String as Types
+import qualified Network.AWS.Shield.Types.SubResourceType as Types
+import qualified Network.AWS.Shield.Types.SummarizedAttackVector as Types
+import qualified Network.AWS.Shield.Types.SummarizedCounter as Types
 
 -- | The attack information for the specified SubResource.
 --
 -- /See:/ 'mkSubResourceSummary' smart constructor.
 data SubResourceSummary = SubResourceSummary'
-  { -- | The counters that describe the details of the attack.
-    counters :: Lude.Maybe [SummarizedCounter],
-    -- | The list of attack types and associated counters.
-    attackVectors :: Lude.Maybe [SummarizedAttackVector],
+  { -- | The list of attack types and associated counters.
+    attackVectors :: Core.Maybe [Types.SummarizedAttackVector],
+    -- | The counters that describe the details of the attack.
+    counters :: Core.Maybe [Types.SummarizedCounter],
     -- | The unique identifier (ID) of the @SubResource@ .
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.String,
     -- | The @SubResource@ type.
-    type' :: Lude.Maybe SubResourceType
+    type' :: Core.Maybe Types.SubResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubResourceSummary' with the minimum fields required to make a request.
---
--- * 'counters' - The counters that describe the details of the attack.
--- * 'attackVectors' - The list of attack types and associated counters.
--- * 'id' - The unique identifier (ID) of the @SubResource@ .
--- * 'type'' - The @SubResource@ type.
+-- | Creates a 'SubResourceSummary' value with any optional fields omitted.
 mkSubResourceSummary ::
   SubResourceSummary
 mkSubResourceSummary =
   SubResourceSummary'
-    { counters = Lude.Nothing,
-      attackVectors = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing
+    { attackVectors = Core.Nothing,
+      counters = Core.Nothing,
+      id = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The counters that describe the details of the attack.
---
--- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsCounters :: Lens.Lens' SubResourceSummary (Lude.Maybe [SummarizedCounter])
-srsCounters = Lens.lens (counters :: SubResourceSummary -> Lude.Maybe [SummarizedCounter]) (\s a -> s {counters = a} :: SubResourceSummary)
-{-# DEPRECATED srsCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
 
 -- | The list of attack types and associated counters.
 --
 -- /Note:/ Consider using 'attackVectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsAttackVectors :: Lens.Lens' SubResourceSummary (Lude.Maybe [SummarizedAttackVector])
-srsAttackVectors = Lens.lens (attackVectors :: SubResourceSummary -> Lude.Maybe [SummarizedAttackVector]) (\s a -> s {attackVectors = a} :: SubResourceSummary)
+srsAttackVectors :: Lens.Lens' SubResourceSummary (Core.Maybe [Types.SummarizedAttackVector])
+srsAttackVectors = Lens.field @"attackVectors"
 {-# DEPRECATED srsAttackVectors "Use generic-lens or generic-optics with 'attackVectors' instead." #-}
+
+-- | The counters that describe the details of the attack.
+--
+-- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsCounters :: Lens.Lens' SubResourceSummary (Core.Maybe [Types.SummarizedCounter])
+srsCounters = Lens.field @"counters"
+{-# DEPRECATED srsCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
 
 -- | The unique identifier (ID) of the @SubResource@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsId :: Lens.Lens' SubResourceSummary (Lude.Maybe Lude.Text)
-srsId = Lens.lens (id :: SubResourceSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: SubResourceSummary)
+srsId :: Lens.Lens' SubResourceSummary (Core.Maybe Types.String)
+srsId = Lens.field @"id"
 {-# DEPRECATED srsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The @SubResource@ type.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsType :: Lens.Lens' SubResourceSummary (Lude.Maybe SubResourceType)
-srsType = Lens.lens (type' :: SubResourceSummary -> Lude.Maybe SubResourceType) (\s a -> s {type' = a} :: SubResourceSummary)
+srsType :: Lens.Lens' SubResourceSummary (Core.Maybe Types.SubResourceType)
+srsType = Lens.field @"type'"
 {-# DEPRECATED srsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON SubResourceSummary where
+instance Core.FromJSON SubResourceSummary where
   parseJSON =
-    Lude.withObject
-      "SubResourceSummary"
-      ( \x ->
-          SubResourceSummary'
-            Lude.<$> (x Lude..:? "Counters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AttackVectors" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "SubResourceSummary" Core.$
+      \x ->
+        SubResourceSummary'
+          Core.<$> (x Core..:? "AttackVectors")
+          Core.<*> (x Core..:? "Counters")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Type")

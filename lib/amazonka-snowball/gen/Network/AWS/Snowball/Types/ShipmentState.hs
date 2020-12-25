@@ -13,46 +13,51 @@
 module Network.AWS.Snowball.Types.ShipmentState
   ( ShipmentState
       ( ShipmentState',
-        Received,
-        Returned
+        ShipmentStateReceived,
+        ShipmentStateReturned,
+        fromShipmentState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ShipmentState = ShipmentState' Lude.Text
+newtype ShipmentState = ShipmentState'
+  { fromShipmentState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Received :: ShipmentState
-pattern Received = ShipmentState' "RECEIVED"
+pattern ShipmentStateReceived :: ShipmentState
+pattern ShipmentStateReceived = ShipmentState' "RECEIVED"
 
-pattern Returned :: ShipmentState
-pattern Returned = ShipmentState' "RETURNED"
+pattern ShipmentStateReturned :: ShipmentState
+pattern ShipmentStateReturned = ShipmentState' "RETURNED"
 
 {-# COMPLETE
-  Received,
-  Returned,
+  ShipmentStateReceived,
+  ShipmentStateReturned,
   ShipmentState'
   #-}

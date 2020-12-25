@@ -13,66 +13,71 @@
 module Network.AWS.Comprehend.Types.SyntaxLanguageCode
   ( SyntaxLanguageCode
       ( SyntaxLanguageCode',
-        SLCEN,
-        SLCES,
-        SLCFR,
-        SLCDE,
-        SLCIT,
-        SLCPT
+        SyntaxLanguageCodeEN,
+        SyntaxLanguageCodeES,
+        SyntaxLanguageCodeFR,
+        SyntaxLanguageCodeDE,
+        SyntaxLanguageCodeIT,
+        SyntaxLanguageCodePT,
+        fromSyntaxLanguageCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SyntaxLanguageCode = SyntaxLanguageCode' Lude.Text
+newtype SyntaxLanguageCode = SyntaxLanguageCode'
+  { fromSyntaxLanguageCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SLCEN :: SyntaxLanguageCode
-pattern SLCEN = SyntaxLanguageCode' "en"
+pattern SyntaxLanguageCodeEN :: SyntaxLanguageCode
+pattern SyntaxLanguageCodeEN = SyntaxLanguageCode' "en"
 
-pattern SLCES :: SyntaxLanguageCode
-pattern SLCES = SyntaxLanguageCode' "es"
+pattern SyntaxLanguageCodeES :: SyntaxLanguageCode
+pattern SyntaxLanguageCodeES = SyntaxLanguageCode' "es"
 
-pattern SLCFR :: SyntaxLanguageCode
-pattern SLCFR = SyntaxLanguageCode' "fr"
+pattern SyntaxLanguageCodeFR :: SyntaxLanguageCode
+pattern SyntaxLanguageCodeFR = SyntaxLanguageCode' "fr"
 
-pattern SLCDE :: SyntaxLanguageCode
-pattern SLCDE = SyntaxLanguageCode' "de"
+pattern SyntaxLanguageCodeDE :: SyntaxLanguageCode
+pattern SyntaxLanguageCodeDE = SyntaxLanguageCode' "de"
 
-pattern SLCIT :: SyntaxLanguageCode
-pattern SLCIT = SyntaxLanguageCode' "it"
+pattern SyntaxLanguageCodeIT :: SyntaxLanguageCode
+pattern SyntaxLanguageCodeIT = SyntaxLanguageCode' "it"
 
-pattern SLCPT :: SyntaxLanguageCode
-pattern SLCPT = SyntaxLanguageCode' "pt"
+pattern SyntaxLanguageCodePT :: SyntaxLanguageCode
+pattern SyntaxLanguageCodePT = SyntaxLanguageCode' "pt"
 
 {-# COMPLETE
-  SLCEN,
-  SLCES,
-  SLCFR,
-  SLCDE,
-  SLCIT,
-  SLCPT,
+  SyntaxLanguageCodeEN,
+  SyntaxLanguageCodeES,
+  SyntaxLanguageCodeFR,
+  SyntaxLanguageCodeDE,
+  SyntaxLanguageCodeIT,
+  SyntaxLanguageCodePT,
   SyntaxLanguageCode'
   #-}

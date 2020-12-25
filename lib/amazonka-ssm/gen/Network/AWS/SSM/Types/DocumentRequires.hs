@@ -23,59 +23,56 @@ module Network.AWS.SSM.Types.DocumentRequires
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.DocumentARN as Types
+import qualified Network.AWS.SSM.Types.DocumentVersion as Types
 
 -- | An SSM document required by the current document.
 --
 -- /See:/ 'mkDocumentRequires' smart constructor.
 data DocumentRequires = DocumentRequires'
   { -- | The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
-    name :: Lude.Text,
+    name :: Types.DocumentARN,
     -- | The document version required by the current document.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Types.DocumentVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DocumentRequires' with the minimum fields required to make a request.
---
--- * 'name' - The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
--- * 'version' - The document version required by the current document.
+-- | Creates a 'DocumentRequires' value with any optional fields omitted.
 mkDocumentRequires ::
   -- | 'name'
-  Lude.Text ->
+  Types.DocumentARN ->
   DocumentRequires
-mkDocumentRequires pName_ =
-  DocumentRequires' {name = pName_, version = Lude.Nothing}
+mkDocumentRequires name =
+  DocumentRequires' {name, version = Core.Nothing}
 
 -- | The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drName :: Lens.Lens' DocumentRequires Lude.Text
-drName = Lens.lens (name :: DocumentRequires -> Lude.Text) (\s a -> s {name = a} :: DocumentRequires)
+drName :: Lens.Lens' DocumentRequires Types.DocumentARN
+drName = Lens.field @"name"
 {-# DEPRECATED drName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The document version required by the current document.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drVersion :: Lens.Lens' DocumentRequires (Lude.Maybe Lude.Text)
-drVersion = Lens.lens (version :: DocumentRequires -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: DocumentRequires)
+drVersion :: Lens.Lens' DocumentRequires (Core.Maybe Types.DocumentVersion)
+drVersion = Lens.field @"version"
 {-# DEPRECATED drVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON DocumentRequires where
-  parseJSON =
-    Lude.withObject
-      "DocumentRequires"
-      ( \x ->
-          DocumentRequires'
-            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..:? "Version")
-      )
-
-instance Lude.ToJSON DocumentRequires where
-  toJSON DocumentRequires' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            ("Version" Lude..=) Lude.<$> version
+instance Core.FromJSON DocumentRequires where
+  toJSON DocumentRequires {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Version" Core..=) Core.<$> version
           ]
       )
+
+instance Core.FromJSON DocumentRequires where
+  parseJSON =
+    Core.withObject "DocumentRequires" Core.$
+      \x ->
+        DocumentRequires'
+          Core.<$> (x Core..: "Name") Core.<*> (x Core..:? "Version")

@@ -17,51 +17,48 @@ module Network.AWS.AppSync.Types.LambdaDataSourceConfig
     mkLambdaDataSourceConfig,
 
     -- * Lenses
-    ldscLambdaFunctionARN,
+    ldscLambdaFunctionArn,
   )
 where
 
+import qualified Network.AWS.AppSync.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an AWS Lambda data source configuration.
 --
 -- /See:/ 'mkLambdaDataSourceConfig' smart constructor.
 newtype LambdaDataSourceConfig = LambdaDataSourceConfig'
   { -- | The ARN for the Lambda function.
-    lambdaFunctionARN :: Lude.Text
+    lambdaFunctionArn :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaDataSourceConfig' with the minimum fields required to make a request.
---
--- * 'lambdaFunctionARN' - The ARN for the Lambda function.
+-- | Creates a 'LambdaDataSourceConfig' value with any optional fields omitted.
 mkLambdaDataSourceConfig ::
-  -- | 'lambdaFunctionARN'
-  Lude.Text ->
+  -- | 'lambdaFunctionArn'
+  Types.String ->
   LambdaDataSourceConfig
-mkLambdaDataSourceConfig pLambdaFunctionARN_ =
-  LambdaDataSourceConfig' {lambdaFunctionARN = pLambdaFunctionARN_}
+mkLambdaDataSourceConfig lambdaFunctionArn =
+  LambdaDataSourceConfig' {lambdaFunctionArn}
 
 -- | The ARN for the Lambda function.
 --
--- /Note:/ Consider using 'lambdaFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldscLambdaFunctionARN :: Lens.Lens' LambdaDataSourceConfig Lude.Text
-ldscLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: LambdaDataSourceConfig -> Lude.Text) (\s a -> s {lambdaFunctionARN = a} :: LambdaDataSourceConfig)
-{-# DEPRECATED ldscLambdaFunctionARN "Use generic-lens or generic-optics with 'lambdaFunctionARN' instead." #-}
+-- /Note:/ Consider using 'lambdaFunctionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldscLambdaFunctionArn :: Lens.Lens' LambdaDataSourceConfig Types.String
+ldscLambdaFunctionArn = Lens.field @"lambdaFunctionArn"
+{-# DEPRECATED ldscLambdaFunctionArn "Use generic-lens or generic-optics with 'lambdaFunctionArn' instead." #-}
 
-instance Lude.FromJSON LambdaDataSourceConfig where
+instance Core.FromJSON LambdaDataSourceConfig where
+  toJSON LambdaDataSourceConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("lambdaFunctionArn" Core..= lambdaFunctionArn)]
+      )
+
+instance Core.FromJSON LambdaDataSourceConfig where
   parseJSON =
-    Lude.withObject
-      "LambdaDataSourceConfig"
-      ( \x ->
-          LambdaDataSourceConfig' Lude.<$> (x Lude..: "lambdaFunctionArn")
-      )
-
-instance Lude.ToJSON LambdaDataSourceConfig where
-  toJSON LambdaDataSourceConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("lambdaFunctionArn" Lude..= lambdaFunctionARN)]
-      )
+    Core.withObject "LambdaDataSourceConfig" Core.$
+      \x ->
+        LambdaDataSourceConfig' Core.<$> (x Core..: "lambdaFunctionArn")

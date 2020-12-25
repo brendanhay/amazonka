@@ -25,42 +25,34 @@ module Network.AWS.DynamoDB.ListBackups
     mkListBackups,
 
     -- ** Request lenses
-    lbTimeRangeUpperBound,
-    lbTimeRangeLowerBound,
-    lbLimit,
-    lbExclusiveStartBackupARN,
     lbBackupType,
+    lbExclusiveStartBackupArn,
+    lbLimit,
     lbTableName,
+    lbTimeRangeLowerBound,
+    lbTimeRangeUpperBound,
 
     -- * Destructuring the response
     ListBackupsResponse (..),
     mkListBackupsResponse,
 
     -- ** Response lenses
-    lbrsBackupSummaries,
-    lbrsLastEvaluatedBackupARN,
-    lbrsResponseStatus,
+    lbrrsBackupSummaries,
+    lbrrsLastEvaluatedBackupArn,
+    lbrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListBackups' smart constructor.
 data ListBackups = ListBackups'
-  { -- | Only backups created before this time are listed. @TimeRangeUpperBound@ is exclusive.
-    timeRangeUpperBound :: Lude.Maybe Lude.Timestamp,
-    -- | Only backups created after this time are listed. @TimeRangeLowerBound@ is inclusive.
-    timeRangeLowerBound :: Lude.Maybe Lude.Timestamp,
-    -- | Maximum number of backups to return at once.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
-    exclusiveStartBackupARN :: Lude.Maybe Lude.Text,
-    -- | The backups from the table specified by @BackupType@ are listed.
+  { -- | The backups from the table specified by @BackupType@ are listed.
     --
     -- Where @BackupType@ can be:
     --
@@ -71,72 +63,33 @@ data ListBackups = ListBackups'
     --
     --
     --     * @ALL@ - All types of on-demand backups (USER and SYSTEM).
-    backupType :: Lude.Maybe BackupTypeFilter,
+    backupType :: Core.Maybe Types.BackupTypeFilter,
+    -- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
+    exclusiveStartBackupArn :: Core.Maybe Types.ExclusiveStartBackupArn,
+    -- | Maximum number of backups to return at once.
+    limit :: Core.Maybe Core.Natural,
     -- | The backups from the table specified by @TableName@ are listed.
-    tableName :: Lude.Maybe Lude.Text
+    tableName :: Core.Maybe Types.TableName,
+    -- | Only backups created after this time are listed. @TimeRangeLowerBound@ is inclusive.
+    timeRangeLowerBound :: Core.Maybe Core.NominalDiffTime,
+    -- | Only backups created before this time are listed. @TimeRangeUpperBound@ is exclusive.
+    timeRangeUpperBound :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListBackups' with the minimum fields required to make a request.
---
--- * 'timeRangeUpperBound' - Only backups created before this time are listed. @TimeRangeUpperBound@ is exclusive.
--- * 'timeRangeLowerBound' - Only backups created after this time are listed. @TimeRangeLowerBound@ is inclusive.
--- * 'limit' - Maximum number of backups to return at once.
--- * 'exclusiveStartBackupARN' - @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
--- * 'backupType' - The backups from the table specified by @BackupType@ are listed.
---
--- Where @BackupType@ can be:
---
---     * @USER@ - On-demand backup created by you.
---
---
---     * @SYSTEM@ - On-demand backup automatically created by DynamoDB.
---
---
---     * @ALL@ - All types of on-demand backups (USER and SYSTEM).
---
---
--- * 'tableName' - The backups from the table specified by @TableName@ are listed.
+-- | Creates a 'ListBackups' value with any optional fields omitted.
 mkListBackups ::
   ListBackups
 mkListBackups =
   ListBackups'
-    { timeRangeUpperBound = Lude.Nothing,
-      timeRangeLowerBound = Lude.Nothing,
-      limit = Lude.Nothing,
-      exclusiveStartBackupARN = Lude.Nothing,
-      backupType = Lude.Nothing,
-      tableName = Lude.Nothing
+    { backupType = Core.Nothing,
+      exclusiveStartBackupArn = Core.Nothing,
+      limit = Core.Nothing,
+      tableName = Core.Nothing,
+      timeRangeLowerBound = Core.Nothing,
+      timeRangeUpperBound = Core.Nothing
     }
-
--- | Only backups created before this time are listed. @TimeRangeUpperBound@ is exclusive.
---
--- /Note:/ Consider using 'timeRangeUpperBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbTimeRangeUpperBound :: Lens.Lens' ListBackups (Lude.Maybe Lude.Timestamp)
-lbTimeRangeUpperBound = Lens.lens (timeRangeUpperBound :: ListBackups -> Lude.Maybe Lude.Timestamp) (\s a -> s {timeRangeUpperBound = a} :: ListBackups)
-{-# DEPRECATED lbTimeRangeUpperBound "Use generic-lens or generic-optics with 'timeRangeUpperBound' instead." #-}
-
--- | Only backups created after this time are listed. @TimeRangeLowerBound@ is inclusive.
---
--- /Note:/ Consider using 'timeRangeLowerBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbTimeRangeLowerBound :: Lens.Lens' ListBackups (Lude.Maybe Lude.Timestamp)
-lbTimeRangeLowerBound = Lens.lens (timeRangeLowerBound :: ListBackups -> Lude.Maybe Lude.Timestamp) (\s a -> s {timeRangeLowerBound = a} :: ListBackups)
-{-# DEPRECATED lbTimeRangeLowerBound "Use generic-lens or generic-optics with 'timeRangeLowerBound' instead." #-}
-
--- | Maximum number of backups to return at once.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbLimit :: Lens.Lens' ListBackups (Lude.Maybe Lude.Natural)
-lbLimit = Lens.lens (limit :: ListBackups -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListBackups)
-{-# DEPRECATED lbLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
---
--- /Note:/ Consider using 'exclusiveStartBackupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbExclusiveStartBackupARN :: Lens.Lens' ListBackups (Lude.Maybe Lude.Text)
-lbExclusiveStartBackupARN = Lens.lens (exclusiveStartBackupARN :: ListBackups -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartBackupARN = a} :: ListBackups)
-{-# DEPRECATED lbExclusiveStartBackupARN "Use generic-lens or generic-optics with 'exclusiveStartBackupARN' instead." #-}
 
 -- | The backups from the table specified by @BackupType@ are listed.
 --
@@ -153,124 +106,142 @@ lbExclusiveStartBackupARN = Lens.lens (exclusiveStartBackupARN :: ListBackups ->
 --
 --
 -- /Note:/ Consider using 'backupType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbBackupType :: Lens.Lens' ListBackups (Lude.Maybe BackupTypeFilter)
-lbBackupType = Lens.lens (backupType :: ListBackups -> Lude.Maybe BackupTypeFilter) (\s a -> s {backupType = a} :: ListBackups)
+lbBackupType :: Lens.Lens' ListBackups (Core.Maybe Types.BackupTypeFilter)
+lbBackupType = Lens.field @"backupType"
 {-# DEPRECATED lbBackupType "Use generic-lens or generic-optics with 'backupType' instead." #-}
+
+-- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
+--
+-- /Note:/ Consider using 'exclusiveStartBackupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbExclusiveStartBackupArn :: Lens.Lens' ListBackups (Core.Maybe Types.ExclusiveStartBackupArn)
+lbExclusiveStartBackupArn = Lens.field @"exclusiveStartBackupArn"
+{-# DEPRECATED lbExclusiveStartBackupArn "Use generic-lens or generic-optics with 'exclusiveStartBackupArn' instead." #-}
+
+-- | Maximum number of backups to return at once.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbLimit :: Lens.Lens' ListBackups (Core.Maybe Core.Natural)
+lbLimit = Lens.field @"limit"
+{-# DEPRECATED lbLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The backups from the table specified by @TableName@ are listed.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbTableName :: Lens.Lens' ListBackups (Lude.Maybe Lude.Text)
-lbTableName = Lens.lens (tableName :: ListBackups -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: ListBackups)
+lbTableName :: Lens.Lens' ListBackups (Core.Maybe Types.TableName)
+lbTableName = Lens.field @"tableName"
 {-# DEPRECATED lbTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Page.AWSPager ListBackups where
-  page rq rs
-    | Page.stop (rs Lens.^. lbrsLastEvaluatedBackupARN) = Lude.Nothing
-    | Page.stop (rs Lens.^. lbrsBackupSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lbExclusiveStartBackupARN
-          Lens..~ rs Lens.^. lbrsLastEvaluatedBackupARN
+-- | Only backups created after this time are listed. @TimeRangeLowerBound@ is inclusive.
+--
+-- /Note:/ Consider using 'timeRangeLowerBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbTimeRangeLowerBound :: Lens.Lens' ListBackups (Core.Maybe Core.NominalDiffTime)
+lbTimeRangeLowerBound = Lens.field @"timeRangeLowerBound"
+{-# DEPRECATED lbTimeRangeLowerBound "Use generic-lens or generic-optics with 'timeRangeLowerBound' instead." #-}
 
-instance Lude.AWSRequest ListBackups where
+-- | Only backups created before this time are listed. @TimeRangeUpperBound@ is exclusive.
+--
+-- /Note:/ Consider using 'timeRangeUpperBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbTimeRangeUpperBound :: Lens.Lens' ListBackups (Core.Maybe Core.NominalDiffTime)
+lbTimeRangeUpperBound = Lens.field @"timeRangeUpperBound"
+{-# DEPRECATED lbTimeRangeUpperBound "Use generic-lens or generic-optics with 'timeRangeUpperBound' instead." #-}
+
+instance Core.FromJSON ListBackups where
+  toJSON ListBackups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BackupType" Core..=) Core.<$> backupType,
+            ("ExclusiveStartBackupArn" Core..=)
+              Core.<$> exclusiveStartBackupArn,
+            ("Limit" Core..=) Core.<$> limit,
+            ("TableName" Core..=) Core.<$> tableName,
+            ("TimeRangeLowerBound" Core..=) Core.<$> timeRangeLowerBound,
+            ("TimeRangeUpperBound" Core..=) Core.<$> timeRangeUpperBound
+          ]
+      )
+
+instance Core.AWSRequest ListBackups where
   type Rs ListBackups = ListBackupsResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.ListBackups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListBackupsResponse'
-            Lude.<$> (x Lude..?> "BackupSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "LastEvaluatedBackupArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "BackupSummaries")
+            Core.<*> (x Core..:? "LastEvaluatedBackupArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListBackups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.ListBackups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListBackups where
-  toJSON ListBackups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TimeRangeUpperBound" Lude..=) Lude.<$> timeRangeUpperBound,
-            ("TimeRangeLowerBound" Lude..=) Lude.<$> timeRangeLowerBound,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("ExclusiveStartBackupArn" Lude..=)
-              Lude.<$> exclusiveStartBackupARN,
-            ("BackupType" Lude..=) Lude.<$> backupType,
-            ("TableName" Lude..=) Lude.<$> tableName
-          ]
-      )
-
-instance Lude.ToPath ListBackups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListBackups where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListBackups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"lastEvaluatedBackupArn") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"backupSummaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"exclusiveStartBackupArn"
+            Lens..~ rs Lens.^. Lens.field @"lastEvaluatedBackupArn"
+        )
 
 -- | /See:/ 'mkListBackupsResponse' smart constructor.
 data ListBackupsResponse = ListBackupsResponse'
   { -- | List of @BackupSummary@ objects.
-    backupSummaries :: Lude.Maybe [BackupSummary],
+    backupSummaries :: Core.Maybe [Types.BackupSummary],
     -- | The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
     --
     -- If @LastEvaluatedBackupArn@ is empty, then the last page of results has been processed and there are no more results to be retrieved.
     -- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate that there is more data to be returned. All results are guaranteed to have been returned if and only if no value for @LastEvaluatedBackupArn@ is returned.
-    lastEvaluatedBackupARN :: Lude.Maybe Lude.Text,
+    lastEvaluatedBackupArn :: Core.Maybe Types.LastEvaluatedBackupArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListBackupsResponse' with the minimum fields required to make a request.
---
--- * 'backupSummaries' - List of @BackupSummary@ objects.
--- * 'lastEvaluatedBackupARN' - The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
---
--- If @LastEvaluatedBackupArn@ is empty, then the last page of results has been processed and there are no more results to be retrieved.
--- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate that there is more data to be returned. All results are guaranteed to have been returned if and only if no value for @LastEvaluatedBackupArn@ is returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListBackupsResponse' value with any optional fields omitted.
 mkListBackupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListBackupsResponse
-mkListBackupsResponse pResponseStatus_ =
+mkListBackupsResponse responseStatus =
   ListBackupsResponse'
-    { backupSummaries = Lude.Nothing,
-      lastEvaluatedBackupARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { backupSummaries = Core.Nothing,
+      lastEvaluatedBackupArn = Core.Nothing,
+      responseStatus
     }
 
 -- | List of @BackupSummary@ objects.
 --
 -- /Note:/ Consider using 'backupSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsBackupSummaries :: Lens.Lens' ListBackupsResponse (Lude.Maybe [BackupSummary])
-lbrsBackupSummaries = Lens.lens (backupSummaries :: ListBackupsResponse -> Lude.Maybe [BackupSummary]) (\s a -> s {backupSummaries = a} :: ListBackupsResponse)
-{-# DEPRECATED lbrsBackupSummaries "Use generic-lens or generic-optics with 'backupSummaries' instead." #-}
+lbrrsBackupSummaries :: Lens.Lens' ListBackupsResponse (Core.Maybe [Types.BackupSummary])
+lbrrsBackupSummaries = Lens.field @"backupSummaries"
+{-# DEPRECATED lbrrsBackupSummaries "Use generic-lens or generic-optics with 'backupSummaries' instead." #-}
 
 -- | The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
 --
 -- If @LastEvaluatedBackupArn@ is empty, then the last page of results has been processed and there are no more results to be retrieved.
 -- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate that there is more data to be returned. All results are guaranteed to have been returned if and only if no value for @LastEvaluatedBackupArn@ is returned.
 --
--- /Note:/ Consider using 'lastEvaluatedBackupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsLastEvaluatedBackupARN :: Lens.Lens' ListBackupsResponse (Lude.Maybe Lude.Text)
-lbrsLastEvaluatedBackupARN = Lens.lens (lastEvaluatedBackupARN :: ListBackupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastEvaluatedBackupARN = a} :: ListBackupsResponse)
-{-# DEPRECATED lbrsLastEvaluatedBackupARN "Use generic-lens or generic-optics with 'lastEvaluatedBackupARN' instead." #-}
+-- /Note:/ Consider using 'lastEvaluatedBackupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrrsLastEvaluatedBackupArn :: Lens.Lens' ListBackupsResponse (Core.Maybe Types.LastEvaluatedBackupArn)
+lbrrsLastEvaluatedBackupArn = Lens.field @"lastEvaluatedBackupArn"
+{-# DEPRECATED lbrrsLastEvaluatedBackupArn "Use generic-lens or generic-optics with 'lastEvaluatedBackupArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsResponseStatus :: Lens.Lens' ListBackupsResponse Lude.Int
-lbrsResponseStatus = Lens.lens (responseStatus :: ListBackupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBackupsResponse)
-{-# DEPRECATED lbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lbrrsResponseStatus :: Lens.Lens' ListBackupsResponse Core.Int
+lbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

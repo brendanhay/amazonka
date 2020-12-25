@@ -13,46 +13,51 @@
 module Network.AWS.DynamoDB.Types.S3SseAlgorithm
   ( S3SseAlgorithm
       ( S3SseAlgorithm',
-        SSAAES256,
-        SSAKMS
+        S3SseAlgorithmAES256,
+        S3SseAlgorithmKms,
+        fromS3SseAlgorithm
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype S3SseAlgorithm = S3SseAlgorithm' Lude.Text
+newtype S3SseAlgorithm = S3SseAlgorithm'
+  { fromS3SseAlgorithm ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSAAES256 :: S3SseAlgorithm
-pattern SSAAES256 = S3SseAlgorithm' "AES256"
+pattern S3SseAlgorithmAES256 :: S3SseAlgorithm
+pattern S3SseAlgorithmAES256 = S3SseAlgorithm' "AES256"
 
-pattern SSAKMS :: S3SseAlgorithm
-pattern SSAKMS = S3SseAlgorithm' "KMS"
+pattern S3SseAlgorithmKms :: S3SseAlgorithm
+pattern S3SseAlgorithmKms = S3SseAlgorithm' "KMS"
 
 {-# COMPLETE
-  SSAAES256,
-  SSAKMS,
+  S3SseAlgorithmAES256,
+  S3SseAlgorithmKms,
   S3SseAlgorithm'
   #-}

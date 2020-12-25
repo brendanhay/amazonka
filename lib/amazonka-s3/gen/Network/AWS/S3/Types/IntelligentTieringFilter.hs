@@ -17,74 +17,72 @@ module Network.AWS.S3.Types.IntelligentTieringFilter
     mkIntelligentTieringFilter,
 
     -- * Lenses
-    itfTag,
-    itfPrefix,
     itfAnd,
+    itfPrefix,
+    itfTag,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.IntelligentTieringAndOperator
-import Network.AWS.S3.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.IntelligentTieringAndOperator as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
+import qualified Network.AWS.S3.Types.Tag as Types
 
 -- | The @Filter@ is used to identify objects that the S3 Intelligent-Tiering configuration applies to.
 --
 -- /See:/ 'mkIntelligentTieringFilter' smart constructor.
 data IntelligentTieringFilter = IntelligentTieringFilter'
-  { tag :: Lude.Maybe Tag,
+  { -- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+    and :: Core.Maybe Types.IntelligentTieringAndOperator,
     -- | An object key name prefix that identifies the subset of objects to which the rule applies.
-    prefix :: Lude.Maybe Lude.Text,
-    -- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
-    and :: Lude.Maybe IntelligentTieringAndOperator
+    prefix :: Core.Maybe Types.Prefix,
+    tag :: Core.Maybe Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IntelligentTieringFilter' with the minimum fields required to make a request.
---
--- * 'tag' -
--- * 'prefix' - An object key name prefix that identifies the subset of objects to which the rule applies.
--- * 'and' - A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+-- | Creates a 'IntelligentTieringFilter' value with any optional fields omitted.
 mkIntelligentTieringFilter ::
   IntelligentTieringFilter
 mkIntelligentTieringFilter =
   IntelligentTieringFilter'
-    { tag = Lude.Nothing,
-      prefix = Lude.Nothing,
-      and = Lude.Nothing
+    { and = Core.Nothing,
+      prefix = Core.Nothing,
+      tag = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itfTag :: Lens.Lens' IntelligentTieringFilter (Lude.Maybe Tag)
-itfTag = Lens.lens (tag :: IntelligentTieringFilter -> Lude.Maybe Tag) (\s a -> s {tag = a} :: IntelligentTieringFilter)
-{-# DEPRECATED itfTag "Use generic-lens or generic-optics with 'tag' instead." #-}
-
--- | An object key name prefix that identifies the subset of objects to which the rule applies.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itfPrefix :: Lens.Lens' IntelligentTieringFilter (Lude.Maybe Lude.Text)
-itfPrefix = Lens.lens (prefix :: IntelligentTieringFilter -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: IntelligentTieringFilter)
-{-# DEPRECATED itfPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
 --
 -- /Note:/ Consider using 'and' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itfAnd :: Lens.Lens' IntelligentTieringFilter (Lude.Maybe IntelligentTieringAndOperator)
-itfAnd = Lens.lens (and :: IntelligentTieringFilter -> Lude.Maybe IntelligentTieringAndOperator) (\s a -> s {and = a} :: IntelligentTieringFilter)
+itfAnd :: Lens.Lens' IntelligentTieringFilter (Core.Maybe Types.IntelligentTieringAndOperator)
+itfAnd = Lens.field @"and"
 {-# DEPRECATED itfAnd "Use generic-lens or generic-optics with 'and' instead." #-}
 
-instance Lude.FromXML IntelligentTieringFilter where
+-- | An object key name prefix that identifies the subset of objects to which the rule applies.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itfPrefix :: Lens.Lens' IntelligentTieringFilter (Core.Maybe Types.Prefix)
+itfPrefix = Lens.field @"prefix"
+{-# DEPRECATED itfPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itfTag :: Lens.Lens' IntelligentTieringFilter (Core.Maybe Types.Tag)
+itfTag = Lens.field @"tag"
+{-# DEPRECATED itfTag "Use generic-lens or generic-optics with 'tag' instead." #-}
+
+instance Core.ToXML IntelligentTieringFilter where
+  toXML IntelligentTieringFilter {..} =
+    Core.toXMLNode "And" Core.<$> and
+      Core.<> Core.toXMLNode "Prefix" Core.<$> prefix
+      Core.<> Core.toXMLNode "Tag" Core.<$> tag
+
+instance Core.FromXML IntelligentTieringFilter where
   parseXML x =
     IntelligentTieringFilter'
-      Lude.<$> (x Lude..@? "Tag")
-      Lude.<*> (x Lude..@? "Prefix")
-      Lude.<*> (x Lude..@? "And")
-
-instance Lude.ToXML IntelligentTieringFilter where
-  toXML IntelligentTieringFilter' {..} =
-    Lude.mconcat
-      ["Tag" Lude.@= tag, "Prefix" Lude.@= prefix, "And" Lude.@= and]
+      Core.<$> (x Core..@? "And")
+      Core.<*> (x Core..@? "Prefix")
+      Core.<*> (x Core..@? "Tag")

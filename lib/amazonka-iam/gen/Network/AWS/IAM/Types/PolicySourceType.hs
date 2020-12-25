@@ -13,71 +13,76 @@
 module Network.AWS.IAM.Types.PolicySourceType
   ( PolicySourceType
       ( PolicySourceType',
-        User,
-        Group,
-        Role,
-        AWSManaged,
-        UserManaged,
-        Resource,
-        None
+        PolicySourceTypeUser,
+        PolicySourceTypeGroup,
+        PolicySourceTypeRole,
+        PolicySourceTypeAwsManaged,
+        PolicySourceTypeUserManaged,
+        PolicySourceTypeResource,
+        PolicySourceTypeNone,
+        fromPolicySourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PolicySourceType = PolicySourceType' Lude.Text
+newtype PolicySourceType = PolicySourceType'
+  { fromPolicySourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern User :: PolicySourceType
-pattern User = PolicySourceType' "user"
+pattern PolicySourceTypeUser :: PolicySourceType
+pattern PolicySourceTypeUser = PolicySourceType' "user"
 
-pattern Group :: PolicySourceType
-pattern Group = PolicySourceType' "group"
+pattern PolicySourceTypeGroup :: PolicySourceType
+pattern PolicySourceTypeGroup = PolicySourceType' "group"
 
-pattern Role :: PolicySourceType
-pattern Role = PolicySourceType' "role"
+pattern PolicySourceTypeRole :: PolicySourceType
+pattern PolicySourceTypeRole = PolicySourceType' "role"
 
-pattern AWSManaged :: PolicySourceType
-pattern AWSManaged = PolicySourceType' "aws-managed"
+pattern PolicySourceTypeAwsManaged :: PolicySourceType
+pattern PolicySourceTypeAwsManaged = PolicySourceType' "aws-managed"
 
-pattern UserManaged :: PolicySourceType
-pattern UserManaged = PolicySourceType' "user-managed"
+pattern PolicySourceTypeUserManaged :: PolicySourceType
+pattern PolicySourceTypeUserManaged = PolicySourceType' "user-managed"
 
-pattern Resource :: PolicySourceType
-pattern Resource = PolicySourceType' "resource"
+pattern PolicySourceTypeResource :: PolicySourceType
+pattern PolicySourceTypeResource = PolicySourceType' "resource"
 
-pattern None :: PolicySourceType
-pattern None = PolicySourceType' "none"
+pattern PolicySourceTypeNone :: PolicySourceType
+pattern PolicySourceTypeNone = PolicySourceType' "none"
 
 {-# COMPLETE
-  User,
-  Group,
-  Role,
-  AWSManaged,
-  UserManaged,
-  Resource,
-  None,
+  PolicySourceTypeUser,
+  PolicySourceTypeGroup,
+  PolicySourceTypeRole,
+  PolicySourceTypeAwsManaged,
+  PolicySourceTypeUserManaged,
+  PolicySourceTypeResource,
+  PolicySourceTypeNone,
   PolicySourceType'
   #-}

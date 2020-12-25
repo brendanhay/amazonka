@@ -22,63 +22,58 @@ module Network.AWS.DynamoDB.Types.WriteRequest
   )
 where
 
-import Network.AWS.DynamoDB.Types.DeleteRequest
-import Network.AWS.DynamoDB.Types.PutRequest
+import qualified Network.AWS.DynamoDB.Types.DeleteRequest as Types
+import qualified Network.AWS.DynamoDB.Types.PutRequest as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an operation to perform - either @DeleteItem@ or @PutItem@ . You can only request one of these operations, not both, in a single @WriteRequest@ . If you do need to perform both of these operations, you need to provide two separate @WriteRequest@ objects.
 --
 -- /See:/ 'mkWriteRequest' smart constructor.
 data WriteRequest = WriteRequest'
   { -- | A request to perform a @DeleteItem@ operation.
-    deleteRequest :: Lude.Maybe DeleteRequest,
+    deleteRequest :: Core.Maybe Types.DeleteRequest,
     -- | A request to perform a @PutItem@ operation.
-    putRequest :: Lude.Maybe PutRequest
+    putRequest :: Core.Maybe Types.PutRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WriteRequest' with the minimum fields required to make a request.
---
--- * 'deleteRequest' - A request to perform a @DeleteItem@ operation.
--- * 'putRequest' - A request to perform a @PutItem@ operation.
+-- | Creates a 'WriteRequest' value with any optional fields omitted.
 mkWriteRequest ::
   WriteRequest
 mkWriteRequest =
   WriteRequest'
-    { deleteRequest = Lude.Nothing,
-      putRequest = Lude.Nothing
+    { deleteRequest = Core.Nothing,
+      putRequest = Core.Nothing
     }
 
 -- | A request to perform a @DeleteItem@ operation.
 --
 -- /Note:/ Consider using 'deleteRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrDeleteRequest :: Lens.Lens' WriteRequest (Lude.Maybe DeleteRequest)
-wrDeleteRequest = Lens.lens (deleteRequest :: WriteRequest -> Lude.Maybe DeleteRequest) (\s a -> s {deleteRequest = a} :: WriteRequest)
+wrDeleteRequest :: Lens.Lens' WriteRequest (Core.Maybe Types.DeleteRequest)
+wrDeleteRequest = Lens.field @"deleteRequest"
 {-# DEPRECATED wrDeleteRequest "Use generic-lens or generic-optics with 'deleteRequest' instead." #-}
 
 -- | A request to perform a @PutItem@ operation.
 --
 -- /Note:/ Consider using 'putRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrPutRequest :: Lens.Lens' WriteRequest (Lude.Maybe PutRequest)
-wrPutRequest = Lens.lens (putRequest :: WriteRequest -> Lude.Maybe PutRequest) (\s a -> s {putRequest = a} :: WriteRequest)
+wrPutRequest :: Lens.Lens' WriteRequest (Core.Maybe Types.PutRequest)
+wrPutRequest = Lens.field @"putRequest"
 {-# DEPRECATED wrPutRequest "Use generic-lens or generic-optics with 'putRequest' instead." #-}
 
-instance Lude.FromJSON WriteRequest where
-  parseJSON =
-    Lude.withObject
-      "WriteRequest"
-      ( \x ->
-          WriteRequest'
-            Lude.<$> (x Lude..:? "DeleteRequest") Lude.<*> (x Lude..:? "PutRequest")
-      )
-
-instance Lude.ToJSON WriteRequest where
-  toJSON WriteRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeleteRequest" Lude..=) Lude.<$> deleteRequest,
-            ("PutRequest" Lude..=) Lude.<$> putRequest
+instance Core.FromJSON WriteRequest where
+  toJSON WriteRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DeleteRequest" Core..=) Core.<$> deleteRequest,
+            ("PutRequest" Core..=) Core.<$> putRequest
           ]
       )
+
+instance Core.FromJSON WriteRequest where
+  parseJSON =
+    Core.withObject "WriteRequest" Core.$
+      \x ->
+        WriteRequest'
+          Core.<$> (x Core..:? "DeleteRequest") Core.<*> (x Core..:? "PutRequest")

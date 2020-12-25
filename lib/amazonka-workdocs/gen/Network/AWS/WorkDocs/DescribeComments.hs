@@ -22,189 +22,179 @@ module Network.AWS.WorkDocs.DescribeComments
     mkDescribeComments,
 
     -- ** Request lenses
-    dcVersionId,
     dcDocumentId,
+    dcVersionId,
     dcAuthenticationToken,
-    dcMarker,
     dcLimit,
+    dcMarker,
 
     -- * Destructuring the response
     DescribeCommentsResponse (..),
     mkDescribeCommentsResponse,
 
     -- ** Response lenses
-    dcrsMarker,
-    dcrsComments,
-    dcrsResponseStatus,
+    dcrrsComments,
+    dcrrsMarker,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDescribeComments' smart constructor.
 data DescribeComments = DescribeComments'
-  { -- | The ID of the document version.
-    versionId :: Lude.Text,
-    -- | The ID of the document.
-    documentId :: Lude.Text,
+  { -- | The ID of the document.
+    documentId :: Types.DocumentId,
+    -- | The ID of the document version.
+    versionId :: Types.VersionId,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The marker for the next set of results. This marker was received from a previous call.
-    marker :: Lude.Maybe Lude.Text,
+    authenticationToken :: Core.Maybe Types.AuthenticationToken,
     -- | The maximum number of items to return.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | The marker for the next set of results. This marker was received from a previous call.
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeComments' with the minimum fields required to make a request.
---
--- * 'versionId' - The ID of the document version.
--- * 'documentId' - The ID of the document.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
--- * 'limit' - The maximum number of items to return.
+-- | Creates a 'DescribeComments' value with any optional fields omitted.
 mkDescribeComments ::
-  -- | 'versionId'
-  Lude.Text ->
   -- | 'documentId'
-  Lude.Text ->
+  Types.DocumentId ->
+  -- | 'versionId'
+  Types.VersionId ->
   DescribeComments
-mkDescribeComments pVersionId_ pDocumentId_ =
+mkDescribeComments documentId versionId =
   DescribeComments'
-    { versionId = pVersionId_,
-      documentId = pDocumentId_,
-      authenticationToken = Lude.Nothing,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing
+    { documentId,
+      versionId,
+      authenticationToken = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
-
--- | The ID of the document version.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcVersionId :: Lens.Lens' DescribeComments Lude.Text
-dcVersionId = Lens.lens (versionId :: DescribeComments -> Lude.Text) (\s a -> s {versionId = a} :: DescribeComments)
-{-# DEPRECATED dcVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The ID of the document.
 --
 -- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcDocumentId :: Lens.Lens' DescribeComments Lude.Text
-dcDocumentId = Lens.lens (documentId :: DescribeComments -> Lude.Text) (\s a -> s {documentId = a} :: DescribeComments)
+dcDocumentId :: Lens.Lens' DescribeComments Types.DocumentId
+dcDocumentId = Lens.field @"documentId"
 {-# DEPRECATED dcDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
+
+-- | The ID of the document version.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcVersionId :: Lens.Lens' DescribeComments Types.VersionId
+dcVersionId = Lens.field @"versionId"
+{-# DEPRECATED dcVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcAuthenticationToken :: Lens.Lens' DescribeComments (Lude.Maybe (Lude.Sensitive Lude.Text))
-dcAuthenticationToken = Lens.lens (authenticationToken :: DescribeComments -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DescribeComments)
+dcAuthenticationToken :: Lens.Lens' DescribeComments (Core.Maybe Types.AuthenticationToken)
+dcAuthenticationToken = Lens.field @"authenticationToken"
 {-# DEPRECATED dcAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
-
--- | The marker for the next set of results. This marker was received from a previous call.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcMarker :: Lens.Lens' DescribeComments (Lude.Maybe Lude.Text)
-dcMarker = Lens.lens (marker :: DescribeComments -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeComments)
-{-# DEPRECATED dcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of items to return.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcLimit :: Lens.Lens' DescribeComments (Lude.Maybe Lude.Natural)
-dcLimit = Lens.lens (limit :: DescribeComments -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeComments)
+dcLimit :: Lens.Lens' DescribeComments (Core.Maybe Core.Natural)
+dcLimit = Lens.field @"limit"
 {-# DEPRECATED dcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
-instance Page.AWSPager DescribeComments where
-  page rq rs
-    | Page.stop (rs Lens.^. dcrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcrsComments) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dcMarker Lens..~ rs Lens.^. dcrsMarker
-
-instance Lude.AWSRequest DescribeComments where
-  type Rs DescribeComments = DescribeCommentsResponse
-  request = Req.get workDocsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribeCommentsResponse'
-            Lude.<$> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "Comments" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeComments where
-  toHeaders DescribeComments' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DescribeComments where
-  toPath DescribeComments' {..} =
-    Lude.mconcat
-      [ "/api/v1/documents/",
-        Lude.toBS documentId,
-        "/versions/",
-        Lude.toBS versionId,
-        "/comments"
-      ]
-
-instance Lude.ToQuery DescribeComments where
-  toQuery DescribeComments' {..} =
-    Lude.mconcat ["marker" Lude.=: marker, "limit" Lude.=: limit]
-
--- | /See:/ 'mkDescribeCommentsResponse' smart constructor.
-data DescribeCommentsResponse = DescribeCommentsResponse'
-  { -- | The marker for the next set of results. This marker was received from a previous call.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The list of comments for the specified document version.
-    comments :: Lude.Maybe [Comment],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'DescribeCommentsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
--- * 'comments' - The list of comments for the specified document version.
--- * 'responseStatus' - The response status code.
-mkDescribeCommentsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  DescribeCommentsResponse
-mkDescribeCommentsResponse pResponseStatus_ =
-  DescribeCommentsResponse'
-    { marker = Lude.Nothing,
-      comments = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | The marker for the next set of results. This marker was received from a previous call.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsMarker :: Lens.Lens' DescribeCommentsResponse (Lude.Maybe Lude.Text)
-dcrsMarker = Lens.lens (marker :: DescribeCommentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCommentsResponse)
-{-# DEPRECATED dcrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcMarker :: Lens.Lens' DescribeComments (Core.Maybe Types.Marker)
+dcMarker = Lens.field @"marker"
+{-# DEPRECATED dcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+instance Core.AWSRequest DescribeComments where
+  type Rs DescribeComments = DescribeCommentsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/documents/" Core.<> (Core.toText documentId)
+                Core.<> ("/versions/")
+                Core.<> (Core.toText versionId)
+                Core.<> ("/comments")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "limit" Core.<$> limit
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker),
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeCommentsResponse'
+            Core.<$> (x Core..:? "Comments")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager DescribeComments where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"comments" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
+
+-- | /See:/ 'mkDescribeCommentsResponse' smart constructor.
+data DescribeCommentsResponse = DescribeCommentsResponse'
+  { -- | The list of comments for the specified document version.
+    comments :: Core.Maybe [Types.Comment],
+    -- | The marker for the next set of results. This marker was received from a previous call.
+    marker :: Core.Maybe Types.MarkerType,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'DescribeCommentsResponse' value with any optional fields omitted.
+mkDescribeCommentsResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  DescribeCommentsResponse
+mkDescribeCommentsResponse responseStatus =
+  DescribeCommentsResponse'
+    { comments = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
+    }
 
 -- | The list of comments for the specified document version.
 --
 -- /Note:/ Consider using 'comments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsComments :: Lens.Lens' DescribeCommentsResponse (Lude.Maybe [Comment])
-dcrsComments = Lens.lens (comments :: DescribeCommentsResponse -> Lude.Maybe [Comment]) (\s a -> s {comments = a} :: DescribeCommentsResponse)
-{-# DEPRECATED dcrsComments "Use generic-lens or generic-optics with 'comments' instead." #-}
+dcrrsComments :: Lens.Lens' DescribeCommentsResponse (Core.Maybe [Types.Comment])
+dcrrsComments = Lens.field @"comments"
+{-# DEPRECATED dcrrsComments "Use generic-lens or generic-optics with 'comments' instead." #-}
+
+-- | The marker for the next set of results. This marker was received from a previous call.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsMarker :: Lens.Lens' DescribeCommentsResponse (Core.Maybe Types.MarkerType)
+dcrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dcrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DescribeCommentsResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DescribeCommentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCommentsResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DescribeCommentsResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

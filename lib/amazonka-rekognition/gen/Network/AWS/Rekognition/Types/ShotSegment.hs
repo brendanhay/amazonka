@@ -23,48 +23,43 @@ module Network.AWS.Rekognition.Types.ShotSegment
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a shot detection segment detected in a video. For more information, see 'SegmentDetection' .
 --
 -- /See:/ 'mkShotSegment' smart constructor.
 data ShotSegment = ShotSegment'
   { -- | The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.
-    confidence :: Lude.Maybe Lude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | An Identifier for a shot detection segment detected in a video.
-    index :: Lude.Maybe Lude.Natural
+    index :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ShotSegment' with the minimum fields required to make a request.
---
--- * 'confidence' - The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.
--- * 'index' - An Identifier for a shot detection segment detected in a video.
+-- | Creates a 'ShotSegment' value with any optional fields omitted.
 mkShotSegment ::
   ShotSegment
 mkShotSegment =
-  ShotSegment' {confidence = Lude.Nothing, index = Lude.Nothing}
+  ShotSegment' {confidence = Core.Nothing, index = Core.Nothing}
 
 -- | The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssConfidence :: Lens.Lens' ShotSegment (Lude.Maybe Lude.Double)
-ssConfidence = Lens.lens (confidence :: ShotSegment -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: ShotSegment)
+ssConfidence :: Lens.Lens' ShotSegment (Core.Maybe Core.Double)
+ssConfidence = Lens.field @"confidence"
 {-# DEPRECATED ssConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
 -- | An Identifier for a shot detection segment detected in a video.
 --
 -- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssIndex :: Lens.Lens' ShotSegment (Lude.Maybe Lude.Natural)
-ssIndex = Lens.lens (index :: ShotSegment -> Lude.Maybe Lude.Natural) (\s a -> s {index = a} :: ShotSegment)
+ssIndex :: Lens.Lens' ShotSegment (Core.Maybe Core.Natural)
+ssIndex = Lens.field @"index"
 {-# DEPRECATED ssIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
-instance Lude.FromJSON ShotSegment where
+instance Core.FromJSON ShotSegment where
   parseJSON =
-    Lude.withObject
-      "ShotSegment"
-      ( \x ->
-          ShotSegment'
-            Lude.<$> (x Lude..:? "Confidence") Lude.<*> (x Lude..:? "Index")
-      )
+    Core.withObject "ShotSegment" Core.$
+      \x ->
+        ShotSegment'
+          Core.<$> (x Core..:? "Confidence") Core.<*> (x Core..:? "Index")

@@ -21,37 +21,35 @@ module Network.AWS.CodeStar.Types.Resource
   )
 where
 
+import qualified Network.AWS.CodeStar.Types.ResourceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a resource for a project.
 --
 -- /See:/ 'mkResource' smart constructor.
 newtype Resource = Resource'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    id :: Lude.Text
+    id :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Resource' with the minimum fields required to make a request.
---
--- * 'id' - The Amazon Resource Name (ARN) of the resource.
+-- | Creates a 'Resource' value with any optional fields omitted.
 mkResource ::
   -- | 'id'
-  Lude.Text ->
+  Types.ResourceId ->
   Resource
-mkResource pId_ = Resource' {id = pId_}
+mkResource id = Resource' {id}
 
 -- | The Amazon Resource Name (ARN) of the resource.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rId :: Lens.Lens' Resource Lude.Text
-rId = Lens.lens (id :: Resource -> Lude.Text) (\s a -> s {id = a} :: Resource)
+rId :: Lens.Lens' Resource Types.ResourceId
+rId = Lens.field @"id"
 {-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON Resource where
+instance Core.FromJSON Resource where
   parseJSON =
-    Lude.withObject
-      "Resource"
-      (\x -> Resource' Lude.<$> (x Lude..: "id"))
+    Core.withObject "Resource" Core.$
+      \x -> Resource' Core.<$> (x Core..: "id")

@@ -21,150 +21,133 @@ module Network.AWS.DeviceFarm.UpdateProject
 
     -- ** Request lenses
     upArn,
-    upName,
     upDefaultJobTimeoutMinutes,
+    upName,
 
     -- * Destructuring the response
     UpdateProjectResponse (..),
     mkUpdateProjectResponse,
 
     -- ** Response lenses
-    uprsProject,
-    uprsResponseStatus,
+    uprrsProject,
+    uprrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the update project operation.
 --
 -- /See:/ 'mkUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
   { -- | The Amazon Resource Name (ARN) of the project whose name to update.
-    arn :: Lude.Text,
-    -- | A string that represents the new name of the project that you are updating.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Types.Arn,
     -- | The number of minutes a test run in the project executes before it times out.
-    defaultJobTimeoutMinutes :: Lude.Maybe Lude.Int
+    defaultJobTimeoutMinutes :: Core.Maybe Core.Int,
+    -- | A string that represents the new name of the project that you are updating.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the project whose name to update.
--- * 'name' - A string that represents the new name of the project that you are updating.
--- * 'defaultJobTimeoutMinutes' - The number of minutes a test run in the project executes before it times out.
+-- | Creates a 'UpdateProject' value with any optional fields omitted.
 mkUpdateProject ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   UpdateProject
-mkUpdateProject pArn_ =
+mkUpdateProject arn =
   UpdateProject'
-    { arn = pArn_,
-      name = Lude.Nothing,
-      defaultJobTimeoutMinutes = Lude.Nothing
+    { arn,
+      defaultJobTimeoutMinutes = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the project whose name to update.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upArn :: Lens.Lens' UpdateProject Lude.Text
-upArn = Lens.lens (arn :: UpdateProject -> Lude.Text) (\s a -> s {arn = a} :: UpdateProject)
+upArn :: Lens.Lens' UpdateProject Types.Arn
+upArn = Lens.field @"arn"
 {-# DEPRECATED upArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | A string that represents the new name of the project that you are updating.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upName :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Text)
-upName = Lens.lens (name :: UpdateProject -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateProject)
-{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The number of minutes a test run in the project executes before it times out.
 --
 -- /Note:/ Consider using 'defaultJobTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upDefaultJobTimeoutMinutes :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Int)
-upDefaultJobTimeoutMinutes = Lens.lens (defaultJobTimeoutMinutes :: UpdateProject -> Lude.Maybe Lude.Int) (\s a -> s {defaultJobTimeoutMinutes = a} :: UpdateProject)
+upDefaultJobTimeoutMinutes :: Lens.Lens' UpdateProject (Core.Maybe Core.Int)
+upDefaultJobTimeoutMinutes = Lens.field @"defaultJobTimeoutMinutes"
 {-# DEPRECATED upDefaultJobTimeoutMinutes "Use generic-lens or generic-optics with 'defaultJobTimeoutMinutes' instead." #-}
 
-instance Lude.AWSRequest UpdateProject where
+-- | A string that represents the new name of the project that you are updating.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upName :: Lens.Lens' UpdateProject (Core.Maybe Types.Name)
+upName = Lens.field @"name"
+{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON UpdateProject where
+  toJSON UpdateProject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("arn" Core..= arn),
+            ("defaultJobTimeoutMinutes" Core..=)
+              Core.<$> defaultJobTimeoutMinutes,
+            ("name" Core..=) Core.<$> name
+          ]
+      )
+
+instance Core.AWSRequest UpdateProject where
   type Rs UpdateProject = UpdateProjectResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DeviceFarm_20150623.UpdateProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateProjectResponse'
-            Lude.<$> (x Lude..?> "project") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "project") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.UpdateProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateProject where
-  toJSON UpdateProject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("arn" Lude..= arn),
-            ("name" Lude..=) Lude.<$> name,
-            ("defaultJobTimeoutMinutes" Lude..=)
-              Lude.<$> defaultJobTimeoutMinutes
-          ]
-      )
-
-instance Lude.ToPath UpdateProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of an update project request.
 --
 -- /See:/ 'mkUpdateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
   { -- | The project to update.
-    project :: Lude.Maybe Project,
+    project :: Core.Maybe Types.Project,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.
---
--- * 'project' - The project to update.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateProjectResponse' value with any optional fields omitted.
 mkUpdateProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateProjectResponse
-mkUpdateProjectResponse pResponseStatus_ =
-  UpdateProjectResponse'
-    { project = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateProjectResponse responseStatus =
+  UpdateProjectResponse' {project = Core.Nothing, responseStatus}
 
 -- | The project to update.
 --
 -- /Note:/ Consider using 'project' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsProject :: Lens.Lens' UpdateProjectResponse (Lude.Maybe Project)
-uprsProject = Lens.lens (project :: UpdateProjectResponse -> Lude.Maybe Project) (\s a -> s {project = a} :: UpdateProjectResponse)
-{-# DEPRECATED uprsProject "Use generic-lens or generic-optics with 'project' instead." #-}
+uprrsProject :: Lens.Lens' UpdateProjectResponse (Core.Maybe Types.Project)
+uprrsProject = Lens.field @"project"
+{-# DEPRECATED uprrsProject "Use generic-lens or generic-optics with 'project' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsResponseStatus :: Lens.Lens' UpdateProjectResponse Lude.Int
-uprsResponseStatus = Lens.lens (responseStatus :: UpdateProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProjectResponse)
-{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uprrsResponseStatus :: Lens.Lens' UpdateProjectResponse Core.Int
+uprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

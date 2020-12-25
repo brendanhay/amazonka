@@ -17,90 +17,83 @@ module Network.AWS.StorageGateway.Types.TapeRecoveryPointInfo
     mkTapeRecoveryPointInfo,
 
     -- * Lenses
-    trpiTapeStatus,
-    trpiTapeRecoveryPointTime,
     trpiTapeARN,
+    trpiTapeRecoveryPointTime,
     trpiTapeSizeInBytes,
+    trpiTapeStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StorageGateway.Types.TapeARN as Types
+import qualified Network.AWS.StorageGateway.Types.TapeRecoveryPointStatus as Types
 
 -- | Describes a recovery point.
 --
 -- /See:/ 'mkTapeRecoveryPointInfo' smart constructor.
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
-  { -- | The status of the virtual tapes.
-    tapeStatus :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the virtual tape.
+    tapeARN :: Core.Maybe Types.TapeARN,
     -- | The time when the point-in-time view of the virtual tape was replicated for later recovery.
     --
     -- The default timestamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
-    tapeRecoveryPointTime :: Lude.Maybe Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the virtual tape.
-    tapeARN :: Lude.Maybe Lude.Text,
+    tapeRecoveryPointTime :: Core.Maybe Core.NominalDiffTime,
     -- | The size, in bytes, of the virtual tapes to recover.
-    tapeSizeInBytes :: Lude.Maybe Lude.Integer
+    tapeSizeInBytes :: Core.Maybe Core.Integer,
+    -- | The status of the virtual tapes.
+    tapeStatus :: Core.Maybe Types.TapeRecoveryPointStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TapeRecoveryPointInfo' with the minimum fields required to make a request.
---
--- * 'tapeStatus' - The status of the virtual tapes.
--- * 'tapeRecoveryPointTime' - The time when the point-in-time view of the virtual tape was replicated for later recovery.
---
--- The default timestamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
--- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape.
--- * 'tapeSizeInBytes' - The size, in bytes, of the virtual tapes to recover.
+-- | Creates a 'TapeRecoveryPointInfo' value with any optional fields omitted.
 mkTapeRecoveryPointInfo ::
   TapeRecoveryPointInfo
 mkTapeRecoveryPointInfo =
   TapeRecoveryPointInfo'
-    { tapeStatus = Lude.Nothing,
-      tapeRecoveryPointTime = Lude.Nothing,
-      tapeARN = Lude.Nothing,
-      tapeSizeInBytes = Lude.Nothing
+    { tapeARN = Core.Nothing,
+      tapeRecoveryPointTime = Core.Nothing,
+      tapeSizeInBytes = Core.Nothing,
+      tapeStatus = Core.Nothing
     }
 
--- | The status of the virtual tapes.
+-- | The Amazon Resource Name (ARN) of the virtual tape.
 --
--- /Note:/ Consider using 'tapeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpiTapeStatus :: Lens.Lens' TapeRecoveryPointInfo (Lude.Maybe Lude.Text)
-trpiTapeStatus = Lens.lens (tapeStatus :: TapeRecoveryPointInfo -> Lude.Maybe Lude.Text) (\s a -> s {tapeStatus = a} :: TapeRecoveryPointInfo)
-{-# DEPRECATED trpiTapeStatus "Use generic-lens or generic-optics with 'tapeStatus' instead." #-}
+-- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trpiTapeARN :: Lens.Lens' TapeRecoveryPointInfo (Core.Maybe Types.TapeARN)
+trpiTapeARN = Lens.field @"tapeARN"
+{-# DEPRECATED trpiTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
 -- | The time when the point-in-time view of the virtual tape was replicated for later recovery.
 --
 -- The default timestamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
 --
 -- /Note:/ Consider using 'tapeRecoveryPointTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpiTapeRecoveryPointTime :: Lens.Lens' TapeRecoveryPointInfo (Lude.Maybe Lude.Timestamp)
-trpiTapeRecoveryPointTime = Lens.lens (tapeRecoveryPointTime :: TapeRecoveryPointInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {tapeRecoveryPointTime = a} :: TapeRecoveryPointInfo)
+trpiTapeRecoveryPointTime :: Lens.Lens' TapeRecoveryPointInfo (Core.Maybe Core.NominalDiffTime)
+trpiTapeRecoveryPointTime = Lens.field @"tapeRecoveryPointTime"
 {-# DEPRECATED trpiTapeRecoveryPointTime "Use generic-lens or generic-optics with 'tapeRecoveryPointTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the virtual tape.
---
--- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpiTapeARN :: Lens.Lens' TapeRecoveryPointInfo (Lude.Maybe Lude.Text)
-trpiTapeARN = Lens.lens (tapeARN :: TapeRecoveryPointInfo -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: TapeRecoveryPointInfo)
-{-# DEPRECATED trpiTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
 -- | The size, in bytes, of the virtual tapes to recover.
 --
 -- /Note:/ Consider using 'tapeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpiTapeSizeInBytes :: Lens.Lens' TapeRecoveryPointInfo (Lude.Maybe Lude.Integer)
-trpiTapeSizeInBytes = Lens.lens (tapeSizeInBytes :: TapeRecoveryPointInfo -> Lude.Maybe Lude.Integer) (\s a -> s {tapeSizeInBytes = a} :: TapeRecoveryPointInfo)
+trpiTapeSizeInBytes :: Lens.Lens' TapeRecoveryPointInfo (Core.Maybe Core.Integer)
+trpiTapeSizeInBytes = Lens.field @"tapeSizeInBytes"
 {-# DEPRECATED trpiTapeSizeInBytes "Use generic-lens or generic-optics with 'tapeSizeInBytes' instead." #-}
 
-instance Lude.FromJSON TapeRecoveryPointInfo where
+-- | The status of the virtual tapes.
+--
+-- /Note:/ Consider using 'tapeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trpiTapeStatus :: Lens.Lens' TapeRecoveryPointInfo (Core.Maybe Types.TapeRecoveryPointStatus)
+trpiTapeStatus = Lens.field @"tapeStatus"
+{-# DEPRECATED trpiTapeStatus "Use generic-lens or generic-optics with 'tapeStatus' instead." #-}
+
+instance Core.FromJSON TapeRecoveryPointInfo where
   parseJSON =
-    Lude.withObject
-      "TapeRecoveryPointInfo"
-      ( \x ->
-          TapeRecoveryPointInfo'
-            Lude.<$> (x Lude..:? "TapeStatus")
-            Lude.<*> (x Lude..:? "TapeRecoveryPointTime")
-            Lude.<*> (x Lude..:? "TapeARN")
-            Lude.<*> (x Lude..:? "TapeSizeInBytes")
-      )
+    Core.withObject "TapeRecoveryPointInfo" Core.$
+      \x ->
+        TapeRecoveryPointInfo'
+          Core.<$> (x Core..:? "TapeARN")
+          Core.<*> (x Core..:? "TapeRecoveryPointTime")
+          Core.<*> (x Core..:? "TapeSizeInBytes")
+          Core.<*> (x Core..:? "TapeStatus")

@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.InputSourceEndBehavior
   ( InputSourceEndBehavior
       ( InputSourceEndBehavior',
-        Continue,
-        Loop
+        InputSourceEndBehaviorContinue,
+        InputSourceEndBehaviorLoop,
+        fromInputSourceEndBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Input Source End Behavior
-newtype InputSourceEndBehavior = InputSourceEndBehavior' Lude.Text
+newtype InputSourceEndBehavior = InputSourceEndBehavior'
+  { fromInputSourceEndBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Continue :: InputSourceEndBehavior
-pattern Continue = InputSourceEndBehavior' "CONTINUE"
+pattern InputSourceEndBehaviorContinue :: InputSourceEndBehavior
+pattern InputSourceEndBehaviorContinue = InputSourceEndBehavior' "CONTINUE"
 
-pattern Loop :: InputSourceEndBehavior
-pattern Loop = InputSourceEndBehavior' "LOOP"
+pattern InputSourceEndBehaviorLoop :: InputSourceEndBehavior
+pattern InputSourceEndBehaviorLoop = InputSourceEndBehavior' "LOOP"
 
 {-# COMPLETE
-  Continue,
-  Loop,
+  InputSourceEndBehaviorContinue,
+  InputSourceEndBehaviorLoop,
   InputSourceEndBehavior'
   #-}

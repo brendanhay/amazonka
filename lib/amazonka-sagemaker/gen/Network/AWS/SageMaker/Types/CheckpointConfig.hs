@@ -17,65 +17,62 @@ module Network.AWS.SageMaker.Types.CheckpointConfig
     mkCheckpointConfig,
 
     -- * Lenses
+    ccS3Uri,
     ccLocalPath,
-    ccS3URI,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.LocalPath as Types
+import qualified Network.AWS.SageMaker.Types.S3Uri as Types
 
 -- | Contains information about the output location for managed spot training checkpoint data.
 --
 -- /See:/ 'mkCheckpointConfig' smart constructor.
 data CheckpointConfig = CheckpointConfig'
-  { -- | (Optional) The local directory where checkpoints are written. The default directory is @/opt/ml/checkpoints/@ .
-    localPath :: Lude.Maybe Lude.Text,
-    -- | Identifies the S3 path where you want Amazon SageMaker to store checkpoints. For example, @s3://bucket-name/key-name-prefix@ .
-    s3URI :: Lude.Text
+  { -- | Identifies the S3 path where you want Amazon SageMaker to store checkpoints. For example, @s3://bucket-name/key-name-prefix@ .
+    s3Uri :: Types.S3Uri,
+    -- | (Optional) The local directory where checkpoints are written. The default directory is @/opt/ml/checkpoints/@ .
+    localPath :: Core.Maybe Types.LocalPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CheckpointConfig' with the minimum fields required to make a request.
---
--- * 'localPath' - (Optional) The local directory where checkpoints are written. The default directory is @/opt/ml/checkpoints/@ .
--- * 's3URI' - Identifies the S3 path where you want Amazon SageMaker to store checkpoints. For example, @s3://bucket-name/key-name-prefix@ .
+-- | Creates a 'CheckpointConfig' value with any optional fields omitted.
 mkCheckpointConfig ::
-  -- | 's3URI'
-  Lude.Text ->
+  -- | 's3Uri'
+  Types.S3Uri ->
   CheckpointConfig
-mkCheckpointConfig pS3URI_ =
-  CheckpointConfig' {localPath = Lude.Nothing, s3URI = pS3URI_}
+mkCheckpointConfig s3Uri =
+  CheckpointConfig' {s3Uri, localPath = Core.Nothing}
+
+-- | Identifies the S3 path where you want Amazon SageMaker to store checkpoints. For example, @s3://bucket-name/key-name-prefix@ .
+--
+-- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccS3Uri :: Lens.Lens' CheckpointConfig Types.S3Uri
+ccS3Uri = Lens.field @"s3Uri"
+{-# DEPRECATED ccS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
 
 -- | (Optional) The local directory where checkpoints are written. The default directory is @/opt/ml/checkpoints/@ .
 --
 -- /Note:/ Consider using 'localPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccLocalPath :: Lens.Lens' CheckpointConfig (Lude.Maybe Lude.Text)
-ccLocalPath = Lens.lens (localPath :: CheckpointConfig -> Lude.Maybe Lude.Text) (\s a -> s {localPath = a} :: CheckpointConfig)
+ccLocalPath :: Lens.Lens' CheckpointConfig (Core.Maybe Types.LocalPath)
+ccLocalPath = Lens.field @"localPath"
 {-# DEPRECATED ccLocalPath "Use generic-lens or generic-optics with 'localPath' instead." #-}
 
--- | Identifies the S3 path where you want Amazon SageMaker to store checkpoints. For example, @s3://bucket-name/key-name-prefix@ .
---
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccS3URI :: Lens.Lens' CheckpointConfig Lude.Text
-ccS3URI = Lens.lens (s3URI :: CheckpointConfig -> Lude.Text) (\s a -> s {s3URI = a} :: CheckpointConfig)
-{-# DEPRECATED ccS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
-
-instance Lude.FromJSON CheckpointConfig where
-  parseJSON =
-    Lude.withObject
-      "CheckpointConfig"
-      ( \x ->
-          CheckpointConfig'
-            Lude.<$> (x Lude..:? "LocalPath") Lude.<*> (x Lude..: "S3Uri")
-      )
-
-instance Lude.ToJSON CheckpointConfig where
-  toJSON CheckpointConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("LocalPath" Lude..=) Lude.<$> localPath,
-            Lude.Just ("S3Uri" Lude..= s3URI)
+instance Core.FromJSON CheckpointConfig where
+  toJSON CheckpointConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3Uri" Core..= s3Uri),
+            ("LocalPath" Core..=) Core.<$> localPath
           ]
       )
+
+instance Core.FromJSON CheckpointConfig where
+  parseJSON =
+    Core.withObject "CheckpointConfig" Core.$
+      \x ->
+        CheckpointConfig'
+          Core.<$> (x Core..: "S3Uri") Core.<*> (x Core..:? "LocalPath")

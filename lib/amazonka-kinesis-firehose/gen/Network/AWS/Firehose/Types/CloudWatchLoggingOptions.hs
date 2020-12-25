@@ -23,75 +23,71 @@ module Network.AWS.Firehose.Types.CloudWatchLoggingOptions
   )
 where
 
+import qualified Network.AWS.Firehose.Types.LogGroupName as Types
+import qualified Network.AWS.Firehose.Types.LogStreamName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Amazon CloudWatch logging options for your delivery stream.
 --
 -- /See:/ 'mkCloudWatchLoggingOptions' smart constructor.
 data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
   { -- | Enables or disables CloudWatch logging.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled.
-    logGroupName :: Lude.Maybe Lude.Text,
+    logGroupName :: Core.Maybe Types.LogGroupName,
     -- | The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled.
-    logStreamName :: Lude.Maybe Lude.Text
+    logStreamName :: Core.Maybe Types.LogStreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchLoggingOptions' with the minimum fields required to make a request.
---
--- * 'enabled' - Enables or disables CloudWatch logging.
--- * 'logGroupName' - The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled.
--- * 'logStreamName' - The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled.
+-- | Creates a 'CloudWatchLoggingOptions' value with any optional fields omitted.
 mkCloudWatchLoggingOptions ::
   CloudWatchLoggingOptions
 mkCloudWatchLoggingOptions =
   CloudWatchLoggingOptions'
-    { enabled = Lude.Nothing,
-      logGroupName = Lude.Nothing,
-      logStreamName = Lude.Nothing
+    { enabled = Core.Nothing,
+      logGroupName = Core.Nothing,
+      logStreamName = Core.Nothing
     }
 
 -- | Enables or disables CloudWatch logging.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwloEnabled :: Lens.Lens' CloudWatchLoggingOptions (Lude.Maybe Lude.Bool)
-cwloEnabled = Lens.lens (enabled :: CloudWatchLoggingOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: CloudWatchLoggingOptions)
+cwloEnabled :: Lens.Lens' CloudWatchLoggingOptions (Core.Maybe Core.Bool)
+cwloEnabled = Lens.field @"enabled"
 {-# DEPRECATED cwloEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwloLogGroupName :: Lens.Lens' CloudWatchLoggingOptions (Lude.Maybe Lude.Text)
-cwloLogGroupName = Lens.lens (logGroupName :: CloudWatchLoggingOptions -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: CloudWatchLoggingOptions)
+cwloLogGroupName :: Lens.Lens' CloudWatchLoggingOptions (Core.Maybe Types.LogGroupName)
+cwloLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED cwloLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled.
 --
 -- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwloLogStreamName :: Lens.Lens' CloudWatchLoggingOptions (Lude.Maybe Lude.Text)
-cwloLogStreamName = Lens.lens (logStreamName :: CloudWatchLoggingOptions -> Lude.Maybe Lude.Text) (\s a -> s {logStreamName = a} :: CloudWatchLoggingOptions)
+cwloLogStreamName :: Lens.Lens' CloudWatchLoggingOptions (Core.Maybe Types.LogStreamName)
+cwloLogStreamName = Lens.field @"logStreamName"
 {-# DEPRECATED cwloLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
-instance Lude.FromJSON CloudWatchLoggingOptions where
-  parseJSON =
-    Lude.withObject
-      "CloudWatchLoggingOptions"
-      ( \x ->
-          CloudWatchLoggingOptions'
-            Lude.<$> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "LogGroupName")
-            Lude.<*> (x Lude..:? "LogStreamName")
-      )
-
-instance Lude.ToJSON CloudWatchLoggingOptions where
-  toJSON CloudWatchLoggingOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            ("LogGroupName" Lude..=) Lude.<$> logGroupName,
-            ("LogStreamName" Lude..=) Lude.<$> logStreamName
+instance Core.FromJSON CloudWatchLoggingOptions where
+  toJSON CloudWatchLoggingOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("LogGroupName" Core..=) Core.<$> logGroupName,
+            ("LogStreamName" Core..=) Core.<$> logStreamName
           ]
       )
+
+instance Core.FromJSON CloudWatchLoggingOptions where
+  parseJSON =
+    Core.withObject "CloudWatchLoggingOptions" Core.$
+      \x ->
+        CloudWatchLoggingOptions'
+          Core.<$> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "LogGroupName")
+          Core.<*> (x Core..:? "LogStreamName")

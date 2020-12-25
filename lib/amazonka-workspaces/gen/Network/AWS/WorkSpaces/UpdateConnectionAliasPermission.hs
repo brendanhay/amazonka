@@ -28,123 +28,107 @@ module Network.AWS.WorkSpaces.UpdateConnectionAliasPermission
     mkUpdateConnectionAliasPermissionResponse,
 
     -- ** Response lenses
-    ucaprsResponseStatus,
+    ucaprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkUpdateConnectionAliasPermission' smart constructor.
 data UpdateConnectionAliasPermission = UpdateConnectionAliasPermission'
   { -- | The identifier of the connection alias that you want to update permissions for.
-    aliasId :: Lude.Text,
+    aliasId :: Types.AliasId,
     -- | Indicates whether to share or unshare the connection alias with the specified AWS account.
-    connectionAliasPermission :: ConnectionAliasPermission
+    connectionAliasPermission :: Types.ConnectionAliasPermission
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConnectionAliasPermission' with the minimum fields required to make a request.
---
--- * 'aliasId' - The identifier of the connection alias that you want to update permissions for.
--- * 'connectionAliasPermission' - Indicates whether to share or unshare the connection alias with the specified AWS account.
+-- | Creates a 'UpdateConnectionAliasPermission' value with any optional fields omitted.
 mkUpdateConnectionAliasPermission ::
   -- | 'aliasId'
-  Lude.Text ->
+  Types.AliasId ->
   -- | 'connectionAliasPermission'
-  ConnectionAliasPermission ->
+  Types.ConnectionAliasPermission ->
   UpdateConnectionAliasPermission
-mkUpdateConnectionAliasPermission
-  pAliasId_
-  pConnectionAliasPermission_ =
-    UpdateConnectionAliasPermission'
-      { aliasId = pAliasId_,
-        connectionAliasPermission = pConnectionAliasPermission_
-      }
+mkUpdateConnectionAliasPermission aliasId connectionAliasPermission =
+  UpdateConnectionAliasPermission'
+    { aliasId,
+      connectionAliasPermission
+    }
 
 -- | The identifier of the connection alias that you want to update permissions for.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucapAliasId :: Lens.Lens' UpdateConnectionAliasPermission Lude.Text
-ucapAliasId = Lens.lens (aliasId :: UpdateConnectionAliasPermission -> Lude.Text) (\s a -> s {aliasId = a} :: UpdateConnectionAliasPermission)
+ucapAliasId :: Lens.Lens' UpdateConnectionAliasPermission Types.AliasId
+ucapAliasId = Lens.field @"aliasId"
 {-# DEPRECATED ucapAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 -- | Indicates whether to share or unshare the connection alias with the specified AWS account.
 --
 -- /Note:/ Consider using 'connectionAliasPermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucapConnectionAliasPermission :: Lens.Lens' UpdateConnectionAliasPermission ConnectionAliasPermission
-ucapConnectionAliasPermission = Lens.lens (connectionAliasPermission :: UpdateConnectionAliasPermission -> ConnectionAliasPermission) (\s a -> s {connectionAliasPermission = a} :: UpdateConnectionAliasPermission)
+ucapConnectionAliasPermission :: Lens.Lens' UpdateConnectionAliasPermission Types.ConnectionAliasPermission
+ucapConnectionAliasPermission = Lens.field @"connectionAliasPermission"
 {-# DEPRECATED ucapConnectionAliasPermission "Use generic-lens or generic-optics with 'connectionAliasPermission' instead." #-}
 
-instance Lude.AWSRequest UpdateConnectionAliasPermission where
+instance Core.FromJSON UpdateConnectionAliasPermission where
+  toJSON UpdateConnectionAliasPermission {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AliasId" Core..= aliasId),
+            Core.Just
+              ("ConnectionAliasPermission" Core..= connectionAliasPermission)
+          ]
+      )
+
+instance Core.AWSRequest UpdateConnectionAliasPermission where
   type
     Rs UpdateConnectionAliasPermission =
       UpdateConnectionAliasPermissionResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "WorkspacesService.UpdateConnectionAliasPermission"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateConnectionAliasPermissionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateConnectionAliasPermission where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "WorkspacesService.UpdateConnectionAliasPermission" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateConnectionAliasPermission where
-  toJSON UpdateConnectionAliasPermission' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AliasId" Lude..= aliasId),
-            Lude.Just
-              ("ConnectionAliasPermission" Lude..= connectionAliasPermission)
-          ]
-      )
-
-instance Lude.ToPath UpdateConnectionAliasPermission where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateConnectionAliasPermission where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateConnectionAliasPermissionResponse' smart constructor.
 newtype UpdateConnectionAliasPermissionResponse = UpdateConnectionAliasPermissionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConnectionAliasPermissionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateConnectionAliasPermissionResponse' value with any optional fields omitted.
 mkUpdateConnectionAliasPermissionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateConnectionAliasPermissionResponse
-mkUpdateConnectionAliasPermissionResponse pResponseStatus_ =
-  UpdateConnectionAliasPermissionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateConnectionAliasPermissionResponse responseStatus =
+  UpdateConnectionAliasPermissionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucaprsResponseStatus :: Lens.Lens' UpdateConnectionAliasPermissionResponse Lude.Int
-ucaprsResponseStatus = Lens.lens (responseStatus :: UpdateConnectionAliasPermissionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateConnectionAliasPermissionResponse)
-{-# DEPRECATED ucaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucaprrsResponseStatus :: Lens.Lens' UpdateConnectionAliasPermissionResponse Core.Int
+ucaprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucaprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

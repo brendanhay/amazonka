@@ -17,109 +17,102 @@ module Network.AWS.Pinpoint.Types.VoiceTemplateRequest
     mkVoiceTemplateRequest,
 
     -- * Lenses
-    vtrLanguageCode,
     vtrBody,
-    vtrTemplateDescription,
     vtrDefaultSubstitutions,
+    vtrLanguageCode,
+    vtrTemplateDescription,
     vtrVoiceId,
     vtrTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the content and settings for a message template that can be used in messages that are sent through the voice channel.
 --
 -- /See:/ 'mkVoiceTemplateRequest' smart constructor.
 data VoiceTemplateRequest = VoiceTemplateRequest'
-  { -- | The code for the language to use when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
-    languageCode :: Lude.Maybe Lude.Text,
-    -- | The text of the script to use in messages that are based on the message template, in plain text format.
-    body :: Lude.Maybe Lude.Text,
-    -- | A custom description of the message template.
-    templateDescription :: Lude.Maybe Lude.Text,
+  { -- | The text of the script to use in messages that are based on the message template, in plain text format.
+    body :: Core.Maybe Core.Text,
     -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-    defaultSubstitutions :: Lude.Maybe Lude.Text,
+    defaultSubstitutions :: Core.Maybe Core.Text,
+    -- | The code for the language to use when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
+    languageCode :: Core.Maybe Core.Text,
+    -- | A custom description of the message template.
+    templateDescription :: Core.Maybe Core.Text,
     -- | The name of the voice to use when delivering messages that are based on the message template. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
-    voiceId :: Lude.Maybe Lude.Text,
+    voiceId :: Core.Maybe Core.Text,
     -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VoiceTemplateRequest' with the minimum fields required to make a request.
---
--- * 'languageCode' - The code for the language to use when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
--- * 'body' - The text of the script to use in messages that are based on the message template, in plain text format.
--- * 'templateDescription' - A custom description of the message template.
--- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
--- * 'voiceId' - The name of the voice to use when delivering messages that are based on the message template. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
--- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+-- | Creates a 'VoiceTemplateRequest' value with any optional fields omitted.
 mkVoiceTemplateRequest ::
   VoiceTemplateRequest
 mkVoiceTemplateRequest =
   VoiceTemplateRequest'
-    { languageCode = Lude.Nothing,
-      body = Lude.Nothing,
-      templateDescription = Lude.Nothing,
-      defaultSubstitutions = Lude.Nothing,
-      voiceId = Lude.Nothing,
-      tags = Lude.Nothing
+    { body = Core.Nothing,
+      defaultSubstitutions = Core.Nothing,
+      languageCode = Core.Nothing,
+      templateDescription = Core.Nothing,
+      voiceId = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The code for the language to use when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrLanguageCode :: Lens.Lens' VoiceTemplateRequest (Lude.Maybe Lude.Text)
-vtrLanguageCode = Lens.lens (languageCode :: VoiceTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {languageCode = a} :: VoiceTemplateRequest)
-{-# DEPRECATED vtrLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The text of the script to use in messages that are based on the message template, in plain text format.
 --
 -- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrBody :: Lens.Lens' VoiceTemplateRequest (Lude.Maybe Lude.Text)
-vtrBody = Lens.lens (body :: VoiceTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: VoiceTemplateRequest)
+vtrBody :: Lens.Lens' VoiceTemplateRequest (Core.Maybe Core.Text)
+vtrBody = Lens.field @"body"
 {-# DEPRECATED vtrBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | A custom description of the message template.
---
--- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrTemplateDescription :: Lens.Lens' VoiceTemplateRequest (Lude.Maybe Lude.Text)
-vtrTemplateDescription = Lens.lens (templateDescription :: VoiceTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {templateDescription = a} :: VoiceTemplateRequest)
-{-# DEPRECATED vtrTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
 
 -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
 --
 -- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrDefaultSubstitutions :: Lens.Lens' VoiceTemplateRequest (Lude.Maybe Lude.Text)
-vtrDefaultSubstitutions = Lens.lens (defaultSubstitutions :: VoiceTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubstitutions = a} :: VoiceTemplateRequest)
+vtrDefaultSubstitutions :: Lens.Lens' VoiceTemplateRequest (Core.Maybe Core.Text)
+vtrDefaultSubstitutions = Lens.field @"defaultSubstitutions"
 {-# DEPRECATED vtrDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
+
+-- | The code for the language to use when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtrLanguageCode :: Lens.Lens' VoiceTemplateRequest (Core.Maybe Core.Text)
+vtrLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED vtrLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | A custom description of the message template.
+--
+-- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtrTemplateDescription :: Lens.Lens' VoiceTemplateRequest (Core.Maybe Core.Text)
+vtrTemplateDescription = Lens.field @"templateDescription"
+{-# DEPRECATED vtrTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
 
 -- | The name of the voice to use when delivering messages that are based on the message template. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
 --
 -- /Note:/ Consider using 'voiceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrVoiceId :: Lens.Lens' VoiceTemplateRequest (Lude.Maybe Lude.Text)
-vtrVoiceId = Lens.lens (voiceId :: VoiceTemplateRequest -> Lude.Maybe Lude.Text) (\s a -> s {voiceId = a} :: VoiceTemplateRequest)
+vtrVoiceId :: Lens.Lens' VoiceTemplateRequest (Core.Maybe Core.Text)
+vtrVoiceId = Lens.field @"voiceId"
 {-# DEPRECATED vtrVoiceId "Use generic-lens or generic-optics with 'voiceId' instead." #-}
 
 -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrTags :: Lens.Lens' VoiceTemplateRequest (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-vtrTags = Lens.lens (tags :: VoiceTemplateRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: VoiceTemplateRequest)
+vtrTags :: Lens.Lens' VoiceTemplateRequest (Core.Maybe (Core.HashMap Core.Text Core.Text))
+vtrTags = Lens.field @"tags"
 {-# DEPRECATED vtrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.ToJSON VoiceTemplateRequest where
-  toJSON VoiceTemplateRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("LanguageCode" Lude..=) Lude.<$> languageCode,
-            ("Body" Lude..=) Lude.<$> body,
-            ("TemplateDescription" Lude..=) Lude.<$> templateDescription,
-            ("DefaultSubstitutions" Lude..=) Lude.<$> defaultSubstitutions,
-            ("VoiceId" Lude..=) Lude.<$> voiceId,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON VoiceTemplateRequest where
+  toJSON VoiceTemplateRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Body" Core..=) Core.<$> body,
+            ("DefaultSubstitutions" Core..=) Core.<$> defaultSubstitutions,
+            ("LanguageCode" Core..=) Core.<$> languageCode,
+            ("TemplateDescription" Core..=) Core.<$> templateDescription,
+            ("VoiceId" Core..=) Core.<$> voiceId,
+            ("tags" Core..=) Core.<$> tags
           ]
       )

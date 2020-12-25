@@ -23,37 +23,32 @@ module Network.AWS.RDS.CreateDBParameterGroup
     mkCreateDBParameterGroup,
 
     -- ** Request lenses
-    cdpgDBParameterGroupFamily,
-    cdpgDBParameterGroupName,
-    cdpgDescription,
-    cdpgTags,
+    cdbpgfDBParameterGroupName,
+    cdbpgfDBParameterGroupFamily,
+    cdbpgfDescription,
+    cdbpgfTags,
 
     -- * Destructuring the response
     CreateDBParameterGroupResponse (..),
     mkCreateDBParameterGroupResponse,
 
     -- ** Response lenses
-    cdbpgrsDBParameterGroup,
-    cdbpgrsResponseStatus,
+    cdbpgrfrsDBParameterGroup,
+    cdbpgrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkCreateDBParameterGroup' smart constructor.
 data CreateDBParameterGroup = CreateDBParameterGroup'
-  { -- | The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
-    --
-    -- To list all of the available parameter group families, use the following command:
-    -- @aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"@
-    dbParameterGroupFamily :: Lude.Text,
-    -- | The name of the DB parameter group.
+  { -- | The name of the DB parameter group.
     --
     -- Constraints:
     --
@@ -64,65 +59,39 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
     --
     --
     --     * Can't end with a hyphen or contain two consecutive hyphens
-    dbParameterGroupName :: Lude.Text,
+    dBParameterGroupName :: Types.DBParameterGroupName,
+    -- | The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
+    --
+    -- To list all of the available parameter group families, use the following command:
+    -- @aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"@
+    dBParameterGroupFamily :: Types.DBParameterGroupFamily,
     -- | The description for the DB parameter group.
-    description :: Lude.Text,
+    description :: Types.Description,
     -- | Tags to assign to the DB parameter group.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDBParameterGroup' with the minimum fields required to make a request.
---
--- * 'dbParameterGroupFamily' - The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
---
--- To list all of the available parameter group families, use the following command:
--- @aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"@
--- * 'dbParameterGroupName' - The name of the DB parameter group.
---
--- Constraints:
---
---     * Must be 1 to 255 letters, numbers, or hyphens.
---
---
---     * First character must be a letter
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens
---
---
--- * 'description' - The description for the DB parameter group.
--- * 'tags' - Tags to assign to the DB parameter group.
+-- | Creates a 'CreateDBParameterGroup' value with any optional fields omitted.
 mkCreateDBParameterGroup ::
-  -- | 'dbParameterGroupFamily'
-  Lude.Text ->
-  -- | 'dbParameterGroupName'
-  Lude.Text ->
+  -- | 'dBParameterGroupName'
+  Types.DBParameterGroupName ->
+  -- | 'dBParameterGroupFamily'
+  Types.DBParameterGroupFamily ->
   -- | 'description'
-  Lude.Text ->
+  Types.Description ->
   CreateDBParameterGroup
 mkCreateDBParameterGroup
-  pDBParameterGroupFamily_
-  pDBParameterGroupName_
-  pDescription_ =
+  dBParameterGroupName
+  dBParameterGroupFamily
+  description =
     CreateDBParameterGroup'
-      { dbParameterGroupFamily =
-          pDBParameterGroupFamily_,
-        dbParameterGroupName = pDBParameterGroupName_,
-        description = pDescription_,
-        tags = Lude.Nothing
+      { dBParameterGroupName,
+        dBParameterGroupFamily,
+        description,
+        tags = Core.Nothing
       }
-
--- | The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
---
--- To list all of the available parameter group families, use the following command:
--- @aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"@
---
--- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdpgDBParameterGroupFamily :: Lens.Lens' CreateDBParameterGroup Lude.Text
-cdpgDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: CreateDBParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: CreateDBParameterGroup)
-{-# DEPRECATED cdpgDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
 
 -- | The name of the DB parameter group.
 --
@@ -138,87 +107,97 @@ cdpgDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: CreateDBParame
 --
 --
 --
--- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdpgDBParameterGroupName :: Lens.Lens' CreateDBParameterGroup Lude.Text
-cdpgDBParameterGroupName = Lens.lens (dbParameterGroupName :: CreateDBParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupName = a} :: CreateDBParameterGroup)
-{-# DEPRECATED cdpgDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'dBParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbpgfDBParameterGroupName :: Lens.Lens' CreateDBParameterGroup Types.DBParameterGroupName
+cdbpgfDBParameterGroupName = Lens.field @"dBParameterGroupName"
+{-# DEPRECATED cdbpgfDBParameterGroupName "Use generic-lens or generic-optics with 'dBParameterGroupName' instead." #-}
+
+-- | The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
+--
+-- To list all of the available parameter group families, use the following command:
+-- @aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"@
+--
+-- /Note:/ Consider using 'dBParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbpgfDBParameterGroupFamily :: Lens.Lens' CreateDBParameterGroup Types.DBParameterGroupFamily
+cdbpgfDBParameterGroupFamily = Lens.field @"dBParameterGroupFamily"
+{-# DEPRECATED cdbpgfDBParameterGroupFamily "Use generic-lens or generic-optics with 'dBParameterGroupFamily' instead." #-}
 
 -- | The description for the DB parameter group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdpgDescription :: Lens.Lens' CreateDBParameterGroup Lude.Text
-cdpgDescription = Lens.lens (description :: CreateDBParameterGroup -> Lude.Text) (\s a -> s {description = a} :: CreateDBParameterGroup)
-{-# DEPRECATED cdpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+cdbpgfDescription :: Lens.Lens' CreateDBParameterGroup Types.Description
+cdbpgfDescription = Lens.field @"description"
+{-# DEPRECATED cdbpgfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Tags to assign to the DB parameter group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdpgTags :: Lens.Lens' CreateDBParameterGroup (Lude.Maybe [Tag])
-cdpgTags = Lens.lens (tags :: CreateDBParameterGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBParameterGroup)
-{-# DEPRECATED cdpgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cdbpgfTags :: Lens.Lens' CreateDBParameterGroup (Core.Maybe [Types.Tag])
+cdbpgfTags = Lens.field @"tags"
+{-# DEPRECATED cdbpgfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDBParameterGroup where
+instance Core.AWSRequest CreateDBParameterGroup where
   type Rs CreateDBParameterGroup = CreateDBParameterGroupResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateDBParameterGroup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBParameterGroupName" dBParameterGroupName)
+                Core.<> (Core.toQueryValue "DBParameterGroupFamily" dBParameterGroupFamily)
+                Core.<> (Core.toQueryValue "Description" description)
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" Core.<$> tags))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateDBParameterGroupResult"
       ( \s h x ->
           CreateDBParameterGroupResponse'
-            Lude.<$> (x Lude..@? "DBParameterGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBParameterGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDBParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDBParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDBParameterGroup where
-  toQuery CreateDBParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateDBParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBParameterGroupFamily" Lude.=: dbParameterGroupFamily,
-        "DBParameterGroupName" Lude.=: dbParameterGroupName,
-        "Description" Lude.=: description,
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
 
 -- | /See:/ 'mkCreateDBParameterGroupResponse' smart constructor.
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
-  { dbParameterGroup :: Lude.Maybe DBParameterGroup,
+  { dBParameterGroup :: Core.Maybe Types.DBParameterGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDBParameterGroupResponse' with the minimum fields required to make a request.
---
--- * 'dbParameterGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDBParameterGroupResponse' value with any optional fields omitted.
 mkCreateDBParameterGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDBParameterGroupResponse
-mkCreateDBParameterGroupResponse pResponseStatus_ =
+mkCreateDBParameterGroupResponse responseStatus =
   CreateDBParameterGroupResponse'
-    { dbParameterGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBParameterGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbParameterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdbpgrsDBParameterGroup :: Lens.Lens' CreateDBParameterGroupResponse (Lude.Maybe DBParameterGroup)
-cdbpgrsDBParameterGroup = Lens.lens (dbParameterGroup :: CreateDBParameterGroupResponse -> Lude.Maybe DBParameterGroup) (\s a -> s {dbParameterGroup = a} :: CreateDBParameterGroupResponse)
-{-# DEPRECATED cdbpgrsDBParameterGroup "Use generic-lens or generic-optics with 'dbParameterGroup' instead." #-}
+-- /Note:/ Consider using 'dBParameterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbpgrfrsDBParameterGroup :: Lens.Lens' CreateDBParameterGroupResponse (Core.Maybe Types.DBParameterGroup)
+cdbpgrfrsDBParameterGroup = Lens.field @"dBParameterGroup"
+{-# DEPRECATED cdbpgrfrsDBParameterGroup "Use generic-lens or generic-optics with 'dBParameterGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdbpgrsResponseStatus :: Lens.Lens' CreateDBParameterGroupResponse Lude.Int
-cdbpgrsResponseStatus = Lens.lens (responseStatus :: CreateDBParameterGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDBParameterGroupResponse)
-{-# DEPRECATED cdbpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdbpgrfrsResponseStatus :: Lens.Lens' CreateDBParameterGroupResponse Core.Int
+cdbpgrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdbpgrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

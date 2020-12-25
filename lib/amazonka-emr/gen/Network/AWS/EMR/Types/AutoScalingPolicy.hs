@@ -17,61 +17,55 @@ module Network.AWS.EMR.Types.AutoScalingPolicy
     mkAutoScalingPolicy,
 
     -- * Lenses
-    aspRules,
     aspConstraints,
+    aspRules,
   )
 where
 
-import Network.AWS.EMR.Types.ScalingConstraints
-import Network.AWS.EMR.Types.ScalingRule
+import qualified Network.AWS.EMR.Types.ScalingConstraints as Types
+import qualified Network.AWS.EMR.Types.ScalingRule as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. An automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See 'PutAutoScalingPolicy' .
 --
 -- /See:/ 'mkAutoScalingPolicy' smart constructor.
 data AutoScalingPolicy = AutoScalingPolicy'
-  { -- | The scale-in and scale-out rules that comprise the automatic scaling policy.
-    rules :: [ScalingRule],
-    -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
-    constraints :: ScalingConstraints
+  { -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+    constraints :: Types.ScalingConstraints,
+    -- | The scale-in and scale-out rules that comprise the automatic scaling policy.
+    rules :: [Types.ScalingRule]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoScalingPolicy' with the minimum fields required to make a request.
---
--- * 'rules' - The scale-in and scale-out rules that comprise the automatic scaling policy.
--- * 'constraints' - The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+-- | Creates a 'AutoScalingPolicy' value with any optional fields omitted.
 mkAutoScalingPolicy ::
   -- | 'constraints'
-  ScalingConstraints ->
+  Types.ScalingConstraints ->
   AutoScalingPolicy
-mkAutoScalingPolicy pConstraints_ =
-  AutoScalingPolicy'
-    { rules = Lude.mempty,
-      constraints = pConstraints_
-    }
-
--- | The scale-in and scale-out rules that comprise the automatic scaling policy.
---
--- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspRules :: Lens.Lens' AutoScalingPolicy [ScalingRule]
-aspRules = Lens.lens (rules :: AutoScalingPolicy -> [ScalingRule]) (\s a -> s {rules = a} :: AutoScalingPolicy)
-{-# DEPRECATED aspRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+mkAutoScalingPolicy constraints =
+  AutoScalingPolicy' {constraints, rules = Core.mempty}
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
 --
 -- /Note:/ Consider using 'constraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspConstraints :: Lens.Lens' AutoScalingPolicy ScalingConstraints
-aspConstraints = Lens.lens (constraints :: AutoScalingPolicy -> ScalingConstraints) (\s a -> s {constraints = a} :: AutoScalingPolicy)
+aspConstraints :: Lens.Lens' AutoScalingPolicy Types.ScalingConstraints
+aspConstraints = Lens.field @"constraints"
 {-# DEPRECATED aspConstraints "Use generic-lens or generic-optics with 'constraints' instead." #-}
 
-instance Lude.ToJSON AutoScalingPolicy where
-  toJSON AutoScalingPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Rules" Lude..= rules),
-            Lude.Just ("Constraints" Lude..= constraints)
+-- | The scale-in and scale-out rules that comprise the automatic scaling policy.
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aspRules :: Lens.Lens' AutoScalingPolicy [Types.ScalingRule]
+aspRules = Lens.field @"rules"
+{-# DEPRECATED aspRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+
+instance Core.FromJSON AutoScalingPolicy where
+  toJSON AutoScalingPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Constraints" Core..= constraints),
+            Core.Just ("Rules" Core..= rules)
           ]
       )

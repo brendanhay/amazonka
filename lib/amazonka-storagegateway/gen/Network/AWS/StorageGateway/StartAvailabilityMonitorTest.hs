@@ -27,110 +27,99 @@ module Network.AWS.StorageGateway.StartAvailabilityMonitorTest
     mkStartAvailabilityMonitorTestResponse,
 
     -- ** Response lenses
-    samtrsGatewayARN,
-    samtrsResponseStatus,
+    samtrrsGatewayARN,
+    samtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkStartAvailabilityMonitorTest' smart constructor.
 newtype StartAvailabilityMonitorTest = StartAvailabilityMonitorTest'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartAvailabilityMonitorTest' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'StartAvailabilityMonitorTest' value with any optional fields omitted.
 mkStartAvailabilityMonitorTest ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   StartAvailabilityMonitorTest
-mkStartAvailabilityMonitorTest pGatewayARN_ =
-  StartAvailabilityMonitorTest' {gatewayARN = pGatewayARN_}
+mkStartAvailabilityMonitorTest gatewayARN =
+  StartAvailabilityMonitorTest' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samtGatewayARN :: Lens.Lens' StartAvailabilityMonitorTest Lude.Text
-samtGatewayARN = Lens.lens (gatewayARN :: StartAvailabilityMonitorTest -> Lude.Text) (\s a -> s {gatewayARN = a} :: StartAvailabilityMonitorTest)
+samtGatewayARN :: Lens.Lens' StartAvailabilityMonitorTest Types.GatewayARN
+samtGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED samtGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest StartAvailabilityMonitorTest where
+instance Core.FromJSON StartAvailabilityMonitorTest where
+  toJSON StartAvailabilityMonitorTest {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest StartAvailabilityMonitorTest where
   type
     Rs StartAvailabilityMonitorTest =
       StartAvailabilityMonitorTestResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.StartAvailabilityMonitorTest"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartAvailabilityMonitorTestResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartAvailabilityMonitorTest where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.StartAvailabilityMonitorTest" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartAvailabilityMonitorTest where
-  toJSON StartAvailabilityMonitorTest' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath StartAvailabilityMonitorTest where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartAvailabilityMonitorTest where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartAvailabilityMonitorTestResponse' smart constructor.
 data StartAvailabilityMonitorTestResponse = StartAvailabilityMonitorTestResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartAvailabilityMonitorTestResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartAvailabilityMonitorTestResponse' value with any optional fields omitted.
 mkStartAvailabilityMonitorTestResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartAvailabilityMonitorTestResponse
-mkStartAvailabilityMonitorTestResponse pResponseStatus_ =
+mkStartAvailabilityMonitorTestResponse responseStatus =
   StartAvailabilityMonitorTestResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samtrsGatewayARN :: Lens.Lens' StartAvailabilityMonitorTestResponse (Lude.Maybe Lude.Text)
-samtrsGatewayARN = Lens.lens (gatewayARN :: StartAvailabilityMonitorTestResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: StartAvailabilityMonitorTestResponse)
-{-# DEPRECATED samtrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+samtrrsGatewayARN :: Lens.Lens' StartAvailabilityMonitorTestResponse (Core.Maybe Types.GatewayARN)
+samtrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED samtrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samtrsResponseStatus :: Lens.Lens' StartAvailabilityMonitorTestResponse Lude.Int
-samtrsResponseStatus = Lens.lens (responseStatus :: StartAvailabilityMonitorTestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartAvailabilityMonitorTestResponse)
-{-# DEPRECATED samtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+samtrrsResponseStatus :: Lens.Lens' StartAvailabilityMonitorTestResponse Core.Int
+samtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED samtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

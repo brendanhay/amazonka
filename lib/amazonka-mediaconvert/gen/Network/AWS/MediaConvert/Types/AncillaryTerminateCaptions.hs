@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions
   ( AncillaryTerminateCaptions
       ( AncillaryTerminateCaptions',
-        ATCEndOfInput,
-        ATCDisabled
+        AncillaryTerminateCaptionsEndOfInput,
+        AncillaryTerminateCaptionsDisabled,
+        fromAncillaryTerminateCaptions
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
-newtype AncillaryTerminateCaptions = AncillaryTerminateCaptions' Lude.Text
+newtype AncillaryTerminateCaptions = AncillaryTerminateCaptions'
+  { fromAncillaryTerminateCaptions ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATCEndOfInput :: AncillaryTerminateCaptions
-pattern ATCEndOfInput = AncillaryTerminateCaptions' "END_OF_INPUT"
+pattern AncillaryTerminateCaptionsEndOfInput :: AncillaryTerminateCaptions
+pattern AncillaryTerminateCaptionsEndOfInput = AncillaryTerminateCaptions' "END_OF_INPUT"
 
-pattern ATCDisabled :: AncillaryTerminateCaptions
-pattern ATCDisabled = AncillaryTerminateCaptions' "DISABLED"
+pattern AncillaryTerminateCaptionsDisabled :: AncillaryTerminateCaptions
+pattern AncillaryTerminateCaptionsDisabled = AncillaryTerminateCaptions' "DISABLED"
 
 {-# COMPLETE
-  ATCEndOfInput,
-  ATCDisabled,
+  AncillaryTerminateCaptionsEndOfInput,
+  AncillaryTerminateCaptionsDisabled,
   AncillaryTerminateCaptions'
   #-}

@@ -13,51 +13,56 @@
 module Network.AWS.SageMaker.Types.ObjectiveStatus
   ( ObjectiveStatus
       ( ObjectiveStatus',
-        OSSucceeded,
-        OSPending,
-        OSFailed
+        ObjectiveStatusSucceeded,
+        ObjectiveStatusPending,
+        ObjectiveStatusFailed,
+        fromObjectiveStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ObjectiveStatus = ObjectiveStatus' Lude.Text
+newtype ObjectiveStatus = ObjectiveStatus'
+  { fromObjectiveStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OSSucceeded :: ObjectiveStatus
-pattern OSSucceeded = ObjectiveStatus' "Succeeded"
+pattern ObjectiveStatusSucceeded :: ObjectiveStatus
+pattern ObjectiveStatusSucceeded = ObjectiveStatus' "Succeeded"
 
-pattern OSPending :: ObjectiveStatus
-pattern OSPending = ObjectiveStatus' "Pending"
+pattern ObjectiveStatusPending :: ObjectiveStatus
+pattern ObjectiveStatusPending = ObjectiveStatus' "Pending"
 
-pattern OSFailed :: ObjectiveStatus
-pattern OSFailed = ObjectiveStatus' "Failed"
+pattern ObjectiveStatusFailed :: ObjectiveStatus
+pattern ObjectiveStatusFailed = ObjectiveStatus' "Failed"
 
 {-# COMPLETE
-  OSSucceeded,
-  OSPending,
-  OSFailed,
+  ObjectiveStatusSucceeded,
+  ObjectiveStatusPending,
+  ObjectiveStatusFailed,
   ObjectiveStatus'
   #-}

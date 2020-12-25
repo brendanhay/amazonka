@@ -21,52 +21,45 @@ module Network.AWS.EMR.Types.OnDemandProvisioningSpecification
   )
 where
 
-import Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
+import qualified Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
 --
 -- /See:/ 'mkOnDemandProvisioningSpecification' smart constructor.
 newtype OnDemandProvisioningSpecification = OnDemandProvisioningSpecification'
   { -- | Specifies the strategy to use in launching On-Demand Instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
-    allocationStrategy :: OnDemandProvisioningAllocationStrategy
+    allocationStrategy :: Types.OnDemandProvisioningAllocationStrategy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OnDemandProvisioningSpecification' with the minimum fields required to make a request.
---
--- * 'allocationStrategy' - Specifies the strategy to use in launching On-Demand Instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+-- | Creates a 'OnDemandProvisioningSpecification' value with any optional fields omitted.
 mkOnDemandProvisioningSpecification ::
   -- | 'allocationStrategy'
-  OnDemandProvisioningAllocationStrategy ->
+  Types.OnDemandProvisioningAllocationStrategy ->
   OnDemandProvisioningSpecification
-mkOnDemandProvisioningSpecification pAllocationStrategy_ =
-  OnDemandProvisioningSpecification'
-    { allocationStrategy =
-        pAllocationStrategy_
-    }
+mkOnDemandProvisioningSpecification allocationStrategy =
+  OnDemandProvisioningSpecification' {allocationStrategy}
 
 -- | Specifies the strategy to use in launching On-Demand Instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
 --
 -- /Note:/ Consider using 'allocationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odpsAllocationStrategy :: Lens.Lens' OnDemandProvisioningSpecification OnDemandProvisioningAllocationStrategy
-odpsAllocationStrategy = Lens.lens (allocationStrategy :: OnDemandProvisioningSpecification -> OnDemandProvisioningAllocationStrategy) (\s a -> s {allocationStrategy = a} :: OnDemandProvisioningSpecification)
+odpsAllocationStrategy :: Lens.Lens' OnDemandProvisioningSpecification Types.OnDemandProvisioningAllocationStrategy
+odpsAllocationStrategy = Lens.field @"allocationStrategy"
 {-# DEPRECATED odpsAllocationStrategy "Use generic-lens or generic-optics with 'allocationStrategy' instead." #-}
 
-instance Lude.FromJSON OnDemandProvisioningSpecification where
-  parseJSON =
-    Lude.withObject
-      "OnDemandProvisioningSpecification"
-      ( \x ->
-          OnDemandProvisioningSpecification'
-            Lude.<$> (x Lude..: "AllocationStrategy")
+instance Core.FromJSON OnDemandProvisioningSpecification where
+  toJSON OnDemandProvisioningSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AllocationStrategy" Core..= allocationStrategy)]
       )
 
-instance Lude.ToJSON OnDemandProvisioningSpecification where
-  toJSON OnDemandProvisioningSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("AllocationStrategy" Lude..= allocationStrategy)]
-      )
+instance Core.FromJSON OnDemandProvisioningSpecification where
+  parseJSON =
+    Core.withObject "OnDemandProvisioningSpecification" Core.$
+      \x ->
+        OnDemandProvisioningSpecification'
+          Core.<$> (x Core..: "AllocationStrategy")

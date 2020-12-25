@@ -18,129 +18,116 @@ module Network.AWS.MediaPackage.Types.SpekeKeyProvider
 
     -- * Lenses
     skpResourceId,
-    skpCertificateARN,
-    skpURL,
     skpSystemIds,
-    skpRoleARN,
+    skpUrl,
+    skpRoleArn,
+    skpCertificateArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 --
 -- /See:/ 'mkSpekeKeyProvider' smart constructor.
 data SpekeKeyProvider = SpekeKeyProvider'
   { -- | The resource ID to include in key requests.
-    resourceId :: Lude.Text,
+    resourceId :: Core.Text,
+    -- | The system IDs to include in key requests.
+    systemIds :: [Core.Text],
+    -- | The URL of the external key provider service.
+    url :: Core.Text,
+    -- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
+    --
+    -- MediaPackage will assume when accessing the key provider service.
+    roleArn :: Core.Text,
     -- | An Amazon Resource Name (ARN) of a Certificate Manager certificate
     --
     -- that MediaPackage will use for enforcing secure end-to-end data
     -- transfer with the key provider service.
-    certificateARN :: Lude.Maybe Lude.Text,
-    -- | The URL of the external key provider service.
-    url :: Lude.Text,
-    -- | The system IDs to include in key requests.
-    systemIds :: [Lude.Text],
-    -- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
-    --
-    -- MediaPackage will assume when accessing the key provider service.
-    roleARN :: Lude.Text
+    certificateArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SpekeKeyProvider' with the minimum fields required to make a request.
---
--- * 'resourceId' - The resource ID to include in key requests.
--- * 'certificateARN' - An Amazon Resource Name (ARN) of a Certificate Manager certificate
---
--- that MediaPackage will use for enforcing secure end-to-end data
--- transfer with the key provider service.
--- * 'url' - The URL of the external key provider service.
--- * 'systemIds' - The system IDs to include in key requests.
--- * 'roleARN' - An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
---
--- MediaPackage will assume when accessing the key provider service.
+-- | Creates a 'SpekeKeyProvider' value with any optional fields omitted.
 mkSpekeKeyProvider ::
   -- | 'resourceId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'url'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'roleArn'
+  Core.Text ->
   SpekeKeyProvider
-mkSpekeKeyProvider pResourceId_ pURL_ pRoleARN_ =
+mkSpekeKeyProvider resourceId url roleArn =
   SpekeKeyProvider'
-    { resourceId = pResourceId_,
-      certificateARN = Lude.Nothing,
-      url = pURL_,
-      systemIds = Lude.mempty,
-      roleARN = pRoleARN_
+    { resourceId,
+      systemIds = Core.mempty,
+      url,
+      roleArn,
+      certificateArn = Core.Nothing
     }
 
 -- | The resource ID to include in key requests.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpResourceId :: Lens.Lens' SpekeKeyProvider Lude.Text
-skpResourceId = Lens.lens (resourceId :: SpekeKeyProvider -> Lude.Text) (\s a -> s {resourceId = a} :: SpekeKeyProvider)
+skpResourceId :: Lens.Lens' SpekeKeyProvider Core.Text
+skpResourceId = Lens.field @"resourceId"
 {-# DEPRECATED skpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The system IDs to include in key requests.
+--
+-- /Note:/ Consider using 'systemIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpSystemIds :: Lens.Lens' SpekeKeyProvider [Core.Text]
+skpSystemIds = Lens.field @"systemIds"
+{-# DEPRECATED skpSystemIds "Use generic-lens or generic-optics with 'systemIds' instead." #-}
+
+-- | The URL of the external key provider service.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpUrl :: Lens.Lens' SpekeKeyProvider Core.Text
+skpUrl = Lens.field @"url"
+{-# DEPRECATED skpUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+
+-- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
+--
+-- MediaPackage will assume when accessing the key provider service.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpRoleArn :: Lens.Lens' SpekeKeyProvider Core.Text
+skpRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED skpRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | An Amazon Resource Name (ARN) of a Certificate Manager certificate
 --
 -- that MediaPackage will use for enforcing secure end-to-end data
 -- transfer with the key provider service.
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpCertificateARN :: Lens.Lens' SpekeKeyProvider (Lude.Maybe Lude.Text)
-skpCertificateARN = Lens.lens (certificateARN :: SpekeKeyProvider -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: SpekeKeyProvider)
-{-# DEPRECATED skpCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpCertificateArn :: Lens.Lens' SpekeKeyProvider (Core.Maybe Core.Text)
+skpCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED skpCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
--- | The URL of the external key provider service.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpURL :: Lens.Lens' SpekeKeyProvider Lude.Text
-skpURL = Lens.lens (url :: SpekeKeyProvider -> Lude.Text) (\s a -> s {url = a} :: SpekeKeyProvider)
-{-# DEPRECATED skpURL "Use generic-lens or generic-optics with 'url' instead." #-}
-
--- | The system IDs to include in key requests.
---
--- /Note:/ Consider using 'systemIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpSystemIds :: Lens.Lens' SpekeKeyProvider [Lude.Text]
-skpSystemIds = Lens.lens (systemIds :: SpekeKeyProvider -> [Lude.Text]) (\s a -> s {systemIds = a} :: SpekeKeyProvider)
-{-# DEPRECATED skpSystemIds "Use generic-lens or generic-optics with 'systemIds' instead." #-}
-
--- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
---
--- MediaPackage will assume when accessing the key provider service.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpRoleARN :: Lens.Lens' SpekeKeyProvider Lude.Text
-skpRoleARN = Lens.lens (roleARN :: SpekeKeyProvider -> Lude.Text) (\s a -> s {roleARN = a} :: SpekeKeyProvider)
-{-# DEPRECATED skpRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.FromJSON SpekeKeyProvider where
-  parseJSON =
-    Lude.withObject
-      "SpekeKeyProvider"
-      ( \x ->
-          SpekeKeyProvider'
-            Lude.<$> (x Lude..: "resourceId")
-            Lude.<*> (x Lude..:? "certificateArn")
-            Lude.<*> (x Lude..: "url")
-            Lude.<*> (x Lude..:? "systemIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON SpekeKeyProvider where
-  toJSON SpekeKeyProvider' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("resourceId" Lude..= resourceId),
-            ("certificateArn" Lude..=) Lude.<$> certificateARN,
-            Lude.Just ("url" Lude..= url),
-            Lude.Just ("systemIds" Lude..= systemIds),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON SpekeKeyProvider where
+  toJSON SpekeKeyProvider {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceId" Core..= resourceId),
+            Core.Just ("systemIds" Core..= systemIds),
+            Core.Just ("url" Core..= url),
+            Core.Just ("roleArn" Core..= roleArn),
+            ("certificateArn" Core..=) Core.<$> certificateArn
           ]
       )
+
+instance Core.FromJSON SpekeKeyProvider where
+  parseJSON =
+    Core.withObject "SpekeKeyProvider" Core.$
+      \x ->
+        SpekeKeyProvider'
+          Core.<$> (x Core..: "resourceId")
+          Core.<*> (x Core..:? "systemIds" Core..!= Core.mempty)
+          Core.<*> (x Core..: "url")
+          Core.<*> (x Core..: "roleArn")
+          Core.<*> (x Core..:? "certificateArn")

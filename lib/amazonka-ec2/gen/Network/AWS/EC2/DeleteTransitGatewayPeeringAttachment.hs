@@ -28,121 +28,118 @@ module Network.AWS.EC2.DeleteTransitGatewayPeeringAttachment
     mkDeleteTransitGatewayPeeringAttachmentResponse,
 
     -- ** Response lenses
-    dtgparsTransitGatewayPeeringAttachment,
-    dtgparsResponseStatus,
+    dtgparfrsTransitGatewayPeeringAttachment,
+    dtgparfrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteTransitGatewayPeeringAttachment' smart constructor.
 data DeleteTransitGatewayPeeringAttachment = DeleteTransitGatewayPeeringAttachment'
   { -- | The ID of the transit gateway peering attachment.
-    transitGatewayAttachmentId :: Lude.Text,
+    transitGatewayAttachmentId :: Types.TransitGatewayAttachmentId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTransitGatewayPeeringAttachment' with the minimum fields required to make a request.
---
--- * 'transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteTransitGatewayPeeringAttachment' value with any optional fields omitted.
 mkDeleteTransitGatewayPeeringAttachment ::
   -- | 'transitGatewayAttachmentId'
-  Lude.Text ->
+  Types.TransitGatewayAttachmentId ->
   DeleteTransitGatewayPeeringAttachment
-mkDeleteTransitGatewayPeeringAttachment
-  pTransitGatewayAttachmentId_ =
-    DeleteTransitGatewayPeeringAttachment'
-      { transitGatewayAttachmentId =
-          pTransitGatewayAttachmentId_,
-        dryRun = Lude.Nothing
-      }
+mkDeleteTransitGatewayPeeringAttachment transitGatewayAttachmentId =
+  DeleteTransitGatewayPeeringAttachment'
+    { transitGatewayAttachmentId,
+      dryRun = Core.Nothing
+    }
 
 -- | The ID of the transit gateway peering attachment.
 --
 -- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgpafTransitGatewayAttachmentId :: Lens.Lens' DeleteTransitGatewayPeeringAttachment Lude.Text
-dtgpafTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: DeleteTransitGatewayPeeringAttachment -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: DeleteTransitGatewayPeeringAttachment)
+dtgpafTransitGatewayAttachmentId :: Lens.Lens' DeleteTransitGatewayPeeringAttachment Types.TransitGatewayAttachmentId
+dtgpafTransitGatewayAttachmentId = Lens.field @"transitGatewayAttachmentId"
 {-# DEPRECATED dtgpafTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgpafDryRun :: Lens.Lens' DeleteTransitGatewayPeeringAttachment (Lude.Maybe Lude.Bool)
-dtgpafDryRun = Lens.lens (dryRun :: DeleteTransitGatewayPeeringAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayPeeringAttachment)
+dtgpafDryRun :: Lens.Lens' DeleteTransitGatewayPeeringAttachment (Core.Maybe Core.Bool)
+dtgpafDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dtgpafDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteTransitGatewayPeeringAttachment where
+instance Core.AWSRequest DeleteTransitGatewayPeeringAttachment where
   type
     Rs DeleteTransitGatewayPeeringAttachment =
       DeleteTransitGatewayPeeringAttachmentResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteTransitGatewayPeeringAttachment")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue
+                            "TransitGatewayAttachmentId"
+                            transitGatewayAttachmentId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteTransitGatewayPeeringAttachmentResponse'
-            Lude.<$> (x Lude..@? "transitGatewayPeeringAttachment")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayPeeringAttachment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTransitGatewayPeeringAttachment where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteTransitGatewayPeeringAttachment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTransitGatewayPeeringAttachment where
-  toQuery DeleteTransitGatewayPeeringAttachment' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteTransitGatewayPeeringAttachment" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDeleteTransitGatewayPeeringAttachmentResponse' smart constructor.
 data DeleteTransitGatewayPeeringAttachmentResponse = DeleteTransitGatewayPeeringAttachmentResponse'
   { -- | The transit gateway peering attachment.
-    transitGatewayPeeringAttachment :: Lude.Maybe TransitGatewayPeeringAttachment,
+    transitGatewayPeeringAttachment :: Core.Maybe Types.TransitGatewayPeeringAttachment,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteTransitGatewayPeeringAttachmentResponse' with the minimum fields required to make a request.
---
--- * 'transitGatewayPeeringAttachment' - The transit gateway peering attachment.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTransitGatewayPeeringAttachmentResponse' value with any optional fields omitted.
 mkDeleteTransitGatewayPeeringAttachmentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTransitGatewayPeeringAttachmentResponse
-mkDeleteTransitGatewayPeeringAttachmentResponse pResponseStatus_ =
+mkDeleteTransitGatewayPeeringAttachmentResponse responseStatus =
   DeleteTransitGatewayPeeringAttachmentResponse'
     { transitGatewayPeeringAttachment =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The transit gateway peering attachment.
 --
 -- /Note:/ Consider using 'transitGatewayPeeringAttachment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgparsTransitGatewayPeeringAttachment :: Lens.Lens' DeleteTransitGatewayPeeringAttachmentResponse (Lude.Maybe TransitGatewayPeeringAttachment)
-dtgparsTransitGatewayPeeringAttachment = Lens.lens (transitGatewayPeeringAttachment :: DeleteTransitGatewayPeeringAttachmentResponse -> Lude.Maybe TransitGatewayPeeringAttachment) (\s a -> s {transitGatewayPeeringAttachment = a} :: DeleteTransitGatewayPeeringAttachmentResponse)
-{-# DEPRECATED dtgparsTransitGatewayPeeringAttachment "Use generic-lens or generic-optics with 'transitGatewayPeeringAttachment' instead." #-}
+dtgparfrsTransitGatewayPeeringAttachment :: Lens.Lens' DeleteTransitGatewayPeeringAttachmentResponse (Core.Maybe Types.TransitGatewayPeeringAttachment)
+dtgparfrsTransitGatewayPeeringAttachment = Lens.field @"transitGatewayPeeringAttachment"
+{-# DEPRECATED dtgparfrsTransitGatewayPeeringAttachment "Use generic-lens or generic-optics with 'transitGatewayPeeringAttachment' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgparsResponseStatus :: Lens.Lens' DeleteTransitGatewayPeeringAttachmentResponse Lude.Int
-dtgparsResponseStatus = Lens.lens (responseStatus :: DeleteTransitGatewayPeeringAttachmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTransitGatewayPeeringAttachmentResponse)
-{-# DEPRECATED dtgparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgparfrsResponseStatus :: Lens.Lens' DeleteTransitGatewayPeeringAttachmentResponse Core.Int
+dtgparfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtgparfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

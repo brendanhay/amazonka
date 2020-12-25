@@ -17,69 +17,62 @@ module Network.AWS.MachineLearning.Types.RedshiftDatabase
     mkRedshiftDatabase,
 
     -- * Lenses
-    rClusterIdentifier,
-    rDatabaseName,
+    rdDatabaseName,
+    rdClusterIdentifier,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MachineLearning.Types.DatabaseName as Types
+import qualified Network.AWS.MachineLearning.Types.RedshiftClusterIdentifier as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the database details required to connect to an Amazon Redshift database.
 --
 -- /See:/ 'mkRedshiftDatabase' smart constructor.
 data RedshiftDatabase = RedshiftDatabase'
-  { clusterIdentifier :: Lude.Text,
-    databaseName :: Lude.Text
+  { databaseName :: Types.DatabaseName,
+    clusterIdentifier :: Types.RedshiftClusterIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RedshiftDatabase' with the minimum fields required to make a request.
---
--- * 'clusterIdentifier' -
--- * 'databaseName' -
+-- | Creates a 'RedshiftDatabase' value with any optional fields omitted.
 mkRedshiftDatabase ::
-  -- | 'clusterIdentifier'
-  Lude.Text ->
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
+  -- | 'clusterIdentifier'
+  Types.RedshiftClusterIdentifier ->
   RedshiftDatabase
-mkRedshiftDatabase pClusterIdentifier_ pDatabaseName_ =
-  RedshiftDatabase'
-    { clusterIdentifier = pClusterIdentifier_,
-      databaseName = pDatabaseName_
-    }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rClusterIdentifier :: Lens.Lens' RedshiftDatabase Lude.Text
-rClusterIdentifier = Lens.lens (clusterIdentifier :: RedshiftDatabase -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: RedshiftDatabase)
-{-# DEPRECATED rClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+mkRedshiftDatabase databaseName clusterIdentifier =
+  RedshiftDatabase' {databaseName, clusterIdentifier}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDatabaseName :: Lens.Lens' RedshiftDatabase Lude.Text
-rDatabaseName = Lens.lens (databaseName :: RedshiftDatabase -> Lude.Text) (\s a -> s {databaseName = a} :: RedshiftDatabase)
-{-# DEPRECATED rDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+rdDatabaseName :: Lens.Lens' RedshiftDatabase Types.DatabaseName
+rdDatabaseName = Lens.field @"databaseName"
+{-# DEPRECATED rdDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
-instance Lude.FromJSON RedshiftDatabase where
-  parseJSON =
-    Lude.withObject
-      "RedshiftDatabase"
-      ( \x ->
-          RedshiftDatabase'
-            Lude.<$> (x Lude..: "ClusterIdentifier")
-            Lude.<*> (x Lude..: "DatabaseName")
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdClusterIdentifier :: Lens.Lens' RedshiftDatabase Types.RedshiftClusterIdentifier
+rdClusterIdentifier = Lens.field @"clusterIdentifier"
+{-# DEPRECATED rdClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance Lude.ToJSON RedshiftDatabase where
-  toJSON RedshiftDatabase' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClusterIdentifier" Lude..= clusterIdentifier),
-            Lude.Just ("DatabaseName" Lude..= databaseName)
+instance Core.FromJSON RedshiftDatabase where
+  toJSON RedshiftDatabase {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("ClusterIdentifier" Core..= clusterIdentifier)
           ]
       )
+
+instance Core.FromJSON RedshiftDatabase where
+  parseJSON =
+    Core.withObject "RedshiftDatabase" Core.$
+      \x ->
+        RedshiftDatabase'
+          Core.<$> (x Core..: "DatabaseName") Core.<*> (x Core..: "ClusterIdentifier")

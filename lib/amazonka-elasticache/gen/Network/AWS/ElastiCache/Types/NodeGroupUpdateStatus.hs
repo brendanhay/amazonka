@@ -17,58 +17,55 @@ module Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus
     mkNodeGroupUpdateStatus,
 
     -- * Lenses
-    ngusNodeGroupMemberUpdateStatus,
     ngusNodeGroupId,
+    ngusNodeGroupMemberUpdateStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus
+import qualified Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of the service update on the node group
 --
 -- /See:/ 'mkNodeGroupUpdateStatus' smart constructor.
 data NodeGroupUpdateStatus = NodeGroupUpdateStatus'
-  { -- | The status of the service update on the node group member
-    nodeGroupMemberUpdateStatus :: Lude.Maybe [NodeGroupMemberUpdateStatus],
-    -- | The ID of the node group
-    nodeGroupId :: Lude.Maybe Lude.Text
+  { -- | The ID of the node group
+    nodeGroupId :: Core.Maybe Types.String,
+    -- | The status of the service update on the node group member
+    nodeGroupMemberUpdateStatus :: Core.Maybe [Types.NodeGroupMemberUpdateStatus]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'NodeGroupUpdateStatus' with the minimum fields required to make a request.
---
--- * 'nodeGroupMemberUpdateStatus' - The status of the service update on the node group member
--- * 'nodeGroupId' - The ID of the node group
+-- | Creates a 'NodeGroupUpdateStatus' value with any optional fields omitted.
 mkNodeGroupUpdateStatus ::
   NodeGroupUpdateStatus
 mkNodeGroupUpdateStatus =
   NodeGroupUpdateStatus'
-    { nodeGroupMemberUpdateStatus =
-        Lude.Nothing,
-      nodeGroupId = Lude.Nothing
+    { nodeGroupId = Core.Nothing,
+      nodeGroupMemberUpdateStatus = Core.Nothing
     }
-
--- | The status of the service update on the node group member
---
--- /Note:/ Consider using 'nodeGroupMemberUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngusNodeGroupMemberUpdateStatus :: Lens.Lens' NodeGroupUpdateStatus (Lude.Maybe [NodeGroupMemberUpdateStatus])
-ngusNodeGroupMemberUpdateStatus = Lens.lens (nodeGroupMemberUpdateStatus :: NodeGroupUpdateStatus -> Lude.Maybe [NodeGroupMemberUpdateStatus]) (\s a -> s {nodeGroupMemberUpdateStatus = a} :: NodeGroupUpdateStatus)
-{-# DEPRECATED ngusNodeGroupMemberUpdateStatus "Use generic-lens or generic-optics with 'nodeGroupMemberUpdateStatus' instead." #-}
 
 -- | The ID of the node group
 --
 -- /Note:/ Consider using 'nodeGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngusNodeGroupId :: Lens.Lens' NodeGroupUpdateStatus (Lude.Maybe Lude.Text)
-ngusNodeGroupId = Lens.lens (nodeGroupId :: NodeGroupUpdateStatus -> Lude.Maybe Lude.Text) (\s a -> s {nodeGroupId = a} :: NodeGroupUpdateStatus)
+ngusNodeGroupId :: Lens.Lens' NodeGroupUpdateStatus (Core.Maybe Types.String)
+ngusNodeGroupId = Lens.field @"nodeGroupId"
 {-# DEPRECATED ngusNodeGroupId "Use generic-lens or generic-optics with 'nodeGroupId' instead." #-}
 
-instance Lude.FromXML NodeGroupUpdateStatus where
+-- | The status of the service update on the node group member
+--
+-- /Note:/ Consider using 'nodeGroupMemberUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngusNodeGroupMemberUpdateStatus :: Lens.Lens' NodeGroupUpdateStatus (Core.Maybe [Types.NodeGroupMemberUpdateStatus])
+ngusNodeGroupMemberUpdateStatus = Lens.field @"nodeGroupMemberUpdateStatus"
+{-# DEPRECATED ngusNodeGroupMemberUpdateStatus "Use generic-lens or generic-optics with 'nodeGroupMemberUpdateStatus' instead." #-}
+
+instance Core.FromXML NodeGroupUpdateStatus where
   parseXML x =
     NodeGroupUpdateStatus'
-      Lude.<$> ( x Lude..@? "NodeGroupMemberUpdateStatus" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "NodeGroupMemberUpdateStatus")
+      Core.<$> (x Core..@? "NodeGroupId")
+      Core.<*> ( x Core..@? "NodeGroupMemberUpdateStatus"
+                   Core..<@> Core.parseXMLList "NodeGroupMemberUpdateStatus"
                )
-      Lude.<*> (x Lude..@? "NodeGroupId")

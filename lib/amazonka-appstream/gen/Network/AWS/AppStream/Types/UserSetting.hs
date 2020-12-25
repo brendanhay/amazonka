@@ -22,64 +22,58 @@ module Network.AWS.AppStream.Types.UserSetting
   )
 where
 
-import Network.AWS.AppStream.Types.Action
-import Network.AWS.AppStream.Types.Permission
+import qualified Network.AWS.AppStream.Types.Action as Types
+import qualified Network.AWS.AppStream.Types.Permission as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action and whether the action is enabled or disabled for users during their streaming sessions.
 --
 -- /See:/ 'mkUserSetting' smart constructor.
 data UserSetting = UserSetting'
   { -- | The action that is enabled or disabled.
-    action :: Action,
+    action :: Types.Action,
     -- | Indicates whether the action is enabled or disabled.
-    permission :: Permission
+    permission :: Types.Permission
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserSetting' with the minimum fields required to make a request.
---
--- * 'action' - The action that is enabled or disabled.
--- * 'permission' - Indicates whether the action is enabled or disabled.
+-- | Creates a 'UserSetting' value with any optional fields omitted.
 mkUserSetting ::
   -- | 'action'
-  Action ->
+  Types.Action ->
   -- | 'permission'
-  Permission ->
+  Types.Permission ->
   UserSetting
-mkUserSetting pAction_ pPermission_ =
-  UserSetting' {action = pAction_, permission = pPermission_}
+mkUserSetting action permission = UserSetting' {action, permission}
 
 -- | The action that is enabled or disabled.
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usAction :: Lens.Lens' UserSetting Action
-usAction = Lens.lens (action :: UserSetting -> Action) (\s a -> s {action = a} :: UserSetting)
+usAction :: Lens.Lens' UserSetting Types.Action
+usAction = Lens.field @"action"
 {-# DEPRECATED usAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Indicates whether the action is enabled or disabled.
 --
 -- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usPermission :: Lens.Lens' UserSetting Permission
-usPermission = Lens.lens (permission :: UserSetting -> Permission) (\s a -> s {permission = a} :: UserSetting)
+usPermission :: Lens.Lens' UserSetting Types.Permission
+usPermission = Lens.field @"permission"
 {-# DEPRECATED usPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
 
-instance Lude.FromJSON UserSetting where
-  parseJSON =
-    Lude.withObject
-      "UserSetting"
-      ( \x ->
-          UserSetting'
-            Lude.<$> (x Lude..: "Action") Lude.<*> (x Lude..: "Permission")
-      )
-
-instance Lude.ToJSON UserSetting where
-  toJSON UserSetting' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Action" Lude..= action),
-            Lude.Just ("Permission" Lude..= permission)
+instance Core.FromJSON UserSetting where
+  toJSON UserSetting {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("Permission" Core..= permission)
           ]
       )
+
+instance Core.FromJSON UserSetting where
+  parseJSON =
+    Core.withObject "UserSetting" Core.$
+      \x ->
+        UserSetting'
+          Core.<$> (x Core..: "Action") Core.<*> (x Core..: "Permission")

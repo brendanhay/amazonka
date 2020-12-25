@@ -24,167 +24,155 @@ module Network.AWS.Glue.ListSchemas
     mkListSchemas,
 
     -- ** Request lenses
-    lsRegistryId,
-    lsNextToken,
     lsMaxResults,
+    lsNextToken,
+    lsRegistryId,
 
     -- * Destructuring the response
     ListSchemasResponse (..),
     mkListSchemasResponse,
 
     -- ** Response lenses
-    lsrsSchemas,
-    lsrsNextToken,
-    lsrsResponseStatus,
+    lsrrsNextToken,
+    lsrrsSchemas,
+    lsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSchemas' smart constructor.
 data ListSchemas = ListSchemas'
-  { -- | A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
-    registryId :: Lude.Maybe RegistryId,
+  { -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
+    maxResults :: Core.Maybe Core.Natural,
     -- | A continuation token, if this is a continuation call.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
+    registryId :: Core.Maybe Types.RegistryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSchemas' with the minimum fields required to make a request.
---
--- * 'registryId' - A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
--- * 'nextToken' - A continuation token, if this is a continuation call.
--- * 'maxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
+-- | Creates a 'ListSchemas' value with any optional fields omitted.
 mkListSchemas ::
   ListSchemas
 mkListSchemas =
   ListSchemas'
-    { registryId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      registryId = Core.Nothing
     }
-
--- | A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsRegistryId :: Lens.Lens' ListSchemas (Lude.Maybe RegistryId)
-lsRegistryId = Lens.lens (registryId :: ListSchemas -> Lude.Maybe RegistryId) (\s a -> s {registryId = a} :: ListSchemas)
-{-# DEPRECATED lsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
-
--- | A continuation token, if this is a continuation call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsNextToken :: Lens.Lens' ListSchemas (Lude.Maybe Lude.Text)
-lsNextToken = Lens.lens (nextToken :: ListSchemas -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSchemas)
-{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsMaxResults :: Lens.Lens' ListSchemas (Lude.Maybe Lude.Natural)
-lsMaxResults = Lens.lens (maxResults :: ListSchemas -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSchemas)
+lsMaxResults :: Lens.Lens' ListSchemas (Core.Maybe Core.Natural)
+lsMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListSchemas where
-  page rq rs
-    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsrsSchemas) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsNextToken Lens..~ rs Lens.^. lsrsNextToken
+-- | A continuation token, if this is a continuation call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsNextToken :: Lens.Lens' ListSchemas (Core.Maybe Types.NextToken)
+lsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListSchemas where
+-- | A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsRegistryId :: Lens.Lens' ListSchemas (Core.Maybe Types.RegistryId)
+lsRegistryId = Lens.field @"registryId"
+{-# DEPRECATED lsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+instance Core.FromJSON ListSchemas where
+  toJSON ListSchemas {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("RegistryId" Core..=) Core.<$> registryId
+          ]
+      )
+
+instance Core.AWSRequest ListSchemas where
   type Rs ListSchemas = ListSchemasResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.ListSchemas")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListSchemasResponse'
-            Lude.<$> (x Lude..?> "Schemas" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Schemas")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSchemas where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.ListSchemas" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSchemas where
-  toJSON ListSchemas' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RegistryId" Lude..=) Lude.<$> registryId,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListSchemas where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSchemas where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListSchemas where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"schemas" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListSchemasResponse' smart constructor.
 data ListSchemasResponse = ListSchemasResponse'
-  { -- | An array of @SchemaListItem@ objects containing details of each schema.
-    schemas :: Lude.Maybe [SchemaListItem],
-    -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | An array of @SchemaListItem@ objects containing details of each schema.
+    schemas :: Core.Maybe [Types.SchemaListItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSchemasResponse' with the minimum fields required to make a request.
---
--- * 'schemas' - An array of @SchemaListItem@ objects containing details of each schema.
--- * 'nextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSchemasResponse' value with any optional fields omitted.
 mkListSchemasResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSchemasResponse
-mkListSchemasResponse pResponseStatus_ =
+mkListSchemasResponse responseStatus =
   ListSchemasResponse'
-    { schemas = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      schemas = Core.Nothing,
+      responseStatus
     }
-
--- | An array of @SchemaListItem@ objects containing details of each schema.
---
--- /Note:/ Consider using 'schemas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsSchemas :: Lens.Lens' ListSchemasResponse (Lude.Maybe [SchemaListItem])
-lsrsSchemas = Lens.lens (schemas :: ListSchemasResponse -> Lude.Maybe [SchemaListItem]) (\s a -> s {schemas = a} :: ListSchemasResponse)
-{-# DEPRECATED lsrsSchemas "Use generic-lens or generic-optics with 'schemas' instead." #-}
 
 -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsNextToken :: Lens.Lens' ListSchemasResponse (Lude.Maybe Lude.Text)
-lsrsNextToken = Lens.lens (nextToken :: ListSchemasResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSchemasResponse)
-{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsrrsNextToken :: Lens.Lens' ListSchemasResponse (Core.Maybe Types.NextToken)
+lsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | An array of @SchemaListItem@ objects containing details of each schema.
+--
+-- /Note:/ Consider using 'schemas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrrsSchemas :: Lens.Lens' ListSchemasResponse (Core.Maybe [Types.SchemaListItem])
+lsrrsSchemas = Lens.field @"schemas"
+{-# DEPRECATED lsrrsSchemas "Use generic-lens or generic-optics with 'schemas' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsResponseStatus :: Lens.Lens' ListSchemasResponse Lude.Int
-lsrsResponseStatus = Lens.lens (responseStatus :: ListSchemasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSchemasResponse)
-{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsrrsResponseStatus :: Lens.Lens' ListSchemasResponse Core.Int
+lsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

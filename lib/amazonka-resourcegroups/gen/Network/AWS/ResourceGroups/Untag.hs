@@ -20,7 +20,7 @@ module Network.AWS.ResourceGroups.Untag
     mkUntag,
 
     -- ** Request lenses
-    uARN,
+    uArn,
     uKeys,
 
     -- * Destructuring the response
@@ -28,123 +28,116 @@ module Network.AWS.ResourceGroups.Untag
     mkUntagResponse,
 
     -- ** Response lenses
-    ursARN,
-    ursKeys,
-    ursResponseStatus,
+    urrsArn,
+    urrsKeys,
+    urrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroups.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroups.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntag' smart constructor.
 data Untag = Untag'
   { -- | The ARN of the resource group from which to remove tags. The command removed both the specified keys and any values associated with those keys.
-    arn :: Lude.Text,
+    arn :: Types.Arn,
     -- | The keys of the tags to be removed.
-    keys :: [Lude.Text]
+    keys :: [Types.TagKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Untag' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the resource group from which to remove tags. The command removed both the specified keys and any values associated with those keys.
--- * 'keys' - The keys of the tags to be removed.
+-- | Creates a 'Untag' value with any optional fields omitted.
 mkUntag ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   Untag
-mkUntag pARN_ = Untag' {arn = pARN_, keys = Lude.mempty}
+mkUntag arn = Untag' {arn, keys = Core.mempty}
 
 -- | The ARN of the resource group from which to remove tags. The command removed both the specified keys and any values associated with those keys.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uARN :: Lens.Lens' Untag Lude.Text
-uARN = Lens.lens (arn :: Untag -> Lude.Text) (\s a -> s {arn = a} :: Untag)
-{-# DEPRECATED uARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+uArn :: Lens.Lens' Untag Types.Arn
+uArn = Lens.field @"arn"
+{-# DEPRECATED uArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The keys of the tags to be removed.
 --
 -- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uKeys :: Lens.Lens' Untag [Lude.Text]
-uKeys = Lens.lens (keys :: Untag -> [Lude.Text]) (\s a -> s {keys = a} :: Untag)
+uKeys :: Lens.Lens' Untag [Types.TagKey]
+uKeys = Lens.field @"keys"
 {-# DEPRECATED uKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
-instance Lude.AWSRequest Untag where
+instance Core.FromJSON Untag where
+  toJSON Untag {..} =
+    Core.object (Core.catMaybes [Core.Just ("Keys" Core..= keys)])
+
+instance Core.AWSRequest Untag where
   type Rs Untag = UntagResponse
-  request = Req.patchJSON resourceGroupsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath
+            ("/resources/" Core.<> (Core.toText arn) Core.<> ("/tags")),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UntagResponse'
-            Lude.<$> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "Keys" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Keys")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders Untag where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON Untag where
-  toJSON Untag' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Keys" Lude..= keys)])
-
-instance Lude.ToPath Untag where
-  toPath Untag' {..} =
-    Lude.mconcat ["/resources/", Lude.toBS arn, "/tags"]
-
-instance Lude.ToQuery Untag where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUntagResponse' smart constructor.
 data UntagResponse = UntagResponse'
   { -- | The ARN of the resource group from which tags have been removed.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The keys of the tags that were removed.
-    keys :: Lude.Maybe [Lude.Text],
+    keys :: Core.Maybe [Types.TagKey],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the resource group from which tags have been removed.
--- * 'keys' - The keys of the tags that were removed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UntagResponse' value with any optional fields omitted.
 mkUntagResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UntagResponse
-mkUntagResponse pResponseStatus_ =
+mkUntagResponse responseStatus =
   UntagResponse'
-    { arn = Lude.Nothing,
-      keys = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      keys = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the resource group from which tags have been removed.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ursARN :: Lens.Lens' UntagResponse (Lude.Maybe Lude.Text)
-ursARN = Lens.lens (arn :: UntagResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: UntagResponse)
-{-# DEPRECATED ursARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+urrsArn :: Lens.Lens' UntagResponse (Core.Maybe Types.Arn)
+urrsArn = Lens.field @"arn"
+{-# DEPRECATED urrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The keys of the tags that were removed.
 --
 -- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ursKeys :: Lens.Lens' UntagResponse (Lude.Maybe [Lude.Text])
-ursKeys = Lens.lens (keys :: UntagResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {keys = a} :: UntagResponse)
-{-# DEPRECATED ursKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
+urrsKeys :: Lens.Lens' UntagResponse (Core.Maybe [Types.TagKey])
+urrsKeys = Lens.field @"keys"
+{-# DEPRECATED urrsKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ursResponseStatus :: Lens.Lens' UntagResponse Lude.Int
-ursResponseStatus = Lens.lens (responseStatus :: UntagResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagResponse)
-{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrsResponseStatus :: Lens.Lens' UntagResponse Core.Int
+urrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

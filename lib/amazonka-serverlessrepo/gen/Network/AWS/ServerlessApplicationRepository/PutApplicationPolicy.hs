@@ -32,122 +32,108 @@ module Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
     mkPutApplicationPolicyResponse,
 
     -- ** Response lenses
-    paprsStatements,
-    paprsResponseStatus,
+    paprrsStatements,
+    paprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServerlessApplicationRepository.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServerlessApplicationRepository.Types as Types
 
 -- | /See:/ 'mkPutApplicationPolicy' smart constructor.
 data PutApplicationPolicy = PutApplicationPolicy'
   { -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Lude.Text,
+    applicationId :: Core.Text,
     -- | An array of policy statements applied to the application.
-    statements :: [ApplicationPolicyStatement]
+    statements :: [Types.ApplicationPolicyStatement]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutApplicationPolicy' with the minimum fields required to make a request.
---
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
--- * 'statements' - An array of policy statements applied to the application.
+-- | Creates a 'PutApplicationPolicy' value with any optional fields omitted.
 mkPutApplicationPolicy ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   PutApplicationPolicy
-mkPutApplicationPolicy pApplicationId_ =
-  PutApplicationPolicy'
-    { applicationId = pApplicationId_,
-      statements = Lude.mempty
-    }
+mkPutApplicationPolicy applicationId =
+  PutApplicationPolicy' {applicationId, statements = Core.mempty}
 
 -- | The Amazon Resource Name (ARN) of the application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-papApplicationId :: Lens.Lens' PutApplicationPolicy Lude.Text
-papApplicationId = Lens.lens (applicationId :: PutApplicationPolicy -> Lude.Text) (\s a -> s {applicationId = a} :: PutApplicationPolicy)
+papApplicationId :: Lens.Lens' PutApplicationPolicy Core.Text
+papApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED papApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | An array of policy statements applied to the application.
 --
 -- /Note:/ Consider using 'statements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-papStatements :: Lens.Lens' PutApplicationPolicy [ApplicationPolicyStatement]
-papStatements = Lens.lens (statements :: PutApplicationPolicy -> [ApplicationPolicyStatement]) (\s a -> s {statements = a} :: PutApplicationPolicy)
+papStatements :: Lens.Lens' PutApplicationPolicy [Types.ApplicationPolicyStatement]
+papStatements = Lens.field @"statements"
 {-# DEPRECATED papStatements "Use generic-lens or generic-optics with 'statements' instead." #-}
 
-instance Lude.AWSRequest PutApplicationPolicy where
+instance Core.FromJSON PutApplicationPolicy where
+  toJSON PutApplicationPolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("statements" Core..= statements)])
+
+instance Core.AWSRequest PutApplicationPolicy where
   type Rs PutApplicationPolicy = PutApplicationPolicyResponse
-  request = Req.putJSON serverlessApplicationRepositoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/applications/" Core.<> (Core.toText applicationId)
+                Core.<> ("/policy")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutApplicationPolicyResponse'
-            Lude.<$> (x Lude..?> "statements" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "statements") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutApplicationPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutApplicationPolicy where
-  toJSON PutApplicationPolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("statements" Lude..= statements)])
-
-instance Lude.ToPath PutApplicationPolicy where
-  toPath PutApplicationPolicy' {..} =
-    Lude.mconcat
-      ["/applications/", Lude.toBS applicationId, "/policy"]
-
-instance Lude.ToQuery PutApplicationPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutApplicationPolicyResponse' smart constructor.
 data PutApplicationPolicyResponse = PutApplicationPolicyResponse'
   { -- | An array of policy statements applied to the application.
-    statements :: Lude.Maybe [ApplicationPolicyStatement],
+    statements :: Core.Maybe [Types.ApplicationPolicyStatement],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutApplicationPolicyResponse' with the minimum fields required to make a request.
---
--- * 'statements' - An array of policy statements applied to the application.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutApplicationPolicyResponse' value with any optional fields omitted.
 mkPutApplicationPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutApplicationPolicyResponse
-mkPutApplicationPolicyResponse pResponseStatus_ =
+mkPutApplicationPolicyResponse responseStatus =
   PutApplicationPolicyResponse'
-    { statements = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { statements = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of policy statements applied to the application.
 --
 -- /Note:/ Consider using 'statements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paprsStatements :: Lens.Lens' PutApplicationPolicyResponse (Lude.Maybe [ApplicationPolicyStatement])
-paprsStatements = Lens.lens (statements :: PutApplicationPolicyResponse -> Lude.Maybe [ApplicationPolicyStatement]) (\s a -> s {statements = a} :: PutApplicationPolicyResponse)
-{-# DEPRECATED paprsStatements "Use generic-lens or generic-optics with 'statements' instead." #-}
+paprrsStatements :: Lens.Lens' PutApplicationPolicyResponse (Core.Maybe [Types.ApplicationPolicyStatement])
+paprrsStatements = Lens.field @"statements"
+{-# DEPRECATED paprrsStatements "Use generic-lens or generic-optics with 'statements' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paprsResponseStatus :: Lens.Lens' PutApplicationPolicyResponse Lude.Int
-paprsResponseStatus = Lens.lens (responseStatus :: PutApplicationPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutApplicationPolicyResponse)
-{-# DEPRECATED paprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+paprrsResponseStatus :: Lens.Lens' PutApplicationPolicyResponse Core.Int
+paprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED paprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

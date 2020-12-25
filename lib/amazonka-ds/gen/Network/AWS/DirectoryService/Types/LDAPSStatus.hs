@@ -13,56 +13,58 @@
 module Network.AWS.DirectoryService.Types.LDAPSStatus
   ( LDAPSStatus
       ( LDAPSStatus',
-        LDAPSSEnabling,
-        LDAPSSEnabled,
-        LDAPSSEnableFailed,
-        LDAPSSDisabled
+        LDAPSStatusEnabling,
+        LDAPSStatusEnabled,
+        LDAPSStatusEnableFailed,
+        LDAPSStatusDisabled,
+        fromLDAPSStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LDAPSStatus = LDAPSStatus' Lude.Text
+newtype LDAPSStatus = LDAPSStatus' {fromLDAPSStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LDAPSSEnabling :: LDAPSStatus
-pattern LDAPSSEnabling = LDAPSStatus' "Enabling"
+pattern LDAPSStatusEnabling :: LDAPSStatus
+pattern LDAPSStatusEnabling = LDAPSStatus' "Enabling"
 
-pattern LDAPSSEnabled :: LDAPSStatus
-pattern LDAPSSEnabled = LDAPSStatus' "Enabled"
+pattern LDAPSStatusEnabled :: LDAPSStatus
+pattern LDAPSStatusEnabled = LDAPSStatus' "Enabled"
 
-pattern LDAPSSEnableFailed :: LDAPSStatus
-pattern LDAPSSEnableFailed = LDAPSStatus' "EnableFailed"
+pattern LDAPSStatusEnableFailed :: LDAPSStatus
+pattern LDAPSStatusEnableFailed = LDAPSStatus' "EnableFailed"
 
-pattern LDAPSSDisabled :: LDAPSStatus
-pattern LDAPSSDisabled = LDAPSStatus' "Disabled"
+pattern LDAPSStatusDisabled :: LDAPSStatus
+pattern LDAPSStatusDisabled = LDAPSStatus' "Disabled"
 
 {-# COMPLETE
-  LDAPSSEnabling,
-  LDAPSSEnabled,
-  LDAPSSEnableFailed,
-  LDAPSSDisabled,
+  LDAPSStatusEnabling,
+  LDAPSStatusEnabled,
+  LDAPSStatusEnableFailed,
+  LDAPSStatusDisabled,
   LDAPSStatus'
   #-}

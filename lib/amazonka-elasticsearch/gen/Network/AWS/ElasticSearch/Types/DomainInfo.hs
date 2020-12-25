@@ -21,33 +21,31 @@ module Network.AWS.ElasticSearch.Types.DomainInfo
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.DomainName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkDomainInfo' smart constructor.
 newtype DomainInfo = DomainInfo'
   { -- | Specifies the @DomainName@ .
-    domainName :: Lude.Maybe Lude.Text
+    domainName :: Core.Maybe Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainInfo' with the minimum fields required to make a request.
---
--- * 'domainName' - Specifies the @DomainName@ .
+-- | Creates a 'DomainInfo' value with any optional fields omitted.
 mkDomainInfo ::
   DomainInfo
-mkDomainInfo = DomainInfo' {domainName = Lude.Nothing}
+mkDomainInfo = DomainInfo' {domainName = Core.Nothing}
 
 -- | Specifies the @DomainName@ .
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diDomainName :: Lens.Lens' DomainInfo (Lude.Maybe Lude.Text)
-diDomainName = Lens.lens (domainName :: DomainInfo -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DomainInfo)
+diDomainName :: Lens.Lens' DomainInfo (Core.Maybe Types.DomainName)
+diDomainName = Lens.field @"domainName"
 {-# DEPRECATED diDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.FromJSON DomainInfo where
+instance Core.FromJSON DomainInfo where
   parseJSON =
-    Lude.withObject
-      "DomainInfo"
-      (\x -> DomainInfo' Lude.<$> (x Lude..:? "DomainName"))
+    Core.withObject "DomainInfo" Core.$
+      \x -> DomainInfo' Core.<$> (x Core..:? "DomainName")

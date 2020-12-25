@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.DataPipeline
     Network.AWS.DataPipeline.ActivatePipeline
@@ -90,23 +96,43 @@ library
     Network.AWS.DataPipeline.Waiters
 
   other-modules:
+    Network.AWS.DataPipeline.Types.AttemptId
+    Network.AWS.DataPipeline.Types.AttributeValueString
+    Network.AWS.DataPipeline.Types.ErrorMessage
     Network.AWS.DataPipeline.Types.Field
+    Network.AWS.DataPipeline.Types.FieldName
+    Network.AWS.DataPipeline.Types.Hostname
+    Network.AWS.DataPipeline.Types.Id
     Network.AWS.DataPipeline.Types.InstanceIdentity
+    Network.AWS.DataPipeline.Types.Key
+    Network.AWS.DataPipeline.Types.LongString
+    Network.AWS.DataPipeline.Types.Marker
+    Network.AWS.DataPipeline.Types.Name
+    Network.AWS.DataPipeline.Types.ObjectId
     Network.AWS.DataPipeline.Types.Operator
     Network.AWS.DataPipeline.Types.OperatorType
     Network.AWS.DataPipeline.Types.ParameterAttribute
     Network.AWS.DataPipeline.Types.ParameterObject
     Network.AWS.DataPipeline.Types.ParameterValue
     Network.AWS.DataPipeline.Types.PipelineDescription
+    Network.AWS.DataPipeline.Types.PipelineId
     Network.AWS.DataPipeline.Types.PipelineIdName
     Network.AWS.DataPipeline.Types.PipelineObject
     Network.AWS.DataPipeline.Types.Query
+    Network.AWS.DataPipeline.Types.RefValue
     Network.AWS.DataPipeline.Types.Selector
+    Network.AWS.DataPipeline.Types.String
+    Network.AWS.DataPipeline.Types.StringValue
     Network.AWS.DataPipeline.Types.Tag
+    Network.AWS.DataPipeline.Types.TaskId
     Network.AWS.DataPipeline.Types.TaskObject
     Network.AWS.DataPipeline.Types.TaskStatus
     Network.AWS.DataPipeline.Types.ValidationError
+    Network.AWS.DataPipeline.Types.ValidationMessage
     Network.AWS.DataPipeline.Types.ValidationWarning
+    Network.AWS.DataPipeline.Types.Value
+    Network.AWS.DataPipeline.Types.Version
+    Network.AWS.DataPipeline.Types.WorkerGroup
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

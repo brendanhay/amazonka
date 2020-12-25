@@ -28,128 +28,112 @@ module Network.AWS.OpsWorks.GrantAccess
     mkGrantAccessResponse,
 
     -- ** Response lenses
-    garsTemporaryCredential,
-    garsResponseStatus,
+    garrsTemporaryCredential,
+    garrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGrantAccess' smart constructor.
 data GrantAccess = GrantAccess'
   { -- | The instance's AWS OpsWorks Stacks ID.
-    instanceId :: Lude.Text,
+    instanceId :: Types.String,
     -- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
-    validForInMinutes :: Lude.Maybe Lude.Natural
+    validForInMinutes :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GrantAccess' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance's AWS OpsWorks Stacks ID.
--- * 'validForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
+-- | Creates a 'GrantAccess' value with any optional fields omitted.
 mkGrantAccess ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.String ->
   GrantAccess
-mkGrantAccess pInstanceId_ =
-  GrantAccess'
-    { instanceId = pInstanceId_,
-      validForInMinutes = Lude.Nothing
-    }
+mkGrantAccess instanceId =
+  GrantAccess' {instanceId, validForInMinutes = Core.Nothing}
 
 -- | The instance's AWS OpsWorks Stacks ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaInstanceId :: Lens.Lens' GrantAccess Lude.Text
-gaInstanceId = Lens.lens (instanceId :: GrantAccess -> Lude.Text) (\s a -> s {instanceId = a} :: GrantAccess)
+gaInstanceId :: Lens.Lens' GrantAccess Types.String
+gaInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED gaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
 --
 -- /Note:/ Consider using 'validForInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaValidForInMinutes :: Lens.Lens' GrantAccess (Lude.Maybe Lude.Natural)
-gaValidForInMinutes = Lens.lens (validForInMinutes :: GrantAccess -> Lude.Maybe Lude.Natural) (\s a -> s {validForInMinutes = a} :: GrantAccess)
+gaValidForInMinutes :: Lens.Lens' GrantAccess (Core.Maybe Core.Natural)
+gaValidForInMinutes = Lens.field @"validForInMinutes"
 {-# DEPRECATED gaValidForInMinutes "Use generic-lens or generic-optics with 'validForInMinutes' instead." #-}
 
-instance Lude.AWSRequest GrantAccess where
+instance Core.FromJSON GrantAccess where
+  toJSON GrantAccess {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            ("ValidForInMinutes" Core..=) Core.<$> validForInMinutes
+          ]
+      )
+
+instance Core.AWSRequest GrantAccess where
   type Rs GrantAccess = GrantAccessResponse
-  request = Req.postJSON opsWorksService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.GrantAccess")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GrantAccessResponse'
-            Lude.<$> (x Lude..?> "TemporaryCredential")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TemporaryCredential")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GrantAccess where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.GrantAccess" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GrantAccess where
-  toJSON GrantAccess' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            ("ValidForInMinutes" Lude..=) Lude.<$> validForInMinutes
-          ]
-      )
-
-instance Lude.ToPath GrantAccess where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GrantAccess where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @GrantAccess@ request.
 --
 -- /See:/ 'mkGrantAccessResponse' smart constructor.
 data GrantAccessResponse = GrantAccessResponse'
   { -- | A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
-    temporaryCredential :: Lude.Maybe TemporaryCredential,
+    temporaryCredential :: Core.Maybe Types.TemporaryCredential,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GrantAccessResponse' with the minimum fields required to make a request.
---
--- * 'temporaryCredential' - A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GrantAccessResponse' value with any optional fields omitted.
 mkGrantAccessResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GrantAccessResponse
-mkGrantAccessResponse pResponseStatus_ =
+mkGrantAccessResponse responseStatus =
   GrantAccessResponse'
-    { temporaryCredential = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { temporaryCredential = Core.Nothing,
+      responseStatus
     }
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
 --
 -- /Note:/ Consider using 'temporaryCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsTemporaryCredential :: Lens.Lens' GrantAccessResponse (Lude.Maybe TemporaryCredential)
-garsTemporaryCredential = Lens.lens (temporaryCredential :: GrantAccessResponse -> Lude.Maybe TemporaryCredential) (\s a -> s {temporaryCredential = a} :: GrantAccessResponse)
-{-# DEPRECATED garsTemporaryCredential "Use generic-lens or generic-optics with 'temporaryCredential' instead." #-}
+garrsTemporaryCredential :: Lens.Lens' GrantAccessResponse (Core.Maybe Types.TemporaryCredential)
+garrsTemporaryCredential = Lens.field @"temporaryCredential"
+{-# DEPRECATED garrsTemporaryCredential "Use generic-lens or generic-optics with 'temporaryCredential' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsResponseStatus :: Lens.Lens' GrantAccessResponse Lude.Int
-garsResponseStatus = Lens.lens (responseStatus :: GrantAccessResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GrantAccessResponse)
-{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+garrsResponseStatus :: Lens.Lens' GrantAccessResponse Core.Int
+garrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED garrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

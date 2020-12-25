@@ -354,7 +354,7 @@ responseDescribeAvailabilityOptions =
   res
     "DescribeAvailabilityOptionsResponse"
     "fixture/DescribeAvailabilityOptionsResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAvailabilityOptions)
 
 responseDescribeExpressions :: DescribeExpressionsResponse -> TestTree
@@ -362,7 +362,7 @@ responseDescribeExpressions =
   res
     "DescribeExpressionsResponse"
     "fixture/DescribeExpressionsResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeExpressions)
 
 responseDefineExpression :: DefineExpressionResponse -> TestTree
@@ -370,7 +370,7 @@ responseDefineExpression =
   res
     "DefineExpressionResponse"
     "fixture/DefineExpressionResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DefineExpression)
 
 responseDescribeScalingParameters :: DescribeScalingParametersResponse -> TestTree
@@ -378,7 +378,7 @@ responseDescribeScalingParameters =
   res
     "DescribeScalingParametersResponse"
     "fixture/DescribeScalingParametersResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScalingParameters)
 
 responseDescribeServiceAccessPolicies :: DescribeServiceAccessPoliciesResponse -> TestTree
@@ -386,7 +386,7 @@ responseDescribeServiceAccessPolicies =
   res
     "DescribeServiceAccessPoliciesResponse"
     "fixture/DescribeServiceAccessPoliciesResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeServiceAccessPolicies)
 
 responseDescribeSuggesters :: DescribeSuggestersResponse -> TestTree
@@ -394,7 +394,7 @@ responseDescribeSuggesters =
   res
     "DescribeSuggestersResponse"
     "fixture/DescribeSuggestersResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSuggesters)
 
 responseUpdateAvailabilityOptions :: UpdateAvailabilityOptionsResponse -> TestTree
@@ -402,7 +402,7 @@ responseUpdateAvailabilityOptions =
   res
     "UpdateAvailabilityOptionsResponse"
     "fixture/UpdateAvailabilityOptionsResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAvailabilityOptions)
 
 responseDeleteExpression :: DeleteExpressionResponse -> TestTree
@@ -410,7 +410,7 @@ responseDeleteExpression =
   res
     "DeleteExpressionResponse"
     "fixture/DeleteExpressionResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteExpression)
 
 responseListDomainNames :: ListDomainNamesResponse -> TestTree
@@ -418,7 +418,7 @@ responseListDomainNames =
   res
     "ListDomainNamesResponse"
     "fixture/ListDomainNamesResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy ListDomainNames)
 
 responseDefineSuggester :: DefineSuggesterResponse -> TestTree
@@ -426,7 +426,7 @@ responseDefineSuggester =
   res
     "DefineSuggesterResponse"
     "fixture/DefineSuggesterResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DefineSuggester)
 
 responseDescribeDomains :: DescribeDomainsResponse -> TestTree
@@ -434,7 +434,7 @@ responseDescribeDomains =
   res
     "DescribeDomainsResponse"
     "fixture/DescribeDomainsResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDomains)
 
 responseDeleteAnalysisScheme :: DeleteAnalysisSchemeResponse -> TestTree
@@ -442,7 +442,7 @@ responseDeleteAnalysisScheme =
   res
     "DeleteAnalysisSchemeResponse"
     "fixture/DeleteAnalysisSchemeResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAnalysisScheme)
 
 responseDescribeDomainEndpointOptions :: DescribeDomainEndpointOptionsResponse -> TestTree
@@ -450,7 +450,7 @@ responseDescribeDomainEndpointOptions =
   res
     "DescribeDomainEndpointOptionsResponse"
     "fixture/DescribeDomainEndpointOptionsResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDomainEndpointOptions)
 
 responseDescribeAnalysisSchemes :: DescribeAnalysisSchemesResponse -> TestTree
@@ -458,7 +458,7 @@ responseDescribeAnalysisSchemes =
   res
     "DescribeAnalysisSchemesResponse"
     "fixture/DescribeAnalysisSchemesResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAnalysisSchemes)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
@@ -466,7 +466,7 @@ responseCreateDomain =
   res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy CreateDomain)
 
 responseUpdateDomainEndpointOptions :: UpdateDomainEndpointOptionsResponse -> TestTree
@@ -474,7 +474,7 @@ responseUpdateDomainEndpointOptions =
   res
     "UpdateDomainEndpointOptionsResponse"
     "fixture/UpdateDomainEndpointOptionsResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDomainEndpointOptions)
 
 responseDescribeIndexFields :: DescribeIndexFieldsResponse -> TestTree
@@ -482,7 +482,7 @@ responseDescribeIndexFields =
   res
     "DescribeIndexFieldsResponse"
     "fixture/DescribeIndexFieldsResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeIndexFields)
 
 responseDeleteSuggester :: DeleteSuggesterResponse -> TestTree
@@ -490,7 +490,7 @@ responseDeleteSuggester =
   res
     "DeleteSuggesterResponse"
     "fixture/DeleteSuggesterResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSuggester)
 
 responseDefineAnalysisScheme :: DefineAnalysisSchemeResponse -> TestTree
@@ -498,7 +498,7 @@ responseDefineAnalysisScheme =
   res
     "DefineAnalysisSchemeResponse"
     "fixture/DefineAnalysisSchemeResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DefineAnalysisScheme)
 
 responseIndexDocuments :: IndexDocumentsResponse -> TestTree
@@ -506,7 +506,7 @@ responseIndexDocuments =
   res
     "IndexDocumentsResponse"
     "fixture/IndexDocumentsResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy IndexDocuments)
 
 responseDeleteIndexField :: DeleteIndexFieldResponse -> TestTree
@@ -514,7 +514,7 @@ responseDeleteIndexField =
   res
     "DeleteIndexFieldResponse"
     "fixture/DeleteIndexFieldResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteIndexField)
 
 responseUpdateServiceAccessPolicies :: UpdateServiceAccessPoliciesResponse -> TestTree
@@ -522,7 +522,7 @@ responseUpdateServiceAccessPolicies =
   res
     "UpdateServiceAccessPoliciesResponse"
     "fixture/UpdateServiceAccessPoliciesResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy UpdateServiceAccessPolicies)
 
 responseUpdateScalingParameters :: UpdateScalingParametersResponse -> TestTree
@@ -530,7 +530,7 @@ responseUpdateScalingParameters =
   res
     "UpdateScalingParametersResponse"
     "fixture/UpdateScalingParametersResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy UpdateScalingParameters)
 
 responseBuildSuggesters :: BuildSuggestersResponse -> TestTree
@@ -538,7 +538,7 @@ responseBuildSuggesters =
   res
     "BuildSuggestersResponse"
     "fixture/BuildSuggestersResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy BuildSuggesters)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
@@ -546,7 +546,7 @@ responseDeleteDomain =
   res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDomain)
 
 responseDefineIndexField :: DefineIndexFieldResponse -> TestTree
@@ -554,5 +554,5 @@ responseDefineIndexField =
   res
     "DefineIndexFieldResponse"
     "fixture/DefineIndexFieldResponse.proto"
-    cloudSearchService
+    mkServiceConfig
     (Proxy :: Proxy DefineIndexField)

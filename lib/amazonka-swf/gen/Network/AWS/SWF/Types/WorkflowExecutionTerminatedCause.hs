@@ -13,51 +13,56 @@
 module Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause
   ( WorkflowExecutionTerminatedCause
       ( WorkflowExecutionTerminatedCause',
-        WETCChildPolicyApplied,
-        WETCEventLimitExceeded,
-        WETCOperatorInitiated
+        WorkflowExecutionTerminatedCauseChildPolicyApplied,
+        WorkflowExecutionTerminatedCauseEventLimitExceeded,
+        WorkflowExecutionTerminatedCauseOperatorInitiated,
+        fromWorkflowExecutionTerminatedCause
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WorkflowExecutionTerminatedCause = WorkflowExecutionTerminatedCause' Lude.Text
+newtype WorkflowExecutionTerminatedCause = WorkflowExecutionTerminatedCause'
+  { fromWorkflowExecutionTerminatedCause ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern WETCChildPolicyApplied :: WorkflowExecutionTerminatedCause
-pattern WETCChildPolicyApplied = WorkflowExecutionTerminatedCause' "CHILD_POLICY_APPLIED"
+pattern WorkflowExecutionTerminatedCauseChildPolicyApplied :: WorkflowExecutionTerminatedCause
+pattern WorkflowExecutionTerminatedCauseChildPolicyApplied = WorkflowExecutionTerminatedCause' "CHILD_POLICY_APPLIED"
 
-pattern WETCEventLimitExceeded :: WorkflowExecutionTerminatedCause
-pattern WETCEventLimitExceeded = WorkflowExecutionTerminatedCause' "EVENT_LIMIT_EXCEEDED"
+pattern WorkflowExecutionTerminatedCauseEventLimitExceeded :: WorkflowExecutionTerminatedCause
+pattern WorkflowExecutionTerminatedCauseEventLimitExceeded = WorkflowExecutionTerminatedCause' "EVENT_LIMIT_EXCEEDED"
 
-pattern WETCOperatorInitiated :: WorkflowExecutionTerminatedCause
-pattern WETCOperatorInitiated = WorkflowExecutionTerminatedCause' "OPERATOR_INITIATED"
+pattern WorkflowExecutionTerminatedCauseOperatorInitiated :: WorkflowExecutionTerminatedCause
+pattern WorkflowExecutionTerminatedCauseOperatorInitiated = WorkflowExecutionTerminatedCause' "OPERATOR_INITIATED"
 
 {-# COMPLETE
-  WETCChildPolicyApplied,
-  WETCEventLimitExceeded,
-  WETCOperatorInitiated,
+  WorkflowExecutionTerminatedCauseChildPolicyApplied,
+  WorkflowExecutionTerminatedCauseEventLimitExceeded,
+  WorkflowExecutionTerminatedCauseOperatorInitiated,
   WorkflowExecutionTerminatedCause'
   #-}

@@ -22,38 +22,35 @@ module Network.AWS.MediaLive.Types.InputDeviceSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for an input device.
 --
 -- /See:/ 'mkInputDeviceSettings' smart constructor.
 newtype InputDeviceSettings = InputDeviceSettings'
   { -- | The unique ID for the device.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputDeviceSettings' with the minimum fields required to make a request.
---
--- * 'id' - The unique ID for the device.
+-- | Creates a 'InputDeviceSettings' value with any optional fields omitted.
 mkInputDeviceSettings ::
   InputDeviceSettings
-mkInputDeviceSettings = InputDeviceSettings' {id = Lude.Nothing}
+mkInputDeviceSettings = InputDeviceSettings' {id = Core.Nothing}
 
 -- | The unique ID for the device.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idssId :: Lens.Lens' InputDeviceSettings (Lude.Maybe Lude.Text)
-idssId = Lens.lens (id :: InputDeviceSettings -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InputDeviceSettings)
+idssId :: Lens.Lens' InputDeviceSettings (Core.Maybe Core.Text)
+idssId = Lens.field @"id"
 {-# DEPRECATED idssId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON InputDeviceSettings where
-  parseJSON =
-    Lude.withObject
-      "InputDeviceSettings"
-      (\x -> InputDeviceSettings' Lude.<$> (x Lude..:? "id"))
+instance Core.FromJSON InputDeviceSettings where
+  toJSON InputDeviceSettings {..} =
+    Core.object (Core.catMaybes [("id" Core..=) Core.<$> id])
 
-instance Lude.ToJSON InputDeviceSettings where
-  toJSON InputDeviceSettings' {..} =
-    Lude.object (Lude.catMaybes [("id" Lude..=) Lude.<$> id])
+instance Core.FromJSON InputDeviceSettings where
+  parseJSON =
+    Core.withObject "InputDeviceSettings" Core.$
+      \x -> InputDeviceSettings' Core.<$> (x Core..:? "id")

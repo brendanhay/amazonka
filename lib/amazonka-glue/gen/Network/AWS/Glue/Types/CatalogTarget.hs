@@ -22,62 +22,58 @@ module Network.AWS.Glue.Types.CatalogTarget
   )
 where
 
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies an AWS Glue Data Catalog target.
 --
 -- /See:/ 'mkCatalogTarget' smart constructor.
 data CatalogTarget = CatalogTarget'
   { -- | The name of the database to be synchronized.
-    databaseName :: Lude.Text,
+    databaseName :: Types.NameString,
     -- | A list of the tables to be synchronized.
-    tables :: Lude.NonEmpty Lude.Text
+    tables :: Core.NonEmpty Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CatalogTarget' with the minimum fields required to make a request.
---
--- * 'databaseName' - The name of the database to be synchronized.
--- * 'tables' - A list of the tables to be synchronized.
+-- | Creates a 'CatalogTarget' value with any optional fields omitted.
 mkCatalogTarget ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.NameString ->
   -- | 'tables'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.NameString ->
   CatalogTarget
-mkCatalogTarget pDatabaseName_ pTables_ =
-  CatalogTarget' {databaseName = pDatabaseName_, tables = pTables_}
+mkCatalogTarget databaseName tables =
+  CatalogTarget' {databaseName, tables}
 
 -- | The name of the database to be synchronized.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctDatabaseName :: Lens.Lens' CatalogTarget Lude.Text
-ctDatabaseName = Lens.lens (databaseName :: CatalogTarget -> Lude.Text) (\s a -> s {databaseName = a} :: CatalogTarget)
+ctDatabaseName :: Lens.Lens' CatalogTarget Types.NameString
+ctDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED ctDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | A list of the tables to be synchronized.
 --
 -- /Note:/ Consider using 'tables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTables :: Lens.Lens' CatalogTarget (Lude.NonEmpty Lude.Text)
-ctTables = Lens.lens (tables :: CatalogTarget -> Lude.NonEmpty Lude.Text) (\s a -> s {tables = a} :: CatalogTarget)
+ctTables :: Lens.Lens' CatalogTarget (Core.NonEmpty Types.NameString)
+ctTables = Lens.field @"tables"
 {-# DEPRECATED ctTables "Use generic-lens or generic-optics with 'tables' instead." #-}
 
-instance Lude.FromJSON CatalogTarget where
-  parseJSON =
-    Lude.withObject
-      "CatalogTarget"
-      ( \x ->
-          CatalogTarget'
-            Lude.<$> (x Lude..: "DatabaseName") Lude.<*> (x Lude..: "Tables")
-      )
-
-instance Lude.ToJSON CatalogTarget where
-  toJSON CatalogTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("Tables" Lude..= tables)
+instance Core.FromJSON CatalogTarget where
+  toJSON CatalogTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("Tables" Core..= tables)
           ]
       )
+
+instance Core.FromJSON CatalogTarget where
+  parseJSON =
+    Core.withObject "CatalogTarget" Core.$
+      \x ->
+        CatalogTarget'
+          Core.<$> (x Core..: "DatabaseName") Core.<*> (x Core..: "Tables")

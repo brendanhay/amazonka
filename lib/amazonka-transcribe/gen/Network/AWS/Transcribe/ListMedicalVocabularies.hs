@@ -20,184 +20,167 @@ module Network.AWS.Transcribe.ListMedicalVocabularies
     mkListMedicalVocabularies,
 
     -- ** Request lenses
+    lmvMaxResults,
     lmvNameContains,
     lmvNextToken,
     lmvStateEquals,
-    lmvMaxResults,
 
     -- * Destructuring the response
     ListMedicalVocabulariesResponse (..),
     mkListMedicalVocabulariesResponse,
 
     -- ** Response lenses
-    lmvrsVocabularies,
-    lmvrsStatus,
-    lmvrsNextToken,
-    lmvrsResponseStatus,
+    lmvrrsNextToken,
+    lmvrrsStatus,
+    lmvrrsVocabularies,
+    lmvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Transcribe.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Transcribe.Types as Types
 
 -- | /See:/ 'mkListMedicalVocabularies' smart constructor.
 data ListMedicalVocabularies = ListMedicalVocabularies'
-  { -- | Returns vocabularies whose names contain the specified string. The search is not case sensitive. @ListMedicalVocabularies@ returns both "@vocabularyname@ " and "@VocabularyName@ ".
-    nameContains :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of vocabularies to return in the response.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Returns vocabularies whose names contain the specified string. The search is not case sensitive. @ListMedicalVocabularies@ returns both "@vocabularyname@ " and "@VocabularyName@ ".
+    nameContains :: Core.Maybe Types.VocabularyName,
     -- | If the result of your previous request to @ListMedicalVocabularies@ was truncated, include the @NextToken@ to fetch the next set of vocabularies.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | When specified, returns only vocabularies with the @VocabularyState@ equal to the specified vocabulary state. Use this field to see which vocabularies are ready for your medical transcription jobs.
-    stateEquals :: Lude.Maybe VocabularyState,
-    -- | The maximum number of vocabularies to return in the response.
-    maxResults :: Lude.Maybe Lude.Natural
+    stateEquals :: Core.Maybe Types.VocabularyState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMedicalVocabularies' with the minimum fields required to make a request.
---
--- * 'nameContains' - Returns vocabularies whose names contain the specified string. The search is not case sensitive. @ListMedicalVocabularies@ returns both "@vocabularyname@ " and "@VocabularyName@ ".
--- * 'nextToken' - If the result of your previous request to @ListMedicalVocabularies@ was truncated, include the @NextToken@ to fetch the next set of vocabularies.
--- * 'stateEquals' - When specified, returns only vocabularies with the @VocabularyState@ equal to the specified vocabulary state. Use this field to see which vocabularies are ready for your medical transcription jobs.
--- * 'maxResults' - The maximum number of vocabularies to return in the response.
+-- | Creates a 'ListMedicalVocabularies' value with any optional fields omitted.
 mkListMedicalVocabularies ::
   ListMedicalVocabularies
 mkListMedicalVocabularies =
   ListMedicalVocabularies'
-    { nameContains = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      stateEquals = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing,
+      stateEquals = Core.Nothing
     }
+
+-- | The maximum number of vocabularies to return in the response.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmvMaxResults :: Lens.Lens' ListMedicalVocabularies (Core.Maybe Core.Natural)
+lmvMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lmvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Returns vocabularies whose names contain the specified string. The search is not case sensitive. @ListMedicalVocabularies@ returns both "@vocabularyname@ " and "@VocabularyName@ ".
 --
 -- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmvNameContains :: Lens.Lens' ListMedicalVocabularies (Lude.Maybe Lude.Text)
-lmvNameContains = Lens.lens (nameContains :: ListMedicalVocabularies -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListMedicalVocabularies)
+lmvNameContains :: Lens.Lens' ListMedicalVocabularies (Core.Maybe Types.VocabularyName)
+lmvNameContains = Lens.field @"nameContains"
 {-# DEPRECATED lmvNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | If the result of your previous request to @ListMedicalVocabularies@ was truncated, include the @NextToken@ to fetch the next set of vocabularies.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmvNextToken :: Lens.Lens' ListMedicalVocabularies (Lude.Maybe Lude.Text)
-lmvNextToken = Lens.lens (nextToken :: ListMedicalVocabularies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMedicalVocabularies)
+lmvNextToken :: Lens.Lens' ListMedicalVocabularies (Core.Maybe Types.NextToken)
+lmvNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lmvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | When specified, returns only vocabularies with the @VocabularyState@ equal to the specified vocabulary state. Use this field to see which vocabularies are ready for your medical transcription jobs.
 --
 -- /Note:/ Consider using 'stateEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmvStateEquals :: Lens.Lens' ListMedicalVocabularies (Lude.Maybe VocabularyState)
-lmvStateEquals = Lens.lens (stateEquals :: ListMedicalVocabularies -> Lude.Maybe VocabularyState) (\s a -> s {stateEquals = a} :: ListMedicalVocabularies)
+lmvStateEquals :: Lens.Lens' ListMedicalVocabularies (Core.Maybe Types.VocabularyState)
+lmvStateEquals = Lens.field @"stateEquals"
 {-# DEPRECATED lmvStateEquals "Use generic-lens or generic-optics with 'stateEquals' instead." #-}
 
--- | The maximum number of vocabularies to return in the response.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmvMaxResults :: Lens.Lens' ListMedicalVocabularies (Lude.Maybe Lude.Natural)
-lmvMaxResults = Lens.lens (maxResults :: ListMedicalVocabularies -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMedicalVocabularies)
-{-# DEPRECATED lmvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+instance Core.FromJSON ListMedicalVocabularies where
+  toJSON ListMedicalVocabularies {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("StateEquals" Core..=) Core.<$> stateEquals
+          ]
+      )
 
-instance Lude.AWSRequest ListMedicalVocabularies where
+instance Core.AWSRequest ListMedicalVocabularies where
   type Rs ListMedicalVocabularies = ListMedicalVocabulariesResponse
-  request = Req.postJSON transcribeService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Transcribe.ListMedicalVocabularies")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListMedicalVocabulariesResponse'
-            Lude.<$> (x Lude..?> "Vocabularies" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "Vocabularies")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListMedicalVocabularies where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Transcribe.ListMedicalVocabularies" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListMedicalVocabularies where
-  toJSON ListMedicalVocabularies' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("StateEquals" Lude..=) Lude.<$> stateEquals,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListMedicalVocabularies where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListMedicalVocabularies where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListMedicalVocabulariesResponse' smart constructor.
 data ListMedicalVocabulariesResponse = ListMedicalVocabulariesResponse'
-  { -- | A list of objects that describe the vocabularies that match your search criteria.
-    vocabularies :: Lude.Maybe [VocabularyInfo],
+  { -- | The @ListMedicalVocabularies@ operation returns a page of vocabularies at a time. You set the maximum number of vocabularies to return on a page with the @MaxResults@ parameter. If there are more jobs in the list will fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. To return the next page of vocabularies, include the token in the next request to the @ListMedicalVocabularies@ operation .
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The requested vocabulary state.
-    status :: Lude.Maybe VocabularyState,
-    -- | The @ListMedicalVocabularies@ operation returns a page of vocabularies at a time. You set the maximum number of vocabularies to return on a page with the @MaxResults@ parameter. If there are more jobs in the list will fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. To return the next page of vocabularies, include the token in the next request to the @ListMedicalVocabularies@ operation .
-    nextToken :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.VocabularyState,
+    -- | A list of objects that describe the vocabularies that match your search criteria.
+    vocabularies :: Core.Maybe [Types.VocabularyInfo],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListMedicalVocabulariesResponse' with the minimum fields required to make a request.
---
--- * 'vocabularies' - A list of objects that describe the vocabularies that match your search criteria.
--- * 'status' - The requested vocabulary state.
--- * 'nextToken' - The @ListMedicalVocabularies@ operation returns a page of vocabularies at a time. You set the maximum number of vocabularies to return on a page with the @MaxResults@ parameter. If there are more jobs in the list will fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. To return the next page of vocabularies, include the token in the next request to the @ListMedicalVocabularies@ operation .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListMedicalVocabulariesResponse' value with any optional fields omitted.
 mkListMedicalVocabulariesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListMedicalVocabulariesResponse
-mkListMedicalVocabulariesResponse pResponseStatus_ =
+mkListMedicalVocabulariesResponse responseStatus =
   ListMedicalVocabulariesResponse'
-    { vocabularies = Lude.Nothing,
-      status = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      status = Core.Nothing,
+      vocabularies = Core.Nothing,
+      responseStatus
     }
-
--- | A list of objects that describe the vocabularies that match your search criteria.
---
--- /Note:/ Consider using 'vocabularies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmvrsVocabularies :: Lens.Lens' ListMedicalVocabulariesResponse (Lude.Maybe [VocabularyInfo])
-lmvrsVocabularies = Lens.lens (vocabularies :: ListMedicalVocabulariesResponse -> Lude.Maybe [VocabularyInfo]) (\s a -> s {vocabularies = a} :: ListMedicalVocabulariesResponse)
-{-# DEPRECATED lmvrsVocabularies "Use generic-lens or generic-optics with 'vocabularies' instead." #-}
-
--- | The requested vocabulary state.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmvrsStatus :: Lens.Lens' ListMedicalVocabulariesResponse (Lude.Maybe VocabularyState)
-lmvrsStatus = Lens.lens (status :: ListMedicalVocabulariesResponse -> Lude.Maybe VocabularyState) (\s a -> s {status = a} :: ListMedicalVocabulariesResponse)
-{-# DEPRECATED lmvrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The @ListMedicalVocabularies@ operation returns a page of vocabularies at a time. You set the maximum number of vocabularies to return on a page with the @MaxResults@ parameter. If there are more jobs in the list will fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. To return the next page of vocabularies, include the token in the next request to the @ListMedicalVocabularies@ operation .
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmvrsNextToken :: Lens.Lens' ListMedicalVocabulariesResponse (Lude.Maybe Lude.Text)
-lmvrsNextToken = Lens.lens (nextToken :: ListMedicalVocabulariesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMedicalVocabulariesResponse)
-{-# DEPRECATED lmvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lmvrrsNextToken :: Lens.Lens' ListMedicalVocabulariesResponse (Core.Maybe Types.NextToken)
+lmvrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmvrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The requested vocabulary state.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmvrrsStatus :: Lens.Lens' ListMedicalVocabulariesResponse (Core.Maybe Types.VocabularyState)
+lmvrrsStatus = Lens.field @"status"
+{-# DEPRECATED lmvrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | A list of objects that describe the vocabularies that match your search criteria.
+--
+-- /Note:/ Consider using 'vocabularies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmvrrsVocabularies :: Lens.Lens' ListMedicalVocabulariesResponse (Core.Maybe [Types.VocabularyInfo])
+lmvrrsVocabularies = Lens.field @"vocabularies"
+{-# DEPRECATED lmvrrsVocabularies "Use generic-lens or generic-optics with 'vocabularies' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmvrsResponseStatus :: Lens.Lens' ListMedicalVocabulariesResponse Lude.Int
-lmvrsResponseStatus = Lens.lens (responseStatus :: ListMedicalVocabulariesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMedicalVocabulariesResponse)
-{-# DEPRECATED lmvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmvrrsResponseStatus :: Lens.Lens' ListMedicalVocabulariesResponse Core.Int
+lmvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,8 +22,8 @@ module Network.AWS.CloudWatchEvents.DeletePartnerEventSource
     mkDeletePartnerEventSource,
 
     -- ** Request lenses
-    dpesAccount,
     dpesName,
+    dpesAccount,
 
     -- * Destructuring the response
     DeletePartnerEventSourceResponse (..),
@@ -31,86 +31,76 @@ module Network.AWS.CloudWatchEvents.DeletePartnerEventSource
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePartnerEventSource' smart constructor.
 data DeletePartnerEventSource = DeletePartnerEventSource'
-  { -- | The AWS account ID of the AWS customer that the event source was created for.
-    account :: Lude.Text,
-    -- | The name of the event source to delete.
-    name :: Lude.Text
+  { -- | The name of the event source to delete.
+    name :: Types.Name,
+    -- | The AWS account ID of the AWS customer that the event source was created for.
+    account :: Types.Account
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePartnerEventSource' with the minimum fields required to make a request.
---
--- * 'account' - The AWS account ID of the AWS customer that the event source was created for.
--- * 'name' - The name of the event source to delete.
+-- | Creates a 'DeletePartnerEventSource' value with any optional fields omitted.
 mkDeletePartnerEventSource ::
-  -- | 'account'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'account'
+  Types.Account ->
   DeletePartnerEventSource
-mkDeletePartnerEventSource pAccount_ pName_ =
-  DeletePartnerEventSource' {account = pAccount_, name = pName_}
-
--- | The AWS account ID of the AWS customer that the event source was created for.
---
--- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpesAccount :: Lens.Lens' DeletePartnerEventSource Lude.Text
-dpesAccount = Lens.lens (account :: DeletePartnerEventSource -> Lude.Text) (\s a -> s {account = a} :: DeletePartnerEventSource)
-{-# DEPRECATED dpesAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+mkDeletePartnerEventSource name account =
+  DeletePartnerEventSource' {name, account}
 
 -- | The name of the event source to delete.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpesName :: Lens.Lens' DeletePartnerEventSource Lude.Text
-dpesName = Lens.lens (name :: DeletePartnerEventSource -> Lude.Text) (\s a -> s {name = a} :: DeletePartnerEventSource)
+dpesName :: Lens.Lens' DeletePartnerEventSource Types.Name
+dpesName = Lens.field @"name"
 {-# DEPRECATED dpesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeletePartnerEventSource where
+-- | The AWS account ID of the AWS customer that the event source was created for.
+--
+-- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpesAccount :: Lens.Lens' DeletePartnerEventSource Types.Account
+dpesAccount = Lens.field @"account"
+{-# DEPRECATED dpesAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+
+instance Core.FromJSON DeletePartnerEventSource where
+  toJSON DeletePartnerEventSource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Account" Core..= account)
+          ]
+      )
+
+instance Core.AWSRequest DeletePartnerEventSource where
   type Rs DeletePartnerEventSource = DeletePartnerEventSourceResponse
-  request = Req.postJSON cloudWatchEventsService
-  response = Res.receiveNull DeletePartnerEventSourceResponse'
-
-instance Lude.ToHeaders DeletePartnerEventSource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.DeletePartnerEventSource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeletePartnerEventSource where
-  toJSON DeletePartnerEventSource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Account" Lude..= account),
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath DeletePartnerEventSource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePartnerEventSource where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.DeletePartnerEventSource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeletePartnerEventSourceResponse'
 
 -- | /See:/ 'mkDeletePartnerEventSourceResponse' smart constructor.
 data DeletePartnerEventSourceResponse = DeletePartnerEventSourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePartnerEventSourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePartnerEventSourceResponse' value with any optional fields omitted.
 mkDeletePartnerEventSourceResponse ::
   DeletePartnerEventSourceResponse
 mkDeletePartnerEventSourceResponse =

@@ -17,20 +17,20 @@ module Network.AWS.CostExplorer.Types.Expression
     mkExpression,
 
     -- * Lenses
-    eNot,
     eAnd,
-    eOr,
     eCostCategories,
     eDimensions,
+    eNot,
+    eOr,
     eTags,
   )
 where
 
-import Network.AWS.CostExplorer.Types.CostCategoryValues
-import Network.AWS.CostExplorer.Types.DimensionValues
-import Network.AWS.CostExplorer.Types.TagValues
+import qualified Network.AWS.CostExplorer.Types.CostCategoryValues as Types
+import qualified Network.AWS.CostExplorer.Types.DimensionValues as Types
+import qualified Network.AWS.CostExplorer.Types.TagValues as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use @Expression@ to filter by cost or by usage. There are two patterns:
 --
@@ -48,107 +48,98 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExpression' smart constructor.
 data Expression = Expression'
-  { -- | Return results that don't match a @Dimension@ object.
-    not :: Lude.Maybe Expression,
-    -- | Return results that match both @Dimension@ objects.
-    and :: Lude.Maybe [Expression],
-    -- | Return results that match either @Dimension@ object.
-    or :: Lude.Maybe [Expression],
+  { -- | Return results that match both @Dimension@ objects.
+    and :: Core.Maybe [Expression],
     -- | The filter based on @CostCategory@ values.
-    costCategories :: Lude.Maybe CostCategoryValues,
+    costCategories :: Core.Maybe Types.CostCategoryValues,
     -- | The specific @Dimension@ to use for @Expression@ .
-    dimensions :: Lude.Maybe DimensionValues,
+    dimensions :: Core.Maybe Types.DimensionValues,
+    -- | Return results that don't match a @Dimension@ object.
+    not :: Core.Maybe Expression,
+    -- | Return results that match either @Dimension@ object.
+    or :: Core.Maybe [Expression],
     -- | The specific @Tag@ to use for @Expression@ .
-    tags :: Lude.Maybe TagValues
+    tags :: Core.Maybe Types.TagValues
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Expression' with the minimum fields required to make a request.
---
--- * 'not' - Return results that don't match a @Dimension@ object.
--- * 'and' - Return results that match both @Dimension@ objects.
--- * 'or' - Return results that match either @Dimension@ object.
--- * 'costCategories' - The filter based on @CostCategory@ values.
--- * 'dimensions' - The specific @Dimension@ to use for @Expression@ .
--- * 'tags' - The specific @Tag@ to use for @Expression@ .
+-- | Creates a 'Expression' value with any optional fields omitted.
 mkExpression ::
   Expression
 mkExpression =
   Expression'
-    { not = Lude.Nothing,
-      and = Lude.Nothing,
-      or = Lude.Nothing,
-      costCategories = Lude.Nothing,
-      dimensions = Lude.Nothing,
-      tags = Lude.Nothing
+    { and = Core.Nothing,
+      costCategories = Core.Nothing,
+      dimensions = Core.Nothing,
+      not = Core.Nothing,
+      or = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | Return results that don't match a @Dimension@ object.
---
--- /Note:/ Consider using 'not' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eNot :: Lens.Lens' Expression (Lude.Maybe Expression)
-eNot = Lens.lens (not :: Expression -> Lude.Maybe Expression) (\s a -> s {not = a} :: Expression)
-{-# DEPRECATED eNot "Use generic-lens or generic-optics with 'not' instead." #-}
 
 -- | Return results that match both @Dimension@ objects.
 --
 -- /Note:/ Consider using 'and' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eAnd :: Lens.Lens' Expression (Lude.Maybe [Expression])
-eAnd = Lens.lens (and :: Expression -> Lude.Maybe [Expression]) (\s a -> s {and = a} :: Expression)
+eAnd :: Lens.Lens' Expression (Core.Maybe [Expression])
+eAnd = Lens.field @"and"
 {-# DEPRECATED eAnd "Use generic-lens or generic-optics with 'and' instead." #-}
-
--- | Return results that match either @Dimension@ object.
---
--- /Note:/ Consider using 'or' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eOr :: Lens.Lens' Expression (Lude.Maybe [Expression])
-eOr = Lens.lens (or :: Expression -> Lude.Maybe [Expression]) (\s a -> s {or = a} :: Expression)
-{-# DEPRECATED eOr "Use generic-lens or generic-optics with 'or' instead." #-}
 
 -- | The filter based on @CostCategory@ values.
 --
 -- /Note:/ Consider using 'costCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eCostCategories :: Lens.Lens' Expression (Lude.Maybe CostCategoryValues)
-eCostCategories = Lens.lens (costCategories :: Expression -> Lude.Maybe CostCategoryValues) (\s a -> s {costCategories = a} :: Expression)
+eCostCategories :: Lens.Lens' Expression (Core.Maybe Types.CostCategoryValues)
+eCostCategories = Lens.field @"costCategories"
 {-# DEPRECATED eCostCategories "Use generic-lens or generic-optics with 'costCategories' instead." #-}
 
 -- | The specific @Dimension@ to use for @Expression@ .
 --
 -- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDimensions :: Lens.Lens' Expression (Lude.Maybe DimensionValues)
-eDimensions = Lens.lens (dimensions :: Expression -> Lude.Maybe DimensionValues) (\s a -> s {dimensions = a} :: Expression)
+eDimensions :: Lens.Lens' Expression (Core.Maybe Types.DimensionValues)
+eDimensions = Lens.field @"dimensions"
 {-# DEPRECATED eDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
+
+-- | Return results that don't match a @Dimension@ object.
+--
+-- /Note:/ Consider using 'not' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eNot :: Lens.Lens' Expression (Core.Maybe Expression)
+eNot = Lens.field @"not"
+{-# DEPRECATED eNot "Use generic-lens or generic-optics with 'not' instead." #-}
+
+-- | Return results that match either @Dimension@ object.
+--
+-- /Note:/ Consider using 'or' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOr :: Lens.Lens' Expression (Core.Maybe [Expression])
+eOr = Lens.field @"or"
+{-# DEPRECATED eOr "Use generic-lens or generic-optics with 'or' instead." #-}
 
 -- | The specific @Tag@ to use for @Expression@ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eTags :: Lens.Lens' Expression (Lude.Maybe TagValues)
-eTags = Lens.lens (tags :: Expression -> Lude.Maybe TagValues) (\s a -> s {tags = a} :: Expression)
+eTags :: Lens.Lens' Expression (Core.Maybe Types.TagValues)
+eTags = Lens.field @"tags"
 {-# DEPRECATED eTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON Expression where
-  parseJSON =
-    Lude.withObject
-      "Expression"
-      ( \x ->
-          Expression'
-            Lude.<$> (x Lude..:? "Not")
-            Lude.<*> (x Lude..:? "And" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Or" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CostCategories")
-            Lude.<*> (x Lude..:? "Dimensions")
-            Lude.<*> (x Lude..:? "Tags")
-      )
-
-instance Lude.ToJSON Expression where
-  toJSON Expression' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Not" Lude..=) Lude.<$> not,
-            ("And" Lude..=) Lude.<$> and,
-            ("Or" Lude..=) Lude.<$> or,
-            ("CostCategories" Lude..=) Lude.<$> costCategories,
-            ("Dimensions" Lude..=) Lude.<$> dimensions,
-            ("Tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON Expression where
+  toJSON Expression {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("And" Core..=) Core.<$> and,
+            ("CostCategories" Core..=) Core.<$> costCategories,
+            ("Dimensions" Core..=) Core.<$> dimensions,
+            ("Not" Core..=) Core.<$> not,
+            ("Or" Core..=) Core.<$> or,
+            ("Tags" Core..=) Core.<$> tags
           ]
       )
+
+instance Core.FromJSON Expression where
+  parseJSON =
+    Core.withObject "Expression" Core.$
+      \x ->
+        Expression'
+          Core.<$> (x Core..:? "And")
+          Core.<*> (x Core..:? "CostCategories")
+          Core.<*> (x Core..:? "Dimensions")
+          Core.<*> (x Core..:? "Not")
+          Core.<*> (x Core..:? "Or")
+          Core.<*> (x Core..:? "Tags")

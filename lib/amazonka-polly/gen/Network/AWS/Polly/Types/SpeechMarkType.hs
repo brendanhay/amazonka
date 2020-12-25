@@ -13,56 +13,61 @@
 module Network.AWS.Polly.Types.SpeechMarkType
   ( SpeechMarkType
       ( SpeechMarkType',
-        Sentence,
-        Ssml,
-        Viseme,
-        Word
+        SpeechMarkTypeSentence,
+        SpeechMarkTypeSsml,
+        SpeechMarkTypeViseme,
+        SpeechMarkTypeWord,
+        fromSpeechMarkType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SpeechMarkType = SpeechMarkType' Lude.Text
+newtype SpeechMarkType = SpeechMarkType'
+  { fromSpeechMarkType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Sentence :: SpeechMarkType
-pattern Sentence = SpeechMarkType' "sentence"
+pattern SpeechMarkTypeSentence :: SpeechMarkType
+pattern SpeechMarkTypeSentence = SpeechMarkType' "sentence"
 
-pattern Ssml :: SpeechMarkType
-pattern Ssml = SpeechMarkType' "ssml"
+pattern SpeechMarkTypeSsml :: SpeechMarkType
+pattern SpeechMarkTypeSsml = SpeechMarkType' "ssml"
 
-pattern Viseme :: SpeechMarkType
-pattern Viseme = SpeechMarkType' "viseme"
+pattern SpeechMarkTypeViseme :: SpeechMarkType
+pattern SpeechMarkTypeViseme = SpeechMarkType' "viseme"
 
-pattern Word :: SpeechMarkType
-pattern Word = SpeechMarkType' "word"
+pattern SpeechMarkTypeWord :: SpeechMarkType
+pattern SpeechMarkTypeWord = SpeechMarkType' "word"
 
 {-# COMPLETE
-  Sentence,
-  Ssml,
-  Viseme,
-  Word,
+  SpeechMarkTypeSentence,
+  SpeechMarkTypeSsml,
+  SpeechMarkTypeViseme,
+  SpeechMarkTypeWord,
   SpeechMarkType'
   #-}

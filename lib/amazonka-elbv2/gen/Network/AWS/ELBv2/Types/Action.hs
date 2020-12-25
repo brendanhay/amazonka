@@ -17,25 +17,26 @@ module Network.AWS.ELBv2.Types.Action
     mkAction,
 
     -- * Lenses
-    aFixedResponseConfig,
-    aTargetGroupARN,
-    aForwardConfig,
-    aRedirectConfig,
     aType,
     aAuthenticateCognitoConfig,
-    aOrder,
     aAuthenticateOidcConfig,
+    aFixedResponseConfig,
+    aForwardConfig,
+    aOrder,
+    aRedirectConfig,
+    aTargetGroupArn,
   )
 where
 
-import Network.AWS.ELBv2.Types.ActionTypeEnum
-import Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig
-import Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig
-import Network.AWS.ELBv2.Types.FixedResponseActionConfig
-import Network.AWS.ELBv2.Types.ForwardActionConfig
-import Network.AWS.ELBv2.Types.RedirectActionConfig
+import qualified Network.AWS.ELBv2.Types.ActionTypeEnum as Types
+import qualified Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig as Types
+import qualified Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig as Types
+import qualified Network.AWS.ELBv2.Types.FixedResponseActionConfig as Types
+import qualified Network.AWS.ELBv2.Types.ForwardActionConfig as Types
+import qualified Network.AWS.ELBv2.Types.RedirectActionConfig as Types
+import qualified Network.AWS.ELBv2.Types.TargetGroupArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an action.
 --
@@ -43,129 +44,107 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAction' smart constructor.
 data Action = Action'
-  { -- | [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when @Type@ is @fixed-response@ .
-    fixedResponseConfig :: Lude.Maybe FixedResponseActionConfig,
-    -- | The Amazon Resource Name (ARN) of the target group. Specify only when @Type@ is @forward@ and you want to route to a single target group. To route to one or more target groups, use @ForwardConfig@ instead.
-    targetGroupARN :: Lude.Maybe Lude.Text,
-    -- | Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when @Type@ is @forward@ . If you specify both @ForwardConfig@ and @TargetGroupArn@ , you can specify only one target group using @ForwardConfig@ and it must be the same target group specified in @TargetGroupArn@ .
-    forwardConfig :: Lude.Maybe ForwardActionConfig,
-    -- | [Application Load Balancer] Information for creating a redirect action. Specify only when @Type@ is @redirect@ .
-    redirectConfig :: Lude.Maybe RedirectActionConfig,
-    -- | The type of action.
-    type' :: ActionTypeEnum,
+  { -- | The type of action.
+    type' :: Types.ActionTypeEnum,
     -- | [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when @Type@ is @authenticate-cognito@ .
-    authenticateCognitoConfig :: Lude.Maybe AuthenticateCognitoActionConfig,
-    -- | The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
-    order :: Lude.Maybe Lude.Natural,
+    authenticateCognitoConfig :: Core.Maybe Types.AuthenticateCognitoActionConfig,
     -- | [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when @Type@ is @authenticate-oidc@ .
-    authenticateOidcConfig :: Lude.Maybe AuthenticateOidcActionConfig
+    authenticateOidcConfig :: Core.Maybe Types.AuthenticateOidcActionConfig,
+    -- | [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when @Type@ is @fixed-response@ .
+    fixedResponseConfig :: Core.Maybe Types.FixedResponseActionConfig,
+    -- | Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when @Type@ is @forward@ . If you specify both @ForwardConfig@ and @TargetGroupArn@ , you can specify only one target group using @ForwardConfig@ and it must be the same target group specified in @TargetGroupArn@ .
+    forwardConfig :: Core.Maybe Types.ForwardActionConfig,
+    -- | The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+    order :: Core.Maybe Core.Natural,
+    -- | [Application Load Balancer] Information for creating a redirect action. Specify only when @Type@ is @redirect@ .
+    redirectConfig :: Core.Maybe Types.RedirectActionConfig,
+    -- | The Amazon Resource Name (ARN) of the target group. Specify only when @Type@ is @forward@ and you want to route to a single target group. To route to one or more target groups, use @ForwardConfig@ instead.
+    targetGroupArn :: Core.Maybe Types.TargetGroupArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Action' with the minimum fields required to make a request.
---
--- * 'fixedResponseConfig' - [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when @Type@ is @fixed-response@ .
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group. Specify only when @Type@ is @forward@ and you want to route to a single target group. To route to one or more target groups, use @ForwardConfig@ instead.
--- * 'forwardConfig' - Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when @Type@ is @forward@ . If you specify both @ForwardConfig@ and @TargetGroupArn@ , you can specify only one target group using @ForwardConfig@ and it must be the same target group specified in @TargetGroupArn@ .
--- * 'redirectConfig' - [Application Load Balancer] Information for creating a redirect action. Specify only when @Type@ is @redirect@ .
--- * 'type'' - The type of action.
--- * 'authenticateCognitoConfig' - [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when @Type@ is @authenticate-cognito@ .
--- * 'order' - The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
--- * 'authenticateOidcConfig' - [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when @Type@ is @authenticate-oidc@ .
+-- | Creates a 'Action' value with any optional fields omitted.
 mkAction ::
-  -- | 'type''
-  ActionTypeEnum ->
+  -- | 'type\''
+  Types.ActionTypeEnum ->
   Action
-mkAction pType_ =
+mkAction type' =
   Action'
-    { fixedResponseConfig = Lude.Nothing,
-      targetGroupARN = Lude.Nothing,
-      forwardConfig = Lude.Nothing,
-      redirectConfig = Lude.Nothing,
-      type' = pType_,
-      authenticateCognitoConfig = Lude.Nothing,
-      order = Lude.Nothing,
-      authenticateOidcConfig = Lude.Nothing
+    { type',
+      authenticateCognitoConfig = Core.Nothing,
+      authenticateOidcConfig = Core.Nothing,
+      fixedResponseConfig = Core.Nothing,
+      forwardConfig = Core.Nothing,
+      order = Core.Nothing,
+      redirectConfig = Core.Nothing,
+      targetGroupArn = Core.Nothing
     }
-
--- | [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when @Type@ is @fixed-response@ .
---
--- /Note:/ Consider using 'fixedResponseConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aFixedResponseConfig :: Lens.Lens' Action (Lude.Maybe FixedResponseActionConfig)
-aFixedResponseConfig = Lens.lens (fixedResponseConfig :: Action -> Lude.Maybe FixedResponseActionConfig) (\s a -> s {fixedResponseConfig = a} :: Action)
-{-# DEPRECATED aFixedResponseConfig "Use generic-lens or generic-optics with 'fixedResponseConfig' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the target group. Specify only when @Type@ is @forward@ and you want to route to a single target group. To route to one or more target groups, use @ForwardConfig@ instead.
---
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aTargetGroupARN :: Lens.Lens' Action (Lude.Maybe Lude.Text)
-aTargetGroupARN = Lens.lens (targetGroupARN :: Action -> Lude.Maybe Lude.Text) (\s a -> s {targetGroupARN = a} :: Action)
-{-# DEPRECATED aTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
-
--- | Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when @Type@ is @forward@ . If you specify both @ForwardConfig@ and @TargetGroupArn@ , you can specify only one target group using @ForwardConfig@ and it must be the same target group specified in @TargetGroupArn@ .
---
--- /Note:/ Consider using 'forwardConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aForwardConfig :: Lens.Lens' Action (Lude.Maybe ForwardActionConfig)
-aForwardConfig = Lens.lens (forwardConfig :: Action -> Lude.Maybe ForwardActionConfig) (\s a -> s {forwardConfig = a} :: Action)
-{-# DEPRECATED aForwardConfig "Use generic-lens or generic-optics with 'forwardConfig' instead." #-}
-
--- | [Application Load Balancer] Information for creating a redirect action. Specify only when @Type@ is @redirect@ .
---
--- /Note:/ Consider using 'redirectConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aRedirectConfig :: Lens.Lens' Action (Lude.Maybe RedirectActionConfig)
-aRedirectConfig = Lens.lens (redirectConfig :: Action -> Lude.Maybe RedirectActionConfig) (\s a -> s {redirectConfig = a} :: Action)
-{-# DEPRECATED aRedirectConfig "Use generic-lens or generic-optics with 'redirectConfig' instead." #-}
 
 -- | The type of action.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aType :: Lens.Lens' Action ActionTypeEnum
-aType = Lens.lens (type' :: Action -> ActionTypeEnum) (\s a -> s {type' = a} :: Action)
+aType :: Lens.Lens' Action Types.ActionTypeEnum
+aType = Lens.field @"type'"
 {-# DEPRECATED aType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when @Type@ is @authenticate-cognito@ .
 --
 -- /Note:/ Consider using 'authenticateCognitoConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAuthenticateCognitoConfig :: Lens.Lens' Action (Lude.Maybe AuthenticateCognitoActionConfig)
-aAuthenticateCognitoConfig = Lens.lens (authenticateCognitoConfig :: Action -> Lude.Maybe AuthenticateCognitoActionConfig) (\s a -> s {authenticateCognitoConfig = a} :: Action)
+aAuthenticateCognitoConfig :: Lens.Lens' Action (Core.Maybe Types.AuthenticateCognitoActionConfig)
+aAuthenticateCognitoConfig = Lens.field @"authenticateCognitoConfig"
 {-# DEPRECATED aAuthenticateCognitoConfig "Use generic-lens or generic-optics with 'authenticateCognitoConfig' instead." #-}
-
--- | The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
---
--- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aOrder :: Lens.Lens' Action (Lude.Maybe Lude.Natural)
-aOrder = Lens.lens (order :: Action -> Lude.Maybe Lude.Natural) (\s a -> s {order = a} :: Action)
-{-# DEPRECATED aOrder "Use generic-lens or generic-optics with 'order' instead." #-}
 
 -- | [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when @Type@ is @authenticate-oidc@ .
 --
 -- /Note:/ Consider using 'authenticateOidcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAuthenticateOidcConfig :: Lens.Lens' Action (Lude.Maybe AuthenticateOidcActionConfig)
-aAuthenticateOidcConfig = Lens.lens (authenticateOidcConfig :: Action -> Lude.Maybe AuthenticateOidcActionConfig) (\s a -> s {authenticateOidcConfig = a} :: Action)
+aAuthenticateOidcConfig :: Lens.Lens' Action (Core.Maybe Types.AuthenticateOidcActionConfig)
+aAuthenticateOidcConfig = Lens.field @"authenticateOidcConfig"
 {-# DEPRECATED aAuthenticateOidcConfig "Use generic-lens or generic-optics with 'authenticateOidcConfig' instead." #-}
 
-instance Lude.FromXML Action where
+-- | [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when @Type@ is @fixed-response@ .
+--
+-- /Note:/ Consider using 'fixedResponseConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aFixedResponseConfig :: Lens.Lens' Action (Core.Maybe Types.FixedResponseActionConfig)
+aFixedResponseConfig = Lens.field @"fixedResponseConfig"
+{-# DEPRECATED aFixedResponseConfig "Use generic-lens or generic-optics with 'fixedResponseConfig' instead." #-}
+
+-- | Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when @Type@ is @forward@ . If you specify both @ForwardConfig@ and @TargetGroupArn@ , you can specify only one target group using @ForwardConfig@ and it must be the same target group specified in @TargetGroupArn@ .
+--
+-- /Note:/ Consider using 'forwardConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aForwardConfig :: Lens.Lens' Action (Core.Maybe Types.ForwardActionConfig)
+aForwardConfig = Lens.field @"forwardConfig"
+{-# DEPRECATED aForwardConfig "Use generic-lens or generic-optics with 'forwardConfig' instead." #-}
+
+-- | The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+--
+-- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aOrder :: Lens.Lens' Action (Core.Maybe Core.Natural)
+aOrder = Lens.field @"order"
+{-# DEPRECATED aOrder "Use generic-lens or generic-optics with 'order' instead." #-}
+
+-- | [Application Load Balancer] Information for creating a redirect action. Specify only when @Type@ is @redirect@ .
+--
+-- /Note:/ Consider using 'redirectConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRedirectConfig :: Lens.Lens' Action (Core.Maybe Types.RedirectActionConfig)
+aRedirectConfig = Lens.field @"redirectConfig"
+{-# DEPRECATED aRedirectConfig "Use generic-lens or generic-optics with 'redirectConfig' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the target group. Specify only when @Type@ is @forward@ and you want to route to a single target group. To route to one or more target groups, use @ForwardConfig@ instead.
+--
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aTargetGroupArn :: Lens.Lens' Action (Core.Maybe Types.TargetGroupArn)
+aTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED aTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
+
+instance Core.FromXML Action where
   parseXML x =
     Action'
-      Lude.<$> (x Lude..@? "FixedResponseConfig")
-      Lude.<*> (x Lude..@? "TargetGroupArn")
-      Lude.<*> (x Lude..@? "ForwardConfig")
-      Lude.<*> (x Lude..@? "RedirectConfig")
-      Lude.<*> (x Lude..@ "Type")
-      Lude.<*> (x Lude..@? "AuthenticateCognitoConfig")
-      Lude.<*> (x Lude..@? "Order")
-      Lude.<*> (x Lude..@? "AuthenticateOidcConfig")
-
-instance Lude.ToQuery Action where
-  toQuery Action' {..} =
-    Lude.mconcat
-      [ "FixedResponseConfig" Lude.=: fixedResponseConfig,
-        "TargetGroupArn" Lude.=: targetGroupARN,
-        "ForwardConfig" Lude.=: forwardConfig,
-        "RedirectConfig" Lude.=: redirectConfig,
-        "Type" Lude.=: type',
-        "AuthenticateCognitoConfig" Lude.=: authenticateCognitoConfig,
-        "Order" Lude.=: order,
-        "AuthenticateOidcConfig" Lude.=: authenticateOidcConfig
-      ]
+      Core.<$> (x Core..@ "Type")
+      Core.<*> (x Core..@? "AuthenticateCognitoConfig")
+      Core.<*> (x Core..@? "AuthenticateOidcConfig")
+      Core.<*> (x Core..@? "FixedResponseConfig")
+      Core.<*> (x Core..@? "ForwardConfig")
+      Core.<*> (x Core..@? "Order")
+      Core.<*> (x Core..@? "RedirectConfig")
+      Core.<*> (x Core..@? "TargetGroupArn")

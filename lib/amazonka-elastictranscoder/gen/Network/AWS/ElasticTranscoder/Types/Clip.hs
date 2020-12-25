@@ -21,41 +21,38 @@ module Network.AWS.ElasticTranscoder.Types.Clip
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types.TimeSpan
+import qualified Network.AWS.ElasticTranscoder.Types.TimeSpan as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.
 --
 -- /See:/ 'mkClip' smart constructor.
 newtype Clip = Clip'
   { -- | Settings that determine when a clip begins and how long it lasts.
-    timeSpan :: Lude.Maybe TimeSpan
+    timeSpan :: Core.Maybe Types.TimeSpan
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Clip' with the minimum fields required to make a request.
---
--- * 'timeSpan' - Settings that determine when a clip begins and how long it lasts.
+-- | Creates a 'Clip' value with any optional fields omitted.
 mkClip ::
   Clip
-mkClip = Clip' {timeSpan = Lude.Nothing}
+mkClip = Clip' {timeSpan = Core.Nothing}
 
 -- | Settings that determine when a clip begins and how long it lasts.
 --
 -- /Note:/ Consider using 'timeSpan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTimeSpan :: Lens.Lens' Clip (Lude.Maybe TimeSpan)
-cTimeSpan = Lens.lens (timeSpan :: Clip -> Lude.Maybe TimeSpan) (\s a -> s {timeSpan = a} :: Clip)
+cTimeSpan :: Lens.Lens' Clip (Core.Maybe Types.TimeSpan)
+cTimeSpan = Lens.field @"timeSpan"
 {-# DEPRECATED cTimeSpan "Use generic-lens or generic-optics with 'timeSpan' instead." #-}
 
-instance Lude.FromJSON Clip where
-  parseJSON =
-    Lude.withObject
-      "Clip"
-      (\x -> Clip' Lude.<$> (x Lude..:? "TimeSpan"))
+instance Core.FromJSON Clip where
+  toJSON Clip {..} =
+    Core.object
+      (Core.catMaybes [("TimeSpan" Core..=) Core.<$> timeSpan])
 
-instance Lude.ToJSON Clip where
-  toJSON Clip' {..} =
-    Lude.object
-      (Lude.catMaybes [("TimeSpan" Lude..=) Lude.<$> timeSpan])
+instance Core.FromJSON Clip where
+  parseJSON =
+    Core.withObject "Clip" Core.$
+      \x -> Clip' Core.<$> (x Core..:? "TimeSpan")

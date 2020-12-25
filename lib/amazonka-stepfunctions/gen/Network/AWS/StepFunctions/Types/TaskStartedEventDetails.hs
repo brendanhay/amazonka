@@ -17,61 +17,55 @@ module Network.AWS.StepFunctions.Types.TaskStartedEventDetails
     mkTaskStartedEventDetails,
 
     -- * Lenses
-    tsedResourceType,
-    tsedResource,
+    tsedsResourceType,
+    tsedsResource,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.Resource as Types
+import qualified Network.AWS.StepFunctions.Types.ResourceType as Types
 
 -- | Contains details about the start of a task during an execution.
 --
 -- /See:/ 'mkTaskStartedEventDetails' smart constructor.
 data TaskStartedEventDetails = TaskStartedEventDetails'
   { -- | The action of the resource called by a task state.
-    resourceType :: Lude.Text,
+    resourceType :: Types.ResourceType,
     -- | The service name of the resource in a task state.
-    resource :: Lude.Text
+    resource :: Types.Resource
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskStartedEventDetails' with the minimum fields required to make a request.
---
--- * 'resourceType' - The action of the resource called by a task state.
--- * 'resource' - The service name of the resource in a task state.
+-- | Creates a 'TaskStartedEventDetails' value with any optional fields omitted.
 mkTaskStartedEventDetails ::
   -- | 'resourceType'
-  Lude.Text ->
+  Types.ResourceType ->
   -- | 'resource'
-  Lude.Text ->
+  Types.Resource ->
   TaskStartedEventDetails
-mkTaskStartedEventDetails pResourceType_ pResource_ =
-  TaskStartedEventDetails'
-    { resourceType = pResourceType_,
-      resource = pResource_
-    }
+mkTaskStartedEventDetails resourceType resource =
+  TaskStartedEventDetails' {resourceType, resource}
 
 -- | The action of the resource called by a task state.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsedResourceType :: Lens.Lens' TaskStartedEventDetails Lude.Text
-tsedResourceType = Lens.lens (resourceType :: TaskStartedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskStartedEventDetails)
-{-# DEPRECATED tsedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+tsedsResourceType :: Lens.Lens' TaskStartedEventDetails Types.ResourceType
+tsedsResourceType = Lens.field @"resourceType"
+{-# DEPRECATED tsedsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The service name of the resource in a task state.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsedResource :: Lens.Lens' TaskStartedEventDetails Lude.Text
-tsedResource = Lens.lens (resource :: TaskStartedEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskStartedEventDetails)
-{-# DEPRECATED tsedResource "Use generic-lens or generic-optics with 'resource' instead." #-}
+tsedsResource :: Lens.Lens' TaskStartedEventDetails Types.Resource
+tsedsResource = Lens.field @"resource"
+{-# DEPRECATED tsedsResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.FromJSON TaskStartedEventDetails where
+instance Core.FromJSON TaskStartedEventDetails where
   parseJSON =
-    Lude.withObject
-      "TaskStartedEventDetails"
-      ( \x ->
-          TaskStartedEventDetails'
-            Lude.<$> (x Lude..: "resourceType") Lude.<*> (x Lude..: "resource")
-      )
+    Core.withObject "TaskStartedEventDetails" Core.$
+      \x ->
+        TaskStartedEventDetails'
+          Core.<$> (x Core..: "resourceType") Core.<*> (x Core..: "resource")

@@ -354,7 +354,7 @@ responseListPolicies =
   res
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy ListPolicies)
 
 responseGetComplianceDetail :: GetComplianceDetailResponse -> TestTree
@@ -362,7 +362,7 @@ responseGetComplianceDetail =
   res
     "GetComplianceDetailResponse"
     "fixture/GetComplianceDetailResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy GetComplianceDetail)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -370,7 +370,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetNotificationChannel :: GetNotificationChannelResponse -> TestTree
@@ -378,7 +378,7 @@ responseGetNotificationChannel =
   res
     "GetNotificationChannelResponse"
     "fixture/GetNotificationChannelResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy GetNotificationChannel)
 
 responseGetAdminAccount :: GetAdminAccountResponse -> TestTree
@@ -386,7 +386,7 @@ responseGetAdminAccount =
   res
     "GetAdminAccountResponse"
     "fixture/GetAdminAccountResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy GetAdminAccount)
 
 responseListComplianceStatus :: ListComplianceStatusResponse -> TestTree
@@ -394,7 +394,7 @@ responseListComplianceStatus =
   res
     "ListComplianceStatusResponse"
     "fixture/ListComplianceStatusResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy ListComplianceStatus)
 
 responseGetAppsList :: GetAppsListResponse -> TestTree
@@ -402,7 +402,7 @@ responseGetAppsList =
   res
     "GetAppsListResponse"
     "fixture/GetAppsListResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy GetAppsList)
 
 responsePutPolicy :: PutPolicyResponse -> TestTree
@@ -410,7 +410,7 @@ responsePutPolicy =
   res
     "PutPolicyResponse"
     "fixture/PutPolicyResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy PutPolicy)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
@@ -418,7 +418,7 @@ responseDeletePolicy =
   res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy DeletePolicy)
 
 responseDisassociateAdminAccount :: DisassociateAdminAccountResponse -> TestTree
@@ -426,7 +426,7 @@ responseDisassociateAdminAccount =
   res
     "DisassociateAdminAccountResponse"
     "fixture/DisassociateAdminAccountResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateAdminAccount)
 
 responsePutNotificationChannel :: PutNotificationChannelResponse -> TestTree
@@ -434,7 +434,7 @@ responsePutNotificationChannel =
   res
     "PutNotificationChannelResponse"
     "fixture/PutNotificationChannelResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy PutNotificationChannel)
 
 responseDeleteNotificationChannel :: DeleteNotificationChannelResponse -> TestTree
@@ -442,7 +442,7 @@ responseDeleteNotificationChannel =
   res
     "DeleteNotificationChannelResponse"
     "fixture/DeleteNotificationChannelResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNotificationChannel)
 
 responseAssociateAdminAccount :: AssociateAdminAccountResponse -> TestTree
@@ -450,7 +450,7 @@ responseAssociateAdminAccount =
   res
     "AssociateAdminAccountResponse"
     "fixture/AssociateAdminAccountResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy AssociateAdminAccount)
 
 responseGetViolationDetails :: GetViolationDetailsResponse -> TestTree
@@ -458,7 +458,7 @@ responseGetViolationDetails =
   res
     "GetViolationDetailsResponse"
     "fixture/GetViolationDetailsResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy GetViolationDetails)
 
 responseListMemberAccounts :: ListMemberAccountsResponse -> TestTree
@@ -466,7 +466,7 @@ responseListMemberAccounts =
   res
     "ListMemberAccountsResponse"
     "fixture/ListMemberAccountsResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy ListMemberAccounts)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -474,7 +474,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -482,7 +482,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDeleteProtocolsList :: DeleteProtocolsListResponse -> TestTree
@@ -490,7 +490,7 @@ responseDeleteProtocolsList =
   res
     "DeleteProtocolsListResponse"
     "fixture/DeleteProtocolsListResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProtocolsList)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
@@ -498,7 +498,7 @@ responseGetPolicy =
   res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy GetPolicy)
 
 responseListProtocolsLists :: ListProtocolsListsResponse -> TestTree
@@ -506,7 +506,7 @@ responseListProtocolsLists =
   res
     "ListProtocolsListsResponse"
     "fixture/ListProtocolsListsResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy ListProtocolsLists)
 
 responsePutProtocolsList :: PutProtocolsListResponse -> TestTree
@@ -514,7 +514,7 @@ responsePutProtocolsList =
   res
     "PutProtocolsListResponse"
     "fixture/PutProtocolsListResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy PutProtocolsList)
 
 responsePutAppsList :: PutAppsListResponse -> TestTree
@@ -522,7 +522,7 @@ responsePutAppsList =
   res
     "PutAppsListResponse"
     "fixture/PutAppsListResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy PutAppsList)
 
 responseDeleteAppsList :: DeleteAppsListResponse -> TestTree
@@ -530,7 +530,7 @@ responseDeleteAppsList =
   res
     "DeleteAppsListResponse"
     "fixture/DeleteAppsListResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAppsList)
 
 responseListAppsLists :: ListAppsListsResponse -> TestTree
@@ -538,7 +538,7 @@ responseListAppsLists =
   res
     "ListAppsListsResponse"
     "fixture/ListAppsListsResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy ListAppsLists)
 
 responseGetProtocolsList :: GetProtocolsListResponse -> TestTree
@@ -546,7 +546,7 @@ responseGetProtocolsList =
   res
     "GetProtocolsListResponse"
     "fixture/GetProtocolsListResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy GetProtocolsList)
 
 responseGetProtectionStatus :: GetProtectionStatusResponse -> TestTree
@@ -554,5 +554,5 @@ responseGetProtectionStatus =
   res
     "GetProtectionStatusResponse"
     "fixture/GetProtectionStatusResponse.proto"
-    fmsService
+    mkServiceConfig
     (Proxy :: Proxy GetProtectionStatus)

@@ -22,157 +22,147 @@ module Network.AWS.Snowball.ListCompatibleImages
     mkListCompatibleImages,
 
     -- ** Request lenses
-    lciNextToken,
     lciMaxResults,
+    lciNextToken,
 
     -- * Destructuring the response
     ListCompatibleImagesResponse (..),
     mkListCompatibleImagesResponse,
 
     -- ** Response lenses
-    lcirsCompatibleImages,
-    lcirsNextToken,
-    lcirsResponseStatus,
+    lcirrsCompatibleImages,
+    lcirrsNextToken,
+    lcirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkListCompatibleImages' smart constructor.
 data ListCompatibleImages = ListCompatibleImages'
-  { -- | HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for @NextToken@ as the starting point for your list of returned images.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for @NextToken@ as the starting point for your list of returned images.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListCompatibleImages' with the minimum fields required to make a request.
---
--- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for @NextToken@ as the starting point for your list of returned images.
--- * 'maxResults' - The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.
+-- | Creates a 'ListCompatibleImages' value with any optional fields omitted.
 mkListCompatibleImages ::
   ListCompatibleImages
 mkListCompatibleImages =
   ListCompatibleImages'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for @NextToken@ as the starting point for your list of returned images.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lciNextToken :: Lens.Lens' ListCompatibleImages (Lude.Maybe Lude.Text)
-lciNextToken = Lens.lens (nextToken :: ListCompatibleImages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCompatibleImages)
-{-# DEPRECATED lciNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lciMaxResults :: Lens.Lens' ListCompatibleImages (Lude.Maybe Lude.Natural)
-lciMaxResults = Lens.lens (maxResults :: ListCompatibleImages -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCompatibleImages)
+lciMaxResults :: Lens.Lens' ListCompatibleImages (Core.Maybe Core.Natural)
+lciMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lciMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListCompatibleImages where
-  page rq rs
-    | Page.stop (rs Lens.^. lcirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcirsCompatibleImages) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lciNextToken Lens..~ rs Lens.^. lcirsNextToken
+-- | HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for @NextToken@ as the starting point for your list of returned images.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciNextToken :: Lens.Lens' ListCompatibleImages (Core.Maybe Types.String)
+lciNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lciNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListCompatibleImages where
+instance Core.FromJSON ListCompatibleImages where
+  toJSON ListCompatibleImages {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListCompatibleImages where
   type Rs ListCompatibleImages = ListCompatibleImagesResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSIESnowballJobManagementService.ListCompatibleImages"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListCompatibleImagesResponse'
-            Lude.<$> (x Lude..?> "CompatibleImages" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CompatibleImages")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListCompatibleImages where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.ListCompatibleImages" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListCompatibleImages where
-  toJSON ListCompatibleImages' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListCompatibleImages where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListCompatibleImages where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListCompatibleImages where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"compatibleImages" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListCompatibleImagesResponse' smart constructor.
 data ListCompatibleImagesResponse = ListCompatibleImagesResponse'
   { -- | A JSON-formatted object that describes a compatible AMI, including the ID and name for a Snow device AMI.
-    compatibleImages :: Lude.Maybe [CompatibleImage],
+    compatibleImages :: Core.Maybe [Types.CompatibleImage],
     -- | Because HTTP requests are stateless, this is the starting point for your next list of returned images.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListCompatibleImagesResponse' with the minimum fields required to make a request.
---
--- * 'compatibleImages' - A JSON-formatted object that describes a compatible AMI, including the ID and name for a Snow device AMI.
--- * 'nextToken' - Because HTTP requests are stateless, this is the starting point for your next list of returned images.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListCompatibleImagesResponse' value with any optional fields omitted.
 mkListCompatibleImagesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListCompatibleImagesResponse
-mkListCompatibleImagesResponse pResponseStatus_ =
+mkListCompatibleImagesResponse responseStatus =
   ListCompatibleImagesResponse'
-    { compatibleImages = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { compatibleImages = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A JSON-formatted object that describes a compatible AMI, including the ID and name for a Snow device AMI.
 --
 -- /Note:/ Consider using 'compatibleImages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcirsCompatibleImages :: Lens.Lens' ListCompatibleImagesResponse (Lude.Maybe [CompatibleImage])
-lcirsCompatibleImages = Lens.lens (compatibleImages :: ListCompatibleImagesResponse -> Lude.Maybe [CompatibleImage]) (\s a -> s {compatibleImages = a} :: ListCompatibleImagesResponse)
-{-# DEPRECATED lcirsCompatibleImages "Use generic-lens or generic-optics with 'compatibleImages' instead." #-}
+lcirrsCompatibleImages :: Lens.Lens' ListCompatibleImagesResponse (Core.Maybe [Types.CompatibleImage])
+lcirrsCompatibleImages = Lens.field @"compatibleImages"
+{-# DEPRECATED lcirrsCompatibleImages "Use generic-lens or generic-optics with 'compatibleImages' instead." #-}
 
 -- | Because HTTP requests are stateless, this is the starting point for your next list of returned images.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcirsNextToken :: Lens.Lens' ListCompatibleImagesResponse (Lude.Maybe Lude.Text)
-lcirsNextToken = Lens.lens (nextToken :: ListCompatibleImagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCompatibleImagesResponse)
-{-# DEPRECATED lcirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcirrsNextToken :: Lens.Lens' ListCompatibleImagesResponse (Core.Maybe Types.String)
+lcirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcirsResponseStatus :: Lens.Lens' ListCompatibleImagesResponse Lude.Int
-lcirsResponseStatus = Lens.lens (responseStatus :: ListCompatibleImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCompatibleImagesResponse)
-{-# DEPRECATED lcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcirrsResponseStatus :: Lens.Lens' ListCompatibleImagesResponse Core.Int
+lcirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

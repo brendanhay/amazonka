@@ -17,68 +17,63 @@ module Network.AWS.Config.Types.RemediationParameterValue
     mkRemediationParameterValue,
 
     -- * Lenses
-    rpvStaticValue,
     rpvResourceValue,
+    rpvStaticValue,
   )
 where
 
-import Network.AWS.Config.Types.ResourceValue
-import Network.AWS.Config.Types.StaticValue
+import qualified Network.AWS.Config.Types.ResourceValue as Types
+import qualified Network.AWS.Config.Types.StaticValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
 --
 -- /See:/ 'mkRemediationParameterValue' smart constructor.
 data RemediationParameterValue = RemediationParameterValue'
-  { -- | The value is static and does not change at run-time.
-    staticValue :: Lude.Maybe StaticValue,
-    -- | The value is dynamic and changes at run-time.
-    resourceValue :: Lude.Maybe ResourceValue
+  { -- | The value is dynamic and changes at run-time.
+    resourceValue :: Core.Maybe Types.ResourceValue,
+    -- | The value is static and does not change at run-time.
+    staticValue :: Core.Maybe Types.StaticValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemediationParameterValue' with the minimum fields required to make a request.
---
--- * 'staticValue' - The value is static and does not change at run-time.
--- * 'resourceValue' - The value is dynamic and changes at run-time.
+-- | Creates a 'RemediationParameterValue' value with any optional fields omitted.
 mkRemediationParameterValue ::
   RemediationParameterValue
 mkRemediationParameterValue =
   RemediationParameterValue'
-    { staticValue = Lude.Nothing,
-      resourceValue = Lude.Nothing
+    { resourceValue = Core.Nothing,
+      staticValue = Core.Nothing
     }
-
--- | The value is static and does not change at run-time.
---
--- /Note:/ Consider using 'staticValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpvStaticValue :: Lens.Lens' RemediationParameterValue (Lude.Maybe StaticValue)
-rpvStaticValue = Lens.lens (staticValue :: RemediationParameterValue -> Lude.Maybe StaticValue) (\s a -> s {staticValue = a} :: RemediationParameterValue)
-{-# DEPRECATED rpvStaticValue "Use generic-lens or generic-optics with 'staticValue' instead." #-}
 
 -- | The value is dynamic and changes at run-time.
 --
 -- /Note:/ Consider using 'resourceValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpvResourceValue :: Lens.Lens' RemediationParameterValue (Lude.Maybe ResourceValue)
-rpvResourceValue = Lens.lens (resourceValue :: RemediationParameterValue -> Lude.Maybe ResourceValue) (\s a -> s {resourceValue = a} :: RemediationParameterValue)
+rpvResourceValue :: Lens.Lens' RemediationParameterValue (Core.Maybe Types.ResourceValue)
+rpvResourceValue = Lens.field @"resourceValue"
 {-# DEPRECATED rpvResourceValue "Use generic-lens or generic-optics with 'resourceValue' instead." #-}
 
-instance Lude.FromJSON RemediationParameterValue where
-  parseJSON =
-    Lude.withObject
-      "RemediationParameterValue"
-      ( \x ->
-          RemediationParameterValue'
-            Lude.<$> (x Lude..:? "StaticValue") Lude.<*> (x Lude..:? "ResourceValue")
-      )
+-- | The value is static and does not change at run-time.
+--
+-- /Note:/ Consider using 'staticValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpvStaticValue :: Lens.Lens' RemediationParameterValue (Core.Maybe Types.StaticValue)
+rpvStaticValue = Lens.field @"staticValue"
+{-# DEPRECATED rpvStaticValue "Use generic-lens or generic-optics with 'staticValue' instead." #-}
 
-instance Lude.ToJSON RemediationParameterValue where
-  toJSON RemediationParameterValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StaticValue" Lude..=) Lude.<$> staticValue,
-            ("ResourceValue" Lude..=) Lude.<$> resourceValue
+instance Core.FromJSON RemediationParameterValue where
+  toJSON RemediationParameterValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceValue" Core..=) Core.<$> resourceValue,
+            ("StaticValue" Core..=) Core.<$> staticValue
           ]
       )
+
+instance Core.FromJSON RemediationParameterValue where
+  parseJSON =
+    Core.withObject "RemediationParameterValue" Core.$
+      \x ->
+        RemediationParameterValue'
+          Core.<$> (x Core..:? "ResourceValue") Core.<*> (x Core..:? "StaticValue")

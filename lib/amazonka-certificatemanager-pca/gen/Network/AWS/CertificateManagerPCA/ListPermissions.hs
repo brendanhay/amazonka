@@ -36,171 +36,159 @@ module Network.AWS.CertificateManagerPCA.ListPermissions
     mkListPermissions,
 
     -- ** Request lenses
-    lpNextToken,
+    lpCertificateAuthorityArn,
     lpMaxResults,
-    lpCertificateAuthorityARN,
+    lpNextToken,
 
     -- * Destructuring the response
     ListPermissionsResponse (..),
     mkListPermissionsResponse,
 
     -- ** Response lenses
-    lprsNextToken,
-    lprsPermissions,
-    lprsResponseStatus,
+    lprrsNextToken,
+    lprrsPermissions,
+    lprrsResponseStatus,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListPermissions' smart constructor.
 data ListPermissions = ListPermissions'
-  { -- | When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must be of the form: @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ You can get a private CA's ARN by running the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
+    certificateAuthorityArn :: Types.Arn,
     -- | When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must be of the form: @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ You can get a private CA's ARN by running the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
-    certificateAuthorityARN :: Lude.Text
+    maxResults :: Core.Maybe Core.Natural,
+    -- | When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPermissions' with the minimum fields required to make a request.
---
--- * 'nextToken' - When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
--- * 'maxResults' - When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
--- * 'certificateAuthorityARN' - The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must be of the form: @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ You can get a private CA's ARN by running the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
+-- | Creates a 'ListPermissions' value with any optional fields omitted.
 mkListPermissions ::
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
+  -- | 'certificateAuthorityArn'
+  Types.Arn ->
   ListPermissions
-mkListPermissions pCertificateAuthorityARN_ =
+mkListPermissions certificateAuthorityArn =
   ListPermissions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      certificateAuthorityARN = pCertificateAuthorityARN_
+    { certificateAuthorityArn,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
--- | When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
+-- | The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must be of the form: @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ You can get a private CA's ARN by running the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpNextToken :: Lens.Lens' ListPermissions (Lude.Maybe Lude.Text)
-lpNextToken = Lens.lens (nextToken :: ListPermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPermissions)
-{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpCertificateAuthorityArn :: Lens.Lens' ListPermissions Types.Arn
+lpCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED lpCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
 -- | When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpMaxResults :: Lens.Lens' ListPermissions (Lude.Maybe Lude.Natural)
-lpMaxResults = Lens.lens (maxResults :: ListPermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPermissions)
+lpMaxResults :: Lens.Lens' ListPermissions (Core.Maybe Core.Natural)
+lpMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must be of the form: @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ You can get a private CA's ARN by running the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
+-- | When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
 --
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpCertificateAuthorityARN :: Lens.Lens' ListPermissions Lude.Text
-lpCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: ListPermissions -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: ListPermissions)
-{-# DEPRECATED lpCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' ListPermissions (Core.Maybe Types.NextToken)
+lpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListPermissions where
-  page rq rs
-    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lprsPermissions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
+instance Core.FromJSON ListPermissions where
+  toJSON ListPermissions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateAuthorityArn" Core..= certificateAuthorityArn),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest ListPermissions where
+instance Core.AWSRequest ListPermissions where
   type Rs ListPermissions = ListPermissionsResponse
-  request = Req.postJSON certificateManagerPCAService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ACMPrivateCA.ListPermissions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListPermissionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Permissions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Permissions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListPermissions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.ListPermissions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListPermissions where
-  toJSON ListPermissions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
-          ]
-      )
-
-instance Lude.ToPath ListPermissions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListPermissions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListPermissions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"permissions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListPermissionsResponse' smart constructor.
 data ListPermissionsResponse = ListPermissionsResponse'
   { -- | When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Summary information about each permission assigned by the specified private CA, including the action enabled, the policy provided, and the time of creation.
-    permissions :: Lude.Maybe [Permission],
+    permissions :: Core.Maybe [Types.Permission],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListPermissionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
--- * 'permissions' - Summary information about each permission assigned by the specified private CA, including the action enabled, the policy provided, and the time of creation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPermissionsResponse' value with any optional fields omitted.
 mkListPermissionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPermissionsResponse
-mkListPermissionsResponse pResponseStatus_ =
+mkListPermissionsResponse responseStatus =
   ListPermissionsResponse'
-    { nextToken = Lude.Nothing,
-      permissions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      permissions = Core.Nothing,
+      responseStatus
     }
 
 -- | When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsNextToken :: Lens.Lens' ListPermissionsResponse (Lude.Maybe Lude.Text)
-lprsNextToken = Lens.lens (nextToken :: ListPermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPermissionsResponse)
-{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lprrsNextToken :: Lens.Lens' ListPermissionsResponse (Core.Maybe Types.NextToken)
+lprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Summary information about each permission assigned by the specified private CA, including the action enabled, the policy provided, and the time of creation.
 --
 -- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsPermissions :: Lens.Lens' ListPermissionsResponse (Lude.Maybe [Permission])
-lprsPermissions = Lens.lens (permissions :: ListPermissionsResponse -> Lude.Maybe [Permission]) (\s a -> s {permissions = a} :: ListPermissionsResponse)
-{-# DEPRECATED lprsPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
+lprrsPermissions :: Lens.Lens' ListPermissionsResponse (Core.Maybe [Types.Permission])
+lprrsPermissions = Lens.field @"permissions"
+{-# DEPRECATED lprrsPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsResponseStatus :: Lens.Lens' ListPermissionsResponse Lude.Int
-lprsResponseStatus = Lens.lens (responseStatus :: ListPermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPermissionsResponse)
-{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lprrsResponseStatus :: Lens.Lens' ListPermissionsResponse Core.Int
+lprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

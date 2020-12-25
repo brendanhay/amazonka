@@ -13,71 +13,73 @@
 module Network.AWS.DynamoDB.Types.TableStatus
   ( TableStatus
       ( TableStatus',
-        TSCreating,
-        TSUpdating,
-        TSDeleting,
-        TSActive,
-        TSInaccessibleEncryptionCredentials,
-        TSArchiving,
-        TSArchived
+        TableStatusCreating,
+        TableStatusUpdating,
+        TableStatusDeleting,
+        TableStatusActive,
+        TableStatusInaccessibleEncryptionCredentials,
+        TableStatusArchiving,
+        TableStatusArchived,
+        fromTableStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TableStatus = TableStatus' Lude.Text
+newtype TableStatus = TableStatus' {fromTableStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TSCreating :: TableStatus
-pattern TSCreating = TableStatus' "CREATING"
+pattern TableStatusCreating :: TableStatus
+pattern TableStatusCreating = TableStatus' "CREATING"
 
-pattern TSUpdating :: TableStatus
-pattern TSUpdating = TableStatus' "UPDATING"
+pattern TableStatusUpdating :: TableStatus
+pattern TableStatusUpdating = TableStatus' "UPDATING"
 
-pattern TSDeleting :: TableStatus
-pattern TSDeleting = TableStatus' "DELETING"
+pattern TableStatusDeleting :: TableStatus
+pattern TableStatusDeleting = TableStatus' "DELETING"
 
-pattern TSActive :: TableStatus
-pattern TSActive = TableStatus' "ACTIVE"
+pattern TableStatusActive :: TableStatus
+pattern TableStatusActive = TableStatus' "ACTIVE"
 
-pattern TSInaccessibleEncryptionCredentials :: TableStatus
-pattern TSInaccessibleEncryptionCredentials = TableStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+pattern TableStatusInaccessibleEncryptionCredentials :: TableStatus
+pattern TableStatusInaccessibleEncryptionCredentials = TableStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
 
-pattern TSArchiving :: TableStatus
-pattern TSArchiving = TableStatus' "ARCHIVING"
+pattern TableStatusArchiving :: TableStatus
+pattern TableStatusArchiving = TableStatus' "ARCHIVING"
 
-pattern TSArchived :: TableStatus
-pattern TSArchived = TableStatus' "ARCHIVED"
+pattern TableStatusArchived :: TableStatus
+pattern TableStatusArchived = TableStatus' "ARCHIVED"
 
 {-# COMPLETE
-  TSCreating,
-  TSUpdating,
-  TSDeleting,
-  TSActive,
-  TSInaccessibleEncryptionCredentials,
-  TSArchiving,
-  TSArchived,
+  TableStatusCreating,
+  TableStatusUpdating,
+  TableStatusDeleting,
+  TableStatusActive,
+  TableStatusInaccessibleEncryptionCredentials,
+  TableStatusArchiving,
+  TableStatusArchived,
   TableStatus'
   #-}

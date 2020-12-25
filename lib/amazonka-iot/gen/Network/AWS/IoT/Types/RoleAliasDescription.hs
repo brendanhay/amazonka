@@ -17,123 +17,117 @@ module Network.AWS.IoT.Types.RoleAliasDescription
     mkRoleAliasDescription,
 
     -- * Lenses
-    radRoleAliasARN,
-    radLastModifiedDate,
-    radRoleAlias,
-    radOwner,
     radCreationDate,
     radCredentialDurationSeconds,
-    radRoleARN,
+    radLastModifiedDate,
+    radOwner,
+    radRoleAlias,
+    radRoleAliasArn,
+    radRoleArn,
   )
 where
 
+import qualified Network.AWS.IoT.Types.Owner as Types
+import qualified Network.AWS.IoT.Types.RoleAlias as Types
+import qualified Network.AWS.IoT.Types.RoleAliasArn as Types
+import qualified Network.AWS.IoT.Types.RoleArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Role alias description.
 --
 -- /See:/ 'mkRoleAliasDescription' smart constructor.
 data RoleAliasDescription = RoleAliasDescription'
-  { -- | The ARN of the role alias.
-    roleAliasARN :: Lude.Maybe Lude.Text,
-    -- | The UNIX timestamp of when the role alias was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The role alias.
-    roleAlias :: Lude.Maybe Lude.Text,
-    -- | The role alias owner.
-    owner :: Lude.Maybe Lude.Text,
-    -- | The UNIX timestamp of when the role alias was created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
+  { -- | The UNIX timestamp of when the role alias was created.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The number of seconds for which the credential is valid.
-    credentialDurationSeconds :: Lude.Maybe Lude.Natural,
+    credentialDurationSeconds :: Core.Maybe Core.Natural,
+    -- | The UNIX timestamp of when the role alias was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The role alias owner.
+    owner :: Core.Maybe Types.Owner,
+    -- | The role alias.
+    roleAlias :: Core.Maybe Types.RoleAlias,
+    -- | The ARN of the role alias.
+    roleAliasArn :: Core.Maybe Types.RoleAliasArn,
     -- | The role ARN.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RoleAliasDescription' with the minimum fields required to make a request.
---
--- * 'roleAliasARN' - The ARN of the role alias.
--- * 'lastModifiedDate' - The UNIX timestamp of when the role alias was last modified.
--- * 'roleAlias' - The role alias.
--- * 'owner' - The role alias owner.
--- * 'creationDate' - The UNIX timestamp of when the role alias was created.
--- * 'credentialDurationSeconds' - The number of seconds for which the credential is valid.
--- * 'roleARN' - The role ARN.
+-- | Creates a 'RoleAliasDescription' value with any optional fields omitted.
 mkRoleAliasDescription ::
   RoleAliasDescription
 mkRoleAliasDescription =
   RoleAliasDescription'
-    { roleAliasARN = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      roleAlias = Lude.Nothing,
-      owner = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      credentialDurationSeconds = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { creationDate = Core.Nothing,
+      credentialDurationSeconds = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      owner = Core.Nothing,
+      roleAlias = Core.Nothing,
+      roleAliasArn = Core.Nothing,
+      roleArn = Core.Nothing
     }
-
--- | The ARN of the role alias.
---
--- /Note:/ Consider using 'roleAliasARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-radRoleAliasARN :: Lens.Lens' RoleAliasDescription (Lude.Maybe Lude.Text)
-radRoleAliasARN = Lens.lens (roleAliasARN :: RoleAliasDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleAliasARN = a} :: RoleAliasDescription)
-{-# DEPRECATED radRoleAliasARN "Use generic-lens or generic-optics with 'roleAliasARN' instead." #-}
-
--- | The UNIX timestamp of when the role alias was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-radLastModifiedDate :: Lens.Lens' RoleAliasDescription (Lude.Maybe Lude.Timestamp)
-radLastModifiedDate = Lens.lens (lastModifiedDate :: RoleAliasDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: RoleAliasDescription)
-{-# DEPRECATED radLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The role alias.
---
--- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-radRoleAlias :: Lens.Lens' RoleAliasDescription (Lude.Maybe Lude.Text)
-radRoleAlias = Lens.lens (roleAlias :: RoleAliasDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleAlias = a} :: RoleAliasDescription)
-{-# DEPRECATED radRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
-
--- | The role alias owner.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-radOwner :: Lens.Lens' RoleAliasDescription (Lude.Maybe Lude.Text)
-radOwner = Lens.lens (owner :: RoleAliasDescription -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: RoleAliasDescription)
-{-# DEPRECATED radOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The UNIX timestamp of when the role alias was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-radCreationDate :: Lens.Lens' RoleAliasDescription (Lude.Maybe Lude.Timestamp)
-radCreationDate = Lens.lens (creationDate :: RoleAliasDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: RoleAliasDescription)
+radCreationDate :: Lens.Lens' RoleAliasDescription (Core.Maybe Core.NominalDiffTime)
+radCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED radCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The number of seconds for which the credential is valid.
 --
 -- /Note:/ Consider using 'credentialDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-radCredentialDurationSeconds :: Lens.Lens' RoleAliasDescription (Lude.Maybe Lude.Natural)
-radCredentialDurationSeconds = Lens.lens (credentialDurationSeconds :: RoleAliasDescription -> Lude.Maybe Lude.Natural) (\s a -> s {credentialDurationSeconds = a} :: RoleAliasDescription)
+radCredentialDurationSeconds :: Lens.Lens' RoleAliasDescription (Core.Maybe Core.Natural)
+radCredentialDurationSeconds = Lens.field @"credentialDurationSeconds"
 {-# DEPRECATED radCredentialDurationSeconds "Use generic-lens or generic-optics with 'credentialDurationSeconds' instead." #-}
+
+-- | The UNIX timestamp of when the role alias was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radLastModifiedDate :: Lens.Lens' RoleAliasDescription (Core.Maybe Core.NominalDiffTime)
+radLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED radLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The role alias owner.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radOwner :: Lens.Lens' RoleAliasDescription (Core.Maybe Types.Owner)
+radOwner = Lens.field @"owner"
+{-# DEPRECATED radOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
+-- | The role alias.
+--
+-- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radRoleAlias :: Lens.Lens' RoleAliasDescription (Core.Maybe Types.RoleAlias)
+radRoleAlias = Lens.field @"roleAlias"
+{-# DEPRECATED radRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
+
+-- | The ARN of the role alias.
+--
+-- /Note:/ Consider using 'roleAliasArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radRoleAliasArn :: Lens.Lens' RoleAliasDescription (Core.Maybe Types.RoleAliasArn)
+radRoleAliasArn = Lens.field @"roleAliasArn"
+{-# DEPRECATED radRoleAliasArn "Use generic-lens or generic-optics with 'roleAliasArn' instead." #-}
 
 -- | The role ARN.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-radRoleARN :: Lens.Lens' RoleAliasDescription (Lude.Maybe Lude.Text)
-radRoleARN = Lens.lens (roleARN :: RoleAliasDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: RoleAliasDescription)
-{-# DEPRECATED radRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+radRoleArn :: Lens.Lens' RoleAliasDescription (Core.Maybe Types.RoleArn)
+radRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED radRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON RoleAliasDescription where
+instance Core.FromJSON RoleAliasDescription where
   parseJSON =
-    Lude.withObject
-      "RoleAliasDescription"
-      ( \x ->
-          RoleAliasDescription'
-            Lude.<$> (x Lude..:? "roleAliasArn")
-            Lude.<*> (x Lude..:? "lastModifiedDate")
-            Lude.<*> (x Lude..:? "roleAlias")
-            Lude.<*> (x Lude..:? "owner")
-            Lude.<*> (x Lude..:? "creationDate")
-            Lude.<*> (x Lude..:? "credentialDurationSeconds")
-            Lude.<*> (x Lude..:? "roleArn")
-      )
+    Core.withObject "RoleAliasDescription" Core.$
+      \x ->
+        RoleAliasDescription'
+          Core.<$> (x Core..:? "creationDate")
+          Core.<*> (x Core..:? "credentialDurationSeconds")
+          Core.<*> (x Core..:? "lastModifiedDate")
+          Core.<*> (x Core..:? "owner")
+          Core.<*> (x Core..:? "roleAlias")
+          Core.<*> (x Core..:? "roleAliasArn")
+          Core.<*> (x Core..:? "roleArn")

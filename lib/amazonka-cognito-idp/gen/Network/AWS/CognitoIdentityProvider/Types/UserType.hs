@@ -17,28 +17,37 @@ module Network.AWS.CognitoIdentityProvider.Types.UserType
     mkUserType,
 
     -- * Lenses
+    utAttributes,
     utEnabled,
+    utMFAOptions,
+    utUserCreateDate,
+    utUserLastModifiedDate,
     utUserStatus,
     utUsername,
-    utUserCreateDate,
-    utAttributes,
-    utMFAOptions,
-    utUserLastModifiedDate,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.AttributeType
-import Network.AWS.CognitoIdentityProvider.Types.MFAOptionType
-import Network.AWS.CognitoIdentityProvider.Types.UserStatusType
+import qualified Network.AWS.CognitoIdentityProvider.Types.AttributeType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.MFAOptionType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.UserStatusType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.UsernameType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The user type.
 --
 -- /See:/ 'mkUserType' smart constructor.
 data UserType = UserType'
-  { -- | Specifies whether the user is enabled.
-    enabled :: Lude.Maybe Lude.Bool,
+  { -- | A container with information about the user type attributes.
+    attributes :: Core.Maybe [Types.AttributeType],
+    -- | Specifies whether the user is enabled.
+    enabled :: Core.Maybe Core.Bool,
+    -- | The MFA options for the user.
+    mFAOptions :: Core.Maybe [Types.MFAOptionType],
+    -- | The creation date of the user.
+    userCreateDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The last modified date of the user.
+    userLastModifiedDate :: Core.Maybe Core.NominalDiffTime,
     -- | The user status. Can be one of the following:
     --
     --
@@ -61,72 +70,61 @@ data UserType = UserType'
     --
     --
     --     * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.
-    userStatus :: Lude.Maybe UserStatusType,
+    userStatus :: Core.Maybe Types.UserStatusType,
     -- | The user name of the user you wish to describe.
-    username :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The creation date of the user.
-    userCreateDate :: Lude.Maybe Lude.Timestamp,
-    -- | A container with information about the user type attributes.
-    attributes :: Lude.Maybe [AttributeType],
-    -- | The MFA options for the user.
-    mfaOptions :: Lude.Maybe [MFAOptionType],
-    -- | The last modified date of the user.
-    userLastModifiedDate :: Lude.Maybe Lude.Timestamp
+    username :: Core.Maybe Types.UsernameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UserType' with the minimum fields required to make a request.
---
--- * 'enabled' - Specifies whether the user is enabled.
--- * 'userStatus' - The user status. Can be one of the following:
---
---
---     * UNCONFIRMED - User has been created but not confirmed.
---
---
---     * CONFIRMED - User has been confirmed.
---
---
---     * ARCHIVED - User is no longer active.
---
---
---     * COMPROMISED - User is disabled due to a potential security threat.
---
---
---     * UNKNOWN - User status is not known.
---
---
---     * RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in.
---
---
---     * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.
---
---
--- * 'username' - The user name of the user you wish to describe.
--- * 'userCreateDate' - The creation date of the user.
--- * 'attributes' - A container with information about the user type attributes.
--- * 'mfaOptions' - The MFA options for the user.
--- * 'userLastModifiedDate' - The last modified date of the user.
+-- | Creates a 'UserType' value with any optional fields omitted.
 mkUserType ::
   UserType
 mkUserType =
   UserType'
-    { enabled = Lude.Nothing,
-      userStatus = Lude.Nothing,
-      username = Lude.Nothing,
-      userCreateDate = Lude.Nothing,
-      attributes = Lude.Nothing,
-      mfaOptions = Lude.Nothing,
-      userLastModifiedDate = Lude.Nothing
+    { attributes = Core.Nothing,
+      enabled = Core.Nothing,
+      mFAOptions = Core.Nothing,
+      userCreateDate = Core.Nothing,
+      userLastModifiedDate = Core.Nothing,
+      userStatus = Core.Nothing,
+      username = Core.Nothing
     }
+
+-- | A container with information about the user type attributes.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utAttributes :: Lens.Lens' UserType (Core.Maybe [Types.AttributeType])
+utAttributes = Lens.field @"attributes"
+{-# DEPRECATED utAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | Specifies whether the user is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utEnabled :: Lens.Lens' UserType (Lude.Maybe Lude.Bool)
-utEnabled = Lens.lens (enabled :: UserType -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UserType)
+utEnabled :: Lens.Lens' UserType (Core.Maybe Core.Bool)
+utEnabled = Lens.field @"enabled"
 {-# DEPRECATED utEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+-- | The MFA options for the user.
+--
+-- /Note:/ Consider using 'mFAOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utMFAOptions :: Lens.Lens' UserType (Core.Maybe [Types.MFAOptionType])
+utMFAOptions = Lens.field @"mFAOptions"
+{-# DEPRECATED utMFAOptions "Use generic-lens or generic-optics with 'mFAOptions' instead." #-}
+
+-- | The creation date of the user.
+--
+-- /Note:/ Consider using 'userCreateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utUserCreateDate :: Lens.Lens' UserType (Core.Maybe Core.NominalDiffTime)
+utUserCreateDate = Lens.field @"userCreateDate"
+{-# DEPRECATED utUserCreateDate "Use generic-lens or generic-optics with 'userCreateDate' instead." #-}
+
+-- | The last modified date of the user.
+--
+-- /Note:/ Consider using 'userLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utUserLastModifiedDate :: Lens.Lens' UserType (Core.Maybe Core.NominalDiffTime)
+utUserLastModifiedDate = Lens.field @"userLastModifiedDate"
+{-# DEPRECATED utUserLastModifiedDate "Use generic-lens or generic-optics with 'userLastModifiedDate' instead." #-}
 
 -- | The user status. Can be one of the following:
 --
@@ -154,56 +152,26 @@ utEnabled = Lens.lens (enabled :: UserType -> Lude.Maybe Lude.Bool) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'userStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utUserStatus :: Lens.Lens' UserType (Lude.Maybe UserStatusType)
-utUserStatus = Lens.lens (userStatus :: UserType -> Lude.Maybe UserStatusType) (\s a -> s {userStatus = a} :: UserType)
+utUserStatus :: Lens.Lens' UserType (Core.Maybe Types.UserStatusType)
+utUserStatus = Lens.field @"userStatus"
 {-# DEPRECATED utUserStatus "Use generic-lens or generic-optics with 'userStatus' instead." #-}
 
 -- | The user name of the user you wish to describe.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utUsername :: Lens.Lens' UserType (Lude.Maybe (Lude.Sensitive Lude.Text))
-utUsername = Lens.lens (username :: UserType -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {username = a} :: UserType)
+utUsername :: Lens.Lens' UserType (Core.Maybe Types.UsernameType)
+utUsername = Lens.field @"username"
 {-# DEPRECATED utUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
--- | The creation date of the user.
---
--- /Note:/ Consider using 'userCreateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utUserCreateDate :: Lens.Lens' UserType (Lude.Maybe Lude.Timestamp)
-utUserCreateDate = Lens.lens (userCreateDate :: UserType -> Lude.Maybe Lude.Timestamp) (\s a -> s {userCreateDate = a} :: UserType)
-{-# DEPRECATED utUserCreateDate "Use generic-lens or generic-optics with 'userCreateDate' instead." #-}
-
--- | A container with information about the user type attributes.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utAttributes :: Lens.Lens' UserType (Lude.Maybe [AttributeType])
-utAttributes = Lens.lens (attributes :: UserType -> Lude.Maybe [AttributeType]) (\s a -> s {attributes = a} :: UserType)
-{-# DEPRECATED utAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The MFA options for the user.
---
--- /Note:/ Consider using 'mfaOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utMFAOptions :: Lens.Lens' UserType (Lude.Maybe [MFAOptionType])
-utMFAOptions = Lens.lens (mfaOptions :: UserType -> Lude.Maybe [MFAOptionType]) (\s a -> s {mfaOptions = a} :: UserType)
-{-# DEPRECATED utMFAOptions "Use generic-lens or generic-optics with 'mfaOptions' instead." #-}
-
--- | The last modified date of the user.
---
--- /Note:/ Consider using 'userLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utUserLastModifiedDate :: Lens.Lens' UserType (Lude.Maybe Lude.Timestamp)
-utUserLastModifiedDate = Lens.lens (userLastModifiedDate :: UserType -> Lude.Maybe Lude.Timestamp) (\s a -> s {userLastModifiedDate = a} :: UserType)
-{-# DEPRECATED utUserLastModifiedDate "Use generic-lens or generic-optics with 'userLastModifiedDate' instead." #-}
-
-instance Lude.FromJSON UserType where
+instance Core.FromJSON UserType where
   parseJSON =
-    Lude.withObject
-      "UserType"
-      ( \x ->
-          UserType'
-            Lude.<$> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "UserStatus")
-            Lude.<*> (x Lude..:? "Username")
-            Lude.<*> (x Lude..:? "UserCreateDate")
-            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "MFAOptions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "UserLastModifiedDate")
-      )
+    Core.withObject "UserType" Core.$
+      \x ->
+        UserType'
+          Core.<$> (x Core..:? "Attributes")
+          Core.<*> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "MFAOptions")
+          Core.<*> (x Core..:? "UserCreateDate")
+          Core.<*> (x Core..:? "UserLastModifiedDate")
+          Core.<*> (x Core..:? "UserStatus")
+          Core.<*> (x Core..:? "Username")

@@ -22,66 +22,58 @@ module Network.AWS.Connect.Types.MediaConcurrency
   )
 where
 
-import Network.AWS.Connect.Types.Channel
+import qualified Network.AWS.Connect.Types.Channel as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
 --
 -- /See:/ 'mkMediaConcurrency' smart constructor.
 data MediaConcurrency = MediaConcurrency'
   { -- | The channels that agents can handle in the Contact Control Panel (CCP).
-    channel :: Channel,
+    channel :: Types.Channel,
     -- | The number of contacts an agent can have on a channel simultaneously.
-    concurrency :: Lude.Natural
+    concurrency :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MediaConcurrency' with the minimum fields required to make a request.
---
--- * 'channel' - The channels that agents can handle in the Contact Control Panel (CCP).
--- * 'concurrency' - The number of contacts an agent can have on a channel simultaneously.
+-- | Creates a 'MediaConcurrency' value with any optional fields omitted.
 mkMediaConcurrency ::
   -- | 'channel'
-  Channel ->
+  Types.Channel ->
   -- | 'concurrency'
-  Lude.Natural ->
+  Core.Natural ->
   MediaConcurrency
-mkMediaConcurrency pChannel_ pConcurrency_ =
-  MediaConcurrency'
-    { channel = pChannel_,
-      concurrency = pConcurrency_
-    }
+mkMediaConcurrency channel concurrency =
+  MediaConcurrency' {channel, concurrency}
 
 -- | The channels that agents can handle in the Contact Control Panel (CCP).
 --
 -- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcChannel :: Lens.Lens' MediaConcurrency Channel
-mcChannel = Lens.lens (channel :: MediaConcurrency -> Channel) (\s a -> s {channel = a} :: MediaConcurrency)
+mcChannel :: Lens.Lens' MediaConcurrency Types.Channel
+mcChannel = Lens.field @"channel"
 {-# DEPRECATED mcChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
 
 -- | The number of contacts an agent can have on a channel simultaneously.
 --
 -- /Note:/ Consider using 'concurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcConcurrency :: Lens.Lens' MediaConcurrency Lude.Natural
-mcConcurrency = Lens.lens (concurrency :: MediaConcurrency -> Lude.Natural) (\s a -> s {concurrency = a} :: MediaConcurrency)
+mcConcurrency :: Lens.Lens' MediaConcurrency Core.Natural
+mcConcurrency = Lens.field @"concurrency"
 {-# DEPRECATED mcConcurrency "Use generic-lens or generic-optics with 'concurrency' instead." #-}
 
-instance Lude.FromJSON MediaConcurrency where
-  parseJSON =
-    Lude.withObject
-      "MediaConcurrency"
-      ( \x ->
-          MediaConcurrency'
-            Lude.<$> (x Lude..: "Channel") Lude.<*> (x Lude..: "Concurrency")
-      )
-
-instance Lude.ToJSON MediaConcurrency where
-  toJSON MediaConcurrency' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Channel" Lude..= channel),
-            Lude.Just ("Concurrency" Lude..= concurrency)
+instance Core.FromJSON MediaConcurrency where
+  toJSON MediaConcurrency {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Channel" Core..= channel),
+            Core.Just ("Concurrency" Core..= concurrency)
           ]
       )
+
+instance Core.FromJSON MediaConcurrency where
+  parseJSON =
+    Core.withObject "MediaConcurrency" Core.$
+      \x ->
+        MediaConcurrency'
+          Core.<$> (x Core..: "Channel") Core.<*> (x Core..: "Concurrency")

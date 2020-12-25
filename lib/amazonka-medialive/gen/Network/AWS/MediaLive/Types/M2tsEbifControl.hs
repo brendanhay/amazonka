@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M2tsEbifControl
   ( M2tsEbifControl
       ( M2tsEbifControl',
-        MECNone,
-        MECPassthrough
+        M2tsEbifControlNone,
+        M2tsEbifControlPassthrough,
+        fromM2tsEbifControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Ebif Control
-newtype M2tsEbifControl = M2tsEbifControl' Lude.Text
+newtype M2tsEbifControl = M2tsEbifControl'
+  { fromM2tsEbifControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MECNone :: M2tsEbifControl
-pattern MECNone = M2tsEbifControl' "NONE"
+pattern M2tsEbifControlNone :: M2tsEbifControl
+pattern M2tsEbifControlNone = M2tsEbifControl' "NONE"
 
-pattern MECPassthrough :: M2tsEbifControl
-pattern MECPassthrough = M2tsEbifControl' "PASSTHROUGH"
+pattern M2tsEbifControlPassthrough :: M2tsEbifControl
+pattern M2tsEbifControlPassthrough = M2tsEbifControl' "PASSTHROUGH"
 
 {-# COMPLETE
-  MECNone,
-  MECPassthrough,
+  M2tsEbifControlNone,
+  M2tsEbifControlPassthrough,
   M2tsEbifControl'
   #-}

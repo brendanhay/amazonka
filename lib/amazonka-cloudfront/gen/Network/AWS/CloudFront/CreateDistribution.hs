@@ -29,132 +29,118 @@ module Network.AWS.CloudFront.CreateDistribution
     mkCreateDistributionResponse,
 
     -- ** Response lenses
-    cdrsETag,
-    cdrsDistribution,
-    cdrsLocation,
-    cdrsResponseStatus,
+    cdrrsDistribution,
+    cdrrsETag,
+    cdrrsLocation,
+    cdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to create a new distribution.
 --
 -- /See:/ 'mkCreateDistribution' smart constructor.
 newtype CreateDistribution = CreateDistribution'
   { -- | The distribution's configuration information.
-    distributionConfig :: DistributionConfig
+    distributionConfig :: Types.DistributionConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDistribution' with the minimum fields required to make a request.
---
--- * 'distributionConfig' - The distribution's configuration information.
+-- | Creates a 'CreateDistribution' value with any optional fields omitted.
 mkCreateDistribution ::
   -- | 'distributionConfig'
-  DistributionConfig ->
+  Types.DistributionConfig ->
   CreateDistribution
-mkCreateDistribution pDistributionConfig_ =
-  CreateDistribution' {distributionConfig = pDistributionConfig_}
+mkCreateDistribution distributionConfig =
+  CreateDistribution' {distributionConfig}
 
 -- | The distribution's configuration information.
 --
 -- /Note:/ Consider using 'distributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDistributionConfig :: Lens.Lens' CreateDistribution DistributionConfig
-cdDistributionConfig = Lens.lens (distributionConfig :: CreateDistribution -> DistributionConfig) (\s a -> s {distributionConfig = a} :: CreateDistribution)
+cdDistributionConfig :: Lens.Lens' CreateDistribution Types.DistributionConfig
+cdDistributionConfig = Lens.field @"distributionConfig"
 {-# DEPRECATED cdDistributionConfig "Use generic-lens or generic-optics with 'distributionConfig' instead." #-}
 
-instance Lude.AWSRequest CreateDistribution where
+instance Core.AWSRequest CreateDistribution where
   type Rs CreateDistribution = CreateDistributionResponse
-  request = Req.postXML cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2020-05-31/distribution",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateDistributionResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (h Lude..#? "Location")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseHeaderMaybe "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement CreateDistribution where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfig"
-      Lude.. distributionConfig
-
-instance Lude.ToHeaders CreateDistribution where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDistribution where
-  toPath = Lude.const "/2020-05-31/distribution"
-
-instance Lude.ToQuery CreateDistribution where
-  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'mkCreateDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
-  { -- | The current version of the distribution created.
-    eTag :: Lude.Maybe Lude.Text,
-    -- | The distribution's information.
-    distribution :: Lude.Maybe Distribution,
+  { -- | The distribution's information.
+    distribution :: Core.Maybe Types.Distribution,
+    -- | The current version of the distribution created.
+    eTag :: Core.Maybe Types.String,
     -- | The fully qualified URI of the new distribution resource just created.
-    location :: Lude.Maybe Lude.Text,
+    location :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateDistributionResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The current version of the distribution created.
--- * 'distribution' - The distribution's information.
--- * 'location' - The fully qualified URI of the new distribution resource just created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDistributionResponse' value with any optional fields omitted.
 mkCreateDistributionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDistributionResponse
-mkCreateDistributionResponse pResponseStatus_ =
+mkCreateDistributionResponse responseStatus =
   CreateDistributionResponse'
-    { eTag = Lude.Nothing,
-      distribution = Lude.Nothing,
-      location = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { distribution = Core.Nothing,
+      eTag = Core.Nothing,
+      location = Core.Nothing,
+      responseStatus
     }
-
--- | The current version of the distribution created.
---
--- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsETag :: Lens.Lens' CreateDistributionResponse (Lude.Maybe Lude.Text)
-cdrsETag = Lens.lens (eTag :: CreateDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateDistributionResponse)
-{-# DEPRECATED cdrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The distribution's information.
 --
 -- /Note:/ Consider using 'distribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsDistribution :: Lens.Lens' CreateDistributionResponse (Lude.Maybe Distribution)
-cdrsDistribution = Lens.lens (distribution :: CreateDistributionResponse -> Lude.Maybe Distribution) (\s a -> s {distribution = a} :: CreateDistributionResponse)
-{-# DEPRECATED cdrsDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
+cdrrsDistribution :: Lens.Lens' CreateDistributionResponse (Core.Maybe Types.Distribution)
+cdrrsDistribution = Lens.field @"distribution"
+{-# DEPRECATED cdrrsDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
+
+-- | The current version of the distribution created.
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrrsETag :: Lens.Lens' CreateDistributionResponse (Core.Maybe Types.String)
+cdrrsETag = Lens.field @"eTag"
+{-# DEPRECATED cdrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The fully qualified URI of the new distribution resource just created.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsLocation :: Lens.Lens' CreateDistributionResponse (Lude.Maybe Lude.Text)
-cdrsLocation = Lens.lens (location :: CreateDistributionResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateDistributionResponse)
-{-# DEPRECATED cdrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+cdrrsLocation :: Lens.Lens' CreateDistributionResponse (Core.Maybe Types.String)
+cdrrsLocation = Lens.field @"location"
+{-# DEPRECATED cdrrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsResponseStatus :: Lens.Lens' CreateDistributionResponse Lude.Int
-cdrsResponseStatus = Lens.lens (responseStatus :: CreateDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDistributionResponse)
-{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrrsResponseStatus :: Lens.Lens' CreateDistributionResponse Core.Int
+cdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

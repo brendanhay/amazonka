@@ -17,98 +17,94 @@ module Network.AWS.ECS.Types.Attribute
     mkAttribute,
 
     -- * Lenses
-    aTargetId,
-    aValue,
-    aTargetType,
     aName,
+    aTargetId,
+    aTargetType,
+    aValue,
   )
 where
 
-import Network.AWS.ECS.Types.TargetType
+import qualified Network.AWS.ECS.Types.Name as Types
+import qualified Network.AWS.ECS.Types.TargetId as Types
+import qualified Network.AWS.ECS.Types.TargetType as Types
+import qualified Network.AWS.ECS.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An attribute is a name-value pair associated with an Amazon ECS object. Attributes enable you to extend the Amazon ECS data model by adding custom metadata to your resources. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes Attributes> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /See:/ 'mkAttribute' smart constructor.
 data Attribute = Attribute'
-  { -- | The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
-    targetId :: Lude.Maybe Lude.Text,
-    -- | The value of the attribute. The @value@ must contain between 1 and 128 characters and may contain letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, back slashes, colons, or spaces. The value cannot contain any leading or trailing whitespace.
-    value :: Lude.Maybe Lude.Text,
+  { -- | The name of the attribute. The @name@ must contain between 1 and 128 characters and name may contain letters (uppercase and lowercase), numbers, hyphens, underscores, forward slashes, back slashes, or periods.
+    name :: Types.Name,
+    -- | The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
+    targetId :: Core.Maybe Types.TargetId,
     -- | The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full ARN.
-    targetType :: Lude.Maybe TargetType,
-    -- | The name of the attribute. The @name@ must contain between 1 and 128 characters and name may contain letters (uppercase and lowercase), numbers, hyphens, underscores, forward slashes, back slashes, or periods.
-    name :: Lude.Text
+    targetType :: Core.Maybe Types.TargetType,
+    -- | The value of the attribute. The @value@ must contain between 1 and 128 characters and may contain letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, back slashes, colons, or spaces. The value cannot contain any leading or trailing whitespace.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Attribute' with the minimum fields required to make a request.
---
--- * 'targetId' - The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
--- * 'value' - The value of the attribute. The @value@ must contain between 1 and 128 characters and may contain letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, back slashes, colons, or spaces. The value cannot contain any leading or trailing whitespace.
--- * 'targetType' - The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full ARN.
--- * 'name' - The name of the attribute. The @name@ must contain between 1 and 128 characters and name may contain letters (uppercase and lowercase), numbers, hyphens, underscores, forward slashes, back slashes, or periods.
+-- | Creates a 'Attribute' value with any optional fields omitted.
 mkAttribute ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   Attribute
-mkAttribute pName_ =
+mkAttribute name =
   Attribute'
-    { targetId = Lude.Nothing,
-      value = Lude.Nothing,
-      targetType = Lude.Nothing,
-      name = pName_
+    { name,
+      targetId = Core.Nothing,
+      targetType = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aTargetId :: Lens.Lens' Attribute (Lude.Maybe Lude.Text)
-aTargetId = Lens.lens (targetId :: Attribute -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: Attribute)
-{-# DEPRECATED aTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
-
--- | The value of the attribute. The @value@ must contain between 1 and 128 characters and may contain letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, back slashes, colons, or spaces. The value cannot contain any leading or trailing whitespace.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aValue :: Lens.Lens' Attribute (Lude.Maybe Lude.Text)
-aValue = Lens.lens (value :: Attribute -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Attribute)
-{-# DEPRECATED aValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full ARN.
---
--- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aTargetType :: Lens.Lens' Attribute (Lude.Maybe TargetType)
-aTargetType = Lens.lens (targetType :: Attribute -> Lude.Maybe TargetType) (\s a -> s {targetType = a} :: Attribute)
-{-# DEPRECATED aTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
 -- | The name of the attribute. The @name@ must contain between 1 and 128 characters and name may contain letters (uppercase and lowercase), numbers, hyphens, underscores, forward slashes, back slashes, or periods.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aName :: Lens.Lens' Attribute Lude.Text
-aName = Lens.lens (name :: Attribute -> Lude.Text) (\s a -> s {name = a} :: Attribute)
+aName :: Lens.Lens' Attribute Types.Name
+aName = Lens.field @"name"
 {-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON Attribute where
-  parseJSON =
-    Lude.withObject
-      "Attribute"
-      ( \x ->
-          Attribute'
-            Lude.<$> (x Lude..:? "targetId")
-            Lude.<*> (x Lude..:? "value")
-            Lude.<*> (x Lude..:? "targetType")
-            Lude.<*> (x Lude..: "name")
-      )
+-- | The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aTargetId :: Lens.Lens' Attribute (Core.Maybe Types.TargetId)
+aTargetId = Lens.field @"targetId"
+{-# DEPRECATED aTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
-instance Lude.ToJSON Attribute where
-  toJSON Attribute' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("targetId" Lude..=) Lude.<$> targetId,
-            ("value" Lude..=) Lude.<$> value,
-            ("targetType" Lude..=) Lude.<$> targetType,
-            Lude.Just ("name" Lude..= name)
+-- | The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full ARN.
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aTargetType :: Lens.Lens' Attribute (Core.Maybe Types.TargetType)
+aTargetType = Lens.field @"targetType"
+{-# DEPRECATED aTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
+
+-- | The value of the attribute. The @value@ must contain between 1 and 128 characters and may contain letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, back slashes, colons, or spaces. The value cannot contain any leading or trailing whitespace.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aValue :: Lens.Lens' Attribute (Core.Maybe Types.Value)
+aValue = Lens.field @"value"
+{-# DEPRECATED aValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Attribute where
+  toJSON Attribute {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            ("targetId" Core..=) Core.<$> targetId,
+            ("targetType" Core..=) Core.<$> targetType,
+            ("value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON Attribute where
+  parseJSON =
+    Core.withObject "Attribute" Core.$
+      \x ->
+        Attribute'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..:? "targetId")
+          Core.<*> (x Core..:? "targetType")
+          Core.<*> (x Core..:? "value")

@@ -22,9 +22,9 @@ module Network.AWS.IAM.UpdateUser
     mkUpdateUser,
 
     -- ** Request lenses
-    uuNewUserName,
-    uuUserName,
-    uuNewPath,
+    uufUserName,
+    uufNewPath,
+    uufNewUserName,
 
     -- * Destructuring the response
     UpdateUserResponse (..),
@@ -32,106 +32,99 @@ module Network.AWS.IAM.UpdateUser
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { -- | New name for the user. Include this parameter only if you're changing the user's name.
-    --
-    -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
-    newUserName :: Lude.Maybe Lude.Text,
-    -- | Name of the user to update. If you're changing the name of the user, this is the original user name.
+  { -- | Name of the user to update. If you're changing the name of the user, this is the original user name.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text,
+    userName :: Types.UserName,
     -- | New path for the IAM user. Include this parameter only if you're changing the user's path.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
-    newPath :: Lude.Maybe Lude.Text
+    newPath :: Core.Maybe Types.NewPath,
+    -- | New name for the user. Include this parameter only if you're changing the user's name.
+    --
+    -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+    newUserName :: Core.Maybe Types.NewUserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
---
--- * 'newUserName' - New name for the user. Include this parameter only if you're changing the user's name.
---
--- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
--- * 'userName' - Name of the user to update. If you're changing the name of the user, this is the original user name.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'newPath' - New path for the IAM user. Include this parameter only if you're changing the user's path.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+-- | Creates a 'UpdateUser' value with any optional fields omitted.
 mkUpdateUser ::
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
   UpdateUser
-mkUpdateUser pUserName_ =
+mkUpdateUser userName =
   UpdateUser'
-    { newUserName = Lude.Nothing,
-      userName = pUserName_,
-      newPath = Lude.Nothing
+    { userName,
+      newPath = Core.Nothing,
+      newUserName = Core.Nothing
     }
-
--- | New name for the user. Include this parameter only if you're changing the user's name.
---
--- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
---
--- /Note:/ Consider using 'newUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuNewUserName :: Lens.Lens' UpdateUser (Lude.Maybe Lude.Text)
-uuNewUserName = Lens.lens (newUserName :: UpdateUser -> Lude.Maybe Lude.Text) (\s a -> s {newUserName = a} :: UpdateUser)
-{-# DEPRECATED uuNewUserName "Use generic-lens or generic-optics with 'newUserName' instead." #-}
 
 -- | Name of the user to update. If you're changing the name of the user, this is the original user name.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuUserName :: Lens.Lens' UpdateUser Lude.Text
-uuUserName = Lens.lens (userName :: UpdateUser -> Lude.Text) (\s a -> s {userName = a} :: UpdateUser)
-{-# DEPRECATED uuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+uufUserName :: Lens.Lens' UpdateUser Types.UserName
+uufUserName = Lens.field @"userName"
+{-# DEPRECATED uufUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | New path for the IAM user. Include this parameter only if you're changing the user's path.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
 --
 -- /Note:/ Consider using 'newPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuNewPath :: Lens.Lens' UpdateUser (Lude.Maybe Lude.Text)
-uuNewPath = Lens.lens (newPath :: UpdateUser -> Lude.Maybe Lude.Text) (\s a -> s {newPath = a} :: UpdateUser)
-{-# DEPRECATED uuNewPath "Use generic-lens or generic-optics with 'newPath' instead." #-}
+uufNewPath :: Lens.Lens' UpdateUser (Core.Maybe Types.NewPath)
+uufNewPath = Lens.field @"newPath"
+{-# DEPRECATED uufNewPath "Use generic-lens or generic-optics with 'newPath' instead." #-}
 
-instance Lude.AWSRequest UpdateUser where
+-- | New name for the user. Include this parameter only if you're changing the user's name.
+--
+-- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+--
+-- /Note:/ Consider using 'newUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uufNewUserName :: Lens.Lens' UpdateUser (Core.Maybe Types.NewUserName)
+uufNewUserName = Lens.field @"newUserName"
+{-# DEPRECATED uufNewUserName "Use generic-lens or generic-optics with 'newUserName' instead." #-}
+
+instance Core.AWSRequest UpdateUser where
   type Rs UpdateUser = UpdateUserResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull UpdateUserResponse'
-
-instance Lude.ToHeaders UpdateUser where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateUser where
-  toQuery UpdateUser' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateUser" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "NewUserName" Lude.=: newUserName,
-        "UserName" Lude.=: userName,
-        "NewPath" Lude.=: newPath
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateUser")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "NewPath" Core.<$> newPath)
+                Core.<> (Core.toQueryValue "NewUserName" Core.<$> newUserName)
+            )
+      }
+  response = Response.receiveNull UpdateUserResponse'
 
 -- | /See:/ 'mkUpdateUserResponse' smart constructor.
 data UpdateUserResponse = UpdateUserResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateUserResponse' value with any optional fields omitted.
 mkUpdateUserResponse ::
   UpdateUserResponse
 mkUpdateUserResponse = UpdateUserResponse'

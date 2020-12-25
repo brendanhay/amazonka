@@ -13,66 +13,71 @@
 module Network.AWS.Lightsail.Types.DistributionMetricName
   ( DistributionMetricName
       ( DistributionMetricName',
-        Requests,
-        BytesDownloaded,
-        BytesUploaded,
-        TotalErrorRate,
-        HTTP4xxErrorRate,
-        HTTP5xxErrorRate
+        DistributionMetricNameRequests,
+        DistributionMetricNameBytesDownloaded,
+        DistributionMetricNameBytesUploaded,
+        DistributionMetricNameTotalErrorRate,
+        DistributionMetricNameHttp4xxErrorRate,
+        DistributionMetricNameHttp5xxErrorRate,
+        fromDistributionMetricName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DistributionMetricName = DistributionMetricName' Lude.Text
+newtype DistributionMetricName = DistributionMetricName'
+  { fromDistributionMetricName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Requests :: DistributionMetricName
-pattern Requests = DistributionMetricName' "Requests"
+pattern DistributionMetricNameRequests :: DistributionMetricName
+pattern DistributionMetricNameRequests = DistributionMetricName' "Requests"
 
-pattern BytesDownloaded :: DistributionMetricName
-pattern BytesDownloaded = DistributionMetricName' "BytesDownloaded"
+pattern DistributionMetricNameBytesDownloaded :: DistributionMetricName
+pattern DistributionMetricNameBytesDownloaded = DistributionMetricName' "BytesDownloaded"
 
-pattern BytesUploaded :: DistributionMetricName
-pattern BytesUploaded = DistributionMetricName' "BytesUploaded"
+pattern DistributionMetricNameBytesUploaded :: DistributionMetricName
+pattern DistributionMetricNameBytesUploaded = DistributionMetricName' "BytesUploaded"
 
-pattern TotalErrorRate :: DistributionMetricName
-pattern TotalErrorRate = DistributionMetricName' "TotalErrorRate"
+pattern DistributionMetricNameTotalErrorRate :: DistributionMetricName
+pattern DistributionMetricNameTotalErrorRate = DistributionMetricName' "TotalErrorRate"
 
-pattern HTTP4xxErrorRate :: DistributionMetricName
-pattern HTTP4xxErrorRate = DistributionMetricName' "Http4xxErrorRate"
+pattern DistributionMetricNameHttp4xxErrorRate :: DistributionMetricName
+pattern DistributionMetricNameHttp4xxErrorRate = DistributionMetricName' "Http4xxErrorRate"
 
-pattern HTTP5xxErrorRate :: DistributionMetricName
-pattern HTTP5xxErrorRate = DistributionMetricName' "Http5xxErrorRate"
+pattern DistributionMetricNameHttp5xxErrorRate :: DistributionMetricName
+pattern DistributionMetricNameHttp5xxErrorRate = DistributionMetricName' "Http5xxErrorRate"
 
 {-# COMPLETE
-  Requests,
-  BytesDownloaded,
-  BytesUploaded,
-  TotalErrorRate,
-  HTTP4xxErrorRate,
-  HTTP5xxErrorRate,
+  DistributionMetricNameRequests,
+  DistributionMetricNameBytesDownloaded,
+  DistributionMetricNameBytesUploaded,
+  DistributionMetricNameTotalErrorRate,
+  DistributionMetricNameHttp4xxErrorRate,
+  DistributionMetricNameHttp5xxErrorRate,
   DistributionMetricName'
   #-}

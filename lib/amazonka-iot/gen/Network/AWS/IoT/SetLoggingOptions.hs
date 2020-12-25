@@ -30,71 +30,65 @@ module Network.AWS.IoT.SetLoggingOptions
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the SetLoggingOptions operation.
 --
 -- /See:/ 'mkSetLoggingOptions' smart constructor.
 newtype SetLoggingOptions = SetLoggingOptions'
   { -- | The logging options payload.
-    loggingOptionsPayload :: LoggingOptionsPayload
+    loggingOptionsPayload :: Types.LoggingOptionsPayload
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetLoggingOptions' with the minimum fields required to make a request.
---
--- * 'loggingOptionsPayload' - The logging options payload.
+-- | Creates a 'SetLoggingOptions' value with any optional fields omitted.
 mkSetLoggingOptions ::
   -- | 'loggingOptionsPayload'
-  LoggingOptionsPayload ->
+  Types.LoggingOptionsPayload ->
   SetLoggingOptions
-mkSetLoggingOptions pLoggingOptionsPayload_ =
-  SetLoggingOptions'
-    { loggingOptionsPayload =
-        pLoggingOptionsPayload_
-    }
+mkSetLoggingOptions loggingOptionsPayload =
+  SetLoggingOptions' {loggingOptionsPayload}
 
 -- | The logging options payload.
 --
 -- /Note:/ Consider using 'loggingOptionsPayload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sloLoggingOptionsPayload :: Lens.Lens' SetLoggingOptions LoggingOptionsPayload
-sloLoggingOptionsPayload = Lens.lens (loggingOptionsPayload :: SetLoggingOptions -> LoggingOptionsPayload) (\s a -> s {loggingOptionsPayload = a} :: SetLoggingOptions)
+sloLoggingOptionsPayload :: Lens.Lens' SetLoggingOptions Types.LoggingOptionsPayload
+sloLoggingOptionsPayload = Lens.field @"loggingOptionsPayload"
 {-# DEPRECATED sloLoggingOptionsPayload "Use generic-lens or generic-optics with 'loggingOptionsPayload' instead." #-}
 
-instance Lude.AWSRequest SetLoggingOptions where
-  type Rs SetLoggingOptions = SetLoggingOptionsResponse
-  request = Req.postJSON ioTService
-  response = Res.receiveNull SetLoggingOptionsResponse'
-
-instance Lude.ToHeaders SetLoggingOptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON SetLoggingOptions where
-  toJSON SetLoggingOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("loggingOptionsPayload" Lude..= loggingOptionsPayload)
+instance Core.FromJSON SetLoggingOptions where
+  toJSON SetLoggingOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("loggingOptionsPayload" Core..= loggingOptionsPayload)
           ]
       )
 
-instance Lude.ToPath SetLoggingOptions where
-  toPath = Lude.const "/loggingOptions"
-
-instance Lude.ToQuery SetLoggingOptions where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest SetLoggingOptions where
+  type Rs SetLoggingOptions = SetLoggingOptionsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/loggingOptions",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetLoggingOptionsResponse'
 
 -- | /See:/ 'mkSetLoggingOptionsResponse' smart constructor.
 data SetLoggingOptionsResponse = SetLoggingOptionsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetLoggingOptionsResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetLoggingOptionsResponse' value with any optional fields omitted.
 mkSetLoggingOptionsResponse ::
   SetLoggingOptionsResponse
 mkSetLoggingOptionsResponse = SetLoggingOptionsResponse'

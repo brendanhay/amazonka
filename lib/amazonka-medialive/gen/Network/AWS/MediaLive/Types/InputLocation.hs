@@ -17,83 +17,77 @@ module Network.AWS.MediaLive.Types.InputLocation
     mkInputLocation,
 
     -- * Lenses
-    ilUsername,
-    ilURI,
+    ilUri,
     ilPasswordParam,
+    ilUsername,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Input Location
 --
 -- /See:/ 'mkInputLocation' smart constructor.
 data InputLocation = InputLocation'
-  { -- | Documentation update needed
-    username :: Lude.Maybe Lude.Text,
-    -- | Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
-    uri :: Lude.Text,
+  { -- | Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
+    uri :: Core.Text,
     -- | key used to extract the password from EC2 Parameter store
-    passwordParam :: Lude.Maybe Lude.Text
+    passwordParam :: Core.Maybe Core.Text,
+    -- | Documentation update needed
+    username :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputLocation' with the minimum fields required to make a request.
---
--- * 'username' - Documentation update needed
--- * 'uri' - Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
--- * 'passwordParam' - key used to extract the password from EC2 Parameter store
+-- | Creates a 'InputLocation' value with any optional fields omitted.
 mkInputLocation ::
   -- | 'uri'
-  Lude.Text ->
+  Core.Text ->
   InputLocation
-mkInputLocation pURI_ =
+mkInputLocation uri =
   InputLocation'
-    { username = Lude.Nothing,
-      uri = pURI_,
-      passwordParam = Lude.Nothing
+    { uri,
+      passwordParam = Core.Nothing,
+      username = Core.Nothing
     }
-
--- | Documentation update needed
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilUsername :: Lens.Lens' InputLocation (Lude.Maybe Lude.Text)
-ilUsername = Lens.lens (username :: InputLocation -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: InputLocation)
-{-# DEPRECATED ilUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Uniform Resource Identifier - This should be a path to a file accessible to the Live system (eg. a http:// URI) depending on the output type. For example, a RTMP destination should have a uri simliar to: "rtmp://fmsserver/live".
 --
 -- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilURI :: Lens.Lens' InputLocation Lude.Text
-ilURI = Lens.lens (uri :: InputLocation -> Lude.Text) (\s a -> s {uri = a} :: InputLocation)
-{-# DEPRECATED ilURI "Use generic-lens or generic-optics with 'uri' instead." #-}
+ilUri :: Lens.Lens' InputLocation Core.Text
+ilUri = Lens.field @"uri"
+{-# DEPRECATED ilUri "Use generic-lens or generic-optics with 'uri' instead." #-}
 
 -- | key used to extract the password from EC2 Parameter store
 --
 -- /Note:/ Consider using 'passwordParam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilPasswordParam :: Lens.Lens' InputLocation (Lude.Maybe Lude.Text)
-ilPasswordParam = Lens.lens (passwordParam :: InputLocation -> Lude.Maybe Lude.Text) (\s a -> s {passwordParam = a} :: InputLocation)
+ilPasswordParam :: Lens.Lens' InputLocation (Core.Maybe Core.Text)
+ilPasswordParam = Lens.field @"passwordParam"
 {-# DEPRECATED ilPasswordParam "Use generic-lens or generic-optics with 'passwordParam' instead." #-}
 
-instance Lude.FromJSON InputLocation where
-  parseJSON =
-    Lude.withObject
-      "InputLocation"
-      ( \x ->
-          InputLocation'
-            Lude.<$> (x Lude..:? "username")
-            Lude.<*> (x Lude..: "uri")
-            Lude.<*> (x Lude..:? "passwordParam")
-      )
+-- | Documentation update needed
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilUsername :: Lens.Lens' InputLocation (Core.Maybe Core.Text)
+ilUsername = Lens.field @"username"
+{-# DEPRECATED ilUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance Lude.ToJSON InputLocation where
-  toJSON InputLocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("username" Lude..=) Lude.<$> username,
-            Lude.Just ("uri" Lude..= uri),
-            ("passwordParam" Lude..=) Lude.<$> passwordParam
+instance Core.FromJSON InputLocation where
+  toJSON InputLocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("uri" Core..= uri),
+            ("passwordParam" Core..=) Core.<$> passwordParam,
+            ("username" Core..=) Core.<$> username
           ]
       )
+
+instance Core.FromJSON InputLocation where
+  parseJSON =
+    Core.withObject "InputLocation" Core.$
+      \x ->
+        InputLocation'
+          Core.<$> (x Core..: "uri")
+          Core.<*> (x Core..:? "passwordParam")
+          Core.<*> (x Core..:? "username")

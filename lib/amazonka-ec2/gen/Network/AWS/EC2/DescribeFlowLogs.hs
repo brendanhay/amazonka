@@ -22,38 +22,34 @@ module Network.AWS.EC2.DescribeFlowLogs
     mkDescribeFlowLogs,
 
     -- ** Request lenses
-    dflsNextToken,
-    dflsFlowLogIds,
-    dflsFilter,
     dflsDryRun,
+    dflsFilter,
+    dflsFlowLogIds,
     dflsMaxResults,
+    dflsNextToken,
 
     -- * Destructuring the response
     DescribeFlowLogsResponse (..),
     mkDescribeFlowLogsResponse,
 
     -- ** Response lenses
-    dflsrsNextToken,
-    dflsrsFlowLogs,
-    dflsrsResponseStatus,
+    dflrfrsFlowLogs,
+    dflrfrsNextToken,
+    dflrfrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
-  { -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | One or more flow log IDs.
-    --
-    -- Constraint: Maximum of 1000 flow log IDs.
-    flowLogIds :: Lude.Maybe [Lude.Text],
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters.
     --
     --
@@ -79,76 +75,37 @@ data DescribeFlowLogs = DescribeFlowLogs'
     --
     --
     --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
-    filter :: Lude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filter :: Core.Maybe [Types.Filter],
+    -- | One or more flow log IDs.
+    --
+    -- Constraint: Maximum of 1000 flow log IDs.
+    flowLogIds :: Core.Maybe [Types.VpcFlowLogId],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFlowLogs' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next page of results.
--- * 'flowLogIds' - One or more flow log IDs.
---
--- Constraint: Maximum of 1000 flow log IDs.
--- * 'filter' - One or more filters.
---
---
---     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
---
---
---     * @log-destination-type@ - The type of destination to which the flow log publishes data. Possible destination types include @cloud-watch-logs@ and @s3@ .
---
---
---     * @flow-log-id@ - The ID of the flow log.
---
---
---     * @log-group-name@ - The name of the log group.
---
---
---     * @resource-id@ - The ID of the VPC, subnet, or network interface.
---
---
---     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ ).
---
---
---     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
---
---
---     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
---
---
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'DescribeFlowLogs' value with any optional fields omitted.
 mkDescribeFlowLogs ::
   DescribeFlowLogs
 mkDescribeFlowLogs =
   DescribeFlowLogs'
-    { nextToken = Lude.Nothing,
-      flowLogIds = Lude.Nothing,
-      filter = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filter = Core.Nothing,
+      flowLogIds = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
--- | The token for the next page of results.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflsNextToken :: Lens.Lens' DescribeFlowLogs (Lude.Maybe Lude.Text)
-dflsNextToken = Lens.lens (nextToken :: DescribeFlowLogs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFlowLogs)
-{-# DEPRECATED dflsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | One or more flow log IDs.
---
--- Constraint: Maximum of 1000 flow log IDs.
---
--- /Note:/ Consider using 'flowLogIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflsFlowLogIds :: Lens.Lens' DescribeFlowLogs (Lude.Maybe [Lude.Text])
-dflsFlowLogIds = Lens.lens (flowLogIds :: DescribeFlowLogs -> Lude.Maybe [Lude.Text]) (\s a -> s {flowLogIds = a} :: DescribeFlowLogs)
-{-# DEPRECATED dflsFlowLogIds "Use generic-lens or generic-optics with 'flowLogIds' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsDryRun :: Lens.Lens' DescribeFlowLogs (Core.Maybe Core.Bool)
+dflsDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dflsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters.
 --
@@ -179,110 +136,118 @@ dflsFlowLogIds = Lens.lens (flowLogIds :: DescribeFlowLogs -> Lude.Maybe [Lude.T
 --
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflsFilter :: Lens.Lens' DescribeFlowLogs (Lude.Maybe [Filter])
-dflsFilter = Lens.lens (filter :: DescribeFlowLogs -> Lude.Maybe [Filter]) (\s a -> s {filter = a} :: DescribeFlowLogs)
+dflsFilter :: Lens.Lens' DescribeFlowLogs (Core.Maybe [Types.Filter])
+dflsFilter = Lens.field @"filter"
 {-# DEPRECATED dflsFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | One or more flow log IDs.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflsDryRun :: Lens.Lens' DescribeFlowLogs (Lude.Maybe Lude.Bool)
-dflsDryRun = Lens.lens (dryRun :: DescribeFlowLogs -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFlowLogs)
-{-# DEPRECATED dflsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- Constraint: Maximum of 1000 flow log IDs.
+--
+-- /Note:/ Consider using 'flowLogIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsFlowLogIds :: Lens.Lens' DescribeFlowLogs (Core.Maybe [Types.VpcFlowLogId])
+dflsFlowLogIds = Lens.field @"flowLogIds"
+{-# DEPRECATED dflsFlowLogIds "Use generic-lens or generic-optics with 'flowLogIds' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflsMaxResults :: Lens.Lens' DescribeFlowLogs (Lude.Maybe Lude.Int)
-dflsMaxResults = Lens.lens (maxResults :: DescribeFlowLogs -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeFlowLogs)
+dflsMaxResults :: Lens.Lens' DescribeFlowLogs (Core.Maybe Core.Int)
+dflsMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dflsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeFlowLogs where
-  page rq rs
-    | Page.stop (rs Lens.^. dflsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dflsrsFlowLogs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dflsNextToken Lens..~ rs Lens.^. dflsrsNextToken
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflsNextToken :: Lens.Lens' DescribeFlowLogs (Core.Maybe Types.String)
+dflsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dflsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeFlowLogs where
+instance Core.AWSRequest DescribeFlowLogs where
   type Rs DescribeFlowLogs = DescribeFlowLogsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeFlowLogs")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filter)
+                Core.<> (Core.toQueryList "FlowLogId" Core.<$> flowLogIds)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeFlowLogsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "flowLogSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "flowLogSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeFlowLogs where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeFlowLogs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeFlowLogs where
-  toQuery DescribeFlowLogs' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeFlowLogs" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        Lude.toQuery (Lude.toQueryList "FlowLogId" Lude.<$> flowLogIds),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filter),
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeFlowLogs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"flowLogs" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about the flow logs.
-    flowLogs :: Lude.Maybe [FlowLog],
+  { -- | Information about the flow logs.
+    flowLogs :: Core.Maybe [Types.FlowLog],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeFlowLogsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'flowLogs' - Information about the flow logs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeFlowLogsResponse' value with any optional fields omitted.
 mkDescribeFlowLogsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeFlowLogsResponse
-mkDescribeFlowLogsResponse pResponseStatus_ =
+mkDescribeFlowLogsResponse responseStatus =
   DescribeFlowLogsResponse'
-    { nextToken = Lude.Nothing,
-      flowLogs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { flowLogs = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflsrsNextToken :: Lens.Lens' DescribeFlowLogsResponse (Lude.Maybe Lude.Text)
-dflsrsNextToken = Lens.lens (nextToken :: DescribeFlowLogsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFlowLogsResponse)
-{-# DEPRECATED dflsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the flow logs.
 --
 -- /Note:/ Consider using 'flowLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflsrsFlowLogs :: Lens.Lens' DescribeFlowLogsResponse (Lude.Maybe [FlowLog])
-dflsrsFlowLogs = Lens.lens (flowLogs :: DescribeFlowLogsResponse -> Lude.Maybe [FlowLog]) (\s a -> s {flowLogs = a} :: DescribeFlowLogsResponse)
-{-# DEPRECATED dflsrsFlowLogs "Use generic-lens or generic-optics with 'flowLogs' instead." #-}
+dflrfrsFlowLogs :: Lens.Lens' DescribeFlowLogsResponse (Core.Maybe [Types.FlowLog])
+dflrfrsFlowLogs = Lens.field @"flowLogs"
+{-# DEPRECATED dflrfrsFlowLogs "Use generic-lens or generic-optics with 'flowLogs' instead." #-}
+
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflrfrsNextToken :: Lens.Lens' DescribeFlowLogsResponse (Core.Maybe Types.String)
+dflrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dflrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflsrsResponseStatus :: Lens.Lens' DescribeFlowLogsResponse Lude.Int
-dflsrsResponseStatus = Lens.lens (responseStatus :: DescribeFlowLogsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFlowLogsResponse)
-{-# DEPRECATED dflsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dflrfrsResponseStatus :: Lens.Lens' DescribeFlowLogsResponse Core.Int
+dflrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dflrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

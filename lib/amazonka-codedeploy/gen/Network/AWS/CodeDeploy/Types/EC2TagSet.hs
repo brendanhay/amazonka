@@ -17,48 +17,42 @@ module Network.AWS.CodeDeploy.Types.EC2TagSet
     mkEC2TagSet,
 
     -- * Lenses
-    etsEc2TagSetList,
+    ectsEc2TagSetList,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.EC2TagFilter
+import qualified Network.AWS.CodeDeploy.Types.EC2TagFilter as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about groups of EC2 instance tags.
 --
 -- /See:/ 'mkEC2TagSet' smart constructor.
 newtype EC2TagSet = EC2TagSet'
   { -- | A list that contains other lists of EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-    ec2TagSetList :: Lude.Maybe [[EC2TagFilter]]
+    ec2TagSetList :: Core.Maybe [[Types.EC2TagFilter]]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EC2TagSet' with the minimum fields required to make a request.
---
--- * 'ec2TagSetList' - A list that contains other lists of EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+-- | Creates a 'EC2TagSet' value with any optional fields omitted.
 mkEC2TagSet ::
   EC2TagSet
-mkEC2TagSet = EC2TagSet' {ec2TagSetList = Lude.Nothing}
+mkEC2TagSet = EC2TagSet' {ec2TagSetList = Core.Nothing}
 
 -- | A list that contains other lists of EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
 --
 -- /Note:/ Consider using 'ec2TagSetList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etsEc2TagSetList :: Lens.Lens' EC2TagSet (Lude.Maybe [[EC2TagFilter]])
-etsEc2TagSetList = Lens.lens (ec2TagSetList :: EC2TagSet -> Lude.Maybe [[EC2TagFilter]]) (\s a -> s {ec2TagSetList = a} :: EC2TagSet)
-{-# DEPRECATED etsEc2TagSetList "Use generic-lens or generic-optics with 'ec2TagSetList' instead." #-}
+ectsEc2TagSetList :: Lens.Lens' EC2TagSet (Core.Maybe [[Types.EC2TagFilter]])
+ectsEc2TagSetList = Lens.field @"ec2TagSetList"
+{-# DEPRECATED ectsEc2TagSetList "Use generic-lens or generic-optics with 'ec2TagSetList' instead." #-}
 
-instance Lude.FromJSON EC2TagSet where
+instance Core.FromJSON EC2TagSet where
+  toJSON EC2TagSet {..} =
+    Core.object
+      (Core.catMaybes [("ec2TagSetList" Core..=) Core.<$> ec2TagSetList])
+
+instance Core.FromJSON EC2TagSet where
   parseJSON =
-    Lude.withObject
-      "EC2TagSet"
-      ( \x ->
-          EC2TagSet'
-            Lude.<$> (x Lude..:? "ec2TagSetList" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON EC2TagSet where
-  toJSON EC2TagSet' {..} =
-    Lude.object
-      (Lude.catMaybes [("ec2TagSetList" Lude..=) Lude.<$> ec2TagSetList])
+    Core.withObject "EC2TagSet" Core.$
+      \x -> EC2TagSet' Core.<$> (x Core..:? "ec2TagSetList")

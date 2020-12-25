@@ -23,48 +23,45 @@ module Network.AWS.MechanicalTurk.Types.WorkerBlock
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.Reason as Types
+import qualified Network.AWS.MechanicalTurk.Types.WorkerId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block.
 --
 -- /See:/ 'mkWorkerBlock' smart constructor.
 data WorkerBlock = WorkerBlock'
   { -- | A message explaining the reason the Worker was blocked.
-    reason :: Lude.Maybe Lude.Text,
+    reason :: Core.Maybe Types.Reason,
     -- | The ID of the Worker who accepted the HIT.
-    workerId :: Lude.Maybe Lude.Text
+    workerId :: Core.Maybe Types.WorkerId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkerBlock' with the minimum fields required to make a request.
---
--- * 'reason' - A message explaining the reason the Worker was blocked.
--- * 'workerId' - The ID of the Worker who accepted the HIT.
+-- | Creates a 'WorkerBlock' value with any optional fields omitted.
 mkWorkerBlock ::
   WorkerBlock
 mkWorkerBlock =
-  WorkerBlock' {reason = Lude.Nothing, workerId = Lude.Nothing}
+  WorkerBlock' {reason = Core.Nothing, workerId = Core.Nothing}
 
 -- | A message explaining the reason the Worker was blocked.
 --
 -- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbReason :: Lens.Lens' WorkerBlock (Lude.Maybe Lude.Text)
-wbReason = Lens.lens (reason :: WorkerBlock -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: WorkerBlock)
+wbReason :: Lens.Lens' WorkerBlock (Core.Maybe Types.Reason)
+wbReason = Lens.field @"reason"
 {-# DEPRECATED wbReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The ID of the Worker who accepted the HIT.
 --
 -- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbWorkerId :: Lens.Lens' WorkerBlock (Lude.Maybe Lude.Text)
-wbWorkerId = Lens.lens (workerId :: WorkerBlock -> Lude.Maybe Lude.Text) (\s a -> s {workerId = a} :: WorkerBlock)
+wbWorkerId :: Lens.Lens' WorkerBlock (Core.Maybe Types.WorkerId)
+wbWorkerId = Lens.field @"workerId"
 {-# DEPRECATED wbWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
-instance Lude.FromJSON WorkerBlock where
+instance Core.FromJSON WorkerBlock where
   parseJSON =
-    Lude.withObject
-      "WorkerBlock"
-      ( \x ->
-          WorkerBlock'
-            Lude.<$> (x Lude..:? "Reason") Lude.<*> (x Lude..:? "WorkerId")
-      )
+    Core.withObject "WorkerBlock" Core.$
+      \x ->
+        WorkerBlock'
+          Core.<$> (x Core..:? "Reason") Core.<*> (x Core..:? "WorkerId")

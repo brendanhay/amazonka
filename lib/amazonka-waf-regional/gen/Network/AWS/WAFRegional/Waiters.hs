@@ -16,6 +16,6 @@ module Network.AWS.WAFRegional.Waiters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAFRegional.Types
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types as Types
+import qualified Network.AWS.Waiter as Waiter

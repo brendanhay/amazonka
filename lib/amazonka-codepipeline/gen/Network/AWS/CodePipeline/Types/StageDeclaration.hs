@@ -17,85 +17,80 @@ module Network.AWS.CodePipeline.Types.StageDeclaration
     mkStageDeclaration,
 
     -- * Lenses
+    sdName,
     sdActions,
     sdBlockers,
-    sdName,
   )
 where
 
-import Network.AWS.CodePipeline.Types.ActionDeclaration
-import Network.AWS.CodePipeline.Types.BlockerDeclaration
+import qualified Network.AWS.CodePipeline.Types.ActionDeclaration as Types
+import qualified Network.AWS.CodePipeline.Types.BlockerDeclaration as Types
+import qualified Network.AWS.CodePipeline.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about a stage and its definition.
 --
 -- /See:/ 'mkStageDeclaration' smart constructor.
 data StageDeclaration = StageDeclaration'
-  { -- | The actions included in a stage.
-    actions :: [ActionDeclaration],
+  { -- | The name of the stage.
+    name :: Types.Name,
+    -- | The actions included in a stage.
+    actions :: [Types.ActionDeclaration],
     -- | Reserved for future use.
-    blockers :: Lude.Maybe [BlockerDeclaration],
-    -- | The name of the stage.
-    name :: Lude.Text
+    blockers :: Core.Maybe [Types.BlockerDeclaration]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StageDeclaration' with the minimum fields required to make a request.
---
--- * 'actions' - The actions included in a stage.
--- * 'blockers' - Reserved for future use.
--- * 'name' - The name of the stage.
+-- | Creates a 'StageDeclaration' value with any optional fields omitted.
 mkStageDeclaration ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   StageDeclaration
-mkStageDeclaration pName_ =
+mkStageDeclaration name =
   StageDeclaration'
-    { actions = Lude.mempty,
-      blockers = Lude.Nothing,
-      name = pName_
+    { name,
+      actions = Core.mempty,
+      blockers = Core.Nothing
     }
+
+-- | The name of the stage.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdName :: Lens.Lens' StageDeclaration Types.Name
+sdName = Lens.field @"name"
+{-# DEPRECATED sdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The actions included in a stage.
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdActions :: Lens.Lens' StageDeclaration [ActionDeclaration]
-sdActions = Lens.lens (actions :: StageDeclaration -> [ActionDeclaration]) (\s a -> s {actions = a} :: StageDeclaration)
+sdActions :: Lens.Lens' StageDeclaration [Types.ActionDeclaration]
+sdActions = Lens.field @"actions"
 {-# DEPRECATED sdActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | Reserved for future use.
 --
 -- /Note:/ Consider using 'blockers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdBlockers :: Lens.Lens' StageDeclaration (Lude.Maybe [BlockerDeclaration])
-sdBlockers = Lens.lens (blockers :: StageDeclaration -> Lude.Maybe [BlockerDeclaration]) (\s a -> s {blockers = a} :: StageDeclaration)
+sdBlockers :: Lens.Lens' StageDeclaration (Core.Maybe [Types.BlockerDeclaration])
+sdBlockers = Lens.field @"blockers"
 {-# DEPRECATED sdBlockers "Use generic-lens or generic-optics with 'blockers' instead." #-}
 
--- | The name of the stage.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdName :: Lens.Lens' StageDeclaration Lude.Text
-sdName = Lens.lens (name :: StageDeclaration -> Lude.Text) (\s a -> s {name = a} :: StageDeclaration)
-{-# DEPRECATED sdName "Use generic-lens or generic-optics with 'name' instead." #-}
-
-instance Lude.FromJSON StageDeclaration where
-  parseJSON =
-    Lude.withObject
-      "StageDeclaration"
-      ( \x ->
-          StageDeclaration'
-            Lude.<$> (x Lude..:? "actions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "blockers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "name")
-      )
-
-instance Lude.ToJSON StageDeclaration where
-  toJSON StageDeclaration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("actions" Lude..= actions),
-            ("blockers" Lude..=) Lude.<$> blockers,
-            Lude.Just ("name" Lude..= name)
+instance Core.FromJSON StageDeclaration where
+  toJSON StageDeclaration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("actions" Core..= actions),
+            ("blockers" Core..=) Core.<$> blockers
           ]
       )
+
+instance Core.FromJSON StageDeclaration where
+  parseJSON =
+    Core.withObject "StageDeclaration" Core.$
+      \x ->
+        StageDeclaration'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..:? "actions" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "blockers")

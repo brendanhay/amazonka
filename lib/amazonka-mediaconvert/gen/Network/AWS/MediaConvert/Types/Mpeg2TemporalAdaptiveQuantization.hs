@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization
   ( Mpeg2TemporalAdaptiveQuantization
       ( Mpeg2TemporalAdaptiveQuantization',
-        MTAQDisabled,
-        MTAQEnabled
+        Mpeg2TemporalAdaptiveQuantizationDisabled,
+        Mpeg2TemporalAdaptiveQuantizationEnabled,
+        fromMpeg2TemporalAdaptiveQuantization
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Keep the default value, Enabled (ENABLED), to adjust quantization within each frame based on temporal variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas of the frame that aren't moving and uses more bits on complex objects with sharp edges that move a lot. For example, this feature improves the readability of text tickers on newscasts and scoreboards on sports matches. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen that doesn't have moving objects with sharp edges, such as sports athletes' faces, you might choose to disable this feature. Related setting: When you enable temporal quantization, adjust the strength of the filter with the setting Adaptive quantization (adaptiveQuantization).
-newtype Mpeg2TemporalAdaptiveQuantization = Mpeg2TemporalAdaptiveQuantization' Lude.Text
+newtype Mpeg2TemporalAdaptiveQuantization = Mpeg2TemporalAdaptiveQuantization'
+  { fromMpeg2TemporalAdaptiveQuantization ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MTAQDisabled :: Mpeg2TemporalAdaptiveQuantization
-pattern MTAQDisabled = Mpeg2TemporalAdaptiveQuantization' "DISABLED"
+pattern Mpeg2TemporalAdaptiveQuantizationDisabled :: Mpeg2TemporalAdaptiveQuantization
+pattern Mpeg2TemporalAdaptiveQuantizationDisabled = Mpeg2TemporalAdaptiveQuantization' "DISABLED"
 
-pattern MTAQEnabled :: Mpeg2TemporalAdaptiveQuantization
-pattern MTAQEnabled = Mpeg2TemporalAdaptiveQuantization' "ENABLED"
+pattern Mpeg2TemporalAdaptiveQuantizationEnabled :: Mpeg2TemporalAdaptiveQuantization
+pattern Mpeg2TemporalAdaptiveQuantizationEnabled = Mpeg2TemporalAdaptiveQuantization' "ENABLED"
 
 {-# COMPLETE
-  MTAQDisabled,
-  MTAQEnabled,
+  Mpeg2TemporalAdaptiveQuantizationDisabled,
+  Mpeg2TemporalAdaptiveQuantizationEnabled,
   Mpeg2TemporalAdaptiveQuantization'
   #-}

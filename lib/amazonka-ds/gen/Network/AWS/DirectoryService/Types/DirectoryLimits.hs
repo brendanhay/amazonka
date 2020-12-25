@@ -17,149 +17,137 @@ module Network.AWS.DirectoryService.Types.DirectoryLimits
     mkDirectoryLimits,
 
     -- * Lenses
-    dlConnectedDirectoriesCurrentCount,
-    dlCloudOnlyMicrosoftADLimitReached,
-    dlConnectedDirectoriesLimit,
-    dlConnectedDirectoriesLimitReached,
-    dlCloudOnlyMicrosoftADLimit,
-    dlCloudOnlyDirectoriesLimit,
     dlCloudOnlyDirectoriesCurrentCount,
+    dlCloudOnlyDirectoriesLimit,
     dlCloudOnlyDirectoriesLimitReached,
     dlCloudOnlyMicrosoftADCurrentCount,
+    dlCloudOnlyMicrosoftADLimit,
+    dlCloudOnlyMicrosoftADLimitReached,
+    dlConnectedDirectoriesCurrentCount,
+    dlConnectedDirectoriesLimit,
+    dlConnectedDirectoriesLimitReached,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains directory limit information for a Region.
 --
 -- /See:/ 'mkDirectoryLimits' smart constructor.
 data DirectoryLimits = DirectoryLimits'
-  { -- | The current number of connected directories in the Region.
-    connectedDirectoriesCurrentCount :: Lude.Maybe Lude.Natural,
-    -- | Indicates if the AWS Managed Microsoft AD directory limit has been reached.
-    cloudOnlyMicrosoftADLimitReached :: Lude.Maybe Lude.Bool,
-    -- | The maximum number of connected directories allowed in the Region.
-    connectedDirectoriesLimit :: Lude.Maybe Lude.Natural,
-    -- | Indicates if the connected directory limit has been reached.
-    connectedDirectoriesLimitReached :: Lude.Maybe Lude.Bool,
-    -- | The maximum number of AWS Managed Microsoft AD directories allowed in the region.
-    cloudOnlyMicrosoftADLimit :: Lude.Maybe Lude.Natural,
+  { -- | The current number of cloud directories in the Region.
+    cloudOnlyDirectoriesCurrentCount :: Core.Maybe Core.Natural,
     -- | The maximum number of cloud directories allowed in the Region.
-    cloudOnlyDirectoriesLimit :: Lude.Maybe Lude.Natural,
-    -- | The current number of cloud directories in the Region.
-    cloudOnlyDirectoriesCurrentCount :: Lude.Maybe Lude.Natural,
+    cloudOnlyDirectoriesLimit :: Core.Maybe Core.Natural,
     -- | Indicates if the cloud directory limit has been reached.
-    cloudOnlyDirectoriesLimitReached :: Lude.Maybe Lude.Bool,
+    cloudOnlyDirectoriesLimitReached :: Core.Maybe Core.Bool,
     -- | The current number of AWS Managed Microsoft AD directories in the region.
-    cloudOnlyMicrosoftADCurrentCount :: Lude.Maybe Lude.Natural
+    cloudOnlyMicrosoftADCurrentCount :: Core.Maybe Core.Natural,
+    -- | The maximum number of AWS Managed Microsoft AD directories allowed in the region.
+    cloudOnlyMicrosoftADLimit :: Core.Maybe Core.Natural,
+    -- | Indicates if the AWS Managed Microsoft AD directory limit has been reached.
+    cloudOnlyMicrosoftADLimitReached :: Core.Maybe Core.Bool,
+    -- | The current number of connected directories in the Region.
+    connectedDirectoriesCurrentCount :: Core.Maybe Core.Natural,
+    -- | The maximum number of connected directories allowed in the Region.
+    connectedDirectoriesLimit :: Core.Maybe Core.Natural,
+    -- | Indicates if the connected directory limit has been reached.
+    connectedDirectoriesLimitReached :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DirectoryLimits' with the minimum fields required to make a request.
---
--- * 'connectedDirectoriesCurrentCount' - The current number of connected directories in the Region.
--- * 'cloudOnlyMicrosoftADLimitReached' - Indicates if the AWS Managed Microsoft AD directory limit has been reached.
--- * 'connectedDirectoriesLimit' - The maximum number of connected directories allowed in the Region.
--- * 'connectedDirectoriesLimitReached' - Indicates if the connected directory limit has been reached.
--- * 'cloudOnlyMicrosoftADLimit' - The maximum number of AWS Managed Microsoft AD directories allowed in the region.
--- * 'cloudOnlyDirectoriesLimit' - The maximum number of cloud directories allowed in the Region.
--- * 'cloudOnlyDirectoriesCurrentCount' - The current number of cloud directories in the Region.
--- * 'cloudOnlyDirectoriesLimitReached' - Indicates if the cloud directory limit has been reached.
--- * 'cloudOnlyMicrosoftADCurrentCount' - The current number of AWS Managed Microsoft AD directories in the region.
+-- | Creates a 'DirectoryLimits' value with any optional fields omitted.
 mkDirectoryLimits ::
   DirectoryLimits
 mkDirectoryLimits =
   DirectoryLimits'
-    { connectedDirectoriesCurrentCount = Lude.Nothing,
-      cloudOnlyMicrosoftADLimitReached = Lude.Nothing,
-      connectedDirectoriesLimit = Lude.Nothing,
-      connectedDirectoriesLimitReached = Lude.Nothing,
-      cloudOnlyMicrosoftADLimit = Lude.Nothing,
-      cloudOnlyDirectoriesLimit = Lude.Nothing,
-      cloudOnlyDirectoriesCurrentCount = Lude.Nothing,
-      cloudOnlyDirectoriesLimitReached = Lude.Nothing,
-      cloudOnlyMicrosoftADCurrentCount = Lude.Nothing
+    { cloudOnlyDirectoriesCurrentCount = Core.Nothing,
+      cloudOnlyDirectoriesLimit = Core.Nothing,
+      cloudOnlyDirectoriesLimitReached = Core.Nothing,
+      cloudOnlyMicrosoftADCurrentCount = Core.Nothing,
+      cloudOnlyMicrosoftADLimit = Core.Nothing,
+      cloudOnlyMicrosoftADLimitReached = Core.Nothing,
+      connectedDirectoriesCurrentCount = Core.Nothing,
+      connectedDirectoriesLimit = Core.Nothing,
+      connectedDirectoriesLimitReached = Core.Nothing
     }
-
--- | The current number of connected directories in the Region.
---
--- /Note:/ Consider using 'connectedDirectoriesCurrentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlConnectedDirectoriesCurrentCount :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Natural)
-dlConnectedDirectoriesCurrentCount = Lens.lens (connectedDirectoriesCurrentCount :: DirectoryLimits -> Lude.Maybe Lude.Natural) (\s a -> s {connectedDirectoriesCurrentCount = a} :: DirectoryLimits)
-{-# DEPRECATED dlConnectedDirectoriesCurrentCount "Use generic-lens or generic-optics with 'connectedDirectoriesCurrentCount' instead." #-}
-
--- | Indicates if the AWS Managed Microsoft AD directory limit has been reached.
---
--- /Note:/ Consider using 'cloudOnlyMicrosoftADLimitReached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlCloudOnlyMicrosoftADLimitReached :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Bool)
-dlCloudOnlyMicrosoftADLimitReached = Lens.lens (cloudOnlyMicrosoftADLimitReached :: DirectoryLimits -> Lude.Maybe Lude.Bool) (\s a -> s {cloudOnlyMicrosoftADLimitReached = a} :: DirectoryLimits)
-{-# DEPRECATED dlCloudOnlyMicrosoftADLimitReached "Use generic-lens or generic-optics with 'cloudOnlyMicrosoftADLimitReached' instead." #-}
-
--- | The maximum number of connected directories allowed in the Region.
---
--- /Note:/ Consider using 'connectedDirectoriesLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlConnectedDirectoriesLimit :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Natural)
-dlConnectedDirectoriesLimit = Lens.lens (connectedDirectoriesLimit :: DirectoryLimits -> Lude.Maybe Lude.Natural) (\s a -> s {connectedDirectoriesLimit = a} :: DirectoryLimits)
-{-# DEPRECATED dlConnectedDirectoriesLimit "Use generic-lens or generic-optics with 'connectedDirectoriesLimit' instead." #-}
-
--- | Indicates if the connected directory limit has been reached.
---
--- /Note:/ Consider using 'connectedDirectoriesLimitReached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlConnectedDirectoriesLimitReached :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Bool)
-dlConnectedDirectoriesLimitReached = Lens.lens (connectedDirectoriesLimitReached :: DirectoryLimits -> Lude.Maybe Lude.Bool) (\s a -> s {connectedDirectoriesLimitReached = a} :: DirectoryLimits)
-{-# DEPRECATED dlConnectedDirectoriesLimitReached "Use generic-lens or generic-optics with 'connectedDirectoriesLimitReached' instead." #-}
-
--- | The maximum number of AWS Managed Microsoft AD directories allowed in the region.
---
--- /Note:/ Consider using 'cloudOnlyMicrosoftADLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlCloudOnlyMicrosoftADLimit :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Natural)
-dlCloudOnlyMicrosoftADLimit = Lens.lens (cloudOnlyMicrosoftADLimit :: DirectoryLimits -> Lude.Maybe Lude.Natural) (\s a -> s {cloudOnlyMicrosoftADLimit = a} :: DirectoryLimits)
-{-# DEPRECATED dlCloudOnlyMicrosoftADLimit "Use generic-lens or generic-optics with 'cloudOnlyMicrosoftADLimit' instead." #-}
-
--- | The maximum number of cloud directories allowed in the Region.
---
--- /Note:/ Consider using 'cloudOnlyDirectoriesLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlCloudOnlyDirectoriesLimit :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Natural)
-dlCloudOnlyDirectoriesLimit = Lens.lens (cloudOnlyDirectoriesLimit :: DirectoryLimits -> Lude.Maybe Lude.Natural) (\s a -> s {cloudOnlyDirectoriesLimit = a} :: DirectoryLimits)
-{-# DEPRECATED dlCloudOnlyDirectoriesLimit "Use generic-lens or generic-optics with 'cloudOnlyDirectoriesLimit' instead." #-}
 
 -- | The current number of cloud directories in the Region.
 --
 -- /Note:/ Consider using 'cloudOnlyDirectoriesCurrentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlCloudOnlyDirectoriesCurrentCount :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Natural)
-dlCloudOnlyDirectoriesCurrentCount = Lens.lens (cloudOnlyDirectoriesCurrentCount :: DirectoryLimits -> Lude.Maybe Lude.Natural) (\s a -> s {cloudOnlyDirectoriesCurrentCount = a} :: DirectoryLimits)
+dlCloudOnlyDirectoriesCurrentCount :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Natural)
+dlCloudOnlyDirectoriesCurrentCount = Lens.field @"cloudOnlyDirectoriesCurrentCount"
 {-# DEPRECATED dlCloudOnlyDirectoriesCurrentCount "Use generic-lens or generic-optics with 'cloudOnlyDirectoriesCurrentCount' instead." #-}
+
+-- | The maximum number of cloud directories allowed in the Region.
+--
+-- /Note:/ Consider using 'cloudOnlyDirectoriesLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlCloudOnlyDirectoriesLimit :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Natural)
+dlCloudOnlyDirectoriesLimit = Lens.field @"cloudOnlyDirectoriesLimit"
+{-# DEPRECATED dlCloudOnlyDirectoriesLimit "Use generic-lens or generic-optics with 'cloudOnlyDirectoriesLimit' instead." #-}
 
 -- | Indicates if the cloud directory limit has been reached.
 --
 -- /Note:/ Consider using 'cloudOnlyDirectoriesLimitReached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlCloudOnlyDirectoriesLimitReached :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Bool)
-dlCloudOnlyDirectoriesLimitReached = Lens.lens (cloudOnlyDirectoriesLimitReached :: DirectoryLimits -> Lude.Maybe Lude.Bool) (\s a -> s {cloudOnlyDirectoriesLimitReached = a} :: DirectoryLimits)
+dlCloudOnlyDirectoriesLimitReached :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Bool)
+dlCloudOnlyDirectoriesLimitReached = Lens.field @"cloudOnlyDirectoriesLimitReached"
 {-# DEPRECATED dlCloudOnlyDirectoriesLimitReached "Use generic-lens or generic-optics with 'cloudOnlyDirectoriesLimitReached' instead." #-}
 
 -- | The current number of AWS Managed Microsoft AD directories in the region.
 --
 -- /Note:/ Consider using 'cloudOnlyMicrosoftADCurrentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlCloudOnlyMicrosoftADCurrentCount :: Lens.Lens' DirectoryLimits (Lude.Maybe Lude.Natural)
-dlCloudOnlyMicrosoftADCurrentCount = Lens.lens (cloudOnlyMicrosoftADCurrentCount :: DirectoryLimits -> Lude.Maybe Lude.Natural) (\s a -> s {cloudOnlyMicrosoftADCurrentCount = a} :: DirectoryLimits)
+dlCloudOnlyMicrosoftADCurrentCount :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Natural)
+dlCloudOnlyMicrosoftADCurrentCount = Lens.field @"cloudOnlyMicrosoftADCurrentCount"
 {-# DEPRECATED dlCloudOnlyMicrosoftADCurrentCount "Use generic-lens or generic-optics with 'cloudOnlyMicrosoftADCurrentCount' instead." #-}
 
-instance Lude.FromJSON DirectoryLimits where
+-- | The maximum number of AWS Managed Microsoft AD directories allowed in the region.
+--
+-- /Note:/ Consider using 'cloudOnlyMicrosoftADLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlCloudOnlyMicrosoftADLimit :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Natural)
+dlCloudOnlyMicrosoftADLimit = Lens.field @"cloudOnlyMicrosoftADLimit"
+{-# DEPRECATED dlCloudOnlyMicrosoftADLimit "Use generic-lens or generic-optics with 'cloudOnlyMicrosoftADLimit' instead." #-}
+
+-- | Indicates if the AWS Managed Microsoft AD directory limit has been reached.
+--
+-- /Note:/ Consider using 'cloudOnlyMicrosoftADLimitReached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlCloudOnlyMicrosoftADLimitReached :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Bool)
+dlCloudOnlyMicrosoftADLimitReached = Lens.field @"cloudOnlyMicrosoftADLimitReached"
+{-# DEPRECATED dlCloudOnlyMicrosoftADLimitReached "Use generic-lens or generic-optics with 'cloudOnlyMicrosoftADLimitReached' instead." #-}
+
+-- | The current number of connected directories in the Region.
+--
+-- /Note:/ Consider using 'connectedDirectoriesCurrentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlConnectedDirectoriesCurrentCount :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Natural)
+dlConnectedDirectoriesCurrentCount = Lens.field @"connectedDirectoriesCurrentCount"
+{-# DEPRECATED dlConnectedDirectoriesCurrentCount "Use generic-lens or generic-optics with 'connectedDirectoriesCurrentCount' instead." #-}
+
+-- | The maximum number of connected directories allowed in the Region.
+--
+-- /Note:/ Consider using 'connectedDirectoriesLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlConnectedDirectoriesLimit :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Natural)
+dlConnectedDirectoriesLimit = Lens.field @"connectedDirectoriesLimit"
+{-# DEPRECATED dlConnectedDirectoriesLimit "Use generic-lens or generic-optics with 'connectedDirectoriesLimit' instead." #-}
+
+-- | Indicates if the connected directory limit has been reached.
+--
+-- /Note:/ Consider using 'connectedDirectoriesLimitReached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlConnectedDirectoriesLimitReached :: Lens.Lens' DirectoryLimits (Core.Maybe Core.Bool)
+dlConnectedDirectoriesLimitReached = Lens.field @"connectedDirectoriesLimitReached"
+{-# DEPRECATED dlConnectedDirectoriesLimitReached "Use generic-lens or generic-optics with 'connectedDirectoriesLimitReached' instead." #-}
+
+instance Core.FromJSON DirectoryLimits where
   parseJSON =
-    Lude.withObject
-      "DirectoryLimits"
-      ( \x ->
-          DirectoryLimits'
-            Lude.<$> (x Lude..:? "ConnectedDirectoriesCurrentCount")
-            Lude.<*> (x Lude..:? "CloudOnlyMicrosoftADLimitReached")
-            Lude.<*> (x Lude..:? "ConnectedDirectoriesLimit")
-            Lude.<*> (x Lude..:? "ConnectedDirectoriesLimitReached")
-            Lude.<*> (x Lude..:? "CloudOnlyMicrosoftADLimit")
-            Lude.<*> (x Lude..:? "CloudOnlyDirectoriesLimit")
-            Lude.<*> (x Lude..:? "CloudOnlyDirectoriesCurrentCount")
-            Lude.<*> (x Lude..:? "CloudOnlyDirectoriesLimitReached")
-            Lude.<*> (x Lude..:? "CloudOnlyMicrosoftADCurrentCount")
-      )
+    Core.withObject "DirectoryLimits" Core.$
+      \x ->
+        DirectoryLimits'
+          Core.<$> (x Core..:? "CloudOnlyDirectoriesCurrentCount")
+          Core.<*> (x Core..:? "CloudOnlyDirectoriesLimit")
+          Core.<*> (x Core..:? "CloudOnlyDirectoriesLimitReached")
+          Core.<*> (x Core..:? "CloudOnlyMicrosoftADCurrentCount")
+          Core.<*> (x Core..:? "CloudOnlyMicrosoftADLimit")
+          Core.<*> (x Core..:? "CloudOnlyMicrosoftADLimitReached")
+          Core.<*> (x Core..:? "ConnectedDirectoriesCurrentCount")
+          Core.<*> (x Core..:? "ConnectedDirectoriesLimit")
+          Core.<*> (x Core..:? "ConnectedDirectoriesLimitReached")

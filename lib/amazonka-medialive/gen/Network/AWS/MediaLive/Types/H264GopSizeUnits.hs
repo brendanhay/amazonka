@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H264GopSizeUnits
   ( H264GopSizeUnits
       ( H264GopSizeUnits',
-        HFrames,
-        HSeconds
+        H264GopSizeUnitsFrames,
+        H264GopSizeUnitsSeconds,
+        fromH264GopSizeUnits
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Gop Size Units
-newtype H264GopSizeUnits = H264GopSizeUnits' Lude.Text
+newtype H264GopSizeUnits = H264GopSizeUnits'
+  { fromH264GopSizeUnits ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HFrames :: H264GopSizeUnits
-pattern HFrames = H264GopSizeUnits' "FRAMES"
+pattern H264GopSizeUnitsFrames :: H264GopSizeUnits
+pattern H264GopSizeUnitsFrames = H264GopSizeUnits' "FRAMES"
 
-pattern HSeconds :: H264GopSizeUnits
-pattern HSeconds = H264GopSizeUnits' "SECONDS"
+pattern H264GopSizeUnitsSeconds :: H264GopSizeUnits
+pattern H264GopSizeUnitsSeconds = H264GopSizeUnits' "SECONDS"
 
 {-# COMPLETE
-  HFrames,
-  HSeconds,
+  H264GopSizeUnitsFrames,
+  H264GopSizeUnitsSeconds,
   H264GopSizeUnits'
   #-}

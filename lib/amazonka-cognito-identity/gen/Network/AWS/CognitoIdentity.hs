@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +18,43 @@
 -- For more information see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html Amazon Cognito Federated Identities> .
 module Network.AWS.CognitoIdentity
   ( -- * Service configuration
-    cognitoIdentityService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidIdentityPoolConfigurationException
+    _InvalidIdentityPoolConfigurationException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** ExternalServiceException
+    _ExternalServiceException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** DeveloperUserAlreadyRegisteredException
+    _DeveloperUserAlreadyRegisteredException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -95,80 +127,31 @@ module Network.AWS.CognitoIdentity
 
     -- * Types
 
-    -- ** AmbiguousRoleResolutionType
-    AmbiguousRoleResolutionType (..),
+    -- ** RoleType
+    RoleType (..),
 
-    -- ** CognitoErrorCode
-    CognitoErrorCode (..),
+    -- ** IdentityProviderToken
+    IdentityProviderToken (..),
 
-    -- ** MappingRuleMatchType
-    MappingRuleMatchType (..),
+    -- ** CognitoIdentityProviderClientId
+    CognitoIdentityProviderClientId (..),
 
-    -- ** RoleMappingType
-    RoleMappingType (..),
+    -- ** DeveloperUserIdentifier
+    DeveloperUserIdentifier (..),
 
-    -- ** CognitoIdentityProvider
-    CognitoIdentityProvider (..),
-    mkCognitoIdentityProvider,
-    cipClientId,
-    cipServerSideTokenCheck,
-    cipProviderName,
+    -- ** SecretKeyString
+    SecretKeyString (..),
 
-    -- ** Credentials
-    Credentials (..),
-    mkCredentials,
-    cSessionToken,
-    cExpiration,
-    cSecretKey,
-    cAccessKeyId,
-
-    -- ** IdentityDescription
-    IdentityDescription (..),
-    mkIdentityDescription,
-    idLastModifiedDate,
-    idCreationDate,
-    idLogins,
-    idIdentityId,
-
-    -- ** IdentityPool
-    IdentityPool (..),
-    mkIdentityPool,
-    ipSamlProviderARNs,
-    ipSupportedLoginProviders,
-    ipIdentityPoolId,
-    ipAllowClassicFlow,
-    ipIdentityPoolName,
-    ipDeveloperProviderName,
-    ipIdentityPoolTags,
-    ipOpenIdConnectProviderARNs,
-    ipCognitoIdentityProviders,
-    ipAllowUnauthenticatedIdentities,
-
-    -- ** IdentityPoolShortDescription
-    IdentityPoolShortDescription (..),
-    mkIdentityPoolShortDescription,
-    ipsdIdentityPoolId,
-    ipsdIdentityPoolName,
+    -- ** IdentityPoolId
+    IdentityPoolId (..),
 
     -- ** MappingRule
     MappingRule (..),
     mkMappingRule,
+    mrClaim,
     mrMatchType,
     mrValue,
-    mrClaim,
     mrRoleARN,
-
-    -- ** RoleMapping
-    RoleMapping (..),
-    mkRoleMapping,
-    rmRulesConfiguration,
-    rmType,
-    rmAmbiguousRoleResolution,
-
-    -- ** RulesConfigurationType
-    RulesConfigurationType (..),
-    mkRulesConfigurationType,
-    rctRules,
 
     -- ** UnprocessedIdentityId
     UnprocessedIdentityId (..),
@@ -176,15 +159,137 @@ module Network.AWS.CognitoIdentity
     uiiErrorCode,
     uiiIdentityId,
 
+    -- ** IdentityProviderId
+    IdentityProviderId (..),
+
+    -- ** IdentityPoolName
+    IdentityPoolName (..),
+
+    -- ** Credentials
+    Credentials (..),
+    mkCredentials,
+    cAccessKeyId,
+    cExpiration,
+    cSecretKey,
+    cSessionToken,
+
+    -- ** CognitoIdentityProvider
+    CognitoIdentityProvider (..),
+    mkCognitoIdentityProvider,
+    cipClientId,
+    cipProviderName,
+    cipServerSideTokenCheck,
+
+    -- ** IdentityProviderName
+    IdentityProviderName (..),
+
+    -- ** IdentityDescription
+    IdentityDescription (..),
+    mkIdentityDescription,
+    idCreationDate,
+    idIdentityId,
+    idLastModifiedDate,
+    idLogins,
+
+    -- ** ARNString
+    ARNString (..),
+
+    -- ** DeveloperProviderName
+    DeveloperProviderName (..),
+
+    -- ** RoleMapping
+    RoleMapping (..),
+    mkRoleMapping,
+    rmType,
+    rmAmbiguousRoleResolution,
+    rmRulesConfiguration,
+
+    -- ** AmbiguousRoleResolutionType
+    AmbiguousRoleResolutionType (..),
+
+    -- ** MappingRuleMatchType
+    MappingRuleMatchType (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** IdentityPool
+    IdentityPool (..),
+    mkIdentityPool,
+    ipIdentityPoolId,
+    ipIdentityPoolName,
+    ipAllowUnauthenticatedIdentities,
+    ipAllowClassicFlow,
+    ipCognitoIdentityProviders,
+    ipDeveloperProviderName,
+    ipIdentityPoolTags,
+    ipOpenIdConnectProviderARNs,
+    ipSamlProviderARNs,
+    ipSupportedLoginProviders,
+
+    -- ** CognitoErrorCode
+    CognitoErrorCode (..),
+
+    -- ** RulesConfigurationType
+    RulesConfigurationType (..),
+    mkRulesConfigurationType,
+    rctRules,
+
+    -- ** RoleMappingType
+    RoleMappingType (..),
+
+    -- ** IdentityId
+    IdentityId (..),
+
+    -- ** PaginationKey
+    PaginationKey (..),
+
+    -- ** TagKeysType
+    TagKeysType (..),
+
+    -- ** IdentityPoolShortDescription
+    IdentityPoolShortDescription (..),
+    mkIdentityPoolShortDescription,
+    ipsdIdentityPoolId,
+    ipsdIdentityPoolName,
+
+    -- ** TagValueType
+    TagValueType (..),
+
+    -- ** Token
+    Token (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Claim
+    Claim (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** RoleARN
+    RoleARN (..),
+
+    -- ** CustomRoleArn
+    CustomRoleArn (..),
+
+    -- ** AccessKeyId
+    AccessKeyId (..),
+
+    -- ** SessionToken
+    SessionToken (..),
+
+    -- ** ProviderName
+    ProviderName (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

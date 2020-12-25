@@ -17,24 +17,27 @@ module Network.AWS.Lightsail.Types.ContactMethod
     mkContactMethod,
 
     -- * Lenses
-    cmStatus,
-    cmResourceType,
     cmArn,
+    cmContactEndpoint,
     cmCreatedAt,
     cmLocation,
-    cmProtocol,
     cmName,
+    cmProtocol,
+    cmResourceType,
+    cmStatus,
     cmSupportCode,
-    cmContactEndpoint,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ContactMethodStatus
-import Network.AWS.Lightsail.Types.ContactProtocol
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.ContactMethodStatus as Types
+import qualified Network.AWS.Lightsail.Types.ContactProtocol as Types
+import qualified Network.AWS.Lightsail.Types.NonEmptyString as Types
+import qualified Network.AWS.Lightsail.Types.ResourceLocation as Types
+import qualified Network.AWS.Lightsail.Types.ResourceName as Types
+import qualified Network.AWS.Lightsail.Types.ResourceType as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a contact method.
 --
@@ -42,7 +45,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContactMethod' smart constructor.
 data ContactMethod = ContactMethod'
-  { -- | The current status of the contact method.
+  { -- | The Amazon Resource Name (ARN) of the contact method.
+    arn :: Core.Maybe Types.NonEmptyString,
+    -- | The destination of the contact method, such as an email address or a mobile phone number.
+    contactEndpoint :: Core.Maybe Types.NonEmptyString,
+    -- | The timestamp when the contact method was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    location :: Core.Maybe Types.ResourceLocation,
+    -- | The name of the contact method.
+    name :: Core.Maybe Types.ResourceName,
+    -- | The protocol of the contact method, such as email or SMS (text messaging).
+    protocol :: Core.Maybe Types.ContactProtocol,
+    -- | The Lightsail resource type (e.g., @ContactMethod@ ).
+    resourceType :: Core.Maybe Types.ResourceType,
+    -- | The current status of the contact method.
     --
     -- A contact method has the following possible status:
     --
@@ -53,63 +69,77 @@ data ContactMethod = ContactMethod'
     --
     --
     --     * @InValid@ - An attempt was made to verify the contact method, but the verification has expired.
-    status :: Lude.Maybe ContactMethodStatus,
-    -- | The Lightsail resource type (e.g., @ContactMethod@ ).
-    resourceType :: Lude.Maybe ResourceType,
-    -- | The Amazon Resource Name (ARN) of the contact method.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The timestamp when the contact method was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    location :: Lude.Maybe ResourceLocation,
-    -- | The protocol of the contact method, such as email or SMS (text messaging).
-    protocol :: Lude.Maybe ContactProtocol,
-    -- | The name of the contact method.
-    name :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.ContactMethodStatus,
     -- | The support code. Include this code in your email to support when you have questions about your Lightsail contact method. This code enables our support team to look up your Lightsail information more easily.
-    supportCode :: Lude.Maybe Lude.Text,
-    -- | The destination of the contact method, such as an email address or a mobile phone number.
-    contactEndpoint :: Lude.Maybe Lude.Text
+    supportCode :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ContactMethod' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the contact method.
---
--- A contact method has the following possible status:
---
---     * @PendingVerification@ - The contact method has not yet been verified, and the verification has not yet expired.
---
---
---     * @Valid@ - The contact method has been verified.
---
---
---     * @InValid@ - An attempt was made to verify the contact method, but the verification has expired.
---
---
--- * 'resourceType' - The Lightsail resource type (e.g., @ContactMethod@ ).
--- * 'arn' - The Amazon Resource Name (ARN) of the contact method.
--- * 'createdAt' - The timestamp when the contact method was created.
--- * 'location' -
--- * 'protocol' - The protocol of the contact method, such as email or SMS (text messaging).
--- * 'name' - The name of the contact method.
--- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail contact method. This code enables our support team to look up your Lightsail information more easily.
--- * 'contactEndpoint' - The destination of the contact method, such as an email address or a mobile phone number.
+-- | Creates a 'ContactMethod' value with any optional fields omitted.
 mkContactMethod ::
   ContactMethod
 mkContactMethod =
   ContactMethod'
-    { status = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      location = Lude.Nothing,
-      protocol = Lude.Nothing,
-      name = Lude.Nothing,
-      supportCode = Lude.Nothing,
-      contactEndpoint = Lude.Nothing
+    { arn = Core.Nothing,
+      contactEndpoint = Core.Nothing,
+      createdAt = Core.Nothing,
+      location = Core.Nothing,
+      name = Core.Nothing,
+      protocol = Core.Nothing,
+      resourceType = Core.Nothing,
+      status = Core.Nothing,
+      supportCode = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the contact method.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmArn :: Lens.Lens' ContactMethod (Core.Maybe Types.NonEmptyString)
+cmArn = Lens.field @"arn"
+{-# DEPRECATED cmArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The destination of the contact method, such as an email address or a mobile phone number.
+--
+-- /Note:/ Consider using 'contactEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmContactEndpoint :: Lens.Lens' ContactMethod (Core.Maybe Types.NonEmptyString)
+cmContactEndpoint = Lens.field @"contactEndpoint"
+{-# DEPRECATED cmContactEndpoint "Use generic-lens or generic-optics with 'contactEndpoint' instead." #-}
+
+-- | The timestamp when the contact method was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmCreatedAt :: Lens.Lens' ContactMethod (Core.Maybe Core.NominalDiffTime)
+cmCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED cmCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmLocation :: Lens.Lens' ContactMethod (Core.Maybe Types.ResourceLocation)
+cmLocation = Lens.field @"location"
+{-# DEPRECATED cmLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The name of the contact method.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmName :: Lens.Lens' ContactMethod (Core.Maybe Types.ResourceName)
+cmName = Lens.field @"name"
+{-# DEPRECATED cmName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The protocol of the contact method, such as email or SMS (text messaging).
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmProtocol :: Lens.Lens' ContactMethod (Core.Maybe Types.ContactProtocol)
+cmProtocol = Lens.field @"protocol"
+{-# DEPRECATED cmProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
+-- | The Lightsail resource type (e.g., @ContactMethod@ ).
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmResourceType :: Lens.Lens' ContactMethod (Core.Maybe Types.ResourceType)
+cmResourceType = Lens.field @"resourceType"
+{-# DEPRECATED cmResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The current status of the contact method.
 --
@@ -126,79 +156,28 @@ mkContactMethod =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmStatus :: Lens.Lens' ContactMethod (Lude.Maybe ContactMethodStatus)
-cmStatus = Lens.lens (status :: ContactMethod -> Lude.Maybe ContactMethodStatus) (\s a -> s {status = a} :: ContactMethod)
+cmStatus :: Lens.Lens' ContactMethod (Core.Maybe Types.ContactMethodStatus)
+cmStatus = Lens.field @"status"
 {-# DEPRECATED cmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The Lightsail resource type (e.g., @ContactMethod@ ).
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmResourceType :: Lens.Lens' ContactMethod (Lude.Maybe ResourceType)
-cmResourceType = Lens.lens (resourceType :: ContactMethod -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ContactMethod)
-{-# DEPRECATED cmResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the contact method.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmArn :: Lens.Lens' ContactMethod (Lude.Maybe Lude.Text)
-cmArn = Lens.lens (arn :: ContactMethod -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ContactMethod)
-{-# DEPRECATED cmArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The timestamp when the contact method was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmCreatedAt :: Lens.Lens' ContactMethod (Lude.Maybe Lude.Timestamp)
-cmCreatedAt = Lens.lens (createdAt :: ContactMethod -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ContactMethod)
-{-# DEPRECATED cmCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmLocation :: Lens.Lens' ContactMethod (Lude.Maybe ResourceLocation)
-cmLocation = Lens.lens (location :: ContactMethod -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: ContactMethod)
-{-# DEPRECATED cmLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | The protocol of the contact method, such as email or SMS (text messaging).
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmProtocol :: Lens.Lens' ContactMethod (Lude.Maybe ContactProtocol)
-cmProtocol = Lens.lens (protocol :: ContactMethod -> Lude.Maybe ContactProtocol) (\s a -> s {protocol = a} :: ContactMethod)
-{-# DEPRECATED cmProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
-
--- | The name of the contact method.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmName :: Lens.Lens' ContactMethod (Lude.Maybe Lude.Text)
-cmName = Lens.lens (name :: ContactMethod -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ContactMethod)
-{-# DEPRECATED cmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The support code. Include this code in your email to support when you have questions about your Lightsail contact method. This code enables our support team to look up your Lightsail information more easily.
 --
 -- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmSupportCode :: Lens.Lens' ContactMethod (Lude.Maybe Lude.Text)
-cmSupportCode = Lens.lens (supportCode :: ContactMethod -> Lude.Maybe Lude.Text) (\s a -> s {supportCode = a} :: ContactMethod)
+cmSupportCode :: Lens.Lens' ContactMethod (Core.Maybe Types.String)
+cmSupportCode = Lens.field @"supportCode"
 {-# DEPRECATED cmSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
 
--- | The destination of the contact method, such as an email address or a mobile phone number.
---
--- /Note:/ Consider using 'contactEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmContactEndpoint :: Lens.Lens' ContactMethod (Lude.Maybe Lude.Text)
-cmContactEndpoint = Lens.lens (contactEndpoint :: ContactMethod -> Lude.Maybe Lude.Text) (\s a -> s {contactEndpoint = a} :: ContactMethod)
-{-# DEPRECATED cmContactEndpoint "Use generic-lens or generic-optics with 'contactEndpoint' instead." #-}
-
-instance Lude.FromJSON ContactMethod where
+instance Core.FromJSON ContactMethod where
   parseJSON =
-    Lude.withObject
-      "ContactMethod"
-      ( \x ->
-          ContactMethod'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "protocol")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "supportCode")
-            Lude.<*> (x Lude..:? "contactEndpoint")
-      )
+    Core.withObject "ContactMethod" Core.$
+      \x ->
+        ContactMethod'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "contactEndpoint")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "protocol")
+          Core.<*> (x Core..:? "resourceType")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "supportCode")

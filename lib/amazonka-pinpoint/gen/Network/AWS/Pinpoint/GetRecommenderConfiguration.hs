@@ -27,108 +27,97 @@ module Network.AWS.Pinpoint.GetRecommenderConfiguration
     mkGetRecommenderConfigurationResponse,
 
     -- ** Response lenses
-    grcfrsRecommenderConfigurationResponse,
-    grcfrsResponseStatus,
+    grcrfrsRecommenderConfigurationResponse,
+    grcrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetRecommenderConfiguration' smart constructor.
 newtype GetRecommenderConfiguration = GetRecommenderConfiguration'
   { -- | The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
-    recommenderId :: Lude.Text
+    recommenderId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRecommenderConfiguration' with the minimum fields required to make a request.
---
--- * 'recommenderId' - The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
+-- | Creates a 'GetRecommenderConfiguration' value with any optional fields omitted.
 mkGetRecommenderConfiguration ::
   -- | 'recommenderId'
-  Lude.Text ->
+  Core.Text ->
   GetRecommenderConfiguration
-mkGetRecommenderConfiguration pRecommenderId_ =
-  GetRecommenderConfiguration' {recommenderId = pRecommenderId_}
+mkGetRecommenderConfiguration recommenderId =
+  GetRecommenderConfiguration' {recommenderId}
 
 -- | The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'recommenderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grcRecommenderId :: Lens.Lens' GetRecommenderConfiguration Lude.Text
-grcRecommenderId = Lens.lens (recommenderId :: GetRecommenderConfiguration -> Lude.Text) (\s a -> s {recommenderId = a} :: GetRecommenderConfiguration)
+grcRecommenderId :: Lens.Lens' GetRecommenderConfiguration Core.Text
+grcRecommenderId = Lens.field @"recommenderId"
 {-# DEPRECATED grcRecommenderId "Use generic-lens or generic-optics with 'recommenderId' instead." #-}
 
-instance Lude.AWSRequest GetRecommenderConfiguration where
+instance Core.AWSRequest GetRecommenderConfiguration where
   type
     Rs GetRecommenderConfiguration =
       GetRecommenderConfigurationResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/v1/recommenders/" Core.<> (Core.toText recommenderId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRecommenderConfigurationResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetRecommenderConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetRecommenderConfiguration where
-  toPath GetRecommenderConfiguration' {..} =
-    Lude.mconcat ["/v1/recommenders/", Lude.toBS recommenderId]
-
-instance Lude.ToQuery GetRecommenderConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetRecommenderConfigurationResponse' smart constructor.
 data GetRecommenderConfigurationResponse = GetRecommenderConfigurationResponse'
-  { recommenderConfigurationResponse :: RecommenderConfigurationResponse,
+  { recommenderConfigurationResponse :: Types.RecommenderConfigurationResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRecommenderConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'recommenderConfigurationResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRecommenderConfigurationResponse' value with any optional fields omitted.
 mkGetRecommenderConfigurationResponse ::
   -- | 'recommenderConfigurationResponse'
-  RecommenderConfigurationResponse ->
+  Types.RecommenderConfigurationResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRecommenderConfigurationResponse
 mkGetRecommenderConfigurationResponse
-  pRecommenderConfigurationResponse_
-  pResponseStatus_ =
+  recommenderConfigurationResponse
+  responseStatus =
     GetRecommenderConfigurationResponse'
-      { recommenderConfigurationResponse =
-          pRecommenderConfigurationResponse_,
-        responseStatus = pResponseStatus_
+      { recommenderConfigurationResponse,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'recommenderConfigurationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grcfrsRecommenderConfigurationResponse :: Lens.Lens' GetRecommenderConfigurationResponse RecommenderConfigurationResponse
-grcfrsRecommenderConfigurationResponse = Lens.lens (recommenderConfigurationResponse :: GetRecommenderConfigurationResponse -> RecommenderConfigurationResponse) (\s a -> s {recommenderConfigurationResponse = a} :: GetRecommenderConfigurationResponse)
-{-# DEPRECATED grcfrsRecommenderConfigurationResponse "Use generic-lens or generic-optics with 'recommenderConfigurationResponse' instead." #-}
+grcrfrsRecommenderConfigurationResponse :: Lens.Lens' GetRecommenderConfigurationResponse Types.RecommenderConfigurationResponse
+grcrfrsRecommenderConfigurationResponse = Lens.field @"recommenderConfigurationResponse"
+{-# DEPRECATED grcrfrsRecommenderConfigurationResponse "Use generic-lens or generic-optics with 'recommenderConfigurationResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grcfrsResponseStatus :: Lens.Lens' GetRecommenderConfigurationResponse Lude.Int
-grcfrsResponseStatus = Lens.lens (responseStatus :: GetRecommenderConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRecommenderConfigurationResponse)
-{-# DEPRECATED grcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grcrfrsResponseStatus :: Lens.Lens' GetRecommenderConfigurationResponse Core.Int
+grcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

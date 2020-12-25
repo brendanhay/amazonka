@@ -22,53 +22,51 @@ module Network.AWS.EC2.Types.DisableFastSnapshotRestoreErrorItem
   )
 where
 
-import Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateErrorItem
+import qualified Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateErrorItem as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the errors that occurred when disabling fast snapshot restores.
 --
 -- /See:/ 'mkDisableFastSnapshotRestoreErrorItem' smart constructor.
 data DisableFastSnapshotRestoreErrorItem = DisableFastSnapshotRestoreErrorItem'
   { -- | The errors.
-    fastSnapshotRestoreStateErrors :: Lude.Maybe [DisableFastSnapshotRestoreStateErrorItem],
+    fastSnapshotRestoreStateErrors :: Core.Maybe [Types.DisableFastSnapshotRestoreStateErrorItem],
     -- | The ID of the snapshot.
-    snapshotId :: Lude.Maybe Lude.Text
+    snapshotId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableFastSnapshotRestoreErrorItem' with the minimum fields required to make a request.
---
--- * 'fastSnapshotRestoreStateErrors' - The errors.
--- * 'snapshotId' - The ID of the snapshot.
+-- | Creates a 'DisableFastSnapshotRestoreErrorItem' value with any optional fields omitted.
 mkDisableFastSnapshotRestoreErrorItem ::
   DisableFastSnapshotRestoreErrorItem
 mkDisableFastSnapshotRestoreErrorItem =
   DisableFastSnapshotRestoreErrorItem'
     { fastSnapshotRestoreStateErrors =
-        Lude.Nothing,
-      snapshotId = Lude.Nothing
+        Core.Nothing,
+      snapshotId = Core.Nothing
     }
 
 -- | The errors.
 --
 -- /Note:/ Consider using 'fastSnapshotRestoreStateErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsreiFastSnapshotRestoreStateErrors :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Lude.Maybe [DisableFastSnapshotRestoreStateErrorItem])
-dfsreiFastSnapshotRestoreStateErrors = Lens.lens (fastSnapshotRestoreStateErrors :: DisableFastSnapshotRestoreErrorItem -> Lude.Maybe [DisableFastSnapshotRestoreStateErrorItem]) (\s a -> s {fastSnapshotRestoreStateErrors = a} :: DisableFastSnapshotRestoreErrorItem)
+dfsreiFastSnapshotRestoreStateErrors :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Core.Maybe [Types.DisableFastSnapshotRestoreStateErrorItem])
+dfsreiFastSnapshotRestoreStateErrors = Lens.field @"fastSnapshotRestoreStateErrors"
 {-# DEPRECATED dfsreiFastSnapshotRestoreStateErrors "Use generic-lens or generic-optics with 'fastSnapshotRestoreStateErrors' instead." #-}
 
 -- | The ID of the snapshot.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsreiSnapshotId :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Lude.Maybe Lude.Text)
-dfsreiSnapshotId = Lens.lens (snapshotId :: DisableFastSnapshotRestoreErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: DisableFastSnapshotRestoreErrorItem)
+dfsreiSnapshotId :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Core.Maybe Types.String)
+dfsreiSnapshotId = Lens.field @"snapshotId"
 {-# DEPRECATED dfsreiSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance Lude.FromXML DisableFastSnapshotRestoreErrorItem where
+instance Core.FromXML DisableFastSnapshotRestoreErrorItem where
   parseXML x =
     DisableFastSnapshotRestoreErrorItem'
-      Lude.<$> ( x Lude..@? "fastSnapshotRestoreStateErrorSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> ( x Core..@? "fastSnapshotRestoreStateErrorSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "snapshotId")
+      Core.<*> (x Core..@? "snapshotId")

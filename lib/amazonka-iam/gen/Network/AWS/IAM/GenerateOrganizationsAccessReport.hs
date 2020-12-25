@@ -64,50 +64,45 @@ module Network.AWS.IAM.GenerateOrganizationsAccessReport
     mkGenerateOrganizationsAccessReportResponse,
 
     -- ** Response lenses
-    goarrsJobId,
-    goarrsResponseStatus,
+    goarrrsJobId,
+    goarrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGenerateOrganizationsAccessReport' smart constructor.
 data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
   { -- | The path of the AWS Organizations entity (root, OU, or account). You can build an entity path using the known structure of your organization. For example, assume that your account ID is @123456789012@ and its parent OU ID is @ou-rge0-awsabcde@ . The organization root ID is @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@ . Your entity path is @o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012@ .
-    entityPath :: Lude.Text,
+    entityPath :: Types.EntityPath,
     -- | The identifier of the AWS Organizations service control policy (SCP). This parameter is optional.
     --
     -- This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an AWS service.
-    organizationsPolicyId :: Lude.Maybe Lude.Text
+    organizationsPolicyId :: Core.Maybe Types.OrganizationsPolicyIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateOrganizationsAccessReport' with the minimum fields required to make a request.
---
--- * 'entityPath' - The path of the AWS Organizations entity (root, OU, or account). You can build an entity path using the known structure of your organization. For example, assume that your account ID is @123456789012@ and its parent OU ID is @ou-rge0-awsabcde@ . The organization root ID is @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@ . Your entity path is @o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012@ .
--- * 'organizationsPolicyId' - The identifier of the AWS Organizations service control policy (SCP). This parameter is optional.
---
--- This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an AWS service.
+-- | Creates a 'GenerateOrganizationsAccessReport' value with any optional fields omitted.
 mkGenerateOrganizationsAccessReport ::
   -- | 'entityPath'
-  Lude.Text ->
+  Types.EntityPath ->
   GenerateOrganizationsAccessReport
-mkGenerateOrganizationsAccessReport pEntityPath_ =
+mkGenerateOrganizationsAccessReport entityPath =
   GenerateOrganizationsAccessReport'
-    { entityPath = pEntityPath_,
-      organizationsPolicyId = Lude.Nothing
+    { entityPath,
+      organizationsPolicyId = Core.Nothing
     }
 
 -- | The path of the AWS Organizations entity (root, OU, or account). You can build an entity path using the known structure of your organization. For example, assume that your account ID is @123456789012@ and its parent OU ID is @ou-rge0-awsabcde@ . The organization root ID is @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@ . Your entity path is @o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012@ .
 --
 -- /Note:/ Consider using 'entityPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goarEntityPath :: Lens.Lens' GenerateOrganizationsAccessReport Lude.Text
-goarEntityPath = Lens.lens (entityPath :: GenerateOrganizationsAccessReport -> Lude.Text) (\s a -> s {entityPath = a} :: GenerateOrganizationsAccessReport)
+goarEntityPath :: Lens.Lens' GenerateOrganizationsAccessReport Types.EntityPath
+goarEntityPath = Lens.field @"entityPath"
 {-# DEPRECATED goarEntityPath "Use generic-lens or generic-optics with 'entityPath' instead." #-}
 
 -- | The identifier of the AWS Organizations service control policy (SCP). This parameter is optional.
@@ -115,73 +110,74 @@ goarEntityPath = Lens.lens (entityPath :: GenerateOrganizationsAccessReport -> L
 -- This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an AWS service.
 --
 -- /Note:/ Consider using 'organizationsPolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goarOrganizationsPolicyId :: Lens.Lens' GenerateOrganizationsAccessReport (Lude.Maybe Lude.Text)
-goarOrganizationsPolicyId = Lens.lens (organizationsPolicyId :: GenerateOrganizationsAccessReport -> Lude.Maybe Lude.Text) (\s a -> s {organizationsPolicyId = a} :: GenerateOrganizationsAccessReport)
+goarOrganizationsPolicyId :: Lens.Lens' GenerateOrganizationsAccessReport (Core.Maybe Types.OrganizationsPolicyIdType)
+goarOrganizationsPolicyId = Lens.field @"organizationsPolicyId"
 {-# DEPRECATED goarOrganizationsPolicyId "Use generic-lens or generic-optics with 'organizationsPolicyId' instead." #-}
 
-instance Lude.AWSRequest GenerateOrganizationsAccessReport where
+instance Core.AWSRequest GenerateOrganizationsAccessReport where
   type
     Rs GenerateOrganizationsAccessReport =
       GenerateOrganizationsAccessReportResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GenerateOrganizationsAccessReport")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "EntityPath" entityPath)
+                Core.<> ( Core.toQueryValue "OrganizationsPolicyId"
+                            Core.<$> organizationsPolicyId
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GenerateOrganizationsAccessReportResult"
       ( \s h x ->
           GenerateOrganizationsAccessReportResponse'
-            Lude.<$> (x Lude..@? "JobId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "JobId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GenerateOrganizationsAccessReport where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GenerateOrganizationsAccessReport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GenerateOrganizationsAccessReport where
-  toQuery GenerateOrganizationsAccessReport' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("GenerateOrganizationsAccessReport" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "EntityPath" Lude.=: entityPath,
-        "OrganizationsPolicyId" Lude.=: organizationsPolicyId
-      ]
 
 -- | /See:/ 'mkGenerateOrganizationsAccessReportResponse' smart constructor.
 data GenerateOrganizationsAccessReportResponse = GenerateOrganizationsAccessReportResponse'
   { -- | The job identifier that you can use in the 'GetOrganizationsAccessReport' operation.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateOrganizationsAccessReportResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The job identifier that you can use in the 'GetOrganizationsAccessReport' operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GenerateOrganizationsAccessReportResponse' value with any optional fields omitted.
 mkGenerateOrganizationsAccessReportResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GenerateOrganizationsAccessReportResponse
-mkGenerateOrganizationsAccessReportResponse pResponseStatus_ =
+mkGenerateOrganizationsAccessReportResponse responseStatus =
   GenerateOrganizationsAccessReportResponse'
-    { jobId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      responseStatus
     }
 
 -- | The job identifier that you can use in the 'GetOrganizationsAccessReport' operation.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goarrsJobId :: Lens.Lens' GenerateOrganizationsAccessReportResponse (Lude.Maybe Lude.Text)
-goarrsJobId = Lens.lens (jobId :: GenerateOrganizationsAccessReportResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: GenerateOrganizationsAccessReportResponse)
-{-# DEPRECATED goarrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+goarrrsJobId :: Lens.Lens' GenerateOrganizationsAccessReportResponse (Core.Maybe Types.JobId)
+goarrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED goarrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goarrsResponseStatus :: Lens.Lens' GenerateOrganizationsAccessReportResponse Lude.Int
-goarrsResponseStatus = Lens.lens (responseStatus :: GenerateOrganizationsAccessReportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateOrganizationsAccessReportResponse)
-{-# DEPRECATED goarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+goarrrsResponseStatus :: Lens.Lens' GenerateOrganizationsAccessReportResponse Core.Int
+goarrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED goarrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -30,121 +30,116 @@ module Network.AWS.SES.DescribeReceiptRuleSet
     mkDescribeReceiptRuleSetResponse,
 
     -- ** Response lenses
-    drrsfrsRules,
-    drrsfrsMetadata,
-    drrsfrsResponseStatus,
+    drrsrfrsMetadata,
+    drrsrfrsRules,
+    drrsrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkDescribeReceiptRuleSet' smart constructor.
 newtype DescribeReceiptRuleSet = DescribeReceiptRuleSet'
   { -- | The name of the receipt rule set to describe.
-    ruleSetName :: Lude.Text
+    ruleSetName :: Types.RuleSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReceiptRuleSet' with the minimum fields required to make a request.
---
--- * 'ruleSetName' - The name of the receipt rule set to describe.
+-- | Creates a 'DescribeReceiptRuleSet' value with any optional fields omitted.
 mkDescribeReceiptRuleSet ::
   -- | 'ruleSetName'
-  Lude.Text ->
+  Types.RuleSetName ->
   DescribeReceiptRuleSet
-mkDescribeReceiptRuleSet pRuleSetName_ =
-  DescribeReceiptRuleSet' {ruleSetName = pRuleSetName_}
+mkDescribeReceiptRuleSet ruleSetName =
+  DescribeReceiptRuleSet' {ruleSetName}
 
 -- | The name of the receipt rule set to describe.
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsRuleSetName :: Lens.Lens' DescribeReceiptRuleSet Lude.Text
-drrsRuleSetName = Lens.lens (ruleSetName :: DescribeReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: DescribeReceiptRuleSet)
+drrsRuleSetName :: Lens.Lens' DescribeReceiptRuleSet Types.RuleSetName
+drrsRuleSetName = Lens.field @"ruleSetName"
 {-# DEPRECATED drrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
-instance Lude.AWSRequest DescribeReceiptRuleSet where
+instance Core.AWSRequest DescribeReceiptRuleSet where
   type Rs DescribeReceiptRuleSet = DescribeReceiptRuleSetResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeReceiptRuleSet")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "RuleSetName" ruleSetName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeReceiptRuleSetResult"
       ( \s h x ->
           DescribeReceiptRuleSetResponse'
-            Lude.<$> ( x Lude..@? "Rules" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "Metadata")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Metadata")
+            Core.<*> (x Core..@? "Rules" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeReceiptRuleSet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeReceiptRuleSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReceiptRuleSet where
-  toQuery DescribeReceiptRuleSet' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeReceiptRuleSet" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "RuleSetName" Lude.=: ruleSetName
-      ]
 
 -- | Represents the details of the specified receipt rule set.
 --
 -- /See:/ 'mkDescribeReceiptRuleSetResponse' smart constructor.
 data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
-  { -- | A list of the receipt rules that belong to the specified receipt rule set.
-    rules :: Lude.Maybe [ReceiptRule],
-    -- | The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
-    metadata :: Lude.Maybe ReceiptRuleSetMetadata,
+  { -- | The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
+    metadata :: Core.Maybe Types.ReceiptRuleSetMetadata,
+    -- | A list of the receipt rules that belong to the specified receipt rule set.
+    rules :: Core.Maybe [Types.ReceiptRule],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeReceiptRuleSetResponse' with the minimum fields required to make a request.
---
--- * 'rules' - A list of the receipt rules that belong to the specified receipt rule set.
--- * 'metadata' - The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReceiptRuleSetResponse' value with any optional fields omitted.
 mkDescribeReceiptRuleSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReceiptRuleSetResponse
-mkDescribeReceiptRuleSetResponse pResponseStatus_ =
+mkDescribeReceiptRuleSetResponse responseStatus =
   DescribeReceiptRuleSetResponse'
-    { rules = Lude.Nothing,
-      metadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { metadata = Core.Nothing,
+      rules = Core.Nothing,
+      responseStatus
     }
-
--- | A list of the receipt rules that belong to the specified receipt rule set.
---
--- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsfrsRules :: Lens.Lens' DescribeReceiptRuleSetResponse (Lude.Maybe [ReceiptRule])
-drrsfrsRules = Lens.lens (rules :: DescribeReceiptRuleSetResponse -> Lude.Maybe [ReceiptRule]) (\s a -> s {rules = a} :: DescribeReceiptRuleSetResponse)
-{-# DEPRECATED drrsfrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.
 --
 -- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsfrsMetadata :: Lens.Lens' DescribeReceiptRuleSetResponse (Lude.Maybe ReceiptRuleSetMetadata)
-drrsfrsMetadata = Lens.lens (metadata :: DescribeReceiptRuleSetResponse -> Lude.Maybe ReceiptRuleSetMetadata) (\s a -> s {metadata = a} :: DescribeReceiptRuleSetResponse)
-{-# DEPRECATED drrsfrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+drrsrfrsMetadata :: Lens.Lens' DescribeReceiptRuleSetResponse (Core.Maybe Types.ReceiptRuleSetMetadata)
+drrsrfrsMetadata = Lens.field @"metadata"
+{-# DEPRECATED drrsrfrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | A list of the receipt rules that belong to the specified receipt rule set.
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsrfrsRules :: Lens.Lens' DescribeReceiptRuleSetResponse (Core.Maybe [Types.ReceiptRule])
+drrsrfrsRules = Lens.field @"rules"
+{-# DEPRECATED drrsrfrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsfrsResponseStatus :: Lens.Lens' DescribeReceiptRuleSetResponse Lude.Int
-drrsfrsResponseStatus = Lens.lens (responseStatus :: DescribeReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReceiptRuleSetResponse)
-{-# DEPRECATED drrsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrsrfrsResponseStatus :: Lens.Lens' DescribeReceiptRuleSetResponse Core.Int
+drrsrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drrsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

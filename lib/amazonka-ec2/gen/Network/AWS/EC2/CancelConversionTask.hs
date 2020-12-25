@@ -22,9 +22,9 @@ module Network.AWS.EC2.CancelConversionTask
     mkCancelConversionTask,
 
     -- ** Request lenses
-    cctReasonMessage,
     cctConversionTaskId,
     cctDryRun,
+    cctReasonMessage,
 
     -- * Destructuring the response
     CancelConversionTaskResponse (..),
@@ -32,88 +32,87 @@ module Network.AWS.EC2.CancelConversionTask
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelConversionTask' smart constructor.
 data CancelConversionTask = CancelConversionTask'
-  { -- | The reason for canceling the conversion task.
-    reasonMessage :: Lude.Maybe Lude.Text,
-    -- | The ID of the conversion task.
-    conversionTaskId :: Lude.Text,
+  { -- | The ID of the conversion task.
+    conversionTaskId :: Types.ConversionTaskId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The reason for canceling the conversion task.
+    reasonMessage :: Core.Maybe Types.ReasonMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelConversionTask' with the minimum fields required to make a request.
---
--- * 'reasonMessage' - The reason for canceling the conversion task.
--- * 'conversionTaskId' - The ID of the conversion task.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CancelConversionTask' value with any optional fields omitted.
 mkCancelConversionTask ::
   -- | 'conversionTaskId'
-  Lude.Text ->
+  Types.ConversionTaskId ->
   CancelConversionTask
-mkCancelConversionTask pConversionTaskId_ =
+mkCancelConversionTask conversionTaskId =
   CancelConversionTask'
-    { reasonMessage = Lude.Nothing,
-      conversionTaskId = pConversionTaskId_,
-      dryRun = Lude.Nothing
+    { conversionTaskId,
+      dryRun = Core.Nothing,
+      reasonMessage = Core.Nothing
     }
-
--- | The reason for canceling the conversion task.
---
--- /Note:/ Consider using 'reasonMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cctReasonMessage :: Lens.Lens' CancelConversionTask (Lude.Maybe Lude.Text)
-cctReasonMessage = Lens.lens (reasonMessage :: CancelConversionTask -> Lude.Maybe Lude.Text) (\s a -> s {reasonMessage = a} :: CancelConversionTask)
-{-# DEPRECATED cctReasonMessage "Use generic-lens or generic-optics with 'reasonMessage' instead." #-}
 
 -- | The ID of the conversion task.
 --
 -- /Note:/ Consider using 'conversionTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cctConversionTaskId :: Lens.Lens' CancelConversionTask Lude.Text
-cctConversionTaskId = Lens.lens (conversionTaskId :: CancelConversionTask -> Lude.Text) (\s a -> s {conversionTaskId = a} :: CancelConversionTask)
+cctConversionTaskId :: Lens.Lens' CancelConversionTask Types.ConversionTaskId
+cctConversionTaskId = Lens.field @"conversionTaskId"
 {-# DEPRECATED cctConversionTaskId "Use generic-lens or generic-optics with 'conversionTaskId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cctDryRun :: Lens.Lens' CancelConversionTask (Lude.Maybe Lude.Bool)
-cctDryRun = Lens.lens (dryRun :: CancelConversionTask -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelConversionTask)
+cctDryRun :: Lens.Lens' CancelConversionTask (Core.Maybe Core.Bool)
+cctDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cctDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CancelConversionTask where
+-- | The reason for canceling the conversion task.
+--
+-- /Note:/ Consider using 'reasonMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cctReasonMessage :: Lens.Lens' CancelConversionTask (Core.Maybe Types.ReasonMessage)
+cctReasonMessage = Lens.field @"reasonMessage"
+{-# DEPRECATED cctReasonMessage "Use generic-lens or generic-optics with 'reasonMessage' instead." #-}
+
+instance Core.AWSRequest CancelConversionTask where
   type Rs CancelConversionTask = CancelConversionTaskResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull CancelConversionTaskResponse'
-
-instance Lude.ToHeaders CancelConversionTask where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelConversionTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelConversionTask where
-  toQuery CancelConversionTask' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CancelConversionTask" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ReasonMessage" Lude.=: reasonMessage,
-        "ConversionTaskId" Lude.=: conversionTaskId,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CancelConversionTask")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "ConversionTaskId" conversionTaskId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "ReasonMessage" Core.<$> reasonMessage)
+            )
+      }
+  response = Response.receiveNull CancelConversionTaskResponse'
 
 -- | /See:/ 'mkCancelConversionTaskResponse' smart constructor.
 data CancelConversionTaskResponse = CancelConversionTaskResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelConversionTaskResponse' with the minimum fields required to make a request.
+-- | Creates a 'CancelConversionTaskResponse' value with any optional fields omitted.
 mkCancelConversionTaskResponse ::
   CancelConversionTaskResponse
 mkCancelConversionTaskResponse = CancelConversionTaskResponse'

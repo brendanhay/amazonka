@@ -21,36 +21,31 @@ module Network.AWS.EC2.Types.Storage
   )
 where
 
-import Network.AWS.EC2.Types.S3Storage
+import qualified Network.AWS.EC2.Types.S3Storage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the storage location for an instance store-backed AMI.
 --
 -- /See:/ 'mkStorage' smart constructor.
 newtype Storage = Storage'
   { -- | An Amazon S3 storage location.
-    s3 :: Lude.Maybe S3Storage
+    s3 :: Core.Maybe Types.S3Storage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Storage' with the minimum fields required to make a request.
---
--- * 's3' - An Amazon S3 storage location.
+-- | Creates a 'Storage' value with any optional fields omitted.
 mkStorage ::
   Storage
-mkStorage = Storage' {s3 = Lude.Nothing}
+mkStorage = Storage' {s3 = Core.Nothing}
 
 -- | An Amazon S3 storage location.
 --
 -- /Note:/ Consider using 's3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sS3 :: Lens.Lens' Storage (Lude.Maybe S3Storage)
-sS3 = Lens.lens (s3 :: Storage -> Lude.Maybe S3Storage) (\s a -> s {s3 = a} :: Storage)
+sS3 :: Lens.Lens' Storage (Core.Maybe Types.S3Storage)
+sS3 = Lens.field @"s3"
 {-# DEPRECATED sS3 "Use generic-lens or generic-optics with 's3' instead." #-}
 
-instance Lude.FromXML Storage where
-  parseXML x = Storage' Lude.<$> (x Lude..@? "S3")
-
-instance Lude.ToQuery Storage where
-  toQuery Storage' {..} = Lude.mconcat ["S3" Lude.=: s3]
+instance Core.FromXML Storage where
+  parseXML x = Storage' Core.<$> (x Core..@? "S3")

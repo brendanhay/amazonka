@@ -13,61 +13,63 @@
 module Network.AWS.IoT.Types.LogLevel
   ( LogLevel
       ( LogLevel',
-        Debug,
-        Info,
-        Error,
-        Warn,
-        Disabled
+        LogLevelDebug,
+        LogLevelInfo,
+        LogLevelError,
+        LogLevelWarn,
+        LogLevelDisabled,
+        fromLogLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LogLevel = LogLevel' Lude.Text
+newtype LogLevel = LogLevel' {fromLogLevel :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Debug :: LogLevel
-pattern Debug = LogLevel' "DEBUG"
+pattern LogLevelDebug :: LogLevel
+pattern LogLevelDebug = LogLevel' "DEBUG"
 
-pattern Info :: LogLevel
-pattern Info = LogLevel' "INFO"
+pattern LogLevelInfo :: LogLevel
+pattern LogLevelInfo = LogLevel' "INFO"
 
-pattern Error :: LogLevel
-pattern Error = LogLevel' "ERROR"
+pattern LogLevelError :: LogLevel
+pattern LogLevelError = LogLevel' "ERROR"
 
-pattern Warn :: LogLevel
-pattern Warn = LogLevel' "WARN"
+pattern LogLevelWarn :: LogLevel
+pattern LogLevelWarn = LogLevel' "WARN"
 
-pattern Disabled :: LogLevel
-pattern Disabled = LogLevel' "DISABLED"
+pattern LogLevelDisabled :: LogLevel
+pattern LogLevelDisabled = LogLevel' "DISABLED"
 
 {-# COMPLETE
-  Debug,
-  Info,
-  Error,
-  Warn,
-  Disabled,
+  LogLevelDebug,
+  LogLevelInfo,
+  LogLevelError,
+  LogLevelWarn,
+  LogLevelDisabled,
   LogLevel'
   #-}

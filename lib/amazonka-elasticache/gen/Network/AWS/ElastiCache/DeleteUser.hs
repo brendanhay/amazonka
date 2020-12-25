@@ -23,69 +23,70 @@ module Network.AWS.ElastiCache.DeleteUser
     dUserId,
 
     -- * Destructuring the response
-    User (..),
-    mkUser,
+    Types.User (..),
+    Types.mkUser,
 
     -- ** Response lenses
-    uStatus,
-    uARN,
-    uUserGroupIds,
-    uAuthentication,
-    uEngine,
-    uUserName,
-    uAccessString,
-    uUserId,
+    Types.uARN,
+    Types.uAccessString,
+    Types.uAuthentication,
+    Types.uEngine,
+    Types.uStatus,
+    Types.uUserGroupIds,
+    Types.uUserId,
+    Types.uUserName,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 newtype DeleteUser = DeleteUser'
   { -- | The ID of the user.
-    userId :: Lude.Text
+    userId :: Types.UserId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
---
--- * 'userId' - The ID of the user.
+-- | Creates a 'DeleteUser' value with any optional fields omitted.
 mkDeleteUser ::
   -- | 'userId'
-  Lude.Text ->
+  Types.UserId ->
   DeleteUser
-mkDeleteUser pUserId_ = DeleteUser' {userId = pUserId_}
+mkDeleteUser userId = DeleteUser' {userId}
 
 -- | The ID of the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dUserId :: Lens.Lens' DeleteUser Lude.Text
-dUserId = Lens.lens (userId :: DeleteUser -> Lude.Text) (\s a -> s {userId = a} :: DeleteUser)
+dUserId :: Lens.Lens' DeleteUser Types.UserId
+dUserId = Lens.field @"userId"
 {-# DEPRECATED dUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.AWSRequest DeleteUser where
-  type Rs DeleteUser = User
-  request = Req.postQuery elastiCacheService
+instance Core.AWSRequest DeleteUser where
+  type Rs DeleteUser = Types.User
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteUser")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "UserId" userId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteUserResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders DeleteUser where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteUser where
-  toQuery DeleteUser' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteUser" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "UserId" Lude.=: userId
-      ]
+      (\s h x -> Core.parseXML x)

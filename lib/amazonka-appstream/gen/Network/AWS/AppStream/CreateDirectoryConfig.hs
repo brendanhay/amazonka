@@ -20,153 +20,138 @@ module Network.AWS.AppStream.CreateDirectoryConfig
     mkCreateDirectoryConfig,
 
     -- ** Request lenses
-    cdcServiceAccountCredentials,
-    cdcOrganizationalUnitDistinguishedNames,
     cdcDirectoryName,
+    cdcOrganizationalUnitDistinguishedNames,
+    cdcServiceAccountCredentials,
 
     -- * Destructuring the response
     CreateDirectoryConfigResponse (..),
     mkCreateDirectoryConfigResponse,
 
     -- ** Response lenses
-    cdcrsDirectoryConfig,
-    cdcrsResponseStatus,
+    cdcrrsDirectoryConfig,
+    cdcrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDirectoryConfig' smart constructor.
 data CreateDirectoryConfig = CreateDirectoryConfig'
-  { -- | The credentials for the service account used by the fleet or image builder to connect to the directory.
-    serviceAccountCredentials :: Lude.Maybe ServiceAccountCredentials,
+  { -- | The fully qualified name of the directory (for example, corp.example.com).
+    directoryName :: Types.DirectoryName,
     -- | The distinguished names of the organizational units for computer accounts.
-    organizationalUnitDistinguishedNames :: [Lude.Text],
-    -- | The fully qualified name of the directory (for example, corp.example.com).
-    directoryName :: Lude.Text
+    organizationalUnitDistinguishedNames :: [Types.OrganizationalUnitDistinguishedName],
+    -- | The credentials for the service account used by the fleet or image builder to connect to the directory.
+    serviceAccountCredentials :: Core.Maybe Types.ServiceAccountCredentials
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDirectoryConfig' with the minimum fields required to make a request.
---
--- * 'serviceAccountCredentials' - The credentials for the service account used by the fleet or image builder to connect to the directory.
--- * 'organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
--- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
+-- | Creates a 'CreateDirectoryConfig' value with any optional fields omitted.
 mkCreateDirectoryConfig ::
   -- | 'directoryName'
-  Lude.Text ->
+  Types.DirectoryName ->
   CreateDirectoryConfig
-mkCreateDirectoryConfig pDirectoryName_ =
+mkCreateDirectoryConfig directoryName =
   CreateDirectoryConfig'
-    { serviceAccountCredentials = Lude.Nothing,
-      organizationalUnitDistinguishedNames = Lude.mempty,
-      directoryName = pDirectoryName_
+    { directoryName,
+      organizationalUnitDistinguishedNames = Core.mempty,
+      serviceAccountCredentials = Core.Nothing
     }
-
--- | The credentials for the service account used by the fleet or image builder to connect to the directory.
---
--- /Note:/ Consider using 'serviceAccountCredentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcServiceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Lude.Maybe ServiceAccountCredentials)
-cdcServiceAccountCredentials = Lens.lens (serviceAccountCredentials :: CreateDirectoryConfig -> Lude.Maybe ServiceAccountCredentials) (\s a -> s {serviceAccountCredentials = a} :: CreateDirectoryConfig)
-{-# DEPRECATED cdcServiceAccountCredentials "Use generic-lens or generic-optics with 'serviceAccountCredentials' instead." #-}
-
--- | The distinguished names of the organizational units for computer accounts.
---
--- /Note:/ Consider using 'organizationalUnitDistinguishedNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcOrganizationalUnitDistinguishedNames :: Lens.Lens' CreateDirectoryConfig [Lude.Text]
-cdcOrganizationalUnitDistinguishedNames = Lens.lens (organizationalUnitDistinguishedNames :: CreateDirectoryConfig -> [Lude.Text]) (\s a -> s {organizationalUnitDistinguishedNames = a} :: CreateDirectoryConfig)
-{-# DEPRECATED cdcOrganizationalUnitDistinguishedNames "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedNames' instead." #-}
 
 -- | The fully qualified name of the directory (for example, corp.example.com).
 --
 -- /Note:/ Consider using 'directoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcDirectoryName :: Lens.Lens' CreateDirectoryConfig Lude.Text
-cdcDirectoryName = Lens.lens (directoryName :: CreateDirectoryConfig -> Lude.Text) (\s a -> s {directoryName = a} :: CreateDirectoryConfig)
+cdcDirectoryName :: Lens.Lens' CreateDirectoryConfig Types.DirectoryName
+cdcDirectoryName = Lens.field @"directoryName"
 {-# DEPRECATED cdcDirectoryName "Use generic-lens or generic-optics with 'directoryName' instead." #-}
 
-instance Lude.AWSRequest CreateDirectoryConfig where
+-- | The distinguished names of the organizational units for computer accounts.
+--
+-- /Note:/ Consider using 'organizationalUnitDistinguishedNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcOrganizationalUnitDistinguishedNames :: Lens.Lens' CreateDirectoryConfig [Types.OrganizationalUnitDistinguishedName]
+cdcOrganizationalUnitDistinguishedNames = Lens.field @"organizationalUnitDistinguishedNames"
+{-# DEPRECATED cdcOrganizationalUnitDistinguishedNames "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedNames' instead." #-}
+
+-- | The credentials for the service account used by the fleet or image builder to connect to the directory.
+--
+-- /Note:/ Consider using 'serviceAccountCredentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcServiceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Core.Maybe Types.ServiceAccountCredentials)
+cdcServiceAccountCredentials = Lens.field @"serviceAccountCredentials"
+{-# DEPRECATED cdcServiceAccountCredentials "Use generic-lens or generic-optics with 'serviceAccountCredentials' instead." #-}
+
+instance Core.FromJSON CreateDirectoryConfig where
+  toJSON CreateDirectoryConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryName" Core..= directoryName),
+            Core.Just
+              ( "OrganizationalUnitDistinguishedNames"
+                  Core..= organizationalUnitDistinguishedNames
+              ),
+            ("ServiceAccountCredentials" Core..=)
+              Core.<$> serviceAccountCredentials
+          ]
+      )
+
+instance Core.AWSRequest CreateDirectoryConfig where
   type Rs CreateDirectoryConfig = CreateDirectoryConfigResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.CreateDirectoryConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateDirectoryConfigResponse'
-            Lude.<$> (x Lude..?> "DirectoryConfig")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DirectoryConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDirectoryConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "PhotonAdminProxyService.CreateDirectoryConfig" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateDirectoryConfig where
-  toJSON CreateDirectoryConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ServiceAccountCredentials" Lude..=)
-              Lude.<$> serviceAccountCredentials,
-            Lude.Just
-              ( "OrganizationalUnitDistinguishedNames"
-                  Lude..= organizationalUnitDistinguishedNames
-              ),
-            Lude.Just ("DirectoryName" Lude..= directoryName)
-          ]
-      )
-
-instance Lude.ToPath CreateDirectoryConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDirectoryConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateDirectoryConfigResponse' smart constructor.
 data CreateDirectoryConfigResponse = CreateDirectoryConfigResponse'
   { -- | Information about the directory configuration.
-    directoryConfig :: Lude.Maybe DirectoryConfig,
+    directoryConfig :: Core.Maybe Types.DirectoryConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateDirectoryConfigResponse' with the minimum fields required to make a request.
---
--- * 'directoryConfig' - Information about the directory configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDirectoryConfigResponse' value with any optional fields omitted.
 mkCreateDirectoryConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDirectoryConfigResponse
-mkCreateDirectoryConfigResponse pResponseStatus_ =
+mkCreateDirectoryConfigResponse responseStatus =
   CreateDirectoryConfigResponse'
-    { directoryConfig = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { directoryConfig = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the directory configuration.
 --
 -- /Note:/ Consider using 'directoryConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcrsDirectoryConfig :: Lens.Lens' CreateDirectoryConfigResponse (Lude.Maybe DirectoryConfig)
-cdcrsDirectoryConfig = Lens.lens (directoryConfig :: CreateDirectoryConfigResponse -> Lude.Maybe DirectoryConfig) (\s a -> s {directoryConfig = a} :: CreateDirectoryConfigResponse)
-{-# DEPRECATED cdcrsDirectoryConfig "Use generic-lens or generic-optics with 'directoryConfig' instead." #-}
+cdcrrsDirectoryConfig :: Lens.Lens' CreateDirectoryConfigResponse (Core.Maybe Types.DirectoryConfig)
+cdcrrsDirectoryConfig = Lens.field @"directoryConfig"
+{-# DEPRECATED cdcrrsDirectoryConfig "Use generic-lens or generic-optics with 'directoryConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcrsResponseStatus :: Lens.Lens' CreateDirectoryConfigResponse Lude.Int
-cdcrsResponseStatus = Lens.lens (responseStatus :: CreateDirectoryConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDirectoryConfigResponse)
-{-# DEPRECATED cdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdcrrsResponseStatus :: Lens.Lens' CreateDirectoryConfigResponse Core.Int
+cdcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

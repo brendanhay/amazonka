@@ -28,124 +28,109 @@ module Network.AWS.Pinpoint.SendMessages
     mkSendMessagesResponse,
 
     -- ** Response lenses
-    smrsMessageResponse,
-    smrsResponseStatus,
+    smrrsMessageResponse,
+    smrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSendMessages' smart constructor.
 data SendMessages = SendMessages'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
-    messageRequest :: MessageRequest
+    applicationId :: Core.Text,
+    messageRequest :: Types.MessageRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendMessages' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'messageRequest' -
+-- | Creates a 'SendMessages' value with any optional fields omitted.
 mkSendMessages ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'messageRequest'
-  MessageRequest ->
+  Types.MessageRequest ->
   SendMessages
-mkSendMessages pApplicationId_ pMessageRequest_ =
-  SendMessages'
-    { applicationId = pApplicationId_,
-      messageRequest = pMessageRequest_
-    }
+mkSendMessages applicationId messageRequest =
+  SendMessages' {applicationId, messageRequest}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smApplicationId :: Lens.Lens' SendMessages Lude.Text
-smApplicationId = Lens.lens (applicationId :: SendMessages -> Lude.Text) (\s a -> s {applicationId = a} :: SendMessages)
+smApplicationId :: Lens.Lens' SendMessages Core.Text
+smApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED smApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'messageRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smMessageRequest :: Lens.Lens' SendMessages MessageRequest
-smMessageRequest = Lens.lens (messageRequest :: SendMessages -> MessageRequest) (\s a -> s {messageRequest = a} :: SendMessages)
+smMessageRequest :: Lens.Lens' SendMessages Types.MessageRequest
+smMessageRequest = Lens.field @"messageRequest"
 {-# DEPRECATED smMessageRequest "Use generic-lens or generic-optics with 'messageRequest' instead." #-}
 
-instance Lude.AWSRequest SendMessages where
+instance Core.FromJSON SendMessages where
+  toJSON SendMessages {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("MessageRequest" Core..= messageRequest)]
+      )
+
+instance Core.AWSRequest SendMessages where
   type Rs SendMessages = SendMessagesResponse
-  request = Req.postJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/messages")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SendMessagesResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SendMessages where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SendMessages where
-  toJSON SendMessages' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("MessageRequest" Lude..= messageRequest)]
-      )
-
-instance Lude.ToPath SendMessages where
-  toPath SendMessages' {..} =
-    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/messages"]
-
-instance Lude.ToQuery SendMessages where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSendMessagesResponse' smart constructor.
 data SendMessagesResponse = SendMessagesResponse'
-  { messageResponse :: MessageResponse,
+  { messageResponse :: Types.MessageResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendMessagesResponse' with the minimum fields required to make a request.
---
--- * 'messageResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SendMessagesResponse' value with any optional fields omitted.
 mkSendMessagesResponse ::
   -- | 'messageResponse'
-  MessageResponse ->
+  Types.MessageResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SendMessagesResponse
-mkSendMessagesResponse pMessageResponse_ pResponseStatus_ =
-  SendMessagesResponse'
-    { messageResponse = pMessageResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkSendMessagesResponse messageResponse responseStatus =
+  SendMessagesResponse' {messageResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'messageResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smrsMessageResponse :: Lens.Lens' SendMessagesResponse MessageResponse
-smrsMessageResponse = Lens.lens (messageResponse :: SendMessagesResponse -> MessageResponse) (\s a -> s {messageResponse = a} :: SendMessagesResponse)
-{-# DEPRECATED smrsMessageResponse "Use generic-lens or generic-optics with 'messageResponse' instead." #-}
+smrrsMessageResponse :: Lens.Lens' SendMessagesResponse Types.MessageResponse
+smrrsMessageResponse = Lens.field @"messageResponse"
+{-# DEPRECATED smrrsMessageResponse "Use generic-lens or generic-optics with 'messageResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smrsResponseStatus :: Lens.Lens' SendMessagesResponse Lude.Int
-smrsResponseStatus = Lens.lens (responseStatus :: SendMessagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendMessagesResponse)
-{-# DEPRECATED smrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+smrrsResponseStatus :: Lens.Lens' SendMessagesResponse Core.Int
+smrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED smrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -18,86 +18,77 @@ module Network.AWS.IoT.Types.AssetPropertyValue
 
     -- * Lenses
     apvValue,
-    apvQuality,
     apvTimestamp,
+    apvQuality,
   )
 where
 
-import Network.AWS.IoT.Types.AssetPropertyTimestamp
-import Network.AWS.IoT.Types.AssetPropertyVariant
+import qualified Network.AWS.IoT.Types.AssetPropertyQuality as Types
+import qualified Network.AWS.IoT.Types.AssetPropertyTimestamp as Types
+import qualified Network.AWS.IoT.Types.AssetPropertyVariant as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An asset property value entry containing the following information.
 --
 -- /See:/ 'mkAssetPropertyValue' smart constructor.
 data AssetPropertyValue = AssetPropertyValue'
   { -- | The value of the asset property.
-    value :: AssetPropertyVariant,
-    -- | Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
-    quality :: Lude.Maybe Lude.Text,
+    value :: Types.AssetPropertyVariant,
     -- | The asset property value timestamp.
-    timestamp :: AssetPropertyTimestamp
+    timestamp :: Types.AssetPropertyTimestamp,
+    -- | Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
+    quality :: Core.Maybe Types.AssetPropertyQuality
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssetPropertyValue' with the minimum fields required to make a request.
---
--- * 'value' - The value of the asset property.
--- * 'quality' - Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
--- * 'timestamp' - The asset property value timestamp.
+-- | Creates a 'AssetPropertyValue' value with any optional fields omitted.
 mkAssetPropertyValue ::
   -- | 'value'
-  AssetPropertyVariant ->
+  Types.AssetPropertyVariant ->
   -- | 'timestamp'
-  AssetPropertyTimestamp ->
+  Types.AssetPropertyTimestamp ->
   AssetPropertyValue
-mkAssetPropertyValue pValue_ pTimestamp_ =
-  AssetPropertyValue'
-    { value = pValue_,
-      quality = Lude.Nothing,
-      timestamp = pTimestamp_
-    }
+mkAssetPropertyValue value timestamp =
+  AssetPropertyValue' {value, timestamp, quality = Core.Nothing}
 
 -- | The value of the asset property.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apvValue :: Lens.Lens' AssetPropertyValue AssetPropertyVariant
-apvValue = Lens.lens (value :: AssetPropertyValue -> AssetPropertyVariant) (\s a -> s {value = a} :: AssetPropertyValue)
+apvValue :: Lens.Lens' AssetPropertyValue Types.AssetPropertyVariant
+apvValue = Lens.field @"value"
 {-# DEPRECATED apvValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
---
--- /Note:/ Consider using 'quality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apvQuality :: Lens.Lens' AssetPropertyValue (Lude.Maybe Lude.Text)
-apvQuality = Lens.lens (quality :: AssetPropertyValue -> Lude.Maybe Lude.Text) (\s a -> s {quality = a} :: AssetPropertyValue)
-{-# DEPRECATED apvQuality "Use generic-lens or generic-optics with 'quality' instead." #-}
 
 -- | The asset property value timestamp.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apvTimestamp :: Lens.Lens' AssetPropertyValue AssetPropertyTimestamp
-apvTimestamp = Lens.lens (timestamp :: AssetPropertyValue -> AssetPropertyTimestamp) (\s a -> s {timestamp = a} :: AssetPropertyValue)
+apvTimestamp :: Lens.Lens' AssetPropertyValue Types.AssetPropertyTimestamp
+apvTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED apvTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON AssetPropertyValue where
-  parseJSON =
-    Lude.withObject
-      "AssetPropertyValue"
-      ( \x ->
-          AssetPropertyValue'
-            Lude.<$> (x Lude..: "value")
-            Lude.<*> (x Lude..:? "quality")
-            Lude.<*> (x Lude..: "timestamp")
-      )
+-- | Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
+--
+-- /Note:/ Consider using 'quality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apvQuality :: Lens.Lens' AssetPropertyValue (Core.Maybe Types.AssetPropertyQuality)
+apvQuality = Lens.field @"quality"
+{-# DEPRECATED apvQuality "Use generic-lens or generic-optics with 'quality' instead." #-}
 
-instance Lude.ToJSON AssetPropertyValue where
-  toJSON AssetPropertyValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("value" Lude..= value),
-            ("quality" Lude..=) Lude.<$> quality,
-            Lude.Just ("timestamp" Lude..= timestamp)
+instance Core.FromJSON AssetPropertyValue where
+  toJSON AssetPropertyValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("value" Core..= value),
+            Core.Just ("timestamp" Core..= timestamp),
+            ("quality" Core..=) Core.<$> quality
           ]
       )
+
+instance Core.FromJSON AssetPropertyValue where
+  parseJSON =
+    Core.withObject "AssetPropertyValue" Core.$
+      \x ->
+        AssetPropertyValue'
+          Core.<$> (x Core..: "value")
+          Core.<*> (x Core..: "timestamp")
+          Core.<*> (x Core..:? "quality")

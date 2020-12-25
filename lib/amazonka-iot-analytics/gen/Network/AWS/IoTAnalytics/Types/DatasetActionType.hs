@@ -13,46 +13,51 @@
 module Network.AWS.IoTAnalytics.Types.DatasetActionType
   ( DatasetActionType
       ( DatasetActionType',
-        Query,
-        Container
+        DatasetActionTypeQuery,
+        DatasetActionTypeContainer,
+        fromDatasetActionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DatasetActionType = DatasetActionType' Lude.Text
+newtype DatasetActionType = DatasetActionType'
+  { fromDatasetActionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Query :: DatasetActionType
-pattern Query = DatasetActionType' "QUERY"
+pattern DatasetActionTypeQuery :: DatasetActionType
+pattern DatasetActionTypeQuery = DatasetActionType' "QUERY"
 
-pattern Container :: DatasetActionType
-pattern Container = DatasetActionType' "CONTAINER"
+pattern DatasetActionTypeContainer :: DatasetActionType
+pattern DatasetActionTypeContainer = DatasetActionType' "CONTAINER"
 
 {-# COMPLETE
-  Query,
-  Container,
+  DatasetActionTypeQuery,
+  DatasetActionTypeContainer,
   DatasetActionType'
   #-}

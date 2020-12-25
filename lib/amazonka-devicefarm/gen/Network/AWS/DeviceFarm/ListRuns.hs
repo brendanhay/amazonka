@@ -30,149 +30,137 @@ module Network.AWS.DeviceFarm.ListRuns
     mkListRunsResponse,
 
     -- ** Response lenses
-    lrrsRuns,
-    lrrsNextToken,
-    lrrsResponseStatus,
+    lrrrsNextToken,
+    lrrrsRuns,
+    lrrrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the list runs operation.
 --
 -- /See:/ 'mkListRuns' smart constructor.
 data ListRuns = ListRuns'
   { -- | The Amazon Resource Name (ARN) of the project for which you want to list runs.
-    arn :: Lude.Text,
+    arn :: Types.AmazonResourceName,
     -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRuns' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the project for which you want to list runs.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- | Creates a 'ListRuns' value with any optional fields omitted.
 mkListRuns ::
   -- | 'arn'
-  Lude.Text ->
+  Types.AmazonResourceName ->
   ListRuns
-mkListRuns pArn_ = ListRuns' {arn = pArn_, nextToken = Lude.Nothing}
+mkListRuns arn = ListRuns' {arn, nextToken = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list runs.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrArn :: Lens.Lens' ListRuns Lude.Text
-lrArn = Lens.lens (arn :: ListRuns -> Lude.Text) (\s a -> s {arn = a} :: ListRuns)
+lrArn :: Lens.Lens' ListRuns Types.AmazonResourceName
+lrArn = Lens.field @"arn"
 {-# DEPRECATED lrArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrNextToken :: Lens.Lens' ListRuns (Lude.Maybe Lude.Text)
-lrNextToken = Lens.lens (nextToken :: ListRuns -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRuns)
+lrNextToken :: Lens.Lens' ListRuns (Core.Maybe Types.PaginationToken)
+lrNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListRuns where
-  page rq rs
-    | Page.stop (rs Lens.^. lrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrrsRuns) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lrNextToken Lens..~ rs Lens.^. lrrsNextToken
+instance Core.FromJSON ListRuns where
+  toJSON ListRuns {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("arn" Core..= arn),
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest ListRuns where
+instance Core.AWSRequest ListRuns where
   type Rs ListRuns = ListRunsResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DeviceFarm_20150623.ListRuns")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListRunsResponse'
-            Lude.<$> (x Lude..?> "runs" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "runs")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListRuns where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.ListRuns" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListRuns where
-  toJSON ListRuns' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("arn" Lude..= arn),
-            ("nextToken" Lude..=) Lude.<$> nextToken
-          ]
-      )
-
-instance Lude.ToPath ListRuns where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListRuns where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListRuns where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"runs" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the result of a list runs request.
 --
 -- /See:/ 'mkListRunsResponse' smart constructor.
 data ListRunsResponse = ListRunsResponse'
-  { -- | Information about the runs.
-    runs :: Lude.Maybe [Run],
-    -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+    nextToken :: Core.Maybe Types.PaginationToken,
+    -- | Information about the runs.
+    runs :: Core.Maybe [Types.Run],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListRunsResponse' with the minimum fields required to make a request.
---
--- * 'runs' - Information about the runs.
--- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListRunsResponse' value with any optional fields omitted.
 mkListRunsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListRunsResponse
-mkListRunsResponse pResponseStatus_ =
+mkListRunsResponse responseStatus =
   ListRunsResponse'
-    { runs = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      runs = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the runs.
---
--- /Note:/ Consider using 'runs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsRuns :: Lens.Lens' ListRunsResponse (Lude.Maybe [Run])
-lrrsRuns = Lens.lens (runs :: ListRunsResponse -> Lude.Maybe [Run]) (\s a -> s {runs = a} :: ListRunsResponse)
-{-# DEPRECATED lrrsRuns "Use generic-lens or generic-optics with 'runs' instead." #-}
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsNextToken :: Lens.Lens' ListRunsResponse (Lude.Maybe Lude.Text)
-lrrsNextToken = Lens.lens (nextToken :: ListRunsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRunsResponse)
-{-# DEPRECATED lrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lrrrsNextToken :: Lens.Lens' ListRunsResponse (Core.Maybe Types.PaginationToken)
+lrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about the runs.
+--
+-- /Note:/ Consider using 'runs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrrsRuns :: Lens.Lens' ListRunsResponse (Core.Maybe [Types.Run])
+lrrrsRuns = Lens.field @"runs"
+{-# DEPRECATED lrrrsRuns "Use generic-lens or generic-optics with 'runs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsResponseStatus :: Lens.Lens' ListRunsResponse Lude.Int
-lrrsResponseStatus = Lens.lens (responseStatus :: ListRunsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRunsResponse)
-{-# DEPRECATED lrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrrrsResponseStatus :: Lens.Lens' ListRunsResponse Core.Int
+lrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

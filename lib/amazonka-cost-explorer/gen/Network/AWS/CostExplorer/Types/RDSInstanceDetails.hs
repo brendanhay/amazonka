@@ -17,149 +17,144 @@ module Network.AWS.CostExplorer.Types.RDSInstanceDetails
     mkRDSInstanceDetails,
 
     -- * Lenses
-    ridCurrentGeneration,
-    ridDeploymentOption,
-    ridFamily,
-    ridInstanceType,
-    ridLicenseModel,
-    ridSizeFlexEligible,
-    ridRegion,
-    ridDatabaseEngine,
-    ridDatabaseEdition,
+    rdsidCurrentGeneration,
+    rdsidDatabaseEdition,
+    rdsidDatabaseEngine,
+    rdsidDeploymentOption,
+    rdsidFamily,
+    rdsidInstanceType,
+    rdsidLicenseModel,
+    rdsidRegion,
+    rdsidSizeFlexEligible,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.DatabaseEdition as Types
+import qualified Network.AWS.CostExplorer.Types.DatabaseEngine as Types
+import qualified Network.AWS.CostExplorer.Types.DeploymentOption as Types
+import qualified Network.AWS.CostExplorer.Types.Family as Types
+import qualified Network.AWS.CostExplorer.Types.InstanceType as Types
+import qualified Network.AWS.CostExplorer.Types.LicenseModel as Types
+import qualified Network.AWS.CostExplorer.Types.Region as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the Amazon RDS instances that AWS recommends that you purchase.
 --
 -- /See:/ 'mkRDSInstanceDetails' smart constructor.
 data RDSInstanceDetails = RDSInstanceDetails'
   { -- | Whether the recommendation is for a current-generation instance.
-    currentGeneration :: Lude.Maybe Lude.Bool,
-    -- | Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a second Availability Zone.
-    deploymentOption :: Lude.Maybe Lude.Text,
-    -- | The instance family of the recommended reservation.
-    family :: Lude.Maybe Lude.Text,
-    -- | The type of instance that AWS recommends.
-    instanceType :: Lude.Maybe Lude.Text,
-    -- | The license model that the recommended reservation supports.
-    licenseModel :: Lude.Maybe Lude.Text,
-    -- | Whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Lude.Maybe Lude.Bool,
-    -- | The AWS Region of the recommended reservation.
-    region :: Lude.Maybe Lude.Text,
-    -- | The database engine that the recommended reservation supports.
-    databaseEngine :: Lude.Maybe Lude.Text,
+    currentGeneration :: Core.Maybe Core.Bool,
     -- | The database edition that the recommended reservation supports.
-    databaseEdition :: Lude.Maybe Lude.Text
+    databaseEdition :: Core.Maybe Types.DatabaseEdition,
+    -- | The database engine that the recommended reservation supports.
+    databaseEngine :: Core.Maybe Types.DatabaseEngine,
+    -- | Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a second Availability Zone.
+    deploymentOption :: Core.Maybe Types.DeploymentOption,
+    -- | The instance family of the recommended reservation.
+    family :: Core.Maybe Types.Family,
+    -- | The type of instance that AWS recommends.
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | The license model that the recommended reservation supports.
+    licenseModel :: Core.Maybe Types.LicenseModel,
+    -- | The AWS Region of the recommended reservation.
+    region :: Core.Maybe Types.Region,
+    -- | Whether the recommended reservation is size flexible.
+    sizeFlexEligible :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RDSInstanceDetails' with the minimum fields required to make a request.
---
--- * 'currentGeneration' - Whether the recommendation is for a current-generation instance.
--- * 'deploymentOption' - Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a second Availability Zone.
--- * 'family' - The instance family of the recommended reservation.
--- * 'instanceType' - The type of instance that AWS recommends.
--- * 'licenseModel' - The license model that the recommended reservation supports.
--- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
--- * 'region' - The AWS Region of the recommended reservation.
--- * 'databaseEngine' - The database engine that the recommended reservation supports.
--- * 'databaseEdition' - The database edition that the recommended reservation supports.
+-- | Creates a 'RDSInstanceDetails' value with any optional fields omitted.
 mkRDSInstanceDetails ::
   RDSInstanceDetails
 mkRDSInstanceDetails =
   RDSInstanceDetails'
-    { currentGeneration = Lude.Nothing,
-      deploymentOption = Lude.Nothing,
-      family = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      licenseModel = Lude.Nothing,
-      sizeFlexEligible = Lude.Nothing,
-      region = Lude.Nothing,
-      databaseEngine = Lude.Nothing,
-      databaseEdition = Lude.Nothing
+    { currentGeneration = Core.Nothing,
+      databaseEdition = Core.Nothing,
+      databaseEngine = Core.Nothing,
+      deploymentOption = Core.Nothing,
+      family = Core.Nothing,
+      instanceType = Core.Nothing,
+      licenseModel = Core.Nothing,
+      region = Core.Nothing,
+      sizeFlexEligible = Core.Nothing
     }
 
 -- | Whether the recommendation is for a current-generation instance.
 --
 -- /Note:/ Consider using 'currentGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridCurrentGeneration :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Bool)
-ridCurrentGeneration = Lens.lens (currentGeneration :: RDSInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {currentGeneration = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
-
--- | Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a second Availability Zone.
---
--- /Note:/ Consider using 'deploymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridDeploymentOption :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Text)
-ridDeploymentOption = Lens.lens (deploymentOption :: RDSInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {deploymentOption = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridDeploymentOption "Use generic-lens or generic-optics with 'deploymentOption' instead." #-}
-
--- | The instance family of the recommended reservation.
---
--- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridFamily :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Text)
-ridFamily = Lens.lens (family :: RDSInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {family = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridFamily "Use generic-lens or generic-optics with 'family' instead." #-}
-
--- | The type of instance that AWS recommends.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridInstanceType :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Text)
-ridInstanceType = Lens.lens (instanceType :: RDSInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | The license model that the recommended reservation supports.
---
--- /Note:/ Consider using 'licenseModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridLicenseModel :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Text)
-ridLicenseModel = Lens.lens (licenseModel :: RDSInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {licenseModel = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridLicenseModel "Use generic-lens or generic-optics with 'licenseModel' instead." #-}
-
--- | Whether the recommended reservation is size flexible.
---
--- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridSizeFlexEligible :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Bool)
-ridSizeFlexEligible = Lens.lens (sizeFlexEligible :: RDSInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {sizeFlexEligible = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
-
--- | The AWS Region of the recommended reservation.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridRegion :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Text)
-ridRegion = Lens.lens (region :: RDSInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridRegion "Use generic-lens or generic-optics with 'region' instead." #-}
-
--- | The database engine that the recommended reservation supports.
---
--- /Note:/ Consider using 'databaseEngine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridDatabaseEngine :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Text)
-ridDatabaseEngine = Lens.lens (databaseEngine :: RDSInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {databaseEngine = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridDatabaseEngine "Use generic-lens or generic-optics with 'databaseEngine' instead." #-}
+rdsidCurrentGeneration :: Lens.Lens' RDSInstanceDetails (Core.Maybe Core.Bool)
+rdsidCurrentGeneration = Lens.field @"currentGeneration"
+{-# DEPRECATED rdsidCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
 
 -- | The database edition that the recommended reservation supports.
 --
 -- /Note:/ Consider using 'databaseEdition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ridDatabaseEdition :: Lens.Lens' RDSInstanceDetails (Lude.Maybe Lude.Text)
-ridDatabaseEdition = Lens.lens (databaseEdition :: RDSInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {databaseEdition = a} :: RDSInstanceDetails)
-{-# DEPRECATED ridDatabaseEdition "Use generic-lens or generic-optics with 'databaseEdition' instead." #-}
+rdsidDatabaseEdition :: Lens.Lens' RDSInstanceDetails (Core.Maybe Types.DatabaseEdition)
+rdsidDatabaseEdition = Lens.field @"databaseEdition"
+{-# DEPRECATED rdsidDatabaseEdition "Use generic-lens or generic-optics with 'databaseEdition' instead." #-}
 
-instance Lude.FromJSON RDSInstanceDetails where
+-- | The database engine that the recommended reservation supports.
+--
+-- /Note:/ Consider using 'databaseEngine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsidDatabaseEngine :: Lens.Lens' RDSInstanceDetails (Core.Maybe Types.DatabaseEngine)
+rdsidDatabaseEngine = Lens.field @"databaseEngine"
+{-# DEPRECATED rdsidDatabaseEngine "Use generic-lens or generic-optics with 'databaseEngine' instead." #-}
+
+-- | Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a second Availability Zone.
+--
+-- /Note:/ Consider using 'deploymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsidDeploymentOption :: Lens.Lens' RDSInstanceDetails (Core.Maybe Types.DeploymentOption)
+rdsidDeploymentOption = Lens.field @"deploymentOption"
+{-# DEPRECATED rdsidDeploymentOption "Use generic-lens or generic-optics with 'deploymentOption' instead." #-}
+
+-- | The instance family of the recommended reservation.
+--
+-- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsidFamily :: Lens.Lens' RDSInstanceDetails (Core.Maybe Types.Family)
+rdsidFamily = Lens.field @"family"
+{-# DEPRECATED rdsidFamily "Use generic-lens or generic-optics with 'family' instead." #-}
+
+-- | The type of instance that AWS recommends.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsidInstanceType :: Lens.Lens' RDSInstanceDetails (Core.Maybe Types.InstanceType)
+rdsidInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED rdsidInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The license model that the recommended reservation supports.
+--
+-- /Note:/ Consider using 'licenseModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsidLicenseModel :: Lens.Lens' RDSInstanceDetails (Core.Maybe Types.LicenseModel)
+rdsidLicenseModel = Lens.field @"licenseModel"
+{-# DEPRECATED rdsidLicenseModel "Use generic-lens or generic-optics with 'licenseModel' instead." #-}
+
+-- | The AWS Region of the recommended reservation.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsidRegion :: Lens.Lens' RDSInstanceDetails (Core.Maybe Types.Region)
+rdsidRegion = Lens.field @"region"
+{-# DEPRECATED rdsidRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+-- | Whether the recommended reservation is size flexible.
+--
+-- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsidSizeFlexEligible :: Lens.Lens' RDSInstanceDetails (Core.Maybe Core.Bool)
+rdsidSizeFlexEligible = Lens.field @"sizeFlexEligible"
+{-# DEPRECATED rdsidSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
+
+instance Core.FromJSON RDSInstanceDetails where
   parseJSON =
-    Lude.withObject
-      "RDSInstanceDetails"
-      ( \x ->
-          RDSInstanceDetails'
-            Lude.<$> (x Lude..:? "CurrentGeneration")
-            Lude.<*> (x Lude..:? "DeploymentOption")
-            Lude.<*> (x Lude..:? "Family")
-            Lude.<*> (x Lude..:? "InstanceType")
-            Lude.<*> (x Lude..:? "LicenseModel")
-            Lude.<*> (x Lude..:? "SizeFlexEligible")
-            Lude.<*> (x Lude..:? "Region")
-            Lude.<*> (x Lude..:? "DatabaseEngine")
-            Lude.<*> (x Lude..:? "DatabaseEdition")
-      )
+    Core.withObject "RDSInstanceDetails" Core.$
+      \x ->
+        RDSInstanceDetails'
+          Core.<$> (x Core..:? "CurrentGeneration")
+          Core.<*> (x Core..:? "DatabaseEdition")
+          Core.<*> (x Core..:? "DatabaseEngine")
+          Core.<*> (x Core..:? "DeploymentOption")
+          Core.<*> (x Core..:? "Family")
+          Core.<*> (x Core..:? "InstanceType")
+          Core.<*> (x Core..:? "LicenseModel")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "SizeFlexEligible")

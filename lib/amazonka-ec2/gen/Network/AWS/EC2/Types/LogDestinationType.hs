@@ -13,46 +13,51 @@
 module Network.AWS.EC2.Types.LogDestinationType
   ( LogDestinationType
       ( LogDestinationType',
-        CloudWatchLogs,
-        S3
+        LogDestinationTypeCloudWatchLogs,
+        LogDestinationTypeS3,
+        fromLogDestinationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LogDestinationType = LogDestinationType' Lude.Text
+newtype LogDestinationType = LogDestinationType'
+  { fromLogDestinationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CloudWatchLogs :: LogDestinationType
-pattern CloudWatchLogs = LogDestinationType' "cloud-watch-logs"
+pattern LogDestinationTypeCloudWatchLogs :: LogDestinationType
+pattern LogDestinationTypeCloudWatchLogs = LogDestinationType' "cloud-watch-logs"
 
-pattern S3 :: LogDestinationType
-pattern S3 = LogDestinationType' "s3"
+pattern LogDestinationTypeS3 :: LogDestinationType
+pattern LogDestinationTypeS3 = LogDestinationType' "s3"
 
 {-# COMPLETE
-  CloudWatchLogs,
-  S3,
+  LogDestinationTypeCloudWatchLogs,
+  LogDestinationTypeS3,
   LogDestinationType'
   #-}

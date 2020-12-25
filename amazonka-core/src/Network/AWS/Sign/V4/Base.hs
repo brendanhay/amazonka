@@ -43,19 +43,19 @@ import qualified Network.HTTP.Types.Header as H
 default (ByteString)
 
 data V4 = V4
-  { metaTime :: !UTCTime,
-    metaMethod :: !Method,
-    metaPath :: !Path,
-    metaEndpoint :: !Endpoint,
-    metaCredential :: !Credential,
-    metaCanonicalQuery :: !CanonicalQuery,
-    metaCanonicalRequest :: !CanonicalRequest,
-    metaCanonicalHeaders :: !CanonicalHeaders,
-    metaSignedHeaders :: !SignedHeaders,
-    metaStringToSign :: !StringToSign,
-    metaSignature :: !Signature,
-    metaHeaders :: ![Header],
-    metaTimeout :: !(Maybe Seconds)
+  { metaTime :: UTCTime,
+    metaMethod :: Method,
+    metaPath :: Path,
+    metaEndpoint :: Endpoint,
+    metaCredential :: Credential,
+    metaCanonicalQuery :: CanonicalQuery,
+    metaCanonicalRequest :: CanonicalRequest,
+    metaCanonicalHeaders :: CanonicalHeaders,
+    metaSignedHeaders :: SignedHeaders,
+    metaStringToSign :: StringToSign,
+    metaSignature :: Signature,
+    metaHeaders :: [Header],
+    metaTimeout :: (Maybe Seconds)
   }
 
 instance ToLog V4 where

@@ -34,109 +34,99 @@ module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     mkDescribeMountTargetSecurityGroupsResponse,
 
     -- ** Response lenses
-    dmtsgrsSecurityGroups,
-    dmtsgrsResponseStatus,
+    dmtsgrrsSecurityGroups,
+    dmtsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeMountTargetSecurityGroups' smart constructor.
 newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
   { -- | The ID of the mount target whose security groups you want to retrieve.
-    mountTargetId :: Lude.Text
+    mountTargetId :: Types.MountTargetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMountTargetSecurityGroups' with the minimum fields required to make a request.
---
--- * 'mountTargetId' - The ID of the mount target whose security groups you want to retrieve.
+-- | Creates a 'DescribeMountTargetSecurityGroups' value with any optional fields omitted.
 mkDescribeMountTargetSecurityGroups ::
   -- | 'mountTargetId'
-  Lude.Text ->
+  Types.MountTargetId ->
   DescribeMountTargetSecurityGroups
-mkDescribeMountTargetSecurityGroups pMountTargetId_ =
-  DescribeMountTargetSecurityGroups'
-    { mountTargetId =
-        pMountTargetId_
-    }
+mkDescribeMountTargetSecurityGroups mountTargetId =
+  DescribeMountTargetSecurityGroups' {mountTargetId}
 
 -- | The ID of the mount target whose security groups you want to retrieve.
 --
 -- /Note:/ Consider using 'mountTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtsgMountTargetId :: Lens.Lens' DescribeMountTargetSecurityGroups Lude.Text
-dmtsgMountTargetId = Lens.lens (mountTargetId :: DescribeMountTargetSecurityGroups -> Lude.Text) (\s a -> s {mountTargetId = a} :: DescribeMountTargetSecurityGroups)
+dmtsgMountTargetId :: Lens.Lens' DescribeMountTargetSecurityGroups Types.MountTargetId
+dmtsgMountTargetId = Lens.field @"mountTargetId"
 {-# DEPRECATED dmtsgMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
 
-instance Lude.AWSRequest DescribeMountTargetSecurityGroups where
+instance Core.AWSRequest DescribeMountTargetSecurityGroups where
   type
     Rs DescribeMountTargetSecurityGroups =
       DescribeMountTargetSecurityGroupsResponse
-  request = Req.get efsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-02-01/mount-targets/" Core.<> (Core.toText mountTargetId)
+                Core.<> ("/security-groups")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeMountTargetSecurityGroupsResponse'
-            Lude.<$> (x Lude..?> "SecurityGroups" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SecurityGroups" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeMountTargetSecurityGroups where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeMountTargetSecurityGroups where
-  toPath DescribeMountTargetSecurityGroups' {..} =
-    Lude.mconcat
-      [ "/2015-02-01/mount-targets/",
-        Lude.toBS mountTargetId,
-        "/security-groups"
-      ]
-
-instance Lude.ToQuery DescribeMountTargetSecurityGroups where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeMountTargetSecurityGroupsResponse' smart constructor.
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
   { -- | An array of security groups.
-    securityGroups :: [Lude.Text],
+    securityGroups :: [Types.SecurityGroup],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
---
--- * 'securityGroups' - An array of security groups.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMountTargetSecurityGroupsResponse' value with any optional fields omitted.
 mkDescribeMountTargetSecurityGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMountTargetSecurityGroupsResponse
-mkDescribeMountTargetSecurityGroupsResponse pResponseStatus_ =
+mkDescribeMountTargetSecurityGroupsResponse responseStatus =
   DescribeMountTargetSecurityGroupsResponse'
     { securityGroups =
-        Lude.mempty,
-      responseStatus = pResponseStatus_
+        Core.mempty,
+      responseStatus
     }
 
 -- | An array of security groups.
 --
 -- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtsgrsSecurityGroups :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse [Lude.Text]
-dmtsgrsSecurityGroups = Lens.lens (securityGroups :: DescribeMountTargetSecurityGroupsResponse -> [Lude.Text]) (\s a -> s {securityGroups = a} :: DescribeMountTargetSecurityGroupsResponse)
-{-# DEPRECATED dmtsgrsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+dmtsgrrsSecurityGroups :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse [Types.SecurityGroup]
+dmtsgrrsSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED dmtsgrrsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtsgrsResponseStatus :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse Lude.Int
-dmtsgrsResponseStatus = Lens.lens (responseStatus :: DescribeMountTargetSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMountTargetSecurityGroupsResponse)
-{-# DEPRECATED dmtsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmtsgrrsResponseStatus :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse Core.Int
+dmtsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmtsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

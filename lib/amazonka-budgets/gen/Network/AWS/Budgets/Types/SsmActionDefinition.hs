@@ -18,87 +18,79 @@ module Network.AWS.Budgets.Types.SsmActionDefinition
 
     -- * Lenses
     sadActionSubType,
-    sadInstanceIds,
     sadRegion,
+    sadInstanceIds,
   )
 where
 
-import Network.AWS.Budgets.Types.ActionSubType
+import qualified Network.AWS.Budgets.Types.ActionSubType as Types
+import qualified Network.AWS.Budgets.Types.InstanceId as Types
+import qualified Network.AWS.Budgets.Types.Region as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The AWS Systems Manager (SSM) action definition details.
 --
 -- /See:/ 'mkSsmActionDefinition' smart constructor.
 data SsmActionDefinition = SsmActionDefinition'
   { -- | The action subType.
-    actionSubType :: ActionSubType,
-    -- | The EC2 and RDS instance IDs.
-    instanceIds :: Lude.NonEmpty Lude.Text,
+    actionSubType :: Types.ActionSubType,
     -- | The Region to run the SSM document.
-    region :: Lude.Text
+    region :: Types.Region,
+    -- | The EC2 and RDS instance IDs.
+    instanceIds :: Core.NonEmpty Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SsmActionDefinition' with the minimum fields required to make a request.
---
--- * 'actionSubType' - The action subType.
--- * 'instanceIds' - The EC2 and RDS instance IDs.
--- * 'region' - The Region to run the SSM document.
+-- | Creates a 'SsmActionDefinition' value with any optional fields omitted.
 mkSsmActionDefinition ::
   -- | 'actionSubType'
-  ActionSubType ->
-  -- | 'instanceIds'
-  Lude.NonEmpty Lude.Text ->
+  Types.ActionSubType ->
   -- | 'region'
-  Lude.Text ->
+  Types.Region ->
+  -- | 'instanceIds'
+  Core.NonEmpty Types.InstanceId ->
   SsmActionDefinition
-mkSsmActionDefinition pActionSubType_ pInstanceIds_ pRegion_ =
-  SsmActionDefinition'
-    { actionSubType = pActionSubType_,
-      instanceIds = pInstanceIds_,
-      region = pRegion_
-    }
+mkSsmActionDefinition actionSubType region instanceIds =
+  SsmActionDefinition' {actionSubType, region, instanceIds}
 
 -- | The action subType.
 --
 -- /Note:/ Consider using 'actionSubType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sadActionSubType :: Lens.Lens' SsmActionDefinition ActionSubType
-sadActionSubType = Lens.lens (actionSubType :: SsmActionDefinition -> ActionSubType) (\s a -> s {actionSubType = a} :: SsmActionDefinition)
+sadActionSubType :: Lens.Lens' SsmActionDefinition Types.ActionSubType
+sadActionSubType = Lens.field @"actionSubType"
 {-# DEPRECATED sadActionSubType "Use generic-lens or generic-optics with 'actionSubType' instead." #-}
-
--- | The EC2 and RDS instance IDs.
---
--- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sadInstanceIds :: Lens.Lens' SsmActionDefinition (Lude.NonEmpty Lude.Text)
-sadInstanceIds = Lens.lens (instanceIds :: SsmActionDefinition -> Lude.NonEmpty Lude.Text) (\s a -> s {instanceIds = a} :: SsmActionDefinition)
-{-# DEPRECATED sadInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The Region to run the SSM document.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sadRegion :: Lens.Lens' SsmActionDefinition Lude.Text
-sadRegion = Lens.lens (region :: SsmActionDefinition -> Lude.Text) (\s a -> s {region = a} :: SsmActionDefinition)
+sadRegion :: Lens.Lens' SsmActionDefinition Types.Region
+sadRegion = Lens.field @"region"
 {-# DEPRECATED sadRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromJSON SsmActionDefinition where
-  parseJSON =
-    Lude.withObject
-      "SsmActionDefinition"
-      ( \x ->
-          SsmActionDefinition'
-            Lude.<$> (x Lude..: "ActionSubType")
-            Lude.<*> (x Lude..: "InstanceIds")
-            Lude.<*> (x Lude..: "Region")
-      )
+-- | The EC2 and RDS instance IDs.
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sadInstanceIds :: Lens.Lens' SsmActionDefinition (Core.NonEmpty Types.InstanceId)
+sadInstanceIds = Lens.field @"instanceIds"
+{-# DEPRECATED sadInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
-instance Lude.ToJSON SsmActionDefinition where
-  toJSON SsmActionDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ActionSubType" Lude..= actionSubType),
-            Lude.Just ("InstanceIds" Lude..= instanceIds),
-            Lude.Just ("Region" Lude..= region)
+instance Core.FromJSON SsmActionDefinition where
+  toJSON SsmActionDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ActionSubType" Core..= actionSubType),
+            Core.Just ("Region" Core..= region),
+            Core.Just ("InstanceIds" Core..= instanceIds)
           ]
       )
+
+instance Core.FromJSON SsmActionDefinition where
+  parseJSON =
+    Core.withObject "SsmActionDefinition" Core.$
+      \x ->
+        SsmActionDefinition'
+          Core.<$> (x Core..: "ActionSubType")
+          Core.<*> (x Core..: "Region")
+          Core.<*> (x Core..: "InstanceIds")

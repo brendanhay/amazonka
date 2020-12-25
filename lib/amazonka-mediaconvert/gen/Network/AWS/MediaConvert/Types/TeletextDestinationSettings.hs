@@ -17,68 +17,62 @@ module Network.AWS.MediaConvert.Types.TeletextDestinationSettings
     mkTeletextDestinationSettings,
 
     -- * Lenses
-    tdsPageTypes,
     tdsPageNumber,
+    tdsPageTypes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.TeletextPageType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.TeletextPageType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for Teletext caption output
 --
 -- /See:/ 'mkTeletextDestinationSettings' smart constructor.
 data TeletextDestinationSettings = TeletextDestinationSettings'
-  { -- | Specify the page types for this Teletext page. If you don't specify a value here, the service sets the page type to the default value Subtitle (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext data, don't use this field. When you pass through a set of Teletext pages, your output has the same page types as your input.
-    pageTypes :: Lude.Maybe [TeletextPageType],
-    -- | Set pageNumber to the Teletext page number for the destination captions for this output. This value must be a three-digit hexadecimal string; strings ending in -FF are invalid. If you are passing through the entire set of Teletext data, do not use this field.
-    pageNumber :: Lude.Maybe Lude.Text
+  { -- | Set pageNumber to the Teletext page number for the destination captions for this output. This value must be a three-digit hexadecimal string; strings ending in -FF are invalid. If you are passing through the entire set of Teletext data, do not use this field.
+    pageNumber :: Core.Maybe Core.Text,
+    -- | Specify the page types for this Teletext page. If you don't specify a value here, the service sets the page type to the default value Subtitle (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext data, don't use this field. When you pass through a set of Teletext pages, your output has the same page types as your input.
+    pageTypes :: Core.Maybe [Types.TeletextPageType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TeletextDestinationSettings' with the minimum fields required to make a request.
---
--- * 'pageTypes' - Specify the page types for this Teletext page. If you don't specify a value here, the service sets the page type to the default value Subtitle (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext data, don't use this field. When you pass through a set of Teletext pages, your output has the same page types as your input.
--- * 'pageNumber' - Set pageNumber to the Teletext page number for the destination captions for this output. This value must be a three-digit hexadecimal string; strings ending in -FF are invalid. If you are passing through the entire set of Teletext data, do not use this field.
+-- | Creates a 'TeletextDestinationSettings' value with any optional fields omitted.
 mkTeletextDestinationSettings ::
   TeletextDestinationSettings
 mkTeletextDestinationSettings =
   TeletextDestinationSettings'
-    { pageTypes = Lude.Nothing,
-      pageNumber = Lude.Nothing
+    { pageNumber = Core.Nothing,
+      pageTypes = Core.Nothing
     }
-
--- | Specify the page types for this Teletext page. If you don't specify a value here, the service sets the page type to the default value Subtitle (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext data, don't use this field. When you pass through a set of Teletext pages, your output has the same page types as your input.
---
--- /Note:/ Consider using 'pageTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdsPageTypes :: Lens.Lens' TeletextDestinationSettings (Lude.Maybe [TeletextPageType])
-tdsPageTypes = Lens.lens (pageTypes :: TeletextDestinationSettings -> Lude.Maybe [TeletextPageType]) (\s a -> s {pageTypes = a} :: TeletextDestinationSettings)
-{-# DEPRECATED tdsPageTypes "Use generic-lens or generic-optics with 'pageTypes' instead." #-}
 
 -- | Set pageNumber to the Teletext page number for the destination captions for this output. This value must be a three-digit hexadecimal string; strings ending in -FF are invalid. If you are passing through the entire set of Teletext data, do not use this field.
 --
 -- /Note:/ Consider using 'pageNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdsPageNumber :: Lens.Lens' TeletextDestinationSettings (Lude.Maybe Lude.Text)
-tdsPageNumber = Lens.lens (pageNumber :: TeletextDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {pageNumber = a} :: TeletextDestinationSettings)
+tdsPageNumber :: Lens.Lens' TeletextDestinationSettings (Core.Maybe Core.Text)
+tdsPageNumber = Lens.field @"pageNumber"
 {-# DEPRECATED tdsPageNumber "Use generic-lens or generic-optics with 'pageNumber' instead." #-}
 
-instance Lude.FromJSON TeletextDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "TeletextDestinationSettings"
-      ( \x ->
-          TeletextDestinationSettings'
-            Lude.<$> (x Lude..:? "pageTypes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "pageNumber")
-      )
+-- | Specify the page types for this Teletext page. If you don't specify a value here, the service sets the page type to the default value Subtitle (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext data, don't use this field. When you pass through a set of Teletext pages, your output has the same page types as your input.
+--
+-- /Note:/ Consider using 'pageTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdsPageTypes :: Lens.Lens' TeletextDestinationSettings (Core.Maybe [Types.TeletextPageType])
+tdsPageTypes = Lens.field @"pageTypes"
+{-# DEPRECATED tdsPageTypes "Use generic-lens or generic-optics with 'pageTypes' instead." #-}
 
-instance Lude.ToJSON TeletextDestinationSettings where
-  toJSON TeletextDestinationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("pageTypes" Lude..=) Lude.<$> pageTypes,
-            ("pageNumber" Lude..=) Lude.<$> pageNumber
+instance Core.FromJSON TeletextDestinationSettings where
+  toJSON TeletextDestinationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("pageNumber" Core..=) Core.<$> pageNumber,
+            ("pageTypes" Core..=) Core.<$> pageTypes
           ]
       )
+
+instance Core.FromJSON TeletextDestinationSettings where
+  parseJSON =
+    Core.withObject "TeletextDestinationSettings" Core.$
+      \x ->
+        TeletextDestinationSettings'
+          Core.<$> (x Core..:? "pageNumber") Core.<*> (x Core..:? "pageTypes")

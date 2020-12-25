@@ -17,111 +17,106 @@ module Network.AWS.Lambda.Types.LayerVersionsListItem
     mkLayerVersionsListItem,
 
     -- * Lenses
-    lvliLayerVersionARN,
-    lvliCreatedDate,
-    lvliVersion,
-    lvliLicenseInfo,
-    lvliDescription,
     lvliCompatibleRuntimes,
+    lvliCreatedDate,
+    lvliDescription,
+    lvliLayerVersionArn,
+    lvliLicenseInfo,
+    lvliVersion,
   )
 where
 
-import Network.AWS.Lambda.Types.Runtime
+import qualified Network.AWS.Lambda.Types.CreatedDate as Types
+import qualified Network.AWS.Lambda.Types.Description as Types
+import qualified Network.AWS.Lambda.Types.LayerVersionArn as Types
+import qualified Network.AWS.Lambda.Types.LicenseInfo as Types
+import qualified Network.AWS.Lambda.Types.Runtime as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about a version of an <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer> .
 --
 -- /See:/ 'mkLayerVersionsListItem' smart constructor.
 data LayerVersionsListItem = LayerVersionsListItem'
-  { -- | The ARN of the layer version.
-    layerVersionARN :: Lude.Maybe Lude.Text,
+  { -- | The layer's compatible runtimes.
+    compatibleRuntimes :: Core.Maybe [Types.Runtime],
     -- | The date that the version was created, in ISO 8601 format. For example, @2018-11-27T15:10:45.123+0000@ .
-    createdDate :: Lude.Maybe Lude.Text,
-    -- | The version number.
-    version :: Lude.Maybe Lude.Integer,
-    -- | The layer's open-source license.
-    licenseInfo :: Lude.Maybe Lude.Text,
+    createdDate :: Core.Maybe Types.CreatedDate,
     -- | The description of the version.
-    description :: Lude.Maybe Lude.Text,
-    -- | The layer's compatible runtimes.
-    compatibleRuntimes :: Lude.Maybe [Runtime]
+    description :: Core.Maybe Types.Description,
+    -- | The ARN of the layer version.
+    layerVersionArn :: Core.Maybe Types.LayerVersionArn,
+    -- | The layer's open-source license.
+    licenseInfo :: Core.Maybe Types.LicenseInfo,
+    -- | The version number.
+    version :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LayerVersionsListItem' with the minimum fields required to make a request.
---
--- * 'layerVersionARN' - The ARN of the layer version.
--- * 'createdDate' - The date that the version was created, in ISO 8601 format. For example, @2018-11-27T15:10:45.123+0000@ .
--- * 'version' - The version number.
--- * 'licenseInfo' - The layer's open-source license.
--- * 'description' - The description of the version.
--- * 'compatibleRuntimes' - The layer's compatible runtimes.
+-- | Creates a 'LayerVersionsListItem' value with any optional fields omitted.
 mkLayerVersionsListItem ::
   LayerVersionsListItem
 mkLayerVersionsListItem =
   LayerVersionsListItem'
-    { layerVersionARN = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      version = Lude.Nothing,
-      licenseInfo = Lude.Nothing,
-      description = Lude.Nothing,
-      compatibleRuntimes = Lude.Nothing
+    { compatibleRuntimes = Core.Nothing,
+      createdDate = Core.Nothing,
+      description = Core.Nothing,
+      layerVersionArn = Core.Nothing,
+      licenseInfo = Core.Nothing,
+      version = Core.Nothing
     }
-
--- | The ARN of the layer version.
---
--- /Note:/ Consider using 'layerVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvliLayerVersionARN :: Lens.Lens' LayerVersionsListItem (Lude.Maybe Lude.Text)
-lvliLayerVersionARN = Lens.lens (layerVersionARN :: LayerVersionsListItem -> Lude.Maybe Lude.Text) (\s a -> s {layerVersionARN = a} :: LayerVersionsListItem)
-{-# DEPRECATED lvliLayerVersionARN "Use generic-lens or generic-optics with 'layerVersionARN' instead." #-}
-
--- | The date that the version was created, in ISO 8601 format. For example, @2018-11-27T15:10:45.123+0000@ .
---
--- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvliCreatedDate :: Lens.Lens' LayerVersionsListItem (Lude.Maybe Lude.Text)
-lvliCreatedDate = Lens.lens (createdDate :: LayerVersionsListItem -> Lude.Maybe Lude.Text) (\s a -> s {createdDate = a} :: LayerVersionsListItem)
-{-# DEPRECATED lvliCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
-
--- | The version number.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvliVersion :: Lens.Lens' LayerVersionsListItem (Lude.Maybe Lude.Integer)
-lvliVersion = Lens.lens (version :: LayerVersionsListItem -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: LayerVersionsListItem)
-{-# DEPRECATED lvliVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The layer's open-source license.
---
--- /Note:/ Consider using 'licenseInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvliLicenseInfo :: Lens.Lens' LayerVersionsListItem (Lude.Maybe Lude.Text)
-lvliLicenseInfo = Lens.lens (licenseInfo :: LayerVersionsListItem -> Lude.Maybe Lude.Text) (\s a -> s {licenseInfo = a} :: LayerVersionsListItem)
-{-# DEPRECATED lvliLicenseInfo "Use generic-lens or generic-optics with 'licenseInfo' instead." #-}
-
--- | The description of the version.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvliDescription :: Lens.Lens' LayerVersionsListItem (Lude.Maybe Lude.Text)
-lvliDescription = Lens.lens (description :: LayerVersionsListItem -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: LayerVersionsListItem)
-{-# DEPRECATED lvliDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The layer's compatible runtimes.
 --
 -- /Note:/ Consider using 'compatibleRuntimes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvliCompatibleRuntimes :: Lens.Lens' LayerVersionsListItem (Lude.Maybe [Runtime])
-lvliCompatibleRuntimes = Lens.lens (compatibleRuntimes :: LayerVersionsListItem -> Lude.Maybe [Runtime]) (\s a -> s {compatibleRuntimes = a} :: LayerVersionsListItem)
+lvliCompatibleRuntimes :: Lens.Lens' LayerVersionsListItem (Core.Maybe [Types.Runtime])
+lvliCompatibleRuntimes = Lens.field @"compatibleRuntimes"
 {-# DEPRECATED lvliCompatibleRuntimes "Use generic-lens or generic-optics with 'compatibleRuntimes' instead." #-}
 
-instance Lude.FromJSON LayerVersionsListItem where
+-- | The date that the version was created, in ISO 8601 format. For example, @2018-11-27T15:10:45.123+0000@ .
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvliCreatedDate :: Lens.Lens' LayerVersionsListItem (Core.Maybe Types.CreatedDate)
+lvliCreatedDate = Lens.field @"createdDate"
+{-# DEPRECATED lvliCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
+
+-- | The description of the version.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvliDescription :: Lens.Lens' LayerVersionsListItem (Core.Maybe Types.Description)
+lvliDescription = Lens.field @"description"
+{-# DEPRECATED lvliDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The ARN of the layer version.
+--
+-- /Note:/ Consider using 'layerVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvliLayerVersionArn :: Lens.Lens' LayerVersionsListItem (Core.Maybe Types.LayerVersionArn)
+lvliLayerVersionArn = Lens.field @"layerVersionArn"
+{-# DEPRECATED lvliLayerVersionArn "Use generic-lens or generic-optics with 'layerVersionArn' instead." #-}
+
+-- | The layer's open-source license.
+--
+-- /Note:/ Consider using 'licenseInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvliLicenseInfo :: Lens.Lens' LayerVersionsListItem (Core.Maybe Types.LicenseInfo)
+lvliLicenseInfo = Lens.field @"licenseInfo"
+{-# DEPRECATED lvliLicenseInfo "Use generic-lens or generic-optics with 'licenseInfo' instead." #-}
+
+-- | The version number.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvliVersion :: Lens.Lens' LayerVersionsListItem (Core.Maybe Core.Integer)
+lvliVersion = Lens.field @"version"
+{-# DEPRECATED lvliVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON LayerVersionsListItem where
   parseJSON =
-    Lude.withObject
-      "LayerVersionsListItem"
-      ( \x ->
-          LayerVersionsListItem'
-            Lude.<$> (x Lude..:? "LayerVersionArn")
-            Lude.<*> (x Lude..:? "CreatedDate")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "LicenseInfo")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "CompatibleRuntimes" Lude..!= Lude.mempty)
-      )
+    Core.withObject "LayerVersionsListItem" Core.$
+      \x ->
+        LayerVersionsListItem'
+          Core.<$> (x Core..:? "CompatibleRuntimes")
+          Core.<*> (x Core..:? "CreatedDate")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "LayerVersionArn")
+          Core.<*> (x Core..:? "LicenseInfo")
+          Core.<*> (x Core..:? "Version")

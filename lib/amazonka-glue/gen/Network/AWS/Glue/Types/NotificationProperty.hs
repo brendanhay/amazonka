@@ -22,44 +22,40 @@ module Network.AWS.Glue.Types.NotificationProperty
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies configuration properties of a notification.
 --
 -- /See:/ 'mkNotificationProperty' smart constructor.
 newtype NotificationProperty = NotificationProperty'
   { -- | After a job run starts, the number of minutes to wait before sending a job run delay notification.
-    notifyDelayAfter :: Lude.Maybe Lude.Natural
+    notifyDelayAfter :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationProperty' with the minimum fields required to make a request.
---
--- * 'notifyDelayAfter' - After a job run starts, the number of minutes to wait before sending a job run delay notification.
+-- | Creates a 'NotificationProperty' value with any optional fields omitted.
 mkNotificationProperty ::
   NotificationProperty
 mkNotificationProperty =
-  NotificationProperty' {notifyDelayAfter = Lude.Nothing}
+  NotificationProperty' {notifyDelayAfter = Core.Nothing}
 
 -- | After a job run starts, the number of minutes to wait before sending a job run delay notification.
 --
 -- /Note:/ Consider using 'notifyDelayAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-npNotifyDelayAfter :: Lens.Lens' NotificationProperty (Lude.Maybe Lude.Natural)
-npNotifyDelayAfter = Lens.lens (notifyDelayAfter :: NotificationProperty -> Lude.Maybe Lude.Natural) (\s a -> s {notifyDelayAfter = a} :: NotificationProperty)
+npNotifyDelayAfter :: Lens.Lens' NotificationProperty (Core.Maybe Core.Natural)
+npNotifyDelayAfter = Lens.field @"notifyDelayAfter"
 {-# DEPRECATED npNotifyDelayAfter "Use generic-lens or generic-optics with 'notifyDelayAfter' instead." #-}
 
-instance Lude.FromJSON NotificationProperty where
-  parseJSON =
-    Lude.withObject
-      "NotificationProperty"
-      ( \x ->
-          NotificationProperty' Lude.<$> (x Lude..:? "NotifyDelayAfter")
+instance Core.FromJSON NotificationProperty where
+  toJSON NotificationProperty {..} =
+    Core.object
+      ( Core.catMaybes
+          [("NotifyDelayAfter" Core..=) Core.<$> notifyDelayAfter]
       )
 
-instance Lude.ToJSON NotificationProperty where
-  toJSON NotificationProperty' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("NotifyDelayAfter" Lude..=) Lude.<$> notifyDelayAfter]
-      )
+instance Core.FromJSON NotificationProperty where
+  parseJSON =
+    Core.withObject "NotificationProperty" Core.$
+      \x ->
+        NotificationProperty' Core.<$> (x Core..:? "NotifyDelayAfter")

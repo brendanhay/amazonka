@@ -102,8 +102,8 @@ import Test.Tasty
 --         , requestModifyLoadBalancerAttributes $
 --             mkModifyLoadBalancerAttributes
 --
---         , requestSetIPAddressType $
---             mkSetIPAddressType
+--         , requestSetIpAddressType $
+--             mkSetIpAddressType
 --
 --         , requestAddTags $
 --             mkAddTags
@@ -207,8 +207,8 @@ import Test.Tasty
 --         , responseModifyLoadBalancerAttributes $
 --             mkModifyLoadBalancerAttributesResponse
 --
---         , responseSetIPAddressType $
---             mkSetIPAddressTypeResponse
+--         , responseSetIpAddressType $
+--             mkSetIpAddressTypeResponse
 --
 --         , responseAddTags $
 --             mkAddTagsResponse
@@ -389,11 +389,11 @@ requestModifyLoadBalancerAttributes =
     "ModifyLoadBalancerAttributes"
     "fixture/ModifyLoadBalancerAttributes.yaml"
 
-requestSetIPAddressType :: SetIPAddressType -> TestTree
-requestSetIPAddressType =
+requestSetIpAddressType :: SetIpAddressType -> TestTree
+requestSetIpAddressType =
   req
-    "SetIPAddressType"
-    "fixture/SetIPAddressType.yaml"
+    "SetIpAddressType"
+    "fixture/SetIpAddressType.yaml"
 
 requestAddTags :: AddTags -> TestTree
 requestAddTags =
@@ -450,7 +450,7 @@ responseDescribeLoadBalancers =
   res
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancers)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
@@ -458,7 +458,7 @@ responseDescribeTags =
   res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseDeleteRule :: DeleteRuleResponse -> TestTree
@@ -466,7 +466,7 @@ responseDeleteRule =
   res
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteRule)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
@@ -474,7 +474,7 @@ responseRemoveTags =
   res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseDeleteTargetGroup :: DeleteTargetGroupResponse -> TestTree
@@ -482,7 +482,7 @@ responseDeleteTargetGroup =
   res
     "DeleteTargetGroupResponse"
     "fixture/DeleteTargetGroupResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteTargetGroup)
 
 responseSetSubnets :: SetSubnetsResponse -> TestTree
@@ -490,7 +490,7 @@ responseSetSubnets =
   res
     "SetSubnetsResponse"
     "fixture/SetSubnetsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy SetSubnets)
 
 responseCreateRule :: CreateRuleResponse -> TestTree
@@ -498,7 +498,7 @@ responseCreateRule =
   res
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy CreateRule)
 
 responseDescribeListenerCertificates :: DescribeListenerCertificatesResponse -> TestTree
@@ -506,7 +506,7 @@ responseDescribeListenerCertificates =
   res
     "DescribeListenerCertificatesResponse"
     "fixture/DescribeListenerCertificatesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeListenerCertificates)
 
 responseSetSecurityGroups :: SetSecurityGroupsResponse -> TestTree
@@ -514,7 +514,7 @@ responseSetSecurityGroups =
   res
     "SetSecurityGroupsResponse"
     "fixture/SetSecurityGroupsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy SetSecurityGroups)
 
 responseSetRulePriorities :: SetRulePrioritiesResponse -> TestTree
@@ -522,7 +522,7 @@ responseSetRulePriorities =
   res
     "SetRulePrioritiesResponse"
     "fixture/SetRulePrioritiesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy SetRulePriorities)
 
 responseDescribeTargetGroups :: DescribeTargetGroupsResponse -> TestTree
@@ -530,7 +530,7 @@ responseDescribeTargetGroups =
   res
     "DescribeTargetGroupsResponse"
     "fixture/DescribeTargetGroupsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeTargetGroups)
 
 responseDescribeRules :: DescribeRulesResponse -> TestTree
@@ -538,7 +538,7 @@ responseDescribeRules =
   res
     "DescribeRulesResponse"
     "fixture/DescribeRulesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeRules)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
@@ -546,7 +546,7 @@ responseDeleteLoadBalancer =
   res
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteLoadBalancer)
 
 responseRegisterTargets :: RegisterTargetsResponse -> TestTree
@@ -554,7 +554,7 @@ responseRegisterTargets =
   res
     "RegisterTargetsResponse"
     "fixture/RegisterTargetsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy RegisterTargets)
 
 responseModifyListener :: ModifyListenerResponse -> TestTree
@@ -562,7 +562,7 @@ responseModifyListener =
   res
     "ModifyListenerResponse"
     "fixture/ModifyListenerResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy ModifyListener)
 
 responseModifyTargetGroup :: ModifyTargetGroupResponse -> TestTree
@@ -570,7 +570,7 @@ responseModifyTargetGroup =
   res
     "ModifyTargetGroupResponse"
     "fixture/ModifyTargetGroupResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy ModifyTargetGroup)
 
 responseModifyTargetGroupAttributes :: ModifyTargetGroupAttributesResponse -> TestTree
@@ -578,7 +578,7 @@ responseModifyTargetGroupAttributes =
   res
     "ModifyTargetGroupAttributesResponse"
     "fixture/ModifyTargetGroupAttributesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy ModifyTargetGroupAttributes)
 
 responseDescribeTargetGroupAttributes :: DescribeTargetGroupAttributesResponse -> TestTree
@@ -586,7 +586,7 @@ responseDescribeTargetGroupAttributes =
   res
     "DescribeTargetGroupAttributesResponse"
     "fixture/DescribeTargetGroupAttributesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeTargetGroupAttributes)
 
 responseDeleteListener :: DeleteListenerResponse -> TestTree
@@ -594,7 +594,7 @@ responseDeleteListener =
   res
     "DeleteListenerResponse"
     "fixture/DeleteListenerResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DeleteListener)
 
 responseDescribeSSLPolicies :: DescribeSSLPoliciesResponse -> TestTree
@@ -602,7 +602,7 @@ responseDescribeSSLPolicies =
   res
     "DescribeSSLPoliciesResponse"
     "fixture/DescribeSSLPoliciesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeSSLPolicies)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
@@ -610,7 +610,7 @@ responseDescribeAccountLimits =
   res
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountLimits)
 
 responseDeregisterTargets :: DeregisterTargetsResponse -> TestTree
@@ -618,7 +618,7 @@ responseDeregisterTargets =
   res
     "DeregisterTargetsResponse"
     "fixture/DeregisterTargetsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DeregisterTargets)
 
 responseCreateListener :: CreateListenerResponse -> TestTree
@@ -626,7 +626,7 @@ responseCreateListener =
   res
     "CreateListenerResponse"
     "fixture/CreateListenerResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy CreateListener)
 
 responseCreateTargetGroup :: CreateTargetGroupResponse -> TestTree
@@ -634,7 +634,7 @@ responseCreateTargetGroup =
   res
     "CreateTargetGroupResponse"
     "fixture/CreateTargetGroupResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy CreateTargetGroup)
 
 responseModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributesResponse -> TestTree
@@ -642,23 +642,23 @@ responseModifyLoadBalancerAttributes =
   res
     "ModifyLoadBalancerAttributesResponse"
     "fixture/ModifyLoadBalancerAttributesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy ModifyLoadBalancerAttributes)
 
-responseSetIPAddressType :: SetIPAddressTypeResponse -> TestTree
-responseSetIPAddressType =
+responseSetIpAddressType :: SetIpAddressTypeResponse -> TestTree
+responseSetIpAddressType =
   res
-    "SetIPAddressTypeResponse"
-    "fixture/SetIPAddressTypeResponse.proto"
-    eLBv2Service
-    (Proxy :: Proxy SetIPAddressType)
+    "SetIpAddressTypeResponse"
+    "fixture/SetIpAddressTypeResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy SetIpAddressType)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributesResponse -> TestTree
@@ -666,7 +666,7 @@ responseDescribeLoadBalancerAttributes =
   res
     "DescribeLoadBalancerAttributesResponse"
     "fixture/DescribeLoadBalancerAttributesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancerAttributes)
 
 responseDescribeListeners :: DescribeListenersResponse -> TestTree
@@ -674,7 +674,7 @@ responseDescribeListeners =
   res
     "DescribeListenersResponse"
     "fixture/DescribeListenersResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeListeners)
 
 responseDescribeTargetHealth :: DescribeTargetHealthResponse -> TestTree
@@ -682,7 +682,7 @@ responseDescribeTargetHealth =
   res
     "DescribeTargetHealthResponse"
     "fixture/DescribeTargetHealthResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy DescribeTargetHealth)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
@@ -690,7 +690,7 @@ responseCreateLoadBalancer =
   res
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy CreateLoadBalancer)
 
 responseRemoveListenerCertificates :: RemoveListenerCertificatesResponse -> TestTree
@@ -698,7 +698,7 @@ responseRemoveListenerCertificates =
   res
     "RemoveListenerCertificatesResponse"
     "fixture/RemoveListenerCertificatesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy RemoveListenerCertificates)
 
 responseModifyRule :: ModifyRuleResponse -> TestTree
@@ -706,7 +706,7 @@ responseModifyRule =
   res
     "ModifyRuleResponse"
     "fixture/ModifyRuleResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy ModifyRule)
 
 responseAddListenerCertificates :: AddListenerCertificatesResponse -> TestTree
@@ -714,5 +714,5 @@ responseAddListenerCertificates =
   res
     "AddListenerCertificatesResponse"
     "fixture/AddListenerCertificatesResponse.proto"
-    eLBv2Service
+    mkServiceConfig
     (Proxy :: Proxy AddListenerCertificates)

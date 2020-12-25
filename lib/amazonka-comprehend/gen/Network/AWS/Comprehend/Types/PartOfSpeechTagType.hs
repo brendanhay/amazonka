@@ -13,126 +13,131 @@
 module Network.AWS.Comprehend.Types.PartOfSpeechTagType
   ( PartOfSpeechTagType
       ( PartOfSpeechTagType',
-        Adj,
-        Adp,
-        Adv,
-        Aux,
-        Conj,
-        Cconj,
-        Det,
-        Intj,
-        Noun,
-        Num,
-        O,
-        Part,
-        Pron,
-        Propn,
-        Punct,
-        Sconj,
-        Sym,
-        Verb
+        PartOfSpeechTagTypeAdj,
+        PartOfSpeechTagTypeAdp,
+        PartOfSpeechTagTypeAdv,
+        PartOfSpeechTagTypeAux,
+        PartOfSpeechTagTypeConj,
+        PartOfSpeechTagTypeCconj,
+        PartOfSpeechTagTypeDet,
+        PartOfSpeechTagTypeIntj,
+        PartOfSpeechTagTypeNoun,
+        PartOfSpeechTagTypeNum,
+        PartOfSpeechTagTypeO,
+        PartOfSpeechTagTypePart,
+        PartOfSpeechTagTypePron,
+        PartOfSpeechTagTypePropn,
+        PartOfSpeechTagTypePunct,
+        PartOfSpeechTagTypeSconj,
+        PartOfSpeechTagTypeSym,
+        PartOfSpeechTagTypeVerb,
+        fromPartOfSpeechTagType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PartOfSpeechTagType = PartOfSpeechTagType' Lude.Text
+newtype PartOfSpeechTagType = PartOfSpeechTagType'
+  { fromPartOfSpeechTagType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Adj :: PartOfSpeechTagType
-pattern Adj = PartOfSpeechTagType' "ADJ"
+pattern PartOfSpeechTagTypeAdj :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeAdj = PartOfSpeechTagType' "ADJ"
 
-pattern Adp :: PartOfSpeechTagType
-pattern Adp = PartOfSpeechTagType' "ADP"
+pattern PartOfSpeechTagTypeAdp :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeAdp = PartOfSpeechTagType' "ADP"
 
-pattern Adv :: PartOfSpeechTagType
-pattern Adv = PartOfSpeechTagType' "ADV"
+pattern PartOfSpeechTagTypeAdv :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeAdv = PartOfSpeechTagType' "ADV"
 
-pattern Aux :: PartOfSpeechTagType
-pattern Aux = PartOfSpeechTagType' "AUX"
+pattern PartOfSpeechTagTypeAux :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeAux = PartOfSpeechTagType' "AUX"
 
-pattern Conj :: PartOfSpeechTagType
-pattern Conj = PartOfSpeechTagType' "CONJ"
+pattern PartOfSpeechTagTypeConj :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeConj = PartOfSpeechTagType' "CONJ"
 
-pattern Cconj :: PartOfSpeechTagType
-pattern Cconj = PartOfSpeechTagType' "CCONJ"
+pattern PartOfSpeechTagTypeCconj :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeCconj = PartOfSpeechTagType' "CCONJ"
 
-pattern Det :: PartOfSpeechTagType
-pattern Det = PartOfSpeechTagType' "DET"
+pattern PartOfSpeechTagTypeDet :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeDet = PartOfSpeechTagType' "DET"
 
-pattern Intj :: PartOfSpeechTagType
-pattern Intj = PartOfSpeechTagType' "INTJ"
+pattern PartOfSpeechTagTypeIntj :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeIntj = PartOfSpeechTagType' "INTJ"
 
-pattern Noun :: PartOfSpeechTagType
-pattern Noun = PartOfSpeechTagType' "NOUN"
+pattern PartOfSpeechTagTypeNoun :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeNoun = PartOfSpeechTagType' "NOUN"
 
-pattern Num :: PartOfSpeechTagType
-pattern Num = PartOfSpeechTagType' "NUM"
+pattern PartOfSpeechTagTypeNum :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeNum = PartOfSpeechTagType' "NUM"
 
-pattern O :: PartOfSpeechTagType
-pattern O = PartOfSpeechTagType' "O"
+pattern PartOfSpeechTagTypeO :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeO = PartOfSpeechTagType' "O"
 
-pattern Part :: PartOfSpeechTagType
-pattern Part = PartOfSpeechTagType' "PART"
+pattern PartOfSpeechTagTypePart :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypePart = PartOfSpeechTagType' "PART"
 
-pattern Pron :: PartOfSpeechTagType
-pattern Pron = PartOfSpeechTagType' "PRON"
+pattern PartOfSpeechTagTypePron :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypePron = PartOfSpeechTagType' "PRON"
 
-pattern Propn :: PartOfSpeechTagType
-pattern Propn = PartOfSpeechTagType' "PROPN"
+pattern PartOfSpeechTagTypePropn :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypePropn = PartOfSpeechTagType' "PROPN"
 
-pattern Punct :: PartOfSpeechTagType
-pattern Punct = PartOfSpeechTagType' "PUNCT"
+pattern PartOfSpeechTagTypePunct :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypePunct = PartOfSpeechTagType' "PUNCT"
 
-pattern Sconj :: PartOfSpeechTagType
-pattern Sconj = PartOfSpeechTagType' "SCONJ"
+pattern PartOfSpeechTagTypeSconj :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeSconj = PartOfSpeechTagType' "SCONJ"
 
-pattern Sym :: PartOfSpeechTagType
-pattern Sym = PartOfSpeechTagType' "SYM"
+pattern PartOfSpeechTagTypeSym :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeSym = PartOfSpeechTagType' "SYM"
 
-pattern Verb :: PartOfSpeechTagType
-pattern Verb = PartOfSpeechTagType' "VERB"
+pattern PartOfSpeechTagTypeVerb :: PartOfSpeechTagType
+pattern PartOfSpeechTagTypeVerb = PartOfSpeechTagType' "VERB"
 
 {-# COMPLETE
-  Adj,
-  Adp,
-  Adv,
-  Aux,
-  Conj,
-  Cconj,
-  Det,
-  Intj,
-  Noun,
-  Num,
-  O,
-  Part,
-  Pron,
-  Propn,
-  Punct,
-  Sconj,
-  Sym,
-  Verb,
+  PartOfSpeechTagTypeAdj,
+  PartOfSpeechTagTypeAdp,
+  PartOfSpeechTagTypeAdv,
+  PartOfSpeechTagTypeAux,
+  PartOfSpeechTagTypeConj,
+  PartOfSpeechTagTypeCconj,
+  PartOfSpeechTagTypeDet,
+  PartOfSpeechTagTypeIntj,
+  PartOfSpeechTagTypeNoun,
+  PartOfSpeechTagTypeNum,
+  PartOfSpeechTagTypeO,
+  PartOfSpeechTagTypePart,
+  PartOfSpeechTagTypePron,
+  PartOfSpeechTagTypePropn,
+  PartOfSpeechTagTypePunct,
+  PartOfSpeechTagTypeSconj,
+  PartOfSpeechTagTypeSym,
+  PartOfSpeechTagTypeVerb,
   PartOfSpeechTagType'
   #-}

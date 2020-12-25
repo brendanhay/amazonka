@@ -22,53 +22,49 @@ module Network.AWS.GuardDuty.Types.UsageAccountResult
   )
 where
 
-import Network.AWS.GuardDuty.Types.Total
+import qualified Network.AWS.GuardDuty.Types.AccountId as Types
+import qualified Network.AWS.GuardDuty.Types.Total as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information on the total of usage based on account IDs.
 --
 -- /See:/ 'mkUsageAccountResult' smart constructor.
 data UsageAccountResult = UsageAccountResult'
   { -- | The Account ID that generated usage.
-    accountId :: Lude.Maybe Lude.Text,
+    accountId :: Core.Maybe Types.AccountId,
     -- | Represents the total of usage for the Account ID.
-    total :: Lude.Maybe Total
+    total :: Core.Maybe Types.Total
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UsageAccountResult' with the minimum fields required to make a request.
---
--- * 'accountId' - The Account ID that generated usage.
--- * 'total' - Represents the total of usage for the Account ID.
+-- | Creates a 'UsageAccountResult' value with any optional fields omitted.
 mkUsageAccountResult ::
   UsageAccountResult
 mkUsageAccountResult =
   UsageAccountResult'
-    { accountId = Lude.Nothing,
-      total = Lude.Nothing
+    { accountId = Core.Nothing,
+      total = Core.Nothing
     }
 
 -- | The Account ID that generated usage.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarAccountId :: Lens.Lens' UsageAccountResult (Lude.Maybe Lude.Text)
-uarAccountId = Lens.lens (accountId :: UsageAccountResult -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: UsageAccountResult)
+uarAccountId :: Lens.Lens' UsageAccountResult (Core.Maybe Types.AccountId)
+uarAccountId = Lens.field @"accountId"
 {-# DEPRECATED uarAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Represents the total of usage for the Account ID.
 --
 -- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarTotal :: Lens.Lens' UsageAccountResult (Lude.Maybe Total)
-uarTotal = Lens.lens (total :: UsageAccountResult -> Lude.Maybe Total) (\s a -> s {total = a} :: UsageAccountResult)
+uarTotal :: Lens.Lens' UsageAccountResult (Core.Maybe Types.Total)
+uarTotal = Lens.field @"total"
 {-# DEPRECATED uarTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
-instance Lude.FromJSON UsageAccountResult where
+instance Core.FromJSON UsageAccountResult where
   parseJSON =
-    Lude.withObject
-      "UsageAccountResult"
-      ( \x ->
-          UsageAccountResult'
-            Lude.<$> (x Lude..:? "accountId") Lude.<*> (x Lude..:? "total")
-      )
+    Core.withObject "UsageAccountResult" Core.$
+      \x ->
+        UsageAccountResult'
+          Core.<$> (x Core..:? "accountId") Core.<*> (x Core..:? "total")

@@ -17,22 +17,31 @@ module Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment
     mkReplicationTaskIndividualAssessment,
 
     -- * Lenses
-    rtiaStatus,
-    rtiaReplicationTaskIndividualAssessmentStartDate,
     rtiaIndividualAssessmentName,
-    rtiaReplicationTaskIndividualAssessmentARN,
-    rtiaReplicationTaskAssessmentRunARN,
+    rtiaReplicationTaskAssessmentRunArn,
+    rtiaReplicationTaskIndividualAssessmentArn,
+    rtiaReplicationTaskIndividualAssessmentStartDate,
+    rtiaStatus,
   )
 where
 
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information that describes an individual assessment from a premigration assessment run.
 --
 -- /See:/ 'mkReplicationTaskIndividualAssessment' smart constructor.
 data ReplicationTaskIndividualAssessment = ReplicationTaskIndividualAssessment'
-  { -- | Individual assessment status.
+  { -- | Name of this individual assessment.
+    individualAssessmentName :: Core.Maybe Types.String,
+    -- | ARN of the premigration assessment run that is created to run this individual assessment.
+    replicationTaskAssessmentRunArn :: Core.Maybe Types.String,
+    -- | Amazon Resource Name (ARN) of this individual assessment.
+    replicationTaskIndividualAssessmentArn :: Core.Maybe Types.String,
+    -- | Date when this individual assessment was started as part of running the @StartReplicationTaskAssessmentRun@ operation.
+    replicationTaskIndividualAssessmentStartDate :: Core.Maybe Core.NominalDiffTime,
+    -- | Individual assessment status.
     --
     -- This status can have one of the following values:
     --
@@ -52,58 +61,52 @@ data ReplicationTaskIndividualAssessment = ReplicationTaskIndividualAssessment'
     --
     --
     --     * @"running"@
-    status :: Lude.Maybe Lude.Text,
-    -- | Date when this individual assessment was started as part of running the @StartReplicationTaskAssessmentRun@ operation.
-    replicationTaskIndividualAssessmentStartDate :: Lude.Maybe Lude.Timestamp,
-    -- | Name of this individual assessment.
-    individualAssessmentName :: Lude.Maybe Lude.Text,
-    -- | Amazon Resource Name (ARN) of this individual assessment.
-    replicationTaskIndividualAssessmentARN :: Lude.Maybe Lude.Text,
-    -- | ARN of the premigration assessment run that is created to run this individual assessment.
-    replicationTaskAssessmentRunARN :: Lude.Maybe Lude.Text
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ReplicationTaskIndividualAssessment' with the minimum fields required to make a request.
---
--- * 'status' - Individual assessment status.
---
--- This status can have one of the following values:
---
---     * @"cancelled"@
---
---
---     * @"error"@
---
---
---     * @"failed"@
---
---
---     * @"passed"@
---
---
---     * @"pending"@
---
---
---     * @"running"@
---
---
--- * 'replicationTaskIndividualAssessmentStartDate' - Date when this individual assessment was started as part of running the @StartReplicationTaskAssessmentRun@ operation.
--- * 'individualAssessmentName' - Name of this individual assessment.
--- * 'replicationTaskIndividualAssessmentARN' - Amazon Resource Name (ARN) of this individual assessment.
--- * 'replicationTaskAssessmentRunARN' - ARN of the premigration assessment run that is created to run this individual assessment.
+-- | Creates a 'ReplicationTaskIndividualAssessment' value with any optional fields omitted.
 mkReplicationTaskIndividualAssessment ::
   ReplicationTaskIndividualAssessment
 mkReplicationTaskIndividualAssessment =
   ReplicationTaskIndividualAssessment'
-    { status = Lude.Nothing,
+    { individualAssessmentName =
+        Core.Nothing,
+      replicationTaskAssessmentRunArn = Core.Nothing,
+      replicationTaskIndividualAssessmentArn = Core.Nothing,
       replicationTaskIndividualAssessmentStartDate =
-        Lude.Nothing,
-      individualAssessmentName = Lude.Nothing,
-      replicationTaskIndividualAssessmentARN = Lude.Nothing,
-      replicationTaskAssessmentRunARN = Lude.Nothing
+        Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | Name of this individual assessment.
+--
+-- /Note:/ Consider using 'individualAssessmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtiaIndividualAssessmentName :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Types.String)
+rtiaIndividualAssessmentName = Lens.field @"individualAssessmentName"
+{-# DEPRECATED rtiaIndividualAssessmentName "Use generic-lens or generic-optics with 'individualAssessmentName' instead." #-}
+
+-- | ARN of the premigration assessment run that is created to run this individual assessment.
+--
+-- /Note:/ Consider using 'replicationTaskAssessmentRunArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtiaReplicationTaskAssessmentRunArn :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Types.String)
+rtiaReplicationTaskAssessmentRunArn = Lens.field @"replicationTaskAssessmentRunArn"
+{-# DEPRECATED rtiaReplicationTaskAssessmentRunArn "Use generic-lens or generic-optics with 'replicationTaskAssessmentRunArn' instead." #-}
+
+-- | Amazon Resource Name (ARN) of this individual assessment.
+--
+-- /Note:/ Consider using 'replicationTaskIndividualAssessmentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtiaReplicationTaskIndividualAssessmentArn :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Types.String)
+rtiaReplicationTaskIndividualAssessmentArn = Lens.field @"replicationTaskIndividualAssessmentArn"
+{-# DEPRECATED rtiaReplicationTaskIndividualAssessmentArn "Use generic-lens or generic-optics with 'replicationTaskIndividualAssessmentArn' instead." #-}
+
+-- | Date when this individual assessment was started as part of running the @StartReplicationTaskAssessmentRun@ operation.
+--
+-- /Note:/ Consider using 'replicationTaskIndividualAssessmentStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtiaReplicationTaskIndividualAssessmentStartDate :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Core.NominalDiffTime)
+rtiaReplicationTaskIndividualAssessmentStartDate = Lens.field @"replicationTaskIndividualAssessmentStartDate"
+{-# DEPRECATED rtiaReplicationTaskIndividualAssessmentStartDate "Use generic-lens or generic-optics with 'replicationTaskIndividualAssessmentStartDate' instead." #-}
 
 -- | Individual assessment status.
 --
@@ -129,47 +132,17 @@ mkReplicationTaskIndividualAssessment =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtiaStatus :: Lens.Lens' ReplicationTaskIndividualAssessment (Lude.Maybe Lude.Text)
-rtiaStatus = Lens.lens (status :: ReplicationTaskIndividualAssessment -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ReplicationTaskIndividualAssessment)
+rtiaStatus :: Lens.Lens' ReplicationTaskIndividualAssessment (Core.Maybe Types.String)
+rtiaStatus = Lens.field @"status"
 {-# DEPRECATED rtiaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | Date when this individual assessment was started as part of running the @StartReplicationTaskAssessmentRun@ operation.
---
--- /Note:/ Consider using 'replicationTaskIndividualAssessmentStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtiaReplicationTaskIndividualAssessmentStartDate :: Lens.Lens' ReplicationTaskIndividualAssessment (Lude.Maybe Lude.Timestamp)
-rtiaReplicationTaskIndividualAssessmentStartDate = Lens.lens (replicationTaskIndividualAssessmentStartDate :: ReplicationTaskIndividualAssessment -> Lude.Maybe Lude.Timestamp) (\s a -> s {replicationTaskIndividualAssessmentStartDate = a} :: ReplicationTaskIndividualAssessment)
-{-# DEPRECATED rtiaReplicationTaskIndividualAssessmentStartDate "Use generic-lens or generic-optics with 'replicationTaskIndividualAssessmentStartDate' instead." #-}
-
--- | Name of this individual assessment.
---
--- /Note:/ Consider using 'individualAssessmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtiaIndividualAssessmentName :: Lens.Lens' ReplicationTaskIndividualAssessment (Lude.Maybe Lude.Text)
-rtiaIndividualAssessmentName = Lens.lens (individualAssessmentName :: ReplicationTaskIndividualAssessment -> Lude.Maybe Lude.Text) (\s a -> s {individualAssessmentName = a} :: ReplicationTaskIndividualAssessment)
-{-# DEPRECATED rtiaIndividualAssessmentName "Use generic-lens or generic-optics with 'individualAssessmentName' instead." #-}
-
--- | Amazon Resource Name (ARN) of this individual assessment.
---
--- /Note:/ Consider using 'replicationTaskIndividualAssessmentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtiaReplicationTaskIndividualAssessmentARN :: Lens.Lens' ReplicationTaskIndividualAssessment (Lude.Maybe Lude.Text)
-rtiaReplicationTaskIndividualAssessmentARN = Lens.lens (replicationTaskIndividualAssessmentARN :: ReplicationTaskIndividualAssessment -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskIndividualAssessmentARN = a} :: ReplicationTaskIndividualAssessment)
-{-# DEPRECATED rtiaReplicationTaskIndividualAssessmentARN "Use generic-lens or generic-optics with 'replicationTaskIndividualAssessmentARN' instead." #-}
-
--- | ARN of the premigration assessment run that is created to run this individual assessment.
---
--- /Note:/ Consider using 'replicationTaskAssessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtiaReplicationTaskAssessmentRunARN :: Lens.Lens' ReplicationTaskIndividualAssessment (Lude.Maybe Lude.Text)
-rtiaReplicationTaskAssessmentRunARN = Lens.lens (replicationTaskAssessmentRunARN :: ReplicationTaskIndividualAssessment -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskAssessmentRunARN = a} :: ReplicationTaskIndividualAssessment)
-{-# DEPRECATED rtiaReplicationTaskAssessmentRunARN "Use generic-lens or generic-optics with 'replicationTaskAssessmentRunARN' instead." #-}
-
-instance Lude.FromJSON ReplicationTaskIndividualAssessment where
+instance Core.FromJSON ReplicationTaskIndividualAssessment where
   parseJSON =
-    Lude.withObject
-      "ReplicationTaskIndividualAssessment"
-      ( \x ->
-          ReplicationTaskIndividualAssessment'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "ReplicationTaskIndividualAssessmentStartDate")
-            Lude.<*> (x Lude..:? "IndividualAssessmentName")
-            Lude.<*> (x Lude..:? "ReplicationTaskIndividualAssessmentArn")
-            Lude.<*> (x Lude..:? "ReplicationTaskAssessmentRunArn")
-      )
+    Core.withObject "ReplicationTaskIndividualAssessment" Core.$
+      \x ->
+        ReplicationTaskIndividualAssessment'
+          Core.<$> (x Core..:? "IndividualAssessmentName")
+          Core.<*> (x Core..:? "ReplicationTaskAssessmentRunArn")
+          Core.<*> (x Core..:? "ReplicationTaskIndividualAssessmentArn")
+          Core.<*> (x Core..:? "ReplicationTaskIndividualAssessmentStartDate")
+          Core.<*> (x Core..:? "Status")

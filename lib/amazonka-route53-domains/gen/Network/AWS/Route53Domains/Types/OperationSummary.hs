@@ -17,94 +17,83 @@ module Network.AWS.Route53Domains.Types.OperationSummary
     mkOperationSummary,
 
     -- * Lenses
-    osStatus,
-    osSubmittedDate,
     osOperationId,
+    osStatus,
     osType,
+    osSubmittedDate,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53Domains.Types.OperationStatus
-import Network.AWS.Route53Domains.Types.OperationType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53Domains.Types.OperationId as Types
+import qualified Network.AWS.Route53Domains.Types.OperationStatus as Types
+import qualified Network.AWS.Route53Domains.Types.OperationType as Types
 
 -- | OperationSummary includes the following elements.
 --
 -- /See:/ 'mkOperationSummary' smart constructor.
 data OperationSummary = OperationSummary'
-  { -- | The current status of the requested operation in the system.
-    status :: OperationStatus,
-    -- | The date when the request was submitted.
-    submittedDate :: Lude.Timestamp,
-    -- | Identifier returned to track the requested action.
-    operationId :: Lude.Text,
+  { -- | Identifier returned to track the requested action.
+    operationId :: Types.OperationId,
+    -- | The current status of the requested operation in the system.
+    status :: Types.OperationStatus,
     -- | Type of the action requested.
-    type' :: OperationType
+    type' :: Types.OperationType,
+    -- | The date when the request was submitted.
+    submittedDate :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OperationSummary' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the requested operation in the system.
--- * 'submittedDate' - The date when the request was submitted.
--- * 'operationId' - Identifier returned to track the requested action.
--- * 'type'' - Type of the action requested.
+-- | Creates a 'OperationSummary' value with any optional fields omitted.
 mkOperationSummary ::
-  -- | 'status'
-  OperationStatus ->
-  -- | 'submittedDate'
-  Lude.Timestamp ->
   -- | 'operationId'
-  Lude.Text ->
-  -- | 'type''
-  OperationType ->
+  Types.OperationId ->
+  -- | 'status'
+  Types.OperationStatus ->
+  -- | 'type\''
+  Types.OperationType ->
+  -- | 'submittedDate'
+  Core.NominalDiffTime ->
   OperationSummary
-mkOperationSummary pStatus_ pSubmittedDate_ pOperationId_ pType_ =
-  OperationSummary'
-    { status = pStatus_,
-      submittedDate = pSubmittedDate_,
-      operationId = pOperationId_,
-      type' = pType_
-    }
-
--- | The current status of the requested operation in the system.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osStatus :: Lens.Lens' OperationSummary OperationStatus
-osStatus = Lens.lens (status :: OperationSummary -> OperationStatus) (\s a -> s {status = a} :: OperationSummary)
-{-# DEPRECATED osStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date when the request was submitted.
---
--- /Note:/ Consider using 'submittedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osSubmittedDate :: Lens.Lens' OperationSummary Lude.Timestamp
-osSubmittedDate = Lens.lens (submittedDate :: OperationSummary -> Lude.Timestamp) (\s a -> s {submittedDate = a} :: OperationSummary)
-{-# DEPRECATED osSubmittedDate "Use generic-lens or generic-optics with 'submittedDate' instead." #-}
+mkOperationSummary operationId status type' submittedDate =
+  OperationSummary' {operationId, status, type', submittedDate}
 
 -- | Identifier returned to track the requested action.
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osOperationId :: Lens.Lens' OperationSummary Lude.Text
-osOperationId = Lens.lens (operationId :: OperationSummary -> Lude.Text) (\s a -> s {operationId = a} :: OperationSummary)
+osOperationId :: Lens.Lens' OperationSummary Types.OperationId
+osOperationId = Lens.field @"operationId"
 {-# DEPRECATED osOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The current status of the requested operation in the system.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osStatus :: Lens.Lens' OperationSummary Types.OperationStatus
+osStatus = Lens.field @"status"
+{-# DEPRECATED osStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Type of the action requested.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osType :: Lens.Lens' OperationSummary OperationType
-osType = Lens.lens (type' :: OperationSummary -> OperationType) (\s a -> s {type' = a} :: OperationSummary)
+osType :: Lens.Lens' OperationSummary Types.OperationType
+osType = Lens.field @"type'"
 {-# DEPRECATED osType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON OperationSummary where
+-- | The date when the request was submitted.
+--
+-- /Note:/ Consider using 'submittedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osSubmittedDate :: Lens.Lens' OperationSummary Core.NominalDiffTime
+osSubmittedDate = Lens.field @"submittedDate"
+{-# DEPRECATED osSubmittedDate "Use generic-lens or generic-optics with 'submittedDate' instead." #-}
+
+instance Core.FromJSON OperationSummary where
   parseJSON =
-    Lude.withObject
-      "OperationSummary"
-      ( \x ->
-          OperationSummary'
-            Lude.<$> (x Lude..: "Status")
-            Lude.<*> (x Lude..: "SubmittedDate")
-            Lude.<*> (x Lude..: "OperationId")
-            Lude.<*> (x Lude..: "Type")
-      )
+    Core.withObject "OperationSummary" Core.$
+      \x ->
+        OperationSummary'
+          Core.<$> (x Core..: "OperationId")
+          Core.<*> (x Core..: "Status")
+          Core.<*> (x Core..: "Type")
+          Core.<*> (x Core..: "SubmittedDate")

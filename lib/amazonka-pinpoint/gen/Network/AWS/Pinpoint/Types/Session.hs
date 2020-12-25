@@ -17,87 +17,82 @@ module Network.AWS.Pinpoint.Types.Session
     mkSession,
 
     -- * Lenses
-    sfStopTimestamp,
-    sfId,
     sfStartTimestamp,
+    sfId,
     sfDuration,
+    sfStopTimestamp,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a session.
 --
 -- /See:/ 'mkSession' smart constructor.
 data Session = Session'
-  { -- | The date and time when the session ended.
-    stopTimestamp :: Lude.Maybe Lude.Text,
+  { -- | The date and time when the session began.
+    startTimestamp :: Core.Text,
     -- | The unique identifier for the session.
-    id :: Lude.Text,
-    -- | The date and time when the session began.
-    startTimestamp :: Lude.Text,
+    id :: Core.Text,
     -- | The duration of the session, in milliseconds.
-    duration :: Lude.Maybe Lude.Int
+    duration :: Core.Maybe Core.Int,
+    -- | The date and time when the session ended.
+    stopTimestamp :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Session' with the minimum fields required to make a request.
---
--- * 'stopTimestamp' - The date and time when the session ended.
--- * 'id' - The unique identifier for the session.
--- * 'startTimestamp' - The date and time when the session began.
--- * 'duration' - The duration of the session, in milliseconds.
+-- | Creates a 'Session' value with any optional fields omitted.
 mkSession ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'startTimestamp'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'id'
+  Core.Text ->
   Session
-mkSession pId_ pStartTimestamp_ =
+mkSession startTimestamp id =
   Session'
-    { stopTimestamp = Lude.Nothing,
-      id = pId_,
-      startTimestamp = pStartTimestamp_,
-      duration = Lude.Nothing
+    { startTimestamp,
+      id,
+      duration = Core.Nothing,
+      stopTimestamp = Core.Nothing
     }
-
--- | The date and time when the session ended.
---
--- /Note:/ Consider using 'stopTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfStopTimestamp :: Lens.Lens' Session (Lude.Maybe Lude.Text)
-sfStopTimestamp = Lens.lens (stopTimestamp :: Session -> Lude.Maybe Lude.Text) (\s a -> s {stopTimestamp = a} :: Session)
-{-# DEPRECATED sfStopTimestamp "Use generic-lens or generic-optics with 'stopTimestamp' instead." #-}
-
--- | The unique identifier for the session.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfId :: Lens.Lens' Session Lude.Text
-sfId = Lens.lens (id :: Session -> Lude.Text) (\s a -> s {id = a} :: Session)
-{-# DEPRECATED sfId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date and time when the session began.
 --
 -- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfStartTimestamp :: Lens.Lens' Session Lude.Text
-sfStartTimestamp = Lens.lens (startTimestamp :: Session -> Lude.Text) (\s a -> s {startTimestamp = a} :: Session)
+sfStartTimestamp :: Lens.Lens' Session Core.Text
+sfStartTimestamp = Lens.field @"startTimestamp"
 {-# DEPRECATED sfStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
+
+-- | The unique identifier for the session.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfId :: Lens.Lens' Session Core.Text
+sfId = Lens.field @"id"
+{-# DEPRECATED sfId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The duration of the session, in milliseconds.
 --
 -- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfDuration :: Lens.Lens' Session (Lude.Maybe Lude.Int)
-sfDuration = Lens.lens (duration :: Session -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: Session)
+sfDuration :: Lens.Lens' Session (Core.Maybe Core.Int)
+sfDuration = Lens.field @"duration"
 {-# DEPRECATED sfDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance Lude.ToJSON Session where
-  toJSON Session' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StopTimestamp" Lude..=) Lude.<$> stopTimestamp,
-            Lude.Just ("Id" Lude..= id),
-            Lude.Just ("StartTimestamp" Lude..= startTimestamp),
-            ("Duration" Lude..=) Lude.<$> duration
+-- | The date and time when the session ended.
+--
+-- /Note:/ Consider using 'stopTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfStopTimestamp :: Lens.Lens' Session (Core.Maybe Core.Text)
+sfStopTimestamp = Lens.field @"stopTimestamp"
+{-# DEPRECATED sfStopTimestamp "Use generic-lens or generic-optics with 'stopTimestamp' instead." #-}
+
+instance Core.FromJSON Session where
+  toJSON Session {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StartTimestamp" Core..= startTimestamp),
+            Core.Just ("Id" Core..= id),
+            ("Duration" Core..=) Core.<$> duration,
+            ("StopTimestamp" Core..=) Core.<$> stopTimestamp
           ]
       )

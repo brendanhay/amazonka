@@ -17,51 +17,50 @@ module Network.AWS.ResourceGroupsTagging.Types.TagFilter
     mkTagFilter,
 
     -- * Lenses
-    tfValues,
     tfKey,
+    tfValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroupsTagging.Types.Key as Types
+import qualified Network.AWS.ResourceGroupsTagging.Types.TagValue as Types
 
 -- | A list of tags (keys and values) that are used to specify the associated resources.
 --
 -- /See:/ 'mkTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { -- | One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
-    values :: Lude.Maybe [Lude.Text],
-    -- | One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
-    key :: Lude.Maybe Lude.Text
+  { -- | One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
+    key :: Core.Maybe Types.Key,
+    -- | One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
+    values :: Core.Maybe [Types.TagValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
---
--- * 'values' - One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
--- * 'key' - One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
+-- | Creates a 'TagFilter' value with any optional fields omitted.
 mkTagFilter ::
   TagFilter
-mkTagFilter = TagFilter' {values = Lude.Nothing, key = Lude.Nothing}
-
--- | One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfValues :: Lens.Lens' TagFilter (Lude.Maybe [Lude.Text])
-tfValues = Lens.lens (values :: TagFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: TagFilter)
-{-# DEPRECATED tfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkTagFilter = TagFilter' {key = Core.Nothing, values = Core.Nothing}
 
 -- | One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfKey :: Lens.Lens' TagFilter (Lude.Maybe Lude.Text)
-tfKey = Lens.lens (key :: TagFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagFilter)
+tfKey :: Lens.Lens' TagFilter (Core.Maybe Types.Key)
+tfKey = Lens.field @"key"
 {-# DEPRECATED tfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON TagFilter where
-  toJSON TagFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
+-- | One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfValues :: Lens.Lens' TagFilter (Core.Maybe [Types.TagValue])
+tfValues = Lens.field @"values"
+{-# DEPRECATED tfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON TagFilter where
+  toJSON TagFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Values" Core..=) Core.<$> values]
       )

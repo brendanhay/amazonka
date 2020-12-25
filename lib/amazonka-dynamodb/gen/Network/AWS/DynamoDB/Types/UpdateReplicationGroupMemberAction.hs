@@ -18,88 +18,84 @@ module Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction
 
     -- * Lenses
     urgmaRegionName,
+    urgmaGlobalSecondaryIndexes,
     urgmaKMSMasterKeyId,
     urgmaProvisionedThroughputOverride,
-    urgmaGlobalSecondaryIndexes,
   )
 where
 
-import Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex
+import qualified Network.AWS.DynamoDB.Types.KMSMasterKeyId as Types
+import qualified Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride as Types
+import qualified Network.AWS.DynamoDB.Types.RegionName as Types
+import qualified Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a replica to be modified.
 --
 -- /See:/ 'mkUpdateReplicationGroupMemberAction' smart constructor.
 data UpdateReplicationGroupMemberAction = UpdateReplicationGroupMemberAction'
   { -- | The Region where the replica exists.
-    regionName :: Lude.Text,
-    -- | The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.
-    kmsMasterKeyId :: Lude.Maybe Lude.Text,
-    -- | Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.
-    provisionedThroughputOverride :: Lude.Maybe ProvisionedThroughputOverride,
+    regionName :: Types.RegionName,
     -- | Replica-specific global secondary index settings.
-    globalSecondaryIndexes :: Lude.Maybe (Lude.NonEmpty ReplicaGlobalSecondaryIndex)
+    globalSecondaryIndexes :: Core.Maybe (Core.NonEmpty Types.ReplicaGlobalSecondaryIndex),
+    -- | The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.
+    kMSMasterKeyId :: Core.Maybe Types.KMSMasterKeyId,
+    -- | Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.
+    provisionedThroughputOverride :: Core.Maybe Types.ProvisionedThroughputOverride
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateReplicationGroupMemberAction' with the minimum fields required to make a request.
---
--- * 'regionName' - The Region where the replica exists.
--- * 'kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.
--- * 'provisionedThroughputOverride' - Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.
--- * 'globalSecondaryIndexes' - Replica-specific global secondary index settings.
+-- | Creates a 'UpdateReplicationGroupMemberAction' value with any optional fields omitted.
 mkUpdateReplicationGroupMemberAction ::
   -- | 'regionName'
-  Lude.Text ->
+  Types.RegionName ->
   UpdateReplicationGroupMemberAction
-mkUpdateReplicationGroupMemberAction pRegionName_ =
+mkUpdateReplicationGroupMemberAction regionName =
   UpdateReplicationGroupMemberAction'
-    { regionName = pRegionName_,
-      kmsMasterKeyId = Lude.Nothing,
-      provisionedThroughputOverride = Lude.Nothing,
-      globalSecondaryIndexes = Lude.Nothing
+    { regionName,
+      globalSecondaryIndexes = Core.Nothing,
+      kMSMasterKeyId = Core.Nothing,
+      provisionedThroughputOverride = Core.Nothing
     }
 
 -- | The Region where the replica exists.
 --
 -- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urgmaRegionName :: Lens.Lens' UpdateReplicationGroupMemberAction Lude.Text
-urgmaRegionName = Lens.lens (regionName :: UpdateReplicationGroupMemberAction -> Lude.Text) (\s a -> s {regionName = a} :: UpdateReplicationGroupMemberAction)
+urgmaRegionName :: Lens.Lens' UpdateReplicationGroupMemberAction Types.RegionName
+urgmaRegionName = Lens.field @"regionName"
 {-# DEPRECATED urgmaRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
-
--- | The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.
---
--- /Note:/ Consider using 'kmsMasterKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urgmaKMSMasterKeyId :: Lens.Lens' UpdateReplicationGroupMemberAction (Lude.Maybe Lude.Text)
-urgmaKMSMasterKeyId = Lens.lens (kmsMasterKeyId :: UpdateReplicationGroupMemberAction -> Lude.Maybe Lude.Text) (\s a -> s {kmsMasterKeyId = a} :: UpdateReplicationGroupMemberAction)
-{-# DEPRECATED urgmaKMSMasterKeyId "Use generic-lens or generic-optics with 'kmsMasterKeyId' instead." #-}
-
--- | Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.
---
--- /Note:/ Consider using 'provisionedThroughputOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urgmaProvisionedThroughputOverride :: Lens.Lens' UpdateReplicationGroupMemberAction (Lude.Maybe ProvisionedThroughputOverride)
-urgmaProvisionedThroughputOverride = Lens.lens (provisionedThroughputOverride :: UpdateReplicationGroupMemberAction -> Lude.Maybe ProvisionedThroughputOverride) (\s a -> s {provisionedThroughputOverride = a} :: UpdateReplicationGroupMemberAction)
-{-# DEPRECATED urgmaProvisionedThroughputOverride "Use generic-lens or generic-optics with 'provisionedThroughputOverride' instead." #-}
 
 -- | Replica-specific global secondary index settings.
 --
 -- /Note:/ Consider using 'globalSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urgmaGlobalSecondaryIndexes :: Lens.Lens' UpdateReplicationGroupMemberAction (Lude.Maybe (Lude.NonEmpty ReplicaGlobalSecondaryIndex))
-urgmaGlobalSecondaryIndexes = Lens.lens (globalSecondaryIndexes :: UpdateReplicationGroupMemberAction -> Lude.Maybe (Lude.NonEmpty ReplicaGlobalSecondaryIndex)) (\s a -> s {globalSecondaryIndexes = a} :: UpdateReplicationGroupMemberAction)
+urgmaGlobalSecondaryIndexes :: Lens.Lens' UpdateReplicationGroupMemberAction (Core.Maybe (Core.NonEmpty Types.ReplicaGlobalSecondaryIndex))
+urgmaGlobalSecondaryIndexes = Lens.field @"globalSecondaryIndexes"
 {-# DEPRECATED urgmaGlobalSecondaryIndexes "Use generic-lens or generic-optics with 'globalSecondaryIndexes' instead." #-}
 
-instance Lude.ToJSON UpdateReplicationGroupMemberAction where
-  toJSON UpdateReplicationGroupMemberAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RegionName" Lude..= regionName),
-            ("KMSMasterKeyId" Lude..=) Lude.<$> kmsMasterKeyId,
-            ("ProvisionedThroughputOverride" Lude..=)
-              Lude.<$> provisionedThroughputOverride,
-            ("GlobalSecondaryIndexes" Lude..=)
-              Lude.<$> globalSecondaryIndexes
+-- | The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.
+--
+-- /Note:/ Consider using 'kMSMasterKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urgmaKMSMasterKeyId :: Lens.Lens' UpdateReplicationGroupMemberAction (Core.Maybe Types.KMSMasterKeyId)
+urgmaKMSMasterKeyId = Lens.field @"kMSMasterKeyId"
+{-# DEPRECATED urgmaKMSMasterKeyId "Use generic-lens or generic-optics with 'kMSMasterKeyId' instead." #-}
+
+-- | Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.
+--
+-- /Note:/ Consider using 'provisionedThroughputOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urgmaProvisionedThroughputOverride :: Lens.Lens' UpdateReplicationGroupMemberAction (Core.Maybe Types.ProvisionedThroughputOverride)
+urgmaProvisionedThroughputOverride = Lens.field @"provisionedThroughputOverride"
+{-# DEPRECATED urgmaProvisionedThroughputOverride "Use generic-lens or generic-optics with 'provisionedThroughputOverride' instead." #-}
+
+instance Core.FromJSON UpdateReplicationGroupMemberAction where
+  toJSON UpdateReplicationGroupMemberAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RegionName" Core..= regionName),
+            ("GlobalSecondaryIndexes" Core..=) Core.<$> globalSecondaryIndexes,
+            ("KMSMasterKeyId" Core..=) Core.<$> kMSMasterKeyId,
+            ("ProvisionedThroughputOverride" Core..=)
+              Core.<$> provisionedThroughputOverride
           ]
       )

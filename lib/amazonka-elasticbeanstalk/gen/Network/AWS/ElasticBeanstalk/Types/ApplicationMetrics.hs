@@ -17,82 +17,77 @@ module Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics
     mkApplicationMetrics,
 
     -- * Lenses
-    amRequestCount,
-    amLatency,
-    amStatusCodes,
     amDuration,
+    amLatency,
+    amRequestCount,
+    amStatusCodes,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.Latency
-import Network.AWS.ElasticBeanstalk.Types.StatusCodes
+import qualified Network.AWS.ElasticBeanstalk.Types.Latency as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.StatusCodes as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Application request metrics for an AWS Elastic Beanstalk environment.
 --
 -- /See:/ 'mkApplicationMetrics' smart constructor.
 data ApplicationMetrics = ApplicationMetrics'
-  { -- | Average number of requests handled by the web server per second over the last 10 seconds.
-    requestCount :: Lude.Maybe Lude.Int,
+  { -- | The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
+    duration :: Core.Maybe Core.Int,
     -- | Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
-    latency :: Lude.Maybe Latency,
+    latency :: Core.Maybe Types.Latency,
+    -- | Average number of requests handled by the web server per second over the last 10 seconds.
+    requestCount :: Core.Maybe Core.Int,
     -- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
-    statusCodes :: Lude.Maybe StatusCodes,
-    -- | The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
-    duration :: Lude.Maybe Lude.Int
+    statusCodes :: Core.Maybe Types.StatusCodes
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationMetrics' with the minimum fields required to make a request.
---
--- * 'requestCount' - Average number of requests handled by the web server per second over the last 10 seconds.
--- * 'latency' - Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
--- * 'statusCodes' - Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
--- * 'duration' - The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
+-- | Creates a 'ApplicationMetrics' value with any optional fields omitted.
 mkApplicationMetrics ::
   ApplicationMetrics
 mkApplicationMetrics =
   ApplicationMetrics'
-    { requestCount = Lude.Nothing,
-      latency = Lude.Nothing,
-      statusCodes = Lude.Nothing,
-      duration = Lude.Nothing
+    { duration = Core.Nothing,
+      latency = Core.Nothing,
+      requestCount = Core.Nothing,
+      statusCodes = Core.Nothing
     }
-
--- | Average number of requests handled by the web server per second over the last 10 seconds.
---
--- /Note:/ Consider using 'requestCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amRequestCount :: Lens.Lens' ApplicationMetrics (Lude.Maybe Lude.Int)
-amRequestCount = Lens.lens (requestCount :: ApplicationMetrics -> Lude.Maybe Lude.Int) (\s a -> s {requestCount = a} :: ApplicationMetrics)
-{-# DEPRECATED amRequestCount "Use generic-lens or generic-optics with 'requestCount' instead." #-}
-
--- | Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
---
--- /Note:/ Consider using 'latency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amLatency :: Lens.Lens' ApplicationMetrics (Lude.Maybe Latency)
-amLatency = Lens.lens (latency :: ApplicationMetrics -> Lude.Maybe Latency) (\s a -> s {latency = a} :: ApplicationMetrics)
-{-# DEPRECATED amLatency "Use generic-lens or generic-optics with 'latency' instead." #-}
-
--- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
---
--- /Note:/ Consider using 'statusCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amStatusCodes :: Lens.Lens' ApplicationMetrics (Lude.Maybe StatusCodes)
-amStatusCodes = Lens.lens (statusCodes :: ApplicationMetrics -> Lude.Maybe StatusCodes) (\s a -> s {statusCodes = a} :: ApplicationMetrics)
-{-# DEPRECATED amStatusCodes "Use generic-lens or generic-optics with 'statusCodes' instead." #-}
 
 -- | The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
 --
 -- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amDuration :: Lens.Lens' ApplicationMetrics (Lude.Maybe Lude.Int)
-amDuration = Lens.lens (duration :: ApplicationMetrics -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: ApplicationMetrics)
+amDuration :: Lens.Lens' ApplicationMetrics (Core.Maybe Core.Int)
+amDuration = Lens.field @"duration"
 {-# DEPRECATED amDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance Lude.FromXML ApplicationMetrics where
+-- | Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
+--
+-- /Note:/ Consider using 'latency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amLatency :: Lens.Lens' ApplicationMetrics (Core.Maybe Types.Latency)
+amLatency = Lens.field @"latency"
+{-# DEPRECATED amLatency "Use generic-lens or generic-optics with 'latency' instead." #-}
+
+-- | Average number of requests handled by the web server per second over the last 10 seconds.
+--
+-- /Note:/ Consider using 'requestCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amRequestCount :: Lens.Lens' ApplicationMetrics (Core.Maybe Core.Int)
+amRequestCount = Lens.field @"requestCount"
+{-# DEPRECATED amRequestCount "Use generic-lens or generic-optics with 'requestCount' instead." #-}
+
+-- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
+--
+-- /Note:/ Consider using 'statusCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amStatusCodes :: Lens.Lens' ApplicationMetrics (Core.Maybe Types.StatusCodes)
+amStatusCodes = Lens.field @"statusCodes"
+{-# DEPRECATED amStatusCodes "Use generic-lens or generic-optics with 'statusCodes' instead." #-}
+
+instance Core.FromXML ApplicationMetrics where
   parseXML x =
     ApplicationMetrics'
-      Lude.<$> (x Lude..@? "RequestCount")
-      Lude.<*> (x Lude..@? "Latency")
-      Lude.<*> (x Lude..@? "StatusCodes")
-      Lude.<*> (x Lude..@? "Duration")
+      Core.<$> (x Core..@? "Duration")
+      Core.<*> (x Core..@? "Latency")
+      Core.<*> (x Core..@? "RequestCount")
+      Core.<*> (x Core..@? "StatusCodes")

@@ -22,8 +22,8 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     mkSetIdentityPoolRoles,
 
     -- ** Request lenses
-    siprRoles,
     siprIdentityPoolId,
+    siprRoles,
     siprRoleMappings,
 
     -- * Destructuring the response
@@ -32,109 +32,95 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
   )
 where
 
-import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.CognitoIdentity.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the @SetIdentityPoolRoles@ action.
 --
 -- /See:/ 'mkSetIdentityPoolRoles' smart constructor.
 data SetIdentityPoolRoles = SetIdentityPoolRoles'
-  { -- | The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-    roles :: Lude.HashMap Lude.Text (Lude.Text),
-    -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Lude.Text,
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Types.IdentityPoolId,
+    -- | The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+    roles :: Core.HashMap Types.RoleType Types.ARNString,
     -- | How users for a specific identity provider are to mapped to roles. This is a string to 'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
     --
     -- Up to 25 rules can be specified per identity provider.
-    roleMappings :: Lude.Maybe (Lude.HashMap Lude.Text (RoleMapping))
+    roleMappings :: Core.Maybe (Core.HashMap Types.IdentityProviderName Types.RoleMapping)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetIdentityPoolRoles' with the minimum fields required to make a request.
---
--- * 'roles' - The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
--- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
--- * 'roleMappings' - How users for a specific identity provider are to mapped to roles. This is a string to 'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
---
--- Up to 25 rules can be specified per identity provider.
+-- | Creates a 'SetIdentityPoolRoles' value with any optional fields omitted.
 mkSetIdentityPoolRoles ::
   -- | 'identityPoolId'
-  Lude.Text ->
+  Types.IdentityPoolId ->
   SetIdentityPoolRoles
-mkSetIdentityPoolRoles pIdentityPoolId_ =
+mkSetIdentityPoolRoles identityPoolId =
   SetIdentityPoolRoles'
-    { roles = Lude.mempty,
-      identityPoolId = pIdentityPoolId_,
-      roleMappings = Lude.Nothing
+    { identityPoolId,
+      roles = Core.mempty,
+      roleMappings = Core.Nothing
     }
-
--- | The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
---
--- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siprRoles :: Lens.Lens' SetIdentityPoolRoles (Lude.HashMap Lude.Text (Lude.Text))
-siprRoles = Lens.lens (roles :: SetIdentityPoolRoles -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {roles = a} :: SetIdentityPoolRoles)
-{-# DEPRECATED siprRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siprIdentityPoolId :: Lens.Lens' SetIdentityPoolRoles Lude.Text
-siprIdentityPoolId = Lens.lens (identityPoolId :: SetIdentityPoolRoles -> Lude.Text) (\s a -> s {identityPoolId = a} :: SetIdentityPoolRoles)
+siprIdentityPoolId :: Lens.Lens' SetIdentityPoolRoles Types.IdentityPoolId
+siprIdentityPoolId = Lens.field @"identityPoolId"
 {-# DEPRECATED siprIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+
+-- | The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+--
+-- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siprRoles :: Lens.Lens' SetIdentityPoolRoles (Core.HashMap Types.RoleType Types.ARNString)
+siprRoles = Lens.field @"roles"
+{-# DEPRECATED siprRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
 -- | How users for a specific identity provider are to mapped to roles. This is a string to 'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
 --
 -- Up to 25 rules can be specified per identity provider.
 --
 -- /Note:/ Consider using 'roleMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siprRoleMappings :: Lens.Lens' SetIdentityPoolRoles (Lude.Maybe (Lude.HashMap Lude.Text (RoleMapping)))
-siprRoleMappings = Lens.lens (roleMappings :: SetIdentityPoolRoles -> Lude.Maybe (Lude.HashMap Lude.Text (RoleMapping))) (\s a -> s {roleMappings = a} :: SetIdentityPoolRoles)
+siprRoleMappings :: Lens.Lens' SetIdentityPoolRoles (Core.Maybe (Core.HashMap Types.IdentityProviderName Types.RoleMapping))
+siprRoleMappings = Lens.field @"roleMappings"
 {-# DEPRECATED siprRoleMappings "Use generic-lens or generic-optics with 'roleMappings' instead." #-}
 
-instance Lude.AWSRequest SetIdentityPoolRoles where
+instance Core.FromJSON SetIdentityPoolRoles where
+  toJSON SetIdentityPoolRoles {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IdentityPoolId" Core..= identityPoolId),
+            Core.Just ("Roles" Core..= roles),
+            ("RoleMappings" Core..=) Core.<$> roleMappings
+          ]
+      )
+
+instance Core.AWSRequest SetIdentityPoolRoles where
   type Rs SetIdentityPoolRoles = SetIdentityPoolRolesResponse
-  request = Req.postJSON cognitoIdentityService
-  response = Res.receiveNull SetIdentityPoolRolesResponse'
-
-instance Lude.ToHeaders SetIdentityPoolRoles where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityService.SetIdentityPoolRoles" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetIdentityPoolRoles where
-  toJSON SetIdentityPoolRoles' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Roles" Lude..= roles),
-            Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
-            ("RoleMappings" Lude..=) Lude.<$> roleMappings
-          ]
-      )
-
-instance Lude.ToPath SetIdentityPoolRoles where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetIdentityPoolRoles where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityService.SetIdentityPoolRoles")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetIdentityPoolRolesResponse'
 
 -- | /See:/ 'mkSetIdentityPoolRolesResponse' smart constructor.
 data SetIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetIdentityPoolRolesResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetIdentityPoolRolesResponse' value with any optional fields omitted.
 mkSetIdentityPoolRolesResponse ::
   SetIdentityPoolRolesResponse
 mkSetIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'

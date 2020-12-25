@@ -21,53 +21,46 @@ module Network.AWS.EMR.Types.ScalingTrigger
   )
 where
 
-import Network.AWS.EMR.Types.CloudWatchAlarmDefinition
+import qualified Network.AWS.EMR.Types.CloudWatchAlarmDefinition as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The conditions that trigger an automatic scaling activity.
 --
 -- /See:/ 'mkScalingTrigger' smart constructor.
 newtype ScalingTrigger = ScalingTrigger'
   { -- | The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
-    cloudWatchAlarmDefinition :: CloudWatchAlarmDefinition
+    cloudWatchAlarmDefinition :: Types.CloudWatchAlarmDefinition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalingTrigger' with the minimum fields required to make a request.
---
--- * 'cloudWatchAlarmDefinition' - The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+-- | Creates a 'ScalingTrigger' value with any optional fields omitted.
 mkScalingTrigger ::
   -- | 'cloudWatchAlarmDefinition'
-  CloudWatchAlarmDefinition ->
+  Types.CloudWatchAlarmDefinition ->
   ScalingTrigger
-mkScalingTrigger pCloudWatchAlarmDefinition_ =
-  ScalingTrigger'
-    { cloudWatchAlarmDefinition =
-        pCloudWatchAlarmDefinition_
-    }
+mkScalingTrigger cloudWatchAlarmDefinition =
+  ScalingTrigger' {cloudWatchAlarmDefinition}
 
 -- | The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
 --
 -- /Note:/ Consider using 'cloudWatchAlarmDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stCloudWatchAlarmDefinition :: Lens.Lens' ScalingTrigger CloudWatchAlarmDefinition
-stCloudWatchAlarmDefinition = Lens.lens (cloudWatchAlarmDefinition :: ScalingTrigger -> CloudWatchAlarmDefinition) (\s a -> s {cloudWatchAlarmDefinition = a} :: ScalingTrigger)
+stCloudWatchAlarmDefinition :: Lens.Lens' ScalingTrigger Types.CloudWatchAlarmDefinition
+stCloudWatchAlarmDefinition = Lens.field @"cloudWatchAlarmDefinition"
 {-# DEPRECATED stCloudWatchAlarmDefinition "Use generic-lens or generic-optics with 'cloudWatchAlarmDefinition' instead." #-}
 
-instance Lude.FromJSON ScalingTrigger where
-  parseJSON =
-    Lude.withObject
-      "ScalingTrigger"
-      ( \x ->
-          ScalingTrigger' Lude.<$> (x Lude..: "CloudWatchAlarmDefinition")
-      )
-
-instance Lude.ToJSON ScalingTrigger where
-  toJSON ScalingTrigger' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("CloudWatchAlarmDefinition" Lude..= cloudWatchAlarmDefinition)
+instance Core.FromJSON ScalingTrigger where
+  toJSON ScalingTrigger {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CloudWatchAlarmDefinition" Core..= cloudWatchAlarmDefinition)
           ]
       )
+
+instance Core.FromJSON ScalingTrigger where
+  parseJSON =
+    Core.withObject "ScalingTrigger" Core.$
+      \x ->
+        ScalingTrigger' Core.<$> (x Core..: "CloudWatchAlarmDefinition")

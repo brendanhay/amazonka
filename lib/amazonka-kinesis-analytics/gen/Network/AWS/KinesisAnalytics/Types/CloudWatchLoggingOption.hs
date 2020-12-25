@@ -22,56 +22,52 @@ module Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOption
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.LogStreamARN as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides a description of CloudWatch logging options, including the log stream Amazon Resource Name (ARN) and the role ARN.
 --
 -- /See:/ 'mkCloudWatchLoggingOption' smart constructor.
 data CloudWatchLoggingOption = CloudWatchLoggingOption'
   { -- | ARN of the CloudWatch log to receive application messages.
-    logStreamARN :: Lude.Text,
+    logStreamARN :: Types.LogStreamARN,
     -- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
-    roleARN :: Lude.Text
+    roleARN :: Types.RoleARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchLoggingOption' with the minimum fields required to make a request.
---
--- * 'logStreamARN' - ARN of the CloudWatch log to receive application messages.
--- * 'roleARN' - IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
+-- | Creates a 'CloudWatchLoggingOption' value with any optional fields omitted.
 mkCloudWatchLoggingOption ::
   -- | 'logStreamARN'
-  Lude.Text ->
+  Types.LogStreamARN ->
   -- | 'roleARN'
-  Lude.Text ->
+  Types.RoleARN ->
   CloudWatchLoggingOption
-mkCloudWatchLoggingOption pLogStreamARN_ pRoleARN_ =
-  CloudWatchLoggingOption'
-    { logStreamARN = pLogStreamARN_,
-      roleARN = pRoleARN_
-    }
+mkCloudWatchLoggingOption logStreamARN roleARN =
+  CloudWatchLoggingOption' {logStreamARN, roleARN}
 
 -- | ARN of the CloudWatch log to receive application messages.
 --
 -- /Note:/ Consider using 'logStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwloLogStreamARN :: Lens.Lens' CloudWatchLoggingOption Lude.Text
-cwloLogStreamARN = Lens.lens (logStreamARN :: CloudWatchLoggingOption -> Lude.Text) (\s a -> s {logStreamARN = a} :: CloudWatchLoggingOption)
+cwloLogStreamARN :: Lens.Lens' CloudWatchLoggingOption Types.LogStreamARN
+cwloLogStreamARN = Lens.field @"logStreamARN"
 {-# DEPRECATED cwloLogStreamARN "Use generic-lens or generic-optics with 'logStreamARN' instead." #-}
 
 -- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwloRoleARN :: Lens.Lens' CloudWatchLoggingOption Lude.Text
-cwloRoleARN = Lens.lens (roleARN :: CloudWatchLoggingOption -> Lude.Text) (\s a -> s {roleARN = a} :: CloudWatchLoggingOption)
+cwloRoleARN :: Lens.Lens' CloudWatchLoggingOption Types.RoleARN
+cwloRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED cwloRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.ToJSON CloudWatchLoggingOption where
-  toJSON CloudWatchLoggingOption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LogStreamARN" Lude..= logStreamARN),
-            Lude.Just ("RoleARN" Lude..= roleARN)
+instance Core.FromJSON CloudWatchLoggingOption where
+  toJSON CloudWatchLoggingOption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("LogStreamARN" Core..= logStreamARN),
+            Core.Just ("RoleARN" Core..= roleARN)
           ]
       )

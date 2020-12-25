@@ -13,61 +13,66 @@
 module Network.AWS.Route53AutoNaming.Types.OperationFilterName
   ( OperationFilterName
       ( OperationFilterName',
-        OFNNamespaceId,
-        OFNServiceId,
-        OFNStatus,
-        OFNType,
-        OFNUpdateDate
+        OperationFilterNameNamespaceId,
+        OperationFilterNameServiceId,
+        OperationFilterNameStatus,
+        OperationFilterNameType,
+        OperationFilterNameUpdateDate,
+        fromOperationFilterName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperationFilterName = OperationFilterName' Lude.Text
+newtype OperationFilterName = OperationFilterName'
+  { fromOperationFilterName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OFNNamespaceId :: OperationFilterName
-pattern OFNNamespaceId = OperationFilterName' "NAMESPACE_ID"
+pattern OperationFilterNameNamespaceId :: OperationFilterName
+pattern OperationFilterNameNamespaceId = OperationFilterName' "NAMESPACE_ID"
 
-pattern OFNServiceId :: OperationFilterName
-pattern OFNServiceId = OperationFilterName' "SERVICE_ID"
+pattern OperationFilterNameServiceId :: OperationFilterName
+pattern OperationFilterNameServiceId = OperationFilterName' "SERVICE_ID"
 
-pattern OFNStatus :: OperationFilterName
-pattern OFNStatus = OperationFilterName' "STATUS"
+pattern OperationFilterNameStatus :: OperationFilterName
+pattern OperationFilterNameStatus = OperationFilterName' "STATUS"
 
-pattern OFNType :: OperationFilterName
-pattern OFNType = OperationFilterName' "TYPE"
+pattern OperationFilterNameType :: OperationFilterName
+pattern OperationFilterNameType = OperationFilterName' "TYPE"
 
-pattern OFNUpdateDate :: OperationFilterName
-pattern OFNUpdateDate = OperationFilterName' "UPDATE_DATE"
+pattern OperationFilterNameUpdateDate :: OperationFilterName
+pattern OperationFilterNameUpdateDate = OperationFilterName' "UPDATE_DATE"
 
 {-# COMPLETE
-  OFNNamespaceId,
-  OFNServiceId,
-  OFNStatus,
-  OFNType,
-  OFNUpdateDate,
+  OperationFilterNameNamespaceId,
+  OperationFilterNameServiceId,
+  OperationFilterNameStatus,
+  OperationFilterNameType,
+  OperationFilterNameUpdateDate,
   OperationFilterName'
   #-}

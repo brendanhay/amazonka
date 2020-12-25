@@ -13,66 +13,71 @@
 module Network.AWS.SSM.Types.ResourceTypeForTagging
   ( ResourceTypeForTagging
       ( ResourceTypeForTagging',
-        Document,
-        ManagedInstance,
-        MaintenanceWindow,
-        Parameter,
-        PatchBaseline,
-        OpsItem
+        ResourceTypeForTaggingDocument,
+        ResourceTypeForTaggingManagedInstance,
+        ResourceTypeForTaggingMaintenanceWindow,
+        ResourceTypeForTaggingParameter,
+        ResourceTypeForTaggingPatchBaseline,
+        ResourceTypeForTaggingOpsItem,
+        fromResourceTypeForTagging
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceTypeForTagging = ResourceTypeForTagging' Lude.Text
+newtype ResourceTypeForTagging = ResourceTypeForTagging'
+  { fromResourceTypeForTagging ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Document :: ResourceTypeForTagging
-pattern Document = ResourceTypeForTagging' "Document"
+pattern ResourceTypeForTaggingDocument :: ResourceTypeForTagging
+pattern ResourceTypeForTaggingDocument = ResourceTypeForTagging' "Document"
 
-pattern ManagedInstance :: ResourceTypeForTagging
-pattern ManagedInstance = ResourceTypeForTagging' "ManagedInstance"
+pattern ResourceTypeForTaggingManagedInstance :: ResourceTypeForTagging
+pattern ResourceTypeForTaggingManagedInstance = ResourceTypeForTagging' "ManagedInstance"
 
-pattern MaintenanceWindow :: ResourceTypeForTagging
-pattern MaintenanceWindow = ResourceTypeForTagging' "MaintenanceWindow"
+pattern ResourceTypeForTaggingMaintenanceWindow :: ResourceTypeForTagging
+pattern ResourceTypeForTaggingMaintenanceWindow = ResourceTypeForTagging' "MaintenanceWindow"
 
-pattern Parameter :: ResourceTypeForTagging
-pattern Parameter = ResourceTypeForTagging' "Parameter"
+pattern ResourceTypeForTaggingParameter :: ResourceTypeForTagging
+pattern ResourceTypeForTaggingParameter = ResourceTypeForTagging' "Parameter"
 
-pattern PatchBaseline :: ResourceTypeForTagging
-pattern PatchBaseline = ResourceTypeForTagging' "PatchBaseline"
+pattern ResourceTypeForTaggingPatchBaseline :: ResourceTypeForTagging
+pattern ResourceTypeForTaggingPatchBaseline = ResourceTypeForTagging' "PatchBaseline"
 
-pattern OpsItem :: ResourceTypeForTagging
-pattern OpsItem = ResourceTypeForTagging' "OpsItem"
+pattern ResourceTypeForTaggingOpsItem :: ResourceTypeForTagging
+pattern ResourceTypeForTaggingOpsItem = ResourceTypeForTagging' "OpsItem"
 
 {-# COMPLETE
-  Document,
-  ManagedInstance,
-  MaintenanceWindow,
-  Parameter,
-  PatchBaseline,
-  OpsItem,
+  ResourceTypeForTaggingDocument,
+  ResourceTypeForTaggingManagedInstance,
+  ResourceTypeForTaggingMaintenanceWindow,
+  ResourceTypeForTaggingParameter,
+  ResourceTypeForTaggingPatchBaseline,
+  ResourceTypeForTaggingOpsItem,
   ResourceTypeForTagging'
   #-}

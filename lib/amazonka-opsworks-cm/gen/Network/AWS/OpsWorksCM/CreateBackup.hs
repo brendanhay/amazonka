@@ -33,23 +33,23 @@ module Network.AWS.OpsWorksCM.CreateBackup
     mkCreateBackupResponse,
 
     -- ** Response lenses
-    cbrsBackup,
-    cbrsResponseStatus,
+    cbrrsBackup,
+    cbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'
   { -- | The name of the server that you want to back up.
-    serverName :: Lude.Text,
+    serverName :: Types.ServerName,
     -- | A user-defined description of the backup.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
     -- | A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.
     --
     --
@@ -66,54 +66,35 @@ data CreateBackup = CreateBackup'
     --
     --
     --     * A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBackup' with the minimum fields required to make a request.
---
--- * 'serverName' - The name of the server that you want to back up.
--- * 'description' - A user-defined description of the backup.
--- * 'tags' - A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.
---
---
---     * The key cannot be empty.
---
---
---     * The key can be a maximum of 127 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@
---
---
---     * The value can be a maximum 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: @+ - = . _ : /@
---
---
---     * Leading and trailing white spaces are trimmed from both the key and value.
---
---
---     * A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.
+-- | Creates a 'CreateBackup' value with any optional fields omitted.
 mkCreateBackup ::
   -- | 'serverName'
-  Lude.Text ->
+  Types.ServerName ->
   CreateBackup
-mkCreateBackup pServerName_ =
+mkCreateBackup serverName =
   CreateBackup'
-    { serverName = pServerName_,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { serverName,
+      description = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The name of the server that you want to back up.
 --
 -- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbServerName :: Lens.Lens' CreateBackup Lude.Text
-cbServerName = Lens.lens (serverName :: CreateBackup -> Lude.Text) (\s a -> s {serverName = a} :: CreateBackup)
+cbServerName :: Lens.Lens' CreateBackup Types.ServerName
+cbServerName = Lens.field @"serverName"
 {-# DEPRECATED cbServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | A user-defined description of the backup.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbDescription :: Lens.Lens' CreateBackup (Lude.Maybe Lude.Text)
-cbDescription = Lens.lens (description :: CreateBackup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateBackup)
+cbDescription :: Lens.Lens' CreateBackup (Core.Maybe Types.String)
+cbDescription = Lens.field @"description"
 {-# DEPRECATED cbDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.
@@ -136,81 +117,68 @@ cbDescription = Lens.lens (description :: CreateBackup -> Lude.Maybe Lude.Text) 
 --
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbTags :: Lens.Lens' CreateBackup (Lude.Maybe [Tag])
-cbTags = Lens.lens (tags :: CreateBackup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateBackup)
+cbTags :: Lens.Lens' CreateBackup (Core.Maybe [Types.Tag])
+cbTags = Lens.field @"tags"
 {-# DEPRECATED cbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateBackup where
+instance Core.FromJSON CreateBackup where
+  toJSON CreateBackup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServerName" Core..= serverName),
+            ("Description" Core..=) Core.<$> description,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateBackup where
   type Rs CreateBackup = CreateBackupResponse
-  request = Req.postJSON opsWorksCMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorksCM_V2016_11_01.CreateBackup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateBackupResponse'
-            Lude.<$> (x Lude..?> "Backup") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Backup") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateBackup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorksCM_V2016_11_01.CreateBackup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateBackup where
-  toJSON CreateBackup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ServerName" Lude..= serverName),
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateBackup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateBackup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateBackupResponse' smart constructor.
 data CreateBackupResponse = CreateBackupResponse'
   { -- | Backup created by request.
-    backup :: Lude.Maybe Backup,
+    backup :: Core.Maybe Types.Backup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateBackupResponse' with the minimum fields required to make a request.
---
--- * 'backup' - Backup created by request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateBackupResponse' value with any optional fields omitted.
 mkCreateBackupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateBackupResponse
-mkCreateBackupResponse pResponseStatus_ =
-  CreateBackupResponse'
-    { backup = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateBackupResponse responseStatus =
+  CreateBackupResponse' {backup = Core.Nothing, responseStatus}
 
 -- | Backup created by request.
 --
 -- /Note:/ Consider using 'backup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsBackup :: Lens.Lens' CreateBackupResponse (Lude.Maybe Backup)
-cbrsBackup = Lens.lens (backup :: CreateBackupResponse -> Lude.Maybe Backup) (\s a -> s {backup = a} :: CreateBackupResponse)
-{-# DEPRECATED cbrsBackup "Use generic-lens or generic-optics with 'backup' instead." #-}
+cbrrsBackup :: Lens.Lens' CreateBackupResponse (Core.Maybe Types.Backup)
+cbrrsBackup = Lens.field @"backup"
+{-# DEPRECATED cbrrsBackup "Use generic-lens or generic-optics with 'backup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsResponseStatus :: Lens.Lens' CreateBackupResponse Lude.Int
-cbrsResponseStatus = Lens.lens (responseStatus :: CreateBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBackupResponse)
-{-# DEPRECATED cbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cbrrsResponseStatus :: Lens.Lens' CreateBackupResponse Core.Int
+cbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

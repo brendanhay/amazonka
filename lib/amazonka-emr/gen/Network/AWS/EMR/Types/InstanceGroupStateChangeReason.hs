@@ -22,53 +22,49 @@ module Network.AWS.EMR.Types.InstanceGroupStateChangeReason
   )
 where
 
-import Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode
+import qualified Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode as Types
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status change reason details for the instance group.
 --
 -- /See:/ 'mkInstanceGroupStateChangeReason' smart constructor.
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
   { -- | The programmable code for the state change reason.
-    code :: Lude.Maybe InstanceGroupStateChangeReasonCode,
+    code :: Core.Maybe Types.InstanceGroupStateChangeReasonCode,
     -- | The status change reason description.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceGroupStateChangeReason' with the minimum fields required to make a request.
---
--- * 'code' - The programmable code for the state change reason.
--- * 'message' - The status change reason description.
+-- | Creates a 'InstanceGroupStateChangeReason' value with any optional fields omitted.
 mkInstanceGroupStateChangeReason ::
   InstanceGroupStateChangeReason
 mkInstanceGroupStateChangeReason =
   InstanceGroupStateChangeReason'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The programmable code for the state change reason.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igscrCode :: Lens.Lens' InstanceGroupStateChangeReason (Lude.Maybe InstanceGroupStateChangeReasonCode)
-igscrCode = Lens.lens (code :: InstanceGroupStateChangeReason -> Lude.Maybe InstanceGroupStateChangeReasonCode) (\s a -> s {code = a} :: InstanceGroupStateChangeReason)
+igscrCode :: Lens.Lens' InstanceGroupStateChangeReason (Core.Maybe Types.InstanceGroupStateChangeReasonCode)
+igscrCode = Lens.field @"code"
 {-# DEPRECATED igscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The status change reason description.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igscrMessage :: Lens.Lens' InstanceGroupStateChangeReason (Lude.Maybe Lude.Text)
-igscrMessage = Lens.lens (message :: InstanceGroupStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: InstanceGroupStateChangeReason)
+igscrMessage :: Lens.Lens' InstanceGroupStateChangeReason (Core.Maybe Types.String)
+igscrMessage = Lens.field @"message"
 {-# DEPRECATED igscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON InstanceGroupStateChangeReason where
+instance Core.FromJSON InstanceGroupStateChangeReason where
   parseJSON =
-    Lude.withObject
-      "InstanceGroupStateChangeReason"
-      ( \x ->
-          InstanceGroupStateChangeReason'
-            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "InstanceGroupStateChangeReason" Core.$
+      \x ->
+        InstanceGroupStateChangeReason'
+          Core.<$> (x Core..:? "Code") Core.<*> (x Core..:? "Message")

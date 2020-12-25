@@ -21,9 +21,9 @@ module Network.AWS.ImportExport.CreateJob
 
     -- ** Request lenses
     cjJobType,
+    cjManifest,
     cjValidateOnly,
     cjAPIVersion,
-    cjManifest,
     cjManifestAddendum,
 
     -- * Destructuring the response
@@ -31,217 +31,204 @@ module Network.AWS.ImportExport.CreateJob
     mkCreateJobResponse,
 
     -- ** Response lenses
-    cjrsSignature,
-    cjrsJobType,
-    cjrsJobId,
-    cjrsSignatureFileContents,
-    cjrsWarningMessage,
-    cjrsArtifactList,
-    cjrsResponseStatus,
+    cjrrsArtifactList,
+    cjrrsJobId,
+    cjrrsJobType,
+    cjrrsSignature,
+    cjrrsSignatureFileContents,
+    cjrrsWarningMessage,
+    cjrrsResponseStatus,
   )
 where
 
-import Network.AWS.ImportExport.Types
+import qualified Network.AWS.ImportExport.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input structure for the CreateJob operation.
 --
 -- /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { jobType :: JobType,
-    validateOnly :: Lude.Bool,
-    apiVersion :: Lude.Maybe Lude.Text,
-    manifest :: Lude.Text,
-    manifestAddendum :: Lude.Maybe Lude.Text
+  { jobType :: Types.JobType,
+    manifest :: Types.Manifest,
+    validateOnly :: Core.Bool,
+    aPIVersion :: Core.Maybe Types.APIVersion,
+    manifestAddendum :: Core.Maybe Types.ManifestAddendum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
---
--- * 'jobType' -
--- * 'validateOnly' -
--- * 'apiVersion' -
--- * 'manifest' -
--- * 'manifestAddendum' -
+-- | Creates a 'CreateJob' value with any optional fields omitted.
 mkCreateJob ::
   -- | 'jobType'
-  JobType ->
-  -- | 'validateOnly'
-  Lude.Bool ->
+  Types.JobType ->
   -- | 'manifest'
-  Lude.Text ->
+  Types.Manifest ->
+  -- | 'validateOnly'
+  Core.Bool ->
   CreateJob
-mkCreateJob pJobType_ pValidateOnly_ pManifest_ =
+mkCreateJob jobType manifest validateOnly =
   CreateJob'
-    { jobType = pJobType_,
-      validateOnly = pValidateOnly_,
-      apiVersion = Lude.Nothing,
-      manifest = pManifest_,
-      manifestAddendum = Lude.Nothing
+    { jobType,
+      manifest,
+      validateOnly,
+      aPIVersion = Core.Nothing,
+      manifestAddendum = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjJobType :: Lens.Lens' CreateJob JobType
-cjJobType = Lens.lens (jobType :: CreateJob -> JobType) (\s a -> s {jobType = a} :: CreateJob)
+cjJobType :: Lens.Lens' CreateJob Types.JobType
+cjJobType = Lens.field @"jobType"
 {-# DEPRECATED cjJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'validateOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjValidateOnly :: Lens.Lens' CreateJob Lude.Bool
-cjValidateOnly = Lens.lens (validateOnly :: CreateJob -> Lude.Bool) (\s a -> s {validateOnly = a} :: CreateJob)
-{-# DEPRECATED cjValidateOnly "Use generic-lens or generic-optics with 'validateOnly' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'apiVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjAPIVersion :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjAPIVersion = Lens.lens (apiVersion :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {apiVersion = a} :: CreateJob)
-{-# DEPRECATED cjAPIVersion "Use generic-lens or generic-optics with 'apiVersion' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'manifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjManifest :: Lens.Lens' CreateJob Lude.Text
-cjManifest = Lens.lens (manifest :: CreateJob -> Lude.Text) (\s a -> s {manifest = a} :: CreateJob)
+cjManifest :: Lens.Lens' CreateJob Types.Manifest
+cjManifest = Lens.field @"manifest"
 {-# DEPRECATED cjManifest "Use generic-lens or generic-optics with 'manifest' instead." #-}
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'validateOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjValidateOnly :: Lens.Lens' CreateJob Core.Bool
+cjValidateOnly = Lens.field @"validateOnly"
+{-# DEPRECATED cjValidateOnly "Use generic-lens or generic-optics with 'validateOnly' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'aPIVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjAPIVersion :: Lens.Lens' CreateJob (Core.Maybe Types.APIVersion)
+cjAPIVersion = Lens.field @"aPIVersion"
+{-# DEPRECATED cjAPIVersion "Use generic-lens or generic-optics with 'aPIVersion' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'manifestAddendum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjManifestAddendum :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjManifestAddendum = Lens.lens (manifestAddendum :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {manifestAddendum = a} :: CreateJob)
+cjManifestAddendum :: Lens.Lens' CreateJob (Core.Maybe Types.ManifestAddendum)
+cjManifestAddendum = Lens.field @"manifestAddendum"
 {-# DEPRECATED cjManifestAddendum "Use generic-lens or generic-optics with 'manifestAddendum' instead." #-}
 
-instance Lude.AWSRequest CreateJob where
+instance Core.AWSRequest CreateJob where
   type Rs CreateJob = CreateJobResponse
-  request = Req.postQuery importExportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Operation=CreateJob", "")
+                Core.<> (Core.pure ("Action", "CreateJob"))
+                Core.<> (Core.pure ("Version", "2010-06-01"))
+                Core.<> (Core.toQueryValue "JobType" jobType)
+                Core.<> (Core.toQueryValue "Manifest" manifest)
+                Core.<> (Core.toQueryValue "ValidateOnly" validateOnly)
+                Core.<> (Core.toQueryValue "APIVersion" Core.<$> aPIVersion)
+                Core.<> (Core.toQueryValue "ManifestAddendum" Core.<$> manifestAddendum)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateJobResult"
       ( \s h x ->
           CreateJobResponse'
-            Lude.<$> (x Lude..@? "Signature")
-            Lude.<*> (x Lude..@? "JobType")
-            Lude.<*> (x Lude..@? "JobId")
-            Lude.<*> (x Lude..@? "SignatureFileContents")
-            Lude.<*> (x Lude..@? "WarningMessage")
-            Lude.<*> ( x Lude..@? "ArtifactList" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ArtifactList" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "JobId")
+            Core.<*> (x Core..@? "JobType")
+            Core.<*> (x Core..@? "Signature")
+            Core.<*> (x Core..@? "SignatureFileContents")
+            Core.<*> (x Core..@? "WarningMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateJob where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateJob where
-  toQuery CreateJob' {..} =
-    Lude.mconcat
-      [ "Operation=CreateJob",
-        "Action" Lude.=: ("CreateJob" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-06-01" :: Lude.ByteString),
-        "JobType" Lude.=: jobType,
-        "ValidateOnly" Lude.=: validateOnly,
-        "APIVersion" Lude.=: apiVersion,
-        "Manifest" Lude.=: manifest,
-        "ManifestAddendum" Lude.=: manifestAddendum
-      ]
 
 -- | Output structure for the CreateJob operation.
 --
 -- /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { signature :: Lude.Maybe Lude.Text,
-    jobType :: Lude.Maybe JobType,
-    jobId :: Lude.Maybe Lude.Text,
-    signatureFileContents :: Lude.Maybe Lude.Text,
-    warningMessage :: Lude.Maybe Lude.Text,
-    artifactList :: Lude.Maybe [Artifact],
+  { artifactList :: Core.Maybe [Types.Artifact],
+    jobId :: Core.Maybe Types.JobId,
+    jobType :: Core.Maybe Types.JobType,
+    signature :: Core.Maybe Types.Signature,
+    signatureFileContents :: Core.Maybe Types.SignatureFileContents,
+    warningMessage :: Core.Maybe Types.WarningMessage,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
---
--- * 'signature' -
--- * 'jobType' -
--- * 'jobId' -
--- * 'signatureFileContents' -
--- * 'warningMessage' -
--- * 'artifactList' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateJobResponse' value with any optional fields omitted.
 mkCreateJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateJobResponse
-mkCreateJobResponse pResponseStatus_ =
+mkCreateJobResponse responseStatus =
   CreateJobResponse'
-    { signature = Lude.Nothing,
-      jobType = Lude.Nothing,
-      jobId = Lude.Nothing,
-      signatureFileContents = Lude.Nothing,
-      warningMessage = Lude.Nothing,
-      artifactList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { artifactList = Core.Nothing,
+      jobId = Core.Nothing,
+      jobType = Core.Nothing,
+      signature = Core.Nothing,
+      signatureFileContents = Core.Nothing,
+      warningMessage = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsSignature :: Lens.Lens' CreateJobResponse (Lude.Maybe Lude.Text)
-cjrsSignature = Lens.lens (signature :: CreateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsJobType :: Lens.Lens' CreateJobResponse (Lude.Maybe JobType)
-cjrsJobType = Lens.lens (jobType :: CreateJobResponse -> Lude.Maybe JobType) (\s a -> s {jobType = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
+-- /Note:/ Consider using 'artifactList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjrrsArtifactList :: Lens.Lens' CreateJobResponse (Core.Maybe [Types.Artifact])
+cjrrsArtifactList = Lens.field @"artifactList"
+{-# DEPRECATED cjrrsArtifactList "Use generic-lens or generic-optics with 'artifactList' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsJobId :: Lens.Lens' CreateJobResponse (Lude.Maybe Lude.Text)
-cjrsJobId = Lens.lens (jobId :: CreateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+cjrrsJobId :: Lens.Lens' CreateJobResponse (Core.Maybe Types.JobId)
+cjrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED cjrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjrrsJobType :: Lens.Lens' CreateJobResponse (Core.Maybe Types.JobType)
+cjrrsJobType = Lens.field @"jobType"
+{-# DEPRECATED cjrrsJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjrrsSignature :: Lens.Lens' CreateJobResponse (Core.Maybe Types.Signature)
+cjrrsSignature = Lens.field @"signature"
+{-# DEPRECATED cjrrsSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'signatureFileContents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsSignatureFileContents :: Lens.Lens' CreateJobResponse (Lude.Maybe Lude.Text)
-cjrsSignatureFileContents = Lens.lens (signatureFileContents :: CreateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {signatureFileContents = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsSignatureFileContents "Use generic-lens or generic-optics with 'signatureFileContents' instead." #-}
+cjrrsSignatureFileContents :: Lens.Lens' CreateJobResponse (Core.Maybe Types.SignatureFileContents)
+cjrrsSignatureFileContents = Lens.field @"signatureFileContents"
+{-# DEPRECATED cjrrsSignatureFileContents "Use generic-lens or generic-optics with 'signatureFileContents' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'warningMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsWarningMessage :: Lens.Lens' CreateJobResponse (Lude.Maybe Lude.Text)
-cjrsWarningMessage = Lens.lens (warningMessage :: CreateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {warningMessage = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsWarningMessage "Use generic-lens or generic-optics with 'warningMessage' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'artifactList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsArtifactList :: Lens.Lens' CreateJobResponse (Lude.Maybe [Artifact])
-cjrsArtifactList = Lens.lens (artifactList :: CreateJobResponse -> Lude.Maybe [Artifact]) (\s a -> s {artifactList = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsArtifactList "Use generic-lens or generic-optics with 'artifactList' instead." #-}
+cjrrsWarningMessage :: Lens.Lens' CreateJobResponse (Core.Maybe Types.WarningMessage)
+cjrrsWarningMessage = Lens.field @"warningMessage"
+{-# DEPRECATED cjrrsWarningMessage "Use generic-lens or generic-optics with 'warningMessage' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsResponseStatus :: Lens.Lens' CreateJobResponse Lude.Int
-cjrsResponseStatus = Lens.lens (responseStatus :: CreateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cjrrsResponseStatus :: Lens.Lens' CreateJobResponse Core.Int
+cjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

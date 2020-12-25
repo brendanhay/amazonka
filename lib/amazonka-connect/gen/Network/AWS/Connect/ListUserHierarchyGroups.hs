@@ -25,162 +25,154 @@ module Network.AWS.Connect.ListUserHierarchyGroups
 
     -- ** Request lenses
     luhgInstanceId,
-    luhgNextToken,
     luhgMaxResults,
+    luhgNextToken,
 
     -- * Destructuring the response
     ListUserHierarchyGroupsResponse (..),
     mkListUserHierarchyGroupsResponse,
 
     -- ** Response lenses
-    luhgrsNextToken,
-    luhgrsUserHierarchyGroupSummaryList,
-    luhgrsResponseStatus,
+    luhgrrsNextToken,
+    luhgrrsUserHierarchyGroupSummaryList,
+    luhgrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListUserHierarchyGroups' smart constructor.
 data ListUserHierarchyGroups = ListUserHierarchyGroups'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUserHierarchyGroups' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'ListUserHierarchyGroups' value with any optional fields omitted.
 mkListUserHierarchyGroups ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   ListUserHierarchyGroups
-mkListUserHierarchyGroups pInstanceId_ =
+mkListUserHierarchyGroups instanceId =
   ListUserHierarchyGroups'
-    { instanceId = pInstanceId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luhgInstanceId :: Lens.Lens' ListUserHierarchyGroups Lude.Text
-luhgInstanceId = Lens.lens (instanceId :: ListUserHierarchyGroups -> Lude.Text) (\s a -> s {instanceId = a} :: ListUserHierarchyGroups)
+luhgInstanceId :: Lens.Lens' ListUserHierarchyGroups Types.InstanceId
+luhgInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED luhgInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luhgNextToken :: Lens.Lens' ListUserHierarchyGroups (Lude.Maybe Lude.Text)
-luhgNextToken = Lens.lens (nextToken :: ListUserHierarchyGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUserHierarchyGroups)
-{-# DEPRECATED luhgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luhgMaxResults :: Lens.Lens' ListUserHierarchyGroups (Lude.Maybe Lude.Natural)
-luhgMaxResults = Lens.lens (maxResults :: ListUserHierarchyGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUserHierarchyGroups)
+luhgMaxResults :: Lens.Lens' ListUserHierarchyGroups (Core.Maybe Core.Natural)
+luhgMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED luhgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListUserHierarchyGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. luhgrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. luhgrsUserHierarchyGroupSummaryList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& luhgNextToken Lens..~ rs Lens.^. luhgrsNextToken
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luhgNextToken :: Lens.Lens' ListUserHierarchyGroups (Core.Maybe Types.NextToken)
+luhgNextToken = Lens.field @"nextToken"
+{-# DEPRECATED luhgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListUserHierarchyGroups where
+instance Core.AWSRequest ListUserHierarchyGroups where
   type Rs ListUserHierarchyGroups = ListUserHierarchyGroupsResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/user-hierarchy-groups-summary/"
+                Core.<> (Core.toText instanceId)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListUserHierarchyGroupsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "UserHierarchyGroupSummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "UserHierarchyGroupSummaryList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListUserHierarchyGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListUserHierarchyGroups where
-  toPath ListUserHierarchyGroups' {..} =
-    Lude.mconcat
-      ["/user-hierarchy-groups-summary/", Lude.toBS instanceId]
-
-instance Lude.ToQuery ListUserHierarchyGroups where
-  toQuery ListUserHierarchyGroups' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListUserHierarchyGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"userHierarchyGroupSummaryList" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListUserHierarchyGroupsResponse' smart constructor.
 data ListUserHierarchyGroupsResponse = ListUserHierarchyGroupsResponse'
   { -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Information about the hierarchy groups.
-    userHierarchyGroupSummaryList :: Lude.Maybe [HierarchyGroupSummary],
+    userHierarchyGroupSummaryList :: Core.Maybe [Types.HierarchyGroupSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUserHierarchyGroupsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'userHierarchyGroupSummaryList' - Information about the hierarchy groups.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListUserHierarchyGroupsResponse' value with any optional fields omitted.
 mkListUserHierarchyGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListUserHierarchyGroupsResponse
-mkListUserHierarchyGroupsResponse pResponseStatus_ =
+mkListUserHierarchyGroupsResponse responseStatus =
   ListUserHierarchyGroupsResponse'
-    { nextToken = Lude.Nothing,
-      userHierarchyGroupSummaryList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      userHierarchyGroupSummaryList = Core.Nothing,
+      responseStatus
     }
 
 -- | If there are additional results, this is the token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luhgrsNextToken :: Lens.Lens' ListUserHierarchyGroupsResponse (Lude.Maybe Lude.Text)
-luhgrsNextToken = Lens.lens (nextToken :: ListUserHierarchyGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUserHierarchyGroupsResponse)
-{-# DEPRECATED luhgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+luhgrrsNextToken :: Lens.Lens' ListUserHierarchyGroupsResponse (Core.Maybe Types.NextToken)
+luhgrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED luhgrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the hierarchy groups.
 --
 -- /Note:/ Consider using 'userHierarchyGroupSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luhgrsUserHierarchyGroupSummaryList :: Lens.Lens' ListUserHierarchyGroupsResponse (Lude.Maybe [HierarchyGroupSummary])
-luhgrsUserHierarchyGroupSummaryList = Lens.lens (userHierarchyGroupSummaryList :: ListUserHierarchyGroupsResponse -> Lude.Maybe [HierarchyGroupSummary]) (\s a -> s {userHierarchyGroupSummaryList = a} :: ListUserHierarchyGroupsResponse)
-{-# DEPRECATED luhgrsUserHierarchyGroupSummaryList "Use generic-lens or generic-optics with 'userHierarchyGroupSummaryList' instead." #-}
+luhgrrsUserHierarchyGroupSummaryList :: Lens.Lens' ListUserHierarchyGroupsResponse (Core.Maybe [Types.HierarchyGroupSummary])
+luhgrrsUserHierarchyGroupSummaryList = Lens.field @"userHierarchyGroupSummaryList"
+{-# DEPRECATED luhgrrsUserHierarchyGroupSummaryList "Use generic-lens or generic-optics with 'userHierarchyGroupSummaryList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luhgrsResponseStatus :: Lens.Lens' ListUserHierarchyGroupsResponse Lude.Int
-luhgrsResponseStatus = Lens.lens (responseStatus :: ListUserHierarchyGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUserHierarchyGroupsResponse)
-{-# DEPRECATED luhgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+luhgrrsResponseStatus :: Lens.Lens' ListUserHierarchyGroupsResponse Core.Int
+luhgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED luhgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

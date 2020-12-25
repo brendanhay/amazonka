@@ -27,135 +27,120 @@ module Network.AWS.CloudWatchEvents.CancelReplay
     mkCancelReplayResponse,
 
     -- ** Response lenses
-    crrsState,
-    crrsReplayARN,
-    crrsStateReason,
-    crrsResponseStatus,
+    crrrsReplayArn,
+    crrrsState,
+    crrrsStateReason,
+    crrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelReplay' smart constructor.
 newtype CancelReplay = CancelReplay'
   { -- | The name of the replay to cancel.
-    replayName :: Lude.Text
+    replayName :: Types.ReplayName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelReplay' with the minimum fields required to make a request.
---
--- * 'replayName' - The name of the replay to cancel.
+-- | Creates a 'CancelReplay' value with any optional fields omitted.
 mkCancelReplay ::
   -- | 'replayName'
-  Lude.Text ->
+  Types.ReplayName ->
   CancelReplay
-mkCancelReplay pReplayName_ =
-  CancelReplay' {replayName = pReplayName_}
+mkCancelReplay replayName = CancelReplay' {replayName}
 
 -- | The name of the replay to cancel.
 --
 -- /Note:/ Consider using 'replayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crReplayName :: Lens.Lens' CancelReplay Lude.Text
-crReplayName = Lens.lens (replayName :: CancelReplay -> Lude.Text) (\s a -> s {replayName = a} :: CancelReplay)
+crReplayName :: Lens.Lens' CancelReplay Types.ReplayName
+crReplayName = Lens.field @"replayName"
 {-# DEPRECATED crReplayName "Use generic-lens or generic-optics with 'replayName' instead." #-}
 
-instance Lude.AWSRequest CancelReplay where
+instance Core.FromJSON CancelReplay where
+  toJSON CancelReplay {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ReplayName" Core..= replayName)])
+
+instance Core.AWSRequest CancelReplay where
   type Rs CancelReplay = CancelReplayResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.CancelReplay")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CancelReplayResponse'
-            Lude.<$> (x Lude..?> "State")
-            Lude.<*> (x Lude..?> "ReplayArn")
-            Lude.<*> (x Lude..?> "StateReason")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ReplayArn")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "StateReason")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelReplay where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.CancelReplay" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CancelReplay where
-  toJSON CancelReplay' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ReplayName" Lude..= replayName)])
-
-instance Lude.ToPath CancelReplay where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelReplay where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCancelReplayResponse' smart constructor.
 data CancelReplayResponse = CancelReplayResponse'
-  { -- | The current state of the replay.
-    state :: Lude.Maybe ReplayState,
-    -- | The ARN of the replay to cancel.
-    replayARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the replay to cancel.
+    replayArn :: Core.Maybe Types.ReplayArn,
+    -- | The current state of the replay.
+    state :: Core.Maybe Types.ReplayState,
     -- | The reason that the replay is in the current state.
-    stateReason :: Lude.Maybe Lude.Text,
+    stateReason :: Core.Maybe Types.ReplayStateReason,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelReplayResponse' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the replay.
--- * 'replayARN' - The ARN of the replay to cancel.
--- * 'stateReason' - The reason that the replay is in the current state.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelReplayResponse' value with any optional fields omitted.
 mkCancelReplayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelReplayResponse
-mkCancelReplayResponse pResponseStatus_ =
+mkCancelReplayResponse responseStatus =
   CancelReplayResponse'
-    { state = Lude.Nothing,
-      replayARN = Lude.Nothing,
-      stateReason = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { replayArn = Core.Nothing,
+      state = Core.Nothing,
+      stateReason = Core.Nothing,
+      responseStatus
     }
+
+-- | The ARN of the replay to cancel.
+--
+-- /Note:/ Consider using 'replayArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrrsReplayArn :: Lens.Lens' CancelReplayResponse (Core.Maybe Types.ReplayArn)
+crrrsReplayArn = Lens.field @"replayArn"
+{-# DEPRECATED crrrsReplayArn "Use generic-lens or generic-optics with 'replayArn' instead." #-}
 
 -- | The current state of the replay.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsState :: Lens.Lens' CancelReplayResponse (Lude.Maybe ReplayState)
-crrsState = Lens.lens (state :: CancelReplayResponse -> Lude.Maybe ReplayState) (\s a -> s {state = a} :: CancelReplayResponse)
-{-# DEPRECATED crrsState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The ARN of the replay to cancel.
---
--- /Note:/ Consider using 'replayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsReplayARN :: Lens.Lens' CancelReplayResponse (Lude.Maybe Lude.Text)
-crrsReplayARN = Lens.lens (replayARN :: CancelReplayResponse -> Lude.Maybe Lude.Text) (\s a -> s {replayARN = a} :: CancelReplayResponse)
-{-# DEPRECATED crrsReplayARN "Use generic-lens or generic-optics with 'replayARN' instead." #-}
+crrrsState :: Lens.Lens' CancelReplayResponse (Core.Maybe Types.ReplayState)
+crrrsState = Lens.field @"state"
+{-# DEPRECATED crrrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The reason that the replay is in the current state.
 --
 -- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsStateReason :: Lens.Lens' CancelReplayResponse (Lude.Maybe Lude.Text)
-crrsStateReason = Lens.lens (stateReason :: CancelReplayResponse -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: CancelReplayResponse)
-{-# DEPRECATED crrsStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
+crrrsStateReason :: Lens.Lens' CancelReplayResponse (Core.Maybe Types.ReplayStateReason)
+crrrsStateReason = Lens.field @"stateReason"
+{-# DEPRECATED crrrsStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsResponseStatus :: Lens.Lens' CancelReplayResponse Lude.Int
-crrsResponseStatus = Lens.lens (responseStatus :: CancelReplayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelReplayResponse)
-{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crrrsResponseStatus :: Lens.Lens' CancelReplayResponse Core.Int
+crrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

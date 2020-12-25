@@ -28,123 +28,107 @@ module Network.AWS.Glue.UpdateJob
     mkUpdateJobResponse,
 
     -- ** Response lenses
-    ujrsJobName,
-    ujrsResponseStatus,
+    ujrrsJobName,
+    ujrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
   { -- | The name of the job definition to update.
-    jobName :: Lude.Text,
+    jobName :: Types.JobName,
     -- | Specifies the values with which to update the job definition.
-    jobUpdate :: JobUpdate
+    jobUpdate :: Types.JobUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
---
--- * 'jobName' - The name of the job definition to update.
--- * 'jobUpdate' - Specifies the values with which to update the job definition.
+-- | Creates a 'UpdateJob' value with any optional fields omitted.
 mkUpdateJob ::
   -- | 'jobName'
-  Lude.Text ->
+  Types.JobName ->
   -- | 'jobUpdate'
-  JobUpdate ->
+  Types.JobUpdate ->
   UpdateJob
-mkUpdateJob pJobName_ pJobUpdate_ =
-  UpdateJob' {jobName = pJobName_, jobUpdate = pJobUpdate_}
+mkUpdateJob jobName jobUpdate = UpdateJob' {jobName, jobUpdate}
 
 -- | The name of the job definition to update.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujJobName :: Lens.Lens' UpdateJob Lude.Text
-ujJobName = Lens.lens (jobName :: UpdateJob -> Lude.Text) (\s a -> s {jobName = a} :: UpdateJob)
+ujJobName :: Lens.Lens' UpdateJob Types.JobName
+ujJobName = Lens.field @"jobName"
 {-# DEPRECATED ujJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Specifies the values with which to update the job definition.
 --
 -- /Note:/ Consider using 'jobUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujJobUpdate :: Lens.Lens' UpdateJob JobUpdate
-ujJobUpdate = Lens.lens (jobUpdate :: UpdateJob -> JobUpdate) (\s a -> s {jobUpdate = a} :: UpdateJob)
+ujJobUpdate :: Lens.Lens' UpdateJob Types.JobUpdate
+ujJobUpdate = Lens.field @"jobUpdate"
 {-# DEPRECATED ujJobUpdate "Use generic-lens or generic-optics with 'jobUpdate' instead." #-}
 
-instance Lude.AWSRequest UpdateJob where
+instance Core.FromJSON UpdateJob where
+  toJSON UpdateJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobName" Core..= jobName),
+            Core.Just ("JobUpdate" Core..= jobUpdate)
+          ]
+      )
+
+instance Core.AWSRequest UpdateJob where
   type Rs UpdateJob = UpdateJobResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.UpdateJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateJobResponse'
-            Lude.<$> (x Lude..?> "JobName") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobName") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.UpdateJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateJob where
-  toJSON UpdateJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobName" Lude..= jobName),
-            Lude.Just ("JobUpdate" Lude..= jobUpdate)
-          ]
-      )
-
-instance Lude.ToPath UpdateJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
   { -- | Returns the name of the updated job definition.
-    jobName :: Lude.Maybe Lude.Text,
+    jobName :: Core.Maybe Types.NameString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
---
--- * 'jobName' - Returns the name of the updated job definition.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateJobResponse' value with any optional fields omitted.
 mkUpdateJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateJobResponse
-mkUpdateJobResponse pResponseStatus_ =
-  UpdateJobResponse'
-    { jobName = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateJobResponse responseStatus =
+  UpdateJobResponse' {jobName = Core.Nothing, responseStatus}
 
 -- | Returns the name of the updated job definition.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujrsJobName :: Lens.Lens' UpdateJobResponse (Lude.Maybe Lude.Text)
-ujrsJobName = Lens.lens (jobName :: UpdateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: UpdateJobResponse)
-{-# DEPRECATED ujrsJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+ujrrsJobName :: Lens.Lens' UpdateJobResponse (Core.Maybe Types.NameString)
+ujrrsJobName = Lens.field @"jobName"
+{-# DEPRECATED ujrrsJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujrsResponseStatus :: Lens.Lens' UpdateJobResponse Lude.Int
-ujrsResponseStatus = Lens.lens (responseStatus :: UpdateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateJobResponse)
-{-# DEPRECATED ujrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ujrrsResponseStatus :: Lens.Lens' UpdateJobResponse Core.Int
+ujrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ujrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

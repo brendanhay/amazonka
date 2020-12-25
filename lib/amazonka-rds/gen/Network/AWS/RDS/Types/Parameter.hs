@@ -17,23 +17,24 @@ module Network.AWS.RDS.Types.Parameter
     mkParameter,
 
     -- * Lenses
-    pApplyType,
-    pParameterValue,
-    pSupportedEngineModes,
-    pApplyMethod,
-    pMinimumEngineVersion,
-    pSource,
-    pIsModifiable,
-    pDataType,
     pAllowedValues,
-    pParameterName,
+    pApplyMethod,
+    pApplyType,
+    pDataType,
     pDescription,
+    pIsModifiable,
+    pMinimumEngineVersion,
+    pParameterName,
+    pParameterValue,
+    pSource,
+    pSupportedEngineModes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.ApplyMethod
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.ApplyMethod as Types
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | This data type is used as a request parameter in the @ModifyDBParameterGroup@ and @ResetDBParameterGroup@ actions.
 --
@@ -41,170 +42,140 @@ import Network.AWS.RDS.Types.ApplyMethod
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | Specifies the engine specific parameters type.
-    applyType :: Lude.Maybe Lude.Text,
-    -- | Specifies the value of the parameter.
-    parameterValue :: Lude.Maybe Lude.Text,
-    -- | The valid DB engine modes.
-    supportedEngineModes :: Lude.Maybe [Lude.Text],
+  { -- | Specifies the valid range of values for the parameter.
+    allowedValues :: Core.Maybe Types.String,
     -- | Indicates when to apply parameter updates.
-    applyMethod :: Lude.Maybe ApplyMethod,
-    -- | The earliest engine version to which the parameter can apply.
-    minimumEngineVersion :: Lude.Maybe Lude.Text,
-    -- | Indicates the source of the parameter value.
-    source :: Lude.Maybe Lude.Text,
-    -- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
-    isModifiable :: Lude.Maybe Lude.Bool,
+    applyMethod :: Core.Maybe Types.ApplyMethod,
+    -- | Specifies the engine specific parameters type.
+    applyType :: Core.Maybe Types.String,
     -- | Specifies the valid data type for the parameter.
-    dataType :: Lude.Maybe Lude.Text,
-    -- | Specifies the valid range of values for the parameter.
-    allowedValues :: Lude.Maybe Lude.Text,
-    -- | Specifies the name of the parameter.
-    parameterName :: Lude.Maybe Lude.Text,
+    dataType :: Core.Maybe Types.String,
     -- | Provides a description of the parameter.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String,
+    -- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+    isModifiable :: Core.Maybe Core.Bool,
+    -- | The earliest engine version to which the parameter can apply.
+    minimumEngineVersion :: Core.Maybe Types.String,
+    -- | Specifies the name of the parameter.
+    parameterName :: Core.Maybe Types.String,
+    -- | Specifies the value of the parameter.
+    parameterValue :: Core.Maybe Types.String,
+    -- | Indicates the source of the parameter value.
+    source :: Core.Maybe Types.String,
+    -- | The valid DB engine modes.
+    supportedEngineModes :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Parameter' with the minimum fields required to make a request.
---
--- * 'applyType' - Specifies the engine specific parameters type.
--- * 'parameterValue' - Specifies the value of the parameter.
--- * 'supportedEngineModes' - The valid DB engine modes.
--- * 'applyMethod' - Indicates when to apply parameter updates.
--- * 'minimumEngineVersion' - The earliest engine version to which the parameter can apply.
--- * 'source' - Indicates the source of the parameter value.
--- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
--- * 'dataType' - Specifies the valid data type for the parameter.
--- * 'allowedValues' - Specifies the valid range of values for the parameter.
--- * 'parameterName' - Specifies the name of the parameter.
--- * 'description' - Provides a description of the parameter.
+-- | Creates a 'Parameter' value with any optional fields omitted.
 mkParameter ::
   Parameter
 mkParameter =
   Parameter'
-    { applyType = Lude.Nothing,
-      parameterValue = Lude.Nothing,
-      supportedEngineModes = Lude.Nothing,
-      applyMethod = Lude.Nothing,
-      minimumEngineVersion = Lude.Nothing,
-      source = Lude.Nothing,
-      isModifiable = Lude.Nothing,
-      dataType = Lude.Nothing,
-      allowedValues = Lude.Nothing,
-      parameterName = Lude.Nothing,
-      description = Lude.Nothing
+    { allowedValues = Core.Nothing,
+      applyMethod = Core.Nothing,
+      applyType = Core.Nothing,
+      dataType = Core.Nothing,
+      description = Core.Nothing,
+      isModifiable = Core.Nothing,
+      minimumEngineVersion = Core.Nothing,
+      parameterName = Core.Nothing,
+      parameterValue = Core.Nothing,
+      source = Core.Nothing,
+      supportedEngineModes = Core.Nothing
     }
-
--- | Specifies the engine specific parameters type.
---
--- /Note:/ Consider using 'applyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pApplyType :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pApplyType = Lens.lens (applyType :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {applyType = a} :: Parameter)
-{-# DEPRECATED pApplyType "Use generic-lens or generic-optics with 'applyType' instead." #-}
-
--- | Specifies the value of the parameter.
---
--- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameterValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pParameterValue = Lens.lens (parameterValue :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: Parameter)
-{-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
-
--- | The valid DB engine modes.
---
--- /Note:/ Consider using 'supportedEngineModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSupportedEngineModes :: Lens.Lens' Parameter (Lude.Maybe [Lude.Text])
-pSupportedEngineModes = Lens.lens (supportedEngineModes :: Parameter -> Lude.Maybe [Lude.Text]) (\s a -> s {supportedEngineModes = a} :: Parameter)
-{-# DEPRECATED pSupportedEngineModes "Use generic-lens or generic-optics with 'supportedEngineModes' instead." #-}
-
--- | Indicates when to apply parameter updates.
---
--- /Note:/ Consider using 'applyMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pApplyMethod :: Lens.Lens' Parameter (Lude.Maybe ApplyMethod)
-pApplyMethod = Lens.lens (applyMethod :: Parameter -> Lude.Maybe ApplyMethod) (\s a -> s {applyMethod = a} :: Parameter)
-{-# DEPRECATED pApplyMethod "Use generic-lens or generic-optics with 'applyMethod' instead." #-}
-
--- | The earliest engine version to which the parameter can apply.
---
--- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pMinimumEngineVersion :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pMinimumEngineVersion = Lens.lens (minimumEngineVersion :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {minimumEngineVersion = a} :: Parameter)
-{-# DEPRECATED pMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
-
--- | Indicates the source of the parameter value.
---
--- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSource :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pSource = Lens.lens (source :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: Parameter)
-{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
-
--- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
---
--- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pIsModifiable :: Lens.Lens' Parameter (Lude.Maybe Lude.Bool)
-pIsModifiable = Lens.lens (isModifiable :: Parameter -> Lude.Maybe Lude.Bool) (\s a -> s {isModifiable = a} :: Parameter)
-{-# DEPRECATED pIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
-
--- | Specifies the valid data type for the parameter.
---
--- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDataType :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pDataType = Lens.lens (dataType :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: Parameter)
-{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | Specifies the valid range of values for the parameter.
 --
 -- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAllowedValues :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pAllowedValues = Lens.lens (allowedValues :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: Parameter)
+pAllowedValues :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pAllowedValues = Lens.field @"allowedValues"
 {-# DEPRECATED pAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
--- | Specifies the name of the parameter.
+-- | Indicates when to apply parameter updates.
 --
--- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameterName :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pParameterName = Lens.lens (parameterName :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: Parameter)
-{-# DEPRECATED pParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
+-- /Note:/ Consider using 'applyMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pApplyMethod :: Lens.Lens' Parameter (Core.Maybe Types.ApplyMethod)
+pApplyMethod = Lens.field @"applyMethod"
+{-# DEPRECATED pApplyMethod "Use generic-lens or generic-optics with 'applyMethod' instead." #-}
+
+-- | Specifies the engine specific parameters type.
+--
+-- /Note:/ Consider using 'applyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pApplyType :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pApplyType = Lens.field @"applyType"
+{-# DEPRECATED pApplyType "Use generic-lens or generic-optics with 'applyType' instead." #-}
+
+-- | Specifies the valid data type for the parameter.
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDataType :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pDataType = Lens.field @"dataType"
+{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | Provides a description of the parameter.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDescription :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pDescription = Lens.lens (description :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Parameter)
+pDescription :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pDescription = Lens.field @"description"
 {-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML Parameter where
+-- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+--
+-- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIsModifiable :: Lens.Lens' Parameter (Core.Maybe Core.Bool)
+pIsModifiable = Lens.field @"isModifiable"
+{-# DEPRECATED pIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
+
+-- | The earliest engine version to which the parameter can apply.
+--
+-- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pMinimumEngineVersion :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pMinimumEngineVersion = Lens.field @"minimumEngineVersion"
+{-# DEPRECATED pMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
+
+-- | Specifies the name of the parameter.
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterName :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pParameterName = Lens.field @"parameterName"
+{-# DEPRECATED pParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
+
+-- | Specifies the value of the parameter.
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterValue :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pParameterValue = Lens.field @"parameterValue"
+{-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
+
+-- | Indicates the source of the parameter value.
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSource :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pSource = Lens.field @"source"
+{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
+
+-- | The valid DB engine modes.
+--
+-- /Note:/ Consider using 'supportedEngineModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSupportedEngineModes :: Lens.Lens' Parameter (Core.Maybe [Types.String])
+pSupportedEngineModes = Lens.field @"supportedEngineModes"
+{-# DEPRECATED pSupportedEngineModes "Use generic-lens or generic-optics with 'supportedEngineModes' instead." #-}
+
+instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
-      Lude.<$> (x Lude..@? "ApplyType")
-      Lude.<*> (x Lude..@? "ParameterValue")
-      Lude.<*> ( x Lude..@? "SupportedEngineModes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "AllowedValues")
+      Core.<*> (x Core..@? "ApplyMethod")
+      Core.<*> (x Core..@? "ApplyType")
+      Core.<*> (x Core..@? "DataType")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "IsModifiable")
+      Core.<*> (x Core..@? "MinimumEngineVersion")
+      Core.<*> (x Core..@? "ParameterName")
+      Core.<*> (x Core..@? "ParameterValue")
+      Core.<*> (x Core..@? "Source")
+      Core.<*> ( x Core..@? "SupportedEngineModes"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "ApplyMethod")
-      Lude.<*> (x Lude..@? "MinimumEngineVersion")
-      Lude.<*> (x Lude..@? "Source")
-      Lude.<*> (x Lude..@? "IsModifiable")
-      Lude.<*> (x Lude..@? "DataType")
-      Lude.<*> (x Lude..@? "AllowedValues")
-      Lude.<*> (x Lude..@? "ParameterName")
-      Lude.<*> (x Lude..@? "Description")
-
-instance Lude.ToQuery Parameter where
-  toQuery Parameter' {..} =
-    Lude.mconcat
-      [ "ApplyType" Lude.=: applyType,
-        "ParameterValue" Lude.=: parameterValue,
-        "SupportedEngineModes"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> supportedEngineModes),
-        "ApplyMethod" Lude.=: applyMethod,
-        "MinimumEngineVersion" Lude.=: minimumEngineVersion,
-        "Source" Lude.=: source,
-        "IsModifiable" Lude.=: isModifiable,
-        "DataType" Lude.=: dataType,
-        "AllowedValues" Lude.=: allowedValues,
-        "ParameterName" Lude.=: parameterName,
-        "Description" Lude.=: description
-      ]

@@ -17,57 +17,54 @@ module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactOutput
     mkProvisioningArtifactOutput,
 
     -- * Lenses
-    paoKey,
     paoDescription,
+    paoKey,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.Description as Types
+import qualified Network.AWS.ServiceCatalog.Types.Key as Types
 
 -- | Provisioning artifact output.
 --
 -- /See:/ 'mkProvisioningArtifactOutput' smart constructor.
 data ProvisioningArtifactOutput = ProvisioningArtifactOutput'
-  { -- | The provisioning artifact output key.
-    key :: Lude.Maybe Lude.Text,
-    -- | Description of the provisioning artifact output key.
-    description :: Lude.Maybe Lude.Text
+  { -- | Description of the provisioning artifact output key.
+    description :: Core.Maybe Types.Description,
+    -- | The provisioning artifact output key.
+    key :: Core.Maybe Types.Key
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProvisioningArtifactOutput' with the minimum fields required to make a request.
---
--- * 'key' - The provisioning artifact output key.
--- * 'description' - Description of the provisioning artifact output key.
+-- | Creates a 'ProvisioningArtifactOutput' value with any optional fields omitted.
 mkProvisioningArtifactOutput ::
   ProvisioningArtifactOutput
 mkProvisioningArtifactOutput =
   ProvisioningArtifactOutput'
-    { key = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      key = Core.Nothing
     }
-
--- | The provisioning artifact output key.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paoKey :: Lens.Lens' ProvisioningArtifactOutput (Lude.Maybe Lude.Text)
-paoKey = Lens.lens (key :: ProvisioningArtifactOutput -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ProvisioningArtifactOutput)
-{-# DEPRECATED paoKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Description of the provisioning artifact output key.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paoDescription :: Lens.Lens' ProvisioningArtifactOutput (Lude.Maybe Lude.Text)
-paoDescription = Lens.lens (description :: ProvisioningArtifactOutput -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningArtifactOutput)
+paoDescription :: Lens.Lens' ProvisioningArtifactOutput (Core.Maybe Types.Description)
+paoDescription = Lens.field @"description"
 {-# DEPRECATED paoDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON ProvisioningArtifactOutput where
+-- | The provisioning artifact output key.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paoKey :: Lens.Lens' ProvisioningArtifactOutput (Core.Maybe Types.Key)
+paoKey = Lens.field @"key"
+{-# DEPRECATED paoKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+instance Core.FromJSON ProvisioningArtifactOutput where
   parseJSON =
-    Lude.withObject
-      "ProvisioningArtifactOutput"
-      ( \x ->
-          ProvisioningArtifactOutput'
-            Lude.<$> (x Lude..:? "Key") Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "ProvisioningArtifactOutput" Core.$
+      \x ->
+        ProvisioningArtifactOutput'
+          Core.<$> (x Core..:? "Description") Core.<*> (x Core..:? "Key")

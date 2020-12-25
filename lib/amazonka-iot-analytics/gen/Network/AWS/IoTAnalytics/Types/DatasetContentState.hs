@@ -13,51 +13,56 @@
 module Network.AWS.IoTAnalytics.Types.DatasetContentState
   ( DatasetContentState
       ( DatasetContentState',
-        DCSCreating,
-        DCSSucceeded,
-        DCSFailed
+        DatasetContentStateCreating,
+        DatasetContentStateSucceeded,
+        DatasetContentStateFailed,
+        fromDatasetContentState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DatasetContentState = DatasetContentState' Lude.Text
+newtype DatasetContentState = DatasetContentState'
+  { fromDatasetContentState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DCSCreating :: DatasetContentState
-pattern DCSCreating = DatasetContentState' "CREATING"
+pattern DatasetContentStateCreating :: DatasetContentState
+pattern DatasetContentStateCreating = DatasetContentState' "CREATING"
 
-pattern DCSSucceeded :: DatasetContentState
-pattern DCSSucceeded = DatasetContentState' "SUCCEEDED"
+pattern DatasetContentStateSucceeded :: DatasetContentState
+pattern DatasetContentStateSucceeded = DatasetContentState' "SUCCEEDED"
 
-pattern DCSFailed :: DatasetContentState
-pattern DCSFailed = DatasetContentState' "FAILED"
+pattern DatasetContentStateFailed :: DatasetContentState
+pattern DatasetContentStateFailed = DatasetContentState' "FAILED"
 
 {-# COMPLETE
-  DCSCreating,
-  DCSSucceeded,
-  DCSFailed,
+  DatasetContentStateCreating,
+  DatasetContentStateSucceeded,
+  DatasetContentStateFailed,
   DatasetContentState'
   #-}

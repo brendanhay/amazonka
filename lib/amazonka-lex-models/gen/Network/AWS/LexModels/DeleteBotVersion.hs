@@ -32,76 +32,68 @@ module Network.AWS.LexModels.DeleteBotVersion
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteBotVersion' smart constructor.
 data DeleteBotVersion = DeleteBotVersion'
   { -- | The name of the bot.
-    name :: Lude.Text,
+    name :: Types.BotName,
     -- | The version of the bot to delete. You cannot delete the @> LATEST@ version of the bot. To delete the @> LATEST@ version, use the 'DeleteBot' operation.
-    version :: Lude.Text
+    version :: Types.NumericalVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBotVersion' with the minimum fields required to make a request.
---
--- * 'name' - The name of the bot.
--- * 'version' - The version of the bot to delete. You cannot delete the @> LATEST@ version of the bot. To delete the @> LATEST@ version, use the 'DeleteBot' operation.
+-- | Creates a 'DeleteBotVersion' value with any optional fields omitted.
 mkDeleteBotVersion ::
   -- | 'name'
-  Lude.Text ->
+  Types.BotName ->
   -- | 'version'
-  Lude.Text ->
+  Types.NumericalVersion ->
   DeleteBotVersion
-mkDeleteBotVersion pName_ pVersion_ =
-  DeleteBotVersion' {name = pName_, version = pVersion_}
+mkDeleteBotVersion name version = DeleteBotVersion' {name, version}
 
 -- | The name of the bot.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbvName :: Lens.Lens' DeleteBotVersion Lude.Text
-dbvName = Lens.lens (name :: DeleteBotVersion -> Lude.Text) (\s a -> s {name = a} :: DeleteBotVersion)
+dbvName :: Lens.Lens' DeleteBotVersion Types.BotName
+dbvName = Lens.field @"name"
 {-# DEPRECATED dbvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the bot to delete. You cannot delete the @> LATEST@ version of the bot. To delete the @> LATEST@ version, use the 'DeleteBot' operation.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbvVersion :: Lens.Lens' DeleteBotVersion Lude.Text
-dbvVersion = Lens.lens (version :: DeleteBotVersion -> Lude.Text) (\s a -> s {version = a} :: DeleteBotVersion)
+dbvVersion :: Lens.Lens' DeleteBotVersion Types.NumericalVersion
+dbvVersion = Lens.field @"version"
 {-# DEPRECATED dbvVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.AWSRequest DeleteBotVersion where
+instance Core.AWSRequest DeleteBotVersion where
   type Rs DeleteBotVersion = DeleteBotVersionResponse
-  request = Req.delete lexModelsService
-  response = Res.receiveNull DeleteBotVersionResponse'
-
-instance Lude.ToHeaders DeleteBotVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteBotVersion where
-  toPath DeleteBotVersion' {..} =
-    Lude.mconcat
-      ["/bots/", Lude.toBS name, "/versions/", Lude.toBS version]
-
-instance Lude.ToQuery DeleteBotVersion where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/bots/" Core.<> (Core.toText name) Core.<> ("/versions/")
+                Core.<> (Core.toText version)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteBotVersionResponse'
 
 -- | /See:/ 'mkDeleteBotVersionResponse' smart constructor.
 data DeleteBotVersionResponse = DeleteBotVersionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBotVersionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBotVersionResponse' value with any optional fields omitted.
 mkDeleteBotVersionResponse ::
   DeleteBotVersionResponse
 mkDeleteBotVersionResponse = DeleteBotVersionResponse'

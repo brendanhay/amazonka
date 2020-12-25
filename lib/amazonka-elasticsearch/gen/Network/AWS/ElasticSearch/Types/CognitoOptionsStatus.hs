@@ -17,60 +17,55 @@ module Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
     mkCognitoOptionsStatus,
 
     -- * Lenses
-    cosStatus,
     cosOptions,
+    cosStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.CognitoOptions
-import Network.AWS.ElasticSearch.Types.OptionStatus
+import qualified Network.AWS.ElasticSearch.Types.CognitoOptions as Types
+import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Status of the Cognito options for the specified Elasticsearch domain.
 --
 -- /See:/ 'mkCognitoOptionsStatus' smart constructor.
 data CognitoOptionsStatus = CognitoOptionsStatus'
-  { -- | Specifies the status of the Cognito options for the specified Elasticsearch domain.
-    status :: OptionStatus,
-    -- | Specifies the Cognito options for the specified Elasticsearch domain.
-    options :: CognitoOptions
+  { -- | Specifies the Cognito options for the specified Elasticsearch domain.
+    options :: Types.CognitoOptions,
+    -- | Specifies the status of the Cognito options for the specified Elasticsearch domain.
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CognitoOptionsStatus' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of the Cognito options for the specified Elasticsearch domain.
--- * 'options' - Specifies the Cognito options for the specified Elasticsearch domain.
+-- | Creates a 'CognitoOptionsStatus' value with any optional fields omitted.
 mkCognitoOptionsStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  CognitoOptions ->
+  Types.CognitoOptions ->
+  -- | 'status'
+  Types.OptionStatus ->
   CognitoOptionsStatus
-mkCognitoOptionsStatus pStatus_ pOptions_ =
-  CognitoOptionsStatus' {status = pStatus_, options = pOptions_}
-
--- | Specifies the status of the Cognito options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cosStatus :: Lens.Lens' CognitoOptionsStatus OptionStatus
-cosStatus = Lens.lens (status :: CognitoOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: CognitoOptionsStatus)
-{-# DEPRECATED cosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkCognitoOptionsStatus options status =
+  CognitoOptionsStatus' {options, status}
 
 -- | Specifies the Cognito options for the specified Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cosOptions :: Lens.Lens' CognitoOptionsStatus CognitoOptions
-cosOptions = Lens.lens (options :: CognitoOptionsStatus -> CognitoOptions) (\s a -> s {options = a} :: CognitoOptionsStatus)
+cosOptions :: Lens.Lens' CognitoOptionsStatus Types.CognitoOptions
+cosOptions = Lens.field @"options"
 {-# DEPRECATED cosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromJSON CognitoOptionsStatus where
+-- | Specifies the status of the Cognito options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cosStatus :: Lens.Lens' CognitoOptionsStatus Types.OptionStatus
+cosStatus = Lens.field @"status"
+{-# DEPRECATED cosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON CognitoOptionsStatus where
   parseJSON =
-    Lude.withObject
-      "CognitoOptionsStatus"
-      ( \x ->
-          CognitoOptionsStatus'
-            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
-      )
+    Core.withObject "CognitoOptionsStatus" Core.$
+      \x ->
+        CognitoOptionsStatus'
+          Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")

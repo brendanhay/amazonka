@@ -22,7 +22,7 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     mkUpdateMyUserProfile,
 
     -- ** Request lenses
-    umupSSHPublicKey,
+    umupSshPublicKey,
 
     -- * Destructuring the response
     UpdateMyUserProfileResponse (..),
@@ -31,67 +31,58 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateMyUserProfile' smart constructor.
 newtype UpdateMyUserProfile = UpdateMyUserProfile'
   { -- | The user's SSH public key.
-    sshPublicKey :: Lude.Maybe Lude.Text
+    sshPublicKey :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMyUserProfile' with the minimum fields required to make a request.
---
--- * 'sshPublicKey' - The user's SSH public key.
+-- | Creates a 'UpdateMyUserProfile' value with any optional fields omitted.
 mkUpdateMyUserProfile ::
   UpdateMyUserProfile
 mkUpdateMyUserProfile =
-  UpdateMyUserProfile' {sshPublicKey = Lude.Nothing}
+  UpdateMyUserProfile' {sshPublicKey = Core.Nothing}
 
 -- | The user's SSH public key.
 --
 -- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umupSSHPublicKey :: Lens.Lens' UpdateMyUserProfile (Lude.Maybe Lude.Text)
-umupSSHPublicKey = Lens.lens (sshPublicKey :: UpdateMyUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: UpdateMyUserProfile)
-{-# DEPRECATED umupSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
+umupSshPublicKey :: Lens.Lens' UpdateMyUserProfile (Core.Maybe Types.String)
+umupSshPublicKey = Lens.field @"sshPublicKey"
+{-# DEPRECATED umupSshPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
-instance Lude.AWSRequest UpdateMyUserProfile where
+instance Core.FromJSON UpdateMyUserProfile where
+  toJSON UpdateMyUserProfile {..} =
+    Core.object
+      (Core.catMaybes [("SshPublicKey" Core..=) Core.<$> sshPublicKey])
+
+instance Core.AWSRequest UpdateMyUserProfile where
   type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull UpdateMyUserProfileResponse'
-
-instance Lude.ToHeaders UpdateMyUserProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.UpdateMyUserProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateMyUserProfile where
-  toJSON UpdateMyUserProfile' {..} =
-    Lude.object
-      (Lude.catMaybes [("SshPublicKey" Lude..=) Lude.<$> sshPublicKey])
-
-instance Lude.ToPath UpdateMyUserProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateMyUserProfile where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.UpdateMyUserProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateMyUserProfileResponse'
 
 -- | /See:/ 'mkUpdateMyUserProfileResponse' smart constructor.
 data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMyUserProfileResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateMyUserProfileResponse' value with any optional fields omitted.
 mkUpdateMyUserProfileResponse ::
   UpdateMyUserProfileResponse
 mkUpdateMyUserProfileResponse = UpdateMyUserProfileResponse'

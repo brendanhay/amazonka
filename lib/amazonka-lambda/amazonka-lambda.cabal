@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Lambda
     Network.AWS.Lambda.AddLayerVersionPermission
@@ -92,7 +98,7 @@ library
     Network.AWS.Lambda.GetFunctionConfiguration
     Network.AWS.Lambda.GetFunctionEventInvokeConfig
     Network.AWS.Lambda.GetLayerVersion
-    Network.AWS.Lambda.GetLayerVersionByARN
+    Network.AWS.Lambda.GetLayerVersionByArn
     Network.AWS.Lambda.GetLayerVersionPolicy
     Network.AWS.Lambda.GetPolicy
     Network.AWS.Lambda.GetProvisionedConcurrencyConfig
@@ -130,50 +136,107 @@ library
   other-modules:
     Network.AWS.Lambda.Types.AccountLimit
     Network.AWS.Lambda.Types.AccountUsage
+    Network.AWS.Lambda.Types.Action
+    Network.AWS.Lambda.Types.AdditionalVersion
+    Network.AWS.Lambda.Types.Alias
     Network.AWS.Lambda.Types.AliasConfiguration
     Network.AWS.Lambda.Types.AliasRoutingConfiguration
     Network.AWS.Lambda.Types.AllowedPublishers
+    Network.AWS.Lambda.Types.Arn
     Network.AWS.Lambda.Types.CodeSigningConfig
+    Network.AWS.Lambda.Types.CodeSigningConfigArn
+    Network.AWS.Lambda.Types.CodeSigningConfigId
     Network.AWS.Lambda.Types.CodeSigningPolicies
     Network.AWS.Lambda.Types.CodeSigningPolicy
     Network.AWS.Lambda.Types.Concurrency
+    Network.AWS.Lambda.Types.CreatedDate
     Network.AWS.Lambda.Types.DeadLetterConfig
+    Network.AWS.Lambda.Types.Description
+    Network.AWS.Lambda.Types.Destination
+    Network.AWS.Lambda.Types.DestinationArn
     Network.AWS.Lambda.Types.DestinationConfig
     Network.AWS.Lambda.Types.Environment
     Network.AWS.Lambda.Types.EnvironmentError
     Network.AWS.Lambda.Types.EnvironmentResponse
+    Network.AWS.Lambda.Types.EnvironmentVariableName
+    Network.AWS.Lambda.Types.EnvironmentVariableValue
+    Network.AWS.Lambda.Types.EventSourceArn
     Network.AWS.Lambda.Types.EventSourceMappingConfiguration
     Network.AWS.Lambda.Types.EventSourcePosition
+    Network.AWS.Lambda.Types.EventSourceToken
+    Network.AWS.Lambda.Types.FileSystemArn
     Network.AWS.Lambda.Types.FileSystemConfig
+    Network.AWS.Lambda.Types.FunctionArn
     Network.AWS.Lambda.Types.FunctionCode
     Network.AWS.Lambda.Types.FunctionCodeLocation
     Network.AWS.Lambda.Types.FunctionConfiguration
     Network.AWS.Lambda.Types.FunctionEventInvokeConfig
+    Network.AWS.Lambda.Types.FunctionName
     Network.AWS.Lambda.Types.FunctionVersion
     Network.AWS.Lambda.Types.GetLayerVersionResponse
+    Network.AWS.Lambda.Types.Handler
     Network.AWS.Lambda.Types.InvocationType
+    Network.AWS.Lambda.Types.KMSKeyArn
+    Network.AWS.Lambda.Types.LastModified
     Network.AWS.Lambda.Types.LastUpdateStatus
+    Network.AWS.Lambda.Types.LastUpdateStatusReason
     Network.AWS.Lambda.Types.LastUpdateStatusReasonCode
     Network.AWS.Lambda.Types.Layer
+    Network.AWS.Lambda.Types.LayerArn
+    Network.AWS.Lambda.Types.LayerName
+    Network.AWS.Lambda.Types.LayerPermissionAllowedAction
+    Network.AWS.Lambda.Types.LayerPermissionAllowedPrincipal
     Network.AWS.Lambda.Types.LayersListItem
+    Network.AWS.Lambda.Types.LayerVersionArn
     Network.AWS.Lambda.Types.LayerVersionContentInput
     Network.AWS.Lambda.Types.LayerVersionContentOutput
     Network.AWS.Lambda.Types.LayerVersionsListItem
+    Network.AWS.Lambda.Types.LicenseInfo
+    Network.AWS.Lambda.Types.LocalMountPath
     Network.AWS.Lambda.Types.LogType
+    Network.AWS.Lambda.Types.Marker
+    Network.AWS.Lambda.Types.MasterRegion
+    Network.AWS.Lambda.Types.Name
+    Network.AWS.Lambda.Types.NamespacedFunctionName
+    Network.AWS.Lambda.Types.NamespacedStatementId
     Network.AWS.Lambda.Types.OnFailure
     Network.AWS.Lambda.Types.OnSuccess
+    Network.AWS.Lambda.Types.OrganizationId
+    Network.AWS.Lambda.Types.Principal
     Network.AWS.Lambda.Types.ProvisionedConcurrencyConfigListItem
     Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum
+    Network.AWS.Lambda.Types.Qualifier
+    Network.AWS.Lambda.Types.Queue
+    Network.AWS.Lambda.Types.RevisionId
+    Network.AWS.Lambda.Types.Role
     Network.AWS.Lambda.Types.Runtime
+    Network.AWS.Lambda.Types.S3Bucket
+    Network.AWS.Lambda.Types.S3Key
+    Network.AWS.Lambda.Types.S3ObjectVersion
+    Network.AWS.Lambda.Types.SecurityGroupId
+    Network.AWS.Lambda.Types.SensitiveString
     Network.AWS.Lambda.Types.SourceAccessConfiguration
     Network.AWS.Lambda.Types.SourceAccessType
+    Network.AWS.Lambda.Types.SourceOwner
     Network.AWS.Lambda.Types.State
+    Network.AWS.Lambda.Types.StatementId
+    Network.AWS.Lambda.Types.StateReason
     Network.AWS.Lambda.Types.StateReasonCode
+    Network.AWS.Lambda.Types.StatusReason
+    Network.AWS.Lambda.Types.String
+    Network.AWS.Lambda.Types.SubnetId
+    Network.AWS.Lambda.Types.TagKey
+    Network.AWS.Lambda.Types.TagValue
+    Network.AWS.Lambda.Types.TargetArn
+    Network.AWS.Lambda.Types.Topic
     Network.AWS.Lambda.Types.TracingConfig
     Network.AWS.Lambda.Types.TracingConfigResponse
     Network.AWS.Lambda.Types.TracingMode
-    Network.AWS.Lambda.Types.VPCConfig
-    Network.AWS.Lambda.Types.VPCConfigResponse
+    Network.AWS.Lambda.Types.UUID
+    Network.AWS.Lambda.Types.Version
+    Network.AWS.Lambda.Types.VpcConfig
+    Network.AWS.Lambda.Types.VpcConfigResponse
+    Network.AWS.Lambda.Types.VpcId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

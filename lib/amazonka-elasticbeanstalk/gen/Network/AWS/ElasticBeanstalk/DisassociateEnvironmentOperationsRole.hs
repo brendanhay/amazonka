@@ -28,71 +28,69 @@ module Network.AWS.ElasticBeanstalk.DisassociateEnvironmentOperationsRole
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to disassociate the operations role from an environment.
 --
 -- /See:/ 'mkDisassociateEnvironmentOperationsRole' smart constructor.
 newtype DisassociateEnvironmentOperationsRole = DisassociateEnvironmentOperationsRole'
   { -- | The name of the environment from which to disassociate the operations role.
-    environmentName :: Lude.Text
+    environmentName :: Types.EnvironmentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateEnvironmentOperationsRole' with the minimum fields required to make a request.
---
--- * 'environmentName' - The name of the environment from which to disassociate the operations role.
+-- | Creates a 'DisassociateEnvironmentOperationsRole' value with any optional fields omitted.
 mkDisassociateEnvironmentOperationsRole ::
   -- | 'environmentName'
-  Lude.Text ->
+  Types.EnvironmentName ->
   DisassociateEnvironmentOperationsRole
-mkDisassociateEnvironmentOperationsRole pEnvironmentName_ =
-  DisassociateEnvironmentOperationsRole'
-    { environmentName =
-        pEnvironmentName_
-    }
+mkDisassociateEnvironmentOperationsRole environmentName =
+  DisassociateEnvironmentOperationsRole' {environmentName}
 
 -- | The name of the environment from which to disassociate the operations role.
 --
 -- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deorEnvironmentName :: Lens.Lens' DisassociateEnvironmentOperationsRole Lude.Text
-deorEnvironmentName = Lens.lens (environmentName :: DisassociateEnvironmentOperationsRole -> Lude.Text) (\s a -> s {environmentName = a} :: DisassociateEnvironmentOperationsRole)
+deorEnvironmentName :: Lens.Lens' DisassociateEnvironmentOperationsRole Types.EnvironmentName
+deorEnvironmentName = Lens.field @"environmentName"
 {-# DEPRECATED deorEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
-instance Lude.AWSRequest DisassociateEnvironmentOperationsRole where
+instance Core.AWSRequest DisassociateEnvironmentOperationsRole where
   type
     Rs DisassociateEnvironmentOperationsRole =
       DisassociateEnvironmentOperationsRoleResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DisassociateEnvironmentOperationsRole")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EnvironmentName" environmentName)
+            )
+      }
   response =
-    Res.receiveNull DisassociateEnvironmentOperationsRoleResponse'
-
-instance Lude.ToHeaders DisassociateEnvironmentOperationsRole where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DisassociateEnvironmentOperationsRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateEnvironmentOperationsRole where
-  toQuery DisassociateEnvironmentOperationsRole' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DisassociateEnvironmentOperationsRole" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "EnvironmentName" Lude.=: environmentName
-      ]
+    Response.receiveNull
+      DisassociateEnvironmentOperationsRoleResponse'
 
 -- | /See:/ 'mkDisassociateEnvironmentOperationsRoleResponse' smart constructor.
 data DisassociateEnvironmentOperationsRoleResponse = DisassociateEnvironmentOperationsRoleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateEnvironmentOperationsRoleResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateEnvironmentOperationsRoleResponse' value with any optional fields omitted.
 mkDisassociateEnvironmentOperationsRoleResponse ::
   DisassociateEnvironmentOperationsRoleResponse
 mkDisassociateEnvironmentOperationsRoleResponse =

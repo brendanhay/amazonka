@@ -17,81 +17,75 @@ module Network.AWS.MediaLive.Types.HlsSettings
     mkHlsSettings,
 
     -- * Lenses
-    hsFmp4HlsSettings,
     hsAudioOnlyHlsSettings,
+    hsFmp4HlsSettings,
     hsStandardHlsSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AudioOnlyHlsSettings
-import Network.AWS.MediaLive.Types.Fmp4HlsSettings
-import Network.AWS.MediaLive.Types.StandardHlsSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AudioOnlyHlsSettings as Types
+import qualified Network.AWS.MediaLive.Types.Fmp4HlsSettings as Types
+import qualified Network.AWS.MediaLive.Types.StandardHlsSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Settings
 --
 -- /See:/ 'mkHlsSettings' smart constructor.
 data HlsSettings = HlsSettings'
-  { fmp4HlsSettings :: Lude.Maybe Fmp4HlsSettings,
-    audioOnlyHlsSettings :: Lude.Maybe AudioOnlyHlsSettings,
-    standardHlsSettings :: Lude.Maybe StandardHlsSettings
+  { audioOnlyHlsSettings :: Core.Maybe Types.AudioOnlyHlsSettings,
+    fmp4HlsSettings :: Core.Maybe Types.Fmp4HlsSettings,
+    standardHlsSettings :: Core.Maybe Types.StandardHlsSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsSettings' with the minimum fields required to make a request.
---
--- * 'fmp4HlsSettings' -
--- * 'audioOnlyHlsSettings' -
--- * 'standardHlsSettings' -
+-- | Creates a 'HlsSettings' value with any optional fields omitted.
 mkHlsSettings ::
   HlsSettings
 mkHlsSettings =
   HlsSettings'
-    { fmp4HlsSettings = Lude.Nothing,
-      audioOnlyHlsSettings = Lude.Nothing,
-      standardHlsSettings = Lude.Nothing
+    { audioOnlyHlsSettings = Core.Nothing,
+      fmp4HlsSettings = Core.Nothing,
+      standardHlsSettings = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'fmp4HlsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsFmp4HlsSettings :: Lens.Lens' HlsSettings (Lude.Maybe Fmp4HlsSettings)
-hsFmp4HlsSettings = Lens.lens (fmp4HlsSettings :: HlsSettings -> Lude.Maybe Fmp4HlsSettings) (\s a -> s {fmp4HlsSettings = a} :: HlsSettings)
-{-# DEPRECATED hsFmp4HlsSettings "Use generic-lens or generic-optics with 'fmp4HlsSettings' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'audioOnlyHlsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsAudioOnlyHlsSettings :: Lens.Lens' HlsSettings (Lude.Maybe AudioOnlyHlsSettings)
-hsAudioOnlyHlsSettings = Lens.lens (audioOnlyHlsSettings :: HlsSettings -> Lude.Maybe AudioOnlyHlsSettings) (\s a -> s {audioOnlyHlsSettings = a} :: HlsSettings)
+hsAudioOnlyHlsSettings :: Lens.Lens' HlsSettings (Core.Maybe Types.AudioOnlyHlsSettings)
+hsAudioOnlyHlsSettings = Lens.field @"audioOnlyHlsSettings"
 {-# DEPRECATED hsAudioOnlyHlsSettings "Use generic-lens or generic-optics with 'audioOnlyHlsSettings' instead." #-}
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'fmp4HlsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsFmp4HlsSettings :: Lens.Lens' HlsSettings (Core.Maybe Types.Fmp4HlsSettings)
+hsFmp4HlsSettings = Lens.field @"fmp4HlsSettings"
+{-# DEPRECATED hsFmp4HlsSettings "Use generic-lens or generic-optics with 'fmp4HlsSettings' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'standardHlsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsStandardHlsSettings :: Lens.Lens' HlsSettings (Lude.Maybe StandardHlsSettings)
-hsStandardHlsSettings = Lens.lens (standardHlsSettings :: HlsSettings -> Lude.Maybe StandardHlsSettings) (\s a -> s {standardHlsSettings = a} :: HlsSettings)
+hsStandardHlsSettings :: Lens.Lens' HlsSettings (Core.Maybe Types.StandardHlsSettings)
+hsStandardHlsSettings = Lens.field @"standardHlsSettings"
 {-# DEPRECATED hsStandardHlsSettings "Use generic-lens or generic-optics with 'standardHlsSettings' instead." #-}
 
-instance Lude.FromJSON HlsSettings where
-  parseJSON =
-    Lude.withObject
-      "HlsSettings"
-      ( \x ->
-          HlsSettings'
-            Lude.<$> (x Lude..:? "fmp4HlsSettings")
-            Lude.<*> (x Lude..:? "audioOnlyHlsSettings")
-            Lude.<*> (x Lude..:? "standardHlsSettings")
-      )
-
-instance Lude.ToJSON HlsSettings where
-  toJSON HlsSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("fmp4HlsSettings" Lude..=) Lude.<$> fmp4HlsSettings,
-            ("audioOnlyHlsSettings" Lude..=) Lude.<$> audioOnlyHlsSettings,
-            ("standardHlsSettings" Lude..=) Lude.<$> standardHlsSettings
+instance Core.FromJSON HlsSettings where
+  toJSON HlsSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("audioOnlyHlsSettings" Core..=) Core.<$> audioOnlyHlsSettings,
+            ("fmp4HlsSettings" Core..=) Core.<$> fmp4HlsSettings,
+            ("standardHlsSettings" Core..=) Core.<$> standardHlsSettings
           ]
       )
+
+instance Core.FromJSON HlsSettings where
+  parseJSON =
+    Core.withObject "HlsSettings" Core.$
+      \x ->
+        HlsSettings'
+          Core.<$> (x Core..:? "audioOnlyHlsSettings")
+          Core.<*> (x Core..:? "fmp4HlsSettings")
+          Core.<*> (x Core..:? "standardHlsSettings")

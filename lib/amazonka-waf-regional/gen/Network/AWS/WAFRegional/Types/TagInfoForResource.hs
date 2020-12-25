@@ -17,14 +17,15 @@ module Network.AWS.WAFRegional.Types.TagInfoForResource
     mkTagInfoForResource,
 
     -- * Lenses
-    tifrTagList,
     tifrResourceARN,
+    tifrTagList,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAFRegional.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.ResourceARN as Types
+import qualified Network.AWS.WAFRegional.Types.Tag as Types
 
 -- | Information for a tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
 --
@@ -33,44 +34,39 @@ import Network.AWS.WAFRegional.Types.Tag
 -- /See:/ 'mkTagInfoForResource' smart constructor.
 data TagInfoForResource = TagInfoForResource'
   { -- |
-    tagList :: Lude.Maybe (Lude.NonEmpty Tag),
+    resourceARN :: Core.Maybe Types.ResourceARN,
     -- |
-    resourceARN :: Lude.Maybe Lude.Text
+    tagList :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagInfoForResource' with the minimum fields required to make a request.
---
--- * 'tagList' -
--- * 'resourceARN' -
+-- | Creates a 'TagInfoForResource' value with any optional fields omitted.
 mkTagInfoForResource ::
   TagInfoForResource
 mkTagInfoForResource =
   TagInfoForResource'
-    { tagList = Lude.Nothing,
-      resourceARN = Lude.Nothing
+    { resourceARN = Core.Nothing,
+      tagList = Core.Nothing
     }
 
 -- |
 --
--- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tifrTagList :: Lens.Lens' TagInfoForResource (Lude.Maybe (Lude.NonEmpty Tag))
-tifrTagList = Lens.lens (tagList :: TagInfoForResource -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tagList = a} :: TagInfoForResource)
-{-# DEPRECATED tifrTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tifrResourceARN :: Lens.Lens' TagInfoForResource (Core.Maybe Types.ResourceARN)
+tifrResourceARN = Lens.field @"resourceARN"
+{-# DEPRECATED tifrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- |
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tifrResourceARN :: Lens.Lens' TagInfoForResource (Lude.Maybe Lude.Text)
-tifrResourceARN = Lens.lens (resourceARN :: TagInfoForResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: TagInfoForResource)
-{-# DEPRECATED tifrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tifrTagList :: Lens.Lens' TagInfoForResource (Core.Maybe (Core.NonEmpty Types.Tag))
+tifrTagList = Lens.field @"tagList"
+{-# DEPRECATED tifrTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
-instance Lude.FromJSON TagInfoForResource where
+instance Core.FromJSON TagInfoForResource where
   parseJSON =
-    Lude.withObject
-      "TagInfoForResource"
-      ( \x ->
-          TagInfoForResource'
-            Lude.<$> (x Lude..:? "TagList") Lude.<*> (x Lude..:? "ResourceARN")
-      )
+    Core.withObject "TagInfoForResource" Core.$
+      \x ->
+        TagInfoForResource'
+          Core.<$> (x Core..:? "ResourceARN") Core.<*> (x Core..:? "TagList")

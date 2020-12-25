@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,82 @@
 -- Step Functions manages operations and underlying infrastructure to ensure your application is available at any scale. You can run tasks on AWS, your own servers, or any system that has access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API. For more information about Step Functions, see the /<https:\/\/docs.aws.amazon.com\/step-functions\/latest\/dg\/welcome.html AWS Step Functions Developer Guide> / .
 module Network.AWS.StepFunctions
   ( -- * Service configuration
-    stepFunctionsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ExecutionLimitExceeded
+    _ExecutionLimitExceeded,
+
+    -- ** InvalidDefinition
+    _InvalidDefinition,
+
+    -- ** StateMachineLimitExceeded
+    _StateMachineLimitExceeded,
+
+    -- ** ExecutionAlreadyExists
+    _ExecutionAlreadyExists,
+
+    -- ** StateMachineAlreadyExists
+    _StateMachineAlreadyExists,
+
+    -- ** TaskTimedOut
+    _TaskTimedOut,
+
+    -- ** InvalidExecutionInput
+    _InvalidExecutionInput,
+
+    -- ** InvalidOutput
+    _InvalidOutput,
+
+    -- ** InvalidName
+    _InvalidName,
+
+    -- ** TaskDoesNotExist
+    _TaskDoesNotExist,
+
+    -- ** ActivityDoesNotExist
+    _ActivityDoesNotExist,
+
+    -- ** StateMachineDeleting
+    _StateMachineDeleting,
+
+    -- ** StateMachineTypeNotSupported
+    _StateMachineTypeNotSupported,
+
+    -- ** MissingRequiredParameter
+    _MissingRequiredParameter,
+
+    -- ** InvalidArn
+    _InvalidArn,
+
+    -- ** InvalidToken
+    _InvalidToken,
+
+    -- ** InvalidLoggingConfiguration
+    _InvalidLoggingConfiguration,
+
+    -- ** ActivityWorkerLimitExceeded
+    _ActivityWorkerLimitExceeded,
+
+    -- ** InvalidTracingConfiguration
+    _InvalidTracingConfiguration,
+
+    -- ** ActivityLimitExceeded
+    _ActivityLimitExceeded,
+
+    -- ** TooManyTags
+    _TooManyTags,
+
+    -- ** ExecutionDoesNotExist
+    _ExecutionDoesNotExist,
+
+    -- ** StateMachineDoesNotExist
+    _StateMachineDoesNotExist,
+
+    -- ** ResourceNotFound
+    _ResourceNotFound,
 
     -- * Waiters
     -- $waiters
@@ -100,196 +171,99 @@ module Network.AWS.StepFunctions
 
     -- * Types
 
-    -- ** ExecutionStatus
-    ExecutionStatus (..),
+    -- ** TaskSubmitFailedEventDetails
+    TaskSubmitFailedEventDetails (..),
+    mkTaskSubmitFailedEventDetails,
+    tsfedResourceType,
+    tsfedResource,
+    tsfedCause,
+    tsfedError,
 
-    -- ** HistoryEventType
-    HistoryEventType (..),
+    -- ** SensitiveError
+    SensitiveError (..),
 
-    -- ** LogLevel
-    LogLevel (..),
+    -- ** CloudWatchLogsLogGroup
+    CloudWatchLogsLogGroup (..),
+    mkCloudWatchLogsLogGroup,
+    cwllgLogGroupArn,
 
-    -- ** StateMachineStatus
-    StateMachineStatus (..),
+    -- ** SensitiveData
+    SensitiveData (..),
 
-    -- ** StateMachineType
-    StateMachineType (..),
-
-    -- ** SyncExecutionStatus
-    SyncExecutionStatus (..),
-
-    -- ** ActivityFailedEventDetails
-    ActivityFailedEventDetails (..),
-    mkActivityFailedEventDetails,
-    afedError,
-    afedCause,
-
-    -- ** ActivityListItem
-    ActivityListItem (..),
-    mkActivityListItem,
-    aliActivityARN,
-    aliName,
-    aliCreationDate,
-
-    -- ** ActivityScheduleFailedEventDetails
-    ActivityScheduleFailedEventDetails (..),
-    mkActivityScheduleFailedEventDetails,
-    asfedError,
-    asfedCause,
-
-    -- ** ActivityScheduledEventDetails
-    ActivityScheduledEventDetails (..),
-    mkActivityScheduledEventDetails,
-    asedHeartbeatInSeconds,
-    asedInputDetails,
-    asedInput,
-    asedTimeoutInSeconds,
-    asedResource,
-
-    -- ** ActivityStartedEventDetails
-    ActivityStartedEventDetails (..),
-    mkActivityStartedEventDetails,
-    asedWorkerName,
-
-    -- ** ActivitySucceededEventDetails
-    ActivitySucceededEventDetails (..),
-    mkActivitySucceededEventDetails,
-    asedOutput,
-    asedOutputDetails,
-
-    -- ** ActivityTimedOutEventDetails
-    ActivityTimedOutEventDetails (..),
-    mkActivityTimedOutEventDetails,
-    atoedError,
-    atoedCause,
-
-    -- ** BillingDetails
-    BillingDetails (..),
-    mkBillingDetails,
-    bdBilledMemoryUsedInMB,
-    bdBilledDurationInMilliseconds,
+    -- ** MapStateStartedEventDetails
+    MapStateStartedEventDetails (..),
+    mkMapStateStartedEventDetails,
+    mssedLength,
 
     -- ** CloudWatchEventsExecutionDataDetails
     CloudWatchEventsExecutionDataDetails (..),
     mkCloudWatchEventsExecutionDataDetails,
     cweeddIncluded,
 
-    -- ** CloudWatchLogsLogGroup
-    CloudWatchLogsLogGroup (..),
-    mkCloudWatchLogsLogGroup,
-    cwllgLogGroupARN,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** ExecutionAbortedEventDetails
-    ExecutionAbortedEventDetails (..),
-    mkExecutionAbortedEventDetails,
-    eaedError,
-    eaedCause,
+    -- ** TaskStartedEventDetails
+    TaskStartedEventDetails (..),
+    mkTaskStartedEventDetails,
+    tsedsResourceType,
+    tsedsResource,
 
-    -- ** ExecutionFailedEventDetails
-    ExecutionFailedEventDetails (..),
-    mkExecutionFailedEventDetails,
-    efedError,
-    efedCause,
+    -- ** ActivityListItem
+    ActivityListItem (..),
+    mkActivityListItem,
+    aliActivityArn,
+    aliName,
+    aliCreationDate,
+
+    -- ** LogLevel
+    LogLevel (..),
+
+    -- ** ActivityStartedEventDetails
+    ActivityStartedEventDetails (..),
+    mkActivityStartedEventDetails,
+    asedWorkerName,
+
+    -- ** StateMachineType
+    StateMachineType (..),
+
+    -- ** TaskSubmittedEventDetails
+    TaskSubmittedEventDetails (..),
+    mkTaskSubmittedEventDetails,
+    tsedfResourceType,
+    tsedfResource,
+    tsedfOutput,
+    tsedfOutputDetails,
+
+    -- ** Definition
+    Definition (..),
+
+    -- ** Arn
+    Arn (..),
 
     -- ** ExecutionListItem
     ExecutionListItem (..),
     mkExecutionListItem,
-    eliStopDate,
+    eliExecutionArn,
+    eliStateMachineArn,
+    eliName,
     eliStatus,
     eliStartDate,
-    eliName,
-    eliStateMachineARN,
-    eliExecutionARN,
+    eliStopDate,
 
-    -- ** ExecutionStartedEventDetails
-    ExecutionStartedEventDetails (..),
-    mkExecutionStartedEventDetails,
-    esedInputDetails,
-    esedInput,
-    esedRoleARN,
+    -- ** SensitiveCause
+    SensitiveCause (..),
 
-    -- ** ExecutionSucceededEventDetails
-    ExecutionSucceededEventDetails (..),
-    mkExecutionSucceededEventDetails,
-    esedOutput,
-    esedOutputDetails,
-
-    -- ** ExecutionTimedOutEventDetails
-    ExecutionTimedOutEventDetails (..),
-    mkExecutionTimedOutEventDetails,
-    etoedError,
-    etoedCause,
-
-    -- ** HistoryEvent
-    HistoryEvent (..),
-    mkHistoryEvent,
-    heMapStateStartedEventDetails,
-    heTaskSubmitFailedEventDetails,
-    heTaskStartedEventDetails,
-    heActivityStartedEventDetails,
-    heTaskSubmittedEventDetails,
-    heLambdaFunctionStartFailedEventDetails,
-    heTaskStartFailedEventDetails,
-    heStateExitedEventDetails,
-    heLambdaFunctionSucceededEventDetails,
-    heTaskSucceededEventDetails,
-    heActivitySucceededEventDetails,
-    heMapIterationAbortedEventDetails,
-    heMapIterationSucceededEventDetails,
-    heMapIterationStartedEventDetails,
-    heLambdaFunctionTimedOutEventDetails,
-    heTaskTimedOutEventDetails,
-    heActivityTimedOutEventDetails,
-    heExecutionFailedEventDetails,
-    heExecutionAbortedEventDetails,
-    heExecutionSucceededEventDetails,
-    heLambdaFunctionScheduledEventDetails,
-    heTaskScheduledEventDetails,
-    heActivityScheduledEventDetails,
-    heExecutionStartedEventDetails,
-    heId,
-    heActivityScheduleFailedEventDetails,
-    heLambdaFunctionScheduleFailedEventDetails,
-    heStateEnteredEventDetails,
-    hePreviousEventId,
-    heActivityFailedEventDetails,
-    heTaskFailedEventDetails,
-    heLambdaFunctionFailedEventDetails,
-    heType,
-    heExecutionTimedOutEventDetails,
-    heMapIterationFailedEventDetails,
-    heTimestamp,
-
-    -- ** HistoryEventExecutionDataDetails
-    HistoryEventExecutionDataDetails (..),
-    mkHistoryEventExecutionDataDetails,
-    heeddTruncated,
-
-    -- ** LambdaFunctionFailedEventDetails
-    LambdaFunctionFailedEventDetails (..),
-    mkLambdaFunctionFailedEventDetails,
-    lffedError,
-    lffedCause,
-
-    -- ** LambdaFunctionScheduleFailedEventDetails
-    LambdaFunctionScheduleFailedEventDetails (..),
-    mkLambdaFunctionScheduleFailedEventDetails,
-    lError,
-    lCause,
-
-    -- ** LambdaFunctionScheduledEventDetails
-    LambdaFunctionScheduledEventDetails (..),
-    mkLambdaFunctionScheduledEventDetails,
-    lfsedInputDetails,
-    lfsedInput,
-    lfsedTimeoutInSeconds,
-    lfsedResource,
-
-    -- ** LambdaFunctionStartFailedEventDetails
-    LambdaFunctionStartFailedEventDetails (..),
-    mkLambdaFunctionStartFailedEventDetails,
-    lfsfedError,
-    lfsfedCause,
+    -- ** StateMachineListItem
+    StateMachineListItem (..),
+    mkStateMachineListItem,
+    smliStateMachineArn,
+    smliName,
+    smliType,
+    smliCreationDate,
 
     -- ** LambdaFunctionSucceededEventDetails
     LambdaFunctionSucceededEventDetails (..),
@@ -297,141 +271,314 @@ module Network.AWS.StepFunctions
     lfsedOutput,
     lfsedOutputDetails,
 
-    -- ** LambdaFunctionTimedOutEventDetails
-    LambdaFunctionTimedOutEventDetails (..),
-    mkLambdaFunctionTimedOutEventDetails,
-    lftoedError,
-    lftoedCause,
+    -- ** TaskSucceededEventDetails
+    TaskSucceededEventDetails (..),
+    mkTaskSucceededEventDetails,
+    tsedgResourceType,
+    tsedgResource,
+    tsedgOutput,
+    tsedgOutputDetails,
+
+    -- ** LambdaFunctionStartFailedEventDetails
+    LambdaFunctionStartFailedEventDetails (..),
+    mkLambdaFunctionStartFailedEventDetails,
+    lCause,
+    lError,
+
+    -- ** StateExitedEventDetails
+    StateExitedEventDetails (..),
+    mkStateExitedEventDetails,
+    sName,
+    sOutput,
+    sOutputDetails,
+
+    -- ** TaskStartFailedEventDetails
+    TaskStartFailedEventDetails (..),
+    mkTaskStartFailedEventDetails,
+    tResourceType,
+    tResource,
+    tCause,
+    tError,
 
     -- ** LogDestination
     LogDestination (..),
     mkLogDestination,
     ldCloudWatchLogsLogGroup,
 
-    -- ** LoggingConfiguration
-    LoggingConfiguration (..),
-    mkLoggingConfiguration,
-    lcIncludeExecutionData,
-    lcDestinations,
-    lcLevel,
+    -- ** ActivitySucceededEventDetails
+    ActivitySucceededEventDetails (..),
+    mkActivitySucceededEventDetails,
+    asedOutput,
+    asedOutputDetails,
 
-    -- ** MapIterationEventDetails
-    MapIterationEventDetails (..),
-    mkMapIterationEventDetails,
-    miedName,
-    miedIndex,
+    -- ** ListExecutionsPageToken
+    ListExecutionsPageToken (..),
 
-    -- ** MapStateStartedEventDetails
-    MapStateStartedEventDetails (..),
-    mkMapStateStartedEventDetails,
-    mssedLength,
+    -- ** ExecutionStatus
+    ExecutionStatus (..),
 
-    -- ** StateEnteredEventDetails
-    StateEnteredEventDetails (..),
-    mkStateEnteredEventDetails,
-    sInputDetails,
-    sInput,
-    sName,
+    -- ** StateMachineStatus
+    StateMachineStatus (..),
 
-    -- ** StateExitedEventDetails
-    StateExitedEventDetails (..),
-    mkStateExitedEventDetails,
-    seedName,
-    seedOutput,
-    seedOutputDetails,
+    -- ** HistoryEventType
+    HistoryEventType (..),
 
-    -- ** StateMachineListItem
-    StateMachineListItem (..),
-    mkStateMachineListItem,
-    smliName,
-    smliStateMachineARN,
-    smliCreationDate,
-    smliType,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** TaskFailedEventDetails
-    TaskFailedEventDetails (..),
-    mkTaskFailedEventDetails,
-    tfedResourceType,
-    tfedError,
-    tfedCause,
-    tfedResource,
-
-    -- ** TaskScheduledEventDetails
-    TaskScheduledEventDetails (..),
-    mkTaskScheduledEventDetails,
-    tsedfHeartbeatInSeconds,
-    tsedfResourceType,
-    tsedfTimeoutInSeconds,
-    tsedfResource,
-    tsedfParameters,
-    tsedfRegion,
-
-    -- ** TaskStartFailedEventDetails
-    TaskStartFailedEventDetails (..),
-    mkTaskStartFailedEventDetails,
-    tsfedsResourceType,
-    tsfedsError,
-    tsfedsCause,
-    tsfedsResource,
-
-    -- ** TaskStartedEventDetails
-    TaskStartedEventDetails (..),
-    mkTaskStartedEventDetails,
-    tsedResourceType,
-    tsedResource,
-
-    -- ** TaskSubmitFailedEventDetails
-    TaskSubmitFailedEventDetails (..),
-    mkTaskSubmitFailedEventDetails,
-    tsfedResourceType,
-    tsfedError,
-    tsfedCause,
-    tsfedResource,
-
-    -- ** TaskSubmittedEventDetails
-    TaskSubmittedEventDetails (..),
-    mkTaskSubmittedEventDetails,
-    tResourceType,
-    tOutput,
-    tResource,
-    tOutputDetails,
-
-    -- ** TaskSucceededEventDetails
-    TaskSucceededEventDetails (..),
-    mkTaskSucceededEventDetails,
-    tsedsResourceType,
-    tsedsOutput,
-    tsedsResource,
-    tsedsOutputDetails,
+    -- ** ActivityTimedOutEventDetails
+    ActivityTimedOutEventDetails (..),
+    mkActivityTimedOutEventDetails,
+    atoedCause,
+    atoedError,
 
     -- ** TaskTimedOutEventDetails
     TaskTimedOutEventDetails (..),
     mkTaskTimedOutEventDetails,
     ttoedResourceType,
-    ttoedError,
-    ttoedCause,
     ttoedResource,
+    ttoedCause,
+    ttoedError,
 
     -- ** TracingConfiguration
     TracingConfiguration (..),
     mkTracingConfiguration,
     tcEnabled,
 
+    -- ** LambdaFunctionTimedOutEventDetails
+    LambdaFunctionTimedOutEventDetails (..),
+    mkLambdaFunctionTimedOutEventDetails,
+    lftoedCause,
+    lftoedError,
+
+    -- ** ExecutionFailedEventDetails
+    ExecutionFailedEventDetails (..),
+    mkExecutionFailedEventDetails,
+    efedCause,
+    efedError,
+
+    -- ** ExecutionAbortedEventDetails
+    ExecutionAbortedEventDetails (..),
+    mkExecutionAbortedEventDetails,
+    eaedCause,
+    eaedError,
+
+    -- ** ExecutionSucceededEventDetails
+    ExecutionSucceededEventDetails (..),
+    mkExecutionSucceededEventDetails,
+    esedOutput,
+    esedOutputDetails,
+
+    -- ** Name
+    Name (..),
+
+    -- ** LambdaFunctionScheduledEventDetails
+    LambdaFunctionScheduledEventDetails (..),
+    mkLambdaFunctionScheduledEventDetails,
+    lfsedResource,
+    lfsedInput,
+    lfsedInputDetails,
+    lfsedTimeoutInSeconds,
+
+    -- ** ActivityScheduledEventDetails
+    ActivityScheduledEventDetails (..),
+    mkActivityScheduledEventDetails,
+    asedResource,
+    asedHeartbeatInSeconds,
+    asedInput,
+    asedInputDetails,
+    asedTimeoutInSeconds,
+
+    -- ** TaskScheduledEventDetails
+    TaskScheduledEventDetails (..),
+    mkTaskScheduledEventDetails,
+    tsedResourceType,
+    tsedResource,
+    tsedRegion,
+    tsedParameters,
+    tsedHeartbeatInSeconds,
+    tsedTimeoutInSeconds,
+
+    -- ** LambdaFunctionScheduleFailedEventDetails
+    LambdaFunctionScheduleFailedEventDetails (..),
+    mkLambdaFunctionScheduleFailedEventDetails,
+    lfsfedCause,
+    lfsfedError,
+
+    -- ** ActivityScheduleFailedEventDetails
+    ActivityScheduleFailedEventDetails (..),
+    mkActivityScheduleFailedEventDetails,
+    asfedCause,
+    asfedError,
+
+    -- ** ExecutionStartedEventDetails
+    ExecutionStartedEventDetails (..),
+    mkExecutionStartedEventDetails,
+    esedInput,
+    esedInputDetails,
+    esedRoleArn,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** MapIterationEventDetails
+    MapIterationEventDetails (..),
+    mkMapIterationEventDetails,
+    miedIndex,
+    miedName,
+
+    -- ** StateEnteredEventDetails
+    StateEnteredEventDetails (..),
+    mkStateEnteredEventDetails,
+    seedName,
+    seedInput,
+    seedInputDetails,
+
+    -- ** TaskFailedEventDetails
+    TaskFailedEventDetails (..),
+    mkTaskFailedEventDetails,
+    tfedResourceType,
+    tfedResource,
+    tfedCause,
+    tfedError,
+
+    -- ** LambdaFunctionFailedEventDetails
+    LambdaFunctionFailedEventDetails (..),
+    mkLambdaFunctionFailedEventDetails,
+    lffedCause,
+    lffedError,
+
+    -- ** PageToken
+    PageToken (..),
+
+    -- ** ActivityFailedEventDetails
+    ActivityFailedEventDetails (..),
+    mkActivityFailedEventDetails,
+    afedCause,
+    afedError,
+
+    -- ** LoggingConfiguration
+    LoggingConfiguration (..),
+    mkLoggingConfiguration,
+    lcDestinations,
+    lcIncludeExecutionData,
+    lcLevel,
+
+    -- ** ExecutionTimedOutEventDetails
+    ExecutionTimedOutEventDetails (..),
+    mkExecutionTimedOutEventDetails,
+    etoedCause,
+    etoedError,
+
+    -- ** HistoryEventExecutionDataDetails
+    HistoryEventExecutionDataDetails (..),
+    mkHistoryEventExecutionDataDetails,
+    heeddTruncated,
+
+    -- ** HistoryEvent
+    HistoryEvent (..),
+    mkHistoryEvent,
+    heTimestamp,
+    heType,
+    heId,
+    heActivityFailedEventDetails,
+    heActivityScheduleFailedEventDetails,
+    heActivityScheduledEventDetails,
+    heActivityStartedEventDetails,
+    heActivitySucceededEventDetails,
+    heActivityTimedOutEventDetails,
+    heExecutionAbortedEventDetails,
+    heExecutionFailedEventDetails,
+    heExecutionStartedEventDetails,
+    heExecutionSucceededEventDetails,
+    heExecutionTimedOutEventDetails,
+    heLambdaFunctionFailedEventDetails,
+    heLambdaFunctionScheduleFailedEventDetails,
+    heLambdaFunctionScheduledEventDetails,
+    heLambdaFunctionStartFailedEventDetails,
+    heLambdaFunctionSucceededEventDetails,
+    heLambdaFunctionTimedOutEventDetails,
+    heMapIterationAbortedEventDetails,
+    heMapIterationFailedEventDetails,
+    heMapIterationStartedEventDetails,
+    heMapIterationSucceededEventDetails,
+    heMapStateStartedEventDetails,
+    hePreviousEventId,
+    heStateEnteredEventDetails,
+    heStateExitedEventDetails,
+    heTaskFailedEventDetails,
+    heTaskScheduledEventDetails,
+    heTaskStartFailedEventDetails,
+    heTaskStartedEventDetails,
+    heTaskSubmitFailedEventDetails,
+    heTaskSubmittedEventDetails,
+    heTaskSucceededEventDetails,
+    heTaskTimedOutEventDetails,
+
+    -- ** TraceHeader
+    TraceHeader (..),
+
+    -- ** TaskToken
+    TaskToken (..),
+
+    -- ** SyncExecutionStatus
+    SyncExecutionStatus (..),
+
+    -- ** BillingDetails
+    BillingDetails (..),
+    mkBillingDetails,
+    bdBilledDurationInMilliseconds,
+    bdBilledMemoryUsedInMB,
+
+    -- ** Output
+    Output (..),
+
+    -- ** StateMachineArn
+    StateMachineArn (..),
+
+    -- ** Input
+    Input (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** Resource
+    Resource (..),
+
+    -- ** Cause
+    Cause (..),
+
+    -- ** Error
+    Error (..),
+
+    -- ** LogGroupArn
+    LogGroupArn (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ExecutionArn
+    ExecutionArn (..),
+
+    -- ** ActivityArn
+    ActivityArn (..),
+
+    -- ** WorkerName
+    WorkerName (..),
+
+    -- ** Parameters
+    Parameters (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

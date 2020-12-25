@@ -22,39 +22,36 @@ module Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
 --
 -- /See:/ 'mkBatchRetryStrategy' smart constructor.
 newtype BatchRetryStrategy = BatchRetryStrategy'
   { -- | The number of times to attempt to retry, if the job fails. Valid values are 1–10.
-    attempts :: Lude.Maybe Lude.Int
+    attempts :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchRetryStrategy' with the minimum fields required to make a request.
---
--- * 'attempts' - The number of times to attempt to retry, if the job fails. Valid values are 1–10.
+-- | Creates a 'BatchRetryStrategy' value with any optional fields omitted.
 mkBatchRetryStrategy ::
   BatchRetryStrategy
-mkBatchRetryStrategy = BatchRetryStrategy' {attempts = Lude.Nothing}
+mkBatchRetryStrategy = BatchRetryStrategy' {attempts = Core.Nothing}
 
 -- | The number of times to attempt to retry, if the job fails. Valid values are 1–10.
 --
 -- /Note:/ Consider using 'attempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brsAttempts :: Lens.Lens' BatchRetryStrategy (Lude.Maybe Lude.Int)
-brsAttempts = Lens.lens (attempts :: BatchRetryStrategy -> Lude.Maybe Lude.Int) (\s a -> s {attempts = a} :: BatchRetryStrategy)
+brsAttempts :: Lens.Lens' BatchRetryStrategy (Core.Maybe Core.Int)
+brsAttempts = Lens.field @"attempts"
 {-# DEPRECATED brsAttempts "Use generic-lens or generic-optics with 'attempts' instead." #-}
 
-instance Lude.FromJSON BatchRetryStrategy where
-  parseJSON =
-    Lude.withObject
-      "BatchRetryStrategy"
-      (\x -> BatchRetryStrategy' Lude.<$> (x Lude..:? "Attempts"))
+instance Core.FromJSON BatchRetryStrategy where
+  toJSON BatchRetryStrategy {..} =
+    Core.object
+      (Core.catMaybes [("Attempts" Core..=) Core.<$> attempts])
 
-instance Lude.ToJSON BatchRetryStrategy where
-  toJSON BatchRetryStrategy' {..} =
-    Lude.object
-      (Lude.catMaybes [("Attempts" Lude..=) Lude.<$> attempts])
+instance Core.FromJSON BatchRetryStrategy where
+  parseJSON =
+    Core.withObject "BatchRetryStrategy" Core.$
+      \x -> BatchRetryStrategy' Core.<$> (x Core..:? "Attempts")

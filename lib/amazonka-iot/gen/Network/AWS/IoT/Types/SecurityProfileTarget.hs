@@ -21,37 +21,35 @@ module Network.AWS.IoT.Types.SecurityProfileTarget
   )
 where
 
+import qualified Network.AWS.IoT.Types.Arn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A target to which an alert is sent when a security profile behavior is violated.
 --
 -- /See:/ 'mkSecurityProfileTarget' smart constructor.
 newtype SecurityProfileTarget = SecurityProfileTarget'
   { -- | The ARN of the security profile.
-    arn :: Lude.Text
+    arn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SecurityProfileTarget' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the security profile.
+-- | Creates a 'SecurityProfileTarget' value with any optional fields omitted.
 mkSecurityProfileTarget ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   SecurityProfileTarget
-mkSecurityProfileTarget pArn_ = SecurityProfileTarget' {arn = pArn_}
+mkSecurityProfileTarget arn = SecurityProfileTarget' {arn}
 
 -- | The ARN of the security profile.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sptArn :: Lens.Lens' SecurityProfileTarget Lude.Text
-sptArn = Lens.lens (arn :: SecurityProfileTarget -> Lude.Text) (\s a -> s {arn = a} :: SecurityProfileTarget)
+sptArn :: Lens.Lens' SecurityProfileTarget Types.Arn
+sptArn = Lens.field @"arn"
 {-# DEPRECATED sptArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.FromJSON SecurityProfileTarget where
+instance Core.FromJSON SecurityProfileTarget where
   parseJSON =
-    Lude.withObject
-      "SecurityProfileTarget"
-      (\x -> SecurityProfileTarget' Lude.<$> (x Lude..: "arn"))
+    Core.withObject "SecurityProfileTarget" Core.$
+      \x -> SecurityProfileTarget' Core.<$> (x Core..: "arn")

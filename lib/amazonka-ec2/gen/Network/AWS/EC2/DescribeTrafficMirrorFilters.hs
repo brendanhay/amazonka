@@ -22,34 +22,34 @@ module Network.AWS.EC2.DescribeTrafficMirrorFilters
     mkDescribeTrafficMirrorFilters,
 
     -- ** Request lenses
-    dtmfTrafficMirrorFilterIds,
-    dtmfFilters,
-    dtmfNextToken,
     dtmfDryRun,
+    dtmfFilters,
     dtmfMaxResults,
+    dtmfNextToken,
+    dtmfTrafficMirrorFilterIds,
 
     -- * Destructuring the response
     DescribeTrafficMirrorFiltersResponse (..),
     mkDescribeTrafficMirrorFiltersResponse,
 
     -- ** Response lenses
-    dtmfsrsTrafficMirrorFilters,
-    dtmfsrsNextToken,
-    dtmfsrsResponseStatus,
+    dtmfrrsNextToken,
+    dtmfrrsTrafficMirrorFilters,
+    dtmfrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTrafficMirrorFilters' smart constructor.
 data DescribeTrafficMirrorFilters = DescribeTrafficMirrorFilters'
-  { -- | The ID of the Traffic Mirror filter.
-    trafficMirrorFilterIds :: Lude.Maybe [Lude.Text],
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters. The possible values are:
     --
     --
@@ -57,50 +57,35 @@ data DescribeTrafficMirrorFilters = DescribeTrafficMirrorFilters'
     --
     --
     --     * @traffic-mirror-filter-id@ : The ID of the Traffic Mirror filter.
-    filters :: Lude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The ID of the Traffic Mirror filter.
+    trafficMirrorFilterIds :: Core.Maybe [Types.TrafficMirrorFilterId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTrafficMirrorFilters' with the minimum fields required to make a request.
---
--- * 'trafficMirrorFilterIds' - The ID of the Traffic Mirror filter.
--- * 'filters' - One or more filters. The possible values are:
---
---
---     * @description@ : The Traffic Mirror filter description.
---
---
---     * @traffic-mirror-filter-id@ : The ID of the Traffic Mirror filter.
---
---
--- * 'nextToken' - The token for the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'DescribeTrafficMirrorFilters' value with any optional fields omitted.
 mkDescribeTrafficMirrorFilters ::
   DescribeTrafficMirrorFilters
 mkDescribeTrafficMirrorFilters =
   DescribeTrafficMirrorFilters'
-    { trafficMirrorFilterIds =
-        Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      trafficMirrorFilterIds = Core.Nothing
     }
 
--- | The ID of the Traffic Mirror filter.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'trafficMirrorFilterIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfTrafficMirrorFilterIds :: Lens.Lens' DescribeTrafficMirrorFilters (Lude.Maybe [Lude.Text])
-dtmfTrafficMirrorFilterIds = Lens.lens (trafficMirrorFilterIds :: DescribeTrafficMirrorFilters -> Lude.Maybe [Lude.Text]) (\s a -> s {trafficMirrorFilterIds = a} :: DescribeTrafficMirrorFilters)
-{-# DEPRECATED dtmfTrafficMirrorFilterIds "Use generic-lens or generic-optics with 'trafficMirrorFilterIds' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmfDryRun :: Lens.Lens' DescribeTrafficMirrorFilters (Core.Maybe Core.Bool)
+dtmfDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dtmfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters. The possible values are:
 --
@@ -113,124 +98,123 @@ dtmfTrafficMirrorFilterIds = Lens.lens (trafficMirrorFilterIds :: DescribeTraffi
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfFilters :: Lens.Lens' DescribeTrafficMirrorFilters (Lude.Maybe [Filter])
-dtmfFilters = Lens.lens (filters :: DescribeTrafficMirrorFilters -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeTrafficMirrorFilters)
+dtmfFilters :: Lens.Lens' DescribeTrafficMirrorFilters (Core.Maybe [Types.Filter])
+dtmfFilters = Lens.field @"filters"
 {-# DEPRECATED dtmfFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfNextToken :: Lens.Lens' DescribeTrafficMirrorFilters (Lude.Maybe Lude.Text)
-dtmfNextToken = Lens.lens (nextToken :: DescribeTrafficMirrorFilters -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTrafficMirrorFilters)
-{-# DEPRECATED dtmfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfDryRun :: Lens.Lens' DescribeTrafficMirrorFilters (Lude.Maybe Lude.Bool)
-dtmfDryRun = Lens.lens (dryRun :: DescribeTrafficMirrorFilters -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeTrafficMirrorFilters)
-{-# DEPRECATED dtmfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfMaxResults :: Lens.Lens' DescribeTrafficMirrorFilters (Lude.Maybe Lude.Natural)
-dtmfMaxResults = Lens.lens (maxResults :: DescribeTrafficMirrorFilters -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeTrafficMirrorFilters)
+dtmfMaxResults :: Lens.Lens' DescribeTrafficMirrorFilters (Core.Maybe Core.Natural)
+dtmfMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dtmfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeTrafficMirrorFilters where
-  page rq rs
-    | Page.stop (rs Lens.^. dtmfsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtmfsrsTrafficMirrorFilters) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dtmfNextToken Lens..~ rs Lens.^. dtmfsrsNextToken
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmfNextToken :: Lens.Lens' DescribeTrafficMirrorFilters (Core.Maybe Types.NextToken)
+dtmfNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtmfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeTrafficMirrorFilters where
+-- | The ID of the Traffic Mirror filter.
+--
+-- /Note:/ Consider using 'trafficMirrorFilterIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmfTrafficMirrorFilterIds :: Lens.Lens' DescribeTrafficMirrorFilters (Core.Maybe [Types.TrafficMirrorFilterId])
+dtmfTrafficMirrorFilterIds = Lens.field @"trafficMirrorFilterIds"
+{-# DEPRECATED dtmfTrafficMirrorFilterIds "Use generic-lens or generic-optics with 'trafficMirrorFilterIds' instead." #-}
+
+instance Core.AWSRequest DescribeTrafficMirrorFilters where
   type
     Rs DescribeTrafficMirrorFilters =
       DescribeTrafficMirrorFiltersResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeTrafficMirrorFilters")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryList "TrafficMirrorFilterId"
+                            Core.<$> trafficMirrorFilterIds
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeTrafficMirrorFiltersResponse'
-            Lude.<$> ( x Lude..@? "trafficMirrorFilterSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "trafficMirrorFilterSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeTrafficMirrorFilters where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeTrafficMirrorFilters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTrafficMirrorFilters where
-  toQuery DescribeTrafficMirrorFilters' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeTrafficMirrorFilters" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          ( Lude.toQueryList "TrafficMirrorFilterId"
-              Lude.<$> trafficMirrorFilterIds
-          ),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeTrafficMirrorFilters where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"trafficMirrorFilters" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeTrafficMirrorFiltersResponse' smart constructor.
 data DescribeTrafficMirrorFiltersResponse = DescribeTrafficMirrorFiltersResponse'
-  { -- | Information about one or more Traffic Mirror filters.
-    trafficMirrorFilters :: Lude.Maybe [TrafficMirrorFilter],
-    -- | The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
+    -- | Information about one or more Traffic Mirror filters.
+    trafficMirrorFilters :: Core.Maybe [Types.TrafficMirrorFilter],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTrafficMirrorFiltersResponse' with the minimum fields required to make a request.
---
--- * 'trafficMirrorFilters' - Information about one or more Traffic Mirror filters.
--- * 'nextToken' - The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTrafficMirrorFiltersResponse' value with any optional fields omitted.
 mkDescribeTrafficMirrorFiltersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTrafficMirrorFiltersResponse
-mkDescribeTrafficMirrorFiltersResponse pResponseStatus_ =
+mkDescribeTrafficMirrorFiltersResponse responseStatus =
   DescribeTrafficMirrorFiltersResponse'
-    { trafficMirrorFilters =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      trafficMirrorFilters = Core.Nothing,
+      responseStatus
     }
-
--- | Information about one or more Traffic Mirror filters.
---
--- /Note:/ Consider using 'trafficMirrorFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfsrsTrafficMirrorFilters :: Lens.Lens' DescribeTrafficMirrorFiltersResponse (Lude.Maybe [TrafficMirrorFilter])
-dtmfsrsTrafficMirrorFilters = Lens.lens (trafficMirrorFilters :: DescribeTrafficMirrorFiltersResponse -> Lude.Maybe [TrafficMirrorFilter]) (\s a -> s {trafficMirrorFilters = a} :: DescribeTrafficMirrorFiltersResponse)
-{-# DEPRECATED dtmfsrsTrafficMirrorFilters "Use generic-lens or generic-optics with 'trafficMirrorFilters' instead." #-}
 
 -- | The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfsrsNextToken :: Lens.Lens' DescribeTrafficMirrorFiltersResponse (Lude.Maybe Lude.Text)
-dtmfsrsNextToken = Lens.lens (nextToken :: DescribeTrafficMirrorFiltersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTrafficMirrorFiltersResponse)
-{-# DEPRECATED dtmfsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dtmfrrsNextToken :: Lens.Lens' DescribeTrafficMirrorFiltersResponse (Core.Maybe Types.String)
+dtmfrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtmfrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about one or more Traffic Mirror filters.
+--
+-- /Note:/ Consider using 'trafficMirrorFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmfrrsTrafficMirrorFilters :: Lens.Lens' DescribeTrafficMirrorFiltersResponse (Core.Maybe [Types.TrafficMirrorFilter])
+dtmfrrsTrafficMirrorFilters = Lens.field @"trafficMirrorFilters"
+{-# DEPRECATED dtmfrrsTrafficMirrorFilters "Use generic-lens or generic-optics with 'trafficMirrorFilters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfsrsResponseStatus :: Lens.Lens' DescribeTrafficMirrorFiltersResponse Lude.Int
-dtmfsrsResponseStatus = Lens.lens (responseStatus :: DescribeTrafficMirrorFiltersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrafficMirrorFiltersResponse)
-{-# DEPRECATED dtmfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtmfrrsResponseStatus :: Lens.Lens' DescribeTrafficMirrorFiltersResponse Core.Int
+dtmfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtmfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

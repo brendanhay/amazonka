@@ -17,73 +17,70 @@ module Network.AWS.CloudDirectory.Types.BatchLookupPolicy
     mkBatchLookupPolicy,
 
     -- * Lenses
-    blpfNextToken,
-    blpfObjectReference,
-    blpfMaxResults,
+    blpObjectReference,
+    blpMaxResults,
+    blpNextToken,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Lists all policies from the root of the Directory to the object specified inside a 'BatchRead' operation. For more information, see 'LookupPolicy' and 'BatchReadRequest$Operations' .
 --
 -- /See:/ 'mkBatchLookupPolicy' smart constructor.
 data BatchLookupPolicy = BatchLookupPolicy'
-  { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Reference that identifies the object whose policies will be looked up.
-    objectReference :: ObjectReference,
+  { -- | Reference that identifies the object whose policies will be looked up.
+    objectReference :: Types.ObjectReference,
     -- | The maximum number of results to retrieve.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchLookupPolicy' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'objectReference' - Reference that identifies the object whose policies will be looked up.
--- * 'maxResults' - The maximum number of results to retrieve.
+-- | Creates a 'BatchLookupPolicy' value with any optional fields omitted.
 mkBatchLookupPolicy ::
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchLookupPolicy
-mkBatchLookupPolicy pObjectReference_ =
+mkBatchLookupPolicy objectReference =
   BatchLookupPolicy'
-    { nextToken = Lude.Nothing,
-      objectReference = pObjectReference_,
-      maxResults = Lude.Nothing
+    { objectReference,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpfNextToken :: Lens.Lens' BatchLookupPolicy (Lude.Maybe Lude.Text)
-blpfNextToken = Lens.lens (nextToken :: BatchLookupPolicy -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchLookupPolicy)
-{-# DEPRECATED blpfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Reference that identifies the object whose policies will be looked up.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpfObjectReference :: Lens.Lens' BatchLookupPolicy ObjectReference
-blpfObjectReference = Lens.lens (objectReference :: BatchLookupPolicy -> ObjectReference) (\s a -> s {objectReference = a} :: BatchLookupPolicy)
-{-# DEPRECATED blpfObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+blpObjectReference :: Lens.Lens' BatchLookupPolicy Types.ObjectReference
+blpObjectReference = Lens.field @"objectReference"
+{-# DEPRECATED blpObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
 -- | The maximum number of results to retrieve.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpfMaxResults :: Lens.Lens' BatchLookupPolicy (Lude.Maybe Lude.Natural)
-blpfMaxResults = Lens.lens (maxResults :: BatchLookupPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchLookupPolicy)
-{-# DEPRECATED blpfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+blpMaxResults :: Lens.Lens' BatchLookupPolicy (Core.Maybe Core.Natural)
+blpMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED blpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.ToJSON BatchLookupPolicy where
-  toJSON BatchLookupPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("ObjectReference" Lude..= objectReference),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+-- | The pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpNextToken :: Lens.Lens' BatchLookupPolicy (Core.Maybe Types.NextToken)
+blpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON BatchLookupPolicy where
+  toJSON BatchLookupPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ObjectReference" Core..= objectReference),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )

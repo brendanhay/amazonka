@@ -31,74 +31,66 @@ module Network.AWS.Config.PutDeliveryChannel
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'PutDeliveryChannel' action.
 --
 -- /See:/ 'mkPutDeliveryChannel' smart constructor.
 newtype PutDeliveryChannel = PutDeliveryChannel'
   { -- | The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket and to an Amazon SNS topic.
-    deliveryChannel :: DeliveryChannel
+    deliveryChannel :: Types.DeliveryChannel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutDeliveryChannel' with the minimum fields required to make a request.
---
--- * 'deliveryChannel' - The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket and to an Amazon SNS topic.
+-- | Creates a 'PutDeliveryChannel' value with any optional fields omitted.
 mkPutDeliveryChannel ::
   -- | 'deliveryChannel'
-  DeliveryChannel ->
+  Types.DeliveryChannel ->
   PutDeliveryChannel
-mkPutDeliveryChannel pDeliveryChannel_ =
-  PutDeliveryChannel' {deliveryChannel = pDeliveryChannel_}
+mkPutDeliveryChannel deliveryChannel =
+  PutDeliveryChannel' {deliveryChannel}
 
 -- | The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket and to an Amazon SNS topic.
 --
 -- /Note:/ Consider using 'deliveryChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdcDeliveryChannel :: Lens.Lens' PutDeliveryChannel DeliveryChannel
-pdcDeliveryChannel = Lens.lens (deliveryChannel :: PutDeliveryChannel -> DeliveryChannel) (\s a -> s {deliveryChannel = a} :: PutDeliveryChannel)
+pdcDeliveryChannel :: Lens.Lens' PutDeliveryChannel Types.DeliveryChannel
+pdcDeliveryChannel = Lens.field @"deliveryChannel"
 {-# DEPRECATED pdcDeliveryChannel "Use generic-lens or generic-optics with 'deliveryChannel' instead." #-}
 
-instance Lude.AWSRequest PutDeliveryChannel where
+instance Core.FromJSON PutDeliveryChannel where
+  toJSON PutDeliveryChannel {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DeliveryChannel" Core..= deliveryChannel)]
+      )
+
+instance Core.AWSRequest PutDeliveryChannel where
   type Rs PutDeliveryChannel = PutDeliveryChannelResponse
-  request = Req.postJSON configService
-  response = Res.receiveNull PutDeliveryChannelResponse'
-
-instance Lude.ToHeaders PutDeliveryChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StarlingDoveService.PutDeliveryChannel" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutDeliveryChannel where
-  toJSON PutDeliveryChannel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("DeliveryChannel" Lude..= deliveryChannel)]
-      )
-
-instance Lude.ToPath PutDeliveryChannel where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutDeliveryChannel where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.PutDeliveryChannel")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull PutDeliveryChannelResponse'
 
 -- | /See:/ 'mkPutDeliveryChannelResponse' smart constructor.
 data PutDeliveryChannelResponse = PutDeliveryChannelResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutDeliveryChannelResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutDeliveryChannelResponse' value with any optional fields omitted.
 mkPutDeliveryChannelResponse ::
   PutDeliveryChannelResponse
 mkPutDeliveryChannelResponse = PutDeliveryChannelResponse'

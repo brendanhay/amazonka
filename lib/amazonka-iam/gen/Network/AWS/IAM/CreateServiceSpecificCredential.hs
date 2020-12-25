@@ -33,120 +33,109 @@ module Network.AWS.IAM.CreateServiceSpecificCredential
     mkCreateServiceSpecificCredentialResponse,
 
     -- ** Response lenses
-    csscrsServiceSpecificCredential,
-    csscrsResponseStatus,
+    csscrrsServiceSpecificCredential,
+    csscrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateServiceSpecificCredential' smart constructor.
 data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
   { -- | The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text,
+    userName :: Types.UserName,
     -- | The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
-    serviceName :: Lude.Text
+    serviceName :: Types.ServiceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateServiceSpecificCredential' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'serviceName' - The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
+-- | Creates a 'CreateServiceSpecificCredential' value with any optional fields omitted.
 mkCreateServiceSpecificCredential ::
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
   -- | 'serviceName'
-  Lude.Text ->
+  Types.ServiceName ->
   CreateServiceSpecificCredential
-mkCreateServiceSpecificCredential pUserName_ pServiceName_ =
-  CreateServiceSpecificCredential'
-    { userName = pUserName_,
-      serviceName = pServiceName_
-    }
+mkCreateServiceSpecificCredential userName serviceName =
+  CreateServiceSpecificCredential' {userName, serviceName}
 
 -- | The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscUserName :: Lens.Lens' CreateServiceSpecificCredential Lude.Text
-csscUserName = Lens.lens (userName :: CreateServiceSpecificCredential -> Lude.Text) (\s a -> s {userName = a} :: CreateServiceSpecificCredential)
+csscUserName :: Lens.Lens' CreateServiceSpecificCredential Types.UserName
+csscUserName = Lens.field @"userName"
 {-# DEPRECATED csscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
 --
 -- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscServiceName :: Lens.Lens' CreateServiceSpecificCredential Lude.Text
-csscServiceName = Lens.lens (serviceName :: CreateServiceSpecificCredential -> Lude.Text) (\s a -> s {serviceName = a} :: CreateServiceSpecificCredential)
+csscServiceName :: Lens.Lens' CreateServiceSpecificCredential Types.ServiceName
+csscServiceName = Lens.field @"serviceName"
 {-# DEPRECATED csscServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
-instance Lude.AWSRequest CreateServiceSpecificCredential where
+instance Core.AWSRequest CreateServiceSpecificCredential where
   type
     Rs CreateServiceSpecificCredential =
       CreateServiceSpecificCredentialResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateServiceSpecificCredential")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "ServiceName" serviceName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateServiceSpecificCredentialResult"
       ( \s h x ->
           CreateServiceSpecificCredentialResponse'
-            Lude.<$> (x Lude..@? "ServiceSpecificCredential")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ServiceSpecificCredential")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateServiceSpecificCredential where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateServiceSpecificCredential where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateServiceSpecificCredential where
-  toQuery CreateServiceSpecificCredential' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateServiceSpecificCredential" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "ServiceName" Lude.=: serviceName
-      ]
 
 -- | /See:/ 'mkCreateServiceSpecificCredentialResponse' smart constructor.
 data CreateServiceSpecificCredentialResponse = CreateServiceSpecificCredentialResponse'
   { -- | A structure that contains information about the newly created service-specific credential.
     --
     -- /Important:/ This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with 'ResetServiceSpecificCredential' .
-    serviceSpecificCredential :: Lude.Maybe ServiceSpecificCredential,
+    serviceSpecificCredential :: Core.Maybe Types.ServiceSpecificCredential,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateServiceSpecificCredentialResponse' with the minimum fields required to make a request.
---
--- * 'serviceSpecificCredential' - A structure that contains information about the newly created service-specific credential.
---
--- /Important:/ This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with 'ResetServiceSpecificCredential' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateServiceSpecificCredentialResponse' value with any optional fields omitted.
 mkCreateServiceSpecificCredentialResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateServiceSpecificCredentialResponse
-mkCreateServiceSpecificCredentialResponse pResponseStatus_ =
+mkCreateServiceSpecificCredentialResponse responseStatus =
   CreateServiceSpecificCredentialResponse'
     { serviceSpecificCredential =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that contains information about the newly created service-specific credential.
@@ -154,13 +143,13 @@ mkCreateServiceSpecificCredentialResponse pResponseStatus_ =
 -- /Important:/ This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with 'ResetServiceSpecificCredential' .
 --
 -- /Note:/ Consider using 'serviceSpecificCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscrsServiceSpecificCredential :: Lens.Lens' CreateServiceSpecificCredentialResponse (Lude.Maybe ServiceSpecificCredential)
-csscrsServiceSpecificCredential = Lens.lens (serviceSpecificCredential :: CreateServiceSpecificCredentialResponse -> Lude.Maybe ServiceSpecificCredential) (\s a -> s {serviceSpecificCredential = a} :: CreateServiceSpecificCredentialResponse)
-{-# DEPRECATED csscrsServiceSpecificCredential "Use generic-lens or generic-optics with 'serviceSpecificCredential' instead." #-}
+csscrrsServiceSpecificCredential :: Lens.Lens' CreateServiceSpecificCredentialResponse (Core.Maybe Types.ServiceSpecificCredential)
+csscrrsServiceSpecificCredential = Lens.field @"serviceSpecificCredential"
+{-# DEPRECATED csscrrsServiceSpecificCredential "Use generic-lens or generic-optics with 'serviceSpecificCredential' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscrsResponseStatus :: Lens.Lens' CreateServiceSpecificCredentialResponse Lude.Int
-csscrsResponseStatus = Lens.lens (responseStatus :: CreateServiceSpecificCredentialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateServiceSpecificCredentialResponse)
-{-# DEPRECATED csscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csscrrsResponseStatus :: Lens.Lens' CreateServiceSpecificCredentialResponse Core.Int
+csscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,124 +21,116 @@ module Network.AWS.WorkDocs.CreateLabels
 
     -- ** Request lenses
     clResourceId,
-    clAuthenticationToken,
     clLabels,
+    clAuthenticationToken,
 
     -- * Destructuring the response
     CreateLabelsResponse (..),
     mkCreateLabelsResponse,
 
     -- ** Response lenses
-    clrsResponseStatus,
+    clrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkCreateLabels' smart constructor.
 data CreateLabels = CreateLabels'
   { -- | The ID of the resource.
-    resourceId :: Lude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    resourceId :: Types.ResourceId,
     -- | List of labels to add to the resource.
-    labels :: [Lude.Text]
+    labels :: [Types.SharedLabel],
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLabels' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'labels' - List of labels to add to the resource.
+-- | Creates a 'CreateLabels' value with any optional fields omitted.
 mkCreateLabels ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
   CreateLabels
-mkCreateLabels pResourceId_ =
+mkCreateLabels resourceId =
   CreateLabels'
-    { resourceId = pResourceId_,
-      authenticationToken = Lude.Nothing,
-      labels = Lude.mempty
+    { resourceId,
+      labels = Core.mempty,
+      authenticationToken = Core.Nothing
     }
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clResourceId :: Lens.Lens' CreateLabels Lude.Text
-clResourceId = Lens.lens (resourceId :: CreateLabels -> Lude.Text) (\s a -> s {resourceId = a} :: CreateLabels)
+clResourceId :: Lens.Lens' CreateLabels Types.ResourceId
+clResourceId = Lens.field @"resourceId"
 {-# DEPRECATED clResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clAuthenticationToken :: Lens.Lens' CreateLabels (Lude.Maybe (Lude.Sensitive Lude.Text))
-clAuthenticationToken = Lens.lens (authenticationToken :: CreateLabels -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateLabels)
-{-# DEPRECATED clAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | List of labels to add to the resource.
 --
 -- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clLabels :: Lens.Lens' CreateLabels [Lude.Text]
-clLabels = Lens.lens (labels :: CreateLabels -> [Lude.Text]) (\s a -> s {labels = a} :: CreateLabels)
+clLabels :: Lens.Lens' CreateLabels [Types.SharedLabel]
+clLabels = Lens.field @"labels"
 {-# DEPRECATED clLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
-instance Lude.AWSRequest CreateLabels where
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clAuthenticationToken :: Lens.Lens' CreateLabels (Core.Maybe Types.AuthenticationHeaderType)
+clAuthenticationToken = Lens.field @"authenticationToken"
+{-# DEPRECATED clAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+
+instance Core.FromJSON CreateLabels where
+  toJSON CreateLabels {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Labels" Core..= labels)])
+
+instance Core.AWSRequest CreateLabels where
   type Rs CreateLabels = CreateLabelsResponse
-  request = Req.putJSON workDocsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/resources/" Core.<> (Core.toText resourceId)
+                Core.<> ("/labels")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateLabelsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateLabelsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLabels where
-  toHeaders CreateLabels' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToJSON CreateLabels where
-  toJSON CreateLabels' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Labels" Lude..= labels)])
-
-instance Lude.ToPath CreateLabels where
-  toPath CreateLabels' {..} =
-    Lude.mconcat
-      ["/api/v1/resources/", Lude.toBS resourceId, "/labels"]
-
-instance Lude.ToQuery CreateLabels where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateLabelsResponse' smart constructor.
 newtype CreateLabelsResponse = CreateLabelsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLabelsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLabelsResponse' value with any optional fields omitted.
 mkCreateLabelsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLabelsResponse
-mkCreateLabelsResponse pResponseStatus_ =
-  CreateLabelsResponse' {responseStatus = pResponseStatus_}
+mkCreateLabelsResponse responseStatus =
+  CreateLabelsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clrsResponseStatus :: Lens.Lens' CreateLabelsResponse Lude.Int
-clrsResponseStatus = Lens.lens (responseStatus :: CreateLabelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLabelsResponse)
-{-# DEPRECATED clrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clrrsResponseStatus :: Lens.Lens' CreateLabelsResponse Core.Int
+clrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

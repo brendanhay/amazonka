@@ -13,66 +13,71 @@
 module Network.AWS.CloudFormation.Types.StackInstanceDetailedStatus
   ( StackInstanceDetailedStatus
       ( StackInstanceDetailedStatus',
-        SIDSPending,
-        SIDSRunning,
-        SIDSSucceeded,
-        SIDSFailed,
-        SIDSCancelled,
-        SIDSInoperable
+        StackInstanceDetailedStatusPending,
+        StackInstanceDetailedStatusRunning,
+        StackInstanceDetailedStatusSucceeded,
+        StackInstanceDetailedStatusFailed,
+        StackInstanceDetailedStatusCancelled,
+        StackInstanceDetailedStatusInoperable,
+        fromStackInstanceDetailedStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackInstanceDetailedStatus = StackInstanceDetailedStatus' Lude.Text
+newtype StackInstanceDetailedStatus = StackInstanceDetailedStatus'
+  { fromStackInstanceDetailedStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SIDSPending :: StackInstanceDetailedStatus
-pattern SIDSPending = StackInstanceDetailedStatus' "PENDING"
+pattern StackInstanceDetailedStatusPending :: StackInstanceDetailedStatus
+pattern StackInstanceDetailedStatusPending = StackInstanceDetailedStatus' "PENDING"
 
-pattern SIDSRunning :: StackInstanceDetailedStatus
-pattern SIDSRunning = StackInstanceDetailedStatus' "RUNNING"
+pattern StackInstanceDetailedStatusRunning :: StackInstanceDetailedStatus
+pattern StackInstanceDetailedStatusRunning = StackInstanceDetailedStatus' "RUNNING"
 
-pattern SIDSSucceeded :: StackInstanceDetailedStatus
-pattern SIDSSucceeded = StackInstanceDetailedStatus' "SUCCEEDED"
+pattern StackInstanceDetailedStatusSucceeded :: StackInstanceDetailedStatus
+pattern StackInstanceDetailedStatusSucceeded = StackInstanceDetailedStatus' "SUCCEEDED"
 
-pattern SIDSFailed :: StackInstanceDetailedStatus
-pattern SIDSFailed = StackInstanceDetailedStatus' "FAILED"
+pattern StackInstanceDetailedStatusFailed :: StackInstanceDetailedStatus
+pattern StackInstanceDetailedStatusFailed = StackInstanceDetailedStatus' "FAILED"
 
-pattern SIDSCancelled :: StackInstanceDetailedStatus
-pattern SIDSCancelled = StackInstanceDetailedStatus' "CANCELLED"
+pattern StackInstanceDetailedStatusCancelled :: StackInstanceDetailedStatus
+pattern StackInstanceDetailedStatusCancelled = StackInstanceDetailedStatus' "CANCELLED"
 
-pattern SIDSInoperable :: StackInstanceDetailedStatus
-pattern SIDSInoperable = StackInstanceDetailedStatus' "INOPERABLE"
+pattern StackInstanceDetailedStatusInoperable :: StackInstanceDetailedStatus
+pattern StackInstanceDetailedStatusInoperable = StackInstanceDetailedStatus' "INOPERABLE"
 
 {-# COMPLETE
-  SIDSPending,
-  SIDSRunning,
-  SIDSSucceeded,
-  SIDSFailed,
-  SIDSCancelled,
-  SIDSInoperable,
+  StackInstanceDetailedStatusPending,
+  StackInstanceDetailedStatusRunning,
+  StackInstanceDetailedStatusSucceeded,
+  StackInstanceDetailedStatusFailed,
+  StackInstanceDetailedStatusCancelled,
+  StackInstanceDetailedStatusInoperable,
   StackInstanceDetailedStatus'
   #-}

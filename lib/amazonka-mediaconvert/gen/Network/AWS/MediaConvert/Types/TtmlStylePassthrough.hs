@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.TtmlStylePassthrough
   ( TtmlStylePassthrough
       ( TtmlStylePassthrough',
-        TSPEnabled,
-        TSPDisabled
+        TtmlStylePassthroughEnabled,
+        TtmlStylePassthroughDisabled,
+        fromTtmlStylePassthrough
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Pass through style and position information from a TTML-like input source (TTML, SMPTE-TT) to the TTML output.
-newtype TtmlStylePassthrough = TtmlStylePassthrough' Lude.Text
+newtype TtmlStylePassthrough = TtmlStylePassthrough'
+  { fromTtmlStylePassthrough ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TSPEnabled :: TtmlStylePassthrough
-pattern TSPEnabled = TtmlStylePassthrough' "ENABLED"
+pattern TtmlStylePassthroughEnabled :: TtmlStylePassthrough
+pattern TtmlStylePassthroughEnabled = TtmlStylePassthrough' "ENABLED"
 
-pattern TSPDisabled :: TtmlStylePassthrough
-pattern TSPDisabled = TtmlStylePassthrough' "DISABLED"
+pattern TtmlStylePassthroughDisabled :: TtmlStylePassthrough
+pattern TtmlStylePassthroughDisabled = TtmlStylePassthrough' "DISABLED"
 
 {-# COMPLETE
-  TSPEnabled,
-  TSPDisabled,
+  TtmlStylePassthroughEnabled,
+  TtmlStylePassthroughDisabled,
   TtmlStylePassthrough'
   #-}

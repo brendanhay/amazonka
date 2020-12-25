@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.StepFunctions
     Network.AWS.StepFunctions.CreateActivity
@@ -94,6 +100,7 @@ library
     Network.AWS.StepFunctions.Waiters
 
   other-modules:
+    Network.AWS.StepFunctions.Types.ActivityArn
     Network.AWS.StepFunctions.Types.ActivityFailedEventDetails
     Network.AWS.StepFunctions.Types.ActivityListItem
     Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails
@@ -101,10 +108,15 @@ library
     Network.AWS.StepFunctions.Types.ActivityStartedEventDetails
     Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails
     Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails
+    Network.AWS.StepFunctions.Types.Arn
     Network.AWS.StepFunctions.Types.BillingDetails
+    Network.AWS.StepFunctions.Types.Cause
     Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
     Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
+    Network.AWS.StepFunctions.Types.Definition
+    Network.AWS.StepFunctions.Types.Error
     Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails
+    Network.AWS.StepFunctions.Types.ExecutionArn
     Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails
     Network.AWS.StepFunctions.Types.ExecutionListItem
     Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails
@@ -114,24 +126,40 @@ library
     Network.AWS.StepFunctions.Types.HistoryEvent
     Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
     Network.AWS.StepFunctions.Types.HistoryEventType
+    Network.AWS.StepFunctions.Types.Input
+    Network.AWS.StepFunctions.Types.Key
     Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails
     Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails
     Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails
     Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails
     Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails
     Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
+    Network.AWS.StepFunctions.Types.ListExecutionsPageToken
     Network.AWS.StepFunctions.Types.LogDestination
     Network.AWS.StepFunctions.Types.LoggingConfiguration
+    Network.AWS.StepFunctions.Types.LogGroupArn
     Network.AWS.StepFunctions.Types.LogLevel
     Network.AWS.StepFunctions.Types.MapIterationEventDetails
     Network.AWS.StepFunctions.Types.MapStateStartedEventDetails
+    Network.AWS.StepFunctions.Types.Name
+    Network.AWS.StepFunctions.Types.NextToken
+    Network.AWS.StepFunctions.Types.Output
+    Network.AWS.StepFunctions.Types.PageToken
+    Network.AWS.StepFunctions.Types.Parameters
+    Network.AWS.StepFunctions.Types.Resource
+    Network.AWS.StepFunctions.Types.ResourceType
+    Network.AWS.StepFunctions.Types.SensitiveCause
+    Network.AWS.StepFunctions.Types.SensitiveData
+    Network.AWS.StepFunctions.Types.SensitiveError
     Network.AWS.StepFunctions.Types.StateEnteredEventDetails
     Network.AWS.StepFunctions.Types.StateExitedEventDetails
+    Network.AWS.StepFunctions.Types.StateMachineArn
     Network.AWS.StepFunctions.Types.StateMachineListItem
     Network.AWS.StepFunctions.Types.StateMachineStatus
     Network.AWS.StepFunctions.Types.StateMachineType
     Network.AWS.StepFunctions.Types.SyncExecutionStatus
     Network.AWS.StepFunctions.Types.Tag
+    Network.AWS.StepFunctions.Types.TagKey
     Network.AWS.StepFunctions.Types.TaskFailedEventDetails
     Network.AWS.StepFunctions.Types.TaskScheduledEventDetails
     Network.AWS.StepFunctions.Types.TaskStartedEventDetails
@@ -140,7 +168,11 @@ library
     Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails
     Network.AWS.StepFunctions.Types.TaskSucceededEventDetails
     Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
+    Network.AWS.StepFunctions.Types.TaskToken
+    Network.AWS.StepFunctions.Types.TraceHeader
     Network.AWS.StepFunctions.Types.TracingConfiguration
+    Network.AWS.StepFunctions.Types.Value
+    Network.AWS.StepFunctions.Types.WorkerName
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

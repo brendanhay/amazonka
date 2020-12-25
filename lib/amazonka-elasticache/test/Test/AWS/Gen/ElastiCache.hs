@@ -822,7 +822,7 @@ responseStartMigration =
   res
     "StartMigrationResponse"
     "fixture/StartMigrationResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy StartMigration)
 
 responseDeleteCacheSecurityGroup :: DeleteCacheSecurityGroupResponse -> TestTree
@@ -830,7 +830,7 @@ responseDeleteCacheSecurityGroup =
   res
     "DeleteCacheSecurityGroupResponse"
     "fixture/DeleteCacheSecurityGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCacheSecurityGroup)
 
 responseCreateReplicationGroup :: CreateReplicationGroupResponse -> TestTree
@@ -838,7 +838,7 @@ responseCreateReplicationGroup =
   res
     "CreateReplicationGroupResponse"
     "fixture/CreateReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateReplicationGroup)
 
 responseDeleteCacheCluster :: DeleteCacheClusterResponse -> TestTree
@@ -846,7 +846,7 @@ responseDeleteCacheCluster =
   res
     "DeleteCacheClusterResponse"
     "fixture/DeleteCacheClusterResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCacheCluster)
 
 responseIncreaseNodeGroupsInGlobalReplicationGroup :: IncreaseNodeGroupsInGlobalReplicationGroupResponse -> TestTree
@@ -854,7 +854,7 @@ responseIncreaseNodeGroupsInGlobalReplicationGroup =
   res
     "IncreaseNodeGroupsInGlobalReplicationGroupResponse"
     "fixture/IncreaseNodeGroupsInGlobalReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy IncreaseNodeGroupsInGlobalReplicationGroup)
 
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
@@ -862,7 +862,7 @@ responseDescribeUsers =
   res
     "DescribeUsersResponse"
     "fixture/DescribeUsersResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUsers)
 
 responseRebootCacheCluster :: RebootCacheClusterResponse -> TestTree
@@ -870,7 +870,7 @@ responseRebootCacheCluster =
   res
     "RebootCacheClusterResponse"
     "fixture/RebootCacheClusterResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy RebootCacheCluster)
 
 responseCreateUserGroup :: UserGroup -> TestTree
@@ -878,7 +878,7 @@ responseCreateUserGroup =
   res
     "CreateUserGroupResponse"
     "fixture/CreateUserGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserGroup)
 
 responseRevokeCacheSecurityGroupIngress :: RevokeCacheSecurityGroupIngressResponse -> TestTree
@@ -886,7 +886,7 @@ responseRevokeCacheSecurityGroupIngress =
   res
     "RevokeCacheSecurityGroupIngressResponse"
     "fixture/RevokeCacheSecurityGroupIngressResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy RevokeCacheSecurityGroupIngress)
 
 responseCreateCacheCluster :: CreateCacheClusterResponse -> TestTree
@@ -894,7 +894,7 @@ responseCreateCacheCluster =
   res
     "CreateCacheClusterResponse"
     "fixture/CreateCacheClusterResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateCacheCluster)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
@@ -902,7 +902,7 @@ responseDescribeEvents =
   res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEvents)
 
 responseDescribeEngineDefaultParameters :: DescribeEngineDefaultParametersResponse -> TestTree
@@ -910,7 +910,7 @@ responseDescribeEngineDefaultParameters =
   res
     "DescribeEngineDefaultParametersResponse"
     "fixture/DescribeEngineDefaultParametersResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEngineDefaultParameters)
 
 responseDisassociateGlobalReplicationGroup :: DisassociateGlobalReplicationGroupResponse -> TestTree
@@ -918,7 +918,7 @@ responseDisassociateGlobalReplicationGroup =
   res
     "DisassociateGlobalReplicationGroupResponse"
     "fixture/DisassociateGlobalReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateGlobalReplicationGroup)
 
 responseModifyCacheParameterGroup :: CacheParameterGroupNameMessage -> TestTree
@@ -926,7 +926,7 @@ responseModifyCacheParameterGroup =
   res
     "ModifyCacheParameterGroupResponse"
     "fixture/ModifyCacheParameterGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ModifyCacheParameterGroup)
 
 responseTestFailover :: TestFailoverResponse -> TestTree
@@ -934,7 +934,7 @@ responseTestFailover =
   res
     "TestFailoverResponse"
     "fixture/TestFailoverResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy TestFailover)
 
 responseDeleteReplicationGroup :: DeleteReplicationGroupResponse -> TestTree
@@ -942,7 +942,7 @@ responseDeleteReplicationGroup =
   res
     "DeleteReplicationGroupResponse"
     "fixture/DeleteReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReplicationGroup)
 
 responseListTagsForResource :: TagListMessage -> TestTree
@@ -950,7 +950,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseCompleteMigration :: CompleteMigrationResponse -> TestTree
@@ -958,7 +958,7 @@ responseCompleteMigration =
   res
     "CompleteMigrationResponse"
     "fixture/CompleteMigrationResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CompleteMigration)
 
 responseDescribeCacheClusters :: DescribeCacheClustersResponse -> TestTree
@@ -966,7 +966,7 @@ responseDescribeCacheClusters =
   res
     "DescribeCacheClustersResponse"
     "fixture/DescribeCacheClustersResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCacheClusters)
 
 responsePurchaseReservedCacheNodesOffering :: PurchaseReservedCacheNodesOfferingResponse -> TestTree
@@ -974,7 +974,7 @@ responsePurchaseReservedCacheNodesOffering =
   res
     "PurchaseReservedCacheNodesOfferingResponse"
     "fixture/PurchaseReservedCacheNodesOfferingResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy PurchaseReservedCacheNodesOffering)
 
 responseRemoveTagsFromResource :: TagListMessage -> TestTree
@@ -982,7 +982,7 @@ responseRemoveTagsFromResource =
   res
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy RemoveTagsFromResource)
 
 responseModifyReplicationGroup :: ModifyReplicationGroupResponse -> TestTree
@@ -990,7 +990,7 @@ responseModifyReplicationGroup =
   res
     "ModifyReplicationGroupResponse"
     "fixture/ModifyReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ModifyReplicationGroup)
 
 responseDescribeCacheParameters :: DescribeCacheParametersResponse -> TestTree
@@ -998,7 +998,7 @@ responseDescribeCacheParameters =
   res
     "DescribeCacheParametersResponse"
     "fixture/DescribeCacheParametersResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCacheParameters)
 
 responseDescribeGlobalReplicationGroups :: DescribeGlobalReplicationGroupsResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseDescribeGlobalReplicationGroups =
   res
     "DescribeGlobalReplicationGroupsResponse"
     "fixture/DescribeGlobalReplicationGroupsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeGlobalReplicationGroups)
 
 responseDescribeCacheSubnetGroups :: DescribeCacheSubnetGroupsResponse -> TestTree
@@ -1014,7 +1014,7 @@ responseDescribeCacheSubnetGroups =
   res
     "DescribeCacheSubnetGroupsResponse"
     "fixture/DescribeCacheSubnetGroupsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCacheSubnetGroups)
 
 responseDescribeUpdateActions :: DescribeUpdateActionsResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseDescribeUpdateActions =
   res
     "DescribeUpdateActionsResponse"
     "fixture/DescribeUpdateActionsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUpdateActions)
 
 responseRebalanceSlotsInGlobalReplicationGroup :: RebalanceSlotsInGlobalReplicationGroupResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseRebalanceSlotsInGlobalReplicationGroup =
   res
     "RebalanceSlotsInGlobalReplicationGroupResponse"
     "fixture/RebalanceSlotsInGlobalReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy RebalanceSlotsInGlobalReplicationGroup)
 
 responseCreateCacheSecurityGroup :: CreateCacheSecurityGroupResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseCreateCacheSecurityGroup =
   res
     "CreateCacheSecurityGroupResponse"
     "fixture/CreateCacheSecurityGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateCacheSecurityGroup)
 
 responseDecreaseReplicaCount :: DecreaseReplicaCountResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseDecreaseReplicaCount =
   res
     "DecreaseReplicaCountResponse"
     "fixture/DecreaseReplicaCountResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DecreaseReplicaCount)
 
 responseAddTagsToResource :: TagListMessage -> TestTree
@@ -1054,7 +1054,7 @@ responseAddTagsToResource =
   res
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy AddTagsToResource)
 
 responseAuthorizeCacheSecurityGroupIngress :: AuthorizeCacheSecurityGroupIngressResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseAuthorizeCacheSecurityGroupIngress =
   res
     "AuthorizeCacheSecurityGroupIngressResponse"
     "fixture/AuthorizeCacheSecurityGroupIngressResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy AuthorizeCacheSecurityGroupIngress)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseCopySnapshot =
   res
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CopySnapshot)
 
 responseFailoverGlobalReplicationGroup :: FailoverGlobalReplicationGroupResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseFailoverGlobalReplicationGroup =
   res
     "FailoverGlobalReplicationGroupResponse"
     "fixture/FailoverGlobalReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy FailoverGlobalReplicationGroup)
 
 responseCreateCacheSubnetGroup :: CreateCacheSubnetGroupResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseCreateCacheSubnetGroup =
   res
     "CreateCacheSubnetGroupResponse"
     "fixture/CreateCacheSubnetGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateCacheSubnetGroup)
 
 responseCreateGlobalReplicationGroup :: CreateGlobalReplicationGroupResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseCreateGlobalReplicationGroup =
   res
     "CreateGlobalReplicationGroupResponse"
     "fixture/CreateGlobalReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateGlobalReplicationGroup)
 
 responseDescribeCacheParameterGroups :: DescribeCacheParameterGroupsResponse -> TestTree
@@ -1102,7 +1102,7 @@ responseDescribeCacheParameterGroups =
   res
     "DescribeCacheParameterGroupsResponse"
     "fixture/DescribeCacheParameterGroupsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCacheParameterGroups)
 
 responseResetCacheParameterGroup :: CacheParameterGroupNameMessage -> TestTree
@@ -1110,7 +1110,7 @@ responseResetCacheParameterGroup =
   res
     "ResetCacheParameterGroupResponse"
     "fixture/ResetCacheParameterGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ResetCacheParameterGroup)
 
 responseListAllowedNodeTypeModifications :: ListAllowedNodeTypeModificationsResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseListAllowedNodeTypeModifications =
   res
     "ListAllowedNodeTypeModificationsResponse"
     "fixture/ListAllowedNodeTypeModificationsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ListAllowedNodeTypeModifications)
 
 responseIncreaseReplicaCount :: IncreaseReplicaCountResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseIncreaseReplicaCount =
   res
     "IncreaseReplicaCountResponse"
     "fixture/IncreaseReplicaCountResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy IncreaseReplicaCount)
 
 responseModifyReplicationGroupShardConfiguration :: ModifyReplicationGroupShardConfigurationResponse -> TestTree
@@ -1134,7 +1134,7 @@ responseModifyReplicationGroupShardConfiguration =
   res
     "ModifyReplicationGroupShardConfigurationResponse"
     "fixture/ModifyReplicationGroupShardConfigurationResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ModifyReplicationGroupShardConfiguration)
 
 responseBatchApplyUpdateAction :: UpdateActionResultsMessage -> TestTree
@@ -1142,7 +1142,7 @@ responseBatchApplyUpdateAction =
   res
     "BatchApplyUpdateActionResponse"
     "fixture/BatchApplyUpdateActionResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy BatchApplyUpdateAction)
 
 responseDeleteUserGroup :: UserGroup -> TestTree
@@ -1150,7 +1150,7 @@ responseDeleteUserGroup =
   res
     "DeleteUserGroupResponse"
     "fixture/DeleteUserGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserGroup)
 
 responseDescribeServiceUpdates :: DescribeServiceUpdatesResponse -> TestTree
@@ -1158,7 +1158,7 @@ responseDescribeServiceUpdates =
   res
     "DescribeServiceUpdatesResponse"
     "fixture/DescribeServiceUpdatesResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeServiceUpdates)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseDescribeSnapshots =
   res
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSnapshots)
 
 responseDescribeReplicationGroups :: DescribeReplicationGroupsResponse -> TestTree
@@ -1174,7 +1174,7 @@ responseDescribeReplicationGroups =
   res
     "DescribeReplicationGroupsResponse"
     "fixture/DescribeReplicationGroupsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReplicationGroups)
 
 responseCreateUser :: User -> TestTree
@@ -1182,7 +1182,7 @@ responseCreateUser =
   res
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateUser)
 
 responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
@@ -1190,7 +1190,7 @@ responseDeleteSnapshot =
   res
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSnapshot)
 
 responseDescribeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferingsResponse -> TestTree
@@ -1198,7 +1198,7 @@ responseDescribeReservedCacheNodesOfferings =
   res
     "DescribeReservedCacheNodesOfferingsResponse"
     "fixture/DescribeReservedCacheNodesOfferingsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReservedCacheNodesOfferings)
 
 responseModifyCacheSubnetGroup :: ModifyCacheSubnetGroupResponse -> TestTree
@@ -1206,7 +1206,7 @@ responseModifyCacheSubnetGroup =
   res
     "ModifyCacheSubnetGroupResponse"
     "fixture/ModifyCacheSubnetGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ModifyCacheSubnetGroup)
 
 responseDeleteUser :: User -> TestTree
@@ -1214,7 +1214,7 @@ responseDeleteUser =
   res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
@@ -1222,7 +1222,7 @@ responseCreateSnapshot =
   res
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateSnapshot)
 
 responseModifyGlobalReplicationGroup :: ModifyGlobalReplicationGroupResponse -> TestTree
@@ -1230,7 +1230,7 @@ responseModifyGlobalReplicationGroup =
   res
     "ModifyGlobalReplicationGroupResponse"
     "fixture/ModifyGlobalReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ModifyGlobalReplicationGroup)
 
 responseDescribeUserGroups :: DescribeUserGroupsResponse -> TestTree
@@ -1238,7 +1238,7 @@ responseDescribeUserGroups =
   res
     "DescribeUserGroupsResponse"
     "fixture/DescribeUserGroupsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserGroups)
 
 responseDeleteCacheParameterGroup :: DeleteCacheParameterGroupResponse -> TestTree
@@ -1246,7 +1246,7 @@ responseDeleteCacheParameterGroup =
   res
     "DeleteCacheParameterGroupResponse"
     "fixture/DeleteCacheParameterGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCacheParameterGroup)
 
 responseDescribeCacheSecurityGroups :: DescribeCacheSecurityGroupsResponse -> TestTree
@@ -1254,7 +1254,7 @@ responseDescribeCacheSecurityGroups =
   res
     "DescribeCacheSecurityGroupsResponse"
     "fixture/DescribeCacheSecurityGroupsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCacheSecurityGroups)
 
 responseBatchStopUpdateAction :: UpdateActionResultsMessage -> TestTree
@@ -1262,7 +1262,7 @@ responseBatchStopUpdateAction =
   res
     "BatchStopUpdateActionResponse"
     "fixture/BatchStopUpdateActionResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy BatchStopUpdateAction)
 
 responseModifyCacheCluster :: ModifyCacheClusterResponse -> TestTree
@@ -1270,7 +1270,7 @@ responseModifyCacheCluster =
   res
     "ModifyCacheClusterResponse"
     "fixture/ModifyCacheClusterResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ModifyCacheCluster)
 
 responseDescribeCacheEngineVersions :: DescribeCacheEngineVersionsResponse -> TestTree
@@ -1278,7 +1278,7 @@ responseDescribeCacheEngineVersions =
   res
     "DescribeCacheEngineVersionsResponse"
     "fixture/DescribeCacheEngineVersionsResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCacheEngineVersions)
 
 responseModifyUserGroup :: UserGroup -> TestTree
@@ -1286,7 +1286,7 @@ responseModifyUserGroup =
   res
     "ModifyUserGroupResponse"
     "fixture/ModifyUserGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ModifyUserGroup)
 
 responseCreateCacheParameterGroup :: CreateCacheParameterGroupResponse -> TestTree
@@ -1294,7 +1294,7 @@ responseCreateCacheParameterGroup =
   res
     "CreateCacheParameterGroupResponse"
     "fixture/CreateCacheParameterGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy CreateCacheParameterGroup)
 
 responseDescribeReservedCacheNodes :: DescribeReservedCacheNodesResponse -> TestTree
@@ -1302,7 +1302,7 @@ responseDescribeReservedCacheNodes =
   res
     "DescribeReservedCacheNodesResponse"
     "fixture/DescribeReservedCacheNodesResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReservedCacheNodes)
 
 responseDeleteGlobalReplicationGroup :: DeleteGlobalReplicationGroupResponse -> TestTree
@@ -1310,7 +1310,7 @@ responseDeleteGlobalReplicationGroup =
   res
     "DeleteGlobalReplicationGroupResponse"
     "fixture/DeleteGlobalReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteGlobalReplicationGroup)
 
 responseDecreaseNodeGroupsInGlobalReplicationGroup :: DecreaseNodeGroupsInGlobalReplicationGroupResponse -> TestTree
@@ -1318,7 +1318,7 @@ responseDecreaseNodeGroupsInGlobalReplicationGroup =
   res
     "DecreaseNodeGroupsInGlobalReplicationGroupResponse"
     "fixture/DecreaseNodeGroupsInGlobalReplicationGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DecreaseNodeGroupsInGlobalReplicationGroup)
 
 responseModifyUser :: User -> TestTree
@@ -1326,7 +1326,7 @@ responseModifyUser =
   res
     "ModifyUserResponse"
     "fixture/ModifyUserResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy ModifyUser)
 
 responseDeleteCacheSubnetGroup :: DeleteCacheSubnetGroupResponse -> TestTree
@@ -1334,5 +1334,5 @@ responseDeleteCacheSubnetGroup =
   res
     "DeleteCacheSubnetGroupResponse"
     "fixture/DeleteCacheSubnetGroupResponse.proto"
-    elastiCacheService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCacheSubnetGroup)

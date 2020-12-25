@@ -22,198 +22,179 @@ module Network.AWS.SageMaker.DescribeNotebookInstanceLifecycleConfig
     mkDescribeNotebookInstanceLifecycleConfig,
 
     -- ** Request lenses
-    dnilcNotebookInstanceLifecycleConfigName,
+    dNotebookInstanceLifecycleConfigName,
 
     -- * Destructuring the response
     DescribeNotebookInstanceLifecycleConfigResponse (..),
     mkDescribeNotebookInstanceLifecycleConfigResponse,
 
     -- ** Response lenses
-    dnilcrsCreationTime,
-    dnilcrsOnCreate,
-    dnilcrsLastModifiedTime,
-    dnilcrsNotebookInstanceLifecycleConfigARN,
-    dnilcrsOnStart,
-    dnilcrsNotebookInstanceLifecycleConfigName,
-    dnilcrsResponseStatus,
+    dnilcrrsCreationTime,
+    dnilcrrsLastModifiedTime,
+    dnilcrrsNotebookInstanceLifecycleConfigArn,
+    dnilcrrsNotebookInstanceLifecycleConfigName,
+    dnilcrrsOnCreate,
+    dnilcrrsOnStart,
+    dnilcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDescribeNotebookInstanceLifecycleConfig' smart constructor.
 newtype DescribeNotebookInstanceLifecycleConfig = DescribeNotebookInstanceLifecycleConfig'
   { -- | The name of the lifecycle configuration to describe.
-    notebookInstanceLifecycleConfigName :: Lude.Text
+    notebookInstanceLifecycleConfigName :: Types.NotebookInstanceLifecycleConfigName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeNotebookInstanceLifecycleConfig' with the minimum fields required to make a request.
---
--- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration to describe.
+-- | Creates a 'DescribeNotebookInstanceLifecycleConfig' value with any optional fields omitted.
 mkDescribeNotebookInstanceLifecycleConfig ::
   -- | 'notebookInstanceLifecycleConfigName'
-  Lude.Text ->
+  Types.NotebookInstanceLifecycleConfigName ->
   DescribeNotebookInstanceLifecycleConfig
 mkDescribeNotebookInstanceLifecycleConfig
-  pNotebookInstanceLifecycleConfigName_ =
-    DescribeNotebookInstanceLifecycleConfig'
-      { notebookInstanceLifecycleConfigName =
-          pNotebookInstanceLifecycleConfigName_
-      }
+  notebookInstanceLifecycleConfigName =
+    DescribeNotebookInstanceLifecycleConfig' {notebookInstanceLifecycleConfigName}
 
 -- | The name of the lifecycle configuration to describe.
 --
 -- /Note:/ Consider using 'notebookInstanceLifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcNotebookInstanceLifecycleConfigName :: Lens.Lens' DescribeNotebookInstanceLifecycleConfig Lude.Text
-dnilcNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: DescribeNotebookInstanceLifecycleConfig -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: DescribeNotebookInstanceLifecycleConfig)
-{-# DEPRECATED dnilcNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
+dNotebookInstanceLifecycleConfigName :: Lens.Lens' DescribeNotebookInstanceLifecycleConfig Types.NotebookInstanceLifecycleConfigName
+dNotebookInstanceLifecycleConfigName = Lens.field @"notebookInstanceLifecycleConfigName"
+{-# DEPRECATED dNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
 
-instance Lude.AWSRequest DescribeNotebookInstanceLifecycleConfig where
-  type
-    Rs DescribeNotebookInstanceLifecycleConfig =
-      DescribeNotebookInstanceLifecycleConfigResponse
-  request = Req.postJSON sageMakerService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribeNotebookInstanceLifecycleConfigResponse'
-            Lude.<$> (x Lude..?> "CreationTime")
-            Lude.<*> (x Lude..?> "OnCreate" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "LastModifiedTime")
-            Lude.<*> (x Lude..?> "NotebookInstanceLifecycleConfigArn")
-            Lude.<*> (x Lude..?> "OnStart" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NotebookInstanceLifecycleConfigName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeNotebookInstanceLifecycleConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SageMaker.DescribeNotebookInstanceLifecycleConfig" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeNotebookInstanceLifecycleConfig where
-  toJSON DescribeNotebookInstanceLifecycleConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON DescribeNotebookInstanceLifecycleConfig where
+  toJSON DescribeNotebookInstanceLifecycleConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "NotebookInstanceLifecycleConfigName"
-                  Lude..= notebookInstanceLifecycleConfigName
+                  Core..= notebookInstanceLifecycleConfigName
               )
           ]
       )
 
-instance Lude.ToPath DescribeNotebookInstanceLifecycleConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeNotebookInstanceLifecycleConfig where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeNotebookInstanceLifecycleConfig where
+  type
+    Rs DescribeNotebookInstanceLifecycleConfig =
+      DescribeNotebookInstanceLifecycleConfigResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "SageMaker.DescribeNotebookInstanceLifecycleConfig"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeNotebookInstanceLifecycleConfigResponse'
+            Core.<$> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "NotebookInstanceLifecycleConfigArn")
+            Core.<*> (x Core..:? "NotebookInstanceLifecycleConfigName")
+            Core.<*> (x Core..:? "OnCreate")
+            Core.<*> (x Core..:? "OnStart")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkDescribeNotebookInstanceLifecycleConfigResponse' smart constructor.
 data DescribeNotebookInstanceLifecycleConfigResponse = DescribeNotebookInstanceLifecycleConfigResponse'
   { -- | A timestamp that tells when the lifecycle configuration was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The shell script that runs only once, when you create a notebook instance.
-    onCreate :: Lude.Maybe [NotebookInstanceLifecycleHook],
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | A timestamp that tells when the lifecycle configuration was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
     -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
-    notebookInstanceLifecycleConfigARN :: Lude.Maybe Lude.Text,
-    -- | The shell script that runs every time you start a notebook instance, including when you create the notebook instance.
-    onStart :: Lude.Maybe [NotebookInstanceLifecycleHook],
+    notebookInstanceLifecycleConfigArn :: Core.Maybe Types.NotebookInstanceLifecycleConfigArn,
     -- | The name of the lifecycle configuration.
-    notebookInstanceLifecycleConfigName :: Lude.Maybe Lude.Text,
+    notebookInstanceLifecycleConfigName :: Core.Maybe Types.NotebookInstanceLifecycleConfigName,
+    -- | The shell script that runs only once, when you create a notebook instance.
+    onCreate :: Core.Maybe [Types.NotebookInstanceLifecycleHook],
+    -- | The shell script that runs every time you start a notebook instance, including when you create the notebook instance.
+    onStart :: Core.Maybe [Types.NotebookInstanceLifecycleHook],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeNotebookInstanceLifecycleConfigResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - A timestamp that tells when the lifecycle configuration was created.
--- * 'onCreate' - The shell script that runs only once, when you create a notebook instance.
--- * 'lastModifiedTime' - A timestamp that tells when the lifecycle configuration was last modified.
--- * 'notebookInstanceLifecycleConfigARN' - The Amazon Resource Name (ARN) of the lifecycle configuration.
--- * 'onStart' - The shell script that runs every time you start a notebook instance, including when you create the notebook instance.
--- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeNotebookInstanceLifecycleConfigResponse' value with any optional fields omitted.
 mkDescribeNotebookInstanceLifecycleConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeNotebookInstanceLifecycleConfigResponse
-mkDescribeNotebookInstanceLifecycleConfigResponse pResponseStatus_ =
+mkDescribeNotebookInstanceLifecycleConfigResponse responseStatus =
   DescribeNotebookInstanceLifecycleConfigResponse'
     { creationTime =
-        Lude.Nothing,
-      onCreate = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      notebookInstanceLifecycleConfigARN =
-        Lude.Nothing,
-      onStart = Lude.Nothing,
+        Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      notebookInstanceLifecycleConfigArn =
+        Core.Nothing,
       notebookInstanceLifecycleConfigName =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      onCreate = Core.Nothing,
+      onStart = Core.Nothing,
+      responseStatus
     }
 
 -- | A timestamp that tells when the lifecycle configuration was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcrsCreationTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Lude.Maybe Lude.Timestamp)
-dnilcrsCreationTime = Lens.lens (creationTime :: DescribeNotebookInstanceLifecycleConfigResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED dnilcrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The shell script that runs only once, when you create a notebook instance.
---
--- /Note:/ Consider using 'onCreate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcrsOnCreate :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Lude.Maybe [NotebookInstanceLifecycleHook])
-dnilcrsOnCreate = Lens.lens (onCreate :: DescribeNotebookInstanceLifecycleConfigResponse -> Lude.Maybe [NotebookInstanceLifecycleHook]) (\s a -> s {onCreate = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED dnilcrsOnCreate "Use generic-lens or generic-optics with 'onCreate' instead." #-}
+dnilcrrsCreationTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Core.Maybe Core.NominalDiffTime)
+dnilcrrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED dnilcrrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A timestamp that tells when the lifecycle configuration was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcrsLastModifiedTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Lude.Maybe Lude.Timestamp)
-dnilcrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeNotebookInstanceLifecycleConfigResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED dnilcrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+dnilcrrsLastModifiedTime :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Core.Maybe Core.NominalDiffTime)
+dnilcrrsLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED dnilcrrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
 --
--- /Note:/ Consider using 'notebookInstanceLifecycleConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcrsNotebookInstanceLifecycleConfigARN :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Lude.Maybe Lude.Text)
-dnilcrsNotebookInstanceLifecycleConfigARN = Lens.lens (notebookInstanceLifecycleConfigARN :: DescribeNotebookInstanceLifecycleConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigARN = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED dnilcrsNotebookInstanceLifecycleConfigARN "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigARN' instead." #-}
-
--- | The shell script that runs every time you start a notebook instance, including when you create the notebook instance.
---
--- /Note:/ Consider using 'onStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcrsOnStart :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Lude.Maybe [NotebookInstanceLifecycleHook])
-dnilcrsOnStart = Lens.lens (onStart :: DescribeNotebookInstanceLifecycleConfigResponse -> Lude.Maybe [NotebookInstanceLifecycleHook]) (\s a -> s {onStart = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED dnilcrsOnStart "Use generic-lens or generic-optics with 'onStart' instead." #-}
+-- /Note:/ Consider using 'notebookInstanceLifecycleConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnilcrrsNotebookInstanceLifecycleConfigArn :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Core.Maybe Types.NotebookInstanceLifecycleConfigArn)
+dnilcrrsNotebookInstanceLifecycleConfigArn = Lens.field @"notebookInstanceLifecycleConfigArn"
+{-# DEPRECATED dnilcrrsNotebookInstanceLifecycleConfigArn "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigArn' instead." #-}
 
 -- | The name of the lifecycle configuration.
 --
 -- /Note:/ Consider using 'notebookInstanceLifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcrsNotebookInstanceLifecycleConfigName :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Lude.Maybe Lude.Text)
-dnilcrsNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: DescribeNotebookInstanceLifecycleConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED dnilcrsNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
+dnilcrrsNotebookInstanceLifecycleConfigName :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Core.Maybe Types.NotebookInstanceLifecycleConfigName)
+dnilcrrsNotebookInstanceLifecycleConfigName = Lens.field @"notebookInstanceLifecycleConfigName"
+{-# DEPRECATED dnilcrrsNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
+
+-- | The shell script that runs only once, when you create a notebook instance.
+--
+-- /Note:/ Consider using 'onCreate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnilcrrsOnCreate :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Core.Maybe [Types.NotebookInstanceLifecycleHook])
+dnilcrrsOnCreate = Lens.field @"onCreate"
+{-# DEPRECATED dnilcrrsOnCreate "Use generic-lens or generic-optics with 'onCreate' instead." #-}
+
+-- | The shell script that runs every time you start a notebook instance, including when you create the notebook instance.
+--
+-- /Note:/ Consider using 'onStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnilcrrsOnStart :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse (Core.Maybe [Types.NotebookInstanceLifecycleHook])
+dnilcrrsOnStart = Lens.field @"onStart"
+{-# DEPRECATED dnilcrrsOnStart "Use generic-lens or generic-optics with 'onStart' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcrsResponseStatus :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse Lude.Int
-dnilcrsResponseStatus = Lens.lens (responseStatus :: DescribeNotebookInstanceLifecycleConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotebookInstanceLifecycleConfigResponse)
-{-# DEPRECATED dnilcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dnilcrrsResponseStatus :: Lens.Lens' DescribeNotebookInstanceLifecycleConfigResponse Core.Int
+dnilcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dnilcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

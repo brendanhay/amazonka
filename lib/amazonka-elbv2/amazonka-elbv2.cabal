@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ELBv2
     Network.AWS.ELBv2.AddListenerCertificates
@@ -97,7 +103,7 @@ library
     Network.AWS.ELBv2.RegisterTargets
     Network.AWS.ELBv2.RemoveListenerCertificates
     Network.AWS.ELBv2.RemoveTags
-    Network.AWS.ELBv2.SetIPAddressType
+    Network.AWS.ELBv2.SetIpAddressType
     Network.AWS.ELBv2.SetRulePriorities
     Network.AWS.ELBv2.SetSecurityGroups
     Network.AWS.ELBv2.SetSubnets
@@ -107,53 +113,122 @@ library
   other-modules:
     Network.AWS.ELBv2.Types.Action
     Network.AWS.ELBv2.Types.ActionTypeEnum
+    Network.AWS.ELBv2.Types.AllocationId
+    Network.AWS.ELBv2.Types.AlpnPolicyValue
+    Network.AWS.ELBv2.Types.AuthenticateCognitoActionAuthenticationRequestParamName
+    Network.AWS.ELBv2.Types.AuthenticateCognitoActionAuthenticationRequestParamValue
     Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
     Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig
+    Network.AWS.ELBv2.Types.AuthenticateCognitoActionScope
+    Network.AWS.ELBv2.Types.AuthenticateCognitoActionUserPoolArn
+    Network.AWS.ELBv2.Types.AuthenticateCognitoActionUserPoolClientId
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthenticationRequestParamName
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthenticationRequestParamValue
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthorizationEndpoint
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionClientId
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionClientSecret
     Network.AWS.ELBv2.Types.AuthenticateOidcActionConditionalBehaviorEnum
     Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionIssuer
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionScope
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionSessionCookieName
+    Network.AWS.ELBv2.Types.AuthenticateOidcActionTokenEndpoint
     Network.AWS.ELBv2.Types.AvailabilityZone
+    Network.AWS.ELBv2.Types.CanonicalHostedZoneId
     Network.AWS.ELBv2.Types.Certificate
+    Network.AWS.ELBv2.Types.CertificateArn
     Network.AWS.ELBv2.Types.Cipher
+    Network.AWS.ELBv2.Types.CipherName
+    Network.AWS.ELBv2.Types.CustomerOwnedIpv4Pool
+    Network.AWS.ELBv2.Types.Description
+    Network.AWS.ELBv2.Types.DNSName
+    Network.AWS.ELBv2.Types.Field
     Network.AWS.ELBv2.Types.FixedResponseActionConfig
+    Network.AWS.ELBv2.Types.FixedResponseActionContentType
+    Network.AWS.ELBv2.Types.FixedResponseActionMessage
+    Network.AWS.ELBv2.Types.FixedResponseActionStatusCode
     Network.AWS.ELBv2.Types.ForwardActionConfig
+    Network.AWS.ELBv2.Types.GrpcCode
+    Network.AWS.ELBv2.Types.HealthCheckPath
+    Network.AWS.ELBv2.Types.HealthCheckPort
     Network.AWS.ELBv2.Types.HostHeaderConditionConfig
-    Network.AWS.ELBv2.Types.HTTPHeaderConditionConfig
-    Network.AWS.ELBv2.Types.HTTPRequestMethodConditionConfig
-    Network.AWS.ELBv2.Types.IPAddressType
+    Network.AWS.ELBv2.Types.HttpCode
+    Network.AWS.ELBv2.Types.HttpHeaderConditionConfig
+    Network.AWS.ELBv2.Types.HttpHeaderConditionName
+    Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig
+    Network.AWS.ELBv2.Types.IpAddress
+    Network.AWS.ELBv2.Types.IpAddressType
+    Network.AWS.ELBv2.Types.IPv6Address
+    Network.AWS.ELBv2.Types.Key
     Network.AWS.ELBv2.Types.Limit
     Network.AWS.ELBv2.Types.Listener
+    Network.AWS.ELBv2.Types.ListenerArn
     Network.AWS.ELBv2.Types.LoadBalancer
     Network.AWS.ELBv2.Types.LoadBalancerAddress
+    Network.AWS.ELBv2.Types.LoadBalancerArn
     Network.AWS.ELBv2.Types.LoadBalancerAttribute
+    Network.AWS.ELBv2.Types.LoadBalancerName
     Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
     Network.AWS.ELBv2.Types.LoadBalancerState
     Network.AWS.ELBv2.Types.LoadBalancerStateEnum
     Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
+    Network.AWS.ELBv2.Types.Marker
     Network.AWS.ELBv2.Types.Matcher
+    Network.AWS.ELBv2.Types.Max
+    Network.AWS.ELBv2.Types.Name
+    Network.AWS.ELBv2.Types.NextMarker
+    Network.AWS.ELBv2.Types.OutpostId
+    Network.AWS.ELBv2.Types.Path
     Network.AWS.ELBv2.Types.PathPatternConditionConfig
+    Network.AWS.ELBv2.Types.PrivateIPv4Address
     Network.AWS.ELBv2.Types.ProtocolEnum
+    Network.AWS.ELBv2.Types.ProtocolVersion
     Network.AWS.ELBv2.Types.QueryStringConditionConfig
     Network.AWS.ELBv2.Types.QueryStringKeyValuePair
+    Network.AWS.ELBv2.Types.Reason
     Network.AWS.ELBv2.Types.RedirectActionConfig
+    Network.AWS.ELBv2.Types.RedirectActionHost
+    Network.AWS.ELBv2.Types.RedirectActionPath
+    Network.AWS.ELBv2.Types.RedirectActionPort
+    Network.AWS.ELBv2.Types.RedirectActionProtocol
+    Network.AWS.ELBv2.Types.RedirectActionQuery
     Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
+    Network.AWS.ELBv2.Types.ResourceArn
     Network.AWS.ELBv2.Types.Rule
+    Network.AWS.ELBv2.Types.RuleArn
     Network.AWS.ELBv2.Types.RuleCondition
     Network.AWS.ELBv2.Types.RulePriorityPair
-    Network.AWS.ELBv2.Types.SourceIPConditionConfig
-    Network.AWS.ELBv2.Types.SSLPolicy
+    Network.AWS.ELBv2.Types.SecurityGroupId
+    Network.AWS.ELBv2.Types.SessionCookieName
+    Network.AWS.ELBv2.Types.SourceIpConditionConfig
+    Network.AWS.ELBv2.Types.SslPolicy
+    Network.AWS.ELBv2.Types.SslPolicyName
+    Network.AWS.ELBv2.Types.SslProtocol
+    Network.AWS.ELBv2.Types.String
+    Network.AWS.ELBv2.Types.StringValue
+    Network.AWS.ELBv2.Types.SubnetId
     Network.AWS.ELBv2.Types.SubnetMapping
     Network.AWS.ELBv2.Types.Tag
     Network.AWS.ELBv2.Types.TagDescription
+    Network.AWS.ELBv2.Types.TagKey
     Network.AWS.ELBv2.Types.TargetDescription
     Network.AWS.ELBv2.Types.TargetGroup
+    Network.AWS.ELBv2.Types.TargetGroupArn
     Network.AWS.ELBv2.Types.TargetGroupAttribute
+    Network.AWS.ELBv2.Types.TargetGroupName
     Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
     Network.AWS.ELBv2.Types.TargetGroupTuple
     Network.AWS.ELBv2.Types.TargetHealth
     Network.AWS.ELBv2.Types.TargetHealthDescription
     Network.AWS.ELBv2.Types.TargetHealthReasonEnum
     Network.AWS.ELBv2.Types.TargetHealthStateEnum
+    Network.AWS.ELBv2.Types.TargetId
     Network.AWS.ELBv2.Types.TargetTypeEnum
+    Network.AWS.ELBv2.Types.UserInfoEndpoint
+    Network.AWS.ELBv2.Types.UserPoolDomain
+    Network.AWS.ELBv2.Types.Value
+    Network.AWS.ELBv2.Types.VpcId
+    Network.AWS.ELBv2.Types.ZoneName
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

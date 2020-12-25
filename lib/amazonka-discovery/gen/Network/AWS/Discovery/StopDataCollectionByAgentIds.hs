@@ -20,119 +20,108 @@ module Network.AWS.Discovery.StopDataCollectionByAgentIds
     mkStopDataCollectionByAgentIds,
 
     -- ** Request lenses
-    sAgentIds,
+    sdcbaiAgentIds,
 
     -- * Destructuring the response
     StopDataCollectionByAgentIdsResponse (..),
     mkStopDataCollectionByAgentIdsResponse,
 
     -- ** Response lenses
-    sdcbairsAgentsConfigurationStatus,
-    sdcbairsResponseStatus,
+    sdcbairrsAgentsConfigurationStatus,
+    sdcbairrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopDataCollectionByAgentIds' smart constructor.
 newtype StopDataCollectionByAgentIds = StopDataCollectionByAgentIds'
   { -- | The IDs of the agents or connectors from which to stop collecting data.
-    agentIds :: [Lude.Text]
+    agentIds :: [Types.AgentId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopDataCollectionByAgentIds' with the minimum fields required to make a request.
---
--- * 'agentIds' - The IDs of the agents or connectors from which to stop collecting data.
+-- | Creates a 'StopDataCollectionByAgentIds' value with any optional fields omitted.
 mkStopDataCollectionByAgentIds ::
   StopDataCollectionByAgentIds
 mkStopDataCollectionByAgentIds =
-  StopDataCollectionByAgentIds' {agentIds = Lude.mempty}
+  StopDataCollectionByAgentIds' {agentIds = Core.mempty}
 
 -- | The IDs of the agents or connectors from which to stop collecting data.
 --
 -- /Note:/ Consider using 'agentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAgentIds :: Lens.Lens' StopDataCollectionByAgentIds [Lude.Text]
-sAgentIds = Lens.lens (agentIds :: StopDataCollectionByAgentIds -> [Lude.Text]) (\s a -> s {agentIds = a} :: StopDataCollectionByAgentIds)
-{-# DEPRECATED sAgentIds "Use generic-lens or generic-optics with 'agentIds' instead." #-}
+sdcbaiAgentIds :: Lens.Lens' StopDataCollectionByAgentIds [Types.AgentId]
+sdcbaiAgentIds = Lens.field @"agentIds"
+{-# DEPRECATED sdcbaiAgentIds "Use generic-lens or generic-optics with 'agentIds' instead." #-}
 
-instance Lude.AWSRequest StopDataCollectionByAgentIds where
+instance Core.FromJSON StopDataCollectionByAgentIds where
+  toJSON StopDataCollectionByAgentIds {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("agentIds" Core..= agentIds)])
+
+instance Core.AWSRequest StopDataCollectionByAgentIds where
   type
     Rs StopDataCollectionByAgentIds =
       StopDataCollectionByAgentIdsResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopDataCollectionByAgentIdsResponse'
-            Lude.<$> (x Lude..?> "agentsConfigurationStatus" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "agentsConfigurationStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopDataCollectionByAgentIds where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopDataCollectionByAgentIds where
-  toJSON StopDataCollectionByAgentIds' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("agentIds" Lude..= agentIds)])
-
-instance Lude.ToPath StopDataCollectionByAgentIds where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopDataCollectionByAgentIds where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopDataCollectionByAgentIdsResponse' smart constructor.
 data StopDataCollectionByAgentIdsResponse = StopDataCollectionByAgentIdsResponse'
   { -- | Information about the agents or connector that were instructed to stop collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
-    agentsConfigurationStatus :: Lude.Maybe [AgentConfigurationStatus],
+    agentsConfigurationStatus :: Core.Maybe [Types.AgentConfigurationStatus],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopDataCollectionByAgentIdsResponse' with the minimum fields required to make a request.
---
--- * 'agentsConfigurationStatus' - Information about the agents or connector that were instructed to stop collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopDataCollectionByAgentIdsResponse' value with any optional fields omitted.
 mkStopDataCollectionByAgentIdsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopDataCollectionByAgentIdsResponse
-mkStopDataCollectionByAgentIdsResponse pResponseStatus_ =
+mkStopDataCollectionByAgentIdsResponse responseStatus =
   StopDataCollectionByAgentIdsResponse'
     { agentsConfigurationStatus =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the agents or connector that were instructed to stop collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
 --
 -- /Note:/ Consider using 'agentsConfigurationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcbairsAgentsConfigurationStatus :: Lens.Lens' StopDataCollectionByAgentIdsResponse (Lude.Maybe [AgentConfigurationStatus])
-sdcbairsAgentsConfigurationStatus = Lens.lens (agentsConfigurationStatus :: StopDataCollectionByAgentIdsResponse -> Lude.Maybe [AgentConfigurationStatus]) (\s a -> s {agentsConfigurationStatus = a} :: StopDataCollectionByAgentIdsResponse)
-{-# DEPRECATED sdcbairsAgentsConfigurationStatus "Use generic-lens or generic-optics with 'agentsConfigurationStatus' instead." #-}
+sdcbairrsAgentsConfigurationStatus :: Lens.Lens' StopDataCollectionByAgentIdsResponse (Core.Maybe [Types.AgentConfigurationStatus])
+sdcbairrsAgentsConfigurationStatus = Lens.field @"agentsConfigurationStatus"
+{-# DEPRECATED sdcbairrsAgentsConfigurationStatus "Use generic-lens or generic-optics with 'agentsConfigurationStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcbairsResponseStatus :: Lens.Lens' StopDataCollectionByAgentIdsResponse Lude.Int
-sdcbairsResponseStatus = Lens.lens (responseStatus :: StopDataCollectionByAgentIdsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopDataCollectionByAgentIdsResponse)
-{-# DEPRECATED sdcbairsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdcbairrsResponseStatus :: Lens.Lens' StopDataCollectionByAgentIdsResponse Core.Int
+sdcbairrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sdcbairrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

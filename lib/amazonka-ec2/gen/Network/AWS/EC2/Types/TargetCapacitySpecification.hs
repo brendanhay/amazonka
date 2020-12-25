@@ -17,16 +17,16 @@ module Network.AWS.EC2.Types.TargetCapacitySpecification
     mkTargetCapacitySpecification,
 
     -- * Lenses
-    tcsOnDemandTargetCapacity,
     tcsDefaultTargetCapacityType,
-    tcsTotalTargetCapacity,
+    tcsOnDemandTargetCapacity,
     tcsSpotTargetCapacity,
+    tcsTotalTargetCapacity,
   )
 where
 
-import Network.AWS.EC2.Types.DefaultTargetCapacityType
+import qualified Network.AWS.EC2.Types.DefaultTargetCapacityType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
 --
@@ -34,67 +34,62 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetCapacitySpecification' smart constructor.
 data TargetCapacitySpecification = TargetCapacitySpecification'
-  { -- | The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.
-    onDemandTargetCapacity :: Lude.Maybe Lude.Int,
-    -- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
-    defaultTargetCapacityType :: Lude.Maybe DefaultTargetCapacityType,
-    -- | The number of units to request, filled using @DefaultTargetCapacityType@ .
-    totalTargetCapacity :: Lude.Maybe Lude.Int,
+  { -- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
+    defaultTargetCapacityType :: Core.Maybe Types.DefaultTargetCapacityType,
+    -- | The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.
+    onDemandTargetCapacity :: Core.Maybe Core.Int,
     -- | The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.
-    spotTargetCapacity :: Lude.Maybe Lude.Int
+    spotTargetCapacity :: Core.Maybe Core.Int,
+    -- | The number of units to request, filled using @DefaultTargetCapacityType@ .
+    totalTargetCapacity :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetCapacitySpecification' with the minimum fields required to make a request.
---
--- * 'onDemandTargetCapacity' - The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.
--- * 'defaultTargetCapacityType' - The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
--- * 'totalTargetCapacity' - The number of units to request, filled using @DefaultTargetCapacityType@ .
--- * 'spotTargetCapacity' - The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.
+-- | Creates a 'TargetCapacitySpecification' value with any optional fields omitted.
 mkTargetCapacitySpecification ::
   TargetCapacitySpecification
 mkTargetCapacitySpecification =
   TargetCapacitySpecification'
-    { onDemandTargetCapacity =
-        Lude.Nothing,
-      defaultTargetCapacityType = Lude.Nothing,
-      totalTargetCapacity = Lude.Nothing,
-      spotTargetCapacity = Lude.Nothing
+    { defaultTargetCapacityType =
+        Core.Nothing,
+      onDemandTargetCapacity = Core.Nothing,
+      spotTargetCapacity = Core.Nothing,
+      totalTargetCapacity = Core.Nothing
     }
-
--- | The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.
---
--- /Note:/ Consider using 'onDemandTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsOnDemandTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Lude.Maybe Lude.Int)
-tcsOnDemandTargetCapacity = Lens.lens (onDemandTargetCapacity :: TargetCapacitySpecification -> Lude.Maybe Lude.Int) (\s a -> s {onDemandTargetCapacity = a} :: TargetCapacitySpecification)
-{-# DEPRECATED tcsOnDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead." #-}
 
 -- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
 --
 -- /Note:/ Consider using 'defaultTargetCapacityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsDefaultTargetCapacityType :: Lens.Lens' TargetCapacitySpecification (Lude.Maybe DefaultTargetCapacityType)
-tcsDefaultTargetCapacityType = Lens.lens (defaultTargetCapacityType :: TargetCapacitySpecification -> Lude.Maybe DefaultTargetCapacityType) (\s a -> s {defaultTargetCapacityType = a} :: TargetCapacitySpecification)
+tcsDefaultTargetCapacityType :: Lens.Lens' TargetCapacitySpecification (Core.Maybe Types.DefaultTargetCapacityType)
+tcsDefaultTargetCapacityType = Lens.field @"defaultTargetCapacityType"
 {-# DEPRECATED tcsDefaultTargetCapacityType "Use generic-lens or generic-optics with 'defaultTargetCapacityType' instead." #-}
 
--- | The number of units to request, filled using @DefaultTargetCapacityType@ .
+-- | The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.
 --
--- /Note:/ Consider using 'totalTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsTotalTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Lude.Maybe Lude.Int)
-tcsTotalTargetCapacity = Lens.lens (totalTargetCapacity :: TargetCapacitySpecification -> Lude.Maybe Lude.Int) (\s a -> s {totalTargetCapacity = a} :: TargetCapacitySpecification)
-{-# DEPRECATED tcsTotalTargetCapacity "Use generic-lens or generic-optics with 'totalTargetCapacity' instead." #-}
+-- /Note:/ Consider using 'onDemandTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsOnDemandTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Core.Maybe Core.Int)
+tcsOnDemandTargetCapacity = Lens.field @"onDemandTargetCapacity"
+{-# DEPRECATED tcsOnDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead." #-}
 
 -- | The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.
 --
 -- /Note:/ Consider using 'spotTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsSpotTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Lude.Maybe Lude.Int)
-tcsSpotTargetCapacity = Lens.lens (spotTargetCapacity :: TargetCapacitySpecification -> Lude.Maybe Lude.Int) (\s a -> s {spotTargetCapacity = a} :: TargetCapacitySpecification)
+tcsSpotTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Core.Maybe Core.Int)
+tcsSpotTargetCapacity = Lens.field @"spotTargetCapacity"
 {-# DEPRECATED tcsSpotTargetCapacity "Use generic-lens or generic-optics with 'spotTargetCapacity' instead." #-}
 
-instance Lude.FromXML TargetCapacitySpecification where
+-- | The number of units to request, filled using @DefaultTargetCapacityType@ .
+--
+-- /Note:/ Consider using 'totalTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsTotalTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Core.Maybe Core.Int)
+tcsTotalTargetCapacity = Lens.field @"totalTargetCapacity"
+{-# DEPRECATED tcsTotalTargetCapacity "Use generic-lens or generic-optics with 'totalTargetCapacity' instead." #-}
+
+instance Core.FromXML TargetCapacitySpecification where
   parseXML x =
     TargetCapacitySpecification'
-      Lude.<$> (x Lude..@? "onDemandTargetCapacity")
-      Lude.<*> (x Lude..@? "defaultTargetCapacityType")
-      Lude.<*> (x Lude..@? "totalTargetCapacity")
-      Lude.<*> (x Lude..@? "spotTargetCapacity")
+      Core.<$> (x Core..@? "defaultTargetCapacityType")
+      Core.<*> (x Core..@? "onDemandTargetCapacity")
+      Core.<*> (x Core..@? "spotTargetCapacity")
+      Core.<*> (x Core..@? "totalTargetCapacity")

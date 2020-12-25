@@ -13,16 +13,17 @@
 module Network.AWS.MachineLearning.Types.EntityStatus
   ( EntityStatus
       ( EntityStatus',
-        Pending,
-        Inprogress,
-        Failed,
-        Completed,
-        Deleted
+        EntityStatusPending,
+        EntityStatusInprogress,
+        EntityStatusFailed,
+        EntityStatusCompleted,
+        EntityStatusDeleted,
+        fromEntityStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Object status with the following possible values:
 --
@@ -36,50 +37,51 @@ import qualified Network.AWS.Prelude as Lude
 --     * @COMPLETED@
 --
 --     * @DELETED@
-newtype EntityStatus = EntityStatus' Lude.Text
+newtype EntityStatus = EntityStatus' {fromEntityStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pending :: EntityStatus
-pattern Pending = EntityStatus' "PENDING"
+pattern EntityStatusPending :: EntityStatus
+pattern EntityStatusPending = EntityStatus' "PENDING"
 
-pattern Inprogress :: EntityStatus
-pattern Inprogress = EntityStatus' "INPROGRESS"
+pattern EntityStatusInprogress :: EntityStatus
+pattern EntityStatusInprogress = EntityStatus' "INPROGRESS"
 
-pattern Failed :: EntityStatus
-pattern Failed = EntityStatus' "FAILED"
+pattern EntityStatusFailed :: EntityStatus
+pattern EntityStatusFailed = EntityStatus' "FAILED"
 
-pattern Completed :: EntityStatus
-pattern Completed = EntityStatus' "COMPLETED"
+pattern EntityStatusCompleted :: EntityStatus
+pattern EntityStatusCompleted = EntityStatus' "COMPLETED"
 
-pattern Deleted :: EntityStatus
-pattern Deleted = EntityStatus' "DELETED"
+pattern EntityStatusDeleted :: EntityStatus
+pattern EntityStatusDeleted = EntityStatus' "DELETED"
 
 {-# COMPLETE
-  Pending,
-  Inprogress,
-  Failed,
-  Completed,
-  Deleted,
+  EntityStatusPending,
+  EntityStatusInprogress,
+  EntityStatusFailed,
+  EntityStatusCompleted,
+  EntityStatusDeleted,
   EntityStatus'
   #-}

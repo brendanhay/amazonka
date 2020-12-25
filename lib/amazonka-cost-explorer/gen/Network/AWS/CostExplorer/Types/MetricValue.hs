@@ -22,49 +22,46 @@ module Network.AWS.CostExplorer.Types.MetricValue
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.Amount as Types
+import qualified Network.AWS.CostExplorer.Types.Unit as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The aggregated value for a metric.
 --
 -- /See:/ 'mkMetricValue' smart constructor.
 data MetricValue = MetricValue'
   { -- | The actual number that represents the metric.
-    amount :: Lude.Maybe Lude.Text,
+    amount :: Core.Maybe Types.Amount,
     -- | The unit that the metric is given in.
-    unit :: Lude.Maybe Lude.Text
+    unit :: Core.Maybe Types.Unit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricValue' with the minimum fields required to make a request.
---
--- * 'amount' - The actual number that represents the metric.
--- * 'unit' - The unit that the metric is given in.
+-- | Creates a 'MetricValue' value with any optional fields omitted.
 mkMetricValue ::
   MetricValue
 mkMetricValue =
-  MetricValue' {amount = Lude.Nothing, unit = Lude.Nothing}
+  MetricValue' {amount = Core.Nothing, unit = Core.Nothing}
 
 -- | The actual number that represents the metric.
 --
 -- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvAmount :: Lens.Lens' MetricValue (Lude.Maybe Lude.Text)
-mvAmount = Lens.lens (amount :: MetricValue -> Lude.Maybe Lude.Text) (\s a -> s {amount = a} :: MetricValue)
+mvAmount :: Lens.Lens' MetricValue (Core.Maybe Types.Amount)
+mvAmount = Lens.field @"amount"
 {-# DEPRECATED mvAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The unit that the metric is given in.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvUnit :: Lens.Lens' MetricValue (Lude.Maybe Lude.Text)
-mvUnit = Lens.lens (unit :: MetricValue -> Lude.Maybe Lude.Text) (\s a -> s {unit = a} :: MetricValue)
+mvUnit :: Lens.Lens' MetricValue (Core.Maybe Types.Unit)
+mvUnit = Lens.field @"unit"
 {-# DEPRECATED mvUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.FromJSON MetricValue where
+instance Core.FromJSON MetricValue where
   parseJSON =
-    Lude.withObject
-      "MetricValue"
-      ( \x ->
-          MetricValue'
-            Lude.<$> (x Lude..:? "Amount") Lude.<*> (x Lude..:? "Unit")
-      )
+    Core.withObject "MetricValue" Core.$
+      \x ->
+        MetricValue'
+          Core.<$> (x Core..:? "Amount") Core.<*> (x Core..:? "Unit")

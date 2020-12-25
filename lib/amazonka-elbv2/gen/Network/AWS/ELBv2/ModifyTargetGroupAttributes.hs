@@ -20,7 +20,7 @@ module Network.AWS.ELBv2.ModifyTargetGroupAttributes
     mkModifyTargetGroupAttributes,
 
     -- ** Request lenses
-    mtgaTargetGroupARN,
+    mtgaTargetGroupArn,
     mtgaAttributes,
 
     -- * Destructuring the response
@@ -28,121 +28,118 @@ module Network.AWS.ELBv2.ModifyTargetGroupAttributes
     mkModifyTargetGroupAttributesResponse,
 
     -- ** Response lenses
-    mtgarsAttributes,
-    mtgarsResponseStatus,
+    mtgarrsAttributes,
+    mtgarrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyTargetGroupAttributes' smart constructor.
 data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupARN :: Lude.Text,
+    targetGroupArn :: Types.TargetGroupArn,
     -- | The attributes.
-    attributes :: [TargetGroupAttribute]
+    attributes :: [Types.TargetGroupAttribute]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyTargetGroupAttributes' with the minimum fields required to make a request.
---
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
--- * 'attributes' - The attributes.
+-- | Creates a 'ModifyTargetGroupAttributes' value with any optional fields omitted.
 mkModifyTargetGroupAttributes ::
-  -- | 'targetGroupARN'
-  Lude.Text ->
+  -- | 'targetGroupArn'
+  Types.TargetGroupArn ->
   ModifyTargetGroupAttributes
-mkModifyTargetGroupAttributes pTargetGroupARN_ =
+mkModifyTargetGroupAttributes targetGroupArn =
   ModifyTargetGroupAttributes'
-    { targetGroupARN = pTargetGroupARN_,
-      attributes = Lude.mempty
+    { targetGroupArn,
+      attributes = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the target group.
 --
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtgaTargetGroupARN :: Lens.Lens' ModifyTargetGroupAttributes Lude.Text
-mtgaTargetGroupARN = Lens.lens (targetGroupARN :: ModifyTargetGroupAttributes -> Lude.Text) (\s a -> s {targetGroupARN = a} :: ModifyTargetGroupAttributes)
-{-# DEPRECATED mtgaTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgaTargetGroupArn :: Lens.Lens' ModifyTargetGroupAttributes Types.TargetGroupArn
+mtgaTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED mtgaTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
 
 -- | The attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtgaAttributes :: Lens.Lens' ModifyTargetGroupAttributes [TargetGroupAttribute]
-mtgaAttributes = Lens.lens (attributes :: ModifyTargetGroupAttributes -> [TargetGroupAttribute]) (\s a -> s {attributes = a} :: ModifyTargetGroupAttributes)
+mtgaAttributes :: Lens.Lens' ModifyTargetGroupAttributes [Types.TargetGroupAttribute]
+mtgaAttributes = Lens.field @"attributes"
 {-# DEPRECATED mtgaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.AWSRequest ModifyTargetGroupAttributes where
+instance Core.AWSRequest ModifyTargetGroupAttributes where
   type
     Rs ModifyTargetGroupAttributes =
       ModifyTargetGroupAttributesResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyTargetGroupAttributes")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "TargetGroupArn" targetGroupArn)
+                Core.<> ( Core.toQueryValue
+                            "Attributes"
+                            (Core.toQueryList "member" attributes)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifyTargetGroupAttributesResult"
       ( \s h x ->
           ModifyTargetGroupAttributesResponse'
-            Lude.<$> ( x Lude..@? "Attributes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Attributes" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyTargetGroupAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyTargetGroupAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyTargetGroupAttributes where
-  toQuery ModifyTargetGroupAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ModifyTargetGroupAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "TargetGroupArn" Lude.=: targetGroupARN,
-        "Attributes" Lude.=: Lude.toQueryList "member" attributes
-      ]
 
 -- | /See:/ 'mkModifyTargetGroupAttributesResponse' smart constructor.
 data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
   { -- | Information about the attributes.
-    attributes :: Lude.Maybe [TargetGroupAttribute],
+    attributes :: Core.Maybe [Types.TargetGroupAttribute],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyTargetGroupAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributes' - Information about the attributes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyTargetGroupAttributesResponse' value with any optional fields omitted.
 mkModifyTargetGroupAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyTargetGroupAttributesResponse
-mkModifyTargetGroupAttributesResponse pResponseStatus_ =
+mkModifyTargetGroupAttributesResponse responseStatus =
   ModifyTargetGroupAttributesResponse'
-    { attributes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attributes = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtgarsAttributes :: Lens.Lens' ModifyTargetGroupAttributesResponse (Lude.Maybe [TargetGroupAttribute])
-mtgarsAttributes = Lens.lens (attributes :: ModifyTargetGroupAttributesResponse -> Lude.Maybe [TargetGroupAttribute]) (\s a -> s {attributes = a} :: ModifyTargetGroupAttributesResponse)
-{-# DEPRECATED mtgarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+mtgarrsAttributes :: Lens.Lens' ModifyTargetGroupAttributesResponse (Core.Maybe [Types.TargetGroupAttribute])
+mtgarrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED mtgarrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtgarsResponseStatus :: Lens.Lens' ModifyTargetGroupAttributesResponse Lude.Int
-mtgarsResponseStatus = Lens.lens (responseStatus :: ModifyTargetGroupAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyTargetGroupAttributesResponse)
-{-# DEPRECATED mtgarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mtgarrsResponseStatus :: Lens.Lens' ModifyTargetGroupAttributesResponse Core.Int
+mtgarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mtgarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

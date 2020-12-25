@@ -44,157 +44,145 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     mkCountClosedWorkflowExecutions,
 
     -- ** Request lenses
-    ccweExecutionFilter,
-    ccweCloseStatusFilter,
-    ccweTypeFilter,
     ccweDomain,
+    ccweCloseStatusFilter,
     ccweCloseTimeFilter,
-    ccweTagFilter,
+    ccweExecutionFilter,
     ccweStartTimeFilter,
+    ccweTagFilter,
+    ccweTypeFilter,
 
     -- * Destructuring the response
-    WorkflowExecutionCount (..),
-    mkWorkflowExecutionCount,
+    Types.WorkflowExecutionCount (..),
+    Types.mkWorkflowExecutionCount,
 
     -- ** Response lenses
-    wecTruncated,
-    wecCount,
+    Types.wecCount,
+    Types.wecTruncated,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkCountClosedWorkflowExecutions' smart constructor.
 data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
-  { -- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
-    executionFilter :: Lude.Maybe WorkflowExecutionFilter,
+  { -- | The name of the domain containing the workflow executions to count.
+    domain :: Types.DomainName,
     -- | If specified, only workflow executions that match this close status are counted. This filter has an affect only if @executionStatus@ is specified as @CLOSED@ .
-    closeStatusFilter :: Lude.Maybe CloseStatusFilter,
-    -- | If specified, indicates the type of the workflow executions to be counted.
-    typeFilter :: Lude.Maybe WorkflowTypeFilter,
-    -- | The name of the domain containing the workflow executions to count.
-    domain :: Lude.Text,
+    closeStatusFilter :: Core.Maybe Types.CloseStatusFilter,
     -- | If specified, only workflow executions that meet the close time criteria of the filter are counted.
-    closeTimeFilter :: Lude.Maybe ExecutionTimeFilter,
-    -- | If specified, only executions that have a tag that matches the filter are counted.
-    tagFilter :: Lude.Maybe TagFilter,
+    closeTimeFilter :: Core.Maybe Types.ExecutionTimeFilter,
+    -- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
+    executionFilter :: Core.Maybe Types.WorkflowExecutionFilter,
     -- | If specified, only workflow executions that meet the start time criteria of the filter are counted.
-    startTimeFilter :: Lude.Maybe ExecutionTimeFilter
+    startTimeFilter :: Core.Maybe Types.ExecutionTimeFilter,
+    -- | If specified, only executions that have a tag that matches the filter are counted.
+    tagFilter :: Core.Maybe Types.TagFilter,
+    -- | If specified, indicates the type of the workflow executions to be counted.
+    typeFilter :: Core.Maybe Types.WorkflowTypeFilter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CountClosedWorkflowExecutions' with the minimum fields required to make a request.
---
--- * 'executionFilter' - If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
--- * 'closeStatusFilter' - If specified, only workflow executions that match this close status are counted. This filter has an affect only if @executionStatus@ is specified as @CLOSED@ .
--- * 'typeFilter' - If specified, indicates the type of the workflow executions to be counted.
--- * 'domain' - The name of the domain containing the workflow executions to count.
--- * 'closeTimeFilter' - If specified, only workflow executions that meet the close time criteria of the filter are counted.
--- * 'tagFilter' - If specified, only executions that have a tag that matches the filter are counted.
--- * 'startTimeFilter' - If specified, only workflow executions that meet the start time criteria of the filter are counted.
+-- | Creates a 'CountClosedWorkflowExecutions' value with any optional fields omitted.
 mkCountClosedWorkflowExecutions ::
   -- | 'domain'
-  Lude.Text ->
+  Types.DomainName ->
   CountClosedWorkflowExecutions
-mkCountClosedWorkflowExecutions pDomain_ =
+mkCountClosedWorkflowExecutions domain =
   CountClosedWorkflowExecutions'
-    { executionFilter = Lude.Nothing,
-      closeStatusFilter = Lude.Nothing,
-      typeFilter = Lude.Nothing,
-      domain = pDomain_,
-      closeTimeFilter = Lude.Nothing,
-      tagFilter = Lude.Nothing,
-      startTimeFilter = Lude.Nothing
+    { domain,
+      closeStatusFilter = Core.Nothing,
+      closeTimeFilter = Core.Nothing,
+      executionFilter = Core.Nothing,
+      startTimeFilter = Core.Nothing,
+      tagFilter = Core.Nothing,
+      typeFilter = Core.Nothing
     }
-
--- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
---
--- /Note:/ Consider using 'executionFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccweExecutionFilter :: Lens.Lens' CountClosedWorkflowExecutions (Lude.Maybe WorkflowExecutionFilter)
-ccweExecutionFilter = Lens.lens (executionFilter :: CountClosedWorkflowExecutions -> Lude.Maybe WorkflowExecutionFilter) (\s a -> s {executionFilter = a} :: CountClosedWorkflowExecutions)
-{-# DEPRECATED ccweExecutionFilter "Use generic-lens or generic-optics with 'executionFilter' instead." #-}
-
--- | If specified, only workflow executions that match this close status are counted. This filter has an affect only if @executionStatus@ is specified as @CLOSED@ .
---
--- /Note:/ Consider using 'closeStatusFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccweCloseStatusFilter :: Lens.Lens' CountClosedWorkflowExecutions (Lude.Maybe CloseStatusFilter)
-ccweCloseStatusFilter = Lens.lens (closeStatusFilter :: CountClosedWorkflowExecutions -> Lude.Maybe CloseStatusFilter) (\s a -> s {closeStatusFilter = a} :: CountClosedWorkflowExecutions)
-{-# DEPRECATED ccweCloseStatusFilter "Use generic-lens or generic-optics with 'closeStatusFilter' instead." #-}
-
--- | If specified, indicates the type of the workflow executions to be counted.
---
--- /Note:/ Consider using 'typeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccweTypeFilter :: Lens.Lens' CountClosedWorkflowExecutions (Lude.Maybe WorkflowTypeFilter)
-ccweTypeFilter = Lens.lens (typeFilter :: CountClosedWorkflowExecutions -> Lude.Maybe WorkflowTypeFilter) (\s a -> s {typeFilter = a} :: CountClosedWorkflowExecutions)
-{-# DEPRECATED ccweTypeFilter "Use generic-lens or generic-optics with 'typeFilter' instead." #-}
 
 -- | The name of the domain containing the workflow executions to count.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccweDomain :: Lens.Lens' CountClosedWorkflowExecutions Lude.Text
-ccweDomain = Lens.lens (domain :: CountClosedWorkflowExecutions -> Lude.Text) (\s a -> s {domain = a} :: CountClosedWorkflowExecutions)
+ccweDomain :: Lens.Lens' CountClosedWorkflowExecutions Types.DomainName
+ccweDomain = Lens.field @"domain"
 {-# DEPRECATED ccweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
+-- | If specified, only workflow executions that match this close status are counted. This filter has an affect only if @executionStatus@ is specified as @CLOSED@ .
+--
+-- /Note:/ Consider using 'closeStatusFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccweCloseStatusFilter :: Lens.Lens' CountClosedWorkflowExecutions (Core.Maybe Types.CloseStatusFilter)
+ccweCloseStatusFilter = Lens.field @"closeStatusFilter"
+{-# DEPRECATED ccweCloseStatusFilter "Use generic-lens or generic-optics with 'closeStatusFilter' instead." #-}
 
 -- | If specified, only workflow executions that meet the close time criteria of the filter are counted.
 --
 -- /Note:/ Consider using 'closeTimeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccweCloseTimeFilter :: Lens.Lens' CountClosedWorkflowExecutions (Lude.Maybe ExecutionTimeFilter)
-ccweCloseTimeFilter = Lens.lens (closeTimeFilter :: CountClosedWorkflowExecutions -> Lude.Maybe ExecutionTimeFilter) (\s a -> s {closeTimeFilter = a} :: CountClosedWorkflowExecutions)
+ccweCloseTimeFilter :: Lens.Lens' CountClosedWorkflowExecutions (Core.Maybe Types.ExecutionTimeFilter)
+ccweCloseTimeFilter = Lens.field @"closeTimeFilter"
 {-# DEPRECATED ccweCloseTimeFilter "Use generic-lens or generic-optics with 'closeTimeFilter' instead." #-}
 
--- | If specified, only executions that have a tag that matches the filter are counted.
+-- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
 --
--- /Note:/ Consider using 'tagFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccweTagFilter :: Lens.Lens' CountClosedWorkflowExecutions (Lude.Maybe TagFilter)
-ccweTagFilter = Lens.lens (tagFilter :: CountClosedWorkflowExecutions -> Lude.Maybe TagFilter) (\s a -> s {tagFilter = a} :: CountClosedWorkflowExecutions)
-{-# DEPRECATED ccweTagFilter "Use generic-lens or generic-optics with 'tagFilter' instead." #-}
+-- /Note:/ Consider using 'executionFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccweExecutionFilter :: Lens.Lens' CountClosedWorkflowExecutions (Core.Maybe Types.WorkflowExecutionFilter)
+ccweExecutionFilter = Lens.field @"executionFilter"
+{-# DEPRECATED ccweExecutionFilter "Use generic-lens or generic-optics with 'executionFilter' instead." #-}
 
 -- | If specified, only workflow executions that meet the start time criteria of the filter are counted.
 --
 -- /Note:/ Consider using 'startTimeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccweStartTimeFilter :: Lens.Lens' CountClosedWorkflowExecutions (Lude.Maybe ExecutionTimeFilter)
-ccweStartTimeFilter = Lens.lens (startTimeFilter :: CountClosedWorkflowExecutions -> Lude.Maybe ExecutionTimeFilter) (\s a -> s {startTimeFilter = a} :: CountClosedWorkflowExecutions)
+ccweStartTimeFilter :: Lens.Lens' CountClosedWorkflowExecutions (Core.Maybe Types.ExecutionTimeFilter)
+ccweStartTimeFilter = Lens.field @"startTimeFilter"
 {-# DEPRECATED ccweStartTimeFilter "Use generic-lens or generic-optics with 'startTimeFilter' instead." #-}
 
-instance Lude.AWSRequest CountClosedWorkflowExecutions where
-  type Rs CountClosedWorkflowExecutions = WorkflowExecutionCount
-  request = Req.postJSON swfService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | If specified, only executions that have a tag that matches the filter are counted.
+--
+-- /Note:/ Consider using 'tagFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccweTagFilter :: Lens.Lens' CountClosedWorkflowExecutions (Core.Maybe Types.TagFilter)
+ccweTagFilter = Lens.field @"tagFilter"
+{-# DEPRECATED ccweTagFilter "Use generic-lens or generic-optics with 'tagFilter' instead." #-}
 
-instance Lude.ToHeaders CountClosedWorkflowExecutions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SimpleWorkflowService.CountClosedWorkflowExecutions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
+-- | If specified, indicates the type of the workflow executions to be counted.
+--
+-- /Note:/ Consider using 'typeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccweTypeFilter :: Lens.Lens' CountClosedWorkflowExecutions (Core.Maybe Types.WorkflowTypeFilter)
+ccweTypeFilter = Lens.field @"typeFilter"
+{-# DEPRECATED ccweTypeFilter "Use generic-lens or generic-optics with 'typeFilter' instead." #-}
+
+instance Core.FromJSON CountClosedWorkflowExecutions where
+  toJSON CountClosedWorkflowExecutions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            ("closeStatusFilter" Core..=) Core.<$> closeStatusFilter,
+            ("closeTimeFilter" Core..=) Core.<$> closeTimeFilter,
+            ("executionFilter" Core..=) Core.<$> executionFilter,
+            ("startTimeFilter" Core..=) Core.<$> startTimeFilter,
+            ("tagFilter" Core..=) Core.<$> tagFilter,
+            ("typeFilter" Core..=) Core.<$> typeFilter
           ]
       )
 
-instance Lude.ToJSON CountClosedWorkflowExecutions where
-  toJSON CountClosedWorkflowExecutions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("executionFilter" Lude..=) Lude.<$> executionFilter,
-            ("closeStatusFilter" Lude..=) Lude.<$> closeStatusFilter,
-            ("typeFilter" Lude..=) Lude.<$> typeFilter,
-            Lude.Just ("domain" Lude..= domain),
-            ("closeTimeFilter" Lude..=) Lude.<$> closeTimeFilter,
-            ("tagFilter" Lude..=) Lude.<$> tagFilter,
-            ("startTimeFilter" Lude..=) Lude.<$> startTimeFilter
-          ]
-      )
-
-instance Lude.ToPath CountClosedWorkflowExecutions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CountClosedWorkflowExecutions where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CountClosedWorkflowExecutions where
+  type
+    Rs CountClosedWorkflowExecutions =
+      Types.WorkflowExecutionCount
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "SimpleWorkflowService.CountClosedWorkflowExecutions"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

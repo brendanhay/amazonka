@@ -13,56 +13,61 @@
 module Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
   ( AuditMitigationActionsTaskStatus
       ( AuditMitigationActionsTaskStatus',
-        AMATSInProgress,
-        AMATSCompleted,
-        AMATSFailed,
-        AMATSCanceled
+        AuditMitigationActionsTaskStatusInProgress,
+        AuditMitigationActionsTaskStatusCompleted,
+        AuditMitigationActionsTaskStatusFailed,
+        AuditMitigationActionsTaskStatusCanceled,
+        fromAuditMitigationActionsTaskStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuditMitigationActionsTaskStatus = AuditMitigationActionsTaskStatus' Lude.Text
+newtype AuditMitigationActionsTaskStatus = AuditMitigationActionsTaskStatus'
+  { fromAuditMitigationActionsTaskStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AMATSInProgress :: AuditMitigationActionsTaskStatus
-pattern AMATSInProgress = AuditMitigationActionsTaskStatus' "IN_PROGRESS"
+pattern AuditMitigationActionsTaskStatusInProgress :: AuditMitigationActionsTaskStatus
+pattern AuditMitigationActionsTaskStatusInProgress = AuditMitigationActionsTaskStatus' "IN_PROGRESS"
 
-pattern AMATSCompleted :: AuditMitigationActionsTaskStatus
-pattern AMATSCompleted = AuditMitigationActionsTaskStatus' "COMPLETED"
+pattern AuditMitigationActionsTaskStatusCompleted :: AuditMitigationActionsTaskStatus
+pattern AuditMitigationActionsTaskStatusCompleted = AuditMitigationActionsTaskStatus' "COMPLETED"
 
-pattern AMATSFailed :: AuditMitigationActionsTaskStatus
-pattern AMATSFailed = AuditMitigationActionsTaskStatus' "FAILED"
+pattern AuditMitigationActionsTaskStatusFailed :: AuditMitigationActionsTaskStatus
+pattern AuditMitigationActionsTaskStatusFailed = AuditMitigationActionsTaskStatus' "FAILED"
 
-pattern AMATSCanceled :: AuditMitigationActionsTaskStatus
-pattern AMATSCanceled = AuditMitigationActionsTaskStatus' "CANCELED"
+pattern AuditMitigationActionsTaskStatusCanceled :: AuditMitigationActionsTaskStatus
+pattern AuditMitigationActionsTaskStatusCanceled = AuditMitigationActionsTaskStatus' "CANCELED"
 
 {-# COMPLETE
-  AMATSInProgress,
-  AMATSCompleted,
-  AMATSFailed,
-  AMATSCanceled,
+  AuditMitigationActionsTaskStatusInProgress,
+  AuditMitigationActionsTaskStatusCompleted,
+  AuditMitigationActionsTaskStatusFailed,
+  AuditMitigationActionsTaskStatusCanceled,
   AuditMitigationActionsTaskStatus'
   #-}

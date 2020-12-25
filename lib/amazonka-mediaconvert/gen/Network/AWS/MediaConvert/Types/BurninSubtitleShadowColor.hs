@@ -13,54 +13,59 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
   ( BurninSubtitleShadowColor
       ( BurninSubtitleShadowColor',
-        BSSCNone,
-        BSSCBlack,
-        BSSCWhite
+        BurninSubtitleShadowColorNone,
+        BurninSubtitleShadowColorBlack,
+        BurninSubtitleShadowColorWhite,
+        fromBurninSubtitleShadowColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the color of the shadow cast by the captions.
 --
 -- All burn-in and DVB-Sub font settings must match.
-newtype BurninSubtitleShadowColor = BurninSubtitleShadowColor' Lude.Text
+newtype BurninSubtitleShadowColor = BurninSubtitleShadowColor'
+  { fromBurninSubtitleShadowColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BSSCNone :: BurninSubtitleShadowColor
-pattern BSSCNone = BurninSubtitleShadowColor' "NONE"
+pattern BurninSubtitleShadowColorNone :: BurninSubtitleShadowColor
+pattern BurninSubtitleShadowColorNone = BurninSubtitleShadowColor' "NONE"
 
-pattern BSSCBlack :: BurninSubtitleShadowColor
-pattern BSSCBlack = BurninSubtitleShadowColor' "BLACK"
+pattern BurninSubtitleShadowColorBlack :: BurninSubtitleShadowColor
+pattern BurninSubtitleShadowColorBlack = BurninSubtitleShadowColor' "BLACK"
 
-pattern BSSCWhite :: BurninSubtitleShadowColor
-pattern BSSCWhite = BurninSubtitleShadowColor' "WHITE"
+pattern BurninSubtitleShadowColorWhite :: BurninSubtitleShadowColor
+pattern BurninSubtitleShadowColorWhite = BurninSubtitleShadowColor' "WHITE"
 
 {-# COMPLETE
-  BSSCNone,
-  BSSCBlack,
-  BSSCWhite,
+  BurninSubtitleShadowColorNone,
+  BurninSubtitleShadowColorBlack,
+  BurninSubtitleShadowColorWhite,
   BurninSubtitleShadowColor'
   #-}

@@ -21,41 +21,38 @@ module Network.AWS.IoT.Types.Destination
   )
 where
 
-import Network.AWS.IoT.Types.S3Destination
+import qualified Network.AWS.IoT.Types.S3Destination as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the location of the updated firmware.
 --
 -- /See:/ 'mkDestination' smart constructor.
 newtype Destination = Destination'
   { -- | Describes the location in S3 of the updated firmware.
-    s3Destination :: Lude.Maybe S3Destination
+    s3Destination :: Core.Maybe Types.S3Destination
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Destination' with the minimum fields required to make a request.
---
--- * 's3Destination' - Describes the location in S3 of the updated firmware.
+-- | Creates a 'Destination' value with any optional fields omitted.
 mkDestination ::
   Destination
-mkDestination = Destination' {s3Destination = Lude.Nothing}
+mkDestination = Destination' {s3Destination = Core.Nothing}
 
 -- | Describes the location in S3 of the updated firmware.
 --
 -- /Note:/ Consider using 's3Destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dS3Destination :: Lens.Lens' Destination (Lude.Maybe S3Destination)
-dS3Destination = Lens.lens (s3Destination :: Destination -> Lude.Maybe S3Destination) (\s a -> s {s3Destination = a} :: Destination)
+dS3Destination :: Lens.Lens' Destination (Core.Maybe Types.S3Destination)
+dS3Destination = Lens.field @"s3Destination"
 {-# DEPRECATED dS3Destination "Use generic-lens or generic-optics with 's3Destination' instead." #-}
 
-instance Lude.FromJSON Destination where
-  parseJSON =
-    Lude.withObject
-      "Destination"
-      (\x -> Destination' Lude.<$> (x Lude..:? "s3Destination"))
+instance Core.FromJSON Destination where
+  toJSON Destination {..} =
+    Core.object
+      (Core.catMaybes [("s3Destination" Core..=) Core.<$> s3Destination])
 
-instance Lude.ToJSON Destination where
-  toJSON Destination' {..} =
-    Lude.object
-      (Lude.catMaybes [("s3Destination" Lude..=) Lude.<$> s3Destination])
+instance Core.FromJSON Destination where
+  parseJSON =
+    Core.withObject "Destination" Core.$
+      \x -> Destination' Core.<$> (x Core..:? "s3Destination")

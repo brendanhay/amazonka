@@ -17,15 +17,16 @@ module Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
     mkHealthCheckConfig,
 
     -- * Lenses
+    hccType,
     hccFailureThreshold,
     hccResourcePath,
-    hccType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53AutoNaming.Types.HealthCheckType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53AutoNaming.Types.HealthCheckType as Types
+import qualified Network.AWS.Route53AutoNaming.Types.ResourcePath as Types
 
 -- | /Public DNS and HTTP namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in @DnsConfig@ .
 --
@@ -54,13 +55,7 @@ import Network.AWS.Route53AutoNaming.Types.HealthCheckType
 --
 -- /See:/ 'mkHealthCheckConfig' smart constructor.
 data HealthCheckConfig = HealthCheckConfig'
-  { -- | The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
-    failureThreshold :: Lude.Maybe Lude.Natural,
-    -- | The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service. If you don't specify a value for @ResourcePath@ , the default value is @/@ .
-    --
-    -- If you specify @TCP@ for @Type@ , you must /not/ specify a value for @ResourcePath@ .
-    resourcePath :: Lude.Maybe Lude.Text,
-    -- | The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
+  { -- | The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
     --
     -- /Important:/ You can't change the value of @Type@ after you create a health check.
     -- You can create the following types of health checks:
@@ -77,60 +72,28 @@ data HealthCheckConfig = HealthCheckConfig'
     --
     --
     -- For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
-    type' :: HealthCheckType
+    type' :: Types.HealthCheckType,
+    -- | The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
+    failureThreshold :: Core.Maybe Core.Natural,
+    -- | The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service. If you don't specify a value for @ResourcePath@ , the default value is @/@ .
+    --
+    -- If you specify @TCP@ for @Type@ , you must /not/ specify a value for @ResourcePath@ .
+    resourcePath :: Core.Maybe Types.ResourcePath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HealthCheckConfig' with the minimum fields required to make a request.
---
--- * 'failureThreshold' - The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
--- * 'resourcePath' - The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service. If you don't specify a value for @ResourcePath@ , the default value is @/@ .
---
--- If you specify @TCP@ for @Type@ , you must /not/ specify a value for @ResourcePath@ .
--- * 'type'' - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
---
--- /Important:/ You can't change the value of @Type@ after you create a health check.
--- You can create the following types of health checks:
---
---     * __HTTP__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.
---
---
---     * __HTTPS__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400.
--- /Important:/ If you specify HTTPS for the value of @Type@ , the endpoint must support TLS v1.0 or later.
---
---
---     * __TCP__ : Route 53 tries to establish a TCP connection.
--- If you specify @TCP@ for @Type@ , don't specify a value for @ResourcePath@ .
---
---
--- For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
+-- | Creates a 'HealthCheckConfig' value with any optional fields omitted.
 mkHealthCheckConfig ::
-  -- | 'type''
-  HealthCheckType ->
+  -- | 'type\''
+  Types.HealthCheckType ->
   HealthCheckConfig
-mkHealthCheckConfig pType_ =
+mkHealthCheckConfig type' =
   HealthCheckConfig'
-    { failureThreshold = Lude.Nothing,
-      resourcePath = Lude.Nothing,
-      type' = pType_
+    { type',
+      failureThreshold = Core.Nothing,
+      resourcePath = Core.Nothing
     }
-
--- | The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
---
--- /Note:/ Consider using 'failureThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hccFailureThreshold :: Lens.Lens' HealthCheckConfig (Lude.Maybe Lude.Natural)
-hccFailureThreshold = Lens.lens (failureThreshold :: HealthCheckConfig -> Lude.Maybe Lude.Natural) (\s a -> s {failureThreshold = a} :: HealthCheckConfig)
-{-# DEPRECATED hccFailureThreshold "Use generic-lens or generic-optics with 'failureThreshold' instead." #-}
-
--- | The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service. If you don't specify a value for @ResourcePath@ , the default value is @/@ .
---
--- If you specify @TCP@ for @Type@ , you must /not/ specify a value for @ResourcePath@ .
---
--- /Note:/ Consider using 'resourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hccResourcePath :: Lens.Lens' HealthCheckConfig (Lude.Maybe Lude.Text)
-hccResourcePath = Lens.lens (resourcePath :: HealthCheckConfig -> Lude.Maybe Lude.Text) (\s a -> s {resourcePath = a} :: HealthCheckConfig)
-{-# DEPRECATED hccResourcePath "Use generic-lens or generic-optics with 'resourcePath' instead." #-}
 
 -- | The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
 --
@@ -151,27 +114,41 @@ hccResourcePath = Lens.lens (resourcePath :: HealthCheckConfig -> Lude.Maybe Lud
 -- For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hccType :: Lens.Lens' HealthCheckConfig HealthCheckType
-hccType = Lens.lens (type' :: HealthCheckConfig -> HealthCheckType) (\s a -> s {type' = a} :: HealthCheckConfig)
+hccType :: Lens.Lens' HealthCheckConfig Types.HealthCheckType
+hccType = Lens.field @"type'"
 {-# DEPRECATED hccType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON HealthCheckConfig where
-  parseJSON =
-    Lude.withObject
-      "HealthCheckConfig"
-      ( \x ->
-          HealthCheckConfig'
-            Lude.<$> (x Lude..:? "FailureThreshold")
-            Lude.<*> (x Lude..:? "ResourcePath")
-            Lude.<*> (x Lude..: "Type")
-      )
+-- | The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
+--
+-- /Note:/ Consider using 'failureThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hccFailureThreshold :: Lens.Lens' HealthCheckConfig (Core.Maybe Core.Natural)
+hccFailureThreshold = Lens.field @"failureThreshold"
+{-# DEPRECATED hccFailureThreshold "Use generic-lens or generic-optics with 'failureThreshold' instead." #-}
 
-instance Lude.ToJSON HealthCheckConfig where
-  toJSON HealthCheckConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("FailureThreshold" Lude..=) Lude.<$> failureThreshold,
-            ("ResourcePath" Lude..=) Lude.<$> resourcePath,
-            Lude.Just ("Type" Lude..= type')
+-- | The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service. If you don't specify a value for @ResourcePath@ , the default value is @/@ .
+--
+-- If you specify @TCP@ for @Type@ , you must /not/ specify a value for @ResourcePath@ .
+--
+-- /Note:/ Consider using 'resourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hccResourcePath :: Lens.Lens' HealthCheckConfig (Core.Maybe Types.ResourcePath)
+hccResourcePath = Lens.field @"resourcePath"
+{-# DEPRECATED hccResourcePath "Use generic-lens or generic-optics with 'resourcePath' instead." #-}
+
+instance Core.FromJSON HealthCheckConfig where
+  toJSON HealthCheckConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            ("FailureThreshold" Core..=) Core.<$> failureThreshold,
+            ("ResourcePath" Core..=) Core.<$> resourcePath
           ]
       )
+
+instance Core.FromJSON HealthCheckConfig where
+  parseJSON =
+    Core.withObject "HealthCheckConfig" Core.$
+      \x ->
+        HealthCheckConfig'
+          Core.<$> (x Core..: "Type")
+          Core.<*> (x Core..:? "FailureThreshold")
+          Core.<*> (x Core..:? "ResourcePath")

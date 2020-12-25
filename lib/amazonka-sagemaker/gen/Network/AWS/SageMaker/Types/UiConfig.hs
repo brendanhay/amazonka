@@ -17,21 +17,21 @@ module Network.AWS.SageMaker.Types.UiConfig
     mkUiConfig,
 
     -- * Lenses
-    ucUiTemplateS3URI,
-    ucHumanTaskUiARN,
+    ucHumanTaskUiArn,
+    ucUiTemplateS3Uri,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.HumanTaskUiArn as Types
+import qualified Network.AWS.SageMaker.Types.UiTemplateS3Uri as Types
 
 -- | Provided configuration information for the worker UI for a labeling job.
 --
 -- /See:/ 'mkUiConfig' smart constructor.
 data UiConfig = UiConfig'
-  { -- | The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template> .
-    uiTemplateS3URI :: Lude.Maybe Lude.Text,
-    -- | The ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
+  { -- | The ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
     --
     -- Use this parameter when you are creating a labeling job for 3D point cloud and video fram labeling jobs. Use your labeling job task type to select one of the following ARN's and use it with this parameter when you create a labeling job. Replace @aws-region@ with the AWS region you are creating your labeling job in.
     -- __3D Point Cloud HumanTaskUiArns__
@@ -59,56 +59,21 @@ data UiConfig = UiConfig'
     -- Use this @HumanTaskUiArn@ for video frame object tracking and video frame object tracking adjustment labeling jobs.
     --
     --     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/VideoObjectTracking@
-    humanTaskUiARN :: Lude.Maybe Lude.Text
+    humanTaskUiArn :: Core.Maybe Types.HumanTaskUiArn,
+    -- | The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template> .
+    uiTemplateS3Uri :: Core.Maybe Types.UiTemplateS3Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UiConfig' with the minimum fields required to make a request.
---
--- * 'uiTemplateS3URI' - The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template> .
--- * 'humanTaskUiARN' - The ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
---
--- Use this parameter when you are creating a labeling job for 3D point cloud and video fram labeling jobs. Use your labeling job task type to select one of the following ARN's and use it with this parameter when you create a labeling job. Replace @aws-region@ with the AWS region you are creating your labeling job in.
--- __3D Point Cloud HumanTaskUiArns__
--- Use this @HumanTaskUiArn@ for 3D point cloud object detection and 3D point cloud object detection adjustment labeling jobs.
---
---     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectDetection@
---
---
--- Use this @HumanTaskUiArn@ for 3D point cloud object tracking and 3D point cloud object tracking adjustment labeling jobs.
---
---     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectTracking@
---
---
--- Use this @HumanTaskUiArn@ for 3D point cloud semantic segmentation and 3D point cloud semantic segmentation adjustment labeling jobs.
---
---     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudSemanticSegmentation@
---
---
--- __Video Frame HumanTaskUiArns__
--- Use this @HumanTaskUiArn@ for video frame object detection and video frame object detection adjustment labeling jobs.
---
---     * @arn:aws:sagemaker:region:394669845002:human-task-ui/VideoObjectDetection@
---
---
--- Use this @HumanTaskUiArn@ for video frame object tracking and video frame object tracking adjustment labeling jobs.
---
---     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/VideoObjectTracking@
+-- | Creates a 'UiConfig' value with any optional fields omitted.
 mkUiConfig ::
   UiConfig
 mkUiConfig =
   UiConfig'
-    { uiTemplateS3URI = Lude.Nothing,
-      humanTaskUiARN = Lude.Nothing
+    { humanTaskUiArn = Core.Nothing,
+      uiTemplateS3Uri = Core.Nothing
     }
-
--- | The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template> .
---
--- /Note:/ Consider using 'uiTemplateS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucUiTemplateS3URI :: Lens.Lens' UiConfig (Lude.Maybe Lude.Text)
-ucUiTemplateS3URI = Lens.lens (uiTemplateS3URI :: UiConfig -> Lude.Maybe Lude.Text) (\s a -> s {uiTemplateS3URI = a} :: UiConfig)
-{-# DEPRECATED ucUiTemplateS3URI "Use generic-lens or generic-optics with 'uiTemplateS3URI' instead." #-}
 
 -- | The ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
 --
@@ -141,26 +106,31 @@ ucUiTemplateS3URI = Lens.lens (uiTemplateS3URI :: UiConfig -> Lude.Maybe Lude.Te
 --
 --
 --
--- /Note:/ Consider using 'humanTaskUiARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucHumanTaskUiARN :: Lens.Lens' UiConfig (Lude.Maybe Lude.Text)
-ucHumanTaskUiARN = Lens.lens (humanTaskUiARN :: UiConfig -> Lude.Maybe Lude.Text) (\s a -> s {humanTaskUiARN = a} :: UiConfig)
-{-# DEPRECATED ucHumanTaskUiARN "Use generic-lens or generic-optics with 'humanTaskUiARN' instead." #-}
+-- /Note:/ Consider using 'humanTaskUiArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucHumanTaskUiArn :: Lens.Lens' UiConfig (Core.Maybe Types.HumanTaskUiArn)
+ucHumanTaskUiArn = Lens.field @"humanTaskUiArn"
+{-# DEPRECATED ucHumanTaskUiArn "Use generic-lens or generic-optics with 'humanTaskUiArn' instead." #-}
 
-instance Lude.FromJSON UiConfig where
-  parseJSON =
-    Lude.withObject
-      "UiConfig"
-      ( \x ->
-          UiConfig'
-            Lude.<$> (x Lude..:? "UiTemplateS3Uri")
-            Lude.<*> (x Lude..:? "HumanTaskUiArn")
-      )
+-- | The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template> .
+--
+-- /Note:/ Consider using 'uiTemplateS3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucUiTemplateS3Uri :: Lens.Lens' UiConfig (Core.Maybe Types.UiTemplateS3Uri)
+ucUiTemplateS3Uri = Lens.field @"uiTemplateS3Uri"
+{-# DEPRECATED ucUiTemplateS3Uri "Use generic-lens or generic-optics with 'uiTemplateS3Uri' instead." #-}
 
-instance Lude.ToJSON UiConfig where
-  toJSON UiConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UiTemplateS3Uri" Lude..=) Lude.<$> uiTemplateS3URI,
-            ("HumanTaskUiArn" Lude..=) Lude.<$> humanTaskUiARN
+instance Core.FromJSON UiConfig where
+  toJSON UiConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("HumanTaskUiArn" Core..=) Core.<$> humanTaskUiArn,
+            ("UiTemplateS3Uri" Core..=) Core.<$> uiTemplateS3Uri
           ]
       )
+
+instance Core.FromJSON UiConfig where
+  parseJSON =
+    Core.withObject "UiConfig" Core.$
+      \x ->
+        UiConfig'
+          Core.<$> (x Core..:? "HumanTaskUiArn")
+          Core.<*> (x Core..:? "UiTemplateS3Uri")

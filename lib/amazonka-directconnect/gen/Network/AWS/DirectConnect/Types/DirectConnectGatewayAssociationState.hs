@@ -13,61 +13,66 @@
 module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState
   ( DirectConnectGatewayAssociationState
       ( DirectConnectGatewayAssociationState',
-        Associating,
-        Associated,
-        Disassociating,
-        Disassociated,
-        Updating
+        DirectConnectGatewayAssociationStateAssociating,
+        DirectConnectGatewayAssociationStateAssociated,
+        DirectConnectGatewayAssociationStateDisassociating,
+        DirectConnectGatewayAssociationStateDisassociated,
+        DirectConnectGatewayAssociationStateUpdating,
+        fromDirectConnectGatewayAssociationState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DirectConnectGatewayAssociationState = DirectConnectGatewayAssociationState' Lude.Text
+newtype DirectConnectGatewayAssociationState = DirectConnectGatewayAssociationState'
+  { fromDirectConnectGatewayAssociationState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Associating :: DirectConnectGatewayAssociationState
-pattern Associating = DirectConnectGatewayAssociationState' "associating"
+pattern DirectConnectGatewayAssociationStateAssociating :: DirectConnectGatewayAssociationState
+pattern DirectConnectGatewayAssociationStateAssociating = DirectConnectGatewayAssociationState' "associating"
 
-pattern Associated :: DirectConnectGatewayAssociationState
-pattern Associated = DirectConnectGatewayAssociationState' "associated"
+pattern DirectConnectGatewayAssociationStateAssociated :: DirectConnectGatewayAssociationState
+pattern DirectConnectGatewayAssociationStateAssociated = DirectConnectGatewayAssociationState' "associated"
 
-pattern Disassociating :: DirectConnectGatewayAssociationState
-pattern Disassociating = DirectConnectGatewayAssociationState' "disassociating"
+pattern DirectConnectGatewayAssociationStateDisassociating :: DirectConnectGatewayAssociationState
+pattern DirectConnectGatewayAssociationStateDisassociating = DirectConnectGatewayAssociationState' "disassociating"
 
-pattern Disassociated :: DirectConnectGatewayAssociationState
-pattern Disassociated = DirectConnectGatewayAssociationState' "disassociated"
+pattern DirectConnectGatewayAssociationStateDisassociated :: DirectConnectGatewayAssociationState
+pattern DirectConnectGatewayAssociationStateDisassociated = DirectConnectGatewayAssociationState' "disassociated"
 
-pattern Updating :: DirectConnectGatewayAssociationState
-pattern Updating = DirectConnectGatewayAssociationState' "updating"
+pattern DirectConnectGatewayAssociationStateUpdating :: DirectConnectGatewayAssociationState
+pattern DirectConnectGatewayAssociationStateUpdating = DirectConnectGatewayAssociationState' "updating"
 
 {-# COMPLETE
-  Associating,
-  Associated,
-  Disassociating,
-  Disassociated,
-  Updating,
+  DirectConnectGatewayAssociationStateAssociating,
+  DirectConnectGatewayAssociationStateAssociated,
+  DirectConnectGatewayAssociationStateDisassociating,
+  DirectConnectGatewayAssociationStateDisassociated,
+  DirectConnectGatewayAssociationStateUpdating,
   DirectConnectGatewayAssociationState'
   #-}

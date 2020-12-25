@@ -23,160 +23,149 @@ module Network.AWS.Connect.ListUsers
 
     -- ** Request lenses
     luInstanceId,
-    luNextToken,
     luMaxResults,
+    luNextToken,
 
     -- * Destructuring the response
     ListUsersResponse (..),
     mkListUsersResponse,
 
     -- ** Response lenses
-    lursNextToken,
-    lursUserSummaryList,
-    lursResponseStatus,
+    lurrsNextToken,
+    lurrsUserSummaryList,
+    lurrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListUsers' smart constructor.
 data ListUsers = ListUsers'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'ListUsers' value with any optional fields omitted.
 mkListUsers ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   ListUsers
-mkListUsers pInstanceId_ =
+mkListUsers instanceId =
   ListUsers'
-    { instanceId = pInstanceId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luInstanceId :: Lens.Lens' ListUsers Lude.Text
-luInstanceId = Lens.lens (instanceId :: ListUsers -> Lude.Text) (\s a -> s {instanceId = a} :: ListUsers)
+luInstanceId :: Lens.Lens' ListUsers Types.InstanceId
+luInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED luInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luNextToken :: Lens.Lens' ListUsers (Lude.Maybe Lude.Text)
-luNextToken = Lens.lens (nextToken :: ListUsers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUsers)
-{-# DEPRECATED luNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luMaxResults :: Lens.Lens' ListUsers (Lude.Maybe Lude.Natural)
-luMaxResults = Lens.lens (maxResults :: ListUsers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUsers)
+luMaxResults :: Lens.Lens' ListUsers (Core.Maybe Core.Natural)
+luMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED luMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListUsers where
-  page rq rs
-    | Page.stop (rs Lens.^. lursNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lursUserSummaryList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& luNextToken Lens..~ rs Lens.^. lursNextToken
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luNextToken :: Lens.Lens' ListUsers (Core.Maybe Types.NextToken)
+luNextToken = Lens.field @"nextToken"
+{-# DEPRECATED luNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListUsers where
+instance Core.AWSRequest ListUsers where
   type Rs ListUsers = ListUsersResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/users-summary/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "UserSummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "UserSummaryList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListUsers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListUsers where
-  toPath ListUsers' {..} =
-    Lude.mconcat ["/users-summary/", Lude.toBS instanceId]
-
-instance Lude.ToQuery ListUsers where
-  toQuery ListUsers' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListUsers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"userSummaryList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
   { -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Information about the users.
-    userSummaryList :: Lude.Maybe [UserSummary],
+    userSummaryList :: Core.Maybe [Types.UserSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'userSummaryList' - Information about the users.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListUsersResponse' value with any optional fields omitted.
 mkListUsersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListUsersResponse
-mkListUsersResponse pResponseStatus_ =
+mkListUsersResponse responseStatus =
   ListUsersResponse'
-    { nextToken = Lude.Nothing,
-      userSummaryList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      userSummaryList = Core.Nothing,
+      responseStatus
     }
 
 -- | If there are additional results, this is the token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lursNextToken :: Lens.Lens' ListUsersResponse (Lude.Maybe Lude.Text)
-lursNextToken = Lens.lens (nextToken :: ListUsersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUsersResponse)
-{-# DEPRECATED lursNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lurrsNextToken :: Lens.Lens' ListUsersResponse (Core.Maybe Types.NextToken)
+lurrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lurrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the users.
 --
 -- /Note:/ Consider using 'userSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lursUserSummaryList :: Lens.Lens' ListUsersResponse (Lude.Maybe [UserSummary])
-lursUserSummaryList = Lens.lens (userSummaryList :: ListUsersResponse -> Lude.Maybe [UserSummary]) (\s a -> s {userSummaryList = a} :: ListUsersResponse)
-{-# DEPRECATED lursUserSummaryList "Use generic-lens or generic-optics with 'userSummaryList' instead." #-}
+lurrsUserSummaryList :: Lens.Lens' ListUsersResponse (Core.Maybe [Types.UserSummary])
+lurrsUserSummaryList = Lens.field @"userSummaryList"
+{-# DEPRECATED lurrsUserSummaryList "Use generic-lens or generic-optics with 'userSummaryList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lursResponseStatus :: Lens.Lens' ListUsersResponse Lude.Int
-lursResponseStatus = Lens.lens (responseStatus :: ListUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUsersResponse)
-{-# DEPRECATED lursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lurrsResponseStatus :: Lens.Lens' ListUsersResponse Core.Int
+lurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

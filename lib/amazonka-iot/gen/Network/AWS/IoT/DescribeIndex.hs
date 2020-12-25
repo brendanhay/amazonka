@@ -27,71 +27,69 @@ module Network.AWS.IoT.DescribeIndex
     mkDescribeIndexResponse,
 
     -- ** Response lenses
-    dirsIndexStatus,
-    dirsSchema,
-    dirsIndexName,
-    dirsResponseStatus,
+    dirrsIndexName,
+    dirrsIndexStatus,
+    dirrsSchema,
+    dirrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeIndex' smart constructor.
 newtype DescribeIndex = DescribeIndex'
   { -- | The index name.
-    indexName :: Lude.Text
+    indexName :: Types.IndexName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeIndex' with the minimum fields required to make a request.
---
--- * 'indexName' - The index name.
+-- | Creates a 'DescribeIndex' value with any optional fields omitted.
 mkDescribeIndex ::
   -- | 'indexName'
-  Lude.Text ->
+  Types.IndexName ->
   DescribeIndex
-mkDescribeIndex pIndexName_ =
-  DescribeIndex' {indexName = pIndexName_}
+mkDescribeIndex indexName = DescribeIndex' {indexName}
 
 -- | The index name.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diIndexName :: Lens.Lens' DescribeIndex Lude.Text
-diIndexName = Lens.lens (indexName :: DescribeIndex -> Lude.Text) (\s a -> s {indexName = a} :: DescribeIndex)
+diIndexName :: Lens.Lens' DescribeIndex Types.IndexName
+diIndexName = Lens.field @"indexName"
 {-# DEPRECATED diIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Lude.AWSRequest DescribeIndex where
+instance Core.AWSRequest DescribeIndex where
   type Rs DescribeIndex = DescribeIndexResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/indices/" Core.<> (Core.toText indexName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeIndexResponse'
-            Lude.<$> (x Lude..?> "indexStatus")
-            Lude.<*> (x Lude..?> "schema")
-            Lude.<*> (x Lude..?> "indexName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "indexName")
+            Core.<*> (x Core..:? "indexStatus")
+            Core.<*> (x Core..:? "schema")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeIndex where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeIndex where
-  toPath DescribeIndex' {..} =
-    Lude.mconcat ["/indices/", Lude.toBS indexName]
-
-instance Lude.ToQuery DescribeIndex where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeIndexResponse' smart constructor.
 data DescribeIndexResponse = DescribeIndexResponse'
-  { -- | The index status.
-    indexStatus :: Lude.Maybe IndexStatus,
+  { -- | The index name.
+    indexName :: Core.Maybe Types.IndexName,
+    -- | The index status.
+    indexStatus :: Core.Maybe Types.IndexStatus,
     -- | Contains a value that specifies the type of indexing performed. Valid values are:
     --
     --
@@ -105,53 +103,39 @@ data DescribeIndexResponse = DescribeIndexResponse'
     --
     --
     --     * REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.
-    schema :: Lude.Maybe Lude.Text,
-    -- | The index name.
-    indexName :: Lude.Maybe Lude.Text,
+    schema :: Core.Maybe Types.IndexSchema,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeIndexResponse' with the minimum fields required to make a request.
---
--- * 'indexStatus' - The index status.
--- * 'schema' - Contains a value that specifies the type of indexing performed. Valid values are:
---
---
---     * REGISTRY – Your thing index contains only registry data.
---
---
---     * REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.
---
---
---     * REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and thing connectivity status data.
---
---
---     * REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.
---
---
--- * 'indexName' - The index name.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeIndexResponse' value with any optional fields omitted.
 mkDescribeIndexResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeIndexResponse
-mkDescribeIndexResponse pResponseStatus_ =
+mkDescribeIndexResponse responseStatus =
   DescribeIndexResponse'
-    { indexStatus = Lude.Nothing,
-      schema = Lude.Nothing,
-      indexName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { indexName = Core.Nothing,
+      indexStatus = Core.Nothing,
+      schema = Core.Nothing,
+      responseStatus
     }
+
+-- | The index name.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirrsIndexName :: Lens.Lens' DescribeIndexResponse (Core.Maybe Types.IndexName)
+dirrsIndexName = Lens.field @"indexName"
+{-# DEPRECATED dirrsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The index status.
 --
 -- /Note:/ Consider using 'indexStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsIndexStatus :: Lens.Lens' DescribeIndexResponse (Lude.Maybe IndexStatus)
-dirsIndexStatus = Lens.lens (indexStatus :: DescribeIndexResponse -> Lude.Maybe IndexStatus) (\s a -> s {indexStatus = a} :: DescribeIndexResponse)
-{-# DEPRECATED dirsIndexStatus "Use generic-lens or generic-optics with 'indexStatus' instead." #-}
+dirrsIndexStatus :: Lens.Lens' DescribeIndexResponse (Core.Maybe Types.IndexStatus)
+dirrsIndexStatus = Lens.field @"indexStatus"
+{-# DEPRECATED dirrsIndexStatus "Use generic-lens or generic-optics with 'indexStatus' instead." #-}
 
 -- | Contains a value that specifies the type of indexing performed. Valid values are:
 --
@@ -170,20 +154,13 @@ dirsIndexStatus = Lens.lens (indexStatus :: DescribeIndexResponse -> Lude.Maybe 
 --
 --
 -- /Note:/ Consider using 'schema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsSchema :: Lens.Lens' DescribeIndexResponse (Lude.Maybe Lude.Text)
-dirsSchema = Lens.lens (schema :: DescribeIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {schema = a} :: DescribeIndexResponse)
-{-# DEPRECATED dirsSchema "Use generic-lens or generic-optics with 'schema' instead." #-}
-
--- | The index name.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsIndexName :: Lens.Lens' DescribeIndexResponse (Lude.Maybe Lude.Text)
-dirsIndexName = Lens.lens (indexName :: DescribeIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: DescribeIndexResponse)
-{-# DEPRECATED dirsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+dirrsSchema :: Lens.Lens' DescribeIndexResponse (Core.Maybe Types.IndexSchema)
+dirrsSchema = Lens.field @"schema"
+{-# DEPRECATED dirrsSchema "Use generic-lens or generic-optics with 'schema' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsResponseStatus :: Lens.Lens' DescribeIndexResponse Lude.Int
-dirsResponseStatus = Lens.lens (responseStatus :: DescribeIndexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIndexResponse)
-{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirrsResponseStatus :: Lens.Lens' DescribeIndexResponse Core.Int
+dirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

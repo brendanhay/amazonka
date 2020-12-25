@@ -22,178 +22,170 @@ module Network.AWS.CloudDirectory.ListFacetAttributes
     mkListFacetAttributes,
 
     -- ** Request lenses
-    lfaNextToken,
-    lfaSchemaARN,
+    lfaSchemaArn,
     lfaName,
     lfaMaxResults,
+    lfaNextToken,
 
     -- * Destructuring the response
     ListFacetAttributesResponse (..),
     mkListFacetAttributesResponse,
 
     -- ** Response lenses
-    lfarsNextToken,
-    lfarsAttributes,
-    lfarsResponseStatus,
+    lfarrsAttributes,
+    lfarrsNextToken,
+    lfarrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListFacetAttributes' smart constructor.
 data ListFacetAttributes = ListFacetAttributes'
-  { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ARN of the schema where the facet resides.
-    schemaARN :: Lude.Text,
+  { -- | The ARN of the schema where the facet resides.
+    schemaArn :: Types.Arn,
     -- | The name of the facet whose attributes will be retrieved.
-    name :: Lude.Text,
+    name :: Types.FacetName,
     -- | The maximum number of results to retrieve.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFacetAttributes' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'schemaARN' - The ARN of the schema where the facet resides.
--- * 'name' - The name of the facet whose attributes will be retrieved.
--- * 'maxResults' - The maximum number of results to retrieve.
+-- | Creates a 'ListFacetAttributes' value with any optional fields omitted.
 mkListFacetAttributes ::
-  -- | 'schemaARN'
-  Lude.Text ->
+  -- | 'schemaArn'
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.FacetName ->
   ListFacetAttributes
-mkListFacetAttributes pSchemaARN_ pName_ =
+mkListFacetAttributes schemaArn name =
   ListFacetAttributes'
-    { nextToken = Lude.Nothing,
-      schemaARN = pSchemaARN_,
-      name = pName_,
-      maxResults = Lude.Nothing
+    { schemaArn,
+      name,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaNextToken :: Lens.Lens' ListFacetAttributes (Lude.Maybe Lude.Text)
-lfaNextToken = Lens.lens (nextToken :: ListFacetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFacetAttributes)
-{-# DEPRECATED lfaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ARN of the schema where the facet resides.
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaSchemaARN :: Lens.Lens' ListFacetAttributes Lude.Text
-lfaSchemaARN = Lens.lens (schemaARN :: ListFacetAttributes -> Lude.Text) (\s a -> s {schemaARN = a} :: ListFacetAttributes)
-{-# DEPRECATED lfaSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfaSchemaArn :: Lens.Lens' ListFacetAttributes Types.Arn
+lfaSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED lfaSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The name of the facet whose attributes will be retrieved.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaName :: Lens.Lens' ListFacetAttributes Lude.Text
-lfaName = Lens.lens (name :: ListFacetAttributes -> Lude.Text) (\s a -> s {name = a} :: ListFacetAttributes)
+lfaName :: Lens.Lens' ListFacetAttributes Types.FacetName
+lfaName = Lens.field @"name"
 {-# DEPRECATED lfaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The maximum number of results to retrieve.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaMaxResults :: Lens.Lens' ListFacetAttributes (Lude.Maybe Lude.Natural)
-lfaMaxResults = Lens.lens (maxResults :: ListFacetAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFacetAttributes)
+lfaMaxResults :: Lens.Lens' ListFacetAttributes (Core.Maybe Core.Natural)
+lfaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lfaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListFacetAttributes where
-  page rq rs
-    | Page.stop (rs Lens.^. lfarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lfarsAttributes) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lfaNextToken Lens..~ rs Lens.^. lfarsNextToken
-
-instance Lude.AWSRequest ListFacetAttributes where
-  type Rs ListFacetAttributes = ListFacetAttributesResponse
-  request = Req.postJSON cloudDirectoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListFacetAttributesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Attributes" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListFacetAttributes where
-  toHeaders ListFacetAttributes' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
-
-instance Lude.ToJSON ListFacetAttributes where
-  toJSON ListFacetAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("Name" Lude..= name),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListFacetAttributes where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/facet/attributes"
-
-instance Lude.ToQuery ListFacetAttributes where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkListFacetAttributesResponse' smart constructor.
-data ListFacetAttributesResponse = ListFacetAttributesResponse'
-  { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The attributes attached to the facet.
-    attributes :: Lude.Maybe [FacetAttribute],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListFacetAttributesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'attributes' - The attributes attached to the facet.
--- * 'responseStatus' - The response status code.
-mkListFacetAttributesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListFacetAttributesResponse
-mkListFacetAttributesResponse pResponseStatus_ =
-  ListFacetAttributesResponse'
-    { nextToken = Lude.Nothing,
-      attributes = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfarsNextToken :: Lens.Lens' ListFacetAttributesResponse (Lude.Maybe Lude.Text)
-lfarsNextToken = Lens.lens (nextToken :: ListFacetAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFacetAttributesResponse)
-{-# DEPRECATED lfarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lfaNextToken :: Lens.Lens' ListFacetAttributes (Core.Maybe Types.NextToken)
+lfaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lfaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListFacetAttributes where
+  toJSON ListFacetAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListFacetAttributes where
+  type Rs ListFacetAttributes = ListFacetAttributesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/facet/attributes",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "x-amz-data-partition" schemaArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListFacetAttributesResponse'
+            Core.<$> (x Core..:? "Attributes")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListFacetAttributes where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"attributes" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListFacetAttributesResponse' smart constructor.
+data ListFacetAttributesResponse = ListFacetAttributesResponse'
+  { -- | The attributes attached to the facet.
+    attributes :: Core.Maybe [Types.FacetAttribute],
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListFacetAttributesResponse' value with any optional fields omitted.
+mkListFacetAttributesResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListFacetAttributesResponse
+mkListFacetAttributesResponse responseStatus =
+  ListFacetAttributesResponse'
+    { attributes = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | The attributes attached to the facet.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfarsAttributes :: Lens.Lens' ListFacetAttributesResponse (Lude.Maybe [FacetAttribute])
-lfarsAttributes = Lens.lens (attributes :: ListFacetAttributesResponse -> Lude.Maybe [FacetAttribute]) (\s a -> s {attributes = a} :: ListFacetAttributesResponse)
-{-# DEPRECATED lfarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+lfarrsAttributes :: Lens.Lens' ListFacetAttributesResponse (Core.Maybe [Types.FacetAttribute])
+lfarrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED lfarrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfarrsNextToken :: Lens.Lens' ListFacetAttributesResponse (Core.Maybe Types.NextToken)
+lfarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lfarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfarsResponseStatus :: Lens.Lens' ListFacetAttributesResponse Lude.Int
-lfarsResponseStatus = Lens.lens (responseStatus :: ListFacetAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFacetAttributesResponse)
-{-# DEPRECATED lfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lfarrsResponseStatus :: Lens.Lens' ListFacetAttributesResponse Core.Int
+lfarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lfarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

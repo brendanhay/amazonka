@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudSearchDomains
     Network.AWS.CloudSearchDomains.Search
@@ -77,12 +83,25 @@ library
     Network.AWS.CloudSearchDomains.Types.Bucket
     Network.AWS.CloudSearchDomains.Types.BucketInfo
     Network.AWS.CloudSearchDomains.Types.ContentType
+    Network.AWS.CloudSearchDomains.Types.Cursor
     Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning
+    Network.AWS.CloudSearchDomains.Types.Expr
+    Network.AWS.CloudSearchDomains.Types.Facet
     Network.AWS.CloudSearchDomains.Types.FieldStats
+    Network.AWS.CloudSearchDomains.Types.FilterQuery
+    Network.AWS.CloudSearchDomains.Types.Highlight
     Network.AWS.CloudSearchDomains.Types.Hit
     Network.AWS.CloudSearchDomains.Types.Hits
+    Network.AWS.CloudSearchDomains.Types.Query
+    Network.AWS.CloudSearchDomains.Types.QueryOptions
     Network.AWS.CloudSearchDomains.Types.QueryParser
+    Network.AWS.CloudSearchDomains.Types.Return
+    Network.AWS.CloudSearchDomains.Types.Rid
     Network.AWS.CloudSearchDomains.Types.SearchStatus
+    Network.AWS.CloudSearchDomains.Types.Sort
+    Network.AWS.CloudSearchDomains.Types.Stat
+    Network.AWS.CloudSearchDomains.Types.String
+    Network.AWS.CloudSearchDomains.Types.Suggester
     Network.AWS.CloudSearchDomains.Types.SuggestionMatch
     Network.AWS.CloudSearchDomains.Types.SuggestModel
     Network.AWS.CloudSearchDomains.Types.SuggestStatus

@@ -13,366 +13,371 @@
 module Network.AWS.SageMaker.Types.ProductionVariantInstanceType
   ( ProductionVariantInstanceType
       ( ProductionVariantInstanceType',
-        PVITMl_T2_Medium,
-        PVITMl_T2_Large,
-        PVITMl_T2_XLarge,
-        PVITMl_T2_2XLarge,
-        PVITMl_M4_XLarge,
-        PVITMl_M4_2XLarge,
-        PVITMl_M4_4XLarge,
-        PVITMl_M4_10XLarge,
-        PVITMl_M4_16XLarge,
-        PVITMl_M5_Large,
-        PVITMl_M5_XLarge,
-        PVITMl_M5_2XLarge,
-        PVITMl_M5_4XLarge,
-        PVITMl_M5_12XLarge,
-        PVITMl_M5_24XLarge,
-        PVITMl_M5d_Large,
-        PVITMl_M5d_XLarge,
-        PVITMl_M5d_2XLarge,
-        PVITMl_M5d_4XLarge,
-        PVITMl_M5d_12XLarge,
-        PVITMl_M5d_24XLarge,
-        PVITMl_C4_Large,
-        PVITMl_C4_XLarge,
-        PVITMl_C4_2XLarge,
-        PVITMl_C4_4XLarge,
-        PVITMl_C4_8XLarge,
-        PVITMl_P2_XLarge,
-        PVITMl_P2_8XLarge,
-        PVITMl_P2_16XLarge,
-        PVITMl_P3_2XLarge,
-        PVITMl_P3_8XLarge,
-        PVITMl_P3_16XLarge,
-        PVITMl_C5_Large,
-        PVITMl_C5_XLarge,
-        PVITMl_C5_2XLarge,
-        PVITMl_C5_4XLarge,
-        PVITMl_C5_9XLarge,
-        PVITMl_C5_18XLarge,
-        PVITMl_C5d_Large,
-        PVITMl_C5d_XLarge,
-        PVITMl_C5d_2XLarge,
-        PVITMl_C5d_4XLarge,
-        PVITMl_C5d_9XLarge,
-        PVITMl_C5d_18XLarge,
-        PVITMl_G4dn_XLarge,
-        PVITMl_G4dn_2XLarge,
-        PVITMl_G4dn_4XLarge,
-        PVITMl_G4dn_8XLarge,
-        PVITMl_G4dn_12XLarge,
-        PVITMl_G4dn_16XLarge,
-        PVITMl_R5_Large,
-        PVITMl_R5_XLarge,
-        PVITMl_R5_2XLarge,
-        PVITMl_R5_4XLarge,
-        PVITMl_R5_12XLarge,
-        PVITMl_R5_24XLarge,
-        PVITMl_R5d_Large,
-        PVITMl_R5d_XLarge,
-        PVITMl_R5d_2XLarge,
-        PVITMl_R5d_4XLarge,
-        PVITMl_R5d_12XLarge,
-        PVITMl_R5d_24XLarge,
-        PVITMl_INF1_XLarge,
-        PVITMl_INF1_2XLarge,
-        PVITMl_INF1_6XLarge,
-        PVITMl_INF1_24XLarge
+        ProductionVariantInstanceTypeMl_T2_Medium,
+        ProductionVariantInstanceTypeMl_T2_Large,
+        ProductionVariantInstanceTypeMl_T2_Xlarge,
+        ProductionVariantInstanceTypeMl_T2_2xlarge,
+        ProductionVariantInstanceTypeMl_M4_Xlarge,
+        ProductionVariantInstanceTypeMl_M4_2xlarge,
+        ProductionVariantInstanceTypeMl_M4_4xlarge,
+        ProductionVariantInstanceTypeMl_M4_10xlarge,
+        ProductionVariantInstanceTypeMl_M4_16xlarge,
+        ProductionVariantInstanceTypeMl_M5_Large,
+        ProductionVariantInstanceTypeMl_M5_Xlarge,
+        ProductionVariantInstanceTypeMl_M5_2xlarge,
+        ProductionVariantInstanceTypeMl_M5_4xlarge,
+        ProductionVariantInstanceTypeMl_M5_12xlarge,
+        ProductionVariantInstanceTypeMl_M5_24xlarge,
+        ProductionVariantInstanceTypeMl_M5d_Large,
+        ProductionVariantInstanceTypeMl_M5d_Xlarge,
+        ProductionVariantInstanceTypeMl_M5d_2xlarge,
+        ProductionVariantInstanceTypeMl_M5d_4xlarge,
+        ProductionVariantInstanceTypeMl_M5d_12xlarge,
+        ProductionVariantInstanceTypeMl_M5d_24xlarge,
+        ProductionVariantInstanceTypeMl_C4_Large,
+        ProductionVariantInstanceTypeMl_C4_Xlarge,
+        ProductionVariantInstanceTypeMl_C4_2xlarge,
+        ProductionVariantInstanceTypeMl_C4_4xlarge,
+        ProductionVariantInstanceTypeMl_C4_8xlarge,
+        ProductionVariantInstanceTypeMl_P2_Xlarge,
+        ProductionVariantInstanceTypeMl_P2_8xlarge,
+        ProductionVariantInstanceTypeMl_P2_16xlarge,
+        ProductionVariantInstanceTypeMl_P3_2xlarge,
+        ProductionVariantInstanceTypeMl_P3_8xlarge,
+        ProductionVariantInstanceTypeMl_P3_16xlarge,
+        ProductionVariantInstanceTypeMl_C5_Large,
+        ProductionVariantInstanceTypeMl_C5_Xlarge,
+        ProductionVariantInstanceTypeMl_C5_2xlarge,
+        ProductionVariantInstanceTypeMl_C5_4xlarge,
+        ProductionVariantInstanceTypeMl_C5_9xlarge,
+        ProductionVariantInstanceTypeMl_C5_18xlarge,
+        ProductionVariantInstanceTypeMl_C5d_Large,
+        ProductionVariantInstanceTypeMl_C5d_Xlarge,
+        ProductionVariantInstanceTypeMl_C5d_2xlarge,
+        ProductionVariantInstanceTypeMl_C5d_4xlarge,
+        ProductionVariantInstanceTypeMl_C5d_9xlarge,
+        ProductionVariantInstanceTypeMl_C5d_18xlarge,
+        ProductionVariantInstanceTypeMl_G4dn_Xlarge,
+        ProductionVariantInstanceTypeMl_G4dn_2xlarge,
+        ProductionVariantInstanceTypeMl_G4dn_4xlarge,
+        ProductionVariantInstanceTypeMl_G4dn_8xlarge,
+        ProductionVariantInstanceTypeMl_G4dn_12xlarge,
+        ProductionVariantInstanceTypeMl_G4dn_16xlarge,
+        ProductionVariantInstanceTypeMl_R5_Large,
+        ProductionVariantInstanceTypeMl_R5_Xlarge,
+        ProductionVariantInstanceTypeMl_R5_2xlarge,
+        ProductionVariantInstanceTypeMl_R5_4xlarge,
+        ProductionVariantInstanceTypeMl_R5_12xlarge,
+        ProductionVariantInstanceTypeMl_R5_24xlarge,
+        ProductionVariantInstanceTypeMl_R5d_Large,
+        ProductionVariantInstanceTypeMl_R5d_Xlarge,
+        ProductionVariantInstanceTypeMl_R5d_2xlarge,
+        ProductionVariantInstanceTypeMl_R5d_4xlarge,
+        ProductionVariantInstanceTypeMl_R5d_12xlarge,
+        ProductionVariantInstanceTypeMl_R5d_24xlarge,
+        ProductionVariantInstanceTypeMl_INF1_Xlarge,
+        ProductionVariantInstanceTypeMl_INF1_2xlarge,
+        ProductionVariantInstanceTypeMl_INF1_6xlarge,
+        ProductionVariantInstanceTypeMl_INF1_24xlarge,
+        fromProductionVariantInstanceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProductionVariantInstanceType = ProductionVariantInstanceType' Lude.Text
+newtype ProductionVariantInstanceType = ProductionVariantInstanceType'
+  { fromProductionVariantInstanceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PVITMl_T2_Medium :: ProductionVariantInstanceType
-pattern PVITMl_T2_Medium = ProductionVariantInstanceType' "ml.t2.medium"
+pattern ProductionVariantInstanceTypeMl_T2_Medium :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_T2_Medium = ProductionVariantInstanceType' "ml.t2.medium"
 
-pattern PVITMl_T2_Large :: ProductionVariantInstanceType
-pattern PVITMl_T2_Large = ProductionVariantInstanceType' "ml.t2.large"
+pattern ProductionVariantInstanceTypeMl_T2_Large :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_T2_Large = ProductionVariantInstanceType' "ml.t2.large"
 
-pattern PVITMl_T2_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_T2_XLarge = ProductionVariantInstanceType' "ml.t2.xlarge"
+pattern ProductionVariantInstanceTypeMl_T2_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_T2_Xlarge = ProductionVariantInstanceType' "ml.t2.xlarge"
 
-pattern PVITMl_T2_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_T2_2XLarge = ProductionVariantInstanceType' "ml.t2.2xlarge"
+pattern ProductionVariantInstanceTypeMl_T2_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_T2_2xlarge = ProductionVariantInstanceType' "ml.t2.2xlarge"
 
-pattern PVITMl_M4_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M4_XLarge = ProductionVariantInstanceType' "ml.m4.xlarge"
+pattern ProductionVariantInstanceTypeMl_M4_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M4_Xlarge = ProductionVariantInstanceType' "ml.m4.xlarge"
 
-pattern PVITMl_M4_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M4_2XLarge = ProductionVariantInstanceType' "ml.m4.2xlarge"
+pattern ProductionVariantInstanceTypeMl_M4_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M4_2xlarge = ProductionVariantInstanceType' "ml.m4.2xlarge"
 
-pattern PVITMl_M4_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M4_4XLarge = ProductionVariantInstanceType' "ml.m4.4xlarge"
+pattern ProductionVariantInstanceTypeMl_M4_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M4_4xlarge = ProductionVariantInstanceType' "ml.m4.4xlarge"
 
-pattern PVITMl_M4_10XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M4_10XLarge = ProductionVariantInstanceType' "ml.m4.10xlarge"
+pattern ProductionVariantInstanceTypeMl_M4_10xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M4_10xlarge = ProductionVariantInstanceType' "ml.m4.10xlarge"
 
-pattern PVITMl_M4_16XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M4_16XLarge = ProductionVariantInstanceType' "ml.m4.16xlarge"
+pattern ProductionVariantInstanceTypeMl_M4_16xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M4_16xlarge = ProductionVariantInstanceType' "ml.m4.16xlarge"
 
-pattern PVITMl_M5_Large :: ProductionVariantInstanceType
-pattern PVITMl_M5_Large = ProductionVariantInstanceType' "ml.m5.large"
+pattern ProductionVariantInstanceTypeMl_M5_Large :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5_Large = ProductionVariantInstanceType' "ml.m5.large"
 
-pattern PVITMl_M5_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5_XLarge = ProductionVariantInstanceType' "ml.m5.xlarge"
+pattern ProductionVariantInstanceTypeMl_M5_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5_Xlarge = ProductionVariantInstanceType' "ml.m5.xlarge"
 
-pattern PVITMl_M5_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5_2XLarge = ProductionVariantInstanceType' "ml.m5.2xlarge"
+pattern ProductionVariantInstanceTypeMl_M5_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5_2xlarge = ProductionVariantInstanceType' "ml.m5.2xlarge"
 
-pattern PVITMl_M5_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5_4XLarge = ProductionVariantInstanceType' "ml.m5.4xlarge"
+pattern ProductionVariantInstanceTypeMl_M5_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5_4xlarge = ProductionVariantInstanceType' "ml.m5.4xlarge"
 
-pattern PVITMl_M5_12XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5_12XLarge = ProductionVariantInstanceType' "ml.m5.12xlarge"
+pattern ProductionVariantInstanceTypeMl_M5_12xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5_12xlarge = ProductionVariantInstanceType' "ml.m5.12xlarge"
 
-pattern PVITMl_M5_24XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5_24XLarge = ProductionVariantInstanceType' "ml.m5.24xlarge"
+pattern ProductionVariantInstanceTypeMl_M5_24xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5_24xlarge = ProductionVariantInstanceType' "ml.m5.24xlarge"
 
-pattern PVITMl_M5d_Large :: ProductionVariantInstanceType
-pattern PVITMl_M5d_Large = ProductionVariantInstanceType' "ml.m5d.large"
+pattern ProductionVariantInstanceTypeMl_M5d_Large :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5d_Large = ProductionVariantInstanceType' "ml.m5d.large"
 
-pattern PVITMl_M5d_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5d_XLarge = ProductionVariantInstanceType' "ml.m5d.xlarge"
+pattern ProductionVariantInstanceTypeMl_M5d_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5d_Xlarge = ProductionVariantInstanceType' "ml.m5d.xlarge"
 
-pattern PVITMl_M5d_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5d_2XLarge = ProductionVariantInstanceType' "ml.m5d.2xlarge"
+pattern ProductionVariantInstanceTypeMl_M5d_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5d_2xlarge = ProductionVariantInstanceType' "ml.m5d.2xlarge"
 
-pattern PVITMl_M5d_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5d_4XLarge = ProductionVariantInstanceType' "ml.m5d.4xlarge"
+pattern ProductionVariantInstanceTypeMl_M5d_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5d_4xlarge = ProductionVariantInstanceType' "ml.m5d.4xlarge"
 
-pattern PVITMl_M5d_12XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5d_12XLarge = ProductionVariantInstanceType' "ml.m5d.12xlarge"
+pattern ProductionVariantInstanceTypeMl_M5d_12xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5d_12xlarge = ProductionVariantInstanceType' "ml.m5d.12xlarge"
 
-pattern PVITMl_M5d_24XLarge :: ProductionVariantInstanceType
-pattern PVITMl_M5d_24XLarge = ProductionVariantInstanceType' "ml.m5d.24xlarge"
+pattern ProductionVariantInstanceTypeMl_M5d_24xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_M5d_24xlarge = ProductionVariantInstanceType' "ml.m5d.24xlarge"
 
-pattern PVITMl_C4_Large :: ProductionVariantInstanceType
-pattern PVITMl_C4_Large = ProductionVariantInstanceType' "ml.c4.large"
+pattern ProductionVariantInstanceTypeMl_C4_Large :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C4_Large = ProductionVariantInstanceType' "ml.c4.large"
 
-pattern PVITMl_C4_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C4_XLarge = ProductionVariantInstanceType' "ml.c4.xlarge"
+pattern ProductionVariantInstanceTypeMl_C4_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C4_Xlarge = ProductionVariantInstanceType' "ml.c4.xlarge"
 
-pattern PVITMl_C4_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C4_2XLarge = ProductionVariantInstanceType' "ml.c4.2xlarge"
+pattern ProductionVariantInstanceTypeMl_C4_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C4_2xlarge = ProductionVariantInstanceType' "ml.c4.2xlarge"
 
-pattern PVITMl_C4_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C4_4XLarge = ProductionVariantInstanceType' "ml.c4.4xlarge"
+pattern ProductionVariantInstanceTypeMl_C4_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C4_4xlarge = ProductionVariantInstanceType' "ml.c4.4xlarge"
 
-pattern PVITMl_C4_8XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C4_8XLarge = ProductionVariantInstanceType' "ml.c4.8xlarge"
+pattern ProductionVariantInstanceTypeMl_C4_8xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C4_8xlarge = ProductionVariantInstanceType' "ml.c4.8xlarge"
 
-pattern PVITMl_P2_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_P2_XLarge = ProductionVariantInstanceType' "ml.p2.xlarge"
+pattern ProductionVariantInstanceTypeMl_P2_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_P2_Xlarge = ProductionVariantInstanceType' "ml.p2.xlarge"
 
-pattern PVITMl_P2_8XLarge :: ProductionVariantInstanceType
-pattern PVITMl_P2_8XLarge = ProductionVariantInstanceType' "ml.p2.8xlarge"
+pattern ProductionVariantInstanceTypeMl_P2_8xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_P2_8xlarge = ProductionVariantInstanceType' "ml.p2.8xlarge"
 
-pattern PVITMl_P2_16XLarge :: ProductionVariantInstanceType
-pattern PVITMl_P2_16XLarge = ProductionVariantInstanceType' "ml.p2.16xlarge"
+pattern ProductionVariantInstanceTypeMl_P2_16xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_P2_16xlarge = ProductionVariantInstanceType' "ml.p2.16xlarge"
 
-pattern PVITMl_P3_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_P3_2XLarge = ProductionVariantInstanceType' "ml.p3.2xlarge"
+pattern ProductionVariantInstanceTypeMl_P3_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_P3_2xlarge = ProductionVariantInstanceType' "ml.p3.2xlarge"
 
-pattern PVITMl_P3_8XLarge :: ProductionVariantInstanceType
-pattern PVITMl_P3_8XLarge = ProductionVariantInstanceType' "ml.p3.8xlarge"
+pattern ProductionVariantInstanceTypeMl_P3_8xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_P3_8xlarge = ProductionVariantInstanceType' "ml.p3.8xlarge"
 
-pattern PVITMl_P3_16XLarge :: ProductionVariantInstanceType
-pattern PVITMl_P3_16XLarge = ProductionVariantInstanceType' "ml.p3.16xlarge"
+pattern ProductionVariantInstanceTypeMl_P3_16xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_P3_16xlarge = ProductionVariantInstanceType' "ml.p3.16xlarge"
 
-pattern PVITMl_C5_Large :: ProductionVariantInstanceType
-pattern PVITMl_C5_Large = ProductionVariantInstanceType' "ml.c5.large"
+pattern ProductionVariantInstanceTypeMl_C5_Large :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5_Large = ProductionVariantInstanceType' "ml.c5.large"
 
-pattern PVITMl_C5_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5_XLarge = ProductionVariantInstanceType' "ml.c5.xlarge"
+pattern ProductionVariantInstanceTypeMl_C5_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5_Xlarge = ProductionVariantInstanceType' "ml.c5.xlarge"
 
-pattern PVITMl_C5_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5_2XLarge = ProductionVariantInstanceType' "ml.c5.2xlarge"
+pattern ProductionVariantInstanceTypeMl_C5_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5_2xlarge = ProductionVariantInstanceType' "ml.c5.2xlarge"
 
-pattern PVITMl_C5_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5_4XLarge = ProductionVariantInstanceType' "ml.c5.4xlarge"
+pattern ProductionVariantInstanceTypeMl_C5_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5_4xlarge = ProductionVariantInstanceType' "ml.c5.4xlarge"
 
-pattern PVITMl_C5_9XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5_9XLarge = ProductionVariantInstanceType' "ml.c5.9xlarge"
+pattern ProductionVariantInstanceTypeMl_C5_9xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5_9xlarge = ProductionVariantInstanceType' "ml.c5.9xlarge"
 
-pattern PVITMl_C5_18XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5_18XLarge = ProductionVariantInstanceType' "ml.c5.18xlarge"
+pattern ProductionVariantInstanceTypeMl_C5_18xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5_18xlarge = ProductionVariantInstanceType' "ml.c5.18xlarge"
 
-pattern PVITMl_C5d_Large :: ProductionVariantInstanceType
-pattern PVITMl_C5d_Large = ProductionVariantInstanceType' "ml.c5d.large"
+pattern ProductionVariantInstanceTypeMl_C5d_Large :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5d_Large = ProductionVariantInstanceType' "ml.c5d.large"
 
-pattern PVITMl_C5d_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5d_XLarge = ProductionVariantInstanceType' "ml.c5d.xlarge"
+pattern ProductionVariantInstanceTypeMl_C5d_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5d_Xlarge = ProductionVariantInstanceType' "ml.c5d.xlarge"
 
-pattern PVITMl_C5d_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5d_2XLarge = ProductionVariantInstanceType' "ml.c5d.2xlarge"
+pattern ProductionVariantInstanceTypeMl_C5d_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5d_2xlarge = ProductionVariantInstanceType' "ml.c5d.2xlarge"
 
-pattern PVITMl_C5d_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5d_4XLarge = ProductionVariantInstanceType' "ml.c5d.4xlarge"
+pattern ProductionVariantInstanceTypeMl_C5d_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5d_4xlarge = ProductionVariantInstanceType' "ml.c5d.4xlarge"
 
-pattern PVITMl_C5d_9XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5d_9XLarge = ProductionVariantInstanceType' "ml.c5d.9xlarge"
+pattern ProductionVariantInstanceTypeMl_C5d_9xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5d_9xlarge = ProductionVariantInstanceType' "ml.c5d.9xlarge"
 
-pattern PVITMl_C5d_18XLarge :: ProductionVariantInstanceType
-pattern PVITMl_C5d_18XLarge = ProductionVariantInstanceType' "ml.c5d.18xlarge"
+pattern ProductionVariantInstanceTypeMl_C5d_18xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_C5d_18xlarge = ProductionVariantInstanceType' "ml.c5d.18xlarge"
 
-pattern PVITMl_G4dn_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_G4dn_XLarge = ProductionVariantInstanceType' "ml.g4dn.xlarge"
+pattern ProductionVariantInstanceTypeMl_G4dn_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_G4dn_Xlarge = ProductionVariantInstanceType' "ml.g4dn.xlarge"
 
-pattern PVITMl_G4dn_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_G4dn_2XLarge = ProductionVariantInstanceType' "ml.g4dn.2xlarge"
+pattern ProductionVariantInstanceTypeMl_G4dn_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_G4dn_2xlarge = ProductionVariantInstanceType' "ml.g4dn.2xlarge"
 
-pattern PVITMl_G4dn_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_G4dn_4XLarge = ProductionVariantInstanceType' "ml.g4dn.4xlarge"
+pattern ProductionVariantInstanceTypeMl_G4dn_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_G4dn_4xlarge = ProductionVariantInstanceType' "ml.g4dn.4xlarge"
 
-pattern PVITMl_G4dn_8XLarge :: ProductionVariantInstanceType
-pattern PVITMl_G4dn_8XLarge = ProductionVariantInstanceType' "ml.g4dn.8xlarge"
+pattern ProductionVariantInstanceTypeMl_G4dn_8xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_G4dn_8xlarge = ProductionVariantInstanceType' "ml.g4dn.8xlarge"
 
-pattern PVITMl_G4dn_12XLarge :: ProductionVariantInstanceType
-pattern PVITMl_G4dn_12XLarge = ProductionVariantInstanceType' "ml.g4dn.12xlarge"
+pattern ProductionVariantInstanceTypeMl_G4dn_12xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_G4dn_12xlarge = ProductionVariantInstanceType' "ml.g4dn.12xlarge"
 
-pattern PVITMl_G4dn_16XLarge :: ProductionVariantInstanceType
-pattern PVITMl_G4dn_16XLarge = ProductionVariantInstanceType' "ml.g4dn.16xlarge"
+pattern ProductionVariantInstanceTypeMl_G4dn_16xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_G4dn_16xlarge = ProductionVariantInstanceType' "ml.g4dn.16xlarge"
 
-pattern PVITMl_R5_Large :: ProductionVariantInstanceType
-pattern PVITMl_R5_Large = ProductionVariantInstanceType' "ml.r5.large"
+pattern ProductionVariantInstanceTypeMl_R5_Large :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5_Large = ProductionVariantInstanceType' "ml.r5.large"
 
-pattern PVITMl_R5_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5_XLarge = ProductionVariantInstanceType' "ml.r5.xlarge"
+pattern ProductionVariantInstanceTypeMl_R5_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5_Xlarge = ProductionVariantInstanceType' "ml.r5.xlarge"
 
-pattern PVITMl_R5_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5_2XLarge = ProductionVariantInstanceType' "ml.r5.2xlarge"
+pattern ProductionVariantInstanceTypeMl_R5_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5_2xlarge = ProductionVariantInstanceType' "ml.r5.2xlarge"
 
-pattern PVITMl_R5_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5_4XLarge = ProductionVariantInstanceType' "ml.r5.4xlarge"
+pattern ProductionVariantInstanceTypeMl_R5_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5_4xlarge = ProductionVariantInstanceType' "ml.r5.4xlarge"
 
-pattern PVITMl_R5_12XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5_12XLarge = ProductionVariantInstanceType' "ml.r5.12xlarge"
+pattern ProductionVariantInstanceTypeMl_R5_12xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5_12xlarge = ProductionVariantInstanceType' "ml.r5.12xlarge"
 
-pattern PVITMl_R5_24XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5_24XLarge = ProductionVariantInstanceType' "ml.r5.24xlarge"
+pattern ProductionVariantInstanceTypeMl_R5_24xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5_24xlarge = ProductionVariantInstanceType' "ml.r5.24xlarge"
 
-pattern PVITMl_R5d_Large :: ProductionVariantInstanceType
-pattern PVITMl_R5d_Large = ProductionVariantInstanceType' "ml.r5d.large"
+pattern ProductionVariantInstanceTypeMl_R5d_Large :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5d_Large = ProductionVariantInstanceType' "ml.r5d.large"
 
-pattern PVITMl_R5d_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5d_XLarge = ProductionVariantInstanceType' "ml.r5d.xlarge"
+pattern ProductionVariantInstanceTypeMl_R5d_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5d_Xlarge = ProductionVariantInstanceType' "ml.r5d.xlarge"
 
-pattern PVITMl_R5d_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5d_2XLarge = ProductionVariantInstanceType' "ml.r5d.2xlarge"
+pattern ProductionVariantInstanceTypeMl_R5d_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5d_2xlarge = ProductionVariantInstanceType' "ml.r5d.2xlarge"
 
-pattern PVITMl_R5d_4XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5d_4XLarge = ProductionVariantInstanceType' "ml.r5d.4xlarge"
+pattern ProductionVariantInstanceTypeMl_R5d_4xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5d_4xlarge = ProductionVariantInstanceType' "ml.r5d.4xlarge"
 
-pattern PVITMl_R5d_12XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5d_12XLarge = ProductionVariantInstanceType' "ml.r5d.12xlarge"
+pattern ProductionVariantInstanceTypeMl_R5d_12xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5d_12xlarge = ProductionVariantInstanceType' "ml.r5d.12xlarge"
 
-pattern PVITMl_R5d_24XLarge :: ProductionVariantInstanceType
-pattern PVITMl_R5d_24XLarge = ProductionVariantInstanceType' "ml.r5d.24xlarge"
+pattern ProductionVariantInstanceTypeMl_R5d_24xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_R5d_24xlarge = ProductionVariantInstanceType' "ml.r5d.24xlarge"
 
-pattern PVITMl_INF1_XLarge :: ProductionVariantInstanceType
-pattern PVITMl_INF1_XLarge = ProductionVariantInstanceType' "ml.inf1.xlarge"
+pattern ProductionVariantInstanceTypeMl_INF1_Xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_INF1_Xlarge = ProductionVariantInstanceType' "ml.inf1.xlarge"
 
-pattern PVITMl_INF1_2XLarge :: ProductionVariantInstanceType
-pattern PVITMl_INF1_2XLarge = ProductionVariantInstanceType' "ml.inf1.2xlarge"
+pattern ProductionVariantInstanceTypeMl_INF1_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_INF1_2xlarge = ProductionVariantInstanceType' "ml.inf1.2xlarge"
 
-pattern PVITMl_INF1_6XLarge :: ProductionVariantInstanceType
-pattern PVITMl_INF1_6XLarge = ProductionVariantInstanceType' "ml.inf1.6xlarge"
+pattern ProductionVariantInstanceTypeMl_INF1_6xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_INF1_6xlarge = ProductionVariantInstanceType' "ml.inf1.6xlarge"
 
-pattern PVITMl_INF1_24XLarge :: ProductionVariantInstanceType
-pattern PVITMl_INF1_24XLarge = ProductionVariantInstanceType' "ml.inf1.24xlarge"
+pattern ProductionVariantInstanceTypeMl_INF1_24xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceTypeMl_INF1_24xlarge = ProductionVariantInstanceType' "ml.inf1.24xlarge"
 
 {-# COMPLETE
-  PVITMl_T2_Medium,
-  PVITMl_T2_Large,
-  PVITMl_T2_XLarge,
-  PVITMl_T2_2XLarge,
-  PVITMl_M4_XLarge,
-  PVITMl_M4_2XLarge,
-  PVITMl_M4_4XLarge,
-  PVITMl_M4_10XLarge,
-  PVITMl_M4_16XLarge,
-  PVITMl_M5_Large,
-  PVITMl_M5_XLarge,
-  PVITMl_M5_2XLarge,
-  PVITMl_M5_4XLarge,
-  PVITMl_M5_12XLarge,
-  PVITMl_M5_24XLarge,
-  PVITMl_M5d_Large,
-  PVITMl_M5d_XLarge,
-  PVITMl_M5d_2XLarge,
-  PVITMl_M5d_4XLarge,
-  PVITMl_M5d_12XLarge,
-  PVITMl_M5d_24XLarge,
-  PVITMl_C4_Large,
-  PVITMl_C4_XLarge,
-  PVITMl_C4_2XLarge,
-  PVITMl_C4_4XLarge,
-  PVITMl_C4_8XLarge,
-  PVITMl_P2_XLarge,
-  PVITMl_P2_8XLarge,
-  PVITMl_P2_16XLarge,
-  PVITMl_P3_2XLarge,
-  PVITMl_P3_8XLarge,
-  PVITMl_P3_16XLarge,
-  PVITMl_C5_Large,
-  PVITMl_C5_XLarge,
-  PVITMl_C5_2XLarge,
-  PVITMl_C5_4XLarge,
-  PVITMl_C5_9XLarge,
-  PVITMl_C5_18XLarge,
-  PVITMl_C5d_Large,
-  PVITMl_C5d_XLarge,
-  PVITMl_C5d_2XLarge,
-  PVITMl_C5d_4XLarge,
-  PVITMl_C5d_9XLarge,
-  PVITMl_C5d_18XLarge,
-  PVITMl_G4dn_XLarge,
-  PVITMl_G4dn_2XLarge,
-  PVITMl_G4dn_4XLarge,
-  PVITMl_G4dn_8XLarge,
-  PVITMl_G4dn_12XLarge,
-  PVITMl_G4dn_16XLarge,
-  PVITMl_R5_Large,
-  PVITMl_R5_XLarge,
-  PVITMl_R5_2XLarge,
-  PVITMl_R5_4XLarge,
-  PVITMl_R5_12XLarge,
-  PVITMl_R5_24XLarge,
-  PVITMl_R5d_Large,
-  PVITMl_R5d_XLarge,
-  PVITMl_R5d_2XLarge,
-  PVITMl_R5d_4XLarge,
-  PVITMl_R5d_12XLarge,
-  PVITMl_R5d_24XLarge,
-  PVITMl_INF1_XLarge,
-  PVITMl_INF1_2XLarge,
-  PVITMl_INF1_6XLarge,
-  PVITMl_INF1_24XLarge,
+  ProductionVariantInstanceTypeMl_T2_Medium,
+  ProductionVariantInstanceTypeMl_T2_Large,
+  ProductionVariantInstanceTypeMl_T2_Xlarge,
+  ProductionVariantInstanceTypeMl_T2_2xlarge,
+  ProductionVariantInstanceTypeMl_M4_Xlarge,
+  ProductionVariantInstanceTypeMl_M4_2xlarge,
+  ProductionVariantInstanceTypeMl_M4_4xlarge,
+  ProductionVariantInstanceTypeMl_M4_10xlarge,
+  ProductionVariantInstanceTypeMl_M4_16xlarge,
+  ProductionVariantInstanceTypeMl_M5_Large,
+  ProductionVariantInstanceTypeMl_M5_Xlarge,
+  ProductionVariantInstanceTypeMl_M5_2xlarge,
+  ProductionVariantInstanceTypeMl_M5_4xlarge,
+  ProductionVariantInstanceTypeMl_M5_12xlarge,
+  ProductionVariantInstanceTypeMl_M5_24xlarge,
+  ProductionVariantInstanceTypeMl_M5d_Large,
+  ProductionVariantInstanceTypeMl_M5d_Xlarge,
+  ProductionVariantInstanceTypeMl_M5d_2xlarge,
+  ProductionVariantInstanceTypeMl_M5d_4xlarge,
+  ProductionVariantInstanceTypeMl_M5d_12xlarge,
+  ProductionVariantInstanceTypeMl_M5d_24xlarge,
+  ProductionVariantInstanceTypeMl_C4_Large,
+  ProductionVariantInstanceTypeMl_C4_Xlarge,
+  ProductionVariantInstanceTypeMl_C4_2xlarge,
+  ProductionVariantInstanceTypeMl_C4_4xlarge,
+  ProductionVariantInstanceTypeMl_C4_8xlarge,
+  ProductionVariantInstanceTypeMl_P2_Xlarge,
+  ProductionVariantInstanceTypeMl_P2_8xlarge,
+  ProductionVariantInstanceTypeMl_P2_16xlarge,
+  ProductionVariantInstanceTypeMl_P3_2xlarge,
+  ProductionVariantInstanceTypeMl_P3_8xlarge,
+  ProductionVariantInstanceTypeMl_P3_16xlarge,
+  ProductionVariantInstanceTypeMl_C5_Large,
+  ProductionVariantInstanceTypeMl_C5_Xlarge,
+  ProductionVariantInstanceTypeMl_C5_2xlarge,
+  ProductionVariantInstanceTypeMl_C5_4xlarge,
+  ProductionVariantInstanceTypeMl_C5_9xlarge,
+  ProductionVariantInstanceTypeMl_C5_18xlarge,
+  ProductionVariantInstanceTypeMl_C5d_Large,
+  ProductionVariantInstanceTypeMl_C5d_Xlarge,
+  ProductionVariantInstanceTypeMl_C5d_2xlarge,
+  ProductionVariantInstanceTypeMl_C5d_4xlarge,
+  ProductionVariantInstanceTypeMl_C5d_9xlarge,
+  ProductionVariantInstanceTypeMl_C5d_18xlarge,
+  ProductionVariantInstanceTypeMl_G4dn_Xlarge,
+  ProductionVariantInstanceTypeMl_G4dn_2xlarge,
+  ProductionVariantInstanceTypeMl_G4dn_4xlarge,
+  ProductionVariantInstanceTypeMl_G4dn_8xlarge,
+  ProductionVariantInstanceTypeMl_G4dn_12xlarge,
+  ProductionVariantInstanceTypeMl_G4dn_16xlarge,
+  ProductionVariantInstanceTypeMl_R5_Large,
+  ProductionVariantInstanceTypeMl_R5_Xlarge,
+  ProductionVariantInstanceTypeMl_R5_2xlarge,
+  ProductionVariantInstanceTypeMl_R5_4xlarge,
+  ProductionVariantInstanceTypeMl_R5_12xlarge,
+  ProductionVariantInstanceTypeMl_R5_24xlarge,
+  ProductionVariantInstanceTypeMl_R5d_Large,
+  ProductionVariantInstanceTypeMl_R5d_Xlarge,
+  ProductionVariantInstanceTypeMl_R5d_2xlarge,
+  ProductionVariantInstanceTypeMl_R5d_4xlarge,
+  ProductionVariantInstanceTypeMl_R5d_12xlarge,
+  ProductionVariantInstanceTypeMl_R5d_24xlarge,
+  ProductionVariantInstanceTypeMl_INF1_Xlarge,
+  ProductionVariantInstanceTypeMl_INF1_2xlarge,
+  ProductionVariantInstanceTypeMl_INF1_6xlarge,
+  ProductionVariantInstanceTypeMl_INF1_24xlarge,
   ProductionVariantInstanceType'
   #-}

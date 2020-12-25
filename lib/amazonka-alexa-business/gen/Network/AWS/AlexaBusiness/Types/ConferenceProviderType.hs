@@ -13,86 +13,91 @@
 module Network.AWS.AlexaBusiness.Types.ConferenceProviderType
   ( ConferenceProviderType
       ( ConferenceProviderType',
-        Chime,
-        Bluejeans,
-        Fuze,
-        GoogleHangouts,
-        Polycom,
-        Ringcentral,
-        SkypeForBusiness,
-        Webex,
-        Zoom,
-        Custom
+        ConferenceProviderTypeChime,
+        ConferenceProviderTypeBluejeans,
+        ConferenceProviderTypeFuze,
+        ConferenceProviderTypeGoogleHangouts,
+        ConferenceProviderTypePolycom,
+        ConferenceProviderTypeRingcentral,
+        ConferenceProviderTypeSkypeForBusiness,
+        ConferenceProviderTypeWebex,
+        ConferenceProviderTypeZoom,
+        ConferenceProviderTypeCustom,
+        fromConferenceProviderType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConferenceProviderType = ConferenceProviderType' Lude.Text
+newtype ConferenceProviderType = ConferenceProviderType'
+  { fromConferenceProviderType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Chime :: ConferenceProviderType
-pattern Chime = ConferenceProviderType' "CHIME"
+pattern ConferenceProviderTypeChime :: ConferenceProviderType
+pattern ConferenceProviderTypeChime = ConferenceProviderType' "CHIME"
 
-pattern Bluejeans :: ConferenceProviderType
-pattern Bluejeans = ConferenceProviderType' "BLUEJEANS"
+pattern ConferenceProviderTypeBluejeans :: ConferenceProviderType
+pattern ConferenceProviderTypeBluejeans = ConferenceProviderType' "BLUEJEANS"
 
-pattern Fuze :: ConferenceProviderType
-pattern Fuze = ConferenceProviderType' "FUZE"
+pattern ConferenceProviderTypeFuze :: ConferenceProviderType
+pattern ConferenceProviderTypeFuze = ConferenceProviderType' "FUZE"
 
-pattern GoogleHangouts :: ConferenceProviderType
-pattern GoogleHangouts = ConferenceProviderType' "GOOGLE_HANGOUTS"
+pattern ConferenceProviderTypeGoogleHangouts :: ConferenceProviderType
+pattern ConferenceProviderTypeGoogleHangouts = ConferenceProviderType' "GOOGLE_HANGOUTS"
 
-pattern Polycom :: ConferenceProviderType
-pattern Polycom = ConferenceProviderType' "POLYCOM"
+pattern ConferenceProviderTypePolycom :: ConferenceProviderType
+pattern ConferenceProviderTypePolycom = ConferenceProviderType' "POLYCOM"
 
-pattern Ringcentral :: ConferenceProviderType
-pattern Ringcentral = ConferenceProviderType' "RINGCENTRAL"
+pattern ConferenceProviderTypeRingcentral :: ConferenceProviderType
+pattern ConferenceProviderTypeRingcentral = ConferenceProviderType' "RINGCENTRAL"
 
-pattern SkypeForBusiness :: ConferenceProviderType
-pattern SkypeForBusiness = ConferenceProviderType' "SKYPE_FOR_BUSINESS"
+pattern ConferenceProviderTypeSkypeForBusiness :: ConferenceProviderType
+pattern ConferenceProviderTypeSkypeForBusiness = ConferenceProviderType' "SKYPE_FOR_BUSINESS"
 
-pattern Webex :: ConferenceProviderType
-pattern Webex = ConferenceProviderType' "WEBEX"
+pattern ConferenceProviderTypeWebex :: ConferenceProviderType
+pattern ConferenceProviderTypeWebex = ConferenceProviderType' "WEBEX"
 
-pattern Zoom :: ConferenceProviderType
-pattern Zoom = ConferenceProviderType' "ZOOM"
+pattern ConferenceProviderTypeZoom :: ConferenceProviderType
+pattern ConferenceProviderTypeZoom = ConferenceProviderType' "ZOOM"
 
-pattern Custom :: ConferenceProviderType
-pattern Custom = ConferenceProviderType' "CUSTOM"
+pattern ConferenceProviderTypeCustom :: ConferenceProviderType
+pattern ConferenceProviderTypeCustom = ConferenceProviderType' "CUSTOM"
 
 {-# COMPLETE
-  Chime,
-  Bluejeans,
-  Fuze,
-  GoogleHangouts,
-  Polycom,
-  Ringcentral,
-  SkypeForBusiness,
-  Webex,
-  Zoom,
-  Custom,
+  ConferenceProviderTypeChime,
+  ConferenceProviderTypeBluejeans,
+  ConferenceProviderTypeFuze,
+  ConferenceProviderTypeGoogleHangouts,
+  ConferenceProviderTypePolycom,
+  ConferenceProviderTypeRingcentral,
+  ConferenceProviderTypeSkypeForBusiness,
+  ConferenceProviderTypeWebex,
+  ConferenceProviderTypeZoom,
+  ConferenceProviderTypeCustom,
   ConferenceProviderType'
   #-}

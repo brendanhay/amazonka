@@ -22,37 +22,35 @@ module Network.AWS.IAM.Types.OrganizationsDecisionDetail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the effect that Organizations has on a policy simulation.
 --
 -- /See:/ 'mkOrganizationsDecisionDetail' smart constructor.
 newtype OrganizationsDecisionDetail = OrganizationsDecisionDetail'
   { -- | Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.
-    allowedByOrganizations :: Lude.Maybe Lude.Bool
+    allowedByOrganizations :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OrganizationsDecisionDetail' with the minimum fields required to make a request.
---
--- * 'allowedByOrganizations' - Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.
+-- | Creates a 'OrganizationsDecisionDetail' value with any optional fields omitted.
 mkOrganizationsDecisionDetail ::
   OrganizationsDecisionDetail
 mkOrganizationsDecisionDetail =
   OrganizationsDecisionDetail'
     { allowedByOrganizations =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.
 --
 -- /Note:/ Consider using 'allowedByOrganizations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oddAllowedByOrganizations :: Lens.Lens' OrganizationsDecisionDetail (Lude.Maybe Lude.Bool)
-oddAllowedByOrganizations = Lens.lens (allowedByOrganizations :: OrganizationsDecisionDetail -> Lude.Maybe Lude.Bool) (\s a -> s {allowedByOrganizations = a} :: OrganizationsDecisionDetail)
+oddAllowedByOrganizations :: Lens.Lens' OrganizationsDecisionDetail (Core.Maybe Core.Bool)
+oddAllowedByOrganizations = Lens.field @"allowedByOrganizations"
 {-# DEPRECATED oddAllowedByOrganizations "Use generic-lens or generic-optics with 'allowedByOrganizations' instead." #-}
 
-instance Lude.FromXML OrganizationsDecisionDetail where
+instance Core.FromXML OrganizationsDecisionDetail where
   parseXML x =
     OrganizationsDecisionDetail'
-      Lude.<$> (x Lude..@? "AllowedByOrganizations")
+      Core.<$> (x Core..@? "AllowedByOrganizations")

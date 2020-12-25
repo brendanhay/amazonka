@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Eac3AttenuationControl
   ( Eac3AttenuationControl
       ( Eac3AttenuationControl',
-        EACAttenuate3DB,
-        EACNone
+        Eac3AttenuationControlAttenuate3Db,
+        Eac3AttenuationControlNone,
+        fromEac3AttenuationControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Eac3 Attenuation Control
-newtype Eac3AttenuationControl = Eac3AttenuationControl' Lude.Text
+newtype Eac3AttenuationControl = Eac3AttenuationControl'
+  { fromEac3AttenuationControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EACAttenuate3DB :: Eac3AttenuationControl
-pattern EACAttenuate3DB = Eac3AttenuationControl' "ATTENUATE_3_DB"
+pattern Eac3AttenuationControlAttenuate3Db :: Eac3AttenuationControl
+pattern Eac3AttenuationControlAttenuate3Db = Eac3AttenuationControl' "ATTENUATE_3_DB"
 
-pattern EACNone :: Eac3AttenuationControl
-pattern EACNone = Eac3AttenuationControl' "NONE"
+pattern Eac3AttenuationControlNone :: Eac3AttenuationControl
+pattern Eac3AttenuationControlNone = Eac3AttenuationControl' "NONE"
 
 {-# COMPLETE
-  EACAttenuate3DB,
-  EACNone,
+  Eac3AttenuationControlAttenuate3Db,
+  Eac3AttenuationControlNone,
   Eac3AttenuationControl'
   #-}

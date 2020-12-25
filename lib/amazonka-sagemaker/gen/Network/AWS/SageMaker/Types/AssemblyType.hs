@@ -13,46 +13,48 @@
 module Network.AWS.SageMaker.Types.AssemblyType
   ( AssemblyType
       ( AssemblyType',
-        ATNone,
-        ATLine
+        AssemblyTypeNone,
+        AssemblyTypeLine,
+        fromAssemblyType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AssemblyType = AssemblyType' Lude.Text
+newtype AssemblyType = AssemblyType' {fromAssemblyType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATNone :: AssemblyType
-pattern ATNone = AssemblyType' "None"
+pattern AssemblyTypeNone :: AssemblyType
+pattern AssemblyTypeNone = AssemblyType' "None"
 
-pattern ATLine :: AssemblyType
-pattern ATLine = AssemblyType' "Line"
+pattern AssemblyTypeLine :: AssemblyType
+pattern AssemblyTypeLine = AssemblyType' "Line"
 
 {-# COMPLETE
-  ATNone,
-  ATLine,
+  AssemblyTypeNone,
+  AssemblyTypeLine,
   AssemblyType'
   #-}

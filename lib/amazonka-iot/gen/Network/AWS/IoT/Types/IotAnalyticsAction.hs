@@ -18,14 +18,17 @@ module Network.AWS.IoT.Types.IotAnalyticsAction
 
     -- * Lenses
     iaaBatchMode,
-    iaaChannelARN,
+    iaaChannelArn,
     iaaChannelName,
-    iaaRoleARN,
+    iaaRoleArn,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.ChannelArn as Types
+import qualified Network.AWS.IoT.Types.ChannelName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Sends message data to an AWS IoT Analytics channel.
 --
@@ -34,33 +37,26 @@ data IotAnalyticsAction = IotAnalyticsAction'
   { -- | Whether to process the action as a batch. The default value is @false@ .
     --
     -- When @batchMode@ is @true@ and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html @BatchPutMessage@ > to the AWS IoT Analytics channel. The resulting array can't have more than 100 messages.
-    batchMode :: Lude.Maybe Lude.Bool,
+    batchMode :: Core.Maybe Core.Bool,
     -- | (deprecated) The ARN of the IoT Analytics channel to which message data will be sent.
-    channelARN :: Lude.Maybe Lude.Text,
+    channelArn :: Core.Maybe Types.ChannelArn,
     -- | The name of the IoT Analytics channel to which message data will be sent.
-    channelName :: Lude.Maybe Lude.Text,
+    channelName :: Core.Maybe Types.ChannelName,
     -- | The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.AwsArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IotAnalyticsAction' with the minimum fields required to make a request.
---
--- * 'batchMode' - Whether to process the action as a batch. The default value is @false@ .
---
--- When @batchMode@ is @true@ and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html @BatchPutMessage@ > to the AWS IoT Analytics channel. The resulting array can't have more than 100 messages.
--- * 'channelARN' - (deprecated) The ARN of the IoT Analytics channel to which message data will be sent.
--- * 'channelName' - The name of the IoT Analytics channel to which message data will be sent.
--- * 'roleARN' - The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
+-- | Creates a 'IotAnalyticsAction' value with any optional fields omitted.
 mkIotAnalyticsAction ::
   IotAnalyticsAction
 mkIotAnalyticsAction =
   IotAnalyticsAction'
-    { batchMode = Lude.Nothing,
-      channelARN = Lude.Nothing,
-      channelName = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { batchMode = Core.Nothing,
+      channelArn = Core.Nothing,
+      channelName = Core.Nothing,
+      roleArn = Core.Nothing
     }
 
 -- | Whether to process the action as a batch. The default value is @false@ .
@@ -68,50 +64,48 @@ mkIotAnalyticsAction =
 -- When @batchMode@ is @true@ and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html @BatchPutMessage@ > to the AWS IoT Analytics channel. The resulting array can't have more than 100 messages.
 --
 -- /Note:/ Consider using 'batchMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaaBatchMode :: Lens.Lens' IotAnalyticsAction (Lude.Maybe Lude.Bool)
-iaaBatchMode = Lens.lens (batchMode :: IotAnalyticsAction -> Lude.Maybe Lude.Bool) (\s a -> s {batchMode = a} :: IotAnalyticsAction)
+iaaBatchMode :: Lens.Lens' IotAnalyticsAction (Core.Maybe Core.Bool)
+iaaBatchMode = Lens.field @"batchMode"
 {-# DEPRECATED iaaBatchMode "Use generic-lens or generic-optics with 'batchMode' instead." #-}
 
 -- | (deprecated) The ARN of the IoT Analytics channel to which message data will be sent.
 --
--- /Note:/ Consider using 'channelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaaChannelARN :: Lens.Lens' IotAnalyticsAction (Lude.Maybe Lude.Text)
-iaaChannelARN = Lens.lens (channelARN :: IotAnalyticsAction -> Lude.Maybe Lude.Text) (\s a -> s {channelARN = a} :: IotAnalyticsAction)
-{-# DEPRECATED iaaChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
+-- /Note:/ Consider using 'channelArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaaChannelArn :: Lens.Lens' IotAnalyticsAction (Core.Maybe Types.ChannelArn)
+iaaChannelArn = Lens.field @"channelArn"
+{-# DEPRECATED iaaChannelArn "Use generic-lens or generic-optics with 'channelArn' instead." #-}
 
 -- | The name of the IoT Analytics channel to which message data will be sent.
 --
 -- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaaChannelName :: Lens.Lens' IotAnalyticsAction (Lude.Maybe Lude.Text)
-iaaChannelName = Lens.lens (channelName :: IotAnalyticsAction -> Lude.Maybe Lude.Text) (\s a -> s {channelName = a} :: IotAnalyticsAction)
+iaaChannelName :: Lens.Lens' IotAnalyticsAction (Core.Maybe Types.ChannelName)
+iaaChannelName = Lens.field @"channelName"
 {-# DEPRECATED iaaChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
 -- | The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaaRoleARN :: Lens.Lens' IotAnalyticsAction (Lude.Maybe Lude.Text)
-iaaRoleARN = Lens.lens (roleARN :: IotAnalyticsAction -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: IotAnalyticsAction)
-{-# DEPRECATED iaaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaaRoleArn :: Lens.Lens' IotAnalyticsAction (Core.Maybe Types.AwsArn)
+iaaRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED iaaRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON IotAnalyticsAction where
-  parseJSON =
-    Lude.withObject
-      "IotAnalyticsAction"
-      ( \x ->
-          IotAnalyticsAction'
-            Lude.<$> (x Lude..:? "batchMode")
-            Lude.<*> (x Lude..:? "channelArn")
-            Lude.<*> (x Lude..:? "channelName")
-            Lude.<*> (x Lude..:? "roleArn")
-      )
-
-instance Lude.ToJSON IotAnalyticsAction where
-  toJSON IotAnalyticsAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("batchMode" Lude..=) Lude.<$> batchMode,
-            ("channelArn" Lude..=) Lude.<$> channelARN,
-            ("channelName" Lude..=) Lude.<$> channelName,
-            ("roleArn" Lude..=) Lude.<$> roleARN
+instance Core.FromJSON IotAnalyticsAction where
+  toJSON IotAnalyticsAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("batchMode" Core..=) Core.<$> batchMode,
+            ("channelArn" Core..=) Core.<$> channelArn,
+            ("channelName" Core..=) Core.<$> channelName,
+            ("roleArn" Core..=) Core.<$> roleArn
           ]
       )
+
+instance Core.FromJSON IotAnalyticsAction where
+  parseJSON =
+    Core.withObject "IotAnalyticsAction" Core.$
+      \x ->
+        IotAnalyticsAction'
+          Core.<$> (x Core..:? "batchMode")
+          Core.<*> (x Core..:? "channelArn")
+          Core.<*> (x Core..:? "channelName")
+          Core.<*> (x Core..:? "roleArn")

@@ -17,12 +17,13 @@ module Network.AWS.SageMaker.Types.GitConfigForUpdate
     mkGitConfigForUpdate,
 
     -- * Lenses
-    gcfuSecretARN,
+    gcfuSecretArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.SecretArn as Types
 
 -- | Specifies configuration details for a Git repository when the repository is updated.
 --
@@ -31,31 +32,27 @@ newtype GitConfigForUpdate = GitConfigForUpdate'
   { -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
     --
     -- @{"username": /UserName/ , "password": /Password/ }@
-    secretARN :: Lude.Maybe Lude.Text
+    secretArn :: Core.Maybe Types.SecretArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GitConfigForUpdate' with the minimum fields required to make a request.
---
--- * 'secretARN' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
---
--- @{"username": /UserName/ , "password": /Password/ }@
+-- | Creates a 'GitConfigForUpdate' value with any optional fields omitted.
 mkGitConfigForUpdate ::
   GitConfigForUpdate
 mkGitConfigForUpdate =
-  GitConfigForUpdate' {secretARN = Lude.Nothing}
+  GitConfigForUpdate' {secretArn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
 --
 -- @{"username": /UserName/ , "password": /Password/ }@
 --
--- /Note:/ Consider using 'secretARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfuSecretARN :: Lens.Lens' GitConfigForUpdate (Lude.Maybe Lude.Text)
-gcfuSecretARN = Lens.lens (secretARN :: GitConfigForUpdate -> Lude.Maybe Lude.Text) (\s a -> s {secretARN = a} :: GitConfigForUpdate)
-{-# DEPRECATED gcfuSecretARN "Use generic-lens or generic-optics with 'secretARN' instead." #-}
+-- /Note:/ Consider using 'secretArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfuSecretArn :: Lens.Lens' GitConfigForUpdate (Core.Maybe Types.SecretArn)
+gcfuSecretArn = Lens.field @"secretArn"
+{-# DEPRECATED gcfuSecretArn "Use generic-lens or generic-optics with 'secretArn' instead." #-}
 
-instance Lude.ToJSON GitConfigForUpdate where
-  toJSON GitConfigForUpdate' {..} =
-    Lude.object
-      (Lude.catMaybes [("SecretArn" Lude..=) Lude.<$> secretARN])
+instance Core.FromJSON GitConfigForUpdate where
+  toJSON GitConfigForUpdate {..} =
+    Core.object
+      (Core.catMaybes [("SecretArn" Core..=) Core.<$> secretArn])

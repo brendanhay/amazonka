@@ -17,165 +17,152 @@ module Network.AWS.MediaLive.Types.Multiplex
     mkMultiplex,
 
     -- * Lenses
-    mState,
-    mARN,
-    mPipelinesRunningCount,
+    mArn,
     mAvailabilityZones,
-    mProgramCount,
     mDestinations,
-    mName,
     mId,
     mMultiplexSettings,
+    mName,
+    mPipelinesRunningCount,
+    mProgramCount,
+    mState,
     mTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.MultiplexOutputDestination
-import Network.AWS.MediaLive.Types.MultiplexSettings
-import Network.AWS.MediaLive.Types.MultiplexState
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.MultiplexOutputDestination as Types
+import qualified Network.AWS.MediaLive.Types.MultiplexSettings as Types
+import qualified Network.AWS.MediaLive.Types.MultiplexState as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The multiplex object.
 --
 -- /See:/ 'mkMultiplex' smart constructor.
 data Multiplex = Multiplex'
-  { -- | The current state of the multiplex.
-    state :: Lude.Maybe MultiplexState,
-    -- | The unique arn of the multiplex.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Lude.Maybe Lude.Int,
+  { -- | The unique arn of the multiplex.
+    arn :: Core.Maybe Core.Text,
     -- | A list of availability zones for the multiplex.
-    availabilityZones :: Lude.Maybe [Lude.Text],
-    -- | The number of programs in the multiplex.
-    programCount :: Lude.Maybe Lude.Int,
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | A list of the multiplex output destinations.
-    destinations :: Lude.Maybe [MultiplexOutputDestination],
-    -- | The name of the multiplex.
-    name :: Lude.Maybe Lude.Text,
+    destinations :: Core.Maybe [Types.MultiplexOutputDestination],
     -- | The unique id of the multiplex.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Configuration for a multiplex event.
-    multiplexSettings :: Lude.Maybe MultiplexSettings,
+    multiplexSettings :: Core.Maybe Types.MultiplexSettings,
+    -- | The name of the multiplex.
+    name :: Core.Maybe Core.Text,
+    -- | The number of currently healthy pipelines.
+    pipelinesRunningCount :: Core.Maybe Core.Int,
+    -- | The number of programs in the multiplex.
+    programCount :: Core.Maybe Core.Int,
+    -- | The current state of the multiplex.
+    state :: Core.Maybe Types.MultiplexState,
     -- | A collection of key-value pairs.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Multiplex' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the multiplex.
--- * 'arn' - The unique arn of the multiplex.
--- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
--- * 'availabilityZones' - A list of availability zones for the multiplex.
--- * 'programCount' - The number of programs in the multiplex.
--- * 'destinations' - A list of the multiplex output destinations.
--- * 'name' - The name of the multiplex.
--- * 'id' - The unique id of the multiplex.
--- * 'multiplexSettings' - Configuration for a multiplex event.
--- * 'tags' - A collection of key-value pairs.
+-- | Creates a 'Multiplex' value with any optional fields omitted.
 mkMultiplex ::
   Multiplex
 mkMultiplex =
   Multiplex'
-    { state = Lude.Nothing,
-      arn = Lude.Nothing,
-      pipelinesRunningCount = Lude.Nothing,
-      availabilityZones = Lude.Nothing,
-      programCount = Lude.Nothing,
-      destinations = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      multiplexSettings = Lude.Nothing,
-      tags = Lude.Nothing
+    { arn = Core.Nothing,
+      availabilityZones = Core.Nothing,
+      destinations = Core.Nothing,
+      id = Core.Nothing,
+      multiplexSettings = Core.Nothing,
+      name = Core.Nothing,
+      pipelinesRunningCount = Core.Nothing,
+      programCount = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The current state of the multiplex.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mState :: Lens.Lens' Multiplex (Lude.Maybe MultiplexState)
-mState = Lens.lens (state :: Multiplex -> Lude.Maybe MultiplexState) (\s a -> s {state = a} :: Multiplex)
-{-# DEPRECATED mState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The unique arn of the multiplex.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mARN :: Lens.Lens' Multiplex (Lude.Maybe Lude.Text)
-mARN = Lens.lens (arn :: Multiplex -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Multiplex)
-{-# DEPRECATED mARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The number of currently healthy pipelines.
---
--- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mPipelinesRunningCount :: Lens.Lens' Multiplex (Lude.Maybe Lude.Int)
-mPipelinesRunningCount = Lens.lens (pipelinesRunningCount :: Multiplex -> Lude.Maybe Lude.Int) (\s a -> s {pipelinesRunningCount = a} :: Multiplex)
-{-# DEPRECATED mPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
+mArn :: Lens.Lens' Multiplex (Core.Maybe Core.Text)
+mArn = Lens.field @"arn"
+{-# DEPRECATED mArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A list of availability zones for the multiplex.
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mAvailabilityZones :: Lens.Lens' Multiplex (Lude.Maybe [Lude.Text])
-mAvailabilityZones = Lens.lens (availabilityZones :: Multiplex -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: Multiplex)
+mAvailabilityZones :: Lens.Lens' Multiplex (Core.Maybe [Core.Text])
+mAvailabilityZones = Lens.field @"availabilityZones"
 {-# DEPRECATED mAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
-
--- | The number of programs in the multiplex.
---
--- /Note:/ Consider using 'programCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mProgramCount :: Lens.Lens' Multiplex (Lude.Maybe Lude.Int)
-mProgramCount = Lens.lens (programCount :: Multiplex -> Lude.Maybe Lude.Int) (\s a -> s {programCount = a} :: Multiplex)
-{-# DEPRECATED mProgramCount "Use generic-lens or generic-optics with 'programCount' instead." #-}
 
 -- | A list of the multiplex output destinations.
 --
 -- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mDestinations :: Lens.Lens' Multiplex (Lude.Maybe [MultiplexOutputDestination])
-mDestinations = Lens.lens (destinations :: Multiplex -> Lude.Maybe [MultiplexOutputDestination]) (\s a -> s {destinations = a} :: Multiplex)
+mDestinations :: Lens.Lens' Multiplex (Core.Maybe [Types.MultiplexOutputDestination])
+mDestinations = Lens.field @"destinations"
 {-# DEPRECATED mDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
-
--- | The name of the multiplex.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mName :: Lens.Lens' Multiplex (Lude.Maybe Lude.Text)
-mName = Lens.lens (name :: Multiplex -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Multiplex)
-{-# DEPRECATED mName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique id of the multiplex.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mId :: Lens.Lens' Multiplex (Lude.Maybe Lude.Text)
-mId = Lens.lens (id :: Multiplex -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Multiplex)
+mId :: Lens.Lens' Multiplex (Core.Maybe Core.Text)
+mId = Lens.field @"id"
 {-# DEPRECATED mId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Configuration for a multiplex event.
 --
 -- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMultiplexSettings :: Lens.Lens' Multiplex (Lude.Maybe MultiplexSettings)
-mMultiplexSettings = Lens.lens (multiplexSettings :: Multiplex -> Lude.Maybe MultiplexSettings) (\s a -> s {multiplexSettings = a} :: Multiplex)
+mMultiplexSettings :: Lens.Lens' Multiplex (Core.Maybe Types.MultiplexSettings)
+mMultiplexSettings = Lens.field @"multiplexSettings"
 {-# DEPRECATED mMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
+
+-- | The name of the multiplex.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mName :: Lens.Lens' Multiplex (Core.Maybe Core.Text)
+mName = Lens.field @"name"
+{-# DEPRECATED mName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The number of currently healthy pipelines.
+--
+-- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mPipelinesRunningCount :: Lens.Lens' Multiplex (Core.Maybe Core.Int)
+mPipelinesRunningCount = Lens.field @"pipelinesRunningCount"
+{-# DEPRECATED mPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
+
+-- | The number of programs in the multiplex.
+--
+-- /Note:/ Consider using 'programCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mProgramCount :: Lens.Lens' Multiplex (Core.Maybe Core.Int)
+mProgramCount = Lens.field @"programCount"
+{-# DEPRECATED mProgramCount "Use generic-lens or generic-optics with 'programCount' instead." #-}
+
+-- | The current state of the multiplex.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mState :: Lens.Lens' Multiplex (Core.Maybe Types.MultiplexState)
+mState = Lens.field @"state"
+{-# DEPRECATED mState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A collection of key-value pairs.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mTags :: Lens.Lens' Multiplex (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-mTags = Lens.lens (tags :: Multiplex -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: Multiplex)
+mTags :: Lens.Lens' Multiplex (Core.Maybe (Core.HashMap Core.Text Core.Text))
+mTags = Lens.field @"tags"
 {-# DEPRECATED mTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON Multiplex where
+instance Core.FromJSON Multiplex where
   parseJSON =
-    Lude.withObject
-      "Multiplex"
-      ( \x ->
-          Multiplex'
-            Lude.<$> (x Lude..:? "state")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "pipelinesRunningCount")
-            Lude.<*> (x Lude..:? "availabilityZones" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "programCount")
-            Lude.<*> (x Lude..:? "destinations" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "multiplexSettings")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Multiplex" Core.$
+      \x ->
+        Multiplex'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "availabilityZones")
+          Core.<*> (x Core..:? "destinations")
+          Core.<*> (x Core..:? "id")
+          Core.<*> (x Core..:? "multiplexSettings")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "pipelinesRunningCount")
+          Core.<*> (x Core..:? "programCount")
+          Core.<*> (x Core..:? "state")
+          Core.<*> (x Core..:? "tags")

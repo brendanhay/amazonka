@@ -21,34 +21,33 @@ module Network.AWS.EC2.Types.AccountAttributeValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a value of an account attribute.
 --
 -- /See:/ 'mkAccountAttributeValue' smart constructor.
 newtype AccountAttributeValue = AccountAttributeValue'
   { -- | The value of the attribute.
-    attributeValue :: Lude.Maybe Lude.Text
+    attributeValue :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountAttributeValue' with the minimum fields required to make a request.
---
--- * 'attributeValue' - The value of the attribute.
+-- | Creates a 'AccountAttributeValue' value with any optional fields omitted.
 mkAccountAttributeValue ::
   AccountAttributeValue
 mkAccountAttributeValue =
-  AccountAttributeValue' {attributeValue = Lude.Nothing}
+  AccountAttributeValue' {attributeValue = Core.Nothing}
 
 -- | The value of the attribute.
 --
 -- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aavAttributeValue :: Lens.Lens' AccountAttributeValue (Lude.Maybe Lude.Text)
-aavAttributeValue = Lens.lens (attributeValue :: AccountAttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: AccountAttributeValue)
+aavAttributeValue :: Lens.Lens' AccountAttributeValue (Core.Maybe Types.String)
+aavAttributeValue = Lens.field @"attributeValue"
 {-# DEPRECATED aavAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
-instance Lude.FromXML AccountAttributeValue where
+instance Core.FromXML AccountAttributeValue where
   parseXML x =
-    AccountAttributeValue' Lude.<$> (x Lude..@? "attributeValue")
+    AccountAttributeValue' Core.<$> (x Core..@? "attributeValue")

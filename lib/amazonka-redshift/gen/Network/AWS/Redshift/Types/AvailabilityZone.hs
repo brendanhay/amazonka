@@ -23,52 +23,50 @@ module Network.AWS.Redshift.Types.AvailabilityZone
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.SupportedPlatform
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
+import qualified Network.AWS.Redshift.Types.SupportedPlatform as Types
 
 -- | Describes an availability zone.
 --
 -- /See:/ 'mkAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
   { -- | The name of the availability zone.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.String,
     -- |
-    supportedPlatforms :: Lude.Maybe [SupportedPlatform]
+    supportedPlatforms :: Core.Maybe [Types.SupportedPlatform]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
---
--- * 'name' - The name of the availability zone.
--- * 'supportedPlatforms' -
+-- | Creates a 'AvailabilityZone' value with any optional fields omitted.
 mkAvailabilityZone ::
   AvailabilityZone
 mkAvailabilityZone =
   AvailabilityZone'
-    { name = Lude.Nothing,
-      supportedPlatforms = Lude.Nothing
+    { name = Core.Nothing,
+      supportedPlatforms = Core.Nothing
     }
 
 -- | The name of the availability zone.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
-azName = Lens.lens (name :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AvailabilityZone)
+azName :: Lens.Lens' AvailabilityZone (Core.Maybe Types.String)
+azName = Lens.field @"name"
 {-# DEPRECATED azName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'supportedPlatforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azSupportedPlatforms :: Lens.Lens' AvailabilityZone (Lude.Maybe [SupportedPlatform])
-azSupportedPlatforms = Lens.lens (supportedPlatforms :: AvailabilityZone -> Lude.Maybe [SupportedPlatform]) (\s a -> s {supportedPlatforms = a} :: AvailabilityZone)
+azSupportedPlatforms :: Lens.Lens' AvailabilityZone (Core.Maybe [Types.SupportedPlatform])
+azSupportedPlatforms = Lens.field @"supportedPlatforms"
 {-# DEPRECATED azSupportedPlatforms "Use generic-lens or generic-optics with 'supportedPlatforms' instead." #-}
 
-instance Lude.FromXML AvailabilityZone where
+instance Core.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      Lude.<$> (x Lude..@? "Name")
-      Lude.<*> ( x Lude..@? "SupportedPlatforms" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "SupportedPlatform")
+      Core.<$> (x Core..@? "Name")
+      Core.<*> ( x Core..@? "SupportedPlatforms"
+                   Core..<@> Core.parseXMLList "SupportedPlatform"
                )

@@ -17,149 +17,144 @@ module Network.AWS.OpsWorks.Types.ElasticLoadBalancer
     mkElasticLoadBalancer,
 
     -- * Lenses
-    elbSubnetIds,
-    elbVPCId,
     elbAvailabilityZones,
-    elbRegion,
+    elbDnsName,
+    elbEc2InstanceIds,
     elbElasticLoadBalancerName,
-    elbStackId,
-    elbEC2InstanceIds,
     elbLayerId,
-    elbDNSName,
+    elbRegion,
+    elbStackId,
+    elbSubnetIds,
+    elbVpcId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.DnsName as Types
+import qualified Network.AWS.OpsWorks.Types.ElasticLoadBalancerName as Types
+import qualified Network.AWS.OpsWorks.Types.LayerId as Types
+import qualified Network.AWS.OpsWorks.Types.Region as Types
+import qualified Network.AWS.OpsWorks.Types.StackId as Types
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.OpsWorks.Types.VpcId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Elastic Load Balancing instance.
 --
 -- /See:/ 'mkElasticLoadBalancer' smart constructor.
 data ElasticLoadBalancer = ElasticLoadBalancer'
-  { -- | A list of subnet IDs, if the stack is running in a VPC.
-    subnetIds :: Lude.Maybe [Lude.Text],
-    -- | The VPC ID.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | A list of Availability Zones.
-    availabilityZones :: Lude.Maybe [Lude.Text],
-    -- | The instance's AWS region.
-    region :: Lude.Maybe Lude.Text,
-    -- | The Elastic Load Balancing instance's name.
-    elasticLoadBalancerName :: Lude.Maybe Lude.Text,
-    -- | The ID of the stack that the instance is associated with.
-    stackId :: Lude.Maybe Lude.Text,
-    -- | A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
-    ec2InstanceIds :: Lude.Maybe [Lude.Text],
-    -- | The ID of the layer that the instance is attached to.
-    layerId :: Lude.Maybe Lude.Text,
+  { -- | A list of Availability Zones.
+    availabilityZones :: Core.Maybe [Types.String],
     -- | The instance's public DNS name.
-    dnsName :: Lude.Maybe Lude.Text
+    dnsName :: Core.Maybe Types.DnsName,
+    -- | A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
+    ec2InstanceIds :: Core.Maybe [Types.String],
+    -- | The Elastic Load Balancing instance's name.
+    elasticLoadBalancerName :: Core.Maybe Types.ElasticLoadBalancerName,
+    -- | The ID of the layer that the instance is attached to.
+    layerId :: Core.Maybe Types.LayerId,
+    -- | The instance's AWS region.
+    region :: Core.Maybe Types.Region,
+    -- | The ID of the stack that the instance is associated with.
+    stackId :: Core.Maybe Types.StackId,
+    -- | A list of subnet IDs, if the stack is running in a VPC.
+    subnetIds :: Core.Maybe [Types.String],
+    -- | The VPC ID.
+    vpcId :: Core.Maybe Types.VpcId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticLoadBalancer' with the minimum fields required to make a request.
---
--- * 'subnetIds' - A list of subnet IDs, if the stack is running in a VPC.
--- * 'vpcId' - The VPC ID.
--- * 'availabilityZones' - A list of Availability Zones.
--- * 'region' - The instance's AWS region.
--- * 'elasticLoadBalancerName' - The Elastic Load Balancing instance's name.
--- * 'stackId' - The ID of the stack that the instance is associated with.
--- * 'ec2InstanceIds' - A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
--- * 'layerId' - The ID of the layer that the instance is attached to.
--- * 'dnsName' - The instance's public DNS name.
+-- | Creates a 'ElasticLoadBalancer' value with any optional fields omitted.
 mkElasticLoadBalancer ::
   ElasticLoadBalancer
 mkElasticLoadBalancer =
   ElasticLoadBalancer'
-    { subnetIds = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      availabilityZones = Lude.Nothing,
-      region = Lude.Nothing,
-      elasticLoadBalancerName = Lude.Nothing,
-      stackId = Lude.Nothing,
-      ec2InstanceIds = Lude.Nothing,
-      layerId = Lude.Nothing,
-      dnsName = Lude.Nothing
+    { availabilityZones = Core.Nothing,
+      dnsName = Core.Nothing,
+      ec2InstanceIds = Core.Nothing,
+      elasticLoadBalancerName = Core.Nothing,
+      layerId = Core.Nothing,
+      region = Core.Nothing,
+      stackId = Core.Nothing,
+      subnetIds = Core.Nothing,
+      vpcId = Core.Nothing
     }
+
+-- | A list of Availability Zones.
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elbAvailabilityZones :: Lens.Lens' ElasticLoadBalancer (Core.Maybe [Types.String])
+elbAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED elbAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+
+-- | The instance's public DNS name.
+--
+-- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elbDnsName :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Types.DnsName)
+elbDnsName = Lens.field @"dnsName"
+{-# DEPRECATED elbDnsName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
+
+-- | A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
+--
+-- /Note:/ Consider using 'ec2InstanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elbEc2InstanceIds :: Lens.Lens' ElasticLoadBalancer (Core.Maybe [Types.String])
+elbEc2InstanceIds = Lens.field @"ec2InstanceIds"
+{-# DEPRECATED elbEc2InstanceIds "Use generic-lens or generic-optics with 'ec2InstanceIds' instead." #-}
+
+-- | The Elastic Load Balancing instance's name.
+--
+-- /Note:/ Consider using 'elasticLoadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elbElasticLoadBalancerName :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Types.ElasticLoadBalancerName)
+elbElasticLoadBalancerName = Lens.field @"elasticLoadBalancerName"
+{-# DEPRECATED elbElasticLoadBalancerName "Use generic-lens or generic-optics with 'elasticLoadBalancerName' instead." #-}
+
+-- | The ID of the layer that the instance is attached to.
+--
+-- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elbLayerId :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Types.LayerId)
+elbLayerId = Lens.field @"layerId"
+{-# DEPRECATED elbLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
+
+-- | The instance's AWS region.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elbRegion :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Types.Region)
+elbRegion = Lens.field @"region"
+{-# DEPRECATED elbRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+-- | The ID of the stack that the instance is associated with.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+elbStackId :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Types.StackId)
+elbStackId = Lens.field @"stackId"
+{-# DEPRECATED elbStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
 --
 -- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbSubnetIds :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe [Lude.Text])
-elbSubnetIds = Lens.lens (subnetIds :: ElasticLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: ElasticLoadBalancer)
+elbSubnetIds :: Lens.Lens' ElasticLoadBalancer (Core.Maybe [Types.String])
+elbSubnetIds = Lens.field @"subnetIds"
 {-# DEPRECATED elbSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The VPC ID.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbVPCId :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe Lude.Text)
-elbVPCId = Lens.lens (vpcId :: ElasticLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: ElasticLoadBalancer)
-{-# DEPRECATED elbVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+elbVpcId :: Lens.Lens' ElasticLoadBalancer (Core.Maybe Types.VpcId)
+elbVpcId = Lens.field @"vpcId"
+{-# DEPRECATED elbVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
--- | A list of Availability Zones.
---
--- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbAvailabilityZones :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe [Lude.Text])
-elbAvailabilityZones = Lens.lens (availabilityZones :: ElasticLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: ElasticLoadBalancer)
-{-# DEPRECATED elbAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
-
--- | The instance's AWS region.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbRegion :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe Lude.Text)
-elbRegion = Lens.lens (region :: ElasticLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: ElasticLoadBalancer)
-{-# DEPRECATED elbRegion "Use generic-lens or generic-optics with 'region' instead." #-}
-
--- | The Elastic Load Balancing instance's name.
---
--- /Note:/ Consider using 'elasticLoadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbElasticLoadBalancerName :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe Lude.Text)
-elbElasticLoadBalancerName = Lens.lens (elasticLoadBalancerName :: ElasticLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {elasticLoadBalancerName = a} :: ElasticLoadBalancer)
-{-# DEPRECATED elbElasticLoadBalancerName "Use generic-lens or generic-optics with 'elasticLoadBalancerName' instead." #-}
-
--- | The ID of the stack that the instance is associated with.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbStackId :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe Lude.Text)
-elbStackId = Lens.lens (stackId :: ElasticLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: ElasticLoadBalancer)
-{-# DEPRECATED elbStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
-
--- | A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
---
--- /Note:/ Consider using 'ec2InstanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbEC2InstanceIds :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe [Lude.Text])
-elbEC2InstanceIds = Lens.lens (ec2InstanceIds :: ElasticLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {ec2InstanceIds = a} :: ElasticLoadBalancer)
-{-# DEPRECATED elbEC2InstanceIds "Use generic-lens or generic-optics with 'ec2InstanceIds' instead." #-}
-
--- | The ID of the layer that the instance is attached to.
---
--- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbLayerId :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe Lude.Text)
-elbLayerId = Lens.lens (layerId :: ElasticLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {layerId = a} :: ElasticLoadBalancer)
-{-# DEPRECATED elbLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
-
--- | The instance's public DNS name.
---
--- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-elbDNSName :: Lens.Lens' ElasticLoadBalancer (Lude.Maybe Lude.Text)
-elbDNSName = Lens.lens (dnsName :: ElasticLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: ElasticLoadBalancer)
-{-# DEPRECATED elbDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
-
-instance Lude.FromJSON ElasticLoadBalancer where
+instance Core.FromJSON ElasticLoadBalancer where
   parseJSON =
-    Lude.withObject
-      "ElasticLoadBalancer"
-      ( \x ->
-          ElasticLoadBalancer'
-            Lude.<$> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "VpcId")
-            Lude.<*> (x Lude..:? "AvailabilityZones" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Region")
-            Lude.<*> (x Lude..:? "ElasticLoadBalancerName")
-            Lude.<*> (x Lude..:? "StackId")
-            Lude.<*> (x Lude..:? "Ec2InstanceIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LayerId")
-            Lude.<*> (x Lude..:? "DnsName")
-      )
+    Core.withObject "ElasticLoadBalancer" Core.$
+      \x ->
+        ElasticLoadBalancer'
+          Core.<$> (x Core..:? "AvailabilityZones")
+          Core.<*> (x Core..:? "DnsName")
+          Core.<*> (x Core..:? "Ec2InstanceIds")
+          Core.<*> (x Core..:? "ElasticLoadBalancerName")
+          Core.<*> (x Core..:? "LayerId")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "StackId")
+          Core.<*> (x Core..:? "SubnetIds")
+          Core.<*> (x Core..:? "VpcId")

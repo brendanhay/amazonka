@@ -22,16 +22,18 @@ module Network.AWS.ELB.Types.Limit
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.Max as Types
+import qualified Network.AWS.ELB.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an Elastic Load Balancing resource limit for your AWS account.
 --
 -- /See:/ 'mkLimit' smart constructor.
 data Limit = Limit'
   { -- | The maximum value of the limit.
-    max :: Lude.Maybe Lude.Text,
+    max :: Core.Maybe Types.Max,
     -- | The name of the limit. The possible values are:
     --
     --
@@ -42,33 +44,21 @@ data Limit = Limit'
     --
     --
     --     * classic-registered-instances
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Limit' with the minimum fields required to make a request.
---
--- * 'max' - The maximum value of the limit.
--- * 'name' - The name of the limit. The possible values are:
---
---
---     * classic-listeners
---
---
---     * classic-load-balancers
---
---
---     * classic-registered-instances
+-- | Creates a 'Limit' value with any optional fields omitted.
 mkLimit ::
   Limit
-mkLimit = Limit' {max = Lude.Nothing, name = Lude.Nothing}
+mkLimit = Limit' {max = Core.Nothing, name = Core.Nothing}
 
 -- | The maximum value of the limit.
 --
 -- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMax :: Lens.Lens' Limit (Lude.Maybe Lude.Text)
-lMax = Lens.lens (max :: Limit -> Lude.Maybe Lude.Text) (\s a -> s {max = a} :: Limit)
+lMax :: Lens.Lens' Limit (Core.Maybe Types.Max)
+lMax = Lens.field @"max"
 {-# DEPRECATED lMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
 -- | The name of the limit. The possible values are:
@@ -85,10 +75,10 @@ lMax = Lens.lens (max :: Limit -> Lude.Maybe Lude.Text) (\s a -> s {max = a} :: 
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lName :: Lens.Lens' Limit (Lude.Maybe Lude.Text)
-lName = Lens.lens (name :: Limit -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Limit)
+lName :: Lens.Lens' Limit (Core.Maybe Types.Name)
+lName = Lens.field @"name"
 {-# DEPRECATED lName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML Limit where
+instance Core.FromXML Limit where
   parseXML x =
-    Limit' Lude.<$> (x Lude..@? "Max") Lude.<*> (x Lude..@? "Name")
+    Limit' Core.<$> (x Core..@? "Max") Core.<*> (x Core..@? "Name")

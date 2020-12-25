@@ -27,107 +27,93 @@ module Network.AWS.WAFRegional.GetRateBasedRule
     mkGetRateBasedRuleResponse,
 
     -- ** Response lenses
-    grbrrsRule,
-    grbrrsResponseStatus,
+    grbrrrsRule,
+    grbrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkGetRateBasedRule' smart constructor.
 newtype GetRateBasedRule = GetRateBasedRule'
   { -- | The @RuleId@ of the 'RateBasedRule' that you want to get. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
-    ruleId :: Lude.Text
+    ruleId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRateBasedRule' with the minimum fields required to make a request.
---
--- * 'ruleId' - The @RuleId@ of the 'RateBasedRule' that you want to get. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
+-- | Creates a 'GetRateBasedRule' value with any optional fields omitted.
 mkGetRateBasedRule ::
   -- | 'ruleId'
-  Lude.Text ->
+  Types.ResourceId ->
   GetRateBasedRule
-mkGetRateBasedRule pRuleId_ = GetRateBasedRule' {ruleId = pRuleId_}
+mkGetRateBasedRule ruleId = GetRateBasedRule' {ruleId}
 
 -- | The @RuleId@ of the 'RateBasedRule' that you want to get. @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
 --
 -- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grbrRuleId :: Lens.Lens' GetRateBasedRule Lude.Text
-grbrRuleId = Lens.lens (ruleId :: GetRateBasedRule -> Lude.Text) (\s a -> s {ruleId = a} :: GetRateBasedRule)
+grbrRuleId :: Lens.Lens' GetRateBasedRule Types.ResourceId
+grbrRuleId = Lens.field @"ruleId"
 {-# DEPRECATED grbrRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
-instance Lude.AWSRequest GetRateBasedRule where
+instance Core.FromJSON GetRateBasedRule where
+  toJSON GetRateBasedRule {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RuleId" Core..= ruleId)])
+
+instance Core.AWSRequest GetRateBasedRule where
   type Rs GetRateBasedRule = GetRateBasedRuleResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.GetRateBasedRule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRateBasedRuleResponse'
-            Lude.<$> (x Lude..?> "Rule") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Rule") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetRateBasedRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.GetRateBasedRule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetRateBasedRule where
-  toJSON GetRateBasedRule' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RuleId" Lude..= ruleId)])
-
-instance Lude.ToPath GetRateBasedRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRateBasedRule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetRateBasedRuleResponse' smart constructor.
 data GetRateBasedRuleResponse = GetRateBasedRuleResponse'
   { -- | Information about the 'RateBasedRule' that you specified in the @GetRateBasedRule@ request.
-    rule :: Lude.Maybe RateBasedRule,
+    rule :: Core.Maybe Types.RateBasedRule,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRateBasedRuleResponse' with the minimum fields required to make a request.
---
--- * 'rule' - Information about the 'RateBasedRule' that you specified in the @GetRateBasedRule@ request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRateBasedRuleResponse' value with any optional fields omitted.
 mkGetRateBasedRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRateBasedRuleResponse
-mkGetRateBasedRuleResponse pResponseStatus_ =
-  GetRateBasedRuleResponse'
-    { rule = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetRateBasedRuleResponse responseStatus =
+  GetRateBasedRuleResponse' {rule = Core.Nothing, responseStatus}
 
 -- | Information about the 'RateBasedRule' that you specified in the @GetRateBasedRule@ request.
 --
 -- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grbrrsRule :: Lens.Lens' GetRateBasedRuleResponse (Lude.Maybe RateBasedRule)
-grbrrsRule = Lens.lens (rule :: GetRateBasedRuleResponse -> Lude.Maybe RateBasedRule) (\s a -> s {rule = a} :: GetRateBasedRuleResponse)
-{-# DEPRECATED grbrrsRule "Use generic-lens or generic-optics with 'rule' instead." #-}
+grbrrrsRule :: Lens.Lens' GetRateBasedRuleResponse (Core.Maybe Types.RateBasedRule)
+grbrrrsRule = Lens.field @"rule"
+{-# DEPRECATED grbrrrsRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grbrrsResponseStatus :: Lens.Lens' GetRateBasedRuleResponse Lude.Int
-grbrrsResponseStatus = Lens.lens (responseStatus :: GetRateBasedRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRateBasedRuleResponse)
-{-# DEPRECATED grbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grbrrrsResponseStatus :: Lens.Lens' GetRateBasedRuleResponse Core.Int
+grbrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grbrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

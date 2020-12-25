@@ -13,66 +13,71 @@
 module Network.AWS.SageMaker.Types.ProductionVariantAcceleratorType
   ( ProductionVariantAcceleratorType
       ( ProductionVariantAcceleratorType',
-        PVATMl_EIA1_Medium,
-        PVATMl_EIA1_Large,
-        PVATMl_EIA1_XLarge,
-        PVATMl_EIA2_Medium,
-        PVATMl_EIA2_Large,
-        PVATMl_EIA2_XLarge
+        ProductionVariantAcceleratorTypeMl_EIA1_Medium,
+        ProductionVariantAcceleratorTypeMl_EIA1_Large,
+        ProductionVariantAcceleratorTypeMl_EIA1_Xlarge,
+        ProductionVariantAcceleratorTypeMl_EIA2_Medium,
+        ProductionVariantAcceleratorTypeMl_EIA2_Large,
+        ProductionVariantAcceleratorTypeMl_EIA2_Xlarge,
+        fromProductionVariantAcceleratorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProductionVariantAcceleratorType = ProductionVariantAcceleratorType' Lude.Text
+newtype ProductionVariantAcceleratorType = ProductionVariantAcceleratorType'
+  { fromProductionVariantAcceleratorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PVATMl_EIA1_Medium :: ProductionVariantAcceleratorType
-pattern PVATMl_EIA1_Medium = ProductionVariantAcceleratorType' "ml.eia1.medium"
+pattern ProductionVariantAcceleratorTypeMl_EIA1_Medium :: ProductionVariantAcceleratorType
+pattern ProductionVariantAcceleratorTypeMl_EIA1_Medium = ProductionVariantAcceleratorType' "ml.eia1.medium"
 
-pattern PVATMl_EIA1_Large :: ProductionVariantAcceleratorType
-pattern PVATMl_EIA1_Large = ProductionVariantAcceleratorType' "ml.eia1.large"
+pattern ProductionVariantAcceleratorTypeMl_EIA1_Large :: ProductionVariantAcceleratorType
+pattern ProductionVariantAcceleratorTypeMl_EIA1_Large = ProductionVariantAcceleratorType' "ml.eia1.large"
 
-pattern PVATMl_EIA1_XLarge :: ProductionVariantAcceleratorType
-pattern PVATMl_EIA1_XLarge = ProductionVariantAcceleratorType' "ml.eia1.xlarge"
+pattern ProductionVariantAcceleratorTypeMl_EIA1_Xlarge :: ProductionVariantAcceleratorType
+pattern ProductionVariantAcceleratorTypeMl_EIA1_Xlarge = ProductionVariantAcceleratorType' "ml.eia1.xlarge"
 
-pattern PVATMl_EIA2_Medium :: ProductionVariantAcceleratorType
-pattern PVATMl_EIA2_Medium = ProductionVariantAcceleratorType' "ml.eia2.medium"
+pattern ProductionVariantAcceleratorTypeMl_EIA2_Medium :: ProductionVariantAcceleratorType
+pattern ProductionVariantAcceleratorTypeMl_EIA2_Medium = ProductionVariantAcceleratorType' "ml.eia2.medium"
 
-pattern PVATMl_EIA2_Large :: ProductionVariantAcceleratorType
-pattern PVATMl_EIA2_Large = ProductionVariantAcceleratorType' "ml.eia2.large"
+pattern ProductionVariantAcceleratorTypeMl_EIA2_Large :: ProductionVariantAcceleratorType
+pattern ProductionVariantAcceleratorTypeMl_EIA2_Large = ProductionVariantAcceleratorType' "ml.eia2.large"
 
-pattern PVATMl_EIA2_XLarge :: ProductionVariantAcceleratorType
-pattern PVATMl_EIA2_XLarge = ProductionVariantAcceleratorType' "ml.eia2.xlarge"
+pattern ProductionVariantAcceleratorTypeMl_EIA2_Xlarge :: ProductionVariantAcceleratorType
+pattern ProductionVariantAcceleratorTypeMl_EIA2_Xlarge = ProductionVariantAcceleratorType' "ml.eia2.xlarge"
 
 {-# COMPLETE
-  PVATMl_EIA1_Medium,
-  PVATMl_EIA1_Large,
-  PVATMl_EIA1_XLarge,
-  PVATMl_EIA2_Medium,
-  PVATMl_EIA2_Large,
-  PVATMl_EIA2_XLarge,
+  ProductionVariantAcceleratorTypeMl_EIA1_Medium,
+  ProductionVariantAcceleratorTypeMl_EIA1_Large,
+  ProductionVariantAcceleratorTypeMl_EIA1_Xlarge,
+  ProductionVariantAcceleratorTypeMl_EIA2_Medium,
+  ProductionVariantAcceleratorTypeMl_EIA2_Large,
+  ProductionVariantAcceleratorTypeMl_EIA2_Xlarge,
   ProductionVariantAcceleratorType'
   #-}

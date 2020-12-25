@@ -22,45 +22,40 @@ module Network.AWS.S3.Types.AnalyticsExportDestination
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.AnalyticsS3BucketDestination
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.AnalyticsS3BucketDestination as Types
 
 -- | Where to publish the analytics results.
 --
 -- /See:/ 'mkAnalyticsExportDestination' smart constructor.
 newtype AnalyticsExportDestination = AnalyticsExportDestination'
   { -- | A destination signifying output to an S3 bucket.
-    s3BucketDestination :: AnalyticsS3BucketDestination
+    s3BucketDestination :: Types.AnalyticsS3BucketDestination
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnalyticsExportDestination' with the minimum fields required to make a request.
---
--- * 's3BucketDestination' - A destination signifying output to an S3 bucket.
+-- | Creates a 'AnalyticsExportDestination' value with any optional fields omitted.
 mkAnalyticsExportDestination ::
   -- | 's3BucketDestination'
-  AnalyticsS3BucketDestination ->
+  Types.AnalyticsS3BucketDestination ->
   AnalyticsExportDestination
-mkAnalyticsExportDestination pS3BucketDestination_ =
-  AnalyticsExportDestination'
-    { s3BucketDestination =
-        pS3BucketDestination_
-    }
+mkAnalyticsExportDestination s3BucketDestination =
+  AnalyticsExportDestination' {s3BucketDestination}
 
 -- | A destination signifying output to an S3 bucket.
 --
 -- /Note:/ Consider using 's3BucketDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aedS3BucketDestination :: Lens.Lens' AnalyticsExportDestination AnalyticsS3BucketDestination
-aedS3BucketDestination = Lens.lens (s3BucketDestination :: AnalyticsExportDestination -> AnalyticsS3BucketDestination) (\s a -> s {s3BucketDestination = a} :: AnalyticsExportDestination)
+aedS3BucketDestination :: Lens.Lens' AnalyticsExportDestination Types.AnalyticsS3BucketDestination
+aedS3BucketDestination = Lens.field @"s3BucketDestination"
 {-# DEPRECATED aedS3BucketDestination "Use generic-lens or generic-optics with 's3BucketDestination' instead." #-}
 
-instance Lude.FromXML AnalyticsExportDestination where
+instance Core.ToXML AnalyticsExportDestination where
+  toXML AnalyticsExportDestination {..} =
+    Core.toXMLNode "S3BucketDestination" s3BucketDestination
+
+instance Core.FromXML AnalyticsExportDestination where
   parseXML x =
     AnalyticsExportDestination'
-      Lude.<$> (x Lude..@ "S3BucketDestination")
-
-instance Lude.ToXML AnalyticsExportDestination where
-  toXML AnalyticsExportDestination' {..} =
-    Lude.mconcat ["S3BucketDestination" Lude.@= s3BucketDestination]
+      Core.<$> (x Core..@ "S3BucketDestination")

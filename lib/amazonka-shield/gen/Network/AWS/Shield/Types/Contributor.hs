@@ -17,54 +17,50 @@ module Network.AWS.Shield.Types.Contributor
     mkContributor,
 
     -- * Lenses
-    cValue,
     cName,
+    cValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.String as Types
 
 -- | A contributor to the attack and their contribution.
 --
 -- /See:/ 'mkContributor' smart constructor.
 data Contributor = Contributor'
-  { -- | The contribution of this contributor expressed in 'Protection' units. For example @10,000@ .
-    value :: Lude.Maybe Lude.Integer,
-    -- | The name of the contributor. This is dependent on the @AttackPropertyIdentifier@ . For example, if the @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@ , the @Name@ could be @United States@ .
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of the contributor. This is dependent on the @AttackPropertyIdentifier@ . For example, if the @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@ , the @Name@ could be @United States@ .
+    name :: Core.Maybe Types.String,
+    -- | The contribution of this contributor expressed in 'Protection' units. For example @10,000@ .
+    value :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Contributor' with the minimum fields required to make a request.
---
--- * 'value' - The contribution of this contributor expressed in 'Protection' units. For example @10,000@ .
--- * 'name' - The name of the contributor. This is dependent on the @AttackPropertyIdentifier@ . For example, if the @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@ , the @Name@ could be @United States@ .
+-- | Creates a 'Contributor' value with any optional fields omitted.
 mkContributor ::
   Contributor
 mkContributor =
-  Contributor' {value = Lude.Nothing, name = Lude.Nothing}
-
--- | The contribution of this contributor expressed in 'Protection' units. For example @10,000@ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cValue :: Lens.Lens' Contributor (Lude.Maybe Lude.Integer)
-cValue = Lens.lens (value :: Contributor -> Lude.Maybe Lude.Integer) (\s a -> s {value = a} :: Contributor)
-{-# DEPRECATED cValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  Contributor' {name = Core.Nothing, value = Core.Nothing}
 
 -- | The name of the contributor. This is dependent on the @AttackPropertyIdentifier@ . For example, if the @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@ , the @Name@ could be @United States@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cName :: Lens.Lens' Contributor (Lude.Maybe Lude.Text)
-cName = Lens.lens (name :: Contributor -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Contributor)
+cName :: Lens.Lens' Contributor (Core.Maybe Types.String)
+cName = Lens.field @"name"
 {-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON Contributor where
+-- | The contribution of this contributor expressed in 'Protection' units. For example @10,000@ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cValue :: Lens.Lens' Contributor (Core.Maybe Core.Integer)
+cValue = Lens.field @"value"
+{-# DEPRECATED cValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Contributor where
   parseJSON =
-    Lude.withObject
-      "Contributor"
-      ( \x ->
-          Contributor'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "Contributor" Core.$
+      \x ->
+        Contributor'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Value")

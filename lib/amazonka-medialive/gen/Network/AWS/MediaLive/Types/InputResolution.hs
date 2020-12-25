@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.InputResolution
   ( InputResolution
       ( InputResolution',
-        IRSD,
-        IRHD,
-        IRUhd
+        InputResolutionSD,
+        InputResolutionHD,
+        InputResolutionUhd,
+        fromInputResolution
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Input resolution based on lines of vertical resolution in the input; SD is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than 1080 lines
-newtype InputResolution = InputResolution' Lude.Text
+newtype InputResolution = InputResolution'
+  { fromInputResolution ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IRSD :: InputResolution
-pattern IRSD = InputResolution' "SD"
+pattern InputResolutionSD :: InputResolution
+pattern InputResolutionSD = InputResolution' "SD"
 
-pattern IRHD :: InputResolution
-pattern IRHD = InputResolution' "HD"
+pattern InputResolutionHD :: InputResolution
+pattern InputResolutionHD = InputResolution' "HD"
 
-pattern IRUhd :: InputResolution
-pattern IRUhd = InputResolution' "UHD"
+pattern InputResolutionUhd :: InputResolution
+pattern InputResolutionUhd = InputResolution' "UHD"
 
 {-# COMPLETE
-  IRSD,
-  IRHD,
-  IRUhd,
+  InputResolutionSD,
+  InputResolutionHD,
+  InputResolutionUhd,
   InputResolution'
   #-}

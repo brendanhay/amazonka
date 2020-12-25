@@ -17,24 +17,23 @@ module Network.AWS.Organizations.Types.HandshakeResource
     mkHandshakeResource,
 
     -- * Lenses
-    hrValue,
     hrResources,
     hrType,
+    hrValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.HandshakeResourceType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.HandshakeResourceType as Types
+import qualified Network.AWS.Organizations.Types.Value as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains additional data that is needed to process a handshake.
 --
 -- /See:/ 'mkHandshakeResource' smart constructor.
 data HandshakeResource = HandshakeResource'
-  { -- | The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
-    value :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | When needed, contains an additional array of @HandshakeResource@ objects.
-    resources :: Lude.Maybe [HandshakeResource],
+  { -- | When needed, contains an additional array of @HandshakeResource@ objects.
+    resources :: Core.Maybe [HandshakeResource],
     -- | The type of information being passed, specifying how the value is to be interpreted by the other party:
     --
     --
@@ -54,55 +53,28 @@ data HandshakeResource = HandshakeResource'
     --
     --
     --     * @NOTES@ - Additional text provided by the handshake initiator and intended for the recipient to read.
-    type' :: Lude.Maybe HandshakeResourceType
+    type' :: Core.Maybe Types.HandshakeResourceType,
+    -- | The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HandshakeResource' with the minimum fields required to make a request.
---
--- * 'value' - The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
--- * 'resources' - When needed, contains an additional array of @HandshakeResource@ objects.
--- * 'type'' - The type of information being passed, specifying how the value is to be interpreted by the other party:
---
---
---     * @ACCOUNT@ - Specifies an AWS account ID number.
---
---
---     * @ORGANIZATION@ - Specifies an organization ID number.
---
---
---     * @EMAIL@ - Specifies the email address that is associated with the account that receives the handshake.
---
---
---     * @OWNER_EMAIL@ - Specifies the email address associated with the management account. Included as information about an organization.
---
---
---     * @OWNER_NAME@ - Specifies the name associated with the management account. Included as information about an organization.
---
---
---     * @NOTES@ - Additional text provided by the handshake initiator and intended for the recipient to read.
+-- | Creates a 'HandshakeResource' value with any optional fields omitted.
 mkHandshakeResource ::
   HandshakeResource
 mkHandshakeResource =
   HandshakeResource'
-    { value = Lude.Nothing,
-      resources = Lude.Nothing,
-      type' = Lude.Nothing
+    { resources = Core.Nothing,
+      type' = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hrValue :: Lens.Lens' HandshakeResource (Lude.Maybe (Lude.Sensitive Lude.Text))
-hrValue = Lens.lens (value :: HandshakeResource -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {value = a} :: HandshakeResource)
-{-# DEPRECATED hrValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | When needed, contains an additional array of @HandshakeResource@ objects.
 --
 -- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hrResources :: Lens.Lens' HandshakeResource (Lude.Maybe [HandshakeResource])
-hrResources = Lens.lens (resources :: HandshakeResource -> Lude.Maybe [HandshakeResource]) (\s a -> s {resources = a} :: HandshakeResource)
+hrResources :: Lens.Lens' HandshakeResource (Core.Maybe [HandshakeResource])
+hrResources = Lens.field @"resources"
 {-# DEPRECATED hrResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The type of information being passed, specifying how the value is to be interpreted by the other party:
@@ -128,17 +100,22 @@ hrResources = Lens.lens (resources :: HandshakeResource -> Lude.Maybe [Handshake
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hrType :: Lens.Lens' HandshakeResource (Lude.Maybe HandshakeResourceType)
-hrType = Lens.lens (type' :: HandshakeResource -> Lude.Maybe HandshakeResourceType) (\s a -> s {type' = a} :: HandshakeResource)
+hrType :: Lens.Lens' HandshakeResource (Core.Maybe Types.HandshakeResourceType)
+hrType = Lens.field @"type'"
 {-# DEPRECATED hrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON HandshakeResource where
+-- | The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrValue :: Lens.Lens' HandshakeResource (Core.Maybe Types.Value)
+hrValue = Lens.field @"value"
+{-# DEPRECATED hrValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON HandshakeResource where
   parseJSON =
-    Lude.withObject
-      "HandshakeResource"
-      ( \x ->
-          HandshakeResource'
-            Lude.<$> (x Lude..:? "Value")
-            Lude.<*> (x Lude..:? "Resources" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "HandshakeResource" Core.$
+      \x ->
+        HandshakeResource'
+          Core.<$> (x Core..:? "Resources")
+          Core.<*> (x Core..:? "Type")
+          Core.<*> (x Core..:? "Value")

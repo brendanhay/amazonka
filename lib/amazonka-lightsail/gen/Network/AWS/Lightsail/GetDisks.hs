@@ -29,123 +29,116 @@ module Network.AWS.Lightsail.GetDisks
     mkGetDisksResponse,
 
     -- ** Response lenses
-    gdlrsNextPageToken,
-    gdlrsDisks,
-    gdlrsResponseStatus,
+    gdrhrsDisks,
+    gdrhrsNextPageToken,
+    gdrhrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDisks' smart constructor.
 newtype GetDisks = GetDisks'
   { -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetDisks@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDisks' with the minimum fields required to make a request.
---
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetDisks@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+-- | Creates a 'GetDisks' value with any optional fields omitted.
 mkGetDisks ::
   GetDisks
-mkGetDisks = GetDisks' {pageToken = Lude.Nothing}
+mkGetDisks = GetDisks' {pageToken = Core.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetDisks@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdfPageToken :: Lens.Lens' GetDisks (Lude.Maybe Lude.Text)
-gdfPageToken = Lens.lens (pageToken :: GetDisks -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetDisks)
+gdfPageToken :: Lens.Lens' GetDisks (Core.Maybe Types.String)
+gdfPageToken = Lens.field @"pageToken"
 {-# DEPRECATED gdfPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager GetDisks where
-  page rq rs
-    | Page.stop (rs Lens.^. gdlrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gdlrsDisks) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gdfPageToken Lens..~ rs Lens.^. gdlrsNextPageToken
+instance Core.FromJSON GetDisks where
+  toJSON GetDisks {..} =
+    Core.object
+      (Core.catMaybes [("pageToken" Core..=) Core.<$> pageToken])
 
-instance Lude.AWSRequest GetDisks where
+instance Core.AWSRequest GetDisks where
   type Rs GetDisks = GetDisksResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.GetDisks")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDisksResponse'
-            Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (x Lude..?> "disks" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "disks")
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetDisks where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetDisks" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDisks where
-  toJSON GetDisks' {..} =
-    Lude.object
-      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
-
-instance Lude.ToPath GetDisks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDisks where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetDisks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"disks" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkGetDisksResponse' smart constructor.
 data GetDisksResponse = GetDisksResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An array of objects containing information about all block storage disks.
+    disks :: Core.Maybe [Types.Disk],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetDisks@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | An array of objects containing information about all block storage disks.
-    disks :: Lude.Maybe [Disk],
+    nextPageToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetDisksResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetDisks@ request and specify the next page token using the @pageToken@ parameter.
--- * 'disks' - An array of objects containing information about all block storage disks.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDisksResponse' value with any optional fields omitted.
 mkGetDisksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDisksResponse
-mkGetDisksResponse pResponseStatus_ =
+mkGetDisksResponse responseStatus =
   GetDisksResponse'
-    { nextPageToken = Lude.Nothing,
-      disks = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { disks = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
+
+-- | An array of objects containing information about all block storage disks.
+--
+-- /Note:/ Consider using 'disks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrhrsDisks :: Lens.Lens' GetDisksResponse (Core.Maybe [Types.Disk])
+gdrhrsDisks = Lens.field @"disks"
+{-# DEPRECATED gdrhrsDisks "Use generic-lens or generic-optics with 'disks' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -153,20 +146,13 @@ mkGetDisksResponse pResponseStatus_ =
 -- To get the next page of results, perform another @GetDisks@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdlrsNextPageToken :: Lens.Lens' GetDisksResponse (Lude.Maybe Lude.Text)
-gdlrsNextPageToken = Lens.lens (nextPageToken :: GetDisksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetDisksResponse)
-{-# DEPRECATED gdlrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | An array of objects containing information about all block storage disks.
---
--- /Note:/ Consider using 'disks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdlrsDisks :: Lens.Lens' GetDisksResponse (Lude.Maybe [Disk])
-gdlrsDisks = Lens.lens (disks :: GetDisksResponse -> Lude.Maybe [Disk]) (\s a -> s {disks = a} :: GetDisksResponse)
-{-# DEPRECATED gdlrsDisks "Use generic-lens or generic-optics with 'disks' instead." #-}
+gdrhrsNextPageToken :: Lens.Lens' GetDisksResponse (Core.Maybe Types.String)
+gdrhrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gdrhrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdlrsResponseStatus :: Lens.Lens' GetDisksResponse Lude.Int
-gdlrsResponseStatus = Lens.lens (responseStatus :: GetDisksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDisksResponse)
-{-# DEPRECATED gdlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdrhrsResponseStatus :: Lens.Lens' GetDisksResponse Core.Int
+gdrhrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdrhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

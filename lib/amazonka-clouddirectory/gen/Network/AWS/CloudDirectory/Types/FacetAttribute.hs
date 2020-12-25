@@ -17,100 +17,94 @@ module Network.AWS.CloudDirectory.Types.FacetAttribute
     mkFacetAttribute,
 
     -- * Lenses
-    faAttributeReference,
-    faAttributeDefinition,
     faName,
+    faAttributeDefinition,
+    faAttributeReference,
     faRequiredBehavior,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
-import Network.AWS.CloudDirectory.Types.FacetAttributeReference
-import Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
+import qualified Network.AWS.CloudDirectory.Types.FacetAttributeDefinition as Types
+import qualified Network.AWS.CloudDirectory.Types.FacetAttributeReference as Types
+import qualified Network.AWS.CloudDirectory.Types.Name as Types
+import qualified Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An attribute that is associated with the 'Facet' .
 --
 -- /See:/ 'mkFacetAttribute' smart constructor.
 data FacetAttribute = FacetAttribute'
-  { -- | An attribute reference that is associated with the attribute. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
-    attributeReference :: Lude.Maybe FacetAttributeReference,
+  { -- | The name of the facet attribute.
+    name :: Types.Name,
     -- | A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
-    attributeDefinition :: Lude.Maybe FacetAttributeDefinition,
-    -- | The name of the facet attribute.
-    name :: Lude.Text,
+    attributeDefinition :: Core.Maybe Types.FacetAttributeDefinition,
+    -- | An attribute reference that is associated with the attribute. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+    attributeReference :: Core.Maybe Types.FacetAttributeReference,
     -- | The required behavior of the @FacetAttribute@ .
-    requiredBehavior :: Lude.Maybe RequiredAttributeBehavior
+    requiredBehavior :: Core.Maybe Types.RequiredAttributeBehavior
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FacetAttribute' with the minimum fields required to make a request.
---
--- * 'attributeReference' - An attribute reference that is associated with the attribute. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
--- * 'attributeDefinition' - A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
--- * 'name' - The name of the facet attribute.
--- * 'requiredBehavior' - The required behavior of the @FacetAttribute@ .
+-- | Creates a 'FacetAttribute' value with any optional fields omitted.
 mkFacetAttribute ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   FacetAttribute
-mkFacetAttribute pName_ =
+mkFacetAttribute name =
   FacetAttribute'
-    { attributeReference = Lude.Nothing,
-      attributeDefinition = Lude.Nothing,
-      name = pName_,
-      requiredBehavior = Lude.Nothing
+    { name,
+      attributeDefinition = Core.Nothing,
+      attributeReference = Core.Nothing,
+      requiredBehavior = Core.Nothing
     }
-
--- | An attribute reference that is associated with the attribute. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
---
--- /Note:/ Consider using 'attributeReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faAttributeReference :: Lens.Lens' FacetAttribute (Lude.Maybe FacetAttributeReference)
-faAttributeReference = Lens.lens (attributeReference :: FacetAttribute -> Lude.Maybe FacetAttributeReference) (\s a -> s {attributeReference = a} :: FacetAttribute)
-{-# DEPRECATED faAttributeReference "Use generic-lens or generic-optics with 'attributeReference' instead." #-}
-
--- | A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
---
--- /Note:/ Consider using 'attributeDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faAttributeDefinition :: Lens.Lens' FacetAttribute (Lude.Maybe FacetAttributeDefinition)
-faAttributeDefinition = Lens.lens (attributeDefinition :: FacetAttribute -> Lude.Maybe FacetAttributeDefinition) (\s a -> s {attributeDefinition = a} :: FacetAttribute)
-{-# DEPRECATED faAttributeDefinition "Use generic-lens or generic-optics with 'attributeDefinition' instead." #-}
 
 -- | The name of the facet attribute.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faName :: Lens.Lens' FacetAttribute Lude.Text
-faName = Lens.lens (name :: FacetAttribute -> Lude.Text) (\s a -> s {name = a} :: FacetAttribute)
+faName :: Lens.Lens' FacetAttribute Types.Name
+faName = Lens.field @"name"
 {-# DEPRECATED faName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+--
+-- /Note:/ Consider using 'attributeDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faAttributeDefinition :: Lens.Lens' FacetAttribute (Core.Maybe Types.FacetAttributeDefinition)
+faAttributeDefinition = Lens.field @"attributeDefinition"
+{-# DEPRECATED faAttributeDefinition "Use generic-lens or generic-optics with 'attributeDefinition' instead." #-}
+
+-- | An attribute reference that is associated with the attribute. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+--
+-- /Note:/ Consider using 'attributeReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faAttributeReference :: Lens.Lens' FacetAttribute (Core.Maybe Types.FacetAttributeReference)
+faAttributeReference = Lens.field @"attributeReference"
+{-# DEPRECATED faAttributeReference "Use generic-lens or generic-optics with 'attributeReference' instead." #-}
 
 -- | The required behavior of the @FacetAttribute@ .
 --
 -- /Note:/ Consider using 'requiredBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faRequiredBehavior :: Lens.Lens' FacetAttribute (Lude.Maybe RequiredAttributeBehavior)
-faRequiredBehavior = Lens.lens (requiredBehavior :: FacetAttribute -> Lude.Maybe RequiredAttributeBehavior) (\s a -> s {requiredBehavior = a} :: FacetAttribute)
+faRequiredBehavior :: Lens.Lens' FacetAttribute (Core.Maybe Types.RequiredAttributeBehavior)
+faRequiredBehavior = Lens.field @"requiredBehavior"
 {-# DEPRECATED faRequiredBehavior "Use generic-lens or generic-optics with 'requiredBehavior' instead." #-}
 
-instance Lude.FromJSON FacetAttribute where
-  parseJSON =
-    Lude.withObject
-      "FacetAttribute"
-      ( \x ->
-          FacetAttribute'
-            Lude.<$> (x Lude..:? "AttributeReference")
-            Lude.<*> (x Lude..:? "AttributeDefinition")
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..:? "RequiredBehavior")
-      )
-
-instance Lude.ToJSON FacetAttribute where
-  toJSON FacetAttribute' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AttributeReference" Lude..=) Lude.<$> attributeReference,
-            ("AttributeDefinition" Lude..=) Lude.<$> attributeDefinition,
-            Lude.Just ("Name" Lude..= name),
-            ("RequiredBehavior" Lude..=) Lude.<$> requiredBehavior
+instance Core.FromJSON FacetAttribute where
+  toJSON FacetAttribute {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("AttributeDefinition" Core..=) Core.<$> attributeDefinition,
+            ("AttributeReference" Core..=) Core.<$> attributeReference,
+            ("RequiredBehavior" Core..=) Core.<$> requiredBehavior
           ]
       )
+
+instance Core.FromJSON FacetAttribute where
+  parseJSON =
+    Core.withObject "FacetAttribute" Core.$
+      \x ->
+        FacetAttribute'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..:? "AttributeDefinition")
+          Core.<*> (x Core..:? "AttributeReference")
+          Core.<*> (x Core..:? "RequiredBehavior")

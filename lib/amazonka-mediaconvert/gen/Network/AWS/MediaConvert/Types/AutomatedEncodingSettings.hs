@@ -22,43 +22,39 @@ module Network.AWS.MediaConvert.Types.AutomatedEncodingSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AutomatedAbrSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.AutomatedAbrSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
 --
 -- /See:/ 'mkAutomatedEncodingSettings' smart constructor.
 newtype AutomatedEncodingSettings = AutomatedEncodingSettings'
   { -- | Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
-    abrSettings :: Lude.Maybe AutomatedAbrSettings
+    abrSettings :: Core.Maybe Types.AutomatedAbrSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutomatedEncodingSettings' with the minimum fields required to make a request.
---
--- * 'abrSettings' - Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
+-- | Creates a 'AutomatedEncodingSettings' value with any optional fields omitted.
 mkAutomatedEncodingSettings ::
   AutomatedEncodingSettings
 mkAutomatedEncodingSettings =
-  AutomatedEncodingSettings' {abrSettings = Lude.Nothing}
+  AutomatedEncodingSettings' {abrSettings = Core.Nothing}
 
 -- | Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
 --
 -- /Note:/ Consider using 'abrSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aesAbrSettings :: Lens.Lens' AutomatedEncodingSettings (Lude.Maybe AutomatedAbrSettings)
-aesAbrSettings = Lens.lens (abrSettings :: AutomatedEncodingSettings -> Lude.Maybe AutomatedAbrSettings) (\s a -> s {abrSettings = a} :: AutomatedEncodingSettings)
+aesAbrSettings :: Lens.Lens' AutomatedEncodingSettings (Core.Maybe Types.AutomatedAbrSettings)
+aesAbrSettings = Lens.field @"abrSettings"
 {-# DEPRECATED aesAbrSettings "Use generic-lens or generic-optics with 'abrSettings' instead." #-}
 
-instance Lude.FromJSON AutomatedEncodingSettings where
-  parseJSON =
-    Lude.withObject
-      "AutomatedEncodingSettings"
-      ( \x ->
-          AutomatedEncodingSettings' Lude.<$> (x Lude..:? "abrSettings")
-      )
+instance Core.FromJSON AutomatedEncodingSettings where
+  toJSON AutomatedEncodingSettings {..} =
+    Core.object
+      (Core.catMaybes [("abrSettings" Core..=) Core.<$> abrSettings])
 
-instance Lude.ToJSON AutomatedEncodingSettings where
-  toJSON AutomatedEncodingSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("abrSettings" Lude..=) Lude.<$> abrSettings])
+instance Core.FromJSON AutomatedEncodingSettings where
+  parseJSON =
+    Core.withObject "AutomatedEncodingSettings" Core.$
+      \x ->
+        AutomatedEncodingSettings' Core.<$> (x Core..:? "abrSettings")

@@ -17,107 +17,104 @@ module Network.AWS.CloudFormation.Types.ParameterDeclaration
     mkParameterDeclaration,
 
     -- * Lenses
+    pdDefaultValue,
+    pdDescription,
+    pdNoEcho,
+    pdParameterConstraints,
     pdParameterKey,
     pdParameterType,
-    pdParameterConstraints,
-    pdDefaultValue,
-    pdNoEcho,
-    pdDescription,
   )
 where
 
-import Network.AWS.CloudFormation.Types.ParameterConstraints
+import qualified Network.AWS.CloudFormation.Types.Description as Types
+import qualified Network.AWS.CloudFormation.Types.ParameterConstraints as Types
+import qualified Network.AWS.CloudFormation.Types.ParameterKey as Types
+import qualified Network.AWS.CloudFormation.Types.ParameterType as Types
+import qualified Network.AWS.CloudFormation.Types.ParameterValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The ParameterDeclaration data type.
 --
 -- /See:/ 'mkParameterDeclaration' smart constructor.
 data ParameterDeclaration = ParameterDeclaration'
-  { -- | The name that is associated with the parameter.
-    parameterKey :: Lude.Maybe Lude.Text,
-    -- | The type of parameter.
-    parameterType :: Lude.Maybe Lude.Text,
-    -- | The criteria that AWS CloudFormation uses to validate parameter values.
-    parameterConstraints :: Lude.Maybe ParameterConstraints,
-    -- | The default value of the parameter.
-    defaultValue :: Lude.Maybe Lude.Text,
-    -- | Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
-    noEcho :: Lude.Maybe Lude.Bool,
+  { -- | The default value of the parameter.
+    defaultValue :: Core.Maybe Types.ParameterValue,
     -- | The description that is associate with the parameter.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
+    noEcho :: Core.Maybe Core.Bool,
+    -- | The criteria that AWS CloudFormation uses to validate parameter values.
+    parameterConstraints :: Core.Maybe Types.ParameterConstraints,
+    -- | The name that is associated with the parameter.
+    parameterKey :: Core.Maybe Types.ParameterKey,
+    -- | The type of parameter.
+    parameterType :: Core.Maybe Types.ParameterType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterDeclaration' with the minimum fields required to make a request.
---
--- * 'parameterKey' - The name that is associated with the parameter.
--- * 'parameterType' - The type of parameter.
--- * 'parameterConstraints' - The criteria that AWS CloudFormation uses to validate parameter values.
--- * 'defaultValue' - The default value of the parameter.
--- * 'noEcho' - Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
--- * 'description' - The description that is associate with the parameter.
+-- | Creates a 'ParameterDeclaration' value with any optional fields omitted.
 mkParameterDeclaration ::
   ParameterDeclaration
 mkParameterDeclaration =
   ParameterDeclaration'
-    { parameterKey = Lude.Nothing,
-      parameterType = Lude.Nothing,
-      parameterConstraints = Lude.Nothing,
-      defaultValue = Lude.Nothing,
-      noEcho = Lude.Nothing,
-      description = Lude.Nothing
+    { defaultValue = Core.Nothing,
+      description = Core.Nothing,
+      noEcho = Core.Nothing,
+      parameterConstraints = Core.Nothing,
+      parameterKey = Core.Nothing,
+      parameterType = Core.Nothing
     }
+
+-- | The default value of the parameter.
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDefaultValue :: Lens.Lens' ParameterDeclaration (Core.Maybe Types.ParameterValue)
+pdDefaultValue = Lens.field @"defaultValue"
+{-# DEPRECATED pdDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
+
+-- | The description that is associate with the parameter.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDescription :: Lens.Lens' ParameterDeclaration (Core.Maybe Types.Description)
+pdDescription = Lens.field @"description"
+{-# DEPRECATED pdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
+--
+-- /Note:/ Consider using 'noEcho' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdNoEcho :: Lens.Lens' ParameterDeclaration (Core.Maybe Core.Bool)
+pdNoEcho = Lens.field @"noEcho"
+{-# DEPRECATED pdNoEcho "Use generic-lens or generic-optics with 'noEcho' instead." #-}
+
+-- | The criteria that AWS CloudFormation uses to validate parameter values.
+--
+-- /Note:/ Consider using 'parameterConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdParameterConstraints :: Lens.Lens' ParameterDeclaration (Core.Maybe Types.ParameterConstraints)
+pdParameterConstraints = Lens.field @"parameterConstraints"
+{-# DEPRECATED pdParameterConstraints "Use generic-lens or generic-optics with 'parameterConstraints' instead." #-}
 
 -- | The name that is associated with the parameter.
 --
 -- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdParameterKey :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Text)
-pdParameterKey = Lens.lens (parameterKey :: ParameterDeclaration -> Lude.Maybe Lude.Text) (\s a -> s {parameterKey = a} :: ParameterDeclaration)
+pdParameterKey :: Lens.Lens' ParameterDeclaration (Core.Maybe Types.ParameterKey)
+pdParameterKey = Lens.field @"parameterKey"
 {-# DEPRECATED pdParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
 -- | The type of parameter.
 --
 -- /Note:/ Consider using 'parameterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdParameterType :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Text)
-pdParameterType = Lens.lens (parameterType :: ParameterDeclaration -> Lude.Maybe Lude.Text) (\s a -> s {parameterType = a} :: ParameterDeclaration)
+pdParameterType :: Lens.Lens' ParameterDeclaration (Core.Maybe Types.ParameterType)
+pdParameterType = Lens.field @"parameterType"
 {-# DEPRECATED pdParameterType "Use generic-lens or generic-optics with 'parameterType' instead." #-}
 
--- | The criteria that AWS CloudFormation uses to validate parameter values.
---
--- /Note:/ Consider using 'parameterConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdParameterConstraints :: Lens.Lens' ParameterDeclaration (Lude.Maybe ParameterConstraints)
-pdParameterConstraints = Lens.lens (parameterConstraints :: ParameterDeclaration -> Lude.Maybe ParameterConstraints) (\s a -> s {parameterConstraints = a} :: ParameterDeclaration)
-{-# DEPRECATED pdParameterConstraints "Use generic-lens or generic-optics with 'parameterConstraints' instead." #-}
-
--- | The default value of the parameter.
---
--- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDefaultValue :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Text)
-pdDefaultValue = Lens.lens (defaultValue :: ParameterDeclaration -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: ParameterDeclaration)
-{-# DEPRECATED pdDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
-
--- | Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
---
--- /Note:/ Consider using 'noEcho' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdNoEcho :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Bool)
-pdNoEcho = Lens.lens (noEcho :: ParameterDeclaration -> Lude.Maybe Lude.Bool) (\s a -> s {noEcho = a} :: ParameterDeclaration)
-{-# DEPRECATED pdNoEcho "Use generic-lens or generic-optics with 'noEcho' instead." #-}
-
--- | The description that is associate with the parameter.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDescription :: Lens.Lens' ParameterDeclaration (Lude.Maybe Lude.Text)
-pdDescription = Lens.lens (description :: ParameterDeclaration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ParameterDeclaration)
-{-# DEPRECATED pdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromXML ParameterDeclaration where
+instance Core.FromXML ParameterDeclaration where
   parseXML x =
     ParameterDeclaration'
-      Lude.<$> (x Lude..@? "ParameterKey")
-      Lude.<*> (x Lude..@? "ParameterType")
-      Lude.<*> (x Lude..@? "ParameterConstraints")
-      Lude.<*> (x Lude..@? "DefaultValue")
-      Lude.<*> (x Lude..@? "NoEcho")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "DefaultValue")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "NoEcho")
+      Core.<*> (x Core..@? "ParameterConstraints")
+      Core.<*> (x Core..@? "ParameterKey")
+      Core.<*> (x Core..@? "ParameterType")

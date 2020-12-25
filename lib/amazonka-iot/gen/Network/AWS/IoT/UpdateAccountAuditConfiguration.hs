@@ -22,22 +22,22 @@ module Network.AWS.IoT.UpdateAccountAuditConfiguration
     -- ** Request lenses
     uaacAuditCheckConfigurations,
     uaacAuditNotificationTargetConfigurations,
-    uaacRoleARN,
+    uaacRoleArn,
 
     -- * Destructuring the response
     UpdateAccountAuditConfigurationResponse (..),
     mkUpdateAccountAuditConfigurationResponse,
 
     -- ** Response lenses
-    uaacrsResponseStatus,
+    uaacrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateAccountAuditConfiguration' smart constructor.
 data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
@@ -46,32 +46,24 @@ data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
     -- Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted.
     -- You cannot disable a check if it is used by any scheduled audit. You must first delete the check from the scheduled audit or delete the scheduled audit itself.
     -- On the first call to @UpdateAccountAuditConfiguration@ , this parameter is required and must specify at least one enabled check.
-    auditCheckConfigurations :: Lude.Maybe (Lude.HashMap Lude.Text (AuditCheckConfiguration)),
+    auditCheckConfigurations :: Core.Maybe (Core.HashMap Types.AuditCheckName Types.AuditCheckConfiguration),
     -- | Information about the targets to which audit notifications are sent.
-    auditNotificationTargetConfigurations :: Lude.Maybe (Lude.HashMap AuditNotificationType (AuditNotificationTarget)),
+    auditNotificationTargetConfigurations :: Core.Maybe (Core.HashMap Types.AuditNotificationType Types.AuditNotificationTarget),
     -- | The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAccountAuditConfiguration' with the minimum fields required to make a request.
---
--- * 'auditCheckConfigurations' - Specifies which audit checks are enabled and disabled for this account. Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are currently enabled.
---
--- Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted.
--- You cannot disable a check if it is used by any scheduled audit. You must first delete the check from the scheduled audit or delete the scheduled audit itself.
--- On the first call to @UpdateAccountAuditConfiguration@ , this parameter is required and must specify at least one enabled check.
--- * 'auditNotificationTargetConfigurations' - Information about the targets to which audit notifications are sent.
--- * 'roleARN' - The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
+-- | Creates a 'UpdateAccountAuditConfiguration' value with any optional fields omitted.
 mkUpdateAccountAuditConfiguration ::
   UpdateAccountAuditConfiguration
 mkUpdateAccountAuditConfiguration =
   UpdateAccountAuditConfiguration'
     { auditCheckConfigurations =
-        Lude.Nothing,
-      auditNotificationTargetConfigurations = Lude.Nothing,
-      roleARN = Lude.Nothing
+        Core.Nothing,
+      auditNotificationTargetConfigurations = Core.Nothing,
+      roleArn = Core.Nothing
     }
 
 -- | Specifies which audit checks are enabled and disabled for this account. Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are currently enabled.
@@ -81,81 +73,75 @@ mkUpdateAccountAuditConfiguration =
 -- On the first call to @UpdateAccountAuditConfiguration@ , this parameter is required and must specify at least one enabled check.
 --
 -- /Note:/ Consider using 'auditCheckConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaacAuditCheckConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (AuditCheckConfiguration)))
-uaacAuditCheckConfigurations = Lens.lens (auditCheckConfigurations :: UpdateAccountAuditConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (AuditCheckConfiguration))) (\s a -> s {auditCheckConfigurations = a} :: UpdateAccountAuditConfiguration)
+uaacAuditCheckConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Core.Maybe (Core.HashMap Types.AuditCheckName Types.AuditCheckConfiguration))
+uaacAuditCheckConfigurations = Lens.field @"auditCheckConfigurations"
 {-# DEPRECATED uaacAuditCheckConfigurations "Use generic-lens or generic-optics with 'auditCheckConfigurations' instead." #-}
 
 -- | Information about the targets to which audit notifications are sent.
 --
 -- /Note:/ Consider using 'auditNotificationTargetConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaacAuditNotificationTargetConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Lude.Maybe (Lude.HashMap AuditNotificationType (AuditNotificationTarget)))
-uaacAuditNotificationTargetConfigurations = Lens.lens (auditNotificationTargetConfigurations :: UpdateAccountAuditConfiguration -> Lude.Maybe (Lude.HashMap AuditNotificationType (AuditNotificationTarget))) (\s a -> s {auditNotificationTargetConfigurations = a} :: UpdateAccountAuditConfiguration)
+uaacAuditNotificationTargetConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Core.Maybe (Core.HashMap Types.AuditNotificationType Types.AuditNotificationTarget))
+uaacAuditNotificationTargetConfigurations = Lens.field @"auditNotificationTargetConfigurations"
 {-# DEPRECATED uaacAuditNotificationTargetConfigurations "Use generic-lens or generic-optics with 'auditNotificationTargetConfigurations' instead." #-}
 
 -- | The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaacRoleARN :: Lens.Lens' UpdateAccountAuditConfiguration (Lude.Maybe Lude.Text)
-uaacRoleARN = Lens.lens (roleARN :: UpdateAccountAuditConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateAccountAuditConfiguration)
-{-# DEPRECATED uaacRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaacRoleArn :: Lens.Lens' UpdateAccountAuditConfiguration (Core.Maybe Types.RoleArn)
+uaacRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED uaacRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest UpdateAccountAuditConfiguration where
-  type
-    Rs UpdateAccountAuditConfiguration =
-      UpdateAccountAuditConfigurationResponse
-  request = Req.patchJSON ioTService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UpdateAccountAuditConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateAccountAuditConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateAccountAuditConfiguration where
-  toJSON UpdateAccountAuditConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("auditCheckConfigurations" Lude..=)
-              Lude.<$> auditCheckConfigurations,
-            ("auditNotificationTargetConfigurations" Lude..=)
-              Lude.<$> auditNotificationTargetConfigurations,
-            ("roleArn" Lude..=) Lude.<$> roleARN
+instance Core.FromJSON UpdateAccountAuditConfiguration where
+  toJSON UpdateAccountAuditConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("auditCheckConfigurations" Core..=)
+              Core.<$> auditCheckConfigurations,
+            ("auditNotificationTargetConfigurations" Core..=)
+              Core.<$> auditNotificationTargetConfigurations,
+            ("roleArn" Core..=) Core.<$> roleArn
           ]
       )
 
-instance Lude.ToPath UpdateAccountAuditConfiguration where
-  toPath = Lude.const "/audit/configuration"
-
-instance Lude.ToQuery UpdateAccountAuditConfiguration where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateAccountAuditConfiguration where
+  type
+    Rs UpdateAccountAuditConfiguration =
+      UpdateAccountAuditConfigurationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath = Core.rawPath "/audit/configuration",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateAccountAuditConfigurationResponse'
+            Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateAccountAuditConfigurationResponse' smart constructor.
 newtype UpdateAccountAuditConfigurationResponse = UpdateAccountAuditConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAccountAuditConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateAccountAuditConfigurationResponse' value with any optional fields omitted.
 mkUpdateAccountAuditConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateAccountAuditConfigurationResponse
-mkUpdateAccountAuditConfigurationResponse pResponseStatus_ =
-  UpdateAccountAuditConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateAccountAuditConfigurationResponse responseStatus =
+  UpdateAccountAuditConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaacrsResponseStatus :: Lens.Lens' UpdateAccountAuditConfigurationResponse Lude.Int
-uaacrsResponseStatus = Lens.lens (responseStatus :: UpdateAccountAuditConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAccountAuditConfigurationResponse)
-{-# DEPRECATED uaacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uaacrrsResponseStatus :: Lens.Lens' UpdateAccountAuditConfigurationResponse Core.Int
+uaacrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uaacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

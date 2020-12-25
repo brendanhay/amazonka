@@ -22,53 +22,51 @@ module Network.AWS.AlexaBusiness.Types.Ssml
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.Locale
+import qualified Network.AWS.AlexaBusiness.Types.Locale as Types
+import qualified Network.AWS.AlexaBusiness.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The SSML message. For more information, see <https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html SSML Reference> .
 --
 -- /See:/ 'mkSsml' smart constructor.
 data Ssml = Ssml'
   { -- | The locale of the SSML message. Currently, en-US is supported.
-    locale :: Locale,
+    locale :: Types.Locale,
     -- | The value of the SSML message in the correct SSML format. The audio tag is not supported.
-    value :: Lude.Text
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Ssml' with the minimum fields required to make a request.
---
--- * 'locale' - The locale of the SSML message. Currently, en-US is supported.
--- * 'value' - The value of the SSML message in the correct SSML format. The audio tag is not supported.
+-- | Creates a 'Ssml' value with any optional fields omitted.
 mkSsml ::
   -- | 'locale'
-  Locale ->
+  Types.Locale ->
   -- | 'value'
-  Lude.Text ->
+  Types.Value ->
   Ssml
-mkSsml pLocale_ pValue_ = Ssml' {locale = pLocale_, value = pValue_}
+mkSsml locale value = Ssml' {locale, value}
 
 -- | The locale of the SSML message. Currently, en-US is supported.
 --
 -- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sLocale :: Lens.Lens' Ssml Locale
-sLocale = Lens.lens (locale :: Ssml -> Locale) (\s a -> s {locale = a} :: Ssml)
+sLocale :: Lens.Lens' Ssml Types.Locale
+sLocale = Lens.field @"locale"
 {-# DEPRECATED sLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The value of the SSML message in the correct SSML format. The audio tag is not supported.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sValue :: Lens.Lens' Ssml Lude.Text
-sValue = Lens.lens (value :: Ssml -> Lude.Text) (\s a -> s {value = a} :: Ssml)
+sValue :: Lens.Lens' Ssml Types.Value
+sValue = Lens.field @"value"
 {-# DEPRECATED sValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON Ssml where
-  toJSON Ssml' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Locale" Lude..= locale),
-            Lude.Just ("Value" Lude..= value)
+instance Core.FromJSON Ssml where
+  toJSON Ssml {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Locale" Core..= locale),
+            Core.Just ("Value" Core..= value)
           ]
       )

@@ -22,206 +22,195 @@ module Network.AWS.CloudDirectory.ListIndex
     mkListIndex,
 
     -- ** Request lenses
-    liDirectoryARN,
-    liRangesOnIndexedValues,
+    liDirectoryArn,
     liIndexReference,
     liConsistencyLevel,
-    liNextToken,
     liMaxResults,
+    liNextToken,
+    liRangesOnIndexedValues,
 
     -- * Destructuring the response
     ListIndexResponse (..),
     mkListIndexResponse,
 
     -- ** Response lenses
-    lirsIndexAttachments,
-    lirsNextToken,
-    lirsResponseStatus,
+    lirrsIndexAttachments,
+    lirrsNextToken,
+    lirrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListIndex' smart constructor.
 data ListIndex = ListIndex'
   { -- | The ARN of the directory that the index exists in.
-    directoryARN :: Lude.Text,
-    -- | Specifies the ranges of indexed values that you want to query.
-    rangesOnIndexedValues :: Lude.Maybe [ObjectAttributeRange],
+    directoryArn :: Types.Arn,
     -- | The reference to the index to list.
-    indexReference :: ObjectReference,
+    indexReference :: Types.ObjectReference,
     -- | The consistency level to execute the request at.
-    consistencyLevel :: Lude.Maybe ConsistencyLevel,
-    -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    consistencyLevel :: Core.Maybe Types.ConsistencyLevel,
     -- | The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits> .
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Specifies the ranges of indexed values that you want to query.
+    rangesOnIndexedValues :: Core.Maybe [Types.ObjectAttributeRange]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListIndex' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The ARN of the directory that the index exists in.
--- * 'rangesOnIndexedValues' - Specifies the ranges of indexed values that you want to query.
--- * 'indexReference' - The reference to the index to list.
--- * 'consistencyLevel' - The consistency level to execute the request at.
--- * 'nextToken' - The pagination token.
--- * 'maxResults' - The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits> .
+-- | Creates a 'ListIndex' value with any optional fields omitted.
 mkListIndex ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'indexReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   ListIndex
-mkListIndex pDirectoryARN_ pIndexReference_ =
+mkListIndex directoryArn indexReference =
   ListIndex'
-    { directoryARN = pDirectoryARN_,
-      rangesOnIndexedValues = Lude.Nothing,
-      indexReference = pIndexReference_,
-      consistencyLevel = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { directoryArn,
+      indexReference,
+      consistencyLevel = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      rangesOnIndexedValues = Core.Nothing
     }
 
 -- | The ARN of the directory that the index exists in.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liDirectoryARN :: Lens.Lens' ListIndex Lude.Text
-liDirectoryARN = Lens.lens (directoryARN :: ListIndex -> Lude.Text) (\s a -> s {directoryARN = a} :: ListIndex)
-{-# DEPRECATED liDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | Specifies the ranges of indexed values that you want to query.
---
--- /Note:/ Consider using 'rangesOnIndexedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liRangesOnIndexedValues :: Lens.Lens' ListIndex (Lude.Maybe [ObjectAttributeRange])
-liRangesOnIndexedValues = Lens.lens (rangesOnIndexedValues :: ListIndex -> Lude.Maybe [ObjectAttributeRange]) (\s a -> s {rangesOnIndexedValues = a} :: ListIndex)
-{-# DEPRECATED liRangesOnIndexedValues "Use generic-lens or generic-optics with 'rangesOnIndexedValues' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liDirectoryArn :: Lens.Lens' ListIndex Types.Arn
+liDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED liDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | The reference to the index to list.
 --
 -- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liIndexReference :: Lens.Lens' ListIndex ObjectReference
-liIndexReference = Lens.lens (indexReference :: ListIndex -> ObjectReference) (\s a -> s {indexReference = a} :: ListIndex)
+liIndexReference :: Lens.Lens' ListIndex Types.ObjectReference
+liIndexReference = Lens.field @"indexReference"
 {-# DEPRECATED liIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 -- | The consistency level to execute the request at.
 --
 -- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liConsistencyLevel :: Lens.Lens' ListIndex (Lude.Maybe ConsistencyLevel)
-liConsistencyLevel = Lens.lens (consistencyLevel :: ListIndex -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: ListIndex)
+liConsistencyLevel :: Lens.Lens' ListIndex (Core.Maybe Types.ConsistencyLevel)
+liConsistencyLevel = Lens.field @"consistencyLevel"
 {-# DEPRECATED liConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
-
--- | The pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liNextToken :: Lens.Lens' ListIndex (Lude.Maybe Lude.Text)
-liNextToken = Lens.lens (nextToken :: ListIndex -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIndex)
-{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits> .
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liMaxResults :: Lens.Lens' ListIndex (Lude.Maybe Lude.Natural)
-liMaxResults = Lens.lens (maxResults :: ListIndex -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListIndex)
+liMaxResults :: Lens.Lens' ListIndex (Core.Maybe Core.Natural)
+liMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListIndex where
-  page rq rs
-    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lirsIndexAttachments) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
+-- | The pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNextToken :: Lens.Lens' ListIndex (Core.Maybe Types.NextToken)
+liNextToken = Lens.field @"nextToken"
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListIndex where
-  type Rs ListIndex = ListIndexResponse
-  request = Req.postJSON cloudDirectoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListIndexResponse'
-            Lude.<$> (x Lude..?> "IndexAttachments" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Specifies the ranges of indexed values that you want to query.
+--
+-- /Note:/ Consider using 'rangesOnIndexedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liRangesOnIndexedValues :: Lens.Lens' ListIndex (Core.Maybe [Types.ObjectAttributeRange])
+liRangesOnIndexedValues = Lens.field @"rangesOnIndexedValues"
+{-# DEPRECATED liRangesOnIndexedValues "Use generic-lens or generic-optics with 'rangesOnIndexedValues' instead." #-}
 
-instance Lude.ToHeaders ListIndex where
-  toHeaders ListIndex' {..} =
-    Lude.mconcat
-      [ "x-amz-data-partition" Lude.=# directoryARN,
-        "x-amz-consistency-level" Lude.=# consistencyLevel
-      ]
-
-instance Lude.ToJSON ListIndex where
-  toJSON ListIndex' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RangesOnIndexedValues" Lude..=) Lude.<$> rangesOnIndexedValues,
-            Lude.Just ("IndexReference" Lude..= indexReference),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+instance Core.FromJSON ListIndex where
+  toJSON ListIndex {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IndexReference" Core..= indexReference),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("RangesOnIndexedValues" Core..=) Core.<$> rangesOnIndexedValues
           ]
       )
 
-instance Lude.ToPath ListIndex where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/index/targets"
+instance Core.AWSRequest ListIndex where
+  type Rs ListIndex = ListIndexResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/index/targets",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn
+            Core.<> (Core.toHeaders "x-amz-consistency-level" consistencyLevel),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListIndexResponse'
+            Core.<$> (x Core..:? "IndexAttachments")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
-instance Lude.ToQuery ListIndex where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListIndex where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"indexAttachments" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListIndexResponse' smart constructor.
 data ListIndexResponse = ListIndexResponse'
   { -- | The objects and indexed values attached to the index.
-    indexAttachments :: Lude.Maybe [IndexAttachment],
+    indexAttachments :: Core.Maybe [Types.IndexAttachment],
     -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListIndexResponse' with the minimum fields required to make a request.
---
--- * 'indexAttachments' - The objects and indexed values attached to the index.
--- * 'nextToken' - The pagination token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListIndexResponse' value with any optional fields omitted.
 mkListIndexResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListIndexResponse
-mkListIndexResponse pResponseStatus_ =
+mkListIndexResponse responseStatus =
   ListIndexResponse'
-    { indexAttachments = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { indexAttachments = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The objects and indexed values attached to the index.
 --
 -- /Note:/ Consider using 'indexAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsIndexAttachments :: Lens.Lens' ListIndexResponse (Lude.Maybe [IndexAttachment])
-lirsIndexAttachments = Lens.lens (indexAttachments :: ListIndexResponse -> Lude.Maybe [IndexAttachment]) (\s a -> s {indexAttachments = a} :: ListIndexResponse)
-{-# DEPRECATED lirsIndexAttachments "Use generic-lens or generic-optics with 'indexAttachments' instead." #-}
+lirrsIndexAttachments :: Lens.Lens' ListIndexResponse (Core.Maybe [Types.IndexAttachment])
+lirrsIndexAttachments = Lens.field @"indexAttachments"
+{-# DEPRECATED lirrsIndexAttachments "Use generic-lens or generic-optics with 'indexAttachments' instead." #-}
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsNextToken :: Lens.Lens' ListIndexResponse (Lude.Maybe Lude.Text)
-lirsNextToken = Lens.lens (nextToken :: ListIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIndexResponse)
-{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lirrsNextToken :: Lens.Lens' ListIndexResponse (Core.Maybe Types.NextToken)
+lirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsResponseStatus :: Lens.Lens' ListIndexResponse Lude.Int
-lirsResponseStatus = Lens.lens (responseStatus :: ListIndexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIndexResponse)
-{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lirrsResponseStatus :: Lens.Lens' ListIndexResponse Core.Int
+lirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

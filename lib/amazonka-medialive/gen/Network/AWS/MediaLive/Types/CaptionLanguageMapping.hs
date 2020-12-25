@@ -24,83 +24,77 @@ module Network.AWS.MediaLive.Types.CaptionLanguageMapping
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Maps a caption channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2), with an optional description.
 --
 -- /See:/ 'mkCaptionLanguageMapping' smart constructor.
 data CaptionLanguageMapping = CaptionLanguageMapping'
   { -- | Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
-    languageCode :: Lude.Text,
+    languageCode :: Core.Text,
     -- | Textual description of language
-    languageDescription :: Lude.Text,
+    languageDescription :: Core.Text,
     -- | The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
-    captionChannel :: Lude.Natural
+    captionChannel :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CaptionLanguageMapping' with the minimum fields required to make a request.
---
--- * 'languageCode' - Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
--- * 'languageDescription' - Textual description of language
--- * 'captionChannel' - The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
+-- | Creates a 'CaptionLanguageMapping' value with any optional fields omitted.
 mkCaptionLanguageMapping ::
   -- | 'languageCode'
-  Lude.Text ->
+  Core.Text ->
   -- | 'languageDescription'
-  Lude.Text ->
+  Core.Text ->
   -- | 'captionChannel'
-  Lude.Natural ->
+  Core.Natural ->
   CaptionLanguageMapping
 mkCaptionLanguageMapping
-  pLanguageCode_
-  pLanguageDescription_
-  pCaptionChannel_ =
+  languageCode
+  languageDescription
+  captionChannel =
     CaptionLanguageMapping'
-      { languageCode = pLanguageCode_,
-        languageDescription = pLanguageDescription_,
-        captionChannel = pCaptionChannel_
+      { languageCode,
+        languageDescription,
+        captionChannel
       }
 
 -- | Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clmLanguageCode :: Lens.Lens' CaptionLanguageMapping Lude.Text
-clmLanguageCode = Lens.lens (languageCode :: CaptionLanguageMapping -> Lude.Text) (\s a -> s {languageCode = a} :: CaptionLanguageMapping)
+clmLanguageCode :: Lens.Lens' CaptionLanguageMapping Core.Text
+clmLanguageCode = Lens.field @"languageCode"
 {-# DEPRECATED clmLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | Textual description of language
 --
 -- /Note:/ Consider using 'languageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clmLanguageDescription :: Lens.Lens' CaptionLanguageMapping Lude.Text
-clmLanguageDescription = Lens.lens (languageDescription :: CaptionLanguageMapping -> Lude.Text) (\s a -> s {languageDescription = a} :: CaptionLanguageMapping)
+clmLanguageDescription :: Lens.Lens' CaptionLanguageMapping Core.Text
+clmLanguageDescription = Lens.field @"languageDescription"
 {-# DEPRECATED clmLanguageDescription "Use generic-lens or generic-optics with 'languageDescription' instead." #-}
 
 -- | The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
 --
 -- /Note:/ Consider using 'captionChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clmCaptionChannel :: Lens.Lens' CaptionLanguageMapping Lude.Natural
-clmCaptionChannel = Lens.lens (captionChannel :: CaptionLanguageMapping -> Lude.Natural) (\s a -> s {captionChannel = a} :: CaptionLanguageMapping)
+clmCaptionChannel :: Lens.Lens' CaptionLanguageMapping Core.Natural
+clmCaptionChannel = Lens.field @"captionChannel"
 {-# DEPRECATED clmCaptionChannel "Use generic-lens or generic-optics with 'captionChannel' instead." #-}
 
-instance Lude.FromJSON CaptionLanguageMapping where
-  parseJSON =
-    Lude.withObject
-      "CaptionLanguageMapping"
-      ( \x ->
-          CaptionLanguageMapping'
-            Lude.<$> (x Lude..: "languageCode")
-            Lude.<*> (x Lude..: "languageDescription")
-            Lude.<*> (x Lude..: "captionChannel")
-      )
-
-instance Lude.ToJSON CaptionLanguageMapping where
-  toJSON CaptionLanguageMapping' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("languageCode" Lude..= languageCode),
-            Lude.Just ("languageDescription" Lude..= languageDescription),
-            Lude.Just ("captionChannel" Lude..= captionChannel)
+instance Core.FromJSON CaptionLanguageMapping where
+  toJSON CaptionLanguageMapping {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("languageCode" Core..= languageCode),
+            Core.Just ("languageDescription" Core..= languageDescription),
+            Core.Just ("captionChannel" Core..= captionChannel)
           ]
       )
+
+instance Core.FromJSON CaptionLanguageMapping where
+  parseJSON =
+    Core.withObject "CaptionLanguageMapping" Core.$
+      \x ->
+        CaptionLanguageMapping'
+          Core.<$> (x Core..: "languageCode")
+          Core.<*> (x Core..: "languageDescription")
+          Core.<*> (x Core..: "captionChannel")

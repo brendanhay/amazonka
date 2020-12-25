@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.SWF
     Network.AWS.SWF.CountClosedWorkflowExecutions
@@ -108,6 +114,7 @@ library
     Network.AWS.SWF.Waiters
 
   other-modules:
+    Network.AWS.SWF.Types.ActivityId
     Network.AWS.SWF.Types.ActivityTaskCanceledEventAttributes
     Network.AWS.SWF.Types.ActivityTaskCancelRequestedEventAttributes
     Network.AWS.SWF.Types.ActivityTaskCompletedEventAttributes
@@ -119,12 +126,14 @@ library
     Network.AWS.SWF.Types.ActivityType
     Network.AWS.SWF.Types.ActivityTypeConfiguration
     Network.AWS.SWF.Types.ActivityTypeInfo
+    Network.AWS.SWF.Types.Arn
     Network.AWS.SWF.Types.CancelTimerDecisionAttributes
     Network.AWS.SWF.Types.CancelTimerFailedCause
     Network.AWS.SWF.Types.CancelTimerFailedEventAttributes
     Network.AWS.SWF.Types.CancelWorkflowExecutionDecisionAttributes
     Network.AWS.SWF.Types.CancelWorkflowExecutionFailedCause
     Network.AWS.SWF.Types.CancelWorkflowExecutionFailedEventAttributes
+    Network.AWS.SWF.Types.CauseMessage
     Network.AWS.SWF.Types.ChildPolicy
     Network.AWS.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes
     Network.AWS.SWF.Types.ChildWorkflowExecutionCompletedEventAttributes
@@ -140,6 +149,9 @@ library
     Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionDecisionAttributes
     Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause
     Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionFailedEventAttributes
+    Network.AWS.SWF.Types.ContinuedExecutionRunId
+    Network.AWS.SWF.Types.Control
+    Network.AWS.SWF.Types.Data
     Network.AWS.SWF.Types.Decision
     Network.AWS.SWF.Types.DecisionTaskCompletedEventAttributes
     Network.AWS.SWF.Types.DecisionTaskScheduledEventAttributes
@@ -147,24 +159,52 @@ library
     Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes
     Network.AWS.SWF.Types.DecisionTaskTimeoutType
     Network.AWS.SWF.Types.DecisionType
+    Network.AWS.SWF.Types.DefaultExecutionStartToCloseTimeout
+    Network.AWS.SWF.Types.DefaultTaskHeartbeatTimeout
+    Network.AWS.SWF.Types.DefaultTaskPriority
+    Network.AWS.SWF.Types.DefaultTaskScheduleToCloseTimeout
+    Network.AWS.SWF.Types.DefaultTaskScheduleToStartTimeout
+    Network.AWS.SWF.Types.DefaultTaskStartToCloseTimeout
+    Network.AWS.SWF.Types.Description
+    Network.AWS.SWF.Types.Details
+    Network.AWS.SWF.Types.Domain
     Network.AWS.SWF.Types.DomainConfiguration
     Network.AWS.SWF.Types.DomainInfo
+    Network.AWS.SWF.Types.DomainName
+    Network.AWS.SWF.Types.DurationInDays
+    Network.AWS.SWF.Types.DurationInSeconds
+    Network.AWS.SWF.Types.DurationInSecondsOptional
     Network.AWS.SWF.Types.EventType
+    Network.AWS.SWF.Types.ExecutionContext
+    Network.AWS.SWF.Types.ExecutionStartToCloseTimeout
     Network.AWS.SWF.Types.ExecutionStatus
     Network.AWS.SWF.Types.ExecutionTimeFilter
     Network.AWS.SWF.Types.ExternalWorkflowExecutionCancelRequestedEventAttributes
     Network.AWS.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes
+    Network.AWS.SWF.Types.FailureReason
     Network.AWS.SWF.Types.FailWorkflowExecutionDecisionAttributes
     Network.AWS.SWF.Types.FailWorkflowExecutionFailedCause
     Network.AWS.SWF.Types.FailWorkflowExecutionFailedEventAttributes
+    Network.AWS.SWF.Types.FunctionId
+    Network.AWS.SWF.Types.FunctionInput
+    Network.AWS.SWF.Types.FunctionName
+    Network.AWS.SWF.Types.HeartbeatTimeout
     Network.AWS.SWF.Types.HistoryEvent
+    Network.AWS.SWF.Types.Id
+    Network.AWS.SWF.Types.Identity
+    Network.AWS.SWF.Types.Input
     Network.AWS.SWF.Types.LambdaFunctionCompletedEventAttributes
     Network.AWS.SWF.Types.LambdaFunctionFailedEventAttributes
     Network.AWS.SWF.Types.LambdaFunctionScheduledEventAttributes
     Network.AWS.SWF.Types.LambdaFunctionStartedEventAttributes
     Network.AWS.SWF.Types.LambdaFunctionTimedOutEventAttributes
     Network.AWS.SWF.Types.LambdaFunctionTimeoutType
+    Network.AWS.SWF.Types.LimitedData
+    Network.AWS.SWF.Types.MarkerName
     Network.AWS.SWF.Types.MarkerRecordedEventAttributes
+    Network.AWS.SWF.Types.Name
+    Network.AWS.SWF.Types.NextPageToken
+    Network.AWS.SWF.Types.PageToken
     Network.AWS.SWF.Types.PendingTaskCount
     Network.AWS.SWF.Types.RecordMarkerDecisionAttributes
     Network.AWS.SWF.Types.RecordMarkerFailedCause
@@ -178,16 +218,22 @@ library
     Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedEventAttributes
     Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
     Network.AWS.SWF.Types.ResourceTag
+    Network.AWS.SWF.Types.ResourceTagKey
+    Network.AWS.SWF.Types.Result
+    Network.AWS.SWF.Types.RunId
     Network.AWS.SWF.Types.ScheduleActivityTaskDecisionAttributes
     Network.AWS.SWF.Types.ScheduleActivityTaskFailedCause
     Network.AWS.SWF.Types.ScheduleActivityTaskFailedEventAttributes
     Network.AWS.SWF.Types.ScheduleLambdaFunctionDecisionAttributes
     Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedCause
     Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedEventAttributes
+    Network.AWS.SWF.Types.ScheduleToCloseTimeout
+    Network.AWS.SWF.Types.ScheduleToStartTimeout
     Network.AWS.SWF.Types.SignalExternalWorkflowExecutionDecisionAttributes
     Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedCause
     Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedEventAttributes
     Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes
+    Network.AWS.SWF.Types.SignalName
     Network.AWS.SWF.Types.StartChildWorkflowExecutionDecisionAttributes
     Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause
     Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedEventAttributes
@@ -197,11 +243,22 @@ library
     Network.AWS.SWF.Types.StartTimerDecisionAttributes
     Network.AWS.SWF.Types.StartTimerFailedCause
     Network.AWS.SWF.Types.StartTimerFailedEventAttributes
+    Network.AWS.SWF.Types.StartToCloseTimeout
+    Network.AWS.SWF.Types.StartToFireTimeout
+    Network.AWS.SWF.Types.Tag
     Network.AWS.SWF.Types.TagFilter
     Network.AWS.SWF.Types.TaskList
+    Network.AWS.SWF.Types.TaskPriority
+    Network.AWS.SWF.Types.TaskStartToCloseTimeout
+    Network.AWS.SWF.Types.TaskToken
+    Network.AWS.SWF.Types.TerminateReason
     Network.AWS.SWF.Types.TimerCanceledEventAttributes
     Network.AWS.SWF.Types.TimerFiredEventAttributes
+    Network.AWS.SWF.Types.TimerId
     Network.AWS.SWF.Types.TimerStartedEventAttributes
+    Network.AWS.SWF.Types.Value
+    Network.AWS.SWF.Types.Version
+    Network.AWS.SWF.Types.VersionOptional
     Network.AWS.SWF.Types.WorkflowExecution
     Network.AWS.SWF.Types.WorkflowExecutionCanceledEventAttributes
     Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause
@@ -215,12 +272,15 @@ library
     Network.AWS.SWF.Types.WorkflowExecutionInfo
     Network.AWS.SWF.Types.WorkflowExecutionInfos
     Network.AWS.SWF.Types.WorkflowExecutionOpenCounts
+    Network.AWS.SWF.Types.WorkflowExecutionRetentionPeriodInDays
     Network.AWS.SWF.Types.WorkflowExecutionSignaledEventAttributes
     Network.AWS.SWF.Types.WorkflowExecutionStartedEventAttributes
     Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause
     Network.AWS.SWF.Types.WorkflowExecutionTerminatedEventAttributes
     Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes
     Network.AWS.SWF.Types.WorkflowExecutionTimeoutType
+    Network.AWS.SWF.Types.WorkflowId
+    Network.AWS.SWF.Types.WorkflowRunId
     Network.AWS.SWF.Types.WorkflowType
     Network.AWS.SWF.Types.WorkflowTypeConfiguration
     Network.AWS.SWF.Types.WorkflowTypeFilter

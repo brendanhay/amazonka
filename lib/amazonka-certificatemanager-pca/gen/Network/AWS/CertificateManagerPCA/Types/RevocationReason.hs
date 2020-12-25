@@ -13,76 +13,81 @@
 module Network.AWS.CertificateManagerPCA.Types.RevocationReason
   ( RevocationReason
       ( RevocationReason',
-        Unspecified,
-        KeyCompromise,
-        CertificateAuthorityCompromise,
-        AffiliationChanged,
-        Superseded,
-        CessationOfOperation,
-        PrivilegeWithdrawn,
-        AACompromise
+        RevocationReasonUnspecified,
+        RevocationReasonKeyCompromise,
+        RevocationReasonCertificateAuthorityCompromise,
+        RevocationReasonAffiliationChanged,
+        RevocationReasonSuperseded,
+        RevocationReasonCessationOfOperation,
+        RevocationReasonPrivilegeWithdrawn,
+        RevocationReasonAACompromise,
+        fromRevocationReason
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RevocationReason = RevocationReason' Lude.Text
+newtype RevocationReason = RevocationReason'
+  { fromRevocationReason ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Unspecified :: RevocationReason
-pattern Unspecified = RevocationReason' "UNSPECIFIED"
+pattern RevocationReasonUnspecified :: RevocationReason
+pattern RevocationReasonUnspecified = RevocationReason' "UNSPECIFIED"
 
-pattern KeyCompromise :: RevocationReason
-pattern KeyCompromise = RevocationReason' "KEY_COMPROMISE"
+pattern RevocationReasonKeyCompromise :: RevocationReason
+pattern RevocationReasonKeyCompromise = RevocationReason' "KEY_COMPROMISE"
 
-pattern CertificateAuthorityCompromise :: RevocationReason
-pattern CertificateAuthorityCompromise = RevocationReason' "CERTIFICATE_AUTHORITY_COMPROMISE"
+pattern RevocationReasonCertificateAuthorityCompromise :: RevocationReason
+pattern RevocationReasonCertificateAuthorityCompromise = RevocationReason' "CERTIFICATE_AUTHORITY_COMPROMISE"
 
-pattern AffiliationChanged :: RevocationReason
-pattern AffiliationChanged = RevocationReason' "AFFILIATION_CHANGED"
+pattern RevocationReasonAffiliationChanged :: RevocationReason
+pattern RevocationReasonAffiliationChanged = RevocationReason' "AFFILIATION_CHANGED"
 
-pattern Superseded :: RevocationReason
-pattern Superseded = RevocationReason' "SUPERSEDED"
+pattern RevocationReasonSuperseded :: RevocationReason
+pattern RevocationReasonSuperseded = RevocationReason' "SUPERSEDED"
 
-pattern CessationOfOperation :: RevocationReason
-pattern CessationOfOperation = RevocationReason' "CESSATION_OF_OPERATION"
+pattern RevocationReasonCessationOfOperation :: RevocationReason
+pattern RevocationReasonCessationOfOperation = RevocationReason' "CESSATION_OF_OPERATION"
 
-pattern PrivilegeWithdrawn :: RevocationReason
-pattern PrivilegeWithdrawn = RevocationReason' "PRIVILEGE_WITHDRAWN"
+pattern RevocationReasonPrivilegeWithdrawn :: RevocationReason
+pattern RevocationReasonPrivilegeWithdrawn = RevocationReason' "PRIVILEGE_WITHDRAWN"
 
-pattern AACompromise :: RevocationReason
-pattern AACompromise = RevocationReason' "A_A_COMPROMISE"
+pattern RevocationReasonAACompromise :: RevocationReason
+pattern RevocationReasonAACompromise = RevocationReason' "A_A_COMPROMISE"
 
 {-# COMPLETE
-  Unspecified,
-  KeyCompromise,
-  CertificateAuthorityCompromise,
-  AffiliationChanged,
-  Superseded,
-  CessationOfOperation,
-  PrivilegeWithdrawn,
-  AACompromise,
+  RevocationReasonUnspecified,
+  RevocationReasonKeyCompromise,
+  RevocationReasonCertificateAuthorityCompromise,
+  RevocationReasonAffiliationChanged,
+  RevocationReasonSuperseded,
+  RevocationReasonCessationOfOperation,
+  RevocationReasonPrivilegeWithdrawn,
+  RevocationReasonAACompromise,
   RevocationReason'
   #-}

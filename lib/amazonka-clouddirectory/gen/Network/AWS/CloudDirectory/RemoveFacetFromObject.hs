@@ -20,7 +20,7 @@ module Network.AWS.CloudDirectory.RemoveFacetFromObject
     mkRemoveFacetFromObject,
 
     -- ** Request lenses
-    rffoDirectoryARN,
+    rffoDirectoryArn,
     rffoSchemaFacet,
     rffoObjectReference,
 
@@ -29,124 +29,114 @@ module Network.AWS.CloudDirectory.RemoveFacetFromObject
     mkRemoveFacetFromObjectResponse,
 
     -- ** Response lenses
-    rfforsResponseStatus,
+    rfforrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveFacetFromObject' smart constructor.
 data RemoveFacetFromObject = RemoveFacetFromObject'
   { -- | The ARN of the directory in which the object resides.
-    directoryARN :: Lude.Text,
+    directoryArn :: Types.Arn,
     -- | The facet to remove. See 'SchemaFacet' for details.
-    schemaFacet :: SchemaFacet,
+    schemaFacet :: Types.SchemaFacet,
     -- | A reference to the object to remove the facet from.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveFacetFromObject' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The ARN of the directory in which the object resides.
--- * 'schemaFacet' - The facet to remove. See 'SchemaFacet' for details.
--- * 'objectReference' - A reference to the object to remove the facet from.
+-- | Creates a 'RemoveFacetFromObject' value with any optional fields omitted.
 mkRemoveFacetFromObject ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'schemaFacet'
-  SchemaFacet ->
+  Types.SchemaFacet ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   RemoveFacetFromObject
-mkRemoveFacetFromObject
-  pDirectoryARN_
-  pSchemaFacet_
-  pObjectReference_ =
-    RemoveFacetFromObject'
-      { directoryARN = pDirectoryARN_,
-        schemaFacet = pSchemaFacet_,
-        objectReference = pObjectReference_
-      }
+mkRemoveFacetFromObject directoryArn schemaFacet objectReference =
+  RemoveFacetFromObject'
+    { directoryArn,
+      schemaFacet,
+      objectReference
+    }
 
 -- | The ARN of the directory in which the object resides.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rffoDirectoryARN :: Lens.Lens' RemoveFacetFromObject Lude.Text
-rffoDirectoryARN = Lens.lens (directoryARN :: RemoveFacetFromObject -> Lude.Text) (\s a -> s {directoryARN = a} :: RemoveFacetFromObject)
-{-# DEPRECATED rffoDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rffoDirectoryArn :: Lens.Lens' RemoveFacetFromObject Types.Arn
+rffoDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED rffoDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | The facet to remove. See 'SchemaFacet' for details.
 --
 -- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rffoSchemaFacet :: Lens.Lens' RemoveFacetFromObject SchemaFacet
-rffoSchemaFacet = Lens.lens (schemaFacet :: RemoveFacetFromObject -> SchemaFacet) (\s a -> s {schemaFacet = a} :: RemoveFacetFromObject)
+rffoSchemaFacet :: Lens.Lens' RemoveFacetFromObject Types.SchemaFacet
+rffoSchemaFacet = Lens.field @"schemaFacet"
 {-# DEPRECATED rffoSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
 
 -- | A reference to the object to remove the facet from.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rffoObjectReference :: Lens.Lens' RemoveFacetFromObject ObjectReference
-rffoObjectReference = Lens.lens (objectReference :: RemoveFacetFromObject -> ObjectReference) (\s a -> s {objectReference = a} :: RemoveFacetFromObject)
+rffoObjectReference :: Lens.Lens' RemoveFacetFromObject Types.ObjectReference
+rffoObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED rffoObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.AWSRequest RemoveFacetFromObject where
-  type Rs RemoveFacetFromObject = RemoveFacetFromObjectResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          RemoveFacetFromObjectResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders RemoveFacetFromObject where
-  toHeaders RemoveFacetFromObject' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON RemoveFacetFromObject where
-  toJSON RemoveFacetFromObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SchemaFacet" Lude..= schemaFacet),
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+instance Core.FromJSON RemoveFacetFromObject where
+  toJSON RemoveFacetFromObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaFacet" Core..= schemaFacet),
+            Core.Just ("ObjectReference" Core..= objectReference)
           ]
       )
 
-instance Lude.ToPath RemoveFacetFromObject where
-  toPath =
-    Lude.const
-      "/amazonclouddirectory/2017-01-11/object/facets/delete"
-
-instance Lude.ToQuery RemoveFacetFromObject where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest RemoveFacetFromObject where
+  type Rs RemoveFacetFromObject = RemoveFacetFromObjectResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            "/amazonclouddirectory/2017-01-11/object/facets/delete",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          RemoveFacetFromObjectResponse'
+            Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkRemoveFacetFromObjectResponse' smart constructor.
 newtype RemoveFacetFromObjectResponse = RemoveFacetFromObjectResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveFacetFromObjectResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveFacetFromObjectResponse' value with any optional fields omitted.
 mkRemoveFacetFromObjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveFacetFromObjectResponse
-mkRemoveFacetFromObjectResponse pResponseStatus_ =
-  RemoveFacetFromObjectResponse' {responseStatus = pResponseStatus_}
+mkRemoveFacetFromObjectResponse responseStatus =
+  RemoveFacetFromObjectResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfforsResponseStatus :: Lens.Lens' RemoveFacetFromObjectResponse Lude.Int
-rfforsResponseStatus = Lens.lens (responseStatus :: RemoveFacetFromObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveFacetFromObjectResponse)
-{-# DEPRECATED rfforsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rfforrsResponseStatus :: Lens.Lens' RemoveFacetFromObjectResponse Core.Int
+rfforrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rfforrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

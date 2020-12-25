@@ -31,210 +31,189 @@ module Network.AWS.CloudWatchEvents.PutRule
     mkPutRule,
 
     -- ** Request lenses
-    prEventPattern,
-    prState,
-    prEventBusName,
-    prScheduleExpression,
     prName,
     prDescription,
+    prEventBusName,
+    prEventPattern,
+    prRoleArn,
+    prScheduleExpression,
+    prState,
     prTags,
-    prRoleARN,
 
     -- * Destructuring the response
     PutRuleResponse (..),
     mkPutRuleResponse,
 
     -- ** Response lenses
-    prrsRuleARN,
-    prrsResponseStatus,
+    prrrsRuleArn,
+    prrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutRule' smart constructor.
 data PutRule = PutRule'
-  { -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
-    eventPattern :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the rule is enabled or disabled.
-    state :: Lude.Maybe RuleState,
-    -- | The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.
-    eventBusName :: Lude.Maybe Lude.Text,
-    -- | The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
-    scheduleExpression :: Lude.Maybe Lude.Text,
-    -- | The name of the rule that you are creating or updating.
-    name :: Lude.Text,
+  { -- | The name of the rule that you are creating or updating.
+    name :: Types.RuleName,
     -- | A description of the rule.
-    description :: Lude.Maybe Lude.Text,
-    -- | The list of key-value pairs to associate with the rule.
-    tags :: Lude.Maybe [Tag],
+    description :: Core.Maybe Types.RuleDescription,
+    -- | The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.
+    eventBusName :: Core.Maybe Types.EventBusNameOrArn,
+    -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
+    eventPattern :: Core.Maybe Types.EventPattern,
     -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn,
+    -- | The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
+    scheduleExpression :: Core.Maybe Types.ScheduleExpression,
+    -- | Indicates whether the rule is enabled or disabled.
+    state :: Core.Maybe Types.RuleState,
+    -- | The list of key-value pairs to associate with the rule.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRule' with the minimum fields required to make a request.
---
--- * 'eventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
--- * 'state' - Indicates whether the rule is enabled or disabled.
--- * 'eventBusName' - The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.
--- * 'scheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
--- * 'name' - The name of the rule that you are creating or updating.
--- * 'description' - A description of the rule.
--- * 'tags' - The list of key-value pairs to associate with the rule.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
+-- | Creates a 'PutRule' value with any optional fields omitted.
 mkPutRule ::
   -- | 'name'
-  Lude.Text ->
+  Types.RuleName ->
   PutRule
-mkPutRule pName_ =
+mkPutRule name =
   PutRule'
-    { eventPattern = Lude.Nothing,
-      state = Lude.Nothing,
-      eventBusName = Lude.Nothing,
-      scheduleExpression = Lude.Nothing,
-      name = pName_,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { name,
+      description = Core.Nothing,
+      eventBusName = Core.Nothing,
+      eventPattern = Core.Nothing,
+      roleArn = Core.Nothing,
+      scheduleExpression = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
---
--- /Note:/ Consider using 'eventPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prEventPattern :: Lens.Lens' PutRule (Lude.Maybe Lude.Text)
-prEventPattern = Lens.lens (eventPattern :: PutRule -> Lude.Maybe Lude.Text) (\s a -> s {eventPattern = a} :: PutRule)
-{-# DEPRECATED prEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
-
--- | Indicates whether the rule is enabled or disabled.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prState :: Lens.Lens' PutRule (Lude.Maybe RuleState)
-prState = Lens.lens (state :: PutRule -> Lude.Maybe RuleState) (\s a -> s {state = a} :: PutRule)
-{-# DEPRECATED prState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.
---
--- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prEventBusName :: Lens.Lens' PutRule (Lude.Maybe Lude.Text)
-prEventBusName = Lens.lens (eventBusName :: PutRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: PutRule)
-{-# DEPRECATED prEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
-
--- | The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
---
--- /Note:/ Consider using 'scheduleExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prScheduleExpression :: Lens.Lens' PutRule (Lude.Maybe Lude.Text)
-prScheduleExpression = Lens.lens (scheduleExpression :: PutRule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleExpression = a} :: PutRule)
-{-# DEPRECATED prScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
 
 -- | The name of the rule that you are creating or updating.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prName :: Lens.Lens' PutRule Lude.Text
-prName = Lens.lens (name :: PutRule -> Lude.Text) (\s a -> s {name = a} :: PutRule)
+prName :: Lens.Lens' PutRule Types.RuleName
+prName = Lens.field @"name"
 {-# DEPRECATED prName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A description of the rule.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prDescription :: Lens.Lens' PutRule (Lude.Maybe Lude.Text)
-prDescription = Lens.lens (description :: PutRule -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PutRule)
+prDescription :: Lens.Lens' PutRule (Core.Maybe Types.RuleDescription)
+prDescription = Lens.field @"description"
 {-# DEPRECATED prDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prEventBusName :: Lens.Lens' PutRule (Core.Maybe Types.EventBusNameOrArn)
+prEventBusName = Lens.field @"eventBusName"
+{-# DEPRECATED prEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
+
+-- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
+--
+-- /Note:/ Consider using 'eventPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prEventPattern :: Lens.Lens' PutRule (Core.Maybe Types.EventPattern)
+prEventPattern = Lens.field @"eventPattern"
+{-# DEPRECATED prEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prRoleArn :: Lens.Lens' PutRule (Core.Maybe Types.RoleArn)
+prRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED prRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
+--
+-- /Note:/ Consider using 'scheduleExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prScheduleExpression :: Lens.Lens' PutRule (Core.Maybe Types.ScheduleExpression)
+prScheduleExpression = Lens.field @"scheduleExpression"
+{-# DEPRECATED prScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
+
+-- | Indicates whether the rule is enabled or disabled.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prState :: Lens.Lens' PutRule (Core.Maybe Types.RuleState)
+prState = Lens.field @"state"
+{-# DEPRECATED prState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The list of key-value pairs to associate with the rule.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prTags :: Lens.Lens' PutRule (Lude.Maybe [Tag])
-prTags = Lens.lens (tags :: PutRule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutRule)
+prTags :: Lens.Lens' PutRule (Core.Maybe [Types.Tag])
+prTags = Lens.field @"tags"
 {-# DEPRECATED prTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prRoleARN :: Lens.Lens' PutRule (Lude.Maybe Lude.Text)
-prRoleARN = Lens.lens (roleARN :: PutRule -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: PutRule)
-{-# DEPRECATED prRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+instance Core.FromJSON PutRule where
+  toJSON PutRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Description" Core..=) Core.<$> description,
+            ("EventBusName" Core..=) Core.<$> eventBusName,
+            ("EventPattern" Core..=) Core.<$> eventPattern,
+            ("RoleArn" Core..=) Core.<$> roleArn,
+            ("ScheduleExpression" Core..=) Core.<$> scheduleExpression,
+            ("State" Core..=) Core.<$> state,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
 
-instance Lude.AWSRequest PutRule where
+instance Core.AWSRequest PutRule where
   type Rs PutRule = PutRuleResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.PutRule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutRuleResponse'
-            Lude.<$> (x Lude..?> "RuleArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RuleArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSEvents.PutRule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRule where
-  toJSON PutRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EventPattern" Lude..=) Lude.<$> eventPattern,
-            ("State" Lude..=) Lude.<$> state,
-            ("EventBusName" Lude..=) Lude.<$> eventBusName,
-            ("ScheduleExpression" Lude..=) Lude.<$> scheduleExpression,
-            Lude.Just ("Name" Lude..= name),
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("RoleArn" Lude..=) Lude.<$> roleARN
-          ]
-      )
-
-instance Lude.ToPath PutRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutRuleResponse' smart constructor.
 data PutRuleResponse = PutRuleResponse'
   { -- | The Amazon Resource Name (ARN) of the rule.
-    ruleARN :: Lude.Maybe Lude.Text,
+    ruleArn :: Core.Maybe Types.RuleArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRuleResponse' with the minimum fields required to make a request.
---
--- * 'ruleARN' - The Amazon Resource Name (ARN) of the rule.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRuleResponse' value with any optional fields omitted.
 mkPutRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRuleResponse
-mkPutRuleResponse pResponseStatus_ =
-  PutRuleResponse'
-    { ruleARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkPutRuleResponse responseStatus =
+  PutRuleResponse' {ruleArn = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the rule.
 --
--- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prrsRuleARN :: Lens.Lens' PutRuleResponse (Lude.Maybe Lude.Text)
-prrsRuleARN = Lens.lens (ruleARN :: PutRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {ruleARN = a} :: PutRuleResponse)
-{-# DEPRECATED prrsRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
+-- /Note:/ Consider using 'ruleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrrsRuleArn :: Lens.Lens' PutRuleResponse (Core.Maybe Types.RuleArn)
+prrrsRuleArn = Lens.field @"ruleArn"
+{-# DEPRECATED prrrsRuleArn "Use generic-lens or generic-optics with 'ruleArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prrsResponseStatus :: Lens.Lens' PutRuleResponse Lude.Int
-prrsResponseStatus = Lens.lens (responseStatus :: PutRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRuleResponse)
-{-# DEPRECATED prrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prrrsResponseStatus :: Lens.Lens' PutRuleResponse Core.Int
+prrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

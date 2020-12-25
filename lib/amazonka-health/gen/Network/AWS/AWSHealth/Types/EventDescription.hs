@@ -22,37 +22,32 @@ module Network.AWS.AWSHealth.Types.EventDescription
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The detailed description of the event. Included in the information returned by the <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html DescribeEventDetails> operation.
 --
 -- /See:/ 'mkEventDescription' smart constructor.
 newtype EventDescription = EventDescription'
   { -- | The most recent description of the event.
-    latestDescription :: Lude.Maybe Lude.Text
+    latestDescription :: Core.Maybe EventDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventDescription' with the minimum fields required to make a request.
---
--- * 'latestDescription' - The most recent description of the event.
+-- | Creates a 'EventDescription' value with any optional fields omitted.
 mkEventDescription ::
   EventDescription
 mkEventDescription =
-  EventDescription' {latestDescription = Lude.Nothing}
+  EventDescription' {latestDescription = Core.Nothing}
 
 -- | The most recent description of the event.
 --
 -- /Note:/ Consider using 'latestDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edLatestDescription :: Lens.Lens' EventDescription (Lude.Maybe Lude.Text)
-edLatestDescription = Lens.lens (latestDescription :: EventDescription -> Lude.Maybe Lude.Text) (\s a -> s {latestDescription = a} :: EventDescription)
+edLatestDescription :: Lens.Lens' EventDescription (Core.Maybe EventDescription)
+edLatestDescription = Lens.field @"latestDescription"
 {-# DEPRECATED edLatestDescription "Use generic-lens or generic-optics with 'latestDescription' instead." #-}
 
-instance Lude.FromJSON EventDescription where
+instance Core.FromJSON EventDescription where
   parseJSON =
-    Lude.withObject
-      "EventDescription"
-      ( \x ->
-          EventDescription' Lude.<$> (x Lude..:? "latestDescription")
-      )
+    Core.withObject "EventDescription" Core.$
+      \x -> EventDescription' Core.<$> (x Core..:? "latestDescription")

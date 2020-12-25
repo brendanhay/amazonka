@@ -17,174 +17,168 @@ module Network.AWS.AWSHealth.Types.OrganizationEventFilter
     mkOrganizationEventFilter,
 
     -- * Lenses
-    oefLastUpdatedTime,
     oefAwsAccountIds,
+    oefEndTime,
+    oefEntityArns,
+    oefEntityValues,
+    oefEventStatusCodes,
     oefEventTypeCategories,
     oefEventTypeCodes,
-    oefStartTime,
+    oefLastUpdatedTime,
     oefRegions,
-    oefEventStatusCodes,
-    oefEndTime,
-    oefEntityARNs,
-    oefEntityValues,
     oefServices,
+    oefStartTime,
   )
 where
 
-import Network.AWS.AWSHealth.Types.DateTimeRange
-import Network.AWS.AWSHealth.Types.EventStatusCode
-import Network.AWS.AWSHealth.Types.EventTypeCategory
+import qualified Network.AWS.AWSHealth.Types.AccountId as Types
+import qualified Network.AWS.AWSHealth.Types.DateTimeRange as Types
+import qualified Network.AWS.AWSHealth.Types.EntityArn as Types
+import qualified Network.AWS.AWSHealth.Types.EntityValue as Types
+import qualified Network.AWS.AWSHealth.Types.EventStatusCode as Types
+import qualified Network.AWS.AWSHealth.Types.EventType as Types
+import qualified Network.AWS.AWSHealth.Types.EventTypeCategory as Types
+import qualified Network.AWS.AWSHealth.Types.Region as Types
+import qualified Network.AWS.AWSHealth.Types.Service as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The values to filter results from the <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html DescribeEventsForOrganization> operation.
 --
 -- /See:/ 'mkOrganizationEventFilter' smart constructor.
 data OrganizationEventFilter = OrganizationEventFilter'
-  { lastUpdatedTime :: Lude.Maybe DateTimeRange,
-    -- | A list of 12-digit AWS account numbers that contains the affected entities.
-    awsAccountIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | A list of event type category codes (issue, scheduledChange, or accountNotification).
-    eventTypeCategories :: Lude.Maybe (Lude.NonEmpty EventTypeCategory),
-    -- | A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".@
-    eventTypeCodes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    startTime :: Lude.Maybe DateTimeRange,
-    -- | A list of AWS Regions.
-    regions :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | A list of event status codes.
-    eventStatusCodes :: Lude.Maybe (Lude.NonEmpty EventStatusCode),
-    endTime :: Lude.Maybe DateTimeRange,
+  { -- | A list of 12-digit AWS account numbers that contains the affected entities.
+    awsAccountIds :: Core.Maybe (Core.NonEmpty Types.AccountId),
+    endTime :: Core.Maybe Types.DateTimeRange,
     -- | A list of entity ARNs (unique identifiers).
-    entityARNs :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    entityArns :: Core.Maybe (Core.NonEmpty Types.EntityArn),
     -- | A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).
-    entityValues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    entityValues :: Core.Maybe (Core.NonEmpty Types.EntityValue),
+    -- | A list of event status codes.
+    eventStatusCodes :: Core.Maybe (Core.NonEmpty Types.EventStatusCode),
+    -- | A list of event type category codes (issue, scheduledChange, or accountNotification).
+    eventTypeCategories :: Core.Maybe (Core.NonEmpty Types.EventTypeCategory),
+    -- | A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".@
+    eventTypeCodes :: Core.Maybe (Core.NonEmpty Types.EventType),
+    lastUpdatedTime :: Core.Maybe Types.DateTimeRange,
+    -- | A list of AWS Regions.
+    regions :: Core.Maybe (Core.NonEmpty Types.Region),
     -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
-    services :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    services :: Core.Maybe (Core.NonEmpty Types.Service),
+    startTime :: Core.Maybe Types.DateTimeRange
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OrganizationEventFilter' with the minimum fields required to make a request.
---
--- * 'lastUpdatedTime' -
--- * 'awsAccountIds' - A list of 12-digit AWS account numbers that contains the affected entities.
--- * 'eventTypeCategories' - A list of event type category codes (issue, scheduledChange, or accountNotification).
--- * 'eventTypeCodes' - A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".@
--- * 'startTime' -
--- * 'regions' - A list of AWS Regions.
--- * 'eventStatusCodes' - A list of event status codes.
--- * 'endTime' -
--- * 'entityARNs' - A list of entity ARNs (unique identifiers).
--- * 'entityValues' - A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).
--- * 'services' - The AWS services associated with the event. For example, @EC2@ , @RDS@ .
+-- | Creates a 'OrganizationEventFilter' value with any optional fields omitted.
 mkOrganizationEventFilter ::
   OrganizationEventFilter
 mkOrganizationEventFilter =
   OrganizationEventFilter'
-    { lastUpdatedTime = Lude.Nothing,
-      awsAccountIds = Lude.Nothing,
-      eventTypeCategories = Lude.Nothing,
-      eventTypeCodes = Lude.Nothing,
-      startTime = Lude.Nothing,
-      regions = Lude.Nothing,
-      eventStatusCodes = Lude.Nothing,
-      endTime = Lude.Nothing,
-      entityARNs = Lude.Nothing,
-      entityValues = Lude.Nothing,
-      services = Lude.Nothing
+    { awsAccountIds = Core.Nothing,
+      endTime = Core.Nothing,
+      entityArns = Core.Nothing,
+      entityValues = Core.Nothing,
+      eventStatusCodes = Core.Nothing,
+      eventTypeCategories = Core.Nothing,
+      eventTypeCodes = Core.Nothing,
+      lastUpdatedTime = Core.Nothing,
+      regions = Core.Nothing,
+      services = Core.Nothing,
+      startTime = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefLastUpdatedTime :: Lens.Lens' OrganizationEventFilter (Lude.Maybe DateTimeRange)
-oefLastUpdatedTime = Lens.lens (lastUpdatedTime :: OrganizationEventFilter -> Lude.Maybe DateTimeRange) (\s a -> s {lastUpdatedTime = a} :: OrganizationEventFilter)
-{-# DEPRECATED oefLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | A list of 12-digit AWS account numbers that contains the affected entities.
 --
 -- /Note:/ Consider using 'awsAccountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefAwsAccountIds :: Lens.Lens' OrganizationEventFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-oefAwsAccountIds = Lens.lens (awsAccountIds :: OrganizationEventFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {awsAccountIds = a} :: OrganizationEventFilter)
+oefAwsAccountIds :: Lens.Lens' OrganizationEventFilter (Core.Maybe (Core.NonEmpty Types.AccountId))
+oefAwsAccountIds = Lens.field @"awsAccountIds"
 {-# DEPRECATED oefAwsAccountIds "Use generic-lens or generic-optics with 'awsAccountIds' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oefEndTime :: Lens.Lens' OrganizationEventFilter (Core.Maybe Types.DateTimeRange)
+oefEndTime = Lens.field @"endTime"
+{-# DEPRECATED oefEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | A list of entity ARNs (unique identifiers).
+--
+-- /Note:/ Consider using 'entityArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oefEntityArns :: Lens.Lens' OrganizationEventFilter (Core.Maybe (Core.NonEmpty Types.EntityArn))
+oefEntityArns = Lens.field @"entityArns"
+{-# DEPRECATED oefEntityArns "Use generic-lens or generic-optics with 'entityArns' instead." #-}
+
+-- | A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).
+--
+-- /Note:/ Consider using 'entityValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oefEntityValues :: Lens.Lens' OrganizationEventFilter (Core.Maybe (Core.NonEmpty Types.EntityValue))
+oefEntityValues = Lens.field @"entityValues"
+{-# DEPRECATED oefEntityValues "Use generic-lens or generic-optics with 'entityValues' instead." #-}
+
+-- | A list of event status codes.
+--
+-- /Note:/ Consider using 'eventStatusCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oefEventStatusCodes :: Lens.Lens' OrganizationEventFilter (Core.Maybe (Core.NonEmpty Types.EventStatusCode))
+oefEventStatusCodes = Lens.field @"eventStatusCodes"
+{-# DEPRECATED oefEventStatusCodes "Use generic-lens or generic-optics with 'eventStatusCodes' instead." #-}
 
 -- | A list of event type category codes (issue, scheduledChange, or accountNotification).
 --
 -- /Note:/ Consider using 'eventTypeCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefEventTypeCategories :: Lens.Lens' OrganizationEventFilter (Lude.Maybe (Lude.NonEmpty EventTypeCategory))
-oefEventTypeCategories = Lens.lens (eventTypeCategories :: OrganizationEventFilter -> Lude.Maybe (Lude.NonEmpty EventTypeCategory)) (\s a -> s {eventTypeCategories = a} :: OrganizationEventFilter)
+oefEventTypeCategories :: Lens.Lens' OrganizationEventFilter (Core.Maybe (Core.NonEmpty Types.EventTypeCategory))
+oefEventTypeCategories = Lens.field @"eventTypeCategories"
 {-# DEPRECATED oefEventTypeCategories "Use generic-lens or generic-optics with 'eventTypeCategories' instead." #-}
 
 -- | A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".@
 --
 -- /Note:/ Consider using 'eventTypeCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefEventTypeCodes :: Lens.Lens' OrganizationEventFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-oefEventTypeCodes = Lens.lens (eventTypeCodes :: OrganizationEventFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {eventTypeCodes = a} :: OrganizationEventFilter)
+oefEventTypeCodes :: Lens.Lens' OrganizationEventFilter (Core.Maybe (Core.NonEmpty Types.EventType))
+oefEventTypeCodes = Lens.field @"eventTypeCodes"
 {-# DEPRECATED oefEventTypeCodes "Use generic-lens or generic-optics with 'eventTypeCodes' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefStartTime :: Lens.Lens' OrganizationEventFilter (Lude.Maybe DateTimeRange)
-oefStartTime = Lens.lens (startTime :: OrganizationEventFilter -> Lude.Maybe DateTimeRange) (\s a -> s {startTime = a} :: OrganizationEventFilter)
-{-# DEPRECATED oefStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oefLastUpdatedTime :: Lens.Lens' OrganizationEventFilter (Core.Maybe Types.DateTimeRange)
+oefLastUpdatedTime = Lens.field @"lastUpdatedTime"
+{-# DEPRECATED oefLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | A list of AWS Regions.
 --
 -- /Note:/ Consider using 'regions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefRegions :: Lens.Lens' OrganizationEventFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-oefRegions = Lens.lens (regions :: OrganizationEventFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {regions = a} :: OrganizationEventFilter)
+oefRegions :: Lens.Lens' OrganizationEventFilter (Core.Maybe (Core.NonEmpty Types.Region))
+oefRegions = Lens.field @"regions"
 {-# DEPRECATED oefRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
-
--- | A list of event status codes.
---
--- /Note:/ Consider using 'eventStatusCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefEventStatusCodes :: Lens.Lens' OrganizationEventFilter (Lude.Maybe (Lude.NonEmpty EventStatusCode))
-oefEventStatusCodes = Lens.lens (eventStatusCodes :: OrganizationEventFilter -> Lude.Maybe (Lude.NonEmpty EventStatusCode)) (\s a -> s {eventStatusCodes = a} :: OrganizationEventFilter)
-{-# DEPRECATED oefEventStatusCodes "Use generic-lens or generic-optics with 'eventStatusCodes' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefEndTime :: Lens.Lens' OrganizationEventFilter (Lude.Maybe DateTimeRange)
-oefEndTime = Lens.lens (endTime :: OrganizationEventFilter -> Lude.Maybe DateTimeRange) (\s a -> s {endTime = a} :: OrganizationEventFilter)
-{-# DEPRECATED oefEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | A list of entity ARNs (unique identifiers).
---
--- /Note:/ Consider using 'entityARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefEntityARNs :: Lens.Lens' OrganizationEventFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-oefEntityARNs = Lens.lens (entityARNs :: OrganizationEventFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {entityARNs = a} :: OrganizationEventFilter)
-{-# DEPRECATED oefEntityARNs "Use generic-lens or generic-optics with 'entityARNs' instead." #-}
-
--- | A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).
---
--- /Note:/ Consider using 'entityValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefEntityValues :: Lens.Lens' OrganizationEventFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-oefEntityValues = Lens.lens (entityValues :: OrganizationEventFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {entityValues = a} :: OrganizationEventFilter)
-{-# DEPRECATED oefEntityValues "Use generic-lens or generic-optics with 'entityValues' instead." #-}
 
 -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
 --
 -- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oefServices :: Lens.Lens' OrganizationEventFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-oefServices = Lens.lens (services :: OrganizationEventFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {services = a} :: OrganizationEventFilter)
+oefServices :: Lens.Lens' OrganizationEventFilter (Core.Maybe (Core.NonEmpty Types.Service))
+oefServices = Lens.field @"services"
 {-# DEPRECATED oefServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
-instance Lude.ToJSON OrganizationEventFilter where
-  toJSON OrganizationEventFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("lastUpdatedTime" Lude..=) Lude.<$> lastUpdatedTime,
-            ("awsAccountIds" Lude..=) Lude.<$> awsAccountIds,
-            ("eventTypeCategories" Lude..=) Lude.<$> eventTypeCategories,
-            ("eventTypeCodes" Lude..=) Lude.<$> eventTypeCodes,
-            ("startTime" Lude..=) Lude.<$> startTime,
-            ("regions" Lude..=) Lude.<$> regions,
-            ("eventStatusCodes" Lude..=) Lude.<$> eventStatusCodes,
-            ("endTime" Lude..=) Lude.<$> endTime,
-            ("entityArns" Lude..=) Lude.<$> entityARNs,
-            ("entityValues" Lude..=) Lude.<$> entityValues,
-            ("services" Lude..=) Lude.<$> services
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oefStartTime :: Lens.Lens' OrganizationEventFilter (Core.Maybe Types.DateTimeRange)
+oefStartTime = Lens.field @"startTime"
+{-# DEPRECATED oefStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+instance Core.FromJSON OrganizationEventFilter where
+  toJSON OrganizationEventFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("awsAccountIds" Core..=) Core.<$> awsAccountIds,
+            ("endTime" Core..=) Core.<$> endTime,
+            ("entityArns" Core..=) Core.<$> entityArns,
+            ("entityValues" Core..=) Core.<$> entityValues,
+            ("eventStatusCodes" Core..=) Core.<$> eventStatusCodes,
+            ("eventTypeCategories" Core..=) Core.<$> eventTypeCategories,
+            ("eventTypeCodes" Core..=) Core.<$> eventTypeCodes,
+            ("lastUpdatedTime" Core..=) Core.<$> lastUpdatedTime,
+            ("regions" Core..=) Core.<$> regions,
+            ("services" Core..=) Core.<$> services,
+            ("startTime" Core..=) Core.<$> startTime
           ]
       )

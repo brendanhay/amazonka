@@ -17,81 +17,78 @@ module Network.AWS.S3.Types.DeletedObject
     mkDeletedObject,
 
     -- * Lenses
-    doVersionId,
     doDeleteMarker,
     doDeleteMarkerVersionId,
     doKey,
+    doVersionId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.DeleteMarkerVersionId as Types
+import qualified Network.AWS.S3.Types.Key as Types
 
 -- | Information about the deleted object.
 --
 -- /See:/ 'mkDeletedObject' smart constructor.
 data DeletedObject = DeletedObject'
-  { -- | The version ID of the deleted object.
-    versionId :: Lude.Maybe ObjectVersionId,
-    -- | Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker. In a simple DELETE, this header indicates whether (true) or not (false) a delete marker was created.
-    deleteMarker :: Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker. In a simple DELETE, this header indicates whether (true) or not (false) a delete marker was created.
+    deleteMarker :: Core.Maybe Core.Bool,
     -- | The version ID of the delete marker created as a result of the DELETE operation. If you delete a specific object version, the value returned by this header is the version ID of the object version deleted.
-    deleteMarkerVersionId :: Lude.Maybe Lude.Text,
+    deleteMarkerVersionId :: Core.Maybe Types.DeleteMarkerVersionId,
     -- | The name of the deleted object.
-    key :: Lude.Maybe ObjectKey
+    key :: Core.Maybe Types.Key,
+    -- | The version ID of the deleted object.
+    versionId :: Core.Maybe Types.ObjectVersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletedObject' with the minimum fields required to make a request.
---
--- * 'versionId' - The version ID of the deleted object.
--- * 'deleteMarker' - Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker. In a simple DELETE, this header indicates whether (true) or not (false) a delete marker was created.
--- * 'deleteMarkerVersionId' - The version ID of the delete marker created as a result of the DELETE operation. If you delete a specific object version, the value returned by this header is the version ID of the object version deleted.
--- * 'key' - The name of the deleted object.
+-- | Creates a 'DeletedObject' value with any optional fields omitted.
 mkDeletedObject ::
   DeletedObject
 mkDeletedObject =
   DeletedObject'
-    { versionId = Lude.Nothing,
-      deleteMarker = Lude.Nothing,
-      deleteMarkerVersionId = Lude.Nothing,
-      key = Lude.Nothing
+    { deleteMarker = Core.Nothing,
+      deleteMarkerVersionId = Core.Nothing,
+      key = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | The version ID of the deleted object.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doVersionId :: Lens.Lens' DeletedObject (Lude.Maybe ObjectVersionId)
-doVersionId = Lens.lens (versionId :: DeletedObject -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: DeletedObject)
-{-# DEPRECATED doVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker. In a simple DELETE, this header indicates whether (true) or not (false) a delete marker was created.
 --
 -- /Note:/ Consider using 'deleteMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doDeleteMarker :: Lens.Lens' DeletedObject (Lude.Maybe Lude.Bool)
-doDeleteMarker = Lens.lens (deleteMarker :: DeletedObject -> Lude.Maybe Lude.Bool) (\s a -> s {deleteMarker = a} :: DeletedObject)
+doDeleteMarker :: Lens.Lens' DeletedObject (Core.Maybe Core.Bool)
+doDeleteMarker = Lens.field @"deleteMarker"
 {-# DEPRECATED doDeleteMarker "Use generic-lens or generic-optics with 'deleteMarker' instead." #-}
 
 -- | The version ID of the delete marker created as a result of the DELETE operation. If you delete a specific object version, the value returned by this header is the version ID of the object version deleted.
 --
 -- /Note:/ Consider using 'deleteMarkerVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doDeleteMarkerVersionId :: Lens.Lens' DeletedObject (Lude.Maybe Lude.Text)
-doDeleteMarkerVersionId = Lens.lens (deleteMarkerVersionId :: DeletedObject -> Lude.Maybe Lude.Text) (\s a -> s {deleteMarkerVersionId = a} :: DeletedObject)
+doDeleteMarkerVersionId :: Lens.Lens' DeletedObject (Core.Maybe Types.DeleteMarkerVersionId)
+doDeleteMarkerVersionId = Lens.field @"deleteMarkerVersionId"
 {-# DEPRECATED doDeleteMarkerVersionId "Use generic-lens or generic-optics with 'deleteMarkerVersionId' instead." #-}
 
 -- | The name of the deleted object.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doKey :: Lens.Lens' DeletedObject (Lude.Maybe ObjectKey)
-doKey = Lens.lens (key :: DeletedObject -> Lude.Maybe ObjectKey) (\s a -> s {key = a} :: DeletedObject)
+doKey :: Lens.Lens' DeletedObject (Core.Maybe Types.Key)
+doKey = Lens.field @"key"
 {-# DEPRECATED doKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML DeletedObject where
+-- | The version ID of the deleted object.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doVersionId :: Lens.Lens' DeletedObject (Core.Maybe Types.ObjectVersionId)
+doVersionId = Lens.field @"versionId"
+{-# DEPRECATED doVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.FromXML DeletedObject where
   parseXML x =
     DeletedObject'
-      Lude.<$> (x Lude..@? "VersionId")
-      Lude.<*> (x Lude..@? "DeleteMarker")
-      Lude.<*> (x Lude..@? "DeleteMarkerVersionId")
-      Lude.<*> (x Lude..@? "Key")
+      Core.<$> (x Core..@? "DeleteMarker")
+      Core.<*> (x Core..@? "DeleteMarkerVersionId")
+      Core.<*> (x Core..@? "Key")
+      Core.<*> (x Core..@? "VersionId")

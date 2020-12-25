@@ -17,51 +17,49 @@ module Network.AWS.ELBv2.Types.LoadBalancerState
     mkLoadBalancerState,
 
     -- * Lenses
-    lbsReason,
     lbsCode,
+    lbsReason,
   )
 where
 
-import Network.AWS.ELBv2.Types.LoadBalancerStateEnum
+import qualified Network.AWS.ELBv2.Types.LoadBalancerStateEnum as Types
+import qualified Network.AWS.ELBv2.Types.Reason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the state of the load balancer.
 --
 -- /See:/ 'mkLoadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
-  { -- | A description of the state.
-    reason :: Lude.Maybe Lude.Text,
-    -- | The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
-    code :: Lude.Maybe LoadBalancerStateEnum
+  { -- | The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
+    code :: Core.Maybe Types.LoadBalancerStateEnum,
+    -- | A description of the state.
+    reason :: Core.Maybe Types.Reason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoadBalancerState' with the minimum fields required to make a request.
---
--- * 'reason' - A description of the state.
--- * 'code' - The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
+-- | Creates a 'LoadBalancerState' value with any optional fields omitted.
 mkLoadBalancerState ::
   LoadBalancerState
 mkLoadBalancerState =
-  LoadBalancerState' {reason = Lude.Nothing, code = Lude.Nothing}
-
--- | A description of the state.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbsReason :: Lens.Lens' LoadBalancerState (Lude.Maybe Lude.Text)
-lbsReason = Lens.lens (reason :: LoadBalancerState -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: LoadBalancerState)
-{-# DEPRECATED lbsReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+  LoadBalancerState' {code = Core.Nothing, reason = Core.Nothing}
 
 -- | The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbsCode :: Lens.Lens' LoadBalancerState (Lude.Maybe LoadBalancerStateEnum)
-lbsCode = Lens.lens (code :: LoadBalancerState -> Lude.Maybe LoadBalancerStateEnum) (\s a -> s {code = a} :: LoadBalancerState)
+lbsCode :: Lens.Lens' LoadBalancerState (Core.Maybe Types.LoadBalancerStateEnum)
+lbsCode = Lens.field @"code"
 {-# DEPRECATED lbsCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance Lude.FromXML LoadBalancerState where
+-- | A description of the state.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbsReason :: Lens.Lens' LoadBalancerState (Core.Maybe Types.Reason)
+lbsReason = Lens.field @"reason"
+{-# DEPRECATED lbsReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromXML LoadBalancerState where
   parseXML x =
     LoadBalancerState'
-      Lude.<$> (x Lude..@? "Reason") Lude.<*> (x Lude..@? "Code")
+      Core.<$> (x Core..@? "Code") Core.<*> (x Core..@? "Reason")

@@ -22,37 +22,33 @@ module Network.AWS.Pinpoint.Types.BaseKpiResult
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ResultRow
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ResultRow as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.
 --
 -- /See:/ 'mkBaseKpiResult' smart constructor.
 newtype BaseKpiResult = BaseKpiResult'
   { -- | An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.
-    rows :: [ResultRow]
+    rows :: [Types.ResultRow]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BaseKpiResult' with the minimum fields required to make a request.
---
--- * 'rows' - An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.
+-- | Creates a 'BaseKpiResult' value with any optional fields omitted.
 mkBaseKpiResult ::
   BaseKpiResult
-mkBaseKpiResult = BaseKpiResult' {rows = Lude.mempty}
+mkBaseKpiResult = BaseKpiResult' {rows = Core.mempty}
 
 -- | An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.
 --
 -- /Note:/ Consider using 'rows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bkrRows :: Lens.Lens' BaseKpiResult [ResultRow]
-bkrRows = Lens.lens (rows :: BaseKpiResult -> [ResultRow]) (\s a -> s {rows = a} :: BaseKpiResult)
+bkrRows :: Lens.Lens' BaseKpiResult [Types.ResultRow]
+bkrRows = Lens.field @"rows"
 {-# DEPRECATED bkrRows "Use generic-lens or generic-optics with 'rows' instead." #-}
 
-instance Lude.FromJSON BaseKpiResult where
+instance Core.FromJSON BaseKpiResult where
   parseJSON =
-    Lude.withObject
-      "BaseKpiResult"
-      ( \x ->
-          BaseKpiResult' Lude.<$> (x Lude..:? "Rows" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BaseKpiResult" Core.$
+      \x ->
+        BaseKpiResult' Core.<$> (x Core..:? "Rows" Core..!= Core.mempty)

@@ -17,62 +17,56 @@ module Network.AWS.Batch.Types.LaunchTemplateSpecification
     mkLaunchTemplateSpecification,
 
     -- * Lenses
-    ltsLaunchTemplateName,
     ltsLaunchTemplateId,
+    ltsLaunchTemplateName,
     ltsVersion,
   )
 where
 
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a launch template associated with a compute resource. You must specify either the launch template ID or launch template name in the request, but not both.
 --
 -- /See:/ 'mkLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
-  { -- | The name of the launch template.
-    launchTemplateName :: Lude.Maybe Lude.Text,
-    -- | The ID of the launch template.
-    launchTemplateId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the launch template.
+    launchTemplateId :: Core.Maybe Types.String,
+    -- | The name of the launch template.
+    launchTemplateName :: Core.Maybe Types.String,
     -- | The version number of the launch template, @> Latest@ , or @> Default@ .
     --
     -- If the value is @> Latest@ , the latest version of the launch template is used. If the value is @> Default@ , the default version of the launch template is used.
     -- Default: @> Default@ .
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplateSpecification' with the minimum fields required to make a request.
---
--- * 'launchTemplateName' - The name of the launch template.
--- * 'launchTemplateId' - The ID of the launch template.
--- * 'version' - The version number of the launch template, @> Latest@ , or @> Default@ .
---
--- If the value is @> Latest@ , the latest version of the launch template is used. If the value is @> Default@ , the default version of the launch template is used.
--- Default: @> Default@ .
+-- | Creates a 'LaunchTemplateSpecification' value with any optional fields omitted.
 mkLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 mkLaunchTemplateSpecification =
   LaunchTemplateSpecification'
-    { launchTemplateName = Lude.Nothing,
-      launchTemplateId = Lude.Nothing,
-      version = Lude.Nothing
+    { launchTemplateId = Core.Nothing,
+      launchTemplateName = Core.Nothing,
+      version = Core.Nothing
     }
-
--- | The name of the launch template.
---
--- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltsLaunchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Lude.Maybe Lude.Text)
-ltsLaunchTemplateName = Lens.lens (launchTemplateName :: LaunchTemplateSpecification -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
-{-# DEPRECATED ltsLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The ID of the launch template.
 --
 -- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltsLaunchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Lude.Maybe Lude.Text)
-ltsLaunchTemplateId = Lens.lens (launchTemplateId :: LaunchTemplateSpecification -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: LaunchTemplateSpecification)
+ltsLaunchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Types.String)
+ltsLaunchTemplateId = Lens.field @"launchTemplateId"
 {-# DEPRECATED ltsLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
+
+-- | The name of the launch template.
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsLaunchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Types.String)
+ltsLaunchTemplateName = Lens.field @"launchTemplateName"
+{-# DEPRECATED ltsLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The version number of the launch template, @> Latest@ , or @> Default@ .
 --
@@ -80,27 +74,25 @@ ltsLaunchTemplateId = Lens.lens (launchTemplateId :: LaunchTemplateSpecification
 -- Default: @> Default@ .
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltsVersion :: Lens.Lens' LaunchTemplateSpecification (Lude.Maybe Lude.Text)
-ltsVersion = Lens.lens (version :: LaunchTemplateSpecification -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: LaunchTemplateSpecification)
+ltsVersion :: Lens.Lens' LaunchTemplateSpecification (Core.Maybe Types.String)
+ltsVersion = Lens.field @"version"
 {-# DEPRECATED ltsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON LaunchTemplateSpecification where
-  parseJSON =
-    Lude.withObject
-      "LaunchTemplateSpecification"
-      ( \x ->
-          LaunchTemplateSpecification'
-            Lude.<$> (x Lude..:? "launchTemplateName")
-            Lude.<*> (x Lude..:? "launchTemplateId")
-            Lude.<*> (x Lude..:? "version")
-      )
-
-instance Lude.ToJSON LaunchTemplateSpecification where
-  toJSON LaunchTemplateSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("launchTemplateName" Lude..=) Lude.<$> launchTemplateName,
-            ("launchTemplateId" Lude..=) Lude.<$> launchTemplateId,
-            ("version" Lude..=) Lude.<$> version
+instance Core.FromJSON LaunchTemplateSpecification where
+  toJSON LaunchTemplateSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("launchTemplateId" Core..=) Core.<$> launchTemplateId,
+            ("launchTemplateName" Core..=) Core.<$> launchTemplateName,
+            ("version" Core..=) Core.<$> version
           ]
       )
+
+instance Core.FromJSON LaunchTemplateSpecification where
+  parseJSON =
+    Core.withObject "LaunchTemplateSpecification" Core.$
+      \x ->
+        LaunchTemplateSpecification'
+          Core.<$> (x Core..:? "launchTemplateId")
+          Core.<*> (x Core..:? "launchTemplateName")
+          Core.<*> (x Core..:? "version")

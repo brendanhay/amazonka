@@ -22,162 +22,152 @@ module Network.AWS.GuardDuty.ListThreatIntelSets
     mkListThreatIntelSets,
 
     -- ** Request lenses
-    ltisNextToken,
     ltisDetectorId,
     ltisMaxResults,
+    ltisNextToken,
 
     -- * Destructuring the response
     ListThreatIntelSetsResponse (..),
     mkListThreatIntelSetsResponse,
 
     -- ** Response lenses
-    ltisrsThreatIntelSetIds,
-    ltisrsNextToken,
-    ltisrsResponseStatus,
+    ltisrrsThreatIntelSetIds,
+    ltisrrsNextToken,
+    ltisrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListThreatIntelSets' smart constructor.
 data ListThreatIntelSets = ListThreatIntelSets'
-  { -- | You can use this parameter to paginate results in the response. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The unique ID of the detector that the threatIntelSet is associated with.
-    detectorId :: Lude.Text,
+  { -- | The unique ID of the detector that the threatIntelSet is associated with.
+    detectorId :: Types.DetectorId,
     -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | You can use this parameter to paginate results in the response. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListThreatIntelSets' with the minimum fields required to make a request.
---
--- * 'nextToken' - You can use this parameter to paginate results in the response. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
--- * 'detectorId' - The unique ID of the detector that the threatIntelSet is associated with.
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
+-- | Creates a 'ListThreatIntelSets' value with any optional fields omitted.
 mkListThreatIntelSets ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   ListThreatIntelSets
-mkListThreatIntelSets pDetectorId_ =
+mkListThreatIntelSets detectorId =
   ListThreatIntelSets'
-    { nextToken = Lude.Nothing,
-      detectorId = pDetectorId_,
-      maxResults = Lude.Nothing
+    { detectorId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | You can use this parameter to paginate results in the response. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltisNextToken :: Lens.Lens' ListThreatIntelSets (Lude.Maybe Lude.Text)
-ltisNextToken = Lens.lens (nextToken :: ListThreatIntelSets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThreatIntelSets)
-{-# DEPRECATED ltisNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The unique ID of the detector that the threatIntelSet is associated with.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltisDetectorId :: Lens.Lens' ListThreatIntelSets Lude.Text
-ltisDetectorId = Lens.lens (detectorId :: ListThreatIntelSets -> Lude.Text) (\s a -> s {detectorId = a} :: ListThreatIntelSets)
+ltisDetectorId :: Lens.Lens' ListThreatIntelSets Types.DetectorId
+ltisDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED ltisDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltisMaxResults :: Lens.Lens' ListThreatIntelSets (Lude.Maybe Lude.Natural)
-ltisMaxResults = Lens.lens (maxResults :: ListThreatIntelSets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThreatIntelSets)
+ltisMaxResults :: Lens.Lens' ListThreatIntelSets (Core.Maybe Core.Natural)
+ltisMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ltisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListThreatIntelSets where
-  page rq rs
-    | Page.stop (rs Lens.^. ltisrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltisrsThreatIntelSetIds) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltisNextToken Lens..~ rs Lens.^. ltisrsNextToken
+-- | You can use this parameter to paginate results in the response. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltisNextToken :: Lens.Lens' ListThreatIntelSets (Core.Maybe Types.String)
+ltisNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltisNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListThreatIntelSets where
+instance Core.AWSRequest ListThreatIntelSets where
   type Rs ListThreatIntelSets = ListThreatIntelSetsResponse
-  request = Req.get guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/threatintelset")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListThreatIntelSetsResponse'
-            Lude.<$> (x Lude..?> "threatIntelSetIds" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "threatIntelSetIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListThreatIntelSets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListThreatIntelSets where
-  toPath ListThreatIntelSets' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/threatintelset"]
-
-instance Lude.ToQuery ListThreatIntelSets where
-  toQuery ListThreatIntelSets' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListThreatIntelSets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"threatIntelSetIds") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListThreatIntelSetsResponse' smart constructor.
 data ListThreatIntelSetsResponse = ListThreatIntelSetsResponse'
   { -- | The IDs of the ThreatIntelSet resources.
-    threatIntelSetIds :: [Lude.Text],
+    threatIntelSetIds :: [Types.String],
     -- | The pagination parameter to be used on the next list operation to retrieve more items.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListThreatIntelSetsResponse' with the minimum fields required to make a request.
---
--- * 'threatIntelSetIds' - The IDs of the ThreatIntelSet resources.
--- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListThreatIntelSetsResponse' value with any optional fields omitted.
 mkListThreatIntelSetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListThreatIntelSetsResponse
-mkListThreatIntelSetsResponse pResponseStatus_ =
+mkListThreatIntelSetsResponse responseStatus =
   ListThreatIntelSetsResponse'
-    { threatIntelSetIds = Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { threatIntelSetIds = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The IDs of the ThreatIntelSet resources.
 --
 -- /Note:/ Consider using 'threatIntelSetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltisrsThreatIntelSetIds :: Lens.Lens' ListThreatIntelSetsResponse [Lude.Text]
-ltisrsThreatIntelSetIds = Lens.lens (threatIntelSetIds :: ListThreatIntelSetsResponse -> [Lude.Text]) (\s a -> s {threatIntelSetIds = a} :: ListThreatIntelSetsResponse)
-{-# DEPRECATED ltisrsThreatIntelSetIds "Use generic-lens or generic-optics with 'threatIntelSetIds' instead." #-}
+ltisrrsThreatIntelSetIds :: Lens.Lens' ListThreatIntelSetsResponse [Types.String]
+ltisrrsThreatIntelSetIds = Lens.field @"threatIntelSetIds"
+{-# DEPRECATED ltisrrsThreatIntelSetIds "Use generic-lens or generic-optics with 'threatIntelSetIds' instead." #-}
 
 -- | The pagination parameter to be used on the next list operation to retrieve more items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltisrsNextToken :: Lens.Lens' ListThreatIntelSetsResponse (Lude.Maybe Lude.Text)
-ltisrsNextToken = Lens.lens (nextToken :: ListThreatIntelSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThreatIntelSetsResponse)
-{-# DEPRECATED ltisrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltisrrsNextToken :: Lens.Lens' ListThreatIntelSetsResponse (Core.Maybe Types.NextToken)
+ltisrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltisrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltisrsResponseStatus :: Lens.Lens' ListThreatIntelSetsResponse Lude.Int
-ltisrsResponseStatus = Lens.lens (responseStatus :: ListThreatIntelSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListThreatIntelSetsResponse)
-{-# DEPRECATED ltisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltisrrsResponseStatus :: Lens.Lens' ListThreatIntelSetsResponse Core.Int
+ltisrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,56 +23,45 @@ module Network.AWS.CloudFormation.Types.AutoDeployment
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
 --
 -- /See:/ 'mkAutoDeployment' smart constructor.
 data AutoDeployment = AutoDeployment'
   { -- | If set to @true@ , StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | If set to @true@ , stack resources are retained when an account is removed from a target organization or OU. If set to @false@ , stack resources are deleted. Specify only if @Enabled@ is set to @True@ .
-    retainStacksOnAccountRemoval :: Lude.Maybe Lude.Bool
+    retainStacksOnAccountRemoval :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoDeployment' with the minimum fields required to make a request.
---
--- * 'enabled' - If set to @true@ , StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
--- * 'retainStacksOnAccountRemoval' - If set to @true@ , stack resources are retained when an account is removed from a target organization or OU. If set to @false@ , stack resources are deleted. Specify only if @Enabled@ is set to @True@ .
+-- | Creates a 'AutoDeployment' value with any optional fields omitted.
 mkAutoDeployment ::
   AutoDeployment
 mkAutoDeployment =
   AutoDeployment'
-    { enabled = Lude.Nothing,
-      retainStacksOnAccountRemoval = Lude.Nothing
+    { enabled = Core.Nothing,
+      retainStacksOnAccountRemoval = Core.Nothing
     }
 
 -- | If set to @true@ , StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adEnabled :: Lens.Lens' AutoDeployment (Lude.Maybe Lude.Bool)
-adEnabled = Lens.lens (enabled :: AutoDeployment -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: AutoDeployment)
+adEnabled :: Lens.Lens' AutoDeployment (Core.Maybe Core.Bool)
+adEnabled = Lens.field @"enabled"
 {-# DEPRECATED adEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | If set to @true@ , stack resources are retained when an account is removed from a target organization or OU. If set to @false@ , stack resources are deleted. Specify only if @Enabled@ is set to @True@ .
 --
 -- /Note:/ Consider using 'retainStacksOnAccountRemoval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adRetainStacksOnAccountRemoval :: Lens.Lens' AutoDeployment (Lude.Maybe Lude.Bool)
-adRetainStacksOnAccountRemoval = Lens.lens (retainStacksOnAccountRemoval :: AutoDeployment -> Lude.Maybe Lude.Bool) (\s a -> s {retainStacksOnAccountRemoval = a} :: AutoDeployment)
+adRetainStacksOnAccountRemoval :: Lens.Lens' AutoDeployment (Core.Maybe Core.Bool)
+adRetainStacksOnAccountRemoval = Lens.field @"retainStacksOnAccountRemoval"
 {-# DEPRECATED adRetainStacksOnAccountRemoval "Use generic-lens or generic-optics with 'retainStacksOnAccountRemoval' instead." #-}
 
-instance Lude.FromXML AutoDeployment where
+instance Core.FromXML AutoDeployment where
   parseXML x =
     AutoDeployment'
-      Lude.<$> (x Lude..@? "Enabled")
-      Lude.<*> (x Lude..@? "RetainStacksOnAccountRemoval")
-
-instance Lude.ToQuery AutoDeployment where
-  toQuery AutoDeployment' {..} =
-    Lude.mconcat
-      [ "Enabled" Lude.=: enabled,
-        "RetainStacksOnAccountRemoval"
-          Lude.=: retainStacksOnAccountRemoval
-      ]
+      Core.<$> (x Core..@? "Enabled")
+      Core.<*> (x Core..@? "RetainStacksOnAccountRemoval")

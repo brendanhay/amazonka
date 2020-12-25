@@ -17,13 +17,15 @@ module Network.AWS.SES.Types.WorkmailAction
     mkWorkmailAction,
 
     -- * Lenses
-    waTopicARN,
-    waOrganizationARN,
+    waOrganizationArn,
+    waTopicArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.OrganizationArn as Types
+import qualified Network.AWS.SES.Types.TopicArn as Types
 
 -- | When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). You will typically not use this action directly because Amazon WorkMail adds the rule automatically during its setup procedure.
 --
@@ -31,50 +33,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkmailAction' smart constructor.
 data WorkmailAction = WorkmailAction'
-  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
-    topicARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is @arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7@ . For information about Amazon WorkMail organizations, see the <https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html Amazon WorkMail Administrator Guide> .
-    organizationARN :: Lude.Text
+  { -- | The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is @arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7@ . For information about Amazon WorkMail organizations, see the <https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html Amazon WorkMail Administrator Guide> .
+    organizationArn :: Types.OrganizationArn,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
+    topicArn :: Core.Maybe Types.TopicArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkmailAction' with the minimum fields required to make a request.
---
--- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
--- * 'organizationARN' - The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is @arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7@ . For information about Amazon WorkMail organizations, see the <https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html Amazon WorkMail Administrator Guide> .
+-- | Creates a 'WorkmailAction' value with any optional fields omitted.
 mkWorkmailAction ::
-  -- | 'organizationARN'
-  Lude.Text ->
+  -- | 'organizationArn'
+  Types.OrganizationArn ->
   WorkmailAction
-mkWorkmailAction pOrganizationARN_ =
-  WorkmailAction'
-    { topicARN = Lude.Nothing,
-      organizationARN = pOrganizationARN_
-    }
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
---
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-waTopicARN :: Lens.Lens' WorkmailAction (Lude.Maybe Lude.Text)
-waTopicARN = Lens.lens (topicARN :: WorkmailAction -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: WorkmailAction)
-{-# DEPRECATED waTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+mkWorkmailAction organizationArn =
+  WorkmailAction' {organizationArn, topicArn = Core.Nothing}
 
 -- | The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is @arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7@ . For information about Amazon WorkMail organizations, see the <https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html Amazon WorkMail Administrator Guide> .
 --
--- /Note:/ Consider using 'organizationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-waOrganizationARN :: Lens.Lens' WorkmailAction Lude.Text
-waOrganizationARN = Lens.lens (organizationARN :: WorkmailAction -> Lude.Text) (\s a -> s {organizationARN = a} :: WorkmailAction)
-{-# DEPRECATED waOrganizationARN "Use generic-lens or generic-optics with 'organizationARN' instead." #-}
+-- /Note:/ Consider using 'organizationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+waOrganizationArn :: Lens.Lens' WorkmailAction Types.OrganizationArn
+waOrganizationArn = Lens.field @"organizationArn"
+{-# DEPRECATED waOrganizationArn "Use generic-lens or generic-optics with 'organizationArn' instead." #-}
 
-instance Lude.FromXML WorkmailAction where
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
+--
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+waTopicArn :: Lens.Lens' WorkmailAction (Core.Maybe Types.TopicArn)
+waTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED waTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
+
+instance Core.FromXML WorkmailAction where
   parseXML x =
     WorkmailAction'
-      Lude.<$> (x Lude..@? "TopicArn") Lude.<*> (x Lude..@ "OrganizationArn")
-
-instance Lude.ToQuery WorkmailAction where
-  toQuery WorkmailAction' {..} =
-    Lude.mconcat
-      [ "TopicArn" Lude.=: topicARN,
-        "OrganizationArn" Lude.=: organizationARN
-      ]
+      Core.<$> (x Core..@ "OrganizationArn") Core.<*> (x Core..@? "TopicArn")

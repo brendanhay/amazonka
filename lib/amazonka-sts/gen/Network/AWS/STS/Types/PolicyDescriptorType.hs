@@ -22,32 +22,27 @@ module Network.AWS.STS.Types.PolicyDescriptorType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.STS.Types.ArnType as Types
 
 -- | A reference to the IAM managed policy that is passed as a session policy for a role session or a federated user session.
 --
 -- /See:/ 'mkPolicyDescriptorType' smart constructor.
 newtype PolicyDescriptorType = PolicyDescriptorType'
   { -- | The Amazon Resource Name (ARN) of the IAM managed policy to use as a session policy for the role. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    arn :: Lude.Maybe Lude.Text
+    arn :: Core.Maybe Types.ArnType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PolicyDescriptorType' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the IAM managed policy to use as a session policy for the role. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- | Creates a 'PolicyDescriptorType' value with any optional fields omitted.
 mkPolicyDescriptorType ::
   PolicyDescriptorType
-mkPolicyDescriptorType = PolicyDescriptorType' {arn = Lude.Nothing}
+mkPolicyDescriptorType = PolicyDescriptorType' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the IAM managed policy to use as a session policy for the role. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdtArn :: Lens.Lens' PolicyDescriptorType (Lude.Maybe Lude.Text)
-pdtArn = Lens.lens (arn :: PolicyDescriptorType -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PolicyDescriptorType)
+pdtArn :: Lens.Lens' PolicyDescriptorType (Core.Maybe Types.ArnType)
+pdtArn = Lens.field @"arn"
 {-# DEPRECATED pdtArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
-instance Lude.ToQuery PolicyDescriptorType where
-  toQuery PolicyDescriptorType' {..} =
-    Lude.mconcat ["arn" Lude.=: arn]

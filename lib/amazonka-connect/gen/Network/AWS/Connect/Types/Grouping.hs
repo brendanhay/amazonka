@@ -13,46 +13,48 @@
 module Network.AWS.Connect.Types.Grouping
   ( Grouping
       ( Grouping',
-        Queue,
-        Channel
+        GroupingQueue,
+        GroupingChannel,
+        fromGrouping
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Grouping = Grouping' Lude.Text
+newtype Grouping = Grouping' {fromGrouping :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Queue :: Grouping
-pattern Queue = Grouping' "QUEUE"
+pattern GroupingQueue :: Grouping
+pattern GroupingQueue = Grouping' "QUEUE"
 
-pattern Channel :: Grouping
-pattern Channel = Grouping' "CHANNEL"
+pattern GroupingChannel :: Grouping
+pattern GroupingChannel = Grouping' "CHANNEL"
 
 {-# COMPLETE
-  Queue,
-  Channel,
+  GroupingQueue,
+  GroupingChannel,
   Grouping'
   #-}

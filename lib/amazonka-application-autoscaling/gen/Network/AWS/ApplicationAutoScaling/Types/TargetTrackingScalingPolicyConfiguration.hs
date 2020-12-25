@@ -17,28 +17,32 @@ module Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfi
     mkTargetTrackingScalingPolicyConfiguration,
 
     -- * Lenses
-    ttspcPredefinedMetricSpecification,
     ttspcTargetValue,
-    ttspcScaleInCooldown,
     ttspcCustomizedMetricSpecification,
     ttspcDisableScaleIn,
+    ttspcPredefinedMetricSpecification,
+    ttspcScaleInCooldown,
     ttspcScaleOutCooldown,
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification
-import Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification
+import qualified Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification as Types
+import qualified Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a target tracking scaling policy configuration to use with Application Auto Scaling.
 --
 -- /See:/ 'mkTargetTrackingScalingPolicyConfiguration' smart constructor.
 data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfiguration'
-  { -- | A predefined metric. You can specify either a predefined metric or a customized metric.
-    predefinedMetricSpecification :: Lude.Maybe PredefinedMetricSpecification,
-    -- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
-    targetValue :: Lude.Double,
+  { -- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+    targetValue :: Core.Double,
+    -- | A customized metric. You can specify either a predefined metric or a customized metric.
+    customizedMetricSpecification :: Core.Maybe Types.CustomizedMetricSpecification,
+    -- | Indicates whether scale in by the target tracking scaling policy is disabled. If the value is @true@ , scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is @false@ .
+    disableScaleIn :: Core.Maybe Core.Bool,
+    -- | A predefined metric. You can specify either a predefined metric or a customized metric.
+    predefinedMetricSpecification :: Core.Maybe Types.PredefinedMetricSpecification,
     -- | The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
     --
     -- With the /scale-in cooldown period/ , the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the scale-in cooldown period, Application Auto Scaling scales out the target immediately. In this case, the scale-in cooldown period stops and doesn't complete.
@@ -83,11 +87,7 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     --
     --
     --     * Amazon MSK cluster storage
-    scaleInCooldown :: Lude.Maybe Lude.Int,
-    -- | A customized metric. You can specify either a predefined metric or a customized metric.
-    customizedMetricSpecification :: Lude.Maybe CustomizedMetricSpecification,
-    -- | Indicates whether scale in by the target tracking scaling policy is disabled. If the value is @true@ , scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is @false@ .
-    disableScaleIn :: Lude.Maybe Lude.Bool,
+    scaleInCooldown :: Core.Maybe Core.Int,
     -- | The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
     --
     -- With the /scale-out cooldown period/ , the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a target tracking scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, the capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity.
@@ -132,135 +132,53 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     --
     --
     --     * Amazon MSK cluster storage
-    scaleOutCooldown :: Lude.Maybe Lude.Int
+    scaleOutCooldown :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetTrackingScalingPolicyConfiguration' with the minimum fields required to make a request.
---
--- * 'predefinedMetricSpecification' - A predefined metric. You can specify either a predefined metric or a customized metric.
--- * 'targetValue' - The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
--- * 'scaleInCooldown' - The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
---
--- With the /scale-in cooldown period/ , the intention is to scale in conservatively to protect your application’s availability, so scale-in activities are blocked until the cooldown period has expired. However, if another alarm triggers a scale-out activity during the scale-in cooldown period, Application Auto Scaling scales out the target immediately. In this case, the scale-in cooldown period stops and doesn't complete.
--- Application Auto Scaling provides a default value of 300 for the following scalable targets:
---
---     * ECS services
---
---
---     * Spot Fleet requests
---
---
---     * EMR clusters
---
---
---     * AppStream 2.0 fleets
---
---
---     * Aurora DB clusters
---
---
---     * Amazon SageMaker endpoint variants
---
---
---     * Custom resources
---
---
--- For all other scalable targets, the default value is 0:
---
---     * DynamoDB tables
---
---
---     * DynamoDB global secondary indexes
---
---
---     * Amazon Comprehend document classification and entity recognizer endpoints
---
---
---     * Lambda provisioned concurrency
---
---
---     * Amazon Keyspaces tables
---
---
---     * Amazon MSK cluster storage
---
---
--- * 'customizedMetricSpecification' - A customized metric. You can specify either a predefined metric or a customized metric.
--- * 'disableScaleIn' - Indicates whether scale in by the target tracking scaling policy is disabled. If the value is @true@ , scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is @false@ .
--- * 'scaleOutCooldown' - The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
---
--- With the /scale-out cooldown period/ , the intention is to continuously (but not excessively) scale out. After Application Auto Scaling successfully scales out using a target tracking scaling policy, it starts to calculate the cooldown time. The scaling policy won't increase the desired capacity again unless either a larger scale out is triggered or the cooldown period ends. While the cooldown period is in effect, the capacity added by the initiating scale-out activity is calculated as part of the desired capacity for the next scale-out activity.
--- Application Auto Scaling provides a default value of 300 for the following scalable targets:
---
---     * ECS services
---
---
---     * Spot Fleet requests
---
---
---     * EMR clusters
---
---
---     * AppStream 2.0 fleets
---
---
---     * Aurora DB clusters
---
---
---     * Amazon SageMaker endpoint variants
---
---
---     * Custom resources
---
---
--- For all other scalable targets, the default value is 0:
---
---     * DynamoDB tables
---
---
---     * DynamoDB global secondary indexes
---
---
---     * Amazon Comprehend document classification and entity recognizer endpoints
---
---
---     * Lambda provisioned concurrency
---
---
---     * Amazon Keyspaces tables
---
---
---     * Amazon MSK cluster storage
+-- | Creates a 'TargetTrackingScalingPolicyConfiguration' value with any optional fields omitted.
 mkTargetTrackingScalingPolicyConfiguration ::
   -- | 'targetValue'
-  Lude.Double ->
+  Core.Double ->
   TargetTrackingScalingPolicyConfiguration
-mkTargetTrackingScalingPolicyConfiguration pTargetValue_ =
+mkTargetTrackingScalingPolicyConfiguration targetValue =
   TargetTrackingScalingPolicyConfiguration'
-    { predefinedMetricSpecification =
-        Lude.Nothing,
-      targetValue = pTargetValue_,
-      scaleInCooldown = Lude.Nothing,
-      customizedMetricSpecification = Lude.Nothing,
-      disableScaleIn = Lude.Nothing,
-      scaleOutCooldown = Lude.Nothing
+    { targetValue,
+      customizedMetricSpecification = Core.Nothing,
+      disableScaleIn = Core.Nothing,
+      predefinedMetricSpecification = Core.Nothing,
+      scaleInCooldown = Core.Nothing,
+      scaleOutCooldown = Core.Nothing
     }
-
--- | A predefined metric. You can specify either a predefined metric or a customized metric.
---
--- /Note:/ Consider using 'predefinedMetricSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttspcPredefinedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Lude.Maybe PredefinedMetricSpecification)
-ttspcPredefinedMetricSpecification = Lens.lens (predefinedMetricSpecification :: TargetTrackingScalingPolicyConfiguration -> Lude.Maybe PredefinedMetricSpecification) (\s a -> s {predefinedMetricSpecification = a} :: TargetTrackingScalingPolicyConfiguration)
-{-# DEPRECATED ttspcPredefinedMetricSpecification "Use generic-lens or generic-optics with 'predefinedMetricSpecification' instead." #-}
 
 -- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 --
 -- /Note:/ Consider using 'targetValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttspcTargetValue :: Lens.Lens' TargetTrackingScalingPolicyConfiguration Lude.Double
-ttspcTargetValue = Lens.lens (targetValue :: TargetTrackingScalingPolicyConfiguration -> Lude.Double) (\s a -> s {targetValue = a} :: TargetTrackingScalingPolicyConfiguration)
+ttspcTargetValue :: Lens.Lens' TargetTrackingScalingPolicyConfiguration Core.Double
+ttspcTargetValue = Lens.field @"targetValue"
 {-# DEPRECATED ttspcTargetValue "Use generic-lens or generic-optics with 'targetValue' instead." #-}
+
+-- | A customized metric. You can specify either a predefined metric or a customized metric.
+--
+-- /Note:/ Consider using 'customizedMetricSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttspcCustomizedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe Types.CustomizedMetricSpecification)
+ttspcCustomizedMetricSpecification = Lens.field @"customizedMetricSpecification"
+{-# DEPRECATED ttspcCustomizedMetricSpecification "Use generic-lens or generic-optics with 'customizedMetricSpecification' instead." #-}
+
+-- | Indicates whether scale in by the target tracking scaling policy is disabled. If the value is @true@ , scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is @false@ .
+--
+-- /Note:/ Consider using 'disableScaleIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttspcDisableScaleIn :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe Core.Bool)
+ttspcDisableScaleIn = Lens.field @"disableScaleIn"
+{-# DEPRECATED ttspcDisableScaleIn "Use generic-lens or generic-optics with 'disableScaleIn' instead." #-}
+
+-- | A predefined metric. You can specify either a predefined metric or a customized metric.
+--
+-- /Note:/ Consider using 'predefinedMetricSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttspcPredefinedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe Types.PredefinedMetricSpecification)
+ttspcPredefinedMetricSpecification = Lens.field @"predefinedMetricSpecification"
+{-# DEPRECATED ttspcPredefinedMetricSpecification "Use generic-lens or generic-optics with 'predefinedMetricSpecification' instead." #-}
 
 -- | The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
 --
@@ -310,23 +228,9 @@ ttspcTargetValue = Lens.lens (targetValue :: TargetTrackingScalingPolicyConfigur
 --
 --
 -- /Note:/ Consider using 'scaleInCooldown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttspcScaleInCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Lude.Maybe Lude.Int)
-ttspcScaleInCooldown = Lens.lens (scaleInCooldown :: TargetTrackingScalingPolicyConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {scaleInCooldown = a} :: TargetTrackingScalingPolicyConfiguration)
+ttspcScaleInCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe Core.Int)
+ttspcScaleInCooldown = Lens.field @"scaleInCooldown"
 {-# DEPRECATED ttspcScaleInCooldown "Use generic-lens or generic-optics with 'scaleInCooldown' instead." #-}
-
--- | A customized metric. You can specify either a predefined metric or a customized metric.
---
--- /Note:/ Consider using 'customizedMetricSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttspcCustomizedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Lude.Maybe CustomizedMetricSpecification)
-ttspcCustomizedMetricSpecification = Lens.lens (customizedMetricSpecification :: TargetTrackingScalingPolicyConfiguration -> Lude.Maybe CustomizedMetricSpecification) (\s a -> s {customizedMetricSpecification = a} :: TargetTrackingScalingPolicyConfiguration)
-{-# DEPRECATED ttspcCustomizedMetricSpecification "Use generic-lens or generic-optics with 'customizedMetricSpecification' instead." #-}
-
--- | Indicates whether scale in by the target tracking scaling policy is disabled. If the value is @true@ , scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is @false@ .
---
--- /Note:/ Consider using 'disableScaleIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttspcDisableScaleIn :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Lude.Maybe Lude.Bool)
-ttspcDisableScaleIn = Lens.lens (disableScaleIn :: TargetTrackingScalingPolicyConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {disableScaleIn = a} :: TargetTrackingScalingPolicyConfiguration)
-{-# DEPRECATED ttspcDisableScaleIn "Use generic-lens or generic-optics with 'disableScaleIn' instead." #-}
 
 -- | The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
 --
@@ -376,35 +280,33 @@ ttspcDisableScaleIn = Lens.lens (disableScaleIn :: TargetTrackingScalingPolicyCo
 --
 --
 -- /Note:/ Consider using 'scaleOutCooldown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttspcScaleOutCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Lude.Maybe Lude.Int)
-ttspcScaleOutCooldown = Lens.lens (scaleOutCooldown :: TargetTrackingScalingPolicyConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {scaleOutCooldown = a} :: TargetTrackingScalingPolicyConfiguration)
+ttspcScaleOutCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Core.Maybe Core.Int)
+ttspcScaleOutCooldown = Lens.field @"scaleOutCooldown"
 {-# DEPRECATED ttspcScaleOutCooldown "Use generic-lens or generic-optics with 'scaleOutCooldown' instead." #-}
 
-instance Lude.FromJSON TargetTrackingScalingPolicyConfiguration where
-  parseJSON =
-    Lude.withObject
-      "TargetTrackingScalingPolicyConfiguration"
-      ( \x ->
-          TargetTrackingScalingPolicyConfiguration'
-            Lude.<$> (x Lude..:? "PredefinedMetricSpecification")
-            Lude.<*> (x Lude..: "TargetValue")
-            Lude.<*> (x Lude..:? "ScaleInCooldown")
-            Lude.<*> (x Lude..:? "CustomizedMetricSpecification")
-            Lude.<*> (x Lude..:? "DisableScaleIn")
-            Lude.<*> (x Lude..:? "ScaleOutCooldown")
-      )
-
-instance Lude.ToJSON TargetTrackingScalingPolicyConfiguration where
-  toJSON TargetTrackingScalingPolicyConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PredefinedMetricSpecification" Lude..=)
-              Lude.<$> predefinedMetricSpecification,
-            Lude.Just ("TargetValue" Lude..= targetValue),
-            ("ScaleInCooldown" Lude..=) Lude.<$> scaleInCooldown,
-            ("CustomizedMetricSpecification" Lude..=)
-              Lude.<$> customizedMetricSpecification,
-            ("DisableScaleIn" Lude..=) Lude.<$> disableScaleIn,
-            ("ScaleOutCooldown" Lude..=) Lude.<$> scaleOutCooldown
+instance Core.FromJSON TargetTrackingScalingPolicyConfiguration where
+  toJSON TargetTrackingScalingPolicyConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TargetValue" Core..= targetValue),
+            ("CustomizedMetricSpecification" Core..=)
+              Core.<$> customizedMetricSpecification,
+            ("DisableScaleIn" Core..=) Core.<$> disableScaleIn,
+            ("PredefinedMetricSpecification" Core..=)
+              Core.<$> predefinedMetricSpecification,
+            ("ScaleInCooldown" Core..=) Core.<$> scaleInCooldown,
+            ("ScaleOutCooldown" Core..=) Core.<$> scaleOutCooldown
           ]
       )
+
+instance Core.FromJSON TargetTrackingScalingPolicyConfiguration where
+  parseJSON =
+    Core.withObject "TargetTrackingScalingPolicyConfiguration" Core.$
+      \x ->
+        TargetTrackingScalingPolicyConfiguration'
+          Core.<$> (x Core..: "TargetValue")
+          Core.<*> (x Core..:? "CustomizedMetricSpecification")
+          Core.<*> (x Core..:? "DisableScaleIn")
+          Core.<*> (x Core..:? "PredefinedMetricSpecification")
+          Core.<*> (x Core..:? "ScaleInCooldown")
+          Core.<*> (x Core..:? "ScaleOutCooldown")

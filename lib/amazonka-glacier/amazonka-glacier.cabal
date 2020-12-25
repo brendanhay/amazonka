@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Glacier
     Network.AWS.Glacier.AbortMultipartUpload
@@ -104,39 +110,65 @@ library
     Network.AWS.Glacier.Waiters
 
   other-modules:
+    Network.AWS.Glacier.Types.AccountId
     Network.AWS.Glacier.Types.ActionCode
     Network.AWS.Glacier.Types.ArchiveCreationOutput
+    Network.AWS.Glacier.Types.ArchiveDescription
+    Network.AWS.Glacier.Types.ArchiveId
+    Network.AWS.Glacier.Types.ArchiveSize
     Network.AWS.Glacier.Types.CannedACL
+    Network.AWS.Glacier.Types.Checksum
+    Network.AWS.Glacier.Types.CreationDate
     Network.AWS.Glacier.Types.CSVInput
     Network.AWS.Glacier.Types.CSVOutput
     Network.AWS.Glacier.Types.DataRetrievalPolicy
     Network.AWS.Glacier.Types.DataRetrievalRule
     Network.AWS.Glacier.Types.DescribeVaultOutput
+    Network.AWS.Glacier.Types.Description
     Network.AWS.Glacier.Types.Encryption
     Network.AWS.Glacier.Types.EncryptionType
+    Network.AWS.Glacier.Types.EndDate
+    Network.AWS.Glacier.Types.Expression
     Network.AWS.Glacier.Types.ExpressionType
     Network.AWS.Glacier.Types.FileHeaderInfo
+    Network.AWS.Glacier.Types.Format
     Network.AWS.Glacier.Types.GlacierJobDescription
     Network.AWS.Glacier.Types.Grant
     Network.AWS.Glacier.Types.Grantee
     Network.AWS.Glacier.Types.InputSerialization
     Network.AWS.Glacier.Types.InventoryRetrievalJobDescription
     Network.AWS.Glacier.Types.InventoryRetrievalJobInput
+    Network.AWS.Glacier.Types.JobId
     Network.AWS.Glacier.Types.JobParameters
+    Network.AWS.Glacier.Types.Limit
+    Network.AWS.Glacier.Types.Location
+    Network.AWS.Glacier.Types.LockId
+    Network.AWS.Glacier.Types.Marker
+    Network.AWS.Glacier.Types.MultipartUploadId
     Network.AWS.Glacier.Types.OutputLocation
     Network.AWS.Glacier.Types.OutputSerialization
     Network.AWS.Glacier.Types.PartListElement
     Network.AWS.Glacier.Types.Permission
     Network.AWS.Glacier.Types.ProvisionedCapacityDescription
     Network.AWS.Glacier.Types.QuoteFields
+    Network.AWS.Glacier.Types.RetrievalByteRange
     Network.AWS.Glacier.Types.S3Location
     Network.AWS.Glacier.Types.SelectParameters
+    Network.AWS.Glacier.Types.SNSTopic
+    Network.AWS.Glacier.Types.StartDate
     Network.AWS.Glacier.Types.StatusCode
     Network.AWS.Glacier.Types.StorageClass
+    Network.AWS.Glacier.Types.String
+    Network.AWS.Glacier.Types.TagKey
+    Network.AWS.Glacier.Types.TagValue
+    Network.AWS.Glacier.Types.Tier
     Network.AWS.Glacier.Types.Type
+    Network.AWS.Glacier.Types.UploadId
     Network.AWS.Glacier.Types.UploadListElement
     Network.AWS.Glacier.Types.VaultAccessPolicy
+    Network.AWS.Glacier.Types.VaultARN
     Network.AWS.Glacier.Types.VaultLockPolicy
+    Network.AWS.Glacier.Types.VaultName
     Network.AWS.Glacier.Types.VaultNotificationConfig
 
   build-depends:   amazonka-core ==2.0.0.0.*

@@ -28,137 +28,123 @@ module Network.AWS.Glue.BatchDeleteConnection
     mkBatchDeleteConnectionResponse,
 
     -- ** Response lenses
-    bdcrsSucceeded,
-    bdcrsErrors,
-    bdcrsResponseStatus,
+    bdcrrsErrors,
+    bdcrrsSucceeded,
+    bdcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchDeleteConnection' smart constructor.
 data BatchDeleteConnection = BatchDeleteConnection'
   { -- | A list of names of the connections to delete.
-    connectionNameList :: [Lude.Text],
+    connectionNameList :: [Types.NameString],
     -- | The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteConnection' with the minimum fields required to make a request.
---
--- * 'connectionNameList' - A list of names of the connections to delete.
--- * 'catalogId' - The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
+-- | Creates a 'BatchDeleteConnection' value with any optional fields omitted.
 mkBatchDeleteConnection ::
   BatchDeleteConnection
 mkBatchDeleteConnection =
   BatchDeleteConnection'
-    { connectionNameList = Lude.mempty,
-      catalogId = Lude.Nothing
+    { connectionNameList = Core.mempty,
+      catalogId = Core.Nothing
     }
 
 -- | A list of names of the connections to delete.
 --
 -- /Note:/ Consider using 'connectionNameList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcConnectionNameList :: Lens.Lens' BatchDeleteConnection [Lude.Text]
-bdcConnectionNameList = Lens.lens (connectionNameList :: BatchDeleteConnection -> [Lude.Text]) (\s a -> s {connectionNameList = a} :: BatchDeleteConnection)
+bdcConnectionNameList :: Lens.Lens' BatchDeleteConnection [Types.NameString]
+bdcConnectionNameList = Lens.field @"connectionNameList"
 {-# DEPRECATED bdcConnectionNameList "Use generic-lens or generic-optics with 'connectionNameList' instead." #-}
 
 -- | The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcCatalogId :: Lens.Lens' BatchDeleteConnection (Lude.Maybe Lude.Text)
-bdcCatalogId = Lens.lens (catalogId :: BatchDeleteConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: BatchDeleteConnection)
+bdcCatalogId :: Lens.Lens' BatchDeleteConnection (Core.Maybe Types.CatalogId)
+bdcCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED bdcCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
-instance Lude.AWSRequest BatchDeleteConnection where
+instance Core.FromJSON BatchDeleteConnection where
+  toJSON BatchDeleteConnection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConnectionNameList" Core..= connectionNameList),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest BatchDeleteConnection where
   type Rs BatchDeleteConnection = BatchDeleteConnectionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.BatchDeleteConnection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchDeleteConnectionResponse'
-            Lude.<$> (x Lude..?> "Succeeded" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Errors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Errors")
+            Core.<*> (x Core..:? "Succeeded")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchDeleteConnection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.BatchDeleteConnection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchDeleteConnection where
-  toJSON BatchDeleteConnection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConnectionNameList" Lude..= connectionNameList),
-            ("CatalogId" Lude..=) Lude.<$> catalogId
-          ]
-      )
-
-instance Lude.ToPath BatchDeleteConnection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchDeleteConnection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchDeleteConnectionResponse' smart constructor.
 data BatchDeleteConnectionResponse = BatchDeleteConnectionResponse'
-  { -- | A list of names of the connection definitions that were successfully deleted.
-    succeeded :: Lude.Maybe [Lude.Text],
-    -- | A map of the names of connections that were not successfully deleted to error details.
-    errors :: Lude.Maybe (Lude.HashMap Lude.Text (ErrorDetail)),
+  { -- | A map of the names of connections that were not successfully deleted to error details.
+    errors :: Core.Maybe (Core.HashMap Types.NameString Types.ErrorDetail),
+    -- | A list of names of the connection definitions that were successfully deleted.
+    succeeded :: Core.Maybe [Types.NameString],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteConnectionResponse' with the minimum fields required to make a request.
---
--- * 'succeeded' - A list of names of the connection definitions that were successfully deleted.
--- * 'errors' - A map of the names of connections that were not successfully deleted to error details.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchDeleteConnectionResponse' value with any optional fields omitted.
 mkBatchDeleteConnectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchDeleteConnectionResponse
-mkBatchDeleteConnectionResponse pResponseStatus_ =
+mkBatchDeleteConnectionResponse responseStatus =
   BatchDeleteConnectionResponse'
-    { succeeded = Lude.Nothing,
-      errors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { errors = Core.Nothing,
+      succeeded = Core.Nothing,
+      responseStatus
     }
-
--- | A list of names of the connection definitions that were successfully deleted.
---
--- /Note:/ Consider using 'succeeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcrsSucceeded :: Lens.Lens' BatchDeleteConnectionResponse (Lude.Maybe [Lude.Text])
-bdcrsSucceeded = Lens.lens (succeeded :: BatchDeleteConnectionResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {succeeded = a} :: BatchDeleteConnectionResponse)
-{-# DEPRECATED bdcrsSucceeded "Use generic-lens or generic-optics with 'succeeded' instead." #-}
 
 -- | A map of the names of connections that were not successfully deleted to error details.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcrsErrors :: Lens.Lens' BatchDeleteConnectionResponse (Lude.Maybe (Lude.HashMap Lude.Text (ErrorDetail)))
-bdcrsErrors = Lens.lens (errors :: BatchDeleteConnectionResponse -> Lude.Maybe (Lude.HashMap Lude.Text (ErrorDetail))) (\s a -> s {errors = a} :: BatchDeleteConnectionResponse)
-{-# DEPRECATED bdcrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+bdcrrsErrors :: Lens.Lens' BatchDeleteConnectionResponse (Core.Maybe (Core.HashMap Types.NameString Types.ErrorDetail))
+bdcrrsErrors = Lens.field @"errors"
+{-# DEPRECATED bdcrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+
+-- | A list of names of the connection definitions that were successfully deleted.
+--
+-- /Note:/ Consider using 'succeeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdcrrsSucceeded :: Lens.Lens' BatchDeleteConnectionResponse (Core.Maybe [Types.NameString])
+bdcrrsSucceeded = Lens.field @"succeeded"
+{-# DEPRECATED bdcrrsSucceeded "Use generic-lens or generic-optics with 'succeeded' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcrsResponseStatus :: Lens.Lens' BatchDeleteConnectionResponse Lude.Int
-bdcrsResponseStatus = Lens.lens (responseStatus :: BatchDeleteConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteConnectionResponse)
-{-# DEPRECATED bdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bdcrrsResponseStatus :: Lens.Lens' BatchDeleteConnectionResponse Core.Int
+bdcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bdcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,70 +17,65 @@ module Network.AWS.SageMaker.Types.LabelingJobInputConfig
     mkLabelingJobInputConfig,
 
     -- * Lenses
-    ljicDataAttributes,
     ljicDataSource,
+    ljicDataAttributes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.LabelingJobDataAttributes
-import Network.AWS.SageMaker.Types.LabelingJobDataSource
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.LabelingJobDataAttributes as Types
+import qualified Network.AWS.SageMaker.Types.LabelingJobDataSource as Types
 
 -- | Input configuration information for a labeling job.
 --
 -- /See:/ 'mkLabelingJobInputConfig' smart constructor.
 data LabelingJobInputConfig = LabelingJobInputConfig'
-  { -- | Attributes of the data specified by the customer.
-    dataAttributes :: Lude.Maybe LabelingJobDataAttributes,
-    -- | The location of the input data.
-    dataSource :: LabelingJobDataSource
+  { -- | The location of the input data.
+    dataSource :: Types.LabelingJobDataSource,
+    -- | Attributes of the data specified by the customer.
+    dataAttributes :: Core.Maybe Types.LabelingJobDataAttributes
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LabelingJobInputConfig' with the minimum fields required to make a request.
---
--- * 'dataAttributes' - Attributes of the data specified by the customer.
--- * 'dataSource' - The location of the input data.
+-- | Creates a 'LabelingJobInputConfig' value with any optional fields omitted.
 mkLabelingJobInputConfig ::
   -- | 'dataSource'
-  LabelingJobDataSource ->
+  Types.LabelingJobDataSource ->
   LabelingJobInputConfig
-mkLabelingJobInputConfig pDataSource_ =
+mkLabelingJobInputConfig dataSource =
   LabelingJobInputConfig'
-    { dataAttributes = Lude.Nothing,
-      dataSource = pDataSource_
+    { dataSource,
+      dataAttributes = Core.Nothing
     }
-
--- | Attributes of the data specified by the customer.
---
--- /Note:/ Consider using 'dataAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljicDataAttributes :: Lens.Lens' LabelingJobInputConfig (Lude.Maybe LabelingJobDataAttributes)
-ljicDataAttributes = Lens.lens (dataAttributes :: LabelingJobInputConfig -> Lude.Maybe LabelingJobDataAttributes) (\s a -> s {dataAttributes = a} :: LabelingJobInputConfig)
-{-# DEPRECATED ljicDataAttributes "Use generic-lens or generic-optics with 'dataAttributes' instead." #-}
 
 -- | The location of the input data.
 --
 -- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljicDataSource :: Lens.Lens' LabelingJobInputConfig LabelingJobDataSource
-ljicDataSource = Lens.lens (dataSource :: LabelingJobInputConfig -> LabelingJobDataSource) (\s a -> s {dataSource = a} :: LabelingJobInputConfig)
+ljicDataSource :: Lens.Lens' LabelingJobInputConfig Types.LabelingJobDataSource
+ljicDataSource = Lens.field @"dataSource"
 {-# DEPRECATED ljicDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
 
-instance Lude.FromJSON LabelingJobInputConfig where
-  parseJSON =
-    Lude.withObject
-      "LabelingJobInputConfig"
-      ( \x ->
-          LabelingJobInputConfig'
-            Lude.<$> (x Lude..:? "DataAttributes") Lude.<*> (x Lude..: "DataSource")
-      )
+-- | Attributes of the data specified by the customer.
+--
+-- /Note:/ Consider using 'dataAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljicDataAttributes :: Lens.Lens' LabelingJobInputConfig (Core.Maybe Types.LabelingJobDataAttributes)
+ljicDataAttributes = Lens.field @"dataAttributes"
+{-# DEPRECATED ljicDataAttributes "Use generic-lens or generic-optics with 'dataAttributes' instead." #-}
 
-instance Lude.ToJSON LabelingJobInputConfig where
-  toJSON LabelingJobInputConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DataAttributes" Lude..=) Lude.<$> dataAttributes,
-            Lude.Just ("DataSource" Lude..= dataSource)
+instance Core.FromJSON LabelingJobInputConfig where
+  toJSON LabelingJobInputConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DataSource" Core..= dataSource),
+            ("DataAttributes" Core..=) Core.<$> dataAttributes
           ]
       )
+
+instance Core.FromJSON LabelingJobInputConfig where
+  parseJSON =
+    Core.withObject "LabelingJobInputConfig" Core.$
+      \x ->
+        LabelingJobInputConfig'
+          Core.<$> (x Core..: "DataSource") Core.<*> (x Core..:? "DataAttributes")

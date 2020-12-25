@@ -23,7 +23,7 @@ module Network.AWS.IAM.DetachRolePolicy
 
     -- ** Request lenses
     drpRoleName,
-    drpPolicyARN,
+    drpPolicyArn,
 
     -- * Destructuring the response
     DetachRolePolicyResponse (..),
@@ -31,87 +31,83 @@ module Network.AWS.IAM.DetachRolePolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachRolePolicy' smart constructor.
 data DetachRolePolicy = DetachRolePolicy'
   { -- | The name (friendly name, not ARN) of the IAM role to detach the policy from.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text,
+    roleName :: Types.RoleName,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
     --
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policyARN :: Lude.Text
+    policyArn :: Types.PolicyArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachRolePolicy' with the minimum fields required to make a request.
---
--- * 'roleName' - The name (friendly name, not ARN) of the IAM role to detach the policy from.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- | Creates a 'DetachRolePolicy' value with any optional fields omitted.
 mkDetachRolePolicy ::
   -- | 'roleName'
-  Lude.Text ->
-  -- | 'policyARN'
-  Lude.Text ->
+  Types.RoleName ->
+  -- | 'policyArn'
+  Types.PolicyArn ->
   DetachRolePolicy
-mkDetachRolePolicy pRoleName_ pPolicyARN_ =
-  DetachRolePolicy' {roleName = pRoleName_, policyARN = pPolicyARN_}
+mkDetachRolePolicy roleName policyArn =
+  DetachRolePolicy' {roleName, policyArn}
 
 -- | The name (friendly name, not ARN) of the IAM role to detach the policy from.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpRoleName :: Lens.Lens' DetachRolePolicy Lude.Text
-drpRoleName = Lens.lens (roleName :: DetachRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: DetachRolePolicy)
+drpRoleName :: Lens.Lens' DetachRolePolicy Types.RoleName
+drpRoleName = Lens.field @"roleName"
 {-# DEPRECATED drpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpPolicyARN :: Lens.Lens' DetachRolePolicy Lude.Text
-drpPolicyARN = Lens.lens (policyARN :: DetachRolePolicy -> Lude.Text) (\s a -> s {policyARN = a} :: DetachRolePolicy)
-{-# DEPRECATED drpPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpPolicyArn :: Lens.Lens' DetachRolePolicy Types.PolicyArn
+drpPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED drpPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
-instance Lude.AWSRequest DetachRolePolicy where
+instance Core.AWSRequest DetachRolePolicy where
   type Rs DetachRolePolicy = DetachRolePolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DetachRolePolicyResponse'
-
-instance Lude.ToHeaders DetachRolePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DetachRolePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachRolePolicy where
-  toQuery DetachRolePolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DetachRolePolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
-        "PolicyArn" Lude.=: policyARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DetachRolePolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+                Core.<> (Core.toQueryValue "PolicyArn" policyArn)
+            )
+      }
+  response = Response.receiveNull DetachRolePolicyResponse'
 
 -- | /See:/ 'mkDetachRolePolicyResponse' smart constructor.
 data DetachRolePolicyResponse = DetachRolePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachRolePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DetachRolePolicyResponse' value with any optional fields omitted.
 mkDetachRolePolicyResponse ::
   DetachRolePolicyResponse
 mkDetachRolePolicyResponse = DetachRolePolicyResponse'

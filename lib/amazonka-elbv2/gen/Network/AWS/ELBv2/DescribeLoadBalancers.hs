@@ -22,9 +22,9 @@ module Network.AWS.ELBv2.DescribeLoadBalancers
     mkDescribeLoadBalancers,
 
     -- ** Request lenses
-    dlbNames,
-    dlbLoadBalancerARNs,
+    dlbLoadBalancerArns,
     dlbMarker,
+    dlbNames,
     dlbPageSize,
 
     -- * Destructuring the response
@@ -32,165 +32,164 @@ module Network.AWS.ELBv2.DescribeLoadBalancers
     mkDescribeLoadBalancersResponse,
 
     -- ** Response lenses
-    dlbsrsLoadBalancers,
-    dlbsrsNextMarker,
-    dlbsrsResponseStatus,
+    dlbrrsLoadBalancers,
+    dlbrrsNextMarker,
+    dlbrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
-  { -- | The names of the load balancers.
-    names :: Lude.Maybe [Lude.Text],
-    -- | The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
-    loadBalancerARNs :: Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
+    loadBalancerArns :: Core.Maybe [Types.LoadBalancerArn],
     -- | The marker for the next set of results. (You received this marker from a previous call.)
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
+    -- | The names of the load balancers.
+    names :: Core.Maybe [Types.LoadBalancerName],
     -- | The maximum number of results to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBalancers' with the minimum fields required to make a request.
---
--- * 'names' - The names of the load balancers.
--- * 'loadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'pageSize' - The maximum number of results to return with this call.
+-- | Creates a 'DescribeLoadBalancers' value with any optional fields omitted.
 mkDescribeLoadBalancers ::
   DescribeLoadBalancers
 mkDescribeLoadBalancers =
   DescribeLoadBalancers'
-    { names = Lude.Nothing,
-      loadBalancerARNs = Lude.Nothing,
-      marker = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { loadBalancerArns = Core.Nothing,
+      marker = Core.Nothing,
+      names = Core.Nothing,
+      pageSize = Core.Nothing
     }
-
--- | The names of the load balancers.
---
--- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbNames :: Lens.Lens' DescribeLoadBalancers (Lude.Maybe [Lude.Text])
-dlbNames = Lens.lens (names :: DescribeLoadBalancers -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: DescribeLoadBalancers)
-{-# DEPRECATED dlbNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
 --
--- /Note:/ Consider using 'loadBalancerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbLoadBalancerARNs :: Lens.Lens' DescribeLoadBalancers (Lude.Maybe [Lude.Text])
-dlbLoadBalancerARNs = Lens.lens (loadBalancerARNs :: DescribeLoadBalancers -> Lude.Maybe [Lude.Text]) (\s a -> s {loadBalancerARNs = a} :: DescribeLoadBalancers)
-{-# DEPRECATED dlbLoadBalancerARNs "Use generic-lens or generic-optics with 'loadBalancerARNs' instead." #-}
+-- /Note:/ Consider using 'loadBalancerArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbLoadBalancerArns :: Lens.Lens' DescribeLoadBalancers (Core.Maybe [Types.LoadBalancerArn])
+dlbLoadBalancerArns = Lens.field @"loadBalancerArns"
+{-# DEPRECATED dlbLoadBalancerArns "Use generic-lens or generic-optics with 'loadBalancerArns' instead." #-}
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbMarker :: Lens.Lens' DescribeLoadBalancers (Lude.Maybe Lude.Text)
-dlbMarker = Lens.lens (marker :: DescribeLoadBalancers -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeLoadBalancers)
+dlbMarker :: Lens.Lens' DescribeLoadBalancers (Core.Maybe Types.Marker)
+dlbMarker = Lens.field @"marker"
 {-# DEPRECATED dlbMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The names of the load balancers.
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbNames :: Lens.Lens' DescribeLoadBalancers (Core.Maybe [Types.LoadBalancerName])
+dlbNames = Lens.field @"names"
+{-# DEPRECATED dlbNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The maximum number of results to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbPageSize :: Lens.Lens' DescribeLoadBalancers (Lude.Maybe Lude.Natural)
-dlbPageSize = Lens.lens (pageSize :: DescribeLoadBalancers -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeLoadBalancers)
+dlbPageSize :: Lens.Lens' DescribeLoadBalancers (Core.Maybe Core.Natural)
+dlbPageSize = Lens.field @"pageSize"
 {-# DEPRECATED dlbPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager DescribeLoadBalancers where
-  page rq rs
-    | Page.stop (rs Lens.^. dlbsrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dlbsrsLoadBalancers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dlbMarker Lens..~ rs Lens.^. dlbsrsNextMarker
-
-instance Lude.AWSRequest DescribeLoadBalancers where
+instance Core.AWSRequest DescribeLoadBalancers where
   type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLoadBalancers")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "LoadBalancerArns"
+                            (Core.toQueryList "member" Core.<$> loadBalancerArns)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> ( Core.toQueryValue
+                            "Names"
+                            (Core.toQueryList "member" Core.<$> names)
+                        )
+                Core.<> (Core.toQueryValue "PageSize" Core.<$> pageSize)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Lude.<$> ( x Lude..@? "LoadBalancers" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "LoadBalancers" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeLoadBalancers where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLoadBalancers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLoadBalancers where
-  toQuery DescribeLoadBalancers' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeLoadBalancers" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "Names"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> names),
-        "LoadBalancerArns"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> loadBalancerARNs),
-        "Marker" Lude.=: marker,
-        "PageSize" Lude.=: pageSize
-      ]
+instance Pager.AWSPager DescribeLoadBalancers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"loadBalancers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkDescribeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
   { -- | Information about the load balancers.
-    loadBalancers :: Lude.Maybe [LoadBalancer],
+    loadBalancers :: Core.Maybe [Types.LoadBalancer],
     -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
---
--- * 'loadBalancers' - Information about the load balancers.
--- * 'nextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLoadBalancersResponse' value with any optional fields omitted.
 mkDescribeLoadBalancersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLoadBalancersResponse
-mkDescribeLoadBalancersResponse pResponseStatus_ =
+mkDescribeLoadBalancersResponse responseStatus =
   DescribeLoadBalancersResponse'
-    { loadBalancers = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { loadBalancers = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the load balancers.
 --
 -- /Note:/ Consider using 'loadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbsrsLoadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Lude.Maybe [LoadBalancer])
-dlbsrsLoadBalancers = Lens.lens (loadBalancers :: DescribeLoadBalancersResponse -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbsrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
+dlbrrsLoadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Core.Maybe [Types.LoadBalancer])
+dlbrrsLoadBalancers = Lens.field @"loadBalancers"
+{-# DEPRECATED dlbrrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
 
 -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbsrsNextMarker :: Lens.Lens' DescribeLoadBalancersResponse (Lude.Maybe Lude.Text)
-dlbsrsNextMarker = Lens.lens (nextMarker :: DescribeLoadBalancersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+dlbrrsNextMarker :: Lens.Lens' DescribeLoadBalancersResponse (Core.Maybe Types.Marker)
+dlbrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED dlbrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbsrsResponseStatus :: Lens.Lens' DescribeLoadBalancersResponse Lude.Int
-dlbsrsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbrrsResponseStatus :: Lens.Lens' DescribeLoadBalancersResponse Core.Int
+dlbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

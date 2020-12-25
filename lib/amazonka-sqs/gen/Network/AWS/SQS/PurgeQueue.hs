@@ -25,7 +25,7 @@ module Network.AWS.SQS.PurgeQueue
     mkPurgeQueue,
 
     -- ** Request lenses
-    pqQueueURL,
+    pqQueueUrl,
 
     -- * Destructuring the response
     PurgeQueueResponse (..),
@@ -34,10 +34,10 @@ module Network.AWS.SQS.PurgeQueue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- |
 --
@@ -46,56 +46,55 @@ newtype PurgeQueue = PurgeQueue'
   { -- | The URL of the queue from which the @PurgeQueue@ action deletes messages.
     --
     -- Queue URLs and names are case-sensitive.
-    queueURL :: Lude.Text
+    queueUrl :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PurgeQueue' with the minimum fields required to make a request.
---
--- * 'queueURL' - The URL of the queue from which the @PurgeQueue@ action deletes messages.
---
--- Queue URLs and names are case-sensitive.
+-- | Creates a 'PurgeQueue' value with any optional fields omitted.
 mkPurgeQueue ::
-  -- | 'queueURL'
-  Lude.Text ->
+  -- | 'queueUrl'
+  Types.String ->
   PurgeQueue
-mkPurgeQueue pQueueURL_ = PurgeQueue' {queueURL = pQueueURL_}
+mkPurgeQueue queueUrl = PurgeQueue' {queueUrl}
 
 -- | The URL of the queue from which the @PurgeQueue@ action deletes messages.
 --
 -- Queue URLs and names are case-sensitive.
 --
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pqQueueURL :: Lens.Lens' PurgeQueue Lude.Text
-pqQueueURL = Lens.lens (queueURL :: PurgeQueue -> Lude.Text) (\s a -> s {queueURL = a} :: PurgeQueue)
-{-# DEPRECATED pqQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pqQueueUrl :: Lens.Lens' PurgeQueue Types.String
+pqQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED pqQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
-instance Lude.AWSRequest PurgeQueue where
+instance Core.AWSRequest PurgeQueue where
   type Rs PurgeQueue = PurgeQueueResponse
-  request = Req.postQuery sqsService
-  response = Res.receiveNull PurgeQueueResponse'
-
-instance Lude.ToHeaders PurgeQueue where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PurgeQueue where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PurgeQueue where
-  toQuery PurgeQueue' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("PurgeQueue" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        "QueueUrl" Lude.=: queueURL
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PurgeQueue")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+            )
+      }
+  response = Response.receiveNull PurgeQueueResponse'
 
 -- | /See:/ 'mkPurgeQueueResponse' smart constructor.
 data PurgeQueueResponse = PurgeQueueResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PurgeQueueResponse' with the minimum fields required to make a request.
+-- | Creates a 'PurgeQueueResponse' value with any optional fields omitted.
 mkPurgeQueueResponse ::
   PurgeQueueResponse
 mkPurgeQueueResponse = PurgeQueueResponse'

@@ -22,43 +22,39 @@ module Network.AWS.MediaLive.Types.TtmlDestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.TtmlDestinationStyleControl
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.TtmlDestinationStyleControl as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Ttml Destination Settings
 --
 -- /See:/ 'mkTtmlDestinationSettings' smart constructor.
 newtype TtmlDestinationSettings = TtmlDestinationSettings'
   { -- | When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
-    styleControl :: Lude.Maybe TtmlDestinationStyleControl
+    styleControl :: Core.Maybe Types.TtmlDestinationStyleControl
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TtmlDestinationSettings' with the minimum fields required to make a request.
---
--- * 'styleControl' - When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
+-- | Creates a 'TtmlDestinationSettings' value with any optional fields omitted.
 mkTtmlDestinationSettings ::
   TtmlDestinationSettings
 mkTtmlDestinationSettings =
-  TtmlDestinationSettings' {styleControl = Lude.Nothing}
+  TtmlDestinationSettings' {styleControl = Core.Nothing}
 
 -- | When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
 --
 -- /Note:/ Consider using 'styleControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdsStyleControl :: Lens.Lens' TtmlDestinationSettings (Lude.Maybe TtmlDestinationStyleControl)
-tdsStyleControl = Lens.lens (styleControl :: TtmlDestinationSettings -> Lude.Maybe TtmlDestinationStyleControl) (\s a -> s {styleControl = a} :: TtmlDestinationSettings)
+tdsStyleControl :: Lens.Lens' TtmlDestinationSettings (Core.Maybe Types.TtmlDestinationStyleControl)
+tdsStyleControl = Lens.field @"styleControl"
 {-# DEPRECATED tdsStyleControl "Use generic-lens or generic-optics with 'styleControl' instead." #-}
 
-instance Lude.FromJSON TtmlDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "TtmlDestinationSettings"
-      ( \x ->
-          TtmlDestinationSettings' Lude.<$> (x Lude..:? "styleControl")
-      )
+instance Core.FromJSON TtmlDestinationSettings where
+  toJSON TtmlDestinationSettings {..} =
+    Core.object
+      (Core.catMaybes [("styleControl" Core..=) Core.<$> styleControl])
 
-instance Lude.ToJSON TtmlDestinationSettings where
-  toJSON TtmlDestinationSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("styleControl" Lude..=) Lude.<$> styleControl])
+instance Core.FromJSON TtmlDestinationSettings where
+  parseJSON =
+    Core.withObject "TtmlDestinationSettings" Core.$
+      \x ->
+        TtmlDestinationSettings' Core.<$> (x Core..:? "styleControl")

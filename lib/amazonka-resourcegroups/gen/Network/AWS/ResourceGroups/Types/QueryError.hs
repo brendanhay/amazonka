@@ -23,49 +23,45 @@ module Network.AWS.ResourceGroups.Types.QueryError
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ResourceGroups.Types.QueryErrorCode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.QueryErrorCode as Types
+import qualified Network.AWS.ResourceGroups.Types.QueryErrorMessage as Types
 
 -- | A two-part error structure that can occur in @ListGroupResources@ or @SearchResources@ operations on CloudFormation stack-based queries. The error occurs if the CloudFormation stack on which the query is based either does not exist, or has a status that renders the stack inactive. A @QueryError@ occurrence does not necessarily mean that AWS Resource Groups could not complete the operation, but the resulting group might have no member resources.
 --
 -- /See:/ 'mkQueryError' smart constructor.
 data QueryError = QueryError'
   { -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
-    errorCode :: Lude.Maybe QueryErrorCode,
+    errorCode :: Core.Maybe Types.QueryErrorCode,
     -- | A message that explains the @ErrorCode@ value. Messages might state that the specified CloudFormation stack does not exist (or no longer exists). For @CLOUDFORMATION_STACK_INACTIVE@ , the message typically states that the CloudFormation stack has a status that is not (or no longer) active, such as @CREATE_FAILED@ .
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.QueryErrorMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QueryError' with the minimum fields required to make a request.
---
--- * 'errorCode' - Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
--- * 'message' - A message that explains the @ErrorCode@ value. Messages might state that the specified CloudFormation stack does not exist (or no longer exists). For @CLOUDFORMATION_STACK_INACTIVE@ , the message typically states that the CloudFormation stack has a status that is not (or no longer) active, such as @CREATE_FAILED@ .
+-- | Creates a 'QueryError' value with any optional fields omitted.
 mkQueryError ::
   QueryError
 mkQueryError =
-  QueryError' {errorCode = Lude.Nothing, message = Lude.Nothing}
+  QueryError' {errorCode = Core.Nothing, message = Core.Nothing}
 
 -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qeErrorCode :: Lens.Lens' QueryError (Lude.Maybe QueryErrorCode)
-qeErrorCode = Lens.lens (errorCode :: QueryError -> Lude.Maybe QueryErrorCode) (\s a -> s {errorCode = a} :: QueryError)
+qeErrorCode :: Lens.Lens' QueryError (Core.Maybe Types.QueryErrorCode)
+qeErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED qeErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | A message that explains the @ErrorCode@ value. Messages might state that the specified CloudFormation stack does not exist (or no longer exists). For @CLOUDFORMATION_STACK_INACTIVE@ , the message typically states that the CloudFormation stack has a status that is not (or no longer) active, such as @CREATE_FAILED@ .
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qeMessage :: Lens.Lens' QueryError (Lude.Maybe Lude.Text)
-qeMessage = Lens.lens (message :: QueryError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: QueryError)
+qeMessage :: Lens.Lens' QueryError (Core.Maybe Types.QueryErrorMessage)
+qeMessage = Lens.field @"message"
 {-# DEPRECATED qeMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON QueryError where
+instance Core.FromJSON QueryError where
   parseJSON =
-    Lude.withObject
-      "QueryError"
-      ( \x ->
-          QueryError'
-            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "QueryError" Core.$
+      \x ->
+        QueryError'
+          Core.<$> (x Core..:? "ErrorCode") Core.<*> (x Core..:? "Message")

@@ -22,43 +22,39 @@ module Network.AWS.SSM.Types.PatchFilterGroup
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.PatchFilter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.PatchFilter as Types
 
 -- | A set of patch filters, typically used for approval rules.
 --
 -- /See:/ 'mkPatchFilterGroup' smart constructor.
 newtype PatchFilterGroup = PatchFilterGroup'
   { -- | The set of patch filters that make up the group.
-    patchFilters :: [PatchFilter]
+    patchFilters :: [Types.PatchFilter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PatchFilterGroup' with the minimum fields required to make a request.
---
--- * 'patchFilters' - The set of patch filters that make up the group.
+-- | Creates a 'PatchFilterGroup' value with any optional fields omitted.
 mkPatchFilterGroup ::
   PatchFilterGroup
-mkPatchFilterGroup = PatchFilterGroup' {patchFilters = Lude.mempty}
+mkPatchFilterGroup = PatchFilterGroup' {patchFilters = Core.mempty}
 
 -- | The set of patch filters that make up the group.
 --
 -- /Note:/ Consider using 'patchFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfgPatchFilters :: Lens.Lens' PatchFilterGroup [PatchFilter]
-pfgPatchFilters = Lens.lens (patchFilters :: PatchFilterGroup -> [PatchFilter]) (\s a -> s {patchFilters = a} :: PatchFilterGroup)
+pfgPatchFilters :: Lens.Lens' PatchFilterGroup [Types.PatchFilter]
+pfgPatchFilters = Lens.field @"patchFilters"
 {-# DEPRECATED pfgPatchFilters "Use generic-lens or generic-optics with 'patchFilters' instead." #-}
 
-instance Lude.FromJSON PatchFilterGroup where
-  parseJSON =
-    Lude.withObject
-      "PatchFilterGroup"
-      ( \x ->
-          PatchFilterGroup'
-            Lude.<$> (x Lude..:? "PatchFilters" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON PatchFilterGroup where
+  toJSON PatchFilterGroup {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("PatchFilters" Core..= patchFilters)])
 
-instance Lude.ToJSON PatchFilterGroup where
-  toJSON PatchFilterGroup' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("PatchFilters" Lude..= patchFilters)])
+instance Core.FromJSON PatchFilterGroup where
+  parseJSON =
+    Core.withObject "PatchFilterGroup" Core.$
+      \x ->
+        PatchFilterGroup'
+          Core.<$> (x Core..:? "PatchFilters" Core..!= Core.mempty)

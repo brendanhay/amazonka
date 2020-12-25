@@ -25,8 +25,8 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     mkDeleteAutoScalingGroup,
 
     -- ** Request lenses
-    dasgForceDelete,
     dasgAutoScalingGroupName,
+    dasgForceDelete,
 
     -- * Destructuring the response
     DeleteAutoScalingGroupResponse (..),
@@ -34,76 +34,76 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAutoScalingGroup' smart constructor.
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
-  { -- | Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
-    forceDelete :: Lude.Maybe Lude.Bool,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.AutoScalingGroupName,
+    -- | Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
+    forceDelete :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAutoScalingGroup' with the minimum fields required to make a request.
---
--- * 'forceDelete' - Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'DeleteAutoScalingGroup' value with any optional fields omitted.
 mkDeleteAutoScalingGroup ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.AutoScalingGroupName ->
   DeleteAutoScalingGroup
-mkDeleteAutoScalingGroup pAutoScalingGroupName_ =
+mkDeleteAutoScalingGroup autoScalingGroupName =
   DeleteAutoScalingGroup'
-    { forceDelete = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
+    { autoScalingGroupName,
+      forceDelete = Core.Nothing
     }
-
--- | Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
---
--- /Note:/ Consider using 'forceDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasgForceDelete :: Lens.Lens' DeleteAutoScalingGroup (Lude.Maybe Lude.Bool)
-dasgForceDelete = Lens.lens (forceDelete :: DeleteAutoScalingGroup -> Lude.Maybe Lude.Bool) (\s a -> s {forceDelete = a} :: DeleteAutoScalingGroup)
-{-# DEPRECATED dasgForceDelete "Use generic-lens or generic-optics with 'forceDelete' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasgAutoScalingGroupName :: Lens.Lens' DeleteAutoScalingGroup Lude.Text
-dasgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeleteAutoScalingGroup -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeleteAutoScalingGroup)
+dasgAutoScalingGroupName :: Lens.Lens' DeleteAutoScalingGroup Types.AutoScalingGroupName
+dasgAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED dasgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteAutoScalingGroup where
+-- | Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
+--
+-- /Note:/ Consider using 'forceDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasgForceDelete :: Lens.Lens' DeleteAutoScalingGroup (Core.Maybe Core.Bool)
+dasgForceDelete = Lens.field @"forceDelete"
+{-# DEPRECATED dasgForceDelete "Use generic-lens or generic-optics with 'forceDelete' instead." #-}
+
+instance Core.AWSRequest DeleteAutoScalingGroup where
   type Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull DeleteAutoScalingGroupResponse'
-
-instance Lude.ToHeaders DeleteAutoScalingGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteAutoScalingGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAutoScalingGroup where
-  toQuery DeleteAutoScalingGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteAutoScalingGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "ForceDelete" Lude.=: forceDelete,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteAutoScalingGroup")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> (Core.toQueryValue "ForceDelete" Core.<$> forceDelete)
+            )
+      }
+  response = Response.receiveNull DeleteAutoScalingGroupResponse'
 
 -- | /See:/ 'mkDeleteAutoScalingGroupResponse' smart constructor.
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAutoScalingGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAutoScalingGroupResponse' value with any optional fields omitted.
 mkDeleteAutoScalingGroupResponse ::
   DeleteAutoScalingGroupResponse
 mkDeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'

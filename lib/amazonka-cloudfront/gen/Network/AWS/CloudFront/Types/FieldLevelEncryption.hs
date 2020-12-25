@@ -17,77 +17,74 @@ module Network.AWS.CloudFront.Types.FieldLevelEncryption
     mkFieldLevelEncryption,
 
     -- * Lenses
-    fleLastModifiedTime,
     fleId,
+    fleLastModifiedTime,
     fleFieldLevelEncryptionConfig,
   )
 where
 
-import Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig
+import qualified Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig as Types
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex data type that includes the profile configurations and other options specified for field-level encryption.
 --
 -- /See:/ 'mkFieldLevelEncryption' smart constructor.
 data FieldLevelEncryption = FieldLevelEncryption'
-  { -- | The last time the field-level encryption configuration was changed.
-    lastModifiedTime :: Lude.DateTime,
-    -- | The configuration ID for a field-level encryption configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys.
-    id :: Lude.Text,
+  { -- | The configuration ID for a field-level encryption configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys.
+    id :: Types.String,
+    -- | The last time the field-level encryption configuration was changed.
+    lastModifiedTime :: Core.UTCTime,
     -- | A complex data type that includes the profile configurations specified for field-level encryption.
-    fieldLevelEncryptionConfig :: FieldLevelEncryptionConfig
+    fieldLevelEncryptionConfig :: Types.FieldLevelEncryptionConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FieldLevelEncryption' with the minimum fields required to make a request.
---
--- * 'lastModifiedTime' - The last time the field-level encryption configuration was changed.
--- * 'id' - The configuration ID for a field-level encryption configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys.
--- * 'fieldLevelEncryptionConfig' - A complex data type that includes the profile configurations specified for field-level encryption.
+-- | Creates a 'FieldLevelEncryption' value with any optional fields omitted.
 mkFieldLevelEncryption ::
-  -- | 'lastModifiedTime'
-  Lude.DateTime ->
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
+  -- | 'lastModifiedTime'
+  Core.UTCTime ->
   -- | 'fieldLevelEncryptionConfig'
-  FieldLevelEncryptionConfig ->
+  Types.FieldLevelEncryptionConfig ->
   FieldLevelEncryption
 mkFieldLevelEncryption
-  pLastModifiedTime_
-  pId_
-  pFieldLevelEncryptionConfig_ =
+  id
+  lastModifiedTime
+  fieldLevelEncryptionConfig =
     FieldLevelEncryption'
-      { lastModifiedTime = pLastModifiedTime_,
-        id = pId_,
-        fieldLevelEncryptionConfig = pFieldLevelEncryptionConfig_
+      { id,
+        lastModifiedTime,
+        fieldLevelEncryptionConfig
       }
-
--- | The last time the field-level encryption configuration was changed.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleLastModifiedTime :: Lens.Lens' FieldLevelEncryption Lude.DateTime
-fleLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryption -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryption)
-{-# DEPRECATED fleLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The configuration ID for a field-level encryption configuration which includes a set of profiles that specify certain selected data fields to be encrypted by specific public keys.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleId :: Lens.Lens' FieldLevelEncryption Lude.Text
-fleId = Lens.lens (id :: FieldLevelEncryption -> Lude.Text) (\s a -> s {id = a} :: FieldLevelEncryption)
+fleId :: Lens.Lens' FieldLevelEncryption Types.String
+fleId = Lens.field @"id"
 {-# DEPRECATED fleId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The last time the field-level encryption configuration was changed.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fleLastModifiedTime :: Lens.Lens' FieldLevelEncryption Core.UTCTime
+fleLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED fleLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | A complex data type that includes the profile configurations specified for field-level encryption.
 --
 -- /Note:/ Consider using 'fieldLevelEncryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleFieldLevelEncryptionConfig :: Lens.Lens' FieldLevelEncryption FieldLevelEncryptionConfig
-fleFieldLevelEncryptionConfig = Lens.lens (fieldLevelEncryptionConfig :: FieldLevelEncryption -> FieldLevelEncryptionConfig) (\s a -> s {fieldLevelEncryptionConfig = a} :: FieldLevelEncryption)
+fleFieldLevelEncryptionConfig :: Lens.Lens' FieldLevelEncryption Types.FieldLevelEncryptionConfig
+fleFieldLevelEncryptionConfig = Lens.field @"fieldLevelEncryptionConfig"
 {-# DEPRECATED fleFieldLevelEncryptionConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionConfig' instead." #-}
 
-instance Lude.FromXML FieldLevelEncryption where
+instance Core.FromXML FieldLevelEncryption where
   parseXML x =
     FieldLevelEncryption'
-      Lude.<$> (x Lude..@ "LastModifiedTime")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "FieldLevelEncryptionConfig")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "LastModifiedTime")
+      Core.<*> (x Core..@ "FieldLevelEncryptionConfig")

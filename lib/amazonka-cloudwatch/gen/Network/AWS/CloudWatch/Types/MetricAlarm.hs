@@ -17,395 +17,371 @@ module Network.AWS.CloudWatch.Types.MetricAlarm
     mkMetricAlarm,
 
     -- * Lenses
-    maAlarmName,
-    maStateUpdatedTimestamp,
-    maMetrics,
-    maTreatMissingData,
-    maPeriod,
-    maAlarmDescription,
-    maEvaluationPeriods,
-    maMetricName,
-    maNamespace,
-    maThresholdMetricId,
-    maComparisonOperator,
-    maOKActions,
-    maEvaluateLowSampleCountPercentile,
-    maStateValue,
-    maDatapointsToAlarm,
-    maThreshold,
-    maAlarmConfigurationUpdatedTimestamp,
     maActionsEnabled,
+    maAlarmActions,
+    maAlarmArn,
+    maAlarmConfigurationUpdatedTimestamp,
+    maAlarmDescription,
+    maAlarmName,
+    maComparisonOperator,
+    maDatapointsToAlarm,
+    maDimensions,
+    maEvaluateLowSampleCountPercentile,
+    maEvaluationPeriods,
+    maExtendedStatistic,
     maInsufficientDataActions,
+    maMetricName,
+    maMetrics,
+    maNamespace,
+    maOKActions,
+    maPeriod,
     maStateReason,
     maStateReasonData,
-    maDimensions,
-    maAlarmARN,
-    maAlarmActions,
-    maUnit,
+    maStateUpdatedTimestamp,
+    maStateValue,
     maStatistic,
-    maExtendedStatistic,
+    maThreshold,
+    maThresholdMetricId,
+    maTreatMissingData,
+    maUnit,
   )
 where
 
-import Network.AWS.CloudWatch.Types.ComparisonOperator
-import Network.AWS.CloudWatch.Types.Dimension
-import Network.AWS.CloudWatch.Types.MetricDataQuery
-import Network.AWS.CloudWatch.Types.StandardUnit
-import Network.AWS.CloudWatch.Types.StateValue
-import Network.AWS.CloudWatch.Types.Statistic
+import qualified Network.AWS.CloudWatch.Types.AlarmArn as Types
+import qualified Network.AWS.CloudWatch.Types.AlarmDescription as Types
+import qualified Network.AWS.CloudWatch.Types.AlarmName as Types
+import qualified Network.AWS.CloudWatch.Types.ComparisonOperator as Types
+import qualified Network.AWS.CloudWatch.Types.Dimension as Types
+import qualified Network.AWS.CloudWatch.Types.EvaluateLowSampleCountPercentile as Types
+import qualified Network.AWS.CloudWatch.Types.ExtendedStatistic as Types
+import qualified Network.AWS.CloudWatch.Types.MetricDataQuery as Types
+import qualified Network.AWS.CloudWatch.Types.MetricName as Types
+import qualified Network.AWS.CloudWatch.Types.Namespace as Types
+import qualified Network.AWS.CloudWatch.Types.ResourceName as Types
+import qualified Network.AWS.CloudWatch.Types.StandardUnit as Types
+import qualified Network.AWS.CloudWatch.Types.StateReason as Types
+import qualified Network.AWS.CloudWatch.Types.StateReasonData as Types
+import qualified Network.AWS.CloudWatch.Types.StateValue as Types
+import qualified Network.AWS.CloudWatch.Types.Statistic as Types
+import qualified Network.AWS.CloudWatch.Types.ThresholdMetricId as Types
+import qualified Network.AWS.CloudWatch.Types.TreatMissingData as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details about a metric alarm.
 --
 -- /See:/ 'mkMetricAlarm' smart constructor.
 data MetricAlarm = MetricAlarm'
-  { -- | The name of the alarm.
-    alarmName :: Lude.Maybe Lude.Text,
-    -- | The time stamp of the last update to the alarm state.
-    stateUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
-    -- | An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnData@ set to true.
-    metrics :: Lude.Maybe [MetricDataQuery],
-    -- | Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
-    treatMissingData :: Lude.Maybe Lude.Text,
-    -- | The period, in seconds, over which the statistic is applied.
-    period :: Lude.Maybe Lude.Natural,
-    -- | The description of the alarm.
-    alarmDescription :: Lude.Maybe Lude.Text,
-    -- | The number of periods over which data is compared to the specified threshold.
-    evaluationPeriods :: Lude.Maybe Lude.Natural,
-    -- | The name of the metric associated with the alarm, if this is an alarm based on a single metric.
-    metricName :: Lude.Maybe Lude.Text,
-    -- | The namespace of the metric associated with the alarm.
-    namespace :: Lude.Maybe Lude.Text,
-    -- | In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
-    thresholdMetricId :: Lude.Maybe Lude.Text,
-    -- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
-    comparisonOperator :: Lude.Maybe ComparisonOperator,
-    -- | The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-    okActions :: Lude.Maybe [Lude.Text],
-    -- | Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
-    evaluateLowSampleCountPercentile :: Lude.Maybe Lude.Text,
-    -- | The state value for the alarm.
-    stateValue :: Lude.Maybe StateValue,
-    -- | The number of data points that must be breaching to trigger the alarm.
-    datapointsToAlarm :: Lude.Maybe Lude.Natural,
-    -- | The value to compare with the specified statistic.
-    threshold :: Lude.Maybe Lude.Double,
-    -- | The time stamp of the last update to the alarm configuration.
-    alarmConfigurationUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
-    -- | Indicates whether actions should be executed during any changes to the alarm state.
-    actionsEnabled :: Lude.Maybe Lude.Bool,
-    -- | The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-    insufficientDataActions :: Lude.Maybe [Lude.Text],
-    -- | An explanation for the alarm state, in text format.
-    stateReason :: Lude.Maybe Lude.Text,
-    -- | An explanation for the alarm state, in JSON format.
-    stateReasonData :: Lude.Maybe Lude.Text,
-    -- | The dimensions for the metric associated with the alarm.
-    dimensions :: Lude.Maybe [Dimension],
-    -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmARN :: Lude.Maybe Lude.Text,
+  { -- | Indicates whether actions should be executed during any changes to the alarm state.
+    actionsEnabled :: Core.Maybe Core.Bool,
     -- | The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-    alarmActions :: Lude.Maybe [Lude.Text],
-    -- | The unit of the metric associated with the alarm.
-    unit :: Lude.Maybe StandardUnit,
-    -- | The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
-    statistic :: Lude.Maybe Statistic,
+    alarmActions :: Core.Maybe [Types.ResourceName],
+    -- | The Amazon Resource Name (ARN) of the alarm.
+    alarmArn :: Core.Maybe Types.AlarmArn,
+    -- | The time stamp of the last update to the alarm configuration.
+    alarmConfigurationUpdatedTimestamp :: Core.Maybe Core.UTCTime,
+    -- | The description of the alarm.
+    alarmDescription :: Core.Maybe Types.AlarmDescription,
+    -- | The name of the alarm.
+    alarmName :: Core.Maybe Types.AlarmName,
+    -- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
+    comparisonOperator :: Core.Maybe Types.ComparisonOperator,
+    -- | The number of data points that must be breaching to trigger the alarm.
+    datapointsToAlarm :: Core.Maybe Core.Natural,
+    -- | The dimensions for the metric associated with the alarm.
+    dimensions :: Core.Maybe [Types.Dimension],
+    -- | Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+    evaluateLowSampleCountPercentile :: Core.Maybe Types.EvaluateLowSampleCountPercentile,
+    -- | The number of periods over which data is compared to the specified threshold.
+    evaluationPeriods :: Core.Maybe Core.Natural,
     -- | The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-    extendedStatistic :: Lude.Maybe Lude.Text
+    extendedStatistic :: Core.Maybe Types.ExtendedStatistic,
+    -- | The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+    insufficientDataActions :: Core.Maybe [Types.ResourceName],
+    -- | The name of the metric associated with the alarm, if this is an alarm based on a single metric.
+    metricName :: Core.Maybe Types.MetricName,
+    -- | An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnData@ set to true.
+    metrics :: Core.Maybe [Types.MetricDataQuery],
+    -- | The namespace of the metric associated with the alarm.
+    namespace :: Core.Maybe Types.Namespace,
+    -- | The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+    oKActions :: Core.Maybe [Types.ResourceName],
+    -- | The period, in seconds, over which the statistic is applied.
+    period :: Core.Maybe Core.Natural,
+    -- | An explanation for the alarm state, in text format.
+    stateReason :: Core.Maybe Types.StateReason,
+    -- | An explanation for the alarm state, in JSON format.
+    stateReasonData :: Core.Maybe Types.StateReasonData,
+    -- | The time stamp of the last update to the alarm state.
+    stateUpdatedTimestamp :: Core.Maybe Core.UTCTime,
+    -- | The state value for the alarm.
+    stateValue :: Core.Maybe Types.StateValue,
+    -- | The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
+    statistic :: Core.Maybe Types.Statistic,
+    -- | The value to compare with the specified statistic.
+    threshold :: Core.Maybe Core.Double,
+    -- | In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
+    thresholdMetricId :: Core.Maybe Types.ThresholdMetricId,
+    -- | Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
+    treatMissingData :: Core.Maybe Types.TreatMissingData,
+    -- | The unit of the metric associated with the alarm.
+    unit :: Core.Maybe Types.StandardUnit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MetricAlarm' with the minimum fields required to make a request.
---
--- * 'alarmName' - The name of the alarm.
--- * 'stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
--- * 'metrics' - An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnData@ set to true.
--- * 'treatMissingData' - Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
--- * 'period' - The period, in seconds, over which the statistic is applied.
--- * 'alarmDescription' - The description of the alarm.
--- * 'evaluationPeriods' - The number of periods over which data is compared to the specified threshold.
--- * 'metricName' - The name of the metric associated with the alarm, if this is an alarm based on a single metric.
--- * 'namespace' - The namespace of the metric associated with the alarm.
--- * 'thresholdMetricId' - In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
--- * 'comparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
--- * 'okActions' - The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
--- * 'evaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
--- * 'stateValue' - The state value for the alarm.
--- * 'datapointsToAlarm' - The number of data points that must be breaching to trigger the alarm.
--- * 'threshold' - The value to compare with the specified statistic.
--- * 'alarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
--- * 'actionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
--- * 'insufficientDataActions' - The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
--- * 'stateReason' - An explanation for the alarm state, in text format.
--- * 'stateReasonData' - An explanation for the alarm state, in JSON format.
--- * 'dimensions' - The dimensions for the metric associated with the alarm.
--- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
--- * 'alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
--- * 'unit' - The unit of the metric associated with the alarm.
--- * 'statistic' - The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
--- * 'extendedStatistic' - The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+-- | Creates a 'MetricAlarm' value with any optional fields omitted.
 mkMetricAlarm ::
   MetricAlarm
 mkMetricAlarm =
   MetricAlarm'
-    { alarmName = Lude.Nothing,
-      stateUpdatedTimestamp = Lude.Nothing,
-      metrics = Lude.Nothing,
-      treatMissingData = Lude.Nothing,
-      period = Lude.Nothing,
-      alarmDescription = Lude.Nothing,
-      evaluationPeriods = Lude.Nothing,
-      metricName = Lude.Nothing,
-      namespace = Lude.Nothing,
-      thresholdMetricId = Lude.Nothing,
-      comparisonOperator = Lude.Nothing,
-      okActions = Lude.Nothing,
-      evaluateLowSampleCountPercentile = Lude.Nothing,
-      stateValue = Lude.Nothing,
-      datapointsToAlarm = Lude.Nothing,
-      threshold = Lude.Nothing,
-      alarmConfigurationUpdatedTimestamp = Lude.Nothing,
-      actionsEnabled = Lude.Nothing,
-      insufficientDataActions = Lude.Nothing,
-      stateReason = Lude.Nothing,
-      stateReasonData = Lude.Nothing,
-      dimensions = Lude.Nothing,
-      alarmARN = Lude.Nothing,
-      alarmActions = Lude.Nothing,
-      unit = Lude.Nothing,
-      statistic = Lude.Nothing,
-      extendedStatistic = Lude.Nothing
+    { actionsEnabled = Core.Nothing,
+      alarmActions = Core.Nothing,
+      alarmArn = Core.Nothing,
+      alarmConfigurationUpdatedTimestamp = Core.Nothing,
+      alarmDescription = Core.Nothing,
+      alarmName = Core.Nothing,
+      comparisonOperator = Core.Nothing,
+      datapointsToAlarm = Core.Nothing,
+      dimensions = Core.Nothing,
+      evaluateLowSampleCountPercentile = Core.Nothing,
+      evaluationPeriods = Core.Nothing,
+      extendedStatistic = Core.Nothing,
+      insufficientDataActions = Core.Nothing,
+      metricName = Core.Nothing,
+      metrics = Core.Nothing,
+      namespace = Core.Nothing,
+      oKActions = Core.Nothing,
+      period = Core.Nothing,
+      stateReason = Core.Nothing,
+      stateReasonData = Core.Nothing,
+      stateUpdatedTimestamp = Core.Nothing,
+      stateValue = Core.Nothing,
+      statistic = Core.Nothing,
+      threshold = Core.Nothing,
+      thresholdMetricId = Core.Nothing,
+      treatMissingData = Core.Nothing,
+      unit = Core.Nothing
     }
-
--- | The name of the alarm.
---
--- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maAlarmName :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maAlarmName = Lens.lens (alarmName :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmName = a} :: MetricAlarm)
-{-# DEPRECATED maAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
-
--- | The time stamp of the last update to the alarm state.
---
--- /Note:/ Consider using 'stateUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maStateUpdatedTimestamp :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.DateTime)
-maStateUpdatedTimestamp = Lens.lens (stateUpdatedTimestamp :: MetricAlarm -> Lude.Maybe Lude.DateTime) (\s a -> s {stateUpdatedTimestamp = a} :: MetricAlarm)
-{-# DEPRECATED maStateUpdatedTimestamp "Use generic-lens or generic-optics with 'stateUpdatedTimestamp' instead." #-}
-
--- | An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnData@ set to true.
---
--- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maMetrics :: Lens.Lens' MetricAlarm (Lude.Maybe [MetricDataQuery])
-maMetrics = Lens.lens (metrics :: MetricAlarm -> Lude.Maybe [MetricDataQuery]) (\s a -> s {metrics = a} :: MetricAlarm)
-{-# DEPRECATED maMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
-
--- | Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
---
--- /Note:/ Consider using 'treatMissingData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maTreatMissingData :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maTreatMissingData = Lens.lens (treatMissingData :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {treatMissingData = a} :: MetricAlarm)
-{-# DEPRECATED maTreatMissingData "Use generic-lens or generic-optics with 'treatMissingData' instead." #-}
-
--- | The period, in seconds, over which the statistic is applied.
---
--- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maPeriod :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Natural)
-maPeriod = Lens.lens (period :: MetricAlarm -> Lude.Maybe Lude.Natural) (\s a -> s {period = a} :: MetricAlarm)
-{-# DEPRECATED maPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
-
--- | The description of the alarm.
---
--- /Note:/ Consider using 'alarmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maAlarmDescription :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maAlarmDescription = Lens.lens (alarmDescription :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmDescription = a} :: MetricAlarm)
-{-# DEPRECATED maAlarmDescription "Use generic-lens or generic-optics with 'alarmDescription' instead." #-}
-
--- | The number of periods over which data is compared to the specified threshold.
---
--- /Note:/ Consider using 'evaluationPeriods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maEvaluationPeriods :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Natural)
-maEvaluationPeriods = Lens.lens (evaluationPeriods :: MetricAlarm -> Lude.Maybe Lude.Natural) (\s a -> s {evaluationPeriods = a} :: MetricAlarm)
-{-# DEPRECATED maEvaluationPeriods "Use generic-lens or generic-optics with 'evaluationPeriods' instead." #-}
-
--- | The name of the metric associated with the alarm, if this is an alarm based on a single metric.
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maMetricName :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maMetricName = Lens.lens (metricName :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: MetricAlarm)
-{-# DEPRECATED maMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
-
--- | The namespace of the metric associated with the alarm.
---
--- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maNamespace :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maNamespace = Lens.lens (namespace :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: MetricAlarm)
-{-# DEPRECATED maNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
-
--- | In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
---
--- /Note:/ Consider using 'thresholdMetricId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maThresholdMetricId :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maThresholdMetricId = Lens.lens (thresholdMetricId :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {thresholdMetricId = a} :: MetricAlarm)
-{-# DEPRECATED maThresholdMetricId "Use generic-lens or generic-optics with 'thresholdMetricId' instead." #-}
-
--- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
---
--- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maComparisonOperator :: Lens.Lens' MetricAlarm (Lude.Maybe ComparisonOperator)
-maComparisonOperator = Lens.lens (comparisonOperator :: MetricAlarm -> Lude.Maybe ComparisonOperator) (\s a -> s {comparisonOperator = a} :: MetricAlarm)
-{-# DEPRECATED maComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
-
--- | The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'okActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maOKActions :: Lens.Lens' MetricAlarm (Lude.Maybe [Lude.Text])
-maOKActions = Lens.lens (okActions :: MetricAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {okActions = a} :: MetricAlarm)
-{-# DEPRECATED maOKActions "Use generic-lens or generic-optics with 'okActions' instead." #-}
-
--- | Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
---
--- /Note:/ Consider using 'evaluateLowSampleCountPercentile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maEvaluateLowSampleCountPercentile :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maEvaluateLowSampleCountPercentile = Lens.lens (evaluateLowSampleCountPercentile :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {evaluateLowSampleCountPercentile = a} :: MetricAlarm)
-{-# DEPRECATED maEvaluateLowSampleCountPercentile "Use generic-lens or generic-optics with 'evaluateLowSampleCountPercentile' instead." #-}
-
--- | The state value for the alarm.
---
--- /Note:/ Consider using 'stateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maStateValue :: Lens.Lens' MetricAlarm (Lude.Maybe StateValue)
-maStateValue = Lens.lens (stateValue :: MetricAlarm -> Lude.Maybe StateValue) (\s a -> s {stateValue = a} :: MetricAlarm)
-{-# DEPRECATED maStateValue "Use generic-lens or generic-optics with 'stateValue' instead." #-}
-
--- | The number of data points that must be breaching to trigger the alarm.
---
--- /Note:/ Consider using 'datapointsToAlarm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maDatapointsToAlarm :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Natural)
-maDatapointsToAlarm = Lens.lens (datapointsToAlarm :: MetricAlarm -> Lude.Maybe Lude.Natural) (\s a -> s {datapointsToAlarm = a} :: MetricAlarm)
-{-# DEPRECATED maDatapointsToAlarm "Use generic-lens or generic-optics with 'datapointsToAlarm' instead." #-}
-
--- | The value to compare with the specified statistic.
---
--- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maThreshold :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Double)
-maThreshold = Lens.lens (threshold :: MetricAlarm -> Lude.Maybe Lude.Double) (\s a -> s {threshold = a} :: MetricAlarm)
-{-# DEPRECATED maThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
-
--- | The time stamp of the last update to the alarm configuration.
---
--- /Note:/ Consider using 'alarmConfigurationUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maAlarmConfigurationUpdatedTimestamp :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.DateTime)
-maAlarmConfigurationUpdatedTimestamp = Lens.lens (alarmConfigurationUpdatedTimestamp :: MetricAlarm -> Lude.Maybe Lude.DateTime) (\s a -> s {alarmConfigurationUpdatedTimestamp = a} :: MetricAlarm)
-{-# DEPRECATED maAlarmConfigurationUpdatedTimestamp "Use generic-lens or generic-optics with 'alarmConfigurationUpdatedTimestamp' instead." #-}
 
 -- | Indicates whether actions should be executed during any changes to the alarm state.
 --
 -- /Note:/ Consider using 'actionsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maActionsEnabled :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Bool)
-maActionsEnabled = Lens.lens (actionsEnabled :: MetricAlarm -> Lude.Maybe Lude.Bool) (\s a -> s {actionsEnabled = a} :: MetricAlarm)
+maActionsEnabled :: Lens.Lens' MetricAlarm (Core.Maybe Core.Bool)
+maActionsEnabled = Lens.field @"actionsEnabled"
 {-# DEPRECATED maActionsEnabled "Use generic-lens or generic-optics with 'actionsEnabled' instead." #-}
+
+-- | The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'alarmActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maAlarmActions :: Lens.Lens' MetricAlarm (Core.Maybe [Types.ResourceName])
+maAlarmActions = Lens.field @"alarmActions"
+{-# DEPRECATED maAlarmActions "Use generic-lens or generic-optics with 'alarmActions' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the alarm.
+--
+-- /Note:/ Consider using 'alarmArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maAlarmArn :: Lens.Lens' MetricAlarm (Core.Maybe Types.AlarmArn)
+maAlarmArn = Lens.field @"alarmArn"
+{-# DEPRECATED maAlarmArn "Use generic-lens or generic-optics with 'alarmArn' instead." #-}
+
+-- | The time stamp of the last update to the alarm configuration.
+--
+-- /Note:/ Consider using 'alarmConfigurationUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maAlarmConfigurationUpdatedTimestamp :: Lens.Lens' MetricAlarm (Core.Maybe Core.UTCTime)
+maAlarmConfigurationUpdatedTimestamp = Lens.field @"alarmConfigurationUpdatedTimestamp"
+{-# DEPRECATED maAlarmConfigurationUpdatedTimestamp "Use generic-lens or generic-optics with 'alarmConfigurationUpdatedTimestamp' instead." #-}
+
+-- | The description of the alarm.
+--
+-- /Note:/ Consider using 'alarmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maAlarmDescription :: Lens.Lens' MetricAlarm (Core.Maybe Types.AlarmDescription)
+maAlarmDescription = Lens.field @"alarmDescription"
+{-# DEPRECATED maAlarmDescription "Use generic-lens or generic-optics with 'alarmDescription' instead." #-}
+
+-- | The name of the alarm.
+--
+-- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maAlarmName :: Lens.Lens' MetricAlarm (Core.Maybe Types.AlarmName)
+maAlarmName = Lens.field @"alarmName"
+{-# DEPRECATED maAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
+
+-- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
+--
+-- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maComparisonOperator :: Lens.Lens' MetricAlarm (Core.Maybe Types.ComparisonOperator)
+maComparisonOperator = Lens.field @"comparisonOperator"
+{-# DEPRECATED maComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
+
+-- | The number of data points that must be breaching to trigger the alarm.
+--
+-- /Note:/ Consider using 'datapointsToAlarm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maDatapointsToAlarm :: Lens.Lens' MetricAlarm (Core.Maybe Core.Natural)
+maDatapointsToAlarm = Lens.field @"datapointsToAlarm"
+{-# DEPRECATED maDatapointsToAlarm "Use generic-lens or generic-optics with 'datapointsToAlarm' instead." #-}
+
+-- | The dimensions for the metric associated with the alarm.
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maDimensions :: Lens.Lens' MetricAlarm (Core.Maybe [Types.Dimension])
+maDimensions = Lens.field @"dimensions"
+{-# DEPRECATED maDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
+
+-- | Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+--
+-- /Note:/ Consider using 'evaluateLowSampleCountPercentile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maEvaluateLowSampleCountPercentile :: Lens.Lens' MetricAlarm (Core.Maybe Types.EvaluateLowSampleCountPercentile)
+maEvaluateLowSampleCountPercentile = Lens.field @"evaluateLowSampleCountPercentile"
+{-# DEPRECATED maEvaluateLowSampleCountPercentile "Use generic-lens or generic-optics with 'evaluateLowSampleCountPercentile' instead." #-}
+
+-- | The number of periods over which data is compared to the specified threshold.
+--
+-- /Note:/ Consider using 'evaluationPeriods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maEvaluationPeriods :: Lens.Lens' MetricAlarm (Core.Maybe Core.Natural)
+maEvaluationPeriods = Lens.field @"evaluationPeriods"
+{-# DEPRECATED maEvaluationPeriods "Use generic-lens or generic-optics with 'evaluationPeriods' instead." #-}
+
+-- | The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+--
+-- /Note:/ Consider using 'extendedStatistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maExtendedStatistic :: Lens.Lens' MetricAlarm (Core.Maybe Types.ExtendedStatistic)
+maExtendedStatistic = Lens.field @"extendedStatistic"
+{-# DEPRECATED maExtendedStatistic "Use generic-lens or generic-optics with 'extendedStatistic' instead." #-}
 
 -- | The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 --
 -- /Note:/ Consider using 'insufficientDataActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maInsufficientDataActions :: Lens.Lens' MetricAlarm (Lude.Maybe [Lude.Text])
-maInsufficientDataActions = Lens.lens (insufficientDataActions :: MetricAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {insufficientDataActions = a} :: MetricAlarm)
+maInsufficientDataActions :: Lens.Lens' MetricAlarm (Core.Maybe [Types.ResourceName])
+maInsufficientDataActions = Lens.field @"insufficientDataActions"
 {-# DEPRECATED maInsufficientDataActions "Use generic-lens or generic-optics with 'insufficientDataActions' instead." #-}
+
+-- | The name of the metric associated with the alarm, if this is an alarm based on a single metric.
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maMetricName :: Lens.Lens' MetricAlarm (Core.Maybe Types.MetricName)
+maMetricName = Lens.field @"metricName"
+{-# DEPRECATED maMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+
+-- | An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnData@ set to true.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maMetrics :: Lens.Lens' MetricAlarm (Core.Maybe [Types.MetricDataQuery])
+maMetrics = Lens.field @"metrics"
+{-# DEPRECATED maMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
+
+-- | The namespace of the metric associated with the alarm.
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maNamespace :: Lens.Lens' MetricAlarm (Core.Maybe Types.Namespace)
+maNamespace = Lens.field @"namespace"
+{-# DEPRECATED maNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
+
+-- | The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'oKActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maOKActions :: Lens.Lens' MetricAlarm (Core.Maybe [Types.ResourceName])
+maOKActions = Lens.field @"oKActions"
+{-# DEPRECATED maOKActions "Use generic-lens or generic-optics with 'oKActions' instead." #-}
+
+-- | The period, in seconds, over which the statistic is applied.
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maPeriod :: Lens.Lens' MetricAlarm (Core.Maybe Core.Natural)
+maPeriod = Lens.field @"period"
+{-# DEPRECATED maPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | An explanation for the alarm state, in text format.
 --
 -- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maStateReason :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maStateReason = Lens.lens (stateReason :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: MetricAlarm)
+maStateReason :: Lens.Lens' MetricAlarm (Core.Maybe Types.StateReason)
+maStateReason = Lens.field @"stateReason"
 {-# DEPRECATED maStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
 -- | An explanation for the alarm state, in JSON format.
 --
 -- /Note:/ Consider using 'stateReasonData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maStateReasonData :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maStateReasonData = Lens.lens (stateReasonData :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {stateReasonData = a} :: MetricAlarm)
+maStateReasonData :: Lens.Lens' MetricAlarm (Core.Maybe Types.StateReasonData)
+maStateReasonData = Lens.field @"stateReasonData"
 {-# DEPRECATED maStateReasonData "Use generic-lens or generic-optics with 'stateReasonData' instead." #-}
 
--- | The dimensions for the metric associated with the alarm.
+-- | The time stamp of the last update to the alarm state.
 --
--- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maDimensions :: Lens.Lens' MetricAlarm (Lude.Maybe [Dimension])
-maDimensions = Lens.lens (dimensions :: MetricAlarm -> Lude.Maybe [Dimension]) (\s a -> s {dimensions = a} :: MetricAlarm)
-{-# DEPRECATED maDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
+-- /Note:/ Consider using 'stateUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maStateUpdatedTimestamp :: Lens.Lens' MetricAlarm (Core.Maybe Core.UTCTime)
+maStateUpdatedTimestamp = Lens.field @"stateUpdatedTimestamp"
+{-# DEPRECATED maStateUpdatedTimestamp "Use generic-lens or generic-optics with 'stateUpdatedTimestamp' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the alarm.
+-- | The state value for the alarm.
 --
--- /Note:/ Consider using 'alarmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maAlarmARN :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maAlarmARN = Lens.lens (alarmARN :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmARN = a} :: MetricAlarm)
-{-# DEPRECATED maAlarmARN "Use generic-lens or generic-optics with 'alarmARN' instead." #-}
-
--- | The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'alarmActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maAlarmActions :: Lens.Lens' MetricAlarm (Lude.Maybe [Lude.Text])
-maAlarmActions = Lens.lens (alarmActions :: MetricAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {alarmActions = a} :: MetricAlarm)
-{-# DEPRECATED maAlarmActions "Use generic-lens or generic-optics with 'alarmActions' instead." #-}
-
--- | The unit of the metric associated with the alarm.
---
--- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maUnit :: Lens.Lens' MetricAlarm (Lude.Maybe StandardUnit)
-maUnit = Lens.lens (unit :: MetricAlarm -> Lude.Maybe StandardUnit) (\s a -> s {unit = a} :: MetricAlarm)
-{-# DEPRECATED maUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
+-- /Note:/ Consider using 'stateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maStateValue :: Lens.Lens' MetricAlarm (Core.Maybe Types.StateValue)
+maStateValue = Lens.field @"stateValue"
+{-# DEPRECATED maStateValue "Use generic-lens or generic-optics with 'stateValue' instead." #-}
 
 -- | The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
 --
 -- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maStatistic :: Lens.Lens' MetricAlarm (Lude.Maybe Statistic)
-maStatistic = Lens.lens (statistic :: MetricAlarm -> Lude.Maybe Statistic) (\s a -> s {statistic = a} :: MetricAlarm)
+maStatistic :: Lens.Lens' MetricAlarm (Core.Maybe Types.Statistic)
+maStatistic = Lens.field @"statistic"
 {-# DEPRECATED maStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
--- | The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+-- | The value to compare with the specified statistic.
 --
--- /Note:/ Consider using 'extendedStatistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maExtendedStatistic :: Lens.Lens' MetricAlarm (Lude.Maybe Lude.Text)
-maExtendedStatistic = Lens.lens (extendedStatistic :: MetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {extendedStatistic = a} :: MetricAlarm)
-{-# DEPRECATED maExtendedStatistic "Use generic-lens or generic-optics with 'extendedStatistic' instead." #-}
+-- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maThreshold :: Lens.Lens' MetricAlarm (Core.Maybe Core.Double)
+maThreshold = Lens.field @"threshold"
+{-# DEPRECATED maThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
-instance Lude.FromXML MetricAlarm where
+-- | In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
+--
+-- /Note:/ Consider using 'thresholdMetricId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maThresholdMetricId :: Lens.Lens' MetricAlarm (Core.Maybe Types.ThresholdMetricId)
+maThresholdMetricId = Lens.field @"thresholdMetricId"
+{-# DEPRECATED maThresholdMetricId "Use generic-lens or generic-optics with 'thresholdMetricId' instead." #-}
+
+-- | Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
+--
+-- /Note:/ Consider using 'treatMissingData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maTreatMissingData :: Lens.Lens' MetricAlarm (Core.Maybe Types.TreatMissingData)
+maTreatMissingData = Lens.field @"treatMissingData"
+{-# DEPRECATED maTreatMissingData "Use generic-lens or generic-optics with 'treatMissingData' instead." #-}
+
+-- | The unit of the metric associated with the alarm.
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maUnit :: Lens.Lens' MetricAlarm (Core.Maybe Types.StandardUnit)
+maUnit = Lens.field @"unit"
+{-# DEPRECATED maUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
+
+instance Core.FromXML MetricAlarm where
   parseXML x =
     MetricAlarm'
-      Lude.<$> (x Lude..@? "AlarmName")
-      Lude.<*> (x Lude..@? "StateUpdatedTimestamp")
-      Lude.<*> ( x Lude..@? "Metrics" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "ActionsEnabled")
+      Core.<*> (x Core..@? "AlarmActions" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "AlarmArn")
+      Core.<*> (x Core..@? "AlarmConfigurationUpdatedTimestamp")
+      Core.<*> (x Core..@? "AlarmDescription")
+      Core.<*> (x Core..@? "AlarmName")
+      Core.<*> (x Core..@? "ComparisonOperator")
+      Core.<*> (x Core..@? "DatapointsToAlarm")
+      Core.<*> (x Core..@? "Dimensions" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "EvaluateLowSampleCountPercentile")
+      Core.<*> (x Core..@? "EvaluationPeriods")
+      Core.<*> (x Core..@? "ExtendedStatistic")
+      Core.<*> ( x Core..@? "InsufficientDataActions"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "TreatMissingData")
-      Lude.<*> (x Lude..@? "Period")
-      Lude.<*> (x Lude..@? "AlarmDescription")
-      Lude.<*> (x Lude..@? "EvaluationPeriods")
-      Lude.<*> (x Lude..@? "MetricName")
-      Lude.<*> (x Lude..@? "Namespace")
-      Lude.<*> (x Lude..@? "ThresholdMetricId")
-      Lude.<*> (x Lude..@? "ComparisonOperator")
-      Lude.<*> ( x Lude..@? "OKActions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "EvaluateLowSampleCountPercentile")
-      Lude.<*> (x Lude..@? "StateValue")
-      Lude.<*> (x Lude..@? "DatapointsToAlarm")
-      Lude.<*> (x Lude..@? "Threshold")
-      Lude.<*> (x Lude..@? "AlarmConfigurationUpdatedTimestamp")
-      Lude.<*> (x Lude..@? "ActionsEnabled")
-      Lude.<*> ( x Lude..@? "InsufficientDataActions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "StateReason")
-      Lude.<*> (x Lude..@? "StateReasonData")
-      Lude.<*> ( x Lude..@? "Dimensions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "AlarmArn")
-      Lude.<*> ( x Lude..@? "AlarmActions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "Unit")
-      Lude.<*> (x Lude..@? "Statistic")
-      Lude.<*> (x Lude..@? "ExtendedStatistic")
+      Core.<*> (x Core..@? "MetricName")
+      Core.<*> (x Core..@? "Metrics" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Namespace")
+      Core.<*> (x Core..@? "OKActions" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Period")
+      Core.<*> (x Core..@? "StateReason")
+      Core.<*> (x Core..@? "StateReasonData")
+      Core.<*> (x Core..@? "StateUpdatedTimestamp")
+      Core.<*> (x Core..@? "StateValue")
+      Core.<*> (x Core..@? "Statistic")
+      Core.<*> (x Core..@? "Threshold")
+      Core.<*> (x Core..@? "ThresholdMetricId")
+      Core.<*> (x Core..@? "TreatMissingData")
+      Core.<*> (x Core..@? "Unit")

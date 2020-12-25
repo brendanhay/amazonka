@@ -17,108 +17,105 @@ module Network.AWS.AutoScaling.Types.TagDescription
     mkTagDescription,
 
     -- * Lenses
+    tdKey,
+    tdPropagateAtLaunch,
     tdResourceId,
     tdResourceType,
     tdValue,
-    tdKey,
-    tdPropagateAtLaunch,
   )
 where
 
+import qualified Network.AWS.AutoScaling.Types.Key as Types
+import qualified Network.AWS.AutoScaling.Types.Value as Types
+import qualified Network.AWS.AutoScaling.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a tag for an Auto Scaling group.
 --
 -- /See:/ 'mkTagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { -- | The name of the group.
-    resourceId :: Lude.Text,
-    -- | The type of resource. The only supported value is @auto-scaling-group@ .
-    resourceType :: Lude.Text,
-    -- | The tag value.
-    value :: Lude.Text,
-    -- | The tag key.
-    key :: Lude.Text,
+  { -- | The tag key.
+    key :: Types.Key,
     -- | Determines whether the tag is added to new instances as they are launched in the group.
-    propagateAtLaunch :: Lude.Bool
+    propagateAtLaunch :: Core.Bool,
+    -- | The name of the group.
+    resourceId :: Types.XmlString,
+    -- | The type of resource. The only supported value is @auto-scaling-group@ .
+    resourceType :: Types.XmlString,
+    -- | The tag value.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
---
--- * 'resourceId' - The name of the group.
--- * 'resourceType' - The type of resource. The only supported value is @auto-scaling-group@ .
--- * 'value' - The tag value.
--- * 'key' - The tag key.
--- * 'propagateAtLaunch' - Determines whether the tag is added to new instances as they are launched in the group.
+-- | Creates a 'TagDescription' value with any optional fields omitted.
 mkTagDescription ::
-  -- | 'resourceId'
-  Lude.Text ->
-  -- | 'resourceType'
-  Lude.Text ->
-  -- | 'value'
-  Lude.Text ->
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
   -- | 'propagateAtLaunch'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'resourceId'
+  Types.XmlString ->
+  -- | 'resourceType'
+  Types.XmlString ->
+  -- | 'value'
+  Types.Value ->
   TagDescription
 mkTagDescription
-  pResourceId_
-  pResourceType_
-  pValue_
-  pKey_
-  pPropagateAtLaunch_ =
+  key
+  propagateAtLaunch
+  resourceId
+  resourceType
+  value =
     TagDescription'
-      { resourceId = pResourceId_,
-        resourceType = pResourceType_,
-        value = pValue_,
-        key = pKey_,
-        propagateAtLaunch = pPropagateAtLaunch_
+      { key,
+        propagateAtLaunch,
+        resourceId,
+        resourceType,
+        value
       }
-
--- | The name of the group.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdResourceId :: Lens.Lens' TagDescription Lude.Text
-tdResourceId = Lens.lens (resourceId :: TagDescription -> Lude.Text) (\s a -> s {resourceId = a} :: TagDescription)
-{-# DEPRECATED tdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | The type of resource. The only supported value is @auto-scaling-group@ .
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdResourceType :: Lens.Lens' TagDescription Lude.Text
-tdResourceType = Lens.lens (resourceType :: TagDescription -> Lude.Text) (\s a -> s {resourceType = a} :: TagDescription)
-{-# DEPRECATED tdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The tag value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdValue :: Lens.Lens' TagDescription Lude.Text
-tdValue = Lens.lens (value :: TagDescription -> Lude.Text) (\s a -> s {value = a} :: TagDescription)
-{-# DEPRECATED tdValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The tag key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdKey :: Lens.Lens' TagDescription Lude.Text
-tdKey = Lens.lens (key :: TagDescription -> Lude.Text) (\s a -> s {key = a} :: TagDescription)
+tdKey :: Lens.Lens' TagDescription Types.Key
+tdKey = Lens.field @"key"
 {-# DEPRECATED tdKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Determines whether the tag is added to new instances as they are launched in the group.
 --
 -- /Note:/ Consider using 'propagateAtLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdPropagateAtLaunch :: Lens.Lens' TagDescription Lude.Bool
-tdPropagateAtLaunch = Lens.lens (propagateAtLaunch :: TagDescription -> Lude.Bool) (\s a -> s {propagateAtLaunch = a} :: TagDescription)
+tdPropagateAtLaunch :: Lens.Lens' TagDescription Core.Bool
+tdPropagateAtLaunch = Lens.field @"propagateAtLaunch"
 {-# DEPRECATED tdPropagateAtLaunch "Use generic-lens or generic-optics with 'propagateAtLaunch' instead." #-}
 
-instance Lude.FromXML TagDescription where
+-- | The name of the group.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdResourceId :: Lens.Lens' TagDescription Types.XmlString
+tdResourceId = Lens.field @"resourceId"
+{-# DEPRECATED tdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The type of resource. The only supported value is @auto-scaling-group@ .
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdResourceType :: Lens.Lens' TagDescription Types.XmlString
+tdResourceType = Lens.field @"resourceType"
+{-# DEPRECATED tdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The tag value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdValue :: Lens.Lens' TagDescription Types.Value
+tdValue = Lens.field @"value"
+{-# DEPRECATED tdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Lude.<$> (x Lude..@ "ResourceId")
-      Lude.<*> (x Lude..@ "ResourceType")
-      Lude.<*> (x Lude..@ "Value")
-      Lude.<*> (x Lude..@ "Key")
-      Lude.<*> (x Lude..@ "PropagateAtLaunch")
+      Core.<$> (x Core..@ "Key")
+      Core.<*> (x Core..@ "PropagateAtLaunch")
+      Core.<*> (x Core..@ "ResourceId")
+      Core.<*> (x Core..@ "ResourceType")
+      Core.<*> (x Core..@ "Value")

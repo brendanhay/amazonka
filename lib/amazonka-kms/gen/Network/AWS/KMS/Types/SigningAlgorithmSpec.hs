@@ -13,81 +13,86 @@
 module Network.AWS.KMS.Types.SigningAlgorithmSpec
   ( SigningAlgorithmSpec
       ( SigningAlgorithmSpec',
-        RsassaPssSha256,
-        RsassaPssSha384,
-        RsassaPssSha512,
-        RsassaPKCS1V15Sha256,
-        RsassaPKCS1V15Sha384,
-        RsassaPKCS1V15Sha512,
-        EcdsaSha256,
-        EcdsaSha384,
-        EcdsaSha512
+        SigningAlgorithmSpecRsassaPssSha256,
+        SigningAlgorithmSpecRsassaPssSha384,
+        SigningAlgorithmSpecRsassaPssSha512,
+        SigningAlgorithmSpecRsassaPKCS1V15Sha256,
+        SigningAlgorithmSpecRsassaPKCS1V15Sha384,
+        SigningAlgorithmSpecRsassaPKCS1V15Sha512,
+        SigningAlgorithmSpecEcdsaSha256,
+        SigningAlgorithmSpecEcdsaSha384,
+        SigningAlgorithmSpecEcdsaSha512,
+        fromSigningAlgorithmSpec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SigningAlgorithmSpec = SigningAlgorithmSpec' Lude.Text
+newtype SigningAlgorithmSpec = SigningAlgorithmSpec'
+  { fromSigningAlgorithmSpec ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RsassaPssSha256 :: SigningAlgorithmSpec
-pattern RsassaPssSha256 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_256"
+pattern SigningAlgorithmSpecRsassaPssSha256 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecRsassaPssSha256 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_256"
 
-pattern RsassaPssSha384 :: SigningAlgorithmSpec
-pattern RsassaPssSha384 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_384"
+pattern SigningAlgorithmSpecRsassaPssSha384 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecRsassaPssSha384 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_384"
 
-pattern RsassaPssSha512 :: SigningAlgorithmSpec
-pattern RsassaPssSha512 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_512"
+pattern SigningAlgorithmSpecRsassaPssSha512 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecRsassaPssSha512 = SigningAlgorithmSpec' "RSASSA_PSS_SHA_512"
 
-pattern RsassaPKCS1V15Sha256 :: SigningAlgorithmSpec
-pattern RsassaPKCS1V15Sha256 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_256"
+pattern SigningAlgorithmSpecRsassaPKCS1V15Sha256 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecRsassaPKCS1V15Sha256 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_256"
 
-pattern RsassaPKCS1V15Sha384 :: SigningAlgorithmSpec
-pattern RsassaPKCS1V15Sha384 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_384"
+pattern SigningAlgorithmSpecRsassaPKCS1V15Sha384 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecRsassaPKCS1V15Sha384 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_384"
 
-pattern RsassaPKCS1V15Sha512 :: SigningAlgorithmSpec
-pattern RsassaPKCS1V15Sha512 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_512"
+pattern SigningAlgorithmSpecRsassaPKCS1V15Sha512 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecRsassaPKCS1V15Sha512 = SigningAlgorithmSpec' "RSASSA_PKCS1_V1_5_SHA_512"
 
-pattern EcdsaSha256 :: SigningAlgorithmSpec
-pattern EcdsaSha256 = SigningAlgorithmSpec' "ECDSA_SHA_256"
+pattern SigningAlgorithmSpecEcdsaSha256 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecEcdsaSha256 = SigningAlgorithmSpec' "ECDSA_SHA_256"
 
-pattern EcdsaSha384 :: SigningAlgorithmSpec
-pattern EcdsaSha384 = SigningAlgorithmSpec' "ECDSA_SHA_384"
+pattern SigningAlgorithmSpecEcdsaSha384 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecEcdsaSha384 = SigningAlgorithmSpec' "ECDSA_SHA_384"
 
-pattern EcdsaSha512 :: SigningAlgorithmSpec
-pattern EcdsaSha512 = SigningAlgorithmSpec' "ECDSA_SHA_512"
+pattern SigningAlgorithmSpecEcdsaSha512 :: SigningAlgorithmSpec
+pattern SigningAlgorithmSpecEcdsaSha512 = SigningAlgorithmSpec' "ECDSA_SHA_512"
 
 {-# COMPLETE
-  RsassaPssSha256,
-  RsassaPssSha384,
-  RsassaPssSha512,
-  RsassaPKCS1V15Sha256,
-  RsassaPKCS1V15Sha384,
-  RsassaPKCS1V15Sha512,
-  EcdsaSha256,
-  EcdsaSha384,
-  EcdsaSha512,
+  SigningAlgorithmSpecRsassaPssSha256,
+  SigningAlgorithmSpecRsassaPssSha384,
+  SigningAlgorithmSpecRsassaPssSha512,
+  SigningAlgorithmSpecRsassaPKCS1V15Sha256,
+  SigningAlgorithmSpecRsassaPKCS1V15Sha384,
+  SigningAlgorithmSpecRsassaPKCS1V15Sha512,
+  SigningAlgorithmSpecEcdsaSha256,
+  SigningAlgorithmSpecEcdsaSha384,
+  SigningAlgorithmSpecEcdsaSha512,
   SigningAlgorithmSpec'
   #-}

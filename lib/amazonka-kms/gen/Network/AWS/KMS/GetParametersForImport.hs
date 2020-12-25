@@ -34,19 +34,19 @@ module Network.AWS.KMS.GetParametersForImport
     mkGetParametersForImportResponse,
 
     -- ** Response lenses
-    gpfirsKeyId,
-    gpfirsPublicKey,
-    gpfirsParametersValidTo,
-    gpfirsImportToken,
-    gpfirsResponseStatus,
+    gpfirrsImportToken,
+    gpfirrsKeyId,
+    gpfirrsParametersValidTo,
+    gpfirrsPublicKey,
+    gpfirrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetParametersForImport' smart constructor.
 data GetParametersForImport = GetParametersForImport'
@@ -62,48 +62,30 @@ data GetParametersForImport = GetParametersForImport'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text,
+    keyId :: Types.KeyIdType,
     -- | The algorithm you will use to encrypt the key material before importing it with 'ImportKeyMaterial' . For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material> in the /AWS Key Management Service Developer Guide/ .
-    wrappingAlgorithm :: AlgorithmSpec,
+    wrappingAlgorithm :: Types.AlgorithmSpec,
     -- | The type of wrapping key (public key) to return in the response. Only 2048-bit RSA public keys are supported.
-    wrappingKeySpec :: WrappingKeySpec
+    wrappingKeySpec :: Types.WrappingKeySpec
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetParametersForImport' with the minimum fields required to make a request.
---
--- * 'keyId' - The identifier of the symmetric CMK into which you will import key material. The @Origin@ of the CMK must be @EXTERNAL@ .
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
--- * 'wrappingAlgorithm' - The algorithm you will use to encrypt the key material before importing it with 'ImportKeyMaterial' . For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material> in the /AWS Key Management Service Developer Guide/ .
--- * 'wrappingKeySpec' - The type of wrapping key (public key) to return in the response. Only 2048-bit RSA public keys are supported.
+-- | Creates a 'GetParametersForImport' value with any optional fields omitted.
 mkGetParametersForImport ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyIdType ->
   -- | 'wrappingAlgorithm'
-  AlgorithmSpec ->
+  Types.AlgorithmSpec ->
   -- | 'wrappingKeySpec'
-  WrappingKeySpec ->
+  Types.WrappingKeySpec ->
   GetParametersForImport
-mkGetParametersForImport
-  pKeyId_
-  pWrappingAlgorithm_
-  pWrappingKeySpec_ =
-    GetParametersForImport'
-      { keyId = pKeyId_,
-        wrappingAlgorithm = pWrappingAlgorithm_,
-        wrappingKeySpec = pWrappingKeySpec_
-      }
+mkGetParametersForImport keyId wrappingAlgorithm wrappingKeySpec =
+  GetParametersForImport'
+    { keyId,
+      wrappingAlgorithm,
+      wrappingKeySpec
+    }
 
 -- | The identifier of the symmetric CMK into which you will import key material. The @Origin@ of the CMK must be @EXTERNAL@ .
 --
@@ -119,125 +101,87 @@ mkGetParametersForImport
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfiKeyId :: Lens.Lens' GetParametersForImport Lude.Text
-gpfiKeyId = Lens.lens (keyId :: GetParametersForImport -> Lude.Text) (\s a -> s {keyId = a} :: GetParametersForImport)
+gpfiKeyId :: Lens.Lens' GetParametersForImport Types.KeyIdType
+gpfiKeyId = Lens.field @"keyId"
 {-# DEPRECATED gpfiKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The algorithm you will use to encrypt the key material before importing it with 'ImportKeyMaterial' . For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'wrappingAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfiWrappingAlgorithm :: Lens.Lens' GetParametersForImport AlgorithmSpec
-gpfiWrappingAlgorithm = Lens.lens (wrappingAlgorithm :: GetParametersForImport -> AlgorithmSpec) (\s a -> s {wrappingAlgorithm = a} :: GetParametersForImport)
+gpfiWrappingAlgorithm :: Lens.Lens' GetParametersForImport Types.AlgorithmSpec
+gpfiWrappingAlgorithm = Lens.field @"wrappingAlgorithm"
 {-# DEPRECATED gpfiWrappingAlgorithm "Use generic-lens or generic-optics with 'wrappingAlgorithm' instead." #-}
 
 -- | The type of wrapping key (public key) to return in the response. Only 2048-bit RSA public keys are supported.
 --
 -- /Note:/ Consider using 'wrappingKeySpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfiWrappingKeySpec :: Lens.Lens' GetParametersForImport WrappingKeySpec
-gpfiWrappingKeySpec = Lens.lens (wrappingKeySpec :: GetParametersForImport -> WrappingKeySpec) (\s a -> s {wrappingKeySpec = a} :: GetParametersForImport)
+gpfiWrappingKeySpec :: Lens.Lens' GetParametersForImport Types.WrappingKeySpec
+gpfiWrappingKeySpec = Lens.field @"wrappingKeySpec"
 {-# DEPRECATED gpfiWrappingKeySpec "Use generic-lens or generic-optics with 'wrappingKeySpec' instead." #-}
 
-instance Lude.AWSRequest GetParametersForImport where
+instance Core.FromJSON GetParametersForImport where
+  toJSON GetParametersForImport {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("WrappingAlgorithm" Core..= wrappingAlgorithm),
+            Core.Just ("WrappingKeySpec" Core..= wrappingKeySpec)
+          ]
+      )
+
+instance Core.AWSRequest GetParametersForImport where
   type Rs GetParametersForImport = GetParametersForImportResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.GetParametersForImport")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetParametersForImportResponse'
-            Lude.<$> (x Lude..?> "KeyId")
-            Lude.<*> (x Lude..?> "PublicKey")
-            Lude.<*> (x Lude..?> "ParametersValidTo")
-            Lude.<*> (x Lude..?> "ImportToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ImportToken")
+            Core.<*> (x Core..:? "KeyId")
+            Core.<*> (x Core..:? "ParametersValidTo")
+            Core.<*> (x Core..:? "PublicKey")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetParametersForImport where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.GetParametersForImport" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetParametersForImport where
-  toJSON GetParametersForImport' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            Lude.Just ("WrappingAlgorithm" Lude..= wrappingAlgorithm),
-            Lude.Just ("WrappingKeySpec" Lude..= wrappingKeySpec)
-          ]
-      )
-
-instance Lude.ToPath GetParametersForImport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetParametersForImport where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetParametersForImportResponse' smart constructor.
 data GetParametersForImportResponse = GetParametersForImportResponse'
-  { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
-    keyId :: Lude.Maybe Lude.Text,
-    -- | The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .
-    publicKey :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+  { -- | The import token to send in a subsequent 'ImportKeyMaterial' request.
+    importToken :: Core.Maybe Core.Base64,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
+    keyId :: Core.Maybe Types.KeyId,
     -- | The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
-    parametersValidTo :: Lude.Maybe Lude.Timestamp,
-    -- | The import token to send in a subsequent 'ImportKeyMaterial' request.
-    importToken :: Lude.Maybe Lude.Base64,
+    parametersValidTo :: Core.Maybe Core.NominalDiffTime,
+    -- | The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .
+    publicKey :: Core.Maybe (Core.Sensitive Core.Base64),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetParametersForImportResponse' with the minimum fields required to make a request.
---
--- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
--- * 'publicKey' - The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .
--- * 'parametersValidTo' - The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
--- * 'importToken' - The import token to send in a subsequent 'ImportKeyMaterial' request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetParametersForImportResponse' value with any optional fields omitted.
 mkGetParametersForImportResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetParametersForImportResponse
-mkGetParametersForImportResponse pResponseStatus_ =
+mkGetParametersForImportResponse responseStatus =
   GetParametersForImportResponse'
-    { keyId = Lude.Nothing,
-      publicKey = Lude.Nothing,
-      parametersValidTo = Lude.Nothing,
-      importToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { importToken = Core.Nothing,
+      keyId = Core.Nothing,
+      parametersValidTo = Core.Nothing,
+      publicKey = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
---
--- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfirsKeyId :: Lens.Lens' GetParametersForImportResponse (Lude.Maybe Lude.Text)
-gpfirsKeyId = Lens.lens (keyId :: GetParametersForImportResponse -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: GetParametersForImportResponse)
-{-# DEPRECATED gpfirsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
-
--- | The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfirsPublicKey :: Lens.Lens' GetParametersForImportResponse (Lude.Maybe (Lude.Sensitive Lude.Base64))
-gpfirsPublicKey = Lens.lens (publicKey :: GetParametersForImportResponse -> Lude.Maybe (Lude.Sensitive Lude.Base64)) (\s a -> s {publicKey = a} :: GetParametersForImportResponse)
-{-# DEPRECATED gpfirsPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
-
--- | The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
---
--- /Note:/ Consider using 'parametersValidTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfirsParametersValidTo :: Lens.Lens' GetParametersForImportResponse (Lude.Maybe Lude.Timestamp)
-gpfirsParametersValidTo = Lens.lens (parametersValidTo :: GetParametersForImportResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {parametersValidTo = a} :: GetParametersForImportResponse)
-{-# DEPRECATED gpfirsParametersValidTo "Use generic-lens or generic-optics with 'parametersValidTo' instead." #-}
 
 -- | The import token to send in a subsequent 'ImportKeyMaterial' request.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -246,13 +190,38 @@ gpfirsParametersValidTo = Lens.lens (parametersValidTo :: GetParametersForImport
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'importToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfirsImportToken :: Lens.Lens' GetParametersForImportResponse (Lude.Maybe Lude.Base64)
-gpfirsImportToken = Lens.lens (importToken :: GetParametersForImportResponse -> Lude.Maybe Lude.Base64) (\s a -> s {importToken = a} :: GetParametersForImportResponse)
-{-# DEPRECATED gpfirsImportToken "Use generic-lens or generic-optics with 'importToken' instead." #-}
+gpfirrsImportToken :: Lens.Lens' GetParametersForImportResponse (Core.Maybe Core.Base64)
+gpfirrsImportToken = Lens.field @"importToken"
+{-# DEPRECATED gpfirrsImportToken "Use generic-lens or generic-optics with 'importToken' instead." #-}
+
+-- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpfirrsKeyId :: Lens.Lens' GetParametersForImportResponse (Core.Maybe Types.KeyId)
+gpfirrsKeyId = Lens.field @"keyId"
+{-# DEPRECATED gpfirrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
+--
+-- /Note:/ Consider using 'parametersValidTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpfirrsParametersValidTo :: Lens.Lens' GetParametersForImportResponse (Core.Maybe Core.NominalDiffTime)
+gpfirrsParametersValidTo = Lens.field @"parametersValidTo"
+{-# DEPRECATED gpfirrsParametersValidTo "Use generic-lens or generic-optics with 'parametersValidTo' instead." #-}
+
+-- | The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpfirrsPublicKey :: Lens.Lens' GetParametersForImportResponse (Core.Maybe (Core.Sensitive Core.Base64))
+gpfirrsPublicKey = Lens.field @"publicKey"
+{-# DEPRECATED gpfirrsPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpfirsResponseStatus :: Lens.Lens' GetParametersForImportResponse Lude.Int
-gpfirsResponseStatus = Lens.lens (responseStatus :: GetParametersForImportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetParametersForImportResponse)
-{-# DEPRECATED gpfirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpfirrsResponseStatus :: Lens.Lens' GetParametersForImportResponse Core.Int
+gpfirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpfirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

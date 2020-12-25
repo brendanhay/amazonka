@@ -25,59 +25,53 @@ module Network.AWS.EC2.CreateKeyPair
 
     -- ** Request lenses
     ckpKeyName,
-    ckpTagSpecifications,
     ckpDryRun,
+    ckpTagSpecifications,
 
     -- * Destructuring the response
     CreateKeyPairResponse (..),
     mkCreateKeyPairResponse,
 
     -- ** Response lenses
-    ckprsKeyFingerprint,
-    ckprsKeyName,
-    ckprsKeyMaterial,
-    ckprsKeyPairId,
-    ckprsTags,
-    ckprsResponseStatus,
+    ckprrsKeyFingerprint,
+    ckprrsKeyMaterial,
+    ckprrsKeyName,
+    ckprrsKeyPairId,
+    ckprrsTags,
+    ckprrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
   { -- | A unique name for the key pair.
     --
     -- Constraints: Up to 255 ASCII characters
-    keyName :: Lude.Text,
-    -- | The tags to apply to the new key pair.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+    keyName :: Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The tags to apply to the new key pair.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateKeyPair' with the minimum fields required to make a request.
---
--- * 'keyName' - A unique name for the key pair.
---
--- Constraints: Up to 255 ASCII characters
--- * 'tagSpecifications' - The tags to apply to the new key pair.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateKeyPair' value with any optional fields omitted.
 mkCreateKeyPair ::
   -- | 'keyName'
-  Lude.Text ->
+  Types.String ->
   CreateKeyPair
-mkCreateKeyPair pKeyName_ =
+mkCreateKeyPair keyName =
   CreateKeyPair'
-    { keyName = pKeyName_,
-      tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { keyName,
+      dryRun = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
 
 -- | A unique name for the key pair.
@@ -85,148 +79,141 @@ mkCreateKeyPair pKeyName_ =
 -- Constraints: Up to 255 ASCII characters
 --
 -- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckpKeyName :: Lens.Lens' CreateKeyPair Lude.Text
-ckpKeyName = Lens.lens (keyName :: CreateKeyPair -> Lude.Text) (\s a -> s {keyName = a} :: CreateKeyPair)
+ckpKeyName :: Lens.Lens' CreateKeyPair Types.String
+ckpKeyName = Lens.field @"keyName"
 {-# DEPRECATED ckpKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
-
--- | The tags to apply to the new key pair.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckpTagSpecifications :: Lens.Lens' CreateKeyPair (Lude.Maybe [TagSpecification])
-ckpTagSpecifications = Lens.lens (tagSpecifications :: CreateKeyPair -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateKeyPair)
-{-# DEPRECATED ckpTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckpDryRun :: Lens.Lens' CreateKeyPair (Lude.Maybe Lude.Bool)
-ckpDryRun = Lens.lens (dryRun :: CreateKeyPair -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateKeyPair)
+ckpDryRun :: Lens.Lens' CreateKeyPair (Core.Maybe Core.Bool)
+ckpDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ckpDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateKeyPair where
+-- | The tags to apply to the new key pair.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckpTagSpecifications :: Lens.Lens' CreateKeyPair (Core.Maybe [Types.TagSpecification])
+ckpTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ckpTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateKeyPair where
   type Rs CreateKeyPair = CreateKeyPairResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateKeyPair")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "KeyName" keyName)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateKeyPairResponse'
-            Lude.<$> (x Lude..@ "keyFingerprint")
-            Lude.<*> (x Lude..@ "keyName")
-            Lude.<*> (x Lude..@ "keyMaterial")
-            Lude.<*> (x Lude..@? "keyPairId")
-            Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "keyFingerprint")
+            Core.<*> (x Core..@ "keyMaterial")
+            Core.<*> (x Core..@ "keyName")
+            Core.<*> (x Core..@? "keyPairId")
+            Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateKeyPair where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateKeyPair where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateKeyPair where
-  toQuery CreateKeyPair' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateKeyPair" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "KeyName" Lude.=: keyName,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Describes a key pair.
 --
 -- /See:/ 'mkCreateKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
   { -- | The SHA-1 digest of the DER encoded private key.
-    keyFingerprint :: Lude.Text,
-    -- | The name of the key pair.
-    keyName :: Lude.Text,
+    keyFingerprint :: Types.String,
     -- | An unencrypted PEM encoded RSA private key.
-    keyMaterial :: Lude.Sensitive Lude.Text,
+    keyMaterial :: Types.SensitiveUserData,
+    -- | The name of the key pair.
+    keyName :: Types.String,
     -- | The ID of the key pair.
-    keyPairId :: Lude.Maybe Lude.Text,
+    keyPairId :: Core.Maybe Types.String,
     -- | Any tags applied to the key pair.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateKeyPairResponse' with the minimum fields required to make a request.
---
--- * 'keyFingerprint' - The SHA-1 digest of the DER encoded private key.
--- * 'keyName' - The name of the key pair.
--- * 'keyMaterial' - An unencrypted PEM encoded RSA private key.
--- * 'keyPairId' - The ID of the key pair.
--- * 'tags' - Any tags applied to the key pair.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateKeyPairResponse' value with any optional fields omitted.
 mkCreateKeyPairResponse ::
   -- | 'keyFingerprint'
-  Lude.Text ->
-  -- | 'keyName'
-  Lude.Text ->
+  Types.String ->
   -- | 'keyMaterial'
-  Lude.Sensitive Lude.Text ->
+  Types.SensitiveUserData ->
+  -- | 'keyName'
+  Types.String ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateKeyPairResponse
 mkCreateKeyPairResponse
-  pKeyFingerprint_
-  pKeyName_
-  pKeyMaterial_
-  pResponseStatus_ =
+  keyFingerprint
+  keyMaterial
+  keyName
+  responseStatus =
     CreateKeyPairResponse'
-      { keyFingerprint = pKeyFingerprint_,
-        keyName = pKeyName_,
-        keyMaterial = pKeyMaterial_,
-        keyPairId = Lude.Nothing,
-        tags = Lude.Nothing,
-        responseStatus = pResponseStatus_
+      { keyFingerprint,
+        keyMaterial,
+        keyName,
+        keyPairId = Core.Nothing,
+        tags = Core.Nothing,
+        responseStatus
       }
 
 -- | The SHA-1 digest of the DER encoded private key.
 --
 -- /Note:/ Consider using 'keyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsKeyFingerprint :: Lens.Lens' CreateKeyPairResponse Lude.Text
-ckprsKeyFingerprint = Lens.lens (keyFingerprint :: CreateKeyPairResponse -> Lude.Text) (\s a -> s {keyFingerprint = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsKeyFingerprint "Use generic-lens or generic-optics with 'keyFingerprint' instead." #-}
-
--- | The name of the key pair.
---
--- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsKeyName :: Lens.Lens' CreateKeyPairResponse Lude.Text
-ckprsKeyName = Lens.lens (keyName :: CreateKeyPairResponse -> Lude.Text) (\s a -> s {keyName = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
+ckprrsKeyFingerprint :: Lens.Lens' CreateKeyPairResponse Types.String
+ckprrsKeyFingerprint = Lens.field @"keyFingerprint"
+{-# DEPRECATED ckprrsKeyFingerprint "Use generic-lens or generic-optics with 'keyFingerprint' instead." #-}
 
 -- | An unencrypted PEM encoded RSA private key.
 --
 -- /Note:/ Consider using 'keyMaterial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsKeyMaterial :: Lens.Lens' CreateKeyPairResponse (Lude.Sensitive Lude.Text)
-ckprsKeyMaterial = Lens.lens (keyMaterial :: CreateKeyPairResponse -> Lude.Sensitive Lude.Text) (\s a -> s {keyMaterial = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsKeyMaterial "Use generic-lens or generic-optics with 'keyMaterial' instead." #-}
+ckprrsKeyMaterial :: Lens.Lens' CreateKeyPairResponse Types.SensitiveUserData
+ckprrsKeyMaterial = Lens.field @"keyMaterial"
+{-# DEPRECATED ckprrsKeyMaterial "Use generic-lens or generic-optics with 'keyMaterial' instead." #-}
+
+-- | The name of the key pair.
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckprrsKeyName :: Lens.Lens' CreateKeyPairResponse Types.String
+ckprrsKeyName = Lens.field @"keyName"
+{-# DEPRECATED ckprrsKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
 
 -- | The ID of the key pair.
 --
 -- /Note:/ Consider using 'keyPairId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsKeyPairId :: Lens.Lens' CreateKeyPairResponse (Lude.Maybe Lude.Text)
-ckprsKeyPairId = Lens.lens (keyPairId :: CreateKeyPairResponse -> Lude.Maybe Lude.Text) (\s a -> s {keyPairId = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsKeyPairId "Use generic-lens or generic-optics with 'keyPairId' instead." #-}
+ckprrsKeyPairId :: Lens.Lens' CreateKeyPairResponse (Core.Maybe Types.String)
+ckprrsKeyPairId = Lens.field @"keyPairId"
+{-# DEPRECATED ckprrsKeyPairId "Use generic-lens or generic-optics with 'keyPairId' instead." #-}
 
 -- | Any tags applied to the key pair.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsTags :: Lens.Lens' CreateKeyPairResponse (Lude.Maybe [Tag])
-ckprsTags = Lens.lens (tags :: CreateKeyPairResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ckprrsTags :: Lens.Lens' CreateKeyPairResponse (Core.Maybe [Types.Tag])
+ckprrsTags = Lens.field @"tags"
+{-# DEPRECATED ckprrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsResponseStatus :: Lens.Lens' CreateKeyPairResponse Lude.Int
-ckprsResponseStatus = Lens.lens (responseStatus :: CreateKeyPairResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ckprrsResponseStatus :: Lens.Lens' CreateKeyPairResponse Core.Int
+ckprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ckprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

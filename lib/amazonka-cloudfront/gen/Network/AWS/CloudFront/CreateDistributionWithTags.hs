@@ -27,137 +27,120 @@ module Network.AWS.CloudFront.CreateDistributionWithTags
     mkCreateDistributionWithTagsResponse,
 
     -- ** Response lenses
-    cdwtrsETag,
-    cdwtrsDistribution,
-    cdwtrsLocation,
-    cdwtrsResponseStatus,
+    cdwtrrsDistribution,
+    cdwtrrsETag,
+    cdwtrrsLocation,
+    cdwtrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to create a new distribution with tags.
 --
 -- /See:/ 'mkCreateDistributionWithTags' smart constructor.
 newtype CreateDistributionWithTags = CreateDistributionWithTags'
   { -- | The distribution's configuration information.
-    distributionConfigWithTags :: DistributionConfigWithTags
+    distributionConfigWithTags :: Types.DistributionConfigWithTags
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDistributionWithTags' with the minimum fields required to make a request.
---
--- * 'distributionConfigWithTags' - The distribution's configuration information.
+-- | Creates a 'CreateDistributionWithTags' value with any optional fields omitted.
 mkCreateDistributionWithTags ::
   -- | 'distributionConfigWithTags'
-  DistributionConfigWithTags ->
+  Types.DistributionConfigWithTags ->
   CreateDistributionWithTags
-mkCreateDistributionWithTags pDistributionConfigWithTags_ =
-  CreateDistributionWithTags'
-    { distributionConfigWithTags =
-        pDistributionConfigWithTags_
-    }
+mkCreateDistributionWithTags distributionConfigWithTags =
+  CreateDistributionWithTags' {distributionConfigWithTags}
 
 -- | The distribution's configuration information.
 --
 -- /Note:/ Consider using 'distributionConfigWithTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdwtDistributionConfigWithTags :: Lens.Lens' CreateDistributionWithTags DistributionConfigWithTags
-cdwtDistributionConfigWithTags = Lens.lens (distributionConfigWithTags :: CreateDistributionWithTags -> DistributionConfigWithTags) (\s a -> s {distributionConfigWithTags = a} :: CreateDistributionWithTags)
+cdwtDistributionConfigWithTags :: Lens.Lens' CreateDistributionWithTags Types.DistributionConfigWithTags
+cdwtDistributionConfigWithTags = Lens.field @"distributionConfigWithTags"
 {-# DEPRECATED cdwtDistributionConfigWithTags "Use generic-lens or generic-optics with 'distributionConfigWithTags' instead." #-}
 
-instance Lude.AWSRequest CreateDistributionWithTags where
+instance Core.AWSRequest CreateDistributionWithTags where
   type
     Rs CreateDistributionWithTags =
       CreateDistributionWithTagsResponse
-  request = Req.postXML cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2020-05-31/distribution",
+        Core._rqQuery = Core.pure ("WithTags", ""),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateDistributionWithTagsResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (h Lude..#? "Location")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseHeaderMaybe "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement CreateDistributionWithTags where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfigWithTags"
-      Lude.. distributionConfigWithTags
-
-instance Lude.ToHeaders CreateDistributionWithTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDistributionWithTags where
-  toPath = Lude.const "/2020-05-31/distribution"
-
-instance Lude.ToQuery CreateDistributionWithTags where
-  toQuery = Lude.const (Lude.mconcat ["WithTags"])
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'mkCreateDistributionWithTagsResponse' smart constructor.
 data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
-  { -- | The current version of the distribution created.
-    eTag :: Lude.Maybe Lude.Text,
-    -- | The distribution's information.
-    distribution :: Lude.Maybe Distribution,
+  { -- | The distribution's information.
+    distribution :: Core.Maybe Types.Distribution,
+    -- | The current version of the distribution created.
+    eTag :: Core.Maybe Types.ETag,
     -- | The fully qualified URI of the new distribution resource just created.
-    location :: Lude.Maybe Lude.Text,
+    location :: Core.Maybe Types.Location,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateDistributionWithTagsResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The current version of the distribution created.
--- * 'distribution' - The distribution's information.
--- * 'location' - The fully qualified URI of the new distribution resource just created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDistributionWithTagsResponse' value with any optional fields omitted.
 mkCreateDistributionWithTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDistributionWithTagsResponse
-mkCreateDistributionWithTagsResponse pResponseStatus_ =
+mkCreateDistributionWithTagsResponse responseStatus =
   CreateDistributionWithTagsResponse'
-    { eTag = Lude.Nothing,
-      distribution = Lude.Nothing,
-      location = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { distribution = Core.Nothing,
+      eTag = Core.Nothing,
+      location = Core.Nothing,
+      responseStatus
     }
-
--- | The current version of the distribution created.
---
--- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdwtrsETag :: Lens.Lens' CreateDistributionWithTagsResponse (Lude.Maybe Lude.Text)
-cdwtrsETag = Lens.lens (eTag :: CreateDistributionWithTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateDistributionWithTagsResponse)
-{-# DEPRECATED cdwtrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The distribution's information.
 --
 -- /Note:/ Consider using 'distribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdwtrsDistribution :: Lens.Lens' CreateDistributionWithTagsResponse (Lude.Maybe Distribution)
-cdwtrsDistribution = Lens.lens (distribution :: CreateDistributionWithTagsResponse -> Lude.Maybe Distribution) (\s a -> s {distribution = a} :: CreateDistributionWithTagsResponse)
-{-# DEPRECATED cdwtrsDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
+cdwtrrsDistribution :: Lens.Lens' CreateDistributionWithTagsResponse (Core.Maybe Types.Distribution)
+cdwtrrsDistribution = Lens.field @"distribution"
+{-# DEPRECATED cdwtrrsDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
+
+-- | The current version of the distribution created.
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdwtrrsETag :: Lens.Lens' CreateDistributionWithTagsResponse (Core.Maybe Types.ETag)
+cdwtrrsETag = Lens.field @"eTag"
+{-# DEPRECATED cdwtrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The fully qualified URI of the new distribution resource just created.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdwtrsLocation :: Lens.Lens' CreateDistributionWithTagsResponse (Lude.Maybe Lude.Text)
-cdwtrsLocation = Lens.lens (location :: CreateDistributionWithTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateDistributionWithTagsResponse)
-{-# DEPRECATED cdwtrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+cdwtrrsLocation :: Lens.Lens' CreateDistributionWithTagsResponse (Core.Maybe Types.Location)
+cdwtrrsLocation = Lens.field @"location"
+{-# DEPRECATED cdwtrrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdwtrsResponseStatus :: Lens.Lens' CreateDistributionWithTagsResponse Lude.Int
-cdwtrsResponseStatus = Lens.lens (responseStatus :: CreateDistributionWithTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDistributionWithTagsResponse)
-{-# DEPRECATED cdwtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdwtrrsResponseStatus :: Lens.Lens' CreateDistributionWithTagsResponse Core.Int
+cdwtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdwtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

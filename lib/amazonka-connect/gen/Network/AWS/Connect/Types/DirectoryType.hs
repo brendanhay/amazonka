@@ -13,51 +13,56 @@
 module Network.AWS.Connect.Types.DirectoryType
   ( DirectoryType
       ( DirectoryType',
-        Saml,
-        ConnectManaged,
-        ExistingDirectory
+        DirectoryTypeSaml,
+        DirectoryTypeConnectManaged,
+        DirectoryTypeExistingDirectory,
+        fromDirectoryType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DirectoryType = DirectoryType' Lude.Text
+newtype DirectoryType = DirectoryType'
+  { fromDirectoryType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Saml :: DirectoryType
-pattern Saml = DirectoryType' "SAML"
+pattern DirectoryTypeSaml :: DirectoryType
+pattern DirectoryTypeSaml = DirectoryType' "SAML"
 
-pattern ConnectManaged :: DirectoryType
-pattern ConnectManaged = DirectoryType' "CONNECT_MANAGED"
+pattern DirectoryTypeConnectManaged :: DirectoryType
+pattern DirectoryTypeConnectManaged = DirectoryType' "CONNECT_MANAGED"
 
-pattern ExistingDirectory :: DirectoryType
-pattern ExistingDirectory = DirectoryType' "EXISTING_DIRECTORY"
+pattern DirectoryTypeExistingDirectory :: DirectoryType
+pattern DirectoryTypeExistingDirectory = DirectoryType' "EXISTING_DIRECTORY"
 
 {-# COMPLETE
-  Saml,
-  ConnectManaged,
-  ExistingDirectory,
+  DirectoryTypeSaml,
+  DirectoryTypeConnectManaged,
+  DirectoryTypeExistingDirectory,
   DirectoryType'
   #-}

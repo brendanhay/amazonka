@@ -21,36 +21,34 @@ module Network.AWS.ElasticBeanstalk.Types.ApplicationDescriptionMessage
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.ApplicationDescription
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Result message containing a single description of an application.
 --
 -- /See:/ 'mkApplicationDescriptionMessage' smart constructor.
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
   { -- | The 'ApplicationDescription' of the application.
-    application :: Lude.Maybe ApplicationDescription
+    application :: Core.Maybe Types.ApplicationDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'ApplicationDescriptionMessage' with the minimum fields required to make a request.
---
--- * 'application' - The 'ApplicationDescription' of the application.
+-- | Creates a 'ApplicationDescriptionMessage' value with any optional fields omitted.
 mkApplicationDescriptionMessage ::
   ApplicationDescriptionMessage
 mkApplicationDescriptionMessage =
-  ApplicationDescriptionMessage' {application = Lude.Nothing}
+  ApplicationDescriptionMessage' {application = Core.Nothing}
 
 -- | The 'ApplicationDescription' of the application.
 --
 -- /Note:/ Consider using 'application' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admApplication :: Lens.Lens' ApplicationDescriptionMessage (Lude.Maybe ApplicationDescription)
-admApplication = Lens.lens (application :: ApplicationDescriptionMessage -> Lude.Maybe ApplicationDescription) (\s a -> s {application = a} :: ApplicationDescriptionMessage)
+admApplication :: Lens.Lens' ApplicationDescriptionMessage (Core.Maybe Types.ApplicationDescription)
+admApplication = Lens.field @"application"
 {-# DEPRECATED admApplication "Use generic-lens or generic-optics with 'application' instead." #-}
 
-instance Lude.FromXML ApplicationDescriptionMessage where
+instance Core.FromXML ApplicationDescriptionMessage where
   parseXML x =
     ApplicationDescriptionMessage'
-      Lude.<$> (x Lude..@? "Application")
+      Core.<$> (x Core..@? "Application")

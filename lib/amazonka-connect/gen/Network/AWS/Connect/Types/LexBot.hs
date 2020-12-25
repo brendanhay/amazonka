@@ -22,57 +22,54 @@ module Network.AWS.Connect.Types.LexBot
   )
 where
 
+import qualified Network.AWS.Connect.Types.LexRegion as Types
+import qualified Network.AWS.Connect.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information of an Amazon Lex bot.
 --
 -- /See:/ 'mkLexBot' smart constructor.
 data LexBot = LexBot'
   { -- | The Region the Amazon Lex bot was created in.
-    lexRegion :: Lude.Maybe Lude.Text,
+    lexRegion :: Core.Maybe Types.LexRegion,
     -- | The name of the Amazon Lex bot.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LexBot' with the minimum fields required to make a request.
---
--- * 'lexRegion' - The Region the Amazon Lex bot was created in.
--- * 'name' - The name of the Amazon Lex bot.
+-- | Creates a 'LexBot' value with any optional fields omitted.
 mkLexBot ::
   LexBot
-mkLexBot = LexBot' {lexRegion = Lude.Nothing, name = Lude.Nothing}
+mkLexBot = LexBot' {lexRegion = Core.Nothing, name = Core.Nothing}
 
 -- | The Region the Amazon Lex bot was created in.
 --
 -- /Note:/ Consider using 'lexRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbLexRegion :: Lens.Lens' LexBot (Lude.Maybe Lude.Text)
-lbLexRegion = Lens.lens (lexRegion :: LexBot -> Lude.Maybe Lude.Text) (\s a -> s {lexRegion = a} :: LexBot)
+lbLexRegion :: Lens.Lens' LexBot (Core.Maybe Types.LexRegion)
+lbLexRegion = Lens.field @"lexRegion"
 {-# DEPRECATED lbLexRegion "Use generic-lens or generic-optics with 'lexRegion' instead." #-}
 
 -- | The name of the Amazon Lex bot.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbName :: Lens.Lens' LexBot (Lude.Maybe Lude.Text)
-lbName = Lens.lens (name :: LexBot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LexBot)
+lbName :: Lens.Lens' LexBot (Core.Maybe Types.Name)
+lbName = Lens.field @"name"
 {-# DEPRECATED lbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON LexBot where
-  parseJSON =
-    Lude.withObject
-      "LexBot"
-      ( \x ->
-          LexBot'
-            Lude.<$> (x Lude..:? "LexRegion") Lude.<*> (x Lude..:? "Name")
-      )
-
-instance Lude.ToJSON LexBot where
-  toJSON LexBot' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("LexRegion" Lude..=) Lude.<$> lexRegion,
-            ("Name" Lude..=) Lude.<$> name
+instance Core.FromJSON LexBot where
+  toJSON LexBot {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("LexRegion" Core..=) Core.<$> lexRegion,
+            ("Name" Core..=) Core.<$> name
           ]
       )
+
+instance Core.FromJSON LexBot where
+  parseJSON =
+    Core.withObject "LexBot" Core.$
+      \x ->
+        LexBot'
+          Core.<$> (x Core..:? "LexRegion") Core.<*> (x Core..:? "Name")

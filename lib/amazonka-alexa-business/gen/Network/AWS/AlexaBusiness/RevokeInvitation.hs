@@ -21,115 +21,103 @@ module Network.AWS.AlexaBusiness.RevokeInvitation
 
     -- ** Request lenses
     riEnrollmentId,
-    riUserARN,
+    riUserArn,
 
     -- * Destructuring the response
     RevokeInvitationResponse (..),
     mkRevokeInvitationResponse,
 
     -- ** Response lenses
-    rirsResponseStatus,
+    rirrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRevokeInvitation' smart constructor.
 data RevokeInvitation = RevokeInvitation'
   { -- | The ARN of the enrollment invitation to revoke. Required.
-    enrollmentId :: Lude.Maybe Lude.Text,
+    enrollmentId :: Core.Maybe Types.EnrollmentId,
     -- | The ARN of the user for whom to revoke an enrollment invitation. Required.
-    userARN :: Lude.Maybe Lude.Text
+    userArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RevokeInvitation' with the minimum fields required to make a request.
---
--- * 'enrollmentId' - The ARN of the enrollment invitation to revoke. Required.
--- * 'userARN' - The ARN of the user for whom to revoke an enrollment invitation. Required.
+-- | Creates a 'RevokeInvitation' value with any optional fields omitted.
 mkRevokeInvitation ::
   RevokeInvitation
 mkRevokeInvitation =
   RevokeInvitation'
-    { enrollmentId = Lude.Nothing,
-      userARN = Lude.Nothing
+    { enrollmentId = Core.Nothing,
+      userArn = Core.Nothing
     }
 
 -- | The ARN of the enrollment invitation to revoke. Required.
 --
 -- /Note:/ Consider using 'enrollmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riEnrollmentId :: Lens.Lens' RevokeInvitation (Lude.Maybe Lude.Text)
-riEnrollmentId = Lens.lens (enrollmentId :: RevokeInvitation -> Lude.Maybe Lude.Text) (\s a -> s {enrollmentId = a} :: RevokeInvitation)
+riEnrollmentId :: Lens.Lens' RevokeInvitation (Core.Maybe Types.EnrollmentId)
+riEnrollmentId = Lens.field @"enrollmentId"
 {-# DEPRECATED riEnrollmentId "Use generic-lens or generic-optics with 'enrollmentId' instead." #-}
 
 -- | The ARN of the user for whom to revoke an enrollment invitation. Required.
 --
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riUserARN :: Lens.Lens' RevokeInvitation (Lude.Maybe Lude.Text)
-riUserARN = Lens.lens (userARN :: RevokeInvitation -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: RevokeInvitation)
-{-# DEPRECATED riUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riUserArn :: Lens.Lens' RevokeInvitation (Core.Maybe Types.Arn)
+riUserArn = Lens.field @"userArn"
+{-# DEPRECATED riUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
-instance Lude.AWSRequest RevokeInvitation where
+instance Core.FromJSON RevokeInvitation where
+  toJSON RevokeInvitation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EnrollmentId" Core..=) Core.<$> enrollmentId,
+            ("UserArn" Core..=) Core.<$> userArn
+          ]
+      )
+
+instance Core.AWSRequest RevokeInvitation where
   type Rs RevokeInvitation = RevokeInvitationResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.RevokeInvitation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          RevokeInvitationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RevokeInvitationResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RevokeInvitation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.RevokeInvitation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RevokeInvitation where
-  toJSON RevokeInvitation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EnrollmentId" Lude..=) Lude.<$> enrollmentId,
-            ("UserArn" Lude..=) Lude.<$> userARN
-          ]
-      )
-
-instance Lude.ToPath RevokeInvitation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RevokeInvitation where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRevokeInvitationResponse' smart constructor.
 newtype RevokeInvitationResponse = RevokeInvitationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RevokeInvitationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RevokeInvitationResponse' value with any optional fields omitted.
 mkRevokeInvitationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RevokeInvitationResponse
-mkRevokeInvitationResponse pResponseStatus_ =
-  RevokeInvitationResponse' {responseStatus = pResponseStatus_}
+mkRevokeInvitationResponse responseStatus =
+  RevokeInvitationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rirsResponseStatus :: Lens.Lens' RevokeInvitationResponse Lude.Int
-rirsResponseStatus = Lens.lens (responseStatus :: RevokeInvitationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RevokeInvitationResponse)
-{-# DEPRECATED rirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rirrsResponseStatus :: Lens.Lens' RevokeInvitationResponse Core.Int
+rirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

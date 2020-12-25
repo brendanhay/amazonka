@@ -13,96 +13,98 @@
 module Network.AWS.MechanicalTurk.Types.EventType
   ( EventType
       ( EventType',
-        AssignmentAccepted,
-        AssignmentAbandoned,
-        AssignmentReturned,
-        AssignmentSubmitted,
-        AssignmentRejected,
-        AssignmentApproved,
-        HITCreated,
-        HITExpired,
-        HITReviewable,
-        HITExtended,
-        HITDisposed,
-        Ping
+        EventTypeAssignmentAccepted,
+        EventTypeAssignmentAbandoned,
+        EventTypeAssignmentReturned,
+        EventTypeAssignmentSubmitted,
+        EventTypeAssignmentRejected,
+        EventTypeAssignmentApproved,
+        EventTypeHITCreated,
+        EventTypeHITExpired,
+        EventTypeHITReviewable,
+        EventTypeHITExtended,
+        EventTypeHITDisposed,
+        EventTypePing,
+        fromEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventType = EventType' Lude.Text
+newtype EventType = EventType' {fromEventType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AssignmentAccepted :: EventType
-pattern AssignmentAccepted = EventType' "AssignmentAccepted"
+pattern EventTypeAssignmentAccepted :: EventType
+pattern EventTypeAssignmentAccepted = EventType' "AssignmentAccepted"
 
-pattern AssignmentAbandoned :: EventType
-pattern AssignmentAbandoned = EventType' "AssignmentAbandoned"
+pattern EventTypeAssignmentAbandoned :: EventType
+pattern EventTypeAssignmentAbandoned = EventType' "AssignmentAbandoned"
 
-pattern AssignmentReturned :: EventType
-pattern AssignmentReturned = EventType' "AssignmentReturned"
+pattern EventTypeAssignmentReturned :: EventType
+pattern EventTypeAssignmentReturned = EventType' "AssignmentReturned"
 
-pattern AssignmentSubmitted :: EventType
-pattern AssignmentSubmitted = EventType' "AssignmentSubmitted"
+pattern EventTypeAssignmentSubmitted :: EventType
+pattern EventTypeAssignmentSubmitted = EventType' "AssignmentSubmitted"
 
-pattern AssignmentRejected :: EventType
-pattern AssignmentRejected = EventType' "AssignmentRejected"
+pattern EventTypeAssignmentRejected :: EventType
+pattern EventTypeAssignmentRejected = EventType' "AssignmentRejected"
 
-pattern AssignmentApproved :: EventType
-pattern AssignmentApproved = EventType' "AssignmentApproved"
+pattern EventTypeAssignmentApproved :: EventType
+pattern EventTypeAssignmentApproved = EventType' "AssignmentApproved"
 
-pattern HITCreated :: EventType
-pattern HITCreated = EventType' "HITCreated"
+pattern EventTypeHITCreated :: EventType
+pattern EventTypeHITCreated = EventType' "HITCreated"
 
-pattern HITExpired :: EventType
-pattern HITExpired = EventType' "HITExpired"
+pattern EventTypeHITExpired :: EventType
+pattern EventTypeHITExpired = EventType' "HITExpired"
 
-pattern HITReviewable :: EventType
-pattern HITReviewable = EventType' "HITReviewable"
+pattern EventTypeHITReviewable :: EventType
+pattern EventTypeHITReviewable = EventType' "HITReviewable"
 
-pattern HITExtended :: EventType
-pattern HITExtended = EventType' "HITExtended"
+pattern EventTypeHITExtended :: EventType
+pattern EventTypeHITExtended = EventType' "HITExtended"
 
-pattern HITDisposed :: EventType
-pattern HITDisposed = EventType' "HITDisposed"
+pattern EventTypeHITDisposed :: EventType
+pattern EventTypeHITDisposed = EventType' "HITDisposed"
 
-pattern Ping :: EventType
-pattern Ping = EventType' "Ping"
+pattern EventTypePing :: EventType
+pattern EventTypePing = EventType' "Ping"
 
 {-# COMPLETE
-  AssignmentAccepted,
-  AssignmentAbandoned,
-  AssignmentReturned,
-  AssignmentSubmitted,
-  AssignmentRejected,
-  AssignmentApproved,
-  HITCreated,
-  HITExpired,
-  HITReviewable,
-  HITExtended,
-  HITDisposed,
-  Ping,
+  EventTypeAssignmentAccepted,
+  EventTypeAssignmentAbandoned,
+  EventTypeAssignmentReturned,
+  EventTypeAssignmentSubmitted,
+  EventTypeAssignmentRejected,
+  EventTypeAssignmentApproved,
+  EventTypeHITCreated,
+  EventTypeHITExpired,
+  EventTypeHITReviewable,
+  EventTypeHITExtended,
+  EventTypeHITDisposed,
+  EventTypePing,
   EventType'
   #-}

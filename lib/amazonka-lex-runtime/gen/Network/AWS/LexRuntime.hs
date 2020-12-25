@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,43 @@
 -- Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of operations (API). Your conversational bot uses the runtime API to understand user utterances (user input text or voice). For example, suppose a user says "I want pizza", your bot sends this input to Amazon Lex using the runtime API. Amazon Lex recognizes that the user request is for the OrderPizza intent (one of the intents defined in the bot). Then Amazon Lex engages in user conversation on behalf of the bot to elicit required information (slot values, such as pizza size and crust type), and then performs fulfillment activity (that you configured when you created the bot). You use the build-time API to create and manage your Amazon Lex bot. For a list of build-time operations, see the build-time API, .
 module Network.AWS.LexRuntime
   ( -- * Service configuration
-    lexRuntimeService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** NotAcceptableException
+    _NotAcceptableException,
+
+    -- ** DependencyFailedException
+    _DependencyFailedException,
+
+    -- ** UnsupportedMediaTypeException
+    _UnsupportedMediaTypeException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** RequestTimeoutException
+    _RequestTimeoutException,
+
+    -- ** LoopDetectedException
+    _LoopDetectedException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** BadGatewayException
+    _BadGatewayException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -42,36 +74,59 @@ module Network.AWS.LexRuntime
 
     -- * Types
 
-    -- ** ConfirmationStatus
-    ConfirmationStatus (..),
+    -- ** ActiveContextName
+    ActiveContextName (..),
 
-    -- ** ContentType
-    ContentType (..),
+    -- ** SentimentResponse
+    SentimentResponse (..),
+    mkSentimentResponse,
+    srSentimentLabel,
+    srSentimentScore,
 
-    -- ** DialogActionType
-    DialogActionType (..),
+    -- ** BotAlias
+    BotAlias (..),
 
-    -- ** DialogState
-    DialogState (..),
+    -- ** ResponseCard
+    ResponseCard (..),
+    mkResponseCard,
+    rcContentType,
+    rcGenericAttachments,
+    rcVersion,
 
-    -- ** FulfillmentState
-    FulfillmentState (..),
+    -- ** String
+    String (..),
+
+    -- ** Text
+    Text (..),
+
+    -- ** IntentConfidence
+    IntentConfidence (..),
+    mkIntentConfidence,
+    icScore,
 
     -- ** MessageFormatType
     MessageFormatType (..),
 
-    -- ** ActiveContext
-    ActiveContext (..),
-    mkActiveContext,
-    acTimeToLive,
-    acName,
-    acParameters,
+    -- ** Accept
+    Accept (..),
 
-    -- ** ActiveContextTimeToLive
-    ActiveContextTimeToLive (..),
-    mkActiveContextTimeToLive,
-    acttlTurnsToLive,
-    acttlTimeToLiveInSeconds,
+    -- ** StringWithLength
+    StringWithLength (..),
+
+    -- ** BotVersion
+    BotVersion (..),
+
+    -- ** IntentName
+    IntentName (..),
+
+    -- ** DialogActionType
+    DialogActionType (..),
+
+    -- ** ButtonValueStringWithLength
+    ButtonValueStringWithLength (..),
+
+    -- ** BotName
+    BotName (..),
 
     -- ** Button
     Button (..),
@@ -79,71 +134,139 @@ module Network.AWS.LexRuntime
     bText,
     bValue,
 
-    -- ** DialogAction
-    DialogAction (..),
-    mkDialogAction,
-    daSlots,
-    daIntentName,
-    daFulfillmentState,
-    daType,
-    daMessageFormat,
-    daMessage,
-    daSlotToElicit,
+    -- ** HttpContentType
+    HttpContentType (..),
 
-    -- ** GenericAttachment
-    GenericAttachment (..),
-    mkGenericAttachment,
-    gaButtons,
-    gaSubTitle,
-    gaImageURL,
-    gaAttachmentLinkURL,
-    gaTitle,
+    -- ** UserId
+    UserId (..),
 
-    -- ** IntentConfidence
-    IntentConfidence (..),
-    mkIntentConfidence,
-    icScore,
+    -- ** IntentSummaryCheckpointLabel
+    IntentSummaryCheckpointLabel (..),
 
-    -- ** IntentSummary
-    IntentSummary (..),
-    mkIntentSummary,
-    isCheckpointLabel,
-    isSlots,
-    isIntentName,
-    isDialogActionType,
-    isFulfillmentState,
-    isConfirmationStatus,
-    isSlotToElicit,
+    -- ** SentimentScore
+    SentimentScore (..),
+
+    -- ** DialogState
+    DialogState (..),
+
+    -- ** FulfillmentState
+    FulfillmentState (..),
 
     -- ** PredictedIntent
     PredictedIntent (..),
     mkPredictedIntent,
+    piIntentName,
     piNluIntentConfidence,
     piSlots,
-    piIntentName,
 
-    -- ** ResponseCard
-    ResponseCard (..),
-    mkResponseCard,
-    rcGenericAttachments,
-    rcVersion,
-    rcContentType,
+    -- ** GenericAttachment
+    GenericAttachment (..),
+    mkGenericAttachment,
+    gaAttachmentLinkUrl,
+    gaButtons,
+    gaImageUrl,
+    gaSubTitle,
+    gaTitle,
 
-    -- ** SentimentResponse
-    SentimentResponse (..),
-    mkSentimentResponse,
-    sSentimentScore,
-    sSentimentLabel,
+    -- ** IntentSummary
+    IntentSummary (..),
+    mkIntentSummary,
+    isDialogActionType,
+    isCheckpointLabel,
+    isConfirmationStatus,
+    isFulfillmentState,
+    isIntentName,
+    isSlotToElicit,
+    isSlots,
+
+    -- ** ConfirmationStatus
+    ConfirmationStatus (..),
+
+    -- ** ActiveContext
+    ActiveContext (..),
+    mkActiveContext,
+    acName,
+    acTimeToLive,
+    acParameters,
+
+    -- ** ActiveContextTimeToLive
+    ActiveContextTimeToLive (..),
+    mkActiveContextTimeToLive,
+    acttlTimeToLiveInSeconds,
+    acttlTurnsToLive,
+
+    -- ** ParameterName
+    ParameterName (..),
+
+    -- ** DialogAction
+    DialogAction (..),
+    mkDialogAction,
+    daType,
+    daFulfillmentState,
+    daIntentName,
+    daMessage,
+    daMessageFormat,
+    daSlotToElicit,
+    daSlots,
+
+    -- ** SentimentLabel
+    SentimentLabel (..),
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** ActiveContexts
+    ActiveContexts (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** SessionAttributes
+    SessionAttributes (..),
+
+    -- ** SessionId
+    SessionId (..),
+
+    -- ** SlotToElicit
+    SlotToElicit (..),
+
+    -- ** Slots
+    Slots (..),
+
+    -- ** InputText
+    InputText (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** AlternativeIntents
+    AlternativeIntents (..),
+
+    -- ** InputTranscript
+    InputTranscript (..),
+
+    -- ** NluIntentConfidence
+    NluIntentConfidence (..),
+
+    -- ** RequestAttributes
+    RequestAttributes (..),
+
+    -- ** CheckpointLabelFilter
+    CheckpointLabelFilter (..),
+
+    -- ** AttachmentLinkUrl
+    AttachmentLinkUrl (..),
+
+    -- ** ImageUrl
+    ImageUrl (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

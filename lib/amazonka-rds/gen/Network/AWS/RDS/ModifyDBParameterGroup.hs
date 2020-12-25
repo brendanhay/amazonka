@@ -22,23 +22,23 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     mkModifyDBParameterGroup,
 
     -- ** Request lenses
-    mdpgDBParameterGroupName,
-    mdpgParameters,
+    mdbpgDBParameterGroupName,
+    mdbpgParameters,
 
     -- * Destructuring the response
-    DBParameterGroupNameMessage (..),
-    mkDBParameterGroupNameMessage,
+    Types.DBParameterGroupNameMessage (..),
+    Types.mkDBParameterGroupNameMessage,
 
     -- ** Response lenses
-    dpgnmDBParameterGroupName,
+    Types.dbpgnmDBParameterGroupName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -49,36 +49,24 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup'
     -- Constraints:
     --
     --     * If supplied, must match the name of an existing @DBParameterGroup@ .
-    dbParameterGroupName :: Lude.Text,
+    dBParameterGroupName :: Types.String,
     -- | An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.
     --
     -- Valid Values (for the application method): @immediate | pending-reboot@
-    parameters :: [Parameter]
+    parameters :: [Types.Parameter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyDBParameterGroup' with the minimum fields required to make a request.
---
--- * 'dbParameterGroupName' - The name of the DB parameter group.
---
--- Constraints:
---
---     * If supplied, must match the name of an existing @DBParameterGroup@ .
---
---
--- * 'parameters' - An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.
---
--- Valid Values (for the application method): @immediate | pending-reboot@
+-- | Creates a 'ModifyDBParameterGroup' value with any optional fields omitted.
 mkModifyDBParameterGroup ::
-  -- | 'dbParameterGroupName'
-  Lude.Text ->
+  -- | 'dBParameterGroupName'
+  Types.String ->
   ModifyDBParameterGroup
-mkModifyDBParameterGroup pDBParameterGroupName_ =
+mkModifyDBParameterGroup dBParameterGroupName =
   ModifyDBParameterGroup'
-    { dbParameterGroupName =
-        pDBParameterGroupName_,
-      parameters = Lude.mempty
+    { dBParameterGroupName,
+      parameters = Core.mempty
     }
 
 -- | The name of the DB parameter group.
@@ -89,39 +77,45 @@ mkModifyDBParameterGroup pDBParameterGroupName_ =
 --
 --
 --
--- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpgDBParameterGroupName :: Lens.Lens' ModifyDBParameterGroup Lude.Text
-mdpgDBParameterGroupName = Lens.lens (dbParameterGroupName :: ModifyDBParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupName = a} :: ModifyDBParameterGroup)
-{-# DEPRECATED mdpgDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'dBParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdbpgDBParameterGroupName :: Lens.Lens' ModifyDBParameterGroup Types.String
+mdbpgDBParameterGroupName = Lens.field @"dBParameterGroupName"
+{-# DEPRECATED mdbpgDBParameterGroupName "Use generic-lens or generic-optics with 'dBParameterGroupName' instead." #-}
 
 -- | An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.
 --
 -- Valid Values (for the application method): @immediate | pending-reboot@
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpgParameters :: Lens.Lens' ModifyDBParameterGroup [Parameter]
-mdpgParameters = Lens.lens (parameters :: ModifyDBParameterGroup -> [Parameter]) (\s a -> s {parameters = a} :: ModifyDBParameterGroup)
-{-# DEPRECATED mdpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+mdbpgParameters :: Lens.Lens' ModifyDBParameterGroup [Types.Parameter]
+mdbpgParameters = Lens.field @"parameters"
+{-# DEPRECATED mdbpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance Lude.AWSRequest ModifyDBParameterGroup where
-  type Rs ModifyDBParameterGroup = DBParameterGroupNameMessage
-  request = Req.postQuery rdsService
+instance Core.AWSRequest ModifyDBParameterGroup where
+  type Rs ModifyDBParameterGroup = Types.DBParameterGroupNameMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyDBParameterGroup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBParameterGroupName" dBParameterGroupName)
+                Core.<> ( Core.toQueryValue
+                            "Parameters"
+                            (Core.toQueryList "Parameter" parameters)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifyDBParameterGroupResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ModifyDBParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyDBParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyDBParameterGroup where
-  toQuery ModifyDBParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyDBParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBParameterGroupName" Lude.=: dbParameterGroupName,
-        "Parameters" Lude.=: Lude.toQueryList "Parameter" parameters
-      ]
+      (\s h x -> Core.parseXML x)

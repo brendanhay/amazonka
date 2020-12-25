@@ -23,174 +23,167 @@ module Network.AWS.ResourceGroups.SearchResources
 
     -- ** Request lenses
     srResourceQuery,
-    srNextToken,
     srMaxResults,
+    srNextToken,
 
     -- * Destructuring the response
     SearchResourcesResponse (..),
     mkSearchResourcesResponse,
 
     -- ** Response lenses
-    srrsQueryErrors,
-    srrsNextToken,
-    srrsResourceIdentifiers,
-    srrsResponseStatus,
+    srrrsNextToken,
+    srrrsQueryErrors,
+    srrrsResourceIdentifiers,
+    srrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroups.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroups.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSearchResources' smart constructor.
 data SearchResources = SearchResources'
   { -- | The search query, using the same formats that are supported for resource group definition. For more information, see 'CreateGroup' .
-    resourceQuery :: ResourceQuery,
-    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
-    nextToken :: Lude.Maybe Lude.Text,
+    resourceQuery :: Types.ResourceQuery,
     -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchResources' with the minimum fields required to make a request.
---
--- * 'resourceQuery' - The search query, using the same formats that are supported for resource group definition. For more information, see 'CreateGroup' .
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
--- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+-- | Creates a 'SearchResources' value with any optional fields omitted.
 mkSearchResources ::
   -- | 'resourceQuery'
-  ResourceQuery ->
+  Types.ResourceQuery ->
   SearchResources
-mkSearchResources pResourceQuery_ =
+mkSearchResources resourceQuery =
   SearchResources'
-    { resourceQuery = pResourceQuery_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { resourceQuery,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The search query, using the same formats that are supported for resource group definition. For more information, see 'CreateGroup' .
 --
 -- /Note:/ Consider using 'resourceQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srResourceQuery :: Lens.Lens' SearchResources ResourceQuery
-srResourceQuery = Lens.lens (resourceQuery :: SearchResources -> ResourceQuery) (\s a -> s {resourceQuery = a} :: SearchResources)
+srResourceQuery :: Lens.Lens' SearchResources Types.ResourceQuery
+srResourceQuery = Lens.field @"resourceQuery"
 {-# DEPRECATED srResourceQuery "Use generic-lens or generic-optics with 'resourceQuery' instead." #-}
-
--- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srNextToken :: Lens.Lens' SearchResources (Lude.Maybe Lude.Text)
-srNextToken = Lens.lens (nextToken :: SearchResources -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchResources)
-{-# DEPRECATED srNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srMaxResults :: Lens.Lens' SearchResources (Lude.Maybe Lude.Natural)
-srMaxResults = Lens.lens (maxResults :: SearchResources -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchResources)
+srMaxResults :: Lens.Lens' SearchResources (Core.Maybe Core.Natural)
+srMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED srMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager SearchResources where
-  page rq rs
-    | Page.stop (rs Lens.^. srrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. srrsResourceIdentifiers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& srNextToken Lens..~ rs Lens.^. srrsNextToken
+-- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srNextToken :: Lens.Lens' SearchResources (Core.Maybe Types.NextToken)
+srNextToken = Lens.field @"nextToken"
+{-# DEPRECATED srNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest SearchResources where
-  type Rs SearchResources = SearchResourcesResponse
-  request = Req.postJSON resourceGroupsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          SearchResourcesResponse'
-            Lude.<$> (x Lude..?> "QueryErrors" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "ResourceIdentifiers" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders SearchResources where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON SearchResources where
-  toJSON SearchResources' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceQuery" Lude..= resourceQuery),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+instance Core.FromJSON SearchResources where
+  toJSON SearchResources {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceQuery" Core..= resourceQuery),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )
 
-instance Lude.ToPath SearchResources where
-  toPath = Lude.const "/resources/search"
+instance Core.AWSRequest SearchResources where
+  type Rs SearchResources = SearchResourcesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/resources/search",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          SearchResourcesResponse'
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "QueryErrors")
+            Core.<*> (x Core..:? "ResourceIdentifiers")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
-instance Lude.ToQuery SearchResources where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager SearchResources where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"resourceIdentifiers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkSearchResourcesResponse' smart constructor.
 data SearchResourcesResponse = SearchResourcesResponse'
-  { -- | A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
-    queryErrors :: Lude.Maybe [QueryError],
-    -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
+    queryErrors :: Core.Maybe [Types.QueryError],
     -- | The ARNs and resource types of resources that are members of the group that you specified.
-    resourceIdentifiers :: Lude.Maybe [ResourceIdentifier],
+    resourceIdentifiers :: Core.Maybe [Types.ResourceIdentifier],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchResourcesResponse' with the minimum fields required to make a request.
---
--- * 'queryErrors' - A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
--- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
--- * 'resourceIdentifiers' - The ARNs and resource types of resources that are members of the group that you specified.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SearchResourcesResponse' value with any optional fields omitted.
 mkSearchResourcesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SearchResourcesResponse
-mkSearchResourcesResponse pResponseStatus_ =
+mkSearchResourcesResponse responseStatus =
   SearchResourcesResponse'
-    { queryErrors = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      resourceIdentifiers = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      queryErrors = Core.Nothing,
+      resourceIdentifiers = Core.Nothing,
+      responseStatus
     }
-
--- | A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
---
--- /Note:/ Consider using 'queryErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srrsQueryErrors :: Lens.Lens' SearchResourcesResponse (Lude.Maybe [QueryError])
-srrsQueryErrors = Lens.lens (queryErrors :: SearchResourcesResponse -> Lude.Maybe [QueryError]) (\s a -> s {queryErrors = a} :: SearchResourcesResponse)
-{-# DEPRECATED srrsQueryErrors "Use generic-lens or generic-optics with 'queryErrors' instead." #-}
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srrsNextToken :: Lens.Lens' SearchResourcesResponse (Lude.Maybe Lude.Text)
-srrsNextToken = Lens.lens (nextToken :: SearchResourcesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchResourcesResponse)
-{-# DEPRECATED srrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+srrrsNextToken :: Lens.Lens' SearchResourcesResponse (Core.Maybe Types.NextToken)
+srrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED srrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
+--
+-- /Note:/ Consider using 'queryErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrrsQueryErrors :: Lens.Lens' SearchResourcesResponse (Core.Maybe [Types.QueryError])
+srrrsQueryErrors = Lens.field @"queryErrors"
+{-# DEPRECATED srrrsQueryErrors "Use generic-lens or generic-optics with 'queryErrors' instead." #-}
 
 -- | The ARNs and resource types of resources that are members of the group that you specified.
 --
 -- /Note:/ Consider using 'resourceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srrsResourceIdentifiers :: Lens.Lens' SearchResourcesResponse (Lude.Maybe [ResourceIdentifier])
-srrsResourceIdentifiers = Lens.lens (resourceIdentifiers :: SearchResourcesResponse -> Lude.Maybe [ResourceIdentifier]) (\s a -> s {resourceIdentifiers = a} :: SearchResourcesResponse)
-{-# DEPRECATED srrsResourceIdentifiers "Use generic-lens or generic-optics with 'resourceIdentifiers' instead." #-}
+srrrsResourceIdentifiers :: Lens.Lens' SearchResourcesResponse (Core.Maybe [Types.ResourceIdentifier])
+srrrsResourceIdentifiers = Lens.field @"resourceIdentifiers"
+{-# DEPRECATED srrrsResourceIdentifiers "Use generic-lens or generic-optics with 'resourceIdentifiers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srrsResponseStatus :: Lens.Lens' SearchResourcesResponse Lude.Int
-srrsResponseStatus = Lens.lens (responseStatus :: SearchResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchResourcesResponse)
-{-# DEPRECATED srrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srrrsResponseStatus :: Lens.Lens' SearchResourcesResponse Core.Int
+srrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

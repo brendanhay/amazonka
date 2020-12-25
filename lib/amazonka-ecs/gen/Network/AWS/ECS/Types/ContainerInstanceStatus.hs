@@ -13,61 +13,66 @@
 module Network.AWS.ECS.Types.ContainerInstanceStatus
   ( ContainerInstanceStatus
       ( ContainerInstanceStatus',
-        Active,
-        Draining,
-        Registering,
-        Deregistering,
-        RegistrationFailed
+        ContainerInstanceStatusActive,
+        ContainerInstanceStatusDraining,
+        ContainerInstanceStatusRegistering,
+        ContainerInstanceStatusDeregistering,
+        ContainerInstanceStatusRegistrationFailed,
+        fromContainerInstanceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContainerInstanceStatus = ContainerInstanceStatus' Lude.Text
+newtype ContainerInstanceStatus = ContainerInstanceStatus'
+  { fromContainerInstanceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Active :: ContainerInstanceStatus
-pattern Active = ContainerInstanceStatus' "ACTIVE"
+pattern ContainerInstanceStatusActive :: ContainerInstanceStatus
+pattern ContainerInstanceStatusActive = ContainerInstanceStatus' "ACTIVE"
 
-pattern Draining :: ContainerInstanceStatus
-pattern Draining = ContainerInstanceStatus' "DRAINING"
+pattern ContainerInstanceStatusDraining :: ContainerInstanceStatus
+pattern ContainerInstanceStatusDraining = ContainerInstanceStatus' "DRAINING"
 
-pattern Registering :: ContainerInstanceStatus
-pattern Registering = ContainerInstanceStatus' "REGISTERING"
+pattern ContainerInstanceStatusRegistering :: ContainerInstanceStatus
+pattern ContainerInstanceStatusRegistering = ContainerInstanceStatus' "REGISTERING"
 
-pattern Deregistering :: ContainerInstanceStatus
-pattern Deregistering = ContainerInstanceStatus' "DEREGISTERING"
+pattern ContainerInstanceStatusDeregistering :: ContainerInstanceStatus
+pattern ContainerInstanceStatusDeregistering = ContainerInstanceStatus' "DEREGISTERING"
 
-pattern RegistrationFailed :: ContainerInstanceStatus
-pattern RegistrationFailed = ContainerInstanceStatus' "REGISTRATION_FAILED"
+pattern ContainerInstanceStatusRegistrationFailed :: ContainerInstanceStatus
+pattern ContainerInstanceStatusRegistrationFailed = ContainerInstanceStatus' "REGISTRATION_FAILED"
 
 {-# COMPLETE
-  Active,
-  Draining,
-  Registering,
-  Deregistering,
-  RegistrationFailed,
+  ContainerInstanceStatusActive,
+  ContainerInstanceStatusDraining,
+  ContainerInstanceStatusRegistering,
+  ContainerInstanceStatusDeregistering,
+  ContainerInstanceStatusRegistrationFailed,
   ContainerInstanceStatus'
   #-}

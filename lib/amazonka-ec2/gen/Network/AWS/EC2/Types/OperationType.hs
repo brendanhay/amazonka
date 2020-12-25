@@ -13,46 +13,51 @@
 module Network.AWS.EC2.Types.OperationType
   ( OperationType
       ( OperationType',
-        Add,
-        Remove
+        OperationTypeAdd,
+        OperationTypeRemove,
+        fromOperationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperationType = OperationType' Lude.Text
+newtype OperationType = OperationType'
+  { fromOperationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Add :: OperationType
-pattern Add = OperationType' "add"
+pattern OperationTypeAdd :: OperationType
+pattern OperationTypeAdd = OperationType' "add"
 
-pattern Remove :: OperationType
-pattern Remove = OperationType' "remove"
+pattern OperationTypeRemove :: OperationType
+pattern OperationTypeRemove = OperationType' "remove"
 
 {-# COMPLETE
-  Add,
-  Remove,
+  OperationTypeAdd,
+  OperationTypeRemove,
   OperationType'
   #-}

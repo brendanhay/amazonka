@@ -22,43 +22,32 @@ module Network.AWS.CodeBuild.ListProjects
     mkListProjects,
 
     -- ** Request lenses
-    lpSortOrder,
     lpNextToken,
     lpSortBy,
+    lpSortOrder,
 
     -- * Destructuring the response
     ListProjectsResponse (..),
     mkListProjectsResponse,
 
     -- ** Response lenses
-    lprsNextToken,
-    lprsProjects,
-    lprsResponseStatus,
+    lprrsNextToken,
+    lprrsProjects,
+    lprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | The order in which to list build projects. Valid values include:
-    --
-    --
-    --     * @ASCENDING@ : List in ascending order.
-    --
-    --
-    --     * @DESCENDING@ : List in descending order.
-    --
-    --
-    -- Use @sortBy@ to specify the criterion to be used to list build project names.
-    sortOrder :: Lude.Maybe SortOrderType,
-    -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Core.Maybe Types.NonEmptyString,
     -- | The criterion to be used to list build project names. Valid values include:
     --
     --
@@ -72,67 +61,37 @@ data ListProjects = ListProjects'
     --
     --
     -- Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
-    sortBy :: Lude.Maybe ProjectSortByType
+    sortBy :: Core.Maybe Types.ProjectSortByType,
+    -- | The order in which to list build projects. Valid values include:
+    --
+    --
+    --     * @ASCENDING@ : List in ascending order.
+    --
+    --
+    --     * @DESCENDING@ : List in descending order.
+    --
+    --
+    -- Use @sortBy@ to specify the criterion to be used to list build project names.
+    sortOrder :: Core.Maybe Types.SortOrderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
---
--- * 'sortOrder' - The order in which to list build projects. Valid values include:
---
---
---     * @ASCENDING@ : List in ascending order.
---
---
---     * @DESCENDING@ : List in descending order.
---
---
--- Use @sortBy@ to specify the criterion to be used to list build project names.
--- * 'nextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
--- * 'sortBy' - The criterion to be used to list build project names. Valid values include:
---
---
---     * @CREATED_TIME@ : List based on when each build project was created.
---
---
---     * @LAST_MODIFIED_TIME@ : List based on when information about each build project was last changed.
---
---
---     * @NAME@ : List based on each build project's name.
---
---
--- Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
+-- | Creates a 'ListProjects' value with any optional fields omitted.
 mkListProjects ::
   ListProjects
 mkListProjects =
   ListProjects'
-    { sortOrder = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing
     }
-
--- | The order in which to list build projects. Valid values include:
---
---
---     * @ASCENDING@ : List in ascending order.
---
---
---     * @DESCENDING@ : List in descending order.
---
---
--- Use @sortBy@ to specify the criterion to be used to list build project names.
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpSortOrder :: Lens.Lens' ListProjects (Lude.Maybe SortOrderType)
-lpSortOrder = Lens.lens (sortOrder :: ListProjects -> Lude.Maybe SortOrderType) (\s a -> s {sortOrder = a} :: ListProjects)
-{-# DEPRECATED lpSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpNextToken :: Lens.Lens' ListProjects (Lude.Maybe Lude.Text)
-lpNextToken = Lens.lens (nextToken :: ListProjects -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProjects)
+lpNextToken :: Lens.Lens' ListProjects (Core.Maybe Types.NonEmptyString)
+lpNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The criterion to be used to list build project names. Valid values include:
@@ -150,103 +109,110 @@ lpNextToken = Lens.lens (nextToken :: ListProjects -> Lude.Maybe Lude.Text) (\s 
 -- Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpSortBy :: Lens.Lens' ListProjects (Lude.Maybe ProjectSortByType)
-lpSortBy = Lens.lens (sortBy :: ListProjects -> Lude.Maybe ProjectSortByType) (\s a -> s {sortBy = a} :: ListProjects)
+lpSortBy :: Lens.Lens' ListProjects (Core.Maybe Types.ProjectSortByType)
+lpSortBy = Lens.field @"sortBy"
 {-# DEPRECATED lpSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListProjects where
-  page rq rs
-    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lprsProjects) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
+-- | The order in which to list build projects. Valid values include:
+--
+--
+--     * @ASCENDING@ : List in ascending order.
+--
+--
+--     * @DESCENDING@ : List in descending order.
+--
+--
+-- Use @sortBy@ to specify the criterion to be used to list build project names.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpSortOrder :: Lens.Lens' ListProjects (Core.Maybe Types.SortOrderType)
+lpSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED lpSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListProjects where
+instance Core.FromJSON ListProjects where
+  toJSON ListProjects {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("sortBy" Core..=) Core.<$> sortBy,
+            ("sortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
+
+instance Core.AWSRequest ListProjects where
   type Rs ListProjects = ListProjectsResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.ListProjects")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "projects")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "projects")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListProjects where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.ListProjects" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListProjects where
-  toJSON ListProjects' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("sortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListProjects where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListProjects where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListProjects where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"projects" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
   { -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The list of build project names, with each build project name representing a single build project.
-    projects :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    projects :: Core.Maybe (Core.NonEmpty Types.NonEmptyString),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
--- * 'projects' - The list of build project names, with each build project name representing a single build project.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListProjectsResponse' value with any optional fields omitted.
 mkListProjectsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListProjectsResponse
-mkListProjectsResponse pResponseStatus_ =
+mkListProjectsResponse responseStatus =
   ListProjectsResponse'
-    { nextToken = Lude.Nothing,
-      projects = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      projects = Core.Nothing,
+      responseStatus
     }
 
 -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsNextToken :: Lens.Lens' ListProjectsResponse (Lude.Maybe Lude.Text)
-lprsNextToken = Lens.lens (nextToken :: ListProjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProjectsResponse)
-{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lprrsNextToken :: Lens.Lens' ListProjectsResponse (Core.Maybe Types.String)
+lprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of build project names, with each build project name representing a single build project.
 --
 -- /Note:/ Consider using 'projects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsProjects :: Lens.Lens' ListProjectsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-lprsProjects = Lens.lens (projects :: ListProjectsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {projects = a} :: ListProjectsResponse)
-{-# DEPRECATED lprsProjects "Use generic-lens or generic-optics with 'projects' instead." #-}
+lprrsProjects :: Lens.Lens' ListProjectsResponse (Core.Maybe (Core.NonEmpty Types.NonEmptyString))
+lprrsProjects = Lens.field @"projects"
+{-# DEPRECATED lprrsProjects "Use generic-lens or generic-optics with 'projects' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsResponseStatus :: Lens.Lens' ListProjectsResponse Lude.Int
-lprsResponseStatus = Lens.lens (responseStatus :: ListProjectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProjectsResponse)
-{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lprrsResponseStatus :: Lens.Lens' ListProjectsResponse Core.Int
+lprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

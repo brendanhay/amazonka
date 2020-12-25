@@ -27,95 +27,85 @@ module Network.AWS.MediaStore.DeleteMetricPolicy
     mkDeleteMetricPolicyResponse,
 
     -- ** Response lenses
-    dmprsResponseStatus,
+    dmprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteMetricPolicy' smart constructor.
 newtype DeleteMetricPolicy = DeleteMetricPolicy'
   { -- | The name of the container that is associated with the metric policy that you want to delete.
-    containerName :: Lude.Text
+    containerName :: Types.ContainerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMetricPolicy' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of the container that is associated with the metric policy that you want to delete.
+-- | Creates a 'DeleteMetricPolicy' value with any optional fields omitted.
 mkDeleteMetricPolicy ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.ContainerName ->
   DeleteMetricPolicy
-mkDeleteMetricPolicy pContainerName_ =
-  DeleteMetricPolicy' {containerName = pContainerName_}
+mkDeleteMetricPolicy containerName =
+  DeleteMetricPolicy' {containerName}
 
 -- | The name of the container that is associated with the metric policy that you want to delete.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpContainerName :: Lens.Lens' DeleteMetricPolicy Lude.Text
-dmpContainerName = Lens.lens (containerName :: DeleteMetricPolicy -> Lude.Text) (\s a -> s {containerName = a} :: DeleteMetricPolicy)
+dmpContainerName :: Lens.Lens' DeleteMetricPolicy Types.ContainerName
+dmpContainerName = Lens.field @"containerName"
 {-# DEPRECATED dmpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance Lude.AWSRequest DeleteMetricPolicy where
+instance Core.FromJSON DeleteMetricPolicy where
+  toJSON DeleteMetricPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ContainerName" Core..= containerName)]
+      )
+
+instance Core.AWSRequest DeleteMetricPolicy where
   type Rs DeleteMetricPolicy = DeleteMetricPolicyResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "MediaStore_20170901.DeleteMetricPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteMetricPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteMetricPolicyResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteMetricPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.DeleteMetricPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteMetricPolicy where
-  toJSON DeleteMetricPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ContainerName" Lude..= containerName)]
-      )
-
-instance Lude.ToPath DeleteMetricPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteMetricPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteMetricPolicyResponse' smart constructor.
 newtype DeleteMetricPolicyResponse = DeleteMetricPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMetricPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteMetricPolicyResponse' value with any optional fields omitted.
 mkDeleteMetricPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteMetricPolicyResponse
-mkDeleteMetricPolicyResponse pResponseStatus_ =
-  DeleteMetricPolicyResponse' {responseStatus = pResponseStatus_}
+mkDeleteMetricPolicyResponse responseStatus =
+  DeleteMetricPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmprsResponseStatus :: Lens.Lens' DeleteMetricPolicyResponse Lude.Int
-dmprsResponseStatus = Lens.lens (responseStatus :: DeleteMetricPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMetricPolicyResponse)
-{-# DEPRECATED dmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmprrsResponseStatus :: Lens.Lens' DeleteMetricPolicyResponse Core.Int
+dmprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

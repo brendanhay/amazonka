@@ -22,155 +22,143 @@ module Network.AWS.CodePipeline.ListWebhooks
     mkListWebhooks,
 
     -- ** Request lenses
-    lwNextToken,
     lwMaxResults,
+    lwNextToken,
 
     -- * Destructuring the response
     ListWebhooksResponse (..),
     mkListWebhooksResponse,
 
     -- ** Response lenses
-    lwrsNextToken,
-    lwrsWebhooks,
-    lwrsResponseStatus,
+    lwrrsNextToken,
+    lwrrsWebhooks,
+    lwrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListWebhooks' smart constructor.
 data ListWebhooks = ListWebhooks'
-  { -- | The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListWebhooks' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+-- | Creates a 'ListWebhooks' value with any optional fields omitted.
 mkListWebhooks ::
   ListWebhooks
 mkListWebhooks =
   ListWebhooks'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwNextToken :: Lens.Lens' ListWebhooks (Lude.Maybe Lude.Text)
-lwNextToken = Lens.lens (nextToken :: ListWebhooks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWebhooks)
-{-# DEPRECATED lwNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwMaxResults :: Lens.Lens' ListWebhooks (Lude.Maybe Lude.Natural)
-lwMaxResults = Lens.lens (maxResults :: ListWebhooks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWebhooks)
+lwMaxResults :: Lens.Lens' ListWebhooks (Core.Maybe Core.Natural)
+lwMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lwMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListWebhooks where
-  page rq rs
-    | Page.stop (rs Lens.^. lwrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lwrsWebhooks) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lwNextToken Lens..~ rs Lens.^. lwrsNextToken
+-- | The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwNextToken :: Lens.Lens' ListWebhooks (Core.Maybe Types.NextToken)
+lwNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lwNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListWebhooks where
+instance Core.FromJSON ListWebhooks where
+  toJSON ListWebhooks {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListWebhooks where
   type Rs ListWebhooks = ListWebhooksResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodePipeline_20150709.ListWebhooks")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListWebhooksResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "webhooks" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "webhooks")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListWebhooks where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.ListWebhooks" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListWebhooks where
-  toJSON ListWebhooks' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListWebhooks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListWebhooks where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListWebhooks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"webhooks" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListWebhooksResponse' smart constructor.
 data ListWebhooksResponse = ListWebhooksResponse'
   { -- | If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent ListWebhooks call to return the next set of webhooks in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The JSON detail returned for each webhook in the list output for the ListWebhooks call.
-    webhooks :: Lude.Maybe [ListWebhookItem],
+    webhooks :: Core.Maybe [Types.ListWebhookItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListWebhooksResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent ListWebhooks call to return the next set of webhooks in the list.
--- * 'webhooks' - The JSON detail returned for each webhook in the list output for the ListWebhooks call.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListWebhooksResponse' value with any optional fields omitted.
 mkListWebhooksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListWebhooksResponse
-mkListWebhooksResponse pResponseStatus_ =
+mkListWebhooksResponse responseStatus =
   ListWebhooksResponse'
-    { nextToken = Lude.Nothing,
-      webhooks = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      webhooks = Core.Nothing,
+      responseStatus
     }
 
 -- | If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent ListWebhooks call to return the next set of webhooks in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwrsNextToken :: Lens.Lens' ListWebhooksResponse (Lude.Maybe Lude.Text)
-lwrsNextToken = Lens.lens (nextToken :: ListWebhooksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWebhooksResponse)
-{-# DEPRECATED lwrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lwrrsNextToken :: Lens.Lens' ListWebhooksResponse (Core.Maybe Types.NextToken)
+lwrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lwrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The JSON detail returned for each webhook in the list output for the ListWebhooks call.
 --
 -- /Note:/ Consider using 'webhooks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwrsWebhooks :: Lens.Lens' ListWebhooksResponse (Lude.Maybe [ListWebhookItem])
-lwrsWebhooks = Lens.lens (webhooks :: ListWebhooksResponse -> Lude.Maybe [ListWebhookItem]) (\s a -> s {webhooks = a} :: ListWebhooksResponse)
-{-# DEPRECATED lwrsWebhooks "Use generic-lens or generic-optics with 'webhooks' instead." #-}
+lwrrsWebhooks :: Lens.Lens' ListWebhooksResponse (Core.Maybe [Types.ListWebhookItem])
+lwrrsWebhooks = Lens.field @"webhooks"
+{-# DEPRECATED lwrrsWebhooks "Use generic-lens or generic-optics with 'webhooks' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwrsResponseStatus :: Lens.Lens' ListWebhooksResponse Lude.Int
-lwrsResponseStatus = Lens.lens (responseStatus :: ListWebhooksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWebhooksResponse)
-{-# DEPRECATED lwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lwrrsResponseStatus :: Lens.Lens' ListWebhooksResponse Core.Int
+lwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

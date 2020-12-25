@@ -13,66 +13,71 @@
 module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
   ( InboundCrossClusterSearchConnectionStatusCode
       ( InboundCrossClusterSearchConnectionStatusCode',
-        PendingAcceptance,
-        Approved,
-        Rejecting,
-        Rejected,
-        Deleting,
-        Deleted
+        InboundCrossClusterSearchConnectionStatusCodePendingAcceptance,
+        InboundCrossClusterSearchConnectionStatusCodeApproved,
+        InboundCrossClusterSearchConnectionStatusCodeRejecting,
+        InboundCrossClusterSearchConnectionStatusCodeRejected,
+        InboundCrossClusterSearchConnectionStatusCodeDeleting,
+        InboundCrossClusterSearchConnectionStatusCodeDeleted,
+        fromInboundCrossClusterSearchConnectionStatusCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InboundCrossClusterSearchConnectionStatusCode = InboundCrossClusterSearchConnectionStatusCode' Lude.Text
+newtype InboundCrossClusterSearchConnectionStatusCode = InboundCrossClusterSearchConnectionStatusCode'
+  { fromInboundCrossClusterSearchConnectionStatusCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PendingAcceptance :: InboundCrossClusterSearchConnectionStatusCode
-pattern PendingAcceptance = InboundCrossClusterSearchConnectionStatusCode' "PENDING_ACCEPTANCE"
+pattern InboundCrossClusterSearchConnectionStatusCodePendingAcceptance :: InboundCrossClusterSearchConnectionStatusCode
+pattern InboundCrossClusterSearchConnectionStatusCodePendingAcceptance = InboundCrossClusterSearchConnectionStatusCode' "PENDING_ACCEPTANCE"
 
-pattern Approved :: InboundCrossClusterSearchConnectionStatusCode
-pattern Approved = InboundCrossClusterSearchConnectionStatusCode' "APPROVED"
+pattern InboundCrossClusterSearchConnectionStatusCodeApproved :: InboundCrossClusterSearchConnectionStatusCode
+pattern InboundCrossClusterSearchConnectionStatusCodeApproved = InboundCrossClusterSearchConnectionStatusCode' "APPROVED"
 
-pattern Rejecting :: InboundCrossClusterSearchConnectionStatusCode
-pattern Rejecting = InboundCrossClusterSearchConnectionStatusCode' "REJECTING"
+pattern InboundCrossClusterSearchConnectionStatusCodeRejecting :: InboundCrossClusterSearchConnectionStatusCode
+pattern InboundCrossClusterSearchConnectionStatusCodeRejecting = InboundCrossClusterSearchConnectionStatusCode' "REJECTING"
 
-pattern Rejected :: InboundCrossClusterSearchConnectionStatusCode
-pattern Rejected = InboundCrossClusterSearchConnectionStatusCode' "REJECTED"
+pattern InboundCrossClusterSearchConnectionStatusCodeRejected :: InboundCrossClusterSearchConnectionStatusCode
+pattern InboundCrossClusterSearchConnectionStatusCodeRejected = InboundCrossClusterSearchConnectionStatusCode' "REJECTED"
 
-pattern Deleting :: InboundCrossClusterSearchConnectionStatusCode
-pattern Deleting = InboundCrossClusterSearchConnectionStatusCode' "DELETING"
+pattern InboundCrossClusterSearchConnectionStatusCodeDeleting :: InboundCrossClusterSearchConnectionStatusCode
+pattern InboundCrossClusterSearchConnectionStatusCodeDeleting = InboundCrossClusterSearchConnectionStatusCode' "DELETING"
 
-pattern Deleted :: InboundCrossClusterSearchConnectionStatusCode
-pattern Deleted = InboundCrossClusterSearchConnectionStatusCode' "DELETED"
+pattern InboundCrossClusterSearchConnectionStatusCodeDeleted :: InboundCrossClusterSearchConnectionStatusCode
+pattern InboundCrossClusterSearchConnectionStatusCodeDeleted = InboundCrossClusterSearchConnectionStatusCode' "DELETED"
 
 {-# COMPLETE
-  PendingAcceptance,
-  Approved,
-  Rejecting,
-  Rejected,
-  Deleting,
-  Deleted,
+  InboundCrossClusterSearchConnectionStatusCodePendingAcceptance,
+  InboundCrossClusterSearchConnectionStatusCodeApproved,
+  InboundCrossClusterSearchConnectionStatusCodeRejecting,
+  InboundCrossClusterSearchConnectionStatusCodeRejected,
+  InboundCrossClusterSearchConnectionStatusCodeDeleting,
+  InboundCrossClusterSearchConnectionStatusCodeDeleted,
   InboundCrossClusterSearchConnectionStatusCode'
   #-}

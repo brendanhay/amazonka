@@ -13,76 +13,78 @@
 module Network.AWS.SageMaker.Types.Framework
   ( Framework
       ( Framework',
-        Tensorflow,
-        Keras,
-        Mxnet,
-        Onnx,
-        Pytorch,
-        Xgboost,
-        Tflite,
-        Darknet
+        FrameworkTensorflow,
+        FrameworkKeras,
+        FrameworkMxnet,
+        FrameworkOnnx,
+        FrameworkPytorch,
+        FrameworkXgboost,
+        FrameworkTflite,
+        FrameworkDarknet,
+        fromFramework
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Framework = Framework' Lude.Text
+newtype Framework = Framework' {fromFramework :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Tensorflow :: Framework
-pattern Tensorflow = Framework' "TENSORFLOW"
+pattern FrameworkTensorflow :: Framework
+pattern FrameworkTensorflow = Framework' "TENSORFLOW"
 
-pattern Keras :: Framework
-pattern Keras = Framework' "KERAS"
+pattern FrameworkKeras :: Framework
+pattern FrameworkKeras = Framework' "KERAS"
 
-pattern Mxnet :: Framework
-pattern Mxnet = Framework' "MXNET"
+pattern FrameworkMxnet :: Framework
+pattern FrameworkMxnet = Framework' "MXNET"
 
-pattern Onnx :: Framework
-pattern Onnx = Framework' "ONNX"
+pattern FrameworkOnnx :: Framework
+pattern FrameworkOnnx = Framework' "ONNX"
 
-pattern Pytorch :: Framework
-pattern Pytorch = Framework' "PYTORCH"
+pattern FrameworkPytorch :: Framework
+pattern FrameworkPytorch = Framework' "PYTORCH"
 
-pattern Xgboost :: Framework
-pattern Xgboost = Framework' "XGBOOST"
+pattern FrameworkXgboost :: Framework
+pattern FrameworkXgboost = Framework' "XGBOOST"
 
-pattern Tflite :: Framework
-pattern Tflite = Framework' "TFLITE"
+pattern FrameworkTflite :: Framework
+pattern FrameworkTflite = Framework' "TFLITE"
 
-pattern Darknet :: Framework
-pattern Darknet = Framework' "DARKNET"
+pattern FrameworkDarknet :: Framework
+pattern FrameworkDarknet = Framework' "DARKNET"
 
 {-# COMPLETE
-  Tensorflow,
-  Keras,
-  Mxnet,
-  Onnx,
-  Pytorch,
-  Xgboost,
-  Tflite,
-  Darknet,
+  FrameworkTensorflow,
+  FrameworkKeras,
+  FrameworkMxnet,
+  FrameworkOnnx,
+  FrameworkPytorch,
+  FrameworkXgboost,
+  FrameworkTflite,
+  FrameworkDarknet,
   Framework'
   #-}

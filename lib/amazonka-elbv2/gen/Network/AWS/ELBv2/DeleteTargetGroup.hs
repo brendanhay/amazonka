@@ -22,93 +22,92 @@ module Network.AWS.ELBv2.DeleteTargetGroup
     mkDeleteTargetGroup,
 
     -- ** Request lenses
-    dtgTargetGroupARN,
+    dtgTargetGroupArn,
 
     -- * Destructuring the response
     DeleteTargetGroupResponse (..),
     mkDeleteTargetGroupResponse,
 
     -- ** Response lenses
-    dtgfrsResponseStatus,
+    dtgrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteTargetGroup' smart constructor.
 newtype DeleteTargetGroup = DeleteTargetGroup'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupARN :: Lude.Text
+    targetGroupArn :: Types.TargetGroupArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTargetGroup' with the minimum fields required to make a request.
---
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- | Creates a 'DeleteTargetGroup' value with any optional fields omitted.
 mkDeleteTargetGroup ::
-  -- | 'targetGroupARN'
-  Lude.Text ->
+  -- | 'targetGroupArn'
+  Types.TargetGroupArn ->
   DeleteTargetGroup
-mkDeleteTargetGroup pTargetGroupARN_ =
-  DeleteTargetGroup' {targetGroupARN = pTargetGroupARN_}
+mkDeleteTargetGroup targetGroupArn =
+  DeleteTargetGroup' {targetGroupArn}
 
 -- | The Amazon Resource Name (ARN) of the target group.
 --
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgTargetGroupARN :: Lens.Lens' DeleteTargetGroup Lude.Text
-dtgTargetGroupARN = Lens.lens (targetGroupARN :: DeleteTargetGroup -> Lude.Text) (\s a -> s {targetGroupARN = a} :: DeleteTargetGroup)
-{-# DEPRECATED dtgTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgTargetGroupArn :: Lens.Lens' DeleteTargetGroup Types.TargetGroupArn
+dtgTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED dtgTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
 
-instance Lude.AWSRequest DeleteTargetGroup where
+instance Core.AWSRequest DeleteTargetGroup where
   type Rs DeleteTargetGroup = DeleteTargetGroupResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteTargetGroup")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "TargetGroupArn" targetGroupArn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteTargetGroupResult"
       ( \s h x ->
-          DeleteTargetGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteTargetGroupResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTargetGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteTargetGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTargetGroup where
-  toQuery DeleteTargetGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteTargetGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "TargetGroupArn" Lude.=: targetGroupARN
-      ]
 
 -- | /See:/ 'mkDeleteTargetGroupResponse' smart constructor.
 newtype DeleteTargetGroupResponse = DeleteTargetGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTargetGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTargetGroupResponse' value with any optional fields omitted.
 mkDeleteTargetGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTargetGroupResponse
-mkDeleteTargetGroupResponse pResponseStatus_ =
-  DeleteTargetGroupResponse' {responseStatus = pResponseStatus_}
+mkDeleteTargetGroupResponse responseStatus =
+  DeleteTargetGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgfrsResponseStatus :: Lens.Lens' DeleteTargetGroupResponse Lude.Int
-dtgfrsResponseStatus = Lens.lens (responseStatus :: DeleteTargetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTargetGroupResponse)
-{-# DEPRECATED dtgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgrrsResponseStatus :: Lens.Lens' DeleteTargetGroupResponse Core.Int
+dtgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

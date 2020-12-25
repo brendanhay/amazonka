@@ -17,31 +17,56 @@ module Network.AWS.OpsWorks.Types.Deployment
     mkDeployment,
 
     -- * Lenses
-    dDeploymentId,
-    dStatus,
-    dCommand,
-    dCreatedAt,
-    dCustomJSON,
-    dIAMUserARN,
     dAppId,
-    dInstanceIds,
-    dCompletedAt,
-    dStackId,
+    dCommand,
     dComment,
+    dCompletedAt,
+    dCreatedAt,
+    dCustomJson,
+    dDeploymentId,
     dDuration,
+    dIamUserArn,
+    dInstanceIds,
+    dStackId,
+    dStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.DeploymentCommand
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.DateTime as Types
+import qualified Network.AWS.OpsWorks.Types.DeploymentCommand as Types
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a deployment of a stack or app.
 --
 -- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { -- | The deployment ID.
-    deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The app ID.
+    appId :: Core.Maybe Types.String,
+    -- | Used to specify a stack or deployment command.
+    command :: Core.Maybe Types.DeploymentCommand,
+    -- | A user-defined comment.
+    comment :: Core.Maybe Types.String,
+    -- | Date when the deployment completed.
+    completedAt :: Core.Maybe Types.DateTime,
+    -- | Date when the deployment was created.
+    createdAt :: Core.Maybe Types.DateTime,
+    -- | A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
+    --
+    -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
+    -- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
+    customJson :: Core.Maybe Types.String,
+    -- | The deployment ID.
+    deploymentId :: Core.Maybe Types.String,
+    -- | The deployment duration.
+    duration :: Core.Maybe Core.Int,
+    -- | The user's IAM ARN.
+    iamUserArn :: Core.Maybe Types.String,
+    -- | The IDs of the target instances.
+    instanceIds :: Core.Maybe [Types.String],
+    -- | The stack ID.
+    stackId :: Core.Maybe Types.String,
     -- | The deployment status:
     --
     --
@@ -52,86 +77,109 @@ data Deployment = Deployment'
     --
     --
     --     * failed
-    status :: Lude.Maybe Lude.Text,
-    -- | Used to specify a stack or deployment command.
-    command :: Lude.Maybe DeploymentCommand,
-    -- | Date when the deployment was created.
-    createdAt :: Lude.Maybe Lude.Text,
-    -- | A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
-    --
-    -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
-    -- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
-    customJSON :: Lude.Maybe Lude.Text,
-    -- | The user's IAM ARN.
-    iamUserARN :: Lude.Maybe Lude.Text,
-    -- | The app ID.
-    appId :: Lude.Maybe Lude.Text,
-    -- | The IDs of the target instances.
-    instanceIds :: Lude.Maybe [Lude.Text],
-    -- | Date when the deployment completed.
-    completedAt :: Lude.Maybe Lude.Text,
-    -- | The stack ID.
-    stackId :: Lude.Maybe Lude.Text,
-    -- | A user-defined comment.
-    comment :: Lude.Maybe Lude.Text,
-    -- | The deployment duration.
-    duration :: Lude.Maybe Lude.Int
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Deployment' with the minimum fields required to make a request.
---
--- * 'deploymentId' - The deployment ID.
--- * 'status' - The deployment status:
---
---
---     * running
---
---
---     * successful
---
---
---     * failed
---
---
--- * 'command' - Used to specify a stack or deployment command.
--- * 'createdAt' - Date when the deployment was created.
--- * 'customJSON' - A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
---
--- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
--- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
--- * 'iamUserARN' - The user's IAM ARN.
--- * 'appId' - The app ID.
--- * 'instanceIds' - The IDs of the target instances.
--- * 'completedAt' - Date when the deployment completed.
--- * 'stackId' - The stack ID.
--- * 'comment' - A user-defined comment.
--- * 'duration' - The deployment duration.
+-- | Creates a 'Deployment' value with any optional fields omitted.
 mkDeployment ::
   Deployment
 mkDeployment =
   Deployment'
-    { deploymentId = Lude.Nothing,
-      status = Lude.Nothing,
-      command = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      customJSON = Lude.Nothing,
-      iamUserARN = Lude.Nothing,
-      appId = Lude.Nothing,
-      instanceIds = Lude.Nothing,
-      completedAt = Lude.Nothing,
-      stackId = Lude.Nothing,
-      comment = Lude.Nothing,
-      duration = Lude.Nothing
+    { appId = Core.Nothing,
+      command = Core.Nothing,
+      comment = Core.Nothing,
+      completedAt = Core.Nothing,
+      createdAt = Core.Nothing,
+      customJson = Core.Nothing,
+      deploymentId = Core.Nothing,
+      duration = Core.Nothing,
+      iamUserArn = Core.Nothing,
+      instanceIds = Core.Nothing,
+      stackId = Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | The app ID.
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAppId :: Lens.Lens' Deployment (Core.Maybe Types.String)
+dAppId = Lens.field @"appId"
+{-# DEPRECATED dAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
+
+-- | Used to specify a stack or deployment command.
+--
+-- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCommand :: Lens.Lens' Deployment (Core.Maybe Types.DeploymentCommand)
+dCommand = Lens.field @"command"
+{-# DEPRECATED dCommand "Use generic-lens or generic-optics with 'command' instead." #-}
+
+-- | A user-defined comment.
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dComment :: Lens.Lens' Deployment (Core.Maybe Types.String)
+dComment = Lens.field @"comment"
+{-# DEPRECATED dComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+
+-- | Date when the deployment completed.
+--
+-- /Note:/ Consider using 'completedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCompletedAt :: Lens.Lens' Deployment (Core.Maybe Types.DateTime)
+dCompletedAt = Lens.field @"completedAt"
+{-# DEPRECATED dCompletedAt "Use generic-lens or generic-optics with 'completedAt' instead." #-}
+
+-- | Date when the deployment was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCreatedAt :: Lens.Lens' Deployment (Core.Maybe Types.DateTime)
+dCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED dCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
+--
+-- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
+-- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
+--
+-- /Note:/ Consider using 'customJson' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCustomJson :: Lens.Lens' Deployment (Core.Maybe Types.String)
+dCustomJson = Lens.field @"customJson"
+{-# DEPRECATED dCustomJson "Use generic-lens or generic-optics with 'customJson' instead." #-}
 
 -- | The deployment ID.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeploymentId :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dDeploymentId = Lens.lens (deploymentId :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: Deployment)
+dDeploymentId :: Lens.Lens' Deployment (Core.Maybe Types.String)
+dDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED dDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
+
+-- | The deployment duration.
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDuration :: Lens.Lens' Deployment (Core.Maybe Core.Int)
+dDuration = Lens.field @"duration"
+{-# DEPRECATED dDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
+
+-- | The user's IAM ARN.
+--
+-- /Note:/ Consider using 'iamUserArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dIamUserArn :: Lens.Lens' Deployment (Core.Maybe Types.String)
+dIamUserArn = Lens.field @"iamUserArn"
+{-# DEPRECATED dIamUserArn "Use generic-lens or generic-optics with 'iamUserArn' instead." #-}
+
+-- | The IDs of the target instances.
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dInstanceIds :: Lens.Lens' Deployment (Core.Maybe [Types.String])
+dInstanceIds = Lens.field @"instanceIds"
+{-# DEPRECATED dInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+-- | The stack ID.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStackId :: Lens.Lens' Deployment (Core.Maybe Types.String)
+dStackId = Lens.field @"stackId"
+{-# DEPRECATED dStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The deployment status:
 --
@@ -147,99 +195,24 @@ dDeploymentId = Lens.lens (deploymentId :: Deployment -> Lude.Maybe Lude.Text) (
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStatus :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dStatus = Lens.lens (status :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Deployment)
+dStatus :: Lens.Lens' Deployment (Core.Maybe Types.String)
+dStatus = Lens.field @"status"
 {-# DEPRECATED dStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | Used to specify a stack or deployment command.
---
--- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCommand :: Lens.Lens' Deployment (Lude.Maybe DeploymentCommand)
-dCommand = Lens.lens (command :: Deployment -> Lude.Maybe DeploymentCommand) (\s a -> s {command = a} :: Deployment)
-{-# DEPRECATED dCommand "Use generic-lens or generic-optics with 'command' instead." #-}
-
--- | Date when the deployment was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCreatedAt :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dCreatedAt = Lens.lens (createdAt :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: Deployment)
-{-# DEPRECATED dCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
---
--- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
--- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
---
--- /Note:/ Consider using 'customJSON' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCustomJSON :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dCustomJSON = Lens.lens (customJSON :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {customJSON = a} :: Deployment)
-{-# DEPRECATED dCustomJSON "Use generic-lens or generic-optics with 'customJSON' instead." #-}
-
--- | The user's IAM ARN.
---
--- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dIAMUserARN :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dIAMUserARN = Lens.lens (iamUserARN :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: Deployment)
-{-# DEPRECATED dIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
-
--- | The app ID.
---
--- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAppId :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dAppId = Lens.lens (appId :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: Deployment)
-{-# DEPRECATED dAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
-
--- | The IDs of the target instances.
---
--- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInstanceIds :: Lens.Lens' Deployment (Lude.Maybe [Lude.Text])
-dInstanceIds = Lens.lens (instanceIds :: Deployment -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: Deployment)
-{-# DEPRECATED dInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
-
--- | Date when the deployment completed.
---
--- /Note:/ Consider using 'completedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCompletedAt :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dCompletedAt = Lens.lens (completedAt :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {completedAt = a} :: Deployment)
-{-# DEPRECATED dCompletedAt "Use generic-lens or generic-optics with 'completedAt' instead." #-}
-
--- | The stack ID.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStackId :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dStackId = Lens.lens (stackId :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: Deployment)
-{-# DEPRECATED dStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
-
--- | A user-defined comment.
---
--- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dComment :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dComment = Lens.lens (comment :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: Deployment)
-{-# DEPRECATED dComment "Use generic-lens or generic-optics with 'comment' instead." #-}
-
--- | The deployment duration.
---
--- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDuration :: Lens.Lens' Deployment (Lude.Maybe Lude.Int)
-dDuration = Lens.lens (duration :: Deployment -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: Deployment)
-{-# DEPRECATED dDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
-
-instance Lude.FromJSON Deployment where
+instance Core.FromJSON Deployment where
   parseJSON =
-    Lude.withObject
-      "Deployment"
-      ( \x ->
-          Deployment'
-            Lude.<$> (x Lude..:? "DeploymentId")
-            Lude.<*> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "Command")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "CustomJson")
-            Lude.<*> (x Lude..:? "IamUserArn")
-            Lude.<*> (x Lude..:? "AppId")
-            Lude.<*> (x Lude..:? "InstanceIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CompletedAt")
-            Lude.<*> (x Lude..:? "StackId")
-            Lude.<*> (x Lude..:? "Comment")
-            Lude.<*> (x Lude..:? "Duration")
-      )
+    Core.withObject "Deployment" Core.$
+      \x ->
+        Deployment'
+          Core.<$> (x Core..:? "AppId")
+          Core.<*> (x Core..:? "Command")
+          Core.<*> (x Core..:? "Comment")
+          Core.<*> (x Core..:? "CompletedAt")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "CustomJson")
+          Core.<*> (x Core..:? "DeploymentId")
+          Core.<*> (x Core..:? "Duration")
+          Core.<*> (x Core..:? "IamUserArn")
+          Core.<*> (x Core..:? "InstanceIds")
+          Core.<*> (x Core..:? "StackId")
+          Core.<*> (x Core..:? "Status")

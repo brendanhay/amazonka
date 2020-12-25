@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,40 @@
 -- Remember that you must set your AWS Migration Hub home region before you call any of these APIs, or a @HomeRegionNotSetException@ error will be returned. Also, you must make the API calls while in your home region.
 module Network.AWS.MigrationHub
   ( -- * Service configuration
-    migrationHubService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** HomeRegionNotSetException
+    _HomeRegionNotSetException,
+
+    -- ** DryRunOperation
+    _DryRunOperation,
+
+    -- ** PolicyErrorException
+    _PolicyErrorException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** UnauthorizedOperation
+    _UnauthorizedOperation,
 
     -- * Waiters
     -- $waiters
@@ -80,27 +109,31 @@ module Network.AWS.MigrationHub
 
     -- * Types
 
-    -- ** ApplicationStatus
-    ApplicationStatus (..),
-
     -- ** MigrationStatus
     MigrationStatus (..),
 
-    -- ** ResourceAttributeType
-    ResourceAttributeType (..),
+    -- ** MigrationTaskSummary
+    MigrationTaskSummary (..),
+    mkMigrationTaskSummary,
+    mtsMigrationTaskName,
+    mtsProgressPercent,
+    mtsProgressUpdateStream,
+    mtsStatus,
+    mtsStatusDetail,
+    mtsUpdateDateTime,
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** ConfigurationId
+    ConfigurationId (..),
 
     -- ** ApplicationState
     ApplicationState (..),
     mkApplicationState,
-    asLastUpdatedTime,
     asApplicationId,
     asApplicationStatus,
-
-    -- ** CreatedArtifact
-    CreatedArtifact (..),
-    mkCreatedArtifact,
-    caName,
-    caDescription,
+    asLastUpdatedTime,
 
     -- ** DiscoveredResource
     DiscoveredResource (..),
@@ -108,35 +141,34 @@ module Network.AWS.MigrationHub
     drConfigurationId,
     drDescription,
 
-    -- ** MigrationTask
-    MigrationTask (..),
-    mkMigrationTask,
-    mtUpdateDateTime,
-    mtResourceAttributeList,
-    mtTask,
-    mtProgressUpdateStream,
-    mtMigrationTaskName,
+    -- ** Token
+    Token (..),
 
-    -- ** MigrationTaskSummary
-    MigrationTaskSummary (..),
-    mkMigrationTaskSummary,
-    mtsStatus,
-    mtsUpdateDateTime,
-    mtsProgressPercent,
-    mtsStatusDetail,
-    mtsProgressUpdateStream,
-    mtsMigrationTaskName,
+    -- ** CreatedArtifact
+    CreatedArtifact (..),
+    mkCreatedArtifact,
+    caName,
+    caDescription,
+
+    -- ** ResourceAttribute
+    ResourceAttribute (..),
+    mkResourceAttribute,
+    raType,
+    raValue,
+
+    -- ** CreatedArtifactName
+    CreatedArtifactName (..),
 
     -- ** ProgressUpdateStreamSummary
     ProgressUpdateStreamSummary (..),
     mkProgressUpdateStreamSummary,
     pussProgressUpdateStreamName,
 
-    -- ** ResourceAttribute
-    ResourceAttribute (..),
-    mkResourceAttribute,
-    raValue,
-    raType,
+    -- ** ApplicationId
+    ApplicationId (..),
+
+    -- ** StatusDetail
+    StatusDetail (..),
 
     -- ** Task
     Task (..),
@@ -145,15 +177,49 @@ module Network.AWS.MigrationHub
     tProgressPercent,
     tStatusDetail,
 
+    -- ** ProgressUpdateStream
+    ProgressUpdateStream (..),
+
+    -- ** ApplicationStatus
+    ApplicationStatus (..),
+
+    -- ** MigrationTaskName
+    MigrationTaskName (..),
+
+    -- ** ResourceAttributeType
+    ResourceAttributeType (..),
+
+    -- ** MigrationTask
+    MigrationTask (..),
+    mkMigrationTask,
+    mtMigrationTaskName,
+    mtProgressUpdateStream,
+    mtResourceAttributeList,
+    mtTask,
+    mtUpdateDateTime,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ProgressUpdateStreamName
+    ProgressUpdateStreamName (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Value
+    Value (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.EFS
     Network.AWS.EFS.CreateAccessPoint
@@ -93,24 +99,54 @@ library
     Network.AWS.EFS.Waiters
 
   other-modules:
+    Network.AWS.EFS.Types.AccessPointArn
     Network.AWS.EFS.Types.AccessPointDescription
+    Network.AWS.EFS.Types.AccessPointId
+    Network.AWS.EFS.Types.AvailabilityZoneId
+    Network.AWS.EFS.Types.AvailabilityZoneName
+    Network.AWS.EFS.Types.AwsAccountId
     Network.AWS.EFS.Types.BackupPolicy
     Network.AWS.EFS.Types.BackupPolicyDescription
+    Network.AWS.EFS.Types.ClientToken
     Network.AWS.EFS.Types.CreationInfo
+    Network.AWS.EFS.Types.CreationToken
+    Network.AWS.EFS.Types.FileSystemArn
     Network.AWS.EFS.Types.FileSystemDescription
+    Network.AWS.EFS.Types.FileSystemId
     Network.AWS.EFS.Types.FileSystemPolicyDescription
     Network.AWS.EFS.Types.FileSystemSize
+    Network.AWS.EFS.Types.IpAddress
+    Network.AWS.EFS.Types.Key
+    Network.AWS.EFS.Types.KmsKeyId
     Network.AWS.EFS.Types.LifecycleConfigurationDescription
     Network.AWS.EFS.Types.LifecyclePolicy
     Network.AWS.EFS.Types.LifeCycleState
+    Network.AWS.EFS.Types.Marker
     Network.AWS.EFS.Types.MountTargetDescription
+    Network.AWS.EFS.Types.MountTargetId
+    Network.AWS.EFS.Types.Name
+    Network.AWS.EFS.Types.NetworkInterfaceId
+    Network.AWS.EFS.Types.NextMarker
+    Network.AWS.EFS.Types.NextToken
+    Network.AWS.EFS.Types.OwnerId
+    Network.AWS.EFS.Types.Path
     Network.AWS.EFS.Types.PerformanceMode
+    Network.AWS.EFS.Types.Permissions
+    Network.AWS.EFS.Types.Policy
     Network.AWS.EFS.Types.PosixUser
+    Network.AWS.EFS.Types.ResourceId
     Network.AWS.EFS.Types.RootDirectory
+    Network.AWS.EFS.Types.SecurityGroup
     Network.AWS.EFS.Types.Status
+    Network.AWS.EFS.Types.SubnetId
     Network.AWS.EFS.Types.Tag
+    Network.AWS.EFS.Types.TagKey
+    Network.AWS.EFS.Types.TagValue
     Network.AWS.EFS.Types.ThroughputMode
+    Network.AWS.EFS.Types.Token
     Network.AWS.EFS.Types.TransitionToIARules
+    Network.AWS.EFS.Types.Value
+    Network.AWS.EFS.Types.VpcId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

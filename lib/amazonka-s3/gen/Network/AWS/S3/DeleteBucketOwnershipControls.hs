@@ -38,74 +38,69 @@ module Network.AWS.S3.DeleteBucketOwnershipControls
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkDeleteBucketOwnershipControls' smart constructor.
 data DeleteBucketOwnershipControls = DeleteBucketOwnershipControls'
   { -- | The Amazon S3 bucket whose @OwnershipControls@ you want to delete.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketOwnershipControls' with the minimum fields required to make a request.
---
--- * 'bucket' - The Amazon S3 bucket whose @OwnershipControls@ you want to delete.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'DeleteBucketOwnershipControls' value with any optional fields omitted.
 mkDeleteBucketOwnershipControls ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   DeleteBucketOwnershipControls
-mkDeleteBucketOwnershipControls pBucket_ =
+mkDeleteBucketOwnershipControls bucket =
   DeleteBucketOwnershipControls'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The Amazon S3 bucket whose @OwnershipControls@ you want to delete.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbocBucket :: Lens.Lens' DeleteBucketOwnershipControls BucketName
-dbocBucket = Lens.lens (bucket :: DeleteBucketOwnershipControls -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketOwnershipControls)
+dbocBucket :: Lens.Lens' DeleteBucketOwnershipControls Types.BucketName
+dbocBucket = Lens.field @"bucket"
 {-# DEPRECATED dbocBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbocExpectedBucketOwner :: Lens.Lens' DeleteBucketOwnershipControls (Lude.Maybe Lude.Text)
-dbocExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketOwnershipControls -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketOwnershipControls)
+dbocExpectedBucketOwner :: Lens.Lens' DeleteBucketOwnershipControls (Core.Maybe Types.AccountId)
+dbocExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED dbocExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest DeleteBucketOwnershipControls where
+instance Core.AWSRequest DeleteBucketOwnershipControls where
   type
     Rs DeleteBucketOwnershipControls =
       DeleteBucketOwnershipControlsResponse
-  request = Req.delete s3Service
-  response = Res.receiveNull DeleteBucketOwnershipControlsResponse'
-
-instance Lude.ToHeaders DeleteBucketOwnershipControls where
-  toHeaders DeleteBucketOwnershipControls' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath DeleteBucketOwnershipControls where
-  toPath DeleteBucketOwnershipControls' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery DeleteBucketOwnershipControls where
-  toQuery = Lude.const (Lude.mconcat ["ownershipControls"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("ownershipControls", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveNull DeleteBucketOwnershipControlsResponse'
 
 -- | /See:/ 'mkDeleteBucketOwnershipControlsResponse' smart constructor.
 data DeleteBucketOwnershipControlsResponse = DeleteBucketOwnershipControlsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketOwnershipControlsResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBucketOwnershipControlsResponse' value with any optional fields omitted.
 mkDeleteBucketOwnershipControlsResponse ::
   DeleteBucketOwnershipControlsResponse
 mkDeleteBucketOwnershipControlsResponse =

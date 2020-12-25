@@ -17,60 +17,55 @@ module Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexDescription
     mkReplicaGlobalSecondaryIndexDescription,
 
     -- * Lenses
-    rgsidProvisionedThroughputOverride,
     rgsidIndexName,
+    rgsidProvisionedThroughputOverride,
   )
 where
 
-import Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
+import qualified Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the properties of a replica global secondary index.
 --
 -- /See:/ 'mkReplicaGlobalSecondaryIndexDescription' smart constructor.
 data ReplicaGlobalSecondaryIndexDescription = ReplicaGlobalSecondaryIndexDescription'
-  { -- | If not described, uses the source table GSI's read capacity settings.
-    provisionedThroughputOverride :: Lude.Maybe ProvisionedThroughputOverride,
-    -- | The name of the global secondary index.
-    indexName :: Lude.Maybe Lude.Text
+  { -- | The name of the global secondary index.
+    indexName :: Core.Maybe Types.IndexName,
+    -- | If not described, uses the source table GSI's read capacity settings.
+    provisionedThroughputOverride :: Core.Maybe Types.ProvisionedThroughputOverride
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicaGlobalSecondaryIndexDescription' with the minimum fields required to make a request.
---
--- * 'provisionedThroughputOverride' - If not described, uses the source table GSI's read capacity settings.
--- * 'indexName' - The name of the global secondary index.
+-- | Creates a 'ReplicaGlobalSecondaryIndexDescription' value with any optional fields omitted.
 mkReplicaGlobalSecondaryIndexDescription ::
   ReplicaGlobalSecondaryIndexDescription
 mkReplicaGlobalSecondaryIndexDescription =
   ReplicaGlobalSecondaryIndexDescription'
-    { provisionedThroughputOverride =
-        Lude.Nothing,
-      indexName = Lude.Nothing
+    { indexName = Core.Nothing,
+      provisionedThroughputOverride = Core.Nothing
     }
-
--- | If not described, uses the source table GSI's read capacity settings.
---
--- /Note:/ Consider using 'provisionedThroughputOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsidProvisionedThroughputOverride :: Lens.Lens' ReplicaGlobalSecondaryIndexDescription (Lude.Maybe ProvisionedThroughputOverride)
-rgsidProvisionedThroughputOverride = Lens.lens (provisionedThroughputOverride :: ReplicaGlobalSecondaryIndexDescription -> Lude.Maybe ProvisionedThroughputOverride) (\s a -> s {provisionedThroughputOverride = a} :: ReplicaGlobalSecondaryIndexDescription)
-{-# DEPRECATED rgsidProvisionedThroughputOverride "Use generic-lens or generic-optics with 'provisionedThroughputOverride' instead." #-}
 
 -- | The name of the global secondary index.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsidIndexName :: Lens.Lens' ReplicaGlobalSecondaryIndexDescription (Lude.Maybe Lude.Text)
-rgsidIndexName = Lens.lens (indexName :: ReplicaGlobalSecondaryIndexDescription -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexDescription)
+rgsidIndexName :: Lens.Lens' ReplicaGlobalSecondaryIndexDescription (Core.Maybe Types.IndexName)
+rgsidIndexName = Lens.field @"indexName"
 {-# DEPRECATED rgsidIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Lude.FromJSON ReplicaGlobalSecondaryIndexDescription where
+-- | If not described, uses the source table GSI's read capacity settings.
+--
+-- /Note:/ Consider using 'provisionedThroughputOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsidProvisionedThroughputOverride :: Lens.Lens' ReplicaGlobalSecondaryIndexDescription (Core.Maybe Types.ProvisionedThroughputOverride)
+rgsidProvisionedThroughputOverride = Lens.field @"provisionedThroughputOverride"
+{-# DEPRECATED rgsidProvisionedThroughputOverride "Use generic-lens or generic-optics with 'provisionedThroughputOverride' instead." #-}
+
+instance Core.FromJSON ReplicaGlobalSecondaryIndexDescription where
   parseJSON =
-    Lude.withObject
-      "ReplicaGlobalSecondaryIndexDescription"
-      ( \x ->
-          ReplicaGlobalSecondaryIndexDescription'
-            Lude.<$> (x Lude..:? "ProvisionedThroughputOverride")
-            Lude.<*> (x Lude..:? "IndexName")
-      )
+    Core.withObject "ReplicaGlobalSecondaryIndexDescription" Core.$
+      \x ->
+        ReplicaGlobalSecondaryIndexDescription'
+          Core.<$> (x Core..:? "IndexName")
+          Core.<*> (x Core..:? "ProvisionedThroughputOverride")

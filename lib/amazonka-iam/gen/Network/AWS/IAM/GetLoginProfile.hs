@@ -27,111 +27,103 @@ module Network.AWS.IAM.GetLoginProfile
     mkGetLoginProfileResponse,
 
     -- ** Response lenses
-    glprsLoginProfile,
-    glprsResponseStatus,
+    glprrsLoginProfile,
+    glprrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLoginProfile' smart constructor.
 newtype GetLoginProfile = GetLoginProfile'
   { -- | The name of the user whose login profile you want to retrieve.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text
+    userName :: Types.UserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLoginProfile' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the user whose login profile you want to retrieve.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'GetLoginProfile' value with any optional fields omitted.
 mkGetLoginProfile ::
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
   GetLoginProfile
-mkGetLoginProfile pUserName_ =
-  GetLoginProfile' {userName = pUserName_}
+mkGetLoginProfile userName = GetLoginProfile' {userName}
 
 -- | The name of the user whose login profile you want to retrieve.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpUserName :: Lens.Lens' GetLoginProfile Lude.Text
-glpUserName = Lens.lens (userName :: GetLoginProfile -> Lude.Text) (\s a -> s {userName = a} :: GetLoginProfile)
+glpUserName :: Lens.Lens' GetLoginProfile Types.UserName
+glpUserName = Lens.field @"userName"
 {-# DEPRECATED glpUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance Lude.AWSRequest GetLoginProfile where
+instance Core.AWSRequest GetLoginProfile where
   type Rs GetLoginProfile = GetLoginProfileResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetLoginProfile")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetLoginProfileResult"
       ( \s h x ->
           GetLoginProfileResponse'
-            Lude.<$> (x Lude..@ "LoginProfile") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "LoginProfile") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetLoginProfile where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetLoginProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetLoginProfile where
-  toQuery GetLoginProfile' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetLoginProfile" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName
-      ]
 
 -- | Contains the response to a successful 'GetLoginProfile' request.
 --
 -- /See:/ 'mkGetLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'
   { -- | A structure containing the user name and password create date for the user.
-    loginProfile :: LoginProfile,
+    loginProfile :: Types.LoginProfile,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetLoginProfileResponse' with the minimum fields required to make a request.
---
--- * 'loginProfile' - A structure containing the user name and password create date for the user.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetLoginProfileResponse' value with any optional fields omitted.
 mkGetLoginProfileResponse ::
   -- | 'loginProfile'
-  LoginProfile ->
+  Types.LoginProfile ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetLoginProfileResponse
-mkGetLoginProfileResponse pLoginProfile_ pResponseStatus_ =
-  GetLoginProfileResponse'
-    { loginProfile = pLoginProfile_,
-      responseStatus = pResponseStatus_
-    }
+mkGetLoginProfileResponse loginProfile responseStatus =
+  GetLoginProfileResponse' {loginProfile, responseStatus}
 
 -- | A structure containing the user name and password create date for the user.
 --
 -- /Note:/ Consider using 'loginProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glprsLoginProfile :: Lens.Lens' GetLoginProfileResponse LoginProfile
-glprsLoginProfile = Lens.lens (loginProfile :: GetLoginProfileResponse -> LoginProfile) (\s a -> s {loginProfile = a} :: GetLoginProfileResponse)
-{-# DEPRECATED glprsLoginProfile "Use generic-lens or generic-optics with 'loginProfile' instead." #-}
+glprrsLoginProfile :: Lens.Lens' GetLoginProfileResponse Types.LoginProfile
+glprrsLoginProfile = Lens.field @"loginProfile"
+{-# DEPRECATED glprrsLoginProfile "Use generic-lens or generic-optics with 'loginProfile' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glprsResponseStatus :: Lens.Lens' GetLoginProfileResponse Lude.Int
-glprsResponseStatus = Lens.lens (responseStatus :: GetLoginProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLoginProfileResponse)
-{-# DEPRECATED glprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+glprrsResponseStatus :: Lens.Lens' GetLoginProfileResponse Core.Int
+glprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED glprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

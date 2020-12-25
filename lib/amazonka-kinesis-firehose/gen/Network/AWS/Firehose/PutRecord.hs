@@ -36,143 +36,126 @@ module Network.AWS.Firehose.PutRecord
     mkPutRecordResponse,
 
     -- ** Response lenses
-    prrsRecordId,
-    prrsEncrypted,
-    prrsResponseStatus,
+    prrrsRecordId,
+    prrrsEncrypted,
+    prrrsResponseStatus,
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutRecord' smart constructor.
 data PutRecord = PutRecord'
   { -- | The name of the delivery stream.
-    deliveryStreamName :: Lude.Text,
+    deliveryStreamName :: Types.DeliveryStreamName,
     -- | The record.
-    record :: Record
+    record :: Types.Record
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecord' with the minimum fields required to make a request.
---
--- * 'deliveryStreamName' - The name of the delivery stream.
--- * 'record' - The record.
+-- | Creates a 'PutRecord' value with any optional fields omitted.
 mkPutRecord ::
   -- | 'deliveryStreamName'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
   -- | 'record'
-  Record ->
+  Types.Record ->
   PutRecord
-mkPutRecord pDeliveryStreamName_ pRecord_ =
-  PutRecord'
-    { deliveryStreamName = pDeliveryStreamName_,
-      record = pRecord_
-    }
+mkPutRecord deliveryStreamName record =
+  PutRecord' {deliveryStreamName, record}
 
 -- | The name of the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prDeliveryStreamName :: Lens.Lens' PutRecord Lude.Text
-prDeliveryStreamName = Lens.lens (deliveryStreamName :: PutRecord -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: PutRecord)
+prDeliveryStreamName :: Lens.Lens' PutRecord Types.DeliveryStreamName
+prDeliveryStreamName = Lens.field @"deliveryStreamName"
 {-# DEPRECATED prDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 -- | The record.
 --
 -- /Note:/ Consider using 'record' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prRecord :: Lens.Lens' PutRecord Record
-prRecord = Lens.lens (record :: PutRecord -> Record) (\s a -> s {record = a} :: PutRecord)
+prRecord :: Lens.Lens' PutRecord Types.Record
+prRecord = Lens.field @"record"
 {-# DEPRECATED prRecord "Use generic-lens or generic-optics with 'record' instead." #-}
 
-instance Lude.AWSRequest PutRecord where
+instance Core.FromJSON PutRecord where
+  toJSON PutRecord {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just ("Record" Core..= record)
+          ]
+      )
+
+instance Core.AWSRequest PutRecord where
   type Rs PutRecord = PutRecordResponse
-  request = Req.postJSON firehoseService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Firehose_20150804.PutRecord")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutRecordResponse'
-            Lude.<$> (x Lude..:> "RecordId")
-            Lude.<*> (x Lude..?> "Encrypted")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "RecordId")
+            Core.<*> (x Core..:? "Encrypted")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRecord where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Firehose_20150804.PutRecord" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRecord where
-  toJSON PutRecord' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
-            Lude.Just ("Record" Lude..= record)
-          ]
-      )
-
-instance Lude.ToPath PutRecord where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRecord where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
   { -- | The ID of the record.
-    recordId :: Lude.Text,
+    recordId :: Types.PutResponseRecordId,
     -- | Indicates whether server-side encryption (SSE) was enabled during this operation.
-    encrypted :: Lude.Maybe Lude.Bool,
+    encrypted :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecordResponse' with the minimum fields required to make a request.
---
--- * 'recordId' - The ID of the record.
--- * 'encrypted' - Indicates whether server-side encryption (SSE) was enabled during this operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRecordResponse' value with any optional fields omitted.
 mkPutRecordResponse ::
   -- | 'recordId'
-  Lude.Text ->
+  Types.PutResponseRecordId ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRecordResponse
-mkPutRecordResponse pRecordId_ pResponseStatus_ =
+mkPutRecordResponse recordId responseStatus =
   PutRecordResponse'
-    { recordId = pRecordId_,
-      encrypted = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { recordId,
+      encrypted = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the record.
 --
 -- /Note:/ Consider using 'recordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prrsRecordId :: Lens.Lens' PutRecordResponse Lude.Text
-prrsRecordId = Lens.lens (recordId :: PutRecordResponse -> Lude.Text) (\s a -> s {recordId = a} :: PutRecordResponse)
-{-# DEPRECATED prrsRecordId "Use generic-lens or generic-optics with 'recordId' instead." #-}
+prrrsRecordId :: Lens.Lens' PutRecordResponse Types.PutResponseRecordId
+prrrsRecordId = Lens.field @"recordId"
+{-# DEPRECATED prrrsRecordId "Use generic-lens or generic-optics with 'recordId' instead." #-}
 
 -- | Indicates whether server-side encryption (SSE) was enabled during this operation.
 --
 -- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prrsEncrypted :: Lens.Lens' PutRecordResponse (Lude.Maybe Lude.Bool)
-prrsEncrypted = Lens.lens (encrypted :: PutRecordResponse -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: PutRecordResponse)
-{-# DEPRECATED prrsEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
+prrrsEncrypted :: Lens.Lens' PutRecordResponse (Core.Maybe Core.Bool)
+prrrsEncrypted = Lens.field @"encrypted"
+{-# DEPRECATED prrrsEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prrsResponseStatus :: Lens.Lens' PutRecordResponse Lude.Int
-prrsResponseStatus = Lens.lens (responseStatus :: PutRecordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRecordResponse)
-{-# DEPRECATED prrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prrrsResponseStatus :: Lens.Lens' PutRecordResponse Core.Int
+prrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -18,63 +18,56 @@ module Network.AWS.CodeBuild.Types.ProjectBadge
 
     -- * Lenses
     pbBadgeEnabled,
-    pbBadgeRequestURL,
+    pbBadgeRequestUrl,
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the build badge for the build project.
 --
 -- /See:/ 'mkProjectBadge' smart constructor.
 data ProjectBadge = ProjectBadge'
   { -- | Set this to true to generate a publicly accessible URL for your project's build badge.
-    badgeEnabled :: Lude.Maybe Lude.Bool,
+    badgeEnabled :: Core.Maybe Core.Bool,
     -- | The publicly-accessible URL through which you can access the build badge for your project.
     --
     -- The publicly accessible URL through which you can access the build badge for your project.
-    badgeRequestURL :: Lude.Maybe Lude.Text
+    badgeRequestUrl :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProjectBadge' with the minimum fields required to make a request.
---
--- * 'badgeEnabled' - Set this to true to generate a publicly accessible URL for your project's build badge.
--- * 'badgeRequestURL' - The publicly-accessible URL through which you can access the build badge for your project.
---
--- The publicly accessible URL through which you can access the build badge for your project.
+-- | Creates a 'ProjectBadge' value with any optional fields omitted.
 mkProjectBadge ::
   ProjectBadge
 mkProjectBadge =
   ProjectBadge'
-    { badgeEnabled = Lude.Nothing,
-      badgeRequestURL = Lude.Nothing
+    { badgeEnabled = Core.Nothing,
+      badgeRequestUrl = Core.Nothing
     }
 
 -- | Set this to true to generate a publicly accessible URL for your project's build badge.
 --
 -- /Note:/ Consider using 'badgeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbBadgeEnabled :: Lens.Lens' ProjectBadge (Lude.Maybe Lude.Bool)
-pbBadgeEnabled = Lens.lens (badgeEnabled :: ProjectBadge -> Lude.Maybe Lude.Bool) (\s a -> s {badgeEnabled = a} :: ProjectBadge)
+pbBadgeEnabled :: Lens.Lens' ProjectBadge (Core.Maybe Core.Bool)
+pbBadgeEnabled = Lens.field @"badgeEnabled"
 {-# DEPRECATED pbBadgeEnabled "Use generic-lens or generic-optics with 'badgeEnabled' instead." #-}
 
 -- | The publicly-accessible URL through which you can access the build badge for your project.
 --
 -- The publicly accessible URL through which you can access the build badge for your project.
 --
--- /Note:/ Consider using 'badgeRequestURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbBadgeRequestURL :: Lens.Lens' ProjectBadge (Lude.Maybe Lude.Text)
-pbBadgeRequestURL = Lens.lens (badgeRequestURL :: ProjectBadge -> Lude.Maybe Lude.Text) (\s a -> s {badgeRequestURL = a} :: ProjectBadge)
-{-# DEPRECATED pbBadgeRequestURL "Use generic-lens or generic-optics with 'badgeRequestURL' instead." #-}
+-- /Note:/ Consider using 'badgeRequestUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbBadgeRequestUrl :: Lens.Lens' ProjectBadge (Core.Maybe Types.String)
+pbBadgeRequestUrl = Lens.field @"badgeRequestUrl"
+{-# DEPRECATED pbBadgeRequestUrl "Use generic-lens or generic-optics with 'badgeRequestUrl' instead." #-}
 
-instance Lude.FromJSON ProjectBadge where
+instance Core.FromJSON ProjectBadge where
   parseJSON =
-    Lude.withObject
-      "ProjectBadge"
-      ( \x ->
-          ProjectBadge'
-            Lude.<$> (x Lude..:? "badgeEnabled")
-            Lude.<*> (x Lude..:? "badgeRequestUrl")
-      )
+    Core.withObject "ProjectBadge" Core.$
+      \x ->
+        ProjectBadge'
+          Core.<$> (x Core..:? "badgeEnabled") Core.<*> (x Core..:? "badgeRequestUrl")

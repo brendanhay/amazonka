@@ -13,71 +13,73 @@
 module Network.AWS.Batch.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        Submitted,
-        Pending,
-        Runnable,
-        Starting,
-        Running,
-        Succeeded,
-        Failed
+        JobStatusSubmitted,
+        JobStatusPending,
+        JobStatusRunnable,
+        JobStatusStarting,
+        JobStatusRunning,
+        JobStatusSucceeded,
+        JobStatusFailed,
+        fromJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobStatus = JobStatus' Lude.Text
+newtype JobStatus = JobStatus' {fromJobStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Submitted :: JobStatus
-pattern Submitted = JobStatus' "SUBMITTED"
+pattern JobStatusSubmitted :: JobStatus
+pattern JobStatusSubmitted = JobStatus' "SUBMITTED"
 
-pattern Pending :: JobStatus
-pattern Pending = JobStatus' "PENDING"
+pattern JobStatusPending :: JobStatus
+pattern JobStatusPending = JobStatus' "PENDING"
 
-pattern Runnable :: JobStatus
-pattern Runnable = JobStatus' "RUNNABLE"
+pattern JobStatusRunnable :: JobStatus
+pattern JobStatusRunnable = JobStatus' "RUNNABLE"
 
-pattern Starting :: JobStatus
-pattern Starting = JobStatus' "STARTING"
+pattern JobStatusStarting :: JobStatus
+pattern JobStatusStarting = JobStatus' "STARTING"
 
-pattern Running :: JobStatus
-pattern Running = JobStatus' "RUNNING"
+pattern JobStatusRunning :: JobStatus
+pattern JobStatusRunning = JobStatus' "RUNNING"
 
-pattern Succeeded :: JobStatus
-pattern Succeeded = JobStatus' "SUCCEEDED"
+pattern JobStatusSucceeded :: JobStatus
+pattern JobStatusSucceeded = JobStatus' "SUCCEEDED"
 
-pattern Failed :: JobStatus
-pattern Failed = JobStatus' "FAILED"
+pattern JobStatusFailed :: JobStatus
+pattern JobStatusFailed = JobStatus' "FAILED"
 
 {-# COMPLETE
-  Submitted,
-  Pending,
-  Runnable,
-  Starting,
-  Running,
-  Succeeded,
-  Failed,
+  JobStatusSubmitted,
+  JobStatusPending,
+  JobStatusRunnable,
+  JobStatusStarting,
+  JobStatusRunning,
+  JobStatusSucceeded,
+  JobStatusFailed,
   JobStatus'
   #-}

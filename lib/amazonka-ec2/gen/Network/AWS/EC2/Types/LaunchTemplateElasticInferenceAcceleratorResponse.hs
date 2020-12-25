@@ -17,13 +17,14 @@ module Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAcceleratorResponse
     mkLaunchTemplateElasticInferenceAcceleratorResponse,
 
     -- * Lenses
-    lCount,
-    lType,
+    lteiarCount,
+    lteiarType,
   )
 where
 
+import qualified Network.AWS.EC2.Types.Type as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an elastic inference accelerator.
 --
@@ -32,26 +33,21 @@ data LaunchTemplateElasticInferenceAcceleratorResponse = LaunchTemplateElasticIn
   { -- | The number of elastic inference accelerators to attach to the instance.
     --
     -- Default: 1
-    count :: Lude.Maybe Lude.Int,
+    count :: Core.Maybe Core.Int,
     -- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.Type
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplateElasticInferenceAcceleratorResponse' with the minimum fields required to make a request.
---
--- * 'count' - The number of elastic inference accelerators to attach to the instance.
---
--- Default: 1
--- * 'type'' - The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+-- | Creates a 'LaunchTemplateElasticInferenceAcceleratorResponse' value with any optional fields omitted.
 mkLaunchTemplateElasticInferenceAcceleratorResponse ::
   LaunchTemplateElasticInferenceAcceleratorResponse
 mkLaunchTemplateElasticInferenceAcceleratorResponse =
   LaunchTemplateElasticInferenceAcceleratorResponse'
     { count =
-        Lude.Nothing,
-      type' = Lude.Nothing
+        Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The number of elastic inference accelerators to attach to the instance.
@@ -59,21 +55,21 @@ mkLaunchTemplateElasticInferenceAcceleratorResponse =
 -- Default: 1
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lCount :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Lude.Maybe Lude.Int)
-lCount = Lens.lens (count :: LaunchTemplateElasticInferenceAcceleratorResponse -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: LaunchTemplateElasticInferenceAcceleratorResponse)
-{-# DEPRECATED lCount "Use generic-lens or generic-optics with 'count' instead." #-}
+lteiarCount :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Core.Maybe Core.Int)
+lteiarCount = Lens.field @"count"
+{-# DEPRECATED lteiarCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lType :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Lude.Maybe Lude.Text)
-lType = Lens.lens (type' :: LaunchTemplateElasticInferenceAcceleratorResponse -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: LaunchTemplateElasticInferenceAcceleratorResponse)
-{-# DEPRECATED lType "Use generic-lens or generic-optics with 'type'' instead." #-}
+lteiarType :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Core.Maybe Types.Type)
+lteiarType = Lens.field @"type'"
+{-# DEPRECATED lteiarType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 instance
-  Lude.FromXML
+  Core.FromXML
     LaunchTemplateElasticInferenceAcceleratorResponse
   where
   parseXML x =
     LaunchTemplateElasticInferenceAcceleratorResponse'
-      Lude.<$> (x Lude..@? "count") Lude.<*> (x Lude..@? "type")
+      Core.<$> (x Core..@? "count") Core.<*> (x Core..@? "type")

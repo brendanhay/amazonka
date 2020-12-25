@@ -13,51 +13,56 @@
 module Network.AWS.CloudFormation.Types.AccountGateStatus
   ( AccountGateStatus
       ( AccountGateStatus',
-        AGSSucceeded,
-        AGSFailed,
-        AGSSkipped
+        AccountGateStatusSucceeded,
+        AccountGateStatusFailed,
+        AccountGateStatusSkipped,
+        fromAccountGateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AccountGateStatus = AccountGateStatus' Lude.Text
+newtype AccountGateStatus = AccountGateStatus'
+  { fromAccountGateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AGSSucceeded :: AccountGateStatus
-pattern AGSSucceeded = AccountGateStatus' "SUCCEEDED"
+pattern AccountGateStatusSucceeded :: AccountGateStatus
+pattern AccountGateStatusSucceeded = AccountGateStatus' "SUCCEEDED"
 
-pattern AGSFailed :: AccountGateStatus
-pattern AGSFailed = AccountGateStatus' "FAILED"
+pattern AccountGateStatusFailed :: AccountGateStatus
+pattern AccountGateStatusFailed = AccountGateStatus' "FAILED"
 
-pattern AGSSkipped :: AccountGateStatus
-pattern AGSSkipped = AccountGateStatus' "SKIPPED"
+pattern AccountGateStatusSkipped :: AccountGateStatus
+pattern AccountGateStatusSkipped = AccountGateStatus' "SKIPPED"
 
 {-# COMPLETE
-  AGSSucceeded,
-  AGSFailed,
-  AGSSkipped,
+  AccountGateStatusSucceeded,
+  AccountGateStatusFailed,
+  AccountGateStatusSkipped,
   AccountGateStatus'
   #-}

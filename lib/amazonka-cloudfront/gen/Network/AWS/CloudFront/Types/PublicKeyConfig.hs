@@ -17,95 +17,89 @@ module Network.AWS.CloudFront.Types.PublicKeyConfig
     mkPublicKeyConfig,
 
     -- * Lenses
-    pkcEncodedKey,
-    pkcName,
-    pkcComment,
     pkcCallerReference,
+    pkcName,
+    pkcEncodedKey,
+    pkcComment,
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information about a public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
 --
 -- /See:/ 'mkPublicKeyConfig' smart constructor.
 data PublicKeyConfig = PublicKeyConfig'
-  { -- | The public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
-    encodedKey :: Lude.Text,
+  { -- | A string included in the request to help make sure that the request can’t be replayed.
+    callerReference :: Types.String,
     -- | A name to help identify the public key.
-    name :: Lude.Text,
+    name :: Types.String,
+    -- | The public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
+    encodedKey :: Types.String,
     -- | A comment to describe the public key.
-    comment :: Lude.Maybe Lude.Text,
-    -- | A string included in the request to help make sure that the request can’t be replayed.
-    callerReference :: Lude.Text
+    comment :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PublicKeyConfig' with the minimum fields required to make a request.
---
--- * 'encodedKey' - The public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
--- * 'name' - A name to help identify the public key.
--- * 'comment' - A comment to describe the public key.
--- * 'callerReference' - A string included in the request to help make sure that the request can’t be replayed.
+-- | Creates a 'PublicKeyConfig' value with any optional fields omitted.
 mkPublicKeyConfig ::
-  -- | 'encodedKey'
-  Lude.Text ->
-  -- | 'name'
-  Lude.Text ->
   -- | 'callerReference'
-  Lude.Text ->
+  Types.String ->
+  -- | 'name'
+  Types.String ->
+  -- | 'encodedKey'
+  Types.String ->
   PublicKeyConfig
-mkPublicKeyConfig pEncodedKey_ pName_ pCallerReference_ =
+mkPublicKeyConfig callerReference name encodedKey =
   PublicKeyConfig'
-    { encodedKey = pEncodedKey_,
-      name = pName_,
-      comment = Lude.Nothing,
-      callerReference = pCallerReference_
+    { callerReference,
+      name,
+      encodedKey,
+      comment = Core.Nothing
     }
-
--- | The public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
---
--- /Note:/ Consider using 'encodedKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkcEncodedKey :: Lens.Lens' PublicKeyConfig Lude.Text
-pkcEncodedKey = Lens.lens (encodedKey :: PublicKeyConfig -> Lude.Text) (\s a -> s {encodedKey = a} :: PublicKeyConfig)
-{-# DEPRECATED pkcEncodedKey "Use generic-lens or generic-optics with 'encodedKey' instead." #-}
-
--- | A name to help identify the public key.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkcName :: Lens.Lens' PublicKeyConfig Lude.Text
-pkcName = Lens.lens (name :: PublicKeyConfig -> Lude.Text) (\s a -> s {name = a} :: PublicKeyConfig)
-{-# DEPRECATED pkcName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A comment to describe the public key.
---
--- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkcComment :: Lens.Lens' PublicKeyConfig (Lude.Maybe Lude.Text)
-pkcComment = Lens.lens (comment :: PublicKeyConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: PublicKeyConfig)
-{-# DEPRECATED pkcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | A string included in the request to help make sure that the request can’t be replayed.
 --
 -- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkcCallerReference :: Lens.Lens' PublicKeyConfig Lude.Text
-pkcCallerReference = Lens.lens (callerReference :: PublicKeyConfig -> Lude.Text) (\s a -> s {callerReference = a} :: PublicKeyConfig)
+pkcCallerReference :: Lens.Lens' PublicKeyConfig Types.String
+pkcCallerReference = Lens.field @"callerReference"
 {-# DEPRECATED pkcCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
-instance Lude.FromXML PublicKeyConfig where
+-- | A name to help identify the public key.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pkcName :: Lens.Lens' PublicKeyConfig Types.String
+pkcName = Lens.field @"name"
+{-# DEPRECATED pkcName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
+--
+-- /Note:/ Consider using 'encodedKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pkcEncodedKey :: Lens.Lens' PublicKeyConfig Types.String
+pkcEncodedKey = Lens.field @"encodedKey"
+{-# DEPRECATED pkcEncodedKey "Use generic-lens or generic-optics with 'encodedKey' instead." #-}
+
+-- | A comment to describe the public key.
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pkcComment :: Lens.Lens' PublicKeyConfig (Core.Maybe Types.String)
+pkcComment = Lens.field @"comment"
+{-# DEPRECATED pkcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+
+instance Core.ToXML PublicKeyConfig where
+  toXML PublicKeyConfig {..} =
+    Core.toXMLNode "CallerReference" callerReference
+      Core.<> Core.toXMLNode "Name" name
+      Core.<> Core.toXMLNode "EncodedKey" encodedKey
+      Core.<> Core.toXMLNode "Comment" Core.<$> comment
+
+instance Core.FromXML PublicKeyConfig where
   parseXML x =
     PublicKeyConfig'
-      Lude.<$> (x Lude..@ "EncodedKey")
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> (x Lude..@? "Comment")
-      Lude.<*> (x Lude..@ "CallerReference")
-
-instance Lude.ToXML PublicKeyConfig where
-  toXML PublicKeyConfig' {..} =
-    Lude.mconcat
-      [ "EncodedKey" Lude.@= encodedKey,
-        "Name" Lude.@= name,
-        "Comment" Lude.@= comment,
-        "CallerReference" Lude.@= callerReference
-      ]
+      Core.<$> (x Core..@ "CallerReference")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "EncodedKey")
+      Core.<*> (x Core..@? "Comment")

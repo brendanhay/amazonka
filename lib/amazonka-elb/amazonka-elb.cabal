@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen src
   exposed-modules:
     Network.AWS.ELB
     Network.AWS.ELB.AddTags
@@ -102,31 +108,68 @@ library
   other-modules:
     Network.AWS.ELB.Internal
     Network.AWS.ELB.Types.AccessLog
+    Network.AWS.ELB.Types.AccessPointName
     Network.AWS.ELB.Types.AdditionalAttribute
+    Network.AWS.ELB.Types.AdditionalAttributeKey
     Network.AWS.ELB.Types.AppCookieStickinessPolicy
+    Network.AWS.ELB.Types.AttributeName
+    Network.AWS.ELB.Types.AttributeType
+    Network.AWS.ELB.Types.AttributeValue
+    Network.AWS.ELB.Types.AvailabilityZone
     Network.AWS.ELB.Types.BackendServerDescription
+    Network.AWS.ELB.Types.CanonicalHostedZoneName
+    Network.AWS.ELB.Types.CanonicalHostedZoneNameID
+    Network.AWS.ELB.Types.Cardinality
     Network.AWS.ELB.Types.ConnectionDraining
     Network.AWS.ELB.Types.ConnectionSettings
+    Network.AWS.ELB.Types.CookieName
     Network.AWS.ELB.Types.CrossZoneLoadBalancing
+    Network.AWS.ELB.Types.DefaultValue
+    Network.AWS.ELB.Types.Description
+    Network.AWS.ELB.Types.DNSName
+    Network.AWS.ELB.Types.GroupName
     Network.AWS.ELB.Types.HealthCheck
     Network.AWS.ELB.Types.Instance
+    Network.AWS.ELB.Types.InstanceId
     Network.AWS.ELB.Types.InstanceState
+    Network.AWS.ELB.Types.Key
     Network.AWS.ELB.Types.LBCookieStickinessPolicy
     Network.AWS.ELB.Types.Limit
     Network.AWS.ELB.Types.Listener
     Network.AWS.ELB.Types.ListenerDescription
     Network.AWS.ELB.Types.LoadBalancerAttributes
     Network.AWS.ELB.Types.LoadBalancerDescription
+    Network.AWS.ELB.Types.LoadBalancerName
+    Network.AWS.ELB.Types.LoadBalancerScheme
+    Network.AWS.ELB.Types.Marker
+    Network.AWS.ELB.Types.Max
+    Network.AWS.ELB.Types.Name
+    Network.AWS.ELB.Types.NextMarker
+    Network.AWS.ELB.Types.OwnerAlias
     Network.AWS.ELB.Types.Policies
     Network.AWS.ELB.Types.PolicyAttribute
     Network.AWS.ELB.Types.PolicyAttributeDescription
     Network.AWS.ELB.Types.PolicyAttributeTypeDescription
     Network.AWS.ELB.Types.PolicyDescription
+    Network.AWS.ELB.Types.PolicyName
     Network.AWS.ELB.Types.PolicyTypeDescription
+    Network.AWS.ELB.Types.PolicyTypeName
+    Network.AWS.ELB.Types.Protocol
+    Network.AWS.ELB.Types.ReasonCode
+    Network.AWS.ELB.Types.S3BucketName
+    Network.AWS.ELB.Types.S3BucketPrefix
+    Network.AWS.ELB.Types.SecurityGroupId
     Network.AWS.ELB.Types.SourceSecurityGroup
+    Network.AWS.ELB.Types.SSLCertificateId
+    Network.AWS.ELB.Types.State
+    Network.AWS.ELB.Types.SubnetId
     Network.AWS.ELB.Types.Tag
     Network.AWS.ELB.Types.TagDescription
+    Network.AWS.ELB.Types.TagKey
     Network.AWS.ELB.Types.TagKeyOnly
+    Network.AWS.ELB.Types.Target
+    Network.AWS.ELB.Types.Value
+    Network.AWS.ELB.Types.VPCId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

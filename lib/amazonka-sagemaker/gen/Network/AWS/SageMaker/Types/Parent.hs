@@ -23,48 +23,45 @@ module Network.AWS.SageMaker.Types.Parent
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ExperimentName as Types
+import qualified Network.AWS.SageMaker.Types.TrialName as Types
 
 -- | The trial that a trial component is associated with and the experiment the trial is part of. A component might not be associated with a trial. A component can be associated with multiple trials.
 --
 -- /See:/ 'mkParent' smart constructor.
 data Parent = Parent'
   { -- | The name of the experiment.
-    experimentName :: Lude.Maybe Lude.Text,
+    experimentName :: Core.Maybe Types.ExperimentName,
     -- | The name of the trial.
-    trialName :: Lude.Maybe Lude.Text
+    trialName :: Core.Maybe Types.TrialName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Parent' with the minimum fields required to make a request.
---
--- * 'experimentName' - The name of the experiment.
--- * 'trialName' - The name of the trial.
+-- | Creates a 'Parent' value with any optional fields omitted.
 mkParent ::
   Parent
 mkParent =
-  Parent' {experimentName = Lude.Nothing, trialName = Lude.Nothing}
+  Parent' {experimentName = Core.Nothing, trialName = Core.Nothing}
 
 -- | The name of the experiment.
 --
 -- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pExperimentName :: Lens.Lens' Parent (Lude.Maybe Lude.Text)
-pExperimentName = Lens.lens (experimentName :: Parent -> Lude.Maybe Lude.Text) (\s a -> s {experimentName = a} :: Parent)
+pExperimentName :: Lens.Lens' Parent (Core.Maybe Types.ExperimentName)
+pExperimentName = Lens.field @"experimentName"
 {-# DEPRECATED pExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | The name of the trial.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pTrialName :: Lens.Lens' Parent (Lude.Maybe Lude.Text)
-pTrialName = Lens.lens (trialName :: Parent -> Lude.Maybe Lude.Text) (\s a -> s {trialName = a} :: Parent)
+pTrialName :: Lens.Lens' Parent (Core.Maybe Types.TrialName)
+pTrialName = Lens.field @"trialName"
 {-# DEPRECATED pTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
-instance Lude.FromJSON Parent where
+instance Core.FromJSON Parent where
   parseJSON =
-    Lude.withObject
-      "Parent"
-      ( \x ->
-          Parent'
-            Lude.<$> (x Lude..:? "ExperimentName") Lude.<*> (x Lude..:? "TrialName")
-      )
+    Core.withObject "Parent" Core.$
+      \x ->
+        Parent'
+          Core.<$> (x Core..:? "ExperimentName") Core.<*> (x Core..:? "TrialName")

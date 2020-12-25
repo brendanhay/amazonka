@@ -17,94 +17,109 @@ module Network.AWS.SageMaker.Types.Channel
     mkChannel,
 
     -- * Lenses
-    cShuffleConfig,
-    cRecordWrapperType,
     cChannelName,
     cDataSource,
-    cInputMode,
     cCompressionType,
     cContentType,
+    cInputMode,
+    cRecordWrapperType,
+    cShuffleConfig,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.CompressionType
-import Network.AWS.SageMaker.Types.DataSource
-import Network.AWS.SageMaker.Types.RecordWrapper
-import Network.AWS.SageMaker.Types.ShuffleConfig
-import Network.AWS.SageMaker.Types.TrainingInputMode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ChannelName as Types
+import qualified Network.AWS.SageMaker.Types.CompressionType as Types
+import qualified Network.AWS.SageMaker.Types.ContentType as Types
+import qualified Network.AWS.SageMaker.Types.DataSource as Types
+import qualified Network.AWS.SageMaker.Types.RecordWrapper as Types
+import qualified Network.AWS.SageMaker.Types.ShuffleConfig as Types
+import qualified Network.AWS.SageMaker.Types.TrainingInputMode as Types
 
 -- | A channel is a named input source that training algorithms can consume.
 --
 -- /See:/ 'mkChannel' smart constructor.
 data Channel = Channel'
-  { -- | A configuration for a shuffle option for input data in a channel. If you use @S3Prefix@ for @S3DataType@ , this shuffles the results of the S3 key prefix matches. If you use @ManifestFile@ , the order of the S3 object references in the @ManifestFile@ is shuffled. If you use @AugmentedManifestFile@ , the order of the JSON lines in the @AugmentedManifestFile@ is shuffled. The shuffling order is determined using the @Seed@ value.
+  { -- | The name of the channel.
+    channelName :: Types.ChannelName,
+    -- | The location of the channel data.
+    dataSource :: Types.DataSource,
+    -- | If training data is compressed, the compression type. The default value is @None@ . @CompressionType@ is used only in Pipe input mode. In File mode, leave this field unset or set it to None.
+    compressionType :: Core.Maybe Types.CompressionType,
+    -- | The MIME type of the data.
+    contentType :: Core.Maybe Types.ContentType,
+    -- | (Optional) The input mode to use for the data channel in a training job. If you don't set a value for @InputMode@ , Amazon SageMaker uses the value set for @TrainingInputMode@ . Use this parameter to override the @TrainingInputMode@ setting in a 'AlgorithmSpecification' request when you have a channel that needs a different input mode from the training job's general setting. To download the data from Amazon Simple Storage Service (Amazon S3) to the provisioned ML storage volume, and mount the directory to a Docker volume, use @File@ input mode. To stream data directly from Amazon S3 to the container, choose @Pipe@ input mode.
     --
-    -- For Pipe input mode, shuffling is done at the start of every epoch. With large datasets this ensures that the order of the training data is different for each epoch, it helps reduce bias and possible overfitting. In a multi-node training job when ShuffleConfig is combined with @S3DataDistributionType@ of @ShardedByS3Key@ , the data is shuffled across nodes so that the content sent to a particular node on the first epoch might be sent to a different node on the second epoch.
-    shuffleConfig :: Lude.Maybe ShuffleConfig,
+    -- To use a model for incremental training, choose @File@ input model.
+    inputMode :: Core.Maybe Types.TrainingInputMode,
     -- |
     --
     -- Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format. In this case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don't need to set this attribute. For more information, see <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO> .
     -- In File mode, leave this field unset or set it to None.
-    recordWrapperType :: Lude.Maybe RecordWrapper,
-    -- | The name of the channel.
-    channelName :: Lude.Text,
-    -- | The location of the channel data.
-    dataSource :: DataSource,
-    -- | (Optional) The input mode to use for the data channel in a training job. If you don't set a value for @InputMode@ , Amazon SageMaker uses the value set for @TrainingInputMode@ . Use this parameter to override the @TrainingInputMode@ setting in a 'AlgorithmSpecification' request when you have a channel that needs a different input mode from the training job's general setting. To download the data from Amazon Simple Storage Service (Amazon S3) to the provisioned ML storage volume, and mount the directory to a Docker volume, use @File@ input mode. To stream data directly from Amazon S3 to the container, choose @Pipe@ input mode.
+    recordWrapperType :: Core.Maybe Types.RecordWrapper,
+    -- | A configuration for a shuffle option for input data in a channel. If you use @S3Prefix@ for @S3DataType@ , this shuffles the results of the S3 key prefix matches. If you use @ManifestFile@ , the order of the S3 object references in the @ManifestFile@ is shuffled. If you use @AugmentedManifestFile@ , the order of the JSON lines in the @AugmentedManifestFile@ is shuffled. The shuffling order is determined using the @Seed@ value.
     --
-    -- To use a model for incremental training, choose @File@ input model.
-    inputMode :: Lude.Maybe TrainingInputMode,
-    -- | If training data is compressed, the compression type. The default value is @None@ . @CompressionType@ is used only in Pipe input mode. In File mode, leave this field unset or set it to None.
-    compressionType :: Lude.Maybe CompressionType,
-    -- | The MIME type of the data.
-    contentType :: Lude.Maybe Lude.Text
+    -- For Pipe input mode, shuffling is done at the start of every epoch. With large datasets this ensures that the order of the training data is different for each epoch, it helps reduce bias and possible overfitting. In a multi-node training job when ShuffleConfig is combined with @S3DataDistributionType@ of @ShardedByS3Key@ , the data is shuffled across nodes so that the content sent to a particular node on the first epoch might be sent to a different node on the second epoch.
+    shuffleConfig :: Core.Maybe Types.ShuffleConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Channel' with the minimum fields required to make a request.
---
--- * 'shuffleConfig' - A configuration for a shuffle option for input data in a channel. If you use @S3Prefix@ for @S3DataType@ , this shuffles the results of the S3 key prefix matches. If you use @ManifestFile@ , the order of the S3 object references in the @ManifestFile@ is shuffled. If you use @AugmentedManifestFile@ , the order of the JSON lines in the @AugmentedManifestFile@ is shuffled. The shuffling order is determined using the @Seed@ value.
---
--- For Pipe input mode, shuffling is done at the start of every epoch. With large datasets this ensures that the order of the training data is different for each epoch, it helps reduce bias and possible overfitting. In a multi-node training job when ShuffleConfig is combined with @S3DataDistributionType@ of @ShardedByS3Key@ , the data is shuffled across nodes so that the content sent to a particular node on the first epoch might be sent to a different node on the second epoch.
--- * 'recordWrapperType' -
---
--- Specify RecordIO as the value when input data is in raw format but the training algorithm requires the RecordIO format. In this case, Amazon SageMaker wraps each individual S3 object in a RecordIO record. If the input data is already in RecordIO format, you don't need to set this attribute. For more information, see <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO> .
--- In File mode, leave this field unset or set it to None.
--- * 'channelName' - The name of the channel.
--- * 'dataSource' - The location of the channel data.
--- * 'inputMode' - (Optional) The input mode to use for the data channel in a training job. If you don't set a value for @InputMode@ , Amazon SageMaker uses the value set for @TrainingInputMode@ . Use this parameter to override the @TrainingInputMode@ setting in a 'AlgorithmSpecification' request when you have a channel that needs a different input mode from the training job's general setting. To download the data from Amazon Simple Storage Service (Amazon S3) to the provisioned ML storage volume, and mount the directory to a Docker volume, use @File@ input mode. To stream data directly from Amazon S3 to the container, choose @Pipe@ input mode.
---
--- To use a model for incremental training, choose @File@ input model.
--- * 'compressionType' - If training data is compressed, the compression type. The default value is @None@ . @CompressionType@ is used only in Pipe input mode. In File mode, leave this field unset or set it to None.
--- * 'contentType' - The MIME type of the data.
+-- | Creates a 'Channel' value with any optional fields omitted.
 mkChannel ::
   -- | 'channelName'
-  Lude.Text ->
+  Types.ChannelName ->
   -- | 'dataSource'
-  DataSource ->
+  Types.DataSource ->
   Channel
-mkChannel pChannelName_ pDataSource_ =
+mkChannel channelName dataSource =
   Channel'
-    { shuffleConfig = Lude.Nothing,
-      recordWrapperType = Lude.Nothing,
-      channelName = pChannelName_,
-      dataSource = pDataSource_,
-      inputMode = Lude.Nothing,
-      compressionType = Lude.Nothing,
-      contentType = Lude.Nothing
+    { channelName,
+      dataSource,
+      compressionType = Core.Nothing,
+      contentType = Core.Nothing,
+      inputMode = Core.Nothing,
+      recordWrapperType = Core.Nothing,
+      shuffleConfig = Core.Nothing
     }
 
--- | A configuration for a shuffle option for input data in a channel. If you use @S3Prefix@ for @S3DataType@ , this shuffles the results of the S3 key prefix matches. If you use @ManifestFile@ , the order of the S3 object references in the @ManifestFile@ is shuffled. If you use @AugmentedManifestFile@ , the order of the JSON lines in the @AugmentedManifestFile@ is shuffled. The shuffling order is determined using the @Seed@ value.
+-- | The name of the channel.
 --
--- For Pipe input mode, shuffling is done at the start of every epoch. With large datasets this ensures that the order of the training data is different for each epoch, it helps reduce bias and possible overfitting. In a multi-node training job when ShuffleConfig is combined with @S3DataDistributionType@ of @ShardedByS3Key@ , the data is shuffled across nodes so that the content sent to a particular node on the first epoch might be sent to a different node on the second epoch.
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cChannelName :: Lens.Lens' Channel Types.ChannelName
+cChannelName = Lens.field @"channelName"
+{-# DEPRECATED cChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
+
+-- | The location of the channel data.
 --
--- /Note:/ Consider using 'shuffleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cShuffleConfig :: Lens.Lens' Channel (Lude.Maybe ShuffleConfig)
-cShuffleConfig = Lens.lens (shuffleConfig :: Channel -> Lude.Maybe ShuffleConfig) (\s a -> s {shuffleConfig = a} :: Channel)
-{-# DEPRECATED cShuffleConfig "Use generic-lens or generic-optics with 'shuffleConfig' instead." #-}
+-- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDataSource :: Lens.Lens' Channel Types.DataSource
+cDataSource = Lens.field @"dataSource"
+{-# DEPRECATED cDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
+
+-- | If training data is compressed, the compression type. The default value is @None@ . @CompressionType@ is used only in Pipe input mode. In File mode, leave this field unset or set it to None.
+--
+-- /Note:/ Consider using 'compressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCompressionType :: Lens.Lens' Channel (Core.Maybe Types.CompressionType)
+cCompressionType = Lens.field @"compressionType"
+{-# DEPRECATED cCompressionType "Use generic-lens or generic-optics with 'compressionType' instead." #-}
+
+-- | The MIME type of the data.
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cContentType :: Lens.Lens' Channel (Core.Maybe Types.ContentType)
+cContentType = Lens.field @"contentType"
+{-# DEPRECATED cContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+
+-- | (Optional) The input mode to use for the data channel in a training job. If you don't set a value for @InputMode@ , Amazon SageMaker uses the value set for @TrainingInputMode@ . Use this parameter to override the @TrainingInputMode@ setting in a 'AlgorithmSpecification' request when you have a channel that needs a different input mode from the training job's general setting. To download the data from Amazon Simple Storage Service (Amazon S3) to the provisioned ML storage volume, and mount the directory to a Docker volume, use @File@ input mode. To stream data directly from Amazon S3 to the container, choose @Pipe@ input mode.
+--
+-- To use a model for incremental training, choose @File@ input model.
+--
+-- /Note:/ Consider using 'inputMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cInputMode :: Lens.Lens' Channel (Core.Maybe Types.TrainingInputMode)
+cInputMode = Lens.field @"inputMode"
+{-# DEPRECATED cInputMode "Use generic-lens or generic-optics with 'inputMode' instead." #-}
 
 -- |
 --
@@ -112,72 +127,42 @@ cShuffleConfig = Lens.lens (shuffleConfig :: Channel -> Lude.Maybe ShuffleConfig
 -- In File mode, leave this field unset or set it to None.
 --
 -- /Note:/ Consider using 'recordWrapperType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cRecordWrapperType :: Lens.Lens' Channel (Lude.Maybe RecordWrapper)
-cRecordWrapperType = Lens.lens (recordWrapperType :: Channel -> Lude.Maybe RecordWrapper) (\s a -> s {recordWrapperType = a} :: Channel)
+cRecordWrapperType :: Lens.Lens' Channel (Core.Maybe Types.RecordWrapper)
+cRecordWrapperType = Lens.field @"recordWrapperType"
 {-# DEPRECATED cRecordWrapperType "Use generic-lens or generic-optics with 'recordWrapperType' instead." #-}
 
--- | The name of the channel.
+-- | A configuration for a shuffle option for input data in a channel. If you use @S3Prefix@ for @S3DataType@ , this shuffles the results of the S3 key prefix matches. If you use @ManifestFile@ , the order of the S3 object references in the @ManifestFile@ is shuffled. If you use @AugmentedManifestFile@ , the order of the JSON lines in the @AugmentedManifestFile@ is shuffled. The shuffling order is determined using the @Seed@ value.
 --
--- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cChannelName :: Lens.Lens' Channel Lude.Text
-cChannelName = Lens.lens (channelName :: Channel -> Lude.Text) (\s a -> s {channelName = a} :: Channel)
-{-# DEPRECATED cChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
-
--- | The location of the channel data.
+-- For Pipe input mode, shuffling is done at the start of every epoch. With large datasets this ensures that the order of the training data is different for each epoch, it helps reduce bias and possible overfitting. In a multi-node training job when ShuffleConfig is combined with @S3DataDistributionType@ of @ShardedByS3Key@ , the data is shuffled across nodes so that the content sent to a particular node on the first epoch might be sent to a different node on the second epoch.
 --
--- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDataSource :: Lens.Lens' Channel DataSource
-cDataSource = Lens.lens (dataSource :: Channel -> DataSource) (\s a -> s {dataSource = a} :: Channel)
-{-# DEPRECATED cDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
+-- /Note:/ Consider using 'shuffleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cShuffleConfig :: Lens.Lens' Channel (Core.Maybe Types.ShuffleConfig)
+cShuffleConfig = Lens.field @"shuffleConfig"
+{-# DEPRECATED cShuffleConfig "Use generic-lens or generic-optics with 'shuffleConfig' instead." #-}
 
--- | (Optional) The input mode to use for the data channel in a training job. If you don't set a value for @InputMode@ , Amazon SageMaker uses the value set for @TrainingInputMode@ . Use this parameter to override the @TrainingInputMode@ setting in a 'AlgorithmSpecification' request when you have a channel that needs a different input mode from the training job's general setting. To download the data from Amazon Simple Storage Service (Amazon S3) to the provisioned ML storage volume, and mount the directory to a Docker volume, use @File@ input mode. To stream data directly from Amazon S3 to the container, choose @Pipe@ input mode.
---
--- To use a model for incremental training, choose @File@ input model.
---
--- /Note:/ Consider using 'inputMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cInputMode :: Lens.Lens' Channel (Lude.Maybe TrainingInputMode)
-cInputMode = Lens.lens (inputMode :: Channel -> Lude.Maybe TrainingInputMode) (\s a -> s {inputMode = a} :: Channel)
-{-# DEPRECATED cInputMode "Use generic-lens or generic-optics with 'inputMode' instead." #-}
-
--- | If training data is compressed, the compression type. The default value is @None@ . @CompressionType@ is used only in Pipe input mode. In File mode, leave this field unset or set it to None.
---
--- /Note:/ Consider using 'compressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCompressionType :: Lens.Lens' Channel (Lude.Maybe CompressionType)
-cCompressionType = Lens.lens (compressionType :: Channel -> Lude.Maybe CompressionType) (\s a -> s {compressionType = a} :: Channel)
-{-# DEPRECATED cCompressionType "Use generic-lens or generic-optics with 'compressionType' instead." #-}
-
--- | The MIME type of the data.
---
--- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cContentType :: Lens.Lens' Channel (Lude.Maybe Lude.Text)
-cContentType = Lens.lens (contentType :: Channel -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: Channel)
-{-# DEPRECATED cContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
-
-instance Lude.FromJSON Channel where
-  parseJSON =
-    Lude.withObject
-      "Channel"
-      ( \x ->
-          Channel'
-            Lude.<$> (x Lude..:? "ShuffleConfig")
-            Lude.<*> (x Lude..:? "RecordWrapperType")
-            Lude.<*> (x Lude..: "ChannelName")
-            Lude.<*> (x Lude..: "DataSource")
-            Lude.<*> (x Lude..:? "InputMode")
-            Lude.<*> (x Lude..:? "CompressionType")
-            Lude.<*> (x Lude..:? "ContentType")
-      )
-
-instance Lude.ToJSON Channel where
-  toJSON Channel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ShuffleConfig" Lude..=) Lude.<$> shuffleConfig,
-            ("RecordWrapperType" Lude..=) Lude.<$> recordWrapperType,
-            Lude.Just ("ChannelName" Lude..= channelName),
-            Lude.Just ("DataSource" Lude..= dataSource),
-            ("InputMode" Lude..=) Lude.<$> inputMode,
-            ("CompressionType" Lude..=) Lude.<$> compressionType,
-            ("ContentType" Lude..=) Lude.<$> contentType
+instance Core.FromJSON Channel where
+  toJSON Channel {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ChannelName" Core..= channelName),
+            Core.Just ("DataSource" Core..= dataSource),
+            ("CompressionType" Core..=) Core.<$> compressionType,
+            ("ContentType" Core..=) Core.<$> contentType,
+            ("InputMode" Core..=) Core.<$> inputMode,
+            ("RecordWrapperType" Core..=) Core.<$> recordWrapperType,
+            ("ShuffleConfig" Core..=) Core.<$> shuffleConfig
           ]
       )
+
+instance Core.FromJSON Channel where
+  parseJSON =
+    Core.withObject "Channel" Core.$
+      \x ->
+        Channel'
+          Core.<$> (x Core..: "ChannelName")
+          Core.<*> (x Core..: "DataSource")
+          Core.<*> (x Core..:? "CompressionType")
+          Core.<*> (x Core..:? "ContentType")
+          Core.<*> (x Core..:? "InputMode")
+          Core.<*> (x Core..:? "RecordWrapperType")
+          Core.<*> (x Core..:? "ShuffleConfig")

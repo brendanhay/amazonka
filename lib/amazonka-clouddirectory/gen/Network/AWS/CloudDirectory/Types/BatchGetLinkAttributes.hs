@@ -17,60 +17,58 @@ module Network.AWS.CloudDirectory.Types.BatchGetLinkAttributes
     mkBatchGetLinkAttributes,
 
     -- * Lenses
-    bglaAttributeNames,
     bglaTypedLinkSpecifier,
+    bglaAttributeNames,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+import qualified Network.AWS.CloudDirectory.Types.AttributeName as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedLinkSpecifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Retrieves attributes that are associated with a typed link inside a 'BatchRead' operation. For more information, see 'GetLinkAttributes' and 'BatchReadRequest$Operations' .
 --
 -- /See:/ 'mkBatchGetLinkAttributes' smart constructor.
 data BatchGetLinkAttributes = BatchGetLinkAttributes'
-  { -- | A list of attribute names whose values will be retrieved.
-    attributeNames :: [Lude.Text],
-    -- | Allows a typed link specifier to be accepted as input.
-    typedLinkSpecifier :: TypedLinkSpecifier
+  { -- | Allows a typed link specifier to be accepted as input.
+    typedLinkSpecifier :: Types.TypedLinkSpecifier,
+    -- | A list of attribute names whose values will be retrieved.
+    attributeNames :: [Types.AttributeName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetLinkAttributes' with the minimum fields required to make a request.
---
--- * 'attributeNames' - A list of attribute names whose values will be retrieved.
--- * 'typedLinkSpecifier' - Allows a typed link specifier to be accepted as input.
+-- | Creates a 'BatchGetLinkAttributes' value with any optional fields omitted.
 mkBatchGetLinkAttributes ::
   -- | 'typedLinkSpecifier'
-  TypedLinkSpecifier ->
+  Types.TypedLinkSpecifier ->
   BatchGetLinkAttributes
-mkBatchGetLinkAttributes pTypedLinkSpecifier_ =
+mkBatchGetLinkAttributes typedLinkSpecifier =
   BatchGetLinkAttributes'
-    { attributeNames = Lude.mempty,
-      typedLinkSpecifier = pTypedLinkSpecifier_
+    { typedLinkSpecifier,
+      attributeNames = Core.mempty
     }
-
--- | A list of attribute names whose values will be retrieved.
---
--- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bglaAttributeNames :: Lens.Lens' BatchGetLinkAttributes [Lude.Text]
-bglaAttributeNames = Lens.lens (attributeNames :: BatchGetLinkAttributes -> [Lude.Text]) (\s a -> s {attributeNames = a} :: BatchGetLinkAttributes)
-{-# DEPRECATED bglaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
 -- | Allows a typed link specifier to be accepted as input.
 --
 -- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bglaTypedLinkSpecifier :: Lens.Lens' BatchGetLinkAttributes TypedLinkSpecifier
-bglaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: BatchGetLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: BatchGetLinkAttributes)
+bglaTypedLinkSpecifier :: Lens.Lens' BatchGetLinkAttributes Types.TypedLinkSpecifier
+bglaTypedLinkSpecifier = Lens.field @"typedLinkSpecifier"
 {-# DEPRECATED bglaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
-instance Lude.ToJSON BatchGetLinkAttributes where
-  toJSON BatchGetLinkAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AttributeNames" Lude..= attributeNames),
-            Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)
+-- | A list of attribute names whose values will be retrieved.
+--
+-- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bglaAttributeNames :: Lens.Lens' BatchGetLinkAttributes [Types.AttributeName]
+bglaAttributeNames = Lens.field @"attributeNames"
+{-# DEPRECATED bglaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
+
+instance Core.FromJSON BatchGetLinkAttributes where
+  toJSON BatchGetLinkAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
+            Core.Just ("AttributeNames" Core..= attributeNames)
           ]
       )

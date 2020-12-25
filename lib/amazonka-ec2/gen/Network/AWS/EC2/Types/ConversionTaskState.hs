@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.ConversionTaskState
   ( ConversionTaskState
       ( ConversionTaskState',
-        CTSActive,
-        CTSCancelling,
-        CTSCancelled,
-        CTSCompleted
+        ConversionTaskStateActive,
+        ConversionTaskStateCancelling,
+        ConversionTaskStateCancelled,
+        ConversionTaskStateCompleted,
+        fromConversionTaskState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConversionTaskState = ConversionTaskState' Lude.Text
+newtype ConversionTaskState = ConversionTaskState'
+  { fromConversionTaskState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CTSActive :: ConversionTaskState
-pattern CTSActive = ConversionTaskState' "active"
+pattern ConversionTaskStateActive :: ConversionTaskState
+pattern ConversionTaskStateActive = ConversionTaskState' "active"
 
-pattern CTSCancelling :: ConversionTaskState
-pattern CTSCancelling = ConversionTaskState' "cancelling"
+pattern ConversionTaskStateCancelling :: ConversionTaskState
+pattern ConversionTaskStateCancelling = ConversionTaskState' "cancelling"
 
-pattern CTSCancelled :: ConversionTaskState
-pattern CTSCancelled = ConversionTaskState' "cancelled"
+pattern ConversionTaskStateCancelled :: ConversionTaskState
+pattern ConversionTaskStateCancelled = ConversionTaskState' "cancelled"
 
-pattern CTSCompleted :: ConversionTaskState
-pattern CTSCompleted = ConversionTaskState' "completed"
+pattern ConversionTaskStateCompleted :: ConversionTaskState
+pattern ConversionTaskStateCompleted = ConversionTaskState' "completed"
 
 {-# COMPLETE
-  CTSActive,
-  CTSCancelling,
-  CTSCancelled,
-  CTSCompleted,
+  ConversionTaskStateActive,
+  ConversionTaskStateCancelling,
+  ConversionTaskStateCancelled,
+  ConversionTaskStateCompleted,
   ConversionTaskState'
   #-}

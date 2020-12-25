@@ -23,68 +23,58 @@ module Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups
   )
 where
 
-import Network.AWS.CloudFront.Types.KGKeyPairIds
+import qualified Network.AWS.CloudFront.Types.KGKeyPairIds as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of key groups, and the public keys in each key group, that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
 -- /See:/ 'mkActiveTrustedKeyGroups' smart constructor.
 data ActiveTrustedKeyGroups = ActiveTrustedKeyGroups'
   { -- | This field is @true@ if any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
-    enabled :: Lude.Bool,
+    enabled :: Core.Bool,
     -- | The number of key groups in the list.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | A list of key groups, including the identifiers of the public keys in each key group that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-    items :: Lude.Maybe [KGKeyPairIds]
+    items :: Core.Maybe [Types.KGKeyPairIds]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActiveTrustedKeyGroups' with the minimum fields required to make a request.
---
--- * 'enabled' - This field is @true@ if any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
--- * 'quantity' - The number of key groups in the list.
--- * 'items' - A list of key groups, including the identifiers of the public keys in each key group that CloudFront can use to verify the signatures of signed URLs and signed cookies.
+-- | Creates a 'ActiveTrustedKeyGroups' value with any optional fields omitted.
 mkActiveTrustedKeyGroups ::
   -- | 'enabled'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   ActiveTrustedKeyGroups
-mkActiveTrustedKeyGroups pEnabled_ pQuantity_ =
-  ActiveTrustedKeyGroups'
-    { enabled = pEnabled_,
-      quantity = pQuantity_,
-      items = Lude.Nothing
-    }
+mkActiveTrustedKeyGroups enabled quantity =
+  ActiveTrustedKeyGroups' {enabled, quantity, items = Core.Nothing}
 
 -- | This field is @true@ if any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atkgEnabled :: Lens.Lens' ActiveTrustedKeyGroups Lude.Bool
-atkgEnabled = Lens.lens (enabled :: ActiveTrustedKeyGroups -> Lude.Bool) (\s a -> s {enabled = a} :: ActiveTrustedKeyGroups)
+atkgEnabled :: Lens.Lens' ActiveTrustedKeyGroups Core.Bool
+atkgEnabled = Lens.field @"enabled"
 {-# DEPRECATED atkgEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The number of key groups in the list.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atkgQuantity :: Lens.Lens' ActiveTrustedKeyGroups Lude.Int
-atkgQuantity = Lens.lens (quantity :: ActiveTrustedKeyGroups -> Lude.Int) (\s a -> s {quantity = a} :: ActiveTrustedKeyGroups)
+atkgQuantity :: Lens.Lens' ActiveTrustedKeyGroups Core.Int
+atkgQuantity = Lens.field @"quantity"
 {-# DEPRECATED atkgQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A list of key groups, including the identifiers of the public keys in each key group that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atkgItems :: Lens.Lens' ActiveTrustedKeyGroups (Lude.Maybe [KGKeyPairIds])
-atkgItems = Lens.lens (items :: ActiveTrustedKeyGroups -> Lude.Maybe [KGKeyPairIds]) (\s a -> s {items = a} :: ActiveTrustedKeyGroups)
+atkgItems :: Lens.Lens' ActiveTrustedKeyGroups (Core.Maybe [Types.KGKeyPairIds])
+atkgItems = Lens.field @"items"
 {-# DEPRECATED atkgItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML ActiveTrustedKeyGroups where
+instance Core.FromXML ActiveTrustedKeyGroups where
   parseXML x =
     ActiveTrustedKeyGroups'
-      Lude.<$> (x Lude..@ "Enabled")
-      Lude.<*> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "KeyGroup")
-               )
+      Core.<$> (x Core..@ "Enabled")
+      Core.<*> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "KeyGroup")

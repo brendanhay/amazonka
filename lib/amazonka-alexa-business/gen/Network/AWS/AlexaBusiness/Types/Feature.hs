@@ -13,76 +13,78 @@
 module Network.AWS.AlexaBusiness.Types.Feature
   ( Feature
       ( Feature',
-        Bluetooth,
-        Volume,
-        Notifications,
-        Lists,
-        Skills,
-        NetworkProfile,
-        Settings,
-        All
+        FeatureBluetooth,
+        FeatureVolume,
+        FeatureNotifications,
+        FeatureLists,
+        FeatureSkills,
+        FeatureNetworkProfile,
+        FeatureSettings,
+        FeatureAll,
+        fromFeature
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Feature = Feature' Lude.Text
+newtype Feature = Feature' {fromFeature :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Bluetooth :: Feature
-pattern Bluetooth = Feature' "BLUETOOTH"
+pattern FeatureBluetooth :: Feature
+pattern FeatureBluetooth = Feature' "BLUETOOTH"
 
-pattern Volume :: Feature
-pattern Volume = Feature' "VOLUME"
+pattern FeatureVolume :: Feature
+pattern FeatureVolume = Feature' "VOLUME"
 
-pattern Notifications :: Feature
-pattern Notifications = Feature' "NOTIFICATIONS"
+pattern FeatureNotifications :: Feature
+pattern FeatureNotifications = Feature' "NOTIFICATIONS"
 
-pattern Lists :: Feature
-pattern Lists = Feature' "LISTS"
+pattern FeatureLists :: Feature
+pattern FeatureLists = Feature' "LISTS"
 
-pattern Skills :: Feature
-pattern Skills = Feature' "SKILLS"
+pattern FeatureSkills :: Feature
+pattern FeatureSkills = Feature' "SKILLS"
 
-pattern NetworkProfile :: Feature
-pattern NetworkProfile = Feature' "NETWORK_PROFILE"
+pattern FeatureNetworkProfile :: Feature
+pattern FeatureNetworkProfile = Feature' "NETWORK_PROFILE"
 
-pattern Settings :: Feature
-pattern Settings = Feature' "SETTINGS"
+pattern FeatureSettings :: Feature
+pattern FeatureSettings = Feature' "SETTINGS"
 
-pattern All :: Feature
-pattern All = Feature' "ALL"
+pattern FeatureAll :: Feature
+pattern FeatureAll = Feature' "ALL"
 
 {-# COMPLETE
-  Bluetooth,
-  Volume,
-  Notifications,
-  Lists,
-  Skills,
-  NetworkProfile,
-  Settings,
-  All,
+  FeatureBluetooth,
+  FeatureVolume,
+  FeatureNotifications,
+  FeatureLists,
+  FeatureSkills,
+  FeatureNetworkProfile,
+  FeatureSettings,
+  FeatureAll,
   Feature'
   #-}

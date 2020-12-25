@@ -17,87 +17,81 @@ module Network.AWS.CloudFront.Types.KeyGroupList
     mkKeyGroupList,
 
     -- * Lenses
+    kglMaxItems,
     kglQuantity,
     kglItems,
-    kglMaxItems,
     kglNextMarker,
   )
 where
 
-import Network.AWS.CloudFront.Types.KeyGroupSummary
+import qualified Network.AWS.CloudFront.Types.KeyGroupSummary as Types
+import qualified Network.AWS.CloudFront.Types.NextMarker as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of key groups.
 --
 -- /See:/ 'mkKeyGroupList' smart constructor.
 data KeyGroupList = KeyGroupList'
-  { -- | The number of key groups returned in the response.
-    quantity :: Lude.Int,
+  { -- | The maximum number of key groups requested.
+    maxItems :: Core.Int,
+    -- | The number of key groups returned in the response.
+    quantity :: Core.Int,
     -- | A list of key groups.
-    items :: Lude.Maybe [KeyGroupSummary],
-    -- | The maximum number of key groups requested.
-    maxItems :: Lude.Int,
+    items :: Core.Maybe [Types.KeyGroupSummary],
     -- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing key groups.
-    nextMarker :: Lude.Maybe Lude.Text
+    nextMarker :: Core.Maybe Types.NextMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'KeyGroupList' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of key groups returned in the response.
--- * 'items' - A list of key groups.
--- * 'maxItems' - The maximum number of key groups requested.
--- * 'nextMarker' - If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing key groups.
+-- | Creates a 'KeyGroupList' value with any optional fields omitted.
 mkKeyGroupList ::
-  -- | 'quantity'
-  Lude.Int ->
   -- | 'maxItems'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'quantity'
+  Core.Int ->
   KeyGroupList
-mkKeyGroupList pQuantity_ pMaxItems_ =
+mkKeyGroupList maxItems quantity =
   KeyGroupList'
-    { quantity = pQuantity_,
-      items = Lude.Nothing,
-      maxItems = pMaxItems_,
-      nextMarker = Lude.Nothing
+    { maxItems,
+      quantity,
+      items = Core.Nothing,
+      nextMarker = Core.Nothing
     }
+
+-- | The maximum number of key groups requested.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kglMaxItems :: Lens.Lens' KeyGroupList Core.Int
+kglMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED kglMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The number of key groups returned in the response.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kglQuantity :: Lens.Lens' KeyGroupList Lude.Int
-kglQuantity = Lens.lens (quantity :: KeyGroupList -> Lude.Int) (\s a -> s {quantity = a} :: KeyGroupList)
+kglQuantity :: Lens.Lens' KeyGroupList Core.Int
+kglQuantity = Lens.field @"quantity"
 {-# DEPRECATED kglQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A list of key groups.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kglItems :: Lens.Lens' KeyGroupList (Lude.Maybe [KeyGroupSummary])
-kglItems = Lens.lens (items :: KeyGroupList -> Lude.Maybe [KeyGroupSummary]) (\s a -> s {items = a} :: KeyGroupList)
+kglItems :: Lens.Lens' KeyGroupList (Core.Maybe [Types.KeyGroupSummary])
+kglItems = Lens.field @"items"
 {-# DEPRECATED kglItems "Use generic-lens or generic-optics with 'items' instead." #-}
-
--- | The maximum number of key groups requested.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kglMaxItems :: Lens.Lens' KeyGroupList Lude.Int
-kglMaxItems = Lens.lens (maxItems :: KeyGroupList -> Lude.Int) (\s a -> s {maxItems = a} :: KeyGroupList)
-{-# DEPRECATED kglMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing key groups.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kglNextMarker :: Lens.Lens' KeyGroupList (Lude.Maybe Lude.Text)
-kglNextMarker = Lens.lens (nextMarker :: KeyGroupList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: KeyGroupList)
+kglNextMarker :: Lens.Lens' KeyGroupList (Core.Maybe Types.NextMarker)
+kglNextMarker = Lens.field @"nextMarker"
 {-# DEPRECATED kglNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
-instance Lude.FromXML KeyGroupList where
+instance Core.FromXML KeyGroupList where
   parseXML x =
     KeyGroupList'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "KeyGroupSummary")
-               )
-      Lude.<*> (x Lude..@ "MaxItems")
-      Lude.<*> (x Lude..@? "NextMarker")
+      Core.<$> (x Core..@ "MaxItems")
+      Core.<*> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "KeyGroupSummary")
+      Core.<*> (x Core..@? "NextMarker")

@@ -27,73 +27,65 @@ module Network.AWS.Support.DescribeAttachment
     mkDescribeAttachmentResponse,
 
     -- ** Response lenses
-    darsAttachment,
-    darsResponseStatus,
+    darrsAttachment,
+    darrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Support.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Support.Types as Types
 
 -- | /See:/ 'mkDescribeAttachment' smart constructor.
 newtype DescribeAttachment = DescribeAttachment'
   { -- | The ID of the attachment to return. Attachment IDs are returned by the 'DescribeCommunications' operation.
-    attachmentId :: Lude.Text
+    attachmentId :: Types.AttachmentId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAttachment' with the minimum fields required to make a request.
---
--- * 'attachmentId' - The ID of the attachment to return. Attachment IDs are returned by the 'DescribeCommunications' operation.
+-- | Creates a 'DescribeAttachment' value with any optional fields omitted.
 mkDescribeAttachment ::
   -- | 'attachmentId'
-  Lude.Text ->
+  Types.AttachmentId ->
   DescribeAttachment
-mkDescribeAttachment pAttachmentId_ =
-  DescribeAttachment' {attachmentId = pAttachmentId_}
+mkDescribeAttachment attachmentId =
+  DescribeAttachment' {attachmentId}
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the 'DescribeCommunications' operation.
 --
 -- /Note:/ Consider using 'attachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAttachmentId :: Lens.Lens' DescribeAttachment Lude.Text
-daAttachmentId = Lens.lens (attachmentId :: DescribeAttachment -> Lude.Text) (\s a -> s {attachmentId = a} :: DescribeAttachment)
+daAttachmentId :: Lens.Lens' DescribeAttachment Types.AttachmentId
+daAttachmentId = Lens.field @"attachmentId"
 {-# DEPRECATED daAttachmentId "Use generic-lens or generic-optics with 'attachmentId' instead." #-}
 
-instance Lude.AWSRequest DescribeAttachment where
+instance Core.FromJSON DescribeAttachment where
+  toJSON DescribeAttachment {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("attachmentId" Core..= attachmentId)])
+
+instance Core.AWSRequest DescribeAttachment where
   type Rs DescribeAttachment = DescribeAttachmentResponse
-  request = Req.postJSON supportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSSupport_20130415.DescribeAttachment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAttachmentResponse'
-            Lude.<$> (x Lude..?> "attachment") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "attachment") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAttachment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSSupport_20130415.DescribeAttachment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAttachment where
-  toJSON DescribeAttachment' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("attachmentId" Lude..= attachmentId)])
-
-instance Lude.ToPath DescribeAttachment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAttachment where
-  toQuery = Lude.const Lude.mempty
 
 -- | The content and file name of the attachment returned by the 'DescribeAttachment' operation.
 --
@@ -102,27 +94,22 @@ data DescribeAttachmentResponse = DescribeAttachmentResponse'
   { -- | This object includes the attachment content and file name.
     --
     -- In the previous response syntax, the value for the @data@ parameter appears as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
-    attachment :: Lude.Maybe Attachment,
+    attachment :: Core.Maybe Types.Attachment,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAttachmentResponse' with the minimum fields required to make a request.
---
--- * 'attachment' - This object includes the attachment content and file name.
---
--- In the previous response syntax, the value for the @data@ parameter appears as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAttachmentResponse' value with any optional fields omitted.
 mkDescribeAttachmentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAttachmentResponse
-mkDescribeAttachmentResponse pResponseStatus_ =
+mkDescribeAttachmentResponse responseStatus =
   DescribeAttachmentResponse'
-    { attachment = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attachment = Core.Nothing,
+      responseStatus
     }
 
 -- | This object includes the attachment content and file name.
@@ -130,13 +117,13 @@ mkDescribeAttachmentResponse pResponseStatus_ =
 -- In the previous response syntax, the value for the @data@ parameter appears as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
 --
 -- /Note:/ Consider using 'attachment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsAttachment :: Lens.Lens' DescribeAttachmentResponse (Lude.Maybe Attachment)
-darsAttachment = Lens.lens (attachment :: DescribeAttachmentResponse -> Lude.Maybe Attachment) (\s a -> s {attachment = a} :: DescribeAttachmentResponse)
-{-# DEPRECATED darsAttachment "Use generic-lens or generic-optics with 'attachment' instead." #-}
+darrsAttachment :: Lens.Lens' DescribeAttachmentResponse (Core.Maybe Types.Attachment)
+darrsAttachment = Lens.field @"attachment"
+{-# DEPRECATED darrsAttachment "Use generic-lens or generic-optics with 'attachment' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DescribeAttachmentResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DescribeAttachmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAttachmentResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrsResponseStatus :: Lens.Lens' DescribeAttachmentResponse Core.Int
+darrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

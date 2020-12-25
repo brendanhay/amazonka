@@ -28,20 +28,20 @@ module Network.AWS.CloudFormation.ValidateTemplate
     mkValidateTemplateResponse,
 
     -- ** Response lenses
-    vtrsDeclaredTransforms,
-    vtrsCapabilitiesReason,
-    vtrsParameters,
-    vtrsDescription,
-    vtrsCapabilities,
-    vtrsResponseStatus,
+    vtrrsCapabilities,
+    vtrrsCapabilitiesReason,
+    vtrrsDeclaredTransforms,
+    vtrrsDescription,
+    vtrrsParameters,
+    vtrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for 'ValidateTemplate' action.
 --
@@ -50,29 +50,22 @@ data ValidateTemplate = ValidateTemplate'
   { -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
     --
     -- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
-    templateBody :: Lude.Maybe Lude.Text,
+    templateBody :: Core.Maybe Types.TemplateBody,
     -- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
     --
     -- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
-    templateURL :: Lude.Maybe Lude.Text
+    templateURL :: Core.Maybe Types.TemplateURL
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidateTemplate' with the minimum fields required to make a request.
---
--- * 'templateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
--- * 'templateURL' - Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
+-- | Creates a 'ValidateTemplate' value with any optional fields omitted.
 mkValidateTemplate ::
   ValidateTemplate
 mkValidateTemplate =
   ValidateTemplate'
-    { templateBody = Lude.Nothing,
-      templateURL = Lude.Nothing
+    { templateBody = Core.Nothing,
+      templateURL = Core.Nothing
     }
 
 -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
@@ -80,8 +73,8 @@ mkValidateTemplate =
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
 --
 -- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtTemplateBody :: Lens.Lens' ValidateTemplate (Lude.Maybe Lude.Text)
-vtTemplateBody = Lens.lens (templateBody :: ValidateTemplate -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: ValidateTemplate)
+vtTemplateBody :: Lens.Lens' ValidateTemplate (Core.Maybe Types.TemplateBody)
+vtTemplateBody = Lens.field @"templateBody"
 {-# DEPRECATED vtTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
@@ -89,133 +82,123 @@ vtTemplateBody = Lens.lens (templateBody :: ValidateTemplate -> Lude.Maybe Lude.
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
 --
 -- /Note:/ Consider using 'templateURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtTemplateURL :: Lens.Lens' ValidateTemplate (Lude.Maybe Lude.Text)
-vtTemplateURL = Lens.lens (templateURL :: ValidateTemplate -> Lude.Maybe Lude.Text) (\s a -> s {templateURL = a} :: ValidateTemplate)
+vtTemplateURL :: Lens.Lens' ValidateTemplate (Core.Maybe Types.TemplateURL)
+vtTemplateURL = Lens.field @"templateURL"
 {-# DEPRECATED vtTemplateURL "Use generic-lens or generic-optics with 'templateURL' instead." #-}
 
-instance Lude.AWSRequest ValidateTemplate where
+instance Core.AWSRequest ValidateTemplate where
   type Rs ValidateTemplate = ValidateTemplateResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ValidateTemplate")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "TemplateBody" Core.<$> templateBody)
+                Core.<> (Core.toQueryValue "TemplateURL" Core.<$> templateURL)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ValidateTemplateResult"
       ( \s h x ->
           ValidateTemplateResponse'
-            Lude.<$> ( x Lude..@? "DeclaredTransforms" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> (x Core..@? "Capabilities" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "CapabilitiesReason")
+            Core.<*> ( x Core..@? "DeclaredTransforms"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "CapabilitiesReason")
-            Lude.<*> ( x Lude..@? "Parameters" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "Description")
-            Lude.<*> ( x Lude..@? "Capabilities" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Description")
+            Core.<*> (x Core..@? "Parameters" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ValidateTemplate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ValidateTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ValidateTemplate where
-  toQuery ValidateTemplate' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ValidateTemplate" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "TemplateBody" Lude.=: templateBody,
-        "TemplateURL" Lude.=: templateURL
-      ]
 
 -- | The output for 'ValidateTemplate' action.
 --
 -- /See:/ 'mkValidateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
-  { -- | A list of the transforms that are declared in the template.
-    declaredTransforms :: Lude.Maybe [Lude.Text],
-    -- | The list of resources that generated the values in the @Capabilities@ response element.
-    capabilitiesReason :: Lude.Maybe Lude.Text,
-    -- | A list of @TemplateParameter@ structures.
-    parameters :: Lude.Maybe [TemplateParameter],
-    -- | The description found within the template.
-    description :: Lude.Maybe Lude.Text,
-    -- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
+  { -- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
     --
     -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
-    capabilities :: Lude.Maybe [Capability],
+    capabilities :: Core.Maybe [Types.Capability],
+    -- | The list of resources that generated the values in the @Capabilities@ response element.
+    capabilitiesReason :: Core.Maybe Types.CapabilitiesReason,
+    -- | A list of the transforms that are declared in the template.
+    declaredTransforms :: Core.Maybe [Types.TransformName],
+    -- | The description found within the template.
+    description :: Core.Maybe Types.Description,
+    -- | A list of @TemplateParameter@ structures.
+    parameters :: Core.Maybe [Types.TemplateParameter],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidateTemplateResponse' with the minimum fields required to make a request.
---
--- * 'declaredTransforms' - A list of the transforms that are declared in the template.
--- * 'capabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
--- * 'parameters' - A list of @TemplateParameter@ structures.
--- * 'description' - The description found within the template.
--- * 'capabilities' - The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
---
--- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ValidateTemplateResponse' value with any optional fields omitted.
 mkValidateTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ValidateTemplateResponse
-mkValidateTemplateResponse pResponseStatus_ =
+mkValidateTemplateResponse responseStatus =
   ValidateTemplateResponse'
-    { declaredTransforms = Lude.Nothing,
-      capabilitiesReason = Lude.Nothing,
-      parameters = Lude.Nothing,
-      description = Lude.Nothing,
-      capabilities = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { capabilities = Core.Nothing,
+      capabilitiesReason = Core.Nothing,
+      declaredTransforms = Core.Nothing,
+      description = Core.Nothing,
+      parameters = Core.Nothing,
+      responseStatus
     }
-
--- | A list of the transforms that are declared in the template.
---
--- /Note:/ Consider using 'declaredTransforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrsDeclaredTransforms :: Lens.Lens' ValidateTemplateResponse (Lude.Maybe [Lude.Text])
-vtrsDeclaredTransforms = Lens.lens (declaredTransforms :: ValidateTemplateResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {declaredTransforms = a} :: ValidateTemplateResponse)
-{-# DEPRECATED vtrsDeclaredTransforms "Use generic-lens or generic-optics with 'declaredTransforms' instead." #-}
-
--- | The list of resources that generated the values in the @Capabilities@ response element.
---
--- /Note:/ Consider using 'capabilitiesReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrsCapabilitiesReason :: Lens.Lens' ValidateTemplateResponse (Lude.Maybe Lude.Text)
-vtrsCapabilitiesReason = Lens.lens (capabilitiesReason :: ValidateTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {capabilitiesReason = a} :: ValidateTemplateResponse)
-{-# DEPRECATED vtrsCapabilitiesReason "Use generic-lens or generic-optics with 'capabilitiesReason' instead." #-}
-
--- | A list of @TemplateParameter@ structures.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrsParameters :: Lens.Lens' ValidateTemplateResponse (Lude.Maybe [TemplateParameter])
-vtrsParameters = Lens.lens (parameters :: ValidateTemplateResponse -> Lude.Maybe [TemplateParameter]) (\s a -> s {parameters = a} :: ValidateTemplateResponse)
-{-# DEPRECATED vtrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | The description found within the template.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrsDescription :: Lens.Lens' ValidateTemplateResponse (Lude.Maybe Lude.Text)
-vtrsDescription = Lens.lens (description :: ValidateTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ValidateTemplateResponse)
-{-# DEPRECATED vtrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
 --
 -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
 --
 -- /Note:/ Consider using 'capabilities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrsCapabilities :: Lens.Lens' ValidateTemplateResponse (Lude.Maybe [Capability])
-vtrsCapabilities = Lens.lens (capabilities :: ValidateTemplateResponse -> Lude.Maybe [Capability]) (\s a -> s {capabilities = a} :: ValidateTemplateResponse)
-{-# DEPRECATED vtrsCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
+vtrrsCapabilities :: Lens.Lens' ValidateTemplateResponse (Core.Maybe [Types.Capability])
+vtrrsCapabilities = Lens.field @"capabilities"
+{-# DEPRECATED vtrrsCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
+
+-- | The list of resources that generated the values in the @Capabilities@ response element.
+--
+-- /Note:/ Consider using 'capabilitiesReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtrrsCapabilitiesReason :: Lens.Lens' ValidateTemplateResponse (Core.Maybe Types.CapabilitiesReason)
+vtrrsCapabilitiesReason = Lens.field @"capabilitiesReason"
+{-# DEPRECATED vtrrsCapabilitiesReason "Use generic-lens or generic-optics with 'capabilitiesReason' instead." #-}
+
+-- | A list of the transforms that are declared in the template.
+--
+-- /Note:/ Consider using 'declaredTransforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtrrsDeclaredTransforms :: Lens.Lens' ValidateTemplateResponse (Core.Maybe [Types.TransformName])
+vtrrsDeclaredTransforms = Lens.field @"declaredTransforms"
+{-# DEPRECATED vtrrsDeclaredTransforms "Use generic-lens or generic-optics with 'declaredTransforms' instead." #-}
+
+-- | The description found within the template.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtrrsDescription :: Lens.Lens' ValidateTemplateResponse (Core.Maybe Types.Description)
+vtrrsDescription = Lens.field @"description"
+{-# DEPRECATED vtrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | A list of @TemplateParameter@ structures.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtrrsParameters :: Lens.Lens' ValidateTemplateResponse (Core.Maybe [Types.TemplateParameter])
+vtrrsParameters = Lens.field @"parameters"
+{-# DEPRECATED vtrrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrsResponseStatus :: Lens.Lens' ValidateTemplateResponse Lude.Int
-vtrsResponseStatus = Lens.lens (responseStatus :: ValidateTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ValidateTemplateResponse)
-{-# DEPRECATED vtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+vtrrsResponseStatus :: Lens.Lens' ValidateTemplateResponse Core.Int
+vtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED vtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

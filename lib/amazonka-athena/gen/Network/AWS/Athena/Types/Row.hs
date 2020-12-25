@@ -21,36 +21,33 @@ module Network.AWS.Athena.Types.Row
   )
 where
 
-import Network.AWS.Athena.Types.Datum
+import qualified Network.AWS.Athena.Types.Datum as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The rows that comprise a query result table.
 --
 -- /See:/ 'mkRow' smart constructor.
 newtype Row = Row'
   { -- | The data that populates a row in a query result table.
-    data' :: Lude.Maybe [Datum]
+    data' :: Core.Maybe [Types.Datum]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Row' with the minimum fields required to make a request.
---
--- * 'data'' - The data that populates a row in a query result table.
+-- | Creates a 'Row' value with any optional fields omitted.
 mkRow ::
   Row
-mkRow = Row' {data' = Lude.Nothing}
+mkRow = Row' {data' = Core.Nothing}
 
 -- | The data that populates a row in a query result table.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rData :: Lens.Lens' Row (Lude.Maybe [Datum])
-rData = Lens.lens (data' :: Row -> Lude.Maybe [Datum]) (\s a -> s {data' = a} :: Row)
+rData :: Lens.Lens' Row (Core.Maybe [Types.Datum])
+rData = Lens.field @"data'"
 {-# DEPRECATED rData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
-instance Lude.FromJSON Row where
+instance Core.FromJSON Row where
   parseJSON =
-    Lude.withObject
-      "Row"
-      (\x -> Row' Lude.<$> (x Lude..:? "Data" Lude..!= Lude.mempty))
+    Core.withObject "Row" Core.$
+      \x -> Row' Core.<$> (x Core..:? "Data")

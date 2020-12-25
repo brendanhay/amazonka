@@ -270,7 +270,7 @@ responseAssociateNode =
   res
     "AssociateNodeResponse"
     "fixture/AssociateNodeResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy AssociateNode)
 
 responseUpdateServer :: UpdateServerResponse -> TestTree
@@ -278,7 +278,7 @@ responseUpdateServer =
   res
     "UpdateServerResponse"
     "fixture/UpdateServerResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy UpdateServer)
 
 responseDeleteServer :: DeleteServerResponse -> TestTree
@@ -286,7 +286,7 @@ responseDeleteServer =
   res
     "DeleteServerResponse"
     "fixture/DeleteServerResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy DeleteServer)
 
 responseDeleteBackup :: DeleteBackupResponse -> TestTree
@@ -294,7 +294,7 @@ responseDeleteBackup =
   res
     "DeleteBackupResponse"
     "fixture/DeleteBackupResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBackup)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
@@ -302,7 +302,7 @@ responseDescribeEvents =
   res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEvents)
 
 responseDisassociateNode :: DisassociateNodeResponse -> TestTree
@@ -310,7 +310,7 @@ responseDisassociateNode =
   res
     "DisassociateNodeResponse"
     "fixture/DisassociateNodeResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateNode)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -318,7 +318,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseCreateBackup :: CreateBackupResponse -> TestTree
@@ -326,7 +326,7 @@ responseCreateBackup =
   res
     "CreateBackupResponse"
     "fixture/CreateBackupResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy CreateBackup)
 
 responseUpdateServerEngineAttributes :: UpdateServerEngineAttributesResponse -> TestTree
@@ -334,7 +334,7 @@ responseUpdateServerEngineAttributes =
   res
     "UpdateServerEngineAttributesResponse"
     "fixture/UpdateServerEngineAttributesResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy UpdateServerEngineAttributes)
 
 responseStartMaintenance :: StartMaintenanceResponse -> TestTree
@@ -342,7 +342,7 @@ responseStartMaintenance =
   res
     "StartMaintenanceResponse"
     "fixture/StartMaintenanceResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy StartMaintenance)
 
 responseDescribeBackups :: DescribeBackupsResponse -> TestTree
@@ -350,7 +350,7 @@ responseDescribeBackups =
   res
     "DescribeBackupsResponse"
     "fixture/DescribeBackupsResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBackups)
 
 responseCreateServer :: CreateServerResponse -> TestTree
@@ -358,7 +358,7 @@ responseCreateServer =
   res
     "CreateServerResponse"
     "fixture/CreateServerResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy CreateServer)
 
 responseRestoreServer :: RestoreServerResponse -> TestTree
@@ -366,7 +366,7 @@ responseRestoreServer =
   res
     "RestoreServerResponse"
     "fixture/RestoreServerResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy RestoreServer)
 
 responseDescribeNodeAssociationStatus :: DescribeNodeAssociationStatusResponse -> TestTree
@@ -374,7 +374,7 @@ responseDescribeNodeAssociationStatus =
   res
     "DescribeNodeAssociationStatusResponse"
     "fixture/DescribeNodeAssociationStatusResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy DescribeNodeAssociationStatus)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -382,7 +382,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
@@ -390,7 +390,7 @@ responseDescribeAccountAttributes =
   res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountAttributes)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -398,7 +398,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDescribeServers :: DescribeServersResponse -> TestTree
@@ -406,7 +406,7 @@ responseDescribeServers =
   res
     "DescribeServersResponse"
     "fixture/DescribeServersResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy DescribeServers)
 
 responseExportServerEngineAttribute :: ExportServerEngineAttributeResponse -> TestTree
@@ -414,5 +414,5 @@ responseExportServerEngineAttribute =
   res
     "ExportServerEngineAttributeResponse"
     "fixture/ExportServerEngineAttributeResponse.proto"
-    opsWorksCMService
+    mkServiceConfig
     (Proxy :: Proxy ExportServerEngineAttribute)

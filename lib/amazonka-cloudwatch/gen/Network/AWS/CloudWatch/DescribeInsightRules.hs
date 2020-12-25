@@ -22,137 +22,131 @@ module Network.AWS.CloudWatch.DescribeInsightRules
     mkDescribeInsightRules,
 
     -- ** Request lenses
-    dirNextToken,
     dirMaxResults,
+    dirNextToken,
 
     -- * Destructuring the response
     DescribeInsightRulesResponse (..),
     mkDescribeInsightRulesResponse,
 
     -- ** Response lenses
-    dirfrsNextToken,
-    dirfrsInsightRules,
-    dirfrsResponseStatus,
+    dirrfrsInsightRules,
+    dirrfrsNextToken,
+    dirrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeInsightRules' smart constructor.
 data DescribeInsightRules = DescribeInsightRules'
-  { -- | Include this value, if it was returned by the previous operation, to get the next set of rules.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return in one operation. If you omit this parameter, the default of 500 is used.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of results to return in one operation. If you omit this parameter, the default of 500 is used.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Include this value, if it was returned by the previous operation, to get the next set of rules.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInsightRules' with the minimum fields required to make a request.
---
--- * 'nextToken' - Include this value, if it was returned by the previous operation, to get the next set of rules.
--- * 'maxResults' - The maximum number of results to return in one operation. If you omit this parameter, the default of 500 is used.
+-- | Creates a 'DescribeInsightRules' value with any optional fields omitted.
 mkDescribeInsightRules ::
   DescribeInsightRules
 mkDescribeInsightRules =
   DescribeInsightRules'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Include this value, if it was returned by the previous operation, to get the next set of rules.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirNextToken :: Lens.Lens' DescribeInsightRules (Lude.Maybe Lude.Text)
-dirNextToken = Lens.lens (nextToken :: DescribeInsightRules -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInsightRules)
-{-# DEPRECATED dirNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in one operation. If you omit this parameter, the default of 500 is used.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirMaxResults :: Lens.Lens' DescribeInsightRules (Lude.Maybe Lude.Natural)
-dirMaxResults = Lens.lens (maxResults :: DescribeInsightRules -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInsightRules)
+dirMaxResults :: Lens.Lens' DescribeInsightRules (Core.Maybe Core.Natural)
+dirMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dirMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest DescribeInsightRules where
+-- | Include this value, if it was returned by the previous operation, to get the next set of rules.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirNextToken :: Lens.Lens' DescribeInsightRules (Core.Maybe Types.NextToken)
+dirNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dirNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest DescribeInsightRules where
   type Rs DescribeInsightRules = DescribeInsightRulesResponse
-  request = Req.postQuery cloudWatchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeInsightRules")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeInsightRulesResult"
       ( \s h x ->
           DescribeInsightRulesResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "InsightRules" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "InsightRules" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeInsightRules where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeInsightRules where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeInsightRules where
-  toQuery DescribeInsightRules' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeInsightRules" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "MaxResults" Lude.=: maxResults
-      ]
 
 -- | /See:/ 'mkDescribeInsightRulesResponse' smart constructor.
 data DescribeInsightRulesResponse = DescribeInsightRulesResponse'
-  { -- | If this parameter is present, it is a token that marks the start of the next batch of returned results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The rules returned by the operation.
-    insightRules :: Lude.Maybe [InsightRule],
+  { -- | The rules returned by the operation.
+    insightRules :: Core.Maybe [Types.InsightRule],
+    -- | If this parameter is present, it is a token that marks the start of the next batch of returned results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInsightRulesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If this parameter is present, it is a token that marks the start of the next batch of returned results.
--- * 'insightRules' - The rules returned by the operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInsightRulesResponse' value with any optional fields omitted.
 mkDescribeInsightRulesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInsightRulesResponse
-mkDescribeInsightRulesResponse pResponseStatus_ =
+mkDescribeInsightRulesResponse responseStatus =
   DescribeInsightRulesResponse'
-    { nextToken = Lude.Nothing,
-      insightRules = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { insightRules = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If this parameter is present, it is a token that marks the start of the next batch of returned results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirfrsNextToken :: Lens.Lens' DescribeInsightRulesResponse (Lude.Maybe Lude.Text)
-dirfrsNextToken = Lens.lens (nextToken :: DescribeInsightRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInsightRulesResponse)
-{-# DEPRECATED dirfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The rules returned by the operation.
 --
 -- /Note:/ Consider using 'insightRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirfrsInsightRules :: Lens.Lens' DescribeInsightRulesResponse (Lude.Maybe [InsightRule])
-dirfrsInsightRules = Lens.lens (insightRules :: DescribeInsightRulesResponse -> Lude.Maybe [InsightRule]) (\s a -> s {insightRules = a} :: DescribeInsightRulesResponse)
-{-# DEPRECATED dirfrsInsightRules "Use generic-lens or generic-optics with 'insightRules' instead." #-}
+dirrfrsInsightRules :: Lens.Lens' DescribeInsightRulesResponse (Core.Maybe [Types.InsightRule])
+dirrfrsInsightRules = Lens.field @"insightRules"
+{-# DEPRECATED dirrfrsInsightRules "Use generic-lens or generic-optics with 'insightRules' instead." #-}
+
+-- | If this parameter is present, it is a token that marks the start of the next batch of returned results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirrfrsNextToken :: Lens.Lens' DescribeInsightRulesResponse (Core.Maybe Types.NextToken)
+dirrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dirrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirfrsResponseStatus :: Lens.Lens' DescribeInsightRulesResponse Lude.Int
-dirfrsResponseStatus = Lens.lens (responseStatus :: DescribeInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInsightRulesResponse)
-{-# DEPRECATED dirfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirrfrsResponseStatus :: Lens.Lens' DescribeInsightRulesResponse Core.Int
+dirrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dirrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

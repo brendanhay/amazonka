@@ -21,9 +21,9 @@ module Network.AWS.Lambda.Types.CodeSigningPolicies
   )
 where
 
-import Network.AWS.Lambda.Types.CodeSigningPolicy
+import qualified Network.AWS.Lambda.Types.CodeSigningPolicy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Code signing configuration policies specifies the validation failure action for signature mismatch or expiry.
 --
@@ -32,22 +32,18 @@ newtype CodeSigningPolicies = CodeSigningPolicies'
   { -- | Code signing configuration policy for deployment validation failure. If you set the policy to @Enforce@ , Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to @Warn@ , Lambda allows the deployment and creates a CloudWatch log.
     --
     -- Default value: @Warn@
-    untrustedArtifactOnDeployment :: Lude.Maybe CodeSigningPolicy
+    untrustedArtifactOnDeployment :: Core.Maybe Types.CodeSigningPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CodeSigningPolicies' with the minimum fields required to make a request.
---
--- * 'untrustedArtifactOnDeployment' - Code signing configuration policy for deployment validation failure. If you set the policy to @Enforce@ , Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to @Warn@ , Lambda allows the deployment and creates a CloudWatch log.
---
--- Default value: @Warn@
+-- | Creates a 'CodeSigningPolicies' value with any optional fields omitted.
 mkCodeSigningPolicies ::
   CodeSigningPolicies
 mkCodeSigningPolicies =
   CodeSigningPolicies'
     { untrustedArtifactOnDeployment =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | Code signing configuration policy for deployment validation failure. If you set the policy to @Enforce@ , Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to @Warn@ , Lambda allows the deployment and creates a CloudWatch log.
@@ -55,24 +51,22 @@ mkCodeSigningPolicies =
 -- Default value: @Warn@
 --
 -- /Note:/ Consider using 'untrustedArtifactOnDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspUntrustedArtifactOnDeployment :: Lens.Lens' CodeSigningPolicies (Lude.Maybe CodeSigningPolicy)
-cspUntrustedArtifactOnDeployment = Lens.lens (untrustedArtifactOnDeployment :: CodeSigningPolicies -> Lude.Maybe CodeSigningPolicy) (\s a -> s {untrustedArtifactOnDeployment = a} :: CodeSigningPolicies)
+cspUntrustedArtifactOnDeployment :: Lens.Lens' CodeSigningPolicies (Core.Maybe Types.CodeSigningPolicy)
+cspUntrustedArtifactOnDeployment = Lens.field @"untrustedArtifactOnDeployment"
 {-# DEPRECATED cspUntrustedArtifactOnDeployment "Use generic-lens or generic-optics with 'untrustedArtifactOnDeployment' instead." #-}
 
-instance Lude.FromJSON CodeSigningPolicies where
-  parseJSON =
-    Lude.withObject
-      "CodeSigningPolicies"
-      ( \x ->
-          CodeSigningPolicies'
-            Lude.<$> (x Lude..:? "UntrustedArtifactOnDeployment")
-      )
-
-instance Lude.ToJSON CodeSigningPolicies where
-  toJSON CodeSigningPolicies' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UntrustedArtifactOnDeployment" Lude..=)
-              Lude.<$> untrustedArtifactOnDeployment
+instance Core.FromJSON CodeSigningPolicies where
+  toJSON CodeSigningPolicies {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("UntrustedArtifactOnDeployment" Core..=)
+              Core.<$> untrustedArtifactOnDeployment
           ]
       )
+
+instance Core.FromJSON CodeSigningPolicies where
+  parseJSON =
+    Core.withObject "CodeSigningPolicies" Core.$
+      \x ->
+        CodeSigningPolicies'
+          Core.<$> (x Core..:? "UntrustedArtifactOnDeployment")

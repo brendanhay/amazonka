@@ -22,9 +22,10 @@ module Network.AWS.Glue.Types.TransformEncryption
   )
 where
 
-import Network.AWS.Glue.Types.MLUserDataEncryption
+import qualified Network.AWS.Glue.Types.MLUserDataEncryption as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.
 --
@@ -33,55 +34,50 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkTransformEncryption' smart constructor.
 data TransformEncryption = TransformEncryption'
   { -- | An @MLUserDataEncryption@ object containing the encryption mode and customer-provided KMS key ID.
-    mlUserDataEncryption :: Lude.Maybe MLUserDataEncryption,
+    mlUserDataEncryption :: Core.Maybe Types.MLUserDataEncryption,
     -- | The name of the security configuration.
-    taskRunSecurityConfigurationName :: Lude.Maybe Lude.Text
+    taskRunSecurityConfigurationName :: Core.Maybe Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransformEncryption' with the minimum fields required to make a request.
---
--- * 'mlUserDataEncryption' - An @MLUserDataEncryption@ object containing the encryption mode and customer-provided KMS key ID.
--- * 'taskRunSecurityConfigurationName' - The name of the security configuration.
+-- | Creates a 'TransformEncryption' value with any optional fields omitted.
 mkTransformEncryption ::
   TransformEncryption
 mkTransformEncryption =
   TransformEncryption'
-    { mlUserDataEncryption = Lude.Nothing,
-      taskRunSecurityConfigurationName = Lude.Nothing
+    { mlUserDataEncryption = Core.Nothing,
+      taskRunSecurityConfigurationName = Core.Nothing
     }
 
 -- | An @MLUserDataEncryption@ object containing the encryption mode and customer-provided KMS key ID.
 --
 -- /Note:/ Consider using 'mlUserDataEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teMlUserDataEncryption :: Lens.Lens' TransformEncryption (Lude.Maybe MLUserDataEncryption)
-teMlUserDataEncryption = Lens.lens (mlUserDataEncryption :: TransformEncryption -> Lude.Maybe MLUserDataEncryption) (\s a -> s {mlUserDataEncryption = a} :: TransformEncryption)
+teMlUserDataEncryption :: Lens.Lens' TransformEncryption (Core.Maybe Types.MLUserDataEncryption)
+teMlUserDataEncryption = Lens.field @"mlUserDataEncryption"
 {-# DEPRECATED teMlUserDataEncryption "Use generic-lens or generic-optics with 'mlUserDataEncryption' instead." #-}
 
 -- | The name of the security configuration.
 --
 -- /Note:/ Consider using 'taskRunSecurityConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teTaskRunSecurityConfigurationName :: Lens.Lens' TransformEncryption (Lude.Maybe Lude.Text)
-teTaskRunSecurityConfigurationName = Lens.lens (taskRunSecurityConfigurationName :: TransformEncryption -> Lude.Maybe Lude.Text) (\s a -> s {taskRunSecurityConfigurationName = a} :: TransformEncryption)
+teTaskRunSecurityConfigurationName :: Lens.Lens' TransformEncryption (Core.Maybe Types.NameString)
+teTaskRunSecurityConfigurationName = Lens.field @"taskRunSecurityConfigurationName"
 {-# DEPRECATED teTaskRunSecurityConfigurationName "Use generic-lens or generic-optics with 'taskRunSecurityConfigurationName' instead." #-}
 
-instance Lude.FromJSON TransformEncryption where
-  parseJSON =
-    Lude.withObject
-      "TransformEncryption"
-      ( \x ->
-          TransformEncryption'
-            Lude.<$> (x Lude..:? "MlUserDataEncryption")
-            Lude.<*> (x Lude..:? "TaskRunSecurityConfigurationName")
-      )
-
-instance Lude.ToJSON TransformEncryption where
-  toJSON TransformEncryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MlUserDataEncryption" Lude..=) Lude.<$> mlUserDataEncryption,
-            ("TaskRunSecurityConfigurationName" Lude..=)
-              Lude.<$> taskRunSecurityConfigurationName
+instance Core.FromJSON TransformEncryption where
+  toJSON TransformEncryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MlUserDataEncryption" Core..=) Core.<$> mlUserDataEncryption,
+            ("TaskRunSecurityConfigurationName" Core..=)
+              Core.<$> taskRunSecurityConfigurationName
           ]
       )
+
+instance Core.FromJSON TransformEncryption where
+  parseJSON =
+    Core.withObject "TransformEncryption" Core.$
+      \x ->
+        TransformEncryption'
+          Core.<$> (x Core..:? "MlUserDataEncryption")
+          Core.<*> (x Core..:? "TaskRunSecurityConfigurationName")

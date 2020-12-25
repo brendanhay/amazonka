@@ -13,46 +13,51 @@
 module Network.AWS.WorkDocs.Types.RolePermissionType
   ( RolePermissionType
       ( RolePermissionType',
-        Direct,
-        Inherited
+        RolePermissionTypeDirect,
+        RolePermissionTypeInherited,
+        fromRolePermissionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RolePermissionType = RolePermissionType' Lude.Text
+newtype RolePermissionType = RolePermissionType'
+  { fromRolePermissionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Direct :: RolePermissionType
-pattern Direct = RolePermissionType' "DIRECT"
+pattern RolePermissionTypeDirect :: RolePermissionType
+pattern RolePermissionTypeDirect = RolePermissionType' "DIRECT"
 
-pattern Inherited :: RolePermissionType
-pattern Inherited = RolePermissionType' "INHERITED"
+pattern RolePermissionTypeInherited :: RolePermissionType
+pattern RolePermissionTypeInherited = RolePermissionType' "INHERITED"
 
 {-# COMPLETE
-  Direct,
-  Inherited,
+  RolePermissionTypeDirect,
+  RolePermissionTypeInherited,
   RolePermissionType'
   #-}

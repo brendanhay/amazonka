@@ -24,207 +24,194 @@ module Network.AWS.EC2.CreateCustomerGateway
     mkCreateCustomerGateway,
 
     -- ** Request lenses
-    ccgfCertificateARN,
-    ccgfBGPASN,
-    ccgfTagSpecifications,
-    ccgfDeviceName,
-    ccgfType,
-    ccgfPublicIP,
-    ccgfDryRun,
+    ccgBgpAsn,
+    ccgType,
+    ccgCertificateArn,
+    ccgDeviceName,
+    ccgDryRun,
+    ccgPublicIp,
+    ccgTagSpecifications,
 
     -- * Destructuring the response
     CreateCustomerGatewayResponse (..),
     mkCreateCustomerGatewayResponse,
 
     -- ** Response lenses
-    ccgrsCustomerGateway,
-    ccgrsResponseStatus,
+    ccgrrsCustomerGateway,
+    ccgrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateCustomerGateway.
 --
 -- /See:/ 'mkCreateCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
-  { -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-    certificateARN :: Lude.Maybe Lude.Text,
-    -- | For devices that support BGP, the customer gateway's BGP ASN.
+  { -- | For devices that support BGP, the customer gateway's BGP ASN.
     --
     -- Default: 65000
-    bgpASN :: Lude.Int,
-    -- | The tags to apply to the customer gateway.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+    bgpAsn :: Core.Int,
+    -- | The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
+    type' :: Types.GatewayType,
+    -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+    certificateArn :: Core.Maybe Types.String,
     -- | A name for the customer gateway device.
     --
     -- Length Constraints: Up to 255 characters.
-    deviceName :: Lude.Maybe Lude.Text,
-    -- | The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
-    type' :: GatewayType,
-    -- | The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
-    publicIP :: Lude.Maybe Lude.Text,
+    deviceName :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
+    publicIp :: Core.Maybe Types.String,
+    -- | The tags to apply to the customer gateway.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCustomerGateway' with the minimum fields required to make a request.
---
--- * 'certificateARN' - The Amazon Resource Name (ARN) for the customer gateway certificate.
--- * 'bgpASN' - For devices that support BGP, the customer gateway's BGP ASN.
---
--- Default: 65000
--- * 'tagSpecifications' - The tags to apply to the customer gateway.
--- * 'deviceName' - A name for the customer gateway device.
---
--- Length Constraints: Up to 255 characters.
--- * 'type'' - The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
--- * 'publicIP' - The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateCustomerGateway' value with any optional fields omitted.
 mkCreateCustomerGateway ::
-  -- | 'bgpASN'
-  Lude.Int ->
-  -- | 'type''
-  GatewayType ->
+  -- | 'bgpAsn'
+  Core.Int ->
+  -- | 'type\''
+  Types.GatewayType ->
   CreateCustomerGateway
-mkCreateCustomerGateway pBGPASN_ pType_ =
+mkCreateCustomerGateway bgpAsn type' =
   CreateCustomerGateway'
-    { certificateARN = Lude.Nothing,
-      bgpASN = pBGPASN_,
-      tagSpecifications = Lude.Nothing,
-      deviceName = Lude.Nothing,
-      type' = pType_,
-      publicIP = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { bgpAsn,
+      type',
+      certificateArn = Core.Nothing,
+      deviceName = Core.Nothing,
+      dryRun = Core.Nothing,
+      publicIp = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) for the customer gateway certificate.
---
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgfCertificateARN :: Lens.Lens' CreateCustomerGateway (Lude.Maybe Lude.Text)
-ccgfCertificateARN = Lens.lens (certificateARN :: CreateCustomerGateway -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CreateCustomerGateway)
-{-# DEPRECATED ccgfCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | For devices that support BGP, the customer gateway's BGP ASN.
 --
 -- Default: 65000
 --
--- /Note:/ Consider using 'bgpASN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgfBGPASN :: Lens.Lens' CreateCustomerGateway Lude.Int
-ccgfBGPASN = Lens.lens (bgpASN :: CreateCustomerGateway -> Lude.Int) (\s a -> s {bgpASN = a} :: CreateCustomerGateway)
-{-# DEPRECATED ccgfBGPASN "Use generic-lens or generic-optics with 'bgpASN' instead." #-}
+-- /Note:/ Consider using 'bgpAsn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgBgpAsn :: Lens.Lens' CreateCustomerGateway Core.Int
+ccgBgpAsn = Lens.field @"bgpAsn"
+{-# DEPRECATED ccgBgpAsn "Use generic-lens or generic-optics with 'bgpAsn' instead." #-}
 
--- | The tags to apply to the customer gateway.
+-- | The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
 --
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgfTagSpecifications :: Lens.Lens' CreateCustomerGateway (Lude.Maybe [TagSpecification])
-ccgfTagSpecifications = Lens.lens (tagSpecifications :: CreateCustomerGateway -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateCustomerGateway)
-{-# DEPRECATED ccgfTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgType :: Lens.Lens' CreateCustomerGateway Types.GatewayType
+ccgType = Lens.field @"type'"
+{-# DEPRECATED ccgType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+--
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgCertificateArn :: Lens.Lens' CreateCustomerGateway (Core.Maybe Types.String)
+ccgCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED ccgCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | A name for the customer gateway device.
 --
 -- Length Constraints: Up to 255 characters.
 --
 -- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgfDeviceName :: Lens.Lens' CreateCustomerGateway (Lude.Maybe Lude.Text)
-ccgfDeviceName = Lens.lens (deviceName :: CreateCustomerGateway -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: CreateCustomerGateway)
-{-# DEPRECATED ccgfDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
-
--- | The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgfType :: Lens.Lens' CreateCustomerGateway GatewayType
-ccgfType = Lens.lens (type' :: CreateCustomerGateway -> GatewayType) (\s a -> s {type' = a} :: CreateCustomerGateway)
-{-# DEPRECATED ccgfType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
---
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgfPublicIP :: Lens.Lens' CreateCustomerGateway (Lude.Maybe Lude.Text)
-ccgfPublicIP = Lens.lens (publicIP :: CreateCustomerGateway -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: CreateCustomerGateway)
-{-# DEPRECATED ccgfPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+ccgDeviceName :: Lens.Lens' CreateCustomerGateway (Core.Maybe Types.String)
+ccgDeviceName = Lens.field @"deviceName"
+{-# DEPRECATED ccgDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgfDryRun :: Lens.Lens' CreateCustomerGateway (Lude.Maybe Lude.Bool)
-ccgfDryRun = Lens.lens (dryRun :: CreateCustomerGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateCustomerGateway)
-{-# DEPRECATED ccgfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+ccgDryRun :: Lens.Lens' CreateCustomerGateway (Core.Maybe Core.Bool)
+ccgDryRun = Lens.field @"dryRun"
+{-# DEPRECATED ccgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateCustomerGateway where
+-- | The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
+--
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgPublicIp :: Lens.Lens' CreateCustomerGateway (Core.Maybe Types.String)
+ccgPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED ccgPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
+
+-- | The tags to apply to the customer gateway.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccgTagSpecifications :: Lens.Lens' CreateCustomerGateway (Core.Maybe [Types.TagSpecification])
+ccgTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ccgTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateCustomerGateway where
   type Rs CreateCustomerGateway = CreateCustomerGatewayResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateCustomerGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "BgpAsn" bgpAsn)
+                Core.<> (Core.toQueryValue "Type" type')
+                Core.<> (Core.toQueryValue "CertificateArn" Core.<$> certificateArn)
+                Core.<> (Core.toQueryValue "DeviceName" Core.<$> deviceName)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "IpAddress" Core.<$> publicIp)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateCustomerGatewayResponse'
-            Lude.<$> (x Lude..@? "customerGateway")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "customerGateway")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCustomerGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateCustomerGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCustomerGateway where
-  toQuery CreateCustomerGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateCustomerGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "CertificateArn" Lude.=: certificateARN,
-        "BgpAsn" Lude.=: bgpASN,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DeviceName" Lude.=: deviceName,
-        "Type" Lude.=: type',
-        "IpAddress" Lude.=: publicIP,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Contains the output of CreateCustomerGateway.
 --
 -- /See:/ 'mkCreateCustomerGatewayResponse' smart constructor.
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
   { -- | Information about the customer gateway.
-    customerGateway :: Lude.Maybe CustomerGateway,
+    customerGateway :: Core.Maybe Types.CustomerGateway,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCustomerGatewayResponse' with the minimum fields required to make a request.
---
--- * 'customerGateway' - Information about the customer gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCustomerGatewayResponse' value with any optional fields omitted.
 mkCreateCustomerGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCustomerGatewayResponse
-mkCreateCustomerGatewayResponse pResponseStatus_ =
+mkCreateCustomerGatewayResponse responseStatus =
   CreateCustomerGatewayResponse'
-    { customerGateway = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { customerGateway = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the customer gateway.
 --
 -- /Note:/ Consider using 'customerGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgrsCustomerGateway :: Lens.Lens' CreateCustomerGatewayResponse (Lude.Maybe CustomerGateway)
-ccgrsCustomerGateway = Lens.lens (customerGateway :: CreateCustomerGatewayResponse -> Lude.Maybe CustomerGateway) (\s a -> s {customerGateway = a} :: CreateCustomerGatewayResponse)
-{-# DEPRECATED ccgrsCustomerGateway "Use generic-lens or generic-optics with 'customerGateway' instead." #-}
+ccgrrsCustomerGateway :: Lens.Lens' CreateCustomerGatewayResponse (Core.Maybe Types.CustomerGateway)
+ccgrrsCustomerGateway = Lens.field @"customerGateway"
+{-# DEPRECATED ccgrrsCustomerGateway "Use generic-lens or generic-optics with 'customerGateway' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccgrsResponseStatus :: Lens.Lens' CreateCustomerGatewayResponse Lude.Int
-ccgrsResponseStatus = Lens.lens (responseStatus :: CreateCustomerGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCustomerGatewayResponse)
-{-# DEPRECATED ccgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccgrrsResponseStatus :: Lens.Lens' CreateCustomerGatewayResponse Core.Int
+ccgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

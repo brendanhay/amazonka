@@ -23,49 +23,44 @@ module Network.AWS.Rekognition.Types.Instance
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BoundingBox
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
 
 -- | An instance of a label returned by Amazon Rekognition Image ('DetectLabels' ) or by Amazon Rekognition Video ('GetLabelDetection' ).
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
   { -- | The position of the label instance on the image.
-    boundingBox :: Lude.Maybe BoundingBox,
+    boundingBox :: Core.Maybe Types.BoundingBox,
     -- | The confidence that Amazon Rekognition has in the accuracy of the bounding box.
-    confidence :: Lude.Maybe Lude.Double
+    confidence :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Instance' with the minimum fields required to make a request.
---
--- * 'boundingBox' - The position of the label instance on the image.
--- * 'confidence' - The confidence that Amazon Rekognition has in the accuracy of the bounding box.
+-- | Creates a 'Instance' value with any optional fields omitted.
 mkInstance ::
   Instance
 mkInstance =
-  Instance' {boundingBox = Lude.Nothing, confidence = Lude.Nothing}
+  Instance' {boundingBox = Core.Nothing, confidence = Core.Nothing}
 
 -- | The position of the label instance on the image.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iBoundingBox :: Lens.Lens' Instance (Lude.Maybe BoundingBox)
-iBoundingBox = Lens.lens (boundingBox :: Instance -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: Instance)
+iBoundingBox :: Lens.Lens' Instance (Core.Maybe Types.BoundingBox)
+iBoundingBox = Lens.field @"boundingBox"
 {-# DEPRECATED iBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
 
 -- | The confidence that Amazon Rekognition has in the accuracy of the bounding box.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iConfidence :: Lens.Lens' Instance (Lude.Maybe Lude.Double)
-iConfidence = Lens.lens (confidence :: Instance -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Instance)
+iConfidence :: Lens.Lens' Instance (Core.Maybe Core.Double)
+iConfidence = Lens.field @"confidence"
 {-# DEPRECATED iConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance Lude.FromJSON Instance where
+instance Core.FromJSON Instance where
   parseJSON =
-    Lude.withObject
-      "Instance"
-      ( \x ->
-          Instance'
-            Lude.<$> (x Lude..:? "BoundingBox") Lude.<*> (x Lude..:? "Confidence")
-      )
+    Core.withObject "Instance" Core.$
+      \x ->
+        Instance'
+          Core.<$> (x Core..:? "BoundingBox") Core.<*> (x Core..:? "Confidence")

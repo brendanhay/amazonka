@@ -21,32 +21,31 @@ module Network.AWS.EC2.Types.CidrBlock
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an IPv4 CIDR block.
 --
 -- /See:/ 'mkCidrBlock' smart constructor.
 newtype CidrBlock = CidrBlock'
   { -- | The IPv4 CIDR block.
-    cidrBlock :: Lude.Maybe Lude.Text
+    cidrBlock :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CidrBlock' with the minimum fields required to make a request.
---
--- * 'cidrBlock' - The IPv4 CIDR block.
+-- | Creates a 'CidrBlock' value with any optional fields omitted.
 mkCidrBlock ::
   CidrBlock
-mkCidrBlock = CidrBlock' {cidrBlock = Lude.Nothing}
+mkCidrBlock = CidrBlock' {cidrBlock = Core.Nothing}
 
 -- | The IPv4 CIDR block.
 --
 -- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbCidrBlock :: Lens.Lens' CidrBlock (Lude.Maybe Lude.Text)
-cbCidrBlock = Lens.lens (cidrBlock :: CidrBlock -> Lude.Maybe Lude.Text) (\s a -> s {cidrBlock = a} :: CidrBlock)
+cbCidrBlock :: Lens.Lens' CidrBlock (Core.Maybe Types.String)
+cbCidrBlock = Lens.field @"cidrBlock"
 {-# DEPRECATED cbCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
-instance Lude.FromXML CidrBlock where
-  parseXML x = CidrBlock' Lude.<$> (x Lude..@? "cidrBlock")
+instance Core.FromXML CidrBlock where
+  parseXML x = CidrBlock' Core.<$> (x Core..@? "cidrBlock")

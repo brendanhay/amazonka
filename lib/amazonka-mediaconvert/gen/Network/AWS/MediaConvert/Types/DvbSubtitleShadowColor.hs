@@ -13,54 +13,59 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor
   ( DvbSubtitleShadowColor
       ( DvbSubtitleShadowColor',
-        DSSCNone,
-        DSSCBlack,
-        DSSCWhite
+        DvbSubtitleShadowColorNone,
+        DvbSubtitleShadowColorBlack,
+        DvbSubtitleShadowColorWhite,
+        fromDvbSubtitleShadowColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the color of the shadow cast by the captions.
 --
 -- All burn-in and DVB-Sub font settings must match.
-newtype DvbSubtitleShadowColor = DvbSubtitleShadowColor' Lude.Text
+newtype DvbSubtitleShadowColor = DvbSubtitleShadowColor'
+  { fromDvbSubtitleShadowColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSSCNone :: DvbSubtitleShadowColor
-pattern DSSCNone = DvbSubtitleShadowColor' "NONE"
+pattern DvbSubtitleShadowColorNone :: DvbSubtitleShadowColor
+pattern DvbSubtitleShadowColorNone = DvbSubtitleShadowColor' "NONE"
 
-pattern DSSCBlack :: DvbSubtitleShadowColor
-pattern DSSCBlack = DvbSubtitleShadowColor' "BLACK"
+pattern DvbSubtitleShadowColorBlack :: DvbSubtitleShadowColor
+pattern DvbSubtitleShadowColorBlack = DvbSubtitleShadowColor' "BLACK"
 
-pattern DSSCWhite :: DvbSubtitleShadowColor
-pattern DSSCWhite = DvbSubtitleShadowColor' "WHITE"
+pattern DvbSubtitleShadowColorWhite :: DvbSubtitleShadowColor
+pattern DvbSubtitleShadowColorWhite = DvbSubtitleShadowColor' "WHITE"
 
 {-# COMPLETE
-  DSSCNone,
-  DSSCBlack,
-  DSSCWhite,
+  DvbSubtitleShadowColorNone,
+  DvbSubtitleShadowColorBlack,
+  DvbSubtitleShadowColorWhite,
   DvbSubtitleShadowColor'
   #-}

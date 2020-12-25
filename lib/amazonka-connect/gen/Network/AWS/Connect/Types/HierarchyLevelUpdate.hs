@@ -21,36 +21,34 @@ module Network.AWS.Connect.Types.HierarchyLevelUpdate
   )
 where
 
+import qualified Network.AWS.Connect.Types.HierarchyLevelName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the hierarchy level to update.
 --
 -- /See:/ 'mkHierarchyLevelUpdate' smart constructor.
 newtype HierarchyLevelUpdate = HierarchyLevelUpdate'
   { -- | The name of the user hierarchy level. Must not be more than 50 characters.
-    name :: Lude.Text
+    name :: Types.HierarchyLevelName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HierarchyLevelUpdate' with the minimum fields required to make a request.
---
--- * 'name' - The name of the user hierarchy level. Must not be more than 50 characters.
+-- | Creates a 'HierarchyLevelUpdate' value with any optional fields omitted.
 mkHierarchyLevelUpdate ::
   -- | 'name'
-  Lude.Text ->
+  Types.HierarchyLevelName ->
   HierarchyLevelUpdate
-mkHierarchyLevelUpdate pName_ =
-  HierarchyLevelUpdate' {name = pName_}
+mkHierarchyLevelUpdate name = HierarchyLevelUpdate' {name}
 
 -- | The name of the user hierarchy level. Must not be more than 50 characters.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hluName :: Lens.Lens' HierarchyLevelUpdate Lude.Text
-hluName = Lens.lens (name :: HierarchyLevelUpdate -> Lude.Text) (\s a -> s {name = a} :: HierarchyLevelUpdate)
+hluName :: Lens.Lens' HierarchyLevelUpdate Types.HierarchyLevelName
+hluName = Lens.field @"name"
 {-# DEPRECATED hluName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON HierarchyLevelUpdate where
-  toJSON HierarchyLevelUpdate' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
+instance Core.FromJSON HierarchyLevelUpdate where
+  toJSON HierarchyLevelUpdate {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])

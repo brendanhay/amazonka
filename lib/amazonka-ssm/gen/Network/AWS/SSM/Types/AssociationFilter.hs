@@ -17,57 +17,54 @@ module Network.AWS.SSM.Types.AssociationFilter
     mkAssociationFilter,
 
     -- * Lenses
-    afValue,
     afKey,
+    afValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.AssociationFilterKey
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AssociationFilterKey as Types
+import qualified Network.AWS.SSM.Types.Value as Types
 
 -- | Describes a filter.
 --
 -- /See:/ 'mkAssociationFilter' smart constructor.
 data AssociationFilter = AssociationFilter'
-  { -- | The filter value.
-    value :: Lude.Text,
-    -- | The name of the filter.
-    key :: AssociationFilterKey
+  { -- | The name of the filter.
+    key :: Types.AssociationFilterKey,
+    -- | The filter value.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociationFilter' with the minimum fields required to make a request.
---
--- * 'value' - The filter value.
--- * 'key' - The name of the filter.
+-- | Creates a 'AssociationFilter' value with any optional fields omitted.
 mkAssociationFilter ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'key'
-  AssociationFilterKey ->
+  Types.AssociationFilterKey ->
+  -- | 'value'
+  Types.Value ->
   AssociationFilter
-mkAssociationFilter pValue_ pKey_ =
-  AssociationFilter' {value = pValue_, key = pKey_}
-
--- | The filter value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afValue :: Lens.Lens' AssociationFilter Lude.Text
-afValue = Lens.lens (value :: AssociationFilter -> Lude.Text) (\s a -> s {value = a} :: AssociationFilter)
-{-# DEPRECATED afValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkAssociationFilter key value = AssociationFilter' {key, value}
 
 -- | The name of the filter.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afKey :: Lens.Lens' AssociationFilter AssociationFilterKey
-afKey = Lens.lens (key :: AssociationFilter -> AssociationFilterKey) (\s a -> s {key = a} :: AssociationFilter)
+afKey :: Lens.Lens' AssociationFilter Types.AssociationFilterKey
+afKey = Lens.field @"key"
 {-# DEPRECATED afKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON AssociationFilter where
-  toJSON AssociationFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("value" Lude..= value), Lude.Just ("key" Lude..= key)]
+-- | The filter value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afValue :: Lens.Lens' AssociationFilter Types.Value
+afValue = Lens.field @"value"
+{-# DEPRECATED afValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON AssociationFilter where
+  toJSON AssociationFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("key" Core..= key), Core.Just ("value" Core..= value)]
       )

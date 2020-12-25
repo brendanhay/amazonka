@@ -17,148 +17,121 @@ module Network.AWS.Firehose.Types.OrcSerDe
     mkOrcSerDe,
 
     -- * Lenses
+    osdBlockSizeBytes,
+    osdBloomFilterColumns,
     osdBloomFilterFalsePositiveProbability,
+    osdCompression,
     osdDictionaryKeyThreshold,
     osdEnablePadding,
-    osdCompression,
-    osdBloomFilterColumns,
-    osdRowIndexStride,
     osdFormatVersion,
-    osdBlockSizeBytes,
-    osdStripeSizeBytes,
     osdPaddingTolerance,
+    osdRowIndexStride,
+    osdStripeSizeBytes,
   )
 where
 
-import Network.AWS.Firehose.Types.OrcCompression
-import Network.AWS.Firehose.Types.OrcFormatVersion
+import qualified Network.AWS.Firehose.Types.NonEmptyStringWithoutWhitespace as Types
+import qualified Network.AWS.Firehose.Types.OrcCompression as Types
+import qualified Network.AWS.Firehose.Types.OrcFormatVersion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <https://orc.apache.org/docs/ Apache ORC> .
 --
 -- /See:/ 'mkOrcSerDe' smart constructor.
 data OrcSerDe = OrcSerDe'
-  { -- | The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is 0.05, the minimum is 0, and the maximum is 1.
-    bloomFilterFalsePositiveProbability :: Lude.Maybe Lude.Double,
-    -- | Represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to 1.
-    dictionaryKeyThreshold :: Lude.Maybe Lude.Double,
-    -- | Set this to @true@ to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is @false@ .
-    enablePadding :: Lude.Maybe Lude.Bool,
-    -- | The compression code to use over data blocks. The default is @SNAPPY@ .
-    compression :: Lude.Maybe OrcCompression,
+  { -- | The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+    blockSizeBytes :: Core.Maybe Core.Natural,
     -- | The column names for which you want Kinesis Data Firehose to create bloom filters. The default is @null@ .
-    bloomFilterColumns :: Lude.Maybe [Lude.Text],
-    -- | The number of rows between index entries. The default is 10,000 and the minimum is 1,000.
-    rowIndexStride :: Lude.Maybe Lude.Natural,
+    bloomFilterColumns :: Core.Maybe [Types.NonEmptyStringWithoutWhitespace],
+    -- | The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is 0.05, the minimum is 0, and the maximum is 1.
+    bloomFilterFalsePositiveProbability :: Core.Maybe Core.Double,
+    -- | The compression code to use over data blocks. The default is @SNAPPY@ .
+    compression :: Core.Maybe Types.OrcCompression,
+    -- | Represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to 1.
+    dictionaryKeyThreshold :: Core.Maybe Core.Double,
+    -- | Set this to @true@ to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is @false@ .
+    enablePadding :: Core.Maybe Core.Bool,
     -- | The version of the file to write. The possible values are @V0_11@ and @V0_12@ . The default is @V0_12@ .
-    formatVersion :: Lude.Maybe OrcFormatVersion,
-    -- | The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-    blockSizeBytes :: Lude.Maybe Lude.Natural,
-    -- | The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
-    stripeSizeBytes :: Lude.Maybe Lude.Natural,
+    formatVersion :: Core.Maybe Types.OrcFormatVersion,
     -- | A number between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is 0.05, which means 5 percent of stripe size.
     --
     -- For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task.
     -- Kinesis Data Firehose ignores this parameter when 'OrcSerDe$EnablePadding' is @false@ .
-    paddingTolerance :: Lude.Maybe Lude.Double
+    paddingTolerance :: Core.Maybe Core.Double,
+    -- | The number of rows between index entries. The default is 10,000 and the minimum is 1,000.
+    rowIndexStride :: Core.Maybe Core.Natural,
+    -- | The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+    stripeSizeBytes :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OrcSerDe' with the minimum fields required to make a request.
---
--- * 'bloomFilterFalsePositiveProbability' - The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is 0.05, the minimum is 0, and the maximum is 1.
--- * 'dictionaryKeyThreshold' - Represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to 1.
--- * 'enablePadding' - Set this to @true@ to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is @false@ .
--- * 'compression' - The compression code to use over data blocks. The default is @SNAPPY@ .
--- * 'bloomFilterColumns' - The column names for which you want Kinesis Data Firehose to create bloom filters. The default is @null@ .
--- * 'rowIndexStride' - The number of rows between index entries. The default is 10,000 and the minimum is 1,000.
--- * 'formatVersion' - The version of the file to write. The possible values are @V0_11@ and @V0_12@ . The default is @V0_12@ .
--- * 'blockSizeBytes' - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
--- * 'stripeSizeBytes' - The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
--- * 'paddingTolerance' - A number between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is 0.05, which means 5 percent of stripe size.
---
--- For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task.
--- Kinesis Data Firehose ignores this parameter when 'OrcSerDe$EnablePadding' is @false@ .
+-- | Creates a 'OrcSerDe' value with any optional fields omitted.
 mkOrcSerDe ::
   OrcSerDe
 mkOrcSerDe =
   OrcSerDe'
-    { bloomFilterFalsePositiveProbability = Lude.Nothing,
-      dictionaryKeyThreshold = Lude.Nothing,
-      enablePadding = Lude.Nothing,
-      compression = Lude.Nothing,
-      bloomFilterColumns = Lude.Nothing,
-      rowIndexStride = Lude.Nothing,
-      formatVersion = Lude.Nothing,
-      blockSizeBytes = Lude.Nothing,
-      stripeSizeBytes = Lude.Nothing,
-      paddingTolerance = Lude.Nothing
+    { blockSizeBytes = Core.Nothing,
+      bloomFilterColumns = Core.Nothing,
+      bloomFilterFalsePositiveProbability = Core.Nothing,
+      compression = Core.Nothing,
+      dictionaryKeyThreshold = Core.Nothing,
+      enablePadding = Core.Nothing,
+      formatVersion = Core.Nothing,
+      paddingTolerance = Core.Nothing,
+      rowIndexStride = Core.Nothing,
+      stripeSizeBytes = Core.Nothing
     }
+
+-- | The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+--
+-- /Note:/ Consider using 'blockSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osdBlockSizeBytes :: Lens.Lens' OrcSerDe (Core.Maybe Core.Natural)
+osdBlockSizeBytes = Lens.field @"blockSizeBytes"
+{-# DEPRECATED osdBlockSizeBytes "Use generic-lens or generic-optics with 'blockSizeBytes' instead." #-}
+
+-- | The column names for which you want Kinesis Data Firehose to create bloom filters. The default is @null@ .
+--
+-- /Note:/ Consider using 'bloomFilterColumns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osdBloomFilterColumns :: Lens.Lens' OrcSerDe (Core.Maybe [Types.NonEmptyStringWithoutWhitespace])
+osdBloomFilterColumns = Lens.field @"bloomFilterColumns"
+{-# DEPRECATED osdBloomFilterColumns "Use generic-lens or generic-optics with 'bloomFilterColumns' instead." #-}
 
 -- | The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is 0.05, the minimum is 0, and the maximum is 1.
 --
 -- /Note:/ Consider using 'bloomFilterFalsePositiveProbability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdBloomFilterFalsePositiveProbability :: Lens.Lens' OrcSerDe (Lude.Maybe Lude.Double)
-osdBloomFilterFalsePositiveProbability = Lens.lens (bloomFilterFalsePositiveProbability :: OrcSerDe -> Lude.Maybe Lude.Double) (\s a -> s {bloomFilterFalsePositiveProbability = a} :: OrcSerDe)
+osdBloomFilterFalsePositiveProbability :: Lens.Lens' OrcSerDe (Core.Maybe Core.Double)
+osdBloomFilterFalsePositiveProbability = Lens.field @"bloomFilterFalsePositiveProbability"
 {-# DEPRECATED osdBloomFilterFalsePositiveProbability "Use generic-lens or generic-optics with 'bloomFilterFalsePositiveProbability' instead." #-}
+
+-- | The compression code to use over data blocks. The default is @SNAPPY@ .
+--
+-- /Note:/ Consider using 'compression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osdCompression :: Lens.Lens' OrcSerDe (Core.Maybe Types.OrcCompression)
+osdCompression = Lens.field @"compression"
+{-# DEPRECATED osdCompression "Use generic-lens or generic-optics with 'compression' instead." #-}
 
 -- | Represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to 1.
 --
 -- /Note:/ Consider using 'dictionaryKeyThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdDictionaryKeyThreshold :: Lens.Lens' OrcSerDe (Lude.Maybe Lude.Double)
-osdDictionaryKeyThreshold = Lens.lens (dictionaryKeyThreshold :: OrcSerDe -> Lude.Maybe Lude.Double) (\s a -> s {dictionaryKeyThreshold = a} :: OrcSerDe)
+osdDictionaryKeyThreshold :: Lens.Lens' OrcSerDe (Core.Maybe Core.Double)
+osdDictionaryKeyThreshold = Lens.field @"dictionaryKeyThreshold"
 {-# DEPRECATED osdDictionaryKeyThreshold "Use generic-lens or generic-optics with 'dictionaryKeyThreshold' instead." #-}
 
 -- | Set this to @true@ to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is @false@ .
 --
 -- /Note:/ Consider using 'enablePadding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdEnablePadding :: Lens.Lens' OrcSerDe (Lude.Maybe Lude.Bool)
-osdEnablePadding = Lens.lens (enablePadding :: OrcSerDe -> Lude.Maybe Lude.Bool) (\s a -> s {enablePadding = a} :: OrcSerDe)
+osdEnablePadding :: Lens.Lens' OrcSerDe (Core.Maybe Core.Bool)
+osdEnablePadding = Lens.field @"enablePadding"
 {-# DEPRECATED osdEnablePadding "Use generic-lens or generic-optics with 'enablePadding' instead." #-}
-
--- | The compression code to use over data blocks. The default is @SNAPPY@ .
---
--- /Note:/ Consider using 'compression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdCompression :: Lens.Lens' OrcSerDe (Lude.Maybe OrcCompression)
-osdCompression = Lens.lens (compression :: OrcSerDe -> Lude.Maybe OrcCompression) (\s a -> s {compression = a} :: OrcSerDe)
-{-# DEPRECATED osdCompression "Use generic-lens or generic-optics with 'compression' instead." #-}
-
--- | The column names for which you want Kinesis Data Firehose to create bloom filters. The default is @null@ .
---
--- /Note:/ Consider using 'bloomFilterColumns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdBloomFilterColumns :: Lens.Lens' OrcSerDe (Lude.Maybe [Lude.Text])
-osdBloomFilterColumns = Lens.lens (bloomFilterColumns :: OrcSerDe -> Lude.Maybe [Lude.Text]) (\s a -> s {bloomFilterColumns = a} :: OrcSerDe)
-{-# DEPRECATED osdBloomFilterColumns "Use generic-lens or generic-optics with 'bloomFilterColumns' instead." #-}
-
--- | The number of rows between index entries. The default is 10,000 and the minimum is 1,000.
---
--- /Note:/ Consider using 'rowIndexStride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdRowIndexStride :: Lens.Lens' OrcSerDe (Lude.Maybe Lude.Natural)
-osdRowIndexStride = Lens.lens (rowIndexStride :: OrcSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {rowIndexStride = a} :: OrcSerDe)
-{-# DEPRECATED osdRowIndexStride "Use generic-lens or generic-optics with 'rowIndexStride' instead." #-}
 
 -- | The version of the file to write. The possible values are @V0_11@ and @V0_12@ . The default is @V0_12@ .
 --
 -- /Note:/ Consider using 'formatVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdFormatVersion :: Lens.Lens' OrcSerDe (Lude.Maybe OrcFormatVersion)
-osdFormatVersion = Lens.lens (formatVersion :: OrcSerDe -> Lude.Maybe OrcFormatVersion) (\s a -> s {formatVersion = a} :: OrcSerDe)
+osdFormatVersion :: Lens.Lens' OrcSerDe (Core.Maybe Types.OrcFormatVersion)
+osdFormatVersion = Lens.field @"formatVersion"
 {-# DEPRECATED osdFormatVersion "Use generic-lens or generic-optics with 'formatVersion' instead." #-}
-
--- | The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
---
--- /Note:/ Consider using 'blockSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdBlockSizeBytes :: Lens.Lens' OrcSerDe (Lude.Maybe Lude.Natural)
-osdBlockSizeBytes = Lens.lens (blockSizeBytes :: OrcSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {blockSizeBytes = a} :: OrcSerDe)
-{-# DEPRECATED osdBlockSizeBytes "Use generic-lens or generic-optics with 'blockSizeBytes' instead." #-}
-
--- | The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
---
--- /Note:/ Consider using 'stripeSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdStripeSizeBytes :: Lens.Lens' OrcSerDe (Lude.Maybe Lude.Natural)
-osdStripeSizeBytes = Lens.lens (stripeSizeBytes :: OrcSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {stripeSizeBytes = a} :: OrcSerDe)
-{-# DEPRECATED osdStripeSizeBytes "Use generic-lens or generic-optics with 'stripeSizeBytes' instead." #-}
 
 -- | A number between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is 0.05, which means 5 percent of stripe size.
 --
@@ -166,42 +139,54 @@ osdStripeSizeBytes = Lens.lens (stripeSizeBytes :: OrcSerDe -> Lude.Maybe Lude.N
 -- Kinesis Data Firehose ignores this parameter when 'OrcSerDe$EnablePadding' is @false@ .
 --
 -- /Note:/ Consider using 'paddingTolerance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osdPaddingTolerance :: Lens.Lens' OrcSerDe (Lude.Maybe Lude.Double)
-osdPaddingTolerance = Lens.lens (paddingTolerance :: OrcSerDe -> Lude.Maybe Lude.Double) (\s a -> s {paddingTolerance = a} :: OrcSerDe)
+osdPaddingTolerance :: Lens.Lens' OrcSerDe (Core.Maybe Core.Double)
+osdPaddingTolerance = Lens.field @"paddingTolerance"
 {-# DEPRECATED osdPaddingTolerance "Use generic-lens or generic-optics with 'paddingTolerance' instead." #-}
 
-instance Lude.FromJSON OrcSerDe where
-  parseJSON =
-    Lude.withObject
-      "OrcSerDe"
-      ( \x ->
-          OrcSerDe'
-            Lude.<$> (x Lude..:? "BloomFilterFalsePositiveProbability")
-            Lude.<*> (x Lude..:? "DictionaryKeyThreshold")
-            Lude.<*> (x Lude..:? "EnablePadding")
-            Lude.<*> (x Lude..:? "Compression")
-            Lude.<*> (x Lude..:? "BloomFilterColumns" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "RowIndexStride")
-            Lude.<*> (x Lude..:? "FormatVersion")
-            Lude.<*> (x Lude..:? "BlockSizeBytes")
-            Lude.<*> (x Lude..:? "StripeSizeBytes")
-            Lude.<*> (x Lude..:? "PaddingTolerance")
-      )
+-- | The number of rows between index entries. The default is 10,000 and the minimum is 1,000.
+--
+-- /Note:/ Consider using 'rowIndexStride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osdRowIndexStride :: Lens.Lens' OrcSerDe (Core.Maybe Core.Natural)
+osdRowIndexStride = Lens.field @"rowIndexStride"
+{-# DEPRECATED osdRowIndexStride "Use generic-lens or generic-optics with 'rowIndexStride' instead." #-}
 
-instance Lude.ToJSON OrcSerDe where
-  toJSON OrcSerDe' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("BloomFilterFalsePositiveProbability" Lude..=)
-              Lude.<$> bloomFilterFalsePositiveProbability,
-            ("DictionaryKeyThreshold" Lude..=) Lude.<$> dictionaryKeyThreshold,
-            ("EnablePadding" Lude..=) Lude.<$> enablePadding,
-            ("Compression" Lude..=) Lude.<$> compression,
-            ("BloomFilterColumns" Lude..=) Lude.<$> bloomFilterColumns,
-            ("RowIndexStride" Lude..=) Lude.<$> rowIndexStride,
-            ("FormatVersion" Lude..=) Lude.<$> formatVersion,
-            ("BlockSizeBytes" Lude..=) Lude.<$> blockSizeBytes,
-            ("StripeSizeBytes" Lude..=) Lude.<$> stripeSizeBytes,
-            ("PaddingTolerance" Lude..=) Lude.<$> paddingTolerance
+-- | The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+--
+-- /Note:/ Consider using 'stripeSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osdStripeSizeBytes :: Lens.Lens' OrcSerDe (Core.Maybe Core.Natural)
+osdStripeSizeBytes = Lens.field @"stripeSizeBytes"
+{-# DEPRECATED osdStripeSizeBytes "Use generic-lens or generic-optics with 'stripeSizeBytes' instead." #-}
+
+instance Core.FromJSON OrcSerDe where
+  toJSON OrcSerDe {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BlockSizeBytes" Core..=) Core.<$> blockSizeBytes,
+            ("BloomFilterColumns" Core..=) Core.<$> bloomFilterColumns,
+            ("BloomFilterFalsePositiveProbability" Core..=)
+              Core.<$> bloomFilterFalsePositiveProbability,
+            ("Compression" Core..=) Core.<$> compression,
+            ("DictionaryKeyThreshold" Core..=) Core.<$> dictionaryKeyThreshold,
+            ("EnablePadding" Core..=) Core.<$> enablePadding,
+            ("FormatVersion" Core..=) Core.<$> formatVersion,
+            ("PaddingTolerance" Core..=) Core.<$> paddingTolerance,
+            ("RowIndexStride" Core..=) Core.<$> rowIndexStride,
+            ("StripeSizeBytes" Core..=) Core.<$> stripeSizeBytes
           ]
       )
+
+instance Core.FromJSON OrcSerDe where
+  parseJSON =
+    Core.withObject "OrcSerDe" Core.$
+      \x ->
+        OrcSerDe'
+          Core.<$> (x Core..:? "BlockSizeBytes")
+          Core.<*> (x Core..:? "BloomFilterColumns")
+          Core.<*> (x Core..:? "BloomFilterFalsePositiveProbability")
+          Core.<*> (x Core..:? "Compression")
+          Core.<*> (x Core..:? "DictionaryKeyThreshold")
+          Core.<*> (x Core..:? "EnablePadding")
+          Core.<*> (x Core..:? "FormatVersion")
+          Core.<*> (x Core..:? "PaddingTolerance")
+          Core.<*> (x Core..:? "RowIndexStride")
+          Core.<*> (x Core..:? "StripeSizeBytes")

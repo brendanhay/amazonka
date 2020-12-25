@@ -17,13 +17,14 @@ module Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig
     mkFSxWindowsFileServerAuthorizationConfig,
 
     -- * Lenses
-    fswfsacDomain,
     fswfsacCredentialsParameter,
+    fswfsacDomain,
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The authorization configuration details for Amazon FSx for Windows File Server file system. See <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FSxWindowsFileServerVolumeConfiguration.html FSxWindowsFileServerVolumeConfiguration> in the /Amazon Elastic Container Service API Reference/ .
 --
@@ -31,60 +32,55 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFSxWindowsFileServerAuthorizationConfig' smart constructor.
 data FSxWindowsFileServerAuthorizationConfig = FSxWindowsFileServerAuthorizationConfig'
-  { -- | A fully qualified domain name hosted by an <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Directory Service> Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
-    domain :: Lude.Text,
-    -- | The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
-    credentialsParameter :: Lude.Text
+  { -- | The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+    credentialsParameter :: Types.String,
+    -- | A fully qualified domain name hosted by an <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Directory Service> Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+    domain :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FSxWindowsFileServerAuthorizationConfig' with the minimum fields required to make a request.
---
--- * 'domain' - A fully qualified domain name hosted by an <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Directory Service> Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
--- * 'credentialsParameter' - The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+-- | Creates a 'FSxWindowsFileServerAuthorizationConfig' value with any optional fields omitted.
 mkFSxWindowsFileServerAuthorizationConfig ::
-  -- | 'domain'
-  Lude.Text ->
   -- | 'credentialsParameter'
-  Lude.Text ->
+  Types.String ->
+  -- | 'domain'
+  Types.String ->
   FSxWindowsFileServerAuthorizationConfig
 mkFSxWindowsFileServerAuthorizationConfig
-  pDomain_
-  pCredentialsParameter_ =
+  credentialsParameter
+  domain =
     FSxWindowsFileServerAuthorizationConfig'
-      { domain = pDomain_,
-        credentialsParameter = pCredentialsParameter_
+      { credentialsParameter,
+        domain
       }
-
--- | A fully qualified domain name hosted by an <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Directory Service> Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fswfsacDomain :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Lude.Text
-fswfsacDomain = Lens.lens (domain :: FSxWindowsFileServerAuthorizationConfig -> Lude.Text) (\s a -> s {domain = a} :: FSxWindowsFileServerAuthorizationConfig)
-{-# DEPRECATED fswfsacDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 --
 -- /Note:/ Consider using 'credentialsParameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fswfsacCredentialsParameter :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Lude.Text
-fswfsacCredentialsParameter = Lens.lens (credentialsParameter :: FSxWindowsFileServerAuthorizationConfig -> Lude.Text) (\s a -> s {credentialsParameter = a} :: FSxWindowsFileServerAuthorizationConfig)
+fswfsacCredentialsParameter :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Types.String
+fswfsacCredentialsParameter = Lens.field @"credentialsParameter"
 {-# DEPRECATED fswfsacCredentialsParameter "Use generic-lens or generic-optics with 'credentialsParameter' instead." #-}
 
-instance Lude.FromJSON FSxWindowsFileServerAuthorizationConfig where
-  parseJSON =
-    Lude.withObject
-      "FSxWindowsFileServerAuthorizationConfig"
-      ( \x ->
-          FSxWindowsFileServerAuthorizationConfig'
-            Lude.<$> (x Lude..: "domain") Lude.<*> (x Lude..: "credentialsParameter")
-      )
+-- | A fully qualified domain name hosted by an <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Directory Service> Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fswfsacDomain :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Types.String
+fswfsacDomain = Lens.field @"domain"
+{-# DEPRECATED fswfsacDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
-instance Lude.ToJSON FSxWindowsFileServerAuthorizationConfig where
-  toJSON FSxWindowsFileServerAuthorizationConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("credentialsParameter" Lude..= credentialsParameter)
+instance Core.FromJSON FSxWindowsFileServerAuthorizationConfig where
+  toJSON FSxWindowsFileServerAuthorizationConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("credentialsParameter" Core..= credentialsParameter),
+            Core.Just ("domain" Core..= domain)
           ]
       )
+
+instance Core.FromJSON FSxWindowsFileServerAuthorizationConfig where
+  parseJSON =
+    Core.withObject "FSxWindowsFileServerAuthorizationConfig" Core.$
+      \x ->
+        FSxWindowsFileServerAuthorizationConfig'
+          Core.<$> (x Core..: "credentialsParameter") Core.<*> (x Core..: "domain")

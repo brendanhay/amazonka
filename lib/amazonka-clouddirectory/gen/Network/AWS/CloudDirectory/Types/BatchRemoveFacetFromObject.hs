@@ -22,58 +22,52 @@ module Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.CloudDirectory.Types.SchemaFacet
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
+import qualified Network.AWS.CloudDirectory.Types.SchemaFacet as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A batch operation to remove a facet from an object.
 --
 -- /See:/ 'mkBatchRemoveFacetFromObject' smart constructor.
 data BatchRemoveFacetFromObject = BatchRemoveFacetFromObject'
   { -- | The facet to remove from the object.
-    schemaFacet :: SchemaFacet,
+    schemaFacet :: Types.SchemaFacet,
     -- | A reference to the object whose facet will be removed.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchRemoveFacetFromObject' with the minimum fields required to make a request.
---
--- * 'schemaFacet' - The facet to remove from the object.
--- * 'objectReference' - A reference to the object whose facet will be removed.
+-- | Creates a 'BatchRemoveFacetFromObject' value with any optional fields omitted.
 mkBatchRemoveFacetFromObject ::
   -- | 'schemaFacet'
-  SchemaFacet ->
+  Types.SchemaFacet ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchRemoveFacetFromObject
-mkBatchRemoveFacetFromObject pSchemaFacet_ pObjectReference_ =
-  BatchRemoveFacetFromObject'
-    { schemaFacet = pSchemaFacet_,
-      objectReference = pObjectReference_
-    }
+mkBatchRemoveFacetFromObject schemaFacet objectReference =
+  BatchRemoveFacetFromObject' {schemaFacet, objectReference}
 
 -- | The facet to remove from the object.
 --
 -- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brffoSchemaFacet :: Lens.Lens' BatchRemoveFacetFromObject SchemaFacet
-brffoSchemaFacet = Lens.lens (schemaFacet :: BatchRemoveFacetFromObject -> SchemaFacet) (\s a -> s {schemaFacet = a} :: BatchRemoveFacetFromObject)
+brffoSchemaFacet :: Lens.Lens' BatchRemoveFacetFromObject Types.SchemaFacet
+brffoSchemaFacet = Lens.field @"schemaFacet"
 {-# DEPRECATED brffoSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
 
 -- | A reference to the object whose facet will be removed.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brffoObjectReference :: Lens.Lens' BatchRemoveFacetFromObject ObjectReference
-brffoObjectReference = Lens.lens (objectReference :: BatchRemoveFacetFromObject -> ObjectReference) (\s a -> s {objectReference = a} :: BatchRemoveFacetFromObject)
+brffoObjectReference :: Lens.Lens' BatchRemoveFacetFromObject Types.ObjectReference
+brffoObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED brffoObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.ToJSON BatchRemoveFacetFromObject where
-  toJSON BatchRemoveFacetFromObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SchemaFacet" Lude..= schemaFacet),
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+instance Core.FromJSON BatchRemoveFacetFromObject where
+  toJSON BatchRemoveFacetFromObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaFacet" Core..= schemaFacet),
+            Core.Just ("ObjectReference" Core..= objectReference)
           ]
       )

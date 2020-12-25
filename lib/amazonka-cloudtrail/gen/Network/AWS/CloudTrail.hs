@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,136 @@
 -- See the <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html AWS CloudTrail User Guide> for information about the data that is included with each AWS API call listed in the log files.
 module Network.AWS.CloudTrail
   ( -- * Service configuration
-    cloudTrailService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidTimeRangeException
+    _InvalidTimeRangeException,
+
+    -- ** InsufficientS3BucketPolicyException
+    _InsufficientS3BucketPolicyException,
+
+    -- ** MaximumNumberOfTrailsExceededException
+    _MaximumNumberOfTrailsExceededException,
+
+    -- ** InsufficientDependencyServiceAccessPermissionException
+    _InsufficientDependencyServiceAccessPermissionException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** InvalidEventCategoryException
+    _InvalidEventCategoryException,
+
+    -- ** KmsKeyDisabledException
+    _KmsKeyDisabledException,
+
+    -- ** InsufficientEncryptionPolicyException
+    _InsufficientEncryptionPolicyException,
+
+    -- ** InsufficientSnsTopicPolicyException
+    _InsufficientSnsTopicPolicyException,
+
+    -- ** InvalidCloudWatchLogsRoleArnException
+    _InvalidCloudWatchLogsRoleArnException,
+
+    -- ** CloudTrailAccessNotEnabledException
+    _CloudTrailAccessNotEnabledException,
+
+    -- ** TagsLimitExceededException
+    _TagsLimitExceededException,
+
+    -- ** CloudTrailARNInvalidException
+    _CloudTrailARNInvalidException,
+
+    -- ** InvalidLookupAttributesException
+    _InvalidLookupAttributesException,
+
+    -- ** InvalidTrailNameException
+    _InvalidTrailNameException,
+
+    -- ** InvalidSnsTopicNameException
+    _InvalidSnsTopicNameException,
+
+    -- ** ResourceTypeNotSupportedException
+    _ResourceTypeNotSupportedException,
+
+    -- ** CloudWatchLogsDeliveryUnavailableException
+    _CloudWatchLogsDeliveryUnavailableException,
+
+    -- ** OrganizationsNotInUseException
+    _OrganizationsNotInUseException,
+
+    -- ** KmsKeyNotFoundException
+    _KmsKeyNotFoundException,
+
+    -- ** TrailNotFoundException
+    _TrailNotFoundException,
+
+    -- ** InsightNotEnabledException
+    _InsightNotEnabledException,
+
+    -- ** NotOrganizationMasterAccountException
+    _NotOrganizationMasterAccountException,
+
+    -- ** InvalidEventSelectorsException
+    _InvalidEventSelectorsException,
+
+    -- ** TrailNotProvidedException
+    _TrailNotProvidedException,
+
+    -- ** InvalidS3BucketNameException
+    _InvalidS3BucketNameException,
+
+    -- ** InvalidCloudWatchLogsLogGroupArnException
+    _InvalidCloudWatchLogsLogGroupArnException,
+
+    -- ** KmsException
+    _KmsException,
+
+    -- ** S3BucketDoesNotExistException
+    _S3BucketDoesNotExistException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidTagParameterException
+    _InvalidTagParameterException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** InvalidTokenException
+    _InvalidTokenException,
+
+    -- ** InvalidMaxResultsException
+    _InvalidMaxResultsException,
+
+    -- ** TrailAlreadyExistsException
+    _TrailAlreadyExistsException,
+
+    -- ** OrganizationNotInAllFeaturesModeException
+    _OrganizationNotInAllFeaturesModeException,
+
+    -- ** InvalidInsightSelectorsException
+    _InvalidInsightSelectorsException,
+
+    -- ** InvalidS3PrefixException
+    _InvalidS3PrefixException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** InvalidKmsKeyIdException
+    _InvalidKmsKeyIdException,
+
+    -- ** InvalidHomeRegionException
+    _InvalidHomeRegionException,
 
     -- * Waiters
     -- $waiters
@@ -85,86 +210,112 @@ module Network.AWS.CloudTrail
 
     -- * Types
 
+    -- ** TrailInfo
+    TrailInfo (..),
+    mkTrailInfo,
+    tiHomeRegion,
+    tiName,
+    tiTrailARN,
+
     -- ** EventCategory
     EventCategory (..),
-
-    -- ** InsightType
-    InsightType (..),
-
-    -- ** LookupAttributeKey
-    LookupAttributeKey (..),
-
-    -- ** ReadWriteType
-    ReadWriteType (..),
-
-    -- ** AdvancedEventSelector
-    AdvancedEventSelector (..),
-    mkAdvancedEventSelector,
-    aesFieldSelectors,
-    aesName,
-
-    -- ** AdvancedFieldSelector
-    AdvancedFieldSelector (..),
-    mkAdvancedFieldSelector,
-    afsField,
-    afsEndsWith,
-    afsNotStartsWith,
-    afsEquals,
-    afsNotEquals,
-    afsNotEndsWith,
-    afsStartsWith,
-
-    -- ** DataResource
-    DataResource (..),
-    mkDataResource,
-    drValues,
-    drType,
 
     -- ** Event
     Event (..),
     mkEvent,
-    eUsername,
-    eResources,
-    eEventTime,
-    eCloudTrailEvent,
-    eEventName,
-    eReadOnly,
     eAccessKeyId,
-    eEventSource,
+    eCloudTrailEvent,
     eEventId,
+    eEventName,
+    eEventSource,
+    eEventTime,
+    eReadOnly,
+    eResources,
+    eUsername,
 
-    -- ** EventSelector
-    EventSelector (..),
-    mkEventSelector,
-    esDataResources,
-    esReadWriteType,
-    esExcludeManagementEventSources,
-    esIncludeManagementEvents,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** InsightSelector
-    InsightSelector (..),
-    mkInsightSelector,
-    isInsightType,
+    -- ** Trail
+    Trail (..),
+    mkTrail,
+    tCloudWatchLogsLogGroupArn,
+    tCloudWatchLogsRoleArn,
+    tHasCustomEventSelectors,
+    tHasInsightSelectors,
+    tHomeRegion,
+    tIncludeGlobalServiceEvents,
+    tIsMultiRegionTrail,
+    tIsOrganizationTrail,
+    tKmsKeyId,
+    tLogFileValidationEnabled,
+    tName,
+    tS3BucketName,
+    tS3KeyPrefix,
+    tSnsTopicARN,
+    tSnsTopicName,
+    tTrailARN,
+
+    -- ** String
+    String (..),
+
+    -- ** OperatorValue
+    OperatorValue (..),
 
     -- ** LookupAttribute
     LookupAttribute (..),
     mkLookupAttribute,
-    laAttributeValue,
     laAttributeKey,
+    laAttributeValue,
 
     -- ** PublicKey
     PublicKey (..),
     mkPublicKey,
     pkFingerprint,
     pkValidityEndTime,
-    pkValue,
     pkValidityStartTime,
+    pkValue,
+
+    -- ** EventSelector
+    EventSelector (..),
+    mkEventSelector,
+    esDataResources,
+    esExcludeManagementEventSources,
+    esIncludeManagementEvents,
+    esReadWriteType,
+
+    -- ** LookupAttributeKey
+    LookupAttributeKey (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ReadWriteType
+    ReadWriteType (..),
+
+    -- ** SelectorField
+    SelectorField (..),
+
+    -- ** AdvancedEventSelector
+    AdvancedEventSelector (..),
+    mkAdvancedEventSelector,
+    aesName,
+    aesFieldSelectors,
 
     -- ** Resource
     Resource (..),
     mkResource,
-    rResourceType,
     rResourceName,
+    rResourceType,
+
+    -- ** DataResource
+    DataResource (..),
+    mkDataResource,
+    drType,
+    drValues,
 
     -- ** ResourceTag
     ResourceTag (..),
@@ -172,48 +323,92 @@ module Network.AWS.CloudTrail
     rtResourceId,
     rtTagsList,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** InsightSelector
+    InsightSelector (..),
+    mkInsightSelector,
+    isInsightType,
 
-    -- ** Trail
-    Trail (..),
-    mkTrail,
-    tLogFileValidationEnabled,
-    tTrailARN,
-    tS3KeyPrefix,
-    tHasInsightSelectors,
-    tSNSTopicARN,
-    tSNSTopicName,
-    tCloudWatchLogsLogGroupARN,
-    tKMSKeyId,
-    tHomeRegion,
-    tName,
-    tIncludeGlobalServiceEvents,
-    tHasCustomEventSelectors,
-    tIsOrganizationTrail,
-    tCloudWatchLogsRoleARN,
-    tS3BucketName,
-    tIsMultiRegionTrail,
+    -- ** InsightType
+    InsightType (..),
 
-    -- ** TrailInfo
-    TrailInfo (..),
-    mkTrailInfo,
-    tiTrailARN,
-    tiHomeRegion,
-    tiName,
+    -- ** AdvancedFieldSelector
+    AdvancedFieldSelector (..),
+    mkAdvancedFieldSelector,
+    afsField,
+    afsEndsWith,
+    afsEquals,
+    afsNotEndsWith,
+    afsNotEquals,
+    afsNotStartsWith,
+    afsStartsWith,
+
+    -- ** HomeRegion
+    HomeRegion (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** TrailARN
+    TrailARN (..),
+
+    -- ** AccessKeyId
+    AccessKeyId (..),
+
+    -- ** CloudTrailEvent
+    CloudTrailEvent (..),
+
+    -- ** EventId
+    EventId (..),
+
+    -- ** EventName
+    EventName (..),
+
+    -- ** EventSource
+    EventSource (..),
+
+    -- ** ReadOnly
+    ReadOnly (..),
+
+    -- ** Username
+    Username (..),
+
+    -- ** S3BucketName
+    S3BucketName (..),
+
+    -- ** CloudWatchLogsLogGroupArn
+    CloudWatchLogsLogGroupArn (..),
+
+    -- ** CloudWatchLogsRoleArn
+    CloudWatchLogsRoleArn (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** S3KeyPrefix
+    S3KeyPrefix (..),
+
+    -- ** SnsTopicName
+    SnsTopicName (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** SnsTopicARN
+    SnsTopicARN (..),
+
+    -- ** TrailName
+    TrailName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

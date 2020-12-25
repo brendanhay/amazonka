@@ -27,108 +27,95 @@ module Network.AWS.Comprehend.DetectDominantLanguage
     mkDetectDominantLanguageResponse,
 
     -- ** Response lenses
-    ddlrsLanguages,
-    ddlrsResponseStatus,
+    ddlrrsLanguages,
+    ddlrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectDominantLanguage' smart constructor.
 newtype DetectDominantLanguage = DetectDominantLanguage'
   { -- | A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-    text :: Lude.Sensitive Lude.Text
+    text :: Types.CustomerInputString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectDominantLanguage' with the minimum fields required to make a request.
---
--- * 'text' - A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+-- | Creates a 'DetectDominantLanguage' value with any optional fields omitted.
 mkDetectDominantLanguage ::
   -- | 'text'
-  Lude.Sensitive Lude.Text ->
+  Types.CustomerInputString ->
   DetectDominantLanguage
-mkDetectDominantLanguage pText_ =
-  DetectDominantLanguage' {text = pText_}
+mkDetectDominantLanguage text = DetectDominantLanguage' {text}
 
 -- | A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 --
 -- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlText :: Lens.Lens' DetectDominantLanguage (Lude.Sensitive Lude.Text)
-ddlText = Lens.lens (text :: DetectDominantLanguage -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectDominantLanguage)
+ddlText :: Lens.Lens' DetectDominantLanguage Types.CustomerInputString
+ddlText = Lens.field @"text"
 {-# DEPRECATED ddlText "Use generic-lens or generic-optics with 'text' instead." #-}
 
-instance Lude.AWSRequest DetectDominantLanguage where
+instance Core.FromJSON DetectDominantLanguage where
+  toJSON DetectDominantLanguage {..} =
+    Core.object (Core.catMaybes [Core.Just ("Text" Core..= text)])
+
+instance Core.AWSRequest DetectDominantLanguage where
   type Rs DetectDominantLanguage = DetectDominantLanguageResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Comprehend_20171127.DetectDominantLanguage")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetectDominantLanguageResponse'
-            Lude.<$> (x Lude..?> "Languages" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Languages") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetectDominantLanguage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Comprehend_20171127.DetectDominantLanguage" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetectDominantLanguage where
-  toJSON DetectDominantLanguage' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Text" Lude..= text)])
-
-instance Lude.ToPath DetectDominantLanguage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetectDominantLanguage where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetectDominantLanguageResponse' smart constructor.
 data DetectDominantLanguageResponse = DetectDominantLanguageResponse'
   { -- | The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
-    languages :: Lude.Maybe [DominantLanguage],
+    languages :: Core.Maybe [Types.DominantLanguage],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectDominantLanguageResponse' with the minimum fields required to make a request.
---
--- * 'languages' - The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetectDominantLanguageResponse' value with any optional fields omitted.
 mkDetectDominantLanguageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetectDominantLanguageResponse
-mkDetectDominantLanguageResponse pResponseStatus_ =
+mkDetectDominantLanguageResponse responseStatus =
   DetectDominantLanguageResponse'
-    { languages = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { languages = Core.Nothing,
+      responseStatus
     }
 
 -- | The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
 --
 -- /Note:/ Consider using 'languages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlrsLanguages :: Lens.Lens' DetectDominantLanguageResponse (Lude.Maybe [DominantLanguage])
-ddlrsLanguages = Lens.lens (languages :: DetectDominantLanguageResponse -> Lude.Maybe [DominantLanguage]) (\s a -> s {languages = a} :: DetectDominantLanguageResponse)
-{-# DEPRECATED ddlrsLanguages "Use generic-lens or generic-optics with 'languages' instead." #-}
+ddlrrsLanguages :: Lens.Lens' DetectDominantLanguageResponse (Core.Maybe [Types.DominantLanguage])
+ddlrrsLanguages = Lens.field @"languages"
+{-# DEPRECATED ddlrrsLanguages "Use generic-lens or generic-optics with 'languages' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlrsResponseStatus :: Lens.Lens' DetectDominantLanguageResponse Lude.Int
-ddlrsResponseStatus = Lens.lens (responseStatus :: DetectDominantLanguageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectDominantLanguageResponse)
-{-# DEPRECATED ddlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddlrrsResponseStatus :: Lens.Lens' DetectDominantLanguageResponse Core.Int
+ddlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,63 +22,59 @@ module Network.AWS.Batch.Types.ResourceRequirement
   )
 where
 
-import Network.AWS.Batch.Types.ResourceType
+import qualified Network.AWS.Batch.Types.ResourceType as Types
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type and amount of a resource to assign to a container. Currently, the only supported resource type is @GPU@ .
 --
 -- /See:/ 'mkResourceRequirement' smart constructor.
 data ResourceRequirement = ResourceRequirement'
   { -- | The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
-    value :: Lude.Text,
+    value :: Types.String,
     -- | The type of resource to assign to a container. Currently, the only supported resource type is @GPU@ .
-    type' :: ResourceType
+    type' :: Types.ResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceRequirement' with the minimum fields required to make a request.
---
--- * 'value' - The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
--- * 'type'' - The type of resource to assign to a container. Currently, the only supported resource type is @GPU@ .
+-- | Creates a 'ResourceRequirement' value with any optional fields omitted.
 mkResourceRequirement ::
   -- | 'value'
-  Lude.Text ->
-  -- | 'type''
-  ResourceType ->
+  Types.String ->
+  -- | 'type\''
+  Types.ResourceType ->
   ResourceRequirement
-mkResourceRequirement pValue_ pType_ =
-  ResourceRequirement' {value = pValue_, type' = pType_}
+mkResourceRequirement value type' =
+  ResourceRequirement' {value, type'}
 
 -- | The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrValue :: Lens.Lens' ResourceRequirement Lude.Text
-rrValue = Lens.lens (value :: ResourceRequirement -> Lude.Text) (\s a -> s {value = a} :: ResourceRequirement)
+rrValue :: Lens.Lens' ResourceRequirement Types.String
+rrValue = Lens.field @"value"
 {-# DEPRECATED rrValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The type of resource to assign to a container. Currently, the only supported resource type is @GPU@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrType :: Lens.Lens' ResourceRequirement ResourceType
-rrType = Lens.lens (type' :: ResourceRequirement -> ResourceType) (\s a -> s {type' = a} :: ResourceRequirement)
+rrType :: Lens.Lens' ResourceRequirement Types.ResourceType
+rrType = Lens.field @"type'"
 {-# DEPRECATED rrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON ResourceRequirement where
-  parseJSON =
-    Lude.withObject
-      "ResourceRequirement"
-      ( \x ->
-          ResourceRequirement'
-            Lude.<$> (x Lude..: "value") Lude.<*> (x Lude..: "type")
-      )
-
-instance Lude.ToJSON ResourceRequirement where
-  toJSON ResourceRequirement' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("value" Lude..= value),
-            Lude.Just ("type" Lude..= type')
+instance Core.FromJSON ResourceRequirement where
+  toJSON ResourceRequirement {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("value" Core..= value),
+            Core.Just ("type" Core..= type')
           ]
       )
+
+instance Core.FromJSON ResourceRequirement where
+  parseJSON =
+    Core.withObject "ResourceRequirement" Core.$
+      \x ->
+        ResourceRequirement'
+          Core.<$> (x Core..: "value") Core.<*> (x Core..: "type")

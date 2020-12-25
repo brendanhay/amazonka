@@ -17,124 +17,118 @@ module Network.AWS.DirectoryService.Types.SchemaExtensionInfo
     mkSchemaExtensionInfo,
 
     -- * Lenses
-    seiDirectoryId,
-    seiSchemaExtensionId,
-    seiSchemaExtensionStatusReason,
-    seiSchemaExtensionStatus,
     seiDescription,
+    seiDirectoryId,
     seiEndDateTime,
+    seiSchemaExtensionId,
+    seiSchemaExtensionStatus,
+    seiSchemaExtensionStatusReason,
     seiStartDateTime,
   )
 where
 
-import Network.AWS.DirectoryService.Types.SchemaExtensionStatus
+import qualified Network.AWS.DirectoryService.Types.Description as Types
+import qualified Network.AWS.DirectoryService.Types.DirectoryId as Types
+import qualified Network.AWS.DirectoryService.Types.SchemaExtensionId as Types
+import qualified Network.AWS.DirectoryService.Types.SchemaExtensionStatus as Types
+import qualified Network.AWS.DirectoryService.Types.SchemaExtensionStatusReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a schema extension.
 --
 -- /See:/ 'mkSchemaExtensionInfo' smart constructor.
 data SchemaExtensionInfo = SchemaExtensionInfo'
-  { -- | The identifier of the directory to which the schema extension is applied.
-    directoryId :: Lude.Maybe Lude.Text,
-    -- | The identifier of the schema extension.
-    schemaExtensionId :: Lude.Maybe Lude.Text,
-    -- | The reason for the @SchemaExtensionStatus@ .
-    schemaExtensionStatusReason :: Lude.Maybe Lude.Text,
-    -- | The current status of the schema extension.
-    schemaExtensionStatus :: Lude.Maybe SchemaExtensionStatus,
-    -- | A description of the schema extension.
-    description :: Lude.Maybe Lude.Text,
+  { -- | A description of the schema extension.
+    description :: Core.Maybe Types.Description,
+    -- | The identifier of the directory to which the schema extension is applied.
+    directoryId :: Core.Maybe Types.DirectoryId,
     -- | The date and time that the schema extension was completed.
-    endDateTime :: Lude.Maybe Lude.Timestamp,
+    endDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The identifier of the schema extension.
+    schemaExtensionId :: Core.Maybe Types.SchemaExtensionId,
+    -- | The current status of the schema extension.
+    schemaExtensionStatus :: Core.Maybe Types.SchemaExtensionStatus,
+    -- | The reason for the @SchemaExtensionStatus@ .
+    schemaExtensionStatusReason :: Core.Maybe Types.SchemaExtensionStatusReason,
     -- | The date and time that the schema extension started being applied to the directory.
-    startDateTime :: Lude.Maybe Lude.Timestamp
+    startDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SchemaExtensionInfo' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory to which the schema extension is applied.
--- * 'schemaExtensionId' - The identifier of the schema extension.
--- * 'schemaExtensionStatusReason' - The reason for the @SchemaExtensionStatus@ .
--- * 'schemaExtensionStatus' - The current status of the schema extension.
--- * 'description' - A description of the schema extension.
--- * 'endDateTime' - The date and time that the schema extension was completed.
--- * 'startDateTime' - The date and time that the schema extension started being applied to the directory.
+-- | Creates a 'SchemaExtensionInfo' value with any optional fields omitted.
 mkSchemaExtensionInfo ::
   SchemaExtensionInfo
 mkSchemaExtensionInfo =
   SchemaExtensionInfo'
-    { directoryId = Lude.Nothing,
-      schemaExtensionId = Lude.Nothing,
-      schemaExtensionStatusReason = Lude.Nothing,
-      schemaExtensionStatus = Lude.Nothing,
-      description = Lude.Nothing,
-      endDateTime = Lude.Nothing,
-      startDateTime = Lude.Nothing
+    { description = Core.Nothing,
+      directoryId = Core.Nothing,
+      endDateTime = Core.Nothing,
+      schemaExtensionId = Core.Nothing,
+      schemaExtensionStatus = Core.Nothing,
+      schemaExtensionStatusReason = Core.Nothing,
+      startDateTime = Core.Nothing
     }
-
--- | The identifier of the directory to which the schema extension is applied.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seiDirectoryId :: Lens.Lens' SchemaExtensionInfo (Lude.Maybe Lude.Text)
-seiDirectoryId = Lens.lens (directoryId :: SchemaExtensionInfo -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: SchemaExtensionInfo)
-{-# DEPRECATED seiDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
--- | The identifier of the schema extension.
---
--- /Note:/ Consider using 'schemaExtensionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seiSchemaExtensionId :: Lens.Lens' SchemaExtensionInfo (Lude.Maybe Lude.Text)
-seiSchemaExtensionId = Lens.lens (schemaExtensionId :: SchemaExtensionInfo -> Lude.Maybe Lude.Text) (\s a -> s {schemaExtensionId = a} :: SchemaExtensionInfo)
-{-# DEPRECATED seiSchemaExtensionId "Use generic-lens or generic-optics with 'schemaExtensionId' instead." #-}
-
--- | The reason for the @SchemaExtensionStatus@ .
---
--- /Note:/ Consider using 'schemaExtensionStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seiSchemaExtensionStatusReason :: Lens.Lens' SchemaExtensionInfo (Lude.Maybe Lude.Text)
-seiSchemaExtensionStatusReason = Lens.lens (schemaExtensionStatusReason :: SchemaExtensionInfo -> Lude.Maybe Lude.Text) (\s a -> s {schemaExtensionStatusReason = a} :: SchemaExtensionInfo)
-{-# DEPRECATED seiSchemaExtensionStatusReason "Use generic-lens or generic-optics with 'schemaExtensionStatusReason' instead." #-}
-
--- | The current status of the schema extension.
---
--- /Note:/ Consider using 'schemaExtensionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seiSchemaExtensionStatus :: Lens.Lens' SchemaExtensionInfo (Lude.Maybe SchemaExtensionStatus)
-seiSchemaExtensionStatus = Lens.lens (schemaExtensionStatus :: SchemaExtensionInfo -> Lude.Maybe SchemaExtensionStatus) (\s a -> s {schemaExtensionStatus = a} :: SchemaExtensionInfo)
-{-# DEPRECATED seiSchemaExtensionStatus "Use generic-lens or generic-optics with 'schemaExtensionStatus' instead." #-}
 
 -- | A description of the schema extension.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seiDescription :: Lens.Lens' SchemaExtensionInfo (Lude.Maybe Lude.Text)
-seiDescription = Lens.lens (description :: SchemaExtensionInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SchemaExtensionInfo)
+seiDescription :: Lens.Lens' SchemaExtensionInfo (Core.Maybe Types.Description)
+seiDescription = Lens.field @"description"
 {-# DEPRECATED seiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The identifier of the directory to which the schema extension is applied.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seiDirectoryId :: Lens.Lens' SchemaExtensionInfo (Core.Maybe Types.DirectoryId)
+seiDirectoryId = Lens.field @"directoryId"
+{-# DEPRECATED seiDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The date and time that the schema extension was completed.
 --
 -- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seiEndDateTime :: Lens.Lens' SchemaExtensionInfo (Lude.Maybe Lude.Timestamp)
-seiEndDateTime = Lens.lens (endDateTime :: SchemaExtensionInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: SchemaExtensionInfo)
+seiEndDateTime :: Lens.Lens' SchemaExtensionInfo (Core.Maybe Core.NominalDiffTime)
+seiEndDateTime = Lens.field @"endDateTime"
 {-# DEPRECATED seiEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
+
+-- | The identifier of the schema extension.
+--
+-- /Note:/ Consider using 'schemaExtensionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seiSchemaExtensionId :: Lens.Lens' SchemaExtensionInfo (Core.Maybe Types.SchemaExtensionId)
+seiSchemaExtensionId = Lens.field @"schemaExtensionId"
+{-# DEPRECATED seiSchemaExtensionId "Use generic-lens or generic-optics with 'schemaExtensionId' instead." #-}
+
+-- | The current status of the schema extension.
+--
+-- /Note:/ Consider using 'schemaExtensionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seiSchemaExtensionStatus :: Lens.Lens' SchemaExtensionInfo (Core.Maybe Types.SchemaExtensionStatus)
+seiSchemaExtensionStatus = Lens.field @"schemaExtensionStatus"
+{-# DEPRECATED seiSchemaExtensionStatus "Use generic-lens or generic-optics with 'schemaExtensionStatus' instead." #-}
+
+-- | The reason for the @SchemaExtensionStatus@ .
+--
+-- /Note:/ Consider using 'schemaExtensionStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seiSchemaExtensionStatusReason :: Lens.Lens' SchemaExtensionInfo (Core.Maybe Types.SchemaExtensionStatusReason)
+seiSchemaExtensionStatusReason = Lens.field @"schemaExtensionStatusReason"
+{-# DEPRECATED seiSchemaExtensionStatusReason "Use generic-lens or generic-optics with 'schemaExtensionStatusReason' instead." #-}
 
 -- | The date and time that the schema extension started being applied to the directory.
 --
 -- /Note:/ Consider using 'startDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seiStartDateTime :: Lens.Lens' SchemaExtensionInfo (Lude.Maybe Lude.Timestamp)
-seiStartDateTime = Lens.lens (startDateTime :: SchemaExtensionInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {startDateTime = a} :: SchemaExtensionInfo)
+seiStartDateTime :: Lens.Lens' SchemaExtensionInfo (Core.Maybe Core.NominalDiffTime)
+seiStartDateTime = Lens.field @"startDateTime"
 {-# DEPRECATED seiStartDateTime "Use generic-lens or generic-optics with 'startDateTime' instead." #-}
 
-instance Lude.FromJSON SchemaExtensionInfo where
+instance Core.FromJSON SchemaExtensionInfo where
   parseJSON =
-    Lude.withObject
-      "SchemaExtensionInfo"
-      ( \x ->
-          SchemaExtensionInfo'
-            Lude.<$> (x Lude..:? "DirectoryId")
-            Lude.<*> (x Lude..:? "SchemaExtensionId")
-            Lude.<*> (x Lude..:? "SchemaExtensionStatusReason")
-            Lude.<*> (x Lude..:? "SchemaExtensionStatus")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "EndDateTime")
-            Lude.<*> (x Lude..:? "StartDateTime")
-      )
+    Core.withObject "SchemaExtensionInfo" Core.$
+      \x ->
+        SchemaExtensionInfo'
+          Core.<$> (x Core..:? "Description")
+          Core.<*> (x Core..:? "DirectoryId")
+          Core.<*> (x Core..:? "EndDateTime")
+          Core.<*> (x Core..:? "SchemaExtensionId")
+          Core.<*> (x Core..:? "SchemaExtensionStatus")
+          Core.<*> (x Core..:? "SchemaExtensionStatusReason")
+          Core.<*> (x Core..:? "StartDateTime")

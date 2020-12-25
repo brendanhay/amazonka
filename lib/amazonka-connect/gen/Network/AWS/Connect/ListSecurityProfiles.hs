@@ -25,162 +25,152 @@ module Network.AWS.Connect.ListSecurityProfiles
 
     -- ** Request lenses
     lspInstanceId,
-    lspNextToken,
     lspMaxResults,
+    lspNextToken,
 
     -- * Destructuring the response
     ListSecurityProfilesResponse (..),
     mkListSecurityProfilesResponse,
 
     -- ** Response lenses
-    lsprsNextToken,
-    lsprsSecurityProfileSummaryList,
-    lsprsResponseStatus,
+    lsprrsNextToken,
+    lsprrsSecurityProfileSummaryList,
+    lsprrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSecurityProfiles' smart constructor.
 data ListSecurityProfiles = ListSecurityProfiles'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSecurityProfiles' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'ListSecurityProfiles' value with any optional fields omitted.
 mkListSecurityProfiles ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   ListSecurityProfiles
-mkListSecurityProfiles pInstanceId_ =
+mkListSecurityProfiles instanceId =
   ListSecurityProfiles'
-    { instanceId = pInstanceId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspInstanceId :: Lens.Lens' ListSecurityProfiles Lude.Text
-lspInstanceId = Lens.lens (instanceId :: ListSecurityProfiles -> Lude.Text) (\s a -> s {instanceId = a} :: ListSecurityProfiles)
+lspInstanceId :: Lens.Lens' ListSecurityProfiles Types.InstanceId
+lspInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED lspInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspNextToken :: Lens.Lens' ListSecurityProfiles (Lude.Maybe Lude.Text)
-lspNextToken = Lens.lens (nextToken :: ListSecurityProfiles -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSecurityProfiles)
-{-# DEPRECATED lspNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspMaxResults :: Lens.Lens' ListSecurityProfiles (Lude.Maybe Lude.Natural)
-lspMaxResults = Lens.lens (maxResults :: ListSecurityProfiles -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSecurityProfiles)
+lspMaxResults :: Lens.Lens' ListSecurityProfiles (Core.Maybe Core.Natural)
+lspMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lspMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListSecurityProfiles where
-  page rq rs
-    | Page.stop (rs Lens.^. lsprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsprsSecurityProfileSummaryList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lspNextToken Lens..~ rs Lens.^. lsprsNextToken
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lspNextToken :: Lens.Lens' ListSecurityProfiles (Core.Maybe Types.NextToken)
+lspNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lspNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListSecurityProfiles where
+instance Core.AWSRequest ListSecurityProfiles where
   type Rs ListSecurityProfiles = ListSecurityProfilesResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/security-profiles-summary/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListSecurityProfilesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "SecurityProfileSummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "SecurityProfileSummaryList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSecurityProfiles where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListSecurityProfiles where
-  toPath ListSecurityProfiles' {..} =
-    Lude.mconcat
-      ["/security-profiles-summary/", Lude.toBS instanceId]
-
-instance Lude.ToQuery ListSecurityProfiles where
-  toQuery ListSecurityProfiles' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListSecurityProfiles where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"securityProfileSummaryList" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListSecurityProfilesResponse' smart constructor.
 data ListSecurityProfilesResponse = ListSecurityProfilesResponse'
   { -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Information about the security profiles.
-    securityProfileSummaryList :: Lude.Maybe [SecurityProfileSummary],
+    securityProfileSummaryList :: Core.Maybe [Types.SecurityProfileSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSecurityProfilesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'securityProfileSummaryList' - Information about the security profiles.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSecurityProfilesResponse' value with any optional fields omitted.
 mkListSecurityProfilesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSecurityProfilesResponse
-mkListSecurityProfilesResponse pResponseStatus_ =
+mkListSecurityProfilesResponse responseStatus =
   ListSecurityProfilesResponse'
-    { nextToken = Lude.Nothing,
-      securityProfileSummaryList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      securityProfileSummaryList = Core.Nothing,
+      responseStatus
     }
 
 -- | If there are additional results, this is the token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsprsNextToken :: Lens.Lens' ListSecurityProfilesResponse (Lude.Maybe Lude.Text)
-lsprsNextToken = Lens.lens (nextToken :: ListSecurityProfilesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSecurityProfilesResponse)
-{-# DEPRECATED lsprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsprrsNextToken :: Lens.Lens' ListSecurityProfilesResponse (Core.Maybe Types.NextToken)
+lsprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the security profiles.
 --
 -- /Note:/ Consider using 'securityProfileSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsprsSecurityProfileSummaryList :: Lens.Lens' ListSecurityProfilesResponse (Lude.Maybe [SecurityProfileSummary])
-lsprsSecurityProfileSummaryList = Lens.lens (securityProfileSummaryList :: ListSecurityProfilesResponse -> Lude.Maybe [SecurityProfileSummary]) (\s a -> s {securityProfileSummaryList = a} :: ListSecurityProfilesResponse)
-{-# DEPRECATED lsprsSecurityProfileSummaryList "Use generic-lens or generic-optics with 'securityProfileSummaryList' instead." #-}
+lsprrsSecurityProfileSummaryList :: Lens.Lens' ListSecurityProfilesResponse (Core.Maybe [Types.SecurityProfileSummary])
+lsprrsSecurityProfileSummaryList = Lens.field @"securityProfileSummaryList"
+{-# DEPRECATED lsprrsSecurityProfileSummaryList "Use generic-lens or generic-optics with 'securityProfileSummaryList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsprsResponseStatus :: Lens.Lens' ListSecurityProfilesResponse Lude.Int
-lsprsResponseStatus = Lens.lens (responseStatus :: ListSecurityProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSecurityProfilesResponse)
-{-# DEPRECATED lsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsprrsResponseStatus :: Lens.Lens' ListSecurityProfilesResponse Core.Int
+lsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.FleetActivityStatus
   ( FleetActivityStatus
       ( FleetActivityStatus',
-        Error,
-        PendingFulfillment,
-        PendingTermination,
-        Fulfilled
+        FleetActivityStatusError,
+        FleetActivityStatusPendingFulfillment,
+        FleetActivityStatusPendingTermination,
+        FleetActivityStatusFulfilled,
+        fromFleetActivityStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FleetActivityStatus = FleetActivityStatus' Lude.Text
+newtype FleetActivityStatus = FleetActivityStatus'
+  { fromFleetActivityStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Error :: FleetActivityStatus
-pattern Error = FleetActivityStatus' "error"
+pattern FleetActivityStatusError :: FleetActivityStatus
+pattern FleetActivityStatusError = FleetActivityStatus' "error"
 
-pattern PendingFulfillment :: FleetActivityStatus
-pattern PendingFulfillment = FleetActivityStatus' "pending_fulfillment"
+pattern FleetActivityStatusPendingFulfillment :: FleetActivityStatus
+pattern FleetActivityStatusPendingFulfillment = FleetActivityStatus' "pending_fulfillment"
 
-pattern PendingTermination :: FleetActivityStatus
-pattern PendingTermination = FleetActivityStatus' "pending_termination"
+pattern FleetActivityStatusPendingTermination :: FleetActivityStatus
+pattern FleetActivityStatusPendingTermination = FleetActivityStatus' "pending_termination"
 
-pattern Fulfilled :: FleetActivityStatus
-pattern Fulfilled = FleetActivityStatus' "fulfilled"
+pattern FleetActivityStatusFulfilled :: FleetActivityStatus
+pattern FleetActivityStatusFulfilled = FleetActivityStatus' "fulfilled"
 
 {-# COMPLETE
-  Error,
-  PendingFulfillment,
-  PendingTermination,
-  Fulfilled,
+  FleetActivityStatusError,
+  FleetActivityStatusPendingFulfillment,
+  FleetActivityStatusPendingTermination,
+  FleetActivityStatusFulfilled,
   FleetActivityStatus'
   #-}

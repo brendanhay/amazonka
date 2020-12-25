@@ -13,41 +13,43 @@
 module Network.AWS.LexRuntime.Types.ContentType
   ( ContentType
       ( ContentType',
-        ApplicationVnd_Amazonaws_Card_Generic
+        ContentTypeApplicationVnd_Amazonaws_Card_Generic,
+        fromContentType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContentType = ContentType' Lude.Text
+newtype ContentType = ContentType' {fromContentType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ApplicationVnd_Amazonaws_Card_Generic :: ContentType
-pattern ApplicationVnd_Amazonaws_Card_Generic = ContentType' "application/vnd.amazonaws.card.generic"
+pattern ContentTypeApplicationVnd_Amazonaws_Card_Generic :: ContentType
+pattern ContentTypeApplicationVnd_Amazonaws_Card_Generic = ContentType' "application/vnd.amazonaws.card.generic"
 
 {-# COMPLETE
-  ApplicationVnd_Amazonaws_Card_Generic,
+  ContentTypeApplicationVnd_Amazonaws_Card_Generic,
   ContentType'
   #-}

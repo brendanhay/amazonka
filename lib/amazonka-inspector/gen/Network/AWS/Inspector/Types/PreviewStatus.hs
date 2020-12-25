@@ -13,46 +13,51 @@
 module Network.AWS.Inspector.Types.PreviewStatus
   ( PreviewStatus
       ( PreviewStatus',
-        PSWorkInProgress,
-        PSCompleted
+        PreviewStatusWorkInProgress,
+        PreviewStatusCompleted,
+        fromPreviewStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PreviewStatus = PreviewStatus' Lude.Text
+newtype PreviewStatus = PreviewStatus'
+  { fromPreviewStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PSWorkInProgress :: PreviewStatus
-pattern PSWorkInProgress = PreviewStatus' "WORK_IN_PROGRESS"
+pattern PreviewStatusWorkInProgress :: PreviewStatus
+pattern PreviewStatusWorkInProgress = PreviewStatus' "WORK_IN_PROGRESS"
 
-pattern PSCompleted :: PreviewStatus
-pattern PSCompleted = PreviewStatus' "COMPLETED"
+pattern PreviewStatusCompleted :: PreviewStatus
+pattern PreviewStatusCompleted = PreviewStatus' "COMPLETED"
 
 {-# COMPLETE
-  PSWorkInProgress,
-  PSCompleted,
+  PreviewStatusWorkInProgress,
+  PreviewStatusCompleted,
   PreviewStatus'
   #-}

@@ -17,15 +17,15 @@ module Network.AWS.Glue.Types.BackfillError
     mkBackfillError,
 
     -- * Lenses
-    bePartitions,
     beCode,
+    bePartitions,
   )
 where
 
-import Network.AWS.Glue.Types.BackfillErrorCode
-import Network.AWS.Glue.Types.PartitionValueList
+import qualified Network.AWS.Glue.Types.BackfillErrorCode as Types
+import qualified Network.AWS.Glue.Types.PartitionValueList as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of errors that can occur when registering partition indexes for an existing table.
 --
@@ -49,43 +49,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackfillError' smart constructor.
 data BackfillError = BackfillError'
-  { -- | A list of a limited number of partitions in the response.
-    partitions :: Lude.Maybe [PartitionValueList],
-    -- | The error code for an error that occurred when registering partition indexes for an existing table.
-    code :: Lude.Maybe BackfillErrorCode
+  { -- | The error code for an error that occurred when registering partition indexes for an existing table.
+    code :: Core.Maybe Types.BackfillErrorCode,
+    -- | A list of a limited number of partitions in the response.
+    partitions :: Core.Maybe [Types.PartitionValueList]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BackfillError' with the minimum fields required to make a request.
---
--- * 'partitions' - A list of a limited number of partitions in the response.
--- * 'code' - The error code for an error that occurred when registering partition indexes for an existing table.
+-- | Creates a 'BackfillError' value with any optional fields omitted.
 mkBackfillError ::
   BackfillError
 mkBackfillError =
-  BackfillError' {partitions = Lude.Nothing, code = Lude.Nothing}
-
--- | A list of a limited number of partitions in the response.
---
--- /Note:/ Consider using 'partitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bePartitions :: Lens.Lens' BackfillError (Lude.Maybe [PartitionValueList])
-bePartitions = Lens.lens (partitions :: BackfillError -> Lude.Maybe [PartitionValueList]) (\s a -> s {partitions = a} :: BackfillError)
-{-# DEPRECATED bePartitions "Use generic-lens or generic-optics with 'partitions' instead." #-}
+  BackfillError' {code = Core.Nothing, partitions = Core.Nothing}
 
 -- | The error code for an error that occurred when registering partition indexes for an existing table.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-beCode :: Lens.Lens' BackfillError (Lude.Maybe BackfillErrorCode)
-beCode = Lens.lens (code :: BackfillError -> Lude.Maybe BackfillErrorCode) (\s a -> s {code = a} :: BackfillError)
+beCode :: Lens.Lens' BackfillError (Core.Maybe Types.BackfillErrorCode)
+beCode = Lens.field @"code"
 {-# DEPRECATED beCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance Lude.FromJSON BackfillError where
+-- | A list of a limited number of partitions in the response.
+--
+-- /Note:/ Consider using 'partitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bePartitions :: Lens.Lens' BackfillError (Core.Maybe [Types.PartitionValueList])
+bePartitions = Lens.field @"partitions"
+{-# DEPRECATED bePartitions "Use generic-lens or generic-optics with 'partitions' instead." #-}
+
+instance Core.FromJSON BackfillError where
   parseJSON =
-    Lude.withObject
-      "BackfillError"
-      ( \x ->
-          BackfillError'
-            Lude.<$> (x Lude..:? "Partitions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Code")
-      )
+    Core.withObject "BackfillError" Core.$
+      \x ->
+        BackfillError'
+          Core.<$> (x Core..:? "Code") Core.<*> (x Core..:? "Partitions")

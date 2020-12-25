@@ -17,56 +17,54 @@ module Network.AWS.ElasticSearch.Types.DescribePackagesFilter
     mkDescribePackagesFilter,
 
     -- * Lenses
-    dpfValue,
     dpfName,
+    dpfValue,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
+import qualified Network.AWS.ElasticSearch.Types.DescribePackagesFilterName as Types
+import qualified Network.AWS.ElasticSearch.Types.DescribePackagesFilterValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filter to apply in @DescribePackage@ response.
 --
 -- /See:/ 'mkDescribePackagesFilter' smart constructor.
 data DescribePackagesFilter = DescribePackagesFilter'
-  { -- | A list of values for the specified field.
-    value :: Lude.Maybe [Lude.Text],
-    -- | Any field from @PackageDetails@ .
-    name :: Lude.Maybe DescribePackagesFilterName
+  { -- | Any field from @PackageDetails@ .
+    name :: Core.Maybe Types.DescribePackagesFilterName,
+    -- | A list of values for the specified field.
+    value :: Core.Maybe [Types.DescribePackagesFilterValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePackagesFilter' with the minimum fields required to make a request.
---
--- * 'value' - A list of values for the specified field.
--- * 'name' - Any field from @PackageDetails@ .
+-- | Creates a 'DescribePackagesFilter' value with any optional fields omitted.
 mkDescribePackagesFilter ::
   DescribePackagesFilter
 mkDescribePackagesFilter =
   DescribePackagesFilter'
-    { value = Lude.Nothing,
-      name = Lude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | A list of values for the specified field.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfValue :: Lens.Lens' DescribePackagesFilter (Lude.Maybe [Lude.Text])
-dpfValue = Lens.lens (value :: DescribePackagesFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {value = a} :: DescribePackagesFilter)
-{-# DEPRECATED dpfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Any field from @PackageDetails@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfName :: Lens.Lens' DescribePackagesFilter (Lude.Maybe DescribePackagesFilterName)
-dpfName = Lens.lens (name :: DescribePackagesFilter -> Lude.Maybe DescribePackagesFilterName) (\s a -> s {name = a} :: DescribePackagesFilter)
+dpfName :: Lens.Lens' DescribePackagesFilter (Core.Maybe Types.DescribePackagesFilterName)
+dpfName = Lens.field @"name"
 {-# DEPRECATED dpfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON DescribePackagesFilter where
-  toJSON DescribePackagesFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Value" Lude..=) Lude.<$> value, ("Name" Lude..=) Lude.<$> name]
+-- | A list of values for the specified field.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpfValue :: Lens.Lens' DescribePackagesFilter (Core.Maybe [Types.DescribePackagesFilterValue])
+dpfValue = Lens.field @"value"
+{-# DEPRECATED dpfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON DescribePackagesFilter where
+  toJSON DescribePackagesFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Name" Core..=) Core.<$> name, ("Value" Core..=) Core.<$> value]
       )

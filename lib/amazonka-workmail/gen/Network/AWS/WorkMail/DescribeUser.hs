@@ -20,227 +20,204 @@ module Network.AWS.WorkMail.DescribeUser
     mkDescribeUser,
 
     -- ** Request lenses
-    duUserId,
     duOrganizationId,
+    duUserId,
 
     -- * Destructuring the response
     DescribeUserResponse (..),
     mkDescribeUserResponse,
 
     -- ** Response lenses
-    dursEmail,
-    dursState,
-    dursUserId,
-    dursDisabledDate,
-    dursName,
-    dursDisplayName,
-    dursUserRole,
-    dursEnabledDate,
-    dursResponseStatus,
+    durrsDisabledDate,
+    durrsDisplayName,
+    durrsEmail,
+    durrsEnabledDate,
+    durrsName,
+    durrsState,
+    durrsUserId,
+    durrsUserRole,
+    durrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkDescribeUser' smart constructor.
 data DescribeUser = DescribeUser'
-  { -- | The identifier for the user to be described.
-    userId :: Lude.Text,
-    -- | The identifier for the organization under which the user exists.
-    organizationId :: Lude.Text
+  { -- | The identifier for the organization under which the user exists.
+    organizationId :: Types.OrganizationId,
+    -- | The identifier for the user to be described.
+    userId :: Types.UserId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUser' with the minimum fields required to make a request.
---
--- * 'userId' - The identifier for the user to be described.
--- * 'organizationId' - The identifier for the organization under which the user exists.
+-- | Creates a 'DescribeUser' value with any optional fields omitted.
 mkDescribeUser ::
-  -- | 'userId'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'userId'
+  Types.UserId ->
   DescribeUser
-mkDescribeUser pUserId_ pOrganizationId_ =
-  DescribeUser'
-    { userId = pUserId_,
-      organizationId = pOrganizationId_
-    }
-
--- | The identifier for the user to be described.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duUserId :: Lens.Lens' DescribeUser Lude.Text
-duUserId = Lens.lens (userId :: DescribeUser -> Lude.Text) (\s a -> s {userId = a} :: DescribeUser)
-{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+mkDescribeUser organizationId userId =
+  DescribeUser' {organizationId, userId}
 
 -- | The identifier for the organization under which the user exists.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duOrganizationId :: Lens.Lens' DescribeUser Lude.Text
-duOrganizationId = Lens.lens (organizationId :: DescribeUser -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeUser)
+duOrganizationId :: Lens.Lens' DescribeUser Types.OrganizationId
+duOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED duOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest DescribeUser where
+-- | The identifier for the user to be described.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duUserId :: Lens.Lens' DescribeUser Types.UserId
+duUserId = Lens.field @"userId"
+{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+instance Core.FromJSON DescribeUser where
+  toJSON DescribeUser {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("UserId" Core..= userId)
+          ]
+      )
+
+instance Core.AWSRequest DescribeUser where
   type Rs DescribeUser = DescribeUserResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.DescribeUser")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Lude.<$> (x Lude..?> "Email")
-            Lude.<*> (x Lude..?> "State")
-            Lude.<*> (x Lude..?> "UserId")
-            Lude.<*> (x Lude..?> "DisabledDate")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "DisplayName")
-            Lude.<*> (x Lude..?> "UserRole")
-            Lude.<*> (x Lude..?> "EnabledDate")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DisabledDate")
+            Core.<*> (x Core..:? "DisplayName")
+            Core.<*> (x Core..:? "Email")
+            Core.<*> (x Core..:? "EnabledDate")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "UserId")
+            Core.<*> (x Core..:? "UserRole")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeUser where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.DescribeUser" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeUser where
-  toJSON DescribeUser' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserId" Lude..= userId),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath DescribeUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeUser where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
-  { -- | The email of the user.
-    email :: Lude.Maybe Lude.Text,
-    -- | The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
-    state :: Lude.Maybe EntityState,
-    -- | The identifier for the described user.
-    userId :: Lude.Maybe Lude.Text,
-    -- | The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.
-    disabledDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name for the user.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.
+    disabledDate :: Core.Maybe Core.NominalDiffTime,
     -- | The display name of the user.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.
-    userRole :: Lude.Maybe UserRole,
+    displayName :: Core.Maybe Types.String,
+    -- | The email of the user.
+    email :: Core.Maybe Types.Email,
     -- | The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.
-    enabledDate :: Lude.Maybe Lude.Timestamp,
+    enabledDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name for the user.
+    name :: Core.Maybe Types.UserName,
+    -- | The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
+    state :: Core.Maybe Types.EntityState,
+    -- | The identifier for the described user.
+    userId :: Core.Maybe Types.WorkMailIdentifier,
+    -- | In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.
+    userRole :: Core.Maybe Types.UserRole,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeUserResponse' with the minimum fields required to make a request.
---
--- * 'email' - The email of the user.
--- * 'state' - The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
--- * 'userId' - The identifier for the described user.
--- * 'disabledDate' - The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.
--- * 'name' - The name for the user.
--- * 'displayName' - The display name of the user.
--- * 'userRole' - In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.
--- * 'enabledDate' - The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUserResponse' value with any optional fields omitted.
 mkDescribeUserResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUserResponse
-mkDescribeUserResponse pResponseStatus_ =
+mkDescribeUserResponse responseStatus =
   DescribeUserResponse'
-    { email = Lude.Nothing,
-      state = Lude.Nothing,
-      userId = Lude.Nothing,
-      disabledDate = Lude.Nothing,
-      name = Lude.Nothing,
-      displayName = Lude.Nothing,
-      userRole = Lude.Nothing,
-      enabledDate = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { disabledDate = Core.Nothing,
+      displayName = Core.Nothing,
+      email = Core.Nothing,
+      enabledDate = Core.Nothing,
+      name = Core.Nothing,
+      state = Core.Nothing,
+      userId = Core.Nothing,
+      userRole = Core.Nothing,
+      responseStatus
     }
-
--- | The email of the user.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursEmail :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Text)
-dursEmail = Lens.lens (email :: DescribeUserResponse -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: DescribeUserResponse)
-{-# DEPRECATED dursEmail "Use generic-lens or generic-optics with 'email' instead." #-}
-
--- | The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursState :: Lens.Lens' DescribeUserResponse (Lude.Maybe EntityState)
-dursState = Lens.lens (state :: DescribeUserResponse -> Lude.Maybe EntityState) (\s a -> s {state = a} :: DescribeUserResponse)
-{-# DEPRECATED dursState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The identifier for the described user.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursUserId :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Text)
-dursUserId = Lens.lens (userId :: DescribeUserResponse -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: DescribeUserResponse)
-{-# DEPRECATED dursUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.
 --
 -- /Note:/ Consider using 'disabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursDisabledDate :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Timestamp)
-dursDisabledDate = Lens.lens (disabledDate :: DescribeUserResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {disabledDate = a} :: DescribeUserResponse)
-{-# DEPRECATED dursDisabledDate "Use generic-lens or generic-optics with 'disabledDate' instead." #-}
-
--- | The name for the user.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursName :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Text)
-dursName = Lens.lens (name :: DescribeUserResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeUserResponse)
-{-# DEPRECATED dursName "Use generic-lens or generic-optics with 'name' instead." #-}
+durrsDisabledDate :: Lens.Lens' DescribeUserResponse (Core.Maybe Core.NominalDiffTime)
+durrsDisabledDate = Lens.field @"disabledDate"
+{-# DEPRECATED durrsDisabledDate "Use generic-lens or generic-optics with 'disabledDate' instead." #-}
 
 -- | The display name of the user.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursDisplayName :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Text)
-dursDisplayName = Lens.lens (displayName :: DescribeUserResponse -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: DescribeUserResponse)
-{-# DEPRECATED dursDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+durrsDisplayName :: Lens.Lens' DescribeUserResponse (Core.Maybe Types.String)
+durrsDisplayName = Lens.field @"displayName"
+{-# DEPRECATED durrsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
--- | In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.
+-- | The email of the user.
 --
--- /Note:/ Consider using 'userRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursUserRole :: Lens.Lens' DescribeUserResponse (Lude.Maybe UserRole)
-dursUserRole = Lens.lens (userRole :: DescribeUserResponse -> Lude.Maybe UserRole) (\s a -> s {userRole = a} :: DescribeUserResponse)
-{-# DEPRECATED dursUserRole "Use generic-lens or generic-optics with 'userRole' instead." #-}
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsEmail :: Lens.Lens' DescribeUserResponse (Core.Maybe Types.Email)
+durrsEmail = Lens.field @"email"
+{-# DEPRECATED durrsEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.
 --
 -- /Note:/ Consider using 'enabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursEnabledDate :: Lens.Lens' DescribeUserResponse (Lude.Maybe Lude.Timestamp)
-dursEnabledDate = Lens.lens (enabledDate :: DescribeUserResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {enabledDate = a} :: DescribeUserResponse)
-{-# DEPRECATED dursEnabledDate "Use generic-lens or generic-optics with 'enabledDate' instead." #-}
+durrsEnabledDate :: Lens.Lens' DescribeUserResponse (Core.Maybe Core.NominalDiffTime)
+durrsEnabledDate = Lens.field @"enabledDate"
+{-# DEPRECATED durrsEnabledDate "Use generic-lens or generic-optics with 'enabledDate' instead." #-}
+
+-- | The name for the user.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsName :: Lens.Lens' DescribeUserResponse (Core.Maybe Types.UserName)
+durrsName = Lens.field @"name"
+{-# DEPRECATED durrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsState :: Lens.Lens' DescribeUserResponse (Core.Maybe Types.EntityState)
+durrsState = Lens.field @"state"
+{-# DEPRECATED durrsState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The identifier for the described user.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsUserId :: Lens.Lens' DescribeUserResponse (Core.Maybe Types.WorkMailIdentifier)
+durrsUserId = Lens.field @"userId"
+{-# DEPRECATED durrsUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+-- | In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.
+--
+-- /Note:/ Consider using 'userRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsUserRole :: Lens.Lens' DescribeUserResponse (Core.Maybe Types.UserRole)
+durrsUserRole = Lens.field @"userRole"
+{-# DEPRECATED durrsUserRole "Use generic-lens or generic-optics with 'userRole' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursResponseStatus :: Lens.Lens' DescribeUserResponse Lude.Int
-dursResponseStatus = Lens.lens (responseStatus :: DescribeUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserResponse)
-{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+durrsResponseStatus :: Lens.Lens' DescribeUserResponse Core.Int
+durrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED durrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,102 +17,94 @@ module Network.AWS.SWF.Types.ChildWorkflowExecutionTerminatedEventAttributes
     mkChildWorkflowExecutionTerminatedEventAttributes,
 
     -- * Lenses
-    cweteaWorkflowType,
-    cweteaStartedEventId,
-    cweteaInitiatedEventId,
     cweteaWorkflowExecution,
+    cweteaWorkflowType,
+    cweteaInitiatedEventId,
+    cweteaStartedEventId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.WorkflowExecution
-import Network.AWS.SWF.Types.WorkflowType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.WorkflowExecution as Types
+import qualified Network.AWS.SWF.Types.WorkflowType as Types
 
 -- | Provides the details of the @ChildWorkflowExecutionTerminated@ event.
 --
 -- /See:/ 'mkChildWorkflowExecutionTerminatedEventAttributes' smart constructor.
 data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTerminatedEventAttributes'
-  { -- | The type of the child workflow execution.
-    workflowType :: WorkflowType,
-    -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    startedEventId :: Lude.Integer,
+  { -- | The child workflow execution that was terminated.
+    workflowExecution :: Types.WorkflowExecution,
+    -- | The type of the child workflow execution.
+    workflowType :: Types.WorkflowType,
     -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    initiatedEventId :: Lude.Integer,
-    -- | The child workflow execution that was terminated.
-    workflowExecution :: WorkflowExecution
+    initiatedEventId :: Core.Integer,
+    -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    startedEventId :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChildWorkflowExecutionTerminatedEventAttributes' with the minimum fields required to make a request.
---
--- * 'workflowType' - The type of the child workflow execution.
--- * 'startedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'workflowExecution' - The child workflow execution that was terminated.
+-- | Creates a 'ChildWorkflowExecutionTerminatedEventAttributes' value with any optional fields omitted.
 mkChildWorkflowExecutionTerminatedEventAttributes ::
-  -- | 'workflowType'
-  WorkflowType ->
-  -- | 'startedEventId'
-  Lude.Integer ->
-  -- | 'initiatedEventId'
-  Lude.Integer ->
   -- | 'workflowExecution'
-  WorkflowExecution ->
+  Types.WorkflowExecution ->
+  -- | 'workflowType'
+  Types.WorkflowType ->
+  -- | 'initiatedEventId'
+  Core.Integer ->
+  -- | 'startedEventId'
+  Core.Integer ->
   ChildWorkflowExecutionTerminatedEventAttributes
 mkChildWorkflowExecutionTerminatedEventAttributes
-  pWorkflowType_
-  pStartedEventId_
-  pInitiatedEventId_
-  pWorkflowExecution_ =
+  workflowExecution
+  workflowType
+  initiatedEventId
+  startedEventId =
     ChildWorkflowExecutionTerminatedEventAttributes'
-      { workflowType =
-          pWorkflowType_,
-        startedEventId = pStartedEventId_,
-        initiatedEventId = pInitiatedEventId_,
-        workflowExecution = pWorkflowExecution_
+      { workflowExecution,
+        workflowType,
+        initiatedEventId,
+        startedEventId
       }
-
--- | The type of the child workflow execution.
---
--- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweteaWorkflowType :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes WorkflowType
-cweteaWorkflowType = Lens.lens (workflowType :: ChildWorkflowExecutionTerminatedEventAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: ChildWorkflowExecutionTerminatedEventAttributes)
-{-# DEPRECATED cweteaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
-
--- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweteaStartedEventId :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Lude.Integer
-cweteaStartedEventId = Lens.lens (startedEventId :: ChildWorkflowExecutionTerminatedEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: ChildWorkflowExecutionTerminatedEventAttributes)
-{-# DEPRECATED cweteaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
-
--- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweteaInitiatedEventId :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Lude.Integer
-cweteaInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionTerminatedEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ChildWorkflowExecutionTerminatedEventAttributes)
-{-# DEPRECATED cweteaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
 
 -- | The child workflow execution that was terminated.
 --
 -- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweteaWorkflowExecution :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes WorkflowExecution
-cweteaWorkflowExecution = Lens.lens (workflowExecution :: ChildWorkflowExecutionTerminatedEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ChildWorkflowExecutionTerminatedEventAttributes)
+cweteaWorkflowExecution :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Types.WorkflowExecution
+cweteaWorkflowExecution = Lens.field @"workflowExecution"
 {-# DEPRECATED cweteaWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
+-- | The type of the child workflow execution.
+--
+-- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cweteaWorkflowType :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Types.WorkflowType
+cweteaWorkflowType = Lens.field @"workflowType"
+{-# DEPRECATED cweteaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
+
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+--
+-- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cweteaInitiatedEventId :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Core.Integer
+cweteaInitiatedEventId = Lens.field @"initiatedEventId"
+{-# DEPRECATED cweteaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
+
+-- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+--
+-- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cweteaStartedEventId :: Lens.Lens' ChildWorkflowExecutionTerminatedEventAttributes Core.Integer
+cweteaStartedEventId = Lens.field @"startedEventId"
+{-# DEPRECATED cweteaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
+
 instance
-  Lude.FromJSON
+  Core.FromJSON
     ChildWorkflowExecutionTerminatedEventAttributes
   where
   parseJSON =
-    Lude.withObject
-      "ChildWorkflowExecutionTerminatedEventAttributes"
-      ( \x ->
-          ChildWorkflowExecutionTerminatedEventAttributes'
-            Lude.<$> (x Lude..: "workflowType")
-            Lude.<*> (x Lude..: "startedEventId")
-            Lude.<*> (x Lude..: "initiatedEventId")
-            Lude.<*> (x Lude..: "workflowExecution")
-      )
+    Core.withObject "ChildWorkflowExecutionTerminatedEventAttributes" Core.$
+      \x ->
+        ChildWorkflowExecutionTerminatedEventAttributes'
+          Core.<$> (x Core..: "workflowExecution")
+          Core.<*> (x Core..: "workflowType")
+          Core.<*> (x Core..: "initiatedEventId")
+          Core.<*> (x Core..: "startedEventId")

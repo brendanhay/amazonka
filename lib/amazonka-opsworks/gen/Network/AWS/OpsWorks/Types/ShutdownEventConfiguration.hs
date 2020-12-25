@@ -17,68 +17,64 @@ module Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
     mkShutdownEventConfiguration,
 
     -- * Lenses
-    secExecutionTimeout,
     secDelayUntilElbConnectionsDrained,
+    secExecutionTimeout,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Shutdown event configuration.
 --
 -- /See:/ 'mkShutdownEventConfiguration' smart constructor.
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
-  { -- | The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
-    executionTimeout :: Lude.Maybe Lude.Int,
-    -- | Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
-    delayUntilElbConnectionsDrained :: Lude.Maybe Lude.Bool
+  { -- | Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
+    delayUntilElbConnectionsDrained :: Core.Maybe Core.Bool,
+    -- | The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
+    executionTimeout :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ShutdownEventConfiguration' with the minimum fields required to make a request.
---
--- * 'executionTimeout' - The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
--- * 'delayUntilElbConnectionsDrained' - Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
+-- | Creates a 'ShutdownEventConfiguration' value with any optional fields omitted.
 mkShutdownEventConfiguration ::
   ShutdownEventConfiguration
 mkShutdownEventConfiguration =
   ShutdownEventConfiguration'
-    { executionTimeout = Lude.Nothing,
-      delayUntilElbConnectionsDrained = Lude.Nothing
+    { delayUntilElbConnectionsDrained =
+        Core.Nothing,
+      executionTimeout = Core.Nothing
     }
-
--- | The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
---
--- /Note:/ Consider using 'executionTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-secExecutionTimeout :: Lens.Lens' ShutdownEventConfiguration (Lude.Maybe Lude.Int)
-secExecutionTimeout = Lens.lens (executionTimeout :: ShutdownEventConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {executionTimeout = a} :: ShutdownEventConfiguration)
-{-# DEPRECATED secExecutionTimeout "Use generic-lens or generic-optics with 'executionTimeout' instead." #-}
 
 -- | Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
 --
 -- /Note:/ Consider using 'delayUntilElbConnectionsDrained' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-secDelayUntilElbConnectionsDrained :: Lens.Lens' ShutdownEventConfiguration (Lude.Maybe Lude.Bool)
-secDelayUntilElbConnectionsDrained = Lens.lens (delayUntilElbConnectionsDrained :: ShutdownEventConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {delayUntilElbConnectionsDrained = a} :: ShutdownEventConfiguration)
+secDelayUntilElbConnectionsDrained :: Lens.Lens' ShutdownEventConfiguration (Core.Maybe Core.Bool)
+secDelayUntilElbConnectionsDrained = Lens.field @"delayUntilElbConnectionsDrained"
 {-# DEPRECATED secDelayUntilElbConnectionsDrained "Use generic-lens or generic-optics with 'delayUntilElbConnectionsDrained' instead." #-}
 
-instance Lude.FromJSON ShutdownEventConfiguration where
-  parseJSON =
-    Lude.withObject
-      "ShutdownEventConfiguration"
-      ( \x ->
-          ShutdownEventConfiguration'
-            Lude.<$> (x Lude..:? "ExecutionTimeout")
-            Lude.<*> (x Lude..:? "DelayUntilElbConnectionsDrained")
-      )
+-- | The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
+--
+-- /Note:/ Consider using 'executionTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+secExecutionTimeout :: Lens.Lens' ShutdownEventConfiguration (Core.Maybe Core.Int)
+secExecutionTimeout = Lens.field @"executionTimeout"
+{-# DEPRECATED secExecutionTimeout "Use generic-lens or generic-optics with 'executionTimeout' instead." #-}
 
-instance Lude.ToJSON ShutdownEventConfiguration where
-  toJSON ShutdownEventConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExecutionTimeout" Lude..=) Lude.<$> executionTimeout,
-            ("DelayUntilElbConnectionsDrained" Lude..=)
-              Lude.<$> delayUntilElbConnectionsDrained
+instance Core.FromJSON ShutdownEventConfiguration where
+  toJSON ShutdownEventConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DelayUntilElbConnectionsDrained" Core..=)
+              Core.<$> delayUntilElbConnectionsDrained,
+            ("ExecutionTimeout" Core..=) Core.<$> executionTimeout
           ]
       )
+
+instance Core.FromJSON ShutdownEventConfiguration where
+  parseJSON =
+    Core.withObject "ShutdownEventConfiguration" Core.$
+      \x ->
+        ShutdownEventConfiguration'
+          Core.<$> (x Core..:? "DelayUntilElbConnectionsDrained")
+          Core.<*> (x Core..:? "ExecutionTimeout")

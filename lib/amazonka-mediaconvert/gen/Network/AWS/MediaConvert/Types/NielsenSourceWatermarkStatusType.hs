@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType
   ( NielsenSourceWatermarkStatusType
       ( NielsenSourceWatermarkStatusType',
-        Clean,
-        Watermarked
+        NielsenSourceWatermarkStatusTypeClean,
+        NielsenSourceWatermarkStatusTypeWatermarked,
+        fromNielsenSourceWatermarkStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks.
-newtype NielsenSourceWatermarkStatusType = NielsenSourceWatermarkStatusType' Lude.Text
+newtype NielsenSourceWatermarkStatusType = NielsenSourceWatermarkStatusType'
+  { fromNielsenSourceWatermarkStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Clean :: NielsenSourceWatermarkStatusType
-pattern Clean = NielsenSourceWatermarkStatusType' "CLEAN"
+pattern NielsenSourceWatermarkStatusTypeClean :: NielsenSourceWatermarkStatusType
+pattern NielsenSourceWatermarkStatusTypeClean = NielsenSourceWatermarkStatusType' "CLEAN"
 
-pattern Watermarked :: NielsenSourceWatermarkStatusType
-pattern Watermarked = NielsenSourceWatermarkStatusType' "WATERMARKED"
+pattern NielsenSourceWatermarkStatusTypeWatermarked :: NielsenSourceWatermarkStatusType
+pattern NielsenSourceWatermarkStatusTypeWatermarked = NielsenSourceWatermarkStatusType' "WATERMARKED"
 
 {-# COMPLETE
-  Clean,
-  Watermarked,
+  NielsenSourceWatermarkStatusTypeClean,
+  NielsenSourceWatermarkStatusTypeWatermarked,
   NielsenSourceWatermarkStatusType'
   #-}

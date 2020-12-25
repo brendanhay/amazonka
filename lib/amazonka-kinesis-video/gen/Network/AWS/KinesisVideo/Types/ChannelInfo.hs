@@ -17,126 +17,119 @@ module Network.AWS.KinesisVideo.Types.ChannelInfo
     mkChannelInfo,
 
     -- * Lenses
-    ciCreationTime,
-    ciChannelStatus,
     ciChannelARN,
-    ciSingleMasterConfiguration,
     ciChannelName,
-    ciVersion,
+    ciChannelStatus,
     ciChannelType,
+    ciCreationTime,
+    ciSingleMasterConfiguration,
+    ciVersion,
   )
 where
 
-import Network.AWS.KinesisVideo.Types.ChannelType
-import Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
-import Network.AWS.KinesisVideo.Types.StreamStatus
+import qualified Network.AWS.KinesisVideo.Types.ChannelARN as Types
+import qualified Network.AWS.KinesisVideo.Types.ChannelName as Types
+import qualified Network.AWS.KinesisVideo.Types.ChannelType as Types
+import qualified Network.AWS.KinesisVideo.Types.SingleMasterConfiguration as Types
+import qualified Network.AWS.KinesisVideo.Types.StreamStatus as Types
+import qualified Network.AWS.KinesisVideo.Types.Version as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that encapsulates a signaling channel's metadata and properties.
 --
 -- /See:/ 'mkChannelInfo' smart constructor.
 data ChannelInfo = ChannelInfo'
-  { -- | The time at which the signaling channel was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | Current status of the signaling channel.
-    channelStatus :: Lude.Maybe StreamStatus,
-    -- | The Amazon Resource Name (ARN) of the signaling channel.
-    channelARN :: Lude.Maybe Lude.Text,
-    -- | A structure that contains the configuration for the @SINGLE_MASTER@ channel type.
-    singleMasterConfiguration :: Lude.Maybe SingleMasterConfiguration,
+  { -- | The Amazon Resource Name (ARN) of the signaling channel.
+    channelARN :: Core.Maybe Types.ChannelARN,
     -- | The name of the signaling channel.
-    channelName :: Lude.Maybe Lude.Text,
-    -- | The current version of the signaling channel.
-    version :: Lude.Maybe Lude.Text,
+    channelName :: Core.Maybe Types.ChannelName,
+    -- | Current status of the signaling channel.
+    channelStatus :: Core.Maybe Types.StreamStatus,
     -- | The type of the signaling channel.
-    channelType :: Lude.Maybe ChannelType
+    channelType :: Core.Maybe Types.ChannelType,
+    -- | The time at which the signaling channel was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | A structure that contains the configuration for the @SINGLE_MASTER@ channel type.
+    singleMasterConfiguration :: Core.Maybe Types.SingleMasterConfiguration,
+    -- | The current version of the signaling channel.
+    version :: Core.Maybe Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ChannelInfo' with the minimum fields required to make a request.
---
--- * 'creationTime' - The time at which the signaling channel was created.
--- * 'channelStatus' - Current status of the signaling channel.
--- * 'channelARN' - The Amazon Resource Name (ARN) of the signaling channel.
--- * 'singleMasterConfiguration' - A structure that contains the configuration for the @SINGLE_MASTER@ channel type.
--- * 'channelName' - The name of the signaling channel.
--- * 'version' - The current version of the signaling channel.
--- * 'channelType' - The type of the signaling channel.
+-- | Creates a 'ChannelInfo' value with any optional fields omitted.
 mkChannelInfo ::
   ChannelInfo
 mkChannelInfo =
   ChannelInfo'
-    { creationTime = Lude.Nothing,
-      channelStatus = Lude.Nothing,
-      channelARN = Lude.Nothing,
-      singleMasterConfiguration = Lude.Nothing,
-      channelName = Lude.Nothing,
-      version = Lude.Nothing,
-      channelType = Lude.Nothing
+    { channelARN = Core.Nothing,
+      channelName = Core.Nothing,
+      channelStatus = Core.Nothing,
+      channelType = Core.Nothing,
+      creationTime = Core.Nothing,
+      singleMasterConfiguration = Core.Nothing,
+      version = Core.Nothing
     }
-
--- | The time at which the signaling channel was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciCreationTime :: Lens.Lens' ChannelInfo (Lude.Maybe Lude.Timestamp)
-ciCreationTime = Lens.lens (creationTime :: ChannelInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: ChannelInfo)
-{-# DEPRECATED ciCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | Current status of the signaling channel.
---
--- /Note:/ Consider using 'channelStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciChannelStatus :: Lens.Lens' ChannelInfo (Lude.Maybe StreamStatus)
-ciChannelStatus = Lens.lens (channelStatus :: ChannelInfo -> Lude.Maybe StreamStatus) (\s a -> s {channelStatus = a} :: ChannelInfo)
-{-# DEPRECATED ciChannelStatus "Use generic-lens or generic-optics with 'channelStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the signaling channel.
 --
 -- /Note:/ Consider using 'channelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciChannelARN :: Lens.Lens' ChannelInfo (Lude.Maybe Lude.Text)
-ciChannelARN = Lens.lens (channelARN :: ChannelInfo -> Lude.Maybe Lude.Text) (\s a -> s {channelARN = a} :: ChannelInfo)
+ciChannelARN :: Lens.Lens' ChannelInfo (Core.Maybe Types.ChannelARN)
+ciChannelARN = Lens.field @"channelARN"
 {-# DEPRECATED ciChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
-
--- | A structure that contains the configuration for the @SINGLE_MASTER@ channel type.
---
--- /Note:/ Consider using 'singleMasterConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciSingleMasterConfiguration :: Lens.Lens' ChannelInfo (Lude.Maybe SingleMasterConfiguration)
-ciSingleMasterConfiguration = Lens.lens (singleMasterConfiguration :: ChannelInfo -> Lude.Maybe SingleMasterConfiguration) (\s a -> s {singleMasterConfiguration = a} :: ChannelInfo)
-{-# DEPRECATED ciSingleMasterConfiguration "Use generic-lens or generic-optics with 'singleMasterConfiguration' instead." #-}
 
 -- | The name of the signaling channel.
 --
 -- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciChannelName :: Lens.Lens' ChannelInfo (Lude.Maybe Lude.Text)
-ciChannelName = Lens.lens (channelName :: ChannelInfo -> Lude.Maybe Lude.Text) (\s a -> s {channelName = a} :: ChannelInfo)
+ciChannelName :: Lens.Lens' ChannelInfo (Core.Maybe Types.ChannelName)
+ciChannelName = Lens.field @"channelName"
 {-# DEPRECATED ciChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
--- | The current version of the signaling channel.
+-- | Current status of the signaling channel.
 --
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciVersion :: Lens.Lens' ChannelInfo (Lude.Maybe Lude.Text)
-ciVersion = Lens.lens (version :: ChannelInfo -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: ChannelInfo)
-{-# DEPRECATED ciVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+-- /Note:/ Consider using 'channelStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciChannelStatus :: Lens.Lens' ChannelInfo (Core.Maybe Types.StreamStatus)
+ciChannelStatus = Lens.field @"channelStatus"
+{-# DEPRECATED ciChannelStatus "Use generic-lens or generic-optics with 'channelStatus' instead." #-}
 
 -- | The type of the signaling channel.
 --
 -- /Note:/ Consider using 'channelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciChannelType :: Lens.Lens' ChannelInfo (Lude.Maybe ChannelType)
-ciChannelType = Lens.lens (channelType :: ChannelInfo -> Lude.Maybe ChannelType) (\s a -> s {channelType = a} :: ChannelInfo)
+ciChannelType :: Lens.Lens' ChannelInfo (Core.Maybe Types.ChannelType)
+ciChannelType = Lens.field @"channelType"
 {-# DEPRECATED ciChannelType "Use generic-lens or generic-optics with 'channelType' instead." #-}
 
-instance Lude.FromJSON ChannelInfo where
+-- | The time at which the signaling channel was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciCreationTime :: Lens.Lens' ChannelInfo (Core.Maybe Core.NominalDiffTime)
+ciCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED ciCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | A structure that contains the configuration for the @SINGLE_MASTER@ channel type.
+--
+-- /Note:/ Consider using 'singleMasterConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciSingleMasterConfiguration :: Lens.Lens' ChannelInfo (Core.Maybe Types.SingleMasterConfiguration)
+ciSingleMasterConfiguration = Lens.field @"singleMasterConfiguration"
+{-# DEPRECATED ciSingleMasterConfiguration "Use generic-lens or generic-optics with 'singleMasterConfiguration' instead." #-}
+
+-- | The current version of the signaling channel.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciVersion :: Lens.Lens' ChannelInfo (Core.Maybe Types.Version)
+ciVersion = Lens.field @"version"
+{-# DEPRECATED ciVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON ChannelInfo where
   parseJSON =
-    Lude.withObject
-      "ChannelInfo"
-      ( \x ->
-          ChannelInfo'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "ChannelStatus")
-            Lude.<*> (x Lude..:? "ChannelARN")
-            Lude.<*> (x Lude..:? "SingleMasterConfiguration")
-            Lude.<*> (x Lude..:? "ChannelName")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "ChannelType")
-      )
+    Core.withObject "ChannelInfo" Core.$
+      \x ->
+        ChannelInfo'
+          Core.<$> (x Core..:? "ChannelARN")
+          Core.<*> (x Core..:? "ChannelName")
+          Core.<*> (x Core..:? "ChannelStatus")
+          Core.<*> (x Core..:? "ChannelType")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "SingleMasterConfiguration")
+          Core.<*> (x Core..:? "Version")

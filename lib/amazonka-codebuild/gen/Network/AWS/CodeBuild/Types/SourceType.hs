@@ -13,71 +13,73 @@
 module Network.AWS.CodeBuild.Types.SourceType
   ( SourceType
       ( SourceType',
-        STCodecommit,
-        STCodepipeline,
-        STGithub,
-        STS3,
-        STBitbucket,
-        STGithubEnterprise,
-        STNoSource
+        SourceTypeCodecommit,
+        SourceTypeCodepipeline,
+        SourceTypeGithub,
+        SourceTypeS3,
+        SourceTypeBitbucket,
+        SourceTypeGithubEnterprise,
+        SourceTypeNoSource,
+        fromSourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SourceType = SourceType' Lude.Text
+newtype SourceType = SourceType' {fromSourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern STCodecommit :: SourceType
-pattern STCodecommit = SourceType' "CODECOMMIT"
+pattern SourceTypeCodecommit :: SourceType
+pattern SourceTypeCodecommit = SourceType' "CODECOMMIT"
 
-pattern STCodepipeline :: SourceType
-pattern STCodepipeline = SourceType' "CODEPIPELINE"
+pattern SourceTypeCodepipeline :: SourceType
+pattern SourceTypeCodepipeline = SourceType' "CODEPIPELINE"
 
-pattern STGithub :: SourceType
-pattern STGithub = SourceType' "GITHUB"
+pattern SourceTypeGithub :: SourceType
+pattern SourceTypeGithub = SourceType' "GITHUB"
 
-pattern STS3 :: SourceType
-pattern STS3 = SourceType' "S3"
+pattern SourceTypeS3 :: SourceType
+pattern SourceTypeS3 = SourceType' "S3"
 
-pattern STBitbucket :: SourceType
-pattern STBitbucket = SourceType' "BITBUCKET"
+pattern SourceTypeBitbucket :: SourceType
+pattern SourceTypeBitbucket = SourceType' "BITBUCKET"
 
-pattern STGithubEnterprise :: SourceType
-pattern STGithubEnterprise = SourceType' "GITHUB_ENTERPRISE"
+pattern SourceTypeGithubEnterprise :: SourceType
+pattern SourceTypeGithubEnterprise = SourceType' "GITHUB_ENTERPRISE"
 
-pattern STNoSource :: SourceType
-pattern STNoSource = SourceType' "NO_SOURCE"
+pattern SourceTypeNoSource :: SourceType
+pattern SourceTypeNoSource = SourceType' "NO_SOURCE"
 
 {-# COMPLETE
-  STCodecommit,
-  STCodepipeline,
-  STGithub,
-  STS3,
-  STBitbucket,
-  STGithubEnterprise,
-  STNoSource,
+  SourceTypeCodecommit,
+  SourceTypeCodepipeline,
+  SourceTypeGithub,
+  SourceTypeS3,
+  SourceTypeBitbucket,
+  SourceTypeGithubEnterprise,
+  SourceTypeNoSource,
   SourceType'
   #-}

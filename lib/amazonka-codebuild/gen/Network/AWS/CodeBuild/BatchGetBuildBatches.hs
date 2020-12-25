@@ -27,118 +27,106 @@ module Network.AWS.CodeBuild.BatchGetBuildBatches
     mkBatchGetBuildBatchesResponse,
 
     -- ** Response lenses
-    bgbbrsBuildBatches,
-    bgbbrsBuildBatchesNotFound,
-    bgbbrsResponseStatus,
+    bgbbrrsBuildBatches,
+    bgbbrrsBuildBatchesNotFound,
+    bgbbrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchGetBuildBatches' smart constructor.
 newtype BatchGetBuildBatches = BatchGetBuildBatches'
   { -- | An array that contains the batch build identifiers to retrieve.
-    ids :: [Lude.Text]
+    ids :: [Types.NonEmptyString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetBuildBatches' with the minimum fields required to make a request.
---
--- * 'ids' - An array that contains the batch build identifiers to retrieve.
+-- | Creates a 'BatchGetBuildBatches' value with any optional fields omitted.
 mkBatchGetBuildBatches ::
   BatchGetBuildBatches
-mkBatchGetBuildBatches = BatchGetBuildBatches' {ids = Lude.mempty}
+mkBatchGetBuildBatches = BatchGetBuildBatches' {ids = Core.mempty}
 
 -- | An array that contains the batch build identifiers to retrieve.
 --
 -- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgbbIds :: Lens.Lens' BatchGetBuildBatches [Lude.Text]
-bgbbIds = Lens.lens (ids :: BatchGetBuildBatches -> [Lude.Text]) (\s a -> s {ids = a} :: BatchGetBuildBatches)
+bgbbIds :: Lens.Lens' BatchGetBuildBatches [Types.NonEmptyString]
+bgbbIds = Lens.field @"ids"
 {-# DEPRECATED bgbbIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
-instance Lude.AWSRequest BatchGetBuildBatches where
+instance Core.FromJSON BatchGetBuildBatches where
+  toJSON BatchGetBuildBatches {..} =
+    Core.object (Core.catMaybes [Core.Just ("ids" Core..= ids)])
+
+instance Core.AWSRequest BatchGetBuildBatches where
   type Rs BatchGetBuildBatches = BatchGetBuildBatchesResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeBuild_20161006.BatchGetBuildBatches")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetBuildBatchesResponse'
-            Lude.<$> (x Lude..?> "buildBatches" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "buildBatchesNotFound" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "buildBatches")
+            Core.<*> (x Core..:? "buildBatchesNotFound")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetBuildBatches where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.BatchGetBuildBatches" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetBuildBatches where
-  toJSON BatchGetBuildBatches' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("ids" Lude..= ids)])
-
-instance Lude.ToPath BatchGetBuildBatches where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetBuildBatches where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchGetBuildBatchesResponse' smart constructor.
 data BatchGetBuildBatchesResponse = BatchGetBuildBatchesResponse'
   { -- | An array of @BuildBatch@ objects that represent the retrieved batch builds.
-    buildBatches :: Lude.Maybe [BuildBatch],
+    buildBatches :: Core.Maybe [Types.BuildBatch],
     -- | An array that contains the identifiers of any batch builds that are not found.
-    buildBatchesNotFound :: Lude.Maybe [Lude.Text],
+    buildBatchesNotFound :: Core.Maybe [Types.NonEmptyString],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetBuildBatchesResponse' with the minimum fields required to make a request.
---
--- * 'buildBatches' - An array of @BuildBatch@ objects that represent the retrieved batch builds.
--- * 'buildBatchesNotFound' - An array that contains the identifiers of any batch builds that are not found.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetBuildBatchesResponse' value with any optional fields omitted.
 mkBatchGetBuildBatchesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetBuildBatchesResponse
-mkBatchGetBuildBatchesResponse pResponseStatus_ =
+mkBatchGetBuildBatchesResponse responseStatus =
   BatchGetBuildBatchesResponse'
-    { buildBatches = Lude.Nothing,
-      buildBatchesNotFound = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { buildBatches = Core.Nothing,
+      buildBatchesNotFound = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @BuildBatch@ objects that represent the retrieved batch builds.
 --
 -- /Note:/ Consider using 'buildBatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgbbrsBuildBatches :: Lens.Lens' BatchGetBuildBatchesResponse (Lude.Maybe [BuildBatch])
-bgbbrsBuildBatches = Lens.lens (buildBatches :: BatchGetBuildBatchesResponse -> Lude.Maybe [BuildBatch]) (\s a -> s {buildBatches = a} :: BatchGetBuildBatchesResponse)
-{-# DEPRECATED bgbbrsBuildBatches "Use generic-lens or generic-optics with 'buildBatches' instead." #-}
+bgbbrrsBuildBatches :: Lens.Lens' BatchGetBuildBatchesResponse (Core.Maybe [Types.BuildBatch])
+bgbbrrsBuildBatches = Lens.field @"buildBatches"
+{-# DEPRECATED bgbbrrsBuildBatches "Use generic-lens or generic-optics with 'buildBatches' instead." #-}
 
 -- | An array that contains the identifiers of any batch builds that are not found.
 --
 -- /Note:/ Consider using 'buildBatchesNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgbbrsBuildBatchesNotFound :: Lens.Lens' BatchGetBuildBatchesResponse (Lude.Maybe [Lude.Text])
-bgbbrsBuildBatchesNotFound = Lens.lens (buildBatchesNotFound :: BatchGetBuildBatchesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {buildBatchesNotFound = a} :: BatchGetBuildBatchesResponse)
-{-# DEPRECATED bgbbrsBuildBatchesNotFound "Use generic-lens or generic-optics with 'buildBatchesNotFound' instead." #-}
+bgbbrrsBuildBatchesNotFound :: Lens.Lens' BatchGetBuildBatchesResponse (Core.Maybe [Types.NonEmptyString])
+bgbbrrsBuildBatchesNotFound = Lens.field @"buildBatchesNotFound"
+{-# DEPRECATED bgbbrrsBuildBatchesNotFound "Use generic-lens or generic-optics with 'buildBatchesNotFound' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgbbrsResponseStatus :: Lens.Lens' BatchGetBuildBatchesResponse Lude.Int
-bgbbrsResponseStatus = Lens.lens (responseStatus :: BatchGetBuildBatchesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetBuildBatchesResponse)
-{-# DEPRECATED bgbbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgbbrrsResponseStatus :: Lens.Lens' BatchGetBuildBatchesResponse Core.Int
+bgbbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgbbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

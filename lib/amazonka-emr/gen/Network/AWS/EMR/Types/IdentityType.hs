@@ -13,46 +13,48 @@
 module Network.AWS.EMR.Types.IdentityType
   ( IdentityType
       ( IdentityType',
-        User,
-        Group
+        IdentityTypeUser,
+        IdentityTypeGroup,
+        fromIdentityType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype IdentityType = IdentityType' Lude.Text
+newtype IdentityType = IdentityType' {fromIdentityType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern User :: IdentityType
-pattern User = IdentityType' "USER"
+pattern IdentityTypeUser :: IdentityType
+pattern IdentityTypeUser = IdentityType' "USER"
 
-pattern Group :: IdentityType
-pattern Group = IdentityType' "GROUP"
+pattern IdentityTypeGroup :: IdentityType
+pattern IdentityTypeGroup = IdentityType' "GROUP"
 
 {-# COMPLETE
-  User,
-  Group,
+  IdentityTypeUser,
+  IdentityTypeGroup,
   IdentityType'
   #-}

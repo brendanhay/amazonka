@@ -22,49 +22,46 @@ module Network.AWS.IoT.Types.KeyPair
   )
 where
 
+import qualified Network.AWS.IoT.Types.PrivateKey as Types
+import qualified Network.AWS.IoT.Types.PublicKey as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a key pair.
 --
 -- /See:/ 'mkKeyPair' smart constructor.
 data KeyPair = KeyPair'
   { -- | The private key.
-    privateKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    privateKey :: Core.Maybe Types.PrivateKey,
     -- | The public key.
-    publicKey :: Lude.Maybe Lude.Text
+    publicKey :: Core.Maybe Types.PublicKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyPair' with the minimum fields required to make a request.
---
--- * 'privateKey' - The private key.
--- * 'publicKey' - The public key.
+-- | Creates a 'KeyPair' value with any optional fields omitted.
 mkKeyPair ::
   KeyPair
 mkKeyPair =
-  KeyPair' {privateKey = Lude.Nothing, publicKey = Lude.Nothing}
+  KeyPair' {privateKey = Core.Nothing, publicKey = Core.Nothing}
 
 -- | The private key.
 --
 -- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpPrivateKey :: Lens.Lens' KeyPair (Lude.Maybe (Lude.Sensitive Lude.Text))
-kpPrivateKey = Lens.lens (privateKey :: KeyPair -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {privateKey = a} :: KeyPair)
+kpPrivateKey :: Lens.Lens' KeyPair (Core.Maybe Types.PrivateKey)
+kpPrivateKey = Lens.field @"privateKey"
 {-# DEPRECATED kpPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | The public key.
 --
 -- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpPublicKey :: Lens.Lens' KeyPair (Lude.Maybe Lude.Text)
-kpPublicKey = Lens.lens (publicKey :: KeyPair -> Lude.Maybe Lude.Text) (\s a -> s {publicKey = a} :: KeyPair)
+kpPublicKey :: Lens.Lens' KeyPair (Core.Maybe Types.PublicKey)
+kpPublicKey = Lens.field @"publicKey"
 {-# DEPRECATED kpPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
 
-instance Lude.FromJSON KeyPair where
+instance Core.FromJSON KeyPair where
   parseJSON =
-    Lude.withObject
-      "KeyPair"
-      ( \x ->
-          KeyPair'
-            Lude.<$> (x Lude..:? "PrivateKey") Lude.<*> (x Lude..:? "PublicKey")
-      )
+    Core.withObject "KeyPair" Core.$
+      \x ->
+        KeyPair'
+          Core.<$> (x Core..:? "PrivateKey") Core.<*> (x Core..:? "PublicKey")

@@ -17,107 +17,103 @@ module Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary
     mkFieldLevelEncryptionProfileSummary,
 
     -- * Lenses
+    flepsId,
     flepsLastModifiedTime,
     flepsName,
     flepsEncryptionEntities,
-    flepsId,
     flepsComment,
   )
 where
 
-import Network.AWS.CloudFront.Types.EncryptionEntities
+import qualified Network.AWS.CloudFront.Types.Comment as Types
+import qualified Network.AWS.CloudFront.Types.EncryptionEntities as Types
+import qualified Network.AWS.CloudFront.Types.Id as Types
+import qualified Network.AWS.CloudFront.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The field-level encryption profile summary.
 --
 -- /See:/ 'mkFieldLevelEncryptionProfileSummary' smart constructor.
 data FieldLevelEncryptionProfileSummary = FieldLevelEncryptionProfileSummary'
-  { -- | The time when the the field-level encryption profile summary was last updated.
-    lastModifiedTime :: Lude.DateTime,
+  { -- | ID for the field-level encryption profile summary.
+    id :: Types.Id,
+    -- | The time when the the field-level encryption profile summary was last updated.
+    lastModifiedTime :: Core.UTCTime,
     -- | Name for the field-level encryption profile summary.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key.
-    encryptionEntities :: EncryptionEntities,
-    -- | ID for the field-level encryption profile summary.
-    id :: Lude.Text,
+    encryptionEntities :: Types.EncryptionEntities,
     -- | An optional comment for the field-level encryption profile summary.
-    comment :: Lude.Maybe Lude.Text
+    comment :: Core.Maybe Types.Comment
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FieldLevelEncryptionProfileSummary' with the minimum fields required to make a request.
---
--- * 'lastModifiedTime' - The time when the the field-level encryption profile summary was last updated.
--- * 'name' - Name for the field-level encryption profile summary.
--- * 'encryptionEntities' - A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key.
--- * 'id' - ID for the field-level encryption profile summary.
--- * 'comment' - An optional comment for the field-level encryption profile summary.
+-- | Creates a 'FieldLevelEncryptionProfileSummary' value with any optional fields omitted.
 mkFieldLevelEncryptionProfileSummary ::
-  -- | 'lastModifiedTime'
-  Lude.DateTime ->
-  -- | 'name'
-  Lude.Text ->
-  -- | 'encryptionEntities'
-  EncryptionEntities ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
+  -- | 'lastModifiedTime'
+  Core.UTCTime ->
+  -- | 'name'
+  Types.Name ->
+  -- | 'encryptionEntities'
+  Types.EncryptionEntities ->
   FieldLevelEncryptionProfileSummary
 mkFieldLevelEncryptionProfileSummary
-  pLastModifiedTime_
-  pName_
-  pEncryptionEntities_
-  pId_ =
+  id
+  lastModifiedTime
+  name
+  encryptionEntities =
     FieldLevelEncryptionProfileSummary'
-      { lastModifiedTime =
-          pLastModifiedTime_,
-        name = pName_,
-        encryptionEntities = pEncryptionEntities_,
-        id = pId_,
-        comment = Lude.Nothing
+      { id,
+        lastModifiedTime,
+        name,
+        encryptionEntities,
+        comment = Core.Nothing
       }
+
+-- | ID for the field-level encryption profile summary.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flepsId :: Lens.Lens' FieldLevelEncryptionProfileSummary Types.Id
+flepsId = Lens.field @"id"
+{-# DEPRECATED flepsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The time when the the field-level encryption profile summary was last updated.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepsLastModifiedTime :: Lens.Lens' FieldLevelEncryptionProfileSummary Lude.DateTime
-flepsLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryptionProfileSummary -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryptionProfileSummary)
+flepsLastModifiedTime :: Lens.Lens' FieldLevelEncryptionProfileSummary Core.UTCTime
+flepsLastModifiedTime = Lens.field @"lastModifiedTime"
 {-# DEPRECATED flepsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | Name for the field-level encryption profile summary.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepsName :: Lens.Lens' FieldLevelEncryptionProfileSummary Lude.Text
-flepsName = Lens.lens (name :: FieldLevelEncryptionProfileSummary -> Lude.Text) (\s a -> s {name = a} :: FieldLevelEncryptionProfileSummary)
+flepsName :: Lens.Lens' FieldLevelEncryptionProfileSummary Types.Name
+flepsName = Lens.field @"name"
 {-# DEPRECATED flepsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key.
 --
 -- /Note:/ Consider using 'encryptionEntities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepsEncryptionEntities :: Lens.Lens' FieldLevelEncryptionProfileSummary EncryptionEntities
-flepsEncryptionEntities = Lens.lens (encryptionEntities :: FieldLevelEncryptionProfileSummary -> EncryptionEntities) (\s a -> s {encryptionEntities = a} :: FieldLevelEncryptionProfileSummary)
+flepsEncryptionEntities :: Lens.Lens' FieldLevelEncryptionProfileSummary Types.EncryptionEntities
+flepsEncryptionEntities = Lens.field @"encryptionEntities"
 {-# DEPRECATED flepsEncryptionEntities "Use generic-lens or generic-optics with 'encryptionEntities' instead." #-}
-
--- | ID for the field-level encryption profile summary.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepsId :: Lens.Lens' FieldLevelEncryptionProfileSummary Lude.Text
-flepsId = Lens.lens (id :: FieldLevelEncryptionProfileSummary -> Lude.Text) (\s a -> s {id = a} :: FieldLevelEncryptionProfileSummary)
-{-# DEPRECATED flepsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | An optional comment for the field-level encryption profile summary.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepsComment :: Lens.Lens' FieldLevelEncryptionProfileSummary (Lude.Maybe Lude.Text)
-flepsComment = Lens.lens (comment :: FieldLevelEncryptionProfileSummary -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: FieldLevelEncryptionProfileSummary)
+flepsComment :: Lens.Lens' FieldLevelEncryptionProfileSummary (Core.Maybe Types.Comment)
+flepsComment = Lens.field @"comment"
 {-# DEPRECATED flepsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.FromXML FieldLevelEncryptionProfileSummary where
+instance Core.FromXML FieldLevelEncryptionProfileSummary where
   parseXML x =
     FieldLevelEncryptionProfileSummary'
-      Lude.<$> (x Lude..@ "LastModifiedTime")
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> (x Lude..@ "EncryptionEntities")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@? "Comment")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "LastModifiedTime")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "EncryptionEntities")
+      Core.<*> (x Core..@? "Comment")

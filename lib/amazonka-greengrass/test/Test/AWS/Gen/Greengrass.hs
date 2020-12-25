@@ -1146,7 +1146,7 @@ responseGetGroupCertificateConfiguration =
   res
     "GetGroupCertificateConfigurationResponse"
     "fixture/GetGroupCertificateConfigurationResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetGroupCertificateConfiguration)
 
 responseListGroupVersions :: ListGroupVersionsResponse -> TestTree
@@ -1154,7 +1154,7 @@ responseListGroupVersions =
   res
     "ListGroupVersionsResponse"
     "fixture/ListGroupVersionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListGroupVersions)
 
 responseListFunctionDefinitionVersions :: ListFunctionDefinitionVersionsResponse -> TestTree
@@ -1162,7 +1162,7 @@ responseListFunctionDefinitionVersions =
   res
     "ListFunctionDefinitionVersionsResponse"
     "fixture/ListFunctionDefinitionVersionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListFunctionDefinitionVersions)
 
 responseListDeviceDefinitions :: ListDeviceDefinitionsResponse -> TestTree
@@ -1170,7 +1170,7 @@ responseListDeviceDefinitions =
   res
     "ListDeviceDefinitionsResponse"
     "fixture/ListDeviceDefinitionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListDeviceDefinitions)
 
 responseAssociateRoleToGroup :: AssociateRoleToGroupResponse -> TestTree
@@ -1178,7 +1178,7 @@ responseAssociateRoleToGroup =
   res
     "AssociateRoleToGroupResponse"
     "fixture/AssociateRoleToGroupResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy AssociateRoleToGroup)
 
 responseUpdateCoreDefinition :: UpdateCoreDefinitionResponse -> TestTree
@@ -1186,7 +1186,7 @@ responseUpdateCoreDefinition =
   res
     "UpdateCoreDefinitionResponse"
     "fixture/UpdateCoreDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCoreDefinition)
 
 responseDeleteCoreDefinition :: DeleteCoreDefinitionResponse -> TestTree
@@ -1194,7 +1194,7 @@ responseDeleteCoreDefinition =
   res
     "DeleteCoreDefinitionResponse"
     "fixture/DeleteCoreDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCoreDefinition)
 
 responseGetLoggerDefinition :: GetLoggerDefinitionResponse -> TestTree
@@ -1202,7 +1202,7 @@ responseGetLoggerDefinition =
   res
     "GetLoggerDefinitionResponse"
     "fixture/GetLoggerDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetLoggerDefinition)
 
 responseListGroupCertificateAuthorities :: ListGroupCertificateAuthoritiesResponse -> TestTree
@@ -1210,7 +1210,7 @@ responseListGroupCertificateAuthorities =
   res
     "ListGroupCertificateAuthoritiesResponse"
     "fixture/ListGroupCertificateAuthoritiesResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListGroupCertificateAuthorities)
 
 responseDisassociateRoleFromGroup :: DisassociateRoleFromGroupResponse -> TestTree
@@ -1218,7 +1218,7 @@ responseDisassociateRoleFromGroup =
   res
     "DisassociateRoleFromGroupResponse"
     "fixture/DisassociateRoleFromGroupResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateRoleFromGroup)
 
 responseUpdateSubscriptionDefinition :: UpdateSubscriptionDefinitionResponse -> TestTree
@@ -1226,7 +1226,7 @@ responseUpdateSubscriptionDefinition =
   res
     "UpdateSubscriptionDefinitionResponse"
     "fixture/UpdateSubscriptionDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSubscriptionDefinition)
 
 responseDeleteSubscriptionDefinition :: DeleteSubscriptionDefinitionResponse -> TestTree
@@ -1234,7 +1234,7 @@ responseDeleteSubscriptionDefinition =
   res
     "DeleteSubscriptionDefinitionResponse"
     "fixture/DeleteSubscriptionDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSubscriptionDefinition)
 
 responseListCoreDefinitions :: ListCoreDefinitionsResponse -> TestTree
@@ -1242,7 +1242,7 @@ responseListCoreDefinitions =
   res
     "ListCoreDefinitionsResponse"
     "fixture/ListCoreDefinitionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListCoreDefinitions)
 
 responseListSubscriptionDefinitions :: ListSubscriptionDefinitionsResponse -> TestTree
@@ -1250,7 +1250,7 @@ responseListSubscriptionDefinitions =
   res
     "ListSubscriptionDefinitionsResponse"
     "fixture/ListSubscriptionDefinitionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListSubscriptionDefinitions)
 
 responseCreateGroupCertificateAuthority :: CreateGroupCertificateAuthorityResponse -> TestTree
@@ -1258,7 +1258,7 @@ responseCreateGroupCertificateAuthority =
   res
     "CreateGroupCertificateAuthorityResponse"
     "fixture/CreateGroupCertificateAuthorityResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateGroupCertificateAuthority)
 
 responseDeleteConnectorDefinition :: DeleteConnectorDefinitionResponse -> TestTree
@@ -1266,7 +1266,7 @@ responseDeleteConnectorDefinition =
   res
     "DeleteConnectorDefinitionResponse"
     "fixture/DeleteConnectorDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DeleteConnectorDefinition)
 
 responseUpdateConnectorDefinition :: UpdateConnectorDefinitionResponse -> TestTree
@@ -1274,7 +1274,7 @@ responseUpdateConnectorDefinition =
   res
     "UpdateConnectorDefinitionResponse"
     "fixture/UpdateConnectorDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateConnectorDefinition)
 
 responseCreateLoggerDefinitionVersion :: CreateLoggerDefinitionVersionResponse -> TestTree
@@ -1282,7 +1282,7 @@ responseCreateLoggerDefinitionVersion =
   res
     "CreateLoggerDefinitionVersionResponse"
     "fixture/CreateLoggerDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateLoggerDefinitionVersion)
 
 responseCreateCoreDefinition :: CreateCoreDefinitionResponse -> TestTree
@@ -1290,7 +1290,7 @@ responseCreateCoreDefinition =
   res
     "CreateCoreDefinitionResponse"
     "fixture/CreateCoreDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateCoreDefinition)
 
 responseGetConnectorDefinitionVersion :: GetConnectorDefinitionVersionResponse -> TestTree
@@ -1298,7 +1298,7 @@ responseGetConnectorDefinitionVersion =
   res
     "GetConnectorDefinitionVersionResponse"
     "fixture/GetConnectorDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetConnectorDefinitionVersion)
 
 responseUpdateConnectivityInfo :: UpdateConnectivityInfoResponse -> TestTree
@@ -1306,7 +1306,7 @@ responseUpdateConnectivityInfo =
   res
     "UpdateConnectivityInfoResponse"
     "fixture/UpdateConnectivityInfoResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateConnectivityInfo)
 
 responseCreateSubscriptionDefinition :: CreateSubscriptionDefinitionResponse -> TestTree
@@ -1314,7 +1314,7 @@ responseCreateSubscriptionDefinition =
   res
     "CreateSubscriptionDefinitionResponse"
     "fixture/CreateSubscriptionDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateSubscriptionDefinition)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1322,7 +1322,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetGroupCertificateAuthority :: GetGroupCertificateAuthorityResponse -> TestTree
@@ -1330,7 +1330,7 @@ responseGetGroupCertificateAuthority =
   res
     "GetGroupCertificateAuthorityResponse"
     "fixture/GetGroupCertificateAuthorityResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetGroupCertificateAuthority)
 
 responseGetLoggerDefinitionVersion :: GetLoggerDefinitionVersionResponse -> TestTree
@@ -1338,7 +1338,7 @@ responseGetLoggerDefinitionVersion =
   res
     "GetLoggerDefinitionVersionResponse"
     "fixture/GetLoggerDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetLoggerDefinitionVersion)
 
 responseGetServiceRoleForAccount :: GetServiceRoleForAccountResponse -> TestTree
@@ -1346,7 +1346,7 @@ responseGetServiceRoleForAccount =
   res
     "GetServiceRoleForAccountResponse"
     "fixture/GetServiceRoleForAccountResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetServiceRoleForAccount)
 
 responseListConnectorDefinitionVersions :: ListConnectorDefinitionVersionsResponse -> TestTree
@@ -1354,7 +1354,7 @@ responseListConnectorDefinitionVersions =
   res
     "ListConnectorDefinitionVersionsResponse"
     "fixture/ListConnectorDefinitionVersionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListConnectorDefinitionVersions)
 
 responseCreateSoftwareUpdateJob :: CreateSoftwareUpdateJobResponse -> TestTree
@@ -1362,7 +1362,7 @@ responseCreateSoftwareUpdateJob =
   res
     "CreateSoftwareUpdateJobResponse"
     "fixture/CreateSoftwareUpdateJobResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateSoftwareUpdateJob)
 
 responseCreateLoggerDefinition :: CreateLoggerDefinitionResponse -> TestTree
@@ -1370,7 +1370,7 @@ responseCreateLoggerDefinition =
   res
     "CreateLoggerDefinitionResponse"
     "fixture/CreateLoggerDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateLoggerDefinition)
 
 responseGetConnectivityInfo :: GetConnectivityInfoResponse -> TestTree
@@ -1378,7 +1378,7 @@ responseGetConnectivityInfo =
   res
     "GetConnectivityInfoResponse"
     "fixture/GetConnectivityInfoResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetConnectivityInfo)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
@@ -1386,7 +1386,7 @@ responseCreateDeployment =
   res
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateDeployment)
 
 responseDeleteLoggerDefinition :: DeleteLoggerDefinitionResponse -> TestTree
@@ -1394,7 +1394,7 @@ responseDeleteLoggerDefinition =
   res
     "DeleteLoggerDefinitionResponse"
     "fixture/DeleteLoggerDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLoggerDefinition)
 
 responseUpdateLoggerDefinition :: UpdateLoggerDefinitionResponse -> TestTree
@@ -1402,7 +1402,7 @@ responseUpdateLoggerDefinition =
   res
     "UpdateLoggerDefinitionResponse"
     "fixture/UpdateLoggerDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateLoggerDefinition)
 
 responseGetSubscriptionDefinition :: GetSubscriptionDefinitionResponse -> TestTree
@@ -1410,7 +1410,7 @@ responseGetSubscriptionDefinition =
   res
     "GetSubscriptionDefinitionResponse"
     "fixture/GetSubscriptionDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetSubscriptionDefinition)
 
 responseGetCoreDefinition :: GetCoreDefinitionResponse -> TestTree
@@ -1418,7 +1418,7 @@ responseGetCoreDefinition =
   res
     "GetCoreDefinitionResponse"
     "fixture/GetCoreDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetCoreDefinition)
 
 responseCreateConnectorDefinitionVersion :: CreateConnectorDefinitionVersionResponse -> TestTree
@@ -1426,7 +1426,7 @@ responseCreateConnectorDefinitionVersion =
   res
     "CreateConnectorDefinitionVersionResponse"
     "fixture/CreateConnectorDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateConnectorDefinitionVersion)
 
 responseGetDeploymentStatus :: GetDeploymentStatusResponse -> TestTree
@@ -1434,7 +1434,7 @@ responseGetDeploymentStatus =
   res
     "GetDeploymentStatusResponse"
     "fixture/GetDeploymentStatusResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetDeploymentStatus)
 
 responseGetBulkDeploymentStatus :: GetBulkDeploymentStatusResponse -> TestTree
@@ -1442,7 +1442,7 @@ responseGetBulkDeploymentStatus =
   res
     "GetBulkDeploymentStatusResponse"
     "fixture/GetBulkDeploymentStatusResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetBulkDeploymentStatus)
 
 responseCreateResourceDefinition :: CreateResourceDefinitionResponse -> TestTree
@@ -1450,7 +1450,7 @@ responseCreateResourceDefinition =
   res
     "CreateResourceDefinitionResponse"
     "fixture/CreateResourceDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateResourceDefinition)
 
 responseGetResourceDefinitionVersion :: GetResourceDefinitionVersionResponse -> TestTree
@@ -1458,7 +1458,7 @@ responseGetResourceDefinitionVersion =
   res
     "GetResourceDefinitionVersionResponse"
     "fixture/GetResourceDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetResourceDefinitionVersion)
 
 responseUpdateFunctionDefinition :: UpdateFunctionDefinitionResponse -> TestTree
@@ -1466,7 +1466,7 @@ responseUpdateFunctionDefinition =
   res
     "UpdateFunctionDefinitionResponse"
     "fixture/UpdateFunctionDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateFunctionDefinition)
 
 responseDeleteFunctionDefinition :: DeleteFunctionDefinitionResponse -> TestTree
@@ -1474,7 +1474,7 @@ responseDeleteFunctionDefinition =
   res
     "DeleteFunctionDefinitionResponse"
     "fixture/DeleteFunctionDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFunctionDefinition)
 
 responseListResourceDefinitions :: ListResourceDefinitionsResponse -> TestTree
@@ -1482,7 +1482,7 @@ responseListResourceDefinitions =
   res
     "ListResourceDefinitionsResponse"
     "fixture/ListResourceDefinitionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListResourceDefinitions)
 
 responseStopBulkDeployment :: StopBulkDeploymentResponse -> TestTree
@@ -1490,7 +1490,7 @@ responseStopBulkDeployment =
   res
     "StopBulkDeploymentResponse"
     "fixture/StopBulkDeploymentResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy StopBulkDeployment)
 
 responseCreateResourceDefinitionVersion :: CreateResourceDefinitionVersionResponse -> TestTree
@@ -1498,7 +1498,7 @@ responseCreateResourceDefinitionVersion =
   res
     "CreateResourceDefinitionVersionResponse"
     "fixture/CreateResourceDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateResourceDefinitionVersion)
 
 responseGetResourceDefinition :: GetResourceDefinitionResponse -> TestTree
@@ -1506,7 +1506,7 @@ responseGetResourceDefinition =
   res
     "GetResourceDefinitionResponse"
     "fixture/GetResourceDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetResourceDefinition)
 
 responseListResourceDefinitionVersions :: ListResourceDefinitionVersionsResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseListResourceDefinitionVersions =
   res
     "ListResourceDefinitionVersionsResponse"
     "fixture/ListResourceDefinitionVersionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListResourceDefinitionVersions)
 
 responseDisassociateServiceRoleFromAccount :: DisassociateServiceRoleFromAccountResponse -> TestTree
@@ -1522,7 +1522,7 @@ responseDisassociateServiceRoleFromAccount =
   res
     "DisassociateServiceRoleFromAccountResponse"
     "fixture/DisassociateServiceRoleFromAccountResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateServiceRoleFromAccount)
 
 responseDeleteDeviceDefinition :: DeleteDeviceDefinitionResponse -> TestTree
@@ -1530,7 +1530,7 @@ responseDeleteDeviceDefinition =
   res
     "DeleteDeviceDefinitionResponse"
     "fixture/DeleteDeviceDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDeviceDefinition)
 
 responseUpdateDeviceDefinition :: UpdateDeviceDefinitionResponse -> TestTree
@@ -1538,7 +1538,7 @@ responseUpdateDeviceDefinition =
   res
     "UpdateDeviceDefinitionResponse"
     "fixture/UpdateDeviceDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDeviceDefinition)
 
 responseAssociateServiceRoleToAccount :: AssociateServiceRoleToAccountResponse -> TestTree
@@ -1546,7 +1546,7 @@ responseAssociateServiceRoleToAccount =
   res
     "AssociateServiceRoleToAccountResponse"
     "fixture/AssociateServiceRoleToAccountResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy AssociateServiceRoleToAccount)
 
 responseResetDeployments :: ResetDeploymentsResponse -> TestTree
@@ -1554,7 +1554,7 @@ responseResetDeployments =
   res
     "ResetDeploymentsResponse"
     "fixture/ResetDeploymentsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ResetDeployments)
 
 responseListConnectorDefinitions :: ListConnectorDefinitionsResponse -> TestTree
@@ -1562,7 +1562,7 @@ responseListConnectorDefinitions =
   res
     "ListConnectorDefinitionsResponse"
     "fixture/ListConnectorDefinitionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListConnectorDefinitions)
 
 responseGetSubscriptionDefinitionVersion :: GetSubscriptionDefinitionVersionResponse -> TestTree
@@ -1570,7 +1570,7 @@ responseGetSubscriptionDefinitionVersion =
   res
     "GetSubscriptionDefinitionVersionResponse"
     "fixture/GetSubscriptionDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetSubscriptionDefinitionVersion)
 
 responseGetAssociatedRole :: GetAssociatedRoleResponse -> TestTree
@@ -1578,7 +1578,7 @@ responseGetAssociatedRole =
   res
     "GetAssociatedRoleResponse"
     "fixture/GetAssociatedRoleResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetAssociatedRole)
 
 responseListLoggerDefinitionVersions :: ListLoggerDefinitionVersionsResponse -> TestTree
@@ -1586,7 +1586,7 @@ responseListLoggerDefinitionVersions =
   res
     "ListLoggerDefinitionVersionsResponse"
     "fixture/ListLoggerDefinitionVersionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListLoggerDefinitionVersions)
 
 responseCreateConnectorDefinition :: CreateConnectorDefinitionResponse -> TestTree
@@ -1594,7 +1594,7 @@ responseCreateConnectorDefinition =
   res
     "CreateConnectorDefinitionResponse"
     "fixture/CreateConnectorDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateConnectorDefinition)
 
 responseGetCoreDefinitionVersion :: GetCoreDefinitionVersionResponse -> TestTree
@@ -1602,7 +1602,7 @@ responseGetCoreDefinitionVersion =
   res
     "GetCoreDefinitionVersionResponse"
     "fixture/GetCoreDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetCoreDefinitionVersion)
 
 responseListSubscriptionDefinitionVersions :: ListSubscriptionDefinitionVersionsResponse -> TestTree
@@ -1610,7 +1610,7 @@ responseListSubscriptionDefinitionVersions =
   res
     "ListSubscriptionDefinitionVersionsResponse"
     "fixture/ListSubscriptionDefinitionVersionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListSubscriptionDefinitionVersions)
 
 responseListCoreDefinitionVersions :: ListCoreDefinitionVersionsResponse -> TestTree
@@ -1618,7 +1618,7 @@ responseListCoreDefinitionVersions =
   res
     "ListCoreDefinitionVersionsResponse"
     "fixture/ListCoreDefinitionVersionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListCoreDefinitionVersions)
 
 responseCreateCoreDefinitionVersion :: CreateCoreDefinitionVersionResponse -> TestTree
@@ -1626,7 +1626,7 @@ responseCreateCoreDefinitionVersion =
   res
     "CreateCoreDefinitionVersionResponse"
     "fixture/CreateCoreDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateCoreDefinitionVersion)
 
 responseListBulkDeployments :: ListBulkDeploymentsResponse -> TestTree
@@ -1634,7 +1634,7 @@ responseListBulkDeployments =
   res
     "ListBulkDeploymentsResponse"
     "fixture/ListBulkDeploymentsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListBulkDeployments)
 
 responseListDeployments :: ListDeploymentsResponse -> TestTree
@@ -1642,7 +1642,7 @@ responseListDeployments =
   res
     "ListDeploymentsResponse"
     "fixture/ListDeploymentsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListDeployments)
 
 responseGetConnectorDefinition :: GetConnectorDefinitionResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseGetConnectorDefinition =
   res
     "GetConnectorDefinitionResponse"
     "fixture/GetConnectorDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetConnectorDefinition)
 
 responseListLoggerDefinitions :: ListLoggerDefinitionsResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseListLoggerDefinitions =
   res
     "ListLoggerDefinitionsResponse"
     "fixture/ListLoggerDefinitionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListLoggerDefinitions)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1666,7 +1666,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseCreateSubscriptionDefinitionVersion :: CreateSubscriptionDefinitionVersionResponse -> TestTree
@@ -1674,7 +1674,7 @@ responseCreateSubscriptionDefinitionVersion =
   res
     "CreateSubscriptionDefinitionVersionResponse"
     "fixture/CreateSubscriptionDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateSubscriptionDefinitionVersion)
 
 responseGetGroupVersion :: GetGroupVersionResponse -> TestTree
@@ -1682,7 +1682,7 @@ responseGetGroupVersion =
   res
     "GetGroupVersionResponse"
     "fixture/GetGroupVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetGroupVersion)
 
 responseUpdateGroupCertificateConfiguration :: UpdateGroupCertificateConfigurationResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseUpdateGroupCertificateConfiguration =
   res
     "UpdateGroupCertificateConfigurationResponse"
     "fixture/UpdateGroupCertificateConfigurationResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGroupCertificateConfiguration)
 
 responseGetFunctionDefinitionVersion :: GetFunctionDefinitionVersionResponse -> TestTree
@@ -1698,7 +1698,7 @@ responseGetFunctionDefinitionVersion =
   res
     "GetFunctionDefinitionVersionResponse"
     "fixture/GetFunctionDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetFunctionDefinitionVersion)
 
 responseGetDeviceDefinition :: GetDeviceDefinitionResponse -> TestTree
@@ -1706,7 +1706,7 @@ responseGetDeviceDefinition =
   res
     "GetDeviceDefinitionResponse"
     "fixture/GetDeviceDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetDeviceDefinition)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseCreateGroup =
   res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateGroup)
 
 responseCreateFunctionDefinition :: CreateFunctionDefinitionResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseCreateFunctionDefinition =
   res
     "CreateFunctionDefinitionResponse"
     "fixture/CreateFunctionDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateFunctionDefinition)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseCreateDeviceDefinitionVersion :: CreateDeviceDefinitionVersionResponse -> TestTree
@@ -1738,7 +1738,7 @@ responseCreateDeviceDefinitionVersion =
   res
     "CreateDeviceDefinitionVersionResponse"
     "fixture/CreateDeviceDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateDeviceDefinitionVersion)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseDeleteGroup =
   res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
@@ -1754,7 +1754,7 @@ responseUpdateGroup =
   res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
@@ -1762,7 +1762,7 @@ responseListGroups =
   res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListGroups)
 
 responseListBulkDeploymentDetailedReports :: ListBulkDeploymentDetailedReportsResponse -> TestTree
@@ -1770,7 +1770,7 @@ responseListBulkDeploymentDetailedReports =
   res
     "ListBulkDeploymentDetailedReportsResponse"
     "fixture/ListBulkDeploymentDetailedReportsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListBulkDeploymentDetailedReports)
 
 responseGetThingRuntimeConfiguration :: GetThingRuntimeConfigurationResponse -> TestTree
@@ -1778,7 +1778,7 @@ responseGetThingRuntimeConfiguration =
   res
     "GetThingRuntimeConfigurationResponse"
     "fixture/GetThingRuntimeConfigurationResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetThingRuntimeConfiguration)
 
 responseDeleteResourceDefinition :: DeleteResourceDefinitionResponse -> TestTree
@@ -1786,7 +1786,7 @@ responseDeleteResourceDefinition =
   res
     "DeleteResourceDefinitionResponse"
     "fixture/DeleteResourceDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy DeleteResourceDefinition)
 
 responseUpdateResourceDefinition :: UpdateResourceDefinitionResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseUpdateResourceDefinition =
   res
     "UpdateResourceDefinitionResponse"
     "fixture/UpdateResourceDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateResourceDefinition)
 
 responseListDeviceDefinitionVersions :: ListDeviceDefinitionVersionsResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseListDeviceDefinitionVersions =
   res
     "ListDeviceDefinitionVersionsResponse"
     "fixture/ListDeviceDefinitionVersionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListDeviceDefinitionVersions)
 
 responseListFunctionDefinitions :: ListFunctionDefinitionsResponse -> TestTree
@@ -1810,7 +1810,7 @@ responseListFunctionDefinitions =
   res
     "ListFunctionDefinitionsResponse"
     "fixture/ListFunctionDefinitionsResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy ListFunctionDefinitions)
 
 responseGetFunctionDefinition :: GetFunctionDefinitionResponse -> TestTree
@@ -1818,7 +1818,7 @@ responseGetFunctionDefinition =
   res
     "GetFunctionDefinitionResponse"
     "fixture/GetFunctionDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetFunctionDefinition)
 
 responseGetGroup :: GetGroupResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseGetGroup =
   res
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetGroup)
 
 responseCreateDeviceDefinition :: CreateDeviceDefinitionResponse -> TestTree
@@ -1834,7 +1834,7 @@ responseCreateDeviceDefinition =
   res
     "CreateDeviceDefinitionResponse"
     "fixture/CreateDeviceDefinitionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateDeviceDefinition)
 
 responseCreateGroupVersion :: CreateGroupVersionResponse -> TestTree
@@ -1842,7 +1842,7 @@ responseCreateGroupVersion =
   res
     "CreateGroupVersionResponse"
     "fixture/CreateGroupVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateGroupVersion)
 
 responseCreateFunctionDefinitionVersion :: CreateFunctionDefinitionVersionResponse -> TestTree
@@ -1850,7 +1850,7 @@ responseCreateFunctionDefinitionVersion =
   res
     "CreateFunctionDefinitionVersionResponse"
     "fixture/CreateFunctionDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy CreateFunctionDefinitionVersion)
 
 responseStartBulkDeployment :: StartBulkDeploymentResponse -> TestTree
@@ -1858,7 +1858,7 @@ responseStartBulkDeployment =
   res
     "StartBulkDeploymentResponse"
     "fixture/StartBulkDeploymentResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy StartBulkDeployment)
 
 responseUpdateThingRuntimeConfiguration :: UpdateThingRuntimeConfigurationResponse -> TestTree
@@ -1866,7 +1866,7 @@ responseUpdateThingRuntimeConfiguration =
   res
     "UpdateThingRuntimeConfigurationResponse"
     "fixture/UpdateThingRuntimeConfigurationResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy UpdateThingRuntimeConfiguration)
 
 responseGetDeviceDefinitionVersion :: GetDeviceDefinitionVersionResponse -> TestTree
@@ -1874,5 +1874,5 @@ responseGetDeviceDefinitionVersion =
   res
     "GetDeviceDefinitionVersionResponse"
     "fixture/GetDeviceDefinitionVersionResponse.proto"
-    greengrassService
+    mkServiceConfig
     (Proxy :: Proxy GetDeviceDefinitionVersion)

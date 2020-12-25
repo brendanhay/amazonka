@@ -21,183 +21,166 @@ module Network.AWS.AlexaBusiness.SearchAddressBooks
 
     -- ** Request lenses
     sabFilters,
-    sabSortCriteria,
-    sabNextToken,
     sabMaxResults,
+    sabNextToken,
+    sabSortCriteria,
 
     -- * Destructuring the response
     SearchAddressBooksResponse (..),
     mkSearchAddressBooksResponse,
 
     -- ** Response lenses
-    sabrsNextToken,
-    sabrsAddressBooks,
-    sabrsTotalCount,
-    sabrsResponseStatus,
+    sabrrsAddressBooks,
+    sabrrsNextToken,
+    sabrrsTotalCount,
+    sabrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSearchAddressBooks' smart constructor.
 data SearchAddressBooks = SearchAddressBooks'
   { -- | The filters to use to list a specified set of address books. The supported filter key is AddressBookName.
-    filters :: Lude.Maybe [Filter],
-    -- | The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName.
-    sortCriteria :: Lude.Maybe [Sort],
-    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName.
+    sortCriteria :: Core.Maybe [Types.Sort]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchAddressBooks' with the minimum fields required to make a request.
---
--- * 'filters' - The filters to use to list a specified set of address books. The supported filter key is AddressBookName.
--- * 'sortCriteria' - The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+-- | Creates a 'SearchAddressBooks' value with any optional fields omitted.
 mkSearchAddressBooks ::
   SearchAddressBooks
 mkSearchAddressBooks =
   SearchAddressBooks'
-    { filters = Lude.Nothing,
-      sortCriteria = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortCriteria = Core.Nothing
     }
 
 -- | The filters to use to list a specified set of address books. The supported filter key is AddressBookName.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sabFilters :: Lens.Lens' SearchAddressBooks (Lude.Maybe [Filter])
-sabFilters = Lens.lens (filters :: SearchAddressBooks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: SearchAddressBooks)
+sabFilters :: Lens.Lens' SearchAddressBooks (Core.Maybe [Types.Filter])
+sabFilters = Lens.field @"filters"
 {-# DEPRECATED sabFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName.
---
--- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sabSortCriteria :: Lens.Lens' SearchAddressBooks (Lude.Maybe [Sort])
-sabSortCriteria = Lens.lens (sortCriteria :: SearchAddressBooks -> Lude.Maybe [Sort]) (\s a -> s {sortCriteria = a} :: SearchAddressBooks)
-{-# DEPRECATED sabSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
-
--- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sabNextToken :: Lens.Lens' SearchAddressBooks (Lude.Maybe Lude.Text)
-sabNextToken = Lens.lens (nextToken :: SearchAddressBooks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchAddressBooks)
-{-# DEPRECATED sabNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sabMaxResults :: Lens.Lens' SearchAddressBooks (Lude.Maybe Lude.Natural)
-sabMaxResults = Lens.lens (maxResults :: SearchAddressBooks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchAddressBooks)
+sabMaxResults :: Lens.Lens' SearchAddressBooks (Core.Maybe Core.Natural)
+sabMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED sabMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest SearchAddressBooks where
+-- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sabNextToken :: Lens.Lens' SearchAddressBooks (Core.Maybe Types.NextToken)
+sabNextToken = Lens.field @"nextToken"
+{-# DEPRECATED sabNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName.
+--
+-- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sabSortCriteria :: Lens.Lens' SearchAddressBooks (Core.Maybe [Types.Sort])
+sabSortCriteria = Lens.field @"sortCriteria"
+{-# DEPRECATED sabSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
+
+instance Core.FromJSON SearchAddressBooks where
+  toJSON SearchAddressBooks {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortCriteria" Core..=) Core.<$> sortCriteria
+          ]
+      )
+
+instance Core.AWSRequest SearchAddressBooks where
   type Rs SearchAddressBooks = SearchAddressBooksResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.SearchAddressBooks")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SearchAddressBooksResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "AddressBooks" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "TotalCount")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AddressBooks")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "TotalCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SearchAddressBooks where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.SearchAddressBooks" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SearchAddressBooks where
-  toJSON SearchAddressBooks' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("SortCriteria" Lude..=) Lude.<$> sortCriteria,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath SearchAddressBooks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SearchAddressBooks where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSearchAddressBooksResponse' smart constructor.
 data SearchAddressBooksResponse = SearchAddressBooksResponse'
-  { -- | The token returned to indicate that there is more data available.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The address books that meet the specified set of filter criteria, in sort order.
-    addressBooks :: Lude.Maybe [AddressBookData],
+  { -- | The address books that meet the specified set of filter criteria, in sort order.
+    addressBooks :: Core.Maybe [Types.AddressBookData],
+    -- | The token returned to indicate that there is more data available.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The total number of address books returned.
-    totalCount :: Lude.Maybe Lude.Int,
+    totalCount :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchAddressBooksResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token returned to indicate that there is more data available.
--- * 'addressBooks' - The address books that meet the specified set of filter criteria, in sort order.
--- * 'totalCount' - The total number of address books returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SearchAddressBooksResponse' value with any optional fields omitted.
 mkSearchAddressBooksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SearchAddressBooksResponse
-mkSearchAddressBooksResponse pResponseStatus_ =
+mkSearchAddressBooksResponse responseStatus =
   SearchAddressBooksResponse'
-    { nextToken = Lude.Nothing,
-      addressBooks = Lude.Nothing,
-      totalCount = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { addressBooks = Core.Nothing,
+      nextToken = Core.Nothing,
+      totalCount = Core.Nothing,
+      responseStatus
     }
-
--- | The token returned to indicate that there is more data available.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sabrsNextToken :: Lens.Lens' SearchAddressBooksResponse (Lude.Maybe Lude.Text)
-sabrsNextToken = Lens.lens (nextToken :: SearchAddressBooksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchAddressBooksResponse)
-{-# DEPRECATED sabrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The address books that meet the specified set of filter criteria, in sort order.
 --
 -- /Note:/ Consider using 'addressBooks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sabrsAddressBooks :: Lens.Lens' SearchAddressBooksResponse (Lude.Maybe [AddressBookData])
-sabrsAddressBooks = Lens.lens (addressBooks :: SearchAddressBooksResponse -> Lude.Maybe [AddressBookData]) (\s a -> s {addressBooks = a} :: SearchAddressBooksResponse)
-{-# DEPRECATED sabrsAddressBooks "Use generic-lens or generic-optics with 'addressBooks' instead." #-}
+sabrrsAddressBooks :: Lens.Lens' SearchAddressBooksResponse (Core.Maybe [Types.AddressBookData])
+sabrrsAddressBooks = Lens.field @"addressBooks"
+{-# DEPRECATED sabrrsAddressBooks "Use generic-lens or generic-optics with 'addressBooks' instead." #-}
+
+-- | The token returned to indicate that there is more data available.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sabrrsNextToken :: Lens.Lens' SearchAddressBooksResponse (Core.Maybe Types.NextToken)
+sabrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED sabrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of address books returned.
 --
 -- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sabrsTotalCount :: Lens.Lens' SearchAddressBooksResponse (Lude.Maybe Lude.Int)
-sabrsTotalCount = Lens.lens (totalCount :: SearchAddressBooksResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalCount = a} :: SearchAddressBooksResponse)
-{-# DEPRECATED sabrsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
+sabrrsTotalCount :: Lens.Lens' SearchAddressBooksResponse (Core.Maybe Core.Int)
+sabrrsTotalCount = Lens.field @"totalCount"
+{-# DEPRECATED sabrrsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sabrsResponseStatus :: Lens.Lens' SearchAddressBooksResponse Lude.Int
-sabrsResponseStatus = Lens.lens (responseStatus :: SearchAddressBooksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchAddressBooksResponse)
-{-# DEPRECATED sabrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sabrrsResponseStatus :: Lens.Lens' SearchAddressBooksResponse Core.Int
+sabrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sabrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

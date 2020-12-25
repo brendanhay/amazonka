@@ -22,47 +22,46 @@ module Network.AWS.EMR.Types.SupportedProductConfig
   )
 where
 
+import qualified Network.AWS.EMR.Types.Name as Types
+import qualified Network.AWS.EMR.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The list of supported product configurations which allow user-supplied arguments. EMR accepts these arguments and forwards them to the corresponding installation script as bootstrap action arguments.
 --
 -- /See:/ 'mkSupportedProductConfig' smart constructor.
 data SupportedProductConfig = SupportedProductConfig'
   { -- | The list of user-supplied arguments.
-    args :: Lude.Maybe [Lude.Text],
+    args :: Core.Maybe [Types.XmlString],
     -- | The name of the product configuration.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SupportedProductConfig' with the minimum fields required to make a request.
---
--- * 'args' - The list of user-supplied arguments.
--- * 'name' - The name of the product configuration.
+-- | Creates a 'SupportedProductConfig' value with any optional fields omitted.
 mkSupportedProductConfig ::
   SupportedProductConfig
 mkSupportedProductConfig =
-  SupportedProductConfig' {args = Lude.Nothing, name = Lude.Nothing}
+  SupportedProductConfig' {args = Core.Nothing, name = Core.Nothing}
 
 -- | The list of user-supplied arguments.
 --
 -- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spcArgs :: Lens.Lens' SupportedProductConfig (Lude.Maybe [Lude.Text])
-spcArgs = Lens.lens (args :: SupportedProductConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: SupportedProductConfig)
+spcArgs :: Lens.Lens' SupportedProductConfig (Core.Maybe [Types.XmlString])
+spcArgs = Lens.field @"args"
 {-# DEPRECATED spcArgs "Use generic-lens or generic-optics with 'args' instead." #-}
 
 -- | The name of the product configuration.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spcName :: Lens.Lens' SupportedProductConfig (Lude.Maybe Lude.Text)
-spcName = Lens.lens (name :: SupportedProductConfig -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SupportedProductConfig)
+spcName :: Lens.Lens' SupportedProductConfig (Core.Maybe Types.Name)
+spcName = Lens.field @"name"
 {-# DEPRECATED spcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON SupportedProductConfig where
-  toJSON SupportedProductConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Args" Lude..=) Lude.<$> args, ("Name" Lude..=) Lude.<$> name]
+instance Core.FromJSON SupportedProductConfig where
+  toJSON SupportedProductConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Args" Core..=) Core.<$> args, ("Name" Core..=) Core.<$> name]
       )

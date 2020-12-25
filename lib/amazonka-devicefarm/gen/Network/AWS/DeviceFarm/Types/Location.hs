@@ -23,7 +23,7 @@ module Network.AWS.DeviceFarm.Types.Location
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a latitude and longitude pair, expressed in geographic coordinate system degrees (for example, 47.6204, -122.3491).
 --
@@ -32,54 +32,48 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkLocation' smart constructor.
 data Location = Location'
   { -- | The latitude.
-    latitude :: Lude.Double,
+    latitude :: Core.Double,
     -- | The longitude.
-    longitude :: Lude.Double
+    longitude :: Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Location' with the minimum fields required to make a request.
---
--- * 'latitude' - The latitude.
--- * 'longitude' - The longitude.
+-- | Creates a 'Location' value with any optional fields omitted.
 mkLocation ::
   -- | 'latitude'
-  Lude.Double ->
+  Core.Double ->
   -- | 'longitude'
-  Lude.Double ->
+  Core.Double ->
   Location
-mkLocation pLatitude_ pLongitude_ =
-  Location' {latitude = pLatitude_, longitude = pLongitude_}
+mkLocation latitude longitude = Location' {latitude, longitude}
 
 -- | The latitude.
 --
 -- /Note:/ Consider using 'latitude' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLatitude :: Lens.Lens' Location Lude.Double
-lLatitude = Lens.lens (latitude :: Location -> Lude.Double) (\s a -> s {latitude = a} :: Location)
+lLatitude :: Lens.Lens' Location Core.Double
+lLatitude = Lens.field @"latitude"
 {-# DEPRECATED lLatitude "Use generic-lens or generic-optics with 'latitude' instead." #-}
 
 -- | The longitude.
 --
 -- /Note:/ Consider using 'longitude' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLongitude :: Lens.Lens' Location Lude.Double
-lLongitude = Lens.lens (longitude :: Location -> Lude.Double) (\s a -> s {longitude = a} :: Location)
+lLongitude :: Lens.Lens' Location Core.Double
+lLongitude = Lens.field @"longitude"
 {-# DEPRECATED lLongitude "Use generic-lens or generic-optics with 'longitude' instead." #-}
 
-instance Lude.FromJSON Location where
-  parseJSON =
-    Lude.withObject
-      "Location"
-      ( \x ->
-          Location'
-            Lude.<$> (x Lude..: "latitude") Lude.<*> (x Lude..: "longitude")
-      )
-
-instance Lude.ToJSON Location where
-  toJSON Location' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("latitude" Lude..= latitude),
-            Lude.Just ("longitude" Lude..= longitude)
+instance Core.FromJSON Location where
+  toJSON Location {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("latitude" Core..= latitude),
+            Core.Just ("longitude" Core..= longitude)
           ]
       )
+
+instance Core.FromJSON Location where
+  parseJSON =
+    Core.withObject "Location" Core.$
+      \x ->
+        Location'
+          Core.<$> (x Core..: "latitude") Core.<*> (x Core..: "longitude")

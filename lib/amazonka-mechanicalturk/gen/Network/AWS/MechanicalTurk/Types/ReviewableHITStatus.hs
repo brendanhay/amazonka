@@ -13,46 +13,51 @@
 module Network.AWS.MechanicalTurk.Types.ReviewableHITStatus
   ( ReviewableHITStatus
       ( ReviewableHITStatus',
-        RHITSReviewable,
-        RHITSReviewing
+        ReviewableHITStatusReviewable,
+        ReviewableHITStatusReviewing,
+        fromReviewableHITStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReviewableHITStatus = ReviewableHITStatus' Lude.Text
+newtype ReviewableHITStatus = ReviewableHITStatus'
+  { fromReviewableHITStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RHITSReviewable :: ReviewableHITStatus
-pattern RHITSReviewable = ReviewableHITStatus' "Reviewable"
+pattern ReviewableHITStatusReviewable :: ReviewableHITStatus
+pattern ReviewableHITStatusReviewable = ReviewableHITStatus' "Reviewable"
 
-pattern RHITSReviewing :: ReviewableHITStatus
-pattern RHITSReviewing = ReviewableHITStatus' "Reviewing"
+pattern ReviewableHITStatusReviewing :: ReviewableHITStatus
+pattern ReviewableHITStatusReviewing = ReviewableHITStatus' "Reviewing"
 
 {-# COMPLETE
-  RHITSReviewable,
-  RHITSReviewing,
+  ReviewableHITStatusReviewable,
+  ReviewableHITStatusReviewing,
   ReviewableHITStatus'
   #-}

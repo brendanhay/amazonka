@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ElasticSearch
     Network.AWS.ElasticSearch.AcceptInboundCrossClusterSearchConnection
@@ -116,16 +122,29 @@ library
     Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions
     Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsInput
     Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus
+    Network.AWS.ElasticSearch.Types.ARN
+    Network.AWS.ElasticSearch.Types.BackendRole
+    Network.AWS.ElasticSearch.Types.CloudWatchLogsLogGroupArn
     Network.AWS.ElasticSearch.Types.CognitoOptions
     Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
+    Network.AWS.ElasticSearch.Types.CommitMessage
     Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
+    Network.AWS.ElasticSearch.Types.ConnectionAlias
+    Network.AWS.ElasticSearch.Types.CrossClusterSearchConnectionId
+    Network.AWS.ElasticSearch.Types.CrossClusterSearchConnectionStatusMessage
+    Network.AWS.ElasticSearch.Types.CurrentVersion
     Network.AWS.ElasticSearch.Types.DeploymentStatus
     Network.AWS.ElasticSearch.Types.DescribePackagesFilter
     Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
+    Network.AWS.ElasticSearch.Types.DescribePackagesFilterValue
+    Network.AWS.ElasticSearch.Types.Description
     Network.AWS.ElasticSearch.Types.DomainEndpointOptions
     Network.AWS.ElasticSearch.Types.DomainEndpointOptionsStatus
+    Network.AWS.ElasticSearch.Types.DomainId
     Network.AWS.ElasticSearch.Types.DomainInfo
     Network.AWS.ElasticSearch.Types.DomainInformation
+    Network.AWS.ElasticSearch.Types.DomainName
+    Network.AWS.ElasticSearch.Types.DomainNameFqdn
     Network.AWS.ElasticSearch.Types.DomainPackageDetails
     Network.AWS.ElasticSearch.Types.DomainPackageStatus
     Network.AWS.ElasticSearch.Types.EBSOptions
@@ -134,53 +153,95 @@ library
     Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfigStatus
     Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig
     Network.AWS.ElasticSearch.Types.ElasticsearchDomainStatus
+    Network.AWS.ElasticSearch.Types.ElasticsearchVersion
     Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
+    Network.AWS.ElasticSearch.Types.ElasticsearchVersionString
     Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
     Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
     Network.AWS.ElasticSearch.Types.ErrorDetails
+    Network.AWS.ElasticSearch.Types.ErrorMessage
+    Network.AWS.ElasticSearch.Types.ErrorType
     Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
     Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
     Network.AWS.ElasticSearch.Types.Filter
+    Network.AWS.ElasticSearch.Types.IdentityPoolId
     Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection
     Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
     Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
     Network.AWS.ElasticSearch.Types.InstanceCountLimits
     Network.AWS.ElasticSearch.Types.InstanceLimits
+    Network.AWS.ElasticSearch.Types.InstanceRole
+    Network.AWS.ElasticSearch.Types.Issue
+    Network.AWS.ElasticSearch.Types.Key
+    Network.AWS.ElasticSearch.Types.KmsKeyId
+    Network.AWS.ElasticSearch.Types.LimitName
     Network.AWS.ElasticSearch.Types.Limits
+    Network.AWS.ElasticSearch.Types.LimitValue
     Network.AWS.ElasticSearch.Types.LogPublishingOption
     Network.AWS.ElasticSearch.Types.LogPublishingOptionsStatus
     Network.AWS.ElasticSearch.Types.LogType
     Network.AWS.ElasticSearch.Types.MasterUserOptions
+    Network.AWS.ElasticSearch.Types.NewVersion
+    Network.AWS.ElasticSearch.Types.NextToken
     Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
     Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
+    Network.AWS.ElasticSearch.Types.NonEmptyString
     Network.AWS.ElasticSearch.Types.OptionState
     Network.AWS.ElasticSearch.Types.OptionStatus
     Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnection
     Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus
     Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
+    Network.AWS.ElasticSearch.Types.OwnerId
+    Network.AWS.ElasticSearch.Types.PackageDescription
     Network.AWS.ElasticSearch.Types.PackageDetails
+    Network.AWS.ElasticSearch.Types.PackageID
+    Network.AWS.ElasticSearch.Types.PackageName
     Network.AWS.ElasticSearch.Types.PackageSource
     Network.AWS.ElasticSearch.Types.PackageStatus
     Network.AWS.ElasticSearch.Types.PackageType
+    Network.AWS.ElasticSearch.Types.PackageVersion
     Network.AWS.ElasticSearch.Types.PackageVersionHistory
+    Network.AWS.ElasticSearch.Types.Password
+    Network.AWS.ElasticSearch.Types.PolicyDocument
     Network.AWS.ElasticSearch.Types.RecurringCharge
+    Network.AWS.ElasticSearch.Types.ReferencePath
+    Network.AWS.ElasticSearch.Types.Region
+    Network.AWS.ElasticSearch.Types.ReservationToken
     Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstance
+    Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceId
     Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering
+    Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOfferingId
     Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
+    Network.AWS.ElasticSearch.Types.RoleArn
+    Network.AWS.ElasticSearch.Types.RolesKey
+    Network.AWS.ElasticSearch.Types.S3BucketName
+    Network.AWS.ElasticSearch.Types.S3Key
+    Network.AWS.ElasticSearch.Types.SAMLEntityId
     Network.AWS.ElasticSearch.Types.SAMLIdp
+    Network.AWS.ElasticSearch.Types.SAMLMetadata
     Network.AWS.ElasticSearch.Types.SAMLOptionsInput
     Network.AWS.ElasticSearch.Types.SAMLOptionsOutput
     Network.AWS.ElasticSearch.Types.ServiceSoftwareOptions
+    Network.AWS.ElasticSearch.Types.ServiceUrl
     Network.AWS.ElasticSearch.Types.SnapshotOptions
     Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
+    Network.AWS.ElasticSearch.Types.SourceVersion
+    Network.AWS.ElasticSearch.Types.StorageSubTypeName
     Network.AWS.ElasticSearch.Types.StorageType
     Network.AWS.ElasticSearch.Types.StorageTypeLimit
+    Network.AWS.ElasticSearch.Types.StorageTypeName
+    Network.AWS.ElasticSearch.Types.String
+    Network.AWS.ElasticSearch.Types.SubjectKey
     Network.AWS.ElasticSearch.Types.Tag
     Network.AWS.ElasticSearch.Types.TLSSecurityPolicy
     Network.AWS.ElasticSearch.Types.UpgradeHistory
+    Network.AWS.ElasticSearch.Types.UpgradeName
     Network.AWS.ElasticSearch.Types.UpgradeStatus
     Network.AWS.ElasticSearch.Types.UpgradeStep
     Network.AWS.ElasticSearch.Types.UpgradeStepItem
+    Network.AWS.ElasticSearch.Types.Username
+    Network.AWS.ElasticSearch.Types.UserPoolId
+    Network.AWS.ElasticSearch.Types.Value
     Network.AWS.ElasticSearch.Types.VolumeType
     Network.AWS.ElasticSearch.Types.VPCDerivedInfo
     Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus

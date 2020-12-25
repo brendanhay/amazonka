@@ -20,7 +20,7 @@ module Network.AWS.SQS.RemovePermission
     mkRemovePermission,
 
     -- ** Request lenses
-    rpQueueURL,
+    rpQueueUrl,
     rpLabel,
 
     -- * Destructuring the response
@@ -30,10 +30,10 @@ module Network.AWS.SQS.RemovePermission
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- |
 --
@@ -42,70 +42,68 @@ data RemovePermission = RemovePermission'
   { -- | The URL of the Amazon SQS queue from which permissions are removed.
     --
     -- Queue URLs and names are case-sensitive.
-    queueURL :: Lude.Text,
+    queueUrl :: Types.QueueUrl,
     -- | The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
-    label :: Lude.Text
+    label :: Types.Label
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
---
--- * 'queueURL' - The URL of the Amazon SQS queue from which permissions are removed.
---
--- Queue URLs and names are case-sensitive.
--- * 'label' - The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
+-- | Creates a 'RemovePermission' value with any optional fields omitted.
 mkRemovePermission ::
-  -- | 'queueURL'
-  Lude.Text ->
+  -- | 'queueUrl'
+  Types.QueueUrl ->
   -- | 'label'
-  Lude.Text ->
+  Types.Label ->
   RemovePermission
-mkRemovePermission pQueueURL_ pLabel_ =
-  RemovePermission' {queueURL = pQueueURL_, label = pLabel_}
+mkRemovePermission queueUrl label =
+  RemovePermission' {queueUrl, label}
 
 -- | The URL of the Amazon SQS queue from which permissions are removed.
 --
 -- Queue URLs and names are case-sensitive.
 --
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpQueueURL :: Lens.Lens' RemovePermission Lude.Text
-rpQueueURL = Lens.lens (queueURL :: RemovePermission -> Lude.Text) (\s a -> s {queueURL = a} :: RemovePermission)
-{-# DEPRECATED rpQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpQueueUrl :: Lens.Lens' RemovePermission Types.QueueUrl
+rpQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED rpQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
 -- | The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
 --
 -- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpLabel :: Lens.Lens' RemovePermission Lude.Text
-rpLabel = Lens.lens (label :: RemovePermission -> Lude.Text) (\s a -> s {label = a} :: RemovePermission)
+rpLabel :: Lens.Lens' RemovePermission Types.Label
+rpLabel = Lens.field @"label"
 {-# DEPRECATED rpLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
-instance Lude.AWSRequest RemovePermission where
+instance Core.AWSRequest RemovePermission where
   type Rs RemovePermission = RemovePermissionResponse
-  request = Req.postQuery sqsService
-  response = Res.receiveNull RemovePermissionResponse'
-
-instance Lude.ToHeaders RemovePermission where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemovePermission where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemovePermission where
-  toQuery RemovePermission' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RemovePermission" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        "QueueUrl" Lude.=: queueURL,
-        "Label" Lude.=: label
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemovePermission")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+                Core.<> (Core.toQueryValue "Label" label)
+            )
+      }
+  response = Response.receiveNull RemovePermissionResponse'
 
 -- | /See:/ 'mkRemovePermissionResponse' smart constructor.
 data RemovePermissionResponse = RemovePermissionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemovePermissionResponse' value with any optional fields omitted.
 mkRemovePermissionResponse ::
   RemovePermissionResponse
 mkRemovePermissionResponse = RemovePermissionResponse'

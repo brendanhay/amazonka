@@ -19,69 +19,66 @@ module Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary
     -- * Lenses
     cmdsssBucket,
     cmdsssKeyPrefix,
-    cmdsssRoleARN,
+    cmdsssRoleArn,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.BucketName as Types
+import qualified Network.AWS.IoTAnalytics.Types.RoleArn as Types
+import qualified Network.AWS.IoTAnalytics.Types.S3KeyPrefix as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Used to store data store data in an S3 bucket that you manage.
 --
 -- /See:/ 'mkCustomerManagedDatastoreS3StorageSummary' smart constructor.
 data CustomerManagedDatastoreS3StorageSummary = CustomerManagedDatastoreS3StorageSummary'
   { -- | The name of the S3 bucket in which data store data is stored.
-    bucket :: Lude.Maybe Lude.Text,
+    bucket :: Core.Maybe Types.BucketName,
     -- | Optional. The prefix used to create the keys of the data store data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
-    keyPrefix :: Lude.Maybe Lude.Text,
+    keyPrefix :: Core.Maybe Types.S3KeyPrefix,
     -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomerManagedDatastoreS3StorageSummary' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the S3 bucket in which data store data is stored.
--- * 'keyPrefix' - Optional. The prefix used to create the keys of the data store data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
--- * 'roleARN' - The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+-- | Creates a 'CustomerManagedDatastoreS3StorageSummary' value with any optional fields omitted.
 mkCustomerManagedDatastoreS3StorageSummary ::
   CustomerManagedDatastoreS3StorageSummary
 mkCustomerManagedDatastoreS3StorageSummary =
   CustomerManagedDatastoreS3StorageSummary'
-    { bucket = Lude.Nothing,
-      keyPrefix = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { bucket = Core.Nothing,
+      keyPrefix = Core.Nothing,
+      roleArn = Core.Nothing
     }
 
 -- | The name of the S3 bucket in which data store data is stored.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdsssBucket :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Lude.Maybe Lude.Text)
-cmdsssBucket = Lens.lens (bucket :: CustomerManagedDatastoreS3StorageSummary -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: CustomerManagedDatastoreS3StorageSummary)
+cmdsssBucket :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Core.Maybe Types.BucketName)
+cmdsssBucket = Lens.field @"bucket"
 {-# DEPRECATED cmdsssBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Optional. The prefix used to create the keys of the data store data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 --
 -- /Note:/ Consider using 'keyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdsssKeyPrefix :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Lude.Maybe Lude.Text)
-cmdsssKeyPrefix = Lens.lens (keyPrefix :: CustomerManagedDatastoreS3StorageSummary -> Lude.Maybe Lude.Text) (\s a -> s {keyPrefix = a} :: CustomerManagedDatastoreS3StorageSummary)
+cmdsssKeyPrefix :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Core.Maybe Types.S3KeyPrefix)
+cmdsssKeyPrefix = Lens.field @"keyPrefix"
 {-# DEPRECATED cmdsssKeyPrefix "Use generic-lens or generic-optics with 'keyPrefix' instead." #-}
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdsssRoleARN :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Lude.Maybe Lude.Text)
-cmdsssRoleARN = Lens.lens (roleARN :: CustomerManagedDatastoreS3StorageSummary -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: CustomerManagedDatastoreS3StorageSummary)
-{-# DEPRECATED cmdsssRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmdsssRoleArn :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Core.Maybe Types.RoleArn)
+cmdsssRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED cmdsssRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON CustomerManagedDatastoreS3StorageSummary where
+instance Core.FromJSON CustomerManagedDatastoreS3StorageSummary where
   parseJSON =
-    Lude.withObject
-      "CustomerManagedDatastoreS3StorageSummary"
-      ( \x ->
-          CustomerManagedDatastoreS3StorageSummary'
-            Lude.<$> (x Lude..:? "bucket")
-            Lude.<*> (x Lude..:? "keyPrefix")
-            Lude.<*> (x Lude..:? "roleArn")
-      )
+    Core.withObject "CustomerManagedDatastoreS3StorageSummary" Core.$
+      \x ->
+        CustomerManagedDatastoreS3StorageSummary'
+          Core.<$> (x Core..:? "bucket")
+          Core.<*> (x Core..:? "keyPrefix")
+          Core.<*> (x Core..:? "roleArn")

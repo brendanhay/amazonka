@@ -22,155 +22,143 @@ module Network.AWS.Inspector.ListRulesPackages
     mkListRulesPackages,
 
     -- ** Request lenses
-    lrpNextToken,
     lrpMaxResults,
+    lrpNextToken,
 
     -- * Destructuring the response
     ListRulesPackagesResponse (..),
     mkListRulesPackagesResponse,
 
     -- ** Response lenses
-    lrprsRulesPackageARNs,
-    lrprsNextToken,
-    lrprsResponseStatus,
+    lrprrsRulesPackageArns,
+    lrprrsNextToken,
+    lrprrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListRulesPackages' smart constructor.
 data ListRulesPackages = ListRulesPackages'
-  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Lude.Maybe Lude.Int
+  { -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Core.Maybe Core.Int,
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRulesPackages' with the minimum fields required to make a request.
---
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
+-- | Creates a 'ListRulesPackages' value with any optional fields omitted.
 mkListRulesPackages ::
   ListRulesPackages
 mkListRulesPackages =
   ListRulesPackages'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpNextToken :: Lens.Lens' ListRulesPackages (Lude.Maybe Lude.Text)
-lrpNextToken = Lens.lens (nextToken :: ListRulesPackages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRulesPackages)
-{-# DEPRECATED lrpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpMaxResults :: Lens.Lens' ListRulesPackages (Lude.Maybe Lude.Int)
-lrpMaxResults = Lens.lens (maxResults :: ListRulesPackages -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListRulesPackages)
+lrpMaxResults :: Lens.Lens' ListRulesPackages (Core.Maybe Core.Int)
+lrpMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lrpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListRulesPackages where
-  page rq rs
-    | Page.stop (rs Lens.^. lrprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrprsRulesPackageARNs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lrpNextToken Lens..~ rs Lens.^. lrprsNextToken
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpNextToken :: Lens.Lens' ListRulesPackages (Core.Maybe Types.PaginationToken)
+lrpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListRulesPackages where
+instance Core.FromJSON ListRulesPackages where
+  toJSON ListRulesPackages {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListRulesPackages where
   type Rs ListRulesPackages = ListRulesPackagesResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "InspectorService.ListRulesPackages")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListRulesPackagesResponse'
-            Lude.<$> (x Lude..?> "rulesPackageArns" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "rulesPackageArns" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListRulesPackages where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.ListRulesPackages" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListRulesPackages where
-  toJSON ListRulesPackages' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListRulesPackages where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListRulesPackages where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListRulesPackages where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"rulesPackageArns") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListRulesPackagesResponse' smart constructor.
 data ListRulesPackagesResponse = ListRulesPackagesResponse'
   { -- | The list of ARNs that specifies the rules packages returned by the action.
-    rulesPackageARNs :: [Lude.Text],
+    rulesPackageArns :: [Types.Arn],
     -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRulesPackagesResponse' with the minimum fields required to make a request.
---
--- * 'rulesPackageARNs' - The list of ARNs that specifies the rules packages returned by the action.
--- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListRulesPackagesResponse' value with any optional fields omitted.
 mkListRulesPackagesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListRulesPackagesResponse
-mkListRulesPackagesResponse pResponseStatus_ =
+mkListRulesPackagesResponse responseStatus =
   ListRulesPackagesResponse'
-    { rulesPackageARNs = Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { rulesPackageArns = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of ARNs that specifies the rules packages returned by the action.
 --
--- /Note:/ Consider using 'rulesPackageARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrprsRulesPackageARNs :: Lens.Lens' ListRulesPackagesResponse [Lude.Text]
-lrprsRulesPackageARNs = Lens.lens (rulesPackageARNs :: ListRulesPackagesResponse -> [Lude.Text]) (\s a -> s {rulesPackageARNs = a} :: ListRulesPackagesResponse)
-{-# DEPRECATED lrprsRulesPackageARNs "Use generic-lens or generic-optics with 'rulesPackageARNs' instead." #-}
+-- /Note:/ Consider using 'rulesPackageArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprrsRulesPackageArns :: Lens.Lens' ListRulesPackagesResponse [Types.Arn]
+lrprrsRulesPackageArns = Lens.field @"rulesPackageArns"
+{-# DEPRECATED lrprrsRulesPackageArns "Use generic-lens or generic-optics with 'rulesPackageArns' instead." #-}
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrprsNextToken :: Lens.Lens' ListRulesPackagesResponse (Lude.Maybe Lude.Text)
-lrprsNextToken = Lens.lens (nextToken :: ListRulesPackagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRulesPackagesResponse)
-{-# DEPRECATED lrprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lrprrsNextToken :: Lens.Lens' ListRulesPackagesResponse (Core.Maybe Types.PaginationToken)
+lrprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrprsResponseStatus :: Lens.Lens' ListRulesPackagesResponse Lude.Int
-lrprsResponseStatus = Lens.lens (responseStatus :: ListRulesPackagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRulesPackagesResponse)
-{-# DEPRECATED lrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrprrsResponseStatus :: Lens.Lens' ListRulesPackagesResponse Core.Int
+lrprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,74 +23,68 @@ module Network.AWS.CodeCommit.Types.BatchDescribeMergeConflictsError
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.ExceptionName as Types
+import qualified Network.AWS.CodeCommit.Types.Message as Types
+import qualified Network.AWS.CodeCommit.Types.Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about errors in a BatchDescribeMergeConflicts operation.
 --
 -- /See:/ 'mkBatchDescribeMergeConflictsError' smart constructor.
 data BatchDescribeMergeConflictsError = BatchDescribeMergeConflictsError'
   { -- | The path to the file.
-    filePath :: Lude.Text,
+    filePath :: Types.Path,
     -- | The name of the exception.
-    exceptionName :: Lude.Text,
+    exceptionName :: Types.ExceptionName,
     -- | The message provided by the exception.
-    message :: Lude.Text
+    message :: Types.Message
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDescribeMergeConflictsError' with the minimum fields required to make a request.
---
--- * 'filePath' - The path to the file.
--- * 'exceptionName' - The name of the exception.
--- * 'message' - The message provided by the exception.
+-- | Creates a 'BatchDescribeMergeConflictsError' value with any optional fields omitted.
 mkBatchDescribeMergeConflictsError ::
   -- | 'filePath'
-  Lude.Text ->
+  Types.Path ->
   -- | 'exceptionName'
-  Lude.Text ->
+  Types.ExceptionName ->
   -- | 'message'
-  Lude.Text ->
+  Types.Message ->
   BatchDescribeMergeConflictsError
-mkBatchDescribeMergeConflictsError
-  pFilePath_
-  pExceptionName_
-  pMessage_ =
-    BatchDescribeMergeConflictsError'
-      { filePath = pFilePath_,
-        exceptionName = pExceptionName_,
-        message = pMessage_
-      }
+mkBatchDescribeMergeConflictsError filePath exceptionName message =
+  BatchDescribeMergeConflictsError'
+    { filePath,
+      exceptionName,
+      message
+    }
 
 -- | The path to the file.
 --
 -- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdmceFilePath :: Lens.Lens' BatchDescribeMergeConflictsError Lude.Text
-bdmceFilePath = Lens.lens (filePath :: BatchDescribeMergeConflictsError -> Lude.Text) (\s a -> s {filePath = a} :: BatchDescribeMergeConflictsError)
+bdmceFilePath :: Lens.Lens' BatchDescribeMergeConflictsError Types.Path
+bdmceFilePath = Lens.field @"filePath"
 {-# DEPRECATED bdmceFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
 -- | The name of the exception.
 --
 -- /Note:/ Consider using 'exceptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdmceExceptionName :: Lens.Lens' BatchDescribeMergeConflictsError Lude.Text
-bdmceExceptionName = Lens.lens (exceptionName :: BatchDescribeMergeConflictsError -> Lude.Text) (\s a -> s {exceptionName = a} :: BatchDescribeMergeConflictsError)
+bdmceExceptionName :: Lens.Lens' BatchDescribeMergeConflictsError Types.ExceptionName
+bdmceExceptionName = Lens.field @"exceptionName"
 {-# DEPRECATED bdmceExceptionName "Use generic-lens or generic-optics with 'exceptionName' instead." #-}
 
 -- | The message provided by the exception.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdmceMessage :: Lens.Lens' BatchDescribeMergeConflictsError Lude.Text
-bdmceMessage = Lens.lens (message :: BatchDescribeMergeConflictsError -> Lude.Text) (\s a -> s {message = a} :: BatchDescribeMergeConflictsError)
+bdmceMessage :: Lens.Lens' BatchDescribeMergeConflictsError Types.Message
+bdmceMessage = Lens.field @"message"
 {-# DEPRECATED bdmceMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON BatchDescribeMergeConflictsError where
+instance Core.FromJSON BatchDescribeMergeConflictsError where
   parseJSON =
-    Lude.withObject
-      "BatchDescribeMergeConflictsError"
-      ( \x ->
-          BatchDescribeMergeConflictsError'
-            Lude.<$> (x Lude..: "filePath")
-            Lude.<*> (x Lude..: "exceptionName")
-            Lude.<*> (x Lude..: "message")
-      )
+    Core.withObject "BatchDescribeMergeConflictsError" Core.$
+      \x ->
+        BatchDescribeMergeConflictsError'
+          Core.<$> (x Core..: "filePath")
+          Core.<*> (x Core..: "exceptionName")
+          Core.<*> (x Core..: "message")

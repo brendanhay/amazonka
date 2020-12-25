@@ -17,97 +17,91 @@ module Network.AWS.CognitoSync.Types.IdentityUsage
     mkIdentityUsage,
 
     -- * Lenses
-    iuLastModifiedDate,
-    iuIdentityPoolId,
-    iuDatasetCount,
     iuDataStorage,
+    iuDatasetCount,
     iuIdentityId,
+    iuIdentityPoolId,
+    iuLastModifiedDate,
   )
 where
 
+import qualified Network.AWS.CognitoSync.Types.IdentityId as Types
+import qualified Network.AWS.CognitoSync.Types.IdentityPoolId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Usage information for the identity.
 --
 -- /See:/ 'mkIdentityUsage' smart constructor.
 data IdentityUsage = IdentityUsage'
-  { -- | Date on which the identity was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-    identityPoolId :: Lude.Maybe Lude.Text,
+  { -- | Total data storage for this identity.
+    dataStorage :: Core.Maybe Core.Integer,
     -- | Number of datasets for the identity.
-    datasetCount :: Lude.Maybe Lude.Int,
-    -- | Total data storage for this identity.
-    dataStorage :: Lude.Maybe Lude.Integer,
+    datasetCount :: Core.Maybe Core.Int,
     -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-    identityId :: Lude.Maybe Lude.Text
+    identityId :: Core.Maybe Types.IdentityId,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+    identityPoolId :: Core.Maybe Types.IdentityPoolId,
+    -- | Date on which the identity was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'IdentityUsage' with the minimum fields required to make a request.
---
--- * 'lastModifiedDate' - Date on which the identity was last modified.
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
--- * 'datasetCount' - Number of datasets for the identity.
--- * 'dataStorage' - Total data storage for this identity.
--- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- | Creates a 'IdentityUsage' value with any optional fields omitted.
 mkIdentityUsage ::
   IdentityUsage
 mkIdentityUsage =
   IdentityUsage'
-    { lastModifiedDate = Lude.Nothing,
-      identityPoolId = Lude.Nothing,
-      datasetCount = Lude.Nothing,
-      dataStorage = Lude.Nothing,
-      identityId = Lude.Nothing
+    { dataStorage = Core.Nothing,
+      datasetCount = Core.Nothing,
+      identityId = Core.Nothing,
+      identityPoolId = Core.Nothing,
+      lastModifiedDate = Core.Nothing
     }
-
--- | Date on which the identity was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iuLastModifiedDate :: Lens.Lens' IdentityUsage (Lude.Maybe Lude.Timestamp)
-iuLastModifiedDate = Lens.lens (lastModifiedDate :: IdentityUsage -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: IdentityUsage)
-{-# DEPRECATED iuLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iuIdentityPoolId :: Lens.Lens' IdentityUsage (Lude.Maybe Lude.Text)
-iuIdentityPoolId = Lens.lens (identityPoolId :: IdentityUsage -> Lude.Maybe Lude.Text) (\s a -> s {identityPoolId = a} :: IdentityUsage)
-{-# DEPRECATED iuIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
-
--- | Number of datasets for the identity.
---
--- /Note:/ Consider using 'datasetCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iuDatasetCount :: Lens.Lens' IdentityUsage (Lude.Maybe Lude.Int)
-iuDatasetCount = Lens.lens (datasetCount :: IdentityUsage -> Lude.Maybe Lude.Int) (\s a -> s {datasetCount = a} :: IdentityUsage)
-{-# DEPRECATED iuDatasetCount "Use generic-lens or generic-optics with 'datasetCount' instead." #-}
 
 -- | Total data storage for this identity.
 --
 -- /Note:/ Consider using 'dataStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iuDataStorage :: Lens.Lens' IdentityUsage (Lude.Maybe Lude.Integer)
-iuDataStorage = Lens.lens (dataStorage :: IdentityUsage -> Lude.Maybe Lude.Integer) (\s a -> s {dataStorage = a} :: IdentityUsage)
+iuDataStorage :: Lens.Lens' IdentityUsage (Core.Maybe Core.Integer)
+iuDataStorage = Lens.field @"dataStorage"
 {-# DEPRECATED iuDataStorage "Use generic-lens or generic-optics with 'dataStorage' instead." #-}
+
+-- | Number of datasets for the identity.
+--
+-- /Note:/ Consider using 'datasetCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iuDatasetCount :: Lens.Lens' IdentityUsage (Core.Maybe Core.Int)
+iuDatasetCount = Lens.field @"datasetCount"
+{-# DEPRECATED iuDatasetCount "Use generic-lens or generic-optics with 'datasetCount' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iuIdentityId :: Lens.Lens' IdentityUsage (Lude.Maybe Lude.Text)
-iuIdentityId = Lens.lens (identityId :: IdentityUsage -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: IdentityUsage)
+iuIdentityId :: Lens.Lens' IdentityUsage (Core.Maybe Types.IdentityId)
+iuIdentityId = Lens.field @"identityId"
 {-# DEPRECATED iuIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
-instance Lude.FromJSON IdentityUsage where
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iuIdentityPoolId :: Lens.Lens' IdentityUsage (Core.Maybe Types.IdentityPoolId)
+iuIdentityPoolId = Lens.field @"identityPoolId"
+{-# DEPRECATED iuIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+
+-- | Date on which the identity was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iuLastModifiedDate :: Lens.Lens' IdentityUsage (Core.Maybe Core.NominalDiffTime)
+iuLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED iuLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+instance Core.FromJSON IdentityUsage where
   parseJSON =
-    Lude.withObject
-      "IdentityUsage"
-      ( \x ->
-          IdentityUsage'
-            Lude.<$> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "IdentityPoolId")
-            Lude.<*> (x Lude..:? "DatasetCount")
-            Lude.<*> (x Lude..:? "DataStorage")
-            Lude.<*> (x Lude..:? "IdentityId")
-      )
+    Core.withObject "IdentityUsage" Core.$
+      \x ->
+        IdentityUsage'
+          Core.<$> (x Core..:? "DataStorage")
+          Core.<*> (x Core..:? "DatasetCount")
+          Core.<*> (x Core..:? "IdentityId")
+          Core.<*> (x Core..:? "IdentityPoolId")
+          Core.<*> (x Core..:? "LastModifiedDate")

@@ -20,9 +20,9 @@ module Network.AWS.IoT.UpdateThingGroupsForThing
     mkUpdateThingGroupsForThing,
 
     -- ** Request lenses
+    utgftOverrideDynamicGroups,
     utgftThingGroupsToAdd,
     utgftThingGroupsToRemove,
-    utgftOverrideDynamicGroups,
     utgftThingName,
 
     -- * Destructuring the response
@@ -30,130 +30,120 @@ module Network.AWS.IoT.UpdateThingGroupsForThing
     mkUpdateThingGroupsForThingResponse,
 
     -- ** Response lenses
-    utgftrsResponseStatus,
+    utgftrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateThingGroupsForThing' smart constructor.
 data UpdateThingGroupsForThing = UpdateThingGroupsForThing'
-  { -- | The groups to which the thing will be added.
-    thingGroupsToAdd :: Lude.Maybe [Lude.Text],
+  { -- | Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+    overrideDynamicGroups :: Core.Maybe Core.Bool,
+    -- | The groups to which the thing will be added.
+    thingGroupsToAdd :: Core.Maybe [Types.ThingGroupName],
     -- | The groups from which the thing will be removed.
-    thingGroupsToRemove :: Lude.Maybe [Lude.Text],
-    -- | Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-    overrideDynamicGroups :: Lude.Maybe Lude.Bool,
+    thingGroupsToRemove :: Core.Maybe [Types.ThingGroupName],
     -- | The thing whose group memberships will be updated.
-    thingName :: Lude.Maybe Lude.Text
+    thingName :: Core.Maybe Types.ThingName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateThingGroupsForThing' with the minimum fields required to make a request.
---
--- * 'thingGroupsToAdd' - The groups to which the thing will be added.
--- * 'thingGroupsToRemove' - The groups from which the thing will be removed.
--- * 'overrideDynamicGroups' - Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
--- * 'thingName' - The thing whose group memberships will be updated.
+-- | Creates a 'UpdateThingGroupsForThing' value with any optional fields omitted.
 mkUpdateThingGroupsForThing ::
   UpdateThingGroupsForThing
 mkUpdateThingGroupsForThing =
   UpdateThingGroupsForThing'
-    { thingGroupsToAdd = Lude.Nothing,
-      thingGroupsToRemove = Lude.Nothing,
-      overrideDynamicGroups = Lude.Nothing,
-      thingName = Lude.Nothing
+    { overrideDynamicGroups = Core.Nothing,
+      thingGroupsToAdd = Core.Nothing,
+      thingGroupsToRemove = Core.Nothing,
+      thingName = Core.Nothing
     }
+
+-- | Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+--
+-- /Note:/ Consider using 'overrideDynamicGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgftOverrideDynamicGroups :: Lens.Lens' UpdateThingGroupsForThing (Core.Maybe Core.Bool)
+utgftOverrideDynamicGroups = Lens.field @"overrideDynamicGroups"
+{-# DEPRECATED utgftOverrideDynamicGroups "Use generic-lens or generic-optics with 'overrideDynamicGroups' instead." #-}
 
 -- | The groups to which the thing will be added.
 --
 -- /Note:/ Consider using 'thingGroupsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utgftThingGroupsToAdd :: Lens.Lens' UpdateThingGroupsForThing (Lude.Maybe [Lude.Text])
-utgftThingGroupsToAdd = Lens.lens (thingGroupsToAdd :: UpdateThingGroupsForThing -> Lude.Maybe [Lude.Text]) (\s a -> s {thingGroupsToAdd = a} :: UpdateThingGroupsForThing)
+utgftThingGroupsToAdd :: Lens.Lens' UpdateThingGroupsForThing (Core.Maybe [Types.ThingGroupName])
+utgftThingGroupsToAdd = Lens.field @"thingGroupsToAdd"
 {-# DEPRECATED utgftThingGroupsToAdd "Use generic-lens or generic-optics with 'thingGroupsToAdd' instead." #-}
 
 -- | The groups from which the thing will be removed.
 --
 -- /Note:/ Consider using 'thingGroupsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utgftThingGroupsToRemove :: Lens.Lens' UpdateThingGroupsForThing (Lude.Maybe [Lude.Text])
-utgftThingGroupsToRemove = Lens.lens (thingGroupsToRemove :: UpdateThingGroupsForThing -> Lude.Maybe [Lude.Text]) (\s a -> s {thingGroupsToRemove = a} :: UpdateThingGroupsForThing)
+utgftThingGroupsToRemove :: Lens.Lens' UpdateThingGroupsForThing (Core.Maybe [Types.ThingGroupName])
+utgftThingGroupsToRemove = Lens.field @"thingGroupsToRemove"
 {-# DEPRECATED utgftThingGroupsToRemove "Use generic-lens or generic-optics with 'thingGroupsToRemove' instead." #-}
-
--- | Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
---
--- /Note:/ Consider using 'overrideDynamicGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utgftOverrideDynamicGroups :: Lens.Lens' UpdateThingGroupsForThing (Lude.Maybe Lude.Bool)
-utgftOverrideDynamicGroups = Lens.lens (overrideDynamicGroups :: UpdateThingGroupsForThing -> Lude.Maybe Lude.Bool) (\s a -> s {overrideDynamicGroups = a} :: UpdateThingGroupsForThing)
-{-# DEPRECATED utgftOverrideDynamicGroups "Use generic-lens or generic-optics with 'overrideDynamicGroups' instead." #-}
 
 -- | The thing whose group memberships will be updated.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utgftThingName :: Lens.Lens' UpdateThingGroupsForThing (Lude.Maybe Lude.Text)
-utgftThingName = Lens.lens (thingName :: UpdateThingGroupsForThing -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: UpdateThingGroupsForThing)
+utgftThingName :: Lens.Lens' UpdateThingGroupsForThing (Core.Maybe Types.ThingName)
+utgftThingName = Lens.field @"thingName"
 {-# DEPRECATED utgftThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest UpdateThingGroupsForThing where
-  type
-    Rs UpdateThingGroupsForThing =
-      UpdateThingGroupsForThingResponse
-  request = Req.putJSON ioTService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UpdateThingGroupsForThingResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateThingGroupsForThing where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateThingGroupsForThing where
-  toJSON UpdateThingGroupsForThing' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("thingGroupsToAdd" Lude..=) Lude.<$> thingGroupsToAdd,
-            ("thingGroupsToRemove" Lude..=) Lude.<$> thingGroupsToRemove,
-            ("overrideDynamicGroups" Lude..=) Lude.<$> overrideDynamicGroups,
-            ("thingName" Lude..=) Lude.<$> thingName
+instance Core.FromJSON UpdateThingGroupsForThing where
+  toJSON UpdateThingGroupsForThing {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("overrideDynamicGroups" Core..=) Core.<$> overrideDynamicGroups,
+            ("thingGroupsToAdd" Core..=) Core.<$> thingGroupsToAdd,
+            ("thingGroupsToRemove" Core..=) Core.<$> thingGroupsToRemove,
+            ("thingName" Core..=) Core.<$> thingName
           ]
       )
 
-instance Lude.ToPath UpdateThingGroupsForThing where
-  toPath = Lude.const "/thing-groups/updateThingGroupsForThing"
-
-instance Lude.ToQuery UpdateThingGroupsForThing where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateThingGroupsForThing where
+  type
+    Rs UpdateThingGroupsForThing =
+      UpdateThingGroupsForThingResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/thing-groups/updateThingGroupsForThing",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateThingGroupsForThingResponse'
+            Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateThingGroupsForThingResponse' smart constructor.
 newtype UpdateThingGroupsForThingResponse = UpdateThingGroupsForThingResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateThingGroupsForThingResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateThingGroupsForThingResponse' value with any optional fields omitted.
 mkUpdateThingGroupsForThingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateThingGroupsForThingResponse
-mkUpdateThingGroupsForThingResponse pResponseStatus_ =
-  UpdateThingGroupsForThingResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateThingGroupsForThingResponse responseStatus =
+  UpdateThingGroupsForThingResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utgftrsResponseStatus :: Lens.Lens' UpdateThingGroupsForThingResponse Lude.Int
-utgftrsResponseStatus = Lens.lens (responseStatus :: UpdateThingGroupsForThingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateThingGroupsForThingResponse)
-{-# DEPRECATED utgftrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utgftrrsResponseStatus :: Lens.Lens' UpdateThingGroupsForThingResponse Core.Int
+utgftrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utgftrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,188 +20,172 @@ module Network.AWS.ECR.StartImageScan
     mkStartImageScan,
 
     -- ** Request lenses
-    sisRegistryId,
-    sisImageId,
     sisRepositoryName,
+    sisImageId,
+    sisRegistryId,
 
     -- * Destructuring the response
     StartImageScanResponse (..),
     mkStartImageScanResponse,
 
     -- ** Response lenses
-    sisrsRegistryId,
-    sisrsImageScanStatus,
-    sisrsImageId,
-    sisrsRepositoryName,
-    sisrsResponseStatus,
+    sisrrsImageId,
+    sisrrsImageScanStatus,
+    sisrrsRegistryId,
+    sisrrsRepositoryName,
+    sisrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECR.Types
+import qualified Network.AWS.ECR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartImageScan' smart constructor.
 data StartImageScan = StartImageScan'
-  { -- | The AWS account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.
-    registryId :: Lude.Maybe Lude.Text,
-    imageId :: ImageIdentifier,
-    -- | The name of the repository that contains the images to scan.
-    repositoryName :: Lude.Text
+  { -- | The name of the repository that contains the images to scan.
+    repositoryName :: Types.RepositoryName,
+    imageId :: Types.ImageIdentifier,
+    -- | The AWS account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.
+    registryId :: Core.Maybe Types.RegistryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartImageScan' with the minimum fields required to make a request.
---
--- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.
--- * 'imageId' -
--- * 'repositoryName' - The name of the repository that contains the images to scan.
+-- | Creates a 'StartImageScan' value with any optional fields omitted.
 mkStartImageScan ::
-  -- | 'imageId'
-  ImageIdentifier ->
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
+  -- | 'imageId'
+  Types.ImageIdentifier ->
   StartImageScan
-mkStartImageScan pImageId_ pRepositoryName_ =
+mkStartImageScan repositoryName imageId =
   StartImageScan'
-    { registryId = Lude.Nothing,
-      imageId = pImageId_,
-      repositoryName = pRepositoryName_
+    { repositoryName,
+      imageId,
+      registryId = Core.Nothing
     }
-
--- | The AWS account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisRegistryId :: Lens.Lens' StartImageScan (Lude.Maybe Lude.Text)
-sisRegistryId = Lens.lens (registryId :: StartImageScan -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: StartImageScan)
-{-# DEPRECATED sisRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisImageId :: Lens.Lens' StartImageScan ImageIdentifier
-sisImageId = Lens.lens (imageId :: StartImageScan -> ImageIdentifier) (\s a -> s {imageId = a} :: StartImageScan)
-{-# DEPRECATED sisImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | The name of the repository that contains the images to scan.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisRepositoryName :: Lens.Lens' StartImageScan Lude.Text
-sisRepositoryName = Lens.lens (repositoryName :: StartImageScan -> Lude.Text) (\s a -> s {repositoryName = a} :: StartImageScan)
+sisRepositoryName :: Lens.Lens' StartImageScan Types.RepositoryName
+sisRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED sisRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
-
-instance Lude.AWSRequest StartImageScan where
-  type Rs StartImageScan = StartImageScanResponse
-  request = Req.postJSON ecrService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          StartImageScanResponse'
-            Lude.<$> (x Lude..?> "registryId")
-            Lude.<*> (x Lude..?> "imageScanStatus")
-            Lude.<*> (x Lude..?> "imageId")
-            Lude.<*> (x Lude..?> "repositoryName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders StartImageScan where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.StartImageScan" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartImageScan where
-  toJSON StartImageScan' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("imageId" Lude..= imageId),
-            Lude.Just ("repositoryName" Lude..= repositoryName)
-          ]
-      )
-
-instance Lude.ToPath StartImageScan where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartImageScan where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkStartImageScanResponse' smart constructor.
-data StartImageScanResponse = StartImageScanResponse'
-  { -- | The registry ID associated with the request.
-    registryId :: Lude.Maybe Lude.Text,
-    -- | The current state of the scan.
-    imageScanStatus :: Lude.Maybe ImageScanStatus,
-    imageId :: Lude.Maybe ImageIdentifier,
-    -- | The repository name associated with the request.
-    repositoryName :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'StartImageScanResponse' with the minimum fields required to make a request.
---
--- * 'registryId' - The registry ID associated with the request.
--- * 'imageScanStatus' - The current state of the scan.
--- * 'imageId' -
--- * 'repositoryName' - The repository name associated with the request.
--- * 'responseStatus' - The response status code.
-mkStartImageScanResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  StartImageScanResponse
-mkStartImageScanResponse pResponseStatus_ =
-  StartImageScanResponse'
-    { registryId = Lude.Nothing,
-      imageScanStatus = Lude.Nothing,
-      imageId = Lude.Nothing,
-      repositoryName = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | The registry ID associated with the request.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisrsRegistryId :: Lens.Lens' StartImageScanResponse (Lude.Maybe Lude.Text)
-sisrsRegistryId = Lens.lens (registryId :: StartImageScanResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: StartImageScanResponse)
-{-# DEPRECATED sisrsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
-
--- | The current state of the scan.
---
--- /Note:/ Consider using 'imageScanStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisrsImageScanStatus :: Lens.Lens' StartImageScanResponse (Lude.Maybe ImageScanStatus)
-sisrsImageScanStatus = Lens.lens (imageScanStatus :: StartImageScanResponse -> Lude.Maybe ImageScanStatus) (\s a -> s {imageScanStatus = a} :: StartImageScanResponse)
-{-# DEPRECATED sisrsImageScanStatus "Use generic-lens or generic-optics with 'imageScanStatus' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisrsImageId :: Lens.Lens' StartImageScanResponse (Lude.Maybe ImageIdentifier)
-sisrsImageId = Lens.lens (imageId :: StartImageScanResponse -> Lude.Maybe ImageIdentifier) (\s a -> s {imageId = a} :: StartImageScanResponse)
-{-# DEPRECATED sisrsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+sisImageId :: Lens.Lens' StartImageScan Types.ImageIdentifier
+sisImageId = Lens.field @"imageId"
+{-# DEPRECATED sisImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | The AWS account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisRegistryId :: Lens.Lens' StartImageScan (Core.Maybe Types.RegistryId)
+sisRegistryId = Lens.field @"registryId"
+{-# DEPRECATED sisRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+instance Core.FromJSON StartImageScan where
+  toJSON StartImageScan {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("imageId" Core..= imageId),
+            ("registryId" Core..=) Core.<$> registryId
+          ]
+      )
+
+instance Core.AWSRequest StartImageScan where
+  type Rs StartImageScan = StartImageScanResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerRegistry_V20150921.StartImageScan"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartImageScanResponse'
+            Core.<$> (x Core..:? "imageId")
+            Core.<*> (x Core..:? "imageScanStatus")
+            Core.<*> (x Core..:? "registryId")
+            Core.<*> (x Core..:? "repositoryName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkStartImageScanResponse' smart constructor.
+data StartImageScanResponse = StartImageScanResponse'
+  { imageId :: Core.Maybe Types.ImageIdentifier,
+    -- | The current state of the scan.
+    imageScanStatus :: Core.Maybe Types.ImageScanStatus,
+    -- | The registry ID associated with the request.
+    registryId :: Core.Maybe Types.RegistryId,
+    -- | The repository name associated with the request.
+    repositoryName :: Core.Maybe Types.RepositoryName,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'StartImageScanResponse' value with any optional fields omitted.
+mkStartImageScanResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  StartImageScanResponse
+mkStartImageScanResponse responseStatus =
+  StartImageScanResponse'
+    { imageId = Core.Nothing,
+      imageScanStatus = Core.Nothing,
+      registryId = Core.Nothing,
+      repositoryName = Core.Nothing,
+      responseStatus
+    }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisrrsImageId :: Lens.Lens' StartImageScanResponse (Core.Maybe Types.ImageIdentifier)
+sisrrsImageId = Lens.field @"imageId"
+{-# DEPRECATED sisrrsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | The current state of the scan.
+--
+-- /Note:/ Consider using 'imageScanStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisrrsImageScanStatus :: Lens.Lens' StartImageScanResponse (Core.Maybe Types.ImageScanStatus)
+sisrrsImageScanStatus = Lens.field @"imageScanStatus"
+{-# DEPRECATED sisrrsImageScanStatus "Use generic-lens or generic-optics with 'imageScanStatus' instead." #-}
+
+-- | The registry ID associated with the request.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisrrsRegistryId :: Lens.Lens' StartImageScanResponse (Core.Maybe Types.RegistryId)
+sisrrsRegistryId = Lens.field @"registryId"
+{-# DEPRECATED sisrrsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The repository name associated with the request.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisrsRepositoryName :: Lens.Lens' StartImageScanResponse (Lude.Maybe Lude.Text)
-sisrsRepositoryName = Lens.lens (repositoryName :: StartImageScanResponse -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: StartImageScanResponse)
-{-# DEPRECATED sisrsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+sisrrsRepositoryName :: Lens.Lens' StartImageScanResponse (Core.Maybe Types.RepositoryName)
+sisrrsRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED sisrrsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisrsResponseStatus :: Lens.Lens' StartImageScanResponse Lude.Int
-sisrsResponseStatus = Lens.lens (responseStatus :: StartImageScanResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartImageScanResponse)
-{-# DEPRECATED sisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sisrrsResponseStatus :: Lens.Lens' StartImageScanResponse Core.Int
+sisrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

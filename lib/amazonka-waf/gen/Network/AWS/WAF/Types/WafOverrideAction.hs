@@ -22,41 +22,38 @@ module Network.AWS.WAF.Types.WafOverrideAction
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.WafOverrideActionType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.WafOverrideActionType as Types
 
 -- | The action to take if any rule within the @RuleGroup@ matches a request.
 --
 -- /See:/ 'mkWafOverrideAction' smart constructor.
 newtype WafOverrideAction = WafOverrideAction'
   { -- | @COUNT@ overrides the action specified by the individual rule within a @RuleGroup@ . If set to @NONE@ , the rule's action will take place.
-    type' :: WafOverrideActionType
+    type' :: Types.WafOverrideActionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WafOverrideAction' with the minimum fields required to make a request.
---
--- * 'type'' - @COUNT@ overrides the action specified by the individual rule within a @RuleGroup@ . If set to @NONE@ , the rule's action will take place.
+-- | Creates a 'WafOverrideAction' value with any optional fields omitted.
 mkWafOverrideAction ::
-  -- | 'type''
-  WafOverrideActionType ->
+  -- | 'type\''
+  Types.WafOverrideActionType ->
   WafOverrideAction
-mkWafOverrideAction pType_ = WafOverrideAction' {type' = pType_}
+mkWafOverrideAction type' = WafOverrideAction' {type'}
 
 -- | @COUNT@ overrides the action specified by the individual rule within a @RuleGroup@ . If set to @NONE@ , the rule's action will take place.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-woaType :: Lens.Lens' WafOverrideAction WafOverrideActionType
-woaType = Lens.lens (type' :: WafOverrideAction -> WafOverrideActionType) (\s a -> s {type' = a} :: WafOverrideAction)
+woaType :: Lens.Lens' WafOverrideAction Types.WafOverrideActionType
+woaType = Lens.field @"type'"
 {-# DEPRECATED woaType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON WafOverrideAction where
-  parseJSON =
-    Lude.withObject
-      "WafOverrideAction"
-      (\x -> WafOverrideAction' Lude.<$> (x Lude..: "Type"))
+instance Core.FromJSON WafOverrideAction where
+  toJSON WafOverrideAction {..} =
+    Core.object (Core.catMaybes [Core.Just ("Type" Core..= type')])
 
-instance Lude.ToJSON WafOverrideAction where
-  toJSON WafOverrideAction' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Type" Lude..= type')])
+instance Core.FromJSON WafOverrideAction where
+  parseJSON =
+    Core.withObject "WafOverrideAction" Core.$
+      \x -> WafOverrideAction' Core.<$> (x Core..: "Type")

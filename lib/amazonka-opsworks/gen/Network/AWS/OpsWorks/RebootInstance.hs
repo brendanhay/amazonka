@@ -31,69 +31,59 @@ module Network.AWS.OpsWorks.RebootInstance
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRebootInstance' smart constructor.
 newtype RebootInstance = RebootInstance'
   { -- | The instance ID.
-    instanceId :: Lude.Text
+    instanceId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID.
+-- | Creates a 'RebootInstance' value with any optional fields omitted.
 mkRebootInstance ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.String ->
   RebootInstance
-mkRebootInstance pInstanceId_ =
-  RebootInstance' {instanceId = pInstanceId_}
+mkRebootInstance instanceId = RebootInstance' {instanceId}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riInstanceId :: Lens.Lens' RebootInstance Lude.Text
-riInstanceId = Lens.lens (instanceId :: RebootInstance -> Lude.Text) (\s a -> s {instanceId = a} :: RebootInstance)
+riInstanceId :: Lens.Lens' RebootInstance Types.String
+riInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED riInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance Lude.AWSRequest RebootInstance where
+instance Core.FromJSON RebootInstance where
+  toJSON RebootInstance {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("InstanceId" Core..= instanceId)])
+
+instance Core.AWSRequest RebootInstance where
   type Rs RebootInstance = RebootInstanceResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull RebootInstanceResponse'
-
-instance Lude.ToHeaders RebootInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.RebootInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RebootInstance where
-  toJSON RebootInstance' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("InstanceId" Lude..= instanceId)])
-
-instance Lude.ToPath RebootInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RebootInstance where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.RebootInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RebootInstanceResponse'
 
 -- | /See:/ 'mkRebootInstanceResponse' smart constructor.
 data RebootInstanceResponse = RebootInstanceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootInstanceResponse' with the minimum fields required to make a request.
+-- | Creates a 'RebootInstanceResponse' value with any optional fields omitted.
 mkRebootInstanceResponse ::
   RebootInstanceResponse
 mkRebootInstanceResponse = RebootInstanceResponse'

@@ -28,21 +28,21 @@ module Network.AWS.Pinpoint.DeleteVoiceTemplate
     mkDeleteVoiceTemplateResponse,
 
     -- ** Response lenses
-    dvtrsMessageBody,
-    dvtrsResponseStatus,
+    dvtrrsMessageBody,
+    dvtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteVoiceTemplate' smart constructor.
 data DeleteVoiceTemplate = DeleteVoiceTemplate'
   { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-    templateName :: Lude.Text,
+    templateName :: Core.Text,
     -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
     --
     -- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
@@ -55,41 +55,24 @@ data DeleteVoiceTemplate = DeleteVoiceTemplate'
     --
     --
     --     * For a delete operation, deletes the template, including all versions of the template.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVoiceTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
--- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
---
--- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
--- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
---
---     * For a get operation, retrieves information about the active version of the template.
---
---
---     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
---
---
---     * For a delete operation, deletes the template, including all versions of the template.
+-- | Creates a 'DeleteVoiceTemplate' value with any optional fields omitted.
 mkDeleteVoiceTemplate ::
   -- | 'templateName'
-  Lude.Text ->
+  Core.Text ->
   DeleteVoiceTemplate
-mkDeleteVoiceTemplate pTemplateName_ =
-  DeleteVoiceTemplate'
-    { templateName = pTemplateName_,
-      version = Lude.Nothing
-    }
+mkDeleteVoiceTemplate templateName =
+  DeleteVoiceTemplate' {templateName, version = Core.Nothing}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtTemplateName :: Lens.Lens' DeleteVoiceTemplate Lude.Text
-dvtTemplateName = Lens.lens (templateName :: DeleteVoiceTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DeleteVoiceTemplate)
+dvtTemplateName :: Lens.Lens' DeleteVoiceTemplate Core.Text
+dvtTemplateName = Lens.field @"templateName"
 {-# DEPRECATED dvtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
@@ -108,72 +91,62 @@ dvtTemplateName = Lens.lens (templateName :: DeleteVoiceTemplate -> Lude.Text) (
 --
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtVersion :: Lens.Lens' DeleteVoiceTemplate (Lude.Maybe Lude.Text)
-dvtVersion = Lens.lens (version :: DeleteVoiceTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: DeleteVoiceTemplate)
+dvtVersion :: Lens.Lens' DeleteVoiceTemplate (Core.Maybe Core.Text)
+dvtVersion = Lens.field @"version"
 {-# DEPRECATED dvtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.AWSRequest DeleteVoiceTemplate where
+instance Core.AWSRequest DeleteVoiceTemplate where
   type Rs DeleteVoiceTemplate = DeleteVoiceTemplateResponse
-  request = Req.delete pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/templates/" Core.<> (Core.toText templateName)
+                Core.<> ("/voice")
+            ),
+        Core._rqQuery = Core.toQueryValue "version" Core.<$> version,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteVoiceTemplateResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteVoiceTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteVoiceTemplate where
-  toPath DeleteVoiceTemplate' {..} =
-    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/voice"]
-
-instance Lude.ToQuery DeleteVoiceTemplate where
-  toQuery DeleteVoiceTemplate' {..} =
-    Lude.mconcat ["version" Lude.=: version]
 
 -- | /See:/ 'mkDeleteVoiceTemplateResponse' smart constructor.
 data DeleteVoiceTemplateResponse = DeleteVoiceTemplateResponse'
-  { messageBody :: MessageBody,
+  { messageBody :: Types.MessageBody,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVoiceTemplateResponse' with the minimum fields required to make a request.
---
--- * 'messageBody' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteVoiceTemplateResponse' value with any optional fields omitted.
 mkDeleteVoiceTemplateResponse ::
   -- | 'messageBody'
-  MessageBody ->
+  Types.MessageBody ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteVoiceTemplateResponse
-mkDeleteVoiceTemplateResponse pMessageBody_ pResponseStatus_ =
-  DeleteVoiceTemplateResponse'
-    { messageBody = pMessageBody_,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteVoiceTemplateResponse messageBody responseStatus =
+  DeleteVoiceTemplateResponse' {messageBody, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtrsMessageBody :: Lens.Lens' DeleteVoiceTemplateResponse MessageBody
-dvtrsMessageBody = Lens.lens (messageBody :: DeleteVoiceTemplateResponse -> MessageBody) (\s a -> s {messageBody = a} :: DeleteVoiceTemplateResponse)
-{-# DEPRECATED dvtrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
+dvtrrsMessageBody :: Lens.Lens' DeleteVoiceTemplateResponse Types.MessageBody
+dvtrrsMessageBody = Lens.field @"messageBody"
+{-# DEPRECATED dvtrrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtrsResponseStatus :: Lens.Lens' DeleteVoiceTemplateResponse Lude.Int
-dvtrsResponseStatus = Lens.lens (responseStatus :: DeleteVoiceTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVoiceTemplateResponse)
-{-# DEPRECATED dvtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvtrrsResponseStatus :: Lens.Lens' DeleteVoiceTemplateResponse Core.Int
+dvtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dvtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

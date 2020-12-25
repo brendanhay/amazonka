@@ -17,45 +17,43 @@ module Network.AWS.Translate.Types.OutputDataConfig
     mkOutputDataConfig,
 
     -- * Lenses
-    odcS3URI,
+    odcS3Uri,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Translate.Types.S3Uri as Types
 
 -- | The output configuration properties for a batch translation job.
 --
 -- /See:/ 'mkOutputDataConfig' smart constructor.
 newtype OutputDataConfig = OutputDataConfig'
   { -- | The URI of the S3 folder that contains a translation job's output file. The folder must be in the same Region as the API endpoint that you are calling.
-    s3URI :: Lude.Text
+    s3Uri :: Types.S3Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputDataConfig' with the minimum fields required to make a request.
---
--- * 's3URI' - The URI of the S3 folder that contains a translation job's output file. The folder must be in the same Region as the API endpoint that you are calling.
+-- | Creates a 'OutputDataConfig' value with any optional fields omitted.
 mkOutputDataConfig ::
-  -- | 's3URI'
-  Lude.Text ->
+  -- | 's3Uri'
+  Types.S3Uri ->
   OutputDataConfig
-mkOutputDataConfig pS3URI_ = OutputDataConfig' {s3URI = pS3URI_}
+mkOutputDataConfig s3Uri = OutputDataConfig' {s3Uri}
 
 -- | The URI of the S3 folder that contains a translation job's output file. The folder must be in the same Region as the API endpoint that you are calling.
 --
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odcS3URI :: Lens.Lens' OutputDataConfig Lude.Text
-odcS3URI = Lens.lens (s3URI :: OutputDataConfig -> Lude.Text) (\s a -> s {s3URI = a} :: OutputDataConfig)
-{-# DEPRECATED odcS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+-- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odcS3Uri :: Lens.Lens' OutputDataConfig Types.S3Uri
+odcS3Uri = Lens.field @"s3Uri"
+{-# DEPRECATED odcS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
 
-instance Lude.FromJSON OutputDataConfig where
+instance Core.FromJSON OutputDataConfig where
+  toJSON OutputDataConfig {..} =
+    Core.object (Core.catMaybes [Core.Just ("S3Uri" Core..= s3Uri)])
+
+instance Core.FromJSON OutputDataConfig where
   parseJSON =
-    Lude.withObject
-      "OutputDataConfig"
-      (\x -> OutputDataConfig' Lude.<$> (x Lude..: "S3Uri"))
-
-instance Lude.ToJSON OutputDataConfig where
-  toJSON OutputDataConfig' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("S3Uri" Lude..= s3URI)])
+    Core.withObject "OutputDataConfig" Core.$
+      \x -> OutputDataConfig' Core.<$> (x Core..: "S3Uri")

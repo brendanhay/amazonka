@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,10 +37,19 @@
 -- For more information, see <http://forums.aws.amazon.com/ann.jspa?annID=3557 Announcement: Heads-up – Longer AWS Storage Gateway volume and snapshot IDs coming in 2016> .
 module Network.AWS.StorageGateway
   ( -- * Service configuration
-    storageGatewayService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidGatewayRequestException
+    _InvalidGatewayRequestException,
+
+    -- ** ServiceUnavailableError
+    _ServiceUnavailableError,
+
+    -- ** InternalServerError
+    _InternalServerError,
 
     -- * Waiters
     -- $waiters
@@ -303,181 +311,519 @@ module Network.AWS.StorageGateway
 
     -- * Types
 
-    -- ** ActiveDirectoryStatus
-    ActiveDirectoryStatus (..),
-
-    -- ** AvailabilityMonitorTestStatus
-    AvailabilityMonitorTestStatus (..),
-
-    -- ** CaseSensitivity
-    CaseSensitivity (..),
-
-    -- ** FileShareType
-    FileShareType (..),
-
-    -- ** HostEnvironment
-    HostEnvironment (..),
-
-    -- ** ObjectACL
-    ObjectACL (..),
-
-    -- ** PoolStatus
-    PoolStatus (..),
-
-    -- ** RetentionLockType
-    RetentionLockType (..),
-
-    -- ** SMBSecurityStrategy
-    SMBSecurityStrategy (..),
-
-    -- ** TapeStorageClass
-    TapeStorageClass (..),
-
-    -- ** AutomaticTapeCreationPolicyInfo
-    AutomaticTapeCreationPolicyInfo (..),
-    mkAutomaticTapeCreationPolicyInfo,
-    atcpiGatewayARN,
-    atcpiAutomaticTapeCreationRules,
-
-    -- ** AutomaticTapeCreationRule
-    AutomaticTapeCreationRule (..),
-    mkAutomaticTapeCreationRule,
-    atcrTapeBarcodePrefix,
-    atcrTapeSizeInBytes,
-    atcrPoolId,
-    atcrWorm,
-    atcrMinimumNumTapes,
-
-    -- ** BandwidthRateLimitInterval
-    BandwidthRateLimitInterval (..),
-    mkBandwidthRateLimitInterval,
-    brliDaysOfWeek,
-    brliEndMinuteOfHour,
-    brliStartMinuteOfHour,
-    brliEndHourOfDay,
-    brliStartHourOfDay,
-    brliAverageUploadRateLimitInBitsPerSec,
-    brliAverageDownloadRateLimitInBitsPerSec,
-
-    -- ** CacheAttributes
-    CacheAttributes (..),
-    mkCacheAttributes,
-    caCacheStaleTimeoutInSeconds,
-
-    -- ** CachediSCSIVolume
-    CachediSCSIVolume (..),
-    mkCachediSCSIVolume,
-    cscsivVolumeiSCSIAttributes,
-    cscsivVolumeStatus,
-    cscsivSourceSnapshotId,
-    cscsivKMSKey,
-    cscsivVolumeAttachmentStatus,
-    cscsivVolumeARN,
-    cscsivVolumeProgress,
-    cscsivVolumeSizeInBytes,
-    cscsivVolumeUsedInBytes,
-    cscsivCreatedDate,
-    cscsivVolumeId,
-    cscsivVolumeType,
-    cscsivTargetName,
+    -- ** TapeBarcodePrefix
+    TapeBarcodePrefix (..),
 
     -- ** ChapInfo
     ChapInfo (..),
     mkChapInfo,
-    ciTargetARN,
-    ciSecretToAuthenticateInitiator,
     ciInitiatorName,
+    ciSecretToAuthenticateInitiator,
     ciSecretToAuthenticateTarget,
+    ciTargetARN,
+
+    -- ** VolumeiSCSIAttributes
+    VolumeiSCSIAttributes (..),
+    mkVolumeiSCSIAttributes,
+    vscsiaChapEnabled,
+    vscsiaLunNumber,
+    vscsiaNetworkInterfaceId,
+    vscsiaNetworkInterfacePort,
+    vscsiaTargetARN,
+
+    -- ** TapeBarcode
+    TapeBarcode (..),
 
     -- ** DeviceiSCSIAttributes
     DeviceiSCSIAttributes (..),
     mkDeviceiSCSIAttributes,
-    dscsiaTargetARN,
     dscsiaChapEnabled,
     dscsiaNetworkInterfaceId,
     dscsiaNetworkInterfacePort,
+    dscsiaTargetARN,
+
+    -- ** TargetARN
+    TargetARN (..),
+
+    -- ** VolumeStatus
+    VolumeStatus (..),
+
+    -- ** TapeStatus
+    TapeStatus (..),
+
+    -- ** AuditDestinationARN
+    AuditDestinationARN (..),
+
+    -- ** FileShareStatus
+    FileShareStatus (..),
+
+    -- ** RetentionLockType
+    RetentionLockType (..),
+
+    -- ** BandwidthType
+    BandwidthType (..),
+
+    -- ** GatewayState
+    GatewayState (..),
+
+    -- ** SnapshotDescription
+    SnapshotDescription (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** FileShareUser
+    FileShareUser (..),
+
+    -- ** KMSKey
+    KMSKey (..),
+
+    -- ** ClientToken
+    ClientToken (..),
+
+    -- ** TapeARN
+    TapeARN (..),
 
     -- ** Disk
     Disk (..),
     mkDisk,
     dDiskAllocationResource,
     dDiskAllocationType,
+    dDiskAttributeList,
+    dDiskId,
     dDiskNode,
     dDiskPath,
     dDiskSizeInBytes,
     dDiskStatus,
-    dDiskId,
-    dDiskAttributeList,
+
+    -- ** Ec2InstanceRegion
+    Ec2InstanceRegion (..),
+
+    -- ** RegionId
+    RegionId (..),
+
+    -- ** LocalConsolePassword
+    LocalConsolePassword (..),
 
     -- ** FileShareInfo
     FileShareInfo (..),
     mkFileShareInfo,
-    fsiFileShareStatus,
-    fsiGatewayARN,
-    fsiFileShareId,
     fsiFileShareARN,
+    fsiFileShareId,
+    fsiFileShareStatus,
     fsiFileShareType,
+    fsiGatewayARN,
 
-    -- ** GatewayInfo
-    GatewayInfo (..),
-    mkGatewayInfo,
-    giEC2InstanceRegion,
-    giGatewayARN,
-    giEC2InstanceId,
-    giGatewayOperationalState,
-    giGatewayName,
-    giGatewayId,
-    giGatewayType,
+    -- ** GatewayARN
+    GatewayARN (..),
 
-    -- ** NFSFileShareDefaults
-    NFSFileShareDefaults (..),
-    mkNFSFileShareDefaults,
-    nfsfsdFileMode,
-    nfsfsdOwnerId,
-    nfsfsdDirectoryMode,
-    nfsfsdGroupId,
+    -- ** DiskAllocationType
+    DiskAllocationType (..),
 
-    -- ** NFSFileShareInfo
-    NFSFileShareInfo (..),
-    mkNFSFileShareInfo,
-    nfsfsiFileShareStatus,
-    nfsfsiKMSKey,
-    nfsfsiGatewayARN,
-    nfsfsiPath,
-    nfsfsiCacheAttributes,
-    nfsfsiObjectACL,
-    nfsfsiKMSEncrypted,
-    nfsfsiFileShareId,
-    nfsfsiFileShareARN,
-    nfsfsiDefaultStorageClass,
-    nfsfsiFileShareName,
-    nfsfsiRole,
-    nfsfsiNotificationPolicy,
-    nfsfsiSquash,
-    nfsfsiRequesterPays,
-    nfsfsiNFSFileShareDefaults,
-    nfsfsiLocationARN,
-    nfsfsiClientList,
-    nfsfsiGuessMIMETypeEnabled,
-    nfsfsiReadOnly,
-    nfsfsiTags,
+    -- ** Path
+    Path (..),
+
+    -- ** VolumeAttachmentStatus
+    VolumeAttachmentStatus (..),
+
+    -- ** VolumeARN
+    VolumeARN (..),
+
+    -- ** String
+    String (..),
+
+    -- ** OrganizationalUnit
+    OrganizationalUnit (..),
+
+    -- ** Ec2InstanceId
+    Ec2InstanceId (..),
+
+    -- ** Authentication
+    Authentication (..),
+
+    -- ** Tape
+    Tape (..),
+    mkTape,
+    tKMSKey,
+    tPoolEntryDate,
+    tPoolId,
+    tProgress,
+    tRetentionStartDate,
+    tTapeARN,
+    tTapeBarcode,
+    tTapeCreatedDate,
+    tTapeSizeInBytes,
+    tTapeStatus,
+    tTapeUsedInBytes,
+    tVTLDevice,
+    tWorm,
 
     -- ** NetworkInterface
     NetworkInterface (..),
     mkNetworkInterface,
-    niIPv6Address,
-    niMACAddress,
-    niIPv4Address,
+    niIpv4Address,
+    niIpv6Address,
+    niMacAddress,
+
+    -- ** PoolName
+    PoolName (..),
+
+    -- ** ActivationKey
+    ActivationKey (..),
+
+    -- ** CacheAttributes
+    CacheAttributes (..),
+    mkCacheAttributes,
+    caCacheStaleTimeoutInSeconds,
+
+    -- ** ObjectACL
+    ObjectACL (..),
+
+    -- ** NextUpdateAvailabilityDate
+    NextUpdateAvailabilityDate (..),
+
+    -- ** TapeRecoveryPointStatus
+    TapeRecoveryPointStatus (..),
+
+    -- ** EndpointType
+    EndpointType (..),
+
+    -- ** Initiator
+    Initiator (..),
+
+    -- ** VTLDevice
+    VTLDevice (..),
+    mkVTLDevice,
+    vtldDeviceiSCSIAttributes,
+    vtldVTLDeviceARN,
+    vtldVTLDeviceProductIdentifier,
+    vtldVTLDeviceType,
+    vtldVTLDeviceVendor,
+
+    -- ** NFSFileShareInfo
+    NFSFileShareInfo (..),
+    mkNFSFileShareInfo,
+    nfsfsiCacheAttributes,
+    nfsfsiClientList,
+    nfsfsiDefaultStorageClass,
+    nfsfsiFileShareARN,
+    nfsfsiFileShareId,
+    nfsfsiFileShareName,
+    nfsfsiFileShareStatus,
+    nfsfsiGatewayARN,
+    nfsfsiGuessMIMETypeEnabled,
+    nfsfsiKMSEncrypted,
+    nfsfsiKMSKey,
+    nfsfsiLocationARN,
+    nfsfsiNFSFileShareDefaults,
+    nfsfsiNotificationPolicy,
+    nfsfsiObjectACL,
+    nfsfsiPath,
+    nfsfsiReadOnly,
+    nfsfsiRequesterPays,
+    nfsfsiRole,
+    nfsfsiSquash,
+    nfsfsiTags,
+
+    -- ** NetworkInterfaceId
+    NetworkInterfaceId (..),
+
+    -- ** DomainUserPassword
+    DomainUserPassword (..),
+
+    -- ** FileShareId
+    FileShareId (..),
+
+    -- ** TapeArchiveStatus
+    TapeArchiveStatus (..),
+
+    -- ** FileShareARN
+    FileShareARN (..),
+
+    -- ** DomainUserName
+    DomainUserName (..),
+
+    -- ** Folder
+    Folder (..),
+
+    -- ** TapeRecoveryPointInfo
+    TapeRecoveryPointInfo (..),
+    mkTapeRecoveryPointInfo,
+    trpiTapeARN,
+    trpiTapeRecoveryPointTime,
+    trpiTapeSizeInBytes,
+    trpiTapeStatus,
+
+    -- ** IPV4AddressCIDR
+    IPV4AddressCIDR (..),
+
+    -- ** IqnName
+    IqnName (..),
+
+    -- ** ActiveDirectoryStatus
+    ActiveDirectoryStatus (..),
+
+    -- ** PoolId
+    PoolId (..),
+
+    -- ** VolumeRecoveryPointInfo
+    VolumeRecoveryPointInfo (..),
+    mkVolumeRecoveryPointInfo,
+    vrpiVolumeARN,
+    vrpiVolumeRecoveryPointTime,
+    vrpiVolumeSizeInBytes,
+    vrpiVolumeUsageInBytes,
+
+    -- ** MediumChangerType
+    MediumChangerType (..),
+
+    -- ** TapeDriveType
+    TapeDriveType (..),
+
+    -- ** DeprecationDate
+    DeprecationDate (..),
+
+    -- ** LastSoftwareUpdate
+    LastSoftwareUpdate (..),
+
+    -- ** FileShareName
+    FileShareName (..),
+
+    -- ** Role
+    Role (..),
+
+    -- ** TapeStorageClass
+    TapeStorageClass (..),
+
+    -- ** GatewayOperationalState
+    GatewayOperationalState (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** BandwidthRateLimitInterval
+    BandwidthRateLimitInterval (..),
+    mkBandwidthRateLimitInterval,
+    brliStartHourOfDay,
+    brliStartMinuteOfHour,
+    brliEndHourOfDay,
+    brliEndMinuteOfHour,
+    brliDaysOfWeek,
+    brliAverageDownloadRateLimitInBitsPerSec,
+    brliAverageUploadRateLimitInBitsPerSec,
+
+    -- ** AvailabilityMonitorTestStatus
+    AvailabilityMonitorTestStatus (..),
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** GatewayName
+    GatewayName (..),
+
+    -- ** StorageClass
+    StorageClass (..),
+
+    -- ** AutomaticTapeCreationPolicyInfo
+    AutomaticTapeCreationPolicyInfo (..),
+    mkAutomaticTapeCreationPolicyInfo,
+    atcpiAutomaticTapeCreationRules,
+    atcpiGatewayARN,
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** TapeArchive
+    TapeArchive (..),
+    mkTapeArchive,
+    taCompletionTime,
+    taKMSKey,
+    taPoolEntryDate,
+    taPoolId,
+    taRetentionStartDate,
+    taRetrievedTo,
+    taTapeARN,
+    taTapeBarcode,
+    taTapeCreatedDate,
+    taTapeSizeInBytes,
+    taTapeStatus,
+    taTapeUsedInBytes,
+    taWorm,
+
+    -- ** VTLDeviceVendor
+    VTLDeviceVendor (..),
 
     -- ** PoolInfo
     PoolInfo (..),
     mkPoolInfo,
-    piRetentionLockType,
-    piRetentionLockTimeInDays,
-    piPoolName,
-    piStorageClass,
-    piPoolStatus,
     piPoolARN,
+    piPoolName,
+    piPoolStatus,
+    piRetentionLockTimeInDays,
+    piRetentionLockType,
+    piStorageClass,
+
+    -- ** AutomaticTapeCreationRule
+    AutomaticTapeCreationRule (..),
+    mkAutomaticTapeCreationRule,
+    atcrTapeBarcodePrefix,
+    atcrPoolId,
+    atcrTapeSizeInBytes,
+    atcrMinimumNumTapes,
+    atcrWorm,
+
+    -- ** NotificationPolicy
+    NotificationPolicy (..),
+
+    -- ** VolumeId
+    VolumeId (..),
+
+    -- ** Squash
+    Squash (..),
+
+    -- ** GatewayId
+    GatewayId (..),
+
+    -- ** HostEnvironment
+    HostEnvironment (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** DeviceType
+    DeviceType (..),
+
+    -- ** StorediSCSIVolume
+    StorediSCSIVolume (..),
+    mkStorediSCSIVolume,
+    sscsivCreatedDate,
+    sscsivKMSKey,
+    sscsivPreservedExistingData,
+    sscsivSourceSnapshotId,
+    sscsivTargetName,
+    sscsivVolumeARN,
+    sscsivVolumeAttachmentStatus,
+    sscsivVolumeDiskId,
+    sscsivVolumeId,
+    sscsivVolumeProgress,
+    sscsivVolumeSizeInBytes,
+    sscsivVolumeStatus,
+    sscsivVolumeType,
+    sscsivVolumeUsedInBytes,
+    sscsivVolumeiSCSIAttributes,
+
+    -- ** PoolStatus
+    PoolStatus (..),
+
+    -- ** NFSFileShareDefaults
+    NFSFileShareDefaults (..),
+    mkNFSFileShareDefaults,
+    nfsfsdDirectoryMode,
+    nfsfsdFileMode,
+    nfsfsdGroupId,
+    nfsfsdOwnerId,
+
+    -- ** LocationARN
+    LocationARN (..),
+
+    -- ** Host
+    Host (..),
+
+    -- ** DiskId
+    DiskId (..),
+
+    -- ** VolumeType
+    VolumeType (..),
+
+    -- ** NotificationId
+    NotificationId (..),
+
+    -- ** GatewayType
+    GatewayType (..),
+
+    -- ** CachediSCSIVolume
+    CachediSCSIVolume (..),
+    mkCachediSCSIVolume,
+    cscsivCreatedDate,
+    cscsivKMSKey,
+    cscsivSourceSnapshotId,
+    cscsivTargetName,
+    cscsivVolumeARN,
+    cscsivVolumeAttachmentStatus,
+    cscsivVolumeId,
+    cscsivVolumeProgress,
+    cscsivVolumeSizeInBytes,
+    cscsivVolumeStatus,
+    cscsivVolumeType,
+    cscsivVolumeUsedInBytes,
+    cscsivVolumeiSCSIAttributes,
+
+    -- ** FileShareType
+    FileShareType (..),
+
+    -- ** GatewayTimezone
+    GatewayTimezone (..),
+
+    -- ** VTLDeviceARN
+    VTLDeviceARN (..),
+
+    -- ** VTLDeviceType
+    VTLDeviceType (..),
+
+    -- ** VolumeInfo
+    VolumeInfo (..),
+    mkVolumeInfo,
+    viGatewayARN,
+    viGatewayId,
+    viVolumeARN,
+    viVolumeAttachmentStatus,
+    viVolumeId,
+    viVolumeSizeInBytes,
+    viVolumeType,
+
+    -- ** SoftwareUpdatesEndDate
+    SoftwareUpdatesEndDate (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** TapeInfo
+    TapeInfo (..),
+    mkTapeInfo,
+    tiGatewayARN,
+    tiPoolEntryDate,
+    tiPoolId,
+    tiRetentionStartDate,
+    tiTapeARN,
+    tiTapeBarcode,
+    tiTapeSizeInBytes,
+    tiTapeStatus,
+
+    -- ** CloudWatchLogGroupARN
+    CloudWatchLogGroupARN (..),
+
+    -- ** GatewayInfo
+    GatewayInfo (..),
+    mkGatewayInfo,
+    giEc2InstanceId,
+    giEc2InstanceRegion,
+    giGatewayARN,
+    giGatewayId,
+    giGatewayName,
+    giGatewayOperationalState,
+    giGatewayType,
+
+    -- ** TargetName
+    TargetName (..),
+
+    -- ** VTLDeviceProductIdentifier
+    VTLDeviceProductIdentifier (..),
+
+    -- ** CaseSensitivity
+    CaseSensitivity (..),
 
     -- ** SMBFileShareInfo
     SMBFileShareInfo (..),
@@ -485,155 +831,97 @@ module Network.AWS.StorageGateway
     smbfsiAccessBasedEnumeration,
     smbfsiAdminUserList,
     smbfsiAuditDestinationARN,
-    smbfsiFileShareStatus,
-    smbfsiInvalidUserList,
-    smbfsiKMSKey,
-    smbfsiValidUserList,
-    smbfsiGatewayARN,
-    smbfsiPath,
     smbfsiAuthentication,
     smbfsiCacheAttributes,
-    smbfsiObjectACL,
-    smbfsiKMSEncrypted,
-    smbfsiFileShareId,
-    smbfsiFileShareARN,
+    smbfsiCaseSensitivity,
     smbfsiDefaultStorageClass,
+    smbfsiFileShareARN,
+    smbfsiFileShareId,
     smbfsiFileShareName,
+    smbfsiFileShareStatus,
+    smbfsiGatewayARN,
+    smbfsiGuessMIMETypeEnabled,
+    smbfsiInvalidUserList,
+    smbfsiKMSEncrypted,
+    smbfsiKMSKey,
+    smbfsiLocationARN,
+    smbfsiNotificationPolicy,
+    smbfsiObjectACL,
+    smbfsiPath,
+    smbfsiReadOnly,
+    smbfsiRequesterPays,
     smbfsiRole,
     smbfsiSMBACLEnabled,
-    smbfsiNotificationPolicy,
-    smbfsiRequesterPays,
-    smbfsiLocationARN,
-    smbfsiGuessMIMETypeEnabled,
-    smbfsiReadOnly,
-    smbfsiCaseSensitivity,
     smbfsiTags,
+    smbfsiValidUserList,
 
-    -- ** StorediSCSIVolume
-    StorediSCSIVolume (..),
-    mkStorediSCSIVolume,
-    sscsivVolumeiSCSIAttributes,
-    sscsivVolumeStatus,
-    sscsivSourceSnapshotId,
-    sscsivPreservedExistingData,
-    sscsivKMSKey,
-    sscsivVolumeAttachmentStatus,
-    sscsivVolumeARN,
-    sscsivVolumeProgress,
-    sscsivVolumeSizeInBytes,
-    sscsivVolumeUsedInBytes,
-    sscsivCreatedDate,
-    sscsivVolumeId,
-    sscsivVolumeDiskId,
-    sscsivVolumeType,
-    sscsivTargetName,
+    -- ** DiskAttribute
+    DiskAttribute (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** PoolARN
+    PoolARN (..),
 
-    -- ** Tape
-    Tape (..),
-    mkTape,
-    tTapeBarcode,
-    tTapeStatus,
-    tKMSKey,
-    tTapeARN,
-    tProgress,
-    tTapeSizeInBytes,
-    tVTLDevice,
-    tPoolId,
-    tTapeUsedInBytes,
-    tTapeCreatedDate,
-    tPoolEntryDate,
-    tWorm,
-    tRetentionStartDate,
+    -- ** SnapshotId
+    SnapshotId (..),
 
-    -- ** TapeArchive
-    TapeArchive (..),
-    mkTapeArchive,
-    taTapeBarcode,
-    taTapeStatus,
-    taKMSKey,
-    taTapeARN,
-    taTapeSizeInBytes,
-    taCompletionTime,
-    taPoolId,
-    taTapeUsedInBytes,
-    taTapeCreatedDate,
-    taPoolEntryDate,
-    taWorm,
-    taRetentionStartDate,
-    taRetrievedTo,
+    -- ** SMBSecurityStrategy
+    SMBSecurityStrategy (..),
 
-    -- ** TapeInfo
-    TapeInfo (..),
-    mkTapeInfo,
-    tiTapeBarcode,
-    tiTapeStatus,
-    tiTapeARN,
-    tiGatewayARN,
-    tiTapeSizeInBytes,
-    tiPoolId,
-    tiPoolEntryDate,
-    tiRetentionStartDate,
+    -- ** InitiatorName
+    InitiatorName (..),
 
-    -- ** TapeRecoveryPointInfo
-    TapeRecoveryPointInfo (..),
-    mkTapeRecoveryPointInfo,
-    trpiTapeStatus,
-    trpiTapeRecoveryPointTime,
-    trpiTapeARN,
-    trpiTapeSizeInBytes,
+    -- ** SecretToAuthenticateInitiator
+    SecretToAuthenticateInitiator (..),
 
-    -- ** VTLDevice
-    VTLDevice (..),
-    mkVTLDevice,
-    vtldDeviceiSCSIAttributes,
-    vtldVTLDeviceVendor,
-    vtldVTLDeviceARN,
-    vtldVTLDeviceType,
-    vtldVTLDeviceProductIdentifier,
+    -- ** SecretToAuthenticateTarget
+    SecretToAuthenticateTarget (..),
 
-    -- ** VolumeInfo
-    VolumeInfo (..),
-    mkVolumeInfo,
-    viGatewayARN,
-    viVolumeAttachmentStatus,
-    viVolumeARN,
-    viVolumeSizeInBytes,
-    viVolumeId,
-    viGatewayId,
-    viVolumeType,
+    -- ** DefaultStorageClass
+    DefaultStorageClass (..),
 
-    -- ** VolumeRecoveryPointInfo
-    VolumeRecoveryPointInfo (..),
-    mkVolumeRecoveryPointInfo,
-    vrpiVolumeRecoveryPointTime,
-    vrpiVolumeARN,
-    vrpiVolumeSizeInBytes,
-    vrpiVolumeUsageInBytes,
+    -- ** Password
+    Password (..),
 
-    -- ** VolumeiSCSIAttributes
-    VolumeiSCSIAttributes (..),
-    mkVolumeiSCSIAttributes,
-    vscsiaLunNumber,
-    vscsiaTargetARN,
-    vscsiaChapEnabled,
-    vscsiaNetworkInterfaceId,
-    vscsiaNetworkInterfacePort,
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** DiskAllocationResource
+    DiskAllocationResource (..),
+
+    -- ** DiskNode
+    DiskNode (..),
+
+    -- ** DiskPath
+    DiskPath (..),
+
+    -- ** DiskStatus
+    DiskStatus (..),
+
+    -- ** Timezone
+    Timezone (..),
+
+    -- ** SourceSnapshotId
+    SourceSnapshotId (..),
+
+    -- ** VolumeDiskId
+    VolumeDiskId (..),
+
+    -- ** DirectoryMode
+    DirectoryMode (..),
+
+    -- ** FileMode
+    FileMode (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

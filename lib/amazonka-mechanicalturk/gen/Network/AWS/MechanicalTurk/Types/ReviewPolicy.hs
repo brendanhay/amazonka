@@ -23,64 +23,56 @@ module Network.AWS.MechanicalTurk.Types.ReviewPolicy
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.PolicyParameter
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.PolicyName as Types
+import qualified Network.AWS.MechanicalTurk.Types.PolicyParameter as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT.
 --
 -- /See:/ 'mkReviewPolicy' smart constructor.
 data ReviewPolicy = ReviewPolicy'
   { -- | Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
-    policyName :: Lude.Text,
+    policyName :: Types.PolicyName,
     -- | Name of the parameter from the Review policy.
-    parameters :: Lude.Maybe [PolicyParameter]
+    parameters :: Core.Maybe [Types.PolicyParameter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReviewPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
--- * 'parameters' - Name of the parameter from the Review policy.
+-- | Creates a 'ReviewPolicy' value with any optional fields omitted.
 mkReviewPolicy ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   ReviewPolicy
-mkReviewPolicy pPolicyName_ =
-  ReviewPolicy'
-    { policyName = pPolicyName_,
-      parameters = Lude.Nothing
-    }
+mkReviewPolicy policyName =
+  ReviewPolicy' {policyName, parameters = Core.Nothing}
 
 -- | Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpPolicyName :: Lens.Lens' ReviewPolicy Lude.Text
-rpPolicyName = Lens.lens (policyName :: ReviewPolicy -> Lude.Text) (\s a -> s {policyName = a} :: ReviewPolicy)
+rpPolicyName :: Lens.Lens' ReviewPolicy Types.PolicyName
+rpPolicyName = Lens.field @"policyName"
 {-# DEPRECATED rpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | Name of the parameter from the Review policy.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpParameters :: Lens.Lens' ReviewPolicy (Lude.Maybe [PolicyParameter])
-rpParameters = Lens.lens (parameters :: ReviewPolicy -> Lude.Maybe [PolicyParameter]) (\s a -> s {parameters = a} :: ReviewPolicy)
+rpParameters :: Lens.Lens' ReviewPolicy (Core.Maybe [Types.PolicyParameter])
+rpParameters = Lens.field @"parameters"
 {-# DEPRECATED rpParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance Lude.FromJSON ReviewPolicy where
-  parseJSON =
-    Lude.withObject
-      "ReviewPolicy"
-      ( \x ->
-          ReviewPolicy'
-            Lude.<$> (x Lude..: "PolicyName")
-            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON ReviewPolicy where
-  toJSON ReviewPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyName" Lude..= policyName),
-            ("Parameters" Lude..=) Lude.<$> parameters
+instance Core.FromJSON ReviewPolicy where
+  toJSON ReviewPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyName" Core..= policyName),
+            ("Parameters" Core..=) Core.<$> parameters
           ]
       )
+
+instance Core.FromJSON ReviewPolicy where
+  parseJSON =
+    Core.withObject "ReviewPolicy" Core.$
+      \x ->
+        ReviewPolicy'
+          Core.<$> (x Core..: "PolicyName") Core.<*> (x Core..:? "Parameters")

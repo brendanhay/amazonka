@@ -13,62 +13,64 @@
 module Network.AWS.MediaLive.Types.InputState
   ( InputState
       ( InputState',
-        Creating,
-        Detached,
-        Attached,
-        Deleting,
-        Deleted
+        InputStateCreating,
+        InputStateDetached,
+        InputStateAttached,
+        InputStateDeleting,
+        InputStateDeleted,
+        fromInputState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for InputState
-newtype InputState = InputState' Lude.Text
+newtype InputState = InputState' {fromInputState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Creating :: InputState
-pattern Creating = InputState' "CREATING"
+pattern InputStateCreating :: InputState
+pattern InputStateCreating = InputState' "CREATING"
 
-pattern Detached :: InputState
-pattern Detached = InputState' "DETACHED"
+pattern InputStateDetached :: InputState
+pattern InputStateDetached = InputState' "DETACHED"
 
-pattern Attached :: InputState
-pattern Attached = InputState' "ATTACHED"
+pattern InputStateAttached :: InputState
+pattern InputStateAttached = InputState' "ATTACHED"
 
-pattern Deleting :: InputState
-pattern Deleting = InputState' "DELETING"
+pattern InputStateDeleting :: InputState
+pattern InputStateDeleting = InputState' "DELETING"
 
-pattern Deleted :: InputState
-pattern Deleted = InputState' "DELETED"
+pattern InputStateDeleted :: InputState
+pattern InputStateDeleted = InputState' "DELETED"
 
 {-# COMPLETE
-  Creating,
-  Detached,
-  Attached,
-  Deleting,
-  Deleted,
+  InputStateCreating,
+  InputStateDetached,
+  InputStateAttached,
+  InputStateDeleting,
+  InputStateDeleted,
   InputState'
   #-}

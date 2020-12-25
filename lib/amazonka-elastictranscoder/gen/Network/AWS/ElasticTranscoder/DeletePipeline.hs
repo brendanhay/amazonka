@@ -22,7 +22,7 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     mkDeletePipeline,
 
     -- ** Request lenses
-    dpId,
+    dId,
 
     -- * Destructuring the response
     DeletePipelineResponse (..),
@@ -33,80 +33,75 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @DeletePipelineRequest@ structure.
 --
 -- /See:/ 'mkDeletePipeline' smart constructor.
 newtype DeletePipeline = DeletePipeline'
   { -- | The identifier of the pipeline that you want to delete.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePipeline' with the minimum fields required to make a request.
---
--- * 'id' - The identifier of the pipeline that you want to delete.
+-- | Creates a 'DeletePipeline' value with any optional fields omitted.
 mkDeletePipeline ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeletePipeline
-mkDeletePipeline pId_ = DeletePipeline' {id = pId_}
+mkDeletePipeline id = DeletePipeline' {id}
 
 -- | The identifier of the pipeline that you want to delete.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpId :: Lens.Lens' DeletePipeline Lude.Text
-dpId = Lens.lens (id :: DeletePipeline -> Lude.Text) (\s a -> s {id = a} :: DeletePipeline)
-{-# DEPRECATED dpId "Use generic-lens or generic-optics with 'id' instead." #-}
+dId :: Lens.Lens' DeletePipeline Types.Id
+dId = Lens.field @"id"
+{-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeletePipeline where
+instance Core.AWSRequest DeletePipeline where
   type Rs DeletePipeline = DeletePipelineResponse
-  request = Req.delete elasticTranscoderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/2012-09-25/pipelines/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeletePipelineResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeletePipelineResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePipeline where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePipeline where
-  toPath DeletePipeline' {..} =
-    Lude.mconcat ["/2012-09-25/pipelines/", Lude.toBS id]
-
-instance Lude.ToQuery DeletePipeline where
-  toQuery = Lude.const Lude.mempty
 
 -- | The @DeletePipelineResponse@ structure.
 --
 -- /See:/ 'mkDeletePipelineResponse' smart constructor.
 newtype DeletePipelineResponse = DeletePipelineResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePipelineResponse' value with any optional fields omitted.
 mkDeletePipelineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePipelineResponse
-mkDeletePipelineResponse pResponseStatus_ =
-  DeletePipelineResponse' {responseStatus = pResponseStatus_}
+mkDeletePipelineResponse responseStatus =
+  DeletePipelineResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeletePipelineResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeletePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePipelineResponse)
+drsResponseStatus :: Lens.Lens' DeletePipelineResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

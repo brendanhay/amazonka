@@ -17,72 +17,67 @@ module Network.AWS.DirectoryService.Types.LDAPSSettingInfo
     mkLDAPSSettingInfo,
 
     -- * Lenses
-    ldapssiLastUpdatedDateTime,
-    ldapssiLDAPSStatusReason,
     ldapssiLDAPSStatus,
+    ldapssiLDAPSStatusReason,
+    ldapssiLastUpdatedDateTime,
   )
 where
 
-import Network.AWS.DirectoryService.Types.LDAPSStatus
+import qualified Network.AWS.DirectoryService.Types.LDAPSStatus as Types
+import qualified Network.AWS.DirectoryService.Types.LDAPSStatusReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains general information about the LDAPS settings.
 --
 -- /See:/ 'mkLDAPSSettingInfo' smart constructor.
 data LDAPSSettingInfo = LDAPSSettingInfo'
-  { -- | The date and time when the LDAPS settings were last updated.
-    lastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The state of the LDAPS settings.
+    lDAPSStatus :: Core.Maybe Types.LDAPSStatus,
     -- | Describes a state change for LDAPS.
-    lDAPSStatusReason :: Lude.Maybe Lude.Text,
-    -- | The state of the LDAPS settings.
-    lDAPSStatus :: Lude.Maybe LDAPSStatus
+    lDAPSStatusReason :: Core.Maybe Types.LDAPSStatusReason,
+    -- | The date and time when the LDAPS settings were last updated.
+    lastUpdatedDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LDAPSSettingInfo' with the minimum fields required to make a request.
---
--- * 'lastUpdatedDateTime' - The date and time when the LDAPS settings were last updated.
--- * 'lDAPSStatusReason' - Describes a state change for LDAPS.
--- * 'lDAPSStatus' - The state of the LDAPS settings.
+-- | Creates a 'LDAPSSettingInfo' value with any optional fields omitted.
 mkLDAPSSettingInfo ::
   LDAPSSettingInfo
 mkLDAPSSettingInfo =
   LDAPSSettingInfo'
-    { lastUpdatedDateTime = Lude.Nothing,
-      lDAPSStatusReason = Lude.Nothing,
-      lDAPSStatus = Lude.Nothing
+    { lDAPSStatus = Core.Nothing,
+      lDAPSStatusReason = Core.Nothing,
+      lastUpdatedDateTime = Core.Nothing
     }
-
--- | The date and time when the LDAPS settings were last updated.
---
--- /Note:/ Consider using 'lastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldapssiLastUpdatedDateTime :: Lens.Lens' LDAPSSettingInfo (Lude.Maybe Lude.Timestamp)
-ldapssiLastUpdatedDateTime = Lens.lens (lastUpdatedDateTime :: LDAPSSettingInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDateTime = a} :: LDAPSSettingInfo)
-{-# DEPRECATED ldapssiLastUpdatedDateTime "Use generic-lens or generic-optics with 'lastUpdatedDateTime' instead." #-}
-
--- | Describes a state change for LDAPS.
---
--- /Note:/ Consider using 'lDAPSStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldapssiLDAPSStatusReason :: Lens.Lens' LDAPSSettingInfo (Lude.Maybe Lude.Text)
-ldapssiLDAPSStatusReason = Lens.lens (lDAPSStatusReason :: LDAPSSettingInfo -> Lude.Maybe Lude.Text) (\s a -> s {lDAPSStatusReason = a} :: LDAPSSettingInfo)
-{-# DEPRECATED ldapssiLDAPSStatusReason "Use generic-lens or generic-optics with 'lDAPSStatusReason' instead." #-}
 
 -- | The state of the LDAPS settings.
 --
 -- /Note:/ Consider using 'lDAPSStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldapssiLDAPSStatus :: Lens.Lens' LDAPSSettingInfo (Lude.Maybe LDAPSStatus)
-ldapssiLDAPSStatus = Lens.lens (lDAPSStatus :: LDAPSSettingInfo -> Lude.Maybe LDAPSStatus) (\s a -> s {lDAPSStatus = a} :: LDAPSSettingInfo)
+ldapssiLDAPSStatus :: Lens.Lens' LDAPSSettingInfo (Core.Maybe Types.LDAPSStatus)
+ldapssiLDAPSStatus = Lens.field @"lDAPSStatus"
 {-# DEPRECATED ldapssiLDAPSStatus "Use generic-lens or generic-optics with 'lDAPSStatus' instead." #-}
 
-instance Lude.FromJSON LDAPSSettingInfo where
+-- | Describes a state change for LDAPS.
+--
+-- /Note:/ Consider using 'lDAPSStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldapssiLDAPSStatusReason :: Lens.Lens' LDAPSSettingInfo (Core.Maybe Types.LDAPSStatusReason)
+ldapssiLDAPSStatusReason = Lens.field @"lDAPSStatusReason"
+{-# DEPRECATED ldapssiLDAPSStatusReason "Use generic-lens or generic-optics with 'lDAPSStatusReason' instead." #-}
+
+-- | The date and time when the LDAPS settings were last updated.
+--
+-- /Note:/ Consider using 'lastUpdatedDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldapssiLastUpdatedDateTime :: Lens.Lens' LDAPSSettingInfo (Core.Maybe Core.NominalDiffTime)
+ldapssiLastUpdatedDateTime = Lens.field @"lastUpdatedDateTime"
+{-# DEPRECATED ldapssiLastUpdatedDateTime "Use generic-lens or generic-optics with 'lastUpdatedDateTime' instead." #-}
+
+instance Core.FromJSON LDAPSSettingInfo where
   parseJSON =
-    Lude.withObject
-      "LDAPSSettingInfo"
-      ( \x ->
-          LDAPSSettingInfo'
-            Lude.<$> (x Lude..:? "LastUpdatedDateTime")
-            Lude.<*> (x Lude..:? "LDAPSStatusReason")
-            Lude.<*> (x Lude..:? "LDAPSStatus")
-      )
+    Core.withObject "LDAPSSettingInfo" Core.$
+      \x ->
+        LDAPSSettingInfo'
+          Core.<$> (x Core..:? "LDAPSStatus")
+          Core.<*> (x Core..:? "LDAPSStatusReason")
+          Core.<*> (x Core..:? "LastUpdatedDateTime")

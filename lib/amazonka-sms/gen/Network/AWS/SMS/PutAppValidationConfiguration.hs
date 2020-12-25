@@ -21,140 +21,125 @@ module Network.AWS.SMS.PutAppValidationConfiguration
 
     -- ** Request lenses
     pavcAppId,
-    pavcServerGroupValidationConfigurations,
     pavcAppValidationConfigurations,
+    pavcServerGroupValidationConfigurations,
 
     -- * Destructuring the response
     PutAppValidationConfigurationResponse (..),
     mkPutAppValidationConfigurationResponse,
 
     -- ** Response lenses
-    pavcrsResponseStatus,
+    pavcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkPutAppValidationConfiguration' smart constructor.
 data PutAppValidationConfiguration = PutAppValidationConfiguration'
   { -- | The ID of the application.
-    appId :: Lude.Text,
-    -- | The configuration for instance validation.
-    serverGroupValidationConfigurations :: Lude.Maybe [ServerGroupValidationConfiguration],
+    appId :: Types.AppIdWithValidation,
     -- | The configuration for application validation.
-    appValidationConfigurations :: Lude.Maybe [AppValidationConfiguration]
+    appValidationConfigurations :: Core.Maybe [Types.AppValidationConfiguration],
+    -- | The configuration for instance validation.
+    serverGroupValidationConfigurations :: Core.Maybe [Types.ServerGroupValidationConfiguration]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutAppValidationConfiguration' with the minimum fields required to make a request.
---
--- * 'appId' - The ID of the application.
--- * 'serverGroupValidationConfigurations' - The configuration for instance validation.
--- * 'appValidationConfigurations' - The configuration for application validation.
+-- | Creates a 'PutAppValidationConfiguration' value with any optional fields omitted.
 mkPutAppValidationConfiguration ::
   -- | 'appId'
-  Lude.Text ->
+  Types.AppIdWithValidation ->
   PutAppValidationConfiguration
-mkPutAppValidationConfiguration pAppId_ =
+mkPutAppValidationConfiguration appId =
   PutAppValidationConfiguration'
-    { appId = pAppId_,
-      serverGroupValidationConfigurations = Lude.Nothing,
-      appValidationConfigurations = Lude.Nothing
+    { appId,
+      appValidationConfigurations = Core.Nothing,
+      serverGroupValidationConfigurations = Core.Nothing
     }
 
 -- | The ID of the application.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pavcAppId :: Lens.Lens' PutAppValidationConfiguration Lude.Text
-pavcAppId = Lens.lens (appId :: PutAppValidationConfiguration -> Lude.Text) (\s a -> s {appId = a} :: PutAppValidationConfiguration)
+pavcAppId :: Lens.Lens' PutAppValidationConfiguration Types.AppIdWithValidation
+pavcAppId = Lens.field @"appId"
 {-# DEPRECATED pavcAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
-
--- | The configuration for instance validation.
---
--- /Note:/ Consider using 'serverGroupValidationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pavcServerGroupValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Lude.Maybe [ServerGroupValidationConfiguration])
-pavcServerGroupValidationConfigurations = Lens.lens (serverGroupValidationConfigurations :: PutAppValidationConfiguration -> Lude.Maybe [ServerGroupValidationConfiguration]) (\s a -> s {serverGroupValidationConfigurations = a} :: PutAppValidationConfiguration)
-{-# DEPRECATED pavcServerGroupValidationConfigurations "Use generic-lens or generic-optics with 'serverGroupValidationConfigurations' instead." #-}
 
 -- | The configuration for application validation.
 --
 -- /Note:/ Consider using 'appValidationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pavcAppValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Lude.Maybe [AppValidationConfiguration])
-pavcAppValidationConfigurations = Lens.lens (appValidationConfigurations :: PutAppValidationConfiguration -> Lude.Maybe [AppValidationConfiguration]) (\s a -> s {appValidationConfigurations = a} :: PutAppValidationConfiguration)
+pavcAppValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Core.Maybe [Types.AppValidationConfiguration])
+pavcAppValidationConfigurations = Lens.field @"appValidationConfigurations"
 {-# DEPRECATED pavcAppValidationConfigurations "Use generic-lens or generic-optics with 'appValidationConfigurations' instead." #-}
 
-instance Lude.AWSRequest PutAppValidationConfiguration where
+-- | The configuration for instance validation.
+--
+-- /Note:/ Consider using 'serverGroupValidationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pavcServerGroupValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Core.Maybe [Types.ServerGroupValidationConfiguration])
+pavcServerGroupValidationConfigurations = Lens.field @"serverGroupValidationConfigurations"
+{-# DEPRECATED pavcServerGroupValidationConfigurations "Use generic-lens or generic-optics with 'serverGroupValidationConfigurations' instead." #-}
+
+instance Core.FromJSON PutAppValidationConfiguration where
+  toJSON PutAppValidationConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("appId" Core..= appId),
+            ("appValidationConfigurations" Core..=)
+              Core.<$> appValidationConfigurations,
+            ("serverGroupValidationConfigurations" Core..=)
+              Core.<$> serverGroupValidationConfigurations
+          ]
+      )
+
+instance Core.AWSRequest PutAppValidationConfiguration where
   type
     Rs PutAppValidationConfiguration =
       PutAppValidationConfigurationResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutAppValidationConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutAppValidationConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutAppValidationConfiguration where
-  toJSON PutAppValidationConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("appId" Lude..= appId),
-            ("serverGroupValidationConfigurations" Lude..=)
-              Lude.<$> serverGroupValidationConfigurations,
-            ("appValidationConfigurations" Lude..=)
-              Lude.<$> appValidationConfigurations
-          ]
-      )
-
-instance Lude.ToPath PutAppValidationConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutAppValidationConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutAppValidationConfigurationResponse' smart constructor.
 newtype PutAppValidationConfigurationResponse = PutAppValidationConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutAppValidationConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutAppValidationConfigurationResponse' value with any optional fields omitted.
 mkPutAppValidationConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutAppValidationConfigurationResponse
-mkPutAppValidationConfigurationResponse pResponseStatus_ =
-  PutAppValidationConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkPutAppValidationConfigurationResponse responseStatus =
+  PutAppValidationConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pavcrsResponseStatus :: Lens.Lens' PutAppValidationConfigurationResponse Lude.Int
-pavcrsResponseStatus = Lens.lens (responseStatus :: PutAppValidationConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAppValidationConfigurationResponse)
-{-# DEPRECATED pavcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pavcrrsResponseStatus :: Lens.Lens' PutAppValidationConfigurationResponse Core.Int
+pavcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pavcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

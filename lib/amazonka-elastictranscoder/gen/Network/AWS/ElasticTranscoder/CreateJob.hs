@@ -23,212 +23,194 @@ module Network.AWS.ElasticTranscoder.CreateJob
 
     -- ** Request lenses
     cjPipelineId,
-    cjInputs,
     cjInput,
-    cjUserMetadata,
-    cjOutputs,
+    cjInputs,
     cjOutput,
-    cjPlaylists,
     cjOutputKeyPrefix,
+    cjOutputs,
+    cjPlaylists,
+    cjUserMetadata,
 
     -- * Destructuring the response
     CreateJobResponse (..),
     mkCreateJobResponse,
 
     -- ** Response lenses
-    cjrsJob,
-    cjrsResponseStatus,
+    cjrrsJob,
+    cjrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @CreateJobRequest@ structure.
 --
 -- /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
   { -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
-    pipelineId :: Lude.Text,
-    -- | A section of the request body that provides information about the files that are being transcoded.
-    inputs :: Lude.Maybe [JobInput],
+    pipelineId :: Types.PipelineId,
     -- | A section of the request body that provides information about the file that is being transcoded.
-    input :: Lude.Maybe JobInput,
-    -- | User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
-    userMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
-    outputs :: Lude.Maybe [CreateJobOutput],
+    input :: Core.Maybe Types.JobInput,
+    -- | A section of the request body that provides information about the files that are being transcoded.
+    inputs :: Core.Maybe [Types.JobInput],
     -- | A section of the request body that provides information about the transcoded (target) file. We strongly recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
-    output :: Lude.Maybe CreateJobOutput,
+    output :: Core.Maybe Types.CreateJobOutput,
+    -- | The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
+    outputKeyPrefix :: Core.Maybe Types.OutputKeyPrefix,
+    -- | A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
+    outputs :: Core.Maybe [Types.CreateJobOutput],
     -- | If you specify a preset in @PresetId@ for which the value of @Container@ is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.
     --
     -- The maximum number of master playlists in a job is 30.
-    playlists :: Lude.Maybe [CreateJobPlaylist],
-    -- | The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
-    outputKeyPrefix :: Lude.Maybe Lude.Text
+    playlists :: Core.Maybe [Types.CreateJobPlaylist],
+    -- | User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
+    userMetadata :: Core.Maybe (Core.HashMap Types.String Types.String)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
---
--- * 'pipelineId' - The @Id@ of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
--- * 'inputs' - A section of the request body that provides information about the files that are being transcoded.
--- * 'input' - A section of the request body that provides information about the file that is being transcoded.
--- * 'userMetadata' - User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
--- * 'outputs' - A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
--- * 'output' - A section of the request body that provides information about the transcoded (target) file. We strongly recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
--- * 'playlists' - If you specify a preset in @PresetId@ for which the value of @Container@ is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.
---
--- The maximum number of master playlists in a job is 30.
--- * 'outputKeyPrefix' - The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
+-- | Creates a 'CreateJob' value with any optional fields omitted.
 mkCreateJob ::
   -- | 'pipelineId'
-  Lude.Text ->
+  Types.PipelineId ->
   CreateJob
-mkCreateJob pPipelineId_ =
+mkCreateJob pipelineId =
   CreateJob'
-    { pipelineId = pPipelineId_,
-      inputs = Lude.Nothing,
-      input = Lude.Nothing,
-      userMetadata = Lude.Nothing,
-      outputs = Lude.Nothing,
-      output = Lude.Nothing,
-      playlists = Lude.Nothing,
-      outputKeyPrefix = Lude.Nothing
+    { pipelineId,
+      input = Core.Nothing,
+      inputs = Core.Nothing,
+      output = Core.Nothing,
+      outputKeyPrefix = Core.Nothing,
+      outputs = Core.Nothing,
+      playlists = Core.Nothing,
+      userMetadata = Core.Nothing
     }
 
 -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjPipelineId :: Lens.Lens' CreateJob Lude.Text
-cjPipelineId = Lens.lens (pipelineId :: CreateJob -> Lude.Text) (\s a -> s {pipelineId = a} :: CreateJob)
+cjPipelineId :: Lens.Lens' CreateJob Types.PipelineId
+cjPipelineId = Lens.field @"pipelineId"
 {-# DEPRECATED cjPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
-
--- | A section of the request body that provides information about the files that are being transcoded.
---
--- /Note:/ Consider using 'inputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjInputs :: Lens.Lens' CreateJob (Lude.Maybe [JobInput])
-cjInputs = Lens.lens (inputs :: CreateJob -> Lude.Maybe [JobInput]) (\s a -> s {inputs = a} :: CreateJob)
-{-# DEPRECATED cjInputs "Use generic-lens or generic-optics with 'inputs' instead." #-}
 
 -- | A section of the request body that provides information about the file that is being transcoded.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjInput :: Lens.Lens' CreateJob (Lude.Maybe JobInput)
-cjInput = Lens.lens (input :: CreateJob -> Lude.Maybe JobInput) (\s a -> s {input = a} :: CreateJob)
+cjInput :: Lens.Lens' CreateJob (Core.Maybe Types.JobInput)
+cjInput = Lens.field @"input"
 {-# DEPRECATED cjInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
--- | User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
+-- | A section of the request body that provides information about the files that are being transcoded.
 --
--- /Note:/ Consider using 'userMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjUserMetadata :: Lens.Lens' CreateJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cjUserMetadata = Lens.lens (userMetadata :: CreateJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {userMetadata = a} :: CreateJob)
-{-# DEPRECATED cjUserMetadata "Use generic-lens or generic-optics with 'userMetadata' instead." #-}
-
--- | A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
---
--- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjOutputs :: Lens.Lens' CreateJob (Lude.Maybe [CreateJobOutput])
-cjOutputs = Lens.lens (outputs :: CreateJob -> Lude.Maybe [CreateJobOutput]) (\s a -> s {outputs = a} :: CreateJob)
-{-# DEPRECATED cjOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
+-- /Note:/ Consider using 'inputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjInputs :: Lens.Lens' CreateJob (Core.Maybe [Types.JobInput])
+cjInputs = Lens.field @"inputs"
+{-# DEPRECATED cjInputs "Use generic-lens or generic-optics with 'inputs' instead." #-}
 
 -- | A section of the request body that provides information about the transcoded (target) file. We strongly recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
 --
 -- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjOutput :: Lens.Lens' CreateJob (Lude.Maybe CreateJobOutput)
-cjOutput = Lens.lens (output :: CreateJob -> Lude.Maybe CreateJobOutput) (\s a -> s {output = a} :: CreateJob)
+cjOutput :: Lens.Lens' CreateJob (Core.Maybe Types.CreateJobOutput)
+cjOutput = Lens.field @"output"
 {-# DEPRECATED cjOutput "Use generic-lens or generic-optics with 'output' instead." #-}
+
+-- | The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
+--
+-- /Note:/ Consider using 'outputKeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjOutputKeyPrefix :: Lens.Lens' CreateJob (Core.Maybe Types.OutputKeyPrefix)
+cjOutputKeyPrefix = Lens.field @"outputKeyPrefix"
+{-# DEPRECATED cjOutputKeyPrefix "Use generic-lens or generic-optics with 'outputKeyPrefix' instead." #-}
+
+-- | A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
+--
+-- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjOutputs :: Lens.Lens' CreateJob (Core.Maybe [Types.CreateJobOutput])
+cjOutputs = Lens.field @"outputs"
+{-# DEPRECATED cjOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
 
 -- | If you specify a preset in @PresetId@ for which the value of @Container@ is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.
 --
 -- The maximum number of master playlists in a job is 30.
 --
 -- /Note:/ Consider using 'playlists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjPlaylists :: Lens.Lens' CreateJob (Lude.Maybe [CreateJobPlaylist])
-cjPlaylists = Lens.lens (playlists :: CreateJob -> Lude.Maybe [CreateJobPlaylist]) (\s a -> s {playlists = a} :: CreateJob)
+cjPlaylists :: Lens.Lens' CreateJob (Core.Maybe [Types.CreateJobPlaylist])
+cjPlaylists = Lens.field @"playlists"
 {-# DEPRECATED cjPlaylists "Use generic-lens or generic-optics with 'playlists' instead." #-}
 
--- | The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
+-- | User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
 --
--- /Note:/ Consider using 'outputKeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjOutputKeyPrefix :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjOutputKeyPrefix = Lens.lens (outputKeyPrefix :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {outputKeyPrefix = a} :: CreateJob)
-{-# DEPRECATED cjOutputKeyPrefix "Use generic-lens or generic-optics with 'outputKeyPrefix' instead." #-}
+-- /Note:/ Consider using 'userMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjUserMetadata :: Lens.Lens' CreateJob (Core.Maybe (Core.HashMap Types.String Types.String))
+cjUserMetadata = Lens.field @"userMetadata"
+{-# DEPRECATED cjUserMetadata "Use generic-lens or generic-optics with 'userMetadata' instead." #-}
 
-instance Lude.AWSRequest CreateJob where
-  type Rs CreateJob = CreateJobResponse
-  request = Req.postJSON elasticTranscoderService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateJobResponse'
-            Lude.<$> (x Lude..?> "Job") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateJob where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateJob where
-  toJSON CreateJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PipelineId" Lude..= pipelineId),
-            ("Inputs" Lude..=) Lude.<$> inputs,
-            ("Input" Lude..=) Lude.<$> input,
-            ("UserMetadata" Lude..=) Lude.<$> userMetadata,
-            ("Outputs" Lude..=) Lude.<$> outputs,
-            ("Output" Lude..=) Lude.<$> output,
-            ("Playlists" Lude..=) Lude.<$> playlists,
-            ("OutputKeyPrefix" Lude..=) Lude.<$> outputKeyPrefix
+instance Core.FromJSON CreateJob where
+  toJSON CreateJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PipelineId" Core..= pipelineId),
+            ("Input" Core..=) Core.<$> input,
+            ("Inputs" Core..=) Core.<$> inputs,
+            ("Output" Core..=) Core.<$> output,
+            ("OutputKeyPrefix" Core..=) Core.<$> outputKeyPrefix,
+            ("Outputs" Core..=) Core.<$> outputs,
+            ("Playlists" Core..=) Core.<$> playlists,
+            ("UserMetadata" Core..=) Core.<$> userMetadata
           ]
       )
 
-instance Lude.ToPath CreateJob where
-  toPath = Lude.const "/2012-09-25/jobs"
-
-instance Lude.ToQuery CreateJob where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateJob where
+  type Rs CreateJob = CreateJobResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2012-09-25/jobs",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateJobResponse'
+            Core.<$> (x Core..:? "Job") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | The CreateJobResponse structure.
 --
 -- /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
   { -- | A section of the response body that provides information about the job that is created.
-    job :: Lude.Maybe Job',
+    job :: Core.Maybe Types.Job',
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
---
--- * 'job' - A section of the response body that provides information about the job that is created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateJobResponse' value with any optional fields omitted.
 mkCreateJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateJobResponse
-mkCreateJobResponse pResponseStatus_ =
-  CreateJobResponse'
-    { job = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateJobResponse responseStatus =
+  CreateJobResponse' {job = Core.Nothing, responseStatus}
 
 -- | A section of the response body that provides information about the job that is created.
 --
 -- /Note:/ Consider using 'job' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsJob :: Lens.Lens' CreateJobResponse (Lude.Maybe Job')
-cjrsJob = Lens.lens (job :: CreateJobResponse -> Lude.Maybe Job') (\s a -> s {job = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsJob "Use generic-lens or generic-optics with 'job' instead." #-}
+cjrrsJob :: Lens.Lens' CreateJobResponse (Core.Maybe Types.Job')
+cjrrsJob = Lens.field @"job"
+{-# DEPRECATED cjrrsJob "Use generic-lens or generic-optics with 'job' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsResponseStatus :: Lens.Lens' CreateJobResponse Lude.Int
-cjrsResponseStatus = Lens.lens (responseStatus :: CreateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cjrrsResponseStatus :: Lens.Lens' CreateJobResponse Core.Int
+cjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

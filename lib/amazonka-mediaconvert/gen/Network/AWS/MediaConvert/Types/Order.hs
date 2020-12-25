@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.Order
   ( Order
       ( Order',
-        Ascending,
-        Descending
+        OrderAscending,
+        OrderDescending,
+        fromOrder
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-newtype Order = Order' Lude.Text
+newtype Order = Order' {fromOrder :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ascending :: Order
-pattern Ascending = Order' "ASCENDING"
+pattern OrderAscending :: Order
+pattern OrderAscending = Order' "ASCENDING"
 
-pattern Descending :: Order
-pattern Descending = Order' "DESCENDING"
+pattern OrderDescending :: Order
+pattern OrderDescending = Order' "DESCENDING"
 
 {-# COMPLETE
-  Ascending,
-  Descending,
+  OrderAscending,
+  OrderDescending,
   Order'
   #-}

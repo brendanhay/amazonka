@@ -17,164 +17,158 @@ module Network.AWS.SSM.Types.Association
     mkAssociation,
 
     -- * Lenses
-    afAssociationId,
-    afInstanceId,
-    afOverview,
-    afLastExecutionDate,
-    afScheduleExpression,
-    afName,
-    afTargets,
-    afDocumentVersion,
-    afAssociationVersion,
-    afAssociationName,
+    aAssociationId,
+    aAssociationName,
+    aAssociationVersion,
+    aDocumentVersion,
+    aInstanceId,
+    aLastExecutionDate,
+    aName,
+    aOverview,
+    aScheduleExpression,
+    aTargets,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.AssociationOverview
-import Network.AWS.SSM.Types.Target
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AssociationId as Types
+import qualified Network.AWS.SSM.Types.AssociationName as Types
+import qualified Network.AWS.SSM.Types.AssociationOverview as Types
+import qualified Network.AWS.SSM.Types.AssociationVersion as Types
+import qualified Network.AWS.SSM.Types.DocumentARN as Types
+import qualified Network.AWS.SSM.Types.DocumentVersion as Types
+import qualified Network.AWS.SSM.Types.InstanceId as Types
+import qualified Network.AWS.SSM.Types.ScheduleExpression as Types
+import qualified Network.AWS.SSM.Types.Target as Types
 
 -- | Describes an association of a Systems Manager document and an instance.
 --
 -- /See:/ 'mkAssociation' smart constructor.
 data Association = Association'
   { -- | The ID created by the system when you create an association. An association is a binding between a document and a set of targets with a schedule.
-    associationId :: Lude.Maybe Lude.Text,
-    -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | Information about the association.
-    overview :: Lude.Maybe AssociationOverview,
-    -- | The date on which the association was last run.
-    lastExecutionDate :: Lude.Maybe Lude.Timestamp,
-    -- | A cron expression that specifies a schedule when the association runs.
-    scheduleExpression :: Lude.Maybe Lude.Text,
-    -- | The name of the Systems Manager document.
-    name :: Lude.Maybe Lude.Text,
-    -- | The instances targeted by the request to create an association.
-    targets :: Lude.Maybe [Target],
-    -- | The version of the document used in the association.
-    documentVersion :: Lude.Maybe Lude.Text,
-    -- | The association version.
-    associationVersion :: Lude.Maybe Lude.Text,
+    associationId :: Core.Maybe Types.AssociationId,
     -- | The association name.
-    associationName :: Lude.Maybe Lude.Text
+    associationName :: Core.Maybe Types.AssociationName,
+    -- | The association version.
+    associationVersion :: Core.Maybe Types.AssociationVersion,
+    -- | The version of the document used in the association.
+    documentVersion :: Core.Maybe Types.DocumentVersion,
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.InstanceId,
+    -- | The date on which the association was last run.
+    lastExecutionDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the Systems Manager document.
+    name :: Core.Maybe Types.DocumentARN,
+    -- | Information about the association.
+    overview :: Core.Maybe Types.AssociationOverview,
+    -- | A cron expression that specifies a schedule when the association runs.
+    scheduleExpression :: Core.Maybe Types.ScheduleExpression,
+    -- | The instances targeted by the request to create an association.
+    targets :: Core.Maybe [Types.Target]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Association' with the minimum fields required to make a request.
---
--- * 'associationId' - The ID created by the system when you create an association. An association is a binding between a document and a set of targets with a schedule.
--- * 'instanceId' - The ID of the instance.
--- * 'overview' - Information about the association.
--- * 'lastExecutionDate' - The date on which the association was last run.
--- * 'scheduleExpression' - A cron expression that specifies a schedule when the association runs.
--- * 'name' - The name of the Systems Manager document.
--- * 'targets' - The instances targeted by the request to create an association.
--- * 'documentVersion' - The version of the document used in the association.
--- * 'associationVersion' - The association version.
--- * 'associationName' - The association name.
+-- | Creates a 'Association' value with any optional fields omitted.
 mkAssociation ::
   Association
 mkAssociation =
   Association'
-    { associationId = Lude.Nothing,
-      instanceId = Lude.Nothing,
-      overview = Lude.Nothing,
-      lastExecutionDate = Lude.Nothing,
-      scheduleExpression = Lude.Nothing,
-      name = Lude.Nothing,
-      targets = Lude.Nothing,
-      documentVersion = Lude.Nothing,
-      associationVersion = Lude.Nothing,
-      associationName = Lude.Nothing
+    { associationId = Core.Nothing,
+      associationName = Core.Nothing,
+      associationVersion = Core.Nothing,
+      documentVersion = Core.Nothing,
+      instanceId = Core.Nothing,
+      lastExecutionDate = Core.Nothing,
+      name = Core.Nothing,
+      overview = Core.Nothing,
+      scheduleExpression = Core.Nothing,
+      targets = Core.Nothing
     }
 
 -- | The ID created by the system when you create an association. An association is a binding between a document and a set of targets with a schedule.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afAssociationId :: Lens.Lens' Association (Lude.Maybe Lude.Text)
-afAssociationId = Lens.lens (associationId :: Association -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: Association)
-{-# DEPRECATED afAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afInstanceId :: Lens.Lens' Association (Lude.Maybe Lude.Text)
-afInstanceId = Lens.lens (instanceId :: Association -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: Association)
-{-# DEPRECATED afInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | Information about the association.
---
--- /Note:/ Consider using 'overview' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afOverview :: Lens.Lens' Association (Lude.Maybe AssociationOverview)
-afOverview = Lens.lens (overview :: Association -> Lude.Maybe AssociationOverview) (\s a -> s {overview = a} :: Association)
-{-# DEPRECATED afOverview "Use generic-lens or generic-optics with 'overview' instead." #-}
-
--- | The date on which the association was last run.
---
--- /Note:/ Consider using 'lastExecutionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afLastExecutionDate :: Lens.Lens' Association (Lude.Maybe Lude.Timestamp)
-afLastExecutionDate = Lens.lens (lastExecutionDate :: Association -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastExecutionDate = a} :: Association)
-{-# DEPRECATED afLastExecutionDate "Use generic-lens or generic-optics with 'lastExecutionDate' instead." #-}
-
--- | A cron expression that specifies a schedule when the association runs.
---
--- /Note:/ Consider using 'scheduleExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afScheduleExpression :: Lens.Lens' Association (Lude.Maybe Lude.Text)
-afScheduleExpression = Lens.lens (scheduleExpression :: Association -> Lude.Maybe Lude.Text) (\s a -> s {scheduleExpression = a} :: Association)
-{-# DEPRECATED afScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
-
--- | The name of the Systems Manager document.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afName :: Lens.Lens' Association (Lude.Maybe Lude.Text)
-afName = Lens.lens (name :: Association -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Association)
-{-# DEPRECATED afName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The instances targeted by the request to create an association.
---
--- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afTargets :: Lens.Lens' Association (Lude.Maybe [Target])
-afTargets = Lens.lens (targets :: Association -> Lude.Maybe [Target]) (\s a -> s {targets = a} :: Association)
-{-# DEPRECATED afTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
-
--- | The version of the document used in the association.
---
--- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afDocumentVersion :: Lens.Lens' Association (Lude.Maybe Lude.Text)
-afDocumentVersion = Lens.lens (documentVersion :: Association -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: Association)
-{-# DEPRECATED afDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
-
--- | The association version.
---
--- /Note:/ Consider using 'associationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afAssociationVersion :: Lens.Lens' Association (Lude.Maybe Lude.Text)
-afAssociationVersion = Lens.lens (associationVersion :: Association -> Lude.Maybe Lude.Text) (\s a -> s {associationVersion = a} :: Association)
-{-# DEPRECATED afAssociationVersion "Use generic-lens or generic-optics with 'associationVersion' instead." #-}
+aAssociationId :: Lens.Lens' Association (Core.Maybe Types.AssociationId)
+aAssociationId = Lens.field @"associationId"
+{-# DEPRECATED aAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The association name.
 --
 -- /Note:/ Consider using 'associationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afAssociationName :: Lens.Lens' Association (Lude.Maybe Lude.Text)
-afAssociationName = Lens.lens (associationName :: Association -> Lude.Maybe Lude.Text) (\s a -> s {associationName = a} :: Association)
-{-# DEPRECATED afAssociationName "Use generic-lens or generic-optics with 'associationName' instead." #-}
+aAssociationName :: Lens.Lens' Association (Core.Maybe Types.AssociationName)
+aAssociationName = Lens.field @"associationName"
+{-# DEPRECATED aAssociationName "Use generic-lens or generic-optics with 'associationName' instead." #-}
 
-instance Lude.FromJSON Association where
+-- | The association version.
+--
+-- /Note:/ Consider using 'associationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAssociationVersion :: Lens.Lens' Association (Core.Maybe Types.AssociationVersion)
+aAssociationVersion = Lens.field @"associationVersion"
+{-# DEPRECATED aAssociationVersion "Use generic-lens or generic-optics with 'associationVersion' instead." #-}
+
+-- | The version of the document used in the association.
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aDocumentVersion :: Lens.Lens' Association (Core.Maybe Types.DocumentVersion)
+aDocumentVersion = Lens.field @"documentVersion"
+{-# DEPRECATED aDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aInstanceId :: Lens.Lens' Association (Core.Maybe Types.InstanceId)
+aInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED aInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The date on which the association was last run.
+--
+-- /Note:/ Consider using 'lastExecutionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLastExecutionDate :: Lens.Lens' Association (Core.Maybe Core.NominalDiffTime)
+aLastExecutionDate = Lens.field @"lastExecutionDate"
+{-# DEPRECATED aLastExecutionDate "Use generic-lens or generic-optics with 'lastExecutionDate' instead." #-}
+
+-- | The name of the Systems Manager document.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aName :: Lens.Lens' Association (Core.Maybe Types.DocumentARN)
+aName = Lens.field @"name"
+{-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Information about the association.
+--
+-- /Note:/ Consider using 'overview' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aOverview :: Lens.Lens' Association (Core.Maybe Types.AssociationOverview)
+aOverview = Lens.field @"overview"
+{-# DEPRECATED aOverview "Use generic-lens or generic-optics with 'overview' instead." #-}
+
+-- | A cron expression that specifies a schedule when the association runs.
+--
+-- /Note:/ Consider using 'scheduleExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aScheduleExpression :: Lens.Lens' Association (Core.Maybe Types.ScheduleExpression)
+aScheduleExpression = Lens.field @"scheduleExpression"
+{-# DEPRECATED aScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
+
+-- | The instances targeted by the request to create an association.
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aTargets :: Lens.Lens' Association (Core.Maybe [Types.Target])
+aTargets = Lens.field @"targets"
+{-# DEPRECATED aTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
+
+instance Core.FromJSON Association where
   parseJSON =
-    Lude.withObject
-      "Association"
-      ( \x ->
-          Association'
-            Lude.<$> (x Lude..:? "AssociationId")
-            Lude.<*> (x Lude..:? "InstanceId")
-            Lude.<*> (x Lude..:? "Overview")
-            Lude.<*> (x Lude..:? "LastExecutionDate")
-            Lude.<*> (x Lude..:? "ScheduleExpression")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Targets" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "DocumentVersion")
-            Lude.<*> (x Lude..:? "AssociationVersion")
-            Lude.<*> (x Lude..:? "AssociationName")
-      )
+    Core.withObject "Association" Core.$
+      \x ->
+        Association'
+          Core.<$> (x Core..:? "AssociationId")
+          Core.<*> (x Core..:? "AssociationName")
+          Core.<*> (x Core..:? "AssociationVersion")
+          Core.<*> (x Core..:? "DocumentVersion")
+          Core.<*> (x Core..:? "InstanceId")
+          Core.<*> (x Core..:? "LastExecutionDate")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Overview")
+          Core.<*> (x Core..:? "ScheduleExpression")
+          Core.<*> (x Core..:? "Targets")

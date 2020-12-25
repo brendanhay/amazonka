@@ -22,42 +22,38 @@ module Network.AWS.Pinpoint.Types.SegmentCondition
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a segment to associate with an activity in a journey.
 --
 -- /See:/ 'mkSegmentCondition' smart constructor.
 newtype SegmentCondition = SegmentCondition'
   { -- | The unique identifier for the segment to associate with the activity.
-    segmentId :: Lude.Text
+    segmentId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SegmentCondition' with the minimum fields required to make a request.
---
--- * 'segmentId' - The unique identifier for the segment to associate with the activity.
+-- | Creates a 'SegmentCondition' value with any optional fields omitted.
 mkSegmentCondition ::
   -- | 'segmentId'
-  Lude.Text ->
+  Core.Text ->
   SegmentCondition
-mkSegmentCondition pSegmentId_ =
-  SegmentCondition' {segmentId = pSegmentId_}
+mkSegmentCondition segmentId = SegmentCondition' {segmentId}
 
 -- | The unique identifier for the segment to associate with the activity.
 --
 -- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scSegmentId :: Lens.Lens' SegmentCondition Lude.Text
-scSegmentId = Lens.lens (segmentId :: SegmentCondition -> Lude.Text) (\s a -> s {segmentId = a} :: SegmentCondition)
+scSegmentId :: Lens.Lens' SegmentCondition Core.Text
+scSegmentId = Lens.field @"segmentId"
 {-# DEPRECATED scSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
-instance Lude.FromJSON SegmentCondition where
-  parseJSON =
-    Lude.withObject
-      "SegmentCondition"
-      (\x -> SegmentCondition' Lude.<$> (x Lude..: "SegmentId"))
+instance Core.FromJSON SegmentCondition where
+  toJSON SegmentCondition {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SegmentId" Core..= segmentId)])
 
-instance Lude.ToJSON SegmentCondition where
-  toJSON SegmentCondition' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SegmentId" Lude..= segmentId)])
+instance Core.FromJSON SegmentCondition where
+  parseJSON =
+    Core.withObject "SegmentCondition" Core.$
+      \x -> SegmentCondition' Core.<$> (x Core..: "SegmentId")

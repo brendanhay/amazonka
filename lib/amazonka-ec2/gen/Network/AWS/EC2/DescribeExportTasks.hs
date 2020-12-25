@@ -20,124 +20,118 @@ module Network.AWS.EC2.DescribeExportTasks
     mkDescribeExportTasks,
 
     -- ** Request lenses
-    detFilters,
     detExportTaskIds,
+    detFilters,
 
     -- * Destructuring the response
     DescribeExportTasksResponse (..),
     mkDescribeExportTasksResponse,
 
     -- ** Response lenses
-    detrsExportTasks,
-    detrsResponseStatus,
+    detrrsExportTasks,
+    detrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | the filters for the export tasks.
-    filters :: Lude.Maybe [Filter],
-    -- | The export task IDs.
-    exportTaskIds :: Lude.Maybe [Lude.Text]
+  { -- | The export task IDs.
+    exportTaskIds :: Core.Maybe [Types.ExportTaskId],
+    -- | the filters for the export tasks.
+    filters :: Core.Maybe [Types.Filter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
---
--- * 'filters' - the filters for the export tasks.
--- * 'exportTaskIds' - The export task IDs.
+-- | Creates a 'DescribeExportTasks' value with any optional fields omitted.
 mkDescribeExportTasks ::
   DescribeExportTasks
 mkDescribeExportTasks =
   DescribeExportTasks'
-    { filters = Lude.Nothing,
-      exportTaskIds = Lude.Nothing
+    { exportTaskIds = Core.Nothing,
+      filters = Core.Nothing
     }
-
--- | the filters for the export tasks.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detFilters :: Lens.Lens' DescribeExportTasks (Lude.Maybe [Filter])
-detFilters = Lens.lens (filters :: DescribeExportTasks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeExportTasks)
-{-# DEPRECATED detFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The export task IDs.
 --
 -- /Note:/ Consider using 'exportTaskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detExportTaskIds :: Lens.Lens' DescribeExportTasks (Lude.Maybe [Lude.Text])
-detExportTaskIds = Lens.lens (exportTaskIds :: DescribeExportTasks -> Lude.Maybe [Lude.Text]) (\s a -> s {exportTaskIds = a} :: DescribeExportTasks)
+detExportTaskIds :: Lens.Lens' DescribeExportTasks (Core.Maybe [Types.ExportTaskId])
+detExportTaskIds = Lens.field @"exportTaskIds"
 {-# DEPRECATED detExportTaskIds "Use generic-lens or generic-optics with 'exportTaskIds' instead." #-}
 
-instance Lude.AWSRequest DescribeExportTasks where
+-- | the filters for the export tasks.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detFilters :: Lens.Lens' DescribeExportTasks (Core.Maybe [Types.Filter])
+detFilters = Lens.field @"filters"
+{-# DEPRECATED detFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+instance Core.AWSRequest DescribeExportTasks where
   type Rs DescribeExportTasks = DescribeExportTasksResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeExportTasks")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "ExportTaskId" Core.<$> exportTaskIds)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeExportTasksResponse'
-            Lude.<$> ( x Lude..@? "exportTaskSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "exportTaskSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeExportTasks where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeExportTasks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeExportTasks where
-  toQuery DescribeExportTasks' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeExportTasks" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        Lude.toQuery
-          (Lude.toQueryList "ExportTaskId" Lude.<$> exportTaskIds)
-      ]
 
 -- | /See:/ 'mkDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
   { -- | Information about the export tasks.
-    exportTasks :: Lude.Maybe [ExportTask],
+    exportTasks :: Core.Maybe [Types.ExportTask],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
---
--- * 'exportTasks' - Information about the export tasks.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeExportTasksResponse' value with any optional fields omitted.
 mkDescribeExportTasksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeExportTasksResponse
-mkDescribeExportTasksResponse pResponseStatus_ =
+mkDescribeExportTasksResponse responseStatus =
   DescribeExportTasksResponse'
-    { exportTasks = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { exportTasks = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the export tasks.
 --
 -- /Note:/ Consider using 'exportTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsExportTasks :: Lens.Lens' DescribeExportTasksResponse (Lude.Maybe [ExportTask])
-detrsExportTasks = Lens.lens (exportTasks :: DescribeExportTasksResponse -> Lude.Maybe [ExportTask]) (\s a -> s {exportTasks = a} :: DescribeExportTasksResponse)
-{-# DEPRECATED detrsExportTasks "Use generic-lens or generic-optics with 'exportTasks' instead." #-}
+detrrsExportTasks :: Lens.Lens' DescribeExportTasksResponse (Core.Maybe [Types.ExportTask])
+detrrsExportTasks = Lens.field @"exportTasks"
+{-# DEPRECATED detrrsExportTasks "Use generic-lens or generic-optics with 'exportTasks' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsResponseStatus :: Lens.Lens' DescribeExportTasksResponse Lude.Int
-detrsResponseStatus = Lens.lens (responseStatus :: DescribeExportTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportTasksResponse)
-{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+detrrsResponseStatus :: Lens.Lens' DescribeExportTasksResponse Core.Int
+detrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED detrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

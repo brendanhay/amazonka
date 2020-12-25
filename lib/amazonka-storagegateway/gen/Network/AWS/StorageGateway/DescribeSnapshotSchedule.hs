@@ -27,178 +27,162 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     mkDescribeSnapshotScheduleResponse,
 
     -- ** Response lenses
-    drsStartAt,
-    drsVolumeARN,
-    drsRecurrenceInHours,
-    drsTimezone,
-    drsDescription,
-    drsTags,
-    drsResponseStatus,
+    dssrrsDescription,
+    dssrrsRecurrenceInHours,
+    dssrrsStartAt,
+    dssrrsTags,
+    dssrrsTimezone,
+    dssrrsVolumeARN,
+    dssrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the 'DescribeSnapshotScheduleInput$VolumeARN' of the volume.
 --
 -- /See:/ 'mkDescribeSnapshotSchedule' smart constructor.
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
   { -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
-    volumeARN :: Lude.Text
+    volumeARN :: Types.VolumeARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSnapshotSchedule' with the minimum fields required to make a request.
---
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+-- | Creates a 'DescribeSnapshotSchedule' value with any optional fields omitted.
 mkDescribeSnapshotSchedule ::
   -- | 'volumeARN'
-  Lude.Text ->
+  Types.VolumeARN ->
   DescribeSnapshotSchedule
-mkDescribeSnapshotSchedule pVolumeARN_ =
-  DescribeSnapshotSchedule' {volumeARN = pVolumeARN_}
+mkDescribeSnapshotSchedule volumeARN =
+  DescribeSnapshotSchedule' {volumeARN}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 --
 -- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssVolumeARN :: Lens.Lens' DescribeSnapshotSchedule Lude.Text
-dssVolumeARN = Lens.lens (volumeARN :: DescribeSnapshotSchedule -> Lude.Text) (\s a -> s {volumeARN = a} :: DescribeSnapshotSchedule)
+dssVolumeARN :: Lens.Lens' DescribeSnapshotSchedule Types.VolumeARN
+dssVolumeARN = Lens.field @"volumeARN"
 {-# DEPRECATED dssVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
-instance Lude.AWSRequest DescribeSnapshotSchedule where
+instance Core.FromJSON DescribeSnapshotSchedule where
+  toJSON DescribeSnapshotSchedule {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("VolumeARN" Core..= volumeARN)])
+
+instance Core.AWSRequest DescribeSnapshotSchedule where
   type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.DescribeSnapshotSchedule"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeSnapshotScheduleResponse'
-            Lude.<$> (x Lude..?> "StartAt")
-            Lude.<*> (x Lude..?> "VolumeARN")
-            Lude.<*> (x Lude..?> "RecurrenceInHours")
-            Lude.<*> (x Lude..?> "Timezone")
-            Lude.<*> (x Lude..?> "Description")
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Description")
+            Core.<*> (x Core..:? "RecurrenceInHours")
+            Core.<*> (x Core..:? "StartAt")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (x Core..:? "Timezone")
+            Core.<*> (x Core..:? "VolumeARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeSnapshotSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.DescribeSnapshotSchedule" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeSnapshotSchedule where
-  toJSON DescribeSnapshotSchedule' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("VolumeARN" Lude..= volumeARN)])
-
-instance Lude.ToPath DescribeSnapshotSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSnapshotSchedule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeSnapshotScheduleResponse' smart constructor.
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
-  { -- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
-    startAt :: Lude.Maybe Lude.Natural,
-    -- | The Amazon Resource Name (ARN) of the volume that was specified in the request.
-    volumeARN :: Lude.Maybe Lude.Text,
+  { -- | The snapshot description.
+    description :: Core.Maybe Types.Description,
     -- | The number of hours between snapshots.
-    recurrenceInHours :: Lude.Maybe Lude.Natural,
-    -- | A value that indicates the time zone of the gateway.
-    timezone :: Lude.Maybe Lude.Text,
-    -- | The snapshot description.
-    description :: Lude.Maybe Lude.Text,
+    recurrenceInHours :: Core.Maybe Core.Natural,
+    -- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
+    startAt :: Core.Maybe Core.Natural,
     -- | A list of up to 50 tags assigned to the snapshot schedule, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
+    -- | A value that indicates the time zone of the gateway.
+    timezone :: Core.Maybe Types.Timezone,
+    -- | The Amazon Resource Name (ARN) of the volume that was specified in the request.
+    volumeARN :: Core.Maybe Types.VolumeARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSnapshotScheduleResponse' with the minimum fields required to make a request.
---
--- * 'startAt' - The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume that was specified in the request.
--- * 'recurrenceInHours' - The number of hours between snapshots.
--- * 'timezone' - A value that indicates the time zone of the gateway.
--- * 'description' - The snapshot description.
--- * 'tags' - A list of up to 50 tags assigned to the snapshot schedule, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSnapshotScheduleResponse' value with any optional fields omitted.
 mkDescribeSnapshotScheduleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSnapshotScheduleResponse
-mkDescribeSnapshotScheduleResponse pResponseStatus_ =
+mkDescribeSnapshotScheduleResponse responseStatus =
   DescribeSnapshotScheduleResponse'
-    { startAt = Lude.Nothing,
-      volumeARN = Lude.Nothing,
-      recurrenceInHours = Lude.Nothing,
-      timezone = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { description = Core.Nothing,
+      recurrenceInHours = Core.Nothing,
+      startAt = Core.Nothing,
+      tags = Core.Nothing,
+      timezone = Core.Nothing,
+      volumeARN = Core.Nothing,
+      responseStatus
     }
-
--- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
---
--- /Note:/ Consider using 'startAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsStartAt :: Lens.Lens' DescribeSnapshotScheduleResponse (Lude.Maybe Lude.Natural)
-drsStartAt = Lens.lens (startAt :: DescribeSnapshotScheduleResponse -> Lude.Maybe Lude.Natural) (\s a -> s {startAt = a} :: DescribeSnapshotScheduleResponse)
-{-# DEPRECATED drsStartAt "Use generic-lens or generic-optics with 'startAt' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the volume that was specified in the request.
---
--- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsVolumeARN :: Lens.Lens' DescribeSnapshotScheduleResponse (Lude.Maybe Lude.Text)
-drsVolumeARN = Lens.lens (volumeARN :: DescribeSnapshotScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: DescribeSnapshotScheduleResponse)
-{-# DEPRECATED drsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
-
--- | The number of hours between snapshots.
---
--- /Note:/ Consider using 'recurrenceInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsRecurrenceInHours :: Lens.Lens' DescribeSnapshotScheduleResponse (Lude.Maybe Lude.Natural)
-drsRecurrenceInHours = Lens.lens (recurrenceInHours :: DescribeSnapshotScheduleResponse -> Lude.Maybe Lude.Natural) (\s a -> s {recurrenceInHours = a} :: DescribeSnapshotScheduleResponse)
-{-# DEPRECATED drsRecurrenceInHours "Use generic-lens or generic-optics with 'recurrenceInHours' instead." #-}
-
--- | A value that indicates the time zone of the gateway.
---
--- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsTimezone :: Lens.Lens' DescribeSnapshotScheduleResponse (Lude.Maybe Lude.Text)
-drsTimezone = Lens.lens (timezone :: DescribeSnapshotScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {timezone = a} :: DescribeSnapshotScheduleResponse)
-{-# DEPRECATED drsTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
 
 -- | The snapshot description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsDescription :: Lens.Lens' DescribeSnapshotScheduleResponse (Lude.Maybe Lude.Text)
-drsDescription = Lens.lens (description :: DescribeSnapshotScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeSnapshotScheduleResponse)
-{-# DEPRECATED drsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+dssrrsDescription :: Lens.Lens' DescribeSnapshotScheduleResponse (Core.Maybe Types.Description)
+dssrrsDescription = Lens.field @"description"
+{-# DEPRECATED dssrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The number of hours between snapshots.
+--
+-- /Note:/ Consider using 'recurrenceInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrrsRecurrenceInHours :: Lens.Lens' DescribeSnapshotScheduleResponse (Core.Maybe Core.Natural)
+dssrrsRecurrenceInHours = Lens.field @"recurrenceInHours"
+{-# DEPRECATED dssrrsRecurrenceInHours "Use generic-lens or generic-optics with 'recurrenceInHours' instead." #-}
+
+-- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
+--
+-- /Note:/ Consider using 'startAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrrsStartAt :: Lens.Lens' DescribeSnapshotScheduleResponse (Core.Maybe Core.Natural)
+dssrrsStartAt = Lens.field @"startAt"
+{-# DEPRECATED dssrrsStartAt "Use generic-lens or generic-optics with 'startAt' instead." #-}
 
 -- | A list of up to 50 tags assigned to the snapshot schedule, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsTags :: Lens.Lens' DescribeSnapshotScheduleResponse (Lude.Maybe [Tag])
-drsTags = Lens.lens (tags :: DescribeSnapshotScheduleResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeSnapshotScheduleResponse)
-{-# DEPRECATED drsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dssrrsTags :: Lens.Lens' DescribeSnapshotScheduleResponse (Core.Maybe [Types.Tag])
+dssrrsTags = Lens.field @"tags"
+{-# DEPRECATED dssrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | A value that indicates the time zone of the gateway.
+--
+-- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrrsTimezone :: Lens.Lens' DescribeSnapshotScheduleResponse (Core.Maybe Types.Timezone)
+dssrrsTimezone = Lens.field @"timezone"
+{-# DEPRECATED dssrrsTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the volume that was specified in the request.
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrrsVolumeARN :: Lens.Lens' DescribeSnapshotScheduleResponse (Core.Maybe Types.VolumeARN)
+dssrrsVolumeARN = Lens.field @"volumeARN"
+{-# DEPRECATED dssrrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeSnapshotScheduleResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeSnapshotScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSnapshotScheduleResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dssrrsResponseStatus :: Lens.Lens' DescribeSnapshotScheduleResponse Core.Int
+dssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

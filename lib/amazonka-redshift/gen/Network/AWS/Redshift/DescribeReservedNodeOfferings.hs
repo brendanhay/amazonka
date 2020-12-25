@@ -24,75 +24,60 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     mkDescribeReservedNodeOfferings,
 
     -- ** Request lenses
-    drnoReservedNodeOfferingId,
     drnoMarker,
     drnoMaxRecords,
+    drnoReservedNodeOfferingId,
 
     -- * Destructuring the response
     DescribeReservedNodeOfferingsResponse (..),
     mkDescribeReservedNodeOfferingsResponse,
 
     -- ** Response lenses
-    drnorsReservedNodeOfferings,
-    drnorsMarker,
-    drnorsResponseStatus,
+    drnorrsMarker,
+    drnorrsReservedNodeOfferings,
+    drnorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeReservedNodeOfferings' smart constructor.
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
-  { -- | The unique identifier for the offering.
-    reservedNodeOfferingId :: Lude.Maybe Lude.Text,
-    -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeReservedNodeOfferings' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeReservedNodeOfferings' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
     --
     -- Default: @100@
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The unique identifier for the offering.
+    reservedNodeOfferingId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReservedNodeOfferings' with the minimum fields required to make a request.
---
--- * 'reservedNodeOfferingId' - The unique identifier for the offering.
--- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeReservedNodeOfferings' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
--- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
---
--- Default: @100@
--- Constraints: minimum 20, maximum 100.
+-- | Creates a 'DescribeReservedNodeOfferings' value with any optional fields omitted.
 mkDescribeReservedNodeOfferings ::
   DescribeReservedNodeOfferings
 mkDescribeReservedNodeOfferings =
   DescribeReservedNodeOfferings'
-    { reservedNodeOfferingId =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      reservedNodeOfferingId = Core.Nothing
     }
-
--- | The unique identifier for the offering.
---
--- /Note:/ Consider using 'reservedNodeOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drnoReservedNodeOfferingId :: Lens.Lens' DescribeReservedNodeOfferings (Lude.Maybe Lude.Text)
-drnoReservedNodeOfferingId = Lens.lens (reservedNodeOfferingId :: DescribeReservedNodeOfferings -> Lude.Maybe Lude.Text) (\s a -> s {reservedNodeOfferingId = a} :: DescribeReservedNodeOfferings)
-{-# DEPRECATED drnoReservedNodeOfferingId "Use generic-lens or generic-optics with 'reservedNodeOfferingId' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeReservedNodeOfferings' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drnoMarker :: Lens.Lens' DescribeReservedNodeOfferings (Lude.Maybe Lude.Text)
-drnoMarker = Lens.lens (marker :: DescribeReservedNodeOfferings -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReservedNodeOfferings)
+drnoMarker :: Lens.Lens' DescribeReservedNodeOfferings (Core.Maybe Types.String)
+drnoMarker = Lens.field @"marker"
 {-# DEPRECATED drnoMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
@@ -101,101 +86,110 @@ drnoMarker = Lens.lens (marker :: DescribeReservedNodeOfferings -> Lude.Maybe Lu
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drnoMaxRecords :: Lens.Lens' DescribeReservedNodeOfferings (Lude.Maybe Lude.Int)
-drnoMaxRecords = Lens.lens (maxRecords :: DescribeReservedNodeOfferings -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReservedNodeOfferings)
+drnoMaxRecords :: Lens.Lens' DescribeReservedNodeOfferings (Core.Maybe Core.Int)
+drnoMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED drnoMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeReservedNodeOfferings where
-  page rq rs
-    | Page.stop (rs Lens.^. drnorsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. drnorsReservedNodeOfferings) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& drnoMarker Lens..~ rs Lens.^. drnorsMarker
+-- | The unique identifier for the offering.
+--
+-- /Note:/ Consider using 'reservedNodeOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drnoReservedNodeOfferingId :: Lens.Lens' DescribeReservedNodeOfferings (Core.Maybe Types.String)
+drnoReservedNodeOfferingId = Lens.field @"reservedNodeOfferingId"
+{-# DEPRECATED drnoReservedNodeOfferingId "Use generic-lens or generic-optics with 'reservedNodeOfferingId' instead." #-}
 
-instance Lude.AWSRequest DescribeReservedNodeOfferings where
+instance Core.AWSRequest DescribeReservedNodeOfferings where
   type
     Rs DescribeReservedNodeOfferings =
       DescribeReservedNodeOfferingsResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeReservedNodeOfferings")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> ( Core.toQueryValue "ReservedNodeOfferingId"
+                            Core.<$> reservedNodeOfferingId
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeReservedNodeOfferingsResult"
       ( \s h x ->
           DescribeReservedNodeOfferingsResponse'
-            Lude.<$> ( x Lude..@? "ReservedNodeOfferings" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "ReservedNodeOffering")
+            Core.<$> (x Core..@? "Marker")
+            Core.<*> ( x Core..@? "ReservedNodeOfferings"
+                         Core..<@> Core.parseXMLList "ReservedNodeOffering"
                      )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeReservedNodeOfferings where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeReservedNodeOfferings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReservedNodeOfferings where
-  toQuery DescribeReservedNodeOfferings' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeReservedNodeOfferings" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ReservedNodeOfferingId" Lude.=: reservedNodeOfferingId,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeReservedNodeOfferings where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"reservedNodeOfferings" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeReservedNodeOfferingsResponse' smart constructor.
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'
-  { -- | A list of @ReservedNodeOffering@ objects.
-    reservedNodeOfferings :: Lude.Maybe [ReservedNodeOffering],
-    -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Core.Maybe Types.Marker,
+    -- | A list of @ReservedNodeOffering@ objects.
+    reservedNodeOfferings :: Core.Maybe [Types.ReservedNodeOffering],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReservedNodeOfferingsResponse' with the minimum fields required to make a request.
---
--- * 'reservedNodeOfferings' - A list of @ReservedNodeOffering@ objects.
--- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReservedNodeOfferingsResponse' value with any optional fields omitted.
 mkDescribeReservedNodeOfferingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReservedNodeOfferingsResponse
-mkDescribeReservedNodeOfferingsResponse pResponseStatus_ =
+mkDescribeReservedNodeOfferingsResponse responseStatus =
   DescribeReservedNodeOfferingsResponse'
-    { reservedNodeOfferings =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      reservedNodeOfferings = Core.Nothing,
+      responseStatus
     }
-
--- | A list of @ReservedNodeOffering@ objects.
---
--- /Note:/ Consider using 'reservedNodeOfferings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drnorsReservedNodeOfferings :: Lens.Lens' DescribeReservedNodeOfferingsResponse (Lude.Maybe [ReservedNodeOffering])
-drnorsReservedNodeOfferings = Lens.lens (reservedNodeOfferings :: DescribeReservedNodeOfferingsResponse -> Lude.Maybe [ReservedNodeOffering]) (\s a -> s {reservedNodeOfferings = a} :: DescribeReservedNodeOfferingsResponse)
-{-# DEPRECATED drnorsReservedNodeOfferings "Use generic-lens or generic-optics with 'reservedNodeOfferings' instead." #-}
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drnorsMarker :: Lens.Lens' DescribeReservedNodeOfferingsResponse (Lude.Maybe Lude.Text)
-drnorsMarker = Lens.lens (marker :: DescribeReservedNodeOfferingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReservedNodeOfferingsResponse)
-{-# DEPRECATED drnorsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drnorrsMarker :: Lens.Lens' DescribeReservedNodeOfferingsResponse (Core.Maybe Types.Marker)
+drnorrsMarker = Lens.field @"marker"
+{-# DEPRECATED drnorrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A list of @ReservedNodeOffering@ objects.
+--
+-- /Note:/ Consider using 'reservedNodeOfferings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drnorrsReservedNodeOfferings :: Lens.Lens' DescribeReservedNodeOfferingsResponse (Core.Maybe [Types.ReservedNodeOffering])
+drnorrsReservedNodeOfferings = Lens.field @"reservedNodeOfferings"
+{-# DEPRECATED drnorrsReservedNodeOfferings "Use generic-lens or generic-optics with 'reservedNodeOfferings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drnorsResponseStatus :: Lens.Lens' DescribeReservedNodeOfferingsResponse Lude.Int
-drnorsResponseStatus = Lens.lens (responseStatus :: DescribeReservedNodeOfferingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReservedNodeOfferingsResponse)
-{-# DEPRECATED drnorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drnorrsResponseStatus :: Lens.Lens' DescribeReservedNodeOfferingsResponse Core.Int
+drnorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drnorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

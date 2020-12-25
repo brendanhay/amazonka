@@ -17,62 +17,55 @@ module Network.AWS.ResourceGroups.Types.GroupQuery
     mkGroupQuery,
 
     -- * Lenses
-    gqResourceQuery,
     gqGroupName,
+    gqResourceQuery,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ResourceGroups.Types.ResourceQuery
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.GroupName as Types
+import qualified Network.AWS.ResourceGroups.Types.ResourceQuery as Types
 
 -- | A mapping of a query attached to a resource group that determines the AWS resources that are members of the group.
 --
 -- /See:/ 'mkGroupQuery' smart constructor.
 data GroupQuery = GroupQuery'
-  { -- | The resource query that determines which AWS resources are members of the associated resource group.
-    resourceQuery :: ResourceQuery,
-    -- | The name of the resource group that is associated with the specified resource query.
-    groupName :: Lude.Text
+  { -- | The name of the resource group that is associated with the specified resource query.
+    groupName :: Types.GroupName,
+    -- | The resource query that determines which AWS resources are members of the associated resource group.
+    resourceQuery :: Types.ResourceQuery
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupQuery' with the minimum fields required to make a request.
---
--- * 'resourceQuery' - The resource query that determines which AWS resources are members of the associated resource group.
--- * 'groupName' - The name of the resource group that is associated with the specified resource query.
+-- | Creates a 'GroupQuery' value with any optional fields omitted.
 mkGroupQuery ::
-  -- | 'resourceQuery'
-  ResourceQuery ->
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupName ->
+  -- | 'resourceQuery'
+  Types.ResourceQuery ->
   GroupQuery
-mkGroupQuery pResourceQuery_ pGroupName_ =
-  GroupQuery'
-    { resourceQuery = pResourceQuery_,
-      groupName = pGroupName_
-    }
-
--- | The resource query that determines which AWS resources are members of the associated resource group.
---
--- /Note:/ Consider using 'resourceQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gqResourceQuery :: Lens.Lens' GroupQuery ResourceQuery
-gqResourceQuery = Lens.lens (resourceQuery :: GroupQuery -> ResourceQuery) (\s a -> s {resourceQuery = a} :: GroupQuery)
-{-# DEPRECATED gqResourceQuery "Use generic-lens or generic-optics with 'resourceQuery' instead." #-}
+mkGroupQuery groupName resourceQuery =
+  GroupQuery' {groupName, resourceQuery}
 
 -- | The name of the resource group that is associated with the specified resource query.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gqGroupName :: Lens.Lens' GroupQuery Lude.Text
-gqGroupName = Lens.lens (groupName :: GroupQuery -> Lude.Text) (\s a -> s {groupName = a} :: GroupQuery)
+gqGroupName :: Lens.Lens' GroupQuery Types.GroupName
+gqGroupName = Lens.field @"groupName"
 {-# DEPRECATED gqGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.FromJSON GroupQuery where
+-- | The resource query that determines which AWS resources are members of the associated resource group.
+--
+-- /Note:/ Consider using 'resourceQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqResourceQuery :: Lens.Lens' GroupQuery Types.ResourceQuery
+gqResourceQuery = Lens.field @"resourceQuery"
+{-# DEPRECATED gqResourceQuery "Use generic-lens or generic-optics with 'resourceQuery' instead." #-}
+
+instance Core.FromJSON GroupQuery where
   parseJSON =
-    Lude.withObject
-      "GroupQuery"
-      ( \x ->
-          GroupQuery'
-            Lude.<$> (x Lude..: "ResourceQuery") Lude.<*> (x Lude..: "GroupName")
-      )
+    Core.withObject "GroupQuery" Core.$
+      \x ->
+        GroupQuery'
+          Core.<$> (x Core..: "GroupName") Core.<*> (x Core..: "ResourceQuery")

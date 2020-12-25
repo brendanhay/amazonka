@@ -28,120 +28,103 @@ module Network.AWS.CodeStar.TagProject
     mkTagProjectResponse,
 
     -- ** Response lenses
-    tprsTags,
-    tprsResponseStatus,
+    tprrsTags,
+    tprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeStar.Types
+import qualified Network.AWS.CodeStar.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagProject' smart constructor.
 data TagProject = TagProject'
   { -- | The ID of the project you want to add a tag to.
-    id :: Lude.Text,
+    id :: Types.ProjectId,
     -- | The tags you want to add to the project.
-    tags :: Lude.HashMap Lude.Text (Lude.Text)
+    tags :: Core.HashMap Types.TagKey Types.TagValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagProject' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the project you want to add a tag to.
--- * 'tags' - The tags you want to add to the project.
+-- | Creates a 'TagProject' value with any optional fields omitted.
 mkTagProject ::
   -- | 'id'
-  Lude.Text ->
+  Types.ProjectId ->
   TagProject
-mkTagProject pId_ = TagProject' {id = pId_, tags = Lude.mempty}
+mkTagProject id = TagProject' {id, tags = Core.mempty}
 
 -- | The ID of the project you want to add a tag to.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpId :: Lens.Lens' TagProject Lude.Text
-tpId = Lens.lens (id :: TagProject -> Lude.Text) (\s a -> s {id = a} :: TagProject)
+tpId :: Lens.Lens' TagProject Types.ProjectId
+tpId = Lens.field @"id"
 {-# DEPRECATED tpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The tags you want to add to the project.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpTags :: Lens.Lens' TagProject (Lude.HashMap Lude.Text (Lude.Text))
-tpTags = Lens.lens (tags :: TagProject -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagProject)
+tpTags :: Lens.Lens' TagProject (Core.HashMap Types.TagKey Types.TagValue)
+tpTags = Lens.field @"tags"
 {-# DEPRECATED tpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagProject where
+instance Core.FromJSON TagProject where
+  toJSON TagProject {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("id" Core..= id), Core.Just ("tags" Core..= tags)]
+      )
+
+instance Core.AWSRequest TagProject where
   type Rs TagProject = TagProjectResponse
-  request = Req.postJSON codeStarService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeStar_20170419.TagProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TagProjectResponse'
-            Lude.<$> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "tags") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TagProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeStar_20170419.TagProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TagProject where
-  toJSON TagProject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("id" Lude..= id), Lude.Just ("tags" Lude..= tags)]
-      )
-
-instance Lude.ToPath TagProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTagProjectResponse' smart constructor.
 data TagProjectResponse = TagProjectResponse'
   { -- | The tags for the project.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagProjectResponse' with the minimum fields required to make a request.
---
--- * 'tags' - The tags for the project.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TagProjectResponse' value with any optional fields omitted.
 mkTagProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TagProjectResponse
-mkTagProjectResponse pResponseStatus_ =
-  TagProjectResponse'
-    { tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkTagProjectResponse responseStatus =
+  TagProjectResponse' {tags = Core.Nothing, responseStatus}
 
 -- | The tags for the project.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tprsTags :: Lens.Lens' TagProjectResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-tprsTags = Lens.lens (tags :: TagProjectResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: TagProjectResponse)
-{-# DEPRECATED tprsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+tprrsTags :: Lens.Lens' TagProjectResponse (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+tprrsTags = Lens.field @"tags"
+{-# DEPRECATED tprrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tprsResponseStatus :: Lens.Lens' TagProjectResponse Lude.Int
-tprsResponseStatus = Lens.lens (responseStatus :: TagProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagProjectResponse)
-{-# DEPRECATED tprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tprrsResponseStatus :: Lens.Lens' TagProjectResponse Core.Int
+tprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

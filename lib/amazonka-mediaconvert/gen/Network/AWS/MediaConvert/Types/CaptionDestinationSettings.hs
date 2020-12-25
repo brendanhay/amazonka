@@ -17,166 +17,155 @@ module Network.AWS.MediaConvert.Types.CaptionDestinationSettings
     mkCaptionDestinationSettings,
 
     -- * Lenses
-    cdsTeletextDestinationSettings,
-    cdsDvbSubDestinationSettings,
-    cdsTtmlDestinationSettings,
-    cdsDestinationType,
-    cdsEmbeddedDestinationSettings,
-    cdsSccDestinationSettings,
     cdsBurninDestinationSettings,
+    cdsDestinationType,
+    cdsDvbSubDestinationSettings,
+    cdsEmbeddedDestinationSettings,
     cdsImscDestinationSettings,
+    cdsSccDestinationSettings,
+    cdsTeletextDestinationSettings,
+    cdsTtmlDestinationSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.BurninDestinationSettings
-import Network.AWS.MediaConvert.Types.CaptionDestinationType
-import Network.AWS.MediaConvert.Types.DvbSubDestinationSettings
-import Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings
-import Network.AWS.MediaConvert.Types.ImscDestinationSettings
-import Network.AWS.MediaConvert.Types.SccDestinationSettings
-import Network.AWS.MediaConvert.Types.TeletextDestinationSettings
-import Network.AWS.MediaConvert.Types.TtmlDestinationSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.BurninDestinationSettings as Types
+import qualified Network.AWS.MediaConvert.Types.CaptionDestinationType as Types
+import qualified Network.AWS.MediaConvert.Types.DvbSubDestinationSettings as Types
+import qualified Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings as Types
+import qualified Network.AWS.MediaConvert.Types.ImscDestinationSettings as Types
+import qualified Network.AWS.MediaConvert.Types.SccDestinationSettings as Types
+import qualified Network.AWS.MediaConvert.Types.TeletextDestinationSettings as Types
+import qualified Network.AWS.MediaConvert.Types.TtmlDestinationSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specific settings required by destination type. Note that burnin_destination_settings are not available if the source of the caption data is Embedded or Teletext.
 --
 -- /See:/ 'mkCaptionDestinationSettings' smart constructor.
 data CaptionDestinationSettings = CaptionDestinationSettings'
-  { -- | Settings for Teletext caption output
-    teletextDestinationSettings :: Lude.Maybe TeletextDestinationSettings,
-    -- | DVB-Sub Destination Settings
-    dvbSubDestinationSettings :: Lude.Maybe DvbSubDestinationSettings,
-    -- | Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
-    ttmlDestinationSettings :: Lude.Maybe TtmlDestinationSettings,
+  { -- | Burn-In Destination Settings.
+    burninDestinationSettings :: Core.Maybe Types.BurninDestinationSettings,
     -- | Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
-    destinationType :: Lude.Maybe CaptionDestinationType,
+    destinationType :: Core.Maybe Types.CaptionDestinationType,
+    -- | DVB-Sub Destination Settings
+    dvbSubDestinationSettings :: Core.Maybe Types.DvbSubDestinationSettings,
     -- | Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
-    embeddedDestinationSettings :: Lude.Maybe EmbeddedDestinationSettings,
-    -- | Settings for SCC caption output.
-    sccDestinationSettings :: Lude.Maybe SccDestinationSettings,
-    -- | Burn-In Destination Settings.
-    burninDestinationSettings :: Lude.Maybe BurninDestinationSettings,
+    embeddedDestinationSettings :: Core.Maybe Types.EmbeddedDestinationSettings,
     -- | Settings specific to IMSC caption outputs.
-    imscDestinationSettings :: Lude.Maybe ImscDestinationSettings
+    imscDestinationSettings :: Core.Maybe Types.ImscDestinationSettings,
+    -- | Settings for SCC caption output.
+    sccDestinationSettings :: Core.Maybe Types.SccDestinationSettings,
+    -- | Settings for Teletext caption output
+    teletextDestinationSettings :: Core.Maybe Types.TeletextDestinationSettings,
+    -- | Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
+    ttmlDestinationSettings :: Core.Maybe Types.TtmlDestinationSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CaptionDestinationSettings' with the minimum fields required to make a request.
---
--- * 'teletextDestinationSettings' - Settings for Teletext caption output
--- * 'dvbSubDestinationSettings' - DVB-Sub Destination Settings
--- * 'ttmlDestinationSettings' - Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
--- * 'destinationType' - Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
--- * 'embeddedDestinationSettings' - Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
--- * 'sccDestinationSettings' - Settings for SCC caption output.
--- * 'burninDestinationSettings' - Burn-In Destination Settings.
--- * 'imscDestinationSettings' - Settings specific to IMSC caption outputs.
+-- | Creates a 'CaptionDestinationSettings' value with any optional fields omitted.
 mkCaptionDestinationSettings ::
   CaptionDestinationSettings
 mkCaptionDestinationSettings =
   CaptionDestinationSettings'
-    { teletextDestinationSettings =
-        Lude.Nothing,
-      dvbSubDestinationSettings = Lude.Nothing,
-      ttmlDestinationSettings = Lude.Nothing,
-      destinationType = Lude.Nothing,
-      embeddedDestinationSettings = Lude.Nothing,
-      sccDestinationSettings = Lude.Nothing,
-      burninDestinationSettings = Lude.Nothing,
-      imscDestinationSettings = Lude.Nothing
+    { burninDestinationSettings =
+        Core.Nothing,
+      destinationType = Core.Nothing,
+      dvbSubDestinationSettings = Core.Nothing,
+      embeddedDestinationSettings = Core.Nothing,
+      imscDestinationSettings = Core.Nothing,
+      sccDestinationSettings = Core.Nothing,
+      teletextDestinationSettings = Core.Nothing,
+      ttmlDestinationSettings = Core.Nothing
     }
-
--- | Settings for Teletext caption output
---
--- /Note:/ Consider using 'teletextDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsTeletextDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe TeletextDestinationSettings)
-cdsTeletextDestinationSettings = Lens.lens (teletextDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe TeletextDestinationSettings) (\s a -> s {teletextDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsTeletextDestinationSettings "Use generic-lens or generic-optics with 'teletextDestinationSettings' instead." #-}
-
--- | DVB-Sub Destination Settings
---
--- /Note:/ Consider using 'dvbSubDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsDvbSubDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe DvbSubDestinationSettings)
-cdsDvbSubDestinationSettings = Lens.lens (dvbSubDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe DvbSubDestinationSettings) (\s a -> s {dvbSubDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsDvbSubDestinationSettings "Use generic-lens or generic-optics with 'dvbSubDestinationSettings' instead." #-}
-
--- | Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
---
--- /Note:/ Consider using 'ttmlDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsTtmlDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe TtmlDestinationSettings)
-cdsTtmlDestinationSettings = Lens.lens (ttmlDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe TtmlDestinationSettings) (\s a -> s {ttmlDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsTtmlDestinationSettings "Use generic-lens or generic-optics with 'ttmlDestinationSettings' instead." #-}
-
--- | Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
---
--- /Note:/ Consider using 'destinationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsDestinationType :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe CaptionDestinationType)
-cdsDestinationType = Lens.lens (destinationType :: CaptionDestinationSettings -> Lude.Maybe CaptionDestinationType) (\s a -> s {destinationType = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsDestinationType "Use generic-lens or generic-optics with 'destinationType' instead." #-}
-
--- | Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
---
--- /Note:/ Consider using 'embeddedDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsEmbeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe EmbeddedDestinationSettings)
-cdsEmbeddedDestinationSettings = Lens.lens (embeddedDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe EmbeddedDestinationSettings) (\s a -> s {embeddedDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsEmbeddedDestinationSettings "Use generic-lens or generic-optics with 'embeddedDestinationSettings' instead." #-}
-
--- | Settings for SCC caption output.
---
--- /Note:/ Consider using 'sccDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsSccDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe SccDestinationSettings)
-cdsSccDestinationSettings = Lens.lens (sccDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe SccDestinationSettings) (\s a -> s {sccDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsSccDestinationSettings "Use generic-lens or generic-optics with 'sccDestinationSettings' instead." #-}
 
 -- | Burn-In Destination Settings.
 --
 -- /Note:/ Consider using 'burninDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsBurninDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe BurninDestinationSettings)
-cdsBurninDestinationSettings = Lens.lens (burninDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe BurninDestinationSettings) (\s a -> s {burninDestinationSettings = a} :: CaptionDestinationSettings)
+cdsBurninDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.BurninDestinationSettings)
+cdsBurninDestinationSettings = Lens.field @"burninDestinationSettings"
 {-# DEPRECATED cdsBurninDestinationSettings "Use generic-lens or generic-optics with 'burninDestinationSettings' instead." #-}
+
+-- | Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
+--
+-- /Note:/ Consider using 'destinationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsDestinationType :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.CaptionDestinationType)
+cdsDestinationType = Lens.field @"destinationType"
+{-# DEPRECATED cdsDestinationType "Use generic-lens or generic-optics with 'destinationType' instead." #-}
+
+-- | DVB-Sub Destination Settings
+--
+-- /Note:/ Consider using 'dvbSubDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsDvbSubDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.DvbSubDestinationSettings)
+cdsDvbSubDestinationSettings = Lens.field @"dvbSubDestinationSettings"
+{-# DEPRECATED cdsDvbSubDestinationSettings "Use generic-lens or generic-optics with 'dvbSubDestinationSettings' instead." #-}
+
+-- | Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
+--
+-- /Note:/ Consider using 'embeddedDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsEmbeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.EmbeddedDestinationSettings)
+cdsEmbeddedDestinationSettings = Lens.field @"embeddedDestinationSettings"
+{-# DEPRECATED cdsEmbeddedDestinationSettings "Use generic-lens or generic-optics with 'embeddedDestinationSettings' instead." #-}
 
 -- | Settings specific to IMSC caption outputs.
 --
 -- /Note:/ Consider using 'imscDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsImscDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe ImscDestinationSettings)
-cdsImscDestinationSettings = Lens.lens (imscDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe ImscDestinationSettings) (\s a -> s {imscDestinationSettings = a} :: CaptionDestinationSettings)
+cdsImscDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.ImscDestinationSettings)
+cdsImscDestinationSettings = Lens.field @"imscDestinationSettings"
 {-# DEPRECATED cdsImscDestinationSettings "Use generic-lens or generic-optics with 'imscDestinationSettings' instead." #-}
 
-instance Lude.FromJSON CaptionDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "CaptionDestinationSettings"
-      ( \x ->
-          CaptionDestinationSettings'
-            Lude.<$> (x Lude..:? "teletextDestinationSettings")
-            Lude.<*> (x Lude..:? "dvbSubDestinationSettings")
-            Lude.<*> (x Lude..:? "ttmlDestinationSettings")
-            Lude.<*> (x Lude..:? "destinationType")
-            Lude.<*> (x Lude..:? "embeddedDestinationSettings")
-            Lude.<*> (x Lude..:? "sccDestinationSettings")
-            Lude.<*> (x Lude..:? "burninDestinationSettings")
-            Lude.<*> (x Lude..:? "imscDestinationSettings")
-      )
+-- | Settings for SCC caption output.
+--
+-- /Note:/ Consider using 'sccDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsSccDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.SccDestinationSettings)
+cdsSccDestinationSettings = Lens.field @"sccDestinationSettings"
+{-# DEPRECATED cdsSccDestinationSettings "Use generic-lens or generic-optics with 'sccDestinationSettings' instead." #-}
 
-instance Lude.ToJSON CaptionDestinationSettings where
-  toJSON CaptionDestinationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("teletextDestinationSettings" Lude..=)
-              Lude.<$> teletextDestinationSettings,
-            ("dvbSubDestinationSettings" Lude..=)
-              Lude.<$> dvbSubDestinationSettings,
-            ("ttmlDestinationSettings" Lude..=)
-              Lude.<$> ttmlDestinationSettings,
-            ("destinationType" Lude..=) Lude.<$> destinationType,
-            ("embeddedDestinationSettings" Lude..=)
-              Lude.<$> embeddedDestinationSettings,
-            ("sccDestinationSettings" Lude..=) Lude.<$> sccDestinationSettings,
-            ("burninDestinationSettings" Lude..=)
-              Lude.<$> burninDestinationSettings,
-            ("imscDestinationSettings" Lude..=)
-              Lude.<$> imscDestinationSettings
+-- | Settings for Teletext caption output
+--
+-- /Note:/ Consider using 'teletextDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsTeletextDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.TeletextDestinationSettings)
+cdsTeletextDestinationSettings = Lens.field @"teletextDestinationSettings"
+{-# DEPRECATED cdsTeletextDestinationSettings "Use generic-lens or generic-optics with 'teletextDestinationSettings' instead." #-}
+
+-- | Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
+--
+-- /Note:/ Consider using 'ttmlDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsTtmlDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.TtmlDestinationSettings)
+cdsTtmlDestinationSettings = Lens.field @"ttmlDestinationSettings"
+{-# DEPRECATED cdsTtmlDestinationSettings "Use generic-lens or generic-optics with 'ttmlDestinationSettings' instead." #-}
+
+instance Core.FromJSON CaptionDestinationSettings where
+  toJSON CaptionDestinationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("burninDestinationSettings" Core..=)
+              Core.<$> burninDestinationSettings,
+            ("destinationType" Core..=) Core.<$> destinationType,
+            ("dvbSubDestinationSettings" Core..=)
+              Core.<$> dvbSubDestinationSettings,
+            ("embeddedDestinationSettings" Core..=)
+              Core.<$> embeddedDestinationSettings,
+            ("imscDestinationSettings" Core..=)
+              Core.<$> imscDestinationSettings,
+            ("sccDestinationSettings" Core..=) Core.<$> sccDestinationSettings,
+            ("teletextDestinationSettings" Core..=)
+              Core.<$> teletextDestinationSettings,
+            ("ttmlDestinationSettings" Core..=)
+              Core.<$> ttmlDestinationSettings
           ]
       )
+
+instance Core.FromJSON CaptionDestinationSettings where
+  parseJSON =
+    Core.withObject "CaptionDestinationSettings" Core.$
+      \x ->
+        CaptionDestinationSettings'
+          Core.<$> (x Core..:? "burninDestinationSettings")
+          Core.<*> (x Core..:? "destinationType")
+          Core.<*> (x Core..:? "dvbSubDestinationSettings")
+          Core.<*> (x Core..:? "embeddedDestinationSettings")
+          Core.<*> (x Core..:? "imscDestinationSettings")
+          Core.<*> (x Core..:? "sccDestinationSettings")
+          Core.<*> (x Core..:? "teletextDestinationSettings")
+          Core.<*> (x Core..:? "ttmlDestinationSettings")

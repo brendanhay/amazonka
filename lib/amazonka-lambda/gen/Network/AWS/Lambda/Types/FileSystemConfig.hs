@@ -17,67 +17,64 @@ module Network.AWS.Lambda.Types.FileSystemConfig
     mkFileSystemConfig,
 
     -- * Lenses
-    fscARN,
+    fscArn,
     fscLocalMountPath,
   )
 where
 
+import qualified Network.AWS.Lambda.Types.FileSystemArn as Types
+import qualified Network.AWS.Lambda.Types.LocalMountPath as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the connection between a Lambda function and an Amazon EFS file system.
 --
 -- /See:/ 'mkFileSystemConfig' smart constructor.
 data FileSystemConfig = FileSystemConfig'
   { -- | The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
-    arn :: Lude.Text,
+    arn :: Types.FileSystemArn,
     -- | The path where the function can access the file system, starting with @/mnt/@ .
-    localMountPath :: Lude.Text
+    localMountPath :: Types.LocalMountPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FileSystemConfig' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
--- * 'localMountPath' - The path where the function can access the file system, starting with @/mnt/@ .
+-- | Creates a 'FileSystemConfig' value with any optional fields omitted.
 mkFileSystemConfig ::
   -- | 'arn'
-  Lude.Text ->
+  Types.FileSystemArn ->
   -- | 'localMountPath'
-  Lude.Text ->
+  Types.LocalMountPath ->
   FileSystemConfig
-mkFileSystemConfig pARN_ pLocalMountPath_ =
-  FileSystemConfig' {arn = pARN_, localMountPath = pLocalMountPath_}
+mkFileSystemConfig arn localMountPath =
+  FileSystemConfig' {arn, localMountPath}
 
 -- | The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fscARN :: Lens.Lens' FileSystemConfig Lude.Text
-fscARN = Lens.lens (arn :: FileSystemConfig -> Lude.Text) (\s a -> s {arn = a} :: FileSystemConfig)
-{-# DEPRECATED fscARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+fscArn :: Lens.Lens' FileSystemConfig Types.FileSystemArn
+fscArn = Lens.field @"arn"
+{-# DEPRECATED fscArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The path where the function can access the file system, starting with @/mnt/@ .
 --
 -- /Note:/ Consider using 'localMountPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fscLocalMountPath :: Lens.Lens' FileSystemConfig Lude.Text
-fscLocalMountPath = Lens.lens (localMountPath :: FileSystemConfig -> Lude.Text) (\s a -> s {localMountPath = a} :: FileSystemConfig)
+fscLocalMountPath :: Lens.Lens' FileSystemConfig Types.LocalMountPath
+fscLocalMountPath = Lens.field @"localMountPath"
 {-# DEPRECATED fscLocalMountPath "Use generic-lens or generic-optics with 'localMountPath' instead." #-}
 
-instance Lude.FromJSON FileSystemConfig where
-  parseJSON =
-    Lude.withObject
-      "FileSystemConfig"
-      ( \x ->
-          FileSystemConfig'
-            Lude.<$> (x Lude..: "Arn") Lude.<*> (x Lude..: "LocalMountPath")
-      )
-
-instance Lude.ToJSON FileSystemConfig where
-  toJSON FileSystemConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Arn" Lude..= arn),
-            Lude.Just ("LocalMountPath" Lude..= localMountPath)
+instance Core.FromJSON FileSystemConfig where
+  toJSON FileSystemConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Arn" Core..= arn),
+            Core.Just ("LocalMountPath" Core..= localMountPath)
           ]
       )
+
+instance Core.FromJSON FileSystemConfig where
+  parseJSON =
+    Core.withObject "FileSystemConfig" Core.$
+      \x ->
+        FileSystemConfig'
+          Core.<$> (x Core..: "Arn") Core.<*> (x Core..: "LocalMountPath")

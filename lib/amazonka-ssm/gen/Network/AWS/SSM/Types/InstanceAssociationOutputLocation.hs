@@ -22,44 +22,40 @@ module Network.AWS.SSM.Types.InstanceAssociationOutputLocation
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.S3OutputLocation
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.S3OutputLocation as Types
 
 -- | An S3 bucket where you want to store the results of this request.
 --
 -- /See:/ 'mkInstanceAssociationOutputLocation' smart constructor.
 newtype InstanceAssociationOutputLocation = InstanceAssociationOutputLocation'
   { -- | An S3 bucket where you want to store the results of this request.
-    s3Location :: Lude.Maybe S3OutputLocation
+    s3Location :: Core.Maybe Types.S3OutputLocation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceAssociationOutputLocation' with the minimum fields required to make a request.
---
--- * 's3Location' - An S3 bucket where you want to store the results of this request.
+-- | Creates a 'InstanceAssociationOutputLocation' value with any optional fields omitted.
 mkInstanceAssociationOutputLocation ::
   InstanceAssociationOutputLocation
 mkInstanceAssociationOutputLocation =
-  InstanceAssociationOutputLocation' {s3Location = Lude.Nothing}
+  InstanceAssociationOutputLocation' {s3Location = Core.Nothing}
 
 -- | An S3 bucket where you want to store the results of this request.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaolS3Location :: Lens.Lens' InstanceAssociationOutputLocation (Lude.Maybe S3OutputLocation)
-iaolS3Location = Lens.lens (s3Location :: InstanceAssociationOutputLocation -> Lude.Maybe S3OutputLocation) (\s a -> s {s3Location = a} :: InstanceAssociationOutputLocation)
+iaolS3Location :: Lens.Lens' InstanceAssociationOutputLocation (Core.Maybe Types.S3OutputLocation)
+iaolS3Location = Lens.field @"s3Location"
 {-# DEPRECATED iaolS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
-instance Lude.FromJSON InstanceAssociationOutputLocation where
-  parseJSON =
-    Lude.withObject
-      "InstanceAssociationOutputLocation"
-      ( \x ->
-          InstanceAssociationOutputLocation'
-            Lude.<$> (x Lude..:? "S3Location")
-      )
+instance Core.FromJSON InstanceAssociationOutputLocation where
+  toJSON InstanceAssociationOutputLocation {..} =
+    Core.object
+      (Core.catMaybes [("S3Location" Core..=) Core.<$> s3Location])
 
-instance Lude.ToJSON InstanceAssociationOutputLocation where
-  toJSON InstanceAssociationOutputLocation' {..} =
-    Lude.object
-      (Lude.catMaybes [("S3Location" Lude..=) Lude.<$> s3Location])
+instance Core.FromJSON InstanceAssociationOutputLocation where
+  parseJSON =
+    Core.withObject "InstanceAssociationOutputLocation" Core.$
+      \x ->
+        InstanceAssociationOutputLocation'
+          Core.<$> (x Core..:? "S3Location")

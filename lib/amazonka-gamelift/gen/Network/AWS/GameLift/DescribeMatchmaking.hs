@@ -49,111 +49,98 @@ module Network.AWS.GameLift.DescribeMatchmaking
     mkDescribeMatchmakingResponse,
 
     -- ** Response lenses
-    dmrsTicketList,
-    dmrsResponseStatus,
+    dmrrsTicketList,
+    dmrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribeMatchmaking' smart constructor.
 newtype DescribeMatchmaking = DescribeMatchmaking'
   { -- | A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
-    ticketIds :: [Lude.Text]
+    ticketIds :: [Types.MatchmakingIdStringModel]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMatchmaking' with the minimum fields required to make a request.
---
--- * 'ticketIds' - A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
+-- | Creates a 'DescribeMatchmaking' value with any optional fields omitted.
 mkDescribeMatchmaking ::
   DescribeMatchmaking
 mkDescribeMatchmaking =
-  DescribeMatchmaking' {ticketIds = Lude.mempty}
+  DescribeMatchmaking' {ticketIds = Core.mempty}
 
 -- | A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
 --
 -- /Note:/ Consider using 'ticketIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmTicketIds :: Lens.Lens' DescribeMatchmaking [Lude.Text]
-dmTicketIds = Lens.lens (ticketIds :: DescribeMatchmaking -> [Lude.Text]) (\s a -> s {ticketIds = a} :: DescribeMatchmaking)
+dmTicketIds :: Lens.Lens' DescribeMatchmaking [Types.MatchmakingIdStringModel]
+dmTicketIds = Lens.field @"ticketIds"
 {-# DEPRECATED dmTicketIds "Use generic-lens or generic-optics with 'ticketIds' instead." #-}
 
-instance Lude.AWSRequest DescribeMatchmaking where
+instance Core.FromJSON DescribeMatchmaking where
+  toJSON DescribeMatchmaking {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TicketIds" Core..= ticketIds)])
+
+instance Core.AWSRequest DescribeMatchmaking where
   type Rs DescribeMatchmaking = DescribeMatchmakingResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribeMatchmaking")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeMatchmakingResponse'
-            Lude.<$> (x Lude..?> "TicketList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TicketList") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeMatchmaking where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribeMatchmaking" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeMatchmaking where
-  toJSON DescribeMatchmaking' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TicketIds" Lude..= ticketIds)])
-
-instance Lude.ToPath DescribeMatchmaking where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeMatchmaking where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkDescribeMatchmakingResponse' smart constructor.
 data DescribeMatchmakingResponse = DescribeMatchmakingResponse'
   { -- | A collection of existing matchmaking ticket objects matching the request.
-    ticketList :: Lude.Maybe [MatchmakingTicket],
+    ticketList :: Core.Maybe [Types.MatchmakingTicket],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeMatchmakingResponse' with the minimum fields required to make a request.
---
--- * 'ticketList' - A collection of existing matchmaking ticket objects matching the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMatchmakingResponse' value with any optional fields omitted.
 mkDescribeMatchmakingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMatchmakingResponse
-mkDescribeMatchmakingResponse pResponseStatus_ =
+mkDescribeMatchmakingResponse responseStatus =
   DescribeMatchmakingResponse'
-    { ticketList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { ticketList = Core.Nothing,
+      responseStatus
     }
 
 -- | A collection of existing matchmaking ticket objects matching the request.
 --
 -- /Note:/ Consider using 'ticketList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsTicketList :: Lens.Lens' DescribeMatchmakingResponse (Lude.Maybe [MatchmakingTicket])
-dmrsTicketList = Lens.lens (ticketList :: DescribeMatchmakingResponse -> Lude.Maybe [MatchmakingTicket]) (\s a -> s {ticketList = a} :: DescribeMatchmakingResponse)
-{-# DEPRECATED dmrsTicketList "Use generic-lens or generic-optics with 'ticketList' instead." #-}
+dmrrsTicketList :: Lens.Lens' DescribeMatchmakingResponse (Core.Maybe [Types.MatchmakingTicket])
+dmrrsTicketList = Lens.field @"ticketList"
+{-# DEPRECATED dmrrsTicketList "Use generic-lens or generic-optics with 'ticketList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsResponseStatus :: Lens.Lens' DescribeMatchmakingResponse Lude.Int
-dmrsResponseStatus = Lens.lens (responseStatus :: DescribeMatchmakingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMatchmakingResponse)
-{-# DEPRECATED dmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmrrsResponseStatus :: Lens.Lens' DescribeMatchmakingResponse Core.Int
+dmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

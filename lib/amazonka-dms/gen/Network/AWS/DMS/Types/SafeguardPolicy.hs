@@ -13,51 +13,56 @@
 module Network.AWS.DMS.Types.SafeguardPolicy
   ( SafeguardPolicy
       ( SafeguardPolicy',
-        RelyOnSqlServerReplicationAgent,
-        ExclusiveAutomaticTruncation,
-        SharedAutomaticTruncation
+        SafeguardPolicyRelyOnSqlServerReplicationAgent,
+        SafeguardPolicyExclusiveAutomaticTruncation,
+        SafeguardPolicySharedAutomaticTruncation,
+        fromSafeguardPolicy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SafeguardPolicy = SafeguardPolicy' Lude.Text
+newtype SafeguardPolicy = SafeguardPolicy'
+  { fromSafeguardPolicy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RelyOnSqlServerReplicationAgent :: SafeguardPolicy
-pattern RelyOnSqlServerReplicationAgent = SafeguardPolicy' "rely-on-sql-server-replication-agent"
+pattern SafeguardPolicyRelyOnSqlServerReplicationAgent :: SafeguardPolicy
+pattern SafeguardPolicyRelyOnSqlServerReplicationAgent = SafeguardPolicy' "rely-on-sql-server-replication-agent"
 
-pattern ExclusiveAutomaticTruncation :: SafeguardPolicy
-pattern ExclusiveAutomaticTruncation = SafeguardPolicy' "exclusive-automatic-truncation"
+pattern SafeguardPolicyExclusiveAutomaticTruncation :: SafeguardPolicy
+pattern SafeguardPolicyExclusiveAutomaticTruncation = SafeguardPolicy' "exclusive-automatic-truncation"
 
-pattern SharedAutomaticTruncation :: SafeguardPolicy
-pattern SharedAutomaticTruncation = SafeguardPolicy' "shared-automatic-truncation"
+pattern SafeguardPolicySharedAutomaticTruncation :: SafeguardPolicy
+pattern SafeguardPolicySharedAutomaticTruncation = SafeguardPolicy' "shared-automatic-truncation"
 
 {-# COMPLETE
-  RelyOnSqlServerReplicationAgent,
-  ExclusiveAutomaticTruncation,
-  SharedAutomaticTruncation,
+  SafeguardPolicyRelyOnSqlServerReplicationAgent,
+  SafeguardPolicyExclusiveAutomaticTruncation,
+  SafeguardPolicySharedAutomaticTruncation,
   SafeguardPolicy'
   #-}

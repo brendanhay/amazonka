@@ -23,61 +23,58 @@ module Network.AWS.EC2.Types.HostInstance
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance running on a Dedicated Host.
 --
 -- /See:/ 'mkHostInstance' smart constructor.
 data HostInstance = HostInstance'
   { -- | The ID of instance that is running on the Dedicated Host.
-    instanceId :: Lude.Maybe Lude.Text,
+    instanceId :: Core.Maybe Types.String,
     -- | The instance type (for example, @m3.medium@ ) of the running instance.
-    instanceType :: Lude.Maybe Lude.Text,
+    instanceType :: Core.Maybe Types.String,
     -- | The ID of the AWS account that owns the instance.
-    ownerId :: Lude.Maybe Lude.Text
+    ownerId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HostInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of instance that is running on the Dedicated Host.
--- * 'instanceType' - The instance type (for example, @m3.medium@ ) of the running instance.
--- * 'ownerId' - The ID of the AWS account that owns the instance.
+-- | Creates a 'HostInstance' value with any optional fields omitted.
 mkHostInstance ::
   HostInstance
 mkHostInstance =
   HostInstance'
-    { instanceId = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      ownerId = Lude.Nothing
+    { instanceId = Core.Nothing,
+      instanceType = Core.Nothing,
+      ownerId = Core.Nothing
     }
 
 -- | The ID of instance that is running on the Dedicated Host.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hiInstanceId :: Lens.Lens' HostInstance (Lude.Maybe Lude.Text)
-hiInstanceId = Lens.lens (instanceId :: HostInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: HostInstance)
+hiInstanceId :: Lens.Lens' HostInstance (Core.Maybe Types.String)
+hiInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED hiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The instance type (for example, @m3.medium@ ) of the running instance.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hiInstanceType :: Lens.Lens' HostInstance (Lude.Maybe Lude.Text)
-hiInstanceType = Lens.lens (instanceType :: HostInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: HostInstance)
+hiInstanceType :: Lens.Lens' HostInstance (Core.Maybe Types.String)
+hiInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED hiInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The ID of the AWS account that owns the instance.
 --
 -- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hiOwnerId :: Lens.Lens' HostInstance (Lude.Maybe Lude.Text)
-hiOwnerId = Lens.lens (ownerId :: HostInstance -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: HostInstance)
+hiOwnerId :: Lens.Lens' HostInstance (Core.Maybe Types.String)
+hiOwnerId = Lens.field @"ownerId"
 {-# DEPRECATED hiOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
-instance Lude.FromXML HostInstance where
+instance Core.FromXML HostInstance where
   parseXML x =
     HostInstance'
-      Lude.<$> (x Lude..@? "instanceId")
-      Lude.<*> (x Lude..@? "instanceType")
-      Lude.<*> (x Lude..@? "ownerId")
+      Core.<$> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "ownerId")

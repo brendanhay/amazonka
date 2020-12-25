@@ -17,70 +17,61 @@ module Network.AWS.IoTAnalytics.Types.LambdaActivity
     mkLambdaActivity,
 
     -- * Lenses
-    laNext,
+    laName,
     laLambdaName,
     laBatchSize,
-    laName,
+    laNext,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.LambdaName as Types
+import qualified Network.AWS.IoTAnalytics.Types.Name as Types
+import qualified Network.AWS.IoTAnalytics.Types.Next as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An activity that runs a Lambda function to modify the message.
 --
 -- /See:/ 'mkLambdaActivity' smart constructor.
 data LambdaActivity = LambdaActivity'
-  { -- | The next activity in the pipeline.
-    next :: Lude.Maybe Lude.Text,
+  { -- | The name of the lambda activity.
+    name :: Types.Name,
     -- | The name of the Lambda function that is run on the message.
-    lambdaName :: Lude.Text,
+    lambdaName :: Types.LambdaName,
     -- | The number of messages passed to the Lambda function for processing.
     --
     -- The Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
-    batchSize :: Lude.Natural,
-    -- | The name of the lambda activity.
-    name :: Lude.Text
+    batchSize :: Core.Natural,
+    -- | The next activity in the pipeline.
+    next :: Core.Maybe Types.Next
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaActivity' with the minimum fields required to make a request.
---
--- * 'next' - The next activity in the pipeline.
--- * 'lambdaName' - The name of the Lambda function that is run on the message.
--- * 'batchSize' - The number of messages passed to the Lambda function for processing.
---
--- The Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
--- * 'name' - The name of the lambda activity.
+-- | Creates a 'LambdaActivity' value with any optional fields omitted.
 mkLambdaActivity ::
-  -- | 'lambdaName'
-  Lude.Text ->
-  -- | 'batchSize'
-  Lude.Natural ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'lambdaName'
+  Types.LambdaName ->
+  -- | 'batchSize'
+  Core.Natural ->
   LambdaActivity
-mkLambdaActivity pLambdaName_ pBatchSize_ pName_ =
-  LambdaActivity'
-    { next = Lude.Nothing,
-      lambdaName = pLambdaName_,
-      batchSize = pBatchSize_,
-      name = pName_
-    }
+mkLambdaActivity name lambdaName batchSize =
+  LambdaActivity' {name, lambdaName, batchSize, next = Core.Nothing}
 
--- | The next activity in the pipeline.
+-- | The name of the lambda activity.
 --
--- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laNext :: Lens.Lens' LambdaActivity (Lude.Maybe Lude.Text)
-laNext = Lens.lens (next :: LambdaActivity -> Lude.Maybe Lude.Text) (\s a -> s {next = a} :: LambdaActivity)
-{-# DEPRECATED laNext "Use generic-lens or generic-optics with 'next' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laName :: Lens.Lens' LambdaActivity Types.Name
+laName = Lens.field @"name"
+{-# DEPRECATED laName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the Lambda function that is run on the message.
 --
 -- /Note:/ Consider using 'lambdaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laLambdaName :: Lens.Lens' LambdaActivity Lude.Text
-laLambdaName = Lens.lens (lambdaName :: LambdaActivity -> Lude.Text) (\s a -> s {lambdaName = a} :: LambdaActivity)
+laLambdaName :: Lens.Lens' LambdaActivity Types.LambdaName
+laLambdaName = Lens.field @"lambdaName"
 {-# DEPRECATED laLambdaName "Use generic-lens or generic-optics with 'lambdaName' instead." #-}
 
 -- | The number of messages passed to the Lambda function for processing.
@@ -88,36 +79,34 @@ laLambdaName = Lens.lens (lambdaName :: LambdaActivity -> Lude.Text) (\s a -> s 
 -- The Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
 --
 -- /Note:/ Consider using 'batchSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laBatchSize :: Lens.Lens' LambdaActivity Lude.Natural
-laBatchSize = Lens.lens (batchSize :: LambdaActivity -> Lude.Natural) (\s a -> s {batchSize = a} :: LambdaActivity)
+laBatchSize :: Lens.Lens' LambdaActivity Core.Natural
+laBatchSize = Lens.field @"batchSize"
 {-# DEPRECATED laBatchSize "Use generic-lens or generic-optics with 'batchSize' instead." #-}
 
--- | The name of the lambda activity.
+-- | The next activity in the pipeline.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laName :: Lens.Lens' LambdaActivity Lude.Text
-laName = Lens.lens (name :: LambdaActivity -> Lude.Text) (\s a -> s {name = a} :: LambdaActivity)
-{-# DEPRECATED laName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNext :: Lens.Lens' LambdaActivity (Core.Maybe Types.Next)
+laNext = Lens.field @"next"
+{-# DEPRECATED laNext "Use generic-lens or generic-optics with 'next' instead." #-}
 
-instance Lude.FromJSON LambdaActivity where
-  parseJSON =
-    Lude.withObject
-      "LambdaActivity"
-      ( \x ->
-          LambdaActivity'
-            Lude.<$> (x Lude..:? "next")
-            Lude.<*> (x Lude..: "lambdaName")
-            Lude.<*> (x Lude..: "batchSize")
-            Lude.<*> (x Lude..: "name")
-      )
-
-instance Lude.ToJSON LambdaActivity where
-  toJSON LambdaActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("next" Lude..=) Lude.<$> next,
-            Lude.Just ("lambdaName" Lude..= lambdaName),
-            Lude.Just ("batchSize" Lude..= batchSize),
-            Lude.Just ("name" Lude..= name)
+instance Core.FromJSON LambdaActivity where
+  toJSON LambdaActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("lambdaName" Core..= lambdaName),
+            Core.Just ("batchSize" Core..= batchSize),
+            ("next" Core..=) Core.<$> next
           ]
       )
+
+instance Core.FromJSON LambdaActivity where
+  parseJSON =
+    Core.withObject "LambdaActivity" Core.$
+      \x ->
+        LambdaActivity'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "lambdaName")
+          Core.<*> (x Core..: "batchSize")
+          Core.<*> (x Core..:? "next")

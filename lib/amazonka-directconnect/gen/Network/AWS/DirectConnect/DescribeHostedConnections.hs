@@ -23,68 +23,60 @@ module Network.AWS.DirectConnect.DescribeHostedConnections
     dhcConnectionId,
 
     -- * Destructuring the response
-    Connections (..),
-    mkConnections,
+    Types.Connections (..),
+    Types.mkConnections,
 
     -- ** Response lenses
-    cConnections,
+    Types.cConnections,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeHostedConnections' smart constructor.
 newtype DescribeHostedConnections = DescribeHostedConnections'
   { -- | The ID of the interconnect or LAG.
-    connectionId :: Lude.Text
+    connectionId :: Types.ConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeHostedConnections' with the minimum fields required to make a request.
---
--- * 'connectionId' - The ID of the interconnect or LAG.
+-- | Creates a 'DescribeHostedConnections' value with any optional fields omitted.
 mkDescribeHostedConnections ::
   -- | 'connectionId'
-  Lude.Text ->
+  Types.ConnectionId ->
   DescribeHostedConnections
-mkDescribeHostedConnections pConnectionId_ =
-  DescribeHostedConnections' {connectionId = pConnectionId_}
+mkDescribeHostedConnections connectionId =
+  DescribeHostedConnections' {connectionId}
 
 -- | The ID of the interconnect or LAG.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhcConnectionId :: Lens.Lens' DescribeHostedConnections Lude.Text
-dhcConnectionId = Lens.lens (connectionId :: DescribeHostedConnections -> Lude.Text) (\s a -> s {connectionId = a} :: DescribeHostedConnections)
+dhcConnectionId :: Lens.Lens' DescribeHostedConnections Types.ConnectionId
+dhcConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED dhcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance Lude.AWSRequest DescribeHostedConnections where
-  type Rs DescribeHostedConnections = Connections
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+instance Core.FromJSON DescribeHostedConnections where
+  toJSON DescribeHostedConnections {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("connectionId" Core..= connectionId)])
 
-instance Lude.ToHeaders DescribeHostedConnections where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.DescribeHostedConnections" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeHostedConnections where
-  toJSON DescribeHostedConnections' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("connectionId" Lude..= connectionId)])
-
-instance Lude.ToPath DescribeHostedConnections where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeHostedConnections where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeHostedConnections where
+  type Rs DescribeHostedConnections = Types.Connections
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.DescribeHostedConnections")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

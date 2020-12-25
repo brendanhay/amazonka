@@ -22,35 +22,33 @@ module Network.AWS.XRay.Types.AvailabilityZoneDetail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | A list of Availability Zones corresponding to the segments in a trace.
 --
 -- /See:/ 'mkAvailabilityZoneDetail' smart constructor.
 newtype AvailabilityZoneDetail = AvailabilityZoneDetail'
   { -- | The name of a corresponding Availability Zone.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AvailabilityZoneDetail' with the minimum fields required to make a request.
---
--- * 'name' - The name of a corresponding Availability Zone.
+-- | Creates a 'AvailabilityZoneDetail' value with any optional fields omitted.
 mkAvailabilityZoneDetail ::
   AvailabilityZoneDetail
 mkAvailabilityZoneDetail =
-  AvailabilityZoneDetail' {name = Lude.Nothing}
+  AvailabilityZoneDetail' {name = Core.Nothing}
 
 -- | The name of a corresponding Availability Zone.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azdName :: Lens.Lens' AvailabilityZoneDetail (Lude.Maybe Lude.Text)
-azdName = Lens.lens (name :: AvailabilityZoneDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AvailabilityZoneDetail)
+azdName :: Lens.Lens' AvailabilityZoneDetail (Core.Maybe Types.String)
+azdName = Lens.field @"name"
 {-# DEPRECATED azdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON AvailabilityZoneDetail where
+instance Core.FromJSON AvailabilityZoneDetail where
   parseJSON =
-    Lude.withObject
-      "AvailabilityZoneDetail"
-      (\x -> AvailabilityZoneDetail' Lude.<$> (x Lude..:? "Name"))
+    Core.withObject "AvailabilityZoneDetail" Core.$
+      \x -> AvailabilityZoneDetail' Core.<$> (x Core..:? "Name")

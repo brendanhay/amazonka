@@ -13,46 +13,51 @@
 module Network.AWS.ECS.Types.FirelensConfigurationType
   ( FirelensConfigurationType
       ( FirelensConfigurationType',
-        Fluentd,
-        Fluentbit
+        FirelensConfigurationTypeFluentd,
+        FirelensConfigurationTypeFluentbit,
+        fromFirelensConfigurationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FirelensConfigurationType = FirelensConfigurationType' Lude.Text
+newtype FirelensConfigurationType = FirelensConfigurationType'
+  { fromFirelensConfigurationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Fluentd :: FirelensConfigurationType
-pattern Fluentd = FirelensConfigurationType' "fluentd"
+pattern FirelensConfigurationTypeFluentd :: FirelensConfigurationType
+pattern FirelensConfigurationTypeFluentd = FirelensConfigurationType' "fluentd"
 
-pattern Fluentbit :: FirelensConfigurationType
-pattern Fluentbit = FirelensConfigurationType' "fluentbit"
+pattern FirelensConfigurationTypeFluentbit :: FirelensConfigurationType
+pattern FirelensConfigurationTypeFluentbit = FirelensConfigurationType' "fluentbit"
 
 {-# COMPLETE
-  Fluentd,
-  Fluentbit,
+  FirelensConfigurationTypeFluentd,
+  FirelensConfigurationTypeFluentbit,
   FirelensConfigurationType'
   #-}

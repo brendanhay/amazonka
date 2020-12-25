@@ -27,108 +27,95 @@ module Network.AWS.Glue.DeleteMLTransform
     mkDeleteMLTransformResponse,
 
     -- ** Response lenses
-    dmltrsTransformId,
-    dmltrsResponseStatus,
+    dmltrrsTransformId,
+    dmltrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteMLTransform' smart constructor.
 newtype DeleteMLTransform = DeleteMLTransform'
   { -- | The unique identifier of the transform to delete.
-    transformId :: Lude.Text
+    transformId :: Types.HashString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMLTransform' with the minimum fields required to make a request.
---
--- * 'transformId' - The unique identifier of the transform to delete.
+-- | Creates a 'DeleteMLTransform' value with any optional fields omitted.
 mkDeleteMLTransform ::
   -- | 'transformId'
-  Lude.Text ->
+  Types.HashString ->
   DeleteMLTransform
-mkDeleteMLTransform pTransformId_ =
-  DeleteMLTransform' {transformId = pTransformId_}
+mkDeleteMLTransform transformId = DeleteMLTransform' {transformId}
 
 -- | The unique identifier of the transform to delete.
 --
 -- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmltTransformId :: Lens.Lens' DeleteMLTransform Lude.Text
-dmltTransformId = Lens.lens (transformId :: DeleteMLTransform -> Lude.Text) (\s a -> s {transformId = a} :: DeleteMLTransform)
+dmltTransformId :: Lens.Lens' DeleteMLTransform Types.HashString
+dmltTransformId = Lens.field @"transformId"
 {-# DEPRECATED dmltTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
-instance Lude.AWSRequest DeleteMLTransform where
+instance Core.FromJSON DeleteMLTransform where
+  toJSON DeleteMLTransform {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TransformId" Core..= transformId)])
+
+instance Core.AWSRequest DeleteMLTransform where
   type Rs DeleteMLTransform = DeleteMLTransformResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeleteMLTransform")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteMLTransformResponse'
-            Lude.<$> (x Lude..?> "TransformId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TransformId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteMLTransform where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeleteMLTransform" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteMLTransform where
-  toJSON DeleteMLTransform' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TransformId" Lude..= transformId)])
-
-instance Lude.ToPath DeleteMLTransform where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteMLTransform where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteMLTransformResponse' smart constructor.
 data DeleteMLTransformResponse = DeleteMLTransformResponse'
   { -- | The unique identifier of the transform that was deleted.
-    transformId :: Lude.Maybe Lude.Text,
+    transformId :: Core.Maybe Types.HashString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMLTransformResponse' with the minimum fields required to make a request.
---
--- * 'transformId' - The unique identifier of the transform that was deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteMLTransformResponse' value with any optional fields omitted.
 mkDeleteMLTransformResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteMLTransformResponse
-mkDeleteMLTransformResponse pResponseStatus_ =
+mkDeleteMLTransformResponse responseStatus =
   DeleteMLTransformResponse'
-    { transformId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { transformId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier of the transform that was deleted.
 --
 -- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmltrsTransformId :: Lens.Lens' DeleteMLTransformResponse (Lude.Maybe Lude.Text)
-dmltrsTransformId = Lens.lens (transformId :: DeleteMLTransformResponse -> Lude.Maybe Lude.Text) (\s a -> s {transformId = a} :: DeleteMLTransformResponse)
-{-# DEPRECATED dmltrsTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
+dmltrrsTransformId :: Lens.Lens' DeleteMLTransformResponse (Core.Maybe Types.HashString)
+dmltrrsTransformId = Lens.field @"transformId"
+{-# DEPRECATED dmltrrsTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmltrsResponseStatus :: Lens.Lens' DeleteMLTransformResponse Lude.Int
-dmltrsResponseStatus = Lens.lens (responseStatus :: DeleteMLTransformResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMLTransformResponse)
-{-# DEPRECATED dmltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmltrrsResponseStatus :: Lens.Lens' DeleteMLTransformResponse Core.Int
+dmltrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -31,15 +31,15 @@ module Network.AWS.SSM.UpdateServiceSetting
     mkUpdateServiceSettingResponse,
 
     -- ** Response lenses
-    ussrsResponseStatus,
+    ussrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | The request body of the UpdateServiceSetting API action.
 --
@@ -55,7 +55,7 @@ data UpdateServiceSetting = UpdateServiceSetting'
     --
     --
     --     * @/ssm/managed-instance/activation-tier@
-    settingId :: Lude.Text,
+    settingId :: Types.SettingId,
     -- | The new value to specify for the service setting. For the @/ssm/parameter-store/default-parameter-tier@ setting ID, the setting value can be one of the following.
     --
     --
@@ -69,49 +69,20 @@ data UpdateServiceSetting = UpdateServiceSetting'
     --
     --
     -- For the @/ssm/parameter-store/high-throughput-enabled@ , and @/ssm/managed-instance/activation-tier@ setting IDs, the setting value can be true or false.
-    settingValue :: Lude.Text
+    settingValue :: Types.SettingValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateServiceSetting' with the minimum fields required to make a request.
---
--- * 'settingId' - The Amazon Resource Name (ARN) of the service setting to reset. For example, @arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled@ . The setting ID can be one of the following.
---
---
---     * @/ssm/parameter-store/default-parameter-tier@
---
---
---     * @/ssm/parameter-store/high-throughput-enabled@
---
---
---     * @/ssm/managed-instance/activation-tier@
---
---
--- * 'settingValue' - The new value to specify for the service setting. For the @/ssm/parameter-store/default-parameter-tier@ setting ID, the setting value can be one of the following.
---
---
---     * Standard
---
---
---     * Advanced
---
---
---     * Intelligent-Tiering
---
---
--- For the @/ssm/parameter-store/high-throughput-enabled@ , and @/ssm/managed-instance/activation-tier@ setting IDs, the setting value can be true or false.
+-- | Creates a 'UpdateServiceSetting' value with any optional fields omitted.
 mkUpdateServiceSetting ::
   -- | 'settingId'
-  Lude.Text ->
+  Types.SettingId ->
   -- | 'settingValue'
-  Lude.Text ->
+  Types.SettingValue ->
   UpdateServiceSetting
-mkUpdateServiceSetting pSettingId_ pSettingValue_ =
-  UpdateServiceSetting'
-    { settingId = pSettingId_,
-      settingValue = pSettingValue_
-    }
+mkUpdateServiceSetting settingId settingValue =
+  UpdateServiceSetting' {settingId, settingValue}
 
 -- | The Amazon Resource Name (ARN) of the service setting to reset. For example, @arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled@ . The setting ID can be one of the following.
 --
@@ -127,8 +98,8 @@ mkUpdateServiceSetting pSettingId_ pSettingValue_ =
 --
 --
 -- /Note:/ Consider using 'settingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ussSettingId :: Lens.Lens' UpdateServiceSetting Lude.Text
-ussSettingId = Lens.lens (settingId :: UpdateServiceSetting -> Lude.Text) (\s a -> s {settingId = a} :: UpdateServiceSetting)
+ussSettingId :: Lens.Lens' UpdateServiceSetting Types.SettingId
+ussSettingId = Lens.field @"settingId"
 {-# DEPRECATED ussSettingId "Use generic-lens or generic-optics with 'settingId' instead." #-}
 
 -- | The new value to specify for the service setting. For the @/ssm/parameter-store/default-parameter-tier@ setting ID, the setting value can be one of the following.
@@ -146,69 +117,60 @@ ussSettingId = Lens.lens (settingId :: UpdateServiceSetting -> Lude.Text) (\s a 
 -- For the @/ssm/parameter-store/high-throughput-enabled@ , and @/ssm/managed-instance/activation-tier@ setting IDs, the setting value can be true or false.
 --
 -- /Note:/ Consider using 'settingValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ussSettingValue :: Lens.Lens' UpdateServiceSetting Lude.Text
-ussSettingValue = Lens.lens (settingValue :: UpdateServiceSetting -> Lude.Text) (\s a -> s {settingValue = a} :: UpdateServiceSetting)
+ussSettingValue :: Lens.Lens' UpdateServiceSetting Types.SettingValue
+ussSettingValue = Lens.field @"settingValue"
 {-# DEPRECATED ussSettingValue "Use generic-lens or generic-optics with 'settingValue' instead." #-}
 
-instance Lude.AWSRequest UpdateServiceSetting where
+instance Core.FromJSON UpdateServiceSetting where
+  toJSON UpdateServiceSetting {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SettingId" Core..= settingId),
+            Core.Just ("SettingValue" Core..= settingValue)
+          ]
+      )
+
+instance Core.AWSRequest UpdateServiceSetting where
   type Rs UpdateServiceSetting = UpdateServiceSettingResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.UpdateServiceSetting")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateServiceSettingResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateServiceSetting where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.UpdateServiceSetting" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateServiceSetting where
-  toJSON UpdateServiceSetting' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SettingId" Lude..= settingId),
-            Lude.Just ("SettingValue" Lude..= settingValue)
-          ]
-      )
-
-instance Lude.ToPath UpdateServiceSetting where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateServiceSetting where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result body of the UpdateServiceSetting API action.
 --
 -- /See:/ 'mkUpdateServiceSettingResponse' smart constructor.
 newtype UpdateServiceSettingResponse = UpdateServiceSettingResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateServiceSettingResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateServiceSettingResponse' value with any optional fields omitted.
 mkUpdateServiceSettingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateServiceSettingResponse
-mkUpdateServiceSettingResponse pResponseStatus_ =
-  UpdateServiceSettingResponse' {responseStatus = pResponseStatus_}
+mkUpdateServiceSettingResponse responseStatus =
+  UpdateServiceSettingResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ussrsResponseStatus :: Lens.Lens' UpdateServiceSettingResponse Lude.Int
-ussrsResponseStatus = Lens.lens (responseStatus :: UpdateServiceSettingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateServiceSettingResponse)
-{-# DEPRECATED ussrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ussrrsResponseStatus :: Lens.Lens' UpdateServiceSettingResponse Core.Int
+ussrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ussrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

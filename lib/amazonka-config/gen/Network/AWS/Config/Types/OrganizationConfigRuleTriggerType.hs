@@ -13,51 +13,56 @@
 module Network.AWS.Config.Types.OrganizationConfigRuleTriggerType
   ( OrganizationConfigRuleTriggerType
       ( OrganizationConfigRuleTriggerType',
-        OCRTTConfigurationItemChangeNotification,
-        OCRTTOversizedConfigurationItemChangeNotification,
-        OCRTTScheduledNotification
+        OrganizationConfigRuleTriggerTypeConfigurationItemChangeNotification,
+        OrganizationConfigRuleTriggerTypeOversizedConfigurationItemChangeNotification,
+        OrganizationConfigRuleTriggerTypeScheduledNotification,
+        fromOrganizationConfigRuleTriggerType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OrganizationConfigRuleTriggerType = OrganizationConfigRuleTriggerType' Lude.Text
+newtype OrganizationConfigRuleTriggerType = OrganizationConfigRuleTriggerType'
+  { fromOrganizationConfigRuleTriggerType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OCRTTConfigurationItemChangeNotification :: OrganizationConfigRuleTriggerType
-pattern OCRTTConfigurationItemChangeNotification = OrganizationConfigRuleTriggerType' "ConfigurationItemChangeNotification"
+pattern OrganizationConfigRuleTriggerTypeConfigurationItemChangeNotification :: OrganizationConfigRuleTriggerType
+pattern OrganizationConfigRuleTriggerTypeConfigurationItemChangeNotification = OrganizationConfigRuleTriggerType' "ConfigurationItemChangeNotification"
 
-pattern OCRTTOversizedConfigurationItemChangeNotification :: OrganizationConfigRuleTriggerType
-pattern OCRTTOversizedConfigurationItemChangeNotification = OrganizationConfigRuleTriggerType' "OversizedConfigurationItemChangeNotification"
+pattern OrganizationConfigRuleTriggerTypeOversizedConfigurationItemChangeNotification :: OrganizationConfigRuleTriggerType
+pattern OrganizationConfigRuleTriggerTypeOversizedConfigurationItemChangeNotification = OrganizationConfigRuleTriggerType' "OversizedConfigurationItemChangeNotification"
 
-pattern OCRTTScheduledNotification :: OrganizationConfigRuleTriggerType
-pattern OCRTTScheduledNotification = OrganizationConfigRuleTriggerType' "ScheduledNotification"
+pattern OrganizationConfigRuleTriggerTypeScheduledNotification :: OrganizationConfigRuleTriggerType
+pattern OrganizationConfigRuleTriggerTypeScheduledNotification = OrganizationConfigRuleTriggerType' "ScheduledNotification"
 
 {-# COMPLETE
-  OCRTTConfigurationItemChangeNotification,
-  OCRTTOversizedConfigurationItemChangeNotification,
-  OCRTTScheduledNotification,
+  OrganizationConfigRuleTriggerTypeConfigurationItemChangeNotification,
+  OrganizationConfigRuleTriggerTypeOversizedConfigurationItemChangeNotification,
+  OrganizationConfigRuleTriggerTypeScheduledNotification,
   OrganizationConfigRuleTriggerType'
   #-}

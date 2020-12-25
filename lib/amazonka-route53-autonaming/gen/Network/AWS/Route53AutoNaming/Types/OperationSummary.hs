@@ -17,20 +17,23 @@ module Network.AWS.Route53AutoNaming.Types.OperationSummary
     mkOperationSummary,
 
     -- * Lenses
-    osStatus,
     osId,
+    osStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53AutoNaming.Types.OperationStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53AutoNaming.Types.OperationId as Types
+import qualified Network.AWS.Route53AutoNaming.Types.OperationStatus as Types
 
 -- | A complex type that contains information about an operation that matches the criteria that you specified in a <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html ListOperations> request.
 --
 -- /See:/ 'mkOperationSummary' smart constructor.
 data OperationSummary = OperationSummary'
-  { -- | The status of the operation. Values include the following:
+  { -- | The ID for an operation.
+    id :: Core.Maybe Types.OperationId,
+    -- | The status of the operation. Values include the following:
     --
     --
     --     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
@@ -43,35 +46,23 @@ data OperationSummary = OperationSummary'
     --
     --
     --     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
-    status :: Lude.Maybe OperationStatus,
-    -- | The ID for an operation.
-    id :: Lude.Maybe Lude.Text
+    status :: Core.Maybe Types.OperationStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OperationSummary' with the minimum fields required to make a request.
---
--- * 'status' - The status of the operation. Values include the following:
---
---
---     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
---
---
---     * __PENDING__ : AWS Cloud Map is performing the operation.
---
---
---     * __SUCCESS__ : The operation succeeded.
---
---
---     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
---
---
--- * 'id' - The ID for an operation.
+-- | Creates a 'OperationSummary' value with any optional fields omitted.
 mkOperationSummary ::
   OperationSummary
 mkOperationSummary =
-  OperationSummary' {status = Lude.Nothing, id = Lude.Nothing}
+  OperationSummary' {id = Core.Nothing, status = Core.Nothing}
+
+-- | The ID for an operation.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osId :: Lens.Lens' OperationSummary (Core.Maybe Types.OperationId)
+osId = Lens.field @"id"
+{-# DEPRECATED osId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The status of the operation. Values include the following:
 --
@@ -90,22 +81,13 @@ mkOperationSummary =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osStatus :: Lens.Lens' OperationSummary (Lude.Maybe OperationStatus)
-osStatus = Lens.lens (status :: OperationSummary -> Lude.Maybe OperationStatus) (\s a -> s {status = a} :: OperationSummary)
+osStatus :: Lens.Lens' OperationSummary (Core.Maybe Types.OperationStatus)
+osStatus = Lens.field @"status"
 {-# DEPRECATED osStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The ID for an operation.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osId :: Lens.Lens' OperationSummary (Lude.Maybe Lude.Text)
-osId = Lens.lens (id :: OperationSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: OperationSummary)
-{-# DEPRECATED osId "Use generic-lens or generic-optics with 'id' instead." #-}
-
-instance Lude.FromJSON OperationSummary where
+instance Core.FromJSON OperationSummary where
   parseJSON =
-    Lude.withObject
-      "OperationSummary"
-      ( \x ->
-          OperationSummary'
-            Lude.<$> (x Lude..:? "Status") Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "OperationSummary" Core.$
+      \x ->
+        OperationSummary'
+          Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Status")

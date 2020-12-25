@@ -23,51 +23,45 @@ module Network.AWS.WorkDocs.Types.Participants
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.GroupMetadata
-import Network.AWS.WorkDocs.Types.UserMetadata
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.GroupMetadata as Types
+import qualified Network.AWS.WorkDocs.Types.UserMetadata as Types
 
 -- | Describes the users or user groups.
 --
 -- /See:/ 'mkParticipants' smart constructor.
 data Participants = Participants'
   { -- | The list of user groups.
-    groups :: Lude.Maybe [GroupMetadata],
+    groups :: Core.Maybe [Types.GroupMetadata],
     -- | The list of users.
-    users :: Lude.Maybe [UserMetadata]
+    users :: Core.Maybe [Types.UserMetadata]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Participants' with the minimum fields required to make a request.
---
--- * 'groups' - The list of user groups.
--- * 'users' - The list of users.
+-- | Creates a 'Participants' value with any optional fields omitted.
 mkParticipants ::
   Participants
 mkParticipants =
-  Participants' {groups = Lude.Nothing, users = Lude.Nothing}
+  Participants' {groups = Core.Nothing, users = Core.Nothing}
 
 -- | The list of user groups.
 --
 -- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pGroups :: Lens.Lens' Participants (Lude.Maybe [GroupMetadata])
-pGroups = Lens.lens (groups :: Participants -> Lude.Maybe [GroupMetadata]) (\s a -> s {groups = a} :: Participants)
+pGroups :: Lens.Lens' Participants (Core.Maybe [Types.GroupMetadata])
+pGroups = Lens.field @"groups"
 {-# DEPRECATED pGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The list of users.
 --
 -- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pUsers :: Lens.Lens' Participants (Lude.Maybe [UserMetadata])
-pUsers = Lens.lens (users :: Participants -> Lude.Maybe [UserMetadata]) (\s a -> s {users = a} :: Participants)
+pUsers :: Lens.Lens' Participants (Core.Maybe [Types.UserMetadata])
+pUsers = Lens.field @"users"
 {-# DEPRECATED pUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
-instance Lude.FromJSON Participants where
+instance Core.FromJSON Participants where
   parseJSON =
-    Lude.withObject
-      "Participants"
-      ( \x ->
-          Participants'
-            Lude.<$> (x Lude..:? "Groups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Users" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Participants" Core.$
+      \x ->
+        Participants'
+          Core.<$> (x Core..:? "Groups") Core.<*> (x Core..:? "Users")

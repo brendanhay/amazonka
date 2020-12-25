@@ -28,133 +28,116 @@ module Network.AWS.Config.DeleteRemediationExceptions
     mkDeleteRemediationExceptionsResponse,
 
     -- ** Response lenses
-    drefrsFailedBatches,
-    drefrsResponseStatus,
+    drerfrsFailedBatches,
+    drerfrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRemediationExceptions' smart constructor.
 data DeleteRemediationExceptions = DeleteRemediationExceptions'
   { -- | The name of the AWS Config rule for which you want to delete remediation exception configuration.
-    configRuleName :: Lude.Text,
+    configRuleName :: Types.ConfigRuleName,
     -- | An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
-    resourceKeys :: Lude.NonEmpty RemediationExceptionResourceKey
+    resourceKeys :: Core.NonEmpty Types.RemediationExceptionResourceKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRemediationExceptions' with the minimum fields required to make a request.
---
--- * 'configRuleName' - The name of the AWS Config rule for which you want to delete remediation exception configuration.
--- * 'resourceKeys' - An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
+-- | Creates a 'DeleteRemediationExceptions' value with any optional fields omitted.
 mkDeleteRemediationExceptions ::
   -- | 'configRuleName'
-  Lude.Text ->
+  Types.ConfigRuleName ->
   -- | 'resourceKeys'
-  Lude.NonEmpty RemediationExceptionResourceKey ->
+  Core.NonEmpty Types.RemediationExceptionResourceKey ->
   DeleteRemediationExceptions
-mkDeleteRemediationExceptions pConfigRuleName_ pResourceKeys_ =
-  DeleteRemediationExceptions'
-    { configRuleName = pConfigRuleName_,
-      resourceKeys = pResourceKeys_
-    }
+mkDeleteRemediationExceptions configRuleName resourceKeys =
+  DeleteRemediationExceptions' {configRuleName, resourceKeys}
 
 -- | The name of the AWS Config rule for which you want to delete remediation exception configuration.
 --
 -- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dConfigRuleName :: Lens.Lens' DeleteRemediationExceptions Lude.Text
-dConfigRuleName = Lens.lens (configRuleName :: DeleteRemediationExceptions -> Lude.Text) (\s a -> s {configRuleName = a} :: DeleteRemediationExceptions)
+dConfigRuleName :: Lens.Lens' DeleteRemediationExceptions Types.ConfigRuleName
+dConfigRuleName = Lens.field @"configRuleName"
 {-# DEPRECATED dConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
 --
 -- /Note:/ Consider using 'resourceKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dResourceKeys :: Lens.Lens' DeleteRemediationExceptions (Lude.NonEmpty RemediationExceptionResourceKey)
-dResourceKeys = Lens.lens (resourceKeys :: DeleteRemediationExceptions -> Lude.NonEmpty RemediationExceptionResourceKey) (\s a -> s {resourceKeys = a} :: DeleteRemediationExceptions)
+dResourceKeys :: Lens.Lens' DeleteRemediationExceptions (Core.NonEmpty Types.RemediationExceptionResourceKey)
+dResourceKeys = Lens.field @"resourceKeys"
 {-# DEPRECATED dResourceKeys "Use generic-lens or generic-optics with 'resourceKeys' instead." #-}
 
-instance Lude.AWSRequest DeleteRemediationExceptions where
+instance Core.FromJSON DeleteRemediationExceptions where
+  toJSON DeleteRemediationExceptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConfigRuleName" Core..= configRuleName),
+            Core.Just ("ResourceKeys" Core..= resourceKeys)
+          ]
+      )
+
+instance Core.AWSRequest DeleteRemediationExceptions where
   type
     Rs DeleteRemediationExceptions =
       DeleteRemediationExceptionsResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.DeleteRemediationExceptions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteRemediationExceptionsResponse'
-            Lude.<$> (x Lude..?> "FailedBatches" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedBatches")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteRemediationExceptions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DeleteRemediationExceptions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteRemediationExceptions where
-  toJSON DeleteRemediationExceptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConfigRuleName" Lude..= configRuleName),
-            Lude.Just ("ResourceKeys" Lude..= resourceKeys)
-          ]
-      )
-
-instance Lude.ToPath DeleteRemediationExceptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRemediationExceptions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteRemediationExceptionsResponse' smart constructor.
 data DeleteRemediationExceptionsResponse = DeleteRemediationExceptionsResponse'
   { -- | Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
-    failedBatches :: Lude.Maybe [FailedDeleteRemediationExceptionsBatch],
+    failedBatches :: Core.Maybe [Types.FailedDeleteRemediationExceptionsBatch],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRemediationExceptionsResponse' with the minimum fields required to make a request.
---
--- * 'failedBatches' - Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteRemediationExceptionsResponse' value with any optional fields omitted.
 mkDeleteRemediationExceptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteRemediationExceptionsResponse
-mkDeleteRemediationExceptionsResponse pResponseStatus_ =
+mkDeleteRemediationExceptionsResponse responseStatus =
   DeleteRemediationExceptionsResponse'
     { failedBatches =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
 --
 -- /Note:/ Consider using 'failedBatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drefrsFailedBatches :: Lens.Lens' DeleteRemediationExceptionsResponse (Lude.Maybe [FailedDeleteRemediationExceptionsBatch])
-drefrsFailedBatches = Lens.lens (failedBatches :: DeleteRemediationExceptionsResponse -> Lude.Maybe [FailedDeleteRemediationExceptionsBatch]) (\s a -> s {failedBatches = a} :: DeleteRemediationExceptionsResponse)
-{-# DEPRECATED drefrsFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
+drerfrsFailedBatches :: Lens.Lens' DeleteRemediationExceptionsResponse (Core.Maybe [Types.FailedDeleteRemediationExceptionsBatch])
+drerfrsFailedBatches = Lens.field @"failedBatches"
+{-# DEPRECATED drerfrsFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drefrsResponseStatus :: Lens.Lens' DeleteRemediationExceptionsResponse Lude.Int
-drefrsResponseStatus = Lens.lens (responseStatus :: DeleteRemediationExceptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRemediationExceptionsResponse)
-{-# DEPRECATED drefrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drerfrsResponseStatus :: Lens.Lens' DeleteRemediationExceptionsResponse Core.Int
+drerfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drerfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

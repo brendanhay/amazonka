@@ -17,43 +17,41 @@ module Network.AWS.CloudWatchEvents.Types.DeadLetterConfig
     mkDeadLetterConfig,
 
     -- * Lenses
-    dlcARN,
+    dlcArn,
   )
 where
 
+import qualified Network.AWS.CloudWatchEvents.Types.Arn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A @DeadLetterConfig@ object that contains information about a dead-letter queue configuration.
 --
 -- /See:/ 'mkDeadLetterConfig' smart constructor.
 newtype DeadLetterConfig = DeadLetterConfig'
   { -- | The ARN of the SQS queue specified as the target for the dead-letter queue.
-    arn :: Lude.Maybe Lude.Text
+    arn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeadLetterConfig' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the SQS queue specified as the target for the dead-letter queue.
+-- | Creates a 'DeadLetterConfig' value with any optional fields omitted.
 mkDeadLetterConfig ::
   DeadLetterConfig
-mkDeadLetterConfig = DeadLetterConfig' {arn = Lude.Nothing}
+mkDeadLetterConfig = DeadLetterConfig' {arn = Core.Nothing}
 
 -- | The ARN of the SQS queue specified as the target for the dead-letter queue.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcARN :: Lens.Lens' DeadLetterConfig (Lude.Maybe Lude.Text)
-dlcARN = Lens.lens (arn :: DeadLetterConfig -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DeadLetterConfig)
-{-# DEPRECATED dlcARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+dlcArn :: Lens.Lens' DeadLetterConfig (Core.Maybe Types.Arn)
+dlcArn = Lens.field @"arn"
+{-# DEPRECATED dlcArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.FromJSON DeadLetterConfig where
+instance Core.FromJSON DeadLetterConfig where
+  toJSON DeadLetterConfig {..} =
+    Core.object (Core.catMaybes [("Arn" Core..=) Core.<$> arn])
+
+instance Core.FromJSON DeadLetterConfig where
   parseJSON =
-    Lude.withObject
-      "DeadLetterConfig"
-      (\x -> DeadLetterConfig' Lude.<$> (x Lude..:? "Arn"))
-
-instance Lude.ToJSON DeadLetterConfig where
-  toJSON DeadLetterConfig' {..} =
-    Lude.object (Lude.catMaybes [("Arn" Lude..=) Lude.<$> arn])
+    Core.withObject "DeadLetterConfig" Core.$
+      \x -> DeadLetterConfig' Core.<$> (x Core..:? "Arn")

@@ -17,76 +17,71 @@ module Network.AWS.KinesisAnalytics.Types.S3Configuration
     mkS3Configuration,
 
     -- * Lenses
+    scRoleARN,
     scBucketARN,
     scFileKey,
-    scRoleARN,
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.BucketARN as Types
+import qualified Network.AWS.KinesisAnalytics.Types.FileKey as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides a description of an Amazon S3 data source, including the Amazon Resource Name (ARN) of the S3 bucket, the ARN of the IAM role that is used to access the bucket, and the name of the Amazon S3 object that contains the data.
 --
 -- /See:/ 'mkS3Configuration' smart constructor.
 data S3Configuration = S3Configuration'
-  { -- | ARN of the S3 bucket that contains the data.
-    bucketARN :: Lude.Text,
+  { -- | IAM ARN of the role used to access the data.
+    roleARN :: Types.RoleARN,
+    -- | ARN of the S3 bucket that contains the data.
+    bucketARN :: Types.BucketARN,
     -- | The name of the object that contains the data.
-    fileKey :: Lude.Text,
-    -- | IAM ARN of the role used to access the data.
-    roleARN :: Lude.Text
+    fileKey :: Types.FileKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Configuration' with the minimum fields required to make a request.
---
--- * 'bucketARN' - ARN of the S3 bucket that contains the data.
--- * 'fileKey' - The name of the object that contains the data.
--- * 'roleARN' - IAM ARN of the role used to access the data.
+-- | Creates a 'S3Configuration' value with any optional fields omitted.
 mkS3Configuration ::
-  -- | 'bucketARN'
-  Lude.Text ->
-  -- | 'fileKey'
-  Lude.Text ->
   -- | 'roleARN'
-  Lude.Text ->
+  Types.RoleARN ->
+  -- | 'bucketARN'
+  Types.BucketARN ->
+  -- | 'fileKey'
+  Types.FileKey ->
   S3Configuration
-mkS3Configuration pBucketARN_ pFileKey_ pRoleARN_ =
-  S3Configuration'
-    { bucketARN = pBucketARN_,
-      fileKey = pFileKey_,
-      roleARN = pRoleARN_
-    }
+mkS3Configuration roleARN bucketARN fileKey =
+  S3Configuration' {roleARN, bucketARN, fileKey}
+
+-- | IAM ARN of the role used to access the data.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scRoleARN :: Lens.Lens' S3Configuration Types.RoleARN
+scRoleARN = Lens.field @"roleARN"
+{-# DEPRECATED scRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | ARN of the S3 bucket that contains the data.
 --
 -- /Note:/ Consider using 'bucketARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scBucketARN :: Lens.Lens' S3Configuration Lude.Text
-scBucketARN = Lens.lens (bucketARN :: S3Configuration -> Lude.Text) (\s a -> s {bucketARN = a} :: S3Configuration)
+scBucketARN :: Lens.Lens' S3Configuration Types.BucketARN
+scBucketARN = Lens.field @"bucketARN"
 {-# DEPRECATED scBucketARN "Use generic-lens or generic-optics with 'bucketARN' instead." #-}
 
 -- | The name of the object that contains the data.
 --
 -- /Note:/ Consider using 'fileKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scFileKey :: Lens.Lens' S3Configuration Lude.Text
-scFileKey = Lens.lens (fileKey :: S3Configuration -> Lude.Text) (\s a -> s {fileKey = a} :: S3Configuration)
+scFileKey :: Lens.Lens' S3Configuration Types.FileKey
+scFileKey = Lens.field @"fileKey"
 {-# DEPRECATED scFileKey "Use generic-lens or generic-optics with 'fileKey' instead." #-}
 
--- | IAM ARN of the role used to access the data.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scRoleARN :: Lens.Lens' S3Configuration Lude.Text
-scRoleARN = Lens.lens (roleARN :: S3Configuration -> Lude.Text) (\s a -> s {roleARN = a} :: S3Configuration)
-{-# DEPRECATED scRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.ToJSON S3Configuration where
-  toJSON S3Configuration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("BucketARN" Lude..= bucketARN),
-            Lude.Just ("FileKey" Lude..= fileKey),
-            Lude.Just ("RoleARN" Lude..= roleARN)
+instance Core.FromJSON S3Configuration where
+  toJSON S3Configuration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RoleARN" Core..= roleARN),
+            Core.Just ("BucketARN" Core..= bucketARN),
+            Core.Just ("FileKey" Core..= fileKey)
           ]
       )

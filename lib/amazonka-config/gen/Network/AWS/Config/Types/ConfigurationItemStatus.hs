@@ -13,61 +13,66 @@
 module Network.AWS.Config.Types.ConfigurationItemStatus
   ( ConfigurationItemStatus
       ( ConfigurationItemStatus',
-        OK,
-        ResourceDiscovered,
-        ResourceNotRecorded,
-        ResourceDeleted,
-        ResourceDeletedNotRecorded
+        ConfigurationItemStatusOK,
+        ConfigurationItemStatusResourceDiscovered,
+        ConfigurationItemStatusResourceNotRecorded,
+        ConfigurationItemStatusResourceDeleted,
+        ConfigurationItemStatusResourceDeletedNotRecorded,
+        fromConfigurationItemStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConfigurationItemStatus = ConfigurationItemStatus' Lude.Text
+newtype ConfigurationItemStatus = ConfigurationItemStatus'
+  { fromConfigurationItemStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OK :: ConfigurationItemStatus
-pattern OK = ConfigurationItemStatus' "OK"
+pattern ConfigurationItemStatusOK :: ConfigurationItemStatus
+pattern ConfigurationItemStatusOK = ConfigurationItemStatus' "OK"
 
-pattern ResourceDiscovered :: ConfigurationItemStatus
-pattern ResourceDiscovered = ConfigurationItemStatus' "ResourceDiscovered"
+pattern ConfigurationItemStatusResourceDiscovered :: ConfigurationItemStatus
+pattern ConfigurationItemStatusResourceDiscovered = ConfigurationItemStatus' "ResourceDiscovered"
 
-pattern ResourceNotRecorded :: ConfigurationItemStatus
-pattern ResourceNotRecorded = ConfigurationItemStatus' "ResourceNotRecorded"
+pattern ConfigurationItemStatusResourceNotRecorded :: ConfigurationItemStatus
+pattern ConfigurationItemStatusResourceNotRecorded = ConfigurationItemStatus' "ResourceNotRecorded"
 
-pattern ResourceDeleted :: ConfigurationItemStatus
-pattern ResourceDeleted = ConfigurationItemStatus' "ResourceDeleted"
+pattern ConfigurationItemStatusResourceDeleted :: ConfigurationItemStatus
+pattern ConfigurationItemStatusResourceDeleted = ConfigurationItemStatus' "ResourceDeleted"
 
-pattern ResourceDeletedNotRecorded :: ConfigurationItemStatus
-pattern ResourceDeletedNotRecorded = ConfigurationItemStatus' "ResourceDeletedNotRecorded"
+pattern ConfigurationItemStatusResourceDeletedNotRecorded :: ConfigurationItemStatus
+pattern ConfigurationItemStatusResourceDeletedNotRecorded = ConfigurationItemStatus' "ResourceDeletedNotRecorded"
 
 {-# COMPLETE
-  OK,
-  ResourceDiscovered,
-  ResourceNotRecorded,
-  ResourceDeleted,
-  ResourceDeletedNotRecorded,
+  ConfigurationItemStatusOK,
+  ConfigurationItemStatusResourceDiscovered,
+  ConfigurationItemStatusResourceNotRecorded,
+  ConfigurationItemStatusResourceDeleted,
+  ConfigurationItemStatusResourceDeletedNotRecorded,
   ConfigurationItemStatus'
   #-}

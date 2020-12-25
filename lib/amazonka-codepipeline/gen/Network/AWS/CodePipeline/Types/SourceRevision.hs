@@ -17,86 +17,83 @@ module Network.AWS.CodePipeline.Types.SourceRevision
     mkSourceRevision,
 
     -- * Lenses
-    srRevisionSummary,
-    srRevisionURL,
     srActionName,
     srRevisionId,
+    srRevisionSummary,
+    srRevisionUrl,
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.ActionName as Types
+import qualified Network.AWS.CodePipeline.Types.Revision as Types
+import qualified Network.AWS.CodePipeline.Types.RevisionSummary as Types
+import qualified Network.AWS.CodePipeline.Types.Url as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the version (or revision) of a source artifact that initiated a pipeline execution.
 --
 -- /See:/ 'mkSourceRevision' smart constructor.
 data SourceRevision = SourceRevision'
-  { -- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
-    revisionSummary :: Lude.Maybe Lude.Text,
-    -- | The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
-    revisionURL :: Lude.Maybe Lude.Text,
-    -- | The name of the action that processed the revision to the source artifact.
-    actionName :: Lude.Text,
+  { -- | The name of the action that processed the revision to the source artifact.
+    actionName :: Types.ActionName,
     -- | The system-generated unique ID that identifies the revision number of the artifact.
-    revisionId :: Lude.Maybe Lude.Text
+    revisionId :: Core.Maybe Types.Revision,
+    -- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
+    revisionSummary :: Core.Maybe Types.RevisionSummary,
+    -- | The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
+    revisionUrl :: Core.Maybe Types.Url
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SourceRevision' with the minimum fields required to make a request.
---
--- * 'revisionSummary' - Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
--- * 'revisionURL' - The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
--- * 'actionName' - The name of the action that processed the revision to the source artifact.
--- * 'revisionId' - The system-generated unique ID that identifies the revision number of the artifact.
+-- | Creates a 'SourceRevision' value with any optional fields omitted.
 mkSourceRevision ::
   -- | 'actionName'
-  Lude.Text ->
+  Types.ActionName ->
   SourceRevision
-mkSourceRevision pActionName_ =
+mkSourceRevision actionName =
   SourceRevision'
-    { revisionSummary = Lude.Nothing,
-      revisionURL = Lude.Nothing,
-      actionName = pActionName_,
-      revisionId = Lude.Nothing
+    { actionName,
+      revisionId = Core.Nothing,
+      revisionSummary = Core.Nothing,
+      revisionUrl = Core.Nothing
     }
-
--- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
---
--- /Note:/ Consider using 'revisionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srRevisionSummary :: Lens.Lens' SourceRevision (Lude.Maybe Lude.Text)
-srRevisionSummary = Lens.lens (revisionSummary :: SourceRevision -> Lude.Maybe Lude.Text) (\s a -> s {revisionSummary = a} :: SourceRevision)
-{-# DEPRECATED srRevisionSummary "Use generic-lens or generic-optics with 'revisionSummary' instead." #-}
-
--- | The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
---
--- /Note:/ Consider using 'revisionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srRevisionURL :: Lens.Lens' SourceRevision (Lude.Maybe Lude.Text)
-srRevisionURL = Lens.lens (revisionURL :: SourceRevision -> Lude.Maybe Lude.Text) (\s a -> s {revisionURL = a} :: SourceRevision)
-{-# DEPRECATED srRevisionURL "Use generic-lens or generic-optics with 'revisionURL' instead." #-}
 
 -- | The name of the action that processed the revision to the source artifact.
 --
 -- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srActionName :: Lens.Lens' SourceRevision Lude.Text
-srActionName = Lens.lens (actionName :: SourceRevision -> Lude.Text) (\s a -> s {actionName = a} :: SourceRevision)
+srActionName :: Lens.Lens' SourceRevision Types.ActionName
+srActionName = Lens.field @"actionName"
 {-# DEPRECATED srActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | The system-generated unique ID that identifies the revision number of the artifact.
 --
 -- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srRevisionId :: Lens.Lens' SourceRevision (Lude.Maybe Lude.Text)
-srRevisionId = Lens.lens (revisionId :: SourceRevision -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: SourceRevision)
+srRevisionId :: Lens.Lens' SourceRevision (Core.Maybe Types.Revision)
+srRevisionId = Lens.field @"revisionId"
 {-# DEPRECATED srRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
-instance Lude.FromJSON SourceRevision where
+-- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
+--
+-- /Note:/ Consider using 'revisionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srRevisionSummary :: Lens.Lens' SourceRevision (Core.Maybe Types.RevisionSummary)
+srRevisionSummary = Lens.field @"revisionSummary"
+{-# DEPRECATED srRevisionSummary "Use generic-lens or generic-optics with 'revisionSummary' instead." #-}
+
+-- | The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
+--
+-- /Note:/ Consider using 'revisionUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srRevisionUrl :: Lens.Lens' SourceRevision (Core.Maybe Types.Url)
+srRevisionUrl = Lens.field @"revisionUrl"
+{-# DEPRECATED srRevisionUrl "Use generic-lens or generic-optics with 'revisionUrl' instead." #-}
+
+instance Core.FromJSON SourceRevision where
   parseJSON =
-    Lude.withObject
-      "SourceRevision"
-      ( \x ->
-          SourceRevision'
-            Lude.<$> (x Lude..:? "revisionSummary")
-            Lude.<*> (x Lude..:? "revisionUrl")
-            Lude.<*> (x Lude..: "actionName")
-            Lude.<*> (x Lude..:? "revisionId")
-      )
+    Core.withObject "SourceRevision" Core.$
+      \x ->
+        SourceRevision'
+          Core.<$> (x Core..: "actionName")
+          Core.<*> (x Core..:? "revisionId")
+          Core.<*> (x Core..:? "revisionSummary")
+          Core.<*> (x Core..:? "revisionUrl")

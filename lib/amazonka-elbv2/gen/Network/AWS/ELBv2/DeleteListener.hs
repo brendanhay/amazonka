@@ -22,93 +22,91 @@ module Network.AWS.ELBv2.DeleteListener
     mkDeleteListener,
 
     -- ** Request lenses
-    dlListenerARN,
+    dlListenerArn,
 
     -- * Destructuring the response
     DeleteListenerResponse (..),
     mkDeleteListenerResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
+    dlrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteListener' smart constructor.
 newtype DeleteListener = DeleteListener'
   { -- | The Amazon Resource Name (ARN) of the listener.
-    listenerARN :: Lude.Text
+    listenerArn :: Types.ListenerArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteListener' with the minimum fields required to make a request.
---
--- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
+-- | Creates a 'DeleteListener' value with any optional fields omitted.
 mkDeleteListener ::
-  -- | 'listenerARN'
-  Lude.Text ->
+  -- | 'listenerArn'
+  Types.ListenerArn ->
   DeleteListener
-mkDeleteListener pListenerARN_ =
-  DeleteListener' {listenerARN = pListenerARN_}
+mkDeleteListener listenerArn = DeleteListener' {listenerArn}
 
 -- | The Amazon Resource Name (ARN) of the listener.
 --
--- /Note:/ Consider using 'listenerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlListenerARN :: Lens.Lens' DeleteListener Lude.Text
-dlListenerARN = Lens.lens (listenerARN :: DeleteListener -> Lude.Text) (\s a -> s {listenerARN = a} :: DeleteListener)
-{-# DEPRECATED dlListenerARN "Use generic-lens or generic-optics with 'listenerARN' instead." #-}
+-- /Note:/ Consider using 'listenerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlListenerArn :: Lens.Lens' DeleteListener Types.ListenerArn
+dlListenerArn = Lens.field @"listenerArn"
+{-# DEPRECATED dlListenerArn "Use generic-lens or generic-optics with 'listenerArn' instead." #-}
 
-instance Lude.AWSRequest DeleteListener where
+instance Core.AWSRequest DeleteListener where
   type Rs DeleteListener = DeleteListenerResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteListener")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "ListenerArn" listenerArn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteListenerResult"
       ( \s h x ->
-          DeleteListenerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteListenerResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteListener where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteListener where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteListener where
-  toQuery DeleteListener' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteListener" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "ListenerArn" Lude.=: listenerARN
-      ]
 
 -- | /See:/ 'mkDeleteListenerResponse' smart constructor.
 newtype DeleteListenerResponse = DeleteListenerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteListenerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteListenerResponse' value with any optional fields omitted.
 mkDeleteListenerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteListenerResponse
-mkDeleteListenerResponse pResponseStatus_ =
-  DeleteListenerResponse' {responseStatus = pResponseStatus_}
+mkDeleteListenerResponse responseStatus =
+  DeleteListenerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteListenerResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteListenerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteListenerResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlrrsResponseStatus :: Lens.Lens' DeleteListenerResponse Core.Int
+dlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

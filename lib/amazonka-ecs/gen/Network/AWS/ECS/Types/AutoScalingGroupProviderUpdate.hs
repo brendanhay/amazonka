@@ -22,47 +22,40 @@ module Network.AWS.ECS.Types.AutoScalingGroupProviderUpdate
   )
 where
 
-import Network.AWS.ECS.Types.ManagedScaling
-import Network.AWS.ECS.Types.ManagedTerminationProtection
+import qualified Network.AWS.ECS.Types.ManagedScaling as Types
+import qualified Network.AWS.ECS.Types.ManagedTerminationProtection as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of the Auto Scaling group capacity provider to update.
 --
 -- /See:/ 'mkAutoScalingGroupProviderUpdate' smart constructor.
 data AutoScalingGroupProviderUpdate = AutoScalingGroupProviderUpdate'
-  { managedScaling :: Lude.Maybe ManagedScaling,
+  { managedScaling :: Core.Maybe Types.ManagedScaling,
     -- | The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection.
     --
     -- /Important:/ When using managed termination protection, managed scaling must also be used otherwise managed termination protection will not work.
     -- When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions enabled as well. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /AWS Auto Scaling User Guide/ .
     -- When managed termination protection is disabled, your Amazon EC2 instances are not protected from termination when the Auto Scaling group scales in.
-    managedTerminationProtection :: Lude.Maybe ManagedTerminationProtection
+    managedTerminationProtection :: Core.Maybe Types.ManagedTerminationProtection
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoScalingGroupProviderUpdate' with the minimum fields required to make a request.
---
--- * 'managedScaling' -
--- * 'managedTerminationProtection' - The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection.
---
--- /Important:/ When using managed termination protection, managed scaling must also be used otherwise managed termination protection will not work.
--- When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions enabled as well. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /AWS Auto Scaling User Guide/ .
--- When managed termination protection is disabled, your Amazon EC2 instances are not protected from termination when the Auto Scaling group scales in.
+-- | Creates a 'AutoScalingGroupProviderUpdate' value with any optional fields omitted.
 mkAutoScalingGroupProviderUpdate ::
   AutoScalingGroupProviderUpdate
 mkAutoScalingGroupProviderUpdate =
   AutoScalingGroupProviderUpdate'
-    { managedScaling = Lude.Nothing,
-      managedTerminationProtection = Lude.Nothing
+    { managedScaling = Core.Nothing,
+      managedTerminationProtection = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'managedScaling' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgpuManagedScaling :: Lens.Lens' AutoScalingGroupProviderUpdate (Lude.Maybe ManagedScaling)
-asgpuManagedScaling = Lens.lens (managedScaling :: AutoScalingGroupProviderUpdate -> Lude.Maybe ManagedScaling) (\s a -> s {managedScaling = a} :: AutoScalingGroupProviderUpdate)
+asgpuManagedScaling :: Lens.Lens' AutoScalingGroupProviderUpdate (Core.Maybe Types.ManagedScaling)
+asgpuManagedScaling = Lens.field @"managedScaling"
 {-# DEPRECATED asgpuManagedScaling "Use generic-lens or generic-optics with 'managedScaling' instead." #-}
 
 -- | The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection.
@@ -72,16 +65,16 @@ asgpuManagedScaling = Lens.lens (managedScaling :: AutoScalingGroupProviderUpdat
 -- When managed termination protection is disabled, your Amazon EC2 instances are not protected from termination when the Auto Scaling group scales in.
 --
 -- /Note:/ Consider using 'managedTerminationProtection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgpuManagedTerminationProtection :: Lens.Lens' AutoScalingGroupProviderUpdate (Lude.Maybe ManagedTerminationProtection)
-asgpuManagedTerminationProtection = Lens.lens (managedTerminationProtection :: AutoScalingGroupProviderUpdate -> Lude.Maybe ManagedTerminationProtection) (\s a -> s {managedTerminationProtection = a} :: AutoScalingGroupProviderUpdate)
+asgpuManagedTerminationProtection :: Lens.Lens' AutoScalingGroupProviderUpdate (Core.Maybe Types.ManagedTerminationProtection)
+asgpuManagedTerminationProtection = Lens.field @"managedTerminationProtection"
 {-# DEPRECATED asgpuManagedTerminationProtection "Use generic-lens or generic-optics with 'managedTerminationProtection' instead." #-}
 
-instance Lude.ToJSON AutoScalingGroupProviderUpdate where
-  toJSON AutoScalingGroupProviderUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("managedScaling" Lude..=) Lude.<$> managedScaling,
-            ("managedTerminationProtection" Lude..=)
-              Lude.<$> managedTerminationProtection
+instance Core.FromJSON AutoScalingGroupProviderUpdate where
+  toJSON AutoScalingGroupProviderUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("managedScaling" Core..=) Core.<$> managedScaling,
+            ("managedTerminationProtection" Core..=)
+              Core.<$> managedTerminationProtection
           ]
       )

@@ -24,86 +24,91 @@ module Network.AWS.RDS.ModifyDBClusterParameterGroup
     mkModifyDBClusterParameterGroup,
 
     -- ** Request lenses
-    mdcpgParameters,
-    mdcpgDBClusterParameterGroupName,
+    mdbcpgDBClusterParameterGroupName,
+    mdbcpgParameters,
 
     -- * Destructuring the response
-    DBClusterParameterGroupNameMessage (..),
-    mkDBClusterParameterGroupNameMessage,
+    Types.DBClusterParameterGroupNameMessage (..),
+    Types.mkDBClusterParameterGroupNameMessage,
 
     -- ** Response lenses
-    dcpgnmDBClusterParameterGroupName,
+    Types.dbcpgnmDBClusterParameterGroupName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkModifyDBClusterParameterGroup' smart constructor.
 data ModifyDBClusterParameterGroup = ModifyDBClusterParameterGroup'
-  { -- | A list of parameters in the DB cluster parameter group to modify.
-    parameters :: [Parameter],
-    -- | The name of the DB cluster parameter group to modify.
-    dbClusterParameterGroupName :: Lude.Text
+  { -- | The name of the DB cluster parameter group to modify.
+    dBClusterParameterGroupName :: Types.String,
+    -- | A list of parameters in the DB cluster parameter group to modify.
+    parameters :: [Types.Parameter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyDBClusterParameterGroup' with the minimum fields required to make a request.
---
--- * 'parameters' - A list of parameters in the DB cluster parameter group to modify.
--- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group to modify.
+-- | Creates a 'ModifyDBClusterParameterGroup' value with any optional fields omitted.
 mkModifyDBClusterParameterGroup ::
-  -- | 'dbClusterParameterGroupName'
-  Lude.Text ->
+  -- | 'dBClusterParameterGroupName'
+  Types.String ->
   ModifyDBClusterParameterGroup
-mkModifyDBClusterParameterGroup pDBClusterParameterGroupName_ =
+mkModifyDBClusterParameterGroup dBClusterParameterGroupName =
   ModifyDBClusterParameterGroup'
-    { parameters = Lude.mempty,
-      dbClusterParameterGroupName = pDBClusterParameterGroupName_
+    { dBClusterParameterGroupName,
+      parameters = Core.mempty
     }
+
+-- | The name of the DB cluster parameter group to modify.
+--
+-- /Note:/ Consider using 'dBClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdbcpgDBClusterParameterGroupName :: Lens.Lens' ModifyDBClusterParameterGroup Types.String
+mdbcpgDBClusterParameterGroupName = Lens.field @"dBClusterParameterGroupName"
+{-# DEPRECATED mdbcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dBClusterParameterGroupName' instead." #-}
 
 -- | A list of parameters in the DB cluster parameter group to modify.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcpgParameters :: Lens.Lens' ModifyDBClusterParameterGroup [Parameter]
-mdcpgParameters = Lens.lens (parameters :: ModifyDBClusterParameterGroup -> [Parameter]) (\s a -> s {parameters = a} :: ModifyDBClusterParameterGroup)
-{-# DEPRECATED mdcpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+mdbcpgParameters :: Lens.Lens' ModifyDBClusterParameterGroup [Types.Parameter]
+mdbcpgParameters = Lens.field @"parameters"
+{-# DEPRECATED mdbcpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The name of the DB cluster parameter group to modify.
---
--- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcpgDBClusterParameterGroupName :: Lens.Lens' ModifyDBClusterParameterGroup Lude.Text
-mdcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: ModifyDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: ModifyDBClusterParameterGroup)
-{-# DEPRECATED mdcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
-
-instance Lude.AWSRequest ModifyDBClusterParameterGroup where
+instance Core.AWSRequest ModifyDBClusterParameterGroup where
   type
     Rs ModifyDBClusterParameterGroup =
-      DBClusterParameterGroupNameMessage
-  request = Req.postQuery rdsService
+      Types.DBClusterParameterGroupNameMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyDBClusterParameterGroup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue
+                            "DBClusterParameterGroupName"
+                            dBClusterParameterGroupName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Parameters"
+                            (Core.toQueryList "Parameter" parameters)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifyDBClusterParameterGroupResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ModifyDBClusterParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyDBClusterParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyDBClusterParameterGroup where
-  toQuery ModifyDBClusterParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ModifyDBClusterParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "Parameters" Lude.=: Lude.toQueryList "Parameter" parameters,
-        "DBClusterParameterGroupName" Lude.=: dbClusterParameterGroupName
-      ]
+      (\s h x -> Core.parseXML x)

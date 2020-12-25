@@ -30,138 +30,146 @@ import Network.AWS.MachineLearning.DescribeBatchPredictions
 import Network.AWS.MachineLearning.DescribeDataSources
 import Network.AWS.MachineLearning.DescribeEvaluations
 import Network.AWS.MachineLearning.DescribeMLModels
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkMLModelAvailable :: Wait.Wait DescribeMLModels
+mkMLModelAvailable :: Waiter.Wait DescribeMLModels
 mkMLModelAvailable =
-  Wait.Wait
-    { Wait._waitName = "MLModelAvailable",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "MLModelAvailable",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "COMPLETED"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dmlmrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"results" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. mlmStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "FAILED"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dmlmrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"results" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. mlmStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkBatchPredictionAvailable :: Wait.Wait DescribeBatchPredictions
+mkBatchPredictionAvailable :: Waiter.Wait DescribeBatchPredictions
 mkBatchPredictionAvailable =
-  Wait.Wait
-    { Wait._waitName = "BatchPredictionAvailable",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "BatchPredictionAvailable",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "COMPLETED"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dbprsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"results" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. bpStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "FAILED"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dbprsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"results" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. bpStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeDataSources' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkDataSourceAvailable :: Wait.Wait DescribeDataSources
+mkDataSourceAvailable :: Waiter.Wait DescribeDataSources
 mkDataSourceAvailable =
-  Wait.Wait
-    { Wait._waitName = "DataSourceAvailable",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "DataSourceAvailable",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "COMPLETED"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"results" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "FAILED"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"results" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dsStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkEvaluationAvailable :: Wait.Wait DescribeEvaluations
+mkEvaluationAvailable :: Waiter.Wait DescribeEvaluations
 mkEvaluationAvailable =
-  Wait.Wait
-    { Wait._waitName = "EvaluationAvailable",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "EvaluationAvailable",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "COMPLETED"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dersResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"results" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. eStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "FAILED"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dersResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"results" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. eStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }

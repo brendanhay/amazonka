@@ -17,42 +17,41 @@ module Network.AWS.EC2.Types.ImportImageLicenseConfigurationResponse
     mkImportImageLicenseConfigurationResponse,
 
     -- * Lenses
-    iilcLicenseConfigurationARN,
+    iLicenseConfigurationArn,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The response information for license configurations.
 --
 -- /See:/ 'mkImportImageLicenseConfigurationResponse' smart constructor.
 newtype ImportImageLicenseConfigurationResponse = ImportImageLicenseConfigurationResponse'
   { -- | The ARN of a license configuration.
-    licenseConfigurationARN :: Lude.Maybe Lude.Text
+    licenseConfigurationArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportImageLicenseConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'licenseConfigurationARN' - The ARN of a license configuration.
+-- | Creates a 'ImportImageLicenseConfigurationResponse' value with any optional fields omitted.
 mkImportImageLicenseConfigurationResponse ::
   ImportImageLicenseConfigurationResponse
 mkImportImageLicenseConfigurationResponse =
   ImportImageLicenseConfigurationResponse'
-    { licenseConfigurationARN =
-        Lude.Nothing
+    { licenseConfigurationArn =
+        Core.Nothing
     }
 
 -- | The ARN of a license configuration.
 --
--- /Note:/ Consider using 'licenseConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iilcLicenseConfigurationARN :: Lens.Lens' ImportImageLicenseConfigurationResponse (Lude.Maybe Lude.Text)
-iilcLicenseConfigurationARN = Lens.lens (licenseConfigurationARN :: ImportImageLicenseConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {licenseConfigurationARN = a} :: ImportImageLicenseConfigurationResponse)
-{-# DEPRECATED iilcLicenseConfigurationARN "Use generic-lens or generic-optics with 'licenseConfigurationARN' instead." #-}
+-- /Note:/ Consider using 'licenseConfigurationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLicenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationResponse (Core.Maybe Types.String)
+iLicenseConfigurationArn = Lens.field @"licenseConfigurationArn"
+{-# DEPRECATED iLicenseConfigurationArn "Use generic-lens or generic-optics with 'licenseConfigurationArn' instead." #-}
 
-instance Lude.FromXML ImportImageLicenseConfigurationResponse where
+instance Core.FromXML ImportImageLicenseConfigurationResponse where
   parseXML x =
     ImportImageLicenseConfigurationResponse'
-      Lude.<$> (x Lude..@? "licenseConfigurationArn")
+      Core.<$> (x Core..@? "licenseConfigurationArn")

@@ -17,57 +17,51 @@ module Network.AWS.ELBv2.Types.QueryStringKeyValuePair
     mkQueryStringKeyValuePair,
 
     -- * Lenses
-    qskvpValue,
     qskvpKey,
+    qskvpValue,
   )
 where
 
+import qualified Network.AWS.ELBv2.Types.StringValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a key/value pair.
 --
 -- /See:/ 'mkQueryStringKeyValuePair' smart constructor.
 data QueryStringKeyValuePair = QueryStringKeyValuePair'
-  { -- | The value.
-    value :: Lude.Maybe Lude.Text,
-    -- | The key. You can omit the key.
-    key :: Lude.Maybe Lude.Text
+  { -- | The key. You can omit the key.
+    key :: Core.Maybe Types.StringValue,
+    -- | The value.
+    value :: Core.Maybe Types.StringValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QueryStringKeyValuePair' with the minimum fields required to make a request.
---
--- * 'value' - The value.
--- * 'key' - The key. You can omit the key.
+-- | Creates a 'QueryStringKeyValuePair' value with any optional fields omitted.
 mkQueryStringKeyValuePair ::
   QueryStringKeyValuePair
 mkQueryStringKeyValuePair =
   QueryStringKeyValuePair'
-    { value = Lude.Nothing,
-      key = Lude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qskvpValue :: Lens.Lens' QueryStringKeyValuePair (Lude.Maybe Lude.Text)
-qskvpValue = Lens.lens (value :: QueryStringKeyValuePair -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: QueryStringKeyValuePair)
-{-# DEPRECATED qskvpValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The key. You can omit the key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qskvpKey :: Lens.Lens' QueryStringKeyValuePair (Lude.Maybe Lude.Text)
-qskvpKey = Lens.lens (key :: QueryStringKeyValuePair -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: QueryStringKeyValuePair)
+qskvpKey :: Lens.Lens' QueryStringKeyValuePair (Core.Maybe Types.StringValue)
+qskvpKey = Lens.field @"key"
 {-# DEPRECATED qskvpKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML QueryStringKeyValuePair where
+-- | The value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qskvpValue :: Lens.Lens' QueryStringKeyValuePair (Core.Maybe Types.StringValue)
+qskvpValue = Lens.field @"value"
+{-# DEPRECATED qskvpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromXML QueryStringKeyValuePair where
   parseXML x =
     QueryStringKeyValuePair'
-      Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@? "Key")
-
-instance Lude.ToQuery QueryStringKeyValuePair where
-  toQuery QueryStringKeyValuePair' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Key" Lude.=: key]
+      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")

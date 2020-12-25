@@ -27,90 +27,78 @@ module Network.AWS.StorageGateway.DescribeSMBSettings
     mkDescribeSMBSettingsResponse,
 
     -- ** Response lenses
-    dsmbsrsGatewayARN,
-    dsmbsrsFileSharesVisible,
-    dsmbsrsActiveDirectoryStatus,
-    dsmbsrsDomainName,
-    dsmbsrsSMBGuestPasswordSet,
-    dsmbsrsSMBSecurityStrategy,
-    dsmbsrsResponseStatus,
+    dsmbsrrsActiveDirectoryStatus,
+    dsmbsrrsDomainName,
+    dsmbsrrsFileSharesVisible,
+    dsmbsrrsGatewayARN,
+    dsmbsrrsSMBGuestPasswordSet,
+    dsmbsrrsSMBSecurityStrategy,
+    dsmbsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkDescribeSMBSettings' smart constructor.
 newtype DescribeSMBSettings = DescribeSMBSettings'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSMBSettings' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'DescribeSMBSettings' value with any optional fields omitted.
 mkDescribeSMBSettings ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   DescribeSMBSettings
-mkDescribeSMBSettings pGatewayARN_ =
-  DescribeSMBSettings' {gatewayARN = pGatewayARN_}
+mkDescribeSMBSettings gatewayARN = DescribeSMBSettings' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmbsGatewayARN :: Lens.Lens' DescribeSMBSettings Lude.Text
-dsmbsGatewayARN = Lens.lens (gatewayARN :: DescribeSMBSettings -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeSMBSettings)
+dsmbsGatewayARN :: Lens.Lens' DescribeSMBSettings Types.GatewayARN
+dsmbsGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED dsmbsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest DescribeSMBSettings where
+instance Core.FromJSON DescribeSMBSettings where
+  toJSON DescribeSMBSettings {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest DescribeSMBSettings where
   type Rs DescribeSMBSettings = DescribeSMBSettingsResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.DescribeSMBSettings")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeSMBSettingsResponse'
-            Lude.<$> (x Lude..?> "GatewayARN")
-            Lude.<*> (x Lude..?> "FileSharesVisible")
-            Lude.<*> (x Lude..?> "ActiveDirectoryStatus")
-            Lude.<*> (x Lude..?> "DomainName")
-            Lude.<*> (x Lude..?> "SMBGuestPasswordSet")
-            Lude.<*> (x Lude..?> "SMBSecurityStrategy")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ActiveDirectoryStatus")
+            Core.<*> (x Core..:? "DomainName")
+            Core.<*> (x Core..:? "FileSharesVisible")
+            Core.<*> (x Core..:? "GatewayARN")
+            Core.<*> (x Core..:? "SMBGuestPasswordSet")
+            Core.<*> (x Core..:? "SMBSecurityStrategy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeSMBSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.DescribeSMBSettings" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeSMBSettings where
-  toJSON DescribeSMBSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath DescribeSMBSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSMBSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeSMBSettingsResponse' smart constructor.
 data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
-    -- | The shares on this gateway appear when listing shares.
-    fileSharesVisible :: Lude.Maybe Lude.Bool,
-    -- | Indicates the status of a gateway that is a member of the Active Directory domain.
+  { -- | Indicates the status of a gateway that is a member of the Active Directory domain.
     --
     --
     --     * @ACCESS_DENIED@ : Indicates that the @JoinDomain@ operation failed due to an authentication error.
@@ -132,13 +120,16 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
     --
     --
     --     * @UNKNOWN_ERROR@ : Indicates that the @JoinDomain@ operation failed due to another type of error.
-    activeDirectoryStatus :: Lude.Maybe ActiveDirectoryStatus,
+    activeDirectoryStatus :: Core.Maybe Types.ActiveDirectoryStatus,
     -- | The name of the domain that the gateway is joined to.
-    domainName :: Lude.Maybe Lude.Text,
+    domainName :: Core.Maybe Types.DomainName,
+    -- | The shares on this gateway appear when listing shares.
+    fileSharesVisible :: Core.Maybe Core.Bool,
+    gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | This value is @true@ if a password for the guest user @smbguest@ is set, otherwise @false@ .
     --
     -- Valid Values: @true@ | @false@
-    sMBGuestPasswordSet :: Lude.Maybe Lude.Bool,
+    sMBGuestPasswordSet :: Core.Maybe Core.Bool,
     -- | The type of security strategy that was specified for file gateway.
     --
     --
@@ -149,86 +140,29 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
     --
     --
     --     * @MandatoryEncryption@ : If you use this option, file gateway only allows connections from SMBv3 clients that have encryption enabled. This option is highly recommended for environments that handle sensitive data. This option works with SMB clients on Microsoft Windows 8, Windows Server 2012 or newer.
-    sMBSecurityStrategy :: Lude.Maybe SMBSecurityStrategy,
+    sMBSecurityStrategy :: Core.Maybe Types.SMBSecurityStrategy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSMBSettingsResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'fileSharesVisible' - The shares on this gateway appear when listing shares.
--- * 'activeDirectoryStatus' - Indicates the status of a gateway that is a member of the Active Directory domain.
---
---
---     * @ACCESS_DENIED@ : Indicates that the @JoinDomain@ operation failed due to an authentication error.
---
---
---     * @DETACHED@ : Indicates that gateway is not joined to a domain.
---
---
---     * @JOINED@ : Indicates that the gateway has successfully joined a domain.
---
---
---     * @JOINING@ : Indicates that a @JoinDomain@ operation is in progress.
---
---
---     * @NETWORK_ERROR@ : Indicates that @JoinDomain@ operation failed due to a network or connectivity error.
---
---
---     * @TIMEOUT@ : Indicates that the @JoinDomain@ operation failed because the operation didn't complete within the allotted time.
---
---
---     * @UNKNOWN_ERROR@ : Indicates that the @JoinDomain@ operation failed due to another type of error.
---
---
--- * 'domainName' - The name of the domain that the gateway is joined to.
--- * 'sMBGuestPasswordSet' - This value is @true@ if a password for the guest user @smbguest@ is set, otherwise @false@ .
---
--- Valid Values: @true@ | @false@
--- * 'sMBSecurityStrategy' - The type of security strategy that was specified for file gateway.
---
---
---     * @ClientSpecified@ : If you use this option, requests are established based on what is negotiated by the client. This option is recommended when you want to maximize compatibility across different clients in your environment.
---
---
---     * @MandatorySigning@ : If you use this option, file gateway only allows connections from SMBv2 or SMBv3 clients that have signing enabled. This option works with SMB clients on Microsoft Windows Vista, Windows Server 2008 or newer.
---
---
---     * @MandatoryEncryption@ : If you use this option, file gateway only allows connections from SMBv3 clients that have encryption enabled. This option is highly recommended for environments that handle sensitive data. This option works with SMB clients on Microsoft Windows 8, Windows Server 2012 or newer.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSMBSettingsResponse' value with any optional fields omitted.
 mkDescribeSMBSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSMBSettingsResponse
-mkDescribeSMBSettingsResponse pResponseStatus_ =
+mkDescribeSMBSettingsResponse responseStatus =
   DescribeSMBSettingsResponse'
-    { gatewayARN = Lude.Nothing,
-      fileSharesVisible = Lude.Nothing,
-      activeDirectoryStatus = Lude.Nothing,
-      domainName = Lude.Nothing,
-      sMBGuestPasswordSet = Lude.Nothing,
-      sMBSecurityStrategy = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { activeDirectoryStatus =
+        Core.Nothing,
+      domainName = Core.Nothing,
+      fileSharesVisible = Core.Nothing,
+      gatewayARN = Core.Nothing,
+      sMBGuestPasswordSet = Core.Nothing,
+      sMBSecurityStrategy = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmbsrsGatewayARN :: Lens.Lens' DescribeSMBSettingsResponse (Lude.Maybe Lude.Text)
-dsmbsrsGatewayARN = Lens.lens (gatewayARN :: DescribeSMBSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeSMBSettingsResponse)
-{-# DEPRECATED dsmbsrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | The shares on this gateway appear when listing shares.
---
--- /Note:/ Consider using 'fileSharesVisible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmbsrsFileSharesVisible :: Lens.Lens' DescribeSMBSettingsResponse (Lude.Maybe Lude.Bool)
-dsmbsrsFileSharesVisible = Lens.lens (fileSharesVisible :: DescribeSMBSettingsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {fileSharesVisible = a} :: DescribeSMBSettingsResponse)
-{-# DEPRECATED dsmbsrsFileSharesVisible "Use generic-lens or generic-optics with 'fileSharesVisible' instead." #-}
 
 -- | Indicates the status of a gateway that is a member of the Active Directory domain.
 --
@@ -256,25 +190,39 @@ dsmbsrsFileSharesVisible = Lens.lens (fileSharesVisible :: DescribeSMBSettingsRe
 --
 --
 -- /Note:/ Consider using 'activeDirectoryStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmbsrsActiveDirectoryStatus :: Lens.Lens' DescribeSMBSettingsResponse (Lude.Maybe ActiveDirectoryStatus)
-dsmbsrsActiveDirectoryStatus = Lens.lens (activeDirectoryStatus :: DescribeSMBSettingsResponse -> Lude.Maybe ActiveDirectoryStatus) (\s a -> s {activeDirectoryStatus = a} :: DescribeSMBSettingsResponse)
-{-# DEPRECATED dsmbsrsActiveDirectoryStatus "Use generic-lens or generic-optics with 'activeDirectoryStatus' instead." #-}
+dsmbsrrsActiveDirectoryStatus :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Types.ActiveDirectoryStatus)
+dsmbsrrsActiveDirectoryStatus = Lens.field @"activeDirectoryStatus"
+{-# DEPRECATED dsmbsrrsActiveDirectoryStatus "Use generic-lens or generic-optics with 'activeDirectoryStatus' instead." #-}
 
 -- | The name of the domain that the gateway is joined to.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmbsrsDomainName :: Lens.Lens' DescribeSMBSettingsResponse (Lude.Maybe Lude.Text)
-dsmbsrsDomainName = Lens.lens (domainName :: DescribeSMBSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DescribeSMBSettingsResponse)
-{-# DEPRECATED dsmbsrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+dsmbsrrsDomainName :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Types.DomainName)
+dsmbsrrsDomainName = Lens.field @"domainName"
+{-# DEPRECATED dsmbsrrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | The shares on this gateway appear when listing shares.
+--
+-- /Note:/ Consider using 'fileSharesVisible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmbsrrsFileSharesVisible :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Core.Bool)
+dsmbsrrsFileSharesVisible = Lens.field @"fileSharesVisible"
+{-# DEPRECATED dsmbsrrsFileSharesVisible "Use generic-lens or generic-optics with 'fileSharesVisible' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmbsrrsGatewayARN :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Types.GatewayARN)
+dsmbsrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dsmbsrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | This value is @true@ if a password for the guest user @smbguest@ is set, otherwise @false@ .
 --
 -- Valid Values: @true@ | @false@
 --
 -- /Note:/ Consider using 'sMBGuestPasswordSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmbsrsSMBGuestPasswordSet :: Lens.Lens' DescribeSMBSettingsResponse (Lude.Maybe Lude.Bool)
-dsmbsrsSMBGuestPasswordSet = Lens.lens (sMBGuestPasswordSet :: DescribeSMBSettingsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {sMBGuestPasswordSet = a} :: DescribeSMBSettingsResponse)
-{-# DEPRECATED dsmbsrsSMBGuestPasswordSet "Use generic-lens or generic-optics with 'sMBGuestPasswordSet' instead." #-}
+dsmbsrrsSMBGuestPasswordSet :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Core.Bool)
+dsmbsrrsSMBGuestPasswordSet = Lens.field @"sMBGuestPasswordSet"
+{-# DEPRECATED dsmbsrrsSMBGuestPasswordSet "Use generic-lens or generic-optics with 'sMBGuestPasswordSet' instead." #-}
 
 -- | The type of security strategy that was specified for file gateway.
 --
@@ -290,13 +238,13 @@ dsmbsrsSMBGuestPasswordSet = Lens.lens (sMBGuestPasswordSet :: DescribeSMBSettin
 --
 --
 -- /Note:/ Consider using 'sMBSecurityStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmbsrsSMBSecurityStrategy :: Lens.Lens' DescribeSMBSettingsResponse (Lude.Maybe SMBSecurityStrategy)
-dsmbsrsSMBSecurityStrategy = Lens.lens (sMBSecurityStrategy :: DescribeSMBSettingsResponse -> Lude.Maybe SMBSecurityStrategy) (\s a -> s {sMBSecurityStrategy = a} :: DescribeSMBSettingsResponse)
-{-# DEPRECATED dsmbsrsSMBSecurityStrategy "Use generic-lens or generic-optics with 'sMBSecurityStrategy' instead." #-}
+dsmbsrrsSMBSecurityStrategy :: Lens.Lens' DescribeSMBSettingsResponse (Core.Maybe Types.SMBSecurityStrategy)
+dsmbsrrsSMBSecurityStrategy = Lens.field @"sMBSecurityStrategy"
+{-# DEPRECATED dsmbsrrsSMBSecurityStrategy "Use generic-lens or generic-optics with 'sMBSecurityStrategy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmbsrsResponseStatus :: Lens.Lens' DescribeSMBSettingsResponse Lude.Int
-dsmbsrsResponseStatus = Lens.lens (responseStatus :: DescribeSMBSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSMBSettingsResponse)
-{-# DEPRECATED dsmbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsmbsrrsResponseStatus :: Lens.Lens' DescribeSMBSettingsResponse Core.Int
+dsmbsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsmbsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -28,124 +28,107 @@ module Network.AWS.SSM.PutInventory
     mkPutInventoryResponse,
 
     -- ** Response lenses
-    pirsMessage,
-    pirsResponseStatus,
+    pirrsMessage,
+    pirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkPutInventory' smart constructor.
 data PutInventory = PutInventory'
   { -- | An instance ID where you want to add or update inventory items.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The inventory items that you want to add or update on instances.
-    items :: Lude.NonEmpty InventoryItem
+    items :: Core.NonEmpty Types.InventoryItem
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutInventory' with the minimum fields required to make a request.
---
--- * 'instanceId' - An instance ID where you want to add or update inventory items.
--- * 'items' - The inventory items that you want to add or update on instances.
+-- | Creates a 'PutInventory' value with any optional fields omitted.
 mkPutInventory ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'items'
-  Lude.NonEmpty InventoryItem ->
+  Core.NonEmpty Types.InventoryItem ->
   PutInventory
-mkPutInventory pInstanceId_ pItems_ =
-  PutInventory' {instanceId = pInstanceId_, items = pItems_}
+mkPutInventory instanceId items = PutInventory' {instanceId, items}
 
 -- | An instance ID where you want to add or update inventory items.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piInstanceId :: Lens.Lens' PutInventory Lude.Text
-piInstanceId = Lens.lens (instanceId :: PutInventory -> Lude.Text) (\s a -> s {instanceId = a} :: PutInventory)
+piInstanceId :: Lens.Lens' PutInventory Types.InstanceId
+piInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED piInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The inventory items that you want to add or update on instances.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piItems :: Lens.Lens' PutInventory (Lude.NonEmpty InventoryItem)
-piItems = Lens.lens (items :: PutInventory -> Lude.NonEmpty InventoryItem) (\s a -> s {items = a} :: PutInventory)
+piItems :: Lens.Lens' PutInventory (Core.NonEmpty Types.InventoryItem)
+piItems = Lens.field @"items"
 {-# DEPRECATED piItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.AWSRequest PutInventory where
+instance Core.FromJSON PutInventory where
+  toJSON PutInventory {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("Items" Core..= items)
+          ]
+      )
+
+instance Core.AWSRequest PutInventory where
   type Rs PutInventory = PutInventoryResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.PutInventory")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutInventoryResponse'
-            Lude.<$> (x Lude..?> "Message") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Message") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutInventory where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.PutInventory" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutInventory where
-  toJSON PutInventory' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("Items" Lude..= items)
-          ]
-      )
-
-instance Lude.ToPath PutInventory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutInventory where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutInventoryResponse' smart constructor.
 data PutInventoryResponse = PutInventoryResponse'
   { -- | Information about the request.
-    message :: Lude.Maybe Lude.Text,
+    message :: Core.Maybe Types.Message,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutInventoryResponse' with the minimum fields required to make a request.
---
--- * 'message' - Information about the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutInventoryResponse' value with any optional fields omitted.
 mkPutInventoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutInventoryResponse
-mkPutInventoryResponse pResponseStatus_ =
-  PutInventoryResponse'
-    { message = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkPutInventoryResponse responseStatus =
+  PutInventoryResponse' {message = Core.Nothing, responseStatus}
 
 -- | Information about the request.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pirsMessage :: Lens.Lens' PutInventoryResponse (Lude.Maybe Lude.Text)
-pirsMessage = Lens.lens (message :: PutInventoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: PutInventoryResponse)
-{-# DEPRECATED pirsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+pirrsMessage :: Lens.Lens' PutInventoryResponse (Core.Maybe Types.Message)
+pirrsMessage = Lens.field @"message"
+{-# DEPRECATED pirrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pirsResponseStatus :: Lens.Lens' PutInventoryResponse Lude.Int
-pirsResponseStatus = Lens.lens (responseStatus :: PutInventoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutInventoryResponse)
-{-# DEPRECATED pirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pirrsResponseStatus :: Lens.Lens' PutInventoryResponse Core.Int
+pirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

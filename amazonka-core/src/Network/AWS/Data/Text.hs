@@ -20,28 +20,25 @@ module Network.AWS.Data.Text
   )
 where
 
-import Data.Attoparsec.Text (Parser)
 import qualified Data.Attoparsec.Text as Atto
 import qualified Data.Bifunctor as Bifunctor
-import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as ByteString.Char8
-import Data.Int (Int16, Int32, Int64, Int8)
-import Data.Scientific (Scientific)
-import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text.Encoding
 import qualified Data.Text.Lazy as Text.Lazy
-import Data.Text.Lazy.Builder (Builder)
 import qualified Data.Text.Lazy.Builder as Builder
 import qualified Data.Text.Lazy.Builder.Int as Builder.Int
 import qualified Data.Text.Lazy.Builder.RealFloat as Builder.RealFloat
 import qualified Data.Text.Lazy.Builder.Scientific as Builder.Scientific
-import Data.Time (Day (..), NominalDiffTime, UTCTime (..))
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Time
+import Data.Time (Day (..), UTCTime (..))
+import qualified Network.AWS.Data.Time as AWS.Time
 import qualified Network.HTTP.Types as HTTP.Types
 import qualified Numeric
-import Numeric.Natural (Natural)
+import Network.AWS.Prelude
+
+-- 1. have a Network.AWS.Prelude (qualify as "Prelude")
+-- 2. have Network.AWS.Data (qualify as "Data")
+-- 3. have Network.AWS.Lens (qualify as "Lens")
 
 -- parseText :: Parser a -> Text -> Either Text a
 -- parseText parser = A.parseOnly (parser <* A.endOfInput)
@@ -65,19 +62,15 @@ instance ToText Text where
   toText = id
   {-# INLINE toText #-}
 
+instance ToText Int where
+  toText = buildStrictText . Builder.Int.decimal
+  {-# INLINEABLE toText #-}
+
 instance ToText Integer where
   toText = buildStrictText . Builder.Int.decimal
   {-# INLINEABLE toText #-}
 
 instance ToText Natural where
-  toText = buildStrictText . Builder.Int.decimal
-  {-# INLINEABLE toText #-}
-
-instance ToText Int where
-  toText = buildStrictText . Builder.Int.decimal
-  {-# INLINEABLE toText #-}
-
-instance ToText Int64 where
   toText = buildStrictText . Builder.Int.decimal
   {-# INLINEABLE toText #-}
 
@@ -89,7 +82,7 @@ instance ToText Double where
   toText = buildStrictText . Builder.RealFloat.realFloat
   {-# INLINEABLE toText #-}
 
-buildStrictText :: Builder -> Text
+buildStrictText :: TextBuilder -> Text
 buildStrictText = Text.Lazy.toStrict . Builder.toLazyText
 
 class FromText a where
@@ -105,9 +98,9 @@ instance FromText Text where
   parseText = Right
   {-# INLINEABLE parseText #-}
 
-instance FromText ByteString where
-  parseText = Right . Text.Encoding.encodeUtf8
-  {-# INLINEABLE parseText #-}
+-- instance FromText ByteString where
+--   parseText = Right . Text.Encoding.encodeUtf8
+--   {-# INLINEABLE parseText #-}
 
 -- instance FromText Text where
 --   fromText = pure

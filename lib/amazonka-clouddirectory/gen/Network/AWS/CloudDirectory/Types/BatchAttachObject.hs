@@ -23,71 +23,64 @@ module Network.AWS.CloudDirectory.Types.BatchAttachObject
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.LinkName as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of an 'AttachObject' operation.
 --
 -- /See:/ 'mkBatchAttachObject' smart constructor.
 data BatchAttachObject = BatchAttachObject'
   { -- | The parent object reference.
-    parentReference :: ObjectReference,
+    parentReference :: Types.ObjectReference,
     -- | The child object reference that is to be attached to the object.
-    childReference :: ObjectReference,
+    childReference :: Types.ObjectReference,
     -- | The name of the link.
-    linkName :: Lude.Text
+    linkName :: Types.LinkName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchAttachObject' with the minimum fields required to make a request.
---
--- * 'parentReference' - The parent object reference.
--- * 'childReference' - The child object reference that is to be attached to the object.
--- * 'linkName' - The name of the link.
+-- | Creates a 'BatchAttachObject' value with any optional fields omitted.
 mkBatchAttachObject ::
   -- | 'parentReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   -- | 'childReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   -- | 'linkName'
-  Lude.Text ->
+  Types.LinkName ->
   BatchAttachObject
-mkBatchAttachObject pParentReference_ pChildReference_ pLinkName_ =
-  BatchAttachObject'
-    { parentReference = pParentReference_,
-      childReference = pChildReference_,
-      linkName = pLinkName_
-    }
+mkBatchAttachObject parentReference childReference linkName =
+  BatchAttachObject' {parentReference, childReference, linkName}
 
 -- | The parent object reference.
 --
 -- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baoParentReference :: Lens.Lens' BatchAttachObject ObjectReference
-baoParentReference = Lens.lens (parentReference :: BatchAttachObject -> ObjectReference) (\s a -> s {parentReference = a} :: BatchAttachObject)
+baoParentReference :: Lens.Lens' BatchAttachObject Types.ObjectReference
+baoParentReference = Lens.field @"parentReference"
 {-# DEPRECATED baoParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
 
 -- | The child object reference that is to be attached to the object.
 --
 -- /Note:/ Consider using 'childReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baoChildReference :: Lens.Lens' BatchAttachObject ObjectReference
-baoChildReference = Lens.lens (childReference :: BatchAttachObject -> ObjectReference) (\s a -> s {childReference = a} :: BatchAttachObject)
+baoChildReference :: Lens.Lens' BatchAttachObject Types.ObjectReference
+baoChildReference = Lens.field @"childReference"
 {-# DEPRECATED baoChildReference "Use generic-lens or generic-optics with 'childReference' instead." #-}
 
 -- | The name of the link.
 --
 -- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baoLinkName :: Lens.Lens' BatchAttachObject Lude.Text
-baoLinkName = Lens.lens (linkName :: BatchAttachObject -> Lude.Text) (\s a -> s {linkName = a} :: BatchAttachObject)
+baoLinkName :: Lens.Lens' BatchAttachObject Types.LinkName
+baoLinkName = Lens.field @"linkName"
 {-# DEPRECATED baoLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
-instance Lude.ToJSON BatchAttachObject where
-  toJSON BatchAttachObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ParentReference" Lude..= parentReference),
-            Lude.Just ("ChildReference" Lude..= childReference),
-            Lude.Just ("LinkName" Lude..= linkName)
+instance Core.FromJSON BatchAttachObject where
+  toJSON BatchAttachObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParentReference" Core..= parentReference),
+            Core.Just ("ChildReference" Core..= childReference),
+            Core.Just ("LinkName" Core..= linkName)
           ]
       )

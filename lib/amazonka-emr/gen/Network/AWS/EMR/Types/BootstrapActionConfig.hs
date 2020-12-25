@@ -22,57 +22,52 @@ module Network.AWS.EMR.Types.BootstrapActionConfig
   )
 where
 
-import Network.AWS.EMR.Types.ScriptBootstrapActionConfig
+import qualified Network.AWS.EMR.Types.ScriptBootstrapActionConfig as Types
+import qualified Network.AWS.EMR.Types.XmlStringMaxLen256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration of a bootstrap action.
 --
 -- /See:/ 'mkBootstrapActionConfig' smart constructor.
 data BootstrapActionConfig = BootstrapActionConfig'
   { -- | The name of the bootstrap action.
-    name :: Lude.Text,
+    name :: Types.XmlStringMaxLen256,
     -- | The script run by the bootstrap action.
-    scriptBootstrapAction :: ScriptBootstrapActionConfig
+    scriptBootstrapAction :: Types.ScriptBootstrapActionConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BootstrapActionConfig' with the minimum fields required to make a request.
---
--- * 'name' - The name of the bootstrap action.
--- * 'scriptBootstrapAction' - The script run by the bootstrap action.
+-- | Creates a 'BootstrapActionConfig' value with any optional fields omitted.
 mkBootstrapActionConfig ::
   -- | 'name'
-  Lude.Text ->
+  Types.XmlStringMaxLen256 ->
   -- | 'scriptBootstrapAction'
-  ScriptBootstrapActionConfig ->
+  Types.ScriptBootstrapActionConfig ->
   BootstrapActionConfig
-mkBootstrapActionConfig pName_ pScriptBootstrapAction_ =
-  BootstrapActionConfig'
-    { name = pName_,
-      scriptBootstrapAction = pScriptBootstrapAction_
-    }
+mkBootstrapActionConfig name scriptBootstrapAction =
+  BootstrapActionConfig' {name, scriptBootstrapAction}
 
 -- | The name of the bootstrap action.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bacName :: Lens.Lens' BootstrapActionConfig Lude.Text
-bacName = Lens.lens (name :: BootstrapActionConfig -> Lude.Text) (\s a -> s {name = a} :: BootstrapActionConfig)
+bacName :: Lens.Lens' BootstrapActionConfig Types.XmlStringMaxLen256
+bacName = Lens.field @"name"
 {-# DEPRECATED bacName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The script run by the bootstrap action.
 --
 -- /Note:/ Consider using 'scriptBootstrapAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bacScriptBootstrapAction :: Lens.Lens' BootstrapActionConfig ScriptBootstrapActionConfig
-bacScriptBootstrapAction = Lens.lens (scriptBootstrapAction :: BootstrapActionConfig -> ScriptBootstrapActionConfig) (\s a -> s {scriptBootstrapAction = a} :: BootstrapActionConfig)
+bacScriptBootstrapAction :: Lens.Lens' BootstrapActionConfig Types.ScriptBootstrapActionConfig
+bacScriptBootstrapAction = Lens.field @"scriptBootstrapAction"
 {-# DEPRECATED bacScriptBootstrapAction "Use generic-lens or generic-optics with 'scriptBootstrapAction' instead." #-}
 
-instance Lude.ToJSON BootstrapActionConfig where
-  toJSON BootstrapActionConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ScriptBootstrapAction" Lude..= scriptBootstrapAction)
+instance Core.FromJSON BootstrapActionConfig where
+  toJSON BootstrapActionConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ScriptBootstrapAction" Core..= scriptBootstrapAction)
           ]
       )

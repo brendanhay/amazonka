@@ -22,36 +22,34 @@ module Network.AWS.SSM.Types.OpsResultAttribute
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.OpsDataTypeName as Types
 
 -- | The OpsItem data type to return.
 --
 -- /See:/ 'mkOpsResultAttribute' smart constructor.
 newtype OpsResultAttribute = OpsResultAttribute'
   { -- | Name of the data type. Valid value: AWS:OpsItem, AWS:EC2InstanceInformation, AWS:OpsItemTrendline, or AWS:ComplianceSummary.
-    typeName :: Lude.Text
+    typeName :: Types.OpsDataTypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OpsResultAttribute' with the minimum fields required to make a request.
---
--- * 'typeName' - Name of the data type. Valid value: AWS:OpsItem, AWS:EC2InstanceInformation, AWS:OpsItemTrendline, or AWS:ComplianceSummary.
+-- | Creates a 'OpsResultAttribute' value with any optional fields omitted.
 mkOpsResultAttribute ::
   -- | 'typeName'
-  Lude.Text ->
+  Types.OpsDataTypeName ->
   OpsResultAttribute
-mkOpsResultAttribute pTypeName_ =
-  OpsResultAttribute' {typeName = pTypeName_}
+mkOpsResultAttribute typeName = OpsResultAttribute' {typeName}
 
 -- | Name of the data type. Valid value: AWS:OpsItem, AWS:EC2InstanceInformation, AWS:OpsItemTrendline, or AWS:ComplianceSummary.
 --
 -- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oraTypeName :: Lens.Lens' OpsResultAttribute Lude.Text
-oraTypeName = Lens.lens (typeName :: OpsResultAttribute -> Lude.Text) (\s a -> s {typeName = a} :: OpsResultAttribute)
+oraTypeName :: Lens.Lens' OpsResultAttribute Types.OpsDataTypeName
+oraTypeName = Lens.field @"typeName"
 {-# DEPRECATED oraTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
-instance Lude.ToJSON OpsResultAttribute where
-  toJSON OpsResultAttribute' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TypeName" Lude..= typeName)])
+instance Core.FromJSON OpsResultAttribute where
+  toJSON OpsResultAttribute {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TypeName" Core..= typeName)])

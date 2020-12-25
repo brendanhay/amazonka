@@ -13,76 +13,81 @@
 module Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
   ( OutboundCrossClusterSearchConnectionStatusCode
       ( OutboundCrossClusterSearchConnectionStatusCode',
-        OCCSCSCPendingAcceptance,
-        OCCSCSCValidating,
-        OCCSCSCValidationFailed,
-        OCCSCSCProvisioning,
-        OCCSCSCActive,
-        OCCSCSCRejected,
-        OCCSCSCDeleting,
-        OCCSCSCDeleted
+        OutboundCrossClusterSearchConnectionStatusCodePendingAcceptance,
+        OutboundCrossClusterSearchConnectionStatusCodeValidating,
+        OutboundCrossClusterSearchConnectionStatusCodeValidationFailed,
+        OutboundCrossClusterSearchConnectionStatusCodeProvisioning,
+        OutboundCrossClusterSearchConnectionStatusCodeActive,
+        OutboundCrossClusterSearchConnectionStatusCodeRejected,
+        OutboundCrossClusterSearchConnectionStatusCodeDeleting,
+        OutboundCrossClusterSearchConnectionStatusCodeDeleted,
+        fromOutboundCrossClusterSearchConnectionStatusCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OutboundCrossClusterSearchConnectionStatusCode = OutboundCrossClusterSearchConnectionStatusCode' Lude.Text
+newtype OutboundCrossClusterSearchConnectionStatusCode = OutboundCrossClusterSearchConnectionStatusCode'
+  { fromOutboundCrossClusterSearchConnectionStatusCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OCCSCSCPendingAcceptance :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCPendingAcceptance = OutboundCrossClusterSearchConnectionStatusCode' "PENDING_ACCEPTANCE"
+pattern OutboundCrossClusterSearchConnectionStatusCodePendingAcceptance :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OutboundCrossClusterSearchConnectionStatusCodePendingAcceptance = OutboundCrossClusterSearchConnectionStatusCode' "PENDING_ACCEPTANCE"
 
-pattern OCCSCSCValidating :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCValidating = OutboundCrossClusterSearchConnectionStatusCode' "VALIDATING"
+pattern OutboundCrossClusterSearchConnectionStatusCodeValidating :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OutboundCrossClusterSearchConnectionStatusCodeValidating = OutboundCrossClusterSearchConnectionStatusCode' "VALIDATING"
 
-pattern OCCSCSCValidationFailed :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCValidationFailed = OutboundCrossClusterSearchConnectionStatusCode' "VALIDATION_FAILED"
+pattern OutboundCrossClusterSearchConnectionStatusCodeValidationFailed :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OutboundCrossClusterSearchConnectionStatusCodeValidationFailed = OutboundCrossClusterSearchConnectionStatusCode' "VALIDATION_FAILED"
 
-pattern OCCSCSCProvisioning :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCProvisioning = OutboundCrossClusterSearchConnectionStatusCode' "PROVISIONING"
+pattern OutboundCrossClusterSearchConnectionStatusCodeProvisioning :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OutboundCrossClusterSearchConnectionStatusCodeProvisioning = OutboundCrossClusterSearchConnectionStatusCode' "PROVISIONING"
 
-pattern OCCSCSCActive :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCActive = OutboundCrossClusterSearchConnectionStatusCode' "ACTIVE"
+pattern OutboundCrossClusterSearchConnectionStatusCodeActive :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OutboundCrossClusterSearchConnectionStatusCodeActive = OutboundCrossClusterSearchConnectionStatusCode' "ACTIVE"
 
-pattern OCCSCSCRejected :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCRejected = OutboundCrossClusterSearchConnectionStatusCode' "REJECTED"
+pattern OutboundCrossClusterSearchConnectionStatusCodeRejected :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OutboundCrossClusterSearchConnectionStatusCodeRejected = OutboundCrossClusterSearchConnectionStatusCode' "REJECTED"
 
-pattern OCCSCSCDeleting :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCDeleting = OutboundCrossClusterSearchConnectionStatusCode' "DELETING"
+pattern OutboundCrossClusterSearchConnectionStatusCodeDeleting :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OutboundCrossClusterSearchConnectionStatusCodeDeleting = OutboundCrossClusterSearchConnectionStatusCode' "DELETING"
 
-pattern OCCSCSCDeleted :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCDeleted = OutboundCrossClusterSearchConnectionStatusCode' "DELETED"
+pattern OutboundCrossClusterSearchConnectionStatusCodeDeleted :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OutboundCrossClusterSearchConnectionStatusCodeDeleted = OutboundCrossClusterSearchConnectionStatusCode' "DELETED"
 
 {-# COMPLETE
-  OCCSCSCPendingAcceptance,
-  OCCSCSCValidating,
-  OCCSCSCValidationFailed,
-  OCCSCSCProvisioning,
-  OCCSCSCActive,
-  OCCSCSCRejected,
-  OCCSCSCDeleting,
-  OCCSCSCDeleted,
+  OutboundCrossClusterSearchConnectionStatusCodePendingAcceptance,
+  OutboundCrossClusterSearchConnectionStatusCodeValidating,
+  OutboundCrossClusterSearchConnectionStatusCodeValidationFailed,
+  OutboundCrossClusterSearchConnectionStatusCodeProvisioning,
+  OutboundCrossClusterSearchConnectionStatusCodeActive,
+  OutboundCrossClusterSearchConnectionStatusCodeRejected,
+  OutboundCrossClusterSearchConnectionStatusCodeDeleting,
+  OutboundCrossClusterSearchConnectionStatusCodeDeleted,
   OutboundCrossClusterSearchConnectionStatusCode'
   #-}

@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.H264Syntax
   ( H264Syntax
       ( H264Syntax',
-        HSDefault,
-        HSRP2027
+        H264SyntaxDefault,
+        H264SyntaxRP2027,
+        fromH264Syntax
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Syntax
-newtype H264Syntax = H264Syntax' Lude.Text
+newtype H264Syntax = H264Syntax' {fromH264Syntax :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HSDefault :: H264Syntax
-pattern HSDefault = H264Syntax' "DEFAULT"
+pattern H264SyntaxDefault :: H264Syntax
+pattern H264SyntaxDefault = H264Syntax' "DEFAULT"
 
-pattern HSRP2027 :: H264Syntax
-pattern HSRP2027 = H264Syntax' "RP2027"
+pattern H264SyntaxRP2027 :: H264Syntax
+pattern H264SyntaxRP2027 = H264Syntax' "RP2027"
 
 {-# COMPLETE
-  HSDefault,
-  HSRP2027,
+  H264SyntaxDefault,
+  H264SyntaxRP2027,
   H264Syntax'
   #-}

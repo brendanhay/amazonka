@@ -27,93 +27,81 @@ module Network.AWS.AppStream.ExpireSession
     mkExpireSessionResponse,
 
     -- ** Response lenses
-    esrsResponseStatus,
+    esrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkExpireSession' smart constructor.
 newtype ExpireSession = ExpireSession'
   { -- | The identifier of the streaming session.
-    sessionId :: Lude.Text
+    sessionId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExpireSession' with the minimum fields required to make a request.
---
--- * 'sessionId' - The identifier of the streaming session.
+-- | Creates a 'ExpireSession' value with any optional fields omitted.
 mkExpireSession ::
   -- | 'sessionId'
-  Lude.Text ->
+  Types.String ->
   ExpireSession
-mkExpireSession pSessionId_ =
-  ExpireSession' {sessionId = pSessionId_}
+mkExpireSession sessionId = ExpireSession' {sessionId}
 
 -- | The identifier of the streaming session.
 --
 -- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esSessionId :: Lens.Lens' ExpireSession Lude.Text
-esSessionId = Lens.lens (sessionId :: ExpireSession -> Lude.Text) (\s a -> s {sessionId = a} :: ExpireSession)
+esSessionId :: Lens.Lens' ExpireSession Types.String
+esSessionId = Lens.field @"sessionId"
 {-# DEPRECATED esSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
-instance Lude.AWSRequest ExpireSession where
+instance Core.FromJSON ExpireSession where
+  toJSON ExpireSession {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SessionId" Core..= sessionId)])
+
+instance Core.AWSRequest ExpireSession where
   type Rs ExpireSession = ExpireSessionResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "PhotonAdminProxyService.ExpireSession")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          ExpireSessionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          ExpireSessionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ExpireSession where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.ExpireSession" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ExpireSession where
-  toJSON ExpireSession' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SessionId" Lude..= sessionId)])
-
-instance Lude.ToPath ExpireSession where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ExpireSession where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkExpireSessionResponse' smart constructor.
 newtype ExpireSessionResponse = ExpireSessionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExpireSessionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ExpireSessionResponse' value with any optional fields omitted.
 mkExpireSessionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ExpireSessionResponse
-mkExpireSessionResponse pResponseStatus_ =
-  ExpireSessionResponse' {responseStatus = pResponseStatus_}
+mkExpireSessionResponse responseStatus =
+  ExpireSessionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrsResponseStatus :: Lens.Lens' ExpireSessionResponse Lude.Int
-esrsResponseStatus = Lens.lens (responseStatus :: ExpireSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExpireSessionResponse)
-{-# DEPRECATED esrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+esrrsResponseStatus :: Lens.Lens' ExpireSessionResponse Core.Int
+esrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED esrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

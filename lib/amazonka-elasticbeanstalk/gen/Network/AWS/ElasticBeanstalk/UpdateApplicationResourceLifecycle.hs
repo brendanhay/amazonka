@@ -28,138 +28,135 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
     mkUpdateApplicationResourceLifecycleResponse,
 
     -- ** Response lenses
-    uarlrsApplicationName,
-    uarlrsResourceLifecycleConfig,
-    uarlrsResponseStatus,
+    uarlrrsApplicationName,
+    uarlrrsResourceLifecycleConfig,
+    uarlrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateApplicationResourceLifecycle' smart constructor.
 data UpdateApplicationResourceLifecycle = UpdateApplicationResourceLifecycle'
   { -- | The name of the application.
-    applicationName :: Lude.Text,
+    applicationName :: Types.ApplicationName,
     -- | The lifecycle configuration.
-    resourceLifecycleConfig :: ApplicationResourceLifecycleConfig
+    resourceLifecycleConfig :: Types.ApplicationResourceLifecycleConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplicationResourceLifecycle' with the minimum fields required to make a request.
---
--- * 'applicationName' - The name of the application.
--- * 'resourceLifecycleConfig' - The lifecycle configuration.
+-- | Creates a 'UpdateApplicationResourceLifecycle' value with any optional fields omitted.
 mkUpdateApplicationResourceLifecycle ::
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
   -- | 'resourceLifecycleConfig'
-  ApplicationResourceLifecycleConfig ->
+  Types.ApplicationResourceLifecycleConfig ->
   UpdateApplicationResourceLifecycle
 mkUpdateApplicationResourceLifecycle
-  pApplicationName_
-  pResourceLifecycleConfig_ =
+  applicationName
+  resourceLifecycleConfig =
     UpdateApplicationResourceLifecycle'
-      { applicationName =
-          pApplicationName_,
-        resourceLifecycleConfig = pResourceLifecycleConfig_
+      { applicationName,
+        resourceLifecycleConfig
       }
 
 -- | The name of the application.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarlApplicationName :: Lens.Lens' UpdateApplicationResourceLifecycle Lude.Text
-uarlApplicationName = Lens.lens (applicationName :: UpdateApplicationResourceLifecycle -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplicationResourceLifecycle)
+uarlApplicationName :: Lens.Lens' UpdateApplicationResourceLifecycle Types.ApplicationName
+uarlApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED uarlApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The lifecycle configuration.
 --
 -- /Note:/ Consider using 'resourceLifecycleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarlResourceLifecycleConfig :: Lens.Lens' UpdateApplicationResourceLifecycle ApplicationResourceLifecycleConfig
-uarlResourceLifecycleConfig = Lens.lens (resourceLifecycleConfig :: UpdateApplicationResourceLifecycle -> ApplicationResourceLifecycleConfig) (\s a -> s {resourceLifecycleConfig = a} :: UpdateApplicationResourceLifecycle)
+uarlResourceLifecycleConfig :: Lens.Lens' UpdateApplicationResourceLifecycle Types.ApplicationResourceLifecycleConfig
+uarlResourceLifecycleConfig = Lens.field @"resourceLifecycleConfig"
 {-# DEPRECATED uarlResourceLifecycleConfig "Use generic-lens or generic-optics with 'resourceLifecycleConfig' instead." #-}
 
-instance Lude.AWSRequest UpdateApplicationResourceLifecycle where
+instance Core.AWSRequest UpdateApplicationResourceLifecycle where
   type
     Rs UpdateApplicationResourceLifecycle =
       UpdateApplicationResourceLifecycleResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateApplicationResourceLifecycle")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ApplicationName" applicationName)
+                Core.<> ( Core.toQueryValue
+                            "ResourceLifecycleConfig"
+                            resourceLifecycleConfig
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateApplicationResourceLifecycleResult"
       ( \s h x ->
           UpdateApplicationResourceLifecycleResponse'
-            Lude.<$> (x Lude..@? "ApplicationName")
-            Lude.<*> (x Lude..@? "ResourceLifecycleConfig")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ApplicationName")
+            Core.<*> (x Core..@? "ResourceLifecycleConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateApplicationResourceLifecycle where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateApplicationResourceLifecycle where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateApplicationResourceLifecycle where
-  toQuery UpdateApplicationResourceLifecycle' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("UpdateApplicationResourceLifecycle" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ApplicationName" Lude.=: applicationName,
-        "ResourceLifecycleConfig" Lude.=: resourceLifecycleConfig
-      ]
 
 -- | /See:/ 'mkUpdateApplicationResourceLifecycleResponse' smart constructor.
 data UpdateApplicationResourceLifecycleResponse = UpdateApplicationResourceLifecycleResponse'
   { -- | The name of the application.
-    applicationName :: Lude.Maybe Lude.Text,
+    applicationName :: Core.Maybe Types.ApplicationName,
     -- | The lifecycle configuration.
-    resourceLifecycleConfig :: Lude.Maybe ApplicationResourceLifecycleConfig,
+    resourceLifecycleConfig :: Core.Maybe Types.ApplicationResourceLifecycleConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplicationResourceLifecycleResponse' with the minimum fields required to make a request.
---
--- * 'applicationName' - The name of the application.
--- * 'resourceLifecycleConfig' - The lifecycle configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateApplicationResourceLifecycleResponse' value with any optional fields omitted.
 mkUpdateApplicationResourceLifecycleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateApplicationResourceLifecycleResponse
-mkUpdateApplicationResourceLifecycleResponse pResponseStatus_ =
+mkUpdateApplicationResourceLifecycleResponse responseStatus =
   UpdateApplicationResourceLifecycleResponse'
     { applicationName =
-        Lude.Nothing,
-      resourceLifecycleConfig = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      resourceLifecycleConfig = Core.Nothing,
+      responseStatus
     }
 
 -- | The name of the application.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarlrsApplicationName :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Lude.Maybe Lude.Text)
-uarlrsApplicationName = Lens.lens (applicationName :: UpdateApplicationResourceLifecycleResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplicationResourceLifecycleResponse)
-{-# DEPRECATED uarlrsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+uarlrrsApplicationName :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Core.Maybe Types.ApplicationName)
+uarlrrsApplicationName = Lens.field @"applicationName"
+{-# DEPRECATED uarlrrsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The lifecycle configuration.
 --
 -- /Note:/ Consider using 'resourceLifecycleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarlrsResourceLifecycleConfig :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Lude.Maybe ApplicationResourceLifecycleConfig)
-uarlrsResourceLifecycleConfig = Lens.lens (resourceLifecycleConfig :: UpdateApplicationResourceLifecycleResponse -> Lude.Maybe ApplicationResourceLifecycleConfig) (\s a -> s {resourceLifecycleConfig = a} :: UpdateApplicationResourceLifecycleResponse)
-{-# DEPRECATED uarlrsResourceLifecycleConfig "Use generic-lens or generic-optics with 'resourceLifecycleConfig' instead." #-}
+uarlrrsResourceLifecycleConfig :: Lens.Lens' UpdateApplicationResourceLifecycleResponse (Core.Maybe Types.ApplicationResourceLifecycleConfig)
+uarlrrsResourceLifecycleConfig = Lens.field @"resourceLifecycleConfig"
+{-# DEPRECATED uarlrrsResourceLifecycleConfig "Use generic-lens or generic-optics with 'resourceLifecycleConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarlrsResponseStatus :: Lens.Lens' UpdateApplicationResourceLifecycleResponse Lude.Int
-uarlrsResponseStatus = Lens.lens (responseStatus :: UpdateApplicationResourceLifecycleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApplicationResourceLifecycleResponse)
-{-# DEPRECATED uarlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uarlrrsResponseStatus :: Lens.Lens' UpdateApplicationResourceLifecycleResponse Core.Int
+uarlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uarlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,66 +13,68 @@
 module Network.AWS.Pinpoint.Types.Frequency
   ( Frequency
       ( Frequency',
-        Once,
-        Hourly,
-        Daily,
-        Weekly,
-        Monthly,
-        Event
+        FrequencyOnce,
+        FrequencyHourly,
+        FrequencyDaily,
+        FrequencyWeekly,
+        FrequencyMonthly,
+        FrequencyEvent,
+        fromFrequency
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Frequency = Frequency' Lude.Text
+newtype Frequency = Frequency' {fromFrequency :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Once :: Frequency
-pattern Once = Frequency' "ONCE"
+pattern FrequencyOnce :: Frequency
+pattern FrequencyOnce = Frequency' "ONCE"
 
-pattern Hourly :: Frequency
-pattern Hourly = Frequency' "HOURLY"
+pattern FrequencyHourly :: Frequency
+pattern FrequencyHourly = Frequency' "HOURLY"
 
-pattern Daily :: Frequency
-pattern Daily = Frequency' "DAILY"
+pattern FrequencyDaily :: Frequency
+pattern FrequencyDaily = Frequency' "DAILY"
 
-pattern Weekly :: Frequency
-pattern Weekly = Frequency' "WEEKLY"
+pattern FrequencyWeekly :: Frequency
+pattern FrequencyWeekly = Frequency' "WEEKLY"
 
-pattern Monthly :: Frequency
-pattern Monthly = Frequency' "MONTHLY"
+pattern FrequencyMonthly :: Frequency
+pattern FrequencyMonthly = Frequency' "MONTHLY"
 
-pattern Event :: Frequency
-pattern Event = Frequency' "EVENT"
+pattern FrequencyEvent :: Frequency
+pattern FrequencyEvent = Frequency' "EVENT"
 
 {-# COMPLETE
-  Once,
-  Hourly,
-  Daily,
-  Weekly,
-  Monthly,
-  Event,
+  FrequencyOnce,
+  FrequencyHourly,
+  FrequencyDaily,
+  FrequencyWeekly,
+  FrequencyMonthly,
+  FrequencyEvent,
   Frequency'
   #-}

@@ -22,54 +22,49 @@ module Network.AWS.EMR.Types.AutoScalingPolicyStatus
   )
 where
 
-import Network.AWS.EMR.Types.AutoScalingPolicyState
-import Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason
+import qualified Network.AWS.EMR.Types.AutoScalingPolicyState as Types
+import qualified Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of an automatic scaling policy.
 --
 -- /See:/ 'mkAutoScalingPolicyStatus' smart constructor.
 data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
   { -- | Indicates the status of the automatic scaling policy.
-    state :: Lude.Maybe AutoScalingPolicyState,
+    state :: Core.Maybe Types.AutoScalingPolicyState,
     -- | The reason for a change in status.
-    stateChangeReason :: Lude.Maybe AutoScalingPolicyStateChangeReason
+    stateChangeReason :: Core.Maybe Types.AutoScalingPolicyStateChangeReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoScalingPolicyStatus' with the minimum fields required to make a request.
---
--- * 'state' - Indicates the status of the automatic scaling policy.
--- * 'stateChangeReason' - The reason for a change in status.
+-- | Creates a 'AutoScalingPolicyStatus' value with any optional fields omitted.
 mkAutoScalingPolicyStatus ::
   AutoScalingPolicyStatus
 mkAutoScalingPolicyStatus =
   AutoScalingPolicyStatus'
-    { state = Lude.Nothing,
-      stateChangeReason = Lude.Nothing
+    { state = Core.Nothing,
+      stateChangeReason = Core.Nothing
     }
 
 -- | Indicates the status of the automatic scaling policy.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspsState :: Lens.Lens' AutoScalingPolicyStatus (Lude.Maybe AutoScalingPolicyState)
-aspsState = Lens.lens (state :: AutoScalingPolicyStatus -> Lude.Maybe AutoScalingPolicyState) (\s a -> s {state = a} :: AutoScalingPolicyStatus)
+aspsState :: Lens.Lens' AutoScalingPolicyStatus (Core.Maybe Types.AutoScalingPolicyState)
+aspsState = Lens.field @"state"
 {-# DEPRECATED aspsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The reason for a change in status.
 --
 -- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspsStateChangeReason :: Lens.Lens' AutoScalingPolicyStatus (Lude.Maybe AutoScalingPolicyStateChangeReason)
-aspsStateChangeReason = Lens.lens (stateChangeReason :: AutoScalingPolicyStatus -> Lude.Maybe AutoScalingPolicyStateChangeReason) (\s a -> s {stateChangeReason = a} :: AutoScalingPolicyStatus)
+aspsStateChangeReason :: Lens.Lens' AutoScalingPolicyStatus (Core.Maybe Types.AutoScalingPolicyStateChangeReason)
+aspsStateChangeReason = Lens.field @"stateChangeReason"
 {-# DEPRECATED aspsStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
-instance Lude.FromJSON AutoScalingPolicyStatus where
+instance Core.FromJSON AutoScalingPolicyStatus where
   parseJSON =
-    Lude.withObject
-      "AutoScalingPolicyStatus"
-      ( \x ->
-          AutoScalingPolicyStatus'
-            Lude.<$> (x Lude..:? "State") Lude.<*> (x Lude..:? "StateChangeReason")
-      )
+    Core.withObject "AutoScalingPolicyStatus" Core.$
+      \x ->
+        AutoScalingPolicyStatus'
+          Core.<$> (x Core..:? "State") Core.<*> (x Core..:? "StateChangeReason")

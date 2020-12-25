@@ -20,8 +20,8 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     mkRebuildEnvironment,
 
     -- ** Request lenses
-    reEnvironmentName,
     reEnvironmentId,
+    reEnvironmentName,
 
     -- * Destructuring the response
     RebuildEnvironmentResponse (..),
@@ -29,88 +29,84 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkRebuildEnvironment' smart constructor.
 data RebuildEnvironment = RebuildEnvironment'
-  { -- | The name of the environment to rebuild.
-    --
-    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | The ID of the environment to rebuild.
+  { -- | The ID of the environment to rebuild.
     --
     -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentId :: Lude.Maybe Lude.Text
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | The name of the environment to rebuild.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Core.Maybe Types.EnvironmentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebuildEnvironment' with the minimum fields required to make a request.
---
--- * 'environmentName' - The name of the environment to rebuild.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'environmentId' - The ID of the environment to rebuild.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | Creates a 'RebuildEnvironment' value with any optional fields omitted.
 mkRebuildEnvironment ::
   RebuildEnvironment
 mkRebuildEnvironment =
   RebuildEnvironment'
-    { environmentName = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { environmentId = Core.Nothing,
+      environmentName = Core.Nothing
     }
-
--- | The name of the environment to rebuild.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reEnvironmentName :: Lens.Lens' RebuildEnvironment (Lude.Maybe Lude.Text)
-reEnvironmentName = Lens.lens (environmentName :: RebuildEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: RebuildEnvironment)
-{-# DEPRECATED reEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The ID of the environment to rebuild.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reEnvironmentId :: Lens.Lens' RebuildEnvironment (Lude.Maybe Lude.Text)
-reEnvironmentId = Lens.lens (environmentId :: RebuildEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: RebuildEnvironment)
+reEnvironmentId :: Lens.Lens' RebuildEnvironment (Core.Maybe Types.EnvironmentId)
+reEnvironmentId = Lens.field @"environmentId"
 {-# DEPRECATED reEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance Lude.AWSRequest RebuildEnvironment where
+-- | The name of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reEnvironmentName :: Lens.Lens' RebuildEnvironment (Core.Maybe Types.EnvironmentName)
+reEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED reEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+
+instance Core.AWSRequest RebuildEnvironment where
   type Rs RebuildEnvironment = RebuildEnvironmentResponse
-  request = Req.postQuery elasticBeanstalkService
-  response = Res.receiveNull RebuildEnvironmentResponse'
-
-instance Lude.ToHeaders RebuildEnvironment where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RebuildEnvironment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RebuildEnvironment where
-  toQuery RebuildEnvironment' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RebuildEnvironment" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "EnvironmentName" Lude.=: environmentName,
-        "EnvironmentId" Lude.=: environmentId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RebuildEnvironment")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+            )
+      }
+  response = Response.receiveNull RebuildEnvironmentResponse'
 
 -- | /See:/ 'mkRebuildEnvironmentResponse' smart constructor.
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebuildEnvironmentResponse' with the minimum fields required to make a request.
+-- | Creates a 'RebuildEnvironmentResponse' value with any optional fields omitted.
 mkRebuildEnvironmentResponse ::
   RebuildEnvironmentResponse
 mkRebuildEnvironmentResponse = RebuildEnvironmentResponse'

@@ -25,155 +25,148 @@ module Network.AWS.WorkDocs.DescribeRootFolders
 
     -- ** Request lenses
     drfAuthenticationToken,
-    drfMarker,
     drfLimit,
+    drfMarker,
 
     -- * Destructuring the response
     DescribeRootFoldersResponse (..),
     mkDescribeRootFoldersResponse,
 
     -- ** Response lenses
-    drfrsFolders,
-    drfrsMarker,
-    drfrsResponseStatus,
+    drfrrsFolders,
+    drfrrsMarker,
+    drfrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDescribeRootFolders' smart constructor.
 data DescribeRootFolders = DescribeRootFolders'
   { -- | Amazon WorkDocs authentication token.
-    authenticationToken :: Lude.Sensitive Lude.Text,
-    -- | The marker for the next set of results. (You received this marker from a previous call.)
-    marker :: Lude.Maybe Lude.Text,
+    authenticationToken :: Types.AuthenticationHeaderType,
     -- | The maximum number of items to return.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRootFolders' with the minimum fields required to make a request.
---
--- * 'authenticationToken' - Amazon WorkDocs authentication token.
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'limit' - The maximum number of items to return.
+-- | Creates a 'DescribeRootFolders' value with any optional fields omitted.
 mkDescribeRootFolders ::
   -- | 'authenticationToken'
-  Lude.Sensitive Lude.Text ->
+  Types.AuthenticationHeaderType ->
   DescribeRootFolders
-mkDescribeRootFolders pAuthenticationToken_ =
+mkDescribeRootFolders authenticationToken =
   DescribeRootFolders'
-    { authenticationToken = pAuthenticationToken_,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing
+    { authenticationToken,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | Amazon WorkDocs authentication token.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfAuthenticationToken :: Lens.Lens' DescribeRootFolders (Lude.Sensitive Lude.Text)
-drfAuthenticationToken = Lens.lens (authenticationToken :: DescribeRootFolders -> Lude.Sensitive Lude.Text) (\s a -> s {authenticationToken = a} :: DescribeRootFolders)
+drfAuthenticationToken :: Lens.Lens' DescribeRootFolders Types.AuthenticationHeaderType
+drfAuthenticationToken = Lens.field @"authenticationToken"
 {-# DEPRECATED drfAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
-
--- | The marker for the next set of results. (You received this marker from a previous call.)
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfMarker :: Lens.Lens' DescribeRootFolders (Lude.Maybe Lude.Text)
-drfMarker = Lens.lens (marker :: DescribeRootFolders -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeRootFolders)
-{-# DEPRECATED drfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of items to return.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfLimit :: Lens.Lens' DescribeRootFolders (Lude.Maybe Lude.Natural)
-drfLimit = Lens.lens (limit :: DescribeRootFolders -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeRootFolders)
+drfLimit :: Lens.Lens' DescribeRootFolders (Core.Maybe Core.Natural)
+drfLimit = Lens.field @"limit"
 {-# DEPRECATED drfLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager DescribeRootFolders where
-  page rq rs
-    | Page.stop (rs Lens.^. drfrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. drfrsFolders) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& drfMarker Lens..~ rs Lens.^. drfrsMarker
+-- | The marker for the next set of results. (You received this marker from a previous call.)
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfMarker :: Lens.Lens' DescribeRootFolders (Core.Maybe Types.Marker)
+drfMarker = Lens.field @"marker"
+{-# DEPRECATED drfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest DescribeRootFolders where
+instance Core.AWSRequest DescribeRootFolders where
   type Rs DescribeRootFolders = DescribeRootFoldersResponse
-  request = Req.get workDocsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/api/v1/me/root",
+        Core._rqQuery =
+          Core.toQueryValue "limit" Core.<$> limit
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker),
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeRootFoldersResponse'
-            Lude.<$> (x Lude..?> "Folders" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Folders")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeRootFolders where
-  toHeaders DescribeRootFolders' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DescribeRootFolders where
-  toPath = Lude.const "/api/v1/me/root"
-
-instance Lude.ToQuery DescribeRootFolders where
-  toQuery DescribeRootFolders' {..} =
-    Lude.mconcat ["marker" Lude.=: marker, "limit" Lude.=: limit]
+instance Pager.AWSPager DescribeRootFolders where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"folders" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
   { -- | The user's special folders.
-    folders :: Lude.Maybe [FolderMetadata],
+    folders :: Core.Maybe [Types.FolderMetadata],
     -- | The marker for the next set of results.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.PageMarkerType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeRootFoldersResponse' with the minimum fields required to make a request.
---
--- * 'folders' - The user's special folders.
--- * 'marker' - The marker for the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeRootFoldersResponse' value with any optional fields omitted.
 mkDescribeRootFoldersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeRootFoldersResponse
-mkDescribeRootFoldersResponse pResponseStatus_ =
+mkDescribeRootFoldersResponse responseStatus =
   DescribeRootFoldersResponse'
-    { folders = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { folders = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | The user's special folders.
 --
 -- /Note:/ Consider using 'folders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfrsFolders :: Lens.Lens' DescribeRootFoldersResponse (Lude.Maybe [FolderMetadata])
-drfrsFolders = Lens.lens (folders :: DescribeRootFoldersResponse -> Lude.Maybe [FolderMetadata]) (\s a -> s {folders = a} :: DescribeRootFoldersResponse)
-{-# DEPRECATED drfrsFolders "Use generic-lens or generic-optics with 'folders' instead." #-}
+drfrrsFolders :: Lens.Lens' DescribeRootFoldersResponse (Core.Maybe [Types.FolderMetadata])
+drfrrsFolders = Lens.field @"folders"
+{-# DEPRECATED drfrrsFolders "Use generic-lens or generic-optics with 'folders' instead." #-}
 
 -- | The marker for the next set of results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfrsMarker :: Lens.Lens' DescribeRootFoldersResponse (Lude.Maybe Lude.Text)
-drfrsMarker = Lens.lens (marker :: DescribeRootFoldersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeRootFoldersResponse)
-{-# DEPRECATED drfrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drfrrsMarker :: Lens.Lens' DescribeRootFoldersResponse (Core.Maybe Types.PageMarkerType)
+drfrrsMarker = Lens.field @"marker"
+{-# DEPRECATED drfrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfrsResponseStatus :: Lens.Lens' DescribeRootFoldersResponse Lude.Int
-drfrsResponseStatus = Lens.lens (responseStatus :: DescribeRootFoldersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRootFoldersResponse)
-{-# DEPRECATED drfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drfrrsResponseStatus :: Lens.Lens' DescribeRootFoldersResponse Core.Int
+drfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

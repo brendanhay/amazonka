@@ -21,23 +21,22 @@ module Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An empty result that represents success.
 --
 -- /See:/ 'mkBatchRemoveFacetFromObjectResponse' smart constructor.
 data BatchRemoveFacetFromObjectResponse = BatchRemoveFacetFromObjectResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchRemoveFacetFromObjectResponse' with the minimum fields required to make a request.
+-- | Creates a 'BatchRemoveFacetFromObjectResponse' value with any optional fields omitted.
 mkBatchRemoveFacetFromObjectResponse ::
   BatchRemoveFacetFromObjectResponse
 mkBatchRemoveFacetFromObjectResponse =
   BatchRemoveFacetFromObjectResponse'
 
-instance Lude.FromJSON BatchRemoveFacetFromObjectResponse where
+instance Core.FromJSON BatchRemoveFacetFromObjectResponse where
   parseJSON =
-    Lude.withObject
-      "BatchRemoveFacetFromObjectResponse"
-      (\x -> Lude.pure BatchRemoveFacetFromObjectResponse')
+    Core.withObject "BatchRemoveFacetFromObjectResponse" Core.$
+      \x -> Core.pure BatchRemoveFacetFromObjectResponse'

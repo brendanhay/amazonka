@@ -23,50 +23,45 @@ module Network.AWS.Organizations.Types.PolicyTypeSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.PolicyType
-import Network.AWS.Organizations.Types.PolicyTypeStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.PolicyType as Types
+import qualified Network.AWS.Organizations.Types.PolicyTypeStatus as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a policy type and its status in the associated root.
 --
 -- /See:/ 'mkPolicyTypeSummary' smart constructor.
 data PolicyTypeSummary = PolicyTypeSummary'
   { -- | The status of the policy type as it relates to the associated root. To attach a policy of the specified type to a root or to an OU or account in that root, it must be available in the organization and enabled for that root.
-    status :: Lude.Maybe PolicyTypeStatus,
+    status :: Core.Maybe Types.PolicyTypeStatus,
     -- | The name of the policy type.
-    type' :: Lude.Maybe PolicyType
+    type' :: Core.Maybe Types.PolicyType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PolicyTypeSummary' with the minimum fields required to make a request.
---
--- * 'status' - The status of the policy type as it relates to the associated root. To attach a policy of the specified type to a root or to an OU or account in that root, it must be available in the organization and enabled for that root.
--- * 'type'' - The name of the policy type.
+-- | Creates a 'PolicyTypeSummary' value with any optional fields omitted.
 mkPolicyTypeSummary ::
   PolicyTypeSummary
 mkPolicyTypeSummary =
-  PolicyTypeSummary' {status = Lude.Nothing, type' = Lude.Nothing}
+  PolicyTypeSummary' {status = Core.Nothing, type' = Core.Nothing}
 
 -- | The status of the policy type as it relates to the associated root. To attach a policy of the specified type to a root or to an OU or account in that root, it must be available in the organization and enabled for that root.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsStatus :: Lens.Lens' PolicyTypeSummary (Lude.Maybe PolicyTypeStatus)
-ptsStatus = Lens.lens (status :: PolicyTypeSummary -> Lude.Maybe PolicyTypeStatus) (\s a -> s {status = a} :: PolicyTypeSummary)
+ptsStatus :: Lens.Lens' PolicyTypeSummary (Core.Maybe Types.PolicyTypeStatus)
+ptsStatus = Lens.field @"status"
 {-# DEPRECATED ptsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the policy type.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptsType :: Lens.Lens' PolicyTypeSummary (Lude.Maybe PolicyType)
-ptsType = Lens.lens (type' :: PolicyTypeSummary -> Lude.Maybe PolicyType) (\s a -> s {type' = a} :: PolicyTypeSummary)
+ptsType :: Lens.Lens' PolicyTypeSummary (Core.Maybe Types.PolicyType)
+ptsType = Lens.field @"type'"
 {-# DEPRECATED ptsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON PolicyTypeSummary where
+instance Core.FromJSON PolicyTypeSummary where
   parseJSON =
-    Lude.withObject
-      "PolicyTypeSummary"
-      ( \x ->
-          PolicyTypeSummary'
-            Lude.<$> (x Lude..:? "Status") Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "PolicyTypeSummary" Core.$
+      \x ->
+        PolicyTypeSummary'
+          Core.<$> (x Core..:? "Status") Core.<*> (x Core..:? "Type")

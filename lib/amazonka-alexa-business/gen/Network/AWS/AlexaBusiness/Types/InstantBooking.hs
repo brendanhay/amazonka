@@ -17,57 +17,52 @@ module Network.AWS.AlexaBusiness.Types.InstantBooking
     mkInstantBooking,
 
     -- * Lenses
-    ibEnabled,
     ibDurationInMinutes,
+    ibEnabled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for the instant booking feature that are applied to a room profile. When users start their meeting with Alexa, Alexa automatically books the room for the configured duration if the room is available.
 --
 -- /See:/ 'mkInstantBooking' smart constructor.
 data InstantBooking = InstantBooking'
-  { -- | Whether instant booking is enabled or not.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
-    durationInMinutes :: Lude.Maybe Lude.Int
+  { -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+    durationInMinutes :: Core.Maybe Core.Int,
+    -- | Whether instant booking is enabled or not.
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstantBooking' with the minimum fields required to make a request.
---
--- * 'enabled' - Whether instant booking is enabled or not.
--- * 'durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+-- | Creates a 'InstantBooking' value with any optional fields omitted.
 mkInstantBooking ::
   InstantBooking
 mkInstantBooking =
   InstantBooking'
-    { enabled = Lude.Nothing,
-      durationInMinutes = Lude.Nothing
+    { durationInMinutes = Core.Nothing,
+      enabled = Core.Nothing
     }
-
--- | Whether instant booking is enabled or not.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibEnabled :: Lens.Lens' InstantBooking (Lude.Maybe Lude.Bool)
-ibEnabled = Lens.lens (enabled :: InstantBooking -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: InstantBooking)
-{-# DEPRECATED ibEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
 --
 -- /Note:/ Consider using 'durationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibDurationInMinutes :: Lens.Lens' InstantBooking (Lude.Maybe Lude.Int)
-ibDurationInMinutes = Lens.lens (durationInMinutes :: InstantBooking -> Lude.Maybe Lude.Int) (\s a -> s {durationInMinutes = a} :: InstantBooking)
+ibDurationInMinutes :: Lens.Lens' InstantBooking (Core.Maybe Core.Int)
+ibDurationInMinutes = Lens.field @"durationInMinutes"
 {-# DEPRECATED ibDurationInMinutes "Use generic-lens or generic-optics with 'durationInMinutes' instead." #-}
 
-instance Lude.FromJSON InstantBooking where
+-- | Whether instant booking is enabled or not.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibEnabled :: Lens.Lens' InstantBooking (Core.Maybe Core.Bool)
+ibEnabled = Lens.field @"enabled"
+{-# DEPRECATED ibEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+instance Core.FromJSON InstantBooking where
   parseJSON =
-    Lude.withObject
-      "InstantBooking"
-      ( \x ->
-          InstantBooking'
-            Lude.<$> (x Lude..:? "Enabled") Lude.<*> (x Lude..:? "DurationInMinutes")
-      )
+    Core.withObject "InstantBooking" Core.$
+      \x ->
+        InstantBooking'
+          Core.<$> (x Core..:? "DurationInMinutes") Core.<*> (x Core..:? "Enabled")

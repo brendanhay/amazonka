@@ -28,128 +28,109 @@ module Network.AWS.Pinpoint.UpdateEmailChannel
     mkUpdateEmailChannelResponse,
 
     -- ** Response lenses
-    uecrsEmailChannelResponse,
-    uecrsResponseStatus,
+    uecrrsEmailChannelResponse,
+    uecrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateEmailChannel' smart constructor.
 data UpdateEmailChannel = UpdateEmailChannel'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
-    emailChannelRequest :: EmailChannelRequest
+    applicationId :: Core.Text,
+    emailChannelRequest :: Types.EmailChannelRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEmailChannel' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'emailChannelRequest' -
+-- | Creates a 'UpdateEmailChannel' value with any optional fields omitted.
 mkUpdateEmailChannel ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'emailChannelRequest'
-  EmailChannelRequest ->
+  Types.EmailChannelRequest ->
   UpdateEmailChannel
-mkUpdateEmailChannel pApplicationId_ pEmailChannelRequest_ =
-  UpdateEmailChannel'
-    { applicationId = pApplicationId_,
-      emailChannelRequest = pEmailChannelRequest_
-    }
+mkUpdateEmailChannel applicationId emailChannelRequest =
+  UpdateEmailChannel' {applicationId, emailChannelRequest}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uecApplicationId :: Lens.Lens' UpdateEmailChannel Lude.Text
-uecApplicationId = Lens.lens (applicationId :: UpdateEmailChannel -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateEmailChannel)
+uecApplicationId :: Lens.Lens' UpdateEmailChannel Core.Text
+uecApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED uecApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'emailChannelRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uecEmailChannelRequest :: Lens.Lens' UpdateEmailChannel EmailChannelRequest
-uecEmailChannelRequest = Lens.lens (emailChannelRequest :: UpdateEmailChannel -> EmailChannelRequest) (\s a -> s {emailChannelRequest = a} :: UpdateEmailChannel)
+uecEmailChannelRequest :: Lens.Lens' UpdateEmailChannel Types.EmailChannelRequest
+uecEmailChannelRequest = Lens.field @"emailChannelRequest"
 {-# DEPRECATED uecEmailChannelRequest "Use generic-lens or generic-optics with 'emailChannelRequest' instead." #-}
 
-instance Lude.AWSRequest UpdateEmailChannel where
+instance Core.FromJSON UpdateEmailChannel where
+  toJSON UpdateEmailChannel {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EmailChannelRequest" Core..= emailChannelRequest)]
+      )
+
+instance Core.AWSRequest UpdateEmailChannel where
   type Rs UpdateEmailChannel = UpdateEmailChannelResponse
-  request = Req.putJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/channels/email")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateEmailChannelResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateEmailChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateEmailChannel where
-  toJSON UpdateEmailChannel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("EmailChannelRequest" Lude..= emailChannelRequest)]
-      )
-
-instance Lude.ToPath UpdateEmailChannel where
-  toPath UpdateEmailChannel' {..} =
-    Lude.mconcat
-      ["/v1/apps/", Lude.toBS applicationId, "/channels/email"]
-
-instance Lude.ToQuery UpdateEmailChannel where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateEmailChannelResponse' smart constructor.
 data UpdateEmailChannelResponse = UpdateEmailChannelResponse'
-  { emailChannelResponse :: EmailChannelResponse,
+  { emailChannelResponse :: Types.EmailChannelResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEmailChannelResponse' with the minimum fields required to make a request.
---
--- * 'emailChannelResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateEmailChannelResponse' value with any optional fields omitted.
 mkUpdateEmailChannelResponse ::
   -- | 'emailChannelResponse'
-  EmailChannelResponse ->
+  Types.EmailChannelResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateEmailChannelResponse
-mkUpdateEmailChannelResponse
-  pEmailChannelResponse_
-  pResponseStatus_ =
-    UpdateEmailChannelResponse'
-      { emailChannelResponse =
-          pEmailChannelResponse_,
-        responseStatus = pResponseStatus_
-      }
+mkUpdateEmailChannelResponse emailChannelResponse responseStatus =
+  UpdateEmailChannelResponse' {emailChannelResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'emailChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uecrsEmailChannelResponse :: Lens.Lens' UpdateEmailChannelResponse EmailChannelResponse
-uecrsEmailChannelResponse = Lens.lens (emailChannelResponse :: UpdateEmailChannelResponse -> EmailChannelResponse) (\s a -> s {emailChannelResponse = a} :: UpdateEmailChannelResponse)
-{-# DEPRECATED uecrsEmailChannelResponse "Use generic-lens or generic-optics with 'emailChannelResponse' instead." #-}
+uecrrsEmailChannelResponse :: Lens.Lens' UpdateEmailChannelResponse Types.EmailChannelResponse
+uecrrsEmailChannelResponse = Lens.field @"emailChannelResponse"
+{-# DEPRECATED uecrrsEmailChannelResponse "Use generic-lens or generic-optics with 'emailChannelResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uecrsResponseStatus :: Lens.Lens' UpdateEmailChannelResponse Lude.Int
-uecrsResponseStatus = Lens.lens (responseStatus :: UpdateEmailChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEmailChannelResponse)
-{-# DEPRECATED uecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uecrrsResponseStatus :: Lens.Lens' UpdateEmailChannelResponse Core.Int
+uecrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uecrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

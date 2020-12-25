@@ -17,83 +17,80 @@ module Network.AWS.SageMaker.Types.AppSpecification
     mkAppSpecification,
 
     -- * Lenses
+    asImageUri,
     asContainerArguments,
-    asImageURI,
     asContainerEntrypoint,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ContainerArgument as Types
+import qualified Network.AWS.SageMaker.Types.ContainerEntrypointString as Types
+import qualified Network.AWS.SageMaker.Types.ImageUri as Types
 
 -- | Configuration to run a processing job in a specified container image.
 --
 -- /See:/ 'mkAppSpecification' smart constructor.
 data AppSpecification = AppSpecification'
-  { -- | The arguments for a container used to run a processing job.
-    containerArguments :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The container image to be run by the processing job.
-    imageURI :: Lude.Text,
+  { -- | The container image to be run by the processing job.
+    imageUri :: Types.ImageUri,
+    -- | The arguments for a container used to run a processing job.
+    containerArguments :: Core.Maybe (Core.NonEmpty Types.ContainerArgument),
     -- | The entrypoint for a container used to run a processing job.
-    containerEntrypoint :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    containerEntrypoint :: Core.Maybe (Core.NonEmpty Types.ContainerEntrypointString)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AppSpecification' with the minimum fields required to make a request.
---
--- * 'containerArguments' - The arguments for a container used to run a processing job.
--- * 'imageURI' - The container image to be run by the processing job.
--- * 'containerEntrypoint' - The entrypoint for a container used to run a processing job.
+-- | Creates a 'AppSpecification' value with any optional fields omitted.
 mkAppSpecification ::
-  -- | 'imageURI'
-  Lude.Text ->
+  -- | 'imageUri'
+  Types.ImageUri ->
   AppSpecification
-mkAppSpecification pImageURI_ =
+mkAppSpecification imageUri =
   AppSpecification'
-    { containerArguments = Lude.Nothing,
-      imageURI = pImageURI_,
-      containerEntrypoint = Lude.Nothing
+    { imageUri,
+      containerArguments = Core.Nothing,
+      containerEntrypoint = Core.Nothing
     }
+
+-- | The container image to be run by the processing job.
+--
+-- /Note:/ Consider using 'imageUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asImageUri :: Lens.Lens' AppSpecification Types.ImageUri
+asImageUri = Lens.field @"imageUri"
+{-# DEPRECATED asImageUri "Use generic-lens or generic-optics with 'imageUri' instead." #-}
 
 -- | The arguments for a container used to run a processing job.
 --
 -- /Note:/ Consider using 'containerArguments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asContainerArguments :: Lens.Lens' AppSpecification (Lude.Maybe (Lude.NonEmpty Lude.Text))
-asContainerArguments = Lens.lens (containerArguments :: AppSpecification -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {containerArguments = a} :: AppSpecification)
+asContainerArguments :: Lens.Lens' AppSpecification (Core.Maybe (Core.NonEmpty Types.ContainerArgument))
+asContainerArguments = Lens.field @"containerArguments"
 {-# DEPRECATED asContainerArguments "Use generic-lens or generic-optics with 'containerArguments' instead." #-}
-
--- | The container image to be run by the processing job.
---
--- /Note:/ Consider using 'imageURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asImageURI :: Lens.Lens' AppSpecification Lude.Text
-asImageURI = Lens.lens (imageURI :: AppSpecification -> Lude.Text) (\s a -> s {imageURI = a} :: AppSpecification)
-{-# DEPRECATED asImageURI "Use generic-lens or generic-optics with 'imageURI' instead." #-}
 
 -- | The entrypoint for a container used to run a processing job.
 --
 -- /Note:/ Consider using 'containerEntrypoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asContainerEntrypoint :: Lens.Lens' AppSpecification (Lude.Maybe (Lude.NonEmpty Lude.Text))
-asContainerEntrypoint = Lens.lens (containerEntrypoint :: AppSpecification -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {containerEntrypoint = a} :: AppSpecification)
+asContainerEntrypoint :: Lens.Lens' AppSpecification (Core.Maybe (Core.NonEmpty Types.ContainerEntrypointString))
+asContainerEntrypoint = Lens.field @"containerEntrypoint"
 {-# DEPRECATED asContainerEntrypoint "Use generic-lens or generic-optics with 'containerEntrypoint' instead." #-}
 
-instance Lude.FromJSON AppSpecification where
-  parseJSON =
-    Lude.withObject
-      "AppSpecification"
-      ( \x ->
-          AppSpecification'
-            Lude.<$> (x Lude..:? "ContainerArguments")
-            Lude.<*> (x Lude..: "ImageUri")
-            Lude.<*> (x Lude..:? "ContainerEntrypoint")
-      )
-
-instance Lude.ToJSON AppSpecification where
-  toJSON AppSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ContainerArguments" Lude..=) Lude.<$> containerArguments,
-            Lude.Just ("ImageUri" Lude..= imageURI),
-            ("ContainerEntrypoint" Lude..=) Lude.<$> containerEntrypoint
+instance Core.FromJSON AppSpecification where
+  toJSON AppSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ImageUri" Core..= imageUri),
+            ("ContainerArguments" Core..=) Core.<$> containerArguments,
+            ("ContainerEntrypoint" Core..=) Core.<$> containerEntrypoint
           ]
       )
+
+instance Core.FromJSON AppSpecification where
+  parseJSON =
+    Core.withObject "AppSpecification" Core.$
+      \x ->
+        AppSpecification'
+          Core.<$> (x Core..: "ImageUri")
+          Core.<*> (x Core..:? "ContainerArguments")
+          Core.<*> (x Core..:? "ContainerEntrypoint")

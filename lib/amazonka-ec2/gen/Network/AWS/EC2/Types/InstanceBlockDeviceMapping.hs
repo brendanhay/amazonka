@@ -17,54 +17,52 @@ module Network.AWS.EC2.Types.InstanceBlockDeviceMapping
     mkInstanceBlockDeviceMapping,
 
     -- * Lenses
-    ibdmEBS,
     ibdmDeviceName,
+    ibdmEbs,
   )
 where
 
-import Network.AWS.EC2.Types.EBSInstanceBlockDevice
+import qualified Network.AWS.EC2.Types.EbsInstanceBlockDevice as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a block device mapping.
 --
 -- /See:/ 'mkInstanceBlockDeviceMapping' smart constructor.
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
-  { -- | Parameters used to automatically set up EBS volumes when the instance is launched.
-    ebs :: Lude.Maybe EBSInstanceBlockDevice,
-    -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
-    deviceName :: Lude.Maybe Lude.Text
+  { -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
+    deviceName :: Core.Maybe Types.String,
+    -- | Parameters used to automatically set up EBS volumes when the instance is launched.
+    ebs :: Core.Maybe Types.EbsInstanceBlockDevice
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceBlockDeviceMapping' with the minimum fields required to make a request.
---
--- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
--- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
+-- | Creates a 'InstanceBlockDeviceMapping' value with any optional fields omitted.
 mkInstanceBlockDeviceMapping ::
   InstanceBlockDeviceMapping
 mkInstanceBlockDeviceMapping =
   InstanceBlockDeviceMapping'
-    { ebs = Lude.Nothing,
-      deviceName = Lude.Nothing
+    { deviceName = Core.Nothing,
+      ebs = Core.Nothing
     }
-
--- | Parameters used to automatically set up EBS volumes when the instance is launched.
---
--- /Note:/ Consider using 'ebs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibdmEBS :: Lens.Lens' InstanceBlockDeviceMapping (Lude.Maybe EBSInstanceBlockDevice)
-ibdmEBS = Lens.lens (ebs :: InstanceBlockDeviceMapping -> Lude.Maybe EBSInstanceBlockDevice) (\s a -> s {ebs = a} :: InstanceBlockDeviceMapping)
-{-# DEPRECATED ibdmEBS "Use generic-lens or generic-optics with 'ebs' instead." #-}
 
 -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
 --
 -- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibdmDeviceName :: Lens.Lens' InstanceBlockDeviceMapping (Lude.Maybe Lude.Text)
-ibdmDeviceName = Lens.lens (deviceName :: InstanceBlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: InstanceBlockDeviceMapping)
+ibdmDeviceName :: Lens.Lens' InstanceBlockDeviceMapping (Core.Maybe Types.String)
+ibdmDeviceName = Lens.field @"deviceName"
 {-# DEPRECATED ibdmDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
-instance Lude.FromXML InstanceBlockDeviceMapping where
+-- | Parameters used to automatically set up EBS volumes when the instance is launched.
+--
+-- /Note:/ Consider using 'ebs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibdmEbs :: Lens.Lens' InstanceBlockDeviceMapping (Core.Maybe Types.EbsInstanceBlockDevice)
+ibdmEbs = Lens.field @"ebs"
+{-# DEPRECATED ibdmEbs "Use generic-lens or generic-optics with 'ebs' instead." #-}
+
+instance Core.FromXML InstanceBlockDeviceMapping where
   parseXML x =
     InstanceBlockDeviceMapping'
-      Lude.<$> (x Lude..@? "ebs") Lude.<*> (x Lude..@? "deviceName")
+      Core.<$> (x Core..@? "deviceName") Core.<*> (x Core..@? "ebs")

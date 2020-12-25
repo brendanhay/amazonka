@@ -17,87 +17,82 @@ module Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails
     mkLambdaFunctionScheduledEventDetails,
 
     -- * Lenses
-    lfsedInputDetails,
-    lfsedInput,
-    lfsedTimeoutInSeconds,
     lfsedResource,
+    lfsedInput,
+    lfsedInputDetails,
+    lfsedTimeoutInSeconds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.Arn as Types
+import qualified Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveData as Types
 
 -- | Contains details about a lambda function scheduled during an execution.
 --
 -- /See:/ 'mkLambdaFunctionScheduledEventDetails' smart constructor.
 data LambdaFunctionScheduledEventDetails = LambdaFunctionScheduledEventDetails'
-  { -- | Contains details about input for an execution history event.
-    inputDetails :: Lude.Maybe HistoryEventExecutionDataDetails,
+  { -- | The Amazon Resource Name (ARN) of the scheduled lambda function.
+    resource :: Types.Arn,
     -- | The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    input :: Core.Maybe Types.SensitiveData,
+    -- | Contains details about input for an execution history event.
+    inputDetails :: Core.Maybe Types.HistoryEventExecutionDataDetails,
     -- | The maximum allowed duration of the lambda function.
-    timeoutInSeconds :: Lude.Maybe Lude.Integer,
-    -- | The Amazon Resource Name (ARN) of the scheduled lambda function.
-    resource :: Lude.Text
+    timeoutInSeconds :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaFunctionScheduledEventDetails' with the minimum fields required to make a request.
---
--- * 'inputDetails' - Contains details about input for an execution history event.
--- * 'input' - The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
--- * 'timeoutInSeconds' - The maximum allowed duration of the lambda function.
--- * 'resource' - The Amazon Resource Name (ARN) of the scheduled lambda function.
+-- | Creates a 'LambdaFunctionScheduledEventDetails' value with any optional fields omitted.
 mkLambdaFunctionScheduledEventDetails ::
   -- | 'resource'
-  Lude.Text ->
+  Types.Arn ->
   LambdaFunctionScheduledEventDetails
-mkLambdaFunctionScheduledEventDetails pResource_ =
+mkLambdaFunctionScheduledEventDetails resource =
   LambdaFunctionScheduledEventDetails'
-    { inputDetails = Lude.Nothing,
-      input = Lude.Nothing,
-      timeoutInSeconds = Lude.Nothing,
-      resource = pResource_
+    { resource,
+      input = Core.Nothing,
+      inputDetails = Core.Nothing,
+      timeoutInSeconds = Core.Nothing
     }
-
--- | Contains details about input for an execution history event.
---
--- /Note:/ Consider using 'inputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsedInputDetails :: Lens.Lens' LambdaFunctionScheduledEventDetails (Lude.Maybe HistoryEventExecutionDataDetails)
-lfsedInputDetails = Lens.lens (inputDetails :: LambdaFunctionScheduledEventDetails -> Lude.Maybe HistoryEventExecutionDataDetails) (\s a -> s {inputDetails = a} :: LambdaFunctionScheduledEventDetails)
-{-# DEPRECATED lfsedInputDetails "Use generic-lens or generic-optics with 'inputDetails' instead." #-}
-
--- | The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsedInput :: Lens.Lens' LambdaFunctionScheduledEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-lfsedInput = Lens.lens (input :: LambdaFunctionScheduledEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {input = a} :: LambdaFunctionScheduledEventDetails)
-{-# DEPRECATED lfsedInput "Use generic-lens or generic-optics with 'input' instead." #-}
-
--- | The maximum allowed duration of the lambda function.
---
--- /Note:/ Consider using 'timeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsedTimeoutInSeconds :: Lens.Lens' LambdaFunctionScheduledEventDetails (Lude.Maybe Lude.Integer)
-lfsedTimeoutInSeconds = Lens.lens (timeoutInSeconds :: LambdaFunctionScheduledEventDetails -> Lude.Maybe Lude.Integer) (\s a -> s {timeoutInSeconds = a} :: LambdaFunctionScheduledEventDetails)
-{-# DEPRECATED lfsedTimeoutInSeconds "Use generic-lens or generic-optics with 'timeoutInSeconds' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the scheduled lambda function.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsedResource :: Lens.Lens' LambdaFunctionScheduledEventDetails Lude.Text
-lfsedResource = Lens.lens (resource :: LambdaFunctionScheduledEventDetails -> Lude.Text) (\s a -> s {resource = a} :: LambdaFunctionScheduledEventDetails)
+lfsedResource :: Lens.Lens' LambdaFunctionScheduledEventDetails Types.Arn
+lfsedResource = Lens.field @"resource"
 {-# DEPRECATED lfsedResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.FromJSON LambdaFunctionScheduledEventDetails where
+-- | The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfsedInput :: Lens.Lens' LambdaFunctionScheduledEventDetails (Core.Maybe Types.SensitiveData)
+lfsedInput = Lens.field @"input"
+{-# DEPRECATED lfsedInput "Use generic-lens or generic-optics with 'input' instead." #-}
+
+-- | Contains details about input for an execution history event.
+--
+-- /Note:/ Consider using 'inputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfsedInputDetails :: Lens.Lens' LambdaFunctionScheduledEventDetails (Core.Maybe Types.HistoryEventExecutionDataDetails)
+lfsedInputDetails = Lens.field @"inputDetails"
+{-# DEPRECATED lfsedInputDetails "Use generic-lens or generic-optics with 'inputDetails' instead." #-}
+
+-- | The maximum allowed duration of the lambda function.
+--
+-- /Note:/ Consider using 'timeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfsedTimeoutInSeconds :: Lens.Lens' LambdaFunctionScheduledEventDetails (Core.Maybe Core.Integer)
+lfsedTimeoutInSeconds = Lens.field @"timeoutInSeconds"
+{-# DEPRECATED lfsedTimeoutInSeconds "Use generic-lens or generic-optics with 'timeoutInSeconds' instead." #-}
+
+instance Core.FromJSON LambdaFunctionScheduledEventDetails where
   parseJSON =
-    Lude.withObject
-      "LambdaFunctionScheduledEventDetails"
-      ( \x ->
-          LambdaFunctionScheduledEventDetails'
-            Lude.<$> (x Lude..:? "inputDetails")
-            Lude.<*> (x Lude..:? "input")
-            Lude.<*> (x Lude..:? "timeoutInSeconds")
-            Lude.<*> (x Lude..: "resource")
-      )
+    Core.withObject "LambdaFunctionScheduledEventDetails" Core.$
+      \x ->
+        LambdaFunctionScheduledEventDetails'
+          Core.<$> (x Core..: "resource")
+          Core.<*> (x Core..:? "input")
+          Core.<*> (x Core..:? "inputDetails")
+          Core.<*> (x Core..:? "timeoutInSeconds")

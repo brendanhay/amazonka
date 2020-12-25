@@ -21,47 +21,42 @@ module Network.AWS.CodeDeploy.Types.OnPremisesTagSet
   )
 where
 
-import Network.AWS.CodeDeploy.Types.TagFilter
+import qualified Network.AWS.CodeDeploy.Types.TagFilter as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about groups of on-premises instance tags.
 --
 -- /See:/ 'mkOnPremisesTagSet' smart constructor.
 newtype OnPremisesTagSet = OnPremisesTagSet'
   { -- | A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-    onPremisesTagSetList :: Lude.Maybe [[TagFilter]]
+    onPremisesTagSetList :: Core.Maybe [[Types.TagFilter]]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OnPremisesTagSet' with the minimum fields required to make a request.
---
--- * 'onPremisesTagSetList' - A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+-- | Creates a 'OnPremisesTagSet' value with any optional fields omitted.
 mkOnPremisesTagSet ::
   OnPremisesTagSet
 mkOnPremisesTagSet =
-  OnPremisesTagSet' {onPremisesTagSetList = Lude.Nothing}
+  OnPremisesTagSet' {onPremisesTagSetList = Core.Nothing}
 
 -- | A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
 --
 -- /Note:/ Consider using 'onPremisesTagSetList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-optsOnPremisesTagSetList :: Lens.Lens' OnPremisesTagSet (Lude.Maybe [[TagFilter]])
-optsOnPremisesTagSetList = Lens.lens (onPremisesTagSetList :: OnPremisesTagSet -> Lude.Maybe [[TagFilter]]) (\s a -> s {onPremisesTagSetList = a} :: OnPremisesTagSet)
+optsOnPremisesTagSetList :: Lens.Lens' OnPremisesTagSet (Core.Maybe [[Types.TagFilter]])
+optsOnPremisesTagSetList = Lens.field @"onPremisesTagSetList"
 {-# DEPRECATED optsOnPremisesTagSetList "Use generic-lens or generic-optics with 'onPremisesTagSetList' instead." #-}
 
-instance Lude.FromJSON OnPremisesTagSet where
-  parseJSON =
-    Lude.withObject
-      "OnPremisesTagSet"
-      ( \x ->
-          OnPremisesTagSet'
-            Lude.<$> (x Lude..:? "onPremisesTagSetList" Lude..!= Lude.mempty)
+instance Core.FromJSON OnPremisesTagSet where
+  toJSON OnPremisesTagSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [("onPremisesTagSetList" Core..=) Core.<$> onPremisesTagSetList]
       )
 
-instance Lude.ToJSON OnPremisesTagSet where
-  toJSON OnPremisesTagSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("onPremisesTagSetList" Lude..=) Lude.<$> onPremisesTagSetList]
-      )
+instance Core.FromJSON OnPremisesTagSet where
+  parseJSON =
+    Core.withObject "OnPremisesTagSet" Core.$
+      \x ->
+        OnPremisesTagSet' Core.<$> (x Core..:? "onPremisesTagSetList")

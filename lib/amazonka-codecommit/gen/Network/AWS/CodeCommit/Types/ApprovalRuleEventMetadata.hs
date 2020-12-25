@@ -17,71 +17,68 @@ module Network.AWS.CodeCommit.Types.ApprovalRuleEventMetadata
     mkApprovalRuleEventMetadata,
 
     -- * Lenses
-    aremApprovalRuleName,
-    aremApprovalRuleId,
     aremApprovalRuleContent,
+    aremApprovalRuleId,
+    aremApprovalRuleName,
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleContent as Types
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleId as Types
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about an event for an approval rule.
 --
 -- /See:/ 'mkApprovalRuleEventMetadata' smart constructor.
 data ApprovalRuleEventMetadata = ApprovalRuleEventMetadata'
-  { -- | The name of the approval rule.
-    approvalRuleName :: Lude.Maybe Lude.Text,
+  { -- | The content of the approval rule.
+    approvalRuleContent :: Core.Maybe Types.ApprovalRuleContent,
     -- | The system-generated ID of the approval rule.
-    approvalRuleId :: Lude.Maybe Lude.Text,
-    -- | The content of the approval rule.
-    approvalRuleContent :: Lude.Maybe Lude.Text
+    approvalRuleId :: Core.Maybe Types.ApprovalRuleId,
+    -- | The name of the approval rule.
+    approvalRuleName :: Core.Maybe Types.ApprovalRuleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApprovalRuleEventMetadata' with the minimum fields required to make a request.
---
--- * 'approvalRuleName' - The name of the approval rule.
--- * 'approvalRuleId' - The system-generated ID of the approval rule.
--- * 'approvalRuleContent' - The content of the approval rule.
+-- | Creates a 'ApprovalRuleEventMetadata' value with any optional fields omitted.
 mkApprovalRuleEventMetadata ::
   ApprovalRuleEventMetadata
 mkApprovalRuleEventMetadata =
   ApprovalRuleEventMetadata'
-    { approvalRuleName = Lude.Nothing,
-      approvalRuleId = Lude.Nothing,
-      approvalRuleContent = Lude.Nothing
+    { approvalRuleContent = Core.Nothing,
+      approvalRuleId = Core.Nothing,
+      approvalRuleName = Core.Nothing
     }
-
--- | The name of the approval rule.
---
--- /Note:/ Consider using 'approvalRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aremApprovalRuleName :: Lens.Lens' ApprovalRuleEventMetadata (Lude.Maybe Lude.Text)
-aremApprovalRuleName = Lens.lens (approvalRuleName :: ApprovalRuleEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleName = a} :: ApprovalRuleEventMetadata)
-{-# DEPRECATED aremApprovalRuleName "Use generic-lens or generic-optics with 'approvalRuleName' instead." #-}
-
--- | The system-generated ID of the approval rule.
---
--- /Note:/ Consider using 'approvalRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aremApprovalRuleId :: Lens.Lens' ApprovalRuleEventMetadata (Lude.Maybe Lude.Text)
-aremApprovalRuleId = Lens.lens (approvalRuleId :: ApprovalRuleEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleId = a} :: ApprovalRuleEventMetadata)
-{-# DEPRECATED aremApprovalRuleId "Use generic-lens or generic-optics with 'approvalRuleId' instead." #-}
 
 -- | The content of the approval rule.
 --
 -- /Note:/ Consider using 'approvalRuleContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aremApprovalRuleContent :: Lens.Lens' ApprovalRuleEventMetadata (Lude.Maybe Lude.Text)
-aremApprovalRuleContent = Lens.lens (approvalRuleContent :: ApprovalRuleEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleContent = a} :: ApprovalRuleEventMetadata)
+aremApprovalRuleContent :: Lens.Lens' ApprovalRuleEventMetadata (Core.Maybe Types.ApprovalRuleContent)
+aremApprovalRuleContent = Lens.field @"approvalRuleContent"
 {-# DEPRECATED aremApprovalRuleContent "Use generic-lens or generic-optics with 'approvalRuleContent' instead." #-}
 
-instance Lude.FromJSON ApprovalRuleEventMetadata where
+-- | The system-generated ID of the approval rule.
+--
+-- /Note:/ Consider using 'approvalRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aremApprovalRuleId :: Lens.Lens' ApprovalRuleEventMetadata (Core.Maybe Types.ApprovalRuleId)
+aremApprovalRuleId = Lens.field @"approvalRuleId"
+{-# DEPRECATED aremApprovalRuleId "Use generic-lens or generic-optics with 'approvalRuleId' instead." #-}
+
+-- | The name of the approval rule.
+--
+-- /Note:/ Consider using 'approvalRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aremApprovalRuleName :: Lens.Lens' ApprovalRuleEventMetadata (Core.Maybe Types.ApprovalRuleName)
+aremApprovalRuleName = Lens.field @"approvalRuleName"
+{-# DEPRECATED aremApprovalRuleName "Use generic-lens or generic-optics with 'approvalRuleName' instead." #-}
+
+instance Core.FromJSON ApprovalRuleEventMetadata where
   parseJSON =
-    Lude.withObject
-      "ApprovalRuleEventMetadata"
-      ( \x ->
-          ApprovalRuleEventMetadata'
-            Lude.<$> (x Lude..:? "approvalRuleName")
-            Lude.<*> (x Lude..:? "approvalRuleId")
-            Lude.<*> (x Lude..:? "approvalRuleContent")
-      )
+    Core.withObject "ApprovalRuleEventMetadata" Core.$
+      \x ->
+        ApprovalRuleEventMetadata'
+          Core.<$> (x Core..:? "approvalRuleContent")
+          Core.<*> (x Core..:? "approvalRuleId")
+          Core.<*> (x Core..:? "approvalRuleName")

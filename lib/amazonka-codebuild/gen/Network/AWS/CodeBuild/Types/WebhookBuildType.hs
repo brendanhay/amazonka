@@ -13,46 +13,51 @@
 module Network.AWS.CodeBuild.Types.WebhookBuildType
   ( WebhookBuildType
       ( WebhookBuildType',
-        Build,
-        BuildBatch
+        WebhookBuildTypeBuild,
+        WebhookBuildTypeBuildBatch,
+        fromWebhookBuildType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WebhookBuildType = WebhookBuildType' Lude.Text
+newtype WebhookBuildType = WebhookBuildType'
+  { fromWebhookBuildType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Build :: WebhookBuildType
-pattern Build = WebhookBuildType' "BUILD"
+pattern WebhookBuildTypeBuild :: WebhookBuildType
+pattern WebhookBuildTypeBuild = WebhookBuildType' "BUILD"
 
-pattern BuildBatch :: WebhookBuildType
-pattern BuildBatch = WebhookBuildType' "BUILD_BATCH"
+pattern WebhookBuildTypeBuildBatch :: WebhookBuildType
+pattern WebhookBuildTypeBuildBatch = WebhookBuildType' "BUILD_BATCH"
 
 {-# COMPLETE
-  Build,
-  BuildBatch,
+  WebhookBuildTypeBuild,
+  WebhookBuildTypeBuildBatch,
   WebhookBuildType'
   #-}

@@ -21,37 +21,35 @@ module Network.AWS.CodeCommit.Types.DeleteFileEntry
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A file that is deleted as part of a commit.
 --
 -- /See:/ 'mkDeleteFileEntry' smart constructor.
 newtype DeleteFileEntry = DeleteFileEntry'
   { -- | The full path of the file to be deleted, including the name of the file.
-    filePath :: Lude.Text
+    filePath :: Types.Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFileEntry' with the minimum fields required to make a request.
---
--- * 'filePath' - The full path of the file to be deleted, including the name of the file.
+-- | Creates a 'DeleteFileEntry' value with any optional fields omitted.
 mkDeleteFileEntry ::
   -- | 'filePath'
-  Lude.Text ->
+  Types.Path ->
   DeleteFileEntry
-mkDeleteFileEntry pFilePath_ =
-  DeleteFileEntry' {filePath = pFilePath_}
+mkDeleteFileEntry filePath = DeleteFileEntry' {filePath}
 
 -- | The full path of the file to be deleted, including the name of the file.
 --
 -- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeFilePath :: Lens.Lens' DeleteFileEntry Lude.Text
-dfeFilePath = Lens.lens (filePath :: DeleteFileEntry -> Lude.Text) (\s a -> s {filePath = a} :: DeleteFileEntry)
+dfeFilePath :: Lens.Lens' DeleteFileEntry Types.Path
+dfeFilePath = Lens.field @"filePath"
 {-# DEPRECATED dfeFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
-instance Lude.ToJSON DeleteFileEntry where
-  toJSON DeleteFileEntry' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("filePath" Lude..= filePath)])
+instance Core.FromJSON DeleteFileEntry where
+  toJSON DeleteFileEntry {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("filePath" Core..= filePath)])

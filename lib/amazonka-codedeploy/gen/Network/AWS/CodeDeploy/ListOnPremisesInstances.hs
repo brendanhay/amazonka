@@ -24,36 +24,34 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
     mkListOnPremisesInstances,
 
     -- ** Request lenses
-    lopiTagFilters,
     lopiNextToken,
     lopiRegistrationStatus,
+    lopiTagFilters,
 
     -- * Destructuring the response
     ListOnPremisesInstancesResponse (..),
     mkListOnPremisesInstancesResponse,
 
     -- ** Response lenses
-    lopirsNextToken,
-    lopirsInstanceNames,
-    lopirsResponseStatus,
+    lopirrsInstanceNames,
+    lopirrsNextToken,
+    lopirrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @ListOnPremisesInstances@ operation.
 --
 -- /See:/ 'mkListOnPremisesInstances' smart constructor.
 data ListOnPremisesInstances = ListOnPremisesInstances'
-  { -- | The on-premises instance tags that are used to restrict the on-premises instance names returned.
-    tagFilters :: Lude.Maybe [TagFilter],
-    -- | An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The registration status of the on-premises instances:
     --
     --
@@ -61,43 +59,28 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
     --
     --
     --     * @Registered@ : Include registered on-premises instances in the resulting list.
-    registrationStatus :: Lude.Maybe RegistrationStatus
+    registrationStatus :: Core.Maybe Types.RegistrationStatus,
+    -- | The on-premises instance tags that are used to restrict the on-premises instance names returned.
+    tagFilters :: Core.Maybe [Types.TagFilter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListOnPremisesInstances' with the minimum fields required to make a request.
---
--- * 'tagFilters' - The on-premises instance tags that are used to restrict the on-premises instance names returned.
--- * 'nextToken' - An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
--- * 'registrationStatus' - The registration status of the on-premises instances:
---
---
---     * @Deregistered@ : Include deregistered on-premises instances in the resulting list.
---
---
---     * @Registered@ : Include registered on-premises instances in the resulting list.
+-- | Creates a 'ListOnPremisesInstances' value with any optional fields omitted.
 mkListOnPremisesInstances ::
   ListOnPremisesInstances
 mkListOnPremisesInstances =
   ListOnPremisesInstances'
-    { tagFilters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      registrationStatus = Lude.Nothing
+    { nextToken = Core.Nothing,
+      registrationStatus = Core.Nothing,
+      tagFilters = Core.Nothing
     }
-
--- | The on-premises instance tags that are used to restrict the on-premises instance names returned.
---
--- /Note:/ Consider using 'tagFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopiTagFilters :: Lens.Lens' ListOnPremisesInstances (Lude.Maybe [TagFilter])
-lopiTagFilters = Lens.lens (tagFilters :: ListOnPremisesInstances -> Lude.Maybe [TagFilter]) (\s a -> s {tagFilters = a} :: ListOnPremisesInstances)
-{-# DEPRECATED lopiTagFilters "Use generic-lens or generic-optics with 'tagFilters' instead." #-}
 
 -- | An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopiNextToken :: Lens.Lens' ListOnPremisesInstances (Lude.Maybe Lude.Text)
-lopiNextToken = Lens.lens (nextToken :: ListOnPremisesInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOnPremisesInstances)
+lopiNextToken :: Lens.Lens' ListOnPremisesInstances (Core.Maybe Types.NextToken)
+lopiNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lopiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The registration status of the on-premises instances:
@@ -111,105 +94,105 @@ lopiNextToken = Lens.lens (nextToken :: ListOnPremisesInstances -> Lude.Maybe Lu
 --
 --
 -- /Note:/ Consider using 'registrationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopiRegistrationStatus :: Lens.Lens' ListOnPremisesInstances (Lude.Maybe RegistrationStatus)
-lopiRegistrationStatus = Lens.lens (registrationStatus :: ListOnPremisesInstances -> Lude.Maybe RegistrationStatus) (\s a -> s {registrationStatus = a} :: ListOnPremisesInstances)
+lopiRegistrationStatus :: Lens.Lens' ListOnPremisesInstances (Core.Maybe Types.RegistrationStatus)
+lopiRegistrationStatus = Lens.field @"registrationStatus"
 {-# DEPRECATED lopiRegistrationStatus "Use generic-lens or generic-optics with 'registrationStatus' instead." #-}
 
-instance Page.AWSPager ListOnPremisesInstances where
-  page rq rs
-    | Page.stop (rs Lens.^. lopirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lopirsInstanceNames) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lopiNextToken Lens..~ rs Lens.^. lopirsNextToken
+-- | The on-premises instance tags that are used to restrict the on-premises instance names returned.
+--
+-- /Note:/ Consider using 'tagFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopiTagFilters :: Lens.Lens' ListOnPremisesInstances (Core.Maybe [Types.TagFilter])
+lopiTagFilters = Lens.field @"tagFilters"
+{-# DEPRECATED lopiTagFilters "Use generic-lens or generic-optics with 'tagFilters' instead." #-}
 
-instance Lude.AWSRequest ListOnPremisesInstances where
+instance Core.FromJSON ListOnPremisesInstances where
+  toJSON ListOnPremisesInstances {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("registrationStatus" Core..=) Core.<$> registrationStatus,
+            ("tagFilters" Core..=) Core.<$> tagFilters
+          ]
+      )
+
+instance Core.AWSRequest ListOnPremisesInstances where
   type Rs ListOnPremisesInstances = ListOnPremisesInstancesResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.ListOnPremisesInstances")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListOnPremisesInstancesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "instanceNames" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "instanceNames")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListOnPremisesInstances where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.ListOnPremisesInstances" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListOnPremisesInstances where
-  toJSON ListOnPremisesInstances' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("tagFilters" Lude..=) Lude.<$> tagFilters,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("registrationStatus" Lude..=) Lude.<$> registrationStatus
-          ]
-      )
-
-instance Lude.ToPath ListOnPremisesInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListOnPremisesInstances where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListOnPremisesInstances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"instanceNames" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the output of the list on-premises instances operation.
 --
 -- /See:/ 'mkListOnPremisesInstancesResponse' smart constructor.
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
-  { -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The list of matching on-premises instance names.
-    instanceNames :: Lude.Maybe [Lude.Text],
+  { -- | The list of matching on-premises instance names.
+    instanceNames :: Core.Maybe [Types.InstanceName],
+    -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListOnPremisesInstancesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
--- * 'instanceNames' - The list of matching on-premises instance names.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListOnPremisesInstancesResponse' value with any optional fields omitted.
 mkListOnPremisesInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListOnPremisesInstancesResponse
-mkListOnPremisesInstancesResponse pResponseStatus_ =
+mkListOnPremisesInstancesResponse responseStatus =
   ListOnPremisesInstancesResponse'
-    { nextToken = Lude.Nothing,
-      instanceNames = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceNames = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopirsNextToken :: Lens.Lens' ListOnPremisesInstancesResponse (Lude.Maybe Lude.Text)
-lopirsNextToken = Lens.lens (nextToken :: ListOnPremisesInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOnPremisesInstancesResponse)
-{-# DEPRECATED lopirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of matching on-premises instance names.
 --
 -- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopirsInstanceNames :: Lens.Lens' ListOnPremisesInstancesResponse (Lude.Maybe [Lude.Text])
-lopirsInstanceNames = Lens.lens (instanceNames :: ListOnPremisesInstancesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceNames = a} :: ListOnPremisesInstancesResponse)
-{-# DEPRECATED lopirsInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
+lopirrsInstanceNames :: Lens.Lens' ListOnPremisesInstancesResponse (Core.Maybe [Types.InstanceName])
+lopirrsInstanceNames = Lens.field @"instanceNames"
+{-# DEPRECATED lopirrsInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
+
+-- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopirrsNextToken :: Lens.Lens' ListOnPremisesInstancesResponse (Core.Maybe Types.NextToken)
+lopirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lopirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopirsResponseStatus :: Lens.Lens' ListOnPremisesInstancesResponse Lude.Int
-lopirsResponseStatus = Lens.lens (responseStatus :: ListOnPremisesInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOnPremisesInstancesResponse)
-{-# DEPRECATED lopirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lopirrsResponseStatus :: Lens.Lens' ListOnPremisesInstancesResponse Core.Int
+lopirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lopirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

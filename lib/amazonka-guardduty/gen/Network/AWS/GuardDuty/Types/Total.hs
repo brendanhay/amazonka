@@ -22,47 +22,43 @@ module Network.AWS.GuardDuty.Types.Total
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the total usage with the corresponding currency unit for that value.
 --
 -- /See:/ 'mkTotal' smart constructor.
 data Total = Total'
   { -- | The total usage.
-    amount :: Lude.Maybe Lude.Text,
+    amount :: Core.Maybe Types.String,
     -- | The currency unit that the amount is given in.
-    unit :: Lude.Maybe Lude.Text
+    unit :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Total' with the minimum fields required to make a request.
---
--- * 'amount' - The total usage.
--- * 'unit' - The currency unit that the amount is given in.
+-- | Creates a 'Total' value with any optional fields omitted.
 mkTotal ::
   Total
-mkTotal = Total' {amount = Lude.Nothing, unit = Lude.Nothing}
+mkTotal = Total' {amount = Core.Nothing, unit = Core.Nothing}
 
 -- | The total usage.
 --
 -- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tAmount :: Lens.Lens' Total (Lude.Maybe Lude.Text)
-tAmount = Lens.lens (amount :: Total -> Lude.Maybe Lude.Text) (\s a -> s {amount = a} :: Total)
+tAmount :: Lens.Lens' Total (Core.Maybe Types.String)
+tAmount = Lens.field @"amount"
 {-# DEPRECATED tAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The currency unit that the amount is given in.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tUnit :: Lens.Lens' Total (Lude.Maybe Lude.Text)
-tUnit = Lens.lens (unit :: Total -> Lude.Maybe Lude.Text) (\s a -> s {unit = a} :: Total)
+tUnit :: Lens.Lens' Total (Core.Maybe Types.String)
+tUnit = Lens.field @"unit"
 {-# DEPRECATED tUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.FromJSON Total where
+instance Core.FromJSON Total where
   parseJSON =
-    Lude.withObject
-      "Total"
-      ( \x ->
-          Total' Lude.<$> (x Lude..:? "amount") Lude.<*> (x Lude..:? "unit")
-      )
+    Core.withObject "Total" Core.$
+      \x ->
+        Total' Core.<$> (x Core..:? "amount") Core.<*> (x Core..:? "unit")

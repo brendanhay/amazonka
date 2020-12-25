@@ -29,69 +29,61 @@ module Network.AWS.Translate.DeleteTerminology
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkDeleteTerminology' smart constructor.
 newtype DeleteTerminology = DeleteTerminology'
   { -- | The name of the custom terminology being deleted.
-    name :: Lude.Text
+    name :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTerminology' with the minimum fields required to make a request.
---
--- * 'name' - The name of the custom terminology being deleted.
+-- | Creates a 'DeleteTerminology' value with any optional fields omitted.
 mkDeleteTerminology ::
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   DeleteTerminology
-mkDeleteTerminology pName_ = DeleteTerminology' {name = pName_}
+mkDeleteTerminology name = DeleteTerminology' {name}
 
 -- | The name of the custom terminology being deleted.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtName :: Lens.Lens' DeleteTerminology Lude.Text
-dtName = Lens.lens (name :: DeleteTerminology -> Lude.Text) (\s a -> s {name = a} :: DeleteTerminology)
+dtName :: Lens.Lens' DeleteTerminology Types.ResourceName
+dtName = Lens.field @"name"
 {-# DEPRECATED dtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteTerminology where
+instance Core.FromJSON DeleteTerminology where
+  toJSON DeleteTerminology {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteTerminology where
   type Rs DeleteTerminology = DeleteTerminologyResponse
-  request = Req.postJSON translateService
-  response = Res.receiveNull DeleteTerminologyResponse'
-
-instance Lude.ToHeaders DeleteTerminology where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.DeleteTerminology" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteTerminology where
-  toJSON DeleteTerminology' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteTerminology where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTerminology where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShineFrontendService_20170701.DeleteTerminology"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteTerminologyResponse'
 
 -- | /See:/ 'mkDeleteTerminologyResponse' smart constructor.
 data DeleteTerminologyResponse = DeleteTerminologyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTerminologyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteTerminologyResponse' value with any optional fields omitted.
 mkDeleteTerminologyResponse ::
   DeleteTerminologyResponse
 mkDeleteTerminologyResponse = DeleteTerminologyResponse'

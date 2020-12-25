@@ -21,121 +21,104 @@ module Network.AWS.AlexaBusiness.DeleteSkillAuthorization
 
     -- ** Request lenses
     dsaSkillId,
-    dsaRoomARN,
+    dsaRoomArn,
 
     -- * Destructuring the response
     DeleteSkillAuthorizationResponse (..),
     mkDeleteSkillAuthorizationResponse,
 
     -- ** Response lenses
-    dsarsResponseStatus,
+    dsarrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSkillAuthorization' smart constructor.
 data DeleteSkillAuthorization = DeleteSkillAuthorization'
   { -- | The unique identifier of a skill.
-    skillId :: Lude.Text,
+    skillId :: Types.SkillId,
     -- | The room that the skill is authorized for.
-    roomARN :: Lude.Maybe Lude.Text
+    roomArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSkillAuthorization' with the minimum fields required to make a request.
---
--- * 'skillId' - The unique identifier of a skill.
--- * 'roomARN' - The room that the skill is authorized for.
+-- | Creates a 'DeleteSkillAuthorization' value with any optional fields omitted.
 mkDeleteSkillAuthorization ::
   -- | 'skillId'
-  Lude.Text ->
+  Types.SkillId ->
   DeleteSkillAuthorization
-mkDeleteSkillAuthorization pSkillId_ =
-  DeleteSkillAuthorization'
-    { skillId = pSkillId_,
-      roomARN = Lude.Nothing
-    }
+mkDeleteSkillAuthorization skillId =
+  DeleteSkillAuthorization' {skillId, roomArn = Core.Nothing}
 
 -- | The unique identifier of a skill.
 --
 -- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaSkillId :: Lens.Lens' DeleteSkillAuthorization Lude.Text
-dsaSkillId = Lens.lens (skillId :: DeleteSkillAuthorization -> Lude.Text) (\s a -> s {skillId = a} :: DeleteSkillAuthorization)
+dsaSkillId :: Lens.Lens' DeleteSkillAuthorization Types.SkillId
+dsaSkillId = Lens.field @"skillId"
 {-# DEPRECATED dsaSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
 -- | The room that the skill is authorized for.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaRoomARN :: Lens.Lens' DeleteSkillAuthorization (Lude.Maybe Lude.Text)
-dsaRoomARN = Lens.lens (roomARN :: DeleteSkillAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: DeleteSkillAuthorization)
-{-# DEPRECATED dsaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaRoomArn :: Lens.Lens' DeleteSkillAuthorization (Core.Maybe Types.Arn)
+dsaRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED dsaRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
-instance Lude.AWSRequest DeleteSkillAuthorization where
+instance Core.FromJSON DeleteSkillAuthorization where
+  toJSON DeleteSkillAuthorization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SkillId" Core..= skillId),
+            ("RoomArn" Core..=) Core.<$> roomArn
+          ]
+      )
+
+instance Core.AWSRequest DeleteSkillAuthorization where
   type Rs DeleteSkillAuthorization = DeleteSkillAuthorizationResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.DeleteSkillAuthorization")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteSkillAuthorizationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSkillAuthorization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.DeleteSkillAuthorization" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteSkillAuthorization where
-  toJSON DeleteSkillAuthorization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SkillId" Lude..= skillId),
-            ("RoomArn" Lude..=) Lude.<$> roomARN
-          ]
-      )
-
-instance Lude.ToPath DeleteSkillAuthorization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSkillAuthorization where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSkillAuthorizationResponse' smart constructor.
 newtype DeleteSkillAuthorizationResponse = DeleteSkillAuthorizationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSkillAuthorizationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSkillAuthorizationResponse' value with any optional fields omitted.
 mkDeleteSkillAuthorizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSkillAuthorizationResponse
-mkDeleteSkillAuthorizationResponse pResponseStatus_ =
-  DeleteSkillAuthorizationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteSkillAuthorizationResponse responseStatus =
+  DeleteSkillAuthorizationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarsResponseStatus :: Lens.Lens' DeleteSkillAuthorizationResponse Lude.Int
-dsarsResponseStatus = Lens.lens (responseStatus :: DeleteSkillAuthorizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSkillAuthorizationResponse)
-{-# DEPRECATED dsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsarrsResponseStatus :: Lens.Lens' DeleteSkillAuthorizationResponse Core.Int
+dsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

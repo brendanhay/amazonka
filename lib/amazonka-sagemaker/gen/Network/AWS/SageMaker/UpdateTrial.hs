@@ -20,130 +20,114 @@ module Network.AWS.SageMaker.UpdateTrial
     mkUpdateTrial,
 
     -- ** Request lenses
-    utDisplayName,
     utTrialName,
+    utDisplayName,
 
     -- * Destructuring the response
     UpdateTrialResponse (..),
     mkUpdateTrialResponse,
 
     -- ** Response lenses
-    utrsTrialARN,
-    utrsResponseStatus,
+    utrrsTrialArn,
+    utrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkUpdateTrial' smart constructor.
 data UpdateTrial = UpdateTrial'
-  { -- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | The name of the trial to update.
-    trialName :: Lude.Text
+  { -- | The name of the trial to update.
+    trialName :: Types.TrialName,
+    -- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
+    displayName :: Core.Maybe Types.DisplayName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTrial' with the minimum fields required to make a request.
---
--- * 'displayName' - The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
--- * 'trialName' - The name of the trial to update.
+-- | Creates a 'UpdateTrial' value with any optional fields omitted.
 mkUpdateTrial ::
   -- | 'trialName'
-  Lude.Text ->
+  Types.TrialName ->
   UpdateTrial
-mkUpdateTrial pTrialName_ =
-  UpdateTrial' {displayName = Lude.Nothing, trialName = pTrialName_}
-
--- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
---
--- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utDisplayName :: Lens.Lens' UpdateTrial (Lude.Maybe Lude.Text)
-utDisplayName = Lens.lens (displayName :: UpdateTrial -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: UpdateTrial)
-{-# DEPRECATED utDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+mkUpdateTrial trialName =
+  UpdateTrial' {trialName, displayName = Core.Nothing}
 
 -- | The name of the trial to update.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utTrialName :: Lens.Lens' UpdateTrial Lude.Text
-utTrialName = Lens.lens (trialName :: UpdateTrial -> Lude.Text) (\s a -> s {trialName = a} :: UpdateTrial)
+utTrialName :: Lens.Lens' UpdateTrial Types.TrialName
+utTrialName = Lens.field @"trialName"
 {-# DEPRECATED utTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
-instance Lude.AWSRequest UpdateTrial where
+-- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utDisplayName :: Lens.Lens' UpdateTrial (Core.Maybe Types.DisplayName)
+utDisplayName = Lens.field @"displayName"
+{-# DEPRECATED utDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+
+instance Core.FromJSON UpdateTrial where
+  toJSON UpdateTrial {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TrialName" Core..= trialName),
+            ("DisplayName" Core..=) Core.<$> displayName
+          ]
+      )
+
+instance Core.AWSRequest UpdateTrial where
   type Rs UpdateTrial = UpdateTrialResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.UpdateTrial")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateTrialResponse'
-            Lude.<$> (x Lude..?> "TrialArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TrialArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTrial where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.UpdateTrial" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTrial where
-  toJSON UpdateTrial' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DisplayName" Lude..=) Lude.<$> displayName,
-            Lude.Just ("TrialName" Lude..= trialName)
-          ]
-      )
-
-instance Lude.ToPath UpdateTrial where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTrial where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTrialResponse' smart constructor.
 data UpdateTrialResponse = UpdateTrialResponse'
   { -- | The Amazon Resource Name (ARN) of the trial.
-    trialARN :: Lude.Maybe Lude.Text,
+    trialArn :: Core.Maybe Types.TrialArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTrialResponse' with the minimum fields required to make a request.
---
--- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTrialResponse' value with any optional fields omitted.
 mkUpdateTrialResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTrialResponse
-mkUpdateTrialResponse pResponseStatus_ =
-  UpdateTrialResponse'
-    { trialARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateTrialResponse responseStatus =
+  UpdateTrialResponse' {trialArn = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the trial.
 --
--- /Note:/ Consider using 'trialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsTrialARN :: Lens.Lens' UpdateTrialResponse (Lude.Maybe Lude.Text)
-utrsTrialARN = Lens.lens (trialARN :: UpdateTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: UpdateTrialResponse)
-{-# DEPRECATED utrsTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
+-- /Note:/ Consider using 'trialArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrrsTrialArn :: Lens.Lens' UpdateTrialResponse (Core.Maybe Types.TrialArn)
+utrrsTrialArn = Lens.field @"trialArn"
+{-# DEPRECATED utrrsTrialArn "Use generic-lens or generic-optics with 'trialArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsResponseStatus :: Lens.Lens' UpdateTrialResponse Lude.Int
-utrsResponseStatus = Lens.lens (responseStatus :: UpdateTrialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTrialResponse)
-{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrrsResponseStatus :: Lens.Lens' UpdateTrialResponse Core.Int
+utrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

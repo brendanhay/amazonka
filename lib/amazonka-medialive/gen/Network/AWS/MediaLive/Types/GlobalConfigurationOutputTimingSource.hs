@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.GlobalConfigurationOutputTimingSource
   ( GlobalConfigurationOutputTimingSource
       ( GlobalConfigurationOutputTimingSource',
-        InputClock,
-        SystemClock
+        GlobalConfigurationOutputTimingSourceInputClock,
+        GlobalConfigurationOutputTimingSourceSystemClock,
+        fromGlobalConfigurationOutputTimingSource
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Global Configuration Output Timing Source
-newtype GlobalConfigurationOutputTimingSource = GlobalConfigurationOutputTimingSource' Lude.Text
+newtype GlobalConfigurationOutputTimingSource = GlobalConfigurationOutputTimingSource'
+  { fromGlobalConfigurationOutputTimingSource ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InputClock :: GlobalConfigurationOutputTimingSource
-pattern InputClock = GlobalConfigurationOutputTimingSource' "INPUT_CLOCK"
+pattern GlobalConfigurationOutputTimingSourceInputClock :: GlobalConfigurationOutputTimingSource
+pattern GlobalConfigurationOutputTimingSourceInputClock = GlobalConfigurationOutputTimingSource' "INPUT_CLOCK"
 
-pattern SystemClock :: GlobalConfigurationOutputTimingSource
-pattern SystemClock = GlobalConfigurationOutputTimingSource' "SYSTEM_CLOCK"
+pattern GlobalConfigurationOutputTimingSourceSystemClock :: GlobalConfigurationOutputTimingSource
+pattern GlobalConfigurationOutputTimingSourceSystemClock = GlobalConfigurationOutputTimingSource' "SYSTEM_CLOCK"
 
 {-# COMPLETE
-  InputClock,
-  SystemClock,
+  GlobalConfigurationOutputTimingSourceInputClock,
+  GlobalConfigurationOutputTimingSourceSystemClock,
   GlobalConfigurationOutputTimingSource'
   #-}

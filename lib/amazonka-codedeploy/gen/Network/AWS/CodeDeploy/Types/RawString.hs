@@ -22,58 +22,55 @@ module Network.AWS.CodeDeploy.Types.RawString
   )
 where
 
+import qualified Network.AWS.CodeDeploy.Types.Content as Types
+import qualified Network.AWS.CodeDeploy.Types.Sha256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A revision for an AWS Lambda deployment that is a YAML-formatted or JSON-formatted string. For AWS Lambda deployments, the revision is the same as the AppSpec file.
 --
 -- /See:/ 'mkRawString' smart constructor.
 data RawString = RawString'
   { -- | The YAML-formatted or JSON-formatted revision string. It includes information about which Lambda function to update and optional Lambda functions that validate deployment lifecycle events.
-    content :: Lude.Maybe Lude.Text,
+    content :: Core.Maybe Types.Content,
     -- | The SHA256 hash value of the revision content.
-    sha256 :: Lude.Maybe Lude.Text
+    sha256 :: Core.Maybe Types.Sha256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RawString' with the minimum fields required to make a request.
---
--- * 'content' - The YAML-formatted or JSON-formatted revision string. It includes information about which Lambda function to update and optional Lambda functions that validate deployment lifecycle events.
--- * 'sha256' - The SHA256 hash value of the revision content.
+-- | Creates a 'RawString' value with any optional fields omitted.
 mkRawString ::
   RawString
 mkRawString =
-  RawString' {content = Lude.Nothing, sha256 = Lude.Nothing}
+  RawString' {content = Core.Nothing, sha256 = Core.Nothing}
 
 -- | The YAML-formatted or JSON-formatted revision string. It includes information about which Lambda function to update and optional Lambda functions that validate deployment lifecycle events.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsContent :: Lens.Lens' RawString (Lude.Maybe Lude.Text)
-rsContent = Lens.lens (content :: RawString -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: RawString)
+rsContent :: Lens.Lens' RawString (Core.Maybe Types.Content)
+rsContent = Lens.field @"content"
 {-# DEPRECATED rsContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The SHA256 hash value of the revision content.
 --
 -- /Note:/ Consider using 'sha256' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsSha256 :: Lens.Lens' RawString (Lude.Maybe Lude.Text)
-rsSha256 = Lens.lens (sha256 :: RawString -> Lude.Maybe Lude.Text) (\s a -> s {sha256 = a} :: RawString)
+rsSha256 :: Lens.Lens' RawString (Core.Maybe Types.Sha256)
+rsSha256 = Lens.field @"sha256"
 {-# DEPRECATED rsSha256 "Use generic-lens or generic-optics with 'sha256' instead." #-}
 
-instance Lude.FromJSON RawString where
-  parseJSON =
-    Lude.withObject
-      "RawString"
-      ( \x ->
-          RawString'
-            Lude.<$> (x Lude..:? "content") Lude.<*> (x Lude..:? "sha256")
-      )
-
-instance Lude.ToJSON RawString where
-  toJSON RawString' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("content" Lude..=) Lude.<$> content,
-            ("sha256" Lude..=) Lude.<$> sha256
+instance Core.FromJSON RawString where
+  toJSON RawString {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("content" Core..=) Core.<$> content,
+            ("sha256" Core..=) Core.<$> sha256
           ]
       )
+
+instance Core.FromJSON RawString where
+  parseJSON =
+    Core.withObject "RawString" Core.$
+      \x ->
+        RawString'
+          Core.<$> (x Core..:? "content") Core.<*> (x Core..:? "sha256")

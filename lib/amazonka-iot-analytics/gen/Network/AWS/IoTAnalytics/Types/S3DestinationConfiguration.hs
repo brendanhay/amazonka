@@ -17,25 +17,26 @@ module Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration
     mkS3DestinationConfiguration,
 
     -- * Lenses
-    sdcGlueConfiguration,
     sdcBucket,
     sdcKey,
-    sdcRoleARN,
+    sdcRoleArn,
+    sdcGlueConfiguration,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.GlueConfiguration
+import qualified Network.AWS.IoTAnalytics.Types.Bucket as Types
+import qualified Network.AWS.IoTAnalytics.Types.GlueConfiguration as Types
+import qualified Network.AWS.IoTAnalytics.Types.Key as Types
+import qualified Network.AWS.IoTAnalytics.Types.RoleArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
 --
 -- /See:/ 'mkS3DestinationConfiguration' smart constructor.
 data S3DestinationConfiguration = S3DestinationConfiguration'
-  { -- | Configuration information for coordination with AWS Glue, a fully managed extract, transform and load (ETL) service.
-    glueConfiguration :: Lude.Maybe GlueConfiguration,
-    -- | The name of the S3 bucket to which dataset contents are delivered.
-    bucket :: Lude.Text,
+  { -- | The name of the S3 bucket to which dataset contents are delivered.
+    bucket :: Types.Bucket,
     -- | The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
     --
     -- You can create a unique key with the following options:
@@ -50,60 +51,37 @@ data S3DestinationConfiguration = S3DestinationConfiguration'
     --
     --
     -- The following example creates a unique key for a CSV file: @dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv@
-    key :: Lude.Text,
+    key :: Types.Key,
     -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn,
+    -- | Configuration information for coordination with AWS Glue, a fully managed extract, transform and load (ETL) service.
+    glueConfiguration :: Core.Maybe Types.GlueConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3DestinationConfiguration' with the minimum fields required to make a request.
---
--- * 'glueConfiguration' - Configuration information for coordination with AWS Glue, a fully managed extract, transform and load (ETL) service.
--- * 'bucket' - The name of the S3 bucket to which dataset contents are delivered.
--- * 'key' - The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
---
--- You can create a unique key with the following options:
---
---     * Use @!{iotanalytics:scheduleTime}@ to insert the time of a scheduled SQL query run.
---
---
---     * Use @!{iotanalytics:versionId}@ to insert a unique hash that identifies a dataset content.
---
---
---     * Use @!{iotanalytics:creationTime}@ to insert the creation time of a dataset content.
---
---
--- The following example creates a unique key for a CSV file: @dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv@
--- * 'roleARN' - The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+-- | Creates a 'S3DestinationConfiguration' value with any optional fields omitted.
 mkS3DestinationConfiguration ::
   -- | 'bucket'
-  Lude.Text ->
+  Types.Bucket ->
   -- | 'key'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.Key ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   S3DestinationConfiguration
-mkS3DestinationConfiguration pBucket_ pKey_ pRoleARN_ =
+mkS3DestinationConfiguration bucket key roleArn =
   S3DestinationConfiguration'
-    { glueConfiguration = Lude.Nothing,
-      bucket = pBucket_,
-      key = pKey_,
-      roleARN = pRoleARN_
+    { bucket,
+      key,
+      roleArn,
+      glueConfiguration = Core.Nothing
     }
-
--- | Configuration information for coordination with AWS Glue, a fully managed extract, transform and load (ETL) service.
---
--- /Note:/ Consider using 'glueConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcGlueConfiguration :: Lens.Lens' S3DestinationConfiguration (Lude.Maybe GlueConfiguration)
-sdcGlueConfiguration = Lens.lens (glueConfiguration :: S3DestinationConfiguration -> Lude.Maybe GlueConfiguration) (\s a -> s {glueConfiguration = a} :: S3DestinationConfiguration)
-{-# DEPRECATED sdcGlueConfiguration "Use generic-lens or generic-optics with 'glueConfiguration' instead." #-}
 
 -- | The name of the S3 bucket to which dataset contents are delivered.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcBucket :: Lens.Lens' S3DestinationConfiguration Lude.Text
-sdcBucket = Lens.lens (bucket :: S3DestinationConfiguration -> Lude.Text) (\s a -> s {bucket = a} :: S3DestinationConfiguration)
+sdcBucket :: Lens.Lens' S3DestinationConfiguration Types.Bucket
+sdcBucket = Lens.field @"bucket"
 {-# DEPRECATED sdcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
@@ -122,36 +100,41 @@ sdcBucket = Lens.lens (bucket :: S3DestinationConfiguration -> Lude.Text) (\s a 
 -- The following example creates a unique key for a CSV file: @dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv@
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcKey :: Lens.Lens' S3DestinationConfiguration Lude.Text
-sdcKey = Lens.lens (key :: S3DestinationConfiguration -> Lude.Text) (\s a -> s {key = a} :: S3DestinationConfiguration)
+sdcKey :: Lens.Lens' S3DestinationConfiguration Types.Key
+sdcKey = Lens.field @"key"
 {-# DEPRECATED sdcKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcRoleARN :: Lens.Lens' S3DestinationConfiguration Lude.Text
-sdcRoleARN = Lens.lens (roleARN :: S3DestinationConfiguration -> Lude.Text) (\s a -> s {roleARN = a} :: S3DestinationConfiguration)
-{-# DEPRECATED sdcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcRoleArn :: Lens.Lens' S3DestinationConfiguration Types.RoleArn
+sdcRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED sdcRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON S3DestinationConfiguration where
-  parseJSON =
-    Lude.withObject
-      "S3DestinationConfiguration"
-      ( \x ->
-          S3DestinationConfiguration'
-            Lude.<$> (x Lude..:? "glueConfiguration")
-            Lude.<*> (x Lude..: "bucket")
-            Lude.<*> (x Lude..: "key")
-            Lude.<*> (x Lude..: "roleArn")
-      )
+-- | Configuration information for coordination with AWS Glue, a fully managed extract, transform and load (ETL) service.
+--
+-- /Note:/ Consider using 'glueConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcGlueConfiguration :: Lens.Lens' S3DestinationConfiguration (Core.Maybe Types.GlueConfiguration)
+sdcGlueConfiguration = Lens.field @"glueConfiguration"
+{-# DEPRECATED sdcGlueConfiguration "Use generic-lens or generic-optics with 'glueConfiguration' instead." #-}
 
-instance Lude.ToJSON S3DestinationConfiguration where
-  toJSON S3DestinationConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("glueConfiguration" Lude..=) Lude.<$> glueConfiguration,
-            Lude.Just ("bucket" Lude..= bucket),
-            Lude.Just ("key" Lude..= key),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON S3DestinationConfiguration where
+  toJSON S3DestinationConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("bucket" Core..= bucket),
+            Core.Just ("key" Core..= key),
+            Core.Just ("roleArn" Core..= roleArn),
+            ("glueConfiguration" Core..=) Core.<$> glueConfiguration
           ]
       )
+
+instance Core.FromJSON S3DestinationConfiguration where
+  parseJSON =
+    Core.withObject "S3DestinationConfiguration" Core.$
+      \x ->
+        S3DestinationConfiguration'
+          Core.<$> (x Core..: "bucket")
+          Core.<*> (x Core..: "key")
+          Core.<*> (x Core..: "roleArn")
+          Core.<*> (x Core..:? "glueConfiguration")

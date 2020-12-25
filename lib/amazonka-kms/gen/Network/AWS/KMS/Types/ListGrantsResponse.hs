@@ -17,70 +17,65 @@ module Network.AWS.KMS.Types.ListGrantsResponse
     mkListGrantsResponse,
 
     -- * Lenses
-    lgTruncated,
-    lgGrants,
-    lgNextMarker,
+    lgrGrants,
+    lgrNextMarker,
+    lgrTruncated,
   )
 where
 
-import Network.AWS.KMS.Types.GrantListEntry
+import qualified Network.AWS.KMS.Types.GrantListEntry as Types
+import qualified Network.AWS.KMS.Types.NextMarker as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkListGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
-  { -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
-    truncated :: Lude.Maybe Lude.Bool,
-    -- | A list of grants.
-    grants :: Lude.Maybe [GrantListEntry],
+  { -- | A list of grants.
+    grants :: Core.Maybe [Types.GrantListEntry],
     -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Lude.Maybe Lude.Text
+    nextMarker :: Core.Maybe Types.NextMarker,
+    -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+    truncated :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListGrantsResponse' with the minimum fields required to make a request.
---
--- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
--- * 'grants' - A list of grants.
--- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
+-- | Creates a 'ListGrantsResponse' value with any optional fields omitted.
 mkListGrantsResponse ::
   ListGrantsResponse
 mkListGrantsResponse =
   ListGrantsResponse'
-    { truncated = Lude.Nothing,
-      grants = Lude.Nothing,
-      nextMarker = Lude.Nothing
+    { grants = Core.Nothing,
+      nextMarker = Core.Nothing,
+      truncated = Core.Nothing
     }
-
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
---
--- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgTruncated :: Lens.Lens' ListGrantsResponse (Lude.Maybe Lude.Bool)
-lgTruncated = Lens.lens (truncated :: ListGrantsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: ListGrantsResponse)
-{-# DEPRECATED lgTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | A list of grants.
 --
 -- /Note:/ Consider using 'grants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgGrants :: Lens.Lens' ListGrantsResponse (Lude.Maybe [GrantListEntry])
-lgGrants = Lens.lens (grants :: ListGrantsResponse -> Lude.Maybe [GrantListEntry]) (\s a -> s {grants = a} :: ListGrantsResponse)
-{-# DEPRECATED lgGrants "Use generic-lens or generic-optics with 'grants' instead." #-}
+lgrGrants :: Lens.Lens' ListGrantsResponse (Core.Maybe [Types.GrantListEntry])
+lgrGrants = Lens.field @"grants"
+{-# DEPRECATED lgrGrants "Use generic-lens or generic-optics with 'grants' instead." #-}
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgNextMarker :: Lens.Lens' ListGrantsResponse (Lude.Maybe Lude.Text)
-lgNextMarker = Lens.lens (nextMarker :: ListGrantsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListGrantsResponse)
-{-# DEPRECATED lgNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lgrNextMarker :: Lens.Lens' ListGrantsResponse (Core.Maybe Types.NextMarker)
+lgrNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lgrNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
-instance Lude.FromJSON ListGrantsResponse where
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrTruncated :: Lens.Lens' ListGrantsResponse (Core.Maybe Core.Bool)
+lgrTruncated = Lens.field @"truncated"
+{-# DEPRECATED lgrTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
+
+instance Core.FromJSON ListGrantsResponse where
   parseJSON =
-    Lude.withObject
-      "ListGrantsResponse"
-      ( \x ->
-          ListGrantsResponse'
-            Lude.<$> (x Lude..:? "Truncated")
-            Lude.<*> (x Lude..:? "Grants" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NextMarker")
-      )
+    Core.withObject "ListGrantsResponse" Core.$
+      \x ->
+        ListGrantsResponse'
+          Core.<$> (x Core..:? "Grants")
+          Core.<*> (x Core..:? "NextMarker")
+          Core.<*> (x Core..:? "Truncated")

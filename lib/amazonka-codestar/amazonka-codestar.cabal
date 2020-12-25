@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CodeStar
     Network.AWS.CodeStar.AssociateTeamMember
@@ -89,18 +95,49 @@ library
     Network.AWS.CodeStar.Waiters
 
   other-modules:
+    Network.AWS.CodeStar.Types.Arn
+    Network.AWS.CodeStar.Types.BucketKey
+    Network.AWS.CodeStar.Types.BucketName
+    Network.AWS.CodeStar.Types.ClientRequestToken
     Network.AWS.CodeStar.Types.Code
     Network.AWS.CodeStar.Types.CodeCommitCodeDestination
     Network.AWS.CodeStar.Types.CodeDestination
     Network.AWS.CodeStar.Types.CodeSource
+    Network.AWS.CodeStar.Types.Description
+    Network.AWS.CodeStar.Types.DisplayName
+    Network.AWS.CodeStar.Types.Email
     Network.AWS.CodeStar.Types.GitHubCodeDestination
+    Network.AWS.CodeStar.Types.Id
+    Network.AWS.CodeStar.Types.Name
+    Network.AWS.CodeStar.Types.Owner
+    Network.AWS.CodeStar.Types.PaginationToken
+    Network.AWS.CodeStar.Types.ProjectArn
+    Network.AWS.CodeStar.Types.ProjectId
+    Network.AWS.CodeStar.Types.ProjectName
+    Network.AWS.CodeStar.Types.ProjectRole
     Network.AWS.CodeStar.Types.ProjectStatus
     Network.AWS.CodeStar.Types.ProjectSummary
+    Network.AWS.CodeStar.Types.ProjectTemplateId
+    Network.AWS.CodeStar.Types.Reason
     Network.AWS.CodeStar.Types.Resource
+    Network.AWS.CodeStar.Types.ResourceId
+    Network.AWS.CodeStar.Types.Role
+    Network.AWS.CodeStar.Types.RoleArn
     Network.AWS.CodeStar.Types.S3Location
+    Network.AWS.CodeStar.Types.SshPublicKey
+    Network.AWS.CodeStar.Types.StackId
+    Network.AWS.CodeStar.Types.State
+    Network.AWS.CodeStar.Types.TagKey
+    Network.AWS.CodeStar.Types.TagValue
     Network.AWS.CodeStar.Types.TeamMember
+    Network.AWS.CodeStar.Types.TemplateParameterKey
+    Network.AWS.CodeStar.Types.TemplateParameterValue
+    Network.AWS.CodeStar.Types.Token
     Network.AWS.CodeStar.Types.Toolchain
     Network.AWS.CodeStar.Types.ToolchainSource
+    Network.AWS.CodeStar.Types.Type
+    Network.AWS.CodeStar.Types.UserArn
+    Network.AWS.CodeStar.Types.UserProfileDisplayName
     Network.AWS.CodeStar.Types.UserProfileSummary
 
   build-depends:   amazonka-core ==2.0.0.0.*

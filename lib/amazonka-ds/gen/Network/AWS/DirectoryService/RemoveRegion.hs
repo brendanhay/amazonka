@@ -27,93 +27,82 @@ module Network.AWS.DirectoryService.RemoveRegion
     mkRemoveRegionResponse,
 
     -- ** Response lenses
-    rrrsResponseStatus,
+    rrrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveRegion' smart constructor.
 newtype RemoveRegion = RemoveRegion'
   { -- | The identifier of the directory for which you want to remove Region replication.
-    directoryId :: Lude.Text
+    directoryId :: Types.DirectoryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveRegion' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory for which you want to remove Region replication.
+-- | Creates a 'RemoveRegion' value with any optional fields omitted.
 mkRemoveRegion ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   RemoveRegion
-mkRemoveRegion pDirectoryId_ =
-  RemoveRegion' {directoryId = pDirectoryId_}
+mkRemoveRegion directoryId = RemoveRegion' {directoryId}
 
 -- | The identifier of the directory for which you want to remove Region replication.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrDirectoryId :: Lens.Lens' RemoveRegion Lude.Text
-rrDirectoryId = Lens.lens (directoryId :: RemoveRegion -> Lude.Text) (\s a -> s {directoryId = a} :: RemoveRegion)
+rrDirectoryId :: Lens.Lens' RemoveRegion Types.DirectoryId
+rrDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED rrDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance Lude.AWSRequest RemoveRegion where
+instance Core.FromJSON RemoveRegion where
+  toJSON RemoveRegion {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DirectoryId" Core..= directoryId)])
+
+instance Core.AWSRequest RemoveRegion where
   type Rs RemoveRegion = RemoveRegionResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.RemoveRegion")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          RemoveRegionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RemoveRegionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveRegion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.RemoveRegion" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveRegion where
-  toJSON RemoveRegion' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DirectoryId" Lude..= directoryId)])
-
-instance Lude.ToPath RemoveRegion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveRegion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRemoveRegionResponse' smart constructor.
 newtype RemoveRegionResponse = RemoveRegionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveRegionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveRegionResponse' value with any optional fields omitted.
 mkRemoveRegionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveRegionResponse
-mkRemoveRegionResponse pResponseStatus_ =
-  RemoveRegionResponse' {responseStatus = pResponseStatus_}
+mkRemoveRegionResponse responseStatus =
+  RemoveRegionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrrsResponseStatus :: Lens.Lens' RemoveRegionResponse Lude.Int
-rrrsResponseStatus = Lens.lens (responseStatus :: RemoveRegionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveRegionResponse)
-{-# DEPRECATED rrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rrrrsResponseStatus :: Lens.Lens' RemoveRegionResponse Core.Int
+rrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

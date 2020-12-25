@@ -20,163 +20,154 @@ module Network.AWS.Redshift.CreateUsageLimit
     mkCreateUsageLimit,
 
     -- ** Request lenses
-    culAmount,
-    culLimitType,
-    culPeriod,
     culClusterIdentifier,
-    culBreachAction,
     culFeatureType,
+    culLimitType,
+    culAmount,
+    culBreachAction,
+    culPeriod,
     culTags,
 
     -- * Destructuring the response
-    UsageLimit (..),
-    mkUsageLimit,
+    Types.UsageLimit (..),
+    Types.mkUsageLimit,
 
     -- ** Response lenses
-    ulAmount,
-    ulLimitType,
-    ulUsageLimitId,
-    ulPeriod,
-    ulClusterIdentifier,
-    ulBreachAction,
-    ulFeatureType,
-    ulTags,
+    Types.ulAmount,
+    Types.ulBreachAction,
+    Types.ulClusterIdentifier,
+    Types.ulFeatureType,
+    Types.ulLimitType,
+    Types.ulPeriod,
+    Types.ulTags,
+    Types.ulUsageLimitId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateUsageLimit' smart constructor.
 data CreateUsageLimit = CreateUsageLimit'
-  { -- | The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-    amount :: Lude.Integer,
-    -- | The type of limit. Depending on the feature type, this can be based on a time duration or data size. If @FeatureType@ is @spectrum@ , then @LimitType@ must be @data-scanned@ . If @FeatureType@ is @concurrency-scaling@ , then @LimitType@ must be @time@ .
-    limitType :: UsageLimitLimitType,
-    -- | The time period that the amount applies to. A @weekly@ period begins on Sunday. The default is @monthly@ .
-    period :: Lude.Maybe UsageLimitPeriod,
-    -- | The identifier of the cluster that you want to limit usage.
-    clusterIdentifier :: Lude.Text,
-    -- | The action that Amazon Redshift takes when the limit is reached. The default is log. For more information about this parameter, see 'UsageLimit' .
-    breachAction :: Lude.Maybe UsageLimitBreachAction,
+  { -- | The identifier of the cluster that you want to limit usage.
+    clusterIdentifier :: Types.String,
     -- | The Amazon Redshift feature that you want to limit.
-    featureType :: UsageLimitFeatureType,
+    featureType :: Types.UsageLimitFeatureType,
+    -- | The type of limit. Depending on the feature type, this can be based on a time duration or data size. If @FeatureType@ is @spectrum@ , then @LimitType@ must be @data-scanned@ . If @FeatureType@ is @concurrency-scaling@ , then @LimitType@ must be @time@ .
+    limitType :: Types.UsageLimitLimitType,
+    -- | The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
+    amount :: Core.Integer,
+    -- | The action that Amazon Redshift takes when the limit is reached. The default is log. For more information about this parameter, see 'UsageLimit' .
+    breachAction :: Core.Maybe Types.UsageLimitBreachAction,
+    -- | The time period that the amount applies to. A @weekly@ period begins on Sunday. The default is @monthly@ .
+    period :: Core.Maybe Types.UsageLimitPeriod,
     -- | A list of tag instances.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUsageLimit' with the minimum fields required to make a request.
---
--- * 'amount' - The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
--- * 'limitType' - The type of limit. Depending on the feature type, this can be based on a time duration or data size. If @FeatureType@ is @spectrum@ , then @LimitType@ must be @data-scanned@ . If @FeatureType@ is @concurrency-scaling@ , then @LimitType@ must be @time@ .
--- * 'period' - The time period that the amount applies to. A @weekly@ period begins on Sunday. The default is @monthly@ .
--- * 'clusterIdentifier' - The identifier of the cluster that you want to limit usage.
--- * 'breachAction' - The action that Amazon Redshift takes when the limit is reached. The default is log. For more information about this parameter, see 'UsageLimit' .
--- * 'featureType' - The Amazon Redshift feature that you want to limit.
--- * 'tags' - A list of tag instances.
+-- | Creates a 'CreateUsageLimit' value with any optional fields omitted.
 mkCreateUsageLimit ::
-  -- | 'amount'
-  Lude.Integer ->
-  -- | 'limitType'
-  UsageLimitLimitType ->
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   -- | 'featureType'
-  UsageLimitFeatureType ->
+  Types.UsageLimitFeatureType ->
+  -- | 'limitType'
+  Types.UsageLimitLimitType ->
+  -- | 'amount'
+  Core.Integer ->
   CreateUsageLimit
-mkCreateUsageLimit
-  pAmount_
-  pLimitType_
-  pClusterIdentifier_
-  pFeatureType_ =
-    CreateUsageLimit'
-      { amount = pAmount_,
-        limitType = pLimitType_,
-        period = Lude.Nothing,
-        clusterIdentifier = pClusterIdentifier_,
-        breachAction = Lude.Nothing,
-        featureType = pFeatureType_,
-        tags = Lude.Nothing
-      }
-
--- | The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
---
--- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-culAmount :: Lens.Lens' CreateUsageLimit Lude.Integer
-culAmount = Lens.lens (amount :: CreateUsageLimit -> Lude.Integer) (\s a -> s {amount = a} :: CreateUsageLimit)
-{-# DEPRECATED culAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
-
--- | The type of limit. Depending on the feature type, this can be based on a time duration or data size. If @FeatureType@ is @spectrum@ , then @LimitType@ must be @data-scanned@ . If @FeatureType@ is @concurrency-scaling@ , then @LimitType@ must be @time@ .
---
--- /Note:/ Consider using 'limitType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-culLimitType :: Lens.Lens' CreateUsageLimit UsageLimitLimitType
-culLimitType = Lens.lens (limitType :: CreateUsageLimit -> UsageLimitLimitType) (\s a -> s {limitType = a} :: CreateUsageLimit)
-{-# DEPRECATED culLimitType "Use generic-lens or generic-optics with 'limitType' instead." #-}
-
--- | The time period that the amount applies to. A @weekly@ period begins on Sunday. The default is @monthly@ .
---
--- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-culPeriod :: Lens.Lens' CreateUsageLimit (Lude.Maybe UsageLimitPeriod)
-culPeriod = Lens.lens (period :: CreateUsageLimit -> Lude.Maybe UsageLimitPeriod) (\s a -> s {period = a} :: CreateUsageLimit)
-{-# DEPRECATED culPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
+mkCreateUsageLimit clusterIdentifier featureType limitType amount =
+  CreateUsageLimit'
+    { clusterIdentifier,
+      featureType,
+      limitType,
+      amount,
+      breachAction = Core.Nothing,
+      period = Core.Nothing,
+      tags = Core.Nothing
+    }
 
 -- | The identifier of the cluster that you want to limit usage.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-culClusterIdentifier :: Lens.Lens' CreateUsageLimit Lude.Text
-culClusterIdentifier = Lens.lens (clusterIdentifier :: CreateUsageLimit -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: CreateUsageLimit)
+culClusterIdentifier :: Lens.Lens' CreateUsageLimit Types.String
+culClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED culClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
-
--- | The action that Amazon Redshift takes when the limit is reached. The default is log. For more information about this parameter, see 'UsageLimit' .
---
--- /Note:/ Consider using 'breachAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-culBreachAction :: Lens.Lens' CreateUsageLimit (Lude.Maybe UsageLimitBreachAction)
-culBreachAction = Lens.lens (breachAction :: CreateUsageLimit -> Lude.Maybe UsageLimitBreachAction) (\s a -> s {breachAction = a} :: CreateUsageLimit)
-{-# DEPRECATED culBreachAction "Use generic-lens or generic-optics with 'breachAction' instead." #-}
 
 -- | The Amazon Redshift feature that you want to limit.
 --
 -- /Note:/ Consider using 'featureType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-culFeatureType :: Lens.Lens' CreateUsageLimit UsageLimitFeatureType
-culFeatureType = Lens.lens (featureType :: CreateUsageLimit -> UsageLimitFeatureType) (\s a -> s {featureType = a} :: CreateUsageLimit)
+culFeatureType :: Lens.Lens' CreateUsageLimit Types.UsageLimitFeatureType
+culFeatureType = Lens.field @"featureType"
 {-# DEPRECATED culFeatureType "Use generic-lens or generic-optics with 'featureType' instead." #-}
+
+-- | The type of limit. Depending on the feature type, this can be based on a time duration or data size. If @FeatureType@ is @spectrum@ , then @LimitType@ must be @data-scanned@ . If @FeatureType@ is @concurrency-scaling@ , then @LimitType@ must be @time@ .
+--
+-- /Note:/ Consider using 'limitType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+culLimitType :: Lens.Lens' CreateUsageLimit Types.UsageLimitLimitType
+culLimitType = Lens.field @"limitType"
+{-# DEPRECATED culLimitType "Use generic-lens or generic-optics with 'limitType' instead." #-}
+
+-- | The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
+--
+-- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+culAmount :: Lens.Lens' CreateUsageLimit Core.Integer
+culAmount = Lens.field @"amount"
+{-# DEPRECATED culAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
+
+-- | The action that Amazon Redshift takes when the limit is reached. The default is log. For more information about this parameter, see 'UsageLimit' .
+--
+-- /Note:/ Consider using 'breachAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+culBreachAction :: Lens.Lens' CreateUsageLimit (Core.Maybe Types.UsageLimitBreachAction)
+culBreachAction = Lens.field @"breachAction"
+{-# DEPRECATED culBreachAction "Use generic-lens or generic-optics with 'breachAction' instead." #-}
+
+-- | The time period that the amount applies to. A @weekly@ period begins on Sunday. The default is @monthly@ .
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+culPeriod :: Lens.Lens' CreateUsageLimit (Core.Maybe Types.UsageLimitPeriod)
+culPeriod = Lens.field @"period"
+{-# DEPRECATED culPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | A list of tag instances.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-culTags :: Lens.Lens' CreateUsageLimit (Lude.Maybe [Tag])
-culTags = Lens.lens (tags :: CreateUsageLimit -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateUsageLimit)
+culTags :: Lens.Lens' CreateUsageLimit (Core.Maybe [Types.Tag])
+culTags = Lens.field @"tags"
 {-# DEPRECATED culTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateUsageLimit where
-  type Rs CreateUsageLimit = UsageLimit
-  request = Req.postQuery redshiftService
+instance Core.AWSRequest CreateUsageLimit where
+  type Rs CreateUsageLimit = Types.UsageLimit
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateUsageLimit")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" clusterIdentifier)
+                Core.<> (Core.toQueryValue "FeatureType" featureType)
+                Core.<> (Core.toQueryValue "LimitType" limitType)
+                Core.<> (Core.toQueryValue "Amount" amount)
+                Core.<> (Core.toQueryValue "BreachAction" Core.<$> breachAction)
+                Core.<> (Core.toQueryValue "Period" Core.<$> period)
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" Core.<$> tags))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateUsageLimitResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders CreateUsageLimit where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateUsageLimit where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateUsageLimit where
-  toQuery CreateUsageLimit' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateUsageLimit" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Amount" Lude.=: amount,
-        "LimitType" Lude.=: limitType,
-        "Period" Lude.=: period,
-        "ClusterIdentifier" Lude.=: clusterIdentifier,
-        "BreachAction" Lude.=: breachAction,
-        "FeatureType" Lude.=: featureType,
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
+      (\s h x -> Core.parseXML x)

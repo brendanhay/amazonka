@@ -13,66 +13,68 @@
 module Network.AWS.CloudWatchEvents.Types.ReplayState
   ( ReplayState
       ( ReplayState',
-        Starting,
-        Running,
-        Cancelling,
-        Completed,
-        Cancelled,
-        Failed
+        ReplayStateStarting,
+        ReplayStateRunning,
+        ReplayStateCancelling,
+        ReplayStateCompleted,
+        ReplayStateCancelled,
+        ReplayStateFailed,
+        fromReplayState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReplayState = ReplayState' Lude.Text
+newtype ReplayState = ReplayState' {fromReplayState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Starting :: ReplayState
-pattern Starting = ReplayState' "STARTING"
+pattern ReplayStateStarting :: ReplayState
+pattern ReplayStateStarting = ReplayState' "STARTING"
 
-pattern Running :: ReplayState
-pattern Running = ReplayState' "RUNNING"
+pattern ReplayStateRunning :: ReplayState
+pattern ReplayStateRunning = ReplayState' "RUNNING"
 
-pattern Cancelling :: ReplayState
-pattern Cancelling = ReplayState' "CANCELLING"
+pattern ReplayStateCancelling :: ReplayState
+pattern ReplayStateCancelling = ReplayState' "CANCELLING"
 
-pattern Completed :: ReplayState
-pattern Completed = ReplayState' "COMPLETED"
+pattern ReplayStateCompleted :: ReplayState
+pattern ReplayStateCompleted = ReplayState' "COMPLETED"
 
-pattern Cancelled :: ReplayState
-pattern Cancelled = ReplayState' "CANCELLED"
+pattern ReplayStateCancelled :: ReplayState
+pattern ReplayStateCancelled = ReplayState' "CANCELLED"
 
-pattern Failed :: ReplayState
-pattern Failed = ReplayState' "FAILED"
+pattern ReplayStateFailed :: ReplayState
+pattern ReplayStateFailed = ReplayState' "FAILED"
 
 {-# COMPLETE
-  Starting,
-  Running,
-  Cancelling,
-  Completed,
-  Cancelled,
-  Failed,
+  ReplayStateStarting,
+  ReplayStateRunning,
+  ReplayStateCancelling,
+  ReplayStateCompleted,
+  ReplayStateCancelled,
+  ReplayStateFailed,
   ReplayState'
   #-}

@@ -20,33 +20,35 @@ module Network.AWS.Transcribe.UpdateMedicalVocabulary
     mkUpdateMedicalVocabulary,
 
     -- ** Request lenses
-    umvLanguageCode,
-    umvVocabularyFileURI,
     umvVocabularyName,
+    umvLanguageCode,
+    umvVocabularyFileUri,
 
     -- * Destructuring the response
     UpdateMedicalVocabularyResponse (..),
     mkUpdateMedicalVocabularyResponse,
 
     -- ** Response lenses
-    umvrsLanguageCode,
-    umvrsVocabularyName,
-    umvrsLastModifiedTime,
-    umvrsVocabularyState,
-    umvrsResponseStatus,
+    umvrrsLanguageCode,
+    umvrrsLastModifiedTime,
+    umvrrsVocabularyName,
+    umvrrsVocabularyState,
+    umvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Transcribe.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Transcribe.Types as Types
 
 -- | /See:/ 'mkUpdateMedicalVocabulary' smart constructor.
 data UpdateMedicalVocabulary = UpdateMedicalVocabulary'
-  { -- | The language code of the language used for the entries in the updated vocabulary. US English (en-US) is the only valid language code in Amazon Transcribe Medical.
-    languageCode :: LanguageCode,
+  { -- | The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a @ConflictException@ error.
+    vocabularyName :: Types.VocabularyName,
+    -- | The language code of the language used for the entries in the updated vocabulary. US English (en-US) is the only valid language code in Amazon Transcribe Medical.
+    languageCode :: Types.LanguageCode,
     -- | The location in Amazon S3 of the text file that contains the you use for your custom vocabulary. The URI must be in the same AWS Region as the resource that you are calling. The following is the format for a URI:
     --
     -- @https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> @
@@ -54,42 +56,37 @@ data UpdateMedicalVocabulary = UpdateMedicalVocabulary'
     -- @https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt@
     -- For more information about Amazon S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
     -- For more information about custom vocabularies in Amazon Transcribe Medical, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Medical Custom Vocabularies> .
-    vocabularyFileURI :: Lude.Maybe Lude.Text,
-    -- | The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a @ConflictException@ error.
-    vocabularyName :: Lude.Text
+    vocabularyFileUri :: Core.Maybe Types.Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMedicalVocabulary' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language code of the language used for the entries in the updated vocabulary. US English (en-US) is the only valid language code in Amazon Transcribe Medical.
--- * 'vocabularyFileURI' - The location in Amazon S3 of the text file that contains the you use for your custom vocabulary. The URI must be in the same AWS Region as the resource that you are calling. The following is the format for a URI:
---
--- @https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> @
--- For example:
--- @https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt@
--- For more information about Amazon S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
--- For more information about custom vocabularies in Amazon Transcribe Medical, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Medical Custom Vocabularies> .
--- * 'vocabularyName' - The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a @ConflictException@ error.
+-- | Creates a 'UpdateMedicalVocabulary' value with any optional fields omitted.
 mkUpdateMedicalVocabulary ::
-  -- | 'languageCode'
-  LanguageCode ->
   -- | 'vocabularyName'
-  Lude.Text ->
+  Types.VocabularyName ->
+  -- | 'languageCode'
+  Types.LanguageCode ->
   UpdateMedicalVocabulary
-mkUpdateMedicalVocabulary pLanguageCode_ pVocabularyName_ =
+mkUpdateMedicalVocabulary vocabularyName languageCode =
   UpdateMedicalVocabulary'
-    { languageCode = pLanguageCode_,
-      vocabularyFileURI = Lude.Nothing,
-      vocabularyName = pVocabularyName_
+    { vocabularyName,
+      languageCode,
+      vocabularyFileUri = Core.Nothing
     }
+
+-- | The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a @ConflictException@ error.
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umvVocabularyName :: Lens.Lens' UpdateMedicalVocabulary Types.VocabularyName
+umvVocabularyName = Lens.field @"vocabularyName"
+{-# DEPRECATED umvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The language code of the language used for the entries in the updated vocabulary. US English (en-US) is the only valid language code in Amazon Transcribe Medical.
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvLanguageCode :: Lens.Lens' UpdateMedicalVocabulary LanguageCode
-umvLanguageCode = Lens.lens (languageCode :: UpdateMedicalVocabulary -> LanguageCode) (\s a -> s {languageCode = a} :: UpdateMedicalVocabulary)
+umvLanguageCode :: Lens.Lens' UpdateMedicalVocabulary Types.LanguageCode
+umvLanguageCode = Lens.field @"languageCode"
 {-# DEPRECATED umvLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The location in Amazon S3 of the text file that contains the you use for your custom vocabulary. The URI must be in the same AWS Region as the resource that you are calling. The following is the format for a URI:
@@ -100,126 +97,106 @@ umvLanguageCode = Lens.lens (languageCode :: UpdateMedicalVocabulary -> Language
 -- For more information about Amazon S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
 -- For more information about custom vocabularies in Amazon Transcribe Medical, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Medical Custom Vocabularies> .
 --
--- /Note:/ Consider using 'vocabularyFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvVocabularyFileURI :: Lens.Lens' UpdateMedicalVocabulary (Lude.Maybe Lude.Text)
-umvVocabularyFileURI = Lens.lens (vocabularyFileURI :: UpdateMedicalVocabulary -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyFileURI = a} :: UpdateMedicalVocabulary)
-{-# DEPRECATED umvVocabularyFileURI "Use generic-lens or generic-optics with 'vocabularyFileURI' instead." #-}
+-- /Note:/ Consider using 'vocabularyFileUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umvVocabularyFileUri :: Lens.Lens' UpdateMedicalVocabulary (Core.Maybe Types.Uri)
+umvVocabularyFileUri = Lens.field @"vocabularyFileUri"
+{-# DEPRECATED umvVocabularyFileUri "Use generic-lens or generic-optics with 'vocabularyFileUri' instead." #-}
 
--- | The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a @ConflictException@ error.
---
--- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvVocabularyName :: Lens.Lens' UpdateMedicalVocabulary Lude.Text
-umvVocabularyName = Lens.lens (vocabularyName :: UpdateMedicalVocabulary -> Lude.Text) (\s a -> s {vocabularyName = a} :: UpdateMedicalVocabulary)
-{-# DEPRECATED umvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
+instance Core.FromJSON UpdateMedicalVocabulary where
+  toJSON UpdateMedicalVocabulary {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("VocabularyName" Core..= vocabularyName),
+            Core.Just ("LanguageCode" Core..= languageCode),
+            ("VocabularyFileUri" Core..=) Core.<$> vocabularyFileUri
+          ]
+      )
 
-instance Lude.AWSRequest UpdateMedicalVocabulary where
+instance Core.AWSRequest UpdateMedicalVocabulary where
   type Rs UpdateMedicalVocabulary = UpdateMedicalVocabularyResponse
-  request = Req.postJSON transcribeService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Transcribe.UpdateMedicalVocabulary")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateMedicalVocabularyResponse'
-            Lude.<$> (x Lude..?> "LanguageCode")
-            Lude.<*> (x Lude..?> "VocabularyName")
-            Lude.<*> (x Lude..?> "LastModifiedTime")
-            Lude.<*> (x Lude..?> "VocabularyState")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LanguageCode")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "VocabularyName")
+            Core.<*> (x Core..:? "VocabularyState")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateMedicalVocabulary where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Transcribe.UpdateMedicalVocabulary" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateMedicalVocabulary where
-  toJSON UpdateMedicalVocabulary' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LanguageCode" Lude..= languageCode),
-            ("VocabularyFileUri" Lude..=) Lude.<$> vocabularyFileURI,
-            Lude.Just ("VocabularyName" Lude..= vocabularyName)
-          ]
-      )
-
-instance Lude.ToPath UpdateMedicalVocabulary where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateMedicalVocabulary where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateMedicalVocabularyResponse' smart constructor.
 data UpdateMedicalVocabularyResponse = UpdateMedicalVocabularyResponse'
   { -- | The language code for the language of the text file used to update the custom vocabulary. US English (en-US) is the only language supported in Amazon Transcribe Medical.
-    languageCode :: Lude.Maybe LanguageCode,
-    -- | The name of the updated vocabulary.
-    vocabularyName :: Lude.Maybe Lude.Text,
+    languageCode :: Core.Maybe Types.LanguageCode,
     -- | The date and time that the vocabulary was updated.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the updated vocabulary.
+    vocabularyName :: Core.Maybe Types.VocabularyName,
     -- | The processing state of the update to the vocabulary. When the @VocabularyState@ field is @READY@ , the vocabulary is ready to be used in a @StartMedicalTranscriptionJob@ request.
-    vocabularyState :: Lude.Maybe VocabularyState,
+    vocabularyState :: Core.Maybe Types.VocabularyState,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateMedicalVocabularyResponse' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language code for the language of the text file used to update the custom vocabulary. US English (en-US) is the only language supported in Amazon Transcribe Medical.
--- * 'vocabularyName' - The name of the updated vocabulary.
--- * 'lastModifiedTime' - The date and time that the vocabulary was updated.
--- * 'vocabularyState' - The processing state of the update to the vocabulary. When the @VocabularyState@ field is @READY@ , the vocabulary is ready to be used in a @StartMedicalTranscriptionJob@ request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateMedicalVocabularyResponse' value with any optional fields omitted.
 mkUpdateMedicalVocabularyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateMedicalVocabularyResponse
-mkUpdateMedicalVocabularyResponse pResponseStatus_ =
+mkUpdateMedicalVocabularyResponse responseStatus =
   UpdateMedicalVocabularyResponse'
-    { languageCode = Lude.Nothing,
-      vocabularyName = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      vocabularyState = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { languageCode = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      vocabularyName = Core.Nothing,
+      vocabularyState = Core.Nothing,
+      responseStatus
     }
 
 -- | The language code for the language of the text file used to update the custom vocabulary. US English (en-US) is the only language supported in Amazon Transcribe Medical.
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvrsLanguageCode :: Lens.Lens' UpdateMedicalVocabularyResponse (Lude.Maybe LanguageCode)
-umvrsLanguageCode = Lens.lens (languageCode :: UpdateMedicalVocabularyResponse -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: UpdateMedicalVocabularyResponse)
-{-# DEPRECATED umvrsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | The name of the updated vocabulary.
---
--- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvrsVocabularyName :: Lens.Lens' UpdateMedicalVocabularyResponse (Lude.Maybe Lude.Text)
-umvrsVocabularyName = Lens.lens (vocabularyName :: UpdateMedicalVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyName = a} :: UpdateMedicalVocabularyResponse)
-{-# DEPRECATED umvrsVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
+umvrrsLanguageCode :: Lens.Lens' UpdateMedicalVocabularyResponse (Core.Maybe Types.LanguageCode)
+umvrrsLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED umvrrsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The date and time that the vocabulary was updated.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvrsLastModifiedTime :: Lens.Lens' UpdateMedicalVocabularyResponse (Lude.Maybe Lude.Timestamp)
-umvrsLastModifiedTime = Lens.lens (lastModifiedTime :: UpdateMedicalVocabularyResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: UpdateMedicalVocabularyResponse)
-{-# DEPRECATED umvrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+umvrrsLastModifiedTime :: Lens.Lens' UpdateMedicalVocabularyResponse (Core.Maybe Core.NominalDiffTime)
+umvrrsLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED umvrrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The name of the updated vocabulary.
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umvrrsVocabularyName :: Lens.Lens' UpdateMedicalVocabularyResponse (Core.Maybe Types.VocabularyName)
+umvrrsVocabularyName = Lens.field @"vocabularyName"
+{-# DEPRECATED umvrrsVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The processing state of the update to the vocabulary. When the @VocabularyState@ field is @READY@ , the vocabulary is ready to be used in a @StartMedicalTranscriptionJob@ request.
 --
 -- /Note:/ Consider using 'vocabularyState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvrsVocabularyState :: Lens.Lens' UpdateMedicalVocabularyResponse (Lude.Maybe VocabularyState)
-umvrsVocabularyState = Lens.lens (vocabularyState :: UpdateMedicalVocabularyResponse -> Lude.Maybe VocabularyState) (\s a -> s {vocabularyState = a} :: UpdateMedicalVocabularyResponse)
-{-# DEPRECATED umvrsVocabularyState "Use generic-lens or generic-optics with 'vocabularyState' instead." #-}
+umvrrsVocabularyState :: Lens.Lens' UpdateMedicalVocabularyResponse (Core.Maybe Types.VocabularyState)
+umvrrsVocabularyState = Lens.field @"vocabularyState"
+{-# DEPRECATED umvrrsVocabularyState "Use generic-lens or generic-optics with 'vocabularyState' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvrsResponseStatus :: Lens.Lens' UpdateMedicalVocabularyResponse Lude.Int
-umvrsResponseStatus = Lens.lens (responseStatus :: UpdateMedicalVocabularyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMedicalVocabularyResponse)
-{-# DEPRECATED umvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+umvrrsResponseStatus :: Lens.Lens' UpdateMedicalVocabularyResponse Core.Int
+umvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED umvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

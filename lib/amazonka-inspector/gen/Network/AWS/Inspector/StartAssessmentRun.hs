@@ -20,137 +20,120 @@ module Network.AWS.Inspector.StartAssessmentRun
     mkStartAssessmentRun,
 
     -- ** Request lenses
+    sarAssessmentTemplateArn,
     sarAssessmentRunName,
-    sarAssessmentTemplateARN,
 
     -- * Destructuring the response
     StartAssessmentRunResponse (..),
     mkStartAssessmentRunResponse,
 
     -- ** Response lenses
-    sarrsAssessmentRunARN,
-    sarrsResponseStatus,
+    sarrrsAssessmentRunArn,
+    sarrrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartAssessmentRun' smart constructor.
 data StartAssessmentRun = StartAssessmentRun'
-  { -- | You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.
-    assessmentRunName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the assessment template of the assessment run that you want to start.
-    assessmentTemplateARN :: Lude.Text
+  { -- | The ARN of the assessment template of the assessment run that you want to start.
+    assessmentTemplateArn :: Types.Arn,
+    -- | You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.
+    assessmentRunName :: Core.Maybe Types.AssessmentRunName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartAssessmentRun' with the minimum fields required to make a request.
---
--- * 'assessmentRunName' - You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.
--- * 'assessmentTemplateARN' - The ARN of the assessment template of the assessment run that you want to start.
+-- | Creates a 'StartAssessmentRun' value with any optional fields omitted.
 mkStartAssessmentRun ::
-  -- | 'assessmentTemplateARN'
-  Lude.Text ->
+  -- | 'assessmentTemplateArn'
+  Types.Arn ->
   StartAssessmentRun
-mkStartAssessmentRun pAssessmentTemplateARN_ =
+mkStartAssessmentRun assessmentTemplateArn =
   StartAssessmentRun'
-    { assessmentRunName = Lude.Nothing,
-      assessmentTemplateARN = pAssessmentTemplateARN_
+    { assessmentTemplateArn,
+      assessmentRunName = Core.Nothing
     }
+
+-- | The ARN of the assessment template of the assessment run that you want to start.
+--
+-- /Note:/ Consider using 'assessmentTemplateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarAssessmentTemplateArn :: Lens.Lens' StartAssessmentRun Types.Arn
+sarAssessmentTemplateArn = Lens.field @"assessmentTemplateArn"
+{-# DEPRECATED sarAssessmentTemplateArn "Use generic-lens or generic-optics with 'assessmentTemplateArn' instead." #-}
 
 -- | You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.
 --
 -- /Note:/ Consider using 'assessmentRunName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarAssessmentRunName :: Lens.Lens' StartAssessmentRun (Lude.Maybe Lude.Text)
-sarAssessmentRunName = Lens.lens (assessmentRunName :: StartAssessmentRun -> Lude.Maybe Lude.Text) (\s a -> s {assessmentRunName = a} :: StartAssessmentRun)
+sarAssessmentRunName :: Lens.Lens' StartAssessmentRun (Core.Maybe Types.AssessmentRunName)
+sarAssessmentRunName = Lens.field @"assessmentRunName"
 {-# DEPRECATED sarAssessmentRunName "Use generic-lens or generic-optics with 'assessmentRunName' instead." #-}
 
--- | The ARN of the assessment template of the assessment run that you want to start.
---
--- /Note:/ Consider using 'assessmentTemplateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarAssessmentTemplateARN :: Lens.Lens' StartAssessmentRun Lude.Text
-sarAssessmentTemplateARN = Lens.lens (assessmentTemplateARN :: StartAssessmentRun -> Lude.Text) (\s a -> s {assessmentTemplateARN = a} :: StartAssessmentRun)
-{-# DEPRECATED sarAssessmentTemplateARN "Use generic-lens or generic-optics with 'assessmentTemplateARN' instead." #-}
+instance Core.FromJSON StartAssessmentRun where
+  toJSON StartAssessmentRun {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("assessmentTemplateArn" Core..= assessmentTemplateArn),
+            ("assessmentRunName" Core..=) Core.<$> assessmentRunName
+          ]
+      )
 
-instance Lude.AWSRequest StartAssessmentRun where
+instance Core.AWSRequest StartAssessmentRun where
   type Rs StartAssessmentRun = StartAssessmentRunResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "InspectorService.StartAssessmentRun")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartAssessmentRunResponse'
-            Lude.<$> (x Lude..:> "assessmentRunArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "assessmentRunArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartAssessmentRun where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.StartAssessmentRun" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartAssessmentRun where
-  toJSON StartAssessmentRun' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("assessmentRunName" Lude..=) Lude.<$> assessmentRunName,
-            Lude.Just ("assessmentTemplateArn" Lude..= assessmentTemplateARN)
-          ]
-      )
-
-instance Lude.ToPath StartAssessmentRun where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartAssessmentRun where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartAssessmentRunResponse' smart constructor.
 data StartAssessmentRunResponse = StartAssessmentRunResponse'
   { -- | The ARN of the assessment run that has been started.
-    assessmentRunARN :: Lude.Text,
+    assessmentRunArn :: Types.AssessmentRunArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartAssessmentRunResponse' with the minimum fields required to make a request.
---
--- * 'assessmentRunARN' - The ARN of the assessment run that has been started.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartAssessmentRunResponse' value with any optional fields omitted.
 mkStartAssessmentRunResponse ::
-  -- | 'assessmentRunARN'
-  Lude.Text ->
+  -- | 'assessmentRunArn'
+  Types.AssessmentRunArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartAssessmentRunResponse
-mkStartAssessmentRunResponse pAssessmentRunARN_ pResponseStatus_ =
-  StartAssessmentRunResponse'
-    { assessmentRunARN =
-        pAssessmentRunARN_,
-      responseStatus = pResponseStatus_
-    }
+mkStartAssessmentRunResponse assessmentRunArn responseStatus =
+  StartAssessmentRunResponse' {assessmentRunArn, responseStatus}
 
 -- | The ARN of the assessment run that has been started.
 --
--- /Note:/ Consider using 'assessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarrsAssessmentRunARN :: Lens.Lens' StartAssessmentRunResponse Lude.Text
-sarrsAssessmentRunARN = Lens.lens (assessmentRunARN :: StartAssessmentRunResponse -> Lude.Text) (\s a -> s {assessmentRunARN = a} :: StartAssessmentRunResponse)
-{-# DEPRECATED sarrsAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
+-- /Note:/ Consider using 'assessmentRunArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarrrsAssessmentRunArn :: Lens.Lens' StartAssessmentRunResponse Types.AssessmentRunArn
+sarrrsAssessmentRunArn = Lens.field @"assessmentRunArn"
+{-# DEPRECATED sarrrsAssessmentRunArn "Use generic-lens or generic-optics with 'assessmentRunArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarrsResponseStatus :: Lens.Lens' StartAssessmentRunResponse Lude.Int
-sarrsResponseStatus = Lens.lens (responseStatus :: StartAssessmentRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartAssessmentRunResponse)
-{-# DEPRECATED sarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sarrrsResponseStatus :: Lens.Lens' StartAssessmentRunResponse Core.Int
+sarrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sarrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -9,128 +9,262 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Cloud9.Types
   ( -- * Service configuration
-    cloud9Service,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * ConnectionType
-    ConnectionType (..),
+    _ConflictException,
+    _ForbiddenException,
+    _NotFoundException,
+    _TooManyRequestsException,
+    _InternalServerErrorException,
+    _ConcurrentAccessException,
+    _BadRequestException,
+    _LimitExceededException,
 
     -- * EnvironmentLifecycleStatus
     EnvironmentLifecycleStatus (..),
 
-    -- * EnvironmentStatus
-    EnvironmentStatus (..),
-
-    -- * EnvironmentType
-    EnvironmentType (..),
-
-    -- * MemberPermissions
-    MemberPermissions (..),
-
-    -- * Permissions
-    Permissions (..),
+    -- * Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * Environment
     Environment (..),
     mkEnvironment,
     eArn,
-    eLifecycle,
-    eOwnerARN,
-    eName,
-    eId,
-    eType,
     eConnectionType,
     eDescription,
+    eId,
+    eLifecycle,
+    eName,
+    eOwnerArn,
+    eType,
+
+    -- * String
+    String (..),
+
+    -- * MemberPermissions
+    MemberPermissions (..),
 
     -- * EnvironmentLifecycle
     EnvironmentLifecycle (..),
     mkEnvironmentLifecycle,
-    elStatus,
     elFailureResource,
     elReason,
+    elStatus,
+
+    -- * SubnetId
+    SubnetId (..),
+
+    -- * InstanceType
+    InstanceType (..),
+
+    -- * EnvironmentStatus
+    EnvironmentStatus (..),
+
+    -- * UserArn
+    UserArn (..),
+
+    -- * EnvironmentName
+    EnvironmentName (..),
+
+    -- * EnvironmentType
+    EnvironmentType (..),
 
     -- * EnvironmentMember
     EnvironmentMember (..),
     mkEnvironmentMember,
-    emLastAccess,
-    emUserId,
-    emUserARN,
-    emPermissions,
     emEnvironmentId,
+    emLastAccess,
+    emPermissions,
+    emUserArn,
+    emUserId,
 
-    -- * Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- * TagKey
+    TagKey (..),
+
+    -- * EnvironmentArn
+    EnvironmentArn (..),
+
+    -- * EnvironmentId
+    EnvironmentId (..),
+
+    -- * Permissions
+    Permissions (..),
+
+    -- * ClientRequestToken
+    ClientRequestToken (..),
+
+    -- * ConnectionType
+    ConnectionType (..),
+
+    -- * Name
+    Name (..),
+
+    -- * Description
+    Description (..),
+
+    -- * OwnerArn
+    OwnerArn (..),
+
+    -- * Key
+    Key (..),
+
+    -- * Value
+    Value (..),
+
+    -- * Message
+    Message (..),
+
+    -- * Arn
+    Arn (..),
+
+    -- * Id
+    Id (..),
+
+    -- * ResourceARN
+    ResourceARN (..),
   )
 where
 
+import Network.AWS.Cloud9.Types.Arn
+import Network.AWS.Cloud9.Types.ClientRequestToken
 import Network.AWS.Cloud9.Types.ConnectionType
+import Network.AWS.Cloud9.Types.Description
 import Network.AWS.Cloud9.Types.Environment
+import Network.AWS.Cloud9.Types.EnvironmentArn
+import Network.AWS.Cloud9.Types.EnvironmentId
 import Network.AWS.Cloud9.Types.EnvironmentLifecycle
 import Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
 import Network.AWS.Cloud9.Types.EnvironmentMember
+import Network.AWS.Cloud9.Types.EnvironmentName
 import Network.AWS.Cloud9.Types.EnvironmentStatus
 import Network.AWS.Cloud9.Types.EnvironmentType
+import Network.AWS.Cloud9.Types.Id
+import Network.AWS.Cloud9.Types.InstanceType
+import Network.AWS.Cloud9.Types.Key
 import Network.AWS.Cloud9.Types.MemberPermissions
+import Network.AWS.Cloud9.Types.Message
+import Network.AWS.Cloud9.Types.Name
+import Network.AWS.Cloud9.Types.OwnerArn
 import Network.AWS.Cloud9.Types.Permissions
+import Network.AWS.Cloud9.Types.ResourceARN
+import Network.AWS.Cloud9.Types.String
+import Network.AWS.Cloud9.Types.SubnetId
 import Network.AWS.Cloud9.Types.Tag
+import Network.AWS.Cloud9.Types.TagKey
+import Network.AWS.Cloud9.Types.UserArn
+import Network.AWS.Cloud9.Types.Value
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-23@ of the Amazon Cloud9 SDK configuration.
-cloud9Service :: Lude.Service
-cloud9Service =
-  Lude.Service
-    { Lude._svcAbbrev = "Cloud9",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "cloud9",
-      Lude._svcVersion = "2017-09-23",
-      Lude._svcEndpoint = Lude.defaultEndpoint cloud9Service,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "Cloud9",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "Cloud9",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "cloud9",
+      Core._svcVersion = "2017-09-23",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "Cloud9",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | A conflict occurred.
+_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError mkServiceConfig "ConflictException"
+{-# DEPRECATED _ConflictException "Use generic-lens or generic-optics instead." #-}
+
+-- | An access permissions issue occurred.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError mkServiceConfig "ForbiddenException"
+{-# DEPRECATED _ForbiddenException "Use generic-lens or generic-optics instead." #-}
+
+-- | The target resource cannot be found.
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError mkServiceConfig "NotFoundException"
+{-# DEPRECATED _NotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | Too many service requests were made over the given time period.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "TooManyRequestsException"
+{-# DEPRECATED _TooManyRequestsException "Use generic-lens or generic-optics instead." #-}
+
+-- | An internal server error occurred.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalServerErrorException"
+{-# DEPRECATED _InternalServerErrorException "Use generic-lens or generic-optics instead." #-}
+
+-- | A concurrent access issue occurred.
+_ConcurrentAccessException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConcurrentAccessException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ConcurrentAccessException"
+{-# DEPRECATED _ConcurrentAccessException "Use generic-lens or generic-optics instead." #-}
+
+-- | The target request is invalid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError mkServiceConfig "BadRequestException"
+{-# DEPRECATED _BadRequestException "Use generic-lens or generic-optics instead." #-}
+
+-- | A service limit was exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError mkServiceConfig "LimitExceededException"
+{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead." #-}

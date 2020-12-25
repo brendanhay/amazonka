@@ -22,39 +22,36 @@ module Network.AWS.MediaPackage.Types.EgressAccessLogs
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configure egress access logging.
 --
 -- /See:/ 'mkEgressAccessLogs' smart constructor.
 newtype EgressAccessLogs = EgressAccessLogs'
   { -- | Customize the log group name.
-    logGroupName :: Lude.Maybe Lude.Text
+    logGroupName :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EgressAccessLogs' with the minimum fields required to make a request.
---
--- * 'logGroupName' - Customize the log group name.
+-- | Creates a 'EgressAccessLogs' value with any optional fields omitted.
 mkEgressAccessLogs ::
   EgressAccessLogs
-mkEgressAccessLogs = EgressAccessLogs' {logGroupName = Lude.Nothing}
+mkEgressAccessLogs = EgressAccessLogs' {logGroupName = Core.Nothing}
 
 -- | Customize the log group name.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ealLogGroupName :: Lens.Lens' EgressAccessLogs (Lude.Maybe Lude.Text)
-ealLogGroupName = Lens.lens (logGroupName :: EgressAccessLogs -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: EgressAccessLogs)
+ealLogGroupName :: Lens.Lens' EgressAccessLogs (Core.Maybe Core.Text)
+ealLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED ealLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance Lude.FromJSON EgressAccessLogs where
-  parseJSON =
-    Lude.withObject
-      "EgressAccessLogs"
-      (\x -> EgressAccessLogs' Lude.<$> (x Lude..:? "logGroupName"))
+instance Core.FromJSON EgressAccessLogs where
+  toJSON EgressAccessLogs {..} =
+    Core.object
+      (Core.catMaybes [("logGroupName" Core..=) Core.<$> logGroupName])
 
-instance Lude.ToJSON EgressAccessLogs where
-  toJSON EgressAccessLogs' {..} =
-    Lude.object
-      (Lude.catMaybes [("logGroupName" Lude..=) Lude.<$> logGroupName])
+instance Core.FromJSON EgressAccessLogs where
+  parseJSON =
+    Core.withObject "EgressAccessLogs" Core.$
+      \x -> EgressAccessLogs' Core.<$> (x Core..:? "logGroupName")

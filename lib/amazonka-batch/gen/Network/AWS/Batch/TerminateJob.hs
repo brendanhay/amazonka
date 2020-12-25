@@ -28,107 +28,95 @@ module Network.AWS.Batch.TerminateJob
     mkTerminateJobResponse,
 
     -- ** Response lenses
-    tjrsResponseStatus,
+    tjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Batch.Types
+import qualified Network.AWS.Batch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTerminateJob' smart constructor.
 data TerminateJob = TerminateJob'
   { -- | The AWS Batch job ID of the job to terminate.
-    jobId :: Lude.Text,
+    jobId :: Types.JobId,
     -- | A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
-    reason :: Lude.Text
+    reason :: Types.Reason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The AWS Batch job ID of the job to terminate.
--- * 'reason' - A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
+-- | Creates a 'TerminateJob' value with any optional fields omitted.
 mkTerminateJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   -- | 'reason'
-  Lude.Text ->
+  Types.Reason ->
   TerminateJob
-mkTerminateJob pJobId_ pReason_ =
-  TerminateJob' {jobId = pJobId_, reason = pReason_}
+mkTerminateJob jobId reason = TerminateJob' {jobId, reason}
 
 -- | The AWS Batch job ID of the job to terminate.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjJobId :: Lens.Lens' TerminateJob Lude.Text
-tjJobId = Lens.lens (jobId :: TerminateJob -> Lude.Text) (\s a -> s {jobId = a} :: TerminateJob)
+tjJobId :: Lens.Lens' TerminateJob Types.JobId
+tjJobId = Lens.field @"jobId"
 {-# DEPRECATED tjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | A message to attach to the job that explains the reason for canceling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
 --
 -- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjReason :: Lens.Lens' TerminateJob Lude.Text
-tjReason = Lens.lens (reason :: TerminateJob -> Lude.Text) (\s a -> s {reason = a} :: TerminateJob)
+tjReason :: Lens.Lens' TerminateJob Types.Reason
+tjReason = Lens.field @"reason"
 {-# DEPRECATED tjReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
-instance Lude.AWSRequest TerminateJob where
+instance Core.FromJSON TerminateJob where
+  toJSON TerminateJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("jobId" Core..= jobId),
+            Core.Just ("reason" Core..= reason)
+          ]
+      )
+
+instance Core.AWSRequest TerminateJob where
   type Rs TerminateJob = TerminateJobResponse
-  request = Req.postJSON batchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/v1/terminatejob",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          TerminateJobResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          TerminateJobResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TerminateJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TerminateJob where
-  toJSON TerminateJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("jobId" Lude..= jobId),
-            Lude.Just ("reason" Lude..= reason)
-          ]
-      )
-
-instance Lude.ToPath TerminateJob where
-  toPath = Lude.const "/v1/terminatejob"
-
-instance Lude.ToQuery TerminateJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTerminateJobResponse' smart constructor.
 newtype TerminateJobResponse = TerminateJobResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateJobResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TerminateJobResponse' value with any optional fields omitted.
 mkTerminateJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TerminateJobResponse
-mkTerminateJobResponse pResponseStatus_ =
-  TerminateJobResponse' {responseStatus = pResponseStatus_}
+mkTerminateJobResponse responseStatus =
+  TerminateJobResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjrsResponseStatus :: Lens.Lens' TerminateJobResponse Lude.Int
-tjrsResponseStatus = Lens.lens (responseStatus :: TerminateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateJobResponse)
-{-# DEPRECATED tjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tjrrsResponseStatus :: Lens.Lens' TerminateJobResponse Core.Int
+tjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

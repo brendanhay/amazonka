@@ -23,49 +23,44 @@ module Network.AWS.SSM.Types.OpsEntity
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.OpsEntityItem
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.OpsEntityId as Types
+import qualified Network.AWS.SSM.Types.OpsEntityItem as Types
+import qualified Network.AWS.SSM.Types.OpsEntityItemKey as Types
 
 -- | The result of the query.
 --
 -- /See:/ 'mkOpsEntity' smart constructor.
 data OpsEntity = OpsEntity'
   { -- | The data returned by the query.
-    data' :: Lude.Maybe (Lude.HashMap Lude.Text (OpsEntityItem)),
+    data' :: Core.Maybe (Core.HashMap Types.OpsEntityItemKey Types.OpsEntityItem),
     -- | The query ID.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.OpsEntityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OpsEntity' with the minimum fields required to make a request.
---
--- * 'data'' - The data returned by the query.
--- * 'id' - The query ID.
+-- | Creates a 'OpsEntity' value with any optional fields omitted.
 mkOpsEntity ::
   OpsEntity
-mkOpsEntity = OpsEntity' {data' = Lude.Nothing, id = Lude.Nothing}
+mkOpsEntity = OpsEntity' {data' = Core.Nothing, id = Core.Nothing}
 
 -- | The data returned by the query.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oeData :: Lens.Lens' OpsEntity (Lude.Maybe (Lude.HashMap Lude.Text (OpsEntityItem)))
-oeData = Lens.lens (data' :: OpsEntity -> Lude.Maybe (Lude.HashMap Lude.Text (OpsEntityItem))) (\s a -> s {data' = a} :: OpsEntity)
+oeData :: Lens.Lens' OpsEntity (Core.Maybe (Core.HashMap Types.OpsEntityItemKey Types.OpsEntityItem))
+oeData = Lens.field @"data'"
 {-# DEPRECATED oeData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The query ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oeId :: Lens.Lens' OpsEntity (Lude.Maybe Lude.Text)
-oeId = Lens.lens (id :: OpsEntity -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: OpsEntity)
+oeId :: Lens.Lens' OpsEntity (Core.Maybe Types.OpsEntityId)
+oeId = Lens.field @"id"
 {-# DEPRECATED oeId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON OpsEntity where
+instance Core.FromJSON OpsEntity where
   parseJSON =
-    Lude.withObject
-      "OpsEntity"
-      ( \x ->
-          OpsEntity'
-            Lude.<$> (x Lude..:? "Data" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "OpsEntity" Core.$
+      \x ->
+        OpsEntity' Core.<$> (x Core..:? "Data") Core.<*> (x Core..:? "Id")

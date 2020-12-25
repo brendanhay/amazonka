@@ -17,71 +17,65 @@ module Network.AWS.Greengrass.Types.BulkDeployment
     mkBulkDeployment,
 
     -- * Lenses
-    bdBulkDeploymentARN,
+    bdBulkDeploymentArn,
     bdBulkDeploymentId,
     bdCreatedAt,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a bulk deployment. You cannot start a new bulk deployment while another one is still running or in a non-terminal state.
 --
 -- /See:/ 'mkBulkDeployment' smart constructor.
 data BulkDeployment = BulkDeployment'
   { -- | The ARN of the bulk deployment.
-    bulkDeploymentARN :: Lude.Maybe Lude.Text,
+    bulkDeploymentArn :: Core.Maybe Core.Text,
     -- | The ID of the bulk deployment.
-    bulkDeploymentId :: Lude.Maybe Lude.Text,
+    bulkDeploymentId :: Core.Maybe Core.Text,
     -- | The time, in ISO format, when the deployment was created.
-    createdAt :: Lude.Maybe Lude.Text
+    createdAt :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BulkDeployment' with the minimum fields required to make a request.
---
--- * 'bulkDeploymentARN' - The ARN of the bulk deployment.
--- * 'bulkDeploymentId' - The ID of the bulk deployment.
--- * 'createdAt' - The time, in ISO format, when the deployment was created.
+-- | Creates a 'BulkDeployment' value with any optional fields omitted.
 mkBulkDeployment ::
   BulkDeployment
 mkBulkDeployment =
   BulkDeployment'
-    { bulkDeploymentARN = Lude.Nothing,
-      bulkDeploymentId = Lude.Nothing,
-      createdAt = Lude.Nothing
+    { bulkDeploymentArn = Core.Nothing,
+      bulkDeploymentId = Core.Nothing,
+      createdAt = Core.Nothing
     }
 
 -- | The ARN of the bulk deployment.
 --
--- /Note:/ Consider using 'bulkDeploymentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdBulkDeploymentARN :: Lens.Lens' BulkDeployment (Lude.Maybe Lude.Text)
-bdBulkDeploymentARN = Lens.lens (bulkDeploymentARN :: BulkDeployment -> Lude.Maybe Lude.Text) (\s a -> s {bulkDeploymentARN = a} :: BulkDeployment)
-{-# DEPRECATED bdBulkDeploymentARN "Use generic-lens or generic-optics with 'bulkDeploymentARN' instead." #-}
+-- /Note:/ Consider using 'bulkDeploymentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdBulkDeploymentArn :: Lens.Lens' BulkDeployment (Core.Maybe Core.Text)
+bdBulkDeploymentArn = Lens.field @"bulkDeploymentArn"
+{-# DEPRECATED bdBulkDeploymentArn "Use generic-lens or generic-optics with 'bulkDeploymentArn' instead." #-}
 
 -- | The ID of the bulk deployment.
 --
 -- /Note:/ Consider using 'bulkDeploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdBulkDeploymentId :: Lens.Lens' BulkDeployment (Lude.Maybe Lude.Text)
-bdBulkDeploymentId = Lens.lens (bulkDeploymentId :: BulkDeployment -> Lude.Maybe Lude.Text) (\s a -> s {bulkDeploymentId = a} :: BulkDeployment)
+bdBulkDeploymentId :: Lens.Lens' BulkDeployment (Core.Maybe Core.Text)
+bdBulkDeploymentId = Lens.field @"bulkDeploymentId"
 {-# DEPRECATED bdBulkDeploymentId "Use generic-lens or generic-optics with 'bulkDeploymentId' instead." #-}
 
 -- | The time, in ISO format, when the deployment was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdCreatedAt :: Lens.Lens' BulkDeployment (Lude.Maybe Lude.Text)
-bdCreatedAt = Lens.lens (createdAt :: BulkDeployment -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: BulkDeployment)
+bdCreatedAt :: Lens.Lens' BulkDeployment (Core.Maybe Core.Text)
+bdCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED bdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
-instance Lude.FromJSON BulkDeployment where
+instance Core.FromJSON BulkDeployment where
   parseJSON =
-    Lude.withObject
-      "BulkDeployment"
-      ( \x ->
-          BulkDeployment'
-            Lude.<$> (x Lude..:? "BulkDeploymentArn")
-            Lude.<*> (x Lude..:? "BulkDeploymentId")
-            Lude.<*> (x Lude..:? "CreatedAt")
-      )
+    Core.withObject "BulkDeployment" Core.$
+      \x ->
+        BulkDeployment'
+          Core.<$> (x Core..:? "BulkDeploymentArn")
+          Core.<*> (x Core..:? "BulkDeploymentId")
+          Core.<*> (x Core..:? "CreatedAt")

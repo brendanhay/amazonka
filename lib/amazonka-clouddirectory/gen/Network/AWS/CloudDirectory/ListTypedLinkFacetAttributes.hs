@@ -22,181 +22,173 @@ module Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
     mkListTypedLinkFacetAttributes,
 
     -- ** Request lenses
-    ltlfaNextToken,
-    ltlfaSchemaARN,
+    ltlfaSchemaArn,
     ltlfaName,
     ltlfaMaxResults,
+    ltlfaNextToken,
 
     -- * Destructuring the response
     ListTypedLinkFacetAttributesResponse (..),
     mkListTypedLinkFacetAttributesResponse,
 
     -- ** Response lenses
-    ltlfarsNextToken,
-    ltlfarsAttributes,
-    ltlfarsResponseStatus,
+    ltlfarrsAttributes,
+    ltlfarrsNextToken,
+    ltlfarrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTypedLinkFacetAttributes' smart constructor.
 data ListTypedLinkFacetAttributes = ListTypedLinkFacetAttributes'
-  { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-    schemaARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+    schemaArn :: Types.Arn,
     -- | The unique name of the typed link facet.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The maximum number of results to retrieve.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTypedLinkFacetAttributes' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
--- * 'name' - The unique name of the typed link facet.
--- * 'maxResults' - The maximum number of results to retrieve.
+-- | Creates a 'ListTypedLinkFacetAttributes' value with any optional fields omitted.
 mkListTypedLinkFacetAttributes ::
-  -- | 'schemaARN'
-  Lude.Text ->
+  -- | 'schemaArn'
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   ListTypedLinkFacetAttributes
-mkListTypedLinkFacetAttributes pSchemaARN_ pName_ =
+mkListTypedLinkFacetAttributes schemaArn name =
   ListTypedLinkFacetAttributes'
-    { nextToken = Lude.Nothing,
-      schemaARN = pSchemaARN_,
-      name = pName_,
-      maxResults = Lude.Nothing
+    { schemaArn,
+      name,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfaNextToken :: Lens.Lens' ListTypedLinkFacetAttributes (Lude.Maybe Lude.Text)
-ltlfaNextToken = Lens.lens (nextToken :: ListTypedLinkFacetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypedLinkFacetAttributes)
-{-# DEPRECATED ltlfaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfaSchemaARN :: Lens.Lens' ListTypedLinkFacetAttributes Lude.Text
-ltlfaSchemaARN = Lens.lens (schemaARN :: ListTypedLinkFacetAttributes -> Lude.Text) (\s a -> s {schemaARN = a} :: ListTypedLinkFacetAttributes)
-{-# DEPRECATED ltlfaSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltlfaSchemaArn :: Lens.Lens' ListTypedLinkFacetAttributes Types.Arn
+ltlfaSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED ltlfaSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The unique name of the typed link facet.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfaName :: Lens.Lens' ListTypedLinkFacetAttributes Lude.Text
-ltlfaName = Lens.lens (name :: ListTypedLinkFacetAttributes -> Lude.Text) (\s a -> s {name = a} :: ListTypedLinkFacetAttributes)
+ltlfaName :: Lens.Lens' ListTypedLinkFacetAttributes Types.Name
+ltlfaName = Lens.field @"name"
 {-# DEPRECATED ltlfaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The maximum number of results to retrieve.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfaMaxResults :: Lens.Lens' ListTypedLinkFacetAttributes (Lude.Maybe Lude.Natural)
-ltlfaMaxResults = Lens.lens (maxResults :: ListTypedLinkFacetAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypedLinkFacetAttributes)
+ltlfaMaxResults :: Lens.Lens' ListTypedLinkFacetAttributes (Core.Maybe Core.Natural)
+ltlfaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ltlfaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListTypedLinkFacetAttributes where
-  page rq rs
-    | Page.stop (rs Lens.^. ltlfarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltlfarsAttributes) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltlfaNextToken Lens..~ rs Lens.^. ltlfarsNextToken
-
-instance Lude.AWSRequest ListTypedLinkFacetAttributes where
-  type
-    Rs ListTypedLinkFacetAttributes =
-      ListTypedLinkFacetAttributesResponse
-  request = Req.postJSON cloudDirectoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListTypedLinkFacetAttributesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Attributes" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListTypedLinkFacetAttributes where
-  toHeaders ListTypedLinkFacetAttributes' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
-
-instance Lude.ToJSON ListTypedLinkFacetAttributes where
-  toJSON ListTypedLinkFacetAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("Name" Lude..= name),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListTypedLinkFacetAttributes where
-  toPath =
-    Lude.const
-      "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes"
-
-instance Lude.ToQuery ListTypedLinkFacetAttributes where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkListTypedLinkFacetAttributesResponse' smart constructor.
-data ListTypedLinkFacetAttributesResponse = ListTypedLinkFacetAttributesResponse'
-  { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An ordered set of attributes associate with the typed link.
-    attributes :: Lude.Maybe [TypedLinkAttributeDefinition],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListTypedLinkFacetAttributesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'attributes' - An ordered set of attributes associate with the typed link.
--- * 'responseStatus' - The response status code.
-mkListTypedLinkFacetAttributesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListTypedLinkFacetAttributesResponse
-mkListTypedLinkFacetAttributesResponse pResponseStatus_ =
-  ListTypedLinkFacetAttributesResponse'
-    { nextToken = Lude.Nothing,
-      attributes = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfarsNextToken :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Lude.Maybe Lude.Text)
-ltlfarsNextToken = Lens.lens (nextToken :: ListTypedLinkFacetAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypedLinkFacetAttributesResponse)
-{-# DEPRECATED ltlfarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltlfaNextToken :: Lens.Lens' ListTypedLinkFacetAttributes (Core.Maybe Types.NextToken)
+ltlfaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltlfaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListTypedLinkFacetAttributes where
+  toJSON ListTypedLinkFacetAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListTypedLinkFacetAttributes where
+  type
+    Rs ListTypedLinkFacetAttributes =
+      ListTypedLinkFacetAttributesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "x-amz-data-partition" schemaArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListTypedLinkFacetAttributesResponse'
+            Core.<$> (x Core..:? "Attributes")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListTypedLinkFacetAttributes where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"attributes" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListTypedLinkFacetAttributesResponse' smart constructor.
+data ListTypedLinkFacetAttributesResponse = ListTypedLinkFacetAttributesResponse'
+  { -- | An ordered set of attributes associate with the typed link.
+    attributes :: Core.Maybe [Types.TypedLinkAttributeDefinition],
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListTypedLinkFacetAttributesResponse' value with any optional fields omitted.
+mkListTypedLinkFacetAttributesResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListTypedLinkFacetAttributesResponse
+mkListTypedLinkFacetAttributesResponse responseStatus =
+  ListTypedLinkFacetAttributesResponse'
+    { attributes = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | An ordered set of attributes associate with the typed link.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfarsAttributes :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Lude.Maybe [TypedLinkAttributeDefinition])
-ltlfarsAttributes = Lens.lens (attributes :: ListTypedLinkFacetAttributesResponse -> Lude.Maybe [TypedLinkAttributeDefinition]) (\s a -> s {attributes = a} :: ListTypedLinkFacetAttributesResponse)
-{-# DEPRECATED ltlfarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+ltlfarrsAttributes :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Core.Maybe [Types.TypedLinkAttributeDefinition])
+ltlfarrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED ltlfarrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltlfarrsNextToken :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Core.Maybe Types.NextToken)
+ltlfarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltlfarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfarsResponseStatus :: Lens.Lens' ListTypedLinkFacetAttributesResponse Lude.Int
-ltlfarsResponseStatus = Lens.lens (responseStatus :: ListTypedLinkFacetAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTypedLinkFacetAttributesResponse)
-{-# DEPRECATED ltlfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltlfarrsResponseStatus :: Lens.Lens' ListTypedLinkFacetAttributesResponse Core.Int
+ltlfarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltlfarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

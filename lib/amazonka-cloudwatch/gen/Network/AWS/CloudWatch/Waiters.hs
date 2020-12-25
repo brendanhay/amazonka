@@ -20,47 +20,51 @@ module Network.AWS.CloudWatch.Waiters
 where
 
 import Network.AWS.CloudWatch.DescribeAlarms
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkCompositeAlarmExists :: Wait.Wait DescribeAlarms
+mkCompositeAlarmExists :: Waiter.Wait DescribeAlarms
 mkCompositeAlarmExists =
-  Wait.Wait
-    { Wait._waitName = "CompositeAlarmExists",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 5,
-      Wait._waitAcceptors =
-        [ Wait.matchNonEmpty
-            Lude.True
-            Wait.AcceptSuccess
+  Waiter.Wait
+    { Waiter._waitName = "CompositeAlarmExists",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 5,
+      Waiter._waitAcceptors =
+        [ Waiter.matchNonEmpty
+            Core.True
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( darsCompositeAlarms Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"compositeAlarms" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
+                Core.. Core._isNonEmpty
             )
         ]
     }
 
 -- | Polls 'Network.AWS.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkAlarmExists :: Wait.Wait DescribeAlarms
+mkAlarmExists :: Waiter.Wait DescribeAlarms
 mkAlarmExists =
-  Wait.Wait
-    { Wait._waitName = "AlarmExists",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 5,
-      Wait._waitAcceptors =
-        [ Wait.matchNonEmpty
-            Lude.True
-            Wait.AcceptSuccess
+  Waiter.Wait
+    { Waiter._waitName = "AlarmExists",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 5,
+      Waiter._waitAcceptors =
+        [ Waiter.matchNonEmpty
+            Core.True
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (darsMetricAlarms Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"metricAlarms" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
+                Core.. Core._isNonEmpty
             )
         ]
     }

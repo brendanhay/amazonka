@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.CarrierGatewayState
   ( CarrierGatewayState
       ( CarrierGatewayState',
-        Pending,
-        Available,
-        Deleting,
-        Deleted
+        CarrierGatewayStatePending,
+        CarrierGatewayStateAvailable,
+        CarrierGatewayStateDeleting,
+        CarrierGatewayStateDeleted,
+        fromCarrierGatewayState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CarrierGatewayState = CarrierGatewayState' Lude.Text
+newtype CarrierGatewayState = CarrierGatewayState'
+  { fromCarrierGatewayState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pending :: CarrierGatewayState
-pattern Pending = CarrierGatewayState' "pending"
+pattern CarrierGatewayStatePending :: CarrierGatewayState
+pattern CarrierGatewayStatePending = CarrierGatewayState' "pending"
 
-pattern Available :: CarrierGatewayState
-pattern Available = CarrierGatewayState' "available"
+pattern CarrierGatewayStateAvailable :: CarrierGatewayState
+pattern CarrierGatewayStateAvailable = CarrierGatewayState' "available"
 
-pattern Deleting :: CarrierGatewayState
-pattern Deleting = CarrierGatewayState' "deleting"
+pattern CarrierGatewayStateDeleting :: CarrierGatewayState
+pattern CarrierGatewayStateDeleting = CarrierGatewayState' "deleting"
 
-pattern Deleted :: CarrierGatewayState
-pattern Deleted = CarrierGatewayState' "deleted"
+pattern CarrierGatewayStateDeleted :: CarrierGatewayState
+pattern CarrierGatewayStateDeleted = CarrierGatewayState' "deleted"
 
 {-# COMPLETE
-  Pending,
-  Available,
-  Deleting,
-  Deleted,
+  CarrierGatewayStatePending,
+  CarrierGatewayStateAvailable,
+  CarrierGatewayStateDeleting,
+  CarrierGatewayStateDeleted,
   CarrierGatewayState'
   #-}

@@ -26,93 +26,84 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     mkDescribeMyUserProfileResponse,
 
     -- ** Response lenses
-    dmuprsUserProfile,
-    dmuprsResponseStatus,
+    dmuprrsUserProfile,
+    dmuprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeMyUserProfile' smart constructor.
 data DescribeMyUserProfile = DescribeMyUserProfile'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMyUserProfile' with the minimum fields required to make a request.
+-- | Creates a 'DescribeMyUserProfile' value with any optional fields omitted.
 mkDescribeMyUserProfile ::
   DescribeMyUserProfile
 mkDescribeMyUserProfile = DescribeMyUserProfile'
 
-instance Lude.AWSRequest DescribeMyUserProfile where
+instance Core.FromJSON DescribeMyUserProfile where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeMyUserProfile where
   type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse
-  request = Req.postJSON opsWorksService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OpsWorks_20130218.DescribeMyUserProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeMyUserProfileResponse'
-            Lude.<$> (x Lude..?> "UserProfile") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "UserProfile") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeMyUserProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DescribeMyUserProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeMyUserProfile where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeMyUserProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeMyUserProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeMyUserProfile@ request.
 --
 -- /See:/ 'mkDescribeMyUserProfileResponse' smart constructor.
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
   { -- | A @UserProfile@ object that describes the user's SSH information.
-    userProfile :: Lude.Maybe SelfUserProfile,
+    userProfile :: Core.Maybe Types.SelfUserProfile,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMyUserProfileResponse' with the minimum fields required to make a request.
---
--- * 'userProfile' - A @UserProfile@ object that describes the user's SSH information.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMyUserProfileResponse' value with any optional fields omitted.
 mkDescribeMyUserProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMyUserProfileResponse
-mkDescribeMyUserProfileResponse pResponseStatus_ =
+mkDescribeMyUserProfileResponse responseStatus =
   DescribeMyUserProfileResponse'
-    { userProfile = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { userProfile = Core.Nothing,
+      responseStatus
     }
 
 -- | A @UserProfile@ object that describes the user's SSH information.
 --
 -- /Note:/ Consider using 'userProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmuprsUserProfile :: Lens.Lens' DescribeMyUserProfileResponse (Lude.Maybe SelfUserProfile)
-dmuprsUserProfile = Lens.lens (userProfile :: DescribeMyUserProfileResponse -> Lude.Maybe SelfUserProfile) (\s a -> s {userProfile = a} :: DescribeMyUserProfileResponse)
-{-# DEPRECATED dmuprsUserProfile "Use generic-lens or generic-optics with 'userProfile' instead." #-}
+dmuprrsUserProfile :: Lens.Lens' DescribeMyUserProfileResponse (Core.Maybe Types.SelfUserProfile)
+dmuprrsUserProfile = Lens.field @"userProfile"
+{-# DEPRECATED dmuprrsUserProfile "Use generic-lens or generic-optics with 'userProfile' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmuprsResponseStatus :: Lens.Lens' DescribeMyUserProfileResponse Lude.Int
-dmuprsResponseStatus = Lens.lens (responseStatus :: DescribeMyUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMyUserProfileResponse)
-{-# DEPRECATED dmuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmuprrsResponseStatus :: Lens.Lens' DescribeMyUserProfileResponse Core.Int
+dmuprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmuprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

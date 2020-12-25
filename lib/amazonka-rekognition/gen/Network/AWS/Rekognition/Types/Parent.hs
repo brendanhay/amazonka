@@ -22,34 +22,32 @@ module Network.AWS.Rekognition.Types.Parent
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.Name as Types
 
 -- | A parent label for a label. A label can have 0, 1, or more parents.
 --
 -- /See:/ 'mkParent' smart constructor.
 newtype Parent = Parent'
   { -- | The name of the parent label.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Parent' with the minimum fields required to make a request.
---
--- * 'name' - The name of the parent label.
+-- | Creates a 'Parent' value with any optional fields omitted.
 mkParent ::
   Parent
-mkParent = Parent' {name = Lude.Nothing}
+mkParent = Parent' {name = Core.Nothing}
 
 -- | The name of the parent label.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pName :: Lens.Lens' Parent (Lude.Maybe Lude.Text)
-pName = Lens.lens (name :: Parent -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Parent)
+pName :: Lens.Lens' Parent (Core.Maybe Types.Name)
+pName = Lens.field @"name"
 {-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON Parent where
+instance Core.FromJSON Parent where
   parseJSON =
-    Lude.withObject
-      "Parent"
-      (\x -> Parent' Lude.<$> (x Lude..:? "Name"))
+    Core.withObject "Parent" Core.$
+      \x -> Parent' Core.<$> (x Core..:? "Name")

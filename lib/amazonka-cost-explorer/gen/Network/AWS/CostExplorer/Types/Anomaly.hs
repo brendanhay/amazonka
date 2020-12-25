@@ -17,161 +17,154 @@ module Network.AWS.CostExplorer.Types.Anomaly
     mkAnomaly,
 
     -- * Lenses
+    aAnomalyId,
+    aAnomalyScore,
+    aImpact,
+    aMonitorArn,
+    aAnomalyEndDate,
     aAnomalyStartDate,
     aDimensionValue,
-    aAnomalyId,
-    aRootCauses,
-    aAnomalyEndDate,
-    aImpact,
-    aAnomalyScore,
     aFeedback,
-    aMonitorARN,
+    aRootCauses,
   )
 where
 
-import Network.AWS.CostExplorer.Types.AnomalyFeedbackType
-import Network.AWS.CostExplorer.Types.AnomalyScore
-import Network.AWS.CostExplorer.Types.Impact
-import Network.AWS.CostExplorer.Types.RootCause
+import qualified Network.AWS.CostExplorer.Types.AnomalyEndDate as Types
+import qualified Network.AWS.CostExplorer.Types.AnomalyFeedbackType as Types
+import qualified Network.AWS.CostExplorer.Types.AnomalyId as Types
+import qualified Network.AWS.CostExplorer.Types.AnomalyScore as Types
+import qualified Network.AWS.CostExplorer.Types.AnomalyStartDate as Types
+import qualified Network.AWS.CostExplorer.Types.DimensionValue as Types
+import qualified Network.AWS.CostExplorer.Types.Impact as Types
+import qualified Network.AWS.CostExplorer.Types.MonitorArn as Types
+import qualified Network.AWS.CostExplorer.Types.RootCause as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An unusual cost pattern. This consists of the detailed metadata and the current status of the anomaly object.
 --
 -- /See:/ 'mkAnomaly' smart constructor.
 data Anomaly = Anomaly'
-  { -- | The first day the anomaly is detected.
-    anomalyStartDate :: Lude.Maybe Lude.Text,
-    -- | The dimension for the anomaly. For example, an AWS service in a service monitor.
-    dimensionValue :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the anomaly.
-    anomalyId :: Lude.Text,
-    -- | The list of identified root causes for the anomaly.
-    rootCauses :: Lude.Maybe [RootCause],
-    -- | The last day the anomaly is detected.
-    anomalyEndDate :: Lude.Maybe Lude.Text,
-    -- | The dollar impact for the anomaly.
-    impact :: Impact,
+  { -- | The unique identifier for the anomaly.
+    anomalyId :: Types.AnomalyId,
     -- | The latest and maximum score for the anomaly.
-    anomalyScore :: AnomalyScore,
-    -- | The feedback value.
-    feedback :: Lude.Maybe AnomalyFeedbackType,
+    anomalyScore :: Types.AnomalyScore,
+    -- | The dollar impact for the anomaly.
+    impact :: Types.Impact,
     -- | The Amazon Resource Name (ARN) for the cost monitor that generated this anomaly.
-    monitorARN :: Lude.Text
+    monitorArn :: Types.MonitorArn,
+    -- | The last day the anomaly is detected.
+    anomalyEndDate :: Core.Maybe Types.AnomalyEndDate,
+    -- | The first day the anomaly is detected.
+    anomalyStartDate :: Core.Maybe Types.AnomalyStartDate,
+    -- | The dimension for the anomaly. For example, an AWS service in a service monitor.
+    dimensionValue :: Core.Maybe Types.DimensionValue,
+    -- | The feedback value.
+    feedback :: Core.Maybe Types.AnomalyFeedbackType,
+    -- | The list of identified root causes for the anomaly.
+    rootCauses :: Core.Maybe [Types.RootCause]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Anomaly' with the minimum fields required to make a request.
---
--- * 'anomalyStartDate' - The first day the anomaly is detected.
--- * 'dimensionValue' - The dimension for the anomaly. For example, an AWS service in a service monitor.
--- * 'anomalyId' - The unique identifier for the anomaly.
--- * 'rootCauses' - The list of identified root causes for the anomaly.
--- * 'anomalyEndDate' - The last day the anomaly is detected.
--- * 'impact' - The dollar impact for the anomaly.
--- * 'anomalyScore' - The latest and maximum score for the anomaly.
--- * 'feedback' - The feedback value.
--- * 'monitorARN' - The Amazon Resource Name (ARN) for the cost monitor that generated this anomaly.
+-- | Creates a 'Anomaly' value with any optional fields omitted.
 mkAnomaly ::
   -- | 'anomalyId'
-  Lude.Text ->
-  -- | 'impact'
-  Impact ->
+  Types.AnomalyId ->
   -- | 'anomalyScore'
-  AnomalyScore ->
-  -- | 'monitorARN'
-  Lude.Text ->
+  Types.AnomalyScore ->
+  -- | 'impact'
+  Types.Impact ->
+  -- | 'monitorArn'
+  Types.MonitorArn ->
   Anomaly
-mkAnomaly pAnomalyId_ pImpact_ pAnomalyScore_ pMonitorARN_ =
+mkAnomaly anomalyId anomalyScore impact monitorArn =
   Anomaly'
-    { anomalyStartDate = Lude.Nothing,
-      dimensionValue = Lude.Nothing,
-      anomalyId = pAnomalyId_,
-      rootCauses = Lude.Nothing,
-      anomalyEndDate = Lude.Nothing,
-      impact = pImpact_,
-      anomalyScore = pAnomalyScore_,
-      feedback = Lude.Nothing,
-      monitorARN = pMonitorARN_
+    { anomalyId,
+      anomalyScore,
+      impact,
+      monitorArn,
+      anomalyEndDate = Core.Nothing,
+      anomalyStartDate = Core.Nothing,
+      dimensionValue = Core.Nothing,
+      feedback = Core.Nothing,
+      rootCauses = Core.Nothing
     }
+
+-- | The unique identifier for the anomaly.
+--
+-- /Note:/ Consider using 'anomalyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAnomalyId :: Lens.Lens' Anomaly Types.AnomalyId
+aAnomalyId = Lens.field @"anomalyId"
+{-# DEPRECATED aAnomalyId "Use generic-lens or generic-optics with 'anomalyId' instead." #-}
+
+-- | The latest and maximum score for the anomaly.
+--
+-- /Note:/ Consider using 'anomalyScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAnomalyScore :: Lens.Lens' Anomaly Types.AnomalyScore
+aAnomalyScore = Lens.field @"anomalyScore"
+{-# DEPRECATED aAnomalyScore "Use generic-lens or generic-optics with 'anomalyScore' instead." #-}
+
+-- | The dollar impact for the anomaly.
+--
+-- /Note:/ Consider using 'impact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aImpact :: Lens.Lens' Anomaly Types.Impact
+aImpact = Lens.field @"impact"
+{-# DEPRECATED aImpact "Use generic-lens or generic-optics with 'impact' instead." #-}
+
+-- | The Amazon Resource Name (ARN) for the cost monitor that generated this anomaly.
+--
+-- /Note:/ Consider using 'monitorArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aMonitorArn :: Lens.Lens' Anomaly Types.MonitorArn
+aMonitorArn = Lens.field @"monitorArn"
+{-# DEPRECATED aMonitorArn "Use generic-lens or generic-optics with 'monitorArn' instead." #-}
+
+-- | The last day the anomaly is detected.
+--
+-- /Note:/ Consider using 'anomalyEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAnomalyEndDate :: Lens.Lens' Anomaly (Core.Maybe Types.AnomalyEndDate)
+aAnomalyEndDate = Lens.field @"anomalyEndDate"
+{-# DEPRECATED aAnomalyEndDate "Use generic-lens or generic-optics with 'anomalyEndDate' instead." #-}
 
 -- | The first day the anomaly is detected.
 --
 -- /Note:/ Consider using 'anomalyStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAnomalyStartDate :: Lens.Lens' Anomaly (Lude.Maybe Lude.Text)
-aAnomalyStartDate = Lens.lens (anomalyStartDate :: Anomaly -> Lude.Maybe Lude.Text) (\s a -> s {anomalyStartDate = a} :: Anomaly)
+aAnomalyStartDate :: Lens.Lens' Anomaly (Core.Maybe Types.AnomalyStartDate)
+aAnomalyStartDate = Lens.field @"anomalyStartDate"
 {-# DEPRECATED aAnomalyStartDate "Use generic-lens or generic-optics with 'anomalyStartDate' instead." #-}
 
 -- | The dimension for the anomaly. For example, an AWS service in a service monitor.
 --
 -- /Note:/ Consider using 'dimensionValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aDimensionValue :: Lens.Lens' Anomaly (Lude.Maybe Lude.Text)
-aDimensionValue = Lens.lens (dimensionValue :: Anomaly -> Lude.Maybe Lude.Text) (\s a -> s {dimensionValue = a} :: Anomaly)
+aDimensionValue :: Lens.Lens' Anomaly (Core.Maybe Types.DimensionValue)
+aDimensionValue = Lens.field @"dimensionValue"
 {-# DEPRECATED aDimensionValue "Use generic-lens or generic-optics with 'dimensionValue' instead." #-}
-
--- | The unique identifier for the anomaly.
---
--- /Note:/ Consider using 'anomalyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAnomalyId :: Lens.Lens' Anomaly Lude.Text
-aAnomalyId = Lens.lens (anomalyId :: Anomaly -> Lude.Text) (\s a -> s {anomalyId = a} :: Anomaly)
-{-# DEPRECATED aAnomalyId "Use generic-lens or generic-optics with 'anomalyId' instead." #-}
-
--- | The list of identified root causes for the anomaly.
---
--- /Note:/ Consider using 'rootCauses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aRootCauses :: Lens.Lens' Anomaly (Lude.Maybe [RootCause])
-aRootCauses = Lens.lens (rootCauses :: Anomaly -> Lude.Maybe [RootCause]) (\s a -> s {rootCauses = a} :: Anomaly)
-{-# DEPRECATED aRootCauses "Use generic-lens or generic-optics with 'rootCauses' instead." #-}
-
--- | The last day the anomaly is detected.
---
--- /Note:/ Consider using 'anomalyEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAnomalyEndDate :: Lens.Lens' Anomaly (Lude.Maybe Lude.Text)
-aAnomalyEndDate = Lens.lens (anomalyEndDate :: Anomaly -> Lude.Maybe Lude.Text) (\s a -> s {anomalyEndDate = a} :: Anomaly)
-{-# DEPRECATED aAnomalyEndDate "Use generic-lens or generic-optics with 'anomalyEndDate' instead." #-}
-
--- | The dollar impact for the anomaly.
---
--- /Note:/ Consider using 'impact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aImpact :: Lens.Lens' Anomaly Impact
-aImpact = Lens.lens (impact :: Anomaly -> Impact) (\s a -> s {impact = a} :: Anomaly)
-{-# DEPRECATED aImpact "Use generic-lens or generic-optics with 'impact' instead." #-}
-
--- | The latest and maximum score for the anomaly.
---
--- /Note:/ Consider using 'anomalyScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAnomalyScore :: Lens.Lens' Anomaly AnomalyScore
-aAnomalyScore = Lens.lens (anomalyScore :: Anomaly -> AnomalyScore) (\s a -> s {anomalyScore = a} :: Anomaly)
-{-# DEPRECATED aAnomalyScore "Use generic-lens or generic-optics with 'anomalyScore' instead." #-}
 
 -- | The feedback value.
 --
 -- /Note:/ Consider using 'feedback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aFeedback :: Lens.Lens' Anomaly (Lude.Maybe AnomalyFeedbackType)
-aFeedback = Lens.lens (feedback :: Anomaly -> Lude.Maybe AnomalyFeedbackType) (\s a -> s {feedback = a} :: Anomaly)
+aFeedback :: Lens.Lens' Anomaly (Core.Maybe Types.AnomalyFeedbackType)
+aFeedback = Lens.field @"feedback"
 {-# DEPRECATED aFeedback "Use generic-lens or generic-optics with 'feedback' instead." #-}
 
--- | The Amazon Resource Name (ARN) for the cost monitor that generated this anomaly.
+-- | The list of identified root causes for the anomaly.
 --
--- /Note:/ Consider using 'monitorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aMonitorARN :: Lens.Lens' Anomaly Lude.Text
-aMonitorARN = Lens.lens (monitorARN :: Anomaly -> Lude.Text) (\s a -> s {monitorARN = a} :: Anomaly)
-{-# DEPRECATED aMonitorARN "Use generic-lens or generic-optics with 'monitorARN' instead." #-}
+-- /Note:/ Consider using 'rootCauses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRootCauses :: Lens.Lens' Anomaly (Core.Maybe [Types.RootCause])
+aRootCauses = Lens.field @"rootCauses"
+{-# DEPRECATED aRootCauses "Use generic-lens or generic-optics with 'rootCauses' instead." #-}
 
-instance Lude.FromJSON Anomaly where
+instance Core.FromJSON Anomaly where
   parseJSON =
-    Lude.withObject
-      "Anomaly"
-      ( \x ->
-          Anomaly'
-            Lude.<$> (x Lude..:? "AnomalyStartDate")
-            Lude.<*> (x Lude..:? "DimensionValue")
-            Lude.<*> (x Lude..: "AnomalyId")
-            Lude.<*> (x Lude..:? "RootCauses" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AnomalyEndDate")
-            Lude.<*> (x Lude..: "Impact")
-            Lude.<*> (x Lude..: "AnomalyScore")
-            Lude.<*> (x Lude..:? "Feedback")
-            Lude.<*> (x Lude..: "MonitorArn")
-      )
+    Core.withObject "Anomaly" Core.$
+      \x ->
+        Anomaly'
+          Core.<$> (x Core..: "AnomalyId")
+          Core.<*> (x Core..: "AnomalyScore")
+          Core.<*> (x Core..: "Impact")
+          Core.<*> (x Core..: "MonitorArn")
+          Core.<*> (x Core..:? "AnomalyEndDate")
+          Core.<*> (x Core..:? "AnomalyStartDate")
+          Core.<*> (x Core..:? "DimensionValue")
+          Core.<*> (x Core..:? "Feedback")
+          Core.<*> (x Core..:? "RootCauses")

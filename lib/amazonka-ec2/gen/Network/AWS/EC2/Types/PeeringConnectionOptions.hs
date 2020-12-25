@@ -17,68 +17,64 @@ module Network.AWS.EC2.Types.PeeringConnectionOptions
     mkPeeringConnectionOptions,
 
     -- * Lenses
-    pcoAllowEgressFromLocalVPCToRemoteClassicLink,
-    pcoAllowEgressFromLocalClassicLinkToRemoteVPC,
-    pcoAllowDNSResolutionFromRemoteVPC,
+    pcoAllowDnsResolutionFromRemoteVpc,
+    pcoAllowEgressFromLocalClassicLinkToRemoteVpc,
+    pcoAllowEgressFromLocalVpcToRemoteClassicLink,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the VPC peering connection options.
 --
 -- /See:/ 'mkPeeringConnectionOptions' smart constructor.
 data PeeringConnectionOptions = PeeringConnectionOptions'
-  { -- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
-    allowEgressFromLocalVPCToRemoteClassicLink :: Lude.Maybe Lude.Bool,
+  { -- | If true, the public DNS hostnames of instances in the specified VPC resolve to private IP addresses when queried from instances in the peer VPC.
+    allowDnsResolutionFromRemoteVpc :: Core.Maybe Core.Bool,
     -- | If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
-    allowEgressFromLocalClassicLinkToRemoteVPC :: Lude.Maybe Lude.Bool,
-    -- | If true, the public DNS hostnames of instances in the specified VPC resolve to private IP addresses when queried from instances in the peer VPC.
-    allowDNSResolutionFromRemoteVPC :: Lude.Maybe Lude.Bool
+    allowEgressFromLocalClassicLinkToRemoteVpc :: Core.Maybe Core.Bool,
+    -- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
+    allowEgressFromLocalVpcToRemoteClassicLink :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PeeringConnectionOptions' with the minimum fields required to make a request.
---
--- * 'allowEgressFromLocalVPCToRemoteClassicLink' - If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
--- * 'allowEgressFromLocalClassicLinkToRemoteVPC' - If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
--- * 'allowDNSResolutionFromRemoteVPC' - If true, the public DNS hostnames of instances in the specified VPC resolve to private IP addresses when queried from instances in the peer VPC.
+-- | Creates a 'PeeringConnectionOptions' value with any optional fields omitted.
 mkPeeringConnectionOptions ::
   PeeringConnectionOptions
 mkPeeringConnectionOptions =
   PeeringConnectionOptions'
-    { allowEgressFromLocalVPCToRemoteClassicLink =
-        Lude.Nothing,
-      allowEgressFromLocalClassicLinkToRemoteVPC = Lude.Nothing,
-      allowDNSResolutionFromRemoteVPC = Lude.Nothing
+    { allowDnsResolutionFromRemoteVpc =
+        Core.Nothing,
+      allowEgressFromLocalClassicLinkToRemoteVpc = Core.Nothing,
+      allowEgressFromLocalVpcToRemoteClassicLink = Core.Nothing
     }
-
--- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
---
--- /Note:/ Consider using 'allowEgressFromLocalVPCToRemoteClassicLink' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcoAllowEgressFromLocalVPCToRemoteClassicLink :: Lens.Lens' PeeringConnectionOptions (Lude.Maybe Lude.Bool)
-pcoAllowEgressFromLocalVPCToRemoteClassicLink = Lens.lens (allowEgressFromLocalVPCToRemoteClassicLink :: PeeringConnectionOptions -> Lude.Maybe Lude.Bool) (\s a -> s {allowEgressFromLocalVPCToRemoteClassicLink = a} :: PeeringConnectionOptions)
-{-# DEPRECATED pcoAllowEgressFromLocalVPCToRemoteClassicLink "Use generic-lens or generic-optics with 'allowEgressFromLocalVPCToRemoteClassicLink' instead." #-}
-
--- | If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
---
--- /Note:/ Consider using 'allowEgressFromLocalClassicLinkToRemoteVPC' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens.Lens' PeeringConnectionOptions (Lude.Maybe Lude.Bool)
-pcoAllowEgressFromLocalClassicLinkToRemoteVPC = Lens.lens (allowEgressFromLocalClassicLinkToRemoteVPC :: PeeringConnectionOptions -> Lude.Maybe Lude.Bool) (\s a -> s {allowEgressFromLocalClassicLinkToRemoteVPC = a} :: PeeringConnectionOptions)
-{-# DEPRECATED pcoAllowEgressFromLocalClassicLinkToRemoteVPC "Use generic-lens or generic-optics with 'allowEgressFromLocalClassicLinkToRemoteVPC' instead." #-}
 
 -- | If true, the public DNS hostnames of instances in the specified VPC resolve to private IP addresses when queried from instances in the peer VPC.
 --
--- /Note:/ Consider using 'allowDNSResolutionFromRemoteVPC' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcoAllowDNSResolutionFromRemoteVPC :: Lens.Lens' PeeringConnectionOptions (Lude.Maybe Lude.Bool)
-pcoAllowDNSResolutionFromRemoteVPC = Lens.lens (allowDNSResolutionFromRemoteVPC :: PeeringConnectionOptions -> Lude.Maybe Lude.Bool) (\s a -> s {allowDNSResolutionFromRemoteVPC = a} :: PeeringConnectionOptions)
-{-# DEPRECATED pcoAllowDNSResolutionFromRemoteVPC "Use generic-lens or generic-optics with 'allowDNSResolutionFromRemoteVPC' instead." #-}
+-- /Note:/ Consider using 'allowDnsResolutionFromRemoteVpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcoAllowDnsResolutionFromRemoteVpc :: Lens.Lens' PeeringConnectionOptions (Core.Maybe Core.Bool)
+pcoAllowDnsResolutionFromRemoteVpc = Lens.field @"allowDnsResolutionFromRemoteVpc"
+{-# DEPRECATED pcoAllowDnsResolutionFromRemoteVpc "Use generic-lens or generic-optics with 'allowDnsResolutionFromRemoteVpc' instead." #-}
 
-instance Lude.FromXML PeeringConnectionOptions where
+-- | If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
+--
+-- /Note:/ Consider using 'allowEgressFromLocalClassicLinkToRemoteVpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcoAllowEgressFromLocalClassicLinkToRemoteVpc :: Lens.Lens' PeeringConnectionOptions (Core.Maybe Core.Bool)
+pcoAllowEgressFromLocalClassicLinkToRemoteVpc = Lens.field @"allowEgressFromLocalClassicLinkToRemoteVpc"
+{-# DEPRECATED pcoAllowEgressFromLocalClassicLinkToRemoteVpc "Use generic-lens or generic-optics with 'allowEgressFromLocalClassicLinkToRemoteVpc' instead." #-}
+
+-- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
+--
+-- /Note:/ Consider using 'allowEgressFromLocalVpcToRemoteClassicLink' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcoAllowEgressFromLocalVpcToRemoteClassicLink :: Lens.Lens' PeeringConnectionOptions (Core.Maybe Core.Bool)
+pcoAllowEgressFromLocalVpcToRemoteClassicLink = Lens.field @"allowEgressFromLocalVpcToRemoteClassicLink"
+{-# DEPRECATED pcoAllowEgressFromLocalVpcToRemoteClassicLink "Use generic-lens or generic-optics with 'allowEgressFromLocalVpcToRemoteClassicLink' instead." #-}
+
+instance Core.FromXML PeeringConnectionOptions where
   parseXML x =
     PeeringConnectionOptions'
-      Lude.<$> (x Lude..@? "allowEgressFromLocalVpcToRemoteClassicLink")
-      Lude.<*> (x Lude..@? "allowEgressFromLocalClassicLinkToRemoteVpc")
-      Lude.<*> (x Lude..@? "allowDnsResolutionFromRemoteVpc")
+      Core.<$> (x Core..@? "allowDnsResolutionFromRemoteVpc")
+      Core.<*> (x Core..@? "allowEgressFromLocalClassicLinkToRemoteVpc")
+      Core.<*> (x Core..@? "allowEgressFromLocalVpcToRemoteClassicLink")

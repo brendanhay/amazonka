@@ -17,137 +17,130 @@ module Network.AWS.IoT.Types.TopicRule
     mkTopicRule,
 
     -- * Lenses
-    trCreatedAt,
     trActions,
     trAwsIotSqlVersion,
+    trCreatedAt,
+    trDescription,
     trErrorAction,
     trRuleDisabled,
     trRuleName,
     trSql,
-    trDescription,
   )
 where
 
-import Network.AWS.IoT.Types.Action
+import qualified Network.AWS.IoT.Types.Action as Types
+import qualified Network.AWS.IoT.Types.AwsIotSqlVersion as Types
+import qualified Network.AWS.IoT.Types.Description as Types
+import qualified Network.AWS.IoT.Types.RuleName as Types
+import qualified Network.AWS.IoT.Types.Sql as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a rule.
 --
 -- /See:/ 'mkTopicRule' smart constructor.
 data TopicRule = TopicRule'
-  { -- | The date and time the rule was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The actions associated with the rule.
-    actions :: Lude.Maybe [Action],
+  { -- | The actions associated with the rule.
+    actions :: Core.Maybe [Types.Action],
     -- | The version of the SQL rules engine to use when evaluating the rule.
-    awsIotSqlVersion :: Lude.Maybe Lude.Text,
-    -- | The action to perform when an error occurs.
-    errorAction :: Lude.Maybe Action,
-    -- | Specifies whether the rule is disabled.
-    ruleDisabled :: Lude.Maybe Lude.Bool,
-    -- | The name of the rule.
-    ruleName :: Lude.Maybe Lude.Text,
-    -- | The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
-    sql :: Lude.Maybe Lude.Text,
+    awsIotSqlVersion :: Core.Maybe Types.AwsIotSqlVersion,
+    -- | The date and time the rule was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the rule.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The action to perform when an error occurs.
+    errorAction :: Core.Maybe Types.Action,
+    -- | Specifies whether the rule is disabled.
+    ruleDisabled :: Core.Maybe Core.Bool,
+    -- | The name of the rule.
+    ruleName :: Core.Maybe Types.RuleName,
+    -- | The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
+    sql :: Core.Maybe Types.Sql
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TopicRule' with the minimum fields required to make a request.
---
--- * 'createdAt' - The date and time the rule was created.
--- * 'actions' - The actions associated with the rule.
--- * 'awsIotSqlVersion' - The version of the SQL rules engine to use when evaluating the rule.
--- * 'errorAction' - The action to perform when an error occurs.
--- * 'ruleDisabled' - Specifies whether the rule is disabled.
--- * 'ruleName' - The name of the rule.
--- * 'sql' - The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
--- * 'description' - The description of the rule.
+-- | Creates a 'TopicRule' value with any optional fields omitted.
 mkTopicRule ::
   TopicRule
 mkTopicRule =
   TopicRule'
-    { createdAt = Lude.Nothing,
-      actions = Lude.Nothing,
-      awsIotSqlVersion = Lude.Nothing,
-      errorAction = Lude.Nothing,
-      ruleDisabled = Lude.Nothing,
-      ruleName = Lude.Nothing,
-      sql = Lude.Nothing,
-      description = Lude.Nothing
+    { actions = Core.Nothing,
+      awsIotSqlVersion = Core.Nothing,
+      createdAt = Core.Nothing,
+      description = Core.Nothing,
+      errorAction = Core.Nothing,
+      ruleDisabled = Core.Nothing,
+      ruleName = Core.Nothing,
+      sql = Core.Nothing
     }
-
--- | The date and time the rule was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trCreatedAt :: Lens.Lens' TopicRule (Lude.Maybe Lude.Timestamp)
-trCreatedAt = Lens.lens (createdAt :: TopicRule -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: TopicRule)
-{-# DEPRECATED trCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The actions associated with the rule.
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trActions :: Lens.Lens' TopicRule (Lude.Maybe [Action])
-trActions = Lens.lens (actions :: TopicRule -> Lude.Maybe [Action]) (\s a -> s {actions = a} :: TopicRule)
+trActions :: Lens.Lens' TopicRule (Core.Maybe [Types.Action])
+trActions = Lens.field @"actions"
 {-# DEPRECATED trActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | The version of the SQL rules engine to use when evaluating the rule.
 --
 -- /Note:/ Consider using 'awsIotSqlVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trAwsIotSqlVersion :: Lens.Lens' TopicRule (Lude.Maybe Lude.Text)
-trAwsIotSqlVersion = Lens.lens (awsIotSqlVersion :: TopicRule -> Lude.Maybe Lude.Text) (\s a -> s {awsIotSqlVersion = a} :: TopicRule)
+trAwsIotSqlVersion :: Lens.Lens' TopicRule (Core.Maybe Types.AwsIotSqlVersion)
+trAwsIotSqlVersion = Lens.field @"awsIotSqlVersion"
 {-# DEPRECATED trAwsIotSqlVersion "Use generic-lens or generic-optics with 'awsIotSqlVersion' instead." #-}
+
+-- | The date and time the rule was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trCreatedAt :: Lens.Lens' TopicRule (Core.Maybe Core.NominalDiffTime)
+trCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED trCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The description of the rule.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trDescription :: Lens.Lens' TopicRule (Core.Maybe Types.Description)
+trDescription = Lens.field @"description"
+{-# DEPRECATED trDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The action to perform when an error occurs.
 --
 -- /Note:/ Consider using 'errorAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trErrorAction :: Lens.Lens' TopicRule (Lude.Maybe Action)
-trErrorAction = Lens.lens (errorAction :: TopicRule -> Lude.Maybe Action) (\s a -> s {errorAction = a} :: TopicRule)
+trErrorAction :: Lens.Lens' TopicRule (Core.Maybe Types.Action)
+trErrorAction = Lens.field @"errorAction"
 {-# DEPRECATED trErrorAction "Use generic-lens or generic-optics with 'errorAction' instead." #-}
 
 -- | Specifies whether the rule is disabled.
 --
 -- /Note:/ Consider using 'ruleDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trRuleDisabled :: Lens.Lens' TopicRule (Lude.Maybe Lude.Bool)
-trRuleDisabled = Lens.lens (ruleDisabled :: TopicRule -> Lude.Maybe Lude.Bool) (\s a -> s {ruleDisabled = a} :: TopicRule)
+trRuleDisabled :: Lens.Lens' TopicRule (Core.Maybe Core.Bool)
+trRuleDisabled = Lens.field @"ruleDisabled"
 {-# DEPRECATED trRuleDisabled "Use generic-lens or generic-optics with 'ruleDisabled' instead." #-}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trRuleName :: Lens.Lens' TopicRule (Lude.Maybe Lude.Text)
-trRuleName = Lens.lens (ruleName :: TopicRule -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: TopicRule)
+trRuleName :: Lens.Lens' TopicRule (Core.Maybe Types.RuleName)
+trRuleName = Lens.field @"ruleName"
 {-# DEPRECATED trRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
 --
 -- /Note:/ Consider using 'sql' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trSql :: Lens.Lens' TopicRule (Lude.Maybe Lude.Text)
-trSql = Lens.lens (sql :: TopicRule -> Lude.Maybe Lude.Text) (\s a -> s {sql = a} :: TopicRule)
+trSql :: Lens.Lens' TopicRule (Core.Maybe Types.Sql)
+trSql = Lens.field @"sql"
 {-# DEPRECATED trSql "Use generic-lens or generic-optics with 'sql' instead." #-}
 
--- | The description of the rule.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trDescription :: Lens.Lens' TopicRule (Lude.Maybe Lude.Text)
-trDescription = Lens.lens (description :: TopicRule -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TopicRule)
-{-# DEPRECATED trDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromJSON TopicRule where
+instance Core.FromJSON TopicRule where
   parseJSON =
-    Lude.withObject
-      "TopicRule"
-      ( \x ->
-          TopicRule'
-            Lude.<$> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "actions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "awsIotSqlVersion")
-            Lude.<*> (x Lude..:? "errorAction")
-            Lude.<*> (x Lude..:? "ruleDisabled")
-            Lude.<*> (x Lude..:? "ruleName")
-            Lude.<*> (x Lude..:? "sql")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "TopicRule" Core.$
+      \x ->
+        TopicRule'
+          Core.<$> (x Core..:? "actions")
+          Core.<*> (x Core..:? "awsIotSqlVersion")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "errorAction")
+          Core.<*> (x Core..:? "ruleDisabled")
+          Core.<*> (x Core..:? "ruleName")
+          Core.<*> (x Core..:? "sql")

@@ -28,29 +28,29 @@ module Network.AWS.KMS.GenerateDataKeyPair
 
     -- ** Request lenses
     gdkpKeyId,
+    gdkpKeyPairSpec,
     gdkpEncryptionContext,
     gdkpGrantTokens,
-    gdkpKeyPairSpec,
 
     -- * Destructuring the response
     GenerateDataKeyPairResponse (..),
     mkGenerateDataKeyPairResponse,
 
     -- ** Response lenses
-    gdkprsKeyId,
-    gdkprsPublicKey,
-    gdkprsPrivateKeyPlaintext,
-    gdkprsKeyPairSpec,
-    gdkprsPrivateKeyCiphertextBlob,
-    gdkprsResponseStatus,
+    gdkprrsKeyId,
+    gdkprrsKeyPairSpec,
+    gdkprrsPrivateKeyCiphertextBlob,
+    gdkprrsPrivateKeyPlaintext,
+    gdkprrsPublicKey,
+    gdkprrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGenerateDataKeyPair' smart constructor.
 data GenerateDataKeyPair = GenerateDataKeyPair'
@@ -72,66 +72,37 @@ data GenerateDataKeyPair = GenerateDataKeyPair'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
-    keyId :: Lude.Text,
+    keyId :: Types.KeyId,
+    -- | Determines the type of data key pair that is generated.
+    --
+    -- The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.
+    keyPairSpec :: Types.DataKeyPairSpec,
     -- | Specifies the encryption context that will be used when encrypting the private key in the data key pair.
     --
     -- An /encryption context/ is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.
     -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
-    encryptionContext :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    encryptionContext :: Core.Maybe (Core.HashMap Types.EncryptionContextKey Types.EncryptionContextValue),
     -- | A list of grant tokens.
     --
     -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
-    grantTokens :: Lude.Maybe [Lude.Text],
-    -- | Determines the type of data key pair that is generated.
-    --
-    -- The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.
-    keyPairSpec :: DataKeyPairSpec
+    grantTokens :: Core.Maybe [Types.GrantTokenType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateDataKeyPair' with the minimum fields required to make a request.
---
--- * 'keyId' - Specifies the symmetric CMK that encrypts the private key in the data key pair. You cannot specify an asymmetric CMK or a CMK in a custom key store. To get the type and origin of your CMK, use the 'DescribeKey' operation.
---
--- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Alias name: @alias/ExampleAlias@
---
---
---     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
--- * 'encryptionContext' - Specifies the encryption context that will be used when encrypting the private key in the data key pair.
---
--- An /encryption context/ is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
--- * 'keyPairSpec' - Determines the type of data key pair that is generated.
---
--- The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.
+-- | Creates a 'GenerateDataKeyPair' value with any optional fields omitted.
 mkGenerateDataKeyPair ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyId ->
   -- | 'keyPairSpec'
-  DataKeyPairSpec ->
+  Types.DataKeyPairSpec ->
   GenerateDataKeyPair
-mkGenerateDataKeyPair pKeyId_ pKeyPairSpec_ =
+mkGenerateDataKeyPair keyId keyPairSpec =
   GenerateDataKeyPair'
-    { keyId = pKeyId_,
-      encryptionContext = Lude.Nothing,
-      grantTokens = Lude.Nothing,
-      keyPairSpec = pKeyPairSpec_
+    { keyId,
+      keyPairSpec,
+      encryptionContext = Core.Nothing,
+      grantTokens = Core.Nothing
     }
 
 -- | Specifies the symmetric CMK that encrypts the private key in the data key pair. You cannot specify an asymmetric CMK or a CMK in a custom key store. To get the type and origin of your CMK, use the 'DescribeKey' operation.
@@ -154,9 +125,18 @@ mkGenerateDataKeyPair pKeyId_ pKeyPairSpec_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkpKeyId :: Lens.Lens' GenerateDataKeyPair Lude.Text
-gdkpKeyId = Lens.lens (keyId :: GenerateDataKeyPair -> Lude.Text) (\s a -> s {keyId = a} :: GenerateDataKeyPair)
+gdkpKeyId :: Lens.Lens' GenerateDataKeyPair Types.KeyId
+gdkpKeyId = Lens.field @"keyId"
 {-# DEPRECATED gdkpKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | Determines the type of data key pair that is generated.
+--
+-- The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.
+--
+-- /Note:/ Consider using 'keyPairSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdkpKeyPairSpec :: Lens.Lens' GenerateDataKeyPair Types.DataKeyPairSpec
+gdkpKeyPairSpec = Lens.field @"keyPairSpec"
+{-# DEPRECATED gdkpKeyPairSpec "Use generic-lens or generic-optics with 'keyPairSpec' instead." #-}
 
 -- | Specifies the encryption context that will be used when encrypting the private key in the data key pair.
 --
@@ -164,8 +144,8 @@ gdkpKeyId = Lens.lens (keyId :: GenerateDataKeyPair -> Lude.Text) (\s a -> s {ke
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'encryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkpEncryptionContext :: Lens.Lens' GenerateDataKeyPair (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gdkpEncryptionContext = Lens.lens (encryptionContext :: GenerateDataKeyPair -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {encryptionContext = a} :: GenerateDataKeyPair)
+gdkpEncryptionContext :: Lens.Lens' GenerateDataKeyPair (Core.Maybe (Core.HashMap Types.EncryptionContextKey Types.EncryptionContextValue))
+gdkpEncryptionContext = Lens.field @"encryptionContext"
 {-# DEPRECATED gdkpEncryptionContext "Use generic-lens or generic-optics with 'encryptionContext' instead." #-}
 
 -- | A list of grant tokens.
@@ -173,137 +153,92 @@ gdkpEncryptionContext = Lens.lens (encryptionContext :: GenerateDataKeyPair -> L
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkpGrantTokens :: Lens.Lens' GenerateDataKeyPair (Lude.Maybe [Lude.Text])
-gdkpGrantTokens = Lens.lens (grantTokens :: GenerateDataKeyPair -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: GenerateDataKeyPair)
+gdkpGrantTokens :: Lens.Lens' GenerateDataKeyPair (Core.Maybe [Types.GrantTokenType])
+gdkpGrantTokens = Lens.field @"grantTokens"
 {-# DEPRECATED gdkpGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
 
--- | Determines the type of data key pair that is generated.
---
--- The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.
---
--- /Note:/ Consider using 'keyPairSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkpKeyPairSpec :: Lens.Lens' GenerateDataKeyPair DataKeyPairSpec
-gdkpKeyPairSpec = Lens.lens (keyPairSpec :: GenerateDataKeyPair -> DataKeyPairSpec) (\s a -> s {keyPairSpec = a} :: GenerateDataKeyPair)
-{-# DEPRECATED gdkpKeyPairSpec "Use generic-lens or generic-optics with 'keyPairSpec' instead." #-}
+instance Core.FromJSON GenerateDataKeyPair where
+  toJSON GenerateDataKeyPair {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("KeyPairSpec" Core..= keyPairSpec),
+            ("EncryptionContext" Core..=) Core.<$> encryptionContext,
+            ("GrantTokens" Core..=) Core.<$> grantTokens
+          ]
+      )
 
-instance Lude.AWSRequest GenerateDataKeyPair where
+instance Core.AWSRequest GenerateDataKeyPair where
   type Rs GenerateDataKeyPair = GenerateDataKeyPairResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.GenerateDataKeyPair")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GenerateDataKeyPairResponse'
-            Lude.<$> (x Lude..?> "KeyId")
-            Lude.<*> (x Lude..?> "PublicKey")
-            Lude.<*> (x Lude..?> "PrivateKeyPlaintext")
-            Lude.<*> (x Lude..?> "KeyPairSpec")
-            Lude.<*> (x Lude..?> "PrivateKeyCiphertextBlob")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "KeyId")
+            Core.<*> (x Core..:? "KeyPairSpec")
+            Core.<*> (x Core..:? "PrivateKeyCiphertextBlob")
+            Core.<*> (x Core..:? "PrivateKeyPlaintext")
+            Core.<*> (x Core..:? "PublicKey")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GenerateDataKeyPair where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.GenerateDataKeyPair" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GenerateDataKeyPair where
-  toJSON GenerateDataKeyPair' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            ("EncryptionContext" Lude..=) Lude.<$> encryptionContext,
-            ("GrantTokens" Lude..=) Lude.<$> grantTokens,
-            Lude.Just ("KeyPairSpec" Lude..= keyPairSpec)
-          ]
-      )
-
-instance Lude.ToPath GenerateDataKeyPair where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GenerateDataKeyPair where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGenerateDataKeyPairResponse' smart constructor.
 data GenerateDataKeyPairResponse = GenerateDataKeyPairResponse'
   { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that encrypted the private key.
-    keyId :: Lude.Maybe Lude.Text,
-    -- | The public key (in plaintext).
-    publicKey :: Lude.Maybe Lude.Base64,
-    -- | The plaintext copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
-    privateKeyPlaintext :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    keyId :: Core.Maybe Types.KeyId,
     -- | The type of data key pair that was generated.
-    keyPairSpec :: Lude.Maybe DataKeyPairSpec,
+    keyPairSpec :: Core.Maybe Types.DataKeyPairSpec,
     -- | The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
-    privateKeyCiphertextBlob :: Lude.Maybe Lude.Base64,
+    privateKeyCiphertextBlob :: Core.Maybe Core.Base64,
+    -- | The plaintext copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
+    privateKeyPlaintext :: Core.Maybe (Core.Sensitive Core.Base64),
+    -- | The public key (in plaintext).
+    publicKey :: Core.Maybe Core.Base64,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateDataKeyPairResponse' with the minimum fields required to make a request.
---
--- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that encrypted the private key.
--- * 'publicKey' - The public key (in plaintext).
--- * 'privateKeyPlaintext' - The plaintext copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
--- * 'keyPairSpec' - The type of data key pair that was generated.
--- * 'privateKeyCiphertextBlob' - The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GenerateDataKeyPairResponse' value with any optional fields omitted.
 mkGenerateDataKeyPairResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GenerateDataKeyPairResponse
-mkGenerateDataKeyPairResponse pResponseStatus_ =
+mkGenerateDataKeyPairResponse responseStatus =
   GenerateDataKeyPairResponse'
-    { keyId = Lude.Nothing,
-      publicKey = Lude.Nothing,
-      privateKeyPlaintext = Lude.Nothing,
-      keyPairSpec = Lude.Nothing,
-      privateKeyCiphertextBlob = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { keyId = Core.Nothing,
+      keyPairSpec = Core.Nothing,
+      privateKeyCiphertextBlob = Core.Nothing,
+      privateKeyPlaintext = Core.Nothing,
+      publicKey = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that encrypted the private key.
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkprsKeyId :: Lens.Lens' GenerateDataKeyPairResponse (Lude.Maybe Lude.Text)
-gdkprsKeyId = Lens.lens (keyId :: GenerateDataKeyPairResponse -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: GenerateDataKeyPairResponse)
-{-# DEPRECATED gdkprsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
-
--- | The public key (in plaintext).--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkprsPublicKey :: Lens.Lens' GenerateDataKeyPairResponse (Lude.Maybe Lude.Base64)
-gdkprsPublicKey = Lens.lens (publicKey :: GenerateDataKeyPairResponse -> Lude.Maybe Lude.Base64) (\s a -> s {publicKey = a} :: GenerateDataKeyPairResponse)
-{-# DEPRECATED gdkprsPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
-
--- | The plaintext copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'privateKeyPlaintext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkprsPrivateKeyPlaintext :: Lens.Lens' GenerateDataKeyPairResponse (Lude.Maybe (Lude.Sensitive Lude.Base64))
-gdkprsPrivateKeyPlaintext = Lens.lens (privateKeyPlaintext :: GenerateDataKeyPairResponse -> Lude.Maybe (Lude.Sensitive Lude.Base64)) (\s a -> s {privateKeyPlaintext = a} :: GenerateDataKeyPairResponse)
-{-# DEPRECATED gdkprsPrivateKeyPlaintext "Use generic-lens or generic-optics with 'privateKeyPlaintext' instead." #-}
+gdkprrsKeyId :: Lens.Lens' GenerateDataKeyPairResponse (Core.Maybe Types.KeyId)
+gdkprrsKeyId = Lens.field @"keyId"
+{-# DEPRECATED gdkprrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The type of data key pair that was generated.
 --
 -- /Note:/ Consider using 'keyPairSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkprsKeyPairSpec :: Lens.Lens' GenerateDataKeyPairResponse (Lude.Maybe DataKeyPairSpec)
-gdkprsKeyPairSpec = Lens.lens (keyPairSpec :: GenerateDataKeyPairResponse -> Lude.Maybe DataKeyPairSpec) (\s a -> s {keyPairSpec = a} :: GenerateDataKeyPairResponse)
-{-# DEPRECATED gdkprsKeyPairSpec "Use generic-lens or generic-optics with 'keyPairSpec' instead." #-}
+gdkprrsKeyPairSpec :: Lens.Lens' GenerateDataKeyPairResponse (Core.Maybe Types.DataKeyPairSpec)
+gdkprrsKeyPairSpec = Lens.field @"keyPairSpec"
+{-# DEPRECATED gdkprrsKeyPairSpec "Use generic-lens or generic-optics with 'keyPairSpec' instead." #-}
 
 -- | The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -312,13 +247,35 @@ gdkprsKeyPairSpec = Lens.lens (keyPairSpec :: GenerateDataKeyPairResponse -> Lud
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'privateKeyCiphertextBlob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkprsPrivateKeyCiphertextBlob :: Lens.Lens' GenerateDataKeyPairResponse (Lude.Maybe Lude.Base64)
-gdkprsPrivateKeyCiphertextBlob = Lens.lens (privateKeyCiphertextBlob :: GenerateDataKeyPairResponse -> Lude.Maybe Lude.Base64) (\s a -> s {privateKeyCiphertextBlob = a} :: GenerateDataKeyPairResponse)
-{-# DEPRECATED gdkprsPrivateKeyCiphertextBlob "Use generic-lens or generic-optics with 'privateKeyCiphertextBlob' instead." #-}
+gdkprrsPrivateKeyCiphertextBlob :: Lens.Lens' GenerateDataKeyPairResponse (Core.Maybe Core.Base64)
+gdkprrsPrivateKeyCiphertextBlob = Lens.field @"privateKeyCiphertextBlob"
+{-# DEPRECATED gdkprrsPrivateKeyCiphertextBlob "Use generic-lens or generic-optics with 'privateKeyCiphertextBlob' instead." #-}
+
+-- | The plaintext copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'privateKeyPlaintext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdkprrsPrivateKeyPlaintext :: Lens.Lens' GenerateDataKeyPairResponse (Core.Maybe (Core.Sensitive Core.Base64))
+gdkprrsPrivateKeyPlaintext = Lens.field @"privateKeyPlaintext"
+{-# DEPRECATED gdkprrsPrivateKeyPlaintext "Use generic-lens or generic-optics with 'privateKeyPlaintext' instead." #-}
+
+-- | The public key (in plaintext).--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdkprrsPublicKey :: Lens.Lens' GenerateDataKeyPairResponse (Core.Maybe Core.Base64)
+gdkprrsPublicKey = Lens.field @"publicKey"
+{-# DEPRECATED gdkprrsPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdkprsResponseStatus :: Lens.Lens' GenerateDataKeyPairResponse Lude.Int
-gdkprsResponseStatus = Lens.lens (responseStatus :: GenerateDataKeyPairResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateDataKeyPairResponse)
-{-# DEPRECATED gdkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdkprrsResponseStatus :: Lens.Lens' GenerateDataKeyPairResponse Core.Int
+gdkprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdkprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

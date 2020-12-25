@@ -17,85 +17,77 @@ module Network.AWS.Glue.Types.CodeGenNodeArg
     mkCodeGenNodeArg,
 
     -- * Lenses
-    cgnaValue,
     cgnaName,
+    cgnaValue,
     cgnaParam,
   )
 where
 
+import qualified Network.AWS.Glue.Types.CodeGenArgName as Types
+import qualified Network.AWS.Glue.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An argument or property of a node.
 --
 -- /See:/ 'mkCodeGenNodeArg' smart constructor.
 data CodeGenNodeArg = CodeGenNodeArg'
-  { -- | The value of the argument or property.
-    value :: Lude.Text,
-    -- | The name of the argument or property.
-    name :: Lude.Text,
+  { -- | The name of the argument or property.
+    name :: Types.CodeGenArgName,
+    -- | The value of the argument or property.
+    value :: Types.Value,
     -- | True if the value is used as a parameter.
-    param :: Lude.Maybe Lude.Bool
+    param :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CodeGenNodeArg' with the minimum fields required to make a request.
---
--- * 'value' - The value of the argument or property.
--- * 'name' - The name of the argument or property.
--- * 'param' - True if the value is used as a parameter.
+-- | Creates a 'CodeGenNodeArg' value with any optional fields omitted.
 mkCodeGenNodeArg ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.CodeGenArgName ->
+  -- | 'value'
+  Types.Value ->
   CodeGenNodeArg
-mkCodeGenNodeArg pValue_ pName_ =
-  CodeGenNodeArg'
-    { value = pValue_,
-      name = pName_,
-      param = Lude.Nothing
-    }
-
--- | The value of the argument or property.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgnaValue :: Lens.Lens' CodeGenNodeArg Lude.Text
-cgnaValue = Lens.lens (value :: CodeGenNodeArg -> Lude.Text) (\s a -> s {value = a} :: CodeGenNodeArg)
-{-# DEPRECATED cgnaValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkCodeGenNodeArg name value =
+  CodeGenNodeArg' {name, value, param = Core.Nothing}
 
 -- | The name of the argument or property.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgnaName :: Lens.Lens' CodeGenNodeArg Lude.Text
-cgnaName = Lens.lens (name :: CodeGenNodeArg -> Lude.Text) (\s a -> s {name = a} :: CodeGenNodeArg)
+cgnaName :: Lens.Lens' CodeGenNodeArg Types.CodeGenArgName
+cgnaName = Lens.field @"name"
 {-# DEPRECATED cgnaName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The value of the argument or property.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgnaValue :: Lens.Lens' CodeGenNodeArg Types.Value
+cgnaValue = Lens.field @"value"
+{-# DEPRECATED cgnaValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | True if the value is used as a parameter.
 --
 -- /Note:/ Consider using 'param' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgnaParam :: Lens.Lens' CodeGenNodeArg (Lude.Maybe Lude.Bool)
-cgnaParam = Lens.lens (param :: CodeGenNodeArg -> Lude.Maybe Lude.Bool) (\s a -> s {param = a} :: CodeGenNodeArg)
+cgnaParam :: Lens.Lens' CodeGenNodeArg (Core.Maybe Core.Bool)
+cgnaParam = Lens.field @"param"
 {-# DEPRECATED cgnaParam "Use generic-lens or generic-optics with 'param' instead." #-}
 
-instance Lude.FromJSON CodeGenNodeArg where
-  parseJSON =
-    Lude.withObject
-      "CodeGenNodeArg"
-      ( \x ->
-          CodeGenNodeArg'
-            Lude.<$> (x Lude..: "Value")
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..:? "Param")
-      )
-
-instance Lude.ToJSON CodeGenNodeArg where
-  toJSON CodeGenNodeArg' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Value" Lude..= value),
-            Lude.Just ("Name" Lude..= name),
-            ("Param" Lude..=) Lude.<$> param
+instance Core.FromJSON CodeGenNodeArg where
+  toJSON CodeGenNodeArg {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Value" Core..= value),
+            ("Param" Core..=) Core.<$> param
           ]
       )
+
+instance Core.FromJSON CodeGenNodeArg where
+  parseJSON =
+    Core.withObject "CodeGenNodeArg" Core.$
+      \x ->
+        CodeGenNodeArg'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..: "Value")
+          Core.<*> (x Core..:? "Param")

@@ -22,152 +22,137 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     mkDescribeLogGroups,
 
     -- ** Request lenses
+    dlgLimit,
     dlgLogGroupNamePrefix,
     dlgNextToken,
-    dlgLimit,
 
     -- * Destructuring the response
     DescribeLogGroupsResponse (..),
     mkDescribeLogGroupsResponse,
 
     -- ** Response lenses
-    dlgrsLogGroups,
-    dlgrsNextToken,
-    dlgrsResponseStatus,
+    dlgrrsLogGroups,
+    dlgrrsNextToken,
+    dlgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLogGroups' smart constructor.
 data DescribeLogGroups = DescribeLogGroups'
-  { -- | The prefix to match.
-    logGroupNamePrefix :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+    limit :: Core.Maybe Core.Natural,
+    -- | The prefix to match.
+    logGroupNamePrefix :: Core.Maybe Types.LogGroupNamePrefix,
     -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-    limit :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLogGroups' with the minimum fields required to make a request.
---
--- * 'logGroupNamePrefix' - The prefix to match.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+-- | Creates a 'DescribeLogGroups' value with any optional fields omitted.
 mkDescribeLogGroups ::
   DescribeLogGroups
 mkDescribeLogGroups =
   DescribeLogGroups'
-    { logGroupNamePrefix = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing
+    { limit = Core.Nothing,
+      logGroupNamePrefix = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgLimit :: Lens.Lens' DescribeLogGroups (Core.Maybe Core.Natural)
+dlgLimit = Lens.field @"limit"
+{-# DEPRECATED dlgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The prefix to match.
 --
 -- /Note:/ Consider using 'logGroupNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgLogGroupNamePrefix :: Lens.Lens' DescribeLogGroups (Lude.Maybe Lude.Text)
-dlgLogGroupNamePrefix = Lens.lens (logGroupNamePrefix :: DescribeLogGroups -> Lude.Maybe Lude.Text) (\s a -> s {logGroupNamePrefix = a} :: DescribeLogGroups)
+dlgLogGroupNamePrefix :: Lens.Lens' DescribeLogGroups (Core.Maybe Types.LogGroupNamePrefix)
+dlgLogGroupNamePrefix = Lens.field @"logGroupNamePrefix"
 {-# DEPRECATED dlgLogGroupNamePrefix "Use generic-lens or generic-optics with 'logGroupNamePrefix' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgNextToken :: Lens.Lens' DescribeLogGroups (Lude.Maybe Lude.Text)
-dlgNextToken = Lens.lens (nextToken :: DescribeLogGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLogGroups)
+dlgNextToken :: Lens.Lens' DescribeLogGroups (Core.Maybe Types.NextToken)
+dlgNextToken = Lens.field @"nextToken"
 {-# DEPRECATED dlgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgLimit :: Lens.Lens' DescribeLogGroups (Lude.Maybe Lude.Natural)
-dlgLimit = Lens.lens (limit :: DescribeLogGroups -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeLogGroups)
-{-# DEPRECATED dlgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+instance Core.FromJSON DescribeLogGroups where
+  toJSON DescribeLogGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("limit" Core..=) Core.<$> limit,
+            ("logGroupNamePrefix" Core..=) Core.<$> logGroupNamePrefix,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Page.AWSPager DescribeLogGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. dlgrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dlgrsLogGroups) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dlgNextToken Lens..~ rs Lens.^. dlgrsNextToken
-
-instance Lude.AWSRequest DescribeLogGroups where
+instance Core.AWSRequest DescribeLogGroups where
   type Rs DescribeLogGroups = DescribeLogGroupsResponse
-  request = Req.postJSON cloudWatchLogsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.DescribeLogGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeLogGroupsResponse'
-            Lude.<$> (x Lude..?> "logGroups" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "logGroups")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeLogGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.DescribeLogGroups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeLogGroups where
-  toJSON DescribeLogGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("logGroupNamePrefix" Lude..=) Lude.<$> logGroupNamePrefix,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeLogGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLogGroups where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeLogGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"logGroups" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeLogGroupsResponse' smart constructor.
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
   { -- | The log groups.
     --
     -- If the @retentionInDays@ value if not included for a log group, then that log group is set to have its events never expire.
-    logGroups :: Lude.Maybe [LogGroup],
-    nextToken :: Lude.Maybe Lude.Text,
+    logGroups :: Core.Maybe [Types.LogGroup],
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLogGroupsResponse' with the minimum fields required to make a request.
---
--- * 'logGroups' - The log groups.
---
--- If the @retentionInDays@ value if not included for a log group, then that log group is set to have its events never expire.
--- * 'nextToken' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLogGroupsResponse' value with any optional fields omitted.
 mkDescribeLogGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLogGroupsResponse
-mkDescribeLogGroupsResponse pResponseStatus_ =
+mkDescribeLogGroupsResponse responseStatus =
   DescribeLogGroupsResponse'
-    { logGroups = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { logGroups = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The log groups.
@@ -175,20 +160,20 @@ mkDescribeLogGroupsResponse pResponseStatus_ =
 -- If the @retentionInDays@ value if not included for a log group, then that log group is set to have its events never expire.
 --
 -- /Note:/ Consider using 'logGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrsLogGroups :: Lens.Lens' DescribeLogGroupsResponse (Lude.Maybe [LogGroup])
-dlgrsLogGroups = Lens.lens (logGroups :: DescribeLogGroupsResponse -> Lude.Maybe [LogGroup]) (\s a -> s {logGroups = a} :: DescribeLogGroupsResponse)
-{-# DEPRECATED dlgrsLogGroups "Use generic-lens or generic-optics with 'logGroups' instead." #-}
+dlgrrsLogGroups :: Lens.Lens' DescribeLogGroupsResponse (Core.Maybe [Types.LogGroup])
+dlgrrsLogGroups = Lens.field @"logGroups"
+{-# DEPRECATED dlgrrsLogGroups "Use generic-lens or generic-optics with 'logGroups' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrsNextToken :: Lens.Lens' DescribeLogGroupsResponse (Lude.Maybe Lude.Text)
-dlgrsNextToken = Lens.lens (nextToken :: DescribeLogGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLogGroupsResponse)
-{-# DEPRECATED dlgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dlgrrsNextToken :: Lens.Lens' DescribeLogGroupsResponse (Core.Maybe Types.NextToken)
+dlgrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlgrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrsResponseStatus :: Lens.Lens' DescribeLogGroupsResponse Lude.Int
-dlgrsResponseStatus = Lens.lens (responseStatus :: DescribeLogGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLogGroupsResponse)
-{-# DEPRECATED dlgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlgrrsResponseStatus :: Lens.Lens' DescribeLogGroupsResponse Core.Int
+dlgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

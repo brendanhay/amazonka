@@ -13,51 +13,56 @@
 module Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
   ( DescribePackagesFilterName
       ( DescribePackagesFilterName',
-        PackageId,
-        PackageName,
-        PackageStatus
+        DescribePackagesFilterNamePackageID,
+        DescribePackagesFilterNamePackageName,
+        DescribePackagesFilterNamePackageStatus,
+        fromDescribePackagesFilterName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DescribePackagesFilterName = DescribePackagesFilterName' Lude.Text
+newtype DescribePackagesFilterName = DescribePackagesFilterName'
+  { fromDescribePackagesFilterName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PackageId :: DescribePackagesFilterName
-pattern PackageId = DescribePackagesFilterName' "PackageID"
+pattern DescribePackagesFilterNamePackageID :: DescribePackagesFilterName
+pattern DescribePackagesFilterNamePackageID = DescribePackagesFilterName' "PackageID"
 
-pattern PackageName :: DescribePackagesFilterName
-pattern PackageName = DescribePackagesFilterName' "PackageName"
+pattern DescribePackagesFilterNamePackageName :: DescribePackagesFilterName
+pattern DescribePackagesFilterNamePackageName = DescribePackagesFilterName' "PackageName"
 
-pattern PackageStatus :: DescribePackagesFilterName
-pattern PackageStatus = DescribePackagesFilterName' "PackageStatus"
+pattern DescribePackagesFilterNamePackageStatus :: DescribePackagesFilterName
+pattern DescribePackagesFilterNamePackageStatus = DescribePackagesFilterName' "PackageStatus"
 
 {-# COMPLETE
-  PackageId,
-  PackageName,
-  PackageStatus,
+  DescribePackagesFilterNamePackageID,
+  DescribePackagesFilterNamePackageName,
+  DescribePackagesFilterNamePackageStatus,
   DescribePackagesFilterName'
   #-}

@@ -13,61 +13,66 @@
 module Network.AWS.SecretsManager.Types.FilterNameStringType
   ( FilterNameStringType
       ( FilterNameStringType',
-        Description,
-        Name,
-        TagKey,
-        TagValue,
-        All
+        FilterNameStringTypeDescription,
+        FilterNameStringTypeName,
+        FilterNameStringTypeTagKey,
+        FilterNameStringTypeTagValue,
+        FilterNameStringTypeAll,
+        fromFilterNameStringType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FilterNameStringType = FilterNameStringType' Lude.Text
+newtype FilterNameStringType = FilterNameStringType'
+  { fromFilterNameStringType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Description :: FilterNameStringType
-pattern Description = FilterNameStringType' "description"
+pattern FilterNameStringTypeDescription :: FilterNameStringType
+pattern FilterNameStringTypeDescription = FilterNameStringType' "description"
 
-pattern Name :: FilterNameStringType
-pattern Name = FilterNameStringType' "name"
+pattern FilterNameStringTypeName :: FilterNameStringType
+pattern FilterNameStringTypeName = FilterNameStringType' "name"
 
-pattern TagKey :: FilterNameStringType
-pattern TagKey = FilterNameStringType' "tag-key"
+pattern FilterNameStringTypeTagKey :: FilterNameStringType
+pattern FilterNameStringTypeTagKey = FilterNameStringType' "tag-key"
 
-pattern TagValue :: FilterNameStringType
-pattern TagValue = FilterNameStringType' "tag-value"
+pattern FilterNameStringTypeTagValue :: FilterNameStringType
+pattern FilterNameStringTypeTagValue = FilterNameStringType' "tag-value"
 
-pattern All :: FilterNameStringType
-pattern All = FilterNameStringType' "all"
+pattern FilterNameStringTypeAll :: FilterNameStringType
+pattern FilterNameStringTypeAll = FilterNameStringType' "all"
 
 {-# COMPLETE
-  Description,
-  Name,
-  TagKey,
-  TagValue,
-  All,
+  FilterNameStringTypeDescription,
+  FilterNameStringTypeName,
+  FilterNameStringTypeTagKey,
+  FilterNameStringTypeTagValue,
+  FilterNameStringTypeAll,
   FilterNameStringType'
   #-}

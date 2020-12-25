@@ -30,59 +30,56 @@ module Network.AWS.EFS.DeleteAccessPoint
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAccessPoint' smart constructor.
 newtype DeleteAccessPoint = DeleteAccessPoint'
   { -- | The ID of the access point that you want to delete.
-    accessPointId :: Lude.Text
+    accessPointId :: Types.AccessPointId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccessPoint' with the minimum fields required to make a request.
---
--- * 'accessPointId' - The ID of the access point that you want to delete.
+-- | Creates a 'DeleteAccessPoint' value with any optional fields omitted.
 mkDeleteAccessPoint ::
   -- | 'accessPointId'
-  Lude.Text ->
+  Types.AccessPointId ->
   DeleteAccessPoint
-mkDeleteAccessPoint pAccessPointId_ =
-  DeleteAccessPoint' {accessPointId = pAccessPointId_}
+mkDeleteAccessPoint accessPointId =
+  DeleteAccessPoint' {accessPointId}
 
 -- | The ID of the access point that you want to delete.
 --
 -- /Note:/ Consider using 'accessPointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAccessPointId :: Lens.Lens' DeleteAccessPoint Lude.Text
-dAccessPointId = Lens.lens (accessPointId :: DeleteAccessPoint -> Lude.Text) (\s a -> s {accessPointId = a} :: DeleteAccessPoint)
+dAccessPointId :: Lens.Lens' DeleteAccessPoint Types.AccessPointId
+dAccessPointId = Lens.field @"accessPointId"
 {-# DEPRECATED dAccessPointId "Use generic-lens or generic-optics with 'accessPointId' instead." #-}
 
-instance Lude.AWSRequest DeleteAccessPoint where
+instance Core.AWSRequest DeleteAccessPoint where
   type Rs DeleteAccessPoint = DeleteAccessPointResponse
-  request = Req.delete efsService
-  response = Res.receiveNull DeleteAccessPointResponse'
-
-instance Lude.ToHeaders DeleteAccessPoint where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteAccessPoint where
-  toPath DeleteAccessPoint' {..} =
-    Lude.mconcat
-      ["/2015-02-01/access-points/", Lude.toBS accessPointId]
-
-instance Lude.ToQuery DeleteAccessPoint where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2015-02-01/access-points/" Core.<> (Core.toText accessPointId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteAccessPointResponse'
 
 -- | /See:/ 'mkDeleteAccessPointResponse' smart constructor.
 data DeleteAccessPointResponse = DeleteAccessPointResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccessPointResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAccessPointResponse' value with any optional fields omitted.
 mkDeleteAccessPointResponse ::
   DeleteAccessPointResponse
 mkDeleteAccessPointResponse = DeleteAccessPointResponse'

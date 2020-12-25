@@ -13,61 +13,63 @@
 module Network.AWS.Lightsail.Types.DiskState
   ( DiskState
       ( DiskState',
-        Pending,
-        Error,
-        Available,
-        InUse,
-        Unknown
+        DiskStatePending,
+        DiskStateError,
+        DiskStateAvailable,
+        DiskStateInUse,
+        DiskStateUnknown,
+        fromDiskState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DiskState = DiskState' Lude.Text
+newtype DiskState = DiskState' {fromDiskState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pending :: DiskState
-pattern Pending = DiskState' "pending"
+pattern DiskStatePending :: DiskState
+pattern DiskStatePending = DiskState' "pending"
 
-pattern Error :: DiskState
-pattern Error = DiskState' "error"
+pattern DiskStateError :: DiskState
+pattern DiskStateError = DiskState' "error"
 
-pattern Available :: DiskState
-pattern Available = DiskState' "available"
+pattern DiskStateAvailable :: DiskState
+pattern DiskStateAvailable = DiskState' "available"
 
-pattern InUse :: DiskState
-pattern InUse = DiskState' "in-use"
+pattern DiskStateInUse :: DiskState
+pattern DiskStateInUse = DiskState' "in-use"
 
-pattern Unknown :: DiskState
-pattern Unknown = DiskState' "unknown"
+pattern DiskStateUnknown :: DiskState
+pattern DiskStateUnknown = DiskState' "unknown"
 
 {-# COMPLETE
-  Pending,
-  Error,
-  Available,
-  InUse,
-  Unknown,
+  DiskStatePending,
+  DiskStateError,
+  DiskStateAvailable,
+  DiskStateInUse,
+  DiskStateUnknown,
   DiskState'
   #-}

@@ -13,1221 +13,1226 @@
 module Network.AWS.Connect.Types.PhoneNumberCountryCode
   ( PhoneNumberCountryCode
       ( PhoneNumberCountryCode',
-        AF,
-        AL,
-        DZ,
-        AS,
-        AD,
-        AO,
-        AI,
-        AQ,
-        AG,
-        AR,
-        AM,
-        AW,
-        AU,
-        AT,
-        AZ,
-        BS,
-        BH,
-        BD,
-        BB,
-        BY,
-        BE,
-        BZ,
-        BJ,
-        BM,
-        BT,
-        BO,
-        BA,
-        BW,
-        BR,
-        IO,
-        VG,
-        BN,
-        BG,
-        BF,
-        BI,
-        KH,
-        CM,
-        CA,
-        CV,
-        KY,
-        CF,
-        TD,
-        CL,
-        CN,
-        CX,
-        CC,
-        CO,
-        KM,
-        CK,
-        CR,
-        HR,
-        CU,
-        CW,
-        CY,
-        CZ,
-        CD,
-        DK,
-        DJ,
-        DM,
-        DO,
-        TL,
-        EC,
-        EG,
-        SV,
-        GQ,
-        ER,
-        EE,
-        ET,
-        FK,
-        FO,
-        FJ,
-        FI,
-        FR,
-        PF,
-        GA,
-        GM,
-        GE,
-        DE,
-        GH,
-        GI,
-        GR,
-        GL,
-        GD,
-        GU,
-        GT,
-        GG,
-        GN,
-        GW,
-        GY,
-        HT,
-        HN,
-        HK,
-        HU,
-        IS,
-        IN,
-        Id,
-        IR,
-        IQ,
-        IE,
-        IM,
-        IL,
-        IT,
-        CI,
-        JM,
-        JP,
-        JE,
-        JO,
-        KZ,
-        KE,
-        KI,
-        KW,
-        KG,
-        LA,
-        LV,
-        LB,
-        LS,
-        LR,
-        LY,
-        LI,
-        LT,
-        LU,
-        MO,
-        MK,
-        MG,
-        MW,
-        MY,
-        MV,
-        ML,
-        MT,
-        MH,
-        MR,
-        MU,
-        YT,
-        MX,
-        FM,
-        MD,
-        MC,
-        MN,
-        ME,
-        MS,
-        MA,
-        MZ,
-        MM,
-        NA,
-        NR,
-        NP,
-        NL,
-        AN,
-        NC,
-        NZ,
-        NI,
-        NE,
-        NG,
-        NU,
-        KP,
-        MP,
-        NO,
-        OM,
-        PK,
-        PW,
-        PA,
-        PG,
-        PY,
-        PE,
-        PH,
-        PN,
-        PL,
-        PT,
-        PR,
-        QA,
-        CG,
-        RE,
-        RO,
-        RU,
-        RW,
-        BL,
-        SH,
-        KN,
-        LC,
-        MF,
-        PM,
-        VC,
-        WS,
-        SM,
-        ST,
-        SA,
-        SN,
-        RS,
-        SC,
-        SL,
-        SG,
-        SX,
-        SK,
-        SI,
-        SB,
-        SO,
-        ZA,
-        KR,
-        ES,
-        LK,
-        SD,
-        SR,
-        SJ,
-        SZ,
-        SE,
-        CH,
-        SY,
-        TW,
-        TJ,
-        TZ,
-        TH,
-        TG,
-        TK,
-        TO,
-        TT,
-        TN,
-        TR,
-        TM,
-        TC,
-        TV,
-        VI,
-        UG,
-        UA,
-        AE,
-        GB,
-        US,
-        UY,
-        UZ,
-        VU,
-        VA,
-        VE,
-        VN,
-        WF,
-        EH,
-        YE,
-        ZM,
-        ZW
+        PhoneNumberCountryCodeAF,
+        PhoneNumberCountryCodeAL,
+        PhoneNumberCountryCodeDZ,
+        PhoneNumberCountryCodeAS,
+        PhoneNumberCountryCodeAD,
+        PhoneNumberCountryCodeAO,
+        PhoneNumberCountryCodeAI,
+        PhoneNumberCountryCodeAQ,
+        PhoneNumberCountryCodeAG,
+        PhoneNumberCountryCodeAR,
+        PhoneNumberCountryCodeAM,
+        PhoneNumberCountryCodeAW,
+        PhoneNumberCountryCodeAU,
+        PhoneNumberCountryCodeAT,
+        PhoneNumberCountryCodeAZ,
+        PhoneNumberCountryCodeBS,
+        PhoneNumberCountryCodeBH,
+        PhoneNumberCountryCodeBD,
+        PhoneNumberCountryCodeBB,
+        PhoneNumberCountryCodeBY,
+        PhoneNumberCountryCodeBE,
+        PhoneNumberCountryCodeBZ,
+        PhoneNumberCountryCodeBJ,
+        PhoneNumberCountryCodeBM,
+        PhoneNumberCountryCodeBT,
+        PhoneNumberCountryCodeBO,
+        PhoneNumberCountryCodeBA,
+        PhoneNumberCountryCodeBW,
+        PhoneNumberCountryCodeBR,
+        PhoneNumberCountryCodeIO,
+        PhoneNumberCountryCodeVG,
+        PhoneNumberCountryCodeBN,
+        PhoneNumberCountryCodeBG,
+        PhoneNumberCountryCodeBF,
+        PhoneNumberCountryCodeBI,
+        PhoneNumberCountryCodeKH,
+        PhoneNumberCountryCodeCM,
+        PhoneNumberCountryCodeCA,
+        PhoneNumberCountryCodeCV,
+        PhoneNumberCountryCodeKY,
+        PhoneNumberCountryCodeCF,
+        PhoneNumberCountryCodeTD,
+        PhoneNumberCountryCodeCL,
+        PhoneNumberCountryCodeCN,
+        PhoneNumberCountryCodeCX,
+        PhoneNumberCountryCodeCC,
+        PhoneNumberCountryCodeCO,
+        PhoneNumberCountryCodeKM,
+        PhoneNumberCountryCodeCK,
+        PhoneNumberCountryCodeCR,
+        PhoneNumberCountryCodeHR,
+        PhoneNumberCountryCodeCU,
+        PhoneNumberCountryCodeCW,
+        PhoneNumberCountryCodeCY,
+        PhoneNumberCountryCodeCZ,
+        PhoneNumberCountryCodeCD,
+        PhoneNumberCountryCodeDK,
+        PhoneNumberCountryCodeDJ,
+        PhoneNumberCountryCodeDM,
+        PhoneNumberCountryCodeDO,
+        PhoneNumberCountryCodeTL,
+        PhoneNumberCountryCodeEC,
+        PhoneNumberCountryCodeEG,
+        PhoneNumberCountryCodeSV,
+        PhoneNumberCountryCodeGQ,
+        PhoneNumberCountryCodeER,
+        PhoneNumberCountryCodeEE,
+        PhoneNumberCountryCodeET,
+        PhoneNumberCountryCodeFK,
+        PhoneNumberCountryCodeFO,
+        PhoneNumberCountryCodeFJ,
+        PhoneNumberCountryCodeFI,
+        PhoneNumberCountryCodeFR,
+        PhoneNumberCountryCodePF,
+        PhoneNumberCountryCodeGA,
+        PhoneNumberCountryCodeGM,
+        PhoneNumberCountryCodeGE,
+        PhoneNumberCountryCodeDE,
+        PhoneNumberCountryCodeGH,
+        PhoneNumberCountryCodeGI,
+        PhoneNumberCountryCodeGR,
+        PhoneNumberCountryCodeGL,
+        PhoneNumberCountryCodeGD,
+        PhoneNumberCountryCodeGU,
+        PhoneNumberCountryCodeGT,
+        PhoneNumberCountryCodeGG,
+        PhoneNumberCountryCodeGN,
+        PhoneNumberCountryCodeGW,
+        PhoneNumberCountryCodeGY,
+        PhoneNumberCountryCodeHT,
+        PhoneNumberCountryCodeHN,
+        PhoneNumberCountryCodeHK,
+        PhoneNumberCountryCodeHU,
+        PhoneNumberCountryCodeIS,
+        PhoneNumberCountryCodeIN,
+        PhoneNumberCountryCodeID,
+        PhoneNumberCountryCodeIR,
+        PhoneNumberCountryCodeIQ,
+        PhoneNumberCountryCodeIE,
+        PhoneNumberCountryCodeIM,
+        PhoneNumberCountryCodeIL,
+        PhoneNumberCountryCodeIT,
+        PhoneNumberCountryCodeCI,
+        PhoneNumberCountryCodeJM,
+        PhoneNumberCountryCodeJP,
+        PhoneNumberCountryCodeJE,
+        PhoneNumberCountryCodeJO,
+        PhoneNumberCountryCodeKZ,
+        PhoneNumberCountryCodeKE,
+        PhoneNumberCountryCodeKI,
+        PhoneNumberCountryCodeKW,
+        PhoneNumberCountryCodeKG,
+        PhoneNumberCountryCodeLA,
+        PhoneNumberCountryCodeLV,
+        PhoneNumberCountryCodeLB,
+        PhoneNumberCountryCodeLS,
+        PhoneNumberCountryCodeLR,
+        PhoneNumberCountryCodeLY,
+        PhoneNumberCountryCodeLI,
+        PhoneNumberCountryCodeLT,
+        PhoneNumberCountryCodeLU,
+        PhoneNumberCountryCodeMO,
+        PhoneNumberCountryCodeMK,
+        PhoneNumberCountryCodeMG,
+        PhoneNumberCountryCodeMW,
+        PhoneNumberCountryCodeMY,
+        PhoneNumberCountryCodeMV,
+        PhoneNumberCountryCodeML,
+        PhoneNumberCountryCodeMT,
+        PhoneNumberCountryCodeMH,
+        PhoneNumberCountryCodeMR,
+        PhoneNumberCountryCodeMU,
+        PhoneNumberCountryCodeYT,
+        PhoneNumberCountryCodeMX,
+        PhoneNumberCountryCodeFM,
+        PhoneNumberCountryCodeMD,
+        PhoneNumberCountryCodeMC,
+        PhoneNumberCountryCodeMN,
+        PhoneNumberCountryCodeME,
+        PhoneNumberCountryCodeMS,
+        PhoneNumberCountryCodeMA,
+        PhoneNumberCountryCodeMZ,
+        PhoneNumberCountryCodeMM,
+        PhoneNumberCountryCodeNA,
+        PhoneNumberCountryCodeNR,
+        PhoneNumberCountryCodeNP,
+        PhoneNumberCountryCodeNL,
+        PhoneNumberCountryCodeAN,
+        PhoneNumberCountryCodeNC,
+        PhoneNumberCountryCodeNZ,
+        PhoneNumberCountryCodeNI,
+        PhoneNumberCountryCodeNE,
+        PhoneNumberCountryCodeNG,
+        PhoneNumberCountryCodeNU,
+        PhoneNumberCountryCodeKP,
+        PhoneNumberCountryCodeMP,
+        PhoneNumberCountryCodeNO,
+        PhoneNumberCountryCodeOM,
+        PhoneNumberCountryCodePK,
+        PhoneNumberCountryCodePW,
+        PhoneNumberCountryCodePA,
+        PhoneNumberCountryCodePG,
+        PhoneNumberCountryCodePY,
+        PhoneNumberCountryCodePE,
+        PhoneNumberCountryCodePH,
+        PhoneNumberCountryCodePN,
+        PhoneNumberCountryCodePL,
+        PhoneNumberCountryCodePT,
+        PhoneNumberCountryCodePR,
+        PhoneNumberCountryCodeQA,
+        PhoneNumberCountryCodeCG,
+        PhoneNumberCountryCodeRE,
+        PhoneNumberCountryCodeRO,
+        PhoneNumberCountryCodeRU,
+        PhoneNumberCountryCodeRW,
+        PhoneNumberCountryCodeBL,
+        PhoneNumberCountryCodeSH,
+        PhoneNumberCountryCodeKN,
+        PhoneNumberCountryCodeLC,
+        PhoneNumberCountryCodeMF,
+        PhoneNumberCountryCodePM,
+        PhoneNumberCountryCodeVC,
+        PhoneNumberCountryCodeWS,
+        PhoneNumberCountryCodeSM,
+        PhoneNumberCountryCodeST,
+        PhoneNumberCountryCodeSA,
+        PhoneNumberCountryCodeSN,
+        PhoneNumberCountryCodeRS,
+        PhoneNumberCountryCodeSC,
+        PhoneNumberCountryCodeSL,
+        PhoneNumberCountryCodeSG,
+        PhoneNumberCountryCodeSX,
+        PhoneNumberCountryCodeSK,
+        PhoneNumberCountryCodeSI,
+        PhoneNumberCountryCodeSB,
+        PhoneNumberCountryCodeSO,
+        PhoneNumberCountryCodeZA,
+        PhoneNumberCountryCodeKR,
+        PhoneNumberCountryCodeES,
+        PhoneNumberCountryCodeLK,
+        PhoneNumberCountryCodeSD,
+        PhoneNumberCountryCodeSR,
+        PhoneNumberCountryCodeSJ,
+        PhoneNumberCountryCodeSZ,
+        PhoneNumberCountryCodeSE,
+        PhoneNumberCountryCodeCH,
+        PhoneNumberCountryCodeSY,
+        PhoneNumberCountryCodeTW,
+        PhoneNumberCountryCodeTJ,
+        PhoneNumberCountryCodeTZ,
+        PhoneNumberCountryCodeTH,
+        PhoneNumberCountryCodeTG,
+        PhoneNumberCountryCodeTK,
+        PhoneNumberCountryCodeTO,
+        PhoneNumberCountryCodeTT,
+        PhoneNumberCountryCodeTN,
+        PhoneNumberCountryCodeTR,
+        PhoneNumberCountryCodeTM,
+        PhoneNumberCountryCodeTC,
+        PhoneNumberCountryCodeTV,
+        PhoneNumberCountryCodeVI,
+        PhoneNumberCountryCodeUG,
+        PhoneNumberCountryCodeUA,
+        PhoneNumberCountryCodeAE,
+        PhoneNumberCountryCodeGB,
+        PhoneNumberCountryCodeUS,
+        PhoneNumberCountryCodeUY,
+        PhoneNumberCountryCodeUZ,
+        PhoneNumberCountryCodeVU,
+        PhoneNumberCountryCodeVA,
+        PhoneNumberCountryCodeVE,
+        PhoneNumberCountryCodeVN,
+        PhoneNumberCountryCodeWF,
+        PhoneNumberCountryCodeEH,
+        PhoneNumberCountryCodeYE,
+        PhoneNumberCountryCodeZM,
+        PhoneNumberCountryCodeZW,
+        fromPhoneNumberCountryCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PhoneNumberCountryCode = PhoneNumberCountryCode' Lude.Text
+newtype PhoneNumberCountryCode = PhoneNumberCountryCode'
+  { fromPhoneNumberCountryCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AF :: PhoneNumberCountryCode
-pattern AF = PhoneNumberCountryCode' "AF"
+pattern PhoneNumberCountryCodeAF :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAF = PhoneNumberCountryCode' "AF"
 
-pattern AL :: PhoneNumberCountryCode
-pattern AL = PhoneNumberCountryCode' "AL"
+pattern PhoneNumberCountryCodeAL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAL = PhoneNumberCountryCode' "AL"
 
-pattern DZ :: PhoneNumberCountryCode
-pattern DZ = PhoneNumberCountryCode' "DZ"
+pattern PhoneNumberCountryCodeDZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeDZ = PhoneNumberCountryCode' "DZ"
 
-pattern AS :: PhoneNumberCountryCode
-pattern AS = PhoneNumberCountryCode' "AS"
+pattern PhoneNumberCountryCodeAS :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAS = PhoneNumberCountryCode' "AS"
 
-pattern AD :: PhoneNumberCountryCode
-pattern AD = PhoneNumberCountryCode' "AD"
+pattern PhoneNumberCountryCodeAD :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAD = PhoneNumberCountryCode' "AD"
 
-pattern AO :: PhoneNumberCountryCode
-pattern AO = PhoneNumberCountryCode' "AO"
+pattern PhoneNumberCountryCodeAO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAO = PhoneNumberCountryCode' "AO"
 
-pattern AI :: PhoneNumberCountryCode
-pattern AI = PhoneNumberCountryCode' "AI"
+pattern PhoneNumberCountryCodeAI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAI = PhoneNumberCountryCode' "AI"
 
-pattern AQ :: PhoneNumberCountryCode
-pattern AQ = PhoneNumberCountryCode' "AQ"
+pattern PhoneNumberCountryCodeAQ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAQ = PhoneNumberCountryCode' "AQ"
 
-pattern AG :: PhoneNumberCountryCode
-pattern AG = PhoneNumberCountryCode' "AG"
+pattern PhoneNumberCountryCodeAG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAG = PhoneNumberCountryCode' "AG"
 
-pattern AR :: PhoneNumberCountryCode
-pattern AR = PhoneNumberCountryCode' "AR"
+pattern PhoneNumberCountryCodeAR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAR = PhoneNumberCountryCode' "AR"
 
-pattern AM :: PhoneNumberCountryCode
-pattern AM = PhoneNumberCountryCode' "AM"
+pattern PhoneNumberCountryCodeAM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAM = PhoneNumberCountryCode' "AM"
 
-pattern AW :: PhoneNumberCountryCode
-pattern AW = PhoneNumberCountryCode' "AW"
+pattern PhoneNumberCountryCodeAW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAW = PhoneNumberCountryCode' "AW"
 
-pattern AU :: PhoneNumberCountryCode
-pattern AU = PhoneNumberCountryCode' "AU"
+pattern PhoneNumberCountryCodeAU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAU = PhoneNumberCountryCode' "AU"
 
-pattern AT :: PhoneNumberCountryCode
-pattern AT = PhoneNumberCountryCode' "AT"
+pattern PhoneNumberCountryCodeAT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAT = PhoneNumberCountryCode' "AT"
 
-pattern AZ :: PhoneNumberCountryCode
-pattern AZ = PhoneNumberCountryCode' "AZ"
+pattern PhoneNumberCountryCodeAZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAZ = PhoneNumberCountryCode' "AZ"
 
-pattern BS :: PhoneNumberCountryCode
-pattern BS = PhoneNumberCountryCode' "BS"
+pattern PhoneNumberCountryCodeBS :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBS = PhoneNumberCountryCode' "BS"
 
-pattern BH :: PhoneNumberCountryCode
-pattern BH = PhoneNumberCountryCode' "BH"
+pattern PhoneNumberCountryCodeBH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBH = PhoneNumberCountryCode' "BH"
 
-pattern BD :: PhoneNumberCountryCode
-pattern BD = PhoneNumberCountryCode' "BD"
+pattern PhoneNumberCountryCodeBD :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBD = PhoneNumberCountryCode' "BD"
 
-pattern BB :: PhoneNumberCountryCode
-pattern BB = PhoneNumberCountryCode' "BB"
+pattern PhoneNumberCountryCodeBB :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBB = PhoneNumberCountryCode' "BB"
 
-pattern BY :: PhoneNumberCountryCode
-pattern BY = PhoneNumberCountryCode' "BY"
+pattern PhoneNumberCountryCodeBY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBY = PhoneNumberCountryCode' "BY"
 
-pattern BE :: PhoneNumberCountryCode
-pattern BE = PhoneNumberCountryCode' "BE"
+pattern PhoneNumberCountryCodeBE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBE = PhoneNumberCountryCode' "BE"
 
-pattern BZ :: PhoneNumberCountryCode
-pattern BZ = PhoneNumberCountryCode' "BZ"
+pattern PhoneNumberCountryCodeBZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBZ = PhoneNumberCountryCode' "BZ"
 
-pattern BJ :: PhoneNumberCountryCode
-pattern BJ = PhoneNumberCountryCode' "BJ"
+pattern PhoneNumberCountryCodeBJ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBJ = PhoneNumberCountryCode' "BJ"
 
-pattern BM :: PhoneNumberCountryCode
-pattern BM = PhoneNumberCountryCode' "BM"
+pattern PhoneNumberCountryCodeBM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBM = PhoneNumberCountryCode' "BM"
 
-pattern BT :: PhoneNumberCountryCode
-pattern BT = PhoneNumberCountryCode' "BT"
+pattern PhoneNumberCountryCodeBT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBT = PhoneNumberCountryCode' "BT"
 
-pattern BO :: PhoneNumberCountryCode
-pattern BO = PhoneNumberCountryCode' "BO"
+pattern PhoneNumberCountryCodeBO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBO = PhoneNumberCountryCode' "BO"
 
-pattern BA :: PhoneNumberCountryCode
-pattern BA = PhoneNumberCountryCode' "BA"
+pattern PhoneNumberCountryCodeBA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBA = PhoneNumberCountryCode' "BA"
 
-pattern BW :: PhoneNumberCountryCode
-pattern BW = PhoneNumberCountryCode' "BW"
+pattern PhoneNumberCountryCodeBW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBW = PhoneNumberCountryCode' "BW"
 
-pattern BR :: PhoneNumberCountryCode
-pattern BR = PhoneNumberCountryCode' "BR"
+pattern PhoneNumberCountryCodeBR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBR = PhoneNumberCountryCode' "BR"
 
-pattern IO :: PhoneNumberCountryCode
-pattern IO = PhoneNumberCountryCode' "IO"
+pattern PhoneNumberCountryCodeIO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIO = PhoneNumberCountryCode' "IO"
 
-pattern VG :: PhoneNumberCountryCode
-pattern VG = PhoneNumberCountryCode' "VG"
+pattern PhoneNumberCountryCodeVG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeVG = PhoneNumberCountryCode' "VG"
 
-pattern BN :: PhoneNumberCountryCode
-pattern BN = PhoneNumberCountryCode' "BN"
+pattern PhoneNumberCountryCodeBN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBN = PhoneNumberCountryCode' "BN"
 
-pattern BG :: PhoneNumberCountryCode
-pattern BG = PhoneNumberCountryCode' "BG"
+pattern PhoneNumberCountryCodeBG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBG = PhoneNumberCountryCode' "BG"
 
-pattern BF :: PhoneNumberCountryCode
-pattern BF = PhoneNumberCountryCode' "BF"
+pattern PhoneNumberCountryCodeBF :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBF = PhoneNumberCountryCode' "BF"
 
-pattern BI :: PhoneNumberCountryCode
-pattern BI = PhoneNumberCountryCode' "BI"
+pattern PhoneNumberCountryCodeBI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBI = PhoneNumberCountryCode' "BI"
 
-pattern KH :: PhoneNumberCountryCode
-pattern KH = PhoneNumberCountryCode' "KH"
+pattern PhoneNumberCountryCodeKH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKH = PhoneNumberCountryCode' "KH"
 
-pattern CM :: PhoneNumberCountryCode
-pattern CM = PhoneNumberCountryCode' "CM"
+pattern PhoneNumberCountryCodeCM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCM = PhoneNumberCountryCode' "CM"
 
-pattern CA :: PhoneNumberCountryCode
-pattern CA = PhoneNumberCountryCode' "CA"
+pattern PhoneNumberCountryCodeCA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCA = PhoneNumberCountryCode' "CA"
 
-pattern CV :: PhoneNumberCountryCode
-pattern CV = PhoneNumberCountryCode' "CV"
+pattern PhoneNumberCountryCodeCV :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCV = PhoneNumberCountryCode' "CV"
 
-pattern KY :: PhoneNumberCountryCode
-pattern KY = PhoneNumberCountryCode' "KY"
+pattern PhoneNumberCountryCodeKY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKY = PhoneNumberCountryCode' "KY"
 
-pattern CF :: PhoneNumberCountryCode
-pattern CF = PhoneNumberCountryCode' "CF"
+pattern PhoneNumberCountryCodeCF :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCF = PhoneNumberCountryCode' "CF"
 
-pattern TD :: PhoneNumberCountryCode
-pattern TD = PhoneNumberCountryCode' "TD"
+pattern PhoneNumberCountryCodeTD :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTD = PhoneNumberCountryCode' "TD"
 
-pattern CL :: PhoneNumberCountryCode
-pattern CL = PhoneNumberCountryCode' "CL"
+pattern PhoneNumberCountryCodeCL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCL = PhoneNumberCountryCode' "CL"
 
-pattern CN :: PhoneNumberCountryCode
-pattern CN = PhoneNumberCountryCode' "CN"
+pattern PhoneNumberCountryCodeCN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCN = PhoneNumberCountryCode' "CN"
 
-pattern CX :: PhoneNumberCountryCode
-pattern CX = PhoneNumberCountryCode' "CX"
+pattern PhoneNumberCountryCodeCX :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCX = PhoneNumberCountryCode' "CX"
 
-pattern CC :: PhoneNumberCountryCode
-pattern CC = PhoneNumberCountryCode' "CC"
+pattern PhoneNumberCountryCodeCC :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCC = PhoneNumberCountryCode' "CC"
 
-pattern CO :: PhoneNumberCountryCode
-pattern CO = PhoneNumberCountryCode' "CO"
+pattern PhoneNumberCountryCodeCO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCO = PhoneNumberCountryCode' "CO"
 
-pattern KM :: PhoneNumberCountryCode
-pattern KM = PhoneNumberCountryCode' "KM"
+pattern PhoneNumberCountryCodeKM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKM = PhoneNumberCountryCode' "KM"
 
-pattern CK :: PhoneNumberCountryCode
-pattern CK = PhoneNumberCountryCode' "CK"
+pattern PhoneNumberCountryCodeCK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCK = PhoneNumberCountryCode' "CK"
 
-pattern CR :: PhoneNumberCountryCode
-pattern CR = PhoneNumberCountryCode' "CR"
+pattern PhoneNumberCountryCodeCR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCR = PhoneNumberCountryCode' "CR"
 
-pattern HR :: PhoneNumberCountryCode
-pattern HR = PhoneNumberCountryCode' "HR"
+pattern PhoneNumberCountryCodeHR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeHR = PhoneNumberCountryCode' "HR"
 
-pattern CU :: PhoneNumberCountryCode
-pattern CU = PhoneNumberCountryCode' "CU"
+pattern PhoneNumberCountryCodeCU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCU = PhoneNumberCountryCode' "CU"
 
-pattern CW :: PhoneNumberCountryCode
-pattern CW = PhoneNumberCountryCode' "CW"
+pattern PhoneNumberCountryCodeCW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCW = PhoneNumberCountryCode' "CW"
 
-pattern CY :: PhoneNumberCountryCode
-pattern CY = PhoneNumberCountryCode' "CY"
+pattern PhoneNumberCountryCodeCY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCY = PhoneNumberCountryCode' "CY"
 
-pattern CZ :: PhoneNumberCountryCode
-pattern CZ = PhoneNumberCountryCode' "CZ"
+pattern PhoneNumberCountryCodeCZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCZ = PhoneNumberCountryCode' "CZ"
 
-pattern CD :: PhoneNumberCountryCode
-pattern CD = PhoneNumberCountryCode' "CD"
+pattern PhoneNumberCountryCodeCD :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCD = PhoneNumberCountryCode' "CD"
 
-pattern DK :: PhoneNumberCountryCode
-pattern DK = PhoneNumberCountryCode' "DK"
+pattern PhoneNumberCountryCodeDK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeDK = PhoneNumberCountryCode' "DK"
 
-pattern DJ :: PhoneNumberCountryCode
-pattern DJ = PhoneNumberCountryCode' "DJ"
+pattern PhoneNumberCountryCodeDJ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeDJ = PhoneNumberCountryCode' "DJ"
 
-pattern DM :: PhoneNumberCountryCode
-pattern DM = PhoneNumberCountryCode' "DM"
+pattern PhoneNumberCountryCodeDM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeDM = PhoneNumberCountryCode' "DM"
 
-pattern DO :: PhoneNumberCountryCode
-pattern DO = PhoneNumberCountryCode' "DO"
+pattern PhoneNumberCountryCodeDO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeDO = PhoneNumberCountryCode' "DO"
 
-pattern TL :: PhoneNumberCountryCode
-pattern TL = PhoneNumberCountryCode' "TL"
+pattern PhoneNumberCountryCodeTL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTL = PhoneNumberCountryCode' "TL"
 
-pattern EC :: PhoneNumberCountryCode
-pattern EC = PhoneNumberCountryCode' "EC"
+pattern PhoneNumberCountryCodeEC :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeEC = PhoneNumberCountryCode' "EC"
 
-pattern EG :: PhoneNumberCountryCode
-pattern EG = PhoneNumberCountryCode' "EG"
+pattern PhoneNumberCountryCodeEG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeEG = PhoneNumberCountryCode' "EG"
 
-pattern SV :: PhoneNumberCountryCode
-pattern SV = PhoneNumberCountryCode' "SV"
+pattern PhoneNumberCountryCodeSV :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSV = PhoneNumberCountryCode' "SV"
 
-pattern GQ :: PhoneNumberCountryCode
-pattern GQ = PhoneNumberCountryCode' "GQ"
+pattern PhoneNumberCountryCodeGQ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGQ = PhoneNumberCountryCode' "GQ"
 
-pattern ER :: PhoneNumberCountryCode
-pattern ER = PhoneNumberCountryCode' "ER"
+pattern PhoneNumberCountryCodeER :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeER = PhoneNumberCountryCode' "ER"
 
-pattern EE :: PhoneNumberCountryCode
-pattern EE = PhoneNumberCountryCode' "EE"
+pattern PhoneNumberCountryCodeEE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeEE = PhoneNumberCountryCode' "EE"
 
-pattern ET :: PhoneNumberCountryCode
-pattern ET = PhoneNumberCountryCode' "ET"
+pattern PhoneNumberCountryCodeET :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeET = PhoneNumberCountryCode' "ET"
 
-pattern FK :: PhoneNumberCountryCode
-pattern FK = PhoneNumberCountryCode' "FK"
+pattern PhoneNumberCountryCodeFK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeFK = PhoneNumberCountryCode' "FK"
 
-pattern FO :: PhoneNumberCountryCode
-pattern FO = PhoneNumberCountryCode' "FO"
+pattern PhoneNumberCountryCodeFO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeFO = PhoneNumberCountryCode' "FO"
 
-pattern FJ :: PhoneNumberCountryCode
-pattern FJ = PhoneNumberCountryCode' "FJ"
+pattern PhoneNumberCountryCodeFJ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeFJ = PhoneNumberCountryCode' "FJ"
 
-pattern FI :: PhoneNumberCountryCode
-pattern FI = PhoneNumberCountryCode' "FI"
+pattern PhoneNumberCountryCodeFI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeFI = PhoneNumberCountryCode' "FI"
 
-pattern FR :: PhoneNumberCountryCode
-pattern FR = PhoneNumberCountryCode' "FR"
+pattern PhoneNumberCountryCodeFR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeFR = PhoneNumberCountryCode' "FR"
 
-pattern PF :: PhoneNumberCountryCode
-pattern PF = PhoneNumberCountryCode' "PF"
+pattern PhoneNumberCountryCodePF :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePF = PhoneNumberCountryCode' "PF"
 
-pattern GA :: PhoneNumberCountryCode
-pattern GA = PhoneNumberCountryCode' "GA"
+pattern PhoneNumberCountryCodeGA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGA = PhoneNumberCountryCode' "GA"
 
-pattern GM :: PhoneNumberCountryCode
-pattern GM = PhoneNumberCountryCode' "GM"
+pattern PhoneNumberCountryCodeGM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGM = PhoneNumberCountryCode' "GM"
 
-pattern GE :: PhoneNumberCountryCode
-pattern GE = PhoneNumberCountryCode' "GE"
+pattern PhoneNumberCountryCodeGE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGE = PhoneNumberCountryCode' "GE"
 
-pattern DE :: PhoneNumberCountryCode
-pattern DE = PhoneNumberCountryCode' "DE"
+pattern PhoneNumberCountryCodeDE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeDE = PhoneNumberCountryCode' "DE"
 
-pattern GH :: PhoneNumberCountryCode
-pattern GH = PhoneNumberCountryCode' "GH"
+pattern PhoneNumberCountryCodeGH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGH = PhoneNumberCountryCode' "GH"
 
-pattern GI :: PhoneNumberCountryCode
-pattern GI = PhoneNumberCountryCode' "GI"
+pattern PhoneNumberCountryCodeGI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGI = PhoneNumberCountryCode' "GI"
 
-pattern GR :: PhoneNumberCountryCode
-pattern GR = PhoneNumberCountryCode' "GR"
+pattern PhoneNumberCountryCodeGR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGR = PhoneNumberCountryCode' "GR"
 
-pattern GL :: PhoneNumberCountryCode
-pattern GL = PhoneNumberCountryCode' "GL"
+pattern PhoneNumberCountryCodeGL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGL = PhoneNumberCountryCode' "GL"
 
-pattern GD :: PhoneNumberCountryCode
-pattern GD = PhoneNumberCountryCode' "GD"
+pattern PhoneNumberCountryCodeGD :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGD = PhoneNumberCountryCode' "GD"
 
-pattern GU :: PhoneNumberCountryCode
-pattern GU = PhoneNumberCountryCode' "GU"
+pattern PhoneNumberCountryCodeGU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGU = PhoneNumberCountryCode' "GU"
 
-pattern GT :: PhoneNumberCountryCode
-pattern GT = PhoneNumberCountryCode' "GT"
+pattern PhoneNumberCountryCodeGT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGT = PhoneNumberCountryCode' "GT"
 
-pattern GG :: PhoneNumberCountryCode
-pattern GG = PhoneNumberCountryCode' "GG"
+pattern PhoneNumberCountryCodeGG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGG = PhoneNumberCountryCode' "GG"
 
-pattern GN :: PhoneNumberCountryCode
-pattern GN = PhoneNumberCountryCode' "GN"
+pattern PhoneNumberCountryCodeGN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGN = PhoneNumberCountryCode' "GN"
 
-pattern GW :: PhoneNumberCountryCode
-pattern GW = PhoneNumberCountryCode' "GW"
+pattern PhoneNumberCountryCodeGW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGW = PhoneNumberCountryCode' "GW"
 
-pattern GY :: PhoneNumberCountryCode
-pattern GY = PhoneNumberCountryCode' "GY"
+pattern PhoneNumberCountryCodeGY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGY = PhoneNumberCountryCode' "GY"
 
-pattern HT :: PhoneNumberCountryCode
-pattern HT = PhoneNumberCountryCode' "HT"
+pattern PhoneNumberCountryCodeHT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeHT = PhoneNumberCountryCode' "HT"
 
-pattern HN :: PhoneNumberCountryCode
-pattern HN = PhoneNumberCountryCode' "HN"
+pattern PhoneNumberCountryCodeHN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeHN = PhoneNumberCountryCode' "HN"
 
-pattern HK :: PhoneNumberCountryCode
-pattern HK = PhoneNumberCountryCode' "HK"
+pattern PhoneNumberCountryCodeHK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeHK = PhoneNumberCountryCode' "HK"
 
-pattern HU :: PhoneNumberCountryCode
-pattern HU = PhoneNumberCountryCode' "HU"
+pattern PhoneNumberCountryCodeHU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeHU = PhoneNumberCountryCode' "HU"
 
-pattern IS :: PhoneNumberCountryCode
-pattern IS = PhoneNumberCountryCode' "IS"
+pattern PhoneNumberCountryCodeIS :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIS = PhoneNumberCountryCode' "IS"
 
-pattern IN :: PhoneNumberCountryCode
-pattern IN = PhoneNumberCountryCode' "IN"
+pattern PhoneNumberCountryCodeIN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIN = PhoneNumberCountryCode' "IN"
 
-pattern Id :: PhoneNumberCountryCode
-pattern Id = PhoneNumberCountryCode' "ID"
+pattern PhoneNumberCountryCodeID :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeID = PhoneNumberCountryCode' "ID"
 
-pattern IR :: PhoneNumberCountryCode
-pattern IR = PhoneNumberCountryCode' "IR"
+pattern PhoneNumberCountryCodeIR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIR = PhoneNumberCountryCode' "IR"
 
-pattern IQ :: PhoneNumberCountryCode
-pattern IQ = PhoneNumberCountryCode' "IQ"
+pattern PhoneNumberCountryCodeIQ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIQ = PhoneNumberCountryCode' "IQ"
 
-pattern IE :: PhoneNumberCountryCode
-pattern IE = PhoneNumberCountryCode' "IE"
+pattern PhoneNumberCountryCodeIE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIE = PhoneNumberCountryCode' "IE"
 
-pattern IM :: PhoneNumberCountryCode
-pattern IM = PhoneNumberCountryCode' "IM"
+pattern PhoneNumberCountryCodeIM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIM = PhoneNumberCountryCode' "IM"
 
-pattern IL :: PhoneNumberCountryCode
-pattern IL = PhoneNumberCountryCode' "IL"
+pattern PhoneNumberCountryCodeIL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIL = PhoneNumberCountryCode' "IL"
 
-pattern IT :: PhoneNumberCountryCode
-pattern IT = PhoneNumberCountryCode' "IT"
+pattern PhoneNumberCountryCodeIT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeIT = PhoneNumberCountryCode' "IT"
 
-pattern CI :: PhoneNumberCountryCode
-pattern CI = PhoneNumberCountryCode' "CI"
+pattern PhoneNumberCountryCodeCI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCI = PhoneNumberCountryCode' "CI"
 
-pattern JM :: PhoneNumberCountryCode
-pattern JM = PhoneNumberCountryCode' "JM"
+pattern PhoneNumberCountryCodeJM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeJM = PhoneNumberCountryCode' "JM"
 
-pattern JP :: PhoneNumberCountryCode
-pattern JP = PhoneNumberCountryCode' "JP"
+pattern PhoneNumberCountryCodeJP :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeJP = PhoneNumberCountryCode' "JP"
 
-pattern JE :: PhoneNumberCountryCode
-pattern JE = PhoneNumberCountryCode' "JE"
+pattern PhoneNumberCountryCodeJE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeJE = PhoneNumberCountryCode' "JE"
 
-pattern JO :: PhoneNumberCountryCode
-pattern JO = PhoneNumberCountryCode' "JO"
+pattern PhoneNumberCountryCodeJO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeJO = PhoneNumberCountryCode' "JO"
 
-pattern KZ :: PhoneNumberCountryCode
-pattern KZ = PhoneNumberCountryCode' "KZ"
+pattern PhoneNumberCountryCodeKZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKZ = PhoneNumberCountryCode' "KZ"
 
-pattern KE :: PhoneNumberCountryCode
-pattern KE = PhoneNumberCountryCode' "KE"
+pattern PhoneNumberCountryCodeKE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKE = PhoneNumberCountryCode' "KE"
 
-pattern KI :: PhoneNumberCountryCode
-pattern KI = PhoneNumberCountryCode' "KI"
+pattern PhoneNumberCountryCodeKI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKI = PhoneNumberCountryCode' "KI"
 
-pattern KW :: PhoneNumberCountryCode
-pattern KW = PhoneNumberCountryCode' "KW"
+pattern PhoneNumberCountryCodeKW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKW = PhoneNumberCountryCode' "KW"
 
-pattern KG :: PhoneNumberCountryCode
-pattern KG = PhoneNumberCountryCode' "KG"
+pattern PhoneNumberCountryCodeKG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKG = PhoneNumberCountryCode' "KG"
 
-pattern LA :: PhoneNumberCountryCode
-pattern LA = PhoneNumberCountryCode' "LA"
+pattern PhoneNumberCountryCodeLA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLA = PhoneNumberCountryCode' "LA"
 
-pattern LV :: PhoneNumberCountryCode
-pattern LV = PhoneNumberCountryCode' "LV"
+pattern PhoneNumberCountryCodeLV :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLV = PhoneNumberCountryCode' "LV"
 
-pattern LB :: PhoneNumberCountryCode
-pattern LB = PhoneNumberCountryCode' "LB"
+pattern PhoneNumberCountryCodeLB :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLB = PhoneNumberCountryCode' "LB"
 
-pattern LS :: PhoneNumberCountryCode
-pattern LS = PhoneNumberCountryCode' "LS"
+pattern PhoneNumberCountryCodeLS :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLS = PhoneNumberCountryCode' "LS"
 
-pattern LR :: PhoneNumberCountryCode
-pattern LR = PhoneNumberCountryCode' "LR"
+pattern PhoneNumberCountryCodeLR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLR = PhoneNumberCountryCode' "LR"
 
-pattern LY :: PhoneNumberCountryCode
-pattern LY = PhoneNumberCountryCode' "LY"
+pattern PhoneNumberCountryCodeLY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLY = PhoneNumberCountryCode' "LY"
 
-pattern LI :: PhoneNumberCountryCode
-pattern LI = PhoneNumberCountryCode' "LI"
+pattern PhoneNumberCountryCodeLI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLI = PhoneNumberCountryCode' "LI"
 
-pattern LT :: PhoneNumberCountryCode
-pattern LT = PhoneNumberCountryCode' "LT"
+pattern PhoneNumberCountryCodeLT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLT = PhoneNumberCountryCode' "LT"
 
-pattern LU :: PhoneNumberCountryCode
-pattern LU = PhoneNumberCountryCode' "LU"
+pattern PhoneNumberCountryCodeLU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLU = PhoneNumberCountryCode' "LU"
 
-pattern MO :: PhoneNumberCountryCode
-pattern MO = PhoneNumberCountryCode' "MO"
+pattern PhoneNumberCountryCodeMO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMO = PhoneNumberCountryCode' "MO"
 
-pattern MK :: PhoneNumberCountryCode
-pattern MK = PhoneNumberCountryCode' "MK"
+pattern PhoneNumberCountryCodeMK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMK = PhoneNumberCountryCode' "MK"
 
-pattern MG :: PhoneNumberCountryCode
-pattern MG = PhoneNumberCountryCode' "MG"
+pattern PhoneNumberCountryCodeMG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMG = PhoneNumberCountryCode' "MG"
 
-pattern MW :: PhoneNumberCountryCode
-pattern MW = PhoneNumberCountryCode' "MW"
+pattern PhoneNumberCountryCodeMW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMW = PhoneNumberCountryCode' "MW"
 
-pattern MY :: PhoneNumberCountryCode
-pattern MY = PhoneNumberCountryCode' "MY"
+pattern PhoneNumberCountryCodeMY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMY = PhoneNumberCountryCode' "MY"
 
-pattern MV :: PhoneNumberCountryCode
-pattern MV = PhoneNumberCountryCode' "MV"
+pattern PhoneNumberCountryCodeMV :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMV = PhoneNumberCountryCode' "MV"
 
-pattern ML :: PhoneNumberCountryCode
-pattern ML = PhoneNumberCountryCode' "ML"
+pattern PhoneNumberCountryCodeML :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeML = PhoneNumberCountryCode' "ML"
 
-pattern MT :: PhoneNumberCountryCode
-pattern MT = PhoneNumberCountryCode' "MT"
+pattern PhoneNumberCountryCodeMT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMT = PhoneNumberCountryCode' "MT"
 
-pattern MH :: PhoneNumberCountryCode
-pattern MH = PhoneNumberCountryCode' "MH"
+pattern PhoneNumberCountryCodeMH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMH = PhoneNumberCountryCode' "MH"
 
-pattern MR :: PhoneNumberCountryCode
-pattern MR = PhoneNumberCountryCode' "MR"
+pattern PhoneNumberCountryCodeMR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMR = PhoneNumberCountryCode' "MR"
 
-pattern MU :: PhoneNumberCountryCode
-pattern MU = PhoneNumberCountryCode' "MU"
+pattern PhoneNumberCountryCodeMU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMU = PhoneNumberCountryCode' "MU"
 
-pattern YT :: PhoneNumberCountryCode
-pattern YT = PhoneNumberCountryCode' "YT"
+pattern PhoneNumberCountryCodeYT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeYT = PhoneNumberCountryCode' "YT"
 
-pattern MX :: PhoneNumberCountryCode
-pattern MX = PhoneNumberCountryCode' "MX"
+pattern PhoneNumberCountryCodeMX :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMX = PhoneNumberCountryCode' "MX"
 
-pattern FM :: PhoneNumberCountryCode
-pattern FM = PhoneNumberCountryCode' "FM"
+pattern PhoneNumberCountryCodeFM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeFM = PhoneNumberCountryCode' "FM"
 
-pattern MD :: PhoneNumberCountryCode
-pattern MD = PhoneNumberCountryCode' "MD"
+pattern PhoneNumberCountryCodeMD :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMD = PhoneNumberCountryCode' "MD"
 
-pattern MC :: PhoneNumberCountryCode
-pattern MC = PhoneNumberCountryCode' "MC"
+pattern PhoneNumberCountryCodeMC :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMC = PhoneNumberCountryCode' "MC"
 
-pattern MN :: PhoneNumberCountryCode
-pattern MN = PhoneNumberCountryCode' "MN"
+pattern PhoneNumberCountryCodeMN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMN = PhoneNumberCountryCode' "MN"
 
-pattern ME :: PhoneNumberCountryCode
-pattern ME = PhoneNumberCountryCode' "ME"
+pattern PhoneNumberCountryCodeME :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeME = PhoneNumberCountryCode' "ME"
 
-pattern MS :: PhoneNumberCountryCode
-pattern MS = PhoneNumberCountryCode' "MS"
+pattern PhoneNumberCountryCodeMS :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMS = PhoneNumberCountryCode' "MS"
 
-pattern MA :: PhoneNumberCountryCode
-pattern MA = PhoneNumberCountryCode' "MA"
+pattern PhoneNumberCountryCodeMA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMA = PhoneNumberCountryCode' "MA"
 
-pattern MZ :: PhoneNumberCountryCode
-pattern MZ = PhoneNumberCountryCode' "MZ"
+pattern PhoneNumberCountryCodeMZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMZ = PhoneNumberCountryCode' "MZ"
 
-pattern MM :: PhoneNumberCountryCode
-pattern MM = PhoneNumberCountryCode' "MM"
+pattern PhoneNumberCountryCodeMM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMM = PhoneNumberCountryCode' "MM"
 
-pattern NA :: PhoneNumberCountryCode
-pattern NA = PhoneNumberCountryCode' "NA"
+pattern PhoneNumberCountryCodeNA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNA = PhoneNumberCountryCode' "NA"
 
-pattern NR :: PhoneNumberCountryCode
-pattern NR = PhoneNumberCountryCode' "NR"
+pattern PhoneNumberCountryCodeNR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNR = PhoneNumberCountryCode' "NR"
 
-pattern NP :: PhoneNumberCountryCode
-pattern NP = PhoneNumberCountryCode' "NP"
+pattern PhoneNumberCountryCodeNP :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNP = PhoneNumberCountryCode' "NP"
 
-pattern NL :: PhoneNumberCountryCode
-pattern NL = PhoneNumberCountryCode' "NL"
+pattern PhoneNumberCountryCodeNL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNL = PhoneNumberCountryCode' "NL"
 
-pattern AN :: PhoneNumberCountryCode
-pattern AN = PhoneNumberCountryCode' "AN"
+pattern PhoneNumberCountryCodeAN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAN = PhoneNumberCountryCode' "AN"
 
-pattern NC :: PhoneNumberCountryCode
-pattern NC = PhoneNumberCountryCode' "NC"
+pattern PhoneNumberCountryCodeNC :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNC = PhoneNumberCountryCode' "NC"
 
-pattern NZ :: PhoneNumberCountryCode
-pattern NZ = PhoneNumberCountryCode' "NZ"
+pattern PhoneNumberCountryCodeNZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNZ = PhoneNumberCountryCode' "NZ"
 
-pattern NI :: PhoneNumberCountryCode
-pattern NI = PhoneNumberCountryCode' "NI"
+pattern PhoneNumberCountryCodeNI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNI = PhoneNumberCountryCode' "NI"
 
-pattern NE :: PhoneNumberCountryCode
-pattern NE = PhoneNumberCountryCode' "NE"
+pattern PhoneNumberCountryCodeNE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNE = PhoneNumberCountryCode' "NE"
 
-pattern NG :: PhoneNumberCountryCode
-pattern NG = PhoneNumberCountryCode' "NG"
+pattern PhoneNumberCountryCodeNG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNG = PhoneNumberCountryCode' "NG"
 
-pattern NU :: PhoneNumberCountryCode
-pattern NU = PhoneNumberCountryCode' "NU"
+pattern PhoneNumberCountryCodeNU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNU = PhoneNumberCountryCode' "NU"
 
-pattern KP :: PhoneNumberCountryCode
-pattern KP = PhoneNumberCountryCode' "KP"
+pattern PhoneNumberCountryCodeKP :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKP = PhoneNumberCountryCode' "KP"
 
-pattern MP :: PhoneNumberCountryCode
-pattern MP = PhoneNumberCountryCode' "MP"
+pattern PhoneNumberCountryCodeMP :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMP = PhoneNumberCountryCode' "MP"
 
-pattern NO :: PhoneNumberCountryCode
-pattern NO = PhoneNumberCountryCode' "NO"
+pattern PhoneNumberCountryCodeNO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeNO = PhoneNumberCountryCode' "NO"
 
-pattern OM :: PhoneNumberCountryCode
-pattern OM = PhoneNumberCountryCode' "OM"
+pattern PhoneNumberCountryCodeOM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeOM = PhoneNumberCountryCode' "OM"
 
-pattern PK :: PhoneNumberCountryCode
-pattern PK = PhoneNumberCountryCode' "PK"
+pattern PhoneNumberCountryCodePK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePK = PhoneNumberCountryCode' "PK"
 
-pattern PW :: PhoneNumberCountryCode
-pattern PW = PhoneNumberCountryCode' "PW"
+pattern PhoneNumberCountryCodePW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePW = PhoneNumberCountryCode' "PW"
 
-pattern PA :: PhoneNumberCountryCode
-pattern PA = PhoneNumberCountryCode' "PA"
+pattern PhoneNumberCountryCodePA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePA = PhoneNumberCountryCode' "PA"
 
-pattern PG :: PhoneNumberCountryCode
-pattern PG = PhoneNumberCountryCode' "PG"
+pattern PhoneNumberCountryCodePG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePG = PhoneNumberCountryCode' "PG"
 
-pattern PY :: PhoneNumberCountryCode
-pattern PY = PhoneNumberCountryCode' "PY"
+pattern PhoneNumberCountryCodePY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePY = PhoneNumberCountryCode' "PY"
 
-pattern PE :: PhoneNumberCountryCode
-pattern PE = PhoneNumberCountryCode' "PE"
+pattern PhoneNumberCountryCodePE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePE = PhoneNumberCountryCode' "PE"
 
-pattern PH :: PhoneNumberCountryCode
-pattern PH = PhoneNumberCountryCode' "PH"
+pattern PhoneNumberCountryCodePH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePH = PhoneNumberCountryCode' "PH"
 
-pattern PN :: PhoneNumberCountryCode
-pattern PN = PhoneNumberCountryCode' "PN"
+pattern PhoneNumberCountryCodePN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePN = PhoneNumberCountryCode' "PN"
 
-pattern PL :: PhoneNumberCountryCode
-pattern PL = PhoneNumberCountryCode' "PL"
+pattern PhoneNumberCountryCodePL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePL = PhoneNumberCountryCode' "PL"
 
-pattern PT :: PhoneNumberCountryCode
-pattern PT = PhoneNumberCountryCode' "PT"
+pattern PhoneNumberCountryCodePT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePT = PhoneNumberCountryCode' "PT"
 
-pattern PR :: PhoneNumberCountryCode
-pattern PR = PhoneNumberCountryCode' "PR"
+pattern PhoneNumberCountryCodePR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePR = PhoneNumberCountryCode' "PR"
 
-pattern QA :: PhoneNumberCountryCode
-pattern QA = PhoneNumberCountryCode' "QA"
+pattern PhoneNumberCountryCodeQA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeQA = PhoneNumberCountryCode' "QA"
 
-pattern CG :: PhoneNumberCountryCode
-pattern CG = PhoneNumberCountryCode' "CG"
+pattern PhoneNumberCountryCodeCG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCG = PhoneNumberCountryCode' "CG"
 
-pattern RE :: PhoneNumberCountryCode
-pattern RE = PhoneNumberCountryCode' "RE"
+pattern PhoneNumberCountryCodeRE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeRE = PhoneNumberCountryCode' "RE"
 
-pattern RO :: PhoneNumberCountryCode
-pattern RO = PhoneNumberCountryCode' "RO"
+pattern PhoneNumberCountryCodeRO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeRO = PhoneNumberCountryCode' "RO"
 
-pattern RU :: PhoneNumberCountryCode
-pattern RU = PhoneNumberCountryCode' "RU"
+pattern PhoneNumberCountryCodeRU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeRU = PhoneNumberCountryCode' "RU"
 
-pattern RW :: PhoneNumberCountryCode
-pattern RW = PhoneNumberCountryCode' "RW"
+pattern PhoneNumberCountryCodeRW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeRW = PhoneNumberCountryCode' "RW"
 
-pattern BL :: PhoneNumberCountryCode
-pattern BL = PhoneNumberCountryCode' "BL"
+pattern PhoneNumberCountryCodeBL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeBL = PhoneNumberCountryCode' "BL"
 
-pattern SH :: PhoneNumberCountryCode
-pattern SH = PhoneNumberCountryCode' "SH"
+pattern PhoneNumberCountryCodeSH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSH = PhoneNumberCountryCode' "SH"
 
-pattern KN :: PhoneNumberCountryCode
-pattern KN = PhoneNumberCountryCode' "KN"
+pattern PhoneNumberCountryCodeKN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKN = PhoneNumberCountryCode' "KN"
 
-pattern LC :: PhoneNumberCountryCode
-pattern LC = PhoneNumberCountryCode' "LC"
+pattern PhoneNumberCountryCodeLC :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLC = PhoneNumberCountryCode' "LC"
 
-pattern MF :: PhoneNumberCountryCode
-pattern MF = PhoneNumberCountryCode' "MF"
+pattern PhoneNumberCountryCodeMF :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeMF = PhoneNumberCountryCode' "MF"
 
-pattern PM :: PhoneNumberCountryCode
-pattern PM = PhoneNumberCountryCode' "PM"
+pattern PhoneNumberCountryCodePM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodePM = PhoneNumberCountryCode' "PM"
 
-pattern VC :: PhoneNumberCountryCode
-pattern VC = PhoneNumberCountryCode' "VC"
+pattern PhoneNumberCountryCodeVC :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeVC = PhoneNumberCountryCode' "VC"
 
-pattern WS :: PhoneNumberCountryCode
-pattern WS = PhoneNumberCountryCode' "WS"
+pattern PhoneNumberCountryCodeWS :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeWS = PhoneNumberCountryCode' "WS"
 
-pattern SM :: PhoneNumberCountryCode
-pattern SM = PhoneNumberCountryCode' "SM"
+pattern PhoneNumberCountryCodeSM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSM = PhoneNumberCountryCode' "SM"
 
-pattern ST :: PhoneNumberCountryCode
-pattern ST = PhoneNumberCountryCode' "ST"
+pattern PhoneNumberCountryCodeST :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeST = PhoneNumberCountryCode' "ST"
 
-pattern SA :: PhoneNumberCountryCode
-pattern SA = PhoneNumberCountryCode' "SA"
+pattern PhoneNumberCountryCodeSA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSA = PhoneNumberCountryCode' "SA"
 
-pattern SN :: PhoneNumberCountryCode
-pattern SN = PhoneNumberCountryCode' "SN"
+pattern PhoneNumberCountryCodeSN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSN = PhoneNumberCountryCode' "SN"
 
-pattern RS :: PhoneNumberCountryCode
-pattern RS = PhoneNumberCountryCode' "RS"
+pattern PhoneNumberCountryCodeRS :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeRS = PhoneNumberCountryCode' "RS"
 
-pattern SC :: PhoneNumberCountryCode
-pattern SC = PhoneNumberCountryCode' "SC"
+pattern PhoneNumberCountryCodeSC :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSC = PhoneNumberCountryCode' "SC"
 
-pattern SL :: PhoneNumberCountryCode
-pattern SL = PhoneNumberCountryCode' "SL"
+pattern PhoneNumberCountryCodeSL :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSL = PhoneNumberCountryCode' "SL"
 
-pattern SG :: PhoneNumberCountryCode
-pattern SG = PhoneNumberCountryCode' "SG"
+pattern PhoneNumberCountryCodeSG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSG = PhoneNumberCountryCode' "SG"
 
-pattern SX :: PhoneNumberCountryCode
-pattern SX = PhoneNumberCountryCode' "SX"
+pattern PhoneNumberCountryCodeSX :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSX = PhoneNumberCountryCode' "SX"
 
-pattern SK :: PhoneNumberCountryCode
-pattern SK = PhoneNumberCountryCode' "SK"
+pattern PhoneNumberCountryCodeSK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSK = PhoneNumberCountryCode' "SK"
 
-pattern SI :: PhoneNumberCountryCode
-pattern SI = PhoneNumberCountryCode' "SI"
+pattern PhoneNumberCountryCodeSI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSI = PhoneNumberCountryCode' "SI"
 
-pattern SB :: PhoneNumberCountryCode
-pattern SB = PhoneNumberCountryCode' "SB"
+pattern PhoneNumberCountryCodeSB :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSB = PhoneNumberCountryCode' "SB"
 
-pattern SO :: PhoneNumberCountryCode
-pattern SO = PhoneNumberCountryCode' "SO"
+pattern PhoneNumberCountryCodeSO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSO = PhoneNumberCountryCode' "SO"
 
-pattern ZA :: PhoneNumberCountryCode
-pattern ZA = PhoneNumberCountryCode' "ZA"
+pattern PhoneNumberCountryCodeZA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeZA = PhoneNumberCountryCode' "ZA"
 
-pattern KR :: PhoneNumberCountryCode
-pattern KR = PhoneNumberCountryCode' "KR"
+pattern PhoneNumberCountryCodeKR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeKR = PhoneNumberCountryCode' "KR"
 
-pattern ES :: PhoneNumberCountryCode
-pattern ES = PhoneNumberCountryCode' "ES"
+pattern PhoneNumberCountryCodeES :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeES = PhoneNumberCountryCode' "ES"
 
-pattern LK :: PhoneNumberCountryCode
-pattern LK = PhoneNumberCountryCode' "LK"
+pattern PhoneNumberCountryCodeLK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeLK = PhoneNumberCountryCode' "LK"
 
-pattern SD :: PhoneNumberCountryCode
-pattern SD = PhoneNumberCountryCode' "SD"
+pattern PhoneNumberCountryCodeSD :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSD = PhoneNumberCountryCode' "SD"
 
-pattern SR :: PhoneNumberCountryCode
-pattern SR = PhoneNumberCountryCode' "SR"
+pattern PhoneNumberCountryCodeSR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSR = PhoneNumberCountryCode' "SR"
 
-pattern SJ :: PhoneNumberCountryCode
-pattern SJ = PhoneNumberCountryCode' "SJ"
+pattern PhoneNumberCountryCodeSJ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSJ = PhoneNumberCountryCode' "SJ"
 
-pattern SZ :: PhoneNumberCountryCode
-pattern SZ = PhoneNumberCountryCode' "SZ"
+pattern PhoneNumberCountryCodeSZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSZ = PhoneNumberCountryCode' "SZ"
 
-pattern SE :: PhoneNumberCountryCode
-pattern SE = PhoneNumberCountryCode' "SE"
+pattern PhoneNumberCountryCodeSE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSE = PhoneNumberCountryCode' "SE"
 
-pattern CH :: PhoneNumberCountryCode
-pattern CH = PhoneNumberCountryCode' "CH"
+pattern PhoneNumberCountryCodeCH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeCH = PhoneNumberCountryCode' "CH"
 
-pattern SY :: PhoneNumberCountryCode
-pattern SY = PhoneNumberCountryCode' "SY"
+pattern PhoneNumberCountryCodeSY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeSY = PhoneNumberCountryCode' "SY"
 
-pattern TW :: PhoneNumberCountryCode
-pattern TW = PhoneNumberCountryCode' "TW"
+pattern PhoneNumberCountryCodeTW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTW = PhoneNumberCountryCode' "TW"
 
-pattern TJ :: PhoneNumberCountryCode
-pattern TJ = PhoneNumberCountryCode' "TJ"
+pattern PhoneNumberCountryCodeTJ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTJ = PhoneNumberCountryCode' "TJ"
 
-pattern TZ :: PhoneNumberCountryCode
-pattern TZ = PhoneNumberCountryCode' "TZ"
+pattern PhoneNumberCountryCodeTZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTZ = PhoneNumberCountryCode' "TZ"
 
-pattern TH :: PhoneNumberCountryCode
-pattern TH = PhoneNumberCountryCode' "TH"
+pattern PhoneNumberCountryCodeTH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTH = PhoneNumberCountryCode' "TH"
 
-pattern TG :: PhoneNumberCountryCode
-pattern TG = PhoneNumberCountryCode' "TG"
+pattern PhoneNumberCountryCodeTG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTG = PhoneNumberCountryCode' "TG"
 
-pattern TK :: PhoneNumberCountryCode
-pattern TK = PhoneNumberCountryCode' "TK"
+pattern PhoneNumberCountryCodeTK :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTK = PhoneNumberCountryCode' "TK"
 
-pattern TO :: PhoneNumberCountryCode
-pattern TO = PhoneNumberCountryCode' "TO"
+pattern PhoneNumberCountryCodeTO :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTO = PhoneNumberCountryCode' "TO"
 
-pattern TT :: PhoneNumberCountryCode
-pattern TT = PhoneNumberCountryCode' "TT"
+pattern PhoneNumberCountryCodeTT :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTT = PhoneNumberCountryCode' "TT"
 
-pattern TN :: PhoneNumberCountryCode
-pattern TN = PhoneNumberCountryCode' "TN"
+pattern PhoneNumberCountryCodeTN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTN = PhoneNumberCountryCode' "TN"
 
-pattern TR :: PhoneNumberCountryCode
-pattern TR = PhoneNumberCountryCode' "TR"
+pattern PhoneNumberCountryCodeTR :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTR = PhoneNumberCountryCode' "TR"
 
-pattern TM :: PhoneNumberCountryCode
-pattern TM = PhoneNumberCountryCode' "TM"
+pattern PhoneNumberCountryCodeTM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTM = PhoneNumberCountryCode' "TM"
 
-pattern TC :: PhoneNumberCountryCode
-pattern TC = PhoneNumberCountryCode' "TC"
+pattern PhoneNumberCountryCodeTC :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTC = PhoneNumberCountryCode' "TC"
 
-pattern TV :: PhoneNumberCountryCode
-pattern TV = PhoneNumberCountryCode' "TV"
+pattern PhoneNumberCountryCodeTV :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeTV = PhoneNumberCountryCode' "TV"
 
-pattern VI :: PhoneNumberCountryCode
-pattern VI = PhoneNumberCountryCode' "VI"
+pattern PhoneNumberCountryCodeVI :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeVI = PhoneNumberCountryCode' "VI"
 
-pattern UG :: PhoneNumberCountryCode
-pattern UG = PhoneNumberCountryCode' "UG"
+pattern PhoneNumberCountryCodeUG :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeUG = PhoneNumberCountryCode' "UG"
 
-pattern UA :: PhoneNumberCountryCode
-pattern UA = PhoneNumberCountryCode' "UA"
+pattern PhoneNumberCountryCodeUA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeUA = PhoneNumberCountryCode' "UA"
 
-pattern AE :: PhoneNumberCountryCode
-pattern AE = PhoneNumberCountryCode' "AE"
+pattern PhoneNumberCountryCodeAE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeAE = PhoneNumberCountryCode' "AE"
 
-pattern GB :: PhoneNumberCountryCode
-pattern GB = PhoneNumberCountryCode' "GB"
+pattern PhoneNumberCountryCodeGB :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeGB = PhoneNumberCountryCode' "GB"
 
-pattern US :: PhoneNumberCountryCode
-pattern US = PhoneNumberCountryCode' "US"
+pattern PhoneNumberCountryCodeUS :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeUS = PhoneNumberCountryCode' "US"
 
-pattern UY :: PhoneNumberCountryCode
-pattern UY = PhoneNumberCountryCode' "UY"
+pattern PhoneNumberCountryCodeUY :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeUY = PhoneNumberCountryCode' "UY"
 
-pattern UZ :: PhoneNumberCountryCode
-pattern UZ = PhoneNumberCountryCode' "UZ"
+pattern PhoneNumberCountryCodeUZ :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeUZ = PhoneNumberCountryCode' "UZ"
 
-pattern VU :: PhoneNumberCountryCode
-pattern VU = PhoneNumberCountryCode' "VU"
+pattern PhoneNumberCountryCodeVU :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeVU = PhoneNumberCountryCode' "VU"
 
-pattern VA :: PhoneNumberCountryCode
-pattern VA = PhoneNumberCountryCode' "VA"
+pattern PhoneNumberCountryCodeVA :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeVA = PhoneNumberCountryCode' "VA"
 
-pattern VE :: PhoneNumberCountryCode
-pattern VE = PhoneNumberCountryCode' "VE"
+pattern PhoneNumberCountryCodeVE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeVE = PhoneNumberCountryCode' "VE"
 
-pattern VN :: PhoneNumberCountryCode
-pattern VN = PhoneNumberCountryCode' "VN"
+pattern PhoneNumberCountryCodeVN :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeVN = PhoneNumberCountryCode' "VN"
 
-pattern WF :: PhoneNumberCountryCode
-pattern WF = PhoneNumberCountryCode' "WF"
+pattern PhoneNumberCountryCodeWF :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeWF = PhoneNumberCountryCode' "WF"
 
-pattern EH :: PhoneNumberCountryCode
-pattern EH = PhoneNumberCountryCode' "EH"
+pattern PhoneNumberCountryCodeEH :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeEH = PhoneNumberCountryCode' "EH"
 
-pattern YE :: PhoneNumberCountryCode
-pattern YE = PhoneNumberCountryCode' "YE"
+pattern PhoneNumberCountryCodeYE :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeYE = PhoneNumberCountryCode' "YE"
 
-pattern ZM :: PhoneNumberCountryCode
-pattern ZM = PhoneNumberCountryCode' "ZM"
+pattern PhoneNumberCountryCodeZM :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeZM = PhoneNumberCountryCode' "ZM"
 
-pattern ZW :: PhoneNumberCountryCode
-pattern ZW = PhoneNumberCountryCode' "ZW"
+pattern PhoneNumberCountryCodeZW :: PhoneNumberCountryCode
+pattern PhoneNumberCountryCodeZW = PhoneNumberCountryCode' "ZW"
 
 {-# COMPLETE
-  AF,
-  AL,
-  DZ,
-  AS,
-  AD,
-  AO,
-  AI,
-  AQ,
-  AG,
-  AR,
-  AM,
-  AW,
-  AU,
-  AT,
-  AZ,
-  BS,
-  BH,
-  BD,
-  BB,
-  BY,
-  BE,
-  BZ,
-  BJ,
-  BM,
-  BT,
-  BO,
-  BA,
-  BW,
-  BR,
-  IO,
-  VG,
-  BN,
-  BG,
-  BF,
-  BI,
-  KH,
-  CM,
-  CA,
-  CV,
-  KY,
-  CF,
-  TD,
-  CL,
-  CN,
-  CX,
-  CC,
-  CO,
-  KM,
-  CK,
-  CR,
-  HR,
-  CU,
-  CW,
-  CY,
-  CZ,
-  CD,
-  DK,
-  DJ,
-  DM,
-  DO,
-  TL,
-  EC,
-  EG,
-  SV,
-  GQ,
-  ER,
-  EE,
-  ET,
-  FK,
-  FO,
-  FJ,
-  FI,
-  FR,
-  PF,
-  GA,
-  GM,
-  GE,
-  DE,
-  GH,
-  GI,
-  GR,
-  GL,
-  GD,
-  GU,
-  GT,
-  GG,
-  GN,
-  GW,
-  GY,
-  HT,
-  HN,
-  HK,
-  HU,
-  IS,
-  IN,
-  Id,
-  IR,
-  IQ,
-  IE,
-  IM,
-  IL,
-  IT,
-  CI,
-  JM,
-  JP,
-  JE,
-  JO,
-  KZ,
-  KE,
-  KI,
-  KW,
-  KG,
-  LA,
-  LV,
-  LB,
-  LS,
-  LR,
-  LY,
-  LI,
-  LT,
-  LU,
-  MO,
-  MK,
-  MG,
-  MW,
-  MY,
-  MV,
-  ML,
-  MT,
-  MH,
-  MR,
-  MU,
-  YT,
-  MX,
-  FM,
-  MD,
-  MC,
-  MN,
-  ME,
-  MS,
-  MA,
-  MZ,
-  MM,
-  NA,
-  NR,
-  NP,
-  NL,
-  AN,
-  NC,
-  NZ,
-  NI,
-  NE,
-  NG,
-  NU,
-  KP,
-  MP,
-  NO,
-  OM,
-  PK,
-  PW,
-  PA,
-  PG,
-  PY,
-  PE,
-  PH,
-  PN,
-  PL,
-  PT,
-  PR,
-  QA,
-  CG,
-  RE,
-  RO,
-  RU,
-  RW,
-  BL,
-  SH,
-  KN,
-  LC,
-  MF,
-  PM,
-  VC,
-  WS,
-  SM,
-  ST,
-  SA,
-  SN,
-  RS,
-  SC,
-  SL,
-  SG,
-  SX,
-  SK,
-  SI,
-  SB,
-  SO,
-  ZA,
-  KR,
-  ES,
-  LK,
-  SD,
-  SR,
-  SJ,
-  SZ,
-  SE,
-  CH,
-  SY,
-  TW,
-  TJ,
-  TZ,
-  TH,
-  TG,
-  TK,
-  TO,
-  TT,
-  TN,
-  TR,
-  TM,
-  TC,
-  TV,
-  VI,
-  UG,
-  UA,
-  AE,
-  GB,
-  US,
-  UY,
-  UZ,
-  VU,
-  VA,
-  VE,
-  VN,
-  WF,
-  EH,
-  YE,
-  ZM,
-  ZW,
+  PhoneNumberCountryCodeAF,
+  PhoneNumberCountryCodeAL,
+  PhoneNumberCountryCodeDZ,
+  PhoneNumberCountryCodeAS,
+  PhoneNumberCountryCodeAD,
+  PhoneNumberCountryCodeAO,
+  PhoneNumberCountryCodeAI,
+  PhoneNumberCountryCodeAQ,
+  PhoneNumberCountryCodeAG,
+  PhoneNumberCountryCodeAR,
+  PhoneNumberCountryCodeAM,
+  PhoneNumberCountryCodeAW,
+  PhoneNumberCountryCodeAU,
+  PhoneNumberCountryCodeAT,
+  PhoneNumberCountryCodeAZ,
+  PhoneNumberCountryCodeBS,
+  PhoneNumberCountryCodeBH,
+  PhoneNumberCountryCodeBD,
+  PhoneNumberCountryCodeBB,
+  PhoneNumberCountryCodeBY,
+  PhoneNumberCountryCodeBE,
+  PhoneNumberCountryCodeBZ,
+  PhoneNumberCountryCodeBJ,
+  PhoneNumberCountryCodeBM,
+  PhoneNumberCountryCodeBT,
+  PhoneNumberCountryCodeBO,
+  PhoneNumberCountryCodeBA,
+  PhoneNumberCountryCodeBW,
+  PhoneNumberCountryCodeBR,
+  PhoneNumberCountryCodeIO,
+  PhoneNumberCountryCodeVG,
+  PhoneNumberCountryCodeBN,
+  PhoneNumberCountryCodeBG,
+  PhoneNumberCountryCodeBF,
+  PhoneNumberCountryCodeBI,
+  PhoneNumberCountryCodeKH,
+  PhoneNumberCountryCodeCM,
+  PhoneNumberCountryCodeCA,
+  PhoneNumberCountryCodeCV,
+  PhoneNumberCountryCodeKY,
+  PhoneNumberCountryCodeCF,
+  PhoneNumberCountryCodeTD,
+  PhoneNumberCountryCodeCL,
+  PhoneNumberCountryCodeCN,
+  PhoneNumberCountryCodeCX,
+  PhoneNumberCountryCodeCC,
+  PhoneNumberCountryCodeCO,
+  PhoneNumberCountryCodeKM,
+  PhoneNumberCountryCodeCK,
+  PhoneNumberCountryCodeCR,
+  PhoneNumberCountryCodeHR,
+  PhoneNumberCountryCodeCU,
+  PhoneNumberCountryCodeCW,
+  PhoneNumberCountryCodeCY,
+  PhoneNumberCountryCodeCZ,
+  PhoneNumberCountryCodeCD,
+  PhoneNumberCountryCodeDK,
+  PhoneNumberCountryCodeDJ,
+  PhoneNumberCountryCodeDM,
+  PhoneNumberCountryCodeDO,
+  PhoneNumberCountryCodeTL,
+  PhoneNumberCountryCodeEC,
+  PhoneNumberCountryCodeEG,
+  PhoneNumberCountryCodeSV,
+  PhoneNumberCountryCodeGQ,
+  PhoneNumberCountryCodeER,
+  PhoneNumberCountryCodeEE,
+  PhoneNumberCountryCodeET,
+  PhoneNumberCountryCodeFK,
+  PhoneNumberCountryCodeFO,
+  PhoneNumberCountryCodeFJ,
+  PhoneNumberCountryCodeFI,
+  PhoneNumberCountryCodeFR,
+  PhoneNumberCountryCodePF,
+  PhoneNumberCountryCodeGA,
+  PhoneNumberCountryCodeGM,
+  PhoneNumberCountryCodeGE,
+  PhoneNumberCountryCodeDE,
+  PhoneNumberCountryCodeGH,
+  PhoneNumberCountryCodeGI,
+  PhoneNumberCountryCodeGR,
+  PhoneNumberCountryCodeGL,
+  PhoneNumberCountryCodeGD,
+  PhoneNumberCountryCodeGU,
+  PhoneNumberCountryCodeGT,
+  PhoneNumberCountryCodeGG,
+  PhoneNumberCountryCodeGN,
+  PhoneNumberCountryCodeGW,
+  PhoneNumberCountryCodeGY,
+  PhoneNumberCountryCodeHT,
+  PhoneNumberCountryCodeHN,
+  PhoneNumberCountryCodeHK,
+  PhoneNumberCountryCodeHU,
+  PhoneNumberCountryCodeIS,
+  PhoneNumberCountryCodeIN,
+  PhoneNumberCountryCodeID,
+  PhoneNumberCountryCodeIR,
+  PhoneNumberCountryCodeIQ,
+  PhoneNumberCountryCodeIE,
+  PhoneNumberCountryCodeIM,
+  PhoneNumberCountryCodeIL,
+  PhoneNumberCountryCodeIT,
+  PhoneNumberCountryCodeCI,
+  PhoneNumberCountryCodeJM,
+  PhoneNumberCountryCodeJP,
+  PhoneNumberCountryCodeJE,
+  PhoneNumberCountryCodeJO,
+  PhoneNumberCountryCodeKZ,
+  PhoneNumberCountryCodeKE,
+  PhoneNumberCountryCodeKI,
+  PhoneNumberCountryCodeKW,
+  PhoneNumberCountryCodeKG,
+  PhoneNumberCountryCodeLA,
+  PhoneNumberCountryCodeLV,
+  PhoneNumberCountryCodeLB,
+  PhoneNumberCountryCodeLS,
+  PhoneNumberCountryCodeLR,
+  PhoneNumberCountryCodeLY,
+  PhoneNumberCountryCodeLI,
+  PhoneNumberCountryCodeLT,
+  PhoneNumberCountryCodeLU,
+  PhoneNumberCountryCodeMO,
+  PhoneNumberCountryCodeMK,
+  PhoneNumberCountryCodeMG,
+  PhoneNumberCountryCodeMW,
+  PhoneNumberCountryCodeMY,
+  PhoneNumberCountryCodeMV,
+  PhoneNumberCountryCodeML,
+  PhoneNumberCountryCodeMT,
+  PhoneNumberCountryCodeMH,
+  PhoneNumberCountryCodeMR,
+  PhoneNumberCountryCodeMU,
+  PhoneNumberCountryCodeYT,
+  PhoneNumberCountryCodeMX,
+  PhoneNumberCountryCodeFM,
+  PhoneNumberCountryCodeMD,
+  PhoneNumberCountryCodeMC,
+  PhoneNumberCountryCodeMN,
+  PhoneNumberCountryCodeME,
+  PhoneNumberCountryCodeMS,
+  PhoneNumberCountryCodeMA,
+  PhoneNumberCountryCodeMZ,
+  PhoneNumberCountryCodeMM,
+  PhoneNumberCountryCodeNA,
+  PhoneNumberCountryCodeNR,
+  PhoneNumberCountryCodeNP,
+  PhoneNumberCountryCodeNL,
+  PhoneNumberCountryCodeAN,
+  PhoneNumberCountryCodeNC,
+  PhoneNumberCountryCodeNZ,
+  PhoneNumberCountryCodeNI,
+  PhoneNumberCountryCodeNE,
+  PhoneNumberCountryCodeNG,
+  PhoneNumberCountryCodeNU,
+  PhoneNumberCountryCodeKP,
+  PhoneNumberCountryCodeMP,
+  PhoneNumberCountryCodeNO,
+  PhoneNumberCountryCodeOM,
+  PhoneNumberCountryCodePK,
+  PhoneNumberCountryCodePW,
+  PhoneNumberCountryCodePA,
+  PhoneNumberCountryCodePG,
+  PhoneNumberCountryCodePY,
+  PhoneNumberCountryCodePE,
+  PhoneNumberCountryCodePH,
+  PhoneNumberCountryCodePN,
+  PhoneNumberCountryCodePL,
+  PhoneNumberCountryCodePT,
+  PhoneNumberCountryCodePR,
+  PhoneNumberCountryCodeQA,
+  PhoneNumberCountryCodeCG,
+  PhoneNumberCountryCodeRE,
+  PhoneNumberCountryCodeRO,
+  PhoneNumberCountryCodeRU,
+  PhoneNumberCountryCodeRW,
+  PhoneNumberCountryCodeBL,
+  PhoneNumberCountryCodeSH,
+  PhoneNumberCountryCodeKN,
+  PhoneNumberCountryCodeLC,
+  PhoneNumberCountryCodeMF,
+  PhoneNumberCountryCodePM,
+  PhoneNumberCountryCodeVC,
+  PhoneNumberCountryCodeWS,
+  PhoneNumberCountryCodeSM,
+  PhoneNumberCountryCodeST,
+  PhoneNumberCountryCodeSA,
+  PhoneNumberCountryCodeSN,
+  PhoneNumberCountryCodeRS,
+  PhoneNumberCountryCodeSC,
+  PhoneNumberCountryCodeSL,
+  PhoneNumberCountryCodeSG,
+  PhoneNumberCountryCodeSX,
+  PhoneNumberCountryCodeSK,
+  PhoneNumberCountryCodeSI,
+  PhoneNumberCountryCodeSB,
+  PhoneNumberCountryCodeSO,
+  PhoneNumberCountryCodeZA,
+  PhoneNumberCountryCodeKR,
+  PhoneNumberCountryCodeES,
+  PhoneNumberCountryCodeLK,
+  PhoneNumberCountryCodeSD,
+  PhoneNumberCountryCodeSR,
+  PhoneNumberCountryCodeSJ,
+  PhoneNumberCountryCodeSZ,
+  PhoneNumberCountryCodeSE,
+  PhoneNumberCountryCodeCH,
+  PhoneNumberCountryCodeSY,
+  PhoneNumberCountryCodeTW,
+  PhoneNumberCountryCodeTJ,
+  PhoneNumberCountryCodeTZ,
+  PhoneNumberCountryCodeTH,
+  PhoneNumberCountryCodeTG,
+  PhoneNumberCountryCodeTK,
+  PhoneNumberCountryCodeTO,
+  PhoneNumberCountryCodeTT,
+  PhoneNumberCountryCodeTN,
+  PhoneNumberCountryCodeTR,
+  PhoneNumberCountryCodeTM,
+  PhoneNumberCountryCodeTC,
+  PhoneNumberCountryCodeTV,
+  PhoneNumberCountryCodeVI,
+  PhoneNumberCountryCodeUG,
+  PhoneNumberCountryCodeUA,
+  PhoneNumberCountryCodeAE,
+  PhoneNumberCountryCodeGB,
+  PhoneNumberCountryCodeUS,
+  PhoneNumberCountryCodeUY,
+  PhoneNumberCountryCodeUZ,
+  PhoneNumberCountryCodeVU,
+  PhoneNumberCountryCodeVA,
+  PhoneNumberCountryCodeVE,
+  PhoneNumberCountryCodeVN,
+  PhoneNumberCountryCodeWF,
+  PhoneNumberCountryCodeEH,
+  PhoneNumberCountryCodeYE,
+  PhoneNumberCountryCodeZM,
+  PhoneNumberCountryCodeZW,
   PhoneNumberCountryCode'
   #-}

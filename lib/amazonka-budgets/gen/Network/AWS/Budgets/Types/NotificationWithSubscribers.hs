@@ -22,58 +22,52 @@ module Network.AWS.Budgets.Types.NotificationWithSubscribers
   )
 where
 
-import Network.AWS.Budgets.Types.Notification
-import Network.AWS.Budgets.Types.Subscriber
+import qualified Network.AWS.Budgets.Types.Notification as Types
+import qualified Network.AWS.Budgets.Types.Subscriber as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A notification with subscribers. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.
 --
 -- /See:/ 'mkNotificationWithSubscribers' smart constructor.
 data NotificationWithSubscribers = NotificationWithSubscribers'
   { -- | The notification that is associated with a budget.
-    notification :: Notification,
+    notification :: Types.Notification,
     -- | A list of subscribers who are subscribed to this notification.
-    subscribers :: Lude.NonEmpty Subscriber
+    subscribers :: Core.NonEmpty Types.Subscriber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationWithSubscribers' with the minimum fields required to make a request.
---
--- * 'notification' - The notification that is associated with a budget.
--- * 'subscribers' - A list of subscribers who are subscribed to this notification.
+-- | Creates a 'NotificationWithSubscribers' value with any optional fields omitted.
 mkNotificationWithSubscribers ::
   -- | 'notification'
-  Notification ->
+  Types.Notification ->
   -- | 'subscribers'
-  Lude.NonEmpty Subscriber ->
+  Core.NonEmpty Types.Subscriber ->
   NotificationWithSubscribers
-mkNotificationWithSubscribers pNotification_ pSubscribers_ =
-  NotificationWithSubscribers'
-    { notification = pNotification_,
-      subscribers = pSubscribers_
-    }
+mkNotificationWithSubscribers notification subscribers =
+  NotificationWithSubscribers' {notification, subscribers}
 
 -- | The notification that is associated with a budget.
 --
 -- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwsNotification :: Lens.Lens' NotificationWithSubscribers Notification
-nwsNotification = Lens.lens (notification :: NotificationWithSubscribers -> Notification) (\s a -> s {notification = a} :: NotificationWithSubscribers)
+nwsNotification :: Lens.Lens' NotificationWithSubscribers Types.Notification
+nwsNotification = Lens.field @"notification"
 {-# DEPRECATED nwsNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 -- | A list of subscribers who are subscribed to this notification.
 --
 -- /Note:/ Consider using 'subscribers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwsSubscribers :: Lens.Lens' NotificationWithSubscribers (Lude.NonEmpty Subscriber)
-nwsSubscribers = Lens.lens (subscribers :: NotificationWithSubscribers -> Lude.NonEmpty Subscriber) (\s a -> s {subscribers = a} :: NotificationWithSubscribers)
+nwsSubscribers :: Lens.Lens' NotificationWithSubscribers (Core.NonEmpty Types.Subscriber)
+nwsSubscribers = Lens.field @"subscribers"
 {-# DEPRECATED nwsSubscribers "Use generic-lens or generic-optics with 'subscribers' instead." #-}
 
-instance Lude.ToJSON NotificationWithSubscribers where
-  toJSON NotificationWithSubscribers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Notification" Lude..= notification),
-            Lude.Just ("Subscribers" Lude..= subscribers)
+instance Core.FromJSON NotificationWithSubscribers where
+  toJSON NotificationWithSubscribers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Notification" Core..= notification),
+            Core.Just ("Subscribers" Core..= subscribers)
           ]
       )

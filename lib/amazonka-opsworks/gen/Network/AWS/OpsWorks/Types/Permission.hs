@@ -17,27 +17,28 @@ module Network.AWS.OpsWorks.Types.Permission
     mkPermission,
 
     -- * Lenses
-    pIAMUserARN,
+    pAllowSsh,
     pAllowSudo,
-    pStackId,
+    pIamUserArn,
     pLevel,
-    pAllowSSH,
+    pStackId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes stack or user permissions.
 --
 -- /See:/ 'mkPermission' smart constructor.
 data Permission = Permission'
-  { -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
-    iamUserARN :: Lude.Maybe Lude.Text,
+  { -- | Whether the user can use SSH.
+    allowSsh :: Core.Maybe Core.Bool,
     -- | Whether the user can use __sudo__ .
-    allowSudo :: Lude.Maybe Lude.Bool,
-    -- | A stack ID.
-    stackId :: Lude.Maybe Lude.Text,
+    allowSudo :: Core.Maybe Core.Bool,
+    -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+    iamUserArn :: Core.Maybe Types.String,
     -- | The user's permission level, which must be the following:
     --
     --
@@ -57,69 +58,45 @@ data Permission = Permission'
     --
     --
     -- For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
-    level :: Lude.Maybe Lude.Text,
-    -- | Whether the user can use SSH.
-    allowSSH :: Lude.Maybe Lude.Bool
+    level :: Core.Maybe Types.String,
+    -- | A stack ID.
+    stackId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Permission' with the minimum fields required to make a request.
---
--- * 'iamUserARN' - The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
--- * 'allowSudo' - Whether the user can use __sudo__ .
--- * 'stackId' - A stack ID.
--- * 'level' - The user's permission level, which must be the following:
---
---
---     * @deny@
---
---
---     * @show@
---
---
---     * @deploy@
---
---
---     * @manage@
---
---
---     * @iam_only@
---
---
--- For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
--- * 'allowSSH' - Whether the user can use SSH.
+-- | Creates a 'Permission' value with any optional fields omitted.
 mkPermission ::
   Permission
 mkPermission =
   Permission'
-    { iamUserARN = Lude.Nothing,
-      allowSudo = Lude.Nothing,
-      stackId = Lude.Nothing,
-      level = Lude.Nothing,
-      allowSSH = Lude.Nothing
+    { allowSsh = Core.Nothing,
+      allowSudo = Core.Nothing,
+      iamUserArn = Core.Nothing,
+      level = Core.Nothing,
+      stackId = Core.Nothing
     }
 
--- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- | Whether the user can use SSH.
 --
--- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pIAMUserARN :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pIAMUserARN = Lens.lens (iamUserARN :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: Permission)
-{-# DEPRECATED pIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
+-- /Note:/ Consider using 'allowSsh' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pAllowSsh :: Lens.Lens' Permission (Core.Maybe Core.Bool)
+pAllowSsh = Lens.field @"allowSsh"
+{-# DEPRECATED pAllowSsh "Use generic-lens or generic-optics with 'allowSsh' instead." #-}
 
 -- | Whether the user can use __sudo__ .
 --
 -- /Note:/ Consider using 'allowSudo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAllowSudo :: Lens.Lens' Permission (Lude.Maybe Lude.Bool)
-pAllowSudo = Lens.lens (allowSudo :: Permission -> Lude.Maybe Lude.Bool) (\s a -> s {allowSudo = a} :: Permission)
+pAllowSudo :: Lens.Lens' Permission (Core.Maybe Core.Bool)
+pAllowSudo = Lens.field @"allowSudo"
 {-# DEPRECATED pAllowSudo "Use generic-lens or generic-optics with 'allowSudo' instead." #-}
 
--- | A stack ID.
+-- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pStackId :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pStackId = Lens.lens (stackId :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: Permission)
-{-# DEPRECATED pStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+-- /Note:/ Consider using 'iamUserArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIamUserArn :: Lens.Lens' Permission (Core.Maybe Types.String)
+pIamUserArn = Lens.field @"iamUserArn"
+{-# DEPRECATED pIamUserArn "Use generic-lens or generic-optics with 'iamUserArn' instead." #-}
 
 -- | The user's permission level, which must be the following:
 --
@@ -142,26 +119,24 @@ pStackId = Lens.lens (stackId :: Permission -> Lude.Maybe Lude.Text) (\s a -> s 
 -- For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
 --
 -- /Note:/ Consider using 'level' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pLevel :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pLevel = Lens.lens (level :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {level = a} :: Permission)
+pLevel :: Lens.Lens' Permission (Core.Maybe Types.String)
+pLevel = Lens.field @"level"
 {-# DEPRECATED pLevel "Use generic-lens or generic-optics with 'level' instead." #-}
 
--- | Whether the user can use SSH.
+-- | A stack ID.
 --
--- /Note:/ Consider using 'allowSSH' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAllowSSH :: Lens.Lens' Permission (Lude.Maybe Lude.Bool)
-pAllowSSH = Lens.lens (allowSSH :: Permission -> Lude.Maybe Lude.Bool) (\s a -> s {allowSSH = a} :: Permission)
-{-# DEPRECATED pAllowSSH "Use generic-lens or generic-optics with 'allowSSH' instead." #-}
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pStackId :: Lens.Lens' Permission (Core.Maybe Types.String)
+pStackId = Lens.field @"stackId"
+{-# DEPRECATED pStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance Lude.FromJSON Permission where
+instance Core.FromJSON Permission where
   parseJSON =
-    Lude.withObject
-      "Permission"
-      ( \x ->
-          Permission'
-            Lude.<$> (x Lude..:? "IamUserArn")
-            Lude.<*> (x Lude..:? "AllowSudo")
-            Lude.<*> (x Lude..:? "StackId")
-            Lude.<*> (x Lude..:? "Level")
-            Lude.<*> (x Lude..:? "AllowSsh")
-      )
+    Core.withObject "Permission" Core.$
+      \x ->
+        Permission'
+          Core.<$> (x Core..:? "AllowSsh")
+          Core.<*> (x Core..:? "AllowSudo")
+          Core.<*> (x Core..:? "IamUserArn")
+          Core.<*> (x Core..:? "Level")
+          Core.<*> (x Core..:? "StackId")

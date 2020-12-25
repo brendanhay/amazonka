@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.Rec709Settings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Rec709 Settings
 --
 -- /See:/ 'mkRec709Settings' smart constructor.
 data Rec709Settings = Rec709Settings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Rec709Settings' with the minimum fields required to make a request.
+-- | Creates a 'Rec709Settings' value with any optional fields omitted.
 mkRec709Settings ::
   Rec709Settings
 mkRec709Settings = Rec709Settings'
 
-instance Lude.FromJSON Rec709Settings where
-  parseJSON =
-    Lude.withObject
-      "Rec709Settings"
-      (\x -> Lude.pure Rec709Settings')
+instance Core.FromJSON Rec709Settings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON Rec709Settings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON Rec709Settings where
+  parseJSON =
+    Core.withObject "Rec709Settings" Core.$
+      \x -> Core.pure Rec709Settings'

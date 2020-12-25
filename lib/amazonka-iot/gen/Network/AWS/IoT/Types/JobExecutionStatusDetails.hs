@@ -21,39 +21,36 @@ module Network.AWS.IoT.Types.JobExecutionStatusDetails
   )
 where
 
+import qualified Network.AWS.IoT.Types.DetailsKey as Types
+import qualified Network.AWS.IoT.Types.DetailsValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details of the job execution status.
 --
 -- /See:/ 'mkJobExecutionStatusDetails' smart constructor.
 newtype JobExecutionStatusDetails = JobExecutionStatusDetails'
   { -- | The job execution status.
-    detailsMap :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    detailsMap :: Core.Maybe (Core.HashMap Types.DetailsKey Types.DetailsValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobExecutionStatusDetails' with the minimum fields required to make a request.
---
--- * 'detailsMap' - The job execution status.
+-- | Creates a 'JobExecutionStatusDetails' value with any optional fields omitted.
 mkJobExecutionStatusDetails ::
   JobExecutionStatusDetails
 mkJobExecutionStatusDetails =
-  JobExecutionStatusDetails' {detailsMap = Lude.Nothing}
+  JobExecutionStatusDetails' {detailsMap = Core.Nothing}
 
 -- | The job execution status.
 --
 -- /Note:/ Consider using 'detailsMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesdDetailsMap :: Lens.Lens' JobExecutionStatusDetails (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-jesdDetailsMap = Lens.lens (detailsMap :: JobExecutionStatusDetails -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {detailsMap = a} :: JobExecutionStatusDetails)
+jesdDetailsMap :: Lens.Lens' JobExecutionStatusDetails (Core.Maybe (Core.HashMap Types.DetailsKey Types.DetailsValue))
+jesdDetailsMap = Lens.field @"detailsMap"
 {-# DEPRECATED jesdDetailsMap "Use generic-lens or generic-optics with 'detailsMap' instead." #-}
 
-instance Lude.FromJSON JobExecutionStatusDetails where
+instance Core.FromJSON JobExecutionStatusDetails where
   parseJSON =
-    Lude.withObject
-      "JobExecutionStatusDetails"
-      ( \x ->
-          JobExecutionStatusDetails'
-            Lude.<$> (x Lude..:? "detailsMap" Lude..!= Lude.mempty)
-      )
+    Core.withObject "JobExecutionStatusDetails" Core.$
+      \x ->
+        JobExecutionStatusDetails' Core.<$> (x Core..:? "detailsMap")

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MechanicalTurk
     Network.AWS.MechanicalTurk.AcceptQualificationRequest
@@ -110,29 +116,52 @@ library
     Network.AWS.MechanicalTurk.Waiters
 
   other-modules:
+    Network.AWS.MechanicalTurk.Types.ActionId
     Network.AWS.MechanicalTurk.Types.Assignment
+    Network.AWS.MechanicalTurk.Types.AssignmentId
     Network.AWS.MechanicalTurk.Types.AssignmentStatus
+    Network.AWS.MechanicalTurk.Types.AvailableBalance
+    Network.AWS.MechanicalTurk.Types.BonusAmount
     Network.AWS.MechanicalTurk.Types.BonusPayment
     Network.AWS.MechanicalTurk.Types.Comparator
+    Network.AWS.MechanicalTurk.Types.Country
+    Network.AWS.MechanicalTurk.Types.CustomerId
+    Network.AWS.MechanicalTurk.Types.EntityId
     Network.AWS.MechanicalTurk.Types.EventType
     Network.AWS.MechanicalTurk.Types.HIT
     Network.AWS.MechanicalTurk.Types.HITAccessActions
+    Network.AWS.MechanicalTurk.Types.HITGroupId
+    Network.AWS.MechanicalTurk.Types.HITId
+    Network.AWS.MechanicalTurk.Types.HITLayoutId
     Network.AWS.MechanicalTurk.Types.HITLayoutParameter
     Network.AWS.MechanicalTurk.Types.HITReviewStatus
     Network.AWS.MechanicalTurk.Types.HITStatus
+    Network.AWS.MechanicalTurk.Types.HITTypeId
+    Network.AWS.MechanicalTurk.Types.IdempotencyToken
+    Network.AWS.MechanicalTurk.Types.Key
     Network.AWS.MechanicalTurk.Types.Locale
+    Network.AWS.MechanicalTurk.Types.MessageText
     Network.AWS.MechanicalTurk.Types.NotificationSpecification
     Network.AWS.MechanicalTurk.Types.NotificationTransport
     Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode
+    Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureMessage
     Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus
+    Network.AWS.MechanicalTurk.Types.OnHoldBalance
+    Network.AWS.MechanicalTurk.Types.PaginationToken
     Network.AWS.MechanicalTurk.Types.ParameterMapEntry
+    Network.AWS.MechanicalTurk.Types.PolicyName
     Network.AWS.MechanicalTurk.Types.PolicyParameter
     Network.AWS.MechanicalTurk.Types.Qualification
     Network.AWS.MechanicalTurk.Types.QualificationRequest
     Network.AWS.MechanicalTurk.Types.QualificationRequirement
     Network.AWS.MechanicalTurk.Types.QualificationStatus
     Network.AWS.MechanicalTurk.Types.QualificationType
+    Network.AWS.MechanicalTurk.Types.QualificationTypeId
     Network.AWS.MechanicalTurk.Types.QualificationTypeStatus
+    Network.AWS.MechanicalTurk.Types.Question
+    Network.AWS.MechanicalTurk.Types.QuestionId
+    Network.AWS.MechanicalTurk.Types.Reason
+    Network.AWS.MechanicalTurk.Types.RequesterAnnotation
     Network.AWS.MechanicalTurk.Types.ReviewableHITStatus
     Network.AWS.MechanicalTurk.Types.ReviewActionDetail
     Network.AWS.MechanicalTurk.Types.ReviewActionStatus
@@ -140,7 +169,16 @@ library
     Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel
     Network.AWS.MechanicalTurk.Types.ReviewReport
     Network.AWS.MechanicalTurk.Types.ReviewResultDetail
+    Network.AWS.MechanicalTurk.Types.Reward
+    Network.AWS.MechanicalTurk.Types.String
+    Network.AWS.MechanicalTurk.Types.Subdivision
+    Network.AWS.MechanicalTurk.Types.Subject
+    Network.AWS.MechanicalTurk.Types.SubjectId
+    Network.AWS.MechanicalTurk.Types.SubjectType
+    Network.AWS.MechanicalTurk.Types.TargetId
+    Network.AWS.MechanicalTurk.Types.Value
     Network.AWS.MechanicalTurk.Types.WorkerBlock
+    Network.AWS.MechanicalTurk.Types.WorkerId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

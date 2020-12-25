@@ -20,112 +20,98 @@ module Network.AWS.Glue.StopTrigger
     mkStopTrigger,
 
     -- ** Request lenses
-    stfName,
+    stName,
 
     -- * Destructuring the response
     StopTriggerResponse (..),
     mkStopTriggerResponse,
 
     -- ** Response lenses
-    strsName,
-    strsResponseStatus,
+    strrsName,
+    strrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopTrigger' smart constructor.
 newtype StopTrigger = StopTrigger'
   { -- | The name of the trigger to stop.
-    name :: Lude.Text
+    name :: Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTrigger' with the minimum fields required to make a request.
---
--- * 'name' - The name of the trigger to stop.
+-- | Creates a 'StopTrigger' value with any optional fields omitted.
 mkStopTrigger ::
   -- | 'name'
-  Lude.Text ->
+  Types.NameString ->
   StopTrigger
-mkStopTrigger pName_ = StopTrigger' {name = pName_}
+mkStopTrigger name = StopTrigger' {name}
 
 -- | The name of the trigger to stop.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stfName :: Lens.Lens' StopTrigger Lude.Text
-stfName = Lens.lens (name :: StopTrigger -> Lude.Text) (\s a -> s {name = a} :: StopTrigger)
-{-# DEPRECATED stfName "Use generic-lens or generic-optics with 'name' instead." #-}
+stName :: Lens.Lens' StopTrigger Types.NameString
+stName = Lens.field @"name"
+{-# DEPRECATED stName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest StopTrigger where
+instance Core.FromJSON StopTrigger where
+  toJSON StopTrigger {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest StopTrigger where
   type Rs StopTrigger = StopTriggerResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.StopTrigger")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopTriggerResponse'
-            Lude.<$> (x Lude..?> "Name") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Name") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopTrigger where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.StopTrigger" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopTrigger where
-  toJSON StopTrigger' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath StopTrigger where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopTrigger where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopTriggerResponse' smart constructor.
 data StopTriggerResponse = StopTriggerResponse'
   { -- | The name of the trigger that was stopped.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTriggerResponse' with the minimum fields required to make a request.
---
--- * 'name' - The name of the trigger that was stopped.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopTriggerResponse' value with any optional fields omitted.
 mkStopTriggerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopTriggerResponse
-mkStopTriggerResponse pResponseStatus_ =
-  StopTriggerResponse'
-    { name = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkStopTriggerResponse responseStatus =
+  StopTriggerResponse' {name = Core.Nothing, responseStatus}
 
 -- | The name of the trigger that was stopped.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-strsName :: Lens.Lens' StopTriggerResponse (Lude.Maybe Lude.Text)
-strsName = Lens.lens (name :: StopTriggerResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StopTriggerResponse)
-{-# DEPRECATED strsName "Use generic-lens or generic-optics with 'name' instead." #-}
+strrsName :: Lens.Lens' StopTriggerResponse (Core.Maybe Types.Name)
+strrsName = Lens.field @"name"
+{-# DEPRECATED strrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-strsResponseStatus :: Lens.Lens' StopTriggerResponse Lude.Int
-strsResponseStatus = Lens.lens (responseStatus :: StopTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopTriggerResponse)
-{-# DEPRECATED strsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+strrsResponseStatus :: Lens.Lens' StopTriggerResponse Core.Int
+strrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED strrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

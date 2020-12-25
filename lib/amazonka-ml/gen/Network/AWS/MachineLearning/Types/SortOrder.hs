@@ -13,13 +13,14 @@
 module Network.AWS.MachineLearning.Types.SortOrder
   ( SortOrder
       ( SortOrder',
-        Asc,
-        Dsc
+        SortOrderAsc,
+        SortOrderDsc,
+        fromSortOrder
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The sort order specified in a listing condition. Possible values include the following:
 --
@@ -27,38 +28,39 @@ import qualified Network.AWS.Prelude as Lude
 --     * @asc@ - Present the information in ascending order (from A-Z).
 --
 --     * @dsc@ - Present the information in descending order (from Z-A).
-newtype SortOrder = SortOrder' Lude.Text
+newtype SortOrder = SortOrder' {fromSortOrder :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Asc :: SortOrder
-pattern Asc = SortOrder' "asc"
+pattern SortOrderAsc :: SortOrder
+pattern SortOrderAsc = SortOrder' "asc"
 
-pattern Dsc :: SortOrder
-pattern Dsc = SortOrder' "dsc"
+pattern SortOrderDsc :: SortOrder
+pattern SortOrderDsc = SortOrder' "dsc"
 
 {-# COMPLETE
-  Asc,
-  Dsc,
+  SortOrderAsc,
+  SortOrderDsc,
   SortOrder'
   #-}

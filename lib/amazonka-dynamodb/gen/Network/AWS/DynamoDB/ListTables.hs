@@ -30,105 +30,99 @@ module Network.AWS.DynamoDB.ListTables
     mkListTablesResponse,
 
     -- ** Response lenses
-    ltrsLastEvaluatedTableName,
-    ltrsTableNames,
-    ltrsResponseStatus,
+    ltrrsLastEvaluatedTableName,
+    ltrrsTableNames,
+    ltrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @ListTables@ operation.
 --
 -- /See:/ 'mkListTables' smart constructor.
 data ListTables = ListTables'
   { -- | The first table name that this operation will evaluate. Use the value that was returned for @LastEvaluatedTableName@ in a previous operation, so that you can obtain the next page of results.
-    exclusiveStartTableName :: Lude.Maybe Lude.Text,
+    exclusiveStartTableName :: Core.Maybe Types.TableName,
     -- | A maximum number of table names to return. If this parameter is not specified, the limit is 100.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTables' with the minimum fields required to make a request.
---
--- * 'exclusiveStartTableName' - The first table name that this operation will evaluate. Use the value that was returned for @LastEvaluatedTableName@ in a previous operation, so that you can obtain the next page of results.
--- * 'limit' - A maximum number of table names to return. If this parameter is not specified, the limit is 100.
+-- | Creates a 'ListTables' value with any optional fields omitted.
 mkListTables ::
   ListTables
 mkListTables =
   ListTables'
-    { exclusiveStartTableName = Lude.Nothing,
-      limit = Lude.Nothing
+    { exclusiveStartTableName = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The first table name that this operation will evaluate. Use the value that was returned for @LastEvaluatedTableName@ in a previous operation, so that you can obtain the next page of results.
 --
 -- /Note:/ Consider using 'exclusiveStartTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltExclusiveStartTableName :: Lens.Lens' ListTables (Lude.Maybe Lude.Text)
-ltExclusiveStartTableName = Lens.lens (exclusiveStartTableName :: ListTables -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartTableName = a} :: ListTables)
+ltExclusiveStartTableName :: Lens.Lens' ListTables (Core.Maybe Types.TableName)
+ltExclusiveStartTableName = Lens.field @"exclusiveStartTableName"
 {-# DEPRECATED ltExclusiveStartTableName "Use generic-lens or generic-optics with 'exclusiveStartTableName' instead." #-}
 
 -- | A maximum number of table names to return. If this parameter is not specified, the limit is 100.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltLimit :: Lens.Lens' ListTables (Lude.Maybe Lude.Natural)
-ltLimit = Lens.lens (limit :: ListTables -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTables)
+ltLimit :: Lens.Lens' ListTables (Core.Maybe Core.Natural)
+ltLimit = Lens.field @"limit"
 {-# DEPRECATED ltLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListTables where
-  page rq rs
-    | Page.stop (rs Lens.^. ltrsLastEvaluatedTableName) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltrsTableNames) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltExclusiveStartTableName
-          Lens..~ rs Lens.^. ltrsLastEvaluatedTableName
+instance Core.FromJSON ListTables where
+  toJSON ListTables {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ExclusiveStartTableName" Core..=)
+              Core.<$> exclusiveStartTableName,
+            ("Limit" Core..=) Core.<$> limit
+          ]
+      )
 
-instance Lude.AWSRequest ListTables where
+instance Core.AWSRequest ListTables where
   type Rs ListTables = ListTablesResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.ListTables")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTablesResponse'
-            Lude.<$> (x Lude..?> "LastEvaluatedTableName")
-            Lude.<*> (x Lude..?> "TableNames" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LastEvaluatedTableName")
+            Core.<*> (x Core..:? "TableNames")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListTables where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.ListTables" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTables where
-  toJSON ListTables' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExclusiveStartTableName" Lude..=)
-              Lude.<$> exclusiveStartTableName,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListTables where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTables where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListTables where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"lastEvaluatedTableName") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"tableNames" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"exclusiveStartTableName"
+            Lens..~ rs Lens.^. Lens.field @"lastEvaluatedTableName"
+        )
 
 -- | Represents the output of a @ListTables@ operation.
 --
@@ -137,35 +131,27 @@ data ListTablesResponse = ListTablesResponse'
   { -- | The name of the last table in the current page of results. Use this value as the @ExclusiveStartTableName@ in a new request to obtain the next page of results, until all the table names are returned.
     --
     -- If you do not receive a @LastEvaluatedTableName@ value in the response, this means that there are no more table names to be retrieved.
-    lastEvaluatedTableName :: Lude.Maybe Lude.Text,
+    lastEvaluatedTableName :: Core.Maybe Types.LastEvaluatedTableName,
     -- | The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.
     --
     -- If @LastEvaluatedTableName@ also appears in the output, you can use this value as the @ExclusiveStartTableName@ parameter in a subsequent @ListTables@ request and obtain the next page of results.
-    tableNames :: Lude.Maybe [Lude.Text],
+    tableNames :: Core.Maybe [Types.TableName],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTablesResponse' with the minimum fields required to make a request.
---
--- * 'lastEvaluatedTableName' - The name of the last table in the current page of results. Use this value as the @ExclusiveStartTableName@ in a new request to obtain the next page of results, until all the table names are returned.
---
--- If you do not receive a @LastEvaluatedTableName@ value in the response, this means that there are no more table names to be retrieved.
--- * 'tableNames' - The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.
---
--- If @LastEvaluatedTableName@ also appears in the output, you can use this value as the @ExclusiveStartTableName@ parameter in a subsequent @ListTables@ request and obtain the next page of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTablesResponse' value with any optional fields omitted.
 mkListTablesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTablesResponse
-mkListTablesResponse pResponseStatus_ =
+mkListTablesResponse responseStatus =
   ListTablesResponse'
-    { lastEvaluatedTableName = Lude.Nothing,
-      tableNames = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { lastEvaluatedTableName = Core.Nothing,
+      tableNames = Core.Nothing,
+      responseStatus
     }
 
 -- | The name of the last table in the current page of results. Use this value as the @ExclusiveStartTableName@ in a new request to obtain the next page of results, until all the table names are returned.
@@ -173,22 +159,22 @@ mkListTablesResponse pResponseStatus_ =
 -- If you do not receive a @LastEvaluatedTableName@ value in the response, this means that there are no more table names to be retrieved.
 --
 -- /Note:/ Consider using 'lastEvaluatedTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsLastEvaluatedTableName :: Lens.Lens' ListTablesResponse (Lude.Maybe Lude.Text)
-ltrsLastEvaluatedTableName = Lens.lens (lastEvaluatedTableName :: ListTablesResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastEvaluatedTableName = a} :: ListTablesResponse)
-{-# DEPRECATED ltrsLastEvaluatedTableName "Use generic-lens or generic-optics with 'lastEvaluatedTableName' instead." #-}
+ltrrsLastEvaluatedTableName :: Lens.Lens' ListTablesResponse (Core.Maybe Types.LastEvaluatedTableName)
+ltrrsLastEvaluatedTableName = Lens.field @"lastEvaluatedTableName"
+{-# DEPRECATED ltrrsLastEvaluatedTableName "Use generic-lens or generic-optics with 'lastEvaluatedTableName' instead." #-}
 
 -- | The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.
 --
 -- If @LastEvaluatedTableName@ also appears in the output, you can use this value as the @ExclusiveStartTableName@ parameter in a subsequent @ListTables@ request and obtain the next page of results.
 --
 -- /Note:/ Consider using 'tableNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsTableNames :: Lens.Lens' ListTablesResponse (Lude.Maybe [Lude.Text])
-ltrsTableNames = Lens.lens (tableNames :: ListTablesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {tableNames = a} :: ListTablesResponse)
-{-# DEPRECATED ltrsTableNames "Use generic-lens or generic-optics with 'tableNames' instead." #-}
+ltrrsTableNames :: Lens.Lens' ListTablesResponse (Core.Maybe [Types.TableName])
+ltrrsTableNames = Lens.field @"tableNames"
+{-# DEPRECATED ltrrsTableNames "Use generic-lens or generic-optics with 'tableNames' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsResponseStatus :: Lens.Lens' ListTablesResponse Lude.Int
-ltrsResponseStatus = Lens.lens (responseStatus :: ListTablesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTablesResponse)
-{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltrrsResponseStatus :: Lens.Lens' ListTablesResponse Core.Int
+ltrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

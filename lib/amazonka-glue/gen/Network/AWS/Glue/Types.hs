@@ -9,197 +9,59 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types
   ( -- * Service configuration
-    glueService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * BackfillErrorCode
-    BackfillErrorCode (..),
-
-    -- * CSVHeaderOption
-    CSVHeaderOption (..),
-
-    -- * CatalogEncryptionMode
-    CatalogEncryptionMode (..),
-
-    -- * CloudWatchEncryptionMode
-    CloudWatchEncryptionMode (..),
-
-    -- * ColumnStatisticsType
-    ColumnStatisticsType (..),
-
-    -- * Comparator
-    Comparator (..),
-
-    -- * Compatibility
-    Compatibility (..),
-
-    -- * ConnectionPropertyKey
-    ConnectionPropertyKey (..),
-
-    -- * ConnectionType
-    ConnectionType (..),
-
-    -- * CrawlState
-    CrawlState (..),
-
-    -- * CrawlerLineageSettings
-    CrawlerLineageSettings (..),
-
-    -- * CrawlerState
-    CrawlerState (..),
-
-    -- * DataFormat
-    DataFormat (..),
-
-    -- * DeleteBehavior
-    DeleteBehavior (..),
-
-    -- * EnableHybridValues
-    EnableHybridValues (..),
-
-    -- * ExistCondition
-    ExistCondition (..),
-
-    -- * JobBookmarksEncryptionMode
-    JobBookmarksEncryptionMode (..),
-
-    -- * JobRunState
-    JobRunState (..),
-
-    -- * Language
-    Language (..),
-
-    -- * LastCrawlStatus
-    LastCrawlStatus (..),
-
-    -- * Logical
-    Logical (..),
-
-    -- * LogicalOperator
-    LogicalOperator (..),
-
-    -- * MLUserDataEncryptionModeString
-    MLUserDataEncryptionModeString (..),
-
-    -- * NodeType
-    NodeType (..),
-
-    -- * PartitionIndexStatus
-    PartitionIndexStatus (..),
-
-    -- * Permission
-    Permission (..),
-
-    -- * PrincipalType
-    PrincipalType (..),
-
-    -- * RecrawlBehavior
-    RecrawlBehavior (..),
-
-    -- * RegistryStatus
-    RegistryStatus (..),
-
-    -- * ResourceShareType
-    ResourceShareType (..),
-
-    -- * ResourceType
-    ResourceType (..),
+    _ValidationException,
+    _AccessDeniedException,
+    _CrawlerRunningException,
+    _SchedulerTransitioningException,
+    _SchedulerRunningException,
+    _ConditionCheckFailureException,
+    _ConcurrentRunsExceededException,
+    _IllegalWorkflowStateException,
+    _NoScheduleException,
+    _OperationTimeoutException,
+    _ConflictException,
+    _CrawlerNotRunningException,
+    _VersionMismatchException,
+    _MLTransformNotReadyException,
+    _EntityNotFoundException,
+    _ConcurrentModificationException,
+    _SchedulerNotRunningException,
+    _InternalServiceException,
+    _InvalidInputException,
+    _ResourceNumberLimitExceededException,
+    _GlueEncryptionException,
+    _IdempotentParameterMismatchException,
+    _CrawlerStoppingException,
+    _AlreadyExistsException,
 
     -- * S3EncryptionMode
     S3EncryptionMode (..),
 
-    -- * ScheduleState
-    ScheduleState (..),
+    -- * TaskRun
+    TaskRun (..),
+    mkTaskRun,
+    trCompletedOn,
+    trErrorString,
+    trExecutionTime,
+    trLastModifiedOn,
+    trLogGroupName,
+    trProperties,
+    trStartedOn,
+    trStatus,
+    trTaskRunId,
+    trTransformId,
 
-    -- * SchemaDiffType
-    SchemaDiffType (..),
+    -- * GlueResourceArn
+    GlueResourceArn (..),
 
-    -- * SchemaStatus
-    SchemaStatus (..),
+    -- * GlueVersionString
+    GlueVersionString (..),
 
-    -- * SchemaVersionStatus
-    SchemaVersionStatus (..),
-
-    -- * Sort
-    Sort (..),
-
-    -- * SortDirectionType
-    SortDirectionType (..),
-
-    -- * TaskRunSortColumnType
-    TaskRunSortColumnType (..),
-
-    -- * TaskStatusType
-    TaskStatusType (..),
-
-    -- * TaskType
-    TaskType (..),
-
-    -- * TransformSortColumnType
-    TransformSortColumnType (..),
-
-    -- * TransformStatusType
-    TransformStatusType (..),
-
-    -- * TransformType
-    TransformType (..),
-
-    -- * TriggerState
-    TriggerState (..),
-
-    -- * TriggerType
-    TriggerType (..),
-
-    -- * UpdateBehavior
-    UpdateBehavior (..),
-
-    -- * WorkerType
-    WorkerType (..),
-
-    -- * WorkflowRunStatus
-    WorkflowRunStatus (..),
-
-    -- * Action
-    Action (..),
-    mkAction,
-    aNotificationProperty,
-    aArguments,
-    aJobName,
-    aSecurityConfiguration,
-    aTimeout,
-    aCrawlerName,
-
-    -- * BackfillError
-    BackfillError (..),
-    mkBackfillError,
-    bePartitions,
-    beCode,
-
-    -- * BatchStopJobRunError
-    BatchStopJobRunError (..),
-    mkBatchStopJobRunError,
-    bsjreJobName,
-    bsjreJobRunId,
-    bsjreErrorDetail,
-
-    -- * BatchStopJobRunSuccessfulSubmission
-    BatchStopJobRunSuccessfulSubmission (..),
-    mkBatchStopJobRunSuccessfulSubmission,
-    bsjrssJobName,
-    bsjrssJobRunId,
-
-    -- * BatchUpdatePartitionFailureEntry
-    BatchUpdatePartitionFailureEntry (..),
-    mkBatchUpdatePartitionFailureEntry,
-    bupfePartitionValueList,
-    bupfeErrorDetail,
-
-    -- * BatchUpdatePartitionRequestEntry
-    BatchUpdatePartitionRequestEntry (..),
-    mkBatchUpdatePartitionRequestEntry,
-    buprePartitionInput,
-    buprePartitionValueList,
+    -- * DataLakePrincipalString
+    DataLakePrincipalString (..),
 
     -- * BinaryColumnStatisticsData
     BinaryColumnStatisticsData (..),
@@ -208,26 +70,176 @@ module Network.AWS.Glue.Types
     bcsdAverageLength,
     bcsdNumberOfNulls,
 
-    -- * BooleanColumnStatisticsData
-    BooleanColumnStatisticsData (..),
-    mkBooleanColumnStatisticsData,
-    bNumberOfFalses,
-    bNumberOfTrues,
-    bNumberOfNulls,
+    -- * ResourceUri
+    ResourceUri (..),
+    mkResourceUri,
+    ruResourceType,
+    ruUri,
 
-    -- * CSVClassifier
-    CSVClassifier (..),
-    mkCSVClassifier,
-    ccCreationTime,
-    ccQuoteSymbol,
-    ccContainsHeader,
-    ccLastUpdated,
-    ccDisableValueTrimming,
-    ccName,
-    ccHeader,
-    ccVersion,
-    ccAllowSingleColumn,
-    ccDelimiter,
+    -- * VersionsString
+    VersionsString (..),
+
+    -- * JobBookmarksEncryptionMode
+    JobBookmarksEncryptionMode (..),
+
+    -- * CloudWatchEncryptionMode
+    CloudWatchEncryptionMode (..),
+
+    -- * CrawlState
+    CrawlState (..),
+
+    -- * PredicateString
+    PredicateString (..),
+
+    -- * BackfillError
+    BackfillError (..),
+    mkBackfillError,
+    beCode,
+    bePartitions,
+
+    -- * Crawler
+    Crawler (..),
+    mkCrawler,
+    cgClassifiers,
+    cgConfiguration,
+    cgCrawlElapsedTime,
+    cgCrawlerSecurityConfiguration,
+    cgCreationTime,
+    cgDatabaseName,
+    cgDescription,
+    cgLastCrawl,
+    cgLastUpdated,
+    cgLineageConfiguration,
+    cgName,
+    cgRecrawlPolicy,
+    cgRole,
+    cgSchedule,
+    cgSchemaChangePolicy,
+    cgState,
+    cgTablePrefix,
+    cgTargets,
+    cgVersion,
+
+    -- * DevEndpoint
+    DevEndpoint (..),
+    mkDevEndpoint,
+    deArguments,
+    deAvailabilityZone,
+    deCreatedTimestamp,
+    deEndpointName,
+    deExtraJarsS3Path,
+    deExtraPythonLibsS3Path,
+    deFailureReason,
+    deGlueVersion,
+    deLastModifiedTimestamp,
+    deLastUpdateStatus,
+    deNumberOfNodes,
+    deNumberOfWorkers,
+    dePrivateAddress,
+    dePublicAddress,
+    dePublicKey,
+    dePublicKeys,
+    deRoleArn,
+    deSecurityConfiguration,
+    deSecurityGroupIds,
+    deStatus,
+    deSubnetId,
+    deVpcId,
+    deWorkerType,
+    deYarnEndpointAddress,
+    deZeppelinRemoteSparkInterpreterPort,
+
+    -- * PartitionInput
+    PartitionInput (..),
+    mkPartitionInput,
+    piLastAccessTime,
+    piLastAnalyzedTime,
+    piParameters,
+    piStorageDescriptor,
+    piValues,
+
+    -- * HashString
+    HashString (..),
+
+    -- * PartitionIndexDescriptor
+    PartitionIndexDescriptor (..),
+    mkPartitionIndexDescriptor,
+    pidIndexName,
+    pidKeys,
+    pidIndexStatus,
+    pidBackfillErrors,
+
+    -- * PaginationToken
+    PaginationToken (..),
+
+    -- * SchemaColumn
+    SchemaColumn (..),
+    mkSchemaColumn,
+    scDataType,
+    scName,
+
+    -- * WorkflowGraph
+    WorkflowGraph (..),
+    mkWorkflowGraph,
+    wgEdges,
+    wgNodes,
+
+    -- * TaskRunFilterCriteria
+    TaskRunFilterCriteria (..),
+    mkTaskRunFilterCriteria,
+    trfcStartedAfter,
+    trfcStartedBefore,
+    trfcStatus,
+    trfcTaskRunType,
+
+    -- * ResourceShareType
+    ResourceShareType (..),
+
+    -- * MLUserDataEncryption
+    MLUserDataEncryption (..),
+    mkMLUserDataEncryption,
+    mludeMlUserDataEncryptionMode,
+    mludeKmsKeyId,
+
+    -- * S3Encryption
+    S3Encryption (..),
+    mkS3Encryption,
+    seKmsKeyArn,
+    seS3EncryptionMode,
+
+    -- * ConnectionsList
+    ConnectionsList (..),
+    mkConnectionsList,
+    clConnections,
+
+    -- * SchemaChangePolicy
+    SchemaChangePolicy (..),
+    mkSchemaChangePolicy,
+    scpDeleteBehavior,
+    scpUpdateBehavior,
+
+    -- * DateColumnStatisticsData
+    DateColumnStatisticsData (..),
+    mkDateColumnStatisticsData,
+    dcsdNumberOfNulls,
+    dcsdNumberOfDistinctValues,
+    dcsdMaximumValue,
+    dcsdMinimumValue,
+
+    -- * FindMatchesMetrics
+    FindMatchesMetrics (..),
+    mkFindMatchesMetrics,
+    fmmAreaUnderPRCurve,
+    fmmConfusionMatrix,
+    fmmF1,
+    fmmPrecision,
+    fmmRecall,
+
+    -- * SortDirectionType
+    SortDirectionType (..),
+
+    -- * SchemaVersionStatus
+    SchemaVersionStatus (..),
 
     -- * CatalogEntry
     CatalogEntry (..),
@@ -235,599 +247,146 @@ module Network.AWS.Glue.Types
     ceDatabaseName,
     ceTableName,
 
-    -- * CatalogImportStatus
-    CatalogImportStatus (..),
-    mkCatalogImportStatus,
-    cisImportedBy,
-    cisImportTime,
-    cisImportCompleted,
+    -- * JobBookmarksEncryption
+    JobBookmarksEncryption (..),
+    mkJobBookmarksEncryption,
+    jbeJobBookmarksEncryptionMode,
+    jbeKmsKeyArn,
 
-    -- * CatalogTarget
-    CatalogTarget (..),
-    mkCatalogTarget,
-    ctDatabaseName,
-    ctTables,
+    -- * TransformFilterCriteria
+    TransformFilterCriteria (..),
+    mkTransformFilterCriteria,
+    tfcCreatedAfter,
+    tfcCreatedBefore,
+    tfcGlueVersion,
+    tfcLastModifiedAfter,
+    tfcLastModifiedBefore,
+    tfcName,
+    tfcSchema,
+    tfcStatus,
+    tfcTransformType,
 
-    -- * Classifier
-    Classifier (..),
-    mkClassifier,
-    cGrokClassifier,
-    cXMLClassifier,
-    cCSVClassifier,
-    cJSONClassifier,
+    -- * KmsKeyArn
+    KmsKeyArn (..),
+
+    -- * ScriptLocationString
+    ScriptLocationString (..),
 
     -- * CloudWatchEncryption
     CloudWatchEncryption (..),
     mkCloudWatchEncryption,
     cweCloudWatchEncryptionMode,
-    cweKMSKeyARN,
+    cweKmsKeyArn,
+
+    -- * BooleanColumnStatisticsData
+    BooleanColumnStatisticsData (..),
+    mkBooleanColumnStatisticsData,
+    bNumberOfTrues,
+    bNumberOfFalses,
+    bNumberOfNulls,
+
+    -- * LastCrawlInfo
+    LastCrawlInfo (..),
+    mkLastCrawlInfo,
+    lciErrorMessage,
+    lciLogGroup,
+    lciLogStream,
+    lciMessagePrefix,
+    lciStartTime,
+    lciStatus,
+
+    -- * DynamoDBTarget
+    DynamoDBTarget (..),
+    mkDynamoDBTarget,
+    ddbtPath,
+    ddbtScanAll,
+    ddbtScanRate,
+
+    -- * UserDefinedFunction
+    UserDefinedFunction (..),
+    mkUserDefinedFunction,
+    udfCatalogId,
+    udfClassName,
+    udfCreateTime,
+    udfDatabaseName,
+    udfFunctionName,
+    udfOwnerName,
+    udfOwnerType,
+    udfResourceUris,
+
+    -- * TriggerNodeDetails
+    TriggerNodeDetails (..),
+    mkTriggerNodeDetails,
+    tndTrigger,
+
+    -- * BatchUpdatePartitionRequestEntry
+    BatchUpdatePartitionRequestEntry (..),
+    mkBatchUpdatePartitionRequestEntry,
+    buprePartitionValueList,
+    buprePartitionInput,
+
+    -- * WorkflowRun
+    WorkflowRun (..),
+    mkWorkflowRun,
+    wrCompletedOn,
+    wrErrorMessage,
+    wrGraph,
+    wrName,
+    wrPreviousRunId,
+    wrStartedOn,
+    wrStatistics,
+    wrStatus,
+    wrWorkflowRunId,
+    wrWorkflowRunProperties,
+
+    -- * EncryptionAtRest
+    EncryptionAtRest (..),
+    mkEncryptionAtRest,
+    earCatalogEncryptionMode,
+    earSseAwsKmsKeyId,
+
+    -- * CodeGenArgName
+    CodeGenArgName (..),
+
+    -- * ResourceType
+    ResourceType (..),
+
+    -- * CreateJsonClassifierRequest
+    CreateJsonClassifierRequest (..),
+    mkCreateJsonClassifierRequest,
+    cjcrName,
+    cjcrJsonPath,
+
+    -- * PrincipalPermissions
+    PrincipalPermissions (..),
+    mkPrincipalPermissions,
+    ppPermissions,
+    ppPrincipal,
+
+    -- * RegistryListItem
+    RegistryListItem (..),
+    mkRegistryListItem,
+    rliCreatedTime,
+    rliDescription,
+    rliRegistryArn,
+    rliRegistryName,
+    rliStatus,
+    rliUpdatedTime,
+
+    -- * NotificationProperty
+    NotificationProperty (..),
+    mkNotificationProperty,
+    npNotifyDelayAfter,
+
+    -- * PrincipalType
+    PrincipalType (..),
 
     -- * CodeGenEdge
     CodeGenEdge (..),
     mkCodeGenEdge,
     cgeSource,
-    cgeTargetParameter,
     cgeTarget,
-
-    -- * CodeGenNode
-    CodeGenNode (..),
-    mkCodeGenNode,
-    cgnArgs,
-    cgnLineNumber,
-    cgnId,
-    cgnNodeType,
-
-    -- * CodeGenNodeArg
-    CodeGenNodeArg (..),
-    mkCodeGenNodeArg,
-    cgnaValue,
-    cgnaName,
-    cgnaParam,
-
-    -- * Column
-    Column (..),
-    mkColumn,
-    cName,
-    cParameters,
-    cType,
-    cComment,
-
-    -- * ColumnError
-    ColumnError (..),
-    mkColumnError,
-    ceError,
-    ceColumnName,
-
-    -- * ColumnStatistics
-    ColumnStatistics (..),
-    mkColumnStatistics,
-    csAnalyzedTime,
-    csColumnType,
-    csStatisticsData,
-    csColumnName,
-
-    -- * ColumnStatisticsData
-    ColumnStatisticsData (..),
-    mkColumnStatisticsData,
-    csdBinaryColumnStatisticsData,
-    csdDateColumnStatisticsData,
-    csdBooleanColumnStatisticsData,
-    csdDecimalColumnStatisticsData,
-    csdDoubleColumnStatisticsData,
-    csdStringColumnStatisticsData,
-    csdType,
-    csdLongColumnStatisticsData,
-
-    -- * ColumnStatisticsError
-    ColumnStatisticsError (..),
-    mkColumnStatisticsError,
-    cseError,
-    cseColumnStatistics,
-
-    -- * Condition
-    Condition (..),
-    mkCondition,
-    cCrawlState,
-    cState,
-    cJobName,
-    cLogicalOperator,
-    cCrawlerName,
-
-    -- * ConfusionMatrix
-    ConfusionMatrix (..),
-    mkConfusionMatrix,
-    cmNumTrueNegatives,
-    cmNumFalseNegatives,
-    cmNumTruePositives,
-    cmNumFalsePositives,
-
-    -- * Connection
-    Connection (..),
-    mkConnection,
-    cfCreationTime,
-    cfLastUpdatedBy,
-    cfConnectionProperties,
-    cfLastUpdatedTime,
-    cfMatchCriteria,
-    cfPhysicalConnectionRequirements,
-    cfName,
-    cfDescription,
-    cfConnectionType,
-
-    -- * ConnectionInput
-    ConnectionInput (..),
-    mkConnectionInput,
-    ciConnectionProperties,
-    ciMatchCriteria,
-    ciPhysicalConnectionRequirements,
-    ciName,
-    ciDescription,
-    ciConnectionType,
-
-    -- * ConnectionPasswordEncryption
-    ConnectionPasswordEncryption (..),
-    mkConnectionPasswordEncryption,
-    cpeReturnConnectionPasswordEncrypted,
-    cpeAWSKMSKeyId,
-
-    -- * ConnectionsList
-    ConnectionsList (..),
-    mkConnectionsList,
-    clConnections,
-
-    -- * Crawl
-    Crawl (..),
-    mkCrawl,
-    cfCompletedOn,
-    cfState,
-    cfStartedOn,
-    cfLogStream,
-    cfLogGroup,
-    cfErrorMessage,
-
-    -- * Crawler
-    Crawler (..),
-    mkCrawler,
-    cgCreationTime,
-    cgState,
-    cgSchemaChangePolicy,
-    cgLastUpdated,
-    cgSchedule,
-    cgLastCrawl,
-    cgCrawlElapsedTime,
-    cgRecrawlPolicy,
-    cgClassifiers,
-    cgRole,
-    cgName,
-    cgTargets,
-    cgVersion,
-    cgDatabaseName,
-    cgCrawlerSecurityConfiguration,
-    cgLineageConfiguration,
-    cgConfiguration,
-    cgTablePrefix,
-    cgDescription,
-
-    -- * CrawlerMetrics
-    CrawlerMetrics (..),
-    mkCrawlerMetrics,
-    cmLastRuntimeSeconds,
-    cmTablesCreated,
-    cmStillEstimating,
-    cmMedianRuntimeSeconds,
-    cmTimeLeftSeconds,
-    cmTablesDeleted,
-    cmTablesUpdated,
-    cmCrawlerName,
-
-    -- * CrawlerNodeDetails
-    CrawlerNodeDetails (..),
-    mkCrawlerNodeDetails,
-    cndCrawls,
-
-    -- * CrawlerTargets
-    CrawlerTargets (..),
-    mkCrawlerTargets,
-    ctDynamoDBTargets,
-    ctS3Targets,
-    ctMongoDBTargets,
-    ctCatalogTargets,
-    ctJdbcTargets,
-
-    -- * CreateCSVClassifierRequest
-    CreateCSVClassifierRequest (..),
-    mkCreateCSVClassifierRequest,
-    cccrQuoteSymbol,
-    cccrContainsHeader,
-    cccrDisableValueTrimming,
-    cccrName,
-    cccrHeader,
-    cccrAllowSingleColumn,
-    cccrDelimiter,
-
-    -- * CreateGrokClassifierRequest
-    CreateGrokClassifierRequest (..),
-    mkCreateGrokClassifierRequest,
-    cgcrClassification,
-    cgcrName,
-    cgcrCustomPatterns,
-    cgcrGrokPattern,
-
-    -- * CreateJSONClassifierRequest
-    CreateJSONClassifierRequest (..),
-    mkCreateJSONClassifierRequest,
-    cjcrJSONPath,
-    cjcrName,
-
-    -- * CreateXMLClassifierRequest
-    CreateXMLClassifierRequest (..),
-    mkCreateXMLClassifierRequest,
-    cxcrClassification,
-    cxcrName,
-    cxcrRowTag,
-
-    -- * DataCatalogEncryptionSettings
-    DataCatalogEncryptionSettings (..),
-    mkDataCatalogEncryptionSettings,
-    dcesEncryptionAtRest,
-    dcesConnectionPasswordEncryption,
-
-    -- * DataLakePrincipal
-    DataLakePrincipal (..),
-    mkDataLakePrincipal,
-    dlpDataLakePrincipalIdentifier,
-
-    -- * Database
-    Database (..),
-    mkDatabase,
-    dLocationURI,
-    dCatalogId,
-    dTargetDatabase,
-    dName,
-    dParameters,
-    dDescription,
-    dCreateTime,
-    dCreateTableDefaultPermissions,
-
-    -- * DatabaseIdentifier
-    DatabaseIdentifier (..),
-    mkDatabaseIdentifier,
-    diCatalogId,
-    diDatabaseName,
-
-    -- * DatabaseInput
-    DatabaseInput (..),
-    mkDatabaseInput,
-    diLocationURI,
-    diTargetDatabase,
-    diName,
-    diParameters,
-    diDescription,
-    diCreateTableDefaultPermissions,
-
-    -- * DateColumnStatisticsData
-    DateColumnStatisticsData (..),
-    mkDateColumnStatisticsData,
-    dcsdNumberOfDistinctValues,
-    dcsdMaximumValue,
-    dcsdNumberOfNulls,
-    dcsdMinimumValue,
-
-    -- * DecimalColumnStatisticsData
-    DecimalColumnStatisticsData (..),
-    mkDecimalColumnStatisticsData,
-    dNumberOfDistinctValues,
-    dMaximumValue,
-    dNumberOfNulls,
-    dMinimumValue,
-
-    -- * DecimalNumber
-    DecimalNumber (..),
-    mkDecimalNumber,
-    dnScale,
-    dnUnscaledValue,
-
-    -- * DevEndpoint
-    DevEndpoint (..),
-    mkDevEndpoint,
-    deStatus,
-    deFailureReason,
-    deEndpointName,
-    deNumberOfWorkers,
-    deExtraPythonLibsS3Path,
-    deLastUpdateStatus,
-    deSecurityGroupIds,
-    deLastModifiedTimestamp,
-    dePublicKeys,
-    deVPCId,
-    deArguments,
-    dePrivateAddress,
-    deWorkerType,
-    deSecurityConfiguration,
-    dePublicKey,
-    deSubnetId,
-    deGlueVersion,
-    deNumberOfNodes,
-    dePublicAddress,
-    deAvailabilityZone,
-    deZeppelinRemoteSparkInterpreterPort,
-    deExtraJARsS3Path,
-    deCreatedTimestamp,
-    deYarnEndpointAddress,
-    deRoleARN,
-
-    -- * DevEndpointCustomLibraries
-    DevEndpointCustomLibraries (..),
-    mkDevEndpointCustomLibraries,
-    declExtraPythonLibsS3Path,
-    declExtraJARsS3Path,
-
-    -- * DoubleColumnStatisticsData
-    DoubleColumnStatisticsData (..),
-    mkDoubleColumnStatisticsData,
-    dcsdfNumberOfDistinctValues,
-    dcsdfMaximumValue,
-    dcsdfNumberOfNulls,
-    dcsdfMinimumValue,
-
-    -- * DynamoDBTarget
-    DynamoDBTarget (..),
-    mkDynamoDBTarget,
-    ddtPath,
-    ddtScanRate,
-    ddtScanAll,
-
-    -- * Edge
-    Edge (..),
-    mkEdge,
-    eSourceId,
-    eDestinationId,
-
-    -- * EncryptionAtRest
-    EncryptionAtRest (..),
-    mkEncryptionAtRest,
-    earSseAWSKMSKeyId,
-    earCatalogEncryptionMode,
-
-    -- * EncryptionConfiguration
-    EncryptionConfiguration (..),
-    mkEncryptionConfiguration,
-    ecS3Encryption,
-    ecJobBookmarksEncryption,
-    ecCloudWatchEncryption,
-
-    -- * ErrorDetail
-    ErrorDetail (..),
-    mkErrorDetail,
-    edErrorCode,
-    edErrorMessage,
-
-    -- * ErrorDetails
-    ErrorDetails (..),
-    mkErrorDetails,
-    eErrorCode,
-    eErrorMessage,
-
-    -- * EvaluationMetrics
-    EvaluationMetrics (..),
-    mkEvaluationMetrics,
-    emFindMatchesMetrics,
-    emTransformType,
-
-    -- * ExecutionProperty
-    ExecutionProperty (..),
-    mkExecutionProperty,
-    epMaxConcurrentRuns,
-
-    -- * ExportLabelsTaskRunProperties
-    ExportLabelsTaskRunProperties (..),
-    mkExportLabelsTaskRunProperties,
-    eltrpOutputS3Path,
-
-    -- * FindMatchesMetrics
-    FindMatchesMetrics (..),
-    mkFindMatchesMetrics,
-    fmmF1,
-    fmmAreaUnderPRCurve,
-    fmmRecall,
-    fmmPrecision,
-    fmmConfusionMatrix,
-
-    -- * FindMatchesParameters
-    FindMatchesParameters (..),
-    mkFindMatchesParameters,
-    fmpEnforceProvidedLabels,
-    fmpAccuracyCostTradeoff,
-    fmpPrecisionRecallTradeoff,
-    fmpPrimaryKeyColumnName,
-
-    -- * FindMatchesTaskRunProperties
-    FindMatchesTaskRunProperties (..),
-    mkFindMatchesTaskRunProperties,
-    fmtrpJobId,
-    fmtrpJobName,
-    fmtrpJobRunId,
-
-    -- * GetConnectionsFilter
-    GetConnectionsFilter (..),
-    mkGetConnectionsFilter,
-    gcfMatchCriteria,
-    gcfConnectionType,
-
-    -- * GluePolicy
-    GluePolicy (..),
-    mkGluePolicy,
-    gpPolicyInJSON,
-    gpUpdateTime,
-    gpPolicyHash,
-    gpCreateTime,
-
-    -- * GlueTable
-    GlueTable (..),
-    mkGlueTable,
-    gCatalogId,
-    gConnectionName,
-    gDatabaseName,
-    gTableName,
-
-    -- * GrokClassifier
-    GrokClassifier (..),
-    mkGrokClassifier,
-    gcCreationTime,
-    gcLastUpdated,
-    gcClassification,
-    gcName,
-    gcVersion,
-    gcCustomPatterns,
-    gcGrokPattern,
-
-    -- * ImportLabelsTaskRunProperties
-    ImportLabelsTaskRunProperties (..),
-    mkImportLabelsTaskRunProperties,
-    iltrpReplace,
-    iltrpInputS3Path,
-
-    -- * JSONClassifier
-    JSONClassifier (..),
-    mkJSONClassifier,
-    jsoncCreationTime,
-    jsoncLastUpdated,
-    jsoncJSONPath,
-    jsoncName,
-    jsoncVersion,
-
-    -- * JdbcTarget
-    JdbcTarget (..),
-    mkJdbcTarget,
-    jtPath,
-    jtConnectionName,
-    jtExclusions,
-
-    -- * Job
-    Job (..),
-    mkJob,
-    jNumberOfWorkers,
-    jCommand,
-    jNotificationProperty,
-    jLastModifiedOn,
-    jConnections,
-    jWorkerType,
-    jSecurityConfiguration,
-    jGlueVersion,
-    jNonOverridableArguments,
-    jRole,
-    jName,
-    jLogURI,
-    jMaxRetries,
-    jExecutionProperty,
-    jAllocatedCapacity,
-    jMaxCapacity,
-    jTimeout,
-    jDefaultArguments,
-    jDescription,
-    jCreatedOn,
-
-    -- * JobBookmarkEntry
-    JobBookmarkEntry (..),
-    mkJobBookmarkEntry,
-    jbeJobName,
-    jbeRun,
-    jbeRunId,
-    jbeVersion,
-    jbePreviousRunId,
-    jbeAttempt,
-    jbeJobBookmark,
-
-    -- * JobBookmarksEncryption
-    JobBookmarksEncryption (..),
-    mkJobBookmarksEncryption,
-    jbeJobBookmarksEncryptionMode,
-    jbeKMSKeyARN,
-
-    -- * JobCommand
-    JobCommand (..),
-    mkJobCommand,
-    jcScriptLocation,
-    jcPythonVersion,
-    jcName,
-
-    -- * JobNodeDetails
-    JobNodeDetails (..),
-    mkJobNodeDetails,
-    jndJobRuns,
-
-    -- * JobRun
-    JobRun (..),
-    mkJobRun,
-    jrCompletedOn,
-    jrNumberOfWorkers,
-    jrTriggerName,
-    jrNotificationProperty,
-    jrLastModifiedOn,
-    jrArguments,
-    jrJobName,
-    jrStartedOn,
-    jrWorkerType,
-    jrSecurityConfiguration,
-    jrGlueVersion,
-    jrJobRunState,
-    jrLogGroupName,
-    jrExecutionTime,
-    jrPredecessorRuns,
-    jrPreviousRunId,
-    jrId,
-    jrAttempt,
-    jrAllocatedCapacity,
-    jrMaxCapacity,
-    jrTimeout,
-    jrErrorMessage,
-
-    -- * JobUpdate
-    JobUpdate (..),
-    mkJobUpdate,
-    juNumberOfWorkers,
-    juCommand,
-    juNotificationProperty,
-    juConnections,
-    juWorkerType,
-    juSecurityConfiguration,
-    juGlueVersion,
-    juNonOverridableArguments,
-    juRole,
-    juLogURI,
-    juMaxRetries,
-    juExecutionProperty,
-    juAllocatedCapacity,
-    juMaxCapacity,
-    juTimeout,
-    juDefaultArguments,
-    juDescription,
-
-    -- * KeySchemaElement
-    KeySchemaElement (..),
-    mkKeySchemaElement,
-    kseName,
-    kseType,
-
-    -- * LabelingSetGenerationTaskRunProperties
-    LabelingSetGenerationTaskRunProperties (..),
-    mkLabelingSetGenerationTaskRunProperties,
-    lsgtrpOutputS3Path,
-
-    -- * LastCrawlInfo
-    LastCrawlInfo (..),
-    mkLastCrawlInfo,
-    lciStatus,
-    lciStartTime,
-    lciLogStream,
-    lciLogGroup,
-    lciMessagePrefix,
-    lciErrorMessage,
-
-    -- * LineageConfiguration
-    LineageConfiguration (..),
-    mkLineageConfiguration,
-    lcCrawlerLineageSettings,
+    cgeTargetParameter,
 
     -- * Location
     Location (..),
@@ -836,58 +395,224 @@ module Network.AWS.Glue.Types
     lJdbc,
     lS3,
 
-    -- * LongColumnStatisticsData
-    LongColumnStatisticsData (..),
-    mkLongColumnStatisticsData,
-    lcsdNumberOfDistinctValues,
-    lcsdMaximumValue,
-    lcsdNumberOfNulls,
-    lcsdMinimumValue,
+    -- * ErrorString
+    ErrorString (..),
+
+    -- * DeleteBehavior
+    DeleteBehavior (..),
+
+    -- * UpdateBehavior
+    UpdateBehavior (..),
+
+    -- * Database
+    Database (..),
+    mkDatabase,
+    dName,
+    dCatalogId,
+    dCreateTableDefaultPermissions,
+    dCreateTime,
+    dDescription,
+    dLocationUri,
+    dParameters,
+    dTargetDatabase,
+
+    -- * LastCrawlStatus
+    LastCrawlStatus (..),
+
+    -- * Path
+    Path (..),
+
+    -- * JsonPath
+    JsonPath (..),
 
     -- * MLTransform
     MLTransform (..),
     mkMLTransform,
-    mltStatus,
-    mltNumberOfWorkers,
-    mltLastModifiedOn,
-    mltLabelCount,
-    mltWorkerType,
-    mltInputRecordTables,
-    mltGlueVersion,
+    mltCreatedOn,
+    mltDescription,
     mltEvaluationMetrics,
-    mltSchema,
-    mltRole,
-    mltName,
-    mltParameters,
-    mltMaxRetries,
+    mltGlueVersion,
+    mltInputRecordTables,
+    mltLabelCount,
+    mltLastModifiedOn,
     mltMaxCapacity,
+    mltMaxRetries,
+    mltName,
+    mltNumberOfWorkers,
+    mltParameters,
+    mltRole,
+    mltSchema,
+    mltStatus,
     mltTimeout,
     mltTransformEncryption,
-    mltDescription,
-    mltCreatedOn,
     mltTransformId,
+    mltWorkerType,
 
-    -- * MLUserDataEncryption
-    MLUserDataEncryption (..),
-    mkMLUserDataEncryption,
-    mludeMlUserDataEncryptionMode,
-    mludeKMSKeyId,
+    -- * SchemaStatus
+    SchemaStatus (..),
+
+    -- * TaskType
+    TaskType (..),
+
+    -- * Schedule
+    Schedule (..),
+    mkSchedule,
+    sScheduleExpression,
+    sState,
+
+    -- * TaskRunSortCriteria
+    TaskRunSortCriteria (..),
+    mkTaskRunSortCriteria,
+    trscColumn,
+    trscSortDirection,
+
+    -- * ParametersMapValue
+    ParametersMapValue (..),
+
+    -- * TransformSortCriteria
+    TransformSortCriteria (..),
+    mkTransformSortCriteria,
+    tscColumn,
+    tscSortDirection,
+
+    -- * TableIdentifier
+    TableIdentifier (..),
+    mkTableIdentifier,
+    tiCatalogId,
+    tiDatabaseName,
+    tiName,
+
+    -- * RegistryId
+    RegistryId (..),
+    mkRegistryId,
+    riRegistryArn,
+    riRegistryName,
+
+    -- * TaskRunSortColumnType
+    TaskRunSortColumnType (..),
 
     -- * MappingEntry
     MappingEntry (..),
     mkMappingEntry,
-    meTargetTable,
-    meSourceType,
-    meSourceTable,
-    meTargetType,
-    meTargetPath,
     meSourcePath,
+    meSourceTable,
+    meSourceType,
+    meTargetPath,
+    meTargetTable,
+    meTargetType,
 
-    -- * MetadataInfo
-    MetadataInfo (..),
-    mkMetadataInfo,
-    miCreatedTime,
-    miMetadataValue,
+    -- * Node
+    Node (..),
+    mkNode,
+    nCrawlerDetails,
+    nJobDetails,
+    nName,
+    nTriggerDetails,
+    nType,
+    nUniqueId,
+
+    -- * JobCommand
+    JobCommand (..),
+    mkJobCommand,
+    jcfName,
+    jcfPythonVersion,
+    jcfScriptLocation,
+
+    -- * ConnectionInput
+    ConnectionInput (..),
+    mkConnectionInput,
+    ciName,
+    ciConnectionType,
+    ciConnectionProperties,
+    ciDescription,
+    ciMatchCriteria,
+    ciPhysicalConnectionRequirements,
+
+    -- * DecimalColumnStatisticsData
+    DecimalColumnStatisticsData (..),
+    mkDecimalColumnStatisticsData,
+    dNumberOfNulls,
+    dNumberOfDistinctValues,
+    dMaximumValue,
+    dMinimumValue,
+
+    -- * LocationString
+    LocationString (..),
+
+    -- * TransformSortColumnType
+    TransformSortColumnType (..),
+
+    -- * JobName
+    JobName (..),
+
+    -- * ExistCondition
+    ExistCondition (..),
+
+    -- * LogStream
+    LogStream (..),
+
+    -- * TriggerType
+    TriggerType (..),
+
+    -- * DecimalNumber
+    DecimalNumber (..),
+    mkDecimalNumber,
+    dnUnscaledValue,
+    dnScale,
+
+    -- * ColumnStatisticsError
+    ColumnStatisticsError (..),
+    mkColumnStatisticsError,
+    cseColumnStatistics,
+    cseError,
+
+    -- * Token
+    Token (..),
+
+    -- * UpdatedTimestamp
+    UpdatedTimestamp (..),
+
+    -- * SerDeInfo
+    SerDeInfo (..),
+    mkSerDeInfo,
+    sdiName,
+    sdiParameters,
+    sdiSerializationLibrary,
+
+    -- * MongoDBTarget
+    MongoDBTarget (..),
+    mkMongoDBTarget,
+    mdbtConnectionName,
+    mdbtPath,
+    mdbtScanAll,
+
+    -- * LogicalOperator
+    LogicalOperator (..),
+
+    -- * CrawlerState
+    CrawlerState (..),
+
+    -- * DataFormat
+    DataFormat (..),
+
+    -- * MetadataValueString
+    MetadataValueString (..),
+
+    -- * CsvColumnDelimiter
+    CsvColumnDelimiter (..),
+
+    -- * PythonScript
+    PythonScript (..),
+
+    -- * DatabaseInput
+    DatabaseInput (..),
+    mkDatabaseInput,
+    diName,
+    diCreateTableDefaultPermissions,
+    diDescription,
+    diLocationUri,
+    diParameters,
+    diTargetDatabase,
 
     -- * MetadataKeyValuePair
     MetadataKeyValuePair (..),
@@ -895,396 +620,126 @@ module Network.AWS.Glue.Types
     mkvpMetadataKey,
     mkvpMetadataValue,
 
-    -- * MongoDBTarget
-    MongoDBTarget (..),
-    mkMongoDBTarget,
-    mdtPath,
-    mdtConnectionName,
-    mdtScanAll,
+    -- * LogGroup
+    LogGroup (..),
 
-    -- * Node
-    Node (..),
-    mkNode,
-    nTriggerDetails,
-    nUniqueId,
-    nCrawlerDetails,
-    nName,
-    nJobDetails,
-    nType,
+    -- * ColumnStatisticsType
+    ColumnStatisticsType (..),
 
-    -- * NotificationProperty
-    NotificationProperty (..),
-    mkNotificationProperty,
-    npNotifyDelayAfter,
+    -- * JsonValue
+    JsonValue (..),
 
-    -- * Order
-    Order (..),
-    mkOrder,
-    oSortOrder,
-    oColumn,
+    -- * ColumnValuesString
+    ColumnValuesString (..),
 
-    -- * Partition
-    Partition (..),
-    mkPartition,
-    pCreationTime,
-    pValues,
-    pCatalogId,
-    pLastAnalyzedTime,
-    pStorageDescriptor,
-    pDatabaseName,
-    pParameters,
-    pLastAccessTime,
-    pTableName,
+    -- * Logical
+    Logical (..),
 
-    -- * PartitionError
-    PartitionError (..),
-    mkPartitionError,
-    pePartitionValues,
-    peErrorDetail,
+    -- * CrawlerMetrics
+    CrawlerMetrics (..),
+    mkCrawlerMetrics,
+    cmCrawlerName,
+    cmLastRuntimeSeconds,
+    cmMedianRuntimeSeconds,
+    cmStillEstimating,
+    cmTablesCreated,
+    cmTablesDeleted,
+    cmTablesUpdated,
+    cmTimeLeftSeconds,
 
-    -- * PartitionIndex
-    PartitionIndex (..),
-    mkPartitionIndex,
-    piKeys,
-    piIndexName,
+    -- * GetConnectionsFilter
+    GetConnectionsFilter (..),
+    mkGetConnectionsFilter,
+    gcfConnectionType,
+    gcfMatchCriteria,
 
-    -- * PartitionIndexDescriptor
-    PartitionIndexDescriptor (..),
-    mkPartitionIndexDescriptor,
-    pidIndexStatus,
-    pidKeys,
-    pidBackfillErrors,
-    pidIndexName,
+    -- * DescriptionString
+    DescriptionString (..),
 
-    -- * PartitionInput
-    PartitionInput (..),
-    mkPartitionInput,
-    piValues,
-    piLastAnalyzedTime,
-    piStorageDescriptor,
-    piParameters,
-    piLastAccessTime,
-
-    -- * PartitionValueList
-    PartitionValueList (..),
-    mkPartitionValueList,
-    pvlValues,
-
-    -- * PhysicalConnectionRequirements
-    PhysicalConnectionRequirements (..),
-    mkPhysicalConnectionRequirements,
-    pcrSecurityGroupIdList,
-    pcrSubnetId,
-    pcrAvailabilityZone,
-
-    -- * Predecessor
-    Predecessor (..),
-    mkPredecessor,
-    pJobName,
-    pRunId,
-
-    -- * Predicate
-    Predicate (..),
-    mkPredicate,
-    pLogical,
-    pConditions,
-
-    -- * PrincipalPermissions
-    PrincipalPermissions (..),
-    mkPrincipalPermissions,
-    ppPrincipal,
-    ppPermissions,
+    -- * WorkerType
+    WorkerType (..),
 
     -- * PropertyPredicate
     PropertyPredicate (..),
     mkPropertyPredicate,
-    ppValue,
-    ppKey,
     ppComparator,
+    ppKey,
+    ppValue,
 
-    -- * RecrawlPolicy
-    RecrawlPolicy (..),
-    mkRecrawlPolicy,
-    rpRecrawlBehavior,
+    -- * GrokClassifier
+    GrokClassifier (..),
+    mkGrokClassifier,
+    gcName,
+    gcClassification,
+    gcGrokPattern,
+    gcCreationTime,
+    gcCustomPatterns,
+    gcLastUpdated,
+    gcVersion,
 
-    -- * RegistryId
-    RegistryId (..),
-    mkRegistryId,
-    riRegistryName,
-    riRegistryARN,
+    -- * Action
+    Action (..),
+    mkAction,
+    aArguments,
+    aCrawlerName,
+    aJobName,
+    aNotificationProperty,
+    aSecurityConfiguration,
+    aTimeout,
 
-    -- * RegistryListItem
-    RegistryListItem (..),
-    mkRegistryListItem,
-    rliStatus,
-    rliRegistryName,
-    rliCreatedTime,
-    rliRegistryARN,
-    rliUpdatedTime,
-    rliDescription,
+    -- * ConnectionPropertyKey
+    ConnectionPropertyKey (..),
 
-    -- * ResourceURI
-    ResourceURI (..),
-    mkResourceURI,
-    ruResourceType,
-    ruURI,
-
-    -- * S3Encryption
-    S3Encryption (..),
-    mkS3Encryption,
-    seS3EncryptionMode,
-    seKMSKeyARN,
-
-    -- * S3Target
-    S3Target (..),
-    mkS3Target,
-    stPath,
-    stConnectionName,
-    stExclusions,
-
-    -- * Schedule
-    Schedule (..),
-    mkSchedule,
-    sState,
-    sScheduleExpression,
-
-    -- * SchemaChangePolicy
-    SchemaChangePolicy (..),
-    mkSchemaChangePolicy,
-    scpDeleteBehavior,
-    scpUpdateBehavior,
-
-    -- * SchemaColumn
-    SchemaColumn (..),
-    mkSchemaColumn,
-    scName,
-    scDataType,
-
-    -- * SchemaId
-    SchemaId (..),
-    mkSchemaId,
-    siRegistryName,
-    siSchemaName,
-    siSchemaARN,
-
-    -- * SchemaListItem
-    SchemaListItem (..),
-    mkSchemaListItem,
-    sliRegistryName,
-    sliCreatedTime,
-    sliSchemaStatus,
-    sliSchemaName,
-    sliSchemaARN,
-    sliUpdatedTime,
-    sliDescription,
-
-    -- * SchemaReference
-    SchemaReference (..),
-    mkSchemaReference,
-    srSchemaVersionId,
-    srSchemaId,
-    srSchemaVersionNumber,
-
-    -- * SchemaVersionErrorItem
-    SchemaVersionErrorItem (..),
-    mkSchemaVersionErrorItem,
-    sveiVersionNumber,
-    sveiErrorDetails,
-
-    -- * SchemaVersionListItem
-    SchemaVersionListItem (..),
-    mkSchemaVersionListItem,
-    svliStatus,
-    svliCreatedTime,
-    svliSchemaVersionId,
-    svliVersionNumber,
-    svliSchemaARN,
-
-    -- * SchemaVersionNumber
-    SchemaVersionNumber (..),
-    mkSchemaVersionNumber,
-    svnVersionNumber,
-    svnLatestVersion,
-
-    -- * SecurityConfiguration
-    SecurityConfiguration (..),
-    mkSecurityConfiguration,
-    scfName,
-    scfEncryptionConfiguration,
-    scfCreatedTimeStamp,
-
-    -- * Segment
-    Segment (..),
-    mkSegment,
-    sTotalSegments,
-    sSegmentNumber,
-
-    -- * SerDeInfo
-    SerDeInfo (..),
-    mkSerDeInfo,
-    sdiSerializationLibrary,
-    sdiName,
-    sdiParameters,
-
-    -- * SkewedInfo
-    SkewedInfo (..),
-    mkSkewedInfo,
-    siSkewedColumnValueLocationMaps,
-    siSkewedColumnValues,
-    siSkewedColumnNames,
-
-    -- * SortCriterion
-    SortCriterion (..),
-    mkSortCriterion,
-    scSort,
-    scFieldName,
-
-    -- * StorageDescriptor
-    StorageDescriptor (..),
-    mkStorageDescriptor,
-    sdSortColumns,
-    sdCompressed,
-    sdLocation,
-    sdBucketColumns,
-    sdSerdeInfo,
-    sdOutputFormat,
-    sdNumberOfBuckets,
-    sdSchemaReference,
-    sdStoredAsSubDirectories,
-    sdParameters,
-    sdInputFormat,
-    sdSkewedInfo,
-    sdColumns,
+    -- * DoubleColumnStatisticsData
+    DoubleColumnStatisticsData (..),
+    mkDoubleColumnStatisticsData,
+    dcsdfNumberOfNulls,
+    dcsdfNumberOfDistinctValues,
+    dcsdfMaximumValue,
+    dcsdfMinimumValue,
 
     -- * StringColumnStatisticsData
     StringColumnStatisticsData (..),
     mkStringColumnStatisticsData,
     scsdMaximumLength,
     scsdAverageLength,
-    scsdNumberOfDistinctValues,
     scsdNumberOfNulls,
+    scsdNumberOfDistinctValues,
 
-    -- * Table
-    Table (..),
-    mkTable,
-    tRetention,
-    tTargetTable,
-    tIsRegisteredWithLakeFormation,
-    tCreatedBy,
-    tTableType,
-    tCatalogId,
-    tOwner,
-    tViewOriginalText,
-    tUpdateTime,
-    tViewExpandedText,
-    tLastAnalyzedTime,
-    tName,
-    tStorageDescriptor,
-    tDatabaseName,
-    tParameters,
-    tLastAccessTime,
-    tDescription,
-    tPartitionKeys,
-    tCreateTime,
+    -- * SecurityConfiguration
+    SecurityConfiguration (..),
+    mkSecurityConfiguration,
+    sCreatedTimeStamp,
+    sEncryptionConfiguration,
+    sName,
 
-    -- * TableError
-    TableError (..),
-    mkTableError,
-    teTableName,
-    teErrorDetail,
+    -- * Classification
+    Classification (..),
 
-    -- * TableIdentifier
-    TableIdentifier (..),
-    mkTableIdentifier,
-    tiCatalogId,
-    tiName,
-    tiDatabaseName,
+    -- * UpdateXMLClassifierRequest
+    UpdateXMLClassifierRequest (..),
+    mkUpdateXMLClassifierRequest,
+    uxmlcrName,
+    uxmlcrClassification,
+    uxmlcrRowTag,
 
-    -- * TableInput
-    TableInput (..),
-    mkTableInput,
-    tifRetention,
-    tifTargetTable,
-    tifTableType,
-    tifOwner,
-    tifViewOriginalText,
-    tifViewExpandedText,
-    tifLastAnalyzedTime,
-    tifName,
-    tifStorageDescriptor,
-    tifParameters,
-    tifLastAccessTime,
-    tifDescription,
-    tifPartitionKeys,
+    -- * ErrorMessageString
+    ErrorMessageString (..),
 
-    -- * TableVersion
-    TableVersion (..),
-    mkTableVersion,
-    tvVersionId,
-    tvTable,
+    -- * CrawlerNodeDetails
+    CrawlerNodeDetails (..),
+    mkCrawlerNodeDetails,
+    cndCrawls,
 
-    -- * TableVersionError
-    TableVersionError (..),
-    mkTableVersionError,
-    tveVersionId,
-    tveTableName,
-    tveErrorDetail,
-
-    -- * TaskRun
-    TaskRun (..),
-    mkTaskRun,
-    trCompletedOn,
-    trStatus,
-    trLastModifiedOn,
-    trErrorString,
-    trStartedOn,
-    trLogGroupName,
-    trExecutionTime,
-    trProperties,
-    trTransformId,
-    trTaskRunId,
-
-    -- * TaskRunFilterCriteria
-    TaskRunFilterCriteria (..),
-    mkTaskRunFilterCriteria,
-    trfcStatus,
-    trfcStartedAfter,
-    trfcStartedBefore,
-    trfcTaskRunType,
-
-    -- * TaskRunProperties
-    TaskRunProperties (..),
-    mkTaskRunProperties,
-    trpTaskType,
-    trpExportLabelsTaskRunProperties,
-    trpLabelingSetGenerationTaskRunProperties,
-    trpFindMatchesTaskRunProperties,
-    trpImportLabelsTaskRunProperties,
-
-    -- * TaskRunSortCriteria
-    TaskRunSortCriteria (..),
-    mkTaskRunSortCriteria,
-    trscSortDirection,
-    trscColumn,
-
-    -- * TransformEncryption
-    TransformEncryption (..),
-    mkTransformEncryption,
-    teMlUserDataEncryption,
-    teTaskRunSecurityConfigurationName,
-
-    -- * TransformFilterCriteria
-    TransformFilterCriteria (..),
-    mkTransformFilterCriteria,
-    tfcCreatedAfter,
-    tfcStatus,
-    tfcLastModifiedAfter,
-    tfcLastModifiedBefore,
-    tfcGlueVersion,
-    tfcSchema,
-    tfcTransformType,
-    tfcName,
-    tfcCreatedBefore,
+    -- * XMLClassifier
+    XMLClassifier (..),
+    mkXMLClassifier,
+    xmlcName,
+    xmlcClassification,
+    xmlcCreationTime,
+    xmlcLastUpdated,
+    xmlcRowTag,
+    xmlcVersion,
 
     -- * TransformParameters
     TransformParameters (..),
@@ -1292,147 +747,1138 @@ module Network.AWS.Glue.Types
     tpTransformType,
     tpFindMatchesParameters,
 
-    -- * TransformSortCriteria
-    TransformSortCriteria (..),
-    mkTransformSortCriteria,
-    tscSortDirection,
-    tscColumn,
+    -- * SchemaListItem
+    SchemaListItem (..),
+    mkSchemaListItem,
+    sliCreatedTime,
+    sliDescription,
+    sliRegistryName,
+    sliSchemaArn,
+    sliSchemaName,
+    sliSchemaStatus,
+    sliUpdatedTime,
 
-    -- * Trigger
-    Trigger (..),
-    mkTrigger,
-    tfWorkflowName,
-    tfState,
-    tfActions,
-    tfSchedule,
-    tfPredicate,
-    tfName,
-    tfId,
-    tfType,
-    tfDescription,
+    -- * CommentString
+    CommentString (..),
 
-    -- * TriggerNodeDetails
-    TriggerNodeDetails (..),
-    mkTriggerNodeDetails,
-    tndTrigger,
+    -- * CrawlerTargets
+    CrawlerTargets (..),
+    mkCrawlerTargets,
+    ctCatalogTargets,
+    ctDynamoDBTargets,
+    ctJdbcTargets,
+    ctMongoDBTargets,
+    ctS3Targets,
+
+    -- * BatchStopJobRunSuccessfulSubmission
+    BatchStopJobRunSuccessfulSubmission (..),
+    mkBatchStopJobRunSuccessfulSubmission,
+    bsjrssJobName,
+    bsjrssJobRunId,
+
+    -- * ConnectionPasswordEncryption
+    ConnectionPasswordEncryption (..),
+    mkConnectionPasswordEncryption,
+    cpeReturnConnectionPasswordEncrypted,
+    cpeAwsKmsKeyId,
+
+    -- * Connection
+    Connection (..),
+    mkConnection,
+    cfConnectionProperties,
+    cfConnectionType,
+    cfCreationTime,
+    cfDescription,
+    cfLastUpdatedBy,
+    cfLastUpdatedTime,
+    cfMatchCriteria,
+    cfName,
+    cfPhysicalConnectionRequirements,
+
+    -- * DataLakePrincipal
+    DataLakePrincipal (..),
+    mkDataLakePrincipal,
+    dlpDataLakePrincipalIdentifier,
 
     -- * TriggerUpdate
     TriggerUpdate (..),
     mkTriggerUpdate,
     tuActions,
-    tuSchedule,
-    tuPredicate,
-    tuName,
     tuDescription,
+    tuName,
+    tuPredicate,
+    tuSchedule,
 
-    -- * UpdateCSVClassifierRequest
-    UpdateCSVClassifierRequest (..),
-    mkUpdateCSVClassifierRequest,
-    uccrQuoteSymbol,
-    uccrContainsHeader,
-    uccrDisableValueTrimming,
-    uccrName,
-    uccrHeader,
-    uccrAllowSingleColumn,
-    uccrDelimiter,
+    -- * TagValue
+    TagValue (..),
 
-    -- * UpdateGrokClassifierRequest
-    UpdateGrokClassifierRequest (..),
-    mkUpdateGrokClassifierRequest,
-    ugcrClassification,
-    ugcrName,
-    ugcrCustomPatterns,
-    ugcrGrokPattern,
+    -- * CsvClassifier
+    CsvClassifier (..),
+    mkCsvClassifier,
+    ccName,
+    ccAllowSingleColumn,
+    ccContainsHeader,
+    ccCreationTime,
+    ccDelimiter,
+    ccDisableValueTrimming,
+    ccHeader,
+    ccLastUpdated,
+    ccQuoteSymbol,
+    ccVersion,
 
-    -- * UpdateJSONClassifierRequest
-    UpdateJSONClassifierRequest (..),
-    mkUpdateJSONClassifierRequest,
-    ujcrJSONPath,
-    ujcrName,
+    -- * SchemaDefinitionDiff
+    SchemaDefinitionDiff (..),
 
-    -- * UpdateXMLClassifierRequest
-    UpdateXMLClassifierRequest (..),
-    mkUpdateXMLClassifierRequest,
-    uxcrClassification,
-    uxcrName,
-    uxcrRowTag,
+    -- * SchemaDefinitionString
+    SchemaDefinitionString (..),
 
-    -- * UserDefinedFunction
-    UserDefinedFunction (..),
-    mkUserDefinedFunction,
-    udfOwnerName,
-    udfCatalogId,
-    udfResourceURIs,
-    udfDatabaseName,
-    udfFunctionName,
-    udfOwnerType,
-    udfCreateTime,
-    udfClassName,
+    -- * EvaluationMetrics
+    EvaluationMetrics (..),
+    mkEvaluationMetrics,
+    emTransformType,
+    emFindMatchesMetrics,
+
+    -- * CodeGenNodeType
+    CodeGenNodeType (..),
+
+    -- * ScalaCode
+    ScalaCode (..),
+
+    -- * ConnectionName
+    ConnectionName (..),
+
+    -- * S3Target
+    S3Target (..),
+    mkS3Target,
+    stConnectionName,
+    stExclusions,
+    stPath,
+
+    -- * Predicate
+    Predicate (..),
+    mkPredicate,
+    pConditions,
+    pLogical,
+
+    -- * JobRunState
+    JobRunState (..),
+
+    -- * TaskStatusType
+    TaskStatusType (..),
+
+    -- * MLUserDataEncryptionModeString
+    MLUserDataEncryptionModeString (..),
+
+    -- * CrawlerLineageSettings
+    CrawlerLineageSettings (..),
+
+    -- * PartitionIndex
+    PartitionIndex (..),
+    mkPartitionIndex,
+    piKeys,
+    piIndexName,
 
     -- * UserDefinedFunctionInput
     UserDefinedFunctionInput (..),
     mkUserDefinedFunctionInput,
-    udfiOwnerName,
-    udfiResourceURIs,
-    udfiFunctionName,
-    udfiOwnerType,
     udfiClassName,
+    udfiFunctionName,
+    udfiOwnerName,
+    udfiOwnerType,
+    udfiResourceUris,
 
-    -- * Workflow
-    Workflow (..),
-    mkWorkflow,
-    wGraph,
-    wLastModifiedOn,
-    wMaxConcurrentRuns,
-    wDefaultRunProperties,
-    wName,
-    wLastRun,
-    wDescription,
-    wCreatedOn,
+    -- * TableVersionError
+    TableVersionError (..),
+    mkTableVersionError,
+    tveErrorDetail,
+    tveTableName,
+    tveVersionId,
 
-    -- * WorkflowGraph
-    WorkflowGraph (..),
-    mkWorkflowGraph,
-    wgEdges,
-    wgNodes,
+    -- * CreateCsvClassifierRequest
+    CreateCsvClassifierRequest (..),
+    mkCreateCsvClassifierRequest,
+    cccrName,
+    cccrAllowSingleColumn,
+    cccrContainsHeader,
+    cccrDelimiter,
+    cccrDisableValueTrimming,
+    cccrHeader,
+    cccrQuoteSymbol,
 
-    -- * WorkflowRun
-    WorkflowRun (..),
-    mkWorkflowRun,
-    wrCompletedOn,
-    wrStatus,
-    wrGraph,
-    wrStartedOn,
-    wrWorkflowRunId,
-    wrName,
-    wrPreviousRunId,
-    wrStatistics,
-    wrErrorMessage,
-    wrWorkflowRunProperties,
+    -- * SchemaId
+    SchemaId (..),
+    mkSchemaId,
+    siRegistryName,
+    siSchemaArn,
+    siSchemaName,
+
+    -- * GenericString
+    GenericString (..),
+
+    -- * RecrawlPolicy
+    RecrawlPolicy (..),
+    mkRecrawlPolicy,
+    rpRecrawlBehavior,
+
+    -- * SchemaVersionListItem
+    SchemaVersionListItem (..),
+    mkSchemaVersionListItem,
+    svliCreatedTime,
+    svliSchemaArn,
+    svliSchemaVersionId,
+    svliStatus,
+    svliVersionNumber,
+
+    -- * ExportLabelsTaskRunProperties
+    ExportLabelsTaskRunProperties (..),
+    mkExportLabelsTaskRunProperties,
+    eltrpOutputS3Path,
+
+    -- * TransformType
+    TransformType (..),
+
+    -- * TableVersion
+    TableVersion (..),
+    mkTableVersion,
+    tvTable,
+    tvVersionId,
+
+    -- * RunId
+    RunId (..),
+
+    -- * SchemaDiffType
+    SchemaDiffType (..),
+
+    -- * ColumnNameString
+    ColumnNameString (..),
+
+    -- * Role
+    Role (..),
+
+    -- * JobBookmarkEntry
+    JobBookmarkEntry (..),
+    mkJobBookmarkEntry,
+    jbeAttempt,
+    jbeJobBookmark,
+    jbeJobName,
+    jbePreviousRunId,
+    jbeRun,
+    jbeRunId,
+    jbeVersion,
+
+    -- * MetadataKeyString
+    MetadataKeyString (..),
+
+    -- * Job
+    Job (..),
+    mkJob,
+    jAllocatedCapacity,
+    jCommand,
+    jConnections,
+    jCreatedOn,
+    jDefaultArguments,
+    jDescription,
+    jExecutionProperty,
+    jGlueVersion,
+    jLastModifiedOn,
+    jLogUri,
+    jMaxCapacity,
+    jMaxRetries,
+    jName,
+    jNonOverridableArguments,
+    jNotificationProperty,
+    jNumberOfWorkers,
+    jRole,
+    jSecurityConfiguration,
+    jTimeout,
+    jWorkerType,
+
+    -- * PhysicalConnectionRequirements
+    PhysicalConnectionRequirements (..),
+    mkPhysicalConnectionRequirements,
+    pcrAvailabilityZone,
+    pcrSecurityGroupIdList,
+    pcrSubnetId,
 
     -- * WorkflowRunStatistics
     WorkflowRunStatistics (..),
     mkWorkflowRunStatistics,
+    wrsFailedActions,
     wrsRunningActions,
     wrsStoppedActions,
-    wrsTotalActions,
-    wrsFailedActions,
-    wrsTimeoutActions,
     wrsSucceededActions,
+    wrsTimeoutActions,
+    wrsTotalActions,
 
-    -- * XMLClassifier
-    XMLClassifier (..),
-    mkXMLClassifier,
-    xcCreationTime,
-    xcLastUpdated,
-    xcClassification,
-    xcName,
-    xcVersion,
-    xcRowTag,
+    -- * Classifier
+    Classifier (..),
+    mkClassifier,
+    cCsvClassifier,
+    cGrokClassifier,
+    cJsonClassifier,
+    cXMLClassifier,
+
+    -- * TriggerState
+    TriggerState (..),
+
+    -- * JsonClassifier
+    JsonClassifier (..),
+    mkJsonClassifier,
+    jcName,
+    jcJsonPath,
+    jcCreationTime,
+    jcLastUpdated,
+    jcVersion,
+
+    -- * LabelingSetGenerationTaskRunProperties
+    LabelingSetGenerationTaskRunProperties (..),
+    mkLabelingSetGenerationTaskRunProperties,
+    lsgtrpOutputS3Path,
+
+    -- * VersionString
+    VersionString (..),
+
+    -- * CatalogEncryptionMode
+    CatalogEncryptionMode (..),
+
+    -- * UpdateJsonClassifierRequest
+    UpdateJsonClassifierRequest (..),
+    mkUpdateJsonClassifierRequest,
+    ujcrName,
+    ujcrJsonPath,
+
+    -- * EncryptionConfiguration
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
+    ecCloudWatchEncryption,
+    ecJobBookmarksEncryption,
+    ecS3Encryption,
+
+    -- * SchemaReference
+    SchemaReference (..),
+    mkSchemaReference,
+    srSchemaId,
+    srSchemaVersionId,
+    srSchemaVersionNumber,
+
+    -- * CodeGenIdentifier
+    CodeGenIdentifier (..),
+
+    -- * PartitionError
+    PartitionError (..),
+    mkPartitionError,
+    peErrorDetail,
+    pePartitionValues,
+
+    -- * SchemaRegistryTokenString
+    SchemaRegistryTokenString (..),
+
+    -- * NameString
+    NameString (..),
+
+    -- * CatalogTarget
+    CatalogTarget (..),
+    mkCatalogTarget,
+    ctDatabaseName,
+    ctTables,
+
+    -- * Sort
+    Sort (..),
+
+    -- * StorageDescriptor
+    StorageDescriptor (..),
+    mkStorageDescriptor,
+    sdBucketColumns,
+    sdColumns,
+    sdCompressed,
+    sdInputFormat,
+    sdLocation,
+    sdNumberOfBuckets,
+    sdOutputFormat,
+    sdParameters,
+    sdSchemaReference,
+    sdSerdeInfo,
+    sdSkewedInfo,
+    sdSortColumns,
+    sdStoredAsSubDirectories,
+
+    -- * Language
+    Language (..),
+
+    -- * FindMatchesParameters
+    FindMatchesParameters (..),
+    mkFindMatchesParameters,
+    fmpAccuracyCostTradeoff,
+    fmpEnforceProvidedLabels,
+    fmpPrecisionRecallTradeoff,
+    fmpPrimaryKeyColumnName,
+
+    -- * CsvHeaderOption
+    CsvHeaderOption (..),
+
+    -- * CatalogImportStatus
+    CatalogImportStatus (..),
+    mkCatalogImportStatus,
+    cisImportCompleted,
+    cisImportTime,
+    cisImportedBy,
+
+    -- * KeyString
+    KeyString (..),
+
+    -- * ScheduleState
+    ScheduleState (..),
+
+    -- * DatabaseName
+    DatabaseName (..),
+
+    -- * BatchStopJobRunError
+    BatchStopJobRunError (..),
+    mkBatchStopJobRunError,
+    bsjreErrorDetail,
+    bsjreJobName,
+    bsjreJobRunId,
+
+    -- * CsvQuoteSymbol
+    CsvQuoteSymbol (..),
+
+    -- * ErrorDetails
+    ErrorDetails (..),
+    mkErrorDetails,
+    eErrorCode,
+    eErrorMessage,
+
+    -- * Partition
+    Partition (..),
+    mkPartition,
+    pCatalogId,
+    pCreationTime,
+    pDatabaseName,
+    pLastAccessTime,
+    pLastAnalyzedTime,
+    pParameters,
+    pStorageDescriptor,
+    pTableName,
+    pValues,
+
+    -- * CronExpression
+    CronExpression (..),
+
+    -- * CrawlerSecurityConfiguration
+    CrawlerSecurityConfiguration (..),
+
+    -- * Comparator
+    Comparator (..),
+
+    -- * LineageConfiguration
+    LineageConfiguration (..),
+    mkLineageConfiguration,
+    lcCrawlerLineageSettings,
+
+    -- * PolicyJsonString
+    PolicyJsonString (..),
+
+    -- * EnableHybridValues
+    EnableHybridValues (..),
+
+    -- * ExecutionProperty
+    ExecutionProperty (..),
+    mkExecutionProperty,
+    epMaxConcurrentRuns,
+
+    -- * JobNodeDetails
+    JobNodeDetails (..),
+    mkJobNodeDetails,
+    jndJobRuns,
+
+    -- * FindMatchesTaskRunProperties
+    FindMatchesTaskRunProperties (..),
+    mkFindMatchesTaskRunProperties,
+    fmtrpJobId,
+    fmtrpJobName,
+    fmtrpJobRunId,
+
+    -- * TaskRunProperties
+    TaskRunProperties (..),
+    mkTaskRunProperties,
+    trpExportLabelsTaskRunProperties,
+    trpFindMatchesTaskRunProperties,
+    trpImportLabelsTaskRunProperties,
+    trpLabelingSetGenerationTaskRunProperties,
+    trpTaskType,
+
+    -- * Predecessor
+    Predecessor (..),
+    mkPredecessor,
+    pJobName,
+    pRunId,
+
+    -- * TypeString
+    TypeString (..),
+
+    -- * ImportLabelsTaskRunProperties
+    ImportLabelsTaskRunProperties (..),
+    mkImportLabelsTaskRunProperties,
+    iltrpInputS3Path,
+    iltrpReplace,
+
+    -- * GlueTable
+    GlueTable (..),
+    mkGlueTable,
+    gtDatabaseName,
+    gtTableName,
+    gtCatalogId,
+    gtConnectionName,
+
+    -- * CodeGenNodeArg
+    CodeGenNodeArg (..),
+    mkCodeGenNodeArg,
+    cgnaName,
+    cgnaValue,
+    cgnaParam,
+
+    -- * SkewedInfo
+    SkewedInfo (..),
+    mkSkewedInfo,
+    siSkewedColumnNames,
+    siSkewedColumnValueLocationMaps,
+    siSkewedColumnValues,
+
+    -- * ViewTextString
+    ViewTextString (..),
+
+    -- * TagKey
+    TagKey (..),
+
+    -- * TransformStatusType
+    TransformStatusType (..),
+
+    -- * PartitionIndexStatus
+    PartitionIndexStatus (..),
+
+    -- * KeySchemaElement
+    KeySchemaElement (..),
+    mkKeySchemaElement,
+    kseName,
+    kseType,
+
+    -- * TableInput
+    TableInput (..),
+    mkTableInput,
+    tifName,
+    tifDescription,
+    tifLastAccessTime,
+    tifLastAnalyzedTime,
+    tifOwner,
+    tifParameters,
+    tifPartitionKeys,
+    tifRetention,
+    tifStorageDescriptor,
+    tifTableType,
+    tifTargetTable,
+    tifViewExpandedText,
+    tifViewOriginalText,
+
+    -- * SchemaVersionNumber
+    SchemaVersionNumber (..),
+    mkSchemaVersionNumber,
+    svnLatestVersion,
+    svnVersionNumber,
+
+    -- * RecrawlBehavior
+    RecrawlBehavior (..),
+
+    -- * Trigger
+    Trigger (..),
+    mkTrigger,
+    tfActions,
+    tfDescription,
+    tfId,
+    tfName,
+    tfPredicate,
+    tfSchedule,
+    tfState,
+    tfType,
+    tfWorkflowName,
+
+    -- * IdString
+    IdString (..),
+
+    -- * CustomPatterns
+    CustomPatterns (..),
+
+    -- * RowTag
+    RowTag (..),
+
+    -- * NodeType
+    NodeType (..),
+
+    -- * TransformEncryption
+    TransformEncryption (..),
+    mkTransformEncryption,
+    teMlUserDataEncryption,
+    teTaskRunSecurityConfigurationName,
+
+    -- * ColumnStatisticsData
+    ColumnStatisticsData (..),
+    mkColumnStatisticsData,
+    csdType,
+    csdBinaryColumnStatisticsData,
+    csdBooleanColumnStatisticsData,
+    csdDateColumnStatisticsData,
+    csdDecimalColumnStatisticsData,
+    csdDoubleColumnStatisticsData,
+    csdLongColumnStatisticsData,
+    csdStringColumnStatisticsData,
+
+    -- * Condition
+    Condition (..),
+    mkCondition,
+    cfCrawlState,
+    cfCrawlerName,
+    cfJobName,
+    cfLogicalOperator,
+    cfState,
+
+    -- * Segment
+    Segment (..),
+    mkSegment,
+    sSegmentNumber,
+    sTotalSegments,
+
+    -- * TableTypeString
+    TableTypeString (..),
+
+    -- * Crawl
+    Crawl (..),
+    mkCrawl,
+    cCompletedOn,
+    cErrorMessage,
+    cLogGroup,
+    cLogStream,
+    cStartedOn,
+    cState,
+
+    -- * ColumnTypeString
+    ColumnTypeString (..),
+
+    -- * MessagePrefix
+    MessagePrefix (..),
+
+    -- * Edge
+    Edge (..),
+    mkEdge,
+    eDestinationId,
+    eSourceId,
+
+    -- * Permission
+    Permission (..),
+
+    -- * ColumnStatistics
+    ColumnStatistics (..),
+    mkColumnStatistics,
+    csColumnName,
+    csColumnType,
+    csAnalyzedTime,
+    csStatisticsData,
+
+    -- * CreateGrokClassifierRequest
+    CreateGrokClassifierRequest (..),
+    mkCreateGrokClassifierRequest,
+    cgcrClassification,
+    cgcrName,
+    cgcrGrokPattern,
+    cgcrCustomPatterns,
+
+    -- * BatchUpdatePartitionFailureEntry
+    BatchUpdatePartitionFailureEntry (..),
+    mkBatchUpdatePartitionFailureEntry,
+    bupfeErrorDetail,
+    bupfePartitionValueList,
+
+    -- * GluePolicy
+    GluePolicy (..),
+    mkGluePolicy,
+    gpCreateTime,
+    gpPolicyHash,
+    gpPolicyInJson,
+    gpUpdateTime,
+
+    -- * MetadataInfo
+    MetadataInfo (..),
+    mkMetadataInfo,
+    miCreatedTime,
+    miMetadataValue,
+
+    -- * PartitionValueList
+    PartitionValueList (..),
+    mkPartitionValueList,
+    pvlValues,
+
+    -- * UriString
+    UriString (..),
+
+    -- * CreateXMLClassifierRequest
+    CreateXMLClassifierRequest (..),
+    mkCreateXMLClassifierRequest,
+    cxmlcrClassification,
+    cxmlcrName,
+    cxmlcrRowTag,
+
+    -- * Workflow
+    Workflow (..),
+    mkWorkflow,
+    wCreatedOn,
+    wDefaultRunProperties,
+    wDescription,
+    wGraph,
+    wLastModifiedOn,
+    wLastRun,
+    wMaxConcurrentRuns,
+    wName,
+
+    -- * CatalogIdString
+    CatalogIdString (..),
+
+    -- * SchemaVersionIdString
+    SchemaVersionIdString (..),
+
+    -- * UpdateGrokClassifierRequest
+    UpdateGrokClassifierRequest (..),
+    mkUpdateGrokClassifierRequest,
+    ugcrName,
+    ugcrClassification,
+    ugcrCustomPatterns,
+    ugcrGrokPattern,
+
+    -- * TablePrefix
+    TablePrefix (..),
+
+    -- * ColumnError
+    ColumnError (..),
+    mkColumnError,
+    ceColumnName,
+    ceError,
+
+    -- * DevEndpointCustomLibraries
+    DevEndpointCustomLibraries (..),
+    mkDevEndpointCustomLibraries,
+    declExtraJarsS3Path,
+    declExtraPythonLibsS3Path,
+
+    -- * JobRun
+    JobRun (..),
+    mkJobRun,
+    jrAllocatedCapacity,
+    jrArguments,
+    jrAttempt,
+    jrCompletedOn,
+    jrErrorMessage,
+    jrExecutionTime,
+    jrGlueVersion,
+    jrId,
+    jrJobName,
+    jrJobRunState,
+    jrLastModifiedOn,
+    jrLogGroupName,
+    jrMaxCapacity,
+    jrNotificationProperty,
+    jrNumberOfWorkers,
+    jrPredecessorRuns,
+    jrPreviousRunId,
+    jrSecurityConfiguration,
+    jrStartedOn,
+    jrTimeout,
+    jrTriggerName,
+    jrWorkerType,
+
+    -- * SchemaVersionErrorItem
+    SchemaVersionErrorItem (..),
+    mkSchemaVersionErrorItem,
+    sveiErrorDetails,
+    sveiVersionNumber,
+
+    -- * WorkflowRunStatus
+    WorkflowRunStatus (..),
+
+    -- * JdbcTarget
+    JdbcTarget (..),
+    mkJdbcTarget,
+    jtConnectionName,
+    jtExclusions,
+    jtPath,
+
+    -- * Table
+    Table (..),
+    mkTable,
+    tName,
+    tCatalogId,
+    tCreateTime,
+    tCreatedBy,
+    tDatabaseName,
+    tDescription,
+    tIsRegisteredWithLakeFormation,
+    tLastAccessTime,
+    tLastAnalyzedTime,
+    tOwner,
+    tParameters,
+    tPartitionKeys,
+    tRetention,
+    tStorageDescriptor,
+    tTableType,
+    tTargetTable,
+    tUpdateTime,
+    tViewExpandedText,
+    tViewOriginalText,
+
+    -- * Order
+    Order (..),
+    mkOrder,
+    oColumn,
+    oSortOrder,
+
+    -- * Column
+    Column (..),
+    mkColumn,
+    cName,
+    cComment,
+    cParameters,
+    cType,
+
+    -- * ConnectionType
+    ConnectionType (..),
+
+    -- * JobUpdate
+    JobUpdate (..),
+    mkJobUpdate,
+    juAllocatedCapacity,
+    juCommand,
+    juConnections,
+    juDefaultArguments,
+    juDescription,
+    juExecutionProperty,
+    juGlueVersion,
+    juLogUri,
+    juMaxCapacity,
+    juMaxRetries,
+    juNonOverridableArguments,
+    juNotificationProperty,
+    juNumberOfWorkers,
+    juRole,
+    juSecurityConfiguration,
+    juTimeout,
+    juWorkerType,
+
+    -- * DatabaseIdentifier
+    DatabaseIdentifier (..),
+    mkDatabaseIdentifier,
+    diCatalogId,
+    diDatabaseName,
+
+    -- * TableError
+    TableError (..),
+    mkTableError,
+    teErrorDetail,
+    teTableName,
+
+    -- * Compatibility
+    Compatibility (..),
+
+    -- * ValueString
+    ValueString (..),
+
+    -- * RegistryStatus
+    RegistryStatus (..),
+
+    -- * DataCatalogEncryptionSettings
+    DataCatalogEncryptionSettings (..),
+    mkDataCatalogEncryptionSettings,
+    dcesConnectionPasswordEncryption,
+    dcesEncryptionAtRest,
+
+    -- * TableName
+    TableName (..),
+
+    -- * GrokPattern
+    GrokPattern (..),
+
+    -- * SortCriterion
+    SortCriterion (..),
+    mkSortCriterion,
+    scFieldName,
+    scSort,
+
+    -- * BackfillErrorCode
+    BackfillErrorCode (..),
+
+    -- * CodeGenNode
+    CodeGenNode (..),
+    mkCodeGenNode,
+    cgnId,
+    cgnNodeType,
+    cgnArgs,
+    cgnLineNumber,
+
+    -- * LongColumnStatisticsData
+    LongColumnStatisticsData (..),
+    mkLongColumnStatisticsData,
+    lcsdNumberOfNulls,
+    lcsdNumberOfDistinctValues,
+    lcsdMaximumValue,
+    lcsdMinimumValue,
+
+    -- * ErrorDetail
+    ErrorDetail (..),
+    mkErrorDetail,
+    edErrorCode,
+    edErrorMessage,
+
+    -- * RoleArn
+    RoleArn (..),
+
+    -- * UpdateCsvClassifierRequest
+    UpdateCsvClassifierRequest (..),
+    mkUpdateCsvClassifierRequest,
+    uccrName,
+    uccrAllowSingleColumn,
+    uccrContainsHeader,
+    uccrDelimiter,
+    uccrDisableValueTrimming,
+    uccrHeader,
+    uccrQuoteSymbol,
+
+    -- * ConfusionMatrix
+    ConfusionMatrix (..),
+    mkConfusionMatrix,
+    cmNumFalseNegatives,
+    cmNumFalsePositives,
+    cmNumTrueNegatives,
+    cmNumTruePositives,
+
+    -- * Name
+    Name (..),
+
+    -- * EndpointName
+    EndpointName (..),
+
+    -- * SchemaDefinition
+    SchemaDefinition (..),
+
+    -- * PublicKey
+    PublicKey (..),
+
+    -- * LogGroupName
+    LogGroupName (..),
+
+    -- * TaskRunId
+    TaskRunId (..),
+
+    -- * TransformId
+    TransformId (..),
+
+    -- * CatalogId
+    CatalogId (..),
+
+    -- * IndexName
+    IndexName (..),
+
+    -- * Uri
+    Uri (..),
+
+    -- * Configuration
+    Configuration (..),
+
+    -- * Description
+    Description (..),
+
+    -- * OutputS3Path
+    OutputS3Path (..),
+
+    -- * Error
+    Error (..),
+
+    -- * NextToken
+    NextToken (..),
+
+    -- * AvailabilityZone
+    AvailabilityZone (..),
+
+    -- * ExtraJarsS3Path
+    ExtraJarsS3Path (..),
+
+    -- * ExtraPythonLibsS3Path
+    ExtraPythonLibsS3Path (..),
+
+    -- * FailureReason
+    FailureReason (..),
+
+    -- * LastUpdateStatus
+    LastUpdateStatus (..),
+
+    -- * PrivateAddress
+    PrivateAddress (..),
+
+    -- * PublicAddress
+    PublicAddress (..),
+
+    -- * Status
+    Status (..),
+
+    -- * SubnetId
+    SubnetId (..),
+
+    -- * VpcId
+    VpcId (..),
+
+    -- * YarnEndpointAddress
+    YarnEndpointAddress (..),
+
+    -- * DataType
+    DataType (..),
+
+    -- * KmsKeyId
+    KmsKeyId (..),
+
+    -- * RegistryName
+    RegistryName (..),
+
+    -- * ErrorMessage
+    ErrorMessage (..),
+
+    -- * SchemaVersionId
+    SchemaVersionId (..),
+
+    -- * ClassName
+    ClassName (..),
+
+    -- * FunctionName
+    FunctionName (..),
+
+    -- * OwnerName
+    OwnerName (..),
+
+    -- * PreviousRunId
+    PreviousRunId (..),
+
+    -- * WorkflowRunId
+    WorkflowRunId (..),
+
+    -- * SseAwsKmsKeyId
+    SseAwsKmsKeyId (..),
+
+    -- * LogUri
+    LogUri (..),
+
+    -- * Expression
+    Expression (..),
+
+    -- * CreatedTime
+    CreatedTime (..),
+
+    -- * UpdatedTime
+    UpdatedTime (..),
+
+    -- * Source
+    Source (..),
+
+    -- * Target
+    Target (..),
+
+    -- * LocationUri
+    LocationUri (..),
+
+    -- * ScheduleExpression
+    ScheduleExpression (..),
+
+    -- * JobRunId
+    JobRunId (..),
+
+    -- * SourcePath
+    SourcePath (..),
+
+    -- * SourceTable
+    SourceTable (..),
+
+    -- * SourceType
+    SourceType (..),
+
+    -- * TargetPath
+    TargetPath (..),
+
+    -- * TargetTable
+    TargetTable (..),
+
+    -- * TargetType
+    TargetType (..),
+
+    -- * UniqueId
+    UniqueId (..),
+
+    -- * PythonVersion
+    PythonVersion (..),
+
+    -- * DependentJobName
+    DependentJobName (..),
+
+    -- * CrawlerName
+    CrawlerName (..),
+
+    -- * SerializationLibrary
+    SerializationLibrary (..),
+
+    -- * MetadataKey
+    MetadataKey (..),
+
+    -- * SchemaName
+    SchemaName (..),
+
+    -- * Key
+    Key (..),
+
+    -- * Value
+    Value (..),
+
+    -- * AwsKmsKeyId
+    AwsKmsKeyId (..),
+
+    -- * LastUpdatedBy
+    LastUpdatedBy (..),
+
+    -- * QuoteSymbol
+    QuoteSymbol (..),
+
+    -- * PolicyInJson
+    PolicyInJson (..),
+
+    -- * InputFormat
+    InputFormat (..),
+
+    -- * OutputFormat
+    OutputFormat (..),
+
+    -- * SearchText
+    SearchText (..),
+
+    -- * ErrorCode
+    ErrorCode (..),
+
+    -- * InputS3Path
+    InputS3Path (..),
+
+    -- * Type
+    Type (..),
+
+    -- * TableType
+    TableType (..),
+
+    -- * Id
+    Id (..),
   )
 where
 
 import Network.AWS.Glue.Types.Action
+import Network.AWS.Glue.Types.AvailabilityZone
+import Network.AWS.Glue.Types.AwsKmsKeyId
 import Network.AWS.Glue.Types.BackfillError
 import Network.AWS.Glue.Types.BackfillErrorCode
 import Network.AWS.Glue.Types.BatchStopJobRunError
@@ -1441,30 +1887,41 @@ import Network.AWS.Glue.Types.BatchUpdatePartitionFailureEntry
 import Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry
 import Network.AWS.Glue.Types.BinaryColumnStatisticsData
 import Network.AWS.Glue.Types.BooleanColumnStatisticsData
-import Network.AWS.Glue.Types.CSVClassifier
-import Network.AWS.Glue.Types.CSVHeaderOption
 import Network.AWS.Glue.Types.CatalogEncryptionMode
 import Network.AWS.Glue.Types.CatalogEntry
+import Network.AWS.Glue.Types.CatalogId
+import Network.AWS.Glue.Types.CatalogIdString
 import Network.AWS.Glue.Types.CatalogImportStatus
 import Network.AWS.Glue.Types.CatalogTarget
+import Network.AWS.Glue.Types.ClassName
+import Network.AWS.Glue.Types.Classification
 import Network.AWS.Glue.Types.Classifier
 import Network.AWS.Glue.Types.CloudWatchEncryption
 import Network.AWS.Glue.Types.CloudWatchEncryptionMode
+import Network.AWS.Glue.Types.CodeGenArgName
 import Network.AWS.Glue.Types.CodeGenEdge
+import Network.AWS.Glue.Types.CodeGenIdentifier
 import Network.AWS.Glue.Types.CodeGenNode
 import Network.AWS.Glue.Types.CodeGenNodeArg
+import Network.AWS.Glue.Types.CodeGenNodeType
 import Network.AWS.Glue.Types.Column
 import Network.AWS.Glue.Types.ColumnError
+import Network.AWS.Glue.Types.ColumnNameString
 import Network.AWS.Glue.Types.ColumnStatistics
 import Network.AWS.Glue.Types.ColumnStatisticsData
 import Network.AWS.Glue.Types.ColumnStatisticsError
 import Network.AWS.Glue.Types.ColumnStatisticsType
+import Network.AWS.Glue.Types.ColumnTypeString
+import Network.AWS.Glue.Types.ColumnValuesString
+import Network.AWS.Glue.Types.CommentString
 import Network.AWS.Glue.Types.Comparator
 import Network.AWS.Glue.Types.Compatibility
 import Network.AWS.Glue.Types.Condition
+import Network.AWS.Glue.Types.Configuration
 import Network.AWS.Glue.Types.ConfusionMatrix
 import Network.AWS.Glue.Types.Connection
 import Network.AWS.Glue.Types.ConnectionInput
+import Network.AWS.Glue.Types.ConnectionName
 import Network.AWS.Glue.Types.ConnectionPasswordEncryption
 import Network.AWS.Glue.Types.ConnectionPropertyKey
 import Network.AWS.Glue.Types.ConnectionType
@@ -1474,23 +1931,38 @@ import Network.AWS.Glue.Types.CrawlState
 import Network.AWS.Glue.Types.Crawler
 import Network.AWS.Glue.Types.CrawlerLineageSettings
 import Network.AWS.Glue.Types.CrawlerMetrics
+import Network.AWS.Glue.Types.CrawlerName
 import Network.AWS.Glue.Types.CrawlerNodeDetails
+import Network.AWS.Glue.Types.CrawlerSecurityConfiguration
 import Network.AWS.Glue.Types.CrawlerState
 import Network.AWS.Glue.Types.CrawlerTargets
-import Network.AWS.Glue.Types.CreateCSVClassifierRequest
+import Network.AWS.Glue.Types.CreateCsvClassifierRequest
 import Network.AWS.Glue.Types.CreateGrokClassifierRequest
-import Network.AWS.Glue.Types.CreateJSONClassifierRequest
+import Network.AWS.Glue.Types.CreateJsonClassifierRequest
 import Network.AWS.Glue.Types.CreateXMLClassifierRequest
+import Network.AWS.Glue.Types.CreatedTime
+import Network.AWS.Glue.Types.CronExpression
+import Network.AWS.Glue.Types.CsvClassifier
+import Network.AWS.Glue.Types.CsvColumnDelimiter
+import Network.AWS.Glue.Types.CsvHeaderOption
+import Network.AWS.Glue.Types.CsvQuoteSymbol
+import Network.AWS.Glue.Types.CustomPatterns
 import Network.AWS.Glue.Types.DataCatalogEncryptionSettings
 import Network.AWS.Glue.Types.DataFormat
 import Network.AWS.Glue.Types.DataLakePrincipal
+import Network.AWS.Glue.Types.DataLakePrincipalString
+import Network.AWS.Glue.Types.DataType
 import Network.AWS.Glue.Types.Database
 import Network.AWS.Glue.Types.DatabaseIdentifier
 import Network.AWS.Glue.Types.DatabaseInput
+import Network.AWS.Glue.Types.DatabaseName
 import Network.AWS.Glue.Types.DateColumnStatisticsData
 import Network.AWS.Glue.Types.DecimalColumnStatisticsData
 import Network.AWS.Glue.Types.DecimalNumber
 import Network.AWS.Glue.Types.DeleteBehavior
+import Network.AWS.Glue.Types.DependentJobName
+import Network.AWS.Glue.Types.Description
+import Network.AWS.Glue.Types.DescriptionString
 import Network.AWS.Glue.Types.DevEndpoint
 import Network.AWS.Glue.Types.DevEndpointCustomLibraries
 import Network.AWS.Glue.Types.DoubleColumnStatisticsData
@@ -1499,38 +1971,75 @@ import Network.AWS.Glue.Types.Edge
 import Network.AWS.Glue.Types.EnableHybridValues
 import Network.AWS.Glue.Types.EncryptionAtRest
 import Network.AWS.Glue.Types.EncryptionConfiguration
+import Network.AWS.Glue.Types.EndpointName
+import Network.AWS.Glue.Types.Error
+import Network.AWS.Glue.Types.ErrorCode
 import Network.AWS.Glue.Types.ErrorDetail
 import Network.AWS.Glue.Types.ErrorDetails
+import Network.AWS.Glue.Types.ErrorMessage
+import Network.AWS.Glue.Types.ErrorMessageString
+import Network.AWS.Glue.Types.ErrorString
 import Network.AWS.Glue.Types.EvaluationMetrics
 import Network.AWS.Glue.Types.ExecutionProperty
 import Network.AWS.Glue.Types.ExistCondition
 import Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
+import Network.AWS.Glue.Types.Expression
+import Network.AWS.Glue.Types.ExtraJarsS3Path
+import Network.AWS.Glue.Types.ExtraPythonLibsS3Path
+import Network.AWS.Glue.Types.FailureReason
 import Network.AWS.Glue.Types.FindMatchesMetrics
 import Network.AWS.Glue.Types.FindMatchesParameters
 import Network.AWS.Glue.Types.FindMatchesTaskRunProperties
+import Network.AWS.Glue.Types.FunctionName
+import Network.AWS.Glue.Types.GenericString
 import Network.AWS.Glue.Types.GetConnectionsFilter
 import Network.AWS.Glue.Types.GluePolicy
+import Network.AWS.Glue.Types.GlueResourceArn
 import Network.AWS.Glue.Types.GlueTable
+import Network.AWS.Glue.Types.GlueVersionString
 import Network.AWS.Glue.Types.GrokClassifier
+import Network.AWS.Glue.Types.GrokPattern
+import Network.AWS.Glue.Types.HashString
+import Network.AWS.Glue.Types.Id
+import Network.AWS.Glue.Types.IdString
 import Network.AWS.Glue.Types.ImportLabelsTaskRunProperties
-import Network.AWS.Glue.Types.JSONClassifier
+import Network.AWS.Glue.Types.IndexName
+import Network.AWS.Glue.Types.InputFormat
+import Network.AWS.Glue.Types.InputS3Path
 import Network.AWS.Glue.Types.JdbcTarget
 import Network.AWS.Glue.Types.Job
 import Network.AWS.Glue.Types.JobBookmarkEntry
 import Network.AWS.Glue.Types.JobBookmarksEncryption
 import Network.AWS.Glue.Types.JobBookmarksEncryptionMode
 import Network.AWS.Glue.Types.JobCommand
+import Network.AWS.Glue.Types.JobName
 import Network.AWS.Glue.Types.JobNodeDetails
 import Network.AWS.Glue.Types.JobRun
+import Network.AWS.Glue.Types.JobRunId
 import Network.AWS.Glue.Types.JobRunState
 import Network.AWS.Glue.Types.JobUpdate
+import Network.AWS.Glue.Types.JsonClassifier
+import Network.AWS.Glue.Types.JsonPath
+import Network.AWS.Glue.Types.JsonValue
+import Network.AWS.Glue.Types.Key
 import Network.AWS.Glue.Types.KeySchemaElement
+import Network.AWS.Glue.Types.KeyString
+import Network.AWS.Glue.Types.KmsKeyArn
+import Network.AWS.Glue.Types.KmsKeyId
 import Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
 import Network.AWS.Glue.Types.Language
 import Network.AWS.Glue.Types.LastCrawlInfo
 import Network.AWS.Glue.Types.LastCrawlStatus
+import Network.AWS.Glue.Types.LastUpdateStatus
+import Network.AWS.Glue.Types.LastUpdatedBy
 import Network.AWS.Glue.Types.LineageConfiguration
 import Network.AWS.Glue.Types.Location
+import Network.AWS.Glue.Types.LocationString
+import Network.AWS.Glue.Types.LocationUri
+import Network.AWS.Glue.Types.LogGroup
+import Network.AWS.Glue.Types.LogGroupName
+import Network.AWS.Glue.Types.LogStream
+import Network.AWS.Glue.Types.LogUri
 import Network.AWS.Glue.Types.Logical
 import Network.AWS.Glue.Types.LogicalOperator
 import Network.AWS.Glue.Types.LongColumnStatisticsData
@@ -1538,13 +2047,25 @@ import Network.AWS.Glue.Types.MLTransform
 import Network.AWS.Glue.Types.MLUserDataEncryption
 import Network.AWS.Glue.Types.MLUserDataEncryptionModeString
 import Network.AWS.Glue.Types.MappingEntry
+import Network.AWS.Glue.Types.MessagePrefix
 import Network.AWS.Glue.Types.MetadataInfo
+import Network.AWS.Glue.Types.MetadataKey
+import Network.AWS.Glue.Types.MetadataKeyString
 import Network.AWS.Glue.Types.MetadataKeyValuePair
+import Network.AWS.Glue.Types.MetadataValueString
 import Network.AWS.Glue.Types.MongoDBTarget
+import Network.AWS.Glue.Types.Name
+import Network.AWS.Glue.Types.NameString
+import Network.AWS.Glue.Types.NextToken
 import Network.AWS.Glue.Types.Node
 import Network.AWS.Glue.Types.NodeType
 import Network.AWS.Glue.Types.NotificationProperty
 import Network.AWS.Glue.Types.Order
+import Network.AWS.Glue.Types.OutputFormat
+import Network.AWS.Glue.Types.OutputS3Path
+import Network.AWS.Glue.Types.OwnerName
+import Network.AWS.Glue.Types.PaginationToken
+import Network.AWS.Glue.Types.ParametersMapValue
 import Network.AWS.Glue.Types.Partition
 import Network.AWS.Glue.Types.PartitionError
 import Network.AWS.Glue.Types.PartitionIndex
@@ -1552,61 +2073,109 @@ import Network.AWS.Glue.Types.PartitionIndexDescriptor
 import Network.AWS.Glue.Types.PartitionIndexStatus
 import Network.AWS.Glue.Types.PartitionInput
 import Network.AWS.Glue.Types.PartitionValueList
+import Network.AWS.Glue.Types.Path
 import Network.AWS.Glue.Types.Permission
 import Network.AWS.Glue.Types.PhysicalConnectionRequirements
+import Network.AWS.Glue.Types.PolicyInJson
+import Network.AWS.Glue.Types.PolicyJsonString
 import Network.AWS.Glue.Types.Predecessor
 import Network.AWS.Glue.Types.Predicate
+import Network.AWS.Glue.Types.PredicateString
+import Network.AWS.Glue.Types.PreviousRunId
 import Network.AWS.Glue.Types.PrincipalPermissions
 import Network.AWS.Glue.Types.PrincipalType
+import Network.AWS.Glue.Types.PrivateAddress
 import Network.AWS.Glue.Types.PropertyPredicate
+import Network.AWS.Glue.Types.PublicAddress
+import Network.AWS.Glue.Types.PublicKey
+import Network.AWS.Glue.Types.PythonScript
+import Network.AWS.Glue.Types.PythonVersion
+import Network.AWS.Glue.Types.QuoteSymbol
 import Network.AWS.Glue.Types.RecrawlBehavior
 import Network.AWS.Glue.Types.RecrawlPolicy
 import Network.AWS.Glue.Types.RegistryId
 import Network.AWS.Glue.Types.RegistryListItem
+import Network.AWS.Glue.Types.RegistryName
 import Network.AWS.Glue.Types.RegistryStatus
 import Network.AWS.Glue.Types.ResourceShareType
 import Network.AWS.Glue.Types.ResourceType
-import Network.AWS.Glue.Types.ResourceURI
+import Network.AWS.Glue.Types.ResourceUri
+import Network.AWS.Glue.Types.Role
+import Network.AWS.Glue.Types.RoleArn
+import Network.AWS.Glue.Types.RowTag
+import Network.AWS.Glue.Types.RunId
 import Network.AWS.Glue.Types.S3Encryption
 import Network.AWS.Glue.Types.S3EncryptionMode
 import Network.AWS.Glue.Types.S3Target
+import Network.AWS.Glue.Types.ScalaCode
 import Network.AWS.Glue.Types.Schedule
+import Network.AWS.Glue.Types.ScheduleExpression
 import Network.AWS.Glue.Types.ScheduleState
 import Network.AWS.Glue.Types.SchemaChangePolicy
 import Network.AWS.Glue.Types.SchemaColumn
+import Network.AWS.Glue.Types.SchemaDefinition
+import Network.AWS.Glue.Types.SchemaDefinitionDiff
+import Network.AWS.Glue.Types.SchemaDefinitionString
 import Network.AWS.Glue.Types.SchemaDiffType
 import Network.AWS.Glue.Types.SchemaId
 import Network.AWS.Glue.Types.SchemaListItem
+import Network.AWS.Glue.Types.SchemaName
 import Network.AWS.Glue.Types.SchemaReference
+import Network.AWS.Glue.Types.SchemaRegistryTokenString
 import Network.AWS.Glue.Types.SchemaStatus
 import Network.AWS.Glue.Types.SchemaVersionErrorItem
+import Network.AWS.Glue.Types.SchemaVersionId
+import Network.AWS.Glue.Types.SchemaVersionIdString
 import Network.AWS.Glue.Types.SchemaVersionListItem
 import Network.AWS.Glue.Types.SchemaVersionNumber
 import Network.AWS.Glue.Types.SchemaVersionStatus
+import Network.AWS.Glue.Types.ScriptLocationString
+import Network.AWS.Glue.Types.SearchText
 import Network.AWS.Glue.Types.SecurityConfiguration
 import Network.AWS.Glue.Types.Segment
 import Network.AWS.Glue.Types.SerDeInfo
+import Network.AWS.Glue.Types.SerializationLibrary
 import Network.AWS.Glue.Types.SkewedInfo
 import Network.AWS.Glue.Types.Sort
 import Network.AWS.Glue.Types.SortCriterion
 import Network.AWS.Glue.Types.SortDirectionType
+import Network.AWS.Glue.Types.Source
+import Network.AWS.Glue.Types.SourcePath
+import Network.AWS.Glue.Types.SourceTable
+import Network.AWS.Glue.Types.SourceType
+import Network.AWS.Glue.Types.SseAwsKmsKeyId
+import Network.AWS.Glue.Types.Status
 import Network.AWS.Glue.Types.StorageDescriptor
 import Network.AWS.Glue.Types.StringColumnStatisticsData
+import Network.AWS.Glue.Types.SubnetId
 import Network.AWS.Glue.Types.Table
 import Network.AWS.Glue.Types.TableError
 import Network.AWS.Glue.Types.TableIdentifier
 import Network.AWS.Glue.Types.TableInput
+import Network.AWS.Glue.Types.TableName
+import Network.AWS.Glue.Types.TablePrefix
+import Network.AWS.Glue.Types.TableType
+import Network.AWS.Glue.Types.TableTypeString
 import Network.AWS.Glue.Types.TableVersion
 import Network.AWS.Glue.Types.TableVersionError
+import Network.AWS.Glue.Types.TagKey
+import Network.AWS.Glue.Types.TagValue
+import Network.AWS.Glue.Types.Target
+import Network.AWS.Glue.Types.TargetPath
+import Network.AWS.Glue.Types.TargetTable
+import Network.AWS.Glue.Types.TargetType
 import Network.AWS.Glue.Types.TaskRun
 import Network.AWS.Glue.Types.TaskRunFilterCriteria
+import Network.AWS.Glue.Types.TaskRunId
 import Network.AWS.Glue.Types.TaskRunProperties
 import Network.AWS.Glue.Types.TaskRunSortColumnType
 import Network.AWS.Glue.Types.TaskRunSortCriteria
 import Network.AWS.Glue.Types.TaskStatusType
 import Network.AWS.Glue.Types.TaskType
+import Network.AWS.Glue.Types.Token
 import Network.AWS.Glue.Types.TransformEncryption
 import Network.AWS.Glue.Types.TransformFilterCriteria
+import Network.AWS.Glue.Types.TransformId
 import Network.AWS.Glue.Types.TransformParameters
 import Network.AWS.Glue.Types.TransformSortColumnType
 import Network.AWS.Glue.Types.TransformSortCriteria
@@ -1617,74 +2186,263 @@ import Network.AWS.Glue.Types.TriggerNodeDetails
 import Network.AWS.Glue.Types.TriggerState
 import Network.AWS.Glue.Types.TriggerType
 import Network.AWS.Glue.Types.TriggerUpdate
+import Network.AWS.Glue.Types.Type
+import Network.AWS.Glue.Types.TypeString
+import Network.AWS.Glue.Types.UniqueId
 import Network.AWS.Glue.Types.UpdateBehavior
-import Network.AWS.Glue.Types.UpdateCSVClassifierRequest
+import Network.AWS.Glue.Types.UpdateCsvClassifierRequest
 import Network.AWS.Glue.Types.UpdateGrokClassifierRequest
-import Network.AWS.Glue.Types.UpdateJSONClassifierRequest
+import Network.AWS.Glue.Types.UpdateJsonClassifierRequest
 import Network.AWS.Glue.Types.UpdateXMLClassifierRequest
+import Network.AWS.Glue.Types.UpdatedTime
+import Network.AWS.Glue.Types.UpdatedTimestamp
+import Network.AWS.Glue.Types.Uri
+import Network.AWS.Glue.Types.UriString
 import Network.AWS.Glue.Types.UserDefinedFunction
 import Network.AWS.Glue.Types.UserDefinedFunctionInput
+import Network.AWS.Glue.Types.Value
+import Network.AWS.Glue.Types.ValueString
+import Network.AWS.Glue.Types.VersionString
+import Network.AWS.Glue.Types.VersionsString
+import Network.AWS.Glue.Types.ViewTextString
+import Network.AWS.Glue.Types.VpcId
 import Network.AWS.Glue.Types.WorkerType
 import Network.AWS.Glue.Types.Workflow
 import Network.AWS.Glue.Types.WorkflowGraph
 import Network.AWS.Glue.Types.WorkflowRun
+import Network.AWS.Glue.Types.WorkflowRunId
 import Network.AWS.Glue.Types.WorkflowRunStatistics
 import Network.AWS.Glue.Types.WorkflowRunStatus
 import Network.AWS.Glue.Types.XMLClassifier
+import Network.AWS.Glue.Types.YarnEndpointAddress
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-03-31@ of the Amazon Glue SDK configuration.
-glueService :: Lude.Service
-glueService =
-  Lude.Service
-    { Lude._svcAbbrev = "Glue",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "glue",
-      Lude._svcVersion = "2017-03-31",
-      Lude._svcEndpoint = Lude.defaultEndpoint glueService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "Glue",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "Glue",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "glue",
+      Core._svcVersion = "2017-03-31",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "Glue",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | A value could not be validated.
+_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError mkServiceConfig "ValidationException"
+{-# DEPRECATED _ValidationException "Use generic-lens or generic-optics instead." #-}
+
+-- | Access to a resource was denied.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError mkServiceConfig "AccessDeniedException"
+{-# DEPRECATED _AccessDeniedException "Use generic-lens or generic-optics instead." #-}
+
+-- | The operation cannot be performed because the crawler is already running.
+_CrawlerRunningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CrawlerRunningException =
+  Core._MatchServiceError mkServiceConfig "CrawlerRunningException"
+{-# DEPRECATED _CrawlerRunningException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified scheduler is transitioning.
+_SchedulerTransitioningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SchedulerTransitioningException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "SchedulerTransitioningException"
+{-# DEPRECATED _SchedulerTransitioningException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified scheduler is already running.
+_SchedulerRunningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SchedulerRunningException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "SchedulerRunningException"
+{-# DEPRECATED _SchedulerRunningException "Use generic-lens or generic-optics instead." #-}
+
+-- | A specified condition was not satisfied.
+_ConditionCheckFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConditionCheckFailureException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ConditionCheckFailureException"
+{-# DEPRECATED _ConditionCheckFailureException "Use generic-lens or generic-optics instead." #-}
+
+-- | Too many jobs are being run concurrently.
+_ConcurrentRunsExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConcurrentRunsExceededException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ConcurrentRunsExceededException"
+{-# DEPRECATED _ConcurrentRunsExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | The workflow is in an invalid state to perform a requested operation.
+_IllegalWorkflowStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IllegalWorkflowStateException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "IllegalWorkflowStateException"
+{-# DEPRECATED _IllegalWorkflowStateException "Use generic-lens or generic-optics instead." #-}
+
+-- | There is no applicable schedule.
+_NoScheduleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NoScheduleException =
+  Core._MatchServiceError mkServiceConfig "NoScheduleException"
+{-# DEPRECATED _NoScheduleException "Use generic-lens or generic-optics instead." #-}
+
+-- | The operation timed out.
+_OperationTimeoutException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_OperationTimeoutException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "OperationTimeoutException"
+{-# DEPRECATED _OperationTimeoutException "Use generic-lens or generic-optics instead." #-}
+
+-- | The @CreatePartitions@ API was called on a table that has indexes enabled.
+_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError mkServiceConfig "ConflictException"
+{-# DEPRECATED _ConflictException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified crawler is not running.
+_CrawlerNotRunningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CrawlerNotRunningException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "CrawlerNotRunningException"
+{-# DEPRECATED _CrawlerNotRunningException "Use generic-lens or generic-optics instead." #-}
+
+-- | There was a version conflict.
+_VersionMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_VersionMismatchException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "VersionMismatchException"
+{-# DEPRECATED _VersionMismatchException "Use generic-lens or generic-optics instead." #-}
+
+-- | The machine learning transform is not ready to run.
+_MLTransformNotReadyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MLTransformNotReadyException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "MLTransformNotReadyException"
+{-# DEPRECATED _MLTransformNotReadyException "Use generic-lens or generic-optics instead." #-}
+
+-- | A specified entity does not exist
+_EntityNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EntityNotFoundException =
+  Core._MatchServiceError mkServiceConfig "EntityNotFoundException"
+{-# DEPRECATED _EntityNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | Two processes are trying to modify a resource simultaneously.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ConcurrentModificationException"
+{-# DEPRECATED _ConcurrentModificationException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified scheduler is not running.
+_SchedulerNotRunningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_SchedulerNotRunningException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "SchedulerNotRunningException"
+{-# DEPRECATED _SchedulerNotRunningException "Use generic-lens or generic-optics instead." #-}
+
+-- | An internal service error occurred.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalServiceException"
+{-# DEPRECATED _InternalServiceException "Use generic-lens or generic-optics instead." #-}
+
+-- | The input provided was not valid.
+_InvalidInputException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException =
+  Core._MatchServiceError mkServiceConfig "InvalidInputException"
+{-# DEPRECATED _InvalidInputException "Use generic-lens or generic-optics instead." #-}
+
+-- | A resource numerical limit was exceeded.
+_ResourceNumberLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNumberLimitExceededException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ResourceNumberLimitExceededException"
+{-# DEPRECATED _ResourceNumberLimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | An encryption operation failed.
+_GlueEncryptionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_GlueEncryptionException =
+  Core._MatchServiceError mkServiceConfig "GlueEncryptionException"
+{-# DEPRECATED _GlueEncryptionException "Use generic-lens or generic-optics instead." #-}
+
+-- | The same unique identifier was associated with two different records.
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "IdempotentParameterMismatchException"
+{-# DEPRECATED _IdempotentParameterMismatchException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified crawler is stopping.
+_CrawlerStoppingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_CrawlerStoppingException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "CrawlerStoppingException"
+{-# DEPRECATED _CrawlerStoppingException "Use generic-lens or generic-optics instead." #-}
+
+-- | A resource to be created or added already exists.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
+  Core._MatchServiceError mkServiceConfig "AlreadyExistsException"
+{-# DEPRECATED _AlreadyExistsException "Use generic-lens or generic-optics instead." #-}

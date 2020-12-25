@@ -22,64 +22,58 @@ module Network.AWS.Greengrass.Types.FunctionDefinitionVersion
   )
 where
 
-import Network.AWS.Greengrass.Types.Function
-import Network.AWS.Greengrass.Types.FunctionDefaultConfig
+import qualified Network.AWS.Greengrass.Types.Function as Types
+import qualified Network.AWS.Greengrass.Types.FunctionDefaultConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a function definition version.
 --
 -- /See:/ 'mkFunctionDefinitionVersion' smart constructor.
 data FunctionDefinitionVersion = FunctionDefinitionVersion'
   { -- | The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
-    defaultConfig :: Lude.Maybe FunctionDefaultConfig,
+    defaultConfig :: Core.Maybe Types.FunctionDefaultConfig,
     -- | A list of Lambda functions in this function definition version.
-    functions :: Lude.Maybe [Function]
+    functions :: Core.Maybe [Types.Function]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FunctionDefinitionVersion' with the minimum fields required to make a request.
---
--- * 'defaultConfig' - The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
--- * 'functions' - A list of Lambda functions in this function definition version.
+-- | Creates a 'FunctionDefinitionVersion' value with any optional fields omitted.
 mkFunctionDefinitionVersion ::
   FunctionDefinitionVersion
 mkFunctionDefinitionVersion =
   FunctionDefinitionVersion'
-    { defaultConfig = Lude.Nothing,
-      functions = Lude.Nothing
+    { defaultConfig = Core.Nothing,
+      functions = Core.Nothing
     }
 
 -- | The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
 --
 -- /Note:/ Consider using 'defaultConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdvDefaultConfig :: Lens.Lens' FunctionDefinitionVersion (Lude.Maybe FunctionDefaultConfig)
-fdvDefaultConfig = Lens.lens (defaultConfig :: FunctionDefinitionVersion -> Lude.Maybe FunctionDefaultConfig) (\s a -> s {defaultConfig = a} :: FunctionDefinitionVersion)
+fdvDefaultConfig :: Lens.Lens' FunctionDefinitionVersion (Core.Maybe Types.FunctionDefaultConfig)
+fdvDefaultConfig = Lens.field @"defaultConfig"
 {-# DEPRECATED fdvDefaultConfig "Use generic-lens or generic-optics with 'defaultConfig' instead." #-}
 
 -- | A list of Lambda functions in this function definition version.
 --
 -- /Note:/ Consider using 'functions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdvFunctions :: Lens.Lens' FunctionDefinitionVersion (Lude.Maybe [Function])
-fdvFunctions = Lens.lens (functions :: FunctionDefinitionVersion -> Lude.Maybe [Function]) (\s a -> s {functions = a} :: FunctionDefinitionVersion)
+fdvFunctions :: Lens.Lens' FunctionDefinitionVersion (Core.Maybe [Types.Function])
+fdvFunctions = Lens.field @"functions"
 {-# DEPRECATED fdvFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
 
-instance Lude.FromJSON FunctionDefinitionVersion where
-  parseJSON =
-    Lude.withObject
-      "FunctionDefinitionVersion"
-      ( \x ->
-          FunctionDefinitionVersion'
-            Lude.<$> (x Lude..:? "DefaultConfig")
-            Lude.<*> (x Lude..:? "Functions" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON FunctionDefinitionVersion where
-  toJSON FunctionDefinitionVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DefaultConfig" Lude..=) Lude.<$> defaultConfig,
-            ("Functions" Lude..=) Lude.<$> functions
+instance Core.FromJSON FunctionDefinitionVersion where
+  toJSON FunctionDefinitionVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultConfig" Core..=) Core.<$> defaultConfig,
+            ("Functions" Core..=) Core.<$> functions
           ]
       )
+
+instance Core.FromJSON FunctionDefinitionVersion where
+  parseJSON =
+    Core.withObject "FunctionDefinitionVersion" Core.$
+      \x ->
+        FunctionDefinitionVersion'
+          Core.<$> (x Core..:? "DefaultConfig") Core.<*> (x Core..:? "Functions")

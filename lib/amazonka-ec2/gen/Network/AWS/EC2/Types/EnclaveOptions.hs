@@ -22,31 +22,29 @@ module Network.AWS.EC2.Types.EnclaveOptions
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
 --
 -- /See:/ 'mkEnclaveOptions' smart constructor.
 newtype EnclaveOptions = EnclaveOptions'
   { -- | If this parameter is set to @true@ , the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnclaveOptions' with the minimum fields required to make a request.
---
--- * 'enabled' - If this parameter is set to @true@ , the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+-- | Creates a 'EnclaveOptions' value with any optional fields omitted.
 mkEnclaveOptions ::
   EnclaveOptions
-mkEnclaveOptions = EnclaveOptions' {enabled = Lude.Nothing}
+mkEnclaveOptions = EnclaveOptions' {enabled = Core.Nothing}
 
 -- | If this parameter is set to @true@ , the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoEnabled :: Lens.Lens' EnclaveOptions (Lude.Maybe Lude.Bool)
-eoEnabled = Lens.lens (enabled :: EnclaveOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: EnclaveOptions)
+eoEnabled :: Lens.Lens' EnclaveOptions (Core.Maybe Core.Bool)
+eoEnabled = Lens.field @"enabled"
 {-# DEPRECATED eoEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromXML EnclaveOptions where
-  parseXML x = EnclaveOptions' Lude.<$> (x Lude..@? "enabled")
+instance Core.FromXML EnclaveOptions where
+  parseXML x = EnclaveOptions' Core.<$> (x Core..@? "enabled")

@@ -22,256 +22,238 @@ module Network.AWS.EC2.CreateNetworkInterface
     mkCreateNetworkInterface,
 
     -- ** Request lenses
-    cniGroups,
-    cniPrivateIPAddresses,
-    cniInterfaceType,
     cniSubnetId,
-    cniTagSpecifications,
-    cniIPv6AddressCount,
-    cniPrivateIPAddress,
-    cniSecondaryPrivateIPAddressCount,
     cniDescription,
     cniDryRun,
-    cniIPv6Addresses,
+    cniGroups,
+    cniInterfaceType,
+    cniIpv6AddressCount,
+    cniIpv6Addresses,
+    cniPrivateIpAddress,
+    cniPrivateIpAddresses,
+    cniSecondaryPrivateIpAddressCount,
+    cniTagSpecifications,
 
     -- * Destructuring the response
     CreateNetworkInterfaceResponse (..),
     mkCreateNetworkInterfaceResponse,
 
     -- ** Response lenses
-    cnirsNetworkInterface,
-    cnirsResponseStatus,
+    cnirrsNetworkInterface,
+    cnirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateNetworkInterface.
 --
 -- /See:/ 'mkCreateNetworkInterface' smart constructor.
 data CreateNetworkInterface = CreateNetworkInterface'
-  { -- | The IDs of one or more security groups.
-    groups :: Lude.Maybe [Lude.Text],
-    -- | One or more private IPv4 addresses.
-    privateIPAddresses :: Lude.Maybe [PrivateIPAddressSpecification],
+  { -- | The ID of the subnet to associate with the network interface.
+    subnetId :: Types.SubnetId,
+    -- | A description for the network interface.
+    description :: Core.Maybe Types.String,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The IDs of one or more security groups.
+    groups :: Core.Maybe [Types.SecurityGroupId],
     -- | Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
-    interfaceType :: Lude.Maybe NetworkInterfaceCreationType,
-    -- | The ID of the subnet to associate with the network interface.
-    subnetId :: Lude.Text,
-    -- | The tags to apply to the new network interface.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+    interfaceType :: Core.Maybe Types.NetworkInterfaceCreationType,
     -- | The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
-    ipv6AddressCount :: Lude.Maybe Lude.Int,
+    ipv6AddressCount :: Core.Maybe Core.Int,
+    -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+    ipv6Addresses :: Core.Maybe [Types.InstanceIpv6Address],
     -- | The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
-    privateIPAddress :: Lude.Maybe Lude.Text,
+    privateIpAddress :: Core.Maybe Types.String,
+    -- | One or more private IPv4 addresses.
+    privateIpAddresses :: Core.Maybe [Types.PrivateIpAddressSpecification],
     -- | The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ .
     --
     -- The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type> in the /Amazon Virtual Private Cloud User Guide/ .
-    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int,
-    -- | A description for the network interface.
-    description :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
-    ipv6Addresses :: Lude.Maybe [InstanceIPv6Address]
+    secondaryPrivateIpAddressCount :: Core.Maybe Core.Int,
+    -- | The tags to apply to the new network interface.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNetworkInterface' with the minimum fields required to make a request.
---
--- * 'groups' - The IDs of one or more security groups.
--- * 'privateIPAddresses' - One or more private IPv4 addresses.
--- * 'interfaceType' - Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'subnetId' - The ID of the subnet to associate with the network interface.
--- * 'tagSpecifications' - The tags to apply to the new network interface.
--- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
--- * 'privateIPAddress' - The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
--- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ .
---
--- The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type> in the /Amazon Virtual Private Cloud User Guide/ .
--- * 'description' - A description for the network interface.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+-- | Creates a 'CreateNetworkInterface' value with any optional fields omitted.
 mkCreateNetworkInterface ::
   -- | 'subnetId'
-  Lude.Text ->
+  Types.SubnetId ->
   CreateNetworkInterface
-mkCreateNetworkInterface pSubnetId_ =
+mkCreateNetworkInterface subnetId =
   CreateNetworkInterface'
-    { groups = Lude.Nothing,
-      privateIPAddresses = Lude.Nothing,
-      interfaceType = Lude.Nothing,
-      subnetId = pSubnetId_,
-      tagSpecifications = Lude.Nothing,
-      ipv6AddressCount = Lude.Nothing,
-      privateIPAddress = Lude.Nothing,
-      secondaryPrivateIPAddressCount = Lude.Nothing,
-      description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      ipv6Addresses = Lude.Nothing
+    { subnetId,
+      description = Core.Nothing,
+      dryRun = Core.Nothing,
+      groups = Core.Nothing,
+      interfaceType = Core.Nothing,
+      ipv6AddressCount = Core.Nothing,
+      ipv6Addresses = Core.Nothing,
+      privateIpAddress = Core.Nothing,
+      privateIpAddresses = Core.Nothing,
+      secondaryPrivateIpAddressCount = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
-
--- | The IDs of one or more security groups.
---
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniGroups :: Lens.Lens' CreateNetworkInterface (Lude.Maybe [Lude.Text])
-cniGroups = Lens.lens (groups :: CreateNetworkInterface -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
-
--- | One or more private IPv4 addresses.
---
--- /Note:/ Consider using 'privateIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniPrivateIPAddresses :: Lens.Lens' CreateNetworkInterface (Lude.Maybe [PrivateIPAddressSpecification])
-cniPrivateIPAddresses = Lens.lens (privateIPAddresses :: CreateNetworkInterface -> Lude.Maybe [PrivateIPAddressSpecification]) (\s a -> s {privateIPAddresses = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniPrivateIPAddresses "Use generic-lens or generic-optics with 'privateIPAddresses' instead." #-}
-
--- | Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- /Note:/ Consider using 'interfaceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniInterfaceType :: Lens.Lens' CreateNetworkInterface (Lude.Maybe NetworkInterfaceCreationType)
-cniInterfaceType = Lens.lens (interfaceType :: CreateNetworkInterface -> Lude.Maybe NetworkInterfaceCreationType) (\s a -> s {interfaceType = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniInterfaceType "Use generic-lens or generic-optics with 'interfaceType' instead." #-}
 
 -- | The ID of the subnet to associate with the network interface.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniSubnetId :: Lens.Lens' CreateNetworkInterface Lude.Text
-cniSubnetId = Lens.lens (subnetId :: CreateNetworkInterface -> Lude.Text) (\s a -> s {subnetId = a} :: CreateNetworkInterface)
+cniSubnetId :: Lens.Lens' CreateNetworkInterface Types.SubnetId
+cniSubnetId = Lens.field @"subnetId"
 {-# DEPRECATED cniSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The tags to apply to the new network interface.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniTagSpecifications :: Lens.Lens' CreateNetworkInterface (Lude.Maybe [TagSpecification])
-cniTagSpecifications = Lens.lens (tagSpecifications :: CreateNetworkInterface -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
---
--- /Note:/ Consider using 'ipv6AddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniIPv6AddressCount :: Lens.Lens' CreateNetworkInterface (Lude.Maybe Lude.Int)
-cniIPv6AddressCount = Lens.lens (ipv6AddressCount :: CreateNetworkInterface -> Lude.Maybe Lude.Int) (\s a -> s {ipv6AddressCount = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniIPv6AddressCount "Use generic-lens or generic-optics with 'ipv6AddressCount' instead." #-}
-
--- | The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
---
--- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniPrivateIPAddress :: Lens.Lens' CreateNetworkInterface (Lude.Maybe Lude.Text)
-cniPrivateIPAddress = Lens.lens (privateIPAddress :: CreateNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
-
--- | The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ .
---
--- The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type> in the /Amazon Virtual Private Cloud User Guide/ .
---
--- /Note:/ Consider using 'secondaryPrivateIPAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniSecondaryPrivateIPAddressCount :: Lens.Lens' CreateNetworkInterface (Lude.Maybe Lude.Int)
-cniSecondaryPrivateIPAddressCount = Lens.lens (secondaryPrivateIPAddressCount :: CreateNetworkInterface -> Lude.Maybe Lude.Int) (\s a -> s {secondaryPrivateIPAddressCount = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniSecondaryPrivateIPAddressCount "Use generic-lens or generic-optics with 'secondaryPrivateIPAddressCount' instead." #-}
 
 -- | A description for the network interface.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniDescription :: Lens.Lens' CreateNetworkInterface (Lude.Maybe Lude.Text)
-cniDescription = Lens.lens (description :: CreateNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateNetworkInterface)
+cniDescription :: Lens.Lens' CreateNetworkInterface (Core.Maybe Types.String)
+cniDescription = Lens.field @"description"
 {-# DEPRECATED cniDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniDryRun :: Lens.Lens' CreateNetworkInterface (Lude.Maybe Lude.Bool)
-cniDryRun = Lens.lens (dryRun :: CreateNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateNetworkInterface)
+cniDryRun :: Lens.Lens' CreateNetworkInterface (Core.Maybe Core.Bool)
+cniDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cniDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | The IDs of one or more security groups.
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniGroups :: Lens.Lens' CreateNetworkInterface (Core.Maybe [Types.SecurityGroupId])
+cniGroups = Lens.field @"groups"
+{-# DEPRECATED cniGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+
+-- | Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- /Note:/ Consider using 'interfaceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniInterfaceType :: Lens.Lens' CreateNetworkInterface (Core.Maybe Types.NetworkInterfaceCreationType)
+cniInterfaceType = Lens.field @"interfaceType"
+{-# DEPRECATED cniInterfaceType "Use generic-lens or generic-optics with 'interfaceType' instead." #-}
+
+-- | The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
+--
+-- /Note:/ Consider using 'ipv6AddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniIpv6AddressCount :: Lens.Lens' CreateNetworkInterface (Core.Maybe Core.Int)
+cniIpv6AddressCount = Lens.field @"ipv6AddressCount"
+{-# DEPRECATED cniIpv6AddressCount "Use generic-lens or generic-optics with 'ipv6AddressCount' instead." #-}
 
 -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 --
 -- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniIPv6Addresses :: Lens.Lens' CreateNetworkInterface (Lude.Maybe [InstanceIPv6Address])
-cniIPv6Addresses = Lens.lens (ipv6Addresses :: CreateNetworkInterface -> Lude.Maybe [InstanceIPv6Address]) (\s a -> s {ipv6Addresses = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
+cniIpv6Addresses :: Lens.Lens' CreateNetworkInterface (Core.Maybe [Types.InstanceIpv6Address])
+cniIpv6Addresses = Lens.field @"ipv6Addresses"
+{-# DEPRECATED cniIpv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
 
-instance Lude.AWSRequest CreateNetworkInterface where
+-- | The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
+--
+-- /Note:/ Consider using 'privateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniPrivateIpAddress :: Lens.Lens' CreateNetworkInterface (Core.Maybe Types.String)
+cniPrivateIpAddress = Lens.field @"privateIpAddress"
+{-# DEPRECATED cniPrivateIpAddress "Use generic-lens or generic-optics with 'privateIpAddress' instead." #-}
+
+-- | One or more private IPv4 addresses.
+--
+-- /Note:/ Consider using 'privateIpAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniPrivateIpAddresses :: Lens.Lens' CreateNetworkInterface (Core.Maybe [Types.PrivateIpAddressSpecification])
+cniPrivateIpAddresses = Lens.field @"privateIpAddresses"
+{-# DEPRECATED cniPrivateIpAddresses "Use generic-lens or generic-optics with 'privateIpAddresses' instead." #-}
+
+-- | The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ .
+--
+-- The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type> in the /Amazon Virtual Private Cloud User Guide/ .
+--
+-- /Note:/ Consider using 'secondaryPrivateIpAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniSecondaryPrivateIpAddressCount :: Lens.Lens' CreateNetworkInterface (Core.Maybe Core.Int)
+cniSecondaryPrivateIpAddressCount = Lens.field @"secondaryPrivateIpAddressCount"
+{-# DEPRECATED cniSecondaryPrivateIpAddressCount "Use generic-lens or generic-optics with 'secondaryPrivateIpAddressCount' instead." #-}
+
+-- | The tags to apply to the new network interface.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniTagSpecifications :: Lens.Lens' CreateNetworkInterface (Core.Maybe [Types.TagSpecification])
+cniTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED cniTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateNetworkInterface where
   type Rs CreateNetworkInterface = CreateNetworkInterfaceResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateNetworkInterface")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "SubnetId" subnetId)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "SecurityGroupId" Core.<$> groups)
+                Core.<> (Core.toQueryValue "InterfaceType" Core.<$> interfaceType)
+                Core.<> (Core.toQueryValue "Ipv6AddressCount" Core.<$> ipv6AddressCount)
+                Core.<> (Core.toQueryList "Ipv6Addresses" Core.<$> ipv6Addresses)
+                Core.<> (Core.toQueryValue "PrivateIpAddress" Core.<$> privateIpAddress)
+                Core.<> (Core.toQueryList "PrivateIpAddresses" Core.<$> privateIpAddresses)
+                Core.<> ( Core.toQueryValue "SecondaryPrivateIpAddressCount"
+                            Core.<$> secondaryPrivateIpAddressCount
+                        )
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateNetworkInterfaceResponse'
-            Lude.<$> (x Lude..@? "networkInterface")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "networkInterface")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateNetworkInterface where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateNetworkInterface where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateNetworkInterface where
-  toQuery CreateNetworkInterface' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateNetworkInterface" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "SecurityGroupId" Lude.<$> groups),
-        Lude.toQuery
-          ( Lude.toQueryList "PrivateIpAddresses"
-              Lude.<$> privateIPAddresses
-          ),
-        "InterfaceType" Lude.=: interfaceType,
-        "SubnetId" Lude.=: subnetId,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "Ipv6AddressCount" Lude.=: ipv6AddressCount,
-        "PrivateIpAddress" Lude.=: privateIPAddress,
-        "SecondaryPrivateIpAddressCount"
-          Lude.=: secondaryPrivateIPAddressCount,
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        Lude.toQuery
-          (Lude.toQueryList "Ipv6Addresses" Lude.<$> ipv6Addresses)
-      ]
 
 -- | Contains the output of CreateNetworkInterface.
 --
 -- /See:/ 'mkCreateNetworkInterfaceResponse' smart constructor.
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
   { -- | Information about the network interface.
-    networkInterface :: Lude.Maybe NetworkInterface,
+    networkInterface :: Core.Maybe Types.NetworkInterface,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateNetworkInterfaceResponse' with the minimum fields required to make a request.
---
--- * 'networkInterface' - Information about the network interface.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateNetworkInterfaceResponse' value with any optional fields omitted.
 mkCreateNetworkInterfaceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateNetworkInterfaceResponse
-mkCreateNetworkInterfaceResponse pResponseStatus_ =
+mkCreateNetworkInterfaceResponse responseStatus =
   CreateNetworkInterfaceResponse'
-    { networkInterface = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { networkInterface = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the network interface.
 --
 -- /Note:/ Consider using 'networkInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnirsNetworkInterface :: Lens.Lens' CreateNetworkInterfaceResponse (Lude.Maybe NetworkInterface)
-cnirsNetworkInterface = Lens.lens (networkInterface :: CreateNetworkInterfaceResponse -> Lude.Maybe NetworkInterface) (\s a -> s {networkInterface = a} :: CreateNetworkInterfaceResponse)
-{-# DEPRECATED cnirsNetworkInterface "Use generic-lens or generic-optics with 'networkInterface' instead." #-}
+cnirrsNetworkInterface :: Lens.Lens' CreateNetworkInterfaceResponse (Core.Maybe Types.NetworkInterface)
+cnirrsNetworkInterface = Lens.field @"networkInterface"
+{-# DEPRECATED cnirrsNetworkInterface "Use generic-lens or generic-optics with 'networkInterface' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnirsResponseStatus :: Lens.Lens' CreateNetworkInterfaceResponse Lude.Int
-cnirsResponseStatus = Lens.lens (responseStatus :: CreateNetworkInterfaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNetworkInterfaceResponse)
-{-# DEPRECATED cnirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cnirrsResponseStatus :: Lens.Lens' CreateNetworkInterfaceResponse Core.Int
+cnirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cnirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

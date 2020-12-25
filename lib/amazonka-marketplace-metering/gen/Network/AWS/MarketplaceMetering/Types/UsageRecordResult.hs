@@ -17,22 +17,25 @@ module Network.AWS.MarketplaceMetering.Types.UsageRecordResult
     mkUsageRecordResult,
 
     -- * Lenses
+    urrMeteringRecordId,
     urrStatus,
     urrUsageRecord,
-    urrMeteringRecordId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceMetering.Types.UsageRecord
-import Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MarketplaceMetering.Types.String as Types
+import qualified Network.AWS.MarketplaceMetering.Types.UsageRecord as Types
+import qualified Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A UsageRecordResult indicates the status of a given UsageRecord processed by BatchMeterUsage.
 --
 -- /See:/ 'mkUsageRecordResult' smart constructor.
 data UsageRecordResult = UsageRecordResult'
-  { -- | The UsageRecordResult Status indicates the status of an individual UsageRecord processed by BatchMeterUsage.
+  { -- | The MeteringRecordId is a unique identifier for this metering event.
+    meteringRecordId :: Core.Maybe Types.String,
+    -- | The UsageRecordResult Status indicates the status of an individual UsageRecord processed by BatchMeterUsage.
     --
     --
     --     * /Success/ - The UsageRecord was accepted and honored by BatchMeterUsage.
@@ -42,39 +45,29 @@ data UsageRecordResult = UsageRecordResult'
     --
     --
     --     * /DuplicateRecord/ - Indicates that the UsageRecord was invalid and not honored. A previously metered UsageRecord had the same customer, dimension, and time, but a different quantity.
-    status :: Lude.Maybe UsageRecordResultStatus,
+    status :: Core.Maybe Types.UsageRecordResultStatus,
     -- | The UsageRecord that was part of the BatchMeterUsage request.
-    usageRecord :: Lude.Maybe UsageRecord,
-    -- | The MeteringRecordId is a unique identifier for this metering event.
-    meteringRecordId :: Lude.Maybe Lude.Text
+    usageRecord :: Core.Maybe Types.UsageRecord
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UsageRecordResult' with the minimum fields required to make a request.
---
--- * 'status' - The UsageRecordResult Status indicates the status of an individual UsageRecord processed by BatchMeterUsage.
---
---
---     * /Success/ - The UsageRecord was accepted and honored by BatchMeterUsage.
---
---
---     * /CustomerNotSubscribed/ - The CustomerIdentifier specified is not subscribed to your product. The UsageRecord was not honored. Future UsageRecords for this customer will fail until the customer subscribes to your product.
---
---
---     * /DuplicateRecord/ - Indicates that the UsageRecord was invalid and not honored. A previously metered UsageRecord had the same customer, dimension, and time, but a different quantity.
---
---
--- * 'usageRecord' - The UsageRecord that was part of the BatchMeterUsage request.
--- * 'meteringRecordId' - The MeteringRecordId is a unique identifier for this metering event.
+-- | Creates a 'UsageRecordResult' value with any optional fields omitted.
 mkUsageRecordResult ::
   UsageRecordResult
 mkUsageRecordResult =
   UsageRecordResult'
-    { status = Lude.Nothing,
-      usageRecord = Lude.Nothing,
-      meteringRecordId = Lude.Nothing
+    { meteringRecordId = Core.Nothing,
+      status = Core.Nothing,
+      usageRecord = Core.Nothing
     }
+
+-- | The MeteringRecordId is a unique identifier for this metering event.
+--
+-- /Note:/ Consider using 'meteringRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrMeteringRecordId :: Lens.Lens' UsageRecordResult (Core.Maybe Types.String)
+urrMeteringRecordId = Lens.field @"meteringRecordId"
+{-# DEPRECATED urrMeteringRecordId "Use generic-lens or generic-optics with 'meteringRecordId' instead." #-}
 
 -- | The UsageRecordResult Status indicates the status of an individual UsageRecord processed by BatchMeterUsage.
 --
@@ -90,31 +83,22 @@ mkUsageRecordResult =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrStatus :: Lens.Lens' UsageRecordResult (Lude.Maybe UsageRecordResultStatus)
-urrStatus = Lens.lens (status :: UsageRecordResult -> Lude.Maybe UsageRecordResultStatus) (\s a -> s {status = a} :: UsageRecordResult)
+urrStatus :: Lens.Lens' UsageRecordResult (Core.Maybe Types.UsageRecordResultStatus)
+urrStatus = Lens.field @"status"
 {-# DEPRECATED urrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The UsageRecord that was part of the BatchMeterUsage request.
 --
 -- /Note:/ Consider using 'usageRecord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrUsageRecord :: Lens.Lens' UsageRecordResult (Lude.Maybe UsageRecord)
-urrUsageRecord = Lens.lens (usageRecord :: UsageRecordResult -> Lude.Maybe UsageRecord) (\s a -> s {usageRecord = a} :: UsageRecordResult)
+urrUsageRecord :: Lens.Lens' UsageRecordResult (Core.Maybe Types.UsageRecord)
+urrUsageRecord = Lens.field @"usageRecord"
 {-# DEPRECATED urrUsageRecord "Use generic-lens or generic-optics with 'usageRecord' instead." #-}
 
--- | The MeteringRecordId is a unique identifier for this metering event.
---
--- /Note:/ Consider using 'meteringRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrMeteringRecordId :: Lens.Lens' UsageRecordResult (Lude.Maybe Lude.Text)
-urrMeteringRecordId = Lens.lens (meteringRecordId :: UsageRecordResult -> Lude.Maybe Lude.Text) (\s a -> s {meteringRecordId = a} :: UsageRecordResult)
-{-# DEPRECATED urrMeteringRecordId "Use generic-lens or generic-optics with 'meteringRecordId' instead." #-}
-
-instance Lude.FromJSON UsageRecordResult where
+instance Core.FromJSON UsageRecordResult where
   parseJSON =
-    Lude.withObject
-      "UsageRecordResult"
-      ( \x ->
-          UsageRecordResult'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "UsageRecord")
-            Lude.<*> (x Lude..:? "MeteringRecordId")
-      )
+    Core.withObject "UsageRecordResult" Core.$
+      \x ->
+        UsageRecordResult'
+          Core.<$> (x Core..:? "MeteringRecordId")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "UsageRecord")

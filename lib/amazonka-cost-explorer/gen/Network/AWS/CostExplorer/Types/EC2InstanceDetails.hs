@@ -17,136 +17,126 @@ module Network.AWS.CostExplorer.Types.EC2InstanceDetails
     mkEC2InstanceDetails,
 
     -- * Lenses
-    eidCurrentGeneration,
-    eidPlatform,
-    eidFamily,
-    eidInstanceType,
-    eidAvailabilityZone,
-    eidSizeFlexEligible,
-    eidTenancy,
-    eidRegion,
+    ecidAvailabilityZone,
+    ecidCurrentGeneration,
+    ecidFamily,
+    ecidInstanceType,
+    ecidPlatform,
+    ecidRegion,
+    ecidSizeFlexEligible,
+    ecidTenancy,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the Amazon EC2 instances that AWS recommends that you purchase.
 --
 -- /See:/ 'mkEC2InstanceDetails' smart constructor.
 data EC2InstanceDetails = EC2InstanceDetails'
-  { -- | Whether the recommendation is for a current-generation instance.
-    currentGeneration :: Lude.Maybe Lude.Bool,
-    -- | The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance.
-    platform :: Lude.Maybe Lude.Text,
+  { -- | The Availability Zone of the recommended reservation.
+    availabilityZone :: Core.Maybe Types.GenericString,
+    -- | Whether the recommendation is for a current-generation instance.
+    currentGeneration :: Core.Maybe Core.Bool,
     -- | The instance family of the recommended reservation.
-    family :: Lude.Maybe Lude.Text,
+    family :: Core.Maybe Types.GenericString,
     -- | The type of instance that AWS recommends.
-    instanceType :: Lude.Maybe Lude.Text,
-    -- | The Availability Zone of the recommended reservation.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | Whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Lude.Maybe Lude.Bool,
-    -- | Whether the recommended reservation is dedicated or shared.
-    tenancy :: Lude.Maybe Lude.Text,
+    instanceType :: Core.Maybe Types.GenericString,
+    -- | The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance.
+    platform :: Core.Maybe Types.GenericString,
     -- | The AWS Region of the recommended reservation.
-    region :: Lude.Maybe Lude.Text
+    region :: Core.Maybe Types.GenericString,
+    -- | Whether the recommended reservation is size flexible.
+    sizeFlexEligible :: Core.Maybe Core.Bool,
+    -- | Whether the recommended reservation is dedicated or shared.
+    tenancy :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EC2InstanceDetails' with the minimum fields required to make a request.
---
--- * 'currentGeneration' - Whether the recommendation is for a current-generation instance.
--- * 'platform' - The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance.
--- * 'family' - The instance family of the recommended reservation.
--- * 'instanceType' - The type of instance that AWS recommends.
--- * 'availabilityZone' - The Availability Zone of the recommended reservation.
--- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
--- * 'tenancy' - Whether the recommended reservation is dedicated or shared.
--- * 'region' - The AWS Region of the recommended reservation.
+-- | Creates a 'EC2InstanceDetails' value with any optional fields omitted.
 mkEC2InstanceDetails ::
   EC2InstanceDetails
 mkEC2InstanceDetails =
   EC2InstanceDetails'
-    { currentGeneration = Lude.Nothing,
-      platform = Lude.Nothing,
-      family = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      sizeFlexEligible = Lude.Nothing,
-      tenancy = Lude.Nothing,
-      region = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      currentGeneration = Core.Nothing,
+      family = Core.Nothing,
+      instanceType = Core.Nothing,
+      platform = Core.Nothing,
+      region = Core.Nothing,
+      sizeFlexEligible = Core.Nothing,
+      tenancy = Core.Nothing
     }
-
--- | Whether the recommendation is for a current-generation instance.
---
--- /Note:/ Consider using 'currentGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidCurrentGeneration :: Lens.Lens' EC2InstanceDetails (Lude.Maybe Lude.Bool)
-eidCurrentGeneration = Lens.lens (currentGeneration :: EC2InstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {currentGeneration = a} :: EC2InstanceDetails)
-{-# DEPRECATED eidCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
-
--- | The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidPlatform :: Lens.Lens' EC2InstanceDetails (Lude.Maybe Lude.Text)
-eidPlatform = Lens.lens (platform :: EC2InstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: EC2InstanceDetails)
-{-# DEPRECATED eidPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | The instance family of the recommended reservation.
---
--- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidFamily :: Lens.Lens' EC2InstanceDetails (Lude.Maybe Lude.Text)
-eidFamily = Lens.lens (family :: EC2InstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {family = a} :: EC2InstanceDetails)
-{-# DEPRECATED eidFamily "Use generic-lens or generic-optics with 'family' instead." #-}
-
--- | The type of instance that AWS recommends.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidInstanceType :: Lens.Lens' EC2InstanceDetails (Lude.Maybe Lude.Text)
-eidInstanceType = Lens.lens (instanceType :: EC2InstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: EC2InstanceDetails)
-{-# DEPRECATED eidInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The Availability Zone of the recommended reservation.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidAvailabilityZone :: Lens.Lens' EC2InstanceDetails (Lude.Maybe Lude.Text)
-eidAvailabilityZone = Lens.lens (availabilityZone :: EC2InstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: EC2InstanceDetails)
-{-# DEPRECATED eidAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+ecidAvailabilityZone :: Lens.Lens' EC2InstanceDetails (Core.Maybe Types.GenericString)
+ecidAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED ecidAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | Whether the recommended reservation is size flexible.
+-- | Whether the recommendation is for a current-generation instance.
 --
--- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidSizeFlexEligible :: Lens.Lens' EC2InstanceDetails (Lude.Maybe Lude.Bool)
-eidSizeFlexEligible = Lens.lens (sizeFlexEligible :: EC2InstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {sizeFlexEligible = a} :: EC2InstanceDetails)
-{-# DEPRECATED eidSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
+-- /Note:/ Consider using 'currentGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidCurrentGeneration :: Lens.Lens' EC2InstanceDetails (Core.Maybe Core.Bool)
+ecidCurrentGeneration = Lens.field @"currentGeneration"
+{-# DEPRECATED ecidCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
 
--- | Whether the recommended reservation is dedicated or shared.
+-- | The instance family of the recommended reservation.
 --
--- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidTenancy :: Lens.Lens' EC2InstanceDetails (Lude.Maybe Lude.Text)
-eidTenancy = Lens.lens (tenancy :: EC2InstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {tenancy = a} :: EC2InstanceDetails)
-{-# DEPRECATED eidTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
+-- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidFamily :: Lens.Lens' EC2InstanceDetails (Core.Maybe Types.GenericString)
+ecidFamily = Lens.field @"family"
+{-# DEPRECATED ecidFamily "Use generic-lens or generic-optics with 'family' instead." #-}
+
+-- | The type of instance that AWS recommends.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidInstanceType :: Lens.Lens' EC2InstanceDetails (Core.Maybe Types.GenericString)
+ecidInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED ecidInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidPlatform :: Lens.Lens' EC2InstanceDetails (Core.Maybe Types.GenericString)
+ecidPlatform = Lens.field @"platform"
+{-# DEPRECATED ecidPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The AWS Region of the recommended reservation.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eidRegion :: Lens.Lens' EC2InstanceDetails (Lude.Maybe Lude.Text)
-eidRegion = Lens.lens (region :: EC2InstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: EC2InstanceDetails)
-{-# DEPRECATED eidRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+ecidRegion :: Lens.Lens' EC2InstanceDetails (Core.Maybe Types.GenericString)
+ecidRegion = Lens.field @"region"
+{-# DEPRECATED ecidRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromJSON EC2InstanceDetails where
+-- | Whether the recommended reservation is size flexible.
+--
+-- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidSizeFlexEligible :: Lens.Lens' EC2InstanceDetails (Core.Maybe Core.Bool)
+ecidSizeFlexEligible = Lens.field @"sizeFlexEligible"
+{-# DEPRECATED ecidSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
+
+-- | Whether the recommended reservation is dedicated or shared.
+--
+-- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidTenancy :: Lens.Lens' EC2InstanceDetails (Core.Maybe Types.GenericString)
+ecidTenancy = Lens.field @"tenancy"
+{-# DEPRECATED ecidTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
+
+instance Core.FromJSON EC2InstanceDetails where
   parseJSON =
-    Lude.withObject
-      "EC2InstanceDetails"
-      ( \x ->
-          EC2InstanceDetails'
-            Lude.<$> (x Lude..:? "CurrentGeneration")
-            Lude.<*> (x Lude..:? "Platform")
-            Lude.<*> (x Lude..:? "Family")
-            Lude.<*> (x Lude..:? "InstanceType")
-            Lude.<*> (x Lude..:? "AvailabilityZone")
-            Lude.<*> (x Lude..:? "SizeFlexEligible")
-            Lude.<*> (x Lude..:? "Tenancy")
-            Lude.<*> (x Lude..:? "Region")
-      )
+    Core.withObject "EC2InstanceDetails" Core.$
+      \x ->
+        EC2InstanceDetails'
+          Core.<$> (x Core..:? "AvailabilityZone")
+          Core.<*> (x Core..:? "CurrentGeneration")
+          Core.<*> (x Core..:? "Family")
+          Core.<*> (x Core..:? "InstanceType")
+          Core.<*> (x Core..:? "Platform")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "SizeFlexEligible")
+          Core.<*> (x Core..:? "Tenancy")

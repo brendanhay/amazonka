@@ -22,43 +22,38 @@ module Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.PipelinePauseStateSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.PipelinePauseStateSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for the action to set pause state of a channel.
 --
 -- /See:/ 'mkPauseStateScheduleActionSettings' smart constructor.
 newtype PauseStateScheduleActionSettings = PauseStateScheduleActionSettings'
-  { pipelines :: Lude.Maybe [PipelinePauseStateSettings]
+  { pipelines :: Core.Maybe [Types.PipelinePauseStateSettings]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PauseStateScheduleActionSettings' with the minimum fields required to make a request.
---
--- * 'pipelines' -
+-- | Creates a 'PauseStateScheduleActionSettings' value with any optional fields omitted.
 mkPauseStateScheduleActionSettings ::
   PauseStateScheduleActionSettings
 mkPauseStateScheduleActionSettings =
-  PauseStateScheduleActionSettings' {pipelines = Lude.Nothing}
+  PauseStateScheduleActionSettings' {pipelines = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'pipelines' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pssasPipelines :: Lens.Lens' PauseStateScheduleActionSettings (Lude.Maybe [PipelinePauseStateSettings])
-pssasPipelines = Lens.lens (pipelines :: PauseStateScheduleActionSettings -> Lude.Maybe [PipelinePauseStateSettings]) (\s a -> s {pipelines = a} :: PauseStateScheduleActionSettings)
+pssasPipelines :: Lens.Lens' PauseStateScheduleActionSettings (Core.Maybe [Types.PipelinePauseStateSettings])
+pssasPipelines = Lens.field @"pipelines"
 {-# DEPRECATED pssasPipelines "Use generic-lens or generic-optics with 'pipelines' instead." #-}
 
-instance Lude.FromJSON PauseStateScheduleActionSettings where
-  parseJSON =
-    Lude.withObject
-      "PauseStateScheduleActionSettings"
-      ( \x ->
-          PauseStateScheduleActionSettings'
-            Lude.<$> (x Lude..:? "pipelines" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON PauseStateScheduleActionSettings where
+  toJSON PauseStateScheduleActionSettings {..} =
+    Core.object
+      (Core.catMaybes [("pipelines" Core..=) Core.<$> pipelines])
 
-instance Lude.ToJSON PauseStateScheduleActionSettings where
-  toJSON PauseStateScheduleActionSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("pipelines" Lude..=) Lude.<$> pipelines])
+instance Core.FromJSON PauseStateScheduleActionSettings where
+  parseJSON =
+    Core.withObject "PauseStateScheduleActionSettings" Core.$
+      \x ->
+        PauseStateScheduleActionSettings' Core.<$> (x Core..:? "pipelines")

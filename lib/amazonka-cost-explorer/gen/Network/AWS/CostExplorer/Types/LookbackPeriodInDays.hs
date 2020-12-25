@@ -13,51 +13,56 @@
 module Network.AWS.CostExplorer.Types.LookbackPeriodInDays
   ( LookbackPeriodInDays
       ( LookbackPeriodInDays',
-        SevenDays,
-        ThirtyDays,
-        SixtyDays
+        LookbackPeriodInDaysSevenDays,
+        LookbackPeriodInDaysThirtyDays,
+        LookbackPeriodInDaysSixtyDays,
+        fromLookbackPeriodInDays
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LookbackPeriodInDays = LookbackPeriodInDays' Lude.Text
+newtype LookbackPeriodInDays = LookbackPeriodInDays'
+  { fromLookbackPeriodInDays ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SevenDays :: LookbackPeriodInDays
-pattern SevenDays = LookbackPeriodInDays' "SEVEN_DAYS"
+pattern LookbackPeriodInDaysSevenDays :: LookbackPeriodInDays
+pattern LookbackPeriodInDaysSevenDays = LookbackPeriodInDays' "SEVEN_DAYS"
 
-pattern ThirtyDays :: LookbackPeriodInDays
-pattern ThirtyDays = LookbackPeriodInDays' "THIRTY_DAYS"
+pattern LookbackPeriodInDaysThirtyDays :: LookbackPeriodInDays
+pattern LookbackPeriodInDaysThirtyDays = LookbackPeriodInDays' "THIRTY_DAYS"
 
-pattern SixtyDays :: LookbackPeriodInDays
-pattern SixtyDays = LookbackPeriodInDays' "SIXTY_DAYS"
+pattern LookbackPeriodInDaysSixtyDays :: LookbackPeriodInDays
+pattern LookbackPeriodInDaysSixtyDays = LookbackPeriodInDays' "SIXTY_DAYS"
 
 {-# COMPLETE
-  SevenDays,
-  ThirtyDays,
-  SixtyDays,
+  LookbackPeriodInDaysSevenDays,
+  LookbackPeriodInDaysThirtyDays,
+  LookbackPeriodInDaysSixtyDays,
   LookbackPeriodInDays'
   #-}

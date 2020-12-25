@@ -22,185 +22,182 @@ module Network.AWS.ElastiCache.DescribeUsers
     mkDescribeUsers,
 
     -- ** Request lenses
-    duFilters,
     duEngine,
-    duUserId,
+    duFilters,
     duMarker,
     duMaxRecords,
+    duUserId,
 
     -- * Destructuring the response
     DescribeUsersResponse (..),
     mkDescribeUsersResponse,
 
     -- ** Response lenses
-    dursUsers,
-    dursMarker,
-    dursResponseStatus,
+    durrsMarker,
+    durrsUsers,
+    durrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { -- | Filter to determine the list of User IDs to return.
-    filters :: Lude.Maybe [Filter],
-    -- | The Redis engine.
-    engine :: Lude.Maybe Lude.Text,
-    -- | The ID of the user.
-    userId :: Lude.Maybe Lude.Text,
+  { -- | The Redis engine.
+    engine :: Core.Maybe Types.Engine,
+    -- | Filter to determine the list of User IDs to return.
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The ID of the user.
+    userId :: Core.Maybe Types.UserId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUsers' with the minimum fields required to make a request.
---
--- * 'filters' - Filter to determine the list of User IDs to return.
--- * 'engine' - The Redis engine.
--- * 'userId' - The ID of the user.
--- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
+-- | Creates a 'DescribeUsers' value with any optional fields omitted.
 mkDescribeUsers ::
   DescribeUsers
 mkDescribeUsers =
   DescribeUsers'
-    { filters = Lude.Nothing,
-      engine = Lude.Nothing,
-      userId = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { engine = Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      userId = Core.Nothing
     }
-
--- | Filter to determine the list of User IDs to return.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duFilters :: Lens.Lens' DescribeUsers (Lude.Maybe [Filter])
-duFilters = Lens.lens (filters :: DescribeUsers -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeUsers)
-{-# DEPRECATED duFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The Redis engine.
 --
 -- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duEngine :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
-duEngine = Lens.lens (engine :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: DescribeUsers)
+duEngine :: Lens.Lens' DescribeUsers (Core.Maybe Types.Engine)
+duEngine = Lens.field @"engine"
 {-# DEPRECATED duEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
--- | The ID of the user.
+-- | Filter to determine the list of User IDs to return.
 --
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duUserId :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
-duUserId = Lens.lens (userId :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: DescribeUsers)
-{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duFilters :: Lens.Lens' DescribeUsers (Core.Maybe [Types.Filter])
+duFilters = Lens.field @"filters"
+{-# DEPRECATED duFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duMarker :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
-duMarker = Lens.lens (marker :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeUsers)
+duMarker :: Lens.Lens' DescribeUsers (Core.Maybe Types.Marker)
+duMarker = Lens.field @"marker"
 {-# DEPRECATED duMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duMaxRecords :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Int)
-duMaxRecords = Lens.lens (maxRecords :: DescribeUsers -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeUsers)
+duMaxRecords :: Lens.Lens' DescribeUsers (Core.Maybe Core.Int)
+duMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED duMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeUsers where
-  page rq rs
-    | Page.stop (rs Lens.^. dursMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dursUsers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& duMarker Lens..~ rs Lens.^. dursMarker
+-- | The ID of the user.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duUserId :: Lens.Lens' DescribeUsers (Core.Maybe Types.UserId)
+duUserId = Lens.field @"userId"
+{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.AWSRequest DescribeUsers where
+instance Core.AWSRequest DescribeUsers where
   type Rs DescribeUsers = DescribeUsersResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeUsers")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "Engine" Core.<$> engine)
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "member" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "UserId" Core.<$> userId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeUsersResult"
       ( \s h x ->
           DescribeUsersResponse'
-            Lude.<$> ( x Lude..@? "Users" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Marker")
+            Core.<*> (x Core..@? "Users" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeUsers where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeUsers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeUsers where
-  toQuery DescribeUsers' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeUsers" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> filters),
-        "Engine" Lude.=: engine,
-        "UserId" Lude.=: userId,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeUsers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"users" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
-  { -- | A list of users.
-    users :: Lude.Maybe [User],
-    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
+    marker :: Core.Maybe Types.String,
+    -- | A list of users.
+    users :: Core.Maybe [Types.User],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUsersResponse' with the minimum fields required to make a request.
---
--- * 'users' - A list of users.
--- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUsersResponse' value with any optional fields omitted.
 mkDescribeUsersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUsersResponse
-mkDescribeUsersResponse pResponseStatus_ =
+mkDescribeUsersResponse responseStatus =
   DescribeUsersResponse'
-    { users = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      users = Core.Nothing,
+      responseStatus
     }
-
--- | A list of users.
---
--- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursUsers :: Lens.Lens' DescribeUsersResponse (Lude.Maybe [User])
-dursUsers = Lens.lens (users :: DescribeUsersResponse -> Lude.Maybe [User]) (\s a -> s {users = a} :: DescribeUsersResponse)
-{-# DEPRECATED dursUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursMarker :: Lens.Lens' DescribeUsersResponse (Lude.Maybe Lude.Text)
-dursMarker = Lens.lens (marker :: DescribeUsersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeUsersResponse)
-{-# DEPRECATED dursMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+durrsMarker :: Lens.Lens' DescribeUsersResponse (Core.Maybe Types.String)
+durrsMarker = Lens.field @"marker"
+{-# DEPRECATED durrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A list of users.
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsUsers :: Lens.Lens' DescribeUsersResponse (Core.Maybe [Types.User])
+durrsUsers = Lens.field @"users"
+{-# DEPRECATED durrsUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursResponseStatus :: Lens.Lens' DescribeUsersResponse Lude.Int
-dursResponseStatus = Lens.lens (responseStatus :: DescribeUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUsersResponse)
-{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+durrsResponseStatus :: Lens.Lens' DescribeUsersResponse Core.Int
+durrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED durrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

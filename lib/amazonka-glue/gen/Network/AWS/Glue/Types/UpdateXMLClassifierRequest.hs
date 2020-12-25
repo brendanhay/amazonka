@@ -17,72 +17,71 @@ module Network.AWS.Glue.Types.UpdateXMLClassifierRequest
     mkUpdateXMLClassifierRequest,
 
     -- * Lenses
-    uxcrClassification,
-    uxcrName,
-    uxcrRowTag,
+    uxmlcrName,
+    uxmlcrClassification,
+    uxmlcrRowTag,
   )
 where
 
+import qualified Network.AWS.Glue.Types.Classification as Types
+import qualified Network.AWS.Glue.Types.Name as Types
+import qualified Network.AWS.Glue.Types.RowTag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies an XML classifier to be updated.
 --
 -- /See:/ 'mkUpdateXMLClassifierRequest' smart constructor.
 data UpdateXMLClassifierRequest = UpdateXMLClassifierRequest'
-  { -- | An identifier of the data format that the classifier matches.
-    classification :: Lude.Maybe Lude.Text,
-    -- | The name of the classifier.
-    name :: Lude.Text,
+  { -- | The name of the classifier.
+    name :: Types.Name,
+    -- | An identifier of the data format that the classifier matches.
+    classification :: Core.Maybe Types.Classification,
     -- | The XML tag designating the element that contains each record in an XML document being parsed. This cannot identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
-    rowTag :: Lude.Maybe Lude.Text
+    rowTag :: Core.Maybe Types.RowTag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateXMLClassifierRequest' with the minimum fields required to make a request.
---
--- * 'classification' - An identifier of the data format that the classifier matches.
--- * 'name' - The name of the classifier.
--- * 'rowTag' - The XML tag designating the element that contains each record in an XML document being parsed. This cannot identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
+-- | Creates a 'UpdateXMLClassifierRequest' value with any optional fields omitted.
 mkUpdateXMLClassifierRequest ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   UpdateXMLClassifierRequest
-mkUpdateXMLClassifierRequest pName_ =
+mkUpdateXMLClassifierRequest name =
   UpdateXMLClassifierRequest'
-    { classification = Lude.Nothing,
-      name = pName_,
-      rowTag = Lude.Nothing
+    { name,
+      classification = Core.Nothing,
+      rowTag = Core.Nothing
     }
-
--- | An identifier of the data format that the classifier matches.
---
--- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uxcrClassification :: Lens.Lens' UpdateXMLClassifierRequest (Lude.Maybe Lude.Text)
-uxcrClassification = Lens.lens (classification :: UpdateXMLClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {classification = a} :: UpdateXMLClassifierRequest)
-{-# DEPRECATED uxcrClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | The name of the classifier.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uxcrName :: Lens.Lens' UpdateXMLClassifierRequest Lude.Text
-uxcrName = Lens.lens (name :: UpdateXMLClassifierRequest -> Lude.Text) (\s a -> s {name = a} :: UpdateXMLClassifierRequest)
-{-# DEPRECATED uxcrName "Use generic-lens or generic-optics with 'name' instead." #-}
+uxmlcrName :: Lens.Lens' UpdateXMLClassifierRequest Types.Name
+uxmlcrName = Lens.field @"name"
+{-# DEPRECATED uxmlcrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | An identifier of the data format that the classifier matches.
+--
+-- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uxmlcrClassification :: Lens.Lens' UpdateXMLClassifierRequest (Core.Maybe Types.Classification)
+uxmlcrClassification = Lens.field @"classification"
+{-# DEPRECATED uxmlcrClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | The XML tag designating the element that contains each record in an XML document being parsed. This cannot identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
 --
 -- /Note:/ Consider using 'rowTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uxcrRowTag :: Lens.Lens' UpdateXMLClassifierRequest (Lude.Maybe Lude.Text)
-uxcrRowTag = Lens.lens (rowTag :: UpdateXMLClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {rowTag = a} :: UpdateXMLClassifierRequest)
-{-# DEPRECATED uxcrRowTag "Use generic-lens or generic-optics with 'rowTag' instead." #-}
+uxmlcrRowTag :: Lens.Lens' UpdateXMLClassifierRequest (Core.Maybe Types.RowTag)
+uxmlcrRowTag = Lens.field @"rowTag"
+{-# DEPRECATED uxmlcrRowTag "Use generic-lens or generic-optics with 'rowTag' instead." #-}
 
-instance Lude.ToJSON UpdateXMLClassifierRequest where
-  toJSON UpdateXMLClassifierRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Classification" Lude..=) Lude.<$> classification,
-            Lude.Just ("Name" Lude..= name),
-            ("RowTag" Lude..=) Lude.<$> rowTag
+instance Core.FromJSON UpdateXMLClassifierRequest where
+  toJSON UpdateXMLClassifierRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Classification" Core..=) Core.<$> classification,
+            ("RowTag" Core..=) Core.<$> rowTag
           ]
       )

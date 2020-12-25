@@ -17,141 +17,132 @@ module Network.AWS.DMS.Types.NeptuneSettings
     mkNeptuneSettings,
 
     -- * Lenses
+    nsS3BucketName,
+    nsS3BucketFolder,
+    nsErrorRetryDuration,
+    nsIamAuthEnabled,
     nsMaxFileSize,
     nsMaxRetryCount,
-    nsServiceAccessRoleARN,
-    nsS3BucketFolder,
-    nsIAMAuthEnabled,
-    nsErrorRetryDuration,
-    nsS3BucketName,
+    nsServiceAccessRoleArn,
   )
 where
 
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information that defines an Amazon Neptune endpoint.
 --
 -- /See:/ 'mkNeptuneSettings' smart constructor.
 data NeptuneSettings = NeptuneSettings'
-  { -- | The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database. The default is 1,048,576 KB. If the bulk load is successful, AWS DMS clears the bucket, ready to store the next batch of migrated graph data.
-    maxFileSize :: Lude.Maybe Lude.Int,
-    -- | The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
-    maxRetryCount :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target> in the /AWS Database Migration Service User Guide. /
-    serviceAccessRoleARN :: Lude.Maybe Lude.Text,
+  { -- | The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database. AWS DMS maps the SQL source data to graph data before storing it in these .csv files.
+    s3BucketName :: Types.String,
     -- | A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by @S3BucketName@
-    s3BucketFolder :: Lude.Text,
-    -- | If you want AWS Identity and Access Management (IAM) authorization enabled for this endpoint, set this parameter to @true@ . Then attach the appropriate IAM policy document to your service role specified by @ServiceAccessRoleArn@ . The default is @false@ .
-    iamAuthEnabled :: Lude.Maybe Lude.Bool,
+    s3BucketFolder :: Types.String,
     -- | The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
-    errorRetryDuration :: Lude.Maybe Lude.Int,
-    -- | The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database. AWS DMS maps the SQL source data to graph data before storing it in these .csv files.
-    s3BucketName :: Lude.Text
+    errorRetryDuration :: Core.Maybe Core.Int,
+    -- | If you want AWS Identity and Access Management (IAM) authorization enabled for this endpoint, set this parameter to @true@ . Then attach the appropriate IAM policy document to your service role specified by @ServiceAccessRoleArn@ . The default is @false@ .
+    iamAuthEnabled :: Core.Maybe Core.Bool,
+    -- | The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database. The default is 1,048,576 KB. If the bulk load is successful, AWS DMS clears the bucket, ready to store the next batch of migrated graph data.
+    maxFileSize :: Core.Maybe Core.Int,
+    -- | The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
+    maxRetryCount :: Core.Maybe Core.Int,
+    -- | The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target> in the /AWS Database Migration Service User Guide. /
+    serviceAccessRoleArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NeptuneSettings' with the minimum fields required to make a request.
---
--- * 'maxFileSize' - The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database. The default is 1,048,576 KB. If the bulk load is successful, AWS DMS clears the bucket, ready to store the next batch of migrated graph data.
--- * 'maxRetryCount' - The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
--- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target> in the /AWS Database Migration Service User Guide. /
--- * 's3BucketFolder' - A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by @S3BucketName@
--- * 'iamAuthEnabled' - If you want AWS Identity and Access Management (IAM) authorization enabled for this endpoint, set this parameter to @true@ . Then attach the appropriate IAM policy document to your service role specified by @ServiceAccessRoleArn@ . The default is @false@ .
--- * 'errorRetryDuration' - The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
--- * 's3BucketName' - The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database. AWS DMS maps the SQL source data to graph data before storing it in these .csv files.
+-- | Creates a 'NeptuneSettings' value with any optional fields omitted.
 mkNeptuneSettings ::
-  -- | 's3BucketFolder'
-  Lude.Text ->
   -- | 's3BucketName'
-  Lude.Text ->
+  Types.String ->
+  -- | 's3BucketFolder'
+  Types.String ->
   NeptuneSettings
-mkNeptuneSettings pS3BucketFolder_ pS3BucketName_ =
+mkNeptuneSettings s3BucketName s3BucketFolder =
   NeptuneSettings'
-    { maxFileSize = Lude.Nothing,
-      maxRetryCount = Lude.Nothing,
-      serviceAccessRoleARN = Lude.Nothing,
-      s3BucketFolder = pS3BucketFolder_,
-      iamAuthEnabled = Lude.Nothing,
-      errorRetryDuration = Lude.Nothing,
-      s3BucketName = pS3BucketName_
+    { s3BucketName,
+      s3BucketFolder,
+      errorRetryDuration = Core.Nothing,
+      iamAuthEnabled = Core.Nothing,
+      maxFileSize = Core.Nothing,
+      maxRetryCount = Core.Nothing,
+      serviceAccessRoleArn = Core.Nothing
     }
+
+-- | The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database. AWS DMS maps the SQL source data to graph data before storing it in these .csv files.
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsS3BucketName :: Lens.Lens' NeptuneSettings Types.String
+nsS3BucketName = Lens.field @"s3BucketName"
+{-# DEPRECATED nsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+
+-- | A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by @S3BucketName@
+--
+-- /Note:/ Consider using 's3BucketFolder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsS3BucketFolder :: Lens.Lens' NeptuneSettings Types.String
+nsS3BucketFolder = Lens.field @"s3BucketFolder"
+{-# DEPRECATED nsS3BucketFolder "Use generic-lens or generic-optics with 's3BucketFolder' instead." #-}
+
+-- | The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
+--
+-- /Note:/ Consider using 'errorRetryDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsErrorRetryDuration :: Lens.Lens' NeptuneSettings (Core.Maybe Core.Int)
+nsErrorRetryDuration = Lens.field @"errorRetryDuration"
+{-# DEPRECATED nsErrorRetryDuration "Use generic-lens or generic-optics with 'errorRetryDuration' instead." #-}
+
+-- | If you want AWS Identity and Access Management (IAM) authorization enabled for this endpoint, set this parameter to @true@ . Then attach the appropriate IAM policy document to your service role specified by @ServiceAccessRoleArn@ . The default is @false@ .
+--
+-- /Note:/ Consider using 'iamAuthEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsIamAuthEnabled :: Lens.Lens' NeptuneSettings (Core.Maybe Core.Bool)
+nsIamAuthEnabled = Lens.field @"iamAuthEnabled"
+{-# DEPRECATED nsIamAuthEnabled "Use generic-lens or generic-optics with 'iamAuthEnabled' instead." #-}
 
 -- | The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database. The default is 1,048,576 KB. If the bulk load is successful, AWS DMS clears the bucket, ready to store the next batch of migrated graph data.
 --
 -- /Note:/ Consider using 'maxFileSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsMaxFileSize :: Lens.Lens' NeptuneSettings (Lude.Maybe Lude.Int)
-nsMaxFileSize = Lens.lens (maxFileSize :: NeptuneSettings -> Lude.Maybe Lude.Int) (\s a -> s {maxFileSize = a} :: NeptuneSettings)
+nsMaxFileSize :: Lens.Lens' NeptuneSettings (Core.Maybe Core.Int)
+nsMaxFileSize = Lens.field @"maxFileSize"
 {-# DEPRECATED nsMaxFileSize "Use generic-lens or generic-optics with 'maxFileSize' instead." #-}
 
 -- | The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
 --
 -- /Note:/ Consider using 'maxRetryCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsMaxRetryCount :: Lens.Lens' NeptuneSettings (Lude.Maybe Lude.Int)
-nsMaxRetryCount = Lens.lens (maxRetryCount :: NeptuneSettings -> Lude.Maybe Lude.Int) (\s a -> s {maxRetryCount = a} :: NeptuneSettings)
+nsMaxRetryCount :: Lens.Lens' NeptuneSettings (Core.Maybe Core.Int)
+nsMaxRetryCount = Lens.field @"maxRetryCount"
 {-# DEPRECATED nsMaxRetryCount "Use generic-lens or generic-optics with 'maxRetryCount' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target> in the /AWS Database Migration Service User Guide. /
 --
--- /Note:/ Consider using 'serviceAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsServiceAccessRoleARN :: Lens.Lens' NeptuneSettings (Lude.Maybe Lude.Text)
-nsServiceAccessRoleARN = Lens.lens (serviceAccessRoleARN :: NeptuneSettings -> Lude.Maybe Lude.Text) (\s a -> s {serviceAccessRoleARN = a} :: NeptuneSettings)
-{-# DEPRECATED nsServiceAccessRoleARN "Use generic-lens or generic-optics with 'serviceAccessRoleARN' instead." #-}
+-- /Note:/ Consider using 'serviceAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsServiceAccessRoleArn :: Lens.Lens' NeptuneSettings (Core.Maybe Types.String)
+nsServiceAccessRoleArn = Lens.field @"serviceAccessRoleArn"
+{-# DEPRECATED nsServiceAccessRoleArn "Use generic-lens or generic-optics with 'serviceAccessRoleArn' instead." #-}
 
--- | A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by @S3BucketName@
---
--- /Note:/ Consider using 's3BucketFolder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsS3BucketFolder :: Lens.Lens' NeptuneSettings Lude.Text
-nsS3BucketFolder = Lens.lens (s3BucketFolder :: NeptuneSettings -> Lude.Text) (\s a -> s {s3BucketFolder = a} :: NeptuneSettings)
-{-# DEPRECATED nsS3BucketFolder "Use generic-lens or generic-optics with 's3BucketFolder' instead." #-}
-
--- | If you want AWS Identity and Access Management (IAM) authorization enabled for this endpoint, set this parameter to @true@ . Then attach the appropriate IAM policy document to your service role specified by @ServiceAccessRoleArn@ . The default is @false@ .
---
--- /Note:/ Consider using 'iamAuthEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsIAMAuthEnabled :: Lens.Lens' NeptuneSettings (Lude.Maybe Lude.Bool)
-nsIAMAuthEnabled = Lens.lens (iamAuthEnabled :: NeptuneSettings -> Lude.Maybe Lude.Bool) (\s a -> s {iamAuthEnabled = a} :: NeptuneSettings)
-{-# DEPRECATED nsIAMAuthEnabled "Use generic-lens or generic-optics with 'iamAuthEnabled' instead." #-}
-
--- | The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
---
--- /Note:/ Consider using 'errorRetryDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsErrorRetryDuration :: Lens.Lens' NeptuneSettings (Lude.Maybe Lude.Int)
-nsErrorRetryDuration = Lens.lens (errorRetryDuration :: NeptuneSettings -> Lude.Maybe Lude.Int) (\s a -> s {errorRetryDuration = a} :: NeptuneSettings)
-{-# DEPRECATED nsErrorRetryDuration "Use generic-lens or generic-optics with 'errorRetryDuration' instead." #-}
-
--- | The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database. AWS DMS maps the SQL source data to graph data before storing it in these .csv files.
---
--- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsS3BucketName :: Lens.Lens' NeptuneSettings Lude.Text
-nsS3BucketName = Lens.lens (s3BucketName :: NeptuneSettings -> Lude.Text) (\s a -> s {s3BucketName = a} :: NeptuneSettings)
-{-# DEPRECATED nsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
-
-instance Lude.FromJSON NeptuneSettings where
-  parseJSON =
-    Lude.withObject
-      "NeptuneSettings"
-      ( \x ->
-          NeptuneSettings'
-            Lude.<$> (x Lude..:? "MaxFileSize")
-            Lude.<*> (x Lude..:? "MaxRetryCount")
-            Lude.<*> (x Lude..:? "ServiceAccessRoleArn")
-            Lude.<*> (x Lude..: "S3BucketFolder")
-            Lude.<*> (x Lude..:? "IamAuthEnabled")
-            Lude.<*> (x Lude..:? "ErrorRetryDuration")
-            Lude.<*> (x Lude..: "S3BucketName")
-      )
-
-instance Lude.ToJSON NeptuneSettings where
-  toJSON NeptuneSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MaxFileSize" Lude..=) Lude.<$> maxFileSize,
-            ("MaxRetryCount" Lude..=) Lude.<$> maxRetryCount,
-            ("ServiceAccessRoleArn" Lude..=) Lude.<$> serviceAccessRoleARN,
-            Lude.Just ("S3BucketFolder" Lude..= s3BucketFolder),
-            ("IamAuthEnabled" Lude..=) Lude.<$> iamAuthEnabled,
-            ("ErrorRetryDuration" Lude..=) Lude.<$> errorRetryDuration,
-            Lude.Just ("S3BucketName" Lude..= s3BucketName)
+instance Core.FromJSON NeptuneSettings where
+  toJSON NeptuneSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3BucketName" Core..= s3BucketName),
+            Core.Just ("S3BucketFolder" Core..= s3BucketFolder),
+            ("ErrorRetryDuration" Core..=) Core.<$> errorRetryDuration,
+            ("IamAuthEnabled" Core..=) Core.<$> iamAuthEnabled,
+            ("MaxFileSize" Core..=) Core.<$> maxFileSize,
+            ("MaxRetryCount" Core..=) Core.<$> maxRetryCount,
+            ("ServiceAccessRoleArn" Core..=) Core.<$> serviceAccessRoleArn
           ]
       )
+
+instance Core.FromJSON NeptuneSettings where
+  parseJSON =
+    Core.withObject "NeptuneSettings" Core.$
+      \x ->
+        NeptuneSettings'
+          Core.<$> (x Core..: "S3BucketName")
+          Core.<*> (x Core..: "S3BucketFolder")
+          Core.<*> (x Core..:? "ErrorRetryDuration")
+          Core.<*> (x Core..:? "IamAuthEnabled")
+          Core.<*> (x Core..:? "MaxFileSize")
+          Core.<*> (x Core..:? "MaxRetryCount")
+          Core.<*> (x Core..:? "ServiceAccessRoleArn")

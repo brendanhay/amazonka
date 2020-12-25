@@ -22,40 +22,38 @@ module Network.AWS.S3.Types.OwnershipControlsRule
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.ObjectOwnership
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.ObjectOwnership as Types
 
 -- | The container element for an ownership control rule.
 --
 -- /See:/ 'mkOwnershipControlsRule' smart constructor.
 newtype OwnershipControlsRule = OwnershipControlsRule'
-  { objectOwnership :: ObjectOwnership
+  { objectOwnership :: Types.ObjectOwnership
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OwnershipControlsRule' with the minimum fields required to make a request.
---
--- * 'objectOwnership' -
+-- | Creates a 'OwnershipControlsRule' value with any optional fields omitted.
 mkOwnershipControlsRule ::
   -- | 'objectOwnership'
-  ObjectOwnership ->
+  Types.ObjectOwnership ->
   OwnershipControlsRule
-mkOwnershipControlsRule pObjectOwnership_ =
-  OwnershipControlsRule' {objectOwnership = pObjectOwnership_}
+mkOwnershipControlsRule objectOwnership =
+  OwnershipControlsRule' {objectOwnership}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'objectOwnership' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrObjectOwnership :: Lens.Lens' OwnershipControlsRule ObjectOwnership
-ocrObjectOwnership = Lens.lens (objectOwnership :: OwnershipControlsRule -> ObjectOwnership) (\s a -> s {objectOwnership = a} :: OwnershipControlsRule)
+ocrObjectOwnership :: Lens.Lens' OwnershipControlsRule Types.ObjectOwnership
+ocrObjectOwnership = Lens.field @"objectOwnership"
 {-# DEPRECATED ocrObjectOwnership "Use generic-lens or generic-optics with 'objectOwnership' instead." #-}
 
-instance Lude.FromXML OwnershipControlsRule where
-  parseXML x =
-    OwnershipControlsRule' Lude.<$> (x Lude..@ "ObjectOwnership")
+instance Core.ToXML OwnershipControlsRule where
+  toXML OwnershipControlsRule {..} =
+    Core.toXMLNode "ObjectOwnership" objectOwnership
 
-instance Lude.ToXML OwnershipControlsRule where
-  toXML OwnershipControlsRule' {..} =
-    Lude.mconcat ["ObjectOwnership" Lude.@= objectOwnership]
+instance Core.FromXML OwnershipControlsRule where
+  parseXML x =
+    OwnershipControlsRule' Core.<$> (x Core..@ "ObjectOwnership")

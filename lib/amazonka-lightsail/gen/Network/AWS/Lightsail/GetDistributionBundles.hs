@@ -26,92 +26,82 @@ module Network.AWS.Lightsail.GetDistributionBundles
     mkGetDistributionBundlesResponse,
 
     -- ** Response lenses
-    gdbrsBundles,
-    gdbrsResponseStatus,
+    gdbrrsBundles,
+    gdbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDistributionBundles' smart constructor.
 data GetDistributionBundles = GetDistributionBundles'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDistributionBundles' with the minimum fields required to make a request.
+-- | Creates a 'GetDistributionBundles' value with any optional fields omitted.
 mkGetDistributionBundles ::
   GetDistributionBundles
 mkGetDistributionBundles = GetDistributionBundles'
 
-instance Lude.AWSRequest GetDistributionBundles where
+instance Core.FromJSON GetDistributionBundles where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest GetDistributionBundles where
   type Rs GetDistributionBundles = GetDistributionBundlesResponse
-  request = Req.postJSON lightsailService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.GetDistributionBundles")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDistributionBundlesResponse'
-            Lude.<$> (x Lude..?> "bundles" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "bundles") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDistributionBundles where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetDistributionBundles" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDistributionBundles where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath GetDistributionBundles where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDistributionBundles where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDistributionBundlesResponse' smart constructor.
 data GetDistributionBundlesResponse = GetDistributionBundlesResponse'
   { -- | An object that describes a distribution bundle.
-    bundles :: Lude.Maybe [DistributionBundle],
+    bundles :: Core.Maybe [Types.DistributionBundle],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDistributionBundlesResponse' with the minimum fields required to make a request.
---
--- * 'bundles' - An object that describes a distribution bundle.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDistributionBundlesResponse' value with any optional fields omitted.
 mkGetDistributionBundlesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDistributionBundlesResponse
-mkGetDistributionBundlesResponse pResponseStatus_ =
+mkGetDistributionBundlesResponse responseStatus =
   GetDistributionBundlesResponse'
-    { bundles = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { bundles = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes a distribution bundle.
 --
 -- /Note:/ Consider using 'bundles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdbrsBundles :: Lens.Lens' GetDistributionBundlesResponse (Lude.Maybe [DistributionBundle])
-gdbrsBundles = Lens.lens (bundles :: GetDistributionBundlesResponse -> Lude.Maybe [DistributionBundle]) (\s a -> s {bundles = a} :: GetDistributionBundlesResponse)
-{-# DEPRECATED gdbrsBundles "Use generic-lens or generic-optics with 'bundles' instead." #-}
+gdbrrsBundles :: Lens.Lens' GetDistributionBundlesResponse (Core.Maybe [Types.DistributionBundle])
+gdbrrsBundles = Lens.field @"bundles"
+{-# DEPRECATED gdbrrsBundles "Use generic-lens or generic-optics with 'bundles' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdbrsResponseStatus :: Lens.Lens' GetDistributionBundlesResponse Lude.Int
-gdbrsResponseStatus = Lens.lens (responseStatus :: GetDistributionBundlesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDistributionBundlesResponse)
-{-# DEPRECATED gdbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdbrrsResponseStatus :: Lens.Lens' GetDistributionBundlesResponse Core.Int
+gdbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -24,64 +24,61 @@ module Network.AWS.Redshift.Types.UpdateTarget
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.SupportedOperation
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
+import qualified Network.AWS.Redshift.Types.SupportedOperation as Types
 
 -- | A maintenance track that you can switch the current track to.
 --
 -- /See:/ 'mkUpdateTarget' smart constructor.
 data UpdateTarget = UpdateTarget'
   { -- | The cluster version for the new maintenance track.
-    databaseVersion :: Lude.Maybe Lude.Text,
+    databaseVersion :: Core.Maybe Types.String,
     -- | The name of the new maintenance track.
-    maintenanceTrackName :: Lude.Maybe Lude.Text,
+    maintenanceTrackName :: Core.Maybe Types.String,
     -- | A list of operations supported by the maintenance track.
-    supportedOperations :: Lude.Maybe [SupportedOperation]
+    supportedOperations :: Core.Maybe [Types.SupportedOperation]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTarget' with the minimum fields required to make a request.
---
--- * 'databaseVersion' - The cluster version for the new maintenance track.
--- * 'maintenanceTrackName' - The name of the new maintenance track.
--- * 'supportedOperations' - A list of operations supported by the maintenance track.
+-- | Creates a 'UpdateTarget' value with any optional fields omitted.
 mkUpdateTarget ::
   UpdateTarget
 mkUpdateTarget =
   UpdateTarget'
-    { databaseVersion = Lude.Nothing,
-      maintenanceTrackName = Lude.Nothing,
-      supportedOperations = Lude.Nothing
+    { databaseVersion = Core.Nothing,
+      maintenanceTrackName = Core.Nothing,
+      supportedOperations = Core.Nothing
     }
 
 -- | The cluster version for the new maintenance track.
 --
 -- /Note:/ Consider using 'databaseVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utDatabaseVersion :: Lens.Lens' UpdateTarget (Lude.Maybe Lude.Text)
-utDatabaseVersion = Lens.lens (databaseVersion :: UpdateTarget -> Lude.Maybe Lude.Text) (\s a -> s {databaseVersion = a} :: UpdateTarget)
+utDatabaseVersion :: Lens.Lens' UpdateTarget (Core.Maybe Types.String)
+utDatabaseVersion = Lens.field @"databaseVersion"
 {-# DEPRECATED utDatabaseVersion "Use generic-lens or generic-optics with 'databaseVersion' instead." #-}
 
 -- | The name of the new maintenance track.
 --
 -- /Note:/ Consider using 'maintenanceTrackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utMaintenanceTrackName :: Lens.Lens' UpdateTarget (Lude.Maybe Lude.Text)
-utMaintenanceTrackName = Lens.lens (maintenanceTrackName :: UpdateTarget -> Lude.Maybe Lude.Text) (\s a -> s {maintenanceTrackName = a} :: UpdateTarget)
+utMaintenanceTrackName :: Lens.Lens' UpdateTarget (Core.Maybe Types.String)
+utMaintenanceTrackName = Lens.field @"maintenanceTrackName"
 {-# DEPRECATED utMaintenanceTrackName "Use generic-lens or generic-optics with 'maintenanceTrackName' instead." #-}
 
 -- | A list of operations supported by the maintenance track.
 --
 -- /Note:/ Consider using 'supportedOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utSupportedOperations :: Lens.Lens' UpdateTarget (Lude.Maybe [SupportedOperation])
-utSupportedOperations = Lens.lens (supportedOperations :: UpdateTarget -> Lude.Maybe [SupportedOperation]) (\s a -> s {supportedOperations = a} :: UpdateTarget)
+utSupportedOperations :: Lens.Lens' UpdateTarget (Core.Maybe [Types.SupportedOperation])
+utSupportedOperations = Lens.field @"supportedOperations"
 {-# DEPRECATED utSupportedOperations "Use generic-lens or generic-optics with 'supportedOperations' instead." #-}
 
-instance Lude.FromXML UpdateTarget where
+instance Core.FromXML UpdateTarget where
   parseXML x =
     UpdateTarget'
-      Lude.<$> (x Lude..@? "DatabaseVersion")
-      Lude.<*> (x Lude..@? "MaintenanceTrackName")
-      Lude.<*> ( x Lude..@? "SupportedOperations" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "SupportedOperation")
+      Core.<$> (x Core..@? "DatabaseVersion")
+      Core.<*> (x Core..@? "MaintenanceTrackName")
+      Core.<*> ( x Core..@? "SupportedOperations"
+                   Core..<@> Core.parseXMLList "SupportedOperation"
                )

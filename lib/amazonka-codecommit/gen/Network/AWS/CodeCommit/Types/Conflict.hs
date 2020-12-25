@@ -17,60 +17,54 @@ module Network.AWS.CodeCommit.Types.Conflict
     mkConflict,
 
     -- * Lenses
-    cMergeHunks,
     cConflictMetadata,
+    cMergeHunks,
   )
 where
 
-import Network.AWS.CodeCommit.Types.ConflictMetadata
-import Network.AWS.CodeCommit.Types.MergeHunk
+import qualified Network.AWS.CodeCommit.Types.ConflictMetadata as Types
+import qualified Network.AWS.CodeCommit.Types.MergeHunk as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about conflicts in a merge operation.
 --
 -- /See:/ 'mkConflict' smart constructor.
 data Conflict = Conflict'
-  { -- | A list of hunks that contain the differences between files or lines causing the conflict.
-    mergeHunks :: Lude.Maybe [MergeHunk],
-    -- | Metadata about a conflict in a merge operation.
-    conflictMetadata :: Lude.Maybe ConflictMetadata
+  { -- | Metadata about a conflict in a merge operation.
+    conflictMetadata :: Core.Maybe Types.ConflictMetadata,
+    -- | A list of hunks that contain the differences between files or lines causing the conflict.
+    mergeHunks :: Core.Maybe [Types.MergeHunk]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Conflict' with the minimum fields required to make a request.
---
--- * 'mergeHunks' - A list of hunks that contain the differences between files or lines causing the conflict.
--- * 'conflictMetadata' - Metadata about a conflict in a merge operation.
+-- | Creates a 'Conflict' value with any optional fields omitted.
 mkConflict ::
   Conflict
 mkConflict =
   Conflict'
-    { mergeHunks = Lude.Nothing,
-      conflictMetadata = Lude.Nothing
+    { conflictMetadata = Core.Nothing,
+      mergeHunks = Core.Nothing
     }
-
--- | A list of hunks that contain the differences between files or lines causing the conflict.
---
--- /Note:/ Consider using 'mergeHunks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cMergeHunks :: Lens.Lens' Conflict (Lude.Maybe [MergeHunk])
-cMergeHunks = Lens.lens (mergeHunks :: Conflict -> Lude.Maybe [MergeHunk]) (\s a -> s {mergeHunks = a} :: Conflict)
-{-# DEPRECATED cMergeHunks "Use generic-lens or generic-optics with 'mergeHunks' instead." #-}
 
 -- | Metadata about a conflict in a merge operation.
 --
 -- /Note:/ Consider using 'conflictMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConflictMetadata :: Lens.Lens' Conflict (Lude.Maybe ConflictMetadata)
-cConflictMetadata = Lens.lens (conflictMetadata :: Conflict -> Lude.Maybe ConflictMetadata) (\s a -> s {conflictMetadata = a} :: Conflict)
+cConflictMetadata :: Lens.Lens' Conflict (Core.Maybe Types.ConflictMetadata)
+cConflictMetadata = Lens.field @"conflictMetadata"
 {-# DEPRECATED cConflictMetadata "Use generic-lens or generic-optics with 'conflictMetadata' instead." #-}
 
-instance Lude.FromJSON Conflict where
+-- | A list of hunks that contain the differences between files or lines causing the conflict.
+--
+-- /Note:/ Consider using 'mergeHunks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cMergeHunks :: Lens.Lens' Conflict (Core.Maybe [Types.MergeHunk])
+cMergeHunks = Lens.field @"mergeHunks"
+{-# DEPRECATED cMergeHunks "Use generic-lens or generic-optics with 'mergeHunks' instead." #-}
+
+instance Core.FromJSON Conflict where
   parseJSON =
-    Lude.withObject
-      "Conflict"
-      ( \x ->
-          Conflict'
-            Lude.<$> (x Lude..:? "mergeHunks" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "conflictMetadata")
-      )
+    Core.withObject "Conflict" Core.$
+      \x ->
+        Conflict'
+          Core.<$> (x Core..:? "conflictMetadata") Core.<*> (x Core..:? "mergeHunks")

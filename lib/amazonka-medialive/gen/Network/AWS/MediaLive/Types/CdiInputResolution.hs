@@ -13,57 +13,62 @@
 module Network.AWS.MediaLive.Types.CdiInputResolution
   ( CdiInputResolution
       ( CdiInputResolution',
-        CIRSD,
-        CIRHD,
-        CIRFhd,
-        CIRUhd
+        CdiInputResolutionSD,
+        CdiInputResolutionHD,
+        CdiInputResolutionFhd,
+        CdiInputResolutionUhd,
+        fromCdiInputResolution
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Maximum CDI input resolution; SD is 480i and 576i up to 30 frames-per-second (fps), HD is 720p up to 60 fps / 1080i up to 30 fps, FHD is 1080p up to 60 fps, UHD is 2160p up to 60 fps
-newtype CdiInputResolution = CdiInputResolution' Lude.Text
+newtype CdiInputResolution = CdiInputResolution'
+  { fromCdiInputResolution ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CIRSD :: CdiInputResolution
-pattern CIRSD = CdiInputResolution' "SD"
+pattern CdiInputResolutionSD :: CdiInputResolution
+pattern CdiInputResolutionSD = CdiInputResolution' "SD"
 
-pattern CIRHD :: CdiInputResolution
-pattern CIRHD = CdiInputResolution' "HD"
+pattern CdiInputResolutionHD :: CdiInputResolution
+pattern CdiInputResolutionHD = CdiInputResolution' "HD"
 
-pattern CIRFhd :: CdiInputResolution
-pattern CIRFhd = CdiInputResolution' "FHD"
+pattern CdiInputResolutionFhd :: CdiInputResolution
+pattern CdiInputResolutionFhd = CdiInputResolution' "FHD"
 
-pattern CIRUhd :: CdiInputResolution
-pattern CIRUhd = CdiInputResolution' "UHD"
+pattern CdiInputResolutionUhd :: CdiInputResolution
+pattern CdiInputResolutionUhd = CdiInputResolution' "UHD"
 
 {-# COMPLETE
-  CIRSD,
-  CIRHD,
-  CIRFhd,
-  CIRUhd,
+  CdiInputResolutionSD,
+  CdiInputResolutionHD,
+  CdiInputResolutionFhd,
+  CdiInputResolutionUhd,
   CdiInputResolution'
   #-}

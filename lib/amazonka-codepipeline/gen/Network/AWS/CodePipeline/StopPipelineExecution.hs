@@ -21,162 +21,148 @@ module Network.AWS.CodePipeline.StopPipelineExecution
 
     -- ** Request lenses
     spePipelineName,
+    spePipelineExecutionId,
     speAbandon,
     speReason,
-    spePipelineExecutionId,
 
     -- * Destructuring the response
     StopPipelineExecutionResponse (..),
     mkStopPipelineExecutionResponse,
 
     -- ** Response lenses
-    spersPipelineExecutionId,
-    spersResponseStatus,
+    srsPipelineExecutionId,
+    srsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopPipelineExecution' smart constructor.
 data StopPipelineExecution = StopPipelineExecution'
   { -- | The name of the pipeline to stop.
-    pipelineName :: Lude.Text,
-    -- | Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.
-    abandon :: Lude.Maybe Lude.Bool,
-    -- | Use this option to enter comments, such as the reason the pipeline was stopped.
-    reason :: Lude.Maybe Lude.Text,
+    pipelineName :: Types.PipelineName,
     -- | The ID of the pipeline execution to be stopped in the current stage. Use the @GetPipelineState@ action to retrieve the current pipelineExecutionId.
-    pipelineExecutionId :: Lude.Text
+    pipelineExecutionId :: Types.PipelineExecutionId,
+    -- | Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.
+    abandon :: Core.Maybe Core.Bool,
+    -- | Use this option to enter comments, such as the reason the pipeline was stopped.
+    reason :: Core.Maybe Types.StopPipelineExecutionReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopPipelineExecution' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of the pipeline to stop.
--- * 'abandon' - Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.
--- * 'reason' - Use this option to enter comments, such as the reason the pipeline was stopped.
--- * 'pipelineExecutionId' - The ID of the pipeline execution to be stopped in the current stage. Use the @GetPipelineState@ action to retrieve the current pipelineExecutionId.
+-- | Creates a 'StopPipelineExecution' value with any optional fields omitted.
 mkStopPipelineExecution ::
   -- | 'pipelineName'
-  Lude.Text ->
+  Types.PipelineName ->
   -- | 'pipelineExecutionId'
-  Lude.Text ->
+  Types.PipelineExecutionId ->
   StopPipelineExecution
-mkStopPipelineExecution pPipelineName_ pPipelineExecutionId_ =
+mkStopPipelineExecution pipelineName pipelineExecutionId =
   StopPipelineExecution'
-    { pipelineName = pPipelineName_,
-      abandon = Lude.Nothing,
-      reason = Lude.Nothing,
-      pipelineExecutionId = pPipelineExecutionId_
+    { pipelineName,
+      pipelineExecutionId,
+      abandon = Core.Nothing,
+      reason = Core.Nothing
     }
 
 -- | The name of the pipeline to stop.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spePipelineName :: Lens.Lens' StopPipelineExecution Lude.Text
-spePipelineName = Lens.lens (pipelineName :: StopPipelineExecution -> Lude.Text) (\s a -> s {pipelineName = a} :: StopPipelineExecution)
+spePipelineName :: Lens.Lens' StopPipelineExecution Types.PipelineName
+spePipelineName = Lens.field @"pipelineName"
 {-# DEPRECATED spePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
+
+-- | The ID of the pipeline execution to be stopped in the current stage. Use the @GetPipelineState@ action to retrieve the current pipelineExecutionId.
+--
+-- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spePipelineExecutionId :: Lens.Lens' StopPipelineExecution Types.PipelineExecutionId
+spePipelineExecutionId = Lens.field @"pipelineExecutionId"
+{-# DEPRECATED spePipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
 -- | Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.
 --
 -- /Note:/ Consider using 'abandon' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-speAbandon :: Lens.Lens' StopPipelineExecution (Lude.Maybe Lude.Bool)
-speAbandon = Lens.lens (abandon :: StopPipelineExecution -> Lude.Maybe Lude.Bool) (\s a -> s {abandon = a} :: StopPipelineExecution)
+speAbandon :: Lens.Lens' StopPipelineExecution (Core.Maybe Core.Bool)
+speAbandon = Lens.field @"abandon"
 {-# DEPRECATED speAbandon "Use generic-lens or generic-optics with 'abandon' instead." #-}
 
 -- | Use this option to enter comments, such as the reason the pipeline was stopped.
 --
 -- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-speReason :: Lens.Lens' StopPipelineExecution (Lude.Maybe Lude.Text)
-speReason = Lens.lens (reason :: StopPipelineExecution -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: StopPipelineExecution)
+speReason :: Lens.Lens' StopPipelineExecution (Core.Maybe Types.StopPipelineExecutionReason)
+speReason = Lens.field @"reason"
 {-# DEPRECATED speReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
--- | The ID of the pipeline execution to be stopped in the current stage. Use the @GetPipelineState@ action to retrieve the current pipelineExecutionId.
---
--- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spePipelineExecutionId :: Lens.Lens' StopPipelineExecution Lude.Text
-spePipelineExecutionId = Lens.lens (pipelineExecutionId :: StopPipelineExecution -> Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StopPipelineExecution)
-{-# DEPRECATED spePipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
+instance Core.FromJSON StopPipelineExecution where
+  toJSON StopPipelineExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineName" Core..= pipelineName),
+            Core.Just ("pipelineExecutionId" Core..= pipelineExecutionId),
+            ("abandon" Core..=) Core.<$> abandon,
+            ("reason" Core..=) Core.<$> reason
+          ]
+      )
 
-instance Lude.AWSRequest StopPipelineExecution where
+instance Core.AWSRequest StopPipelineExecution where
   type Rs StopPipelineExecution = StopPipelineExecutionResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodePipeline_20150709.StopPipelineExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopPipelineExecutionResponse'
-            Lude.<$> (x Lude..?> "pipelineExecutionId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "pipelineExecutionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopPipelineExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.StopPipelineExecution" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopPipelineExecution where
-  toJSON StopPipelineExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pipelineName" Lude..= pipelineName),
-            ("abandon" Lude..=) Lude.<$> abandon,
-            ("reason" Lude..=) Lude.<$> reason,
-            Lude.Just ("pipelineExecutionId" Lude..= pipelineExecutionId)
-          ]
-      )
-
-instance Lude.ToPath StopPipelineExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopPipelineExecution where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopPipelineExecutionResponse' smart constructor.
 data StopPipelineExecutionResponse = StopPipelineExecutionResponse'
   { -- | The unique system-generated ID of the pipeline execution that was stopped.
-    pipelineExecutionId :: Lude.Maybe Lude.Text,
+    pipelineExecutionId :: Core.Maybe Types.PipelineExecutionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopPipelineExecutionResponse' with the minimum fields required to make a request.
---
--- * 'pipelineExecutionId' - The unique system-generated ID of the pipeline execution that was stopped.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopPipelineExecutionResponse' value with any optional fields omitted.
 mkStopPipelineExecutionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopPipelineExecutionResponse
-mkStopPipelineExecutionResponse pResponseStatus_ =
+mkStopPipelineExecutionResponse responseStatus =
   StopPipelineExecutionResponse'
     { pipelineExecutionId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The unique system-generated ID of the pipeline execution that was stopped.
 --
 -- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spersPipelineExecutionId :: Lens.Lens' StopPipelineExecutionResponse (Lude.Maybe Lude.Text)
-spersPipelineExecutionId = Lens.lens (pipelineExecutionId :: StopPipelineExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StopPipelineExecutionResponse)
-{-# DEPRECATED spersPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
+srsPipelineExecutionId :: Lens.Lens' StopPipelineExecutionResponse (Core.Maybe Types.PipelineExecutionId)
+srsPipelineExecutionId = Lens.field @"pipelineExecutionId"
+{-# DEPRECATED srsPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spersResponseStatus :: Lens.Lens' StopPipelineExecutionResponse Lude.Int
-spersResponseStatus = Lens.lens (responseStatus :: StopPipelineExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopPipelineExecutionResponse)
-{-# DEPRECATED spersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StopPipelineExecutionResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.H265RateControlMode
   ( H265RateControlMode
       ( H265RateControlMode',
-        HRCMVbr,
-        HRCMCbr,
-        HRCMQvbr
+        H265RateControlModeVbr,
+        H265RateControlModeCbr,
+        H265RateControlModeQvbr,
+        fromH265RateControlMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
-newtype H265RateControlMode = H265RateControlMode' Lude.Text
+newtype H265RateControlMode = H265RateControlMode'
+  { fromH265RateControlMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HRCMVbr :: H265RateControlMode
-pattern HRCMVbr = H265RateControlMode' "VBR"
+pattern H265RateControlModeVbr :: H265RateControlMode
+pattern H265RateControlModeVbr = H265RateControlMode' "VBR"
 
-pattern HRCMCbr :: H265RateControlMode
-pattern HRCMCbr = H265RateControlMode' "CBR"
+pattern H265RateControlModeCbr :: H265RateControlMode
+pattern H265RateControlModeCbr = H265RateControlMode' "CBR"
 
-pattern HRCMQvbr :: H265RateControlMode
-pattern HRCMQvbr = H265RateControlMode' "QVBR"
+pattern H265RateControlModeQvbr :: H265RateControlMode
+pattern H265RateControlModeQvbr = H265RateControlMode' "QVBR"
 
 {-# COMPLETE
-  HRCMVbr,
-  HRCMCbr,
-  HRCMQvbr,
+  H265RateControlModeVbr,
+  H265RateControlModeCbr,
+  H265RateControlModeQvbr,
   H265RateControlMode'
   #-}

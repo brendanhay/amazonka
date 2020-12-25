@@ -17,63 +17,57 @@ module Network.AWS.WAF.Types.IPSetUpdate
     mkIPSetUpdate,
 
     -- * Lenses
-    isuIPSetDescriptor,
-    isuAction,
+    ipsuAction,
+    ipsuIPSetDescriptor,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.ChangeAction
-import Network.AWS.WAF.Types.IPSetDescriptor
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.ChangeAction as Types
+import qualified Network.AWS.WAF.Types.IPSetDescriptor as Types
 
 -- | Specifies the type of update to perform to an 'IPSet' with 'UpdateIPSet' .
 --
 -- /See:/ 'mkIPSetUpdate' smart constructor.
 data IPSetUpdate = IPSetUpdate'
-  { -- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
-    ipSetDescriptor :: IPSetDescriptor,
-    -- | Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
-    action :: ChangeAction
+  { -- | Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
+    action :: Types.ChangeAction,
+    -- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
+    iPSetDescriptor :: Types.IPSetDescriptor
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IPSetUpdate' with the minimum fields required to make a request.
---
--- * 'ipSetDescriptor' - The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
--- * 'action' - Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
+-- | Creates a 'IPSetUpdate' value with any optional fields omitted.
 mkIPSetUpdate ::
-  -- | 'ipSetDescriptor'
-  IPSetDescriptor ->
   -- | 'action'
-  ChangeAction ->
+  Types.ChangeAction ->
+  -- | 'iPSetDescriptor'
+  Types.IPSetDescriptor ->
   IPSetUpdate
-mkIPSetUpdate pIPSetDescriptor_ pAction_ =
-  IPSetUpdate'
-    { ipSetDescriptor = pIPSetDescriptor_,
-      action = pAction_
-    }
-
--- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
---
--- /Note:/ Consider using 'ipSetDescriptor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isuIPSetDescriptor :: Lens.Lens' IPSetUpdate IPSetDescriptor
-isuIPSetDescriptor = Lens.lens (ipSetDescriptor :: IPSetUpdate -> IPSetDescriptor) (\s a -> s {ipSetDescriptor = a} :: IPSetUpdate)
-{-# DEPRECATED isuIPSetDescriptor "Use generic-lens or generic-optics with 'ipSetDescriptor' instead." #-}
+mkIPSetUpdate action iPSetDescriptor =
+  IPSetUpdate' {action, iPSetDescriptor}
 
 -- | Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isuAction :: Lens.Lens' IPSetUpdate ChangeAction
-isuAction = Lens.lens (action :: IPSetUpdate -> ChangeAction) (\s a -> s {action = a} :: IPSetUpdate)
-{-# DEPRECATED isuAction "Use generic-lens or generic-optics with 'action' instead." #-}
+ipsuAction :: Lens.Lens' IPSetUpdate Types.ChangeAction
+ipsuAction = Lens.field @"action"
+{-# DEPRECATED ipsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance Lude.ToJSON IPSetUpdate where
-  toJSON IPSetUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("IPSetDescriptor" Lude..= ipSetDescriptor),
-            Lude.Just ("Action" Lude..= action)
+-- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
+--
+-- /Note:/ Consider using 'iPSetDescriptor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsuIPSetDescriptor :: Lens.Lens' IPSetUpdate Types.IPSetDescriptor
+ipsuIPSetDescriptor = Lens.field @"iPSetDescriptor"
+{-# DEPRECATED ipsuIPSetDescriptor "Use generic-lens or generic-optics with 'iPSetDescriptor' instead." #-}
+
+instance Core.FromJSON IPSetUpdate where
+  toJSON IPSetUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("IPSetDescriptor" Core..= iPSetDescriptor)
           ]
       )

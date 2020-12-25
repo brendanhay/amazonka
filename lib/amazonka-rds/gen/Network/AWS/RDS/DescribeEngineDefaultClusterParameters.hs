@@ -24,8 +24,8 @@ module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     mkDescribeEngineDefaultClusterParameters,
 
     -- ** Request lenses
-    dedcpFilters,
     dedcpDBParameterGroupFamily,
+    dedcpFilters,
     dedcpMarker,
     dedcpMaxRecords,
 
@@ -34,77 +34,69 @@ module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     mkDescribeEngineDefaultClusterParametersResponse,
 
     -- ** Response lenses
-    dedcprsEngineDefaults,
-    dedcprsResponseStatus,
+    dedcprrsEngineDefaults,
+    dedcprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeEngineDefaultClusterParameters' smart constructor.
 data DescribeEngineDefaultClusterParameters = DescribeEngineDefaultClusterParameters'
-  { -- | This parameter isn't currently supported.
-    filters :: Lude.Maybe [Filter],
-    -- | The name of the DB cluster parameter group family to return engine parameter information for.
-    dbParameterGroupFamily :: Lude.Text,
+  { -- | The name of the DB cluster parameter group family to return engine parameter information for.
+    dBParameterGroupFamily :: Types.String,
+    -- | This parameter isn't currently supported.
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous @DescribeEngineDefaultClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEngineDefaultClusterParameters' with the minimum fields required to make a request.
---
--- * 'filters' - This parameter isn't currently supported.
--- * 'dbParameterGroupFamily' - The name of the DB cluster parameter group family to return engine parameter information for.
--- * 'marker' - An optional pagination token provided by a previous @DescribeEngineDefaultClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
+-- | Creates a 'DescribeEngineDefaultClusterParameters' value with any optional fields omitted.
 mkDescribeEngineDefaultClusterParameters ::
-  -- | 'dbParameterGroupFamily'
-  Lude.Text ->
+  -- | 'dBParameterGroupFamily'
+  Types.String ->
   DescribeEngineDefaultClusterParameters
-mkDescribeEngineDefaultClusterParameters pDBParameterGroupFamily_ =
+mkDescribeEngineDefaultClusterParameters dBParameterGroupFamily =
   DescribeEngineDefaultClusterParameters'
-    { filters = Lude.Nothing,
-      dbParameterGroupFamily = pDBParameterGroupFamily_,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { dBParameterGroupFamily,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
+
+-- | The name of the DB cluster parameter group family to return engine parameter information for.
+--
+-- /Note:/ Consider using 'dBParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedcpDBParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultClusterParameters Types.String
+dedcpDBParameterGroupFamily = Lens.field @"dBParameterGroupFamily"
+{-# DEPRECATED dedcpDBParameterGroupFamily "Use generic-lens or generic-optics with 'dBParameterGroupFamily' instead." #-}
 
 -- | This parameter isn't currently supported.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedcpFilters :: Lens.Lens' DescribeEngineDefaultClusterParameters (Lude.Maybe [Filter])
-dedcpFilters = Lens.lens (filters :: DescribeEngineDefaultClusterParameters -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEngineDefaultClusterParameters)
+dedcpFilters :: Lens.Lens' DescribeEngineDefaultClusterParameters (Core.Maybe [Types.Filter])
+dedcpFilters = Lens.field @"filters"
 {-# DEPRECATED dedcpFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The name of the DB cluster parameter group family to return engine parameter information for.
---
--- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedcpDBParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultClusterParameters Lude.Text
-dedcpDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: DescribeEngineDefaultClusterParameters -> Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: DescribeEngineDefaultClusterParameters)
-{-# DEPRECATED dedcpDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeEngineDefaultClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedcpMarker :: Lens.Lens' DescribeEngineDefaultClusterParameters (Lude.Maybe Lude.Text)
-dedcpMarker = Lens.lens (marker :: DescribeEngineDefaultClusterParameters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEngineDefaultClusterParameters)
+dedcpMarker :: Lens.Lens' DescribeEngineDefaultClusterParameters (Core.Maybe Types.String)
+dedcpMarker = Lens.field @"marker"
 {-# DEPRECATED dedcpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
@@ -113,102 +105,100 @@ dedcpMarker = Lens.lens (marker :: DescribeEngineDefaultClusterParameters -> Lud
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedcpMaxRecords :: Lens.Lens' DescribeEngineDefaultClusterParameters (Lude.Maybe Lude.Int)
-dedcpMaxRecords = Lens.lens (maxRecords :: DescribeEngineDefaultClusterParameters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEngineDefaultClusterParameters)
+dedcpMaxRecords :: Lens.Lens' DescribeEngineDefaultClusterParameters (Core.Maybe Core.Int)
+dedcpMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dedcpMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeEngineDefaultClusterParameters where
-  page rq rs
-    | Page.stop
-        ( rs
-            Lens.^? dedcprsEngineDefaults Lude.. Lens._Just
-              Lude.. edMarker
-              Lude.. Lens._Just
-        ) =
-      Lude.Nothing
-    | Page.stop
-        ( rs
-            Lens.^? dedcprsEngineDefaults Lude.. Lens._Just
-              Lude.. edParameters
-              Lude.. Lens._Just
-        ) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dedcpMarker
-          Lens..~ rs
-          Lens.^? dedcprsEngineDefaults Lude.. Lens._Just
-            Lude.. edMarker
-            Lude.. Lens._Just
-
-instance Lude.AWSRequest DescribeEngineDefaultClusterParameters where
+instance Core.AWSRequest DescribeEngineDefaultClusterParameters where
   type
     Rs DescribeEngineDefaultClusterParameters =
       DescribeEngineDefaultClusterParametersResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeEngineDefaultClusterParameters")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBParameterGroupFamily" dBParameterGroupFamily)
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeEngineDefaultClusterParametersResult"
       ( \s h x ->
           DescribeEngineDefaultClusterParametersResponse'
-            Lude.<$> (x Lude..@? "EngineDefaults")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "EngineDefaults")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeEngineDefaultClusterParameters where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeEngineDefaultClusterParameters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEngineDefaultClusterParameters where
-  toQuery DescribeEngineDefaultClusterParameters' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeEngineDefaultClusterParameters" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "DBParameterGroupFamily" Lude.=: dbParameterGroupFamily,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeEngineDefaultClusterParameters where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^. Lens.field @"engineDefaults" Core.. Lens.field @"marker"
+        ) =
+      Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"engineDefaults" Core.. Lens._Just
+              Core.. Lens.field @"parameters"
+              Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker"
+            Lens..~ rs
+            Lens.^. Lens.field @"engineDefaults" Core.. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeEngineDefaultClusterParametersResponse' smart constructor.
 data DescribeEngineDefaultClusterParametersResponse = DescribeEngineDefaultClusterParametersResponse'
-  { engineDefaults :: Lude.Maybe EngineDefaults,
+  { engineDefaults :: Core.Maybe Types.EngineDefaults,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEngineDefaultClusterParametersResponse' with the minimum fields required to make a request.
---
--- * 'engineDefaults' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEngineDefaultClusterParametersResponse' value with any optional fields omitted.
 mkDescribeEngineDefaultClusterParametersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEngineDefaultClusterParametersResponse
-mkDescribeEngineDefaultClusterParametersResponse pResponseStatus_ =
+mkDescribeEngineDefaultClusterParametersResponse responseStatus =
   DescribeEngineDefaultClusterParametersResponse'
     { engineDefaults =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'engineDefaults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedcprsEngineDefaults :: Lens.Lens' DescribeEngineDefaultClusterParametersResponse (Lude.Maybe EngineDefaults)
-dedcprsEngineDefaults = Lens.lens (engineDefaults :: DescribeEngineDefaultClusterParametersResponse -> Lude.Maybe EngineDefaults) (\s a -> s {engineDefaults = a} :: DescribeEngineDefaultClusterParametersResponse)
-{-# DEPRECATED dedcprsEngineDefaults "Use generic-lens or generic-optics with 'engineDefaults' instead." #-}
+dedcprrsEngineDefaults :: Lens.Lens' DescribeEngineDefaultClusterParametersResponse (Core.Maybe Types.EngineDefaults)
+dedcprrsEngineDefaults = Lens.field @"engineDefaults"
+{-# DEPRECATED dedcprrsEngineDefaults "Use generic-lens or generic-optics with 'engineDefaults' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedcprsResponseStatus :: Lens.Lens' DescribeEngineDefaultClusterParametersResponse Lude.Int
-dedcprsResponseStatus = Lens.lens (responseStatus :: DescribeEngineDefaultClusterParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEngineDefaultClusterParametersResponse)
-{-# DEPRECATED dedcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dedcprrsResponseStatus :: Lens.Lens' DescribeEngineDefaultClusterParametersResponse Core.Int
+dedcprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dedcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

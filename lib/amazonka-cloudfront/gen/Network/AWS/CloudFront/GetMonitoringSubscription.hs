@@ -27,103 +27,96 @@ module Network.AWS.CloudFront.GetMonitoringSubscription
     mkGetMonitoringSubscriptionResponse,
 
     -- ** Response lenses
-    gmsrsMonitoringSubscription,
-    gmsrsResponseStatus,
+    gmsrrsMonitoringSubscription,
+    gmsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetMonitoringSubscription' smart constructor.
 newtype GetMonitoringSubscription = GetMonitoringSubscription'
   { -- | The ID of the distribution that you are getting metrics information for.
-    distributionId :: Lude.Text
+    distributionId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMonitoringSubscription' with the minimum fields required to make a request.
---
--- * 'distributionId' - The ID of the distribution that you are getting metrics information for.
+-- | Creates a 'GetMonitoringSubscription' value with any optional fields omitted.
 mkGetMonitoringSubscription ::
   -- | 'distributionId'
-  Lude.Text ->
+  Types.String ->
   GetMonitoringSubscription
-mkGetMonitoringSubscription pDistributionId_ =
-  GetMonitoringSubscription' {distributionId = pDistributionId_}
+mkGetMonitoringSubscription distributionId =
+  GetMonitoringSubscription' {distributionId}
 
 -- | The ID of the distribution that you are getting metrics information for.
 --
 -- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsDistributionId :: Lens.Lens' GetMonitoringSubscription Lude.Text
-gmsDistributionId = Lens.lens (distributionId :: GetMonitoringSubscription -> Lude.Text) (\s a -> s {distributionId = a} :: GetMonitoringSubscription)
+gmsDistributionId :: Lens.Lens' GetMonitoringSubscription Types.String
+gmsDistributionId = Lens.field @"distributionId"
 {-# DEPRECATED gmsDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
-instance Lude.AWSRequest GetMonitoringSubscription where
+instance Core.AWSRequest GetMonitoringSubscription where
   type
     Rs GetMonitoringSubscription =
       GetMonitoringSubscriptionResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/distributions/" Core.<> (Core.toText distributionId)
+                Core.<> ("/monitoring-subscription")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetMonitoringSubscriptionResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetMonitoringSubscription where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetMonitoringSubscription where
-  toPath GetMonitoringSubscription' {..} =
-    Lude.mconcat
-      [ "/2020-05-31/distributions/",
-        Lude.toBS distributionId,
-        "/monitoring-subscription"
-      ]
-
-instance Lude.ToQuery GetMonitoringSubscription where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetMonitoringSubscriptionResponse' smart constructor.
 data GetMonitoringSubscriptionResponse = GetMonitoringSubscriptionResponse'
   { -- | A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-    monitoringSubscription :: Lude.Maybe MonitoringSubscription,
+    monitoringSubscription :: Core.Maybe Types.MonitoringSubscription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMonitoringSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'monitoringSubscription' - A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetMonitoringSubscriptionResponse' value with any optional fields omitted.
 mkGetMonitoringSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetMonitoringSubscriptionResponse
-mkGetMonitoringSubscriptionResponse pResponseStatus_ =
+mkGetMonitoringSubscriptionResponse responseStatus =
   GetMonitoringSubscriptionResponse'
     { monitoringSubscription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 --
 -- /Note:/ Consider using 'monitoringSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsrsMonitoringSubscription :: Lens.Lens' GetMonitoringSubscriptionResponse (Lude.Maybe MonitoringSubscription)
-gmsrsMonitoringSubscription = Lens.lens (monitoringSubscription :: GetMonitoringSubscriptionResponse -> Lude.Maybe MonitoringSubscription) (\s a -> s {monitoringSubscription = a} :: GetMonitoringSubscriptionResponse)
-{-# DEPRECATED gmsrsMonitoringSubscription "Use generic-lens or generic-optics with 'monitoringSubscription' instead." #-}
+gmsrrsMonitoringSubscription :: Lens.Lens' GetMonitoringSubscriptionResponse (Core.Maybe Types.MonitoringSubscription)
+gmsrrsMonitoringSubscription = Lens.field @"monitoringSubscription"
+{-# DEPRECATED gmsrrsMonitoringSubscription "Use generic-lens or generic-optics with 'monitoringSubscription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsrsResponseStatus :: Lens.Lens' GetMonitoringSubscriptionResponse Lude.Int
-gmsrsResponseStatus = Lens.lens (responseStatus :: GetMonitoringSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMonitoringSubscriptionResponse)
-{-# DEPRECATED gmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gmsrrsResponseStatus :: Lens.Lens' GetMonitoringSubscriptionResponse Core.Int
+gmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

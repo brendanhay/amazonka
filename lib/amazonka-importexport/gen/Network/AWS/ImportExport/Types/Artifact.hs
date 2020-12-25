@@ -17,48 +17,47 @@ module Network.AWS.ImportExport.Types.Artifact
     mkArtifact,
 
     -- * Lenses
-    aURL,
     aDescription,
+    aURL,
   )
 where
 
+import qualified Network.AWS.ImportExport.Types.Description as Types
+import qualified Network.AWS.ImportExport.Types.URL as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A discrete item that contains the description and URL of an artifact (such as a PDF).
 --
 -- /See:/ 'mkArtifact' smart constructor.
 data Artifact = Artifact'
-  { url :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text
+  { description :: Core.Maybe Types.Description,
+    url :: Core.Maybe Types.URL
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Artifact' with the minimum fields required to make a request.
---
--- * 'url' -
--- * 'description' -
+-- | Creates a 'Artifact' value with any optional fields omitted.
 mkArtifact ::
   Artifact
 mkArtifact =
-  Artifact' {url = Lude.Nothing, description = Lude.Nothing}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aURL :: Lens.Lens' Artifact (Lude.Maybe Lude.Text)
-aURL = Lens.lens (url :: Artifact -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: Artifact)
-{-# DEPRECATED aURL "Use generic-lens or generic-optics with 'url' instead." #-}
+  Artifact' {description = Core.Nothing, url = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aDescription :: Lens.Lens' Artifact (Lude.Maybe Lude.Text)
-aDescription = Lens.lens (description :: Artifact -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Artifact)
+aDescription :: Lens.Lens' Artifact (Core.Maybe Types.Description)
+aDescription = Lens.field @"description"
 {-# DEPRECATED aDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML Artifact where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aURL :: Lens.Lens' Artifact (Core.Maybe Types.URL)
+aURL = Lens.field @"url"
+{-# DEPRECATED aURL "Use generic-lens or generic-optics with 'url' instead." #-}
+
+instance Core.FromXML Artifact where
   parseXML x =
     Artifact'
-      Lude.<$> (x Lude..@? "URL") Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "Description") Core.<*> (x Core..@? "URL")

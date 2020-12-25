@@ -35,15 +35,15 @@ module Network.AWS.MediaStore.PutContainerPolicy
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutContainerPolicy' smart constructor.
 data PutContainerPolicy = PutContainerPolicy'
   { -- | The name of the container.
-    containerName :: Lude.Text,
+    containerName :: Types.ContainerName,
     -- | The contents of the policy, which includes the following:
     --
     --
@@ -51,38 +51,26 @@ data PutContainerPolicy = PutContainerPolicy'
     --
     --
     --     * One @Statement@ tag that contains the standard tags for the policy.
-    policy :: Lude.Text
+    policy :: Types.ContainerPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutContainerPolicy' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of the container.
--- * 'policy' - The contents of the policy, which includes the following:
---
---
---     * One @Version@ tag
---
---
---     * One @Statement@ tag that contains the standard tags for the policy.
+-- | Creates a 'PutContainerPolicy' value with any optional fields omitted.
 mkPutContainerPolicy ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.ContainerName ->
   -- | 'policy'
-  Lude.Text ->
+  Types.ContainerPolicy ->
   PutContainerPolicy
-mkPutContainerPolicy pContainerName_ pPolicy_ =
-  PutContainerPolicy'
-    { containerName = pContainerName_,
-      policy = pPolicy_
-    }
+mkPutContainerPolicy containerName policy =
+  PutContainerPolicy' {containerName, policy}
 
 -- | The name of the container.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pContainerName :: Lens.Lens' PutContainerPolicy Lude.Text
-pContainerName = Lens.lens (containerName :: PutContainerPolicy -> Lude.Text) (\s a -> s {containerName = a} :: PutContainerPolicy)
+pContainerName :: Lens.Lens' PutContainerPolicy Types.ContainerName
+pContainerName = Lens.field @"containerName"
 {-# DEPRECATED pContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 -- | The contents of the policy, which includes the following:
@@ -96,66 +84,58 @@ pContainerName = Lens.lens (containerName :: PutContainerPolicy -> Lude.Text) (\
 --
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPolicy :: Lens.Lens' PutContainerPolicy Lude.Text
-pPolicy = Lens.lens (policy :: PutContainerPolicy -> Lude.Text) (\s a -> s {policy = a} :: PutContainerPolicy)
+pPolicy :: Lens.Lens' PutContainerPolicy Types.ContainerPolicy
+pPolicy = Lens.field @"policy"
 {-# DEPRECATED pPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance Lude.AWSRequest PutContainerPolicy where
+instance Core.FromJSON PutContainerPolicy where
+  toJSON PutContainerPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContainerName" Core..= containerName),
+            Core.Just ("Policy" Core..= policy)
+          ]
+      )
+
+instance Core.AWSRequest PutContainerPolicy where
   type Rs PutContainerPolicy = PutContainerPolicyResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "MediaStore_20170901.PutContainerPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          PutContainerPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          PutContainerPolicyResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutContainerPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.PutContainerPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutContainerPolicy where
-  toJSON PutContainerPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ContainerName" Lude..= containerName),
-            Lude.Just ("Policy" Lude..= policy)
-          ]
-      )
-
-instance Lude.ToPath PutContainerPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutContainerPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutContainerPolicyResponse' smart constructor.
 newtype PutContainerPolicyResponse = PutContainerPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutContainerPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutContainerPolicyResponse' value with any optional fields omitted.
 mkPutContainerPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutContainerPolicyResponse
-mkPutContainerPolicyResponse pResponseStatus_ =
-  PutContainerPolicyResponse' {responseStatus = pResponseStatus_}
+mkPutContainerPolicyResponse responseStatus =
+  PutContainerPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsResponseStatus :: Lens.Lens' PutContainerPolicyResponse Lude.Int
-prsResponseStatus = Lens.lens (responseStatus :: PutContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutContainerPolicyResponse)
+prsResponseStatus :: Lens.Lens' PutContainerPolicyResponse Core.Int
+prsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

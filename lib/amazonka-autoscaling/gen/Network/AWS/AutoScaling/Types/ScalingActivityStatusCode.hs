@@ -13,96 +13,101 @@
 module Network.AWS.AutoScaling.Types.ScalingActivityStatusCode
   ( ScalingActivityStatusCode
       ( ScalingActivityStatusCode',
-        SASCPendingSpotBidPlacement,
-        SASCWaitingForSpotInstanceRequestId,
-        SASCWaitingForSpotInstanceId,
-        SASCWaitingForInstanceId,
-        SASCPreInService,
-        SASCInProgress,
-        SASCWaitingForELBConnectionDraining,
-        SASCMidLifecycleAction,
-        SASCWaitingForInstanceWarmup,
-        SASCSuccessful,
-        SASCFailed,
-        SASCCancelled
+        ScalingActivityStatusCodePendingSpotBidPlacement,
+        ScalingActivityStatusCodeWaitingForSpotInstanceRequestId,
+        ScalingActivityStatusCodeWaitingForSpotInstanceId,
+        ScalingActivityStatusCodeWaitingForInstanceId,
+        ScalingActivityStatusCodePreInService,
+        ScalingActivityStatusCodeInProgress,
+        ScalingActivityStatusCodeWaitingForELBConnectionDraining,
+        ScalingActivityStatusCodeMidLifecycleAction,
+        ScalingActivityStatusCodeWaitingForInstanceWarmup,
+        ScalingActivityStatusCodeSuccessful,
+        ScalingActivityStatusCodeFailed,
+        ScalingActivityStatusCodeCancelled,
+        fromScalingActivityStatusCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScalingActivityStatusCode = ScalingActivityStatusCode' Lude.Text
+newtype ScalingActivityStatusCode = ScalingActivityStatusCode'
+  { fromScalingActivityStatusCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SASCPendingSpotBidPlacement :: ScalingActivityStatusCode
-pattern SASCPendingSpotBidPlacement = ScalingActivityStatusCode' "PendingSpotBidPlacement"
+pattern ScalingActivityStatusCodePendingSpotBidPlacement :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodePendingSpotBidPlacement = ScalingActivityStatusCode' "PendingSpotBidPlacement"
 
-pattern SASCWaitingForSpotInstanceRequestId :: ScalingActivityStatusCode
-pattern SASCWaitingForSpotInstanceRequestId = ScalingActivityStatusCode' "WaitingForSpotInstanceRequestId"
+pattern ScalingActivityStatusCodeWaitingForSpotInstanceRequestId :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeWaitingForSpotInstanceRequestId = ScalingActivityStatusCode' "WaitingForSpotInstanceRequestId"
 
-pattern SASCWaitingForSpotInstanceId :: ScalingActivityStatusCode
-pattern SASCWaitingForSpotInstanceId = ScalingActivityStatusCode' "WaitingForSpotInstanceId"
+pattern ScalingActivityStatusCodeWaitingForSpotInstanceId :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeWaitingForSpotInstanceId = ScalingActivityStatusCode' "WaitingForSpotInstanceId"
 
-pattern SASCWaitingForInstanceId :: ScalingActivityStatusCode
-pattern SASCWaitingForInstanceId = ScalingActivityStatusCode' "WaitingForInstanceId"
+pattern ScalingActivityStatusCodeWaitingForInstanceId :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeWaitingForInstanceId = ScalingActivityStatusCode' "WaitingForInstanceId"
 
-pattern SASCPreInService :: ScalingActivityStatusCode
-pattern SASCPreInService = ScalingActivityStatusCode' "PreInService"
+pattern ScalingActivityStatusCodePreInService :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodePreInService = ScalingActivityStatusCode' "PreInService"
 
-pattern SASCInProgress :: ScalingActivityStatusCode
-pattern SASCInProgress = ScalingActivityStatusCode' "InProgress"
+pattern ScalingActivityStatusCodeInProgress :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeInProgress = ScalingActivityStatusCode' "InProgress"
 
-pattern SASCWaitingForELBConnectionDraining :: ScalingActivityStatusCode
-pattern SASCWaitingForELBConnectionDraining = ScalingActivityStatusCode' "WaitingForELBConnectionDraining"
+pattern ScalingActivityStatusCodeWaitingForELBConnectionDraining :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeWaitingForELBConnectionDraining = ScalingActivityStatusCode' "WaitingForELBConnectionDraining"
 
-pattern SASCMidLifecycleAction :: ScalingActivityStatusCode
-pattern SASCMidLifecycleAction = ScalingActivityStatusCode' "MidLifecycleAction"
+pattern ScalingActivityStatusCodeMidLifecycleAction :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeMidLifecycleAction = ScalingActivityStatusCode' "MidLifecycleAction"
 
-pattern SASCWaitingForInstanceWarmup :: ScalingActivityStatusCode
-pattern SASCWaitingForInstanceWarmup = ScalingActivityStatusCode' "WaitingForInstanceWarmup"
+pattern ScalingActivityStatusCodeWaitingForInstanceWarmup :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeWaitingForInstanceWarmup = ScalingActivityStatusCode' "WaitingForInstanceWarmup"
 
-pattern SASCSuccessful :: ScalingActivityStatusCode
-pattern SASCSuccessful = ScalingActivityStatusCode' "Successful"
+pattern ScalingActivityStatusCodeSuccessful :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeSuccessful = ScalingActivityStatusCode' "Successful"
 
-pattern SASCFailed :: ScalingActivityStatusCode
-pattern SASCFailed = ScalingActivityStatusCode' "Failed"
+pattern ScalingActivityStatusCodeFailed :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeFailed = ScalingActivityStatusCode' "Failed"
 
-pattern SASCCancelled :: ScalingActivityStatusCode
-pattern SASCCancelled = ScalingActivityStatusCode' "Cancelled"
+pattern ScalingActivityStatusCodeCancelled :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCodeCancelled = ScalingActivityStatusCode' "Cancelled"
 
 {-# COMPLETE
-  SASCPendingSpotBidPlacement,
-  SASCWaitingForSpotInstanceRequestId,
-  SASCWaitingForSpotInstanceId,
-  SASCWaitingForInstanceId,
-  SASCPreInService,
-  SASCInProgress,
-  SASCWaitingForELBConnectionDraining,
-  SASCMidLifecycleAction,
-  SASCWaitingForInstanceWarmup,
-  SASCSuccessful,
-  SASCFailed,
-  SASCCancelled,
+  ScalingActivityStatusCodePendingSpotBidPlacement,
+  ScalingActivityStatusCodeWaitingForSpotInstanceRequestId,
+  ScalingActivityStatusCodeWaitingForSpotInstanceId,
+  ScalingActivityStatusCodeWaitingForInstanceId,
+  ScalingActivityStatusCodePreInService,
+  ScalingActivityStatusCodeInProgress,
+  ScalingActivityStatusCodeWaitingForELBConnectionDraining,
+  ScalingActivityStatusCodeMidLifecycleAction,
+  ScalingActivityStatusCodeWaitingForInstanceWarmup,
+  ScalingActivityStatusCodeSuccessful,
+  ScalingActivityStatusCodeFailed,
+  ScalingActivityStatusCodeCancelled,
   ScalingActivityStatusCode'
   #-}

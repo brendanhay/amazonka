@@ -17,80 +17,76 @@ module Network.AWS.SageMaker.Types.EndpointConfigSummary
     mkEndpointConfigSummary,
 
     -- * Lenses
-    ecsEndpointConfigARN,
-    ecsCreationTime,
     ecsEndpointConfigName,
+    ecsEndpointConfigArn,
+    ecsCreationTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.EndpointConfigArn as Types
+import qualified Network.AWS.SageMaker.Types.EndpointConfigName as Types
 
 -- | Provides summary information for an endpoint configuration.
 --
 -- /See:/ 'mkEndpointConfigSummary' smart constructor.
 data EndpointConfigSummary = EndpointConfigSummary'
-  { -- | The Amazon Resource Name (ARN) of the endpoint configuration.
-    endpointConfigARN :: Lude.Text,
+  { -- | The name of the endpoint configuration.
+    endpointConfigName :: Types.EndpointConfigName,
+    -- | The Amazon Resource Name (ARN) of the endpoint configuration.
+    endpointConfigArn :: Types.EndpointConfigArn,
     -- | A timestamp that shows when the endpoint configuration was created.
-    creationTime :: Lude.Timestamp,
-    -- | The name of the endpoint configuration.
-    endpointConfigName :: Lude.Text
+    creationTime :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EndpointConfigSummary' with the minimum fields required to make a request.
---
--- * 'endpointConfigARN' - The Amazon Resource Name (ARN) of the endpoint configuration.
--- * 'creationTime' - A timestamp that shows when the endpoint configuration was created.
--- * 'endpointConfigName' - The name of the endpoint configuration.
+-- | Creates a 'EndpointConfigSummary' value with any optional fields omitted.
 mkEndpointConfigSummary ::
-  -- | 'endpointConfigARN'
-  Lude.Text ->
-  -- | 'creationTime'
-  Lude.Timestamp ->
   -- | 'endpointConfigName'
-  Lude.Text ->
+  Types.EndpointConfigName ->
+  -- | 'endpointConfigArn'
+  Types.EndpointConfigArn ->
+  -- | 'creationTime'
+  Core.NominalDiffTime ->
   EndpointConfigSummary
 mkEndpointConfigSummary
-  pEndpointConfigARN_
-  pCreationTime_
-  pEndpointConfigName_ =
+  endpointConfigName
+  endpointConfigArn
+  creationTime =
     EndpointConfigSummary'
-      { endpointConfigARN = pEndpointConfigARN_,
-        creationTime = pCreationTime_,
-        endpointConfigName = pEndpointConfigName_
+      { endpointConfigName,
+        endpointConfigArn,
+        creationTime
       }
-
--- | The Amazon Resource Name (ARN) of the endpoint configuration.
---
--- /Note:/ Consider using 'endpointConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecsEndpointConfigARN :: Lens.Lens' EndpointConfigSummary Lude.Text
-ecsEndpointConfigARN = Lens.lens (endpointConfigARN :: EndpointConfigSummary -> Lude.Text) (\s a -> s {endpointConfigARN = a} :: EndpointConfigSummary)
-{-# DEPRECATED ecsEndpointConfigARN "Use generic-lens or generic-optics with 'endpointConfigARN' instead." #-}
-
--- | A timestamp that shows when the endpoint configuration was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecsCreationTime :: Lens.Lens' EndpointConfigSummary Lude.Timestamp
-ecsCreationTime = Lens.lens (creationTime :: EndpointConfigSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: EndpointConfigSummary)
-{-# DEPRECATED ecsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the endpoint configuration.
 --
 -- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecsEndpointConfigName :: Lens.Lens' EndpointConfigSummary Lude.Text
-ecsEndpointConfigName = Lens.lens (endpointConfigName :: EndpointConfigSummary -> Lude.Text) (\s a -> s {endpointConfigName = a} :: EndpointConfigSummary)
+ecsEndpointConfigName :: Lens.Lens' EndpointConfigSummary Types.EndpointConfigName
+ecsEndpointConfigName = Lens.field @"endpointConfigName"
 {-# DEPRECATED ecsEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
-instance Lude.FromJSON EndpointConfigSummary where
+-- | The Amazon Resource Name (ARN) of the endpoint configuration.
+--
+-- /Note:/ Consider using 'endpointConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecsEndpointConfigArn :: Lens.Lens' EndpointConfigSummary Types.EndpointConfigArn
+ecsEndpointConfigArn = Lens.field @"endpointConfigArn"
+{-# DEPRECATED ecsEndpointConfigArn "Use generic-lens or generic-optics with 'endpointConfigArn' instead." #-}
+
+-- | A timestamp that shows when the endpoint configuration was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecsCreationTime :: Lens.Lens' EndpointConfigSummary Core.NominalDiffTime
+ecsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED ecsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+instance Core.FromJSON EndpointConfigSummary where
   parseJSON =
-    Lude.withObject
-      "EndpointConfigSummary"
-      ( \x ->
-          EndpointConfigSummary'
-            Lude.<$> (x Lude..: "EndpointConfigArn")
-            Lude.<*> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..: "EndpointConfigName")
-      )
+    Core.withObject "EndpointConfigSummary" Core.$
+      \x ->
+        EndpointConfigSummary'
+          Core.<$> (x Core..: "EndpointConfigName")
+          Core.<*> (x Core..: "EndpointConfigArn")
+          Core.<*> (x Core..: "CreationTime")

@@ -17,149 +17,138 @@ module Network.AWS.Lightsail.Types.RelationalDatabaseBundle
     mkRelationalDatabaseBundle,
 
     -- * Lenses
-    rdbIsEncrypted,
-    rdbCpuCount,
-    rdbTransferPerMonthInGb,
     rdbBundleId,
-    rdbName,
+    rdbCpuCount,
     rdbDiskSizeInGb,
-    rdbPrice,
     rdbIsActive,
+    rdbIsEncrypted,
+    rdbName,
+    rdbPrice,
     rdbRamSizeInGb,
+    rdbTransferPerMonthInGb,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a database bundle. A bundle describes the performance specifications of the database.
 --
 -- /See:/ 'mkRelationalDatabaseBundle' smart constructor.
 data RelationalDatabaseBundle = RelationalDatabaseBundle'
-  { -- | A Boolean value indicating whether the database bundle is encrypted.
-    isEncrypted :: Lude.Maybe Lude.Bool,
+  { -- | The ID for the database bundle.
+    bundleId :: Core.Maybe Types.String,
     -- | The number of virtual CPUs (vCPUs) for the database bundle.
-    cpuCount :: Lude.Maybe Lude.Int,
-    -- | The data transfer rate per month in GB for the database bundle.
-    transferPerMonthInGb :: Lude.Maybe Lude.Int,
-    -- | The ID for the database bundle.
-    bundleId :: Lude.Maybe Lude.Text,
-    -- | The name for the database bundle.
-    name :: Lude.Maybe Lude.Text,
+    cpuCount :: Core.Maybe Core.Int,
     -- | The size of the disk for the database bundle.
-    diskSizeInGb :: Lude.Maybe Lude.Int,
-    -- | The cost of the database bundle in US currency.
-    price :: Lude.Maybe Lude.Double,
+    diskSizeInGb :: Core.Maybe Core.Int,
     -- | A Boolean value indicating whether the database bundle is active.
-    isActive :: Lude.Maybe Lude.Bool,
+    isActive :: Core.Maybe Core.Bool,
+    -- | A Boolean value indicating whether the database bundle is encrypted.
+    isEncrypted :: Core.Maybe Core.Bool,
+    -- | The name for the database bundle.
+    name :: Core.Maybe Types.String,
+    -- | The cost of the database bundle in US currency.
+    price :: Core.Maybe Core.Double,
     -- | The amount of RAM in GB (for example, @2.0@ ) for the database bundle.
-    ramSizeInGb :: Lude.Maybe Lude.Double
+    ramSizeInGb :: Core.Maybe Core.Double,
+    -- | The data transfer rate per month in GB for the database bundle.
+    transferPerMonthInGb :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RelationalDatabaseBundle' with the minimum fields required to make a request.
---
--- * 'isEncrypted' - A Boolean value indicating whether the database bundle is encrypted.
--- * 'cpuCount' - The number of virtual CPUs (vCPUs) for the database bundle.
--- * 'transferPerMonthInGb' - The data transfer rate per month in GB for the database bundle.
--- * 'bundleId' - The ID for the database bundle.
--- * 'name' - The name for the database bundle.
--- * 'diskSizeInGb' - The size of the disk for the database bundle.
--- * 'price' - The cost of the database bundle in US currency.
--- * 'isActive' - A Boolean value indicating whether the database bundle is active.
--- * 'ramSizeInGb' - The amount of RAM in GB (for example, @2.0@ ) for the database bundle.
+-- | Creates a 'RelationalDatabaseBundle' value with any optional fields omitted.
 mkRelationalDatabaseBundle ::
   RelationalDatabaseBundle
 mkRelationalDatabaseBundle =
   RelationalDatabaseBundle'
-    { isEncrypted = Lude.Nothing,
-      cpuCount = Lude.Nothing,
-      transferPerMonthInGb = Lude.Nothing,
-      bundleId = Lude.Nothing,
-      name = Lude.Nothing,
-      diskSizeInGb = Lude.Nothing,
-      price = Lude.Nothing,
-      isActive = Lude.Nothing,
-      ramSizeInGb = Lude.Nothing
+    { bundleId = Core.Nothing,
+      cpuCount = Core.Nothing,
+      diskSizeInGb = Core.Nothing,
+      isActive = Core.Nothing,
+      isEncrypted = Core.Nothing,
+      name = Core.Nothing,
+      price = Core.Nothing,
+      ramSizeInGb = Core.Nothing,
+      transferPerMonthInGb = Core.Nothing
     }
-
--- | A Boolean value indicating whether the database bundle is encrypted.
---
--- /Note:/ Consider using 'isEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbIsEncrypted :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Bool)
-rdbIsEncrypted = Lens.lens (isEncrypted :: RelationalDatabaseBundle -> Lude.Maybe Lude.Bool) (\s a -> s {isEncrypted = a} :: RelationalDatabaseBundle)
-{-# DEPRECATED rdbIsEncrypted "Use generic-lens or generic-optics with 'isEncrypted' instead." #-}
-
--- | The number of virtual CPUs (vCPUs) for the database bundle.
---
--- /Note:/ Consider using 'cpuCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbCpuCount :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Int)
-rdbCpuCount = Lens.lens (cpuCount :: RelationalDatabaseBundle -> Lude.Maybe Lude.Int) (\s a -> s {cpuCount = a} :: RelationalDatabaseBundle)
-{-# DEPRECATED rdbCpuCount "Use generic-lens or generic-optics with 'cpuCount' instead." #-}
-
--- | The data transfer rate per month in GB for the database bundle.
---
--- /Note:/ Consider using 'transferPerMonthInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbTransferPerMonthInGb :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Int)
-rdbTransferPerMonthInGb = Lens.lens (transferPerMonthInGb :: RelationalDatabaseBundle -> Lude.Maybe Lude.Int) (\s a -> s {transferPerMonthInGb = a} :: RelationalDatabaseBundle)
-{-# DEPRECATED rdbTransferPerMonthInGb "Use generic-lens or generic-optics with 'transferPerMonthInGb' instead." #-}
 
 -- | The ID for the database bundle.
 --
 -- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbBundleId :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Text)
-rdbBundleId = Lens.lens (bundleId :: RelationalDatabaseBundle -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: RelationalDatabaseBundle)
+rdbBundleId :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Types.String)
+rdbBundleId = Lens.field @"bundleId"
 {-# DEPRECATED rdbBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
--- | The name for the database bundle.
+-- | The number of virtual CPUs (vCPUs) for the database bundle.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbName :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Text)
-rdbName = Lens.lens (name :: RelationalDatabaseBundle -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RelationalDatabaseBundle)
-{-# DEPRECATED rdbName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'cpuCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbCpuCount :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Core.Int)
+rdbCpuCount = Lens.field @"cpuCount"
+{-# DEPRECATED rdbCpuCount "Use generic-lens or generic-optics with 'cpuCount' instead." #-}
 
 -- | The size of the disk for the database bundle.
 --
 -- /Note:/ Consider using 'diskSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbDiskSizeInGb :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Int)
-rdbDiskSizeInGb = Lens.lens (diskSizeInGb :: RelationalDatabaseBundle -> Lude.Maybe Lude.Int) (\s a -> s {diskSizeInGb = a} :: RelationalDatabaseBundle)
+rdbDiskSizeInGb :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Core.Int)
+rdbDiskSizeInGb = Lens.field @"diskSizeInGb"
 {-# DEPRECATED rdbDiskSizeInGb "Use generic-lens or generic-optics with 'diskSizeInGb' instead." #-}
-
--- | The cost of the database bundle in US currency.
---
--- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbPrice :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Double)
-rdbPrice = Lens.lens (price :: RelationalDatabaseBundle -> Lude.Maybe Lude.Double) (\s a -> s {price = a} :: RelationalDatabaseBundle)
-{-# DEPRECATED rdbPrice "Use generic-lens or generic-optics with 'price' instead." #-}
 
 -- | A Boolean value indicating whether the database bundle is active.
 --
 -- /Note:/ Consider using 'isActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbIsActive :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Bool)
-rdbIsActive = Lens.lens (isActive :: RelationalDatabaseBundle -> Lude.Maybe Lude.Bool) (\s a -> s {isActive = a} :: RelationalDatabaseBundle)
+rdbIsActive :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Core.Bool)
+rdbIsActive = Lens.field @"isActive"
 {-# DEPRECATED rdbIsActive "Use generic-lens or generic-optics with 'isActive' instead." #-}
+
+-- | A Boolean value indicating whether the database bundle is encrypted.
+--
+-- /Note:/ Consider using 'isEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbIsEncrypted :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Core.Bool)
+rdbIsEncrypted = Lens.field @"isEncrypted"
+{-# DEPRECATED rdbIsEncrypted "Use generic-lens or generic-optics with 'isEncrypted' instead." #-}
+
+-- | The name for the database bundle.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbName :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Types.String)
+rdbName = Lens.field @"name"
+{-# DEPRECATED rdbName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The cost of the database bundle in US currency.
+--
+-- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbPrice :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Core.Double)
+rdbPrice = Lens.field @"price"
+{-# DEPRECATED rdbPrice "Use generic-lens or generic-optics with 'price' instead." #-}
 
 -- | The amount of RAM in GB (for example, @2.0@ ) for the database bundle.
 --
 -- /Note:/ Consider using 'ramSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdbRamSizeInGb :: Lens.Lens' RelationalDatabaseBundle (Lude.Maybe Lude.Double)
-rdbRamSizeInGb = Lens.lens (ramSizeInGb :: RelationalDatabaseBundle -> Lude.Maybe Lude.Double) (\s a -> s {ramSizeInGb = a} :: RelationalDatabaseBundle)
+rdbRamSizeInGb :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Core.Double)
+rdbRamSizeInGb = Lens.field @"ramSizeInGb"
 {-# DEPRECATED rdbRamSizeInGb "Use generic-lens or generic-optics with 'ramSizeInGb' instead." #-}
 
-instance Lude.FromJSON RelationalDatabaseBundle where
+-- | The data transfer rate per month in GB for the database bundle.
+--
+-- /Note:/ Consider using 'transferPerMonthInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbTransferPerMonthInGb :: Lens.Lens' RelationalDatabaseBundle (Core.Maybe Core.Int)
+rdbTransferPerMonthInGb = Lens.field @"transferPerMonthInGb"
+{-# DEPRECATED rdbTransferPerMonthInGb "Use generic-lens or generic-optics with 'transferPerMonthInGb' instead." #-}
+
+instance Core.FromJSON RelationalDatabaseBundle where
   parseJSON =
-    Lude.withObject
-      "RelationalDatabaseBundle"
-      ( \x ->
-          RelationalDatabaseBundle'
-            Lude.<$> (x Lude..:? "isEncrypted")
-            Lude.<*> (x Lude..:? "cpuCount")
-            Lude.<*> (x Lude..:? "transferPerMonthInGb")
-            Lude.<*> (x Lude..:? "bundleId")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "diskSizeInGb")
-            Lude.<*> (x Lude..:? "price")
-            Lude.<*> (x Lude..:? "isActive")
-            Lude.<*> (x Lude..:? "ramSizeInGb")
-      )
+    Core.withObject "RelationalDatabaseBundle" Core.$
+      \x ->
+        RelationalDatabaseBundle'
+          Core.<$> (x Core..:? "bundleId")
+          Core.<*> (x Core..:? "cpuCount")
+          Core.<*> (x Core..:? "diskSizeInGb")
+          Core.<*> (x Core..:? "isActive")
+          Core.<*> (x Core..:? "isEncrypted")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "price")
+          Core.<*> (x Core..:? "ramSizeInGb")
+          Core.<*> (x Core..:? "transferPerMonthInGb")

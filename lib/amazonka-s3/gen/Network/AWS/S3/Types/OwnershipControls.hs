@@ -22,38 +22,36 @@ module Network.AWS.S3.Types.OwnershipControls
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.OwnershipControlsRule
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.OwnershipControlsRule as Types
 
 -- | The container element for a bucket's ownership controls.
 --
 -- /See:/ 'mkOwnershipControls' smart constructor.
 newtype OwnershipControls = OwnershipControls'
   { -- | The container element for an ownership control rule.
-    rules :: [OwnershipControlsRule]
+    rules :: [Types.OwnershipControlsRule]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OwnershipControls' with the minimum fields required to make a request.
---
--- * 'rules' - The container element for an ownership control rule.
+-- | Creates a 'OwnershipControls' value with any optional fields omitted.
 mkOwnershipControls ::
   OwnershipControls
-mkOwnershipControls = OwnershipControls' {rules = Lude.mempty}
+mkOwnershipControls = OwnershipControls' {rules = Core.mempty}
 
 -- | The container element for an ownership control rule.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocRules :: Lens.Lens' OwnershipControls [OwnershipControlsRule]
-ocRules = Lens.lens (rules :: OwnershipControls -> [OwnershipControlsRule]) (\s a -> s {rules = a} :: OwnershipControls)
+ocRules :: Lens.Lens' OwnershipControls [Types.OwnershipControlsRule]
+ocRules = Lens.field @"rules"
 {-# DEPRECATED ocRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance Lude.FromXML OwnershipControls where
-  parseXML x =
-    OwnershipControls' Lude.<$> (Lude.parseXMLList "Rule" x)
+instance Core.ToXML OwnershipControls where
+  toXML OwnershipControls {..} = Core.toXMLList "Rule" rules
 
-instance Lude.ToXML OwnershipControls where
-  toXML OwnershipControls' {..} =
-    Lude.mconcat [Lude.toXMLList "Rule" rules]
+instance Core.FromXML OwnershipControls where
+  parseXML x =
+    OwnershipControls'
+      Core.<$> (x Core..@? "Rule" Core..@! Core.mempty)

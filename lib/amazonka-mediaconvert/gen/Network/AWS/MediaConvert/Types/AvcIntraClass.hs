@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.AvcIntraClass
   ( AvcIntraClass
       ( AvcIntraClass',
-        Class50,
-        Class100,
-        Class200
+        AvcIntraClassClass50,
+        AvcIntraClassClass100,
+        AvcIntraClassClass200,
+        fromAvcIntraClass
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify the AVC-Intra class of your output. The AVC-Intra class selection determines the output video bit rate depending on the frame rate of the output. Outputs with higher class values have higher bitrates and improved image quality.
-newtype AvcIntraClass = AvcIntraClass' Lude.Text
+newtype AvcIntraClass = AvcIntraClass'
+  { fromAvcIntraClass ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Class50 :: AvcIntraClass
-pattern Class50 = AvcIntraClass' "CLASS_50"
+pattern AvcIntraClassClass50 :: AvcIntraClass
+pattern AvcIntraClassClass50 = AvcIntraClass' "CLASS_50"
 
-pattern Class100 :: AvcIntraClass
-pattern Class100 = AvcIntraClass' "CLASS_100"
+pattern AvcIntraClassClass100 :: AvcIntraClass
+pattern AvcIntraClassClass100 = AvcIntraClass' "CLASS_100"
 
-pattern Class200 :: AvcIntraClass
-pattern Class200 = AvcIntraClass' "CLASS_200"
+pattern AvcIntraClassClass200 :: AvcIntraClass
+pattern AvcIntraClassClass200 = AvcIntraClass' "CLASS_200"
 
 {-# COMPLETE
-  Class50,
-  Class100,
-  Class200,
+  AvcIntraClassClass50,
+  AvcIntraClassClass100,
+  AvcIntraClassClass200,
   AvcIntraClass'
   #-}

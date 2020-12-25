@@ -17,13 +17,13 @@ module Network.AWS.IAM.Types.Position
     mkPosition,
 
     -- * Lenses
-    pLine,
     pColumn,
+    pLine,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the row and column of a location of a @Statement@ element in a policy document.
 --
@@ -31,37 +31,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPosition' smart constructor.
 data Position = Position'
-  { -- | The line containing the specified position in the document.
-    line :: Lude.Maybe Lude.Int,
-    -- | The column in the line containing the specified position in the document.
-    column :: Lude.Maybe Lude.Int
+  { -- | The column in the line containing the specified position in the document.
+    column :: Core.Maybe Core.Int,
+    -- | The line containing the specified position in the document.
+    line :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Position' with the minimum fields required to make a request.
---
--- * 'line' - The line containing the specified position in the document.
--- * 'column' - The column in the line containing the specified position in the document.
+-- | Creates a 'Position' value with any optional fields omitted.
 mkPosition ::
   Position
-mkPosition = Position' {line = Lude.Nothing, column = Lude.Nothing}
-
--- | The line containing the specified position in the document.
---
--- /Note:/ Consider using 'line' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pLine :: Lens.Lens' Position (Lude.Maybe Lude.Int)
-pLine = Lens.lens (line :: Position -> Lude.Maybe Lude.Int) (\s a -> s {line = a} :: Position)
-{-# DEPRECATED pLine "Use generic-lens or generic-optics with 'line' instead." #-}
+mkPosition = Position' {column = Core.Nothing, line = Core.Nothing}
 
 -- | The column in the line containing the specified position in the document.
 --
 -- /Note:/ Consider using 'column' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pColumn :: Lens.Lens' Position (Lude.Maybe Lude.Int)
-pColumn = Lens.lens (column :: Position -> Lude.Maybe Lude.Int) (\s a -> s {column = a} :: Position)
+pColumn :: Lens.Lens' Position (Core.Maybe Core.Int)
+pColumn = Lens.field @"column"
 {-# DEPRECATED pColumn "Use generic-lens or generic-optics with 'column' instead." #-}
 
-instance Lude.FromXML Position where
+-- | The line containing the specified position in the document.
+--
+-- /Note:/ Consider using 'line' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLine :: Lens.Lens' Position (Core.Maybe Core.Int)
+pLine = Lens.field @"line"
+{-# DEPRECATED pLine "Use generic-lens or generic-optics with 'line' instead." #-}
+
+instance Core.FromXML Position where
   parseXML x =
     Position'
-      Lude.<$> (x Lude..@? "Line") Lude.<*> (x Lude..@? "Column")
+      Core.<$> (x Core..@? "Column") Core.<*> (x Core..@? "Line")

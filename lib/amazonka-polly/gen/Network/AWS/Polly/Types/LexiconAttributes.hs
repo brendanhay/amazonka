@@ -17,111 +17,104 @@ module Network.AWS.Polly.Types.LexiconAttributes
     mkLexiconAttributes,
 
     -- * Lenses
-    laLanguageCode,
-    laSize,
-    laLexemesCount,
-    laLexiconARN,
     laAlphabet,
+    laLanguageCode,
     laLastModified,
+    laLexemesCount,
+    laLexiconArn,
+    laSize,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types.LanguageCode
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Polly.Types.Alphabet as Types
+import qualified Network.AWS.Polly.Types.LanguageCode as Types
+import qualified Network.AWS.Polly.Types.LexiconArn as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains metadata describing the lexicon such as the number of lexemes, language code, and so on. For more information, see <https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html Managing Lexicons> .
 --
 -- /See:/ 'mkLexiconAttributes' smart constructor.
 data LexiconAttributes = LexiconAttributes'
-  { -- | Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
-    languageCode :: Lude.Maybe LanguageCode,
-    -- | Total size of the lexicon, in characters.
-    size :: Lude.Maybe Lude.Int,
-    -- | Number of lexemes in the lexicon.
-    lexemesCount :: Lude.Maybe Lude.Int,
-    -- | Amazon Resource Name (ARN) of the lexicon.
-    lexiconARN :: Lude.Maybe Lude.Text,
-    -- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and @x-sampa@ .
-    alphabet :: Lude.Maybe Lude.Text,
+  { -- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and @x-sampa@ .
+    alphabet :: Core.Maybe Types.Alphabet,
+    -- | Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
+    languageCode :: Core.Maybe Types.LanguageCode,
     -- | Date lexicon was last modified (a timestamp value).
-    lastModified :: Lude.Maybe Lude.Timestamp
+    lastModified :: Core.Maybe Core.NominalDiffTime,
+    -- | Number of lexemes in the lexicon.
+    lexemesCount :: Core.Maybe Core.Int,
+    -- | Amazon Resource Name (ARN) of the lexicon.
+    lexiconArn :: Core.Maybe Types.LexiconArn,
+    -- | Total size of the lexicon, in characters.
+    size :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LexiconAttributes' with the minimum fields required to make a request.
---
--- * 'languageCode' - Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
--- * 'size' - Total size of the lexicon, in characters.
--- * 'lexemesCount' - Number of lexemes in the lexicon.
--- * 'lexiconARN' - Amazon Resource Name (ARN) of the lexicon.
--- * 'alphabet' - Phonetic alphabet used in the lexicon. Valid values are @ipa@ and @x-sampa@ .
--- * 'lastModified' - Date lexicon was last modified (a timestamp value).
+-- | Creates a 'LexiconAttributes' value with any optional fields omitted.
 mkLexiconAttributes ::
   LexiconAttributes
 mkLexiconAttributes =
   LexiconAttributes'
-    { languageCode = Lude.Nothing,
-      size = Lude.Nothing,
-      lexemesCount = Lude.Nothing,
-      lexiconARN = Lude.Nothing,
-      alphabet = Lude.Nothing,
-      lastModified = Lude.Nothing
+    { alphabet = Core.Nothing,
+      languageCode = Core.Nothing,
+      lastModified = Core.Nothing,
+      lexemesCount = Core.Nothing,
+      lexiconArn = Core.Nothing,
+      size = Core.Nothing
     }
-
--- | Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laLanguageCode :: Lens.Lens' LexiconAttributes (Lude.Maybe LanguageCode)
-laLanguageCode = Lens.lens (languageCode :: LexiconAttributes -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: LexiconAttributes)
-{-# DEPRECATED laLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | Total size of the lexicon, in characters.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laSize :: Lens.Lens' LexiconAttributes (Lude.Maybe Lude.Int)
-laSize = Lens.lens (size :: LexiconAttributes -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: LexiconAttributes)
-{-# DEPRECATED laSize "Use generic-lens or generic-optics with 'size' instead." #-}
-
--- | Number of lexemes in the lexicon.
---
--- /Note:/ Consider using 'lexemesCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laLexemesCount :: Lens.Lens' LexiconAttributes (Lude.Maybe Lude.Int)
-laLexemesCount = Lens.lens (lexemesCount :: LexiconAttributes -> Lude.Maybe Lude.Int) (\s a -> s {lexemesCount = a} :: LexiconAttributes)
-{-# DEPRECATED laLexemesCount "Use generic-lens or generic-optics with 'lexemesCount' instead." #-}
-
--- | Amazon Resource Name (ARN) of the lexicon.
---
--- /Note:/ Consider using 'lexiconARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laLexiconARN :: Lens.Lens' LexiconAttributes (Lude.Maybe Lude.Text)
-laLexiconARN = Lens.lens (lexiconARN :: LexiconAttributes -> Lude.Maybe Lude.Text) (\s a -> s {lexiconARN = a} :: LexiconAttributes)
-{-# DEPRECATED laLexiconARN "Use generic-lens or generic-optics with 'lexiconARN' instead." #-}
 
 -- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and @x-sampa@ .
 --
 -- /Note:/ Consider using 'alphabet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laAlphabet :: Lens.Lens' LexiconAttributes (Lude.Maybe Lude.Text)
-laAlphabet = Lens.lens (alphabet :: LexiconAttributes -> Lude.Maybe Lude.Text) (\s a -> s {alphabet = a} :: LexiconAttributes)
+laAlphabet :: Lens.Lens' LexiconAttributes (Core.Maybe Types.Alphabet)
+laAlphabet = Lens.field @"alphabet"
 {-# DEPRECATED laAlphabet "Use generic-lens or generic-optics with 'alphabet' instead." #-}
+
+-- | Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laLanguageCode :: Lens.Lens' LexiconAttributes (Core.Maybe Types.LanguageCode)
+laLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED laLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | Date lexicon was last modified (a timestamp value).
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laLastModified :: Lens.Lens' LexiconAttributes (Lude.Maybe Lude.Timestamp)
-laLastModified = Lens.lens (lastModified :: LexiconAttributes -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModified = a} :: LexiconAttributes)
+laLastModified :: Lens.Lens' LexiconAttributes (Core.Maybe Core.NominalDiffTime)
+laLastModified = Lens.field @"lastModified"
 {-# DEPRECATED laLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
-instance Lude.FromJSON LexiconAttributes where
+-- | Number of lexemes in the lexicon.
+--
+-- /Note:/ Consider using 'lexemesCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laLexemesCount :: Lens.Lens' LexiconAttributes (Core.Maybe Core.Int)
+laLexemesCount = Lens.field @"lexemesCount"
+{-# DEPRECATED laLexemesCount "Use generic-lens or generic-optics with 'lexemesCount' instead." #-}
+
+-- | Amazon Resource Name (ARN) of the lexicon.
+--
+-- /Note:/ Consider using 'lexiconArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laLexiconArn :: Lens.Lens' LexiconAttributes (Core.Maybe Types.LexiconArn)
+laLexiconArn = Lens.field @"lexiconArn"
+{-# DEPRECATED laLexiconArn "Use generic-lens or generic-optics with 'lexiconArn' instead." #-}
+
+-- | Total size of the lexicon, in characters.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laSize :: Lens.Lens' LexiconAttributes (Core.Maybe Core.Int)
+laSize = Lens.field @"size"
+{-# DEPRECATED laSize "Use generic-lens or generic-optics with 'size' instead." #-}
+
+instance Core.FromJSON LexiconAttributes where
   parseJSON =
-    Lude.withObject
-      "LexiconAttributes"
-      ( \x ->
-          LexiconAttributes'
-            Lude.<$> (x Lude..:? "LanguageCode")
-            Lude.<*> (x Lude..:? "Size")
-            Lude.<*> (x Lude..:? "LexemesCount")
-            Lude.<*> (x Lude..:? "LexiconArn")
-            Lude.<*> (x Lude..:? "Alphabet")
-            Lude.<*> (x Lude..:? "LastModified")
-      )
+    Core.withObject "LexiconAttributes" Core.$
+      \x ->
+        LexiconAttributes'
+          Core.<$> (x Core..:? "Alphabet")
+          Core.<*> (x Core..:? "LanguageCode")
+          Core.<*> (x Core..:? "LastModified")
+          Core.<*> (x Core..:? "LexemesCount")
+          Core.<*> (x Core..:? "LexiconArn")
+          Core.<*> (x Core..:? "Size")

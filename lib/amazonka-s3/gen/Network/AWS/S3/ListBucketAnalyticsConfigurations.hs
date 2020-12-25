@@ -33,8 +33,8 @@ module Network.AWS.S3.ListBucketAnalyticsConfigurations
     mkListBucketAnalyticsConfigurations,
 
     -- ** Request lenses
-    lbacContinuationToken,
     lbacBucket,
+    lbacContinuationToken,
     lbacExpectedBucketOwner,
 
     -- * Destructuring the response
@@ -42,168 +42,154 @@ module Network.AWS.S3.ListBucketAnalyticsConfigurations
     mkListBucketAnalyticsConfigurationsResponse,
 
     -- ** Response lenses
-    lbacrsAnalyticsConfigurationList,
-    lbacrsContinuationToken,
-    lbacrsNextContinuationToken,
-    lbacrsIsTruncated,
-    lbacrsResponseStatus,
+    lbacrrsAnalyticsConfigurationList,
+    lbacrrsContinuationToken,
+    lbacrrsIsTruncated,
+    lbacrrsNextContinuationToken,
+    lbacrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkListBucketAnalyticsConfigurations' smart constructor.
 data ListBucketAnalyticsConfigurations = ListBucketAnalyticsConfigurations'
-  { -- | The ContinuationToken that represents a placeholder from where this request should begin.
-    continuationToken :: Lude.Maybe Lude.Text,
-    -- | The name of the bucket from which analytics configurations are retrieved.
-    bucket :: BucketName,
+  { -- | The name of the bucket from which analytics configurations are retrieved.
+    bucket :: Types.BucketName,
+    -- | The ContinuationToken that represents a placeholder from where this request should begin.
+    continuationToken :: Core.Maybe Types.ContinuationToken,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBucketAnalyticsConfigurations' with the minimum fields required to make a request.
---
--- * 'continuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
--- * 'bucket' - The name of the bucket from which analytics configurations are retrieved.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'ListBucketAnalyticsConfigurations' value with any optional fields omitted.
 mkListBucketAnalyticsConfigurations ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   ListBucketAnalyticsConfigurations
-mkListBucketAnalyticsConfigurations pBucket_ =
+mkListBucketAnalyticsConfigurations bucket =
   ListBucketAnalyticsConfigurations'
-    { continuationToken =
-        Lude.Nothing,
-      bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      continuationToken = Core.Nothing,
+      expectedBucketOwner = Core.Nothing
     }
-
--- | The ContinuationToken that represents a placeholder from where this request should begin.
---
--- /Note:/ Consider using 'continuationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurations (Lude.Maybe Lude.Text)
-lbacContinuationToken = Lens.lens (continuationToken :: ListBucketAnalyticsConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {continuationToken = a} :: ListBucketAnalyticsConfigurations)
-{-# DEPRECATED lbacContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
 
 -- | The name of the bucket from which analytics configurations are retrieved.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacBucket :: Lens.Lens' ListBucketAnalyticsConfigurations BucketName
-lbacBucket = Lens.lens (bucket :: ListBucketAnalyticsConfigurations -> BucketName) (\s a -> s {bucket = a} :: ListBucketAnalyticsConfigurations)
+lbacBucket :: Lens.Lens' ListBucketAnalyticsConfigurations Types.BucketName
+lbacBucket = Lens.field @"bucket"
 {-# DEPRECATED lbacBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The ContinuationToken that represents a placeholder from where this request should begin.
+--
+-- /Note:/ Consider using 'continuationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbacContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurations (Core.Maybe Types.ContinuationToken)
+lbacContinuationToken = Lens.field @"continuationToken"
+{-# DEPRECATED lbacContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacExpectedBucketOwner :: Lens.Lens' ListBucketAnalyticsConfigurations (Lude.Maybe Lude.Text)
-lbacExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListBucketAnalyticsConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListBucketAnalyticsConfigurations)
+lbacExpectedBucketOwner :: Lens.Lens' ListBucketAnalyticsConfigurations (Core.Maybe Types.ExpectedBucketOwner)
+lbacExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED lbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest ListBucketAnalyticsConfigurations where
+instance Core.AWSRequest ListBucketAnalyticsConfigurations where
   type
     Rs ListBucketAnalyticsConfigurations =
       ListBucketAnalyticsConfigurationsResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "continuation-token" Core.<$> continuationToken
+            Core.<> (Core.pure ("analytics", "")),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListBucketAnalyticsConfigurationsResponse'
-            Lude.<$> (Lude.may (Lude.parseXMLList "AnalyticsConfiguration") x)
-            Lude.<*> (x Lude..@? "ContinuationToken")
-            Lude.<*> (x Lude..@? "NextContinuationToken")
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "AnalyticsConfiguration")
+            Core.<*> (x Core..@? "ContinuationToken")
+            Core.<*> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "NextContinuationToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListBucketAnalyticsConfigurations where
-  toHeaders ListBucketAnalyticsConfigurations' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath ListBucketAnalyticsConfigurations where
-  toPath ListBucketAnalyticsConfigurations' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery ListBucketAnalyticsConfigurations where
-  toQuery ListBucketAnalyticsConfigurations' {..} =
-    Lude.mconcat
-      ["continuation-token" Lude.=: continuationToken, "analytics"]
 
 -- | /See:/ 'mkListBucketAnalyticsConfigurationsResponse' smart constructor.
 data ListBucketAnalyticsConfigurationsResponse = ListBucketAnalyticsConfigurationsResponse'
   { -- | The list of analytics configurations for a bucket.
-    analyticsConfigurationList :: Lude.Maybe [AnalyticsConfiguration],
+    analyticsConfigurationList :: Core.Maybe [Types.AnalyticsConfiguration],
     -- | The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.
-    continuationToken :: Lude.Maybe Lude.Text,
-    -- | @NextContinuationToken@ is sent when @isTruncated@ is true, which indicates that there are more analytics configurations to list. The next request must include this @NextContinuationToken@ . The token is obfuscated and is not a usable value.
-    nextContinuationToken :: Lude.Maybe Lude.Text,
+    continuationToken :: Core.Maybe Types.Token,
     -- | Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
-    isTruncated :: Lude.Maybe Lude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
+    -- | @NextContinuationToken@ is sent when @isTruncated@ is true, which indicates that there are more analytics configurations to list. The next request must include this @NextContinuationToken@ . The token is obfuscated and is not a usable value.
+    nextContinuationToken :: Core.Maybe Types.NextContinuationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBucketAnalyticsConfigurationsResponse' with the minimum fields required to make a request.
---
--- * 'analyticsConfigurationList' - The list of analytics configurations for a bucket.
--- * 'continuationToken' - The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.
--- * 'nextContinuationToken' - @NextContinuationToken@ is sent when @isTruncated@ is true, which indicates that there are more analytics configurations to list. The next request must include this @NextContinuationToken@ . The token is obfuscated and is not a usable value.
--- * 'isTruncated' - Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListBucketAnalyticsConfigurationsResponse' value with any optional fields omitted.
 mkListBucketAnalyticsConfigurationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListBucketAnalyticsConfigurationsResponse
-mkListBucketAnalyticsConfigurationsResponse pResponseStatus_ =
+mkListBucketAnalyticsConfigurationsResponse responseStatus =
   ListBucketAnalyticsConfigurationsResponse'
     { analyticsConfigurationList =
-        Lude.Nothing,
-      continuationToken = Lude.Nothing,
-      nextContinuationToken = Lude.Nothing,
-      isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      continuationToken = Core.Nothing,
+      isTruncated = Core.Nothing,
+      nextContinuationToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of analytics configurations for a bucket.
 --
 -- /Note:/ Consider using 'analyticsConfigurationList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacrsAnalyticsConfigurationList :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Lude.Maybe [AnalyticsConfiguration])
-lbacrsAnalyticsConfigurationList = Lens.lens (analyticsConfigurationList :: ListBucketAnalyticsConfigurationsResponse -> Lude.Maybe [AnalyticsConfiguration]) (\s a -> s {analyticsConfigurationList = a} :: ListBucketAnalyticsConfigurationsResponse)
-{-# DEPRECATED lbacrsAnalyticsConfigurationList "Use generic-lens or generic-optics with 'analyticsConfigurationList' instead." #-}
+lbacrrsAnalyticsConfigurationList :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Core.Maybe [Types.AnalyticsConfiguration])
+lbacrrsAnalyticsConfigurationList = Lens.field @"analyticsConfigurationList"
+{-# DEPRECATED lbacrrsAnalyticsConfigurationList "Use generic-lens or generic-optics with 'analyticsConfigurationList' instead." #-}
 
 -- | The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.
 --
 -- /Note:/ Consider using 'continuationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacrsContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Lude.Maybe Lude.Text)
-lbacrsContinuationToken = Lens.lens (continuationToken :: ListBucketAnalyticsConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {continuationToken = a} :: ListBucketAnalyticsConfigurationsResponse)
-{-# DEPRECATED lbacrsContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
-
--- | @NextContinuationToken@ is sent when @isTruncated@ is true, which indicates that there are more analytics configurations to list. The next request must include this @NextContinuationToken@ . The token is obfuscated and is not a usable value.
---
--- /Note:/ Consider using 'nextContinuationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacrsNextContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Lude.Maybe Lude.Text)
-lbacrsNextContinuationToken = Lens.lens (nextContinuationToken :: ListBucketAnalyticsConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextContinuationToken = a} :: ListBucketAnalyticsConfigurationsResponse)
-{-# DEPRECATED lbacrsNextContinuationToken "Use generic-lens or generic-optics with 'nextContinuationToken' instead." #-}
+lbacrrsContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Core.Maybe Types.Token)
+lbacrrsContinuationToken = Lens.field @"continuationToken"
+{-# DEPRECATED lbacrrsContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
 
 -- | Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacrsIsTruncated :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Lude.Maybe Lude.Bool)
-lbacrsIsTruncated = Lens.lens (isTruncated :: ListBucketAnalyticsConfigurationsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListBucketAnalyticsConfigurationsResponse)
-{-# DEPRECATED lbacrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+lbacrrsIsTruncated :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Core.Maybe Core.Bool)
+lbacrrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED lbacrrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
+-- | @NextContinuationToken@ is sent when @isTruncated@ is true, which indicates that there are more analytics configurations to list. The next request must include this @NextContinuationToken@ . The token is obfuscated and is not a usable value.
+--
+-- /Note:/ Consider using 'nextContinuationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbacrrsNextContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse (Core.Maybe Types.NextContinuationToken)
+lbacrrsNextContinuationToken = Lens.field @"nextContinuationToken"
+{-# DEPRECATED lbacrrsNextContinuationToken "Use generic-lens or generic-optics with 'nextContinuationToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacrsResponseStatus :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse Lude.Int
-lbacrsResponseStatus = Lens.lens (responseStatus :: ListBucketAnalyticsConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBucketAnalyticsConfigurationsResponse)
-{-# DEPRECATED lbacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lbacrrsResponseStatus :: Lens.Lens' ListBucketAnalyticsConfigurationsResponse Core.Int
+lbacrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lbacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

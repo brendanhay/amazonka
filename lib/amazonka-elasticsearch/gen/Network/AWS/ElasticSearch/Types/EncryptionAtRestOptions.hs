@@ -18,65 +18,61 @@ module Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
 
     -- * Lenses
     earoEnabled,
-    earoKMSKeyId,
+    earoKmsKeyId,
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.KmsKeyId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the Encryption At Rest Options.
 --
 -- /See:/ 'mkEncryptionAtRestOptions' smart constructor.
 data EncryptionAtRestOptions = EncryptionAtRestOptions'
   { -- | Specifies the option to enable Encryption At Rest.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | Specifies the KMS Key ID for Encryption At Rest options.
-    kmsKeyId :: Lude.Maybe Lude.Text
+    kmsKeyId :: Core.Maybe Types.KmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EncryptionAtRestOptions' with the minimum fields required to make a request.
---
--- * 'enabled' - Specifies the option to enable Encryption At Rest.
--- * 'kmsKeyId' - Specifies the KMS Key ID for Encryption At Rest options.
+-- | Creates a 'EncryptionAtRestOptions' value with any optional fields omitted.
 mkEncryptionAtRestOptions ::
   EncryptionAtRestOptions
 mkEncryptionAtRestOptions =
   EncryptionAtRestOptions'
-    { enabled = Lude.Nothing,
-      kmsKeyId = Lude.Nothing
+    { enabled = Core.Nothing,
+      kmsKeyId = Core.Nothing
     }
 
 -- | Specifies the option to enable Encryption At Rest.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-earoEnabled :: Lens.Lens' EncryptionAtRestOptions (Lude.Maybe Lude.Bool)
-earoEnabled = Lens.lens (enabled :: EncryptionAtRestOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: EncryptionAtRestOptions)
+earoEnabled :: Lens.Lens' EncryptionAtRestOptions (Core.Maybe Core.Bool)
+earoEnabled = Lens.field @"enabled"
 {-# DEPRECATED earoEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Specifies the KMS Key ID for Encryption At Rest options.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-earoKMSKeyId :: Lens.Lens' EncryptionAtRestOptions (Lude.Maybe Lude.Text)
-earoKMSKeyId = Lens.lens (kmsKeyId :: EncryptionAtRestOptions -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: EncryptionAtRestOptions)
-{-# DEPRECATED earoKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+earoKmsKeyId :: Lens.Lens' EncryptionAtRestOptions (Core.Maybe Types.KmsKeyId)
+earoKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED earoKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
-instance Lude.FromJSON EncryptionAtRestOptions where
-  parseJSON =
-    Lude.withObject
-      "EncryptionAtRestOptions"
-      ( \x ->
-          EncryptionAtRestOptions'
-            Lude.<$> (x Lude..:? "Enabled") Lude.<*> (x Lude..:? "KmsKeyId")
-      )
-
-instance Lude.ToJSON EncryptionAtRestOptions where
-  toJSON EncryptionAtRestOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId
+instance Core.FromJSON EncryptionAtRestOptions where
+  toJSON EncryptionAtRestOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId
           ]
       )
+
+instance Core.FromJSON EncryptionAtRestOptions where
+  parseJSON =
+    Core.withObject "EncryptionAtRestOptions" Core.$
+      \x ->
+        EncryptionAtRestOptions'
+          Core.<$> (x Core..:? "Enabled") Core.<*> (x Core..:? "KmsKeyId")

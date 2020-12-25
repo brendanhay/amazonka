@@ -13,56 +13,58 @@
 module Network.AWS.Shield.Types.Unit
   ( Unit
       ( Unit',
-        Bits,
-        Bytes,
-        Packets,
-        Requests
+        UnitBits,
+        UnitBytes,
+        UnitPackets,
+        UnitRequests,
+        fromUnit
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Unit = Unit' Lude.Text
+newtype Unit = Unit' {fromUnit :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Bits :: Unit
-pattern Bits = Unit' "BITS"
+pattern UnitBits :: Unit
+pattern UnitBits = Unit' "BITS"
 
-pattern Bytes :: Unit
-pattern Bytes = Unit' "BYTES"
+pattern UnitBytes :: Unit
+pattern UnitBytes = Unit' "BYTES"
 
-pattern Packets :: Unit
-pattern Packets = Unit' "PACKETS"
+pattern UnitPackets :: Unit
+pattern UnitPackets = Unit' "PACKETS"
 
-pattern Requests :: Unit
-pattern Requests = Unit' "REQUESTS"
+pattern UnitRequests :: Unit
+pattern UnitRequests = Unit' "REQUESTS"
 
 {-# COMPLETE
-  Bits,
-  Bytes,
-  Packets,
-  Requests,
+  UnitBits,
+  UnitBytes,
+  UnitPackets,
+  UnitRequests,
   Unit'
   #-}

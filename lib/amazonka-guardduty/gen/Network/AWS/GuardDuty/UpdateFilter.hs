@@ -20,11 +20,11 @@ module Network.AWS.GuardDuty.UpdateFilter
     mkUpdateFilter,
 
     -- ** Request lenses
-    ufFilterName,
-    ufFindingCriteria,
-    ufAction,
     ufDetectorId,
+    ufFilterName,
+    ufAction,
     ufDescription,
+    ufFindingCriteria,
     ufRank,
 
     -- * Destructuring the response
@@ -32,179 +32,158 @@ module Network.AWS.GuardDuty.UpdateFilter
     mkUpdateFilterResponse,
 
     -- ** Response lenses
-    ufrsName,
-    ufrsResponseStatus,
+    ufrrsName,
+    ufrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateFilter' smart constructor.
 data UpdateFilter = UpdateFilter'
-  { -- | The name of the filter.
-    filterName :: Lude.Text,
-    -- | Represents the criteria to be used in the filter for querying findings.
-    findingCriteria :: Lude.Maybe FindingCriteria,
+  { -- | The unique ID of the detector that specifies the GuardDuty service where you want to update a filter.
+    detectorId :: Types.DetectorId,
+    -- | The name of the filter.
+    filterName :: Types.String,
     -- | Specifies the action that is to be applied to the findings that match the filter.
-    action :: Lude.Maybe FilterAction,
-    -- | The unique ID of the detector that specifies the GuardDuty service where you want to update a filter.
-    detectorId :: Lude.Text,
+    action :: Core.Maybe Types.FilterAction,
     -- | The description of the filter.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | Represents the criteria to be used in the filter for querying findings.
+    findingCriteria :: Core.Maybe Types.FindingCriteria,
     -- | Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-    rank :: Lude.Maybe Lude.Natural
+    rank :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFilter' with the minimum fields required to make a request.
---
--- * 'filterName' - The name of the filter.
--- * 'findingCriteria' - Represents the criteria to be used in the filter for querying findings.
--- * 'action' - Specifies the action that is to be applied to the findings that match the filter.
--- * 'detectorId' - The unique ID of the detector that specifies the GuardDuty service where you want to update a filter.
--- * 'description' - The description of the filter.
--- * 'rank' - Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+-- | Creates a 'UpdateFilter' value with any optional fields omitted.
 mkUpdateFilter ::
-  -- | 'filterName'
-  Lude.Text ->
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
+  -- | 'filterName'
+  Types.String ->
   UpdateFilter
-mkUpdateFilter pFilterName_ pDetectorId_ =
+mkUpdateFilter detectorId filterName =
   UpdateFilter'
-    { filterName = pFilterName_,
-      findingCriteria = Lude.Nothing,
-      action = Lude.Nothing,
-      detectorId = pDetectorId_,
-      description = Lude.Nothing,
-      rank = Lude.Nothing
+    { detectorId,
+      filterName,
+      action = Core.Nothing,
+      description = Core.Nothing,
+      findingCriteria = Core.Nothing,
+      rank = Core.Nothing
     }
-
--- | The name of the filter.
---
--- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufFilterName :: Lens.Lens' UpdateFilter Lude.Text
-ufFilterName = Lens.lens (filterName :: UpdateFilter -> Lude.Text) (\s a -> s {filterName = a} :: UpdateFilter)
-{-# DEPRECATED ufFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
-
--- | Represents the criteria to be used in the filter for querying findings.
---
--- /Note:/ Consider using 'findingCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufFindingCriteria :: Lens.Lens' UpdateFilter (Lude.Maybe FindingCriteria)
-ufFindingCriteria = Lens.lens (findingCriteria :: UpdateFilter -> Lude.Maybe FindingCriteria) (\s a -> s {findingCriteria = a} :: UpdateFilter)
-{-# DEPRECATED ufFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}
-
--- | Specifies the action that is to be applied to the findings that match the filter.
---
--- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufAction :: Lens.Lens' UpdateFilter (Lude.Maybe FilterAction)
-ufAction = Lens.lens (action :: UpdateFilter -> Lude.Maybe FilterAction) (\s a -> s {action = a} :: UpdateFilter)
-{-# DEPRECATED ufAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The unique ID of the detector that specifies the GuardDuty service where you want to update a filter.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufDetectorId :: Lens.Lens' UpdateFilter Lude.Text
-ufDetectorId = Lens.lens (detectorId :: UpdateFilter -> Lude.Text) (\s a -> s {detectorId = a} :: UpdateFilter)
+ufDetectorId :: Lens.Lens' UpdateFilter Types.DetectorId
+ufDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED ufDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufFilterName :: Lens.Lens' UpdateFilter Types.String
+ufFilterName = Lens.field @"filterName"
+{-# DEPRECATED ufFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+
+-- | Specifies the action that is to be applied to the findings that match the filter.
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufAction :: Lens.Lens' UpdateFilter (Core.Maybe Types.FilterAction)
+ufAction = Lens.field @"action"
+{-# DEPRECATED ufAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The description of the filter.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufDescription :: Lens.Lens' UpdateFilter (Lude.Maybe Lude.Text)
-ufDescription = Lens.lens (description :: UpdateFilter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateFilter)
+ufDescription :: Lens.Lens' UpdateFilter (Core.Maybe Types.Description)
+ufDescription = Lens.field @"description"
 {-# DEPRECATED ufDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Represents the criteria to be used in the filter for querying findings.
+--
+-- /Note:/ Consider using 'findingCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufFindingCriteria :: Lens.Lens' UpdateFilter (Core.Maybe Types.FindingCriteria)
+ufFindingCriteria = Lens.field @"findingCriteria"
+{-# DEPRECATED ufFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}
 
 -- | Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 --
 -- /Note:/ Consider using 'rank' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufRank :: Lens.Lens' UpdateFilter (Lude.Maybe Lude.Natural)
-ufRank = Lens.lens (rank :: UpdateFilter -> Lude.Maybe Lude.Natural) (\s a -> s {rank = a} :: UpdateFilter)
+ufRank :: Lens.Lens' UpdateFilter (Core.Maybe Core.Natural)
+ufRank = Lens.field @"rank"
 {-# DEPRECATED ufRank "Use generic-lens or generic-optics with 'rank' instead." #-}
 
-instance Lude.AWSRequest UpdateFilter where
+instance Core.FromJSON UpdateFilter where
+  toJSON UpdateFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("action" Core..=) Core.<$> action,
+            ("description" Core..=) Core.<$> description,
+            ("findingCriteria" Core..=) Core.<$> findingCriteria,
+            ("rank" Core..=) Core.<$> rank
+          ]
+      )
+
+instance Core.AWSRequest UpdateFilter where
   type Rs UpdateFilter = UpdateFilterResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId) Core.<> ("/filter/")
+                Core.<> (Core.toText filterName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateFilterResponse'
-            Lude.<$> (x Lude..:> "name") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "name") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateFilter where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateFilter where
-  toJSON UpdateFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("findingCriteria" Lude..=) Lude.<$> findingCriteria,
-            ("action" Lude..=) Lude.<$> action,
-            ("description" Lude..=) Lude.<$> description,
-            ("rank" Lude..=) Lude.<$> rank
-          ]
-      )
-
-instance Lude.ToPath UpdateFilter where
-  toPath UpdateFilter' {..} =
-    Lude.mconcat
-      [ "/detector/",
-        Lude.toBS detectorId,
-        "/filter/",
-        Lude.toBS filterName
-      ]
-
-instance Lude.ToQuery UpdateFilter where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateFilterResponse' smart constructor.
 data UpdateFilterResponse = UpdateFilterResponse'
   { -- | The name of the filter.
-    name :: Lude.Text,
+    name :: Types.FilterName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFilterResponse' with the minimum fields required to make a request.
---
--- * 'name' - The name of the filter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateFilterResponse' value with any optional fields omitted.
 mkUpdateFilterResponse ::
   -- | 'name'
-  Lude.Text ->
+  Types.FilterName ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateFilterResponse
-mkUpdateFilterResponse pName_ pResponseStatus_ =
-  UpdateFilterResponse'
-    { name = pName_,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateFilterResponse name responseStatus =
+  UpdateFilterResponse' {name, responseStatus}
 
 -- | The name of the filter.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufrsName :: Lens.Lens' UpdateFilterResponse Lude.Text
-ufrsName = Lens.lens (name :: UpdateFilterResponse -> Lude.Text) (\s a -> s {name = a} :: UpdateFilterResponse)
-{-# DEPRECATED ufrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+ufrrsName :: Lens.Lens' UpdateFilterResponse Types.FilterName
+ufrrsName = Lens.field @"name"
+{-# DEPRECATED ufrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufrsResponseStatus :: Lens.Lens' UpdateFilterResponse Lude.Int
-ufrsResponseStatus = Lens.lens (responseStatus :: UpdateFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFilterResponse)
-{-# DEPRECATED ufrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ufrrsResponseStatus :: Lens.Lens' UpdateFilterResponse Core.Int
+ufrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ufrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

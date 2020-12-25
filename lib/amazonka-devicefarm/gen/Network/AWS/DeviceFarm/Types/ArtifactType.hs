@@ -13,176 +13,178 @@
 module Network.AWS.DeviceFarm.Types.ArtifactType
   ( ArtifactType
       ( ArtifactType',
-        Unknown,
-        Screenshot,
-        DeviceLog,
-        MessageLog,
-        VideoLog,
-        ResultLog,
-        ServiceLog,
-        WebkitLog,
-        InstrumentationOutput,
-        ExerciserMonkeyOutput,
-        CalabashJSONOutput,
-        CalabashPrettyOutput,
-        CalabashStandardOutput,
-        CalabashJavaXMLOutput,
-        AutomationOutput,
-        AppiumServerOutput,
-        AppiumJavaOutput,
-        AppiumJavaXMLOutput,
-        AppiumPythonOutput,
-        AppiumPythonXMLOutput,
-        ExplorerEventLog,
-        ExplorerSummaryLog,
-        ApplicationCrashReport,
-        XctestLog,
-        Video,
-        CustomerArtifact,
-        CustomerArtifactLog,
-        TestspecOutput
+        ArtifactTypeUnknown,
+        ArtifactTypeScreenshot,
+        ArtifactTypeDeviceLog,
+        ArtifactTypeMessageLog,
+        ArtifactTypeVideoLog,
+        ArtifactTypeResultLog,
+        ArtifactTypeServiceLog,
+        ArtifactTypeWebkitLog,
+        ArtifactTypeInstrumentationOutput,
+        ArtifactTypeExerciserMonkeyOutput,
+        ArtifactTypeCalabashJsonOutput,
+        ArtifactTypeCalabashPrettyOutput,
+        ArtifactTypeCalabashStandardOutput,
+        ArtifactTypeCalabashJavaXmlOutput,
+        ArtifactTypeAutomationOutput,
+        ArtifactTypeAppiumServerOutput,
+        ArtifactTypeAppiumJavaOutput,
+        ArtifactTypeAppiumJavaXmlOutput,
+        ArtifactTypeAppiumPythonOutput,
+        ArtifactTypeAppiumPythonXmlOutput,
+        ArtifactTypeExplorerEventLog,
+        ArtifactTypeExplorerSummaryLog,
+        ArtifactTypeApplicationCrashReport,
+        ArtifactTypeXctestLog,
+        ArtifactTypeVideo,
+        ArtifactTypeCustomerArtifact,
+        ArtifactTypeCustomerArtifactLog,
+        ArtifactTypeTestspecOutput,
+        fromArtifactType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ArtifactType = ArtifactType' Lude.Text
+newtype ArtifactType = ArtifactType' {fromArtifactType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Unknown :: ArtifactType
-pattern Unknown = ArtifactType' "UNKNOWN"
+pattern ArtifactTypeUnknown :: ArtifactType
+pattern ArtifactTypeUnknown = ArtifactType' "UNKNOWN"
 
-pattern Screenshot :: ArtifactType
-pattern Screenshot = ArtifactType' "SCREENSHOT"
+pattern ArtifactTypeScreenshot :: ArtifactType
+pattern ArtifactTypeScreenshot = ArtifactType' "SCREENSHOT"
 
-pattern DeviceLog :: ArtifactType
-pattern DeviceLog = ArtifactType' "DEVICE_LOG"
+pattern ArtifactTypeDeviceLog :: ArtifactType
+pattern ArtifactTypeDeviceLog = ArtifactType' "DEVICE_LOG"
 
-pattern MessageLog :: ArtifactType
-pattern MessageLog = ArtifactType' "MESSAGE_LOG"
+pattern ArtifactTypeMessageLog :: ArtifactType
+pattern ArtifactTypeMessageLog = ArtifactType' "MESSAGE_LOG"
 
-pattern VideoLog :: ArtifactType
-pattern VideoLog = ArtifactType' "VIDEO_LOG"
+pattern ArtifactTypeVideoLog :: ArtifactType
+pattern ArtifactTypeVideoLog = ArtifactType' "VIDEO_LOG"
 
-pattern ResultLog :: ArtifactType
-pattern ResultLog = ArtifactType' "RESULT_LOG"
+pattern ArtifactTypeResultLog :: ArtifactType
+pattern ArtifactTypeResultLog = ArtifactType' "RESULT_LOG"
 
-pattern ServiceLog :: ArtifactType
-pattern ServiceLog = ArtifactType' "SERVICE_LOG"
+pattern ArtifactTypeServiceLog :: ArtifactType
+pattern ArtifactTypeServiceLog = ArtifactType' "SERVICE_LOG"
 
-pattern WebkitLog :: ArtifactType
-pattern WebkitLog = ArtifactType' "WEBKIT_LOG"
+pattern ArtifactTypeWebkitLog :: ArtifactType
+pattern ArtifactTypeWebkitLog = ArtifactType' "WEBKIT_LOG"
 
-pattern InstrumentationOutput :: ArtifactType
-pattern InstrumentationOutput = ArtifactType' "INSTRUMENTATION_OUTPUT"
+pattern ArtifactTypeInstrumentationOutput :: ArtifactType
+pattern ArtifactTypeInstrumentationOutput = ArtifactType' "INSTRUMENTATION_OUTPUT"
 
-pattern ExerciserMonkeyOutput :: ArtifactType
-pattern ExerciserMonkeyOutput = ArtifactType' "EXERCISER_MONKEY_OUTPUT"
+pattern ArtifactTypeExerciserMonkeyOutput :: ArtifactType
+pattern ArtifactTypeExerciserMonkeyOutput = ArtifactType' "EXERCISER_MONKEY_OUTPUT"
 
-pattern CalabashJSONOutput :: ArtifactType
-pattern CalabashJSONOutput = ArtifactType' "CALABASH_JSON_OUTPUT"
+pattern ArtifactTypeCalabashJsonOutput :: ArtifactType
+pattern ArtifactTypeCalabashJsonOutput = ArtifactType' "CALABASH_JSON_OUTPUT"
 
-pattern CalabashPrettyOutput :: ArtifactType
-pattern CalabashPrettyOutput = ArtifactType' "CALABASH_PRETTY_OUTPUT"
+pattern ArtifactTypeCalabashPrettyOutput :: ArtifactType
+pattern ArtifactTypeCalabashPrettyOutput = ArtifactType' "CALABASH_PRETTY_OUTPUT"
 
-pattern CalabashStandardOutput :: ArtifactType
-pattern CalabashStandardOutput = ArtifactType' "CALABASH_STANDARD_OUTPUT"
+pattern ArtifactTypeCalabashStandardOutput :: ArtifactType
+pattern ArtifactTypeCalabashStandardOutput = ArtifactType' "CALABASH_STANDARD_OUTPUT"
 
-pattern CalabashJavaXMLOutput :: ArtifactType
-pattern CalabashJavaXMLOutput = ArtifactType' "CALABASH_JAVA_XML_OUTPUT"
+pattern ArtifactTypeCalabashJavaXmlOutput :: ArtifactType
+pattern ArtifactTypeCalabashJavaXmlOutput = ArtifactType' "CALABASH_JAVA_XML_OUTPUT"
 
-pattern AutomationOutput :: ArtifactType
-pattern AutomationOutput = ArtifactType' "AUTOMATION_OUTPUT"
+pattern ArtifactTypeAutomationOutput :: ArtifactType
+pattern ArtifactTypeAutomationOutput = ArtifactType' "AUTOMATION_OUTPUT"
 
-pattern AppiumServerOutput :: ArtifactType
-pattern AppiumServerOutput = ArtifactType' "APPIUM_SERVER_OUTPUT"
+pattern ArtifactTypeAppiumServerOutput :: ArtifactType
+pattern ArtifactTypeAppiumServerOutput = ArtifactType' "APPIUM_SERVER_OUTPUT"
 
-pattern AppiumJavaOutput :: ArtifactType
-pattern AppiumJavaOutput = ArtifactType' "APPIUM_JAVA_OUTPUT"
+pattern ArtifactTypeAppiumJavaOutput :: ArtifactType
+pattern ArtifactTypeAppiumJavaOutput = ArtifactType' "APPIUM_JAVA_OUTPUT"
 
-pattern AppiumJavaXMLOutput :: ArtifactType
-pattern AppiumJavaXMLOutput = ArtifactType' "APPIUM_JAVA_XML_OUTPUT"
+pattern ArtifactTypeAppiumJavaXmlOutput :: ArtifactType
+pattern ArtifactTypeAppiumJavaXmlOutput = ArtifactType' "APPIUM_JAVA_XML_OUTPUT"
 
-pattern AppiumPythonOutput :: ArtifactType
-pattern AppiumPythonOutput = ArtifactType' "APPIUM_PYTHON_OUTPUT"
+pattern ArtifactTypeAppiumPythonOutput :: ArtifactType
+pattern ArtifactTypeAppiumPythonOutput = ArtifactType' "APPIUM_PYTHON_OUTPUT"
 
-pattern AppiumPythonXMLOutput :: ArtifactType
-pattern AppiumPythonXMLOutput = ArtifactType' "APPIUM_PYTHON_XML_OUTPUT"
+pattern ArtifactTypeAppiumPythonXmlOutput :: ArtifactType
+pattern ArtifactTypeAppiumPythonXmlOutput = ArtifactType' "APPIUM_PYTHON_XML_OUTPUT"
 
-pattern ExplorerEventLog :: ArtifactType
-pattern ExplorerEventLog = ArtifactType' "EXPLORER_EVENT_LOG"
+pattern ArtifactTypeExplorerEventLog :: ArtifactType
+pattern ArtifactTypeExplorerEventLog = ArtifactType' "EXPLORER_EVENT_LOG"
 
-pattern ExplorerSummaryLog :: ArtifactType
-pattern ExplorerSummaryLog = ArtifactType' "EXPLORER_SUMMARY_LOG"
+pattern ArtifactTypeExplorerSummaryLog :: ArtifactType
+pattern ArtifactTypeExplorerSummaryLog = ArtifactType' "EXPLORER_SUMMARY_LOG"
 
-pattern ApplicationCrashReport :: ArtifactType
-pattern ApplicationCrashReport = ArtifactType' "APPLICATION_CRASH_REPORT"
+pattern ArtifactTypeApplicationCrashReport :: ArtifactType
+pattern ArtifactTypeApplicationCrashReport = ArtifactType' "APPLICATION_CRASH_REPORT"
 
-pattern XctestLog :: ArtifactType
-pattern XctestLog = ArtifactType' "XCTEST_LOG"
+pattern ArtifactTypeXctestLog :: ArtifactType
+pattern ArtifactTypeXctestLog = ArtifactType' "XCTEST_LOG"
 
-pattern Video :: ArtifactType
-pattern Video = ArtifactType' "VIDEO"
+pattern ArtifactTypeVideo :: ArtifactType
+pattern ArtifactTypeVideo = ArtifactType' "VIDEO"
 
-pattern CustomerArtifact :: ArtifactType
-pattern CustomerArtifact = ArtifactType' "CUSTOMER_ARTIFACT"
+pattern ArtifactTypeCustomerArtifact :: ArtifactType
+pattern ArtifactTypeCustomerArtifact = ArtifactType' "CUSTOMER_ARTIFACT"
 
-pattern CustomerArtifactLog :: ArtifactType
-pattern CustomerArtifactLog = ArtifactType' "CUSTOMER_ARTIFACT_LOG"
+pattern ArtifactTypeCustomerArtifactLog :: ArtifactType
+pattern ArtifactTypeCustomerArtifactLog = ArtifactType' "CUSTOMER_ARTIFACT_LOG"
 
-pattern TestspecOutput :: ArtifactType
-pattern TestspecOutput = ArtifactType' "TESTSPEC_OUTPUT"
+pattern ArtifactTypeTestspecOutput :: ArtifactType
+pattern ArtifactTypeTestspecOutput = ArtifactType' "TESTSPEC_OUTPUT"
 
 {-# COMPLETE
-  Unknown,
-  Screenshot,
-  DeviceLog,
-  MessageLog,
-  VideoLog,
-  ResultLog,
-  ServiceLog,
-  WebkitLog,
-  InstrumentationOutput,
-  ExerciserMonkeyOutput,
-  CalabashJSONOutput,
-  CalabashPrettyOutput,
-  CalabashStandardOutput,
-  CalabashJavaXMLOutput,
-  AutomationOutput,
-  AppiumServerOutput,
-  AppiumJavaOutput,
-  AppiumJavaXMLOutput,
-  AppiumPythonOutput,
-  AppiumPythonXMLOutput,
-  ExplorerEventLog,
-  ExplorerSummaryLog,
-  ApplicationCrashReport,
-  XctestLog,
-  Video,
-  CustomerArtifact,
-  CustomerArtifactLog,
-  TestspecOutput,
+  ArtifactTypeUnknown,
+  ArtifactTypeScreenshot,
+  ArtifactTypeDeviceLog,
+  ArtifactTypeMessageLog,
+  ArtifactTypeVideoLog,
+  ArtifactTypeResultLog,
+  ArtifactTypeServiceLog,
+  ArtifactTypeWebkitLog,
+  ArtifactTypeInstrumentationOutput,
+  ArtifactTypeExerciserMonkeyOutput,
+  ArtifactTypeCalabashJsonOutput,
+  ArtifactTypeCalabashPrettyOutput,
+  ArtifactTypeCalabashStandardOutput,
+  ArtifactTypeCalabashJavaXmlOutput,
+  ArtifactTypeAutomationOutput,
+  ArtifactTypeAppiumServerOutput,
+  ArtifactTypeAppiumJavaOutput,
+  ArtifactTypeAppiumJavaXmlOutput,
+  ArtifactTypeAppiumPythonOutput,
+  ArtifactTypeAppiumPythonXmlOutput,
+  ArtifactTypeExplorerEventLog,
+  ArtifactTypeExplorerSummaryLog,
+  ArtifactTypeApplicationCrashReport,
+  ArtifactTypeXctestLog,
+  ArtifactTypeVideo,
+  ArtifactTypeCustomerArtifact,
+  ArtifactTypeCustomerArtifactLog,
+  ArtifactTypeTestspecOutput,
   ArtifactType'
   #-}

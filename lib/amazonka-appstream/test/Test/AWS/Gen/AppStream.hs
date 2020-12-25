@@ -606,7 +606,7 @@ responseCreateUsageReportSubscription =
   res
     "CreateUsageReportSubscriptionResponse"
     "fixture/CreateUsageReportSubscriptionResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CreateUsageReportSubscription)
 
 responseDisassociateFleet :: DisassociateFleetResponse -> TestTree
@@ -614,7 +614,7 @@ responseDisassociateFleet =
   res
     "DisassociateFleetResponse"
     "fixture/DisassociateFleetResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateFleet)
 
 responseListAssociatedFleets :: ListAssociatedFleetsResponse -> TestTree
@@ -622,7 +622,7 @@ responseListAssociatedFleets =
   res
     "ListAssociatedFleetsResponse"
     "fixture/ListAssociatedFleetsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy ListAssociatedFleets)
 
 responseDeleteStack :: DeleteStackResponse -> TestTree
@@ -630,7 +630,7 @@ responseDeleteStack =
   res
     "DeleteStackResponse"
     "fixture/DeleteStackResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStack)
 
 responseUpdateStack :: UpdateStackResponse -> TestTree
@@ -638,7 +638,7 @@ responseUpdateStack =
   res
     "UpdateStackResponse"
     "fixture/UpdateStackResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStack)
 
 responseCreateDirectoryConfig :: CreateDirectoryConfigResponse -> TestTree
@@ -646,7 +646,7 @@ responseCreateDirectoryConfig =
   res
     "CreateDirectoryConfigResponse"
     "fixture/CreateDirectoryConfigResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CreateDirectoryConfig)
 
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
@@ -654,7 +654,7 @@ responseDescribeUsers =
   res
     "DescribeUsersResponse"
     "fixture/DescribeUsersResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUsers)
 
 responseListAssociatedStacks :: ListAssociatedStacksResponse -> TestTree
@@ -662,7 +662,7 @@ responseListAssociatedStacks =
   res
     "ListAssociatedStacksResponse"
     "fixture/ListAssociatedStacksResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy ListAssociatedStacks)
 
 responseDeleteFleet :: DeleteFleetResponse -> TestTree
@@ -670,7 +670,7 @@ responseDeleteFleet =
   res
     "DeleteFleetResponse"
     "fixture/DeleteFleetResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFleet)
 
 responseUpdateFleet :: UpdateFleetResponse -> TestTree
@@ -678,7 +678,7 @@ responseUpdateFleet =
   res
     "UpdateFleetResponse"
     "fixture/UpdateFleetResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy UpdateFleet)
 
 responseDeleteImageBuilder :: DeleteImageBuilderResponse -> TestTree
@@ -686,7 +686,7 @@ responseDeleteImageBuilder =
   res
     "DeleteImageBuilderResponse"
     "fixture/DeleteImageBuilderResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DeleteImageBuilder)
 
 responseAssociateFleet :: AssociateFleetResponse -> TestTree
@@ -694,7 +694,7 @@ responseAssociateFleet =
   res
     "AssociateFleetResponse"
     "fixture/AssociateFleetResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy AssociateFleet)
 
 responseCreateImageBuilder :: CreateImageBuilderResponse -> TestTree
@@ -702,7 +702,7 @@ responseCreateImageBuilder =
   res
     "CreateImageBuilderResponse"
     "fixture/CreateImageBuilderResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CreateImageBuilder)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -710,7 +710,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
@@ -718,7 +718,7 @@ responseDescribeDirectoryConfigs =
   res
     "DescribeDirectoryConfigsResponse"
     "fixture/DescribeDirectoryConfigsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDirectoryConfigs)
 
 responseCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURLResponse -> TestTree
@@ -726,7 +726,7 @@ responseCreateImageBuilderStreamingURL =
   res
     "CreateImageBuilderStreamingURLResponse"
     "fixture/CreateImageBuilderStreamingURLResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CreateImageBuilderStreamingURL)
 
 responseDescribeSessions :: DescribeSessionsResponse -> TestTree
@@ -734,7 +734,7 @@ responseDescribeSessions =
   res
     "DescribeSessionsResponse"
     "fixture/DescribeSessionsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSessions)
 
 responseDescribeStacks :: DescribeStacksResponse -> TestTree
@@ -742,7 +742,7 @@ responseDescribeStacks =
   res
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStacks)
 
 responseDescribeFleets :: DescribeFleetsResponse -> TestTree
@@ -750,7 +750,7 @@ responseDescribeFleets =
   res
     "DescribeFleetsResponse"
     "fixture/DescribeFleetsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeFleets)
 
 responseDescribeImageBuilders :: DescribeImageBuildersResponse -> TestTree
@@ -758,7 +758,7 @@ responseDescribeImageBuilders =
   res
     "DescribeImageBuildersResponse"
     "fixture/DescribeImageBuildersResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeImageBuilders)
 
 responseEnableUser :: EnableUserResponse -> TestTree
@@ -766,7 +766,7 @@ responseEnableUser =
   res
     "EnableUserResponse"
     "fixture/EnableUserResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy EnableUser)
 
 responseDescribeUserStackAssociations :: DescribeUserStackAssociationsResponse -> TestTree
@@ -774,7 +774,7 @@ responseDescribeUserStackAssociations =
   res
     "DescribeUserStackAssociationsResponse"
     "fixture/DescribeUserStackAssociationsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserStackAssociations)
 
 responseDescribeUsageReportSubscriptions :: DescribeUsageReportSubscriptionsResponse -> TestTree
@@ -782,7 +782,7 @@ responseDescribeUsageReportSubscriptions =
   res
     "DescribeUsageReportSubscriptionsResponse"
     "fixture/DescribeUsageReportSubscriptionsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUsageReportSubscriptions)
 
 responseUpdateImagePermissions :: UpdateImagePermissionsResponse -> TestTree
@@ -790,7 +790,7 @@ responseUpdateImagePermissions =
   res
     "UpdateImagePermissionsResponse"
     "fixture/UpdateImagePermissionsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy UpdateImagePermissions)
 
 responseDeleteImagePermissions :: DeleteImagePermissionsResponse -> TestTree
@@ -798,7 +798,7 @@ responseDeleteImagePermissions =
   res
     "DeleteImagePermissionsResponse"
     "fixture/DeleteImagePermissionsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DeleteImagePermissions)
 
 responseStopFleet :: StopFleetResponse -> TestTree
@@ -806,7 +806,7 @@ responseStopFleet =
   res
     "StopFleetResponse"
     "fixture/StopFleetResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy StopFleet)
 
 responseStartImageBuilder :: StartImageBuilderResponse -> TestTree
@@ -814,7 +814,7 @@ responseStartImageBuilder =
   res
     "StartImageBuilderResponse"
     "fixture/StartImageBuilderResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy StartImageBuilder)
 
 responseBatchAssociateUserStack :: BatchAssociateUserStackResponse -> TestTree
@@ -822,7 +822,7 @@ responseBatchAssociateUserStack =
   res
     "BatchAssociateUserStackResponse"
     "fixture/BatchAssociateUserStackResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy BatchAssociateUserStack)
 
 responseDescribeImagePermissions :: DescribeImagePermissionsResponse -> TestTree
@@ -830,7 +830,7 @@ responseDescribeImagePermissions =
   res
     "DescribeImagePermissionsResponse"
     "fixture/DescribeImagePermissionsResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeImagePermissions)
 
 responseDeleteDirectoryConfig :: DeleteDirectoryConfigResponse -> TestTree
@@ -838,7 +838,7 @@ responseDeleteDirectoryConfig =
   res
     "DeleteDirectoryConfigResponse"
     "fixture/DeleteDirectoryConfigResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDirectoryConfig)
 
 responseUpdateDirectoryConfig :: UpdateDirectoryConfigResponse -> TestTree
@@ -846,7 +846,7 @@ responseUpdateDirectoryConfig =
   res
     "UpdateDirectoryConfigResponse"
     "fixture/UpdateDirectoryConfigResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDirectoryConfig)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
@@ -854,7 +854,7 @@ responseCreateFleet =
   res
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CreateFleet)
 
 responseCreateStack :: CreateStackResponse -> TestTree
@@ -862,7 +862,7 @@ responseCreateStack =
   res
     "CreateStackResponse"
     "fixture/CreateStackResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CreateStack)
 
 responseCopyImage :: CopyImageResponse -> TestTree
@@ -870,7 +870,7 @@ responseCopyImage =
   res
     "CopyImageResponse"
     "fixture/CopyImageResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CopyImage)
 
 responseExpireSession :: ExpireSessionResponse -> TestTree
@@ -878,7 +878,7 @@ responseExpireSession =
   res
     "ExpireSessionResponse"
     "fixture/ExpireSessionResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy ExpireSession)
 
 responseCreateUser :: CreateUserResponse -> TestTree
@@ -886,7 +886,7 @@ responseCreateUser =
   res
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CreateUser)
 
 responseDisableUser :: DisableUserResponse -> TestTree
@@ -894,7 +894,7 @@ responseDisableUser =
   res
     "DisableUserResponse"
     "fixture/DisableUserResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DisableUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
@@ -902,7 +902,7 @@ responseDeleteUser =
   res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -910,7 +910,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseCreateStreamingURL :: CreateStreamingURLResponse -> TestTree
@@ -918,7 +918,7 @@ responseCreateStreamingURL =
   res
     "CreateStreamingURLResponse"
     "fixture/CreateStreamingURLResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy CreateStreamingURL)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -926,7 +926,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseStartFleet :: StartFleetResponse -> TestTree
@@ -934,7 +934,7 @@ responseStartFleet =
   res
     "StartFleetResponse"
     "fixture/StartFleetResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy StartFleet)
 
 responseStopImageBuilder :: StopImageBuilderResponse -> TestTree
@@ -942,7 +942,7 @@ responseStopImageBuilder =
   res
     "StopImageBuilderResponse"
     "fixture/StopImageBuilderResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy StopImageBuilder)
 
 responseDeleteImage :: DeleteImageResponse -> TestTree
@@ -950,7 +950,7 @@ responseDeleteImage =
   res
     "DeleteImageResponse"
     "fixture/DeleteImageResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DeleteImage)
 
 responseDeleteUsageReportSubscription :: DeleteUsageReportSubscriptionResponse -> TestTree
@@ -958,7 +958,7 @@ responseDeleteUsageReportSubscription =
   res
     "DeleteUsageReportSubscriptionResponse"
     "fixture/DeleteUsageReportSubscriptionResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUsageReportSubscription)
 
 responseBatchDisassociateUserStack :: BatchDisassociateUserStackResponse -> TestTree
@@ -966,7 +966,7 @@ responseBatchDisassociateUserStack =
   res
     "BatchDisassociateUserStackResponse"
     "fixture/BatchDisassociateUserStackResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy BatchDisassociateUserStack)
 
 responseDescribeImages :: DescribeImagesResponse -> TestTree
@@ -974,5 +974,5 @@ responseDescribeImages =
   res
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse.proto"
-    appStreamService
+    mkServiceConfig
     (Proxy :: Proxy DescribeImages)

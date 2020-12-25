@@ -28,123 +28,106 @@ module Network.AWS.DAX.TagResource
     mkTagResourceResponse,
 
     -- ** Response lenses
-    trrsTags,
-    trrsResponseStatus,
+    trrrsTags,
+    trrrsResponseStatus,
   )
 where
 
-import Network.AWS.DAX.Types
+import qualified Network.AWS.DAX.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The name of the DAX resource to which tags should be added.
-    resourceName :: Lude.Text,
+    resourceName :: Types.String,
     -- | The tags to be assigned to the DAX resource.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
---
--- * 'resourceName' - The name of the DAX resource to which tags should be added.
--- * 'tags' - The tags to be assigned to the DAX resource.
+-- | Creates a 'TagResource' value with any optional fields omitted.
 mkTagResource ::
   -- | 'resourceName'
-  Lude.Text ->
+  Types.String ->
   TagResource
-mkTagResource pResourceName_ =
-  TagResource' {resourceName = pResourceName_, tags = Lude.mempty}
+mkTagResource resourceName =
+  TagResource' {resourceName, tags = Core.mempty}
 
 -- | The name of the DAX resource to which tags should be added.
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceName :: Lens.Lens' TagResource Lude.Text
-trResourceName = Lens.lens (resourceName :: TagResource -> Lude.Text) (\s a -> s {resourceName = a} :: TagResource)
+trResourceName :: Lens.Lens' TagResource Types.String
+trResourceName = Lens.field @"resourceName"
 {-# DEPRECATED trResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The tags to be assigned to the DAX resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagResource [Tag]
-trTags = Lens.lens (tags :: TagResource -> [Tag]) (\s a -> s {tags = a} :: TagResource)
+trTags :: Lens.Lens' TagResource [Types.Tag]
+trTags = Lens.field @"tags"
 {-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagResource where
+instance Core.FromJSON TagResource where
+  toJSON TagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceName" Core..= resourceName),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = Req.postJSON daxService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonDAXV3.TagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TagResourceResponse'
-            Lude.<$> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Tags") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDAXV3.TagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TagResource where
-  toJSON TagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceName" Lude..= resourceName),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath TagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   { -- | The list of tags that are associated with the DAX resource.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
---
--- * 'tags' - The list of tags that are associated with the DAX resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TagResourceResponse' value with any optional fields omitted.
 mkTagResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TagResourceResponse
-mkTagResourceResponse pResponseStatus_ =
-  TagResourceResponse'
-    { tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkTagResourceResponse responseStatus =
+  TagResourceResponse' {tags = Core.Nothing, responseStatus}
 
 -- | The list of tags that are associated with the DAX resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trrsTags :: Lens.Lens' TagResourceResponse (Lude.Maybe [Tag])
-trrsTags = Lens.lens (tags :: TagResourceResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TagResourceResponse)
-{-# DEPRECATED trrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+trrrsTags :: Lens.Lens' TagResourceResponse (Core.Maybe [Types.Tag])
+trrrsTags = Lens.field @"tags"
+{-# DEPRECATED trrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trrsResponseStatus :: Lens.Lens' TagResourceResponse Lude.Int
-trrsResponseStatus = Lens.lens (responseStatus :: TagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResourceResponse)
-{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+trrrsResponseStatus :: Lens.Lens' TagResourceResponse Core.Int
+trrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED trrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

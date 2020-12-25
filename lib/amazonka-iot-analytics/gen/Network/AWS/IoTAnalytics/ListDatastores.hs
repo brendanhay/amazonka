@@ -22,146 +22,139 @@ module Network.AWS.IoTAnalytics.ListDatastores
     mkListDatastores,
 
     -- ** Request lenses
-    ldNextToken,
     ldMaxResults,
+    ldNextToken,
 
     -- * Destructuring the response
     ListDatastoresResponse (..),
     mkListDatastoresResponse,
 
     -- ** Response lenses
-    ldrsNextToken,
-    ldrsDatastoreSummaries,
-    ldrsResponseStatus,
+    ldrrsDatastoreSummaries,
+    ldrrsNextToken,
+    ldrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDatastores' smart constructor.
 data ListDatastores = ListDatastores'
-  { -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return in this request.
+  { -- | The maximum number of results to return in this request.
     --
     -- The default value is 100.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDatastores' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results.
--- * 'maxResults' - The maximum number of results to return in this request.
---
--- The default value is 100.
+-- | Creates a 'ListDatastores' value with any optional fields omitted.
 mkListDatastores ::
   ListDatastores
 mkListDatastores =
   ListDatastores'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldNextToken :: Lens.Lens' ListDatastores (Lude.Maybe Lude.Text)
-ldNextToken = Lens.lens (nextToken :: ListDatastores -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatastores)
-{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in this request.
 --
 -- The default value is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldMaxResults :: Lens.Lens' ListDatastores (Lude.Maybe Lude.Natural)
-ldMaxResults = Lens.lens (maxResults :: ListDatastores -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDatastores)
+ldMaxResults :: Lens.Lens' ListDatastores (Core.Maybe Core.Natural)
+ldMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListDatastores where
-  page rq rs
-    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldrsDatastoreSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDatastores (Core.Maybe Types.NextToken)
+ldNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListDatastores where
+instance Core.AWSRequest ListDatastores where
   type Rs ListDatastores = ListDatastoresResponse
-  request = Req.get ioTAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/datastores",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListDatastoresResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "datastoreSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "datastoreSummaries")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListDatastores where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListDatastores where
-  toPath = Lude.const "/datastores"
-
-instance Lude.ToQuery ListDatastores where
-  toQuery ListDatastores' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListDatastores where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"datastoreSummaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListDatastoresResponse' smart constructor.
 data ListDatastoresResponse = ListDatastoresResponse'
-  { -- | The token to retrieve the next set of results, or @null@ if there are no more results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of @DatastoreSummary@ objects.
-    datastoreSummaries :: Lude.Maybe [DatastoreSummary],
+  { -- | A list of @DatastoreSummary@ objects.
+    datastoreSummaries :: Core.Maybe [Types.DatastoreSummary],
+    -- | The token to retrieve the next set of results, or @null@ if there are no more results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListDatastoresResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to retrieve the next set of results, or @null@ if there are no more results.
--- * 'datastoreSummaries' - A list of @DatastoreSummary@ objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDatastoresResponse' value with any optional fields omitted.
 mkListDatastoresResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDatastoresResponse
-mkListDatastoresResponse pResponseStatus_ =
+mkListDatastoresResponse responseStatus =
   ListDatastoresResponse'
-    { nextToken = Lude.Nothing,
-      datastoreSummaries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { datastoreSummaries = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token to retrieve the next set of results, or @null@ if there are no more results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsNextToken :: Lens.Lens' ListDatastoresResponse (Lude.Maybe Lude.Text)
-ldrsNextToken = Lens.lens (nextToken :: ListDatastoresResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatastoresResponse)
-{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @DatastoreSummary@ objects.
 --
 -- /Note:/ Consider using 'datastoreSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsDatastoreSummaries :: Lens.Lens' ListDatastoresResponse (Lude.Maybe [DatastoreSummary])
-ldrsDatastoreSummaries = Lens.lens (datastoreSummaries :: ListDatastoresResponse -> Lude.Maybe [DatastoreSummary]) (\s a -> s {datastoreSummaries = a} :: ListDatastoresResponse)
-{-# DEPRECATED ldrsDatastoreSummaries "Use generic-lens or generic-optics with 'datastoreSummaries' instead." #-}
+ldrrsDatastoreSummaries :: Lens.Lens' ListDatastoresResponse (Core.Maybe [Types.DatastoreSummary])
+ldrrsDatastoreSummaries = Lens.field @"datastoreSummaries"
+{-# DEPRECATED ldrrsDatastoreSummaries "Use generic-lens or generic-optics with 'datastoreSummaries' instead." #-}
+
+-- | The token to retrieve the next set of results, or @null@ if there are no more results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrrsNextToken :: Lens.Lens' ListDatastoresResponse (Core.Maybe Types.NextToken)
+ldrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsResponseStatus :: Lens.Lens' ListDatastoresResponse Lude.Int
-ldrsResponseStatus = Lens.lens (responseStatus :: ListDatastoresResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDatastoresResponse)
-{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldrrsResponseStatus :: Lens.Lens' ListDatastoresResponse Core.Int
+ldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

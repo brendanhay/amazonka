@@ -24,8 +24,8 @@ module Network.AWS.Organizations.DeregisterDelegatedAdministrator
     mkDeregisterDelegatedAdministrator,
 
     -- ** Request lenses
-    ddaServicePrincipal,
     ddaAccountId,
+    ddaServicePrincipal,
 
     -- * Destructuring the response
     DeregisterDelegatedAdministratorResponse (..),
@@ -34,100 +34,85 @@ module Network.AWS.Organizations.DeregisterDelegatedAdministrator
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeregisterDelegatedAdministrator' smart constructor.
 data DeregisterDelegatedAdministrator = DeregisterDelegatedAdministrator'
-  { -- | The service principal name of an AWS service for which the account is a delegated administrator.
+  { -- | The account ID number of the member account in the organization that you want to deregister as a delegated administrator.
+    accountId :: Types.AccountId,
+    -- | The service principal name of an AWS service for which the account is a delegated administrator.
     --
     -- Delegated administrator privileges are revoked for only the specified AWS service from the member account. If the specified service is the only service for which the member account is a delegated administrator, the operation also revokes Organizations read action permissions.
-    servicePrincipal :: Lude.Text,
-    -- | The account ID number of the member account in the organization that you want to deregister as a delegated administrator.
-    accountId :: Lude.Text
+    servicePrincipal :: Types.ServicePrincipal
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterDelegatedAdministrator' with the minimum fields required to make a request.
---
--- * 'servicePrincipal' - The service principal name of an AWS service for which the account is a delegated administrator.
---
--- Delegated administrator privileges are revoked for only the specified AWS service from the member account. If the specified service is the only service for which the member account is a delegated administrator, the operation also revokes Organizations read action permissions.
--- * 'accountId' - The account ID number of the member account in the organization that you want to deregister as a delegated administrator.
+-- | Creates a 'DeregisterDelegatedAdministrator' value with any optional fields omitted.
 mkDeregisterDelegatedAdministrator ::
-  -- | 'servicePrincipal'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'servicePrincipal'
+  Types.ServicePrincipal ->
   DeregisterDelegatedAdministrator
-mkDeregisterDelegatedAdministrator pServicePrincipal_ pAccountId_ =
-  DeregisterDelegatedAdministrator'
-    { servicePrincipal =
-        pServicePrincipal_,
-      accountId = pAccountId_
-    }
+mkDeregisterDelegatedAdministrator accountId servicePrincipal =
+  DeregisterDelegatedAdministrator' {accountId, servicePrincipal}
+
+-- | The account ID number of the member account in the organization that you want to deregister as a delegated administrator.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddaAccountId :: Lens.Lens' DeregisterDelegatedAdministrator Types.AccountId
+ddaAccountId = Lens.field @"accountId"
+{-# DEPRECATED ddaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The service principal name of an AWS service for which the account is a delegated administrator.
 --
 -- Delegated administrator privileges are revoked for only the specified AWS service from the member account. If the specified service is the only service for which the member account is a delegated administrator, the operation also revokes Organizations read action permissions.
 --
 -- /Note:/ Consider using 'servicePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddaServicePrincipal :: Lens.Lens' DeregisterDelegatedAdministrator Lude.Text
-ddaServicePrincipal = Lens.lens (servicePrincipal :: DeregisterDelegatedAdministrator -> Lude.Text) (\s a -> s {servicePrincipal = a} :: DeregisterDelegatedAdministrator)
+ddaServicePrincipal :: Lens.Lens' DeregisterDelegatedAdministrator Types.ServicePrincipal
+ddaServicePrincipal = Lens.field @"servicePrincipal"
 {-# DEPRECATED ddaServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
 
--- | The account ID number of the member account in the organization that you want to deregister as a delegated administrator.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddaAccountId :: Lens.Lens' DeregisterDelegatedAdministrator Lude.Text
-ddaAccountId = Lens.lens (accountId :: DeregisterDelegatedAdministrator -> Lude.Text) (\s a -> s {accountId = a} :: DeregisterDelegatedAdministrator)
-{-# DEPRECATED ddaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+instance Core.FromJSON DeregisterDelegatedAdministrator where
+  toJSON DeregisterDelegatedAdministrator {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("ServicePrincipal" Core..= servicePrincipal)
+          ]
+      )
 
-instance Lude.AWSRequest DeregisterDelegatedAdministrator where
+instance Core.AWSRequest DeregisterDelegatedAdministrator where
   type
     Rs DeregisterDelegatedAdministrator =
       DeregisterDelegatedAdministratorResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveNull DeregisterDelegatedAdministratorResponse'
-
-instance Lude.ToHeaders DeregisterDelegatedAdministrator where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeregisterDelegatedAdministrator where
-  toJSON DeregisterDelegatedAdministrator' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ServicePrincipal" Lude..= servicePrincipal),
-            Lude.Just ("AccountId" Lude..= accountId)
-          ]
-      )
-
-instance Lude.ToPath DeregisterDelegatedAdministrator where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterDelegatedAdministrator where
-  toQuery = Lude.const Lude.mempty
+    Response.receiveNull DeregisterDelegatedAdministratorResponse'
 
 -- | /See:/ 'mkDeregisterDelegatedAdministratorResponse' smart constructor.
 data DeregisterDelegatedAdministratorResponse = DeregisterDelegatedAdministratorResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterDelegatedAdministratorResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeregisterDelegatedAdministratorResponse' value with any optional fields omitted.
 mkDeregisterDelegatedAdministratorResponse ::
   DeregisterDelegatedAdministratorResponse
 mkDeregisterDelegatedAdministratorResponse =

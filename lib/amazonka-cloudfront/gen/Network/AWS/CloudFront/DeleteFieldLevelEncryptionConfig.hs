@@ -20,8 +20,8 @@ module Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
     mkDeleteFieldLevelEncryptionConfig,
 
     -- ** Request lenses
-    dflecIfMatch,
     dflecId,
+    dflecIfMatch,
 
     -- * Destructuring the response
     DeleteFieldLevelEncryptionConfigResponse (..),
@@ -29,76 +29,68 @@ module Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFieldLevelEncryptionConfig' smart constructor.
 data DeleteFieldLevelEncryptionConfig = DeleteFieldLevelEncryptionConfig'
-  { -- | The value of the @ETag@ header that you received when retrieving the configuration identity to delete. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | The ID of the configuration you want to delete from CloudFront.
-    id :: Lude.Text
+  { -- | The ID of the configuration you want to delete from CloudFront.
+    id :: Types.String,
+    -- | The value of the @ETag@ header that you received when retrieving the configuration identity to delete. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFieldLevelEncryptionConfig' with the minimum fields required to make a request.
---
--- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the configuration identity to delete. For example: @E2QWRUHAPOMQZL@ .
--- * 'id' - The ID of the configuration you want to delete from CloudFront.
+-- | Creates a 'DeleteFieldLevelEncryptionConfig' value with any optional fields omitted.
 mkDeleteFieldLevelEncryptionConfig ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   DeleteFieldLevelEncryptionConfig
-mkDeleteFieldLevelEncryptionConfig pId_ =
-  DeleteFieldLevelEncryptionConfig'
-    { ifMatch = Lude.Nothing,
-      id = pId_
-    }
-
--- | The value of the @ETag@ header that you received when retrieving the configuration identity to delete. For example: @E2QWRUHAPOMQZL@ .
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflecIfMatch :: Lens.Lens' DeleteFieldLevelEncryptionConfig (Lude.Maybe Lude.Text)
-dflecIfMatch = Lens.lens (ifMatch :: DeleteFieldLevelEncryptionConfig -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: DeleteFieldLevelEncryptionConfig)
-{-# DEPRECATED dflecIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+mkDeleteFieldLevelEncryptionConfig id =
+  DeleteFieldLevelEncryptionConfig' {id, ifMatch = Core.Nothing}
 
 -- | The ID of the configuration you want to delete from CloudFront.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflecId :: Lens.Lens' DeleteFieldLevelEncryptionConfig Lude.Text
-dflecId = Lens.lens (id :: DeleteFieldLevelEncryptionConfig -> Lude.Text) (\s a -> s {id = a} :: DeleteFieldLevelEncryptionConfig)
+dflecId :: Lens.Lens' DeleteFieldLevelEncryptionConfig Types.String
+dflecId = Lens.field @"id"
 {-# DEPRECATED dflecId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeleteFieldLevelEncryptionConfig where
+-- | The value of the @ETag@ header that you received when retrieving the configuration identity to delete. For example: @E2QWRUHAPOMQZL@ .
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflecIfMatch :: Lens.Lens' DeleteFieldLevelEncryptionConfig (Core.Maybe Types.String)
+dflecIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED dflecIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+
+instance Core.AWSRequest DeleteFieldLevelEncryptionConfig where
   type
     Rs DeleteFieldLevelEncryptionConfig =
       DeleteFieldLevelEncryptionConfigResponse
-  request = Req.delete cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2020-05-31/field-level-encryption/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveNull DeleteFieldLevelEncryptionConfigResponse'
-
-instance Lude.ToHeaders DeleteFieldLevelEncryptionConfig where
-  toHeaders DeleteFieldLevelEncryptionConfig' {..} =
-    Lude.mconcat ["If-Match" Lude.=# ifMatch]
-
-instance Lude.ToPath DeleteFieldLevelEncryptionConfig where
-  toPath DeleteFieldLevelEncryptionConfig' {..} =
-    Lude.mconcat
-      ["/2020-05-31/field-level-encryption/", Lude.toBS id]
-
-instance Lude.ToQuery DeleteFieldLevelEncryptionConfig where
-  toQuery = Lude.const Lude.mempty
+    Response.receiveNull DeleteFieldLevelEncryptionConfigResponse'
 
 -- | /See:/ 'mkDeleteFieldLevelEncryptionConfigResponse' smart constructor.
 data DeleteFieldLevelEncryptionConfigResponse = DeleteFieldLevelEncryptionConfigResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFieldLevelEncryptionConfigResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteFieldLevelEncryptionConfigResponse' value with any optional fields omitted.
 mkDeleteFieldLevelEncryptionConfigResponse ::
   DeleteFieldLevelEncryptionConfigResponse
 mkDeleteFieldLevelEncryptionConfigResponse =

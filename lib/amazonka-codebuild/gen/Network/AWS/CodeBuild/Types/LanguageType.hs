@@ -13,86 +13,88 @@
 module Network.AWS.CodeBuild.Types.LanguageType
   ( LanguageType
       ( LanguageType',
-        Java,
-        Python,
-        NodeJs,
-        Ruby,
-        Golang,
-        Docker,
-        Android,
-        Dotnet,
-        Base,
-        PHP
+        LanguageTypeJava,
+        LanguageTypePython,
+        LanguageTypeNodeJs,
+        LanguageTypeRuby,
+        LanguageTypeGolang,
+        LanguageTypeDocker,
+        LanguageTypeAndroid,
+        LanguageTypeDotnet,
+        LanguageTypeBase,
+        LanguageTypePhp,
+        fromLanguageType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LanguageType = LanguageType' Lude.Text
+newtype LanguageType = LanguageType' {fromLanguageType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Java :: LanguageType
-pattern Java = LanguageType' "JAVA"
+pattern LanguageTypeJava :: LanguageType
+pattern LanguageTypeJava = LanguageType' "JAVA"
 
-pattern Python :: LanguageType
-pattern Python = LanguageType' "PYTHON"
+pattern LanguageTypePython :: LanguageType
+pattern LanguageTypePython = LanguageType' "PYTHON"
 
-pattern NodeJs :: LanguageType
-pattern NodeJs = LanguageType' "NODE_JS"
+pattern LanguageTypeNodeJs :: LanguageType
+pattern LanguageTypeNodeJs = LanguageType' "NODE_JS"
 
-pattern Ruby :: LanguageType
-pattern Ruby = LanguageType' "RUBY"
+pattern LanguageTypeRuby :: LanguageType
+pattern LanguageTypeRuby = LanguageType' "RUBY"
 
-pattern Golang :: LanguageType
-pattern Golang = LanguageType' "GOLANG"
+pattern LanguageTypeGolang :: LanguageType
+pattern LanguageTypeGolang = LanguageType' "GOLANG"
 
-pattern Docker :: LanguageType
-pattern Docker = LanguageType' "DOCKER"
+pattern LanguageTypeDocker :: LanguageType
+pattern LanguageTypeDocker = LanguageType' "DOCKER"
 
-pattern Android :: LanguageType
-pattern Android = LanguageType' "ANDROID"
+pattern LanguageTypeAndroid :: LanguageType
+pattern LanguageTypeAndroid = LanguageType' "ANDROID"
 
-pattern Dotnet :: LanguageType
-pattern Dotnet = LanguageType' "DOTNET"
+pattern LanguageTypeDotnet :: LanguageType
+pattern LanguageTypeDotnet = LanguageType' "DOTNET"
 
-pattern Base :: LanguageType
-pattern Base = LanguageType' "BASE"
+pattern LanguageTypeBase :: LanguageType
+pattern LanguageTypeBase = LanguageType' "BASE"
 
-pattern PHP :: LanguageType
-pattern PHP = LanguageType' "PHP"
+pattern LanguageTypePhp :: LanguageType
+pattern LanguageTypePhp = LanguageType' "PHP"
 
 {-# COMPLETE
-  Java,
-  Python,
-  NodeJs,
-  Ruby,
-  Golang,
-  Docker,
-  Android,
-  Dotnet,
-  Base,
-  PHP,
+  LanguageTypeJava,
+  LanguageTypePython,
+  LanguageTypeNodeJs,
+  LanguageTypeRuby,
+  LanguageTypeGolang,
+  LanguageTypeDocker,
+  LanguageTypeAndroid,
+  LanguageTypeDotnet,
+  LanguageTypeBase,
+  LanguageTypePhp,
   LanguageType'
   #-}

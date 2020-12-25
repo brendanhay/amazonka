@@ -13,41 +13,46 @@
 module Network.AWS.SSM.Types.ResourceDataSyncS3Format
   ( ResourceDataSyncS3Format
       ( ResourceDataSyncS3Format',
-        JSONSerDe
+        ResourceDataSyncS3FormatJsonSerDe,
+        fromResourceDataSyncS3Format
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceDataSyncS3Format = ResourceDataSyncS3Format' Lude.Text
+newtype ResourceDataSyncS3Format = ResourceDataSyncS3Format'
+  { fromResourceDataSyncS3Format ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JSONSerDe :: ResourceDataSyncS3Format
-pattern JSONSerDe = ResourceDataSyncS3Format' "JsonSerDe"
+pattern ResourceDataSyncS3FormatJsonSerDe :: ResourceDataSyncS3Format
+pattern ResourceDataSyncS3FormatJsonSerDe = ResourceDataSyncS3Format' "JsonSerDe"
 
 {-# COMPLETE
-  JSONSerDe,
+  ResourceDataSyncS3FormatJsonSerDe,
   ResourceDataSyncS3Format'
   #-}

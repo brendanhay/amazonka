@@ -28,67 +28,68 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeleteCacheSecurityGroup@ operation.
 --
 -- /See:/ 'mkDeleteCacheSecurityGroup' smart constructor.
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
   { -- | The name of the cache security group to delete.
-    cacheSecurityGroupName :: Lude.Text
+    cacheSecurityGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCacheSecurityGroup' with the minimum fields required to make a request.
---
--- * 'cacheSecurityGroupName' - The name of the cache security group to delete.
+-- | Creates a 'DeleteCacheSecurityGroup' value with any optional fields omitted.
 mkDeleteCacheSecurityGroup ::
   -- | 'cacheSecurityGroupName'
-  Lude.Text ->
+  Types.String ->
   DeleteCacheSecurityGroup
-mkDeleteCacheSecurityGroup pCacheSecurityGroupName_ =
-  DeleteCacheSecurityGroup'
-    { cacheSecurityGroupName =
-        pCacheSecurityGroupName_
-    }
+mkDeleteCacheSecurityGroup cacheSecurityGroupName =
+  DeleteCacheSecurityGroup' {cacheSecurityGroupName}
 
 -- | The name of the cache security group to delete.
 --
 -- /Note:/ Consider using 'cacheSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgCacheSecurityGroupName :: Lens.Lens' DeleteCacheSecurityGroup Lude.Text
-dcsgCacheSecurityGroupName = Lens.lens (cacheSecurityGroupName :: DeleteCacheSecurityGroup -> Lude.Text) (\s a -> s {cacheSecurityGroupName = a} :: DeleteCacheSecurityGroup)
+dcsgCacheSecurityGroupName :: Lens.Lens' DeleteCacheSecurityGroup Types.String
+dcsgCacheSecurityGroupName = Lens.field @"cacheSecurityGroupName"
 {-# DEPRECATED dcsgCacheSecurityGroupName "Use generic-lens or generic-optics with 'cacheSecurityGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteCacheSecurityGroup where
+instance Core.AWSRequest DeleteCacheSecurityGroup where
   type Rs DeleteCacheSecurityGroup = DeleteCacheSecurityGroupResponse
-  request = Req.postQuery elastiCacheService
-  response = Res.receiveNull DeleteCacheSecurityGroupResponse'
-
-instance Lude.ToHeaders DeleteCacheSecurityGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteCacheSecurityGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCacheSecurityGroup where
-  toQuery DeleteCacheSecurityGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteCacheSecurityGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheSecurityGroupName" Lude.=: cacheSecurityGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteCacheSecurityGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue
+                            "CacheSecurityGroupName"
+                            cacheSecurityGroupName
+                        )
+            )
+      }
+  response = Response.receiveNull DeleteCacheSecurityGroupResponse'
 
 -- | /See:/ 'mkDeleteCacheSecurityGroupResponse' smart constructor.
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCacheSecurityGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteCacheSecurityGroupResponse' value with any optional fields omitted.
 mkDeleteCacheSecurityGroupResponse ::
   DeleteCacheSecurityGroupResponse
 mkDeleteCacheSecurityGroupResponse =

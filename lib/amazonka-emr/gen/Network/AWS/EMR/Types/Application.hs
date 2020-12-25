@@ -17,15 +17,18 @@ module Network.AWS.EMR.Types.Application
     mkApplication,
 
     -- * Lenses
-    aArgs,
     aAdditionalInfo,
+    aArgs,
     aName,
     aVersion,
   )
 where
 
+import qualified Network.AWS.EMR.Types.Name as Types
+import qualified Network.AWS.EMR.Types.String as Types
+import qualified Network.AWS.EMR.Types.Version as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | With Amazon EMR release version 4.0 and later, the only accepted parameter is the application name. To pass arguments to applications, you use configuration classifications specified using configuration JSON objects. For more information, see <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html Configuring Applications> .
 --
@@ -33,81 +36,74 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplication' smart constructor.
 data Application = Application'
-  { -- | Arguments for Amazon EMR to pass to the application.
-    args :: Lude.Maybe [Lude.Text],
-    -- | This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
-    additionalInfo :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
+    additionalInfo :: Core.Maybe (Core.HashMap Types.String Types.String),
+    -- | Arguments for Amazon EMR to pass to the application.
+    args :: Core.Maybe [Types.String],
     -- | The name of the application.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | The version of the application.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Application' with the minimum fields required to make a request.
---
--- * 'args' - Arguments for Amazon EMR to pass to the application.
--- * 'additionalInfo' - This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
--- * 'name' - The name of the application.
--- * 'version' - The version of the application.
+-- | Creates a 'Application' value with any optional fields omitted.
 mkApplication ::
   Application
 mkApplication =
   Application'
-    { args = Lude.Nothing,
-      additionalInfo = Lude.Nothing,
-      name = Lude.Nothing,
-      version = Lude.Nothing
+    { additionalInfo = Core.Nothing,
+      args = Core.Nothing,
+      name = Core.Nothing,
+      version = Core.Nothing
     }
-
--- | Arguments for Amazon EMR to pass to the application.
---
--- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aArgs :: Lens.Lens' Application (Lude.Maybe [Lude.Text])
-aArgs = Lens.lens (args :: Application -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: Application)
-{-# DEPRECATED aArgs "Use generic-lens or generic-optics with 'args' instead." #-}
 
 -- | This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
 --
 -- /Note:/ Consider using 'additionalInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAdditionalInfo :: Lens.Lens' Application (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-aAdditionalInfo = Lens.lens (additionalInfo :: Application -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {additionalInfo = a} :: Application)
+aAdditionalInfo :: Lens.Lens' Application (Core.Maybe (Core.HashMap Types.String Types.String))
+aAdditionalInfo = Lens.field @"additionalInfo"
 {-# DEPRECATED aAdditionalInfo "Use generic-lens or generic-optics with 'additionalInfo' instead." #-}
+
+-- | Arguments for Amazon EMR to pass to the application.
+--
+-- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aArgs :: Lens.Lens' Application (Core.Maybe [Types.String])
+aArgs = Lens.field @"args"
+{-# DEPRECATED aArgs "Use generic-lens or generic-optics with 'args' instead." #-}
 
 -- | The name of the application.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aName :: Lens.Lens' Application (Lude.Maybe Lude.Text)
-aName = Lens.lens (name :: Application -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Application)
+aName :: Lens.Lens' Application (Core.Maybe Types.Name)
+aName = Lens.field @"name"
 {-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the application.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aVersion :: Lens.Lens' Application (Lude.Maybe Lude.Text)
-aVersion = Lens.lens (version :: Application -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: Application)
+aVersion :: Lens.Lens' Application (Core.Maybe Types.Version)
+aVersion = Lens.field @"version"
 {-# DEPRECATED aVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON Application where
-  parseJSON =
-    Lude.withObject
-      "Application"
-      ( \x ->
-          Application'
-            Lude.<$> (x Lude..:? "Args" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AdditionalInfo" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Version")
-      )
-
-instance Lude.ToJSON Application where
-  toJSON Application' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Args" Lude..=) Lude.<$> args,
-            ("AdditionalInfo" Lude..=) Lude.<$> additionalInfo,
-            ("Name" Lude..=) Lude.<$> name,
-            ("Version" Lude..=) Lude.<$> version
+instance Core.FromJSON Application where
+  toJSON Application {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AdditionalInfo" Core..=) Core.<$> additionalInfo,
+            ("Args" Core..=) Core.<$> args,
+            ("Name" Core..=) Core.<$> name,
+            ("Version" Core..=) Core.<$> version
           ]
       )
+
+instance Core.FromJSON Application where
+  parseJSON =
+    Core.withObject "Application" Core.$
+      \x ->
+        Application'
+          Core.<$> (x Core..:? "AdditionalInfo")
+          Core.<*> (x Core..:? "Args")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Version")

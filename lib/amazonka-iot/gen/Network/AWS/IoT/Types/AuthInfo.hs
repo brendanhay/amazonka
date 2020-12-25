@@ -22,60 +22,56 @@ module Network.AWS.IoT.Types.AuthInfo
   )
 where
 
-import Network.AWS.IoT.Types.ActionType
+import qualified Network.AWS.IoT.Types.ActionType as Types
+import qualified Network.AWS.IoT.Types.Resource as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A collection of authorization information.
 --
 -- /See:/ 'mkAuthInfo' smart constructor.
 data AuthInfo = AuthInfo'
   { -- | The resources for which the principal is being authorized to perform the specified action.
-    resources :: [Lude.Text],
+    resources :: [Types.Resource],
     -- | The type of action for which the principal is being authorized.
-    actionType :: Lude.Maybe ActionType
+    actionType :: Core.Maybe Types.ActionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthInfo' with the minimum fields required to make a request.
---
--- * 'resources' - The resources for which the principal is being authorized to perform the specified action.
--- * 'actionType' - The type of action for which the principal is being authorized.
+-- | Creates a 'AuthInfo' value with any optional fields omitted.
 mkAuthInfo ::
   AuthInfo
 mkAuthInfo =
-  AuthInfo' {resources = Lude.mempty, actionType = Lude.Nothing}
+  AuthInfo' {resources = Core.mempty, actionType = Core.Nothing}
 
 -- | The resources for which the principal is being authorized to perform the specified action.
 --
 -- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiResources :: Lens.Lens' AuthInfo [Lude.Text]
-aiResources = Lens.lens (resources :: AuthInfo -> [Lude.Text]) (\s a -> s {resources = a} :: AuthInfo)
+aiResources :: Lens.Lens' AuthInfo [Types.Resource]
+aiResources = Lens.field @"resources"
 {-# DEPRECATED aiResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The type of action for which the principal is being authorized.
 --
 -- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiActionType :: Lens.Lens' AuthInfo (Lude.Maybe ActionType)
-aiActionType = Lens.lens (actionType :: AuthInfo -> Lude.Maybe ActionType) (\s a -> s {actionType = a} :: AuthInfo)
+aiActionType :: Lens.Lens' AuthInfo (Core.Maybe Types.ActionType)
+aiActionType = Lens.field @"actionType"
 {-# DEPRECATED aiActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
-instance Lude.FromJSON AuthInfo where
-  parseJSON =
-    Lude.withObject
-      "AuthInfo"
-      ( \x ->
-          AuthInfo'
-            Lude.<$> (x Lude..:? "resources" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "actionType")
-      )
-
-instance Lude.ToJSON AuthInfo where
-  toJSON AuthInfo' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("resources" Lude..= resources),
-            ("actionType" Lude..=) Lude.<$> actionType
+instance Core.FromJSON AuthInfo where
+  toJSON AuthInfo {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resources" Core..= resources),
+            ("actionType" Core..=) Core.<$> actionType
           ]
       )
+
+instance Core.FromJSON AuthInfo where
+  parseJSON =
+    Core.withObject "AuthInfo" Core.$
+      \x ->
+        AuthInfo'
+          Core.<$> (x Core..:? "resources" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "actionType")

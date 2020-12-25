@@ -17,138 +17,132 @@ module Network.AWS.Inspector.Types.AssessmentRunAgent
     mkAssessmentRunAgent,
 
     -- * Lenses
-    araAutoScalingGroup,
-    araAgentHealthCode,
     araAgentId,
-    araAgentHealthDetails,
-    araTelemetryMetadata,
-    araAssessmentRunARN,
+    araAssessmentRunArn,
     araAgentHealth,
+    araAgentHealthCode,
+    araTelemetryMetadata,
+    araAgentHealthDetails,
+    araAutoScalingGroup,
   )
 where
 
-import Network.AWS.Inspector.Types.AgentHealth
-import Network.AWS.Inspector.Types.AgentHealthCode
-import Network.AWS.Inspector.Types.TelemetryMetadata
+import qualified Network.AWS.Inspector.Types.AgentHealth as Types
+import qualified Network.AWS.Inspector.Types.AgentHealthCode as Types
+import qualified Network.AWS.Inspector.Types.AgentHealthDetails as Types
+import qualified Network.AWS.Inspector.Types.AgentId as Types
+import qualified Network.AWS.Inspector.Types.Arn as Types
+import qualified Network.AWS.Inspector.Types.AutoScalingGroup as Types
+import qualified Network.AWS.Inspector.Types.TelemetryMetadata as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an Amazon Inspector agent. This data type is used as a response element in the 'ListAssessmentRunAgents' action.
 --
 -- /See:/ 'mkAssessmentRunAgent' smart constructor.
 data AssessmentRunAgent = AssessmentRunAgent'
-  { -- | The Auto Scaling group of the EC2 instance that is specified by the agent ID.
-    autoScalingGroup :: Lude.Maybe Lude.Text,
-    -- | The detailed health state of the agent.
-    agentHealthCode :: AgentHealthCode,
-    -- | The AWS account of the EC2 instance where the agent is installed.
-    agentId :: Lude.Text,
-    -- | The description for the agent health code.
-    agentHealthDetails :: Lude.Maybe Lude.Text,
-    -- | The Amazon Inspector application data metrics that are collected by the agent.
-    telemetryMetadata :: [TelemetryMetadata],
+  { -- | The AWS account of the EC2 instance where the agent is installed.
+    agentId :: Types.AgentId,
     -- | The ARN of the assessment run that is associated with the agent.
-    assessmentRunARN :: Lude.Text,
+    assessmentRunArn :: Types.Arn,
     -- | The current health state of the agent.
-    agentHealth :: AgentHealth
+    agentHealth :: Types.AgentHealth,
+    -- | The detailed health state of the agent.
+    agentHealthCode :: Types.AgentHealthCode,
+    -- | The Amazon Inspector application data metrics that are collected by the agent.
+    telemetryMetadata :: [Types.TelemetryMetadata],
+    -- | The description for the agent health code.
+    agentHealthDetails :: Core.Maybe Types.AgentHealthDetails,
+    -- | The Auto Scaling group of the EC2 instance that is specified by the agent ID.
+    autoScalingGroup :: Core.Maybe Types.AutoScalingGroup
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssessmentRunAgent' with the minimum fields required to make a request.
---
--- * 'autoScalingGroup' - The Auto Scaling group of the EC2 instance that is specified by the agent ID.
--- * 'agentHealthCode' - The detailed health state of the agent.
--- * 'agentId' - The AWS account of the EC2 instance where the agent is installed.
--- * 'agentHealthDetails' - The description for the agent health code.
--- * 'telemetryMetadata' - The Amazon Inspector application data metrics that are collected by the agent.
--- * 'assessmentRunARN' - The ARN of the assessment run that is associated with the agent.
--- * 'agentHealth' - The current health state of the agent.
+-- | Creates a 'AssessmentRunAgent' value with any optional fields omitted.
 mkAssessmentRunAgent ::
-  -- | 'agentHealthCode'
-  AgentHealthCode ->
   -- | 'agentId'
-  Lude.Text ->
-  -- | 'assessmentRunARN'
-  Lude.Text ->
+  Types.AgentId ->
+  -- | 'assessmentRunArn'
+  Types.Arn ->
   -- | 'agentHealth'
-  AgentHealth ->
+  Types.AgentHealth ->
+  -- | 'agentHealthCode'
+  Types.AgentHealthCode ->
   AssessmentRunAgent
 mkAssessmentRunAgent
-  pAgentHealthCode_
-  pAgentId_
-  pAssessmentRunARN_
-  pAgentHealth_ =
+  agentId
+  assessmentRunArn
+  agentHealth
+  agentHealthCode =
     AssessmentRunAgent'
-      { autoScalingGroup = Lude.Nothing,
-        agentHealthCode = pAgentHealthCode_,
-        agentId = pAgentId_,
-        agentHealthDetails = Lude.Nothing,
-        telemetryMetadata = Lude.mempty,
-        assessmentRunARN = pAssessmentRunARN_,
-        agentHealth = pAgentHealth_
+      { agentId,
+        assessmentRunArn,
+        agentHealth,
+        agentHealthCode,
+        telemetryMetadata = Core.mempty,
+        agentHealthDetails = Core.Nothing,
+        autoScalingGroup = Core.Nothing
       }
-
--- | The Auto Scaling group of the EC2 instance that is specified by the agent ID.
---
--- /Note:/ Consider using 'autoScalingGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-araAutoScalingGroup :: Lens.Lens' AssessmentRunAgent (Lude.Maybe Lude.Text)
-araAutoScalingGroup = Lens.lens (autoScalingGroup :: AssessmentRunAgent -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingGroup = a} :: AssessmentRunAgent)
-{-# DEPRECATED araAutoScalingGroup "Use generic-lens or generic-optics with 'autoScalingGroup' instead." #-}
-
--- | The detailed health state of the agent.
---
--- /Note:/ Consider using 'agentHealthCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-araAgentHealthCode :: Lens.Lens' AssessmentRunAgent AgentHealthCode
-araAgentHealthCode = Lens.lens (agentHealthCode :: AssessmentRunAgent -> AgentHealthCode) (\s a -> s {agentHealthCode = a} :: AssessmentRunAgent)
-{-# DEPRECATED araAgentHealthCode "Use generic-lens or generic-optics with 'agentHealthCode' instead." #-}
 
 -- | The AWS account of the EC2 instance where the agent is installed.
 --
 -- /Note:/ Consider using 'agentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-araAgentId :: Lens.Lens' AssessmentRunAgent Lude.Text
-araAgentId = Lens.lens (agentId :: AssessmentRunAgent -> Lude.Text) (\s a -> s {agentId = a} :: AssessmentRunAgent)
+araAgentId :: Lens.Lens' AssessmentRunAgent Types.AgentId
+araAgentId = Lens.field @"agentId"
 {-# DEPRECATED araAgentId "Use generic-lens or generic-optics with 'agentId' instead." #-}
-
--- | The description for the agent health code.
---
--- /Note:/ Consider using 'agentHealthDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-araAgentHealthDetails :: Lens.Lens' AssessmentRunAgent (Lude.Maybe Lude.Text)
-araAgentHealthDetails = Lens.lens (agentHealthDetails :: AssessmentRunAgent -> Lude.Maybe Lude.Text) (\s a -> s {agentHealthDetails = a} :: AssessmentRunAgent)
-{-# DEPRECATED araAgentHealthDetails "Use generic-lens or generic-optics with 'agentHealthDetails' instead." #-}
-
--- | The Amazon Inspector application data metrics that are collected by the agent.
---
--- /Note:/ Consider using 'telemetryMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-araTelemetryMetadata :: Lens.Lens' AssessmentRunAgent [TelemetryMetadata]
-araTelemetryMetadata = Lens.lens (telemetryMetadata :: AssessmentRunAgent -> [TelemetryMetadata]) (\s a -> s {telemetryMetadata = a} :: AssessmentRunAgent)
-{-# DEPRECATED araTelemetryMetadata "Use generic-lens or generic-optics with 'telemetryMetadata' instead." #-}
 
 -- | The ARN of the assessment run that is associated with the agent.
 --
--- /Note:/ Consider using 'assessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-araAssessmentRunARN :: Lens.Lens' AssessmentRunAgent Lude.Text
-araAssessmentRunARN = Lens.lens (assessmentRunARN :: AssessmentRunAgent -> Lude.Text) (\s a -> s {assessmentRunARN = a} :: AssessmentRunAgent)
-{-# DEPRECATED araAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
+-- /Note:/ Consider using 'assessmentRunArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+araAssessmentRunArn :: Lens.Lens' AssessmentRunAgent Types.Arn
+araAssessmentRunArn = Lens.field @"assessmentRunArn"
+{-# DEPRECATED araAssessmentRunArn "Use generic-lens or generic-optics with 'assessmentRunArn' instead." #-}
 
 -- | The current health state of the agent.
 --
 -- /Note:/ Consider using 'agentHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-araAgentHealth :: Lens.Lens' AssessmentRunAgent AgentHealth
-araAgentHealth = Lens.lens (agentHealth :: AssessmentRunAgent -> AgentHealth) (\s a -> s {agentHealth = a} :: AssessmentRunAgent)
+araAgentHealth :: Lens.Lens' AssessmentRunAgent Types.AgentHealth
+araAgentHealth = Lens.field @"agentHealth"
 {-# DEPRECATED araAgentHealth "Use generic-lens or generic-optics with 'agentHealth' instead." #-}
 
-instance Lude.FromJSON AssessmentRunAgent where
+-- | The detailed health state of the agent.
+--
+-- /Note:/ Consider using 'agentHealthCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+araAgentHealthCode :: Lens.Lens' AssessmentRunAgent Types.AgentHealthCode
+araAgentHealthCode = Lens.field @"agentHealthCode"
+{-# DEPRECATED araAgentHealthCode "Use generic-lens or generic-optics with 'agentHealthCode' instead." #-}
+
+-- | The Amazon Inspector application data metrics that are collected by the agent.
+--
+-- /Note:/ Consider using 'telemetryMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+araTelemetryMetadata :: Lens.Lens' AssessmentRunAgent [Types.TelemetryMetadata]
+araTelemetryMetadata = Lens.field @"telemetryMetadata"
+{-# DEPRECATED araTelemetryMetadata "Use generic-lens or generic-optics with 'telemetryMetadata' instead." #-}
+
+-- | The description for the agent health code.
+--
+-- /Note:/ Consider using 'agentHealthDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+araAgentHealthDetails :: Lens.Lens' AssessmentRunAgent (Core.Maybe Types.AgentHealthDetails)
+araAgentHealthDetails = Lens.field @"agentHealthDetails"
+{-# DEPRECATED araAgentHealthDetails "Use generic-lens or generic-optics with 'agentHealthDetails' instead." #-}
+
+-- | The Auto Scaling group of the EC2 instance that is specified by the agent ID.
+--
+-- /Note:/ Consider using 'autoScalingGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+araAutoScalingGroup :: Lens.Lens' AssessmentRunAgent (Core.Maybe Types.AutoScalingGroup)
+araAutoScalingGroup = Lens.field @"autoScalingGroup"
+{-# DEPRECATED araAutoScalingGroup "Use generic-lens or generic-optics with 'autoScalingGroup' instead." #-}
+
+instance Core.FromJSON AssessmentRunAgent where
   parseJSON =
-    Lude.withObject
-      "AssessmentRunAgent"
-      ( \x ->
-          AssessmentRunAgent'
-            Lude.<$> (x Lude..:? "autoScalingGroup")
-            Lude.<*> (x Lude..: "agentHealthCode")
-            Lude.<*> (x Lude..: "agentId")
-            Lude.<*> (x Lude..:? "agentHealthDetails")
-            Lude.<*> (x Lude..:? "telemetryMetadata" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "assessmentRunArn")
-            Lude.<*> (x Lude..: "agentHealth")
-      )
+    Core.withObject "AssessmentRunAgent" Core.$
+      \x ->
+        AssessmentRunAgent'
+          Core.<$> (x Core..: "agentId")
+          Core.<*> (x Core..: "assessmentRunArn")
+          Core.<*> (x Core..: "agentHealth")
+          Core.<*> (x Core..: "agentHealthCode")
+          Core.<*> (x Core..:? "telemetryMetadata" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "agentHealthDetails")
+          Core.<*> (x Core..:? "autoScalingGroup")

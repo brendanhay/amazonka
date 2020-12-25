@@ -17,99 +17,93 @@ module Network.AWS.AlexaBusiness.Types.SkillSummary
     mkSkillSummary,
 
     -- * Lenses
-    ssSkillId,
-    ssSupportsLinking,
-    ssSkillType,
     ssEnablementType,
+    ssSkillId,
     ssSkillName,
+    ssSkillType,
+    ssSupportsLinking,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.EnablementType
-import Network.AWS.AlexaBusiness.Types.SkillType
+import qualified Network.AWS.AlexaBusiness.Types.EnablementType as Types
+import qualified Network.AWS.AlexaBusiness.Types.SkillId as Types
+import qualified Network.AWS.AlexaBusiness.Types.SkillName as Types
+import qualified Network.AWS.AlexaBusiness.Types.SkillType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The summary of skills.
 --
 -- /See:/ 'mkSkillSummary' smart constructor.
 data SkillSummary = SkillSummary'
-  { -- | The ARN of the skill summary.
-    skillId :: Lude.Maybe Lude.Text,
-    -- | Linking support for a skill.
-    supportsLinking :: Lude.Maybe Lude.Bool,
-    -- | Whether the skill is publicly available or is a private skill.
-    skillType :: Lude.Maybe SkillType,
-    -- | Whether the skill is enabled under the user's account, or if it requires linking to be used.
-    enablementType :: Lude.Maybe EnablementType,
+  { -- | Whether the skill is enabled under the user's account, or if it requires linking to be used.
+    enablementType :: Core.Maybe Types.EnablementType,
+    -- | The ARN of the skill summary.
+    skillId :: Core.Maybe Types.SkillId,
     -- | The name of the skill.
-    skillName :: Lude.Maybe Lude.Text
+    skillName :: Core.Maybe Types.SkillName,
+    -- | Whether the skill is publicly available or is a private skill.
+    skillType :: Core.Maybe Types.SkillType,
+    -- | Linking support for a skill.
+    supportsLinking :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SkillSummary' with the minimum fields required to make a request.
---
--- * 'skillId' - The ARN of the skill summary.
--- * 'supportsLinking' - Linking support for a skill.
--- * 'skillType' - Whether the skill is publicly available or is a private skill.
--- * 'enablementType' - Whether the skill is enabled under the user's account, or if it requires linking to be used.
--- * 'skillName' - The name of the skill.
+-- | Creates a 'SkillSummary' value with any optional fields omitted.
 mkSkillSummary ::
   SkillSummary
 mkSkillSummary =
   SkillSummary'
-    { skillId = Lude.Nothing,
-      supportsLinking = Lude.Nothing,
-      skillType = Lude.Nothing,
-      enablementType = Lude.Nothing,
-      skillName = Lude.Nothing
+    { enablementType = Core.Nothing,
+      skillId = Core.Nothing,
+      skillName = Core.Nothing,
+      skillType = Core.Nothing,
+      supportsLinking = Core.Nothing
     }
-
--- | The ARN of the skill summary.
---
--- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSkillId :: Lens.Lens' SkillSummary (Lude.Maybe Lude.Text)
-ssSkillId = Lens.lens (skillId :: SkillSummary -> Lude.Maybe Lude.Text) (\s a -> s {skillId = a} :: SkillSummary)
-{-# DEPRECATED ssSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
-
--- | Linking support for a skill.
---
--- /Note:/ Consider using 'supportsLinking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSupportsLinking :: Lens.Lens' SkillSummary (Lude.Maybe Lude.Bool)
-ssSupportsLinking = Lens.lens (supportsLinking :: SkillSummary -> Lude.Maybe Lude.Bool) (\s a -> s {supportsLinking = a} :: SkillSummary)
-{-# DEPRECATED ssSupportsLinking "Use generic-lens or generic-optics with 'supportsLinking' instead." #-}
-
--- | Whether the skill is publicly available or is a private skill.
---
--- /Note:/ Consider using 'skillType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSkillType :: Lens.Lens' SkillSummary (Lude.Maybe SkillType)
-ssSkillType = Lens.lens (skillType :: SkillSummary -> Lude.Maybe SkillType) (\s a -> s {skillType = a} :: SkillSummary)
-{-# DEPRECATED ssSkillType "Use generic-lens or generic-optics with 'skillType' instead." #-}
 
 -- | Whether the skill is enabled under the user's account, or if it requires linking to be used.
 --
 -- /Note:/ Consider using 'enablementType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssEnablementType :: Lens.Lens' SkillSummary (Lude.Maybe EnablementType)
-ssEnablementType = Lens.lens (enablementType :: SkillSummary -> Lude.Maybe EnablementType) (\s a -> s {enablementType = a} :: SkillSummary)
+ssEnablementType :: Lens.Lens' SkillSummary (Core.Maybe Types.EnablementType)
+ssEnablementType = Lens.field @"enablementType"
 {-# DEPRECATED ssEnablementType "Use generic-lens or generic-optics with 'enablementType' instead." #-}
+
+-- | The ARN of the skill summary.
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssSkillId :: Lens.Lens' SkillSummary (Core.Maybe Types.SkillId)
+ssSkillId = Lens.field @"skillId"
+{-# DEPRECATED ssSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
 -- | The name of the skill.
 --
 -- /Note:/ Consider using 'skillName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSkillName :: Lens.Lens' SkillSummary (Lude.Maybe Lude.Text)
-ssSkillName = Lens.lens (skillName :: SkillSummary -> Lude.Maybe Lude.Text) (\s a -> s {skillName = a} :: SkillSummary)
+ssSkillName :: Lens.Lens' SkillSummary (Core.Maybe Types.SkillName)
+ssSkillName = Lens.field @"skillName"
 {-# DEPRECATED ssSkillName "Use generic-lens or generic-optics with 'skillName' instead." #-}
 
-instance Lude.FromJSON SkillSummary where
+-- | Whether the skill is publicly available or is a private skill.
+--
+-- /Note:/ Consider using 'skillType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssSkillType :: Lens.Lens' SkillSummary (Core.Maybe Types.SkillType)
+ssSkillType = Lens.field @"skillType"
+{-# DEPRECATED ssSkillType "Use generic-lens or generic-optics with 'skillType' instead." #-}
+
+-- | Linking support for a skill.
+--
+-- /Note:/ Consider using 'supportsLinking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssSupportsLinking :: Lens.Lens' SkillSummary (Core.Maybe Core.Bool)
+ssSupportsLinking = Lens.field @"supportsLinking"
+{-# DEPRECATED ssSupportsLinking "Use generic-lens or generic-optics with 'supportsLinking' instead." #-}
+
+instance Core.FromJSON SkillSummary where
   parseJSON =
-    Lude.withObject
-      "SkillSummary"
-      ( \x ->
-          SkillSummary'
-            Lude.<$> (x Lude..:? "SkillId")
-            Lude.<*> (x Lude..:? "SupportsLinking")
-            Lude.<*> (x Lude..:? "SkillType")
-            Lude.<*> (x Lude..:? "EnablementType")
-            Lude.<*> (x Lude..:? "SkillName")
-      )
+    Core.withObject "SkillSummary" Core.$
+      \x ->
+        SkillSummary'
+          Core.<$> (x Core..:? "EnablementType")
+          Core.<*> (x Core..:? "SkillId")
+          Core.<*> (x Core..:? "SkillName")
+          Core.<*> (x Core..:? "SkillType")
+          Core.<*> (x Core..:? "SupportsLinking")

@@ -22,42 +22,38 @@ module Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
     mkUpdateProvisioningArtifact,
 
     -- ** Request lenses
-    upaProvisioningArtifactId,
-    upaActive,
-    upaName,
-    upaAcceptLanguage,
-    upaGuidance,
-    upaDescription,
     upaProductId,
+    upaProvisioningArtifactId,
+    upaAcceptLanguage,
+    upaActive,
+    upaDescription,
+    upaGuidance,
+    upaName,
 
     -- * Destructuring the response
     UpdateProvisioningArtifactResponse (..),
     mkUpdateProvisioningArtifactResponse,
 
     -- ** Response lenses
-    uparsStatus,
-    uparsInfo,
-    uparsProvisioningArtifactDetail,
-    uparsResponseStatus,
+    uparrsInfo,
+    uparrsProvisioningArtifactDetail,
+    uparrsStatus,
+    uparrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkUpdateProvisioningArtifact' smart constructor.
 data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
-  { -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Lude.Text,
-    -- | Indicates whether the product version is active.
-    --
-    -- Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
-    active :: Lude.Maybe Lude.Bool,
-    -- | The updated name of the provisioning artifact.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The product identifier.
+    productId :: Types.Id,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Types.Id,
     -- | The language code.
     --
     --
@@ -68,85 +64,55 @@ data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
+    -- | Indicates whether the product version is active.
+    --
+    -- Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
+    active :: Core.Maybe Core.Bool,
+    -- | The updated description of the provisioning artifact.
+    description :: Core.Maybe Types.ProvisioningArtifactDescription,
     -- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
     --
     -- The @DEFAULT@ value indicates that the product version is active.
     -- The administrator can set the guidance to @DEPRECATED@ to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
-    guidance :: Lude.Maybe ProvisioningArtifactGuidance,
-    -- | The updated description of the provisioning artifact.
-    description :: Lude.Maybe Lude.Text,
-    -- | The product identifier.
-    productId :: Lude.Text
+    guidance :: Core.Maybe Types.ProvisioningArtifactGuidance,
+    -- | The updated name of the provisioning artifact.
+    name :: Core.Maybe Types.ProvisioningArtifactName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateProvisioningArtifact' with the minimum fields required to make a request.
---
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
--- * 'active' - Indicates whether the product version is active.
---
--- Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
--- * 'name' - The updated name of the provisioning artifact.
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'guidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
---
--- The @DEFAULT@ value indicates that the product version is active.
--- The administrator can set the guidance to @DEPRECATED@ to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
--- * 'description' - The updated description of the provisioning artifact.
--- * 'productId' - The product identifier.
+-- | Creates a 'UpdateProvisioningArtifact' value with any optional fields omitted.
 mkUpdateProvisioningArtifact ::
-  -- | 'provisioningArtifactId'
-  Lude.Text ->
   -- | 'productId'
-  Lude.Text ->
+  Types.Id ->
+  -- | 'provisioningArtifactId'
+  Types.Id ->
   UpdateProvisioningArtifact
-mkUpdateProvisioningArtifact pProvisioningArtifactId_ pProductId_ =
+mkUpdateProvisioningArtifact productId provisioningArtifactId =
   UpdateProvisioningArtifact'
-    { provisioningArtifactId =
-        pProvisioningArtifactId_,
-      active = Lude.Nothing,
-      name = Lude.Nothing,
-      acceptLanguage = Lude.Nothing,
-      guidance = Lude.Nothing,
-      description = Lude.Nothing,
-      productId = pProductId_
+    { productId,
+      provisioningArtifactId,
+      acceptLanguage = Core.Nothing,
+      active = Core.Nothing,
+      description = Core.Nothing,
+      guidance = Core.Nothing,
+      name = Core.Nothing
     }
+
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upaProductId :: Lens.Lens' UpdateProvisioningArtifact Types.Id
+upaProductId = Lens.field @"productId"
+{-# DEPRECATED upaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | The identifier of the provisioning artifact.
 --
 -- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaProvisioningArtifactId :: Lens.Lens' UpdateProvisioningArtifact Lude.Text
-upaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: UpdateProvisioningArtifact -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: UpdateProvisioningArtifact)
+upaProvisioningArtifactId :: Lens.Lens' UpdateProvisioningArtifact Types.Id
+upaProvisioningArtifactId = Lens.field @"provisioningArtifactId"
 {-# DEPRECATED upaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
-
--- | Indicates whether the product version is active.
---
--- Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
---
--- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaActive :: Lens.Lens' UpdateProvisioningArtifact (Lude.Maybe Lude.Bool)
-upaActive = Lens.lens (active :: UpdateProvisioningArtifact -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: UpdateProvisioningArtifact)
-{-# DEPRECATED upaActive "Use generic-lens or generic-optics with 'active' instead." #-}
-
--- | The updated name of the provisioning artifact.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaName :: Lens.Lens' UpdateProvisioningArtifact (Lude.Maybe Lude.Text)
-upaName = Lens.lens (name :: UpdateProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateProvisioningArtifact)
-{-# DEPRECATED upaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The language code.
 --
@@ -162,9 +128,25 @@ upaName = Lens.lens (name :: UpdateProvisioningArtifact -> Lude.Maybe Lude.Text)
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaAcceptLanguage :: Lens.Lens' UpdateProvisioningArtifact (Lude.Maybe Lude.Text)
-upaAcceptLanguage = Lens.lens (acceptLanguage :: UpdateProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: UpdateProvisioningArtifact)
+upaAcceptLanguage :: Lens.Lens' UpdateProvisioningArtifact (Core.Maybe Types.AcceptLanguage)
+upaAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED upaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+
+-- | Indicates whether the product version is active.
+--
+-- Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
+--
+-- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upaActive :: Lens.Lens' UpdateProvisioningArtifact (Core.Maybe Core.Bool)
+upaActive = Lens.field @"active"
+{-# DEPRECATED upaActive "Use generic-lens or generic-optics with 'active' instead." #-}
+
+-- | The updated description of the provisioning artifact.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upaDescription :: Lens.Lens' UpdateProvisioningArtifact (Core.Maybe Types.ProvisioningArtifactDescription)
+upaDescription = Lens.field @"description"
+{-# DEPRECATED upaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
 --
@@ -172,129 +154,111 @@ upaAcceptLanguage = Lens.lens (acceptLanguage :: UpdateProvisioningArtifact -> L
 -- The administrator can set the guidance to @DEPRECATED@ to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
 --
 -- /Note:/ Consider using 'guidance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaGuidance :: Lens.Lens' UpdateProvisioningArtifact (Lude.Maybe ProvisioningArtifactGuidance)
-upaGuidance = Lens.lens (guidance :: UpdateProvisioningArtifact -> Lude.Maybe ProvisioningArtifactGuidance) (\s a -> s {guidance = a} :: UpdateProvisioningArtifact)
+upaGuidance :: Lens.Lens' UpdateProvisioningArtifact (Core.Maybe Types.ProvisioningArtifactGuidance)
+upaGuidance = Lens.field @"guidance"
 {-# DEPRECATED upaGuidance "Use generic-lens or generic-optics with 'guidance' instead." #-}
 
--- | The updated description of the provisioning artifact.
+-- | The updated name of the provisioning artifact.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaDescription :: Lens.Lens' UpdateProvisioningArtifact (Lude.Maybe Lude.Text)
-upaDescription = Lens.lens (description :: UpdateProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateProvisioningArtifact)
-{-# DEPRECATED upaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upaName :: Lens.Lens' UpdateProvisioningArtifact (Core.Maybe Types.ProvisioningArtifactName)
+upaName = Lens.field @"name"
+{-# DEPRECATED upaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The product identifier.
---
--- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaProductId :: Lens.Lens' UpdateProvisioningArtifact Lude.Text
-upaProductId = Lens.lens (productId :: UpdateProvisioningArtifact -> Lude.Text) (\s a -> s {productId = a} :: UpdateProvisioningArtifact)
-{-# DEPRECATED upaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
+instance Core.FromJSON UpdateProvisioningArtifact where
+  toJSON UpdateProvisioningArtifact {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProductId" Core..= productId),
+            Core.Just
+              ("ProvisioningArtifactId" Core..= provisioningArtifactId),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("Active" Core..=) Core.<$> active,
+            ("Description" Core..=) Core.<$> description,
+            ("Guidance" Core..=) Core.<$> guidance,
+            ("Name" Core..=) Core.<$> name
+          ]
+      )
 
-instance Lude.AWSRequest UpdateProvisioningArtifact where
+instance Core.AWSRequest UpdateProvisioningArtifact where
   type
     Rs UpdateProvisioningArtifact =
       UpdateProvisioningArtifactResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.UpdateProvisioningArtifact"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateProvisioningArtifactResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "Info" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "ProvisioningArtifactDetail")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Info")
+            Core.<*> (x Core..:? "ProvisioningArtifactDetail")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateProvisioningArtifact where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.UpdateProvisioningArtifact" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateProvisioningArtifact where
-  toJSON UpdateProvisioningArtifact' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
-            ("Active" Lude..=) Lude.<$> active,
-            ("Name" Lude..=) Lude.<$> name,
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("Guidance" Lude..=) Lude.<$> guidance,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("ProductId" Lude..= productId)
-          ]
-      )
-
-instance Lude.ToPath UpdateProvisioningArtifact where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateProvisioningArtifact where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateProvisioningArtifactResponse' smart constructor.
 data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
-  { -- | The status of the current request.
-    status :: Lude.Maybe RequestStatus,
-    -- | The URL of the CloudFormation template in Amazon S3.
-    info :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The URL of the CloudFormation template in Amazon S3.
+    info :: Core.Maybe (Core.HashMap Types.ProvisioningArtifactInfoKey Types.ProvisioningArtifactInfoValue),
     -- | Information about the provisioning artifact.
-    provisioningArtifactDetail :: Lude.Maybe ProvisioningArtifactDetail,
+    provisioningArtifactDetail :: Core.Maybe Types.ProvisioningArtifactDetail,
+    -- | The status of the current request.
+    status :: Core.Maybe Types.RequestStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateProvisioningArtifactResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the current request.
--- * 'info' - The URL of the CloudFormation template in Amazon S3.
--- * 'provisioningArtifactDetail' - Information about the provisioning artifact.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateProvisioningArtifactResponse' value with any optional fields omitted.
 mkUpdateProvisioningArtifactResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateProvisioningArtifactResponse
-mkUpdateProvisioningArtifactResponse pResponseStatus_ =
+mkUpdateProvisioningArtifactResponse responseStatus =
   UpdateProvisioningArtifactResponse'
-    { status = Lude.Nothing,
-      info = Lude.Nothing,
-      provisioningArtifactDetail = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { info = Core.Nothing,
+      provisioningArtifactDetail = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the current request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uparsStatus :: Lens.Lens' UpdateProvisioningArtifactResponse (Lude.Maybe RequestStatus)
-uparsStatus = Lens.lens (status :: UpdateProvisioningArtifactResponse -> Lude.Maybe RequestStatus) (\s a -> s {status = a} :: UpdateProvisioningArtifactResponse)
-{-# DEPRECATED uparsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The URL of the CloudFormation template in Amazon S3.
 --
 -- /Note:/ Consider using 'info' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uparsInfo :: Lens.Lens' UpdateProvisioningArtifactResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-uparsInfo = Lens.lens (info :: UpdateProvisioningArtifactResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {info = a} :: UpdateProvisioningArtifactResponse)
-{-# DEPRECATED uparsInfo "Use generic-lens or generic-optics with 'info' instead." #-}
+uparrsInfo :: Lens.Lens' UpdateProvisioningArtifactResponse (Core.Maybe (Core.HashMap Types.ProvisioningArtifactInfoKey Types.ProvisioningArtifactInfoValue))
+uparrsInfo = Lens.field @"info"
+{-# DEPRECATED uparrsInfo "Use generic-lens or generic-optics with 'info' instead." #-}
 
 -- | Information about the provisioning artifact.
 --
 -- /Note:/ Consider using 'provisioningArtifactDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uparsProvisioningArtifactDetail :: Lens.Lens' UpdateProvisioningArtifactResponse (Lude.Maybe ProvisioningArtifactDetail)
-uparsProvisioningArtifactDetail = Lens.lens (provisioningArtifactDetail :: UpdateProvisioningArtifactResponse -> Lude.Maybe ProvisioningArtifactDetail) (\s a -> s {provisioningArtifactDetail = a} :: UpdateProvisioningArtifactResponse)
-{-# DEPRECATED uparsProvisioningArtifactDetail "Use generic-lens or generic-optics with 'provisioningArtifactDetail' instead." #-}
+uparrsProvisioningArtifactDetail :: Lens.Lens' UpdateProvisioningArtifactResponse (Core.Maybe Types.ProvisioningArtifactDetail)
+uparrsProvisioningArtifactDetail = Lens.field @"provisioningArtifactDetail"
+{-# DEPRECATED uparrsProvisioningArtifactDetail "Use generic-lens or generic-optics with 'provisioningArtifactDetail' instead." #-}
+
+-- | The status of the current request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uparrsStatus :: Lens.Lens' UpdateProvisioningArtifactResponse (Core.Maybe Types.RequestStatus)
+uparrsStatus = Lens.field @"status"
+{-# DEPRECATED uparrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uparsResponseStatus :: Lens.Lens' UpdateProvisioningArtifactResponse Lude.Int
-uparsResponseStatus = Lens.lens (responseStatus :: UpdateProvisioningArtifactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProvisioningArtifactResponse)
-{-# DEPRECATED uparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uparrsResponseStatus :: Lens.Lens' UpdateProvisioningArtifactResponse Core.Int
+uparrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uparrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

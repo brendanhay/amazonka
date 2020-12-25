@@ -13,57 +13,62 @@
 module Network.AWS.MediaLive.Types.Eac3StereoDownmix
   ( Eac3StereoDownmix
       ( Eac3StereoDownmix',
-        DPL2,
-        LoRo,
-        LtRt,
-        NotIndicated
+        Eac3StereoDownmixDPL2,
+        Eac3StereoDownmixLoRo,
+        Eac3StereoDownmixLtRt,
+        Eac3StereoDownmixNotIndicated,
+        fromEac3StereoDownmix
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Eac3 Stereo Downmix
-newtype Eac3StereoDownmix = Eac3StereoDownmix' Lude.Text
+newtype Eac3StereoDownmix = Eac3StereoDownmix'
+  { fromEac3StereoDownmix ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DPL2 :: Eac3StereoDownmix
-pattern DPL2 = Eac3StereoDownmix' "DPL2"
+pattern Eac3StereoDownmixDPL2 :: Eac3StereoDownmix
+pattern Eac3StereoDownmixDPL2 = Eac3StereoDownmix' "DPL2"
 
-pattern LoRo :: Eac3StereoDownmix
-pattern LoRo = Eac3StereoDownmix' "LO_RO"
+pattern Eac3StereoDownmixLoRo :: Eac3StereoDownmix
+pattern Eac3StereoDownmixLoRo = Eac3StereoDownmix' "LO_RO"
 
-pattern LtRt :: Eac3StereoDownmix
-pattern LtRt = Eac3StereoDownmix' "LT_RT"
+pattern Eac3StereoDownmixLtRt :: Eac3StereoDownmix
+pattern Eac3StereoDownmixLtRt = Eac3StereoDownmix' "LT_RT"
 
-pattern NotIndicated :: Eac3StereoDownmix
-pattern NotIndicated = Eac3StereoDownmix' "NOT_INDICATED"
+pattern Eac3StereoDownmixNotIndicated :: Eac3StereoDownmix
+pattern Eac3StereoDownmixNotIndicated = Eac3StereoDownmix' "NOT_INDICATED"
 
 {-# COMPLETE
-  DPL2,
-  LoRo,
-  LtRt,
-  NotIndicated,
+  Eac3StereoDownmixDPL2,
+  Eac3StereoDownmixLoRo,
+  Eac3StereoDownmixLtRt,
+  Eac3StereoDownmixNotIndicated,
   Eac3StereoDownmix'
   #-}

@@ -22,53 +22,49 @@ module Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
   )
 where
 
-import Network.AWS.KinesisVideo.Types.ChannelProtocol
+import qualified Network.AWS.KinesisVideo.Types.ChannelProtocol as Types
+import qualified Network.AWS.KinesisVideo.Types.ResourceEndpoint as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that describes the endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
 --
 -- /See:/ 'mkResourceEndpointListItem' smart constructor.
 data ResourceEndpointListItem = ResourceEndpointListItem'
   { -- | The protocol of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
-    protocol :: Lude.Maybe ChannelProtocol,
+    protocol :: Core.Maybe Types.ChannelProtocol,
     -- | The endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
-    resourceEndpoint :: Lude.Maybe Lude.Text
+    resourceEndpoint :: Core.Maybe Types.ResourceEndpoint
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceEndpointListItem' with the minimum fields required to make a request.
---
--- * 'protocol' - The protocol of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
--- * 'resourceEndpoint' - The endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
+-- | Creates a 'ResourceEndpointListItem' value with any optional fields omitted.
 mkResourceEndpointListItem ::
   ResourceEndpointListItem
 mkResourceEndpointListItem =
   ResourceEndpointListItem'
-    { protocol = Lude.Nothing,
-      resourceEndpoint = Lude.Nothing
+    { protocol = Core.Nothing,
+      resourceEndpoint = Core.Nothing
     }
 
 -- | The protocol of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
 --
 -- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reliProtocol :: Lens.Lens' ResourceEndpointListItem (Lude.Maybe ChannelProtocol)
-reliProtocol = Lens.lens (protocol :: ResourceEndpointListItem -> Lude.Maybe ChannelProtocol) (\s a -> s {protocol = a} :: ResourceEndpointListItem)
+reliProtocol :: Lens.Lens' ResourceEndpointListItem (Core.Maybe Types.ChannelProtocol)
+reliProtocol = Lens.field @"protocol"
 {-# DEPRECATED reliProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
 --
 -- /Note:/ Consider using 'resourceEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reliResourceEndpoint :: Lens.Lens' ResourceEndpointListItem (Lude.Maybe Lude.Text)
-reliResourceEndpoint = Lens.lens (resourceEndpoint :: ResourceEndpointListItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceEndpoint = a} :: ResourceEndpointListItem)
+reliResourceEndpoint :: Lens.Lens' ResourceEndpointListItem (Core.Maybe Types.ResourceEndpoint)
+reliResourceEndpoint = Lens.field @"resourceEndpoint"
 {-# DEPRECATED reliResourceEndpoint "Use generic-lens or generic-optics with 'resourceEndpoint' instead." #-}
 
-instance Lude.FromJSON ResourceEndpointListItem where
+instance Core.FromJSON ResourceEndpointListItem where
   parseJSON =
-    Lude.withObject
-      "ResourceEndpointListItem"
-      ( \x ->
-          ResourceEndpointListItem'
-            Lude.<$> (x Lude..:? "Protocol") Lude.<*> (x Lude..:? "ResourceEndpoint")
-      )
+    Core.withObject "ResourceEndpointListItem" Core.$
+      \x ->
+        ResourceEndpointListItem'
+          Core.<$> (x Core..:? "Protocol") Core.<*> (x Core..:? "ResourceEndpoint")

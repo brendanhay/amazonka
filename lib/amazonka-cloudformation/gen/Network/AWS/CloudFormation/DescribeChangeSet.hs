@@ -22,397 +22,369 @@ module Network.AWS.CloudFormation.DescribeChangeSet
     mkDescribeChangeSet,
 
     -- ** Request lenses
-    dcsChangeSetName,
-    dcsNextToken,
-    dcsStackName,
+    dcsfChangeSetName,
+    dcsfNextToken,
+    dcsfStackName,
 
     -- * Destructuring the response
     DescribeChangeSetResponse (..),
     mkDescribeChangeSetResponse,
 
     -- ** Response lenses
-    dcsfrsCreationTime,
-    dcsfrsStatus,
-    dcsfrsParentChangeSetId,
-    dcsfrsChanges,
-    dcsfrsNotificationARNs,
-    dcsfrsChangeSetName,
-    dcsfrsExecutionStatus,
-    dcsfrsChangeSetId,
-    dcsfrsIncludeNestedStacks,
-    dcsfrsNextToken,
-    dcsfrsRootChangeSetId,
-    dcsfrsParameters,
-    dcsfrsStatusReason,
-    dcsfrsStackId,
-    dcsfrsDescription,
-    dcsfrsCapabilities,
-    dcsfrsRollbackConfiguration,
-    dcsfrsTags,
-    dcsfrsStackName,
-    dcsfrsResponseStatus,
+    dcsrfrsCapabilities,
+    dcsrfrsChangeSetId,
+    dcsrfrsChangeSetName,
+    dcsrfrsChanges,
+    dcsrfrsCreationTime,
+    dcsrfrsDescription,
+    dcsrfrsExecutionStatus,
+    dcsrfrsIncludeNestedStacks,
+    dcsrfrsNextToken,
+    dcsrfrsNotificationARNs,
+    dcsrfrsParameters,
+    dcsrfrsParentChangeSetId,
+    dcsrfrsRollbackConfiguration,
+    dcsrfrsRootChangeSetId,
+    dcsrfrsStackId,
+    dcsrfrsStackName,
+    dcsrfrsStatus,
+    dcsrfrsStatusReason,
+    dcsrfrsTags,
+    dcsrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'DescribeChangeSet' action.
 --
 -- /See:/ 'mkDescribeChangeSet' smart constructor.
 data DescribeChangeSet = DescribeChangeSet'
   { -- | The name or Amazon Resource Name (ARN) of the change set that you want to describe.
-    changeSetName :: Lude.Text,
+    changeSetName :: Types.ChangeSetNameOrId,
     -- | A string (provided by the 'DescribeChangeSet' response output) that identifies the next page of information that you want to retrieve.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe.
-    stackName :: Lude.Maybe Lude.Text
+    stackName :: Core.Maybe Types.StackName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeChangeSet' with the minimum fields required to make a request.
---
--- * 'changeSetName' - The name or Amazon Resource Name (ARN) of the change set that you want to describe.
--- * 'nextToken' - A string (provided by the 'DescribeChangeSet' response output) that identifies the next page of information that you want to retrieve.
--- * 'stackName' - If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe.
+-- | Creates a 'DescribeChangeSet' value with any optional fields omitted.
 mkDescribeChangeSet ::
   -- | 'changeSetName'
-  Lude.Text ->
+  Types.ChangeSetNameOrId ->
   DescribeChangeSet
-mkDescribeChangeSet pChangeSetName_ =
+mkDescribeChangeSet changeSetName =
   DescribeChangeSet'
-    { changeSetName = pChangeSetName_,
-      nextToken = Lude.Nothing,
-      stackName = Lude.Nothing
+    { changeSetName,
+      nextToken = Core.Nothing,
+      stackName = Core.Nothing
     }
 
 -- | The name or Amazon Resource Name (ARN) of the change set that you want to describe.
 --
 -- /Note:/ Consider using 'changeSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsChangeSetName :: Lens.Lens' DescribeChangeSet Lude.Text
-dcsChangeSetName = Lens.lens (changeSetName :: DescribeChangeSet -> Lude.Text) (\s a -> s {changeSetName = a} :: DescribeChangeSet)
-{-# DEPRECATED dcsChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
+dcsfChangeSetName :: Lens.Lens' DescribeChangeSet Types.ChangeSetNameOrId
+dcsfChangeSetName = Lens.field @"changeSetName"
+{-# DEPRECATED dcsfChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
 
 -- | A string (provided by the 'DescribeChangeSet' response output) that identifies the next page of information that you want to retrieve.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsNextToken :: Lens.Lens' DescribeChangeSet (Lude.Maybe Lude.Text)
-dcsNextToken = Lens.lens (nextToken :: DescribeChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeChangeSet)
-{-# DEPRECATED dcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcsfNextToken :: Lens.Lens' DescribeChangeSet (Core.Maybe Types.NextToken)
+dcsfNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcsfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | If you specified the name of a change set, specify the stack name or ID (ARN) of the change set you want to describe.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsStackName :: Lens.Lens' DescribeChangeSet (Lude.Maybe Lude.Text)
-dcsStackName = Lens.lens (stackName :: DescribeChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DescribeChangeSet)
-{-# DEPRECATED dcsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
+dcsfStackName :: Lens.Lens' DescribeChangeSet (Core.Maybe Types.StackName)
+dcsfStackName = Lens.field @"stackName"
+{-# DEPRECATED dcsfStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Page.AWSPager DescribeChangeSet where
-  page rq rs
-    | Page.stop (rs Lens.^. dcsfrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcsfrsChanges) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcsNextToken Lens..~ rs Lens.^. dcsfrsNextToken
-
-instance Lude.AWSRequest DescribeChangeSet where
+instance Core.AWSRequest DescribeChangeSet where
   type Rs DescribeChangeSet = DescribeChangeSetResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeChangeSet")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "ChangeSetName" changeSetName)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryValue "StackName" Core.<$> stackName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeChangeSetResult"
       ( \s h x ->
           DescribeChangeSetResponse'
-            Lude.<$> (x Lude..@? "CreationTime")
-            Lude.<*> (x Lude..@ "Status")
-            Lude.<*> (x Lude..@? "ParentChangeSetId")
-            Lude.<*> ( x Lude..@? "Changes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> (x Core..@? "Capabilities" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "ChangeSetId")
+            Core.<*> (x Core..@? "ChangeSetName")
+            Core.<*> (x Core..@? "Changes" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "CreationTime")
+            Core.<*> (x Core..@? "Description")
+            Core.<*> (x Core..@? "ExecutionStatus")
+            Core.<*> (x Core..@? "IncludeNestedStacks")
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "NotificationARNs"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> ( x Lude..@? "NotificationARNs" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "ChangeSetName")
-            Lude.<*> (x Lude..@? "ExecutionStatus")
-            Lude.<*> (x Lude..@? "ChangeSetId")
-            Lude.<*> (x Lude..@? "IncludeNestedStacks")
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (x Lude..@? "RootChangeSetId")
-            Lude.<*> ( x Lude..@? "Parameters" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "StatusReason")
-            Lude.<*> (x Lude..@? "StackId")
-            Lude.<*> (x Lude..@? "Description")
-            Lude.<*> ( x Lude..@? "Capabilities" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "RollbackConfiguration")
-            Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "StackName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Parameters" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "ParentChangeSetId")
+            Core.<*> (x Core..@? "RollbackConfiguration")
+            Core.<*> (x Core..@? "RootChangeSetId")
+            Core.<*> (x Core..@? "StackId")
+            Core.<*> (x Core..@? "StackName")
+            Core.<*> (x Core..@ "Status")
+            Core.<*> (x Core..@? "StatusReason")
+            Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeChangeSet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeChangeSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeChangeSet where
-  toQuery DescribeChangeSet' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeChangeSet" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "ChangeSetName" Lude.=: changeSetName,
-        "NextToken" Lude.=: nextToken,
-        "StackName" Lude.=: stackName
-      ]
+instance Pager.AWSPager DescribeChangeSet where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"changes" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | The output for the 'DescribeChangeSet' action.
 --
 -- /See:/ 'mkDescribeChangeSetResponse' smart constructor.
 data DescribeChangeSetResponse = DescribeChangeSetResponse'
-  { -- | The start time when the change set was created, in UTC.
-    creationTime :: Lude.Maybe Lude.DateTime,
-    -- | The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
-    status :: ChangeSetStatus,
-    -- | Specifies the change set ID of the parent change set in the current nested change set hierarchy.
-    parentChangeSetId :: Lude.Maybe Lude.Text,
-    -- | A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
-    changes :: Lude.Maybe [Change],
-    -- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set.
-    notificationARNs :: Lude.Maybe [Lude.Text],
-    -- | The name of the change set.
-    changeSetName :: Lude.Maybe Lude.Text,
-    -- | If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
-    executionStatus :: Lude.Maybe ExecutionStatus,
+  { -- | If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
+    capabilities :: Core.Maybe [Types.Capability],
     -- | The ARN of the change set.
-    changeSetId :: Lude.Maybe Lude.Text,
-    -- | Verifies if @IncludeNestedStacks@ is set to @True@ .
-    includeNestedStacks :: Lude.Maybe Lude.Bool,
-    -- | If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Specifies the change set ID of the root change set in the current nested change set hierarchy.
-    rootChangeSetId :: Lude.Maybe Lude.Text,
-    -- | A list of @Parameter@ structures that describes the input parameters and their values used to create the change set. For more information, see the <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
-    parameters :: Lude.Maybe [Parameter],
-    -- | A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
-    statusReason :: Lude.Maybe Lude.Text,
-    -- | The ARN of the stack that is associated with the change set.
-    stackId :: Lude.Maybe Lude.Text,
+    changeSetId :: Core.Maybe Types.ChangeSetId,
+    -- | The name of the change set.
+    changeSetName :: Core.Maybe Types.ChangeSetName,
+    -- | A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
+    changes :: Core.Maybe [Types.Change],
+    -- | The start time when the change set was created, in UTC.
+    creationTime :: Core.Maybe Core.UTCTime,
     -- | Information about the change set.
-    description :: Lude.Maybe Lude.Text,
-    -- | If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
-    capabilities :: Lude.Maybe [Capability],
+    description :: Core.Maybe Types.Description,
+    -- | If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
+    executionStatus :: Core.Maybe Types.ExecutionStatus,
+    -- | Verifies if @IncludeNestedStacks@ is set to @True@ .
+    includeNestedStacks :: Core.Maybe Core.Bool,
+    -- | If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set.
+    notificationARNs :: Core.Maybe [Types.NotificationARN],
+    -- | A list of @Parameter@ structures that describes the input parameters and their values used to create the change set. For more information, see the <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
+    parameters :: Core.Maybe [Types.Parameter],
+    -- | Specifies the change set ID of the parent change set in the current nested change set hierarchy.
+    parentChangeSetId :: Core.Maybe Types.ChangeSetId,
     -- | The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
-    rollbackConfiguration :: Lude.Maybe RollbackConfiguration,
-    -- | If you execute the change set, the tags that will be associated with the stack.
-    tags :: Lude.Maybe [Tag],
+    rollbackConfiguration :: Core.Maybe Types.RollbackConfiguration,
+    -- | Specifies the change set ID of the root change set in the current nested change set hierarchy.
+    rootChangeSetId :: Core.Maybe Types.ChangeSetId,
+    -- | The ARN of the stack that is associated with the change set.
+    stackId :: Core.Maybe Types.StackId,
     -- | The name of the stack that is associated with the change set.
-    stackName :: Lude.Maybe Lude.Text,
+    stackName :: Core.Maybe Types.StackName,
+    -- | The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
+    status :: Types.ChangeSetStatus,
+    -- | A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
+    statusReason :: Core.Maybe Types.ChangeSetStatusReason,
+    -- | If you execute the change set, the tags that will be associated with the stack.
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeChangeSetResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - The start time when the change set was created, in UTC.
--- * 'status' - The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
--- * 'parentChangeSetId' - Specifies the change set ID of the parent change set in the current nested change set hierarchy.
--- * 'changes' - A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
--- * 'notificationARNs' - The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set.
--- * 'changeSetName' - The name of the change set.
--- * 'executionStatus' - If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
--- * 'changeSetId' - The ARN of the change set.
--- * 'includeNestedStacks' - Verifies if @IncludeNestedStacks@ is set to @True@ .
--- * 'nextToken' - If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null.
--- * 'rootChangeSetId' - Specifies the change set ID of the root change set in the current nested change set hierarchy.
--- * 'parameters' - A list of @Parameter@ structures that describes the input parameters and their values used to create the change set. For more information, see the <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
--- * 'statusReason' - A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
--- * 'stackId' - The ARN of the stack that is associated with the change set.
--- * 'description' - Information about the change set.
--- * 'capabilities' - If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
--- * 'rollbackConfiguration' - The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
--- * 'tags' - If you execute the change set, the tags that will be associated with the stack.
--- * 'stackName' - The name of the stack that is associated with the change set.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeChangeSetResponse' value with any optional fields omitted.
 mkDescribeChangeSetResponse ::
   -- | 'status'
-  ChangeSetStatus ->
+  Types.ChangeSetStatus ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeChangeSetResponse
-mkDescribeChangeSetResponse pStatus_ pResponseStatus_ =
+mkDescribeChangeSetResponse status responseStatus =
   DescribeChangeSetResponse'
-    { creationTime = Lude.Nothing,
-      status = pStatus_,
-      parentChangeSetId = Lude.Nothing,
-      changes = Lude.Nothing,
-      notificationARNs = Lude.Nothing,
-      changeSetName = Lude.Nothing,
-      executionStatus = Lude.Nothing,
-      changeSetId = Lude.Nothing,
-      includeNestedStacks = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      rootChangeSetId = Lude.Nothing,
-      parameters = Lude.Nothing,
-      statusReason = Lude.Nothing,
-      stackId = Lude.Nothing,
-      description = Lude.Nothing,
-      capabilities = Lude.Nothing,
-      rollbackConfiguration = Lude.Nothing,
-      tags = Lude.Nothing,
-      stackName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { capabilities = Core.Nothing,
+      changeSetId = Core.Nothing,
+      changeSetName = Core.Nothing,
+      changes = Core.Nothing,
+      creationTime = Core.Nothing,
+      description = Core.Nothing,
+      executionStatus = Core.Nothing,
+      includeNestedStacks = Core.Nothing,
+      nextToken = Core.Nothing,
+      notificationARNs = Core.Nothing,
+      parameters = Core.Nothing,
+      parentChangeSetId = Core.Nothing,
+      rollbackConfiguration = Core.Nothing,
+      rootChangeSetId = Core.Nothing,
+      stackId = Core.Nothing,
+      stackName = Core.Nothing,
+      status,
+      statusReason = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
-
--- | The start time when the change set was created, in UTC.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsCreationTime :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.DateTime)
-dcsfrsCreationTime = Lens.lens (creationTime :: DescribeChangeSetResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {creationTime = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsStatus :: Lens.Lens' DescribeChangeSetResponse ChangeSetStatus
-dcsfrsStatus = Lens.lens (status :: DescribeChangeSetResponse -> ChangeSetStatus) (\s a -> s {status = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Specifies the change set ID of the parent change set in the current nested change set hierarchy.
---
--- /Note:/ Consider using 'parentChangeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsParentChangeSetId :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsParentChangeSetId = Lens.lens (parentChangeSetId :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {parentChangeSetId = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsParentChangeSetId "Use generic-lens or generic-optics with 'parentChangeSetId' instead." #-}
-
--- | A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
---
--- /Note:/ Consider using 'changes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsChanges :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe [Change])
-dcsfrsChanges = Lens.lens (changes :: DescribeChangeSetResponse -> Lude.Maybe [Change]) (\s a -> s {changes = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsChanges "Use generic-lens or generic-optics with 'changes' instead." #-}
-
--- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set.
---
--- /Note:/ Consider using 'notificationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsNotificationARNs :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe [Lude.Text])
-dcsfrsNotificationARNs = Lens.lens (notificationARNs :: DescribeChangeSetResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {notificationARNs = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsNotificationARNs "Use generic-lens or generic-optics with 'notificationARNs' instead." #-}
-
--- | The name of the change set.
---
--- /Note:/ Consider using 'changeSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsChangeSetName :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsChangeSetName = Lens.lens (changeSetName :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeSetName = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
-
--- | If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
---
--- /Note:/ Consider using 'executionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsExecutionStatus :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe ExecutionStatus)
-dcsfrsExecutionStatus = Lens.lens (executionStatus :: DescribeChangeSetResponse -> Lude.Maybe ExecutionStatus) (\s a -> s {executionStatus = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsExecutionStatus "Use generic-lens or generic-optics with 'executionStatus' instead." #-}
-
--- | The ARN of the change set.
---
--- /Note:/ Consider using 'changeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsChangeSetId :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsChangeSetId = Lens.lens (changeSetId :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeSetId = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsChangeSetId "Use generic-lens or generic-optics with 'changeSetId' instead." #-}
-
--- | Verifies if @IncludeNestedStacks@ is set to @True@ .
---
--- /Note:/ Consider using 'includeNestedStacks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsIncludeNestedStacks :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Bool)
-dcsfrsIncludeNestedStacks = Lens.lens (includeNestedStacks :: DescribeChangeSetResponse -> Lude.Maybe Lude.Bool) (\s a -> s {includeNestedStacks = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsIncludeNestedStacks "Use generic-lens or generic-optics with 'includeNestedStacks' instead." #-}
-
--- | If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsNextToken :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsNextToken = Lens.lens (nextToken :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Specifies the change set ID of the root change set in the current nested change set hierarchy.
---
--- /Note:/ Consider using 'rootChangeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsRootChangeSetId :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsRootChangeSetId = Lens.lens (rootChangeSetId :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {rootChangeSetId = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsRootChangeSetId "Use generic-lens or generic-optics with 'rootChangeSetId' instead." #-}
-
--- | A list of @Parameter@ structures that describes the input parameters and their values used to create the change set. For more information, see the <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsParameters :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe [Parameter])
-dcsfrsParameters = Lens.lens (parameters :: DescribeChangeSetResponse -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
---
--- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsStatusReason :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsStatusReason = Lens.lens (statusReason :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
-
--- | The ARN of the stack that is associated with the change set.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsStackId :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsStackId = Lens.lens (stackId :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
-
--- | Information about the change set.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsDescription :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsDescription = Lens.lens (description :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
 --
 -- /Note:/ Consider using 'capabilities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsCapabilities :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe [Capability])
-dcsfrsCapabilities = Lens.lens (capabilities :: DescribeChangeSetResponse -> Lude.Maybe [Capability]) (\s a -> s {capabilities = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
+dcsrfrsCapabilities :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe [Types.Capability])
+dcsrfrsCapabilities = Lens.field @"capabilities"
+{-# DEPRECATED dcsrfrsCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
+
+-- | The ARN of the change set.
+--
+-- /Note:/ Consider using 'changeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsChangeSetId :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.ChangeSetId)
+dcsrfrsChangeSetId = Lens.field @"changeSetId"
+{-# DEPRECATED dcsrfrsChangeSetId "Use generic-lens or generic-optics with 'changeSetId' instead." #-}
+
+-- | The name of the change set.
+--
+-- /Note:/ Consider using 'changeSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsChangeSetName :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.ChangeSetName)
+dcsrfrsChangeSetName = Lens.field @"changeSetName"
+{-# DEPRECATED dcsrfrsChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
+
+-- | A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
+--
+-- /Note:/ Consider using 'changes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsChanges :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe [Types.Change])
+dcsrfrsChanges = Lens.field @"changes"
+{-# DEPRECATED dcsrfrsChanges "Use generic-lens or generic-optics with 'changes' instead." #-}
+
+-- | The start time when the change set was created, in UTC.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsCreationTime :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Core.UTCTime)
+dcsrfrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED dcsrfrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | Information about the change set.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsDescription :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.Description)
+dcsrfrsDescription = Lens.field @"description"
+{-# DEPRECATED dcsrfrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
+--
+-- /Note:/ Consider using 'executionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsExecutionStatus :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.ExecutionStatus)
+dcsrfrsExecutionStatus = Lens.field @"executionStatus"
+{-# DEPRECATED dcsrfrsExecutionStatus "Use generic-lens or generic-optics with 'executionStatus' instead." #-}
+
+-- | Verifies if @IncludeNestedStacks@ is set to @True@ .
+--
+-- /Note:/ Consider using 'includeNestedStacks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsIncludeNestedStacks :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Core.Bool)
+dcsrfrsIncludeNestedStacks = Lens.field @"includeNestedStacks"
+{-# DEPRECATED dcsrfrsIncludeNestedStacks "Use generic-lens or generic-optics with 'includeNestedStacks' instead." #-}
+
+-- | If the output exceeds 1 MB, a string that identifies the next page of changes. If there is no additional page, this value is null.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsNextToken :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.NextToken)
+dcsrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcsrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be associated with the stack if you execute the change set.
+--
+-- /Note:/ Consider using 'notificationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsNotificationARNs :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe [Types.NotificationARN])
+dcsrfrsNotificationARNs = Lens.field @"notificationARNs"
+{-# DEPRECATED dcsrfrsNotificationARNs "Use generic-lens or generic-optics with 'notificationARNs' instead." #-}
+
+-- | A list of @Parameter@ structures that describes the input parameters and their values used to create the change set. For more information, see the <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsParameters :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe [Types.Parameter])
+dcsrfrsParameters = Lens.field @"parameters"
+{-# DEPRECATED dcsrfrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | Specifies the change set ID of the parent change set in the current nested change set hierarchy.
+--
+-- /Note:/ Consider using 'parentChangeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsParentChangeSetId :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.ChangeSetId)
+dcsrfrsParentChangeSetId = Lens.field @"parentChangeSetId"
+{-# DEPRECATED dcsrfrsParentChangeSetId "Use generic-lens or generic-optics with 'parentChangeSetId' instead." #-}
 
 -- | The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
 --
 -- /Note:/ Consider using 'rollbackConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsRollbackConfiguration :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe RollbackConfiguration)
-dcsfrsRollbackConfiguration = Lens.lens (rollbackConfiguration :: DescribeChangeSetResponse -> Lude.Maybe RollbackConfiguration) (\s a -> s {rollbackConfiguration = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsRollbackConfiguration "Use generic-lens or generic-optics with 'rollbackConfiguration' instead." #-}
+dcsrfrsRollbackConfiguration :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.RollbackConfiguration)
+dcsrfrsRollbackConfiguration = Lens.field @"rollbackConfiguration"
+{-# DEPRECATED dcsrfrsRollbackConfiguration "Use generic-lens or generic-optics with 'rollbackConfiguration' instead." #-}
 
--- | If you execute the change set, the tags that will be associated with the stack.
+-- | Specifies the change set ID of the root change set in the current nested change set hierarchy.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsTags :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe [Tag])
-dcsfrsTags = Lens.lens (tags :: DescribeChangeSetResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'rootChangeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsRootChangeSetId :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.ChangeSetId)
+dcsrfrsRootChangeSetId = Lens.field @"rootChangeSetId"
+{-# DEPRECATED dcsrfrsRootChangeSetId "Use generic-lens or generic-optics with 'rootChangeSetId' instead." #-}
+
+-- | The ARN of the stack that is associated with the change set.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsStackId :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.StackId)
+dcsrfrsStackId = Lens.field @"stackId"
+{-# DEPRECATED dcsrfrsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The name of the stack that is associated with the change set.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsStackName :: Lens.Lens' DescribeChangeSetResponse (Lude.Maybe Lude.Text)
-dcsfrsStackName = Lens.lens (stackName :: DescribeChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
+dcsrfrsStackName :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.StackName)
+dcsrfrsStackName = Lens.field @"stackName"
+{-# DEPRECATED dcsrfrsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
+
+-- | The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsStatus :: Lens.Lens' DescribeChangeSetResponse Types.ChangeSetStatus
+dcsrfrsStatus = Lens.field @"status"
+{-# DEPRECATED dcsrfrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | A description of the change set's status. For example, if your attempt to create a change set failed, AWS CloudFormation shows the error message.
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsStatusReason :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe Types.ChangeSetStatusReason)
+dcsrfrsStatusReason = Lens.field @"statusReason"
+{-# DEPRECATED dcsrfrsStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
+
+-- | If you execute the change set, the tags that will be associated with the stack.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrfrsTags :: Lens.Lens' DescribeChangeSetResponse (Core.Maybe [Types.Tag])
+dcsrfrsTags = Lens.field @"tags"
+{-# DEPRECATED dcsrfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsfrsResponseStatus :: Lens.Lens' DescribeChangeSetResponse Lude.Int
-dcsfrsResponseStatus = Lens.lens (responseStatus :: DescribeChangeSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeChangeSetResponse)
-{-# DEPRECATED dcsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcsrfrsResponseStatus :: Lens.Lens' DescribeChangeSetResponse Core.Int
+dcsrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,40 +22,36 @@ module Network.AWS.S3.Types.InventorySchedule
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.InventoryFrequency
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.InventoryFrequency as Types
 
 -- | Specifies the schedule for generating inventory results.
 --
 -- /See:/ 'mkInventorySchedule' smart constructor.
 newtype InventorySchedule = InventorySchedule'
   { -- | Specifies how frequently inventory results are produced.
-    frequency :: InventoryFrequency
+    frequency :: Types.InventoryFrequency
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventorySchedule' with the minimum fields required to make a request.
---
--- * 'frequency' - Specifies how frequently inventory results are produced.
+-- | Creates a 'InventorySchedule' value with any optional fields omitted.
 mkInventorySchedule ::
   -- | 'frequency'
-  InventoryFrequency ->
+  Types.InventoryFrequency ->
   InventorySchedule
-mkInventorySchedule pFrequency_ =
-  InventorySchedule' {frequency = pFrequency_}
+mkInventorySchedule frequency = InventorySchedule' {frequency}
 
 -- | Specifies how frequently inventory results are produced.
 --
 -- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isFrequency :: Lens.Lens' InventorySchedule InventoryFrequency
-isFrequency = Lens.lens (frequency :: InventorySchedule -> InventoryFrequency) (\s a -> s {frequency = a} :: InventorySchedule)
+isFrequency :: Lens.Lens' InventorySchedule Types.InventoryFrequency
+isFrequency = Lens.field @"frequency"
 {-# DEPRECATED isFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
-instance Lude.FromXML InventorySchedule where
-  parseXML x = InventorySchedule' Lude.<$> (x Lude..@ "Frequency")
+instance Core.ToXML InventorySchedule where
+  toXML InventorySchedule {..} = Core.toXMLNode "Frequency" frequency
 
-instance Lude.ToXML InventorySchedule where
-  toXML InventorySchedule' {..} =
-    Lude.mconcat ["Frequency" Lude.@= frequency]
+instance Core.FromXML InventorySchedule where
+  parseXML x = InventorySchedule' Core.<$> (x Core..@ "Frequency")

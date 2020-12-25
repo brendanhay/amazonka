@@ -13,51 +13,56 @@
 module Network.AWS.GameLift.Types.OperatingSystem
   ( OperatingSystem
       ( OperatingSystem',
-        Windows2012,
-        AmazonLinux,
-        AmazonLinux2
+        OperatingSystemWindows2012,
+        OperatingSystemAmazonLinux,
+        OperatingSystemAmazonLinux2,
+        fromOperatingSystem
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperatingSystem = OperatingSystem' Lude.Text
+newtype OperatingSystem = OperatingSystem'
+  { fromOperatingSystem ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Windows2012 :: OperatingSystem
-pattern Windows2012 = OperatingSystem' "WINDOWS_2012"
+pattern OperatingSystemWindows2012 :: OperatingSystem
+pattern OperatingSystemWindows2012 = OperatingSystem' "WINDOWS_2012"
 
-pattern AmazonLinux :: OperatingSystem
-pattern AmazonLinux = OperatingSystem' "AMAZON_LINUX"
+pattern OperatingSystemAmazonLinux :: OperatingSystem
+pattern OperatingSystemAmazonLinux = OperatingSystem' "AMAZON_LINUX"
 
-pattern AmazonLinux2 :: OperatingSystem
-pattern AmazonLinux2 = OperatingSystem' "AMAZON_LINUX_2"
+pattern OperatingSystemAmazonLinux2 :: OperatingSystem
+pattern OperatingSystemAmazonLinux2 = OperatingSystem' "AMAZON_LINUX_2"
 
 {-# COMPLETE
-  Windows2012,
-  AmazonLinux,
-  AmazonLinux2,
+  OperatingSystemWindows2012,
+  OperatingSystemAmazonLinux,
+  OperatingSystemAmazonLinux2,
   OperatingSystem'
   #-}

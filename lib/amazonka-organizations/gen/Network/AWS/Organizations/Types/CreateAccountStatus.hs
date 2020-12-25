@@ -17,27 +17,38 @@ module Network.AWS.Organizations.Types.CreateAccountStatus
     mkCreateAccountStatus,
 
     -- * Lenses
-    casFailureReason,
-    casState,
-    casCompletedTimestamp,
-    casAccountName,
     casAccountId,
-    casId,
+    casAccountName,
+    casCompletedTimestamp,
+    casFailureReason,
     casGovCloudAccountId,
+    casId,
     casRequestedTimestamp,
+    casState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.CreateAccountFailureReason
-import Network.AWS.Organizations.Types.CreateAccountState
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.AccountId as Types
+import qualified Network.AWS.Organizations.Types.AccountName as Types
+import qualified Network.AWS.Organizations.Types.CreateAccountFailureReason as Types
+import qualified Network.AWS.Organizations.Types.CreateAccountRequestId as Types
+import qualified Network.AWS.Organizations.Types.CreateAccountState as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the status about a 'CreateAccount' or 'CreateGovCloudAccount' request to create an AWS account or an AWS GovCloud (US) account in an organization.
 --
 -- /See:/ 'mkCreateAccountStatus' smart constructor.
 data CreateAccountStatus = CreateAccountStatus'
-  { -- | If the request failed, a description of the reason for the failure.
+  { -- | If the account was created successfully, the unique identifier (ID) of the new account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+    accountId :: Core.Maybe Types.AccountId,
+    -- | The account name given to the account when it was created.
+    accountName :: Core.Maybe Types.AccountName,
+    -- | The date and time that the account was created and the request completed.
+    completedTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | If the request failed, a description of the reason for the failure.
     --
     --
     --     * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization.
@@ -65,85 +76,58 @@ data CreateAccountStatus = CreateAccountStatus'
     --
     --
     --     * MISSING_PAYMENT_INSTRUMENT: You must configure the management account with a valid payment method, such as a credit card.
-    failureReason :: Lude.Maybe CreateAccountFailureReason,
-    -- | The status of the request.
-    state :: Lude.Maybe CreateAccountState,
-    -- | The date and time that the account was created and the request completed.
-    completedTimestamp :: Lude.Maybe Lude.Timestamp,
-    -- | The account name given to the account when it was created.
-    accountName :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | If the account was created successfully, the unique identifier (ID) of the new account.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
-    accountId :: Lude.Maybe Lude.Text,
+    failureReason :: Core.Maybe Types.CreateAccountFailureReason,
+    -- | If the account was created successfully, the unique identifier (ID) of the new account in the AWS GovCloud (US) Region.
+    govCloudAccountId :: Core.Maybe Types.AccountId,
     -- | The unique identifier (ID) that references this request. You get this value from the response of the initial 'CreateAccount' request to create the account.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.
-    id :: Lude.Maybe Lude.Text,
-    -- | If the account was created successfully, the unique identifier (ID) of the new account in the AWS GovCloud (US) Region.
-    govCloudAccountId :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.CreateAccountRequestId,
     -- | The date and time that the request was made for the account creation.
-    requestedTimestamp :: Lude.Maybe Lude.Timestamp
+    requestedTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the request.
+    state :: Core.Maybe Types.CreateAccountState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateAccountStatus' with the minimum fields required to make a request.
---
--- * 'failureReason' - If the request failed, a description of the reason for the failure.
---
---
---     * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization.
---
---
---     * CONCURRENT_ACCOUNT_MODIFICATION: You already submitted a request with the same information.
---
---
---     * EMAIL_ALREADY_EXISTS: The account could not be created because another AWS account with that email address already exists.
---
---
---     * GOVCLOUD_ACCOUNT_ALREADY_EXISTS: The account in the AWS GovCloud (US) Region could not be created because this Region already includes an account with that email address.
---
---
---     * INVALID_ADDRESS: The account could not be created because the address you provided is not valid.
---
---
---     * INVALID_EMAIL: The account could not be created because the email address you provided is not valid.
---
---
---     * INTERNAL_FAILURE: The account could not be created because of an internal failure. Try again later. If the problem persists, contact Customer Support.
---
---
---     * MISSING_BUSINESS_VALIDATION: The AWS account that owns your organization has not received Business Validation.
---
---
---     * MISSING_PAYMENT_INSTRUMENT: You must configure the management account with a valid payment method, such as a credit card.
---
---
--- * 'state' - The status of the request.
--- * 'completedTimestamp' - The date and time that the account was created and the request completed.
--- * 'accountName' - The account name given to the account when it was created.
--- * 'accountId' - If the account was created successfully, the unique identifier (ID) of the new account.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
--- * 'id' - The unique identifier (ID) that references this request. You get this value from the response of the initial 'CreateAccount' request to create the account.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.
--- * 'govCloudAccountId' - If the account was created successfully, the unique identifier (ID) of the new account in the AWS GovCloud (US) Region.
--- * 'requestedTimestamp' - The date and time that the request was made for the account creation.
+-- | Creates a 'CreateAccountStatus' value with any optional fields omitted.
 mkCreateAccountStatus ::
   CreateAccountStatus
 mkCreateAccountStatus =
   CreateAccountStatus'
-    { failureReason = Lude.Nothing,
-      state = Lude.Nothing,
-      completedTimestamp = Lude.Nothing,
-      accountName = Lude.Nothing,
-      accountId = Lude.Nothing,
-      id = Lude.Nothing,
-      govCloudAccountId = Lude.Nothing,
-      requestedTimestamp = Lude.Nothing
+    { accountId = Core.Nothing,
+      accountName = Core.Nothing,
+      completedTimestamp = Core.Nothing,
+      failureReason = Core.Nothing,
+      govCloudAccountId = Core.Nothing,
+      id = Core.Nothing,
+      requestedTimestamp = Core.Nothing,
+      state = Core.Nothing
     }
+
+-- | If the account was created successfully, the unique identifier (ID) of the new account.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casAccountId :: Lens.Lens' CreateAccountStatus (Core.Maybe Types.AccountId)
+casAccountId = Lens.field @"accountId"
+{-# DEPRECATED casAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The account name given to the account when it was created.
+--
+-- /Note:/ Consider using 'accountName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casAccountName :: Lens.Lens' CreateAccountStatus (Core.Maybe Types.AccountName)
+casAccountName = Lens.field @"accountName"
+{-# DEPRECATED casAccountName "Use generic-lens or generic-optics with 'accountName' instead." #-}
+
+-- | The date and time that the account was created and the request completed.
+--
+-- /Note:/ Consider using 'completedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casCompletedTimestamp :: Lens.Lens' CreateAccountStatus (Core.Maybe Core.NominalDiffTime)
+casCompletedTimestamp = Lens.field @"completedTimestamp"
+{-# DEPRECATED casCompletedTimestamp "Use generic-lens or generic-optics with 'completedTimestamp' instead." #-}
 
 -- | If the request failed, a description of the reason for the failure.
 --
@@ -177,75 +161,50 @@ mkCreateAccountStatus =
 --
 --
 -- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casFailureReason :: Lens.Lens' CreateAccountStatus (Lude.Maybe CreateAccountFailureReason)
-casFailureReason = Lens.lens (failureReason :: CreateAccountStatus -> Lude.Maybe CreateAccountFailureReason) (\s a -> s {failureReason = a} :: CreateAccountStatus)
+casFailureReason :: Lens.Lens' CreateAccountStatus (Core.Maybe Types.CreateAccountFailureReason)
+casFailureReason = Lens.field @"failureReason"
 {-# DEPRECATED casFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
--- | The status of the request.
+-- | If the account was created successfully, the unique identifier (ID) of the new account in the AWS GovCloud (US) Region.
 --
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casState :: Lens.Lens' CreateAccountStatus (Lude.Maybe CreateAccountState)
-casState = Lens.lens (state :: CreateAccountStatus -> Lude.Maybe CreateAccountState) (\s a -> s {state = a} :: CreateAccountStatus)
-{-# DEPRECATED casState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The date and time that the account was created and the request completed.
---
--- /Note:/ Consider using 'completedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casCompletedTimestamp :: Lens.Lens' CreateAccountStatus (Lude.Maybe Lude.Timestamp)
-casCompletedTimestamp = Lens.lens (completedTimestamp :: CreateAccountStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedTimestamp = a} :: CreateAccountStatus)
-{-# DEPRECATED casCompletedTimestamp "Use generic-lens or generic-optics with 'completedTimestamp' instead." #-}
-
--- | The account name given to the account when it was created.
---
--- /Note:/ Consider using 'accountName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casAccountName :: Lens.Lens' CreateAccountStatus (Lude.Maybe (Lude.Sensitive Lude.Text))
-casAccountName = Lens.lens (accountName :: CreateAccountStatus -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {accountName = a} :: CreateAccountStatus)
-{-# DEPRECATED casAccountName "Use generic-lens or generic-optics with 'accountName' instead." #-}
-
--- | If the account was created successfully, the unique identifier (ID) of the new account.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casAccountId :: Lens.Lens' CreateAccountStatus (Lude.Maybe Lude.Text)
-casAccountId = Lens.lens (accountId :: CreateAccountStatus -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: CreateAccountStatus)
-{-# DEPRECATED casAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+-- /Note:/ Consider using 'govCloudAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casGovCloudAccountId :: Lens.Lens' CreateAccountStatus (Core.Maybe Types.AccountId)
+casGovCloudAccountId = Lens.field @"govCloudAccountId"
+{-# DEPRECATED casGovCloudAccountId "Use generic-lens or generic-optics with 'govCloudAccountId' instead." #-}
 
 -- | The unique identifier (ID) that references this request. You get this value from the response of the initial 'CreateAccount' request to create the account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casId :: Lens.Lens' CreateAccountStatus (Lude.Maybe Lude.Text)
-casId = Lens.lens (id :: CreateAccountStatus -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateAccountStatus)
+casId :: Lens.Lens' CreateAccountStatus (Core.Maybe Types.CreateAccountRequestId)
+casId = Lens.field @"id"
 {-# DEPRECATED casId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | If the account was created successfully, the unique identifier (ID) of the new account in the AWS GovCloud (US) Region.
---
--- /Note:/ Consider using 'govCloudAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casGovCloudAccountId :: Lens.Lens' CreateAccountStatus (Lude.Maybe Lude.Text)
-casGovCloudAccountId = Lens.lens (govCloudAccountId :: CreateAccountStatus -> Lude.Maybe Lude.Text) (\s a -> s {govCloudAccountId = a} :: CreateAccountStatus)
-{-# DEPRECATED casGovCloudAccountId "Use generic-lens or generic-optics with 'govCloudAccountId' instead." #-}
 
 -- | The date and time that the request was made for the account creation.
 --
 -- /Note:/ Consider using 'requestedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casRequestedTimestamp :: Lens.Lens' CreateAccountStatus (Lude.Maybe Lude.Timestamp)
-casRequestedTimestamp = Lens.lens (requestedTimestamp :: CreateAccountStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {requestedTimestamp = a} :: CreateAccountStatus)
+casRequestedTimestamp :: Lens.Lens' CreateAccountStatus (Core.Maybe Core.NominalDiffTime)
+casRequestedTimestamp = Lens.field @"requestedTimestamp"
 {-# DEPRECATED casRequestedTimestamp "Use generic-lens or generic-optics with 'requestedTimestamp' instead." #-}
 
-instance Lude.FromJSON CreateAccountStatus where
+-- | The status of the request.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casState :: Lens.Lens' CreateAccountStatus (Core.Maybe Types.CreateAccountState)
+casState = Lens.field @"state"
+{-# DEPRECATED casState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON CreateAccountStatus where
   parseJSON =
-    Lude.withObject
-      "CreateAccountStatus"
-      ( \x ->
-          CreateAccountStatus'
-            Lude.<$> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "CompletedTimestamp")
-            Lude.<*> (x Lude..:? "AccountName")
-            Lude.<*> (x Lude..:? "AccountId")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "GovCloudAccountId")
-            Lude.<*> (x Lude..:? "RequestedTimestamp")
-      )
+    Core.withObject "CreateAccountStatus" Core.$
+      \x ->
+        CreateAccountStatus'
+          Core.<$> (x Core..:? "AccountId")
+          Core.<*> (x Core..:? "AccountName")
+          Core.<*> (x Core..:? "CompletedTimestamp")
+          Core.<*> (x Core..:? "FailureReason")
+          Core.<*> (x Core..:? "GovCloudAccountId")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "RequestedTimestamp")
+          Core.<*> (x Core..:? "State")

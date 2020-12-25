@@ -13,66 +13,68 @@
 module Network.AWS.Discovery.Types.AgentStatus
   ( AgentStatus
       ( AgentStatus',
-        Healthy,
-        Unhealthy,
-        Running,
-        Unknown,
-        Blacklisted,
-        Shutdown
+        AgentStatusHealthy,
+        AgentStatusUnhealthy,
+        AgentStatusRunning,
+        AgentStatusUnknown,
+        AgentStatusBlacklisted,
+        AgentStatusShutdown,
+        fromAgentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AgentStatus = AgentStatus' Lude.Text
+newtype AgentStatus = AgentStatus' {fromAgentStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Healthy :: AgentStatus
-pattern Healthy = AgentStatus' "HEALTHY"
+pattern AgentStatusHealthy :: AgentStatus
+pattern AgentStatusHealthy = AgentStatus' "HEALTHY"
 
-pattern Unhealthy :: AgentStatus
-pattern Unhealthy = AgentStatus' "UNHEALTHY"
+pattern AgentStatusUnhealthy :: AgentStatus
+pattern AgentStatusUnhealthy = AgentStatus' "UNHEALTHY"
 
-pattern Running :: AgentStatus
-pattern Running = AgentStatus' "RUNNING"
+pattern AgentStatusRunning :: AgentStatus
+pattern AgentStatusRunning = AgentStatus' "RUNNING"
 
-pattern Unknown :: AgentStatus
-pattern Unknown = AgentStatus' "UNKNOWN"
+pattern AgentStatusUnknown :: AgentStatus
+pattern AgentStatusUnknown = AgentStatus' "UNKNOWN"
 
-pattern Blacklisted :: AgentStatus
-pattern Blacklisted = AgentStatus' "BLACKLISTED"
+pattern AgentStatusBlacklisted :: AgentStatus
+pattern AgentStatusBlacklisted = AgentStatus' "BLACKLISTED"
 
-pattern Shutdown :: AgentStatus
-pattern Shutdown = AgentStatus' "SHUTDOWN"
+pattern AgentStatusShutdown :: AgentStatus
+pattern AgentStatusShutdown = AgentStatus' "SHUTDOWN"
 
 {-# COMPLETE
-  Healthy,
-  Unhealthy,
-  Running,
-  Unknown,
-  Blacklisted,
-  Shutdown,
+  AgentStatusHealthy,
+  AgentStatusUnhealthy,
+  AgentStatusRunning,
+  AgentStatusUnknown,
+  AgentStatusBlacklisted,
+  AgentStatusShutdown,
   AgentStatus'
   #-}

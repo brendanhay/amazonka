@@ -30,76 +30,69 @@ module Network.AWS.CodeBuild.CreateReportGroup
     mkCreateReportGroupResponse,
 
     -- ** Response lenses
-    crgrsReportGroup,
-    crgrsResponseStatus,
+    crgrrsReportGroup,
+    crgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateReportGroup' smart constructor.
 data CreateReportGroup = CreateReportGroup'
   { -- | The name of the report group.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The type of report group.
-    type' :: ReportType,
+    type' :: Types.ReportType,
     -- | A @ReportExportConfig@ object that contains information about where the report group test results are exported.
-    exportConfig :: ReportExportConfig,
+    exportConfig :: Types.ReportExportConfig,
     -- | A list of tag key and value pairs associated with this report group.
     --
     -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateReportGroup' with the minimum fields required to make a request.
---
--- * 'name' - The name of the report group.
--- * 'type'' - The type of report group.
--- * 'exportConfig' - A @ReportExportConfig@ object that contains information about where the report group test results are exported.
--- * 'tags' - A list of tag key and value pairs associated with this report group.
---
--- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+-- | Creates a 'CreateReportGroup' value with any optional fields omitted.
 mkCreateReportGroup ::
   -- | 'name'
-  Lude.Text ->
-  -- | 'type''
-  ReportType ->
+  Types.Name ->
+  -- | 'type\''
+  Types.ReportType ->
   -- | 'exportConfig'
-  ReportExportConfig ->
+  Types.ReportExportConfig ->
   CreateReportGroup
-mkCreateReportGroup pName_ pType_ pExportConfig_ =
+mkCreateReportGroup name type' exportConfig =
   CreateReportGroup'
-    { name = pName_,
-      type' = pType_,
-      exportConfig = pExportConfig_,
-      tags = Lude.Nothing
+    { name,
+      type',
+      exportConfig,
+      tags = Core.Nothing
     }
 
 -- | The name of the report group.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgName :: Lens.Lens' CreateReportGroup Lude.Text
-crgName = Lens.lens (name :: CreateReportGroup -> Lude.Text) (\s a -> s {name = a} :: CreateReportGroup)
+crgName :: Lens.Lens' CreateReportGroup Types.Name
+crgName = Lens.field @"name"
 {-# DEPRECATED crgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of report group.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgType :: Lens.Lens' CreateReportGroup ReportType
-crgType = Lens.lens (type' :: CreateReportGroup -> ReportType) (\s a -> s {type' = a} :: CreateReportGroup)
+crgType :: Lens.Lens' CreateReportGroup Types.ReportType
+crgType = Lens.field @"type'"
 {-# DEPRECATED crgType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A @ReportExportConfig@ object that contains information about where the report group test results are exported.
 --
 -- /Note:/ Consider using 'exportConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgExportConfig :: Lens.Lens' CreateReportGroup ReportExportConfig
-crgExportConfig = Lens.lens (exportConfig :: CreateReportGroup -> ReportExportConfig) (\s a -> s {exportConfig = a} :: CreateReportGroup)
+crgExportConfig :: Lens.Lens' CreateReportGroup Types.ReportExportConfig
+crgExportConfig = Lens.field @"exportConfig"
 {-# DEPRECATED crgExportConfig "Use generic-lens or generic-optics with 'exportConfig' instead." #-}
 
 -- | A list of tag key and value pairs associated with this report group.
@@ -107,82 +100,72 @@ crgExportConfig = Lens.lens (exportConfig :: CreateReportGroup -> ReportExportCo
 -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgTags :: Lens.Lens' CreateReportGroup (Lude.Maybe [Tag])
-crgTags = Lens.lens (tags :: CreateReportGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateReportGroup)
+crgTags :: Lens.Lens' CreateReportGroup (Core.Maybe [Types.Tag])
+crgTags = Lens.field @"tags"
 {-# DEPRECATED crgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateReportGroup where
+instance Core.FromJSON CreateReportGroup where
+  toJSON CreateReportGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("type" Core..= type'),
+            Core.Just ("exportConfig" Core..= exportConfig),
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateReportGroup where
   type Rs CreateReportGroup = CreateReportGroupResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.CreateReportGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateReportGroupResponse'
-            Lude.<$> (x Lude..?> "reportGroup") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "reportGroup") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateReportGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.CreateReportGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateReportGroup where
-  toJSON CreateReportGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            Lude.Just ("type" Lude..= type'),
-            Lude.Just ("exportConfig" Lude..= exportConfig),
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateReportGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateReportGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateReportGroupResponse' smart constructor.
 data CreateReportGroupResponse = CreateReportGroupResponse'
   { -- | Information about the report group that was created.
-    reportGroup :: Lude.Maybe ReportGroup,
+    reportGroup :: Core.Maybe Types.ReportGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateReportGroupResponse' with the minimum fields required to make a request.
---
--- * 'reportGroup' - Information about the report group that was created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateReportGroupResponse' value with any optional fields omitted.
 mkCreateReportGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateReportGroupResponse
-mkCreateReportGroupResponse pResponseStatus_ =
+mkCreateReportGroupResponse responseStatus =
   CreateReportGroupResponse'
-    { reportGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { reportGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the report group that was created.
 --
 -- /Note:/ Consider using 'reportGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgrsReportGroup :: Lens.Lens' CreateReportGroupResponse (Lude.Maybe ReportGroup)
-crgrsReportGroup = Lens.lens (reportGroup :: CreateReportGroupResponse -> Lude.Maybe ReportGroup) (\s a -> s {reportGroup = a} :: CreateReportGroupResponse)
-{-# DEPRECATED crgrsReportGroup "Use generic-lens or generic-optics with 'reportGroup' instead." #-}
+crgrrsReportGroup :: Lens.Lens' CreateReportGroupResponse (Core.Maybe Types.ReportGroup)
+crgrrsReportGroup = Lens.field @"reportGroup"
+{-# DEPRECATED crgrrsReportGroup "Use generic-lens or generic-optics with 'reportGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgrsResponseStatus :: Lens.Lens' CreateReportGroupResponse Lude.Int
-crgrsResponseStatus = Lens.lens (responseStatus :: CreateReportGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReportGroupResponse)
-{-# DEPRECATED crgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crgrrsResponseStatus :: Lens.Lens' CreateReportGroupResponse Core.Int
+crgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

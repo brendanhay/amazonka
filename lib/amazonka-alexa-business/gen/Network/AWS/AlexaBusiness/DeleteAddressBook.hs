@@ -20,102 +20,91 @@ module Network.AWS.AlexaBusiness.DeleteAddressBook
     mkDeleteAddressBook,
 
     -- ** Request lenses
-    dabAddressBookARN,
+    dabAddressBookArn,
 
     -- * Destructuring the response
     DeleteAddressBookResponse (..),
     mkDeleteAddressBookResponse,
 
     -- ** Response lenses
-    dabrsResponseStatus,
+    dabrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAddressBook' smart constructor.
 newtype DeleteAddressBook = DeleteAddressBook'
   { -- | The ARN of the address book to delete.
-    addressBookARN :: Lude.Text
+    addressBookArn :: Types.AddressBookArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAddressBook' with the minimum fields required to make a request.
---
--- * 'addressBookARN' - The ARN of the address book to delete.
+-- | Creates a 'DeleteAddressBook' value with any optional fields omitted.
 mkDeleteAddressBook ::
-  -- | 'addressBookARN'
-  Lude.Text ->
+  -- | 'addressBookArn'
+  Types.AddressBookArn ->
   DeleteAddressBook
-mkDeleteAddressBook pAddressBookARN_ =
-  DeleteAddressBook' {addressBookARN = pAddressBookARN_}
+mkDeleteAddressBook addressBookArn =
+  DeleteAddressBook' {addressBookArn}
 
 -- | The ARN of the address book to delete.
 --
--- /Note:/ Consider using 'addressBookARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dabAddressBookARN :: Lens.Lens' DeleteAddressBook Lude.Text
-dabAddressBookARN = Lens.lens (addressBookARN :: DeleteAddressBook -> Lude.Text) (\s a -> s {addressBookARN = a} :: DeleteAddressBook)
-{-# DEPRECATED dabAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
+-- /Note:/ Consider using 'addressBookArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dabAddressBookArn :: Lens.Lens' DeleteAddressBook Types.AddressBookArn
+dabAddressBookArn = Lens.field @"addressBookArn"
+{-# DEPRECATED dabAddressBookArn "Use generic-lens or generic-optics with 'addressBookArn' instead." #-}
 
-instance Lude.AWSRequest DeleteAddressBook where
+instance Core.FromJSON DeleteAddressBook where
+  toJSON DeleteAddressBook {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AddressBookArn" Core..= addressBookArn)]
+      )
+
+instance Core.AWSRequest DeleteAddressBook where
   type Rs DeleteAddressBook = DeleteAddressBookResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.DeleteAddressBook")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteAddressBookResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteAddressBookResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteAddressBook where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.DeleteAddressBook" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAddressBook where
-  toJSON DeleteAddressBook' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("AddressBookArn" Lude..= addressBookARN)]
-      )
-
-instance Lude.ToPath DeleteAddressBook where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAddressBook where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteAddressBookResponse' smart constructor.
 newtype DeleteAddressBookResponse = DeleteAddressBookResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAddressBookResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAddressBookResponse' value with any optional fields omitted.
 mkDeleteAddressBookResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAddressBookResponse
-mkDeleteAddressBookResponse pResponseStatus_ =
-  DeleteAddressBookResponse' {responseStatus = pResponseStatus_}
+mkDeleteAddressBookResponse responseStatus =
+  DeleteAddressBookResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dabrsResponseStatus :: Lens.Lens' DeleteAddressBookResponse Lude.Int
-dabrsResponseStatus = Lens.lens (responseStatus :: DeleteAddressBookResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAddressBookResponse)
-{-# DEPRECATED dabrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dabrrsResponseStatus :: Lens.Lens' DeleteAddressBookResponse Core.Int
+dabrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dabrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,56 +17,51 @@ module Network.AWS.IAM.Types.Tag
     mkTag,
 
     -- * Lenses
-    tValue,
     tKey,
+    tValue,
   )
 where
 
+import qualified Network.AWS.IAM.Types.Key as Types
+import qualified Network.AWS.IAM.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | The value associated with this tag. For example, tags with a key name of @Department@ could have values such as @Human Resources@ , @Accounting@ , and @Support@ . Tags with a key name of @Cost Center@ might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
-    value :: Lude.Text,
-    -- | The key name that can be used to look up or retrieve the associated value. For example, @Department@ or @Cost Center@ are common choices.
-    key :: Lude.Text
+  { -- | The key name that can be used to look up or retrieve the associated value. For example, @Department@ or @Cost Center@ are common choices.
+    key :: Types.Key,
+    -- | The value associated with this tag. For example, tags with a key name of @Department@ could have values such as @Human Resources@ , @Accounting@ , and @Support@ . Tags with a key name of @Cost Center@ might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'value' - The value associated with this tag. For example, tags with a key name of @Department@ could have values such as @Human Resources@ , @Accounting@ , and @Support@ . Tags with a key name of @Cost Center@ might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
--- * 'key' - The key name that can be used to look up or retrieve the associated value. For example, @Department@ or @Cost Center@ are common choices.
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
+  -- | 'value'
+  Types.Value ->
   Tag
-mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
-
--- | The value associated with this tag. For example, tags with a key name of @Department@ could have values such as @Human Resources@ , @Accounting@ , and @Support@ . Tags with a key name of @Cost Center@ might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValue :: Lens.Lens' Tag Lude.Text
-tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
-{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkTag key value = Tag' {key, value}
 
 -- | The key name that can be used to look up or retrieve the associated value. For example, @Department@ or @Cost Center@ are common choices.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+tKey :: Lens.Lens' Tag Types.Key
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML Tag where
-  parseXML x =
-    Tag' Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Key")
+-- | The value associated with this tag. For example, tags with a key name of @Department@ could have values such as @Human Resources@ , @Accounting@ , and @Support@ . Tags with a key name of @Cost Center@ might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag Types.Value
+tValue = Lens.field @"value"
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToQuery Tag where
-  toQuery Tag' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Key" Lude.=: key]
+instance Core.FromXML Tag where
+  parseXML x =
+    Tag' Core.<$> (x Core..@ "Key") Core.<*> (x Core..@ "Value")

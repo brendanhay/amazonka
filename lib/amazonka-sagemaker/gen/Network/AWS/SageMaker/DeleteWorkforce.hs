@@ -30,95 +30,83 @@ module Network.AWS.SageMaker.DeleteWorkforce
     mkDeleteWorkforceResponse,
 
     -- ** Response lenses
-    dwhrsResponseStatus,
+    dwrhrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteWorkforce' smart constructor.
 newtype DeleteWorkforce = DeleteWorkforce'
   { -- | The name of the workforce.
-    workforceName :: Lude.Text
+    workforceName :: Types.WorkforceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWorkforce' with the minimum fields required to make a request.
---
--- * 'workforceName' - The name of the workforce.
+-- | Creates a 'DeleteWorkforce' value with any optional fields omitted.
 mkDeleteWorkforce ::
   -- | 'workforceName'
-  Lude.Text ->
+  Types.WorkforceName ->
   DeleteWorkforce
-mkDeleteWorkforce pWorkforceName_ =
-  DeleteWorkforce' {workforceName = pWorkforceName_}
+mkDeleteWorkforce workforceName = DeleteWorkforce' {workforceName}
 
 -- | The name of the workforce.
 --
 -- /Note:/ Consider using 'workforceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwWorkforceName :: Lens.Lens' DeleteWorkforce Lude.Text
-dwWorkforceName = Lens.lens (workforceName :: DeleteWorkforce -> Lude.Text) (\s a -> s {workforceName = a} :: DeleteWorkforce)
+dwWorkforceName :: Lens.Lens' DeleteWorkforce Types.WorkforceName
+dwWorkforceName = Lens.field @"workforceName"
 {-# DEPRECATED dwWorkforceName "Use generic-lens or generic-optics with 'workforceName' instead." #-}
 
-instance Lude.AWSRequest DeleteWorkforce where
+instance Core.FromJSON DeleteWorkforce where
+  toJSON DeleteWorkforce {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WorkforceName" Core..= workforceName)]
+      )
+
+instance Core.AWSRequest DeleteWorkforce where
   type Rs DeleteWorkforce = DeleteWorkforceResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteWorkforce")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteWorkforceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteWorkforceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteWorkforce where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteWorkforce" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteWorkforce where
-  toJSON DeleteWorkforce' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("WorkforceName" Lude..= workforceName)]
-      )
-
-instance Lude.ToPath DeleteWorkforce where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteWorkforce where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteWorkforceResponse' smart constructor.
 newtype DeleteWorkforceResponse = DeleteWorkforceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWorkforceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteWorkforceResponse' value with any optional fields omitted.
 mkDeleteWorkforceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteWorkforceResponse
-mkDeleteWorkforceResponse pResponseStatus_ =
-  DeleteWorkforceResponse' {responseStatus = pResponseStatus_}
+mkDeleteWorkforceResponse responseStatus =
+  DeleteWorkforceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwhrsResponseStatus :: Lens.Lens' DeleteWorkforceResponse Lude.Int
-dwhrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkforceResponse)
-{-# DEPRECATED dwhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwrhrsResponseStatus :: Lens.Lens' DeleteWorkforceResponse Core.Int
+dwrhrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwrhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

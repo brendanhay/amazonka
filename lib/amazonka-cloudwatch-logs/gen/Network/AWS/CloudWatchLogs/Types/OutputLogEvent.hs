@@ -23,65 +23,60 @@ module Network.AWS.CloudWatchLogs.Types.OutputLogEvent
   )
 where
 
+import qualified Network.AWS.CloudWatchLogs.Types.EventMessage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a log event.
 --
 -- /See:/ 'mkOutputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
   { -- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-    ingestionTime :: Lude.Maybe Lude.Natural,
+    ingestionTime :: Core.Maybe Core.Natural,
     -- | The data contained in the log event.
-    message :: Lude.Maybe Lude.Text,
+    message :: Core.Maybe Types.EventMessage,
     -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Lude.Maybe Lude.Natural
+    timestamp :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputLogEvent' with the minimum fields required to make a request.
---
--- * 'ingestionTime' - The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
--- * 'message' - The data contained in the log event.
--- * 'timestamp' - The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- | Creates a 'OutputLogEvent' value with any optional fields omitted.
 mkOutputLogEvent ::
   OutputLogEvent
 mkOutputLogEvent =
   OutputLogEvent'
-    { ingestionTime = Lude.Nothing,
-      message = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { ingestionTime = Core.Nothing,
+      message = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- /Note:/ Consider using 'ingestionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oleIngestionTime :: Lens.Lens' OutputLogEvent (Lude.Maybe Lude.Natural)
-oleIngestionTime = Lens.lens (ingestionTime :: OutputLogEvent -> Lude.Maybe Lude.Natural) (\s a -> s {ingestionTime = a} :: OutputLogEvent)
+oleIngestionTime :: Lens.Lens' OutputLogEvent (Core.Maybe Core.Natural)
+oleIngestionTime = Lens.field @"ingestionTime"
 {-# DEPRECATED oleIngestionTime "Use generic-lens or generic-optics with 'ingestionTime' instead." #-}
 
 -- | The data contained in the log event.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oleMessage :: Lens.Lens' OutputLogEvent (Lude.Maybe Lude.Text)
-oleMessage = Lens.lens (message :: OutputLogEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: OutputLogEvent)
+oleMessage :: Lens.Lens' OutputLogEvent (Core.Maybe Types.EventMessage)
+oleMessage = Lens.field @"message"
 {-# DEPRECATED oleMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oleTimestamp :: Lens.Lens' OutputLogEvent (Lude.Maybe Lude.Natural)
-oleTimestamp = Lens.lens (timestamp :: OutputLogEvent -> Lude.Maybe Lude.Natural) (\s a -> s {timestamp = a} :: OutputLogEvent)
+oleTimestamp :: Lens.Lens' OutputLogEvent (Core.Maybe Core.Natural)
+oleTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED oleTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON OutputLogEvent where
+instance Core.FromJSON OutputLogEvent where
   parseJSON =
-    Lude.withObject
-      "OutputLogEvent"
-      ( \x ->
-          OutputLogEvent'
-            Lude.<$> (x Lude..:? "ingestionTime")
-            Lude.<*> (x Lude..:? "message")
-            Lude.<*> (x Lude..:? "timestamp")
-      )
+    Core.withObject "OutputLogEvent" Core.$
+      \x ->
+        OutputLogEvent'
+          Core.<$> (x Core..:? "ingestionTime")
+          Core.<*> (x Core..:? "message")
+          Core.<*> (x Core..:? "timestamp")

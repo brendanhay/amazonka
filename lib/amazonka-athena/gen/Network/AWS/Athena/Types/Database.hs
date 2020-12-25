@@ -18,72 +18,70 @@ module Network.AWS.Athena.Types.Database
 
     -- * Lenses
     dName,
-    dParameters,
     dDescription,
+    dParameters,
   )
 where
 
+import qualified Network.AWS.Athena.Types.Description as Types
+import qualified Network.AWS.Athena.Types.KeyString as Types
+import qualified Network.AWS.Athena.Types.Name as Types
+import qualified Network.AWS.Athena.Types.ParametersMapValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains metadata information for a database in a data catalog.
 --
 -- /See:/ 'mkDatabase' smart constructor.
 data Database = Database'
   { -- | The name of the database.
-    name :: Lude.Text,
-    -- | A set of custom key/value pairs.
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    name :: Types.Name,
     -- | An optional description of the database.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | A set of custom key/value pairs.
+    parameters :: Core.Maybe (Core.HashMap Types.KeyString Types.ParametersMapValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Database' with the minimum fields required to make a request.
---
--- * 'name' - The name of the database.
--- * 'parameters' - A set of custom key/value pairs.
--- * 'description' - An optional description of the database.
+-- | Creates a 'Database' value with any optional fields omitted.
 mkDatabase ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   Database
-mkDatabase pName_ =
+mkDatabase name =
   Database'
-    { name = pName_,
-      parameters = Lude.Nothing,
-      description = Lude.Nothing
+    { name,
+      description = Core.Nothing,
+      parameters = Core.Nothing
     }
 
 -- | The name of the database.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' Database Lude.Text
-dName = Lens.lens (name :: Database -> Lude.Text) (\s a -> s {name = a} :: Database)
+dName :: Lens.Lens' Database Types.Name
+dName = Lens.field @"name"
 {-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A set of custom key/value pairs.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dParameters :: Lens.Lens' Database (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-dParameters = Lens.lens (parameters :: Database -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: Database)
-{-# DEPRECATED dParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | An optional description of the database.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDescription :: Lens.Lens' Database (Lude.Maybe Lude.Text)
-dDescription = Lens.lens (description :: Database -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Database)
+dDescription :: Lens.Lens' Database (Core.Maybe Types.Description)
+dDescription = Lens.field @"description"
 {-# DEPRECATED dDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON Database where
+-- | A set of custom key/value pairs.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dParameters :: Lens.Lens' Database (Core.Maybe (Core.HashMap Types.KeyString Types.ParametersMapValue))
+dParameters = Lens.field @"parameters"
+{-# DEPRECATED dParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+instance Core.FromJSON Database where
   parseJSON =
-    Lude.withObject
-      "Database"
-      ( \x ->
-          Database'
-            Lude.<$> (x Lude..: "Name")
-            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "Database" Core.$
+      \x ->
+        Database'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Parameters")

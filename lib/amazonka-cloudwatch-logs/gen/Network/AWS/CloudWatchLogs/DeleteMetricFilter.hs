@@ -20,8 +20,8 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     mkDeleteMetricFilter,
 
     -- ** Request lenses
-    dmffFilterName,
     dmffLogGroupName,
+    dmffFilterName,
 
     -- * Destructuring the response
     DeleteMetricFilterResponse (..),
@@ -29,89 +29,76 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteMetricFilter' smart constructor.
 data DeleteMetricFilter = DeleteMetricFilter'
-  { -- | The name of the metric filter.
-    filterName :: Lude.Text,
-    -- | The name of the log group.
-    logGroupName :: Lude.Text
+  { -- | The name of the log group.
+    logGroupName :: Types.LogGroupName,
+    -- | The name of the metric filter.
+    filterName :: Types.FilterName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMetricFilter' with the minimum fields required to make a request.
---
--- * 'filterName' - The name of the metric filter.
--- * 'logGroupName' - The name of the log group.
+-- | Creates a 'DeleteMetricFilter' value with any optional fields omitted.
 mkDeleteMetricFilter ::
-  -- | 'filterName'
-  Lude.Text ->
   -- | 'logGroupName'
-  Lude.Text ->
+  Types.LogGroupName ->
+  -- | 'filterName'
+  Types.FilterName ->
   DeleteMetricFilter
-mkDeleteMetricFilter pFilterName_ pLogGroupName_ =
-  DeleteMetricFilter'
-    { filterName = pFilterName_,
-      logGroupName = pLogGroupName_
-    }
-
--- | The name of the metric filter.
---
--- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmffFilterName :: Lens.Lens' DeleteMetricFilter Lude.Text
-dmffFilterName = Lens.lens (filterName :: DeleteMetricFilter -> Lude.Text) (\s a -> s {filterName = a} :: DeleteMetricFilter)
-{-# DEPRECATED dmffFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+mkDeleteMetricFilter logGroupName filterName =
+  DeleteMetricFilter' {logGroupName, filterName}
 
 -- | The name of the log group.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmffLogGroupName :: Lens.Lens' DeleteMetricFilter Lude.Text
-dmffLogGroupName = Lens.lens (logGroupName :: DeleteMetricFilter -> Lude.Text) (\s a -> s {logGroupName = a} :: DeleteMetricFilter)
+dmffLogGroupName :: Lens.Lens' DeleteMetricFilter Types.LogGroupName
+dmffLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED dmffLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteMetricFilter where
+-- | The name of the metric filter.
+--
+-- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmffFilterName :: Lens.Lens' DeleteMetricFilter Types.FilterName
+dmffFilterName = Lens.field @"filterName"
+{-# DEPRECATED dmffFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+
+instance Core.FromJSON DeleteMetricFilter where
+  toJSON DeleteMetricFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just ("filterName" Core..= filterName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteMetricFilter where
   type Rs DeleteMetricFilter = DeleteMetricFilterResponse
-  request = Req.postJSON cloudWatchLogsService
-  response = Res.receiveNull DeleteMetricFilterResponse'
-
-instance Lude.ToHeaders DeleteMetricFilter where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.DeleteMetricFilter" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteMetricFilter where
-  toJSON DeleteMetricFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("filterName" Lude..= filterName),
-            Lude.Just ("logGroupName" Lude..= logGroupName)
-          ]
-      )
-
-instance Lude.ToPath DeleteMetricFilter where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteMetricFilter where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.DeleteMetricFilter")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteMetricFilterResponse'
 
 -- | /See:/ 'mkDeleteMetricFilterResponse' smart constructor.
 data DeleteMetricFilterResponse = DeleteMetricFilterResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMetricFilterResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteMetricFilterResponse' value with any optional fields omitted.
 mkDeleteMetricFilterResponse ::
   DeleteMetricFilterResponse
 mkDeleteMetricFilterResponse = DeleteMetricFilterResponse'

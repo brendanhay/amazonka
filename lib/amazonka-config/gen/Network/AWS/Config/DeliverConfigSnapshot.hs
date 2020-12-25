@@ -36,118 +36,104 @@ module Network.AWS.Config.DeliverConfigSnapshot
     mkDeliverConfigSnapshotResponse,
 
     -- ** Response lenses
-    dcsrsConfigSnapshotId,
-    dcsrsResponseStatus,
+    dcsrrsConfigSnapshotId,
+    dcsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'DeliverConfigSnapshot' action.
 --
 -- /See:/ 'mkDeliverConfigSnapshot' smart constructor.
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
   { -- | The name of the delivery channel through which the snapshot is delivered.
-    deliveryChannelName :: Lude.Text
+    deliveryChannelName :: Types.DeliveryChannelName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeliverConfigSnapshot' with the minimum fields required to make a request.
---
--- * 'deliveryChannelName' - The name of the delivery channel through which the snapshot is delivered.
+-- | Creates a 'DeliverConfigSnapshot' value with any optional fields omitted.
 mkDeliverConfigSnapshot ::
   -- | 'deliveryChannelName'
-  Lude.Text ->
+  Types.DeliveryChannelName ->
   DeliverConfigSnapshot
-mkDeliverConfigSnapshot pDeliveryChannelName_ =
-  DeliverConfigSnapshot'
-    { deliveryChannelName =
-        pDeliveryChannelName_
-    }
+mkDeliverConfigSnapshot deliveryChannelName =
+  DeliverConfigSnapshot' {deliveryChannelName}
 
 -- | The name of the delivery channel through which the snapshot is delivered.
 --
 -- /Note:/ Consider using 'deliveryChannelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsDeliveryChannelName :: Lens.Lens' DeliverConfigSnapshot Lude.Text
-dcsDeliveryChannelName = Lens.lens (deliveryChannelName :: DeliverConfigSnapshot -> Lude.Text) (\s a -> s {deliveryChannelName = a} :: DeliverConfigSnapshot)
+dcsDeliveryChannelName :: Lens.Lens' DeliverConfigSnapshot Types.DeliveryChannelName
+dcsDeliveryChannelName = Lens.field @"deliveryChannelName"
 {-# DEPRECATED dcsDeliveryChannelName "Use generic-lens or generic-optics with 'deliveryChannelName' instead." #-}
 
-instance Lude.AWSRequest DeliverConfigSnapshot where
+instance Core.FromJSON DeliverConfigSnapshot where
+  toJSON DeliverConfigSnapshot {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("deliveryChannelName" Core..= deliveryChannelName)]
+      )
+
+instance Core.AWSRequest DeliverConfigSnapshot where
   type Rs DeliverConfigSnapshot = DeliverConfigSnapshotResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.DeliverConfigSnapshot")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeliverConfigSnapshotResponse'
-            Lude.<$> (x Lude..?> "configSnapshotId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "configSnapshotId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeliverConfigSnapshot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StarlingDoveService.DeliverConfigSnapshot" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeliverConfigSnapshot where
-  toJSON DeliverConfigSnapshot' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("deliveryChannelName" Lude..= deliveryChannelName)]
-      )
-
-instance Lude.ToPath DeliverConfigSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeliverConfigSnapshot where
-  toQuery = Lude.const Lude.mempty
 
 -- | The output for the 'DeliverConfigSnapshot' action, in JSON format.
 --
 -- /See:/ 'mkDeliverConfigSnapshotResponse' smart constructor.
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
   { -- | The ID of the snapshot that is being created.
-    configSnapshotId :: Lude.Maybe Lude.Text,
+    configSnapshotId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeliverConfigSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'configSnapshotId' - The ID of the snapshot that is being created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeliverConfigSnapshotResponse' value with any optional fields omitted.
 mkDeliverConfigSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeliverConfigSnapshotResponse
-mkDeliverConfigSnapshotResponse pResponseStatus_ =
+mkDeliverConfigSnapshotResponse responseStatus =
   DeliverConfigSnapshotResponse'
-    { configSnapshotId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { configSnapshotId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the snapshot that is being created.
 --
 -- /Note:/ Consider using 'configSnapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsConfigSnapshotId :: Lens.Lens' DeliverConfigSnapshotResponse (Lude.Maybe Lude.Text)
-dcsrsConfigSnapshotId = Lens.lens (configSnapshotId :: DeliverConfigSnapshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {configSnapshotId = a} :: DeliverConfigSnapshotResponse)
-{-# DEPRECATED dcsrsConfigSnapshotId "Use generic-lens or generic-optics with 'configSnapshotId' instead." #-}
+dcsrrsConfigSnapshotId :: Lens.Lens' DeliverConfigSnapshotResponse (Core.Maybe Types.String)
+dcsrrsConfigSnapshotId = Lens.field @"configSnapshotId"
+{-# DEPRECATED dcsrrsConfigSnapshotId "Use generic-lens or generic-optics with 'configSnapshotId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsResponseStatus :: Lens.Lens' DeliverConfigSnapshotResponse Lude.Int
-dcsrsResponseStatus = Lens.lens (responseStatus :: DeliverConfigSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeliverConfigSnapshotResponse)
-{-# DEPRECATED dcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcsrrsResponseStatus :: Lens.Lens' DeliverConfigSnapshotResponse Core.Int
+dcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

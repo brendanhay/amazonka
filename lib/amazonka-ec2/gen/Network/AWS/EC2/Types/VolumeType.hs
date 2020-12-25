@@ -13,66 +13,68 @@
 module Network.AWS.EC2.Types.VolumeType
   ( VolumeType
       ( VolumeType',
-        Standard,
-        IO1,
-        IO2,
-        GP2,
-        SC1,
-        ST1
+        VolumeTypeStandard,
+        VolumeTypeIO1,
+        VolumeTypeIO2,
+        VolumeTypeGP2,
+        VolumeTypeSC1,
+        VolumeTypeST1,
+        fromVolumeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VolumeType = VolumeType' Lude.Text
+newtype VolumeType = VolumeType' {fromVolumeType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standard :: VolumeType
-pattern Standard = VolumeType' "standard"
+pattern VolumeTypeStandard :: VolumeType
+pattern VolumeTypeStandard = VolumeType' "standard"
 
-pattern IO1 :: VolumeType
-pattern IO1 = VolumeType' "io1"
+pattern VolumeTypeIO1 :: VolumeType
+pattern VolumeTypeIO1 = VolumeType' "io1"
 
-pattern IO2 :: VolumeType
-pattern IO2 = VolumeType' "io2"
+pattern VolumeTypeIO2 :: VolumeType
+pattern VolumeTypeIO2 = VolumeType' "io2"
 
-pattern GP2 :: VolumeType
-pattern GP2 = VolumeType' "gp2"
+pattern VolumeTypeGP2 :: VolumeType
+pattern VolumeTypeGP2 = VolumeType' "gp2"
 
-pattern SC1 :: VolumeType
-pattern SC1 = VolumeType' "sc1"
+pattern VolumeTypeSC1 :: VolumeType
+pattern VolumeTypeSC1 = VolumeType' "sc1"
 
-pattern ST1 :: VolumeType
-pattern ST1 = VolumeType' "st1"
+pattern VolumeTypeST1 :: VolumeType
+pattern VolumeTypeST1 = VolumeType' "st1"
 
 {-# COMPLETE
-  Standard,
-  IO1,
-  IO2,
-  GP2,
-  SC1,
-  ST1,
+  VolumeTypeStandard,
+  VolumeTypeIO1,
+  VolumeTypeIO2,
+  VolumeTypeGP2,
+  VolumeTypeSC1,
+  VolumeTypeST1,
   VolumeType'
   #-}

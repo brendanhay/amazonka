@@ -20,145 +20,142 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     mkDescribeAnalysisSchemes,
 
     -- ** Request lenses
-    dassDeployed,
-    dassAnalysisSchemeNames,
     dassDomainName,
+    dassAnalysisSchemeNames,
+    dassDeployed,
 
     -- * Destructuring the response
     DescribeAnalysisSchemesResponse (..),
     mkDescribeAnalysisSchemesResponse,
 
     -- ** Response lenses
-    dasrsAnalysisSchemes,
-    dasrsResponseStatus,
+    dasrrsAnalysisSchemes,
+    dasrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DescribeAnalysisSchemes' @ operation. Specifies the name of the domain you want to describe. To limit the response to particular analysis schemes, specify the names of the analysis schemes you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
 --
 -- /See:/ 'mkDescribeAnalysisSchemes' smart constructor.
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
-  { -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
-    deployed :: Lude.Maybe Lude.Bool,
+  { -- | The name of the domain you want to describe.
+    domainName :: Types.DomainName,
     -- | The analysis schemes you want to describe.
-    analysisSchemeNames :: Lude.Maybe [Lude.Text],
-    -- | The name of the domain you want to describe.
-    domainName :: Lude.Text
+    analysisSchemeNames :: Core.Maybe [Types.StandardName],
+    -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+    deployed :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAnalysisSchemes' with the minimum fields required to make a request.
---
--- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
--- * 'analysisSchemeNames' - The analysis schemes you want to describe.
--- * 'domainName' - The name of the domain you want to describe.
+-- | Creates a 'DescribeAnalysisSchemes' value with any optional fields omitted.
 mkDescribeAnalysisSchemes ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   DescribeAnalysisSchemes
-mkDescribeAnalysisSchemes pDomainName_ =
+mkDescribeAnalysisSchemes domainName =
   DescribeAnalysisSchemes'
-    { deployed = Lude.Nothing,
-      analysisSchemeNames = Lude.Nothing,
-      domainName = pDomainName_
+    { domainName,
+      analysisSchemeNames = Core.Nothing,
+      deployed = Core.Nothing
     }
-
--- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
---
--- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dassDeployed :: Lens.Lens' DescribeAnalysisSchemes (Lude.Maybe Lude.Bool)
-dassDeployed = Lens.lens (deployed :: DescribeAnalysisSchemes -> Lude.Maybe Lude.Bool) (\s a -> s {deployed = a} :: DescribeAnalysisSchemes)
-{-# DEPRECATED dassDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
-
--- | The analysis schemes you want to describe.
---
--- /Note:/ Consider using 'analysisSchemeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dassAnalysisSchemeNames :: Lens.Lens' DescribeAnalysisSchemes (Lude.Maybe [Lude.Text])
-dassAnalysisSchemeNames = Lens.lens (analysisSchemeNames :: DescribeAnalysisSchemes -> Lude.Maybe [Lude.Text]) (\s a -> s {analysisSchemeNames = a} :: DescribeAnalysisSchemes)
-{-# DEPRECATED dassAnalysisSchemeNames "Use generic-lens or generic-optics with 'analysisSchemeNames' instead." #-}
 
 -- | The name of the domain you want to describe.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dassDomainName :: Lens.Lens' DescribeAnalysisSchemes Lude.Text
-dassDomainName = Lens.lens (domainName :: DescribeAnalysisSchemes -> Lude.Text) (\s a -> s {domainName = a} :: DescribeAnalysisSchemes)
+dassDomainName :: Lens.Lens' DescribeAnalysisSchemes Types.DomainName
+dassDomainName = Lens.field @"domainName"
 {-# DEPRECATED dassDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DescribeAnalysisSchemes where
+-- | The analysis schemes you want to describe.
+--
+-- /Note:/ Consider using 'analysisSchemeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dassAnalysisSchemeNames :: Lens.Lens' DescribeAnalysisSchemes (Core.Maybe [Types.StandardName])
+dassAnalysisSchemeNames = Lens.field @"analysisSchemeNames"
+{-# DEPRECATED dassAnalysisSchemeNames "Use generic-lens or generic-optics with 'analysisSchemeNames' instead." #-}
+
+-- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+--
+-- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dassDeployed :: Lens.Lens' DescribeAnalysisSchemes (Core.Maybe Core.Bool)
+dassDeployed = Lens.field @"deployed"
+{-# DEPRECATED dassDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
+
+instance Core.AWSRequest DescribeAnalysisSchemes where
   type Rs DescribeAnalysisSchemes = DescribeAnalysisSchemesResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAnalysisSchemes")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> ( Core.toQueryValue
+                            "AnalysisSchemeNames"
+                            (Core.toQueryList "member" Core.<$> analysisSchemeNames)
+                        )
+                Core.<> (Core.toQueryValue "Deployed" Core.<$> deployed)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeAnalysisSchemesResult"
       ( \s h x ->
           DescribeAnalysisSchemesResponse'
-            Lude.<$> ( x Lude..@? "AnalysisSchemes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "member"
+            Core.<$> ( x Core..@? "AnalysisSchemes" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAnalysisSchemes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAnalysisSchemes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAnalysisSchemes where
-  toQuery DescribeAnalysisSchemes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeAnalysisSchemes" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "Deployed" Lude.=: deployed,
-        "AnalysisSchemeNames"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> analysisSchemeNames),
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @DescribeAnalysisSchemes@ request. Contains the analysis schemes configured for the domain specified in the request.
 --
 -- /See:/ 'mkDescribeAnalysisSchemesResponse' smart constructor.
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
   { -- | The analysis scheme descriptions.
-    analysisSchemes :: [AnalysisSchemeStatus],
+    analysisSchemes :: [Types.AnalysisSchemeStatus],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAnalysisSchemesResponse' with the minimum fields required to make a request.
---
--- * 'analysisSchemes' - The analysis scheme descriptions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAnalysisSchemesResponse' value with any optional fields omitted.
 mkDescribeAnalysisSchemesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAnalysisSchemesResponse
-mkDescribeAnalysisSchemesResponse pResponseStatus_ =
+mkDescribeAnalysisSchemesResponse responseStatus =
   DescribeAnalysisSchemesResponse'
-    { analysisSchemes = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { analysisSchemes = Core.mempty,
+      responseStatus
     }
 
 -- | The analysis scheme descriptions.
 --
 -- /Note:/ Consider using 'analysisSchemes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsAnalysisSchemes :: Lens.Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-dasrsAnalysisSchemes = Lens.lens (analysisSchemes :: DescribeAnalysisSchemesResponse -> [AnalysisSchemeStatus]) (\s a -> s {analysisSchemes = a} :: DescribeAnalysisSchemesResponse)
-{-# DEPRECATED dasrsAnalysisSchemes "Use generic-lens or generic-optics with 'analysisSchemes' instead." #-}
+dasrrsAnalysisSchemes :: Lens.Lens' DescribeAnalysisSchemesResponse [Types.AnalysisSchemeStatus]
+dasrrsAnalysisSchemes = Lens.field @"analysisSchemes"
+{-# DEPRECATED dasrrsAnalysisSchemes "Use generic-lens or generic-optics with 'analysisSchemes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsResponseStatus :: Lens.Lens' DescribeAnalysisSchemesResponse Lude.Int
-dasrsResponseStatus = Lens.lens (responseStatus :: DescribeAnalysisSchemesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAnalysisSchemesResponse)
-{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dasrrsResponseStatus :: Lens.Lens' DescribeAnalysisSchemesResponse Core.Int
+dasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,96 +13,98 @@
 module Network.AWS.Pinpoint.Types.ChannelType
   ( ChannelType
       ( ChannelType',
-        Push,
-        GCM,
-        APNS,
-        APNSSandbox,
-        APNSVoip,
-        APNSVoipSandbox,
-        ADM,
-        Sms,
-        Voice,
-        Email,
-        Baidu,
-        Custom
+        ChannelTypePush,
+        ChannelTypeGcm,
+        ChannelTypeApns,
+        ChannelTypeApnsSandbox,
+        ChannelTypeApnsVoip,
+        ChannelTypeApnsVoipSandbox,
+        ChannelTypeAdm,
+        ChannelTypeSms,
+        ChannelTypeVoice,
+        ChannelTypeEmail,
+        ChannelTypeBaidu,
+        ChannelTypeCustom,
+        fromChannelType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ChannelType = ChannelType' Lude.Text
+newtype ChannelType = ChannelType' {fromChannelType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Push :: ChannelType
-pattern Push = ChannelType' "PUSH"
+pattern ChannelTypePush :: ChannelType
+pattern ChannelTypePush = ChannelType' "PUSH"
 
-pattern GCM :: ChannelType
-pattern GCM = ChannelType' "GCM"
+pattern ChannelTypeGcm :: ChannelType
+pattern ChannelTypeGcm = ChannelType' "GCM"
 
-pattern APNS :: ChannelType
-pattern APNS = ChannelType' "APNS"
+pattern ChannelTypeApns :: ChannelType
+pattern ChannelTypeApns = ChannelType' "APNS"
 
-pattern APNSSandbox :: ChannelType
-pattern APNSSandbox = ChannelType' "APNS_SANDBOX"
+pattern ChannelTypeApnsSandbox :: ChannelType
+pattern ChannelTypeApnsSandbox = ChannelType' "APNS_SANDBOX"
 
-pattern APNSVoip :: ChannelType
-pattern APNSVoip = ChannelType' "APNS_VOIP"
+pattern ChannelTypeApnsVoip :: ChannelType
+pattern ChannelTypeApnsVoip = ChannelType' "APNS_VOIP"
 
-pattern APNSVoipSandbox :: ChannelType
-pattern APNSVoipSandbox = ChannelType' "APNS_VOIP_SANDBOX"
+pattern ChannelTypeApnsVoipSandbox :: ChannelType
+pattern ChannelTypeApnsVoipSandbox = ChannelType' "APNS_VOIP_SANDBOX"
 
-pattern ADM :: ChannelType
-pattern ADM = ChannelType' "ADM"
+pattern ChannelTypeAdm :: ChannelType
+pattern ChannelTypeAdm = ChannelType' "ADM"
 
-pattern Sms :: ChannelType
-pattern Sms = ChannelType' "SMS"
+pattern ChannelTypeSms :: ChannelType
+pattern ChannelTypeSms = ChannelType' "SMS"
 
-pattern Voice :: ChannelType
-pattern Voice = ChannelType' "VOICE"
+pattern ChannelTypeVoice :: ChannelType
+pattern ChannelTypeVoice = ChannelType' "VOICE"
 
-pattern Email :: ChannelType
-pattern Email = ChannelType' "EMAIL"
+pattern ChannelTypeEmail :: ChannelType
+pattern ChannelTypeEmail = ChannelType' "EMAIL"
 
-pattern Baidu :: ChannelType
-pattern Baidu = ChannelType' "BAIDU"
+pattern ChannelTypeBaidu :: ChannelType
+pattern ChannelTypeBaidu = ChannelType' "BAIDU"
 
-pattern Custom :: ChannelType
-pattern Custom = ChannelType' "CUSTOM"
+pattern ChannelTypeCustom :: ChannelType
+pattern ChannelTypeCustom = ChannelType' "CUSTOM"
 
 {-# COMPLETE
-  Push,
-  GCM,
-  APNS,
-  APNSSandbox,
-  APNSVoip,
-  APNSVoipSandbox,
-  ADM,
-  Sms,
-  Voice,
-  Email,
-  Baidu,
-  Custom,
+  ChannelTypePush,
+  ChannelTypeGcm,
+  ChannelTypeApns,
+  ChannelTypeApnsSandbox,
+  ChannelTypeApnsVoip,
+  ChannelTypeApnsVoipSandbox,
+  ChannelTypeAdm,
+  ChannelTypeSms,
+  ChannelTypeVoice,
+  ChannelTypeEmail,
+  ChannelTypeBaidu,
+  ChannelTypeCustom,
   ChannelType'
   #-}

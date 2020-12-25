@@ -20,134 +20,128 @@ module Network.AWS.IAM.ListServiceSpecificCredentials
     mkListServiceSpecificCredentials,
 
     -- ** Request lenses
-    lsscUserName,
     lsscServiceName,
+    lsscUserName,
 
     -- * Destructuring the response
     ListServiceSpecificCredentialsResponse (..),
     mkListServiceSpecificCredentialsResponse,
 
     -- ** Response lenses
-    lsscrsServiceSpecificCredentials,
-    lsscrsResponseStatus,
+    lsscrrsServiceSpecificCredentials,
+    lsscrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListServiceSpecificCredentials' smart constructor.
 data ListServiceSpecificCredentials = ListServiceSpecificCredentials'
-  { -- | The name of the user whose service-specific credentials you want information about. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
+  { -- | Filters the returned results to only those for the specified AWS service. If not specified, then AWS returns service-specific credentials for all services.
+    serviceName :: Core.Maybe Types.ServiceName,
+    -- | The name of the user whose service-specific credentials you want information about. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Maybe Lude.Text,
-    -- | Filters the returned results to only those for the specified AWS service. If not specified, then AWS returns service-specific credentials for all services.
-    serviceName :: Lude.Maybe Lude.Text
+    userName :: Core.Maybe Types.UserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListServiceSpecificCredentials' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the user whose service-specific credentials you want information about. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'serviceName' - Filters the returned results to only those for the specified AWS service. If not specified, then AWS returns service-specific credentials for all services.
+-- | Creates a 'ListServiceSpecificCredentials' value with any optional fields omitted.
 mkListServiceSpecificCredentials ::
   ListServiceSpecificCredentials
 mkListServiceSpecificCredentials =
   ListServiceSpecificCredentials'
-    { userName = Lude.Nothing,
-      serviceName = Lude.Nothing
+    { serviceName = Core.Nothing,
+      userName = Core.Nothing
     }
+
+-- | Filters the returned results to only those for the specified AWS service. If not specified, then AWS returns service-specific credentials for all services.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsscServiceName :: Lens.Lens' ListServiceSpecificCredentials (Core.Maybe Types.ServiceName)
+lsscServiceName = Lens.field @"serviceName"
+{-# DEPRECATED lsscServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The name of the user whose service-specific credentials you want information about. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscUserName :: Lens.Lens' ListServiceSpecificCredentials (Lude.Maybe Lude.Text)
-lsscUserName = Lens.lens (userName :: ListServiceSpecificCredentials -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: ListServiceSpecificCredentials)
+lsscUserName :: Lens.Lens' ListServiceSpecificCredentials (Core.Maybe Types.UserName)
+lsscUserName = Lens.field @"userName"
 {-# DEPRECATED lsscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | Filters the returned results to only those for the specified AWS service. If not specified, then AWS returns service-specific credentials for all services.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscServiceName :: Lens.Lens' ListServiceSpecificCredentials (Lude.Maybe Lude.Text)
-lsscServiceName = Lens.lens (serviceName :: ListServiceSpecificCredentials -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: ListServiceSpecificCredentials)
-{-# DEPRECATED lsscServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
-
-instance Lude.AWSRequest ListServiceSpecificCredentials where
+instance Core.AWSRequest ListServiceSpecificCredentials where
   type
     Rs ListServiceSpecificCredentials =
       ListServiceSpecificCredentialsResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListServiceSpecificCredentials")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "ServiceName" Core.<$> serviceName)
+                Core.<> (Core.toQueryValue "UserName" Core.<$> userName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListServiceSpecificCredentialsResult"
       ( \s h x ->
           ListServiceSpecificCredentialsResponse'
-            Lude.<$> ( x Lude..@? "ServiceSpecificCredentials" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "ServiceSpecificCredentials"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListServiceSpecificCredentials where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListServiceSpecificCredentials where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListServiceSpecificCredentials where
-  toQuery ListServiceSpecificCredentials' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ListServiceSpecificCredentials" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "ServiceName" Lude.=: serviceName
-      ]
 
 -- | /See:/ 'mkListServiceSpecificCredentialsResponse' smart constructor.
 data ListServiceSpecificCredentialsResponse = ListServiceSpecificCredentialsResponse'
   { -- | A list of structures that each contain details about a service-specific credential.
-    serviceSpecificCredentials :: Lude.Maybe [ServiceSpecificCredentialMetadata],
+    serviceSpecificCredentials :: Core.Maybe [Types.ServiceSpecificCredentialMetadata],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListServiceSpecificCredentialsResponse' with the minimum fields required to make a request.
---
--- * 'serviceSpecificCredentials' - A list of structures that each contain details about a service-specific credential.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListServiceSpecificCredentialsResponse' value with any optional fields omitted.
 mkListServiceSpecificCredentialsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListServiceSpecificCredentialsResponse
-mkListServiceSpecificCredentialsResponse pResponseStatus_ =
+mkListServiceSpecificCredentialsResponse responseStatus =
   ListServiceSpecificCredentialsResponse'
     { serviceSpecificCredentials =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of structures that each contain details about a service-specific credential.
 --
 -- /Note:/ Consider using 'serviceSpecificCredentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscrsServiceSpecificCredentials :: Lens.Lens' ListServiceSpecificCredentialsResponse (Lude.Maybe [ServiceSpecificCredentialMetadata])
-lsscrsServiceSpecificCredentials = Lens.lens (serviceSpecificCredentials :: ListServiceSpecificCredentialsResponse -> Lude.Maybe [ServiceSpecificCredentialMetadata]) (\s a -> s {serviceSpecificCredentials = a} :: ListServiceSpecificCredentialsResponse)
-{-# DEPRECATED lsscrsServiceSpecificCredentials "Use generic-lens or generic-optics with 'serviceSpecificCredentials' instead." #-}
+lsscrrsServiceSpecificCredentials :: Lens.Lens' ListServiceSpecificCredentialsResponse (Core.Maybe [Types.ServiceSpecificCredentialMetadata])
+lsscrrsServiceSpecificCredentials = Lens.field @"serviceSpecificCredentials"
+{-# DEPRECATED lsscrrsServiceSpecificCredentials "Use generic-lens or generic-optics with 'serviceSpecificCredentials' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsscrsResponseStatus :: Lens.Lens' ListServiceSpecificCredentialsResponse Lude.Int
-lsscrsResponseStatus = Lens.lens (responseStatus :: ListServiceSpecificCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListServiceSpecificCredentialsResponse)
-{-# DEPRECATED lsscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsscrrsResponseStatus :: Lens.Lens' ListServiceSpecificCredentialsResponse Core.Int
+lsscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

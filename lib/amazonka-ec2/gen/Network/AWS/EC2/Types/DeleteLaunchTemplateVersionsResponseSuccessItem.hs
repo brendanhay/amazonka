@@ -17,71 +17,68 @@ module Network.AWS.EC2.Types.DeleteLaunchTemplateVersionsResponseSuccessItem
     mkDeleteLaunchTemplateVersionsResponseSuccessItem,
 
     -- * Lenses
-    dltvrsiLaunchTemplateName,
     dltvrsiLaunchTemplateId,
+    dltvrsiLaunchTemplateName,
     dltvrsiVersionNumber,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a launch template version that was successfully deleted.
 --
 -- /See:/ 'mkDeleteLaunchTemplateVersionsResponseSuccessItem' smart constructor.
 data DeleteLaunchTemplateVersionsResponseSuccessItem = DeleteLaunchTemplateVersionsResponseSuccessItem'
-  { -- | The name of the launch template.
-    launchTemplateName :: Lude.Maybe Lude.Text,
-    -- | The ID of the launch template.
-    launchTemplateId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the launch template.
+    launchTemplateId :: Core.Maybe Types.String,
+    -- | The name of the launch template.
+    launchTemplateName :: Core.Maybe Types.String,
     -- | The version number of the launch template.
-    versionNumber :: Lude.Maybe Lude.Integer
+    versionNumber :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLaunchTemplateVersionsResponseSuccessItem' with the minimum fields required to make a request.
---
--- * 'launchTemplateName' - The name of the launch template.
--- * 'launchTemplateId' - The ID of the launch template.
--- * 'versionNumber' - The version number of the launch template.
+-- | Creates a 'DeleteLaunchTemplateVersionsResponseSuccessItem' value with any optional fields omitted.
 mkDeleteLaunchTemplateVersionsResponseSuccessItem ::
   DeleteLaunchTemplateVersionsResponseSuccessItem
 mkDeleteLaunchTemplateVersionsResponseSuccessItem =
   DeleteLaunchTemplateVersionsResponseSuccessItem'
-    { launchTemplateName =
-        Lude.Nothing,
-      launchTemplateId = Lude.Nothing,
-      versionNumber = Lude.Nothing
+    { launchTemplateId =
+        Core.Nothing,
+      launchTemplateName = Core.Nothing,
+      versionNumber = Core.Nothing
     }
-
--- | The name of the launch template.
---
--- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvrsiLaunchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Lude.Maybe Lude.Text)
-dltvrsiLaunchTemplateName = Lens.lens (launchTemplateName :: DeleteLaunchTemplateVersionsResponseSuccessItem -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
-{-# DEPRECATED dltvrsiLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The ID of the launch template.
 --
 -- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvrsiLaunchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Lude.Maybe Lude.Text)
-dltvrsiLaunchTemplateId = Lens.lens (launchTemplateId :: DeleteLaunchTemplateVersionsResponseSuccessItem -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
+dltvrsiLaunchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Core.Maybe Types.String)
+dltvrsiLaunchTemplateId = Lens.field @"launchTemplateId"
 {-# DEPRECATED dltvrsiLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
+
+-- | The name of the launch template.
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvrsiLaunchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Core.Maybe Types.String)
+dltvrsiLaunchTemplateName = Lens.field @"launchTemplateName"
+{-# DEPRECATED dltvrsiLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The version number of the launch template.
 --
 -- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvrsiVersionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Lude.Maybe Lude.Integer)
-dltvrsiVersionNumber = Lens.lens (versionNumber :: DeleteLaunchTemplateVersionsResponseSuccessItem -> Lude.Maybe Lude.Integer) (\s a -> s {versionNumber = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
+dltvrsiVersionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Core.Maybe Core.Integer)
+dltvrsiVersionNumber = Lens.field @"versionNumber"
 {-# DEPRECATED dltvrsiVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
 instance
-  Lude.FromXML
+  Core.FromXML
     DeleteLaunchTemplateVersionsResponseSuccessItem
   where
   parseXML x =
     DeleteLaunchTemplateVersionsResponseSuccessItem'
-      Lude.<$> (x Lude..@? "launchTemplateName")
-      Lude.<*> (x Lude..@? "launchTemplateId")
-      Lude.<*> (x Lude..@? "versionNumber")
+      Core.<$> (x Core..@? "launchTemplateId")
+      Core.<*> (x Core..@? "launchTemplateName")
+      Core.<*> (x Core..@? "versionNumber")

@@ -23,49 +23,41 @@ module Network.AWS.SES.Types.Message
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.Body
-import Network.AWS.SES.Types.Content
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.Body as Types
+import qualified Network.AWS.SES.Types.Content as Types
 
 -- | Represents the message to be sent, composed of a subject and a body.
 --
 -- /See:/ 'mkMessage' smart constructor.
 data Message = Message'
   { -- | The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
-    subject :: Content,
+    subject :: Types.Content,
     -- | The message body.
-    body :: Body
+    body :: Types.Body
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Message' with the minimum fields required to make a request.
---
--- * 'subject' - The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
--- * 'body' - The message body.
+-- | Creates a 'Message' value with any optional fields omitted.
 mkMessage ::
   -- | 'subject'
-  Content ->
+  Types.Content ->
   -- | 'body'
-  Body ->
+  Types.Body ->
   Message
-mkMessage pSubject_ pBody_ =
-  Message' {subject = pSubject_, body = pBody_}
+mkMessage subject body = Message' {subject, body}
 
 -- | The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
 --
 -- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mSubject :: Lens.Lens' Message Content
-mSubject = Lens.lens (subject :: Message -> Content) (\s a -> s {subject = a} :: Message)
+mSubject :: Lens.Lens' Message Types.Content
+mSubject = Lens.field @"subject"
 {-# DEPRECATED mSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The message body.
 --
 -- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mBody :: Lens.Lens' Message Body
-mBody = Lens.lens (body :: Message -> Body) (\s a -> s {body = a} :: Message)
+mBody :: Lens.Lens' Message Types.Body
+mBody = Lens.field @"body"
 {-# DEPRECATED mBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
-instance Lude.ToQuery Message where
-  toQuery Message' {..} =
-    Lude.mconcat ["Subject" Lude.=: subject, "Body" Lude.=: body]

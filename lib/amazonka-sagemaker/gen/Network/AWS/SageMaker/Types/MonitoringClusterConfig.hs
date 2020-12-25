@@ -20,102 +20,93 @@ module Network.AWS.SageMaker.Types.MonitoringClusterConfig
     mccInstanceCount,
     mccInstanceType,
     mccVolumeSizeInGB,
-    mccVolumeKMSKeyId,
+    mccVolumeKmsKeyId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ProcessingInstanceType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ProcessingInstanceType as Types
+import qualified Network.AWS.SageMaker.Types.VolumeKmsKeyId as Types
 
 -- | Configuration for the cluster used to run model monitoring jobs.
 --
 -- /See:/ 'mkMonitoringClusterConfig' smart constructor.
 data MonitoringClusterConfig = MonitoringClusterConfig'
   { -- | The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-    instanceCount :: Lude.Natural,
+    instanceCount :: Core.Natural,
     -- | The ML compute instance type for the processing job.
-    instanceType :: ProcessingInstanceType,
+    instanceType :: Types.ProcessingInstanceType,
     -- | The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-    volumeSizeInGB :: Lude.Natural,
+    volumeSizeInGB :: Core.Natural,
     -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-    volumeKMSKeyId :: Lude.Maybe Lude.Text
+    volumeKmsKeyId :: Core.Maybe Types.VolumeKmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonitoringClusterConfig' with the minimum fields required to make a request.
---
--- * 'instanceCount' - The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
--- * 'instanceType' - The ML compute instance type for the processing job.
--- * 'volumeSizeInGB' - The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
--- * 'volumeKMSKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+-- | Creates a 'MonitoringClusterConfig' value with any optional fields omitted.
 mkMonitoringClusterConfig ::
   -- | 'instanceCount'
-  Lude.Natural ->
+  Core.Natural ->
   -- | 'instanceType'
-  ProcessingInstanceType ->
+  Types.ProcessingInstanceType ->
   -- | 'volumeSizeInGB'
-  Lude.Natural ->
+  Core.Natural ->
   MonitoringClusterConfig
-mkMonitoringClusterConfig
-  pInstanceCount_
-  pInstanceType_
-  pVolumeSizeInGB_ =
-    MonitoringClusterConfig'
-      { instanceCount = pInstanceCount_,
-        instanceType = pInstanceType_,
-        volumeSizeInGB = pVolumeSizeInGB_,
-        volumeKMSKeyId = Lude.Nothing
-      }
+mkMonitoringClusterConfig instanceCount instanceType volumeSizeInGB =
+  MonitoringClusterConfig'
+    { instanceCount,
+      instanceType,
+      volumeSizeInGB,
+      volumeKmsKeyId = Core.Nothing
+    }
 
 -- | The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 --
 -- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mccInstanceCount :: Lens.Lens' MonitoringClusterConfig Lude.Natural
-mccInstanceCount = Lens.lens (instanceCount :: MonitoringClusterConfig -> Lude.Natural) (\s a -> s {instanceCount = a} :: MonitoringClusterConfig)
+mccInstanceCount :: Lens.Lens' MonitoringClusterConfig Core.Natural
+mccInstanceCount = Lens.field @"instanceCount"
 {-# DEPRECATED mccInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The ML compute instance type for the processing job.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mccInstanceType :: Lens.Lens' MonitoringClusterConfig ProcessingInstanceType
-mccInstanceType = Lens.lens (instanceType :: MonitoringClusterConfig -> ProcessingInstanceType) (\s a -> s {instanceType = a} :: MonitoringClusterConfig)
+mccInstanceType :: Lens.Lens' MonitoringClusterConfig Types.ProcessingInstanceType
+mccInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED mccInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 --
 -- /Note:/ Consider using 'volumeSizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mccVolumeSizeInGB :: Lens.Lens' MonitoringClusterConfig Lude.Natural
-mccVolumeSizeInGB = Lens.lens (volumeSizeInGB :: MonitoringClusterConfig -> Lude.Natural) (\s a -> s {volumeSizeInGB = a} :: MonitoringClusterConfig)
+mccVolumeSizeInGB :: Lens.Lens' MonitoringClusterConfig Core.Natural
+mccVolumeSizeInGB = Lens.field @"volumeSizeInGB"
 {-# DEPRECATED mccVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 --
--- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mccVolumeKMSKeyId :: Lens.Lens' MonitoringClusterConfig (Lude.Maybe Lude.Text)
-mccVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: MonitoringClusterConfig -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: MonitoringClusterConfig)
-{-# DEPRECATED mccVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
+-- /Note:/ Consider using 'volumeKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mccVolumeKmsKeyId :: Lens.Lens' MonitoringClusterConfig (Core.Maybe Types.VolumeKmsKeyId)
+mccVolumeKmsKeyId = Lens.field @"volumeKmsKeyId"
+{-# DEPRECATED mccVolumeKmsKeyId "Use generic-lens or generic-optics with 'volumeKmsKeyId' instead." #-}
 
-instance Lude.FromJSON MonitoringClusterConfig where
-  parseJSON =
-    Lude.withObject
-      "MonitoringClusterConfig"
-      ( \x ->
-          MonitoringClusterConfig'
-            Lude.<$> (x Lude..: "InstanceCount")
-            Lude.<*> (x Lude..: "InstanceType")
-            Lude.<*> (x Lude..: "VolumeSizeInGB")
-            Lude.<*> (x Lude..:? "VolumeKmsKeyId")
-      )
-
-instance Lude.ToJSON MonitoringClusterConfig where
-  toJSON MonitoringClusterConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceCount" Lude..= instanceCount),
-            Lude.Just ("InstanceType" Lude..= instanceType),
-            Lude.Just ("VolumeSizeInGB" Lude..= volumeSizeInGB),
-            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId
+instance Core.FromJSON MonitoringClusterConfig where
+  toJSON MonitoringClusterConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceCount" Core..= instanceCount),
+            Core.Just ("InstanceType" Core..= instanceType),
+            Core.Just ("VolumeSizeInGB" Core..= volumeSizeInGB),
+            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId
           ]
       )
+
+instance Core.FromJSON MonitoringClusterConfig where
+  parseJSON =
+    Core.withObject "MonitoringClusterConfig" Core.$
+      \x ->
+        MonitoringClusterConfig'
+          Core.<$> (x Core..: "InstanceCount")
+          Core.<*> (x Core..: "InstanceType")
+          Core.<*> (x Core..: "VolumeSizeInGB")
+          Core.<*> (x Core..:? "VolumeKmsKeyId")

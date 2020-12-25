@@ -23,117 +23,106 @@ module Network.AWS.Rekognition.DeleteProjectVersion
     mkDeleteProjectVersion,
 
     -- ** Request lenses
-    dpvProjectVersionARN,
+    dpvProjectVersionArn,
 
     -- * Destructuring the response
     DeleteProjectVersionResponse (..),
     mkDeleteProjectVersionResponse,
 
     -- ** Response lenses
-    dpvfrsStatus,
-    dpvfrsResponseStatus,
+    dpvrfrsStatus,
+    dpvrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteProjectVersion' smart constructor.
 newtype DeleteProjectVersion = DeleteProjectVersion'
   { -- | The Amazon Resource Name (ARN) of the model version that you want to delete.
-    projectVersionARN :: Lude.Text
+    projectVersionArn :: Types.ProjectVersionArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProjectVersion' with the minimum fields required to make a request.
---
--- * 'projectVersionARN' - The Amazon Resource Name (ARN) of the model version that you want to delete.
+-- | Creates a 'DeleteProjectVersion' value with any optional fields omitted.
 mkDeleteProjectVersion ::
-  -- | 'projectVersionARN'
-  Lude.Text ->
+  -- | 'projectVersionArn'
+  Types.ProjectVersionArn ->
   DeleteProjectVersion
-mkDeleteProjectVersion pProjectVersionARN_ =
-  DeleteProjectVersion' {projectVersionARN = pProjectVersionARN_}
+mkDeleteProjectVersion projectVersionArn =
+  DeleteProjectVersion' {projectVersionArn}
 
 -- | The Amazon Resource Name (ARN) of the model version that you want to delete.
 --
--- /Note:/ Consider using 'projectVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvProjectVersionARN :: Lens.Lens' DeleteProjectVersion Lude.Text
-dpvProjectVersionARN = Lens.lens (projectVersionARN :: DeleteProjectVersion -> Lude.Text) (\s a -> s {projectVersionARN = a} :: DeleteProjectVersion)
-{-# DEPRECATED dpvProjectVersionARN "Use generic-lens or generic-optics with 'projectVersionARN' instead." #-}
+-- /Note:/ Consider using 'projectVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvProjectVersionArn :: Lens.Lens' DeleteProjectVersion Types.ProjectVersionArn
+dpvProjectVersionArn = Lens.field @"projectVersionArn"
+{-# DEPRECATED dpvProjectVersionArn "Use generic-lens or generic-optics with 'projectVersionArn' instead." #-}
 
-instance Lude.AWSRequest DeleteProjectVersion where
+instance Core.FromJSON DeleteProjectVersion where
+  toJSON DeleteProjectVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ProjectVersionArn" Core..= projectVersionArn)]
+      )
+
+instance Core.AWSRequest DeleteProjectVersion where
   type Rs DeleteProjectVersion = DeleteProjectVersionResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.DeleteProjectVersion")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteProjectVersionResponse'
-            Lude.<$> (x Lude..?> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Status") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProjectVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.DeleteProjectVersion" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteProjectVersion where
-  toJSON DeleteProjectVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ProjectVersionArn" Lude..= projectVersionARN)]
-      )
-
-instance Lude.ToPath DeleteProjectVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteProjectVersion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProjectVersionResponse' smart constructor.
 data DeleteProjectVersionResponse = DeleteProjectVersionResponse'
   { -- | The status of the deletion operation.
-    status :: Lude.Maybe ProjectVersionStatus,
+    status :: Core.Maybe Types.ProjectVersionStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProjectVersionResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the deletion operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProjectVersionResponse' value with any optional fields omitted.
 mkDeleteProjectVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProjectVersionResponse
-mkDeleteProjectVersionResponse pResponseStatus_ =
+mkDeleteProjectVersionResponse responseStatus =
   DeleteProjectVersionResponse'
-    { status = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { status = Core.Nothing,
+      responseStatus
     }
 
 -- | The status of the deletion operation.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvfrsStatus :: Lens.Lens' DeleteProjectVersionResponse (Lude.Maybe ProjectVersionStatus)
-dpvfrsStatus = Lens.lens (status :: DeleteProjectVersionResponse -> Lude.Maybe ProjectVersionStatus) (\s a -> s {status = a} :: DeleteProjectVersionResponse)
-{-# DEPRECATED dpvfrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+dpvrfrsStatus :: Lens.Lens' DeleteProjectVersionResponse (Core.Maybe Types.ProjectVersionStatus)
+dpvrfrsStatus = Lens.field @"status"
+{-# DEPRECATED dpvrfrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvfrsResponseStatus :: Lens.Lens' DeleteProjectVersionResponse Lude.Int
-dpvfrsResponseStatus = Lens.lens (responseStatus :: DeleteProjectVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProjectVersionResponse)
-{-# DEPRECATED dpvfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpvrfrsResponseStatus :: Lens.Lens' DeleteProjectVersionResponse Core.Int
+dpvrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpvrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

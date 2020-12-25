@@ -22,9 +22,10 @@ module Network.AWS.Budgets.Types.Subscriber
   )
 where
 
-import Network.AWS.Budgets.Types.SubscriptionType
+import qualified Network.AWS.Budgets.Types.Address as Types
+import qualified Network.AWS.Budgets.Types.SubscriptionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
 --
@@ -40,38 +41,30 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSubscriber' smart constructor.
 data Subscriber = Subscriber'
   { -- | The type of notification that AWS sends to a subscriber.
-    subscriptionType :: SubscriptionType,
+    subscriptionType :: Types.SubscriptionType,
     -- | The address that AWS sends budget notifications to, either an SNS topic or an email.
     --
     -- When you create a subscriber, the value of @Address@ can't contain line breaks.
-    address :: Lude.Sensitive Lude.Text
+    address :: Types.Address
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Subscriber' with the minimum fields required to make a request.
---
--- * 'subscriptionType' - The type of notification that AWS sends to a subscriber.
--- * 'address' - The address that AWS sends budget notifications to, either an SNS topic or an email.
---
--- When you create a subscriber, the value of @Address@ can't contain line breaks.
+-- | Creates a 'Subscriber' value with any optional fields omitted.
 mkSubscriber ::
   -- | 'subscriptionType'
-  SubscriptionType ->
+  Types.SubscriptionType ->
   -- | 'address'
-  Lude.Sensitive Lude.Text ->
+  Types.Address ->
   Subscriber
-mkSubscriber pSubscriptionType_ pAddress_ =
-  Subscriber'
-    { subscriptionType = pSubscriptionType_,
-      address = pAddress_
-    }
+mkSubscriber subscriptionType address =
+  Subscriber' {subscriptionType, address}
 
 -- | The type of notification that AWS sends to a subscriber.
 --
 -- /Note:/ Consider using 'subscriptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubscriptionType :: Lens.Lens' Subscriber SubscriptionType
-sSubscriptionType = Lens.lens (subscriptionType :: Subscriber -> SubscriptionType) (\s a -> s {subscriptionType = a} :: Subscriber)
+sSubscriptionType :: Lens.Lens' Subscriber Types.SubscriptionType
+sSubscriptionType = Lens.field @"subscriptionType"
 {-# DEPRECATED sSubscriptionType "Use generic-lens or generic-optics with 'subscriptionType' instead." #-}
 
 -- | The address that AWS sends budget notifications to, either an SNS topic or an email.
@@ -79,24 +72,22 @@ sSubscriptionType = Lens.lens (subscriptionType :: Subscriber -> SubscriptionTyp
 -- When you create a subscriber, the value of @Address@ can't contain line breaks.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAddress :: Lens.Lens' Subscriber (Lude.Sensitive Lude.Text)
-sAddress = Lens.lens (address :: Subscriber -> Lude.Sensitive Lude.Text) (\s a -> s {address = a} :: Subscriber)
+sAddress :: Lens.Lens' Subscriber Types.Address
+sAddress = Lens.field @"address"
 {-# DEPRECATED sAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
-instance Lude.FromJSON Subscriber where
-  parseJSON =
-    Lude.withObject
-      "Subscriber"
-      ( \x ->
-          Subscriber'
-            Lude.<$> (x Lude..: "SubscriptionType") Lude.<*> (x Lude..: "Address")
-      )
-
-instance Lude.ToJSON Subscriber where
-  toJSON Subscriber' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SubscriptionType" Lude..= subscriptionType),
-            Lude.Just ("Address" Lude..= address)
+instance Core.FromJSON Subscriber where
+  toJSON Subscriber {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SubscriptionType" Core..= subscriptionType),
+            Core.Just ("Address" Core..= address)
           ]
       )
+
+instance Core.FromJSON Subscriber where
+  parseJSON =
+    Core.withObject "Subscriber" Core.$
+      \x ->
+        Subscriber'
+          Core.<$> (x Core..: "SubscriptionType") Core.<*> (x Core..: "Address")

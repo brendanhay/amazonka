@@ -13,76 +13,81 @@
 module Network.AWS.EC2.Types.ByoipCidrState
   ( ByoipCidrState
       ( ByoipCidrState',
-        Advertised,
-        Deprovisioned,
-        FailedDeprovision,
-        FailedProvision,
-        PendingDeprovision,
-        PendingProvision,
-        Provisioned,
-        ProvisionedNotPubliclyAdvertisable
+        ByoipCidrStateAdvertised,
+        ByoipCidrStateDeprovisioned,
+        ByoipCidrStateFailedDeprovision,
+        ByoipCidrStateFailedProvision,
+        ByoipCidrStatePendingDeprovision,
+        ByoipCidrStatePendingProvision,
+        ByoipCidrStateProvisioned,
+        ByoipCidrStateProvisionedNotPubliclyAdvertisable,
+        fromByoipCidrState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ByoipCidrState = ByoipCidrState' Lude.Text
+newtype ByoipCidrState = ByoipCidrState'
+  { fromByoipCidrState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Advertised :: ByoipCidrState
-pattern Advertised = ByoipCidrState' "advertised"
+pattern ByoipCidrStateAdvertised :: ByoipCidrState
+pattern ByoipCidrStateAdvertised = ByoipCidrState' "advertised"
 
-pattern Deprovisioned :: ByoipCidrState
-pattern Deprovisioned = ByoipCidrState' "deprovisioned"
+pattern ByoipCidrStateDeprovisioned :: ByoipCidrState
+pattern ByoipCidrStateDeprovisioned = ByoipCidrState' "deprovisioned"
 
-pattern FailedDeprovision :: ByoipCidrState
-pattern FailedDeprovision = ByoipCidrState' "failed-deprovision"
+pattern ByoipCidrStateFailedDeprovision :: ByoipCidrState
+pattern ByoipCidrStateFailedDeprovision = ByoipCidrState' "failed-deprovision"
 
-pattern FailedProvision :: ByoipCidrState
-pattern FailedProvision = ByoipCidrState' "failed-provision"
+pattern ByoipCidrStateFailedProvision :: ByoipCidrState
+pattern ByoipCidrStateFailedProvision = ByoipCidrState' "failed-provision"
 
-pattern PendingDeprovision :: ByoipCidrState
-pattern PendingDeprovision = ByoipCidrState' "pending-deprovision"
+pattern ByoipCidrStatePendingDeprovision :: ByoipCidrState
+pattern ByoipCidrStatePendingDeprovision = ByoipCidrState' "pending-deprovision"
 
-pattern PendingProvision :: ByoipCidrState
-pattern PendingProvision = ByoipCidrState' "pending-provision"
+pattern ByoipCidrStatePendingProvision :: ByoipCidrState
+pattern ByoipCidrStatePendingProvision = ByoipCidrState' "pending-provision"
 
-pattern Provisioned :: ByoipCidrState
-pattern Provisioned = ByoipCidrState' "provisioned"
+pattern ByoipCidrStateProvisioned :: ByoipCidrState
+pattern ByoipCidrStateProvisioned = ByoipCidrState' "provisioned"
 
-pattern ProvisionedNotPubliclyAdvertisable :: ByoipCidrState
-pattern ProvisionedNotPubliclyAdvertisable = ByoipCidrState' "provisioned-not-publicly-advertisable"
+pattern ByoipCidrStateProvisionedNotPubliclyAdvertisable :: ByoipCidrState
+pattern ByoipCidrStateProvisionedNotPubliclyAdvertisable = ByoipCidrState' "provisioned-not-publicly-advertisable"
 
 {-# COMPLETE
-  Advertised,
-  Deprovisioned,
-  FailedDeprovision,
-  FailedProvision,
-  PendingDeprovision,
-  PendingProvision,
-  Provisioned,
-  ProvisionedNotPubliclyAdvertisable,
+  ByoipCidrStateAdvertised,
+  ByoipCidrStateDeprovisioned,
+  ByoipCidrStateFailedDeprovision,
+  ByoipCidrStateFailedProvision,
+  ByoipCidrStatePendingDeprovision,
+  ByoipCidrStatePendingProvision,
+  ByoipCidrStateProvisioned,
+  ByoipCidrStateProvisionedNotPubliclyAdvertisable,
   ByoipCidrState'
   #-}

@@ -22,56 +22,52 @@ module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInput
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.ResourceARN as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies an Amazon Kinesis Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN) and an IAM role ARN that enables Amazon Kinesis Analytics to access the stream on your behalf.
 --
 -- /See:/ 'mkKinesisFirehoseInput' smart constructor.
 data KinesisFirehoseInput = KinesisFirehoseInput'
   { -- | ARN of the input delivery stream.
-    resourceARN :: Lude.Text,
+    resourceARN :: Types.ResourceARN,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to make sure that the role has the necessary permissions to access the stream.
-    roleARN :: Lude.Text
+    roleARN :: Types.RoleARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisFirehoseInput' with the minimum fields required to make a request.
---
--- * 'resourceARN' - ARN of the input delivery stream.
--- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to make sure that the role has the necessary permissions to access the stream.
+-- | Creates a 'KinesisFirehoseInput' value with any optional fields omitted.
 mkKinesisFirehoseInput ::
   -- | 'resourceARN'
-  Lude.Text ->
+  Types.ResourceARN ->
   -- | 'roleARN'
-  Lude.Text ->
+  Types.RoleARN ->
   KinesisFirehoseInput
-mkKinesisFirehoseInput pResourceARN_ pRoleARN_ =
-  KinesisFirehoseInput'
-    { resourceARN = pResourceARN_,
-      roleARN = pRoleARN_
-    }
+mkKinesisFirehoseInput resourceARN roleARN =
+  KinesisFirehoseInput' {resourceARN, roleARN}
 
 -- | ARN of the input delivery stream.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kfiResourceARN :: Lens.Lens' KinesisFirehoseInput Lude.Text
-kfiResourceARN = Lens.lens (resourceARN :: KinesisFirehoseInput -> Lude.Text) (\s a -> s {resourceARN = a} :: KinesisFirehoseInput)
+kfiResourceARN :: Lens.Lens' KinesisFirehoseInput Types.ResourceARN
+kfiResourceARN = Lens.field @"resourceARN"
 {-# DEPRECATED kfiResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to make sure that the role has the necessary permissions to access the stream.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kfiRoleARN :: Lens.Lens' KinesisFirehoseInput Lude.Text
-kfiRoleARN = Lens.lens (roleARN :: KinesisFirehoseInput -> Lude.Text) (\s a -> s {roleARN = a} :: KinesisFirehoseInput)
+kfiRoleARN :: Lens.Lens' KinesisFirehoseInput Types.RoleARN
+kfiRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED kfiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.ToJSON KinesisFirehoseInput where
-  toJSON KinesisFirehoseInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
-            Lude.Just ("RoleARN" Lude..= roleARN)
+instance Core.FromJSON KinesisFirehoseInput where
+  toJSON KinesisFirehoseInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceARN" Core..= resourceARN),
+            Core.Just ("RoleARN" Core..= roleARN)
           ]
       )

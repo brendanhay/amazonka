@@ -25,8 +25,8 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
 
     -- ** Request lenses
     dvtldGatewayARN,
-    dvtldMarker,
     dvtldLimit,
+    dvtldMarker,
     dvtldVTLDeviceARNs,
 
     -- * Destructuring the response
@@ -34,188 +34,175 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     mkDescribeVTLDevicesResponse,
 
     -- ** Response lenses
-    dvtldrsVTLDevices,
-    dvtldrsGatewayARN,
-    dvtldrsMarker,
-    dvtldrsResponseStatus,
+    dvtldrrsGatewayARN,
+    dvtldrrsMarker,
+    dvtldrrsVTLDevices,
+    dvtldrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | DescribeVTLDevicesInput
 --
 -- /See:/ 'mkDescribeVTLDevices' smart constructor.
 data DescribeVTLDevices = DescribeVTLDevices'
-  { gatewayARN :: Lude.Text,
-    -- | An opaque string that indicates the position at which to begin describing the VTL devices.
-    marker :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Types.GatewayARN,
     -- | Specifies that the number of VTL devices described be limited to the specified number.
-    limit :: Lude.Maybe Lude.Natural,
+    limit :: Core.Maybe Core.Natural,
+    -- | An opaque string that indicates the position at which to begin describing the VTL devices.
+    marker :: Core.Maybe Types.Marker,
     -- | An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.
-    vTLDeviceARNs :: Lude.Maybe [Lude.Text]
+    vTLDeviceARNs :: Core.Maybe [Types.VTLDeviceARN]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeVTLDevices' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'marker' - An opaque string that indicates the position at which to begin describing the VTL devices.
--- * 'limit' - Specifies that the number of VTL devices described be limited to the specified number.
--- * 'vTLDeviceARNs' - An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.
+-- | Creates a 'DescribeVTLDevices' value with any optional fields omitted.
 mkDescribeVTLDevices ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   DescribeVTLDevices
-mkDescribeVTLDevices pGatewayARN_ =
+mkDescribeVTLDevices gatewayARN =
   DescribeVTLDevices'
-    { gatewayARN = pGatewayARN_,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      vTLDeviceARNs = Lude.Nothing
+    { gatewayARN,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
+      vTLDeviceARNs = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldGatewayARN :: Lens.Lens' DescribeVTLDevices Lude.Text
-dvtldGatewayARN = Lens.lens (gatewayARN :: DescribeVTLDevices -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeVTLDevices)
+dvtldGatewayARN :: Lens.Lens' DescribeVTLDevices Types.GatewayARN
+dvtldGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED dvtldGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | An opaque string that indicates the position at which to begin describing the VTL devices.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldMarker :: Lens.Lens' DescribeVTLDevices (Lude.Maybe Lude.Text)
-dvtldMarker = Lens.lens (marker :: DescribeVTLDevices -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeVTLDevices)
-{-# DEPRECATED dvtldMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies that the number of VTL devices described be limited to the specified number.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldLimit :: Lens.Lens' DescribeVTLDevices (Lude.Maybe Lude.Natural)
-dvtldLimit = Lens.lens (limit :: DescribeVTLDevices -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeVTLDevices)
+dvtldLimit :: Lens.Lens' DescribeVTLDevices (Core.Maybe Core.Natural)
+dvtldLimit = Lens.field @"limit"
 {-# DEPRECATED dvtldLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | An opaque string that indicates the position at which to begin describing the VTL devices.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvtldMarker :: Lens.Lens' DescribeVTLDevices (Core.Maybe Types.Marker)
+dvtldMarker = Lens.field @"marker"
+{-# DEPRECATED dvtldMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.
 --
 -- /Note:/ Consider using 'vTLDeviceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldVTLDeviceARNs :: Lens.Lens' DescribeVTLDevices (Lude.Maybe [Lude.Text])
-dvtldVTLDeviceARNs = Lens.lens (vTLDeviceARNs :: DescribeVTLDevices -> Lude.Maybe [Lude.Text]) (\s a -> s {vTLDeviceARNs = a} :: DescribeVTLDevices)
+dvtldVTLDeviceARNs :: Lens.Lens' DescribeVTLDevices (Core.Maybe [Types.VTLDeviceARN])
+dvtldVTLDeviceARNs = Lens.field @"vTLDeviceARNs"
 {-# DEPRECATED dvtldVTLDeviceARNs "Use generic-lens or generic-optics with 'vTLDeviceARNs' instead." #-}
 
-instance Page.AWSPager DescribeVTLDevices where
-  page rq rs
-    | Page.stop (rs Lens.^. dvtldrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dvtldrsVTLDevices) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dvtldMarker Lens..~ rs Lens.^. dvtldrsMarker
+instance Core.FromJSON DescribeVTLDevices where
+  toJSON DescribeVTLDevices {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker,
+            ("VTLDeviceARNs" Core..=) Core.<$> vTLDeviceARNs
+          ]
+      )
 
-instance Lude.AWSRequest DescribeVTLDevices where
+instance Core.AWSRequest DescribeVTLDevices where
   type Rs DescribeVTLDevices = DescribeVTLDevicesResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.DescribeVTLDevices")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeVTLDevicesResponse'
-            Lude.<$> (x Lude..?> "VTLDevices" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "GatewayARN")
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "VTLDevices")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeVTLDevices where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.DescribeVTLDevices" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeVTLDevices where
-  toJSON DescribeVTLDevices' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("VTLDeviceARNs" Lude..=) Lude.<$> vTLDeviceARNs
-          ]
-      )
-
-instance Lude.ToPath DescribeVTLDevices where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeVTLDevices where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeVTLDevices where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"vTLDevices" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | DescribeVTLDevicesOutput
 --
 -- /See:/ 'mkDescribeVTLDevicesResponse' smart constructor.
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-  { -- | An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.
-    vTLDevices :: Lude.Maybe [VTLDevice],
-    gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | An opaque string that indicates the position at which the VTL devices that were fetched for description ended. Use the marker in your next request to fetch the next set of VTL devices in the list. If there are no more VTL devices to describe, this field does not appear in the response.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
+    -- | An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.
+    vTLDevices :: Core.Maybe [Types.VTLDevice],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeVTLDevicesResponse' with the minimum fields required to make a request.
---
--- * 'vTLDevices' - An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.
--- * 'gatewayARN' -
--- * 'marker' - An opaque string that indicates the position at which the VTL devices that were fetched for description ended. Use the marker in your next request to fetch the next set of VTL devices in the list. If there are no more VTL devices to describe, this field does not appear in the response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeVTLDevicesResponse' value with any optional fields omitted.
 mkDescribeVTLDevicesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeVTLDevicesResponse
-mkDescribeVTLDevicesResponse pResponseStatus_ =
+mkDescribeVTLDevicesResponse responseStatus =
   DescribeVTLDevicesResponse'
-    { vTLDevices = Lude.Nothing,
-      gatewayARN = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      marker = Core.Nothing,
+      vTLDevices = Core.Nothing,
+      responseStatus
     }
-
--- | An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.
---
--- /Note:/ Consider using 'vTLDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldrsVTLDevices :: Lens.Lens' DescribeVTLDevicesResponse (Lude.Maybe [VTLDevice])
-dvtldrsVTLDevices = Lens.lens (vTLDevices :: DescribeVTLDevicesResponse -> Lude.Maybe [VTLDevice]) (\s a -> s {vTLDevices = a} :: DescribeVTLDevicesResponse)
-{-# DEPRECATED dvtldrsVTLDevices "Use generic-lens or generic-optics with 'vTLDevices' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldrsGatewayARN :: Lens.Lens' DescribeVTLDevicesResponse (Lude.Maybe Lude.Text)
-dvtldrsGatewayARN = Lens.lens (gatewayARN :: DescribeVTLDevicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeVTLDevicesResponse)
-{-# DEPRECATED dvtldrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+dvtldrrsGatewayARN :: Lens.Lens' DescribeVTLDevicesResponse (Core.Maybe Types.GatewayARN)
+dvtldrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dvtldrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An opaque string that indicates the position at which the VTL devices that were fetched for description ended. Use the marker in your next request to fetch the next set of VTL devices in the list. If there are no more VTL devices to describe, this field does not appear in the response.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldrsMarker :: Lens.Lens' DescribeVTLDevicesResponse (Lude.Maybe Lude.Text)
-dvtldrsMarker = Lens.lens (marker :: DescribeVTLDevicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeVTLDevicesResponse)
-{-# DEPRECATED dvtldrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dvtldrrsMarker :: Lens.Lens' DescribeVTLDevicesResponse (Core.Maybe Types.Marker)
+dvtldrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dvtldrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.
+--
+-- /Note:/ Consider using 'vTLDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvtldrrsVTLDevices :: Lens.Lens' DescribeVTLDevicesResponse (Core.Maybe [Types.VTLDevice])
+dvtldrrsVTLDevices = Lens.field @"vTLDevices"
+{-# DEPRECATED dvtldrrsVTLDevices "Use generic-lens or generic-optics with 'vTLDevices' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldrsResponseStatus :: Lens.Lens' DescribeVTLDevicesResponse Lude.Int
-dvtldrsResponseStatus = Lens.lens (responseStatus :: DescribeVTLDevicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVTLDevicesResponse)
-{-# DEPRECATED dvtldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvtldrrsResponseStatus :: Lens.Lens' DescribeVTLDevicesResponse Core.Int
+dvtldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dvtldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

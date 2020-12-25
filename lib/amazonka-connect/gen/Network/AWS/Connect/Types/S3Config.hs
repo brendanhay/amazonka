@@ -17,86 +17,82 @@ module Network.AWS.Connect.Types.S3Config
     mkS3Config,
 
     -- * Lenses
-    scBucketPrefix,
     scBucketName,
+    scBucketPrefix,
     scEncryptionConfig,
   )
 where
 
-import Network.AWS.Connect.Types.EncryptionConfig
+import qualified Network.AWS.Connect.Types.BucketName as Types
+import qualified Network.AWS.Connect.Types.EncryptionConfig as Types
+import qualified Network.AWS.Connect.Types.Prefix as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the S3 storage type.
 --
 -- /See:/ 'mkS3Config' smart constructor.
 data S3Config = S3Config'
-  { -- | The S3 bucket prefix.
-    bucketPrefix :: Lude.Text,
-    -- | The S3 bucket name.
-    bucketName :: Lude.Text,
+  { -- | The S3 bucket name.
+    bucketName :: Types.BucketName,
+    -- | The S3 bucket prefix.
+    bucketPrefix :: Types.Prefix,
     -- | The S3 encryption configuration.
-    encryptionConfig :: Lude.Maybe EncryptionConfig
+    encryptionConfig :: Core.Maybe Types.EncryptionConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Config' with the minimum fields required to make a request.
---
--- * 'bucketPrefix' - The S3 bucket prefix.
--- * 'bucketName' - The S3 bucket name.
--- * 'encryptionConfig' - The S3 encryption configuration.
+-- | Creates a 'S3Config' value with any optional fields omitted.
 mkS3Config ::
-  -- | 'bucketPrefix'
-  Lude.Text ->
   -- | 'bucketName'
-  Lude.Text ->
+  Types.BucketName ->
+  -- | 'bucketPrefix'
+  Types.Prefix ->
   S3Config
-mkS3Config pBucketPrefix_ pBucketName_ =
+mkS3Config bucketName bucketPrefix =
   S3Config'
-    { bucketPrefix = pBucketPrefix_,
-      bucketName = pBucketName_,
-      encryptionConfig = Lude.Nothing
+    { bucketName,
+      bucketPrefix,
+      encryptionConfig = Core.Nothing
     }
-
--- | The S3 bucket prefix.
---
--- /Note:/ Consider using 'bucketPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scBucketPrefix :: Lens.Lens' S3Config Lude.Text
-scBucketPrefix = Lens.lens (bucketPrefix :: S3Config -> Lude.Text) (\s a -> s {bucketPrefix = a} :: S3Config)
-{-# DEPRECATED scBucketPrefix "Use generic-lens or generic-optics with 'bucketPrefix' instead." #-}
 
 -- | The S3 bucket name.
 --
 -- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scBucketName :: Lens.Lens' S3Config Lude.Text
-scBucketName = Lens.lens (bucketName :: S3Config -> Lude.Text) (\s a -> s {bucketName = a} :: S3Config)
+scBucketName :: Lens.Lens' S3Config Types.BucketName
+scBucketName = Lens.field @"bucketName"
 {-# DEPRECATED scBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
+
+-- | The S3 bucket prefix.
+--
+-- /Note:/ Consider using 'bucketPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scBucketPrefix :: Lens.Lens' S3Config Types.Prefix
+scBucketPrefix = Lens.field @"bucketPrefix"
+{-# DEPRECATED scBucketPrefix "Use generic-lens or generic-optics with 'bucketPrefix' instead." #-}
 
 -- | The S3 encryption configuration.
 --
 -- /Note:/ Consider using 'encryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scEncryptionConfig :: Lens.Lens' S3Config (Lude.Maybe EncryptionConfig)
-scEncryptionConfig = Lens.lens (encryptionConfig :: S3Config -> Lude.Maybe EncryptionConfig) (\s a -> s {encryptionConfig = a} :: S3Config)
+scEncryptionConfig :: Lens.Lens' S3Config (Core.Maybe Types.EncryptionConfig)
+scEncryptionConfig = Lens.field @"encryptionConfig"
 {-# DEPRECATED scEncryptionConfig "Use generic-lens or generic-optics with 'encryptionConfig' instead." #-}
 
-instance Lude.FromJSON S3Config where
-  parseJSON =
-    Lude.withObject
-      "S3Config"
-      ( \x ->
-          S3Config'
-            Lude.<$> (x Lude..: "BucketPrefix")
-            Lude.<*> (x Lude..: "BucketName")
-            Lude.<*> (x Lude..:? "EncryptionConfig")
-      )
-
-instance Lude.ToJSON S3Config where
-  toJSON S3Config' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("BucketPrefix" Lude..= bucketPrefix),
-            Lude.Just ("BucketName" Lude..= bucketName),
-            ("EncryptionConfig" Lude..=) Lude.<$> encryptionConfig
+instance Core.FromJSON S3Config where
+  toJSON S3Config {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BucketName" Core..= bucketName),
+            Core.Just ("BucketPrefix" Core..= bucketPrefix),
+            ("EncryptionConfig" Core..=) Core.<$> encryptionConfig
           ]
       )
+
+instance Core.FromJSON S3Config where
+  parseJSON =
+    Core.withObject "S3Config" Core.$
+      \x ->
+        S3Config'
+          Core.<$> (x Core..: "BucketName")
+          Core.<*> (x Core..: "BucketPrefix")
+          Core.<*> (x Core..:? "EncryptionConfig")

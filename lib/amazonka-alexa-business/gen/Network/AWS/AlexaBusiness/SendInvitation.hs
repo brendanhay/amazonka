@@ -20,97 +20,86 @@ module Network.AWS.AlexaBusiness.SendInvitation
     mkSendInvitation,
 
     -- ** Request lenses
-    siUserARN,
+    siUserArn,
 
     -- * Destructuring the response
     SendInvitationResponse (..),
     mkSendInvitationResponse,
 
     -- ** Response lenses
-    sirsResponseStatus,
+    sirrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSendInvitation' smart constructor.
 newtype SendInvitation = SendInvitation'
   { -- | The ARN of the user to whom to send an invitation. Required.
-    userARN :: Lude.Maybe Lude.Text
+    userArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendInvitation' with the minimum fields required to make a request.
---
--- * 'userARN' - The ARN of the user to whom to send an invitation. Required.
+-- | Creates a 'SendInvitation' value with any optional fields omitted.
 mkSendInvitation ::
   SendInvitation
-mkSendInvitation = SendInvitation' {userARN = Lude.Nothing}
+mkSendInvitation = SendInvitation' {userArn = Core.Nothing}
 
 -- | The ARN of the user to whom to send an invitation. Required.
 --
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siUserARN :: Lens.Lens' SendInvitation (Lude.Maybe Lude.Text)
-siUserARN = Lens.lens (userARN :: SendInvitation -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: SendInvitation)
-{-# DEPRECATED siUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siUserArn :: Lens.Lens' SendInvitation (Core.Maybe Types.Arn)
+siUserArn = Lens.field @"userArn"
+{-# DEPRECATED siUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
-instance Lude.AWSRequest SendInvitation where
+instance Core.FromJSON SendInvitation where
+  toJSON SendInvitation {..} =
+    Core.object
+      (Core.catMaybes [("UserArn" Core..=) Core.<$> userArn])
+
+instance Core.AWSRequest SendInvitation where
   type Rs SendInvitation = SendInvitationResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.SendInvitation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          SendInvitationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          SendInvitationResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SendInvitation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.SendInvitation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SendInvitation where
-  toJSON SendInvitation' {..} =
-    Lude.object
-      (Lude.catMaybes [("UserArn" Lude..=) Lude.<$> userARN])
-
-instance Lude.ToPath SendInvitation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SendInvitation where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSendInvitationResponse' smart constructor.
 newtype SendInvitationResponse = SendInvitationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendInvitationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SendInvitationResponse' value with any optional fields omitted.
 mkSendInvitationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SendInvitationResponse
-mkSendInvitationResponse pResponseStatus_ =
-  SendInvitationResponse' {responseStatus = pResponseStatus_}
+mkSendInvitationResponse responseStatus =
+  SendInvitationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirsResponseStatus :: Lens.Lens' SendInvitationResponse Lude.Int
-sirsResponseStatus = Lens.lens (responseStatus :: SendInvitationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendInvitationResponse)
-{-# DEPRECATED sirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sirrsResponseStatus :: Lens.Lens' SendInvitationResponse Core.Int
+sirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.AvailabilityZoneState
   ( AvailabilityZoneState
       ( AvailabilityZoneState',
-        AZSAvailable,
-        AZSInformation,
-        AZSImpaired,
-        AZSUnavailable
+        AvailabilityZoneStateAvailable,
+        AvailabilityZoneStateInformation,
+        AvailabilityZoneStateImpaired,
+        AvailabilityZoneStateUnavailable,
+        fromAvailabilityZoneState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AvailabilityZoneState = AvailabilityZoneState' Lude.Text
+newtype AvailabilityZoneState = AvailabilityZoneState'
+  { fromAvailabilityZoneState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AZSAvailable :: AvailabilityZoneState
-pattern AZSAvailable = AvailabilityZoneState' "available"
+pattern AvailabilityZoneStateAvailable :: AvailabilityZoneState
+pattern AvailabilityZoneStateAvailable = AvailabilityZoneState' "available"
 
-pattern AZSInformation :: AvailabilityZoneState
-pattern AZSInformation = AvailabilityZoneState' "information"
+pattern AvailabilityZoneStateInformation :: AvailabilityZoneState
+pattern AvailabilityZoneStateInformation = AvailabilityZoneState' "information"
 
-pattern AZSImpaired :: AvailabilityZoneState
-pattern AZSImpaired = AvailabilityZoneState' "impaired"
+pattern AvailabilityZoneStateImpaired :: AvailabilityZoneState
+pattern AvailabilityZoneStateImpaired = AvailabilityZoneState' "impaired"
 
-pattern AZSUnavailable :: AvailabilityZoneState
-pattern AZSUnavailable = AvailabilityZoneState' "unavailable"
+pattern AvailabilityZoneStateUnavailable :: AvailabilityZoneState
+pattern AvailabilityZoneStateUnavailable = AvailabilityZoneState' "unavailable"
 
 {-# COMPLETE
-  AZSAvailable,
-  AZSInformation,
-  AZSImpaired,
-  AZSUnavailable,
+  AvailabilityZoneStateAvailable,
+  AvailabilityZoneStateInformation,
+  AvailabilityZoneStateImpaired,
+  AvailabilityZoneStateUnavailable,
   AvailabilityZoneState'
   #-}

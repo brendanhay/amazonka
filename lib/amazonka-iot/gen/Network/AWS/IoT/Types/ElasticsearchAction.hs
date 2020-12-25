@@ -17,119 +17,110 @@ module Network.AWS.IoT.Types.ElasticsearchAction
     mkElasticsearchAction,
 
     -- * Lenses
-    eaId,
-    eaType,
+    eaRoleArn,
     eaEndpoint,
     eaIndex,
-    eaRoleARN,
+    eaType,
+    eaId,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.Endpoint as Types
+import qualified Network.AWS.IoT.Types.Id as Types
+import qualified Network.AWS.IoT.Types.Index as Types
+import qualified Network.AWS.IoT.Types.Type as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action that writes data to an Amazon Elasticsearch Service domain.
 --
 -- /See:/ 'mkElasticsearchAction' smart constructor.
 data ElasticsearchAction = ElasticsearchAction'
-  { -- | The unique identifier for the document you are storing.
-    id :: Lude.Text,
-    -- | The type of document you are storing.
-    type' :: Lude.Text,
+  { -- | The IAM role ARN that has access to Elasticsearch.
+    roleArn :: Types.AwsArn,
     -- | The endpoint of your Elasticsearch domain.
-    endpoint :: Lude.Text,
+    endpoint :: Types.Endpoint,
     -- | The Elasticsearch index where you want to store your data.
-    index :: Lude.Text,
-    -- | The IAM role ARN that has access to Elasticsearch.
-    roleARN :: Lude.Text
+    index :: Types.Index,
+    -- | The type of document you are storing.
+    type' :: Types.Type,
+    -- | The unique identifier for the document you are storing.
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticsearchAction' with the minimum fields required to make a request.
---
--- * 'id' - The unique identifier for the document you are storing.
--- * 'type'' - The type of document you are storing.
--- * 'endpoint' - The endpoint of your Elasticsearch domain.
--- * 'index' - The Elasticsearch index where you want to store your data.
--- * 'roleARN' - The IAM role ARN that has access to Elasticsearch.
+-- | Creates a 'ElasticsearchAction' value with any optional fields omitted.
 mkElasticsearchAction ::
-  -- | 'id'
-  Lude.Text ->
-  -- | 'type''
-  Lude.Text ->
+  -- | 'roleArn'
+  Types.AwsArn ->
   -- | 'endpoint'
-  Lude.Text ->
+  Types.Endpoint ->
   -- | 'index'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.Index ->
+  -- | 'type\''
+  Types.Type ->
+  -- | 'id'
+  Types.Id ->
   ElasticsearchAction
-mkElasticsearchAction pId_ pType_ pEndpoint_ pIndex_ pRoleARN_ =
-  ElasticsearchAction'
-    { id = pId_,
-      type' = pType_,
-      endpoint = pEndpoint_,
-      index = pIndex_,
-      roleARN = pRoleARN_
-    }
+mkElasticsearchAction roleArn endpoint index type' id =
+  ElasticsearchAction' {roleArn, endpoint, index, type', id}
 
--- | The unique identifier for the document you are storing.
+-- | The IAM role ARN that has access to Elasticsearch.
 --
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaId :: Lens.Lens' ElasticsearchAction Lude.Text
-eaId = Lens.lens (id :: ElasticsearchAction -> Lude.Text) (\s a -> s {id = a} :: ElasticsearchAction)
-{-# DEPRECATED eaId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The type of document you are storing.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaType :: Lens.Lens' ElasticsearchAction Lude.Text
-eaType = Lens.lens (type' :: ElasticsearchAction -> Lude.Text) (\s a -> s {type' = a} :: ElasticsearchAction)
-{-# DEPRECATED eaType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaRoleArn :: Lens.Lens' ElasticsearchAction Types.AwsArn
+eaRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED eaRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The endpoint of your Elasticsearch domain.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaEndpoint :: Lens.Lens' ElasticsearchAction Lude.Text
-eaEndpoint = Lens.lens (endpoint :: ElasticsearchAction -> Lude.Text) (\s a -> s {endpoint = a} :: ElasticsearchAction)
+eaEndpoint :: Lens.Lens' ElasticsearchAction Types.Endpoint
+eaEndpoint = Lens.field @"endpoint"
 {-# DEPRECATED eaEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The Elasticsearch index where you want to store your data.
 --
 -- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaIndex :: Lens.Lens' ElasticsearchAction Lude.Text
-eaIndex = Lens.lens (index :: ElasticsearchAction -> Lude.Text) (\s a -> s {index = a} :: ElasticsearchAction)
+eaIndex :: Lens.Lens' ElasticsearchAction Types.Index
+eaIndex = Lens.field @"index"
 {-# DEPRECATED eaIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
--- | The IAM role ARN that has access to Elasticsearch.
+-- | The type of document you are storing.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaRoleARN :: Lens.Lens' ElasticsearchAction Lude.Text
-eaRoleARN = Lens.lens (roleARN :: ElasticsearchAction -> Lude.Text) (\s a -> s {roleARN = a} :: ElasticsearchAction)
-{-# DEPRECATED eaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaType :: Lens.Lens' ElasticsearchAction Types.Type
+eaType = Lens.field @"type'"
+{-# DEPRECATED eaType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON ElasticsearchAction where
-  parseJSON =
-    Lude.withObject
-      "ElasticsearchAction"
-      ( \x ->
-          ElasticsearchAction'
-            Lude.<$> (x Lude..: "id")
-            Lude.<*> (x Lude..: "type")
-            Lude.<*> (x Lude..: "endpoint")
-            Lude.<*> (x Lude..: "index")
-            Lude.<*> (x Lude..: "roleArn")
-      )
+-- | The unique identifier for the document you are storing.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaId :: Lens.Lens' ElasticsearchAction Types.Id
+eaId = Lens.field @"id"
+{-# DEPRECATED eaId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.ToJSON ElasticsearchAction where
-  toJSON ElasticsearchAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("id" Lude..= id),
-            Lude.Just ("type" Lude..= type'),
-            Lude.Just ("endpoint" Lude..= endpoint),
-            Lude.Just ("index" Lude..= index),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON ElasticsearchAction where
+  toJSON ElasticsearchAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("endpoint" Core..= endpoint),
+            Core.Just ("index" Core..= index),
+            Core.Just ("type" Core..= type'),
+            Core.Just ("id" Core..= id)
           ]
       )
+
+instance Core.FromJSON ElasticsearchAction where
+  parseJSON =
+    Core.withObject "ElasticsearchAction" Core.$
+      \x ->
+        ElasticsearchAction'
+          Core.<$> (x Core..: "roleArn")
+          Core.<*> (x Core..: "endpoint")
+          Core.<*> (x Core..: "index")
+          Core.<*> (x Core..: "type")
+          Core.<*> (x Core..: "id")

@@ -17,85 +17,78 @@ module Network.AWS.Comprehend.Types.ClassifierMetadata
     mkClassifierMetadata,
 
     -- * Lenses
-    cmNumberOfLabels,
     cmEvaluationMetrics,
-    cmNumberOfTrainedDocuments,
+    cmNumberOfLabels,
     cmNumberOfTestDocuments,
+    cmNumberOfTrainedDocuments,
   )
 where
 
-import Network.AWS.Comprehend.Types.ClassifierEvaluationMetrics
+import qualified Network.AWS.Comprehend.Types.ClassifierEvaluationMetrics as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a document classifier.
 --
 -- /See:/ 'mkClassifierMetadata' smart constructor.
 data ClassifierMetadata = ClassifierMetadata'
-  { -- | The number of labels in the input data.
-    numberOfLabels :: Lude.Maybe Lude.Int,
-    -- | Describes the result metrics for the test data associated with an documentation classifier.
-    evaluationMetrics :: Lude.Maybe ClassifierEvaluationMetrics,
-    -- | The number of documents in the input data that were used to train the classifier. Typically this is 80 to 90 percent of the input documents.
-    numberOfTrainedDocuments :: Lude.Maybe Lude.Int,
+  { -- | Describes the result metrics for the test data associated with an documentation classifier.
+    evaluationMetrics :: Core.Maybe Types.ClassifierEvaluationMetrics,
+    -- | The number of labels in the input data.
+    numberOfLabels :: Core.Maybe Core.Int,
     -- | The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.
-    numberOfTestDocuments :: Lude.Maybe Lude.Int
+    numberOfTestDocuments :: Core.Maybe Core.Int,
+    -- | The number of documents in the input data that were used to train the classifier. Typically this is 80 to 90 percent of the input documents.
+    numberOfTrainedDocuments :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClassifierMetadata' with the minimum fields required to make a request.
---
--- * 'numberOfLabels' - The number of labels in the input data.
--- * 'evaluationMetrics' - Describes the result metrics for the test data associated with an documentation classifier.
--- * 'numberOfTrainedDocuments' - The number of documents in the input data that were used to train the classifier. Typically this is 80 to 90 percent of the input documents.
--- * 'numberOfTestDocuments' - The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.
+-- | Creates a 'ClassifierMetadata' value with any optional fields omitted.
 mkClassifierMetadata ::
   ClassifierMetadata
 mkClassifierMetadata =
   ClassifierMetadata'
-    { numberOfLabels = Lude.Nothing,
-      evaluationMetrics = Lude.Nothing,
-      numberOfTrainedDocuments = Lude.Nothing,
-      numberOfTestDocuments = Lude.Nothing
+    { evaluationMetrics = Core.Nothing,
+      numberOfLabels = Core.Nothing,
+      numberOfTestDocuments = Core.Nothing,
+      numberOfTrainedDocuments = Core.Nothing
     }
-
--- | The number of labels in the input data.
---
--- /Note:/ Consider using 'numberOfLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmNumberOfLabels :: Lens.Lens' ClassifierMetadata (Lude.Maybe Lude.Int)
-cmNumberOfLabels = Lens.lens (numberOfLabels :: ClassifierMetadata -> Lude.Maybe Lude.Int) (\s a -> s {numberOfLabels = a} :: ClassifierMetadata)
-{-# DEPRECATED cmNumberOfLabels "Use generic-lens or generic-optics with 'numberOfLabels' instead." #-}
 
 -- | Describes the result metrics for the test data associated with an documentation classifier.
 --
 -- /Note:/ Consider using 'evaluationMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmEvaluationMetrics :: Lens.Lens' ClassifierMetadata (Lude.Maybe ClassifierEvaluationMetrics)
-cmEvaluationMetrics = Lens.lens (evaluationMetrics :: ClassifierMetadata -> Lude.Maybe ClassifierEvaluationMetrics) (\s a -> s {evaluationMetrics = a} :: ClassifierMetadata)
+cmEvaluationMetrics :: Lens.Lens' ClassifierMetadata (Core.Maybe Types.ClassifierEvaluationMetrics)
+cmEvaluationMetrics = Lens.field @"evaluationMetrics"
 {-# DEPRECATED cmEvaluationMetrics "Use generic-lens or generic-optics with 'evaluationMetrics' instead." #-}
 
--- | The number of documents in the input data that were used to train the classifier. Typically this is 80 to 90 percent of the input documents.
+-- | The number of labels in the input data.
 --
--- /Note:/ Consider using 'numberOfTrainedDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmNumberOfTrainedDocuments :: Lens.Lens' ClassifierMetadata (Lude.Maybe Lude.Int)
-cmNumberOfTrainedDocuments = Lens.lens (numberOfTrainedDocuments :: ClassifierMetadata -> Lude.Maybe Lude.Int) (\s a -> s {numberOfTrainedDocuments = a} :: ClassifierMetadata)
-{-# DEPRECATED cmNumberOfTrainedDocuments "Use generic-lens or generic-optics with 'numberOfTrainedDocuments' instead." #-}
+-- /Note:/ Consider using 'numberOfLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmNumberOfLabels :: Lens.Lens' ClassifierMetadata (Core.Maybe Core.Int)
+cmNumberOfLabels = Lens.field @"numberOfLabels"
+{-# DEPRECATED cmNumberOfLabels "Use generic-lens or generic-optics with 'numberOfLabels' instead." #-}
 
 -- | The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.
 --
 -- /Note:/ Consider using 'numberOfTestDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmNumberOfTestDocuments :: Lens.Lens' ClassifierMetadata (Lude.Maybe Lude.Int)
-cmNumberOfTestDocuments = Lens.lens (numberOfTestDocuments :: ClassifierMetadata -> Lude.Maybe Lude.Int) (\s a -> s {numberOfTestDocuments = a} :: ClassifierMetadata)
+cmNumberOfTestDocuments :: Lens.Lens' ClassifierMetadata (Core.Maybe Core.Int)
+cmNumberOfTestDocuments = Lens.field @"numberOfTestDocuments"
 {-# DEPRECATED cmNumberOfTestDocuments "Use generic-lens or generic-optics with 'numberOfTestDocuments' instead." #-}
 
-instance Lude.FromJSON ClassifierMetadata where
+-- | The number of documents in the input data that were used to train the classifier. Typically this is 80 to 90 percent of the input documents.
+--
+-- /Note:/ Consider using 'numberOfTrainedDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmNumberOfTrainedDocuments :: Lens.Lens' ClassifierMetadata (Core.Maybe Core.Int)
+cmNumberOfTrainedDocuments = Lens.field @"numberOfTrainedDocuments"
+{-# DEPRECATED cmNumberOfTrainedDocuments "Use generic-lens or generic-optics with 'numberOfTrainedDocuments' instead." #-}
+
+instance Core.FromJSON ClassifierMetadata where
   parseJSON =
-    Lude.withObject
-      "ClassifierMetadata"
-      ( \x ->
-          ClassifierMetadata'
-            Lude.<$> (x Lude..:? "NumberOfLabels")
-            Lude.<*> (x Lude..:? "EvaluationMetrics")
-            Lude.<*> (x Lude..:? "NumberOfTrainedDocuments")
-            Lude.<*> (x Lude..:? "NumberOfTestDocuments")
-      )
+    Core.withObject "ClassifierMetadata" Core.$
+      \x ->
+        ClassifierMetadata'
+          Core.<$> (x Core..:? "EvaluationMetrics")
+          Core.<*> (x Core..:? "NumberOfLabels")
+          Core.<*> (x Core..:? "NumberOfTestDocuments")
+          Core.<*> (x Core..:? "NumberOfTrainedDocuments")

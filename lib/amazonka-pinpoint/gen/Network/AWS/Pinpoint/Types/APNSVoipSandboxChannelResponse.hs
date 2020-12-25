@@ -17,190 +17,175 @@ module Network.AWS.Pinpoint.Types.APNSVoipSandboxChannelResponse
     mkAPNSVoipSandboxChannelResponse,
 
     -- * Lenses
-    avscPlatform,
-    avscLastModifiedDate,
-    avscEnabled,
-    avscHasTokenKey,
-    avscDefaultAuthenticationMethod,
-    avscIsArchived,
-    avscApplicationId,
-    avscVersion,
-    avscId,
-    avscCreationDate,
-    avscLastModifiedBy,
-    avscHasCredential,
+    apnsvscrPlatform,
+    apnsvscrApplicationId,
+    apnsvscrCreationDate,
+    apnsvscrDefaultAuthenticationMethod,
+    apnsvscrEnabled,
+    apnsvscrHasCredential,
+    apnsvscrHasTokenKey,
+    apnsvscrId,
+    apnsvscrIsArchived,
+    apnsvscrLastModifiedBy,
+    apnsvscrLastModifiedDate,
+    apnsvscrVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.
 --
 -- /See:/ 'mkAPNSVoipSandboxChannelResponse' smart constructor.
 data APNSVoipSandboxChannelResponse = APNSVoipSandboxChannelResponse'
   { -- | The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.
-    platform :: Lude.Text,
-    -- | The date and time when the APNs VoIP sandbox channel was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the APNs VoIP sandbox channel is enabled for the application.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
-    hasTokenKey :: Lude.Maybe Lude.Bool,
-    -- | The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
-    defaultAuthenticationMethod :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the APNs VoIP sandbox channel is archived.
-    isArchived :: Lude.Maybe Lude.Bool,
+    platform :: Core.Text,
     -- | The unique identifier for the application that the APNs VoIP sandbox channel applies to.
-    applicationId :: Lude.Maybe Lude.Text,
-    -- | The current version of the APNs VoIP sandbox channel.
-    version :: Lude.Maybe Lude.Int,
-    -- | (Deprecated) An identifier for the APNs VoIP sandbox channel. This property is retained only for backward compatibility.
-    id :: Lude.Maybe Lude.Text,
+    applicationId :: Core.Maybe Core.Text,
     -- | The date and time when the APNs VoIP sandbox channel was enabled.
-    creationDate :: Lude.Maybe Lude.Text,
-    -- | The user who last modified the APNs VoIP sandbox channel.
-    lastModifiedBy :: Lude.Maybe Lude.Text,
+    creationDate :: Core.Maybe Core.Text,
+    -- | The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
+    defaultAuthenticationMethod :: Core.Maybe Core.Text,
+    -- | Specifies whether the APNs VoIP sandbox channel is enabled for the application.
+    enabled :: Core.Maybe Core.Bool,
     -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Lude.Maybe Lude.Bool
+    hasCredential :: Core.Maybe Core.Bool,
+    -- | Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
+    hasTokenKey :: Core.Maybe Core.Bool,
+    -- | (Deprecated) An identifier for the APNs VoIP sandbox channel. This property is retained only for backward compatibility.
+    id :: Core.Maybe Core.Text,
+    -- | Specifies whether the APNs VoIP sandbox channel is archived.
+    isArchived :: Core.Maybe Core.Bool,
+    -- | The user who last modified the APNs VoIP sandbox channel.
+    lastModifiedBy :: Core.Maybe Core.Text,
+    -- | The date and time when the APNs VoIP sandbox channel was last modified.
+    lastModifiedDate :: Core.Maybe Core.Text,
+    -- | The current version of the APNs VoIP sandbox channel.
+    version :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'APNSVoipSandboxChannelResponse' with the minimum fields required to make a request.
---
--- * 'platform' - The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.
--- * 'lastModifiedDate' - The date and time when the APNs VoIP sandbox channel was last modified.
--- * 'enabled' - Specifies whether the APNs VoIP sandbox channel is enabled for the application.
--- * 'hasTokenKey' - Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
--- * 'defaultAuthenticationMethod' - The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
--- * 'isArchived' - Specifies whether the APNs VoIP sandbox channel is archived.
--- * 'applicationId' - The unique identifier for the application that the APNs VoIP sandbox channel applies to.
--- * 'version' - The current version of the APNs VoIP sandbox channel.
--- * 'id' - (Deprecated) An identifier for the APNs VoIP sandbox channel. This property is retained only for backward compatibility.
--- * 'creationDate' - The date and time when the APNs VoIP sandbox channel was enabled.
--- * 'lastModifiedBy' - The user who last modified the APNs VoIP sandbox channel.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
+-- | Creates a 'APNSVoipSandboxChannelResponse' value with any optional fields omitted.
 mkAPNSVoipSandboxChannelResponse ::
   -- | 'platform'
-  Lude.Text ->
+  Core.Text ->
   APNSVoipSandboxChannelResponse
-mkAPNSVoipSandboxChannelResponse pPlatform_ =
+mkAPNSVoipSandboxChannelResponse platform =
   APNSVoipSandboxChannelResponse'
-    { platform = pPlatform_,
-      lastModifiedDate = Lude.Nothing,
-      enabled = Lude.Nothing,
-      hasTokenKey = Lude.Nothing,
-      defaultAuthenticationMethod = Lude.Nothing,
-      isArchived = Lude.Nothing,
-      applicationId = Lude.Nothing,
-      version = Lude.Nothing,
-      id = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      lastModifiedBy = Lude.Nothing,
-      hasCredential = Lude.Nothing
+    { platform,
+      applicationId = Core.Nothing,
+      creationDate = Core.Nothing,
+      defaultAuthenticationMethod = Core.Nothing,
+      enabled = Core.Nothing,
+      hasCredential = Core.Nothing,
+      hasTokenKey = Core.Nothing,
+      id = Core.Nothing,
+      isArchived = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.
 --
 -- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscPlatform :: Lens.Lens' APNSVoipSandboxChannelResponse Lude.Text
-avscPlatform = Lens.lens (platform :: APNSVoipSandboxChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | The date and time when the APNs VoIP sandbox channel was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscLastModifiedDate :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Text)
-avscLastModifiedDate = Lens.lens (lastModifiedDate :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | Specifies whether the APNs VoIP sandbox channel is enabled for the application.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscEnabled :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Bool)
-avscEnabled = Lens.lens (enabled :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
---
--- /Note:/ Consider using 'hasTokenKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscHasTokenKey :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Bool)
-avscHasTokenKey = Lens.lens (hasTokenKey :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasTokenKey = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscHasTokenKey "Use generic-lens or generic-optics with 'hasTokenKey' instead." #-}
-
--- | The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
---
--- /Note:/ Consider using 'defaultAuthenticationMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscDefaultAuthenticationMethod :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Text)
-avscDefaultAuthenticationMethod = Lens.lens (defaultAuthenticationMethod :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultAuthenticationMethod = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscDefaultAuthenticationMethod "Use generic-lens or generic-optics with 'defaultAuthenticationMethod' instead." #-}
-
--- | Specifies whether the APNs VoIP sandbox channel is archived.
---
--- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscIsArchived :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Bool)
-avscIsArchived = Lens.lens (isArchived :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isArchived = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
+apnsvscrPlatform :: Lens.Lens' APNSVoipSandboxChannelResponse Core.Text
+apnsvscrPlatform = Lens.field @"platform"
+{-# DEPRECATED apnsvscrPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The unique identifier for the application that the APNs VoIP sandbox channel applies to.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscApplicationId :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Text)
-avscApplicationId = Lens.lens (applicationId :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
--- | The current version of the APNs VoIP sandbox channel.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscVersion :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Int)
-avscVersion = Lens.lens (version :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | (Deprecated) An identifier for the APNs VoIP sandbox channel. This property is retained only for backward compatibility.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscId :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Text)
-avscId = Lens.lens (id :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscId "Use generic-lens or generic-optics with 'id' instead." #-}
+apnsvscrApplicationId :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Text)
+apnsvscrApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED apnsvscrApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The date and time when the APNs VoIP sandbox channel was enabled.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscCreationDate :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Text)
-avscCreationDate = Lens.lens (creationDate :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+apnsvscrCreationDate :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Text)
+apnsvscrCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED apnsvscrCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
--- | The user who last modified the APNs VoIP sandbox channel.
+-- | The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
 --
--- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscLastModifiedBy :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Text)
-avscLastModifiedBy = Lens.lens (lastModifiedBy :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+-- /Note:/ Consider using 'defaultAuthenticationMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apnsvscrDefaultAuthenticationMethod :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Text)
+apnsvscrDefaultAuthenticationMethod = Lens.field @"defaultAuthenticationMethod"
+{-# DEPRECATED apnsvscrDefaultAuthenticationMethod "Use generic-lens or generic-optics with 'defaultAuthenticationMethod' instead." #-}
+
+-- | Specifies whether the APNs VoIP sandbox channel is enabled for the application.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apnsvscrEnabled :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Bool)
+apnsvscrEnabled = Lens.field @"enabled"
+{-# DEPRECATED apnsvscrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | (Not used) This property is retained only for backward compatibility.
 --
 -- /Note:/ Consider using 'hasCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscHasCredential :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.Bool)
-avscHasCredential = Lens.lens (hasCredential :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
+apnsvscrHasCredential :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Bool)
+apnsvscrHasCredential = Lens.field @"hasCredential"
+{-# DEPRECATED apnsvscrHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
-instance Lude.FromJSON APNSVoipSandboxChannelResponse where
+-- | Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
+--
+-- /Note:/ Consider using 'hasTokenKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apnsvscrHasTokenKey :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Bool)
+apnsvscrHasTokenKey = Lens.field @"hasTokenKey"
+{-# DEPRECATED apnsvscrHasTokenKey "Use generic-lens or generic-optics with 'hasTokenKey' instead." #-}
+
+-- | (Deprecated) An identifier for the APNs VoIP sandbox channel. This property is retained only for backward compatibility.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apnsvscrId :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Text)
+apnsvscrId = Lens.field @"id"
+{-# DEPRECATED apnsvscrId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Specifies whether the APNs VoIP sandbox channel is archived.
+--
+-- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apnsvscrIsArchived :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Bool)
+apnsvscrIsArchived = Lens.field @"isArchived"
+{-# DEPRECATED apnsvscrIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
+
+-- | The user who last modified the APNs VoIP sandbox channel.
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apnsvscrLastModifiedBy :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Text)
+apnsvscrLastModifiedBy = Lens.field @"lastModifiedBy"
+{-# DEPRECATED apnsvscrLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+
+-- | The date and time when the APNs VoIP sandbox channel was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apnsvscrLastModifiedDate :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Text)
+apnsvscrLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED apnsvscrLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The current version of the APNs VoIP sandbox channel.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apnsvscrVersion :: Lens.Lens' APNSVoipSandboxChannelResponse (Core.Maybe Core.Int)
+apnsvscrVersion = Lens.field @"version"
+{-# DEPRECATED apnsvscrVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON APNSVoipSandboxChannelResponse where
   parseJSON =
-    Lude.withObject
-      "APNSVoipSandboxChannelResponse"
-      ( \x ->
-          APNSVoipSandboxChannelResponse'
-            Lude.<$> (x Lude..: "Platform")
-            Lude.<*> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "HasTokenKey")
-            Lude.<*> (x Lude..:? "DefaultAuthenticationMethod")
-            Lude.<*> (x Lude..:? "IsArchived")
-            Lude.<*> (x Lude..:? "ApplicationId")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "CreationDate")
-            Lude.<*> (x Lude..:? "LastModifiedBy")
-            Lude.<*> (x Lude..:? "HasCredential")
-      )
+    Core.withObject "APNSVoipSandboxChannelResponse" Core.$
+      \x ->
+        APNSVoipSandboxChannelResponse'
+          Core.<$> (x Core..: "Platform")
+          Core.<*> (x Core..:? "ApplicationId")
+          Core.<*> (x Core..:? "CreationDate")
+          Core.<*> (x Core..:? "DefaultAuthenticationMethod")
+          Core.<*> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "HasCredential")
+          Core.<*> (x Core..:? "HasTokenKey")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "IsArchived")
+          Core.<*> (x Core..:? "LastModifiedBy")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "Version")

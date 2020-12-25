@@ -20,9 +20,9 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     mkEnableMetricsCollection,
 
     -- ** Request lenses
-    emcMetrics,
-    emcGranularity,
     emcAutoScalingGroupName,
+    emcGranularity,
+    emcMetrics,
 
     -- * Destructuring the response
     EnableMetricsCollectionResponse (..),
@@ -30,15 +30,19 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableMetricsCollection' smart constructor.
 data EnableMetricsCollection = EnableMetricsCollection'
-  { -- | Specifies which group-level metrics to start collecting. You can specify one or more of the following metrics:
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.ResourceName,
+    -- | The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
+    granularity :: Types.XmlStringMaxLen255,
+    -- | Specifies which group-level metrics to start collecting. You can specify one or more of the following metrics:
     --
     --
     --     * @GroupMinSize@
@@ -83,76 +87,38 @@ data EnableMetricsCollection = EnableMetricsCollection'
     --
     --
     -- If you omit this parameter, all metrics are enabled.
-    metrics :: Lude.Maybe [Lude.Text],
-    -- | The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
-    granularity :: Lude.Text,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+    metrics :: Core.Maybe [Types.XmlStringMaxLen255]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableMetricsCollection' with the minimum fields required to make a request.
---
--- * 'metrics' - Specifies which group-level metrics to start collecting. You can specify one or more of the following metrics:
---
---
---     * @GroupMinSize@
---
---
---     * @GroupMaxSize@
---
---
---     * @GroupDesiredCapacity@
---
---
---     * @GroupInServiceInstances@
---
---
---     * @GroupPendingInstances@
---
---
---     * @GroupStandbyInstances@
---
---
---     * @GroupTerminatingInstances@
---
---
---     * @GroupTotalInstances@
---
---
--- The instance weighting feature supports the following additional metrics:
---
---     * @GroupInServiceCapacity@
---
---
---     * @GroupPendingCapacity@
---
---
---     * @GroupStandbyCapacity@
---
---
---     * @GroupTerminatingCapacity@
---
---
---     * @GroupTotalCapacity@
---
---
--- If you omit this parameter, all metrics are enabled.
--- * 'granularity' - The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'EnableMetricsCollection' value with any optional fields omitted.
 mkEnableMetricsCollection ::
-  -- | 'granularity'
-  Lude.Text ->
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
+  -- | 'granularity'
+  Types.XmlStringMaxLen255 ->
   EnableMetricsCollection
-mkEnableMetricsCollection pGranularity_ pAutoScalingGroupName_ =
+mkEnableMetricsCollection autoScalingGroupName granularity =
   EnableMetricsCollection'
-    { metrics = Lude.Nothing,
-      granularity = pGranularity_,
-      autoScalingGroupName = pAutoScalingGroupName_
+    { autoScalingGroupName,
+      granularity,
+      metrics = Core.Nothing
     }
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emcAutoScalingGroupName :: Lens.Lens' EnableMetricsCollection Types.ResourceName
+emcAutoScalingGroupName = Lens.field @"autoScalingGroupName"
+{-# DEPRECATED emcAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+
+-- | The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emcGranularity :: Lens.Lens' EnableMetricsCollection Types.XmlStringMaxLen255
+emcGranularity = Lens.field @"granularity"
+{-# DEPRECATED emcGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
 -- | Specifies which group-level metrics to start collecting. You can specify one or more of the following metrics:
 --
@@ -201,52 +167,43 @@ mkEnableMetricsCollection pGranularity_ pAutoScalingGroupName_ =
 -- If you omit this parameter, all metrics are enabled.
 --
 -- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emcMetrics :: Lens.Lens' EnableMetricsCollection (Lude.Maybe [Lude.Text])
-emcMetrics = Lens.lens (metrics :: EnableMetricsCollection -> Lude.Maybe [Lude.Text]) (\s a -> s {metrics = a} :: EnableMetricsCollection)
+emcMetrics :: Lens.Lens' EnableMetricsCollection (Core.Maybe [Types.XmlStringMaxLen255])
+emcMetrics = Lens.field @"metrics"
 {-# DEPRECATED emcMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
--- | The granularity to associate with the metrics to collect. The only valid value is @1Minute@ .
---
--- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emcGranularity :: Lens.Lens' EnableMetricsCollection Lude.Text
-emcGranularity = Lens.lens (granularity :: EnableMetricsCollection -> Lude.Text) (\s a -> s {granularity = a} :: EnableMetricsCollection)
-{-# DEPRECATED emcGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
-
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emcAutoScalingGroupName :: Lens.Lens' EnableMetricsCollection Lude.Text
-emcAutoScalingGroupName = Lens.lens (autoScalingGroupName :: EnableMetricsCollection -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: EnableMetricsCollection)
-{-# DEPRECATED emcAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
-instance Lude.AWSRequest EnableMetricsCollection where
+instance Core.AWSRequest EnableMetricsCollection where
   type Rs EnableMetricsCollection = EnableMetricsCollectionResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull EnableMetricsCollectionResponse'
-
-instance Lude.ToHeaders EnableMetricsCollection where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath EnableMetricsCollection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableMetricsCollection where
-  toQuery EnableMetricsCollection' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("EnableMetricsCollection" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "Metrics"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> metrics),
-        "Granularity" Lude.=: granularity,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "EnableMetricsCollection")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> (Core.toQueryValue "Granularity" granularity)
+                Core.<> ( Core.toQueryValue
+                            "Metrics"
+                            (Core.toQueryList "member" Core.<$> metrics)
+                        )
+            )
+      }
+  response = Response.receiveNull EnableMetricsCollectionResponse'
 
 -- | /See:/ 'mkEnableMetricsCollectionResponse' smart constructor.
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableMetricsCollectionResponse' with the minimum fields required to make a request.
+-- | Creates a 'EnableMetricsCollectionResponse' value with any optional fields omitted.
 mkEnableMetricsCollectionResponse ::
   EnableMetricsCollectionResponse
 mkEnableMetricsCollectionResponse =

@@ -27,91 +27,80 @@ module Network.AWS.AppStream.StartFleet
     mkStartFleetResponse,
 
     -- ** Response lenses
-    sfrsResponseStatus,
+    srsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartFleet' smart constructor.
 newtype StartFleet = StartFleet'
   { -- | The name of the fleet.
-    name :: Lude.Text
+    name :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartFleet' with the minimum fields required to make a request.
---
--- * 'name' - The name of the fleet.
+-- | Creates a 'StartFleet' value with any optional fields omitted.
 mkStartFleet ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   StartFleet
-mkStartFleet pName_ = StartFleet' {name = pName_}
+mkStartFleet name = StartFleet' {name}
 
 -- | The name of the fleet.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sffName :: Lens.Lens' StartFleet Lude.Text
-sffName = Lens.lens (name :: StartFleet -> Lude.Text) (\s a -> s {name = a} :: StartFleet)
+sffName :: Lens.Lens' StartFleet Types.String
+sffName = Lens.field @"name"
 {-# DEPRECATED sffName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest StartFleet where
+instance Core.FromJSON StartFleet where
+  toJSON StartFleet {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest StartFleet where
   type Rs StartFleet = StartFleetResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "PhotonAdminProxyService.StartFleet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StartFleetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StartFleetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartFleet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.StartFleet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartFleet where
-  toJSON StartFleet' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath StartFleet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartFleet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartFleetResponse' smart constructor.
 newtype StartFleetResponse = StartFleetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartFleetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartFleetResponse' value with any optional fields omitted.
 mkStartFleetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartFleetResponse
-mkStartFleetResponse pResponseStatus_ =
-  StartFleetResponse' {responseStatus = pResponseStatus_}
+mkStartFleetResponse responseStatus =
+  StartFleetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfrsResponseStatus :: Lens.Lens' StartFleetResponse Lude.Int
-sfrsResponseStatus = Lens.lens (responseStatus :: StartFleetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartFleetResponse)
-{-# DEPRECATED sfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StartFleetResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

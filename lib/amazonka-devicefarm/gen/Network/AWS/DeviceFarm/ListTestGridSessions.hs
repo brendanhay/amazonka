@@ -20,225 +20,206 @@ module Network.AWS.DeviceFarm.ListTestGridSessions
     mkListTestGridSessions,
 
     -- ** Request lenses
-    ltgsStatus,
-    ltgsMaxResult,
+    ltgsProjectArn,
     ltgsCreationTimeAfter,
-    ltgsEndTimeBefore,
-    ltgsEndTimeAfter,
-    ltgsNextToken,
     ltgsCreationTimeBefore,
-    ltgsProjectARN,
+    ltgsEndTimeAfter,
+    ltgsEndTimeBefore,
+    ltgsMaxResult,
+    ltgsNextToken,
+    ltgsStatus,
 
     -- * Destructuring the response
     ListTestGridSessionsResponse (..),
     mkListTestGridSessionsResponse,
 
     -- ** Response lenses
-    ltgsrsNextToken,
-    ltgsrsTestGridSessions,
-    ltgsrsResponseStatus,
+    ltgsrrsNextToken,
+    ltgsrrsTestGridSessions,
+    ltgsrrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTestGridSessions' smart constructor.
 data ListTestGridSessions = ListTestGridSessions'
-  { -- | Return only sessions in this state.
-    status :: Lude.Maybe TestGridSessionStatus,
-    -- | Return only this many results at a time.
-    maxResult :: Lude.Maybe Lude.Natural,
+  { -- | ARN of a 'TestGridProject' .
+    projectArn :: Types.DeviceFarmArn,
     -- | Return only sessions created after this time.
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | Return only sessions that ended before this time.
-    endTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | Return only sessions that ended after this time.
-    endTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | Pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | Return only sessions created before this time.
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | ARN of a 'TestGridProject' .
-    projectARN :: Lude.Text
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | Return only sessions that ended after this time.
+    endTimeAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | Return only sessions that ended before this time.
+    endTimeBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | Return only this many results at a time.
+    maxResult :: Core.Maybe Core.Natural,
+    -- | Pagination token.
+    nextToken :: Core.Maybe Types.PaginationToken,
+    -- | Return only sessions in this state.
+    status :: Core.Maybe Types.TestGridSessionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListTestGridSessions' with the minimum fields required to make a request.
---
--- * 'status' - Return only sessions in this state.
--- * 'maxResult' - Return only this many results at a time.
--- * 'creationTimeAfter' - Return only sessions created after this time.
--- * 'endTimeBefore' - Return only sessions that ended before this time.
--- * 'endTimeAfter' - Return only sessions that ended after this time.
--- * 'nextToken' - Pagination token.
--- * 'creationTimeBefore' - Return only sessions created before this time.
--- * 'projectARN' - ARN of a 'TestGridProject' .
+-- | Creates a 'ListTestGridSessions' value with any optional fields omitted.
 mkListTestGridSessions ::
-  -- | 'projectARN'
-  Lude.Text ->
+  -- | 'projectArn'
+  Types.DeviceFarmArn ->
   ListTestGridSessions
-mkListTestGridSessions pProjectARN_ =
+mkListTestGridSessions projectArn =
   ListTestGridSessions'
-    { status = Lude.Nothing,
-      maxResult = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      endTimeBefore = Lude.Nothing,
-      endTimeAfter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing,
-      projectARN = pProjectARN_
+    { projectArn,
+      creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      endTimeAfter = Core.Nothing,
+      endTimeBefore = Core.Nothing,
+      maxResult = Core.Nothing,
+      nextToken = Core.Nothing,
+      status = Core.Nothing
     }
 
--- | Return only sessions in this state.
+-- | ARN of a 'TestGridProject' .
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsStatus :: Lens.Lens' ListTestGridSessions (Lude.Maybe TestGridSessionStatus)
-ltgsStatus = Lens.lens (status :: ListTestGridSessions -> Lude.Maybe TestGridSessionStatus) (\s a -> s {status = a} :: ListTestGridSessions)
-{-# DEPRECATED ltgsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Return only this many results at a time.
---
--- /Note:/ Consider using 'maxResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsMaxResult :: Lens.Lens' ListTestGridSessions (Lude.Maybe Lude.Natural)
-ltgsMaxResult = Lens.lens (maxResult :: ListTestGridSessions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResult = a} :: ListTestGridSessions)
-{-# DEPRECATED ltgsMaxResult "Use generic-lens or generic-optics with 'maxResult' instead." #-}
+-- /Note:/ Consider using 'projectArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsProjectArn :: Lens.Lens' ListTestGridSessions Types.DeviceFarmArn
+ltgsProjectArn = Lens.field @"projectArn"
+{-# DEPRECATED ltgsProjectArn "Use generic-lens or generic-optics with 'projectArn' instead." #-}
 
 -- | Return only sessions created after this time.
 --
 -- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsCreationTimeAfter :: Lens.Lens' ListTestGridSessions (Lude.Maybe Lude.Timestamp)
-ltgsCreationTimeAfter = Lens.lens (creationTimeAfter :: ListTestGridSessions -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListTestGridSessions)
+ltgsCreationTimeAfter :: Lens.Lens' ListTestGridSessions (Core.Maybe Core.NominalDiffTime)
+ltgsCreationTimeAfter = Lens.field @"creationTimeAfter"
 {-# DEPRECATED ltgsCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
-
--- | Return only sessions that ended before this time.
---
--- /Note:/ Consider using 'endTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsEndTimeBefore :: Lens.Lens' ListTestGridSessions (Lude.Maybe Lude.Timestamp)
-ltgsEndTimeBefore = Lens.lens (endTimeBefore :: ListTestGridSessions -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTimeBefore = a} :: ListTestGridSessions)
-{-# DEPRECATED ltgsEndTimeBefore "Use generic-lens or generic-optics with 'endTimeBefore' instead." #-}
-
--- | Return only sessions that ended after this time.
---
--- /Note:/ Consider using 'endTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsEndTimeAfter :: Lens.Lens' ListTestGridSessions (Lude.Maybe Lude.Timestamp)
-ltgsEndTimeAfter = Lens.lens (endTimeAfter :: ListTestGridSessions -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTimeAfter = a} :: ListTestGridSessions)
-{-# DEPRECATED ltgsEndTimeAfter "Use generic-lens or generic-optics with 'endTimeAfter' instead." #-}
-
--- | Pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsNextToken :: Lens.Lens' ListTestGridSessions (Lude.Maybe Lude.Text)
-ltgsNextToken = Lens.lens (nextToken :: ListTestGridSessions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridSessions)
-{-# DEPRECATED ltgsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Return only sessions created before this time.
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsCreationTimeBefore :: Lens.Lens' ListTestGridSessions (Lude.Maybe Lude.Timestamp)
-ltgsCreationTimeBefore = Lens.lens (creationTimeBefore :: ListTestGridSessions -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListTestGridSessions)
+ltgsCreationTimeBefore :: Lens.Lens' ListTestGridSessions (Core.Maybe Core.NominalDiffTime)
+ltgsCreationTimeBefore = Lens.field @"creationTimeBefore"
 {-# DEPRECATED ltgsCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
--- | ARN of a 'TestGridProject' .
+-- | Return only sessions that ended after this time.
 --
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsProjectARN :: Lens.Lens' ListTestGridSessions Lude.Text
-ltgsProjectARN = Lens.lens (projectARN :: ListTestGridSessions -> Lude.Text) (\s a -> s {projectARN = a} :: ListTestGridSessions)
-{-# DEPRECATED ltgsProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
+-- /Note:/ Consider using 'endTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsEndTimeAfter :: Lens.Lens' ListTestGridSessions (Core.Maybe Core.NominalDiffTime)
+ltgsEndTimeAfter = Lens.field @"endTimeAfter"
+{-# DEPRECATED ltgsEndTimeAfter "Use generic-lens or generic-optics with 'endTimeAfter' instead." #-}
 
-instance Lude.AWSRequest ListTestGridSessions where
+-- | Return only sessions that ended before this time.
+--
+-- /Note:/ Consider using 'endTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsEndTimeBefore :: Lens.Lens' ListTestGridSessions (Core.Maybe Core.NominalDiffTime)
+ltgsEndTimeBefore = Lens.field @"endTimeBefore"
+{-# DEPRECATED ltgsEndTimeBefore "Use generic-lens or generic-optics with 'endTimeBefore' instead." #-}
+
+-- | Return only this many results at a time.
+--
+-- /Note:/ Consider using 'maxResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsMaxResult :: Lens.Lens' ListTestGridSessions (Core.Maybe Core.Natural)
+ltgsMaxResult = Lens.field @"maxResult"
+{-# DEPRECATED ltgsMaxResult "Use generic-lens or generic-optics with 'maxResult' instead." #-}
+
+-- | Pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsNextToken :: Lens.Lens' ListTestGridSessions (Core.Maybe Types.PaginationToken)
+ltgsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltgsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Return only sessions in this state.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsStatus :: Lens.Lens' ListTestGridSessions (Core.Maybe Types.TestGridSessionStatus)
+ltgsStatus = Lens.field @"status"
+{-# DEPRECATED ltgsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON ListTestGridSessions where
+  toJSON ListTestGridSessions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("projectArn" Core..= projectArn),
+            ("creationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("creationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("endTimeAfter" Core..=) Core.<$> endTimeAfter,
+            ("endTimeBefore" Core..=) Core.<$> endTimeBefore,
+            ("maxResult" Core..=) Core.<$> maxResult,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("status" Core..=) Core.<$> status
+          ]
+      )
+
+instance Core.AWSRequest ListTestGridSessions where
   type Rs ListTestGridSessions = ListTestGridSessionsResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.ListTestGridSessions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTestGridSessionsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "testGridSessions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "testGridSessions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTestGridSessions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.ListTestGridSessions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTestGridSessions where
-  toJSON ListTestGridSessions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("status" Lude..=) Lude.<$> status,
-            ("maxResult" Lude..=) Lude.<$> maxResult,
-            ("creationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("endTimeBefore" Lude..=) Lude.<$> endTimeBefore,
-            ("endTimeAfter" Lude..=) Lude.<$> endTimeAfter,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("creationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
-            Lude.Just ("projectArn" Lude..= projectARN)
-          ]
-      )
-
-instance Lude.ToPath ListTestGridSessions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTestGridSessions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListTestGridSessionsResponse' smart constructor.
 data ListTestGridSessionsResponse = ListTestGridSessionsResponse'
   { -- | Pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The sessions that match the criteria in a 'ListTestGridSessionsRequest' .
-    testGridSessions :: Lude.Maybe [TestGridSession],
+    testGridSessions :: Core.Maybe [Types.TestGridSession],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListTestGridSessionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Pagination token.
--- * 'testGridSessions' - The sessions that match the criteria in a 'ListTestGridSessionsRequest' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTestGridSessionsResponse' value with any optional fields omitted.
 mkListTestGridSessionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTestGridSessionsResponse
-mkListTestGridSessionsResponse pResponseStatus_ =
+mkListTestGridSessionsResponse responseStatus =
   ListTestGridSessionsResponse'
-    { nextToken = Lude.Nothing,
-      testGridSessions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      testGridSessions = Core.Nothing,
+      responseStatus
     }
 
 -- | Pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsrsNextToken :: Lens.Lens' ListTestGridSessionsResponse (Lude.Maybe Lude.Text)
-ltgsrsNextToken = Lens.lens (nextToken :: ListTestGridSessionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridSessionsResponse)
-{-# DEPRECATED ltgsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltgsrrsNextToken :: Lens.Lens' ListTestGridSessionsResponse (Core.Maybe Types.PaginationToken)
+ltgsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltgsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sessions that match the criteria in a 'ListTestGridSessionsRequest' .
 --
 -- /Note:/ Consider using 'testGridSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsrsTestGridSessions :: Lens.Lens' ListTestGridSessionsResponse (Lude.Maybe [TestGridSession])
-ltgsrsTestGridSessions = Lens.lens (testGridSessions :: ListTestGridSessionsResponse -> Lude.Maybe [TestGridSession]) (\s a -> s {testGridSessions = a} :: ListTestGridSessionsResponse)
-{-# DEPRECATED ltgsrsTestGridSessions "Use generic-lens or generic-optics with 'testGridSessions' instead." #-}
+ltgsrrsTestGridSessions :: Lens.Lens' ListTestGridSessionsResponse (Core.Maybe [Types.TestGridSession])
+ltgsrrsTestGridSessions = Lens.field @"testGridSessions"
+{-# DEPRECATED ltgsrrsTestGridSessions "Use generic-lens or generic-optics with 'testGridSessions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgsrsResponseStatus :: Lens.Lens' ListTestGridSessionsResponse Lude.Int
-ltgsrsResponseStatus = Lens.lens (responseStatus :: ListTestGridSessionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTestGridSessionsResponse)
-{-# DEPRECATED ltgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltgsrrsResponseStatus :: Lens.Lens' ListTestGridSessionsResponse Core.Int
+ltgsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltgsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

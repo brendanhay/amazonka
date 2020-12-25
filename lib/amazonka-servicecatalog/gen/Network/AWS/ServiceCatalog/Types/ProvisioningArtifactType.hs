@@ -13,51 +13,56 @@
 module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
   ( ProvisioningArtifactType
       ( ProvisioningArtifactType',
-        PATCloudFormationTemplate,
-        PATMarketplaceAMI,
-        PATMarketplaceCar
+        ProvisioningArtifactTypeCloudFormationTemplate,
+        ProvisioningArtifactTypeMarketplaceAmi,
+        ProvisioningArtifactTypeMarketplaceCar,
+        fromProvisioningArtifactType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProvisioningArtifactType = ProvisioningArtifactType' Lude.Text
+newtype ProvisioningArtifactType = ProvisioningArtifactType'
+  { fromProvisioningArtifactType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PATCloudFormationTemplate :: ProvisioningArtifactType
-pattern PATCloudFormationTemplate = ProvisioningArtifactType' "CLOUD_FORMATION_TEMPLATE"
+pattern ProvisioningArtifactTypeCloudFormationTemplate :: ProvisioningArtifactType
+pattern ProvisioningArtifactTypeCloudFormationTemplate = ProvisioningArtifactType' "CLOUD_FORMATION_TEMPLATE"
 
-pattern PATMarketplaceAMI :: ProvisioningArtifactType
-pattern PATMarketplaceAMI = ProvisioningArtifactType' "MARKETPLACE_AMI"
+pattern ProvisioningArtifactTypeMarketplaceAmi :: ProvisioningArtifactType
+pattern ProvisioningArtifactTypeMarketplaceAmi = ProvisioningArtifactType' "MARKETPLACE_AMI"
 
-pattern PATMarketplaceCar :: ProvisioningArtifactType
-pattern PATMarketplaceCar = ProvisioningArtifactType' "MARKETPLACE_CAR"
+pattern ProvisioningArtifactTypeMarketplaceCar :: ProvisioningArtifactType
+pattern ProvisioningArtifactTypeMarketplaceCar = ProvisioningArtifactType' "MARKETPLACE_CAR"
 
 {-# COMPLETE
-  PATCloudFormationTemplate,
-  PATMarketplaceAMI,
-  PATMarketplaceCar,
+  ProvisioningArtifactTypeCloudFormationTemplate,
+  ProvisioningArtifactTypeMarketplaceAmi,
+  ProvisioningArtifactTypeMarketplaceCar,
   ProvisioningArtifactType'
   #-}

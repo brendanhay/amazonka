@@ -21,39 +21,33 @@ module Network.AWS.GuardDuty.Types.Evidence
   )
 where
 
-import Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
+import qualified Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the reason that the finding was generated.
 --
 -- /See:/ 'mkEvidence' smart constructor.
 newtype Evidence = Evidence'
   { -- | A list of threat intelligence details related to the evidence.
-    threatIntelligenceDetails :: Lude.Maybe [ThreatIntelligenceDetail]
+    threatIntelligenceDetails :: Core.Maybe [Types.ThreatIntelligenceDetail]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Evidence' with the minimum fields required to make a request.
---
--- * 'threatIntelligenceDetails' - A list of threat intelligence details related to the evidence.
+-- | Creates a 'Evidence' value with any optional fields omitted.
 mkEvidence ::
   Evidence
-mkEvidence = Evidence' {threatIntelligenceDetails = Lude.Nothing}
+mkEvidence = Evidence' {threatIntelligenceDetails = Core.Nothing}
 
 -- | A list of threat intelligence details related to the evidence.
 --
 -- /Note:/ Consider using 'threatIntelligenceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eThreatIntelligenceDetails :: Lens.Lens' Evidence (Lude.Maybe [ThreatIntelligenceDetail])
-eThreatIntelligenceDetails = Lens.lens (threatIntelligenceDetails :: Evidence -> Lude.Maybe [ThreatIntelligenceDetail]) (\s a -> s {threatIntelligenceDetails = a} :: Evidence)
+eThreatIntelligenceDetails :: Lens.Lens' Evidence (Core.Maybe [Types.ThreatIntelligenceDetail])
+eThreatIntelligenceDetails = Lens.field @"threatIntelligenceDetails"
 {-# DEPRECATED eThreatIntelligenceDetails "Use generic-lens or generic-optics with 'threatIntelligenceDetails' instead." #-}
 
-instance Lude.FromJSON Evidence where
+instance Core.FromJSON Evidence where
   parseJSON =
-    Lude.withObject
-      "Evidence"
-      ( \x ->
-          Evidence'
-            Lude.<$> (x Lude..:? "threatIntelligenceDetails" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Evidence" Core.$
+      \x -> Evidence' Core.<$> (x Core..:? "threatIntelligenceDetails")

@@ -30,133 +30,116 @@ module Network.AWS.CodePipeline.GetThirdPartyJobDetails
     mkGetThirdPartyJobDetailsResponse,
 
     -- ** Response lenses
-    gtpjdrsJobDetails,
-    gtpjdrsResponseStatus,
+    gtpjdrrsJobDetails,
+    gtpjdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @GetThirdPartyJobDetails@ action.
 --
 -- /See:/ 'mkGetThirdPartyJobDetails' smart constructor.
 data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
   { -- | The unique system-generated ID used for identifying the job.
-    jobId :: Lude.Text,
+    jobId :: Types.ThirdPartyJobId,
     -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
-    clientToken :: Lude.Text
+    clientToken :: Types.ClientToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetThirdPartyJobDetails' with the minimum fields required to make a request.
---
--- * 'jobId' - The unique system-generated ID used for identifying the job.
--- * 'clientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
+-- | Creates a 'GetThirdPartyJobDetails' value with any optional fields omitted.
 mkGetThirdPartyJobDetails ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.ThirdPartyJobId ->
   -- | 'clientToken'
-  Lude.Text ->
+  Types.ClientToken ->
   GetThirdPartyJobDetails
-mkGetThirdPartyJobDetails pJobId_ pClientToken_ =
-  GetThirdPartyJobDetails'
-    { jobId = pJobId_,
-      clientToken = pClientToken_
-    }
+mkGetThirdPartyJobDetails jobId clientToken =
+  GetThirdPartyJobDetails' {jobId, clientToken}
 
 -- | The unique system-generated ID used for identifying the job.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtpjdJobId :: Lens.Lens' GetThirdPartyJobDetails Lude.Text
-gtpjdJobId = Lens.lens (jobId :: GetThirdPartyJobDetails -> Lude.Text) (\s a -> s {jobId = a} :: GetThirdPartyJobDetails)
+gtpjdJobId :: Lens.Lens' GetThirdPartyJobDetails Types.ThirdPartyJobId
+gtpjdJobId = Lens.field @"jobId"
 {-# DEPRECATED gtpjdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtpjdClientToken :: Lens.Lens' GetThirdPartyJobDetails Lude.Text
-gtpjdClientToken = Lens.lens (clientToken :: GetThirdPartyJobDetails -> Lude.Text) (\s a -> s {clientToken = a} :: GetThirdPartyJobDetails)
+gtpjdClientToken :: Lens.Lens' GetThirdPartyJobDetails Types.ClientToken
+gtpjdClientToken = Lens.field @"clientToken"
 {-# DEPRECATED gtpjdClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
-instance Lude.AWSRequest GetThirdPartyJobDetails where
+instance Core.FromJSON GetThirdPartyJobDetails where
+  toJSON GetThirdPartyJobDetails {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("jobId" Core..= jobId),
+            Core.Just ("clientToken" Core..= clientToken)
+          ]
+      )
+
+instance Core.AWSRequest GetThirdPartyJobDetails where
   type Rs GetThirdPartyJobDetails = GetThirdPartyJobDetailsResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodePipeline_20150709.GetThirdPartyJobDetails")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetThirdPartyJobDetailsResponse'
-            Lude.<$> (x Lude..?> "jobDetails") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "jobDetails") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetThirdPartyJobDetails where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodePipeline_20150709.GetThirdPartyJobDetails" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetThirdPartyJobDetails where
-  toJSON GetThirdPartyJobDetails' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("jobId" Lude..= jobId),
-            Lude.Just ("clientToken" Lude..= clientToken)
-          ]
-      )
-
-instance Lude.ToPath GetThirdPartyJobDetails where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetThirdPartyJobDetails where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetThirdPartyJobDetails@ action.
 --
 -- /See:/ 'mkGetThirdPartyJobDetailsResponse' smart constructor.
 data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
   { -- | The details of the job, including any protected values defined for the job.
-    jobDetails :: Lude.Maybe ThirdPartyJobDetails,
+    jobDetails :: Core.Maybe Types.ThirdPartyJobDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetThirdPartyJobDetailsResponse' with the minimum fields required to make a request.
---
--- * 'jobDetails' - The details of the job, including any protected values defined for the job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetThirdPartyJobDetailsResponse' value with any optional fields omitted.
 mkGetThirdPartyJobDetailsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetThirdPartyJobDetailsResponse
-mkGetThirdPartyJobDetailsResponse pResponseStatus_ =
+mkGetThirdPartyJobDetailsResponse responseStatus =
   GetThirdPartyJobDetailsResponse'
-    { jobDetails = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobDetails = Core.Nothing,
+      responseStatus
     }
 
 -- | The details of the job, including any protected values defined for the job.
 --
 -- /Note:/ Consider using 'jobDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtpjdrsJobDetails :: Lens.Lens' GetThirdPartyJobDetailsResponse (Lude.Maybe ThirdPartyJobDetails)
-gtpjdrsJobDetails = Lens.lens (jobDetails :: GetThirdPartyJobDetailsResponse -> Lude.Maybe ThirdPartyJobDetails) (\s a -> s {jobDetails = a} :: GetThirdPartyJobDetailsResponse)
-{-# DEPRECATED gtpjdrsJobDetails "Use generic-lens or generic-optics with 'jobDetails' instead." #-}
+gtpjdrrsJobDetails :: Lens.Lens' GetThirdPartyJobDetailsResponse (Core.Maybe Types.ThirdPartyJobDetails)
+gtpjdrrsJobDetails = Lens.field @"jobDetails"
+{-# DEPRECATED gtpjdrrsJobDetails "Use generic-lens or generic-optics with 'jobDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtpjdrsResponseStatus :: Lens.Lens' GetThirdPartyJobDetailsResponse Lude.Int
-gtpjdrsResponseStatus = Lens.lens (responseStatus :: GetThirdPartyJobDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetThirdPartyJobDetailsResponse)
-{-# DEPRECATED gtpjdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtpjdrrsResponseStatus :: Lens.Lens' GetThirdPartyJobDetailsResponse Core.Int
+gtpjdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtpjdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

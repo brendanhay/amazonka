@@ -24,7 +24,7 @@ module Network.AWS.CloudHSM.RemoveTagsFromResource
     mkRemoveTagsFromResource,
 
     -- ** Request lenses
-    rtfrResourceARN,
+    rtfrResourceArn,
     rtfrTagKeyList,
 
     -- * Destructuring the response
@@ -32,135 +32,113 @@ module Network.AWS.CloudHSM.RemoveTagsFromResource
     mkRemoveTagsFromResourceResponse,
 
     -- ** Response lenses
-    rtfrrsStatus,
-    rtfrrsResponseStatus,
+    rtfrrrsStatus,
+    rtfrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.CloudHSM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
   { -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-    resourceARN :: Lude.Text,
+    resourceArn :: Types.ResourceArn,
     -- | The tag key or keys to remove.
     --
     -- Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
-    tagKeyList :: [Lude.Text]
+    tagKeyList :: [Types.TagKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
--- * 'tagKeyList' - The tag key or keys to remove.
---
--- Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
+-- | Creates a 'RemoveTagsFromResource' value with any optional fields omitted.
 mkRemoveTagsFromResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   RemoveTagsFromResource
-mkRemoveTagsFromResource pResourceARN_ =
-  RemoveTagsFromResource'
-    { resourceARN = pResourceARN_,
-      tagKeyList = Lude.mempty
-    }
+mkRemoveTagsFromResource resourceArn =
+  RemoveTagsFromResource' {resourceArn, tagKeyList = Core.mempty}
 
 -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfrResourceARN :: Lens.Lens' RemoveTagsFromResource Lude.Text
-rtfrResourceARN = Lens.lens (resourceARN :: RemoveTagsFromResource -> Lude.Text) (\s a -> s {resourceARN = a} :: RemoveTagsFromResource)
-{-# DEPRECATED rtfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrResourceArn :: Lens.Lens' RemoveTagsFromResource Types.ResourceArn
+rtfrResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED rtfrResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The tag key or keys to remove.
 --
 -- Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
 --
 -- /Note:/ Consider using 'tagKeyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfrTagKeyList :: Lens.Lens' RemoveTagsFromResource [Lude.Text]
-rtfrTagKeyList = Lens.lens (tagKeyList :: RemoveTagsFromResource -> [Lude.Text]) (\s a -> s {tagKeyList = a} :: RemoveTagsFromResource)
+rtfrTagKeyList :: Lens.Lens' RemoveTagsFromResource [Types.TagKey]
+rtfrTagKeyList = Lens.field @"tagKeyList"
 {-# DEPRECATED rtfrTagKeyList "Use generic-lens or generic-optics with 'tagKeyList' instead." #-}
 
-instance Lude.AWSRequest RemoveTagsFromResource where
+instance Core.FromJSON RemoveTagsFromResource where
+  toJSON RemoveTagsFromResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("TagKeyList" Core..= tagKeyList)
+          ]
+      )
+
+instance Core.AWSRequest RemoveTagsFromResource where
   type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
-  request = Req.postJSON cloudHSMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CloudHsmFrontendService.RemoveTagsFromResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RemoveTagsFromResourceResponse'
-            Lude.<$> (x Lude..:> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "Status") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveTagsFromResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CloudHsmFrontendService.RemoveTagsFromResource" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveTagsFromResource where
-  toJSON RemoveTagsFromResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("TagKeyList" Lude..= tagKeyList)
-          ]
-      )
-
-instance Lude.ToPath RemoveTagsFromResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTagsFromResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRemoveTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
   { -- | The status of the operation.
-    status :: Lude.Text,
+    status :: Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveTagsFromResourceResponse' value with any optional fields omitted.
 mkRemoveTagsFromResourceResponse ::
   -- | 'status'
-  Lude.Text ->
+  Types.String ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveTagsFromResourceResponse
-mkRemoveTagsFromResourceResponse pStatus_ pResponseStatus_ =
-  RemoveTagsFromResourceResponse'
-    { status = pStatus_,
-      responseStatus = pResponseStatus_
-    }
+mkRemoveTagsFromResourceResponse status responseStatus =
+  RemoveTagsFromResourceResponse' {status, responseStatus}
 
 -- | The status of the operation.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfrrsStatus :: Lens.Lens' RemoveTagsFromResourceResponse Lude.Text
-rtfrrsStatus = Lens.lens (status :: RemoveTagsFromResourceResponse -> Lude.Text) (\s a -> s {status = a} :: RemoveTagsFromResourceResponse)
-{-# DEPRECATED rtfrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+rtfrrrsStatus :: Lens.Lens' RemoveTagsFromResourceResponse Types.String
+rtfrrrsStatus = Lens.field @"status"
+{-# DEPRECATED rtfrrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfrrsResponseStatus :: Lens.Lens' RemoveTagsFromResourceResponse Lude.Int
-rtfrrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsFromResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsFromResourceResponse)
-{-# DEPRECATED rtfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtfrrrsResponseStatus :: Lens.Lens' RemoveTagsFromResourceResponse Core.Int
+rtfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

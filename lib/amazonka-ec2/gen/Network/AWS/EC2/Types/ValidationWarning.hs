@@ -21,37 +21,33 @@ module Network.AWS.EC2.Types.ValidationWarning
   )
 where
 
-import Network.AWS.EC2.Types.ValidationError
+import qualified Network.AWS.EC2.Types.ValidationError as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The error codes and error messages that are returned for the parameters or parameter combinations that are not valid when a new launch template or new version of a launch template is created.
 --
 -- /See:/ 'mkValidationWarning' smart constructor.
 newtype ValidationWarning = ValidationWarning'
   { -- | The error codes and error messages.
-    errors :: Lude.Maybe [ValidationError]
+    errors :: Core.Maybe [Types.ValidationError]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidationWarning' with the minimum fields required to make a request.
---
--- * 'errors' - The error codes and error messages.
+-- | Creates a 'ValidationWarning' value with any optional fields omitted.
 mkValidationWarning ::
   ValidationWarning
-mkValidationWarning = ValidationWarning' {errors = Lude.Nothing}
+mkValidationWarning = ValidationWarning' {errors = Core.Nothing}
 
 -- | The error codes and error messages.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vwErrors :: Lens.Lens' ValidationWarning (Lude.Maybe [ValidationError])
-vwErrors = Lens.lens (errors :: ValidationWarning -> Lude.Maybe [ValidationError]) (\s a -> s {errors = a} :: ValidationWarning)
+vwErrors :: Lens.Lens' ValidationWarning (Core.Maybe [Types.ValidationError])
+vwErrors = Lens.field @"errors"
 {-# DEPRECATED vwErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
-instance Lude.FromXML ValidationWarning where
+instance Core.FromXML ValidationWarning where
   parseXML x =
     ValidationWarning'
-      Lude.<$> ( x Lude..@? "errorSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "errorSet" Core..<@> Core.parseXMLList "item")

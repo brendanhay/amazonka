@@ -17,60 +17,54 @@ module Network.AWS.XRay.Types.ValueWithServiceIds
     mkValueWithServiceIds,
 
     -- * Lenses
-    vwsiServiceIds,
     vwsiAnnotationValue,
+    vwsiServiceIds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.XRay.Types.AnnotationValue
-import Network.AWS.XRay.Types.ServiceId
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.AnnotationValue as Types
+import qualified Network.AWS.XRay.Types.ServiceId as Types
 
 -- | Information about a segment annotation.
 --
 -- /See:/ 'mkValueWithServiceIds' smart constructor.
 data ValueWithServiceIds = ValueWithServiceIds'
-  { -- | Services to which the annotation applies.
-    serviceIds :: Lude.Maybe [ServiceId],
-    -- | Values of the annotation.
-    annotationValue :: Lude.Maybe AnnotationValue
+  { -- | Values of the annotation.
+    annotationValue :: Core.Maybe Types.AnnotationValue,
+    -- | Services to which the annotation applies.
+    serviceIds :: Core.Maybe [Types.ServiceId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValueWithServiceIds' with the minimum fields required to make a request.
---
--- * 'serviceIds' - Services to which the annotation applies.
--- * 'annotationValue' - Values of the annotation.
+-- | Creates a 'ValueWithServiceIds' value with any optional fields omitted.
 mkValueWithServiceIds ::
   ValueWithServiceIds
 mkValueWithServiceIds =
   ValueWithServiceIds'
-    { serviceIds = Lude.Nothing,
-      annotationValue = Lude.Nothing
+    { annotationValue = Core.Nothing,
+      serviceIds = Core.Nothing
     }
-
--- | Services to which the annotation applies.
---
--- /Note:/ Consider using 'serviceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vwsiServiceIds :: Lens.Lens' ValueWithServiceIds (Lude.Maybe [ServiceId])
-vwsiServiceIds = Lens.lens (serviceIds :: ValueWithServiceIds -> Lude.Maybe [ServiceId]) (\s a -> s {serviceIds = a} :: ValueWithServiceIds)
-{-# DEPRECATED vwsiServiceIds "Use generic-lens or generic-optics with 'serviceIds' instead." #-}
 
 -- | Values of the annotation.
 --
 -- /Note:/ Consider using 'annotationValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vwsiAnnotationValue :: Lens.Lens' ValueWithServiceIds (Lude.Maybe AnnotationValue)
-vwsiAnnotationValue = Lens.lens (annotationValue :: ValueWithServiceIds -> Lude.Maybe AnnotationValue) (\s a -> s {annotationValue = a} :: ValueWithServiceIds)
+vwsiAnnotationValue :: Lens.Lens' ValueWithServiceIds (Core.Maybe Types.AnnotationValue)
+vwsiAnnotationValue = Lens.field @"annotationValue"
 {-# DEPRECATED vwsiAnnotationValue "Use generic-lens or generic-optics with 'annotationValue' instead." #-}
 
-instance Lude.FromJSON ValueWithServiceIds where
+-- | Services to which the annotation applies.
+--
+-- /Note:/ Consider using 'serviceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vwsiServiceIds :: Lens.Lens' ValueWithServiceIds (Core.Maybe [Types.ServiceId])
+vwsiServiceIds = Lens.field @"serviceIds"
+{-# DEPRECATED vwsiServiceIds "Use generic-lens or generic-optics with 'serviceIds' instead." #-}
+
+instance Core.FromJSON ValueWithServiceIds where
   parseJSON =
-    Lude.withObject
-      "ValueWithServiceIds"
-      ( \x ->
-          ValueWithServiceIds'
-            Lude.<$> (x Lude..:? "ServiceIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AnnotationValue")
-      )
+    Core.withObject "ValueWithServiceIds" Core.$
+      \x ->
+        ValueWithServiceIds'
+          Core.<$> (x Core..:? "AnnotationValue") Core.<*> (x Core..:? "ServiceIds")

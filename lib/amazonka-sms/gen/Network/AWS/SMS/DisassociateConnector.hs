@@ -29,96 +29,86 @@ module Network.AWS.SMS.DisassociateConnector
     mkDisassociateConnectorResponse,
 
     -- ** Response lenses
-    dcrsResponseStatus,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkDisassociateConnector' smart constructor.
 newtype DisassociateConnector = DisassociateConnector'
   { -- | The ID of the connector.
-    connectorId :: Lude.Text
+    connectorId :: Types.ConnectorId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateConnector' with the minimum fields required to make a request.
---
--- * 'connectorId' - The ID of the connector.
+-- | Creates a 'DisassociateConnector' value with any optional fields omitted.
 mkDisassociateConnector ::
   -- | 'connectorId'
-  Lude.Text ->
+  Types.ConnectorId ->
   DisassociateConnector
-mkDisassociateConnector pConnectorId_ =
-  DisassociateConnector' {connectorId = pConnectorId_}
+mkDisassociateConnector connectorId =
+  DisassociateConnector' {connectorId}
 
 -- | The ID of the connector.
 --
 -- /Note:/ Consider using 'connectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcConnectorId :: Lens.Lens' DisassociateConnector Lude.Text
-dcConnectorId = Lens.lens (connectorId :: DisassociateConnector -> Lude.Text) (\s a -> s {connectorId = a} :: DisassociateConnector)
+dcConnectorId :: Lens.Lens' DisassociateConnector Types.ConnectorId
+dcConnectorId = Lens.field @"connectorId"
 {-# DEPRECATED dcConnectorId "Use generic-lens or generic-optics with 'connectorId' instead." #-}
 
-instance Lude.AWSRequest DisassociateConnector where
+instance Core.FromJSON DisassociateConnector where
+  toJSON DisassociateConnector {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("connectorId" Core..= connectorId)])
+
+instance Core.AWSRequest DisassociateConnector where
   type Rs DisassociateConnector = DisassociateConnectorResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.DisassociateConnector"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateConnectorResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateConnector where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.DisassociateConnector" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateConnector where
-  toJSON DisassociateConnector' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("connectorId" Lude..= connectorId)])
-
-instance Lude.ToPath DisassociateConnector where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateConnector where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateConnectorResponse' smart constructor.
 newtype DisassociateConnectorResponse = DisassociateConnectorResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateConnectorResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateConnectorResponse' value with any optional fields omitted.
 mkDisassociateConnectorResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateConnectorResponse
-mkDisassociateConnectorResponse pResponseStatus_ =
-  DisassociateConnectorResponse' {responseStatus = pResponseStatus_}
+mkDisassociateConnectorResponse responseStatus =
+  DisassociateConnectorResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DisassociateConnectorResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DisassociateConnectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateConnectorResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DisassociateConnectorResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

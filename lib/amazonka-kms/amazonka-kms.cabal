@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.KMS
     Network.AWS.KMS.CancelKeyDeletion
@@ -118,28 +124,67 @@ library
 
   other-modules:
     Network.AWS.KMS.Types.AlgorithmSpec
+    Network.AWS.KMS.Types.AliasArn
     Network.AWS.KMS.Types.AliasListEntry
+    Network.AWS.KMS.Types.AliasName
+    Network.AWS.KMS.Types.Arn
+    Network.AWS.KMS.Types.ArnType
+    Network.AWS.KMS.Types.AWSAccountId
+    Network.AWS.KMS.Types.CloudHsmClusterId
+    Network.AWS.KMS.Types.CloudHsmClusterIdType
     Network.AWS.KMS.Types.ConnectionErrorCodeType
     Network.AWS.KMS.Types.ConnectionStateType
     Network.AWS.KMS.Types.CustomerMasterKeySpec
+    Network.AWS.KMS.Types.CustomKeyStoreId
+    Network.AWS.KMS.Types.CustomKeyStoreIdType
+    Network.AWS.KMS.Types.CustomKeyStoreNameType
     Network.AWS.KMS.Types.CustomKeyStoresListEntry
     Network.AWS.KMS.Types.DataKeyPairSpec
     Network.AWS.KMS.Types.DataKeySpec
+    Network.AWS.KMS.Types.Description
+    Network.AWS.KMS.Types.DescriptionType
+    Network.AWS.KMS.Types.DestinationKeyId
     Network.AWS.KMS.Types.EncryptionAlgorithmSpec
+    Network.AWS.KMS.Types.EncryptionContextKey
+    Network.AWS.KMS.Types.EncryptionContextValue
     Network.AWS.KMS.Types.ExpirationModelType
     Network.AWS.KMS.Types.GrantConstraints
+    Network.AWS.KMS.Types.GranteePrincipal
+    Network.AWS.KMS.Types.GrantId
     Network.AWS.KMS.Types.GrantListEntry
     Network.AWS.KMS.Types.GrantOperation
+    Network.AWS.KMS.Types.GrantToken
+    Network.AWS.KMS.Types.GrantTokenType
+    Network.AWS.KMS.Types.IssuingAccount
+    Network.AWS.KMS.Types.KeyId
+    Network.AWS.KMS.Types.KeyIdType
     Network.AWS.KMS.Types.KeyListEntry
     Network.AWS.KMS.Types.KeyManagerType
     Network.AWS.KMS.Types.KeyMetadata
     Network.AWS.KMS.Types.KeyState
+    Network.AWS.KMS.Types.KeyStorePasswordType
     Network.AWS.KMS.Types.KeyUsageType
     Network.AWS.KMS.Types.ListGrantsResponse
+    Network.AWS.KMS.Types.Marker
+    Network.AWS.KMS.Types.MarkerType
     Network.AWS.KMS.Types.MessageType
+    Network.AWS.KMS.Types.Name
+    Network.AWS.KMS.Types.NextMarker
     Network.AWS.KMS.Types.OriginType
+    Network.AWS.KMS.Types.Policy
+    Network.AWS.KMS.Types.PolicyName
+    Network.AWS.KMS.Types.PolicyNameType
+    Network.AWS.KMS.Types.PolicyType
+    Network.AWS.KMS.Types.PrincipalIdType
+    Network.AWS.KMS.Types.RetiringPrincipal
     Network.AWS.KMS.Types.SigningAlgorithmSpec
+    Network.AWS.KMS.Types.SourceKeyId
     Network.AWS.KMS.Types.Tag
+    Network.AWS.KMS.Types.TagKey
+    Network.AWS.KMS.Types.TagKeyType
+    Network.AWS.KMS.Types.TagValue
+    Network.AWS.KMS.Types.TargetKeyId
+    Network.AWS.KMS.Types.TrustAnchorCertificateType
     Network.AWS.KMS.Types.WrappingKeySpec
 
   build-depends:   amazonka-core ==2.0.0.0.*

@@ -27,109 +27,92 @@ module Network.AWS.WorkSpaces.DescribeTags
     mkDescribeTagsResponse,
 
     -- ** Response lenses
-    dtrsTagList,
-    dtrsResponseStatus,
+    dtrrsTagList,
+    dtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkDescribeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
   { -- | The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
-    resourceId :: Lude.Text
+    resourceId :: Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
---
--- * 'resourceId' - The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
+-- | Creates a 'DescribeTags' value with any optional fields omitted.
 mkDescribeTags ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.NonEmptyString ->
   DescribeTags
-mkDescribeTags pResourceId_ =
-  DescribeTags' {resourceId = pResourceId_}
+mkDescribeTags resourceId = DescribeTags' {resourceId}
 
 -- | The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtResourceId :: Lens.Lens' DescribeTags Lude.Text
-dtResourceId = Lens.lens (resourceId :: DescribeTags -> Lude.Text) (\s a -> s {resourceId = a} :: DescribeTags)
+dtResourceId :: Lens.Lens' DescribeTags Types.NonEmptyString
+dtResourceId = Lens.field @"resourceId"
 {-# DEPRECATED dtResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance Lude.AWSRequest DescribeTags where
+instance Core.FromJSON DescribeTags where
+  toJSON DescribeTags {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ResourceId" Core..= resourceId)])
+
+instance Core.AWSRequest DescribeTags where
   type Rs DescribeTags = DescribeTagsResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkspacesService.DescribeTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTagsResponse'
-            Lude.<$> (x Lude..?> "TagList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TagList") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.DescribeTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTags where
-  toJSON DescribeTags' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ResourceId" Lude..= resourceId)])
-
-instance Lude.ToPath DescribeTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
   { -- | The tags.
-    tagList :: Lude.Maybe [Tag],
+    tagList :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
---
--- * 'tagList' - The tags.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTagsResponse' value with any optional fields omitted.
 mkDescribeTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTagsResponse
-mkDescribeTagsResponse pResponseStatus_ =
-  DescribeTagsResponse'
-    { tagList = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeTagsResponse responseStatus =
+  DescribeTagsResponse' {tagList = Core.Nothing, responseStatus}
 
 -- | The tags.
 --
 -- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTagList :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [Tag])
-dtrsTagList = Lens.lens (tagList :: DescribeTagsResponse -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
+dtrrsTagList :: Lens.Lens' DescribeTagsResponse (Core.Maybe [Types.Tag])
+dtrrsTagList = Lens.field @"tagList"
+{-# DEPRECATED dtrrsTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrrsResponseStatus :: Lens.Lens' DescribeTagsResponse Core.Int
+dtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

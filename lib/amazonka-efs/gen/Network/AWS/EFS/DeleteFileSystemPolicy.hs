@@ -22,7 +22,7 @@ module Network.AWS.EFS.DeleteFileSystemPolicy
     mkDeleteFileSystemPolicy,
 
     -- ** Request lenses
-    dfspfFileSystemId,
+    dfspFileSystemId,
 
     -- * Destructuring the response
     DeleteFileSystemPolicyResponse (..),
@@ -30,59 +30,58 @@ module Network.AWS.EFS.DeleteFileSystemPolicy
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFileSystemPolicy' smart constructor.
 newtype DeleteFileSystemPolicy = DeleteFileSystemPolicy'
   { -- | Specifies the EFS file system for which to delete the @FileSystemPolicy@ .
-    fileSystemId :: Lude.Text
+    fileSystemId :: Types.FileSystemId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFileSystemPolicy' with the minimum fields required to make a request.
---
--- * 'fileSystemId' - Specifies the EFS file system for which to delete the @FileSystemPolicy@ .
+-- | Creates a 'DeleteFileSystemPolicy' value with any optional fields omitted.
 mkDeleteFileSystemPolicy ::
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.FileSystemId ->
   DeleteFileSystemPolicy
-mkDeleteFileSystemPolicy pFileSystemId_ =
-  DeleteFileSystemPolicy' {fileSystemId = pFileSystemId_}
+mkDeleteFileSystemPolicy fileSystemId =
+  DeleteFileSystemPolicy' {fileSystemId}
 
 -- | Specifies the EFS file system for which to delete the @FileSystemPolicy@ .
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfspfFileSystemId :: Lens.Lens' DeleteFileSystemPolicy Lude.Text
-dfspfFileSystemId = Lens.lens (fileSystemId :: DeleteFileSystemPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: DeleteFileSystemPolicy)
-{-# DEPRECATED dfspfFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+dfspFileSystemId :: Lens.Lens' DeleteFileSystemPolicy Types.FileSystemId
+dfspFileSystemId = Lens.field @"fileSystemId"
+{-# DEPRECATED dfspFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
-instance Lude.AWSRequest DeleteFileSystemPolicy where
+instance Core.AWSRequest DeleteFileSystemPolicy where
   type Rs DeleteFileSystemPolicy = DeleteFileSystemPolicyResponse
-  request = Req.delete efsService
-  response = Res.receiveNull DeleteFileSystemPolicyResponse'
-
-instance Lude.ToHeaders DeleteFileSystemPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteFileSystemPolicy where
-  toPath DeleteFileSystemPolicy' {..} =
-    Lude.mconcat
-      ["/2015-02-01/file-systems/", Lude.toBS fileSystemId, "/policy"]
-
-instance Lude.ToQuery DeleteFileSystemPolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-02-01/file-systems/" Core.<> (Core.toText fileSystemId)
+                Core.<> ("/policy")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteFileSystemPolicyResponse'
 
 -- | /See:/ 'mkDeleteFileSystemPolicyResponse' smart constructor.
 data DeleteFileSystemPolicyResponse = DeleteFileSystemPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFileSystemPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteFileSystemPolicyResponse' value with any optional fields omitted.
 mkDeleteFileSystemPolicyResponse ::
   DeleteFileSystemPolicyResponse
 mkDeleteFileSystemPolicyResponse = DeleteFileSystemPolicyResponse'

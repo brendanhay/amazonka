@@ -28,128 +28,108 @@ module Network.AWS.Lightsail.EnableAddOn
     mkEnableAddOnResponse,
 
     -- ** Response lenses
-    eaorsOperations,
-    eaorsResponseStatus,
+    eaorrsOperations,
+    eaorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableAddOn' smart constructor.
 data EnableAddOn = EnableAddOn'
   { -- | The name of the source resource for which to enable or modify the add-on.
-    resourceName :: Lude.Text,
+    resourceName :: Types.ResourceName,
     -- | An array of strings representing the add-on to enable or modify.
-    addOnRequest :: AddOnRequest
+    addOnRequest :: Types.AddOnRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableAddOn' with the minimum fields required to make a request.
---
--- * 'resourceName' - The name of the source resource for which to enable or modify the add-on.
--- * 'addOnRequest' - An array of strings representing the add-on to enable or modify.
+-- | Creates a 'EnableAddOn' value with any optional fields omitted.
 mkEnableAddOn ::
   -- | 'resourceName'
-  Lude.Text ->
+  Types.ResourceName ->
   -- | 'addOnRequest'
-  AddOnRequest ->
+  Types.AddOnRequest ->
   EnableAddOn
-mkEnableAddOn pResourceName_ pAddOnRequest_ =
-  EnableAddOn'
-    { resourceName = pResourceName_,
-      addOnRequest = pAddOnRequest_
-    }
+mkEnableAddOn resourceName addOnRequest =
+  EnableAddOn' {resourceName, addOnRequest}
 
 -- | The name of the source resource for which to enable or modify the add-on.
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaoResourceName :: Lens.Lens' EnableAddOn Lude.Text
-eaoResourceName = Lens.lens (resourceName :: EnableAddOn -> Lude.Text) (\s a -> s {resourceName = a} :: EnableAddOn)
+eaoResourceName :: Lens.Lens' EnableAddOn Types.ResourceName
+eaoResourceName = Lens.field @"resourceName"
 {-# DEPRECATED eaoResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | An array of strings representing the add-on to enable or modify.
 --
 -- /Note:/ Consider using 'addOnRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaoAddOnRequest :: Lens.Lens' EnableAddOn AddOnRequest
-eaoAddOnRequest = Lens.lens (addOnRequest :: EnableAddOn -> AddOnRequest) (\s a -> s {addOnRequest = a} :: EnableAddOn)
+eaoAddOnRequest :: Lens.Lens' EnableAddOn Types.AddOnRequest
+eaoAddOnRequest = Lens.field @"addOnRequest"
 {-# DEPRECATED eaoAddOnRequest "Use generic-lens or generic-optics with 'addOnRequest' instead." #-}
 
-instance Lude.AWSRequest EnableAddOn where
+instance Core.FromJSON EnableAddOn where
+  toJSON EnableAddOn {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceName" Core..= resourceName),
+            Core.Just ("addOnRequest" Core..= addOnRequest)
+          ]
+      )
+
+instance Core.AWSRequest EnableAddOn where
   type Rs EnableAddOn = EnableAddOnResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.EnableAddOn")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           EnableAddOnResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnableAddOn where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.EnableAddOn" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON EnableAddOn where
-  toJSON EnableAddOn' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("resourceName" Lude..= resourceName),
-            Lude.Just ("addOnRequest" Lude..= addOnRequest)
-          ]
-      )
-
-instance Lude.ToPath EnableAddOn where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableAddOn where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkEnableAddOnResponse' smart constructor.
 data EnableAddOnResponse = EnableAddOnResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EnableAddOnResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnableAddOnResponse' value with any optional fields omitted.
 mkEnableAddOnResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnableAddOnResponse
-mkEnableAddOnResponse pResponseStatus_ =
-  EnableAddOnResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkEnableAddOnResponse responseStatus =
+  EnableAddOnResponse' {operations = Core.Nothing, responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaorsOperations :: Lens.Lens' EnableAddOnResponse (Lude.Maybe [Operation])
-eaorsOperations = Lens.lens (operations :: EnableAddOnResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: EnableAddOnResponse)
-{-# DEPRECATED eaorsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+eaorrsOperations :: Lens.Lens' EnableAddOnResponse (Core.Maybe [Types.Operation])
+eaorrsOperations = Lens.field @"operations"
+{-# DEPRECATED eaorrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaorsResponseStatus :: Lens.Lens' EnableAddOnResponse Lude.Int
-eaorsResponseStatus = Lens.lens (responseStatus :: EnableAddOnResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableAddOnResponse)
-{-# DEPRECATED eaorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+eaorrsResponseStatus :: Lens.Lens' EnableAddOnResponse Core.Int
+eaorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED eaorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,32 +21,28 @@ module Network.AWS.EC2.Types.UserData
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the user data for an instance.
 --
 -- /See:/ 'mkUserData' smart constructor.
 newtype UserData = UserData'
   { -- | The user data. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
-    data' :: Lude.Maybe Lude.Text
+    data' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserData' with the minimum fields required to make a request.
---
--- * 'data'' - The user data. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
+-- | Creates a 'UserData' value with any optional fields omitted.
 mkUserData ::
   UserData
-mkUserData = UserData' {data' = Lude.Nothing}
+mkUserData = UserData' {data' = Core.Nothing}
 
 -- | The user data. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udData :: Lens.Lens' UserData (Lude.Maybe Lude.Text)
-udData = Lens.lens (data' :: UserData -> Lude.Maybe Lude.Text) (\s a -> s {data' = a} :: UserData)
+udData :: Lens.Lens' UserData (Core.Maybe Types.String)
+udData = Lens.field @"data'"
 {-# DEPRECATED udData "Use generic-lens or generic-optics with 'data'' instead." #-}
-
-instance Lude.ToQuery UserData where
-  toQuery UserData' {..} = Lude.mconcat ["Data" Lude.=: data']

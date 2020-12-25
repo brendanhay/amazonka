@@ -27,111 +27,100 @@ module Network.AWS.StorageGateway.DeleteAutomaticTapeCreationPolicy
     mkDeleteAutomaticTapeCreationPolicyResponse,
 
     -- ** Response lenses
-    datcprsGatewayARN,
-    datcprsResponseStatus,
+    datcprrsGatewayARN,
+    datcprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkDeleteAutomaticTapeCreationPolicy' smart constructor.
 newtype DeleteAutomaticTapeCreationPolicy = DeleteAutomaticTapeCreationPolicy'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAutomaticTapeCreationPolicy' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'DeleteAutomaticTapeCreationPolicy' value with any optional fields omitted.
 mkDeleteAutomaticTapeCreationPolicy ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   DeleteAutomaticTapeCreationPolicy
-mkDeleteAutomaticTapeCreationPolicy pGatewayARN_ =
-  DeleteAutomaticTapeCreationPolicy' {gatewayARN = pGatewayARN_}
+mkDeleteAutomaticTapeCreationPolicy gatewayARN =
+  DeleteAutomaticTapeCreationPolicy' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datcpGatewayARN :: Lens.Lens' DeleteAutomaticTapeCreationPolicy Lude.Text
-datcpGatewayARN = Lens.lens (gatewayARN :: DeleteAutomaticTapeCreationPolicy -> Lude.Text) (\s a -> s {gatewayARN = a} :: DeleteAutomaticTapeCreationPolicy)
+datcpGatewayARN :: Lens.Lens' DeleteAutomaticTapeCreationPolicy Types.GatewayARN
+datcpGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED datcpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest DeleteAutomaticTapeCreationPolicy where
+instance Core.FromJSON DeleteAutomaticTapeCreationPolicy where
+  toJSON DeleteAutomaticTapeCreationPolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest DeleteAutomaticTapeCreationPolicy where
   type
     Rs DeleteAutomaticTapeCreationPolicy =
       DeleteAutomaticTapeCreationPolicyResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.DeleteAutomaticTapeCreationPolicy"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteAutomaticTapeCreationPolicyResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteAutomaticTapeCreationPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.DeleteAutomaticTapeCreationPolicy" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAutomaticTapeCreationPolicy where
-  toJSON DeleteAutomaticTapeCreationPolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath DeleteAutomaticTapeCreationPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAutomaticTapeCreationPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteAutomaticTapeCreationPolicyResponse' smart constructor.
 data DeleteAutomaticTapeCreationPolicyResponse = DeleteAutomaticTapeCreationPolicyResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAutomaticTapeCreationPolicyResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAutomaticTapeCreationPolicyResponse' value with any optional fields omitted.
 mkDeleteAutomaticTapeCreationPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAutomaticTapeCreationPolicyResponse
-mkDeleteAutomaticTapeCreationPolicyResponse pResponseStatus_ =
+mkDeleteAutomaticTapeCreationPolicyResponse responseStatus =
   DeleteAutomaticTapeCreationPolicyResponse'
     { gatewayARN =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datcprsGatewayARN :: Lens.Lens' DeleteAutomaticTapeCreationPolicyResponse (Lude.Maybe Lude.Text)
-datcprsGatewayARN = Lens.lens (gatewayARN :: DeleteAutomaticTapeCreationPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DeleteAutomaticTapeCreationPolicyResponse)
-{-# DEPRECATED datcprsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+datcprrsGatewayARN :: Lens.Lens' DeleteAutomaticTapeCreationPolicyResponse (Core.Maybe Types.GatewayARN)
+datcprrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED datcprrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datcprsResponseStatus :: Lens.Lens' DeleteAutomaticTapeCreationPolicyResponse Lude.Int
-datcprsResponseStatus = Lens.lens (responseStatus :: DeleteAutomaticTapeCreationPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAutomaticTapeCreationPolicyResponse)
-{-# DEPRECATED datcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+datcprrsResponseStatus :: Lens.Lens' DeleteAutomaticTapeCreationPolicyResponse Core.Int
+datcprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED datcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

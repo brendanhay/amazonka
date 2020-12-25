@@ -18,136 +18,126 @@ module Network.AWS.Config.Types.ConfigurationRecorderStatus
 
     -- * Lenses
     crsLastErrorCode,
-    crsLastStopTime,
-    crsLastStatusChangeTime,
-    crsRecording,
-    crsLastStatus,
     crsLastErrorMessage,
-    crsName,
     crsLastStartTime,
+    crsLastStatus,
+    crsLastStatusChangeTime,
+    crsLastStopTime,
+    crsName,
+    crsRecording,
   )
 where
 
-import Network.AWS.Config.Types.RecorderStatus
+import qualified Network.AWS.Config.Types.RecorderStatus as Types
+import qualified Network.AWS.Config.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The current status of the configuration recorder.
 --
 -- /See:/ 'mkConfigurationRecorderStatus' smart constructor.
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
   { -- | The error code indicating that the recording failed.
-    lastErrorCode :: Lude.Maybe Lude.Text,
-    -- | The time the recorder was last stopped.
-    lastStopTime :: Lude.Maybe Lude.Timestamp,
-    -- | The time when the status was last changed.
-    lastStatusChangeTime :: Lude.Maybe Lude.Timestamp,
-    -- | Specifies whether or not the recorder is currently recording.
-    recording :: Lude.Maybe Lude.Bool,
-    -- | The last (previous) status of the recorder.
-    lastStatus :: Lude.Maybe RecorderStatus,
+    lastErrorCode :: Core.Maybe Types.String,
     -- | The message indicating that the recording failed due to an error.
-    lastErrorMessage :: Lude.Maybe Lude.Text,
-    -- | The name of the configuration recorder.
-    name :: Lude.Maybe Lude.Text,
+    lastErrorMessage :: Core.Maybe Types.String,
     -- | The time the recorder was last started.
-    lastStartTime :: Lude.Maybe Lude.Timestamp
+    lastStartTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The last (previous) status of the recorder.
+    lastStatus :: Core.Maybe Types.RecorderStatus,
+    -- | The time when the status was last changed.
+    lastStatusChangeTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The time the recorder was last stopped.
+    lastStopTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the configuration recorder.
+    name :: Core.Maybe Types.String,
+    -- | Specifies whether or not the recorder is currently recording.
+    recording :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ConfigurationRecorderStatus' with the minimum fields required to make a request.
---
--- * 'lastErrorCode' - The error code indicating that the recording failed.
--- * 'lastStopTime' - The time the recorder was last stopped.
--- * 'lastStatusChangeTime' - The time when the status was last changed.
--- * 'recording' - Specifies whether or not the recorder is currently recording.
--- * 'lastStatus' - The last (previous) status of the recorder.
--- * 'lastErrorMessage' - The message indicating that the recording failed due to an error.
--- * 'name' - The name of the configuration recorder.
--- * 'lastStartTime' - The time the recorder was last started.
+-- | Creates a 'ConfigurationRecorderStatus' value with any optional fields omitted.
 mkConfigurationRecorderStatus ::
   ConfigurationRecorderStatus
 mkConfigurationRecorderStatus =
   ConfigurationRecorderStatus'
-    { lastErrorCode = Lude.Nothing,
-      lastStopTime = Lude.Nothing,
-      lastStatusChangeTime = Lude.Nothing,
-      recording = Lude.Nothing,
-      lastStatus = Lude.Nothing,
-      lastErrorMessage = Lude.Nothing,
-      name = Lude.Nothing,
-      lastStartTime = Lude.Nothing
+    { lastErrorCode = Core.Nothing,
+      lastErrorMessage = Core.Nothing,
+      lastStartTime = Core.Nothing,
+      lastStatus = Core.Nothing,
+      lastStatusChangeTime = Core.Nothing,
+      lastStopTime = Core.Nothing,
+      name = Core.Nothing,
+      recording = Core.Nothing
     }
 
 -- | The error code indicating that the recording failed.
 --
 -- /Note:/ Consider using 'lastErrorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsLastErrorCode :: Lens.Lens' ConfigurationRecorderStatus (Lude.Maybe Lude.Text)
-crsLastErrorCode = Lens.lens (lastErrorCode :: ConfigurationRecorderStatus -> Lude.Maybe Lude.Text) (\s a -> s {lastErrorCode = a} :: ConfigurationRecorderStatus)
+crsLastErrorCode :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Types.String)
+crsLastErrorCode = Lens.field @"lastErrorCode"
 {-# DEPRECATED crsLastErrorCode "Use generic-lens or generic-optics with 'lastErrorCode' instead." #-}
-
--- | The time the recorder was last stopped.
---
--- /Note:/ Consider using 'lastStopTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsLastStopTime :: Lens.Lens' ConfigurationRecorderStatus (Lude.Maybe Lude.Timestamp)
-crsLastStopTime = Lens.lens (lastStopTime :: ConfigurationRecorderStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastStopTime = a} :: ConfigurationRecorderStatus)
-{-# DEPRECATED crsLastStopTime "Use generic-lens or generic-optics with 'lastStopTime' instead." #-}
-
--- | The time when the status was last changed.
---
--- /Note:/ Consider using 'lastStatusChangeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsLastStatusChangeTime :: Lens.Lens' ConfigurationRecorderStatus (Lude.Maybe Lude.Timestamp)
-crsLastStatusChangeTime = Lens.lens (lastStatusChangeTime :: ConfigurationRecorderStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastStatusChangeTime = a} :: ConfigurationRecorderStatus)
-{-# DEPRECATED crsLastStatusChangeTime "Use generic-lens or generic-optics with 'lastStatusChangeTime' instead." #-}
-
--- | Specifies whether or not the recorder is currently recording.
---
--- /Note:/ Consider using 'recording' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsRecording :: Lens.Lens' ConfigurationRecorderStatus (Lude.Maybe Lude.Bool)
-crsRecording = Lens.lens (recording :: ConfigurationRecorderStatus -> Lude.Maybe Lude.Bool) (\s a -> s {recording = a} :: ConfigurationRecorderStatus)
-{-# DEPRECATED crsRecording "Use generic-lens or generic-optics with 'recording' instead." #-}
-
--- | The last (previous) status of the recorder.
---
--- /Note:/ Consider using 'lastStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsLastStatus :: Lens.Lens' ConfigurationRecorderStatus (Lude.Maybe RecorderStatus)
-crsLastStatus = Lens.lens (lastStatus :: ConfigurationRecorderStatus -> Lude.Maybe RecorderStatus) (\s a -> s {lastStatus = a} :: ConfigurationRecorderStatus)
-{-# DEPRECATED crsLastStatus "Use generic-lens or generic-optics with 'lastStatus' instead." #-}
 
 -- | The message indicating that the recording failed due to an error.
 --
 -- /Note:/ Consider using 'lastErrorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsLastErrorMessage :: Lens.Lens' ConfigurationRecorderStatus (Lude.Maybe Lude.Text)
-crsLastErrorMessage = Lens.lens (lastErrorMessage :: ConfigurationRecorderStatus -> Lude.Maybe Lude.Text) (\s a -> s {lastErrorMessage = a} :: ConfigurationRecorderStatus)
+crsLastErrorMessage :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Types.String)
+crsLastErrorMessage = Lens.field @"lastErrorMessage"
 {-# DEPRECATED crsLastErrorMessage "Use generic-lens or generic-optics with 'lastErrorMessage' instead." #-}
-
--- | The name of the configuration recorder.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsName :: Lens.Lens' ConfigurationRecorderStatus (Lude.Maybe Lude.Text)
-crsName = Lens.lens (name :: ConfigurationRecorderStatus -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ConfigurationRecorderStatus)
-{-# DEPRECATED crsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time the recorder was last started.
 --
 -- /Note:/ Consider using 'lastStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsLastStartTime :: Lens.Lens' ConfigurationRecorderStatus (Lude.Maybe Lude.Timestamp)
-crsLastStartTime = Lens.lens (lastStartTime :: ConfigurationRecorderStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastStartTime = a} :: ConfigurationRecorderStatus)
+crsLastStartTime :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.NominalDiffTime)
+crsLastStartTime = Lens.field @"lastStartTime"
 {-# DEPRECATED crsLastStartTime "Use generic-lens or generic-optics with 'lastStartTime' instead." #-}
 
-instance Lude.FromJSON ConfigurationRecorderStatus where
+-- | The last (previous) status of the recorder.
+--
+-- /Note:/ Consider using 'lastStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsLastStatus :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Types.RecorderStatus)
+crsLastStatus = Lens.field @"lastStatus"
+{-# DEPRECATED crsLastStatus "Use generic-lens or generic-optics with 'lastStatus' instead." #-}
+
+-- | The time when the status was last changed.
+--
+-- /Note:/ Consider using 'lastStatusChangeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsLastStatusChangeTime :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.NominalDiffTime)
+crsLastStatusChangeTime = Lens.field @"lastStatusChangeTime"
+{-# DEPRECATED crsLastStatusChangeTime "Use generic-lens or generic-optics with 'lastStatusChangeTime' instead." #-}
+
+-- | The time the recorder was last stopped.
+--
+-- /Note:/ Consider using 'lastStopTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsLastStopTime :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.NominalDiffTime)
+crsLastStopTime = Lens.field @"lastStopTime"
+{-# DEPRECATED crsLastStopTime "Use generic-lens or generic-optics with 'lastStopTime' instead." #-}
+
+-- | The name of the configuration recorder.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsName :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Types.String)
+crsName = Lens.field @"name"
+{-# DEPRECATED crsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Specifies whether or not the recorder is currently recording.
+--
+-- /Note:/ Consider using 'recording' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsRecording :: Lens.Lens' ConfigurationRecorderStatus (Core.Maybe Core.Bool)
+crsRecording = Lens.field @"recording"
+{-# DEPRECATED crsRecording "Use generic-lens or generic-optics with 'recording' instead." #-}
+
+instance Core.FromJSON ConfigurationRecorderStatus where
   parseJSON =
-    Lude.withObject
-      "ConfigurationRecorderStatus"
-      ( \x ->
-          ConfigurationRecorderStatus'
-            Lude.<$> (x Lude..:? "lastErrorCode")
-            Lude.<*> (x Lude..:? "lastStopTime")
-            Lude.<*> (x Lude..:? "lastStatusChangeTime")
-            Lude.<*> (x Lude..:? "recording")
-            Lude.<*> (x Lude..:? "lastStatus")
-            Lude.<*> (x Lude..:? "lastErrorMessage")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "lastStartTime")
-      )
+    Core.withObject "ConfigurationRecorderStatus" Core.$
+      \x ->
+        ConfigurationRecorderStatus'
+          Core.<$> (x Core..:? "lastErrorCode")
+          Core.<*> (x Core..:? "lastErrorMessage")
+          Core.<*> (x Core..:? "lastStartTime")
+          Core.<*> (x Core..:? "lastStatus")
+          Core.<*> (x Core..:? "lastStatusChangeTime")
+          Core.<*> (x Core..:? "lastStopTime")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "recording")

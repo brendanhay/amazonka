@@ -23,175 +23,155 @@ module Network.AWS.CloudHSM.GetConfig
     mkGetConfig,
 
     -- ** Request lenses
-    gcClientARN,
-    gcHAPGList,
+    gcClientArn,
     gcClientVersion,
+    gcHapgList,
 
     -- * Destructuring the response
     GetConfigResponse (..),
     mkGetConfigResponse,
 
     -- ** Response lenses
-    gcrsConfigFile,
-    gcrsConfigCred,
-    gcrsConfigType,
-    gcrsResponseStatus,
+    gcrrsConfigCred,
+    gcrrsConfigFile,
+    gcrrsConfigType,
+    gcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.CloudHSM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetConfig' smart constructor.
 data GetConfig = GetConfig'
   { -- | The ARN of the client.
-    clientARN :: Lude.Text,
-    -- | A list of ARNs that identify the high-availability partition groups that are associated with the client.
-    hapgList :: [Lude.Text],
+    clientArn :: Types.ClientArn,
     -- | The client version.
-    clientVersion :: ClientVersion
+    clientVersion :: Types.ClientVersion,
+    -- | A list of ARNs that identify the high-availability partition groups that are associated with the client.
+    hapgList :: [Types.HapgArn]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConfig' with the minimum fields required to make a request.
---
--- * 'clientARN' - The ARN of the client.
--- * 'hapgList' - A list of ARNs that identify the high-availability partition groups that are associated with the client.
--- * 'clientVersion' - The client version.
+-- | Creates a 'GetConfig' value with any optional fields omitted.
 mkGetConfig ::
-  -- | 'clientARN'
-  Lude.Text ->
+  -- | 'clientArn'
+  Types.ClientArn ->
   -- | 'clientVersion'
-  ClientVersion ->
+  Types.ClientVersion ->
   GetConfig
-mkGetConfig pClientARN_ pClientVersion_ =
-  GetConfig'
-    { clientARN = pClientARN_,
-      hapgList = Lude.mempty,
-      clientVersion = pClientVersion_
-    }
+mkGetConfig clientArn clientVersion =
+  GetConfig' {clientArn, clientVersion, hapgList = Core.mempty}
 
 -- | The ARN of the client.
 --
--- /Note:/ Consider using 'clientARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcClientARN :: Lens.Lens' GetConfig Lude.Text
-gcClientARN = Lens.lens (clientARN :: GetConfig -> Lude.Text) (\s a -> s {clientARN = a} :: GetConfig)
-{-# DEPRECATED gcClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
-
--- | A list of ARNs that identify the high-availability partition groups that are associated with the client.
---
--- /Note:/ Consider using 'hapgList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcHAPGList :: Lens.Lens' GetConfig [Lude.Text]
-gcHAPGList = Lens.lens (hapgList :: GetConfig -> [Lude.Text]) (\s a -> s {hapgList = a} :: GetConfig)
-{-# DEPRECATED gcHAPGList "Use generic-lens or generic-optics with 'hapgList' instead." #-}
+-- /Note:/ Consider using 'clientArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcClientArn :: Lens.Lens' GetConfig Types.ClientArn
+gcClientArn = Lens.field @"clientArn"
+{-# DEPRECATED gcClientArn "Use generic-lens or generic-optics with 'clientArn' instead." #-}
 
 -- | The client version.
 --
 -- /Note:/ Consider using 'clientVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcClientVersion :: Lens.Lens' GetConfig ClientVersion
-gcClientVersion = Lens.lens (clientVersion :: GetConfig -> ClientVersion) (\s a -> s {clientVersion = a} :: GetConfig)
+gcClientVersion :: Lens.Lens' GetConfig Types.ClientVersion
+gcClientVersion = Lens.field @"clientVersion"
 {-# DEPRECATED gcClientVersion "Use generic-lens or generic-optics with 'clientVersion' instead." #-}
 
-instance Lude.AWSRequest GetConfig where
+-- | A list of ARNs that identify the high-availability partition groups that are associated with the client.
+--
+-- /Note:/ Consider using 'hapgList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcHapgList :: Lens.Lens' GetConfig [Types.HapgArn]
+gcHapgList = Lens.field @"hapgList"
+{-# DEPRECATED gcHapgList "Use generic-lens or generic-optics with 'hapgList' instead." #-}
+
+instance Core.FromJSON GetConfig where
+  toJSON GetConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClientArn" Core..= clientArn),
+            Core.Just ("ClientVersion" Core..= clientVersion),
+            Core.Just ("HapgList" Core..= hapgList)
+          ]
+      )
+
+instance Core.AWSRequest GetConfig where
   type Rs GetConfig = GetConfigResponse
-  request = Req.postJSON cloudHSMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CloudHsmFrontendService.GetConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetConfigResponse'
-            Lude.<$> (x Lude..?> "ConfigFile")
-            Lude.<*> (x Lude..?> "ConfigCred")
-            Lude.<*> (x Lude..?> "ConfigType")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ConfigCred")
+            Core.<*> (x Core..:? "ConfigFile")
+            Core.<*> (x Core..:? "ConfigType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CloudHsmFrontendService.GetConfig" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetConfig where
-  toJSON GetConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClientArn" Lude..= clientARN),
-            Lude.Just ("HapgList" Lude..= hapgList),
-            Lude.Just ("ClientVersion" Lude..= clientVersion)
-          ]
-      )
-
-instance Lude.ToPath GetConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetConfigResponse' smart constructor.
 data GetConfigResponse = GetConfigResponse'
-  { -- | The chrystoki.conf configuration file.
-    configFile :: Lude.Maybe Lude.Text,
-    -- | The certificate file containing the server.pem files of the HSMs.
-    configCred :: Lude.Maybe Lude.Text,
+  { -- | The certificate file containing the server.pem files of the HSMs.
+    configCred :: Core.Maybe Types.String,
+    -- | The chrystoki.conf configuration file.
+    configFile :: Core.Maybe Types.String,
     -- | The type of credentials.
-    configType :: Lude.Maybe Lude.Text,
+    configType :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConfigResponse' with the minimum fields required to make a request.
---
--- * 'configFile' - The chrystoki.conf configuration file.
--- * 'configCred' - The certificate file containing the server.pem files of the HSMs.
--- * 'configType' - The type of credentials.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetConfigResponse' value with any optional fields omitted.
 mkGetConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetConfigResponse
-mkGetConfigResponse pResponseStatus_ =
+mkGetConfigResponse responseStatus =
   GetConfigResponse'
-    { configFile = Lude.Nothing,
-      configCred = Lude.Nothing,
-      configType = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { configCred = Core.Nothing,
+      configFile = Core.Nothing,
+      configType = Core.Nothing,
+      responseStatus
     }
-
--- | The chrystoki.conf configuration file.
---
--- /Note:/ Consider using 'configFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrsConfigFile :: Lens.Lens' GetConfigResponse (Lude.Maybe Lude.Text)
-gcrsConfigFile = Lens.lens (configFile :: GetConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {configFile = a} :: GetConfigResponse)
-{-# DEPRECATED gcrsConfigFile "Use generic-lens or generic-optics with 'configFile' instead." #-}
 
 -- | The certificate file containing the server.pem files of the HSMs.
 --
 -- /Note:/ Consider using 'configCred' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrsConfigCred :: Lens.Lens' GetConfigResponse (Lude.Maybe Lude.Text)
-gcrsConfigCred = Lens.lens (configCred :: GetConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {configCred = a} :: GetConfigResponse)
-{-# DEPRECATED gcrsConfigCred "Use generic-lens or generic-optics with 'configCred' instead." #-}
+gcrrsConfigCred :: Lens.Lens' GetConfigResponse (Core.Maybe Types.String)
+gcrrsConfigCred = Lens.field @"configCred"
+{-# DEPRECATED gcrrsConfigCred "Use generic-lens or generic-optics with 'configCred' instead." #-}
+
+-- | The chrystoki.conf configuration file.
+--
+-- /Note:/ Consider using 'configFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrrsConfigFile :: Lens.Lens' GetConfigResponse (Core.Maybe Types.String)
+gcrrsConfigFile = Lens.field @"configFile"
+{-# DEPRECATED gcrrsConfigFile "Use generic-lens or generic-optics with 'configFile' instead." #-}
 
 -- | The type of credentials.
 --
 -- /Note:/ Consider using 'configType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrsConfigType :: Lens.Lens' GetConfigResponse (Lude.Maybe Lude.Text)
-gcrsConfigType = Lens.lens (configType :: GetConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {configType = a} :: GetConfigResponse)
-{-# DEPRECATED gcrsConfigType "Use generic-lens or generic-optics with 'configType' instead." #-}
+gcrrsConfigType :: Lens.Lens' GetConfigResponse (Core.Maybe Types.String)
+gcrrsConfigType = Lens.field @"configType"
+{-# DEPRECATED gcrrsConfigType "Use generic-lens or generic-optics with 'configType' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrsResponseStatus :: Lens.Lens' GetConfigResponse Lude.Int
-gcrsResponseStatus = Lens.lens (responseStatus :: GetConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConfigResponse)
-{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcrrsResponseStatus :: Lens.Lens' GetConfigResponse Core.Int
+gcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

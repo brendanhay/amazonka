@@ -17,15 +17,17 @@ module Network.AWS.SageMaker.Types.Filter
     mkFilter,
 
     -- * Lenses
+    fName,
     fOperator,
     fValue,
-    fName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.Operator
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.Operator as Types
+import qualified Network.AWS.SageMaker.Types.ResourcePropertyName as Types
+import qualified Network.AWS.SageMaker.Types.Value as Types
 
 -- | A conditional statement for a search expression that includes a resource property, a Boolean operator, and a value. Resources that match the statement are returned in the results from the 'Search' API.
 --
@@ -60,7 +62,9 @@ import Network.AWS.SageMaker.Types.Operator
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { -- | A Boolean binary operator that is used to evaluate the filter. The operator field contains one of the following values:
+  { -- | A resource property name. For example, @TrainingJobName@ . For valid property names, see 'SearchRecord' . You must specify a valid property for the resource.
+    name :: Types.ResourcePropertyName,
+    -- | A Boolean binary operator that is used to evaluate the filter. The operator field contains one of the following values:
     --
     --
     --     * Equals
@@ -147,118 +151,27 @@ data Filter = Filter'
     --
     --
     -- A @SearchExpression@ can include only one @Contains@ operator for all other values of @Name@ . In these cases, if you include multiple @Contains@ operators in the @SearchExpression@ , the result is the following error message: "@'CONTAINS' operator usage limit of 1 exceeded.@ "
-    operator :: Lude.Maybe Operator,
+    operator :: Core.Maybe Types.Operator,
     -- | A value used with @Name@ and @Operator@ to determine which resources satisfy the filter's condition. For numerical properties, @Value@ must be an integer or floating-point decimal. For timestamp properties, @Value@ must be an ISO 8601 date-time string of the following format: @YYYY-mm-dd'T'HH:MM:SS@ .
-    value :: Lude.Maybe Lude.Text,
-    -- | A resource property name. For example, @TrainingJobName@ . For valid property names, see 'SearchRecord' . You must specify a valid property for the resource.
-    name :: Lude.Text
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Filter' with the minimum fields required to make a request.
---
--- * 'operator' - A Boolean binary operator that is used to evaluate the filter. The operator field contains one of the following values:
---
---
---     * Equals
---
---     * The value of @Name@ equals @Value@ .
---
---
---     * NotEquals
---
---     * The value of @Name@ doesn't equal @Value@ .
---
---
---     * Exists
---
---     * The @Name@ property exists.
---
---
---     * NotExists
---
---     * The @Name@ property does not exist.
---
---
---     * GreaterThan
---
---     * The value of @Name@ is greater than @Value@ . Not supported for text properties.
---
---
---     * GreaterThanOrEqualTo
---
---     * The value of @Name@ is greater than or equal to @Value@ . Not supported for text properties.
---
---
---     * LessThan
---
---     * The value of @Name@ is less than @Value@ . Not supported for text properties.
---
---
---     * LessThanOrEqualTo
---
---     * The value of @Name@ is less than or equal to @Value@ . Not supported for text properties.
---
---
---     * In
---
---     * The value of @Name@ is one of the comma delimited strings in @Value@ . Only supported for text properties.
---
---
---     * Contains
---
---     * The value of @Name@ contains the string @Value@ . Only supported for text properties.
--- A @SearchExpression@ can include the @Contains@ operator multiple times when the value of @Name@ is one of the following:
---
---     * @Experiment.DisplayName@
---
---
---     * @Experiment.ExperimentName@
---
---
---     * @Experiment.Tags@
---
---
---     * @Trial.DisplayName@
---
---
---     * @Trial.TrialName@
---
---
---     * @Trial.Tags@
---
---
---     * @TrialComponent.DisplayName@
---
---
---     * @TrialComponent.TrialComponentName@
---
---
---     * @TrialComponent.Tags@
---
---
---     * @TrialComponent.InputArtifacts@
---
---
---     * @TrialComponent.OutputArtifacts@
---
---
--- A @SearchExpression@ can include only one @Contains@ operator for all other values of @Name@ . In these cases, if you include multiple @Contains@ operators in the @SearchExpression@ , the result is the following error message: "@'CONTAINS' operator usage limit of 1 exceeded.@ "
---
---
--- * 'value' - A value used with @Name@ and @Operator@ to determine which resources satisfy the filter's condition. For numerical properties, @Value@ must be an integer or floating-point decimal. For timestamp properties, @Value@ must be an ISO 8601 date-time string of the following format: @YYYY-mm-dd'T'HH:MM:SS@ .
--- * 'name' - A resource property name. For example, @TrainingJobName@ . For valid property names, see 'SearchRecord' . You must specify a valid property for the resource.
+-- | Creates a 'Filter' value with any optional fields omitted.
 mkFilter ::
   -- | 'name'
-  Lude.Text ->
+  Types.ResourcePropertyName ->
   Filter
-mkFilter pName_ =
-  Filter'
-    { operator = Lude.Nothing,
-      value = Lude.Nothing,
-      name = pName_
-    }
+mkFilter name =
+  Filter' {name, operator = Core.Nothing, value = Core.Nothing}
+
+-- | A resource property name. For example, @TrainingJobName@ . For valid property names, see 'SearchRecord' . You must specify a valid property for the resource.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fName :: Lens.Lens' Filter Types.ResourcePropertyName
+fName = Lens.field @"name"
+{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A Boolean binary operator that is used to evaluate the filter. The operator field contains one of the following values:
 --
@@ -351,30 +264,23 @@ mkFilter pName_ =
 --
 --
 -- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fOperator :: Lens.Lens' Filter (Lude.Maybe Operator)
-fOperator = Lens.lens (operator :: Filter -> Lude.Maybe Operator) (\s a -> s {operator = a} :: Filter)
+fOperator :: Lens.Lens' Filter (Core.Maybe Types.Operator)
+fOperator = Lens.field @"operator"
 {-# DEPRECATED fOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
 
 -- | A value used with @Name@ and @Operator@ to determine which resources satisfy the filter's condition. For numerical properties, @Value@ must be an integer or floating-point decimal. For timestamp properties, @Value@ must be an ISO 8601 date-time string of the following format: @YYYY-mm-dd'T'HH:MM:SS@ .
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fValue :: Lens.Lens' Filter (Lude.Maybe Lude.Text)
-fValue = Lens.lens (value :: Filter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Filter)
+fValue :: Lens.Lens' Filter (Core.Maybe Types.Value)
+fValue = Lens.field @"value"
 {-# DEPRECATED fValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | A resource property name. For example, @TrainingJobName@ . For valid property names, see 'SearchRecord' . You must specify a valid property for the resource.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fName :: Lens.Lens' Filter Lude.Text
-fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
-{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
-
-instance Lude.ToJSON Filter where
-  toJSON Filter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Operator" Lude..=) Lude.<$> operator,
-            ("Value" Lude..=) Lude.<$> value,
-            Lude.Just ("Name" Lude..= name)
+instance Core.FromJSON Filter where
+  toJSON Filter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Operator" Core..=) Core.<$> operator,
+            ("Value" Core..=) Core.<$> value
           ]
       )

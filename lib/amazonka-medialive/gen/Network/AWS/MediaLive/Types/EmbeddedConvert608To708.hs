@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.EmbeddedConvert608To708
   ( EmbeddedConvert608To708
       ( EmbeddedConvert608To708',
-        ECTDisabled,
-        ECTUpconvert
+        EmbeddedConvert608To708Disabled,
+        EmbeddedConvert608To708Upconvert,
+        fromEmbeddedConvert608To708
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Embedded Convert608 To708
-newtype EmbeddedConvert608To708 = EmbeddedConvert608To708' Lude.Text
+newtype EmbeddedConvert608To708 = EmbeddedConvert608To708'
+  { fromEmbeddedConvert608To708 ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ECTDisabled :: EmbeddedConvert608To708
-pattern ECTDisabled = EmbeddedConvert608To708' "DISABLED"
+pattern EmbeddedConvert608To708Disabled :: EmbeddedConvert608To708
+pattern EmbeddedConvert608To708Disabled = EmbeddedConvert608To708' "DISABLED"
 
-pattern ECTUpconvert :: EmbeddedConvert608To708
-pattern ECTUpconvert = EmbeddedConvert608To708' "UPCONVERT"
+pattern EmbeddedConvert608To708Upconvert :: EmbeddedConvert608To708
+pattern EmbeddedConvert608To708Upconvert = EmbeddedConvert608To708' "UPCONVERT"
 
 {-# COMPLETE
-  ECTDisabled,
-  ECTUpconvert,
+  EmbeddedConvert608To708Disabled,
+  EmbeddedConvert608To708Upconvert,
   EmbeddedConvert608To708'
   #-}

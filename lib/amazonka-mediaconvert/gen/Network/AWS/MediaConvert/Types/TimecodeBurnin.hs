@@ -17,82 +17,76 @@ module Network.AWS.MediaConvert.Types.TimecodeBurnin
     mkTimecodeBurnin,
 
     -- * Lenses
-    tbPrefix,
     tbFontSize,
     tbPosition,
+    tbPrefix,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.TimecodeBurninPosition
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.TimecodeBurninPosition as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
 --
 -- /See:/ 'mkTimecodeBurnin' smart constructor.
 data TimecodeBurnin = TimecodeBurnin'
-  { -- | Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
-    prefix :: Lude.Maybe Lude.Text,
-    -- | Use Font Size (FontSize) to set the font size of any burned-in timecode. Valid values are 10, 16, 32, 48.
-    fontSize :: Lude.Maybe Lude.Natural,
+  { -- | Use Font Size (FontSize) to set the font size of any burned-in timecode. Valid values are 10, 16, 32, 48.
+    fontSize :: Core.Maybe Core.Natural,
     -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
-    position :: Lude.Maybe TimecodeBurninPosition
+    position :: Core.Maybe Types.TimecodeBurninPosition,
+    -- | Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
+    prefix :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimecodeBurnin' with the minimum fields required to make a request.
---
--- * 'prefix' - Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
--- * 'fontSize' - Use Font Size (FontSize) to set the font size of any burned-in timecode. Valid values are 10, 16, 32, 48.
--- * 'position' - Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
+-- | Creates a 'TimecodeBurnin' value with any optional fields omitted.
 mkTimecodeBurnin ::
   TimecodeBurnin
 mkTimecodeBurnin =
   TimecodeBurnin'
-    { prefix = Lude.Nothing,
-      fontSize = Lude.Nothing,
-      position = Lude.Nothing
+    { fontSize = Core.Nothing,
+      position = Core.Nothing,
+      prefix = Core.Nothing
     }
-
--- | Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbPrefix :: Lens.Lens' TimecodeBurnin (Lude.Maybe Lude.Text)
-tbPrefix = Lens.lens (prefix :: TimecodeBurnin -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: TimecodeBurnin)
-{-# DEPRECATED tbPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | Use Font Size (FontSize) to set the font size of any burned-in timecode. Valid values are 10, 16, 32, 48.
 --
 -- /Note:/ Consider using 'fontSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbFontSize :: Lens.Lens' TimecodeBurnin (Lude.Maybe Lude.Natural)
-tbFontSize = Lens.lens (fontSize :: TimecodeBurnin -> Lude.Maybe Lude.Natural) (\s a -> s {fontSize = a} :: TimecodeBurnin)
+tbFontSize :: Lens.Lens' TimecodeBurnin (Core.Maybe Core.Natural)
+tbFontSize = Lens.field @"fontSize"
 {-# DEPRECATED tbFontSize "Use generic-lens or generic-optics with 'fontSize' instead." #-}
 
 -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
 --
 -- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbPosition :: Lens.Lens' TimecodeBurnin (Lude.Maybe TimecodeBurninPosition)
-tbPosition = Lens.lens (position :: TimecodeBurnin -> Lude.Maybe TimecodeBurninPosition) (\s a -> s {position = a} :: TimecodeBurnin)
+tbPosition :: Lens.Lens' TimecodeBurnin (Core.Maybe Types.TimecodeBurninPosition)
+tbPosition = Lens.field @"position"
 {-# DEPRECATED tbPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
-instance Lude.FromJSON TimecodeBurnin where
-  parseJSON =
-    Lude.withObject
-      "TimecodeBurnin"
-      ( \x ->
-          TimecodeBurnin'
-            Lude.<$> (x Lude..:? "prefix")
-            Lude.<*> (x Lude..:? "fontSize")
-            Lude.<*> (x Lude..:? "position")
-      )
+-- | Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tbPrefix :: Lens.Lens' TimecodeBurnin (Core.Maybe Core.Text)
+tbPrefix = Lens.field @"prefix"
+{-# DEPRECATED tbPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
-instance Lude.ToJSON TimecodeBurnin where
-  toJSON TimecodeBurnin' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("prefix" Lude..=) Lude.<$> prefix,
-            ("fontSize" Lude..=) Lude.<$> fontSize,
-            ("position" Lude..=) Lude.<$> position
+instance Core.FromJSON TimecodeBurnin where
+  toJSON TimecodeBurnin {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("fontSize" Core..=) Core.<$> fontSize,
+            ("position" Core..=) Core.<$> position,
+            ("prefix" Core..=) Core.<$> prefix
           ]
       )
+
+instance Core.FromJSON TimecodeBurnin where
+  parseJSON =
+    Core.withObject "TimecodeBurnin" Core.$
+      \x ->
+        TimecodeBurnin'
+          Core.<$> (x Core..:? "fontSize")
+          Core.<*> (x Core..:? "position")
+          Core.<*> (x Core..:? "prefix")

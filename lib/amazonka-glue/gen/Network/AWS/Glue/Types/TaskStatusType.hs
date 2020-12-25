@@ -13,71 +13,76 @@
 module Network.AWS.Glue.Types.TaskStatusType
   ( TaskStatusType
       ( TaskStatusType',
-        Starting,
-        Running,
-        Stopping,
-        Stopped,
-        Succeeded,
-        Failed,
-        Timeout
+        TaskStatusTypeStarting,
+        TaskStatusTypeRunning,
+        TaskStatusTypeStopping,
+        TaskStatusTypeStopped,
+        TaskStatusTypeSucceeded,
+        TaskStatusTypeFailed,
+        TaskStatusTypeTimeout,
+        fromTaskStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TaskStatusType = TaskStatusType' Lude.Text
+newtype TaskStatusType = TaskStatusType'
+  { fromTaskStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Starting :: TaskStatusType
-pattern Starting = TaskStatusType' "STARTING"
+pattern TaskStatusTypeStarting :: TaskStatusType
+pattern TaskStatusTypeStarting = TaskStatusType' "STARTING"
 
-pattern Running :: TaskStatusType
-pattern Running = TaskStatusType' "RUNNING"
+pattern TaskStatusTypeRunning :: TaskStatusType
+pattern TaskStatusTypeRunning = TaskStatusType' "RUNNING"
 
-pattern Stopping :: TaskStatusType
-pattern Stopping = TaskStatusType' "STOPPING"
+pattern TaskStatusTypeStopping :: TaskStatusType
+pattern TaskStatusTypeStopping = TaskStatusType' "STOPPING"
 
-pattern Stopped :: TaskStatusType
-pattern Stopped = TaskStatusType' "STOPPED"
+pattern TaskStatusTypeStopped :: TaskStatusType
+pattern TaskStatusTypeStopped = TaskStatusType' "STOPPED"
 
-pattern Succeeded :: TaskStatusType
-pattern Succeeded = TaskStatusType' "SUCCEEDED"
+pattern TaskStatusTypeSucceeded :: TaskStatusType
+pattern TaskStatusTypeSucceeded = TaskStatusType' "SUCCEEDED"
 
-pattern Failed :: TaskStatusType
-pattern Failed = TaskStatusType' "FAILED"
+pattern TaskStatusTypeFailed :: TaskStatusType
+pattern TaskStatusTypeFailed = TaskStatusType' "FAILED"
 
-pattern Timeout :: TaskStatusType
-pattern Timeout = TaskStatusType' "TIMEOUT"
+pattern TaskStatusTypeTimeout :: TaskStatusType
+pattern TaskStatusTypeTimeout = TaskStatusType' "TIMEOUT"
 
 {-# COMPLETE
-  Starting,
-  Running,
-  Stopping,
-  Stopped,
-  Succeeded,
-  Failed,
-  Timeout,
+  TaskStatusTypeStarting,
+  TaskStatusTypeRunning,
+  TaskStatusTypeStopping,
+  TaskStatusTypeStopped,
+  TaskStatusTypeSucceeded,
+  TaskStatusTypeFailed,
+  TaskStatusTypeTimeout,
   TaskStatusType'
   #-}

@@ -30,92 +30,79 @@ module Network.AWS.MachineLearning.UpdateEvaluation
     mkUpdateEvaluationResponse,
 
     -- ** Response lenses
-    uersEvaluationId,
-    uersResponseStatus,
+    uerrsEvaluationId,
+    uerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateEvaluation' smart constructor.
 data UpdateEvaluation = UpdateEvaluation'
   { -- | The ID assigned to the @Evaluation@ during creation.
-    evaluationId :: Lude.Text,
+    evaluationId :: Types.EntityId,
     -- | A new user-supplied name or description of the @Evaluation@ that will replace the current content.
-    evaluationName :: Lude.Text
+    evaluationName :: Types.EntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEvaluation' with the minimum fields required to make a request.
---
--- * 'evaluationId' - The ID assigned to the @Evaluation@ during creation.
--- * 'evaluationName' - A new user-supplied name or description of the @Evaluation@ that will replace the current content.
+-- | Creates a 'UpdateEvaluation' value with any optional fields omitted.
 mkUpdateEvaluation ::
   -- | 'evaluationId'
-  Lude.Text ->
+  Types.EntityId ->
   -- | 'evaluationName'
-  Lude.Text ->
+  Types.EntityName ->
   UpdateEvaluation
-mkUpdateEvaluation pEvaluationId_ pEvaluationName_ =
-  UpdateEvaluation'
-    { evaluationId = pEvaluationId_,
-      evaluationName = pEvaluationName_
-    }
+mkUpdateEvaluation evaluationId evaluationName =
+  UpdateEvaluation' {evaluationId, evaluationName}
 
 -- | The ID assigned to the @Evaluation@ during creation.
 --
 -- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueEvaluationId :: Lens.Lens' UpdateEvaluation Lude.Text
-ueEvaluationId = Lens.lens (evaluationId :: UpdateEvaluation -> Lude.Text) (\s a -> s {evaluationId = a} :: UpdateEvaluation)
+ueEvaluationId :: Lens.Lens' UpdateEvaluation Types.EntityId
+ueEvaluationId = Lens.field @"evaluationId"
 {-# DEPRECATED ueEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
 -- | A new user-supplied name or description of the @Evaluation@ that will replace the current content.
 --
 -- /Note:/ Consider using 'evaluationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueEvaluationName :: Lens.Lens' UpdateEvaluation Lude.Text
-ueEvaluationName = Lens.lens (evaluationName :: UpdateEvaluation -> Lude.Text) (\s a -> s {evaluationName = a} :: UpdateEvaluation)
+ueEvaluationName :: Lens.Lens' UpdateEvaluation Types.EntityName
+ueEvaluationName = Lens.field @"evaluationName"
 {-# DEPRECATED ueEvaluationName "Use generic-lens or generic-optics with 'evaluationName' instead." #-}
 
-instance Lude.AWSRequest UpdateEvaluation where
+instance Core.FromJSON UpdateEvaluation where
+  toJSON UpdateEvaluation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EvaluationId" Core..= evaluationId),
+            Core.Just ("EvaluationName" Core..= evaluationName)
+          ]
+      )
+
+instance Core.AWSRequest UpdateEvaluation where
   type Rs UpdateEvaluation = UpdateEvaluationResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.UpdateEvaluation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateEvaluationResponse'
-            Lude.<$> (x Lude..?> "EvaluationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EvaluationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateEvaluation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.UpdateEvaluation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateEvaluation where
-  toJSON UpdateEvaluation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("EvaluationId" Lude..= evaluationId),
-            Lude.Just ("EvaluationName" Lude..= evaluationName)
-          ]
-      )
-
-instance Lude.ToPath UpdateEvaluation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateEvaluation where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of an @UpdateEvaluation@ operation.
 --
@@ -124,37 +111,34 @@ instance Lude.ToQuery UpdateEvaluation where
 -- /See:/ 'mkUpdateEvaluationResponse' smart constructor.
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
   { -- | The ID assigned to the @Evaluation@ during creation. This value should be identical to the value of the @Evaluation@ in the request.
-    evaluationId :: Lude.Maybe Lude.Text,
+    evaluationId :: Core.Maybe Types.EvaluationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEvaluationResponse' with the minimum fields required to make a request.
---
--- * 'evaluationId' - The ID assigned to the @Evaluation@ during creation. This value should be identical to the value of the @Evaluation@ in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateEvaluationResponse' value with any optional fields omitted.
 mkUpdateEvaluationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateEvaluationResponse
-mkUpdateEvaluationResponse pResponseStatus_ =
+mkUpdateEvaluationResponse responseStatus =
   UpdateEvaluationResponse'
-    { evaluationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { evaluationId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID assigned to the @Evaluation@ during creation. This value should be identical to the value of the @Evaluation@ in the request.
 --
 -- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uersEvaluationId :: Lens.Lens' UpdateEvaluationResponse (Lude.Maybe Lude.Text)
-uersEvaluationId = Lens.lens (evaluationId :: UpdateEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {evaluationId = a} :: UpdateEvaluationResponse)
-{-# DEPRECATED uersEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
+uerrsEvaluationId :: Lens.Lens' UpdateEvaluationResponse (Core.Maybe Types.EvaluationId)
+uerrsEvaluationId = Lens.field @"evaluationId"
+{-# DEPRECATED uerrsEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uersResponseStatus :: Lens.Lens' UpdateEvaluationResponse Lude.Int
-uersResponseStatus = Lens.lens (responseStatus :: UpdateEvaluationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEvaluationResponse)
-{-# DEPRECATED uersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uerrsResponseStatus :: Lens.Lens' UpdateEvaluationResponse Core.Int
+uerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,51 +17,45 @@ module Network.AWS.DirectConnect.Types.BGPPeer
     mkBGPPeer,
 
     -- * Lenses
-    bpCustomerAddress,
-    bpAmazonAddress,
-    bpAddressFamily,
-    bpBgpStatus,
-    bpAsn,
-    bpAuthKey,
-    bpBgpPeerId,
-    bpBgpPeerState,
-    bpAwsDeviceV2,
+    bgppAddressFamily,
+    bgppAmazonAddress,
+    bgppAsn,
+    bgppAuthKey,
+    bgppAwsDeviceV2,
+    bgppBgpPeerId,
+    bgppBgpPeerState,
+    bgppBgpStatus,
+    bgppCustomerAddress,
   )
 where
 
-import Network.AWS.DirectConnect.Types.AddressFamily
-import Network.AWS.DirectConnect.Types.BGPPeerState
-import Network.AWS.DirectConnect.Types.BGPStatus
+import qualified Network.AWS.DirectConnect.Types.AddressFamily as Types
+import qualified Network.AWS.DirectConnect.Types.AmazonAddress as Types
+import qualified Network.AWS.DirectConnect.Types.AuthKey as Types
+import qualified Network.AWS.DirectConnect.Types.AwsDeviceV2 as Types
+import qualified Network.AWS.DirectConnect.Types.BGPPeerState as Types
+import qualified Network.AWS.DirectConnect.Types.BGPStatus as Types
+import qualified Network.AWS.DirectConnect.Types.BgpPeerId as Types
+import qualified Network.AWS.DirectConnect.Types.CustomerAddress as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a BGP peer.
 --
 -- /See:/ 'mkBGPPeer' smart constructor.
 data BGPPeer = BGPPeer'
-  { -- | The IP address assigned to the customer interface.
-    customerAddress :: Lude.Maybe Lude.Text,
+  { -- | The address family for the BGP peer.
+    addressFamily :: Core.Maybe Types.AddressFamily,
     -- | The IP address assigned to the Amazon interface.
-    amazonAddress :: Lude.Maybe Lude.Text,
-    -- | The address family for the BGP peer.
-    addressFamily :: Lude.Maybe AddressFamily,
-    -- | The status of the BGP peer. The following are the possible values:
-    --
-    --
-    --     * @up@ : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.
-    --
-    --
-    --     * @down@ : The BGP peer is down.
-    --
-    --
-    --     * @unknown@ : The BGP peer status is not available.
-    bgpStatus :: Lude.Maybe BGPStatus,
+    amazonAddress :: Core.Maybe Types.AmazonAddress,
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-    asn :: Lude.Maybe Lude.Int,
+    asn :: Core.Maybe Core.Int,
     -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Lude.Maybe Lude.Text,
+    authKey :: Core.Maybe Types.AuthKey,
+    -- | The Direct Connect endpoint on which the BGP peer terminates.
+    awsDeviceV2 :: Core.Maybe Types.AwsDeviceV2,
     -- | The ID of the BGP peer.
-    bgpPeerId :: Lude.Maybe Lude.Text,
+    bgpPeerId :: Core.Maybe Types.BgpPeerId,
     -- | The state of the BGP peer. The following are the possible values:
     --
     --
@@ -78,126 +72,81 @@ data BGPPeer = BGPPeer'
     --
     --
     --     * @deleted@ : The BGP peer is deleted and cannot be established.
-    bgpPeerState :: Lude.Maybe BGPPeerState,
-    -- | The Direct Connect endpoint on which the BGP peer terminates.
-    awsDeviceV2 :: Lude.Maybe Lude.Text
+    bgpPeerState :: Core.Maybe Types.BGPPeerState,
+    -- | The status of the BGP peer. The following are the possible values:
+    --
+    --
+    --     * @up@ : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.
+    --
+    --
+    --     * @down@ : The BGP peer is down.
+    --
+    --
+    --     * @unknown@ : The BGP peer status is not available.
+    bgpStatus :: Core.Maybe Types.BGPStatus,
+    -- | The IP address assigned to the customer interface.
+    customerAddress :: Core.Maybe Types.CustomerAddress
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BGPPeer' with the minimum fields required to make a request.
---
--- * 'customerAddress' - The IP address assigned to the customer interface.
--- * 'amazonAddress' - The IP address assigned to the Amazon interface.
--- * 'addressFamily' - The address family for the BGP peer.
--- * 'bgpStatus' - The status of the BGP peer. The following are the possible values:
---
---
---     * @up@ : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.
---
---
---     * @down@ : The BGP peer is down.
---
---
---     * @unknown@ : The BGP peer status is not available.
---
---
--- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
--- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
--- * 'bgpPeerId' - The ID of the BGP peer.
--- * 'bgpPeerState' - The state of the BGP peer. The following are the possible values:
---
---
---     * @verifying@ : The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces.
---
---
---     * @pending@ : The BGP peer is created, and remains in this state until it is ready to be established.
---
---
---     * @available@ : The BGP peer is ready to be established.
---
---
---     * @deleting@ : The BGP peer is being deleted.
---
---
---     * @deleted@ : The BGP peer is deleted and cannot be established.
---
---
--- * 'awsDeviceV2' - The Direct Connect endpoint on which the BGP peer terminates.
+-- | Creates a 'BGPPeer' value with any optional fields omitted.
 mkBGPPeer ::
   BGPPeer
 mkBGPPeer =
   BGPPeer'
-    { customerAddress = Lude.Nothing,
-      amazonAddress = Lude.Nothing,
-      addressFamily = Lude.Nothing,
-      bgpStatus = Lude.Nothing,
-      asn = Lude.Nothing,
-      authKey = Lude.Nothing,
-      bgpPeerId = Lude.Nothing,
-      bgpPeerState = Lude.Nothing,
-      awsDeviceV2 = Lude.Nothing
+    { addressFamily = Core.Nothing,
+      amazonAddress = Core.Nothing,
+      asn = Core.Nothing,
+      authKey = Core.Nothing,
+      awsDeviceV2 = Core.Nothing,
+      bgpPeerId = Core.Nothing,
+      bgpPeerState = Core.Nothing,
+      bgpStatus = Core.Nothing,
+      customerAddress = Core.Nothing
     }
-
--- | The IP address assigned to the customer interface.
---
--- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpCustomerAddress :: Lens.Lens' BGPPeer (Lude.Maybe Lude.Text)
-bpCustomerAddress = Lens.lens (customerAddress :: BGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {customerAddress = a} :: BGPPeer)
-{-# DEPRECATED bpCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
-
--- | The IP address assigned to the Amazon interface.
---
--- /Note:/ Consider using 'amazonAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpAmazonAddress :: Lens.Lens' BGPPeer (Lude.Maybe Lude.Text)
-bpAmazonAddress = Lens.lens (amazonAddress :: BGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {amazonAddress = a} :: BGPPeer)
-{-# DEPRECATED bpAmazonAddress "Use generic-lens or generic-optics with 'amazonAddress' instead." #-}
 
 -- | The address family for the BGP peer.
 --
 -- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpAddressFamily :: Lens.Lens' BGPPeer (Lude.Maybe AddressFamily)
-bpAddressFamily = Lens.lens (addressFamily :: BGPPeer -> Lude.Maybe AddressFamily) (\s a -> s {addressFamily = a} :: BGPPeer)
-{-# DEPRECATED bpAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
+bgppAddressFamily :: Lens.Lens' BGPPeer (Core.Maybe Types.AddressFamily)
+bgppAddressFamily = Lens.field @"addressFamily"
+{-# DEPRECATED bgppAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
 
--- | The status of the BGP peer. The following are the possible values:
+-- | The IP address assigned to the Amazon interface.
 --
---
---     * @up@ : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.
---
---
---     * @down@ : The BGP peer is down.
---
---
---     * @unknown@ : The BGP peer status is not available.
---
---
---
--- /Note:/ Consider using 'bgpStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpBgpStatus :: Lens.Lens' BGPPeer (Lude.Maybe BGPStatus)
-bpBgpStatus = Lens.lens (bgpStatus :: BGPPeer -> Lude.Maybe BGPStatus) (\s a -> s {bgpStatus = a} :: BGPPeer)
-{-# DEPRECATED bpBgpStatus "Use generic-lens or generic-optics with 'bgpStatus' instead." #-}
+-- /Note:/ Consider using 'amazonAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgppAmazonAddress :: Lens.Lens' BGPPeer (Core.Maybe Types.AmazonAddress)
+bgppAmazonAddress = Lens.field @"amazonAddress"
+{-# DEPRECATED bgppAmazonAddress "Use generic-lens or generic-optics with 'amazonAddress' instead." #-}
 
 -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
 -- /Note:/ Consider using 'asn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpAsn :: Lens.Lens' BGPPeer (Lude.Maybe Lude.Int)
-bpAsn = Lens.lens (asn :: BGPPeer -> Lude.Maybe Lude.Int) (\s a -> s {asn = a} :: BGPPeer)
-{-# DEPRECATED bpAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
+bgppAsn :: Lens.Lens' BGPPeer (Core.Maybe Core.Int)
+bgppAsn = Lens.field @"asn"
+{-# DEPRECATED bgppAsn "Use generic-lens or generic-optics with 'asn' instead." #-}
 
 -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
 --
 -- /Note:/ Consider using 'authKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpAuthKey :: Lens.Lens' BGPPeer (Lude.Maybe Lude.Text)
-bpAuthKey = Lens.lens (authKey :: BGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {authKey = a} :: BGPPeer)
-{-# DEPRECATED bpAuthKey "Use generic-lens or generic-optics with 'authKey' instead." #-}
+bgppAuthKey :: Lens.Lens' BGPPeer (Core.Maybe Types.AuthKey)
+bgppAuthKey = Lens.field @"authKey"
+{-# DEPRECATED bgppAuthKey "Use generic-lens or generic-optics with 'authKey' instead." #-}
+
+-- | The Direct Connect endpoint on which the BGP peer terminates.
+--
+-- /Note:/ Consider using 'awsDeviceV2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgppAwsDeviceV2 :: Lens.Lens' BGPPeer (Core.Maybe Types.AwsDeviceV2)
+bgppAwsDeviceV2 = Lens.field @"awsDeviceV2"
+{-# DEPRECATED bgppAwsDeviceV2 "Use generic-lens or generic-optics with 'awsDeviceV2' instead." #-}
 
 -- | The ID of the BGP peer.
 --
 -- /Note:/ Consider using 'bgpPeerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpBgpPeerId :: Lens.Lens' BGPPeer (Lude.Maybe Lude.Text)
-bpBgpPeerId = Lens.lens (bgpPeerId :: BGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {bgpPeerId = a} :: BGPPeer)
-{-# DEPRECATED bpBgpPeerId "Use generic-lens or generic-optics with 'bgpPeerId' instead." #-}
+bgppBgpPeerId :: Lens.Lens' BGPPeer (Core.Maybe Types.BgpPeerId)
+bgppBgpPeerId = Lens.field @"bgpPeerId"
+{-# DEPRECATED bgppBgpPeerId "Use generic-lens or generic-optics with 'bgpPeerId' instead." #-}
 
 -- | The state of the BGP peer. The following are the possible values:
 --
@@ -219,30 +168,46 @@ bpBgpPeerId = Lens.lens (bgpPeerId :: BGPPeer -> Lude.Maybe Lude.Text) (\s a -> 
 --
 --
 -- /Note:/ Consider using 'bgpPeerState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpBgpPeerState :: Lens.Lens' BGPPeer (Lude.Maybe BGPPeerState)
-bpBgpPeerState = Lens.lens (bgpPeerState :: BGPPeer -> Lude.Maybe BGPPeerState) (\s a -> s {bgpPeerState = a} :: BGPPeer)
-{-# DEPRECATED bpBgpPeerState "Use generic-lens or generic-optics with 'bgpPeerState' instead." #-}
+bgppBgpPeerState :: Lens.Lens' BGPPeer (Core.Maybe Types.BGPPeerState)
+bgppBgpPeerState = Lens.field @"bgpPeerState"
+{-# DEPRECATED bgppBgpPeerState "Use generic-lens or generic-optics with 'bgpPeerState' instead." #-}
 
--- | The Direct Connect endpoint on which the BGP peer terminates.
+-- | The status of the BGP peer. The following are the possible values:
 --
--- /Note:/ Consider using 'awsDeviceV2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpAwsDeviceV2 :: Lens.Lens' BGPPeer (Lude.Maybe Lude.Text)
-bpAwsDeviceV2 = Lens.lens (awsDeviceV2 :: BGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {awsDeviceV2 = a} :: BGPPeer)
-{-# DEPRECATED bpAwsDeviceV2 "Use generic-lens or generic-optics with 'awsDeviceV2' instead." #-}
+--
+--     * @up@ : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.
+--
+--
+--     * @down@ : The BGP peer is down.
+--
+--
+--     * @unknown@ : The BGP peer status is not available.
+--
+--
+--
+-- /Note:/ Consider using 'bgpStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgppBgpStatus :: Lens.Lens' BGPPeer (Core.Maybe Types.BGPStatus)
+bgppBgpStatus = Lens.field @"bgpStatus"
+{-# DEPRECATED bgppBgpStatus "Use generic-lens or generic-optics with 'bgpStatus' instead." #-}
 
-instance Lude.FromJSON BGPPeer where
+-- | The IP address assigned to the customer interface.
+--
+-- /Note:/ Consider using 'customerAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgppCustomerAddress :: Lens.Lens' BGPPeer (Core.Maybe Types.CustomerAddress)
+bgppCustomerAddress = Lens.field @"customerAddress"
+{-# DEPRECATED bgppCustomerAddress "Use generic-lens or generic-optics with 'customerAddress' instead." #-}
+
+instance Core.FromJSON BGPPeer where
   parseJSON =
-    Lude.withObject
-      "BGPPeer"
-      ( \x ->
-          BGPPeer'
-            Lude.<$> (x Lude..:? "customerAddress")
-            Lude.<*> (x Lude..:? "amazonAddress")
-            Lude.<*> (x Lude..:? "addressFamily")
-            Lude.<*> (x Lude..:? "bgpStatus")
-            Lude.<*> (x Lude..:? "asn")
-            Lude.<*> (x Lude..:? "authKey")
-            Lude.<*> (x Lude..:? "bgpPeerId")
-            Lude.<*> (x Lude..:? "bgpPeerState")
-            Lude.<*> (x Lude..:? "awsDeviceV2")
-      )
+    Core.withObject "BGPPeer" Core.$
+      \x ->
+        BGPPeer'
+          Core.<$> (x Core..:? "addressFamily")
+          Core.<*> (x Core..:? "amazonAddress")
+          Core.<*> (x Core..:? "asn")
+          Core.<*> (x Core..:? "authKey")
+          Core.<*> (x Core..:? "awsDeviceV2")
+          Core.<*> (x Core..:? "bgpPeerId")
+          Core.<*> (x Core..:? "bgpPeerState")
+          Core.<*> (x Core..:? "bgpStatus")
+          Core.<*> (x Core..:? "customerAddress")

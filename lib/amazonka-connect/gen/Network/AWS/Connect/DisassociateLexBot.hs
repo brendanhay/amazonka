@@ -30,94 +30,83 @@ module Network.AWS.Connect.DisassociateLexBot
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateLexBot' smart constructor.
 data DisassociateLexBot = DisassociateLexBot'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The name of the Amazon Lex bot. Maximum character limit of 50.
-    botName :: Lude.Text,
+    botName :: Types.BotName,
     -- | The Region in which the Amazon Lex bot has been created.
-    lexRegion :: Lude.Text
+    lexRegion :: Types.LexRegion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateLexBot' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'botName' - The name of the Amazon Lex bot. Maximum character limit of 50.
--- * 'lexRegion' - The Region in which the Amazon Lex bot has been created.
+-- | Creates a 'DisassociateLexBot' value with any optional fields omitted.
 mkDisassociateLexBot ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'botName'
-  Lude.Text ->
+  Types.BotName ->
   -- | 'lexRegion'
-  Lude.Text ->
+  Types.LexRegion ->
   DisassociateLexBot
-mkDisassociateLexBot pInstanceId_ pBotName_ pLexRegion_ =
-  DisassociateLexBot'
-    { instanceId = pInstanceId_,
-      botName = pBotName_,
-      lexRegion = pLexRegion_
-    }
+mkDisassociateLexBot instanceId botName lexRegion =
+  DisassociateLexBot' {instanceId, botName, lexRegion}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbInstanceId :: Lens.Lens' DisassociateLexBot Lude.Text
-dlbInstanceId = Lens.lens (instanceId :: DisassociateLexBot -> Lude.Text) (\s a -> s {instanceId = a} :: DisassociateLexBot)
+dlbInstanceId :: Lens.Lens' DisassociateLexBot Types.InstanceId
+dlbInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED dlbInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The name of the Amazon Lex bot. Maximum character limit of 50.
 --
 -- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbBotName :: Lens.Lens' DisassociateLexBot Lude.Text
-dlbBotName = Lens.lens (botName :: DisassociateLexBot -> Lude.Text) (\s a -> s {botName = a} :: DisassociateLexBot)
+dlbBotName :: Lens.Lens' DisassociateLexBot Types.BotName
+dlbBotName = Lens.field @"botName"
 {-# DEPRECATED dlbBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The Region in which the Amazon Lex bot has been created.
 --
 -- /Note:/ Consider using 'lexRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbLexRegion :: Lens.Lens' DisassociateLexBot Lude.Text
-dlbLexRegion = Lens.lens (lexRegion :: DisassociateLexBot -> Lude.Text) (\s a -> s {lexRegion = a} :: DisassociateLexBot)
+dlbLexRegion :: Lens.Lens' DisassociateLexBot Types.LexRegion
+dlbLexRegion = Lens.field @"lexRegion"
 {-# DEPRECATED dlbLexRegion "Use generic-lens or generic-optics with 'lexRegion' instead." #-}
 
-instance Lude.AWSRequest DisassociateLexBot where
+instance Core.AWSRequest DisassociateLexBot where
   type Rs DisassociateLexBot = DisassociateLexBotResponse
-  request = Req.delete connectService
-  response = Res.receiveNull DisassociateLexBotResponse'
-
-instance Lude.ToHeaders DisassociateLexBot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DisassociateLexBot where
-  toPath DisassociateLexBot' {..} =
-    Lude.mconcat ["/instance/", Lude.toBS instanceId, "/lex-bot"]
-
-instance Lude.ToQuery DisassociateLexBot where
-  toQuery DisassociateLexBot' {..} =
-    Lude.mconcat
-      ["botName" Lude.=: botName, "lexRegion" Lude.=: lexRegion]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/instance/" Core.<> (Core.toText instanceId)
+                Core.<> ("/lex-bot")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "botName" botName
+            Core.<> (Core.toQueryValue "lexRegion" lexRegion),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DisassociateLexBotResponse'
 
 -- | /See:/ 'mkDisassociateLexBotResponse' smart constructor.
 data DisassociateLexBotResponse = DisassociateLexBotResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateLexBotResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateLexBotResponse' value with any optional fields omitted.
 mkDisassociateLexBotResponse ::
   DisassociateLexBotResponse
 mkDisassociateLexBotResponse = DisassociateLexBotResponse'

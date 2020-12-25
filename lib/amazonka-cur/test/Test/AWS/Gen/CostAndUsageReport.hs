@@ -90,7 +90,7 @@ responsePutReportDefinition =
   res
     "PutReportDefinitionResponse"
     "fixture/PutReportDefinitionResponse.proto"
-    costAndUsageReportService
+    mkServiceConfig
     (Proxy :: Proxy PutReportDefinition)
 
 responseDeleteReportDefinition :: DeleteReportDefinitionResponse -> TestTree
@@ -98,7 +98,7 @@ responseDeleteReportDefinition =
   res
     "DeleteReportDefinitionResponse"
     "fixture/DeleteReportDefinitionResponse.proto"
-    costAndUsageReportService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReportDefinition)
 
 responseModifyReportDefinition :: ModifyReportDefinitionResponse -> TestTree
@@ -106,7 +106,7 @@ responseModifyReportDefinition =
   res
     "ModifyReportDefinitionResponse"
     "fixture/ModifyReportDefinitionResponse.proto"
-    costAndUsageReportService
+    mkServiceConfig
     (Proxy :: Proxy ModifyReportDefinition)
 
 responseDescribeReportDefinitions :: DescribeReportDefinitionsResponse -> TestTree
@@ -114,5 +114,5 @@ responseDescribeReportDefinitions =
   res
     "DescribeReportDefinitionsResponse"
     "fixture/DescribeReportDefinitionsResponse.proto"
-    costAndUsageReportService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReportDefinitions)

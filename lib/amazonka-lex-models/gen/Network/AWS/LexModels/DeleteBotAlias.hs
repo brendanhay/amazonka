@@ -22,8 +22,8 @@ module Network.AWS.LexModels.DeleteBotAlias
     mkDeleteBotAlias,
 
     -- ** Request lenses
-    dbaBotName,
     dbaName,
+    dbaBotName,
 
     -- * Destructuring the response
     DeleteBotAliasResponse (..),
@@ -32,76 +32,68 @@ module Network.AWS.LexModels.DeleteBotAlias
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteBotAlias' smart constructor.
 data DeleteBotAlias = DeleteBotAlias'
-  { -- | The name of the bot that the alias points to.
-    botName :: Lude.Text,
-    -- | The name of the alias to delete. The name is case sensitive.
-    name :: Lude.Text
+  { -- | The name of the alias to delete. The name is case sensitive.
+    name :: Types.AliasName,
+    -- | The name of the bot that the alias points to.
+    botName :: Types.BotName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBotAlias' with the minimum fields required to make a request.
---
--- * 'botName' - The name of the bot that the alias points to.
--- * 'name' - The name of the alias to delete. The name is case sensitive.
+-- | Creates a 'DeleteBotAlias' value with any optional fields omitted.
 mkDeleteBotAlias ::
-  -- | 'botName'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.AliasName ->
+  -- | 'botName'
+  Types.BotName ->
   DeleteBotAlias
-mkDeleteBotAlias pBotName_ pName_ =
-  DeleteBotAlias' {botName = pBotName_, name = pName_}
-
--- | The name of the bot that the alias points to.
---
--- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbaBotName :: Lens.Lens' DeleteBotAlias Lude.Text
-dbaBotName = Lens.lens (botName :: DeleteBotAlias -> Lude.Text) (\s a -> s {botName = a} :: DeleteBotAlias)
-{-# DEPRECATED dbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+mkDeleteBotAlias name botName = DeleteBotAlias' {name, botName}
 
 -- | The name of the alias to delete. The name is case sensitive.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbaName :: Lens.Lens' DeleteBotAlias Lude.Text
-dbaName = Lens.lens (name :: DeleteBotAlias -> Lude.Text) (\s a -> s {name = a} :: DeleteBotAlias)
+dbaName :: Lens.Lens' DeleteBotAlias Types.AliasName
+dbaName = Lens.field @"name"
 {-# DEPRECATED dbaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteBotAlias where
+-- | The name of the bot that the alias points to.
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbaBotName :: Lens.Lens' DeleteBotAlias Types.BotName
+dbaBotName = Lens.field @"botName"
+{-# DEPRECATED dbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+
+instance Core.AWSRequest DeleteBotAlias where
   type Rs DeleteBotAlias = DeleteBotAliasResponse
-  request = Req.delete lexModelsService
-  response = Res.receiveNull DeleteBotAliasResponse'
-
-instance Lude.ToHeaders DeleteBotAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteBotAlias where
-  toPath DeleteBotAlias' {..} =
-    Lude.mconcat
-      ["/bots/", Lude.toBS botName, "/aliases/", Lude.toBS name]
-
-instance Lude.ToQuery DeleteBotAlias where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/bots/" Core.<> (Core.toText botName) Core.<> ("/aliases/")
+                Core.<> (Core.toText name)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteBotAliasResponse'
 
 -- | /See:/ 'mkDeleteBotAliasResponse' smart constructor.
 data DeleteBotAliasResponse = DeleteBotAliasResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBotAliasResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBotAliasResponse' value with any optional fields omitted.
 mkDeleteBotAliasResponse ::
   DeleteBotAliasResponse
 mkDeleteBotAliasResponse = DeleteBotAliasResponse'

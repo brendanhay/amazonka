@@ -29,141 +29,137 @@ module Network.AWS.EC2.ModifyInstanceCapacityReservationAttributes
     mkModifyInstanceCapacityReservationAttributesResponse,
 
     -- ** Response lenses
-    micrarsReturn,
-    micrarsResponseStatus,
+    micrarrsReturn,
+    micrarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyInstanceCapacityReservationAttributes' smart constructor.
 data ModifyInstanceCapacityReservationAttributes = ModifyInstanceCapacityReservationAttributes'
   { -- | The ID of the instance to be modified.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | Information about the Capacity Reservation targeting option.
-    capacityReservationSpecification :: CapacityReservationSpecification,
+    capacityReservationSpecification :: Types.CapacityReservationSpecification,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceCapacityReservationAttributes' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance to be modified.
--- * 'capacityReservationSpecification' - Information about the Capacity Reservation targeting option.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ModifyInstanceCapacityReservationAttributes' value with any optional fields omitted.
 mkModifyInstanceCapacityReservationAttributes ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'capacityReservationSpecification'
-  CapacityReservationSpecification ->
+  Types.CapacityReservationSpecification ->
   ModifyInstanceCapacityReservationAttributes
 mkModifyInstanceCapacityReservationAttributes
-  pInstanceId_
-  pCapacityReservationSpecification_ =
+  instanceId
+  capacityReservationSpecification =
     ModifyInstanceCapacityReservationAttributes'
-      { instanceId =
-          pInstanceId_,
-        capacityReservationSpecification =
-          pCapacityReservationSpecification_,
-        dryRun = Lude.Nothing
+      { instanceId,
+        capacityReservationSpecification,
+        dryRun = Core.Nothing
       }
 
 -- | The ID of the instance to be modified.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micraInstanceId :: Lens.Lens' ModifyInstanceCapacityReservationAttributes Lude.Text
-micraInstanceId = Lens.lens (instanceId :: ModifyInstanceCapacityReservationAttributes -> Lude.Text) (\s a -> s {instanceId = a} :: ModifyInstanceCapacityReservationAttributes)
+micraInstanceId :: Lens.Lens' ModifyInstanceCapacityReservationAttributes Types.InstanceId
+micraInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED micraInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Information about the Capacity Reservation targeting option.
 --
 -- /Note:/ Consider using 'capacityReservationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micraCapacityReservationSpecification :: Lens.Lens' ModifyInstanceCapacityReservationAttributes CapacityReservationSpecification
-micraCapacityReservationSpecification = Lens.lens (capacityReservationSpecification :: ModifyInstanceCapacityReservationAttributes -> CapacityReservationSpecification) (\s a -> s {capacityReservationSpecification = a} :: ModifyInstanceCapacityReservationAttributes)
+micraCapacityReservationSpecification :: Lens.Lens' ModifyInstanceCapacityReservationAttributes Types.CapacityReservationSpecification
+micraCapacityReservationSpecification = Lens.field @"capacityReservationSpecification"
 {-# DEPRECATED micraCapacityReservationSpecification "Use generic-lens or generic-optics with 'capacityReservationSpecification' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micraDryRun :: Lens.Lens' ModifyInstanceCapacityReservationAttributes (Lude.Maybe Lude.Bool)
-micraDryRun = Lens.lens (dryRun :: ModifyInstanceCapacityReservationAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyInstanceCapacityReservationAttributes)
+micraDryRun :: Lens.Lens' ModifyInstanceCapacityReservationAttributes (Core.Maybe Core.Bool)
+micraDryRun = Lens.field @"dryRun"
 {-# DEPRECATED micraDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance
-  Lude.AWSRequest
+  Core.AWSRequest
     ModifyInstanceCapacityReservationAttributes
   where
   type
     Rs ModifyInstanceCapacityReservationAttributes =
       ModifyInstanceCapacityReservationAttributesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure
+                ("Action", "ModifyInstanceCapacityReservationAttributes")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> ( Core.toQueryValue
+                            "CapacityReservationSpecification"
+                            capacityReservationSpecification
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ModifyInstanceCapacityReservationAttributesResponse'
-            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyInstanceCapacityReservationAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyInstanceCapacityReservationAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyInstanceCapacityReservationAttributes where
-  toQuery ModifyInstanceCapacityReservationAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ModifyInstanceCapacityReservationAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "CapacityReservationSpecification"
-          Lude.=: capacityReservationSpecification,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkModifyInstanceCapacityReservationAttributesResponse' smart constructor.
 data ModifyInstanceCapacityReservationAttributesResponse = ModifyInstanceCapacityReservationAttributesResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return :: Lude.Maybe Lude.Bool,
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceCapacityReservationAttributesResponse' with the minimum fields required to make a request.
---
--- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyInstanceCapacityReservationAttributesResponse' value with any optional fields omitted.
 mkModifyInstanceCapacityReservationAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyInstanceCapacityReservationAttributesResponse
 mkModifyInstanceCapacityReservationAttributesResponse
-  pResponseStatus_ =
+  responseStatus =
     ModifyInstanceCapacityReservationAttributesResponse'
       { return =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
+          Core.Nothing,
+        responseStatus
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micrarsReturn :: Lens.Lens' ModifyInstanceCapacityReservationAttributesResponse (Lude.Maybe Lude.Bool)
-micrarsReturn = Lens.lens (return :: ModifyInstanceCapacityReservationAttributesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: ModifyInstanceCapacityReservationAttributesResponse)
-{-# DEPRECATED micrarsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+micrarrsReturn :: Lens.Lens' ModifyInstanceCapacityReservationAttributesResponse (Core.Maybe Core.Bool)
+micrarrsReturn = Lens.field @"return"
+{-# DEPRECATED micrarrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micrarsResponseStatus :: Lens.Lens' ModifyInstanceCapacityReservationAttributesResponse Lude.Int
-micrarsResponseStatus = Lens.lens (responseStatus :: ModifyInstanceCapacityReservationAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyInstanceCapacityReservationAttributesResponse)
-{-# DEPRECATED micrarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+micrarrsResponseStatus :: Lens.Lens' ModifyInstanceCapacityReservationAttributesResponse Core.Int
+micrarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED micrarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

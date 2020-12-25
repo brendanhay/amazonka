@@ -31,112 +31,101 @@ module Network.AWS.DynamoDB.DescribeContinuousBackups
     mkDescribeContinuousBackupsResponse,
 
     -- ** Response lenses
-    dcbrsContinuousBackupsDescription,
-    dcbrsResponseStatus,
+    dcbrrsContinuousBackupsDescription,
+    dcbrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeContinuousBackups' smart constructor.
 newtype DescribeContinuousBackups = DescribeContinuousBackups'
   { -- | Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.
-    tableName :: Lude.Text
+    tableName :: Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeContinuousBackups' with the minimum fields required to make a request.
---
--- * 'tableName' - Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.
+-- | Creates a 'DescribeContinuousBackups' value with any optional fields omitted.
 mkDescribeContinuousBackups ::
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   DescribeContinuousBackups
-mkDescribeContinuousBackups pTableName_ =
-  DescribeContinuousBackups' {tableName = pTableName_}
+mkDescribeContinuousBackups tableName =
+  DescribeContinuousBackups' {tableName}
 
 -- | Name of the table for which the customer wants to check the continuous backups and point in time recovery settings.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbTableName :: Lens.Lens' DescribeContinuousBackups Lude.Text
-dcbTableName = Lens.lens (tableName :: DescribeContinuousBackups -> Lude.Text) (\s a -> s {tableName = a} :: DescribeContinuousBackups)
+dcbTableName :: Lens.Lens' DescribeContinuousBackups Types.TableName
+dcbTableName = Lens.field @"tableName"
 {-# DEPRECATED dcbTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest DescribeContinuousBackups where
+instance Core.FromJSON DescribeContinuousBackups where
+  toJSON DescribeContinuousBackups {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TableName" Core..= tableName)])
+
+instance Core.AWSRequest DescribeContinuousBackups where
   type
     Rs DescribeContinuousBackups =
       DescribeContinuousBackupsResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DynamoDB_20120810.DescribeContinuousBackups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeContinuousBackupsResponse'
-            Lude.<$> (x Lude..?> "ContinuousBackupsDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ContinuousBackupsDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeContinuousBackups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.DescribeContinuousBackups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeContinuousBackups where
-  toJSON DescribeContinuousBackups' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TableName" Lude..= tableName)])
-
-instance Lude.ToPath DescribeContinuousBackups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeContinuousBackups where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeContinuousBackupsResponse' smart constructor.
 data DescribeContinuousBackupsResponse = DescribeContinuousBackupsResponse'
   { -- | Represents the continuous backups and point in time recovery settings on the table.
-    continuousBackupsDescription :: Lude.Maybe ContinuousBackupsDescription,
+    continuousBackupsDescription :: Core.Maybe Types.ContinuousBackupsDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeContinuousBackupsResponse' with the minimum fields required to make a request.
---
--- * 'continuousBackupsDescription' - Represents the continuous backups and point in time recovery settings on the table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeContinuousBackupsResponse' value with any optional fields omitted.
 mkDescribeContinuousBackupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeContinuousBackupsResponse
-mkDescribeContinuousBackupsResponse pResponseStatus_ =
+mkDescribeContinuousBackupsResponse responseStatus =
   DescribeContinuousBackupsResponse'
     { continuousBackupsDescription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Represents the continuous backups and point in time recovery settings on the table.
 --
 -- /Note:/ Consider using 'continuousBackupsDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbrsContinuousBackupsDescription :: Lens.Lens' DescribeContinuousBackupsResponse (Lude.Maybe ContinuousBackupsDescription)
-dcbrsContinuousBackupsDescription = Lens.lens (continuousBackupsDescription :: DescribeContinuousBackupsResponse -> Lude.Maybe ContinuousBackupsDescription) (\s a -> s {continuousBackupsDescription = a} :: DescribeContinuousBackupsResponse)
-{-# DEPRECATED dcbrsContinuousBackupsDescription "Use generic-lens or generic-optics with 'continuousBackupsDescription' instead." #-}
+dcbrrsContinuousBackupsDescription :: Lens.Lens' DescribeContinuousBackupsResponse (Core.Maybe Types.ContinuousBackupsDescription)
+dcbrrsContinuousBackupsDescription = Lens.field @"continuousBackupsDescription"
+{-# DEPRECATED dcbrrsContinuousBackupsDescription "Use generic-lens or generic-optics with 'continuousBackupsDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbrsResponseStatus :: Lens.Lens' DescribeContinuousBackupsResponse Lude.Int
-dcbrsResponseStatus = Lens.lens (responseStatus :: DescribeContinuousBackupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContinuousBackupsResponse)
-{-# DEPRECATED dcbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcbrrsResponseStatus :: Lens.Lens' DescribeContinuousBackupsResponse Core.Int
+dcbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

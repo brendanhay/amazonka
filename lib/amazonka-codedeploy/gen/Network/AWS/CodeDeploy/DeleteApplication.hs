@@ -28,74 +28,65 @@ module Network.AWS.CodeDeploy.DeleteApplication
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeleteApplication@ operation.
 --
 -- /See:/ 'mkDeleteApplication' smart constructor.
 newtype DeleteApplication = DeleteApplication'
   { -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-    applicationName :: Lude.Text
+    applicationName :: Types.ApplicationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
---
--- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- | Creates a 'DeleteApplication' value with any optional fields omitted.
 mkDeleteApplication ::
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
   DeleteApplication
-mkDeleteApplication pApplicationName_ =
-  DeleteApplication' {applicationName = pApplicationName_}
+mkDeleteApplication applicationName =
+  DeleteApplication' {applicationName}
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daApplicationName :: Lens.Lens' DeleteApplication Lude.Text
-daApplicationName = Lens.lens (applicationName :: DeleteApplication -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplication)
+daApplicationName :: Lens.Lens' DeleteApplication Types.ApplicationName
+daApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED daApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance Lude.AWSRequest DeleteApplication where
+instance Core.FromJSON DeleteApplication where
+  toJSON DeleteApplication {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("applicationName" Core..= applicationName)]
+      )
+
+instance Core.AWSRequest DeleteApplication where
   type Rs DeleteApplication = DeleteApplicationResponse
-  request = Req.postJSON codeDeployService
-  response = Res.receiveNull DeleteApplicationResponse'
-
-instance Lude.ToHeaders DeleteApplication where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.DeleteApplication" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteApplication where
-  toJSON DeleteApplication' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("applicationName" Lude..= applicationName)]
-      )
-
-instance Lude.ToPath DeleteApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteApplication where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeDeploy_20141006.DeleteApplication")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteApplicationResponse'
 
 -- | /See:/ 'mkDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteApplicationResponse' value with any optional fields omitted.
 mkDeleteApplicationResponse ::
   DeleteApplicationResponse
 mkDeleteApplicationResponse = DeleteApplicationResponse'

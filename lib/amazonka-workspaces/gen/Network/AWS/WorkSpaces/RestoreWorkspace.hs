@@ -31,93 +31,81 @@ module Network.AWS.WorkSpaces.RestoreWorkspace
     mkRestoreWorkspaceResponse,
 
     -- ** Response lenses
-    rwrsResponseStatus,
+    rrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkRestoreWorkspace' smart constructor.
 newtype RestoreWorkspace = RestoreWorkspace'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Lude.Text
+    workspaceId :: Types.WorkspaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestoreWorkspace' with the minimum fields required to make a request.
---
--- * 'workspaceId' - The identifier of the WorkSpace.
+-- | Creates a 'RestoreWorkspace' value with any optional fields omitted.
 mkRestoreWorkspace ::
   -- | 'workspaceId'
-  Lude.Text ->
+  Types.WorkspaceId ->
   RestoreWorkspace
-mkRestoreWorkspace pWorkspaceId_ =
-  RestoreWorkspace' {workspaceId = pWorkspaceId_}
+mkRestoreWorkspace workspaceId = RestoreWorkspace' {workspaceId}
 
 -- | The identifier of the WorkSpace.
 --
 -- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwWorkspaceId :: Lens.Lens' RestoreWorkspace Lude.Text
-rwWorkspaceId = Lens.lens (workspaceId :: RestoreWorkspace -> Lude.Text) (\s a -> s {workspaceId = a} :: RestoreWorkspace)
+rwWorkspaceId :: Lens.Lens' RestoreWorkspace Types.WorkspaceId
+rwWorkspaceId = Lens.field @"workspaceId"
 {-# DEPRECATED rwWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
-instance Lude.AWSRequest RestoreWorkspace where
+instance Core.FromJSON RestoreWorkspace where
+  toJSON RestoreWorkspace {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("WorkspaceId" Core..= workspaceId)])
+
+instance Core.AWSRequest RestoreWorkspace where
   type Rs RestoreWorkspace = RestoreWorkspaceResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkspacesService.RestoreWorkspace")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          RestoreWorkspaceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RestoreWorkspaceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RestoreWorkspace where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.RestoreWorkspace" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RestoreWorkspace where
-  toJSON RestoreWorkspace' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("WorkspaceId" Lude..= workspaceId)])
-
-instance Lude.ToPath RestoreWorkspace where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RestoreWorkspace where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRestoreWorkspaceResponse' smart constructor.
 newtype RestoreWorkspaceResponse = RestoreWorkspaceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestoreWorkspaceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RestoreWorkspaceResponse' value with any optional fields omitted.
 mkRestoreWorkspaceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RestoreWorkspaceResponse
-mkRestoreWorkspaceResponse pResponseStatus_ =
-  RestoreWorkspaceResponse' {responseStatus = pResponseStatus_}
+mkRestoreWorkspaceResponse responseStatus =
+  RestoreWorkspaceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwrsResponseStatus :: Lens.Lens' RestoreWorkspaceResponse Lude.Int
-rwrsResponseStatus = Lens.lens (responseStatus :: RestoreWorkspaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreWorkspaceResponse)
-{-# DEPRECATED rwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rrsResponseStatus :: Lens.Lens' RestoreWorkspaceResponse Core.Int
+rrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

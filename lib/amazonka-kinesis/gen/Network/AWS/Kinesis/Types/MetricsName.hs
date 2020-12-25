@@ -13,76 +13,78 @@
 module Network.AWS.Kinesis.Types.MetricsName
   ( MetricsName
       ( MetricsName',
-        IncomingBytes,
-        IncomingRecords,
-        OutgoingBytes,
-        OutgoingRecords,
-        WriteProvisionedThroughputExceeded,
-        ReadProvisionedThroughputExceeded,
-        IteratorAgeMilliseconds,
-        All
+        MetricsNameIncomingBytes,
+        MetricsNameIncomingRecords,
+        MetricsNameOutgoingBytes,
+        MetricsNameOutgoingRecords,
+        MetricsNameWriteProvisionedThroughputExceeded,
+        MetricsNameReadProvisionedThroughputExceeded,
+        MetricsNameIteratorAgeMilliseconds,
+        MetricsNameAll,
+        fromMetricsName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MetricsName = MetricsName' Lude.Text
+newtype MetricsName = MetricsName' {fromMetricsName :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IncomingBytes :: MetricsName
-pattern IncomingBytes = MetricsName' "IncomingBytes"
+pattern MetricsNameIncomingBytes :: MetricsName
+pattern MetricsNameIncomingBytes = MetricsName' "IncomingBytes"
 
-pattern IncomingRecords :: MetricsName
-pattern IncomingRecords = MetricsName' "IncomingRecords"
+pattern MetricsNameIncomingRecords :: MetricsName
+pattern MetricsNameIncomingRecords = MetricsName' "IncomingRecords"
 
-pattern OutgoingBytes :: MetricsName
-pattern OutgoingBytes = MetricsName' "OutgoingBytes"
+pattern MetricsNameOutgoingBytes :: MetricsName
+pattern MetricsNameOutgoingBytes = MetricsName' "OutgoingBytes"
 
-pattern OutgoingRecords :: MetricsName
-pattern OutgoingRecords = MetricsName' "OutgoingRecords"
+pattern MetricsNameOutgoingRecords :: MetricsName
+pattern MetricsNameOutgoingRecords = MetricsName' "OutgoingRecords"
 
-pattern WriteProvisionedThroughputExceeded :: MetricsName
-pattern WriteProvisionedThroughputExceeded = MetricsName' "WriteProvisionedThroughputExceeded"
+pattern MetricsNameWriteProvisionedThroughputExceeded :: MetricsName
+pattern MetricsNameWriteProvisionedThroughputExceeded = MetricsName' "WriteProvisionedThroughputExceeded"
 
-pattern ReadProvisionedThroughputExceeded :: MetricsName
-pattern ReadProvisionedThroughputExceeded = MetricsName' "ReadProvisionedThroughputExceeded"
+pattern MetricsNameReadProvisionedThroughputExceeded :: MetricsName
+pattern MetricsNameReadProvisionedThroughputExceeded = MetricsName' "ReadProvisionedThroughputExceeded"
 
-pattern IteratorAgeMilliseconds :: MetricsName
-pattern IteratorAgeMilliseconds = MetricsName' "IteratorAgeMilliseconds"
+pattern MetricsNameIteratorAgeMilliseconds :: MetricsName
+pattern MetricsNameIteratorAgeMilliseconds = MetricsName' "IteratorAgeMilliseconds"
 
-pattern All :: MetricsName
-pattern All = MetricsName' "ALL"
+pattern MetricsNameAll :: MetricsName
+pattern MetricsNameAll = MetricsName' "ALL"
 
 {-# COMPLETE
-  IncomingBytes,
-  IncomingRecords,
-  OutgoingBytes,
-  OutgoingRecords,
-  WriteProvisionedThroughputExceeded,
-  ReadProvisionedThroughputExceeded,
-  IteratorAgeMilliseconds,
-  All,
+  MetricsNameIncomingBytes,
+  MetricsNameIncomingRecords,
+  MetricsNameOutgoingBytes,
+  MetricsNameOutgoingRecords,
+  MetricsNameWriteProvisionedThroughputExceeded,
+  MetricsNameReadProvisionedThroughputExceeded,
+  MetricsNameIteratorAgeMilliseconds,
+  MetricsNameAll,
   MetricsName'
   #-}

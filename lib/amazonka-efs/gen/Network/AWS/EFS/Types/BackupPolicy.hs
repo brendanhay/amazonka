@@ -21,9 +21,9 @@ module Network.AWS.EFS.Types.BackupPolicy
   )
 where
 
-import Network.AWS.EFS.Types.Status
+import qualified Network.AWS.EFS.Types.Status as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The backup policy for the file system, showing the curent status. If @ENABLED@ , the file system is being backed up.
 --
@@ -42,31 +42,17 @@ newtype BackupPolicy = BackupPolicy'
     --
     --
     --     * /@DISABLED@ - EFS is turning off automatic backups for the file system./
-    status :: Status
+    status :: Types.Status
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BackupPolicy' with the minimum fields required to make a request.
---
--- * 'status' - Describes the status of the file system's backup policy.
---
---
---     * /@ENABLED@ - EFS is automatically backing up the file system./
---
---
---     * /@ENABLING@ - EFS is turning on automatic backups for the file system./
---
---
---     * /@DISABLED@ - automatic back ups are turned off for the file system./
---
---
---     * /@DISABLED@ - EFS is turning off automatic backups for the file system./
+-- | Creates a 'BackupPolicy' value with any optional fields omitted.
 mkBackupPolicy ::
   -- | 'status'
-  Status ->
+  Types.Status ->
   BackupPolicy
-mkBackupPolicy pStatus_ = BackupPolicy' {status = pStatus_}
+mkBackupPolicy status = BackupPolicy' {status}
 
 -- | Describes the status of the file system's backup policy.
 --
@@ -85,17 +71,16 @@ mkBackupPolicy pStatus_ = BackupPolicy' {status = pStatus_}
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpStatus :: Lens.Lens' BackupPolicy Status
-bpStatus = Lens.lens (status :: BackupPolicy -> Status) (\s a -> s {status = a} :: BackupPolicy)
+bpStatus :: Lens.Lens' BackupPolicy Types.Status
+bpStatus = Lens.field @"status"
 {-# DEPRECATED bpStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromJSON BackupPolicy where
-  parseJSON =
-    Lude.withObject
-      "BackupPolicy"
-      (\x -> BackupPolicy' Lude.<$> (x Lude..: "Status"))
+instance Core.FromJSON BackupPolicy where
+  toJSON BackupPolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Status" Core..= status)])
 
-instance Lude.ToJSON BackupPolicy where
-  toJSON BackupPolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Status" Lude..= status)])
+instance Core.FromJSON BackupPolicy where
+  parseJSON =
+    Core.withObject "BackupPolicy" Core.$
+      \x -> BackupPolicy' Core.<$> (x Core..: "Status")

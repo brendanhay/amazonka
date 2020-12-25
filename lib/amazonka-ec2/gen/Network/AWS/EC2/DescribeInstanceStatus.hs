@@ -34,37 +34,35 @@ module Network.AWS.EC2.DescribeInstanceStatus
     mkDescribeInstanceStatus,
 
     -- ** Request lenses
-    dissIncludeAllInstances,
-    dissFilters,
-    dissNextToken,
-    dissInstanceIds,
-    dissDryRun,
-    dissMaxResults,
+    disDryRun,
+    disFilters,
+    disIncludeAllInstances,
+    disInstanceIds,
+    disMaxResults,
+    disNextToken,
 
     -- * Destructuring the response
     DescribeInstanceStatusResponse (..),
     mkDescribeInstanceStatusResponse,
 
     -- ** Response lenses
-    disrsInstanceStatuses,
-    disrsNextToken,
-    disrsResponseStatus,
+    disrrsInstanceStatuses,
+    disrrsNextToken,
+    disrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeInstanceStatus' smart constructor.
 data DescribeInstanceStatus = DescribeInstanceStatus'
-  { -- | When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only.
-    --
-    -- Default: @false@
-    includeAllInstances :: Lude.Maybe Lude.Bool,
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | The filters.
     --
     --
@@ -105,96 +103,43 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
     --
     --
     --     * @system-status.status@ - The system status of the instance (@ok@ | @impaired@ | @initializing@ | @insufficient-data@ | @not-applicable@ ).
-    filters :: Lude.Maybe [Filter],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.Filter],
+    -- | When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only.
+    --
+    -- Default: @false@
+    includeAllInstances :: Core.Maybe Core.Bool,
     -- | The instance IDs.
     --
     -- Default: Describes all your instances.
     -- Constraints: Maximum 100 explicitly specified instance IDs.
-    instanceIds :: Lude.Maybe [Lude.Text],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    instanceIds :: Core.Maybe [Types.InstanceId],
     -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInstanceStatus' with the minimum fields required to make a request.
---
--- * 'includeAllInstances' - When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only.
---
--- Default: @false@
--- * 'filters' - The filters.
---
---
---     * @availability-zone@ - The Availability Zone of the instance.
---
---
---     * @event.code@ - The code for the scheduled event (@instance-reboot@ | @system-reboot@ | @system-maintenance@ | @instance-retirement@ | @instance-stop@ ).
---
---
---     * @event.description@ - A description of the event.
---
---
---     * @event.instance-event-id@ - The ID of the event whose date and time you are modifying.
---
---
---     * @event.not-after@ - The latest end time for the scheduled event (for example, @2014-09-15T17:15:20.000Z@ ).
---
---
---     * @event.not-before@ - The earliest start time for the scheduled event (for example, @2014-09-15T17:15:20.000Z@ ).
---
---
---     * @event.not-before-deadline@ - The deadline for starting the event (for example, @2014-09-15T17:15:20.000Z@ ).
---
---
---     * @instance-state-code@ - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
---
---
---     * @instance-state-name@ - The state of the instance (@pending@ | @running@ | @shutting-down@ | @terminated@ | @stopping@ | @stopped@ ).
---
---
---     * @instance-status.reachability@ - Filters on instance status where the name is @reachability@ (@passed@ | @failed@ | @initializing@ | @insufficient-data@ ).
---
---
---     * @instance-status.status@ - The status of the instance (@ok@ | @impaired@ | @initializing@ | @insufficient-data@ | @not-applicable@ ).
---
---
---     * @system-status.reachability@ - Filters on system status where the name is @reachability@ (@passed@ | @failed@ | @initializing@ | @insufficient-data@ ).
---
---
---     * @system-status.status@ - The system status of the instance (@ok@ | @impaired@ | @initializing@ | @insufficient-data@ | @not-applicable@ ).
---
---
--- * 'nextToken' - The token to retrieve the next page of results.
--- * 'instanceIds' - The instance IDs.
---
--- Default: Describes all your instances.
--- Constraints: Maximum 100 explicitly specified instance IDs.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
+-- | Creates a 'DescribeInstanceStatus' value with any optional fields omitted.
 mkDescribeInstanceStatus ::
   DescribeInstanceStatus
 mkDescribeInstanceStatus =
   DescribeInstanceStatus'
-    { includeAllInstances = Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      instanceIds = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      includeAllInstances = Core.Nothing,
+      instanceIds = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
--- | When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- Default: @false@
---
--- /Note:/ Consider using 'includeAllInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dissIncludeAllInstances :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Bool)
-dissIncludeAllInstances = Lens.lens (includeAllInstances :: DescribeInstanceStatus -> Lude.Maybe Lude.Bool) (\s a -> s {includeAllInstances = a} :: DescribeInstanceStatus)
-{-# DEPRECATED dissIncludeAllInstances "Use generic-lens or generic-optics with 'includeAllInstances' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disDryRun :: Lens.Lens' DescribeInstanceStatus (Core.Maybe Core.Bool)
+disDryRun = Lens.field @"dryRun"
+{-# DEPRECATED disDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The filters.
 --
@@ -240,16 +185,18 @@ dissIncludeAllInstances = Lens.lens (includeAllInstances :: DescribeInstanceStat
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dissFilters :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe [Filter])
-dissFilters = Lens.lens (filters :: DescribeInstanceStatus -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeInstanceStatus)
-{-# DEPRECATED dissFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+disFilters :: Lens.Lens' DescribeInstanceStatus (Core.Maybe [Types.Filter])
+disFilters = Lens.field @"filters"
+{-# DEPRECATED disFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | The token to retrieve the next page of results.
+-- | When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dissNextToken :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Text)
-dissNextToken = Lens.lens (nextToken :: DescribeInstanceStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceStatus)
-{-# DEPRECATED dissNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- Default: @false@
+--
+-- /Note:/ Consider using 'includeAllInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disIncludeAllInstances :: Lens.Lens' DescribeInstanceStatus (Core.Maybe Core.Bool)
+disIncludeAllInstances = Lens.field @"includeAllInstances"
+{-# DEPRECATED disIncludeAllInstances "Use generic-lens or generic-optics with 'includeAllInstances' instead." #-}
 
 -- | The instance IDs.
 --
@@ -257,111 +204,113 @@ dissNextToken = Lens.lens (nextToken :: DescribeInstanceStatus -> Lude.Maybe Lud
 -- Constraints: Maximum 100 explicitly specified instance IDs.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dissInstanceIds :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe [Lude.Text])
-dissInstanceIds = Lens.lens (instanceIds :: DescribeInstanceStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: DescribeInstanceStatus)
-{-# DEPRECATED dissInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dissDryRun :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Bool)
-dissDryRun = Lens.lens (dryRun :: DescribeInstanceStatus -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInstanceStatus)
-{-# DEPRECATED dissDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+disInstanceIds :: Lens.Lens' DescribeInstanceStatus (Core.Maybe [Types.InstanceId])
+disInstanceIds = Lens.field @"instanceIds"
+{-# DEPRECATED disInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dissMaxResults :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Int)
-dissMaxResults = Lens.lens (maxResults :: DescribeInstanceStatus -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeInstanceStatus)
-{-# DEPRECATED dissMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+disMaxResults :: Lens.Lens' DescribeInstanceStatus (Core.Maybe Core.Int)
+disMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED disMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeInstanceStatus where
-  page rq rs
-    | Page.stop (rs Lens.^. disrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. disrsInstanceStatuses) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dissNextToken Lens..~ rs Lens.^. disrsNextToken
+-- | The token to retrieve the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disNextToken :: Lens.Lens' DescribeInstanceStatus (Core.Maybe Types.String)
+disNextToken = Lens.field @"nextToken"
+{-# DEPRECATED disNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeInstanceStatus where
+instance Core.AWSRequest DescribeInstanceStatus where
   type Rs DescribeInstanceStatus = DescribeInstanceStatusResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeInstanceStatus")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> ( Core.toQueryValue "IncludeAllInstances"
+                            Core.<$> includeAllInstances
+                        )
+                Core.<> (Core.toQueryList "InstanceId" Core.<$> instanceIds)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeInstanceStatusResponse'
-            Lude.<$> ( x Lude..@? "instanceStatusSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "instanceStatusSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeInstanceStatus where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeInstanceStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeInstanceStatus where
-  toQuery DescribeInstanceStatus' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeInstanceStatus" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "IncludeAllInstances" Lude.=: includeAllInstances,
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        Lude.toQuery (Lude.toQueryList "InstanceId" Lude.<$> instanceIds),
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeInstanceStatus where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"instanceStatuses" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeInstanceStatusResponse' smart constructor.
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
   { -- | Information about the status of the instances.
-    instanceStatuses :: Lude.Maybe [InstanceStatus],
+    instanceStatuses :: Core.Maybe [Types.InstanceStatus],
     -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeInstanceStatusResponse' with the minimum fields required to make a request.
---
--- * 'instanceStatuses' - Information about the status of the instances.
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInstanceStatusResponse' value with any optional fields omitted.
 mkDescribeInstanceStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInstanceStatusResponse
-mkDescribeInstanceStatusResponse pResponseStatus_ =
+mkDescribeInstanceStatusResponse responseStatus =
   DescribeInstanceStatusResponse'
-    { instanceStatuses = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceStatuses = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the status of the instances.
 --
 -- /Note:/ Consider using 'instanceStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsInstanceStatuses :: Lens.Lens' DescribeInstanceStatusResponse (Lude.Maybe [InstanceStatus])
-disrsInstanceStatuses = Lens.lens (instanceStatuses :: DescribeInstanceStatusResponse -> Lude.Maybe [InstanceStatus]) (\s a -> s {instanceStatuses = a} :: DescribeInstanceStatusResponse)
-{-# DEPRECATED disrsInstanceStatuses "Use generic-lens or generic-optics with 'instanceStatuses' instead." #-}
+disrrsInstanceStatuses :: Lens.Lens' DescribeInstanceStatusResponse (Core.Maybe [Types.InstanceStatus])
+disrrsInstanceStatuses = Lens.field @"instanceStatuses"
+{-# DEPRECATED disrrsInstanceStatuses "Use generic-lens or generic-optics with 'instanceStatuses' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsNextToken :: Lens.Lens' DescribeInstanceStatusResponse (Lude.Maybe Lude.Text)
-disrsNextToken = Lens.lens (nextToken :: DescribeInstanceStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceStatusResponse)
-{-# DEPRECATED disrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+disrrsNextToken :: Lens.Lens' DescribeInstanceStatusResponse (Core.Maybe Types.String)
+disrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED disrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DescribeInstanceStatusResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceStatusResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+disrrsResponseStatus :: Lens.Lens' DescribeInstanceStatusResponse Core.Int
+disrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED disrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

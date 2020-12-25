@@ -13,51 +13,56 @@
 module Network.AWS.CodeDeploy.Types.TagFilterType
   ( TagFilterType
       ( TagFilterType',
-        TFTKeyOnly,
-        TFTValueOnly,
-        TFTKeyAndValue
+        TagFilterTypeKeyOnly,
+        TagFilterTypeValueOnly,
+        TagFilterTypeKeyAndValue,
+        fromTagFilterType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TagFilterType = TagFilterType' Lude.Text
+newtype TagFilterType = TagFilterType'
+  { fromTagFilterType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TFTKeyOnly :: TagFilterType
-pattern TFTKeyOnly = TagFilterType' "KEY_ONLY"
+pattern TagFilterTypeKeyOnly :: TagFilterType
+pattern TagFilterTypeKeyOnly = TagFilterType' "KEY_ONLY"
 
-pattern TFTValueOnly :: TagFilterType
-pattern TFTValueOnly = TagFilterType' "VALUE_ONLY"
+pattern TagFilterTypeValueOnly :: TagFilterType
+pattern TagFilterTypeValueOnly = TagFilterType' "VALUE_ONLY"
 
-pattern TFTKeyAndValue :: TagFilterType
-pattern TFTKeyAndValue = TagFilterType' "KEY_AND_VALUE"
+pattern TagFilterTypeKeyAndValue :: TagFilterType
+pattern TagFilterTypeKeyAndValue = TagFilterType' "KEY_AND_VALUE"
 
 {-# COMPLETE
-  TFTKeyOnly,
-  TFTValueOnly,
-  TFTKeyAndValue,
+  TagFilterTypeKeyOnly,
+  TagFilterTypeValueOnly,
+  TagFilterTypeKeyAndValue,
   TagFilterType'
   #-}

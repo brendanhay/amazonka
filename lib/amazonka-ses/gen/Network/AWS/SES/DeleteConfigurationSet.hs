@@ -22,7 +22,7 @@ module Network.AWS.SES.DeleteConfigurationSet
     mkDeleteConfigurationSet,
 
     -- ** Request lenses
-    dcsConfigurationSetName,
+    dConfigurationSetName,
 
     -- * Destructuring the response
     DeleteConfigurationSetResponse (..),
@@ -34,92 +34,85 @@ module Network.AWS.SES.DeleteConfigurationSet
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to delete a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkDeleteConfigurationSet' smart constructor.
 newtype DeleteConfigurationSet = DeleteConfigurationSet'
   { -- | The name of the configuration set to delete.
-    configurationSetName :: Lude.Text
+    configurationSetName :: Types.ConfigurationSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigurationSet' with the minimum fields required to make a request.
---
--- * 'configurationSetName' - The name of the configuration set to delete.
+-- | Creates a 'DeleteConfigurationSet' value with any optional fields omitted.
 mkDeleteConfigurationSet ::
   -- | 'configurationSetName'
-  Lude.Text ->
+  Types.ConfigurationSetName ->
   DeleteConfigurationSet
-mkDeleteConfigurationSet pConfigurationSetName_ =
-  DeleteConfigurationSet'
-    { configurationSetName =
-        pConfigurationSetName_
-    }
+mkDeleteConfigurationSet configurationSetName =
+  DeleteConfigurationSet' {configurationSetName}
 
 -- | The name of the configuration set to delete.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsConfigurationSetName :: Lens.Lens' DeleteConfigurationSet Lude.Text
-dcsConfigurationSetName = Lens.lens (configurationSetName :: DeleteConfigurationSet -> Lude.Text) (\s a -> s {configurationSetName = a} :: DeleteConfigurationSet)
-{-# DEPRECATED dcsConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
+dConfigurationSetName :: Lens.Lens' DeleteConfigurationSet Types.ConfigurationSetName
+dConfigurationSetName = Lens.field @"configurationSetName"
+{-# DEPRECATED dConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
-instance Lude.AWSRequest DeleteConfigurationSet where
+instance Core.AWSRequest DeleteConfigurationSet where
   type Rs DeleteConfigurationSet = DeleteConfigurationSetResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteConfigurationSet")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ConfigurationSetName" configurationSetName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteConfigurationSetResult"
       ( \s h x ->
           DeleteConfigurationSetResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteConfigurationSet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteConfigurationSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConfigurationSet where
-  toQuery DeleteConfigurationSet' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteConfigurationSet" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ConfigurationSetName" Lude.=: configurationSetName
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkDeleteConfigurationSetResponse' smart constructor.
 newtype DeleteConfigurationSetResponse = DeleteConfigurationSetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigurationSetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteConfigurationSetResponse' value with any optional fields omitted.
 mkDeleteConfigurationSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteConfigurationSetResponse
-mkDeleteConfigurationSetResponse pResponseStatus_ =
-  DeleteConfigurationSetResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteConfigurationSetResponse responseStatus =
+  DeleteConfigurationSetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteConfigurationSetResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteConfigurationSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConfigurationSetResponse)
+drsResponseStatus :: Lens.Lens' DeleteConfigurationSetResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

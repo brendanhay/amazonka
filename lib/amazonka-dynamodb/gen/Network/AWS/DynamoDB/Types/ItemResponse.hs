@@ -17,42 +17,38 @@ module Network.AWS.DynamoDB.Types.ItemResponse
     mkItemResponse,
 
     -- * Lenses
-    iItem,
+    irItem,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AttributeValue
+import qualified Network.AWS.DynamoDB.Types.AttributeName as Types
+import qualified Network.AWS.DynamoDB.Types.AttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details for the requested item.
 --
 -- /See:/ 'mkItemResponse' smart constructor.
 newtype ItemResponse = ItemResponse'
   { -- | Map of attribute data consisting of the data type and attribute value.
-    item :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))
+    item :: Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ItemResponse' with the minimum fields required to make a request.
---
--- * 'item' - Map of attribute data consisting of the data type and attribute value.
+-- | Creates a 'ItemResponse' value with any optional fields omitted.
 mkItemResponse ::
   ItemResponse
-mkItemResponse = ItemResponse' {item = Lude.Nothing}
+mkItemResponse = ItemResponse' {item = Core.Nothing}
 
 -- | Map of attribute data consisting of the data type and attribute value.
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iItem :: Lens.Lens' ItemResponse (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
-iItem = Lens.lens (item :: ItemResponse -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {item = a} :: ItemResponse)
-{-# DEPRECATED iItem "Use generic-lens or generic-optics with 'item' instead." #-}
+irItem :: Lens.Lens' ItemResponse (Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue))
+irItem = Lens.field @"item"
+{-# DEPRECATED irItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.FromJSON ItemResponse where
+instance Core.FromJSON ItemResponse where
   parseJSON =
-    Lude.withObject
-      "ItemResponse"
-      ( \x ->
-          ItemResponse' Lude.<$> (x Lude..:? "Item" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ItemResponse" Core.$
+      \x -> ItemResponse' Core.<$> (x Core..:? "Item")

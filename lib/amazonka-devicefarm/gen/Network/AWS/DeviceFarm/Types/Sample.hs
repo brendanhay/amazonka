@@ -18,23 +18,23 @@ module Network.AWS.DeviceFarm.Types.Sample
 
     -- * Lenses
     sfArn,
-    sfUrl,
     sfType,
+    sfUrl,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.SampleType
+import qualified Network.AWS.DeviceFarm.Types.AmazonResourceName as Types
+import qualified Network.AWS.DeviceFarm.Types.SampleType as Types
+import qualified Network.AWS.DeviceFarm.Types.URL as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a sample of performance data.
 --
 -- /See:/ 'mkSample' smart constructor.
 data Sample = Sample'
   { -- | The sample's ARN.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.
-    url :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.AmazonResourceName,
     -- | The sample's type.
     --
     -- Must be one of the following values:
@@ -88,90 +88,29 @@ data Sample = Sample'
     --
     --
     --     * TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.
-    type' :: Lude.Maybe SampleType
+    type' :: Core.Maybe Types.SampleType,
+    -- | The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.
+    url :: Core.Maybe Types.URL
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Sample' with the minimum fields required to make a request.
---
--- * 'arn' - The sample's ARN.
--- * 'url' - The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.
--- * 'type'' - The sample's type.
---
--- Must be one of the following values:
---
---     * CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.
---
---
---     * MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.
---
---
---     * NATIVE_AVG_DRAWTIME
---
---
---     * NATIVE_FPS
---
---
---     * NATIVE_FRAMES
---
---
---     * NATIVE_MAX_DRAWTIME
---
---
---     * NATIVE_MIN_DRAWTIME
---
---
---     * OPENGL_AVG_DRAWTIME
---
---
---     * OPENGL_FPS
---
---
---     * OPENGL_FRAMES
---
---
---     * OPENGL_MAX_DRAWTIME
---
---
---     * OPENGL_MIN_DRAWTIME
---
---
---     * RX
---
---
---     * RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.
---
---
---     * THREADS: A threads sample type. This is expressed as the total number of threads per app process.
---
---
---     * TX
---
---
---     * TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.
+-- | Creates a 'Sample' value with any optional fields omitted.
 mkSample ::
   Sample
 mkSample =
   Sample'
-    { arn = Lude.Nothing,
-      url = Lude.Nothing,
-      type' = Lude.Nothing
+    { arn = Core.Nothing,
+      type' = Core.Nothing,
+      url = Core.Nothing
     }
 
 -- | The sample's ARN.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfArn :: Lens.Lens' Sample (Lude.Maybe Lude.Text)
-sfArn = Lens.lens (arn :: Sample -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Sample)
+sfArn :: Lens.Lens' Sample (Core.Maybe Types.AmazonResourceName)
+sfArn = Lens.field @"arn"
 {-# DEPRECATED sfArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfUrl :: Lens.Lens' Sample (Lude.Maybe Lude.Text)
-sfUrl = Lens.lens (url :: Sample -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: Sample)
-{-# DEPRECATED sfUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The sample's type.
 --
@@ -230,17 +169,22 @@ sfUrl = Lens.lens (url :: Sample -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfType :: Lens.Lens' Sample (Lude.Maybe SampleType)
-sfType = Lens.lens (type' :: Sample -> Lude.Maybe SampleType) (\s a -> s {type' = a} :: Sample)
+sfType :: Lens.Lens' Sample (Core.Maybe Types.SampleType)
+sfType = Lens.field @"type'"
 {-# DEPRECATED sfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Sample where
+-- | The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfUrl :: Lens.Lens' Sample (Core.Maybe Types.URL)
+sfUrl = Lens.field @"url"
+{-# DEPRECATED sfUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+
+instance Core.FromJSON Sample where
   parseJSON =
-    Lude.withObject
-      "Sample"
-      ( \x ->
-          Sample'
-            Lude.<$> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "url")
-            Lude.<*> (x Lude..:? "type")
-      )
+    Core.withObject "Sample" Core.$
+      \x ->
+        Sample'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "type")
+          Core.<*> (x Core..:? "url")

@@ -17,77 +17,72 @@ module Network.AWS.WorkMail.Types.Permission
     mkPermission,
 
     -- * Lenses
+    pGranteeId,
     pGranteeType,
     pPermissionValues,
-    pGranteeId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkMail.Types.MemberType
-import Network.AWS.WorkMail.Types.PermissionType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkMail.Types.MemberType as Types
+import qualified Network.AWS.WorkMail.Types.PermissionType as Types
+import qualified Network.AWS.WorkMail.Types.WorkMailIdentifier as Types
 
 -- | Permission granted to a user, group, or resource to access a certain aspect of another user, group, or resource mailbox.
 --
 -- /See:/ 'mkPermission' smart constructor.
 data Permission = Permission'
-  { -- | The type of user, group, or resource referred to in GranteeId.
-    granteeType :: MemberType,
+  { -- | The identifier of the user, group, or resource to which the permissions are granted.
+    granteeId :: Types.WorkMailIdentifier,
+    -- | The type of user, group, or resource referred to in GranteeId.
+    granteeType :: Types.MemberType,
     -- | The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
-    permissionValues :: [PermissionType],
-    -- | The identifier of the user, group, or resource to which the permissions are granted.
-    granteeId :: Lude.Text
+    permissionValues :: [Types.PermissionType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Permission' with the minimum fields required to make a request.
---
--- * 'granteeType' - The type of user, group, or resource referred to in GranteeId.
--- * 'permissionValues' - The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
--- * 'granteeId' - The identifier of the user, group, or resource to which the permissions are granted.
+-- | Creates a 'Permission' value with any optional fields omitted.
 mkPermission ::
-  -- | 'granteeType'
-  MemberType ->
   -- | 'granteeId'
-  Lude.Text ->
+  Types.WorkMailIdentifier ->
+  -- | 'granteeType'
+  Types.MemberType ->
   Permission
-mkPermission pGranteeType_ pGranteeId_ =
+mkPermission granteeId granteeType =
   Permission'
-    { granteeType = pGranteeType_,
-      permissionValues = Lude.mempty,
-      granteeId = pGranteeId_
+    { granteeId,
+      granteeType,
+      permissionValues = Core.mempty
     }
+
+-- | The identifier of the user, group, or resource to which the permissions are granted.
+--
+-- /Note:/ Consider using 'granteeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pGranteeId :: Lens.Lens' Permission Types.WorkMailIdentifier
+pGranteeId = Lens.field @"granteeId"
+{-# DEPRECATED pGranteeId "Use generic-lens or generic-optics with 'granteeId' instead." #-}
 
 -- | The type of user, group, or resource referred to in GranteeId.
 --
 -- /Note:/ Consider using 'granteeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pGranteeType :: Lens.Lens' Permission MemberType
-pGranteeType = Lens.lens (granteeType :: Permission -> MemberType) (\s a -> s {granteeType = a} :: Permission)
+pGranteeType :: Lens.Lens' Permission Types.MemberType
+pGranteeType = Lens.field @"granteeType"
 {-# DEPRECATED pGranteeType "Use generic-lens or generic-optics with 'granteeType' instead." #-}
 
 -- | The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
 --
 -- /Note:/ Consider using 'permissionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPermissionValues :: Lens.Lens' Permission [PermissionType]
-pPermissionValues = Lens.lens (permissionValues :: Permission -> [PermissionType]) (\s a -> s {permissionValues = a} :: Permission)
+pPermissionValues :: Lens.Lens' Permission [Types.PermissionType]
+pPermissionValues = Lens.field @"permissionValues"
 {-# DEPRECATED pPermissionValues "Use generic-lens or generic-optics with 'permissionValues' instead." #-}
 
--- | The identifier of the user, group, or resource to which the permissions are granted.
---
--- /Note:/ Consider using 'granteeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pGranteeId :: Lens.Lens' Permission Lude.Text
-pGranteeId = Lens.lens (granteeId :: Permission -> Lude.Text) (\s a -> s {granteeId = a} :: Permission)
-{-# DEPRECATED pGranteeId "Use generic-lens or generic-optics with 'granteeId' instead." #-}
-
-instance Lude.FromJSON Permission where
+instance Core.FromJSON Permission where
   parseJSON =
-    Lude.withObject
-      "Permission"
-      ( \x ->
-          Permission'
-            Lude.<$> (x Lude..: "GranteeType")
-            Lude.<*> (x Lude..:? "PermissionValues" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "GranteeId")
-      )
+    Core.withObject "Permission" Core.$
+      \x ->
+        Permission'
+          Core.<$> (x Core..: "GranteeId")
+          Core.<*> (x Core..: "GranteeType")
+          Core.<*> (x Core..:? "PermissionValues" Core..!= Core.mempty)

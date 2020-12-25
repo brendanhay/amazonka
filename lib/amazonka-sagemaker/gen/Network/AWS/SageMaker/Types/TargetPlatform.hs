@@ -17,17 +17,17 @@ module Network.AWS.SageMaker.Types.TargetPlatform
     mkTargetPlatform,
 
     -- * Lenses
-    tpOS,
-    tpAccelerator,
+    tpOs,
     tpArch,
+    tpAccelerator,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.TargetPlatformAccelerator
-import Network.AWS.SageMaker.Types.TargetPlatformArch
-import Network.AWS.SageMaker.Types.TargetPlatformOS
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.TargetPlatformAccelerator as Types
+import qualified Network.AWS.SageMaker.Types.TargetPlatformArch as Types
+import qualified Network.AWS.SageMaker.Types.TargetPlatformOs as Types
 
 -- | Contains information about a target platform that you want your model to run on, such as OS, architecture, and accelerators. It is an alternative of @TargetDevice@ .
 --
@@ -40,18 +40,7 @@ data TargetPlatform = TargetPlatform'
     --
     --
     --     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
-    os :: TargetPlatformOS,
-    -- | Specifies a target platform accelerator (optional).
-    --
-    --
-    --     * @NVIDIA@ : Nvidia graphics processing unit. It also requires @gpu-code@ , @trt-ver@ , @cuda-ver@ compiler options
-    --
-    --
-    --     * @MALI@ : ARM Mali graphics processor
-    --
-    --
-    --     * @INTEL_GRAPHICS@ : Integrated Intel graphics
-    accelerator :: Lude.Maybe TargetPlatformAccelerator,
+    os :: Types.TargetPlatformOs,
     -- | Specifies a target platform architecture.
     --
     --
@@ -68,62 +57,31 @@ data TargetPlatform = TargetPlatform'
     --
     --
     --     * @ARM_EABI@ : ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.
-    arch :: TargetPlatformArch
+    arch :: Types.TargetPlatformArch,
+    -- | Specifies a target platform accelerator (optional).
+    --
+    --
+    --     * @NVIDIA@ : Nvidia graphics processing unit. It also requires @gpu-code@ , @trt-ver@ , @cuda-ver@ compiler options
+    --
+    --
+    --     * @MALI@ : ARM Mali graphics processor
+    --
+    --
+    --     * @INTEL_GRAPHICS@ : Integrated Intel graphics
+    accelerator :: Core.Maybe Types.TargetPlatformAccelerator
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetPlatform' with the minimum fields required to make a request.
---
--- * 'os' - Specifies a target platform OS.
---
---
---     * @LINUX@ : Linux-based operating systems.
---
---
---     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
---
---
--- * 'accelerator' - Specifies a target platform accelerator (optional).
---
---
---     * @NVIDIA@ : Nvidia graphics processing unit. It also requires @gpu-code@ , @trt-ver@ , @cuda-ver@ compiler options
---
---
---     * @MALI@ : ARM Mali graphics processor
---
---
---     * @INTEL_GRAPHICS@ : Integrated Intel graphics
---
---
--- * 'arch' - Specifies a target platform architecture.
---
---
---     * @X86_64@ : 64-bit version of the x86 instruction set.
---
---
---     * @X86@ : 32-bit version of the x86 instruction set.
---
---
---     * @ARM64@ : ARMv8 64-bit CPU.
---
---
---     * @ARM_EABIHF@ : ARMv7 32-bit, Hard Float.
---
---
---     * @ARM_EABI@ : ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.
+-- | Creates a 'TargetPlatform' value with any optional fields omitted.
 mkTargetPlatform ::
   -- | 'os'
-  TargetPlatformOS ->
+  Types.TargetPlatformOs ->
   -- | 'arch'
-  TargetPlatformArch ->
+  Types.TargetPlatformArch ->
   TargetPlatform
-mkTargetPlatform pOS_ pArch_ =
-  TargetPlatform'
-    { os = pOS_,
-      accelerator = Lude.Nothing,
-      arch = pArch_
-    }
+mkTargetPlatform os arch =
+  TargetPlatform' {os, arch, accelerator = Core.Nothing}
 
 -- | Specifies a target platform OS.
 --
@@ -136,27 +94,9 @@ mkTargetPlatform pOS_ pArch_ =
 --
 --
 -- /Note:/ Consider using 'os' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpOS :: Lens.Lens' TargetPlatform TargetPlatformOS
-tpOS = Lens.lens (os :: TargetPlatform -> TargetPlatformOS) (\s a -> s {os = a} :: TargetPlatform)
-{-# DEPRECATED tpOS "Use generic-lens or generic-optics with 'os' instead." #-}
-
--- | Specifies a target platform accelerator (optional).
---
---
---     * @NVIDIA@ : Nvidia graphics processing unit. It also requires @gpu-code@ , @trt-ver@ , @cuda-ver@ compiler options
---
---
---     * @MALI@ : ARM Mali graphics processor
---
---
---     * @INTEL_GRAPHICS@ : Integrated Intel graphics
---
---
---
--- /Note:/ Consider using 'accelerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpAccelerator :: Lens.Lens' TargetPlatform (Lude.Maybe TargetPlatformAccelerator)
-tpAccelerator = Lens.lens (accelerator :: TargetPlatform -> Lude.Maybe TargetPlatformAccelerator) (\s a -> s {accelerator = a} :: TargetPlatform)
-{-# DEPRECATED tpAccelerator "Use generic-lens or generic-optics with 'accelerator' instead." #-}
+tpOs :: Lens.Lens' TargetPlatform Types.TargetPlatformOs
+tpOs = Lens.field @"os"
+{-# DEPRECATED tpOs "Use generic-lens or generic-optics with 'os' instead." #-}
 
 -- | Specifies a target platform architecture.
 --
@@ -178,27 +118,43 @@ tpAccelerator = Lens.lens (accelerator :: TargetPlatform -> Lude.Maybe TargetPla
 --
 --
 -- /Note:/ Consider using 'arch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpArch :: Lens.Lens' TargetPlatform TargetPlatformArch
-tpArch = Lens.lens (arch :: TargetPlatform -> TargetPlatformArch) (\s a -> s {arch = a} :: TargetPlatform)
+tpArch :: Lens.Lens' TargetPlatform Types.TargetPlatformArch
+tpArch = Lens.field @"arch"
 {-# DEPRECATED tpArch "Use generic-lens or generic-optics with 'arch' instead." #-}
 
-instance Lude.FromJSON TargetPlatform where
-  parseJSON =
-    Lude.withObject
-      "TargetPlatform"
-      ( \x ->
-          TargetPlatform'
-            Lude.<$> (x Lude..: "Os")
-            Lude.<*> (x Lude..:? "Accelerator")
-            Lude.<*> (x Lude..: "Arch")
-      )
+-- | Specifies a target platform accelerator (optional).
+--
+--
+--     * @NVIDIA@ : Nvidia graphics processing unit. It also requires @gpu-code@ , @trt-ver@ , @cuda-ver@ compiler options
+--
+--
+--     * @MALI@ : ARM Mali graphics processor
+--
+--
+--     * @INTEL_GRAPHICS@ : Integrated Intel graphics
+--
+--
+--
+-- /Note:/ Consider using 'accelerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpAccelerator :: Lens.Lens' TargetPlatform (Core.Maybe Types.TargetPlatformAccelerator)
+tpAccelerator = Lens.field @"accelerator"
+{-# DEPRECATED tpAccelerator "Use generic-lens or generic-optics with 'accelerator' instead." #-}
 
-instance Lude.ToJSON TargetPlatform where
-  toJSON TargetPlatform' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Os" Lude..= os),
-            ("Accelerator" Lude..=) Lude.<$> accelerator,
-            Lude.Just ("Arch" Lude..= arch)
+instance Core.FromJSON TargetPlatform where
+  toJSON TargetPlatform {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Os" Core..= os),
+            Core.Just ("Arch" Core..= arch),
+            ("Accelerator" Core..=) Core.<$> accelerator
           ]
       )
+
+instance Core.FromJSON TargetPlatform where
+  parseJSON =
+    Core.withObject "TargetPlatform" Core.$
+      \x ->
+        TargetPlatform'
+          Core.<$> (x Core..: "Os")
+          Core.<*> (x Core..: "Arch")
+          Core.<*> (x Core..:? "Accelerator")

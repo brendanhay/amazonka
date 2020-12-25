@@ -13,66 +13,71 @@
 module Network.AWS.ECR.Types.FindingSeverity
   ( FindingSeverity
       ( FindingSeverity',
-        Informational,
-        Low,
-        Medium,
-        High,
-        Critical,
-        Undefined
+        FindingSeverityInformational,
+        FindingSeverityLow,
+        FindingSeverityMedium,
+        FindingSeverityHigh,
+        FindingSeverityCritical,
+        FindingSeverityUndefined,
+        fromFindingSeverity
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FindingSeverity = FindingSeverity' Lude.Text
+newtype FindingSeverity = FindingSeverity'
+  { fromFindingSeverity ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Informational :: FindingSeverity
-pattern Informational = FindingSeverity' "INFORMATIONAL"
+pattern FindingSeverityInformational :: FindingSeverity
+pattern FindingSeverityInformational = FindingSeverity' "INFORMATIONAL"
 
-pattern Low :: FindingSeverity
-pattern Low = FindingSeverity' "LOW"
+pattern FindingSeverityLow :: FindingSeverity
+pattern FindingSeverityLow = FindingSeverity' "LOW"
 
-pattern Medium :: FindingSeverity
-pattern Medium = FindingSeverity' "MEDIUM"
+pattern FindingSeverityMedium :: FindingSeverity
+pattern FindingSeverityMedium = FindingSeverity' "MEDIUM"
 
-pattern High :: FindingSeverity
-pattern High = FindingSeverity' "HIGH"
+pattern FindingSeverityHigh :: FindingSeverity
+pattern FindingSeverityHigh = FindingSeverity' "HIGH"
 
-pattern Critical :: FindingSeverity
-pattern Critical = FindingSeverity' "CRITICAL"
+pattern FindingSeverityCritical :: FindingSeverity
+pattern FindingSeverityCritical = FindingSeverity' "CRITICAL"
 
-pattern Undefined :: FindingSeverity
-pattern Undefined = FindingSeverity' "UNDEFINED"
+pattern FindingSeverityUndefined :: FindingSeverity
+pattern FindingSeverityUndefined = FindingSeverity' "UNDEFINED"
 
 {-# COMPLETE
-  Informational,
-  Low,
-  Medium,
-  High,
-  Critical,
-  Undefined,
+  FindingSeverityInformational,
+  FindingSeverityLow,
+  FindingSeverityMedium,
+  FindingSeverityHigh,
+  FindingSeverityCritical,
+  FindingSeverityUndefined,
   FindingSeverity'
   #-}

@@ -13,46 +13,51 @@
 module Network.AWS.CloudHSM.Types.ClientVersion
   ( ClientVersion
       ( ClientVersion',
-        VD5_1,
-        VD5_3
+        ClientVersionVD5_1,
+        ClientVersionVD5_3,
+        fromClientVersion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ClientVersion = ClientVersion' Lude.Text
+newtype ClientVersion = ClientVersion'
+  { fromClientVersion ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VD5_1 :: ClientVersion
-pattern VD5_1 = ClientVersion' "5.1"
+pattern ClientVersionVD5_1 :: ClientVersion
+pattern ClientVersionVD5_1 = ClientVersion' "5.1"
 
-pattern VD5_3 :: ClientVersion
-pattern VD5_3 = ClientVersion' "5.3"
+pattern ClientVersionVD5_3 :: ClientVersion
+pattern ClientVersionVD5_3 = ClientVersion' "5.3"
 
 {-# COMPLETE
-  VD5_1,
-  VD5_3,
+  ClientVersionVD5_1,
+  ClientVersionVD5_3,
   ClientVersion'
   #-}

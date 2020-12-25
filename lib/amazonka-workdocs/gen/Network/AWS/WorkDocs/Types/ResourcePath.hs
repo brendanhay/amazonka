@@ -22,38 +22,32 @@ module Network.AWS.WorkDocs.Types.ResourcePath
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.ResourcePathComponent
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.ResourcePathComponent as Types
 
 -- | Describes the path information of a resource.
 --
 -- /See:/ 'mkResourcePath' smart constructor.
 newtype ResourcePath = ResourcePath'
   { -- | The components of the resource path.
-    components :: Lude.Maybe [ResourcePathComponent]
+    components :: Core.Maybe [Types.ResourcePathComponent]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourcePath' with the minimum fields required to make a request.
---
--- * 'components' - The components of the resource path.
+-- | Creates a 'ResourcePath' value with any optional fields omitted.
 mkResourcePath ::
   ResourcePath
-mkResourcePath = ResourcePath' {components = Lude.Nothing}
+mkResourcePath = ResourcePath' {components = Core.Nothing}
 
 -- | The components of the resource path.
 --
 -- /Note:/ Consider using 'components' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpComponents :: Lens.Lens' ResourcePath (Lude.Maybe [ResourcePathComponent])
-rpComponents = Lens.lens (components :: ResourcePath -> Lude.Maybe [ResourcePathComponent]) (\s a -> s {components = a} :: ResourcePath)
+rpComponents :: Lens.Lens' ResourcePath (Core.Maybe [Types.ResourcePathComponent])
+rpComponents = Lens.field @"components"
 {-# DEPRECATED rpComponents "Use generic-lens or generic-optics with 'components' instead." #-}
 
-instance Lude.FromJSON ResourcePath where
+instance Core.FromJSON ResourcePath where
   parseJSON =
-    Lude.withObject
-      "ResourcePath"
-      ( \x ->
-          ResourcePath'
-            Lude.<$> (x Lude..:? "Components" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ResourcePath" Core.$
+      \x -> ResourcePath' Core.<$> (x Core..:? "Components")

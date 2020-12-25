@@ -23,62 +23,57 @@ module Network.AWS.MediaConvert.Types.MotionImageInsertionFramerate
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | For motion overlays that don't have a built-in frame rate, specify the frame rate of the overlay in frames per second, as a fraction. For example, specify 24 fps as 24/1. The overlay frame rate doesn't need to match the frame rate of the underlying video.
 --
 -- /See:/ 'mkMotionImageInsertionFramerate' smart constructor.
 data MotionImageInsertionFramerate = MotionImageInsertionFramerate'
   { -- | The bottom of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 1.
-    framerateDenominator :: Lude.Maybe Lude.Natural,
+    framerateDenominator :: Core.Maybe Core.Natural,
     -- | The top of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 24.
-    framerateNumerator :: Lude.Maybe Lude.Natural
+    framerateNumerator :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MotionImageInsertionFramerate' with the minimum fields required to make a request.
---
--- * 'framerateDenominator' - The bottom of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 1.
--- * 'framerateNumerator' - The top of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 24.
+-- | Creates a 'MotionImageInsertionFramerate' value with any optional fields omitted.
 mkMotionImageInsertionFramerate ::
   MotionImageInsertionFramerate
 mkMotionImageInsertionFramerate =
   MotionImageInsertionFramerate'
     { framerateDenominator =
-        Lude.Nothing,
-      framerateNumerator = Lude.Nothing
+        Core.Nothing,
+      framerateNumerator = Core.Nothing
     }
 
 -- | The bottom of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 1.
 --
 -- /Note:/ Consider using 'framerateDenominator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miifFramerateDenominator :: Lens.Lens' MotionImageInsertionFramerate (Lude.Maybe Lude.Natural)
-miifFramerateDenominator = Lens.lens (framerateDenominator :: MotionImageInsertionFramerate -> Lude.Maybe Lude.Natural) (\s a -> s {framerateDenominator = a} :: MotionImageInsertionFramerate)
+miifFramerateDenominator :: Lens.Lens' MotionImageInsertionFramerate (Core.Maybe Core.Natural)
+miifFramerateDenominator = Lens.field @"framerateDenominator"
 {-# DEPRECATED miifFramerateDenominator "Use generic-lens or generic-optics with 'framerateDenominator' instead." #-}
 
 -- | The top of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 24.
 --
 -- /Note:/ Consider using 'framerateNumerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miifFramerateNumerator :: Lens.Lens' MotionImageInsertionFramerate (Lude.Maybe Lude.Natural)
-miifFramerateNumerator = Lens.lens (framerateNumerator :: MotionImageInsertionFramerate -> Lude.Maybe Lude.Natural) (\s a -> s {framerateNumerator = a} :: MotionImageInsertionFramerate)
+miifFramerateNumerator :: Lens.Lens' MotionImageInsertionFramerate (Core.Maybe Core.Natural)
+miifFramerateNumerator = Lens.field @"framerateNumerator"
 {-# DEPRECATED miifFramerateNumerator "Use generic-lens or generic-optics with 'framerateNumerator' instead." #-}
 
-instance Lude.FromJSON MotionImageInsertionFramerate where
-  parseJSON =
-    Lude.withObject
-      "MotionImageInsertionFramerate"
-      ( \x ->
-          MotionImageInsertionFramerate'
-            Lude.<$> (x Lude..:? "framerateDenominator")
-            Lude.<*> (x Lude..:? "framerateNumerator")
-      )
-
-instance Lude.ToJSON MotionImageInsertionFramerate where
-  toJSON MotionImageInsertionFramerate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("framerateDenominator" Lude..=) Lude.<$> framerateDenominator,
-            ("framerateNumerator" Lude..=) Lude.<$> framerateNumerator
+instance Core.FromJSON MotionImageInsertionFramerate where
+  toJSON MotionImageInsertionFramerate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("framerateDenominator" Core..=) Core.<$> framerateDenominator,
+            ("framerateNumerator" Core..=) Core.<$> framerateNumerator
           ]
       )
+
+instance Core.FromJSON MotionImageInsertionFramerate where
+  parseJSON =
+    Core.withObject "MotionImageInsertionFramerate" Core.$
+      \x ->
+        MotionImageInsertionFramerate'
+          Core.<$> (x Core..:? "framerateDenominator")
+          Core.<*> (x Core..:? "framerateNumerator")

@@ -25,9 +25,9 @@ module Network.AWS.LexModels.GetBuiltinIntents
 
     -- ** Request lenses
     gbiLocale,
+    gbiMaxResults,
     gbiNextToken,
     gbiSignatureContains,
-    gbiMaxResults,
 
     -- * Destructuring the response
     GetBuiltinIntentsResponse (..),
@@ -41,157 +41,142 @@ module Network.AWS.LexModels.GetBuiltinIntents
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetBuiltinIntents' smart constructor.
 data GetBuiltinIntents = GetBuiltinIntents'
   { -- | A list of locales that the intent supports.
-    locale :: Lude.Maybe Locale,
-    -- | A pagination token that fetches the next page of intents. If this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, use the pagination token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
-    signatureContains :: Lude.Maybe Lude.Text,
+    locale :: Core.Maybe Types.Locale,
     -- | The maximum number of intents to return in the response. The default is 10.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A pagination token that fetches the next page of intents. If this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, use the pagination token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
+    signatureContains :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBuiltinIntents' with the minimum fields required to make a request.
---
--- * 'locale' - A list of locales that the intent supports.
--- * 'nextToken' - A pagination token that fetches the next page of intents. If this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, use the pagination token in the next request.
--- * 'signatureContains' - Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
--- * 'maxResults' - The maximum number of intents to return in the response. The default is 10.
+-- | Creates a 'GetBuiltinIntents' value with any optional fields omitted.
 mkGetBuiltinIntents ::
   GetBuiltinIntents
 mkGetBuiltinIntents =
   GetBuiltinIntents'
-    { locale = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      signatureContains = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { locale = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      signatureContains = Core.Nothing
     }
 
 -- | A list of locales that the intent supports.
 --
 -- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbiLocale :: Lens.Lens' GetBuiltinIntents (Lude.Maybe Locale)
-gbiLocale = Lens.lens (locale :: GetBuiltinIntents -> Lude.Maybe Locale) (\s a -> s {locale = a} :: GetBuiltinIntents)
+gbiLocale :: Lens.Lens' GetBuiltinIntents (Core.Maybe Types.Locale)
+gbiLocale = Lens.field @"locale"
 {-# DEPRECATED gbiLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+
+-- | The maximum number of intents to return in the response. The default is 10.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbiMaxResults :: Lens.Lens' GetBuiltinIntents (Core.Maybe Core.Natural)
+gbiMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gbiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A pagination token that fetches the next page of intents. If this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, use the pagination token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbiNextToken :: Lens.Lens' GetBuiltinIntents (Lude.Maybe Lude.Text)
-gbiNextToken = Lens.lens (nextToken :: GetBuiltinIntents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBuiltinIntents)
+gbiNextToken :: Lens.Lens' GetBuiltinIntents (Core.Maybe Types.NextToken)
+gbiNextToken = Lens.field @"nextToken"
 {-# DEPRECATED gbiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
 --
 -- /Note:/ Consider using 'signatureContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbiSignatureContains :: Lens.Lens' GetBuiltinIntents (Lude.Maybe Lude.Text)
-gbiSignatureContains = Lens.lens (signatureContains :: GetBuiltinIntents -> Lude.Maybe Lude.Text) (\s a -> s {signatureContains = a} :: GetBuiltinIntents)
+gbiSignatureContains :: Lens.Lens' GetBuiltinIntents (Core.Maybe Types.String)
+gbiSignatureContains = Lens.field @"signatureContains"
 {-# DEPRECATED gbiSignatureContains "Use generic-lens or generic-optics with 'signatureContains' instead." #-}
 
--- | The maximum number of intents to return in the response. The default is 10.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbiMaxResults :: Lens.Lens' GetBuiltinIntents (Lude.Maybe Lude.Natural)
-gbiMaxResults = Lens.lens (maxResults :: GetBuiltinIntents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBuiltinIntents)
-{-# DEPRECATED gbiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager GetBuiltinIntents where
-  page rq rs
-    | Page.stop (rs Lens.^. grsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. grsIntents) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gbiNextToken Lens..~ rs Lens.^. grsNextToken
-
-instance Lude.AWSRequest GetBuiltinIntents where
+instance Core.AWSRequest GetBuiltinIntents where
   type Rs GetBuiltinIntents = GetBuiltinIntentsResponse
-  request = Req.get lexModelsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/builtins/intents/",
+        Core._rqQuery =
+          Core.toQueryValue "locale" Core.<$> locale
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "signatureContains" Core.<$> signatureContains),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetBuiltinIntentsResponse'
-            Lude.<$> (x Lude..?> "intents" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "intents")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetBuiltinIntents where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetBuiltinIntents where
-  toPath = Lude.const "/builtins/intents/"
-
-instance Lude.ToQuery GetBuiltinIntents where
-  toQuery GetBuiltinIntents' {..} =
-    Lude.mconcat
-      [ "locale" Lude.=: locale,
-        "nextToken" Lude.=: nextToken,
-        "signatureContains" Lude.=: signatureContains,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager GetBuiltinIntents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"intents" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetBuiltinIntentsResponse' smart constructor.
 data GetBuiltinIntentsResponse = GetBuiltinIntentsResponse'
   { -- | An array of @builtinIntentMetadata@ objects, one for each intent in the response.
-    intents :: Lude.Maybe [BuiltinIntentMetadata],
+    intents :: Core.Maybe [Types.BuiltinIntentMetadata],
     -- | A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBuiltinIntentsResponse' with the minimum fields required to make a request.
---
--- * 'intents' - An array of @builtinIntentMetadata@ objects, one for each intent in the response.
--- * 'nextToken' - A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBuiltinIntentsResponse' value with any optional fields omitted.
 mkGetBuiltinIntentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBuiltinIntentsResponse
-mkGetBuiltinIntentsResponse pResponseStatus_ =
+mkGetBuiltinIntentsResponse responseStatus =
   GetBuiltinIntentsResponse'
-    { intents = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { intents = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @builtinIntentMetadata@ objects, one for each intent in the response.
 --
 -- /Note:/ Consider using 'intents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsIntents :: Lens.Lens' GetBuiltinIntentsResponse (Lude.Maybe [BuiltinIntentMetadata])
-grsIntents = Lens.lens (intents :: GetBuiltinIntentsResponse -> Lude.Maybe [BuiltinIntentMetadata]) (\s a -> s {intents = a} :: GetBuiltinIntentsResponse)
+grsIntents :: Lens.Lens' GetBuiltinIntentsResponse (Core.Maybe [Types.BuiltinIntentMetadata])
+grsIntents = Lens.field @"intents"
 {-# DEPRECATED grsIntents "Use generic-lens or generic-optics with 'intents' instead." #-}
 
 -- | A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsNextToken :: Lens.Lens' GetBuiltinIntentsResponse (Lude.Maybe Lude.Text)
-grsNextToken = Lens.lens (nextToken :: GetBuiltinIntentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBuiltinIntentsResponse)
+grsNextToken :: Lens.Lens' GetBuiltinIntentsResponse (Core.Maybe Types.NextToken)
+grsNextToken = Lens.field @"nextToken"
 {-# DEPRECATED grsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetBuiltinIntentsResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetBuiltinIntentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBuiltinIntentsResponse)
+grsResponseStatus :: Lens.Lens' GetBuiltinIntentsResponse Core.Int
+grsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,75 +17,73 @@ module Network.AWS.CodePipeline.Types.FailureDetails
     mkFailureDetails,
 
     -- * Lenses
-    fdExternalExecutionId,
     fdType,
     fdMessage,
+    fdExternalExecutionId,
   )
 where
 
-import Network.AWS.CodePipeline.Types.FailureType
+import qualified Network.AWS.CodePipeline.Types.ExecutionId as Types
+import qualified Network.AWS.CodePipeline.Types.FailureType as Types
+import qualified Network.AWS.CodePipeline.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about failure details.
 --
 -- /See:/ 'mkFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { -- | The external ID of the run of the action that failed.
-    externalExecutionId :: Lude.Maybe Lude.Text,
-    -- | The type of the failure.
-    type' :: FailureType,
+  { -- | The type of the failure.
+    type' :: Types.FailureType,
     -- | The message about the failure.
-    message :: Lude.Text
+    message :: Types.Message,
+    -- | The external ID of the run of the action that failed.
+    externalExecutionId :: Core.Maybe Types.ExecutionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
---
--- * 'externalExecutionId' - The external ID of the run of the action that failed.
--- * 'type'' - The type of the failure.
--- * 'message' - The message about the failure.
+-- | Creates a 'FailureDetails' value with any optional fields omitted.
 mkFailureDetails ::
-  -- | 'type''
-  FailureType ->
+  -- | 'type\''
+  Types.FailureType ->
   -- | 'message'
-  Lude.Text ->
+  Types.Message ->
   FailureDetails
-mkFailureDetails pType_ pMessage_ =
+mkFailureDetails type' message =
   FailureDetails'
-    { externalExecutionId = Lude.Nothing,
-      type' = pType_,
-      message = pMessage_
+    { type',
+      message,
+      externalExecutionId = Core.Nothing
     }
-
--- | The external ID of the run of the action that failed.
---
--- /Note:/ Consider using 'externalExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdExternalExecutionId :: Lens.Lens' FailureDetails (Lude.Maybe Lude.Text)
-fdExternalExecutionId = Lens.lens (externalExecutionId :: FailureDetails -> Lude.Maybe Lude.Text) (\s a -> s {externalExecutionId = a} :: FailureDetails)
-{-# DEPRECATED fdExternalExecutionId "Use generic-lens or generic-optics with 'externalExecutionId' instead." #-}
 
 -- | The type of the failure.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdType :: Lens.Lens' FailureDetails FailureType
-fdType = Lens.lens (type' :: FailureDetails -> FailureType) (\s a -> s {type' = a} :: FailureDetails)
+fdType :: Lens.Lens' FailureDetails Types.FailureType
+fdType = Lens.field @"type'"
 {-# DEPRECATED fdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The message about the failure.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdMessage :: Lens.Lens' FailureDetails Lude.Text
-fdMessage = Lens.lens (message :: FailureDetails -> Lude.Text) (\s a -> s {message = a} :: FailureDetails)
+fdMessage :: Lens.Lens' FailureDetails Types.Message
+fdMessage = Lens.field @"message"
 {-# DEPRECATED fdMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.ToJSON FailureDetails where
-  toJSON FailureDetails' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("externalExecutionId" Lude..=) Lude.<$> externalExecutionId,
-            Lude.Just ("type" Lude..= type'),
-            Lude.Just ("message" Lude..= message)
+-- | The external ID of the run of the action that failed.
+--
+-- /Note:/ Consider using 'externalExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdExternalExecutionId :: Lens.Lens' FailureDetails (Core.Maybe Types.ExecutionId)
+fdExternalExecutionId = Lens.field @"externalExecutionId"
+{-# DEPRECATED fdExternalExecutionId "Use generic-lens or generic-optics with 'externalExecutionId' instead." #-}
+
+instance Core.FromJSON FailureDetails where
+  toJSON FailureDetails {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("type" Core..= type'),
+            Core.Just ("message" Core..= message),
+            ("externalExecutionId" Core..=) Core.<$> externalExecutionId
           ]
       )

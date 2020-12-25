@@ -13,51 +13,56 @@
 module Network.AWS.CloudFront.Types.ViewerProtocolPolicy
   ( ViewerProtocolPolicy
       ( ViewerProtocolPolicy',
-        VPPAllowAll,
-        VPPHTTPSOnly,
-        VPPRedirectToHTTPS
+        ViewerProtocolPolicyAllowAll,
+        ViewerProtocolPolicyHttpsOnly,
+        ViewerProtocolPolicyRedirectToHttps,
+        fromViewerProtocolPolicy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ViewerProtocolPolicy = ViewerProtocolPolicy' Lude.Text
+newtype ViewerProtocolPolicy = ViewerProtocolPolicy'
+  { fromViewerProtocolPolicy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VPPAllowAll :: ViewerProtocolPolicy
-pattern VPPAllowAll = ViewerProtocolPolicy' "allow-all"
+pattern ViewerProtocolPolicyAllowAll :: ViewerProtocolPolicy
+pattern ViewerProtocolPolicyAllowAll = ViewerProtocolPolicy' "allow-all"
 
-pattern VPPHTTPSOnly :: ViewerProtocolPolicy
-pattern VPPHTTPSOnly = ViewerProtocolPolicy' "https-only"
+pattern ViewerProtocolPolicyHttpsOnly :: ViewerProtocolPolicy
+pattern ViewerProtocolPolicyHttpsOnly = ViewerProtocolPolicy' "https-only"
 
-pattern VPPRedirectToHTTPS :: ViewerProtocolPolicy
-pattern VPPRedirectToHTTPS = ViewerProtocolPolicy' "redirect-to-https"
+pattern ViewerProtocolPolicyRedirectToHttps :: ViewerProtocolPolicy
+pattern ViewerProtocolPolicyRedirectToHttps = ViewerProtocolPolicy' "redirect-to-https"
 
 {-# COMPLETE
-  VPPAllowAll,
-  VPPHTTPSOnly,
-  VPPRedirectToHTTPS,
+  ViewerProtocolPolicyAllowAll,
+  ViewerProtocolPolicyHttpsOnly,
+  ViewerProtocolPolicyRedirectToHttps,
   ViewerProtocolPolicy'
   #-}

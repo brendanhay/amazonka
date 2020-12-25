@@ -22,52 +22,51 @@ module Network.AWS.GameLift.Types.DesiredPlayerSession
   )
 where
 
+import qualified Network.AWS.GameLift.Types.NonZeroAndMaxString as Types
+import qualified Network.AWS.GameLift.Types.PlayerData as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Player information for use when creating player sessions using a game session placement request with 'StartGameSessionPlacement' .
 --
 -- /See:/ 'mkDesiredPlayerSession' smart constructor.
 data DesiredPlayerSession = DesiredPlayerSession'
   { -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
-    playerData :: Lude.Maybe Lude.Text,
+    playerData :: Core.Maybe Types.PlayerData,
     -- | A unique identifier for a player to associate with the player session.
-    playerId :: Lude.Maybe Lude.Text
+    playerId :: Core.Maybe Types.NonZeroAndMaxString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DesiredPlayerSession' with the minimum fields required to make a request.
---
--- * 'playerData' - Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
--- * 'playerId' - A unique identifier for a player to associate with the player session.
+-- | Creates a 'DesiredPlayerSession' value with any optional fields omitted.
 mkDesiredPlayerSession ::
   DesiredPlayerSession
 mkDesiredPlayerSession =
   DesiredPlayerSession'
-    { playerData = Lude.Nothing,
-      playerId = Lude.Nothing
+    { playerData = Core.Nothing,
+      playerId = Core.Nothing
     }
 
 -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
 --
 -- /Note:/ Consider using 'playerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsPlayerData :: Lens.Lens' DesiredPlayerSession (Lude.Maybe Lude.Text)
-dpsPlayerData = Lens.lens (playerData :: DesiredPlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerData = a} :: DesiredPlayerSession)
+dpsPlayerData :: Lens.Lens' DesiredPlayerSession (Core.Maybe Types.PlayerData)
+dpsPlayerData = Lens.field @"playerData"
 {-# DEPRECATED dpsPlayerData "Use generic-lens or generic-optics with 'playerData' instead." #-}
 
 -- | A unique identifier for a player to associate with the player session.
 --
 -- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsPlayerId :: Lens.Lens' DesiredPlayerSession (Lude.Maybe Lude.Text)
-dpsPlayerId = Lens.lens (playerId :: DesiredPlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerId = a} :: DesiredPlayerSession)
+dpsPlayerId :: Lens.Lens' DesiredPlayerSession (Core.Maybe Types.NonZeroAndMaxString)
+dpsPlayerId = Lens.field @"playerId"
 {-# DEPRECATED dpsPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
 
-instance Lude.ToJSON DesiredPlayerSession where
-  toJSON DesiredPlayerSession' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PlayerData" Lude..=) Lude.<$> playerData,
-            ("PlayerId" Lude..=) Lude.<$> playerId
+instance Core.FromJSON DesiredPlayerSession where
+  toJSON DesiredPlayerSession {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("PlayerData" Core..=) Core.<$> playerData,
+            ("PlayerId" Core..=) Core.<$> playerId
           ]
       )

@@ -17,102 +17,97 @@ module Network.AWS.KinesisAnalytics.Types.ApplicationUpdate
     mkApplicationUpdate,
 
     -- * Lenses
-    auReferenceDataSourceUpdates,
-    auInputUpdates,
-    auCloudWatchLoggingOptionUpdates,
-    auOutputUpdates,
     auApplicationCodeUpdate,
+    auCloudWatchLoggingOptionUpdates,
+    auInputUpdates,
+    auOutputUpdates,
+    auReferenceDataSourceUpdates,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
-import Network.AWS.KinesisAnalytics.Types.InputUpdate
-import Network.AWS.KinesisAnalytics.Types.OutputUpdate
-import Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceUpdate
+import qualified Network.AWS.KinesisAnalytics.Types.ApplicationCode as Types
+import qualified Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate as Types
+import qualified Network.AWS.KinesisAnalytics.Types.InputUpdate as Types
+import qualified Network.AWS.KinesisAnalytics.Types.OutputUpdate as Types
+import qualified Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes updates to apply to an existing Amazon Kinesis Analytics application.
 --
 -- /See:/ 'mkApplicationUpdate' smart constructor.
 data ApplicationUpdate = ApplicationUpdate'
-  { -- | Describes application reference data source updates.
-    referenceDataSourceUpdates :: Lude.Maybe [ReferenceDataSourceUpdate],
-    -- | Describes application input configuration updates.
-    inputUpdates :: Lude.Maybe [InputUpdate],
+  { -- | Describes application code updates.
+    applicationCodeUpdate :: Core.Maybe Types.ApplicationCode,
     -- | Describes application CloudWatch logging option updates.
-    cloudWatchLoggingOptionUpdates :: Lude.Maybe [CloudWatchLoggingOptionUpdate],
+    cloudWatchLoggingOptionUpdates :: Core.Maybe [Types.CloudWatchLoggingOptionUpdate],
+    -- | Describes application input configuration updates.
+    inputUpdates :: Core.Maybe [Types.InputUpdate],
     -- | Describes application output configuration updates.
-    outputUpdates :: Lude.Maybe [OutputUpdate],
-    -- | Describes application code updates.
-    applicationCodeUpdate :: Lude.Maybe Lude.Text
+    outputUpdates :: Core.Maybe [Types.OutputUpdate],
+    -- | Describes application reference data source updates.
+    referenceDataSourceUpdates :: Core.Maybe [Types.ReferenceDataSourceUpdate]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationUpdate' with the minimum fields required to make a request.
---
--- * 'referenceDataSourceUpdates' - Describes application reference data source updates.
--- * 'inputUpdates' - Describes application input configuration updates.
--- * 'cloudWatchLoggingOptionUpdates' - Describes application CloudWatch logging option updates.
--- * 'outputUpdates' - Describes application output configuration updates.
--- * 'applicationCodeUpdate' - Describes application code updates.
+-- | Creates a 'ApplicationUpdate' value with any optional fields omitted.
 mkApplicationUpdate ::
   ApplicationUpdate
 mkApplicationUpdate =
   ApplicationUpdate'
-    { referenceDataSourceUpdates = Lude.Nothing,
-      inputUpdates = Lude.Nothing,
-      cloudWatchLoggingOptionUpdates = Lude.Nothing,
-      outputUpdates = Lude.Nothing,
-      applicationCodeUpdate = Lude.Nothing
+    { applicationCodeUpdate = Core.Nothing,
+      cloudWatchLoggingOptionUpdates = Core.Nothing,
+      inputUpdates = Core.Nothing,
+      outputUpdates = Core.Nothing,
+      referenceDataSourceUpdates = Core.Nothing
     }
-
--- | Describes application reference data source updates.
---
--- /Note:/ Consider using 'referenceDataSourceUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auReferenceDataSourceUpdates :: Lens.Lens' ApplicationUpdate (Lude.Maybe [ReferenceDataSourceUpdate])
-auReferenceDataSourceUpdates = Lens.lens (referenceDataSourceUpdates :: ApplicationUpdate -> Lude.Maybe [ReferenceDataSourceUpdate]) (\s a -> s {referenceDataSourceUpdates = a} :: ApplicationUpdate)
-{-# DEPRECATED auReferenceDataSourceUpdates "Use generic-lens or generic-optics with 'referenceDataSourceUpdates' instead." #-}
-
--- | Describes application input configuration updates.
---
--- /Note:/ Consider using 'inputUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auInputUpdates :: Lens.Lens' ApplicationUpdate (Lude.Maybe [InputUpdate])
-auInputUpdates = Lens.lens (inputUpdates :: ApplicationUpdate -> Lude.Maybe [InputUpdate]) (\s a -> s {inputUpdates = a} :: ApplicationUpdate)
-{-# DEPRECATED auInputUpdates "Use generic-lens or generic-optics with 'inputUpdates' instead." #-}
-
--- | Describes application CloudWatch logging option updates.
---
--- /Note:/ Consider using 'cloudWatchLoggingOptionUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auCloudWatchLoggingOptionUpdates :: Lens.Lens' ApplicationUpdate (Lude.Maybe [CloudWatchLoggingOptionUpdate])
-auCloudWatchLoggingOptionUpdates = Lens.lens (cloudWatchLoggingOptionUpdates :: ApplicationUpdate -> Lude.Maybe [CloudWatchLoggingOptionUpdate]) (\s a -> s {cloudWatchLoggingOptionUpdates = a} :: ApplicationUpdate)
-{-# DEPRECATED auCloudWatchLoggingOptionUpdates "Use generic-lens or generic-optics with 'cloudWatchLoggingOptionUpdates' instead." #-}
-
--- | Describes application output configuration updates.
---
--- /Note:/ Consider using 'outputUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auOutputUpdates :: Lens.Lens' ApplicationUpdate (Lude.Maybe [OutputUpdate])
-auOutputUpdates = Lens.lens (outputUpdates :: ApplicationUpdate -> Lude.Maybe [OutputUpdate]) (\s a -> s {outputUpdates = a} :: ApplicationUpdate)
-{-# DEPRECATED auOutputUpdates "Use generic-lens or generic-optics with 'outputUpdates' instead." #-}
 
 -- | Describes application code updates.
 --
 -- /Note:/ Consider using 'applicationCodeUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auApplicationCodeUpdate :: Lens.Lens' ApplicationUpdate (Lude.Maybe Lude.Text)
-auApplicationCodeUpdate = Lens.lens (applicationCodeUpdate :: ApplicationUpdate -> Lude.Maybe Lude.Text) (\s a -> s {applicationCodeUpdate = a} :: ApplicationUpdate)
+auApplicationCodeUpdate :: Lens.Lens' ApplicationUpdate (Core.Maybe Types.ApplicationCode)
+auApplicationCodeUpdate = Lens.field @"applicationCodeUpdate"
 {-# DEPRECATED auApplicationCodeUpdate "Use generic-lens or generic-optics with 'applicationCodeUpdate' instead." #-}
 
-instance Lude.ToJSON ApplicationUpdate where
-  toJSON ApplicationUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ReferenceDataSourceUpdates" Lude..=)
-              Lude.<$> referenceDataSourceUpdates,
-            ("InputUpdates" Lude..=) Lude.<$> inputUpdates,
-            ("CloudWatchLoggingOptionUpdates" Lude..=)
-              Lude.<$> cloudWatchLoggingOptionUpdates,
-            ("OutputUpdates" Lude..=) Lude.<$> outputUpdates,
-            ("ApplicationCodeUpdate" Lude..=) Lude.<$> applicationCodeUpdate
+-- | Describes application CloudWatch logging option updates.
+--
+-- /Note:/ Consider using 'cloudWatchLoggingOptionUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auCloudWatchLoggingOptionUpdates :: Lens.Lens' ApplicationUpdate (Core.Maybe [Types.CloudWatchLoggingOptionUpdate])
+auCloudWatchLoggingOptionUpdates = Lens.field @"cloudWatchLoggingOptionUpdates"
+{-# DEPRECATED auCloudWatchLoggingOptionUpdates "Use generic-lens or generic-optics with 'cloudWatchLoggingOptionUpdates' instead." #-}
+
+-- | Describes application input configuration updates.
+--
+-- /Note:/ Consider using 'inputUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auInputUpdates :: Lens.Lens' ApplicationUpdate (Core.Maybe [Types.InputUpdate])
+auInputUpdates = Lens.field @"inputUpdates"
+{-# DEPRECATED auInputUpdates "Use generic-lens or generic-optics with 'inputUpdates' instead." #-}
+
+-- | Describes application output configuration updates.
+--
+-- /Note:/ Consider using 'outputUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auOutputUpdates :: Lens.Lens' ApplicationUpdate (Core.Maybe [Types.OutputUpdate])
+auOutputUpdates = Lens.field @"outputUpdates"
+{-# DEPRECATED auOutputUpdates "Use generic-lens or generic-optics with 'outputUpdates' instead." #-}
+
+-- | Describes application reference data source updates.
+--
+-- /Note:/ Consider using 'referenceDataSourceUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auReferenceDataSourceUpdates :: Lens.Lens' ApplicationUpdate (Core.Maybe [Types.ReferenceDataSourceUpdate])
+auReferenceDataSourceUpdates = Lens.field @"referenceDataSourceUpdates"
+{-# DEPRECATED auReferenceDataSourceUpdates "Use generic-lens or generic-optics with 'referenceDataSourceUpdates' instead." #-}
+
+instance Core.FromJSON ApplicationUpdate where
+  toJSON ApplicationUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ApplicationCodeUpdate" Core..=) Core.<$> applicationCodeUpdate,
+            ("CloudWatchLoggingOptionUpdates" Core..=)
+              Core.<$> cloudWatchLoggingOptionUpdates,
+            ("InputUpdates" Core..=) Core.<$> inputUpdates,
+            ("OutputUpdates" Core..=) Core.<$> outputUpdates,
+            ("ReferenceDataSourceUpdates" Core..=)
+              Core.<$> referenceDataSourceUpdates
           ]
       )

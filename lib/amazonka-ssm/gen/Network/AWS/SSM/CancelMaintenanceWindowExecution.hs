@@ -27,117 +27,103 @@ module Network.AWS.SSM.CancelMaintenanceWindowExecution
     mkCancelMaintenanceWindowExecutionResponse,
 
     -- ** Response lenses
-    cmwersWindowExecutionId,
-    cmwersResponseStatus,
+    cmwerrsWindowExecutionId,
+    cmwerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkCancelMaintenanceWindowExecution' smart constructor.
 newtype CancelMaintenanceWindowExecution = CancelMaintenanceWindowExecution'
   { -- | The ID of the maintenance window execution to stop.
-    windowExecutionId :: Lude.Text
+    windowExecutionId :: Types.WindowExecutionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelMaintenanceWindowExecution' with the minimum fields required to make a request.
---
--- * 'windowExecutionId' - The ID of the maintenance window execution to stop.
+-- | Creates a 'CancelMaintenanceWindowExecution' value with any optional fields omitted.
 mkCancelMaintenanceWindowExecution ::
   -- | 'windowExecutionId'
-  Lude.Text ->
+  Types.WindowExecutionId ->
   CancelMaintenanceWindowExecution
-mkCancelMaintenanceWindowExecution pWindowExecutionId_ =
-  CancelMaintenanceWindowExecution'
-    { windowExecutionId =
-        pWindowExecutionId_
-    }
+mkCancelMaintenanceWindowExecution windowExecutionId =
+  CancelMaintenanceWindowExecution' {windowExecutionId}
 
 -- | The ID of the maintenance window execution to stop.
 --
 -- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmweWindowExecutionId :: Lens.Lens' CancelMaintenanceWindowExecution Lude.Text
-cmweWindowExecutionId = Lens.lens (windowExecutionId :: CancelMaintenanceWindowExecution -> Lude.Text) (\s a -> s {windowExecutionId = a} :: CancelMaintenanceWindowExecution)
+cmweWindowExecutionId :: Lens.Lens' CancelMaintenanceWindowExecution Types.WindowExecutionId
+cmweWindowExecutionId = Lens.field @"windowExecutionId"
 {-# DEPRECATED cmweWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
-instance Lude.AWSRequest CancelMaintenanceWindowExecution where
+instance Core.FromJSON CancelMaintenanceWindowExecution where
+  toJSON CancelMaintenanceWindowExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WindowExecutionId" Core..= windowExecutionId)]
+      )
+
+instance Core.AWSRequest CancelMaintenanceWindowExecution where
   type
     Rs CancelMaintenanceWindowExecution =
       CancelMaintenanceWindowExecutionResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonSSM.CancelMaintenanceWindowExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CancelMaintenanceWindowExecutionResponse'
-            Lude.<$> (x Lude..?> "WindowExecutionId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "WindowExecutionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelMaintenanceWindowExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.CancelMaintenanceWindowExecution" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CancelMaintenanceWindowExecution where
-  toJSON CancelMaintenanceWindowExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("WindowExecutionId" Lude..= windowExecutionId)]
-      )
-
-instance Lude.ToPath CancelMaintenanceWindowExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelMaintenanceWindowExecution where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCancelMaintenanceWindowExecutionResponse' smart constructor.
 data CancelMaintenanceWindowExecutionResponse = CancelMaintenanceWindowExecutionResponse'
   { -- | The ID of the maintenance window execution that has been stopped.
-    windowExecutionId :: Lude.Maybe Lude.Text,
+    windowExecutionId :: Core.Maybe Types.WindowExecutionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelMaintenanceWindowExecutionResponse' with the minimum fields required to make a request.
---
--- * 'windowExecutionId' - The ID of the maintenance window execution that has been stopped.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelMaintenanceWindowExecutionResponse' value with any optional fields omitted.
 mkCancelMaintenanceWindowExecutionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelMaintenanceWindowExecutionResponse
-mkCancelMaintenanceWindowExecutionResponse pResponseStatus_ =
+mkCancelMaintenanceWindowExecutionResponse responseStatus =
   CancelMaintenanceWindowExecutionResponse'
     { windowExecutionId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the maintenance window execution that has been stopped.
 --
 -- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmwersWindowExecutionId :: Lens.Lens' CancelMaintenanceWindowExecutionResponse (Lude.Maybe Lude.Text)
-cmwersWindowExecutionId = Lens.lens (windowExecutionId :: CancelMaintenanceWindowExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowExecutionId = a} :: CancelMaintenanceWindowExecutionResponse)
-{-# DEPRECATED cmwersWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
+cmwerrsWindowExecutionId :: Lens.Lens' CancelMaintenanceWindowExecutionResponse (Core.Maybe Types.WindowExecutionId)
+cmwerrsWindowExecutionId = Lens.field @"windowExecutionId"
+{-# DEPRECATED cmwerrsWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmwersResponseStatus :: Lens.Lens' CancelMaintenanceWindowExecutionResponse Lude.Int
-cmwersResponseStatus = Lens.lens (responseStatus :: CancelMaintenanceWindowExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelMaintenanceWindowExecutionResponse)
-{-# DEPRECATED cmwersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmwerrsResponseStatus :: Lens.Lens' CancelMaintenanceWindowExecutionResponse Core.Int
+cmwerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cmwerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

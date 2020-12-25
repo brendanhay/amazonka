@@ -22,40 +22,37 @@ module Network.AWS.StepFunctions.Types.TracingConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Selects whether or not the state machine's AWS X-Ray tracing is enabled. Default is @false@
 --
 -- /See:/ 'mkTracingConfiguration' smart constructor.
 newtype TracingConfiguration = TracingConfiguration'
   { -- | When set to @true@ , AWS X-Ray tracing is enabled.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TracingConfiguration' with the minimum fields required to make a request.
---
--- * 'enabled' - When set to @true@ , AWS X-Ray tracing is enabled.
+-- | Creates a 'TracingConfiguration' value with any optional fields omitted.
 mkTracingConfiguration ::
   TracingConfiguration
 mkTracingConfiguration =
-  TracingConfiguration' {enabled = Lude.Nothing}
+  TracingConfiguration' {enabled = Core.Nothing}
 
 -- | When set to @true@ , AWS X-Ray tracing is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcEnabled :: Lens.Lens' TracingConfiguration (Lude.Maybe Lude.Bool)
-tcEnabled = Lens.lens (enabled :: TracingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: TracingConfiguration)
+tcEnabled :: Lens.Lens' TracingConfiguration (Core.Maybe Core.Bool)
+tcEnabled = Lens.field @"enabled"
 {-# DEPRECATED tcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromJSON TracingConfiguration where
-  parseJSON =
-    Lude.withObject
-      "TracingConfiguration"
-      (\x -> TracingConfiguration' Lude.<$> (x Lude..:? "enabled"))
+instance Core.FromJSON TracingConfiguration where
+  toJSON TracingConfiguration {..} =
+    Core.object
+      (Core.catMaybes [("enabled" Core..=) Core.<$> enabled])
 
-instance Lude.ToJSON TracingConfiguration where
-  toJSON TracingConfiguration' {..} =
-    Lude.object
-      (Lude.catMaybes [("enabled" Lude..=) Lude.<$> enabled])
+instance Core.FromJSON TracingConfiguration where
+  parseJSON =
+    Core.withObject "TracingConfiguration" Core.$
+      \x -> TracingConfiguration' Core.<$> (x Core..:? "enabled")

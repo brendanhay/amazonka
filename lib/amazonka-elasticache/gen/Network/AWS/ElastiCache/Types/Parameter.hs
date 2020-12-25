@@ -17,146 +17,137 @@ module Network.AWS.ElastiCache.Types.Parameter
     mkParameter,
 
     -- * Lenses
-    pParameterValue,
-    pMinimumEngineVersion,
-    pSource,
-    pIsModifiable,
-    pDataType,
     pAllowedValues,
-    pParameterName,
-    pDescription,
     pChangeType,
+    pDataType,
+    pDescription,
+    pIsModifiable,
+    pMinimumEngineVersion,
+    pParameterName,
+    pParameterValue,
+    pSource,
   )
 where
 
-import Network.AWS.ElastiCache.Types.ChangeType
+import qualified Network.AWS.ElastiCache.Types.ChangeType as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an individual setting that controls some aspect of ElastiCache behavior.
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | The value of the parameter.
-    parameterValue :: Lude.Maybe Lude.Text,
-    -- | The earliest cache engine version to which the parameter can apply.
-    minimumEngineVersion :: Lude.Maybe Lude.Text,
-    -- | The source of the parameter.
-    source :: Lude.Maybe Lude.Text,
-    -- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
-    isModifiable :: Lude.Maybe Lude.Bool,
-    -- | The valid data type for the parameter.
-    dataType :: Lude.Maybe Lude.Text,
-    -- | The valid range of values for the parameter.
-    allowedValues :: Lude.Maybe Lude.Text,
-    -- | The name of the parameter.
-    parameterName :: Lude.Maybe Lude.Text,
-    -- | A description of the parameter.
-    description :: Lude.Maybe Lude.Text,
+  { -- | The valid range of values for the parameter.
+    allowedValues :: Core.Maybe Types.String,
     -- | Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
-    changeType :: Lude.Maybe ChangeType
+    changeType :: Core.Maybe Types.ChangeType,
+    -- | The valid data type for the parameter.
+    dataType :: Core.Maybe Types.String,
+    -- | A description of the parameter.
+    description :: Core.Maybe Types.String,
+    -- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+    isModifiable :: Core.Maybe Core.Bool,
+    -- | The earliest cache engine version to which the parameter can apply.
+    minimumEngineVersion :: Core.Maybe Types.String,
+    -- | The name of the parameter.
+    parameterName :: Core.Maybe Types.String,
+    -- | The value of the parameter.
+    parameterValue :: Core.Maybe Types.String,
+    -- | The source of the parameter.
+    source :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Parameter' with the minimum fields required to make a request.
---
--- * 'parameterValue' - The value of the parameter.
--- * 'minimumEngineVersion' - The earliest cache engine version to which the parameter can apply.
--- * 'source' - The source of the parameter.
--- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
--- * 'dataType' - The valid data type for the parameter.
--- * 'allowedValues' - The valid range of values for the parameter.
--- * 'parameterName' - The name of the parameter.
--- * 'description' - A description of the parameter.
--- * 'changeType' - Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
+-- | Creates a 'Parameter' value with any optional fields omitted.
 mkParameter ::
   Parameter
 mkParameter =
   Parameter'
-    { parameterValue = Lude.Nothing,
-      minimumEngineVersion = Lude.Nothing,
-      source = Lude.Nothing,
-      isModifiable = Lude.Nothing,
-      dataType = Lude.Nothing,
-      allowedValues = Lude.Nothing,
-      parameterName = Lude.Nothing,
-      description = Lude.Nothing,
-      changeType = Lude.Nothing
+    { allowedValues = Core.Nothing,
+      changeType = Core.Nothing,
+      dataType = Core.Nothing,
+      description = Core.Nothing,
+      isModifiable = Core.Nothing,
+      minimumEngineVersion = Core.Nothing,
+      parameterName = Core.Nothing,
+      parameterValue = Core.Nothing,
+      source = Core.Nothing
     }
-
--- | The value of the parameter.
---
--- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameterValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pParameterValue = Lens.lens (parameterValue :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: Parameter)
-{-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
-
--- | The earliest cache engine version to which the parameter can apply.
---
--- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pMinimumEngineVersion :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pMinimumEngineVersion = Lens.lens (minimumEngineVersion :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {minimumEngineVersion = a} :: Parameter)
-{-# DEPRECATED pMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
-
--- | The source of the parameter.
---
--- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSource :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pSource = Lens.lens (source :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: Parameter)
-{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
-
--- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
---
--- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pIsModifiable :: Lens.Lens' Parameter (Lude.Maybe Lude.Bool)
-pIsModifiable = Lens.lens (isModifiable :: Parameter -> Lude.Maybe Lude.Bool) (\s a -> s {isModifiable = a} :: Parameter)
-{-# DEPRECATED pIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
-
--- | The valid data type for the parameter.
---
--- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDataType :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pDataType = Lens.lens (dataType :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: Parameter)
-{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | The valid range of values for the parameter.
 --
 -- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAllowedValues :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pAllowedValues = Lens.lens (allowedValues :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: Parameter)
+pAllowedValues :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pAllowedValues = Lens.field @"allowedValues"
 {-# DEPRECATED pAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
-
--- | The name of the parameter.
---
--- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameterName :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pParameterName = Lens.lens (parameterName :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: Parameter)
-{-# DEPRECATED pParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
-
--- | A description of the parameter.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDescription :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pDescription = Lens.lens (description :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Parameter)
-{-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
 --
 -- /Note:/ Consider using 'changeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pChangeType :: Lens.Lens' Parameter (Lude.Maybe ChangeType)
-pChangeType = Lens.lens (changeType :: Parameter -> Lude.Maybe ChangeType) (\s a -> s {changeType = a} :: Parameter)
+pChangeType :: Lens.Lens' Parameter (Core.Maybe Types.ChangeType)
+pChangeType = Lens.field @"changeType"
 {-# DEPRECATED pChangeType "Use generic-lens or generic-optics with 'changeType' instead." #-}
 
-instance Lude.FromXML Parameter where
+-- | The valid data type for the parameter.
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDataType :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pDataType = Lens.field @"dataType"
+{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
+
+-- | A description of the parameter.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDescription :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pDescription = Lens.field @"description"
+{-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+--
+-- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIsModifiable :: Lens.Lens' Parameter (Core.Maybe Core.Bool)
+pIsModifiable = Lens.field @"isModifiable"
+{-# DEPRECATED pIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
+
+-- | The earliest cache engine version to which the parameter can apply.
+--
+-- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pMinimumEngineVersion :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pMinimumEngineVersion = Lens.field @"minimumEngineVersion"
+{-# DEPRECATED pMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
+
+-- | The name of the parameter.
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterName :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pParameterName = Lens.field @"parameterName"
+{-# DEPRECATED pParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
+
+-- | The value of the parameter.
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterValue :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pParameterValue = Lens.field @"parameterValue"
+{-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
+
+-- | The source of the parameter.
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSource :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pSource = Lens.field @"source"
+{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
+
+instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
-      Lude.<$> (x Lude..@? "ParameterValue")
-      Lude.<*> (x Lude..@? "MinimumEngineVersion")
-      Lude.<*> (x Lude..@? "Source")
-      Lude.<*> (x Lude..@? "IsModifiable")
-      Lude.<*> (x Lude..@? "DataType")
-      Lude.<*> (x Lude..@? "AllowedValues")
-      Lude.<*> (x Lude..@? "ParameterName")
-      Lude.<*> (x Lude..@? "Description")
-      Lude.<*> (x Lude..@? "ChangeType")
+      Core.<$> (x Core..@? "AllowedValues")
+      Core.<*> (x Core..@? "ChangeType")
+      Core.<*> (x Core..@? "DataType")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "IsModifiable")
+      Core.<*> (x Core..@? "MinimumEngineVersion")
+      Core.<*> (x Core..@? "ParameterName")
+      Core.<*> (x Core..@? "ParameterValue")
+      Core.<*> (x Core..@? "Source")

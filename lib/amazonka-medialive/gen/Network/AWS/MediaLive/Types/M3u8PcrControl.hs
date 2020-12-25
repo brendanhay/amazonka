@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M3u8PcrControl
   ( M3u8PcrControl
       ( M3u8PcrControl',
-        MPCConfiguredPcrPeriod,
-        MPCPcrEveryPesPacket
+        M3u8PcrControlConfiguredPcrPeriod,
+        M3u8PcrControlPcrEveryPesPacket,
+        fromM3u8PcrControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M3u8 Pcr Control
-newtype M3u8PcrControl = M3u8PcrControl' Lude.Text
+newtype M3u8PcrControl = M3u8PcrControl'
+  { fromM3u8PcrControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MPCConfiguredPcrPeriod :: M3u8PcrControl
-pattern MPCConfiguredPcrPeriod = M3u8PcrControl' "CONFIGURED_PCR_PERIOD"
+pattern M3u8PcrControlConfiguredPcrPeriod :: M3u8PcrControl
+pattern M3u8PcrControlConfiguredPcrPeriod = M3u8PcrControl' "CONFIGURED_PCR_PERIOD"
 
-pattern MPCPcrEveryPesPacket :: M3u8PcrControl
-pattern MPCPcrEveryPesPacket = M3u8PcrControl' "PCR_EVERY_PES_PACKET"
+pattern M3u8PcrControlPcrEveryPesPacket :: M3u8PcrControl
+pattern M3u8PcrControlPcrEveryPesPacket = M3u8PcrControl' "PCR_EVERY_PES_PACKET"
 
 {-# COMPLETE
-  MPCConfiguredPcrPeriod,
-  MPCPcrEveryPesPacket,
+  M3u8PcrControlConfiguredPcrPeriod,
+  M3u8PcrControlPcrEveryPesPacket,
   M3u8PcrControl'
   #-}

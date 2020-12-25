@@ -46,37 +46,43 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.WorkSpaces
     Network.AWS.WorkSpaces.AssociateConnectionAlias
-    Network.AWS.WorkSpaces.AssociateIPGroups
-    Network.AWS.WorkSpaces.AuthorizeIPRules
+    Network.AWS.WorkSpaces.AssociateIpGroups
+    Network.AWS.WorkSpaces.AuthorizeIpRules
     Network.AWS.WorkSpaces.CopyWorkspaceImage
     Network.AWS.WorkSpaces.CreateConnectionAlias
-    Network.AWS.WorkSpaces.CreateIPGroup
+    Network.AWS.WorkSpaces.CreateIpGroup
     Network.AWS.WorkSpaces.CreateTags
     Network.AWS.WorkSpaces.CreateWorkspaces
     Network.AWS.WorkSpaces.DeleteConnectionAlias
-    Network.AWS.WorkSpaces.DeleteIPGroup
+    Network.AWS.WorkSpaces.DeleteIpGroup
     Network.AWS.WorkSpaces.DeleteTags
     Network.AWS.WorkSpaces.DeleteWorkspaceImage
     Network.AWS.WorkSpaces.DeregisterWorkspaceDirectory
@@ -85,7 +91,7 @@ library
     Network.AWS.WorkSpaces.DescribeClientProperties
     Network.AWS.WorkSpaces.DescribeConnectionAliases
     Network.AWS.WorkSpaces.DescribeConnectionAliasPermissions
-    Network.AWS.WorkSpaces.DescribeIPGroups
+    Network.AWS.WorkSpaces.DescribeIpGroups
     Network.AWS.WorkSpaces.DescribeTags
     Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
@@ -95,7 +101,7 @@ library
     Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
     Network.AWS.WorkSpaces.DescribeWorkspaceSnapshots
     Network.AWS.WorkSpaces.DisassociateConnectionAlias
-    Network.AWS.WorkSpaces.DisassociateIPGroups
+    Network.AWS.WorkSpaces.DisassociateIpGroups
     Network.AWS.WorkSpaces.ImportWorkspaceImage
     Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
     Network.AWS.WorkSpaces.MigrateWorkspace
@@ -110,58 +116,101 @@ library
     Network.AWS.WorkSpaces.RebuildWorkspaces
     Network.AWS.WorkSpaces.RegisterWorkspaceDirectory
     Network.AWS.WorkSpaces.RestoreWorkspace
-    Network.AWS.WorkSpaces.RevokeIPRules
+    Network.AWS.WorkSpaces.RevokeIpRules
     Network.AWS.WorkSpaces.StartWorkspaces
     Network.AWS.WorkSpaces.StopWorkspaces
     Network.AWS.WorkSpaces.TerminateWorkspaces
     Network.AWS.WorkSpaces.Types
     Network.AWS.WorkSpaces.UpdateConnectionAliasPermission
-    Network.AWS.WorkSpaces.UpdateRulesOfIPGroup
+    Network.AWS.WorkSpaces.UpdateRulesOfIpGroup
     Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission
     Network.AWS.WorkSpaces.Waiters
 
   other-modules:
     Network.AWS.WorkSpaces.Types.AccessPropertyValue
     Network.AWS.WorkSpaces.Types.AccountModification
+    Network.AWS.WorkSpaces.Types.Alias
+    Network.AWS.WorkSpaces.Types.AliasId
     Network.AWS.WorkSpaces.Types.Application
     Network.AWS.WorkSpaces.Types.AssociationStatus
+    Network.AWS.WorkSpaces.Types.AwsAccount
+    Network.AWS.WorkSpaces.Types.BundleId
+    Network.AWS.WorkSpaces.Types.BundleOwner
     Network.AWS.WorkSpaces.Types.ClientProperties
     Network.AWS.WorkSpaces.Types.ClientPropertiesResult
     Network.AWS.WorkSpaces.Types.Compute
+    Network.AWS.WorkSpaces.Types.ComputerName
     Network.AWS.WorkSpaces.Types.ComputeType
     Network.AWS.WorkSpaces.Types.ConnectionAlias
     Network.AWS.WorkSpaces.Types.ConnectionAliasAssociation
+    Network.AWS.WorkSpaces.Types.ConnectionAliasId
     Network.AWS.WorkSpaces.Types.ConnectionAliasPermission
     Network.AWS.WorkSpaces.Types.ConnectionAliasState
+    Network.AWS.WorkSpaces.Types.ConnectionIdentifier
     Network.AWS.WorkSpaces.Types.ConnectionState
+    Network.AWS.WorkSpaces.Types.ConnectionString
+    Network.AWS.WorkSpaces.Types.CustomerUserName
+    Network.AWS.WorkSpaces.Types.DedicatedTenancyManagementCidrRange
     Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
     Network.AWS.WorkSpaces.Types.DedicatedTenancySupportEnum
     Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
+    Network.AWS.WorkSpaces.Types.DefaultOu
     Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties
+    Network.AWS.WorkSpaces.Types.Description
+    Network.AWS.WorkSpaces.Types.DirectoryId
+    Network.AWS.WorkSpaces.Types.DirectoryName
+    Network.AWS.WorkSpaces.Types.Ec2ImageId
+    Network.AWS.WorkSpaces.Types.ErrorCode
+    Network.AWS.WorkSpaces.Types.ErrorMessage
     Network.AWS.WorkSpaces.Types.FailedCreateWorkspaceRequest
     Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest
+    Network.AWS.WorkSpaces.Types.GroupId
+    Network.AWS.WorkSpaces.Types.IamRoleId
     Network.AWS.WorkSpaces.Types.ImagePermission
     Network.AWS.WorkSpaces.Types.ImageType
-    Network.AWS.WorkSpaces.Types.IPRuleItem
+    Network.AWS.WorkSpaces.Types.IpAddress
+    Network.AWS.WorkSpaces.Types.IpGroupDesc
+    Network.AWS.WorkSpaces.Types.IpGroupId
+    Network.AWS.WorkSpaces.Types.IpGroupName
+    Network.AWS.WorkSpaces.Types.IpRule
+    Network.AWS.WorkSpaces.Types.IpRuleItem
+    Network.AWS.WorkSpaces.Types.Key
+    Network.AWS.WorkSpaces.Types.ManagementCidrRangeConstraint
     Network.AWS.WorkSpaces.Types.ModificationResourceEnum
     Network.AWS.WorkSpaces.Types.ModificationState
     Network.AWS.WorkSpaces.Types.ModificationStateEnum
+    Network.AWS.WorkSpaces.Types.NextToken
+    Network.AWS.WorkSpaces.Types.NonEmptyString
     Network.AWS.WorkSpaces.Types.OperatingSystem
     Network.AWS.WorkSpaces.Types.OperatingSystemType
+    Network.AWS.WorkSpaces.Types.OwnerAccountId
+    Network.AWS.WorkSpaces.Types.PaginationToken
     Network.AWS.WorkSpaces.Types.RebootRequest
     Network.AWS.WorkSpaces.Types.RebuildRequest
     Network.AWS.WorkSpaces.Types.ReconnectEnum
+    Network.AWS.WorkSpaces.Types.RegistrationCode
+    Network.AWS.WorkSpaces.Types.ResourceId
     Network.AWS.WorkSpaces.Types.RootStorage
+    Network.AWS.WorkSpaces.Types.RuleDesc
     Network.AWS.WorkSpaces.Types.RunningMode
+    Network.AWS.WorkSpaces.Types.SecurityGroupId
     Network.AWS.WorkSpaces.Types.SelfservicePermissions
+    Network.AWS.WorkSpaces.Types.SharedAccountId
     Network.AWS.WorkSpaces.Types.Snapshot
+    Network.AWS.WorkSpaces.Types.SourceRegion
+    Network.AWS.WorkSpaces.Types.SourceWorkspaceId
     Network.AWS.WorkSpaces.Types.StartRequest
     Network.AWS.WorkSpaces.Types.StopRequest
+    Network.AWS.WorkSpaces.Types.SubnetId
     Network.AWS.WorkSpaces.Types.Tag
+    Network.AWS.WorkSpaces.Types.TargetWorkspaceId
     Network.AWS.WorkSpaces.Types.TargetWorkspaceState
     Network.AWS.WorkSpaces.Types.Tenancy
     Network.AWS.WorkSpaces.Types.TerminateRequest
+    Network.AWS.WorkSpaces.Types.UserName
     Network.AWS.WorkSpaces.Types.UserStorage
+    Network.AWS.WorkSpaces.Types.Value
+    Network.AWS.WorkSpaces.Types.VolumeEncryptionKey
     Network.AWS.WorkSpaces.Types.Workspace
     Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties
     Network.AWS.WorkSpaces.Types.WorkspaceBundle
@@ -170,13 +219,19 @@ library
     Network.AWS.WorkSpaces.Types.WorkspaceDirectory
     Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState
     Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType
+    Network.AWS.WorkSpaces.Types.WorkspaceId
     Network.AWS.WorkSpaces.Types.WorkspaceImage
+    Network.AWS.WorkSpaces.Types.WorkspaceImageDescription
+    Network.AWS.WorkSpaces.Types.WorkspaceImageErrorCode
+    Network.AWS.WorkSpaces.Types.WorkspaceImageId
     Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess
+    Network.AWS.WorkSpaces.Types.WorkspaceImageName
     Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy
     Network.AWS.WorkSpaces.Types.WorkspaceImageState
     Network.AWS.WorkSpaces.Types.WorkspaceProperties
     Network.AWS.WorkSpaces.Types.WorkspaceRequest
-    Network.AWS.WorkSpaces.Types.WorkspacesIPGroup
+    Network.AWS.WorkSpaces.Types.WorkspaceSecurityGroupId
+    Network.AWS.WorkSpaces.Types.WorkspacesIpGroup
     Network.AWS.WorkSpaces.Types.WorkspaceState
 
   build-depends:   amazonka-core ==2.0.0.0.*

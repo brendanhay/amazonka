@@ -39,90 +39,138 @@ module Network.AWS.S3.PutObject
     mkPutObject,
 
     -- ** Request lenses
-    poContentLength,
-    poObjectLockMode,
-    poExpires,
-    poBody,
-    poGrantReadACP,
     poBucket,
+    poKey,
+    poACL,
+    poBody,
+    poCacheControl,
+    poContentDisposition,
+    poContentEncoding,
+    poContentLanguage,
+    poContentLength,
+    poContentMD5,
+    poContentType,
+    poExpectedBucketOwner,
+    poExpires,
+    poGrantFullControl,
+    poGrantRead,
+    poGrantReadACP,
+    poGrantWriteACP,
+    poMetadata,
+    poObjectLockLegalHoldStatus,
+    poObjectLockMode,
+    poObjectLockRetainUntilDate,
+    poRequestPayer,
     poSSECustomerAlgorithm,
     poSSECustomerKey,
-    poRequestPayer,
-    poGrantWriteACP,
-    poWebsiteRedirectLocation,
-    poGrantRead,
-    poKey,
-    poStorageClass,
     poSSECustomerKeyMD5,
-    poSSEKMSKeyId,
-    poGrantFullControl,
-    poContentEncoding,
-    poTagging,
-    poContentMD5,
-    poObjectLockRetainUntilDate,
-    poMetadata,
     poSSEKMSEncryptionContext,
-    poCacheControl,
-    poContentLanguage,
-    poObjectLockLegalHoldStatus,
-    poACL,
-    poContentDisposition,
-    poExpectedBucketOwner,
+    poSSEKMSKeyId,
     poServerSideEncryption,
-    poContentType,
+    poStorageClass,
+    poTagging,
+    poWebsiteRedirectLocation,
 
     -- * Destructuring the response
     PutObjectResponse (..),
     mkPutObjectResponse,
 
     -- ** Response lenses
-    porsRequestCharged,
-    porsETag,
-    porsVersionId,
-    porsExpiration,
-    porsSSECustomerAlgorithm,
-    porsSSECustomerKeyMD5,
-    porsSSEKMSKeyId,
-    porsSSEKMSEncryptionContext,
-    porsServerSideEncryption,
-    porsResponseStatus,
+    porrsETag,
+    porrsExpiration,
+    porrsRequestCharged,
+    porrsSSECustomerAlgorithm,
+    porrsSSECustomerKeyMD5,
+    porrsSSEKMSEncryptionContext,
+    porrsSSEKMSKeyId,
+    porrsServerSideEncryption,
+    porrsVersionId,
+    porrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutObject' smart constructor.
 data PutObject = PutObject'
-  { -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
-    contentLength :: Lude.Maybe Lude.Integer,
-    -- | The Object Lock mode that you want to apply to this object.
-    objectLockMode :: Lude.Maybe ObjectLockMode,
-    -- | The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
-    expires :: Lude.Maybe Lude.DateTime,
-    -- | Object data.
-    body :: Lude.RqBody,
-    -- | Allows grantee to read the object ACL.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantReadACP :: Lude.Maybe Lude.Text,
-    -- | The bucket name to which the PUT operation was initiated.
+  { -- | The bucket name to which the PUT operation was initiated.
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
-    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
-    sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    requestPayer :: Lude.Maybe RequestPayer,
+    bucket :: Types.BucketName,
+    -- | Object key for which the PUT operation was initiated.
+    key :: Types.ObjectKey,
+    -- | The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    acl :: Core.Maybe Types.ObjectCannedACL,
+    -- | Object data.
+    body :: Core.RqBody,
+    -- | Can be used to specify caching behavior along the request/reply chain. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
+    cacheControl :: Core.Maybe Types.CacheControl,
+    -- | Specifies presentational information for the object. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1> .
+    contentDisposition :: Core.Maybe Types.ContentDisposition,
+    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11> .
+    contentEncoding :: Core.Maybe Types.ContentEncoding,
+    -- | The language the content is in.
+    contentLanguage :: Core.Maybe Types.ContentLanguage,
+    -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
+    contentLength :: Core.Maybe Core.Integer,
+    -- | The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> .
+    contentMD5 :: Core.Maybe Types.ContentMD5,
+    -- | A standard MIME type describing the format of the contents. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17> .
+    contentType :: Core.Maybe Types.ContentType,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Core.Maybe Types.AccountId,
+    -- | The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
+    expires :: Core.Maybe Core.UTCTime,
+    -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantFullControl :: Core.Maybe Types.GrantFullControl,
+    -- | Allows grantee to read the object data and its metadata.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantRead :: Core.Maybe Types.GrantRead,
+    -- | Allows grantee to read the object ACL.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantReadACP :: Core.Maybe Types.GrantReadACP,
     -- | Allows grantee to write the ACL for the applicable object.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantWriteACP :: Lude.Maybe Lude.Text,
+    grantWriteACP :: Core.Maybe Types.GrantWriteACP,
+    -- | A map of metadata to store with the object in S3.
+    metadata :: Core.HashMap Types.MetadataKey Types.MetadataValue,
+    -- | Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .
+    objectLockLegalHoldStatus :: Core.Maybe Types.ObjectLockLegalHoldStatus,
+    -- | The Object Lock mode that you want to apply to this object.
+    objectLockMode :: Core.Maybe Types.ObjectLockMode,
+    -- | The date and time when you want this object's Object Lock to expire.
+    objectLockRetainUntilDate :: Core.Maybe Core.UTCTime,
+    requestPayer :: Core.Maybe Types.RequestPayer,
+    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+    sSECustomerKey :: Core.Maybe Types.SSECustomerKey,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5,
+    -- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+    sSEKMSEncryptionContext :: Core.Maybe Types.SSEKMSEncryptionContext,
+    -- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.
+    --
+    -- If the value of @x-amz-server-side-encryption@ is @aws:kms@ , this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify @x-amz-server-side-encryption:aws:kms@ , but do not provide@x-amz-server-side-encryption-aws-kms-key-id@ , Amazon S3 uses the AWS managed CMK in AWS to protect the data.
+    sSEKMSKeyId :: Core.Maybe Types.SSEKMSKeyId,
+    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Core.Maybe Types.ServerSideEncryption,
+    -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
+    storageClass :: Core.Maybe Types.StorageClass,
+    -- | The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+    tagging :: Core.Maybe Types.TaggingHeader,
     -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html Object Key and Metadata> .
     --
     -- In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:
@@ -130,191 +178,53 @@ data PutObject = PutObject'
     -- In the following example, the request header sets the object redirect to another website:
     -- @x-amz-website-redirect-location: http://www.example.com/@
     -- For more information about website hosting in Amazon S3, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html How to Configure Website Page Redirects> .
-    websiteRedirectLocation :: Lude.Maybe Lude.Text,
-    -- | Allows grantee to read the object data and its metadata.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantRead :: Lude.Maybe Lude.Text,
-    -- | Object key for which the PUT operation was initiated.
-    key :: ObjectKey,
-    -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
-    storageClass :: Lude.Maybe StorageClass,
-    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    -- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.
-    --
-    -- If the value of @x-amz-server-side-encryption@ is @aws:kms@ , this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify @x-amz-server-side-encryption:aws:kms@ , but do not provide@x-amz-server-side-encryption-aws-kms-key-id@ , Amazon S3 uses the AWS managed CMK in AWS to protect the data.
-    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantFullControl :: Lude.Maybe Lude.Text,
-    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11> .
-    contentEncoding :: Lude.Maybe Lude.Text,
-    -- | The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
-    tagging :: Lude.Maybe Lude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> .
-    contentMD5 :: Lude.Maybe Lude.Text,
-    -- | The date and time when you want this object's Object Lock to expire.
-    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
-    -- | A map of metadata to store with the object in S3.
-    metadata :: Lude.HashMap Lude.Text (Lude.Text),
-    -- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Can be used to specify caching behavior along the request/reply chain. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
-    cacheControl :: Lude.Maybe Lude.Text,
-    -- | The language the content is in.
-    contentLanguage :: Lude.Maybe Lude.Text,
-    -- | Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .
-    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
-    -- | The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    acl :: Lude.Maybe ObjectCannedACL,
-    -- | Specifies presentational information for the object. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1> .
-    contentDisposition :: Lude.Maybe Lude.Text,
-    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
-    -- | A standard MIME type describing the format of the contents. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17> .
-    contentType :: Lude.Maybe Lude.Text
+    websiteRedirectLocation :: Core.Maybe Types.WebsiteRedirectLocation
   }
-  deriving stock (Lude.Show, Lude.Generic)
+  deriving stock (Core.Show, Core.Generic)
 
--- | Creates a value of 'PutObject' with the minimum fields required to make a request.
---
--- * 'contentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
--- * 'objectLockMode' - The Object Lock mode that you want to apply to this object.
--- * 'expires' - The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
--- * 'body' - Object data.
--- * 'grantReadACP' - Allows grantee to read the object ACL.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'bucket' - The bucket name to which the PUT operation was initiated.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
--- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
--- * 'requestPayer' -
--- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable object.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html Object Key and Metadata> .
---
--- In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:
--- @x-amz-website-redirect-location: /anotherPage.html@
--- In the following example, the request header sets the object redirect to another website:
--- @x-amz-website-redirect-location: http://www.example.com/@
--- For more information about website hosting in Amazon S3, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html How to Configure Website Page Redirects> .
--- * 'grantRead' - Allows grantee to read the object data and its metadata.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'key' - Object key for which the PUT operation was initiated.
--- * 'storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
--- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
--- * 'sSEKMSKeyId' - If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.
---
--- If the value of @x-amz-server-side-encryption@ is @aws:kms@ , this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify @x-amz-server-side-encryption:aws:kms@ , but do not provide@x-amz-server-side-encryption-aws-kms-key-id@ , Amazon S3 uses the AWS managed CMK in AWS to protect the data.
--- * 'grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11> .
--- * 'tagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
--- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> .
--- * 'objectLockRetainUntilDate' - The date and time when you want this object's Object Lock to expire.
--- * 'metadata' - A map of metadata to store with the object in S3.
--- * 'sSEKMSEncryptionContext' - Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
--- * 'cacheControl' - Can be used to specify caching behavior along the request/reply chain. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
--- * 'contentLanguage' - The language the content is in.
--- * 'objectLockLegalHoldStatus' - Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .
--- * 'acl' - The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'contentDisposition' - Specifies presentational information for the object. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1> .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
--- * 'contentType' - A standard MIME type describing the format of the contents. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17> .
+-- | Creates a 'PutObject' value with any optional fields omitted.
 mkPutObject ::
-  -- | 'body'
-  Lude.RqBody ->
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'key'
-  ObjectKey ->
+  Types.ObjectKey ->
+  -- | 'body'
+  Core.RqBody ->
   PutObject
-mkPutObject pBody_ pBucket_ pKey_ =
+mkPutObject bucket key body =
   PutObject'
-    { contentLength = Lude.Nothing,
-      objectLockMode = Lude.Nothing,
-      expires = Lude.Nothing,
-      body = pBody_,
-      grantReadACP = Lude.Nothing,
-      bucket = pBucket_,
-      sSECustomerAlgorithm = Lude.Nothing,
-      sSECustomerKey = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      grantWriteACP = Lude.Nothing,
-      websiteRedirectLocation = Lude.Nothing,
-      grantRead = Lude.Nothing,
-      key = pKey_,
-      storageClass = Lude.Nothing,
-      sSECustomerKeyMD5 = Lude.Nothing,
-      sSEKMSKeyId = Lude.Nothing,
-      grantFullControl = Lude.Nothing,
-      contentEncoding = Lude.Nothing,
-      tagging = Lude.Nothing,
-      contentMD5 = Lude.Nothing,
-      objectLockRetainUntilDate = Lude.Nothing,
-      metadata = Lude.mempty,
-      sSEKMSEncryptionContext = Lude.Nothing,
-      cacheControl = Lude.Nothing,
-      contentLanguage = Lude.Nothing,
-      objectLockLegalHoldStatus = Lude.Nothing,
-      acl = Lude.Nothing,
-      contentDisposition = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      serverSideEncryption = Lude.Nothing,
-      contentType = Lude.Nothing
+    { bucket,
+      key,
+      acl = Core.Nothing,
+      body,
+      cacheControl = Core.Nothing,
+      contentDisposition = Core.Nothing,
+      contentEncoding = Core.Nothing,
+      contentLanguage = Core.Nothing,
+      contentLength = Core.Nothing,
+      contentMD5 = Core.Nothing,
+      contentType = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      expires = Core.Nothing,
+      grantFullControl = Core.Nothing,
+      grantRead = Core.Nothing,
+      grantReadACP = Core.Nothing,
+      grantWriteACP = Core.Nothing,
+      metadata = Core.mempty,
+      objectLockLegalHoldStatus = Core.Nothing,
+      objectLockMode = Core.Nothing,
+      objectLockRetainUntilDate = Core.Nothing,
+      requestPayer = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      sSECustomerKey = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      sSEKMSEncryptionContext = Core.Nothing,
+      sSEKMSKeyId = Core.Nothing,
+      serverSideEncryption = Core.Nothing,
+      storageClass = Core.Nothing,
+      tagging = Core.Nothing,
+      websiteRedirectLocation = Core.Nothing
     }
-
--- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
---
--- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poContentLength :: Lens.Lens' PutObject (Lude.Maybe Lude.Integer)
-poContentLength = Lens.lens (contentLength :: PutObject -> Lude.Maybe Lude.Integer) (\s a -> s {contentLength = a} :: PutObject)
-{-# DEPRECATED poContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
-
--- | The Object Lock mode that you want to apply to this object.
---
--- /Note:/ Consider using 'objectLockMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poObjectLockMode :: Lens.Lens' PutObject (Lude.Maybe ObjectLockMode)
-poObjectLockMode = Lens.lens (objectLockMode :: PutObject -> Lude.Maybe ObjectLockMode) (\s a -> s {objectLockMode = a} :: PutObject)
-{-# DEPRECATED poObjectLockMode "Use generic-lens or generic-optics with 'objectLockMode' instead." #-}
-
--- | The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
---
--- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poExpires :: Lens.Lens' PutObject (Lude.Maybe Lude.DateTime)
-poExpires = Lens.lens (expires :: PutObject -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: PutObject)
-{-# DEPRECATED poExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
-
--- | Object data.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poBody :: Lens.Lens' PutObject Lude.RqBody
-poBody = Lens.lens (body :: PutObject -> Lude.RqBody) (\s a -> s {body = a} :: PutObject)
-{-# DEPRECATED poBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | Allows grantee to read the object ACL.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- /Note:/ Consider using 'grantReadACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poGrantReadACP :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poGrantReadACP = Lens.lens (grantReadACP :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {grantReadACP = a} :: PutObject)
-{-# DEPRECATED poGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
 
 -- | The bucket name to which the PUT operation was initiated.
 --
@@ -322,39 +232,224 @@ poGrantReadACP = Lens.lens (grantReadACP :: PutObject -> Lude.Maybe Lude.Text) (
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poBucket :: Lens.Lens' PutObject BucketName
-poBucket = Lens.lens (bucket :: PutObject -> BucketName) (\s a -> s {bucket = a} :: PutObject)
+poBucket :: Lens.Lens' PutObject Types.BucketName
+poBucket = Lens.field @"bucket"
 {-# DEPRECATED poBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
--- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
+-- | Object key for which the PUT operation was initiated.
 --
--- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poSSECustomerAlgorithm :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: PutObject)
-{-# DEPRECATED poSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poKey :: Lens.Lens' PutObject Types.ObjectKey
+poKey = Lens.field @"key"
+{-# DEPRECATED poKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+-- | The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
 --
--- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poSSECustomerKey :: Lens.Lens' PutObject (Lude.Maybe (Lude.Sensitive Lude.Text))
-poSSECustomerKey = Lens.lens (sSECustomerKey :: PutObject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSECustomerKey = a} :: PutObject)
-{-# DEPRECATED poSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'acl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poACL :: Lens.Lens' PutObject (Core.Maybe Types.ObjectCannedACL)
+poACL = Lens.field @"acl"
+{-# DEPRECATED poACL "Use generic-lens or generic-optics with 'acl' instead." #-}
 
--- | Undocumented field.
+-- | Object data.
 --
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poRequestPayer :: Lens.Lens' PutObject (Lude.Maybe RequestPayer)
-poRequestPayer = Lens.lens (requestPayer :: PutObject -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: PutObject)
-{-# DEPRECATED poRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poBody :: Lens.Lens' PutObject Core.RqBody
+poBody = Lens.field @"body"
+{-# DEPRECATED poBody "Use generic-lens or generic-optics with 'body' instead." #-}
+
+-- | Can be used to specify caching behavior along the request/reply chain. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
+--
+-- /Note:/ Consider using 'cacheControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poCacheControl :: Lens.Lens' PutObject (Core.Maybe Types.CacheControl)
+poCacheControl = Lens.field @"cacheControl"
+{-# DEPRECATED poCacheControl "Use generic-lens or generic-optics with 'cacheControl' instead." #-}
+
+-- | Specifies presentational information for the object. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1> .
+--
+-- /Note:/ Consider using 'contentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poContentDisposition :: Lens.Lens' PutObject (Core.Maybe Types.ContentDisposition)
+poContentDisposition = Lens.field @"contentDisposition"
+{-# DEPRECATED poContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
+
+-- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11> .
+--
+-- /Note:/ Consider using 'contentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poContentEncoding :: Lens.Lens' PutObject (Core.Maybe Types.ContentEncoding)
+poContentEncoding = Lens.field @"contentEncoding"
+{-# DEPRECATED poContentEncoding "Use generic-lens or generic-optics with 'contentEncoding' instead." #-}
+
+-- | The language the content is in.
+--
+-- /Note:/ Consider using 'contentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poContentLanguage :: Lens.Lens' PutObject (Core.Maybe Types.ContentLanguage)
+poContentLanguage = Lens.field @"contentLanguage"
+{-# DEPRECATED poContentLanguage "Use generic-lens or generic-optics with 'contentLanguage' instead." #-}
+
+-- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
+--
+-- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poContentLength :: Lens.Lens' PutObject (Core.Maybe Core.Integer)
+poContentLength = Lens.field @"contentLength"
+{-# DEPRECATED poContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
+
+-- | The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> .
+--
+-- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poContentMD5 :: Lens.Lens' PutObject (Core.Maybe Types.ContentMD5)
+poContentMD5 = Lens.field @"contentMD5"
+{-# DEPRECATED poContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
+
+-- | A standard MIME type describing the format of the contents. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17> .
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poContentType :: Lens.Lens' PutObject (Core.Maybe Types.ContentType)
+poContentType = Lens.field @"contentType"
+{-# DEPRECATED poContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poExpectedBucketOwner :: Lens.Lens' PutObject (Core.Maybe Types.AccountId)
+poExpectedBucketOwner = Lens.field @"expectedBucketOwner"
+{-# DEPRECATED poExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+
+-- | The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poExpires :: Lens.Lens' PutObject (Core.Maybe Core.UTCTime)
+poExpires = Lens.field @"expires"
+{-# DEPRECATED poExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
+
+-- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantFullControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poGrantFullControl :: Lens.Lens' PutObject (Core.Maybe Types.GrantFullControl)
+poGrantFullControl = Lens.field @"grantFullControl"
+{-# DEPRECATED poGrantFullControl "Use generic-lens or generic-optics with 'grantFullControl' instead." #-}
+
+-- | Allows grantee to read the object data and its metadata.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poGrantRead :: Lens.Lens' PutObject (Core.Maybe Types.GrantRead)
+poGrantRead = Lens.field @"grantRead"
+{-# DEPRECATED poGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
+
+-- | Allows grantee to read the object ACL.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+--
+-- /Note:/ Consider using 'grantReadACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poGrantReadACP :: Lens.Lens' PutObject (Core.Maybe Types.GrantReadACP)
+poGrantReadACP = Lens.field @"grantReadACP"
+{-# DEPRECATED poGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
 
 -- | Allows grantee to write the ACL for the applicable object.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
 -- /Note:/ Consider using 'grantWriteACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poGrantWriteACP :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poGrantWriteACP = Lens.lens (grantWriteACP :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {grantWriteACP = a} :: PutObject)
+poGrantWriteACP :: Lens.Lens' PutObject (Core.Maybe Types.GrantWriteACP)
+poGrantWriteACP = Lens.field @"grantWriteACP"
 {-# DEPRECATED poGrantWriteACP "Use generic-lens or generic-optics with 'grantWriteACP' instead." #-}
+
+-- | A map of metadata to store with the object in S3.
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poMetadata :: Lens.Lens' PutObject (Core.HashMap Types.MetadataKey Types.MetadataValue)
+poMetadata = Lens.field @"metadata"
+{-# DEPRECATED poMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .
+--
+-- /Note:/ Consider using 'objectLockLegalHoldStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poObjectLockLegalHoldStatus :: Lens.Lens' PutObject (Core.Maybe Types.ObjectLockLegalHoldStatus)
+poObjectLockLegalHoldStatus = Lens.field @"objectLockLegalHoldStatus"
+{-# DEPRECATED poObjectLockLegalHoldStatus "Use generic-lens or generic-optics with 'objectLockLegalHoldStatus' instead." #-}
+
+-- | The Object Lock mode that you want to apply to this object.
+--
+-- /Note:/ Consider using 'objectLockMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poObjectLockMode :: Lens.Lens' PutObject (Core.Maybe Types.ObjectLockMode)
+poObjectLockMode = Lens.field @"objectLockMode"
+{-# DEPRECATED poObjectLockMode "Use generic-lens or generic-optics with 'objectLockMode' instead." #-}
+
+-- | The date and time when you want this object's Object Lock to expire.
+--
+-- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poObjectLockRetainUntilDate :: Lens.Lens' PutObject (Core.Maybe Core.UTCTime)
+poObjectLockRetainUntilDate = Lens.field @"objectLockRetainUntilDate"
+{-# DEPRECATED poObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poRequestPayer :: Lens.Lens' PutObject (Core.Maybe Types.RequestPayer)
+poRequestPayer = Lens.field @"requestPayer"
+{-# DEPRECATED poRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
+-- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
+--
+-- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poSSECustomerAlgorithm :: Lens.Lens' PutObject (Core.Maybe Types.SSECustomerAlgorithm)
+poSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
+{-# DEPRECATED poSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
+
+-- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+--
+-- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poSSECustomerKey :: Lens.Lens' PutObject (Core.Maybe Types.SSECustomerKey)
+poSSECustomerKey = Lens.field @"sSECustomerKey"
+{-# DEPRECATED poSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
+
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+--
+-- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poSSECustomerKeyMD5 :: Lens.Lens' PutObject (Core.Maybe Types.SSECustomerKeyMD5)
+poSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
+{-# DEPRECATED poSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
+
+-- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+--
+-- /Note:/ Consider using 'sSEKMSEncryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poSSEKMSEncryptionContext :: Lens.Lens' PutObject (Core.Maybe Types.SSEKMSEncryptionContext)
+poSSEKMSEncryptionContext = Lens.field @"sSEKMSEncryptionContext"
+{-# DEPRECATED poSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
+
+-- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.
+--
+-- If the value of @x-amz-server-side-encryption@ is @aws:kms@ , this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify @x-amz-server-side-encryption:aws:kms@ , but do not provide@x-amz-server-side-encryption-aws-kms-key-id@ , Amazon S3 uses the AWS managed CMK in AWS to protect the data.
+--
+-- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poSSEKMSKeyId :: Lens.Lens' PutObject (Core.Maybe Types.SSEKMSKeyId)
+poSSEKMSKeyId = Lens.field @"sSEKMSKeyId"
+{-# DEPRECATED poSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
+
+-- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+--
+-- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poServerSideEncryption :: Lens.Lens' PutObject (Core.Maybe Types.ServerSideEncryption)
+poServerSideEncryption = Lens.field @"serverSideEncryption"
+{-# DEPRECATED poServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+
+-- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poStorageClass :: Lens.Lens' PutObject (Core.Maybe Types.StorageClass)
+poStorageClass = Lens.field @"storageClass"
+{-# DEPRECATED poStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
+
+-- | The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+--
+-- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poTagging :: Lens.Lens' PutObject (Core.Maybe Types.TaggingHeader)
+poTagging = Lens.field @"tagging"
+{-# DEPRECATED poTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
 
 -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html Object Key and Metadata> .
 --
@@ -365,345 +460,216 @@ poGrantWriteACP = Lens.lens (grantWriteACP :: PutObject -> Lude.Maybe Lude.Text)
 -- For more information about website hosting in Amazon S3, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html How to Configure Website Page Redirects> .
 --
 -- /Note:/ Consider using 'websiteRedirectLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poWebsiteRedirectLocation :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poWebsiteRedirectLocation = Lens.lens (websiteRedirectLocation :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {websiteRedirectLocation = a} :: PutObject)
+poWebsiteRedirectLocation :: Lens.Lens' PutObject (Core.Maybe Types.WebsiteRedirectLocation)
+poWebsiteRedirectLocation = Lens.field @"websiteRedirectLocation"
 {-# DEPRECATED poWebsiteRedirectLocation "Use generic-lens or generic-optics with 'websiteRedirectLocation' instead." #-}
 
--- | Allows grantee to read the object data and its metadata.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- /Note:/ Consider using 'grantRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poGrantRead :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poGrantRead = Lens.lens (grantRead :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {grantRead = a} :: PutObject)
-{-# DEPRECATED poGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
-
--- | Object key for which the PUT operation was initiated.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poKey :: Lens.Lens' PutObject ObjectKey
-poKey = Lens.lens (key :: PutObject -> ObjectKey) (\s a -> s {key = a} :: PutObject)
-{-# DEPRECATED poKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
--- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
---
--- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poStorageClass :: Lens.Lens' PutObject (Lude.Maybe StorageClass)
-poStorageClass = Lens.lens (storageClass :: PutObject -> Lude.Maybe StorageClass) (\s a -> s {storageClass = a} :: PutObject)
-{-# DEPRECATED poStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
-
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
---
--- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poSSECustomerKeyMD5 :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: PutObject)
-{-# DEPRECATED poSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
-
--- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.
---
--- If the value of @x-amz-server-side-encryption@ is @aws:kms@ , this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify @x-amz-server-side-encryption:aws:kms@ , but do not provide@x-amz-server-side-encryption-aws-kms-key-id@ , Amazon S3 uses the AWS managed CMK in AWS to protect the data.
---
--- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poSSEKMSKeyId :: Lens.Lens' PutObject (Lude.Maybe (Lude.Sensitive Lude.Text))
-poSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: PutObject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: PutObject)
-{-# DEPRECATED poSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
-
--- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- /Note:/ Consider using 'grantFullControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poGrantFullControl :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poGrantFullControl = Lens.lens (grantFullControl :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {grantFullControl = a} :: PutObject)
-{-# DEPRECATED poGrantFullControl "Use generic-lens or generic-optics with 'grantFullControl' instead." #-}
-
--- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11> .
---
--- /Note:/ Consider using 'contentEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poContentEncoding :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poContentEncoding = Lens.lens (contentEncoding :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {contentEncoding = a} :: PutObject)
-{-# DEPRECATED poContentEncoding "Use generic-lens or generic-optics with 'contentEncoding' instead." #-}
-
--- | The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
---
--- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poTagging :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poTagging = Lens.lens (tagging :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {tagging = a} :: PutObject)
-{-# DEPRECATED poTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
-
--- | The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> .
---
--- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poContentMD5 :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poContentMD5 = Lens.lens (contentMD5 :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutObject)
-{-# DEPRECATED poContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
-
--- | The date and time when you want this object's Object Lock to expire.
---
--- /Note:/ Consider using 'objectLockRetainUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poObjectLockRetainUntilDate :: Lens.Lens' PutObject (Lude.Maybe Lude.DateTime)
-poObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: PutObject -> Lude.Maybe Lude.DateTime) (\s a -> s {objectLockRetainUntilDate = a} :: PutObject)
-{-# DEPRECATED poObjectLockRetainUntilDate "Use generic-lens or generic-optics with 'objectLockRetainUntilDate' instead." #-}
-
--- | A map of metadata to store with the object in S3.
---
--- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poMetadata :: Lens.Lens' PutObject (Lude.HashMap Lude.Text (Lude.Text))
-poMetadata = Lens.lens (metadata :: PutObject -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metadata = a} :: PutObject)
-{-# DEPRECATED poMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
-
--- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
---
--- /Note:/ Consider using 'sSEKMSEncryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poSSEKMSEncryptionContext :: Lens.Lens' PutObject (Lude.Maybe (Lude.Sensitive Lude.Text))
-poSSEKMSEncryptionContext = Lens.lens (sSEKMSEncryptionContext :: PutObject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSEncryptionContext = a} :: PutObject)
-{-# DEPRECATED poSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
-
--- | Can be used to specify caching behavior along the request/reply chain. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
---
--- /Note:/ Consider using 'cacheControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poCacheControl :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poCacheControl = Lens.lens (cacheControl :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {cacheControl = a} :: PutObject)
-{-# DEPRECATED poCacheControl "Use generic-lens or generic-optics with 'cacheControl' instead." #-}
-
--- | The language the content is in.
---
--- /Note:/ Consider using 'contentLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poContentLanguage :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poContentLanguage = Lens.lens (contentLanguage :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {contentLanguage = a} :: PutObject)
-{-# DEPRECATED poContentLanguage "Use generic-lens or generic-optics with 'contentLanguage' instead." #-}
-
--- | Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .
---
--- /Note:/ Consider using 'objectLockLegalHoldStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poObjectLockLegalHoldStatus :: Lens.Lens' PutObject (Lude.Maybe ObjectLockLegalHoldStatus)
-poObjectLockLegalHoldStatus = Lens.lens (objectLockLegalHoldStatus :: PutObject -> Lude.Maybe ObjectLockLegalHoldStatus) (\s a -> s {objectLockLegalHoldStatus = a} :: PutObject)
-{-# DEPRECATED poObjectLockLegalHoldStatus "Use generic-lens or generic-optics with 'objectLockLegalHoldStatus' instead." #-}
-
--- | The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- /Note:/ Consider using 'acl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poACL :: Lens.Lens' PutObject (Lude.Maybe ObjectCannedACL)
-poACL = Lens.lens (acl :: PutObject -> Lude.Maybe ObjectCannedACL) (\s a -> s {acl = a} :: PutObject)
-{-# DEPRECATED poACL "Use generic-lens or generic-optics with 'acl' instead." #-}
-
--- | Specifies presentational information for the object. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1> .
---
--- /Note:/ Consider using 'contentDisposition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poContentDisposition :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poContentDisposition = Lens.lens (contentDisposition :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {contentDisposition = a} :: PutObject)
-{-# DEPRECATED poContentDisposition "Use generic-lens or generic-optics with 'contentDisposition' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poExpectedBucketOwner :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutObject)
-{-# DEPRECATED poExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
---
--- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poServerSideEncryption :: Lens.Lens' PutObject (Lude.Maybe ServerSideEncryption)
-poServerSideEncryption = Lens.lens (serverSideEncryption :: PutObject -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: PutObject)
-{-# DEPRECATED poServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
-
--- | A standard MIME type describing the format of the contents. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17> .
---
--- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poContentType :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
-poContentType = Lens.lens (contentType :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: PutObject)
-{-# DEPRECATED poContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
-
-instance Lude.AWSRequest PutObject where
+instance Core.AWSRequest PutObject where
   type Rs PutObject = PutObjectResponse
-  request = expectHeader Lude.. Req.putBody s3Service
+  request x@Core.Request {..} =
+    Request.expectHeader Core.$
+      Core.Request
+        { Core._rqService = Types.mkServiceConfig,
+          Core._rqMethod = Request.PUT,
+          Core._rqPath =
+            Core.rawPath
+              ( "/" Core.<> (Core.toText bucket) Core.<> ("/")
+                  Core.<> (Core.toText key)
+              ),
+          Core._rqQuery = Core.mempty,
+          Core._rqHeaders =
+            Core.toHeaders "x-amz-acl" acl
+              Core.<> (Core.toHeaders "Cache-Control" cacheControl)
+              Core.<> (Core.toHeaders "Content-Disposition" contentDisposition)
+              Core.<> (Core.toHeaders "Content-Encoding" contentEncoding)
+              Core.<> (Core.toHeaders "Content-Language" contentLanguage)
+              Core.<> (Core.toHeaders "Content-Length" contentLength)
+              Core.<> (Core.toHeaders "Content-MD5" contentMD5)
+              Core.<> (Core.toHeaders "Content-Type" contentType)
+              Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner)
+              Core.<> (Core.toHeaders "Expires" expires)
+              Core.<> (Core.toHeaders "x-amz-grant-full-control" grantFullControl)
+              Core.<> (Core.toHeaders "x-amz-grant-read" grantRead)
+              Core.<> (Core.toHeaders "x-amz-grant-read-acp" grantReadACP)
+              Core.<> (Core.toHeaders "x-amz-grant-write-acp" grantWriteACP)
+              Core.<> (Core.toHeaders "x-amz-meta-" metadata)
+              Core.<> ( Core.toHeaders
+                          "x-amz-object-lock-legal-hold"
+                          objectLockLegalHoldStatus
+                      )
+              Core.<> (Core.toHeaders "x-amz-object-lock-mode" objectLockMode)
+              Core.<> ( Core.toHeaders
+                          "x-amz-object-lock-retain-until-date"
+                          objectLockRetainUntilDate
+                      )
+              Core.<> (Core.toHeaders "x-amz-request-payer" requestPayer)
+              Core.<> ( Core.toHeaders
+                          "x-amz-server-side-encryption-customer-algorithm"
+                          sSECustomerAlgorithm
+                      )
+              Core.<> ( Core.toHeaders
+                          "x-amz-server-side-encryption-customer-key"
+                          sSECustomerKey
+                      )
+              Core.<> ( Core.toHeaders
+                          "x-amz-server-side-encryption-customer-key-MD5"
+                          sSECustomerKeyMD5
+                      )
+              Core.<> ( Core.toHeaders
+                          "x-amz-server-side-encryption-context"
+                          sSEKMSEncryptionContext
+                      )
+              Core.<> ( Core.toHeaders
+                          "x-amz-server-side-encryption-aws-kms-key-id"
+                          sSEKMSKeyId
+                      )
+              Core.<> ( Core.toHeaders
+                          "x-amz-server-side-encryption"
+                          serverSideEncryption
+                      )
+              Core.<> (Core.toHeaders "x-amz-storage-class" storageClass)
+              Core.<> (Core.toHeaders "x-amz-tagging" tagging)
+              Core.<> ( Core.toHeaders
+                          "x-amz-website-redirect-location"
+                          websiteRedirectLocation
+                      ),
+          Core._rqBody = Core.toBody body
+        }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutObjectResponse'
-            Lude.<$> (h Lude..#? "x-amz-request-charged")
-            Lude.<*> (h Lude..#? "ETag")
-            Lude.<*> (h Lude..#? "x-amz-version-id")
-            Lude.<*> (h Lude..#? "x-amz-expiration")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-algorithm")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-key-MD5")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-aws-kms-key-id")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-context")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-expiration" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-request-charged" h)
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-customer-algorithm"
+                         h
+                     )
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-customer-key-MD5"
+                         h
+                     )
+            Core.<*> (Core.parseHeaderMaybe "x-amz-server-side-encryption-context" h)
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-aws-kms-key-id"
+                         h
+                     )
+            Core.<*> (Core.parseHeaderMaybe "x-amz-server-side-encryption" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-version-id" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToBody PutObject where
-  toBody = Lude.toBody Lude.. body
-
-instance Lude.ToHeaders PutObject where
-  toHeaders PutObject' {..} =
-    Lude.mconcat
-      [ "Content-Length" Lude.=# contentLength,
-        "x-amz-object-lock-mode" Lude.=# objectLockMode,
-        "Expires" Lude.=# expires,
-        "x-amz-grant-read-acp" Lude.=# grantReadACP,
-        "x-amz-server-side-encryption-customer-algorithm"
-          Lude.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key" Lude.=# sSECustomerKey,
-        "x-amz-request-payer" Lude.=# requestPayer,
-        "x-amz-grant-write-acp" Lude.=# grantWriteACP,
-        "x-amz-website-redirect-location" Lude.=# websiteRedirectLocation,
-        "x-amz-grant-read" Lude.=# grantRead,
-        "x-amz-storage-class" Lude.=# storageClass,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Lude.=# sSECustomerKeyMD5,
-        "x-amz-server-side-encryption-aws-kms-key-id" Lude.=# sSEKMSKeyId,
-        "x-amz-grant-full-control" Lude.=# grantFullControl,
-        "Content-Encoding" Lude.=# contentEncoding,
-        "x-amz-tagging" Lude.=# tagging,
-        "Content-MD5" Lude.=# contentMD5,
-        "x-amz-object-lock-retain-until-date"
-          Lude.=# objectLockRetainUntilDate,
-        "x-amz-meta-" Lude.=# metadata,
-        "x-amz-server-side-encryption-context"
-          Lude.=# sSEKMSEncryptionContext,
-        "Cache-Control" Lude.=# cacheControl,
-        "Content-Language" Lude.=# contentLanguage,
-        "x-amz-object-lock-legal-hold" Lude.=# objectLockLegalHoldStatus,
-        "x-amz-acl" Lude.=# acl,
-        "Content-Disposition" Lude.=# contentDisposition,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner,
-        "x-amz-server-side-encryption" Lude.=# serverSideEncryption,
-        "Content-Type" Lude.=# contentType
-      ]
-
-instance Lude.ToPath PutObject where
-  toPath PutObject' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
-
-instance Lude.ToQuery PutObject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutObjectResponse' smart constructor.
 data PutObjectResponse = PutObjectResponse'
-  { requestCharged :: Lude.Maybe RequestCharged,
-    -- | Entity tag for the uploaded object.
-    eTag :: Lude.Maybe ETag,
-    -- | Version of the object.
-    versionId :: Lude.Maybe ObjectVersionId,
+  { -- | Entity tag for the uploaded object.
+    eTag :: Core.Maybe Types.ETag,
     -- | If the expiration is configured for the object (see <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration> ), the response includes this header. It includes the expiry-date and rule-id key-value pairs that provide information about object expiration. The value of the rule-id is URL encoded.
-    expiration :: Lude.Maybe Lude.Text,
+    expiration :: Core.Maybe Types.Expiration,
+    requestCharged :: Core.Maybe Types.RequestCharged,
     -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
     -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    -- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
-    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5,
     -- | If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sSEKMSEncryptionContext :: Core.Maybe Types.SSEKMSEncryptionContext,
+    -- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+    sSEKMSKeyId :: Core.Maybe Types.SSEKMSKeyId,
     -- | If you specified server-side encryption either with an AWS KMS customer master key (CMK) or Amazon S3-managed encryption key in your PUT request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
-    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    serverSideEncryption :: Core.Maybe Types.ServerSideEncryption,
+    -- | Version of the object.
+    versionId :: Core.Maybe Types.ObjectVersionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutObjectResponse' with the minimum fields required to make a request.
---
--- * 'requestCharged' -
--- * 'eTag' - Entity tag for the uploaded object.
--- * 'versionId' - Version of the object.
--- * 'expiration' - If the expiration is configured for the object (see <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration> ), the response includes this header. It includes the expiry-date and rule-id key-value pairs that provide information about object expiration. The value of the rule-id is URL encoded.
--- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
--- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
--- * 'sSEKMSKeyId' - If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
--- * 'sSEKMSEncryptionContext' - If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
--- * 'serverSideEncryption' - If you specified server-side encryption either with an AWS KMS customer master key (CMK) or Amazon S3-managed encryption key in your PUT request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutObjectResponse' value with any optional fields omitted.
 mkPutObjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutObjectResponse
-mkPutObjectResponse pResponseStatus_ =
+mkPutObjectResponse responseStatus =
   PutObjectResponse'
-    { requestCharged = Lude.Nothing,
-      eTag = Lude.Nothing,
-      versionId = Lude.Nothing,
-      expiration = Lude.Nothing,
-      sSECustomerAlgorithm = Lude.Nothing,
-      sSECustomerKeyMD5 = Lude.Nothing,
-      sSEKMSKeyId = Lude.Nothing,
-      sSEKMSEncryptionContext = Lude.Nothing,
-      serverSideEncryption = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      expiration = Core.Nothing,
+      requestCharged = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      sSEKMSEncryptionContext = Core.Nothing,
+      sSEKMSKeyId = Core.Nothing,
+      serverSideEncryption = Core.Nothing,
+      versionId = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsRequestCharged :: Lens.Lens' PutObjectResponse (Lude.Maybe RequestCharged)
-porsRequestCharged = Lens.lens (requestCharged :: PutObjectResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: PutObjectResponse)
-{-# DEPRECATED porsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | Entity tag for the uploaded object.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsETag :: Lens.Lens' PutObjectResponse (Lude.Maybe ETag)
-porsETag = Lens.lens (eTag :: PutObjectResponse -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: PutObjectResponse)
-{-# DEPRECATED porsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
-
--- | Version of the object.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsVersionId :: Lens.Lens' PutObjectResponse (Lude.Maybe ObjectVersionId)
-porsVersionId = Lens.lens (versionId :: PutObjectResponse -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: PutObjectResponse)
-{-# DEPRECATED porsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+porrsETag :: Lens.Lens' PutObjectResponse (Core.Maybe Types.ETag)
+porrsETag = Lens.field @"eTag"
+{-# DEPRECATED porrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | If the expiration is configured for the object (see <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration> ), the response includes this header. It includes the expiry-date and rule-id key-value pairs that provide information about object expiration. The value of the rule-id is URL encoded.
 --
 -- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsExpiration :: Lens.Lens' PutObjectResponse (Lude.Maybe Lude.Text)
-porsExpiration = Lens.lens (expiration :: PutObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {expiration = a} :: PutObjectResponse)
-{-# DEPRECATED porsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
+porrsExpiration :: Lens.Lens' PutObjectResponse (Core.Maybe Types.Expiration)
+porrsExpiration = Lens.field @"expiration"
+{-# DEPRECATED porrsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+porrsRequestCharged :: Lens.Lens' PutObjectResponse (Core.Maybe Types.RequestCharged)
+porrsRequestCharged = Lens.field @"requestCharged"
+{-# DEPRECATED porrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
 -- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsSSECustomerAlgorithm :: Lens.Lens' PutObjectResponse (Lude.Maybe Lude.Text)
-porsSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: PutObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: PutObjectResponse)
-{-# DEPRECATED porsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
+porrsSSECustomerAlgorithm :: Lens.Lens' PutObjectResponse (Core.Maybe Types.SSECustomerAlgorithm)
+porrsSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
+{-# DEPRECATED porrsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
 --
 -- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsSSECustomerKeyMD5 :: Lens.Lens' PutObjectResponse (Lude.Maybe Lude.Text)
-porsSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: PutObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: PutObjectResponse)
-{-# DEPRECATED porsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
-
--- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
---
--- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsSSEKMSKeyId :: Lens.Lens' PutObjectResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-porsSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: PutObjectResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: PutObjectResponse)
-{-# DEPRECATED porsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
+porrsSSECustomerKeyMD5 :: Lens.Lens' PutObjectResponse (Core.Maybe Types.SSECustomerKeyMD5)
+porrsSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
+{-# DEPRECATED porrsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
 
 -- | If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
 --
 -- /Note:/ Consider using 'sSEKMSEncryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsSSEKMSEncryptionContext :: Lens.Lens' PutObjectResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-porsSSEKMSEncryptionContext = Lens.lens (sSEKMSEncryptionContext :: PutObjectResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSEncryptionContext = a} :: PutObjectResponse)
-{-# DEPRECATED porsSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
+porrsSSEKMSEncryptionContext :: Lens.Lens' PutObjectResponse (Core.Maybe Types.SSEKMSEncryptionContext)
+porrsSSEKMSEncryptionContext = Lens.field @"sSEKMSEncryptionContext"
+{-# DEPRECATED porrsSSEKMSEncryptionContext "Use generic-lens or generic-optics with 'sSEKMSEncryptionContext' instead." #-}
+
+-- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+--
+-- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+porrsSSEKMSKeyId :: Lens.Lens' PutObjectResponse (Core.Maybe Types.SSEKMSKeyId)
+porrsSSEKMSKeyId = Lens.field @"sSEKMSKeyId"
+{-# DEPRECATED porrsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
 
 -- | If you specified server-side encryption either with an AWS KMS customer master key (CMK) or Amazon S3-managed encryption key in your PUT request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
 --
 -- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsServerSideEncryption :: Lens.Lens' PutObjectResponse (Lude.Maybe ServerSideEncryption)
-porsServerSideEncryption = Lens.lens (serverSideEncryption :: PutObjectResponse -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: PutObjectResponse)
-{-# DEPRECATED porsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+porrsServerSideEncryption :: Lens.Lens' PutObjectResponse (Core.Maybe Types.ServerSideEncryption)
+porrsServerSideEncryption = Lens.field @"serverSideEncryption"
+{-# DEPRECATED porrsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+
+-- | Version of the object.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+porrsVersionId :: Lens.Lens' PutObjectResponse (Core.Maybe Types.ObjectVersionId)
+porrsVersionId = Lens.field @"versionId"
+{-# DEPRECATED porrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porsResponseStatus :: Lens.Lens' PutObjectResponse Lude.Int
-porsResponseStatus = Lens.lens (responseStatus :: PutObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutObjectResponse)
-{-# DEPRECATED porsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+porrsResponseStatus :: Lens.Lens' PutObjectResponse Core.Int
+porrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED porrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

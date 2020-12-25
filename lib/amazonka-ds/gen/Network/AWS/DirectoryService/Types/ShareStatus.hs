@@ -13,81 +13,83 @@
 module Network.AWS.DirectoryService.Types.ShareStatus
   ( ShareStatus
       ( ShareStatus',
-        SSShared,
-        SSPendingAcceptance,
-        SSRejected,
-        SSRejecting,
-        SSRejectFailed,
-        SSSharing,
-        SSShareFailed,
-        SSDeleted,
-        SSDeleting
+        ShareStatusShared,
+        ShareStatusPendingAcceptance,
+        ShareStatusRejected,
+        ShareStatusRejecting,
+        ShareStatusRejectFailed,
+        ShareStatusSharing,
+        ShareStatusShareFailed,
+        ShareStatusDeleted,
+        ShareStatusDeleting,
+        fromShareStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ShareStatus = ShareStatus' Lude.Text
+newtype ShareStatus = ShareStatus' {fromShareStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSShared :: ShareStatus
-pattern SSShared = ShareStatus' "Shared"
+pattern ShareStatusShared :: ShareStatus
+pattern ShareStatusShared = ShareStatus' "Shared"
 
-pattern SSPendingAcceptance :: ShareStatus
-pattern SSPendingAcceptance = ShareStatus' "PendingAcceptance"
+pattern ShareStatusPendingAcceptance :: ShareStatus
+pattern ShareStatusPendingAcceptance = ShareStatus' "PendingAcceptance"
 
-pattern SSRejected :: ShareStatus
-pattern SSRejected = ShareStatus' "Rejected"
+pattern ShareStatusRejected :: ShareStatus
+pattern ShareStatusRejected = ShareStatus' "Rejected"
 
-pattern SSRejecting :: ShareStatus
-pattern SSRejecting = ShareStatus' "Rejecting"
+pattern ShareStatusRejecting :: ShareStatus
+pattern ShareStatusRejecting = ShareStatus' "Rejecting"
 
-pattern SSRejectFailed :: ShareStatus
-pattern SSRejectFailed = ShareStatus' "RejectFailed"
+pattern ShareStatusRejectFailed :: ShareStatus
+pattern ShareStatusRejectFailed = ShareStatus' "RejectFailed"
 
-pattern SSSharing :: ShareStatus
-pattern SSSharing = ShareStatus' "Sharing"
+pattern ShareStatusSharing :: ShareStatus
+pattern ShareStatusSharing = ShareStatus' "Sharing"
 
-pattern SSShareFailed :: ShareStatus
-pattern SSShareFailed = ShareStatus' "ShareFailed"
+pattern ShareStatusShareFailed :: ShareStatus
+pattern ShareStatusShareFailed = ShareStatus' "ShareFailed"
 
-pattern SSDeleted :: ShareStatus
-pattern SSDeleted = ShareStatus' "Deleted"
+pattern ShareStatusDeleted :: ShareStatus
+pattern ShareStatusDeleted = ShareStatus' "Deleted"
 
-pattern SSDeleting :: ShareStatus
-pattern SSDeleting = ShareStatus' "Deleting"
+pattern ShareStatusDeleting :: ShareStatus
+pattern ShareStatusDeleting = ShareStatus' "Deleting"
 
 {-# COMPLETE
-  SSShared,
-  SSPendingAcceptance,
-  SSRejected,
-  SSRejecting,
-  SSRejectFailed,
-  SSSharing,
-  SSShareFailed,
-  SSDeleted,
-  SSDeleting,
+  ShareStatusShared,
+  ShareStatusPendingAcceptance,
+  ShareStatusRejected,
+  ShareStatusRejecting,
+  ShareStatusRejectFailed,
+  ShareStatusSharing,
+  ShareStatusShareFailed,
+  ShareStatusDeleted,
+  ShareStatusDeleting,
   ShareStatus'
   #-}

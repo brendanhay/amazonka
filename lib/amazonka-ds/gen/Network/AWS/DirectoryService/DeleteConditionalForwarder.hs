@@ -20,132 +20,115 @@ module Network.AWS.DirectoryService.DeleteConditionalForwarder
     mkDeleteConditionalForwarder,
 
     -- ** Request lenses
-    dcfDirectoryId,
-    dcfRemoteDomainName,
+    dcffDirectoryId,
+    dcffRemoteDomainName,
 
     -- * Destructuring the response
     DeleteConditionalForwarderResponse (..),
     mkDeleteConditionalForwarderResponse,
 
     -- ** Response lenses
-    dcfrsResponseStatus,
+    dcfrfrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Deletes a conditional forwarder.
 --
 -- /See:/ 'mkDeleteConditionalForwarder' smart constructor.
 data DeleteConditionalForwarder = DeleteConditionalForwarder'
   { -- | The directory ID for which you are deleting the conditional forwarder.
-    directoryId :: Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
-    remoteDomainName :: Lude.Text
+    remoteDomainName :: Types.RemoteDomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConditionalForwarder' with the minimum fields required to make a request.
---
--- * 'directoryId' - The directory ID for which you are deleting the conditional forwarder.
--- * 'remoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
+-- | Creates a 'DeleteConditionalForwarder' value with any optional fields omitted.
 mkDeleteConditionalForwarder ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'remoteDomainName'
-  Lude.Text ->
+  Types.RemoteDomainName ->
   DeleteConditionalForwarder
-mkDeleteConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
-  DeleteConditionalForwarder'
-    { directoryId = pDirectoryId_,
-      remoteDomainName = pRemoteDomainName_
-    }
+mkDeleteConditionalForwarder directoryId remoteDomainName =
+  DeleteConditionalForwarder' {directoryId, remoteDomainName}
 
 -- | The directory ID for which you are deleting the conditional forwarder.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfDirectoryId :: Lens.Lens' DeleteConditionalForwarder Lude.Text
-dcfDirectoryId = Lens.lens (directoryId :: DeleteConditionalForwarder -> Lude.Text) (\s a -> s {directoryId = a} :: DeleteConditionalForwarder)
-{-# DEPRECATED dcfDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+dcffDirectoryId :: Lens.Lens' DeleteConditionalForwarder Types.DirectoryId
+dcffDirectoryId = Lens.field @"directoryId"
+{-# DEPRECATED dcffDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
 --
 -- /Note:/ Consider using 'remoteDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfRemoteDomainName :: Lens.Lens' DeleteConditionalForwarder Lude.Text
-dcfRemoteDomainName = Lens.lens (remoteDomainName :: DeleteConditionalForwarder -> Lude.Text) (\s a -> s {remoteDomainName = a} :: DeleteConditionalForwarder)
-{-# DEPRECATED dcfRemoteDomainName "Use generic-lens or generic-optics with 'remoteDomainName' instead." #-}
+dcffRemoteDomainName :: Lens.Lens' DeleteConditionalForwarder Types.RemoteDomainName
+dcffRemoteDomainName = Lens.field @"remoteDomainName"
+{-# DEPRECATED dcffRemoteDomainName "Use generic-lens or generic-optics with 'remoteDomainName' instead." #-}
 
-instance Lude.AWSRequest DeleteConditionalForwarder where
+instance Core.FromJSON DeleteConditionalForwarder where
+  toJSON DeleteConditionalForwarder {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("RemoteDomainName" Core..= remoteDomainName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteConditionalForwarder where
   type
     Rs DeleteConditionalForwarder =
       DeleteConditionalForwarderResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "DirectoryService_20150416.DeleteConditionalForwarder"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteConditionalForwarderResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteConditionalForwarder where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.DeleteConditionalForwarder" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteConditionalForwarder where
-  toJSON DeleteConditionalForwarder' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("RemoteDomainName" Lude..= remoteDomainName)
-          ]
-      )
-
-instance Lude.ToPath DeleteConditionalForwarder where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConditionalForwarder where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result of a DeleteConditionalForwarder request.
 --
 -- /See:/ 'mkDeleteConditionalForwarderResponse' smart constructor.
 newtype DeleteConditionalForwarderResponse = DeleteConditionalForwarderResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConditionalForwarderResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteConditionalForwarderResponse' value with any optional fields omitted.
 mkDeleteConditionalForwarderResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteConditionalForwarderResponse
-mkDeleteConditionalForwarderResponse pResponseStatus_ =
-  DeleteConditionalForwarderResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteConditionalForwarderResponse responseStatus =
+  DeleteConditionalForwarderResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfrsResponseStatus :: Lens.Lens' DeleteConditionalForwarderResponse Lude.Int
-dcfrsResponseStatus = Lens.lens (responseStatus :: DeleteConditionalForwarderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConditionalForwarderResponse)
-{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcfrfrsResponseStatus :: Lens.Lens' DeleteConditionalForwarderResponse Core.Int
+dcfrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcfrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -29,108 +29,95 @@ module Network.AWS.CognitoSync.GetCognitoEvents
     mkGetCognitoEventsResponse,
 
     -- ** Response lenses
-    gcersEvents,
-    gcersResponseStatus,
+    gcerrsEvents,
+    gcerrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.CognitoSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request for a list of the configured Cognito Events
 --
 -- /See:/ 'mkGetCognitoEvents' smart constructor.
 newtype GetCognitoEvents = GetCognitoEvents'
   { -- | The Cognito Identity Pool ID for the request
-    identityPoolId :: Lude.Text
+    identityPoolId :: Types.IdentityPoolId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCognitoEvents' with the minimum fields required to make a request.
---
--- * 'identityPoolId' - The Cognito Identity Pool ID for the request
+-- | Creates a 'GetCognitoEvents' value with any optional fields omitted.
 mkGetCognitoEvents ::
   -- | 'identityPoolId'
-  Lude.Text ->
+  Types.IdentityPoolId ->
   GetCognitoEvents
-mkGetCognitoEvents pIdentityPoolId_ =
-  GetCognitoEvents' {identityPoolId = pIdentityPoolId_}
+mkGetCognitoEvents identityPoolId =
+  GetCognitoEvents' {identityPoolId}
 
 -- | The Cognito Identity Pool ID for the request
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gceIdentityPoolId :: Lens.Lens' GetCognitoEvents Lude.Text
-gceIdentityPoolId = Lens.lens (identityPoolId :: GetCognitoEvents -> Lude.Text) (\s a -> s {identityPoolId = a} :: GetCognitoEvents)
+gceIdentityPoolId :: Lens.Lens' GetCognitoEvents Types.IdentityPoolId
+gceIdentityPoolId = Lens.field @"identityPoolId"
 {-# DEPRECATED gceIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
-instance Lude.AWSRequest GetCognitoEvents where
+instance Core.AWSRequest GetCognitoEvents where
   type Rs GetCognitoEvents = GetCognitoEventsResponse
-  request = Req.get cognitoSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/identitypools/" Core.<> (Core.toText identityPoolId)
+                Core.<> ("/events")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCognitoEventsResponse'
-            Lude.<$> (x Lude..?> "Events" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Events") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCognitoEvents where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetCognitoEvents where
-  toPath GetCognitoEvents' {..} =
-    Lude.mconcat
-      ["/identitypools/", Lude.toBS identityPoolId, "/events"]
-
-instance Lude.ToQuery GetCognitoEvents where
-  toQuery = Lude.const Lude.mempty
 
 -- | The response from the GetCognitoEvents request
 --
 -- /See:/ 'mkGetCognitoEventsResponse' smart constructor.
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
   { -- | The Cognito Events returned from the GetCognitoEvents request
-    events :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    events :: Core.Maybe (Core.HashMap Types.CognitoEventType Types.LambdaFunctionArn),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCognitoEventsResponse' with the minimum fields required to make a request.
---
--- * 'events' - The Cognito Events returned from the GetCognitoEvents request
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCognitoEventsResponse' value with any optional fields omitted.
 mkGetCognitoEventsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCognitoEventsResponse
-mkGetCognitoEventsResponse pResponseStatus_ =
-  GetCognitoEventsResponse'
-    { events = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetCognitoEventsResponse responseStatus =
+  GetCognitoEventsResponse' {events = Core.Nothing, responseStatus}
 
 -- | The Cognito Events returned from the GetCognitoEvents request
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcersEvents :: Lens.Lens' GetCognitoEventsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gcersEvents = Lens.lens (events :: GetCognitoEventsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {events = a} :: GetCognitoEventsResponse)
-{-# DEPRECATED gcersEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+gcerrsEvents :: Lens.Lens' GetCognitoEventsResponse (Core.Maybe (Core.HashMap Types.CognitoEventType Types.LambdaFunctionArn))
+gcerrsEvents = Lens.field @"events"
+{-# DEPRECATED gcerrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcersResponseStatus :: Lens.Lens' GetCognitoEventsResponse Lude.Int
-gcersResponseStatus = Lens.lens (responseStatus :: GetCognitoEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCognitoEventsResponse)
-{-# DEPRECATED gcersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcerrsResponseStatus :: Lens.Lens' GetCognitoEventsResponse Core.Int
+gcerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

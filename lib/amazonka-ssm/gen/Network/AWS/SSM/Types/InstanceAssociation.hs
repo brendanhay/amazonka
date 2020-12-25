@@ -18,83 +18,80 @@ module Network.AWS.SSM.Types.InstanceAssociation
 
     -- * Lenses
     iaAssociationId,
-    iaInstanceId,
-    iaContent,
     iaAssociationVersion,
+    iaContent,
+    iaInstanceId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AssociationId as Types
+import qualified Network.AWS.SSM.Types.AssociationVersion as Types
+import qualified Network.AWS.SSM.Types.Content as Types
+import qualified Network.AWS.SSM.Types.InstanceId as Types
 
 -- | One or more association documents on the instance.
 --
 -- /See:/ 'mkInstanceAssociation' smart constructor.
 data InstanceAssociation = InstanceAssociation'
   { -- | The association ID.
-    associationId :: Lude.Maybe Lude.Text,
-    -- | The instance ID.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The content of the association document for the instance(s).
-    content :: Lude.Maybe Lude.Text,
+    associationId :: Core.Maybe Types.AssociationId,
     -- | Version information for the association on the instance.
-    associationVersion :: Lude.Maybe Lude.Text
+    associationVersion :: Core.Maybe Types.AssociationVersion,
+    -- | The content of the association document for the instance(s).
+    content :: Core.Maybe Types.Content,
+    -- | The instance ID.
+    instanceId :: Core.Maybe Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceAssociation' with the minimum fields required to make a request.
---
--- * 'associationId' - The association ID.
--- * 'instanceId' - The instance ID.
--- * 'content' - The content of the association document for the instance(s).
--- * 'associationVersion' - Version information for the association on the instance.
+-- | Creates a 'InstanceAssociation' value with any optional fields omitted.
 mkInstanceAssociation ::
   InstanceAssociation
 mkInstanceAssociation =
   InstanceAssociation'
-    { associationId = Lude.Nothing,
-      instanceId = Lude.Nothing,
-      content = Lude.Nothing,
-      associationVersion = Lude.Nothing
+    { associationId = Core.Nothing,
+      associationVersion = Core.Nothing,
+      content = Core.Nothing,
+      instanceId = Core.Nothing
     }
 
 -- | The association ID.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaAssociationId :: Lens.Lens' InstanceAssociation (Lude.Maybe Lude.Text)
-iaAssociationId = Lens.lens (associationId :: InstanceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: InstanceAssociation)
+iaAssociationId :: Lens.Lens' InstanceAssociation (Core.Maybe Types.AssociationId)
+iaAssociationId = Lens.field @"associationId"
 {-# DEPRECATED iaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
-
--- | The instance ID.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaInstanceId :: Lens.Lens' InstanceAssociation (Lude.Maybe Lude.Text)
-iaInstanceId = Lens.lens (instanceId :: InstanceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceAssociation)
-{-# DEPRECATED iaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The content of the association document for the instance(s).
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaContent :: Lens.Lens' InstanceAssociation (Lude.Maybe Lude.Text)
-iaContent = Lens.lens (content :: InstanceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: InstanceAssociation)
-{-# DEPRECATED iaContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | Version information for the association on the instance.
 --
 -- /Note:/ Consider using 'associationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaAssociationVersion :: Lens.Lens' InstanceAssociation (Lude.Maybe Lude.Text)
-iaAssociationVersion = Lens.lens (associationVersion :: InstanceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationVersion = a} :: InstanceAssociation)
+iaAssociationVersion :: Lens.Lens' InstanceAssociation (Core.Maybe Types.AssociationVersion)
+iaAssociationVersion = Lens.field @"associationVersion"
 {-# DEPRECATED iaAssociationVersion "Use generic-lens or generic-optics with 'associationVersion' instead." #-}
 
-instance Lude.FromJSON InstanceAssociation where
+-- | The content of the association document for the instance(s).
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaContent :: Lens.Lens' InstanceAssociation (Core.Maybe Types.Content)
+iaContent = Lens.field @"content"
+{-# DEPRECATED iaContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+-- | The instance ID.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaInstanceId :: Lens.Lens' InstanceAssociation (Core.Maybe Types.InstanceId)
+iaInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED iaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.FromJSON InstanceAssociation where
   parseJSON =
-    Lude.withObject
-      "InstanceAssociation"
-      ( \x ->
-          InstanceAssociation'
-            Lude.<$> (x Lude..:? "AssociationId")
-            Lude.<*> (x Lude..:? "InstanceId")
-            Lude.<*> (x Lude..:? "Content")
-            Lude.<*> (x Lude..:? "AssociationVersion")
-      )
+    Core.withObject "InstanceAssociation" Core.$
+      \x ->
+        InstanceAssociation'
+          Core.<$> (x Core..:? "AssociationId")
+          Core.<*> (x Core..:? "AssociationVersion")
+          Core.<*> (x Core..:? "Content")
+          Core.<*> (x Core..:? "InstanceId")

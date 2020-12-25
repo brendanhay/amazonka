@@ -20,135 +20,85 @@ module Network.AWS.MarketplaceAnalytics.StartSupportDataExport
     mkStartSupportDataExport,
 
     -- ** Request lenses
-    ssdeFromDate,
-    ssdeSnsTopicARN,
-    ssdeCustomerDefinedValues,
-    ssdeRoleNameARN,
-    ssdeDestinationS3Prefix,
     ssdeDataSetType,
+    ssdeFromDate,
+    ssdeRoleNameArn,
     ssdeDestinationS3BucketName,
+    ssdeSnsTopicArn,
+    ssdeCustomerDefinedValues,
+    ssdeDestinationS3Prefix,
 
     -- * Destructuring the response
     StartSupportDataExportResponse (..),
     mkStartSupportDataExportResponse,
 
     -- ** Response lenses
-    ssdersDataSetRequestId,
-    ssdersResponseStatus,
+    ssderrsDataSetRequestId,
+    ssderrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceAnalytics.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MarketplaceAnalytics.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the StartSupportDataExport operation.
 --
 -- /See:/ 'mkStartSupportDataExport' smart constructor.
 data StartSupportDataExport = StartSupportDataExport'
-  { -- | The start date from which to retrieve the data set in UTC. This parameter only affects the customer_support_contacts_data data set type.
-    fromDate :: Lude.Timestamp,
-    -- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
-    snsTopicARN :: Lude.Text,
-    -- | (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file.
-    customerDefinedValues :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided AWS services.
-    roleNameARN :: Lude.Text,
-    -- | (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
-    destinationS3Prefix :: Lude.Maybe Lude.Text,
-    -- | Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid, Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title, Country Code, ZIP Code, Operation Type, and Operation Time.
+  { -- | Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid, Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title, Country Code, ZIP Code, Operation Type, and Operation Time.
     --
     --
     --     * /customer_support_contacts_data/ Customer support contact data. The data set will contain all changes (Creates, Updates, and Deletes) to customer support contact data from the date specified in the from_date parameter.
     --
     --     * /test_customer_support_contacts_data/ An example data set containing static test data in the same format as customer_support_contacts_data
-    dataSetType :: SupportDataSetType,
+    dataSetType :: Types.SupportDataSetType,
+    -- | The start date from which to retrieve the data set in UTC. This parameter only affects the customer_support_contacts_data data set type.
+    fromDate :: Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided AWS services.
+    roleNameArn :: Types.RoleNameArn,
     -- | The name (friendly name, not ARN) of the destination S3 bucket.
-    destinationS3BucketName :: Lude.Text
+    destinationS3BucketName :: Types.DestinationS3BucketName,
+    -- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
+    snsTopicArn :: Types.SnsTopicArn,
+    -- | (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file.
+    customerDefinedValues :: Core.Maybe (Core.HashMap Types.OptionalKey Types.OptionalValue),
+    -- | (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
+    destinationS3Prefix :: Core.Maybe Types.DestinationS3Prefix
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartSupportDataExport' with the minimum fields required to make a request.
---
--- * 'fromDate' - The start date from which to retrieve the data set in UTC. This parameter only affects the customer_support_contacts_data data set type.
--- * 'snsTopicARN' - Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
--- * 'customerDefinedValues' - (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file.
--- * 'roleNameARN' - The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided AWS services.
--- * 'destinationS3Prefix' - (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
--- * 'dataSetType' - Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid, Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title, Country Code, ZIP Code, Operation Type, and Operation Time.
---
---
---     * /customer_support_contacts_data/ Customer support contact data. The data set will contain all changes (Creates, Updates, and Deletes) to customer support contact data from the date specified in the from_date parameter.
---
---     * /test_customer_support_contacts_data/ An example data set containing static test data in the same format as customer_support_contacts_data
---
---
--- * 'destinationS3BucketName' - The name (friendly name, not ARN) of the destination S3 bucket.
+-- | Creates a 'StartSupportDataExport' value with any optional fields omitted.
 mkStartSupportDataExport ::
-  -- | 'fromDate'
-  Lude.Timestamp ->
-  -- | 'snsTopicARN'
-  Lude.Text ->
-  -- | 'roleNameARN'
-  Lude.Text ->
   -- | 'dataSetType'
-  SupportDataSetType ->
+  Types.SupportDataSetType ->
+  -- | 'fromDate'
+  Core.NominalDiffTime ->
+  -- | 'roleNameArn'
+  Types.RoleNameArn ->
   -- | 'destinationS3BucketName'
-  Lude.Text ->
+  Types.DestinationS3BucketName ->
+  -- | 'snsTopicArn'
+  Types.SnsTopicArn ->
   StartSupportDataExport
 mkStartSupportDataExport
-  pFromDate_
-  pSnsTopicARN_
-  pRoleNameARN_
-  pDataSetType_
-  pDestinationS3BucketName_ =
+  dataSetType
+  fromDate
+  roleNameArn
+  destinationS3BucketName
+  snsTopicArn =
     StartSupportDataExport'
-      { fromDate = pFromDate_,
-        snsTopicARN = pSnsTopicARN_,
-        customerDefinedValues = Lude.Nothing,
-        roleNameARN = pRoleNameARN_,
-        destinationS3Prefix = Lude.Nothing,
-        dataSetType = pDataSetType_,
-        destinationS3BucketName = pDestinationS3BucketName_
+      { dataSetType,
+        fromDate,
+        roleNameArn,
+        destinationS3BucketName,
+        snsTopicArn,
+        customerDefinedValues = Core.Nothing,
+        destinationS3Prefix = Core.Nothing
       }
-
--- | The start date from which to retrieve the data set in UTC. This parameter only affects the customer_support_contacts_data data set type.
---
--- /Note:/ Consider using 'fromDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdeFromDate :: Lens.Lens' StartSupportDataExport Lude.Timestamp
-ssdeFromDate = Lens.lens (fromDate :: StartSupportDataExport -> Lude.Timestamp) (\s a -> s {fromDate = a} :: StartSupportDataExport)
-{-# DEPRECATED ssdeFromDate "Use generic-lens or generic-optics with 'fromDate' instead." #-}
-
--- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
---
--- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdeSnsTopicARN :: Lens.Lens' StartSupportDataExport Lude.Text
-ssdeSnsTopicARN = Lens.lens (snsTopicARN :: StartSupportDataExport -> Lude.Text) (\s a -> s {snsTopicARN = a} :: StartSupportDataExport)
-{-# DEPRECATED ssdeSnsTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file.
---
--- /Note:/ Consider using 'customerDefinedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdeCustomerDefinedValues :: Lens.Lens' StartSupportDataExport (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ssdeCustomerDefinedValues = Lens.lens (customerDefinedValues :: StartSupportDataExport -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {customerDefinedValues = a} :: StartSupportDataExport)
-{-# DEPRECATED ssdeCustomerDefinedValues "Use generic-lens or generic-optics with 'customerDefinedValues' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided AWS services.
---
--- /Note:/ Consider using 'roleNameARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdeRoleNameARN :: Lens.Lens' StartSupportDataExport Lude.Text
-ssdeRoleNameARN = Lens.lens (roleNameARN :: StartSupportDataExport -> Lude.Text) (\s a -> s {roleNameARN = a} :: StartSupportDataExport)
-{-# DEPRECATED ssdeRoleNameARN "Use generic-lens or generic-optics with 'roleNameARN' instead." #-}
-
--- | (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
---
--- /Note:/ Consider using 'destinationS3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdeDestinationS3Prefix :: Lens.Lens' StartSupportDataExport (Lude.Maybe Lude.Text)
-ssdeDestinationS3Prefix = Lens.lens (destinationS3Prefix :: StartSupportDataExport -> Lude.Maybe Lude.Text) (\s a -> s {destinationS3Prefix = a} :: StartSupportDataExport)
-{-# DEPRECATED ssdeDestinationS3Prefix "Use generic-lens or generic-optics with 'destinationS3Prefix' instead." #-}
 
 -- | Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid, Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title, Country Code, ZIP Code, Operation Type, and Operation Time.
 --
@@ -160,98 +110,124 @@ ssdeDestinationS3Prefix = Lens.lens (destinationS3Prefix :: StartSupportDataExpo
 --
 --
 -- /Note:/ Consider using 'dataSetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdeDataSetType :: Lens.Lens' StartSupportDataExport SupportDataSetType
-ssdeDataSetType = Lens.lens (dataSetType :: StartSupportDataExport -> SupportDataSetType) (\s a -> s {dataSetType = a} :: StartSupportDataExport)
+ssdeDataSetType :: Lens.Lens' StartSupportDataExport Types.SupportDataSetType
+ssdeDataSetType = Lens.field @"dataSetType"
 {-# DEPRECATED ssdeDataSetType "Use generic-lens or generic-optics with 'dataSetType' instead." #-}
+
+-- | The start date from which to retrieve the data set in UTC. This parameter only affects the customer_support_contacts_data data set type.
+--
+-- /Note:/ Consider using 'fromDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdeFromDate :: Lens.Lens' StartSupportDataExport Core.NominalDiffTime
+ssdeFromDate = Lens.field @"fromDate"
+{-# DEPRECATED ssdeFromDate "Use generic-lens or generic-optics with 'fromDate' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided AWS services.
+--
+-- /Note:/ Consider using 'roleNameArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdeRoleNameArn :: Lens.Lens' StartSupportDataExport Types.RoleNameArn
+ssdeRoleNameArn = Lens.field @"roleNameArn"
+{-# DEPRECATED ssdeRoleNameArn "Use generic-lens or generic-optics with 'roleNameArn' instead." #-}
 
 -- | The name (friendly name, not ARN) of the destination S3 bucket.
 --
 -- /Note:/ Consider using 'destinationS3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdeDestinationS3BucketName :: Lens.Lens' StartSupportDataExport Lude.Text
-ssdeDestinationS3BucketName = Lens.lens (destinationS3BucketName :: StartSupportDataExport -> Lude.Text) (\s a -> s {destinationS3BucketName = a} :: StartSupportDataExport)
+ssdeDestinationS3BucketName :: Lens.Lens' StartSupportDataExport Types.DestinationS3BucketName
+ssdeDestinationS3BucketName = Lens.field @"destinationS3BucketName"
 {-# DEPRECATED ssdeDestinationS3BucketName "Use generic-lens or generic-optics with 'destinationS3BucketName' instead." #-}
 
-instance Lude.AWSRequest StartSupportDataExport where
+-- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
+--
+-- /Note:/ Consider using 'snsTopicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdeSnsTopicArn :: Lens.Lens' StartSupportDataExport Types.SnsTopicArn
+ssdeSnsTopicArn = Lens.field @"snsTopicArn"
+{-# DEPRECATED ssdeSnsTopicArn "Use generic-lens or generic-optics with 'snsTopicArn' instead." #-}
+
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file.
+--
+-- /Note:/ Consider using 'customerDefinedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdeCustomerDefinedValues :: Lens.Lens' StartSupportDataExport (Core.Maybe (Core.HashMap Types.OptionalKey Types.OptionalValue))
+ssdeCustomerDefinedValues = Lens.field @"customerDefinedValues"
+{-# DEPRECATED ssdeCustomerDefinedValues "Use generic-lens or generic-optics with 'customerDefinedValues' instead." #-}
+
+-- | (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
+--
+-- /Note:/ Consider using 'destinationS3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdeDestinationS3Prefix :: Lens.Lens' StartSupportDataExport (Core.Maybe Types.DestinationS3Prefix)
+ssdeDestinationS3Prefix = Lens.field @"destinationS3Prefix"
+{-# DEPRECATED ssdeDestinationS3Prefix "Use generic-lens or generic-optics with 'destinationS3Prefix' instead." #-}
+
+instance Core.FromJSON StartSupportDataExport where
+  toJSON StartSupportDataExport {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("dataSetType" Core..= dataSetType),
+            Core.Just ("fromDate" Core..= fromDate),
+            Core.Just ("roleNameArn" Core..= roleNameArn),
+            Core.Just
+              ("destinationS3BucketName" Core..= destinationS3BucketName),
+            Core.Just ("snsTopicArn" Core..= snsTopicArn),
+            ("customerDefinedValues" Core..=) Core.<$> customerDefinedValues,
+            ("destinationS3Prefix" Core..=) Core.<$> destinationS3Prefix
+          ]
+      )
+
+instance Core.AWSRequest StartSupportDataExport where
   type Rs StartSupportDataExport = StartSupportDataExportResponse
-  request = Req.postJSON marketplaceAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MarketplaceCommerceAnalytics20150701.StartSupportDataExport"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartSupportDataExportResponse'
-            Lude.<$> (x Lude..?> "dataSetRequestId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "dataSetRequestId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartSupportDataExport where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MarketplaceCommerceAnalytics20150701.StartSupportDataExport" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartSupportDataExport where
-  toJSON StartSupportDataExport' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("fromDate" Lude..= fromDate),
-            Lude.Just ("snsTopicArn" Lude..= snsTopicARN),
-            ("customerDefinedValues" Lude..=) Lude.<$> customerDefinedValues,
-            Lude.Just ("roleNameArn" Lude..= roleNameARN),
-            ("destinationS3Prefix" Lude..=) Lude.<$> destinationS3Prefix,
-            Lude.Just ("dataSetType" Lude..= dataSetType),
-            Lude.Just
-              ("destinationS3BucketName" Lude..= destinationS3BucketName)
-          ]
-      )
-
-instance Lude.ToPath StartSupportDataExport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartSupportDataExport where
-  toQuery = Lude.const Lude.mempty
 
 -- | Container for the result of the StartSupportDataExport operation.
 --
 -- /See:/ 'mkStartSupportDataExportResponse' smart constructor.
 data StartSupportDataExportResponse = StartSupportDataExportResponse'
   { -- | A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be used to correlate a request with notifications from the SNS topic.
-    dataSetRequestId :: Lude.Maybe Lude.Text,
+    dataSetRequestId :: Core.Maybe Types.DataSetRequestId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartSupportDataExportResponse' with the minimum fields required to make a request.
---
--- * 'dataSetRequestId' - A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be used to correlate a request with notifications from the SNS topic.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartSupportDataExportResponse' value with any optional fields omitted.
 mkStartSupportDataExportResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartSupportDataExportResponse
-mkStartSupportDataExportResponse pResponseStatus_ =
+mkStartSupportDataExportResponse responseStatus =
   StartSupportDataExportResponse'
-    { dataSetRequestId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dataSetRequestId = Core.Nothing,
+      responseStatus
     }
 
 -- | A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be used to correlate a request with notifications from the SNS topic.
 --
 -- /Note:/ Consider using 'dataSetRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdersDataSetRequestId :: Lens.Lens' StartSupportDataExportResponse (Lude.Maybe Lude.Text)
-ssdersDataSetRequestId = Lens.lens (dataSetRequestId :: StartSupportDataExportResponse -> Lude.Maybe Lude.Text) (\s a -> s {dataSetRequestId = a} :: StartSupportDataExportResponse)
-{-# DEPRECATED ssdersDataSetRequestId "Use generic-lens or generic-optics with 'dataSetRequestId' instead." #-}
+ssderrsDataSetRequestId :: Lens.Lens' StartSupportDataExportResponse (Core.Maybe Types.DataSetRequestId)
+ssderrsDataSetRequestId = Lens.field @"dataSetRequestId"
+{-# DEPRECATED ssderrsDataSetRequestId "Use generic-lens or generic-optics with 'dataSetRequestId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdersResponseStatus :: Lens.Lens' StartSupportDataExportResponse Lude.Int
-ssdersResponseStatus = Lens.lens (responseStatus :: StartSupportDataExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartSupportDataExportResponse)
-{-# DEPRECATED ssdersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ssderrsResponseStatus :: Lens.Lens' StartSupportDataExportResponse Core.Int
+ssderrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ssderrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

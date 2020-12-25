@@ -27,111 +27,108 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
     mkDescribeScalingParametersResponse,
 
     -- ** Response lenses
-    dsprsScalingParameters,
-    dsprsResponseStatus,
+    dsprrsScalingParameters,
+    dsprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DescribeScalingParameters' @ operation. Specifies the name of the domain you want to describe.
 --
 -- /See:/ 'mkDescribeScalingParameters' smart constructor.
 newtype DescribeScalingParameters = DescribeScalingParameters'
-  { domainName :: Lude.Text
+  { domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeScalingParameters' with the minimum fields required to make a request.
---
--- * 'domainName' -
+-- | Creates a 'DescribeScalingParameters' value with any optional fields omitted.
 mkDescribeScalingParameters ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   DescribeScalingParameters
-mkDescribeScalingParameters pDomainName_ =
-  DescribeScalingParameters' {domainName = pDomainName_}
+mkDescribeScalingParameters domainName =
+  DescribeScalingParameters' {domainName}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspDomainName :: Lens.Lens' DescribeScalingParameters Lude.Text
-dspDomainName = Lens.lens (domainName :: DescribeScalingParameters -> Lude.Text) (\s a -> s {domainName = a} :: DescribeScalingParameters)
+dspDomainName :: Lens.Lens' DescribeScalingParameters Types.DomainName
+dspDomainName = Lens.field @"domainName"
 {-# DEPRECATED dspDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DescribeScalingParameters where
+instance Core.AWSRequest DescribeScalingParameters where
   type
     Rs DescribeScalingParameters =
       DescribeScalingParametersResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeScalingParameters")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeScalingParametersResult"
       ( \s h x ->
           DescribeScalingParametersResponse'
-            Lude.<$> (x Lude..@ "ScalingParameters")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "ScalingParameters")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeScalingParameters where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeScalingParameters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeScalingParameters where
-  toQuery DescribeScalingParameters' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeScalingParameters" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @DescribeScalingParameters@ request. Contains the scaling parameters configured for the domain specified in the request.
 --
 -- /See:/ 'mkDescribeScalingParametersResponse' smart constructor.
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
-  { scalingParameters :: ScalingParametersStatus,
+  { scalingParameters :: Types.ScalingParametersStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeScalingParametersResponse' with the minimum fields required to make a request.
---
--- * 'scalingParameters' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeScalingParametersResponse' value with any optional fields omitted.
 mkDescribeScalingParametersResponse ::
   -- | 'scalingParameters'
-  ScalingParametersStatus ->
+  Types.ScalingParametersStatus ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeScalingParametersResponse
 mkDescribeScalingParametersResponse
-  pScalingParameters_
-  pResponseStatus_ =
+  scalingParameters
+  responseStatus =
     DescribeScalingParametersResponse'
-      { scalingParameters =
-          pScalingParameters_,
-        responseStatus = pResponseStatus_
+      { scalingParameters,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'scalingParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsScalingParameters :: Lens.Lens' DescribeScalingParametersResponse ScalingParametersStatus
-dsprsScalingParameters = Lens.lens (scalingParameters :: DescribeScalingParametersResponse -> ScalingParametersStatus) (\s a -> s {scalingParameters = a} :: DescribeScalingParametersResponse)
-{-# DEPRECATED dsprsScalingParameters "Use generic-lens or generic-optics with 'scalingParameters' instead." #-}
+dsprrsScalingParameters :: Lens.Lens' DescribeScalingParametersResponse Types.ScalingParametersStatus
+dsprrsScalingParameters = Lens.field @"scalingParameters"
+{-# DEPRECATED dsprrsScalingParameters "Use generic-lens or generic-optics with 'scalingParameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsResponseStatus :: Lens.Lens' DescribeScalingParametersResponse Lude.Int
-dsprsResponseStatus = Lens.lens (responseStatus :: DescribeScalingParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScalingParametersResponse)
-{-# DEPRECATED dsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsprrsResponseStatus :: Lens.Lens' DescribeScalingParametersResponse Core.Int
+dsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

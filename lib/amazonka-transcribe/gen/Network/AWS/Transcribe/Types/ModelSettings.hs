@@ -22,41 +22,39 @@ module Network.AWS.Transcribe.Types.ModelSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.ModelName as Types
 
 -- | The object used to call your custom language model to your transcription job.
 --
 -- /See:/ 'mkModelSettings' smart constructor.
 newtype ModelSettings = ModelSettings'
   { -- | The name of your custom language model.
-    languageModelName :: Lude.Maybe Lude.Text
+    languageModelName :: Core.Maybe Types.ModelName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModelSettings' with the minimum fields required to make a request.
---
--- * 'languageModelName' - The name of your custom language model.
+-- | Creates a 'ModelSettings' value with any optional fields omitted.
 mkModelSettings ::
   ModelSettings
-mkModelSettings = ModelSettings' {languageModelName = Lude.Nothing}
+mkModelSettings = ModelSettings' {languageModelName = Core.Nothing}
 
 -- | The name of your custom language model.
 --
 -- /Note:/ Consider using 'languageModelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msLanguageModelName :: Lens.Lens' ModelSettings (Lude.Maybe Lude.Text)
-msLanguageModelName = Lens.lens (languageModelName :: ModelSettings -> Lude.Maybe Lude.Text) (\s a -> s {languageModelName = a} :: ModelSettings)
+msLanguageModelName :: Lens.Lens' ModelSettings (Core.Maybe Types.ModelName)
+msLanguageModelName = Lens.field @"languageModelName"
 {-# DEPRECATED msLanguageModelName "Use generic-lens or generic-optics with 'languageModelName' instead." #-}
 
-instance Lude.FromJSON ModelSettings where
-  parseJSON =
-    Lude.withObject
-      "ModelSettings"
-      (\x -> ModelSettings' Lude.<$> (x Lude..:? "LanguageModelName"))
-
-instance Lude.ToJSON ModelSettings where
-  toJSON ModelSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("LanguageModelName" Lude..=) Lude.<$> languageModelName]
+instance Core.FromJSON ModelSettings where
+  toJSON ModelSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [("LanguageModelName" Core..=) Core.<$> languageModelName]
       )
+
+instance Core.FromJSON ModelSettings where
+  parseJSON =
+    Core.withObject "ModelSettings" Core.$
+      \x -> ModelSettings' Core.<$> (x Core..:? "LanguageModelName")

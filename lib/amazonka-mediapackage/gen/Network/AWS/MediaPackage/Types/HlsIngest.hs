@@ -22,38 +22,32 @@ module Network.AWS.MediaPackage.Types.HlsIngest
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.IngestEndpoint
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaPackage.Types.IngestEndpoint as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | An HTTP Live Streaming (HLS) ingest resource configuration.
 --
 -- /See:/ 'mkHlsIngest' smart constructor.
 newtype HlsIngest = HlsIngest'
   { -- | A list of endpoints to which the source stream should be sent.
-    ingestEndpoints :: Lude.Maybe [IngestEndpoint]
+    ingestEndpoints :: Core.Maybe [Types.IngestEndpoint]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsIngest' with the minimum fields required to make a request.
---
--- * 'ingestEndpoints' - A list of endpoints to which the source stream should be sent.
+-- | Creates a 'HlsIngest' value with any optional fields omitted.
 mkHlsIngest ::
   HlsIngest
-mkHlsIngest = HlsIngest' {ingestEndpoints = Lude.Nothing}
+mkHlsIngest = HlsIngest' {ingestEndpoints = Core.Nothing}
 
 -- | A list of endpoints to which the source stream should be sent.
 --
 -- /Note:/ Consider using 'ingestEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hiIngestEndpoints :: Lens.Lens' HlsIngest (Lude.Maybe [IngestEndpoint])
-hiIngestEndpoints = Lens.lens (ingestEndpoints :: HlsIngest -> Lude.Maybe [IngestEndpoint]) (\s a -> s {ingestEndpoints = a} :: HlsIngest)
+hiIngestEndpoints :: Lens.Lens' HlsIngest (Core.Maybe [Types.IngestEndpoint])
+hiIngestEndpoints = Lens.field @"ingestEndpoints"
 {-# DEPRECATED hiIngestEndpoints "Use generic-lens or generic-optics with 'ingestEndpoints' instead." #-}
 
-instance Lude.FromJSON HlsIngest where
+instance Core.FromJSON HlsIngest where
   parseJSON =
-    Lude.withObject
-      "HlsIngest"
-      ( \x ->
-          HlsIngest'
-            Lude.<$> (x Lude..:? "ingestEndpoints" Lude..!= Lude.mempty)
-      )
+    Core.withObject "HlsIngest" Core.$
+      \x -> HlsIngest' Core.<$> (x Core..:? "ingestEndpoints")

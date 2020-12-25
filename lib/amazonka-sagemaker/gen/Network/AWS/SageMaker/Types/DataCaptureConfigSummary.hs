@@ -17,113 +17,107 @@ module Network.AWS.SageMaker.Types.DataCaptureConfigSummary
     mkDataCaptureConfigSummary,
 
     -- * Lenses
-    dccsDestinationS3URI,
-    dccsCurrentSamplingPercentage,
-    dccsCaptureStatus,
-    dccsKMSKeyId,
     dccsEnableCapture,
+    dccsCaptureStatus,
+    dccsCurrentSamplingPercentage,
+    dccsDestinationS3Uri,
+    dccsKmsKeyId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.CaptureStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.CaptureStatus as Types
+import qualified Network.AWS.SageMaker.Types.DestinationS3Uri as Types
+import qualified Network.AWS.SageMaker.Types.KmsKeyId as Types
 
 -- |
 --
 -- /See:/ 'mkDataCaptureConfigSummary' smart constructor.
 data DataCaptureConfigSummary = DataCaptureConfigSummary'
   { -- |
-    destinationS3URI :: Lude.Text,
+    enableCapture :: Core.Bool,
     -- |
-    currentSamplingPercentage :: Lude.Natural,
+    captureStatus :: Types.CaptureStatus,
     -- |
-    captureStatus :: CaptureStatus,
+    currentSamplingPercentage :: Core.Natural,
     -- |
-    kmsKeyId :: Lude.Text,
+    destinationS3Uri :: Types.DestinationS3Uri,
     -- |
-    enableCapture :: Lude.Bool
+    kmsKeyId :: Types.KmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DataCaptureConfigSummary' with the minimum fields required to make a request.
---
--- * 'destinationS3URI' -
--- * 'currentSamplingPercentage' -
--- * 'captureStatus' -
--- * 'kmsKeyId' -
--- * 'enableCapture' -
+-- | Creates a 'DataCaptureConfigSummary' value with any optional fields omitted.
 mkDataCaptureConfigSummary ::
-  -- | 'destinationS3URI'
-  Lude.Text ->
-  -- | 'currentSamplingPercentage'
-  Lude.Natural ->
-  -- | 'captureStatus'
-  CaptureStatus ->
-  -- | 'kmsKeyId'
-  Lude.Text ->
   -- | 'enableCapture'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'captureStatus'
+  Types.CaptureStatus ->
+  -- | 'currentSamplingPercentage'
+  Core.Natural ->
+  -- | 'destinationS3Uri'
+  Types.DestinationS3Uri ->
+  -- | 'kmsKeyId'
+  Types.KmsKeyId ->
   DataCaptureConfigSummary
 mkDataCaptureConfigSummary
-  pDestinationS3URI_
-  pCurrentSamplingPercentage_
-  pCaptureStatus_
-  pKMSKeyId_
-  pEnableCapture_ =
+  enableCapture
+  captureStatus
+  currentSamplingPercentage
+  destinationS3Uri
+  kmsKeyId =
     DataCaptureConfigSummary'
-      { destinationS3URI = pDestinationS3URI_,
-        currentSamplingPercentage = pCurrentSamplingPercentage_,
-        captureStatus = pCaptureStatus_,
-        kmsKeyId = pKMSKeyId_,
-        enableCapture = pEnableCapture_
+      { enableCapture,
+        captureStatus,
+        currentSamplingPercentage,
+        destinationS3Uri,
+        kmsKeyId
       }
 
 -- |
 --
--- /Note:/ Consider using 'destinationS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccsDestinationS3URI :: Lens.Lens' DataCaptureConfigSummary Lude.Text
-dccsDestinationS3URI = Lens.lens (destinationS3URI :: DataCaptureConfigSummary -> Lude.Text) (\s a -> s {destinationS3URI = a} :: DataCaptureConfigSummary)
-{-# DEPRECATED dccsDestinationS3URI "Use generic-lens or generic-optics with 'destinationS3URI' instead." #-}
-
--- |
---
--- /Note:/ Consider using 'currentSamplingPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccsCurrentSamplingPercentage :: Lens.Lens' DataCaptureConfigSummary Lude.Natural
-dccsCurrentSamplingPercentage = Lens.lens (currentSamplingPercentage :: DataCaptureConfigSummary -> Lude.Natural) (\s a -> s {currentSamplingPercentage = a} :: DataCaptureConfigSummary)
-{-# DEPRECATED dccsCurrentSamplingPercentage "Use generic-lens or generic-optics with 'currentSamplingPercentage' instead." #-}
+-- /Note:/ Consider using 'enableCapture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccsEnableCapture :: Lens.Lens' DataCaptureConfigSummary Core.Bool
+dccsEnableCapture = Lens.field @"enableCapture"
+{-# DEPRECATED dccsEnableCapture "Use generic-lens or generic-optics with 'enableCapture' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'captureStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccsCaptureStatus :: Lens.Lens' DataCaptureConfigSummary CaptureStatus
-dccsCaptureStatus = Lens.lens (captureStatus :: DataCaptureConfigSummary -> CaptureStatus) (\s a -> s {captureStatus = a} :: DataCaptureConfigSummary)
+dccsCaptureStatus :: Lens.Lens' DataCaptureConfigSummary Types.CaptureStatus
+dccsCaptureStatus = Lens.field @"captureStatus"
 {-# DEPRECATED dccsCaptureStatus "Use generic-lens or generic-optics with 'captureStatus' instead." #-}
 
 -- |
 --
--- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccsKMSKeyId :: Lens.Lens' DataCaptureConfigSummary Lude.Text
-dccsKMSKeyId = Lens.lens (kmsKeyId :: DataCaptureConfigSummary -> Lude.Text) (\s a -> s {kmsKeyId = a} :: DataCaptureConfigSummary)
-{-# DEPRECATED dccsKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+-- /Note:/ Consider using 'currentSamplingPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccsCurrentSamplingPercentage :: Lens.Lens' DataCaptureConfigSummary Core.Natural
+dccsCurrentSamplingPercentage = Lens.field @"currentSamplingPercentage"
+{-# DEPRECATED dccsCurrentSamplingPercentage "Use generic-lens or generic-optics with 'currentSamplingPercentage' instead." #-}
 
 -- |
 --
--- /Note:/ Consider using 'enableCapture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccsEnableCapture :: Lens.Lens' DataCaptureConfigSummary Lude.Bool
-dccsEnableCapture = Lens.lens (enableCapture :: DataCaptureConfigSummary -> Lude.Bool) (\s a -> s {enableCapture = a} :: DataCaptureConfigSummary)
-{-# DEPRECATED dccsEnableCapture "Use generic-lens or generic-optics with 'enableCapture' instead." #-}
+-- /Note:/ Consider using 'destinationS3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccsDestinationS3Uri :: Lens.Lens' DataCaptureConfigSummary Types.DestinationS3Uri
+dccsDestinationS3Uri = Lens.field @"destinationS3Uri"
+{-# DEPRECATED dccsDestinationS3Uri "Use generic-lens or generic-optics with 'destinationS3Uri' instead." #-}
 
-instance Lude.FromJSON DataCaptureConfigSummary where
+-- |
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccsKmsKeyId :: Lens.Lens' DataCaptureConfigSummary Types.KmsKeyId
+dccsKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED dccsKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+
+instance Core.FromJSON DataCaptureConfigSummary where
   parseJSON =
-    Lude.withObject
-      "DataCaptureConfigSummary"
-      ( \x ->
-          DataCaptureConfigSummary'
-            Lude.<$> (x Lude..: "DestinationS3Uri")
-            Lude.<*> (x Lude..: "CurrentSamplingPercentage")
-            Lude.<*> (x Lude..: "CaptureStatus")
-            Lude.<*> (x Lude..: "KmsKeyId")
-            Lude.<*> (x Lude..: "EnableCapture")
-      )
+    Core.withObject "DataCaptureConfigSummary" Core.$
+      \x ->
+        DataCaptureConfigSummary'
+          Core.<$> (x Core..: "EnableCapture")
+          Core.<*> (x Core..: "CaptureStatus")
+          Core.<*> (x Core..: "CurrentSamplingPercentage")
+          Core.<*> (x Core..: "DestinationS3Uri")
+          Core.<*> (x Core..: "KmsKeyId")

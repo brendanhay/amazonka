@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.RetentionType
   ( RetentionType
       ( RetentionType',
-        Retain,
-        Delete
+        RetentionTypeRetain,
+        RetentionTypeDelete,
+        fromRetentionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RetentionType = RetentionType' Lude.Text
+newtype RetentionType = RetentionType'
+  { fromRetentionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Retain :: RetentionType
-pattern Retain = RetentionType' "Retain"
+pattern RetentionTypeRetain :: RetentionType
+pattern RetentionTypeRetain = RetentionType' "Retain"
 
-pattern Delete :: RetentionType
-pattern Delete = RetentionType' "Delete"
+pattern RetentionTypeDelete :: RetentionType
+pattern RetentionTypeDelete = RetentionType' "Delete"
 
 {-# COMPLETE
-  Retain,
-  Delete,
+  RetentionTypeRetain,
+  RetentionTypeDelete,
   RetentionType'
   #-}

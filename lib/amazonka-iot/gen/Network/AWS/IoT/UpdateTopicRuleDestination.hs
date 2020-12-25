@@ -20,27 +20,29 @@ module Network.AWS.IoT.UpdateTopicRuleDestination
     mkUpdateTopicRuleDestination,
 
     -- ** Request lenses
-    utrdStatus,
     utrdArn,
+    utrdStatus,
 
     -- * Destructuring the response
     UpdateTopicRuleDestinationResponse (..),
     mkUpdateTopicRuleDestinationResponse,
 
     -- ** Response lenses
-    utrdrsResponseStatus,
+    utrdrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTopicRuleDestination' smart constructor.
 data UpdateTopicRuleDestination = UpdateTopicRuleDestination'
-  { -- | The status of the topic rule destination. Valid values are:
+  { -- | The ARN of the topic rule destination.
+    arn :: Types.Arn,
+    -- | The status of the topic rule destination. Valid values are:
     --
     --
     --     * IN_PROGRESS
@@ -61,47 +63,27 @@ data UpdateTopicRuleDestination = UpdateTopicRuleDestination'
     --     * ERROR
     --
     --     * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
-    status :: TopicRuleDestinationStatus,
-    -- | The ARN of the topic rule destination.
-    arn :: Lude.Text
+    status :: Types.TopicRuleDestinationStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTopicRuleDestination' with the minimum fields required to make a request.
---
--- * 'status' - The status of the topic rule destination. Valid values are:
---
---
---     * IN_PROGRESS
---
---     * A topic rule destination was created but has not been confirmed. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
---
---
---     * ENABLED
---
---     * Confirmation was completed, and traffic to this destination is allowed. You can set @status@ to @DISABLED@ by calling @UpdateTopicRuleDestination@ .
---
---
---     * DISABLED
---
---     * Confirmation was completed, and traffic to this destination is not allowed. You can set @status@ to @ENABLED@ by calling @UpdateTopicRuleDestination@ .
---
---
---     * ERROR
---
---     * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
---
---
--- * 'arn' - The ARN of the topic rule destination.
+-- | Creates a 'UpdateTopicRuleDestination' value with any optional fields omitted.
 mkUpdateTopicRuleDestination ::
-  -- | 'status'
-  TopicRuleDestinationStatus ->
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
+  -- | 'status'
+  Types.TopicRuleDestinationStatus ->
   UpdateTopicRuleDestination
-mkUpdateTopicRuleDestination pStatus_ pArn_ =
-  UpdateTopicRuleDestination' {status = pStatus_, arn = pArn_}
+mkUpdateTopicRuleDestination arn status =
+  UpdateTopicRuleDestination' {arn, status}
+
+-- | The ARN of the topic rule destination.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrdArn :: Lens.Lens' UpdateTopicRuleDestination Types.Arn
+utrdArn = Lens.field @"arn"
+{-# DEPRECATED utrdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The status of the topic rule destination. Valid values are:
 --
@@ -128,71 +110,58 @@ mkUpdateTopicRuleDestination pStatus_ pArn_ =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrdStatus :: Lens.Lens' UpdateTopicRuleDestination TopicRuleDestinationStatus
-utrdStatus = Lens.lens (status :: UpdateTopicRuleDestination -> TopicRuleDestinationStatus) (\s a -> s {status = a} :: UpdateTopicRuleDestination)
+utrdStatus :: Lens.Lens' UpdateTopicRuleDestination Types.TopicRuleDestinationStatus
+utrdStatus = Lens.field @"status"
 {-# DEPRECATED utrdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The ARN of the topic rule destination.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrdArn :: Lens.Lens' UpdateTopicRuleDestination Lude.Text
-utrdArn = Lens.lens (arn :: UpdateTopicRuleDestination -> Lude.Text) (\s a -> s {arn = a} :: UpdateTopicRuleDestination)
-{-# DEPRECATED utrdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
-instance Lude.AWSRequest UpdateTopicRuleDestination where
-  type
-    Rs UpdateTopicRuleDestination =
-      UpdateTopicRuleDestinationResponse
-  request = Req.patchJSON ioTService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UpdateTopicRuleDestinationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateTopicRuleDestination where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateTopicRuleDestination where
-  toJSON UpdateTopicRuleDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("status" Lude..= status),
-            Lude.Just ("arn" Lude..= arn)
+instance Core.FromJSON UpdateTopicRuleDestination where
+  toJSON UpdateTopicRuleDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("arn" Core..= arn),
+            Core.Just ("status" Core..= status)
           ]
       )
 
-instance Lude.ToPath UpdateTopicRuleDestination where
-  toPath = Lude.const "/destinations"
-
-instance Lude.ToQuery UpdateTopicRuleDestination where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateTopicRuleDestination where
+  type
+    Rs UpdateTopicRuleDestination =
+      UpdateTopicRuleDestinationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath = Core.rawPath "/destinations",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateTopicRuleDestinationResponse'
+            Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateTopicRuleDestinationResponse' smart constructor.
 newtype UpdateTopicRuleDestinationResponse = UpdateTopicRuleDestinationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTopicRuleDestinationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTopicRuleDestinationResponse' value with any optional fields omitted.
 mkUpdateTopicRuleDestinationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTopicRuleDestinationResponse
-mkUpdateTopicRuleDestinationResponse pResponseStatus_ =
-  UpdateTopicRuleDestinationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateTopicRuleDestinationResponse responseStatus =
+  UpdateTopicRuleDestinationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrdrsResponseStatus :: Lens.Lens' UpdateTopicRuleDestinationResponse Lude.Int
-utrdrsResponseStatus = Lens.lens (responseStatus :: UpdateTopicRuleDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTopicRuleDestinationResponse)
-{-# DEPRECATED utrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrdrrsResponseStatus :: Lens.Lens' UpdateTopicRuleDestinationResponse Core.Int
+utrdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -36,168 +36,149 @@ module Network.AWS.Kinesis.GetRecords
     mkGetRecordsResponse,
 
     -- ** Response lenses
-    grrsRecords,
-    grrsNextShardIterator,
-    grrsMillisBehindLatest,
-    grrsChildShards,
-    grrsResponseStatus,
+    grrrsRecords,
+    grrrsChildShards,
+    grrrsMillisBehindLatest,
+    grrrsNextShardIterator,
+    grrrsResponseStatus,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for 'GetRecords' .
 --
 -- /See:/ 'mkGetRecords' smart constructor.
 data GetRecords = GetRecords'
   { -- | The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
-    shardIterator :: Lude.Text,
+    shardIterator :: Types.ShardIterator,
     -- | The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRecords' with the minimum fields required to make a request.
---
--- * 'shardIterator' - The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
--- * 'limit' - The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
+-- | Creates a 'GetRecords' value with any optional fields omitted.
 mkGetRecords ::
   -- | 'shardIterator'
-  Lude.Text ->
+  Types.ShardIterator ->
   GetRecords
-mkGetRecords pShardIterator_ =
-  GetRecords'
-    { shardIterator = pShardIterator_,
-      limit = Lude.Nothing
-    }
+mkGetRecords shardIterator =
+  GetRecords' {shardIterator, limit = Core.Nothing}
 
 -- | The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
 --
 -- /Note:/ Consider using 'shardIterator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grShardIterator :: Lens.Lens' GetRecords Lude.Text
-grShardIterator = Lens.lens (shardIterator :: GetRecords -> Lude.Text) (\s a -> s {shardIterator = a} :: GetRecords)
+grShardIterator :: Lens.Lens' GetRecords Types.ShardIterator
+grShardIterator = Lens.field @"shardIterator"
 {-# DEPRECATED grShardIterator "Use generic-lens or generic-optics with 'shardIterator' instead." #-}
 
 -- | The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grLimit :: Lens.Lens' GetRecords (Lude.Maybe Lude.Natural)
-grLimit = Lens.lens (limit :: GetRecords -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetRecords)
+grLimit :: Lens.Lens' GetRecords (Core.Maybe Core.Natural)
+grLimit = Lens.field @"limit"
 {-# DEPRECATED grLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest GetRecords where
+instance Core.FromJSON GetRecords where
+  toJSON GetRecords {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ShardIterator" Core..= shardIterator),
+            ("Limit" Core..=) Core.<$> limit
+          ]
+      )
+
+instance Core.AWSRequest GetRecords where
   type Rs GetRecords = GetRecordsResponse
-  request = Req.postJSON kinesisService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.GetRecords")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRecordsResponse'
-            Lude.<$> (x Lude..?> "Records" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextShardIterator")
-            Lude.<*> (x Lude..?> "MillisBehindLatest")
-            Lude.<*> (x Lude..?> "ChildShards" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Records" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ChildShards")
+            Core.<*> (x Core..:? "MillisBehindLatest")
+            Core.<*> (x Core..:? "NextShardIterator")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetRecords where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.GetRecords" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetRecords where
-  toJSON GetRecords' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ShardIterator" Lude..= shardIterator),
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath GetRecords where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRecords where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output for 'GetRecords' .
 --
 -- /See:/ 'mkGetRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
   { -- | The data records retrieved from the shard.
-    records :: [Record],
-    -- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
-    nextShardIterator :: Lude.Maybe Lude.Text,
+    records :: [Types.Record],
+    childShards :: Core.Maybe [Types.ChildShard],
     -- | The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
-    millisBehindLatest :: Lude.Maybe Lude.Natural,
-    childShards :: Lude.Maybe [ChildShard],
+    millisBehindLatest :: Core.Maybe Core.Natural,
+    -- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
+    nextShardIterator :: Core.Maybe Types.ShardIterator,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
---
--- * 'records' - The data records retrieved from the shard.
--- * 'nextShardIterator' - The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
--- * 'millisBehindLatest' - The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
--- * 'childShards' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRecordsResponse' value with any optional fields omitted.
 mkGetRecordsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRecordsResponse
-mkGetRecordsResponse pResponseStatus_ =
+mkGetRecordsResponse responseStatus =
   GetRecordsResponse'
-    { records = Lude.mempty,
-      nextShardIterator = Lude.Nothing,
-      millisBehindLatest = Lude.Nothing,
-      childShards = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { records = Core.mempty,
+      childShards = Core.Nothing,
+      millisBehindLatest = Core.Nothing,
+      nextShardIterator = Core.Nothing,
+      responseStatus
     }
 
 -- | The data records retrieved from the shard.
 --
 -- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsRecords :: Lens.Lens' GetRecordsResponse [Record]
-grrsRecords = Lens.lens (records :: GetRecordsResponse -> [Record]) (\s a -> s {records = a} :: GetRecordsResponse)
-{-# DEPRECATED grrsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
-
--- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
---
--- /Note:/ Consider using 'nextShardIterator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsNextShardIterator :: Lens.Lens' GetRecordsResponse (Lude.Maybe Lude.Text)
-grrsNextShardIterator = Lens.lens (nextShardIterator :: GetRecordsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextShardIterator = a} :: GetRecordsResponse)
-{-# DEPRECATED grrsNextShardIterator "Use generic-lens or generic-optics with 'nextShardIterator' instead." #-}
-
--- | The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
---
--- /Note:/ Consider using 'millisBehindLatest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsMillisBehindLatest :: Lens.Lens' GetRecordsResponse (Lude.Maybe Lude.Natural)
-grrsMillisBehindLatest = Lens.lens (millisBehindLatest :: GetRecordsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {millisBehindLatest = a} :: GetRecordsResponse)
-{-# DEPRECATED grrsMillisBehindLatest "Use generic-lens or generic-optics with 'millisBehindLatest' instead." #-}
+grrrsRecords :: Lens.Lens' GetRecordsResponse [Types.Record]
+grrrsRecords = Lens.field @"records"
+{-# DEPRECATED grrrsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'childShards' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsChildShards :: Lens.Lens' GetRecordsResponse (Lude.Maybe [ChildShard])
-grrsChildShards = Lens.lens (childShards :: GetRecordsResponse -> Lude.Maybe [ChildShard]) (\s a -> s {childShards = a} :: GetRecordsResponse)
-{-# DEPRECATED grrsChildShards "Use generic-lens or generic-optics with 'childShards' instead." #-}
+grrrsChildShards :: Lens.Lens' GetRecordsResponse (Core.Maybe [Types.ChildShard])
+grrrsChildShards = Lens.field @"childShards"
+{-# DEPRECATED grrrsChildShards "Use generic-lens or generic-optics with 'childShards' instead." #-}
+
+-- | The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
+--
+-- /Note:/ Consider using 'millisBehindLatest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrrsMillisBehindLatest :: Lens.Lens' GetRecordsResponse (Core.Maybe Core.Natural)
+grrrsMillisBehindLatest = Lens.field @"millisBehindLatest"
+{-# DEPRECATED grrrsMillisBehindLatest "Use generic-lens or generic-optics with 'millisBehindLatest' instead." #-}
+
+-- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
+--
+-- /Note:/ Consider using 'nextShardIterator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrrsNextShardIterator :: Lens.Lens' GetRecordsResponse (Core.Maybe Types.ShardIterator)
+grrrsNextShardIterator = Lens.field @"nextShardIterator"
+{-# DEPRECATED grrrsNextShardIterator "Use generic-lens or generic-optics with 'nextShardIterator' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsResponseStatus :: Lens.Lens' GetRecordsResponse Lude.Int
-grrsResponseStatus = Lens.lens (responseStatus :: GetRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRecordsResponse)
-{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grrrsResponseStatus :: Lens.Lens' GetRecordsResponse Core.Int
+grrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,71 +13,73 @@
 module Network.AWS.CloudFront.Types.Method
   ( Method
       ( Method',
-        Get,
-        Head,
-        Post,
-        Put,
-        Patch,
-        Options,
-        Delete
+        MethodGet,
+        MethodHead,
+        MethodPost,
+        MethodPut,
+        MethodPatch,
+        MethodOptions,
+        MethodDelete,
+        fromMethod
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Method = Method' Lude.Text
+newtype Method = Method' {fromMethod :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Get :: Method
-pattern Get = Method' "GET"
+pattern MethodGet :: Method
+pattern MethodGet = Method' "GET"
 
-pattern Head :: Method
-pattern Head = Method' "HEAD"
+pattern MethodHead :: Method
+pattern MethodHead = Method' "HEAD"
 
-pattern Post :: Method
-pattern Post = Method' "POST"
+pattern MethodPost :: Method
+pattern MethodPost = Method' "POST"
 
-pattern Put :: Method
-pattern Put = Method' "PUT"
+pattern MethodPut :: Method
+pattern MethodPut = Method' "PUT"
 
-pattern Patch :: Method
-pattern Patch = Method' "PATCH"
+pattern MethodPatch :: Method
+pattern MethodPatch = Method' "PATCH"
 
-pattern Options :: Method
-pattern Options = Method' "OPTIONS"
+pattern MethodOptions :: Method
+pattern MethodOptions = Method' "OPTIONS"
 
-pattern Delete :: Method
-pattern Delete = Method' "DELETE"
+pattern MethodDelete :: Method
+pattern MethodDelete = Method' "DELETE"
 
 {-# COMPLETE
-  Get,
-  Head,
-  Post,
-  Put,
-  Patch,
-  Options,
-  Delete,
+  MethodGet,
+  MethodHead,
+  MethodPost,
+  MethodPut,
+  MethodPatch,
+  MethodOptions,
+  MethodDelete,
   Method'
   #-}

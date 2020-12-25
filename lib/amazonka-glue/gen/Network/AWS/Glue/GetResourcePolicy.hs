@@ -20,153 +20,138 @@ module Network.AWS.Glue.GetResourcePolicy
     mkGetResourcePolicy,
 
     -- ** Request lenses
-    grpResourceARN,
+    grpResourceArn,
 
     -- * Destructuring the response
     GetResourcePolicyResponse (..),
     mkGetResourcePolicyResponse,
 
     -- ** Response lenses
-    grpfrsPolicyInJSON,
-    grpfrsUpdateTime,
-    grpfrsPolicyHash,
-    grpfrsCreateTime,
-    grpfrsResponseStatus,
+    grprfrsCreateTime,
+    grprfrsPolicyHash,
+    grprfrsPolicyInJson,
+    grprfrsUpdateTime,
+    grprfrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetResourcePolicy' smart constructor.
 newtype GetResourcePolicy = GetResourcePolicy'
   { -- | The ARN of the AWS Glue resource for the resource policy to be retrieved. For more information about AWS Glue resource ARNs, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
-    resourceARN :: Lude.Maybe Lude.Text
+    resourceArn :: Core.Maybe Types.GlueResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetResourcePolicy' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The ARN of the AWS Glue resource for the resource policy to be retrieved. For more information about AWS Glue resource ARNs, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
+-- | Creates a 'GetResourcePolicy' value with any optional fields omitted.
 mkGetResourcePolicy ::
   GetResourcePolicy
 mkGetResourcePolicy =
-  GetResourcePolicy' {resourceARN = Lude.Nothing}
+  GetResourcePolicy' {resourceArn = Core.Nothing}
 
 -- | The ARN of the AWS Glue resource for the resource policy to be retrieved. For more information about AWS Glue resource ARNs, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpResourceARN :: Lens.Lens' GetResourcePolicy (Lude.Maybe Lude.Text)
-grpResourceARN = Lens.lens (resourceARN :: GetResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: GetResourcePolicy)
-{-# DEPRECATED grpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpResourceArn :: Lens.Lens' GetResourcePolicy (Core.Maybe Types.GlueResourceArn)
+grpResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED grpResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest GetResourcePolicy where
+instance Core.FromJSON GetResourcePolicy where
+  toJSON GetResourcePolicy {..} =
+    Core.object
+      (Core.catMaybes [("ResourceArn" Core..=) Core.<$> resourceArn])
+
+instance Core.AWSRequest GetResourcePolicy where
   type Rs GetResourcePolicy = GetResourcePolicyResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetResourcePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Lude.<$> (x Lude..?> "PolicyInJson")
-            Lude.<*> (x Lude..?> "UpdateTime")
-            Lude.<*> (x Lude..?> "PolicyHash")
-            Lude.<*> (x Lude..?> "CreateTime")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CreateTime")
+            Core.<*> (x Core..:? "PolicyHash")
+            Core.<*> (x Core..:? "PolicyInJson")
+            Core.<*> (x Core..:? "UpdateTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetResourcePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetResourcePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetResourcePolicy where
-  toJSON GetResourcePolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [("ResourceArn" Lude..=) Lude.<$> resourceARN])
-
-instance Lude.ToPath GetResourcePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetResourcePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
-  { -- | Contains the requested policy document, in JSON format.
-    policyInJSON :: Lude.Maybe Lude.Text,
-    -- | The date and time at which the policy was last updated.
-    updateTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The date and time at which the policy was created.
+    createTime :: Core.Maybe Core.NominalDiffTime,
     -- | Contains the hash value associated with this policy.
-    policyHash :: Lude.Maybe Lude.Text,
-    -- | The date and time at which the policy was created.
-    createTime :: Lude.Maybe Lude.Timestamp,
+    policyHash :: Core.Maybe Types.HashString,
+    -- | Contains the requested policy document, in JSON format.
+    policyInJson :: Core.Maybe Types.PolicyInJson,
+    -- | The date and time at which the policy was last updated.
+    updateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetResourcePolicyResponse' with the minimum fields required to make a request.
---
--- * 'policyInJSON' - Contains the requested policy document, in JSON format.
--- * 'updateTime' - The date and time at which the policy was last updated.
--- * 'policyHash' - Contains the hash value associated with this policy.
--- * 'createTime' - The date and time at which the policy was created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetResourcePolicyResponse' value with any optional fields omitted.
 mkGetResourcePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetResourcePolicyResponse
-mkGetResourcePolicyResponse pResponseStatus_ =
+mkGetResourcePolicyResponse responseStatus =
   GetResourcePolicyResponse'
-    { policyInJSON = Lude.Nothing,
-      updateTime = Lude.Nothing,
-      policyHash = Lude.Nothing,
-      createTime = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { createTime = Core.Nothing,
+      policyHash = Core.Nothing,
+      policyInJson = Core.Nothing,
+      updateTime = Core.Nothing,
+      responseStatus
     }
-
--- | Contains the requested policy document, in JSON format.
---
--- /Note:/ Consider using 'policyInJSON' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpfrsPolicyInJSON :: Lens.Lens' GetResourcePolicyResponse (Lude.Maybe Lude.Text)
-grpfrsPolicyInJSON = Lens.lens (policyInJSON :: GetResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyInJSON = a} :: GetResourcePolicyResponse)
-{-# DEPRECATED grpfrsPolicyInJSON "Use generic-lens or generic-optics with 'policyInJSON' instead." #-}
-
--- | The date and time at which the policy was last updated.
---
--- /Note:/ Consider using 'updateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpfrsUpdateTime :: Lens.Lens' GetResourcePolicyResponse (Lude.Maybe Lude.Timestamp)
-grpfrsUpdateTime = Lens.lens (updateTime :: GetResourcePolicyResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {updateTime = a} :: GetResourcePolicyResponse)
-{-# DEPRECATED grpfrsUpdateTime "Use generic-lens or generic-optics with 'updateTime' instead." #-}
-
--- | Contains the hash value associated with this policy.
---
--- /Note:/ Consider using 'policyHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpfrsPolicyHash :: Lens.Lens' GetResourcePolicyResponse (Lude.Maybe Lude.Text)
-grpfrsPolicyHash = Lens.lens (policyHash :: GetResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyHash = a} :: GetResourcePolicyResponse)
-{-# DEPRECATED grpfrsPolicyHash "Use generic-lens or generic-optics with 'policyHash' instead." #-}
 
 -- | The date and time at which the policy was created.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpfrsCreateTime :: Lens.Lens' GetResourcePolicyResponse (Lude.Maybe Lude.Timestamp)
-grpfrsCreateTime = Lens.lens (createTime :: GetResourcePolicyResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: GetResourcePolicyResponse)
-{-# DEPRECATED grpfrsCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
+grprfrsCreateTime :: Lens.Lens' GetResourcePolicyResponse (Core.Maybe Core.NominalDiffTime)
+grprfrsCreateTime = Lens.field @"createTime"
+{-# DEPRECATED grprfrsCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
+
+-- | Contains the hash value associated with this policy.
+--
+-- /Note:/ Consider using 'policyHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprfrsPolicyHash :: Lens.Lens' GetResourcePolicyResponse (Core.Maybe Types.HashString)
+grprfrsPolicyHash = Lens.field @"policyHash"
+{-# DEPRECATED grprfrsPolicyHash "Use generic-lens or generic-optics with 'policyHash' instead." #-}
+
+-- | Contains the requested policy document, in JSON format.
+--
+-- /Note:/ Consider using 'policyInJson' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprfrsPolicyInJson :: Lens.Lens' GetResourcePolicyResponse (Core.Maybe Types.PolicyInJson)
+grprfrsPolicyInJson = Lens.field @"policyInJson"
+{-# DEPRECATED grprfrsPolicyInJson "Use generic-lens or generic-optics with 'policyInJson' instead." #-}
+
+-- | The date and time at which the policy was last updated.
+--
+-- /Note:/ Consider using 'updateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprfrsUpdateTime :: Lens.Lens' GetResourcePolicyResponse (Core.Maybe Core.NominalDiffTime)
+grprfrsUpdateTime = Lens.field @"updateTime"
+{-# DEPRECATED grprfrsUpdateTime "Use generic-lens or generic-optics with 'updateTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpfrsResponseStatus :: Lens.Lens' GetResourcePolicyResponse Lude.Int
-grpfrsResponseStatus = Lens.lens (responseStatus :: GetResourcePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetResourcePolicyResponse)
-{-# DEPRECATED grpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grprfrsResponseStatus :: Lens.Lens' GetResourcePolicyResponse Core.Int
+grprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

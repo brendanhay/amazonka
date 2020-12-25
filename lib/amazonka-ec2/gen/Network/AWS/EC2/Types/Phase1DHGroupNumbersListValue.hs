@@ -22,33 +22,31 @@ module Network.AWS.EC2.Types.Phase1DHGroupNumbersListValue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Diffie-Hellmann group number for phase 1 IKE negotiations.
 --
 -- /See:/ 'mkPhase1DHGroupNumbersListValue' smart constructor.
 newtype Phase1DHGroupNumbersListValue = Phase1DHGroupNumbersListValue'
   { -- | The Diffie-Hellmann group number.
-    value :: Lude.Maybe Lude.Int
+    value :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Phase1DHGroupNumbersListValue' with the minimum fields required to make a request.
---
--- * 'value' - The Diffie-Hellmann group number.
+-- | Creates a 'Phase1DHGroupNumbersListValue' value with any optional fields omitted.
 mkPhase1DHGroupNumbersListValue ::
   Phase1DHGroupNumbersListValue
 mkPhase1DHGroupNumbersListValue =
-  Phase1DHGroupNumbersListValue' {value = Lude.Nothing}
+  Phase1DHGroupNumbersListValue' {value = Core.Nothing}
 
 -- | The Diffie-Hellmann group number.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdhgnlvValue :: Lens.Lens' Phase1DHGroupNumbersListValue (Lude.Maybe Lude.Int)
-pdhgnlvValue = Lens.lens (value :: Phase1DHGroupNumbersListValue -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: Phase1DHGroupNumbersListValue)
+pdhgnlvValue :: Lens.Lens' Phase1DHGroupNumbersListValue (Core.Maybe Core.Int)
+pdhgnlvValue = Lens.field @"value"
 {-# DEPRECATED pdhgnlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromXML Phase1DHGroupNumbersListValue where
+instance Core.FromXML Phase1DHGroupNumbersListValue where
   parseXML x =
-    Phase1DHGroupNumbersListValue' Lude.<$> (x Lude..@? "value")
+    Phase1DHGroupNumbersListValue' Core.<$> (x Core..@? "value")

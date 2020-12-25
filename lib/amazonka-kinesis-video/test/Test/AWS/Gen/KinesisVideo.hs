@@ -270,7 +270,7 @@ responseListSignalingChannels =
   res
     "ListSignalingChannelsResponse"
     "fixture/ListSignalingChannelsResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy ListSignalingChannels)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -278,7 +278,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseUntagStream :: UntagStreamResponse -> TestTree
@@ -286,7 +286,7 @@ responseUntagStream =
   res
     "UntagStreamResponse"
     "fixture/UntagStreamResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy UntagStream)
 
 responseUpdateDataRetention :: UpdateDataRetentionResponse -> TestTree
@@ -294,7 +294,7 @@ responseUpdateDataRetention =
   res
     "UpdateDataRetentionResponse"
     "fixture/UpdateDataRetentionResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDataRetention)
 
 responseGetDataEndpoint :: GetDataEndpointResponse -> TestTree
@@ -302,7 +302,7 @@ responseGetDataEndpoint =
   res
     "GetDataEndpointResponse"
     "fixture/GetDataEndpointResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy GetDataEndpoint)
 
 responseGetSignalingChannelEndpoint :: GetSignalingChannelEndpointResponse -> TestTree
@@ -310,7 +310,7 @@ responseGetSignalingChannelEndpoint =
   res
     "GetSignalingChannelEndpointResponse"
     "fixture/GetSignalingChannelEndpointResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy GetSignalingChannelEndpoint)
 
 responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
@@ -318,7 +318,7 @@ responseListTagsForStream =
   res
     "ListTagsForStreamResponse"
     "fixture/ListTagsForStreamResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForStream)
 
 responseDeleteSignalingChannel :: DeleteSignalingChannelResponse -> TestTree
@@ -326,7 +326,7 @@ responseDeleteSignalingChannel =
   res
     "DeleteSignalingChannelResponse"
     "fixture/DeleteSignalingChannelResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSignalingChannel)
 
 responseUpdateSignalingChannel :: UpdateSignalingChannelResponse -> TestTree
@@ -334,7 +334,7 @@ responseUpdateSignalingChannel =
   res
     "UpdateSignalingChannelResponse"
     "fixture/UpdateSignalingChannelResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSignalingChannel)
 
 responseUpdateStream :: UpdateStreamResponse -> TestTree
@@ -342,7 +342,7 @@ responseUpdateStream =
   res
     "UpdateStreamResponse"
     "fixture/UpdateStreamResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStream)
 
 responseDeleteStream :: DeleteStreamResponse -> TestTree
@@ -350,7 +350,7 @@ responseDeleteStream =
   res
     "DeleteStreamResponse"
     "fixture/DeleteStreamResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStream)
 
 responseListStreams :: ListStreamsResponse -> TestTree
@@ -358,7 +358,7 @@ responseListStreams =
   res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy ListStreams)
 
 responseCreateStream :: CreateStreamResponse -> TestTree
@@ -366,7 +366,7 @@ responseCreateStream =
   res
     "CreateStreamResponse"
     "fixture/CreateStreamResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy CreateStream)
 
 responseDescribeSignalingChannel :: DescribeSignalingChannelResponse -> TestTree
@@ -374,7 +374,7 @@ responseDescribeSignalingChannel =
   res
     "DescribeSignalingChannelResponse"
     "fixture/DescribeSignalingChannelResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSignalingChannel)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -382,7 +382,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -390,7 +390,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseTagStream :: TagStreamResponse -> TestTree
@@ -398,7 +398,7 @@ responseTagStream =
   res
     "TagStreamResponse"
     "fixture/TagStreamResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy TagStream)
 
 responseCreateSignalingChannel :: CreateSignalingChannelResponse -> TestTree
@@ -406,7 +406,7 @@ responseCreateSignalingChannel =
   res
     "CreateSignalingChannelResponse"
     "fixture/CreateSignalingChannelResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy CreateSignalingChannel)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
@@ -414,5 +414,5 @@ responseDescribeStream =
   res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
-    kinesisVideoService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStream)

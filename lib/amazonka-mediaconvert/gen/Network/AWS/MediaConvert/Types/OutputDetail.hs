@@ -17,58 +17,53 @@ module Network.AWS.MediaConvert.Types.OutputDetail
     mkOutputDetail,
 
     -- * Lenses
-    odVideoDetails,
     odDurationInMs,
+    odVideoDetails,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.VideoDetail
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.VideoDetail as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Details regarding output
 --
 -- /See:/ 'mkOutputDetail' smart constructor.
 data OutputDetail = OutputDetail'
-  { -- | Contains details about the output's video stream
-    videoDetails :: Lude.Maybe VideoDetail,
-    -- | Duration in milliseconds
-    durationInMs :: Lude.Maybe Lude.Int
+  { -- | Duration in milliseconds
+    durationInMs :: Core.Maybe Core.Int,
+    -- | Contains details about the output's video stream
+    videoDetails :: Core.Maybe Types.VideoDetail
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputDetail' with the minimum fields required to make a request.
---
--- * 'videoDetails' - Contains details about the output's video stream
--- * 'durationInMs' - Duration in milliseconds
+-- | Creates a 'OutputDetail' value with any optional fields omitted.
 mkOutputDetail ::
   OutputDetail
 mkOutputDetail =
   OutputDetail'
-    { videoDetails = Lude.Nothing,
-      durationInMs = Lude.Nothing
+    { durationInMs = Core.Nothing,
+      videoDetails = Core.Nothing
     }
-
--- | Contains details about the output's video stream
---
--- /Note:/ Consider using 'videoDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odVideoDetails :: Lens.Lens' OutputDetail (Lude.Maybe VideoDetail)
-odVideoDetails = Lens.lens (videoDetails :: OutputDetail -> Lude.Maybe VideoDetail) (\s a -> s {videoDetails = a} :: OutputDetail)
-{-# DEPRECATED odVideoDetails "Use generic-lens or generic-optics with 'videoDetails' instead." #-}
 
 -- | Duration in milliseconds
 --
 -- /Note:/ Consider using 'durationInMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odDurationInMs :: Lens.Lens' OutputDetail (Lude.Maybe Lude.Int)
-odDurationInMs = Lens.lens (durationInMs :: OutputDetail -> Lude.Maybe Lude.Int) (\s a -> s {durationInMs = a} :: OutputDetail)
+odDurationInMs :: Lens.Lens' OutputDetail (Core.Maybe Core.Int)
+odDurationInMs = Lens.field @"durationInMs"
 {-# DEPRECATED odDurationInMs "Use generic-lens or generic-optics with 'durationInMs' instead." #-}
 
-instance Lude.FromJSON OutputDetail where
+-- | Contains details about the output's video stream
+--
+-- /Note:/ Consider using 'videoDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odVideoDetails :: Lens.Lens' OutputDetail (Core.Maybe Types.VideoDetail)
+odVideoDetails = Lens.field @"videoDetails"
+{-# DEPRECATED odVideoDetails "Use generic-lens or generic-optics with 'videoDetails' instead." #-}
+
+instance Core.FromJSON OutputDetail where
   parseJSON =
-    Lude.withObject
-      "OutputDetail"
-      ( \x ->
-          OutputDetail'
-            Lude.<$> (x Lude..:? "videoDetails") Lude.<*> (x Lude..:? "durationInMs")
-      )
+    Core.withObject "OutputDetail" Core.$
+      \x ->
+        OutputDetail'
+          Core.<$> (x Core..:? "durationInMs") Core.<*> (x Core..:? "videoDetails")

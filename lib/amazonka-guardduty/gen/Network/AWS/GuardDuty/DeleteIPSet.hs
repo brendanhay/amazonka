@@ -20,108 +20,99 @@ module Network.AWS.GuardDuty.DeleteIPSet
     mkDeleteIPSet,
 
     -- ** Request lenses
-    disDetectorId,
-    disIPSetId,
+    dipsDetectorId,
+    dipsIpSetId,
 
     -- * Destructuring the response
     DeleteIPSetResponse (..),
     mkDeleteIPSetResponse,
 
     -- ** Response lenses
-    dipsrsResponseStatus,
+    dipsrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteIPSet' smart constructor.
 data DeleteIPSet = DeleteIPSet'
   { -- | The unique ID of the detector associated with the IPSet.
-    detectorId :: Lude.Text,
+    detectorId :: Types.DetectorId,
     -- | The unique ID of the IPSet to delete.
-    ipSetId :: Lude.Text
+    ipSetId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIPSet' with the minimum fields required to make a request.
---
--- * 'detectorId' - The unique ID of the detector associated with the IPSet.
--- * 'ipSetId' - The unique ID of the IPSet to delete.
+-- | Creates a 'DeleteIPSet' value with any optional fields omitted.
 mkDeleteIPSet ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   -- | 'ipSetId'
-  Lude.Text ->
+  Types.String ->
   DeleteIPSet
-mkDeleteIPSet pDetectorId_ pIPSetId_ =
-  DeleteIPSet' {detectorId = pDetectorId_, ipSetId = pIPSetId_}
+mkDeleteIPSet detectorId ipSetId =
+  DeleteIPSet' {detectorId, ipSetId}
 
 -- | The unique ID of the detector associated with the IPSet.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disDetectorId :: Lens.Lens' DeleteIPSet Lude.Text
-disDetectorId = Lens.lens (detectorId :: DeleteIPSet -> Lude.Text) (\s a -> s {detectorId = a} :: DeleteIPSet)
-{-# DEPRECATED disDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+dipsDetectorId :: Lens.Lens' DeleteIPSet Types.DetectorId
+dipsDetectorId = Lens.field @"detectorId"
+{-# DEPRECATED dipsDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The unique ID of the IPSet to delete.
 --
 -- /Note:/ Consider using 'ipSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disIPSetId :: Lens.Lens' DeleteIPSet Lude.Text
-disIPSetId = Lens.lens (ipSetId :: DeleteIPSet -> Lude.Text) (\s a -> s {ipSetId = a} :: DeleteIPSet)
-{-# DEPRECATED disIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
+dipsIpSetId :: Lens.Lens' DeleteIPSet Types.String
+dipsIpSetId = Lens.field @"ipSetId"
+{-# DEPRECATED dipsIpSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
 
-instance Lude.AWSRequest DeleteIPSet where
+instance Core.AWSRequest DeleteIPSet where
   type Rs DeleteIPSet = DeleteIPSetResponse
-  request = Req.delete guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId) Core.<> ("/ipset/")
+                Core.<> (Core.toText ipSetId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteIPSetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteIPSetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteIPSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteIPSet where
-  toPath DeleteIPSet' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/ipset/", Lude.toBS ipSetId]
-
-instance Lude.ToQuery DeleteIPSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteIPSetResponse' smart constructor.
 newtype DeleteIPSetResponse = DeleteIPSetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIPSetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteIPSetResponse' value with any optional fields omitted.
 mkDeleteIPSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteIPSetResponse
-mkDeleteIPSetResponse pResponseStatus_ =
-  DeleteIPSetResponse' {responseStatus = pResponseStatus_}
+mkDeleteIPSetResponse responseStatus =
+  DeleteIPSetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipsrsResponseStatus :: Lens.Lens' DeleteIPSetResponse Lude.Int
-dipsrsResponseStatus = Lens.lens (responseStatus :: DeleteIPSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteIPSetResponse)
-{-# DEPRECATED dipsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dipsrrsResponseStatus :: Lens.Lens' DeleteIPSetResponse Core.Int
+dipsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dipsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,14 +17,15 @@ module Network.AWS.RDS.Types.AvailableProcessorFeature
     mkAvailableProcessorFeature,
 
     -- * Lenses
-    apfName,
-    apfDefaultValue,
     apfAllowedValues,
+    apfDefaultValue,
+    apfName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Contains the available processor feature information for the DB instance class of a DB instance.
 --
@@ -32,54 +33,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAvailableProcessorFeature' smart constructor.
 data AvailableProcessorFeature = AvailableProcessorFeature'
-  { -- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
-    name :: Lude.Maybe Lude.Text,
+  { -- | The allowed values for the processor feature of the DB instance class.
+    allowedValues :: Core.Maybe Types.String,
     -- | The default value for the processor feature of the DB instance class.
-    defaultValue :: Lude.Maybe Lude.Text,
-    -- | The allowed values for the processor feature of the DB instance class.
-    allowedValues :: Lude.Maybe Lude.Text
+    defaultValue :: Core.Maybe Types.String,
+    -- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AvailableProcessorFeature' with the minimum fields required to make a request.
---
--- * 'name' - The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
--- * 'defaultValue' - The default value for the processor feature of the DB instance class.
--- * 'allowedValues' - The allowed values for the processor feature of the DB instance class.
+-- | Creates a 'AvailableProcessorFeature' value with any optional fields omitted.
 mkAvailableProcessorFeature ::
   AvailableProcessorFeature
 mkAvailableProcessorFeature =
   AvailableProcessorFeature'
-    { name = Lude.Nothing,
-      defaultValue = Lude.Nothing,
-      allowedValues = Lude.Nothing
+    { allowedValues = Core.Nothing,
+      defaultValue = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apfName :: Lens.Lens' AvailableProcessorFeature (Lude.Maybe Lude.Text)
-apfName = Lens.lens (name :: AvailableProcessorFeature -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AvailableProcessorFeature)
-{-# DEPRECATED apfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The default value for the processor feature of the DB instance class.
---
--- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apfDefaultValue :: Lens.Lens' AvailableProcessorFeature (Lude.Maybe Lude.Text)
-apfDefaultValue = Lens.lens (defaultValue :: AvailableProcessorFeature -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: AvailableProcessorFeature)
-{-# DEPRECATED apfDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | The allowed values for the processor feature of the DB instance class.
 --
 -- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apfAllowedValues :: Lens.Lens' AvailableProcessorFeature (Lude.Maybe Lude.Text)
-apfAllowedValues = Lens.lens (allowedValues :: AvailableProcessorFeature -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: AvailableProcessorFeature)
+apfAllowedValues :: Lens.Lens' AvailableProcessorFeature (Core.Maybe Types.String)
+apfAllowedValues = Lens.field @"allowedValues"
 {-# DEPRECATED apfAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
-instance Lude.FromXML AvailableProcessorFeature where
+-- | The default value for the processor feature of the DB instance class.
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apfDefaultValue :: Lens.Lens' AvailableProcessorFeature (Core.Maybe Types.String)
+apfDefaultValue = Lens.field @"defaultValue"
+{-# DEPRECATED apfDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
+
+-- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apfName :: Lens.Lens' AvailableProcessorFeature (Core.Maybe Types.String)
+apfName = Lens.field @"name"
+{-# DEPRECATED apfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromXML AvailableProcessorFeature where
   parseXML x =
     AvailableProcessorFeature'
-      Lude.<$> (x Lude..@? "Name")
-      Lude.<*> (x Lude..@? "DefaultValue")
-      Lude.<*> (x Lude..@? "AllowedValues")
+      Core.<$> (x Core..@? "AllowedValues")
+      Core.<*> (x Core..@? "DefaultValue")
+      Core.<*> (x Core..@? "Name")

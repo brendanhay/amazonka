@@ -23,48 +23,43 @@ module Network.AWS.DeviceFarm.Types.Resolution
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the screen resolution of a device in height and width, expressed in pixels.
 --
 -- /See:/ 'mkResolution' smart constructor.
 data Resolution = Resolution'
   { -- | The screen resolution's height, expressed in pixels.
-    height :: Lude.Maybe Lude.Int,
+    height :: Core.Maybe Core.Int,
     -- | The screen resolution's width, expressed in pixels.
-    width :: Lude.Maybe Lude.Int
+    width :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Resolution' with the minimum fields required to make a request.
---
--- * 'height' - The screen resolution's height, expressed in pixels.
--- * 'width' - The screen resolution's width, expressed in pixels.
+-- | Creates a 'Resolution' value with any optional fields omitted.
 mkResolution ::
   Resolution
 mkResolution =
-  Resolution' {height = Lude.Nothing, width = Lude.Nothing}
+  Resolution' {height = Core.Nothing, width = Core.Nothing}
 
 -- | The screen resolution's height, expressed in pixels.
 --
 -- /Note:/ Consider using 'height' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rHeight :: Lens.Lens' Resolution (Lude.Maybe Lude.Int)
-rHeight = Lens.lens (height :: Resolution -> Lude.Maybe Lude.Int) (\s a -> s {height = a} :: Resolution)
+rHeight :: Lens.Lens' Resolution (Core.Maybe Core.Int)
+rHeight = Lens.field @"height"
 {-# DEPRECATED rHeight "Use generic-lens or generic-optics with 'height' instead." #-}
 
 -- | The screen resolution's width, expressed in pixels.
 --
 -- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rWidth :: Lens.Lens' Resolution (Lude.Maybe Lude.Int)
-rWidth = Lens.lens (width :: Resolution -> Lude.Maybe Lude.Int) (\s a -> s {width = a} :: Resolution)
+rWidth :: Lens.Lens' Resolution (Core.Maybe Core.Int)
+rWidth = Lens.field @"width"
 {-# DEPRECATED rWidth "Use generic-lens or generic-optics with 'width' instead." #-}
 
-instance Lude.FromJSON Resolution where
+instance Core.FromJSON Resolution where
   parseJSON =
-    Lude.withObject
-      "Resolution"
-      ( \x ->
-          Resolution'
-            Lude.<$> (x Lude..:? "height") Lude.<*> (x Lude..:? "width")
-      )
+    Core.withObject "Resolution" Core.$
+      \x ->
+        Resolution'
+          Core.<$> (x Core..:? "height") Core.<*> (x Core..:? "width")

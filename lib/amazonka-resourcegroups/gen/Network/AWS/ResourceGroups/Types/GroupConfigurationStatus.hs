@@ -13,51 +13,56 @@
 module Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
   ( GroupConfigurationStatus
       ( GroupConfigurationStatus',
-        Updating,
-        UpdateComplete,
-        UpdateFailed
+        GroupConfigurationStatusUpdating,
+        GroupConfigurationStatusUpdateComplete,
+        GroupConfigurationStatusUpdateFailed,
+        fromGroupConfigurationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype GroupConfigurationStatus = GroupConfigurationStatus' Lude.Text
+newtype GroupConfigurationStatus = GroupConfigurationStatus'
+  { fromGroupConfigurationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Updating :: GroupConfigurationStatus
-pattern Updating = GroupConfigurationStatus' "UPDATING"
+pattern GroupConfigurationStatusUpdating :: GroupConfigurationStatus
+pattern GroupConfigurationStatusUpdating = GroupConfigurationStatus' "UPDATING"
 
-pattern UpdateComplete :: GroupConfigurationStatus
-pattern UpdateComplete = GroupConfigurationStatus' "UPDATE_COMPLETE"
+pattern GroupConfigurationStatusUpdateComplete :: GroupConfigurationStatus
+pattern GroupConfigurationStatusUpdateComplete = GroupConfigurationStatus' "UPDATE_COMPLETE"
 
-pattern UpdateFailed :: GroupConfigurationStatus
-pattern UpdateFailed = GroupConfigurationStatus' "UPDATE_FAILED"
+pattern GroupConfigurationStatusUpdateFailed :: GroupConfigurationStatus
+pattern GroupConfigurationStatusUpdateFailed = GroupConfigurationStatus' "UPDATE_FAILED"
 
 {-# COMPLETE
-  Updating,
-  UpdateComplete,
-  UpdateFailed,
+  GroupConfigurationStatusUpdating,
+  GroupConfigurationStatusUpdateComplete,
+  GroupConfigurationStatusUpdateFailed,
   GroupConfigurationStatus'
   #-}

@@ -17,15 +17,17 @@ module Network.AWS.GameLift.Types.RoutingStrategy
     mkRoutingStrategy,
 
     -- * Lenses
-    rsType,
-    rsMessage,
     rsFleetId,
+    rsMessage,
+    rsType,
   )
 where
 
-import Network.AWS.GameLift.Types.RoutingStrategyType
+import qualified Network.AWS.GameLift.Types.FleetId as Types
+import qualified Network.AWS.GameLift.Types.FreeText as Types
+import qualified Network.AWS.GameLift.Types.RoutingStrategyType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The routing configuration for a fleet alias.
 --
@@ -51,7 +53,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoutingStrategy' smart constructor.
 data RoutingStrategy = RoutingStrategy'
-  { -- | The type of routing strategy for the alias.
+  { -- | The unique identifier for a fleet that the alias points to. This value is the fleet ID, not the fleet ARN.
+    fleetId :: Core.Maybe Types.FleetId,
+    -- | The message text to be used with a terminal routing strategy.
+    message :: Core.Maybe Types.FreeText,
+    -- | The type of routing strategy for the alias.
     --
     -- Possible routing types include the following:
     --
@@ -59,37 +65,34 @@ data RoutingStrategy = RoutingStrategy'
     --
     --
     --     * __TERMINAL__ - The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
-    type' :: Lude.Maybe RoutingStrategyType,
-    -- | The message text to be used with a terminal routing strategy.
-    message :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for a fleet that the alias points to. This value is the fleet ID, not the fleet ARN.
-    fleetId :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.RoutingStrategyType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RoutingStrategy' with the minimum fields required to make a request.
---
--- * 'type'' - The type of routing strategy for the alias.
---
--- Possible routing types include the following:
---
---     * __SIMPLE__ - The alias resolves to one specific fleet. Use this type when routing to active fleets.
---
---
---     * __TERMINAL__ - The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
---
---
--- * 'message' - The message text to be used with a terminal routing strategy.
--- * 'fleetId' - The unique identifier for a fleet that the alias points to. This value is the fleet ID, not the fleet ARN.
+-- | Creates a 'RoutingStrategy' value with any optional fields omitted.
 mkRoutingStrategy ::
   RoutingStrategy
 mkRoutingStrategy =
   RoutingStrategy'
-    { type' = Lude.Nothing,
-      message = Lude.Nothing,
-      fleetId = Lude.Nothing
+    { fleetId = Core.Nothing,
+      message = Core.Nothing,
+      type' = Core.Nothing
     }
+
+-- | The unique identifier for a fleet that the alias points to. This value is the fleet ID, not the fleet ARN.
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsFleetId :: Lens.Lens' RoutingStrategy (Core.Maybe Types.FleetId)
+rsFleetId = Lens.field @"fleetId"
+{-# DEPRECATED rsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+
+-- | The message text to be used with a terminal routing strategy.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsMessage :: Lens.Lens' RoutingStrategy (Core.Maybe Types.FreeText)
+rsMessage = Lens.field @"message"
+{-# DEPRECATED rsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The type of routing strategy for the alias.
 --
@@ -103,41 +106,25 @@ mkRoutingStrategy =
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsType :: Lens.Lens' RoutingStrategy (Lude.Maybe RoutingStrategyType)
-rsType = Lens.lens (type' :: RoutingStrategy -> Lude.Maybe RoutingStrategyType) (\s a -> s {type' = a} :: RoutingStrategy)
+rsType :: Lens.Lens' RoutingStrategy (Core.Maybe Types.RoutingStrategyType)
+rsType = Lens.field @"type'"
 {-# DEPRECATED rsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The message text to be used with a terminal routing strategy.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsMessage :: Lens.Lens' RoutingStrategy (Lude.Maybe Lude.Text)
-rsMessage = Lens.lens (message :: RoutingStrategy -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: RoutingStrategy)
-{-# DEPRECATED rsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The unique identifier for a fleet that the alias points to. This value is the fleet ID, not the fleet ARN.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsFleetId :: Lens.Lens' RoutingStrategy (Lude.Maybe Lude.Text)
-rsFleetId = Lens.lens (fleetId :: RoutingStrategy -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: RoutingStrategy)
-{-# DEPRECATED rsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
-
-instance Lude.FromJSON RoutingStrategy where
-  parseJSON =
-    Lude.withObject
-      "RoutingStrategy"
-      ( \x ->
-          RoutingStrategy'
-            Lude.<$> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "Message")
-            Lude.<*> (x Lude..:? "FleetId")
-      )
-
-instance Lude.ToJSON RoutingStrategy where
-  toJSON RoutingStrategy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Type" Lude..=) Lude.<$> type',
-            ("Message" Lude..=) Lude.<$> message,
-            ("FleetId" Lude..=) Lude.<$> fleetId
+instance Core.FromJSON RoutingStrategy where
+  toJSON RoutingStrategy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("FleetId" Core..=) Core.<$> fleetId,
+            ("Message" Core..=) Core.<$> message,
+            ("Type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON RoutingStrategy where
+  parseJSON =
+    Core.withObject "RoutingStrategy" Core.$
+      \x ->
+        RoutingStrategy'
+          Core.<$> (x Core..:? "FleetId")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "Type")

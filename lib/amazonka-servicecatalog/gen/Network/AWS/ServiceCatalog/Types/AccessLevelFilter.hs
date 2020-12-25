@@ -17,22 +17,21 @@ module Network.AWS.ServiceCatalog.Types.AccessLevelFilter
     mkAccessLevelFilter,
 
     -- * Lenses
-    alfValue,
     alfKey,
+    alfValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey as Types
+import qualified Network.AWS.ServiceCatalog.Types.Value as Types
 
 -- | The access level to use to filter results.
 --
 -- /See:/ 'mkAccessLevelFilter' smart constructor.
 data AccessLevelFilter = AccessLevelFilter'
-  { -- | The user to which the access level applies. The only supported value is @Self@ .
-    value :: Lude.Maybe Lude.Text,
-    -- | The access level.
+  { -- | The access level.
     --
     --
     --     * @Account@ - Filter results based on the account.
@@ -42,35 +41,18 @@ data AccessLevelFilter = AccessLevelFilter'
     --
     --
     --     * @User@ - Filter results based on the specified user.
-    key :: Lude.Maybe AccessLevelFilterKey
+    key :: Core.Maybe Types.AccessLevelFilterKey,
+    -- | The user to which the access level applies. The only supported value is @Self@ .
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccessLevelFilter' with the minimum fields required to make a request.
---
--- * 'value' - The user to which the access level applies. The only supported value is @Self@ .
--- * 'key' - The access level.
---
---
---     * @Account@ - Filter results based on the account.
---
---
---     * @Role@ - Filter results based on the federated role of the specified user.
---
---
---     * @User@ - Filter results based on the specified user.
+-- | Creates a 'AccessLevelFilter' value with any optional fields omitted.
 mkAccessLevelFilter ::
   AccessLevelFilter
 mkAccessLevelFilter =
-  AccessLevelFilter' {value = Lude.Nothing, key = Lude.Nothing}
-
--- | The user to which the access level applies. The only supported value is @Self@ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alfValue :: Lens.Lens' AccessLevelFilter (Lude.Maybe Lude.Text)
-alfValue = Lens.lens (value :: AccessLevelFilter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: AccessLevelFilter)
-{-# DEPRECATED alfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  AccessLevelFilter' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The access level.
 --
@@ -86,13 +68,20 @@ alfValue = Lens.lens (value :: AccessLevelFilter -> Lude.Maybe Lude.Text) (\s a 
 --
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alfKey :: Lens.Lens' AccessLevelFilter (Lude.Maybe AccessLevelFilterKey)
-alfKey = Lens.lens (key :: AccessLevelFilter -> Lude.Maybe AccessLevelFilterKey) (\s a -> s {key = a} :: AccessLevelFilter)
+alfKey :: Lens.Lens' AccessLevelFilter (Core.Maybe Types.AccessLevelFilterKey)
+alfKey = Lens.field @"key"
 {-# DEPRECATED alfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON AccessLevelFilter where
-  toJSON AccessLevelFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
+-- | The user to which the access level applies. The only supported value is @Self@ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alfValue :: Lens.Lens' AccessLevelFilter (Core.Maybe Types.Value)
+alfValue = Lens.field @"value"
+{-# DEPRECATED alfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON AccessLevelFilter where
+  toJSON AccessLevelFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Value" Core..=) Core.<$> value]
       )

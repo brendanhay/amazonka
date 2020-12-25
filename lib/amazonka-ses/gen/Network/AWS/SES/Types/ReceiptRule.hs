@@ -17,19 +17,21 @@ module Network.AWS.SES.Types.ReceiptRule
     mkReceiptRule,
 
     -- * Lenses
-    rrScanEnabled,
-    rrEnabled,
-    rrActions,
     rrName,
+    rrActions,
+    rrEnabled,
     rrRecipients,
-    rrTLSPolicy,
+    rrScanEnabled,
+    rrTlsPolicy,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.ReceiptAction
-import Network.AWS.SES.Types.TLSPolicy
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.ReceiptAction as Types
+import qualified Network.AWS.SES.Types.ReceiptRuleName as Types
+import qualified Network.AWS.SES.Types.Recipient as Types
+import qualified Network.AWS.SES.Types.TlsPolicy as Types
 
 -- | Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
 --
@@ -38,13 +40,7 @@ import Network.AWS.SES.Types.TLSPolicy
 --
 -- /See:/ 'mkReceiptRule' smart constructor.
 data ReceiptRule = ReceiptRule'
-  { -- | If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
-    scanEnabled :: Lude.Maybe Lude.Bool,
-    -- | If @true@ , the receipt rule is active. The default value is @false@ .
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
-    actions :: Lude.Maybe [ReceiptAction],
-    -- | The name of the receipt rule. The name must:
+  { -- | The name of the receipt rule. The name must:
     --
     --
     --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
@@ -54,68 +50,35 @@ data ReceiptRule = ReceiptRule'
     --
     --
     --     * Contain less than 64 characters.
-    name :: Lude.Text,
+    name :: Types.ReceiptRuleName,
+    -- | An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+    actions :: Core.Maybe [Types.ReceiptAction],
+    -- | If @true@ , the receipt rule is active. The default value is @false@ .
+    enabled :: Core.Maybe Core.Bool,
     -- | The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
-    recipients :: Lude.Maybe [Lude.Text],
+    recipients :: Core.Maybe [Types.Recipient],
+    -- | If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
+    scanEnabled :: Core.Maybe Core.Bool,
     -- | Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
-    tlsPolicy :: Lude.Maybe TLSPolicy
+    tlsPolicy :: Core.Maybe Types.TlsPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReceiptRule' with the minimum fields required to make a request.
---
--- * 'scanEnabled' - If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
--- * 'enabled' - If @true@ , the receipt rule is active. The default value is @false@ .
--- * 'actions' - An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
--- * 'name' - The name of the receipt rule. The name must:
---
---
---     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
---
---
---     * Start and end with a letter or number.
---
---
---     * Contain less than 64 characters.
---
---
--- * 'recipients' - The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
--- * 'tlsPolicy' - Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
+-- | Creates a 'ReceiptRule' value with any optional fields omitted.
 mkReceiptRule ::
   -- | 'name'
-  Lude.Text ->
+  Types.ReceiptRuleName ->
   ReceiptRule
-mkReceiptRule pName_ =
+mkReceiptRule name =
   ReceiptRule'
-    { scanEnabled = Lude.Nothing,
-      enabled = Lude.Nothing,
-      actions = Lude.Nothing,
-      name = pName_,
-      recipients = Lude.Nothing,
-      tlsPolicy = Lude.Nothing
+    { name,
+      actions = Core.Nothing,
+      enabled = Core.Nothing,
+      recipients = Core.Nothing,
+      scanEnabled = Core.Nothing,
+      tlsPolicy = Core.Nothing
     }
-
--- | If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
---
--- /Note:/ Consider using 'scanEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrScanEnabled :: Lens.Lens' ReceiptRule (Lude.Maybe Lude.Bool)
-rrScanEnabled = Lens.lens (scanEnabled :: ReceiptRule -> Lude.Maybe Lude.Bool) (\s a -> s {scanEnabled = a} :: ReceiptRule)
-{-# DEPRECATED rrScanEnabled "Use generic-lens or generic-optics with 'scanEnabled' instead." #-}
-
--- | If @true@ , the receipt rule is active. The default value is @false@ .
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrEnabled :: Lens.Lens' ReceiptRule (Lude.Maybe Lude.Bool)
-rrEnabled = Lens.lens (enabled :: ReceiptRule -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ReceiptRule)
-{-# DEPRECATED rrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
---
--- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrActions :: Lens.Lens' ReceiptRule (Lude.Maybe [ReceiptAction])
-rrActions = Lens.lens (actions :: ReceiptRule -> Lude.Maybe [ReceiptAction]) (\s a -> s {actions = a} :: ReceiptRule)
-{-# DEPRECATED rrActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | The name of the receipt rule. The name must:
 --
@@ -131,47 +94,51 @@ rrActions = Lens.lens (actions :: ReceiptRule -> Lude.Maybe [ReceiptAction]) (\s
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrName :: Lens.Lens' ReceiptRule Lude.Text
-rrName = Lens.lens (name :: ReceiptRule -> Lude.Text) (\s a -> s {name = a} :: ReceiptRule)
+rrName :: Lens.Lens' ReceiptRule Types.ReceiptRuleName
+rrName = Lens.field @"name"
 {-# DEPRECATED rrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrActions :: Lens.Lens' ReceiptRule (Core.Maybe [Types.ReceiptAction])
+rrActions = Lens.field @"actions"
+{-# DEPRECATED rrActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+
+-- | If @true@ , the receipt rule is active. The default value is @false@ .
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrEnabled :: Lens.Lens' ReceiptRule (Core.Maybe Core.Bool)
+rrEnabled = Lens.field @"enabled"
+{-# DEPRECATED rrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
 --
 -- /Note:/ Consider using 'recipients' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrRecipients :: Lens.Lens' ReceiptRule (Lude.Maybe [Lude.Text])
-rrRecipients = Lens.lens (recipients :: ReceiptRule -> Lude.Maybe [Lude.Text]) (\s a -> s {recipients = a} :: ReceiptRule)
+rrRecipients :: Lens.Lens' ReceiptRule (Core.Maybe [Types.Recipient])
+rrRecipients = Lens.field @"recipients"
 {-# DEPRECATED rrRecipients "Use generic-lens or generic-optics with 'recipients' instead." #-}
+
+-- | If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
+--
+-- /Note:/ Consider using 'scanEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrScanEnabled :: Lens.Lens' ReceiptRule (Core.Maybe Core.Bool)
+rrScanEnabled = Lens.field @"scanEnabled"
+{-# DEPRECATED rrScanEnabled "Use generic-lens or generic-optics with 'scanEnabled' instead." #-}
 
 -- | Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
 --
 -- /Note:/ Consider using 'tlsPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrTLSPolicy :: Lens.Lens' ReceiptRule (Lude.Maybe TLSPolicy)
-rrTLSPolicy = Lens.lens (tlsPolicy :: ReceiptRule -> Lude.Maybe TLSPolicy) (\s a -> s {tlsPolicy = a} :: ReceiptRule)
-{-# DEPRECATED rrTLSPolicy "Use generic-lens or generic-optics with 'tlsPolicy' instead." #-}
+rrTlsPolicy :: Lens.Lens' ReceiptRule (Core.Maybe Types.TlsPolicy)
+rrTlsPolicy = Lens.field @"tlsPolicy"
+{-# DEPRECATED rrTlsPolicy "Use generic-lens or generic-optics with 'tlsPolicy' instead." #-}
 
-instance Lude.FromXML ReceiptRule where
+instance Core.FromXML ReceiptRule where
   parseXML x =
     ReceiptRule'
-      Lude.<$> (x Lude..@? "ScanEnabled")
-      Lude.<*> (x Lude..@? "Enabled")
-      Lude.<*> ( x Lude..@? "Actions" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> ( x Lude..@? "Recipients" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "TlsPolicy")
-
-instance Lude.ToQuery ReceiptRule where
-  toQuery ReceiptRule' {..} =
-    Lude.mconcat
-      [ "ScanEnabled" Lude.=: scanEnabled,
-        "Enabled" Lude.=: enabled,
-        "Actions"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> actions),
-        "Name" Lude.=: name,
-        "Recipients"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> recipients),
-        "TlsPolicy" Lude.=: tlsPolicy
-      ]
+      Core.<$> (x Core..@ "Name")
+      Core.<*> (x Core..@? "Actions" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Enabled")
+      Core.<*> (x Core..@? "Recipients" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "ScanEnabled")
+      Core.<*> (x Core..@? "TlsPolicy")

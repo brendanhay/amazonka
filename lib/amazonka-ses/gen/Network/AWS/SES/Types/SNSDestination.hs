@@ -17,12 +17,13 @@ module Network.AWS.SES.Types.SNSDestination
     mkSNSDestination,
 
     -- * Lenses
-    sdTopicARN,
+    snsdTopicARN,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.TopicARN as Types
 
 -- | Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.
 --
@@ -31,31 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSNSDestination' smart constructor.
 newtype SNSDestination = SNSDestination'
   { -- | The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
-    topicARN :: Lude.Text
+    topicARN :: Types.TopicARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SNSDestination' with the minimum fields required to make a request.
---
--- * 'topicARN' - The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
+-- | Creates a 'SNSDestination' value with any optional fields omitted.
 mkSNSDestination ::
   -- | 'topicARN'
-  Lude.Text ->
+  Types.TopicARN ->
   SNSDestination
-mkSNSDestination pTopicARN_ =
-  SNSDestination' {topicARN = pTopicARN_}
+mkSNSDestination topicARN = SNSDestination' {topicARN}
 
 -- | The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
 -- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdTopicARN :: Lens.Lens' SNSDestination Lude.Text
-sdTopicARN = Lens.lens (topicARN :: SNSDestination -> Lude.Text) (\s a -> s {topicARN = a} :: SNSDestination)
-{-# DEPRECATED sdTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+snsdTopicARN :: Lens.Lens' SNSDestination Types.TopicARN
+snsdTopicARN = Lens.field @"topicARN"
+{-# DEPRECATED snsdTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
-instance Lude.FromXML SNSDestination where
-  parseXML x = SNSDestination' Lude.<$> (x Lude..@ "TopicARN")
-
-instance Lude.ToQuery SNSDestination where
-  toQuery SNSDestination' {..} =
-    Lude.mconcat ["TopicARN" Lude.=: topicARN]
+instance Core.FromXML SNSDestination where
+  parseXML x = SNSDestination' Core.<$> (x Core..@ "TopicARN")

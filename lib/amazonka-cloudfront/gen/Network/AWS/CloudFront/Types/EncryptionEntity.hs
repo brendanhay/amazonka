@@ -17,82 +17,74 @@ module Network.AWS.CloudFront.Types.EncryptionEntity
     mkEncryptionEntity,
 
     -- * Lenses
-    eeProviderId,
     eePublicKeyId,
+    eeProviderId,
     eeFieldPatterns,
   )
 where
 
-import Network.AWS.CloudFront.Types.FieldPatterns
+import qualified Network.AWS.CloudFront.Types.FieldPatterns as Types
+import qualified Network.AWS.CloudFront.Types.ProviderId as Types
+import qualified Network.AWS.CloudFront.Types.PublicKeyId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Complex data type for field-level encryption profiles that includes the encryption key and field pattern specifications.
 --
 -- /See:/ 'mkEncryptionEntity' smart constructor.
 data EncryptionEntity = EncryptionEntity'
-  { -- | The provider associated with the public key being used for encryption. This value must also be provided with the private key for applications to be able to decrypt data.
-    providerId :: Lude.Text,
-    -- | The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
-    publicKeyId :: Lude.Text,
+  { -- | The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
+    publicKeyId :: Types.PublicKeyId,
+    -- | The provider associated with the public key being used for encryption. This value must also be provided with the private key for applications to be able to decrypt data.
+    providerId :: Types.ProviderId,
     -- | Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive.
-    fieldPatterns :: FieldPatterns
+    fieldPatterns :: Types.FieldPatterns
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EncryptionEntity' with the minimum fields required to make a request.
---
--- * 'providerId' - The provider associated with the public key being used for encryption. This value must also be provided with the private key for applications to be able to decrypt data.
--- * 'publicKeyId' - The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
--- * 'fieldPatterns' - Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive.
+-- | Creates a 'EncryptionEntity' value with any optional fields omitted.
 mkEncryptionEntity ::
-  -- | 'providerId'
-  Lude.Text ->
   -- | 'publicKeyId'
-  Lude.Text ->
+  Types.PublicKeyId ->
+  -- | 'providerId'
+  Types.ProviderId ->
   -- | 'fieldPatterns'
-  FieldPatterns ->
+  Types.FieldPatterns ->
   EncryptionEntity
-mkEncryptionEntity pProviderId_ pPublicKeyId_ pFieldPatterns_ =
-  EncryptionEntity'
-    { providerId = pProviderId_,
-      publicKeyId = pPublicKeyId_,
-      fieldPatterns = pFieldPatterns_
-    }
-
--- | The provider associated with the public key being used for encryption. This value must also be provided with the private key for applications to be able to decrypt data.
---
--- /Note:/ Consider using 'providerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eeProviderId :: Lens.Lens' EncryptionEntity Lude.Text
-eeProviderId = Lens.lens (providerId :: EncryptionEntity -> Lude.Text) (\s a -> s {providerId = a} :: EncryptionEntity)
-{-# DEPRECATED eeProviderId "Use generic-lens or generic-optics with 'providerId' instead." #-}
+mkEncryptionEntity publicKeyId providerId fieldPatterns =
+  EncryptionEntity' {publicKeyId, providerId, fieldPatterns}
 
 -- | The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
 --
 -- /Note:/ Consider using 'publicKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eePublicKeyId :: Lens.Lens' EncryptionEntity Lude.Text
-eePublicKeyId = Lens.lens (publicKeyId :: EncryptionEntity -> Lude.Text) (\s a -> s {publicKeyId = a} :: EncryptionEntity)
+eePublicKeyId :: Lens.Lens' EncryptionEntity Types.PublicKeyId
+eePublicKeyId = Lens.field @"publicKeyId"
 {-# DEPRECATED eePublicKeyId "Use generic-lens or generic-optics with 'publicKeyId' instead." #-}
+
+-- | The provider associated with the public key being used for encryption. This value must also be provided with the private key for applications to be able to decrypt data.
+--
+-- /Note:/ Consider using 'providerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeProviderId :: Lens.Lens' EncryptionEntity Types.ProviderId
+eeProviderId = Lens.field @"providerId"
+{-# DEPRECATED eeProviderId "Use generic-lens or generic-optics with 'providerId' instead." #-}
 
 -- | Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the full field name, or any beginning characters followed by a wildcard (*). You can't overlap field patterns. For example, you can't have both ABC* and AB*. Note that field patterns are case-sensitive.
 --
 -- /Note:/ Consider using 'fieldPatterns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eeFieldPatterns :: Lens.Lens' EncryptionEntity FieldPatterns
-eeFieldPatterns = Lens.lens (fieldPatterns :: EncryptionEntity -> FieldPatterns) (\s a -> s {fieldPatterns = a} :: EncryptionEntity)
+eeFieldPatterns :: Lens.Lens' EncryptionEntity Types.FieldPatterns
+eeFieldPatterns = Lens.field @"fieldPatterns"
 {-# DEPRECATED eeFieldPatterns "Use generic-lens or generic-optics with 'fieldPatterns' instead." #-}
 
-instance Lude.FromXML EncryptionEntity where
+instance Core.ToXML EncryptionEntity where
+  toXML EncryptionEntity {..} =
+    Core.toXMLNode "PublicKeyId" publicKeyId
+      Core.<> Core.toXMLNode "ProviderId" providerId
+      Core.<> Core.toXMLNode "FieldPatterns" fieldPatterns
+
+instance Core.FromXML EncryptionEntity where
   parseXML x =
     EncryptionEntity'
-      Lude.<$> (x Lude..@ "ProviderId")
-      Lude.<*> (x Lude..@ "PublicKeyId")
-      Lude.<*> (x Lude..@ "FieldPatterns")
-
-instance Lude.ToXML EncryptionEntity where
-  toXML EncryptionEntity' {..} =
-    Lude.mconcat
-      [ "ProviderId" Lude.@= providerId,
-        "PublicKeyId" Lude.@= publicKeyId,
-        "FieldPatterns" Lude.@= fieldPatterns
-      ]
+      Core.<$> (x Core..@ "PublicKeyId")
+      Core.<*> (x Core..@ "ProviderId")
+      Core.<*> (x Core..@ "FieldPatterns")

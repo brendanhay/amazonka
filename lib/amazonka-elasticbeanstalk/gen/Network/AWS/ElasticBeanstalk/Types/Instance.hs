@@ -21,32 +21,31 @@ module Network.AWS.ElasticBeanstalk.Types.Instance
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.ResourceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The description of an Amazon EC2 instance.
 --
 -- /See:/ 'mkInstance' smart constructor.
 newtype Instance = Instance'
   { -- | The ID of the Amazon EC2 instance.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Instance' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the Amazon EC2 instance.
+-- | Creates a 'Instance' value with any optional fields omitted.
 mkInstance ::
   Instance
-mkInstance = Instance' {id = Lude.Nothing}
+mkInstance = Instance' {id = Core.Nothing}
 
 -- | The ID of the Amazon EC2 instance.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iId = Lens.lens (id :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Instance)
+iId :: Lens.Lens' Instance (Core.Maybe Types.ResourceId)
+iId = Lens.field @"id"
 {-# DEPRECATED iId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromXML Instance where
-  parseXML x = Instance' Lude.<$> (x Lude..@? "Id")
+instance Core.FromXML Instance where
+  parseXML x = Instance' Core.<$> (x Core..@? "Id")

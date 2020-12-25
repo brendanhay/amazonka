@@ -22,46 +22,44 @@ module Network.AWS.EC2.Types.DeleteFleetError
   )
 where
 
-import Network.AWS.EC2.Types.DeleteFleetErrorCode
+import qualified Network.AWS.EC2.Types.DeleteFleetErrorCode as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an EC2 Fleet error.
 --
 -- /See:/ 'mkDeleteFleetError' smart constructor.
 data DeleteFleetError = DeleteFleetError'
   { -- | The error code.
-    code :: Lude.Maybe DeleteFleetErrorCode,
+    code :: Core.Maybe Types.DeleteFleetErrorCode,
     -- | The description for the error code.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFleetError' with the minimum fields required to make a request.
---
--- * 'code' - The error code.
--- * 'message' - The description for the error code.
+-- | Creates a 'DeleteFleetError' value with any optional fields omitted.
 mkDeleteFleetError ::
   DeleteFleetError
 mkDeleteFleetError =
-  DeleteFleetError' {code = Lude.Nothing, message = Lude.Nothing}
+  DeleteFleetError' {code = Core.Nothing, message = Core.Nothing}
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeCode :: Lens.Lens' DeleteFleetError (Lude.Maybe DeleteFleetErrorCode)
-dfeCode = Lens.lens (code :: DeleteFleetError -> Lude.Maybe DeleteFleetErrorCode) (\s a -> s {code = a} :: DeleteFleetError)
+dfeCode :: Lens.Lens' DeleteFleetError (Core.Maybe Types.DeleteFleetErrorCode)
+dfeCode = Lens.field @"code"
 {-# DEPRECATED dfeCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The description for the error code.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeMessage :: Lens.Lens' DeleteFleetError (Lude.Maybe Lude.Text)
-dfeMessage = Lens.lens (message :: DeleteFleetError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DeleteFleetError)
+dfeMessage :: Lens.Lens' DeleteFleetError (Core.Maybe Types.String)
+dfeMessage = Lens.field @"message"
 {-# DEPRECATED dfeMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML DeleteFleetError where
+instance Core.FromXML DeleteFleetError where
   parseXML x =
     DeleteFleetError'
-      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "message")

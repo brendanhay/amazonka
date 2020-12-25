@@ -69,59 +69,61 @@ module Network.AWS.S3.SelectObjectContent
     mkSelectObjectContent,
 
     -- ** Request lenses
-    socExpressionType,
     socBucket,
+    socKey,
+    socExpression,
+    socExpressionType,
+    socInputSerialization,
+    socOutputSerialization,
+    socExpectedBucketOwner,
+    socRequestProgress,
     socSSECustomerAlgorithm,
     socSSECustomerKey,
-    socOutputSerialization,
-    socRequestProgress,
-    socKey,
     socSSECustomerKeyMD5,
-    socExpression,
-    socInputSerialization,
     socScanRange,
-    socExpectedBucketOwner,
 
     -- * Destructuring the response
     SelectObjectContentResponse (..),
     mkSelectObjectContentResponse,
 
     -- ** Response lenses
-    socrsPayload,
-    socrsResponseStatus,
+    socrrsPayload,
+    socrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records. It returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html S3Select API Documentation> .
 --
 -- /See:/ 'mkSelectObjectContent' smart constructor.
 data SelectObjectContent = SelectObjectContent'
-  { -- | The type of the provided expression (for example, SQL).
-    expressionType :: ExpressionType,
-    -- | The S3 bucket.
-    bucket :: BucketName,
-    -- | The SSE Algorithm used to encrypt the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    -- | The SSE Customer Key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
-    sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Describes the format of the data that you want Amazon S3 to return in response.
-    outputSerialization :: OutputSerialization,
-    -- | Specifies if periodic request progress information should be enabled.
-    requestProgress :: Lude.Maybe RequestProgress,
+  { -- | The S3 bucket.
+    bucket :: Types.BucketName,
     -- | The object key.
-    key :: ObjectKey,
-    -- | The SSE Customer Key MD5. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    key :: Types.Key,
     -- | The expression that is used to query the object.
-    expression :: Lude.Text,
+    expression :: Types.Expression,
+    -- | The type of the provided expression (for example, SQL).
+    expressionType :: Types.ExpressionType,
     -- | Describes the format of the data in the object that is being queried.
-    inputSerialization :: InputSerialization,
+    inputSerialization :: Types.InputSerialization,
+    -- | Describes the format of the data that you want Amazon S3 to return in response.
+    outputSerialization :: Types.OutputSerialization,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    -- | Specifies if periodic request progress information should be enabled.
+    requestProgress :: Core.Maybe Types.RequestProgress,
+    -- | The SSE Algorithm used to encrypt the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
+    -- | The SSE Customer Key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
+    sSECustomerKey :: Core.Maybe Types.SSECustomerKey,
+    -- | The SSE Customer Key MD5. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5,
     -- | Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional, but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.
     --
     -- @ScanRange@ may be used in the following ways:
@@ -133,144 +135,124 @@ data SelectObjectContent = SelectObjectContent'
     --
     --
     --     * @<scanrange><end>50</end></scanrange>@ - process only the records within the last 50 bytes of the file.
-    scanRange :: Lude.Maybe ScanRange,
-    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    scanRange :: Core.Maybe Types.ScanRange
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SelectObjectContent' with the minimum fields required to make a request.
---
--- * 'expressionType' - The type of the provided expression (for example, SQL).
--- * 'bucket' - The S3 bucket.
--- * 'sSECustomerAlgorithm' - The SSE Algorithm used to encrypt the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
--- * 'sSECustomerKey' - The SSE Customer Key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
--- * 'outputSerialization' - Describes the format of the data that you want Amazon S3 to return in response.
--- * 'requestProgress' - Specifies if periodic request progress information should be enabled.
--- * 'key' - The object key.
--- * 'sSECustomerKeyMD5' - The SSE Customer Key MD5. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
--- * 'expression' - The expression that is used to query the object.
--- * 'inputSerialization' - Describes the format of the data in the object that is being queried.
--- * 'scanRange' - Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional, but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.
---
--- @ScanRange@ may be used in the following ways:
---
---     * @<scanrange><start>50</start><end>100</end></scanrange>@ - process only the records starting between the bytes 50 and 100 (inclusive, counting from zero)
---
---
---     * @<scanrange><start>50</start></scanrange>@ - process only the records starting after the byte 50
---
---
---     * @<scanrange><end>50</end></scanrange>@ - process only the records within the last 50 bytes of the file.
---
---
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'SelectObjectContent' value with any optional fields omitted.
 mkSelectObjectContent ::
-  -- | 'expressionType'
-  ExpressionType ->
   -- | 'bucket'
-  BucketName ->
-  -- | 'outputSerialization'
-  OutputSerialization ->
+  Types.BucketName ->
   -- | 'key'
-  ObjectKey ->
+  Types.Key ->
   -- | 'expression'
-  Lude.Text ->
+  Types.Expression ->
+  -- | 'expressionType'
+  Types.ExpressionType ->
   -- | 'inputSerialization'
-  InputSerialization ->
+  Types.InputSerialization ->
+  -- | 'outputSerialization'
+  Types.OutputSerialization ->
   SelectObjectContent
 mkSelectObjectContent
-  pExpressionType_
-  pBucket_
-  pOutputSerialization_
-  pKey_
-  pExpression_
-  pInputSerialization_ =
+  bucket
+  key
+  expression
+  expressionType
+  inputSerialization
+  outputSerialization =
     SelectObjectContent'
-      { expressionType = pExpressionType_,
-        bucket = pBucket_,
-        sSECustomerAlgorithm = Lude.Nothing,
-        sSECustomerKey = Lude.Nothing,
-        outputSerialization = pOutputSerialization_,
-        requestProgress = Lude.Nothing,
-        key = pKey_,
-        sSECustomerKeyMD5 = Lude.Nothing,
-        expression = pExpression_,
-        inputSerialization = pInputSerialization_,
-        scanRange = Lude.Nothing,
-        expectedBucketOwner = Lude.Nothing
+      { bucket,
+        key,
+        expression,
+        expressionType,
+        inputSerialization,
+        outputSerialization,
+        expectedBucketOwner = Core.Nothing,
+        requestProgress = Core.Nothing,
+        sSECustomerAlgorithm = Core.Nothing,
+        sSECustomerKey = Core.Nothing,
+        sSECustomerKeyMD5 = Core.Nothing,
+        scanRange = Core.Nothing
       }
-
--- | The type of the provided expression (for example, SQL).
---
--- /Note:/ Consider using 'expressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socExpressionType :: Lens.Lens' SelectObjectContent ExpressionType
-socExpressionType = Lens.lens (expressionType :: SelectObjectContent -> ExpressionType) (\s a -> s {expressionType = a} :: SelectObjectContent)
-{-# DEPRECATED socExpressionType "Use generic-lens or generic-optics with 'expressionType' instead." #-}
 
 -- | The S3 bucket.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socBucket :: Lens.Lens' SelectObjectContent BucketName
-socBucket = Lens.lens (bucket :: SelectObjectContent -> BucketName) (\s a -> s {bucket = a} :: SelectObjectContent)
+socBucket :: Lens.Lens' SelectObjectContent Types.BucketName
+socBucket = Lens.field @"bucket"
 {-# DEPRECATED socBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The object key.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socKey :: Lens.Lens' SelectObjectContent Types.Key
+socKey = Lens.field @"key"
+{-# DEPRECATED socKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The expression that is used to query the object.
+--
+-- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socExpression :: Lens.Lens' SelectObjectContent Types.Expression
+socExpression = Lens.field @"expression"
+{-# DEPRECATED socExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+
+-- | The type of the provided expression (for example, SQL).
+--
+-- /Note:/ Consider using 'expressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socExpressionType :: Lens.Lens' SelectObjectContent Types.ExpressionType
+socExpressionType = Lens.field @"expressionType"
+{-# DEPRECATED socExpressionType "Use generic-lens or generic-optics with 'expressionType' instead." #-}
+
+-- | Describes the format of the data in the object that is being queried.
+--
+-- /Note:/ Consider using 'inputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socInputSerialization :: Lens.Lens' SelectObjectContent Types.InputSerialization
+socInputSerialization = Lens.field @"inputSerialization"
+{-# DEPRECATED socInputSerialization "Use generic-lens or generic-optics with 'inputSerialization' instead." #-}
+
+-- | Describes the format of the data that you want Amazon S3 to return in response.
+--
+-- /Note:/ Consider using 'outputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socOutputSerialization :: Lens.Lens' SelectObjectContent Types.OutputSerialization
+socOutputSerialization = Lens.field @"outputSerialization"
+{-# DEPRECATED socOutputSerialization "Use generic-lens or generic-optics with 'outputSerialization' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socExpectedBucketOwner :: Lens.Lens' SelectObjectContent (Core.Maybe Types.ExpectedBucketOwner)
+socExpectedBucketOwner = Lens.field @"expectedBucketOwner"
+{-# DEPRECATED socExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+
+-- | Specifies if periodic request progress information should be enabled.
+--
+-- /Note:/ Consider using 'requestProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+socRequestProgress :: Lens.Lens' SelectObjectContent (Core.Maybe Types.RequestProgress)
+socRequestProgress = Lens.field @"requestProgress"
+{-# DEPRECATED socRequestProgress "Use generic-lens or generic-optics with 'requestProgress' instead." #-}
 
 -- | The SSE Algorithm used to encrypt the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 --
 -- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socSSECustomerAlgorithm :: Lens.Lens' SelectObjectContent (Lude.Maybe Lude.Text)
-socSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: SelectObjectContent -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: SelectObjectContent)
+socSSECustomerAlgorithm :: Lens.Lens' SelectObjectContent (Core.Maybe Types.SSECustomerAlgorithm)
+socSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
 {-# DEPRECATED socSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
 
 -- | The SSE Customer Key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 --
 -- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socSSECustomerKey :: Lens.Lens' SelectObjectContent (Lude.Maybe (Lude.Sensitive Lude.Text))
-socSSECustomerKey = Lens.lens (sSECustomerKey :: SelectObjectContent -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSECustomerKey = a} :: SelectObjectContent)
+socSSECustomerKey :: Lens.Lens' SelectObjectContent (Core.Maybe Types.SSECustomerKey)
+socSSECustomerKey = Lens.field @"sSECustomerKey"
 {-# DEPRECATED socSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
-
--- | Describes the format of the data that you want Amazon S3 to return in response.
---
--- /Note:/ Consider using 'outputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socOutputSerialization :: Lens.Lens' SelectObjectContent OutputSerialization
-socOutputSerialization = Lens.lens (outputSerialization :: SelectObjectContent -> OutputSerialization) (\s a -> s {outputSerialization = a} :: SelectObjectContent)
-{-# DEPRECATED socOutputSerialization "Use generic-lens or generic-optics with 'outputSerialization' instead." #-}
-
--- | Specifies if periodic request progress information should be enabled.
---
--- /Note:/ Consider using 'requestProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socRequestProgress :: Lens.Lens' SelectObjectContent (Lude.Maybe RequestProgress)
-socRequestProgress = Lens.lens (requestProgress :: SelectObjectContent -> Lude.Maybe RequestProgress) (\s a -> s {requestProgress = a} :: SelectObjectContent)
-{-# DEPRECATED socRequestProgress "Use generic-lens or generic-optics with 'requestProgress' instead." #-}
-
--- | The object key.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socKey :: Lens.Lens' SelectObjectContent ObjectKey
-socKey = Lens.lens (key :: SelectObjectContent -> ObjectKey) (\s a -> s {key = a} :: SelectObjectContent)
-{-# DEPRECATED socKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The SSE Customer Key MD5. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 --
 -- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socSSECustomerKeyMD5 :: Lens.Lens' SelectObjectContent (Lude.Maybe Lude.Text)
-socSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: SelectObjectContent -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: SelectObjectContent)
+socSSECustomerKeyMD5 :: Lens.Lens' SelectObjectContent (Core.Maybe Types.SSECustomerKeyMD5)
+socSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
 {-# DEPRECATED socSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
-
--- | The expression that is used to query the object.
---
--- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socExpression :: Lens.Lens' SelectObjectContent Lude.Text
-socExpression = Lens.lens (expression :: SelectObjectContent -> Lude.Text) (\s a -> s {expression = a} :: SelectObjectContent)
-{-# DEPRECATED socExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
-
--- | Describes the format of the data in the object that is being queried.
---
--- /Note:/ Consider using 'inputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socInputSerialization :: Lens.Lens' SelectObjectContent InputSerialization
-socInputSerialization = Lens.lens (inputSerialization :: SelectObjectContent -> InputSerialization) (\s a -> s {inputSerialization = a} :: SelectObjectContent)
-{-# DEPRECATED socInputSerialization "Use generic-lens or generic-optics with 'inputSerialization' instead." #-}
 
 -- | Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional, but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.
 --
@@ -287,95 +269,88 @@ socInputSerialization = Lens.lens (inputSerialization :: SelectObjectContent -> 
 --
 --
 -- /Note:/ Consider using 'scanRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socScanRange :: Lens.Lens' SelectObjectContent (Lude.Maybe ScanRange)
-socScanRange = Lens.lens (scanRange :: SelectObjectContent -> Lude.Maybe ScanRange) (\s a -> s {scanRange = a} :: SelectObjectContent)
+socScanRange :: Lens.Lens' SelectObjectContent (Core.Maybe Types.ScanRange)
+socScanRange = Lens.field @"scanRange"
 {-# DEPRECATED socScanRange "Use generic-lens or generic-optics with 'scanRange' instead." #-}
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socExpectedBucketOwner :: Lens.Lens' SelectObjectContent (Lude.Maybe Lude.Text)
-socExpectedBucketOwner = Lens.lens (expectedBucketOwner :: SelectObjectContent -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: SelectObjectContent)
-{-# DEPRECATED socExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
-instance Lude.AWSRequest SelectObjectContent where
-  type Rs SelectObjectContent = SelectObjectContentResponse
-  request = Req.postXML s3Service
-  response =
-    Res.receiveXML
-      ( \s h x ->
-          SelectObjectContentResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToElement SelectObjectContent where
-  toElement =
-    Lude.mkElement
+instance Core.ToXML SelectObjectContent where
+  toXML SelectObjectContent {..} =
+    Core.toXMLNode "Expression" expression
+      Core.<> Core.toXMLNode "ExpressionType" expressionType
+      Core.<> Core.toXMLNode "InputSerialization" inputSerialization
+      Core.<> Core.toXMLNode "OutputSerialization" outputSerialization
+      Core.<> Core.toXMLNode "RequestProgress" Core.<$> requestProgress
+      Core.<> Core.toXMLNode "ScanRange" Core.<$> scanRange
+  toXMLDocument =
+    Core.mkXMLElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}SelectObjectContentRequest"
 
-instance Lude.ToHeaders SelectObjectContent where
-  toHeaders SelectObjectContent' {..} =
-    Lude.mconcat
-      [ "x-amz-server-side-encryption-customer-algorithm"
-          Lude.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key" Lude.=# sSECustomerKey,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Lude.=# sSECustomerKeyMD5,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath SelectObjectContent where
-  toPath SelectObjectContent' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
-
-instance Lude.ToQuery SelectObjectContent where
-  toQuery = Lude.const (Lude.mconcat ["select&select-type=2"])
-
-instance Lude.ToXML SelectObjectContent where
-  toXML SelectObjectContent' {..} =
-    Lude.mconcat
-      [ "ExpressionType" Lude.@= expressionType,
-        "OutputSerialization" Lude.@= outputSerialization,
-        "RequestProgress" Lude.@= requestProgress,
-        "Expression" Lude.@= expression,
-        "InputSerialization" Lude.@= inputSerialization,
-        "ScanRange" Lude.@= scanRange
-      ]
+instance Core.AWSRequest SelectObjectContent where
+  type Rs SelectObjectContent = SelectObjectContentResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText bucket) Core.<> ("/")
+                Core.<> (Core.toText key)
+            ),
+        Core._rqQuery = Core.pure ("select&select-type=2", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-algorithm"
+                        sSECustomerAlgorithm
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-key"
+                        sSECustomerKey
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-key-MD5"
+                        sSECustomerKeyMD5
+                    ),
+        Core._rqBody = Core.toXMLBody x
+      }
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          SelectObjectContentResponse'
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkSelectObjectContentResponse' smart constructor.
 data SelectObjectContentResponse = SelectObjectContentResponse'
   { -- | The array of results.
-    payload :: Lude.Maybe SelectObjectContentEventStream,
+    payload :: Core.Maybe Types.SelectObjectContentEventStream,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SelectObjectContentResponse' with the minimum fields required to make a request.
---
--- * 'payload' - The array of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SelectObjectContentResponse' value with any optional fields omitted.
 mkSelectObjectContentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SelectObjectContentResponse
-mkSelectObjectContentResponse pResponseStatus_ =
+mkSelectObjectContentResponse responseStatus =
   SelectObjectContentResponse'
-    { payload = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { payload = Core.Nothing,
+      responseStatus
     }
 
 -- | The array of results.
 --
 -- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socrsPayload :: Lens.Lens' SelectObjectContentResponse (Lude.Maybe SelectObjectContentEventStream)
-socrsPayload = Lens.lens (payload :: SelectObjectContentResponse -> Lude.Maybe SelectObjectContentEventStream) (\s a -> s {payload = a} :: SelectObjectContentResponse)
-{-# DEPRECATED socrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+socrrsPayload :: Lens.Lens' SelectObjectContentResponse (Core.Maybe Types.SelectObjectContentEventStream)
+socrrsPayload = Lens.field @"payload"
+{-# DEPRECATED socrrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socrsResponseStatus :: Lens.Lens' SelectObjectContentResponse Lude.Int
-socrsResponseStatus = Lens.lens (responseStatus :: SelectObjectContentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SelectObjectContentResponse)
-{-# DEPRECATED socrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+socrrsResponseStatus :: Lens.Lens' SelectObjectContentResponse Core.Int
+socrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED socrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

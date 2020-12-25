@@ -17,111 +17,105 @@ module Network.AWS.Glue.Types.Crawl
     mkCrawl,
 
     -- * Lenses
-    cfCompletedOn,
-    cfState,
-    cfStartedOn,
-    cfLogStream,
-    cfLogGroup,
-    cfErrorMessage,
+    cCompletedOn,
+    cErrorMessage,
+    cLogGroup,
+    cLogStream,
+    cStartedOn,
+    cState,
   )
 where
 
-import Network.AWS.Glue.Types.CrawlState
+import qualified Network.AWS.Glue.Types.CrawlState as Types
+import qualified Network.AWS.Glue.Types.DescriptionString as Types
+import qualified Network.AWS.Glue.Types.LogGroup as Types
+import qualified Network.AWS.Glue.Types.LogStream as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of a crawl in the workflow.
 --
 -- /See:/ 'mkCrawl' smart constructor.
 data Crawl = Crawl'
   { -- | The date and time on which the crawl completed.
-    completedOn :: Lude.Maybe Lude.Timestamp,
-    -- | The state of the crawler.
-    state :: Lude.Maybe CrawlState,
-    -- | The date and time on which the crawl started.
-    startedOn :: Lude.Maybe Lude.Timestamp,
-    -- | The log stream associated with the crawl.
-    logStream :: Lude.Maybe Lude.Text,
-    -- | The log group associated with the crawl.
-    logGroup :: Lude.Maybe Lude.Text,
+    completedOn :: Core.Maybe Core.NominalDiffTime,
     -- | The error message associated with the crawl.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.DescriptionString,
+    -- | The log group associated with the crawl.
+    logGroup :: Core.Maybe Types.LogGroup,
+    -- | The log stream associated with the crawl.
+    logStream :: Core.Maybe Types.LogStream,
+    -- | The date and time on which the crawl started.
+    startedOn :: Core.Maybe Core.NominalDiffTime,
+    -- | The state of the crawler.
+    state :: Core.Maybe Types.CrawlState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Crawl' with the minimum fields required to make a request.
---
--- * 'completedOn' - The date and time on which the crawl completed.
--- * 'state' - The state of the crawler.
--- * 'startedOn' - The date and time on which the crawl started.
--- * 'logStream' - The log stream associated with the crawl.
--- * 'logGroup' - The log group associated with the crawl.
--- * 'errorMessage' - The error message associated with the crawl.
+-- | Creates a 'Crawl' value with any optional fields omitted.
 mkCrawl ::
   Crawl
 mkCrawl =
   Crawl'
-    { completedOn = Lude.Nothing,
-      state = Lude.Nothing,
-      startedOn = Lude.Nothing,
-      logStream = Lude.Nothing,
-      logGroup = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { completedOn = Core.Nothing,
+      errorMessage = Core.Nothing,
+      logGroup = Core.Nothing,
+      logStream = Core.Nothing,
+      startedOn = Core.Nothing,
+      state = Core.Nothing
     }
 
 -- | The date and time on which the crawl completed.
 --
 -- /Note:/ Consider using 'completedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfCompletedOn :: Lens.Lens' Crawl (Lude.Maybe Lude.Timestamp)
-cfCompletedOn = Lens.lens (completedOn :: Crawl -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedOn = a} :: Crawl)
-{-# DEPRECATED cfCompletedOn "Use generic-lens or generic-optics with 'completedOn' instead." #-}
-
--- | The state of the crawler.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfState :: Lens.Lens' Crawl (Lude.Maybe CrawlState)
-cfState = Lens.lens (state :: Crawl -> Lude.Maybe CrawlState) (\s a -> s {state = a} :: Crawl)
-{-# DEPRECATED cfState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The date and time on which the crawl started.
---
--- /Note:/ Consider using 'startedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfStartedOn :: Lens.Lens' Crawl (Lude.Maybe Lude.Timestamp)
-cfStartedOn = Lens.lens (startedOn :: Crawl -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedOn = a} :: Crawl)
-{-# DEPRECATED cfStartedOn "Use generic-lens or generic-optics with 'startedOn' instead." #-}
-
--- | The log stream associated with the crawl.
---
--- /Note:/ Consider using 'logStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfLogStream :: Lens.Lens' Crawl (Lude.Maybe Lude.Text)
-cfLogStream = Lens.lens (logStream :: Crawl -> Lude.Maybe Lude.Text) (\s a -> s {logStream = a} :: Crawl)
-{-# DEPRECATED cfLogStream "Use generic-lens or generic-optics with 'logStream' instead." #-}
-
--- | The log group associated with the crawl.
---
--- /Note:/ Consider using 'logGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfLogGroup :: Lens.Lens' Crawl (Lude.Maybe Lude.Text)
-cfLogGroup = Lens.lens (logGroup :: Crawl -> Lude.Maybe Lude.Text) (\s a -> s {logGroup = a} :: Crawl)
-{-# DEPRECATED cfLogGroup "Use generic-lens or generic-optics with 'logGroup' instead." #-}
+cCompletedOn :: Lens.Lens' Crawl (Core.Maybe Core.NominalDiffTime)
+cCompletedOn = Lens.field @"completedOn"
+{-# DEPRECATED cCompletedOn "Use generic-lens or generic-optics with 'completedOn' instead." #-}
 
 -- | The error message associated with the crawl.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfErrorMessage :: Lens.Lens' Crawl (Lude.Maybe Lude.Text)
-cfErrorMessage = Lens.lens (errorMessage :: Crawl -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: Crawl)
-{-# DEPRECATED cfErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
+cErrorMessage :: Lens.Lens' Crawl (Core.Maybe Types.DescriptionString)
+cErrorMessage = Lens.field @"errorMessage"
+{-# DEPRECATED cErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON Crawl where
+-- | The log group associated with the crawl.
+--
+-- /Note:/ Consider using 'logGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLogGroup :: Lens.Lens' Crawl (Core.Maybe Types.LogGroup)
+cLogGroup = Lens.field @"logGroup"
+{-# DEPRECATED cLogGroup "Use generic-lens or generic-optics with 'logGroup' instead." #-}
+
+-- | The log stream associated with the crawl.
+--
+-- /Note:/ Consider using 'logStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLogStream :: Lens.Lens' Crawl (Core.Maybe Types.LogStream)
+cLogStream = Lens.field @"logStream"
+{-# DEPRECATED cLogStream "Use generic-lens or generic-optics with 'logStream' instead." #-}
+
+-- | The date and time on which the crawl started.
+--
+-- /Note:/ Consider using 'startedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStartedOn :: Lens.Lens' Crawl (Core.Maybe Core.NominalDiffTime)
+cStartedOn = Lens.field @"startedOn"
+{-# DEPRECATED cStartedOn "Use generic-lens or generic-optics with 'startedOn' instead." #-}
+
+-- | The state of the crawler.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cState :: Lens.Lens' Crawl (Core.Maybe Types.CrawlState)
+cState = Lens.field @"state"
+{-# DEPRECATED cState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON Crawl where
   parseJSON =
-    Lude.withObject
-      "Crawl"
-      ( \x ->
-          Crawl'
-            Lude.<$> (x Lude..:? "CompletedOn")
-            Lude.<*> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "StartedOn")
-            Lude.<*> (x Lude..:? "LogStream")
-            Lude.<*> (x Lude..:? "LogGroup")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "Crawl" Core.$
+      \x ->
+        Crawl'
+          Core.<$> (x Core..:? "CompletedOn")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "LogGroup")
+          Core.<*> (x Core..:? "LogStream")
+          Core.<*> (x Core..:? "StartedOn")
+          Core.<*> (x Core..:? "State")

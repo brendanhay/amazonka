@@ -22,53 +22,49 @@ module Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata
   )
 where
 
-import Network.AWS.CodeCommit.Types.ApprovalState
+import qualified Network.AWS.CodeCommit.Types.ApprovalState as Types
+import qualified Network.AWS.CodeCommit.Types.RevisionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about a change in the approval state for a pull request.
 --
 -- /See:/ 'mkApprovalStateChangedEventMetadata' smart constructor.
 data ApprovalStateChangedEventMetadata = ApprovalStateChangedEventMetadata'
   { -- | The approval status for the pull request.
-    approvalStatus :: Lude.Maybe ApprovalState,
+    approvalStatus :: Core.Maybe Types.ApprovalState,
     -- | The revision ID of the pull request when the approval state changed.
-    revisionId :: Lude.Maybe Lude.Text
+    revisionId :: Core.Maybe Types.RevisionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApprovalStateChangedEventMetadata' with the minimum fields required to make a request.
---
--- * 'approvalStatus' - The approval status for the pull request.
--- * 'revisionId' - The revision ID of the pull request when the approval state changed.
+-- | Creates a 'ApprovalStateChangedEventMetadata' value with any optional fields omitted.
 mkApprovalStateChangedEventMetadata ::
   ApprovalStateChangedEventMetadata
 mkApprovalStateChangedEventMetadata =
   ApprovalStateChangedEventMetadata'
-    { approvalStatus = Lude.Nothing,
-      revisionId = Lude.Nothing
+    { approvalStatus = Core.Nothing,
+      revisionId = Core.Nothing
     }
 
 -- | The approval status for the pull request.
 --
 -- /Note:/ Consider using 'approvalStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ascemApprovalStatus :: Lens.Lens' ApprovalStateChangedEventMetadata (Lude.Maybe ApprovalState)
-ascemApprovalStatus = Lens.lens (approvalStatus :: ApprovalStateChangedEventMetadata -> Lude.Maybe ApprovalState) (\s a -> s {approvalStatus = a} :: ApprovalStateChangedEventMetadata)
+ascemApprovalStatus :: Lens.Lens' ApprovalStateChangedEventMetadata (Core.Maybe Types.ApprovalState)
+ascemApprovalStatus = Lens.field @"approvalStatus"
 {-# DEPRECATED ascemApprovalStatus "Use generic-lens or generic-optics with 'approvalStatus' instead." #-}
 
 -- | The revision ID of the pull request when the approval state changed.
 --
 -- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ascemRevisionId :: Lens.Lens' ApprovalStateChangedEventMetadata (Lude.Maybe Lude.Text)
-ascemRevisionId = Lens.lens (revisionId :: ApprovalStateChangedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: ApprovalStateChangedEventMetadata)
+ascemRevisionId :: Lens.Lens' ApprovalStateChangedEventMetadata (Core.Maybe Types.RevisionId)
+ascemRevisionId = Lens.field @"revisionId"
 {-# DEPRECATED ascemRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
-instance Lude.FromJSON ApprovalStateChangedEventMetadata where
+instance Core.FromJSON ApprovalStateChangedEventMetadata where
   parseJSON =
-    Lude.withObject
-      "ApprovalStateChangedEventMetadata"
-      ( \x ->
-          ApprovalStateChangedEventMetadata'
-            Lude.<$> (x Lude..:? "approvalStatus") Lude.<*> (x Lude..:? "revisionId")
-      )
+    Core.withObject "ApprovalStateChangedEventMetadata" Core.$
+      \x ->
+        ApprovalStateChangedEventMetadata'
+          Core.<$> (x Core..:? "approvalStatus") Core.<*> (x Core..:? "revisionId")

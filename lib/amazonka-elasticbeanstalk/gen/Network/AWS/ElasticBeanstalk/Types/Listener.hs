@@ -17,50 +17,48 @@ module Network.AWS.ElasticBeanstalk.Types.Listener
     mkListener,
 
     -- * Lenses
-    lProtocol,
     lPort,
+    lProtocol,
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
 -- /See:/ 'mkListener' smart constructor.
 data Listener = Listener'
-  { -- | The protocol that is used by the Listener.
-    protocol :: Lude.Maybe Lude.Text,
-    -- | The port that is used by the Listener.
-    port :: Lude.Maybe Lude.Int
+  { -- | The port that is used by the Listener.
+    port :: Core.Maybe Core.Int,
+    -- | The protocol that is used by the Listener.
+    protocol :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Listener' with the minimum fields required to make a request.
---
--- * 'protocol' - The protocol that is used by the Listener.
--- * 'port' - The port that is used by the Listener.
+-- | Creates a 'Listener' value with any optional fields omitted.
 mkListener ::
   Listener
 mkListener =
-  Listener' {protocol = Lude.Nothing, port = Lude.Nothing}
-
--- | The protocol that is used by the Listener.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lProtocol :: Lens.Lens' Listener (Lude.Maybe Lude.Text)
-lProtocol = Lens.lens (protocol :: Listener -> Lude.Maybe Lude.Text) (\s a -> s {protocol = a} :: Listener)
-{-# DEPRECATED lProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+  Listener' {port = Core.Nothing, protocol = Core.Nothing}
 
 -- | The port that is used by the Listener.
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lPort :: Lens.Lens' Listener (Lude.Maybe Lude.Int)
-lPort = Lens.lens (port :: Listener -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: Listener)
+lPort :: Lens.Lens' Listener (Core.Maybe Core.Int)
+lPort = Lens.field @"port"
 {-# DEPRECATED lPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.FromXML Listener where
+-- | The protocol that is used by the Listener.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lProtocol :: Lens.Lens' Listener (Core.Maybe Types.String)
+lProtocol = Lens.field @"protocol"
+{-# DEPRECATED lProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
+instance Core.FromXML Listener where
   parseXML x =
     Listener'
-      Lude.<$> (x Lude..@? "Protocol") Lude.<*> (x Lude..@? "Port")
+      Core.<$> (x Core..@? "Port") Core.<*> (x Core..@? "Protocol")

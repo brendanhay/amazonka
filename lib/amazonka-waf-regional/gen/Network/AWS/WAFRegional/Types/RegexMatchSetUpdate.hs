@@ -23,57 +23,51 @@ module Network.AWS.WAFRegional.Types.RegexMatchSetUpdate
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAFRegional.Types.ChangeAction
-import Network.AWS.WAFRegional.Types.RegexMatchTuple
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.ChangeAction as Types
+import qualified Network.AWS.WAFRegional.Types.RegexMatchTuple as Types
 
 -- | In an 'UpdateRegexMatchSet' request, @RegexMatchSetUpdate@ specifies whether to insert or delete a 'RegexMatchTuple' and includes the settings for the @RegexMatchTuple@ .
 --
 -- /See:/ 'mkRegexMatchSetUpdate' smart constructor.
 data RegexMatchSetUpdate = RegexMatchSetUpdate'
   { -- | Specifies whether to insert or delete a 'RegexMatchTuple' .
-    action :: ChangeAction,
+    action :: Types.ChangeAction,
     -- | Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @RegexMatchTuple@ values must exactly match the values in the @RegexMatchTuple@ that you want to delete from the @RegexMatchSet@ .
-    regexMatchTuple :: RegexMatchTuple
+    regexMatchTuple :: Types.RegexMatchTuple
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegexMatchSetUpdate' with the minimum fields required to make a request.
---
--- * 'action' - Specifies whether to insert or delete a 'RegexMatchTuple' .
--- * 'regexMatchTuple' - Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @RegexMatchTuple@ values must exactly match the values in the @RegexMatchTuple@ that you want to delete from the @RegexMatchSet@ .
+-- | Creates a 'RegexMatchSetUpdate' value with any optional fields omitted.
 mkRegexMatchSetUpdate ::
   -- | 'action'
-  ChangeAction ->
+  Types.ChangeAction ->
   -- | 'regexMatchTuple'
-  RegexMatchTuple ->
+  Types.RegexMatchTuple ->
   RegexMatchSetUpdate
-mkRegexMatchSetUpdate pAction_ pRegexMatchTuple_ =
-  RegexMatchSetUpdate'
-    { action = pAction_,
-      regexMatchTuple = pRegexMatchTuple_
-    }
+mkRegexMatchSetUpdate action regexMatchTuple =
+  RegexMatchSetUpdate' {action, regexMatchTuple}
 
 -- | Specifies whether to insert or delete a 'RegexMatchTuple' .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmsuAction :: Lens.Lens' RegexMatchSetUpdate ChangeAction
-rmsuAction = Lens.lens (action :: RegexMatchSetUpdate -> ChangeAction) (\s a -> s {action = a} :: RegexMatchSetUpdate)
+rmsuAction :: Lens.Lens' RegexMatchSetUpdate Types.ChangeAction
+rmsuAction = Lens.field @"action"
 {-# DEPRECATED rmsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @RegexMatchTuple@ values must exactly match the values in the @RegexMatchTuple@ that you want to delete from the @RegexMatchSet@ .
 --
 -- /Note:/ Consider using 'regexMatchTuple' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmsuRegexMatchTuple :: Lens.Lens' RegexMatchSetUpdate RegexMatchTuple
-rmsuRegexMatchTuple = Lens.lens (regexMatchTuple :: RegexMatchSetUpdate -> RegexMatchTuple) (\s a -> s {regexMatchTuple = a} :: RegexMatchSetUpdate)
+rmsuRegexMatchTuple :: Lens.Lens' RegexMatchSetUpdate Types.RegexMatchTuple
+rmsuRegexMatchTuple = Lens.field @"regexMatchTuple"
 {-# DEPRECATED rmsuRegexMatchTuple "Use generic-lens or generic-optics with 'regexMatchTuple' instead." #-}
 
-instance Lude.ToJSON RegexMatchSetUpdate where
-  toJSON RegexMatchSetUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Action" Lude..= action),
-            Lude.Just ("RegexMatchTuple" Lude..= regexMatchTuple)
+instance Core.FromJSON RegexMatchSetUpdate where
+  toJSON RegexMatchSetUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("RegexMatchTuple" Core..= regexMatchTuple)
           ]
       )

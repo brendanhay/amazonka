@@ -22,34 +22,32 @@ module Network.AWS.S3.Types.Tagging
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Tag as Types
 
 -- | Container for @TagSet@ elements.
 --
 -- /See:/ 'mkTagging' smart constructor.
 newtype Tagging = Tagging'
   { -- | A collection for a set of tags
-    tagSet :: [Tag]
+    tagSet :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tagging' with the minimum fields required to make a request.
---
--- * 'tagSet' - A collection for a set of tags
+-- | Creates a 'Tagging' value with any optional fields omitted.
 mkTagging ::
   Tagging
-mkTagging = Tagging' {tagSet = Lude.mempty}
+mkTagging = Tagging' {tagSet = Core.mempty}
 
 -- | A collection for a set of tags
 --
 -- /Note:/ Consider using 'tagSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTagSet :: Lens.Lens' Tagging [Tag]
-tTagSet = Lens.lens (tagSet :: Tagging -> [Tag]) (\s a -> s {tagSet = a} :: Tagging)
+tTagSet :: Lens.Lens' Tagging [Types.Tag]
+tTagSet = Lens.field @"tagSet"
 {-# DEPRECATED tTagSet "Use generic-lens or generic-optics with 'tagSet' instead." #-}
 
-instance Lude.ToXML Tagging where
-  toXML Tagging' {..} =
-    Lude.mconcat ["TagSet" Lude.@= Lude.toXMLList "Tag" tagSet]
+instance Core.ToXML Tagging where
+  toXML Tagging {..} =
+    Core.toXMLNode "TagSet" (Core.toXMLList "Tag" tagSet)

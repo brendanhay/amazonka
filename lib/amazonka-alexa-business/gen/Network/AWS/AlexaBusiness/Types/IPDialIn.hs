@@ -17,68 +17,64 @@ module Network.AWS.AlexaBusiness.Types.IPDialIn
     mkIPDialIn,
 
     -- * Lenses
-    idiCommsProtocol,
-    idiEndpoint,
+    ipdiEndpoint,
+    ipdiCommsProtocol,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.CommsProtocol
+import qualified Network.AWS.AlexaBusiness.Types.CommsProtocol as Types
+import qualified Network.AWS.AlexaBusiness.Types.Endpoint as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The IP endpoint and protocol for calling.
 --
 -- /See:/ 'mkIPDialIn' smart constructor.
 data IPDialIn = IPDialIn'
-  { -- | The protocol, including SIP, SIPS, and H323.
-    commsProtocol :: CommsProtocol,
-    -- | The IP address.
-    endpoint :: Lude.Text
+  { -- | The IP address.
+    endpoint :: Types.Endpoint,
+    -- | The protocol, including SIP, SIPS, and H323.
+    commsProtocol :: Types.CommsProtocol
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IPDialIn' with the minimum fields required to make a request.
---
--- * 'commsProtocol' - The protocol, including SIP, SIPS, and H323.
--- * 'endpoint' - The IP address.
+-- | Creates a 'IPDialIn' value with any optional fields omitted.
 mkIPDialIn ::
-  -- | 'commsProtocol'
-  CommsProtocol ->
   -- | 'endpoint'
-  Lude.Text ->
+  Types.Endpoint ->
+  -- | 'commsProtocol'
+  Types.CommsProtocol ->
   IPDialIn
-mkIPDialIn pCommsProtocol_ pEndpoint_ =
-  IPDialIn' {commsProtocol = pCommsProtocol_, endpoint = pEndpoint_}
-
--- | The protocol, including SIP, SIPS, and H323.
---
--- /Note:/ Consider using 'commsProtocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idiCommsProtocol :: Lens.Lens' IPDialIn CommsProtocol
-idiCommsProtocol = Lens.lens (commsProtocol :: IPDialIn -> CommsProtocol) (\s a -> s {commsProtocol = a} :: IPDialIn)
-{-# DEPRECATED idiCommsProtocol "Use generic-lens or generic-optics with 'commsProtocol' instead." #-}
+mkIPDialIn endpoint commsProtocol =
+  IPDialIn' {endpoint, commsProtocol}
 
 -- | The IP address.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idiEndpoint :: Lens.Lens' IPDialIn Lude.Text
-idiEndpoint = Lens.lens (endpoint :: IPDialIn -> Lude.Text) (\s a -> s {endpoint = a} :: IPDialIn)
-{-# DEPRECATED idiEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
+ipdiEndpoint :: Lens.Lens' IPDialIn Types.Endpoint
+ipdiEndpoint = Lens.field @"endpoint"
+{-# DEPRECATED ipdiEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance Lude.FromJSON IPDialIn where
-  parseJSON =
-    Lude.withObject
-      "IPDialIn"
-      ( \x ->
-          IPDialIn'
-            Lude.<$> (x Lude..: "CommsProtocol") Lude.<*> (x Lude..: "Endpoint")
-      )
+-- | The protocol, including SIP, SIPS, and H323.
+--
+-- /Note:/ Consider using 'commsProtocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipdiCommsProtocol :: Lens.Lens' IPDialIn Types.CommsProtocol
+ipdiCommsProtocol = Lens.field @"commsProtocol"
+{-# DEPRECATED ipdiCommsProtocol "Use generic-lens or generic-optics with 'commsProtocol' instead." #-}
 
-instance Lude.ToJSON IPDialIn where
-  toJSON IPDialIn' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CommsProtocol" Lude..= commsProtocol),
-            Lude.Just ("Endpoint" Lude..= endpoint)
+instance Core.FromJSON IPDialIn where
+  toJSON IPDialIn {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Endpoint" Core..= endpoint),
+            Core.Just ("CommsProtocol" Core..= commsProtocol)
           ]
       )
+
+instance Core.FromJSON IPDialIn where
+  parseJSON =
+    Core.withObject "IPDialIn" Core.$
+      \x ->
+        IPDialIn'
+          Core.<$> (x Core..: "Endpoint") Core.<*> (x Core..: "CommsProtocol")

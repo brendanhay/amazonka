@@ -13,56 +13,61 @@
 module Network.AWS.Lightsail.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
-        GreaterThanOrEqualToThreshold,
-        GreaterThanThreshold,
-        LessThanThreshold,
-        LessThanOrEqualToThreshold
+        ComparisonOperatorGreaterThanOrEqualToThreshold,
+        ComparisonOperatorGreaterThanThreshold,
+        ComparisonOperatorLessThanThreshold,
+        ComparisonOperatorLessThanOrEqualToThreshold,
+        fromComparisonOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComparisonOperator = ComparisonOperator' Lude.Text
+newtype ComparisonOperator = ComparisonOperator'
+  { fromComparisonOperator ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern GreaterThanOrEqualToThreshold :: ComparisonOperator
-pattern GreaterThanOrEqualToThreshold = ComparisonOperator' "GreaterThanOrEqualToThreshold"
+pattern ComparisonOperatorGreaterThanOrEqualToThreshold :: ComparisonOperator
+pattern ComparisonOperatorGreaterThanOrEqualToThreshold = ComparisonOperator' "GreaterThanOrEqualToThreshold"
 
-pattern GreaterThanThreshold :: ComparisonOperator
-pattern GreaterThanThreshold = ComparisonOperator' "GreaterThanThreshold"
+pattern ComparisonOperatorGreaterThanThreshold :: ComparisonOperator
+pattern ComparisonOperatorGreaterThanThreshold = ComparisonOperator' "GreaterThanThreshold"
 
-pattern LessThanThreshold :: ComparisonOperator
-pattern LessThanThreshold = ComparisonOperator' "LessThanThreshold"
+pattern ComparisonOperatorLessThanThreshold :: ComparisonOperator
+pattern ComparisonOperatorLessThanThreshold = ComparisonOperator' "LessThanThreshold"
 
-pattern LessThanOrEqualToThreshold :: ComparisonOperator
-pattern LessThanOrEqualToThreshold = ComparisonOperator' "LessThanOrEqualToThreshold"
+pattern ComparisonOperatorLessThanOrEqualToThreshold :: ComparisonOperator
+pattern ComparisonOperatorLessThanOrEqualToThreshold = ComparisonOperator' "LessThanOrEqualToThreshold"
 
 {-# COMPLETE
-  GreaterThanOrEqualToThreshold,
-  GreaterThanThreshold,
-  LessThanThreshold,
-  LessThanOrEqualToThreshold,
+  ComparisonOperatorGreaterThanOrEqualToThreshold,
+  ComparisonOperatorGreaterThanThreshold,
+  ComparisonOperatorLessThanThreshold,
+  ComparisonOperatorLessThanOrEqualToThreshold,
   ComparisonOperator'
   #-}

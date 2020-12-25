@@ -20,7 +20,7 @@ module Network.AWS.CertificateManager.RenewCertificate
     mkRenewCertificate,
 
     -- ** Request lenses
-    rcCertificateARN,
+    rcCertificateArn,
 
     -- * Destructuring the response
     RenewCertificateResponse (..),
@@ -28,11 +28,11 @@ module Network.AWS.CertificateManager.RenewCertificate
   )
 where
 
-import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.CertificateManager.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRenewCertificate' smart constructor.
 newtype RenewCertificate = RenewCertificate'
@@ -40,69 +40,57 @@ newtype RenewCertificate = RenewCertificate'
     --
     -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-    certificateARN :: Lude.Text
+    certificateArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RenewCertificate' with the minimum fields required to make a request.
---
--- * 'certificateARN' - String that contains the ARN of the ACM certificate to be renewed. This must be of the form:
---
--- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | Creates a 'RenewCertificate' value with any optional fields omitted.
 mkRenewCertificate ::
-  -- | 'certificateARN'
-  Lude.Text ->
+  -- | 'certificateArn'
+  Types.Arn ->
   RenewCertificate
-mkRenewCertificate pCertificateARN_ =
-  RenewCertificate' {certificateARN = pCertificateARN_}
+mkRenewCertificate certificateArn =
+  RenewCertificate' {certificateArn}
 
 -- | String that contains the ARN of the ACM certificate to be renewed. This must be of the form:
 --
 -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCertificateARN :: Lens.Lens' RenewCertificate Lude.Text
-rcCertificateARN = Lens.lens (certificateARN :: RenewCertificate -> Lude.Text) (\s a -> s {certificateARN = a} :: RenewCertificate)
-{-# DEPRECATED rcCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcCertificateArn :: Lens.Lens' RenewCertificate Types.Arn
+rcCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED rcCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
-instance Lude.AWSRequest RenewCertificate where
+instance Core.FromJSON RenewCertificate where
+  toJSON RenewCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CertificateArn" Core..= certificateArn)]
+      )
+
+instance Core.AWSRequest RenewCertificate where
   type Rs RenewCertificate = RenewCertificateResponse
-  request = Req.postJSON certificateManagerService
-  response = Res.receiveNull RenewCertificateResponse'
-
-instance Lude.ToHeaders RenewCertificate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CertificateManager.RenewCertificate" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RenewCertificate where
-  toJSON RenewCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("CertificateArn" Lude..= certificateARN)]
-      )
-
-instance Lude.ToPath RenewCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RenewCertificate where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CertificateManager.RenewCertificate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RenewCertificateResponse'
 
 -- | /See:/ 'mkRenewCertificateResponse' smart constructor.
 data RenewCertificateResponse = RenewCertificateResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RenewCertificateResponse' with the minimum fields required to make a request.
+-- | Creates a 'RenewCertificateResponse' value with any optional fields omitted.
 mkRenewCertificateResponse ::
   RenewCertificateResponse
 mkRenewCertificateResponse = RenewCertificateResponse'

@@ -17,49 +17,45 @@ module Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSetting
     mkMultiplexMediaConnectOutputDestinationSettings,
 
     -- * Lenses
-    mmcodsEntitlementARN,
+    mmcodsEntitlementArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Multiplex MediaConnect output destination settings.
 --
 -- /See:/ 'mkMultiplexMediaConnectOutputDestinationSettings' smart constructor.
 newtype MultiplexMediaConnectOutputDestinationSettings = MultiplexMediaConnectOutputDestinationSettings'
   { -- | The MediaConnect entitlement ARN available as a Flow source.
-    entitlementARN :: Lude.Maybe Lude.Text
+    entitlementArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiplexMediaConnectOutputDestinationSettings' with the minimum fields required to make a request.
---
--- * 'entitlementARN' - The MediaConnect entitlement ARN available as a Flow source.
+-- | Creates a 'MultiplexMediaConnectOutputDestinationSettings' value with any optional fields omitted.
 mkMultiplexMediaConnectOutputDestinationSettings ::
   MultiplexMediaConnectOutputDestinationSettings
 mkMultiplexMediaConnectOutputDestinationSettings =
   MultiplexMediaConnectOutputDestinationSettings'
-    { entitlementARN =
-        Lude.Nothing
+    { entitlementArn =
+        Core.Nothing
     }
 
 -- | The MediaConnect entitlement ARN available as a Flow source.
 --
--- /Note:/ Consider using 'entitlementARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mmcodsEntitlementARN :: Lens.Lens' MultiplexMediaConnectOutputDestinationSettings (Lude.Maybe Lude.Text)
-mmcodsEntitlementARN = Lens.lens (entitlementARN :: MultiplexMediaConnectOutputDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {entitlementARN = a} :: MultiplexMediaConnectOutputDestinationSettings)
-{-# DEPRECATED mmcodsEntitlementARN "Use generic-lens or generic-optics with 'entitlementARN' instead." #-}
+-- /Note:/ Consider using 'entitlementArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmcodsEntitlementArn :: Lens.Lens' MultiplexMediaConnectOutputDestinationSettings (Core.Maybe Core.Text)
+mmcodsEntitlementArn = Lens.field @"entitlementArn"
+{-# DEPRECATED mmcodsEntitlementArn "Use generic-lens or generic-optics with 'entitlementArn' instead." #-}
 
 instance
-  Lude.FromJSON
+  Core.FromJSON
     MultiplexMediaConnectOutputDestinationSettings
   where
   parseJSON =
-    Lude.withObject
-      "MultiplexMediaConnectOutputDestinationSettings"
-      ( \x ->
-          MultiplexMediaConnectOutputDestinationSettings'
-            Lude.<$> (x Lude..:? "entitlementArn")
-      )
+    Core.withObject "MultiplexMediaConnectOutputDestinationSettings" Core.$
+      \x ->
+        MultiplexMediaConnectOutputDestinationSettings'
+          Core.<$> (x Core..:? "entitlementArn")

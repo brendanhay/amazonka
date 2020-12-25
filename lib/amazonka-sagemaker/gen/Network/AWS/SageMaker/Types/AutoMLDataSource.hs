@@ -22,43 +22,39 @@ module Network.AWS.SageMaker.Types.AutoMLDataSource
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AutoMLS3DataSource
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AutoMLS3DataSource as Types
 
 -- | The data source for the Autopilot job.
 --
 -- /See:/ 'mkAutoMLDataSource' smart constructor.
 newtype AutoMLDataSource = AutoMLDataSource'
   { -- | The Amazon S3 location of the input data.
-    s3DataSource :: AutoMLS3DataSource
+    s3DataSource :: Types.AutoMLS3DataSource
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoMLDataSource' with the minimum fields required to make a request.
---
--- * 's3DataSource' - The Amazon S3 location of the input data.
+-- | Creates a 'AutoMLDataSource' value with any optional fields omitted.
 mkAutoMLDataSource ::
   -- | 's3DataSource'
-  AutoMLS3DataSource ->
+  Types.AutoMLS3DataSource ->
   AutoMLDataSource
-mkAutoMLDataSource pS3DataSource_ =
-  AutoMLDataSource' {s3DataSource = pS3DataSource_}
+mkAutoMLDataSource s3DataSource = AutoMLDataSource' {s3DataSource}
 
 -- | The Amazon S3 location of the input data.
 --
 -- /Note:/ Consider using 's3DataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amldsS3DataSource :: Lens.Lens' AutoMLDataSource AutoMLS3DataSource
-amldsS3DataSource = Lens.lens (s3DataSource :: AutoMLDataSource -> AutoMLS3DataSource) (\s a -> s {s3DataSource = a} :: AutoMLDataSource)
+amldsS3DataSource :: Lens.Lens' AutoMLDataSource Types.AutoMLS3DataSource
+amldsS3DataSource = Lens.field @"s3DataSource"
 {-# DEPRECATED amldsS3DataSource "Use generic-lens or generic-optics with 's3DataSource' instead." #-}
 
-instance Lude.FromJSON AutoMLDataSource where
-  parseJSON =
-    Lude.withObject
-      "AutoMLDataSource"
-      (\x -> AutoMLDataSource' Lude.<$> (x Lude..: "S3DataSource"))
+instance Core.FromJSON AutoMLDataSource where
+  toJSON AutoMLDataSource {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("S3DataSource" Core..= s3DataSource)])
 
-instance Lude.ToJSON AutoMLDataSource where
-  toJSON AutoMLDataSource' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("S3DataSource" Lude..= s3DataSource)])
+instance Core.FromJSON AutoMLDataSource where
+  parseJSON =
+    Core.withObject "AutoMLDataSource" Core.$
+      \x -> AutoMLDataSource' Core.<$> (x Core..: "S3DataSource")

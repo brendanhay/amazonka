@@ -22,9 +22,9 @@ module Network.AWS.Inspector.UpdateAssessmentTarget
     mkUpdateAssessmentTarget,
 
     -- ** Request lenses
-    uatAssessmentTargetARN,
-    uatResourceGroupARN,
+    uatAssessmentTargetArn,
     uatAssessmentTargetName,
+    uatResourceGroupArn,
 
     -- * Destructuring the response
     UpdateAssessmentTargetResponse (..),
@@ -32,104 +32,91 @@ module Network.AWS.Inspector.UpdateAssessmentTarget
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateAssessmentTarget' smart constructor.
 data UpdateAssessmentTarget = UpdateAssessmentTarget'
   { -- | The ARN of the assessment target that you want to update.
-    assessmentTargetARN :: Lude.Text,
-    -- | The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
-    resourceGroupARN :: Lude.Maybe Lude.Text,
+    assessmentTargetArn :: Types.Arn,
     -- | The name of the assessment target that you want to update.
-    assessmentTargetName :: Lude.Text
+    assessmentTargetName :: Types.AssessmentTargetName,
+    -- | The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
+    resourceGroupArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAssessmentTarget' with the minimum fields required to make a request.
---
--- * 'assessmentTargetARN' - The ARN of the assessment target that you want to update.
--- * 'resourceGroupARN' - The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
--- * 'assessmentTargetName' - The name of the assessment target that you want to update.
+-- | Creates a 'UpdateAssessmentTarget' value with any optional fields omitted.
 mkUpdateAssessmentTarget ::
-  -- | 'assessmentTargetARN'
-  Lude.Text ->
+  -- | 'assessmentTargetArn'
+  Types.Arn ->
   -- | 'assessmentTargetName'
-  Lude.Text ->
+  Types.AssessmentTargetName ->
   UpdateAssessmentTarget
-mkUpdateAssessmentTarget
-  pAssessmentTargetARN_
-  pAssessmentTargetName_ =
-    UpdateAssessmentTarget'
-      { assessmentTargetARN =
-          pAssessmentTargetARN_,
-        resourceGroupARN = Lude.Nothing,
-        assessmentTargetName = pAssessmentTargetName_
-      }
+mkUpdateAssessmentTarget assessmentTargetArn assessmentTargetName =
+  UpdateAssessmentTarget'
+    { assessmentTargetArn,
+      assessmentTargetName,
+      resourceGroupArn = Core.Nothing
+    }
 
 -- | The ARN of the assessment target that you want to update.
 --
--- /Note:/ Consider using 'assessmentTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uatAssessmentTargetARN :: Lens.Lens' UpdateAssessmentTarget Lude.Text
-uatAssessmentTargetARN = Lens.lens (assessmentTargetARN :: UpdateAssessmentTarget -> Lude.Text) (\s a -> s {assessmentTargetARN = a} :: UpdateAssessmentTarget)
-{-# DEPRECATED uatAssessmentTargetARN "Use generic-lens or generic-optics with 'assessmentTargetARN' instead." #-}
-
--- | The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
---
--- /Note:/ Consider using 'resourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uatResourceGroupARN :: Lens.Lens' UpdateAssessmentTarget (Lude.Maybe Lude.Text)
-uatResourceGroupARN = Lens.lens (resourceGroupARN :: UpdateAssessmentTarget -> Lude.Maybe Lude.Text) (\s a -> s {resourceGroupARN = a} :: UpdateAssessmentTarget)
-{-# DEPRECATED uatResourceGroupARN "Use generic-lens or generic-optics with 'resourceGroupARN' instead." #-}
+-- /Note:/ Consider using 'assessmentTargetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uatAssessmentTargetArn :: Lens.Lens' UpdateAssessmentTarget Types.Arn
+uatAssessmentTargetArn = Lens.field @"assessmentTargetArn"
+{-# DEPRECATED uatAssessmentTargetArn "Use generic-lens or generic-optics with 'assessmentTargetArn' instead." #-}
 
 -- | The name of the assessment target that you want to update.
 --
 -- /Note:/ Consider using 'assessmentTargetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uatAssessmentTargetName :: Lens.Lens' UpdateAssessmentTarget Lude.Text
-uatAssessmentTargetName = Lens.lens (assessmentTargetName :: UpdateAssessmentTarget -> Lude.Text) (\s a -> s {assessmentTargetName = a} :: UpdateAssessmentTarget)
+uatAssessmentTargetName :: Lens.Lens' UpdateAssessmentTarget Types.AssessmentTargetName
+uatAssessmentTargetName = Lens.field @"assessmentTargetName"
 {-# DEPRECATED uatAssessmentTargetName "Use generic-lens or generic-optics with 'assessmentTargetName' instead." #-}
 
-instance Lude.AWSRequest UpdateAssessmentTarget where
+-- | The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
+--
+-- /Note:/ Consider using 'resourceGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uatResourceGroupArn :: Lens.Lens' UpdateAssessmentTarget (Core.Maybe Types.Arn)
+uatResourceGroupArn = Lens.field @"resourceGroupArn"
+{-# DEPRECATED uatResourceGroupArn "Use generic-lens or generic-optics with 'resourceGroupArn' instead." #-}
+
+instance Core.FromJSON UpdateAssessmentTarget where
+  toJSON UpdateAssessmentTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("assessmentTargetArn" Core..= assessmentTargetArn),
+            Core.Just ("assessmentTargetName" Core..= assessmentTargetName),
+            ("resourceGroupArn" Core..=) Core.<$> resourceGroupArn
+          ]
+      )
+
+instance Core.AWSRequest UpdateAssessmentTarget where
   type Rs UpdateAssessmentTarget = UpdateAssessmentTargetResponse
-  request = Req.postJSON inspectorService
-  response = Res.receiveNull UpdateAssessmentTargetResponse'
-
-instance Lude.ToHeaders UpdateAssessmentTarget where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.UpdateAssessmentTarget" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateAssessmentTarget where
-  toJSON UpdateAssessmentTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("assessmentTargetArn" Lude..= assessmentTargetARN),
-            ("resourceGroupArn" Lude..=) Lude.<$> resourceGroupARN,
-            Lude.Just ("assessmentTargetName" Lude..= assessmentTargetName)
-          ]
-      )
-
-instance Lude.ToPath UpdateAssessmentTarget where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateAssessmentTarget where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.UpdateAssessmentTarget")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateAssessmentTargetResponse'
 
 -- | /See:/ 'mkUpdateAssessmentTargetResponse' smart constructor.
 data UpdateAssessmentTargetResponse = UpdateAssessmentTargetResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAssessmentTargetResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateAssessmentTargetResponse' value with any optional fields omitted.
 mkUpdateAssessmentTargetResponse ::
   UpdateAssessmentTargetResponse
 mkUpdateAssessmentTargetResponse = UpdateAssessmentTargetResponse'

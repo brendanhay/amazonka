@@ -22,56 +22,51 @@ module Network.AWS.Kinesis.Types.SequenceNumberRange
   )
 where
 
+import qualified Network.AWS.Kinesis.Types.SequenceNumber as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The range of possible sequence numbers for the shard.
 --
 -- /See:/ 'mkSequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
   { -- | The starting sequence number for the range.
-    startingSequenceNumber :: Lude.Text,
+    startingSequenceNumber :: Types.SequenceNumber,
     -- | The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
-    endingSequenceNumber :: Lude.Maybe Lude.Text
+    endingSequenceNumber :: Core.Maybe Types.SequenceNumber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
---
--- * 'startingSequenceNumber' - The starting sequence number for the range.
--- * 'endingSequenceNumber' - The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
+-- | Creates a 'SequenceNumberRange' value with any optional fields omitted.
 mkSequenceNumberRange ::
   -- | 'startingSequenceNumber'
-  Lude.Text ->
+  Types.SequenceNumber ->
   SequenceNumberRange
-mkSequenceNumberRange pStartingSequenceNumber_ =
+mkSequenceNumberRange startingSequenceNumber =
   SequenceNumberRange'
-    { startingSequenceNumber =
-        pStartingSequenceNumber_,
-      endingSequenceNumber = Lude.Nothing
+    { startingSequenceNumber,
+      endingSequenceNumber = Core.Nothing
     }
 
 -- | The starting sequence number for the range.
 --
 -- /Note:/ Consider using 'startingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-snrStartingSequenceNumber :: Lens.Lens' SequenceNumberRange Lude.Text
-snrStartingSequenceNumber = Lens.lens (startingSequenceNumber :: SequenceNumberRange -> Lude.Text) (\s a -> s {startingSequenceNumber = a} :: SequenceNumberRange)
+snrStartingSequenceNumber :: Lens.Lens' SequenceNumberRange Types.SequenceNumber
+snrStartingSequenceNumber = Lens.field @"startingSequenceNumber"
 {-# DEPRECATED snrStartingSequenceNumber "Use generic-lens or generic-optics with 'startingSequenceNumber' instead." #-}
 
 -- | The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
 --
 -- /Note:/ Consider using 'endingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-snrEndingSequenceNumber :: Lens.Lens' SequenceNumberRange (Lude.Maybe Lude.Text)
-snrEndingSequenceNumber = Lens.lens (endingSequenceNumber :: SequenceNumberRange -> Lude.Maybe Lude.Text) (\s a -> s {endingSequenceNumber = a} :: SequenceNumberRange)
+snrEndingSequenceNumber :: Lens.Lens' SequenceNumberRange (Core.Maybe Types.SequenceNumber)
+snrEndingSequenceNumber = Lens.field @"endingSequenceNumber"
 {-# DEPRECATED snrEndingSequenceNumber "Use generic-lens or generic-optics with 'endingSequenceNumber' instead." #-}
 
-instance Lude.FromJSON SequenceNumberRange where
+instance Core.FromJSON SequenceNumberRange where
   parseJSON =
-    Lude.withObject
-      "SequenceNumberRange"
-      ( \x ->
-          SequenceNumberRange'
-            Lude.<$> (x Lude..: "StartingSequenceNumber")
-            Lude.<*> (x Lude..:? "EndingSequenceNumber")
-      )
+    Core.withObject "SequenceNumberRange" Core.$
+      \x ->
+        SequenceNumberRange'
+          Core.<$> (x Core..: "StartingSequenceNumber")
+          Core.<*> (x Core..:? "EndingSequenceNumber")

@@ -24,54 +24,55 @@ module Network.AWS.IAM.ListSAMLProviders
     mkListSAMLProvidersResponse,
 
     -- ** Response lenses
-    lsamlprsSAMLProviderList,
-    lsamlprsResponseStatus,
+    lsamlprrsSAMLProviderList,
+    lsamlprrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSAMLProviders' smart constructor.
 data ListSAMLProviders = ListSAMLProviders'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSAMLProviders' with the minimum fields required to make a request.
+-- | Creates a 'ListSAMLProviders' value with any optional fields omitted.
 mkListSAMLProviders ::
   ListSAMLProviders
 mkListSAMLProviders = ListSAMLProviders'
 
-instance Lude.AWSRequest ListSAMLProviders where
+instance Core.AWSRequest ListSAMLProviders where
   type Rs ListSAMLProviders = ListSAMLProvidersResponse
-  request = Req.postQuery iamService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListSAMLProviders")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListSAMLProvidersResult"
       ( \s h x ->
           ListSAMLProvidersResponse'
-            Lude.<$> ( x Lude..@? "SAMLProviderList" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "SAMLProviderList"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListSAMLProviders where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListSAMLProviders where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSAMLProviders where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("ListSAMLProviders" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
-          ]
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | Contains the response to a successful 'ListSAMLProviders' request.
@@ -79,37 +80,34 @@ instance Lude.ToQuery ListSAMLProviders where
 -- /See:/ 'mkListSAMLProvidersResponse' smart constructor.
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
   { -- | The list of SAML provider resource objects defined in IAM for this AWS account.
-    sAMLProviderList :: Lude.Maybe [SAMLProviderListEntry],
+    sAMLProviderList :: Core.Maybe [Types.SAMLProviderListEntry],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListSAMLProvidersResponse' with the minimum fields required to make a request.
---
--- * 'sAMLProviderList' - The list of SAML provider resource objects defined in IAM for this AWS account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSAMLProvidersResponse' value with any optional fields omitted.
 mkListSAMLProvidersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSAMLProvidersResponse
-mkListSAMLProvidersResponse pResponseStatus_ =
+mkListSAMLProvidersResponse responseStatus =
   ListSAMLProvidersResponse'
-    { sAMLProviderList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { sAMLProviderList = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of SAML provider resource objects defined in IAM for this AWS account.
 --
 -- /Note:/ Consider using 'sAMLProviderList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsamlprsSAMLProviderList :: Lens.Lens' ListSAMLProvidersResponse (Lude.Maybe [SAMLProviderListEntry])
-lsamlprsSAMLProviderList = Lens.lens (sAMLProviderList :: ListSAMLProvidersResponse -> Lude.Maybe [SAMLProviderListEntry]) (\s a -> s {sAMLProviderList = a} :: ListSAMLProvidersResponse)
-{-# DEPRECATED lsamlprsSAMLProviderList "Use generic-lens or generic-optics with 'sAMLProviderList' instead." #-}
+lsamlprrsSAMLProviderList :: Lens.Lens' ListSAMLProvidersResponse (Core.Maybe [Types.SAMLProviderListEntry])
+lsamlprrsSAMLProviderList = Lens.field @"sAMLProviderList"
+{-# DEPRECATED lsamlprrsSAMLProviderList "Use generic-lens or generic-optics with 'sAMLProviderList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsamlprsResponseStatus :: Lens.Lens' ListSAMLProvidersResponse Lude.Int
-lsamlprsResponseStatus = Lens.lens (responseStatus :: ListSAMLProvidersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSAMLProvidersResponse)
-{-# DEPRECATED lsamlprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsamlprrsResponseStatus :: Lens.Lens' ListSAMLProvidersResponse Core.Int
+lsamlprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsamlprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

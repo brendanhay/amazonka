@@ -22,45 +22,41 @@ module Network.AWS.MediaLive.Types.FrameCaptureGroupSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.OutputLocationRef
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.OutputLocationRef as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Frame Capture Group Settings
 --
 -- /See:/ 'mkFrameCaptureGroupSettings' smart constructor.
 newtype FrameCaptureGroupSettings = FrameCaptureGroupSettings'
   { -- | The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling-) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling-). The final file names consist of the prefix from the destination field (for example, "curling-") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curling-low.00001.jpg
-    destination :: OutputLocationRef
+    destination :: Types.OutputLocationRef
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FrameCaptureGroupSettings' with the minimum fields required to make a request.
---
--- * 'destination' - The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling-) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling-). The final file names consist of the prefix from the destination field (for example, "curling-") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curling-low.00001.jpg
+-- | Creates a 'FrameCaptureGroupSettings' value with any optional fields omitted.
 mkFrameCaptureGroupSettings ::
   -- | 'destination'
-  OutputLocationRef ->
+  Types.OutputLocationRef ->
   FrameCaptureGroupSettings
-mkFrameCaptureGroupSettings pDestination_ =
-  FrameCaptureGroupSettings' {destination = pDestination_}
+mkFrameCaptureGroupSettings destination =
+  FrameCaptureGroupSettings' {destination}
 
 -- | The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling-) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling-). The final file names consist of the prefix from the destination field (for example, "curling-") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curling-low.00001.jpg
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcgsDestination :: Lens.Lens' FrameCaptureGroupSettings OutputLocationRef
-fcgsDestination = Lens.lens (destination :: FrameCaptureGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: FrameCaptureGroupSettings)
+fcgsDestination :: Lens.Lens' FrameCaptureGroupSettings Types.OutputLocationRef
+fcgsDestination = Lens.field @"destination"
 {-# DEPRECATED fcgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance Lude.FromJSON FrameCaptureGroupSettings where
-  parseJSON =
-    Lude.withObject
-      "FrameCaptureGroupSettings"
-      ( \x ->
-          FrameCaptureGroupSettings' Lude.<$> (x Lude..: "destination")
-      )
+instance Core.FromJSON FrameCaptureGroupSettings where
+  toJSON FrameCaptureGroupSettings {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("destination" Core..= destination)])
 
-instance Lude.ToJSON FrameCaptureGroupSettings where
-  toJSON FrameCaptureGroupSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("destination" Lude..= destination)])
+instance Core.FromJSON FrameCaptureGroupSettings where
+  parseJSON =
+    Core.withObject "FrameCaptureGroupSettings" Core.$
+      \x ->
+        FrameCaptureGroupSettings' Core.<$> (x Core..: "destination")

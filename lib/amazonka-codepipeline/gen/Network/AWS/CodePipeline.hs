@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -120,10 +119,115 @@
 --     * 'PutThirdPartyJobSuccessResult' , which provides details of a job success.
 module Network.AWS.CodePipeline
   ( -- * Service configuration
-    codePipelineService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidClientTokenException
+    _InvalidClientTokenException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InvalidNonceException
+    _InvalidNonceException,
+
+    -- ** ActionNotFoundException
+    _ActionNotFoundException,
+
+    -- ** InvalidApprovalTokenException
+    _InvalidApprovalTokenException,
+
+    -- ** PipelineExecutionNotStoppableException
+    _PipelineExecutionNotStoppableException,
+
+    -- ** InvalidBlockerDeclarationException
+    _InvalidBlockerDeclarationException,
+
+    -- ** OutputVariablesSizeExceededException
+    _OutputVariablesSizeExceededException,
+
+    -- ** InvalidJobStateException
+    _InvalidJobStateException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** InvalidJobException
+    _InvalidJobException,
+
+    -- ** PipelineVersionNotFoundException
+    _PipelineVersionNotFoundException,
+
+    -- ** StageNotRetryableException
+    _StageNotRetryableException,
+
+    -- ** PipelineExecutionNotFoundException
+    _PipelineExecutionNotFoundException,
+
+    -- ** InvalidWebhookAuthenticationParametersException
+    _InvalidWebhookAuthenticationParametersException,
+
+    -- ** WebhookNotFoundException
+    _WebhookNotFoundException,
+
+    -- ** InvalidTagsException
+    _InvalidTagsException,
+
+    -- ** ActionTypeNotFoundException
+    _ActionTypeNotFoundException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidStageDeclarationException
+    _InvalidStageDeclarationException,
+
+    -- ** DuplicatedStopRequestException
+    _DuplicatedStopRequestException,
+
+    -- ** InvalidWebhookFilterPatternException
+    _InvalidWebhookFilterPatternException,
+
+    -- ** InvalidActionDeclarationException
+    _InvalidActionDeclarationException,
+
+    -- ** StageNotFoundException
+    _StageNotFoundException,
+
+    -- ** InvalidStructureException
+    _InvalidStructureException,
+
+    -- ** JobNotFoundException
+    _JobNotFoundException,
+
+    -- ** ApprovalAlreadyCompletedException
+    _ApprovalAlreadyCompletedException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** PipelineNameInUseException
+    _PipelineNameInUseException,
+
+    -- ** PipelineNotFoundException
+    _PipelineNotFoundException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** NotLatestPipelineExecutionException
+    _NotLatestPipelineExecutionException,
 
     -- * Waiters
     -- $waiters
@@ -244,203 +348,334 @@ module Network.AWS.CodePipeline
 
     -- * Types
 
-    -- ** ActionCategory
-    ActionCategory (..),
-
-    -- ** ActionConfigurationPropertyType
-    ActionConfigurationPropertyType (..),
-
-    -- ** ActionExecutionStatus
-    ActionExecutionStatus (..),
-
-    -- ** ActionOwner
-    ActionOwner (..),
-
-    -- ** ApprovalStatus
-    ApprovalStatus (..),
-
-    -- ** ArtifactLocationType
-    ArtifactLocationType (..),
-
-    -- ** ArtifactStoreType
-    ArtifactStoreType (..),
-
-    -- ** BlockerType
-    BlockerType (..),
-
-    -- ** EncryptionKeyType
-    EncryptionKeyType (..),
-
-    -- ** FailureType
-    FailureType (..),
-
-    -- ** JobStatus
-    JobStatus (..),
-
     -- ** PipelineExecutionStatus
     PipelineExecutionStatus (..),
 
-    -- ** StageExecutionStatus
-    StageExecutionStatus (..),
+    -- ** LastUpdatedBy
+    LastUpdatedBy (..),
 
-    -- ** StageRetryMode
-    StageRetryMode (..),
+    -- ** ListWebhookItem
+    ListWebhookItem (..),
+    mkListWebhookItem,
+    lwiDefinition,
+    lwiUrl,
+    lwiArn,
+    lwiErrorCode,
+    lwiErrorMessage,
+    lwiLastTriggered,
+    lwiTags,
 
-    -- ** StageTransitionType
-    StageTransitionType (..),
-
-    -- ** TriggerType
-    TriggerType (..),
-
-    -- ** WebhookAuthenticationType
-    WebhookAuthenticationType (..),
-
-    -- ** AWSSessionCredentials
-    AWSSessionCredentials (..),
-    mkAWSSessionCredentials,
-    ascSecretAccessKey,
-    ascSessionToken,
-    ascAccessKeyId,
-
-    -- ** ActionConfiguration
-    ActionConfiguration (..),
-    mkActionConfiguration,
-    acConfiguration,
-
-    -- ** ActionConfigurationProperty
-    ActionConfigurationProperty (..),
-    mkActionConfigurationProperty,
-    acpQueryable,
-    acpSecret,
-    acpRequired,
-    acpKey,
-    acpName,
-    acpType,
-    acpDescription,
-
-    -- ** ActionContext
-    ActionContext (..),
-    mkActionContext,
-    acName,
-    acActionExecutionId,
-
-    -- ** ActionDeclaration
-    ActionDeclaration (..),
-    mkActionDeclaration,
-    adOutputArtifacts,
-    adNamespace,
-    adRunOrder,
-    adName,
-    adRegion,
-    adConfiguration,
-    adActionTypeId,
-    adInputArtifacts,
-    adRoleARN,
+    -- ** ApprovalToken
+    ApprovalToken (..),
 
     -- ** ActionExecution
     ActionExecution (..),
     mkActionExecution,
-    aeLastUpdatedBy,
-    aeSummary,
-    aeStatus,
-    aeLastStatusChange,
-    aeToken,
-    aeExternalExecutionURL,
-    aeExternalExecutionId,
-    aeErrorDetails,
-    aePercentComplete,
     aeActionExecutionId,
+    aeErrorDetails,
+    aeExternalExecutionId,
+    aeExternalExecutionUrl,
+    aeLastStatusChange,
+    aeLastUpdatedBy,
+    aePercentComplete,
+    aeStatus,
+    aeSummary,
+    aeToken,
 
-    -- ** ActionExecutionDetail
-    ActionExecutionDetail (..),
-    mkActionExecutionDetail,
-    aedStatus,
-    aedStartTime,
-    aedPipelineVersion,
-    aedInput,
-    aedActionName,
-    aedOutput,
-    aedPipelineExecutionId,
-    aedStageName,
-    aedLastUpdateTime,
-    aedActionExecutionId,
+    -- ** WebhookName
+    WebhookName (..),
 
-    -- ** ActionExecutionFilter
-    ActionExecutionFilter (..),
-    mkActionExecutionFilter,
-    aefPipelineExecutionId,
+    -- ** StopPipelineExecutionReason
+    StopPipelineExecutionReason (..),
 
-    -- ** ActionExecutionInput
-    ActionExecutionInput (..),
-    mkActionExecutionInput,
-    aeiNamespace,
-    aeiResolvedConfiguration,
-    aeiRegion,
-    aeiConfiguration,
-    aeiActionTypeId,
-    aeiInputArtifacts,
-    aeiRoleARN,
+    -- ** ArtifactDetails
+    ArtifactDetails (..),
+    mkArtifactDetails,
+    adMinimumCount,
+    adMaximumCount,
 
-    -- ** ActionExecutionOutput
-    ActionExecutionOutput (..),
-    mkActionExecutionOutput,
-    aeoOutputVariables,
-    aeoOutputArtifacts,
-    aeoExecutionResult,
+    -- ** MatchEquals
+    MatchEquals (..),
 
-    -- ** ActionExecutionResult
-    ActionExecutionResult (..),
-    mkActionExecutionResult,
-    aerExternalExecutionURL,
-    aerExternalExecutionId,
-    aerExternalExecutionSummary,
+    -- ** PipelineExecutionSummary
+    PipelineExecutionSummary (..),
+    mkPipelineExecutionSummary,
+    pesLastUpdateTime,
+    pesPipelineExecutionId,
+    pesSourceRevisions,
+    pesStartTime,
+    pesStatus,
+    pesStopTrigger,
+    pesTrigger,
+
+    -- ** ClientId
+    ClientId (..),
+
+    -- ** StageDeclaration
+    StageDeclaration (..),
+    mkStageDeclaration,
+    sdName,
+    sdActions,
+    sdBlockers,
+
+    -- ** ArtifactStoreLocation
+    ArtifactStoreLocation (..),
+
+    -- ** ArtifactDetail
+    ArtifactDetail (..),
+    mkArtifactDetail,
+    aName,
+    aS3location,
+
+    -- ** ActionProvider
+    ActionProvider (..),
+
+    -- ** StageRetryMode
+    StageRetryMode (..),
+
+    -- ** RevisionSummary
+    RevisionSummary (..),
+
+    -- ** ExecutionId
+    ExecutionId (..),
+
+    -- ** PipelineMetadata
+    PipelineMetadata (..),
+    mkPipelineMetadata,
+    pmCreated,
+    pmPipelineArn,
+    pmUpdated,
+
+    -- ** S3Key
+    S3Key (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** ThirdPartyJobData
+    ThirdPartyJobData (..),
+    mkThirdPartyJobData,
+    tpjdActionConfiguration,
+    tpjdActionTypeId,
+    tpjdArtifactCredentials,
+    tpjdContinuationToken,
+    tpjdEncryptionKey,
+    tpjdInputArtifacts,
+    tpjdOutputArtifacts,
+    tpjdPipelineContext,
+
+    -- ** ExecutionTrigger
+    ExecutionTrigger (..),
+    mkExecutionTrigger,
+    etTriggerDetail,
+    etTriggerType,
+
+    -- ** S3ObjectKey
+    S3ObjectKey (..),
+
+    -- ** ThirdPartyJob
+    ThirdPartyJob (..),
+    mkThirdPartyJob,
+    tpjClientId,
+    tpjJobId,
+
+    -- ** FailureDetails
+    FailureDetails (..),
+    mkFailureDetails,
+    fdType,
+    fdMessage,
+    fdExternalExecutionId,
+
+    -- ** ClientToken
+    ClientToken (..),
+
+    -- ** JobId
+    JobId (..),
+
+    -- ** ContinuationToken
+    ContinuationToken (..),
+
+    -- ** AWSRegionName
+    AWSRegionName (..),
 
     -- ** ActionRevision
     ActionRevision (..),
     mkActionRevision,
-    aCreated,
-    aRevisionChangeId,
     aRevisionId,
+    aRevisionChangeId,
+    aCreated,
 
-    -- ** ActionState
-    ActionState (..),
-    mkActionState,
-    asRevisionURL,
-    asEntityURL,
-    asActionName,
-    asCurrentRevision,
-    asLatestExecution,
+    -- ** PipelineName
+    PipelineName (..),
 
-    -- ** ActionType
-    ActionType (..),
-    mkActionType,
-    atSettings,
-    atOutputArtifactDetails,
-    atActionConfigurationProperties,
-    atInputArtifactDetails,
-    atId,
+    -- ** ActionConfigurationValue
+    ActionConfigurationValue (..),
 
-    -- ** ActionTypeId
-    ActionTypeId (..),
-    mkActionTypeId,
-    atiCategory,
-    atiOwner,
-    atiVersion,
-    atiProvider,
+    -- ** SecretAccessKey
+    SecretAccessKey (..),
+
+    -- ** String
+    String (..),
+
+    -- ** ActionConfigurationQueryableValue
+    ActionConfigurationQueryableValue (..),
+
+    -- ** SessionToken
+    SessionToken (..),
+
+    -- ** EncryptionKeyId
+    EncryptionKeyId (..),
+
+    -- ** ArtifactRevision
+    ArtifactRevision (..),
+    mkArtifactRevision,
+    arCreated,
+    arName,
+    arRevisionChangeIdentifier,
+    arRevisionId,
+    arRevisionSummary,
+    arRevisionUrl,
+
+    -- ** ActionExecutionResult
+    ActionExecutionResult (..),
+    mkActionExecutionResult,
+    aerExternalExecutionId,
+    aerExternalExecutionSummary,
+    aerExternalExecutionUrl,
+
+    -- ** JsonPath
+    JsonPath (..),
+
+    -- ** WebhookAuthConfigurationAllowedIPRange
+    WebhookAuthConfigurationAllowedIPRange (..),
+
+    -- ** FailureType
+    FailureType (..),
+
+    -- ** ActionExecutionStatus
+    ActionExecutionStatus (..),
+
+    -- ** PipelineExecution
+    PipelineExecution (..),
+    mkPipelineExecution,
+    peArtifactRevisions,
+    pePipelineExecutionId,
+    pePipelineName,
+    pePipelineVersion,
+    peStatus,
+
+    -- ** WebhookUrl
+    WebhookUrl (..),
+
+    -- ** EncryptionKeyType
+    EncryptionKeyType (..),
+
+    -- ** ExecutionDetails
+    ExecutionDetails (..),
+    mkExecutionDetails,
+    edExternalExecutionId,
+    edPercentComplete,
+    edSummary,
+
+    -- ** InputArtifact
+    InputArtifact (..),
+    mkInputArtifact,
+    iaName,
+
+    -- ** TriggerType
+    TriggerType (..),
+
+    -- ** S3ArtifactLocation
+    S3ArtifactLocation (..),
+    mkS3ArtifactLocation,
+    salBucketName,
+    salObjectKey,
+
+    -- ** WebhookAuthenticationType
+    WebhookAuthenticationType (..),
 
     -- ** ActionTypeSettings
     ActionTypeSettings (..),
     mkActionTypeSettings,
-    atsThirdPartyConfigurationURL,
-    atsExecutionURLTemplate,
-    atsRevisionURLTemplate,
-    atsEntityURLTemplate,
+    atsEntityUrlTemplate,
+    atsExecutionUrlTemplate,
+    atsRevisionUrlTemplate,
+    atsThirdPartyConfigurationUrl,
+
+    -- ** ApprovalSummary
+    ApprovalSummary (..),
+
+    -- ** StageState
+    StageState (..),
+    mkStageState,
+    ssActionStates,
+    ssInboundExecution,
+    ssInboundTransitionState,
+    ssLatestExecution,
+    ssStageName,
+
+    -- ** Url
+    Url (..),
+
+    -- ** StageContext
+    StageContext (..),
+    mkStageContext,
+    scName,
+
+    -- ** ArtifactLocationType
+    ArtifactLocationType (..),
+
+    -- ** AWSSessionCredentials
+    AWSSessionCredentials (..),
+    mkAWSSessionCredentials,
+    awsscAccessKeyId,
+    awsscSecretAccessKey,
+    awsscSessionToken,
 
     -- ** ApprovalResult
     ApprovalResult (..),
     mkApprovalResult,
     arSummary,
     arStatus,
+
+    -- ** BlockerDeclaration
+    BlockerDeclaration (..),
+    mkBlockerDeclaration,
+    bdName,
+    bdType,
+
+    -- ** StageExecution
+    StageExecution (..),
+    mkStageExecution,
+    sePipelineExecutionId,
+    seStatus,
+
+    -- ** ActionCategory
+    ActionCategory (..),
+
+    -- ** ActionDeclaration
+    ActionDeclaration (..),
+    mkActionDeclaration,
+    adName,
+    adActionTypeId,
+    adConfiguration,
+    adInputArtifacts,
+    adNamespace,
+    adOutputArtifacts,
+    adRegion,
+    adRoleArn,
+    adRunOrder,
+
+    -- ** PipelineSummary
+    PipelineSummary (..),
+    mkPipelineSummary,
+    psCreated,
+    psName,
+    psUpdated,
+    psVersion,
 
     -- ** Artifact
     Artifact (..),
@@ -449,60 +684,139 @@ module Network.AWS.CodePipeline
     afName,
     afRevision,
 
-    -- ** ArtifactDetail
-    ArtifactDetail (..),
-    mkArtifactDetail,
-    aName,
-    aS3location,
+    -- ** WebhookDefinition
+    WebhookDefinition (..),
+    mkWebhookDefinition,
+    wdName,
+    wdTargetPipeline,
+    wdTargetAction,
+    wdFilters,
+    wdAuthentication,
+    wdAuthenticationConfiguration,
 
-    -- ** ArtifactDetails
-    ArtifactDetails (..),
-    mkArtifactDetails,
-    adMaximumCount,
-    adMinimumCount,
-
-    -- ** ArtifactLocation
-    ArtifactLocation (..),
-    mkArtifactLocation,
-    alS3Location,
-    alType,
-
-    -- ** ArtifactRevision
-    ArtifactRevision (..),
-    mkArtifactRevision,
-    arRevisionSummary,
-    arRevisionURL,
-    arCreated,
-    arName,
-    arRevisionId,
-    arRevisionChangeIdentifier,
+    -- ** WebhookAuthConfigurationSecretToken
+    WebhookAuthConfigurationSecretToken (..),
 
     -- ** ArtifactStore
     ArtifactStore (..),
     mkArtifactStore,
+    asType,
     asLocation,
     asEncryptionKey,
-    asType,
 
-    -- ** BlockerDeclaration
-    BlockerDeclaration (..),
-    mkBlockerDeclaration,
-    bdName,
-    bdType,
+    -- ** ActionConfigurationProperty
+    ActionConfigurationProperty (..),
+    mkActionConfigurationProperty,
+    acpName,
+    acpRequired,
+    acpKey,
+    acpSecret,
+    acpDescription,
+    acpQueryable,
+    acpType,
+
+    -- ** ArtifactName
+    ArtifactName (..),
+
+    -- ** TriggerDetail
+    TriggerDetail (..),
+
+    -- ** OutputVariablesValue
+    OutputVariablesValue (..),
+
+    -- ** OutputArtifact
+    OutputArtifact (..),
+    mkOutputArtifact,
+    oaName,
+
+    -- ** ActionName
+    ActionName (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** DisabledReason
+    DisabledReason (..),
+
+    -- ** ActionExecutionFilter
+    ActionExecutionFilter (..),
+    mkActionExecutionFilter,
+    aefPipelineExecutionId,
+
+    -- ** JobData
+    JobData (..),
+    mkJobData,
+    jdActionConfiguration,
+    jdActionTypeId,
+    jdArtifactCredentials,
+    jdContinuationToken,
+    jdEncryptionKey,
+    jdInputArtifacts,
+    jdOutputArtifacts,
+    jdPipelineContext,
+
+    -- ** Job
+    Job (..),
+    mkJob,
+    jAccountId,
+    jData,
+    jId,
+    jNonce,
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** ActionOwner
+    ActionOwner (..),
+
+    -- ** ThirdPartyJobId
+    ThirdPartyJobId (..),
+
+    -- ** PipelineArn
+    PipelineArn (..),
+
+    -- ** ExternalExecutionId
+    ExternalExecutionId (..),
 
     -- ** CurrentRevision
     CurrentRevision (..),
     mkCurrentRevision,
-    crRevisionSummary,
-    crCreated,
-    crChangeIdentifier,
     crRevision,
+    crChangeIdentifier,
+    crCreated,
+    crRevisionSummary,
 
-    -- ** EncryptionKey
-    EncryptionKey (..),
-    mkEncryptionKey,
-    ekId,
-    ekType,
+    -- ** StopExecutionTrigger
+    StopExecutionTrigger (..),
+    mkStopExecutionTrigger,
+    setReason,
+
+    -- ** Version
+    Version (..),
+
+    -- ** PipelineDeclaration
+    PipelineDeclaration (..),
+    mkPipelineDeclaration,
+    pdName,
+    pdRoleArn,
+    pdStages,
+    pdArtifactStore,
+    pdArtifactStores,
+    pdVersion,
+
+    -- ** ActionExecutionInput
+    ActionExecutionInput (..),
+    mkActionExecutionInput,
+    aeiActionTypeId,
+    aeiConfiguration,
+    aeiInputArtifacts,
+    aeiNamespace,
+    aeiRegion,
+    aeiResolvedConfiguration,
+    aeiRoleArn,
 
     -- ** ErrorDetails
     ErrorDetails (..),
@@ -510,133 +824,56 @@ module Network.AWS.CodePipeline
     edCode,
     edMessage,
 
-    -- ** ExecutionDetails
-    ExecutionDetails (..),
-    mkExecutionDetails,
-    edSummary,
-    edExternalExecutionId,
-    edPercentComplete,
+    -- ** StageExecutionStatus
+    StageExecutionStatus (..),
 
-    -- ** ExecutionTrigger
-    ExecutionTrigger (..),
-    mkExecutionTrigger,
-    etTriggerType,
-    etTriggerDetail,
-
-    -- ** FailureDetails
-    FailureDetails (..),
-    mkFailureDetails,
-    fdExternalExecutionId,
-    fdType,
-    fdMessage,
-
-    -- ** InputArtifact
-    InputArtifact (..),
-    mkInputArtifact,
-    iaName,
-
-    -- ** Job
-    Job (..),
-    mkJob,
-    jData,
-    jAccountId,
-    jId,
-    jNonce,
-
-    -- ** JobData
-    JobData (..),
-    mkJobData,
-    jdContinuationToken,
-    jdOutputArtifacts,
-    jdArtifactCredentials,
-    jdPipelineContext,
-    jdEncryptionKey,
-    jdActionTypeId,
-    jdInputArtifacts,
-    jdActionConfiguration,
-
-    -- ** JobDetails
-    JobDetails (..),
-    mkJobDetails,
-    jdData,
-    jdAccountId,
-    jdId,
-
-    -- ** ListWebhookItem
-    ListWebhookItem (..),
-    mkListWebhookItem,
-    lwiArn,
-    lwiDefinition,
-    lwiUrl,
-    lwiErrorCode,
-    lwiLastTriggered,
-    lwiErrorMessage,
-    lwiTags,
-
-    -- ** OutputArtifact
-    OutputArtifact (..),
-    mkOutputArtifact,
-    oaName,
+    -- ** OutputVariablesKey
+    OutputVariablesKey (..),
 
     -- ** PipelineContext
     PipelineContext (..),
     mkPipelineContext,
-    pcStage,
-    pcPipelineName,
     pcAction,
-    pcPipelineARN,
+    pcPipelineArn,
     pcPipelineExecutionId,
+    pcPipelineName,
+    pcStage,
 
-    -- ** PipelineDeclaration
-    PipelineDeclaration (..),
-    mkPipelineDeclaration,
-    pdArtifactStores,
-    pdArtifactStore,
-    pdName,
-    pdStages,
-    pdVersion,
-    pdRoleARN,
+    -- ** WebhookFilterRule
+    WebhookFilterRule (..),
+    mkWebhookFilterRule,
+    wfrJsonPath,
+    wfrMatchEquals,
 
-    -- ** PipelineExecution
-    PipelineExecution (..),
-    mkPipelineExecution,
-    peStatus,
-    pePipelineName,
-    pePipelineVersion,
-    pePipelineExecutionId,
-    peArtifactRevisions,
+    -- ** JobDetails
+    JobDetails (..),
+    mkJobDetails,
+    jdAccountId,
+    jdData,
+    jdId,
 
-    -- ** PipelineExecutionSummary
-    PipelineExecutionSummary (..),
-    mkPipelineExecutionSummary,
-    pesStatus,
-    pesStartTime,
-    pesStopTrigger,
-    pesPipelineExecutionId,
-    pesSourceRevisions,
-    pesTrigger,
-    pesLastUpdateTime,
+    -- ** ActionExecutionDetail
+    ActionExecutionDetail (..),
+    mkActionExecutionDetail,
+    aedActionExecutionId,
+    aedActionName,
+    aedInput,
+    aedLastUpdateTime,
+    aedOutput,
+    aedPipelineExecutionId,
+    aedPipelineVersion,
+    aedStageName,
+    aedStartTime,
+    aedStatus,
 
-    -- ** PipelineMetadata
-    PipelineMetadata (..),
-    mkPipelineMetadata,
-    pmCreated,
-    pmPipelineARN,
-    pmUpdated,
+    -- ** PipelineExecutionId
+    PipelineExecutionId (..),
 
-    -- ** PipelineSummary
-    PipelineSummary (..),
-    mkPipelineSummary,
-    psCreated,
-    psName,
-    psVersion,
-    psUpdated,
+    -- ** Code
+    Code (..),
 
-    -- ** S3ArtifactLocation
-    S3ArtifactLocation (..),
-    mkS3ArtifactLocation,
-    salBucketName,
-    salObjectKey,
+    -- ** TagKey
+    TagKey (..),
 
     -- ** S3Location
     S3Location (..),
@@ -644,69 +881,19 @@ module Network.AWS.CodePipeline
     slBucket,
     slKey,
 
-    -- ** SourceRevision
-    SourceRevision (..),
-    mkSourceRevision,
-    srRevisionSummary,
-    srRevisionURL,
-    srActionName,
-    srRevisionId,
+    -- ** TransitionState
+    TransitionState (..),
+    mkTransitionState,
+    tsDisabledReason,
+    tsEnabled,
+    tsLastChangedAt,
+    tsLastChangedBy,
 
-    -- ** StageContext
-    StageContext (..),
-    mkStageContext,
-    scName,
-
-    -- ** StageDeclaration
-    StageDeclaration (..),
-    mkStageDeclaration,
-    sdActions,
-    sdBlockers,
-    sdName,
-
-    -- ** StageExecution
-    StageExecution (..),
-    mkStageExecution,
-    seStatus,
-    sePipelineExecutionId,
-
-    -- ** StageState
-    StageState (..),
-    mkStageState,
-    ssInboundExecution,
-    ssInboundTransitionState,
-    ssActionStates,
-    ssStageName,
-    ssLatestExecution,
-
-    -- ** StopExecutionTrigger
-    StopExecutionTrigger (..),
-    mkStopExecutionTrigger,
-    setReason,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** ThirdPartyJob
-    ThirdPartyJob (..),
-    mkThirdPartyJob,
-    tpjClientId,
-    tpjJobId,
-
-    -- ** ThirdPartyJobData
-    ThirdPartyJobData (..),
-    mkThirdPartyJobData,
-    tpjdContinuationToken,
-    tpjdOutputArtifacts,
-    tpjdArtifactCredentials,
-    tpjdPipelineContext,
-    tpjdEncryptionKey,
-    tpjdActionTypeId,
-    tpjdInputArtifacts,
-    tpjdActionConfiguration,
+    -- ** EncryptionKey
+    EncryptionKey (..),
+    mkEncryptionKey,
+    ekId,
+    ekType,
 
     -- ** ThirdPartyJobDetails
     ThirdPartyJobDetails (..),
@@ -715,13 +902,20 @@ module Network.AWS.CodePipeline
     tpjdId,
     tpjdNonce,
 
-    -- ** TransitionState
-    TransitionState (..),
-    mkTransitionState,
-    tsEnabled,
-    tsDisabledReason,
-    tsLastChangedAt,
-    tsLastChangedBy,
+    -- ** JobStatus
+    JobStatus (..),
+
+    -- ** StageName
+    StageName (..),
+
+    -- ** StageTransitionType
+    StageTransitionType (..),
+
+    -- ** LastChangedBy
+    LastChangedBy (..),
+
+    -- ** ExternalExecutionSummary
+    ExternalExecutionSummary (..),
 
     -- ** WebhookAuthConfiguration
     WebhookAuthConfiguration (..),
@@ -729,31 +923,176 @@ module Network.AWS.CodePipeline
     wacAllowedIPRange,
     wacSecretToken,
 
-    -- ** WebhookDefinition
-    WebhookDefinition (..),
-    mkWebhookDefinition,
-    wdTargetAction,
-    wdAuthentication,
-    wdFilters,
-    wdTargetPipeline,
-    wdName,
-    wdAuthenticationConfiguration,
+    -- ** Revision
+    Revision (..),
 
-    -- ** WebhookFilterRule
-    WebhookFilterRule (..),
-    mkWebhookFilterRule,
-    wfrMatchEquals,
-    wfrJsonPath,
+    -- ** ArtifactLocation
+    ArtifactLocation (..),
+    mkArtifactLocation,
+    alS3Location,
+    alType,
+
+    -- ** ApprovalStatus
+    ApprovalStatus (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** ActionTypeId
+    ActionTypeId (..),
+    mkActionTypeId,
+    atiCategory,
+    atiOwner,
+    atiProvider,
+    atiVersion,
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** ActionExecutionOutput
+    ActionExecutionOutput (..),
+    mkActionExecutionOutput,
+    aeoExecutionResult,
+    aeoOutputArtifacts,
+    aeoOutputVariables,
+
+    -- ** Description
+    Description (..),
+
+    -- ** ActionType
+    ActionType (..),
+    mkActionType,
+    atId,
+    atInputArtifactDetails,
+    atOutputArtifactDetails,
+    atActionConfigurationProperties,
+    atSettings,
+
+    -- ** BlockerType
+    BlockerType (..),
+
+    -- ** ActionConfiguration
+    ActionConfiguration (..),
+    mkActionConfiguration,
+    acConfiguration,
+
+    -- ** RevisionChangeIdentifier
+    RevisionChangeIdentifier (..),
+
+    -- ** AccessKeyId
+    AccessKeyId (..),
+
+    -- ** SourceRevision
+    SourceRevision (..),
+    mkSourceRevision,
+    srActionName,
+    srRevisionId,
+    srRevisionSummary,
+    srRevisionUrl,
+
+    -- ** Nonce
+    Nonce (..),
+
+    -- ** ArtifactStoreType
+    ArtifactStoreType (..),
+
+    -- ** ActionConfigurationPropertyType
+    ActionConfigurationPropertyType (..),
+
+    -- ** ActionState
+    ActionState (..),
+    mkActionState,
+    asActionName,
+    asCurrentRevision,
+    asEntityUrl,
+    asLatestExecution,
+    asRevisionUrl,
+
+    -- ** ActionConfigurationKey
+    ActionConfigurationKey (..),
+
+    -- ** ActionContext
+    ActionContext (..),
+    mkActionContext,
+    acActionExecutionId,
+    acName,
+
+    -- ** ActionExecutionId
+    ActionExecutionId (..),
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** ExternalExecutionUrl
+    ExternalExecutionUrl (..),
+
+    -- ** Summary
+    Summary (..),
+
+    -- ** Token
+    Token (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** RevisionId
+    RevisionId (..),
+
+    -- ** RevisionChangeId
+    RevisionChangeId (..),
+
+    -- ** RevisionUrl
+    RevisionUrl (..),
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** EntityUrlTemplate
+    EntityUrlTemplate (..),
+
+    -- ** ExecutionUrlTemplate
+    ExecutionUrlTemplate (..),
+
+    -- ** RevisionUrlTemplate
+    RevisionUrlTemplate (..),
+
+    -- ** ThirdPartyConfigurationUrl
+    ThirdPartyConfigurationUrl (..),
+
+    -- ** Namespace
+    Namespace (..),
+
+    -- ** TargetAction
+    TargetAction (..),
+
+    -- ** ChangeIdentifier
+    ChangeIdentifier (..),
+
+    -- ** Bucket
+    Bucket (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

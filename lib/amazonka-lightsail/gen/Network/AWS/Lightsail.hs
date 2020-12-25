@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,31 @@
 -- This API Reference provides detailed information about the actions, data types, parameters, and errors of the Lightsail service. For more information about the supported AWS Regions, endpoints, and service quotas of the Lightsail service, see <https://docs.aws.amazon.com/general/latest/gr/lightsail.html Amazon Lightsail Endpoints and Quotas> in the /AWS General Reference/ .
 module Network.AWS.Lightsail
   ( -- * Service configuration
-    lightsailService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** AccountSetupInProgressException
+    _AccountSetupInProgressException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** OperationFailureException
+    _OperationFailureException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** UnauthenticatedException
+    _UnauthenticatedException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- * Waiters
     -- $waiters
@@ -34,8 +54,8 @@ module Network.AWS.Lightsail
     -- ** GetRelationalDatabaseMetricData
     module Network.AWS.Lightsail.GetRelationalDatabaseMetricData,
 
-    -- ** AllocateStaticIP
-    module Network.AWS.Lightsail.AllocateStaticIP,
+    -- ** AllocateStaticIp
+    module Network.AWS.Lightsail.AllocateStaticIp,
 
     -- ** DeleteKeyPair
     module Network.AWS.Lightsail.DeleteKeyPair,
@@ -76,8 +96,8 @@ module Network.AWS.Lightsail
     -- ** GetRelationalDatabaseSnapshots (Paginated)
     module Network.AWS.Lightsail.GetRelationalDatabaseSnapshots,
 
-    -- ** AttachStaticIP
-    module Network.AWS.Lightsail.AttachStaticIP,
+    -- ** AttachStaticIp
+    module Network.AWS.Lightsail.AttachStaticIp,
 
     -- ** GetRelationalDatabaseParameters (Paginated)
     module Network.AWS.Lightsail.GetRelationalDatabaseParameters,
@@ -91,8 +111,8 @@ module Network.AWS.Lightsail
     -- ** DownloadDefaultKeyPair
     module Network.AWS.Lightsail.DownloadDefaultKeyPair,
 
-    -- ** DeleteLoadBalancerTLSCertificate
-    module Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate,
+    -- ** DeleteLoadBalancerTlsCertificate
+    module Network.AWS.Lightsail.DeleteLoadBalancerTlsCertificate,
 
     -- ** TestAlarm
     module Network.AWS.Lightsail.TestAlarm,
@@ -106,8 +126,8 @@ module Network.AWS.Lightsail
     -- ** UpdateRelationalDatabaseParameters
     module Network.AWS.Lightsail.UpdateRelationalDatabaseParameters,
 
-    -- ** CreateLoadBalancerTLSCertificate
-    module Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate,
+    -- ** CreateLoadBalancerTlsCertificate
+    module Network.AWS.Lightsail.CreateLoadBalancerTlsCertificate,
 
     -- ** CreateDomainEntry
     module Network.AWS.Lightsail.CreateDomainEntry,
@@ -133,8 +153,8 @@ module Network.AWS.Lightsail
     -- ** GetExportSnapshotRecords (Paginated)
     module Network.AWS.Lightsail.GetExportSnapshotRecords,
 
-    -- ** ReleaseStaticIP
-    module Network.AWS.Lightsail.ReleaseStaticIP,
+    -- ** ReleaseStaticIp
+    module Network.AWS.Lightsail.ReleaseStaticIp,
 
     -- ** DeleteInstance
     module Network.AWS.Lightsail.DeleteInstance,
@@ -229,14 +249,14 @@ module Network.AWS.Lightsail
     -- ** GetRelationalDatabaseSnapshot
     module Network.AWS.Lightsail.GetRelationalDatabaseSnapshot,
 
-    -- ** IsVPCPeered
-    module Network.AWS.Lightsail.IsVPCPeered,
+    -- ** IsVpcPeered
+    module Network.AWS.Lightsail.IsVpcPeered,
 
-    -- ** GetStaticIPs (Paginated)
-    module Network.AWS.Lightsail.GetStaticIPs,
+    -- ** GetStaticIps (Paginated)
+    module Network.AWS.Lightsail.GetStaticIps,
 
-    -- ** UnpeerVPC
-    module Network.AWS.Lightsail.UnpeerVPC,
+    -- ** UnpeerVpc
+    module Network.AWS.Lightsail.UnpeerVpc,
 
     -- ** DeleteDisk
     module Network.AWS.Lightsail.DeleteDisk,
@@ -262,8 +282,8 @@ module Network.AWS.Lightsail
     -- ** GetContainerAPIMetadata
     module Network.AWS.Lightsail.GetContainerAPIMetadata,
 
-    -- ** PeerVPC
-    module Network.AWS.Lightsail.PeerVPC,
+    -- ** PeerVpc
+    module Network.AWS.Lightsail.PeerVpc,
 
     -- ** GetRelationalDatabaseBundles (Paginated)
     module Network.AWS.Lightsail.GetRelationalDatabaseBundles,
@@ -274,8 +294,8 @@ module Network.AWS.Lightsail
     -- ** RebootRelationalDatabase
     module Network.AWS.Lightsail.RebootRelationalDatabase,
 
-    -- ** AttachLoadBalancerTLSCertificate
-    module Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate,
+    -- ** AttachLoadBalancerTlsCertificate
+    module Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate,
 
     -- ** UpdateLoadBalancerAttribute
     module Network.AWS.Lightsail.UpdateLoadBalancerAttribute,
@@ -289,8 +309,8 @@ module Network.AWS.Lightsail
     -- ** UpdateRelationalDatabase
     module Network.AWS.Lightsail.UpdateRelationalDatabase,
 
-    -- ** GetStaticIP
-    module Network.AWS.Lightsail.GetStaticIP,
+    -- ** GetStaticIp
+    module Network.AWS.Lightsail.GetStaticIp,
 
     -- ** GetRelationalDatabaseMasterUserPassword
     module Network.AWS.Lightsail.GetRelationalDatabaseMasterUserPassword,
@@ -412,8 +432,8 @@ module Network.AWS.Lightsail
     -- ** AttachDisk
     module Network.AWS.Lightsail.AttachDisk,
 
-    -- ** DetachStaticIP
-    module Network.AWS.Lightsail.DetachStaticIP,
+    -- ** DetachStaticIp
+    module Network.AWS.Lightsail.DetachStaticIp,
 
     -- ** CreateInstances
     module Network.AWS.Lightsail.CreateInstances,
@@ -436,8 +456,8 @@ module Network.AWS.Lightsail
     -- ** DeleteDomain
     module Network.AWS.Lightsail.DeleteDomain,
 
-    -- ** GetLoadBalancerTLSCertificates
-    module Network.AWS.Lightsail.GetLoadBalancerTLSCertificates,
+    -- ** GetLoadBalancerTlsCertificates
+    module Network.AWS.Lightsail.GetLoadBalancerTlsCertificates,
 
     -- ** CreateDisk
     module Network.AWS.Lightsail.CreateDisk,
@@ -453,14 +473,41 @@ module Network.AWS.Lightsail
 
     -- * Types
 
-    -- ** AccessDirection
-    AccessDirection (..),
-
-    -- ** AddOnType
-    AddOnType (..),
-
     -- ** AlarmState
     AlarmState (..),
+
+    -- ** HeaderEnum
+    HeaderEnum (..),
+
+    -- ** DomainEntryType
+    DomainEntryType (..),
+
+    -- ** PendingMaintenanceAction
+    PendingMaintenanceAction (..),
+    mkPendingMaintenanceAction,
+    pmaAction,
+    pmaCurrentApplyDate,
+    pmaDescription,
+
+    -- ** LoadBalancerProtocol
+    LoadBalancerProtocol (..),
+
+    -- ** Origin
+    Origin (..),
+    mkOrigin,
+    oName,
+    oProtocolPolicy,
+    oRegionName,
+    oResourceType,
+
+    -- ** CloudFormationStackRecordSourceType
+    CloudFormationStackRecordSourceType (..),
+
+    -- ** ContainerServiceDeploymentState
+    ContainerServiceDeploymentState (..),
+
+    -- ** IpV6Address
+    IpV6Address (..),
 
     -- ** AutoSnapshotStatus
     AutoSnapshotStatus (..),
@@ -468,657 +515,31 @@ module Network.AWS.Lightsail
     -- ** BehaviorEnum
     BehaviorEnum (..),
 
-    -- ** BlueprintType
-    BlueprintType (..),
-
-    -- ** CertificateStatus
-    CertificateStatus (..),
-
-    -- ** CloudFormationStackRecordSourceType
-    CloudFormationStackRecordSourceType (..),
-
-    -- ** ComparisonOperator
-    ComparisonOperator (..),
-
-    -- ** ContactMethodStatus
-    ContactMethodStatus (..),
-
-    -- ** ContactMethodVerificationProtocol
-    ContactMethodVerificationProtocol (..),
-
-    -- ** ContactProtocol
-    ContactProtocol (..),
-
-    -- ** ContainerServiceDeploymentState
-    ContainerServiceDeploymentState (..),
-
-    -- ** ContainerServiceMetricName
-    ContainerServiceMetricName (..),
-
-    -- ** ContainerServicePowerName
-    ContainerServicePowerName (..),
-
-    -- ** ContainerServiceProtocol
-    ContainerServiceProtocol (..),
-
-    -- ** ContainerServiceState
-    ContainerServiceState (..),
-
-    -- ** DiskSnapshotState
-    DiskSnapshotState (..),
-
-    -- ** DiskState
-    DiskState (..),
-
-    -- ** DistributionMetricName
-    DistributionMetricName (..),
-
-    -- ** ExportSnapshotRecordSourceType
-    ExportSnapshotRecordSourceType (..),
-
-    -- ** ForwardValues
-    ForwardValues (..),
-
-    -- ** HeaderEnum
-    HeaderEnum (..),
-
-    -- ** InstanceAccessProtocol
-    InstanceAccessProtocol (..),
-
-    -- ** InstanceHealthReason
-    InstanceHealthReason (..),
-
-    -- ** InstanceHealthState
-    InstanceHealthState (..),
-
-    -- ** InstanceMetricName
-    InstanceMetricName (..),
-
-    -- ** InstancePlatform
-    InstancePlatform (..),
-
-    -- ** InstanceSnapshotState
-    InstanceSnapshotState (..),
-
-    -- ** LoadBalancerAttributeName
-    LoadBalancerAttributeName (..),
-
-    -- ** LoadBalancerMetricName
-    LoadBalancerMetricName (..),
-
-    -- ** LoadBalancerProtocol
-    LoadBalancerProtocol (..),
-
-    -- ** LoadBalancerState
-    LoadBalancerState (..),
-
-    -- ** LoadBalancerTLSCertificateDomainStatus
-    LoadBalancerTLSCertificateDomainStatus (..),
-
-    -- ** LoadBalancerTLSCertificateFailureReason
-    LoadBalancerTLSCertificateFailureReason (..),
-
-    -- ** LoadBalancerTLSCertificateRenewalStatus
-    LoadBalancerTLSCertificateRenewalStatus (..),
-
-    -- ** LoadBalancerTLSCertificateRevocationReason
-    LoadBalancerTLSCertificateRevocationReason (..),
-
-    -- ** LoadBalancerTLSCertificateStatus
-    LoadBalancerTLSCertificateStatus (..),
-
-    -- ** MetricName
-    MetricName (..),
-
-    -- ** MetricStatistic
-    MetricStatistic (..),
-
-    -- ** MetricUnit
-    MetricUnit (..),
-
-    -- ** NetworkProtocol
-    NetworkProtocol (..),
-
-    -- ** OperationStatus
-    OperationStatus (..),
-
-    -- ** OperationType
-    OperationType (..),
-
-    -- ** OriginProtocolPolicyEnum
-    OriginProtocolPolicyEnum (..),
-
-    -- ** PortAccessType
-    PortAccessType (..),
-
-    -- ** PortInfoSourceType
-    PortInfoSourceType (..),
-
-    -- ** PortState
-    PortState (..),
-
-    -- ** RecordState
-    RecordState (..),
-
-    -- ** RegionName
-    RegionName (..),
-
-    -- ** RelationalDatabaseEngine
-    RelationalDatabaseEngine (..),
-
-    -- ** RelationalDatabaseMetricName
-    RelationalDatabaseMetricName (..),
-
-    -- ** RelationalDatabasePasswordVersion
-    RelationalDatabasePasswordVersion (..),
-
-    -- ** RenewalStatus
-    RenewalStatus (..),
-
-    -- ** ResourceType
-    ResourceType (..),
-
-    -- ** TreatMissingData
-    TreatMissingData (..),
-
-    -- ** AddOn
-    AddOn (..),
-    mkAddOn,
-    aoStatus,
-    aoNextSnapshotTimeOfDay,
-    aoSnapshotTimeOfDay,
-    aoName,
-
-    -- ** AddOnRequest
-    AddOnRequest (..),
-    mkAddOnRequest,
-    aorAutoSnapshotAddOnRequest,
-    aorAddOnType,
-
-    -- ** Alarm
-    Alarm (..),
-    mkAlarm,
-    aState,
-    aTreatMissingData,
-    aResourceType,
-    aArn,
-    aCreatedAt,
-    aLocation,
-    aContactProtocols,
-    aPeriod,
-    aEvaluationPeriods,
-    aMetricName,
-    aComparisonOperator,
-    aName,
-    aThreshold,
-    aDatapointsToAlarm,
-    aSupportCode,
-    aNotificationEnabled,
-    aNotificationTriggers,
-    aStatistic,
-    aUnit,
-    aMonitoredResourceInfo,
-
-    -- ** AttachedDisk
-    AttachedDisk (..),
-    mkAttachedDisk,
-    adPath,
-    adSizeInGb,
-
-    -- ** AutoSnapshotAddOnRequest
-    AutoSnapshotAddOnRequest (..),
-    mkAutoSnapshotAddOnRequest,
-    asaorSnapshotTimeOfDay,
-
-    -- ** AutoSnapshotDetails
-    AutoSnapshotDetails (..),
-    mkAutoSnapshotDetails,
-    asdStatus,
-    asdFromAttachedDisks,
-    asdCreatedAt,
-    asdDate,
-
-    -- ** AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azState,
-    azZoneName,
-
     -- ** Blueprint
     Blueprint (..),
     mkBlueprint,
-    bVersionCode,
-    bPlatform,
-    bGroup,
-    bMinPower,
-    bProductURL,
-    bLicenseURL,
-    bName,
-    bVersion,
     bBlueprintId,
-    bType,
-    bIsActive,
     bDescription,
+    bGroup,
+    bIsActive,
+    bLicenseUrl,
+    bMinPower,
+    bName,
+    bPlatform,
+    bProductUrl,
+    bType,
+    bVersion,
+    bVersionCode,
 
-    -- ** Bundle
-    Bundle (..),
-    mkBundle,
-    bfCpuCount,
-    bfTransferPerMonthInGb,
-    bfBundleId,
-    bfInstanceType,
-    bfName,
-    bfPower,
-    bfDiskSizeInGb,
-    bfSupportedPlatforms,
-    bfPrice,
-    bfIsActive,
-    bfRamSizeInGb,
-
-    -- ** CacheBehavior
-    CacheBehavior (..),
-    mkCacheBehavior,
-    cbBehavior,
-
-    -- ** CacheBehaviorPerPath
-    CacheBehaviorPerPath (..),
-    mkCacheBehaviorPerPath,
-    cbppPath,
-    cbppBehavior,
-
-    -- ** CacheSettings
-    CacheSettings (..),
-    mkCacheSettings,
-    csMaximumTTL,
-    csCachedHTTPMethods,
-    csForwardedCookies,
-    csAllowedHTTPMethods,
-    csDefaultTTL,
-    csMinimumTTL,
-    csForwardedHeaders,
-    csForwardedQueryStrings,
-
-    -- ** Certificate
-    Certificate (..),
-    mkCertificate,
-    cfStatus,
-    cfSubjectAlternativeNames,
-    cfArn,
-    cfCreatedAt,
-    cfEligibleToRenew,
-    cfRequestFailureReason,
-    cfRevokedAt,
-    cfNotBefore,
-    cfRevocationReason,
-    cfDomainName,
-    cfName,
-    cfRenewalSummary,
-    cfSupportCode,
-    cfDomainValidationRecords,
-    cfInUseResourceCount,
-    cfIssuedAt,
-    cfKeyAlgorithm,
-    cfSerialNumber,
-    cfIssuerCA,
-    cfTags,
-    cfNotAfter,
-
-    -- ** CertificateSummary
-    CertificateSummary (..),
-    mkCertificateSummary,
-    csfCertificateDetail,
-    csfCertificateName,
-    csfCertificateARN,
-    csfDomainName,
-    csfTags,
-
-    -- ** CloudFormationStackRecord
-    CloudFormationStackRecord (..),
-    mkCloudFormationStackRecord,
-    cfsrState,
-    cfsrDestinationInfo,
-    cfsrResourceType,
-    cfsrArn,
-    cfsrCreatedAt,
-    cfsrLocation,
-    cfsrName,
-    cfsrSourceInfo,
-
-    -- ** CloudFormationStackRecordSourceInfo
-    CloudFormationStackRecordSourceInfo (..),
-    mkCloudFormationStackRecordSourceInfo,
-    cfsrsiResourceType,
-    cfsrsiArn,
-    cfsrsiName,
-
-    -- ** ContactMethod
-    ContactMethod (..),
-    mkContactMethod,
-    cmStatus,
-    cmResourceType,
-    cmArn,
-    cmCreatedAt,
-    cmLocation,
-    cmProtocol,
-    cmName,
-    cmSupportCode,
-    cmContactEndpoint,
-
-    -- ** Container
-    Container (..),
-    mkContainer,
-    cImage,
-    cCommand,
-    cEnvironment,
-    cPorts,
-
-    -- ** ContainerImage
-    ContainerImage (..),
-    mkContainerImage,
-    ciImage,
-    ciCreatedAt,
-    ciDigest,
-
-    -- ** ContainerService
-    ContainerService (..),
-    mkContainerService,
-    csState,
-    csPowerId,
-    csResourceType,
-    csArn,
-    csCreatedAt,
-    csLocation,
-    csScale,
-    csUrl,
-    csNextDeployment,
-    csPrincipalARN,
-    csPower,
-    csPrivateDomainName,
-    csIsDisabled,
-    csPublicDomainNames,
-    csContainerServiceName,
-    csCurrentDeployment,
-    csTags,
-
-    -- ** ContainerServiceDeployment
-    ContainerServiceDeployment (..),
-    mkContainerServiceDeployment,
-    csdState,
-    csdPublicEndpoint,
-    csdCreatedAt,
-    csdContainers,
-    csdVersion,
-
-    -- ** ContainerServiceDeploymentRequest
-    ContainerServiceDeploymentRequest (..),
-    mkContainerServiceDeploymentRequest,
-    csdrPublicEndpoint,
-    csdrContainers,
-
-    -- ** ContainerServiceEndpoint
-    ContainerServiceEndpoint (..),
-    mkContainerServiceEndpoint,
-    cseHealthCheck,
-    cseContainerName,
-    cseContainerPort,
-
-    -- ** ContainerServiceHealthCheckConfig
-    ContainerServiceHealthCheckConfig (..),
-    mkContainerServiceHealthCheckConfig,
-    cshccHealthyThreshold,
-    cshccPath,
-    cshccSuccessCodes,
-    cshccIntervalSeconds,
-    cshccTimeoutSeconds,
-    cshccUnhealthyThreshold,
-
-    -- ** ContainerServiceLogEvent
-    ContainerServiceLogEvent (..),
-    mkContainerServiceLogEvent,
-    csleCreatedAt,
-    csleMessage,
-
-    -- ** ContainerServicePower
-    ContainerServicePower (..),
-    mkContainerServicePower,
-    cspPowerId,
-    cspCpuCount,
-    cspName,
-    cspPrice,
-    cspIsActive,
-    cspRamSizeInGb,
-
-    -- ** ContainerServiceRegistryLogin
-    ContainerServiceRegistryLogin (..),
-    mkContainerServiceRegistryLogin,
-    csrlExpiresAt,
-    csrlUsername,
-    csrlPassword,
-    csrlRegistry,
-
-    -- ** CookieObject
-    CookieObject (..),
-    mkCookieObject,
-    coCookiesAllowList,
-    coOption,
-
-    -- ** DestinationInfo
-    DestinationInfo (..),
-    mkDestinationInfo,
-    diService,
-    diId,
-
-    -- ** Disk
-    Disk (..),
-    mkDisk,
-    dfState,
-    dfResourceType,
-    dfArn,
-    dfPath,
-    dfCreatedAt,
-    dfLocation,
-    dfIops,
-    dfIsAttached,
-    dfAddOns,
-    dfAttachmentState,
-    dfName,
-    dfSizeInGb,
-    dfSupportCode,
-    dfIsSystemDisk,
-    dfAttachedTo,
-    dfGbInUse,
-    dfTags,
-
-    -- ** DiskInfo
-    DiskInfo (..),
-    mkDiskInfo,
-    diPath,
-    diName,
-    diSizeInGb,
-    diIsSystemDisk,
-
-    -- ** DiskMap
-    DiskMap (..),
-    mkDiskMap,
-    dmNewDiskName,
-    dmOriginalDiskPath,
-
-    -- ** DiskSnapshot
-    DiskSnapshot (..),
-    mkDiskSnapshot,
-    dsFromDiskName,
-    dsIsFromAutoSnapshot,
-    dsState,
-    dsResourceType,
-    dsArn,
-    dsCreatedAt,
-    dsLocation,
-    dsProgress,
-    dsName,
-    dsSizeInGb,
-    dsSupportCode,
-    dsFromInstanceARN,
-    dsFromInstanceName,
-    dsFromDiskARN,
-    dsTags,
-
-    -- ** DiskSnapshotInfo
-    DiskSnapshotInfo (..),
-    mkDiskSnapshotInfo,
-    dsiSizeInGb,
-
-    -- ** DistributionBundle
-    DistributionBundle (..),
-    mkDistributionBundle,
-    dbTransferPerMonthInGb,
-    dbBundleId,
-    dbName,
-    dbPrice,
-    dbIsActive,
-
-    -- ** Domain
-    Domain (..),
-    mkDomain,
-    dResourceType,
-    dDomainEntries,
-    dArn,
-    dCreatedAt,
-    dLocation,
-    dName,
-    dSupportCode,
-    dTags,
-
-    -- ** DomainEntry
-    DomainEntry (..),
-    mkDomainEntry,
-    deIsAlias,
-    deName,
-    deId,
-    deOptions,
-    deType,
-    deTarget,
-
-    -- ** DomainValidationRecord
-    DomainValidationRecord (..),
-    mkDomainValidationRecord,
-    dvrResourceRecord,
-    dvrDomainName,
-
-    -- ** EndpointRequest
-    EndpointRequest (..),
-    mkEndpointRequest,
-    erHealthCheck,
-    erContainerName,
-    erContainerPort,
-
-    -- ** ExportSnapshotRecord
-    ExportSnapshotRecord (..),
-    mkExportSnapshotRecord,
-    esrState,
-    esrDestinationInfo,
-    esrResourceType,
-    esrArn,
-    esrCreatedAt,
-    esrLocation,
-    esrName,
-    esrSourceInfo,
-
-    -- ** ExportSnapshotRecordSourceInfo
-    ExportSnapshotRecordSourceInfo (..),
-    mkExportSnapshotRecordSourceInfo,
-    esrsiDiskSnapshotInfo,
-    esrsiResourceType,
-    esrsiArn,
-    esrsiCreatedAt,
-    esrsiFromResourceARN,
-    esrsiName,
-    esrsiInstanceSnapshotInfo,
-    esrsiFromResourceName,
-
-    -- ** HeaderObject
-    HeaderObject (..),
-    mkHeaderObject,
-    hoHeadersAllowList,
-    hoOption,
-
-    -- ** HostKeyAttributes
-    HostKeyAttributes (..),
-    mkHostKeyAttributes,
-    hkaNotValidAfter,
-    hkaNotValidBefore,
-    hkaFingerprintSHA1,
-    hkaPublicKey,
-    hkaAlgorithm,
-    hkaWitnessedAt,
-    hkaFingerprintSHA256,
-
-    -- ** InputOrigin
-    InputOrigin (..),
-    mkInputOrigin,
-    ioRegionName,
-    ioName,
-    ioProtocolPolicy,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iState,
-    iIpv6Address,
-    iResourceType,
-    iArn,
-    iCreatedAt,
-    iLocation,
-    iSshKeyName,
-    iAddOns,
-    iUsername,
-    iNetworking,
-    iBundleId,
-    iName,
-    iSupportCode,
-    iBlueprintId,
-    iPrivateIPAddress,
-    iBlueprintName,
-    iIsStaticIP,
-    iPublicIPAddress,
-    iHardware,
-    iTags,
-
-    -- ** InstanceAccessDetails
-    InstanceAccessDetails (..),
-    mkInstanceAccessDetails,
-    iadHostKeys,
-    iadCertKey,
-    iadIpAddress,
-    iadPrivateKey,
-    iadExpiresAt,
-    iadUsername,
-    iadProtocol,
-    iadPasswordData,
-    iadPassword,
-    iadInstanceName,
-
-    -- ** InstanceEntry
-    InstanceEntry (..),
-    mkInstanceEntry,
-    iePortInfoSource,
-    ieSourceName,
-    ieUserData,
-    ieInstanceType,
-    ieAvailabilityZone,
-
-    -- ** InstanceHardware
-    InstanceHardware (..),
-    mkInstanceHardware,
-    ihCpuCount,
-    ihDisks,
-    ihRamSizeInGb,
-
-    -- ** InstanceHealthSummary
-    InstanceHealthSummary (..),
-    mkInstanceHealthSummary,
-    ihsInstanceHealth,
-    ihsInstanceName,
-    ihsInstanceHealthReason,
+    -- ** InstancePortState
+    InstancePortState (..),
+    mkInstancePortState,
+    ipsCidrListAliases,
+    ipsCidrs,
+    ipsFromPort,
+    ipsProtocol,
+    ipsState,
+    ipsToPort,
 
     -- ** InstanceNetworking
     InstanceNetworking (..),
@@ -1126,337 +547,224 @@ module Network.AWS.Lightsail
     inMonthlyTransfer,
     inPorts,
 
-    -- ** InstancePortInfo
-    InstancePortInfo (..),
-    mkInstancePortInfo,
-    ipiFromPort,
-    ipiCidrs,
-    ipiCommonName,
-    ipiProtocol,
-    ipiCidrListAliases,
-    ipiAccessDirection,
-    ipiAccessType,
-    ipiToPort,
-    ipiAccessFrom,
+    -- ** IpAddress
+    IpAddress (..),
 
-    -- ** InstancePortState
-    InstancePortState (..),
-    mkInstancePortState,
-    ipsFromPort,
-    ipsCidrs,
-    ipsState,
-    ipsProtocol,
-    ipsCidrListAliases,
-    ipsToPort,
+    -- ** ResourceRecord
+    ResourceRecord (..),
+    mkResourceRecord,
+    rrName,
+    rrType,
+    rrValue,
 
-    -- ** InstanceSnapshot
-    InstanceSnapshot (..),
-    mkInstanceSnapshot,
-    isFromBlueprintId,
-    isIsFromAutoSnapshot,
-    isState,
-    isResourceType,
-    isFromAttachedDisks,
-    isArn,
-    isCreatedAt,
-    isLocation,
-    isProgress,
-    isName,
-    isFromBundleId,
-    isSizeInGb,
-    isSupportCode,
-    isFromInstanceARN,
-    isFromInstanceName,
-    isTags,
+    -- ** RegionName
+    RegionName (..),
 
-    -- ** InstanceSnapshotInfo
-    InstanceSnapshotInfo (..),
-    mkInstanceSnapshotInfo,
-    isiFromBlueprintId,
-    isiFromBundleId,
-    isiFromDiskInfo,
+    -- ** DiskSnapshotInfo
+    DiskSnapshotInfo (..),
+    mkDiskSnapshotInfo,
+    dsiSizeInGb,
 
-    -- ** InstanceState
-    InstanceState (..),
-    mkInstanceState,
-    isfName,
-    isfCode,
+    -- ** InstanceSnapshotState
+    InstanceSnapshotState (..),
 
-    -- ** KeyPair
-    KeyPair (..),
-    mkKeyPair,
-    kpResourceType,
-    kpArn,
-    kpCreatedAt,
-    kpLocation,
-    kpFingerprint,
-    kpName,
-    kpSupportCode,
-    kpTags,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** LightsailDistribution
-    LightsailDistribution (..),
-    mkLightsailDistribution,
-    ldStatus,
-    ldOrigin,
-    ldCertificateName,
-    ldResourceType,
-    ldArn,
-    ldCreatedAt,
-    ldLocation,
-    ldCacheBehaviorSettings,
-    ldAlternativeDomainNames,
-    ldBundleId,
-    ldAbleToUpdateBundle,
-    ldOriginPublicDNS,
-    ldDomainName,
-    ldName,
-    ldIsEnabled,
-    ldSupportCode,
-    ldDefaultCacheBehavior,
-    ldCacheBehaviors,
-    ldTags,
+    -- ** TreatMissingData
+    TreatMissingData (..),
 
-    -- ** LoadBalancer
-    LoadBalancer (..),
-    mkLoadBalancer,
-    lbHealthCheckPath,
-    lbState,
-    lbResourceType,
-    lbArn,
-    lbCreatedAt,
-    lbLocation,
-    lbInstancePort,
-    lbConfigurationOptions,
-    lbProtocol,
-    lbTlsCertificateSummaries,
-    lbName,
-    lbSupportCode,
-    lbPublicPorts,
-    lbDnsName,
-    lbInstanceHealthSummary,
-    lbTags,
+    -- ** ContainerService
+    ContainerService (..),
+    mkContainerService,
+    csArn,
+    csContainerServiceName,
+    csCreatedAt,
+    csCurrentDeployment,
+    csIsDisabled,
+    csLocation,
+    csNextDeployment,
+    csPower,
+    csPowerId,
+    csPrincipalArn,
+    csPrivateDomainName,
+    csPublicDomainNames,
+    csResourceType,
+    csScale,
+    csState,
+    csTags,
+    csUrl,
 
-    -- ** LoadBalancerTLSCertificate
-    LoadBalancerTLSCertificate (..),
-    mkLoadBalancerTLSCertificate,
-    lbtcFailureReason,
-    lbtcSubject,
-    lbtcStatus,
-    lbtcSubjectAlternativeNames,
-    lbtcResourceType,
-    lbtcArn,
-    lbtcCreatedAt,
-    lbtcLocation,
-    lbtcLoadBalancerName,
-    lbtcSerial,
-    lbtcIsAttached,
-    lbtcRevokedAt,
-    lbtcNotBefore,
-    lbtcRevocationReason,
-    lbtcDomainName,
-    lbtcName,
-    lbtcRenewalSummary,
-    lbtcSupportCode,
-    lbtcDomainValidationRecords,
-    lbtcIssuedAt,
-    lbtcKeyAlgorithm,
-    lbtcSignatureAlgorithm,
-    lbtcIssuer,
-    lbtcTags,
-    lbtcNotAfter,
+    -- ** CertificateName
+    CertificateName (..),
 
-    -- ** LoadBalancerTLSCertificateDomainValidationOption
-    LoadBalancerTLSCertificateDomainValidationOption (..),
-    mkLoadBalancerTLSCertificateDomainValidationOption,
-    lbtcdvoDomainName,
-    lbtcdvoValidationStatus,
+    -- ** ContainerServiceHealthCheckConfig
+    ContainerServiceHealthCheckConfig (..),
+    mkContainerServiceHealthCheckConfig,
+    cshccHealthyThreshold,
+    cshccIntervalSeconds,
+    cshccPath,
+    cshccSuccessCodes,
+    cshccTimeoutSeconds,
+    cshccUnhealthyThreshold,
 
-    -- ** LoadBalancerTLSCertificateDomainValidationRecord
-    LoadBalancerTLSCertificateDomainValidationRecord (..),
-    mkLoadBalancerTLSCertificateDomainValidationRecord,
-    lbtcdvrValue,
-    lbtcdvrDomainName,
-    lbtcdvrName,
-    lbtcdvrValidationStatus,
-    lbtcdvrType,
-
-    -- ** LoadBalancerTLSCertificateRenewalSummary
-    LoadBalancerTLSCertificateRenewalSummary (..),
-    mkLoadBalancerTLSCertificateRenewalSummary,
-    lbtcrsRenewalStatus,
-    lbtcrsDomainValidationOptions,
-
-    -- ** LoadBalancerTLSCertificateSummary
-    LoadBalancerTLSCertificateSummary (..),
-    mkLoadBalancerTLSCertificateSummary,
-    lbtcsIsAttached,
-    lbtcsName,
-
-    -- ** LogEvent
-    LogEvent (..),
-    mkLogEvent,
-    leCreatedAt,
-    leMessage,
-
-    -- ** MetricDatapoint
-    MetricDatapoint (..),
-    mkMetricDatapoint,
-    mdSampleCount,
-    mdMaximum,
-    mdAverage,
-    mdMinimum,
-    mdSum,
-    mdTimestamp,
-    mdUnit,
-
-    -- ** MonitoredResourceInfo
-    MonitoredResourceInfo (..),
-    mkMonitoredResourceInfo,
-    mriResourceType,
-    mriArn,
-    mriName,
-
-    -- ** MonthlyTransfer
-    MonthlyTransfer (..),
-    mkMonthlyTransfer,
-    mtGbPerMonthAllocated,
-
-    -- ** Operation
-    Operation (..),
-    mkOperation,
-    oStatus,
-    oOperationDetails,
-    oResourceType,
-    oCreatedAt,
-    oResourceName,
-    oLocation,
-    oStatusChangedAt,
-    oErrorDetails,
-    oErrorCode,
-    oId,
-    oOperationType,
-    oIsTerminal,
-
-    -- ** Origin
-    Origin (..),
-    mkOrigin,
-    ofRegionName,
-    ofResourceType,
-    ofName,
-    ofProtocolPolicy,
-
-    -- ** PasswordData
-    PasswordData (..),
-    mkPasswordData,
-    pdKeyPairName,
-    pdCiphertext,
-
-    -- ** PendingMaintenanceAction
-    PendingMaintenanceAction (..),
-    mkPendingMaintenanceAction,
-    pmaAction,
-    pmaDescription,
-    pmaCurrentApplyDate,
-
-    -- ** PendingModifiedRelationalDatabaseValues
-    PendingModifiedRelationalDatabaseValues (..),
-    mkPendingModifiedRelationalDatabaseValues,
-    pmrdvEngineVersion,
-    pmrdvMasterUserPassword,
-    pmrdvBackupRetentionEnabled,
-
-    -- ** PortInfo
-    PortInfo (..),
-    mkPortInfo,
-    piFromPort,
-    piCidrs,
-    piProtocol,
-    piCidrListAliases,
-    piToPort,
-
-    -- ** QueryStringObject
-    QueryStringObject (..),
-    mkQueryStringObject,
-    qsoQueryStringsAllowList,
-    qsoOption,
-
-    -- ** RegionInfo
-    RegionInfo (..),
-    mkRegionInfo,
-    riAvailabilityZones,
-    riName,
-    riRelationalDatabaseAvailabilityZones,
-    riDisplayName,
-    riContinentCode,
-    riDescription,
-
-    -- ** RelationalDatabase
-    RelationalDatabase (..),
-    mkRelationalDatabase,
-    rdEngineVersion,
-    rdRelationalDatabaseBundleId,
-    rdMasterEndpoint,
-    rdState,
-    rdResourceType,
-    rdPubliclyAccessible,
-    rdMasterUsername,
-    rdArn,
-    rdCreatedAt,
-    rdLocation,
-    rdEngine,
-    rdLatestRestorableTime,
-    rdPreferredMaintenanceWindow,
-    rdRelationalDatabaseBlueprintId,
-    rdCaCertificateIdentifier,
-    rdName,
-    rdBackupRetentionEnabled,
-    rdPreferredBackupWindow,
-    rdPendingMaintenanceActions,
-    rdSupportCode,
-    rdSecondaryAvailabilityZone,
-    rdPendingModifiedValues,
-    rdMasterDatabaseName,
-    rdHardware,
-    rdParameterApplyStatus,
-    rdTags,
-
-    -- ** RelationalDatabaseBlueprint
-    RelationalDatabaseBlueprint (..),
-    mkRelationalDatabaseBlueprint,
-    rdbEngineVersion,
-    rdbIsEngineDefault,
-    rdbEngineVersionDescription,
-    rdbEngine,
-    rdbBlueprintId,
-    rdbEngineDescription,
-
-    -- ** RelationalDatabaseBundle
-    RelationalDatabaseBundle (..),
-    mkRelationalDatabaseBundle,
-    rdbIsEncrypted,
-    rdbCpuCount,
-    rdbTransferPerMonthInGb,
-    rdbBundleId,
-    rdbName,
-    rdbDiskSizeInGb,
-    rdbPrice,
-    rdbIsActive,
-    rdbRamSizeInGb,
-
-    -- ** RelationalDatabaseEndpoint
-    RelationalDatabaseEndpoint (..),
-    mkRelationalDatabaseEndpoint,
-    rdeAddress,
-    rdePort,
+    -- ** RecordState
+    RecordState (..),
 
     -- ** RelationalDatabaseEvent
     RelationalDatabaseEvent (..),
     mkRelationalDatabaseEvent,
     rdeCreatedAt,
     rdeEventCategories,
-    rdeResource,
     rdeMessage,
+    rdeResource,
+
+    -- ** AutoSnapshotAddOnRequest
+    AutoSnapshotAddOnRequest (..),
+    mkAutoSnapshotAddOnRequest,
+    asaorSnapshotTimeOfDay,
+
+    -- ** HeaderObject
+    HeaderObject (..),
+    mkHeaderObject,
+    hoHeadersAllowList,
+    hoOption,
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** DestinationInfo
+    DestinationInfo (..),
+    mkDestinationInfo,
+    diId,
+    diService,
+
+    -- ** QueryStringObject
+    QueryStringObject (..),
+    mkQueryStringObject,
+    qsoOption,
+    qsoQueryStringsAllowList,
+
+    -- ** RelationalDatabaseSnapshot
+    RelationalDatabaseSnapshot (..),
+    mkRelationalDatabaseSnapshot,
+    rdsArn,
+    rdsCreatedAt,
+    rdsEngine,
+    rdsEngineVersion,
+    rdsFromRelationalDatabaseArn,
+    rdsFromRelationalDatabaseBlueprintId,
+    rdsFromRelationalDatabaseBundleId,
+    rdsFromRelationalDatabaseName,
+    rdsLocation,
+    rdsName,
+    rdsResourceType,
+    rdsSizeInGb,
+    rdsState,
+    rdsSupportCode,
+    rdsTags,
+
+    -- ** ContainerServiceLogEvent
+    ContainerServiceLogEvent (..),
+    mkContainerServiceLogEvent,
+    csleCreatedAt,
+    csleMessage,
+
+    -- ** ContainerServicePowerName
+    ContainerServicePowerName (..),
+
+    -- ** PortAccessType
+    PortAccessType (..),
+
+    -- ** Disk
+    Disk (..),
+    mkDisk,
+    dAddOns,
+    dArn,
+    dAttachedTo,
+    dAttachmentState,
+    dCreatedAt,
+    dGbInUse,
+    dIops,
+    dIsAttached,
+    dIsSystemDisk,
+    dLocation,
+    dName,
+    dPath,
+    dResourceType,
+    dSizeInGb,
+    dState,
+    dSupportCode,
+    dTags,
+
+    -- ** EligibleToRenew
+    EligibleToRenew (..),
+
+    -- ** ContainerServiceState
+    ContainerServiceState (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** RelationalDatabaseMetricName
+    RelationalDatabaseMetricName (..),
+
+    -- ** KeyPair
+    KeyPair (..),
+    mkKeyPair,
+    kpArn,
+    kpCreatedAt,
+    kpFingerprint,
+    kpLocation,
+    kpName,
+    kpResourceType,
+    kpSupportCode,
+    kpTags,
+
+    -- ** RequestFailureReason
+    RequestFailureReason (..),
+
+    -- ** Operation
+    Operation (..),
+    mkOperation,
+    ofCreatedAt,
+    ofErrorCode,
+    ofErrorDetails,
+    ofId,
+    ofIsTerminal,
+    ofLocation,
+    ofOperationDetails,
+    ofOperationType,
+    ofResourceName,
+    ofResourceType,
+    ofStatus,
+    ofStatusChangedAt,
+
+    -- ** String
+    String (..),
+
+    -- ** ContainerName
+    ContainerName (..),
+
+    -- ** MetricDatapoint
+    MetricDatapoint (..),
+    mkMetricDatapoint,
+    mdAverage,
+    mdMaximum,
+    mdMinimum,
+    mdSampleCount,
+    mdSum,
+    mdTimestamp,
+    mdUnit,
+
+    -- ** LogEvent
+    LogEvent (..),
+    mkLogEvent,
+    leCreatedAt,
+    leMessage,
 
     -- ** RelationalDatabaseHardware
     RelationalDatabaseHardware (..),
@@ -1465,95 +773,1087 @@ module Network.AWS.Lightsail
     rdhDiskSizeInGb,
     rdhRamSizeInGb,
 
+    -- ** NetworkProtocol
+    NetworkProtocol (..),
+
+    -- ** PendingModifiedRelationalDatabaseValues
+    PendingModifiedRelationalDatabaseValues (..),
+    mkPendingModifiedRelationalDatabaseValues,
+    pmrdvBackupRetentionEnabled,
+    pmrdvEngineVersion,
+    pmrdvMasterUserPassword,
+
+    -- ** LoadBalancerTlsCertificateRevocationReason
+    LoadBalancerTlsCertificateRevocationReason (..),
+
+    -- ** Domain
+    Domain (..),
+    mkDomain,
+    dfArn,
+    dfCreatedAt,
+    dfDomainEntries,
+    dfLocation,
+    dfName,
+    dfResourceType,
+    dfSupportCode,
+    dfTags,
+
+    -- ** ContainerImage
+    ContainerImage (..),
+    mkContainerImage,
+    ciCreatedAt,
+    ciDigest,
+    ciImage,
+
+    -- ** AddOnType
+    AddOnType (..),
+
+    -- ** CacheBehavior
+    CacheBehavior (..),
+    mkCacheBehavior,
+    cbBehavior,
+
+    -- ** MetricName
+    MetricName (..),
+
+    -- ** DiskInfo
+    DiskInfo (..),
+    mkDiskInfo,
+    diIsSystemDisk,
+    diName,
+    diPath,
+    diSizeInGb,
+
+    -- ** LightsailDistribution
+    LightsailDistribution (..),
+    mkLightsailDistribution,
+    ldAbleToUpdateBundle,
+    ldAlternativeDomainNames,
+    ldArn,
+    ldBundleId,
+    ldCacheBehaviorSettings,
+    ldCacheBehaviors,
+    ldCertificateName,
+    ldCreatedAt,
+    ldDefaultCacheBehavior,
+    ldDomainName,
+    ldIsEnabled,
+    ldLocation,
+    ldName,
+    ldOrigin,
+    ldOriginPublicDNS,
+    ldResourceType,
+    ldStatus,
+    ldSupportCode,
+    ldTags,
+
+    -- ** ForwardValues
+    ForwardValues (..),
+
+    -- ** InstanceAccessProtocol
+    InstanceAccessProtocol (..),
+
+    -- ** DiskSnapshotState
+    DiskSnapshotState (..),
+
+    -- ** InstancePlatform
+    InstancePlatform (..),
+
+    -- ** ContactProtocol
+    ContactProtocol (..),
+
+    -- ** DistributionBundle
+    DistributionBundle (..),
+    mkDistributionBundle,
+    dbBundleId,
+    dbIsActive,
+    dbName,
+    dbPrice,
+    dbTransferPerMonthInGb,
+
+    -- ** MonthlyTransfer
+    MonthlyTransfer (..),
+    mkMonthlyTransfer,
+    mtGbPerMonthAllocated,
+
+    -- ** LoadBalancerAttributeName
+    LoadBalancerAttributeName (..),
+
+    -- ** ContainerServiceMetricName
+    ContainerServiceMetricName (..),
+
+    -- ** OperationStatus
+    OperationStatus (..),
+
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** DistributionMetricName
+    DistributionMetricName (..),
+
+    -- ** AutoSnapshotDetails
+    AutoSnapshotDetails (..),
+    mkAutoSnapshotDetails,
+    asdCreatedAt,
+    asdDate,
+    asdFromAttachedDisks,
+    asdStatus,
+
+    -- ** DiskMap
+    DiskMap (..),
+    mkDiskMap,
+    dmNewDiskName,
+    dmOriginalDiskPath,
+
+    -- ** RelationalDatabaseBlueprint
+    RelationalDatabaseBlueprint (..),
+    mkRelationalDatabaseBlueprint,
+    rdbBlueprintId,
+    rdbEngine,
+    rdbEngineDescription,
+    rdbEngineVersion,
+    rdbEngineVersionDescription,
+    rdbIsEngineDefault,
+
+    -- ** AddOnRequest
+    AddOnRequest (..),
+    mkAddOnRequest,
+    aorAddOnType,
+    aorAutoSnapshotAddOnRequest,
+
+    -- ** DiskSnapshot
+    DiskSnapshot (..),
+    mkDiskSnapshot,
+    dsArn,
+    dsCreatedAt,
+    dsFromDiskArn,
+    dsFromDiskName,
+    dsFromInstanceArn,
+    dsFromInstanceName,
+    dsIsFromAutoSnapshot,
+    dsLocation,
+    dsName,
+    dsProgress,
+    dsResourceType,
+    dsSizeInGb,
+    dsState,
+    dsSupportCode,
+    dsTags,
+
+    -- ** StaticIp
+    StaticIp (..),
+    mkStaticIp,
+    siArn,
+    siAttachedTo,
+    siCreatedAt,
+    siIpAddress,
+    siIsAttached,
+    siLocation,
+    siName,
+    siResourceType,
+    siSupportCode,
+
+    -- ** SensitiveString
+    SensitiveString (..),
+
+    -- ** CertificateSummary
+    CertificateSummary (..),
+    mkCertificateSummary,
+    cCertificateArn,
+    cCertificateDetail,
+    cCertificateName,
+    cDomainName,
+    cTags,
+
+    -- ** CloudFormationStackRecord
+    CloudFormationStackRecord (..),
+    mkCloudFormationStackRecord,
+    cfsrArn,
+    cfsrCreatedAt,
+    cfsrDestinationInfo,
+    cfsrLocation,
+    cfsrName,
+    cfsrResourceType,
+    cfsrSourceInfo,
+    cfsrState,
+
+    -- ** AccessDirection
+    AccessDirection (..),
+
+    -- ** ContainerServiceRegistryLogin
+    ContainerServiceRegistryLogin (..),
+    mkContainerServiceRegistryLogin,
+    csrlExpiresAt,
+    csrlPassword,
+    csrlRegistry,
+    csrlUsername,
+
+    -- ** LoadBalancerTlsCertificateDomainValidationOption
+    LoadBalancerTlsCertificateDomainValidationOption (..),
+    mkLoadBalancerTlsCertificateDomainValidationOption,
+    lbtcdvoDomainName,
+    lbtcdvoValidationStatus,
+
+    -- ** DomainEntry
+    DomainEntry (..),
+    mkDomainEntry,
+    deId,
+    deIsAlias,
+    deName,
+    deOptions,
+    deTarget,
+    deType,
+
+    -- ** ContainerServiceProtocol
+    ContainerServiceProtocol (..),
+
+    -- ** Bundle
+    Bundle (..),
+    mkBundle,
+    bfBundleId,
+    bfCpuCount,
+    bfDiskSizeInGb,
+    bfInstanceType,
+    bfIsActive,
+    bfName,
+    bfPower,
+    bfPrice,
+    bfRamSizeInGb,
+    bfSupportedPlatforms,
+    bfTransferPerMonthInGb,
+
+    -- ** RevocationReason
+    RevocationReason (..),
+
+    -- ** LoadBalancerTlsCertificate
+    LoadBalancerTlsCertificate (..),
+    mkLoadBalancerTlsCertificate,
+    lbtcArn,
+    lbtcCreatedAt,
+    lbtcDomainName,
+    lbtcDomainValidationRecords,
+    lbtcFailureReason,
+    lbtcIsAttached,
+    lbtcIssuedAt,
+    lbtcIssuer,
+    lbtcKeyAlgorithm,
+    lbtcLoadBalancerName,
+    lbtcLocation,
+    lbtcName,
+    lbtcNotAfter,
+    lbtcNotBefore,
+    lbtcRenewalSummary,
+    lbtcResourceType,
+    lbtcRevocationReason,
+    lbtcRevokedAt,
+    lbtcSerial,
+    lbtcSignatureAlgorithm,
+    lbtcStatus,
+    lbtcSubject,
+    lbtcSubjectAlternativeNames,
+    lbtcSupportCode,
+    lbtcTags,
+
+    -- ** NonEmptyString
+    NonEmptyString (..),
+
+    -- ** PortInfo
+    PortInfo (..),
+    mkPortInfo,
+    piCidrListAliases,
+    piCidrs,
+    piFromPort,
+    piProtocol,
+    piToPort,
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** InstanceHardware
+    InstanceHardware (..),
+    mkInstanceHardware,
+    ihCpuCount,
+    ihDisks,
+    ihRamSizeInGb,
+
+    -- ** AttachedDisk
+    AttachedDisk (..),
+    mkAttachedDisk,
+    adPath,
+    adSizeInGb,
+
     -- ** RelationalDatabaseParameter
     RelationalDatabaseParameter (..),
     mkRelationalDatabaseParameter,
-    rdpApplyType,
-    rdpParameterValue,
-    rdpApplyMethod,
-    rdpDataType,
-    rdpIsModifiable,
     rdpAllowedValues,
-    rdpParameterName,
+    rdpApplyMethod,
+    rdpApplyType,
+    rdpDataType,
     rdpDescription,
-
-    -- ** RelationalDatabaseSnapshot
-    RelationalDatabaseSnapshot (..),
-    mkRelationalDatabaseSnapshot,
-    rdsEngineVersion,
-    rdsState,
-    rdsFromRelationalDatabaseName,
-    rdsResourceType,
-    rdsFromRelationalDatabaseBlueprintId,
-    rdsArn,
-    rdsCreatedAt,
-    rdsLocation,
-    rdsEngine,
-    rdsName,
-    rdsSizeInGb,
-    rdsSupportCode,
-    rdsFromRelationalDatabaseARN,
-    rdsFromRelationalDatabaseBundleId,
-    rdsTags,
-
-    -- ** RenewalSummary
-    RenewalSummary (..),
-    mkRenewalSummary,
-    rsRenewalStatus,
-    rsDomainValidationRecords,
-    rsUpdatedAt,
-    rsRenewalStatusReason,
+    rdpIsModifiable,
+    rdpParameterName,
+    rdpParameterValue,
 
     -- ** ResourceLocation
     ResourceLocation (..),
     mkResourceLocation,
-    rlRegionName,
     rlAvailabilityZone,
+    rlRegionName,
 
-    -- ** ResourceRecord
-    ResourceRecord (..),
-    mkResourceRecord,
-    rrValue,
-    rrName,
-    rrType,
+    -- ** PasswordData
+    PasswordData (..),
+    mkPasswordData,
+    pdCiphertext,
+    pdKeyPairName,
 
-    -- ** StaticIP
-    StaticIP (..),
-    mkStaticIP,
-    siIpAddress,
-    siResourceType,
-    siArn,
-    siCreatedAt,
-    siLocation,
-    siIsAttached,
-    siName,
-    siSupportCode,
-    siAttachedTo,
+    -- ** Base64
+    Base64 (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azState,
+    azZoneName,
+
+    -- ** InstanceAccessDetails
+    InstanceAccessDetails (..),
+    mkInstanceAccessDetails,
+    iadCertKey,
+    iadExpiresAt,
+    iadHostKeys,
+    iadInstanceName,
+    iadIpAddress,
+    iadPassword,
+    iadPasswordData,
+    iadPrivateKey,
+    iadProtocol,
+    iadUsername,
+
+    -- ** ContactMethod
+    ContactMethod (..),
+    mkContactMethod,
+    cmArn,
+    cmContactEndpoint,
+    cmCreatedAt,
+    cmLocation,
+    cmName,
+    cmProtocol,
+    cmResourceType,
+    cmStatus,
+    cmSupportCode,
+
+    -- ** BlueprintType
+    BlueprintType (..),
+
+    -- ** Container
+    Container (..),
+    mkContainer,
+    cCommand,
+    cEnvironment,
+    cImage,
+    cPorts,
+
+    -- ** MetricUnit
+    MetricUnit (..),
+
+    -- ** LoadBalancer
+    LoadBalancer (..),
+    mkLoadBalancer,
+    lbArn,
+    lbConfigurationOptions,
+    lbCreatedAt,
+    lbDnsName,
+    lbHealthCheckPath,
+    lbInstanceHealthSummary,
+    lbInstancePort,
+    lbLocation,
+    lbName,
+    lbProtocol,
+    lbPublicPorts,
+    lbResourceType,
+    lbState,
+    lbSupportCode,
+    lbTags,
+    lbTlsCertificateSummaries,
+
+    -- ** MetricStatistic
+    MetricStatistic (..),
+
+    -- ** DiskState
+    DiskState (..),
+
+    -- ** InstanceMetricName
+    InstanceMetricName (..),
+
+    -- ** EndpointRequest
+    EndpointRequest (..),
+    mkEndpointRequest,
+    erContainerName,
+    erContainerPort,
+    erHealthCheck,
+
+    -- ** RenewalStatus
+    RenewalStatus (..),
+
+    -- ** PortInfoSourceType
+    PortInfoSourceType (..),
+
+    -- ** RelationalDatabaseBundle
+    RelationalDatabaseBundle (..),
+    mkRelationalDatabaseBundle,
+    rdbBundleId,
+    rdbCpuCount,
+    rdbDiskSizeInGb,
+    rdbIsActive,
+    rdbIsEncrypted,
+    rdbName,
+    rdbPrice,
+    rdbRamSizeInGb,
+    rdbTransferPerMonthInGb,
+
+    -- ** CacheBehaviorPerPath
+    CacheBehaviorPerPath (..),
+    mkCacheBehaviorPerPath,
+    cbppBehavior,
+    cbppPath,
+
+    -- ** InputOrigin
+    InputOrigin (..),
+    mkInputOrigin,
+    ioName,
+    ioProtocolPolicy,
+    ioRegionName,
+
+    -- ** RenewalSummary
+    RenewalSummary (..),
+    mkRenewalSummary,
+    rsDomainValidationRecords,
+    rsRenewalStatus,
+    rsRenewalStatusReason,
+    rsUpdatedAt,
+
+    -- ** ContainerServiceDeploymentRequest
+    ContainerServiceDeploymentRequest (..),
+    mkContainerServiceDeploymentRequest,
+    csdrContainers,
+    csdrPublicEndpoint,
+
+    -- ** InstanceHealthState
+    InstanceHealthState (..),
+
+    -- ** LoadBalancerTlsCertificateDomainValidationRecord
+    LoadBalancerTlsCertificateDomainValidationRecord (..),
+    mkLoadBalancerTlsCertificateDomainValidationRecord,
+    lbtcdvrDomainName,
+    lbtcdvrName,
+    lbtcdvrType,
+    lbtcdvrValidationStatus,
+    lbtcdvrValue,
+
+    -- ** CloudFormationStackRecordSourceInfo
+    CloudFormationStackRecordSourceInfo (..),
+    mkCloudFormationStackRecordSourceInfo,
+    cfsrsiArn,
+    cfsrsiName,
+    cfsrsiResourceType,
+
+    -- ** Certificate
+    Certificate (..),
+    mkCertificate,
+    cfArn,
+    cfCreatedAt,
+    cfDomainName,
+    cfDomainValidationRecords,
+    cfEligibleToRenew,
+    cfInUseResourceCount,
+    cfIssuedAt,
+    cfIssuerCA,
+    cfKeyAlgorithm,
+    cfName,
+    cfNotAfter,
+    cfNotBefore,
+    cfRenewalSummary,
+    cfRequestFailureReason,
+    cfRevocationReason,
+    cfRevokedAt,
+    cfSerialNumber,
+    cfStatus,
+    cfSubjectAlternativeNames,
+    cfSupportCode,
+    cfTags,
+
+    -- ** InstanceEntry
+    InstanceEntry (..),
+    mkInstanceEntry,
+    ieSourceName,
+    ieInstanceType,
+    iePortInfoSource,
+    ieAvailabilityZone,
+    ieUserData,
+
+    -- ** LoadBalancerState
+    LoadBalancerState (..),
+
+    -- ** OperationType
+    OperationType (..),
+
+    -- ** ContainerServiceName
+    ContainerServiceName (..),
+
+    -- ** ExportSnapshotRecord
+    ExportSnapshotRecord (..),
+    mkExportSnapshotRecord,
+    esrArn,
+    esrCreatedAt,
+    esrDestinationInfo,
+    esrLocation,
+    esrName,
+    esrResourceType,
+    esrSourceInfo,
+    esrState,
+
+    -- ** InstanceSnapshot
+    InstanceSnapshot (..),
+    mkInstanceSnapshot,
+    isArn,
+    isCreatedAt,
+    isFromAttachedDisks,
+    isFromBlueprintId,
+    isFromBundleId,
+    isFromInstanceArn,
+    isFromInstanceName,
+    isIsFromAutoSnapshot,
+    isLocation,
+    isName,
+    isProgress,
+    isResourceType,
+    isSizeInGb,
+    isState,
+    isSupportCode,
+    isTags,
+
+    -- ** ContainerServicePower
+    ContainerServicePower (..),
+    mkContainerServicePower,
+    cspCpuCount,
+    cspIsActive,
+    cspName,
+    cspPowerId,
+    cspPrice,
+    cspRamSizeInGb,
+
+    -- ** RelationalDatabaseEndpoint
+    RelationalDatabaseEndpoint (..),
+    mkRelationalDatabaseEndpoint,
+    rdeAddress,
+    rdePort,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** RegionInfo
+    RegionInfo (..),
+    mkRegionInfo,
+    riAvailabilityZones,
+    riContinentCode,
+    riDescription,
+    riDisplayName,
+    riName,
+    riRelationalDatabaseAvailabilityZones,
+
+    -- ** ContactMethodVerificationProtocol
+    ContactMethodVerificationProtocol (..),
+
+    -- ** HostKeyAttributes
+    HostKeyAttributes (..),
+    mkHostKeyAttributes,
+    hkaAlgorithm,
+    hkaFingerprintSHA1,
+    hkaFingerprintSHA256,
+    hkaNotValidAfter,
+    hkaNotValidBefore,
+    hkaPublicKey,
+    hkaWitnessedAt,
+
+    -- ** DomainEntryOptionsKeys
+    DomainEntryOptionsKeys (..),
+
+    -- ** KeyAlgorithm
+    KeyAlgorithm (..),
+
+    -- ** RelationalDatabaseEngine
+    RelationalDatabaseEngine (..),
+
+    -- ** LoadBalancerTlsCertificateDomainStatus
+    LoadBalancerTlsCertificateDomainStatus (..),
+
+    -- ** LoadBalancerTlsCertificateSummary
+    LoadBalancerTlsCertificateSummary (..),
+    mkLoadBalancerTlsCertificateSummary,
+    lbtcsIsAttached,
+    lbtcsName,
+
+    -- ** LoadBalancerTlsCertificateFailureReason
+    LoadBalancerTlsCertificateFailureReason (..),
+
+    -- ** ExportSnapshotRecordSourceType
+    ExportSnapshotRecordSourceType (..),
+
+    -- ** TimeOfDay
+    TimeOfDay (..),
+
+    -- ** LoadBalancerTlsCertificateStatus
+    LoadBalancerTlsCertificateStatus (..),
+
+    -- ** AddOn
+    AddOn (..),
+    mkAddOn,
+    aoName,
+    aoNextSnapshotTimeOfDay,
+    aoSnapshotTimeOfDay,
+    aoStatus,
+
+    -- ** ContainerServiceDeployment
+    ContainerServiceDeployment (..),
+    mkContainerServiceDeployment,
+    csdContainers,
+    csdCreatedAt,
+    csdPublicEndpoint,
+    csdState,
+    csdVersion,
+
+    -- ** InstanceSnapshotInfo
+    InstanceSnapshotInfo (..),
+    mkInstanceSnapshotInfo,
+    isiFromBlueprintId,
+    isiFromBundleId,
+    isiFromDiskInfo,
+
+    -- ** SerialNumber
+    SerialNumber (..),
+
+    -- ** ContactMethodStatus
+    ContactMethodStatus (..),
+
+    -- ** Alarm
+    Alarm (..),
+    mkAlarm,
+    aArn,
+    aComparisonOperator,
+    aContactProtocols,
+    aCreatedAt,
+    aDatapointsToAlarm,
+    aEvaluationPeriods,
+    aLocation,
+    aMetricName,
+    aMonitoredResourceInfo,
+    aName,
+    aNotificationEnabled,
+    aNotificationTriggers,
+    aPeriod,
+    aResourceType,
+    aState,
+    aStatistic,
+    aSupportCode,
+    aThreshold,
+    aTreatMissingData,
+    aUnit,
+
+    -- ** RelationalDatabasePasswordVersion
+    RelationalDatabasePasswordVersion (..),
+
+    -- ** PortState
+    PortState (..),
+
+    -- ** RenewalStatusReason
+    RenewalStatusReason (..),
+
+    -- ** InstancePortInfo
+    InstancePortInfo (..),
+    mkInstancePortInfo,
+    ipiAccessDirection,
+    ipiAccessFrom,
+    ipiAccessType,
+    ipiCidrListAliases,
+    ipiCidrs,
+    ipiCommonName,
+    ipiFromPort,
+    ipiProtocol,
+    ipiToPort,
+
+    -- ** DomainValidationRecord
+    DomainValidationRecord (..),
+    mkDomainValidationRecord,
+    dvrDomainName,
+    dvrResourceRecord,
+
+    -- ** RelationalDatabase
+    RelationalDatabase (..),
+    mkRelationalDatabase,
+    rdArn,
+    rdBackupRetentionEnabled,
+    rdCaCertificateIdentifier,
+    rdCreatedAt,
+    rdEngine,
+    rdEngineVersion,
+    rdHardware,
+    rdLatestRestorableTime,
+    rdLocation,
+    rdMasterDatabaseName,
+    rdMasterEndpoint,
+    rdMasterUsername,
+    rdName,
+    rdParameterApplyStatus,
+    rdPendingMaintenanceActions,
+    rdPendingModifiedValues,
+    rdPreferredBackupWindow,
+    rdPreferredMaintenanceWindow,
+    rdPubliclyAccessible,
+    rdRelationalDatabaseBlueprintId,
+    rdRelationalDatabaseBundleId,
+    rdResourceType,
+    rdSecondaryAvailabilityZone,
+    rdState,
+    rdSupportCode,
+    rdTags,
+
+    -- ** LoadBalancerTlsCertificateRenewalSummary
+    LoadBalancerTlsCertificateRenewalSummary (..),
+    mkLoadBalancerTlsCertificateRenewalSummary,
+    lbtcrsDomainValidationOptions,
+    lbtcrsRenewalStatus,
+
+    -- ** ExportSnapshotRecordSourceInfo
+    ExportSnapshotRecordSourceInfo (..),
+    mkExportSnapshotRecordSourceInfo,
+    esrsiArn,
+    esrsiCreatedAt,
+    esrsiDiskSnapshotInfo,
+    esrsiFromResourceArn,
+    esrsiFromResourceName,
+    esrsiInstanceSnapshotInfo,
+    esrsiName,
+    esrsiResourceType,
+
+    -- ** LoadBalancerTlsCertificateRenewalStatus
+    LoadBalancerTlsCertificateRenewalStatus (..),
+
+    -- ** InstanceState
+    InstanceState (..),
+    mkInstanceState,
+    isfCode,
+    isfName,
+
+    -- ** CertificateStatus
+    CertificateStatus (..),
+
+    -- ** IssuerCA
+    IssuerCA (..),
+
+    -- ** CacheSettings
+    CacheSettings (..),
+    mkCacheSettings,
+    csAllowedHTTPMethods,
+    csCachedHTTPMethods,
+    csDefaultTTL,
+    csForwardedCookies,
+    csForwardedHeaders,
+    csForwardedQueryStrings,
+    csMaximumTTL,
+    csMinimumTTL,
+
+    -- ** InstanceHealthReason
+    InstanceHealthReason (..),
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iAddOns,
+    iArn,
+    iBlueprintId,
+    iBlueprintName,
+    iBundleId,
+    iCreatedAt,
+    iHardware,
+    iIpv6Address,
+    iIsStaticIp,
+    iLocation,
+    iName,
+    iNetworking,
+    iPrivateIpAddress,
+    iPublicIpAddress,
+    iResourceType,
+    iSshKeyName,
+    iState,
+    iSupportCode,
+    iTags,
+    iUsername,
+
+    -- ** MonitoredResourceInfo
+    MonitoredResourceInfo (..),
+    mkMonitoredResourceInfo,
+    mriArn,
+    mriName,
+    mriResourceType,
+
+    -- ** ContainerServiceEndpoint
+    ContainerServiceEndpoint (..),
+    mkContainerServiceEndpoint,
+    cseContainerName,
+    cseContainerPort,
+    cseHealthCheck,
+
+    -- ** OriginProtocolPolicyEnum
+    OriginProtocolPolicyEnum (..),
+
+    -- ** CookieObject
+    CookieObject (..),
+    mkCookieObject,
+    coCookiesAllowList,
+    coOption,
+
+    -- ** LoadBalancerMetricName
+    LoadBalancerMetricName (..),
+
+    -- ** InstanceHealthSummary
+    InstanceHealthSummary (..),
+    mkInstanceHealthSummary,
+    ihsInstanceHealth,
+    ihsInstanceHealthReason,
+    ihsInstanceName,
+
+    -- ** LoadBalancerName
+    LoadBalancerName (..),
+
+    -- ** NextPageToken
+    NextPageToken (..),
+
+    -- ** ServiceName
+    ServiceName (..),
+
+    -- ** Action
+    Action (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** RelationalDatabaseName
+    RelationalDatabaseName (..),
+
+    -- ** PageToken
+    PageToken (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** AlarmName
+    AlarmName (..),
+
+    -- ** DistributionName
+    DistributionName (..),
+
+    -- ** RelationalDatabaseSnapshotName
+    RelationalDatabaseSnapshotName (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** BlueprintId
+    BlueprintId (..),
+
+    -- ** Group
+    Group (..),
+
+    -- ** LicenseUrl
+    LicenseUrl (..),
+
+    -- ** ProductUrl
+    ProductUrl (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** VersionCode
+    VersionCode (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** BundleId
+    BundleId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** DiskName
+    DiskName (..),
+
+    -- ** DiskSnapshotName
+    DiskSnapshotName (..),
+
+    -- ** RestoreDate
+    RestoreDate (..),
+
+    -- ** SourceDiskName
+    SourceDiskName (..),
+
+    -- ** NextBackwardToken
+    NextBackwardToken (..),
+
+    -- ** NextForwardToken
+    NextForwardToken (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** PowerId
+    PowerId (..),
+
+    -- ** PrincipalArn
+    PrincipalArn (..),
+
+    -- ** PrivateDomainName
+    PrivateDomainName (..),
+
+    -- ** Url
+    Url (..),
+
+    -- ** Path
+    Path (..),
+
+    -- ** SuccessCodes
+    SuccessCodes (..),
+
+    -- ** InstanceSnapshotName
+    InstanceSnapshotName (..),
+
+    -- ** Resource
+    Resource (..),
+
+    -- ** SnapshotTimeOfDay
+    SnapshotTimeOfDay (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** Service
+    Service (..),
+
+    -- ** Engine
+    Engine (..),
+
+    -- ** EngineVersion
+    EngineVersion (..),
+
+    -- ** FromRelationalDatabaseArn
+    FromRelationalDatabaseArn (..),
+
+    -- ** FromRelationalDatabaseBlueprintId
+    FromRelationalDatabaseBlueprintId (..),
+
+    -- ** FromRelationalDatabaseBundleId
+    FromRelationalDatabaseBundleId (..),
+
+    -- ** FromRelationalDatabaseName
+    FromRelationalDatabaseName (..),
+
+    -- ** State
+    State (..),
+
+    -- ** SupportCode
+    SupportCode (..),
+
+    -- ** LogStreamName
+    LogStreamName (..),
+
+    -- ** ContactEndpoint
+    ContactEndpoint (..),
+
+    -- ** AttachedTo
+    AttachedTo (..),
+
+    -- ** AttachmentState
+    AttachmentState (..),
+
+    -- ** Fingerprint
+    Fingerprint (..),
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** ErrorDetails
+    ErrorDetails (..),
+
+    -- ** OperationDetails
+    OperationDetails (..),
+
+    -- ** Label
+    Label (..),
+
+    -- ** MasterUserPassword
+    MasterUserPassword (..),
+
+    -- ** Date
+    Date (..),
+
+    -- ** PrivateKeyBase64
+    PrivateKeyBase64 (..),
+
+    -- ** PublicKeyBase64
+    PublicKeyBase64 (..),
+
+    -- ** AttributeValue
+    AttributeValue (..),
+
+    -- ** OriginalDiskPath
+    OriginalDiskPath (..),
+
+    -- ** FromDiskArn
+    FromDiskArn (..),
+
+    -- ** FromInstanceArn
+    FromInstanceArn (..),
+
+    -- ** CertificateArn
+    CertificateArn (..),
+
+    -- ** Issuer
+    Issuer (..),
+
+    -- ** Serial
+    Serial (..),
+
+    -- ** SignatureAlgorithm
+    SignatureAlgorithm (..),
+
+    -- ** Subject
+    Subject (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
-import Network.AWS.Lightsail.AllocateStaticIP
+import Network.AWS.Lightsail.AllocateStaticIp
 import Network.AWS.Lightsail.AttachCertificateToDistribution
 import Network.AWS.Lightsail.AttachDisk
 import Network.AWS.Lightsail.AttachInstancesToLoadBalancer
-import Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate
-import Network.AWS.Lightsail.AttachStaticIP
+import Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate
+import Network.AWS.Lightsail.AttachStaticIp
 import Network.AWS.Lightsail.CloseInstancePublicPorts
 import Network.AWS.Lightsail.CopySnapshot
 import Network.AWS.Lightsail.CreateCertificate
@@ -1573,7 +1873,7 @@ import Network.AWS.Lightsail.CreateInstances
 import Network.AWS.Lightsail.CreateInstancesFromSnapshot
 import Network.AWS.Lightsail.CreateKeyPair
 import Network.AWS.Lightsail.CreateLoadBalancer
-import Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate
+import Network.AWS.Lightsail.CreateLoadBalancerTlsCertificate
 import Network.AWS.Lightsail.CreateRelationalDatabase
 import Network.AWS.Lightsail.CreateRelationalDatabaseFromSnapshot
 import Network.AWS.Lightsail.CreateRelationalDatabaseSnapshot
@@ -1593,13 +1893,13 @@ import Network.AWS.Lightsail.DeleteInstanceSnapshot
 import Network.AWS.Lightsail.DeleteKeyPair
 import Network.AWS.Lightsail.DeleteKnownHostKeys
 import Network.AWS.Lightsail.DeleteLoadBalancer
-import Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
+import Network.AWS.Lightsail.DeleteLoadBalancerTlsCertificate
 import Network.AWS.Lightsail.DeleteRelationalDatabase
 import Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot
 import Network.AWS.Lightsail.DetachCertificateFromDistribution
 import Network.AWS.Lightsail.DetachDisk
 import Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
-import Network.AWS.Lightsail.DetachStaticIP
+import Network.AWS.Lightsail.DetachStaticIp
 import Network.AWS.Lightsail.DisableAddOn
 import Network.AWS.Lightsail.DownloadDefaultKeyPair
 import Network.AWS.Lightsail.EnableAddOn
@@ -1642,7 +1942,7 @@ import Network.AWS.Lightsail.GetKeyPair
 import Network.AWS.Lightsail.GetKeyPairs
 import Network.AWS.Lightsail.GetLoadBalancer
 import Network.AWS.Lightsail.GetLoadBalancerMetricData
-import Network.AWS.Lightsail.GetLoadBalancerTLSCertificates
+import Network.AWS.Lightsail.GetLoadBalancerTlsCertificates
 import Network.AWS.Lightsail.GetLoadBalancers
 import Network.AWS.Lightsail.GetOperation
 import Network.AWS.Lightsail.GetOperations
@@ -1660,18 +1960,18 @@ import Network.AWS.Lightsail.GetRelationalDatabaseParameters
 import Network.AWS.Lightsail.GetRelationalDatabaseSnapshot
 import Network.AWS.Lightsail.GetRelationalDatabaseSnapshots
 import Network.AWS.Lightsail.GetRelationalDatabases
-import Network.AWS.Lightsail.GetStaticIP
-import Network.AWS.Lightsail.GetStaticIPs
+import Network.AWS.Lightsail.GetStaticIp
+import Network.AWS.Lightsail.GetStaticIps
 import Network.AWS.Lightsail.ImportKeyPair
-import Network.AWS.Lightsail.IsVPCPeered
+import Network.AWS.Lightsail.IsVpcPeered
 import Network.AWS.Lightsail.OpenInstancePublicPorts
-import Network.AWS.Lightsail.PeerVPC
+import Network.AWS.Lightsail.PeerVpc
 import Network.AWS.Lightsail.PutAlarm
 import Network.AWS.Lightsail.PutInstancePublicPorts
 import Network.AWS.Lightsail.RebootInstance
 import Network.AWS.Lightsail.RebootRelationalDatabase
 import Network.AWS.Lightsail.RegisterContainerImage
-import Network.AWS.Lightsail.ReleaseStaticIP
+import Network.AWS.Lightsail.ReleaseStaticIp
 import Network.AWS.Lightsail.ResetDistributionCache
 import Network.AWS.Lightsail.SendContactMethodVerification
 import Network.AWS.Lightsail.StartInstance
@@ -1681,7 +1981,7 @@ import Network.AWS.Lightsail.StopRelationalDatabase
 import Network.AWS.Lightsail.TagResource
 import Network.AWS.Lightsail.TestAlarm
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.UnpeerVPC
+import Network.AWS.Lightsail.UnpeerVpc
 import Network.AWS.Lightsail.UntagResource
 import Network.AWS.Lightsail.UpdateContainerService
 import Network.AWS.Lightsail.UpdateDistribution

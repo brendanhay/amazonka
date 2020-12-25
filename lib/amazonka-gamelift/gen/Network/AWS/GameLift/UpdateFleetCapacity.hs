@@ -56,163 +56,148 @@ module Network.AWS.GameLift.UpdateFleetCapacity
     mkUpdateFleetCapacity,
 
     -- ** Request lenses
+    ufcFleetId,
+    ufcDesiredInstances,
     ufcMaxSize,
     ufcMinSize,
-    ufcDesiredInstances,
-    ufcFleetId,
 
     -- * Destructuring the response
     UpdateFleetCapacityResponse (..),
     mkUpdateFleetCapacityResponse,
 
     -- ** Response lenses
-    ufcrsFleetId,
-    ufcrsResponseStatus,
+    ufcrrsFleetId,
+    ufcrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkUpdateFleetCapacity' smart constructor.
 data UpdateFleetCapacity = UpdateFleetCapacity'
-  { -- | The maximum value allowed for the fleet's instance count. Default if not set is 1.
-    maxSize :: Lude.Maybe Lude.Natural,
-    -- | The minimum value allowed for the fleet's instance count. Default if not set is 0.
-    minSize :: Lude.Maybe Lude.Natural,
+  { -- | A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.
+    fleetId :: Types.FleetIdOrArn,
     -- | Number of EC2 instances you want this fleet to host.
-    desiredInstances :: Lude.Maybe Lude.Natural,
-    -- | A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text
+    desiredInstances :: Core.Maybe Core.Natural,
+    -- | The maximum value allowed for the fleet's instance count. Default if not set is 1.
+    maxSize :: Core.Maybe Core.Natural,
+    -- | The minimum value allowed for the fleet's instance count. Default if not set is 0.
+    minSize :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFleetCapacity' with the minimum fields required to make a request.
---
--- * 'maxSize' - The maximum value allowed for the fleet's instance count. Default if not set is 1.
--- * 'minSize' - The minimum value allowed for the fleet's instance count. Default if not set is 0.
--- * 'desiredInstances' - Number of EC2 instances you want this fleet to host.
--- * 'fleetId' - A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.
+-- | Creates a 'UpdateFleetCapacity' value with any optional fields omitted.
 mkUpdateFleetCapacity ::
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
   UpdateFleetCapacity
-mkUpdateFleetCapacity pFleetId_ =
+mkUpdateFleetCapacity fleetId =
   UpdateFleetCapacity'
-    { maxSize = Lude.Nothing,
-      minSize = Lude.Nothing,
-      desiredInstances = Lude.Nothing,
-      fleetId = pFleetId_
+    { fleetId,
+      desiredInstances = Core.Nothing,
+      maxSize = Core.Nothing,
+      minSize = Core.Nothing
     }
+
+-- | A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufcFleetId :: Lens.Lens' UpdateFleetCapacity Types.FleetIdOrArn
+ufcFleetId = Lens.field @"fleetId"
+{-# DEPRECATED ufcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+
+-- | Number of EC2 instances you want this fleet to host.
+--
+-- /Note:/ Consider using 'desiredInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufcDesiredInstances :: Lens.Lens' UpdateFleetCapacity (Core.Maybe Core.Natural)
+ufcDesiredInstances = Lens.field @"desiredInstances"
+{-# DEPRECATED ufcDesiredInstances "Use generic-lens or generic-optics with 'desiredInstances' instead." #-}
 
 -- | The maximum value allowed for the fleet's instance count. Default if not set is 1.
 --
 -- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcMaxSize :: Lens.Lens' UpdateFleetCapacity (Lude.Maybe Lude.Natural)
-ufcMaxSize = Lens.lens (maxSize :: UpdateFleetCapacity -> Lude.Maybe Lude.Natural) (\s a -> s {maxSize = a} :: UpdateFleetCapacity)
+ufcMaxSize :: Lens.Lens' UpdateFleetCapacity (Core.Maybe Core.Natural)
+ufcMaxSize = Lens.field @"maxSize"
 {-# DEPRECATED ufcMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
 
 -- | The minimum value allowed for the fleet's instance count. Default if not set is 0.
 --
 -- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcMinSize :: Lens.Lens' UpdateFleetCapacity (Lude.Maybe Lude.Natural)
-ufcMinSize = Lens.lens (minSize :: UpdateFleetCapacity -> Lude.Maybe Lude.Natural) (\s a -> s {minSize = a} :: UpdateFleetCapacity)
+ufcMinSize :: Lens.Lens' UpdateFleetCapacity (Core.Maybe Core.Natural)
+ufcMinSize = Lens.field @"minSize"
 {-# DEPRECATED ufcMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
 
--- | Number of EC2 instances you want this fleet to host.
---
--- /Note:/ Consider using 'desiredInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcDesiredInstances :: Lens.Lens' UpdateFleetCapacity (Lude.Maybe Lude.Natural)
-ufcDesiredInstances = Lens.lens (desiredInstances :: UpdateFleetCapacity -> Lude.Maybe Lude.Natural) (\s a -> s {desiredInstances = a} :: UpdateFleetCapacity)
-{-# DEPRECATED ufcDesiredInstances "Use generic-lens or generic-optics with 'desiredInstances' instead." #-}
+instance Core.FromJSON UpdateFleetCapacity where
+  toJSON UpdateFleetCapacity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            ("DesiredInstances" Core..=) Core.<$> desiredInstances,
+            ("MaxSize" Core..=) Core.<$> maxSize,
+            ("MinSize" Core..=) Core.<$> minSize
+          ]
+      )
 
--- | A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcFleetId :: Lens.Lens' UpdateFleetCapacity Lude.Text
-ufcFleetId = Lens.lens (fleetId :: UpdateFleetCapacity -> Lude.Text) (\s a -> s {fleetId = a} :: UpdateFleetCapacity)
-{-# DEPRECATED ufcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
-
-instance Lude.AWSRequest UpdateFleetCapacity where
+instance Core.AWSRequest UpdateFleetCapacity where
   type Rs UpdateFleetCapacity = UpdateFleetCapacityResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.UpdateFleetCapacity")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateFleetCapacityResponse'
-            Lude.<$> (x Lude..?> "FleetId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FleetId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateFleetCapacity where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.UpdateFleetCapacity" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateFleetCapacity where
-  toJSON UpdateFleetCapacity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MaxSize" Lude..=) Lude.<$> maxSize,
-            ("MinSize" Lude..=) Lude.<$> minSize,
-            ("DesiredInstances" Lude..=) Lude.<$> desiredInstances,
-            Lude.Just ("FleetId" Lude..= fleetId)
-          ]
-      )
-
-instance Lude.ToPath UpdateFleetCapacity where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateFleetCapacity where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkUpdateFleetCapacityResponse' smart constructor.
 data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
   { -- | A unique identifier for a fleet that was updated.
-    fleetId :: Lude.Maybe Lude.Text,
+    fleetId :: Core.Maybe Types.FleetId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFleetCapacityResponse' with the minimum fields required to make a request.
---
--- * 'fleetId' - A unique identifier for a fleet that was updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateFleetCapacityResponse' value with any optional fields omitted.
 mkUpdateFleetCapacityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateFleetCapacityResponse
-mkUpdateFleetCapacityResponse pResponseStatus_ =
+mkUpdateFleetCapacityResponse responseStatus =
   UpdateFleetCapacityResponse'
-    { fleetId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fleetId = Core.Nothing,
+      responseStatus
     }
 
 -- | A unique identifier for a fleet that was updated.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcrsFleetId :: Lens.Lens' UpdateFleetCapacityResponse (Lude.Maybe Lude.Text)
-ufcrsFleetId = Lens.lens (fleetId :: UpdateFleetCapacityResponse -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: UpdateFleetCapacityResponse)
-{-# DEPRECATED ufcrsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+ufcrrsFleetId :: Lens.Lens' UpdateFleetCapacityResponse (Core.Maybe Types.FleetId)
+ufcrrsFleetId = Lens.field @"fleetId"
+{-# DEPRECATED ufcrrsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcrsResponseStatus :: Lens.Lens' UpdateFleetCapacityResponse Lude.Int
-ufcrsResponseStatus = Lens.lens (responseStatus :: UpdateFleetCapacityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFleetCapacityResponse)
-{-# DEPRECATED ufcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ufcrrsResponseStatus :: Lens.Lens' UpdateFleetCapacityResponse Core.Int
+ufcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ufcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

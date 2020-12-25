@@ -30,112 +30,108 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     mkCreateLoadBalancerListenersResponse,
 
     -- ** Response lenses
-    clblrsResponseStatus,
+    clblrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateLoadBalancerListeners.
 --
 -- /See:/ 'mkCreateLoadBalancerListeners' smart constructor.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
   { -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text,
+    loadBalancerName :: Types.AccessPointName,
     -- | The listeners.
-    listeners :: [Listener]
+    listeners :: [Types.Listener]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLoadBalancerListeners' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'listeners' - The listeners.
+-- | Creates a 'CreateLoadBalancerListeners' value with any optional fields omitted.
 mkCreateLoadBalancerListeners ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
   CreateLoadBalancerListeners
-mkCreateLoadBalancerListeners pLoadBalancerName_ =
+mkCreateLoadBalancerListeners loadBalancerName =
   CreateLoadBalancerListeners'
-    { loadBalancerName =
-        pLoadBalancerName_,
-      listeners = Lude.mempty
+    { loadBalancerName,
+      listeners = Core.mempty
     }
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clblLoadBalancerName :: Lens.Lens' CreateLoadBalancerListeners Lude.Text
-clblLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancerListeners -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancerListeners)
+clblLoadBalancerName :: Lens.Lens' CreateLoadBalancerListeners Types.AccessPointName
+clblLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED clblLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The listeners.
 --
 -- /Note:/ Consider using 'listeners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clblListeners :: Lens.Lens' CreateLoadBalancerListeners [Listener]
-clblListeners = Lens.lens (listeners :: CreateLoadBalancerListeners -> [Listener]) (\s a -> s {listeners = a} :: CreateLoadBalancerListeners)
+clblListeners :: Lens.Lens' CreateLoadBalancerListeners [Types.Listener]
+clblListeners = Lens.field @"listeners"
 {-# DEPRECATED clblListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
 
-instance Lude.AWSRequest CreateLoadBalancerListeners where
+instance Core.AWSRequest CreateLoadBalancerListeners where
   type
     Rs CreateLoadBalancerListeners =
       CreateLoadBalancerListenersResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateLoadBalancerListeners")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> ( Core.toQueryValue
+                            "Listeners"
+                            (Core.toQueryList "member" listeners)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateLoadBalancerListenersResult"
       ( \s h x ->
           CreateLoadBalancerListenersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLoadBalancerListeners where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateLoadBalancerListeners where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLoadBalancerListeners where
-  toQuery CreateLoadBalancerListeners' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateLoadBalancerListeners" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "Listeners" Lude.=: Lude.toQueryList "member" listeners
-      ]
 
 -- | Contains the parameters for CreateLoadBalancerListener.
 --
 -- /See:/ 'mkCreateLoadBalancerListenersResponse' smart constructor.
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLoadBalancerListenersResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLoadBalancerListenersResponse' value with any optional fields omitted.
 mkCreateLoadBalancerListenersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLoadBalancerListenersResponse
-mkCreateLoadBalancerListenersResponse pResponseStatus_ =
-  CreateLoadBalancerListenersResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCreateLoadBalancerListenersResponse responseStatus =
+  CreateLoadBalancerListenersResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clblrsResponseStatus :: Lens.Lens' CreateLoadBalancerListenersResponse Lude.Int
-clblrsResponseStatus = Lens.lens (responseStatus :: CreateLoadBalancerListenersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLoadBalancerListenersResponse)
-{-# DEPRECATED clblrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clblrrsResponseStatus :: Lens.Lens' CreateLoadBalancerListenersResponse Core.Int
+clblrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clblrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

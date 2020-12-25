@@ -17,98 +17,91 @@ module Network.AWS.MediaLive.Types.InputAttachment
     mkInputAttachment,
 
     -- * Lenses
+    iaAutomaticInputFailoverSettings,
     iaInputAttachmentName,
     iaInputId,
-    iaAutomaticInputFailoverSettings,
     iaInputSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings
-import Network.AWS.MediaLive.Types.InputSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings as Types
+import qualified Network.AWS.MediaLive.Types.InputSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for InputAttachment
 --
 -- /See:/ 'mkInputAttachment' smart constructor.
 data InputAttachment = InputAttachment'
-  { -- | User-specified name for the attachment. This is required if the user wants to use this input in an input switch action.
-    inputAttachmentName :: Lude.Maybe Lude.Text,
+  { -- | User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
+    automaticInputFailoverSettings :: Core.Maybe Types.AutomaticInputFailoverSettings,
+    -- | User-specified name for the attachment. This is required if the user wants to use this input in an input switch action.
+    inputAttachmentName :: Core.Maybe Core.Text,
     -- | The ID of the input
-    inputId :: Lude.Maybe Lude.Text,
-    -- | User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
-    automaticInputFailoverSettings :: Lude.Maybe AutomaticInputFailoverSettings,
+    inputId :: Core.Maybe Core.Text,
     -- | Settings of an input (caption selector, etc.)
-    inputSettings :: Lude.Maybe InputSettings
+    inputSettings :: Core.Maybe Types.InputSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputAttachment' with the minimum fields required to make a request.
---
--- * 'inputAttachmentName' - User-specified name for the attachment. This is required if the user wants to use this input in an input switch action.
--- * 'inputId' - The ID of the input
--- * 'automaticInputFailoverSettings' - User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
--- * 'inputSettings' - Settings of an input (caption selector, etc.)
+-- | Creates a 'InputAttachment' value with any optional fields omitted.
 mkInputAttachment ::
   InputAttachment
 mkInputAttachment =
   InputAttachment'
-    { inputAttachmentName = Lude.Nothing,
-      inputId = Lude.Nothing,
-      automaticInputFailoverSettings = Lude.Nothing,
-      inputSettings = Lude.Nothing
+    { automaticInputFailoverSettings = Core.Nothing,
+      inputAttachmentName = Core.Nothing,
+      inputId = Core.Nothing,
+      inputSettings = Core.Nothing
     }
+
+-- | User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
+--
+-- /Note:/ Consider using 'automaticInputFailoverSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaAutomaticInputFailoverSettings :: Lens.Lens' InputAttachment (Core.Maybe Types.AutomaticInputFailoverSettings)
+iaAutomaticInputFailoverSettings = Lens.field @"automaticInputFailoverSettings"
+{-# DEPRECATED iaAutomaticInputFailoverSettings "Use generic-lens or generic-optics with 'automaticInputFailoverSettings' instead." #-}
 
 -- | User-specified name for the attachment. This is required if the user wants to use this input in an input switch action.
 --
 -- /Note:/ Consider using 'inputAttachmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaInputAttachmentName :: Lens.Lens' InputAttachment (Lude.Maybe Lude.Text)
-iaInputAttachmentName = Lens.lens (inputAttachmentName :: InputAttachment -> Lude.Maybe Lude.Text) (\s a -> s {inputAttachmentName = a} :: InputAttachment)
+iaInputAttachmentName :: Lens.Lens' InputAttachment (Core.Maybe Core.Text)
+iaInputAttachmentName = Lens.field @"inputAttachmentName"
 {-# DEPRECATED iaInputAttachmentName "Use generic-lens or generic-optics with 'inputAttachmentName' instead." #-}
 
 -- | The ID of the input
 --
 -- /Note:/ Consider using 'inputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaInputId :: Lens.Lens' InputAttachment (Lude.Maybe Lude.Text)
-iaInputId = Lens.lens (inputId :: InputAttachment -> Lude.Maybe Lude.Text) (\s a -> s {inputId = a} :: InputAttachment)
+iaInputId :: Lens.Lens' InputAttachment (Core.Maybe Core.Text)
+iaInputId = Lens.field @"inputId"
 {-# DEPRECATED iaInputId "Use generic-lens or generic-optics with 'inputId' instead." #-}
-
--- | User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
---
--- /Note:/ Consider using 'automaticInputFailoverSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaAutomaticInputFailoverSettings :: Lens.Lens' InputAttachment (Lude.Maybe AutomaticInputFailoverSettings)
-iaAutomaticInputFailoverSettings = Lens.lens (automaticInputFailoverSettings :: InputAttachment -> Lude.Maybe AutomaticInputFailoverSettings) (\s a -> s {automaticInputFailoverSettings = a} :: InputAttachment)
-{-# DEPRECATED iaAutomaticInputFailoverSettings "Use generic-lens or generic-optics with 'automaticInputFailoverSettings' instead." #-}
 
 -- | Settings of an input (caption selector, etc.)
 --
 -- /Note:/ Consider using 'inputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaInputSettings :: Lens.Lens' InputAttachment (Lude.Maybe InputSettings)
-iaInputSettings = Lens.lens (inputSettings :: InputAttachment -> Lude.Maybe InputSettings) (\s a -> s {inputSettings = a} :: InputAttachment)
+iaInputSettings :: Lens.Lens' InputAttachment (Core.Maybe Types.InputSettings)
+iaInputSettings = Lens.field @"inputSettings"
 {-# DEPRECATED iaInputSettings "Use generic-lens or generic-optics with 'inputSettings' instead." #-}
 
-instance Lude.FromJSON InputAttachment where
-  parseJSON =
-    Lude.withObject
-      "InputAttachment"
-      ( \x ->
-          InputAttachment'
-            Lude.<$> (x Lude..:? "inputAttachmentName")
-            Lude.<*> (x Lude..:? "inputId")
-            Lude.<*> (x Lude..:? "automaticInputFailoverSettings")
-            Lude.<*> (x Lude..:? "inputSettings")
-      )
-
-instance Lude.ToJSON InputAttachment where
-  toJSON InputAttachment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("inputAttachmentName" Lude..=) Lude.<$> inputAttachmentName,
-            ("inputId" Lude..=) Lude.<$> inputId,
-            ("automaticInputFailoverSettings" Lude..=)
-              Lude.<$> automaticInputFailoverSettings,
-            ("inputSettings" Lude..=) Lude.<$> inputSettings
+instance Core.FromJSON InputAttachment where
+  toJSON InputAttachment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("automaticInputFailoverSettings" Core..=)
+              Core.<$> automaticInputFailoverSettings,
+            ("inputAttachmentName" Core..=) Core.<$> inputAttachmentName,
+            ("inputId" Core..=) Core.<$> inputId,
+            ("inputSettings" Core..=) Core.<$> inputSettings
           ]
       )
+
+instance Core.FromJSON InputAttachment where
+  parseJSON =
+    Core.withObject "InputAttachment" Core.$
+      \x ->
+        InputAttachment'
+          Core.<$> (x Core..:? "automaticInputFailoverSettings")
+          Core.<*> (x Core..:? "inputAttachmentName")
+          Core.<*> (x Core..:? "inputId")
+          Core.<*> (x Core..:? "inputSettings")

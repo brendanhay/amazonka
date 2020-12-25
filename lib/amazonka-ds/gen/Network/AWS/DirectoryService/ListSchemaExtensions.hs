@@ -23,172 +23,158 @@ module Network.AWS.DirectoryService.ListSchemaExtensions
 
     -- ** Request lenses
     lseDirectoryId,
-    lseNextToken,
     lseLimit,
+    lseNextToken,
 
     -- * Destructuring the response
     ListSchemaExtensionsResponse (..),
     mkListSchemaExtensionsResponse,
 
     -- ** Response lenses
-    lsersSchemaExtensionsInfo,
-    lsersNextToken,
-    lsersResponseStatus,
+    lserrsNextToken,
+    lserrsSchemaExtensionsInfo,
+    lserrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSchemaExtensions' smart constructor.
 data ListSchemaExtensions = ListSchemaExtensions'
   { -- | The identifier of the directory from which to retrieve the schema extension information.
-    directoryId :: Lude.Text,
-    -- | The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
-    nextToken :: Lude.Maybe Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The maximum number of items to return.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSchemaExtensions' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory from which to retrieve the schema extension information.
--- * 'nextToken' - The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
--- * 'limit' - The maximum number of items to return.
+-- | Creates a 'ListSchemaExtensions' value with any optional fields omitted.
 mkListSchemaExtensions ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   ListSchemaExtensions
-mkListSchemaExtensions pDirectoryId_ =
+mkListSchemaExtensions directoryId =
   ListSchemaExtensions'
-    { directoryId = pDirectoryId_,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing
+    { directoryId,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the directory from which to retrieve the schema extension information.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lseDirectoryId :: Lens.Lens' ListSchemaExtensions Lude.Text
-lseDirectoryId = Lens.lens (directoryId :: ListSchemaExtensions -> Lude.Text) (\s a -> s {directoryId = a} :: ListSchemaExtensions)
+lseDirectoryId :: Lens.Lens' ListSchemaExtensions Types.DirectoryId
+lseDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED lseDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
--- | The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lseNextToken :: Lens.Lens' ListSchemaExtensions (Lude.Maybe Lude.Text)
-lseNextToken = Lens.lens (nextToken :: ListSchemaExtensions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSchemaExtensions)
-{-# DEPRECATED lseNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lseLimit :: Lens.Lens' ListSchemaExtensions (Lude.Maybe Lude.Natural)
-lseLimit = Lens.lens (limit :: ListSchemaExtensions -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListSchemaExtensions)
+lseLimit :: Lens.Lens' ListSchemaExtensions (Core.Maybe Core.Natural)
+lseLimit = Lens.field @"limit"
 {-# DEPRECATED lseLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListSchemaExtensions where
-  page rq rs
-    | Page.stop (rs Lens.^. lsersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsersSchemaExtensionsInfo) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lseNextToken Lens..~ rs Lens.^. lsersNextToken
+-- | The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lseNextToken :: Lens.Lens' ListSchemaExtensions (Core.Maybe Types.NextToken)
+lseNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lseNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListSchemaExtensions where
+instance Core.FromJSON ListSchemaExtensions where
+  toJSON ListSchemaExtensions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListSchemaExtensions where
   type Rs ListSchemaExtensions = ListSchemaExtensionsResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.ListSchemaExtensions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListSchemaExtensionsResponse'
-            Lude.<$> (x Lude..?> "SchemaExtensionsInfo" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "SchemaExtensionsInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSchemaExtensions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.ListSchemaExtensions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSchemaExtensions where
-  toJSON ListSchemaExtensions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListSchemaExtensions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSchemaExtensions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListSchemaExtensions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"schemaExtensionsInfo" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListSchemaExtensionsResponse' smart constructor.
 data ListSchemaExtensionsResponse = ListSchemaExtensionsResponse'
-  { -- | Information about the schema extensions applied to the directory.
-    schemaExtensionsInfo :: Lude.Maybe [SchemaExtensionInfo],
-    -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to retrieve the next set of items.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to retrieve the next set of items.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Information about the schema extensions applied to the directory.
+    schemaExtensionsInfo :: Core.Maybe [Types.SchemaExtensionInfo],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListSchemaExtensionsResponse' with the minimum fields required to make a request.
---
--- * 'schemaExtensionsInfo' - Information about the schema extensions applied to the directory.
--- * 'nextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to retrieve the next set of items.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSchemaExtensionsResponse' value with any optional fields omitted.
 mkListSchemaExtensionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSchemaExtensionsResponse
-mkListSchemaExtensionsResponse pResponseStatus_ =
+mkListSchemaExtensionsResponse responseStatus =
   ListSchemaExtensionsResponse'
-    { schemaExtensionsInfo =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      schemaExtensionsInfo = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the schema extensions applied to the directory.
---
--- /Note:/ Consider using 'schemaExtensionsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsersSchemaExtensionsInfo :: Lens.Lens' ListSchemaExtensionsResponse (Lude.Maybe [SchemaExtensionInfo])
-lsersSchemaExtensionsInfo = Lens.lens (schemaExtensionsInfo :: ListSchemaExtensionsResponse -> Lude.Maybe [SchemaExtensionInfo]) (\s a -> s {schemaExtensionsInfo = a} :: ListSchemaExtensionsResponse)
-{-# DEPRECATED lsersSchemaExtensionsInfo "Use generic-lens or generic-optics with 'schemaExtensionsInfo' instead." #-}
 
 -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to retrieve the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsersNextToken :: Lens.Lens' ListSchemaExtensionsResponse (Lude.Maybe Lude.Text)
-lsersNextToken = Lens.lens (nextToken :: ListSchemaExtensionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSchemaExtensionsResponse)
-{-# DEPRECATED lsersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lserrsNextToken :: Lens.Lens' ListSchemaExtensionsResponse (Core.Maybe Types.NextToken)
+lserrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lserrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about the schema extensions applied to the directory.
+--
+-- /Note:/ Consider using 'schemaExtensionsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lserrsSchemaExtensionsInfo :: Lens.Lens' ListSchemaExtensionsResponse (Core.Maybe [Types.SchemaExtensionInfo])
+lserrsSchemaExtensionsInfo = Lens.field @"schemaExtensionsInfo"
+{-# DEPRECATED lserrsSchemaExtensionsInfo "Use generic-lens or generic-optics with 'schemaExtensionsInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsersResponseStatus :: Lens.Lens' ListSchemaExtensionsResponse Lude.Int
-lsersResponseStatus = Lens.lens (responseStatus :: ListSchemaExtensionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSchemaExtensionsResponse)
-{-# DEPRECATED lsersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lserrsResponseStatus :: Lens.Lens' ListSchemaExtensionsResponse Core.Int
+lserrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lserrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

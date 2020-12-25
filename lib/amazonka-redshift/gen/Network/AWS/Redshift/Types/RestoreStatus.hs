@@ -17,107 +17,102 @@ module Network.AWS.Redshift.Types.RestoreStatus
     mkRestoreStatus,
 
     -- * Lenses
-    rsStatus,
-    rsEstimatedTimeToCompletionInSeconds,
     rsCurrentRestoreRateInMegaBytesPerSecond,
-    rsProgressInMegaBytes,
     rsElapsedTimeInSeconds,
+    rsEstimatedTimeToCompletionInSeconds,
+    rsProgressInMegaBytes,
     rsSnapshotSizeInMegaBytes,
+    rsStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.Status as Types
 
 -- | Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
 --
 -- /See:/ 'mkRestoreStatus' smart constructor.
 data RestoreStatus = RestoreStatus'
-  { -- | The status of the restore action. Returns starting, restoring, completed, or failed.
-    status :: Lude.Maybe Lude.Text,
-    -- | The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore. This field is only updated when you restore to DC2 and DS2 node types.
-    estimatedTimeToCompletionInSeconds :: Lude.Maybe Lude.Integer,
-    -- | The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup. This field is only updated when you restore to DC2 and DS2 node types.
-    currentRestoreRateInMegaBytesPerSecond :: Lude.Maybe Lude.Double,
-    -- | The number of megabytes that have been transferred from snapshot storage. This field is only updated when you restore to DC2 and DS2 node types.
-    progressInMegaBytes :: Lude.Maybe Lude.Integer,
+  { -- | The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup. This field is only updated when you restore to DC2 and DS2 node types.
+    currentRestoreRateInMegaBytesPerSecond :: Core.Maybe Core.Double,
     -- | The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish. This field is only updated when you restore to DC2 and DS2 node types.
-    elapsedTimeInSeconds :: Lude.Maybe Lude.Integer,
+    elapsedTimeInSeconds :: Core.Maybe Core.Integer,
+    -- | The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore. This field is only updated when you restore to DC2 and DS2 node types.
+    estimatedTimeToCompletionInSeconds :: Core.Maybe Core.Integer,
+    -- | The number of megabytes that have been transferred from snapshot storage. This field is only updated when you restore to DC2 and DS2 node types.
+    progressInMegaBytes :: Core.Maybe Core.Integer,
     -- | The size of the set of snapshot data used to restore the cluster. This field is only updated when you restore to DC2 and DS2 node types.
-    snapshotSizeInMegaBytes :: Lude.Maybe Lude.Integer
+    snapshotSizeInMegaBytes :: Core.Maybe Core.Integer,
+    -- | The status of the restore action. Returns starting, restoring, completed, or failed.
+    status :: Core.Maybe Types.Status
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestoreStatus' with the minimum fields required to make a request.
---
--- * 'status' - The status of the restore action. Returns starting, restoring, completed, or failed.
--- * 'estimatedTimeToCompletionInSeconds' - The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore. This field is only updated when you restore to DC2 and DS2 node types.
--- * 'currentRestoreRateInMegaBytesPerSecond' - The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup. This field is only updated when you restore to DC2 and DS2 node types.
--- * 'progressInMegaBytes' - The number of megabytes that have been transferred from snapshot storage. This field is only updated when you restore to DC2 and DS2 node types.
--- * 'elapsedTimeInSeconds' - The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish. This field is only updated when you restore to DC2 and DS2 node types.
--- * 'snapshotSizeInMegaBytes' - The size of the set of snapshot data used to restore the cluster. This field is only updated when you restore to DC2 and DS2 node types.
+-- | Creates a 'RestoreStatus' value with any optional fields omitted.
 mkRestoreStatus ::
   RestoreStatus
 mkRestoreStatus =
   RestoreStatus'
-    { status = Lude.Nothing,
-      estimatedTimeToCompletionInSeconds = Lude.Nothing,
-      currentRestoreRateInMegaBytesPerSecond = Lude.Nothing,
-      progressInMegaBytes = Lude.Nothing,
-      elapsedTimeInSeconds = Lude.Nothing,
-      snapshotSizeInMegaBytes = Lude.Nothing
+    { currentRestoreRateInMegaBytesPerSecond =
+        Core.Nothing,
+      elapsedTimeInSeconds = Core.Nothing,
+      estimatedTimeToCompletionInSeconds = Core.Nothing,
+      progressInMegaBytes = Core.Nothing,
+      snapshotSizeInMegaBytes = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the restore action. Returns starting, restoring, completed, or failed.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsStatus :: Lens.Lens' RestoreStatus (Lude.Maybe Lude.Text)
-rsStatus = Lens.lens (status :: RestoreStatus -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: RestoreStatus)
-{-# DEPRECATED rsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore. This field is only updated when you restore to DC2 and DS2 node types.
---
--- /Note:/ Consider using 'estimatedTimeToCompletionInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsEstimatedTimeToCompletionInSeconds :: Lens.Lens' RestoreStatus (Lude.Maybe Lude.Integer)
-rsEstimatedTimeToCompletionInSeconds = Lens.lens (estimatedTimeToCompletionInSeconds :: RestoreStatus -> Lude.Maybe Lude.Integer) (\s a -> s {estimatedTimeToCompletionInSeconds = a} :: RestoreStatus)
-{-# DEPRECATED rsEstimatedTimeToCompletionInSeconds "Use generic-lens or generic-optics with 'estimatedTimeToCompletionInSeconds' instead." #-}
 
 -- | The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup. This field is only updated when you restore to DC2 and DS2 node types.
 --
 -- /Note:/ Consider using 'currentRestoreRateInMegaBytesPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsCurrentRestoreRateInMegaBytesPerSecond :: Lens.Lens' RestoreStatus (Lude.Maybe Lude.Double)
-rsCurrentRestoreRateInMegaBytesPerSecond = Lens.lens (currentRestoreRateInMegaBytesPerSecond :: RestoreStatus -> Lude.Maybe Lude.Double) (\s a -> s {currentRestoreRateInMegaBytesPerSecond = a} :: RestoreStatus)
+rsCurrentRestoreRateInMegaBytesPerSecond :: Lens.Lens' RestoreStatus (Core.Maybe Core.Double)
+rsCurrentRestoreRateInMegaBytesPerSecond = Lens.field @"currentRestoreRateInMegaBytesPerSecond"
 {-# DEPRECATED rsCurrentRestoreRateInMegaBytesPerSecond "Use generic-lens or generic-optics with 'currentRestoreRateInMegaBytesPerSecond' instead." #-}
-
--- | The number of megabytes that have been transferred from snapshot storage. This field is only updated when you restore to DC2 and DS2 node types.
---
--- /Note:/ Consider using 'progressInMegaBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsProgressInMegaBytes :: Lens.Lens' RestoreStatus (Lude.Maybe Lude.Integer)
-rsProgressInMegaBytes = Lens.lens (progressInMegaBytes :: RestoreStatus -> Lude.Maybe Lude.Integer) (\s a -> s {progressInMegaBytes = a} :: RestoreStatus)
-{-# DEPRECATED rsProgressInMegaBytes "Use generic-lens or generic-optics with 'progressInMegaBytes' instead." #-}
 
 -- | The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish. This field is only updated when you restore to DC2 and DS2 node types.
 --
 -- /Note:/ Consider using 'elapsedTimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsElapsedTimeInSeconds :: Lens.Lens' RestoreStatus (Lude.Maybe Lude.Integer)
-rsElapsedTimeInSeconds = Lens.lens (elapsedTimeInSeconds :: RestoreStatus -> Lude.Maybe Lude.Integer) (\s a -> s {elapsedTimeInSeconds = a} :: RestoreStatus)
+rsElapsedTimeInSeconds :: Lens.Lens' RestoreStatus (Core.Maybe Core.Integer)
+rsElapsedTimeInSeconds = Lens.field @"elapsedTimeInSeconds"
 {-# DEPRECATED rsElapsedTimeInSeconds "Use generic-lens or generic-optics with 'elapsedTimeInSeconds' instead." #-}
+
+-- | The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore. This field is only updated when you restore to DC2 and DS2 node types.
+--
+-- /Note:/ Consider using 'estimatedTimeToCompletionInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsEstimatedTimeToCompletionInSeconds :: Lens.Lens' RestoreStatus (Core.Maybe Core.Integer)
+rsEstimatedTimeToCompletionInSeconds = Lens.field @"estimatedTimeToCompletionInSeconds"
+{-# DEPRECATED rsEstimatedTimeToCompletionInSeconds "Use generic-lens or generic-optics with 'estimatedTimeToCompletionInSeconds' instead." #-}
+
+-- | The number of megabytes that have been transferred from snapshot storage. This field is only updated when you restore to DC2 and DS2 node types.
+--
+-- /Note:/ Consider using 'progressInMegaBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsProgressInMegaBytes :: Lens.Lens' RestoreStatus (Core.Maybe Core.Integer)
+rsProgressInMegaBytes = Lens.field @"progressInMegaBytes"
+{-# DEPRECATED rsProgressInMegaBytes "Use generic-lens or generic-optics with 'progressInMegaBytes' instead." #-}
 
 -- | The size of the set of snapshot data used to restore the cluster. This field is only updated when you restore to DC2 and DS2 node types.
 --
 -- /Note:/ Consider using 'snapshotSizeInMegaBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsSnapshotSizeInMegaBytes :: Lens.Lens' RestoreStatus (Lude.Maybe Lude.Integer)
-rsSnapshotSizeInMegaBytes = Lens.lens (snapshotSizeInMegaBytes :: RestoreStatus -> Lude.Maybe Lude.Integer) (\s a -> s {snapshotSizeInMegaBytes = a} :: RestoreStatus)
+rsSnapshotSizeInMegaBytes :: Lens.Lens' RestoreStatus (Core.Maybe Core.Integer)
+rsSnapshotSizeInMegaBytes = Lens.field @"snapshotSizeInMegaBytes"
 {-# DEPRECATED rsSnapshotSizeInMegaBytes "Use generic-lens or generic-optics with 'snapshotSizeInMegaBytes' instead." #-}
 
-instance Lude.FromXML RestoreStatus where
+-- | The status of the restore action. Returns starting, restoring, completed, or failed.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsStatus :: Lens.Lens' RestoreStatus (Core.Maybe Types.Status)
+rsStatus = Lens.field @"status"
+{-# DEPRECATED rsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML RestoreStatus where
   parseXML x =
     RestoreStatus'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "EstimatedTimeToCompletionInSeconds")
-      Lude.<*> (x Lude..@? "CurrentRestoreRateInMegaBytesPerSecond")
-      Lude.<*> (x Lude..@? "ProgressInMegaBytes")
-      Lude.<*> (x Lude..@? "ElapsedTimeInSeconds")
-      Lude.<*> (x Lude..@? "SnapshotSizeInMegaBytes")
+      Core.<$> (x Core..@? "CurrentRestoreRateInMegaBytesPerSecond")
+      Core.<*> (x Core..@? "ElapsedTimeInSeconds")
+      Core.<*> (x Core..@? "EstimatedTimeToCompletionInSeconds")
+      Core.<*> (x Core..@? "ProgressInMegaBytes")
+      Core.<*> (x Core..@? "SnapshotSizeInMegaBytes")
+      Core.<*> (x Core..@? "Status")

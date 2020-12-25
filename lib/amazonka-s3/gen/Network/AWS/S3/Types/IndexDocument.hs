@@ -22,37 +22,36 @@ module Network.AWS.S3.Types.IndexDocument
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Suffix as Types
 
 -- | Container for the @Suffix@ element.
 --
 -- /See:/ 'mkIndexDocument' smart constructor.
 newtype IndexDocument = IndexDocument'
   { -- | A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
-    suffix :: Lude.Text
+    suffix :: Types.Suffix
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IndexDocument' with the minimum fields required to make a request.
---
--- * 'suffix' - A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
+-- | Creates a 'IndexDocument' value with any optional fields omitted.
 mkIndexDocument ::
   -- | 'suffix'
-  Lude.Text ->
+  Types.Suffix ->
   IndexDocument
-mkIndexDocument pSuffix_ = IndexDocument' {suffix = pSuffix_}
+mkIndexDocument suffix = IndexDocument' {suffix}
 
 -- | A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
 --
 -- /Note:/ Consider using 'suffix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idSuffix :: Lens.Lens' IndexDocument Lude.Text
-idSuffix = Lens.lens (suffix :: IndexDocument -> Lude.Text) (\s a -> s {suffix = a} :: IndexDocument)
+idSuffix :: Lens.Lens' IndexDocument Types.Suffix
+idSuffix = Lens.field @"suffix"
 {-# DEPRECATED idSuffix "Use generic-lens or generic-optics with 'suffix' instead." #-}
 
-instance Lude.FromXML IndexDocument where
-  parseXML x = IndexDocument' Lude.<$> (x Lude..@ "Suffix")
+instance Core.ToXML IndexDocument where
+  toXML IndexDocument {..} = Core.toXMLNode "Suffix" suffix
 
-instance Lude.ToXML IndexDocument where
-  toXML IndexDocument' {..} = Lude.mconcat ["Suffix" Lude.@= suffix]
+instance Core.FromXML IndexDocument where
+  parseXML x = IndexDocument' Core.<$> (x Core..@ "Suffix")

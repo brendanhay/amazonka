@@ -28,114 +28,108 @@ module Network.AWS.EC2.CreateDefaultSubnet
     mkCreateDefaultSubnetResponse,
 
     -- ** Response lenses
-    cdsrsSubnet,
-    cdsrsResponseStatus,
+    cdsrrsSubnet,
+    cdsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDefaultSubnet' smart constructor.
 data CreateDefaultSubnet = CreateDefaultSubnet'
   { -- | The Availability Zone in which to create the default subnet.
-    availabilityZone :: Lude.Text,
+    availabilityZone :: Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDefaultSubnet' with the minimum fields required to make a request.
---
--- * 'availabilityZone' - The Availability Zone in which to create the default subnet.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateDefaultSubnet' value with any optional fields omitted.
 mkCreateDefaultSubnet ::
   -- | 'availabilityZone'
-  Lude.Text ->
+  Types.String ->
   CreateDefaultSubnet
-mkCreateDefaultSubnet pAvailabilityZone_ =
-  CreateDefaultSubnet'
-    { availabilityZone = pAvailabilityZone_,
-      dryRun = Lude.Nothing
-    }
+mkCreateDefaultSubnet availabilityZone =
+  CreateDefaultSubnet' {availabilityZone, dryRun = Core.Nothing}
 
 -- | The Availability Zone in which to create the default subnet.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsAvailabilityZone :: Lens.Lens' CreateDefaultSubnet Lude.Text
-cdsAvailabilityZone = Lens.lens (availabilityZone :: CreateDefaultSubnet -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateDefaultSubnet)
+cdsAvailabilityZone :: Lens.Lens' CreateDefaultSubnet Types.String
+cdsAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED cdsAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsDryRun :: Lens.Lens' CreateDefaultSubnet (Lude.Maybe Lude.Bool)
-cdsDryRun = Lens.lens (dryRun :: CreateDefaultSubnet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateDefaultSubnet)
+cdsDryRun :: Lens.Lens' CreateDefaultSubnet (Core.Maybe Core.Bool)
+cdsDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cdsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateDefaultSubnet where
+instance Core.AWSRequest CreateDefaultSubnet where
   type Rs CreateDefaultSubnet = CreateDefaultSubnetResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateDefaultSubnet")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AvailabilityZone" availabilityZone)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateDefaultSubnetResponse'
-            Lude.<$> (x Lude..@? "subnet") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "subnet") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDefaultSubnet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDefaultSubnet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDefaultSubnet where
-  toQuery CreateDefaultSubnet' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateDefaultSubnet" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateDefaultSubnetResponse' smart constructor.
 data CreateDefaultSubnetResponse = CreateDefaultSubnetResponse'
   { -- | Information about the subnet.
-    subnet :: Lude.Maybe Subnet,
+    subnet :: Core.Maybe Types.Subnet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDefaultSubnetResponse' with the minimum fields required to make a request.
---
--- * 'subnet' - Information about the subnet.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDefaultSubnetResponse' value with any optional fields omitted.
 mkCreateDefaultSubnetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDefaultSubnetResponse
-mkCreateDefaultSubnetResponse pResponseStatus_ =
+mkCreateDefaultSubnetResponse responseStatus =
   CreateDefaultSubnetResponse'
-    { subnet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { subnet = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the subnet.
 --
 -- /Note:/ Consider using 'subnet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsrsSubnet :: Lens.Lens' CreateDefaultSubnetResponse (Lude.Maybe Subnet)
-cdsrsSubnet = Lens.lens (subnet :: CreateDefaultSubnetResponse -> Lude.Maybe Subnet) (\s a -> s {subnet = a} :: CreateDefaultSubnetResponse)
-{-# DEPRECATED cdsrsSubnet "Use generic-lens or generic-optics with 'subnet' instead." #-}
+cdsrrsSubnet :: Lens.Lens' CreateDefaultSubnetResponse (Core.Maybe Types.Subnet)
+cdsrrsSubnet = Lens.field @"subnet"
+{-# DEPRECATED cdsrrsSubnet "Use generic-lens or generic-optics with 'subnet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsrsResponseStatus :: Lens.Lens' CreateDefaultSubnetResponse Lude.Int
-cdsrsResponseStatus = Lens.lens (responseStatus :: CreateDefaultSubnetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDefaultSubnetResponse)
-{-# DEPRECATED cdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdsrrsResponseStatus :: Lens.Lens' CreateDefaultSubnetResponse Core.Int
+cdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

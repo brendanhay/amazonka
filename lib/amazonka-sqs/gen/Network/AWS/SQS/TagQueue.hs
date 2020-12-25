@@ -36,7 +36,7 @@ module Network.AWS.SQS.TagQueue
     mkTagQueue,
 
     -- ** Request lenses
-    tqQueueURL,
+    tqQueueUrl,
     tqTags,
 
     -- * Destructuring the response
@@ -46,72 +46,71 @@ module Network.AWS.SQS.TagQueue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- | /See:/ 'mkTagQueue' smart constructor.
 data TagQueue = TagQueue'
   { -- | The URL of the queue.
-    queueURL :: Lude.Text,
+    queueUrl :: Types.QueueUrl,
     -- | The list of tags to be added to the specified queue.
-    tags :: Lude.HashMap Lude.Text (Lude.Text)
+    tags :: Core.HashMap Types.TagKey Types.TagValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagQueue' with the minimum fields required to make a request.
---
--- * 'queueURL' - The URL of the queue.
--- * 'tags' - The list of tags to be added to the specified queue.
+-- | Creates a 'TagQueue' value with any optional fields omitted.
 mkTagQueue ::
-  -- | 'queueURL'
-  Lude.Text ->
+  -- | 'queueUrl'
+  Types.QueueUrl ->
   TagQueue
-mkTagQueue pQueueURL_ =
-  TagQueue' {queueURL = pQueueURL_, tags = Lude.mempty}
+mkTagQueue queueUrl = TagQueue' {queueUrl, tags = Core.mempty}
 
 -- | The URL of the queue.
 --
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tqQueueURL :: Lens.Lens' TagQueue Lude.Text
-tqQueueURL = Lens.lens (queueURL :: TagQueue -> Lude.Text) (\s a -> s {queueURL = a} :: TagQueue)
-{-# DEPRECATED tqQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tqQueueUrl :: Lens.Lens' TagQueue Types.QueueUrl
+tqQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED tqQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
 -- | The list of tags to be added to the specified queue.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tqTags :: Lens.Lens' TagQueue (Lude.HashMap Lude.Text (Lude.Text))
-tqTags = Lens.lens (tags :: TagQueue -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagQueue)
+tqTags :: Lens.Lens' TagQueue (Core.HashMap Types.TagKey Types.TagValue)
+tqTags = Lens.field @"tags"
 {-# DEPRECATED tqTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagQueue where
+instance Core.AWSRequest TagQueue where
   type Rs TagQueue = TagQueueResponse
-  request = Req.postQuery sqsService
-  response = Res.receiveNull TagQueueResponse'
-
-instance Lude.ToHeaders TagQueue where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath TagQueue where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagQueue where
-  toQuery TagQueue' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("TagQueue" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        "QueueUrl" Lude.=: queueURL,
-        Lude.toQueryMap "Tags" "Key" "Value" tags
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "TagQueue")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+                Core.<> (Core.toQueryMap "Tags" "Key" "Value" tags)
+            )
+      }
+  response = Response.receiveNull TagQueueResponse'
 
 -- | /See:/ 'mkTagQueueResponse' smart constructor.
 data TagQueueResponse = TagQueueResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagQueueResponse' with the minimum fields required to make a request.
+-- | Creates a 'TagQueueResponse' value with any optional fields omitted.
 mkTagQueueResponse ::
   TagQueueResponse
 mkTagQueueResponse = TagQueueResponse'

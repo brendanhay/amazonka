@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M3u8TimedMetadataBehavior
   ( M3u8TimedMetadataBehavior
       ( M3u8TimedMetadataBehavior',
-        MTMBfNoPassthrough,
-        MTMBfPassthrough
+        M3u8TimedMetadataBehaviorNoPassthrough,
+        M3u8TimedMetadataBehaviorPassthrough,
+        fromM3u8TimedMetadataBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M3u8 Timed Metadata Behavior
-newtype M3u8TimedMetadataBehavior = M3u8TimedMetadataBehavior' Lude.Text
+newtype M3u8TimedMetadataBehavior = M3u8TimedMetadataBehavior'
+  { fromM3u8TimedMetadataBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MTMBfNoPassthrough :: M3u8TimedMetadataBehavior
-pattern MTMBfNoPassthrough = M3u8TimedMetadataBehavior' "NO_PASSTHROUGH"
+pattern M3u8TimedMetadataBehaviorNoPassthrough :: M3u8TimedMetadataBehavior
+pattern M3u8TimedMetadataBehaviorNoPassthrough = M3u8TimedMetadataBehavior' "NO_PASSTHROUGH"
 
-pattern MTMBfPassthrough :: M3u8TimedMetadataBehavior
-pattern MTMBfPassthrough = M3u8TimedMetadataBehavior' "PASSTHROUGH"
+pattern M3u8TimedMetadataBehaviorPassthrough :: M3u8TimedMetadataBehavior
+pattern M3u8TimedMetadataBehaviorPassthrough = M3u8TimedMetadataBehavior' "PASSTHROUGH"
 
 {-# COMPLETE
-  MTMBfNoPassthrough,
-  MTMBfPassthrough,
+  M3u8TimedMetadataBehaviorNoPassthrough,
+  M3u8TimedMetadataBehaviorPassthrough,
   M3u8TimedMetadataBehavior'
   #-}

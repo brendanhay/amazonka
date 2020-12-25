@@ -41,8 +41,8 @@ module Network.AWS.SWF.DeprecateWorkflowType
     mkDeprecateWorkflowType,
 
     -- ** Request lenses
-    dwtDomain,
-    dwtWorkflowType,
+    dDomain,
+    dWorkflowType,
 
     -- * Destructuring the response
     DeprecateWorkflowTypeResponse (..),
@@ -51,88 +51,76 @@ module Network.AWS.SWF.DeprecateWorkflowType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkDeprecateWorkflowType' smart constructor.
 data DeprecateWorkflowType = DeprecateWorkflowType'
   { -- | The name of the domain in which the workflow type is registered.
-    domain :: Lude.Text,
+    domain :: Types.Domain,
     -- | The workflow type to deprecate.
-    workflowType :: WorkflowType
+    workflowType :: Types.WorkflowType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeprecateWorkflowType' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain in which the workflow type is registered.
--- * 'workflowType' - The workflow type to deprecate.
+-- | Creates a 'DeprecateWorkflowType' value with any optional fields omitted.
 mkDeprecateWorkflowType ::
   -- | 'domain'
-  Lude.Text ->
+  Types.Domain ->
   -- | 'workflowType'
-  WorkflowType ->
+  Types.WorkflowType ->
   DeprecateWorkflowType
-mkDeprecateWorkflowType pDomain_ pWorkflowType_ =
-  DeprecateWorkflowType'
-    { domain = pDomain_,
-      workflowType = pWorkflowType_
-    }
+mkDeprecateWorkflowType domain workflowType =
+  DeprecateWorkflowType' {domain, workflowType}
 
 -- | The name of the domain in which the workflow type is registered.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwtDomain :: Lens.Lens' DeprecateWorkflowType Lude.Text
-dwtDomain = Lens.lens (domain :: DeprecateWorkflowType -> Lude.Text) (\s a -> s {domain = a} :: DeprecateWorkflowType)
-{-# DEPRECATED dwtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+dDomain :: Lens.Lens' DeprecateWorkflowType Types.Domain
+dDomain = Lens.field @"domain"
+{-# DEPRECATED dDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The workflow type to deprecate.
 --
 -- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwtWorkflowType :: Lens.Lens' DeprecateWorkflowType WorkflowType
-dwtWorkflowType = Lens.lens (workflowType :: DeprecateWorkflowType -> WorkflowType) (\s a -> s {workflowType = a} :: DeprecateWorkflowType)
-{-# DEPRECATED dwtWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
+dWorkflowType :: Lens.Lens' DeprecateWorkflowType Types.WorkflowType
+dWorkflowType = Lens.field @"workflowType"
+{-# DEPRECATED dWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
-instance Lude.AWSRequest DeprecateWorkflowType where
+instance Core.FromJSON DeprecateWorkflowType where
+  toJSON DeprecateWorkflowType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("workflowType" Core..= workflowType)
+          ]
+      )
+
+instance Core.AWSRequest DeprecateWorkflowType where
   type Rs DeprecateWorkflowType = DeprecateWorkflowTypeResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull DeprecateWorkflowTypeResponse'
-
-instance Lude.ToHeaders DeprecateWorkflowType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SimpleWorkflowService.DeprecateWorkflowType" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeprecateWorkflowType where
-  toJSON DeprecateWorkflowType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("workflowType" Lude..= workflowType)
-          ]
-      )
-
-instance Lude.ToPath DeprecateWorkflowType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeprecateWorkflowType where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.DeprecateWorkflowType")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeprecateWorkflowTypeResponse'
 
 -- | /See:/ 'mkDeprecateWorkflowTypeResponse' smart constructor.
 data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeprecateWorkflowTypeResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeprecateWorkflowTypeResponse' value with any optional fields omitted.
 mkDeprecateWorkflowTypeResponse ::
   DeprecateWorkflowTypeResponse
 mkDeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'

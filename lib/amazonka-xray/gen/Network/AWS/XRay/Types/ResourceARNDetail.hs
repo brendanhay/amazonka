@@ -17,39 +17,37 @@ module Network.AWS.XRay.Types.ResourceARNDetail
     mkResourceARNDetail,
 
     -- * Lenses
-    radARN,
+    rarndARN,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | A list of resources ARNs corresponding to the segments in a trace.
 --
 -- /See:/ 'mkResourceARNDetail' smart constructor.
 newtype ResourceARNDetail = ResourceARNDetail'
   { -- | The ARN of a corresponding resource.
-    arn :: Lude.Maybe Lude.Text
+    arn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceARNDetail' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of a corresponding resource.
+-- | Creates a 'ResourceARNDetail' value with any optional fields omitted.
 mkResourceARNDetail ::
   ResourceARNDetail
-mkResourceARNDetail = ResourceARNDetail' {arn = Lude.Nothing}
+mkResourceARNDetail = ResourceARNDetail' {arn = Core.Nothing}
 
 -- | The ARN of a corresponding resource.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-radARN :: Lens.Lens' ResourceARNDetail (Lude.Maybe Lude.Text)
-radARN = Lens.lens (arn :: ResourceARNDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ResourceARNDetail)
-{-# DEPRECATED radARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+rarndARN :: Lens.Lens' ResourceARNDetail (Core.Maybe Types.String)
+rarndARN = Lens.field @"arn"
+{-# DEPRECATED rarndARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.FromJSON ResourceARNDetail where
+instance Core.FromJSON ResourceARNDetail where
   parseJSON =
-    Lude.withObject
-      "ResourceARNDetail"
-      (\x -> ResourceARNDetail' Lude.<$> (x Lude..:? "ARN"))
+    Core.withObject "ResourceARNDetail" Core.$
+      \x -> ResourceARNDetail' Core.<$> (x Core..:? "ARN")

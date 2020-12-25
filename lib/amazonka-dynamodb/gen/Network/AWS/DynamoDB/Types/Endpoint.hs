@@ -22,56 +22,49 @@ module Network.AWS.DynamoDB.Types.Endpoint
   )
 where
 
+import qualified Network.AWS.DynamoDB.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An endpoint information details.
 --
 -- /See:/ 'mkEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | IP address of the endpoint.
-    address :: Lude.Text,
+    address :: Types.String,
     -- | Endpoint cache time to live (TTL) value.
-    cachePeriodInMinutes :: Lude.Integer
+    cachePeriodInMinutes :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
---
--- * 'address' - IP address of the endpoint.
--- * 'cachePeriodInMinutes' - Endpoint cache time to live (TTL) value.
+-- | Creates a 'Endpoint' value with any optional fields omitted.
 mkEndpoint ::
   -- | 'address'
-  Lude.Text ->
+  Types.String ->
   -- | 'cachePeriodInMinutes'
-  Lude.Integer ->
+  Core.Integer ->
   Endpoint
-mkEndpoint pAddress_ pCachePeriodInMinutes_ =
-  Endpoint'
-    { address = pAddress_,
-      cachePeriodInMinutes = pCachePeriodInMinutes_
-    }
+mkEndpoint address cachePeriodInMinutes =
+  Endpoint' {address, cachePeriodInMinutes}
 
 -- | IP address of the endpoint.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eAddress :: Lens.Lens' Endpoint Lude.Text
-eAddress = Lens.lens (address :: Endpoint -> Lude.Text) (\s a -> s {address = a} :: Endpoint)
+eAddress :: Lens.Lens' Endpoint Types.String
+eAddress = Lens.field @"address"
 {-# DEPRECATED eAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | Endpoint cache time to live (TTL) value.
 --
 -- /Note:/ Consider using 'cachePeriodInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eCachePeriodInMinutes :: Lens.Lens' Endpoint Lude.Integer
-eCachePeriodInMinutes = Lens.lens (cachePeriodInMinutes :: Endpoint -> Lude.Integer) (\s a -> s {cachePeriodInMinutes = a} :: Endpoint)
+eCachePeriodInMinutes :: Lens.Lens' Endpoint Core.Integer
+eCachePeriodInMinutes = Lens.field @"cachePeriodInMinutes"
 {-# DEPRECATED eCachePeriodInMinutes "Use generic-lens or generic-optics with 'cachePeriodInMinutes' instead." #-}
 
-instance Lude.FromJSON Endpoint where
+instance Core.FromJSON Endpoint where
   parseJSON =
-    Lude.withObject
-      "Endpoint"
-      ( \x ->
-          Endpoint'
-            Lude.<$> (x Lude..: "Address") Lude.<*> (x Lude..: "CachePeriodInMinutes")
-      )
+    Core.withObject "Endpoint" Core.$
+      \x ->
+        Endpoint'
+          Core.<$> (x Core..: "Address") Core.<*> (x Core..: "CachePeriodInMinutes")

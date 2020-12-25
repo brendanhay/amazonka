@@ -13,56 +13,61 @@
 module Network.AWS.GameLift.Types.ComparisonOperatorType
   ( ComparisonOperatorType
       ( ComparisonOperatorType',
-        GreaterThanOrEqualToThreshold,
-        GreaterThanThreshold,
-        LessThanThreshold,
-        LessThanOrEqualToThreshold
+        ComparisonOperatorTypeGreaterThanOrEqualToThreshold,
+        ComparisonOperatorTypeGreaterThanThreshold,
+        ComparisonOperatorTypeLessThanThreshold,
+        ComparisonOperatorTypeLessThanOrEqualToThreshold,
+        fromComparisonOperatorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComparisonOperatorType = ComparisonOperatorType' Lude.Text
+newtype ComparisonOperatorType = ComparisonOperatorType'
+  { fromComparisonOperatorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern GreaterThanOrEqualToThreshold :: ComparisonOperatorType
-pattern GreaterThanOrEqualToThreshold = ComparisonOperatorType' "GreaterThanOrEqualToThreshold"
+pattern ComparisonOperatorTypeGreaterThanOrEqualToThreshold :: ComparisonOperatorType
+pattern ComparisonOperatorTypeGreaterThanOrEqualToThreshold = ComparisonOperatorType' "GreaterThanOrEqualToThreshold"
 
-pattern GreaterThanThreshold :: ComparisonOperatorType
-pattern GreaterThanThreshold = ComparisonOperatorType' "GreaterThanThreshold"
+pattern ComparisonOperatorTypeGreaterThanThreshold :: ComparisonOperatorType
+pattern ComparisonOperatorTypeGreaterThanThreshold = ComparisonOperatorType' "GreaterThanThreshold"
 
-pattern LessThanThreshold :: ComparisonOperatorType
-pattern LessThanThreshold = ComparisonOperatorType' "LessThanThreshold"
+pattern ComparisonOperatorTypeLessThanThreshold :: ComparisonOperatorType
+pattern ComparisonOperatorTypeLessThanThreshold = ComparisonOperatorType' "LessThanThreshold"
 
-pattern LessThanOrEqualToThreshold :: ComparisonOperatorType
-pattern LessThanOrEqualToThreshold = ComparisonOperatorType' "LessThanOrEqualToThreshold"
+pattern ComparisonOperatorTypeLessThanOrEqualToThreshold :: ComparisonOperatorType
+pattern ComparisonOperatorTypeLessThanOrEqualToThreshold = ComparisonOperatorType' "LessThanOrEqualToThreshold"
 
 {-# COMPLETE
-  GreaterThanOrEqualToThreshold,
-  GreaterThanThreshold,
-  LessThanThreshold,
-  LessThanOrEqualToThreshold,
+  ComparisonOperatorTypeGreaterThanOrEqualToThreshold,
+  ComparisonOperatorTypeGreaterThanThreshold,
+  ComparisonOperatorTypeLessThanThreshold,
+  ComparisonOperatorTypeLessThanOrEqualToThreshold,
   ComparisonOperatorType'
   #-}

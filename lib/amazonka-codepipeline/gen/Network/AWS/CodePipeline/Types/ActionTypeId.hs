@@ -19,15 +19,17 @@ module Network.AWS.CodePipeline.Types.ActionTypeId
     -- * Lenses
     atiCategory,
     atiOwner,
-    atiVersion,
     atiProvider,
+    atiVersion,
   )
 where
 
-import Network.AWS.CodePipeline.Types.ActionCategory
-import Network.AWS.CodePipeline.Types.ActionOwner
+import qualified Network.AWS.CodePipeline.Types.ActionCategory as Types
+import qualified Network.AWS.CodePipeline.Types.ActionOwner as Types
+import qualified Network.AWS.CodePipeline.Types.ActionProvider as Types
+import qualified Network.AWS.CodePipeline.Types.Version as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about an action type.
 --
@@ -52,60 +54,30 @@ data ActionTypeId = ActionTypeId'
     --
     --
     --     * Approval
-    category :: ActionCategory,
+    category :: Types.ActionCategory,
     -- | The creator of the action being called. There are three valid values for the @Owner@ field in the action category section within your pipeline structure: @AWS@ , @ThirdParty@ , and @Custom@ . For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline> .
-    owner :: ActionOwner,
-    -- | A string that describes the action version.
-    version :: Lude.Text,
+    owner :: Types.ActionOwner,
     -- | The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline> .
-    provider :: Lude.Text
+    provider :: Types.ActionProvider,
+    -- | A string that describes the action version.
+    version :: Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActionTypeId' with the minimum fields required to make a request.
---
--- * 'category' - A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the following values.
---
---
---     * Source
---
---
---     * Build
---
---
---     * Test
---
---
---     * Deploy
---
---
---     * Invoke
---
---
---     * Approval
---
---
--- * 'owner' - The creator of the action being called. There are three valid values for the @Owner@ field in the action category section within your pipeline structure: @AWS@ , @ThirdParty@ , and @Custom@ . For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline> .
--- * 'version' - A string that describes the action version.
--- * 'provider' - The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline> .
+-- | Creates a 'ActionTypeId' value with any optional fields omitted.
 mkActionTypeId ::
   -- | 'category'
-  ActionCategory ->
+  Types.ActionCategory ->
   -- | 'owner'
-  ActionOwner ->
-  -- | 'version'
-  Lude.Text ->
+  Types.ActionOwner ->
   -- | 'provider'
-  Lude.Text ->
+  Types.ActionProvider ->
+  -- | 'version'
+  Types.Version ->
   ActionTypeId
-mkActionTypeId pCategory_ pOwner_ pVersion_ pProvider_ =
-  ActionTypeId'
-    { category = pCategory_,
-      owner = pOwner_,
-      version = pVersion_,
-      provider = pProvider_
-    }
+mkActionTypeId category owner provider version =
+  ActionTypeId' {category, owner, provider, version}
 
 -- | A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the following values.
 --
@@ -130,50 +102,48 @@ mkActionTypeId pCategory_ pOwner_ pVersion_ pProvider_ =
 --
 --
 -- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiCategory :: Lens.Lens' ActionTypeId ActionCategory
-atiCategory = Lens.lens (category :: ActionTypeId -> ActionCategory) (\s a -> s {category = a} :: ActionTypeId)
+atiCategory :: Lens.Lens' ActionTypeId Types.ActionCategory
+atiCategory = Lens.field @"category"
 {-# DEPRECATED atiCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | The creator of the action being called. There are three valid values for the @Owner@ field in the action category section within your pipeline structure: @AWS@ , @ThirdParty@ , and @Custom@ . For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline> .
 --
 -- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiOwner :: Lens.Lens' ActionTypeId ActionOwner
-atiOwner = Lens.lens (owner :: ActionTypeId -> ActionOwner) (\s a -> s {owner = a} :: ActionTypeId)
+atiOwner :: Lens.Lens' ActionTypeId Types.ActionOwner
+atiOwner = Lens.field @"owner"
 {-# DEPRECATED atiOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
-
--- | A string that describes the action version.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiVersion :: Lens.Lens' ActionTypeId Lude.Text
-atiVersion = Lens.lens (version :: ActionTypeId -> Lude.Text) (\s a -> s {version = a} :: ActionTypeId)
-{-# DEPRECATED atiVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline> .
 --
 -- /Note:/ Consider using 'provider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiProvider :: Lens.Lens' ActionTypeId Lude.Text
-atiProvider = Lens.lens (provider :: ActionTypeId -> Lude.Text) (\s a -> s {provider = a} :: ActionTypeId)
+atiProvider :: Lens.Lens' ActionTypeId Types.ActionProvider
+atiProvider = Lens.field @"provider"
 {-# DEPRECATED atiProvider "Use generic-lens or generic-optics with 'provider' instead." #-}
 
-instance Lude.FromJSON ActionTypeId where
-  parseJSON =
-    Lude.withObject
-      "ActionTypeId"
-      ( \x ->
-          ActionTypeId'
-            Lude.<$> (x Lude..: "category")
-            Lude.<*> (x Lude..: "owner")
-            Lude.<*> (x Lude..: "version")
-            Lude.<*> (x Lude..: "provider")
-      )
+-- | A string that describes the action version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atiVersion :: Lens.Lens' ActionTypeId Types.Version
+atiVersion = Lens.field @"version"
+{-# DEPRECATED atiVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.ToJSON ActionTypeId where
-  toJSON ActionTypeId' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("category" Lude..= category),
-            Lude.Just ("owner" Lude..= owner),
-            Lude.Just ("version" Lude..= version),
-            Lude.Just ("provider" Lude..= provider)
+instance Core.FromJSON ActionTypeId where
+  toJSON ActionTypeId {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("category" Core..= category),
+            Core.Just ("owner" Core..= owner),
+            Core.Just ("provider" Core..= provider),
+            Core.Just ("version" Core..= version)
           ]
       )
+
+instance Core.FromJSON ActionTypeId where
+  parseJSON =
+    Core.withObject "ActionTypeId" Core.$
+      \x ->
+        ActionTypeId'
+          Core.<$> (x Core..: "category")
+          Core.<*> (x Core..: "owner")
+          Core.<*> (x Core..: "provider")
+          Core.<*> (x Core..: "version")

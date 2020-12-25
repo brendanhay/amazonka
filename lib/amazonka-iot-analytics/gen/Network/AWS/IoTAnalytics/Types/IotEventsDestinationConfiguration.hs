@@ -18,69 +18,63 @@ module Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration
 
     -- * Lenses
     iedcInputName,
-    iedcRoleARN,
+    iedcRoleArn,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.IotEventsInputName as Types
+import qualified Network.AWS.IoTAnalytics.Types.RoleArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information for delivery of dataset contents to AWS IoT Events.
 --
 -- /See:/ 'mkIotEventsDestinationConfiguration' smart constructor.
 data IotEventsDestinationConfiguration = IotEventsDestinationConfiguration'
   { -- | The name of the AWS IoT Events input to which dataset contents are delivered.
-    inputName :: Lude.Text,
+    inputName :: Types.IotEventsInputName,
     -- | The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IotEventsDestinationConfiguration' with the minimum fields required to make a request.
---
--- * 'inputName' - The name of the AWS IoT Events input to which dataset contents are delivered.
--- * 'roleARN' - The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+-- | Creates a 'IotEventsDestinationConfiguration' value with any optional fields omitted.
 mkIotEventsDestinationConfiguration ::
   -- | 'inputName'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.IotEventsInputName ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   IotEventsDestinationConfiguration
-mkIotEventsDestinationConfiguration pInputName_ pRoleARN_ =
-  IotEventsDestinationConfiguration'
-    { inputName = pInputName_,
-      roleARN = pRoleARN_
-    }
+mkIotEventsDestinationConfiguration inputName roleArn =
+  IotEventsDestinationConfiguration' {inputName, roleArn}
 
 -- | The name of the AWS IoT Events input to which dataset contents are delivered.
 --
 -- /Note:/ Consider using 'inputName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iedcInputName :: Lens.Lens' IotEventsDestinationConfiguration Lude.Text
-iedcInputName = Lens.lens (inputName :: IotEventsDestinationConfiguration -> Lude.Text) (\s a -> s {inputName = a} :: IotEventsDestinationConfiguration)
+iedcInputName :: Lens.Lens' IotEventsDestinationConfiguration Types.IotEventsInputName
+iedcInputName = Lens.field @"inputName"
 {-# DEPRECATED iedcInputName "Use generic-lens or generic-optics with 'inputName' instead." #-}
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iedcRoleARN :: Lens.Lens' IotEventsDestinationConfiguration Lude.Text
-iedcRoleARN = Lens.lens (roleARN :: IotEventsDestinationConfiguration -> Lude.Text) (\s a -> s {roleARN = a} :: IotEventsDestinationConfiguration)
-{-# DEPRECATED iedcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iedcRoleArn :: Lens.Lens' IotEventsDestinationConfiguration Types.RoleArn
+iedcRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED iedcRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON IotEventsDestinationConfiguration where
-  parseJSON =
-    Lude.withObject
-      "IotEventsDestinationConfiguration"
-      ( \x ->
-          IotEventsDestinationConfiguration'
-            Lude.<$> (x Lude..: "inputName") Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON IotEventsDestinationConfiguration where
-  toJSON IotEventsDestinationConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("inputName" Lude..= inputName),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON IotEventsDestinationConfiguration where
+  toJSON IotEventsDestinationConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("inputName" Core..= inputName),
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )
+
+instance Core.FromJSON IotEventsDestinationConfiguration where
+  parseJSON =
+    Core.withObject "IotEventsDestinationConfiguration" Core.$
+      \x ->
+        IotEventsDestinationConfiguration'
+          Core.<$> (x Core..: "inputName") Core.<*> (x Core..: "roleArn")

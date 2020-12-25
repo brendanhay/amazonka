@@ -17,56 +17,54 @@ module Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse
     mkLaunchTemplateAndOverridesResponse,
 
     -- * Lenses
-    ltaoOverrides,
-    ltaoLaunchTemplateSpecification,
+    ltaorLaunchTemplateSpecification,
+    ltaorOverrides,
   )
 where
 
-import Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
-import Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
+import qualified Network.AWS.EC2.Types.FleetLaunchTemplateOverrides as Types
+import qualified Network.AWS.EC2.Types.FleetLaunchTemplateSpecification as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a launch template and overrides.
 --
 -- /See:/ 'mkLaunchTemplateAndOverridesResponse' smart constructor.
 data LaunchTemplateAndOverridesResponse = LaunchTemplateAndOverridesResponse'
-  { -- | Any parameters that you specify override the same parameters in the launch template.
-    overrides :: Lude.Maybe FleetLaunchTemplateOverrides,
-    -- | The launch template.
-    launchTemplateSpecification :: Lude.Maybe FleetLaunchTemplateSpecification
+  { -- | The launch template.
+    launchTemplateSpecification :: Core.Maybe Types.FleetLaunchTemplateSpecification,
+    -- | Any parameters that you specify override the same parameters in the launch template.
+    overrides :: Core.Maybe Types.FleetLaunchTemplateOverrides
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplateAndOverridesResponse' with the minimum fields required to make a request.
---
--- * 'overrides' - Any parameters that you specify override the same parameters in the launch template.
--- * 'launchTemplateSpecification' - The launch template.
+-- | Creates a 'LaunchTemplateAndOverridesResponse' value with any optional fields omitted.
 mkLaunchTemplateAndOverridesResponse ::
   LaunchTemplateAndOverridesResponse
 mkLaunchTemplateAndOverridesResponse =
   LaunchTemplateAndOverridesResponse'
-    { overrides = Lude.Nothing,
-      launchTemplateSpecification = Lude.Nothing
+    { launchTemplateSpecification =
+        Core.Nothing,
+      overrides = Core.Nothing
     }
-
--- | Any parameters that you specify override the same parameters in the launch template.
---
--- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltaoOverrides :: Lens.Lens' LaunchTemplateAndOverridesResponse (Lude.Maybe FleetLaunchTemplateOverrides)
-ltaoOverrides = Lens.lens (overrides :: LaunchTemplateAndOverridesResponse -> Lude.Maybe FleetLaunchTemplateOverrides) (\s a -> s {overrides = a} :: LaunchTemplateAndOverridesResponse)
-{-# DEPRECATED ltaoOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
 
 -- | The launch template.
 --
 -- /Note:/ Consider using 'launchTemplateSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltaoLaunchTemplateSpecification :: Lens.Lens' LaunchTemplateAndOverridesResponse (Lude.Maybe FleetLaunchTemplateSpecification)
-ltaoLaunchTemplateSpecification = Lens.lens (launchTemplateSpecification :: LaunchTemplateAndOverridesResponse -> Lude.Maybe FleetLaunchTemplateSpecification) (\s a -> s {launchTemplateSpecification = a} :: LaunchTemplateAndOverridesResponse)
-{-# DEPRECATED ltaoLaunchTemplateSpecification "Use generic-lens or generic-optics with 'launchTemplateSpecification' instead." #-}
+ltaorLaunchTemplateSpecification :: Lens.Lens' LaunchTemplateAndOverridesResponse (Core.Maybe Types.FleetLaunchTemplateSpecification)
+ltaorLaunchTemplateSpecification = Lens.field @"launchTemplateSpecification"
+{-# DEPRECATED ltaorLaunchTemplateSpecification "Use generic-lens or generic-optics with 'launchTemplateSpecification' instead." #-}
 
-instance Lude.FromXML LaunchTemplateAndOverridesResponse where
+-- | Any parameters that you specify override the same parameters in the launch template.
+--
+-- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltaorOverrides :: Lens.Lens' LaunchTemplateAndOverridesResponse (Core.Maybe Types.FleetLaunchTemplateOverrides)
+ltaorOverrides = Lens.field @"overrides"
+{-# DEPRECATED ltaorOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
+
+instance Core.FromXML LaunchTemplateAndOverridesResponse where
   parseXML x =
     LaunchTemplateAndOverridesResponse'
-      Lude.<$> (x Lude..@? "overrides")
-      Lude.<*> (x Lude..@? "launchTemplateSpecification")
+      Core.<$> (x Core..@? "launchTemplateSpecification")
+      Core.<*> (x Core..@? "overrides")

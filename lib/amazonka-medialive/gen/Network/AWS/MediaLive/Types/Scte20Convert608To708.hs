@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Scte20Convert608To708
   ( Scte20Convert608To708
       ( Scte20Convert608To708',
-        SCTDisabled,
-        SCTUpconvert
+        Scte20Convert608To708Disabled,
+        Scte20Convert608To708Upconvert,
+        fromScte20Convert608To708
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Scte20 Convert608 To708
-newtype Scte20Convert608To708 = Scte20Convert608To708' Lude.Text
+newtype Scte20Convert608To708 = Scte20Convert608To708'
+  { fromScte20Convert608To708 ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SCTDisabled :: Scte20Convert608To708
-pattern SCTDisabled = Scte20Convert608To708' "DISABLED"
+pattern Scte20Convert608To708Disabled :: Scte20Convert608To708
+pattern Scte20Convert608To708Disabled = Scte20Convert608To708' "DISABLED"
 
-pattern SCTUpconvert :: Scte20Convert608To708
-pattern SCTUpconvert = Scte20Convert608To708' "UPCONVERT"
+pattern Scte20Convert608To708Upconvert :: Scte20Convert608To708
+pattern Scte20Convert608To708Upconvert = Scte20Convert608To708' "UPCONVERT"
 
 {-# COMPLETE
-  SCTDisabled,
-  SCTUpconvert,
+  Scte20Convert608To708Disabled,
+  Scte20Convert608To708Upconvert,
   Scte20Convert608To708'
   #-}

@@ -22,35 +22,35 @@ module Network.AWS.EC2.DescribeFpgaImages
     mkDescribeFpgaImages,
 
     -- ** Request lenses
-    dfisOwners,
-    dfisFilters,
-    dfisNextToken,
-    dfisDryRun,
-    dfisMaxResults,
-    dfisFpgaImageIds,
+    dfifDryRun,
+    dfifFilters,
+    dfifFpgaImageIds,
+    dfifMaxResults,
+    dfifNextToken,
+    dfifOwners,
 
     -- * Destructuring the response
     DescribeFpgaImagesResponse (..),
     mkDescribeFpgaImagesResponse,
 
     -- ** Response lenses
-    dfirsFpgaImages,
-    dfirsNextToken,
-    dfirsResponseStatus,
+    dfirgrsFpgaImages,
+    dfirgrsNextToken,
+    dfirgrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeFpgaImages' smart constructor.
 data DescribeFpgaImages = DescribeFpgaImages'
-  { -- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ ).
-    owners :: Lude.Maybe [Lude.Text],
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | The filters.
     --
     --
@@ -85,80 +85,38 @@ data DescribeFpgaImages = DescribeFpgaImages'
     --
     --
     --     * @update-time@ - The time of the most recent update.
-    filters :: Lude.Maybe [Filter],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Lude.Maybe Lude.Natural,
+    filters :: Core.Maybe [Types.Filter],
     -- | The AFI IDs.
-    fpgaImageIds :: Lude.Maybe [Lude.Text]
+    fpgaImageIds :: Core.Maybe [Types.FpgaImageId],
+    -- | The maximum number of results to return in a single call.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ ).
+    owners :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFpgaImages' with the minimum fields required to make a request.
---
--- * 'owners' - Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ ).
--- * 'filters' - The filters.
---
---
---     * @create-time@ - The creation time of the AFI.
---
---
---     * @fpga-image-id@ - The FPGA image identifier (AFI ID).
---
---
---     * @fpga-image-global-id@ - The global FPGA image identifier (AGFI ID).
---
---
---     * @name@ - The name of the AFI.
---
---
---     * @owner-id@ - The AWS account ID of the AFI owner.
---
---
---     * @product-code@ - The product code.
---
---
---     * @shell-version@ - The version of the AWS Shell that was used to create the bitstream.
---
---
---     * @state@ - The state of the AFI (@pending@ | @failed@ | @available@ | @unavailable@ ).
---
---
---     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
---
---
---     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
---
---
---     * @update-time@ - The time of the most recent update.
---
---
--- * 'nextToken' - The token to retrieve the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call.
--- * 'fpgaImageIds' - The AFI IDs.
+-- | Creates a 'DescribeFpgaImages' value with any optional fields omitted.
 mkDescribeFpgaImages ::
   DescribeFpgaImages
 mkDescribeFpgaImages =
   DescribeFpgaImages'
-    { owners = Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      fpgaImageIds = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      fpgaImageIds = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      owners = Core.Nothing
     }
 
--- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ ).
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'owners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisOwners :: Lens.Lens' DescribeFpgaImages (Lude.Maybe [Lude.Text])
-dfisOwners = Lens.lens (owners :: DescribeFpgaImages -> Lude.Maybe [Lude.Text]) (\s a -> s {owners = a} :: DescribeFpgaImages)
-{-# DEPRECATED dfisOwners "Use generic-lens or generic-optics with 'owners' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfifDryRun :: Lens.Lens' DescribeFpgaImages (Core.Maybe Core.Bool)
+dfifDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dfifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The filters.
 --
@@ -198,126 +156,125 @@ dfisOwners = Lens.lens (owners :: DescribeFpgaImages -> Lude.Maybe [Lude.Text]) 
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisFilters :: Lens.Lens' DescribeFpgaImages (Lude.Maybe [Filter])
-dfisFilters = Lens.lens (filters :: DescribeFpgaImages -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeFpgaImages)
-{-# DEPRECATED dfisFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token to retrieve the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisNextToken :: Lens.Lens' DescribeFpgaImages (Lude.Maybe Lude.Text)
-dfisNextToken = Lens.lens (nextToken :: DescribeFpgaImages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFpgaImages)
-{-# DEPRECATED dfisNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisDryRun :: Lens.Lens' DescribeFpgaImages (Lude.Maybe Lude.Bool)
-dfisDryRun = Lens.lens (dryRun :: DescribeFpgaImages -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFpgaImages)
-{-# DEPRECATED dfisDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The maximum number of results to return in a single call.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisMaxResults :: Lens.Lens' DescribeFpgaImages (Lude.Maybe Lude.Natural)
-dfisMaxResults = Lens.lens (maxResults :: DescribeFpgaImages -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeFpgaImages)
-{-# DEPRECATED dfisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dfifFilters :: Lens.Lens' DescribeFpgaImages (Core.Maybe [Types.Filter])
+dfifFilters = Lens.field @"filters"
+{-# DEPRECATED dfifFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The AFI IDs.
 --
 -- /Note:/ Consider using 'fpgaImageIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisFpgaImageIds :: Lens.Lens' DescribeFpgaImages (Lude.Maybe [Lude.Text])
-dfisFpgaImageIds = Lens.lens (fpgaImageIds :: DescribeFpgaImages -> Lude.Maybe [Lude.Text]) (\s a -> s {fpgaImageIds = a} :: DescribeFpgaImages)
-{-# DEPRECATED dfisFpgaImageIds "Use generic-lens or generic-optics with 'fpgaImageIds' instead." #-}
+dfifFpgaImageIds :: Lens.Lens' DescribeFpgaImages (Core.Maybe [Types.FpgaImageId])
+dfifFpgaImageIds = Lens.field @"fpgaImageIds"
+{-# DEPRECATED dfifFpgaImageIds "Use generic-lens or generic-optics with 'fpgaImageIds' instead." #-}
 
-instance Page.AWSPager DescribeFpgaImages where
-  page rq rs
-    | Page.stop (rs Lens.^. dfirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dfirsFpgaImages) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dfisNextToken Lens..~ rs Lens.^. dfirsNextToken
+-- | The maximum number of results to return in a single call.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfifMaxResults :: Lens.Lens' DescribeFpgaImages (Core.Maybe Core.Natural)
+dfifMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED dfifMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest DescribeFpgaImages where
+-- | The token to retrieve the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfifNextToken :: Lens.Lens' DescribeFpgaImages (Core.Maybe Types.NextToken)
+dfifNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dfifNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ ).
+--
+-- /Note:/ Consider using 'owners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfifOwners :: Lens.Lens' DescribeFpgaImages (Core.Maybe [Types.String])
+dfifOwners = Lens.field @"owners"
+{-# DEPRECATED dfifOwners "Use generic-lens or generic-optics with 'owners' instead." #-}
+
+instance Core.AWSRequest DescribeFpgaImages where
   type Rs DescribeFpgaImages = DescribeFpgaImagesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeFpgaImages")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryList "FpgaImageId" Core.<$> fpgaImageIds)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryList "Owner" Core.<$> owners)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeFpgaImagesResponse'
-            Lude.<$> ( x Lude..@? "fpgaImageSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "fpgaImageSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeFpgaImages where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeFpgaImages where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeFpgaImages where
-  toQuery DescribeFpgaImages' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeFpgaImages" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Owner" Lude.<$> owners),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        Lude.toQuery
-          (Lude.toQueryList "FpgaImageId" Lude.<$> fpgaImageIds)
-      ]
+instance Pager.AWSPager DescribeFpgaImages where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"fpgaImages" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeFpgaImagesResponse' smart constructor.
 data DescribeFpgaImagesResponse = DescribeFpgaImagesResponse'
   { -- | Information about the FPGA images.
-    fpgaImages :: Lude.Maybe [FpgaImage],
+    fpgaImages :: Core.Maybe [Types.FpgaImage],
     -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeFpgaImagesResponse' with the minimum fields required to make a request.
---
--- * 'fpgaImages' - Information about the FPGA images.
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeFpgaImagesResponse' value with any optional fields omitted.
 mkDescribeFpgaImagesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeFpgaImagesResponse
-mkDescribeFpgaImagesResponse pResponseStatus_ =
+mkDescribeFpgaImagesResponse responseStatus =
   DescribeFpgaImagesResponse'
-    { fpgaImages = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fpgaImages = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the FPGA images.
 --
 -- /Note:/ Consider using 'fpgaImages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfirsFpgaImages :: Lens.Lens' DescribeFpgaImagesResponse (Lude.Maybe [FpgaImage])
-dfirsFpgaImages = Lens.lens (fpgaImages :: DescribeFpgaImagesResponse -> Lude.Maybe [FpgaImage]) (\s a -> s {fpgaImages = a} :: DescribeFpgaImagesResponse)
-{-# DEPRECATED dfirsFpgaImages "Use generic-lens or generic-optics with 'fpgaImages' instead." #-}
+dfirgrsFpgaImages :: Lens.Lens' DescribeFpgaImagesResponse (Core.Maybe [Types.FpgaImage])
+dfirgrsFpgaImages = Lens.field @"fpgaImages"
+{-# DEPRECATED dfirgrsFpgaImages "Use generic-lens or generic-optics with 'fpgaImages' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfirsNextToken :: Lens.Lens' DescribeFpgaImagesResponse (Lude.Maybe Lude.Text)
-dfirsNextToken = Lens.lens (nextToken :: DescribeFpgaImagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFpgaImagesResponse)
-{-# DEPRECATED dfirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dfirgrsNextToken :: Lens.Lens' DescribeFpgaImagesResponse (Core.Maybe Types.NextToken)
+dfirgrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dfirgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfirsResponseStatus :: Lens.Lens' DescribeFpgaImagesResponse Lude.Int
-dfirsResponseStatus = Lens.lens (responseStatus :: DescribeFpgaImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFpgaImagesResponse)
-{-# DEPRECATED dfirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfirgrsResponseStatus :: Lens.Lens' DescribeFpgaImagesResponse Core.Int
+dfirgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfirgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

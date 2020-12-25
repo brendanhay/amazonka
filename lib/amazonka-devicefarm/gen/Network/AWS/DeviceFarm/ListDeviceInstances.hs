@@ -22,155 +22,145 @@ module Network.AWS.DeviceFarm.ListDeviceInstances
     mkListDeviceInstances,
 
     -- ** Request lenses
-    ldiNextToken,
     ldiMaxResults,
+    ldiNextToken,
 
     -- * Destructuring the response
     ListDeviceInstancesResponse (..),
     mkListDeviceInstancesResponse,
 
     -- ** Response lenses
-    ldirsNextToken,
-    ldirsDeviceInstances,
-    ldirsResponseStatus,
+    ldirrsDeviceInstances,
+    ldirrsNextToken,
+    ldirrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDeviceInstances' smart constructor.
 data ListDeviceInstances = ListDeviceInstances'
-  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An integer that specifies the maximum number of items you want to return in the API response.
-    maxResults :: Lude.Maybe Lude.Int
+  { -- | An integer that specifies the maximum number of items you want to return in the API response.
+    maxResults :: Core.Maybe Core.Int,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDeviceInstances' with the minimum fields required to make a request.
---
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'maxResults' - An integer that specifies the maximum number of items you want to return in the API response.
+-- | Creates a 'ListDeviceInstances' value with any optional fields omitted.
 mkListDeviceInstances ::
   ListDeviceInstances
 mkListDeviceInstances =
   ListDeviceInstances'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldiNextToken :: Lens.Lens' ListDeviceInstances (Lude.Maybe Lude.Text)
-ldiNextToken = Lens.lens (nextToken :: ListDeviceInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeviceInstances)
-{-# DEPRECATED ldiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An integer that specifies the maximum number of items you want to return in the API response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldiMaxResults :: Lens.Lens' ListDeviceInstances (Lude.Maybe Lude.Int)
-ldiMaxResults = Lens.lens (maxResults :: ListDeviceInstances -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListDeviceInstances)
+ldiMaxResults :: Lens.Lens' ListDeviceInstances (Core.Maybe Core.Int)
+ldiMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ldiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListDeviceInstances where
-  page rq rs
-    | Page.stop (rs Lens.^. ldirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldirsDeviceInstances) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldiNextToken Lens..~ rs Lens.^. ldirsNextToken
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldiNextToken :: Lens.Lens' ListDeviceInstances (Core.Maybe Types.PaginationToken)
+ldiNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListDeviceInstances where
+instance Core.FromJSON ListDeviceInstances where
+  toJSON ListDeviceInstances {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListDeviceInstances where
   type Rs ListDeviceInstances = ListDeviceInstancesResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.ListDeviceInstances")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListDeviceInstancesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "deviceInstances" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deviceInstances")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListDeviceInstances where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.ListDeviceInstances" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListDeviceInstances where
-  toJSON ListDeviceInstances' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListDeviceInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListDeviceInstances where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListDeviceInstances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"deviceInstances" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListDeviceInstancesResponse' smart constructor.
 data ListDeviceInstancesResponse = ListDeviceInstancesResponse'
-  { -- | An identifier that can be used in the next call to this operation to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An object that contains information about your device instances.
-    deviceInstances :: Lude.Maybe [DeviceInstance],
+  { -- | An object that contains information about your device instances.
+    deviceInstances :: Core.Maybe [Types.DeviceInstance],
+    -- | An identifier that can be used in the next call to this operation to return the next set of items in the list.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDeviceInstancesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - An identifier that can be used in the next call to this operation to return the next set of items in the list.
--- * 'deviceInstances' - An object that contains information about your device instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDeviceInstancesResponse' value with any optional fields omitted.
 mkListDeviceInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDeviceInstancesResponse
-mkListDeviceInstancesResponse pResponseStatus_ =
+mkListDeviceInstancesResponse responseStatus =
   ListDeviceInstancesResponse'
-    { nextToken = Lude.Nothing,
-      deviceInstances = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deviceInstances = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | An identifier that can be used in the next call to this operation to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldirsNextToken :: Lens.Lens' ListDeviceInstancesResponse (Lude.Maybe Lude.Text)
-ldirsNextToken = Lens.lens (nextToken :: ListDeviceInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeviceInstancesResponse)
-{-# DEPRECATED ldirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An object that contains information about your device instances.
 --
 -- /Note:/ Consider using 'deviceInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldirsDeviceInstances :: Lens.Lens' ListDeviceInstancesResponse (Lude.Maybe [DeviceInstance])
-ldirsDeviceInstances = Lens.lens (deviceInstances :: ListDeviceInstancesResponse -> Lude.Maybe [DeviceInstance]) (\s a -> s {deviceInstances = a} :: ListDeviceInstancesResponse)
-{-# DEPRECATED ldirsDeviceInstances "Use generic-lens or generic-optics with 'deviceInstances' instead." #-}
+ldirrsDeviceInstances :: Lens.Lens' ListDeviceInstancesResponse (Core.Maybe [Types.DeviceInstance])
+ldirrsDeviceInstances = Lens.field @"deviceInstances"
+{-# DEPRECATED ldirrsDeviceInstances "Use generic-lens or generic-optics with 'deviceInstances' instead." #-}
+
+-- | An identifier that can be used in the next call to this operation to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldirrsNextToken :: Lens.Lens' ListDeviceInstancesResponse (Core.Maybe Types.PaginationToken)
+ldirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldirsResponseStatus :: Lens.Lens' ListDeviceInstancesResponse Lude.Int
-ldirsResponseStatus = Lens.lens (responseStatus :: ListDeviceInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeviceInstancesResponse)
-{-# DEPRECATED ldirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldirrsResponseStatus :: Lens.Lens' ListDeviceInstancesResponse Core.Int
+ldirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

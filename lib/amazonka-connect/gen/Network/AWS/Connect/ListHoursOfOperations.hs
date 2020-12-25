@@ -25,162 +25,153 @@ module Network.AWS.Connect.ListHoursOfOperations
 
     -- ** Request lenses
     lhooInstanceId,
-    lhooNextToken,
     lhooMaxResults,
+    lhooNextToken,
 
     -- * Destructuring the response
     ListHoursOfOperationsResponse (..),
     mkListHoursOfOperationsResponse,
 
     -- ** Response lenses
-    lhoorsNextToken,
-    lhoorsHoursOfOperationSummaryList,
-    lhoorsResponseStatus,
+    lhoorrsHoursOfOperationSummaryList,
+    lhoorrsNextToken,
+    lhoorrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListHoursOfOperations' smart constructor.
 data ListHoursOfOperations = ListHoursOfOperations'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHoursOfOperations' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'ListHoursOfOperations' value with any optional fields omitted.
 mkListHoursOfOperations ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   ListHoursOfOperations
-mkListHoursOfOperations pInstanceId_ =
+mkListHoursOfOperations instanceId =
   ListHoursOfOperations'
-    { instanceId = pInstanceId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhooInstanceId :: Lens.Lens' ListHoursOfOperations Lude.Text
-lhooInstanceId = Lens.lens (instanceId :: ListHoursOfOperations -> Lude.Text) (\s a -> s {instanceId = a} :: ListHoursOfOperations)
+lhooInstanceId :: Lens.Lens' ListHoursOfOperations Types.InstanceId
+lhooInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED lhooInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhooNextToken :: Lens.Lens' ListHoursOfOperations (Lude.Maybe Lude.Text)
-lhooNextToken = Lens.lens (nextToken :: ListHoursOfOperations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHoursOfOperations)
-{-# DEPRECATED lhooNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhooMaxResults :: Lens.Lens' ListHoursOfOperations (Lude.Maybe Lude.Natural)
-lhooMaxResults = Lens.lens (maxResults :: ListHoursOfOperations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListHoursOfOperations)
+lhooMaxResults :: Lens.Lens' ListHoursOfOperations (Core.Maybe Core.Natural)
+lhooMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lhooMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListHoursOfOperations where
-  page rq rs
-    | Page.stop (rs Lens.^. lhoorsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lhoorsHoursOfOperationSummaryList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lhooNextToken Lens..~ rs Lens.^. lhoorsNextToken
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhooNextToken :: Lens.Lens' ListHoursOfOperations (Core.Maybe Types.NextToken)
+lhooNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lhooNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListHoursOfOperations where
+instance Core.AWSRequest ListHoursOfOperations where
   type Rs ListHoursOfOperations = ListHoursOfOperationsResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/hours-of-operations-summary/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListHoursOfOperationsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "HoursOfOperationSummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "HoursOfOperationSummaryList")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListHoursOfOperations where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListHoursOfOperations where
-  toPath ListHoursOfOperations' {..} =
-    Lude.mconcat
-      ["/hours-of-operations-summary/", Lude.toBS instanceId]
-
-instance Lude.ToQuery ListHoursOfOperations where
-  toQuery ListHoursOfOperations' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListHoursOfOperations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"hoursOfOperationSummaryList" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListHoursOfOperationsResponse' smart constructor.
 data ListHoursOfOperationsResponse = ListHoursOfOperationsResponse'
-  { -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about the hours of operation.
-    hoursOfOperationSummaryList :: Lude.Maybe [HoursOfOperationSummary],
+  { -- | Information about the hours of operation.
+    hoursOfOperationSummaryList :: Core.Maybe [Types.HoursOfOperationSummary],
+    -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHoursOfOperationsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'hoursOfOperationSummaryList' - Information about the hours of operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListHoursOfOperationsResponse' value with any optional fields omitted.
 mkListHoursOfOperationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListHoursOfOperationsResponse
-mkListHoursOfOperationsResponse pResponseStatus_ =
+mkListHoursOfOperationsResponse responseStatus =
   ListHoursOfOperationsResponse'
-    { nextToken = Lude.Nothing,
-      hoursOfOperationSummaryList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { hoursOfOperationSummaryList =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If there are additional results, this is the token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhoorsNextToken :: Lens.Lens' ListHoursOfOperationsResponse (Lude.Maybe Lude.Text)
-lhoorsNextToken = Lens.lens (nextToken :: ListHoursOfOperationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHoursOfOperationsResponse)
-{-# DEPRECATED lhoorsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the hours of operation.
 --
 -- /Note:/ Consider using 'hoursOfOperationSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhoorsHoursOfOperationSummaryList :: Lens.Lens' ListHoursOfOperationsResponse (Lude.Maybe [HoursOfOperationSummary])
-lhoorsHoursOfOperationSummaryList = Lens.lens (hoursOfOperationSummaryList :: ListHoursOfOperationsResponse -> Lude.Maybe [HoursOfOperationSummary]) (\s a -> s {hoursOfOperationSummaryList = a} :: ListHoursOfOperationsResponse)
-{-# DEPRECATED lhoorsHoursOfOperationSummaryList "Use generic-lens or generic-optics with 'hoursOfOperationSummaryList' instead." #-}
+lhoorrsHoursOfOperationSummaryList :: Lens.Lens' ListHoursOfOperationsResponse (Core.Maybe [Types.HoursOfOperationSummary])
+lhoorrsHoursOfOperationSummaryList = Lens.field @"hoursOfOperationSummaryList"
+{-# DEPRECATED lhoorrsHoursOfOperationSummaryList "Use generic-lens or generic-optics with 'hoursOfOperationSummaryList' instead." #-}
+
+-- | If there are additional results, this is the token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhoorrsNextToken :: Lens.Lens' ListHoursOfOperationsResponse (Core.Maybe Types.NextToken)
+lhoorrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lhoorrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhoorsResponseStatus :: Lens.Lens' ListHoursOfOperationsResponse Lude.Int
-lhoorsResponseStatus = Lens.lens (responseStatus :: ListHoursOfOperationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHoursOfOperationsResponse)
-{-# DEPRECATED lhoorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lhoorrsResponseStatus :: Lens.Lens' ListHoursOfOperationsResponse Core.Int
+lhoorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lhoorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

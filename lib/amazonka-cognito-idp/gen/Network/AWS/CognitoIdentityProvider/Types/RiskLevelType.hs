@@ -13,51 +13,56 @@
 module Network.AWS.CognitoIdentityProvider.Types.RiskLevelType
   ( RiskLevelType
       ( RiskLevelType',
-        Low,
-        Medium,
-        High
+        RiskLevelTypeLow,
+        RiskLevelTypeMedium,
+        RiskLevelTypeHigh,
+        fromRiskLevelType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RiskLevelType = RiskLevelType' Lude.Text
+newtype RiskLevelType = RiskLevelType'
+  { fromRiskLevelType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Low :: RiskLevelType
-pattern Low = RiskLevelType' "Low"
+pattern RiskLevelTypeLow :: RiskLevelType
+pattern RiskLevelTypeLow = RiskLevelType' "Low"
 
-pattern Medium :: RiskLevelType
-pattern Medium = RiskLevelType' "Medium"
+pattern RiskLevelTypeMedium :: RiskLevelType
+pattern RiskLevelTypeMedium = RiskLevelType' "Medium"
 
-pattern High :: RiskLevelType
-pattern High = RiskLevelType' "High"
+pattern RiskLevelTypeHigh :: RiskLevelType
+pattern RiskLevelTypeHigh = RiskLevelType' "High"
 
 {-# COMPLETE
-  Low,
-  Medium,
-  High,
+  RiskLevelTypeLow,
+  RiskLevelTypeMedium,
+  RiskLevelTypeHigh,
   RiskLevelType'
   #-}

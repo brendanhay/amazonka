@@ -17,57 +17,54 @@ module Network.AWS.Inspector.Types.DurationRange
     mkDurationRange,
 
     -- * Lenses
-    drMinSeconds,
     drMaxSeconds,
+    drMinSeconds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This data type is used in the 'AssessmentTemplateFilter' data type.
 --
 -- /See:/ 'mkDurationRange' smart constructor.
 data DurationRange = DurationRange'
-  { -- | The minimum value of the duration range. Must be greater than zero.
-    minSeconds :: Lude.Maybe Lude.Natural,
-    -- | The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
-    maxSeconds :: Lude.Maybe Lude.Natural
+  { -- | The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
+    maxSeconds :: Core.Maybe Core.Natural,
+    -- | The minimum value of the duration range. Must be greater than zero.
+    minSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DurationRange' with the minimum fields required to make a request.
---
--- * 'minSeconds' - The minimum value of the duration range. Must be greater than zero.
--- * 'maxSeconds' - The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
+-- | Creates a 'DurationRange' value with any optional fields omitted.
 mkDurationRange ::
   DurationRange
 mkDurationRange =
   DurationRange'
-    { minSeconds = Lude.Nothing,
-      maxSeconds = Lude.Nothing
+    { maxSeconds = Core.Nothing,
+      minSeconds = Core.Nothing
     }
-
--- | The minimum value of the duration range. Must be greater than zero.
---
--- /Note:/ Consider using 'minSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drMinSeconds :: Lens.Lens' DurationRange (Lude.Maybe Lude.Natural)
-drMinSeconds = Lens.lens (minSeconds :: DurationRange -> Lude.Maybe Lude.Natural) (\s a -> s {minSeconds = a} :: DurationRange)
-{-# DEPRECATED drMinSeconds "Use generic-lens or generic-optics with 'minSeconds' instead." #-}
 
 -- | The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
 --
 -- /Note:/ Consider using 'maxSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drMaxSeconds :: Lens.Lens' DurationRange (Lude.Maybe Lude.Natural)
-drMaxSeconds = Lens.lens (maxSeconds :: DurationRange -> Lude.Maybe Lude.Natural) (\s a -> s {maxSeconds = a} :: DurationRange)
+drMaxSeconds :: Lens.Lens' DurationRange (Core.Maybe Core.Natural)
+drMaxSeconds = Lens.field @"maxSeconds"
 {-# DEPRECATED drMaxSeconds "Use generic-lens or generic-optics with 'maxSeconds' instead." #-}
 
-instance Lude.ToJSON DurationRange where
-  toJSON DurationRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("minSeconds" Lude..=) Lude.<$> minSeconds,
-            ("maxSeconds" Lude..=) Lude.<$> maxSeconds
+-- | The minimum value of the duration range. Must be greater than zero.
+--
+-- /Note:/ Consider using 'minSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drMinSeconds :: Lens.Lens' DurationRange (Core.Maybe Core.Natural)
+drMinSeconds = Lens.field @"minSeconds"
+{-# DEPRECATED drMinSeconds "Use generic-lens or generic-optics with 'minSeconds' instead." #-}
+
+instance Core.FromJSON DurationRange where
+  toJSON DurationRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxSeconds" Core..=) Core.<$> maxSeconds,
+            ("minSeconds" Core..=) Core.<$> minSeconds
           ]
       )

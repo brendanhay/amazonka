@@ -23,76 +23,55 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     mkSetIdentityNotificationTopic,
 
     -- ** Request lenses
-    sintSNSTopic,
-    sintNotificationType,
     sintIdentity,
+    sintNotificationType,
+    sintSnsTopic,
 
     -- * Destructuring the response
     SetIdentityNotificationTopicResponse (..),
     mkSetIdentityNotificationTopicResponse,
 
     -- ** Response lenses
-    sintrsResponseStatus,
+    sintrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce, complaint, or delivery notifications for emails sent with that identity as the Source. For information about Amazon SES notifications, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkSetIdentityNotificationTopic' smart constructor.
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
-  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
-    snsTopic :: Lude.Maybe Lude.Text,
-    -- | The type of notifications that will be published to the specified Amazon SNS topic.
-    notificationType :: NotificationType,
-    -- | The identity (email address or domain) that you want to set the Amazon SNS topic for.
+  { -- | The identity (email address or domain) that you want to set the Amazon SNS topic for.
     --
     -- /Important:/ You can only specify a verified identity for this parameter.
     -- You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: @sender@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
-    identity :: Lude.Text
+    identity :: Types.Identity,
+    -- | The type of notifications that will be published to the specified Amazon SNS topic.
+    notificationType :: Types.NotificationType,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
+    snsTopic :: Core.Maybe Types.SnsTopic
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetIdentityNotificationTopic' with the minimum fields required to make a request.
---
--- * 'snsTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
--- * 'notificationType' - The type of notifications that will be published to the specified Amazon SNS topic.
--- * 'identity' - The identity (email address or domain) that you want to set the Amazon SNS topic for.
---
--- /Important:/ You can only specify a verified identity for this parameter.
--- You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: @sender@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+-- | Creates a 'SetIdentityNotificationTopic' value with any optional fields omitted.
 mkSetIdentityNotificationTopic ::
-  -- | 'notificationType'
-  NotificationType ->
   -- | 'identity'
-  Lude.Text ->
+  Types.Identity ->
+  -- | 'notificationType'
+  Types.NotificationType ->
   SetIdentityNotificationTopic
-mkSetIdentityNotificationTopic pNotificationType_ pIdentity_ =
+mkSetIdentityNotificationTopic identity notificationType =
   SetIdentityNotificationTopic'
-    { snsTopic = Lude.Nothing,
-      notificationType = pNotificationType_,
-      identity = pIdentity_
+    { identity,
+      notificationType,
+      snsTopic = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
---
--- /Note:/ Consider using 'snsTopic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sintSNSTopic :: Lens.Lens' SetIdentityNotificationTopic (Lude.Maybe Lude.Text)
-sintSNSTopic = Lens.lens (snsTopic :: SetIdentityNotificationTopic -> Lude.Maybe Lude.Text) (\s a -> s {snsTopic = a} :: SetIdentityNotificationTopic)
-{-# DEPRECATED sintSNSTopic "Use generic-lens or generic-optics with 'snsTopic' instead." #-}
-
--- | The type of notifications that will be published to the specified Amazon SNS topic.
---
--- /Note:/ Consider using 'notificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sintNotificationType :: Lens.Lens' SetIdentityNotificationTopic NotificationType
-sintNotificationType = Lens.lens (notificationType :: SetIdentityNotificationTopic -> NotificationType) (\s a -> s {notificationType = a} :: SetIdentityNotificationTopic)
-{-# DEPRECATED sintNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
 
 -- | The identity (email address or domain) that you want to set the Amazon SNS topic for.
 --
@@ -100,66 +79,77 @@ sintNotificationType = Lens.lens (notificationType :: SetIdentityNotificationTop
 -- You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: @sender@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sintIdentity :: Lens.Lens' SetIdentityNotificationTopic Lude.Text
-sintIdentity = Lens.lens (identity :: SetIdentityNotificationTopic -> Lude.Text) (\s a -> s {identity = a} :: SetIdentityNotificationTopic)
+sintIdentity :: Lens.Lens' SetIdentityNotificationTopic Types.Identity
+sintIdentity = Lens.field @"identity"
 {-# DEPRECATED sintIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
-instance Lude.AWSRequest SetIdentityNotificationTopic where
+-- | The type of notifications that will be published to the specified Amazon SNS topic.
+--
+-- /Note:/ Consider using 'notificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sintNotificationType :: Lens.Lens' SetIdentityNotificationTopic Types.NotificationType
+sintNotificationType = Lens.field @"notificationType"
+{-# DEPRECATED sintNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
+--
+-- /Note:/ Consider using 'snsTopic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sintSnsTopic :: Lens.Lens' SetIdentityNotificationTopic (Core.Maybe Types.SnsTopic)
+sintSnsTopic = Lens.field @"snsTopic"
+{-# DEPRECATED sintSnsTopic "Use generic-lens or generic-optics with 'snsTopic' instead." #-}
+
+instance Core.AWSRequest SetIdentityNotificationTopic where
   type
     Rs SetIdentityNotificationTopic =
       SetIdentityNotificationTopicResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetIdentityNotificationTopic")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Identity" identity)
+                Core.<> (Core.toQueryValue "NotificationType" notificationType)
+                Core.<> (Core.toQueryValue "SnsTopic" Core.<$> snsTopic)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SetIdentityNotificationTopicResult"
       ( \s h x ->
           SetIdentityNotificationTopicResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetIdentityNotificationTopic where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetIdentityNotificationTopic where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetIdentityNotificationTopic where
-  toQuery SetIdentityNotificationTopic' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("SetIdentityNotificationTopic" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "SnsTopic" Lude.=: snsTopic,
-        "NotificationType" Lude.=: notificationType,
-        "Identity" Lude.=: identity
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkSetIdentityNotificationTopicResponse' smart constructor.
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetIdentityNotificationTopicResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetIdentityNotificationTopicResponse' value with any optional fields omitted.
 mkSetIdentityNotificationTopicResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetIdentityNotificationTopicResponse
-mkSetIdentityNotificationTopicResponse pResponseStatus_ =
-  SetIdentityNotificationTopicResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkSetIdentityNotificationTopicResponse responseStatus =
+  SetIdentityNotificationTopicResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sintrsResponseStatus :: Lens.Lens' SetIdentityNotificationTopicResponse Lude.Int
-sintrsResponseStatus = Lens.lens (responseStatus :: SetIdentityNotificationTopicResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetIdentityNotificationTopicResponse)
-{-# DEPRECATED sintrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sintrrsResponseStatus :: Lens.Lens' SetIdentityNotificationTopicResponse Core.Int
+sintrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sintrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

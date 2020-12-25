@@ -17,98 +17,92 @@ module Network.AWS.Glacier.Types.SelectParameters
     mkSelectParameters,
 
     -- * Lenses
-    spExpressionType,
-    spOutputSerialization,
     spExpression,
+    spExpressionType,
     spInputSerialization,
+    spOutputSerialization,
   )
 where
 
-import Network.AWS.Glacier.Types.ExpressionType
-import Network.AWS.Glacier.Types.InputSerialization
-import Network.AWS.Glacier.Types.OutputSerialization
+import qualified Network.AWS.Glacier.Types.Expression as Types
+import qualified Network.AWS.Glacier.Types.ExpressionType as Types
+import qualified Network.AWS.Glacier.Types.InputSerialization as Types
+import qualified Network.AWS.Glacier.Types.OutputSerialization as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the parameters used for a select.
 --
 -- /See:/ 'mkSelectParameters' smart constructor.
 data SelectParameters = SelectParameters'
-  { -- | The type of the provided expression, for example @SQL@ .
-    expressionType :: Lude.Maybe ExpressionType,
-    -- | Describes how the results of the select job are serialized.
-    outputSerialization :: Lude.Maybe OutputSerialization,
-    -- | The expression that is used to select the object.
-    expression :: Lude.Maybe Lude.Text,
+  { -- | The expression that is used to select the object.
+    expression :: Core.Maybe Types.Expression,
+    -- | The type of the provided expression, for example @SQL@ .
+    expressionType :: Core.Maybe Types.ExpressionType,
     -- | Describes the serialization format of the object.
-    inputSerialization :: Lude.Maybe InputSerialization
+    inputSerialization :: Core.Maybe Types.InputSerialization,
+    -- | Describes how the results of the select job are serialized.
+    outputSerialization :: Core.Maybe Types.OutputSerialization
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SelectParameters' with the minimum fields required to make a request.
---
--- * 'expressionType' - The type of the provided expression, for example @SQL@ .
--- * 'outputSerialization' - Describes how the results of the select job are serialized.
--- * 'expression' - The expression that is used to select the object.
--- * 'inputSerialization' - Describes the serialization format of the object.
+-- | Creates a 'SelectParameters' value with any optional fields omitted.
 mkSelectParameters ::
   SelectParameters
 mkSelectParameters =
   SelectParameters'
-    { expressionType = Lude.Nothing,
-      outputSerialization = Lude.Nothing,
-      expression = Lude.Nothing,
-      inputSerialization = Lude.Nothing
+    { expression = Core.Nothing,
+      expressionType = Core.Nothing,
+      inputSerialization = Core.Nothing,
+      outputSerialization = Core.Nothing
     }
-
--- | The type of the provided expression, for example @SQL@ .
---
--- /Note:/ Consider using 'expressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spExpressionType :: Lens.Lens' SelectParameters (Lude.Maybe ExpressionType)
-spExpressionType = Lens.lens (expressionType :: SelectParameters -> Lude.Maybe ExpressionType) (\s a -> s {expressionType = a} :: SelectParameters)
-{-# DEPRECATED spExpressionType "Use generic-lens or generic-optics with 'expressionType' instead." #-}
-
--- | Describes how the results of the select job are serialized.
---
--- /Note:/ Consider using 'outputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spOutputSerialization :: Lens.Lens' SelectParameters (Lude.Maybe OutputSerialization)
-spOutputSerialization = Lens.lens (outputSerialization :: SelectParameters -> Lude.Maybe OutputSerialization) (\s a -> s {outputSerialization = a} :: SelectParameters)
-{-# DEPRECATED spOutputSerialization "Use generic-lens or generic-optics with 'outputSerialization' instead." #-}
 
 -- | The expression that is used to select the object.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spExpression :: Lens.Lens' SelectParameters (Lude.Maybe Lude.Text)
-spExpression = Lens.lens (expression :: SelectParameters -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: SelectParameters)
+spExpression :: Lens.Lens' SelectParameters (Core.Maybe Types.Expression)
+spExpression = Lens.field @"expression"
 {-# DEPRECATED spExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+
+-- | The type of the provided expression, for example @SQL@ .
+--
+-- /Note:/ Consider using 'expressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spExpressionType :: Lens.Lens' SelectParameters (Core.Maybe Types.ExpressionType)
+spExpressionType = Lens.field @"expressionType"
+{-# DEPRECATED spExpressionType "Use generic-lens or generic-optics with 'expressionType' instead." #-}
 
 -- | Describes the serialization format of the object.
 --
 -- /Note:/ Consider using 'inputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spInputSerialization :: Lens.Lens' SelectParameters (Lude.Maybe InputSerialization)
-spInputSerialization = Lens.lens (inputSerialization :: SelectParameters -> Lude.Maybe InputSerialization) (\s a -> s {inputSerialization = a} :: SelectParameters)
+spInputSerialization :: Lens.Lens' SelectParameters (Core.Maybe Types.InputSerialization)
+spInputSerialization = Lens.field @"inputSerialization"
 {-# DEPRECATED spInputSerialization "Use generic-lens or generic-optics with 'inputSerialization' instead." #-}
 
-instance Lude.FromJSON SelectParameters where
-  parseJSON =
-    Lude.withObject
-      "SelectParameters"
-      ( \x ->
-          SelectParameters'
-            Lude.<$> (x Lude..:? "ExpressionType")
-            Lude.<*> (x Lude..:? "OutputSerialization")
-            Lude.<*> (x Lude..:? "Expression")
-            Lude.<*> (x Lude..:? "InputSerialization")
-      )
+-- | Describes how the results of the select job are serialized.
+--
+-- /Note:/ Consider using 'outputSerialization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spOutputSerialization :: Lens.Lens' SelectParameters (Core.Maybe Types.OutputSerialization)
+spOutputSerialization = Lens.field @"outputSerialization"
+{-# DEPRECATED spOutputSerialization "Use generic-lens or generic-optics with 'outputSerialization' instead." #-}
 
-instance Lude.ToJSON SelectParameters where
-  toJSON SelectParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExpressionType" Lude..=) Lude.<$> expressionType,
-            ("OutputSerialization" Lude..=) Lude.<$> outputSerialization,
-            ("Expression" Lude..=) Lude.<$> expression,
-            ("InputSerialization" Lude..=) Lude.<$> inputSerialization
+instance Core.FromJSON SelectParameters where
+  toJSON SelectParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Expression" Core..=) Core.<$> expression,
+            ("ExpressionType" Core..=) Core.<$> expressionType,
+            ("InputSerialization" Core..=) Core.<$> inputSerialization,
+            ("OutputSerialization" Core..=) Core.<$> outputSerialization
           ]
       )
+
+instance Core.FromJSON SelectParameters where
+  parseJSON =
+    Core.withObject "SelectParameters" Core.$
+      \x ->
+        SelectParameters'
+          Core.<$> (x Core..:? "Expression")
+          Core.<*> (x Core..:? "ExpressionType")
+          Core.<*> (x Core..:? "InputSerialization")
+          Core.<*> (x Core..:? "OutputSerialization")

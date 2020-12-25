@@ -17,96 +17,88 @@ module Network.AWS.MediaPackage.Types.MssPackage
     mkMssPackage,
 
     -- * Lenses
-    mpSegmentDurationSeconds,
-    mpStreamSelection,
     mpEncryption,
     mpManifestWindowSeconds,
+    mpSegmentDurationSeconds,
+    mpStreamSelection,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.MssEncryption
-import Network.AWS.MediaPackage.Types.StreamSelection
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaPackage.Types.MssEncryption as Types
+import qualified Network.AWS.MediaPackage.Types.StreamSelection as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A Microsoft Smooth Streaming (MSS) packaging configuration.
 --
 -- /See:/ 'mkMssPackage' smart constructor.
 data MssPackage = MssPackage'
-  { -- | The duration (in seconds) of each segment.
-    segmentDurationSeconds :: Lude.Maybe Lude.Int,
-    streamSelection :: Lude.Maybe StreamSelection,
-    encryption :: Lude.Maybe MssEncryption,
+  { encryption :: Core.Maybe Types.MssEncryption,
     -- | The time window (in seconds) contained in each manifest.
-    manifestWindowSeconds :: Lude.Maybe Lude.Int
+    manifestWindowSeconds :: Core.Maybe Core.Int,
+    -- | The duration (in seconds) of each segment.
+    segmentDurationSeconds :: Core.Maybe Core.Int,
+    streamSelection :: Core.Maybe Types.StreamSelection
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MssPackage' with the minimum fields required to make a request.
---
--- * 'segmentDurationSeconds' - The duration (in seconds) of each segment.
--- * 'streamSelection' -
--- * 'encryption' -
--- * 'manifestWindowSeconds' - The time window (in seconds) contained in each manifest.
+-- | Creates a 'MssPackage' value with any optional fields omitted.
 mkMssPackage ::
   MssPackage
 mkMssPackage =
   MssPackage'
-    { segmentDurationSeconds = Lude.Nothing,
-      streamSelection = Lude.Nothing,
-      encryption = Lude.Nothing,
-      manifestWindowSeconds = Lude.Nothing
+    { encryption = Core.Nothing,
+      manifestWindowSeconds = Core.Nothing,
+      segmentDurationSeconds = Core.Nothing,
+      streamSelection = Core.Nothing
     }
-
--- | The duration (in seconds) of each segment.
---
--- /Note:/ Consider using 'segmentDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpSegmentDurationSeconds :: Lens.Lens' MssPackage (Lude.Maybe Lude.Int)
-mpSegmentDurationSeconds = Lens.lens (segmentDurationSeconds :: MssPackage -> Lude.Maybe Lude.Int) (\s a -> s {segmentDurationSeconds = a} :: MssPackage)
-{-# DEPRECATED mpSegmentDurationSeconds "Use generic-lens or generic-optics with 'segmentDurationSeconds' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'streamSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpStreamSelection :: Lens.Lens' MssPackage (Lude.Maybe StreamSelection)
-mpStreamSelection = Lens.lens (streamSelection :: MssPackage -> Lude.Maybe StreamSelection) (\s a -> s {streamSelection = a} :: MssPackage)
-{-# DEPRECATED mpStreamSelection "Use generic-lens or generic-optics with 'streamSelection' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpEncryption :: Lens.Lens' MssPackage (Lude.Maybe MssEncryption)
-mpEncryption = Lens.lens (encryption :: MssPackage -> Lude.Maybe MssEncryption) (\s a -> s {encryption = a} :: MssPackage)
+mpEncryption :: Lens.Lens' MssPackage (Core.Maybe Types.MssEncryption)
+mpEncryption = Lens.field @"encryption"
 {-# DEPRECATED mpEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | The time window (in seconds) contained in each manifest.
 --
 -- /Note:/ Consider using 'manifestWindowSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpManifestWindowSeconds :: Lens.Lens' MssPackage (Lude.Maybe Lude.Int)
-mpManifestWindowSeconds = Lens.lens (manifestWindowSeconds :: MssPackage -> Lude.Maybe Lude.Int) (\s a -> s {manifestWindowSeconds = a} :: MssPackage)
+mpManifestWindowSeconds :: Lens.Lens' MssPackage (Core.Maybe Core.Int)
+mpManifestWindowSeconds = Lens.field @"manifestWindowSeconds"
 {-# DEPRECATED mpManifestWindowSeconds "Use generic-lens or generic-optics with 'manifestWindowSeconds' instead." #-}
 
-instance Lude.FromJSON MssPackage where
-  parseJSON =
-    Lude.withObject
-      "MssPackage"
-      ( \x ->
-          MssPackage'
-            Lude.<$> (x Lude..:? "segmentDurationSeconds")
-            Lude.<*> (x Lude..:? "streamSelection")
-            Lude.<*> (x Lude..:? "encryption")
-            Lude.<*> (x Lude..:? "manifestWindowSeconds")
-      )
+-- | The duration (in seconds) of each segment.
+--
+-- /Note:/ Consider using 'segmentDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpSegmentDurationSeconds :: Lens.Lens' MssPackage (Core.Maybe Core.Int)
+mpSegmentDurationSeconds = Lens.field @"segmentDurationSeconds"
+{-# DEPRECATED mpSegmentDurationSeconds "Use generic-lens or generic-optics with 'segmentDurationSeconds' instead." #-}
 
-instance Lude.ToJSON MssPackage where
-  toJSON MssPackage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("segmentDurationSeconds" Lude..=)
-              Lude.<$> segmentDurationSeconds,
-            ("streamSelection" Lude..=) Lude.<$> streamSelection,
-            ("encryption" Lude..=) Lude.<$> encryption,
-            ("manifestWindowSeconds" Lude..=) Lude.<$> manifestWindowSeconds
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'streamSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpStreamSelection :: Lens.Lens' MssPackage (Core.Maybe Types.StreamSelection)
+mpStreamSelection = Lens.field @"streamSelection"
+{-# DEPRECATED mpStreamSelection "Use generic-lens or generic-optics with 'streamSelection' instead." #-}
+
+instance Core.FromJSON MssPackage where
+  toJSON MssPackage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("encryption" Core..=) Core.<$> encryption,
+            ("manifestWindowSeconds" Core..=) Core.<$> manifestWindowSeconds,
+            ("segmentDurationSeconds" Core..=) Core.<$> segmentDurationSeconds,
+            ("streamSelection" Core..=) Core.<$> streamSelection
           ]
       )
+
+instance Core.FromJSON MssPackage where
+  parseJSON =
+    Core.withObject "MssPackage" Core.$
+      \x ->
+        MssPackage'
+          Core.<$> (x Core..:? "encryption")
+          Core.<*> (x Core..:? "manifestWindowSeconds")
+          Core.<*> (x Core..:? "segmentDurationSeconds")
+          Core.<*> (x Core..:? "streamSelection")

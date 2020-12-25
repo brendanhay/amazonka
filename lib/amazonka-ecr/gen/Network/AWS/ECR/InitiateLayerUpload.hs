@@ -22,149 +22,133 @@ module Network.AWS.ECR.InitiateLayerUpload
     mkInitiateLayerUpload,
 
     -- ** Request lenses
-    iluRegistryId,
     iluRepositoryName,
+    iluRegistryId,
 
     -- * Destructuring the response
     InitiateLayerUploadResponse (..),
     mkInitiateLayerUploadResponse,
 
     -- ** Response lenses
-    ilursPartSize,
-    ilursUploadId,
-    ilursResponseStatus,
+    ilurrsPartSize,
+    ilurrsUploadId,
+    ilurrsResponseStatus,
   )
 where
 
-import Network.AWS.ECR.Types
+import qualified Network.AWS.ECR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkInitiateLayerUpload' smart constructor.
 data InitiateLayerUpload = InitiateLayerUpload'
-  { -- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
-    registryId :: Lude.Maybe Lude.Text,
-    -- | The name of the repository to which you intend to upload layers.
-    repositoryName :: Lude.Text
+  { -- | The name of the repository to which you intend to upload layers.
+    repositoryName :: Types.RepositoryName,
+    -- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
+    registryId :: Core.Maybe Types.RegistryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InitiateLayerUpload' with the minimum fields required to make a request.
---
--- * 'registryId' - The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
--- * 'repositoryName' - The name of the repository to which you intend to upload layers.
+-- | Creates a 'InitiateLayerUpload' value with any optional fields omitted.
 mkInitiateLayerUpload ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   InitiateLayerUpload
-mkInitiateLayerUpload pRepositoryName_ =
-  InitiateLayerUpload'
-    { registryId = Lude.Nothing,
-      repositoryName = pRepositoryName_
-    }
-
--- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iluRegistryId :: Lens.Lens' InitiateLayerUpload (Lude.Maybe Lude.Text)
-iluRegistryId = Lens.lens (registryId :: InitiateLayerUpload -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: InitiateLayerUpload)
-{-# DEPRECATED iluRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+mkInitiateLayerUpload repositoryName =
+  InitiateLayerUpload' {repositoryName, registryId = Core.Nothing}
 
 -- | The name of the repository to which you intend to upload layers.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iluRepositoryName :: Lens.Lens' InitiateLayerUpload Lude.Text
-iluRepositoryName = Lens.lens (repositoryName :: InitiateLayerUpload -> Lude.Text) (\s a -> s {repositoryName = a} :: InitiateLayerUpload)
+iluRepositoryName :: Lens.Lens' InitiateLayerUpload Types.RepositoryName
+iluRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED iluRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance Lude.AWSRequest InitiateLayerUpload where
+-- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iluRegistryId :: Lens.Lens' InitiateLayerUpload (Core.Maybe Types.RegistryId)
+iluRegistryId = Lens.field @"registryId"
+{-# DEPRECATED iluRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+instance Core.FromJSON InitiateLayerUpload where
+  toJSON InitiateLayerUpload {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            ("registryId" Core..=) Core.<$> registryId
+          ]
+      )
+
+instance Core.AWSRequest InitiateLayerUpload where
   type Rs InitiateLayerUpload = InitiateLayerUploadResponse
-  request = Req.postJSON ecrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           InitiateLayerUploadResponse'
-            Lude.<$> (x Lude..?> "partSize")
-            Lude.<*> (x Lude..?> "uploadId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "partSize")
+            Core.<*> (x Core..:? "uploadId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders InitiateLayerUpload where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON InitiateLayerUpload where
-  toJSON InitiateLayerUpload' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("repositoryName" Lude..= repositoryName)
-          ]
-      )
-
-instance Lude.ToPath InitiateLayerUpload where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery InitiateLayerUpload where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkInitiateLayerUploadResponse' smart constructor.
 data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
   { -- | The size, in bytes, that Amazon ECR expects future layer part uploads to be.
-    partSize :: Lude.Maybe Lude.Natural,
+    partSize :: Core.Maybe Core.Natural,
     -- | The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
-    uploadId :: Lude.Maybe Lude.Text,
+    uploadId :: Core.Maybe Types.UploadId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InitiateLayerUploadResponse' with the minimum fields required to make a request.
---
--- * 'partSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to be.
--- * 'uploadId' - The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'InitiateLayerUploadResponse' value with any optional fields omitted.
 mkInitiateLayerUploadResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   InitiateLayerUploadResponse
-mkInitiateLayerUploadResponse pResponseStatus_ =
+mkInitiateLayerUploadResponse responseStatus =
   InitiateLayerUploadResponse'
-    { partSize = Lude.Nothing,
-      uploadId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { partSize = Core.Nothing,
+      uploadId = Core.Nothing,
+      responseStatus
     }
 
 -- | The size, in bytes, that Amazon ECR expects future layer part uploads to be.
 --
 -- /Note:/ Consider using 'partSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilursPartSize :: Lens.Lens' InitiateLayerUploadResponse (Lude.Maybe Lude.Natural)
-ilursPartSize = Lens.lens (partSize :: InitiateLayerUploadResponse -> Lude.Maybe Lude.Natural) (\s a -> s {partSize = a} :: InitiateLayerUploadResponse)
-{-# DEPRECATED ilursPartSize "Use generic-lens or generic-optics with 'partSize' instead." #-}
+ilurrsPartSize :: Lens.Lens' InitiateLayerUploadResponse (Core.Maybe Core.Natural)
+ilurrsPartSize = Lens.field @"partSize"
+{-# DEPRECATED ilurrsPartSize "Use generic-lens or generic-optics with 'partSize' instead." #-}
 
 -- | The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
 --
 -- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilursUploadId :: Lens.Lens' InitiateLayerUploadResponse (Lude.Maybe Lude.Text)
-ilursUploadId = Lens.lens (uploadId :: InitiateLayerUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {uploadId = a} :: InitiateLayerUploadResponse)
-{-# DEPRECATED ilursUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+ilurrsUploadId :: Lens.Lens' InitiateLayerUploadResponse (Core.Maybe Types.UploadId)
+ilurrsUploadId = Lens.field @"uploadId"
+{-# DEPRECATED ilurrsUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilursResponseStatus :: Lens.Lens' InitiateLayerUploadResponse Lude.Int
-ilursResponseStatus = Lens.lens (responseStatus :: InitiateLayerUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InitiateLayerUploadResponse)
-{-# DEPRECATED ilursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ilurrsResponseStatus :: Lens.Lens' InitiateLayerUploadResponse Core.Int
+ilurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ilurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

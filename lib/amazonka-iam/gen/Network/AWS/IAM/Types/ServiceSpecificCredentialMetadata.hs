@@ -17,125 +17,122 @@ module Network.AWS.IAM.Types.ServiceSpecificCredentialMetadata
     mkServiceSpecificCredentialMetadata,
 
     -- * Lenses
-    sscmStatus,
-    sscmCreateDate,
     sscmUserName,
-    sscmServiceName,
-    sscmServiceSpecificCredentialId,
+    sscmStatus,
     sscmServiceUserName,
+    sscmCreateDate,
+    sscmServiceSpecificCredentialId,
+    sscmServiceName,
   )
 where
 
-import Network.AWS.IAM.Types.StatusType
+import qualified Network.AWS.IAM.Types.ServiceName as Types
+import qualified Network.AWS.IAM.Types.ServiceSpecificCredentialId as Types
+import qualified Network.AWS.IAM.Types.ServiceUserName as Types
+import qualified Network.AWS.IAM.Types.StatusType as Types
+import qualified Network.AWS.IAM.Types.UserName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains additional details about a service-specific credential.
 --
 -- /See:/ 'mkServiceSpecificCredentialMetadata' smart constructor.
 data ServiceSpecificCredentialMetadata = ServiceSpecificCredentialMetadata'
-  { -- | The status of the service-specific credential. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
-    status :: StatusType,
-    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the service-specific credential were created.
-    createDate :: Lude.DateTime,
-    -- | The name of the IAM user associated with the service-specific credential.
-    userName :: Lude.Text,
-    -- | The name of the service associated with the service-specific credential.
-    serviceName :: Lude.Text,
-    -- | The unique identifier for the service-specific credential.
-    serviceSpecificCredentialId :: Lude.Text,
+  { -- | The name of the IAM user associated with the service-specific credential.
+    userName :: Types.UserName,
+    -- | The status of the service-specific credential. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
+    status :: Types.StatusType,
     -- | The generated user name for the service-specific credential.
-    serviceUserName :: Lude.Text
+    serviceUserName :: Types.ServiceUserName,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the service-specific credential were created.
+    createDate :: Core.UTCTime,
+    -- | The unique identifier for the service-specific credential.
+    serviceSpecificCredentialId :: Types.ServiceSpecificCredentialId,
+    -- | The name of the service associated with the service-specific credential.
+    serviceName :: Types.ServiceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ServiceSpecificCredentialMetadata' with the minimum fields required to make a request.
---
--- * 'status' - The status of the service-specific credential. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the service-specific credential were created.
--- * 'userName' - The name of the IAM user associated with the service-specific credential.
--- * 'serviceName' - The name of the service associated with the service-specific credential.
--- * 'serviceSpecificCredentialId' - The unique identifier for the service-specific credential.
--- * 'serviceUserName' - The generated user name for the service-specific credential.
+-- | Creates a 'ServiceSpecificCredentialMetadata' value with any optional fields omitted.
 mkServiceSpecificCredentialMetadata ::
-  -- | 'status'
-  StatusType ->
-  -- | 'createDate'
-  Lude.DateTime ->
   -- | 'userName'
-  Lude.Text ->
-  -- | 'serviceName'
-  Lude.Text ->
-  -- | 'serviceSpecificCredentialId'
-  Lude.Text ->
+  Types.UserName ->
+  -- | 'status'
+  Types.StatusType ->
   -- | 'serviceUserName'
-  Lude.Text ->
+  Types.ServiceUserName ->
+  -- | 'createDate'
+  Core.UTCTime ->
+  -- | 'serviceSpecificCredentialId'
+  Types.ServiceSpecificCredentialId ->
+  -- | 'serviceName'
+  Types.ServiceName ->
   ServiceSpecificCredentialMetadata
 mkServiceSpecificCredentialMetadata
-  pStatus_
-  pCreateDate_
-  pUserName_
-  pServiceName_
-  pServiceSpecificCredentialId_
-  pServiceUserName_ =
+  userName
+  status
+  serviceUserName
+  createDate
+  serviceSpecificCredentialId
+  serviceName =
     ServiceSpecificCredentialMetadata'
-      { status = pStatus_,
-        createDate = pCreateDate_,
-        userName = pUserName_,
-        serviceName = pServiceName_,
-        serviceSpecificCredentialId = pServiceSpecificCredentialId_,
-        serviceUserName = pServiceUserName_
+      { userName,
+        status,
+        serviceUserName,
+        createDate,
+        serviceSpecificCredentialId,
+        serviceName
       }
-
--- | The status of the service-specific credential. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscmStatus :: Lens.Lens' ServiceSpecificCredentialMetadata StatusType
-sscmStatus = Lens.lens (status :: ServiceSpecificCredentialMetadata -> StatusType) (\s a -> s {status = a} :: ServiceSpecificCredentialMetadata)
-{-# DEPRECATED sscmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the service-specific credential were created.
---
--- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscmCreateDate :: Lens.Lens' ServiceSpecificCredentialMetadata Lude.DateTime
-sscmCreateDate = Lens.lens (createDate :: ServiceSpecificCredentialMetadata -> Lude.DateTime) (\s a -> s {createDate = a} :: ServiceSpecificCredentialMetadata)
-{-# DEPRECATED sscmCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The name of the IAM user associated with the service-specific credential.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscmUserName :: Lens.Lens' ServiceSpecificCredentialMetadata Lude.Text
-sscmUserName = Lens.lens (userName :: ServiceSpecificCredentialMetadata -> Lude.Text) (\s a -> s {userName = a} :: ServiceSpecificCredentialMetadata)
+sscmUserName :: Lens.Lens' ServiceSpecificCredentialMetadata Types.UserName
+sscmUserName = Lens.field @"userName"
 {-# DEPRECATED sscmUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The name of the service associated with the service-specific credential.
+-- | The status of the service-specific credential. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
 --
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscmServiceName :: Lens.Lens' ServiceSpecificCredentialMetadata Lude.Text
-sscmServiceName = Lens.lens (serviceName :: ServiceSpecificCredentialMetadata -> Lude.Text) (\s a -> s {serviceName = a} :: ServiceSpecificCredentialMetadata)
-{-# DEPRECATED sscmServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
-
--- | The unique identifier for the service-specific credential.
---
--- /Note:/ Consider using 'serviceSpecificCredentialId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscmServiceSpecificCredentialId :: Lens.Lens' ServiceSpecificCredentialMetadata Lude.Text
-sscmServiceSpecificCredentialId = Lens.lens (serviceSpecificCredentialId :: ServiceSpecificCredentialMetadata -> Lude.Text) (\s a -> s {serviceSpecificCredentialId = a} :: ServiceSpecificCredentialMetadata)
-{-# DEPRECATED sscmServiceSpecificCredentialId "Use generic-lens or generic-optics with 'serviceSpecificCredentialId' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscmStatus :: Lens.Lens' ServiceSpecificCredentialMetadata Types.StatusType
+sscmStatus = Lens.field @"status"
+{-# DEPRECATED sscmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The generated user name for the service-specific credential.
 --
 -- /Note:/ Consider using 'serviceUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscmServiceUserName :: Lens.Lens' ServiceSpecificCredentialMetadata Lude.Text
-sscmServiceUserName = Lens.lens (serviceUserName :: ServiceSpecificCredentialMetadata -> Lude.Text) (\s a -> s {serviceUserName = a} :: ServiceSpecificCredentialMetadata)
+sscmServiceUserName :: Lens.Lens' ServiceSpecificCredentialMetadata Types.ServiceUserName
+sscmServiceUserName = Lens.field @"serviceUserName"
 {-# DEPRECATED sscmServiceUserName "Use generic-lens or generic-optics with 'serviceUserName' instead." #-}
 
-instance Lude.FromXML ServiceSpecificCredentialMetadata where
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the service-specific credential were created.
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscmCreateDate :: Lens.Lens' ServiceSpecificCredentialMetadata Core.UTCTime
+sscmCreateDate = Lens.field @"createDate"
+{-# DEPRECATED sscmCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
+
+-- | The unique identifier for the service-specific credential.
+--
+-- /Note:/ Consider using 'serviceSpecificCredentialId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscmServiceSpecificCredentialId :: Lens.Lens' ServiceSpecificCredentialMetadata Types.ServiceSpecificCredentialId
+sscmServiceSpecificCredentialId = Lens.field @"serviceSpecificCredentialId"
+{-# DEPRECATED sscmServiceSpecificCredentialId "Use generic-lens or generic-optics with 'serviceSpecificCredentialId' instead." #-}
+
+-- | The name of the service associated with the service-specific credential.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscmServiceName :: Lens.Lens' ServiceSpecificCredentialMetadata Types.ServiceName
+sscmServiceName = Lens.field @"serviceName"
+{-# DEPRECATED sscmServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
+
+instance Core.FromXML ServiceSpecificCredentialMetadata where
   parseXML x =
     ServiceSpecificCredentialMetadata'
-      Lude.<$> (x Lude..@ "Status")
-      Lude.<*> (x Lude..@ "CreateDate")
-      Lude.<*> (x Lude..@ "UserName")
-      Lude.<*> (x Lude..@ "ServiceName")
-      Lude.<*> (x Lude..@ "ServiceSpecificCredentialId")
-      Lude.<*> (x Lude..@ "ServiceUserName")
+      Core.<$> (x Core..@ "UserName")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@ "ServiceUserName")
+      Core.<*> (x Core..@ "CreateDate")
+      Core.<*> (x Core..@ "ServiceSpecificCredentialId")
+      Core.<*> (x Core..@ "ServiceName")

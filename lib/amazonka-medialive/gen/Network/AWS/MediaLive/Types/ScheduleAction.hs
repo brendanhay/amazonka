@@ -17,97 +17,90 @@ module Network.AWS.MediaLive.Types.ScheduleAction
     mkScheduleAction,
 
     -- * Lenses
-    saScheduleActionSettings,
     saActionName,
     saScheduleActionStartSettings,
+    saScheduleActionSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.ScheduleActionSettings
-import Network.AWS.MediaLive.Types.ScheduleActionStartSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.ScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.ScheduleActionStartSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information on a single schedule action.
 --
 -- /See:/ 'mkScheduleAction' smart constructor.
 data ScheduleAction = ScheduleAction'
-  { -- | Settings for this schedule action.
-    scheduleActionSettings :: ScheduleActionSettings,
-    -- | The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
-    actionName :: Lude.Text,
+  { -- | The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
+    actionName :: Core.Text,
     -- | The time for the action to start in the channel.
-    scheduleActionStartSettings :: ScheduleActionStartSettings
+    scheduleActionStartSettings :: Types.ScheduleActionStartSettings,
+    -- | Settings for this schedule action.
+    scheduleActionSettings :: Types.ScheduleActionSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduleAction' with the minimum fields required to make a request.
---
--- * 'scheduleActionSettings' - Settings for this schedule action.
--- * 'actionName' - The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
--- * 'scheduleActionStartSettings' - The time for the action to start in the channel.
+-- | Creates a 'ScheduleAction' value with any optional fields omitted.
 mkScheduleAction ::
-  -- | 'scheduleActionSettings'
-  ScheduleActionSettings ->
   -- | 'actionName'
-  Lude.Text ->
+  Core.Text ->
   -- | 'scheduleActionStartSettings'
-  ScheduleActionStartSettings ->
+  Types.ScheduleActionStartSettings ->
+  -- | 'scheduleActionSettings'
+  Types.ScheduleActionSettings ->
   ScheduleAction
 mkScheduleAction
-  pScheduleActionSettings_
-  pActionName_
-  pScheduleActionStartSettings_ =
+  actionName
+  scheduleActionStartSettings
+  scheduleActionSettings =
     ScheduleAction'
-      { scheduleActionSettings =
-          pScheduleActionSettings_,
-        actionName = pActionName_,
-        scheduleActionStartSettings = pScheduleActionStartSettings_
+      { actionName,
+        scheduleActionStartSettings,
+        scheduleActionSettings
       }
-
--- | Settings for this schedule action.
---
--- /Note:/ Consider using 'scheduleActionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saScheduleActionSettings :: Lens.Lens' ScheduleAction ScheduleActionSettings
-saScheduleActionSettings = Lens.lens (scheduleActionSettings :: ScheduleAction -> ScheduleActionSettings) (\s a -> s {scheduleActionSettings = a} :: ScheduleAction)
-{-# DEPRECATED saScheduleActionSettings "Use generic-lens or generic-optics with 'scheduleActionSettings' instead." #-}
 
 -- | The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
 --
 -- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saActionName :: Lens.Lens' ScheduleAction Lude.Text
-saActionName = Lens.lens (actionName :: ScheduleAction -> Lude.Text) (\s a -> s {actionName = a} :: ScheduleAction)
+saActionName :: Lens.Lens' ScheduleAction Core.Text
+saActionName = Lens.field @"actionName"
 {-# DEPRECATED saActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | The time for the action to start in the channel.
 --
 -- /Note:/ Consider using 'scheduleActionStartSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saScheduleActionStartSettings :: Lens.Lens' ScheduleAction ScheduleActionStartSettings
-saScheduleActionStartSettings = Lens.lens (scheduleActionStartSettings :: ScheduleAction -> ScheduleActionStartSettings) (\s a -> s {scheduleActionStartSettings = a} :: ScheduleAction)
+saScheduleActionStartSettings :: Lens.Lens' ScheduleAction Types.ScheduleActionStartSettings
+saScheduleActionStartSettings = Lens.field @"scheduleActionStartSettings"
 {-# DEPRECATED saScheduleActionStartSettings "Use generic-lens or generic-optics with 'scheduleActionStartSettings' instead." #-}
 
-instance Lude.FromJSON ScheduleAction where
-  parseJSON =
-    Lude.withObject
-      "ScheduleAction"
-      ( \x ->
-          ScheduleAction'
-            Lude.<$> (x Lude..: "scheduleActionSettings")
-            Lude.<*> (x Lude..: "actionName")
-            Lude.<*> (x Lude..: "scheduleActionStartSettings")
-      )
+-- | Settings for this schedule action.
+--
+-- /Note:/ Consider using 'scheduleActionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saScheduleActionSettings :: Lens.Lens' ScheduleAction Types.ScheduleActionSettings
+saScheduleActionSettings = Lens.field @"scheduleActionSettings"
+{-# DEPRECATED saScheduleActionSettings "Use generic-lens or generic-optics with 'scheduleActionSettings' instead." #-}
 
-instance Lude.ToJSON ScheduleAction where
-  toJSON ScheduleAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("scheduleActionSettings" Lude..= scheduleActionSettings),
-            Lude.Just ("actionName" Lude..= actionName),
-            Lude.Just
+instance Core.FromJSON ScheduleAction where
+  toJSON ScheduleAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("actionName" Core..= actionName),
+            Core.Just
               ( "scheduleActionStartSettings"
-                  Lude..= scheduleActionStartSettings
-              )
+                  Core..= scheduleActionStartSettings
+              ),
+            Core.Just
+              ("scheduleActionSettings" Core..= scheduleActionSettings)
           ]
       )
+
+instance Core.FromJSON ScheduleAction where
+  parseJSON =
+    Core.withObject "ScheduleAction" Core.$
+      \x ->
+        ScheduleAction'
+          Core.<$> (x Core..: "actionName")
+          Core.<*> (x Core..: "scheduleActionStartSettings")
+          Core.<*> (x Core..: "scheduleActionSettings")

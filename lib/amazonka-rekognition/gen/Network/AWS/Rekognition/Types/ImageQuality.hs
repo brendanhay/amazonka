@@ -17,57 +17,52 @@ module Network.AWS.Rekognition.Types.ImageQuality
     mkImageQuality,
 
     -- * Lenses
-    iqSharpness,
     iqBrightness,
+    iqSharpness,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies face image brightness and sharpness.
 --
 -- /See:/ 'mkImageQuality' smart constructor.
 data ImageQuality = ImageQuality'
-  { -- | Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.
-    sharpness :: Lude.Maybe Lude.Double,
-    -- | Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.
-    brightness :: Lude.Maybe Lude.Double
+  { -- | Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.
+    brightness :: Core.Maybe Core.Double,
+    -- | Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.
+    sharpness :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImageQuality' with the minimum fields required to make a request.
---
--- * 'sharpness' - Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.
--- * 'brightness' - Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.
+-- | Creates a 'ImageQuality' value with any optional fields omitted.
 mkImageQuality ::
   ImageQuality
 mkImageQuality =
   ImageQuality'
-    { sharpness = Lude.Nothing,
-      brightness = Lude.Nothing
+    { brightness = Core.Nothing,
+      sharpness = Core.Nothing
     }
-
--- | Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.
---
--- /Note:/ Consider using 'sharpness' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iqSharpness :: Lens.Lens' ImageQuality (Lude.Maybe Lude.Double)
-iqSharpness = Lens.lens (sharpness :: ImageQuality -> Lude.Maybe Lude.Double) (\s a -> s {sharpness = a} :: ImageQuality)
-{-# DEPRECATED iqSharpness "Use generic-lens or generic-optics with 'sharpness' instead." #-}
 
 -- | Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.
 --
 -- /Note:/ Consider using 'brightness' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iqBrightness :: Lens.Lens' ImageQuality (Lude.Maybe Lude.Double)
-iqBrightness = Lens.lens (brightness :: ImageQuality -> Lude.Maybe Lude.Double) (\s a -> s {brightness = a} :: ImageQuality)
+iqBrightness :: Lens.Lens' ImageQuality (Core.Maybe Core.Double)
+iqBrightness = Lens.field @"brightness"
 {-# DEPRECATED iqBrightness "Use generic-lens or generic-optics with 'brightness' instead." #-}
 
-instance Lude.FromJSON ImageQuality where
+-- | Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.
+--
+-- /Note:/ Consider using 'sharpness' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iqSharpness :: Lens.Lens' ImageQuality (Core.Maybe Core.Double)
+iqSharpness = Lens.field @"sharpness"
+{-# DEPRECATED iqSharpness "Use generic-lens or generic-optics with 'sharpness' instead." #-}
+
+instance Core.FromJSON ImageQuality where
   parseJSON =
-    Lude.withObject
-      "ImageQuality"
-      ( \x ->
-          ImageQuality'
-            Lude.<$> (x Lude..:? "Sharpness") Lude.<*> (x Lude..:? "Brightness")
-      )
+    Core.withObject "ImageQuality" Core.$
+      \x ->
+        ImageQuality'
+          Core.<$> (x Core..:? "Brightness") Core.<*> (x Core..:? "Sharpness")

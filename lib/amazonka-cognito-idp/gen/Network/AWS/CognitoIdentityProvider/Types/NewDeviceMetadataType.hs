@@ -22,52 +22,49 @@ module Network.AWS.CognitoIdentityProvider.Types.NewDeviceMetadataType
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.DeviceKeyType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.StringType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The new device metadata type.
 --
 -- /See:/ 'mkNewDeviceMetadataType' smart constructor.
 data NewDeviceMetadataType = NewDeviceMetadataType'
   { -- | The device group key.
-    deviceGroupKey :: Lude.Maybe Lude.Text,
+    deviceGroupKey :: Core.Maybe Types.StringType,
     -- | The device key.
-    deviceKey :: Lude.Maybe Lude.Text
+    deviceKey :: Core.Maybe Types.DeviceKeyType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NewDeviceMetadataType' with the minimum fields required to make a request.
---
--- * 'deviceGroupKey' - The device group key.
--- * 'deviceKey' - The device key.
+-- | Creates a 'NewDeviceMetadataType' value with any optional fields omitted.
 mkNewDeviceMetadataType ::
   NewDeviceMetadataType
 mkNewDeviceMetadataType =
   NewDeviceMetadataType'
-    { deviceGroupKey = Lude.Nothing,
-      deviceKey = Lude.Nothing
+    { deviceGroupKey = Core.Nothing,
+      deviceKey = Core.Nothing
     }
 
 -- | The device group key.
 --
 -- /Note:/ Consider using 'deviceGroupKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ndmtDeviceGroupKey :: Lens.Lens' NewDeviceMetadataType (Lude.Maybe Lude.Text)
-ndmtDeviceGroupKey = Lens.lens (deviceGroupKey :: NewDeviceMetadataType -> Lude.Maybe Lude.Text) (\s a -> s {deviceGroupKey = a} :: NewDeviceMetadataType)
+ndmtDeviceGroupKey :: Lens.Lens' NewDeviceMetadataType (Core.Maybe Types.StringType)
+ndmtDeviceGroupKey = Lens.field @"deviceGroupKey"
 {-# DEPRECATED ndmtDeviceGroupKey "Use generic-lens or generic-optics with 'deviceGroupKey' instead." #-}
 
 -- | The device key.
 --
 -- /Note:/ Consider using 'deviceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ndmtDeviceKey :: Lens.Lens' NewDeviceMetadataType (Lude.Maybe Lude.Text)
-ndmtDeviceKey = Lens.lens (deviceKey :: NewDeviceMetadataType -> Lude.Maybe Lude.Text) (\s a -> s {deviceKey = a} :: NewDeviceMetadataType)
+ndmtDeviceKey :: Lens.Lens' NewDeviceMetadataType (Core.Maybe Types.DeviceKeyType)
+ndmtDeviceKey = Lens.field @"deviceKey"
 {-# DEPRECATED ndmtDeviceKey "Use generic-lens or generic-optics with 'deviceKey' instead." #-}
 
-instance Lude.FromJSON NewDeviceMetadataType where
+instance Core.FromJSON NewDeviceMetadataType where
   parseJSON =
-    Lude.withObject
-      "NewDeviceMetadataType"
-      ( \x ->
-          NewDeviceMetadataType'
-            Lude.<$> (x Lude..:? "DeviceGroupKey") Lude.<*> (x Lude..:? "DeviceKey")
-      )
+    Core.withObject "NewDeviceMetadataType" Core.$
+      \x ->
+        NewDeviceMetadataType'
+          Core.<$> (x Core..:? "DeviceGroupKey") Core.<*> (x Core..:? "DeviceKey")

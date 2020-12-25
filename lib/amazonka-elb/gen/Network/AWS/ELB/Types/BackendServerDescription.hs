@@ -17,57 +17,53 @@ module Network.AWS.ELB.Types.BackendServerDescription
     mkBackendServerDescription,
 
     -- * Lenses
-    bsdPolicyNames,
     bsdInstancePort,
+    bsdPolicyNames,
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.PolicyName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the configuration of an EC2 instance.
 --
 -- /See:/ 'mkBackendServerDescription' smart constructor.
 data BackendServerDescription = BackendServerDescription'
-  { -- | The names of the policies enabled for the EC2 instance.
-    policyNames :: Lude.Maybe [Lude.Text],
-    -- | The port on which the EC2 instance is listening.
-    instancePort :: Lude.Maybe Lude.Natural
+  { -- | The port on which the EC2 instance is listening.
+    instancePort :: Core.Maybe Core.Natural,
+    -- | The names of the policies enabled for the EC2 instance.
+    policyNames :: Core.Maybe [Types.PolicyName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BackendServerDescription' with the minimum fields required to make a request.
---
--- * 'policyNames' - The names of the policies enabled for the EC2 instance.
--- * 'instancePort' - The port on which the EC2 instance is listening.
+-- | Creates a 'BackendServerDescription' value with any optional fields omitted.
 mkBackendServerDescription ::
   BackendServerDescription
 mkBackendServerDescription =
   BackendServerDescription'
-    { policyNames = Lude.Nothing,
-      instancePort = Lude.Nothing
+    { instancePort = Core.Nothing,
+      policyNames = Core.Nothing
     }
-
--- | The names of the policies enabled for the EC2 instance.
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsdPolicyNames :: Lens.Lens' BackendServerDescription (Lude.Maybe [Lude.Text])
-bsdPolicyNames = Lens.lens (policyNames :: BackendServerDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNames = a} :: BackendServerDescription)
-{-# DEPRECATED bsdPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The port on which the EC2 instance is listening.
 --
 -- /Note:/ Consider using 'instancePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsdInstancePort :: Lens.Lens' BackendServerDescription (Lude.Maybe Lude.Natural)
-bsdInstancePort = Lens.lens (instancePort :: BackendServerDescription -> Lude.Maybe Lude.Natural) (\s a -> s {instancePort = a} :: BackendServerDescription)
+bsdInstancePort :: Lens.Lens' BackendServerDescription (Core.Maybe Core.Natural)
+bsdInstancePort = Lens.field @"instancePort"
 {-# DEPRECATED bsdInstancePort "Use generic-lens or generic-optics with 'instancePort' instead." #-}
 
-instance Lude.FromXML BackendServerDescription where
+-- | The names of the policies enabled for the EC2 instance.
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsdPolicyNames :: Lens.Lens' BackendServerDescription (Core.Maybe [Types.PolicyName])
+bsdPolicyNames = Lens.field @"policyNames"
+{-# DEPRECATED bsdPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
+
+instance Core.FromXML BackendServerDescription where
   parseXML x =
     BackendServerDescription'
-      Lude.<$> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "InstancePort")
+      Core.<$> (x Core..@? "InstancePort")
+      Core.<*> (x Core..@? "PolicyNames" Core..<@> Core.parseXMLList "member")

@@ -17,71 +17,67 @@ module Network.AWS.IoT.Types.MitigationActionIdentifier
     mkMitigationActionIdentifier,
 
     -- * Lenses
+    maiActionArn,
     maiActionName,
     maiCreationDate,
-    maiActionARN,
   )
 where
 
+import qualified Network.AWS.IoT.Types.MitigationActionArn as Types
+import qualified Network.AWS.IoT.Types.MitigationActionName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information that identifies a mitigation action. This information is returned by ListMitigationActions.
 --
 -- /See:/ 'mkMitigationActionIdentifier' smart constructor.
 data MitigationActionIdentifier = MitigationActionIdentifier'
-  { -- | The friendly name of the mitigation action.
-    actionName :: Lude.Maybe Lude.Text,
+  { -- | The IAM role ARN used to apply this mitigation action.
+    actionArn :: Core.Maybe Types.MitigationActionArn,
+    -- | The friendly name of the mitigation action.
+    actionName :: Core.Maybe Types.MitigationActionName,
     -- | The date when this mitigation action was created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
-    -- | The IAM role ARN used to apply this mitigation action.
-    actionARN :: Lude.Maybe Lude.Text
+    creationDate :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MitigationActionIdentifier' with the minimum fields required to make a request.
---
--- * 'actionName' - The friendly name of the mitigation action.
--- * 'creationDate' - The date when this mitigation action was created.
--- * 'actionARN' - The IAM role ARN used to apply this mitigation action.
+-- | Creates a 'MitigationActionIdentifier' value with any optional fields omitted.
 mkMitigationActionIdentifier ::
   MitigationActionIdentifier
 mkMitigationActionIdentifier =
   MitigationActionIdentifier'
-    { actionName = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      actionARN = Lude.Nothing
+    { actionArn = Core.Nothing,
+      actionName = Core.Nothing,
+      creationDate = Core.Nothing
     }
+
+-- | The IAM role ARN used to apply this mitigation action.
+--
+-- /Note:/ Consider using 'actionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maiActionArn :: Lens.Lens' MitigationActionIdentifier (Core.Maybe Types.MitigationActionArn)
+maiActionArn = Lens.field @"actionArn"
+{-# DEPRECATED maiActionArn "Use generic-lens or generic-optics with 'actionArn' instead." #-}
 
 -- | The friendly name of the mitigation action.
 --
 -- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maiActionName :: Lens.Lens' MitigationActionIdentifier (Lude.Maybe Lude.Text)
-maiActionName = Lens.lens (actionName :: MitigationActionIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {actionName = a} :: MitigationActionIdentifier)
+maiActionName :: Lens.Lens' MitigationActionIdentifier (Core.Maybe Types.MitigationActionName)
+maiActionName = Lens.field @"actionName"
 {-# DEPRECATED maiActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | The date when this mitigation action was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maiCreationDate :: Lens.Lens' MitigationActionIdentifier (Lude.Maybe Lude.Timestamp)
-maiCreationDate = Lens.lens (creationDate :: MitigationActionIdentifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: MitigationActionIdentifier)
+maiCreationDate :: Lens.Lens' MitigationActionIdentifier (Core.Maybe Core.NominalDiffTime)
+maiCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED maiCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
--- | The IAM role ARN used to apply this mitigation action.
---
--- /Note:/ Consider using 'actionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maiActionARN :: Lens.Lens' MitigationActionIdentifier (Lude.Maybe Lude.Text)
-maiActionARN = Lens.lens (actionARN :: MitigationActionIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {actionARN = a} :: MitigationActionIdentifier)
-{-# DEPRECATED maiActionARN "Use generic-lens or generic-optics with 'actionARN' instead." #-}
-
-instance Lude.FromJSON MitigationActionIdentifier where
+instance Core.FromJSON MitigationActionIdentifier where
   parseJSON =
-    Lude.withObject
-      "MitigationActionIdentifier"
-      ( \x ->
-          MitigationActionIdentifier'
-            Lude.<$> (x Lude..:? "actionName")
-            Lude.<*> (x Lude..:? "creationDate")
-            Lude.<*> (x Lude..:? "actionArn")
-      )
+    Core.withObject "MitigationActionIdentifier" Core.$
+      \x ->
+        MitigationActionIdentifier'
+          Core.<$> (x Core..:? "actionArn")
+          Core.<*> (x Core..:? "actionName")
+          Core.<*> (x Core..:? "creationDate")

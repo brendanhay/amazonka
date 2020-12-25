@@ -17,66 +17,60 @@ module Network.AWS.Pinpoint.Types.Condition
     mkCondition,
 
     -- * Lenses
-    cOperator,
     cConditions,
+    cOperator,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.Operator
-import Network.AWS.Pinpoint.Types.SimpleCondition
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.Operator as Types
+import qualified Network.AWS.Pinpoint.Types.SimpleCondition as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the conditions to evaluate for an activity in a journey, and how to evaluate those conditions.
 --
 -- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
-  { -- | Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
-    operator :: Lude.Maybe Operator,
-    -- | The conditions to evaluate for the activity.
-    conditions :: Lude.Maybe [SimpleCondition]
+  { -- | The conditions to evaluate for the activity.
+    conditions :: Core.Maybe [Types.SimpleCondition],
+    -- | Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
+    operator :: Core.Maybe Types.Operator
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Condition' with the minimum fields required to make a request.
---
--- * 'operator' - Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
--- * 'conditions' - The conditions to evaluate for the activity.
+-- | Creates a 'Condition' value with any optional fields omitted.
 mkCondition ::
   Condition
 mkCondition =
-  Condition' {operator = Lude.Nothing, conditions = Lude.Nothing}
-
--- | Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
---
--- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cOperator :: Lens.Lens' Condition (Lude.Maybe Operator)
-cOperator = Lens.lens (operator :: Condition -> Lude.Maybe Operator) (\s a -> s {operator = a} :: Condition)
-{-# DEPRECATED cOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
+  Condition' {conditions = Core.Nothing, operator = Core.Nothing}
 
 -- | The conditions to evaluate for the activity.
 --
 -- /Note:/ Consider using 'conditions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConditions :: Lens.Lens' Condition (Lude.Maybe [SimpleCondition])
-cConditions = Lens.lens (conditions :: Condition -> Lude.Maybe [SimpleCondition]) (\s a -> s {conditions = a} :: Condition)
+cConditions :: Lens.Lens' Condition (Core.Maybe [Types.SimpleCondition])
+cConditions = Lens.field @"conditions"
 {-# DEPRECATED cConditions "Use generic-lens or generic-optics with 'conditions' instead." #-}
 
-instance Lude.FromJSON Condition where
-  parseJSON =
-    Lude.withObject
-      "Condition"
-      ( \x ->
-          Condition'
-            Lude.<$> (x Lude..:? "Operator")
-            Lude.<*> (x Lude..:? "Conditions" Lude..!= Lude.mempty)
-      )
+-- | Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
+--
+-- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOperator :: Lens.Lens' Condition (Core.Maybe Types.Operator)
+cOperator = Lens.field @"operator"
+{-# DEPRECATED cOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
 
-instance Lude.ToJSON Condition where
-  toJSON Condition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Operator" Lude..=) Lude.<$> operator,
-            ("Conditions" Lude..=) Lude.<$> conditions
+instance Core.FromJSON Condition where
+  toJSON Condition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Conditions" Core..=) Core.<$> conditions,
+            ("Operator" Core..=) Core.<$> operator
           ]
       )
+
+instance Core.FromJSON Condition where
+  parseJSON =
+    Core.withObject "Condition" Core.$
+      \x ->
+        Condition'
+          Core.<$> (x Core..:? "Conditions") Core.<*> (x Core..:? "Operator")

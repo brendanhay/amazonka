@@ -18,71 +18,67 @@ module Network.AWS.Support.Types.SupportService
 
     -- * Lenses
     ssCategories,
-    ssName,
     ssCode,
+    ssName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Support.Types.Category
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Support.Types.Category as Types
+import qualified Network.AWS.Support.Types.Code as Types
+import qualified Network.AWS.Support.Types.Name as Types
 
 -- | Information about an AWS service returned by the 'DescribeServices' operation.
 --
 -- /See:/ 'mkSupportService' smart constructor.
 data SupportService = SupportService'
   { -- | A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
-    categories :: Lude.Maybe [Category],
-    -- | The friendly name for an AWS service. The @code@ element contains the corresponding code.
-    name :: Lude.Maybe Lude.Text,
+    categories :: Core.Maybe [Types.Category],
     -- | The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
-    code :: Lude.Maybe Lude.Text
+    code :: Core.Maybe Types.Code,
+    -- | The friendly name for an AWS service. The @code@ element contains the corresponding code.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SupportService' with the minimum fields required to make a request.
---
--- * 'categories' - A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
--- * 'name' - The friendly name for an AWS service. The @code@ element contains the corresponding code.
--- * 'code' - The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
+-- | Creates a 'SupportService' value with any optional fields omitted.
 mkSupportService ::
   SupportService
 mkSupportService =
   SupportService'
-    { categories = Lude.Nothing,
-      name = Lude.Nothing,
-      code = Lude.Nothing
+    { categories = Core.Nothing,
+      code = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
 --
 -- /Note:/ Consider using 'categories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssCategories :: Lens.Lens' SupportService (Lude.Maybe [Category])
-ssCategories = Lens.lens (categories :: SupportService -> Lude.Maybe [Category]) (\s a -> s {categories = a} :: SupportService)
+ssCategories :: Lens.Lens' SupportService (Core.Maybe [Types.Category])
+ssCategories = Lens.field @"categories"
 {-# DEPRECATED ssCategories "Use generic-lens or generic-optics with 'categories' instead." #-}
-
--- | The friendly name for an AWS service. The @code@ element contains the corresponding code.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssName :: Lens.Lens' SupportService (Lude.Maybe Lude.Text)
-ssName = Lens.lens (name :: SupportService -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SupportService)
-{-# DEPRECATED ssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssCode :: Lens.Lens' SupportService (Lude.Maybe Lude.Text)
-ssCode = Lens.lens (code :: SupportService -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: SupportService)
+ssCode :: Lens.Lens' SupportService (Core.Maybe Types.Code)
+ssCode = Lens.field @"code"
 {-# DEPRECATED ssCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance Lude.FromJSON SupportService where
+-- | The friendly name for an AWS service. The @code@ element contains the corresponding code.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssName :: Lens.Lens' SupportService (Core.Maybe Types.Name)
+ssName = Lens.field @"name"
+{-# DEPRECATED ssName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON SupportService where
   parseJSON =
-    Lude.withObject
-      "SupportService"
-      ( \x ->
-          SupportService'
-            Lude.<$> (x Lude..:? "categories" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "code")
-      )
+    Core.withObject "SupportService" Core.$
+      \x ->
+        SupportService'
+          Core.<$> (x Core..:? "categories")
+          Core.<*> (x Core..:? "code")
+          Core.<*> (x Core..:? "name")

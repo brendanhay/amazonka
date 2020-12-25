@@ -17,60 +17,55 @@ module Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
     mkBatchListIncomingTypedLinksResponse,
 
     -- * Lenses
-    blitlLinkSpecifiers,
-    blitlNextToken,
+    blitlrLinkSpecifiers,
+    blitlrNextToken,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedLinkSpecifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'ListIncomingTypedLinks' response operation.
 --
 -- /See:/ 'mkBatchListIncomingTypedLinksResponse' smart constructor.
 data BatchListIncomingTypedLinksResponse = BatchListIncomingTypedLinksResponse'
   { -- | Returns one or more typed link specifiers as output.
-    linkSpecifiers :: Lude.Maybe [TypedLinkSpecifier],
+    linkSpecifiers :: Core.Maybe [Types.TypedLinkSpecifier],
     -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchListIncomingTypedLinksResponse' with the minimum fields required to make a request.
---
--- * 'linkSpecifiers' - Returns one or more typed link specifiers as output.
--- * 'nextToken' - The pagination token.
+-- | Creates a 'BatchListIncomingTypedLinksResponse' value with any optional fields omitted.
 mkBatchListIncomingTypedLinksResponse ::
   BatchListIncomingTypedLinksResponse
 mkBatchListIncomingTypedLinksResponse =
   BatchListIncomingTypedLinksResponse'
     { linkSpecifiers =
-        Lude.Nothing,
-      nextToken = Lude.Nothing
+        Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Returns one or more typed link specifiers as output.
 --
 -- /Note:/ Consider using 'linkSpecifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blitlLinkSpecifiers :: Lens.Lens' BatchListIncomingTypedLinksResponse (Lude.Maybe [TypedLinkSpecifier])
-blitlLinkSpecifiers = Lens.lens (linkSpecifiers :: BatchListIncomingTypedLinksResponse -> Lude.Maybe [TypedLinkSpecifier]) (\s a -> s {linkSpecifiers = a} :: BatchListIncomingTypedLinksResponse)
-{-# DEPRECATED blitlLinkSpecifiers "Use generic-lens or generic-optics with 'linkSpecifiers' instead." #-}
+blitlrLinkSpecifiers :: Lens.Lens' BatchListIncomingTypedLinksResponse (Core.Maybe [Types.TypedLinkSpecifier])
+blitlrLinkSpecifiers = Lens.field @"linkSpecifiers"
+{-# DEPRECATED blitlrLinkSpecifiers "Use generic-lens or generic-optics with 'linkSpecifiers' instead." #-}
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blitlNextToken :: Lens.Lens' BatchListIncomingTypedLinksResponse (Lude.Maybe Lude.Text)
-blitlNextToken = Lens.lens (nextToken :: BatchListIncomingTypedLinksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListIncomingTypedLinksResponse)
-{-# DEPRECATED blitlNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+blitlrNextToken :: Lens.Lens' BatchListIncomingTypedLinksResponse (Core.Maybe Types.NextToken)
+blitlrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blitlrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.FromJSON BatchListIncomingTypedLinksResponse where
+instance Core.FromJSON BatchListIncomingTypedLinksResponse where
   parseJSON =
-    Lude.withObject
-      "BatchListIncomingTypedLinksResponse"
-      ( \x ->
-          BatchListIncomingTypedLinksResponse'
-            Lude.<$> (x Lude..:? "LinkSpecifiers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NextToken")
-      )
+    Core.withObject "BatchListIncomingTypedLinksResponse" Core.$
+      \x ->
+        BatchListIncomingTypedLinksResponse'
+          Core.<$> (x Core..:? "LinkSpecifiers") Core.<*> (x Core..:? "NextToken")

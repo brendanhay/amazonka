@@ -25,156 +25,148 @@ module Network.AWS.OpsWorksCM.DescribeServers
     mkDescribeServers,
 
     -- ** Request lenses
-    dsServerName,
-    dsNextToken,
-    dsMaxResults,
+    dssMaxResults,
+    dssNextToken,
+    dssServerName,
 
     -- * Destructuring the response
     DescribeServersResponse (..),
     mkDescribeServersResponse,
 
     -- ** Response lenses
-    dssrsServers,
-    dssrsNextToken,
-    dssrsResponseStatus,
+    dsrfrsNextToken,
+    dsrfrsServers,
+    dsrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeServers' smart constructor.
 data DescribeServers = DescribeServers'
-  { -- | Describes the server with the specified ServerName.
-    serverName :: Lude.Maybe Lude.Text,
+  { -- | This is not currently implemented for @DescribeServers@ requests.
+    maxResults :: Core.Maybe Core.Natural,
     -- | This is not currently implemented for @DescribeServers@ requests.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | This is not currently implemented for @DescribeServers@ requests.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Describes the server with the specified ServerName.
+    serverName :: Core.Maybe Types.ServerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeServers' with the minimum fields required to make a request.
---
--- * 'serverName' - Describes the server with the specified ServerName.
--- * 'nextToken' - This is not currently implemented for @DescribeServers@ requests.
--- * 'maxResults' - This is not currently implemented for @DescribeServers@ requests.
+-- | Creates a 'DescribeServers' value with any optional fields omitted.
 mkDescribeServers ::
   DescribeServers
 mkDescribeServers =
   DescribeServers'
-    { serverName = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      serverName = Core.Nothing
     }
-
--- | Describes the server with the specified ServerName.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsServerName :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Text)
-dsServerName = Lens.lens (serverName :: DescribeServers -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: DescribeServers)
-{-# DEPRECATED dsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
-
--- | This is not currently implemented for @DescribeServers@ requests.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsNextToken :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Text)
-dsNextToken = Lens.lens (nextToken :: DescribeServers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeServers)
-{-# DEPRECATED dsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | This is not currently implemented for @DescribeServers@ requests.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsMaxResults :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Natural)
-dsMaxResults = Lens.lens (maxResults :: DescribeServers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeServers)
-{-# DEPRECATED dsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dssMaxResults :: Lens.Lens' DescribeServers (Core.Maybe Core.Natural)
+dssMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED dssMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeServers where
-  page rq rs
-    | Page.stop (rs Lens.^. dssrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dssrsServers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsNextToken Lens..~ rs Lens.^. dssrsNextToken
+-- | This is not currently implemented for @DescribeServers@ requests.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssNextToken :: Lens.Lens' DescribeServers (Core.Maybe Types.NextToken)
+dssNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeServers where
+-- | Describes the server with the specified ServerName.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssServerName :: Lens.Lens' DescribeServers (Core.Maybe Types.ServerName)
+dssServerName = Lens.field @"serverName"
+{-# DEPRECATED dssServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+
+instance Core.FromJSON DescribeServers where
+  toJSON DescribeServers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("ServerName" Core..=) Core.<$> serverName
+          ]
+      )
+
+instance Core.AWSRequest DescribeServers where
   type Rs DescribeServers = DescribeServersResponse
-  request = Req.postJSON opsWorksCMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OpsWorksCM_V2016_11_01.DescribeServers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeServersResponse'
-            Lude.<$> (x Lude..?> "Servers" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Servers")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeServers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorksCM_V2016_11_01.DescribeServers" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeServers where
-  toJSON DescribeServers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ServerName" Lude..=) Lude.<$> serverName,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeServers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeServers where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeServers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"servers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeServersResponse' smart constructor.
 data DescribeServersResponse = DescribeServersResponse'
-  { -- | Contains the response to a @DescribeServers@ request.
+  { -- | This is not currently implemented for @DescribeServers@ requests.
+    nextToken :: Core.Maybe Types.String,
+    -- | Contains the response to a @DescribeServers@ request.
     --
     -- /For Chef Automate servers:/ If @DescribeServersResponse$Servers$EngineAttributes@ includes CHEF_MAJOR_UPGRADE_AVAILABLE, you can upgrade the Chef Automate server to Chef Automate 2. To be eligible for upgrade, a server running Chef Automate 1 must have had at least one successful maintenance run after November 1, 2019.
     -- /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@ contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140. The CA certificate is also used to sign node certificates.
-    servers :: Lude.Maybe [Server],
-    -- | This is not currently implemented for @DescribeServers@ requests.
-    nextToken :: Lude.Maybe Lude.Text,
+    servers :: Core.Maybe [Types.Server],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeServersResponse' with the minimum fields required to make a request.
---
--- * 'servers' - Contains the response to a @DescribeServers@ request.
---
--- /For Chef Automate servers:/ If @DescribeServersResponse$Servers$EngineAttributes@ includes CHEF_MAJOR_UPGRADE_AVAILABLE, you can upgrade the Chef Automate server to Chef Automate 2. To be eligible for upgrade, a server running Chef Automate 1 must have had at least one successful maintenance run after November 1, 2019.
--- /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@ contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140. The CA certificate is also used to sign node certificates.
--- * 'nextToken' - This is not currently implemented for @DescribeServers@ requests.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeServersResponse' value with any optional fields omitted.
 mkDescribeServersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeServersResponse
-mkDescribeServersResponse pResponseStatus_ =
+mkDescribeServersResponse responseStatus =
   DescribeServersResponse'
-    { servers = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      servers = Core.Nothing,
+      responseStatus
     }
+
+-- | This is not currently implemented for @DescribeServers@ requests.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrfrsNextToken :: Lens.Lens' DescribeServersResponse (Core.Maybe Types.String)
+dsrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Contains the response to a @DescribeServers@ request.
 --
@@ -182,20 +174,13 @@ mkDescribeServersResponse pResponseStatus_ =
 -- /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@ contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140. The CA certificate is also used to sign node certificates.
 --
 -- /Note:/ Consider using 'servers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsServers :: Lens.Lens' DescribeServersResponse (Lude.Maybe [Server])
-dssrsServers = Lens.lens (servers :: DescribeServersResponse -> Lude.Maybe [Server]) (\s a -> s {servers = a} :: DescribeServersResponse)
-{-# DEPRECATED dssrsServers "Use generic-lens or generic-optics with 'servers' instead." #-}
-
--- | This is not currently implemented for @DescribeServers@ requests.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsNextToken :: Lens.Lens' DescribeServersResponse (Lude.Maybe Lude.Text)
-dssrsNextToken = Lens.lens (nextToken :: DescribeServersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeServersResponse)
-{-# DEPRECATED dssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsrfrsServers :: Lens.Lens' DescribeServersResponse (Core.Maybe [Types.Server])
+dsrfrsServers = Lens.field @"servers"
+{-# DEPRECATED dsrfrsServers "Use generic-lens or generic-optics with 'servers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsResponseStatus :: Lens.Lens' DescribeServersResponse Lude.Int
-dssrsResponseStatus = Lens.lens (responseStatus :: DescribeServersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServersResponse)
-{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrfrsResponseStatus :: Lens.Lens' DescribeServersResponse Core.Int
+dsrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

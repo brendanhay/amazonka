@@ -22,31 +22,29 @@ module Network.AWS.EC2.Types.MemoryInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the memory for the instance type.
 --
 -- /See:/ 'mkMemoryInfo' smart constructor.
 newtype MemoryInfo = MemoryInfo'
   { -- | The size of the memory, in MiB.
-    sizeInMiB :: Lude.Maybe Lude.Integer
+    sizeInMiB :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MemoryInfo' with the minimum fields required to make a request.
---
--- * 'sizeInMiB' - The size of the memory, in MiB.
+-- | Creates a 'MemoryInfo' value with any optional fields omitted.
 mkMemoryInfo ::
   MemoryInfo
-mkMemoryInfo = MemoryInfo' {sizeInMiB = Lude.Nothing}
+mkMemoryInfo = MemoryInfo' {sizeInMiB = Core.Nothing}
 
 -- | The size of the memory, in MiB.
 --
 -- /Note:/ Consider using 'sizeInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miSizeInMiB :: Lens.Lens' MemoryInfo (Lude.Maybe Lude.Integer)
-miSizeInMiB = Lens.lens (sizeInMiB :: MemoryInfo -> Lude.Maybe Lude.Integer) (\s a -> s {sizeInMiB = a} :: MemoryInfo)
+miSizeInMiB :: Lens.Lens' MemoryInfo (Core.Maybe Core.Integer)
+miSizeInMiB = Lens.field @"sizeInMiB"
 {-# DEPRECATED miSizeInMiB "Use generic-lens or generic-optics with 'sizeInMiB' instead." #-}
 
-instance Lude.FromXML MemoryInfo where
-  parseXML x = MemoryInfo' Lude.<$> (x Lude..@? "sizeInMiB")
+instance Core.FromXML MemoryInfo where
+  parseXML x = MemoryInfo' Core.<$> (x Core..@? "sizeInMiB")

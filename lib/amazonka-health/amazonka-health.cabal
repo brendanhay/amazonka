@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.AWSHealth
     Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization
@@ -84,15 +90,24 @@ library
     Network.AWS.AWSHealth.Waiters
 
   other-modules:
+    Network.AWS.AWSHealth.Types.AccountId
     Network.AWS.AWSHealth.Types.AffectedEntity
+    Network.AWS.AWSHealth.Types.AggregateValue
+    Network.AWS.AWSHealth.Types.Arn
+    Network.AWS.AWSHealth.Types.AvailabilityZone
+    Network.AWS.AWSHealth.Types.AwsAccountId
     Network.AWS.AWSHealth.Types.DateTimeRange
     Network.AWS.AWSHealth.Types.EntityAggregate
+    Network.AWS.AWSHealth.Types.EntityArn
     Network.AWS.AWSHealth.Types.EntityFilter
     Network.AWS.AWSHealth.Types.EntityStatusCode
+    Network.AWS.AWSHealth.Types.EntityUrl
+    Network.AWS.AWSHealth.Types.EntityValue
     Network.AWS.AWSHealth.Types.Event
     Network.AWS.AWSHealth.Types.EventAccountFilter
     Network.AWS.AWSHealth.Types.EventAggregate
     Network.AWS.AWSHealth.Types.EventAggregateField
+    Network.AWS.AWSHealth.Types.EventArn
     Network.AWS.AWSHealth.Types.EventDescription
     Network.AWS.AWSHealth.Types.EventDetails
     Network.AWS.AWSHealth.Types.EventDetailsErrorItem
@@ -101,12 +116,23 @@ library
     Network.AWS.AWSHealth.Types.EventStatusCode
     Network.AWS.AWSHealth.Types.EventType
     Network.AWS.AWSHealth.Types.EventTypeCategory
+    Network.AWS.AWSHealth.Types.EventTypeCode
     Network.AWS.AWSHealth.Types.EventTypeFilter
+    Network.AWS.AWSHealth.Types.HealthServiceAccessStatusForOrganization
+    Network.AWS.AWSHealth.Types.Locale
+    Network.AWS.AWSHealth.Types.MetadataKey
+    Network.AWS.AWSHealth.Types.MetadataValue
+    Network.AWS.AWSHealth.Types.NextToken
     Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
     Network.AWS.AWSHealth.Types.OrganizationEvent
     Network.AWS.AWSHealth.Types.OrganizationEventDetails
     Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem
     Network.AWS.AWSHealth.Types.OrganizationEventFilter
+    Network.AWS.AWSHealth.Types.Region
+    Network.AWS.AWSHealth.Types.Service
+    Network.AWS.AWSHealth.Types.String
+    Network.AWS.AWSHealth.Types.TagKey
+    Network.AWS.AWSHealth.Types.TagValue
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

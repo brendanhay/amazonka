@@ -41,8 +41,8 @@ module Network.AWS.SWF.DeprecateActivityType
     mkDeprecateActivityType,
 
     -- ** Request lenses
-    datfActivityType,
     datfDomain,
+    datfActivityType,
 
     -- * Destructuring the response
     DeprecateActivityTypeResponse (..),
@@ -51,88 +51,76 @@ module Network.AWS.SWF.DeprecateActivityType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkDeprecateActivityType' smart constructor.
 data DeprecateActivityType = DeprecateActivityType'
-  { -- | The activity type to deprecate.
-    activityType :: ActivityType,
-    -- | The name of the domain in which the activity type is registered.
-    domain :: Lude.Text
+  { -- | The name of the domain in which the activity type is registered.
+    domain :: Types.DomainName,
+    -- | The activity type to deprecate.
+    activityType :: Types.ActivityType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeprecateActivityType' with the minimum fields required to make a request.
---
--- * 'activityType' - The activity type to deprecate.
--- * 'domain' - The name of the domain in which the activity type is registered.
+-- | Creates a 'DeprecateActivityType' value with any optional fields omitted.
 mkDeprecateActivityType ::
-  -- | 'activityType'
-  ActivityType ->
   -- | 'domain'
-  Lude.Text ->
+  Types.DomainName ->
+  -- | 'activityType'
+  Types.ActivityType ->
   DeprecateActivityType
-mkDeprecateActivityType pActivityType_ pDomain_ =
-  DeprecateActivityType'
-    { activityType = pActivityType_,
-      domain = pDomain_
-    }
-
--- | The activity type to deprecate.
---
--- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datfActivityType :: Lens.Lens' DeprecateActivityType ActivityType
-datfActivityType = Lens.lens (activityType :: DeprecateActivityType -> ActivityType) (\s a -> s {activityType = a} :: DeprecateActivityType)
-{-# DEPRECATED datfActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
+mkDeprecateActivityType domain activityType =
+  DeprecateActivityType' {domain, activityType}
 
 -- | The name of the domain in which the activity type is registered.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datfDomain :: Lens.Lens' DeprecateActivityType Lude.Text
-datfDomain = Lens.lens (domain :: DeprecateActivityType -> Lude.Text) (\s a -> s {domain = a} :: DeprecateActivityType)
+datfDomain :: Lens.Lens' DeprecateActivityType Types.DomainName
+datfDomain = Lens.field @"domain"
 {-# DEPRECATED datfDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
-instance Lude.AWSRequest DeprecateActivityType where
+-- | The activity type to deprecate.
+--
+-- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datfActivityType :: Lens.Lens' DeprecateActivityType Types.ActivityType
+datfActivityType = Lens.field @"activityType"
+{-# DEPRECATED datfActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
+
+instance Core.FromJSON DeprecateActivityType where
+  toJSON DeprecateActivityType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("activityType" Core..= activityType)
+          ]
+      )
+
+instance Core.AWSRequest DeprecateActivityType where
   type Rs DeprecateActivityType = DeprecateActivityTypeResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull DeprecateActivityTypeResponse'
-
-instance Lude.ToHeaders DeprecateActivityType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SimpleWorkflowService.DeprecateActivityType" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeprecateActivityType where
-  toJSON DeprecateActivityType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("activityType" Lude..= activityType),
-            Lude.Just ("domain" Lude..= domain)
-          ]
-      )
-
-instance Lude.ToPath DeprecateActivityType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeprecateActivityType where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.DeprecateActivityType")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeprecateActivityTypeResponse'
 
 -- | /See:/ 'mkDeprecateActivityTypeResponse' smart constructor.
 data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeprecateActivityTypeResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeprecateActivityTypeResponse' value with any optional fields omitted.
 mkDeprecateActivityTypeResponse ::
   DeprecateActivityTypeResponse
 mkDeprecateActivityTypeResponse = DeprecateActivityTypeResponse'

@@ -21,37 +21,31 @@ module Network.AWS.DirectConnect.Types.Connections
   )
 where
 
-import Network.AWS.DirectConnect.Types.Connection
+import qualified Network.AWS.DirectConnect.Types.Connection as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkConnections' smart constructor.
 newtype Connections = Connections'
   { -- | The connections.
-    connections :: Lude.Maybe [Connection]
+    connections :: Core.Maybe [Types.Connection]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'Connections' with the minimum fields required to make a request.
---
--- * 'connections' - The connections.
+-- | Creates a 'Connections' value with any optional fields omitted.
 mkConnections ::
   Connections
-mkConnections = Connections' {connections = Lude.Nothing}
+mkConnections = Connections' {connections = Core.Nothing}
 
 -- | The connections.
 --
 -- /Note:/ Consider using 'connections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConnections :: Lens.Lens' Connections (Lude.Maybe [Connection])
-cConnections = Lens.lens (connections :: Connections -> Lude.Maybe [Connection]) (\s a -> s {connections = a} :: Connections)
+cConnections :: Lens.Lens' Connections (Core.Maybe [Types.Connection])
+cConnections = Lens.field @"connections"
 {-# DEPRECATED cConnections "Use generic-lens or generic-optics with 'connections' instead." #-}
 
-instance Lude.FromJSON Connections where
+instance Core.FromJSON Connections where
   parseJSON =
-    Lude.withObject
-      "Connections"
-      ( \x ->
-          Connections'
-            Lude.<$> (x Lude..:? "connections" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Connections" Core.$
+      \x -> Connections' Core.<$> (x Core..:? "connections")

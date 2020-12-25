@@ -20,102 +20,91 @@ module Network.AWS.StepFunctions.DeleteStateMachine
     mkDeleteStateMachine,
 
     -- ** Request lenses
-    dsmStateMachineARN,
+    dStateMachineArn,
 
     -- * Destructuring the response
     DeleteStateMachineResponse (..),
     mkDeleteStateMachineResponse,
 
     -- ** Response lenses
-    dsmrsResponseStatus,
+    dsmrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StepFunctions.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StepFunctions.Types as Types
 
 -- | /See:/ 'mkDeleteStateMachine' smart constructor.
 newtype DeleteStateMachine = DeleteStateMachine'
   { -- | The Amazon Resource Name (ARN) of the state machine to delete.
-    stateMachineARN :: Lude.Text
+    stateMachineArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStateMachine' with the minimum fields required to make a request.
---
--- * 'stateMachineARN' - The Amazon Resource Name (ARN) of the state machine to delete.
+-- | Creates a 'DeleteStateMachine' value with any optional fields omitted.
 mkDeleteStateMachine ::
-  -- | 'stateMachineARN'
-  Lude.Text ->
+  -- | 'stateMachineArn'
+  Types.Arn ->
   DeleteStateMachine
-mkDeleteStateMachine pStateMachineARN_ =
-  DeleteStateMachine' {stateMachineARN = pStateMachineARN_}
+mkDeleteStateMachine stateMachineArn =
+  DeleteStateMachine' {stateMachineArn}
 
 -- | The Amazon Resource Name (ARN) of the state machine to delete.
 --
--- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmStateMachineARN :: Lens.Lens' DeleteStateMachine Lude.Text
-dsmStateMachineARN = Lens.lens (stateMachineARN :: DeleteStateMachine -> Lude.Text) (\s a -> s {stateMachineARN = a} :: DeleteStateMachine)
-{-# DEPRECATED dsmStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
+-- /Note:/ Consider using 'stateMachineArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStateMachineArn :: Lens.Lens' DeleteStateMachine Types.Arn
+dStateMachineArn = Lens.field @"stateMachineArn"
+{-# DEPRECATED dStateMachineArn "Use generic-lens or generic-optics with 'stateMachineArn' instead." #-}
 
-instance Lude.AWSRequest DeleteStateMachine where
+instance Core.FromJSON DeleteStateMachine where
+  toJSON DeleteStateMachine {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("stateMachineArn" Core..= stateMachineArn)]
+      )
+
+instance Core.AWSRequest DeleteStateMachine where
   type Rs DeleteStateMachine = DeleteStateMachineResponse
-  request = Req.postJSON stepFunctionsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSStepFunctions.DeleteStateMachine")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteStateMachineResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteStateMachineResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteStateMachine where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSStepFunctions.DeleteStateMachine" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteStateMachine where
-  toJSON DeleteStateMachine' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("stateMachineArn" Lude..= stateMachineARN)]
-      )
-
-instance Lude.ToPath DeleteStateMachine where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteStateMachine where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteStateMachineResponse' smart constructor.
 newtype DeleteStateMachineResponse = DeleteStateMachineResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStateMachineResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteStateMachineResponse' value with any optional fields omitted.
 mkDeleteStateMachineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteStateMachineResponse
-mkDeleteStateMachineResponse pResponseStatus_ =
-  DeleteStateMachineResponse' {responseStatus = pResponseStatus_}
+mkDeleteStateMachineResponse responseStatus =
+  DeleteStateMachineResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmrsResponseStatus :: Lens.Lens' DeleteStateMachineResponse Lude.Int
-dsmrsResponseStatus = Lens.lens (responseStatus :: DeleteStateMachineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStateMachineResponse)
-{-# DEPRECATED dsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsmrfrsResponseStatus :: Lens.Lens' DeleteStateMachineResponse Core.Int
+dsmrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsmrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

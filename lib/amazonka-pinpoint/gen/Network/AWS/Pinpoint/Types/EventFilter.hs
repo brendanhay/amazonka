@@ -23,66 +23,58 @@ module Network.AWS.Pinpoint.Types.EventFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EventDimensions
-import Network.AWS.Pinpoint.Types.FilterType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EventDimensions as Types
+import qualified Network.AWS.Pinpoint.Types.FilterType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the settings for an event that causes a campaign to be sent or a journey activity to be performed.
 --
 -- /See:/ 'mkEventFilter' smart constructor.
 data EventFilter = EventFilter'
   { -- | The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<link>Events resource) occurs.
-    filterType :: FilterType,
+    filterType :: Types.FilterType,
     -- | The dimensions for the event filter to use for the campaign or the journey activity.
-    dimensions :: EventDimensions
+    dimensions :: Types.EventDimensions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventFilter' with the minimum fields required to make a request.
---
--- * 'filterType' - The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<link>Events resource) occurs.
--- * 'dimensions' - The dimensions for the event filter to use for the campaign or the journey activity.
+-- | Creates a 'EventFilter' value with any optional fields omitted.
 mkEventFilter ::
   -- | 'filterType'
-  FilterType ->
+  Types.FilterType ->
   -- | 'dimensions'
-  EventDimensions ->
+  Types.EventDimensions ->
   EventFilter
-mkEventFilter pFilterType_ pDimensions_ =
-  EventFilter'
-    { filterType = pFilterType_,
-      dimensions = pDimensions_
-    }
+mkEventFilter filterType dimensions =
+  EventFilter' {filterType, dimensions}
 
 -- | The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<link>Events resource) occurs.
 --
 -- /Note:/ Consider using 'filterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efFilterType :: Lens.Lens' EventFilter FilterType
-efFilterType = Lens.lens (filterType :: EventFilter -> FilterType) (\s a -> s {filterType = a} :: EventFilter)
+efFilterType :: Lens.Lens' EventFilter Types.FilterType
+efFilterType = Lens.field @"filterType"
 {-# DEPRECATED efFilterType "Use generic-lens or generic-optics with 'filterType' instead." #-}
 
 -- | The dimensions for the event filter to use for the campaign or the journey activity.
 --
 -- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efDimensions :: Lens.Lens' EventFilter EventDimensions
-efDimensions = Lens.lens (dimensions :: EventFilter -> EventDimensions) (\s a -> s {dimensions = a} :: EventFilter)
+efDimensions :: Lens.Lens' EventFilter Types.EventDimensions
+efDimensions = Lens.field @"dimensions"
 {-# DEPRECATED efDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
-instance Lude.FromJSON EventFilter where
-  parseJSON =
-    Lude.withObject
-      "EventFilter"
-      ( \x ->
-          EventFilter'
-            Lude.<$> (x Lude..: "FilterType") Lude.<*> (x Lude..: "Dimensions")
-      )
-
-instance Lude.ToJSON EventFilter where
-  toJSON EventFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("FilterType" Lude..= filterType),
-            Lude.Just ("Dimensions" Lude..= dimensions)
+instance Core.FromJSON EventFilter where
+  toJSON EventFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FilterType" Core..= filterType),
+            Core.Just ("Dimensions" Core..= dimensions)
           ]
       )
+
+instance Core.FromJSON EventFilter where
+  parseJSON =
+    Core.withObject "EventFilter" Core.$
+      \x ->
+        EventFilter'
+          Core.<$> (x Core..: "FilterType") Core.<*> (x Core..: "Dimensions")

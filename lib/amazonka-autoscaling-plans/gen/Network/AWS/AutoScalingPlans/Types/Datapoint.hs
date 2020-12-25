@@ -17,54 +17,49 @@ module Network.AWS.AutoScalingPlans.Types.Datapoint
     mkDatapoint,
 
     -- * Lenses
-    dValue,
     dTimestamp,
+    dValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a single value in the forecast data used for predictive scaling.
 --
 -- /See:/ 'mkDatapoint' smart constructor.
 data Datapoint = Datapoint'
-  { -- | The value of the data point.
-    value :: Lude.Maybe Lude.Double,
-    -- | The time stamp for the data point in UTC format.
-    timestamp :: Lude.Maybe Lude.Timestamp
+  { -- | The time stamp for the data point in UTC format.
+    timestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The value of the data point.
+    value :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Datapoint' with the minimum fields required to make a request.
---
--- * 'value' - The value of the data point.
--- * 'timestamp' - The time stamp for the data point in UTC format.
+-- | Creates a 'Datapoint' value with any optional fields omitted.
 mkDatapoint ::
   Datapoint
 mkDatapoint =
-  Datapoint' {value = Lude.Nothing, timestamp = Lude.Nothing}
-
--- | The value of the data point.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dValue :: Lens.Lens' Datapoint (Lude.Maybe Lude.Double)
-dValue = Lens.lens (value :: Datapoint -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: Datapoint)
-{-# DEPRECATED dValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  Datapoint' {timestamp = Core.Nothing, value = Core.Nothing}
 
 -- | The time stamp for the data point in UTC format.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTimestamp :: Lens.Lens' Datapoint (Lude.Maybe Lude.Timestamp)
-dTimestamp = Lens.lens (timestamp :: Datapoint -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: Datapoint)
+dTimestamp :: Lens.Lens' Datapoint (Core.Maybe Core.NominalDiffTime)
+dTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED dTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON Datapoint where
+-- | The value of the data point.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dValue :: Lens.Lens' Datapoint (Core.Maybe Core.Double)
+dValue = Lens.field @"value"
+{-# DEPRECATED dValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Datapoint where
   parseJSON =
-    Lude.withObject
-      "Datapoint"
-      ( \x ->
-          Datapoint'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Timestamp")
-      )
+    Core.withObject "Datapoint" Core.$
+      \x ->
+        Datapoint'
+          Core.<$> (x Core..:? "Timestamp") Core.<*> (x Core..:? "Value")

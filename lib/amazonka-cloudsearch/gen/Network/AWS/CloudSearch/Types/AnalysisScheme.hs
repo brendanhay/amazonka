@@ -17,78 +17,67 @@ module Network.AWS.CloudSearch.Types.AnalysisScheme
     mkAnalysisScheme,
 
     -- * Lenses
-    asAnalysisOptions,
-    asAnalysisSchemeLanguage,
     asAnalysisSchemeName,
+    asAnalysisSchemeLanguage,
+    asAnalysisOptions,
   )
 where
 
-import Network.AWS.CloudSearch.Types.AnalysisOptions
-import Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
+import qualified Network.AWS.CloudSearch.Types.AnalysisOptions as Types
+import qualified Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage as Types
+import qualified Network.AWS.CloudSearch.Types.AnalysisSchemeName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: @Synonyms@ , @Stopwords@ , @StemmingDictionary@ , @JapaneseTokenizationDictionary@ and @AlgorithmicStemming@ .
 --
 -- /See:/ 'mkAnalysisScheme' smart constructor.
 data AnalysisScheme = AnalysisScheme'
-  { analysisOptions :: Lude.Maybe AnalysisOptions,
-    analysisSchemeLanguage :: AnalysisSchemeLanguage,
-    analysisSchemeName :: Lude.Text
+  { analysisSchemeName :: Types.AnalysisSchemeName,
+    analysisSchemeLanguage :: Types.AnalysisSchemeLanguage,
+    analysisOptions :: Core.Maybe Types.AnalysisOptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnalysisScheme' with the minimum fields required to make a request.
---
--- * 'analysisOptions' -
--- * 'analysisSchemeLanguage' -
--- * 'analysisSchemeName' -
+-- | Creates a 'AnalysisScheme' value with any optional fields omitted.
 mkAnalysisScheme ::
-  -- | 'analysisSchemeLanguage'
-  AnalysisSchemeLanguage ->
   -- | 'analysisSchemeName'
-  Lude.Text ->
+  Types.AnalysisSchemeName ->
+  -- | 'analysisSchemeLanguage'
+  Types.AnalysisSchemeLanguage ->
   AnalysisScheme
-mkAnalysisScheme pAnalysisSchemeLanguage_ pAnalysisSchemeName_ =
+mkAnalysisScheme analysisSchemeName analysisSchemeLanguage =
   AnalysisScheme'
-    { analysisOptions = Lude.Nothing,
-      analysisSchemeLanguage = pAnalysisSchemeLanguage_,
-      analysisSchemeName = pAnalysisSchemeName_
+    { analysisSchemeName,
+      analysisSchemeLanguage,
+      analysisOptions = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'analysisOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asAnalysisOptions :: Lens.Lens' AnalysisScheme (Lude.Maybe AnalysisOptions)
-asAnalysisOptions = Lens.lens (analysisOptions :: AnalysisScheme -> Lude.Maybe AnalysisOptions) (\s a -> s {analysisOptions = a} :: AnalysisScheme)
-{-# DEPRECATED asAnalysisOptions "Use generic-lens or generic-optics with 'analysisOptions' instead." #-}
+-- /Note:/ Consider using 'analysisSchemeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAnalysisSchemeName :: Lens.Lens' AnalysisScheme Types.AnalysisSchemeName
+asAnalysisSchemeName = Lens.field @"analysisSchemeName"
+{-# DEPRECATED asAnalysisSchemeName "Use generic-lens or generic-optics with 'analysisSchemeName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'analysisSchemeLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asAnalysisSchemeLanguage :: Lens.Lens' AnalysisScheme AnalysisSchemeLanguage
-asAnalysisSchemeLanguage = Lens.lens (analysisSchemeLanguage :: AnalysisScheme -> AnalysisSchemeLanguage) (\s a -> s {analysisSchemeLanguage = a} :: AnalysisScheme)
+asAnalysisSchemeLanguage :: Lens.Lens' AnalysisScheme Types.AnalysisSchemeLanguage
+asAnalysisSchemeLanguage = Lens.field @"analysisSchemeLanguage"
 {-# DEPRECATED asAnalysisSchemeLanguage "Use generic-lens or generic-optics with 'analysisSchemeLanguage' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'analysisSchemeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asAnalysisSchemeName :: Lens.Lens' AnalysisScheme Lude.Text
-asAnalysisSchemeName = Lens.lens (analysisSchemeName :: AnalysisScheme -> Lude.Text) (\s a -> s {analysisSchemeName = a} :: AnalysisScheme)
-{-# DEPRECATED asAnalysisSchemeName "Use generic-lens or generic-optics with 'analysisSchemeName' instead." #-}
+-- /Note:/ Consider using 'analysisOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAnalysisOptions :: Lens.Lens' AnalysisScheme (Core.Maybe Types.AnalysisOptions)
+asAnalysisOptions = Lens.field @"analysisOptions"
+{-# DEPRECATED asAnalysisOptions "Use generic-lens or generic-optics with 'analysisOptions' instead." #-}
 
-instance Lude.FromXML AnalysisScheme where
+instance Core.FromXML AnalysisScheme where
   parseXML x =
     AnalysisScheme'
-      Lude.<$> (x Lude..@? "AnalysisOptions")
-      Lude.<*> (x Lude..@ "AnalysisSchemeLanguage")
-      Lude.<*> (x Lude..@ "AnalysisSchemeName")
-
-instance Lude.ToQuery AnalysisScheme where
-  toQuery AnalysisScheme' {..} =
-    Lude.mconcat
-      [ "AnalysisOptions" Lude.=: analysisOptions,
-        "AnalysisSchemeLanguage" Lude.=: analysisSchemeLanguage,
-        "AnalysisSchemeName" Lude.=: analysisSchemeName
-      ]
+      Core.<$> (x Core..@ "AnalysisSchemeName")
+      Core.<*> (x Core..@ "AnalysisSchemeLanguage")
+      Core.<*> (x Core..@? "AnalysisOptions")

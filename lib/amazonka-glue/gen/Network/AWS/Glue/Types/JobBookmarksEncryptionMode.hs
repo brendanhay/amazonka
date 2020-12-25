@@ -13,46 +13,51 @@
 module Network.AWS.Glue.Types.JobBookmarksEncryptionMode
   ( JobBookmarksEncryptionMode
       ( JobBookmarksEncryptionMode',
-        JBEMDisabled,
-        JBEMCseKMS
+        JobBookmarksEncryptionModeDisabled,
+        JobBookmarksEncryptionModeCseKms,
+        fromJobBookmarksEncryptionMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobBookmarksEncryptionMode = JobBookmarksEncryptionMode' Lude.Text
+newtype JobBookmarksEncryptionMode = JobBookmarksEncryptionMode'
+  { fromJobBookmarksEncryptionMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JBEMDisabled :: JobBookmarksEncryptionMode
-pattern JBEMDisabled = JobBookmarksEncryptionMode' "DISABLED"
+pattern JobBookmarksEncryptionModeDisabled :: JobBookmarksEncryptionMode
+pattern JobBookmarksEncryptionModeDisabled = JobBookmarksEncryptionMode' "DISABLED"
 
-pattern JBEMCseKMS :: JobBookmarksEncryptionMode
-pattern JBEMCseKMS = JobBookmarksEncryptionMode' "CSE-KMS"
+pattern JobBookmarksEncryptionModeCseKms :: JobBookmarksEncryptionMode
+pattern JobBookmarksEncryptionModeCseKms = JobBookmarksEncryptionMode' "CSE-KMS"
 
 {-# COMPLETE
-  JBEMDisabled,
-  JBEMCseKMS,
+  JobBookmarksEncryptionModeDisabled,
+  JobBookmarksEncryptionModeCseKms,
   JobBookmarksEncryptionMode'
   #-}

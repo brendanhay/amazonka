@@ -17,59 +17,56 @@ module Network.AWS.CloudDirectory.Types.FacetAttributeUpdate
     mkFacetAttributeUpdate,
 
     -- * Lenses
-    fauAttribute,
     fauAction,
+    fauAttribute,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.FacetAttribute
-import Network.AWS.CloudDirectory.Types.UpdateActionType
+import qualified Network.AWS.CloudDirectory.Types.FacetAttribute as Types
+import qualified Network.AWS.CloudDirectory.Types.UpdateActionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that contains information used to update an attribute.
 --
 -- /See:/ 'mkFacetAttributeUpdate' smart constructor.
 data FacetAttributeUpdate = FacetAttributeUpdate'
-  { -- | The attribute to update.
-    attribute :: Lude.Maybe FacetAttribute,
-    -- | The action to perform when updating the attribute.
-    action :: Lude.Maybe UpdateActionType
+  { -- | The action to perform when updating the attribute.
+    action :: Core.Maybe Types.UpdateActionType,
+    -- | The attribute to update.
+    attribute :: Core.Maybe Types.FacetAttribute
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FacetAttributeUpdate' with the minimum fields required to make a request.
---
--- * 'attribute' - The attribute to update.
--- * 'action' - The action to perform when updating the attribute.
+-- | Creates a 'FacetAttributeUpdate' value with any optional fields omitted.
 mkFacetAttributeUpdate ::
   FacetAttributeUpdate
 mkFacetAttributeUpdate =
   FacetAttributeUpdate'
-    { attribute = Lude.Nothing,
-      action = Lude.Nothing
+    { action = Core.Nothing,
+      attribute = Core.Nothing
     }
-
--- | The attribute to update.
---
--- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fauAttribute :: Lens.Lens' FacetAttributeUpdate (Lude.Maybe FacetAttribute)
-fauAttribute = Lens.lens (attribute :: FacetAttributeUpdate -> Lude.Maybe FacetAttribute) (\s a -> s {attribute = a} :: FacetAttributeUpdate)
-{-# DEPRECATED fauAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The action to perform when updating the attribute.
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fauAction :: Lens.Lens' FacetAttributeUpdate (Lude.Maybe UpdateActionType)
-fauAction = Lens.lens (action :: FacetAttributeUpdate -> Lude.Maybe UpdateActionType) (\s a -> s {action = a} :: FacetAttributeUpdate)
+fauAction :: Lens.Lens' FacetAttributeUpdate (Core.Maybe Types.UpdateActionType)
+fauAction = Lens.field @"action"
 {-# DEPRECATED fauAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance Lude.ToJSON FacetAttributeUpdate where
-  toJSON FacetAttributeUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Attribute" Lude..=) Lude.<$> attribute,
-            ("Action" Lude..=) Lude.<$> action
+-- | The attribute to update.
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fauAttribute :: Lens.Lens' FacetAttributeUpdate (Core.Maybe Types.FacetAttribute)
+fauAttribute = Lens.field @"attribute"
+{-# DEPRECATED fauAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
+
+instance Core.FromJSON FacetAttributeUpdate where
+  toJSON FacetAttributeUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Action" Core..=) Core.<$> action,
+            ("Attribute" Core..=) Core.<$> attribute
           ]
       )

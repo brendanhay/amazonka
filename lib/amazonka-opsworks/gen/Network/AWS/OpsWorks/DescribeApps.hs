@@ -30,123 +30,106 @@ module Network.AWS.OpsWorks.DescribeApps
     mkDescribeAppsResponse,
 
     -- ** Response lenses
-    darsApps,
-    darsResponseStatus,
+    darrsApps,
+    darrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeApps' smart constructor.
 data DescribeApps = DescribeApps'
   { -- | An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
-    appIds :: Lude.Maybe [Lude.Text],
+    appIds :: Core.Maybe [Types.String],
     -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
-    stackId :: Lude.Maybe Lude.Text
+    stackId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeApps' with the minimum fields required to make a request.
---
--- * 'appIds' - An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
--- * 'stackId' - The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
+-- | Creates a 'DescribeApps' value with any optional fields omitted.
 mkDescribeApps ::
   DescribeApps
 mkDescribeApps =
-  DescribeApps' {appIds = Lude.Nothing, stackId = Lude.Nothing}
+  DescribeApps' {appIds = Core.Nothing, stackId = Core.Nothing}
 
 -- | An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
 --
 -- /Note:/ Consider using 'appIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAppIds :: Lens.Lens' DescribeApps (Lude.Maybe [Lude.Text])
-daAppIds = Lens.lens (appIds :: DescribeApps -> Lude.Maybe [Lude.Text]) (\s a -> s {appIds = a} :: DescribeApps)
+daAppIds :: Lens.Lens' DescribeApps (Core.Maybe [Types.String])
+daAppIds = Lens.field @"appIds"
 {-# DEPRECATED daAppIds "Use generic-lens or generic-optics with 'appIds' instead." #-}
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daStackId :: Lens.Lens' DescribeApps (Lude.Maybe Lude.Text)
-daStackId = Lens.lens (stackId :: DescribeApps -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribeApps)
+daStackId :: Lens.Lens' DescribeApps (Core.Maybe Types.String)
+daStackId = Lens.field @"stackId"
 {-# DEPRECATED daStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance Lude.AWSRequest DescribeApps where
+instance Core.FromJSON DescribeApps where
+  toJSON DescribeApps {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AppIds" Core..=) Core.<$> appIds,
+            ("StackId" Core..=) Core.<$> stackId
+          ]
+      )
+
+instance Core.AWSRequest DescribeApps where
   type Rs DescribeApps = DescribeAppsResponse
-  request = Req.postJSON opsWorksService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DescribeApps")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAppsResponse'
-            Lude.<$> (x Lude..?> "Apps" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Apps") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeApps where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DescribeApps" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeApps where
-  toJSON DescribeApps' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AppIds" Lude..=) Lude.<$> appIds,
-            ("StackId" Lude..=) Lude.<$> stackId
-          ]
-      )
-
-instance Lude.ToPath DescribeApps where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeApps where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeApps@ request.
 --
 -- /See:/ 'mkDescribeAppsResponse' smart constructor.
 data DescribeAppsResponse = DescribeAppsResponse'
   { -- | An array of @App@ objects that describe the specified apps.
-    apps :: Lude.Maybe [App],
+    apps :: Core.Maybe [Types.App],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAppsResponse' with the minimum fields required to make a request.
---
--- * 'apps' - An array of @App@ objects that describe the specified apps.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAppsResponse' value with any optional fields omitted.
 mkDescribeAppsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAppsResponse
-mkDescribeAppsResponse pResponseStatus_ =
-  DescribeAppsResponse'
-    { apps = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeAppsResponse responseStatus =
+  DescribeAppsResponse' {apps = Core.Nothing, responseStatus}
 
 -- | An array of @App@ objects that describe the specified apps.
 --
 -- /Note:/ Consider using 'apps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsApps :: Lens.Lens' DescribeAppsResponse (Lude.Maybe [App])
-darsApps = Lens.lens (apps :: DescribeAppsResponse -> Lude.Maybe [App]) (\s a -> s {apps = a} :: DescribeAppsResponse)
-{-# DEPRECATED darsApps "Use generic-lens or generic-optics with 'apps' instead." #-}
+darrsApps :: Lens.Lens' DescribeAppsResponse (Core.Maybe [Types.App])
+darrsApps = Lens.field @"apps"
+{-# DEPRECATED darrsApps "Use generic-lens or generic-optics with 'apps' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DescribeAppsResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DescribeAppsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAppsResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrsResponseStatus :: Lens.Lens' DescribeAppsResponse Core.Int
+darrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,71 +17,81 @@ module Network.AWS.ElasticSearch.Types.DomainEndpointOptions
     mkDomainEndpointOptions,
 
     -- * Lenses
+    deoCustomEndpoint,
+    deoCustomEndpointCertificateArn,
+    deoCustomEndpointEnabled,
     deoEnforceHTTPS,
     deoTLSSecurityPolicy,
-    deoCustomEndpointEnabled,
-    deoCustomEndpoint,
-    deoCustomEndpointCertificateARN,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.TLSSecurityPolicy
+import qualified Network.AWS.ElasticSearch.Types.ARN as Types
+import qualified Network.AWS.ElasticSearch.Types.DomainNameFqdn as Types
+import qualified Network.AWS.ElasticSearch.Types.TLSSecurityPolicy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Options to configure endpoint for the Elasticsearch domain.
 --
 -- /See:/ 'mkDomainEndpointOptions' smart constructor.
 data DomainEndpointOptions = DomainEndpointOptions'
-  { -- | Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-    enforceHTTPS :: Lude.Maybe Lude.Bool,
+  { -- | Specify the fully qualified domain for your custom endpoint.
+    customEndpoint :: Core.Maybe Types.DomainNameFqdn,
+    -- | Specify ACM certificate ARN for your custom endpoint.
+    customEndpointCertificateArn :: Core.Maybe Types.ARN,
+    -- | Specify if custom endpoint should be enabled for the Elasticsearch domain.
+    customEndpointEnabled :: Core.Maybe Core.Bool,
+    -- | Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
+    enforceHTTPS :: Core.Maybe Core.Bool,
     -- | Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
     --
     -- It can be one of the following values:
     --     * __Policy-Min-TLS-1-0-2019-07: __ TLS security policy which supports TLSv1.0 and higher.
     --
     --     * __Policy-Min-TLS-1-2-2019-07: __ TLS security policy which supports only TLSv1.2
-    tlsSecurityPolicy :: Lude.Maybe TLSSecurityPolicy,
-    -- | Specify if custom endpoint should be enabled for the Elasticsearch domain.
-    customEndpointEnabled :: Lude.Maybe Lude.Bool,
-    -- | Specify the fully qualified domain for your custom endpoint.
-    customEndpoint :: Lude.Maybe Lude.Text,
-    -- | Specify ACM certificate ARN for your custom endpoint.
-    customEndpointCertificateARN :: Lude.Maybe Lude.Text
+    tLSSecurityPolicy :: Core.Maybe Types.TLSSecurityPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainEndpointOptions' with the minimum fields required to make a request.
---
--- * 'enforceHTTPS' - Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
--- * 'tlsSecurityPolicy' - Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
---
--- It can be one of the following values:
---     * __Policy-Min-TLS-1-0-2019-07: __ TLS security policy which supports TLSv1.0 and higher.
---
---     * __Policy-Min-TLS-1-2-2019-07: __ TLS security policy which supports only TLSv1.2
---
---
--- * 'customEndpointEnabled' - Specify if custom endpoint should be enabled for the Elasticsearch domain.
--- * 'customEndpoint' - Specify the fully qualified domain for your custom endpoint.
--- * 'customEndpointCertificateARN' - Specify ACM certificate ARN for your custom endpoint.
+-- | Creates a 'DomainEndpointOptions' value with any optional fields omitted.
 mkDomainEndpointOptions ::
   DomainEndpointOptions
 mkDomainEndpointOptions =
   DomainEndpointOptions'
-    { enforceHTTPS = Lude.Nothing,
-      tlsSecurityPolicy = Lude.Nothing,
-      customEndpointEnabled = Lude.Nothing,
-      customEndpoint = Lude.Nothing,
-      customEndpointCertificateARN = Lude.Nothing
+    { customEndpoint = Core.Nothing,
+      customEndpointCertificateArn = Core.Nothing,
+      customEndpointEnabled = Core.Nothing,
+      enforceHTTPS = Core.Nothing,
+      tLSSecurityPolicy = Core.Nothing
     }
+
+-- | Specify the fully qualified domain for your custom endpoint.
+--
+-- /Note:/ Consider using 'customEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deoCustomEndpoint :: Lens.Lens' DomainEndpointOptions (Core.Maybe Types.DomainNameFqdn)
+deoCustomEndpoint = Lens.field @"customEndpoint"
+{-# DEPRECATED deoCustomEndpoint "Use generic-lens or generic-optics with 'customEndpoint' instead." #-}
+
+-- | Specify ACM certificate ARN for your custom endpoint.
+--
+-- /Note:/ Consider using 'customEndpointCertificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deoCustomEndpointCertificateArn :: Lens.Lens' DomainEndpointOptions (Core.Maybe Types.ARN)
+deoCustomEndpointCertificateArn = Lens.field @"customEndpointCertificateArn"
+{-# DEPRECATED deoCustomEndpointCertificateArn "Use generic-lens or generic-optics with 'customEndpointCertificateArn' instead." #-}
+
+-- | Specify if custom endpoint should be enabled for the Elasticsearch domain.
+--
+-- /Note:/ Consider using 'customEndpointEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deoCustomEndpointEnabled :: Lens.Lens' DomainEndpointOptions (Core.Maybe Core.Bool)
+deoCustomEndpointEnabled = Lens.field @"customEndpointEnabled"
+{-# DEPRECATED deoCustomEndpointEnabled "Use generic-lens or generic-optics with 'customEndpointEnabled' instead." #-}
 
 -- | Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
 --
 -- /Note:/ Consider using 'enforceHTTPS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoEnforceHTTPS :: Lens.Lens' DomainEndpointOptions (Lude.Maybe Lude.Bool)
-deoEnforceHTTPS = Lens.lens (enforceHTTPS :: DomainEndpointOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enforceHTTPS = a} :: DomainEndpointOptions)
+deoEnforceHTTPS :: Lens.Lens' DomainEndpointOptions (Core.Maybe Core.Bool)
+deoEnforceHTTPS = Lens.field @"enforceHTTPS"
 {-# DEPRECATED deoEnforceHTTPS "Use generic-lens or generic-optics with 'enforceHTTPS' instead." #-}
 
 -- | Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
@@ -93,54 +103,31 @@ deoEnforceHTTPS = Lens.lens (enforceHTTPS :: DomainEndpointOptions -> Lude.Maybe
 --
 --
 --
--- /Note:/ Consider using 'tlsSecurityPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoTLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Lude.Maybe TLSSecurityPolicy)
-deoTLSSecurityPolicy = Lens.lens (tlsSecurityPolicy :: DomainEndpointOptions -> Lude.Maybe TLSSecurityPolicy) (\s a -> s {tlsSecurityPolicy = a} :: DomainEndpointOptions)
-{-# DEPRECATED deoTLSSecurityPolicy "Use generic-lens or generic-optics with 'tlsSecurityPolicy' instead." #-}
+-- /Note:/ Consider using 'tLSSecurityPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deoTLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Core.Maybe Types.TLSSecurityPolicy)
+deoTLSSecurityPolicy = Lens.field @"tLSSecurityPolicy"
+{-# DEPRECATED deoTLSSecurityPolicy "Use generic-lens or generic-optics with 'tLSSecurityPolicy' instead." #-}
 
--- | Specify if custom endpoint should be enabled for the Elasticsearch domain.
---
--- /Note:/ Consider using 'customEndpointEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoCustomEndpointEnabled :: Lens.Lens' DomainEndpointOptions (Lude.Maybe Lude.Bool)
-deoCustomEndpointEnabled = Lens.lens (customEndpointEnabled :: DomainEndpointOptions -> Lude.Maybe Lude.Bool) (\s a -> s {customEndpointEnabled = a} :: DomainEndpointOptions)
-{-# DEPRECATED deoCustomEndpointEnabled "Use generic-lens or generic-optics with 'customEndpointEnabled' instead." #-}
-
--- | Specify the fully qualified domain for your custom endpoint.
---
--- /Note:/ Consider using 'customEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoCustomEndpoint :: Lens.Lens' DomainEndpointOptions (Lude.Maybe Lude.Text)
-deoCustomEndpoint = Lens.lens (customEndpoint :: DomainEndpointOptions -> Lude.Maybe Lude.Text) (\s a -> s {customEndpoint = a} :: DomainEndpointOptions)
-{-# DEPRECATED deoCustomEndpoint "Use generic-lens or generic-optics with 'customEndpoint' instead." #-}
-
--- | Specify ACM certificate ARN for your custom endpoint.
---
--- /Note:/ Consider using 'customEndpointCertificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoCustomEndpointCertificateARN :: Lens.Lens' DomainEndpointOptions (Lude.Maybe Lude.Text)
-deoCustomEndpointCertificateARN = Lens.lens (customEndpointCertificateARN :: DomainEndpointOptions -> Lude.Maybe Lude.Text) (\s a -> s {customEndpointCertificateARN = a} :: DomainEndpointOptions)
-{-# DEPRECATED deoCustomEndpointCertificateARN "Use generic-lens or generic-optics with 'customEndpointCertificateARN' instead." #-}
-
-instance Lude.FromJSON DomainEndpointOptions where
-  parseJSON =
-    Lude.withObject
-      "DomainEndpointOptions"
-      ( \x ->
-          DomainEndpointOptions'
-            Lude.<$> (x Lude..:? "EnforceHTTPS")
-            Lude.<*> (x Lude..:? "TLSSecurityPolicy")
-            Lude.<*> (x Lude..:? "CustomEndpointEnabled")
-            Lude.<*> (x Lude..:? "CustomEndpoint")
-            Lude.<*> (x Lude..:? "CustomEndpointCertificateArn")
-      )
-
-instance Lude.ToJSON DomainEndpointOptions where
-  toJSON DomainEndpointOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EnforceHTTPS" Lude..=) Lude.<$> enforceHTTPS,
-            ("TLSSecurityPolicy" Lude..=) Lude.<$> tlsSecurityPolicy,
-            ("CustomEndpointEnabled" Lude..=) Lude.<$> customEndpointEnabled,
-            ("CustomEndpoint" Lude..=) Lude.<$> customEndpoint,
-            ("CustomEndpointCertificateArn" Lude..=)
-              Lude.<$> customEndpointCertificateARN
+instance Core.FromJSON DomainEndpointOptions where
+  toJSON DomainEndpointOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CustomEndpoint" Core..=) Core.<$> customEndpoint,
+            ("CustomEndpointCertificateArn" Core..=)
+              Core.<$> customEndpointCertificateArn,
+            ("CustomEndpointEnabled" Core..=) Core.<$> customEndpointEnabled,
+            ("EnforceHTTPS" Core..=) Core.<$> enforceHTTPS,
+            ("TLSSecurityPolicy" Core..=) Core.<$> tLSSecurityPolicy
           ]
       )
+
+instance Core.FromJSON DomainEndpointOptions where
+  parseJSON =
+    Core.withObject "DomainEndpointOptions" Core.$
+      \x ->
+        DomainEndpointOptions'
+          Core.<$> (x Core..:? "CustomEndpoint")
+          Core.<*> (x Core..:? "CustomEndpointCertificateArn")
+          Core.<*> (x Core..:? "CustomEndpointEnabled")
+          Core.<*> (x Core..:? "EnforceHTTPS")
+          Core.<*> (x Core..:? "TLSSecurityPolicy")

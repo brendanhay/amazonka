@@ -17,39 +17,39 @@ module Network.AWS.SWF.Types.Decision
     mkDecision,
 
     -- * Lenses
+    dDecisionType,
+    dCancelTimerDecisionAttributes,
+    dCancelWorkflowExecutionDecisionAttributes,
+    dCompleteWorkflowExecutionDecisionAttributes,
+    dContinueAsNewWorkflowExecutionDecisionAttributes,
+    dFailWorkflowExecutionDecisionAttributes,
+    dRecordMarkerDecisionAttributes,
+    dRequestCancelActivityTaskDecisionAttributes,
     dRequestCancelExternalWorkflowExecutionDecisionAttributes,
     dScheduleActivityTaskDecisionAttributes,
-    dSignalExternalWorkflowExecutionDecisionAttributes,
-    dStartTimerDecisionAttributes,
-    dDecisionType,
-    dRecordMarkerDecisionAttributes,
-    dFailWorkflowExecutionDecisionAttributes,
-    dStartChildWorkflowExecutionDecisionAttributes,
-    dCompleteWorkflowExecutionDecisionAttributes,
     dScheduleLambdaFunctionDecisionAttributes,
-    dRequestCancelActivityTaskDecisionAttributes,
-    dCancelWorkflowExecutionDecisionAttributes,
-    dCancelTimerDecisionAttributes,
-    dContinueAsNewWorkflowExecutionDecisionAttributes,
+    dSignalExternalWorkflowExecutionDecisionAttributes,
+    dStartChildWorkflowExecutionDecisionAttributes,
+    dStartTimerDecisionAttributes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.CancelTimerDecisionAttributes
-import Network.AWS.SWF.Types.CancelWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.CompleteWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.DecisionType
-import Network.AWS.SWF.Types.FailWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.RecordMarkerDecisionAttributes
-import Network.AWS.SWF.Types.RequestCancelActivityTaskDecisionAttributes
-import Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.ScheduleActivityTaskDecisionAttributes
-import Network.AWS.SWF.Types.ScheduleLambdaFunctionDecisionAttributes
-import Network.AWS.SWF.Types.SignalExternalWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.StartChildWorkflowExecutionDecisionAttributes
-import Network.AWS.SWF.Types.StartTimerDecisionAttributes
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.CancelTimerDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.CancelWorkflowExecutionDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.CompleteWorkflowExecutionDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.DecisionType as Types
+import qualified Network.AWS.SWF.Types.FailWorkflowExecutionDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.RecordMarkerDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.RequestCancelActivityTaskDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.ScheduleActivityTaskDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.ScheduleLambdaFunctionDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.SignalExternalWorkflowExecutionDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.StartChildWorkflowExecutionDecisionAttributes as Types
+import qualified Network.AWS.SWF.Types.StartTimerDecisionAttributes as Types
 
 -- | Specifies a decision made by the decider. A decision can be one of these types:
 --
@@ -182,207 +182,192 @@ import Network.AWS.SWF.Types.StartTimerDecisionAttributes
 --
 -- /See:/ 'mkDecision' smart constructor.
 data Decision = Decision'
-  { -- | Provides the details of the @RequestCancelExternalWorkflowExecution@ decision. It isn't set for other decision types.
-    requestCancelExternalWorkflowExecutionDecisionAttributes :: Lude.Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes,
-    -- | Provides the details of the @ScheduleActivityTask@ decision. It isn't set for other decision types.
-    scheduleActivityTaskDecisionAttributes :: Lude.Maybe ScheduleActivityTaskDecisionAttributes,
-    -- | Provides the details of the @SignalExternalWorkflowExecution@ decision. It isn't set for other decision types.
-    signalExternalWorkflowExecutionDecisionAttributes :: Lude.Maybe SignalExternalWorkflowExecutionDecisionAttributes,
-    -- | Provides the details of the @StartTimer@ decision. It isn't set for other decision types.
-    startTimerDecisionAttributes :: Lude.Maybe StartTimerDecisionAttributes,
-    -- | Specifies the type of the decision.
-    decisionType :: DecisionType,
-    -- | Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
-    recordMarkerDecisionAttributes :: Lude.Maybe RecordMarkerDecisionAttributes,
-    -- | Provides the details of the @FailWorkflowExecution@ decision. It isn't set for other decision types.
-    failWorkflowExecutionDecisionAttributes :: Lude.Maybe FailWorkflowExecutionDecisionAttributes,
-    -- | Provides the details of the @StartChildWorkflowExecution@ decision. It isn't set for other decision types.
-    startChildWorkflowExecutionDecisionAttributes :: Lude.Maybe StartChildWorkflowExecutionDecisionAttributes,
-    -- | Provides the details of the @CompleteWorkflowExecution@ decision. It isn't set for other decision types.
-    completeWorkflowExecutionDecisionAttributes :: Lude.Maybe CompleteWorkflowExecutionDecisionAttributes,
-    -- | Provides the details of the @ScheduleLambdaFunction@ decision. It isn't set for other decision types.
-    scheduleLambdaFunctionDecisionAttributes :: Lude.Maybe ScheduleLambdaFunctionDecisionAttributes,
-    -- | Provides the details of the @RequestCancelActivityTask@ decision. It isn't set for other decision types.
-    requestCancelActivityTaskDecisionAttributes :: Lude.Maybe RequestCancelActivityTaskDecisionAttributes,
-    -- | Provides the details of the @CancelWorkflowExecution@ decision. It isn't set for other decision types.
-    cancelWorkflowExecutionDecisionAttributes :: Lude.Maybe CancelWorkflowExecutionDecisionAttributes,
+  { -- | Specifies the type of the decision.
+    decisionType :: Types.DecisionType,
     -- | Provides the details of the @CancelTimer@ decision. It isn't set for other decision types.
-    cancelTimerDecisionAttributes :: Lude.Maybe CancelTimerDecisionAttributes,
+    cancelTimerDecisionAttributes :: Core.Maybe Types.CancelTimerDecisionAttributes,
+    -- | Provides the details of the @CancelWorkflowExecution@ decision. It isn't set for other decision types.
+    cancelWorkflowExecutionDecisionAttributes :: Core.Maybe Types.CancelWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @CompleteWorkflowExecution@ decision. It isn't set for other decision types.
+    completeWorkflowExecutionDecisionAttributes :: Core.Maybe Types.CompleteWorkflowExecutionDecisionAttributes,
     -- | Provides the details of the @ContinueAsNewWorkflowExecution@ decision. It isn't set for other decision types.
-    continueAsNewWorkflowExecutionDecisionAttributes :: Lude.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes
+    continueAsNewWorkflowExecutionDecisionAttributes :: Core.Maybe Types.ContinueAsNewWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @FailWorkflowExecution@ decision. It isn't set for other decision types.
+    failWorkflowExecutionDecisionAttributes :: Core.Maybe Types.FailWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
+    recordMarkerDecisionAttributes :: Core.Maybe Types.RecordMarkerDecisionAttributes,
+    -- | Provides the details of the @RequestCancelActivityTask@ decision. It isn't set for other decision types.
+    requestCancelActivityTaskDecisionAttributes :: Core.Maybe Types.RequestCancelActivityTaskDecisionAttributes,
+    -- | Provides the details of the @RequestCancelExternalWorkflowExecution@ decision. It isn't set for other decision types.
+    requestCancelExternalWorkflowExecutionDecisionAttributes :: Core.Maybe Types.RequestCancelExternalWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @ScheduleActivityTask@ decision. It isn't set for other decision types.
+    scheduleActivityTaskDecisionAttributes :: Core.Maybe Types.ScheduleActivityTaskDecisionAttributes,
+    -- | Provides the details of the @ScheduleLambdaFunction@ decision. It isn't set for other decision types.
+    scheduleLambdaFunctionDecisionAttributes :: Core.Maybe Types.ScheduleLambdaFunctionDecisionAttributes,
+    -- | Provides the details of the @SignalExternalWorkflowExecution@ decision. It isn't set for other decision types.
+    signalExternalWorkflowExecutionDecisionAttributes :: Core.Maybe Types.SignalExternalWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @StartChildWorkflowExecution@ decision. It isn't set for other decision types.
+    startChildWorkflowExecutionDecisionAttributes :: Core.Maybe Types.StartChildWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @StartTimer@ decision. It isn't set for other decision types.
+    startTimerDecisionAttributes :: Core.Maybe Types.StartTimerDecisionAttributes
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Decision' with the minimum fields required to make a request.
---
--- * 'requestCancelExternalWorkflowExecutionDecisionAttributes' - Provides the details of the @RequestCancelExternalWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'scheduleActivityTaskDecisionAttributes' - Provides the details of the @ScheduleActivityTask@ decision. It isn't set for other decision types.
--- * 'signalExternalWorkflowExecutionDecisionAttributes' - Provides the details of the @SignalExternalWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'startTimerDecisionAttributes' - Provides the details of the @StartTimer@ decision. It isn't set for other decision types.
--- * 'decisionType' - Specifies the type of the decision.
--- * 'recordMarkerDecisionAttributes' - Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
--- * 'failWorkflowExecutionDecisionAttributes' - Provides the details of the @FailWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'startChildWorkflowExecutionDecisionAttributes' - Provides the details of the @StartChildWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'completeWorkflowExecutionDecisionAttributes' - Provides the details of the @CompleteWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'scheduleLambdaFunctionDecisionAttributes' - Provides the details of the @ScheduleLambdaFunction@ decision. It isn't set for other decision types.
--- * 'requestCancelActivityTaskDecisionAttributes' - Provides the details of the @RequestCancelActivityTask@ decision. It isn't set for other decision types.
--- * 'cancelWorkflowExecutionDecisionAttributes' - Provides the details of the @CancelWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'cancelTimerDecisionAttributes' - Provides the details of the @CancelTimer@ decision. It isn't set for other decision types.
--- * 'continueAsNewWorkflowExecutionDecisionAttributes' - Provides the details of the @ContinueAsNewWorkflowExecution@ decision. It isn't set for other decision types.
+-- | Creates a 'Decision' value with any optional fields omitted.
 mkDecision ::
   -- | 'decisionType'
-  DecisionType ->
+  Types.DecisionType ->
   Decision
-mkDecision pDecisionType_ =
+mkDecision decisionType =
   Decision'
-    { requestCancelExternalWorkflowExecutionDecisionAttributes =
-        Lude.Nothing,
-      scheduleActivityTaskDecisionAttributes = Lude.Nothing,
-      signalExternalWorkflowExecutionDecisionAttributes = Lude.Nothing,
-      startTimerDecisionAttributes = Lude.Nothing,
-      decisionType = pDecisionType_,
-      recordMarkerDecisionAttributes = Lude.Nothing,
-      failWorkflowExecutionDecisionAttributes = Lude.Nothing,
-      startChildWorkflowExecutionDecisionAttributes = Lude.Nothing,
-      completeWorkflowExecutionDecisionAttributes = Lude.Nothing,
-      scheduleLambdaFunctionDecisionAttributes = Lude.Nothing,
-      requestCancelActivityTaskDecisionAttributes = Lude.Nothing,
-      cancelWorkflowExecutionDecisionAttributes = Lude.Nothing,
-      cancelTimerDecisionAttributes = Lude.Nothing,
-      continueAsNewWorkflowExecutionDecisionAttributes = Lude.Nothing
+    { decisionType,
+      cancelTimerDecisionAttributes = Core.Nothing,
+      cancelWorkflowExecutionDecisionAttributes = Core.Nothing,
+      completeWorkflowExecutionDecisionAttributes = Core.Nothing,
+      continueAsNewWorkflowExecutionDecisionAttributes = Core.Nothing,
+      failWorkflowExecutionDecisionAttributes = Core.Nothing,
+      recordMarkerDecisionAttributes = Core.Nothing,
+      requestCancelActivityTaskDecisionAttributes = Core.Nothing,
+      requestCancelExternalWorkflowExecutionDecisionAttributes =
+        Core.Nothing,
+      scheduleActivityTaskDecisionAttributes = Core.Nothing,
+      scheduleLambdaFunctionDecisionAttributes = Core.Nothing,
+      signalExternalWorkflowExecutionDecisionAttributes = Core.Nothing,
+      startChildWorkflowExecutionDecisionAttributes = Core.Nothing,
+      startTimerDecisionAttributes = Core.Nothing
     }
+
+-- | Specifies the type of the decision.
+--
+-- /Note:/ Consider using 'decisionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDecisionType :: Lens.Lens' Decision Types.DecisionType
+dDecisionType = Lens.field @"decisionType"
+{-# DEPRECATED dDecisionType "Use generic-lens or generic-optics with 'decisionType' instead." #-}
+
+-- | Provides the details of the @CancelTimer@ decision. It isn't set for other decision types.
+--
+-- /Note:/ Consider using 'cancelTimerDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCancelTimerDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.CancelTimerDecisionAttributes)
+dCancelTimerDecisionAttributes = Lens.field @"cancelTimerDecisionAttributes"
+{-# DEPRECATED dCancelTimerDecisionAttributes "Use generic-lens or generic-optics with 'cancelTimerDecisionAttributes' instead." #-}
+
+-- | Provides the details of the @CancelWorkflowExecution@ decision. It isn't set for other decision types.
+--
+-- /Note:/ Consider using 'cancelWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCancelWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.CancelWorkflowExecutionDecisionAttributes)
+dCancelWorkflowExecutionDecisionAttributes = Lens.field @"cancelWorkflowExecutionDecisionAttributes"
+{-# DEPRECATED dCancelWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'cancelWorkflowExecutionDecisionAttributes' instead." #-}
+
+-- | Provides the details of the @CompleteWorkflowExecution@ decision. It isn't set for other decision types.
+--
+-- /Note:/ Consider using 'completeWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCompleteWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.CompleteWorkflowExecutionDecisionAttributes)
+dCompleteWorkflowExecutionDecisionAttributes = Lens.field @"completeWorkflowExecutionDecisionAttributes"
+{-# DEPRECATED dCompleteWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'completeWorkflowExecutionDecisionAttributes' instead." #-}
+
+-- | Provides the details of the @ContinueAsNewWorkflowExecution@ decision. It isn't set for other decision types.
+--
+-- /Note:/ Consider using 'continueAsNewWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dContinueAsNewWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.ContinueAsNewWorkflowExecutionDecisionAttributes)
+dContinueAsNewWorkflowExecutionDecisionAttributes = Lens.field @"continueAsNewWorkflowExecutionDecisionAttributes"
+{-# DEPRECATED dContinueAsNewWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'continueAsNewWorkflowExecutionDecisionAttributes' instead." #-}
+
+-- | Provides the details of the @FailWorkflowExecution@ decision. It isn't set for other decision types.
+--
+-- /Note:/ Consider using 'failWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFailWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.FailWorkflowExecutionDecisionAttributes)
+dFailWorkflowExecutionDecisionAttributes = Lens.field @"failWorkflowExecutionDecisionAttributes"
+{-# DEPRECATED dFailWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'failWorkflowExecutionDecisionAttributes' instead." #-}
+
+-- | Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
+--
+-- /Note:/ Consider using 'recordMarkerDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRecordMarkerDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.RecordMarkerDecisionAttributes)
+dRecordMarkerDecisionAttributes = Lens.field @"recordMarkerDecisionAttributes"
+{-# DEPRECATED dRecordMarkerDecisionAttributes "Use generic-lens or generic-optics with 'recordMarkerDecisionAttributes' instead." #-}
+
+-- | Provides the details of the @RequestCancelActivityTask@ decision. It isn't set for other decision types.
+--
+-- /Note:/ Consider using 'requestCancelActivityTaskDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRequestCancelActivityTaskDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.RequestCancelActivityTaskDecisionAttributes)
+dRequestCancelActivityTaskDecisionAttributes = Lens.field @"requestCancelActivityTaskDecisionAttributes"
+{-# DEPRECATED dRequestCancelActivityTaskDecisionAttributes "Use generic-lens or generic-optics with 'requestCancelActivityTaskDecisionAttributes' instead." #-}
 
 -- | Provides the details of the @RequestCancelExternalWorkflowExecution@ decision. It isn't set for other decision types.
 --
 -- /Note:/ Consider using 'requestCancelExternalWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRequestCancelExternalWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
-dRequestCancelExternalWorkflowExecutionDecisionAttributes = Lens.lens (requestCancelExternalWorkflowExecutionDecisionAttributes :: Decision -> Lude.Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes) (\s a -> s {requestCancelExternalWorkflowExecutionDecisionAttributes = a} :: Decision)
+dRequestCancelExternalWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.RequestCancelExternalWorkflowExecutionDecisionAttributes)
+dRequestCancelExternalWorkflowExecutionDecisionAttributes = Lens.field @"requestCancelExternalWorkflowExecutionDecisionAttributes"
 {-# DEPRECATED dRequestCancelExternalWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'requestCancelExternalWorkflowExecutionDecisionAttributes' instead." #-}
 
 -- | Provides the details of the @ScheduleActivityTask@ decision. It isn't set for other decision types.
 --
 -- /Note:/ Consider using 'scheduleActivityTaskDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dScheduleActivityTaskDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe ScheduleActivityTaskDecisionAttributes)
-dScheduleActivityTaskDecisionAttributes = Lens.lens (scheduleActivityTaskDecisionAttributes :: Decision -> Lude.Maybe ScheduleActivityTaskDecisionAttributes) (\s a -> s {scheduleActivityTaskDecisionAttributes = a} :: Decision)
+dScheduleActivityTaskDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.ScheduleActivityTaskDecisionAttributes)
+dScheduleActivityTaskDecisionAttributes = Lens.field @"scheduleActivityTaskDecisionAttributes"
 {-# DEPRECATED dScheduleActivityTaskDecisionAttributes "Use generic-lens or generic-optics with 'scheduleActivityTaskDecisionAttributes' instead." #-}
-
--- | Provides the details of the @SignalExternalWorkflowExecution@ decision. It isn't set for other decision types.
---
--- /Note:/ Consider using 'signalExternalWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSignalExternalWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe SignalExternalWorkflowExecutionDecisionAttributes)
-dSignalExternalWorkflowExecutionDecisionAttributes = Lens.lens (signalExternalWorkflowExecutionDecisionAttributes :: Decision -> Lude.Maybe SignalExternalWorkflowExecutionDecisionAttributes) (\s a -> s {signalExternalWorkflowExecutionDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dSignalExternalWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'signalExternalWorkflowExecutionDecisionAttributes' instead." #-}
-
--- | Provides the details of the @StartTimer@ decision. It isn't set for other decision types.
---
--- /Note:/ Consider using 'startTimerDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStartTimerDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe StartTimerDecisionAttributes)
-dStartTimerDecisionAttributes = Lens.lens (startTimerDecisionAttributes :: Decision -> Lude.Maybe StartTimerDecisionAttributes) (\s a -> s {startTimerDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dStartTimerDecisionAttributes "Use generic-lens or generic-optics with 'startTimerDecisionAttributes' instead." #-}
-
--- | Specifies the type of the decision.
---
--- /Note:/ Consider using 'decisionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDecisionType :: Lens.Lens' Decision DecisionType
-dDecisionType = Lens.lens (decisionType :: Decision -> DecisionType) (\s a -> s {decisionType = a} :: Decision)
-{-# DEPRECATED dDecisionType "Use generic-lens or generic-optics with 'decisionType' instead." #-}
-
--- | Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
---
--- /Note:/ Consider using 'recordMarkerDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRecordMarkerDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe RecordMarkerDecisionAttributes)
-dRecordMarkerDecisionAttributes = Lens.lens (recordMarkerDecisionAttributes :: Decision -> Lude.Maybe RecordMarkerDecisionAttributes) (\s a -> s {recordMarkerDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dRecordMarkerDecisionAttributes "Use generic-lens or generic-optics with 'recordMarkerDecisionAttributes' instead." #-}
-
--- | Provides the details of the @FailWorkflowExecution@ decision. It isn't set for other decision types.
---
--- /Note:/ Consider using 'failWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFailWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe FailWorkflowExecutionDecisionAttributes)
-dFailWorkflowExecutionDecisionAttributes = Lens.lens (failWorkflowExecutionDecisionAttributes :: Decision -> Lude.Maybe FailWorkflowExecutionDecisionAttributes) (\s a -> s {failWorkflowExecutionDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dFailWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'failWorkflowExecutionDecisionAttributes' instead." #-}
-
--- | Provides the details of the @StartChildWorkflowExecution@ decision. It isn't set for other decision types.
---
--- /Note:/ Consider using 'startChildWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStartChildWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe StartChildWorkflowExecutionDecisionAttributes)
-dStartChildWorkflowExecutionDecisionAttributes = Lens.lens (startChildWorkflowExecutionDecisionAttributes :: Decision -> Lude.Maybe StartChildWorkflowExecutionDecisionAttributes) (\s a -> s {startChildWorkflowExecutionDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dStartChildWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'startChildWorkflowExecutionDecisionAttributes' instead." #-}
-
--- | Provides the details of the @CompleteWorkflowExecution@ decision. It isn't set for other decision types.
---
--- /Note:/ Consider using 'completeWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCompleteWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe CompleteWorkflowExecutionDecisionAttributes)
-dCompleteWorkflowExecutionDecisionAttributes = Lens.lens (completeWorkflowExecutionDecisionAttributes :: Decision -> Lude.Maybe CompleteWorkflowExecutionDecisionAttributes) (\s a -> s {completeWorkflowExecutionDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dCompleteWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'completeWorkflowExecutionDecisionAttributes' instead." #-}
 
 -- | Provides the details of the @ScheduleLambdaFunction@ decision. It isn't set for other decision types.
 --
 -- /Note:/ Consider using 'scheduleLambdaFunctionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dScheduleLambdaFunctionDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe ScheduleLambdaFunctionDecisionAttributes)
-dScheduleLambdaFunctionDecisionAttributes = Lens.lens (scheduleLambdaFunctionDecisionAttributes :: Decision -> Lude.Maybe ScheduleLambdaFunctionDecisionAttributes) (\s a -> s {scheduleLambdaFunctionDecisionAttributes = a} :: Decision)
+dScheduleLambdaFunctionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.ScheduleLambdaFunctionDecisionAttributes)
+dScheduleLambdaFunctionDecisionAttributes = Lens.field @"scheduleLambdaFunctionDecisionAttributes"
 {-# DEPRECATED dScheduleLambdaFunctionDecisionAttributes "Use generic-lens or generic-optics with 'scheduleLambdaFunctionDecisionAttributes' instead." #-}
 
--- | Provides the details of the @RequestCancelActivityTask@ decision. It isn't set for other decision types.
+-- | Provides the details of the @SignalExternalWorkflowExecution@ decision. It isn't set for other decision types.
 --
--- /Note:/ Consider using 'requestCancelActivityTaskDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRequestCancelActivityTaskDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe RequestCancelActivityTaskDecisionAttributes)
-dRequestCancelActivityTaskDecisionAttributes = Lens.lens (requestCancelActivityTaskDecisionAttributes :: Decision -> Lude.Maybe RequestCancelActivityTaskDecisionAttributes) (\s a -> s {requestCancelActivityTaskDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dRequestCancelActivityTaskDecisionAttributes "Use generic-lens or generic-optics with 'requestCancelActivityTaskDecisionAttributes' instead." #-}
+-- /Note:/ Consider using 'signalExternalWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSignalExternalWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.SignalExternalWorkflowExecutionDecisionAttributes)
+dSignalExternalWorkflowExecutionDecisionAttributes = Lens.field @"signalExternalWorkflowExecutionDecisionAttributes"
+{-# DEPRECATED dSignalExternalWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'signalExternalWorkflowExecutionDecisionAttributes' instead." #-}
 
--- | Provides the details of the @CancelWorkflowExecution@ decision. It isn't set for other decision types.
+-- | Provides the details of the @StartChildWorkflowExecution@ decision. It isn't set for other decision types.
 --
--- /Note:/ Consider using 'cancelWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCancelWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe CancelWorkflowExecutionDecisionAttributes)
-dCancelWorkflowExecutionDecisionAttributes = Lens.lens (cancelWorkflowExecutionDecisionAttributes :: Decision -> Lude.Maybe CancelWorkflowExecutionDecisionAttributes) (\s a -> s {cancelWorkflowExecutionDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dCancelWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'cancelWorkflowExecutionDecisionAttributes' instead." #-}
+-- /Note:/ Consider using 'startChildWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStartChildWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.StartChildWorkflowExecutionDecisionAttributes)
+dStartChildWorkflowExecutionDecisionAttributes = Lens.field @"startChildWorkflowExecutionDecisionAttributes"
+{-# DEPRECATED dStartChildWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'startChildWorkflowExecutionDecisionAttributes' instead." #-}
 
--- | Provides the details of the @CancelTimer@ decision. It isn't set for other decision types.
+-- | Provides the details of the @StartTimer@ decision. It isn't set for other decision types.
 --
--- /Note:/ Consider using 'cancelTimerDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCancelTimerDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe CancelTimerDecisionAttributes)
-dCancelTimerDecisionAttributes = Lens.lens (cancelTimerDecisionAttributes :: Decision -> Lude.Maybe CancelTimerDecisionAttributes) (\s a -> s {cancelTimerDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dCancelTimerDecisionAttributes "Use generic-lens or generic-optics with 'cancelTimerDecisionAttributes' instead." #-}
+-- /Note:/ Consider using 'startTimerDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStartTimerDecisionAttributes :: Lens.Lens' Decision (Core.Maybe Types.StartTimerDecisionAttributes)
+dStartTimerDecisionAttributes = Lens.field @"startTimerDecisionAttributes"
+{-# DEPRECATED dStartTimerDecisionAttributes "Use generic-lens or generic-optics with 'startTimerDecisionAttributes' instead." #-}
 
--- | Provides the details of the @ContinueAsNewWorkflowExecution@ decision. It isn't set for other decision types.
---
--- /Note:/ Consider using 'continueAsNewWorkflowExecutionDecisionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dContinueAsNewWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
-dContinueAsNewWorkflowExecutionDecisionAttributes = Lens.lens (continueAsNewWorkflowExecutionDecisionAttributes :: Decision -> Lude.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes) (\s a -> s {continueAsNewWorkflowExecutionDecisionAttributes = a} :: Decision)
-{-# DEPRECATED dContinueAsNewWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'continueAsNewWorkflowExecutionDecisionAttributes' instead." #-}
-
-instance Lude.ToJSON Decision where
-  toJSON Decision' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ( "requestCancelExternalWorkflowExecutionDecisionAttributes"
-                Lude..=
+instance Core.FromJSON Decision where
+  toJSON Decision {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("decisionType" Core..= decisionType),
+            ("cancelTimerDecisionAttributes" Core..=)
+              Core.<$> cancelTimerDecisionAttributes,
+            ("cancelWorkflowExecutionDecisionAttributes" Core..=)
+              Core.<$> cancelWorkflowExecutionDecisionAttributes,
+            ("completeWorkflowExecutionDecisionAttributes" Core..=)
+              Core.<$> completeWorkflowExecutionDecisionAttributes,
+            ("continueAsNewWorkflowExecutionDecisionAttributes" Core..=)
+              Core.<$> continueAsNewWorkflowExecutionDecisionAttributes,
+            ("failWorkflowExecutionDecisionAttributes" Core..=)
+              Core.<$> failWorkflowExecutionDecisionAttributes,
+            ("recordMarkerDecisionAttributes" Core..=)
+              Core.<$> recordMarkerDecisionAttributes,
+            ("requestCancelActivityTaskDecisionAttributes" Core..=)
+              Core.<$> requestCancelActivityTaskDecisionAttributes,
+            ( "requestCancelExternalWorkflowExecutionDecisionAttributes"
+                Core..=
             )
-              Lude.<$> requestCancelExternalWorkflowExecutionDecisionAttributes,
-            ("scheduleActivityTaskDecisionAttributes" Lude..=)
-              Lude.<$> scheduleActivityTaskDecisionAttributes,
-            ("signalExternalWorkflowExecutionDecisionAttributes" Lude..=)
-              Lude.<$> signalExternalWorkflowExecutionDecisionAttributes,
-            ("startTimerDecisionAttributes" Lude..=)
-              Lude.<$> startTimerDecisionAttributes,
-            Lude.Just ("decisionType" Lude..= decisionType),
-            ("recordMarkerDecisionAttributes" Lude..=)
-              Lude.<$> recordMarkerDecisionAttributes,
-            ("failWorkflowExecutionDecisionAttributes" Lude..=)
-              Lude.<$> failWorkflowExecutionDecisionAttributes,
-            ("startChildWorkflowExecutionDecisionAttributes" Lude..=)
-              Lude.<$> startChildWorkflowExecutionDecisionAttributes,
-            ("completeWorkflowExecutionDecisionAttributes" Lude..=)
-              Lude.<$> completeWorkflowExecutionDecisionAttributes,
-            ("scheduleLambdaFunctionDecisionAttributes" Lude..=)
-              Lude.<$> scheduleLambdaFunctionDecisionAttributes,
-            ("requestCancelActivityTaskDecisionAttributes" Lude..=)
-              Lude.<$> requestCancelActivityTaskDecisionAttributes,
-            ("cancelWorkflowExecutionDecisionAttributes" Lude..=)
-              Lude.<$> cancelWorkflowExecutionDecisionAttributes,
-            ("cancelTimerDecisionAttributes" Lude..=)
-              Lude.<$> cancelTimerDecisionAttributes,
-            ("continueAsNewWorkflowExecutionDecisionAttributes" Lude..=)
-              Lude.<$> continueAsNewWorkflowExecutionDecisionAttributes
+              Core.<$> requestCancelExternalWorkflowExecutionDecisionAttributes,
+            ("scheduleActivityTaskDecisionAttributes" Core..=)
+              Core.<$> scheduleActivityTaskDecisionAttributes,
+            ("scheduleLambdaFunctionDecisionAttributes" Core..=)
+              Core.<$> scheduleLambdaFunctionDecisionAttributes,
+            ("signalExternalWorkflowExecutionDecisionAttributes" Core..=)
+              Core.<$> signalExternalWorkflowExecutionDecisionAttributes,
+            ("startChildWorkflowExecutionDecisionAttributes" Core..=)
+              Core.<$> startChildWorkflowExecutionDecisionAttributes,
+            ("startTimerDecisionAttributes" Core..=)
+              Core.<$> startTimerDecisionAttributes
           ]
       )

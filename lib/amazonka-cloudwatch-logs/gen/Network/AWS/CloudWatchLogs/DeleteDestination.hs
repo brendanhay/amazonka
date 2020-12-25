@@ -28,72 +28,63 @@ module Network.AWS.CloudWatchLogs.DeleteDestination
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDestination' smart constructor.
 newtype DeleteDestination = DeleteDestination'
   { -- | The name of the destination.
-    destinationName :: Lude.Text
+    destinationName :: Types.DestinationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDestination' with the minimum fields required to make a request.
---
--- * 'destinationName' - The name of the destination.
+-- | Creates a 'DeleteDestination' value with any optional fields omitted.
 mkDeleteDestination ::
   -- | 'destinationName'
-  Lude.Text ->
+  Types.DestinationName ->
   DeleteDestination
-mkDeleteDestination pDestinationName_ =
-  DeleteDestination' {destinationName = pDestinationName_}
+mkDeleteDestination destinationName =
+  DeleteDestination' {destinationName}
 
 -- | The name of the destination.
 --
 -- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDestinationName :: Lens.Lens' DeleteDestination Lude.Text
-ddDestinationName = Lens.lens (destinationName :: DeleteDestination -> Lude.Text) (\s a -> s {destinationName = a} :: DeleteDestination)
+ddDestinationName :: Lens.Lens' DeleteDestination Types.DestinationName
+ddDestinationName = Lens.field @"destinationName"
 {-# DEPRECATED ddDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
-instance Lude.AWSRequest DeleteDestination where
+instance Core.FromJSON DeleteDestination where
+  toJSON DeleteDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("destinationName" Core..= destinationName)]
+      )
+
+instance Core.AWSRequest DeleteDestination where
   type Rs DeleteDestination = DeleteDestinationResponse
-  request = Req.postJSON cloudWatchLogsService
-  response = Res.receiveNull DeleteDestinationResponse'
-
-instance Lude.ToHeaders DeleteDestination where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.DeleteDestination" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDestination where
-  toJSON DeleteDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("destinationName" Lude..= destinationName)]
-      )
-
-instance Lude.ToPath DeleteDestination where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDestination where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.DeleteDestination")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteDestinationResponse'
 
 -- | /See:/ 'mkDeleteDestinationResponse' smart constructor.
 data DeleteDestinationResponse = DeleteDestinationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDestinationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteDestinationResponse' value with any optional fields omitted.
 mkDeleteDestinationResponse ::
   DeleteDestinationResponse
 mkDeleteDestinationResponse = DeleteDestinationResponse'

@@ -17,50 +17,49 @@ module Network.AWS.CloudWatch.Types.MessageData
     mkMessageData,
 
     -- * Lenses
-    mValue,
     mCode,
+    mValue,
   )
 where
 
+import qualified Network.AWS.CloudWatch.Types.Code as Types
+import qualified Network.AWS.CloudWatch.Types.MessageDataValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A message returned by the @GetMetricData@ API, including a code and a description.
 --
 -- /See:/ 'mkMessageData' smart constructor.
 data MessageData = MessageData'
-  { -- | The message text.
-    value :: Lude.Maybe Lude.Text,
-    -- | The error code or status code associated with the message.
-    code :: Lude.Maybe Lude.Text
+  { -- | The error code or status code associated with the message.
+    code :: Core.Maybe Types.Code,
+    -- | The message text.
+    value :: Core.Maybe Types.MessageDataValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MessageData' with the minimum fields required to make a request.
---
--- * 'value' - The message text.
--- * 'code' - The error code or status code associated with the message.
+-- | Creates a 'MessageData' value with any optional fields omitted.
 mkMessageData ::
   MessageData
 mkMessageData =
-  MessageData' {value = Lude.Nothing, code = Lude.Nothing}
-
--- | The message text.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mValue :: Lens.Lens' MessageData (Lude.Maybe Lude.Text)
-mValue = Lens.lens (value :: MessageData -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: MessageData)
-{-# DEPRECATED mValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  MessageData' {code = Core.Nothing, value = Core.Nothing}
 
 -- | The error code or status code associated with the message.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mCode :: Lens.Lens' MessageData (Lude.Maybe Lude.Text)
-mCode = Lens.lens (code :: MessageData -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: MessageData)
+mCode :: Lens.Lens' MessageData (Core.Maybe Types.Code)
+mCode = Lens.field @"code"
 {-# DEPRECATED mCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance Lude.FromXML MessageData where
+-- | The message text.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mValue :: Lens.Lens' MessageData (Core.Maybe Types.MessageDataValue)
+mValue = Lens.field @"value"
+{-# DEPRECATED mValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromXML MessageData where
   parseXML x =
     MessageData'
-      Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@? "Code")
+      Core.<$> (x Core..@? "Code") Core.<*> (x Core..@? "Value")

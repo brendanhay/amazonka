@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,22 @@
 -- AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud (for example, to Amazon EC2 and Amazon S3) and to Amazon VPC, bypassing Internet service providers in your network path. A connection provides access to all AWS Regions except the China (Beijing) and (China) Ningxia Regions. AWS resources in the China Regions can only be accessed through locations associated with those Regions.
 module Network.AWS.DirectConnect
   ( -- * Service configuration
-    directConnectService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** DirectConnectClientException
+    _DirectConnectClientException,
+
+    -- ** DuplicateTagKeysException
+    _DuplicateTagKeysException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** DirectConnectServerException
+    _DirectConnectServerException,
 
     -- * Waiters
     -- $waiters
@@ -43,8 +54,8 @@ module Network.AWS.DirectConnect
     -- ** DeleteConnection
     module Network.AWS.DirectConnect.DeleteConnection,
 
-    -- ** StartBGPFailoverTest
-    module Network.AWS.DirectConnect.StartBGPFailoverTest,
+    -- ** StartBgpFailoverTest
+    module Network.AWS.DirectConnect.StartBgpFailoverTest,
 
     -- ** UpdateVirtualInterfaceAttributes
     module Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes,
@@ -112,8 +123,8 @@ module Network.AWS.DirectConnect
     -- ** DeleteDirectConnectGatewayAssociationProposal
     module Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociationProposal,
 
-    -- ** StopBGPFailoverTest
-    module Network.AWS.DirectConnect.StopBGPFailoverTest,
+    -- ** StopBgpFailoverTest
+    module Network.AWS.DirectConnect.StopBgpFailoverTest,
 
     -- ** CreateDirectConnectGateway
     module Network.AWS.DirectConnect.CreateDirectConnectGateway,
@@ -183,38 +194,345 @@ module Network.AWS.DirectConnect
 
     -- * Types
 
-    -- ** AddressFamily
-    AddressFamily (..),
+    -- ** VirtualInterface
+    VirtualInterface (..),
+    mkVirtualInterface,
+    viAddressFamily,
+    viAmazonAddress,
+    viAmazonSideAsn,
+    viAsn,
+    viAuthKey,
+    viAwsDeviceV2,
+    viBgpPeers,
+    viConnectionId,
+    viCustomerAddress,
+    viCustomerRouterConfig,
+    viDirectConnectGatewayId,
+    viJumboFrameCapable,
+    viLocation,
+    viMtu,
+    viOwnerAccount,
+    viRegion,
+    viRouteFilterPrefixes,
+    viTags,
+    viVirtualGatewayId,
+    viVirtualInterfaceId,
+    viVirtualInterfaceName,
+    viVirtualInterfaceState,
+    viVirtualInterfaceType,
+    viVlan,
 
-    -- ** BGPPeerState
-    BGPPeerState (..),
+    -- ** VirtualGatewayId
+    VirtualGatewayId (..),
 
-    -- ** BGPStatus
-    BGPStatus (..),
+    -- ** PaginationToken
+    PaginationToken (..),
 
-    -- ** ConnectionState
-    ConnectionState (..),
+    -- ** NewTransitVirtualInterface
+    NewTransitVirtualInterface (..),
+    mkNewTransitVirtualInterface,
+    ntviAddressFamily,
+    ntviAmazonAddress,
+    ntviAsn,
+    ntviAuthKey,
+    ntviCustomerAddress,
+    ntviDirectConnectGatewayId,
+    ntviMtu,
+    ntviTags,
+    ntviVirtualInterfaceName,
+    ntviVlan,
 
-    -- ** DirectConnectGatewayAssociationProposalState
-    DirectConnectGatewayAssociationProposalState (..),
+    -- ** LagId
+    LagId (..),
 
-    -- ** DirectConnectGatewayAssociationState
-    DirectConnectGatewayAssociationState (..),
+    -- ** BGPPeer
+    BGPPeer (..),
+    mkBGPPeer,
+    bgppAddressFamily,
+    bgppAmazonAddress,
+    bgppAsn,
+    bgppAuthKey,
+    bgppAwsDeviceV2,
+    bgppBgpPeerId,
+    bgppBgpPeerState,
+    bgppBgpStatus,
+    bgppCustomerAddress,
+
+    -- ** InterconnectId
+    InterconnectId (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** DirectConnectGatewayAssociation
+    DirectConnectGatewayAssociation (..),
+    mkDirectConnectGatewayAssociation,
+    dcgaAllowedPrefixesToDirectConnectGateway,
+    dcgaAssociatedGateway,
+    dcgaAssociationId,
+    dcgaAssociationState,
+    dcgaDirectConnectGatewayId,
+    dcgaDirectConnectGatewayOwnerAccount,
+    dcgaStateChangeError,
+    dcgaVirtualGatewayId,
+    dcgaVirtualGatewayOwnerAccount,
+    dcgaVirtualGatewayRegion,
+
+    -- ** BGPAuthKey
+    BGPAuthKey (..),
+
+    -- ** CustomerAddress
+    CustomerAddress (..),
+
+    -- ** DirectConnectGatewayAttachment
+    DirectConnectGatewayAttachment (..),
+    mkDirectConnectGatewayAttachment,
+    dAttachmentState,
+    dAttachmentType,
+    dDirectConnectGatewayId,
+    dStateChangeError,
+    dVirtualInterfaceId,
+    dVirtualInterfaceOwnerAccount,
+    dVirtualInterfaceRegion,
+
+    -- ** AwsDevice
+    AwsDevice (..),
+
+    -- ** Location
+    Location (..),
+    mkLocation,
+    lAvailablePortSpeeds,
+    lAvailableProviders,
+    lLocationCode,
+    lLocationName,
+    lRegion,
+
+    -- ** LagName
+    LagName (..),
+
+    -- ** InterconnectName
+    InterconnectName (..),
+
+    -- ** Connections
+    Connections (..),
+    mkConnections,
+    cConnections,
+
+    -- ** AssociatedGatewayId
+    AssociatedGatewayId (..),
 
     -- ** DirectConnectGatewayAttachmentState
     DirectConnectGatewayAttachmentState (..),
 
-    -- ** DirectConnectGatewayAttachmentType
-    DirectConnectGatewayAttachmentType (..),
+    -- ** NewPrivateVirtualInterfaceAllocation
+    NewPrivateVirtualInterfaceAllocation (..),
+    mkNewPrivateVirtualInterfaceAllocation,
+    npviaVirtualInterfaceName,
+    npviaVlan,
+    npviaAsn,
+    npviaAddressFamily,
+    npviaAmazonAddress,
+    npviaAuthKey,
+    npviaCustomerAddress,
+    npviaMtu,
+    npviaTags,
+
+    -- ** DirectConnectGatewayAssociationState
+    DirectConnectGatewayAssociationState (..),
+
+    -- ** HasLogicalRedundancy
+    HasLogicalRedundancy (..),
+
+    -- ** AddressFamily
+    AddressFamily (..),
+
+    -- ** AmazonAddress
+    AmazonAddress (..),
+
+    -- ** FailureTestHistoryStatus
+    FailureTestHistoryStatus (..),
+
+    -- ** GatewayIdentifier
+    GatewayIdentifier (..),
+
+    -- ** VirtualInterfaceState
+    VirtualInterfaceState (..),
+
+    -- ** DirectConnectGatewayAssociationProposalId
+    DirectConnectGatewayAssociationProposalId (..),
+
+    -- ** TestId
+    TestId (..),
+
+    -- ** DirectConnectGateway
+    DirectConnectGateway (..),
+    mkDirectConnectGateway,
+    dcgAmazonSideAsn,
+    dcgDirectConnectGatewayId,
+    dcgDirectConnectGatewayName,
+    dcgDirectConnectGatewayState,
+    dcgOwnerAccount,
+    dcgStateChangeError,
+
+    -- ** ConnectionId
+    ConnectionId (..),
+
+    -- ** DirectConnectGatewayId
+    DirectConnectGatewayId (..),
+
+    -- ** DirectConnectGatewayAssociationProposal
+    DirectConnectGatewayAssociationProposal (..),
+    mkDirectConnectGatewayAssociationProposal,
+    dcgapAssociatedGateway,
+    dcgapDirectConnectGatewayId,
+    dcgapDirectConnectGatewayOwnerAccount,
+    dcgapExistingAllowedPrefixesToDirectConnectGateway,
+    dcgapProposalId,
+    dcgapProposalState,
+    dcgapRequestedAllowedPrefixesToDirectConnectGateway,
+
+    -- ** PortSpeed
+    PortSpeed (..),
+
+    -- ** Connection
+    Connection (..),
+    mkConnection,
+    cAwsDevice,
+    cAwsDeviceV2,
+    cBandwidth,
+    cConnectionId,
+    cConnectionName,
+    cConnectionState,
+    cHasLogicalRedundancy,
+    cJumboFrameCapable,
+    cLagId,
+    cLoaIssueTime,
+    cLocation,
+    cOwnerAccount,
+    cPartnerName,
+    cProviderName,
+    cRegion,
+    cTags,
+    cVlan,
+
+    -- ** NewPublicVirtualInterface
+    NewPublicVirtualInterface (..),
+    mkNewPublicVirtualInterface,
+    npviVirtualInterfaceName,
+    npviVlan,
+    npviAsn,
+    npviAddressFamily,
+    npviAmazonAddress,
+    npviAuthKey,
+    npviCustomerAddress,
+    npviRouteFilterPrefixes,
+    npviTags,
+
+    -- ** StateChangeError
+    StateChangeError (..),
+
+    -- ** PartnerName
+    PartnerName (..),
+
+    -- ** BGPStatus
+    BGPStatus (..),
+
+    -- ** VirtualGatewayRegion
+    VirtualGatewayRegion (..),
+
+    -- ** ConnectionName
+    ConnectionName (..),
+
+    -- ** DirectConnectGatewayName
+    DirectConnectGatewayName (..),
+
+    -- ** VirtualInterfaceType
+    VirtualInterfaceType (..),
+
+    -- ** CIDR
+    CIDR (..),
+
+    -- ** VirtualInterfaceRegion
+    VirtualInterfaceRegion (..),
 
     -- ** DirectConnectGatewayState
     DirectConnectGatewayState (..),
 
-    -- ** GatewayType
-    GatewayType (..),
+    -- ** DirectConnectGatewayAssociationId
+    DirectConnectGatewayAssociationId (..),
 
-    -- ** HasLogicalRedundancy
-    HasLogicalRedundancy (..),
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** NewTransitVirtualInterfaceAllocation
+    NewTransitVirtualInterfaceAllocation (..),
+    mkNewTransitVirtualInterfaceAllocation,
+    ntviaAddressFamily,
+    ntviaAmazonAddress,
+    ntviaAsn,
+    ntviaAuthKey,
+    ntviaCustomerAddress,
+    ntviaMtu,
+    ntviaTags,
+    ntviaVirtualInterfaceName,
+    ntviaVlan,
+
+    -- ** Bandwidth
+    Bandwidth (..),
+
+    -- ** LocationName
+    LocationName (..),
+
+    -- ** Lag
+    Lag (..),
+    mkLag,
+    lfAllowsHostedConnections,
+    lfAwsDevice,
+    lfAwsDeviceV2,
+    lfConnections,
+    lfConnectionsBandwidth,
+    lfHasLogicalRedundancy,
+    lfJumboFrameCapable,
+    lfLagId,
+    lfLagName,
+    lfLagState,
+    lfLocation,
+    lfMinimumLinks,
+    lfNumberOfConnections,
+    lfOwnerAccount,
+    lfProviderName,
+    lfRegion,
+    lfTags,
+
+    -- ** DirectConnectGatewayAttachmentType
+    DirectConnectGatewayAttachmentType (..),
+
+    -- ** Interconnect
+    Interconnect (..),
+    mkInterconnect,
+    iAwsDevice,
+    iAwsDeviceV2,
+    iBandwidth,
+    iHasLogicalRedundancy,
+    iInterconnectId,
+    iInterconnectName,
+    iInterconnectState,
+    iJumboFrameCapable,
+    iLagId,
+    iLoaIssueTime,
+    iLocation,
+    iProviderName,
+    iRegion,
+    iTags,
+
+    -- ** BGPPeerId
+    BGPPeerId (..),
+
+    -- ** GatewayIdToAssociate
+    GatewayIdToAssociate (..),
 
     -- ** InterconnectState
     InterconnectState (..),
@@ -222,11 +540,50 @@ module Network.AWS.DirectConnect
     -- ** LagState
     LagState (..),
 
-    -- ** LoaContentType
-    LoaContentType (..),
+    -- ** NewPrivateVirtualInterface
+    NewPrivateVirtualInterface (..),
+    mkNewPrivateVirtualInterface,
+    nVirtualInterfaceName,
+    nVlan,
+    nAsn,
+    nAddressFamily,
+    nAmazonAddress,
+    nAuthKey,
+    nCustomerAddress,
+    nDirectConnectGatewayId,
+    nMtu,
+    nTags,
+    nVirtualGatewayId,
 
-    -- ** VirtualInterfaceState
-    VirtualInterfaceState (..),
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** ResourceTag
+    ResourceTag (..),
+    mkResourceTag,
+    rtResourceArn,
+    rtTags,
+
+    -- ** LocationCode
+    LocationCode (..),
+
+    -- ** VirtualInterfaceTestHistory
+    VirtualInterfaceTestHistory (..),
+    mkVirtualInterfaceTestHistory,
+    vithBgpPeers,
+    vithEndTime,
+    vithOwnerAccount,
+    vithStartTime,
+    vithStatus,
+    vithTestDurationInMinutes,
+    vithTestId,
+    vithVirtualInterfaceId,
+
+    -- ** OwnerAccount
+    OwnerAccount (..),
 
     -- ** AssociatedGateway
     AssociatedGateway (..),
@@ -236,245 +593,48 @@ module Network.AWS.DirectConnect
     agRegion,
     agType,
 
-    -- ** BGPPeer
-    BGPPeer (..),
-    mkBGPPeer,
-    bpCustomerAddress,
-    bpAmazonAddress,
-    bpAddressFamily,
-    bpBgpStatus,
-    bpAsn,
-    bpAuthKey,
-    bpBgpPeerId,
-    bpBgpPeerState,
-    bpAwsDeviceV2,
+    -- ** BGPPeerState
+    BGPPeerState (..),
 
-    -- ** Connection
-    Connection (..),
-    mkConnection,
-    cLagId,
-    cVlan,
-    cLocation,
-    cAwsDevice,
-    cHasLogicalRedundancy,
-    cConnectionId,
-    cLoaIssueTime,
-    cPartnerName,
-    cConnectionName,
-    cBandwidth,
-    cJumboFrameCapable,
-    cOwnerAccount,
-    cRegion,
-    cProviderName,
-    cAwsDeviceV2,
-    cConnectionState,
-    cTags,
+    -- ** GatewayType
+    GatewayType (..),
 
-    -- ** Connections
-    Connections (..),
-    mkConnections,
-    cConnections,
-
-    -- ** DirectConnectGateway
-    DirectConnectGateway (..),
-    mkDirectConnectGateway,
-    dcgDirectConnectGatewayId,
-    dcgStateChangeError,
-    dcgAmazonSideASN,
-    dcgDirectConnectGatewayName,
-    dcgDirectConnectGatewayState,
-    dcgOwnerAccount,
-
-    -- ** DirectConnectGatewayAssociation
-    DirectConnectGatewayAssociation (..),
-    mkDirectConnectGatewayAssociation,
-    dcgaVirtualGatewayId,
-    dcgaAssociationId,
-    dcgaDirectConnectGatewayId,
-    dcgaVirtualGatewayOwnerAccount,
-    dcgaStateChangeError,
-    dcgaVirtualGatewayRegion,
-    dcgaAssociatedGateway,
-    dcgaDirectConnectGatewayOwnerAccount,
-    dcgaAllowedPrefixesToDirectConnectGateway,
-    dcgaAssociationState,
-
-    -- ** DirectConnectGatewayAssociationProposal
-    DirectConnectGatewayAssociationProposal (..),
-    mkDirectConnectGatewayAssociationProposal,
-    dcgapExistingAllowedPrefixesToDirectConnectGateway,
-    dcgapDirectConnectGatewayId,
-    dcgapProposalId,
-    dcgapAssociatedGateway,
-    dcgapProposalState,
-    dcgapDirectConnectGatewayOwnerAccount,
-    dcgapRequestedAllowedPrefixesToDirectConnectGateway,
-
-    -- ** DirectConnectGatewayAttachment
-    DirectConnectGatewayAttachment (..),
-    mkDirectConnectGatewayAttachment,
-    dDirectConnectGatewayId,
-    dAttachmentState,
-    dStateChangeError,
-    dVirtualInterfaceRegion,
-    dVirtualInterfaceOwnerAccount,
-    dVirtualInterfaceId,
-    dAttachmentType,
-
-    -- ** Interconnect
-    Interconnect (..),
-    mkInterconnect,
-    iLagId,
-    iInterconnectId,
-    iLocation,
-    iInterconnectName,
-    iAwsDevice,
-    iHasLogicalRedundancy,
-    iLoaIssueTime,
-    iBandwidth,
-    iJumboFrameCapable,
-    iInterconnectState,
-    iRegion,
-    iProviderName,
-    iAwsDeviceV2,
-    iTags,
-
-    -- ** Lag
-    Lag (..),
-    mkLag,
-    lfLagId,
-    lfConnectionsBandwidth,
-    lfMinimumLinks,
-    lfLagName,
-    lfLocation,
-    lfConnections,
-    lfAwsDevice,
-    lfHasLogicalRedundancy,
-    lfAllowsHostedConnections,
-    lfNumberOfConnections,
-    lfJumboFrameCapable,
-    lfLagState,
-    lfOwnerAccount,
-    lfRegion,
-    lfProviderName,
-    lfAwsDeviceV2,
-    lfTags,
-
-    -- ** Location
-    Location (..),
-    mkLocation,
-    lAvailablePortSpeeds,
-    lLocationName,
-    lLocationCode,
-    lRegion,
-    lAvailableProviders,
+    -- ** LoaContentType
+    LoaContentType (..),
 
     -- ** NewBGPPeer
     NewBGPPeer (..),
     mkNewBGPPeer,
-    nbpCustomerAddress,
-    nbpAmazonAddress,
-    nbpAddressFamily,
-    nbpAsn,
-    nbpAuthKey,
+    nbgppAddressFamily,
+    nbgppAmazonAddress,
+    nbgppAsn,
+    nbgppAuthKey,
+    nbgppCustomerAddress,
 
-    -- ** NewPrivateVirtualInterface
-    NewPrivateVirtualInterface (..),
-    mkNewPrivateVirtualInterface,
-    npvifVirtualGatewayId,
-    npvifMtu,
-    npvifCustomerAddress,
-    npvifVlan,
-    npvifAmazonAddress,
-    npvifAddressFamily,
-    npvifDirectConnectGatewayId,
-    npvifAsn,
-    npvifAuthKey,
-    npvifVirtualInterfaceName,
-    npvifTags,
+    -- ** VirtualInterfaceName
+    VirtualInterfaceName (..),
 
-    -- ** NewPrivateVirtualInterfaceAllocation
-    NewPrivateVirtualInterfaceAllocation (..),
-    mkNewPrivateVirtualInterfaceAllocation,
-    npviaMtu,
-    npviaCustomerAddress,
-    npviaVlan,
-    npviaAmazonAddress,
-    npviaAddressFamily,
-    npviaAsn,
-    npviaAuthKey,
-    npviaVirtualInterfaceName,
-    npviaTags,
+    -- ** VirtualGatewayState
+    VirtualGatewayState (..),
 
-    -- ** NewPublicVirtualInterface
-    NewPublicVirtualInterface (..),
-    mkNewPublicVirtualInterface,
-    npviRouteFilterPrefixes,
-    npviCustomerAddress,
-    npviVlan,
-    npviAmazonAddress,
-    npviAddressFamily,
-    npviAsn,
-    npviAuthKey,
-    npviVirtualInterfaceName,
-    npviTags,
+    -- ** ProviderName
+    ProviderName (..),
 
     -- ** NewPublicVirtualInterfaceAllocation
     NewPublicVirtualInterfaceAllocation (..),
     mkNewPublicVirtualInterfaceAllocation,
-    nRouteFilterPrefixes,
-    nCustomerAddress,
-    nVlan,
-    nAmazonAddress,
-    nAddressFamily,
-    nAsn,
-    nAuthKey,
-    nVirtualInterfaceName,
-    nTags,
+    npviafVirtualInterfaceName,
+    npviafVlan,
+    npviafAsn,
+    npviafAddressFamily,
+    npviafAmazonAddress,
+    npviafAuthKey,
+    npviafCustomerAddress,
+    npviafRouteFilterPrefixes,
+    npviafTags,
 
-    -- ** NewTransitVirtualInterface
-    NewTransitVirtualInterface (..),
-    mkNewTransitVirtualInterface,
-    ntviMtu,
-    ntviCustomerAddress,
-    ntviVlan,
-    ntviAmazonAddress,
-    ntviAddressFamily,
-    ntviDirectConnectGatewayId,
-    ntviAsn,
-    ntviAuthKey,
-    ntviVirtualInterfaceName,
-    ntviTags,
-
-    -- ** NewTransitVirtualInterfaceAllocation
-    NewTransitVirtualInterfaceAllocation (..),
-    mkNewTransitVirtualInterfaceAllocation,
-    ntviaMtu,
-    ntviaCustomerAddress,
-    ntviaVlan,
-    ntviaAmazonAddress,
-    ntviaAddressFamily,
-    ntviaAsn,
-    ntviaAuthKey,
-    ntviaVirtualInterfaceName,
-    ntviaTags,
-
-    -- ** ResourceTag
-    ResourceTag (..),
-    mkResourceTag,
-    rtResourceARN,
-    rtTags,
-
-    -- ** RouteFilterPrefix
-    RouteFilterPrefix (..),
-    mkRouteFilterPrefix,
-    rfpCidr,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ConnectionState
+    ConnectionState (..),
 
     -- ** VirtualGateway
     VirtualGateway (..),
@@ -482,55 +642,66 @@ module Network.AWS.DirectConnect
     vgVirtualGatewayId,
     vgVirtualGatewayState,
 
-    -- ** VirtualInterface
-    VirtualInterface (..),
-    mkVirtualInterface,
-    viBgpPeers,
-    viVirtualGatewayId,
-    viMtu,
-    viRouteFilterPrefixes,
-    viCustomerAddress,
-    viVlan,
-    viLocation,
-    viAmazonAddress,
-    viAddressFamily,
-    viVirtualInterfaceState,
-    viConnectionId,
-    viDirectConnectGatewayId,
-    viAmazonSideASN,
-    viVirtualInterfaceType,
-    viAsn,
-    viAuthKey,
-    viJumboFrameCapable,
-    viCustomerRouterConfig,
-    viOwnerAccount,
-    viRegion,
-    viVirtualInterfaceName,
-    viAwsDeviceV2,
-    viVirtualInterfaceId,
-    viTags,
+    -- ** VirtualInterfaceId
+    VirtualInterfaceId (..),
 
-    -- ** VirtualInterfaceTestHistory
-    VirtualInterfaceTestHistory (..),
-    mkVirtualInterfaceTestHistory,
-    vithBgpPeers,
-    vithStatus,
-    vithTestDurationInMinutes,
-    vithStartTime,
-    vithTestId,
-    vithEndTime,
-    vithOwnerAccount,
-    vithVirtualInterfaceId,
+    -- ** AwsDeviceV2
+    AwsDeviceV2 (..),
+
+    -- ** RouteFilterPrefix
+    RouteFilterPrefix (..),
+    mkRouteFilterPrefix,
+    rfpCidr,
+
+    -- ** DirectConnectGatewayAssociationProposalState
+    DirectConnectGatewayAssociationProposalState (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** AuthKey
+    AuthKey (..),
+
+    -- ** CustomerRouterConfig
+    CustomerRouterConfig (..),
+
+    -- ** ProposalId
+    ProposalId (..),
+
+    -- ** AssociatedGatewayOwnerAccount
+    AssociatedGatewayOwnerAccount (..),
+
+    -- ** BgpPeerId
+    BgpPeerId (..),
+
+    -- ** GatewayId
+    GatewayId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** AssociationId
+    AssociationId (..),
+
+    -- ** DirectConnectGatewayOwnerAccount
+    DirectConnectGatewayOwnerAccount (..),
+
+    -- ** VirtualGatewayOwnerAccount
+    VirtualGatewayOwnerAccount (..),
+
+    -- ** VirtualInterfaceOwnerAccount
+    VirtualInterfaceOwnerAccount (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -579,8 +750,8 @@ import Network.AWS.DirectConnect.DescribeVirtualGateways
 import Network.AWS.DirectConnect.DescribeVirtualInterfaces
 import Network.AWS.DirectConnect.DisassociateConnectionFromLag
 import Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
-import Network.AWS.DirectConnect.StartBGPFailoverTest
-import Network.AWS.DirectConnect.StopBGPFailoverTest
+import Network.AWS.DirectConnect.StartBgpFailoverTest
+import Network.AWS.DirectConnect.StopBgpFailoverTest
 import Network.AWS.DirectConnect.TagResource
 import Network.AWS.DirectConnect.Types
 import Network.AWS.DirectConnect.UntagResource

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.AppStream
     Network.AWS.AppStream.AssociateFleet
@@ -120,23 +126,42 @@ library
   other-modules:
     Network.AWS.AppStream.Types.AccessEndpoint
     Network.AWS.AppStream.Types.AccessEndpointType
+    Network.AWS.AppStream.Types.AccountName
+    Network.AWS.AppStream.Types.AccountPassword
     Network.AWS.AppStream.Types.Action
     Network.AWS.AppStream.Types.Application
     Network.AWS.AppStream.Types.ApplicationSettings
     Network.AWS.AppStream.Types.ApplicationSettingsResponse
+    Network.AWS.AppStream.Types.AppstreamAgentVersion
+    Network.AWS.AppStream.Types.Arn
     Network.AWS.AppStream.Types.AuthenticationType
+    Network.AWS.AppStream.Types.AwsAccountId
+    Network.AWS.AppStream.Types.BaseImageArn
     Network.AWS.AppStream.Types.ComputeCapacity
     Network.AWS.AppStream.Types.ComputeCapacityStatus
+    Network.AWS.AppStream.Types.Description
+    Network.AWS.AppStream.Types.DestinationImageDescription
+    Network.AWS.AppStream.Types.DestinationImageName
     Network.AWS.AppStream.Types.DirectoryConfig
+    Network.AWS.AppStream.Types.DirectoryName
+    Network.AWS.AppStream.Types.DisplayName
+    Network.AWS.AppStream.Types.Domain
     Network.AWS.AppStream.Types.DomainJoinInfo
+    Network.AWS.AppStream.Types.EmbedHostDomain
+    Network.AWS.AppStream.Types.EniId
+    Network.AWS.AppStream.Types.EniPrivateIpAddress
+    Network.AWS.AppStream.Types.FeedbackURL
+    Network.AWS.AppStream.Types.FirstName
     Network.AWS.AppStream.Types.Fleet
     Network.AWS.AppStream.Types.FleetAttribute
     Network.AWS.AppStream.Types.FleetError
     Network.AWS.AppStream.Types.FleetErrorCode
     Network.AWS.AppStream.Types.FleetState
     Network.AWS.AppStream.Types.FleetType
+    Network.AWS.AppStream.Types.IconURL
     Network.AWS.AppStream.Types.Image
     Network.AWS.AppStream.Types.ImageBuilder
+    Network.AWS.AppStream.Types.ImageBuilderName
     Network.AWS.AppStream.Types.ImageBuilderState
     Network.AWS.AppStream.Types.ImageBuilderStateChangeReason
     Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode
@@ -144,34 +169,54 @@ library
     Network.AWS.AppStream.Types.ImageState
     Network.AWS.AppStream.Types.ImageStateChangeReason
     Network.AWS.AppStream.Types.ImageStateChangeReasonCode
+    Network.AWS.AppStream.Types.LastName
     Network.AWS.AppStream.Types.LastReportGenerationExecutionError
+    Network.AWS.AppStream.Types.LaunchParameters
+    Network.AWS.AppStream.Types.LaunchPath
     Network.AWS.AppStream.Types.MessageAction
+    Network.AWS.AppStream.Types.Name
     Network.AWS.AppStream.Types.NetworkAccessConfiguration
+    Network.AWS.AppStream.Types.NextToken
+    Network.AWS.AppStream.Types.OrganizationalUnitDistinguishedName
     Network.AWS.AppStream.Types.Permission
     Network.AWS.AppStream.Types.PlatformType
+    Network.AWS.AppStream.Types.RedirectURL
+    Network.AWS.AppStream.Types.RegionName
     Network.AWS.AppStream.Types.ResourceError
+    Network.AWS.AppStream.Types.ResourceIdentifier
+    Network.AWS.AppStream.Types.S3BucketName
     Network.AWS.AppStream.Types.ServiceAccountCredentials
     Network.AWS.AppStream.Types.Session
     Network.AWS.AppStream.Types.SessionConnectionState
     Network.AWS.AppStream.Types.SessionState
+    Network.AWS.AppStream.Types.SettingsGroup
+    Network.AWS.AppStream.Types.SharedAccountId
     Network.AWS.AppStream.Types.SharedImagePermissions
+    Network.AWS.AppStream.Types.SourceImageName
     Network.AWS.AppStream.Types.Stack
     Network.AWS.AppStream.Types.StackAttribute
     Network.AWS.AppStream.Types.StackError
     Network.AWS.AppStream.Types.StackErrorCode
     Network.AWS.AppStream.Types.StorageConnector
     Network.AWS.AppStream.Types.StorageConnectorType
+    Network.AWS.AppStream.Types.StreamingURL
     Network.AWS.AppStream.Types.StreamView
+    Network.AWS.AppStream.Types.String
+    Network.AWS.AppStream.Types.TagKey
+    Network.AWS.AppStream.Types.TagValue
     Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
     Network.AWS.AppStream.Types.UsageReportSchedule
     Network.AWS.AppStream.Types.UsageReportSubscription
     Network.AWS.AppStream.Types.User
+    Network.AWS.AppStream.Types.UserId
+    Network.AWS.AppStream.Types.Username
+    Network.AWS.AppStream.Types.UserName
     Network.AWS.AppStream.Types.UserSetting
     Network.AWS.AppStream.Types.UserStackAssociation
     Network.AWS.AppStream.Types.UserStackAssociationError
     Network.AWS.AppStream.Types.UserStackAssociationErrorCode
     Network.AWS.AppStream.Types.VisibilityType
-    Network.AWS.AppStream.Types.VPCConfig
+    Network.AWS.AppStream.Types.VpcConfig
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

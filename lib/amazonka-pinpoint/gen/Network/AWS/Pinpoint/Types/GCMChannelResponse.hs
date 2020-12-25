@@ -17,179 +17,165 @@ module Network.AWS.Pinpoint.Types.GCMChannelResponse
     mkGCMChannelResponse,
 
     -- * Lenses
-    gcmcPlatform,
-    gcmcLastModifiedDate,
-    gcmcEnabled,
-    gcmcCredential,
-    gcmcIsArchived,
-    gcmcApplicationId,
-    gcmcVersion,
-    gcmcId,
-    gcmcCreationDate,
-    gcmcLastModifiedBy,
-    gcmcHasCredential,
+    gcmcrCredential,
+    gcmcrPlatform,
+    gcmcrApplicationId,
+    gcmcrCreationDate,
+    gcmcrEnabled,
+    gcmcrHasCredential,
+    gcmcrId,
+    gcmcrIsArchived,
+    gcmcrLastModifiedBy,
+    gcmcrLastModifiedDate,
+    gcmcrVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 --
 -- /See:/ 'mkGCMChannelResponse' smart constructor.
 data GCMChannelResponse = GCMChannelResponse'
-  { -- | The type of messaging or notification platform for the channel. For the GCM channel, this value is GCM.
-    platform :: Lude.Text,
-    -- | The date and time when the GCM channel was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the GCM channel is enabled for the application.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
-    credential :: Lude.Text,
-    -- | Specifies whether the GCM channel is archived.
-    isArchived :: Lude.Maybe Lude.Bool,
+  { -- | The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
+    credential :: Core.Text,
+    -- | The type of messaging or notification platform for the channel. For the GCM channel, this value is GCM.
+    platform :: Core.Text,
     -- | The unique identifier for the application that the GCM channel applies to.
-    applicationId :: Lude.Maybe Lude.Text,
-    -- | The current version of the GCM channel.
-    version :: Lude.Maybe Lude.Int,
-    -- | (Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.
-    id :: Lude.Maybe Lude.Text,
+    applicationId :: Core.Maybe Core.Text,
     -- | The date and time when the GCM channel was enabled.
-    creationDate :: Lude.Maybe Lude.Text,
-    -- | The user who last modified the GCM channel.
-    lastModifiedBy :: Lude.Maybe Lude.Text,
+    creationDate :: Core.Maybe Core.Text,
+    -- | Specifies whether the GCM channel is enabled for the application.
+    enabled :: Core.Maybe Core.Bool,
     -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Lude.Maybe Lude.Bool
+    hasCredential :: Core.Maybe Core.Bool,
+    -- | (Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.
+    id :: Core.Maybe Core.Text,
+    -- | Specifies whether the GCM channel is archived.
+    isArchived :: Core.Maybe Core.Bool,
+    -- | The user who last modified the GCM channel.
+    lastModifiedBy :: Core.Maybe Core.Text,
+    -- | The date and time when the GCM channel was last modified.
+    lastModifiedDate :: Core.Maybe Core.Text,
+    -- | The current version of the GCM channel.
+    version :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GCMChannelResponse' with the minimum fields required to make a request.
---
--- * 'platform' - The type of messaging or notification platform for the channel. For the GCM channel, this value is GCM.
--- * 'lastModifiedDate' - The date and time when the GCM channel was last modified.
--- * 'enabled' - Specifies whether the GCM channel is enabled for the application.
--- * 'credential' - The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
--- * 'isArchived' - Specifies whether the GCM channel is archived.
--- * 'applicationId' - The unique identifier for the application that the GCM channel applies to.
--- * 'version' - The current version of the GCM channel.
--- * 'id' - (Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.
--- * 'creationDate' - The date and time when the GCM channel was enabled.
--- * 'lastModifiedBy' - The user who last modified the GCM channel.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
+-- | Creates a 'GCMChannelResponse' value with any optional fields omitted.
 mkGCMChannelResponse ::
-  -- | 'platform'
-  Lude.Text ->
   -- | 'credential'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'platform'
+  Core.Text ->
   GCMChannelResponse
-mkGCMChannelResponse pPlatform_ pCredential_ =
+mkGCMChannelResponse credential platform =
   GCMChannelResponse'
-    { platform = pPlatform_,
-      lastModifiedDate = Lude.Nothing,
-      enabled = Lude.Nothing,
-      credential = pCredential_,
-      isArchived = Lude.Nothing,
-      applicationId = Lude.Nothing,
-      version = Lude.Nothing,
-      id = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      lastModifiedBy = Lude.Nothing,
-      hasCredential = Lude.Nothing
+    { credential,
+      platform,
+      applicationId = Core.Nothing,
+      creationDate = Core.Nothing,
+      enabled = Core.Nothing,
+      hasCredential = Core.Nothing,
+      id = Core.Nothing,
+      isArchived = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      version = Core.Nothing
     }
-
--- | The type of messaging or notification platform for the channel. For the GCM channel, this value is GCM.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcPlatform :: Lens.Lens' GCMChannelResponse Lude.Text
-gcmcPlatform = Lens.lens (platform :: GCMChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | The date and time when the GCM channel was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcLastModifiedDate :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Text)
-gcmcLastModifiedDate = Lens.lens (lastModifiedDate :: GCMChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | Specifies whether the GCM channel is enabled for the application.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcEnabled :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Bool)
-gcmcEnabled = Lens.lens (enabled :: GCMChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
 --
 -- /Note:/ Consider using 'credential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcCredential :: Lens.Lens' GCMChannelResponse Lude.Text
-gcmcCredential = Lens.lens (credential :: GCMChannelResponse -> Lude.Text) (\s a -> s {credential = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcCredential "Use generic-lens or generic-optics with 'credential' instead." #-}
+gcmcrCredential :: Lens.Lens' GCMChannelResponse Core.Text
+gcmcrCredential = Lens.field @"credential"
+{-# DEPRECATED gcmcrCredential "Use generic-lens or generic-optics with 'credential' instead." #-}
 
--- | Specifies whether the GCM channel is archived.
+-- | The type of messaging or notification platform for the channel. For the GCM channel, this value is GCM.
 --
--- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcIsArchived :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Bool)
-gcmcIsArchived = Lens.lens (isArchived :: GCMChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isArchived = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmcrPlatform :: Lens.Lens' GCMChannelResponse Core.Text
+gcmcrPlatform = Lens.field @"platform"
+{-# DEPRECATED gcmcrPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The unique identifier for the application that the GCM channel applies to.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcApplicationId :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Text)
-gcmcApplicationId = Lens.lens (applicationId :: GCMChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
--- | The current version of the GCM channel.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcVersion :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Int)
-gcmcVersion = Lens.lens (version :: GCMChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | (Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcId :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Text)
-gcmcId = Lens.lens (id :: GCMChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcId "Use generic-lens or generic-optics with 'id' instead." #-}
+gcmcrApplicationId :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Text)
+gcmcrApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED gcmcrApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The date and time when the GCM channel was enabled.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcCreationDate :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Text)
-gcmcCreationDate = Lens.lens (creationDate :: GCMChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+gcmcrCreationDate :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Text)
+gcmcrCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED gcmcrCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
--- | The user who last modified the GCM channel.
+-- | Specifies whether the GCM channel is enabled for the application.
 --
--- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcLastModifiedBy :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Text)
-gcmcLastModifiedBy = Lens.lens (lastModifiedBy :: GCMChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmcrEnabled :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Bool)
+gcmcrEnabled = Lens.field @"enabled"
+{-# DEPRECATED gcmcrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | (Not used) This property is retained only for backward compatibility.
 --
 -- /Note:/ Consider using 'hasCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmcHasCredential :: Lens.Lens' GCMChannelResponse (Lude.Maybe Lude.Bool)
-gcmcHasCredential = Lens.lens (hasCredential :: GCMChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: GCMChannelResponse)
-{-# DEPRECATED gcmcHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
+gcmcrHasCredential :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Bool)
+gcmcrHasCredential = Lens.field @"hasCredential"
+{-# DEPRECATED gcmcrHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
-instance Lude.FromJSON GCMChannelResponse where
+-- | (Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmcrId :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Text)
+gcmcrId = Lens.field @"id"
+{-# DEPRECATED gcmcrId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Specifies whether the GCM channel is archived.
+--
+-- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmcrIsArchived :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Bool)
+gcmcrIsArchived = Lens.field @"isArchived"
+{-# DEPRECATED gcmcrIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
+
+-- | The user who last modified the GCM channel.
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmcrLastModifiedBy :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Text)
+gcmcrLastModifiedBy = Lens.field @"lastModifiedBy"
+{-# DEPRECATED gcmcrLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+
+-- | The date and time when the GCM channel was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmcrLastModifiedDate :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Text)
+gcmcrLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED gcmcrLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The current version of the GCM channel.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmcrVersion :: Lens.Lens' GCMChannelResponse (Core.Maybe Core.Int)
+gcmcrVersion = Lens.field @"version"
+{-# DEPRECATED gcmcrVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON GCMChannelResponse where
   parseJSON =
-    Lude.withObject
-      "GCMChannelResponse"
-      ( \x ->
-          GCMChannelResponse'
-            Lude.<$> (x Lude..: "Platform")
-            Lude.<*> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..: "Credential")
-            Lude.<*> (x Lude..:? "IsArchived")
-            Lude.<*> (x Lude..:? "ApplicationId")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "CreationDate")
-            Lude.<*> (x Lude..:? "LastModifiedBy")
-            Lude.<*> (x Lude..:? "HasCredential")
-      )
+    Core.withObject "GCMChannelResponse" Core.$
+      \x ->
+        GCMChannelResponse'
+          Core.<$> (x Core..: "Credential")
+          Core.<*> (x Core..: "Platform")
+          Core.<*> (x Core..:? "ApplicationId")
+          Core.<*> (x Core..:? "CreationDate")
+          Core.<*> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "HasCredential")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "IsArchived")
+          Core.<*> (x Core..:? "LastModifiedBy")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "Version")

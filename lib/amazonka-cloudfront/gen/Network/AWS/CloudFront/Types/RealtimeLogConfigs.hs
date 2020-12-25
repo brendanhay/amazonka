@@ -17,102 +17,96 @@ module Network.AWS.CloudFront.Types.RealtimeLogConfigs
     mkRealtimeLogConfigs,
 
     -- * Lenses
-    rlcItems,
-    rlcMarker,
     rlcMaxItems,
-    rlcNextMarker,
     rlcIsTruncated,
+    rlcMarker,
+    rlcItems,
+    rlcNextMarker,
   )
 where
 
-import Network.AWS.CloudFront.Types.RealtimeLogConfig
+import qualified Network.AWS.CloudFront.Types.Marker as Types
+import qualified Network.AWS.CloudFront.Types.NextMarker as Types
+import qualified Network.AWS.CloudFront.Types.RealtimeLogConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of real-time log configurations.
 --
 -- /See:/ 'mkRealtimeLogConfigs' smart constructor.
 data RealtimeLogConfigs = RealtimeLogConfigs'
-  { -- | Contains the list of real-time log configurations.
-    items :: Lude.Maybe [RealtimeLogConfig],
-    -- | This parameter indicates where this list of real-time log configurations begins. This list includes real-time log configurations that occur after the marker.
-    marker :: Lude.Text,
-    -- | The maximum number of real-time log configurations requested.
-    maxItems :: Lude.Int,
-    -- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing real-time log configurations where you left off.
-    nextMarker :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of real-time log configurations requested.
+    maxItems :: Core.Int,
     -- | A flag that indicates whether there are more real-time log configurations than are contained in this list.
-    isTruncated :: Lude.Bool
+    isTruncated :: Core.Bool,
+    -- | This parameter indicates where this list of real-time log configurations begins. This list includes real-time log configurations that occur after the marker.
+    marker :: Types.Marker,
+    -- | Contains the list of real-time log configurations.
+    items :: Core.Maybe [Types.RealtimeLogConfig],
+    -- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing real-time log configurations where you left off.
+    nextMarker :: Core.Maybe Types.NextMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RealtimeLogConfigs' with the minimum fields required to make a request.
---
--- * 'items' - Contains the list of real-time log configurations.
--- * 'marker' - This parameter indicates where this list of real-time log configurations begins. This list includes real-time log configurations that occur after the marker.
--- * 'maxItems' - The maximum number of real-time log configurations requested.
--- * 'nextMarker' - If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing real-time log configurations where you left off.
--- * 'isTruncated' - A flag that indicates whether there are more real-time log configurations than are contained in this list.
+-- | Creates a 'RealtimeLogConfigs' value with any optional fields omitted.
 mkRealtimeLogConfigs ::
-  -- | 'marker'
-  Lude.Text ->
   -- | 'maxItems'
-  Lude.Int ->
+  Core.Int ->
   -- | 'isTruncated'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'marker'
+  Types.Marker ->
   RealtimeLogConfigs
-mkRealtimeLogConfigs pMarker_ pMaxItems_ pIsTruncated_ =
+mkRealtimeLogConfigs maxItems isTruncated marker =
   RealtimeLogConfigs'
-    { items = Lude.Nothing,
-      marker = pMarker_,
-      maxItems = pMaxItems_,
-      nextMarker = Lude.Nothing,
-      isTruncated = pIsTruncated_
+    { maxItems,
+      isTruncated,
+      marker,
+      items = Core.Nothing,
+      nextMarker = Core.Nothing
     }
-
--- | Contains the list of real-time log configurations.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlcItems :: Lens.Lens' RealtimeLogConfigs (Lude.Maybe [RealtimeLogConfig])
-rlcItems = Lens.lens (items :: RealtimeLogConfigs -> Lude.Maybe [RealtimeLogConfig]) (\s a -> s {items = a} :: RealtimeLogConfigs)
-{-# DEPRECATED rlcItems "Use generic-lens or generic-optics with 'items' instead." #-}
-
--- | This parameter indicates where this list of real-time log configurations begins. This list includes real-time log configurations that occur after the marker.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlcMarker :: Lens.Lens' RealtimeLogConfigs Lude.Text
-rlcMarker = Lens.lens (marker :: RealtimeLogConfigs -> Lude.Text) (\s a -> s {marker = a} :: RealtimeLogConfigs)
-{-# DEPRECATED rlcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of real-time log configurations requested.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlcMaxItems :: Lens.Lens' RealtimeLogConfigs Lude.Int
-rlcMaxItems = Lens.lens (maxItems :: RealtimeLogConfigs -> Lude.Int) (\s a -> s {maxItems = a} :: RealtimeLogConfigs)
+rlcMaxItems :: Lens.Lens' RealtimeLogConfigs Core.Int
+rlcMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED rlcMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
--- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing real-time log configurations where you left off.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlcNextMarker :: Lens.Lens' RealtimeLogConfigs (Lude.Maybe Lude.Text)
-rlcNextMarker = Lens.lens (nextMarker :: RealtimeLogConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: RealtimeLogConfigs)
-{-# DEPRECATED rlcNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | A flag that indicates whether there are more real-time log configurations than are contained in this list.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlcIsTruncated :: Lens.Lens' RealtimeLogConfigs Lude.Bool
-rlcIsTruncated = Lens.lens (isTruncated :: RealtimeLogConfigs -> Lude.Bool) (\s a -> s {isTruncated = a} :: RealtimeLogConfigs)
+rlcIsTruncated :: Lens.Lens' RealtimeLogConfigs Core.Bool
+rlcIsTruncated = Lens.field @"isTruncated"
 {-# DEPRECATED rlcIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
-instance Lude.FromXML RealtimeLogConfigs where
+-- | This parameter indicates where this list of real-time log configurations begins. This list includes real-time log configurations that occur after the marker.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rlcMarker :: Lens.Lens' RealtimeLogConfigs Types.Marker
+rlcMarker = Lens.field @"marker"
+{-# DEPRECATED rlcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | Contains the list of real-time log configurations.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rlcItems :: Lens.Lens' RealtimeLogConfigs (Core.Maybe [Types.RealtimeLogConfig])
+rlcItems = Lens.field @"items"
+{-# DEPRECATED rlcItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
+-- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing real-time log configurations where you left off.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rlcNextMarker :: Lens.Lens' RealtimeLogConfigs (Core.Maybe Types.NextMarker)
+rlcNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED rlcNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+instance Core.FromXML RealtimeLogConfigs where
   parseXML x =
     RealtimeLogConfigs'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@ "Marker")
-      Lude.<*> (x Lude..@ "MaxItems")
-      Lude.<*> (x Lude..@? "NextMarker")
-      Lude.<*> (x Lude..@ "IsTruncated")
+      Core.<$> (x Core..@ "MaxItems")
+      Core.<*> (x Core..@ "IsTruncated")
+      Core.<*> (x Core..@ "Marker")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "NextMarker")

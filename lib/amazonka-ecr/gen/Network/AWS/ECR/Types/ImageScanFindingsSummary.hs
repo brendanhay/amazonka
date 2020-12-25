@@ -17,72 +17,66 @@ module Network.AWS.ECR.Types.ImageScanFindingsSummary
     mkImageScanFindingsSummary,
 
     -- * Lenses
-    isfsImageScanCompletedAt,
     isfsFindingSeverityCounts,
+    isfsImageScanCompletedAt,
     isfsVulnerabilitySourceUpdatedAt,
   )
 where
 
-import Network.AWS.ECR.Types.FindingSeverity
+import qualified Network.AWS.ECR.Types.FindingSeverity as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A summary of the last completed image scan.
 --
 -- /See:/ 'mkImageScanFindingsSummary' smart constructor.
 data ImageScanFindingsSummary = ImageScanFindingsSummary'
-  { -- | The time of the last completed image scan.
-    imageScanCompletedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The image vulnerability counts, sorted by severity.
-    findingSeverityCounts :: Lude.Maybe (Lude.HashMap FindingSeverity (Lude.Natural)),
+  { -- | The image vulnerability counts, sorted by severity.
+    findingSeverityCounts :: Core.Maybe (Core.HashMap Types.FindingSeverity Core.Natural),
+    -- | The time of the last completed image scan.
+    imageScanCompletedAt :: Core.Maybe Core.NominalDiffTime,
     -- | The time when the vulnerability data was last scanned.
-    vulnerabilitySourceUpdatedAt :: Lude.Maybe Lude.Timestamp
+    vulnerabilitySourceUpdatedAt :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ImageScanFindingsSummary' with the minimum fields required to make a request.
---
--- * 'imageScanCompletedAt' - The time of the last completed image scan.
--- * 'findingSeverityCounts' - The image vulnerability counts, sorted by severity.
--- * 'vulnerabilitySourceUpdatedAt' - The time when the vulnerability data was last scanned.
+-- | Creates a 'ImageScanFindingsSummary' value with any optional fields omitted.
 mkImageScanFindingsSummary ::
   ImageScanFindingsSummary
 mkImageScanFindingsSummary =
   ImageScanFindingsSummary'
-    { imageScanCompletedAt = Lude.Nothing,
-      findingSeverityCounts = Lude.Nothing,
-      vulnerabilitySourceUpdatedAt = Lude.Nothing
+    { findingSeverityCounts = Core.Nothing,
+      imageScanCompletedAt = Core.Nothing,
+      vulnerabilitySourceUpdatedAt = Core.Nothing
     }
-
--- | The time of the last completed image scan.
---
--- /Note:/ Consider using 'imageScanCompletedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfsImageScanCompletedAt :: Lens.Lens' ImageScanFindingsSummary (Lude.Maybe Lude.Timestamp)
-isfsImageScanCompletedAt = Lens.lens (imageScanCompletedAt :: ImageScanFindingsSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {imageScanCompletedAt = a} :: ImageScanFindingsSummary)
-{-# DEPRECATED isfsImageScanCompletedAt "Use generic-lens or generic-optics with 'imageScanCompletedAt' instead." #-}
 
 -- | The image vulnerability counts, sorted by severity.
 --
 -- /Note:/ Consider using 'findingSeverityCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfsFindingSeverityCounts :: Lens.Lens' ImageScanFindingsSummary (Lude.Maybe (Lude.HashMap FindingSeverity (Lude.Natural)))
-isfsFindingSeverityCounts = Lens.lens (findingSeverityCounts :: ImageScanFindingsSummary -> Lude.Maybe (Lude.HashMap FindingSeverity (Lude.Natural))) (\s a -> s {findingSeverityCounts = a} :: ImageScanFindingsSummary)
+isfsFindingSeverityCounts :: Lens.Lens' ImageScanFindingsSummary (Core.Maybe (Core.HashMap Types.FindingSeverity Core.Natural))
+isfsFindingSeverityCounts = Lens.field @"findingSeverityCounts"
 {-# DEPRECATED isfsFindingSeverityCounts "Use generic-lens or generic-optics with 'findingSeverityCounts' instead." #-}
+
+-- | The time of the last completed image scan.
+--
+-- /Note:/ Consider using 'imageScanCompletedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfsImageScanCompletedAt :: Lens.Lens' ImageScanFindingsSummary (Core.Maybe Core.NominalDiffTime)
+isfsImageScanCompletedAt = Lens.field @"imageScanCompletedAt"
+{-# DEPRECATED isfsImageScanCompletedAt "Use generic-lens or generic-optics with 'imageScanCompletedAt' instead." #-}
 
 -- | The time when the vulnerability data was last scanned.
 --
 -- /Note:/ Consider using 'vulnerabilitySourceUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfsVulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindingsSummary (Lude.Maybe Lude.Timestamp)
-isfsVulnerabilitySourceUpdatedAt = Lens.lens (vulnerabilitySourceUpdatedAt :: ImageScanFindingsSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {vulnerabilitySourceUpdatedAt = a} :: ImageScanFindingsSummary)
+isfsVulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindingsSummary (Core.Maybe Core.NominalDiffTime)
+isfsVulnerabilitySourceUpdatedAt = Lens.field @"vulnerabilitySourceUpdatedAt"
 {-# DEPRECATED isfsVulnerabilitySourceUpdatedAt "Use generic-lens or generic-optics with 'vulnerabilitySourceUpdatedAt' instead." #-}
 
-instance Lude.FromJSON ImageScanFindingsSummary where
+instance Core.FromJSON ImageScanFindingsSummary where
   parseJSON =
-    Lude.withObject
-      "ImageScanFindingsSummary"
-      ( \x ->
-          ImageScanFindingsSummary'
-            Lude.<$> (x Lude..:? "imageScanCompletedAt")
-            Lude.<*> (x Lude..:? "findingSeverityCounts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "vulnerabilitySourceUpdatedAt")
-      )
+    Core.withObject "ImageScanFindingsSummary" Core.$
+      \x ->
+        ImageScanFindingsSummary'
+          Core.<$> (x Core..:? "findingSeverityCounts")
+          Core.<*> (x Core..:? "imageScanCompletedAt")
+          Core.<*> (x Core..:? "vulnerabilitySourceUpdatedAt")

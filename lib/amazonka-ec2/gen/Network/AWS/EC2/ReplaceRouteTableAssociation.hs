@@ -31,146 +31,140 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     mkReplaceRouteTableAssociationResponse,
 
     -- ** Response lenses
-    rrtarsNewAssociationId,
-    rrtarsAssociationState,
-    rrtarsResponseStatus,
+    rrtarrsAssociationState,
+    rrtarrsNewAssociationId,
+    rrtarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkReplaceRouteTableAssociation' smart constructor.
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
   { -- | The association ID.
-    associationId :: Lude.Text,
+    associationId :: Types.RouteTableAssociationId,
     -- | The ID of the new route table to associate with the subnet.
-    routeTableId :: Lude.Text,
+    routeTableId :: Types.RouteTableId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceRouteTableAssociation' with the minimum fields required to make a request.
---
--- * 'associationId' - The association ID.
--- * 'routeTableId' - The ID of the new route table to associate with the subnet.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ReplaceRouteTableAssociation' value with any optional fields omitted.
 mkReplaceRouteTableAssociation ::
   -- | 'associationId'
-  Lude.Text ->
+  Types.RouteTableAssociationId ->
   -- | 'routeTableId'
-  Lude.Text ->
+  Types.RouteTableId ->
   ReplaceRouteTableAssociation
-mkReplaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
+mkReplaceRouteTableAssociation associationId routeTableId =
   ReplaceRouteTableAssociation'
-    { associationId = pAssociationId_,
-      routeTableId = pRouteTableId_,
-      dryRun = Lude.Nothing
+    { associationId,
+      routeTableId,
+      dryRun = Core.Nothing
     }
 
 -- | The association ID.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrtaAssociationId :: Lens.Lens' ReplaceRouteTableAssociation Lude.Text
-rrtaAssociationId = Lens.lens (associationId :: ReplaceRouteTableAssociation -> Lude.Text) (\s a -> s {associationId = a} :: ReplaceRouteTableAssociation)
+rrtaAssociationId :: Lens.Lens' ReplaceRouteTableAssociation Types.RouteTableAssociationId
+rrtaAssociationId = Lens.field @"associationId"
 {-# DEPRECATED rrtaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The ID of the new route table to associate with the subnet.
 --
 -- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrtaRouteTableId :: Lens.Lens' ReplaceRouteTableAssociation Lude.Text
-rrtaRouteTableId = Lens.lens (routeTableId :: ReplaceRouteTableAssociation -> Lude.Text) (\s a -> s {routeTableId = a} :: ReplaceRouteTableAssociation)
+rrtaRouteTableId :: Lens.Lens' ReplaceRouteTableAssociation Types.RouteTableId
+rrtaRouteTableId = Lens.field @"routeTableId"
 {-# DEPRECATED rrtaRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrtaDryRun :: Lens.Lens' ReplaceRouteTableAssociation (Lude.Maybe Lude.Bool)
-rrtaDryRun = Lens.lens (dryRun :: ReplaceRouteTableAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ReplaceRouteTableAssociation)
+rrtaDryRun :: Lens.Lens' ReplaceRouteTableAssociation (Core.Maybe Core.Bool)
+rrtaDryRun = Lens.field @"dryRun"
 {-# DEPRECATED rrtaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ReplaceRouteTableAssociation where
+instance Core.AWSRequest ReplaceRouteTableAssociation where
   type
     Rs ReplaceRouteTableAssociation =
       ReplaceRouteTableAssociationResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ReplaceRouteTableAssociation")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AssociationId" associationId)
+                Core.<> (Core.toQueryValue "RouteTableId" routeTableId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ReplaceRouteTableAssociationResponse'
-            Lude.<$> (x Lude..@? "newAssociationId")
-            Lude.<*> (x Lude..@? "associationState")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "associationState")
+            Core.<*> (x Core..@? "newAssociationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ReplaceRouteTableAssociation where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ReplaceRouteTableAssociation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ReplaceRouteTableAssociation where
-  toQuery ReplaceRouteTableAssociation' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ReplaceRouteTableAssociation" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "AssociationId" Lude.=: associationId,
-        "RouteTableId" Lude.=: routeTableId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkReplaceRouteTableAssociationResponse' smart constructor.
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
-  { -- | The ID of the new association.
-    newAssociationId :: Lude.Maybe Lude.Text,
-    -- | The state of the association.
-    associationState :: Lude.Maybe RouteTableAssociationState,
+  { -- | The state of the association.
+    associationState :: Core.Maybe Types.RouteTableAssociationState,
+    -- | The ID of the new association.
+    newAssociationId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceRouteTableAssociationResponse' with the minimum fields required to make a request.
---
--- * 'newAssociationId' - The ID of the new association.
--- * 'associationState' - The state of the association.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ReplaceRouteTableAssociationResponse' value with any optional fields omitted.
 mkReplaceRouteTableAssociationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ReplaceRouteTableAssociationResponse
-mkReplaceRouteTableAssociationResponse pResponseStatus_ =
+mkReplaceRouteTableAssociationResponse responseStatus =
   ReplaceRouteTableAssociationResponse'
-    { newAssociationId =
-        Lude.Nothing,
-      associationState = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { associationState =
+        Core.Nothing,
+      newAssociationId = Core.Nothing,
+      responseStatus
     }
-
--- | The ID of the new association.
---
--- /Note:/ Consider using 'newAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrtarsNewAssociationId :: Lens.Lens' ReplaceRouteTableAssociationResponse (Lude.Maybe Lude.Text)
-rrtarsNewAssociationId = Lens.lens (newAssociationId :: ReplaceRouteTableAssociationResponse -> Lude.Maybe Lude.Text) (\s a -> s {newAssociationId = a} :: ReplaceRouteTableAssociationResponse)
-{-# DEPRECATED rrtarsNewAssociationId "Use generic-lens or generic-optics with 'newAssociationId' instead." #-}
 
 -- | The state of the association.
 --
 -- /Note:/ Consider using 'associationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrtarsAssociationState :: Lens.Lens' ReplaceRouteTableAssociationResponse (Lude.Maybe RouteTableAssociationState)
-rrtarsAssociationState = Lens.lens (associationState :: ReplaceRouteTableAssociationResponse -> Lude.Maybe RouteTableAssociationState) (\s a -> s {associationState = a} :: ReplaceRouteTableAssociationResponse)
-{-# DEPRECATED rrtarsAssociationState "Use generic-lens or generic-optics with 'associationState' instead." #-}
+rrtarrsAssociationState :: Lens.Lens' ReplaceRouteTableAssociationResponse (Core.Maybe Types.RouteTableAssociationState)
+rrtarrsAssociationState = Lens.field @"associationState"
+{-# DEPRECATED rrtarrsAssociationState "Use generic-lens or generic-optics with 'associationState' instead." #-}
+
+-- | The ID of the new association.
+--
+-- /Note:/ Consider using 'newAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrtarrsNewAssociationId :: Lens.Lens' ReplaceRouteTableAssociationResponse (Core.Maybe Types.String)
+rrtarrsNewAssociationId = Lens.field @"newAssociationId"
+{-# DEPRECATED rrtarrsNewAssociationId "Use generic-lens or generic-optics with 'newAssociationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrtarsResponseStatus :: Lens.Lens' ReplaceRouteTableAssociationResponse Lude.Int
-rrtarsResponseStatus = Lens.lens (responseStatus :: ReplaceRouteTableAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReplaceRouteTableAssociationResponse)
-{-# DEPRECATED rrtarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rrtarrsResponseStatus :: Lens.Lens' ReplaceRouteTableAssociationResponse Core.Int
+rrtarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rrtarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

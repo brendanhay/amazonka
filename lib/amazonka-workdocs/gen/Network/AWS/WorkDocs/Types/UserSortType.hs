@@ -13,61 +13,63 @@
 module Network.AWS.WorkDocs.Types.UserSortType
   ( UserSortType
       ( UserSortType',
-        UserName,
-        FullName,
-        StorageLimit,
-        UserStatus,
-        StorageUsed
+        UserSortTypeUserName,
+        UserSortTypeFullName,
+        UserSortTypeStorageLimit,
+        UserSortTypeUserStatus,
+        UserSortTypeStorageUsed,
+        fromUserSortType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserSortType = UserSortType' Lude.Text
+newtype UserSortType = UserSortType' {fromUserSortType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UserName :: UserSortType
-pattern UserName = UserSortType' "USER_NAME"
+pattern UserSortTypeUserName :: UserSortType
+pattern UserSortTypeUserName = UserSortType' "USER_NAME"
 
-pattern FullName :: UserSortType
-pattern FullName = UserSortType' "FULL_NAME"
+pattern UserSortTypeFullName :: UserSortType
+pattern UserSortTypeFullName = UserSortType' "FULL_NAME"
 
-pattern StorageLimit :: UserSortType
-pattern StorageLimit = UserSortType' "STORAGE_LIMIT"
+pattern UserSortTypeStorageLimit :: UserSortType
+pattern UserSortTypeStorageLimit = UserSortType' "STORAGE_LIMIT"
 
-pattern UserStatus :: UserSortType
-pattern UserStatus = UserSortType' "USER_STATUS"
+pattern UserSortTypeUserStatus :: UserSortType
+pattern UserSortTypeUserStatus = UserSortType' "USER_STATUS"
 
-pattern StorageUsed :: UserSortType
-pattern StorageUsed = UserSortType' "STORAGE_USED"
+pattern UserSortTypeStorageUsed :: UserSortType
+pattern UserSortTypeStorageUsed = UserSortType' "STORAGE_USED"
 
 {-# COMPLETE
-  UserName,
-  FullName,
-  StorageLimit,
-  UserStatus,
-  StorageUsed,
+  UserSortTypeUserName,
+  UserSortTypeFullName,
+  UserSortTypeStorageLimit,
+  UserSortTypeUserStatus,
+  UserSortTypeStorageUsed,
   UserSortType'
   #-}

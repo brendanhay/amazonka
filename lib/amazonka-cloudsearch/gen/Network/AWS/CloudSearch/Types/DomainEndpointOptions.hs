@@ -22,57 +22,47 @@ module Network.AWS.CloudSearch.Types.DomainEndpointOptions
   )
 where
 
-import Network.AWS.CloudSearch.Types.TLSSecurityPolicy
+import qualified Network.AWS.CloudSearch.Types.TLSSecurityPolicy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The domain's endpoint options.
 --
 -- /See:/ 'mkDomainEndpointOptions' smart constructor.
 data DomainEndpointOptions = DomainEndpointOptions'
   { -- | Whether the domain is HTTPS only enabled.
-    enforceHTTPS :: Lude.Maybe Lude.Bool,
+    enforceHTTPS :: Core.Maybe Core.Bool,
     -- | The minimum required TLS version
-    tlsSecurityPolicy :: Lude.Maybe TLSSecurityPolicy
+    tLSSecurityPolicy :: Core.Maybe Types.TLSSecurityPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainEndpointOptions' with the minimum fields required to make a request.
---
--- * 'enforceHTTPS' - Whether the domain is HTTPS only enabled.
--- * 'tlsSecurityPolicy' - The minimum required TLS version
+-- | Creates a 'DomainEndpointOptions' value with any optional fields omitted.
 mkDomainEndpointOptions ::
   DomainEndpointOptions
 mkDomainEndpointOptions =
   DomainEndpointOptions'
-    { enforceHTTPS = Lude.Nothing,
-      tlsSecurityPolicy = Lude.Nothing
+    { enforceHTTPS = Core.Nothing,
+      tLSSecurityPolicy = Core.Nothing
     }
 
 -- | Whether the domain is HTTPS only enabled.
 --
 -- /Note:/ Consider using 'enforceHTTPS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoEnforceHTTPS :: Lens.Lens' DomainEndpointOptions (Lude.Maybe Lude.Bool)
-deoEnforceHTTPS = Lens.lens (enforceHTTPS :: DomainEndpointOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enforceHTTPS = a} :: DomainEndpointOptions)
+deoEnforceHTTPS :: Lens.Lens' DomainEndpointOptions (Core.Maybe Core.Bool)
+deoEnforceHTTPS = Lens.field @"enforceHTTPS"
 {-# DEPRECATED deoEnforceHTTPS "Use generic-lens or generic-optics with 'enforceHTTPS' instead." #-}
 
 -- | The minimum required TLS version
 --
--- /Note:/ Consider using 'tlsSecurityPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoTLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Lude.Maybe TLSSecurityPolicy)
-deoTLSSecurityPolicy = Lens.lens (tlsSecurityPolicy :: DomainEndpointOptions -> Lude.Maybe TLSSecurityPolicy) (\s a -> s {tlsSecurityPolicy = a} :: DomainEndpointOptions)
-{-# DEPRECATED deoTLSSecurityPolicy "Use generic-lens or generic-optics with 'tlsSecurityPolicy' instead." #-}
+-- /Note:/ Consider using 'tLSSecurityPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deoTLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Core.Maybe Types.TLSSecurityPolicy)
+deoTLSSecurityPolicy = Lens.field @"tLSSecurityPolicy"
+{-# DEPRECATED deoTLSSecurityPolicy "Use generic-lens or generic-optics with 'tLSSecurityPolicy' instead." #-}
 
-instance Lude.FromXML DomainEndpointOptions where
+instance Core.FromXML DomainEndpointOptions where
   parseXML x =
     DomainEndpointOptions'
-      Lude.<$> (x Lude..@? "EnforceHTTPS")
-      Lude.<*> (x Lude..@? "TLSSecurityPolicy")
-
-instance Lude.ToQuery DomainEndpointOptions where
-  toQuery DomainEndpointOptions' {..} =
-    Lude.mconcat
-      [ "EnforceHTTPS" Lude.=: enforceHTTPS,
-        "TLSSecurityPolicy" Lude.=: tlsSecurityPolicy
-      ]
+      Core.<$> (x Core..@? "EnforceHTTPS")
+      Core.<*> (x Core..@? "TLSSecurityPolicy")

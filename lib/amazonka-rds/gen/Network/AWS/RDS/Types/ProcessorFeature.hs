@@ -17,13 +17,14 @@ module Network.AWS.RDS.Types.ProcessorFeature
     mkProcessorFeature,
 
     -- * Lenses
-    pfValue,
     pfName,
+    pfValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Contains the processor features of a DB instance class.
 --
@@ -72,42 +73,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProcessorFeature' smart constructor.
 data ProcessorFeature = ProcessorFeature'
-  { -- | The value of a processor feature name.
-    value :: Lude.Maybe Lude.Text,
-    -- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
+    name :: Core.Maybe Types.String,
+    -- | The value of a processor feature name.
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProcessorFeature' with the minimum fields required to make a request.
---
--- * 'value' - The value of a processor feature name.
--- * 'name' - The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
+-- | Creates a 'ProcessorFeature' value with any optional fields omitted.
 mkProcessorFeature ::
   ProcessorFeature
 mkProcessorFeature =
-  ProcessorFeature' {value = Lude.Nothing, name = Lude.Nothing}
-
--- | The value of a processor feature name.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfValue :: Lens.Lens' ProcessorFeature (Lude.Maybe Lude.Text)
-pfValue = Lens.lens (value :: ProcessorFeature -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ProcessorFeature)
-{-# DEPRECATED pfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  ProcessorFeature' {name = Core.Nothing, value = Core.Nothing}
 
 -- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfName :: Lens.Lens' ProcessorFeature (Lude.Maybe Lude.Text)
-pfName = Lens.lens (name :: ProcessorFeature -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProcessorFeature)
+pfName :: Lens.Lens' ProcessorFeature (Core.Maybe Types.String)
+pfName = Lens.field @"name"
 {-# DEPRECATED pfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML ProcessorFeature where
+-- | The value of a processor feature name.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfValue :: Lens.Lens' ProcessorFeature (Core.Maybe Types.String)
+pfValue = Lens.field @"value"
+{-# DEPRECATED pfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromXML ProcessorFeature where
   parseXML x =
     ProcessorFeature'
-      Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@? "Name")
-
-instance Lude.ToQuery ProcessorFeature where
-  toQuery ProcessorFeature' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Name" Lude.=: name]
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")

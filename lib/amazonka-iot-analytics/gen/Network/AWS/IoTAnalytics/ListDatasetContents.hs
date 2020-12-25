@@ -22,10 +22,10 @@ module Network.AWS.IoTAnalytics.ListDatasetContents
     mkListDatasetContents,
 
     -- ** Request lenses
-    ldcNextToken,
     ldcDatasetName,
-    ldcScheduledBefore,
     ldcMaxResults,
+    ldcNextToken,
+    ldcScheduledBefore,
     ldcScheduledOnOrAfter,
 
     -- * Destructuring the response
@@ -33,174 +33,170 @@ module Network.AWS.IoTAnalytics.ListDatasetContents
     mkListDatasetContentsResponse,
 
     -- ** Response lenses
-    ldcrsDatasetContentSummaries,
-    ldcrsNextToken,
-    ldcrsResponseStatus,
+    ldcrrsDatasetContentSummaries,
+    ldcrrsNextToken,
+    ldcrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDatasetContents' smart constructor.
 data ListDatasetContents = ListDatasetContents'
-  { -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the data set whose contents information you want to list.
-    datasetName :: Lude.Text,
-    -- | A filter to limit results to those data set contents whose creation is scheduled before the given time. See the field @triggers.schedule@ in the @CreateDataset@ request. (timestamp)
-    scheduledBefore :: Lude.Maybe Lude.Timestamp,
+  { -- | The name of the data set whose contents information you want to list.
+    datasetName :: Types.DatasetName,
     -- | The maximum number of results to return in this request.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A filter to limit results to those data set contents whose creation is scheduled before the given time. See the field @triggers.schedule@ in the @CreateDataset@ request. (timestamp)
+    scheduledBefore :: Core.Maybe Core.NominalDiffTime,
     -- | A filter to limit results to those data set contents whose creation is scheduled on or after the given time. See the field @triggers.schedule@ in the @CreateDataset@ request. (timestamp)
-    scheduledOnOrAfter :: Lude.Maybe Lude.Timestamp
+    scheduledOnOrAfter :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListDatasetContents' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results.
--- * 'datasetName' - The name of the data set whose contents information you want to list.
--- * 'scheduledBefore' - A filter to limit results to those data set contents whose creation is scheduled before the given time. See the field @triggers.schedule@ in the @CreateDataset@ request. (timestamp)
--- * 'maxResults' - The maximum number of results to return in this request.
--- * 'scheduledOnOrAfter' - A filter to limit results to those data set contents whose creation is scheduled on or after the given time. See the field @triggers.schedule@ in the @CreateDataset@ request. (timestamp)
+-- | Creates a 'ListDatasetContents' value with any optional fields omitted.
 mkListDatasetContents ::
   -- | 'datasetName'
-  Lude.Text ->
+  Types.DatasetName ->
   ListDatasetContents
-mkListDatasetContents pDatasetName_ =
+mkListDatasetContents datasetName =
   ListDatasetContents'
-    { nextToken = Lude.Nothing,
-      datasetName = pDatasetName_,
-      scheduledBefore = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      scheduledOnOrAfter = Lude.Nothing
+    { datasetName,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      scheduledBefore = Core.Nothing,
+      scheduledOnOrAfter = Core.Nothing
     }
-
--- | The token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcNextToken :: Lens.Lens' ListDatasetContents (Lude.Maybe Lude.Text)
-ldcNextToken = Lens.lens (nextToken :: ListDatasetContents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatasetContents)
-{-# DEPRECATED ldcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the data set whose contents information you want to list.
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcDatasetName :: Lens.Lens' ListDatasetContents Lude.Text
-ldcDatasetName = Lens.lens (datasetName :: ListDatasetContents -> Lude.Text) (\s a -> s {datasetName = a} :: ListDatasetContents)
+ldcDatasetName :: Lens.Lens' ListDatasetContents Types.DatasetName
+ldcDatasetName = Lens.field @"datasetName"
 {-# DEPRECATED ldcDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
-
--- | A filter to limit results to those data set contents whose creation is scheduled before the given time. See the field @triggers.schedule@ in the @CreateDataset@ request. (timestamp)
---
--- /Note:/ Consider using 'scheduledBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcScheduledBefore :: Lens.Lens' ListDatasetContents (Lude.Maybe Lude.Timestamp)
-ldcScheduledBefore = Lens.lens (scheduledBefore :: ListDatasetContents -> Lude.Maybe Lude.Timestamp) (\s a -> s {scheduledBefore = a} :: ListDatasetContents)
-{-# DEPRECATED ldcScheduledBefore "Use generic-lens or generic-optics with 'scheduledBefore' instead." #-}
 
 -- | The maximum number of results to return in this request.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcMaxResults :: Lens.Lens' ListDatasetContents (Lude.Maybe Lude.Natural)
-ldcMaxResults = Lens.lens (maxResults :: ListDatasetContents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDatasetContents)
+ldcMaxResults :: Lens.Lens' ListDatasetContents (Core.Maybe Core.Natural)
+ldcMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ldcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcNextToken :: Lens.Lens' ListDatasetContents (Core.Maybe Types.NextToken)
+ldcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A filter to limit results to those data set contents whose creation is scheduled before the given time. See the field @triggers.schedule@ in the @CreateDataset@ request. (timestamp)
+--
+-- /Note:/ Consider using 'scheduledBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcScheduledBefore :: Lens.Lens' ListDatasetContents (Core.Maybe Core.NominalDiffTime)
+ldcScheduledBefore = Lens.field @"scheduledBefore"
+{-# DEPRECATED ldcScheduledBefore "Use generic-lens or generic-optics with 'scheduledBefore' instead." #-}
 
 -- | A filter to limit results to those data set contents whose creation is scheduled on or after the given time. See the field @triggers.schedule@ in the @CreateDataset@ request. (timestamp)
 --
 -- /Note:/ Consider using 'scheduledOnOrAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcScheduledOnOrAfter :: Lens.Lens' ListDatasetContents (Lude.Maybe Lude.Timestamp)
-ldcScheduledOnOrAfter = Lens.lens (scheduledOnOrAfter :: ListDatasetContents -> Lude.Maybe Lude.Timestamp) (\s a -> s {scheduledOnOrAfter = a} :: ListDatasetContents)
+ldcScheduledOnOrAfter :: Lens.Lens' ListDatasetContents (Core.Maybe Core.NominalDiffTime)
+ldcScheduledOnOrAfter = Lens.field @"scheduledOnOrAfter"
 {-# DEPRECATED ldcScheduledOnOrAfter "Use generic-lens or generic-optics with 'scheduledOnOrAfter' instead." #-}
 
-instance Page.AWSPager ListDatasetContents where
-  page rq rs
-    | Page.stop (rs Lens.^. ldcrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldcrsDatasetContentSummaries) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldcNextToken Lens..~ rs Lens.^. ldcrsNextToken
-
-instance Lude.AWSRequest ListDatasetContents where
+instance Core.AWSRequest ListDatasetContents where
   type Rs ListDatasetContents = ListDatasetContentsResponse
-  request = Req.get ioTAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/datasets/" Core.<> (Core.toText datasetName)
+                Core.<> ("/contents")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "scheduledBefore" Core.<$> scheduledBefore)
+            Core.<> ( Core.toQueryValue "scheduledOnOrAfter"
+                        Core.<$> scheduledOnOrAfter
+                    ),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListDatasetContentsResponse'
-            Lude.<$> (x Lude..?> "datasetContentSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "datasetContentSummaries")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListDatasetContents where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListDatasetContents where
-  toPath ListDatasetContents' {..} =
-    Lude.mconcat ["/datasets/", Lude.toBS datasetName, "/contents"]
-
-instance Lude.ToQuery ListDatasetContents where
-  toQuery ListDatasetContents' {..} =
-    Lude.mconcat
-      [ "nextToken" Lude.=: nextToken,
-        "scheduledBefore" Lude.=: scheduledBefore,
-        "maxResults" Lude.=: maxResults,
-        "scheduledOnOrAfter" Lude.=: scheduledOnOrAfter
-      ]
+instance Pager.AWSPager ListDatasetContents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"datasetContentSummaries" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListDatasetContentsResponse' smart constructor.
 data ListDatasetContentsResponse = ListDatasetContentsResponse'
   { -- | Summary information about data set contents that have been created.
-    datasetContentSummaries :: Lude.Maybe [DatasetContentSummary],
+    datasetContentSummaries :: Core.Maybe [Types.DatasetContentSummary],
     -- | The token to retrieve the next set of results, or @null@ if there are no more results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListDatasetContentsResponse' with the minimum fields required to make a request.
---
--- * 'datasetContentSummaries' - Summary information about data set contents that have been created.
--- * 'nextToken' - The token to retrieve the next set of results, or @null@ if there are no more results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDatasetContentsResponse' value with any optional fields omitted.
 mkListDatasetContentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDatasetContentsResponse
-mkListDatasetContentsResponse pResponseStatus_ =
+mkListDatasetContentsResponse responseStatus =
   ListDatasetContentsResponse'
     { datasetContentSummaries =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Summary information about data set contents that have been created.
 --
 -- /Note:/ Consider using 'datasetContentSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcrsDatasetContentSummaries :: Lens.Lens' ListDatasetContentsResponse (Lude.Maybe [DatasetContentSummary])
-ldcrsDatasetContentSummaries = Lens.lens (datasetContentSummaries :: ListDatasetContentsResponse -> Lude.Maybe [DatasetContentSummary]) (\s a -> s {datasetContentSummaries = a} :: ListDatasetContentsResponse)
-{-# DEPRECATED ldcrsDatasetContentSummaries "Use generic-lens or generic-optics with 'datasetContentSummaries' instead." #-}
+ldcrrsDatasetContentSummaries :: Lens.Lens' ListDatasetContentsResponse (Core.Maybe [Types.DatasetContentSummary])
+ldcrrsDatasetContentSummaries = Lens.field @"datasetContentSummaries"
+{-# DEPRECATED ldcrrsDatasetContentSummaries "Use generic-lens or generic-optics with 'datasetContentSummaries' instead." #-}
 
 -- | The token to retrieve the next set of results, or @null@ if there are no more results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcrsNextToken :: Lens.Lens' ListDatasetContentsResponse (Lude.Maybe Lude.Text)
-ldcrsNextToken = Lens.lens (nextToken :: ListDatasetContentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatasetContentsResponse)
-{-# DEPRECATED ldcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ldcrrsNextToken :: Lens.Lens' ListDatasetContentsResponse (Core.Maybe Types.NextToken)
+ldcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldcrsResponseStatus :: Lens.Lens' ListDatasetContentsResponse Lude.Int
-ldcrsResponseStatus = Lens.lens (responseStatus :: ListDatasetContentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDatasetContentsResponse)
-{-# DEPRECATED ldcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldcrrsResponseStatus :: Lens.Lens' ListDatasetContentsResponse Core.Int
+ldcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -34,127 +34,123 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     mkRegisterInstancesWithLoadBalancerResponse,
 
     -- ** Response lenses
-    riwlbrsInstances,
-    riwlbrsResponseStatus,
+    riwlbrrsInstances,
+    riwlbrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for RegisterInstancesWithLoadBalancer.
 --
 -- /See:/ 'mkRegisterInstancesWithLoadBalancer' smart constructor.
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text,
+    loadBalancerName :: Types.AccessPointName,
     -- | The IDs of the instances.
-    instances :: [Instance]
+    instances :: [Types.Instance]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterInstancesWithLoadBalancer' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'instances' - The IDs of the instances.
+-- | Creates a 'RegisterInstancesWithLoadBalancer' value with any optional fields omitted.
 mkRegisterInstancesWithLoadBalancer ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
   RegisterInstancesWithLoadBalancer
-mkRegisterInstancesWithLoadBalancer pLoadBalancerName_ =
+mkRegisterInstancesWithLoadBalancer loadBalancerName =
   RegisterInstancesWithLoadBalancer'
-    { loadBalancerName =
-        pLoadBalancerName_,
-      instances = Lude.mempty
+    { loadBalancerName,
+      instances = Core.mempty
     }
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riwlbLoadBalancerName :: Lens.Lens' RegisterInstancesWithLoadBalancer Lude.Text
-riwlbLoadBalancerName = Lens.lens (loadBalancerName :: RegisterInstancesWithLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: RegisterInstancesWithLoadBalancer)
+riwlbLoadBalancerName :: Lens.Lens' RegisterInstancesWithLoadBalancer Types.AccessPointName
+riwlbLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED riwlbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The IDs of the instances.
 --
 -- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riwlbInstances :: Lens.Lens' RegisterInstancesWithLoadBalancer [Instance]
-riwlbInstances = Lens.lens (instances :: RegisterInstancesWithLoadBalancer -> [Instance]) (\s a -> s {instances = a} :: RegisterInstancesWithLoadBalancer)
+riwlbInstances :: Lens.Lens' RegisterInstancesWithLoadBalancer [Types.Instance]
+riwlbInstances = Lens.field @"instances"
 {-# DEPRECATED riwlbInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
-instance Lude.AWSRequest RegisterInstancesWithLoadBalancer where
+instance Core.AWSRequest RegisterInstancesWithLoadBalancer where
   type
     Rs RegisterInstancesWithLoadBalancer =
       RegisterInstancesWithLoadBalancerResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RegisterInstancesWithLoadBalancer")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> ( Core.toQueryValue
+                            "Instances"
+                            (Core.toQueryList "member" instances)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "RegisterInstancesWithLoadBalancerResult"
       ( \s h x ->
           RegisterInstancesWithLoadBalancerResponse'
-            Lude.<$> ( x Lude..@? "Instances" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Instances" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterInstancesWithLoadBalancer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RegisterInstancesWithLoadBalancer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterInstancesWithLoadBalancer where
-  toQuery RegisterInstancesWithLoadBalancer' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("RegisterInstancesWithLoadBalancer" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "Instances" Lude.=: Lude.toQueryList "member" instances
-      ]
 
 -- | Contains the output of RegisterInstancesWithLoadBalancer.
 --
 -- /See:/ 'mkRegisterInstancesWithLoadBalancerResponse' smart constructor.
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
   { -- | The updated list of instances for the load balancer.
-    instances :: Lude.Maybe [Instance],
+    instances :: Core.Maybe [Types.Instance],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterInstancesWithLoadBalancerResponse' with the minimum fields required to make a request.
---
--- * 'instances' - The updated list of instances for the load balancer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterInstancesWithLoadBalancerResponse' value with any optional fields omitted.
 mkRegisterInstancesWithLoadBalancerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterInstancesWithLoadBalancerResponse
-mkRegisterInstancesWithLoadBalancerResponse pResponseStatus_ =
+mkRegisterInstancesWithLoadBalancerResponse responseStatus =
   RegisterInstancesWithLoadBalancerResponse'
     { instances =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The updated list of instances for the load balancer.
 --
 -- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riwlbrsInstances :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse (Lude.Maybe [Instance])
-riwlbrsInstances = Lens.lens (instances :: RegisterInstancesWithLoadBalancerResponse -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: RegisterInstancesWithLoadBalancerResponse)
-{-# DEPRECATED riwlbrsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+riwlbrrsInstances :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse (Core.Maybe [Types.Instance])
+riwlbrrsInstances = Lens.field @"instances"
+{-# DEPRECATED riwlbrrsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riwlbrsResponseStatus :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse Lude.Int
-riwlbrsResponseStatus = Lens.lens (responseStatus :: RegisterInstancesWithLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterInstancesWithLoadBalancerResponse)
-{-# DEPRECATED riwlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+riwlbrrsResponseStatus :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse Core.Int
+riwlbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED riwlbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

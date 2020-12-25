@@ -606,7 +606,7 @@ responseDescribeApplications =
   res
     "DescribeApplicationsResponse"
     "fixture/DescribeApplicationsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeApplications)
 
 responseUpdateEnvironment :: EnvironmentDescription -> TestTree
@@ -614,7 +614,7 @@ responseUpdateEnvironment =
   res
     "UpdateEnvironmentResponse"
     "fixture/UpdateEnvironmentResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateEnvironment)
 
 responseTerminateEnvironment :: EnvironmentDescription -> TestTree
@@ -622,7 +622,7 @@ responseTerminateEnvironment =
   res
     "TerminateEnvironmentResponse"
     "fixture/TerminateEnvironmentResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy TerminateEnvironment)
 
 responseListPlatformVersions :: ListPlatformVersionsResponse -> TestTree
@@ -630,7 +630,7 @@ responseListPlatformVersions =
   res
     "ListPlatformVersionsResponse"
     "fixture/ListPlatformVersionsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy ListPlatformVersions)
 
 responseDeletePlatformVersion :: DeletePlatformVersionResponse -> TestTree
@@ -638,7 +638,7 @@ responseDeletePlatformVersion =
   res
     "DeletePlatformVersionResponse"
     "fixture/DeletePlatformVersionResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DeletePlatformVersion)
 
 responseCreateApplicationVersion :: ApplicationVersionDescriptionMessage -> TestTree
@@ -646,7 +646,7 @@ responseCreateApplicationVersion =
   res
     "CreateApplicationVersionResponse"
     "fixture/CreateApplicationVersionResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy CreateApplicationVersion)
 
 responseListPlatformBranches :: ListPlatformBranchesResponse -> TestTree
@@ -654,7 +654,7 @@ responseListPlatformBranches =
   res
     "ListPlatformBranchesResponse"
     "fixture/ListPlatformBranchesResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy ListPlatformBranches)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
@@ -662,7 +662,7 @@ responseDescribeEvents =
   res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEvents)
 
 responseRequestEnvironmentInfo :: RequestEnvironmentInfoResponse -> TestTree
@@ -670,7 +670,7 @@ responseRequestEnvironmentInfo =
   res
     "RequestEnvironmentInfoResponse"
     "fixture/RequestEnvironmentInfoResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy RequestEnvironmentInfo)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -678,7 +678,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseRetrieveEnvironmentInfo :: RetrieveEnvironmentInfoResponse -> TestTree
@@ -686,7 +686,7 @@ responseRetrieveEnvironmentInfo =
   res
     "RetrieveEnvironmentInfoResponse"
     "fixture/RetrieveEnvironmentInfoResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy RetrieveEnvironmentInfo)
 
 responseDescribePlatformVersion :: DescribePlatformVersionResponse -> TestTree
@@ -694,7 +694,7 @@ responseDescribePlatformVersion =
   res
     "DescribePlatformVersionResponse"
     "fixture/DescribePlatformVersionResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribePlatformVersion)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
@@ -702,7 +702,7 @@ responseDeleteApplication =
   res
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApplication)
 
 responseUpdateApplication :: ApplicationDescriptionMessage -> TestTree
@@ -710,7 +710,7 @@ responseUpdateApplication =
   res
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApplication)
 
 responseDescribeInstancesHealth :: DescribeInstancesHealthResponse -> TestTree
@@ -718,7 +718,7 @@ responseDescribeInstancesHealth =
   res
     "DescribeInstancesHealthResponse"
     "fixture/DescribeInstancesHealthResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeInstancesHealth)
 
 responseCreateApplication :: ApplicationDescriptionMessage -> TestTree
@@ -726,7 +726,7 @@ responseCreateApplication =
   res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy CreateApplication)
 
 responseComposeEnvironments :: EnvironmentDescriptionsMessage -> TestTree
@@ -734,7 +734,7 @@ responseComposeEnvironments =
   res
     "ComposeEnvironmentsResponse"
     "fixture/ComposeEnvironmentsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy ComposeEnvironments)
 
 responseAbortEnvironmentUpdate :: AbortEnvironmentUpdateResponse -> TestTree
@@ -742,7 +742,7 @@ responseAbortEnvironmentUpdate =
   res
     "AbortEnvironmentUpdateResponse"
     "fixture/AbortEnvironmentUpdateResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy AbortEnvironmentUpdate)
 
 responseDeleteConfigurationTemplate :: DeleteConfigurationTemplateResponse -> TestTree
@@ -750,7 +750,7 @@ responseDeleteConfigurationTemplate =
   res
     "DeleteConfigurationTemplateResponse"
     "fixture/DeleteConfigurationTemplateResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DeleteConfigurationTemplate)
 
 responseUpdateConfigurationTemplate :: ConfigurationSettingsDescription -> TestTree
@@ -758,7 +758,7 @@ responseUpdateConfigurationTemplate =
   res
     "UpdateConfigurationTemplateResponse"
     "fixture/UpdateConfigurationTemplateResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateConfigurationTemplate)
 
 responseUpdateTagsForResource :: UpdateTagsForResourceResponse -> TestTree
@@ -766,7 +766,7 @@ responseUpdateTagsForResource =
   res
     "UpdateTagsForResourceResponse"
     "fixture/UpdateTagsForResourceResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTagsForResource)
 
 responseDescribeEnvironmentResources :: DescribeEnvironmentResourcesResponse -> TestTree
@@ -774,7 +774,7 @@ responseDescribeEnvironmentResources =
   res
     "DescribeEnvironmentResourcesResponse"
     "fixture/DescribeEnvironmentResourcesResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEnvironmentResources)
 
 responseDescribeEnvironmentManagedActionHistory :: DescribeEnvironmentManagedActionHistoryResponse -> TestTree
@@ -782,7 +782,7 @@ responseDescribeEnvironmentManagedActionHistory =
   res
     "DescribeEnvironmentManagedActionHistoryResponse"
     "fixture/DescribeEnvironmentManagedActionHistoryResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEnvironmentManagedActionHistory)
 
 responseDeleteApplicationVersion :: DeleteApplicationVersionResponse -> TestTree
@@ -790,7 +790,7 @@ responseDeleteApplicationVersion =
   res
     "DeleteApplicationVersionResponse"
     "fixture/DeleteApplicationVersionResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApplicationVersion)
 
 responseUpdateApplicationVersion :: ApplicationVersionDescriptionMessage -> TestTree
@@ -798,7 +798,7 @@ responseUpdateApplicationVersion =
   res
     "UpdateApplicationVersionResponse"
     "fixture/UpdateApplicationVersionResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApplicationVersion)
 
 responseCreateConfigurationTemplate :: ConfigurationSettingsDescription -> TestTree
@@ -806,7 +806,7 @@ responseCreateConfigurationTemplate =
   res
     "CreateConfigurationTemplateResponse"
     "fixture/CreateConfigurationTemplateResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy CreateConfigurationTemplate)
 
 responseDescribeEnvironmentHealth :: DescribeEnvironmentHealthResponse -> TestTree
@@ -814,7 +814,7 @@ responseDescribeEnvironmentHealth =
   res
     "DescribeEnvironmentHealthResponse"
     "fixture/DescribeEnvironmentHealthResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEnvironmentHealth)
 
 responseRebuildEnvironment :: RebuildEnvironmentResponse -> TestTree
@@ -822,7 +822,7 @@ responseRebuildEnvironment =
   res
     "RebuildEnvironmentResponse"
     "fixture/RebuildEnvironmentResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy RebuildEnvironment)
 
 responseDeleteEnvironmentConfiguration :: DeleteEnvironmentConfigurationResponse -> TestTree
@@ -830,7 +830,7 @@ responseDeleteEnvironmentConfiguration =
   res
     "DeleteEnvironmentConfigurationResponse"
     "fixture/DeleteEnvironmentConfigurationResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEnvironmentConfiguration)
 
 responseUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycleResponse -> TestTree
@@ -838,7 +838,7 @@ responseUpdateApplicationResourceLifecycle =
   res
     "UpdateApplicationResourceLifecycleResponse"
     "fixture/UpdateApplicationResourceLifecycleResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApplicationResourceLifecycle)
 
 responseSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEsResponse -> TestTree
@@ -846,7 +846,7 @@ responseSwapEnvironmentCNAMEs =
   res
     "SwapEnvironmentCNAMEsResponse"
     "fixture/SwapEnvironmentCNAMEsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy SwapEnvironmentCNAMEs)
 
 responseListAvailableSolutionStacks :: ListAvailableSolutionStacksResponse -> TestTree
@@ -854,7 +854,7 @@ responseListAvailableSolutionStacks =
   res
     "ListAvailableSolutionStacksResponse"
     "fixture/ListAvailableSolutionStacksResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy ListAvailableSolutionStacks)
 
 responseApplyEnvironmentManagedAction :: ApplyEnvironmentManagedActionResponse -> TestTree
@@ -862,7 +862,7 @@ responseApplyEnvironmentManagedAction =
   res
     "ApplyEnvironmentManagedActionResponse"
     "fixture/ApplyEnvironmentManagedActionResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy ApplyEnvironmentManagedAction)
 
 responseDescribeConfigurationOptions :: DescribeConfigurationOptionsResponse -> TestTree
@@ -870,7 +870,7 @@ responseDescribeConfigurationOptions =
   res
     "DescribeConfigurationOptionsResponse"
     "fixture/DescribeConfigurationOptionsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeConfigurationOptions)
 
 responseDisassociateEnvironmentOperationsRole :: DisassociateEnvironmentOperationsRoleResponse -> TestTree
@@ -878,7 +878,7 @@ responseDisassociateEnvironmentOperationsRole =
   res
     "DisassociateEnvironmentOperationsRoleResponse"
     "fixture/DisassociateEnvironmentOperationsRoleResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateEnvironmentOperationsRole)
 
 responseCreateStorageLocation :: CreateStorageLocationResponse -> TestTree
@@ -886,7 +886,7 @@ responseCreateStorageLocation =
   res
     "CreateStorageLocationResponse"
     "fixture/CreateStorageLocationResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy CreateStorageLocation)
 
 responseDescribeEnvironmentManagedActions :: DescribeEnvironmentManagedActionsResponse -> TestTree
@@ -894,7 +894,7 @@ responseDescribeEnvironmentManagedActions =
   res
     "DescribeEnvironmentManagedActionsResponse"
     "fixture/DescribeEnvironmentManagedActionsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEnvironmentManagedActions)
 
 responseDescribeConfigurationSettings :: DescribeConfigurationSettingsResponse -> TestTree
@@ -902,7 +902,7 @@ responseDescribeConfigurationSettings =
   res
     "DescribeConfigurationSettingsResponse"
     "fixture/DescribeConfigurationSettingsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeConfigurationSettings)
 
 responseValidateConfigurationSettings :: ValidateConfigurationSettingsResponse -> TestTree
@@ -910,7 +910,7 @@ responseValidateConfigurationSettings =
   res
     "ValidateConfigurationSettingsResponse"
     "fixture/ValidateConfigurationSettingsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy ValidateConfigurationSettings)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
@@ -918,7 +918,7 @@ responseDescribeAccountAttributes =
   res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountAttributes)
 
 responseAssociateEnvironmentOperationsRole :: AssociateEnvironmentOperationsRoleResponse -> TestTree
@@ -926,7 +926,7 @@ responseAssociateEnvironmentOperationsRole =
   res
     "AssociateEnvironmentOperationsRoleResponse"
     "fixture/AssociateEnvironmentOperationsRoleResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy AssociateEnvironmentOperationsRole)
 
 responseRestartAppServer :: RestartAppServerResponse -> TestTree
@@ -934,7 +934,7 @@ responseRestartAppServer =
   res
     "RestartAppServerResponse"
     "fixture/RestartAppServerResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy RestartAppServer)
 
 responseDescribeEnvironments :: EnvironmentDescriptionsMessage -> TestTree
@@ -942,7 +942,7 @@ responseDescribeEnvironments =
   res
     "DescribeEnvironmentsResponse"
     "fixture/DescribeEnvironmentsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEnvironments)
 
 responseCheckDNSAvailability :: CheckDNSAvailabilityResponse -> TestTree
@@ -950,7 +950,7 @@ responseCheckDNSAvailability =
   res
     "CheckDNSAvailabilityResponse"
     "fixture/CheckDNSAvailabilityResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy CheckDNSAvailability)
 
 responseDescribeApplicationVersions :: DescribeApplicationVersionsResponse -> TestTree
@@ -958,7 +958,7 @@ responseDescribeApplicationVersions =
   res
     "DescribeApplicationVersionsResponse"
     "fixture/DescribeApplicationVersionsResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy DescribeApplicationVersions)
 
 responseCreateEnvironment :: EnvironmentDescription -> TestTree
@@ -966,7 +966,7 @@ responseCreateEnvironment =
   res
     "CreateEnvironmentResponse"
     "fixture/CreateEnvironmentResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy CreateEnvironment)
 
 responseCreatePlatformVersion :: CreatePlatformVersionResponse -> TestTree
@@ -974,5 +974,5 @@ responseCreatePlatformVersion =
   res
     "CreatePlatformVersionResponse"
     "fixture/CreatePlatformVersionResponse.proto"
-    elasticBeanstalkService
+    mkServiceConfig
     (Proxy :: Proxy CreatePlatformVersion)

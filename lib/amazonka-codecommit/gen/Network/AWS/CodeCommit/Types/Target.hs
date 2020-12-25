@@ -17,74 +17,72 @@ module Network.AWS.CodeCommit.Types.Target
     mkTarget,
 
     -- * Lenses
-    tDestinationReference,
     tRepositoryName,
     tSourceReference,
+    tDestinationReference,
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.ReferenceName as Types
+import qualified Network.AWS.CodeCommit.Types.RepositoryName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about a target for a pull request.
 --
 -- /See:/ 'mkTarget' smart constructor.
 data Target = Target'
-  { -- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
-    destinationReference :: Lude.Maybe Lude.Text,
-    -- | The name of the repository that contains the pull request.
-    repositoryName :: Lude.Text,
+  { -- | The name of the repository that contains the pull request.
+    repositoryName :: Types.RepositoryName,
     -- | The branch of the repository that contains the changes for the pull request. Also known as the source branch.
-    sourceReference :: Lude.Text
+    sourceReference :: Types.ReferenceName,
+    -- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
+    destinationReference :: Core.Maybe Types.ReferenceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Target' with the minimum fields required to make a request.
---
--- * 'destinationReference' - The branch of the repository where the pull request changes are merged. Also known as the destination branch.
--- * 'repositoryName' - The name of the repository that contains the pull request.
--- * 'sourceReference' - The branch of the repository that contains the changes for the pull request. Also known as the source branch.
+-- | Creates a 'Target' value with any optional fields omitted.
 mkTarget ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   -- | 'sourceReference'
-  Lude.Text ->
+  Types.ReferenceName ->
   Target
-mkTarget pRepositoryName_ pSourceReference_ =
+mkTarget repositoryName sourceReference =
   Target'
-    { destinationReference = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      sourceReference = pSourceReference_
+    { repositoryName,
+      sourceReference,
+      destinationReference = Core.Nothing
     }
-
--- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
---
--- /Note:/ Consider using 'destinationReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tDestinationReference :: Lens.Lens' Target (Lude.Maybe Lude.Text)
-tDestinationReference = Lens.lens (destinationReference :: Target -> Lude.Maybe Lude.Text) (\s a -> s {destinationReference = a} :: Target)
-{-# DEPRECATED tDestinationReference "Use generic-lens or generic-optics with 'destinationReference' instead." #-}
 
 -- | The name of the repository that contains the pull request.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tRepositoryName :: Lens.Lens' Target Lude.Text
-tRepositoryName = Lens.lens (repositoryName :: Target -> Lude.Text) (\s a -> s {repositoryName = a} :: Target)
+tRepositoryName :: Lens.Lens' Target Types.RepositoryName
+tRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED tRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The branch of the repository that contains the changes for the pull request. Also known as the source branch.
 --
 -- /Note:/ Consider using 'sourceReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tSourceReference :: Lens.Lens' Target Lude.Text
-tSourceReference = Lens.lens (sourceReference :: Target -> Lude.Text) (\s a -> s {sourceReference = a} :: Target)
+tSourceReference :: Lens.Lens' Target Types.ReferenceName
+tSourceReference = Lens.field @"sourceReference"
 {-# DEPRECATED tSourceReference "Use generic-lens or generic-optics with 'sourceReference' instead." #-}
 
-instance Lude.ToJSON Target where
-  toJSON Target' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("destinationReference" Lude..=) Lude.<$> destinationReference,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("sourceReference" Lude..= sourceReference)
+-- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
+--
+-- /Note:/ Consider using 'destinationReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tDestinationReference :: Lens.Lens' Target (Core.Maybe Types.ReferenceName)
+tDestinationReference = Lens.field @"destinationReference"
+{-# DEPRECATED tDestinationReference "Use generic-lens or generic-optics with 'destinationReference' instead." #-}
+
+instance Core.FromJSON Target where
+  toJSON Target {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("sourceReference" Core..= sourceReference),
+            ("destinationReference" Core..=) Core.<$> destinationReference
           ]
       )

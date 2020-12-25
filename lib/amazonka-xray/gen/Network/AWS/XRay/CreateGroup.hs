@@ -20,9 +20,9 @@ module Network.AWS.XRay.CreateGroup
     mkCreateGroup,
 
     -- ** Request lenses
+    cgGroupName,
     cgFilterExpression,
     cgInsightsConfiguration,
-    cgGroupName,
     cgTags,
 
     -- * Destructuring the response
@@ -30,21 +30,23 @@ module Network.AWS.XRay.CreateGroup
     mkCreateGroupResponse,
 
     -- ** Response lenses
-    cgrsGroup,
-    cgrsResponseStatus,
+    cgrrsGroup,
+    cgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | The filter expression defining criteria by which to group traces.
-    filterExpression :: Lude.Maybe Lude.Text,
+  { -- | The case-sensitive name of the new group. Default is a reserved name and names must be unique.
+    groupName :: Types.GroupName,
+    -- | The filter expression defining criteria by which to group traces.
+    filterExpression :: Core.Maybe Types.FilterExpression,
     -- | The structure containing configurations related to insights.
     --
     --
@@ -52,9 +54,7 @@ data CreateGroup = CreateGroup'
     --
     --
     --     * The NotifcationsEnabled boolean can be set to true to enable insights notifications for the new group. Notifications may only be enabled on a group with InsightsEnabled set to true.
-    insightsConfiguration :: Lude.Maybe InsightsConfiguration,
-    -- | The case-sensitive name of the new group. Default is a reserved name and names must be unique.
-    groupName :: Lude.Text,
+    insightsConfiguration :: Core.Maybe Types.InsightsConfiguration,
     -- | A map that contains one or more tag keys and tag values to attach to an X-Ray group. For more information about ways to use tags, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources> in the /AWS General Reference/ .
     --
     -- The following restrictions apply to tags:
@@ -75,61 +75,36 @@ data CreateGroup = CreateGroup'
     --
     --
     --     * Don't use @aws:@ as a prefix for keys; it's reserved for AWS use.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
---
--- * 'filterExpression' - The filter expression defining criteria by which to group traces.
--- * 'insightsConfiguration' - The structure containing configurations related to insights.
---
---
---     * The InsightsEnabled boolean can be set to true to enable insights for the new group or false to disable insights for the new group.
---
---
---     * The NotifcationsEnabled boolean can be set to true to enable insights notifications for the new group. Notifications may only be enabled on a group with InsightsEnabled set to true.
---
---
--- * 'groupName' - The case-sensitive name of the new group. Default is a reserved name and names must be unique.
--- * 'tags' - A map that contains one or more tag keys and tag values to attach to an X-Ray group. For more information about ways to use tags, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources> in the /AWS General Reference/ .
---
--- The following restrictions apply to tags:
---
---     * Maximum number of user-applied tags per resource: 50
---
---
---     * Maximum tag key length: 128 Unicode characters
---
---
---     * Maximum tag value length: 256 Unicode characters
---
---
---     * Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @
---
---
---     * Tag keys and values are case sensitive.
---
---
---     * Don't use @aws:@ as a prefix for keys; it's reserved for AWS use.
+-- | Creates a 'CreateGroup' value with any optional fields omitted.
 mkCreateGroup ::
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupName ->
   CreateGroup
-mkCreateGroup pGroupName_ =
+mkCreateGroup groupName =
   CreateGroup'
-    { filterExpression = Lude.Nothing,
-      insightsConfiguration = Lude.Nothing,
-      groupName = pGroupName_,
-      tags = Lude.Nothing
+    { groupName,
+      filterExpression = Core.Nothing,
+      insightsConfiguration = Core.Nothing,
+      tags = Core.Nothing
     }
+
+-- | The case-sensitive name of the new group. Default is a reserved name and names must be unique.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgGroupName :: Lens.Lens' CreateGroup Types.GroupName
+cgGroupName = Lens.field @"groupName"
+{-# DEPRECATED cgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The filter expression defining criteria by which to group traces.
 --
 -- /Note:/ Consider using 'filterExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgFilterExpression :: Lens.Lens' CreateGroup (Lude.Maybe Lude.Text)
-cgFilterExpression = Lens.lens (filterExpression :: CreateGroup -> Lude.Maybe Lude.Text) (\s a -> s {filterExpression = a} :: CreateGroup)
+cgFilterExpression :: Lens.Lens' CreateGroup (Core.Maybe Types.FilterExpression)
+cgFilterExpression = Lens.field @"filterExpression"
 {-# DEPRECATED cgFilterExpression "Use generic-lens or generic-optics with 'filterExpression' instead." #-}
 
 -- | The structure containing configurations related to insights.
@@ -143,16 +118,9 @@ cgFilterExpression = Lens.lens (filterExpression :: CreateGroup -> Lude.Maybe Lu
 --
 --
 -- /Note:/ Consider using 'insightsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgInsightsConfiguration :: Lens.Lens' CreateGroup (Lude.Maybe InsightsConfiguration)
-cgInsightsConfiguration = Lens.lens (insightsConfiguration :: CreateGroup -> Lude.Maybe InsightsConfiguration) (\s a -> s {insightsConfiguration = a} :: CreateGroup)
+cgInsightsConfiguration :: Lens.Lens' CreateGroup (Core.Maybe Types.InsightsConfiguration)
+cgInsightsConfiguration = Lens.field @"insightsConfiguration"
 {-# DEPRECATED cgInsightsConfiguration "Use generic-lens or generic-optics with 'insightsConfiguration' instead." #-}
-
--- | The case-sensitive name of the new group. Default is a reserved name and names must be unique.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgGroupName :: Lens.Lens' CreateGroup Lude.Text
-cgGroupName = Lens.lens (groupName :: CreateGroup -> Lude.Text) (\s a -> s {groupName = a} :: CreateGroup)
-{-# DEPRECATED cgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | A map that contains one or more tag keys and tag values to attach to an X-Ray group. For more information about ways to use tags, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources> in the /AWS General Reference/ .
 --
@@ -178,74 +146,67 @@ cgGroupName = Lens.lens (groupName :: CreateGroup -> Lude.Text) (\s a -> s {grou
 --
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgTags :: Lens.Lens' CreateGroup (Lude.Maybe [Tag])
-cgTags = Lens.lens (tags :: CreateGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateGroup)
+cgTags :: Lens.Lens' CreateGroup (Core.Maybe [Types.Tag])
+cgTags = Lens.field @"tags"
 {-# DEPRECATED cgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateGroup where
-  type Rs CreateGroup = CreateGroupResponse
-  request = Req.postJSON xRayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateGroupResponse'
-            Lude.<$> (x Lude..?> "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateGroup where
-  toJSON CreateGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("FilterExpression" Lude..=) Lude.<$> filterExpression,
-            ("InsightsConfiguration" Lude..=) Lude.<$> insightsConfiguration,
-            Lude.Just ("GroupName" Lude..= groupName),
-            ("Tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateGroup where
+  toJSON CreateGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GroupName" Core..= groupName),
+            ("FilterExpression" Core..=) Core.<$> filterExpression,
+            ("InsightsConfiguration" Core..=) Core.<$> insightsConfiguration,
+            ("Tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateGroup where
-  toPath = Lude.const "/CreateGroup"
-
-instance Lude.ToQuery CreateGroup where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateGroup where
+  type Rs CreateGroup = CreateGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/CreateGroup",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateGroupResponse'
+            Core.<$> (x Core..:? "Group") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
   { -- | The group that was created. Contains the name of the group that was created, the Amazon Resource Name (ARN) of the group that was generated based on the group name, the filter expression, and the insight configuration that was assigned to the group.
-    group :: Lude.Maybe Group,
+    group :: Core.Maybe Types.Group,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
---
--- * 'group' - The group that was created. Contains the name of the group that was created, the Amazon Resource Name (ARN) of the group that was generated based on the group name, the filter expression, and the insight configuration that was assigned to the group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateGroupResponse' value with any optional fields omitted.
 mkCreateGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateGroupResponse
-mkCreateGroupResponse pResponseStatus_ =
-  CreateGroupResponse'
-    { group = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateGroupResponse responseStatus =
+  CreateGroupResponse' {group = Core.Nothing, responseStatus}
 
 -- | The group that was created. Contains the name of the group that was created, the Amazon Resource Name (ARN) of the group that was generated based on the group name, the filter expression, and the insight configuration that was assigned to the group.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsGroup :: Lens.Lens' CreateGroupResponse (Lude.Maybe Group)
-cgrsGroup = Lens.lens (group :: CreateGroupResponse -> Lude.Maybe Group) (\s a -> s {group = a} :: CreateGroupResponse)
-{-# DEPRECATED cgrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
+cgrrsGroup :: Lens.Lens' CreateGroupResponse (Core.Maybe Types.Group)
+cgrrsGroup = Lens.field @"group"
+{-# DEPRECATED cgrrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsResponseStatus :: Lens.Lens' CreateGroupResponse Lude.Int
-cgrsResponseStatus = Lens.lens (responseStatus :: CreateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGroupResponse)
-{-# DEPRECATED cgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cgrrsResponseStatus :: Lens.Lens' CreateGroupResponse Core.Int
+cgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

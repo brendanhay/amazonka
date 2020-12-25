@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState
   ( TransitGatewayPrefixListReferenceState
       ( TransitGatewayPrefixListReferenceState',
-        TGPLRSPending,
-        TGPLRSAvailable,
-        TGPLRSModifying,
-        TGPLRSDeleting
+        TransitGatewayPrefixListReferenceStatePending,
+        TransitGatewayPrefixListReferenceStateAvailable,
+        TransitGatewayPrefixListReferenceStateModifying,
+        TransitGatewayPrefixListReferenceStateDeleting,
+        fromTransitGatewayPrefixListReferenceState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayPrefixListReferenceState = TransitGatewayPrefixListReferenceState' Lude.Text
+newtype TransitGatewayPrefixListReferenceState = TransitGatewayPrefixListReferenceState'
+  { fromTransitGatewayPrefixListReferenceState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TGPLRSPending :: TransitGatewayPrefixListReferenceState
-pattern TGPLRSPending = TransitGatewayPrefixListReferenceState' "pending"
+pattern TransitGatewayPrefixListReferenceStatePending :: TransitGatewayPrefixListReferenceState
+pattern TransitGatewayPrefixListReferenceStatePending = TransitGatewayPrefixListReferenceState' "pending"
 
-pattern TGPLRSAvailable :: TransitGatewayPrefixListReferenceState
-pattern TGPLRSAvailable = TransitGatewayPrefixListReferenceState' "available"
+pattern TransitGatewayPrefixListReferenceStateAvailable :: TransitGatewayPrefixListReferenceState
+pattern TransitGatewayPrefixListReferenceStateAvailable = TransitGatewayPrefixListReferenceState' "available"
 
-pattern TGPLRSModifying :: TransitGatewayPrefixListReferenceState
-pattern TGPLRSModifying = TransitGatewayPrefixListReferenceState' "modifying"
+pattern TransitGatewayPrefixListReferenceStateModifying :: TransitGatewayPrefixListReferenceState
+pattern TransitGatewayPrefixListReferenceStateModifying = TransitGatewayPrefixListReferenceState' "modifying"
 
-pattern TGPLRSDeleting :: TransitGatewayPrefixListReferenceState
-pattern TGPLRSDeleting = TransitGatewayPrefixListReferenceState' "deleting"
+pattern TransitGatewayPrefixListReferenceStateDeleting :: TransitGatewayPrefixListReferenceState
+pattern TransitGatewayPrefixListReferenceStateDeleting = TransitGatewayPrefixListReferenceState' "deleting"
 
 {-# COMPLETE
-  TGPLRSPending,
-  TGPLRSAvailable,
-  TGPLRSModifying,
-  TGPLRSDeleting,
+  TransitGatewayPrefixListReferenceStatePending,
+  TransitGatewayPrefixListReferenceStateAvailable,
+  TransitGatewayPrefixListReferenceStateModifying,
+  TransitGatewayPrefixListReferenceStateDeleting,
   TransitGatewayPrefixListReferenceState'
   #-}

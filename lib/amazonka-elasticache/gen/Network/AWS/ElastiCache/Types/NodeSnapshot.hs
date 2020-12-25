@@ -17,120 +17,116 @@ module Network.AWS.ElastiCache.Types.NodeSnapshot
     mkNodeSnapshot,
 
     -- * Lenses
-    nsNodeGroupConfiguration,
-    nsCacheNodeCreateTime,
     nsCacheClusterId,
+    nsCacheNodeCreateTime,
     nsCacheNodeId,
+    nsCacheSize,
+    nsNodeGroupConfiguration,
     nsNodeGroupId,
     nsSnapshotCreateTime,
-    nsCacheSize,
   )
 where
 
-import Network.AWS.ElastiCache.Types.NodeGroupConfiguration
+import qualified Network.AWS.ElastiCache.Types.CacheClusterId as Types
+import qualified Network.AWS.ElastiCache.Types.CacheNodeId as Types
+import qualified Network.AWS.ElastiCache.Types.CacheSize as Types
+import qualified Network.AWS.ElastiCache.Types.NodeGroupConfiguration as Types
+import qualified Network.AWS.ElastiCache.Types.NodeGroupId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an individual cache node in a snapshot of a cluster.
 --
 -- /See:/ 'mkNodeSnapshot' smart constructor.
 data NodeSnapshot = NodeSnapshot'
-  { -- | The configuration for the source node group (shard).
-    nodeGroupConfiguration :: Lude.Maybe NodeGroupConfiguration,
+  { -- | A unique identifier for the source cluster.
+    cacheClusterId :: Core.Maybe Types.CacheClusterId,
     -- | The date and time when the cache node was created in the source cluster.
-    cacheNodeCreateTime :: Lude.Maybe Lude.DateTime,
-    -- | A unique identifier for the source cluster.
-    cacheClusterId :: Lude.Maybe Lude.Text,
+    cacheNodeCreateTime :: Core.Maybe Core.UTCTime,
     -- | The cache node identifier for the node in the source cluster.
-    cacheNodeId :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for the source node group (shard).
-    nodeGroupId :: Lude.Maybe Lude.Text,
-    -- | The date and time when the source node's metadata and cache data set was obtained for the snapshot.
-    snapshotCreateTime :: Lude.Maybe Lude.DateTime,
+    cacheNodeId :: Core.Maybe Types.CacheNodeId,
     -- | The size of the cache on the source cache node.
-    cacheSize :: Lude.Maybe Lude.Text
+    cacheSize :: Core.Maybe Types.CacheSize,
+    -- | The configuration for the source node group (shard).
+    nodeGroupConfiguration :: Core.Maybe Types.NodeGroupConfiguration,
+    -- | A unique identifier for the source node group (shard).
+    nodeGroupId :: Core.Maybe Types.NodeGroupId,
+    -- | The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+    snapshotCreateTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'NodeSnapshot' with the minimum fields required to make a request.
---
--- * 'nodeGroupConfiguration' - The configuration for the source node group (shard).
--- * 'cacheNodeCreateTime' - The date and time when the cache node was created in the source cluster.
--- * 'cacheClusterId' - A unique identifier for the source cluster.
--- * 'cacheNodeId' - The cache node identifier for the node in the source cluster.
--- * 'nodeGroupId' - A unique identifier for the source node group (shard).
--- * 'snapshotCreateTime' - The date and time when the source node's metadata and cache data set was obtained for the snapshot.
--- * 'cacheSize' - The size of the cache on the source cache node.
+-- | Creates a 'NodeSnapshot' value with any optional fields omitted.
 mkNodeSnapshot ::
   NodeSnapshot
 mkNodeSnapshot =
   NodeSnapshot'
-    { nodeGroupConfiguration = Lude.Nothing,
-      cacheNodeCreateTime = Lude.Nothing,
-      cacheClusterId = Lude.Nothing,
-      cacheNodeId = Lude.Nothing,
-      nodeGroupId = Lude.Nothing,
-      snapshotCreateTime = Lude.Nothing,
-      cacheSize = Lude.Nothing
+    { cacheClusterId = Core.Nothing,
+      cacheNodeCreateTime = Core.Nothing,
+      cacheNodeId = Core.Nothing,
+      cacheSize = Core.Nothing,
+      nodeGroupConfiguration = Core.Nothing,
+      nodeGroupId = Core.Nothing,
+      snapshotCreateTime = Core.Nothing
     }
-
--- | The configuration for the source node group (shard).
---
--- /Note:/ Consider using 'nodeGroupConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsNodeGroupConfiguration :: Lens.Lens' NodeSnapshot (Lude.Maybe NodeGroupConfiguration)
-nsNodeGroupConfiguration = Lens.lens (nodeGroupConfiguration :: NodeSnapshot -> Lude.Maybe NodeGroupConfiguration) (\s a -> s {nodeGroupConfiguration = a} :: NodeSnapshot)
-{-# DEPRECATED nsNodeGroupConfiguration "Use generic-lens or generic-optics with 'nodeGroupConfiguration' instead." #-}
-
--- | The date and time when the cache node was created in the source cluster.
---
--- /Note:/ Consider using 'cacheNodeCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsCacheNodeCreateTime :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.DateTime)
-nsCacheNodeCreateTime = Lens.lens (cacheNodeCreateTime :: NodeSnapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {cacheNodeCreateTime = a} :: NodeSnapshot)
-{-# DEPRECATED nsCacheNodeCreateTime "Use generic-lens or generic-optics with 'cacheNodeCreateTime' instead." #-}
 
 -- | A unique identifier for the source cluster.
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsCacheClusterId :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.Text)
-nsCacheClusterId = Lens.lens (cacheClusterId :: NodeSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: NodeSnapshot)
+nsCacheClusterId :: Lens.Lens' NodeSnapshot (Core.Maybe Types.CacheClusterId)
+nsCacheClusterId = Lens.field @"cacheClusterId"
 {-# DEPRECATED nsCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
+
+-- | The date and time when the cache node was created in the source cluster.
+--
+-- /Note:/ Consider using 'cacheNodeCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsCacheNodeCreateTime :: Lens.Lens' NodeSnapshot (Core.Maybe Core.UTCTime)
+nsCacheNodeCreateTime = Lens.field @"cacheNodeCreateTime"
+{-# DEPRECATED nsCacheNodeCreateTime "Use generic-lens or generic-optics with 'cacheNodeCreateTime' instead." #-}
 
 -- | The cache node identifier for the node in the source cluster.
 --
 -- /Note:/ Consider using 'cacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsCacheNodeId :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.Text)
-nsCacheNodeId = Lens.lens (cacheNodeId :: NodeSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {cacheNodeId = a} :: NodeSnapshot)
+nsCacheNodeId :: Lens.Lens' NodeSnapshot (Core.Maybe Types.CacheNodeId)
+nsCacheNodeId = Lens.field @"cacheNodeId"
 {-# DEPRECATED nsCacheNodeId "Use generic-lens or generic-optics with 'cacheNodeId' instead." #-}
+
+-- | The size of the cache on the source cache node.
+--
+-- /Note:/ Consider using 'cacheSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsCacheSize :: Lens.Lens' NodeSnapshot (Core.Maybe Types.CacheSize)
+nsCacheSize = Lens.field @"cacheSize"
+{-# DEPRECATED nsCacheSize "Use generic-lens or generic-optics with 'cacheSize' instead." #-}
+
+-- | The configuration for the source node group (shard).
+--
+-- /Note:/ Consider using 'nodeGroupConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsNodeGroupConfiguration :: Lens.Lens' NodeSnapshot (Core.Maybe Types.NodeGroupConfiguration)
+nsNodeGroupConfiguration = Lens.field @"nodeGroupConfiguration"
+{-# DEPRECATED nsNodeGroupConfiguration "Use generic-lens or generic-optics with 'nodeGroupConfiguration' instead." #-}
 
 -- | A unique identifier for the source node group (shard).
 --
 -- /Note:/ Consider using 'nodeGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsNodeGroupId :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.Text)
-nsNodeGroupId = Lens.lens (nodeGroupId :: NodeSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {nodeGroupId = a} :: NodeSnapshot)
+nsNodeGroupId :: Lens.Lens' NodeSnapshot (Core.Maybe Types.NodeGroupId)
+nsNodeGroupId = Lens.field @"nodeGroupId"
 {-# DEPRECATED nsNodeGroupId "Use generic-lens or generic-optics with 'nodeGroupId' instead." #-}
 
 -- | The date and time when the source node's metadata and cache data set was obtained for the snapshot.
 --
 -- /Note:/ Consider using 'snapshotCreateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsSnapshotCreateTime :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.DateTime)
-nsSnapshotCreateTime = Lens.lens (snapshotCreateTime :: NodeSnapshot -> Lude.Maybe Lude.DateTime) (\s a -> s {snapshotCreateTime = a} :: NodeSnapshot)
+nsSnapshotCreateTime :: Lens.Lens' NodeSnapshot (Core.Maybe Core.UTCTime)
+nsSnapshotCreateTime = Lens.field @"snapshotCreateTime"
 {-# DEPRECATED nsSnapshotCreateTime "Use generic-lens or generic-optics with 'snapshotCreateTime' instead." #-}
 
--- | The size of the cache on the source cache node.
---
--- /Note:/ Consider using 'cacheSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsCacheSize :: Lens.Lens' NodeSnapshot (Lude.Maybe Lude.Text)
-nsCacheSize = Lens.lens (cacheSize :: NodeSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {cacheSize = a} :: NodeSnapshot)
-{-# DEPRECATED nsCacheSize "Use generic-lens or generic-optics with 'cacheSize' instead." #-}
-
-instance Lude.FromXML NodeSnapshot where
+instance Core.FromXML NodeSnapshot where
   parseXML x =
     NodeSnapshot'
-      Lude.<$> (x Lude..@? "NodeGroupConfiguration")
-      Lude.<*> (x Lude..@? "CacheNodeCreateTime")
-      Lude.<*> (x Lude..@? "CacheClusterId")
-      Lude.<*> (x Lude..@? "CacheNodeId")
-      Lude.<*> (x Lude..@? "NodeGroupId")
-      Lude.<*> (x Lude..@? "SnapshotCreateTime")
-      Lude.<*> (x Lude..@? "CacheSize")
+      Core.<$> (x Core..@? "CacheClusterId")
+      Core.<*> (x Core..@? "CacheNodeCreateTime")
+      Core.<*> (x Core..@? "CacheNodeId")
+      Core.<*> (x Core..@? "CacheSize")
+      Core.<*> (x Core..@? "NodeGroupConfiguration")
+      Core.<*> (x Core..@? "NodeGroupId")
+      Core.<*> (x Core..@? "SnapshotCreateTime")

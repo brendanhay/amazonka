@@ -20,10 +20,10 @@ module Network.AWS.IoT.AddThingToThingGroup
     mkAddThingToThingGroup,
 
     -- ** Request lenses
-    atttgThingGroupARN,
-    atttgThingARN,
-    atttgThingGroupName,
     atttgOverrideDynamicGroups,
+    atttgThingArn,
+    atttgThingGroupArn,
+    atttgThingGroupName,
     atttgThingName,
 
     -- * Destructuring the response
@@ -31,137 +31,128 @@ module Network.AWS.IoT.AddThingToThingGroup
     mkAddThingToThingGroupResponse,
 
     -- ** Response lenses
-    atttgrsResponseStatus,
+    atttgrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAddThingToThingGroup' smart constructor.
 data AddThingToThingGroup = AddThingToThingGroup'
-  { -- | The ARN of the group to which you are adding a thing.
-    thingGroupARN :: Lude.Maybe Lude.Text,
+  { -- | Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+    overrideDynamicGroups :: Core.Maybe Core.Bool,
     -- | The ARN of the thing to add to a group.
-    thingARN :: Lude.Maybe Lude.Text,
+    thingArn :: Core.Maybe Types.ThingArn,
+    -- | The ARN of the group to which you are adding a thing.
+    thingGroupArn :: Core.Maybe Types.ThingGroupArn,
     -- | The name of the group to which you are adding a thing.
-    thingGroupName :: Lude.Maybe Lude.Text,
-    -- | Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-    overrideDynamicGroups :: Lude.Maybe Lude.Bool,
+    thingGroupName :: Core.Maybe Types.ThingGroupName,
     -- | The name of the thing to add to a group.
-    thingName :: Lude.Maybe Lude.Text
+    thingName :: Core.Maybe Types.ThingName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddThingToThingGroup' with the minimum fields required to make a request.
---
--- * 'thingGroupARN' - The ARN of the group to which you are adding a thing.
--- * 'thingARN' - The ARN of the thing to add to a group.
--- * 'thingGroupName' - The name of the group to which you are adding a thing.
--- * 'overrideDynamicGroups' - Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
--- * 'thingName' - The name of the thing to add to a group.
+-- | Creates a 'AddThingToThingGroup' value with any optional fields omitted.
 mkAddThingToThingGroup ::
   AddThingToThingGroup
 mkAddThingToThingGroup =
   AddThingToThingGroup'
-    { thingGroupARN = Lude.Nothing,
-      thingARN = Lude.Nothing,
-      thingGroupName = Lude.Nothing,
-      overrideDynamicGroups = Lude.Nothing,
-      thingName = Lude.Nothing
+    { overrideDynamicGroups = Core.Nothing,
+      thingArn = Core.Nothing,
+      thingGroupArn = Core.Nothing,
+      thingGroupName = Core.Nothing,
+      thingName = Core.Nothing
     }
-
--- | The ARN of the group to which you are adding a thing.
---
--- /Note:/ Consider using 'thingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atttgThingGroupARN :: Lens.Lens' AddThingToThingGroup (Lude.Maybe Lude.Text)
-atttgThingGroupARN = Lens.lens (thingGroupARN :: AddThingToThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupARN = a} :: AddThingToThingGroup)
-{-# DEPRECATED atttgThingGroupARN "Use generic-lens or generic-optics with 'thingGroupARN' instead." #-}
-
--- | The ARN of the thing to add to a group.
---
--- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atttgThingARN :: Lens.Lens' AddThingToThingGroup (Lude.Maybe Lude.Text)
-atttgThingARN = Lens.lens (thingARN :: AddThingToThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: AddThingToThingGroup)
-{-# DEPRECATED atttgThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
-
--- | The name of the group to which you are adding a thing.
---
--- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atttgThingGroupName :: Lens.Lens' AddThingToThingGroup (Lude.Maybe Lude.Text)
-atttgThingGroupName = Lens.lens (thingGroupName :: AddThingToThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupName = a} :: AddThingToThingGroup)
-{-# DEPRECATED atttgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 --
 -- /Note:/ Consider using 'overrideDynamicGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atttgOverrideDynamicGroups :: Lens.Lens' AddThingToThingGroup (Lude.Maybe Lude.Bool)
-atttgOverrideDynamicGroups = Lens.lens (overrideDynamicGroups :: AddThingToThingGroup -> Lude.Maybe Lude.Bool) (\s a -> s {overrideDynamicGroups = a} :: AddThingToThingGroup)
+atttgOverrideDynamicGroups :: Lens.Lens' AddThingToThingGroup (Core.Maybe Core.Bool)
+atttgOverrideDynamicGroups = Lens.field @"overrideDynamicGroups"
 {-# DEPRECATED atttgOverrideDynamicGroups "Use generic-lens or generic-optics with 'overrideDynamicGroups' instead." #-}
+
+-- | The ARN of the thing to add to a group.
+--
+-- /Note:/ Consider using 'thingArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atttgThingArn :: Lens.Lens' AddThingToThingGroup (Core.Maybe Types.ThingArn)
+atttgThingArn = Lens.field @"thingArn"
+{-# DEPRECATED atttgThingArn "Use generic-lens or generic-optics with 'thingArn' instead." #-}
+
+-- | The ARN of the group to which you are adding a thing.
+--
+-- /Note:/ Consider using 'thingGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atttgThingGroupArn :: Lens.Lens' AddThingToThingGroup (Core.Maybe Types.ThingGroupArn)
+atttgThingGroupArn = Lens.field @"thingGroupArn"
+{-# DEPRECATED atttgThingGroupArn "Use generic-lens or generic-optics with 'thingGroupArn' instead." #-}
+
+-- | The name of the group to which you are adding a thing.
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atttgThingGroupName :: Lens.Lens' AddThingToThingGroup (Core.Maybe Types.ThingGroupName)
+atttgThingGroupName = Lens.field @"thingGroupName"
+{-# DEPRECATED atttgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The name of the thing to add to a group.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atttgThingName :: Lens.Lens' AddThingToThingGroup (Lude.Maybe Lude.Text)
-atttgThingName = Lens.lens (thingName :: AddThingToThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: AddThingToThingGroup)
+atttgThingName :: Lens.Lens' AddThingToThingGroup (Core.Maybe Types.ThingName)
+atttgThingName = Lens.field @"thingName"
 {-# DEPRECATED atttgThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest AddThingToThingGroup where
-  type Rs AddThingToThingGroup = AddThingToThingGroupResponse
-  request = Req.putJSON ioTService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          AddThingToThingGroupResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders AddThingToThingGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON AddThingToThingGroup where
-  toJSON AddThingToThingGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("thingGroupArn" Lude..=) Lude.<$> thingGroupARN,
-            ("thingArn" Lude..=) Lude.<$> thingARN,
-            ("thingGroupName" Lude..=) Lude.<$> thingGroupName,
-            ("overrideDynamicGroups" Lude..=) Lude.<$> overrideDynamicGroups,
-            ("thingName" Lude..=) Lude.<$> thingName
+instance Core.FromJSON AddThingToThingGroup where
+  toJSON AddThingToThingGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("overrideDynamicGroups" Core..=) Core.<$> overrideDynamicGroups,
+            ("thingArn" Core..=) Core.<$> thingArn,
+            ("thingGroupArn" Core..=) Core.<$> thingGroupArn,
+            ("thingGroupName" Core..=) Core.<$> thingGroupName,
+            ("thingName" Core..=) Core.<$> thingName
           ]
       )
 
-instance Lude.ToPath AddThingToThingGroup where
-  toPath = Lude.const "/thing-groups/addThingToThingGroup"
-
-instance Lude.ToQuery AddThingToThingGroup where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest AddThingToThingGroup where
+  type Rs AddThingToThingGroup = AddThingToThingGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath "/thing-groups/addThingToThingGroup",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AddThingToThingGroupResponse'
+            Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkAddThingToThingGroupResponse' smart constructor.
 newtype AddThingToThingGroupResponse = AddThingToThingGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddThingToThingGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddThingToThingGroupResponse' value with any optional fields omitted.
 mkAddThingToThingGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddThingToThingGroupResponse
-mkAddThingToThingGroupResponse pResponseStatus_ =
-  AddThingToThingGroupResponse' {responseStatus = pResponseStatus_}
+mkAddThingToThingGroupResponse responseStatus =
+  AddThingToThingGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atttgrsResponseStatus :: Lens.Lens' AddThingToThingGroupResponse Lude.Int
-atttgrsResponseStatus = Lens.lens (responseStatus :: AddThingToThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddThingToThingGroupResponse)
-{-# DEPRECATED atttgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atttgrrsResponseStatus :: Lens.Lens' AddThingToThingGroupResponse Core.Int
+atttgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atttgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,56 +13,61 @@
 module Network.AWS.DeviceFarm.Types.InstanceStatus
   ( InstanceStatus
       ( InstanceStatus',
-        ISInUse,
-        ISPreparing,
-        ISAvailable,
-        ISNotAvailable
+        InstanceStatusInUse,
+        InstanceStatusPreparing,
+        InstanceStatusAvailable,
+        InstanceStatusNotAvailable,
+        fromInstanceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceStatus = InstanceStatus' Lude.Text
+newtype InstanceStatus = InstanceStatus'
+  { fromInstanceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISInUse :: InstanceStatus
-pattern ISInUse = InstanceStatus' "IN_USE"
+pattern InstanceStatusInUse :: InstanceStatus
+pattern InstanceStatusInUse = InstanceStatus' "IN_USE"
 
-pattern ISPreparing :: InstanceStatus
-pattern ISPreparing = InstanceStatus' "PREPARING"
+pattern InstanceStatusPreparing :: InstanceStatus
+pattern InstanceStatusPreparing = InstanceStatus' "PREPARING"
 
-pattern ISAvailable :: InstanceStatus
-pattern ISAvailable = InstanceStatus' "AVAILABLE"
+pattern InstanceStatusAvailable :: InstanceStatus
+pattern InstanceStatusAvailable = InstanceStatus' "AVAILABLE"
 
-pattern ISNotAvailable :: InstanceStatus
-pattern ISNotAvailable = InstanceStatus' "NOT_AVAILABLE"
+pattern InstanceStatusNotAvailable :: InstanceStatus
+pattern InstanceStatusNotAvailable = InstanceStatus' "NOT_AVAILABLE"
 
 {-# COMPLETE
-  ISInUse,
-  ISPreparing,
-  ISAvailable,
-  ISNotAvailable,
+  InstanceStatusInUse,
+  InstanceStatusPreparing,
+  InstanceStatusAvailable,
+  InstanceStatusNotAvailable,
   InstanceStatus'
   #-}

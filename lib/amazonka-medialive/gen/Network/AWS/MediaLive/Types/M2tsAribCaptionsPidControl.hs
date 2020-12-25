@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M2tsAribCaptionsPidControl
   ( M2tsAribCaptionsPidControl
       ( M2tsAribCaptionsPidControl',
-        MACPCAuto,
-        MACPCUseConfigured
+        M2tsAribCaptionsPidControlAuto,
+        M2tsAribCaptionsPidControlUseConfigured,
+        fromM2tsAribCaptionsPidControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Arib Captions Pid Control
-newtype M2tsAribCaptionsPidControl = M2tsAribCaptionsPidControl' Lude.Text
+newtype M2tsAribCaptionsPidControl = M2tsAribCaptionsPidControl'
+  { fromM2tsAribCaptionsPidControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MACPCAuto :: M2tsAribCaptionsPidControl
-pattern MACPCAuto = M2tsAribCaptionsPidControl' "AUTO"
+pattern M2tsAribCaptionsPidControlAuto :: M2tsAribCaptionsPidControl
+pattern M2tsAribCaptionsPidControlAuto = M2tsAribCaptionsPidControl' "AUTO"
 
-pattern MACPCUseConfigured :: M2tsAribCaptionsPidControl
-pattern MACPCUseConfigured = M2tsAribCaptionsPidControl' "USE_CONFIGURED"
+pattern M2tsAribCaptionsPidControlUseConfigured :: M2tsAribCaptionsPidControl
+pattern M2tsAribCaptionsPidControlUseConfigured = M2tsAribCaptionsPidControl' "USE_CONFIGURED"
 
 {-# COMPLETE
-  MACPCAuto,
-  MACPCUseConfigured,
+  M2tsAribCaptionsPidControlAuto,
+  M2tsAribCaptionsPidControlUseConfigured,
   M2tsAribCaptionsPidControl'
   #-}

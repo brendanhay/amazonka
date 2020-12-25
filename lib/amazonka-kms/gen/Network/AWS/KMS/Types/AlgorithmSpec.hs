@@ -13,51 +13,56 @@
 module Network.AWS.KMS.Types.AlgorithmSpec
   ( AlgorithmSpec
       ( AlgorithmSpec',
-        ASRsaesPKCS1V15,
-        ASRsaesOaepSha1,
-        ASRsaesOaepSha256
+        AlgorithmSpecRsaesPKCS1V15,
+        AlgorithmSpecRsaesOaepSha1,
+        AlgorithmSpecRsaesOaepSha256,
+        fromAlgorithmSpec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AlgorithmSpec = AlgorithmSpec' Lude.Text
+newtype AlgorithmSpec = AlgorithmSpec'
+  { fromAlgorithmSpec ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASRsaesPKCS1V15 :: AlgorithmSpec
-pattern ASRsaesPKCS1V15 = AlgorithmSpec' "RSAES_PKCS1_V1_5"
+pattern AlgorithmSpecRsaesPKCS1V15 :: AlgorithmSpec
+pattern AlgorithmSpecRsaesPKCS1V15 = AlgorithmSpec' "RSAES_PKCS1_V1_5"
 
-pattern ASRsaesOaepSha1 :: AlgorithmSpec
-pattern ASRsaesOaepSha1 = AlgorithmSpec' "RSAES_OAEP_SHA_1"
+pattern AlgorithmSpecRsaesOaepSha1 :: AlgorithmSpec
+pattern AlgorithmSpecRsaesOaepSha1 = AlgorithmSpec' "RSAES_OAEP_SHA_1"
 
-pattern ASRsaesOaepSha256 :: AlgorithmSpec
-pattern ASRsaesOaepSha256 = AlgorithmSpec' "RSAES_OAEP_SHA_256"
+pattern AlgorithmSpecRsaesOaepSha256 :: AlgorithmSpec
+pattern AlgorithmSpecRsaesOaepSha256 = AlgorithmSpec' "RSAES_OAEP_SHA_256"
 
 {-# COMPLETE
-  ASRsaesPKCS1V15,
-  ASRsaesOaepSha1,
-  ASRsaesOaepSha256,
+  AlgorithmSpecRsaesPKCS1V15,
+  AlgorithmSpecRsaesOaepSha1,
+  AlgorithmSpecRsaesOaepSha256,
   AlgorithmSpec'
   #-}

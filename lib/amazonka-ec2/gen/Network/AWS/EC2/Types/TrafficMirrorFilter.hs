@@ -17,117 +17,107 @@ module Network.AWS.EC2.Types.TrafficMirrorFilter
     mkTrafficMirrorFilter,
 
     -- * Lenses
-    tmfTrafficMirrorFilterId,
+    tmfDescription,
+    tmfEgressFilterRules,
     tmfIngressFilterRules,
     tmfNetworkServices,
-    tmfEgressFilterRules,
-    tmfDescription,
     tmfTags,
+    tmfTrafficMirrorFilterId,
   )
 where
 
-import Network.AWS.EC2.Types.Tag
-import Network.AWS.EC2.Types.TrafficMirrorFilterRule
-import Network.AWS.EC2.Types.TrafficMirrorNetworkService
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
+import qualified Network.AWS.EC2.Types.TrafficMirrorFilterRule as Types
+import qualified Network.AWS.EC2.Types.TrafficMirrorNetworkService as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Traffic Mirror filter.
 --
 -- /See:/ 'mkTrafficMirrorFilter' smart constructor.
 data TrafficMirrorFilter = TrafficMirrorFilter'
-  { -- | The ID of the Traffic Mirror filter.
-    trafficMirrorFilterId :: Lude.Maybe Lude.Text,
-    -- | Information about the ingress rules that are associated with the Traffic Mirror filter.
-    ingressFilterRules :: Lude.Maybe [TrafficMirrorFilterRule],
-    -- | The network service traffic that is associated with the Traffic Mirror filter.
-    networkServices :: Lude.Maybe [TrafficMirrorNetworkService],
+  { -- | The description of the Traffic Mirror filter.
+    description :: Core.Maybe Types.String,
     -- | Information about the egress rules that are associated with the Traffic Mirror filter.
-    egressFilterRules :: Lude.Maybe [TrafficMirrorFilterRule],
-    -- | The description of the Traffic Mirror filter.
-    description :: Lude.Maybe Lude.Text,
+    egressFilterRules :: Core.Maybe [Types.TrafficMirrorFilterRule],
+    -- | Information about the ingress rules that are associated with the Traffic Mirror filter.
+    ingressFilterRules :: Core.Maybe [Types.TrafficMirrorFilterRule],
+    -- | The network service traffic that is associated with the Traffic Mirror filter.
+    networkServices :: Core.Maybe [Types.TrafficMirrorNetworkService],
     -- | The tags assigned to the Traffic Mirror filter.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The ID of the Traffic Mirror filter.
+    trafficMirrorFilterId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrafficMirrorFilter' with the minimum fields required to make a request.
---
--- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
--- * 'ingressFilterRules' - Information about the ingress rules that are associated with the Traffic Mirror filter.
--- * 'networkServices' - The network service traffic that is associated with the Traffic Mirror filter.
--- * 'egressFilterRules' - Information about the egress rules that are associated with the Traffic Mirror filter.
--- * 'description' - The description of the Traffic Mirror filter.
--- * 'tags' - The tags assigned to the Traffic Mirror filter.
+-- | Creates a 'TrafficMirrorFilter' value with any optional fields omitted.
 mkTrafficMirrorFilter ::
   TrafficMirrorFilter
 mkTrafficMirrorFilter =
   TrafficMirrorFilter'
-    { trafficMirrorFilterId = Lude.Nothing,
-      ingressFilterRules = Lude.Nothing,
-      networkServices = Lude.Nothing,
-      egressFilterRules = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { description = Core.Nothing,
+      egressFilterRules = Core.Nothing,
+      ingressFilterRules = Core.Nothing,
+      networkServices = Core.Nothing,
+      tags = Core.Nothing,
+      trafficMirrorFilterId = Core.Nothing
     }
 
--- | The ID of the Traffic Mirror filter.
+-- | The description of the Traffic Mirror filter.
 --
--- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfTrafficMirrorFilterId :: Lens.Lens' TrafficMirrorFilter (Lude.Maybe Lude.Text)
-tmfTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: TrafficMirrorFilter -> Lude.Maybe Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: TrafficMirrorFilter)
-{-# DEPRECATED tmfTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmfDescription :: Lens.Lens' TrafficMirrorFilter (Core.Maybe Types.String)
+tmfDescription = Lens.field @"description"
+{-# DEPRECATED tmfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Information about the egress rules that are associated with the Traffic Mirror filter.
+--
+-- /Note:/ Consider using 'egressFilterRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmfEgressFilterRules :: Lens.Lens' TrafficMirrorFilter (Core.Maybe [Types.TrafficMirrorFilterRule])
+tmfEgressFilterRules = Lens.field @"egressFilterRules"
+{-# DEPRECATED tmfEgressFilterRules "Use generic-lens or generic-optics with 'egressFilterRules' instead." #-}
 
 -- | Information about the ingress rules that are associated with the Traffic Mirror filter.
 --
 -- /Note:/ Consider using 'ingressFilterRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfIngressFilterRules :: Lens.Lens' TrafficMirrorFilter (Lude.Maybe [TrafficMirrorFilterRule])
-tmfIngressFilterRules = Lens.lens (ingressFilterRules :: TrafficMirrorFilter -> Lude.Maybe [TrafficMirrorFilterRule]) (\s a -> s {ingressFilterRules = a} :: TrafficMirrorFilter)
+tmfIngressFilterRules :: Lens.Lens' TrafficMirrorFilter (Core.Maybe [Types.TrafficMirrorFilterRule])
+tmfIngressFilterRules = Lens.field @"ingressFilterRules"
 {-# DEPRECATED tmfIngressFilterRules "Use generic-lens or generic-optics with 'ingressFilterRules' instead." #-}
 
 -- | The network service traffic that is associated with the Traffic Mirror filter.
 --
 -- /Note:/ Consider using 'networkServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfNetworkServices :: Lens.Lens' TrafficMirrorFilter (Lude.Maybe [TrafficMirrorNetworkService])
-tmfNetworkServices = Lens.lens (networkServices :: TrafficMirrorFilter -> Lude.Maybe [TrafficMirrorNetworkService]) (\s a -> s {networkServices = a} :: TrafficMirrorFilter)
+tmfNetworkServices :: Lens.Lens' TrafficMirrorFilter (Core.Maybe [Types.TrafficMirrorNetworkService])
+tmfNetworkServices = Lens.field @"networkServices"
 {-# DEPRECATED tmfNetworkServices "Use generic-lens or generic-optics with 'networkServices' instead." #-}
-
--- | Information about the egress rules that are associated with the Traffic Mirror filter.
---
--- /Note:/ Consider using 'egressFilterRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfEgressFilterRules :: Lens.Lens' TrafficMirrorFilter (Lude.Maybe [TrafficMirrorFilterRule])
-tmfEgressFilterRules = Lens.lens (egressFilterRules :: TrafficMirrorFilter -> Lude.Maybe [TrafficMirrorFilterRule]) (\s a -> s {egressFilterRules = a} :: TrafficMirrorFilter)
-{-# DEPRECATED tmfEgressFilterRules "Use generic-lens or generic-optics with 'egressFilterRules' instead." #-}
-
--- | The description of the Traffic Mirror filter.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfDescription :: Lens.Lens' TrafficMirrorFilter (Lude.Maybe Lude.Text)
-tmfDescription = Lens.lens (description :: TrafficMirrorFilter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TrafficMirrorFilter)
-{-# DEPRECATED tmfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags assigned to the Traffic Mirror filter.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfTags :: Lens.Lens' TrafficMirrorFilter (Lude.Maybe [Tag])
-tmfTags = Lens.lens (tags :: TrafficMirrorFilter -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TrafficMirrorFilter)
+tmfTags :: Lens.Lens' TrafficMirrorFilter (Core.Maybe [Types.Tag])
+tmfTags = Lens.field @"tags"
 {-# DEPRECATED tmfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML TrafficMirrorFilter where
+-- | The ID of the Traffic Mirror filter.
+--
+-- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmfTrafficMirrorFilterId :: Lens.Lens' TrafficMirrorFilter (Core.Maybe Types.String)
+tmfTrafficMirrorFilterId = Lens.field @"trafficMirrorFilterId"
+{-# DEPRECATED tmfTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
+
+instance Core.FromXML TrafficMirrorFilter where
   parseXML x =
     TrafficMirrorFilter'
-      Lude.<$> (x Lude..@? "trafficMirrorFilterId")
-      Lude.<*> ( x Lude..@? "ingressFilterRuleSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@? "description")
+      Core.<*> ( x Core..@? "egressFilterRuleSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> ( x Lude..@? "networkServiceSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> ( x Core..@? "ingressFilterRuleSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> ( x Lude..@? "egressFilterRuleSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "description")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<*> (x Core..@? "networkServiceSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "trafficMirrorFilterId")

@@ -40,29 +40,29 @@ module Network.AWS.KMS.CreateGrant
 
     -- ** Request lenses
     cgKeyId,
-    cgRetiringPrincipal,
-    cgGrantTokens,
-    cgConstraints,
     cgGranteePrincipal,
-    cgName,
     cgOperations,
+    cgConstraints,
+    cgGrantTokens,
+    cgName,
+    cgRetiringPrincipal,
 
     -- * Destructuring the response
     CreateGrantResponse (..),
     mkCreateGrantResponse,
 
     -- ** Response lenses
-    cgrsGrantId,
-    cgrsGrantToken,
-    cgrsResponseStatus,
+    cgrrsGrantId,
+    cgrrsGrantToken,
+    cgrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateGrant' smart constructor.
 data CreateGrant = CreateGrant'
@@ -78,76 +78,48 @@ data CreateGrant = CreateGrant'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text,
-    -- | The principal that is given permission to retire the grant by using 'RetireGrant' operation.
-    --
-    -- To specify the principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
-    retiringPrincipal :: Lude.Maybe Lude.Text,
-    -- | A list of grant tokens.
-    --
-    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
-    grantTokens :: Lude.Maybe [Lude.Text],
-    -- | Allows a <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> only when the encryption context matches or includes the encryption context specified in this structure. For more information about encryption context, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /\/AWS Key Management Service Developer Guide\/ / .
-    constraints :: Lude.Maybe GrantConstraints,
+    keyId :: Types.KeyIdType,
     -- | The principal that is given permission to perform the operations that the grant permits.
     --
     -- To specify the principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, IAM roles, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
-    granteePrincipal :: Lude.Text,
+    granteePrincipal :: Types.PrincipalIdType,
+    -- | A list of operations that the grant permits.
+    operations :: [Types.GrantOperation],
+    -- | Allows a <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> only when the encryption context matches or includes the encryption context specified in this structure. For more information about encryption context, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /\/AWS Key Management Service Developer Guide\/ / .
+    constraints :: Core.Maybe Types.GrantConstraints,
+    -- | A list of grant tokens.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+    grantTokens :: Core.Maybe [Types.GrantTokenType],
     -- | A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants when retrying this request.
     --
     -- When this value is absent, all @CreateGrant@ requests result in a new grant with a unique @GrantId@ even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the @CreateGrant@ request.
     -- When this value is present, you can retry a @CreateGrant@ request with identical parameters; if the grant already exists, the original @GrantId@ is returned without creating a new grant. Note that the returned grant token is unique with every @CreateGrant@ request, even when a duplicate @GrantId@ is returned. All grant tokens obtained in this way can be used interchangeably.
-    name :: Lude.Maybe Lude.Text,
-    -- | A list of operations that the grant permits.
-    operations :: [GrantOperation]
+    name :: Core.Maybe Types.Name,
+    -- | The principal that is given permission to retire the grant by using 'RetireGrant' operation.
+    --
+    -- To specify the principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
+    retiringPrincipal :: Core.Maybe Types.PrincipalIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGrant' with the minimum fields required to make a request.
---
--- * 'keyId' - The unique identifier for the customer master key (CMK) that the grant applies to.
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
--- * 'retiringPrincipal' - The principal that is given permission to retire the grant by using 'RetireGrant' operation.
---
--- To specify the principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
--- * 'constraints' - Allows a <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> only when the encryption context matches or includes the encryption context specified in this structure. For more information about encryption context, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /\/AWS Key Management Service Developer Guide\/ / .
--- * 'granteePrincipal' - The principal that is given permission to perform the operations that the grant permits.
---
--- To specify the principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, IAM roles, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
--- * 'name' - A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants when retrying this request.
---
--- When this value is absent, all @CreateGrant@ requests result in a new grant with a unique @GrantId@ even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the @CreateGrant@ request.
--- When this value is present, you can retry a @CreateGrant@ request with identical parameters; if the grant already exists, the original @GrantId@ is returned without creating a new grant. Note that the returned grant token is unique with every @CreateGrant@ request, even when a duplicate @GrantId@ is returned. All grant tokens obtained in this way can be used interchangeably.
--- * 'operations' - A list of operations that the grant permits.
+-- | Creates a 'CreateGrant' value with any optional fields omitted.
 mkCreateGrant ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyIdType ->
   -- | 'granteePrincipal'
-  Lude.Text ->
+  Types.PrincipalIdType ->
   CreateGrant
-mkCreateGrant pKeyId_ pGranteePrincipal_ =
+mkCreateGrant keyId granteePrincipal =
   CreateGrant'
-    { keyId = pKeyId_,
-      retiringPrincipal = Lude.Nothing,
-      grantTokens = Lude.Nothing,
-      constraints = Lude.Nothing,
-      granteePrincipal = pGranteePrincipal_,
-      name = Lude.Nothing,
-      operations = Lude.mempty
+    { keyId,
+      granteePrincipal,
+      operations = Core.mempty,
+      constraints = Core.Nothing,
+      grantTokens = Core.Nothing,
+      name = Core.Nothing,
+      retiringPrincipal = Core.Nothing
     }
 
 -- | The unique identifier for the customer master key (CMK) that the grant applies to.
@@ -164,43 +136,41 @@ mkCreateGrant pKeyId_ pGranteePrincipal_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgKeyId :: Lens.Lens' CreateGrant Lude.Text
-cgKeyId = Lens.lens (keyId :: CreateGrant -> Lude.Text) (\s a -> s {keyId = a} :: CreateGrant)
+cgKeyId :: Lens.Lens' CreateGrant Types.KeyIdType
+cgKeyId = Lens.field @"keyId"
 {-# DEPRECATED cgKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
-
--- | The principal that is given permission to retire the grant by using 'RetireGrant' operation.
---
--- To specify the principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
---
--- /Note:/ Consider using 'retiringPrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgRetiringPrincipal :: Lens.Lens' CreateGrant (Lude.Maybe Lude.Text)
-cgRetiringPrincipal = Lens.lens (retiringPrincipal :: CreateGrant -> Lude.Maybe Lude.Text) (\s a -> s {retiringPrincipal = a} :: CreateGrant)
-{-# DEPRECATED cgRetiringPrincipal "Use generic-lens or generic-optics with 'retiringPrincipal' instead." #-}
-
--- | A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
---
--- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgGrantTokens :: Lens.Lens' CreateGrant (Lude.Maybe [Lude.Text])
-cgGrantTokens = Lens.lens (grantTokens :: CreateGrant -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: CreateGrant)
-{-# DEPRECATED cgGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
-
--- | Allows a <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> only when the encryption context matches or includes the encryption context specified in this structure. For more information about encryption context, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /\/AWS Key Management Service Developer Guide\/ / .
---
--- /Note:/ Consider using 'constraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgConstraints :: Lens.Lens' CreateGrant (Lude.Maybe GrantConstraints)
-cgConstraints = Lens.lens (constraints :: CreateGrant -> Lude.Maybe GrantConstraints) (\s a -> s {constraints = a} :: CreateGrant)
-{-# DEPRECATED cgConstraints "Use generic-lens or generic-optics with 'constraints' instead." #-}
 
 -- | The principal that is given permission to perform the operations that the grant permits.
 --
 -- To specify the principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, IAM roles, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
 --
 -- /Note:/ Consider using 'granteePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgGranteePrincipal :: Lens.Lens' CreateGrant Lude.Text
-cgGranteePrincipal = Lens.lens (granteePrincipal :: CreateGrant -> Lude.Text) (\s a -> s {granteePrincipal = a} :: CreateGrant)
+cgGranteePrincipal :: Lens.Lens' CreateGrant Types.PrincipalIdType
+cgGranteePrincipal = Lens.field @"granteePrincipal"
 {-# DEPRECATED cgGranteePrincipal "Use generic-lens or generic-optics with 'granteePrincipal' instead." #-}
+
+-- | A list of operations that the grant permits.
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgOperations :: Lens.Lens' CreateGrant [Types.GrantOperation]
+cgOperations = Lens.field @"operations"
+{-# DEPRECATED cgOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+
+-- | Allows a <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> only when the encryption context matches or includes the encryption context specified in this structure. For more information about encryption context, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /\/AWS Key Management Service Developer Guide\/ / .
+--
+-- /Note:/ Consider using 'constraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgConstraints :: Lens.Lens' CreateGrant (Core.Maybe Types.GrantConstraints)
+cgConstraints = Lens.field @"constraints"
+{-# DEPRECATED cgConstraints "Use generic-lens or generic-optics with 'constraints' instead." #-}
+
+-- | A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgGrantTokens :: Lens.Lens' CreateGrant (Core.Maybe [Types.GrantTokenType])
+cgGrantTokens = Lens.field @"grantTokens"
+{-# DEPRECATED cgGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
 
 -- | A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants when retrying this request.
 --
@@ -208,94 +178,81 @@ cgGranteePrincipal = Lens.lens (granteePrincipal :: CreateGrant -> Lude.Text) (\
 -- When this value is present, you can retry a @CreateGrant@ request with identical parameters; if the grant already exists, the original @GrantId@ is returned without creating a new grant. Note that the returned grant token is unique with every @CreateGrant@ request, even when a duplicate @GrantId@ is returned. All grant tokens obtained in this way can be used interchangeably.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgName :: Lens.Lens' CreateGrant (Lude.Maybe Lude.Text)
-cgName = Lens.lens (name :: CreateGrant -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateGrant)
+cgName :: Lens.Lens' CreateGrant (Core.Maybe Types.Name)
+cgName = Lens.field @"name"
 {-# DEPRECATED cgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | A list of operations that the grant permits.
+-- | The principal that is given permission to retire the grant by using 'RetireGrant' operation.
 --
--- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgOperations :: Lens.Lens' CreateGrant [GrantOperation]
-cgOperations = Lens.lens (operations :: CreateGrant -> [GrantOperation]) (\s a -> s {operations = a} :: CreateGrant)
-{-# DEPRECATED cgOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+-- To specify the principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax to use for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'retiringPrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgRetiringPrincipal :: Lens.Lens' CreateGrant (Core.Maybe Types.PrincipalIdType)
+cgRetiringPrincipal = Lens.field @"retiringPrincipal"
+{-# DEPRECATED cgRetiringPrincipal "Use generic-lens or generic-optics with 'retiringPrincipal' instead." #-}
 
-instance Lude.AWSRequest CreateGrant where
+instance Core.FromJSON CreateGrant where
+  toJSON CreateGrant {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("GranteePrincipal" Core..= granteePrincipal),
+            Core.Just ("Operations" Core..= operations),
+            ("Constraints" Core..=) Core.<$> constraints,
+            ("GrantTokens" Core..=) Core.<$> grantTokens,
+            ("Name" Core..=) Core.<$> name,
+            ("RetiringPrincipal" Core..=) Core.<$> retiringPrincipal
+          ]
+      )
+
+instance Core.AWSRequest CreateGrant where
   type Rs CreateGrant = CreateGrantResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.CreateGrant")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateGrantResponse'
-            Lude.<$> (x Lude..?> "GrantId")
-            Lude.<*> (x Lude..?> "GrantToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GrantId")
+            Core.<*> (x Core..:? "GrantToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateGrant where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.CreateGrant" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateGrant where
-  toJSON CreateGrant' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            ("RetiringPrincipal" Lude..=) Lude.<$> retiringPrincipal,
-            ("GrantTokens" Lude..=) Lude.<$> grantTokens,
-            ("Constraints" Lude..=) Lude.<$> constraints,
-            Lude.Just ("GranteePrincipal" Lude..= granteePrincipal),
-            ("Name" Lude..=) Lude.<$> name,
-            Lude.Just ("Operations" Lude..= operations)
-          ]
-      )
-
-instance Lude.ToPath CreateGrant where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateGrant where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateGrantResponse' smart constructor.
 data CreateGrantResponse = CreateGrantResponse'
   { -- | The unique identifier for the grant.
     --
     -- You can use the @GrantId@ in a subsequent 'RetireGrant' or 'RevokeGrant' operation.
-    grantId :: Lude.Maybe Lude.Text,
+    grantId :: Core.Maybe Types.GrantId,
     -- | The grant token.
     --
     -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
-    grantToken :: Lude.Maybe Lude.Text,
+    grantToken :: Core.Maybe Types.GrantTokenType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGrantResponse' with the minimum fields required to make a request.
---
--- * 'grantId' - The unique identifier for the grant.
---
--- You can use the @GrantId@ in a subsequent 'RetireGrant' or 'RevokeGrant' operation.
--- * 'grantToken' - The grant token.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateGrantResponse' value with any optional fields omitted.
 mkCreateGrantResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateGrantResponse
-mkCreateGrantResponse pResponseStatus_ =
+mkCreateGrantResponse responseStatus =
   CreateGrantResponse'
-    { grantId = Lude.Nothing,
-      grantToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { grantId = Core.Nothing,
+      grantToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier for the grant.
@@ -303,22 +260,22 @@ mkCreateGrantResponse pResponseStatus_ =
 -- You can use the @GrantId@ in a subsequent 'RetireGrant' or 'RevokeGrant' operation.
 --
 -- /Note:/ Consider using 'grantId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsGrantId :: Lens.Lens' CreateGrantResponse (Lude.Maybe Lude.Text)
-cgrsGrantId = Lens.lens (grantId :: CreateGrantResponse -> Lude.Maybe Lude.Text) (\s a -> s {grantId = a} :: CreateGrantResponse)
-{-# DEPRECATED cgrsGrantId "Use generic-lens or generic-optics with 'grantId' instead." #-}
+cgrrsGrantId :: Lens.Lens' CreateGrantResponse (Core.Maybe Types.GrantId)
+cgrrsGrantId = Lens.field @"grantId"
+{-# DEPRECATED cgrrsGrantId "Use generic-lens or generic-optics with 'grantId' instead." #-}
 
 -- | The grant token.
 --
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'grantToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsGrantToken :: Lens.Lens' CreateGrantResponse (Lude.Maybe Lude.Text)
-cgrsGrantToken = Lens.lens (grantToken :: CreateGrantResponse -> Lude.Maybe Lude.Text) (\s a -> s {grantToken = a} :: CreateGrantResponse)
-{-# DEPRECATED cgrsGrantToken "Use generic-lens or generic-optics with 'grantToken' instead." #-}
+cgrrsGrantToken :: Lens.Lens' CreateGrantResponse (Core.Maybe Types.GrantTokenType)
+cgrrsGrantToken = Lens.field @"grantToken"
+{-# DEPRECATED cgrrsGrantToken "Use generic-lens or generic-optics with 'grantToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsResponseStatus :: Lens.Lens' CreateGrantResponse Lude.Int
-cgrsResponseStatus = Lens.lens (responseStatus :: CreateGrantResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGrantResponse)
-{-# DEPRECATED cgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cgrrsResponseStatus :: Lens.Lens' CreateGrantResponse Core.Int
+cgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

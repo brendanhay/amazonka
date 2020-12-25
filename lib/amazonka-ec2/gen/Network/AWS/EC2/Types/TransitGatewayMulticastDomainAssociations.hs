@@ -17,98 +17,91 @@ module Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociations
     mkTransitGatewayMulticastDomainAssociations,
 
     -- * Lenses
-    tResourceId,
-    tResourceType,
-    tSubnets,
-    tTransitGatewayMulticastDomainId,
-    tTransitGatewayAttachmentId,
+    tgmdasResourceId,
+    tgmdasResourceType,
+    tgmdasSubnets,
+    tgmdasTransitGatewayAttachmentId,
+    tgmdasTransitGatewayMulticastDomainId,
   )
 where
 
-import Network.AWS.EC2.Types.SubnetAssociation
-import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.SubnetAssociation as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the multicast domain associations.
 --
 -- /See:/ 'mkTransitGatewayMulticastDomainAssociations' smart constructor.
 data TransitGatewayMulticastDomainAssociations = TransitGatewayMulticastDomainAssociations'
   { -- | The ID of the resource.
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.String,
     -- | The type of resource, for example a VPC attachment.
-    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
+    resourceType :: Core.Maybe Types.TransitGatewayAttachmentResourceType,
     -- | The subnets associated with the multicast domain.
-    subnets :: Lude.Maybe [SubnetAssociation],
-    -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Lude.Maybe Lude.Text,
+    subnets :: Core.Maybe [Types.SubnetAssociation],
     -- | The ID of the transit gateway attachment.
-    transitGatewayAttachmentId :: Lude.Maybe Lude.Text
+    transitGatewayAttachmentId :: Core.Maybe Types.String,
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransitGatewayMulticastDomainAssociations' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource.
--- * 'resourceType' - The type of resource, for example a VPC attachment.
--- * 'subnets' - The subnets associated with the multicast domain.
--- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
--- * 'transitGatewayAttachmentId' - The ID of the transit gateway attachment.
+-- | Creates a 'TransitGatewayMulticastDomainAssociations' value with any optional fields omitted.
 mkTransitGatewayMulticastDomainAssociations ::
   TransitGatewayMulticastDomainAssociations
 mkTransitGatewayMulticastDomainAssociations =
   TransitGatewayMulticastDomainAssociations'
     { resourceId =
-        Lude.Nothing,
-      resourceType = Lude.Nothing,
-      subnets = Lude.Nothing,
-      transitGatewayMulticastDomainId = Lude.Nothing,
-      transitGatewayAttachmentId = Lude.Nothing
+        Core.Nothing,
+      resourceType = Core.Nothing,
+      subnets = Core.Nothing,
+      transitGatewayAttachmentId = Core.Nothing,
+      transitGatewayMulticastDomainId = Core.Nothing
     }
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tResourceId :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Lude.Maybe Lude.Text)
-tResourceId = Lens.lens (resourceId :: TransitGatewayMulticastDomainAssociations -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: TransitGatewayMulticastDomainAssociations)
-{-# DEPRECATED tResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+tgmdasResourceId :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Core.Maybe Types.String)
+tgmdasResourceId = Lens.field @"resourceId"
+{-# DEPRECATED tgmdasResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of resource, for example a VPC attachment.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tResourceType :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Lude.Maybe TransitGatewayAttachmentResourceType)
-tResourceType = Lens.lens (resourceType :: TransitGatewayMulticastDomainAssociations -> Lude.Maybe TransitGatewayAttachmentResourceType) (\s a -> s {resourceType = a} :: TransitGatewayMulticastDomainAssociations)
-{-# DEPRECATED tResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+tgmdasResourceType :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Core.Maybe Types.TransitGatewayAttachmentResourceType)
+tgmdasResourceType = Lens.field @"resourceType"
+{-# DEPRECATED tgmdasResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The subnets associated with the multicast domain.
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tSubnets :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Lude.Maybe [SubnetAssociation])
-tSubnets = Lens.lens (subnets :: TransitGatewayMulticastDomainAssociations -> Lude.Maybe [SubnetAssociation]) (\s a -> s {subnets = a} :: TransitGatewayMulticastDomainAssociations)
-{-# DEPRECATED tSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
-
--- | The ID of the transit gateway multicast domain.
---
--- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTransitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Lude.Maybe Lude.Text)
-tTransitGatewayMulticastDomainId = Lens.lens (transitGatewayMulticastDomainId :: TransitGatewayMulticastDomainAssociations -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayMulticastDomainId = a} :: TransitGatewayMulticastDomainAssociations)
-{-# DEPRECATED tTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
+tgmdasSubnets :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Core.Maybe [Types.SubnetAssociation])
+tgmdasSubnets = Lens.field @"subnets"
+{-# DEPRECATED tgmdasSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | The ID of the transit gateway attachment.
 --
 -- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Lude.Maybe Lude.Text)
-tTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: TransitGatewayMulticastDomainAssociations -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: TransitGatewayMulticastDomainAssociations)
-{-# DEPRECATED tTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+tgmdasTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Core.Maybe Types.String)
+tgmdasTransitGatewayAttachmentId = Lens.field @"transitGatewayAttachmentId"
+{-# DEPRECATED tgmdasTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
-instance Lude.FromXML TransitGatewayMulticastDomainAssociations where
+-- | The ID of the transit gateway multicast domain.
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmdasTransitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastDomainAssociations (Core.Maybe Types.String)
+tgmdasTransitGatewayMulticastDomainId = Lens.field @"transitGatewayMulticastDomainId"
+{-# DEPRECATED tgmdasTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
+
+instance Core.FromXML TransitGatewayMulticastDomainAssociations where
   parseXML x =
     TransitGatewayMulticastDomainAssociations'
-      Lude.<$> (x Lude..@? "resourceId")
-      Lude.<*> (x Lude..@? "resourceType")
-      Lude.<*> ( x Lude..@? "subnets" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "transitGatewayMulticastDomainId")
-      Lude.<*> (x Lude..@? "transitGatewayAttachmentId")
+      Core.<$> (x Core..@? "resourceId")
+      Core.<*> (x Core..@? "resourceType")
+      Core.<*> (x Core..@? "subnets" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "transitGatewayAttachmentId")
+      Core.<*> (x Core..@? "transitGatewayMulticastDomainId")

@@ -55,186 +55,172 @@ module Network.AWS.GameLift.DescribeGameServerInstances
 
     -- ** Request lenses
     dgsiGameServerGroupName,
-    dgsiNextToken,
     dgsiInstanceIds,
     dgsiLimit,
+    dgsiNextToken,
 
     -- * Destructuring the response
     DescribeGameServerInstancesResponse (..),
     mkDescribeGameServerInstancesResponse,
 
     -- ** Response lenses
-    dgsirsGameServerInstances,
-    dgsirsNextToken,
-    dgsirsResponseStatus,
+    dgsirrsGameServerInstances,
+    dgsirrsNextToken,
+    dgsirrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeGameServerInstances' smart constructor.
 data DescribeGameServerInstances = DescribeGameServerInstances'
   { -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
-    gameServerGroupName :: Lude.Text,
-    -- | A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
-    nextToken :: Lude.Maybe Lude.Text,
+    gameServerGroupName :: Types.GameServerGroupName,
     -- | The EC2 instance IDs that you want to retrieve status on. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ . To retrieve all instances in the game server group, leave this parameter empty.
-    instanceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    instanceIds :: Core.Maybe (Core.NonEmpty Types.GameServerInstanceId),
     -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential segments.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
+    nextToken :: Core.Maybe Types.NonZeroAndMaxString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeGameServerInstances' with the minimum fields required to make a request.
---
--- * 'gameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
--- * 'nextToken' - A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
--- * 'instanceIds' - The EC2 instance IDs that you want to retrieve status on. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ . To retrieve all instances in the game server group, leave this parameter empty.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential segments.
+-- | Creates a 'DescribeGameServerInstances' value with any optional fields omitted.
 mkDescribeGameServerInstances ::
   -- | 'gameServerGroupName'
-  Lude.Text ->
+  Types.GameServerGroupName ->
   DescribeGameServerInstances
-mkDescribeGameServerInstances pGameServerGroupName_ =
+mkDescribeGameServerInstances gameServerGroupName =
   DescribeGameServerInstances'
-    { gameServerGroupName =
-        pGameServerGroupName_,
-      nextToken = Lude.Nothing,
-      instanceIds = Lude.Nothing,
-      limit = Lude.Nothing
+    { gameServerGroupName,
+      instanceIds = Core.Nothing,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsiGameServerGroupName :: Lens.Lens' DescribeGameServerInstances Lude.Text
-dgsiGameServerGroupName = Lens.lens (gameServerGroupName :: DescribeGameServerInstances -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DescribeGameServerInstances)
+dgsiGameServerGroupName :: Lens.Lens' DescribeGameServerInstances Types.GameServerGroupName
+dgsiGameServerGroupName = Lens.field @"gameServerGroupName"
 {-# DEPRECATED dgsiGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
-
--- | A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsiNextToken :: Lens.Lens' DescribeGameServerInstances (Lude.Maybe Lude.Text)
-dgsiNextToken = Lens.lens (nextToken :: DescribeGameServerInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeGameServerInstances)
-{-# DEPRECATED dgsiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The EC2 instance IDs that you want to retrieve status on. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ . To retrieve all instances in the game server group, leave this parameter empty.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsiInstanceIds :: Lens.Lens' DescribeGameServerInstances (Lude.Maybe (Lude.NonEmpty Lude.Text))
-dgsiInstanceIds = Lens.lens (instanceIds :: DescribeGameServerInstances -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {instanceIds = a} :: DescribeGameServerInstances)
+dgsiInstanceIds :: Lens.Lens' DescribeGameServerInstances (Core.Maybe (Core.NonEmpty Types.GameServerInstanceId))
+dgsiInstanceIds = Lens.field @"instanceIds"
 {-# DEPRECATED dgsiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential segments.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsiLimit :: Lens.Lens' DescribeGameServerInstances (Lude.Maybe Lude.Natural)
-dgsiLimit = Lens.lens (limit :: DescribeGameServerInstances -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeGameServerInstances)
+dgsiLimit :: Lens.Lens' DescribeGameServerInstances (Core.Maybe Core.Natural)
+dgsiLimit = Lens.field @"limit"
 {-# DEPRECATED dgsiLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager DescribeGameServerInstances where
-  page rq rs
-    | Page.stop (rs Lens.^. dgsirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dgsirsGameServerInstances) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dgsiNextToken Lens..~ rs Lens.^. dgsirsNextToken
+-- | A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsiNextToken :: Lens.Lens' DescribeGameServerInstances (Core.Maybe Types.NonZeroAndMaxString)
+dgsiNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dgsiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeGameServerInstances where
+instance Core.FromJSON DescribeGameServerInstances where
+  toJSON DescribeGameServerInstances {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GameServerGroupName" Core..= gameServerGroupName),
+            ("InstanceIds" Core..=) Core.<$> instanceIds,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeGameServerInstances where
   type
     Rs DescribeGameServerInstances =
       DescribeGameServerInstancesResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribeGameServerInstances")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeGameServerInstancesResponse'
-            Lude.<$> (x Lude..?> "GameServerInstances" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GameServerInstances")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeGameServerInstances where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribeGameServerInstances" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeGameServerInstances where
-  toJSON DescribeGameServerInstances' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("InstanceIds" Lude..=) Lude.<$> instanceIds,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeGameServerInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeGameServerInstances where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeGameServerInstances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"gameServerInstances" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeGameServerInstancesResponse' smart constructor.
 data DescribeGameServerInstancesResponse = DescribeGameServerInstancesResponse'
   { -- | The collection of requested game server instances.
-    gameServerInstances :: Lude.Maybe [GameServerInstance],
+    gameServerInstances :: Core.Maybe [Types.GameServerInstance],
     -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NonZeroAndMaxString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeGameServerInstancesResponse' with the minimum fields required to make a request.
---
--- * 'gameServerInstances' - The collection of requested game server instances.
--- * 'nextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeGameServerInstancesResponse' value with any optional fields omitted.
 mkDescribeGameServerInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeGameServerInstancesResponse
-mkDescribeGameServerInstancesResponse pResponseStatus_ =
+mkDescribeGameServerInstancesResponse responseStatus =
   DescribeGameServerInstancesResponse'
     { gameServerInstances =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The collection of requested game server instances.
 --
 -- /Note:/ Consider using 'gameServerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsirsGameServerInstances :: Lens.Lens' DescribeGameServerInstancesResponse (Lude.Maybe [GameServerInstance])
-dgsirsGameServerInstances = Lens.lens (gameServerInstances :: DescribeGameServerInstancesResponse -> Lude.Maybe [GameServerInstance]) (\s a -> s {gameServerInstances = a} :: DescribeGameServerInstancesResponse)
-{-# DEPRECATED dgsirsGameServerInstances "Use generic-lens or generic-optics with 'gameServerInstances' instead." #-}
+dgsirrsGameServerInstances :: Lens.Lens' DescribeGameServerInstancesResponse (Core.Maybe [Types.GameServerInstance])
+dgsirrsGameServerInstances = Lens.field @"gameServerInstances"
+{-# DEPRECATED dgsirrsGameServerInstances "Use generic-lens or generic-optics with 'gameServerInstances' instead." #-}
 
 -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsirsNextToken :: Lens.Lens' DescribeGameServerInstancesResponse (Lude.Maybe Lude.Text)
-dgsirsNextToken = Lens.lens (nextToken :: DescribeGameServerInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeGameServerInstancesResponse)
-{-# DEPRECATED dgsirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dgsirrsNextToken :: Lens.Lens' DescribeGameServerInstancesResponse (Core.Maybe Types.NonZeroAndMaxString)
+dgsirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dgsirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsirsResponseStatus :: Lens.Lens' DescribeGameServerInstancesResponse Lude.Int
-dgsirsResponseStatus = Lens.lens (responseStatus :: DescribeGameServerInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameServerInstancesResponse)
-{-# DEPRECATED dgsirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgsirrsResponseStatus :: Lens.Lens' DescribeGameServerInstancesResponse Core.Int
+dgsirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgsirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

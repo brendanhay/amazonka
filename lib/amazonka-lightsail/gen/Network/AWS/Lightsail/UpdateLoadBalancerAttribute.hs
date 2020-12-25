@@ -22,158 +22,142 @@ module Network.AWS.Lightsail.UpdateLoadBalancerAttribute
     mkUpdateLoadBalancerAttribute,
 
     -- ** Request lenses
-    ulbaAttributeValue,
     ulbaLoadBalancerName,
     ulbaAttributeName,
+    ulbaAttributeValue,
 
     -- * Destructuring the response
     UpdateLoadBalancerAttributeResponse (..),
     mkUpdateLoadBalancerAttributeResponse,
 
     -- ** Response lenses
-    ulbarsOperations,
-    ulbarsResponseStatus,
+    ulbarrsOperations,
+    ulbarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateLoadBalancerAttribute' smart constructor.
 data UpdateLoadBalancerAttribute = UpdateLoadBalancerAttribute'
-  { -- | The value that you want to specify for the attribute name.
-    attributeValue :: Lude.Text,
-    -- | The name of the load balancer that you want to modify (e.g., @my-load-balancer@ .
-    loadBalancerName :: Lude.Text,
+  { -- | The name of the load balancer that you want to modify (e.g., @my-load-balancer@ .
+    loadBalancerName :: Types.ResourceName,
     -- | The name of the attribute you want to update. Valid values are below.
-    attributeName :: LoadBalancerAttributeName
+    attributeName :: Types.LoadBalancerAttributeName,
+    -- | The value that you want to specify for the attribute name.
+    attributeValue :: Types.AttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateLoadBalancerAttribute' with the minimum fields required to make a request.
---
--- * 'attributeValue' - The value that you want to specify for the attribute name.
--- * 'loadBalancerName' - The name of the load balancer that you want to modify (e.g., @my-load-balancer@ .
--- * 'attributeName' - The name of the attribute you want to update. Valid values are below.
+-- | Creates a 'UpdateLoadBalancerAttribute' value with any optional fields omitted.
 mkUpdateLoadBalancerAttribute ::
-  -- | 'attributeValue'
-  Lude.Text ->
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.ResourceName ->
   -- | 'attributeName'
-  LoadBalancerAttributeName ->
+  Types.LoadBalancerAttributeName ->
+  -- | 'attributeValue'
+  Types.AttributeValue ->
   UpdateLoadBalancerAttribute
 mkUpdateLoadBalancerAttribute
-  pAttributeValue_
-  pLoadBalancerName_
-  pAttributeName_ =
+  loadBalancerName
+  attributeName
+  attributeValue =
     UpdateLoadBalancerAttribute'
-      { attributeValue = pAttributeValue_,
-        loadBalancerName = pLoadBalancerName_,
-        attributeName = pAttributeName_
+      { loadBalancerName,
+        attributeName,
+        attributeValue
       }
-
--- | The value that you want to specify for the attribute name.
---
--- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulbaAttributeValue :: Lens.Lens' UpdateLoadBalancerAttribute Lude.Text
-ulbaAttributeValue = Lens.lens (attributeValue :: UpdateLoadBalancerAttribute -> Lude.Text) (\s a -> s {attributeValue = a} :: UpdateLoadBalancerAttribute)
-{-# DEPRECATED ulbaAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
 -- | The name of the load balancer that you want to modify (e.g., @my-load-balancer@ .
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulbaLoadBalancerName :: Lens.Lens' UpdateLoadBalancerAttribute Lude.Text
-ulbaLoadBalancerName = Lens.lens (loadBalancerName :: UpdateLoadBalancerAttribute -> Lude.Text) (\s a -> s {loadBalancerName = a} :: UpdateLoadBalancerAttribute)
+ulbaLoadBalancerName :: Lens.Lens' UpdateLoadBalancerAttribute Types.ResourceName
+ulbaLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED ulbaLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The name of the attribute you want to update. Valid values are below.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulbaAttributeName :: Lens.Lens' UpdateLoadBalancerAttribute LoadBalancerAttributeName
-ulbaAttributeName = Lens.lens (attributeName :: UpdateLoadBalancerAttribute -> LoadBalancerAttributeName) (\s a -> s {attributeName = a} :: UpdateLoadBalancerAttribute)
+ulbaAttributeName :: Lens.Lens' UpdateLoadBalancerAttribute Types.LoadBalancerAttributeName
+ulbaAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED ulbaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.AWSRequest UpdateLoadBalancerAttribute where
+-- | The value that you want to specify for the attribute name.
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulbaAttributeValue :: Lens.Lens' UpdateLoadBalancerAttribute Types.AttributeValue
+ulbaAttributeValue = Lens.field @"attributeValue"
+{-# DEPRECATED ulbaAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
+
+instance Core.FromJSON UpdateLoadBalancerAttribute where
+  toJSON UpdateLoadBalancerAttribute {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("loadBalancerName" Core..= loadBalancerName),
+            Core.Just ("attributeName" Core..= attributeName),
+            Core.Just ("attributeValue" Core..= attributeValue)
+          ]
+      )
+
+instance Core.AWSRequest UpdateLoadBalancerAttribute where
   type
     Rs UpdateLoadBalancerAttribute =
       UpdateLoadBalancerAttributeResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.UpdateLoadBalancerAttribute")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateLoadBalancerAttributeResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateLoadBalancerAttribute where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.UpdateLoadBalancerAttribute" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateLoadBalancerAttribute where
-  toJSON UpdateLoadBalancerAttribute' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("attributeValue" Lude..= attributeValue),
-            Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
-            Lude.Just ("attributeName" Lude..= attributeName)
-          ]
-      )
-
-instance Lude.ToPath UpdateLoadBalancerAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateLoadBalancerAttribute where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateLoadBalancerAttributeResponse' smart constructor.
 data UpdateLoadBalancerAttributeResponse = UpdateLoadBalancerAttributeResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateLoadBalancerAttributeResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateLoadBalancerAttributeResponse' value with any optional fields omitted.
 mkUpdateLoadBalancerAttributeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateLoadBalancerAttributeResponse
-mkUpdateLoadBalancerAttributeResponse pResponseStatus_ =
+mkUpdateLoadBalancerAttributeResponse responseStatus =
   UpdateLoadBalancerAttributeResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulbarsOperations :: Lens.Lens' UpdateLoadBalancerAttributeResponse (Lude.Maybe [Operation])
-ulbarsOperations = Lens.lens (operations :: UpdateLoadBalancerAttributeResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: UpdateLoadBalancerAttributeResponse)
-{-# DEPRECATED ulbarsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+ulbarrsOperations :: Lens.Lens' UpdateLoadBalancerAttributeResponse (Core.Maybe [Types.Operation])
+ulbarrsOperations = Lens.field @"operations"
+{-# DEPRECATED ulbarrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulbarsResponseStatus :: Lens.Lens' UpdateLoadBalancerAttributeResponse Lude.Int
-ulbarsResponseStatus = Lens.lens (responseStatus :: UpdateLoadBalancerAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateLoadBalancerAttributeResponse)
-{-# DEPRECATED ulbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ulbarrsResponseStatus :: Lens.Lens' UpdateLoadBalancerAttributeResponse Core.Int
+ulbarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ulbarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,130 +20,121 @@ module Network.AWS.CloudSearch.DeleteExpression
     mkDeleteExpression,
 
     -- ** Request lenses
-    deExpressionName,
-    deDomainName,
+    defDomainName,
+    defExpressionName,
 
     -- * Destructuring the response
     DeleteExpressionResponse (..),
     mkDeleteExpressionResponse,
 
     -- ** Response lenses
-    defrsExpression,
-    defrsResponseStatus,
+    derfrsExpression,
+    derfrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DeleteExpression' @ operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.
 --
 -- /See:/ 'mkDeleteExpression' smart constructor.
 data DeleteExpression = DeleteExpression'
-  { -- | The name of the @'Expression' @ to delete.
-    expressionName :: Lude.Text,
-    domainName :: Lude.Text
+  { domainName :: Types.DomainName,
+    -- | The name of the @'Expression' @ to delete.
+    expressionName :: Types.ExpressionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteExpression' with the minimum fields required to make a request.
---
--- * 'expressionName' - The name of the @'Expression' @ to delete.
--- * 'domainName' -
+-- | Creates a 'DeleteExpression' value with any optional fields omitted.
 mkDeleteExpression ::
-  -- | 'expressionName'
-  Lude.Text ->
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
+  -- | 'expressionName'
+  Types.ExpressionName ->
   DeleteExpression
-mkDeleteExpression pExpressionName_ pDomainName_ =
-  DeleteExpression'
-    { expressionName = pExpressionName_,
-      domainName = pDomainName_
-    }
-
--- | The name of the @'Expression' @ to delete.
---
--- /Note:/ Consider using 'expressionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deExpressionName :: Lens.Lens' DeleteExpression Lude.Text
-deExpressionName = Lens.lens (expressionName :: DeleteExpression -> Lude.Text) (\s a -> s {expressionName = a} :: DeleteExpression)
-{-# DEPRECATED deExpressionName "Use generic-lens or generic-optics with 'expressionName' instead." #-}
+mkDeleteExpression domainName expressionName =
+  DeleteExpression' {domainName, expressionName}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deDomainName :: Lens.Lens' DeleteExpression Lude.Text
-deDomainName = Lens.lens (domainName :: DeleteExpression -> Lude.Text) (\s a -> s {domainName = a} :: DeleteExpression)
-{-# DEPRECATED deDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+defDomainName :: Lens.Lens' DeleteExpression Types.DomainName
+defDomainName = Lens.field @"domainName"
+{-# DEPRECATED defDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DeleteExpression where
+-- | The name of the @'Expression' @ to delete.
+--
+-- /Note:/ Consider using 'expressionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+defExpressionName :: Lens.Lens' DeleteExpression Types.ExpressionName
+defExpressionName = Lens.field @"expressionName"
+{-# DEPRECATED defExpressionName "Use generic-lens or generic-optics with 'expressionName' instead." #-}
+
+instance Core.AWSRequest DeleteExpression where
   type Rs DeleteExpression = DeleteExpressionResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteExpression")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "ExpressionName" expressionName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteExpressionResult"
       ( \s h x ->
           DeleteExpressionResponse'
-            Lude.<$> (x Lude..@ "Expression") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "Expression") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteExpression where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteExpression where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteExpression where
-  toQuery DeleteExpression' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteExpression" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "ExpressionName" Lude.=: expressionName,
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @'DeleteExpression' @ request. Specifies the expression being deleted.
 --
 -- /See:/ 'mkDeleteExpressionResponse' smart constructor.
 data DeleteExpressionResponse = DeleteExpressionResponse'
   { -- | The status of the expression being deleted.
-    expression :: ExpressionStatus,
+    expression :: Types.ExpressionStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteExpressionResponse' with the minimum fields required to make a request.
---
--- * 'expression' - The status of the expression being deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteExpressionResponse' value with any optional fields omitted.
 mkDeleteExpressionResponse ::
   -- | 'expression'
-  ExpressionStatus ->
+  Types.ExpressionStatus ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteExpressionResponse
-mkDeleteExpressionResponse pExpression_ pResponseStatus_ =
-  DeleteExpressionResponse'
-    { expression = pExpression_,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteExpressionResponse expression responseStatus =
+  DeleteExpressionResponse' {expression, responseStatus}
 
 -- | The status of the expression being deleted.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defrsExpression :: Lens.Lens' DeleteExpressionResponse ExpressionStatus
-defrsExpression = Lens.lens (expression :: DeleteExpressionResponse -> ExpressionStatus) (\s a -> s {expression = a} :: DeleteExpressionResponse)
-{-# DEPRECATED defrsExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+derfrsExpression :: Lens.Lens' DeleteExpressionResponse Types.ExpressionStatus
+derfrsExpression = Lens.field @"expression"
+{-# DEPRECATED derfrsExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defrsResponseStatus :: Lens.Lens' DeleteExpressionResponse Lude.Int
-defrsResponseStatus = Lens.lens (responseStatus :: DeleteExpressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteExpressionResponse)
-{-# DEPRECATED defrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derfrsResponseStatus :: Lens.Lens' DeleteExpressionResponse Core.Int
+derfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

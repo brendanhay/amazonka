@@ -29,83 +29,75 @@ module Network.AWS.IoT.SetDefaultPolicyVersion
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the SetDefaultPolicyVersion operation.
 --
 -- /See:/ 'mkSetDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
   { -- | The policy name.
-    policyName :: Lude.Text,
+    policyName :: Types.PolicyName,
     -- | The policy version ID.
-    policyVersionId :: Lude.Text
+    policyVersionId :: Types.PolicyVersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetDefaultPolicyVersion' with the minimum fields required to make a request.
---
--- * 'policyName' - The policy name.
--- * 'policyVersionId' - The policy version ID.
+-- | Creates a 'SetDefaultPolicyVersion' value with any optional fields omitted.
 mkSetDefaultPolicyVersion ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   -- | 'policyVersionId'
-  Lude.Text ->
+  Types.PolicyVersionId ->
   SetDefaultPolicyVersion
-mkSetDefaultPolicyVersion pPolicyName_ pPolicyVersionId_ =
-  SetDefaultPolicyVersion'
-    { policyName = pPolicyName_,
-      policyVersionId = pPolicyVersionId_
-    }
+mkSetDefaultPolicyVersion policyName policyVersionId =
+  SetDefaultPolicyVersion' {policyName, policyVersionId}
 
 -- | The policy name.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpvPolicyName :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
-sdpvPolicyName = Lens.lens (policyName :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {policyName = a} :: SetDefaultPolicyVersion)
+sdpvPolicyName :: Lens.Lens' SetDefaultPolicyVersion Types.PolicyName
+sdpvPolicyName = Lens.field @"policyName"
 {-# DEPRECATED sdpvPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy version ID.
 --
 -- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpvPolicyVersionId :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
-sdpvPolicyVersionId = Lens.lens (policyVersionId :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {policyVersionId = a} :: SetDefaultPolicyVersion)
+sdpvPolicyVersionId :: Lens.Lens' SetDefaultPolicyVersion Types.PolicyVersionId
+sdpvPolicyVersionId = Lens.field @"policyVersionId"
 {-# DEPRECATED sdpvPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
 
-instance Lude.AWSRequest SetDefaultPolicyVersion where
+instance Core.FromJSON SetDefaultPolicyVersion where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest SetDefaultPolicyVersion where
   type Rs SetDefaultPolicyVersion = SetDefaultPolicyVersionResponse
-  request = Req.patchJSON ioTService
-  response = Res.receiveNull SetDefaultPolicyVersionResponse'
-
-instance Lude.ToHeaders SetDefaultPolicyVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON SetDefaultPolicyVersion where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath SetDefaultPolicyVersion where
-  toPath SetDefaultPolicyVersion' {..} =
-    Lude.mconcat
-      [ "/policies/",
-        Lude.toBS policyName,
-        "/version/",
-        Lude.toBS policyVersionId
-      ]
-
-instance Lude.ToQuery SetDefaultPolicyVersion where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath
+            ( "/policies/" Core.<> (Core.toText policyName)
+                Core.<> ("/version/")
+                Core.<> (Core.toText policyVersionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetDefaultPolicyVersionResponse'
 
 -- | /See:/ 'mkSetDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetDefaultPolicyVersionResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetDefaultPolicyVersionResponse' value with any optional fields omitted.
 mkSetDefaultPolicyVersionResponse ::
   SetDefaultPolicyVersionResponse
 mkSetDefaultPolicyVersionResponse =

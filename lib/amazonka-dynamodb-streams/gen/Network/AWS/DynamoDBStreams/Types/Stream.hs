@@ -17,20 +17,25 @@ module Network.AWS.DynamoDBStreams.Types.Stream
     mkStream,
 
     -- * Lenses
+    sStreamArn,
     sStreamLabel,
-    sStreamARN,
     sTableName,
   )
 where
 
+import qualified Network.AWS.DynamoDBStreams.Types.StreamArn as Types
+import qualified Network.AWS.DynamoDBStreams.Types.StreamLabel as Types
+import qualified Network.AWS.DynamoDBStreams.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents all of the data describing a particular stream.
 --
 -- /See:/ 'mkStream' smart constructor.
 data Stream = Stream'
-  { -- | A timestamp, in ISO 8601 format, for this stream.
+  { -- | The Amazon Resource Name (ARN) for the stream.
+    streamArn :: Core.Maybe Types.StreamArn,
+    -- | A timestamp, in ISO 8601 format, for this stream.
     --
     -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
     --
@@ -41,40 +46,29 @@ data Stream = Stream'
     --
     --
     --     * the @StreamLabel@
-    streamLabel :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) for the stream.
-    streamARN :: Lude.Maybe Lude.Text,
+    streamLabel :: Core.Maybe Types.StreamLabel,
     -- | The DynamoDB table with which the stream is associated.
-    tableName :: Lude.Maybe Lude.Text
+    tableName :: Core.Maybe Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Stream' with the minimum fields required to make a request.
---
--- * 'streamLabel' - A timestamp, in ISO 8601 format, for this stream.
---
--- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
---
---     * the AWS customer ID.
---
---
---     * the table name
---
---
---     * the @StreamLabel@
---
---
--- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
--- * 'tableName' - The DynamoDB table with which the stream is associated.
+-- | Creates a 'Stream' value with any optional fields omitted.
 mkStream ::
   Stream
 mkStream =
   Stream'
-    { streamLabel = Lude.Nothing,
-      streamARN = Lude.Nothing,
-      tableName = Lude.Nothing
+    { streamArn = Core.Nothing,
+      streamLabel = Core.Nothing,
+      tableName = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) for the stream.
+--
+-- /Note:/ Consider using 'streamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStreamArn :: Lens.Lens' Stream (Core.Maybe Types.StreamArn)
+sStreamArn = Lens.field @"streamArn"
+{-# DEPRECATED sStreamArn "Use generic-lens or generic-optics with 'streamArn' instead." #-}
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --
@@ -91,31 +85,22 @@ mkStream =
 --
 --
 -- /Note:/ Consider using 'streamLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStreamLabel :: Lens.Lens' Stream (Lude.Maybe Lude.Text)
-sStreamLabel = Lens.lens (streamLabel :: Stream -> Lude.Maybe Lude.Text) (\s a -> s {streamLabel = a} :: Stream)
+sStreamLabel :: Lens.Lens' Stream (Core.Maybe Types.StreamLabel)
+sStreamLabel = Lens.field @"streamLabel"
 {-# DEPRECATED sStreamLabel "Use generic-lens or generic-optics with 'streamLabel' instead." #-}
-
--- | The Amazon Resource Name (ARN) for the stream.
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStreamARN :: Lens.Lens' Stream (Lude.Maybe Lude.Text)
-sStreamARN = Lens.lens (streamARN :: Stream -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: Stream)
-{-# DEPRECATED sStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The DynamoDB table with which the stream is associated.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTableName :: Lens.Lens' Stream (Lude.Maybe Lude.Text)
-sTableName = Lens.lens (tableName :: Stream -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: Stream)
+sTableName :: Lens.Lens' Stream (Core.Maybe Types.TableName)
+sTableName = Lens.field @"tableName"
 {-# DEPRECATED sTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.FromJSON Stream where
+instance Core.FromJSON Stream where
   parseJSON =
-    Lude.withObject
-      "Stream"
-      ( \x ->
-          Stream'
-            Lude.<$> (x Lude..:? "StreamLabel")
-            Lude.<*> (x Lude..:? "StreamArn")
-            Lude.<*> (x Lude..:? "TableName")
-      )
+    Core.withObject "Stream" Core.$
+      \x ->
+        Stream'
+          Core.<$> (x Core..:? "StreamArn")
+          Core.<*> (x Core..:? "StreamLabel")
+          Core.<*> (x Core..:? "TableName")

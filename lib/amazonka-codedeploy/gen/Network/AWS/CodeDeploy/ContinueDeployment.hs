@@ -29,85 +29,76 @@ module Network.AWS.CodeDeploy.ContinueDeployment
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkContinueDeployment' smart constructor.
 data ContinueDeployment = ContinueDeployment'
   { -- | The unique ID of a blue/green deployment for which you want to start rerouting traffic to the replacement environment.
-    deploymentId :: Lude.Maybe Lude.Text,
+    deploymentId :: Core.Maybe Types.DeploymentId,
     -- | The status of the deployment's waiting period. @READY_WAIT@ indicates that the deployment is ready to start shifting traffic. @TERMINATION_WAIT@ indicates that the traffic is shifted, but the original target is not terminated.
-    deploymentWaitType :: Lude.Maybe DeploymentWaitType
+    deploymentWaitType :: Core.Maybe Types.DeploymentWaitType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContinueDeployment' with the minimum fields required to make a request.
---
--- * 'deploymentId' - The unique ID of a blue/green deployment for which you want to start rerouting traffic to the replacement environment.
--- * 'deploymentWaitType' - The status of the deployment's waiting period. @READY_WAIT@ indicates that the deployment is ready to start shifting traffic. @TERMINATION_WAIT@ indicates that the traffic is shifted, but the original target is not terminated.
+-- | Creates a 'ContinueDeployment' value with any optional fields omitted.
 mkContinueDeployment ::
   ContinueDeployment
 mkContinueDeployment =
   ContinueDeployment'
-    { deploymentId = Lude.Nothing,
-      deploymentWaitType = Lude.Nothing
+    { deploymentId = Core.Nothing,
+      deploymentWaitType = Core.Nothing
     }
 
 -- | The unique ID of a blue/green deployment for which you want to start rerouting traffic to the replacement environment.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDeploymentId :: Lens.Lens' ContinueDeployment (Lude.Maybe Lude.Text)
-cdDeploymentId = Lens.lens (deploymentId :: ContinueDeployment -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: ContinueDeployment)
+cdDeploymentId :: Lens.Lens' ContinueDeployment (Core.Maybe Types.DeploymentId)
+cdDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED cdDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The status of the deployment's waiting period. @READY_WAIT@ indicates that the deployment is ready to start shifting traffic. @TERMINATION_WAIT@ indicates that the traffic is shifted, but the original target is not terminated.
 --
 -- /Note:/ Consider using 'deploymentWaitType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDeploymentWaitType :: Lens.Lens' ContinueDeployment (Lude.Maybe DeploymentWaitType)
-cdDeploymentWaitType = Lens.lens (deploymentWaitType :: ContinueDeployment -> Lude.Maybe DeploymentWaitType) (\s a -> s {deploymentWaitType = a} :: ContinueDeployment)
+cdDeploymentWaitType :: Lens.Lens' ContinueDeployment (Core.Maybe Types.DeploymentWaitType)
+cdDeploymentWaitType = Lens.field @"deploymentWaitType"
 {-# DEPRECATED cdDeploymentWaitType "Use generic-lens or generic-optics with 'deploymentWaitType' instead." #-}
 
-instance Lude.AWSRequest ContinueDeployment where
+instance Core.FromJSON ContinueDeployment where
+  toJSON ContinueDeployment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentId" Core..=) Core.<$> deploymentId,
+            ("deploymentWaitType" Core..=) Core.<$> deploymentWaitType
+          ]
+      )
+
+instance Core.AWSRequest ContinueDeployment where
   type Rs ContinueDeployment = ContinueDeploymentResponse
-  request = Req.postJSON codeDeployService
-  response = Res.receiveNull ContinueDeploymentResponse'
-
-instance Lude.ToHeaders ContinueDeployment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.ContinueDeployment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ContinueDeployment where
-  toJSON ContinueDeployment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("deploymentId" Lude..=) Lude.<$> deploymentId,
-            ("deploymentWaitType" Lude..=) Lude.<$> deploymentWaitType
-          ]
-      )
-
-instance Lude.ToPath ContinueDeployment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ContinueDeployment where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.ContinueDeployment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull ContinueDeploymentResponse'
 
 -- | /See:/ 'mkContinueDeploymentResponse' smart constructor.
 data ContinueDeploymentResponse = ContinueDeploymentResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContinueDeploymentResponse' with the minimum fields required to make a request.
+-- | Creates a 'ContinueDeploymentResponse' value with any optional fields omitted.
 mkContinueDeploymentResponse ::
   ContinueDeploymentResponse
 mkContinueDeploymentResponse = ContinueDeploymentResponse'

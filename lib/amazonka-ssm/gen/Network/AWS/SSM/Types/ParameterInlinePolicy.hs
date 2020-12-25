@@ -17,71 +17,66 @@ module Network.AWS.SSM.Types.ParameterInlinePolicy
     mkParameterInlinePolicy,
 
     -- * Lenses
-    pipPolicyType,
     pipPolicyStatus,
     pipPolicyText,
+    pipPolicyType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.String as Types
 
 -- | One or more policies assigned to a parameter.
 --
 -- /See:/ 'mkParameterInlinePolicy' smart constructor.
 data ParameterInlinePolicy = ParameterInlinePolicy'
-  { -- | The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
-    policyType :: Lude.Maybe Lude.Text,
-    -- | The status of the policy. Policies report the following statuses: Pending (the policy has not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not applied), or InProgress (the policy is being applied now).
-    policyStatus :: Lude.Maybe Lude.Text,
+  { -- | The status of the policy. Policies report the following statuses: Pending (the policy has not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not applied), or InProgress (the policy is being applied now).
+    policyStatus :: Core.Maybe Types.String,
     -- | The JSON text of the policy.
-    policyText :: Lude.Maybe Lude.Text
+    policyText :: Core.Maybe Types.String,
+    -- | The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
+    policyType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterInlinePolicy' with the minimum fields required to make a request.
---
--- * 'policyType' - The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
--- * 'policyStatus' - The status of the policy. Policies report the following statuses: Pending (the policy has not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not applied), or InProgress (the policy is being applied now).
--- * 'policyText' - The JSON text of the policy.
+-- | Creates a 'ParameterInlinePolicy' value with any optional fields omitted.
 mkParameterInlinePolicy ::
   ParameterInlinePolicy
 mkParameterInlinePolicy =
   ParameterInlinePolicy'
-    { policyType = Lude.Nothing,
-      policyStatus = Lude.Nothing,
-      policyText = Lude.Nothing
+    { policyStatus = Core.Nothing,
+      policyText = Core.Nothing,
+      policyType = Core.Nothing
     }
-
--- | The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
---
--- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pipPolicyType :: Lens.Lens' ParameterInlinePolicy (Lude.Maybe Lude.Text)
-pipPolicyType = Lens.lens (policyType :: ParameterInlinePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyType = a} :: ParameterInlinePolicy)
-{-# DEPRECATED pipPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
 
 -- | The status of the policy. Policies report the following statuses: Pending (the policy has not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not applied), or InProgress (the policy is being applied now).
 --
 -- /Note:/ Consider using 'policyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pipPolicyStatus :: Lens.Lens' ParameterInlinePolicy (Lude.Maybe Lude.Text)
-pipPolicyStatus = Lens.lens (policyStatus :: ParameterInlinePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyStatus = a} :: ParameterInlinePolicy)
+pipPolicyStatus :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Types.String)
+pipPolicyStatus = Lens.field @"policyStatus"
 {-# DEPRECATED pipPolicyStatus "Use generic-lens or generic-optics with 'policyStatus' instead." #-}
 
 -- | The JSON text of the policy.
 --
 -- /Note:/ Consider using 'policyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pipPolicyText :: Lens.Lens' ParameterInlinePolicy (Lude.Maybe Lude.Text)
-pipPolicyText = Lens.lens (policyText :: ParameterInlinePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyText = a} :: ParameterInlinePolicy)
+pipPolicyText :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Types.String)
+pipPolicyText = Lens.field @"policyText"
 {-# DEPRECATED pipPolicyText "Use generic-lens or generic-optics with 'policyText' instead." #-}
 
-instance Lude.FromJSON ParameterInlinePolicy where
+-- | The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
+--
+-- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipPolicyType :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Types.String)
+pipPolicyType = Lens.field @"policyType"
+{-# DEPRECATED pipPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
+
+instance Core.FromJSON ParameterInlinePolicy where
   parseJSON =
-    Lude.withObject
-      "ParameterInlinePolicy"
-      ( \x ->
-          ParameterInlinePolicy'
-            Lude.<$> (x Lude..:? "PolicyType")
-            Lude.<*> (x Lude..:? "PolicyStatus")
-            Lude.<*> (x Lude..:? "PolicyText")
-      )
+    Core.withObject "ParameterInlinePolicy" Core.$
+      \x ->
+        ParameterInlinePolicy'
+          Core.<$> (x Core..:? "PolicyStatus")
+          Core.<*> (x Core..:? "PolicyText")
+          Core.<*> (x Core..:? "PolicyType")

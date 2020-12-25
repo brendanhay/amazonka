@@ -13,42 +13,47 @@
 module Network.AWS.MediaConvert.Types.Av1RateControlMode
   ( Av1RateControlMode
       ( Av1RateControlMode',
-        Qvbr
+        Av1RateControlModeQvbr,
+        fromAv1RateControlMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | 'With AV1 outputs, for rate control mode, MediaConvert supports only quality-defined variable bitrate (QVBR). You can''t use CBR or VBR.'
-newtype Av1RateControlMode = Av1RateControlMode' Lude.Text
+newtype Av1RateControlMode = Av1RateControlMode'
+  { fromAv1RateControlMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Qvbr :: Av1RateControlMode
-pattern Qvbr = Av1RateControlMode' "QVBR"
+pattern Av1RateControlModeQvbr :: Av1RateControlMode
+pattern Av1RateControlModeQvbr = Av1RateControlMode' "QVBR"
 
 {-# COMPLETE
-  Qvbr,
+  Av1RateControlModeQvbr,
   Av1RateControlMode'
   #-}

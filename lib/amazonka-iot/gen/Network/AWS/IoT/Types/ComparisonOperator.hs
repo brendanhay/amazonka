@@ -13,76 +13,81 @@
 module Network.AWS.IoT.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
-        LessThan,
-        LessThanEquals,
-        GreaterThan,
-        GreaterThanEquals,
-        InCidrSet,
-        NotInCidrSet,
-        InPortSet,
-        NotInPortSet
+        ComparisonOperatorLessThan,
+        ComparisonOperatorLessThanEquals,
+        ComparisonOperatorGreaterThan,
+        ComparisonOperatorGreaterThanEquals,
+        ComparisonOperatorInCidrSet,
+        ComparisonOperatorNotInCidrSet,
+        ComparisonOperatorInPortSet,
+        ComparisonOperatorNotInPortSet,
+        fromComparisonOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComparisonOperator = ComparisonOperator' Lude.Text
+newtype ComparisonOperator = ComparisonOperator'
+  { fromComparisonOperator ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LessThan :: ComparisonOperator
-pattern LessThan = ComparisonOperator' "less-than"
+pattern ComparisonOperatorLessThan :: ComparisonOperator
+pattern ComparisonOperatorLessThan = ComparisonOperator' "less-than"
 
-pattern LessThanEquals :: ComparisonOperator
-pattern LessThanEquals = ComparisonOperator' "less-than-equals"
+pattern ComparisonOperatorLessThanEquals :: ComparisonOperator
+pattern ComparisonOperatorLessThanEquals = ComparisonOperator' "less-than-equals"
 
-pattern GreaterThan :: ComparisonOperator
-pattern GreaterThan = ComparisonOperator' "greater-than"
+pattern ComparisonOperatorGreaterThan :: ComparisonOperator
+pattern ComparisonOperatorGreaterThan = ComparisonOperator' "greater-than"
 
-pattern GreaterThanEquals :: ComparisonOperator
-pattern GreaterThanEquals = ComparisonOperator' "greater-than-equals"
+pattern ComparisonOperatorGreaterThanEquals :: ComparisonOperator
+pattern ComparisonOperatorGreaterThanEquals = ComparisonOperator' "greater-than-equals"
 
-pattern InCidrSet :: ComparisonOperator
-pattern InCidrSet = ComparisonOperator' "in-cidr-set"
+pattern ComparisonOperatorInCidrSet :: ComparisonOperator
+pattern ComparisonOperatorInCidrSet = ComparisonOperator' "in-cidr-set"
 
-pattern NotInCidrSet :: ComparisonOperator
-pattern NotInCidrSet = ComparisonOperator' "not-in-cidr-set"
+pattern ComparisonOperatorNotInCidrSet :: ComparisonOperator
+pattern ComparisonOperatorNotInCidrSet = ComparisonOperator' "not-in-cidr-set"
 
-pattern InPortSet :: ComparisonOperator
-pattern InPortSet = ComparisonOperator' "in-port-set"
+pattern ComparisonOperatorInPortSet :: ComparisonOperator
+pattern ComparisonOperatorInPortSet = ComparisonOperator' "in-port-set"
 
-pattern NotInPortSet :: ComparisonOperator
-pattern NotInPortSet = ComparisonOperator' "not-in-port-set"
+pattern ComparisonOperatorNotInPortSet :: ComparisonOperator
+pattern ComparisonOperatorNotInPortSet = ComparisonOperator' "not-in-port-set"
 
 {-# COMPLETE
-  LessThan,
-  LessThanEquals,
-  GreaterThan,
-  GreaterThanEquals,
-  InCidrSet,
-  NotInCidrSet,
-  InPortSet,
-  NotInPortSet,
+  ComparisonOperatorLessThan,
+  ComparisonOperatorLessThanEquals,
+  ComparisonOperatorGreaterThan,
+  ComparisonOperatorGreaterThanEquals,
+  ComparisonOperatorInCidrSet,
+  ComparisonOperatorNotInCidrSet,
+  ComparisonOperatorInPortSet,
+  ComparisonOperatorNotInPortSet,
   ComparisonOperator'
   #-}

@@ -17,138 +17,131 @@ module Network.AWS.IoT.Types.CloudwatchMetricAction
     mkCloudwatchMetricAction,
 
     -- * Lenses
-    cmaMetricName,
+    cmaRoleArn,
     cmaMetricNamespace,
+    cmaMetricName,
     cmaMetricValue,
-    cmaMetricTimestamp,
     cmaMetricUnit,
-    cmaRoleARN,
+    cmaMetricTimestamp,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action that captures a CloudWatch metric.
 --
 -- /See:/ 'mkCloudwatchMetricAction' smart constructor.
 data CloudwatchMetricAction = CloudwatchMetricAction'
-  { -- | The CloudWatch metric name.
-    metricName :: Lude.Text,
+  { -- | The IAM role that allows access to the CloudWatch metric.
+    roleArn :: Types.AwsArn,
     -- | The CloudWatch metric namespace name.
-    metricNamespace :: Lude.Text,
+    metricNamespace :: Types.String,
+    -- | The CloudWatch metric name.
+    metricName :: Types.String,
     -- | The CloudWatch metric value.
-    metricValue :: Lude.Text,
-    -- | An optional <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp> .
-    metricTimestamp :: Lude.Maybe Lude.Text,
+    metricValue :: Types.String,
     -- | The <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit> supported by CloudWatch.
-    metricUnit :: Lude.Text,
-    -- | The IAM role that allows access to the CloudWatch metric.
-    roleARN :: Lude.Text
+    metricUnit :: Types.String,
+    -- | An optional <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp> .
+    metricTimestamp :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudwatchMetricAction' with the minimum fields required to make a request.
---
--- * 'metricName' - The CloudWatch metric name.
--- * 'metricNamespace' - The CloudWatch metric namespace name.
--- * 'metricValue' - The CloudWatch metric value.
--- * 'metricTimestamp' - An optional <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp> .
--- * 'metricUnit' - The <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit> supported by CloudWatch.
--- * 'roleARN' - The IAM role that allows access to the CloudWatch metric.
+-- | Creates a 'CloudwatchMetricAction' value with any optional fields omitted.
 mkCloudwatchMetricAction ::
-  -- | 'metricName'
-  Lude.Text ->
+  -- | 'roleArn'
+  Types.AwsArn ->
   -- | 'metricNamespace'
-  Lude.Text ->
+  Types.String ->
+  -- | 'metricName'
+  Types.String ->
   -- | 'metricValue'
-  Lude.Text ->
+  Types.String ->
   -- | 'metricUnit'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.String ->
   CloudwatchMetricAction
 mkCloudwatchMetricAction
-  pMetricName_
-  pMetricNamespace_
-  pMetricValue_
-  pMetricUnit_
-  pRoleARN_ =
+  roleArn
+  metricNamespace
+  metricName
+  metricValue
+  metricUnit =
     CloudwatchMetricAction'
-      { metricName = pMetricName_,
-        metricNamespace = pMetricNamespace_,
-        metricValue = pMetricValue_,
-        metricTimestamp = Lude.Nothing,
-        metricUnit = pMetricUnit_,
-        roleARN = pRoleARN_
+      { roleArn,
+        metricNamespace,
+        metricName,
+        metricValue,
+        metricUnit,
+        metricTimestamp = Core.Nothing
       }
 
--- | The CloudWatch metric name.
+-- | The IAM role that allows access to the CloudWatch metric.
 --
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmaMetricName :: Lens.Lens' CloudwatchMetricAction Lude.Text
-cmaMetricName = Lens.lens (metricName :: CloudwatchMetricAction -> Lude.Text) (\s a -> s {metricName = a} :: CloudwatchMetricAction)
-{-# DEPRECATED cmaMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmaRoleArn :: Lens.Lens' CloudwatchMetricAction Types.AwsArn
+cmaRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED cmaRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The CloudWatch metric namespace name.
 --
 -- /Note:/ Consider using 'metricNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmaMetricNamespace :: Lens.Lens' CloudwatchMetricAction Lude.Text
-cmaMetricNamespace = Lens.lens (metricNamespace :: CloudwatchMetricAction -> Lude.Text) (\s a -> s {metricNamespace = a} :: CloudwatchMetricAction)
+cmaMetricNamespace :: Lens.Lens' CloudwatchMetricAction Types.String
+cmaMetricNamespace = Lens.field @"metricNamespace"
 {-# DEPRECATED cmaMetricNamespace "Use generic-lens or generic-optics with 'metricNamespace' instead." #-}
+
+-- | The CloudWatch metric name.
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmaMetricName :: Lens.Lens' CloudwatchMetricAction Types.String
+cmaMetricName = Lens.field @"metricName"
+{-# DEPRECATED cmaMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The CloudWatch metric value.
 --
 -- /Note:/ Consider using 'metricValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmaMetricValue :: Lens.Lens' CloudwatchMetricAction Lude.Text
-cmaMetricValue = Lens.lens (metricValue :: CloudwatchMetricAction -> Lude.Text) (\s a -> s {metricValue = a} :: CloudwatchMetricAction)
+cmaMetricValue :: Lens.Lens' CloudwatchMetricAction Types.String
+cmaMetricValue = Lens.field @"metricValue"
 {-# DEPRECATED cmaMetricValue "Use generic-lens or generic-optics with 'metricValue' instead." #-}
-
--- | An optional <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp> .
---
--- /Note:/ Consider using 'metricTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmaMetricTimestamp :: Lens.Lens' CloudwatchMetricAction (Lude.Maybe Lude.Text)
-cmaMetricTimestamp = Lens.lens (metricTimestamp :: CloudwatchMetricAction -> Lude.Maybe Lude.Text) (\s a -> s {metricTimestamp = a} :: CloudwatchMetricAction)
-{-# DEPRECATED cmaMetricTimestamp "Use generic-lens or generic-optics with 'metricTimestamp' instead." #-}
 
 -- | The <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit metric unit> supported by CloudWatch.
 --
 -- /Note:/ Consider using 'metricUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmaMetricUnit :: Lens.Lens' CloudwatchMetricAction Lude.Text
-cmaMetricUnit = Lens.lens (metricUnit :: CloudwatchMetricAction -> Lude.Text) (\s a -> s {metricUnit = a} :: CloudwatchMetricAction)
+cmaMetricUnit :: Lens.Lens' CloudwatchMetricAction Types.String
+cmaMetricUnit = Lens.field @"metricUnit"
 {-# DEPRECATED cmaMetricUnit "Use generic-lens or generic-optics with 'metricUnit' instead." #-}
 
--- | The IAM role that allows access to the CloudWatch metric.
+-- | An optional <https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Unix timestamp> .
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmaRoleARN :: Lens.Lens' CloudwatchMetricAction Lude.Text
-cmaRoleARN = Lens.lens (roleARN :: CloudwatchMetricAction -> Lude.Text) (\s a -> s {roleARN = a} :: CloudwatchMetricAction)
-{-# DEPRECATED cmaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'metricTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmaMetricTimestamp :: Lens.Lens' CloudwatchMetricAction (Core.Maybe Types.String)
+cmaMetricTimestamp = Lens.field @"metricTimestamp"
+{-# DEPRECATED cmaMetricTimestamp "Use generic-lens or generic-optics with 'metricTimestamp' instead." #-}
 
-instance Lude.FromJSON CloudwatchMetricAction where
-  parseJSON =
-    Lude.withObject
-      "CloudwatchMetricAction"
-      ( \x ->
-          CloudwatchMetricAction'
-            Lude.<$> (x Lude..: "metricName")
-            Lude.<*> (x Lude..: "metricNamespace")
-            Lude.<*> (x Lude..: "metricValue")
-            Lude.<*> (x Lude..:? "metricTimestamp")
-            Lude.<*> (x Lude..: "metricUnit")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON CloudwatchMetricAction where
-  toJSON CloudwatchMetricAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("metricName" Lude..= metricName),
-            Lude.Just ("metricNamespace" Lude..= metricNamespace),
-            Lude.Just ("metricValue" Lude..= metricValue),
-            ("metricTimestamp" Lude..=) Lude.<$> metricTimestamp,
-            Lude.Just ("metricUnit" Lude..= metricUnit),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON CloudwatchMetricAction where
+  toJSON CloudwatchMetricAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("metricNamespace" Core..= metricNamespace),
+            Core.Just ("metricName" Core..= metricName),
+            Core.Just ("metricValue" Core..= metricValue),
+            Core.Just ("metricUnit" Core..= metricUnit),
+            ("metricTimestamp" Core..=) Core.<$> metricTimestamp
           ]
       )
+
+instance Core.FromJSON CloudwatchMetricAction where
+  parseJSON =
+    Core.withObject "CloudwatchMetricAction" Core.$
+      \x ->
+        CloudwatchMetricAction'
+          Core.<$> (x Core..: "roleArn")
+          Core.<*> (x Core..: "metricNamespace")
+          Core.<*> (x Core..: "metricName")
+          Core.<*> (x Core..: "metricValue")
+          Core.<*> (x Core..: "metricUnit")
+          Core.<*> (x Core..:? "metricTimestamp")

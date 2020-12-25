@@ -42,147 +42,145 @@ module Network.AWS.SNS.CreatePlatformApplication
     mkCreatePlatformApplication,
 
     -- ** Request lenses
+    cpaName,
     cpaPlatform,
     cpaAttributes,
-    cpaName,
 
     -- * Destructuring the response
     CreatePlatformApplicationResponse (..),
     mkCreatePlatformApplicationResponse,
 
     -- ** Response lenses
-    cparsPlatformApplicationARN,
-    cparsResponseStatus,
+    cparrsPlatformApplicationArn,
+    cparrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for CreatePlatformApplication action.
 --
 -- /See:/ 'mkCreatePlatformApplication' smart constructor.
 data CreatePlatformApplication = CreatePlatformApplication'
-  { -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).
-    platform :: Lude.Text,
+  { -- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
+    name :: Types.Name,
+    -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).
+    platform :: Types.Platform,
     -- | For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
-    attributes :: Lude.HashMap Lude.Text (Lude.Text),
-    -- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
-    name :: Lude.Text
+    attributes :: Core.HashMap Types.String Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePlatformApplication' with the minimum fields required to make a request.
---
--- * 'platform' - The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).
--- * 'attributes' - For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
--- * 'name' - Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
+-- | Creates a 'CreatePlatformApplication' value with any optional fields omitted.
 mkCreatePlatformApplication ::
-  -- | 'platform'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'platform'
+  Types.Platform ->
   CreatePlatformApplication
-mkCreatePlatformApplication pPlatform_ pName_ =
+mkCreatePlatformApplication name platform =
   CreatePlatformApplication'
-    { platform = pPlatform_,
-      attributes = Lude.mempty,
-      name = pName_
+    { name,
+      platform,
+      attributes = Core.mempty
     }
+
+-- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpaName :: Lens.Lens' CreatePlatformApplication Types.Name
+cpaName = Lens.field @"name"
+{-# DEPRECATED cpaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).
 --
 -- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpaPlatform :: Lens.Lens' CreatePlatformApplication Lude.Text
-cpaPlatform = Lens.lens (platform :: CreatePlatformApplication -> Lude.Text) (\s a -> s {platform = a} :: CreatePlatformApplication)
+cpaPlatform :: Lens.Lens' CreatePlatformApplication Types.Platform
+cpaPlatform = Lens.field @"platform"
 {-# DEPRECATED cpaPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpaAttributes :: Lens.Lens' CreatePlatformApplication (Lude.HashMap Lude.Text (Lude.Text))
-cpaAttributes = Lens.lens (attributes :: CreatePlatformApplication -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {attributes = a} :: CreatePlatformApplication)
+cpaAttributes :: Lens.Lens' CreatePlatformApplication (Core.HashMap Types.String Types.String)
+cpaAttributes = Lens.field @"attributes"
 {-# DEPRECATED cpaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpaName :: Lens.Lens' CreatePlatformApplication Lude.Text
-cpaName = Lens.lens (name :: CreatePlatformApplication -> Lude.Text) (\s a -> s {name = a} :: CreatePlatformApplication)
-{-# DEPRECATED cpaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
-instance Lude.AWSRequest CreatePlatformApplication where
+instance Core.AWSRequest CreatePlatformApplication where
   type
     Rs CreatePlatformApplication =
       CreatePlatformApplicationResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreatePlatformApplication")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "Name" name)
+                Core.<> (Core.toQueryValue "Platform" platform)
+                Core.<> ( Core.toQueryValue
+                            "Attributes"
+                            (Core.toQueryMap "entry" "key" "value" attributes)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreatePlatformApplicationResult"
       ( \s h x ->
           CreatePlatformApplicationResponse'
-            Lude.<$> (x Lude..@? "PlatformApplicationArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "PlatformApplicationArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreatePlatformApplication where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreatePlatformApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreatePlatformApplication where
-  toQuery CreatePlatformApplication' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreatePlatformApplication" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "Platform" Lude.=: platform,
-        "Attributes"
-          Lude.=: Lude.toQueryMap "entry" "key" "value" attributes,
-        "Name" Lude.=: name
-      ]
 
 -- | Response from CreatePlatformApplication action.
 --
 -- /See:/ 'mkCreatePlatformApplicationResponse' smart constructor.
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
   { -- | PlatformApplicationArn is returned.
-    platformApplicationARN :: Lude.Maybe Lude.Text,
+    platformApplicationArn :: Core.Maybe Types.PlatformApplicationArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePlatformApplicationResponse' with the minimum fields required to make a request.
---
--- * 'platformApplicationARN' - PlatformApplicationArn is returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePlatformApplicationResponse' value with any optional fields omitted.
 mkCreatePlatformApplicationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePlatformApplicationResponse
-mkCreatePlatformApplicationResponse pResponseStatus_ =
+mkCreatePlatformApplicationResponse responseStatus =
   CreatePlatformApplicationResponse'
-    { platformApplicationARN =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { platformApplicationArn =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | PlatformApplicationArn is returned.
 --
--- /Note:/ Consider using 'platformApplicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cparsPlatformApplicationARN :: Lens.Lens' CreatePlatformApplicationResponse (Lude.Maybe Lude.Text)
-cparsPlatformApplicationARN = Lens.lens (platformApplicationARN :: CreatePlatformApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {platformApplicationARN = a} :: CreatePlatformApplicationResponse)
-{-# DEPRECATED cparsPlatformApplicationARN "Use generic-lens or generic-optics with 'platformApplicationARN' instead." #-}
+-- /Note:/ Consider using 'platformApplicationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cparrsPlatformApplicationArn :: Lens.Lens' CreatePlatformApplicationResponse (Core.Maybe Types.PlatformApplicationArn)
+cparrsPlatformApplicationArn = Lens.field @"platformApplicationArn"
+{-# DEPRECATED cparrsPlatformApplicationArn "Use generic-lens or generic-optics with 'platformApplicationArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cparsResponseStatus :: Lens.Lens' CreatePlatformApplicationResponse Lude.Int
-cparsResponseStatus = Lens.lens (responseStatus :: CreatePlatformApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePlatformApplicationResponse)
-{-# DEPRECATED cparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cparrsResponseStatus :: Lens.Lens' CreatePlatformApplicationResponse Core.Int
+cparrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cparrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

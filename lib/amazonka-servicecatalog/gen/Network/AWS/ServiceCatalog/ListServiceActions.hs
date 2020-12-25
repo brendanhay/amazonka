@@ -23,26 +23,26 @@ module Network.AWS.ServiceCatalog.ListServiceActions
 
     -- ** Request lenses
     lsaAcceptLanguage,
-    lsaPageToken,
     lsaPageSize,
+    lsaPageToken,
 
     -- * Destructuring the response
     ListServiceActionsResponse (..),
     mkListServiceActionsResponse,
 
     -- ** Response lenses
-    lsarsNextPageToken,
-    lsarsServiceActionSummaries,
-    lsarsResponseStatus,
+    lsarrsNextPageToken,
+    lsarrsServiceActionSummaries,
+    lsarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkListServiceActions' smart constructor.
 data ListServiceActions = ListServiceActions'
@@ -56,38 +56,23 @@ data ListServiceActions = ListServiceActions'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of results, use null.
-    pageToken :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The maximum number of items to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Core.Maybe Types.PageToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListServiceActions' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'pageSize' - The maximum number of items to return with this call.
+-- | Creates a 'ListServiceActions' value with any optional fields omitted.
 mkListServiceActions ::
   ListServiceActions
 mkListServiceActions =
   ListServiceActions'
-    { acceptLanguage = Lude.Nothing,
-      pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { acceptLanguage = Core.Nothing,
+      pageSize = Core.Nothing,
+      pageToken = Core.Nothing
     }
 
 -- | The language code.
@@ -104,119 +89,112 @@ mkListServiceActions =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsaAcceptLanguage :: Lens.Lens' ListServiceActions (Lude.Maybe Lude.Text)
-lsaAcceptLanguage = Lens.lens (acceptLanguage :: ListServiceActions -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListServiceActions)
+lsaAcceptLanguage :: Lens.Lens' ListServiceActions (Core.Maybe Types.AcceptLanguage)
+lsaAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED lsaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
---
--- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsaPageToken :: Lens.Lens' ListServiceActions (Lude.Maybe Lude.Text)
-lsaPageToken = Lens.lens (pageToken :: ListServiceActions -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListServiceActions)
-{-# DEPRECATED lsaPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsaPageSize :: Lens.Lens' ListServiceActions (Lude.Maybe Lude.Natural)
-lsaPageSize = Lens.lens (pageSize :: ListServiceActions -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListServiceActions)
+lsaPageSize :: Lens.Lens' ListServiceActions (Core.Maybe Core.Natural)
+lsaPageSize = Lens.field @"pageSize"
 {-# DEPRECATED lsaPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager ListServiceActions where
-  page rq rs
-    | Page.stop (rs Lens.^. lsarsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsarsServiceActionSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsaPageToken Lens..~ rs Lens.^. lsarsNextPageToken
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsaPageToken :: Lens.Lens' ListServiceActions (Core.Maybe Types.PageToken)
+lsaPageToken = Lens.field @"pageToken"
+{-# DEPRECATED lsaPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Lude.AWSRequest ListServiceActions where
+instance Core.FromJSON ListServiceActions where
+  toJSON ListServiceActions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken
+          ]
+      )
+
+instance Core.AWSRequest ListServiceActions where
   type Rs ListServiceActions = ListServiceActionsResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.ListServiceActions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListServiceActionsResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "ServiceActionSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "ServiceActionSummaries")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListServiceActions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.ListServiceActions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListServiceActions where
-  toJSON ListServiceActions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize
-          ]
-      )
-
-instance Lude.ToPath ListServiceActions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListServiceActions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListServiceActions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"serviceActionSummaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkListServiceActionsResponse' smart constructor.
 data ListServiceActionsResponse = ListServiceActionsResponse'
   { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | An object containing information about the service actions associated with the provisioning artifact.
-    serviceActionSummaries :: Lude.Maybe [ServiceActionSummary],
+    serviceActionSummaries :: Core.Maybe [Types.ServiceActionSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListServiceActionsResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'serviceActionSummaries' - An object containing information about the service actions associated with the provisioning artifact.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListServiceActionsResponse' value with any optional fields omitted.
 mkListServiceActionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListServiceActionsResponse
-mkListServiceActionsResponse pResponseStatus_ =
+mkListServiceActionsResponse responseStatus =
   ListServiceActionsResponse'
-    { nextPageToken = Lude.Nothing,
-      serviceActionSummaries = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextPageToken = Core.Nothing,
+      serviceActionSummaries = Core.Nothing,
+      responseStatus
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsarsNextPageToken :: Lens.Lens' ListServiceActionsResponse (Lude.Maybe Lude.Text)
-lsarsNextPageToken = Lens.lens (nextPageToken :: ListServiceActionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListServiceActionsResponse)
-{-# DEPRECATED lsarsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+lsarrsNextPageToken :: Lens.Lens' ListServiceActionsResponse (Core.Maybe Types.NextPageToken)
+lsarrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED lsarrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An object containing information about the service actions associated with the provisioning artifact.
 --
 -- /Note:/ Consider using 'serviceActionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsarsServiceActionSummaries :: Lens.Lens' ListServiceActionsResponse (Lude.Maybe [ServiceActionSummary])
-lsarsServiceActionSummaries = Lens.lens (serviceActionSummaries :: ListServiceActionsResponse -> Lude.Maybe [ServiceActionSummary]) (\s a -> s {serviceActionSummaries = a} :: ListServiceActionsResponse)
-{-# DEPRECATED lsarsServiceActionSummaries "Use generic-lens or generic-optics with 'serviceActionSummaries' instead." #-}
+lsarrsServiceActionSummaries :: Lens.Lens' ListServiceActionsResponse (Core.Maybe [Types.ServiceActionSummary])
+lsarrsServiceActionSummaries = Lens.field @"serviceActionSummaries"
+{-# DEPRECATED lsarrsServiceActionSummaries "Use generic-lens or generic-optics with 'serviceActionSummaries' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsarsResponseStatus :: Lens.Lens' ListServiceActionsResponse Lude.Int
-lsarsResponseStatus = Lens.lens (responseStatus :: ListServiceActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListServiceActionsResponse)
-{-# DEPRECATED lsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsarrsResponseStatus :: Lens.Lens' ListServiceActionsResponse Core.Int
+lsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

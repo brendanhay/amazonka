@@ -21,7 +21,7 @@ import Data.ByteString (ByteString)
 import Data.Conduit
 import qualified Data.Conduit.List as CL
 import Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
+import qualified Data.HashMap.Strict as HashMap
 import Data.Monoid
 import Data.Text (Text)
 import qualified Data.Text as Text

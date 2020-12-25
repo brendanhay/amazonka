@@ -13,76 +13,81 @@
 module Network.AWS.SSM.Types.AssociationFilterKey
   ( AssociationFilterKey
       ( AssociationFilterKey',
-        AFKInstanceId,
-        AFKName,
-        AFKAssociationId,
-        AFKAssociationStatusName,
-        AFKLastExecutedBefore,
-        AFKLastExecutedAfter,
-        AFKAssociationName,
-        AFKResourceGroupName
+        AssociationFilterKeyInstanceId,
+        AssociationFilterKeyName,
+        AssociationFilterKeyAssociationId,
+        AssociationFilterKeyAssociationStatusName,
+        AssociationFilterKeyLastExecutedBefore,
+        AssociationFilterKeyLastExecutedAfter,
+        AssociationFilterKeyAssociationName,
+        AssociationFilterKeyResourceGroupName,
+        fromAssociationFilterKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AssociationFilterKey = AssociationFilterKey' Lude.Text
+newtype AssociationFilterKey = AssociationFilterKey'
+  { fromAssociationFilterKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AFKInstanceId :: AssociationFilterKey
-pattern AFKInstanceId = AssociationFilterKey' "InstanceId"
+pattern AssociationFilterKeyInstanceId :: AssociationFilterKey
+pattern AssociationFilterKeyInstanceId = AssociationFilterKey' "InstanceId"
 
-pattern AFKName :: AssociationFilterKey
-pattern AFKName = AssociationFilterKey' "Name"
+pattern AssociationFilterKeyName :: AssociationFilterKey
+pattern AssociationFilterKeyName = AssociationFilterKey' "Name"
 
-pattern AFKAssociationId :: AssociationFilterKey
-pattern AFKAssociationId = AssociationFilterKey' "AssociationId"
+pattern AssociationFilterKeyAssociationId :: AssociationFilterKey
+pattern AssociationFilterKeyAssociationId = AssociationFilterKey' "AssociationId"
 
-pattern AFKAssociationStatusName :: AssociationFilterKey
-pattern AFKAssociationStatusName = AssociationFilterKey' "AssociationStatusName"
+pattern AssociationFilterKeyAssociationStatusName :: AssociationFilterKey
+pattern AssociationFilterKeyAssociationStatusName = AssociationFilterKey' "AssociationStatusName"
 
-pattern AFKLastExecutedBefore :: AssociationFilterKey
-pattern AFKLastExecutedBefore = AssociationFilterKey' "LastExecutedBefore"
+pattern AssociationFilterKeyLastExecutedBefore :: AssociationFilterKey
+pattern AssociationFilterKeyLastExecutedBefore = AssociationFilterKey' "LastExecutedBefore"
 
-pattern AFKLastExecutedAfter :: AssociationFilterKey
-pattern AFKLastExecutedAfter = AssociationFilterKey' "LastExecutedAfter"
+pattern AssociationFilterKeyLastExecutedAfter :: AssociationFilterKey
+pattern AssociationFilterKeyLastExecutedAfter = AssociationFilterKey' "LastExecutedAfter"
 
-pattern AFKAssociationName :: AssociationFilterKey
-pattern AFKAssociationName = AssociationFilterKey' "AssociationName"
+pattern AssociationFilterKeyAssociationName :: AssociationFilterKey
+pattern AssociationFilterKeyAssociationName = AssociationFilterKey' "AssociationName"
 
-pattern AFKResourceGroupName :: AssociationFilterKey
-pattern AFKResourceGroupName = AssociationFilterKey' "ResourceGroupName"
+pattern AssociationFilterKeyResourceGroupName :: AssociationFilterKey
+pattern AssociationFilterKeyResourceGroupName = AssociationFilterKey' "ResourceGroupName"
 
 {-# COMPLETE
-  AFKInstanceId,
-  AFKName,
-  AFKAssociationId,
-  AFKAssociationStatusName,
-  AFKLastExecutedBefore,
-  AFKLastExecutedAfter,
-  AFKAssociationName,
-  AFKResourceGroupName,
+  AssociationFilterKeyInstanceId,
+  AssociationFilterKeyName,
+  AssociationFilterKeyAssociationId,
+  AssociationFilterKeyAssociationStatusName,
+  AssociationFilterKeyLastExecutedBefore,
+  AssociationFilterKeyLastExecutedAfter,
+  AssociationFilterKeyAssociationName,
+  AssociationFilterKeyResourceGroupName,
   AssociationFilterKey'
   #-}

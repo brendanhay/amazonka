@@ -13,46 +13,51 @@
 module Network.AWS.Batch.Types.ArrayJobDependency
   ( ArrayJobDependency
       ( ArrayJobDependency',
-        NToN,
-        Sequential
+        ArrayJobDependencyNToN,
+        ArrayJobDependencySequential,
+        fromArrayJobDependency
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ArrayJobDependency = ArrayJobDependency' Lude.Text
+newtype ArrayJobDependency = ArrayJobDependency'
+  { fromArrayJobDependency ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NToN :: ArrayJobDependency
-pattern NToN = ArrayJobDependency' "N_TO_N"
+pattern ArrayJobDependencyNToN :: ArrayJobDependency
+pattern ArrayJobDependencyNToN = ArrayJobDependency' "N_TO_N"
 
-pattern Sequential :: ArrayJobDependency
-pattern Sequential = ArrayJobDependency' "SEQUENTIAL"
+pattern ArrayJobDependencySequential :: ArrayJobDependency
+pattern ArrayJobDependencySequential = ArrayJobDependency' "SEQUENTIAL"
 
 {-# COMPLETE
-  NToN,
-  Sequential,
+  ArrayJobDependencyNToN,
+  ArrayJobDependencySequential,
   ArrayJobDependency'
   #-}

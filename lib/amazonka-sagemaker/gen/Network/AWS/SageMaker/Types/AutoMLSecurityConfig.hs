@@ -17,83 +17,79 @@ module Network.AWS.SageMaker.Types.AutoMLSecurityConfig
     mkAutoMLSecurityConfig,
 
     -- * Lenses
-    amlscVPCConfig,
-    amlscVolumeKMSKeyId,
     amlscEnableInterContainerTrafficEncryption,
+    amlscVolumeKmsKeyId,
+    amlscVpcConfig,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.VPCConfig
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.KmsKeyId as Types
+import qualified Network.AWS.SageMaker.Types.VpcConfig as Types
 
 -- | Security options.
 --
 -- /See:/ 'mkAutoMLSecurityConfig' smart constructor.
 data AutoMLSecurityConfig = AutoMLSecurityConfig'
-  { -- | VPC configuration.
-    vpcConfig :: Lude.Maybe VPCConfig,
+  { -- | Whether to use traffic encryption between the container layers.
+    enableInterContainerTrafficEncryption :: Core.Maybe Core.Bool,
     -- | The key used to encrypt stored data.
-    volumeKMSKeyId :: Lude.Maybe Lude.Text,
-    -- | Whether to use traffic encryption between the container layers.
-    enableInterContainerTrafficEncryption :: Lude.Maybe Lude.Bool
+    volumeKmsKeyId :: Core.Maybe Types.KmsKeyId,
+    -- | VPC configuration.
+    vpcConfig :: Core.Maybe Types.VpcConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoMLSecurityConfig' with the minimum fields required to make a request.
---
--- * 'vpcConfig' - VPC configuration.
--- * 'volumeKMSKeyId' - The key used to encrypt stored data.
--- * 'enableInterContainerTrafficEncryption' - Whether to use traffic encryption between the container layers.
+-- | Creates a 'AutoMLSecurityConfig' value with any optional fields omitted.
 mkAutoMLSecurityConfig ::
   AutoMLSecurityConfig
 mkAutoMLSecurityConfig =
   AutoMLSecurityConfig'
-    { vpcConfig = Lude.Nothing,
-      volumeKMSKeyId = Lude.Nothing,
-      enableInterContainerTrafficEncryption = Lude.Nothing
+    { enableInterContainerTrafficEncryption =
+        Core.Nothing,
+      volumeKmsKeyId = Core.Nothing,
+      vpcConfig = Core.Nothing
     }
-
--- | VPC configuration.
---
--- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlscVPCConfig :: Lens.Lens' AutoMLSecurityConfig (Lude.Maybe VPCConfig)
-amlscVPCConfig = Lens.lens (vpcConfig :: AutoMLSecurityConfig -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: AutoMLSecurityConfig)
-{-# DEPRECATED amlscVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
-
--- | The key used to encrypt stored data.
---
--- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlscVolumeKMSKeyId :: Lens.Lens' AutoMLSecurityConfig (Lude.Maybe Lude.Text)
-amlscVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: AutoMLSecurityConfig -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: AutoMLSecurityConfig)
-{-# DEPRECATED amlscVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
 -- | Whether to use traffic encryption between the container layers.
 --
 -- /Note:/ Consider using 'enableInterContainerTrafficEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlscEnableInterContainerTrafficEncryption :: Lens.Lens' AutoMLSecurityConfig (Lude.Maybe Lude.Bool)
-amlscEnableInterContainerTrafficEncryption = Lens.lens (enableInterContainerTrafficEncryption :: AutoMLSecurityConfig -> Lude.Maybe Lude.Bool) (\s a -> s {enableInterContainerTrafficEncryption = a} :: AutoMLSecurityConfig)
+amlscEnableInterContainerTrafficEncryption :: Lens.Lens' AutoMLSecurityConfig (Core.Maybe Core.Bool)
+amlscEnableInterContainerTrafficEncryption = Lens.field @"enableInterContainerTrafficEncryption"
 {-# DEPRECATED amlscEnableInterContainerTrafficEncryption "Use generic-lens or generic-optics with 'enableInterContainerTrafficEncryption' instead." #-}
 
-instance Lude.FromJSON AutoMLSecurityConfig where
-  parseJSON =
-    Lude.withObject
-      "AutoMLSecurityConfig"
-      ( \x ->
-          AutoMLSecurityConfig'
-            Lude.<$> (x Lude..:? "VpcConfig")
-            Lude.<*> (x Lude..:? "VolumeKmsKeyId")
-            Lude.<*> (x Lude..:? "EnableInterContainerTrafficEncryption")
-      )
+-- | The key used to encrypt stored data.
+--
+-- /Note:/ Consider using 'volumeKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlscVolumeKmsKeyId :: Lens.Lens' AutoMLSecurityConfig (Core.Maybe Types.KmsKeyId)
+amlscVolumeKmsKeyId = Lens.field @"volumeKmsKeyId"
+{-# DEPRECATED amlscVolumeKmsKeyId "Use generic-lens or generic-optics with 'volumeKmsKeyId' instead." #-}
 
-instance Lude.ToJSON AutoMLSecurityConfig where
-  toJSON AutoMLSecurityConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
-            ("EnableInterContainerTrafficEncryption" Lude..=)
-              Lude.<$> enableInterContainerTrafficEncryption
+-- | VPC configuration.
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlscVpcConfig :: Lens.Lens' AutoMLSecurityConfig (Core.Maybe Types.VpcConfig)
+amlscVpcConfig = Lens.field @"vpcConfig"
+{-# DEPRECATED amlscVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+
+instance Core.FromJSON AutoMLSecurityConfig where
+  toJSON AutoMLSecurityConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EnableInterContainerTrafficEncryption" Core..=)
+              Core.<$> enableInterContainerTrafficEncryption,
+            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
+            ("VpcConfig" Core..=) Core.<$> vpcConfig
           ]
       )
+
+instance Core.FromJSON AutoMLSecurityConfig where
+  parseJSON =
+    Core.withObject "AutoMLSecurityConfig" Core.$
+      \x ->
+        AutoMLSecurityConfig'
+          Core.<$> (x Core..:? "EnableInterContainerTrafficEncryption")
+          Core.<*> (x Core..:? "VolumeKmsKeyId")
+          Core.<*> (x Core..:? "VpcConfig")

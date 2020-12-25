@@ -22,39 +22,35 @@ module Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.ScheduleAction
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.ScheduleAction as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | List of actions that have been created in the schedule.
 --
 -- /See:/ 'mkBatchScheduleActionCreateResult' smart constructor.
 newtype BatchScheduleActionCreateResult = BatchScheduleActionCreateResult'
   { -- | List of actions that have been created in the schedule.
-    scheduleActions :: [ScheduleAction]
+    scheduleActions :: [Types.ScheduleAction]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchScheduleActionCreateResult' with the minimum fields required to make a request.
---
--- * 'scheduleActions' - List of actions that have been created in the schedule.
+-- | Creates a 'BatchScheduleActionCreateResult' value with any optional fields omitted.
 mkBatchScheduleActionCreateResult ::
   BatchScheduleActionCreateResult
 mkBatchScheduleActionCreateResult =
-  BatchScheduleActionCreateResult' {scheduleActions = Lude.mempty}
+  BatchScheduleActionCreateResult' {scheduleActions = Core.mempty}
 
 -- | List of actions that have been created in the schedule.
 --
 -- /Note:/ Consider using 'scheduleActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bScheduleActions :: Lens.Lens' BatchScheduleActionCreateResult [ScheduleAction]
-bScheduleActions = Lens.lens (scheduleActions :: BatchScheduleActionCreateResult -> [ScheduleAction]) (\s a -> s {scheduleActions = a} :: BatchScheduleActionCreateResult)
+bScheduleActions :: Lens.Lens' BatchScheduleActionCreateResult [Types.ScheduleAction]
+bScheduleActions = Lens.field @"scheduleActions"
 {-# DEPRECATED bScheduleActions "Use generic-lens or generic-optics with 'scheduleActions' instead." #-}
 
-instance Lude.FromJSON BatchScheduleActionCreateResult where
+instance Core.FromJSON BatchScheduleActionCreateResult where
   parseJSON =
-    Lude.withObject
-      "BatchScheduleActionCreateResult"
-      ( \x ->
-          BatchScheduleActionCreateResult'
-            Lude.<$> (x Lude..:? "scheduleActions" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BatchScheduleActionCreateResult" Core.$
+      \x ->
+        BatchScheduleActionCreateResult'
+          Core.<$> (x Core..:? "scheduleActions" Core..!= Core.mempty)

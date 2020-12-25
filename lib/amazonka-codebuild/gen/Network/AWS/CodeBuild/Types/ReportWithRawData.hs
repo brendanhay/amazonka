@@ -18,52 +18,49 @@ module Network.AWS.CodeBuild.Types.ReportWithRawData
 
     -- * Lenses
     rwrdData,
-    rwrdReportARN,
+    rwrdReportArn,
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.NonEmptyString as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkReportWithRawData' smart constructor.
 data ReportWithRawData = ReportWithRawData'
-  { data' :: Lude.Maybe Lude.Text,
-    reportARN :: Lude.Maybe Lude.Text
+  { data' :: Core.Maybe Types.String,
+    reportArn :: Core.Maybe Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportWithRawData' with the minimum fields required to make a request.
---
--- * 'data'' -
--- * 'reportARN' -
+-- | Creates a 'ReportWithRawData' value with any optional fields omitted.
 mkReportWithRawData ::
   ReportWithRawData
 mkReportWithRawData =
   ReportWithRawData'
-    { data' = Lude.Nothing,
-      reportARN = Lude.Nothing
+    { data' = Core.Nothing,
+      reportArn = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwrdData :: Lens.Lens' ReportWithRawData (Lude.Maybe Lude.Text)
-rwrdData = Lens.lens (data' :: ReportWithRawData -> Lude.Maybe Lude.Text) (\s a -> s {data' = a} :: ReportWithRawData)
+rwrdData :: Lens.Lens' ReportWithRawData (Core.Maybe Types.String)
+rwrdData = Lens.field @"data'"
 {-# DEPRECATED rwrdData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'reportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwrdReportARN :: Lens.Lens' ReportWithRawData (Lude.Maybe Lude.Text)
-rwrdReportARN = Lens.lens (reportARN :: ReportWithRawData -> Lude.Maybe Lude.Text) (\s a -> s {reportARN = a} :: ReportWithRawData)
-{-# DEPRECATED rwrdReportARN "Use generic-lens or generic-optics with 'reportARN' instead." #-}
+-- /Note:/ Consider using 'reportArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrdReportArn :: Lens.Lens' ReportWithRawData (Core.Maybe Types.NonEmptyString)
+rwrdReportArn = Lens.field @"reportArn"
+{-# DEPRECATED rwrdReportArn "Use generic-lens or generic-optics with 'reportArn' instead." #-}
 
-instance Lude.FromJSON ReportWithRawData where
+instance Core.FromJSON ReportWithRawData where
   parseJSON =
-    Lude.withObject
-      "ReportWithRawData"
-      ( \x ->
-          ReportWithRawData'
-            Lude.<$> (x Lude..:? "data") Lude.<*> (x Lude..:? "reportArn")
-      )
+    Core.withObject "ReportWithRawData" Core.$
+      \x ->
+        ReportWithRawData'
+          Core.<$> (x Core..:? "data") Core.<*> (x Core..:? "reportArn")

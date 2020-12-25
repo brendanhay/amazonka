@@ -13,71 +13,76 @@
 module Network.AWS.GameLift.Types.GameServerGroupStatus
   ( GameServerGroupStatus
       ( GameServerGroupStatus',
-        GSGSNew,
-        GSGSActivating,
-        GSGSActive,
-        GSGSDeleteScheduled,
-        GSGSDeleting,
-        GSGSDeleted,
-        GSGSError
+        GameServerGroupStatusNew,
+        GameServerGroupStatusActivating,
+        GameServerGroupStatusActive,
+        GameServerGroupStatusDeleteScheduled,
+        GameServerGroupStatusDeleting,
+        GameServerGroupStatusDeleted,
+        GameServerGroupStatusError,
+        fromGameServerGroupStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype GameServerGroupStatus = GameServerGroupStatus' Lude.Text
+newtype GameServerGroupStatus = GameServerGroupStatus'
+  { fromGameServerGroupStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern GSGSNew :: GameServerGroupStatus
-pattern GSGSNew = GameServerGroupStatus' "NEW"
+pattern GameServerGroupStatusNew :: GameServerGroupStatus
+pattern GameServerGroupStatusNew = GameServerGroupStatus' "NEW"
 
-pattern GSGSActivating :: GameServerGroupStatus
-pattern GSGSActivating = GameServerGroupStatus' "ACTIVATING"
+pattern GameServerGroupStatusActivating :: GameServerGroupStatus
+pattern GameServerGroupStatusActivating = GameServerGroupStatus' "ACTIVATING"
 
-pattern GSGSActive :: GameServerGroupStatus
-pattern GSGSActive = GameServerGroupStatus' "ACTIVE"
+pattern GameServerGroupStatusActive :: GameServerGroupStatus
+pattern GameServerGroupStatusActive = GameServerGroupStatus' "ACTIVE"
 
-pattern GSGSDeleteScheduled :: GameServerGroupStatus
-pattern GSGSDeleteScheduled = GameServerGroupStatus' "DELETE_SCHEDULED"
+pattern GameServerGroupStatusDeleteScheduled :: GameServerGroupStatus
+pattern GameServerGroupStatusDeleteScheduled = GameServerGroupStatus' "DELETE_SCHEDULED"
 
-pattern GSGSDeleting :: GameServerGroupStatus
-pattern GSGSDeleting = GameServerGroupStatus' "DELETING"
+pattern GameServerGroupStatusDeleting :: GameServerGroupStatus
+pattern GameServerGroupStatusDeleting = GameServerGroupStatus' "DELETING"
 
-pattern GSGSDeleted :: GameServerGroupStatus
-pattern GSGSDeleted = GameServerGroupStatus' "DELETED"
+pattern GameServerGroupStatusDeleted :: GameServerGroupStatus
+pattern GameServerGroupStatusDeleted = GameServerGroupStatus' "DELETED"
 
-pattern GSGSError :: GameServerGroupStatus
-pattern GSGSError = GameServerGroupStatus' "ERROR"
+pattern GameServerGroupStatusError :: GameServerGroupStatus
+pattern GameServerGroupStatusError = GameServerGroupStatus' "ERROR"
 
 {-# COMPLETE
-  GSGSNew,
-  GSGSActivating,
-  GSGSActive,
-  GSGSDeleteScheduled,
-  GSGSDeleting,
-  GSGSDeleted,
-  GSGSError,
+  GameServerGroupStatusNew,
+  GameServerGroupStatusActivating,
+  GameServerGroupStatusActive,
+  GameServerGroupStatusDeleteScheduled,
+  GameServerGroupStatusDeleting,
+  GameServerGroupStatusDeleted,
+  GameServerGroupStatusError,
   GameServerGroupStatus'
   #-}

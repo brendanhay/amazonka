@@ -28,129 +28,114 @@ module Network.AWS.StorageGateway.UpdateSMBFileShareVisibility
     mkUpdateSMBFileShareVisibilityResponse,
 
     -- ** Response lenses
-    usmbfsvrsGatewayARN,
-    usmbfsvrsResponseStatus,
+    usmbfsvrrsGatewayARN,
+    usmbfsvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkUpdateSMBFileShareVisibility' smart constructor.
 data UpdateSMBFileShareVisibility = UpdateSMBFileShareVisibility'
-  { gatewayARN :: Lude.Text,
+  { gatewayARN :: Types.GatewayARN,
     -- | The shares on this gateway appear when listing shares.
-    fileSharesVisible :: Lude.Bool
+    fileSharesVisible :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSMBFileShareVisibility' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'fileSharesVisible' - The shares on this gateway appear when listing shares.
+-- | Creates a 'UpdateSMBFileShareVisibility' value with any optional fields omitted.
 mkUpdateSMBFileShareVisibility ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   -- | 'fileSharesVisible'
-  Lude.Bool ->
+  Core.Bool ->
   UpdateSMBFileShareVisibility
-mkUpdateSMBFileShareVisibility pGatewayARN_ pFileSharesVisible_ =
-  UpdateSMBFileShareVisibility'
-    { gatewayARN = pGatewayARN_,
-      fileSharesVisible = pFileSharesVisible_
-    }
+mkUpdateSMBFileShareVisibility gatewayARN fileSharesVisible =
+  UpdateSMBFileShareVisibility' {gatewayARN, fileSharesVisible}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmbfsvGatewayARN :: Lens.Lens' UpdateSMBFileShareVisibility Lude.Text
-usmbfsvGatewayARN = Lens.lens (gatewayARN :: UpdateSMBFileShareVisibility -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateSMBFileShareVisibility)
+usmbfsvGatewayARN :: Lens.Lens' UpdateSMBFileShareVisibility Types.GatewayARN
+usmbfsvGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED usmbfsvGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The shares on this gateway appear when listing shares.
 --
 -- /Note:/ Consider using 'fileSharesVisible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmbfsvFileSharesVisible :: Lens.Lens' UpdateSMBFileShareVisibility Lude.Bool
-usmbfsvFileSharesVisible = Lens.lens (fileSharesVisible :: UpdateSMBFileShareVisibility -> Lude.Bool) (\s a -> s {fileSharesVisible = a} :: UpdateSMBFileShareVisibility)
+usmbfsvFileSharesVisible :: Lens.Lens' UpdateSMBFileShareVisibility Core.Bool
+usmbfsvFileSharesVisible = Lens.field @"fileSharesVisible"
 {-# DEPRECATED usmbfsvFileSharesVisible "Use generic-lens or generic-optics with 'fileSharesVisible' instead." #-}
 
-instance Lude.AWSRequest UpdateSMBFileShareVisibility where
+instance Core.FromJSON UpdateSMBFileShareVisibility where
+  toJSON UpdateSMBFileShareVisibility {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("FileSharesVisible" Core..= fileSharesVisible)
+          ]
+      )
+
+instance Core.AWSRequest UpdateSMBFileShareVisibility where
   type
     Rs UpdateSMBFileShareVisibility =
       UpdateSMBFileShareVisibilityResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.UpdateSMBFileShareVisibility"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateSMBFileShareVisibilityResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateSMBFileShareVisibility where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.UpdateSMBFileShareVisibility" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateSMBFileShareVisibility where
-  toJSON UpdateSMBFileShareVisibility' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("FileSharesVisible" Lude..= fileSharesVisible)
-          ]
-      )
-
-instance Lude.ToPath UpdateSMBFileShareVisibility where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateSMBFileShareVisibility where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateSMBFileShareVisibilityResponse' smart constructor.
 data UpdateSMBFileShareVisibilityResponse = UpdateSMBFileShareVisibilityResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSMBFileShareVisibilityResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateSMBFileShareVisibilityResponse' value with any optional fields omitted.
 mkUpdateSMBFileShareVisibilityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateSMBFileShareVisibilityResponse
-mkUpdateSMBFileShareVisibilityResponse pResponseStatus_ =
+mkUpdateSMBFileShareVisibilityResponse responseStatus =
   UpdateSMBFileShareVisibilityResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmbfsvrsGatewayARN :: Lens.Lens' UpdateSMBFileShareVisibilityResponse (Lude.Maybe Lude.Text)
-usmbfsvrsGatewayARN = Lens.lens (gatewayARN :: UpdateSMBFileShareVisibilityResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateSMBFileShareVisibilityResponse)
-{-# DEPRECATED usmbfsvrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+usmbfsvrrsGatewayARN :: Lens.Lens' UpdateSMBFileShareVisibilityResponse (Core.Maybe Types.GatewayARN)
+usmbfsvrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED usmbfsvrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmbfsvrsResponseStatus :: Lens.Lens' UpdateSMBFileShareVisibilityResponse Lude.Int
-usmbfsvrsResponseStatus = Lens.lens (responseStatus :: UpdateSMBFileShareVisibilityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSMBFileShareVisibilityResponse)
-{-# DEPRECATED usmbfsvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usmbfsvrrsResponseStatus :: Lens.Lens' UpdateSMBFileShareVisibilityResponse Core.Int
+usmbfsvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usmbfsvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

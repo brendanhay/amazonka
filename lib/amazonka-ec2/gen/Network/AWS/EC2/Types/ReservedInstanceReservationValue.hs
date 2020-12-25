@@ -22,51 +22,49 @@ module Network.AWS.EC2.Types.ReservedInstanceReservationValue
   )
 where
 
-import Network.AWS.EC2.Types.ReservationValue
+import qualified Network.AWS.EC2.Types.ReservationValue as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The total value of the Convertible Reserved Instance.
 --
 -- /See:/ 'mkReservedInstanceReservationValue' smart constructor.
 data ReservedInstanceReservationValue = ReservedInstanceReservationValue'
   { -- | The total value of the Convertible Reserved Instance that you are exchanging.
-    reservationValue :: Lude.Maybe ReservationValue,
+    reservationValue :: Core.Maybe Types.ReservationValue,
     -- | The ID of the Convertible Reserved Instance that you are exchanging.
-    reservedInstanceId :: Lude.Maybe Lude.Text
+    reservedInstanceId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReservedInstanceReservationValue' with the minimum fields required to make a request.
---
--- * 'reservationValue' - The total value of the Convertible Reserved Instance that you are exchanging.
--- * 'reservedInstanceId' - The ID of the Convertible Reserved Instance that you are exchanging.
+-- | Creates a 'ReservedInstanceReservationValue' value with any optional fields omitted.
 mkReservedInstanceReservationValue ::
   ReservedInstanceReservationValue
 mkReservedInstanceReservationValue =
   ReservedInstanceReservationValue'
     { reservationValue =
-        Lude.Nothing,
-      reservedInstanceId = Lude.Nothing
+        Core.Nothing,
+      reservedInstanceId = Core.Nothing
     }
 
 -- | The total value of the Convertible Reserved Instance that you are exchanging.
 --
 -- /Note:/ Consider using 'reservationValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rirvReservationValue :: Lens.Lens' ReservedInstanceReservationValue (Lude.Maybe ReservationValue)
-rirvReservationValue = Lens.lens (reservationValue :: ReservedInstanceReservationValue -> Lude.Maybe ReservationValue) (\s a -> s {reservationValue = a} :: ReservedInstanceReservationValue)
+rirvReservationValue :: Lens.Lens' ReservedInstanceReservationValue (Core.Maybe Types.ReservationValue)
+rirvReservationValue = Lens.field @"reservationValue"
 {-# DEPRECATED rirvReservationValue "Use generic-lens or generic-optics with 'reservationValue' instead." #-}
 
 -- | The ID of the Convertible Reserved Instance that you are exchanging.
 --
 -- /Note:/ Consider using 'reservedInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rirvReservedInstanceId :: Lens.Lens' ReservedInstanceReservationValue (Lude.Maybe Lude.Text)
-rirvReservedInstanceId = Lens.lens (reservedInstanceId :: ReservedInstanceReservationValue -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstanceId = a} :: ReservedInstanceReservationValue)
+rirvReservedInstanceId :: Lens.Lens' ReservedInstanceReservationValue (Core.Maybe Types.String)
+rirvReservedInstanceId = Lens.field @"reservedInstanceId"
 {-# DEPRECATED rirvReservedInstanceId "Use generic-lens or generic-optics with 'reservedInstanceId' instead." #-}
 
-instance Lude.FromXML ReservedInstanceReservationValue where
+instance Core.FromXML ReservedInstanceReservationValue where
   parseXML x =
     ReservedInstanceReservationValue'
-      Lude.<$> (x Lude..@? "reservationValue")
-      Lude.<*> (x Lude..@? "reservedInstanceId")
+      Core.<$> (x Core..@? "reservationValue")
+      Core.<*> (x Core..@? "reservedInstanceId")

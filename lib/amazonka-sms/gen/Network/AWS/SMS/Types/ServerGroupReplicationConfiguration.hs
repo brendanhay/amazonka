@@ -23,66 +23,60 @@ module Network.AWS.SMS.Types.ServerGroupReplicationConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.ServerReplicationConfiguration
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.ServerGroupId as Types
+import qualified Network.AWS.SMS.Types.ServerReplicationConfiguration as Types
 
 -- | Replication configuration for a server group.
 --
 -- /See:/ 'mkServerGroupReplicationConfiguration' smart constructor.
 data ServerGroupReplicationConfiguration = ServerGroupReplicationConfiguration'
   { -- | The ID of the server group with which this replication configuration is associated.
-    serverGroupId :: Lude.Maybe Lude.Text,
+    serverGroupId :: Core.Maybe Types.ServerGroupId,
     -- | The replication configuration for servers in the server group.
-    serverReplicationConfigurations :: Lude.Maybe [ServerReplicationConfiguration]
+    serverReplicationConfigurations :: Core.Maybe [Types.ServerReplicationConfiguration]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ServerGroupReplicationConfiguration' with the minimum fields required to make a request.
---
--- * 'serverGroupId' - The ID of the server group with which this replication configuration is associated.
--- * 'serverReplicationConfigurations' - The replication configuration for servers in the server group.
+-- | Creates a 'ServerGroupReplicationConfiguration' value with any optional fields omitted.
 mkServerGroupReplicationConfiguration ::
   ServerGroupReplicationConfiguration
 mkServerGroupReplicationConfiguration =
   ServerGroupReplicationConfiguration'
     { serverGroupId =
-        Lude.Nothing,
-      serverReplicationConfigurations = Lude.Nothing
+        Core.Nothing,
+      serverReplicationConfigurations = Core.Nothing
     }
 
 -- | The ID of the server group with which this replication configuration is associated.
 --
 -- /Note:/ Consider using 'serverGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgrcServerGroupId :: Lens.Lens' ServerGroupReplicationConfiguration (Lude.Maybe Lude.Text)
-sgrcServerGroupId = Lens.lens (serverGroupId :: ServerGroupReplicationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {serverGroupId = a} :: ServerGroupReplicationConfiguration)
+sgrcServerGroupId :: Lens.Lens' ServerGroupReplicationConfiguration (Core.Maybe Types.ServerGroupId)
+sgrcServerGroupId = Lens.field @"serverGroupId"
 {-# DEPRECATED sgrcServerGroupId "Use generic-lens or generic-optics with 'serverGroupId' instead." #-}
 
 -- | The replication configuration for servers in the server group.
 --
 -- /Note:/ Consider using 'serverReplicationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgrcServerReplicationConfigurations :: Lens.Lens' ServerGroupReplicationConfiguration (Lude.Maybe [ServerReplicationConfiguration])
-sgrcServerReplicationConfigurations = Lens.lens (serverReplicationConfigurations :: ServerGroupReplicationConfiguration -> Lude.Maybe [ServerReplicationConfiguration]) (\s a -> s {serverReplicationConfigurations = a} :: ServerGroupReplicationConfiguration)
+sgrcServerReplicationConfigurations :: Lens.Lens' ServerGroupReplicationConfiguration (Core.Maybe [Types.ServerReplicationConfiguration])
+sgrcServerReplicationConfigurations = Lens.field @"serverReplicationConfigurations"
 {-# DEPRECATED sgrcServerReplicationConfigurations "Use generic-lens or generic-optics with 'serverReplicationConfigurations' instead." #-}
 
-instance Lude.FromJSON ServerGroupReplicationConfiguration where
-  parseJSON =
-    Lude.withObject
-      "ServerGroupReplicationConfiguration"
-      ( \x ->
-          ServerGroupReplicationConfiguration'
-            Lude.<$> (x Lude..:? "serverGroupId")
-            Lude.<*> ( x Lude..:? "serverReplicationConfigurations"
-                         Lude..!= Lude.mempty
-                     )
-      )
-
-instance Lude.ToJSON ServerGroupReplicationConfiguration where
-  toJSON ServerGroupReplicationConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serverGroupId" Lude..=) Lude.<$> serverGroupId,
-            ("serverReplicationConfigurations" Lude..=)
-              Lude.<$> serverReplicationConfigurations
+instance Core.FromJSON ServerGroupReplicationConfiguration where
+  toJSON ServerGroupReplicationConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("serverGroupId" Core..=) Core.<$> serverGroupId,
+            ("serverReplicationConfigurations" Core..=)
+              Core.<$> serverReplicationConfigurations
           ]
       )
+
+instance Core.FromJSON ServerGroupReplicationConfiguration where
+  parseJSON =
+    Core.withObject "ServerGroupReplicationConfiguration" Core.$
+      \x ->
+        ServerGroupReplicationConfiguration'
+          Core.<$> (x Core..:? "serverGroupId")
+          Core.<*> (x Core..:? "serverReplicationConfigurations")

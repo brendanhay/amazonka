@@ -27,106 +27,91 @@ module Network.AWS.CodeBuild.StopBuild
     mkStopBuildResponse,
 
     -- ** Response lenses
-    sbfrsBuild,
-    sbfrsResponseStatus,
+    sbrfrsBuild,
+    sbrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopBuild' smart constructor.
 newtype StopBuild = StopBuild'
   { -- | The ID of the build.
-    id :: Lude.Text
+    id :: Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopBuild' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the build.
+-- | Creates a 'StopBuild' value with any optional fields omitted.
 mkStopBuild ::
   -- | 'id'
-  Lude.Text ->
+  Types.NonEmptyString ->
   StopBuild
-mkStopBuild pId_ = StopBuild' {id = pId_}
+mkStopBuild id = StopBuild' {id}
 
 -- | The ID of the build.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbId :: Lens.Lens' StopBuild Lude.Text
-sbId = Lens.lens (id :: StopBuild -> Lude.Text) (\s a -> s {id = a} :: StopBuild)
+sbId :: Lens.Lens' StopBuild Types.NonEmptyString
+sbId = Lens.field @"id"
 {-# DEPRECATED sbId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest StopBuild where
+instance Core.FromJSON StopBuild where
+  toJSON StopBuild {..} =
+    Core.object (Core.catMaybes [Core.Just ("id" Core..= id)])
+
+instance Core.AWSRequest StopBuild where
   type Rs StopBuild = StopBuildResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.StopBuild")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopBuildResponse'
-            Lude.<$> (x Lude..?> "build") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "build") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopBuild where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.StopBuild" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopBuild where
-  toJSON StopBuild' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("id" Lude..= id)])
-
-instance Lude.ToPath StopBuild where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopBuild where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopBuildResponse' smart constructor.
 data StopBuildResponse = StopBuildResponse'
   { -- | Information about the build.
-    build :: Lude.Maybe Build,
+    build :: Core.Maybe Types.Build,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StopBuildResponse' with the minimum fields required to make a request.
---
--- * 'build' - Information about the build.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopBuildResponse' value with any optional fields omitted.
 mkStopBuildResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopBuildResponse
-mkStopBuildResponse pResponseStatus_ =
-  StopBuildResponse'
-    { build = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkStopBuildResponse responseStatus =
+  StopBuildResponse' {build = Core.Nothing, responseStatus}
 
 -- | Information about the build.
 --
 -- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbfrsBuild :: Lens.Lens' StopBuildResponse (Lude.Maybe Build)
-sbfrsBuild = Lens.lens (build :: StopBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: StopBuildResponse)
-{-# DEPRECATED sbfrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
+sbrfrsBuild :: Lens.Lens' StopBuildResponse (Core.Maybe Types.Build)
+sbrfrsBuild = Lens.field @"build"
+{-# DEPRECATED sbrfrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbfrsResponseStatus :: Lens.Lens' StopBuildResponse Lude.Int
-sbfrsResponseStatus = Lens.lens (responseStatus :: StopBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopBuildResponse)
-{-# DEPRECATED sbfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sbrfrsResponseStatus :: Lens.Lens' StopBuildResponse Core.Int
+sbrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sbrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,40 +21,37 @@ module Network.AWS.Glacier.Types.InputSerialization
   )
 where
 
-import Network.AWS.Glacier.Types.CSVInput
+import qualified Network.AWS.Glacier.Types.CSVInput as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes how the archive is serialized.
 --
 -- /See:/ 'mkInputSerialization' smart constructor.
 newtype InputSerialization = InputSerialization'
   { -- | Describes the serialization of a CSV-encoded object.
-    csv :: Lude.Maybe CSVInput
+    csv :: Core.Maybe Types.CSVInput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputSerialization' with the minimum fields required to make a request.
---
--- * 'csv' - Describes the serialization of a CSV-encoded object.
+-- | Creates a 'InputSerialization' value with any optional fields omitted.
 mkInputSerialization ::
   InputSerialization
-mkInputSerialization = InputSerialization' {csv = Lude.Nothing}
+mkInputSerialization = InputSerialization' {csv = Core.Nothing}
 
 -- | Describes the serialization of a CSV-encoded object.
 --
 -- /Note:/ Consider using 'csv' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isCsv :: Lens.Lens' InputSerialization (Lude.Maybe CSVInput)
-isCsv = Lens.lens (csv :: InputSerialization -> Lude.Maybe CSVInput) (\s a -> s {csv = a} :: InputSerialization)
+isCsv :: Lens.Lens' InputSerialization (Core.Maybe Types.CSVInput)
+isCsv = Lens.field @"csv"
 {-# DEPRECATED isCsv "Use generic-lens or generic-optics with 'csv' instead." #-}
 
-instance Lude.FromJSON InputSerialization where
-  parseJSON =
-    Lude.withObject
-      "InputSerialization"
-      (\x -> InputSerialization' Lude.<$> (x Lude..:? "csv"))
+instance Core.FromJSON InputSerialization where
+  toJSON InputSerialization {..} =
+    Core.object (Core.catMaybes [("csv" Core..=) Core.<$> csv])
 
-instance Lude.ToJSON InputSerialization where
-  toJSON InputSerialization' {..} =
-    Lude.object (Lude.catMaybes [("csv" Lude..=) Lude.<$> csv])
+instance Core.FromJSON InputSerialization where
+  parseJSON =
+    Core.withObject "InputSerialization" Core.$
+      \x -> InputSerialization' Core.<$> (x Core..:? "csv")

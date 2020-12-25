@@ -13,66 +13,71 @@
 module Network.AWS.EC2.Types.LaunchTemplateErrorCode
   ( LaunchTemplateErrorCode
       ( LaunchTemplateErrorCode',
-        LaunchTemplateIdDoesNotExist,
-        LaunchTemplateIdMalformed,
-        LaunchTemplateNameDoesNotExist,
-        LaunchTemplateNameMalformed,
-        LaunchTemplateVersionDoesNotExist,
-        UnexpectedError
+        LaunchTemplateErrorCodeLaunchTemplateIdDoesNotExist,
+        LaunchTemplateErrorCodeLaunchTemplateIdMalformed,
+        LaunchTemplateErrorCodeLaunchTemplateNameDoesNotExist,
+        LaunchTemplateErrorCodeLaunchTemplateNameMalformed,
+        LaunchTemplateErrorCodeLaunchTemplateVersionDoesNotExist,
+        LaunchTemplateErrorCodeUnexpectedError,
+        fromLaunchTemplateErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LaunchTemplateErrorCode = LaunchTemplateErrorCode' Lude.Text
+newtype LaunchTemplateErrorCode = LaunchTemplateErrorCode'
+  { fromLaunchTemplateErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LaunchTemplateIdDoesNotExist :: LaunchTemplateErrorCode
-pattern LaunchTemplateIdDoesNotExist = LaunchTemplateErrorCode' "launchTemplateIdDoesNotExist"
+pattern LaunchTemplateErrorCodeLaunchTemplateIdDoesNotExist :: LaunchTemplateErrorCode
+pattern LaunchTemplateErrorCodeLaunchTemplateIdDoesNotExist = LaunchTemplateErrorCode' "launchTemplateIdDoesNotExist"
 
-pattern LaunchTemplateIdMalformed :: LaunchTemplateErrorCode
-pattern LaunchTemplateIdMalformed = LaunchTemplateErrorCode' "launchTemplateIdMalformed"
+pattern LaunchTemplateErrorCodeLaunchTemplateIdMalformed :: LaunchTemplateErrorCode
+pattern LaunchTemplateErrorCodeLaunchTemplateIdMalformed = LaunchTemplateErrorCode' "launchTemplateIdMalformed"
 
-pattern LaunchTemplateNameDoesNotExist :: LaunchTemplateErrorCode
-pattern LaunchTemplateNameDoesNotExist = LaunchTemplateErrorCode' "launchTemplateNameDoesNotExist"
+pattern LaunchTemplateErrorCodeLaunchTemplateNameDoesNotExist :: LaunchTemplateErrorCode
+pattern LaunchTemplateErrorCodeLaunchTemplateNameDoesNotExist = LaunchTemplateErrorCode' "launchTemplateNameDoesNotExist"
 
-pattern LaunchTemplateNameMalformed :: LaunchTemplateErrorCode
-pattern LaunchTemplateNameMalformed = LaunchTemplateErrorCode' "launchTemplateNameMalformed"
+pattern LaunchTemplateErrorCodeLaunchTemplateNameMalformed :: LaunchTemplateErrorCode
+pattern LaunchTemplateErrorCodeLaunchTemplateNameMalformed = LaunchTemplateErrorCode' "launchTemplateNameMalformed"
 
-pattern LaunchTemplateVersionDoesNotExist :: LaunchTemplateErrorCode
-pattern LaunchTemplateVersionDoesNotExist = LaunchTemplateErrorCode' "launchTemplateVersionDoesNotExist"
+pattern LaunchTemplateErrorCodeLaunchTemplateVersionDoesNotExist :: LaunchTemplateErrorCode
+pattern LaunchTemplateErrorCodeLaunchTemplateVersionDoesNotExist = LaunchTemplateErrorCode' "launchTemplateVersionDoesNotExist"
 
-pattern UnexpectedError :: LaunchTemplateErrorCode
-pattern UnexpectedError = LaunchTemplateErrorCode' "unexpectedError"
+pattern LaunchTemplateErrorCodeUnexpectedError :: LaunchTemplateErrorCode
+pattern LaunchTemplateErrorCodeUnexpectedError = LaunchTemplateErrorCode' "unexpectedError"
 
 {-# COMPLETE
-  LaunchTemplateIdDoesNotExist,
-  LaunchTemplateIdMalformed,
-  LaunchTemplateNameDoesNotExist,
-  LaunchTemplateNameMalformed,
-  LaunchTemplateVersionDoesNotExist,
-  UnexpectedError,
+  LaunchTemplateErrorCodeLaunchTemplateIdDoesNotExist,
+  LaunchTemplateErrorCodeLaunchTemplateIdMalformed,
+  LaunchTemplateErrorCodeLaunchTemplateNameDoesNotExist,
+  LaunchTemplateErrorCodeLaunchTemplateNameMalformed,
+  LaunchTemplateErrorCodeLaunchTemplateVersionDoesNotExist,
+  LaunchTemplateErrorCodeUnexpectedError,
   LaunchTemplateErrorCode'
   #-}

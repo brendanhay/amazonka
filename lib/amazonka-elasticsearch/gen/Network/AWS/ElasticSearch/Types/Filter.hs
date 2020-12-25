@@ -17,53 +17,51 @@ module Network.AWS.ElasticSearch.Types.Filter
     mkFilter,
 
     -- * Lenses
-    fValues,
     fName,
+    fValues,
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.NonEmptyString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A filter used to limit results when describing inbound or outbound cross-cluster search connections. Multiple values can be specified per filter. A cross-cluster search connection must match at least one of the specified values for it to be returned from an operation.
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { -- | Contains one or more values for the filter.
-    values :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | Specifies the name of the filter.
-    name :: Lude.Maybe Lude.Text
+  { -- | Specifies the name of the filter.
+    name :: Core.Maybe Types.NonEmptyString,
+    -- | Contains one or more values for the filter.
+    values :: Core.Maybe (Core.NonEmpty Types.NonEmptyString)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Filter' with the minimum fields required to make a request.
---
--- * 'values' - Contains one or more values for the filter.
--- * 'name' - Specifies the name of the filter.
+-- | Creates a 'Filter' value with any optional fields omitted.
 mkFilter ::
   Filter
-mkFilter = Filter' {values = Lude.Nothing, name = Lude.Nothing}
-
--- | Contains one or more values for the filter.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fValues :: Lens.Lens' Filter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-fValues = Lens.lens (values :: Filter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {values = a} :: Filter)
-{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkFilter = Filter' {name = Core.Nothing, values = Core.Nothing}
 
 -- | Specifies the name of the filter.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fName :: Lens.Lens' Filter (Lude.Maybe Lude.Text)
-fName = Lens.lens (name :: Filter -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Filter)
+fName :: Lens.Lens' Filter (Core.Maybe Types.NonEmptyString)
+fName = Lens.field @"name"
 {-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON Filter where
-  toJSON Filter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Values" Lude..=) Lude.<$> values,
-            ("Name" Lude..=) Lude.<$> name
+-- | Contains one or more values for the filter.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fValues :: Lens.Lens' Filter (Core.Maybe (Core.NonEmpty Types.NonEmptyString))
+fValues = Lens.field @"values"
+{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON Filter where
+  toJSON Filter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("Values" Core..=) Core.<$> values
           ]
       )

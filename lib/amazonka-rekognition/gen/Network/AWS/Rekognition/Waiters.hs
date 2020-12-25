@@ -20,81 +20,77 @@ module Network.AWS.Rekognition.Waiters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import Network.AWS.Rekognition.DescribeProjectVersions
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.Rekognition.DescribeProjectVersions' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkProjectVersionRunning :: Wait.Wait DescribeProjectVersions
+mkProjectVersionRunning :: Waiter.Wait DescribeProjectVersions
 mkProjectVersionRunning =
-  Wait.Wait
-    { Wait._waitName = "ProjectVersionRunning",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "ProjectVersionRunning",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "RUNNING"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( dpvrsProjectVersionDescriptions Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"projectVersionDescriptions" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. pvdStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "FAILED"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( dpvrsProjectVersionDescriptions Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"projectVersionDescriptions" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. pvdStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.Rekognition.DescribeProjectVersions' every 120 seconds until a successful state is reached. An error is returned after 360 failed checks.
-mkProjectVersionTrainingCompleted :: Wait.Wait DescribeProjectVersions
+mkProjectVersionTrainingCompleted :: Waiter.Wait DescribeProjectVersions
 mkProjectVersionTrainingCompleted =
-  Wait.Wait
-    { Wait._waitName = "ProjectVersionTrainingCompleted",
-      Wait._waitAttempts = 360,
-      Wait._waitDelay = 120,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "ProjectVersionTrainingCompleted",
+      Waiter._waitAttempts = 360,
+      Waiter._waitDelay = 120,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "TRAINING_COMPLETED"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( dpvrsProjectVersionDescriptions Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"projectVersionDescriptions" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. pvdStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "TRAINING_FAILED"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( dpvrsProjectVersionDescriptions Lude.. Lens._Just
-                        Lude.. Lens.to Lude.toList
+                    ( Lens.field @"projectVersionDescriptions" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
                     )
                 )
-                Lude.. pvdStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }

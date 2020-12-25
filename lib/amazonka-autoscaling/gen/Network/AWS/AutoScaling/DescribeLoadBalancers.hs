@@ -24,162 +24,158 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
     mkDescribeLoadBalancers,
 
     -- ** Request lenses
-    dlbNextToken,
     dlbAutoScalingGroupName,
     dlbMaxRecords,
+    dlbNextToken,
 
     -- * Destructuring the response
     DescribeLoadBalancersResponse (..),
     mkDescribeLoadBalancersResponse,
 
     -- ** Response lenses
-    dlbrsLoadBalancers,
-    dlbrsNextToken,
-    dlbrsResponseStatus,
+    dlbrrsLoadBalancers,
+    dlbrrsNextToken,
+    dlbrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
-  { -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text,
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.ResourceName,
     -- | The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.XmlString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBalancers' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
+-- | Creates a 'DescribeLoadBalancers' value with any optional fields omitted.
 mkDescribeLoadBalancers ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
   DescribeLoadBalancers
-mkDescribeLoadBalancers pAutoScalingGroupName_ =
+mkDescribeLoadBalancers autoScalingGroupName =
   DescribeLoadBalancers'
-    { nextToken = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_,
-      maxRecords = Lude.Nothing
+    { autoScalingGroupName,
+      maxRecords = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbNextToken :: Lens.Lens' DescribeLoadBalancers (Lude.Maybe Lude.Text)
-dlbNextToken = Lens.lens (nextToken :: DescribeLoadBalancers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLoadBalancers)
-{-# DEPRECATED dlbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbAutoScalingGroupName :: Lens.Lens' DescribeLoadBalancers Lude.Text
-dlbAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribeLoadBalancers -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribeLoadBalancers)
+dlbAutoScalingGroupName :: Lens.Lens' DescribeLoadBalancers Types.ResourceName
+dlbAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED dlbAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbMaxRecords :: Lens.Lens' DescribeLoadBalancers (Lude.Maybe Lude.Int)
-dlbMaxRecords = Lens.lens (maxRecords :: DescribeLoadBalancers -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeLoadBalancers)
+dlbMaxRecords :: Lens.Lens' DescribeLoadBalancers (Core.Maybe Core.Int)
+dlbMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dlbMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeLoadBalancers where
-  page rq rs
-    | Page.stop (rs Lens.^. dlbrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dlbrsLoadBalancers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dlbNextToken Lens..~ rs Lens.^. dlbrsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbNextToken :: Lens.Lens' DescribeLoadBalancers (Core.Maybe Types.XmlString)
+dlbNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeLoadBalancers where
+instance Core.AWSRequest DescribeLoadBalancers where
   type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLoadBalancers")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Lude.<$> ( x Lude..@? "LoadBalancers" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "LoadBalancers" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeLoadBalancers where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLoadBalancers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLoadBalancers where
-  toQuery DescribeLoadBalancers' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeLoadBalancers" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeLoadBalancers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"loadBalancers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
   { -- | The load balancers.
-    loadBalancers :: Lude.Maybe [LoadBalancerState],
+    loadBalancers :: Core.Maybe [Types.LoadBalancerState],
     -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.XmlString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
---
--- * 'loadBalancers' - The load balancers.
--- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLoadBalancersResponse' value with any optional fields omitted.
 mkDescribeLoadBalancersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLoadBalancersResponse
-mkDescribeLoadBalancersResponse pResponseStatus_ =
+mkDescribeLoadBalancersResponse responseStatus =
   DescribeLoadBalancersResponse'
-    { loadBalancers = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { loadBalancers = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The load balancers.
 --
 -- /Note:/ Consider using 'loadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbrsLoadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Lude.Maybe [LoadBalancerState])
-dlbrsLoadBalancers = Lens.lens (loadBalancers :: DescribeLoadBalancersResponse -> Lude.Maybe [LoadBalancerState]) (\s a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
+dlbrrsLoadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Core.Maybe [Types.LoadBalancerState])
+dlbrrsLoadBalancers = Lens.field @"loadBalancers"
+{-# DEPRECATED dlbrrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
 
 -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbrsNextToken :: Lens.Lens' DescribeLoadBalancersResponse (Lude.Maybe Lude.Text)
-dlbrsNextToken = Lens.lens (nextToken :: DescribeLoadBalancersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dlbrrsNextToken :: Lens.Lens' DescribeLoadBalancersResponse (Core.Maybe Types.XmlString)
+dlbrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbrsResponseStatus :: Lens.Lens' DescribeLoadBalancersResponse Lude.Int
-dlbrsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbrrsResponseStatus :: Lens.Lens' DescribeLoadBalancersResponse Core.Int
+dlbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

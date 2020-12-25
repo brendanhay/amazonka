@@ -20,38 +20,34 @@ module Network.AWS.StepFunctions.CreateStateMachine
     mkCreateStateMachine,
 
     -- ** Request lenses
-    csmDefinition,
-    csmTracingConfiguration,
     csmName,
-    csmType,
+    csmDefinition,
+    csmRoleArn,
     csmLoggingConfiguration,
     csmTags,
-    csmRoleARN,
+    csmTracingConfiguration,
+    csmType,
 
     -- * Destructuring the response
     CreateStateMachineResponse (..),
     mkCreateStateMachineResponse,
 
     -- ** Response lenses
-    csmrsStateMachineARN,
-    csmrsCreationDate,
-    csmrsResponseStatus,
+    csmrrsStateMachineArn,
+    csmrrsCreationDate,
+    csmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StepFunctions.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StepFunctions.Types as Types
 
 -- | /See:/ 'mkCreateStateMachine' smart constructor.
 data CreateStateMachine = CreateStateMachine'
-  { -- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
-    definition :: Lude.Sensitive Lude.Text,
-    -- | Selects whether AWS X-Ray tracing is enabled.
-    tracingConfiguration :: Lude.Maybe TracingConfiguration,
-    -- | The name of the state machine.
+  { -- | The name of the state machine.
     --
     -- A name must /not/ contain:
     --
@@ -71,85 +67,45 @@ data CreateStateMachine = CreateStateMachine'
     --
     --
     -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-    name :: Lude.Text,
-    -- | Determines whether a Standard or Express state machine is created. The default is @STANDARD@ . You cannot update the @type@ of a state machine once it has been created.
-    type' :: Lude.Maybe StateMachineType,
+    name :: Types.Name,
+    -- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
+    definition :: Types.Definition,
+    -- | The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+    roleArn :: Types.Arn,
     -- | Defines what execution history events are logged and where they are logged.
-    loggingConfiguration :: Lude.Maybe LoggingConfiguration,
+    loggingConfiguration :: Core.Maybe Types.LoggingConfiguration,
     -- | Tags to be added when creating a state machine.
     --
     -- An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ , and <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
     -- Tags may only contain Unicode letters, digits, white space, or these symbols: @_ . : / = + - @@ .
-    tags :: Lude.Maybe [Tag],
-    -- | The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-    roleARN :: Lude.Text
+    tags :: Core.Maybe [Types.Tag],
+    -- | Selects whether AWS X-Ray tracing is enabled.
+    tracingConfiguration :: Core.Maybe Types.TracingConfiguration,
+    -- | Determines whether a Standard or Express state machine is created. The default is @STANDARD@ . You cannot update the @type@ of a state machine once it has been created.
+    type' :: Core.Maybe Types.StateMachineType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStateMachine' with the minimum fields required to make a request.
---
--- * 'definition' - The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
--- * 'tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
--- * 'name' - The name of the state machine.
---
--- A name must /not/ contain:
---
---     * white space
---
---
---     * brackets @< > { } [ ]@
---
---
---     * wildcard characters @? *@
---
---
---     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
---
---
---     * control characters (@U+0000-001F@ , @U+007F-009F@ )
---
---
--- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
--- * 'type'' - Determines whether a Standard or Express state machine is created. The default is @STANDARD@ . You cannot update the @type@ of a state machine once it has been created.
--- * 'loggingConfiguration' - Defines what execution history events are logged and where they are logged.
--- * 'tags' - Tags to be added when creating a state machine.
---
--- An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ , and <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
--- Tags may only contain Unicode letters, digits, white space, or these symbols: @_ . : / = + - @@ .
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+-- | Creates a 'CreateStateMachine' value with any optional fields omitted.
 mkCreateStateMachine ::
-  -- | 'definition'
-  Lude.Sensitive Lude.Text ->
   -- | 'name'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'definition'
+  Types.Definition ->
+  -- | 'roleArn'
+  Types.Arn ->
   CreateStateMachine
-mkCreateStateMachine pDefinition_ pName_ pRoleARN_ =
+mkCreateStateMachine name definition roleArn =
   CreateStateMachine'
-    { definition = pDefinition_,
-      tracingConfiguration = Lude.Nothing,
-      name = pName_,
-      type' = Lude.Nothing,
-      loggingConfiguration = Lude.Nothing,
-      tags = Lude.Nothing,
-      roleARN = pRoleARN_
+    { name,
+      definition,
+      roleArn,
+      loggingConfiguration = Core.Nothing,
+      tags = Core.Nothing,
+      tracingConfiguration = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
---
--- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmDefinition :: Lens.Lens' CreateStateMachine (Lude.Sensitive Lude.Text)
-csmDefinition = Lens.lens (definition :: CreateStateMachine -> Lude.Sensitive Lude.Text) (\s a -> s {definition = a} :: CreateStateMachine)
-{-# DEPRECATED csmDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
-
--- | Selects whether AWS X-Ray tracing is enabled.
---
--- /Note:/ Consider using 'tracingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmTracingConfiguration :: Lens.Lens' CreateStateMachine (Lude.Maybe TracingConfiguration)
-csmTracingConfiguration = Lens.lens (tracingConfiguration :: CreateStateMachine -> Lude.Maybe TracingConfiguration) (\s a -> s {tracingConfiguration = a} :: CreateStateMachine)
-{-# DEPRECATED csmTracingConfiguration "Use generic-lens or generic-optics with 'tracingConfiguration' instead." #-}
 
 -- | The name of the state machine.
 --
@@ -173,22 +129,29 @@ csmTracingConfiguration = Lens.lens (tracingConfiguration :: CreateStateMachine 
 -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmName :: Lens.Lens' CreateStateMachine Lude.Text
-csmName = Lens.lens (name :: CreateStateMachine -> Lude.Text) (\s a -> s {name = a} :: CreateStateMachine)
+csmName :: Lens.Lens' CreateStateMachine Types.Name
+csmName = Lens.field @"name"
 {-# DEPRECATED csmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Determines whether a Standard or Express state machine is created. The default is @STANDARD@ . You cannot update the @type@ of a state machine once it has been created.
+-- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmType :: Lens.Lens' CreateStateMachine (Lude.Maybe StateMachineType)
-csmType = Lens.lens (type' :: CreateStateMachine -> Lude.Maybe StateMachineType) (\s a -> s {type' = a} :: CreateStateMachine)
-{-# DEPRECATED csmType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csmDefinition :: Lens.Lens' CreateStateMachine Types.Definition
+csmDefinition = Lens.field @"definition"
+{-# DEPRECATED csmDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csmRoleArn :: Lens.Lens' CreateStateMachine Types.Arn
+csmRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED csmRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | Defines what execution history events are logged and where they are logged.
 --
 -- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmLoggingConfiguration :: Lens.Lens' CreateStateMachine (Lude.Maybe LoggingConfiguration)
-csmLoggingConfiguration = Lens.lens (loggingConfiguration :: CreateStateMachine -> Lude.Maybe LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: CreateStateMachine)
+csmLoggingConfiguration :: Lens.Lens' CreateStateMachine (Core.Maybe Types.LoggingConfiguration)
+csmLoggingConfiguration = Lens.field @"loggingConfiguration"
 {-# DEPRECATED csmLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
 
 -- | Tags to be added when creating a state machine.
@@ -197,112 +160,108 @@ csmLoggingConfiguration = Lens.lens (loggingConfiguration :: CreateStateMachine 
 -- Tags may only contain Unicode letters, digits, white space, or these symbols: @_ . : / = + - @@ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmTags :: Lens.Lens' CreateStateMachine (Lude.Maybe [Tag])
-csmTags = Lens.lens (tags :: CreateStateMachine -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateStateMachine)
+csmTags :: Lens.Lens' CreateStateMachine (Core.Maybe [Types.Tag])
+csmTags = Lens.field @"tags"
 {-# DEPRECATED csmTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+-- | Selects whether AWS X-Ray tracing is enabled.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmRoleARN :: Lens.Lens' CreateStateMachine Lude.Text
-csmRoleARN = Lens.lens (roleARN :: CreateStateMachine -> Lude.Text) (\s a -> s {roleARN = a} :: CreateStateMachine)
-{-# DEPRECATED csmRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'tracingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csmTracingConfiguration :: Lens.Lens' CreateStateMachine (Core.Maybe Types.TracingConfiguration)
+csmTracingConfiguration = Lens.field @"tracingConfiguration"
+{-# DEPRECATED csmTracingConfiguration "Use generic-lens or generic-optics with 'tracingConfiguration' instead." #-}
 
-instance Lude.AWSRequest CreateStateMachine where
+-- | Determines whether a Standard or Express state machine is created. The default is @STANDARD@ . You cannot update the @type@ of a state machine once it has been created.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csmType :: Lens.Lens' CreateStateMachine (Core.Maybe Types.StateMachineType)
+csmType = Lens.field @"type'"
+{-# DEPRECATED csmType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON CreateStateMachine where
+  toJSON CreateStateMachine {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("definition" Core..= definition),
+            Core.Just ("roleArn" Core..= roleArn),
+            ("loggingConfiguration" Core..=) Core.<$> loggingConfiguration,
+            ("tags" Core..=) Core.<$> tags,
+            ("tracingConfiguration" Core..=) Core.<$> tracingConfiguration,
+            ("type" Core..=) Core.<$> type'
+          ]
+      )
+
+instance Core.AWSRequest CreateStateMachine where
   type Rs CreateStateMachine = CreateStateMachineResponse
-  request = Req.postJSON stepFunctionsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSStepFunctions.CreateStateMachine")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateStateMachineResponse'
-            Lude.<$> (x Lude..:> "stateMachineArn")
-            Lude.<*> (x Lude..:> "creationDate")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "stateMachineArn")
+            Core.<*> (x Core..: "creationDate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateStateMachine where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSStepFunctions.CreateStateMachine" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateStateMachine where
-  toJSON CreateStateMachine' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("definition" Lude..= definition),
-            ("tracingConfiguration" Lude..=) Lude.<$> tracingConfiguration,
-            Lude.Just ("name" Lude..= name),
-            ("type" Lude..=) Lude.<$> type',
-            ("loggingConfiguration" Lude..=) Lude.<$> loggingConfiguration,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("roleArn" Lude..= roleARN)
-          ]
-      )
-
-instance Lude.ToPath CreateStateMachine where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateStateMachine where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateStateMachineResponse' smart constructor.
 data CreateStateMachineResponse = CreateStateMachineResponse'
   { -- | The Amazon Resource Name (ARN) that identifies the created state machine.
-    stateMachineARN :: Lude.Text,
+    stateMachineArn :: Types.Arn,
     -- | The date the state machine is created.
-    creationDate :: Lude.Timestamp,
+    creationDate :: Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateStateMachineResponse' with the minimum fields required to make a request.
---
--- * 'stateMachineARN' - The Amazon Resource Name (ARN) that identifies the created state machine.
--- * 'creationDate' - The date the state machine is created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateStateMachineResponse' value with any optional fields omitted.
 mkCreateStateMachineResponse ::
-  -- | 'stateMachineARN'
-  Lude.Text ->
+  -- | 'stateMachineArn'
+  Types.Arn ->
   -- | 'creationDate'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateStateMachineResponse
 mkCreateStateMachineResponse
-  pStateMachineARN_
-  pCreationDate_
-  pResponseStatus_ =
+  stateMachineArn
+  creationDate
+  responseStatus =
     CreateStateMachineResponse'
-      { stateMachineARN = pStateMachineARN_,
-        creationDate = pCreationDate_,
-        responseStatus = pResponseStatus_
+      { stateMachineArn,
+        creationDate,
+        responseStatus
       }
 
 -- | The Amazon Resource Name (ARN) that identifies the created state machine.
 --
--- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmrsStateMachineARN :: Lens.Lens' CreateStateMachineResponse Lude.Text
-csmrsStateMachineARN = Lens.lens (stateMachineARN :: CreateStateMachineResponse -> Lude.Text) (\s a -> s {stateMachineARN = a} :: CreateStateMachineResponse)
-{-# DEPRECATED csmrsStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
+-- /Note:/ Consider using 'stateMachineArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csmrrsStateMachineArn :: Lens.Lens' CreateStateMachineResponse Types.Arn
+csmrrsStateMachineArn = Lens.field @"stateMachineArn"
+{-# DEPRECATED csmrrsStateMachineArn "Use generic-lens or generic-optics with 'stateMachineArn' instead." #-}
 
 -- | The date the state machine is created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmrsCreationDate :: Lens.Lens' CreateStateMachineResponse Lude.Timestamp
-csmrsCreationDate = Lens.lens (creationDate :: CreateStateMachineResponse -> Lude.Timestamp) (\s a -> s {creationDate = a} :: CreateStateMachineResponse)
-{-# DEPRECATED csmrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+csmrrsCreationDate :: Lens.Lens' CreateStateMachineResponse Core.NominalDiffTime
+csmrrsCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED csmrrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmrsResponseStatus :: Lens.Lens' CreateStateMachineResponse Lude.Int
-csmrsResponseStatus = Lens.lens (responseStatus :: CreateStateMachineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStateMachineResponse)
-{-# DEPRECATED csmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csmrrsResponseStatus :: Lens.Lens' CreateStateMachineResponse Core.Int
+csmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

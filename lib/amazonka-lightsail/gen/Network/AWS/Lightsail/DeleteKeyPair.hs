@@ -29,108 +29,92 @@ module Network.AWS.Lightsail.DeleteKeyPair
     mkDeleteKeyPairResponse,
 
     -- ** Response lenses
-    dkprsOperation,
-    dkprsResponseStatus,
+    dkprrsOperation,
+    dkprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteKeyPair' smart constructor.
 newtype DeleteKeyPair = DeleteKeyPair'
   { -- | The name of the key pair to delete.
-    keyPairName :: Lude.Text
+    keyPairName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteKeyPair' with the minimum fields required to make a request.
---
--- * 'keyPairName' - The name of the key pair to delete.
+-- | Creates a 'DeleteKeyPair' value with any optional fields omitted.
 mkDeleteKeyPair ::
   -- | 'keyPairName'
-  Lude.Text ->
+  Types.ResourceName ->
   DeleteKeyPair
-mkDeleteKeyPair pKeyPairName_ =
-  DeleteKeyPair' {keyPairName = pKeyPairName_}
+mkDeleteKeyPair keyPairName = DeleteKeyPair' {keyPairName}
 
 -- | The name of the key pair to delete.
 --
 -- /Note:/ Consider using 'keyPairName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkpKeyPairName :: Lens.Lens' DeleteKeyPair Lude.Text
-dkpKeyPairName = Lens.lens (keyPairName :: DeleteKeyPair -> Lude.Text) (\s a -> s {keyPairName = a} :: DeleteKeyPair)
+dkpKeyPairName :: Lens.Lens' DeleteKeyPair Types.ResourceName
+dkpKeyPairName = Lens.field @"keyPairName"
 {-# DEPRECATED dkpKeyPairName "Use generic-lens or generic-optics with 'keyPairName' instead." #-}
 
-instance Lude.AWSRequest DeleteKeyPair where
+instance Core.FromJSON DeleteKeyPair where
+  toJSON DeleteKeyPair {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("keyPairName" Core..= keyPairName)])
+
+instance Core.AWSRequest DeleteKeyPair where
   type Rs DeleteKeyPair = DeleteKeyPairResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.DeleteKeyPair")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteKeyPairResponse'
-            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteKeyPair where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.DeleteKeyPair" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteKeyPair where
-  toJSON DeleteKeyPair' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("keyPairName" Lude..= keyPairName)])
-
-instance Lude.ToPath DeleteKeyPair where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteKeyPair where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse = DeleteKeyPairResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operation :: Lude.Maybe Operation,
+    operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteKeyPairResponse' with the minimum fields required to make a request.
---
--- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteKeyPairResponse' value with any optional fields omitted.
 mkDeleteKeyPairResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteKeyPairResponse
-mkDeleteKeyPairResponse pResponseStatus_ =
-  DeleteKeyPairResponse'
-    { operation = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteKeyPairResponse responseStatus =
+  DeleteKeyPairResponse' {operation = Core.Nothing, responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkprsOperation :: Lens.Lens' DeleteKeyPairResponse (Lude.Maybe Operation)
-dkprsOperation = Lens.lens (operation :: DeleteKeyPairResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: DeleteKeyPairResponse)
-{-# DEPRECATED dkprsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+dkprrsOperation :: Lens.Lens' DeleteKeyPairResponse (Core.Maybe Types.Operation)
+dkprrsOperation = Lens.field @"operation"
+{-# DEPRECATED dkprrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkprsResponseStatus :: Lens.Lens' DeleteKeyPairResponse Lude.Int
-dkprsResponseStatus = Lens.lens (responseStatus :: DeleteKeyPairResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteKeyPairResponse)
-{-# DEPRECATED dkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dkprrsResponseStatus :: Lens.Lens' DeleteKeyPairResponse Core.Int
+dkprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dkprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

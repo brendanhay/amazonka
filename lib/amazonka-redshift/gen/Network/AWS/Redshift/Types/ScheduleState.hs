@@ -13,52 +13,57 @@
 module Network.AWS.Redshift.Types.ScheduleState
   ( ScheduleState
       ( ScheduleState',
-        SSModifying,
-        SSActive,
-        SSFailed
+        ScheduleStateModifying,
+        ScheduleStateActive,
+        ScheduleStateFailed,
+        fromScheduleState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype ScheduleState = ScheduleState' Lude.Text
+newtype ScheduleState = ScheduleState'
+  { fromScheduleState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSModifying :: ScheduleState
-pattern SSModifying = ScheduleState' "MODIFYING"
+pattern ScheduleStateModifying :: ScheduleState
+pattern ScheduleStateModifying = ScheduleState' "MODIFYING"
 
-pattern SSActive :: ScheduleState
-pattern SSActive = ScheduleState' "ACTIVE"
+pattern ScheduleStateActive :: ScheduleState
+pattern ScheduleStateActive = ScheduleState' "ACTIVE"
 
-pattern SSFailed :: ScheduleState
-pattern SSFailed = ScheduleState' "FAILED"
+pattern ScheduleStateFailed :: ScheduleState
+pattern ScheduleStateFailed = ScheduleState' "FAILED"
 
 {-# COMPLETE
-  SSModifying,
-  SSActive,
-  SSFailed,
+  ScheduleStateModifying,
+  ScheduleStateActive,
+  ScheduleStateFailed,
   ScheduleState'
   #-}

@@ -22,7 +22,7 @@ module Network.AWS.CloudWatch.DeleteAlarms
     mkDeleteAlarms,
 
     -- ** Request lenses
-    daAlarmNames,
+    dAlarmNames,
 
     -- * Destructuring the response
     DeleteAlarmsResponse (..),
@@ -30,59 +30,63 @@ module Network.AWS.CloudWatch.DeleteAlarms
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAlarms' smart constructor.
 newtype DeleteAlarms = DeleteAlarms'
   { -- | The alarms to be deleted.
-    alarmNames :: [Lude.Text]
+    alarmNames :: [Types.AlarmName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAlarms' with the minimum fields required to make a request.
---
--- * 'alarmNames' - The alarms to be deleted.
+-- | Creates a 'DeleteAlarms' value with any optional fields omitted.
 mkDeleteAlarms ::
   DeleteAlarms
-mkDeleteAlarms = DeleteAlarms' {alarmNames = Lude.mempty}
+mkDeleteAlarms = DeleteAlarms' {alarmNames = Core.mempty}
 
 -- | The alarms to be deleted.
 --
 -- /Note:/ Consider using 'alarmNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAlarmNames :: Lens.Lens' DeleteAlarms [Lude.Text]
-daAlarmNames = Lens.lens (alarmNames :: DeleteAlarms -> [Lude.Text]) (\s a -> s {alarmNames = a} :: DeleteAlarms)
-{-# DEPRECATED daAlarmNames "Use generic-lens or generic-optics with 'alarmNames' instead." #-}
+dAlarmNames :: Lens.Lens' DeleteAlarms [Types.AlarmName]
+dAlarmNames = Lens.field @"alarmNames"
+{-# DEPRECATED dAlarmNames "Use generic-lens or generic-optics with 'alarmNames' instead." #-}
 
-instance Lude.AWSRequest DeleteAlarms where
+instance Core.AWSRequest DeleteAlarms where
   type Rs DeleteAlarms = DeleteAlarmsResponse
-  request = Req.postQuery cloudWatchService
-  response = Res.receiveNull DeleteAlarmsResponse'
-
-instance Lude.ToHeaders DeleteAlarms where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteAlarms where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAlarms where
-  toQuery DeleteAlarms' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteAlarms" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "AlarmNames" Lude.=: Lude.toQueryList "member" alarmNames
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteAlarms")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> ( Core.toQueryValue
+                            "AlarmNames"
+                            (Core.toQueryList "member" alarmNames)
+                        )
+            )
+      }
+  response = Response.receiveNull DeleteAlarmsResponse'
 
 -- | /See:/ 'mkDeleteAlarmsResponse' smart constructor.
 data DeleteAlarmsResponse = DeleteAlarmsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAlarmsResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAlarmsResponse' value with any optional fields omitted.
 mkDeleteAlarmsResponse ::
   DeleteAlarmsResponse
 mkDeleteAlarmsResponse = DeleteAlarmsResponse'

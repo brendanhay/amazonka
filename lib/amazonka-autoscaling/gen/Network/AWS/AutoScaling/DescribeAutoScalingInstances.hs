@@ -22,164 +22,164 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     mkDescribeAutoScalingInstances,
 
     -- ** Request lenses
-    dasiNextToken,
     dasiInstanceIds,
     dasiMaxRecords,
+    dasiNextToken,
 
     -- * Destructuring the response
     DescribeAutoScalingInstancesResponse (..),
     mkDescribeAutoScalingInstancesResponse,
 
     -- ** Response lenses
-    dasirsNextToken,
-    dasirsAutoScalingInstances,
-    dasirsResponseStatus,
+    dasirrsAutoScalingInstances,
+    dasirrsNextToken,
+    dasirrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAutoScalingInstances' smart constructor.
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
-  { -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
-    instanceIds :: Lude.Maybe [Lude.Text],
+  { -- | The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
+    instanceIds :: Core.Maybe [Types.XmlStringMaxLen19],
     -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @50@ .
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.XmlString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAutoScalingInstances' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'instanceIds' - The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @50@ .
+-- | Creates a 'DescribeAutoScalingInstances' value with any optional fields omitted.
 mkDescribeAutoScalingInstances ::
   DescribeAutoScalingInstances
 mkDescribeAutoScalingInstances =
   DescribeAutoScalingInstances'
-    { nextToken = Lude.Nothing,
-      instanceIds = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { instanceIds = Core.Nothing,
+      maxRecords = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasiNextToken :: Lens.Lens' DescribeAutoScalingInstances (Lude.Maybe Lude.Text)
-dasiNextToken = Lens.lens (nextToken :: DescribeAutoScalingInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAutoScalingInstances)
-{-# DEPRECATED dasiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasiInstanceIds :: Lens.Lens' DescribeAutoScalingInstances (Lude.Maybe [Lude.Text])
-dasiInstanceIds = Lens.lens (instanceIds :: DescribeAutoScalingInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: DescribeAutoScalingInstances)
+dasiInstanceIds :: Lens.Lens' DescribeAutoScalingInstances (Core.Maybe [Types.XmlStringMaxLen19])
+dasiInstanceIds = Lens.field @"instanceIds"
 {-# DEPRECATED dasiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @50@ .
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasiMaxRecords :: Lens.Lens' DescribeAutoScalingInstances (Lude.Maybe Lude.Int)
-dasiMaxRecords = Lens.lens (maxRecords :: DescribeAutoScalingInstances -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeAutoScalingInstances)
+dasiMaxRecords :: Lens.Lens' DescribeAutoScalingInstances (Core.Maybe Core.Int)
+dasiMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dasiMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeAutoScalingInstances where
-  page rq rs
-    | Page.stop (rs Lens.^. dasirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dasirsAutoScalingInstances) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dasiNextToken Lens..~ rs Lens.^. dasirsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasiNextToken :: Lens.Lens' DescribeAutoScalingInstances (Core.Maybe Types.XmlString)
+dasiNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dasiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeAutoScalingInstances where
+instance Core.AWSRequest DescribeAutoScalingInstances where
   type
     Rs DescribeAutoScalingInstances =
       DescribeAutoScalingInstancesResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAutoScalingInstances")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> ( Core.toQueryValue
+                            "InstanceIds"
+                            (Core.toQueryList "member" Core.<$> instanceIds)
+                        )
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeAutoScalingInstancesResult"
       ( \s h x ->
           DescribeAutoScalingInstancesResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "AutoScalingInstances" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "AutoScalingInstances"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeAutoScalingInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAutoScalingInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAutoScalingInstances where
-  toQuery DescribeAutoScalingInstances' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeAutoScalingInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "InstanceIds"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> instanceIds),
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeAutoScalingInstances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"autoScalingInstances" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeAutoScalingInstancesResponse' smart constructor.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
-  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The instances.
-    autoScalingInstances :: Lude.Maybe [AutoScalingInstanceDetails],
+  { -- | The instances.
+    autoScalingInstances :: Core.Maybe [Types.AutoScalingInstanceDetails],
+    -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Core.Maybe Types.XmlString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAutoScalingInstancesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
--- * 'autoScalingInstances' - The instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAutoScalingInstancesResponse' value with any optional fields omitted.
 mkDescribeAutoScalingInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAutoScalingInstancesResponse
-mkDescribeAutoScalingInstancesResponse pResponseStatus_ =
+mkDescribeAutoScalingInstancesResponse responseStatus =
   DescribeAutoScalingInstancesResponse'
-    { nextToken = Lude.Nothing,
-      autoScalingInstances = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { autoScalingInstances =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasirsNextToken :: Lens.Lens' DescribeAutoScalingInstancesResponse (Lude.Maybe Lude.Text)
-dasirsNextToken = Lens.lens (nextToken :: DescribeAutoScalingInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAutoScalingInstancesResponse)
-{-# DEPRECATED dasirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The instances.
 --
 -- /Note:/ Consider using 'autoScalingInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasirsAutoScalingInstances :: Lens.Lens' DescribeAutoScalingInstancesResponse (Lude.Maybe [AutoScalingInstanceDetails])
-dasirsAutoScalingInstances = Lens.lens (autoScalingInstances :: DescribeAutoScalingInstancesResponse -> Lude.Maybe [AutoScalingInstanceDetails]) (\s a -> s {autoScalingInstances = a} :: DescribeAutoScalingInstancesResponse)
-{-# DEPRECATED dasirsAutoScalingInstances "Use generic-lens or generic-optics with 'autoScalingInstances' instead." #-}
+dasirrsAutoScalingInstances :: Lens.Lens' DescribeAutoScalingInstancesResponse (Core.Maybe [Types.AutoScalingInstanceDetails])
+dasirrsAutoScalingInstances = Lens.field @"autoScalingInstances"
+{-# DEPRECATED dasirrsAutoScalingInstances "Use generic-lens or generic-optics with 'autoScalingInstances' instead." #-}
+
+-- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasirrsNextToken :: Lens.Lens' DescribeAutoScalingInstancesResponse (Core.Maybe Types.XmlString)
+dasirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dasirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasirsResponseStatus :: Lens.Lens' DescribeAutoScalingInstancesResponse Lude.Int
-dasirsResponseStatus = Lens.lens (responseStatus :: DescribeAutoScalingInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAutoScalingInstancesResponse)
-{-# DEPRECATED dasirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dasirrsResponseStatus :: Lens.Lens' DescribeAutoScalingInstancesResponse Core.Int
+dasirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dasirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

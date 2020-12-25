@@ -22,52 +22,42 @@ module Network.AWS.CloudFront.Types.S3Origin
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains information about the Amazon S3 bucket from which you want CloudFront to get your media files for distribution.
 --
 -- /See:/ 'mkS3Origin' smart constructor.
 data S3Origin = S3Origin'
   { -- | The DNS name of the Amazon S3 origin.
-    domainName :: Lude.Text,
+    domainName :: Types.String,
     -- | The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 bucket through CloudFront.
     --
     -- If you want end users to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element.
     -- To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element.
     -- To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
     -- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content> in the /Amazon CloudFront Developer Guide/ .
-    originAccessIdentity :: Lude.Text
+    originAccessIdentity :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Origin' with the minimum fields required to make a request.
---
--- * 'domainName' - The DNS name of the Amazon S3 origin.
--- * 'originAccessIdentity' - The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 bucket through CloudFront.
---
--- If you want end users to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element.
--- To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element.
--- To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
--- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content> in the /Amazon CloudFront Developer Guide/ .
+-- | Creates a 'S3Origin' value with any optional fields omitted.
 mkS3Origin ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.String ->
   -- | 'originAccessIdentity'
-  Lude.Text ->
+  Types.String ->
   S3Origin
-mkS3Origin pDomainName_ pOriginAccessIdentity_ =
-  S3Origin'
-    { domainName = pDomainName_,
-      originAccessIdentity = pOriginAccessIdentity_
-    }
+mkS3Origin domainName originAccessIdentity =
+  S3Origin' {domainName, originAccessIdentity}
 
 -- | The DNS name of the Amazon S3 origin.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-soDomainName :: Lens.Lens' S3Origin Lude.Text
-soDomainName = Lens.lens (domainName :: S3Origin -> Lude.Text) (\s a -> s {domainName = a} :: S3Origin)
+soDomainName :: Lens.Lens' S3Origin Types.String
+soDomainName = Lens.field @"domainName"
 {-# DEPRECATED soDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 bucket through CloudFront.
@@ -78,19 +68,17 @@ soDomainName = Lens.lens (domainName :: S3Origin -> Lude.Text) (\s a -> s {domai
 -- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content> in the /Amazon CloudFront Developer Guide/ .
 --
 -- /Note:/ Consider using 'originAccessIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-soOriginAccessIdentity :: Lens.Lens' S3Origin Lude.Text
-soOriginAccessIdentity = Lens.lens (originAccessIdentity :: S3Origin -> Lude.Text) (\s a -> s {originAccessIdentity = a} :: S3Origin)
+soOriginAccessIdentity :: Lens.Lens' S3Origin Types.String
+soOriginAccessIdentity = Lens.field @"originAccessIdentity"
 {-# DEPRECATED soOriginAccessIdentity "Use generic-lens or generic-optics with 'originAccessIdentity' instead." #-}
 
-instance Lude.FromXML S3Origin where
+instance Core.ToXML S3Origin where
+  toXML S3Origin {..} =
+    Core.toXMLNode "DomainName" domainName
+      Core.<> Core.toXMLNode "OriginAccessIdentity" originAccessIdentity
+
+instance Core.FromXML S3Origin where
   parseXML x =
     S3Origin'
-      Lude.<$> (x Lude..@ "DomainName")
-      Lude.<*> (x Lude..@ "OriginAccessIdentity")
-
-instance Lude.ToXML S3Origin where
-  toXML S3Origin' {..} =
-    Lude.mconcat
-      [ "DomainName" Lude.@= domainName,
-        "OriginAccessIdentity" Lude.@= originAccessIdentity
-      ]
+      Core.<$> (x Core..@ "DomainName")
+      Core.<*> (x Core..@ "OriginAccessIdentity")

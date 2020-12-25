@@ -46,16 +46,16 @@ module Network.AWS.KMS.DescribeKey
     mkDescribeKeyResponse,
 
     -- ** Response lenses
-    dkrsKeyMetadata,
-    dkrsResponseStatus,
+    dkrrsKeyMetadata,
+    dkrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeKey' smart constructor.
 data DescribeKey = DescribeKey'
@@ -78,45 +78,22 @@ data DescribeKey = DescribeKey'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
-    keyId :: Lude.Text,
+    keyId :: Types.KeyId,
     -- | A list of grant tokens.
     --
     -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
-    grantTokens :: Lude.Maybe [Lude.Text]
+    grantTokens :: Core.Maybe [Types.GrantTokenType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeKey' with the minimum fields required to make a request.
---
--- * 'keyId' - Describes the specified customer master key (CMK).
---
--- If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the alias with an <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys AWS managed CMK> and returns its @KeyId@ and @Arn@ in the response.
--- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Alias name: @alias/ExampleAlias@
---
---
---     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+-- | Creates a 'DescribeKey' value with any optional fields omitted.
 mkDescribeKey ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyId ->
   DescribeKey
-mkDescribeKey pKeyId_ =
-  DescribeKey' {keyId = pKeyId_, grantTokens = Lude.Nothing}
+mkDescribeKey keyId =
+  DescribeKey' {keyId, grantTokens = Core.Nothing}
 
 -- | Describes the specified customer master key (CMK).
 --
@@ -139,8 +116,8 @@ mkDescribeKey pKeyId_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dKeyId :: Lens.Lens' DescribeKey Lude.Text
-dKeyId = Lens.lens (keyId :: DescribeKey -> Lude.Text) (\s a -> s {keyId = a} :: DescribeKey)
+dKeyId :: Lens.Lens' DescribeKey Types.KeyId
+dKeyId = Lens.field @"keyId"
 {-# DEPRECATED dKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | A list of grant tokens.
@@ -148,80 +125,67 @@ dKeyId = Lens.lens (keyId :: DescribeKey -> Lude.Text) (\s a -> s {keyId = a} ::
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGrantTokens :: Lens.Lens' DescribeKey (Lude.Maybe [Lude.Text])
-dGrantTokens = Lens.lens (grantTokens :: DescribeKey -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: DescribeKey)
+dGrantTokens :: Lens.Lens' DescribeKey (Core.Maybe [Types.GrantTokenType])
+dGrantTokens = Lens.field @"grantTokens"
 {-# DEPRECATED dGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
 
-instance Lude.AWSRequest DescribeKey where
+instance Core.FromJSON DescribeKey where
+  toJSON DescribeKey {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            ("GrantTokens" Core..=) Core.<$> grantTokens
+          ]
+      )
+
+instance Core.AWSRequest DescribeKey where
   type Rs DescribeKey = DescribeKeyResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.DescribeKey")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeKeyResponse'
-            Lude.<$> (x Lude..?> "KeyMetadata") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "KeyMetadata") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeKey where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.DescribeKey" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeKey where
-  toJSON DescribeKey' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            ("GrantTokens" Lude..=) Lude.<$> grantTokens
-          ]
-      )
-
-instance Lude.ToPath DescribeKey where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeKey where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeKeyResponse' smart constructor.
 data DescribeKeyResponse = DescribeKeyResponse'
   { -- | Metadata associated with the key.
-    keyMetadata :: Lude.Maybe KeyMetadata,
+    keyMetadata :: Core.Maybe Types.KeyMetadata,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeKeyResponse' with the minimum fields required to make a request.
---
--- * 'keyMetadata' - Metadata associated with the key.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeKeyResponse' value with any optional fields omitted.
 mkDescribeKeyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeKeyResponse
-mkDescribeKeyResponse pResponseStatus_ =
-  DescribeKeyResponse'
-    { keyMetadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeKeyResponse responseStatus =
+  DescribeKeyResponse' {keyMetadata = Core.Nothing, responseStatus}
 
 -- | Metadata associated with the key.
 --
 -- /Note:/ Consider using 'keyMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkrsKeyMetadata :: Lens.Lens' DescribeKeyResponse (Lude.Maybe KeyMetadata)
-dkrsKeyMetadata = Lens.lens (keyMetadata :: DescribeKeyResponse -> Lude.Maybe KeyMetadata) (\s a -> s {keyMetadata = a} :: DescribeKeyResponse)
-{-# DEPRECATED dkrsKeyMetadata "Use generic-lens or generic-optics with 'keyMetadata' instead." #-}
+dkrrsKeyMetadata :: Lens.Lens' DescribeKeyResponse (Core.Maybe Types.KeyMetadata)
+dkrrsKeyMetadata = Lens.field @"keyMetadata"
+{-# DEPRECATED dkrrsKeyMetadata "Use generic-lens or generic-optics with 'keyMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkrsResponseStatus :: Lens.Lens' DescribeKeyResponse Lude.Int
-dkrsResponseStatus = Lens.lens (responseStatus :: DescribeKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeKeyResponse)
-{-# DEPRECATED dkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dkrrsResponseStatus :: Lens.Lens' DescribeKeyResponse Core.Int
+dkrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

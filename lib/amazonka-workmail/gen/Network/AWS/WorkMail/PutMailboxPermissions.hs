@@ -20,149 +20,135 @@ module Network.AWS.WorkMail.PutMailboxPermissions
     mkPutMailboxPermissions,
 
     -- ** Request lenses
-    pmpPermissionValues,
-    pmpGranteeId,
-    pmpEntityId,
     pmpOrganizationId,
+    pmpEntityId,
+    pmpGranteeId,
+    pmpPermissionValues,
 
     -- * Destructuring the response
     PutMailboxPermissionsResponse (..),
     mkPutMailboxPermissionsResponse,
 
     -- ** Response lenses
-    pmprsResponseStatus,
+    pmprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkPutMailboxPermissions' smart constructor.
 data PutMailboxPermissions = PutMailboxPermissions'
-  { -- | The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
-    permissionValues :: [PermissionType],
-    -- | The identifier of the user, group, or resource to which to grant the permissions.
-    granteeId :: Lude.Text,
+  { -- | The identifier of the organization under which the user, group, or resource exists.
+    organizationId :: Types.OrganizationId,
     -- | The identifier of the user, group, or resource for which to update mailbox permissions.
-    entityId :: Lude.Text,
-    -- | The identifier of the organization under which the user, group, or resource exists.
-    organizationId :: Lude.Text
+    entityId :: Types.EntityId,
+    -- | The identifier of the user, group, or resource to which to grant the permissions.
+    granteeId :: Types.GranteeId,
+    -- | The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
+    permissionValues :: [Types.PermissionType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutMailboxPermissions' with the minimum fields required to make a request.
---
--- * 'permissionValues' - The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
--- * 'granteeId' - The identifier of the user, group, or resource to which to grant the permissions.
--- * 'entityId' - The identifier of the user, group, or resource for which to update mailbox permissions.
--- * 'organizationId' - The identifier of the organization under which the user, group, or resource exists.
+-- | Creates a 'PutMailboxPermissions' value with any optional fields omitted.
 mkPutMailboxPermissions ::
-  -- | 'granteeId'
-  Lude.Text ->
-  -- | 'entityId'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'entityId'
+  Types.EntityId ->
+  -- | 'granteeId'
+  Types.GranteeId ->
   PutMailboxPermissions
-mkPutMailboxPermissions pGranteeId_ pEntityId_ pOrganizationId_ =
+mkPutMailboxPermissions organizationId entityId granteeId =
   PutMailboxPermissions'
-    { permissionValues = Lude.mempty,
-      granteeId = pGranteeId_,
-      entityId = pEntityId_,
-      organizationId = pOrganizationId_
+    { organizationId,
+      entityId,
+      granteeId,
+      permissionValues = Core.mempty
     }
-
--- | The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
---
--- /Note:/ Consider using 'permissionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmpPermissionValues :: Lens.Lens' PutMailboxPermissions [PermissionType]
-pmpPermissionValues = Lens.lens (permissionValues :: PutMailboxPermissions -> [PermissionType]) (\s a -> s {permissionValues = a} :: PutMailboxPermissions)
-{-# DEPRECATED pmpPermissionValues "Use generic-lens or generic-optics with 'permissionValues' instead." #-}
-
--- | The identifier of the user, group, or resource to which to grant the permissions.
---
--- /Note:/ Consider using 'granteeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmpGranteeId :: Lens.Lens' PutMailboxPermissions Lude.Text
-pmpGranteeId = Lens.lens (granteeId :: PutMailboxPermissions -> Lude.Text) (\s a -> s {granteeId = a} :: PutMailboxPermissions)
-{-# DEPRECATED pmpGranteeId "Use generic-lens or generic-optics with 'granteeId' instead." #-}
-
--- | The identifier of the user, group, or resource for which to update mailbox permissions.
---
--- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmpEntityId :: Lens.Lens' PutMailboxPermissions Lude.Text
-pmpEntityId = Lens.lens (entityId :: PutMailboxPermissions -> Lude.Text) (\s a -> s {entityId = a} :: PutMailboxPermissions)
-{-# DEPRECATED pmpEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The identifier of the organization under which the user, group, or resource exists.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmpOrganizationId :: Lens.Lens' PutMailboxPermissions Lude.Text
-pmpOrganizationId = Lens.lens (organizationId :: PutMailboxPermissions -> Lude.Text) (\s a -> s {organizationId = a} :: PutMailboxPermissions)
+pmpOrganizationId :: Lens.Lens' PutMailboxPermissions Types.OrganizationId
+pmpOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED pmpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest PutMailboxPermissions where
+-- | The identifier of the user, group, or resource for which to update mailbox permissions.
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmpEntityId :: Lens.Lens' PutMailboxPermissions Types.EntityId
+pmpEntityId = Lens.field @"entityId"
+{-# DEPRECATED pmpEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
+
+-- | The identifier of the user, group, or resource to which to grant the permissions.
+--
+-- /Note:/ Consider using 'granteeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmpGranteeId :: Lens.Lens' PutMailboxPermissions Types.GranteeId
+pmpGranteeId = Lens.field @"granteeId"
+{-# DEPRECATED pmpGranteeId "Use generic-lens or generic-optics with 'granteeId' instead." #-}
+
+-- | The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
+--
+-- /Note:/ Consider using 'permissionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmpPermissionValues :: Lens.Lens' PutMailboxPermissions [Types.PermissionType]
+pmpPermissionValues = Lens.field @"permissionValues"
+{-# DEPRECATED pmpPermissionValues "Use generic-lens or generic-optics with 'permissionValues' instead." #-}
+
+instance Core.FromJSON PutMailboxPermissions where
+  toJSON PutMailboxPermissions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("EntityId" Core..= entityId),
+            Core.Just ("GranteeId" Core..= granteeId),
+            Core.Just ("PermissionValues" Core..= permissionValues)
+          ]
+      )
+
+instance Core.AWSRequest PutMailboxPermissions where
   type Rs PutMailboxPermissions = PutMailboxPermissionsResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.PutMailboxPermissions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutMailboxPermissionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutMailboxPermissions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.PutMailboxPermissions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutMailboxPermissions where
-  toJSON PutMailboxPermissions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PermissionValues" Lude..= permissionValues),
-            Lude.Just ("GranteeId" Lude..= granteeId),
-            Lude.Just ("EntityId" Lude..= entityId),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath PutMailboxPermissions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutMailboxPermissions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutMailboxPermissionsResponse' smart constructor.
 newtype PutMailboxPermissionsResponse = PutMailboxPermissionsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutMailboxPermissionsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutMailboxPermissionsResponse' value with any optional fields omitted.
 mkPutMailboxPermissionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutMailboxPermissionsResponse
-mkPutMailboxPermissionsResponse pResponseStatus_ =
-  PutMailboxPermissionsResponse' {responseStatus = pResponseStatus_}
+mkPutMailboxPermissionsResponse responseStatus =
+  PutMailboxPermissionsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmprsResponseStatus :: Lens.Lens' PutMailboxPermissionsResponse Lude.Int
-pmprsResponseStatus = Lens.lens (responseStatus :: PutMailboxPermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutMailboxPermissionsResponse)
-{-# DEPRECATED pmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pmprrsResponseStatus :: Lens.Lens' PutMailboxPermissionsResponse Core.Int
+pmprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pmprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

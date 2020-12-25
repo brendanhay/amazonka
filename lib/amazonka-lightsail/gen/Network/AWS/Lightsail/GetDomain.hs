@@ -27,107 +27,92 @@ module Network.AWS.Lightsail.GetDomain
     mkGetDomainResponse,
 
     -- ** Response lenses
-    gdfrsDomain,
-    gdfrsResponseStatus,
+    gdrgrsDomain,
+    gdrgrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDomain' smart constructor.
 newtype GetDomain = GetDomain'
   { -- | The domain name for which your want to return information about.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDomain' with the minimum fields required to make a request.
---
--- * 'domainName' - The domain name for which your want to return information about.
+-- | Creates a 'GetDomain' value with any optional fields omitted.
 mkGetDomain ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   GetDomain
-mkGetDomain pDomainName_ = GetDomain' {domainName = pDomainName_}
+mkGetDomain domainName = GetDomain' {domainName}
 
 -- | The domain name for which your want to return information about.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdDomainName :: Lens.Lens' GetDomain Lude.Text
-gdDomainName = Lens.lens (domainName :: GetDomain -> Lude.Text) (\s a -> s {domainName = a} :: GetDomain)
+gdDomainName :: Lens.Lens' GetDomain Types.DomainName
+gdDomainName = Lens.field @"domainName"
 {-# DEPRECATED gdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest GetDomain where
+instance Core.FromJSON GetDomain where
+  toJSON GetDomain {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("domainName" Core..= domainName)])
+
+instance Core.AWSRequest GetDomain where
   type Rs GetDomain = GetDomainResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.GetDomain")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDomainResponse'
-            Lude.<$> (x Lude..?> "domain") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "domain") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDomain where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetDomain" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDomain where
-  toJSON GetDomain' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("domainName" Lude..= domainName)])
-
-instance Lude.ToPath GetDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDomain where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDomainResponse' smart constructor.
 data GetDomainResponse = GetDomainResponse'
   { -- | An array of key-value pairs containing information about your get domain request.
-    domain :: Lude.Maybe Domain,
+    domain :: Core.Maybe Types.Domain,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetDomainResponse' with the minimum fields required to make a request.
---
--- * 'domain' - An array of key-value pairs containing information about your get domain request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDomainResponse' value with any optional fields omitted.
 mkGetDomainResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDomainResponse
-mkGetDomainResponse pResponseStatus_ =
-  GetDomainResponse'
-    { domain = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetDomainResponse responseStatus =
+  GetDomainResponse' {domain = Core.Nothing, responseStatus}
 
 -- | An array of key-value pairs containing information about your get domain request.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdfrsDomain :: Lens.Lens' GetDomainResponse (Lude.Maybe Domain)
-gdfrsDomain = Lens.lens (domain :: GetDomainResponse -> Lude.Maybe Domain) (\s a -> s {domain = a} :: GetDomainResponse)
-{-# DEPRECATED gdfrsDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+gdrgrsDomain :: Lens.Lens' GetDomainResponse (Core.Maybe Types.Domain)
+gdrgrsDomain = Lens.field @"domain"
+{-# DEPRECATED gdrgrsDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdfrsResponseStatus :: Lens.Lens' GetDomainResponse Lude.Int
-gdfrsResponseStatus = Lens.lens (responseStatus :: GetDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainResponse)
-{-# DEPRECATED gdfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdrgrsResponseStatus :: Lens.Lens' GetDomainResponse Core.Int
+gdrgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

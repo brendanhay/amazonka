@@ -20,49 +20,51 @@ module Network.AWS.DynamoDB.ExportTableToPointInTime
     mkExportTableToPointInTime,
 
     -- ** Request lenses
-    ettpitS3BucketOwner,
-    ettpitExportFormat,
-    ettpitS3SseKMSKeyId,
-    ettpitClientToken,
-    ettpitTableARN,
-    ettpitExportTime,
-    ettpitS3SseAlgorithm,
-    ettpitS3Prefix,
+    ettpitTableArn,
     ettpitS3Bucket,
+    ettpitClientToken,
+    ettpitExportFormat,
+    ettpitExportTime,
+    ettpitS3BucketOwner,
+    ettpitS3Prefix,
+    ettpitS3SseAlgorithm,
+    ettpitS3SseKmsKeyId,
 
     -- * Destructuring the response
     ExportTableToPointInTimeResponse (..),
     mkExportTableToPointInTimeResponse,
 
     -- ** Response lenses
-    ettpitrsExportDescription,
-    ettpitrsResponseStatus,
+    ettpitrrsExportDescription,
+    ettpitrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkExportTableToPointInTime' smart constructor.
 data ExportTableToPointInTime = ExportTableToPointInTime'
-  { -- | The ID of the AWS account that owns the bucket the export will be stored in.
-    s3BucketOwner :: Lude.Maybe Lude.Text,
-    -- | The format for the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
-    exportFormat :: Lude.Maybe ExportFormat,
-    -- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
-    s3SseKMSKeyId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) associated with the table to export.
+    tableArn :: Types.TableArn,
+    -- | The name of the Amazon S3 bucket to export the snapshot to.
+    s3Bucket :: Types.S3Bucket,
     -- | Providing a @ClientToken@ makes the call to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
     --
     -- A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.
     -- If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an @IdempotentParameterMismatch@ exception.
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) associated with the table to export.
-    tableARN :: Lude.Text,
+    clientToken :: Core.Maybe Types.ClientToken,
+    -- | The format for the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
+    exportFormat :: Core.Maybe Types.ExportFormat,
     -- | Time in the past from which to export table data. The table export will be a snapshot of the table's state at this point in time.
-    exportTime :: Lude.Maybe Lude.Timestamp,
+    exportTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the AWS account that owns the bucket the export will be stored in.
+    s3BucketOwner :: Core.Maybe Types.S3BucketOwner,
+    -- | The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
+    s3Prefix :: Core.Maybe Types.S3Prefix,
     -- | Type of encryption used on the bucket where export data will be stored. Valid values for @S3SseAlgorithm@ are:
     --
     --
@@ -70,76 +72,46 @@ data ExportTableToPointInTime = ExportTableToPointInTime'
     --
     --
     --     * @KMS@ - server-side encryption with AWS KMS managed keys
-    s3SseAlgorithm :: Lude.Maybe S3SseAlgorithm,
-    -- | The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-    s3Prefix :: Lude.Maybe Lude.Text,
-    -- | The name of the Amazon S3 bucket to export the snapshot to.
-    s3Bucket :: Lude.Text
+    s3SseAlgorithm :: Core.Maybe Types.S3SseAlgorithm,
+    -- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
+    s3SseKmsKeyId :: Core.Maybe Types.S3SseKmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ExportTableToPointInTime' with the minimum fields required to make a request.
---
--- * 's3BucketOwner' - The ID of the AWS account that owns the bucket the export will be stored in.
--- * 'exportFormat' - The format for the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
--- * 's3SseKMSKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
--- * 'clientToken' - Providing a @ClientToken@ makes the call to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
---
--- A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.
--- If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an @IdempotentParameterMismatch@ exception.
--- * 'tableARN' - The Amazon Resource Name (ARN) associated with the table to export.
--- * 'exportTime' - Time in the past from which to export table data. The table export will be a snapshot of the table's state at this point in time.
--- * 's3SseAlgorithm' - Type of encryption used on the bucket where export data will be stored. Valid values for @S3SseAlgorithm@ are:
---
---
---     * @AES256@ - server-side encryption with Amazon S3 managed keys
---
---
---     * @KMS@ - server-side encryption with AWS KMS managed keys
---
---
--- * 's3Prefix' - The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
--- * 's3Bucket' - The name of the Amazon S3 bucket to export the snapshot to.
+-- | Creates a 'ExportTableToPointInTime' value with any optional fields omitted.
 mkExportTableToPointInTime ::
-  -- | 'tableARN'
-  Lude.Text ->
+  -- | 'tableArn'
+  Types.TableArn ->
   -- | 's3Bucket'
-  Lude.Text ->
+  Types.S3Bucket ->
   ExportTableToPointInTime
-mkExportTableToPointInTime pTableARN_ pS3Bucket_ =
+mkExportTableToPointInTime tableArn s3Bucket =
   ExportTableToPointInTime'
-    { s3BucketOwner = Lude.Nothing,
-      exportFormat = Lude.Nothing,
-      s3SseKMSKeyId = Lude.Nothing,
-      clientToken = Lude.Nothing,
-      tableARN = pTableARN_,
-      exportTime = Lude.Nothing,
-      s3SseAlgorithm = Lude.Nothing,
-      s3Prefix = Lude.Nothing,
-      s3Bucket = pS3Bucket_
+    { tableArn,
+      s3Bucket,
+      clientToken = Core.Nothing,
+      exportFormat = Core.Nothing,
+      exportTime = Core.Nothing,
+      s3BucketOwner = Core.Nothing,
+      s3Prefix = Core.Nothing,
+      s3SseAlgorithm = Core.Nothing,
+      s3SseKmsKeyId = Core.Nothing
     }
 
--- | The ID of the AWS account that owns the bucket the export will be stored in.
+-- | The Amazon Resource Name (ARN) associated with the table to export.
 --
--- /Note:/ Consider using 's3BucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitS3BucketOwner :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe Lude.Text)
-ettpitS3BucketOwner = Lens.lens (s3BucketOwner :: ExportTableToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketOwner = a} :: ExportTableToPointInTime)
-{-# DEPRECATED ettpitS3BucketOwner "Use generic-lens or generic-optics with 's3BucketOwner' instead." #-}
+-- /Note:/ Consider using 'tableArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ettpitTableArn :: Lens.Lens' ExportTableToPointInTime Types.TableArn
+ettpitTableArn = Lens.field @"tableArn"
+{-# DEPRECATED ettpitTableArn "Use generic-lens or generic-optics with 'tableArn' instead." #-}
 
--- | The format for the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
+-- | The name of the Amazon S3 bucket to export the snapshot to.
 --
--- /Note:/ Consider using 'exportFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitExportFormat :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe ExportFormat)
-ettpitExportFormat = Lens.lens (exportFormat :: ExportTableToPointInTime -> Lude.Maybe ExportFormat) (\s a -> s {exportFormat = a} :: ExportTableToPointInTime)
-{-# DEPRECATED ettpitExportFormat "Use generic-lens or generic-optics with 'exportFormat' instead." #-}
-
--- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
---
--- /Note:/ Consider using 's3SseKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitS3SseKMSKeyId :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe Lude.Text)
-ettpitS3SseKMSKeyId = Lens.lens (s3SseKMSKeyId :: ExportTableToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {s3SseKMSKeyId = a} :: ExportTableToPointInTime)
-{-# DEPRECATED ettpitS3SseKMSKeyId "Use generic-lens or generic-optics with 's3SseKMSKeyId' instead." #-}
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ettpitS3Bucket :: Lens.Lens' ExportTableToPointInTime Types.S3Bucket
+ettpitS3Bucket = Lens.field @"s3Bucket"
+{-# DEPRECATED ettpitS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
 -- | Providing a @ClientToken@ makes the call to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
 --
@@ -147,23 +119,37 @@ ettpitS3SseKMSKeyId = Lens.lens (s3SseKMSKeyId :: ExportTableToPointInTime -> Lu
 -- If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an @IdempotentParameterMismatch@ exception.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitClientToken :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe Lude.Text)
-ettpitClientToken = Lens.lens (clientToken :: ExportTableToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ExportTableToPointInTime)
+ettpitClientToken :: Lens.Lens' ExportTableToPointInTime (Core.Maybe Types.ClientToken)
+ettpitClientToken = Lens.field @"clientToken"
 {-# DEPRECATED ettpitClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
--- | The Amazon Resource Name (ARN) associated with the table to export.
+-- | The format for the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
 --
--- /Note:/ Consider using 'tableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitTableARN :: Lens.Lens' ExportTableToPointInTime Lude.Text
-ettpitTableARN = Lens.lens (tableARN :: ExportTableToPointInTime -> Lude.Text) (\s a -> s {tableARN = a} :: ExportTableToPointInTime)
-{-# DEPRECATED ettpitTableARN "Use generic-lens or generic-optics with 'tableARN' instead." #-}
+-- /Note:/ Consider using 'exportFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ettpitExportFormat :: Lens.Lens' ExportTableToPointInTime (Core.Maybe Types.ExportFormat)
+ettpitExportFormat = Lens.field @"exportFormat"
+{-# DEPRECATED ettpitExportFormat "Use generic-lens or generic-optics with 'exportFormat' instead." #-}
 
 -- | Time in the past from which to export table data. The table export will be a snapshot of the table's state at this point in time.
 --
 -- /Note:/ Consider using 'exportTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitExportTime :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe Lude.Timestamp)
-ettpitExportTime = Lens.lens (exportTime :: ExportTableToPointInTime -> Lude.Maybe Lude.Timestamp) (\s a -> s {exportTime = a} :: ExportTableToPointInTime)
+ettpitExportTime :: Lens.Lens' ExportTableToPointInTime (Core.Maybe Core.NominalDiffTime)
+ettpitExportTime = Lens.field @"exportTime"
 {-# DEPRECATED ettpitExportTime "Use generic-lens or generic-optics with 'exportTime' instead." #-}
+
+-- | The ID of the AWS account that owns the bucket the export will be stored in.
+--
+-- /Note:/ Consider using 's3BucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ettpitS3BucketOwner :: Lens.Lens' ExportTableToPointInTime (Core.Maybe Types.S3BucketOwner)
+ettpitS3BucketOwner = Lens.field @"s3BucketOwner"
+{-# DEPRECATED ettpitS3BucketOwner "Use generic-lens or generic-optics with 's3BucketOwner' instead." #-}
+
+-- | The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
+--
+-- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ettpitS3Prefix :: Lens.Lens' ExportTableToPointInTime (Core.Maybe Types.S3Prefix)
+ettpitS3Prefix = Lens.field @"s3Prefix"
+{-# DEPRECATED ettpitS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
 
 -- | Type of encryption used on the bucket where export data will be stored. Valid values for @S3SseAlgorithm@ are:
 --
@@ -176,103 +162,87 @@ ettpitExportTime = Lens.lens (exportTime :: ExportTableToPointInTime -> Lude.May
 --
 --
 -- /Note:/ Consider using 's3SseAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitS3SseAlgorithm :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe S3SseAlgorithm)
-ettpitS3SseAlgorithm = Lens.lens (s3SseAlgorithm :: ExportTableToPointInTime -> Lude.Maybe S3SseAlgorithm) (\s a -> s {s3SseAlgorithm = a} :: ExportTableToPointInTime)
+ettpitS3SseAlgorithm :: Lens.Lens' ExportTableToPointInTime (Core.Maybe Types.S3SseAlgorithm)
+ettpitS3SseAlgorithm = Lens.field @"s3SseAlgorithm"
 {-# DEPRECATED ettpitS3SseAlgorithm "Use generic-lens or generic-optics with 's3SseAlgorithm' instead." #-}
 
--- | The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
+-- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
 --
--- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitS3Prefix :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe Lude.Text)
-ettpitS3Prefix = Lens.lens (s3Prefix :: ExportTableToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {s3Prefix = a} :: ExportTableToPointInTime)
-{-# DEPRECATED ettpitS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
+-- /Note:/ Consider using 's3SseKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ettpitS3SseKmsKeyId :: Lens.Lens' ExportTableToPointInTime (Core.Maybe Types.S3SseKmsKeyId)
+ettpitS3SseKmsKeyId = Lens.field @"s3SseKmsKeyId"
+{-# DEPRECATED ettpitS3SseKmsKeyId "Use generic-lens or generic-optics with 's3SseKmsKeyId' instead." #-}
 
--- | The name of the Amazon S3 bucket to export the snapshot to.
---
--- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitS3Bucket :: Lens.Lens' ExportTableToPointInTime Lude.Text
-ettpitS3Bucket = Lens.lens (s3Bucket :: ExportTableToPointInTime -> Lude.Text) (\s a -> s {s3Bucket = a} :: ExportTableToPointInTime)
-{-# DEPRECATED ettpitS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
+instance Core.FromJSON ExportTableToPointInTime where
+  toJSON ExportTableToPointInTime {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableArn" Core..= tableArn),
+            Core.Just ("S3Bucket" Core..= s3Bucket),
+            ("ClientToken" Core..=) Core.<$> clientToken,
+            ("ExportFormat" Core..=) Core.<$> exportFormat,
+            ("ExportTime" Core..=) Core.<$> exportTime,
+            ("S3BucketOwner" Core..=) Core.<$> s3BucketOwner,
+            ("S3Prefix" Core..=) Core.<$> s3Prefix,
+            ("S3SseAlgorithm" Core..=) Core.<$> s3SseAlgorithm,
+            ("S3SseKmsKeyId" Core..=) Core.<$> s3SseKmsKeyId
+          ]
+      )
 
-instance Lude.AWSRequest ExportTableToPointInTime where
+instance Core.AWSRequest ExportTableToPointInTime where
   type Rs ExportTableToPointInTime = ExportTableToPointInTimeResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DynamoDB_20120810.ExportTableToPointInTime")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ExportTableToPointInTimeResponse'
-            Lude.<$> (x Lude..?> "ExportDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ExportDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ExportTableToPointInTime where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.ExportTableToPointInTime" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ExportTableToPointInTime where
-  toJSON ExportTableToPointInTime' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("S3BucketOwner" Lude..=) Lude.<$> s3BucketOwner,
-            ("ExportFormat" Lude..=) Lude.<$> exportFormat,
-            ("S3SseKmsKeyId" Lude..=) Lude.<$> s3SseKMSKeyId,
-            ("ClientToken" Lude..=) Lude.<$> clientToken,
-            Lude.Just ("TableArn" Lude..= tableARN),
-            ("ExportTime" Lude..=) Lude.<$> exportTime,
-            ("S3SseAlgorithm" Lude..=) Lude.<$> s3SseAlgorithm,
-            ("S3Prefix" Lude..=) Lude.<$> s3Prefix,
-            Lude.Just ("S3Bucket" Lude..= s3Bucket)
-          ]
-      )
-
-instance Lude.ToPath ExportTableToPointInTime where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ExportTableToPointInTime where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkExportTableToPointInTimeResponse' smart constructor.
 data ExportTableToPointInTimeResponse = ExportTableToPointInTimeResponse'
   { -- | Contains a description of the table export.
-    exportDescription :: Lude.Maybe ExportDescription,
+    exportDescription :: Core.Maybe Types.ExportDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ExportTableToPointInTimeResponse' with the minimum fields required to make a request.
---
--- * 'exportDescription' - Contains a description of the table export.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ExportTableToPointInTimeResponse' value with any optional fields omitted.
 mkExportTableToPointInTimeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ExportTableToPointInTimeResponse
-mkExportTableToPointInTimeResponse pResponseStatus_ =
+mkExportTableToPointInTimeResponse responseStatus =
   ExportTableToPointInTimeResponse'
     { exportDescription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Contains a description of the table export.
 --
 -- /Note:/ Consider using 'exportDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitrsExportDescription :: Lens.Lens' ExportTableToPointInTimeResponse (Lude.Maybe ExportDescription)
-ettpitrsExportDescription = Lens.lens (exportDescription :: ExportTableToPointInTimeResponse -> Lude.Maybe ExportDescription) (\s a -> s {exportDescription = a} :: ExportTableToPointInTimeResponse)
-{-# DEPRECATED ettpitrsExportDescription "Use generic-lens or generic-optics with 'exportDescription' instead." #-}
+ettpitrrsExportDescription :: Lens.Lens' ExportTableToPointInTimeResponse (Core.Maybe Types.ExportDescription)
+ettpitrrsExportDescription = Lens.field @"exportDescription"
+{-# DEPRECATED ettpitrrsExportDescription "Use generic-lens or generic-optics with 'exportDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitrsResponseStatus :: Lens.Lens' ExportTableToPointInTimeResponse Lude.Int
-ettpitrsResponseStatus = Lens.lens (responseStatus :: ExportTableToPointInTimeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExportTableToPointInTimeResponse)
-{-# DEPRECATED ettpitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ettpitrrsResponseStatus :: Lens.Lens' ExportTableToPointInTimeResponse Core.Int
+ettpitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ettpitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

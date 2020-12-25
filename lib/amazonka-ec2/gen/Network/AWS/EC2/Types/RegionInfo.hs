@@ -17,67 +17,64 @@ module Network.AWS.EC2.Types.RegionInfo
     mkRegionInfo,
 
     -- * Lenses
-    riRegionName,
-    riOptInStatus,
     riEndpoint,
+    riOptInStatus,
+    riRegionName,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Region.
 --
 -- /See:/ 'mkRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
-  { -- | The name of the Region.
-    regionName :: Lude.Maybe Lude.Text,
+  { -- | The Region service endpoint.
+    endpoint :: Core.Maybe Types.String,
     -- | The Region opt-in status. The possible values are @opt-in-not-required@ , @opted-in@ , and @not-opted-in@ .
-    optInStatus :: Lude.Maybe Lude.Text,
-    -- | The Region service endpoint.
-    endpoint :: Lude.Maybe Lude.Text
+    optInStatus :: Core.Maybe Types.String,
+    -- | The name of the Region.
+    regionName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegionInfo' with the minimum fields required to make a request.
---
--- * 'regionName' - The name of the Region.
--- * 'optInStatus' - The Region opt-in status. The possible values are @opt-in-not-required@ , @opted-in@ , and @not-opted-in@ .
--- * 'endpoint' - The Region service endpoint.
+-- | Creates a 'RegionInfo' value with any optional fields omitted.
 mkRegionInfo ::
   RegionInfo
 mkRegionInfo =
   RegionInfo'
-    { regionName = Lude.Nothing,
-      optInStatus = Lude.Nothing,
-      endpoint = Lude.Nothing
+    { endpoint = Core.Nothing,
+      optInStatus = Core.Nothing,
+      regionName = Core.Nothing
     }
-
--- | The name of the Region.
---
--- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRegionName :: Lens.Lens' RegionInfo (Lude.Maybe Lude.Text)
-riRegionName = Lens.lens (regionName :: RegionInfo -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: RegionInfo)
-{-# DEPRECATED riRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
-
--- | The Region opt-in status. The possible values are @opt-in-not-required@ , @opted-in@ , and @not-opted-in@ .
---
--- /Note:/ Consider using 'optInStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riOptInStatus :: Lens.Lens' RegionInfo (Lude.Maybe Lude.Text)
-riOptInStatus = Lens.lens (optInStatus :: RegionInfo -> Lude.Maybe Lude.Text) (\s a -> s {optInStatus = a} :: RegionInfo)
-{-# DEPRECATED riOptInStatus "Use generic-lens or generic-optics with 'optInStatus' instead." #-}
 
 -- | The Region service endpoint.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riEndpoint :: Lens.Lens' RegionInfo (Lude.Maybe Lude.Text)
-riEndpoint = Lens.lens (endpoint :: RegionInfo -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: RegionInfo)
+riEndpoint :: Lens.Lens' RegionInfo (Core.Maybe Types.String)
+riEndpoint = Lens.field @"endpoint"
 {-# DEPRECATED riEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance Lude.FromXML RegionInfo where
+-- | The Region opt-in status. The possible values are @opt-in-not-required@ , @opted-in@ , and @not-opted-in@ .
+--
+-- /Note:/ Consider using 'optInStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riOptInStatus :: Lens.Lens' RegionInfo (Core.Maybe Types.String)
+riOptInStatus = Lens.field @"optInStatus"
+{-# DEPRECATED riOptInStatus "Use generic-lens or generic-optics with 'optInStatus' instead." #-}
+
+-- | The name of the Region.
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRegionName :: Lens.Lens' RegionInfo (Core.Maybe Types.String)
+riRegionName = Lens.field @"regionName"
+{-# DEPRECATED riRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
+
+instance Core.FromXML RegionInfo where
   parseXML x =
     RegionInfo'
-      Lude.<$> (x Lude..@? "regionName")
-      Lude.<*> (x Lude..@? "optInStatus")
-      Lude.<*> (x Lude..@? "regionEndpoint")
+      Core.<$> (x Core..@? "regionEndpoint")
+      Core.<*> (x Core..@? "optInStatus")
+      Core.<*> (x Core..@? "regionName")

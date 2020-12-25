@@ -17,138 +17,131 @@ module Network.AWS.WorkMail.Types.User
     mkUser,
 
     -- * Lenses
-    uEmail,
-    uState,
     uDisabledDate,
-    uName,
-    uId,
     uDisplayName,
-    uUserRole,
+    uEmail,
     uEnabledDate,
+    uId,
+    uName,
+    uState,
+    uUserRole,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkMail.Types.EntityState
-import Network.AWS.WorkMail.Types.UserRole
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkMail.Types.Email as Types
+import qualified Network.AWS.WorkMail.Types.EntityState as Types
+import qualified Network.AWS.WorkMail.Types.String as Types
+import qualified Network.AWS.WorkMail.Types.UserName as Types
+import qualified Network.AWS.WorkMail.Types.UserRole as Types
+import qualified Network.AWS.WorkMail.Types.WorkMailIdentifier as Types
 
 -- | The representation of an Amazon WorkMail user.
 --
 -- /See:/ 'mkUser' smart constructor.
 data User = User'
-  { -- | The email of the user.
-    email :: Lude.Maybe Lude.Text,
-    -- | The state of the user, which can be ENABLED, DISABLED, or DELETED.
-    state :: Lude.Maybe EntityState,
-    -- | The date indicating when the user was disabled from Amazon WorkMail use.
-    disabledDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the user.
-    name :: Lude.Maybe Lude.Text,
-    -- | The identifier of the user.
-    id :: Lude.Maybe Lude.Text,
+  { -- | The date indicating when the user was disabled from Amazon WorkMail use.
+    disabledDate :: Core.Maybe Core.NominalDiffTime,
     -- | The display name of the user.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | The role of the user.
-    userRole :: Lude.Maybe UserRole,
+    displayName :: Core.Maybe Types.String,
+    -- | The email of the user.
+    email :: Core.Maybe Types.Email,
     -- | The date indicating when the user was enabled for Amazon WorkMail use.
-    enabledDate :: Lude.Maybe Lude.Timestamp
+    enabledDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The identifier of the user.
+    id :: Core.Maybe Types.WorkMailIdentifier,
+    -- | The name of the user.
+    name :: Core.Maybe Types.UserName,
+    -- | The state of the user, which can be ENABLED, DISABLED, or DELETED.
+    state :: Core.Maybe Types.EntityState,
+    -- | The role of the user.
+    userRole :: Core.Maybe Types.UserRole
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'User' with the minimum fields required to make a request.
---
--- * 'email' - The email of the user.
--- * 'state' - The state of the user, which can be ENABLED, DISABLED, or DELETED.
--- * 'disabledDate' - The date indicating when the user was disabled from Amazon WorkMail use.
--- * 'name' - The name of the user.
--- * 'id' - The identifier of the user.
--- * 'displayName' - The display name of the user.
--- * 'userRole' - The role of the user.
--- * 'enabledDate' - The date indicating when the user was enabled for Amazon WorkMail use.
+-- | Creates a 'User' value with any optional fields omitted.
 mkUser ::
   User
 mkUser =
   User'
-    { email = Lude.Nothing,
-      state = Lude.Nothing,
-      disabledDate = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      displayName = Lude.Nothing,
-      userRole = Lude.Nothing,
-      enabledDate = Lude.Nothing
+    { disabledDate = Core.Nothing,
+      displayName = Core.Nothing,
+      email = Core.Nothing,
+      enabledDate = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      state = Core.Nothing,
+      userRole = Core.Nothing
     }
-
--- | The email of the user.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uEmail :: Lens.Lens' User (Lude.Maybe Lude.Text)
-uEmail = Lens.lens (email :: User -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: User)
-{-# DEPRECATED uEmail "Use generic-lens or generic-optics with 'email' instead." #-}
-
--- | The state of the user, which can be ENABLED, DISABLED, or DELETED.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uState :: Lens.Lens' User (Lude.Maybe EntityState)
-uState = Lens.lens (state :: User -> Lude.Maybe EntityState) (\s a -> s {state = a} :: User)
-{-# DEPRECATED uState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The date indicating when the user was disabled from Amazon WorkMail use.
 --
 -- /Note:/ Consider using 'disabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uDisabledDate :: Lens.Lens' User (Lude.Maybe Lude.Timestamp)
-uDisabledDate = Lens.lens (disabledDate :: User -> Lude.Maybe Lude.Timestamp) (\s a -> s {disabledDate = a} :: User)
+uDisabledDate :: Lens.Lens' User (Core.Maybe Core.NominalDiffTime)
+uDisabledDate = Lens.field @"disabledDate"
 {-# DEPRECATED uDisabledDate "Use generic-lens or generic-optics with 'disabledDate' instead." #-}
-
--- | The name of the user.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uName :: Lens.Lens' User (Lude.Maybe Lude.Text)
-uName = Lens.lens (name :: User -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: User)
-{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The identifier of the user.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uId :: Lens.Lens' User (Lude.Maybe Lude.Text)
-uId = Lens.lens (id :: User -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: User)
-{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The display name of the user.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uDisplayName :: Lens.Lens' User (Lude.Maybe Lude.Text)
-uDisplayName = Lens.lens (displayName :: User -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: User)
+uDisplayName :: Lens.Lens' User (Core.Maybe Types.String)
+uDisplayName = Lens.field @"displayName"
 {-# DEPRECATED uDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
--- | The role of the user.
+-- | The email of the user.
 --
--- /Note:/ Consider using 'userRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uUserRole :: Lens.Lens' User (Lude.Maybe UserRole)
-uUserRole = Lens.lens (userRole :: User -> Lude.Maybe UserRole) (\s a -> s {userRole = a} :: User)
-{-# DEPRECATED uUserRole "Use generic-lens or generic-optics with 'userRole' instead." #-}
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uEmail :: Lens.Lens' User (Core.Maybe Types.Email)
+uEmail = Lens.field @"email"
+{-# DEPRECATED uEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The date indicating when the user was enabled for Amazon WorkMail use.
 --
 -- /Note:/ Consider using 'enabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uEnabledDate :: Lens.Lens' User (Lude.Maybe Lude.Timestamp)
-uEnabledDate = Lens.lens (enabledDate :: User -> Lude.Maybe Lude.Timestamp) (\s a -> s {enabledDate = a} :: User)
+uEnabledDate :: Lens.Lens' User (Core.Maybe Core.NominalDiffTime)
+uEnabledDate = Lens.field @"enabledDate"
 {-# DEPRECATED uEnabledDate "Use generic-lens or generic-optics with 'enabledDate' instead." #-}
 
-instance Lude.FromJSON User where
+-- | The identifier of the user.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uId :: Lens.Lens' User (Core.Maybe Types.WorkMailIdentifier)
+uId = Lens.field @"id"
+{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name of the user.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uName :: Lens.Lens' User (Core.Maybe Types.UserName)
+uName = Lens.field @"name"
+{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The state of the user, which can be ENABLED, DISABLED, or DELETED.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uState :: Lens.Lens' User (Core.Maybe Types.EntityState)
+uState = Lens.field @"state"
+{-# DEPRECATED uState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The role of the user.
+--
+-- /Note:/ Consider using 'userRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uUserRole :: Lens.Lens' User (Core.Maybe Types.UserRole)
+uUserRole = Lens.field @"userRole"
+{-# DEPRECATED uUserRole "Use generic-lens or generic-optics with 'userRole' instead." #-}
+
+instance Core.FromJSON User where
   parseJSON =
-    Lude.withObject
-      "User"
-      ( \x ->
-          User'
-            Lude.<$> (x Lude..:? "Email")
-            Lude.<*> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "DisabledDate")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "DisplayName")
-            Lude.<*> (x Lude..:? "UserRole")
-            Lude.<*> (x Lude..:? "EnabledDate")
-      )
+    Core.withObject "User" Core.$
+      \x ->
+        User'
+          Core.<$> (x Core..:? "DisabledDate")
+          Core.<*> (x Core..:? "DisplayName")
+          Core.<*> (x Core..:? "Email")
+          Core.<*> (x Core..:? "EnabledDate")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "State")
+          Core.<*> (x Core..:? "UserRole")

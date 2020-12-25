@@ -20,7 +20,7 @@ module Network.AWS.Redshift.RebootCluster
     mkRebootCluster,
 
     -- ** Request lenses
-    rcClusterIdentifier,
+    rcfClusterIdentifier,
 
     -- * Destructuring the response
     RebootClusterResponse (..),
@@ -33,96 +33,91 @@ module Network.AWS.Redshift.RebootCluster
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkRebootCluster' smart constructor.
 newtype RebootCluster = RebootCluster'
   { -- | The cluster identifier.
-    clusterIdentifier :: Lude.Text
+    clusterIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootCluster' with the minimum fields required to make a request.
---
--- * 'clusterIdentifier' - The cluster identifier.
+-- | Creates a 'RebootCluster' value with any optional fields omitted.
 mkRebootCluster ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   RebootCluster
-mkRebootCluster pClusterIdentifier_ =
-  RebootCluster' {clusterIdentifier = pClusterIdentifier_}
+mkRebootCluster clusterIdentifier =
+  RebootCluster' {clusterIdentifier}
 
 -- | The cluster identifier.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcClusterIdentifier :: Lens.Lens' RebootCluster Lude.Text
-rcClusterIdentifier = Lens.lens (clusterIdentifier :: RebootCluster -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: RebootCluster)
-{-# DEPRECATED rcClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+rcfClusterIdentifier :: Lens.Lens' RebootCluster Types.String
+rcfClusterIdentifier = Lens.field @"clusterIdentifier"
+{-# DEPRECATED rcfClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance Lude.AWSRequest RebootCluster where
+instance Core.AWSRequest RebootCluster where
   type Rs RebootCluster = RebootClusterResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RebootCluster")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" clusterIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "RebootClusterResult"
       ( \s h x ->
           RebootClusterResponse'
-            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RebootCluster where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RebootCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RebootCluster where
-  toQuery RebootCluster' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RebootCluster" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ClusterIdentifier" Lude.=: clusterIdentifier
-      ]
 
 -- | /See:/ 'mkRebootClusterResponse' smart constructor.
 data RebootClusterResponse = RebootClusterResponse'
-  { cluster :: Lude.Maybe Cluster,
+  { cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RebootClusterResponse' with the minimum fields required to make a request.
---
--- * 'cluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RebootClusterResponse' value with any optional fields omitted.
 mkRebootClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RebootClusterResponse
-mkRebootClusterResponse pResponseStatus_ =
-  RebootClusterResponse'
-    { cluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkRebootClusterResponse responseStatus =
+  RebootClusterResponse' {cluster = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsCluster :: Lens.Lens' RebootClusterResponse (Lude.Maybe Cluster)
-rrsCluster = Lens.lens (cluster :: RebootClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: RebootClusterResponse)
+rrsCluster :: Lens.Lens' RebootClusterResponse (Core.Maybe Types.Cluster)
+rrsCluster = Lens.field @"cluster"
 {-# DEPRECATED rrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsResponseStatus :: Lens.Lens' RebootClusterResponse Lude.Int
-rrsResponseStatus = Lens.lens (responseStatus :: RebootClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootClusterResponse)
+rrsResponseStatus :: Lens.Lens' RebootClusterResponse Core.Int
+rrsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

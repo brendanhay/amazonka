@@ -25,26 +25,26 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
 
     -- ** Request lenses
     drimFilters,
-    drimReservedInstancesModificationIds,
     drimNextToken,
+    drimReservedInstancesModificationIds,
 
     -- * Destructuring the response
     DescribeReservedInstancesModificationsResponse (..),
     mkDescribeReservedInstancesModificationsResponse,
 
     -- ** Response lenses
-    drimrsNextToken,
-    drimrsReservedInstancesModifications,
-    drimrsResponseStatus,
+    drimrrsNextToken,
+    drimrrsReservedInstancesModifications,
+    drimrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeReservedInstancesModifications.
 --
@@ -90,68 +90,23 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     --
     --
     --     * @update-date@ - The time when the modification request was last updated.
-    filters :: Lude.Maybe [Filter],
-    -- | IDs for the submitted modification request.
-    reservedInstancesModificationIds :: Lude.Maybe [Lude.Text],
+    filters :: Core.Maybe [Types.Filter],
     -- | The token to retrieve the next page of results.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.String,
+    -- | IDs for the submitted modification request.
+    reservedInstancesModificationIds :: Core.Maybe [Types.ReservedInstancesModificationId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReservedInstancesModifications' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters.
---
---
---     * @client-token@ - The idempotency token for the modification request.
---
---
---     * @create-date@ - The time when the modification request was created.
---
---
---     * @effective-date@ - The time when the modification becomes effective.
---
---
---     * @modification-result.reserved-instances-id@ - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is @fulfilled@ .
---
---
---     * @modification-result.target-configuration.availability-zone@ - The Availability Zone for the new Reserved Instances.
---
---
---     * @modification-result.target-configuration.instance-count @ - The number of new Reserved Instances.
---
---
---     * @modification-result.target-configuration.instance-type@ - The instance type of the new Reserved Instances.
---
---
---     * @modification-result.target-configuration.platform@ - The network platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@ ).
---
---
---     * @reserved-instances-id@ - The ID of the Reserved Instances modified.
---
---
---     * @reserved-instances-modification-id@ - The ID of the modification request.
---
---
---     * @status@ - The status of the Reserved Instances modification request (@processing@ | @fulfilled@ | @failed@ ).
---
---
---     * @status-message@ - The reason for the status.
---
---
---     * @update-date@ - The time when the modification request was last updated.
---
---
--- * 'reservedInstancesModificationIds' - IDs for the submitted modification request.
--- * 'nextToken' - The token to retrieve the next page of results.
+-- | Creates a 'DescribeReservedInstancesModifications' value with any optional fields omitted.
 mkDescribeReservedInstancesModifications ::
   DescribeReservedInstancesModifications
 mkDescribeReservedInstancesModifications =
   DescribeReservedInstancesModifications'
-    { filters = Lude.Nothing,
-      reservedInstancesModificationIds = Lude.Nothing,
-      nextToken = Lude.Nothing
+    { filters = Core.Nothing,
+      nextToken = Core.Nothing,
+      reservedInstancesModificationIds = Core.Nothing
     }
 
 -- | One or more filters.
@@ -198,119 +153,119 @@ mkDescribeReservedInstancesModifications =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drimFilters :: Lens.Lens' DescribeReservedInstancesModifications (Lude.Maybe [Filter])
-drimFilters = Lens.lens (filters :: DescribeReservedInstancesModifications -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReservedInstancesModifications)
+drimFilters :: Lens.Lens' DescribeReservedInstancesModifications (Core.Maybe [Types.Filter])
+drimFilters = Lens.field @"filters"
 {-# DEPRECATED drimFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | IDs for the submitted modification request.
---
--- /Note:/ Consider using 'reservedInstancesModificationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drimReservedInstancesModificationIds :: Lens.Lens' DescribeReservedInstancesModifications (Lude.Maybe [Lude.Text])
-drimReservedInstancesModificationIds = Lens.lens (reservedInstancesModificationIds :: DescribeReservedInstancesModifications -> Lude.Maybe [Lude.Text]) (\s a -> s {reservedInstancesModificationIds = a} :: DescribeReservedInstancesModifications)
-{-# DEPRECATED drimReservedInstancesModificationIds "Use generic-lens or generic-optics with 'reservedInstancesModificationIds' instead." #-}
 
 -- | The token to retrieve the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drimNextToken :: Lens.Lens' DescribeReservedInstancesModifications (Lude.Maybe Lude.Text)
-drimNextToken = Lens.lens (nextToken :: DescribeReservedInstancesModifications -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeReservedInstancesModifications)
+drimNextToken :: Lens.Lens' DescribeReservedInstancesModifications (Core.Maybe Types.String)
+drimNextToken = Lens.field @"nextToken"
 {-# DEPRECATED drimNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeReservedInstancesModifications where
-  page rq rs
-    | Page.stop (rs Lens.^. drimrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. drimrsReservedInstancesModifications) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& drimNextToken Lens..~ rs Lens.^. drimrsNextToken
+-- | IDs for the submitted modification request.
+--
+-- /Note:/ Consider using 'reservedInstancesModificationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drimReservedInstancesModificationIds :: Lens.Lens' DescribeReservedInstancesModifications (Core.Maybe [Types.ReservedInstancesModificationId])
+drimReservedInstancesModificationIds = Lens.field @"reservedInstancesModificationIds"
+{-# DEPRECATED drimReservedInstancesModificationIds "Use generic-lens or generic-optics with 'reservedInstancesModificationIds' instead." #-}
 
-instance Lude.AWSRequest DescribeReservedInstancesModifications where
+instance Core.AWSRequest DescribeReservedInstancesModifications where
   type
     Rs DescribeReservedInstancesModifications =
       DescribeReservedInstancesModificationsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeReservedInstancesModifications")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryList "ReservedInstancesModificationId"
+                            Core.<$> reservedInstancesModificationIds
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesModificationsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "reservedInstancesModificationsSet"
-                         Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "reservedInstancesModificationsSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeReservedInstancesModifications where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeReservedInstancesModifications where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReservedInstancesModifications where
-  toQuery DescribeReservedInstancesModifications' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeReservedInstancesModifications" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        Lude.toQuery
-          ( Lude.toQueryList "ReservedInstancesModificationId"
-              Lude.<$> reservedInstancesModificationIds
-          ),
-        "NextToken" Lude.=: nextToken
-      ]
+instance Pager.AWSPager DescribeReservedInstancesModifications where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"reservedInstancesModifications" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Contains the output of DescribeReservedInstancesModifications.
 --
 -- /See:/ 'mkDescribeReservedInstancesModificationsResponse' smart constructor.
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
   { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The Reserved Instance modification information.
-    reservedInstancesModifications :: Lude.Maybe [ReservedInstancesModification],
+    reservedInstancesModifications :: Core.Maybe [Types.ReservedInstancesModification],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeReservedInstancesModificationsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'reservedInstancesModifications' - The Reserved Instance modification information.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReservedInstancesModificationsResponse' value with any optional fields omitted.
 mkDescribeReservedInstancesModificationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReservedInstancesModificationsResponse
-mkDescribeReservedInstancesModificationsResponse pResponseStatus_ =
+mkDescribeReservedInstancesModificationsResponse responseStatus =
   DescribeReservedInstancesModificationsResponse'
     { nextToken =
-        Lude.Nothing,
-      reservedInstancesModifications = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      reservedInstancesModifications = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drimrsNextToken :: Lens.Lens' DescribeReservedInstancesModificationsResponse (Lude.Maybe Lude.Text)
-drimrsNextToken = Lens.lens (nextToken :: DescribeReservedInstancesModificationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeReservedInstancesModificationsResponse)
-{-# DEPRECATED drimrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+drimrrsNextToken :: Lens.Lens' DescribeReservedInstancesModificationsResponse (Core.Maybe Types.NextToken)
+drimrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED drimrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The Reserved Instance modification information.
 --
 -- /Note:/ Consider using 'reservedInstancesModifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drimrsReservedInstancesModifications :: Lens.Lens' DescribeReservedInstancesModificationsResponse (Lude.Maybe [ReservedInstancesModification])
-drimrsReservedInstancesModifications = Lens.lens (reservedInstancesModifications :: DescribeReservedInstancesModificationsResponse -> Lude.Maybe [ReservedInstancesModification]) (\s a -> s {reservedInstancesModifications = a} :: DescribeReservedInstancesModificationsResponse)
-{-# DEPRECATED drimrsReservedInstancesModifications "Use generic-lens or generic-optics with 'reservedInstancesModifications' instead." #-}
+drimrrsReservedInstancesModifications :: Lens.Lens' DescribeReservedInstancesModificationsResponse (Core.Maybe [Types.ReservedInstancesModification])
+drimrrsReservedInstancesModifications = Lens.field @"reservedInstancesModifications"
+{-# DEPRECATED drimrrsReservedInstancesModifications "Use generic-lens or generic-optics with 'reservedInstancesModifications' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drimrsResponseStatus :: Lens.Lens' DescribeReservedInstancesModificationsResponse Lude.Int
-drimrsResponseStatus = Lens.lens (responseStatus :: DescribeReservedInstancesModificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReservedInstancesModificationsResponse)
-{-# DEPRECATED drimrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drimrrsResponseStatus :: Lens.Lens' DescribeReservedInstancesModificationsResponse Core.Int
+drimrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drimrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,29 +20,31 @@ module Network.AWS.ServiceCatalog.ListProvisioningArtifacts
     mkListProvisioningArtifacts,
 
     -- ** Request lenses
-    lAcceptLanguage,
-    lProductId,
+    lpaProductId,
+    lpaAcceptLanguage,
 
     -- * Destructuring the response
     ListProvisioningArtifactsResponse (..),
     mkListProvisioningArtifactsResponse,
 
     -- ** Response lenses
-    lpasrsNextPageToken,
-    lpasrsProvisioningArtifactDetails,
-    lpasrsResponseStatus,
+    lparrsNextPageToken,
+    lparrsProvisioningArtifactDetails,
+    lparrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkListProvisioningArtifacts' smart constructor.
 data ListProvisioningArtifacts = ListProvisioningArtifacts'
-  { -- | The language code.
+  { -- | The product identifier.
+    productId :: Types.ProductId,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -52,37 +54,28 @@ data ListProvisioningArtifacts = ListProvisioningArtifacts'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The product identifier.
-    productId :: Lude.Text
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProvisioningArtifacts' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'productId' - The product identifier.
+-- | Creates a 'ListProvisioningArtifacts' value with any optional fields omitted.
 mkListProvisioningArtifacts ::
   -- | 'productId'
-  Lude.Text ->
+  Types.ProductId ->
   ListProvisioningArtifacts
-mkListProvisioningArtifacts pProductId_ =
+mkListProvisioningArtifacts productId =
   ListProvisioningArtifacts'
-    { acceptLanguage = Lude.Nothing,
-      productId = pProductId_
+    { productId,
+      acceptLanguage = Core.Nothing
     }
+
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpaProductId :: Lens.Lens' ListProvisioningArtifacts Types.ProductId
+lpaProductId = Lens.field @"productId"
+{-# DEPRECATED lpaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | The language code.
 --
@@ -98,104 +91,87 @@ mkListProvisioningArtifacts pProductId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lAcceptLanguage :: Lens.Lens' ListProvisioningArtifacts (Lude.Maybe Lude.Text)
-lAcceptLanguage = Lens.lens (acceptLanguage :: ListProvisioningArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListProvisioningArtifacts)
-{-# DEPRECATED lAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+lpaAcceptLanguage :: Lens.Lens' ListProvisioningArtifacts (Core.Maybe Types.AcceptLanguage)
+lpaAcceptLanguage = Lens.field @"acceptLanguage"
+{-# DEPRECATED lpaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The product identifier.
---
--- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lProductId :: Lens.Lens' ListProvisioningArtifacts Lude.Text
-lProductId = Lens.lens (productId :: ListProvisioningArtifacts -> Lude.Text) (\s a -> s {productId = a} :: ListProvisioningArtifacts)
-{-# DEPRECATED lProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
+instance Core.FromJSON ListProvisioningArtifacts where
+  toJSON ListProvisioningArtifacts {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProductId" Core..= productId),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+          ]
+      )
 
-instance Lude.AWSRequest ListProvisioningArtifacts where
+instance Core.AWSRequest ListProvisioningArtifacts where
   type
     Rs ListProvisioningArtifacts =
       ListProvisioningArtifactsResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.ListProvisioningArtifacts"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListProvisioningArtifactsResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "ProvisioningArtifactDetails" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "ProvisioningArtifactDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListProvisioningArtifacts where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.ListProvisioningArtifacts" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListProvisioningArtifacts where
-  toJSON ListProvisioningArtifacts' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("ProductId" Lude..= productId)
-          ]
-      )
-
-instance Lude.ToPath ListProvisioningArtifacts where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListProvisioningArtifacts where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListProvisioningArtifactsResponse' smart constructor.
 data ListProvisioningArtifactsResponse = ListProvisioningArtifactsResponse'
   { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | Information about the provisioning artifacts.
-    provisioningArtifactDetails :: Lude.Maybe [ProvisioningArtifactDetail],
+    provisioningArtifactDetails :: Core.Maybe [Types.ProvisioningArtifactDetail],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListProvisioningArtifactsResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'provisioningArtifactDetails' - Information about the provisioning artifacts.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListProvisioningArtifactsResponse' value with any optional fields omitted.
 mkListProvisioningArtifactsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListProvisioningArtifactsResponse
-mkListProvisioningArtifactsResponse pResponseStatus_ =
+mkListProvisioningArtifactsResponse responseStatus =
   ListProvisioningArtifactsResponse'
-    { nextPageToken = Lude.Nothing,
-      provisioningArtifactDetails = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextPageToken = Core.Nothing,
+      provisioningArtifactDetails = Core.Nothing,
+      responseStatus
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpasrsNextPageToken :: Lens.Lens' ListProvisioningArtifactsResponse (Lude.Maybe Lude.Text)
-lpasrsNextPageToken = Lens.lens (nextPageToken :: ListProvisioningArtifactsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListProvisioningArtifactsResponse)
-{-# DEPRECATED lpasrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+lparrsNextPageToken :: Lens.Lens' ListProvisioningArtifactsResponse (Core.Maybe Types.NextPageToken)
+lparrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED lparrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the provisioning artifacts.
 --
 -- /Note:/ Consider using 'provisioningArtifactDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpasrsProvisioningArtifactDetails :: Lens.Lens' ListProvisioningArtifactsResponse (Lude.Maybe [ProvisioningArtifactDetail])
-lpasrsProvisioningArtifactDetails = Lens.lens (provisioningArtifactDetails :: ListProvisioningArtifactsResponse -> Lude.Maybe [ProvisioningArtifactDetail]) (\s a -> s {provisioningArtifactDetails = a} :: ListProvisioningArtifactsResponse)
-{-# DEPRECATED lpasrsProvisioningArtifactDetails "Use generic-lens or generic-optics with 'provisioningArtifactDetails' instead." #-}
+lparrsProvisioningArtifactDetails :: Lens.Lens' ListProvisioningArtifactsResponse (Core.Maybe [Types.ProvisioningArtifactDetail])
+lparrsProvisioningArtifactDetails = Lens.field @"provisioningArtifactDetails"
+{-# DEPRECATED lparrsProvisioningArtifactDetails "Use generic-lens or generic-optics with 'provisioningArtifactDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpasrsResponseStatus :: Lens.Lens' ListProvisioningArtifactsResponse Lude.Int
-lpasrsResponseStatus = Lens.lens (responseStatus :: ListProvisioningArtifactsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProvisioningArtifactsResponse)
-{-# DEPRECATED lpasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lparrsResponseStatus :: Lens.Lens' ListProvisioningArtifactsResponse Core.Int
+lparrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lparrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

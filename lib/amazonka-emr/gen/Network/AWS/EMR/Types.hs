@@ -9,147 +9,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types
   ( -- * Service configuration
-    emrService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * ActionOnFailure
-    ActionOnFailure (..),
-
-    -- * AdjustmentType
-    AdjustmentType (..),
-
-    -- * AuthMode
-    AuthMode (..),
-
-    -- * AutoScalingPolicyState
-    AutoScalingPolicyState (..),
-
-    -- * AutoScalingPolicyStateChangeReasonCode
-    AutoScalingPolicyStateChangeReasonCode (..),
-
-    -- * CancelStepsRequestStatus
-    CancelStepsRequestStatus (..),
-
-    -- * ClusterState
-    ClusterState (..),
-
-    -- * ClusterStateChangeReasonCode
-    ClusterStateChangeReasonCode (..),
-
-    -- * ComparisonOperator
-    ComparisonOperator (..),
-
-    -- * ComputeLimitsUnitType
-    ComputeLimitsUnitType (..),
-
-    -- * ExecutionEngineType
-    ExecutionEngineType (..),
-
-    -- * IdentityType
-    IdentityType (..),
-
-    -- * InstanceCollectionType
-    InstanceCollectionType (..),
-
-    -- * InstanceFleetState
-    InstanceFleetState (..),
-
-    -- * InstanceFleetStateChangeReasonCode
-    InstanceFleetStateChangeReasonCode (..),
-
-    -- * InstanceFleetType
-    InstanceFleetType (..),
-
-    -- * InstanceGroupState
-    InstanceGroupState (..),
-
-    -- * InstanceGroupStateChangeReasonCode
-    InstanceGroupStateChangeReasonCode (..),
-
-    -- * InstanceGroupType
-    InstanceGroupType (..),
-
-    -- * InstanceRoleType
-    InstanceRoleType (..),
-
-    -- * InstanceState
-    InstanceState (..),
-
-    -- * InstanceStateChangeReasonCode
-    InstanceStateChangeReasonCode (..),
-
-    -- * MarketType
-    MarketType (..),
-
-    -- * NotebookExecutionStatus
-    NotebookExecutionStatus (..),
-
-    -- * OnDemandProvisioningAllocationStrategy
-    OnDemandProvisioningAllocationStrategy (..),
-
-    -- * PlacementGroupStrategy
-    PlacementGroupStrategy (..),
-
-    -- * RepoUpgradeOnBoot
-    RepoUpgradeOnBoot (..),
-
-    -- * ScaleDownBehavior
-    ScaleDownBehavior (..),
-
-    -- * SpotProvisioningAllocationStrategy
-    SpotProvisioningAllocationStrategy (..),
-
-    -- * SpotProvisioningTimeoutAction
-    SpotProvisioningTimeoutAction (..),
-
-    -- * Statistic
-    Statistic (..),
-
-    -- * StepCancellationOption
-    StepCancellationOption (..),
-
-    -- * StepState
-    StepState (..),
-
-    -- * StepStateChangeReasonCode
-    StepStateChangeReasonCode (..),
-
-    -- * Unit
-    Unit (..),
-
-    -- * Application
-    Application (..),
-    mkApplication,
-    aArgs,
-    aAdditionalInfo,
-    aName,
-    aVersion,
-
-    -- * AutoScalingPolicy
-    AutoScalingPolicy (..),
-    mkAutoScalingPolicy,
-    aspRules,
-    aspConstraints,
-
-    -- * AutoScalingPolicyDescription
-    AutoScalingPolicyDescription (..),
-    mkAutoScalingPolicyDescription,
-    aspdStatus,
-    aspdRules,
-    aspdConstraints,
-
-    -- * AutoScalingPolicyStateChangeReason
-    AutoScalingPolicyStateChangeReason (..),
-    mkAutoScalingPolicyStateChangeReason,
-    aspscrCode,
-    aspscrMessage,
-
-    -- * AutoScalingPolicyStatus
-    AutoScalingPolicyStatus (..),
-    mkAutoScalingPolicyStatus,
-    aspsState,
-    aspsStateChangeReason,
+    _InvalidRequestException,
+    _InternalServerError,
+    _InternalServerException,
 
     -- * BlockPublicAccessConfiguration
     BlockPublicAccessConfiguration (..),
@@ -157,71 +22,101 @@ module Network.AWS.EMR.Types
     bpacBlockPublicSecurityGroupRules,
     bpacPermittedPublicSecurityGroupRuleRanges,
 
-    -- * BlockPublicAccessConfigurationMetadata
-    BlockPublicAccessConfigurationMetadata (..),
-    mkBlockPublicAccessConfigurationMetadata,
-    bpacmCreatedByARN,
-    bpacmCreationDateTime,
+    -- * XmlString
+    XmlString (..),
 
-    -- * BootstrapActionConfig
-    BootstrapActionConfig (..),
-    mkBootstrapActionConfig,
-    bacName,
-    bacScriptBootstrapAction,
+    -- * MarketType
+    MarketType (..),
 
-    -- * CancelStepsInfo
-    CancelStepsInfo (..),
-    mkCancelStepsInfo,
-    csiStatus,
-    csiStepId,
-    csiReason,
+    -- * InstanceGroupConfig
+    InstanceGroupConfig (..),
+    mkInstanceGroupConfig,
+    igcInstanceRole,
+    igcInstanceType,
+    igcInstanceCount,
+    igcAutoScalingPolicy,
+    igcBidPrice,
+    igcConfigurations,
+    igcEbsConfiguration,
+    igcMarket,
+    igcName,
 
-    -- * CloudWatchAlarmDefinition
-    CloudWatchAlarmDefinition (..),
-    mkCloudWatchAlarmDefinition,
-    cwadPeriod,
-    cwadEvaluationPeriods,
-    cwadMetricName,
-    cwadNamespace,
-    cwadComparisonOperator,
-    cwadThreshold,
-    cwadDimensions,
-    cwadUnit,
-    cwadStatistic,
+    -- * InstanceId
+    InstanceId (..),
 
-    -- * Cluster
-    Cluster (..),
-    mkCluster,
-    cfStatus,
-    cfLogEncryptionKMSKeyId,
-    cfClusterARN,
-    cfRequestedAMIVersion,
-    cfEBSRootVolumeSize,
-    cfEC2InstanceAttributes,
-    cfOutpostARN,
-    cfNormalizedInstanceHours,
-    cfConfigurations,
-    cfCustomAMIId,
-    cfAutoScalingRole,
-    cfSecurityConfiguration,
-    cfScaleDownBehavior,
-    cfInstanceCollectionType,
-    cfReleaseLabel,
-    cfName,
-    cfRepoUpgradeOnBoot,
-    cfLogURI,
-    cfKerberosAttributes,
-    cfId,
-    cfPlacementGroups,
-    cfRunningAMIVersion,
-    cfMasterPublicDNSName,
-    cfTerminationProtected,
-    cfVisibleToAllUsers,
-    cfAutoTerminate,
-    cfStepConcurrencyLevel,
-    cfApplications,
-    cfTags,
-    cfServiceRole,
+    -- * SpotProvisioningTimeoutAction
+    SpotProvisioningTimeoutAction (..),
+
+    -- * EbsConfiguration
+    EbsConfiguration (..),
+    mkEbsConfiguration,
+    ecEbsBlockDeviceConfigs,
+    ecEbsOptimized,
+
+    -- * InstanceStateChangeReason
+    InstanceStateChangeReason (..),
+    mkInstanceStateChangeReason,
+    iscrCode,
+    iscrMessage,
+
+    -- * PlacementGroupConfig
+    PlacementGroupConfig (..),
+    mkPlacementGroupConfig,
+    pgcInstanceRole,
+    pgcPlacementStrategy,
+
+    -- * KeyValue
+    KeyValue (..),
+    mkKeyValue,
+    kvKey,
+    kvValue,
+
+    -- * InstanceTypeSpecification
+    InstanceTypeSpecification (..),
+    mkInstanceTypeSpecification,
+    itsBidPrice,
+    itsBidPriceAsPercentageOfOnDemandPrice,
+    itsConfigurations,
+    itsEbsBlockDevices,
+    itsEbsOptimized,
+    itsInstanceType,
+    itsWeightedCapacity,
+
+    -- * NotebookExecutionStatus
+    NotebookExecutionStatus (..),
+
+    -- * SupportedProductConfig
+    SupportedProductConfig (..),
+    mkSupportedProductConfig,
+    spcArgs,
+    spcName,
+
+    -- * Command
+    Command (..),
+    mkCommand,
+    cArgs,
+    cName,
+    cScriptPath,
+
+    -- * StepId
+    StepId (..),
+
+    -- * ActionOnFailure
+    ActionOnFailure (..),
+
+    -- * InstanceFleet
+    InstanceFleet (..),
+    mkInstanceFleet,
+    ifId,
+    ifInstanceFleetType,
+    ifInstanceTypeSpecifications,
+    ifLaunchSpecifications,
+    ifName,
+    ifProvisionedOnDemandCapacity,
+    ifProvisionedSpotCapacity,
+    ifStatus,
+    ifTargetOnDemandCapacity,
+    ifTargetSpotCapacity,
 
     -- * ClusterStateChangeReason
     ClusterStateChangeReason (..),
@@ -229,243 +124,31 @@ module Network.AWS.EMR.Types
     cscrCode,
     cscrMessage,
 
-    -- * ClusterStatus
-    ClusterStatus (..),
-    mkClusterStatus,
-    csState,
-    csStateChangeReason,
-    csTimeline,
+    -- * InstanceFleetStateChangeReasonCode
+    InstanceFleetStateChangeReasonCode (..),
 
-    -- * ClusterSummary
-    ClusterSummary (..),
-    mkClusterSummary,
-    csStatus,
-    csClusterARN,
-    csOutpostARN,
-    csNormalizedInstanceHours,
-    csName,
-    csId,
+    -- * ResourceId
+    ResourceId (..),
 
-    -- * ClusterTimeline
-    ClusterTimeline (..),
-    mkClusterTimeline,
-    ctReadyDateTime,
-    ctCreationDateTime,
-    ctEndDateTime,
+    -- * Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- * Command
-    Command (..),
-    mkCommand,
-    cArgs,
-    cScriptPath,
-    cName,
+    -- * Application
+    Application (..),
+    mkApplication,
+    aAdditionalInfo,
+    aArgs,
+    aName,
+    aVersion,
 
-    -- * ComputeLimits
-    ComputeLimits (..),
-    mkComputeLimits,
-    clMaximumOnDemandCapacityUnits,
-    clMaximumCoreCapacityUnits,
-    clUnitType,
-    clMaximumCapacityUnits,
-    clMinimumCapacityUnits,
+    -- * AutoScalingPolicyStateChangeReasonCode
+    AutoScalingPolicyStateChangeReasonCode (..),
 
-    -- * Configuration
-    Configuration (..),
-    mkConfiguration,
-    cConfigurations,
-    cClassification,
-    cProperties,
-
-    -- * EBSBlockDevice
-    EBSBlockDevice (..),
-    mkEBSBlockDevice,
-    ebdDevice,
-    ebdVolumeSpecification,
-
-    -- * EBSBlockDeviceConfig
-    EBSBlockDeviceConfig (..),
-    mkEBSBlockDeviceConfig,
-    ebdcVolumesPerInstance,
-    ebdcVolumeSpecification,
-
-    -- * EBSConfiguration
-    EBSConfiguration (..),
-    mkEBSConfiguration,
-    ecEBSOptimized,
-    ecEBSBlockDeviceConfigs,
-
-    -- * EBSVolume
-    EBSVolume (..),
-    mkEBSVolume,
-    evDevice,
-    evVolumeId,
-
-    -- * EC2InstanceAttributes
-    EC2InstanceAttributes (..),
-    mkEC2InstanceAttributes,
-    eiaEC2KeyName,
-    eiaEmrManagedSlaveSecurityGroup,
-    eiaAdditionalSlaveSecurityGroups,
-    eiaRequestedEC2SubnetIds,
-    eiaAdditionalMasterSecurityGroups,
-    eiaIAMInstanceProfile,
-    eiaEmrManagedMasterSecurityGroup,
-    eiaEC2SubnetId,
-    eiaRequestedEC2AvailabilityZones,
-    eiaServiceAccessSecurityGroup,
-    eiaEC2AvailabilityZone,
-
-    -- * ExecutionEngineConfig
-    ExecutionEngineConfig (..),
-    mkExecutionEngineConfig,
-    eecMasterInstanceSecurityGroupId,
-    eecId,
-    eecType,
-
-    -- * FailureDetails
-    FailureDetails (..),
-    mkFailureDetails,
-    fdLogFile,
-    fdReason,
-    fdMessage,
-
-    -- * HadoopJARStepConfig
-    HadoopJARStepConfig (..),
-    mkHadoopJARStepConfig,
-    hjscArgs,
-    hjscJAR,
-    hjscMainClass,
-    hjscProperties,
-
-    -- * HadoopStepConfig
-    HadoopStepConfig (..),
-    mkHadoopStepConfig,
-    hscArgs,
-    hscJAR,
-    hscMainClass,
-    hscProperties,
-
-    -- * Instance
-    Instance (..),
-    mkInstance,
-    iStatus,
-    iPublicDNSName,
-    iEBSVolumes,
-    iEC2InstanceId,
-    iInstanceType,
-    iMarket,
-    iPrivateIPAddress,
-    iInstanceFleetId,
-    iId,
-    iInstanceGroupId,
-    iPrivateDNSName,
-    iPublicIPAddress,
-
-    -- * InstanceFleet
-    InstanceFleet (..),
-    mkInstanceFleet,
-    ifProvisionedSpotCapacity,
-    ifStatus,
-    ifTargetOnDemandCapacity,
-    ifInstanceFleetType,
-    ifInstanceTypeSpecifications,
-    ifName,
-    ifProvisionedOnDemandCapacity,
-    ifTargetSpotCapacity,
-    ifId,
-    ifLaunchSpecifications,
-
-    -- * InstanceFleetConfig
-    InstanceFleetConfig (..),
-    mkInstanceFleetConfig,
-    ifcInstanceTypeConfigs,
-    ifcTargetOnDemandCapacity,
-    ifcInstanceFleetType,
-    ifcName,
-    ifcTargetSpotCapacity,
-    ifcLaunchSpecifications,
-
-    -- * InstanceFleetModifyConfig
-    InstanceFleetModifyConfig (..),
-    mkInstanceFleetModifyConfig,
-    ifmcTargetOnDemandCapacity,
-    ifmcInstanceFleetId,
-    ifmcTargetSpotCapacity,
-
-    -- * InstanceFleetProvisioningSpecifications
-    InstanceFleetProvisioningSpecifications (..),
-    mkInstanceFleetProvisioningSpecifications,
-    ifpsSpotSpecification,
-    ifpsOnDemandSpecification,
-
-    -- * InstanceFleetStateChangeReason
-    InstanceFleetStateChangeReason (..),
-    mkInstanceFleetStateChangeReason,
-    ifscrCode,
-    ifscrMessage,
-
-    -- * InstanceFleetStatus
-    InstanceFleetStatus (..),
-    mkInstanceFleetStatus,
-    ifsState,
-    ifsStateChangeReason,
-    ifsTimeline,
-
-    -- * InstanceFleetTimeline
-    InstanceFleetTimeline (..),
-    mkInstanceFleetTimeline,
-    iftReadyDateTime,
-    iftCreationDateTime,
-    iftEndDateTime,
-
-    -- * InstanceGroup
-    InstanceGroup (..),
-    mkInstanceGroup,
-    igStatus,
-    igLastSuccessfullyAppliedConfigurationsVersion,
-    igBidPrice,
-    igRequestedInstanceCount,
-    igRunningInstanceCount,
-    igLastSuccessfullyAppliedConfigurations,
-    igConfigurations,
-    igInstanceGroupType,
-    igEBSBlockDevices,
-    igInstanceType,
-    igConfigurationsVersion,
-    igEBSOptimized,
-    igMarket,
-    igName,
-    igAutoScalingPolicy,
-    igShrinkPolicy,
-    igId,
-
-    -- * InstanceGroupConfig
-    InstanceGroupConfig (..),
-    mkInstanceGroupConfig,
-    igcEBSConfiguration,
-    igcBidPrice,
-    igcInstanceCount,
-    igcInstanceRole,
-    igcConfigurations,
-    igcInstanceType,
-    igcMarket,
-    igcName,
-    igcAutoScalingPolicy,
-
-    -- * InstanceGroupModifyConfig
-    InstanceGroupModifyConfig (..),
-    mkInstanceGroupModifyConfig,
-    igmcInstanceCount,
-    igmcConfigurations,
-    igmcEC2InstanceIdsToTerminate,
-    igmcShrinkPolicy,
-    igmcInstanceGroupId,
-
-    -- * InstanceGroupStateChangeReason
-    InstanceGroupStateChangeReason (..),
-    mkInstanceGroupStateChangeReason,
-    igscrCode,
-    igscrMessage,
+    -- * SpotProvisioningAllocationStrategy
+    SpotProvisioningAllocationStrategy (..),
 
     -- * InstanceGroupStatus
     InstanceGroupStatus (..),
@@ -474,151 +157,215 @@ module Network.AWS.EMR.Types
     igsStateChangeReason,
     igsTimeline,
 
-    -- * InstanceGroupTimeline
-    InstanceGroupTimeline (..),
-    mkInstanceGroupTimeline,
-    igtReadyDateTime,
-    igtCreationDateTime,
-    igtEndDateTime,
+    -- * Cluster
+    Cluster (..),
+    mkCluster,
+    cfApplications,
+    cfAutoScalingRole,
+    cfAutoTerminate,
+    cfClusterArn,
+    cfConfigurations,
+    cfCustomAmiId,
+    cfEbsRootVolumeSize,
+    cfEc2InstanceAttributes,
+    cfId,
+    cfInstanceCollectionType,
+    cfKerberosAttributes,
+    cfLogEncryptionKmsKeyId,
+    cfLogUri,
+    cfMasterPublicDnsName,
+    cfName,
+    cfNormalizedInstanceHours,
+    cfOutpostArn,
+    cfPlacementGroups,
+    cfReleaseLabel,
+    cfRepoUpgradeOnBoot,
+    cfRequestedAmiVersion,
+    cfRunningAmiVersion,
+    cfScaleDownBehavior,
+    cfSecurityConfiguration,
+    cfServiceRole,
+    cfStatus,
+    cfStepConcurrencyLevel,
+    cfTags,
+    cfTerminationProtected,
+    cfVisibleToAllUsers,
 
-    -- * InstanceResizePolicy
-    InstanceResizePolicy (..),
-    mkInstanceResizePolicy,
-    irpInstancesToProtect,
-    irpInstancesToTerminate,
-    irpInstanceTerminationTimeout,
-
-    -- * InstanceStateChangeReason
-    InstanceStateChangeReason (..),
-    mkInstanceStateChangeReason,
-    iscrCode,
-    iscrMessage,
-
-    -- * InstanceStatus
-    InstanceStatus (..),
-    mkInstanceStatus,
-    isState,
-    isStateChangeReason,
-    isTimeline,
+    -- * CancelStepsRequestStatus
+    CancelStepsRequestStatus (..),
 
     -- * InstanceTimeline
     InstanceTimeline (..),
     mkInstanceTimeline,
-    itReadyDateTime,
     itCreationDateTime,
     itEndDateTime,
+    itReadyDateTime,
 
-    -- * InstanceTypeConfig
-    InstanceTypeConfig (..),
-    mkInstanceTypeConfig,
-    itcEBSConfiguration,
-    itcBidPrice,
-    itcWeightedCapacity,
-    itcConfigurations,
-    itcInstanceType,
-    itcBidPriceAsPercentageOfOnDemandPrice,
-
-    -- * InstanceTypeSpecification
-    InstanceTypeSpecification (..),
-    mkInstanceTypeSpecification,
-    itsBidPrice,
-    itsWeightedCapacity,
-    itsConfigurations,
-    itsEBSBlockDevices,
-    itsInstanceType,
-    itsEBSOptimized,
-    itsBidPriceAsPercentageOfOnDemandPrice,
-
-    -- * JobFlowInstancesConfig
-    JobFlowInstancesConfig (..),
-    mkJobFlowInstancesConfig,
-    jficInstanceFleets,
-    jficEC2KeyName,
-    jficSlaveInstanceType,
-    jficInstanceCount,
-    jficEmrManagedSlaveSecurityGroup,
-    jficAdditionalSlaveSecurityGroups,
-    jficEC2SubnetIds,
-    jficHadoopVersion,
-    jficAdditionalMasterSecurityGroups,
-    jficEmrManagedMasterSecurityGroup,
-    jficEC2SubnetId,
-    jficMasterInstanceType,
-    jficInstanceGroups,
-    jficKeepJobFlowAliveWhenNoSteps,
-    jficServiceAccessSecurityGroup,
-    jficTerminationProtected,
-    jficPlacement,
-
-    -- * KerberosAttributes
-    KerberosAttributes (..),
-    mkKerberosAttributes,
-    kaKdcAdminPassword,
-    kaRealm,
-    kaADDomainJoinPassword,
-    kaCrossRealmTrustPrincipalPassword,
-    kaADDomainJoinUser,
-
-    -- * KeyValue
-    KeyValue (..),
-    mkKeyValue,
-    kvValue,
-    kvKey,
-
-    -- * ManagedScalingPolicy
-    ManagedScalingPolicy (..),
-    mkManagedScalingPolicy,
-    mspComputeLimits,
-
-    -- * MetricDimension
-    MetricDimension (..),
-    mkMetricDimension,
-    mdValue,
-    mdKey,
-
-    -- * NotebookExecution
-    NotebookExecution (..),
-    mkNotebookExecution,
-    neStatus,
-    neExecutionEngine,
-    neNotebookInstanceSecurityGroupId,
-    neEditorId,
-    neStartTime,
-    neARN,
-    neOutputNotebookURI,
-    neNotebookExecutionId,
-    neNotebookExecutionName,
-    neLastStateChangeReason,
-    neEndTime,
-    neNotebookParams,
-    neTags,
-
-    -- * NotebookExecutionSummary
-    NotebookExecutionSummary (..),
-    mkNotebookExecutionSummary,
-    nesStatus,
-    nesEditorId,
-    nesStartTime,
-    nesNotebookExecutionId,
-    nesNotebookExecutionName,
-    nesEndTime,
+    -- * Ec2InstanceAttributes
+    Ec2InstanceAttributes (..),
+    mkEc2InstanceAttributes,
+    eiaAdditionalMasterSecurityGroups,
+    eiaAdditionalSlaveSecurityGroups,
+    eiaEc2AvailabilityZone,
+    eiaEc2KeyName,
+    eiaEc2SubnetId,
+    eiaEmrManagedMasterSecurityGroup,
+    eiaEmrManagedSlaveSecurityGroup,
+    eiaIamInstanceProfile,
+    eiaRequestedEc2AvailabilityZones,
+    eiaRequestedEc2SubnetIds,
+    eiaServiceAccessSecurityGroup,
 
     -- * OnDemandProvisioningSpecification
     OnDemandProvisioningSpecification (..),
     mkOnDemandProvisioningSpecification,
     odpsAllocationStrategy,
 
-    -- * PlacementGroupConfig
-    PlacementGroupConfig (..),
-    mkPlacementGroupConfig,
-    pgcInstanceRole,
-    pgcPlacementStrategy,
+    -- * StepStateChangeReasonCode
+    StepStateChangeReasonCode (..),
 
-    -- * PlacementType
-    PlacementType (..),
-    mkPlacementType,
-    ptAvailabilityZones,
-    ptAvailabilityZone,
+    -- * FailureDetails
+    FailureDetails (..),
+    mkFailureDetails,
+    fdLogFile,
+    fdMessage,
+    fdReason,
+
+    -- * ClusterState
+    ClusterState (..),
+
+    -- * InstanceFleetConfig
+    InstanceFleetConfig (..),
+    mkInstanceFleetConfig,
+    ifcInstanceFleetType,
+    ifcInstanceTypeConfigs,
+    ifcLaunchSpecifications,
+    ifcName,
+    ifcTargetOnDemandCapacity,
+    ifcTargetSpotCapacity,
+
+    -- * ComputeLimitsUnitType
+    ComputeLimitsUnitType (..),
+
+    -- * String
+    String (..),
+
+    -- * PlacementGroupStrategy
+    PlacementGroupStrategy (..),
+
+    -- * HadoopStepConfig
+    HadoopStepConfig (..),
+    mkHadoopStepConfig,
+    hscArgs,
+    hscJar,
+    hscMainClass,
+    hscProperties,
+
+    -- * SessionMappingDetail
+    SessionMappingDetail (..),
+    mkSessionMappingDetail,
+    smdCreationTime,
+    smdIdentityId,
+    smdIdentityName,
+    smdIdentityType,
+    smdLastModifiedTime,
+    smdSessionPolicyArn,
+    smdStudioId,
+
+    -- * ScalingRule
+    ScalingRule (..),
+    mkScalingRule,
+    srName,
+    srAction,
+    srTrigger,
+    srDescription,
+
+    -- * ScalingAction
+    ScalingAction (..),
+    mkScalingAction,
+    saSimpleScalingPolicyConfiguration,
+    saMarket,
+
+    -- * InstanceTypeConfig
+    InstanceTypeConfig (..),
+    mkInstanceTypeConfig,
+    itcInstanceType,
+    itcBidPrice,
+    itcBidPriceAsPercentageOfOnDemandPrice,
+    itcConfigurations,
+    itcEbsConfiguration,
+    itcWeightedCapacity,
+
+    -- * NotebookExecution
+    NotebookExecution (..),
+    mkNotebookExecution,
+    neArn,
+    neEditorId,
+    neEndTime,
+    neExecutionEngine,
+    neLastStateChangeReason,
+    neNotebookExecutionId,
+    neNotebookExecutionName,
+    neNotebookInstanceSecurityGroupId,
+    neNotebookParams,
+    neOutputNotebookURI,
+    neStartTime,
+    neStatus,
+    neTags,
+
+    -- * AuthMode
+    AuthMode (..),
+
+    -- * InstanceResizePolicy
+    InstanceResizePolicy (..),
+    mkInstanceResizePolicy,
+    irpInstanceTerminationTimeout,
+    irpInstancesToProtect,
+    irpInstancesToTerminate,
+
+    -- * InstanceFleetStatus
+    InstanceFleetStatus (..),
+    mkInstanceFleetStatus,
+    ifsState,
+    ifsStateChangeReason,
+    ifsTimeline,
+
+    -- * InstanceGroupStateChangeReason
+    InstanceGroupStateChangeReason (..),
+    mkInstanceGroupStateChangeReason,
+    igscrCode,
+    igscrMessage,
+
+    -- * SessionMappingSummary
+    SessionMappingSummary (..),
+    mkSessionMappingSummary,
+    smsCreationTime,
+    smsIdentityId,
+    smsIdentityName,
+    smsIdentityType,
+    smsSessionPolicyArn,
+    smsStudioId,
+
+    -- * InstanceGroupType
+    InstanceGroupType (..),
+
+    -- * AutoScalingPolicyStatus
+    AutoScalingPolicyStatus (..),
+    mkAutoScalingPolicyStatus,
+    aspsState,
+    aspsStateChangeReason,
+
+    -- * XmlStringMaxLen256
+    XmlStringMaxLen256 (..),
+
+    -- * StepCancellationOption
+    StepCancellationOption (..),
+
+    -- * IdentityType
+    IdentityType (..),
+
+    -- * ScaleDownBehavior
+    ScaleDownBehavior (..),
 
     -- * PortRange
     PortRange (..),
@@ -626,123 +373,28 @@ module Network.AWS.EMR.Types
     prMinRange,
     prMaxRange,
 
-    -- * ScalingAction
-    ScalingAction (..),
-    mkScalingAction,
-    saMarket,
-    saSimpleScalingPolicyConfiguration,
-
-    -- * ScalingConstraints
-    ScalingConstraints (..),
-    mkScalingConstraints,
-    scMaxCapacity,
-    scMinCapacity,
-
-    -- * ScalingRule
-    ScalingRule (..),
-    mkScalingRule,
-    srAction,
-    srName,
-    srTrigger,
-    srDescription,
-
-    -- * ScalingTrigger
-    ScalingTrigger (..),
-    mkScalingTrigger,
-    stCloudWatchAlarmDefinition,
-
-    -- * ScriptBootstrapActionConfig
-    ScriptBootstrapActionConfig (..),
-    mkScriptBootstrapActionConfig,
-    sbacArgs,
-    sbacPath,
-
-    -- * SecurityConfigurationSummary
-    SecurityConfigurationSummary (..),
-    mkSecurityConfigurationSummary,
-    scsName,
-    scsCreationDateTime,
-
-    -- * SessionMappingDetail
-    SessionMappingDetail (..),
-    mkSessionMappingDetail,
-    smdCreationTime,
-    smdStudioId,
-    smdLastModifiedTime,
-    smdIdentityType,
-    smdIdentityId,
-    smdSessionPolicyARN,
-    smdIdentityName,
-
-    -- * SessionMappingSummary
-    SessionMappingSummary (..),
-    mkSessionMappingSummary,
-    smsCreationTime,
-    smsStudioId,
-    smsIdentityType,
-    smsIdentityId,
-    smsSessionPolicyARN,
-    smsIdentityName,
-
-    -- * ShrinkPolicy
-    ShrinkPolicy (..),
-    mkShrinkPolicy,
-    spDecommissionTimeout,
-    spInstanceResizePolicy,
-
-    -- * SimpleScalingPolicyConfiguration
-    SimpleScalingPolicyConfiguration (..),
-    mkSimpleScalingPolicyConfiguration,
-    sspcAdjustmentType,
-    sspcScalingAdjustment,
-    sspcCoolDown,
-
-    -- * SpotProvisioningSpecification
-    SpotProvisioningSpecification (..),
-    mkSpotProvisioningSpecification,
-    spsBlockDurationMinutes,
-    spsTimeoutAction,
-    spsTimeoutDurationMinutes,
-    spsAllocationStrategy,
-
-    -- * Step
-    Step (..),
-    mkStep,
-    sgStatus,
-    sgActionOnFailure,
-    sgConfig,
-    sgName,
-    sgId,
-
-    -- * StepConfig
-    StepConfig (..),
-    mkStepConfig,
-    scActionOnFailure,
-    scHadoopJARStep,
-    scName,
-
-    -- * StepStateChangeReason
-    StepStateChangeReason (..),
-    mkStepStateChangeReason,
-    sscrCode,
-    sscrMessage,
+    -- * InstanceGroupStateChangeReasonCode
+    InstanceGroupStateChangeReasonCode (..),
 
     -- * StepStatus
     StepStatus (..),
     mkStepStatus,
-    ssState,
     ssFailureDetails,
+    ssState,
     ssStateChangeReason,
     ssTimeline,
 
     -- * StepSummary
     StepSummary (..),
     mkStepSummary,
-    sStatus,
     sActionOnFailure,
     sConfig,
-    sName,
     sId,
+    sName,
+    sStatus,
+
+    -- * InstanceGroupState
+    InstanceGroupState (..),
 
     -- * StepTimeline
     StepTimeline (..),
@@ -751,59 +403,565 @@ module Network.AWS.EMR.Types
     stEndDateTime,
     stStartDateTime,
 
-    -- * Studio
-    Studio (..),
-    mkStudio,
-    sfCreationTime,
-    sfEngineSecurityGroupId,
-    sfSubnetIds,
-    sfStudioId,
-    sfVPCId,
-    sfURL,
-    sfAuthMode,
-    sfDefaultS3Location,
-    sfWorkspaceSecurityGroupId,
-    sfName,
-    sfStudioARN,
-    sfUserRole,
-    sfDescription,
-    sfTags,
-    sfServiceRole,
+    -- * PlacementType
+    PlacementType (..),
+    mkPlacementType,
+    ptAvailabilityZone,
+    ptAvailabilityZones,
+
+    -- * ComparisonOperator
+    ComparisonOperator (..),
+
+    -- * CancelStepsInfo
+    CancelStepsInfo (..),
+    mkCancelStepsInfo,
+    csiReason,
+    csiStatus,
+    csiStepId,
+
+    -- * InstanceType
+    InstanceType (..),
+
+    -- * HadoopJarStepConfig
+    HadoopJarStepConfig (..),
+    mkHadoopJarStepConfig,
+    hjscJar,
+    hjscArgs,
+    hjscMainClass,
+    hjscProperties,
+
+    -- * MetricDimension
+    MetricDimension (..),
+    mkMetricDimension,
+    mdKey,
+    mdValue,
+
+    -- * ExecutionEngineType
+    ExecutionEngineType (..),
+
+    -- * InstanceGroupModifyConfig
+    InstanceGroupModifyConfig (..),
+    mkInstanceGroupModifyConfig,
+    igmcInstanceGroupId,
+    igmcConfigurations,
+    igmcEC2InstanceIdsToTerminate,
+    igmcInstanceCount,
+    igmcShrinkPolicy,
 
     -- * StudioSummary
     StudioSummary (..),
     mkStudioSummary,
     ssCreationTime,
-    ssStudioId,
-    ssVPCId,
-    ssURL,
-    ssName,
     ssDescription,
+    ssName,
+    ssStudioId,
+    ssUrl,
+    ssVpcId,
 
-    -- * SupportedProductConfig
-    SupportedProductConfig (..),
-    mkSupportedProductConfig,
-    spcArgs,
-    spcName,
+    -- * SpotProvisioningSpecification
+    SpotProvisioningSpecification (..),
+    mkSpotProvisioningSpecification,
+    spsTimeoutDurationMinutes,
+    spsTimeoutAction,
+    spsAllocationStrategy,
+    spsBlockDurationMinutes,
 
-    -- * Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- * AutoScalingPolicyDescription
+    AutoScalingPolicyDescription (..),
+    mkAutoScalingPolicyDescription,
+    aspdConstraints,
+    aspdRules,
+    aspdStatus,
+
+    -- * OnDemandProvisioningAllocationStrategy
+    OnDemandProvisioningAllocationStrategy (..),
+
+    -- * InstanceFleetTimeline
+    InstanceFleetTimeline (..),
+    mkInstanceFleetTimeline,
+    iftCreationDateTime,
+    iftEndDateTime,
+    iftReadyDateTime,
+
+    -- * EbsVolume
+    EbsVolume (..),
+    mkEbsVolume,
+    evDevice,
+    evVolumeId,
+
+    -- * EbsBlockDeviceConfig
+    EbsBlockDeviceConfig (..),
+    mkEbsBlockDeviceConfig,
+    ebdcVolumeSpecification,
+    ebdcVolumesPerInstance,
+
+    -- * InstanceCollectionType
+    InstanceCollectionType (..),
+
+    -- * InstanceFleetType
+    InstanceFleetType (..),
+
+    -- * AutoScalingPolicyStateChangeReason
+    AutoScalingPolicyStateChangeReason (..),
+    mkAutoScalingPolicyStateChangeReason,
+    aspscrCode,
+    aspscrMessage,
+
+    -- * AdjustmentType
+    AdjustmentType (..),
+
+    -- * NotebookExecutionSummary
+    NotebookExecutionSummary (..),
+    mkNotebookExecutionSummary,
+    nesEditorId,
+    nesEndTime,
+    nesNotebookExecutionId,
+    nesNotebookExecutionName,
+    nesStartTime,
+    nesStatus,
+
+    -- * StepStateChangeReason
+    StepStateChangeReason (..),
+    mkStepStateChangeReason,
+    sscrCode,
+    sscrMessage,
+
+    -- * RepoUpgradeOnBoot
+    RepoUpgradeOnBoot (..),
+
+    -- * ClusterId
+    ClusterId (..),
+
+    -- * SecurityConfigurationSummary
+    SecurityConfigurationSummary (..),
+    mkSecurityConfigurationSummary,
+    scsCreationDateTime,
+    scsName,
+
+    -- * KerberosAttributes
+    KerberosAttributes (..),
+    mkKerberosAttributes,
+    kaRealm,
+    kaKdcAdminPassword,
+    kaADDomainJoinPassword,
+    kaADDomainJoinUser,
+    kaCrossRealmTrustPrincipalPassword,
+
+    -- * Marker
+    Marker (..),
+
+    -- * InstanceFleetStateChangeReason
+    InstanceFleetStateChangeReason (..),
+    mkInstanceFleetStateChangeReason,
+    ifscrCode,
+    ifscrMessage,
+
+    -- * ClusterStateChangeReasonCode
+    ClusterStateChangeReasonCode (..),
+
+    -- * AutoScalingPolicy
+    AutoScalingPolicy (..),
+    mkAutoScalingPolicy,
+    aspConstraints,
+    aspRules,
+
+    -- * InstanceFleetId
+    InstanceFleetId (..),
+
+    -- * Step
+    Step (..),
+    mkStep,
+    sfActionOnFailure,
+    sfConfig,
+    sfId,
+    sfName,
+    sfStatus,
+
+    -- * StepState
+    StepState (..),
+
+    -- * ShrinkPolicy
+    ShrinkPolicy (..),
+    mkShrinkPolicy,
+    spDecommissionTimeout,
+    spInstanceResizePolicy,
 
     -- * VolumeSpecification
     VolumeSpecification (..),
     mkVolumeSpecification,
-    vsIOPS,
-    vsSizeInGB,
     vsVolumeType,
+    vsSizeInGB,
+    vsIops,
+
+    -- * ScalingTrigger
+    ScalingTrigger (..),
+    mkScalingTrigger,
+    stCloudWatchAlarmDefinition,
+
+    -- * InstanceGroupTimeline
+    InstanceGroupTimeline (..),
+    mkInstanceGroupTimeline,
+    igtCreationDateTime,
+    igtEndDateTime,
+    igtReadyDateTime,
+
+    -- * InstanceStatus
+    InstanceStatus (..),
+    mkInstanceStatus,
+    isState,
+    isStateChangeReason,
+    isTimeline,
+
+    -- * AutoScalingPolicyState
+    AutoScalingPolicyState (..),
+
+    -- * InstanceRoleType
+    InstanceRoleType (..),
+
+    -- * EbsBlockDevice
+    EbsBlockDevice (..),
+    mkEbsBlockDevice,
+    ebdDevice,
+    ebdVolumeSpecification,
+
+    -- * JobFlowInstancesConfig
+    JobFlowInstancesConfig (..),
+    mkJobFlowInstancesConfig,
+    jficAdditionalMasterSecurityGroups,
+    jficAdditionalSlaveSecurityGroups,
+    jficEc2KeyName,
+    jficEc2SubnetId,
+    jficEc2SubnetIds,
+    jficEmrManagedMasterSecurityGroup,
+    jficEmrManagedSlaveSecurityGroup,
+    jficHadoopVersion,
+    jficInstanceCount,
+    jficInstanceFleets,
+    jficInstanceGroups,
+    jficKeepJobFlowAliveWhenNoSteps,
+    jficMasterInstanceType,
+    jficPlacement,
+    jficServiceAccessSecurityGroup,
+    jficSlaveInstanceType,
+    jficTerminationProtected,
+
+    -- * InstanceFleetModifyConfig
+    InstanceFleetModifyConfig (..),
+    mkInstanceFleetModifyConfig,
+    ifmcInstanceFleetId,
+    ifmcTargetOnDemandCapacity,
+    ifmcTargetSpotCapacity,
+
+    -- * ArnType
+    ArnType (..),
+
+    -- * InstanceFleetState
+    InstanceFleetState (..),
+
+    -- * Configuration
+    Configuration (..),
+    mkConfiguration,
+    cClassification,
+    cConfigurations,
+    cProperties,
+
+    -- * InstanceFleetProvisioningSpecifications
+    InstanceFleetProvisioningSpecifications (..),
+    mkInstanceFleetProvisioningSpecifications,
+    ifpsOnDemandSpecification,
+    ifpsSpotSpecification,
+
+    -- * Studio
+    Studio (..),
+    mkStudio,
+    sgAuthMode,
+    sgCreationTime,
+    sgDefaultS3Location,
+    sgDescription,
+    sgEngineSecurityGroupId,
+    sgName,
+    sgServiceRole,
+    sgStudioArn,
+    sgStudioId,
+    sgSubnetIds,
+    sgTags,
+    sgUrl,
+    sgUserRole,
+    sgVpcId,
+    sgWorkspaceSecurityGroupId,
+
+    -- * ManagedScalingPolicy
+    ManagedScalingPolicy (..),
+    mkManagedScalingPolicy,
+    mspComputeLimits,
+
+    -- * StepConfig
+    StepConfig (..),
+    mkStepConfig,
+    scName,
+    scHadoopJarStep,
+    scActionOnFailure,
+
+    -- * InstanceGroupId
+    InstanceGroupId (..),
+
+    -- * OptionalArnType
+    OptionalArnType (..),
+
+    -- * ScalingConstraints
+    ScalingConstraints (..),
+    mkScalingConstraints,
+    scMinCapacity,
+    scMaxCapacity,
+
+    -- * SimpleScalingPolicyConfiguration
+    SimpleScalingPolicyConfiguration (..),
+    mkSimpleScalingPolicyConfiguration,
+    sspcScalingAdjustment,
+    sspcAdjustmentType,
+    sspcCoolDown,
+
+    -- * ComputeLimits
+    ComputeLimits (..),
+    mkComputeLimits,
+    clUnitType,
+    clMinimumCapacityUnits,
+    clMaximumCapacityUnits,
+    clMaximumCoreCapacityUnits,
+    clMaximumOnDemandCapacityUnits,
+
+    -- * InstanceGroup
+    InstanceGroup (..),
+    mkInstanceGroup,
+    igAutoScalingPolicy,
+    igBidPrice,
+    igConfigurations,
+    igConfigurationsVersion,
+    igEbsBlockDevices,
+    igEbsOptimized,
+    igId,
+    igInstanceGroupType,
+    igInstanceType,
+    igLastSuccessfullyAppliedConfigurations,
+    igLastSuccessfullyAppliedConfigurationsVersion,
+    igMarket,
+    igName,
+    igRequestedInstanceCount,
+    igRunningInstanceCount,
+    igShrinkPolicy,
+    igStatus,
+
+    -- * BootstrapActionConfig
+    BootstrapActionConfig (..),
+    mkBootstrapActionConfig,
+    bacName,
+    bacScriptBootstrapAction,
+
+    -- * ClusterSummary
+    ClusterSummary (..),
+    mkClusterSummary,
+    csClusterArn,
+    csId,
+    csName,
+    csNormalizedInstanceHours,
+    csOutpostArn,
+    csStatus,
+
+    -- * ExecutionEngineConfig
+    ExecutionEngineConfig (..),
+    mkExecutionEngineConfig,
+    eecId,
+    eecMasterInstanceSecurityGroupId,
+    eecType,
+
+    -- * Unit
+    Unit (..),
+
+    -- * CloudWatchAlarmDefinition
+    CloudWatchAlarmDefinition (..),
+    mkCloudWatchAlarmDefinition,
+    cwadComparisonOperator,
+    cwadMetricName,
+    cwadPeriod,
+    cwadThreshold,
+    cwadDimensions,
+    cwadEvaluationPeriods,
+    cwadNamespace,
+    cwadStatistic,
+    cwadUnit,
+
+    -- * ClusterStatus
+    ClusterStatus (..),
+    mkClusterStatus,
+    csState,
+    csStateChangeReason,
+    csTimeline,
+
+    -- * InstanceState
+    InstanceState (..),
+
+    -- * Statistic
+    Statistic (..),
+
+    -- * BlockPublicAccessConfigurationMetadata
+    BlockPublicAccessConfigurationMetadata (..),
+    mkBlockPublicAccessConfigurationMetadata,
+    bpacmCreationDateTime,
+    bpacmCreatedByArn,
+
+    -- * ClusterTimeline
+    ClusterTimeline (..),
+    mkClusterTimeline,
+    ctCreationDateTime,
+    ctEndDateTime,
+    ctReadyDateTime,
+
+    -- * InstanceStateChangeReasonCode
+    InstanceStateChangeReasonCode (..),
+
+    -- * Instance
+    Instance (..),
+    mkInstance,
+    iEbsVolumes,
+    iEc2InstanceId,
+    iId,
+    iInstanceFleetId,
+    iInstanceGroupId,
+    iInstanceType,
+    iMarket,
+    iPrivateDnsName,
+    iPrivateIpAddress,
+    iPublicDnsName,
+    iPublicIpAddress,
+    iStatus,
+
+    -- * ScriptBootstrapActionConfig
+    ScriptBootstrapActionConfig (..),
+    mkScriptBootstrapActionConfig,
+    sbacPath,
+    sbacArgs,
+
+    -- * SecurityConfiguration
+    SecurityConfiguration (..),
+
+    -- * BidPrice
+    BidPrice (..),
+
+    -- * Name
+    Name (..),
+
+    -- * Message
+    Message (..),
+
+    -- * JobFlowId
+    JobFlowId (..),
+
+    -- * ClusterArn
+    ClusterArn (..),
+
+    -- * ScriptPath
+    ScriptPath (..),
+
+    -- * Id
+    Id (..),
+
+    -- * StudioId
+    StudioId (..),
+
+    -- * Key
+    Key (..),
+
+    -- * Value
+    Value (..),
+
+    -- * Version
+    Version (..),
+
+    -- * CustomAmiId
+    CustomAmiId (..),
+
+    -- * LogEncryptionKmsKeyId
+    LogEncryptionKmsKeyId (..),
+
+    -- * LogUri
+    LogUri (..),
+
+    -- * MasterPublicDnsName
+    MasterPublicDnsName (..),
+
+    -- * OutpostArn
+    OutpostArn (..),
+
+    -- * ReleaseLabel
+    ReleaseLabel (..),
+
+    -- * RequestedAmiVersion
+    RequestedAmiVersion (..),
+
+    -- * RunningAmiVersion
+    RunningAmiVersion (..),
+
+    -- * ServiceRole
+    ServiceRole (..),
+
+    -- * IdentityId
+    IdentityId (..),
+
+    -- * IdentityName
+    IdentityName (..),
+
+    -- * Ec2AvailabilityZone
+    Ec2AvailabilityZone (..),
+
+    -- * Ec2KeyName
+    Ec2KeyName (..),
+
+    -- * Ec2SubnetId
+    Ec2SubnetId (..),
+
+    -- * EmrManagedMasterSecurityGroup
+    EmrManagedMasterSecurityGroup (..),
+
+    -- * EmrManagedSlaveSecurityGroup
+    EmrManagedSlaveSecurityGroup (..),
+
+    -- * IamInstanceProfile
+    IamInstanceProfile (..),
+
+    -- * ServiceAccessSecurityGroup
+    ServiceAccessSecurityGroup (..),
+
+    -- * LogFile
+    LogFile (..),
+
+    -- * Reason
+    Reason (..),
+
+    -- * EditorId
+    EditorId (..),
+
+    -- * NotebookExecutionName
+    NotebookExecutionName (..),
+
+    -- * NotebookInstanceSecurityGroupId
+    NotebookInstanceSecurityGroupId (..),
+
+    -- * SessionPolicyArn
+    SessionPolicyArn (..),
+
+    -- * Arn
+    Arn (..),
+
+    -- * NotebookExecutionId
+    NotebookExecutionId (..),
   )
 where
 
 import Network.AWS.EMR.Types.ActionOnFailure
 import Network.AWS.EMR.Types.AdjustmentType
 import Network.AWS.EMR.Types.Application
+import Network.AWS.EMR.Types.Arn
+import Network.AWS.EMR.Types.ArnType
 import Network.AWS.EMR.Types.AuthMode
 import Network.AWS.EMR.Types.AutoScalingPolicy
 import Network.AWS.EMR.Types.AutoScalingPolicyDescription
@@ -811,6 +969,7 @@ import Network.AWS.EMR.Types.AutoScalingPolicyState
 import Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason
 import Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
 import Network.AWS.EMR.Types.AutoScalingPolicyStatus
+import Network.AWS.EMR.Types.BidPrice
 import Network.AWS.EMR.Types.BlockPublicAccessConfiguration
 import Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata
 import Network.AWS.EMR.Types.BootstrapActionConfig
@@ -818,6 +977,8 @@ import Network.AWS.EMR.Types.CancelStepsInfo
 import Network.AWS.EMR.Types.CancelStepsRequestStatus
 import Network.AWS.EMR.Types.CloudWatchAlarmDefinition
 import Network.AWS.EMR.Types.Cluster
+import Network.AWS.EMR.Types.ClusterArn
+import Network.AWS.EMR.Types.ClusterId
 import Network.AWS.EMR.Types.ClusterState
 import Network.AWS.EMR.Types.ClusterStateChangeReason
 import Network.AWS.EMR.Types.ClusterStateChangeReasonCode
@@ -829,21 +990,33 @@ import Network.AWS.EMR.Types.ComparisonOperator
 import Network.AWS.EMR.Types.ComputeLimits
 import Network.AWS.EMR.Types.ComputeLimitsUnitType
 import Network.AWS.EMR.Types.Configuration
-import Network.AWS.EMR.Types.EBSBlockDevice
-import Network.AWS.EMR.Types.EBSBlockDeviceConfig
-import Network.AWS.EMR.Types.EBSConfiguration
-import Network.AWS.EMR.Types.EBSVolume
-import Network.AWS.EMR.Types.EC2InstanceAttributes
+import Network.AWS.EMR.Types.CustomAmiId
+import Network.AWS.EMR.Types.EbsBlockDevice
+import Network.AWS.EMR.Types.EbsBlockDeviceConfig
+import Network.AWS.EMR.Types.EbsConfiguration
+import Network.AWS.EMR.Types.EbsVolume
+import Network.AWS.EMR.Types.Ec2AvailabilityZone
+import Network.AWS.EMR.Types.Ec2InstanceAttributes
+import Network.AWS.EMR.Types.Ec2KeyName
+import Network.AWS.EMR.Types.Ec2SubnetId
+import Network.AWS.EMR.Types.EditorId
+import Network.AWS.EMR.Types.EmrManagedMasterSecurityGroup
+import Network.AWS.EMR.Types.EmrManagedSlaveSecurityGroup
 import Network.AWS.EMR.Types.ExecutionEngineConfig
 import Network.AWS.EMR.Types.ExecutionEngineType
 import Network.AWS.EMR.Types.FailureDetails
-import Network.AWS.EMR.Types.HadoopJARStepConfig
+import Network.AWS.EMR.Types.HadoopJarStepConfig
 import Network.AWS.EMR.Types.HadoopStepConfig
+import Network.AWS.EMR.Types.IamInstanceProfile
+import Network.AWS.EMR.Types.Id
+import Network.AWS.EMR.Types.IdentityId
+import Network.AWS.EMR.Types.IdentityName
 import Network.AWS.EMR.Types.IdentityType
 import Network.AWS.EMR.Types.Instance
 import Network.AWS.EMR.Types.InstanceCollectionType
 import Network.AWS.EMR.Types.InstanceFleet
 import Network.AWS.EMR.Types.InstanceFleetConfig
+import Network.AWS.EMR.Types.InstanceFleetId
 import Network.AWS.EMR.Types.InstanceFleetModifyConfig
 import Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications
 import Network.AWS.EMR.Types.InstanceFleetState
@@ -854,6 +1027,7 @@ import Network.AWS.EMR.Types.InstanceFleetTimeline
 import Network.AWS.EMR.Types.InstanceFleetType
 import Network.AWS.EMR.Types.InstanceGroup
 import Network.AWS.EMR.Types.InstanceGroupConfig
+import Network.AWS.EMR.Types.InstanceGroupId
 import Network.AWS.EMR.Types.InstanceGroupModifyConfig
 import Network.AWS.EMR.Types.InstanceGroupState
 import Network.AWS.EMR.Types.InstanceGroupStateChangeReason
@@ -861,6 +1035,7 @@ import Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode
 import Network.AWS.EMR.Types.InstanceGroupStatus
 import Network.AWS.EMR.Types.InstanceGroupTimeline
 import Network.AWS.EMR.Types.InstanceGroupType
+import Network.AWS.EMR.Types.InstanceId
 import Network.AWS.EMR.Types.InstanceResizePolicy
 import Network.AWS.EMR.Types.InstanceRoleType
 import Network.AWS.EMR.Types.InstanceState
@@ -868,33 +1043,58 @@ import Network.AWS.EMR.Types.InstanceStateChangeReason
 import Network.AWS.EMR.Types.InstanceStateChangeReasonCode
 import Network.AWS.EMR.Types.InstanceStatus
 import Network.AWS.EMR.Types.InstanceTimeline
+import Network.AWS.EMR.Types.InstanceType
 import Network.AWS.EMR.Types.InstanceTypeConfig
 import Network.AWS.EMR.Types.InstanceTypeSpecification
+import Network.AWS.EMR.Types.JobFlowId
 import Network.AWS.EMR.Types.JobFlowInstancesConfig
 import Network.AWS.EMR.Types.KerberosAttributes
+import Network.AWS.EMR.Types.Key
 import Network.AWS.EMR.Types.KeyValue
+import Network.AWS.EMR.Types.LogEncryptionKmsKeyId
+import Network.AWS.EMR.Types.LogFile
+import Network.AWS.EMR.Types.LogUri
 import Network.AWS.EMR.Types.ManagedScalingPolicy
+import Network.AWS.EMR.Types.Marker
 import Network.AWS.EMR.Types.MarketType
+import Network.AWS.EMR.Types.MasterPublicDnsName
+import Network.AWS.EMR.Types.Message
 import Network.AWS.EMR.Types.MetricDimension
+import Network.AWS.EMR.Types.Name
 import Network.AWS.EMR.Types.NotebookExecution
+import Network.AWS.EMR.Types.NotebookExecutionId
+import Network.AWS.EMR.Types.NotebookExecutionName
 import Network.AWS.EMR.Types.NotebookExecutionStatus
 import Network.AWS.EMR.Types.NotebookExecutionSummary
+import Network.AWS.EMR.Types.NotebookInstanceSecurityGroupId
 import Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
 import Network.AWS.EMR.Types.OnDemandProvisioningSpecification
+import Network.AWS.EMR.Types.OptionalArnType
+import Network.AWS.EMR.Types.OutpostArn
 import Network.AWS.EMR.Types.PlacementGroupConfig
 import Network.AWS.EMR.Types.PlacementGroupStrategy
 import Network.AWS.EMR.Types.PlacementType
 import Network.AWS.EMR.Types.PortRange
+import Network.AWS.EMR.Types.Reason
+import Network.AWS.EMR.Types.ReleaseLabel
 import Network.AWS.EMR.Types.RepoUpgradeOnBoot
+import Network.AWS.EMR.Types.RequestedAmiVersion
+import Network.AWS.EMR.Types.ResourceId
+import Network.AWS.EMR.Types.RunningAmiVersion
 import Network.AWS.EMR.Types.ScaleDownBehavior
 import Network.AWS.EMR.Types.ScalingAction
 import Network.AWS.EMR.Types.ScalingConstraints
 import Network.AWS.EMR.Types.ScalingRule
 import Network.AWS.EMR.Types.ScalingTrigger
 import Network.AWS.EMR.Types.ScriptBootstrapActionConfig
+import Network.AWS.EMR.Types.ScriptPath
+import Network.AWS.EMR.Types.SecurityConfiguration
 import Network.AWS.EMR.Types.SecurityConfigurationSummary
+import Network.AWS.EMR.Types.ServiceAccessSecurityGroup
+import Network.AWS.EMR.Types.ServiceRole
 import Network.AWS.EMR.Types.SessionMappingDetail
 import Network.AWS.EMR.Types.SessionMappingSummary
+import Network.AWS.EMR.Types.SessionPolicyArn
 import Network.AWS.EMR.Types.ShrinkPolicy
 import Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
 import Network.AWS.EMR.Types.SpotProvisioningAllocationStrategy
@@ -904,72 +1104,97 @@ import Network.AWS.EMR.Types.Statistic
 import Network.AWS.EMR.Types.Step
 import Network.AWS.EMR.Types.StepCancellationOption
 import Network.AWS.EMR.Types.StepConfig
+import Network.AWS.EMR.Types.StepId
 import Network.AWS.EMR.Types.StepState
 import Network.AWS.EMR.Types.StepStateChangeReason
 import Network.AWS.EMR.Types.StepStateChangeReasonCode
 import Network.AWS.EMR.Types.StepStatus
 import Network.AWS.EMR.Types.StepSummary
 import Network.AWS.EMR.Types.StepTimeline
+import Network.AWS.EMR.Types.String
 import Network.AWS.EMR.Types.Studio
+import Network.AWS.EMR.Types.StudioId
 import Network.AWS.EMR.Types.StudioSummary
 import Network.AWS.EMR.Types.SupportedProductConfig
 import Network.AWS.EMR.Types.Tag
 import Network.AWS.EMR.Types.Unit
+import Network.AWS.EMR.Types.Value
+import Network.AWS.EMR.Types.Version
 import Network.AWS.EMR.Types.VolumeSpecification
+import Network.AWS.EMR.Types.XmlString
+import Network.AWS.EMR.Types.XmlStringMaxLen256
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2009-03-31@ of the Amazon Elastic MapReduce SDK configuration.
-emrService :: Lude.Service
-emrService =
-  Lude.Service
-    { Lude._svcAbbrev = "EMR",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "elasticmapreduce",
-      Lude._svcVersion = "2009-03-31",
-      Lude._svcEndpoint = Lude.defaultEndpoint emrService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "EMR",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "EMR",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "elasticmapreduce",
+      Core._svcVersion = "2009-03-31",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "EMR",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | This exception occurs when there is something wrong with user input.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError mkServiceConfig "InvalidRequestException"
+{-# DEPRECATED _InvalidRequestException "Use generic-lens or generic-optics instead." #-}
+
+-- | Indicates that an error occurred while processing the request and that the request was not completed.
+_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError mkServiceConfig "InternalServerError"
+{-# DEPRECATED _InternalServerError "Use generic-lens or generic-optics instead." #-}
+
+-- | This exception occurs when there is an internal failure in the EMR service.
+_InternalServerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError mkServiceConfig "InternalServerException"
+{-# DEPRECATED _InternalServerException "Use generic-lens or generic-optics instead." #-}

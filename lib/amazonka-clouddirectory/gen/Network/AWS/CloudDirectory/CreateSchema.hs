@@ -36,99 +36,90 @@ module Network.AWS.CloudDirectory.CreateSchema
     mkCreateSchemaResponse,
 
     -- ** Response lenses
-    csrsSchemaARN,
-    csrsResponseStatus,
+    csrrsSchemaArn,
+    csrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateSchema' smart constructor.
 newtype CreateSchema = CreateSchema'
   { -- | The name that is associated with the schema. This is unique to each account and in each region.
-    name :: Lude.Text
+    name :: Types.SchemaName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSchema' with the minimum fields required to make a request.
---
--- * 'name' - The name that is associated with the schema. This is unique to each account and in each region.
+-- | Creates a 'CreateSchema' value with any optional fields omitted.
 mkCreateSchema ::
   -- | 'name'
-  Lude.Text ->
+  Types.SchemaName ->
   CreateSchema
-mkCreateSchema pName_ = CreateSchema' {name = pName_}
+mkCreateSchema name = CreateSchema' {name}
 
 -- | The name that is associated with the schema. This is unique to each account and in each region.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' CreateSchema Lude.Text
-csName = Lens.lens (name :: CreateSchema -> Lude.Text) (\s a -> s {name = a} :: CreateSchema)
+csName :: Lens.Lens' CreateSchema Types.SchemaName
+csName = Lens.field @"name"
 {-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest CreateSchema where
+instance Core.FromJSON CreateSchema where
+  toJSON CreateSchema {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest CreateSchema where
   type Rs CreateSchema = CreateSchemaResponse
-  request = Req.putJSON cloudDirectoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/schema/create",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            Lude.<$> (x Lude..?> "SchemaArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SchemaArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSchema where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateSchema where
-  toJSON CreateSchema' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath CreateSchema where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/schema/create"
-
-instance Lude.ToQuery CreateSchema where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateSchemaResponse' smart constructor.
 data CreateSchemaResponse = CreateSchemaResponse'
   { -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-    schemaARN :: Lude.Maybe Lude.Text,
+    schemaArn :: Core.Maybe Types.Arn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSchemaResponse' with the minimum fields required to make a request.
---
--- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSchemaResponse' value with any optional fields omitted.
 mkCreateSchemaResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSchemaResponse
-mkCreateSchemaResponse pResponseStatus_ =
-  CreateSchemaResponse'
-    { schemaARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateSchemaResponse responseStatus =
+  CreateSchemaResponse' {schemaArn = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsSchemaARN :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Text)
-csrsSchemaARN = Lens.lens (schemaARN :: CreateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: CreateSchemaResponse)
-{-# DEPRECATED csrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrrsSchemaArn :: Lens.Lens' CreateSchemaResponse (Core.Maybe Types.Arn)
+csrrsSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED csrrsSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CreateSchemaResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CreateSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSchemaResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrrsResponseStatus :: Lens.Lens' CreateSchemaResponse Core.Int
+csrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

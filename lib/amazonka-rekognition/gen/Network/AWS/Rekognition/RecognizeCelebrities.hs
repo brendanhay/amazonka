@@ -34,140 +34,124 @@ module Network.AWS.Rekognition.RecognizeCelebrities
     mkRecognizeCelebritiesResponse,
 
     -- ** Response lenses
-    rcrsCelebrityFaces,
-    rcrsOrientationCorrection,
-    rcrsUnrecognizedFaces,
-    rcrsResponseStatus,
+    rcrrsCelebrityFaces,
+    rcrrsOrientationCorrection,
+    rcrrsUnrecognizedFaces,
+    rcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRecognizeCelebrities' smart constructor.
 newtype RecognizeCelebrities = RecognizeCelebrities'
   { -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
     --
     -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
-    image :: Image
+    image :: Types.Image
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecognizeCelebrities' with the minimum fields required to make a request.
---
--- * 'image' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
---
--- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+-- | Creates a 'RecognizeCelebrities' value with any optional fields omitted.
 mkRecognizeCelebrities ::
   -- | 'image'
-  Image ->
+  Types.Image ->
   RecognizeCelebrities
-mkRecognizeCelebrities pImage_ =
-  RecognizeCelebrities' {image = pImage_}
+mkRecognizeCelebrities image = RecognizeCelebrities' {image}
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 --
 -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcImage :: Lens.Lens' RecognizeCelebrities Image
-rcImage = Lens.lens (image :: RecognizeCelebrities -> Image) (\s a -> s {image = a} :: RecognizeCelebrities)
+rcImage :: Lens.Lens' RecognizeCelebrities Types.Image
+rcImage = Lens.field @"image"
 {-# DEPRECATED rcImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
-instance Lude.AWSRequest RecognizeCelebrities where
+instance Core.FromJSON RecognizeCelebrities where
+  toJSON RecognizeCelebrities {..} =
+    Core.object (Core.catMaybes [Core.Just ("Image" Core..= image)])
+
+instance Core.AWSRequest RecognizeCelebrities where
   type Rs RecognizeCelebrities = RecognizeCelebritiesResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.RecognizeCelebrities")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RecognizeCelebritiesResponse'
-            Lude.<$> (x Lude..?> "CelebrityFaces" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "OrientationCorrection")
-            Lude.<*> (x Lude..?> "UnrecognizedFaces" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CelebrityFaces")
+            Core.<*> (x Core..:? "OrientationCorrection")
+            Core.<*> (x Core..:? "UnrecognizedFaces")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RecognizeCelebrities where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.RecognizeCelebrities" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RecognizeCelebrities where
-  toJSON RecognizeCelebrities' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Image" Lude..= image)])
-
-instance Lude.ToPath RecognizeCelebrities where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RecognizeCelebrities where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRecognizeCelebritiesResponse' smart constructor.
 data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
   { -- | Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.
-    celebrityFaces :: Lude.Maybe [Celebrity],
+    celebrityFaces :: Core.Maybe [Types.Celebrity],
     -- | The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in @CelebrityFaces@ and @UnrecognizedFaces@ represent face locations before the image orientation is corrected.
-    orientationCorrection :: Lude.Maybe OrientationCorrection,
+    orientationCorrection :: Core.Maybe Types.OrientationCorrection,
     -- | Details about each unrecognized face in the image.
-    unrecognizedFaces :: Lude.Maybe [ComparedFace],
+    unrecognizedFaces :: Core.Maybe [Types.ComparedFace],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecognizeCelebritiesResponse' with the minimum fields required to make a request.
---
--- * 'celebrityFaces' - Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.
--- * 'orientationCorrection' - The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in @CelebrityFaces@ and @UnrecognizedFaces@ represent face locations before the image orientation is corrected.
--- * 'unrecognizedFaces' - Details about each unrecognized face in the image.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RecognizeCelebritiesResponse' value with any optional fields omitted.
 mkRecognizeCelebritiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RecognizeCelebritiesResponse
-mkRecognizeCelebritiesResponse pResponseStatus_ =
+mkRecognizeCelebritiesResponse responseStatus =
   RecognizeCelebritiesResponse'
-    { celebrityFaces = Lude.Nothing,
-      orientationCorrection = Lude.Nothing,
-      unrecognizedFaces = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { celebrityFaces = Core.Nothing,
+      orientationCorrection = Core.Nothing,
+      unrecognizedFaces = Core.Nothing,
+      responseStatus
     }
 
 -- | Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.
 --
 -- /Note:/ Consider using 'celebrityFaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsCelebrityFaces :: Lens.Lens' RecognizeCelebritiesResponse (Lude.Maybe [Celebrity])
-rcrsCelebrityFaces = Lens.lens (celebrityFaces :: RecognizeCelebritiesResponse -> Lude.Maybe [Celebrity]) (\s a -> s {celebrityFaces = a} :: RecognizeCelebritiesResponse)
-{-# DEPRECATED rcrsCelebrityFaces "Use generic-lens or generic-optics with 'celebrityFaces' instead." #-}
+rcrrsCelebrityFaces :: Lens.Lens' RecognizeCelebritiesResponse (Core.Maybe [Types.Celebrity])
+rcrrsCelebrityFaces = Lens.field @"celebrityFaces"
+{-# DEPRECATED rcrrsCelebrityFaces "Use generic-lens or generic-optics with 'celebrityFaces' instead." #-}
 
 -- | The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in @CelebrityFaces@ and @UnrecognizedFaces@ represent face locations before the image orientation is corrected.
 --
 -- /Note:/ Consider using 'orientationCorrection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsOrientationCorrection :: Lens.Lens' RecognizeCelebritiesResponse (Lude.Maybe OrientationCorrection)
-rcrsOrientationCorrection = Lens.lens (orientationCorrection :: RecognizeCelebritiesResponse -> Lude.Maybe OrientationCorrection) (\s a -> s {orientationCorrection = a} :: RecognizeCelebritiesResponse)
-{-# DEPRECATED rcrsOrientationCorrection "Use generic-lens or generic-optics with 'orientationCorrection' instead." #-}
+rcrrsOrientationCorrection :: Lens.Lens' RecognizeCelebritiesResponse (Core.Maybe Types.OrientationCorrection)
+rcrrsOrientationCorrection = Lens.field @"orientationCorrection"
+{-# DEPRECATED rcrrsOrientationCorrection "Use generic-lens or generic-optics with 'orientationCorrection' instead." #-}
 
 -- | Details about each unrecognized face in the image.
 --
 -- /Note:/ Consider using 'unrecognizedFaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsUnrecognizedFaces :: Lens.Lens' RecognizeCelebritiesResponse (Lude.Maybe [ComparedFace])
-rcrsUnrecognizedFaces = Lens.lens (unrecognizedFaces :: RecognizeCelebritiesResponse -> Lude.Maybe [ComparedFace]) (\s a -> s {unrecognizedFaces = a} :: RecognizeCelebritiesResponse)
-{-# DEPRECATED rcrsUnrecognizedFaces "Use generic-lens or generic-optics with 'unrecognizedFaces' instead." #-}
+rcrrsUnrecognizedFaces :: Lens.Lens' RecognizeCelebritiesResponse (Core.Maybe [Types.ComparedFace])
+rcrrsUnrecognizedFaces = Lens.field @"unrecognizedFaces"
+{-# DEPRECATED rcrrsUnrecognizedFaces "Use generic-lens or generic-optics with 'unrecognizedFaces' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcrsResponseStatus :: Lens.Lens' RecognizeCelebritiesResponse Lude.Int
-rcrsResponseStatus = Lens.lens (responseStatus :: RecognizeCelebritiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RecognizeCelebritiesResponse)
-{-# DEPRECATED rcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rcrrsResponseStatus :: Lens.Lens' RecognizeCelebritiesResponse Core.Int
+rcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

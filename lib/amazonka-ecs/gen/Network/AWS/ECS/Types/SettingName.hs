@@ -13,61 +13,63 @@
 module Network.AWS.ECS.Types.SettingName
   ( SettingName
       ( SettingName',
-        ServiceLongARNFormat,
-        TaskLongARNFormat,
-        ContainerInstanceLongARNFormat,
-        AWSvpcTrunking,
-        ContainerInsights
+        SettingNameServiceLongArnFormat,
+        SettingNameTaskLongArnFormat,
+        SettingNameContainerInstanceLongArnFormat,
+        SettingNameAwsvpcTrunking,
+        SettingNameContainerInsights,
+        fromSettingName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SettingName = SettingName' Lude.Text
+newtype SettingName = SettingName' {fromSettingName :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ServiceLongARNFormat :: SettingName
-pattern ServiceLongARNFormat = SettingName' "serviceLongArnFormat"
+pattern SettingNameServiceLongArnFormat :: SettingName
+pattern SettingNameServiceLongArnFormat = SettingName' "serviceLongArnFormat"
 
-pattern TaskLongARNFormat :: SettingName
-pattern TaskLongARNFormat = SettingName' "taskLongArnFormat"
+pattern SettingNameTaskLongArnFormat :: SettingName
+pattern SettingNameTaskLongArnFormat = SettingName' "taskLongArnFormat"
 
-pattern ContainerInstanceLongARNFormat :: SettingName
-pattern ContainerInstanceLongARNFormat = SettingName' "containerInstanceLongArnFormat"
+pattern SettingNameContainerInstanceLongArnFormat :: SettingName
+pattern SettingNameContainerInstanceLongArnFormat = SettingName' "containerInstanceLongArnFormat"
 
-pattern AWSvpcTrunking :: SettingName
-pattern AWSvpcTrunking = SettingName' "awsvpcTrunking"
+pattern SettingNameAwsvpcTrunking :: SettingName
+pattern SettingNameAwsvpcTrunking = SettingName' "awsvpcTrunking"
 
-pattern ContainerInsights :: SettingName
-pattern ContainerInsights = SettingName' "containerInsights"
+pattern SettingNameContainerInsights :: SettingName
+pattern SettingNameContainerInsights = SettingName' "containerInsights"
 
 {-# COMPLETE
-  ServiceLongARNFormat,
-  TaskLongARNFormat,
-  ContainerInstanceLongARNFormat,
-  AWSvpcTrunking,
-  ContainerInsights,
+  SettingNameServiceLongArnFormat,
+  SettingNameTaskLongArnFormat,
+  SettingNameContainerInstanceLongArnFormat,
+  SettingNameAwsvpcTrunking,
+  SettingNameContainerInsights,
   SettingName'
   #-}

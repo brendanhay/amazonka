@@ -17,58 +17,54 @@ module Network.AWS.DynamoDB.Types.ExportSummary
     mkExportSummary,
 
     -- * Lenses
+    esExportArn,
     esExportStatus,
-    esExportARN,
   )
 where
 
-import Network.AWS.DynamoDB.Types.ExportStatus
+import qualified Network.AWS.DynamoDB.Types.ExportArn as Types
+import qualified Network.AWS.DynamoDB.Types.ExportStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Summary information about an export task.
 --
 -- /See:/ 'mkExportSummary' smart constructor.
 data ExportSummary = ExportSummary'
-  { -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
-    exportStatus :: Lude.Maybe ExportStatus,
-    -- | The Amazon Resource Name (ARN) of the export.
-    exportARN :: Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the export.
+    exportArn :: Core.Maybe Types.ExportArn,
+    -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
+    exportStatus :: Core.Maybe Types.ExportStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportSummary' with the minimum fields required to make a request.
---
--- * 'exportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
--- * 'exportARN' - The Amazon Resource Name (ARN) of the export.
+-- | Creates a 'ExportSummary' value with any optional fields omitted.
 mkExportSummary ::
   ExportSummary
 mkExportSummary =
   ExportSummary'
-    { exportStatus = Lude.Nothing,
-      exportARN = Lude.Nothing
+    { exportArn = Core.Nothing,
+      exportStatus = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the export.
+--
+-- /Note:/ Consider using 'exportArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esExportArn :: Lens.Lens' ExportSummary (Core.Maybe Types.ExportArn)
+esExportArn = Lens.field @"exportArn"
+{-# DEPRECATED esExportArn "Use generic-lens or generic-optics with 'exportArn' instead." #-}
 
 -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
 --
 -- /Note:/ Consider using 'exportStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esExportStatus :: Lens.Lens' ExportSummary (Lude.Maybe ExportStatus)
-esExportStatus = Lens.lens (exportStatus :: ExportSummary -> Lude.Maybe ExportStatus) (\s a -> s {exportStatus = a} :: ExportSummary)
+esExportStatus :: Lens.Lens' ExportSummary (Core.Maybe Types.ExportStatus)
+esExportStatus = Lens.field @"exportStatus"
 {-# DEPRECATED esExportStatus "Use generic-lens or generic-optics with 'exportStatus' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the export.
---
--- /Note:/ Consider using 'exportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esExportARN :: Lens.Lens' ExportSummary (Lude.Maybe Lude.Text)
-esExportARN = Lens.lens (exportARN :: ExportSummary -> Lude.Maybe Lude.Text) (\s a -> s {exportARN = a} :: ExportSummary)
-{-# DEPRECATED esExportARN "Use generic-lens or generic-optics with 'exportARN' instead." #-}
-
-instance Lude.FromJSON ExportSummary where
+instance Core.FromJSON ExportSummary where
   parseJSON =
-    Lude.withObject
-      "ExportSummary"
-      ( \x ->
-          ExportSummary'
-            Lude.<$> (x Lude..:? "ExportStatus") Lude.<*> (x Lude..:? "ExportArn")
-      )
+    Core.withObject "ExportSummary" Core.$
+      \x ->
+        ExportSummary'
+          Core.<$> (x Core..:? "ExportArn") Core.<*> (x Core..:? "ExportStatus")

@@ -22,45 +22,41 @@ module Network.AWS.Firehose.Types.ElasticsearchRetryOptions
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES.
 --
 -- /See:/ 'mkElasticsearchRetryOptions' smart constructor.
 newtype ElasticsearchRetryOptions = ElasticsearchRetryOptions'
   { -- | After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
-    durationInSeconds :: Lude.Maybe Lude.Natural
+    durationInSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticsearchRetryOptions' with the minimum fields required to make a request.
---
--- * 'durationInSeconds' - After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
+-- | Creates a 'ElasticsearchRetryOptions' value with any optional fields omitted.
 mkElasticsearchRetryOptions ::
   ElasticsearchRetryOptions
 mkElasticsearchRetryOptions =
-  ElasticsearchRetryOptions' {durationInSeconds = Lude.Nothing}
+  ElasticsearchRetryOptions' {durationInSeconds = Core.Nothing}
 
 -- | After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
 --
 -- /Note:/ Consider using 'durationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eroDurationInSeconds :: Lens.Lens' ElasticsearchRetryOptions (Lude.Maybe Lude.Natural)
-eroDurationInSeconds = Lens.lens (durationInSeconds :: ElasticsearchRetryOptions -> Lude.Maybe Lude.Natural) (\s a -> s {durationInSeconds = a} :: ElasticsearchRetryOptions)
+eroDurationInSeconds :: Lens.Lens' ElasticsearchRetryOptions (Core.Maybe Core.Natural)
+eroDurationInSeconds = Lens.field @"durationInSeconds"
 {-# DEPRECATED eroDurationInSeconds "Use generic-lens or generic-optics with 'durationInSeconds' instead." #-}
 
-instance Lude.FromJSON ElasticsearchRetryOptions where
-  parseJSON =
-    Lude.withObject
-      "ElasticsearchRetryOptions"
-      ( \x ->
-          ElasticsearchRetryOptions'
-            Lude.<$> (x Lude..:? "DurationInSeconds")
+instance Core.FromJSON ElasticsearchRetryOptions where
+  toJSON ElasticsearchRetryOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [("DurationInSeconds" Core..=) Core.<$> durationInSeconds]
       )
 
-instance Lude.ToJSON ElasticsearchRetryOptions where
-  toJSON ElasticsearchRetryOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("DurationInSeconds" Lude..=) Lude.<$> durationInSeconds]
-      )
+instance Core.FromJSON ElasticsearchRetryOptions where
+  parseJSON =
+    Core.withObject "ElasticsearchRetryOptions" Core.$
+      \x ->
+        ElasticsearchRetryOptions'
+          Core.<$> (x Core..:? "DurationInSeconds")

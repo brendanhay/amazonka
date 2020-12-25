@@ -17,47 +17,43 @@ module Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
     mkCloudWatchLogsLogGroup,
 
     -- * Lenses
-    cwllgLogGroupARN,
+    cwllgLogGroupArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.LogGroupArn as Types
 
 -- |
 --
 -- /See:/ 'mkCloudWatchLogsLogGroup' smart constructor.
 newtype CloudWatchLogsLogGroup = CloudWatchLogsLogGroup'
   { -- | The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with @:*@
-    logGroupARN :: Lude.Maybe Lude.Text
+    logGroupArn :: Core.Maybe Types.LogGroupArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchLogsLogGroup' with the minimum fields required to make a request.
---
--- * 'logGroupARN' - The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with @:*@
+-- | Creates a 'CloudWatchLogsLogGroup' value with any optional fields omitted.
 mkCloudWatchLogsLogGroup ::
   CloudWatchLogsLogGroup
 mkCloudWatchLogsLogGroup =
-  CloudWatchLogsLogGroup' {logGroupARN = Lude.Nothing}
+  CloudWatchLogsLogGroup' {logGroupArn = Core.Nothing}
 
 -- | The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with @:*@
 --
--- /Note:/ Consider using 'logGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwllgLogGroupARN :: Lens.Lens' CloudWatchLogsLogGroup (Lude.Maybe Lude.Text)
-cwllgLogGroupARN = Lens.lens (logGroupARN :: CloudWatchLogsLogGroup -> Lude.Maybe Lude.Text) (\s a -> s {logGroupARN = a} :: CloudWatchLogsLogGroup)
-{-# DEPRECATED cwllgLogGroupARN "Use generic-lens or generic-optics with 'logGroupARN' instead." #-}
+-- /Note:/ Consider using 'logGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwllgLogGroupArn :: Lens.Lens' CloudWatchLogsLogGroup (Core.Maybe Types.LogGroupArn)
+cwllgLogGroupArn = Lens.field @"logGroupArn"
+{-# DEPRECATED cwllgLogGroupArn "Use generic-lens or generic-optics with 'logGroupArn' instead." #-}
 
-instance Lude.FromJSON CloudWatchLogsLogGroup where
+instance Core.FromJSON CloudWatchLogsLogGroup where
+  toJSON CloudWatchLogsLogGroup {..} =
+    Core.object
+      (Core.catMaybes [("logGroupArn" Core..=) Core.<$> logGroupArn])
+
+instance Core.FromJSON CloudWatchLogsLogGroup where
   parseJSON =
-    Lude.withObject
-      "CloudWatchLogsLogGroup"
-      ( \x ->
-          CloudWatchLogsLogGroup' Lude.<$> (x Lude..:? "logGroupArn")
-      )
-
-instance Lude.ToJSON CloudWatchLogsLogGroup where
-  toJSON CloudWatchLogsLogGroup' {..} =
-    Lude.object
-      (Lude.catMaybes [("logGroupArn" Lude..=) Lude.<$> logGroupARN])
+    Core.withObject "CloudWatchLogsLogGroup" Core.$
+      \x -> CloudWatchLogsLogGroup' Core.<$> (x Core..:? "logGroupArn")

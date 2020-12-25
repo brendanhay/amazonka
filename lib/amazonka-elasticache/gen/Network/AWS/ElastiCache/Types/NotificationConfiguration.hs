@@ -17,53 +17,52 @@ module Network.AWS.ElastiCache.Types.NotificationConfiguration
     mkNotificationConfiguration,
 
     -- * Lenses
+    ncTopicArn,
     ncTopicStatus,
-    ncTopicARN,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.TopicArn as Types
+import qualified Network.AWS.ElastiCache.Types.TopicStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
 --
 -- /See:/ 'mkNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | The current state of the topic.
-    topicStatus :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) that identifies the topic.
-    topicARN :: Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) that identifies the topic.
+    topicArn :: Core.Maybe Types.TopicArn,
+    -- | The current state of the topic.
+    topicStatus :: Core.Maybe Types.TopicStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
---
--- * 'topicStatus' - The current state of the topic.
--- * 'topicARN' - The Amazon Resource Name (ARN) that identifies the topic.
+-- | Creates a 'NotificationConfiguration' value with any optional fields omitted.
 mkNotificationConfiguration ::
   NotificationConfiguration
 mkNotificationConfiguration =
   NotificationConfiguration'
-    { topicStatus = Lude.Nothing,
-      topicARN = Lude.Nothing
+    { topicArn = Core.Nothing,
+      topicStatus = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) that identifies the topic.
+--
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncTopicArn :: Lens.Lens' NotificationConfiguration (Core.Maybe Types.TopicArn)
+ncTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED ncTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
 
 -- | The current state of the topic.
 --
 -- /Note:/ Consider using 'topicStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncTopicStatus :: Lens.Lens' NotificationConfiguration (Lude.Maybe Lude.Text)
-ncTopicStatus = Lens.lens (topicStatus :: NotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {topicStatus = a} :: NotificationConfiguration)
+ncTopicStatus :: Lens.Lens' NotificationConfiguration (Core.Maybe Types.TopicStatus)
+ncTopicStatus = Lens.field @"topicStatus"
 {-# DEPRECATED ncTopicStatus "Use generic-lens or generic-optics with 'topicStatus' instead." #-}
 
--- | The Amazon Resource Name (ARN) that identifies the topic.
---
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncTopicARN :: Lens.Lens' NotificationConfiguration (Lude.Maybe Lude.Text)
-ncTopicARN = Lens.lens (topicARN :: NotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: NotificationConfiguration)
-{-# DEPRECATED ncTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
-
-instance Lude.FromXML NotificationConfiguration where
+instance Core.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Lude.<$> (x Lude..@? "TopicStatus") Lude.<*> (x Lude..@? "TopicArn")
+      Core.<$> (x Core..@? "TopicArn") Core.<*> (x Core..@? "TopicStatus")

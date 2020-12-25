@@ -17,13 +17,15 @@ module Network.AWS.IAM.Types.PolicyRole
     mkPolicyRole,
 
     -- * Lenses
-    prRoleName,
     prRoleId,
+    prRoleName,
   )
 where
 
+import qualified Network.AWS.IAM.Types.RoleId as Types
+import qualified Network.AWS.IAM.Types.RoleName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a role that a managed policy is attached to.
 --
@@ -32,38 +34,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyRole' smart constructor.
 data PolicyRole = PolicyRole'
-  { -- | The name (friendly name, not ARN) identifying the role.
-    roleName :: Lude.Maybe Lude.Text,
-    -- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    roleId :: Lude.Maybe Lude.Text
+  { -- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    roleId :: Core.Maybe Types.RoleId,
+    -- | The name (friendly name, not ARN) identifying the role.
+    roleName :: Core.Maybe Types.RoleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PolicyRole' with the minimum fields required to make a request.
---
--- * 'roleName' - The name (friendly name, not ARN) identifying the role.
--- * 'roleId' - The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- | Creates a 'PolicyRole' value with any optional fields omitted.
 mkPolicyRole ::
   PolicyRole
 mkPolicyRole =
-  PolicyRole' {roleName = Lude.Nothing, roleId = Lude.Nothing}
-
--- | The name (friendly name, not ARN) identifying the role.
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prRoleName :: Lens.Lens' PolicyRole (Lude.Maybe Lude.Text)
-prRoleName = Lens.lens (roleName :: PolicyRole -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: PolicyRole)
-{-# DEPRECATED prRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+  PolicyRole' {roleId = Core.Nothing, roleName = Core.Nothing}
 
 -- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'roleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prRoleId :: Lens.Lens' PolicyRole (Lude.Maybe Lude.Text)
-prRoleId = Lens.lens (roleId :: PolicyRole -> Lude.Maybe Lude.Text) (\s a -> s {roleId = a} :: PolicyRole)
+prRoleId :: Lens.Lens' PolicyRole (Core.Maybe Types.RoleId)
+prRoleId = Lens.field @"roleId"
 {-# DEPRECATED prRoleId "Use generic-lens or generic-optics with 'roleId' instead." #-}
 
-instance Lude.FromXML PolicyRole where
+-- | The name (friendly name, not ARN) identifying the role.
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prRoleName :: Lens.Lens' PolicyRole (Core.Maybe Types.RoleName)
+prRoleName = Lens.field @"roleName"
+{-# DEPRECATED prRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
+instance Core.FromXML PolicyRole where
   parseXML x =
     PolicyRole'
-      Lude.<$> (x Lude..@? "RoleName") Lude.<*> (x Lude..@? "RoleId")
+      Core.<$> (x Core..@? "RoleId") Core.<*> (x Core..@? "RoleName")

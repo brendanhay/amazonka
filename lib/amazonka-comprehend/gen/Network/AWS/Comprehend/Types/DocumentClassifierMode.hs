@@ -13,46 +13,51 @@
 module Network.AWS.Comprehend.Types.DocumentClassifierMode
   ( DocumentClassifierMode
       ( DocumentClassifierMode',
-        MultiClass,
-        MultiLabel
+        DocumentClassifierModeMultiClass,
+        DocumentClassifierModeMultiLabel,
+        fromDocumentClassifierMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DocumentClassifierMode = DocumentClassifierMode' Lude.Text
+newtype DocumentClassifierMode = DocumentClassifierMode'
+  { fromDocumentClassifierMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MultiClass :: DocumentClassifierMode
-pattern MultiClass = DocumentClassifierMode' "MULTI_CLASS"
+pattern DocumentClassifierModeMultiClass :: DocumentClassifierMode
+pattern DocumentClassifierModeMultiClass = DocumentClassifierMode' "MULTI_CLASS"
 
-pattern MultiLabel :: DocumentClassifierMode
-pattern MultiLabel = DocumentClassifierMode' "MULTI_LABEL"
+pattern DocumentClassifierModeMultiLabel :: DocumentClassifierMode
+pattern DocumentClassifierModeMultiLabel = DocumentClassifierMode' "MULTI_LABEL"
 
 {-# COMPLETE
-  MultiClass,
-  MultiLabel,
+  DocumentClassifierModeMultiClass,
+  DocumentClassifierModeMultiLabel,
   DocumentClassifierMode'
   #-}

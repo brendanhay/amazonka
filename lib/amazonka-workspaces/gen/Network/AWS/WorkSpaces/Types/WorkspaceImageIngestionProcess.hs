@@ -13,51 +13,56 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess
   ( WorkspaceImageIngestionProcess
       ( WorkspaceImageIngestionProcess',
-        ByolRegular,
-        ByolGraphics,
-        ByolGraphicspro
+        WorkspaceImageIngestionProcessByolRegular,
+        WorkspaceImageIngestionProcessByolGraphics,
+        WorkspaceImageIngestionProcessByolGraphicspro,
+        fromWorkspaceImageIngestionProcess
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WorkspaceImageIngestionProcess = WorkspaceImageIngestionProcess' Lude.Text
+newtype WorkspaceImageIngestionProcess = WorkspaceImageIngestionProcess'
+  { fromWorkspaceImageIngestionProcess ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ByolRegular :: WorkspaceImageIngestionProcess
-pattern ByolRegular = WorkspaceImageIngestionProcess' "BYOL_REGULAR"
+pattern WorkspaceImageIngestionProcessByolRegular :: WorkspaceImageIngestionProcess
+pattern WorkspaceImageIngestionProcessByolRegular = WorkspaceImageIngestionProcess' "BYOL_REGULAR"
 
-pattern ByolGraphics :: WorkspaceImageIngestionProcess
-pattern ByolGraphics = WorkspaceImageIngestionProcess' "BYOL_GRAPHICS"
+pattern WorkspaceImageIngestionProcessByolGraphics :: WorkspaceImageIngestionProcess
+pattern WorkspaceImageIngestionProcessByolGraphics = WorkspaceImageIngestionProcess' "BYOL_GRAPHICS"
 
-pattern ByolGraphicspro :: WorkspaceImageIngestionProcess
-pattern ByolGraphicspro = WorkspaceImageIngestionProcess' "BYOL_GRAPHICSPRO"
+pattern WorkspaceImageIngestionProcessByolGraphicspro :: WorkspaceImageIngestionProcess
+pattern WorkspaceImageIngestionProcessByolGraphicspro = WorkspaceImageIngestionProcess' "BYOL_GRAPHICSPRO"
 
 {-# COMPLETE
-  ByolRegular,
-  ByolGraphics,
-  ByolGraphicspro,
+  WorkspaceImageIngestionProcessByolRegular,
+  WorkspaceImageIngestionProcessByolGraphics,
+  WorkspaceImageIngestionProcessByolGraphicspro,
   WorkspaceImageIngestionProcess'
   #-}

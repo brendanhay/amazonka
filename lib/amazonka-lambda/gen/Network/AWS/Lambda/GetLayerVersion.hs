@@ -24,83 +24,75 @@ module Network.AWS.Lambda.GetLayerVersion
     glvVersionNumber,
 
     -- * Destructuring the response
-    GetLayerVersionResponse (..),
-    mkGetLayerVersionResponse,
+    Types.GetLayerVersionResponse (..),
+    Types.mkGetLayerVersionResponse,
 
     -- ** Response lenses
-    glvLayerVersionARN,
-    glvContent,
-    glvCreatedDate,
-    glvVersion,
-    glvLicenseInfo,
-    glvLayerARN,
-    glvDescription,
-    glvCompatibleRuntimes,
+    Types.glvrCompatibleRuntimes,
+    Types.glvrContent,
+    Types.glvrCreatedDate,
+    Types.glvrDescription,
+    Types.glvrLayerArn,
+    Types.glvrLayerVersionArn,
+    Types.glvrLicenseInfo,
+    Types.glvrVersion,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLayerVersion' smart constructor.
 data GetLayerVersion = GetLayerVersion'
   { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Lude.Text,
+    layerName :: Types.LayerName,
     -- | The version number.
-    versionNumber :: Lude.Integer
+    versionNumber :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLayerVersion' with the minimum fields required to make a request.
---
--- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
--- * 'versionNumber' - The version number.
+-- | Creates a 'GetLayerVersion' value with any optional fields omitted.
 mkGetLayerVersion ::
   -- | 'layerName'
-  Lude.Text ->
+  Types.LayerName ->
   -- | 'versionNumber'
-  Lude.Integer ->
+  Core.Integer ->
   GetLayerVersion
-mkGetLayerVersion pLayerName_ pVersionNumber_ =
-  GetLayerVersion'
-    { layerName = pLayerName_,
-      versionNumber = pVersionNumber_
-    }
+mkGetLayerVersion layerName versionNumber =
+  GetLayerVersion' {layerName, versionNumber}
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 --
 -- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glvLayerName :: Lens.Lens' GetLayerVersion Lude.Text
-glvLayerName = Lens.lens (layerName :: GetLayerVersion -> Lude.Text) (\s a -> s {layerName = a} :: GetLayerVersion)
+glvLayerName :: Lens.Lens' GetLayerVersion Types.LayerName
+glvLayerName = Lens.field @"layerName"
 {-# DEPRECATED glvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 -- | The version number.
 --
 -- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glvVersionNumber :: Lens.Lens' GetLayerVersion Lude.Integer
-glvVersionNumber = Lens.lens (versionNumber :: GetLayerVersion -> Lude.Integer) (\s a -> s {versionNumber = a} :: GetLayerVersion)
+glvVersionNumber :: Lens.Lens' GetLayerVersion Core.Integer
+glvVersionNumber = Lens.field @"versionNumber"
 {-# DEPRECATED glvVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
-instance Lude.AWSRequest GetLayerVersion where
-  type Rs GetLayerVersion = GetLayerVersionResponse
-  request = Req.get lambdaService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders GetLayerVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetLayerVersion where
-  toPath GetLayerVersion' {..} =
-    Lude.mconcat
-      [ "/2018-10-31/layers/",
-        Lude.toBS layerName,
-        "/versions/",
-        Lude.toBS versionNumber
-      ]
-
-instance Lude.ToQuery GetLayerVersion where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetLayerVersion where
+  type Rs GetLayerVersion = Types.GetLayerVersionResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2018-10-31/layers/" Core.<> (Core.toText layerName)
+                Core.<> ("/versions/")
+                Core.<> (Core.toText versionNumber)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

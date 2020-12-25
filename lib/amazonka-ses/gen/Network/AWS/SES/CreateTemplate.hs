@@ -29,88 +29,86 @@ module Network.AWS.SES.CreateTemplate
     mkCreateTemplateResponse,
 
     -- ** Response lenses
-    ctrsResponseStatus,
+    ctrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to create an email template. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkCreateTemplate' smart constructor.
 newtype CreateTemplate = CreateTemplate'
   { -- | The content of the email, composed of a subject line, an HTML part, and a text-only part.
-    template :: Template
+    template :: Types.Template
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTemplate' with the minimum fields required to make a request.
---
--- * 'template' - The content of the email, composed of a subject line, an HTML part, and a text-only part.
+-- | Creates a 'CreateTemplate' value with any optional fields omitted.
 mkCreateTemplate ::
   -- | 'template'
-  Template ->
+  Types.Template ->
   CreateTemplate
-mkCreateTemplate pTemplate_ =
-  CreateTemplate' {template = pTemplate_}
+mkCreateTemplate template = CreateTemplate' {template}
 
 -- | The content of the email, composed of a subject line, an HTML part, and a text-only part.
 --
 -- /Note:/ Consider using 'template' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTemplate :: Lens.Lens' CreateTemplate Template
-ctTemplate = Lens.lens (template :: CreateTemplate -> Template) (\s a -> s {template = a} :: CreateTemplate)
+ctTemplate :: Lens.Lens' CreateTemplate Types.Template
+ctTemplate = Lens.field @"template"
 {-# DEPRECATED ctTemplate "Use generic-lens or generic-optics with 'template' instead." #-}
 
-instance Lude.AWSRequest CreateTemplate where
+instance Core.AWSRequest CreateTemplate where
   type Rs CreateTemplate = CreateTemplateResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateTemplate")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Template" template)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateTemplateResult"
       ( \s h x ->
-          CreateTemplateResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateTemplateResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTemplate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTemplate where
-  toQuery CreateTemplate' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateTemplate" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Template" Lude.=: template
-      ]
 
 -- | /See:/ 'mkCreateTemplateResponse' smart constructor.
 newtype CreateTemplateResponse = CreateTemplateResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTemplateResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTemplateResponse' value with any optional fields omitted.
 mkCreateTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTemplateResponse
-mkCreateTemplateResponse pResponseStatus_ =
-  CreateTemplateResponse' {responseStatus = pResponseStatus_}
+mkCreateTemplateResponse responseStatus =
+  CreateTemplateResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrsResponseStatus :: Lens.Lens' CreateTemplateResponse Lude.Int
-ctrsResponseStatus = Lens.lens (responseStatus :: CreateTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTemplateResponse)
-{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctrrsResponseStatus :: Lens.Lens' CreateTemplateResponse Core.Int
+ctrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

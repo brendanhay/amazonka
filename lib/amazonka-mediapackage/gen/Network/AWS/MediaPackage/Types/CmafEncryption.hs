@@ -17,70 +17,65 @@ module Network.AWS.MediaPackage.Types.CmafEncryption
     mkCmafEncryption,
 
     -- * Lenses
-    ceKeyRotationIntervalSeconds,
     ceSpekeKeyProvider,
+    ceKeyRotationIntervalSeconds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.SpekeKeyProvider
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaPackage.Types.SpekeKeyProvider as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A Common Media Application Format (CMAF) encryption configuration.
 --
 -- /See:/ 'mkCmafEncryption' smart constructor.
 data CmafEncryption = CmafEncryption'
-  { -- | Time (in seconds) between each encryption key rotation.
-    keyRotationIntervalSeconds :: Lude.Maybe Lude.Int,
-    spekeKeyProvider :: SpekeKeyProvider
+  { spekeKeyProvider :: Types.SpekeKeyProvider,
+    -- | Time (in seconds) between each encryption key rotation.
+    keyRotationIntervalSeconds :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CmafEncryption' with the minimum fields required to make a request.
---
--- * 'keyRotationIntervalSeconds' - Time (in seconds) between each encryption key rotation.
--- * 'spekeKeyProvider' -
+-- | Creates a 'CmafEncryption' value with any optional fields omitted.
 mkCmafEncryption ::
   -- | 'spekeKeyProvider'
-  SpekeKeyProvider ->
+  Types.SpekeKeyProvider ->
   CmafEncryption
-mkCmafEncryption pSpekeKeyProvider_ =
+mkCmafEncryption spekeKeyProvider =
   CmafEncryption'
-    { keyRotationIntervalSeconds = Lude.Nothing,
-      spekeKeyProvider = pSpekeKeyProvider_
+    { spekeKeyProvider,
+      keyRotationIntervalSeconds = Core.Nothing
     }
-
--- | Time (in seconds) between each encryption key rotation.
---
--- /Note:/ Consider using 'keyRotationIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceKeyRotationIntervalSeconds :: Lens.Lens' CmafEncryption (Lude.Maybe Lude.Int)
-ceKeyRotationIntervalSeconds = Lens.lens (keyRotationIntervalSeconds :: CmafEncryption -> Lude.Maybe Lude.Int) (\s a -> s {keyRotationIntervalSeconds = a} :: CmafEncryption)
-{-# DEPRECATED ceKeyRotationIntervalSeconds "Use generic-lens or generic-optics with 'keyRotationIntervalSeconds' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'spekeKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceSpekeKeyProvider :: Lens.Lens' CmafEncryption SpekeKeyProvider
-ceSpekeKeyProvider = Lens.lens (spekeKeyProvider :: CmafEncryption -> SpekeKeyProvider) (\s a -> s {spekeKeyProvider = a} :: CmafEncryption)
+ceSpekeKeyProvider :: Lens.Lens' CmafEncryption Types.SpekeKeyProvider
+ceSpekeKeyProvider = Lens.field @"spekeKeyProvider"
 {-# DEPRECATED ceSpekeKeyProvider "Use generic-lens or generic-optics with 'spekeKeyProvider' instead." #-}
 
-instance Lude.FromJSON CmafEncryption where
-  parseJSON =
-    Lude.withObject
-      "CmafEncryption"
-      ( \x ->
-          CmafEncryption'
-            Lude.<$> (x Lude..:? "keyRotationIntervalSeconds")
-            Lude.<*> (x Lude..: "spekeKeyProvider")
-      )
+-- | Time (in seconds) between each encryption key rotation.
+--
+-- /Note:/ Consider using 'keyRotationIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceKeyRotationIntervalSeconds :: Lens.Lens' CmafEncryption (Core.Maybe Core.Int)
+ceKeyRotationIntervalSeconds = Lens.field @"keyRotationIntervalSeconds"
+{-# DEPRECATED ceKeyRotationIntervalSeconds "Use generic-lens or generic-optics with 'keyRotationIntervalSeconds' instead." #-}
 
-instance Lude.ToJSON CmafEncryption where
-  toJSON CmafEncryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("keyRotationIntervalSeconds" Lude..=)
-              Lude.<$> keyRotationIntervalSeconds,
-            Lude.Just ("spekeKeyProvider" Lude..= spekeKeyProvider)
+instance Core.FromJSON CmafEncryption where
+  toJSON CmafEncryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("spekeKeyProvider" Core..= spekeKeyProvider),
+            ("keyRotationIntervalSeconds" Core..=)
+              Core.<$> keyRotationIntervalSeconds
           ]
       )
+
+instance Core.FromJSON CmafEncryption where
+  parseJSON =
+    Core.withObject "CmafEncryption" Core.$
+      \x ->
+        CmafEncryption'
+          Core.<$> (x Core..: "spekeKeyProvider")
+          Core.<*> (x Core..:? "keyRotationIntervalSeconds")

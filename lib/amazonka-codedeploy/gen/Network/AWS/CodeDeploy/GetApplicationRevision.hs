@@ -28,158 +28,141 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     mkGetApplicationRevisionResponse,
 
     -- ** Response lenses
-    garrsApplicationName,
-    garrsRevisionInfo,
-    garrsRevision,
-    garrsResponseStatus,
+    garrrsApplicationName,
+    garrrsRevision,
+    garrrsRevisionInfo,
+    garrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @GetApplicationRevision@ operation.
 --
 -- /See:/ 'mkGetApplicationRevision' smart constructor.
 data GetApplicationRevision = GetApplicationRevision'
   { -- | The name of the application that corresponds to the revision.
-    applicationName :: Lude.Text,
+    applicationName :: Types.ApplicationName,
     -- | Information about the application revision to get, including type and location.
-    revision :: RevisionLocation
+    revision :: Types.RevisionLocation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetApplicationRevision' with the minimum fields required to make a request.
---
--- * 'applicationName' - The name of the application that corresponds to the revision.
--- * 'revision' - Information about the application revision to get, including type and location.
+-- | Creates a 'GetApplicationRevision' value with any optional fields omitted.
 mkGetApplicationRevision ::
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
   -- | 'revision'
-  RevisionLocation ->
+  Types.RevisionLocation ->
   GetApplicationRevision
-mkGetApplicationRevision pApplicationName_ pRevision_ =
-  GetApplicationRevision'
-    { applicationName = pApplicationName_,
-      revision = pRevision_
-    }
+mkGetApplicationRevision applicationName revision =
+  GetApplicationRevision' {applicationName, revision}
 
 -- | The name of the application that corresponds to the revision.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garApplicationName :: Lens.Lens' GetApplicationRevision Lude.Text
-garApplicationName = Lens.lens (applicationName :: GetApplicationRevision -> Lude.Text) (\s a -> s {applicationName = a} :: GetApplicationRevision)
+garApplicationName :: Lens.Lens' GetApplicationRevision Types.ApplicationName
+garApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED garApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Information about the application revision to get, including type and location.
 --
 -- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garRevision :: Lens.Lens' GetApplicationRevision RevisionLocation
-garRevision = Lens.lens (revision :: GetApplicationRevision -> RevisionLocation) (\s a -> s {revision = a} :: GetApplicationRevision)
+garRevision :: Lens.Lens' GetApplicationRevision Types.RevisionLocation
+garRevision = Lens.field @"revision"
 {-# DEPRECATED garRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
 
-instance Lude.AWSRequest GetApplicationRevision where
+instance Core.FromJSON GetApplicationRevision where
+  toJSON GetApplicationRevision {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("applicationName" Core..= applicationName),
+            Core.Just ("revision" Core..= revision)
+          ]
+      )
+
+instance Core.AWSRequest GetApplicationRevision where
   type Rs GetApplicationRevision = GetApplicationRevisionResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.GetApplicationRevision")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetApplicationRevisionResponse'
-            Lude.<$> (x Lude..?> "applicationName")
-            Lude.<*> (x Lude..?> "revisionInfo")
-            Lude.<*> (x Lude..?> "revision")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "applicationName")
+            Core.<*> (x Core..:? "revision")
+            Core.<*> (x Core..:? "revisionInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetApplicationRevision where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.GetApplicationRevision" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetApplicationRevision where
-  toJSON GetApplicationRevision' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("applicationName" Lude..= applicationName),
-            Lude.Just ("revision" Lude..= revision)
-          ]
-      )
-
-instance Lude.ToPath GetApplicationRevision where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetApplicationRevision where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetApplicationRevision@ operation.
 --
 -- /See:/ 'mkGetApplicationRevisionResponse' smart constructor.
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
   { -- | The name of the application that corresponds to the revision.
-    applicationName :: Lude.Maybe Lude.Text,
-    -- | General information about the revision.
-    revisionInfo :: Lude.Maybe GenericRevisionInfo,
+    applicationName :: Core.Maybe Types.ApplicationName,
     -- | Additional information about the revision, including type and location.
-    revision :: Lude.Maybe RevisionLocation,
+    revision :: Core.Maybe Types.RevisionLocation,
+    -- | General information about the revision.
+    revisionInfo :: Core.Maybe Types.GenericRevisionInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetApplicationRevisionResponse' with the minimum fields required to make a request.
---
--- * 'applicationName' - The name of the application that corresponds to the revision.
--- * 'revisionInfo' - General information about the revision.
--- * 'revision' - Additional information about the revision, including type and location.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetApplicationRevisionResponse' value with any optional fields omitted.
 mkGetApplicationRevisionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetApplicationRevisionResponse
-mkGetApplicationRevisionResponse pResponseStatus_ =
+mkGetApplicationRevisionResponse responseStatus =
   GetApplicationRevisionResponse'
-    { applicationName = Lude.Nothing,
-      revisionInfo = Lude.Nothing,
-      revision = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { applicationName = Core.Nothing,
+      revision = Core.Nothing,
+      revisionInfo = Core.Nothing,
+      responseStatus
     }
 
 -- | The name of the application that corresponds to the revision.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garrsApplicationName :: Lens.Lens' GetApplicationRevisionResponse (Lude.Maybe Lude.Text)
-garrsApplicationName = Lens.lens (applicationName :: GetApplicationRevisionResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: GetApplicationRevisionResponse)
-{-# DEPRECATED garrsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
-
--- | General information about the revision.
---
--- /Note:/ Consider using 'revisionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garrsRevisionInfo :: Lens.Lens' GetApplicationRevisionResponse (Lude.Maybe GenericRevisionInfo)
-garrsRevisionInfo = Lens.lens (revisionInfo :: GetApplicationRevisionResponse -> Lude.Maybe GenericRevisionInfo) (\s a -> s {revisionInfo = a} :: GetApplicationRevisionResponse)
-{-# DEPRECATED garrsRevisionInfo "Use generic-lens or generic-optics with 'revisionInfo' instead." #-}
+garrrsApplicationName :: Lens.Lens' GetApplicationRevisionResponse (Core.Maybe Types.ApplicationName)
+garrrsApplicationName = Lens.field @"applicationName"
+{-# DEPRECATED garrrsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Additional information about the revision, including type and location.
 --
 -- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garrsRevision :: Lens.Lens' GetApplicationRevisionResponse (Lude.Maybe RevisionLocation)
-garrsRevision = Lens.lens (revision :: GetApplicationRevisionResponse -> Lude.Maybe RevisionLocation) (\s a -> s {revision = a} :: GetApplicationRevisionResponse)
-{-# DEPRECATED garrsRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
+garrrsRevision :: Lens.Lens' GetApplicationRevisionResponse (Core.Maybe Types.RevisionLocation)
+garrrsRevision = Lens.field @"revision"
+{-# DEPRECATED garrrsRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
+
+-- | General information about the revision.
+--
+-- /Note:/ Consider using 'revisionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garrrsRevisionInfo :: Lens.Lens' GetApplicationRevisionResponse (Core.Maybe Types.GenericRevisionInfo)
+garrrsRevisionInfo = Lens.field @"revisionInfo"
+{-# DEPRECATED garrrsRevisionInfo "Use generic-lens or generic-optics with 'revisionInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garrsResponseStatus :: Lens.Lens' GetApplicationRevisionResponse Lude.Int
-garrsResponseStatus = Lens.lens (responseStatus :: GetApplicationRevisionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetApplicationRevisionResponse)
-{-# DEPRECATED garrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+garrrsResponseStatus :: Lens.Lens' GetApplicationRevisionResponse Core.Int
+garrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED garrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

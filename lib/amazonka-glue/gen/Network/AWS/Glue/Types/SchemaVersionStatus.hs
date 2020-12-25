@@ -13,56 +13,61 @@
 module Network.AWS.Glue.Types.SchemaVersionStatus
   ( SchemaVersionStatus
       ( SchemaVersionStatus',
-        SVSAvailable,
-        SVSPending,
-        SVSFailure,
-        SVSDeleting
+        SchemaVersionStatusAvailable,
+        SchemaVersionStatusPending,
+        SchemaVersionStatusFailure,
+        SchemaVersionStatusDeleting,
+        fromSchemaVersionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SchemaVersionStatus = SchemaVersionStatus' Lude.Text
+newtype SchemaVersionStatus = SchemaVersionStatus'
+  { fromSchemaVersionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SVSAvailable :: SchemaVersionStatus
-pattern SVSAvailable = SchemaVersionStatus' "AVAILABLE"
+pattern SchemaVersionStatusAvailable :: SchemaVersionStatus
+pattern SchemaVersionStatusAvailable = SchemaVersionStatus' "AVAILABLE"
 
-pattern SVSPending :: SchemaVersionStatus
-pattern SVSPending = SchemaVersionStatus' "PENDING"
+pattern SchemaVersionStatusPending :: SchemaVersionStatus
+pattern SchemaVersionStatusPending = SchemaVersionStatus' "PENDING"
 
-pattern SVSFailure :: SchemaVersionStatus
-pattern SVSFailure = SchemaVersionStatus' "FAILURE"
+pattern SchemaVersionStatusFailure :: SchemaVersionStatus
+pattern SchemaVersionStatusFailure = SchemaVersionStatus' "FAILURE"
 
-pattern SVSDeleting :: SchemaVersionStatus
-pattern SVSDeleting = SchemaVersionStatus' "DELETING"
+pattern SchemaVersionStatusDeleting :: SchemaVersionStatus
+pattern SchemaVersionStatusDeleting = SchemaVersionStatus' "DELETING"
 
 {-# COMPLETE
-  SVSAvailable,
-  SVSPending,
-  SVSFailure,
-  SVSDeleting,
+  SchemaVersionStatusAvailable,
+  SchemaVersionStatusPending,
+  SchemaVersionStatusFailure,
+  SchemaVersionStatusDeleting,
   SchemaVersionStatus'
   #-}

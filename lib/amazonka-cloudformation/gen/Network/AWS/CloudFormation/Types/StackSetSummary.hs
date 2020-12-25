@@ -17,34 +17,35 @@ module Network.AWS.CloudFormation.Types.StackSetSummary
     mkStackSetSummary,
 
     -- * Lenses
-    sssStatus,
-    sssLastDriftCheckTimestamp,
     sssAutoDeployment,
-    sssDriftStatus,
-    sssPermissionModel,
-    sssStackSetName,
     sssDescription,
+    sssDriftStatus,
+    sssLastDriftCheckTimestamp,
+    sssPermissionModel,
     sssStackSetId,
+    sssStackSetName,
+    sssStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types.AutoDeployment
-import Network.AWS.CloudFormation.Types.PermissionModels
-import Network.AWS.CloudFormation.Types.StackDriftStatus
-import Network.AWS.CloudFormation.Types.StackSetStatus
+import qualified Network.AWS.CloudFormation.Types.AutoDeployment as Types
+import qualified Network.AWS.CloudFormation.Types.Description as Types
+import qualified Network.AWS.CloudFormation.Types.PermissionModels as Types
+import qualified Network.AWS.CloudFormation.Types.StackDriftStatus as Types
+import qualified Network.AWS.CloudFormation.Types.StackSetId as Types
+import qualified Network.AWS.CloudFormation.Types.StackSetName as Types
+import qualified Network.AWS.CloudFormation.Types.StackSetStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The structures that contain summary information about the specified stack set.
 --
 -- /See:/ 'mkStackSetSummary' smart constructor.
 data StackSetSummary = StackSetSummary'
-  { -- | The status of the stack set.
-    status :: Lude.Maybe StackSetStatus,
-    -- | Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
-    lastDriftCheckTimestamp :: Lude.Maybe Lude.DateTime,
-    -- | [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).
-    autoDeployment :: Lude.Maybe AutoDeployment,
+  { -- | [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).
+    autoDeployment :: Core.Maybe Types.AutoDeployment,
+    -- | A description of the stack set that you specify when the stack set is created or updated.
+    description :: Core.Maybe Types.Description,
     -- | Status of the stack set's actual configuration compared to its expected template and parameter configuration. A stack set is considered to have drifted if one or more of its stack instances have drifted from their expected template and parameter configuration.
     --
     --
@@ -58,7 +59,9 @@ data StackSetSummary = StackSetSummary'
     --
     --
     --     * @UNKNOWN@ : This value is reserved for future use.
-    driftStatus :: Lude.Maybe StackDriftStatus,
+    driftStatus :: Core.Maybe Types.StackDriftStatus,
+    -- | Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
+    lastDriftCheckTimestamp :: Core.Maybe Core.UTCTime,
     -- | Describes how the IAM roles required for stack set operations are created.
     --
     --
@@ -66,83 +69,45 @@ data StackSetSummary = StackSetSummary'
     --
     --
     --     * With @service-managed@ permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions> .
-    permissionModel :: Lude.Maybe PermissionModels,
-    -- | The name of the stack set.
-    stackSetName :: Lude.Maybe Lude.Text,
-    -- | A description of the stack set that you specify when the stack set is created or updated.
-    description :: Lude.Maybe Lude.Text,
+    permissionModel :: Core.Maybe Types.PermissionModels,
     -- | The ID of the stack set.
-    stackSetId :: Lude.Maybe Lude.Text
+    stackSetId :: Core.Maybe Types.StackSetId,
+    -- | The name of the stack set.
+    stackSetName :: Core.Maybe Types.StackSetName,
+    -- | The status of the stack set.
+    status :: Core.Maybe Types.StackSetStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StackSetSummary' with the minimum fields required to make a request.
---
--- * 'status' - The status of the stack set.
--- * 'lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
--- * 'autoDeployment' - [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).
--- * 'driftStatus' - Status of the stack set's actual configuration compared to its expected template and parameter configuration. A stack set is considered to have drifted if one or more of its stack instances have drifted from their expected template and parameter configuration.
---
---
---     * @DRIFTED@ : One or more of the stack instances belonging to the stack set stack differs from the expected template and parameter configuration. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.
---
---
---     * @NOT_CHECKED@ : AWS CloudFormation has not checked the stack set for drift.
---
---
---     * @IN_SYNC@ : All of the stack instances belonging to the stack set stack match from the expected template and parameter configuration.
---
---
---     * @UNKNOWN@ : This value is reserved for future use.
---
---
--- * 'permissionModel' - Describes how the IAM roles required for stack set operations are created.
---
---
---     * With @self-managed@ permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions> .
---
---
---     * With @service-managed@ permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions> .
---
---
--- * 'stackSetName' - The name of the stack set.
--- * 'description' - A description of the stack set that you specify when the stack set is created or updated.
--- * 'stackSetId' - The ID of the stack set.
+-- | Creates a 'StackSetSummary' value with any optional fields omitted.
 mkStackSetSummary ::
   StackSetSummary
 mkStackSetSummary =
   StackSetSummary'
-    { status = Lude.Nothing,
-      lastDriftCheckTimestamp = Lude.Nothing,
-      autoDeployment = Lude.Nothing,
-      driftStatus = Lude.Nothing,
-      permissionModel = Lude.Nothing,
-      stackSetName = Lude.Nothing,
-      description = Lude.Nothing,
-      stackSetId = Lude.Nothing
+    { autoDeployment = Core.Nothing,
+      description = Core.Nothing,
+      driftStatus = Core.Nothing,
+      lastDriftCheckTimestamp = Core.Nothing,
+      permissionModel = Core.Nothing,
+      stackSetId = Core.Nothing,
+      stackSetName = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the stack set.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssStatus :: Lens.Lens' StackSetSummary (Lude.Maybe StackSetStatus)
-sssStatus = Lens.lens (status :: StackSetSummary -> Lude.Maybe StackSetStatus) (\s a -> s {status = a} :: StackSetSummary)
-{-# DEPRECATED sssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
---
--- /Note:/ Consider using 'lastDriftCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssLastDriftCheckTimestamp :: Lens.Lens' StackSetSummary (Lude.Maybe Lude.DateTime)
-sssLastDriftCheckTimestamp = Lens.lens (lastDriftCheckTimestamp :: StackSetSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {lastDriftCheckTimestamp = a} :: StackSetSummary)
-{-# DEPRECATED sssLastDriftCheckTimestamp "Use generic-lens or generic-optics with 'lastDriftCheckTimestamp' instead." #-}
 
 -- | [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).
 --
 -- /Note:/ Consider using 'autoDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssAutoDeployment :: Lens.Lens' StackSetSummary (Lude.Maybe AutoDeployment)
-sssAutoDeployment = Lens.lens (autoDeployment :: StackSetSummary -> Lude.Maybe AutoDeployment) (\s a -> s {autoDeployment = a} :: StackSetSummary)
+sssAutoDeployment :: Lens.Lens' StackSetSummary (Core.Maybe Types.AutoDeployment)
+sssAutoDeployment = Lens.field @"autoDeployment"
 {-# DEPRECATED sssAutoDeployment "Use generic-lens or generic-optics with 'autoDeployment' instead." #-}
+
+-- | A description of the stack set that you specify when the stack set is created or updated.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssDescription :: Lens.Lens' StackSetSummary (Core.Maybe Types.Description)
+sssDescription = Lens.field @"description"
+{-# DEPRECATED sssDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Status of the stack set's actual configuration compared to its expected template and parameter configuration. A stack set is considered to have drifted if one or more of its stack instances have drifted from their expected template and parameter configuration.
 --
@@ -161,9 +126,16 @@ sssAutoDeployment = Lens.lens (autoDeployment :: StackSetSummary -> Lude.Maybe A
 --
 --
 -- /Note:/ Consider using 'driftStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssDriftStatus :: Lens.Lens' StackSetSummary (Lude.Maybe StackDriftStatus)
-sssDriftStatus = Lens.lens (driftStatus :: StackSetSummary -> Lude.Maybe StackDriftStatus) (\s a -> s {driftStatus = a} :: StackSetSummary)
+sssDriftStatus :: Lens.Lens' StackSetSummary (Core.Maybe Types.StackDriftStatus)
+sssDriftStatus = Lens.field @"driftStatus"
 {-# DEPRECATED sssDriftStatus "Use generic-lens or generic-optics with 'driftStatus' instead." #-}
+
+-- | Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
+--
+-- /Note:/ Consider using 'lastDriftCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssLastDriftCheckTimestamp :: Lens.Lens' StackSetSummary (Core.Maybe Core.UTCTime)
+sssLastDriftCheckTimestamp = Lens.field @"lastDriftCheckTimestamp"
+{-# DEPRECATED sssLastDriftCheckTimestamp "Use generic-lens or generic-optics with 'lastDriftCheckTimestamp' instead." #-}
 
 -- | Describes how the IAM roles required for stack set operations are created.
 --
@@ -176,39 +148,39 @@ sssDriftStatus = Lens.lens (driftStatus :: StackSetSummary -> Lude.Maybe StackDr
 --
 --
 -- /Note:/ Consider using 'permissionModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssPermissionModel :: Lens.Lens' StackSetSummary (Lude.Maybe PermissionModels)
-sssPermissionModel = Lens.lens (permissionModel :: StackSetSummary -> Lude.Maybe PermissionModels) (\s a -> s {permissionModel = a} :: StackSetSummary)
+sssPermissionModel :: Lens.Lens' StackSetSummary (Core.Maybe Types.PermissionModels)
+sssPermissionModel = Lens.field @"permissionModel"
 {-# DEPRECATED sssPermissionModel "Use generic-lens or generic-optics with 'permissionModel' instead." #-}
-
--- | The name of the stack set.
---
--- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssStackSetName :: Lens.Lens' StackSetSummary (Lude.Maybe Lude.Text)
-sssStackSetName = Lens.lens (stackSetName :: StackSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackSetName = a} :: StackSetSummary)
-{-# DEPRECATED sssStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
-
--- | A description of the stack set that you specify when the stack set is created or updated.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssDescription :: Lens.Lens' StackSetSummary (Lude.Maybe Lude.Text)
-sssDescription = Lens.lens (description :: StackSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StackSetSummary)
-{-# DEPRECATED sssDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the stack set.
 --
 -- /Note:/ Consider using 'stackSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssStackSetId :: Lens.Lens' StackSetSummary (Lude.Maybe Lude.Text)
-sssStackSetId = Lens.lens (stackSetId :: StackSetSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackSetId = a} :: StackSetSummary)
+sssStackSetId :: Lens.Lens' StackSetSummary (Core.Maybe Types.StackSetId)
+sssStackSetId = Lens.field @"stackSetId"
 {-# DEPRECATED sssStackSetId "Use generic-lens or generic-optics with 'stackSetId' instead." #-}
 
-instance Lude.FromXML StackSetSummary where
+-- | The name of the stack set.
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssStackSetName :: Lens.Lens' StackSetSummary (Core.Maybe Types.StackSetName)
+sssStackSetName = Lens.field @"stackSetName"
+{-# DEPRECATED sssStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+
+-- | The status of the stack set.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssStatus :: Lens.Lens' StackSetSummary (Core.Maybe Types.StackSetStatus)
+sssStatus = Lens.field @"status"
+{-# DEPRECATED sssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML StackSetSummary where
   parseXML x =
     StackSetSummary'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "LastDriftCheckTimestamp")
-      Lude.<*> (x Lude..@? "AutoDeployment")
-      Lude.<*> (x Lude..@? "DriftStatus")
-      Lude.<*> (x Lude..@? "PermissionModel")
-      Lude.<*> (x Lude..@? "StackSetName")
-      Lude.<*> (x Lude..@? "Description")
-      Lude.<*> (x Lude..@? "StackSetId")
+      Core.<$> (x Core..@? "AutoDeployment")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "DriftStatus")
+      Core.<*> (x Core..@? "LastDriftCheckTimestamp")
+      Core.<*> (x Core..@? "PermissionModel")
+      Core.<*> (x Core..@? "StackSetId")
+      Core.<*> (x Core..@? "StackSetName")
+      Core.<*> (x Core..@? "Status")

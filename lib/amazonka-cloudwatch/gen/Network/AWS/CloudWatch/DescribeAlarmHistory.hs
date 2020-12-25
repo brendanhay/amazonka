@@ -25,225 +25,220 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
 
     -- ** Request lenses
     dahAlarmName,
-    dahHistoryItemType,
     dahAlarmTypes,
     dahEndDate,
-    dahStartDate,
+    dahHistoryItemType,
+    dahMaxRecords,
     dahNextToken,
     dahScanBy,
-    dahMaxRecords,
+    dahStartDate,
 
     -- * Destructuring the response
     DescribeAlarmHistoryResponse (..),
     mkDescribeAlarmHistoryResponse,
 
     -- ** Response lenses
-    dahrsAlarmHistoryItems,
-    dahrsNextToken,
-    dahrsResponseStatus,
+    dahrrsAlarmHistoryItems,
+    dahrrsNextToken,
+    dahrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
   { -- | The name of the alarm.
-    alarmName :: Lude.Maybe Lude.Text,
-    -- | The type of alarm histories to retrieve.
-    historyItemType :: Lude.Maybe HistoryItemType,
+    alarmName :: Core.Maybe Types.AlarmName,
     -- | Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.
-    alarmTypes :: Lude.Maybe [AlarmType],
+    alarmTypes :: Core.Maybe [Types.AlarmType],
     -- | The ending date to retrieve alarm history.
-    endDate :: Lude.Maybe Lude.DateTime,
-    -- | The starting date to retrieve alarm history.
-    startDate :: Lude.Maybe Lude.DateTime,
-    -- | The token returned by a previous call to indicate that there is more data available.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
-    scanBy :: Lude.Maybe ScanBy,
+    endDate :: Core.Maybe Core.UTCTime,
+    -- | The type of alarm histories to retrieve.
+    historyItemType :: Core.Maybe Types.HistoryItemType,
     -- | The maximum number of alarm history records to retrieve.
-    maxRecords :: Lude.Maybe Lude.Natural
+    maxRecords :: Core.Maybe Core.Natural,
+    -- | The token returned by a previous call to indicate that there is more data available.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
+    scanBy :: Core.Maybe Types.ScanBy,
+    -- | The starting date to retrieve alarm history.
+    startDate :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAlarmHistory' with the minimum fields required to make a request.
---
--- * 'alarmName' - The name of the alarm.
--- * 'historyItemType' - The type of alarm histories to retrieve.
--- * 'alarmTypes' - Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.
--- * 'endDate' - The ending date to retrieve alarm history.
--- * 'startDate' - The starting date to retrieve alarm history.
--- * 'nextToken' - The token returned by a previous call to indicate that there is more data available.
--- * 'scanBy' - Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
--- * 'maxRecords' - The maximum number of alarm history records to retrieve.
+-- | Creates a 'DescribeAlarmHistory' value with any optional fields omitted.
 mkDescribeAlarmHistory ::
   DescribeAlarmHistory
 mkDescribeAlarmHistory =
   DescribeAlarmHistory'
-    { alarmName = Lude.Nothing,
-      historyItemType = Lude.Nothing,
-      alarmTypes = Lude.Nothing,
-      endDate = Lude.Nothing,
-      startDate = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      scanBy = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { alarmName = Core.Nothing,
+      alarmTypes = Core.Nothing,
+      endDate = Core.Nothing,
+      historyItemType = Core.Nothing,
+      maxRecords = Core.Nothing,
+      nextToken = Core.Nothing,
+      scanBy = Core.Nothing,
+      startDate = Core.Nothing
     }
 
 -- | The name of the alarm.
 --
 -- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahAlarmName :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.Text)
-dahAlarmName = Lens.lens (alarmName :: DescribeAlarmHistory -> Lude.Maybe Lude.Text) (\s a -> s {alarmName = a} :: DescribeAlarmHistory)
+dahAlarmName :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Types.AlarmName)
+dahAlarmName = Lens.field @"alarmName"
 {-# DEPRECATED dahAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
-
--- | The type of alarm histories to retrieve.
---
--- /Note:/ Consider using 'historyItemType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahHistoryItemType :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe HistoryItemType)
-dahHistoryItemType = Lens.lens (historyItemType :: DescribeAlarmHistory -> Lude.Maybe HistoryItemType) (\s a -> s {historyItemType = a} :: DescribeAlarmHistory)
-{-# DEPRECATED dahHistoryItemType "Use generic-lens or generic-optics with 'historyItemType' instead." #-}
 
 -- | Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.
 --
 -- /Note:/ Consider using 'alarmTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahAlarmTypes :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe [AlarmType])
-dahAlarmTypes = Lens.lens (alarmTypes :: DescribeAlarmHistory -> Lude.Maybe [AlarmType]) (\s a -> s {alarmTypes = a} :: DescribeAlarmHistory)
+dahAlarmTypes :: Lens.Lens' DescribeAlarmHistory (Core.Maybe [Types.AlarmType])
+dahAlarmTypes = Lens.field @"alarmTypes"
 {-# DEPRECATED dahAlarmTypes "Use generic-lens or generic-optics with 'alarmTypes' instead." #-}
 
 -- | The ending date to retrieve alarm history.
 --
 -- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahEndDate :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.DateTime)
-dahEndDate = Lens.lens (endDate :: DescribeAlarmHistory -> Lude.Maybe Lude.DateTime) (\s a -> s {endDate = a} :: DescribeAlarmHistory)
+dahEndDate :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Core.UTCTime)
+dahEndDate = Lens.field @"endDate"
 {-# DEPRECATED dahEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
--- | The starting date to retrieve alarm history.
+-- | The type of alarm histories to retrieve.
 --
--- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahStartDate :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.DateTime)
-dahStartDate = Lens.lens (startDate :: DescribeAlarmHistory -> Lude.Maybe Lude.DateTime) (\s a -> s {startDate = a} :: DescribeAlarmHistory)
-{-# DEPRECATED dahStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
+-- /Note:/ Consider using 'historyItemType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dahHistoryItemType :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Types.HistoryItemType)
+dahHistoryItemType = Lens.field @"historyItemType"
+{-# DEPRECATED dahHistoryItemType "Use generic-lens or generic-optics with 'historyItemType' instead." #-}
+
+-- | The maximum number of alarm history records to retrieve.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dahMaxRecords :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Core.Natural)
+dahMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dahMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The token returned by a previous call to indicate that there is more data available.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahNextToken :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.Text)
-dahNextToken = Lens.lens (nextToken :: DescribeAlarmHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAlarmHistory)
+dahNextToken :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Types.NextToken)
+dahNextToken = Lens.field @"nextToken"
 {-# DEPRECATED dahNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
 --
 -- /Note:/ Consider using 'scanBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahScanBy :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe ScanBy)
-dahScanBy = Lens.lens (scanBy :: DescribeAlarmHistory -> Lude.Maybe ScanBy) (\s a -> s {scanBy = a} :: DescribeAlarmHistory)
+dahScanBy :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Types.ScanBy)
+dahScanBy = Lens.field @"scanBy"
 {-# DEPRECATED dahScanBy "Use generic-lens or generic-optics with 'scanBy' instead." #-}
 
--- | The maximum number of alarm history records to retrieve.
+-- | The starting date to retrieve alarm history.
 --
--- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahMaxRecords :: Lens.Lens' DescribeAlarmHistory (Lude.Maybe Lude.Natural)
-dahMaxRecords = Lens.lens (maxRecords :: DescribeAlarmHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeAlarmHistory)
-{-# DEPRECATED dahMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dahStartDate :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Core.UTCTime)
+dahStartDate = Lens.field @"startDate"
+{-# DEPRECATED dahStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
-instance Page.AWSPager DescribeAlarmHistory where
-  page rq rs
-    | Page.stop (rs Lens.^. dahrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dahrsAlarmHistoryItems) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dahNextToken Lens..~ rs Lens.^. dahrsNextToken
-
-instance Lude.AWSRequest DescribeAlarmHistory where
+instance Core.AWSRequest DescribeAlarmHistory where
   type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
-  request = Req.postQuery cloudWatchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAlarmHistory")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> (Core.toQueryValue "AlarmName" Core.<$> alarmName)
+                Core.<> ( Core.toQueryValue
+                            "AlarmTypes"
+                            (Core.toQueryList "member" Core.<$> alarmTypes)
+                        )
+                Core.<> (Core.toQueryValue "EndDate" Core.<$> endDate)
+                Core.<> (Core.toQueryValue "HistoryItemType" Core.<$> historyItemType)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryValue "ScanBy" Core.<$> scanBy)
+                Core.<> (Core.toQueryValue "StartDate" Core.<$> startDate)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeAlarmHistoryResult"
       ( \s h x ->
           DescribeAlarmHistoryResponse'
-            Lude.<$> ( x Lude..@? "AlarmHistoryItems" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "AlarmHistoryItems"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeAlarmHistory where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAlarmHistory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAlarmHistory where
-  toQuery DescribeAlarmHistory' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeAlarmHistory" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "AlarmName" Lude.=: alarmName,
-        "HistoryItemType" Lude.=: historyItemType,
-        "AlarmTypes"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> alarmTypes),
-        "EndDate" Lude.=: endDate,
-        "StartDate" Lude.=: startDate,
-        "NextToken" Lude.=: nextToken,
-        "ScanBy" Lude.=: scanBy,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeAlarmHistory where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"alarmHistoryItems" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
   { -- | The alarm histories, in JSON format.
-    alarmHistoryItems :: Lude.Maybe [AlarmHistoryItem],
+    alarmHistoryItems :: Core.Maybe [Types.AlarmHistoryItem],
     -- | The token that marks the start of the next batch of returned results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAlarmHistoryResponse' with the minimum fields required to make a request.
---
--- * 'alarmHistoryItems' - The alarm histories, in JSON format.
--- * 'nextToken' - The token that marks the start of the next batch of returned results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAlarmHistoryResponse' value with any optional fields omitted.
 mkDescribeAlarmHistoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAlarmHistoryResponse
-mkDescribeAlarmHistoryResponse pResponseStatus_ =
+mkDescribeAlarmHistoryResponse responseStatus =
   DescribeAlarmHistoryResponse'
-    { alarmHistoryItems = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { alarmHistoryItems = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The alarm histories, in JSON format.
 --
 -- /Note:/ Consider using 'alarmHistoryItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahrsAlarmHistoryItems :: Lens.Lens' DescribeAlarmHistoryResponse (Lude.Maybe [AlarmHistoryItem])
-dahrsAlarmHistoryItems = Lens.lens (alarmHistoryItems :: DescribeAlarmHistoryResponse -> Lude.Maybe [AlarmHistoryItem]) (\s a -> s {alarmHistoryItems = a} :: DescribeAlarmHistoryResponse)
-{-# DEPRECATED dahrsAlarmHistoryItems "Use generic-lens or generic-optics with 'alarmHistoryItems' instead." #-}
+dahrrsAlarmHistoryItems :: Lens.Lens' DescribeAlarmHistoryResponse (Core.Maybe [Types.AlarmHistoryItem])
+dahrrsAlarmHistoryItems = Lens.field @"alarmHistoryItems"
+{-# DEPRECATED dahrrsAlarmHistoryItems "Use generic-lens or generic-optics with 'alarmHistoryItems' instead." #-}
 
 -- | The token that marks the start of the next batch of returned results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahrsNextToken :: Lens.Lens' DescribeAlarmHistoryResponse (Lude.Maybe Lude.Text)
-dahrsNextToken = Lens.lens (nextToken :: DescribeAlarmHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAlarmHistoryResponse)
-{-# DEPRECATED dahrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dahrrsNextToken :: Lens.Lens' DescribeAlarmHistoryResponse (Core.Maybe Types.NextToken)
+dahrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dahrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dahrsResponseStatus :: Lens.Lens' DescribeAlarmHistoryResponse Lude.Int
-dahrsResponseStatus = Lens.lens (responseStatus :: DescribeAlarmHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAlarmHistoryResponse)
-{-# DEPRECATED dahrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dahrrsResponseStatus :: Lens.Lens' DescribeAlarmHistoryResponse Core.Int
+dahrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dahrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

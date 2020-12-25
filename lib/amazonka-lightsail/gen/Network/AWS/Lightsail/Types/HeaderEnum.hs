@@ -13,111 +13,113 @@
 module Network.AWS.Lightsail.Types.HeaderEnum
   ( HeaderEnum
       ( HeaderEnum',
-        Accept,
-        AcceptCharset,
-        AcceptDatetime,
-        AcceptEncoding,
-        AcceptLanguage,
-        Authorization,
-        CloudFrontForwardedProto,
-        CloudFrontIsDesktopViewer,
-        CloudFrontIsMobileViewer,
-        CloudFrontIsSmartTVViewer,
-        CloudFrontIsTabletViewer,
-        CloudFrontViewerCountry,
-        Host,
-        Origin,
-        Referer
+        HeaderEnumAccept,
+        HeaderEnumAcceptCharset,
+        HeaderEnumAcceptDatetime,
+        HeaderEnumAcceptEncoding,
+        HeaderEnumAcceptLanguage,
+        HeaderEnumAuthorization,
+        HeaderEnumCloudFrontForwardedProto,
+        HeaderEnumCloudFrontIsDesktopViewer,
+        HeaderEnumCloudFrontIsMobileViewer,
+        HeaderEnumCloudFrontIsSmartTVViewer,
+        HeaderEnumCloudFrontIsTabletViewer,
+        HeaderEnumCloudFrontViewerCountry,
+        HeaderEnumHost,
+        HeaderEnumOrigin,
+        HeaderEnumReferer,
+        fromHeaderEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HeaderEnum = HeaderEnum' Lude.Text
+newtype HeaderEnum = HeaderEnum' {fromHeaderEnum :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Accept :: HeaderEnum
-pattern Accept = HeaderEnum' "Accept"
+pattern HeaderEnumAccept :: HeaderEnum
+pattern HeaderEnumAccept = HeaderEnum' "Accept"
 
-pattern AcceptCharset :: HeaderEnum
-pattern AcceptCharset = HeaderEnum' "Accept-Charset"
+pattern HeaderEnumAcceptCharset :: HeaderEnum
+pattern HeaderEnumAcceptCharset = HeaderEnum' "Accept-Charset"
 
-pattern AcceptDatetime :: HeaderEnum
-pattern AcceptDatetime = HeaderEnum' "Accept-Datetime"
+pattern HeaderEnumAcceptDatetime :: HeaderEnum
+pattern HeaderEnumAcceptDatetime = HeaderEnum' "Accept-Datetime"
 
-pattern AcceptEncoding :: HeaderEnum
-pattern AcceptEncoding = HeaderEnum' "Accept-Encoding"
+pattern HeaderEnumAcceptEncoding :: HeaderEnum
+pattern HeaderEnumAcceptEncoding = HeaderEnum' "Accept-Encoding"
 
-pattern AcceptLanguage :: HeaderEnum
-pattern AcceptLanguage = HeaderEnum' "Accept-Language"
+pattern HeaderEnumAcceptLanguage :: HeaderEnum
+pattern HeaderEnumAcceptLanguage = HeaderEnum' "Accept-Language"
 
-pattern Authorization :: HeaderEnum
-pattern Authorization = HeaderEnum' "Authorization"
+pattern HeaderEnumAuthorization :: HeaderEnum
+pattern HeaderEnumAuthorization = HeaderEnum' "Authorization"
 
-pattern CloudFrontForwardedProto :: HeaderEnum
-pattern CloudFrontForwardedProto = HeaderEnum' "CloudFront-Forwarded-Proto"
+pattern HeaderEnumCloudFrontForwardedProto :: HeaderEnum
+pattern HeaderEnumCloudFrontForwardedProto = HeaderEnum' "CloudFront-Forwarded-Proto"
 
-pattern CloudFrontIsDesktopViewer :: HeaderEnum
-pattern CloudFrontIsDesktopViewer = HeaderEnum' "CloudFront-Is-Desktop-Viewer"
+pattern HeaderEnumCloudFrontIsDesktopViewer :: HeaderEnum
+pattern HeaderEnumCloudFrontIsDesktopViewer = HeaderEnum' "CloudFront-Is-Desktop-Viewer"
 
-pattern CloudFrontIsMobileViewer :: HeaderEnum
-pattern CloudFrontIsMobileViewer = HeaderEnum' "CloudFront-Is-Mobile-Viewer"
+pattern HeaderEnumCloudFrontIsMobileViewer :: HeaderEnum
+pattern HeaderEnumCloudFrontIsMobileViewer = HeaderEnum' "CloudFront-Is-Mobile-Viewer"
 
-pattern CloudFrontIsSmartTVViewer :: HeaderEnum
-pattern CloudFrontIsSmartTVViewer = HeaderEnum' "CloudFront-Is-SmartTV-Viewer"
+pattern HeaderEnumCloudFrontIsSmartTVViewer :: HeaderEnum
+pattern HeaderEnumCloudFrontIsSmartTVViewer = HeaderEnum' "CloudFront-Is-SmartTV-Viewer"
 
-pattern CloudFrontIsTabletViewer :: HeaderEnum
-pattern CloudFrontIsTabletViewer = HeaderEnum' "CloudFront-Is-Tablet-Viewer"
+pattern HeaderEnumCloudFrontIsTabletViewer :: HeaderEnum
+pattern HeaderEnumCloudFrontIsTabletViewer = HeaderEnum' "CloudFront-Is-Tablet-Viewer"
 
-pattern CloudFrontViewerCountry :: HeaderEnum
-pattern CloudFrontViewerCountry = HeaderEnum' "CloudFront-Viewer-Country"
+pattern HeaderEnumCloudFrontViewerCountry :: HeaderEnum
+pattern HeaderEnumCloudFrontViewerCountry = HeaderEnum' "CloudFront-Viewer-Country"
 
-pattern Host :: HeaderEnum
-pattern Host = HeaderEnum' "Host"
+pattern HeaderEnumHost :: HeaderEnum
+pattern HeaderEnumHost = HeaderEnum' "Host"
 
-pattern Origin :: HeaderEnum
-pattern Origin = HeaderEnum' "Origin"
+pattern HeaderEnumOrigin :: HeaderEnum
+pattern HeaderEnumOrigin = HeaderEnum' "Origin"
 
-pattern Referer :: HeaderEnum
-pattern Referer = HeaderEnum' "Referer"
+pattern HeaderEnumReferer :: HeaderEnum
+pattern HeaderEnumReferer = HeaderEnum' "Referer"
 
 {-# COMPLETE
-  Accept,
-  AcceptCharset,
-  AcceptDatetime,
-  AcceptEncoding,
-  AcceptLanguage,
-  Authorization,
-  CloudFrontForwardedProto,
-  CloudFrontIsDesktopViewer,
-  CloudFrontIsMobileViewer,
-  CloudFrontIsSmartTVViewer,
-  CloudFrontIsTabletViewer,
-  CloudFrontViewerCountry,
-  Host,
-  Origin,
-  Referer,
+  HeaderEnumAccept,
+  HeaderEnumAcceptCharset,
+  HeaderEnumAcceptDatetime,
+  HeaderEnumAcceptEncoding,
+  HeaderEnumAcceptLanguage,
+  HeaderEnumAuthorization,
+  HeaderEnumCloudFrontForwardedProto,
+  HeaderEnumCloudFrontIsDesktopViewer,
+  HeaderEnumCloudFrontIsMobileViewer,
+  HeaderEnumCloudFrontIsSmartTVViewer,
+  HeaderEnumCloudFrontIsTabletViewer,
+  HeaderEnumCloudFrontViewerCountry,
+  HeaderEnumHost,
+  HeaderEnumOrigin,
+  HeaderEnumReferer,
   HeaderEnum'
   #-}

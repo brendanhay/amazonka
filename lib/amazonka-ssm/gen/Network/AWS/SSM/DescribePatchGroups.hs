@@ -23,26 +23,26 @@ module Network.AWS.SSM.DescribePatchGroups
 
     -- ** Request lenses
     dpgFilters,
-    dpgNextToken,
     dpgMaxResults,
+    dpgNextToken,
 
     -- * Destructuring the response
     DescribePatchGroupsResponse (..),
     mkDescribePatchGroupsResponse,
 
     -- ** Response lenses
-    dpgrsMappings,
-    dpgrsNextToken,
-    dpgrsResponseStatus,
+    dpgrrsMappings,
+    dpgrrsNextToken,
+    dpgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribePatchGroups' smart constructor.
 data DescribePatchGroups = DescribePatchGroups'
@@ -60,44 +60,23 @@ data DescribePatchGroups = DescribePatchGroups'
     --
     --
     --     * @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
-    filters :: Lude.Maybe [PatchOrchestratorFilter],
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.PatchOrchestratorFilter],
     -- | The maximum number of patch groups to return (per page).
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePatchGroups' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters. Use a filter to return a more specific list of results.
---
--- For @DescribePatchGroups@ ,valid filter keys include the following:
---
---     * @NAME_PREFIX@ : The name of the patch group. Wildcards (*) are accepted.
---
---
---     * @OPERATING_SYSTEM@ : The supported operating system type to return results for. For valid operating system values, see 'GetDefaultPatchBaselineRequest$OperatingSystem' in 'CreatePatchBaseline' .
--- Examples:
---
---     * @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
---
---
---     * @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
---
---
---
---
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxResults' - The maximum number of patch groups to return (per page).
+-- | Creates a 'DescribePatchGroups' value with any optional fields omitted.
 mkDescribePatchGroups ::
   DescribePatchGroups
 mkDescribePatchGroups =
   DescribePatchGroups'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | One or more filters. Use a filter to return a more specific list of results.
@@ -120,71 +99,66 @@ mkDescribePatchGroups =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgFilters :: Lens.Lens' DescribePatchGroups (Lude.Maybe [PatchOrchestratorFilter])
-dpgFilters = Lens.lens (filters :: DescribePatchGroups -> Lude.Maybe [PatchOrchestratorFilter]) (\s a -> s {filters = a} :: DescribePatchGroups)
+dpgFilters :: Lens.Lens' DescribePatchGroups (Core.Maybe [Types.PatchOrchestratorFilter])
+dpgFilters = Lens.field @"filters"
 {-# DEPRECATED dpgFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgNextToken :: Lens.Lens' DescribePatchGroups (Lude.Maybe Lude.Text)
-dpgNextToken = Lens.lens (nextToken :: DescribePatchGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePatchGroups)
-{-# DEPRECATED dpgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of patch groups to return (per page).
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgMaxResults :: Lens.Lens' DescribePatchGroups (Lude.Maybe Lude.Natural)
-dpgMaxResults = Lens.lens (maxResults :: DescribePatchGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribePatchGroups)
+dpgMaxResults :: Lens.Lens' DescribePatchGroups (Core.Maybe Core.Natural)
+dpgMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dpgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribePatchGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. dpgrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dpgrsMappings) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dpgNextToken Lens..~ rs Lens.^. dpgrsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgNextToken :: Lens.Lens' DescribePatchGroups (Core.Maybe Types.NextToken)
+dpgNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dpgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribePatchGroups where
+instance Core.FromJSON DescribePatchGroups where
+  toJSON DescribePatchGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribePatchGroups where
   type Rs DescribePatchGroups = DescribePatchGroupsResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DescribePatchGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribePatchGroupsResponse'
-            Lude.<$> (x Lude..?> "Mappings" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Mappings")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribePatchGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DescribePatchGroups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribePatchGroups where
-  toJSON DescribePatchGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribePatchGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribePatchGroups where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribePatchGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"mappings" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribePatchGroupsResponse' smart constructor.
 data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
@@ -192,32 +166,25 @@ data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
     --
     -- PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)
     -- PatchBaselineIdentity: A PatchBaselineIdentity element.
-    mappings :: Lude.Maybe [PatchGroupPatchBaselineMapping],
+    mappings :: Core.Maybe [Types.PatchGroupPatchBaselineMapping],
     -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePatchGroupsResponse' with the minimum fields required to make a request.
---
--- * 'mappings' - Each entry in the array contains:
---
--- PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)
--- PatchBaselineIdentity: A PatchBaselineIdentity element.
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePatchGroupsResponse' value with any optional fields omitted.
 mkDescribePatchGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePatchGroupsResponse
-mkDescribePatchGroupsResponse pResponseStatus_ =
+mkDescribePatchGroupsResponse responseStatus =
   DescribePatchGroupsResponse'
-    { mappings = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { mappings = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Each entry in the array contains:
@@ -226,20 +193,20 @@ mkDescribePatchGroupsResponse pResponseStatus_ =
 -- PatchBaselineIdentity: A PatchBaselineIdentity element.
 --
 -- /Note:/ Consider using 'mappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgrsMappings :: Lens.Lens' DescribePatchGroupsResponse (Lude.Maybe [PatchGroupPatchBaselineMapping])
-dpgrsMappings = Lens.lens (mappings :: DescribePatchGroupsResponse -> Lude.Maybe [PatchGroupPatchBaselineMapping]) (\s a -> s {mappings = a} :: DescribePatchGroupsResponse)
-{-# DEPRECATED dpgrsMappings "Use generic-lens or generic-optics with 'mappings' instead." #-}
+dpgrrsMappings :: Lens.Lens' DescribePatchGroupsResponse (Core.Maybe [Types.PatchGroupPatchBaselineMapping])
+dpgrrsMappings = Lens.field @"mappings"
+{-# DEPRECATED dpgrrsMappings "Use generic-lens or generic-optics with 'mappings' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgrsNextToken :: Lens.Lens' DescribePatchGroupsResponse (Lude.Maybe Lude.Text)
-dpgrsNextToken = Lens.lens (nextToken :: DescribePatchGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePatchGroupsResponse)
-{-# DEPRECATED dpgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dpgrrsNextToken :: Lens.Lens' DescribePatchGroupsResponse (Core.Maybe Types.NextToken)
+dpgrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dpgrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgrsResponseStatus :: Lens.Lens' DescribePatchGroupsResponse Lude.Int
-dpgrsResponseStatus = Lens.lens (responseStatus :: DescribePatchGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePatchGroupsResponse)
-{-# DEPRECATED dpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpgrrsResponseStatus :: Lens.Lens' DescribePatchGroupsResponse Core.Int
+dpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

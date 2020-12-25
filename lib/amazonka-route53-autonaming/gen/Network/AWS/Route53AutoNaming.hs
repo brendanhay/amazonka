@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,52 @@
 -- AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications run in. When an instance of the service becomes available, you can call the AWS Cloud Map API to register the instance with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer that contains up to eight healthy records.
 module Network.AWS.Route53AutoNaming
   ( -- * Service configuration
-    route53AutoNamingService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ResourceLimitExceeded
+    _ResourceLimitExceeded,
+
+    -- ** InvalidInput
+    _InvalidInput,
+
+    -- ** NamespaceAlreadyExists
+    _NamespaceAlreadyExists,
+
+    -- ** NamespaceNotFound
+    _NamespaceNotFound,
+
+    -- ** ServiceAlreadyExists
+    _ServiceAlreadyExists,
+
+    -- ** ResourceInUse
+    _ResourceInUse,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** CustomHealthNotFound
+    _CustomHealthNotFound,
+
+    -- ** RequestLimitExceeded
+    _RequestLimitExceeded,
+
+    -- ** InstanceNotFound
+    _InstanceNotFound,
+
+    -- ** DuplicateRequest
+    _DuplicateRequest,
+
+    -- ** ServiceNotFound
+    _ServiceNotFound,
+
+    -- ** OperationNotFound
+    _OperationNotFound,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -37,11 +78,11 @@ module Network.AWS.Route53AutoNaming
     -- ** ListOperations (Paginated)
     module Network.AWS.Route53AutoNaming.ListOperations,
 
-    -- ** CreateHTTPNamespace
-    module Network.AWS.Route53AutoNaming.CreateHTTPNamespace,
+    -- ** CreateHttpNamespace
+    module Network.AWS.Route53AutoNaming.CreateHttpNamespace,
 
-    -- ** CreatePublicDNSNamespace
-    module Network.AWS.Route53AutoNaming.CreatePublicDNSNamespace,
+    -- ** CreatePublicDnsNamespace
+    module Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace,
 
     -- ** GetInstance
     module Network.AWS.Route53AutoNaming.GetInstance,
@@ -82,8 +123,8 @@ module Network.AWS.Route53AutoNaming
     -- ** GetService
     module Network.AWS.Route53AutoNaming.GetService,
 
-    -- ** CreatePrivateDNSNamespace
-    module Network.AWS.Route53AutoNaming.CreatePrivateDNSNamespace,
+    -- ** CreatePrivateDnsNamespace
+    module Network.AWS.Route53AutoNaming.CreatePrivateDnsNamespace,
 
     -- ** UntagResource
     module Network.AWS.Route53AutoNaming.UntagResource,
@@ -96,103 +137,38 @@ module Network.AWS.Route53AutoNaming
 
     -- * Types
 
-    -- ** CustomHealthStatus
-    CustomHealthStatus (..),
-
-    -- ** FilterCondition
-    FilterCondition (..),
-
-    -- ** HealthCheckType
-    HealthCheckType (..),
-
-    -- ** HealthStatus
-    HealthStatus (..),
-
-    -- ** HealthStatusFilter
-    HealthStatusFilter (..),
-
     -- ** NamespaceFilterName
     NamespaceFilterName (..),
-
-    -- ** NamespaceType
-    NamespaceType (..),
-
-    -- ** OperationFilterName
-    OperationFilterName (..),
-
-    -- ** OperationStatus
-    OperationStatus (..),
-
-    -- ** OperationTargetType
-    OperationTargetType (..),
-
-    -- ** OperationType
-    OperationType (..),
-
-    -- ** RecordType
-    RecordType (..),
 
     -- ** RoutingPolicy
     RoutingPolicy (..),
 
+    -- ** DnsRecord
+    DnsRecord (..),
+    mkDnsRecord,
+    drType,
+    drTTL,
+
+    -- ** AttrKey
+    AttrKey (..),
+
+    -- ** OperationTargetType
+    OperationTargetType (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
     -- ** ServiceFilterName
     ServiceFilterName (..),
 
-    -- ** DNSConfig
-    DNSConfig (..),
-    mkDNSConfig,
-    dcRoutingPolicy,
-    dcNamespaceId,
-    dcDNSRecords,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** DNSConfigChange
-    DNSConfigChange (..),
-    mkDNSConfigChange,
-    dccDNSRecords,
-
-    -- ** DNSProperties
-    DNSProperties (..),
-    mkDNSProperties,
-    dpHostedZoneId,
-
-    -- ** DNSRecord
-    DNSRecord (..),
-    mkDNSRecord,
-    drTTL,
-    drType,
-
-    -- ** HTTPInstanceSummary
-    HTTPInstanceSummary (..),
-    mkHTTPInstanceSummary,
-    httpisInstanceId,
-    httpisNamespaceName,
-    httpisAttributes,
-    httpisServiceName,
-    httpisHealthStatus,
-
-    -- ** HTTPProperties
-    HTTPProperties (..),
-    mkHTTPProperties,
-    httppHTTPName,
-
-    -- ** HealthCheckConfig
-    HealthCheckConfig (..),
-    mkHealthCheckConfig,
-    hccFailureThreshold,
-    hccResourcePath,
-    hccType,
-
-    -- ** HealthCheckCustomConfig
-    HealthCheckCustomConfig (..),
-    mkHealthCheckCustomConfig,
-    hcccFailureThreshold,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iCreatorRequestId,
-    iAttributes,
-    iId,
+    -- ** OperationFilterName
+    OperationFilterName (..),
 
     -- ** InstanceSummary
     InstanceSummary (..),
@@ -200,133 +176,262 @@ module Network.AWS.Route53AutoNaming
     isAttributes,
     isId,
 
-    -- ** Namespace
-    Namespace (..),
-    mkNamespace,
-    nARN,
-    nCreatorRequestId,
-    nCreateDate,
-    nServiceCount,
-    nName,
-    nId,
-    nType,
-    nDescription,
-    nProperties,
-
-    -- ** NamespaceFilter
-    NamespaceFilter (..),
-    mkNamespaceFilter,
-    nfValues,
-    nfName,
-    nfCondition,
-
-    -- ** NamespaceProperties
-    NamespaceProperties (..),
-    mkNamespaceProperties,
-    npDNSProperties,
-    npHTTPProperties,
-
-    -- ** NamespaceSummary
-    NamespaceSummary (..),
-    mkNamespaceSummary,
-    nsARN,
-    nsCreateDate,
-    nsServiceCount,
-    nsName,
-    nsId,
-    nsType,
-    nsDescription,
-    nsProperties,
-
-    -- ** Operation
-    Operation (..),
-    mkOperation,
-    oStatus,
-    oUpdateDate,
-    oCreateDate,
-    oTargets,
-    oErrorCode,
-    oId,
-    oType,
-    oErrorMessage,
-
-    -- ** OperationFilter
-    OperationFilter (..),
-    mkOperationFilter,
-    ofValues,
-    ofName,
-    ofCondition,
-
-    -- ** OperationSummary
-    OperationSummary (..),
-    mkOperationSummary,
-    osStatus,
-    osId,
-
-    -- ** ServiceChange
-    ServiceChange (..),
-    mkServiceChange,
-    scHealthCheckConfig,
-    scDNSConfig,
-    scDescription,
-
-    -- ** ServiceFilter
-    ServiceFilter (..),
-    mkServiceFilter,
-    sfValues,
-    sfName,
-    sfCondition,
+    -- ** Arn
+    Arn (..),
 
     -- ** ServiceInfo
     ServiceInfo (..),
     mkServiceInfo,
-    siInstanceCount,
-    siARN,
-    siHealthCheckConfig,
-    siCreatorRequestId,
+    siArn,
     siCreateDate,
-    siHealthCheckCustomConfig,
-    siNamespaceId,
-    siName,
-    siId,
-    siDNSConfig,
+    siCreatorRequestId,
     siDescription,
+    siDnsConfig,
+    siHealthCheckConfig,
+    siHealthCheckCustomConfig,
+    siId,
+    siInstanceCount,
+    siName,
+    siNamespaceId,
+
+    -- ** Operation
+    Operation (..),
+    mkOperation,
+    oCreateDate,
+    oErrorCode,
+    oErrorMessage,
+    oId,
+    oStatus,
+    oTargets,
+    oType,
+    oUpdateDate,
+
+    -- ** RecordType
+    RecordType (..),
+
+    -- ** DnsConfigChange
+    DnsConfigChange (..),
+    mkDnsConfigChange,
+    dccDnsRecords,
+
+    -- ** HealthStatusFilter
+    HealthStatusFilter (..),
+
+    -- ** HealthCheckConfig
+    HealthCheckConfig (..),
+    mkHealthCheckConfig,
+    hccType,
+    hccFailureThreshold,
+    hccResourcePath,
+
+    -- ** DnsProperties
+    DnsProperties (..),
+    mkDnsProperties,
+    dpHostedZoneId,
+
+    -- ** FilterCondition
+    FilterCondition (..),
+
+    -- ** Namespace
+    Namespace (..),
+    mkNamespace,
+    nArn,
+    nCreateDate,
+    nCreatorRequestId,
+    nDescription,
+    nId,
+    nName,
+    nProperties,
+    nServiceCount,
+    nType,
+
+    -- ** HealthCheckCustomConfig
+    HealthCheckCustomConfig (..),
+    mkHealthCheckCustomConfig,
+    hcccFailureThreshold,
+
+    -- ** OperationStatus
+    OperationStatus (..),
+
+    -- ** HttpProperties
+    HttpProperties (..),
+    mkHttpProperties,
+    hpHttpName,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ResourceDescription
+    ResourceDescription (..),
+
+    -- ** NamespaceName
+    NamespaceName (..),
+
+    -- ** NamespaceSummary
+    NamespaceSummary (..),
+    mkNamespaceSummary,
+    nsArn,
+    nsCreateDate,
+    nsDescription,
+    nsId,
+    nsName,
+    nsProperties,
+    nsServiceCount,
+    nsType,
+
+    -- ** ResourcePath
+    ResourcePath (..),
+
+    -- ** ServiceName
+    ServiceName (..),
+
+    -- ** NamespaceProperties
+    NamespaceProperties (..),
+    mkNamespaceProperties,
+    npDnsProperties,
+    npHttpProperties,
+
+    -- ** HealthCheckType
+    HealthCheckType (..),
+
+    -- ** OperationFilter
+    OperationFilter (..),
+    mkOperationFilter,
+    ofName,
+    ofValues,
+    ofCondition,
+
+    -- ** OperationType
+    OperationType (..),
+
+    -- ** HttpInstanceSummary
+    HttpInstanceSummary (..),
+    mkHttpInstanceSummary,
+    hisAttributes,
+    hisHealthStatus,
+    hisInstanceId,
+    hisNamespaceName,
+    hisServiceName,
+
+    -- ** ServiceFilter
+    ServiceFilter (..),
+    mkServiceFilter,
+    sfName,
+    sfValues,
+    sfCondition,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** OperationId
+    OperationId (..),
+
+    -- ** AttrValue
+    AttrValue (..),
+
+    -- ** HealthStatus
+    HealthStatus (..),
+
+    -- ** FilterValue
+    FilterValue (..),
+
+    -- ** DnsConfig
+    DnsConfig (..),
+    mkDnsConfig,
+    dcDnsRecords,
+    dcNamespaceId,
+    dcRoutingPolicy,
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** NamespaceFilter
+    NamespaceFilter (..),
+    mkNamespaceFilter,
+    nfName,
+    nfValues,
+    nfCondition,
+
+    -- ** CustomHealthStatus
+    CustomHealthStatus (..),
+
+    -- ** ServiceChange
+    ServiceChange (..),
+    mkServiceChange,
+    scDescription,
+    scDnsConfig,
+    scHealthCheckConfig,
+
+    -- ** NamespaceType
+    NamespaceType (..),
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iId,
+    iAttributes,
+    iCreatorRequestId,
+
+    -- ** OperationSummary
+    OperationSummary (..),
+    mkOperationSummary,
+    osId,
+    osStatus,
 
     -- ** ServiceSummary
     ServiceSummary (..),
     mkServiceSummary,
-    ssInstanceCount,
-    ssARN,
-    ssHealthCheckConfig,
+    ssArn,
     ssCreateDate,
-    ssHealthCheckCustomConfig,
-    ssName,
-    ssId,
-    ssDNSConfig,
     ssDescription,
+    ssDnsConfig,
+    ssHealthCheckConfig,
+    ssHealthCheckCustomConfig,
+    ssId,
+    ssInstanceCount,
+    ssName,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** HttpName
+    HttpName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
 import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53AutoNaming.CreateHTTPNamespace
-import Network.AWS.Route53AutoNaming.CreatePrivateDNSNamespace
-import Network.AWS.Route53AutoNaming.CreatePublicDNSNamespace
+import Network.AWS.Route53AutoNaming.CreateHttpNamespace
+import Network.AWS.Route53AutoNaming.CreatePrivateDnsNamespace
+import Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace
 import Network.AWS.Route53AutoNaming.CreateService
 import Network.AWS.Route53AutoNaming.DeleteNamespace
 import Network.AWS.Route53AutoNaming.DeleteService

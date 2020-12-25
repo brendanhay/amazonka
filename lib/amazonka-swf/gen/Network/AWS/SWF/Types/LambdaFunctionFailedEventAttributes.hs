@@ -18,90 +18,84 @@ module Network.AWS.SWF.Types.LambdaFunctionFailedEventAttributes
 
     -- * Lenses
     lffeaScheduledEventId,
-    lffeaReason,
-    lffeaDetails,
     lffeaStartedEventId,
+    lffeaDetails,
+    lffeaReason,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.FailureReason as Types
 
 -- | Provides the details of the @LambdaFunctionFailed@ event. It isn't set for other event types.
 --
 -- /See:/ 'mkLambdaFunctionFailedEventAttributes' smart constructor.
 data LambdaFunctionFailedEventAttributes = LambdaFunctionFailedEventAttributes'
   { -- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
-    scheduledEventId :: Lude.Integer,
-    -- | The reason provided for the failure.
-    reason :: Lude.Maybe Lude.Text,
-    -- | The details of the failure.
-    details :: Lude.Maybe Lude.Text,
+    scheduledEventId :: Core.Integer,
     -- | The ID of the @LambdaFunctionStarted@ event recorded when this activity task started. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
-    startedEventId :: Lude.Integer
+    startedEventId :: Core.Integer,
+    -- | The details of the failure.
+    details :: Core.Maybe Types.Data,
+    -- | The reason provided for the failure.
+    reason :: Core.Maybe Types.FailureReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaFunctionFailedEventAttributes' with the minimum fields required to make a request.
---
--- * 'scheduledEventId' - The ID of the @LambdaFunctionScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
--- * 'reason' - The reason provided for the failure.
--- * 'details' - The details of the failure.
--- * 'startedEventId' - The ID of the @LambdaFunctionStarted@ event recorded when this activity task started. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+-- | Creates a 'LambdaFunctionFailedEventAttributes' value with any optional fields omitted.
 mkLambdaFunctionFailedEventAttributes ::
   -- | 'scheduledEventId'
-  Lude.Integer ->
+  Core.Integer ->
   -- | 'startedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   LambdaFunctionFailedEventAttributes
 mkLambdaFunctionFailedEventAttributes
-  pScheduledEventId_
-  pStartedEventId_ =
+  scheduledEventId
+  startedEventId =
     LambdaFunctionFailedEventAttributes'
-      { scheduledEventId =
-          pScheduledEventId_,
-        reason = Lude.Nothing,
-        details = Lude.Nothing,
-        startedEventId = pStartedEventId_
+      { scheduledEventId,
+        startedEventId,
+        details = Core.Nothing,
+        reason = Core.Nothing
       }
 
 -- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lffeaScheduledEventId :: Lens.Lens' LambdaFunctionFailedEventAttributes Lude.Integer
-lffeaScheduledEventId = Lens.lens (scheduledEventId :: LambdaFunctionFailedEventAttributes -> Lude.Integer) (\s a -> s {scheduledEventId = a} :: LambdaFunctionFailedEventAttributes)
+lffeaScheduledEventId :: Lens.Lens' LambdaFunctionFailedEventAttributes Core.Integer
+lffeaScheduledEventId = Lens.field @"scheduledEventId"
 {-# DEPRECATED lffeaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
-
--- | The reason provided for the failure.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lffeaReason :: Lens.Lens' LambdaFunctionFailedEventAttributes (Lude.Maybe Lude.Text)
-lffeaReason = Lens.lens (reason :: LambdaFunctionFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: LambdaFunctionFailedEventAttributes)
-{-# DEPRECATED lffeaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
--- | The details of the failure.
---
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lffeaDetails :: Lens.Lens' LambdaFunctionFailedEventAttributes (Lude.Maybe Lude.Text)
-lffeaDetails = Lens.lens (details :: LambdaFunctionFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: LambdaFunctionFailedEventAttributes)
-{-# DEPRECATED lffeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The ID of the @LambdaFunctionStarted@ event recorded when this activity task started. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lffeaStartedEventId :: Lens.Lens' LambdaFunctionFailedEventAttributes Lude.Integer
-lffeaStartedEventId = Lens.lens (startedEventId :: LambdaFunctionFailedEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: LambdaFunctionFailedEventAttributes)
+lffeaStartedEventId :: Lens.Lens' LambdaFunctionFailedEventAttributes Core.Integer
+lffeaStartedEventId = Lens.field @"startedEventId"
 {-# DEPRECATED lffeaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
 
-instance Lude.FromJSON LambdaFunctionFailedEventAttributes where
+-- | The details of the failure.
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lffeaDetails :: Lens.Lens' LambdaFunctionFailedEventAttributes (Core.Maybe Types.Data)
+lffeaDetails = Lens.field @"details"
+{-# DEPRECATED lffeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+
+-- | The reason provided for the failure.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lffeaReason :: Lens.Lens' LambdaFunctionFailedEventAttributes (Core.Maybe Types.FailureReason)
+lffeaReason = Lens.field @"reason"
+{-# DEPRECATED lffeaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromJSON LambdaFunctionFailedEventAttributes where
   parseJSON =
-    Lude.withObject
-      "LambdaFunctionFailedEventAttributes"
-      ( \x ->
-          LambdaFunctionFailedEventAttributes'
-            Lude.<$> (x Lude..: "scheduledEventId")
-            Lude.<*> (x Lude..:? "reason")
-            Lude.<*> (x Lude..:? "details")
-            Lude.<*> (x Lude..: "startedEventId")
-      )
+    Core.withObject "LambdaFunctionFailedEventAttributes" Core.$
+      \x ->
+        LambdaFunctionFailedEventAttributes'
+          Core.<$> (x Core..: "scheduledEventId")
+          Core.<*> (x Core..: "startedEventId")
+          Core.<*> (x Core..:? "details")
+          Core.<*> (x Core..:? "reason")

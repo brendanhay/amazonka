@@ -17,60 +17,55 @@ module Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
     mkSnapshotOptionsStatus,
 
     -- * Lenses
-    sosStatus,
     sosOptions,
+    sosStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.OptionStatus
-import Network.AWS.ElasticSearch.Types.SnapshotOptions
+import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
+import qualified Network.AWS.ElasticSearch.Types.SnapshotOptions as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Status of a daily automated snapshot.
 --
 -- /See:/ 'mkSnapshotOptionsStatus' smart constructor.
 data SnapshotOptionsStatus = SnapshotOptionsStatus'
-  { -- | Specifies the status of a daily automated snapshot.
-    status :: OptionStatus,
-    -- | Specifies the daily snapshot options specified for the Elasticsearch domain.
-    options :: SnapshotOptions
+  { -- | Specifies the daily snapshot options specified for the Elasticsearch domain.
+    options :: Types.SnapshotOptions,
+    -- | Specifies the status of a daily automated snapshot.
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SnapshotOptionsStatus' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of a daily automated snapshot.
--- * 'options' - Specifies the daily snapshot options specified for the Elasticsearch domain.
+-- | Creates a 'SnapshotOptionsStatus' value with any optional fields omitted.
 mkSnapshotOptionsStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  SnapshotOptions ->
+  Types.SnapshotOptions ->
+  -- | 'status'
+  Types.OptionStatus ->
   SnapshotOptionsStatus
-mkSnapshotOptionsStatus pStatus_ pOptions_ =
-  SnapshotOptionsStatus' {status = pStatus_, options = pOptions_}
-
--- | Specifies the status of a daily automated snapshot.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sosStatus :: Lens.Lens' SnapshotOptionsStatus OptionStatus
-sosStatus = Lens.lens (status :: SnapshotOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: SnapshotOptionsStatus)
-{-# DEPRECATED sosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkSnapshotOptionsStatus options status =
+  SnapshotOptionsStatus' {options, status}
 
 -- | Specifies the daily snapshot options specified for the Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sosOptions :: Lens.Lens' SnapshotOptionsStatus SnapshotOptions
-sosOptions = Lens.lens (options :: SnapshotOptionsStatus -> SnapshotOptions) (\s a -> s {options = a} :: SnapshotOptionsStatus)
+sosOptions :: Lens.Lens' SnapshotOptionsStatus Types.SnapshotOptions
+sosOptions = Lens.field @"options"
 {-# DEPRECATED sosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromJSON SnapshotOptionsStatus where
+-- | Specifies the status of a daily automated snapshot.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sosStatus :: Lens.Lens' SnapshotOptionsStatus Types.OptionStatus
+sosStatus = Lens.field @"status"
+{-# DEPRECATED sosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON SnapshotOptionsStatus where
   parseJSON =
-    Lude.withObject
-      "SnapshotOptionsStatus"
-      ( \x ->
-          SnapshotOptionsStatus'
-            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
-      )
+    Core.withObject "SnapshotOptionsStatus" Core.$
+      \x ->
+        SnapshotOptionsStatus'
+          Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")

@@ -17,67 +17,64 @@ module Network.AWS.SageMaker.Types.CategoricalParameterRange
     mkCategoricalParameterRange,
 
     -- * Lenses
-    cprValues,
     cprName,
+    cprValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ParameterKey as Types
+import qualified Network.AWS.SageMaker.Types.ParameterValue as Types
 
 -- | A list of categorical hyperparameters to tune.
 --
 -- /See:/ 'mkCategoricalParameterRange' smart constructor.
 data CategoricalParameterRange = CategoricalParameterRange'
-  { -- | A list of the categories for the hyperparameter.
-    values :: Lude.NonEmpty Lude.Text,
-    -- | The name of the categorical hyperparameter to tune.
-    name :: Lude.Text
+  { -- | The name of the categorical hyperparameter to tune.
+    name :: Types.ParameterKey,
+    -- | A list of the categories for the hyperparameter.
+    values :: Core.NonEmpty Types.ParameterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CategoricalParameterRange' with the minimum fields required to make a request.
---
--- * 'values' - A list of the categories for the hyperparameter.
--- * 'name' - The name of the categorical hyperparameter to tune.
+-- | Creates a 'CategoricalParameterRange' value with any optional fields omitted.
 mkCategoricalParameterRange ::
-  -- | 'values'
-  Lude.NonEmpty Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.ParameterKey ->
+  -- | 'values'
+  Core.NonEmpty Types.ParameterValue ->
   CategoricalParameterRange
-mkCategoricalParameterRange pValues_ pName_ =
-  CategoricalParameterRange' {values = pValues_, name = pName_}
-
--- | A list of the categories for the hyperparameter.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprValues :: Lens.Lens' CategoricalParameterRange (Lude.NonEmpty Lude.Text)
-cprValues = Lens.lens (values :: CategoricalParameterRange -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: CategoricalParameterRange)
-{-# DEPRECATED cprValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkCategoricalParameterRange name values =
+  CategoricalParameterRange' {name, values}
 
 -- | The name of the categorical hyperparameter to tune.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprName :: Lens.Lens' CategoricalParameterRange Lude.Text
-cprName = Lens.lens (name :: CategoricalParameterRange -> Lude.Text) (\s a -> s {name = a} :: CategoricalParameterRange)
+cprName :: Lens.Lens' CategoricalParameterRange Types.ParameterKey
+cprName = Lens.field @"name"
 {-# DEPRECATED cprName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON CategoricalParameterRange where
-  parseJSON =
-    Lude.withObject
-      "CategoricalParameterRange"
-      ( \x ->
-          CategoricalParameterRange'
-            Lude.<$> (x Lude..: "Values") Lude.<*> (x Lude..: "Name")
-      )
+-- | A list of the categories for the hyperparameter.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprValues :: Lens.Lens' CategoricalParameterRange (Core.NonEmpty Types.ParameterValue)
+cprValues = Lens.field @"values"
+{-# DEPRECATED cprValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.ToJSON CategoricalParameterRange where
-  toJSON CategoricalParameterRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Name" Lude..= name)
+instance Core.FromJSON CategoricalParameterRange where
+  toJSON CategoricalParameterRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Values" Core..= values)
           ]
       )
+
+instance Core.FromJSON CategoricalParameterRange where
+  parseJSON =
+    Core.withObject "CategoricalParameterRange" Core.$
+      \x ->
+        CategoricalParameterRange'
+          Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Values")

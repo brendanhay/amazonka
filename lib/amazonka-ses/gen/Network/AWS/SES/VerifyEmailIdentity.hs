@@ -29,91 +29,90 @@ module Network.AWS.SES.VerifyEmailIdentity
     mkVerifyEmailIdentityResponse,
 
     -- ** Response lenses
-    veirsResponseStatus,
+    veirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkVerifyEmailIdentity' smart constructor.
 newtype VerifyEmailIdentity = VerifyEmailIdentity'
   { -- | The email address to be verified.
-    emailAddress :: Lude.Text
+    emailAddress :: Types.Address
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyEmailIdentity' with the minimum fields required to make a request.
---
--- * 'emailAddress' - The email address to be verified.
+-- | Creates a 'VerifyEmailIdentity' value with any optional fields omitted.
 mkVerifyEmailIdentity ::
   -- | 'emailAddress'
-  Lude.Text ->
+  Types.Address ->
   VerifyEmailIdentity
-mkVerifyEmailIdentity pEmailAddress_ =
-  VerifyEmailIdentity' {emailAddress = pEmailAddress_}
+mkVerifyEmailIdentity emailAddress =
+  VerifyEmailIdentity' {emailAddress}
 
 -- | The email address to be verified.
 --
 -- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-veiEmailAddress :: Lens.Lens' VerifyEmailIdentity Lude.Text
-veiEmailAddress = Lens.lens (emailAddress :: VerifyEmailIdentity -> Lude.Text) (\s a -> s {emailAddress = a} :: VerifyEmailIdentity)
+veiEmailAddress :: Lens.Lens' VerifyEmailIdentity Types.Address
+veiEmailAddress = Lens.field @"emailAddress"
 {-# DEPRECATED veiEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
 
-instance Lude.AWSRequest VerifyEmailIdentity where
+instance Core.AWSRequest VerifyEmailIdentity where
   type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "VerifyEmailIdentity")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EmailAddress" emailAddress)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "VerifyEmailIdentityResult"
       ( \s h x ->
           VerifyEmailIdentityResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders VerifyEmailIdentity where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath VerifyEmailIdentity where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery VerifyEmailIdentity where
-  toQuery VerifyEmailIdentity' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("VerifyEmailIdentity" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "EmailAddress" Lude.=: emailAddress
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkVerifyEmailIdentityResponse' smart constructor.
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyEmailIdentityResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'VerifyEmailIdentityResponse' value with any optional fields omitted.
 mkVerifyEmailIdentityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   VerifyEmailIdentityResponse
-mkVerifyEmailIdentityResponse pResponseStatus_ =
-  VerifyEmailIdentityResponse' {responseStatus = pResponseStatus_}
+mkVerifyEmailIdentityResponse responseStatus =
+  VerifyEmailIdentityResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-veirsResponseStatus :: Lens.Lens' VerifyEmailIdentityResponse Lude.Int
-veirsResponseStatus = Lens.lens (responseStatus :: VerifyEmailIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: VerifyEmailIdentityResponse)
-{-# DEPRECATED veirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+veirrsResponseStatus :: Lens.Lens' VerifyEmailIdentityResponse Core.Int
+veirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED veirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

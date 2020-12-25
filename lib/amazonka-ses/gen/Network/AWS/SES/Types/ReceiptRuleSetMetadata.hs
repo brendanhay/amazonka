@@ -17,13 +17,14 @@ module Network.AWS.SES.Types.ReceiptRuleSetMetadata
     mkReceiptRuleSetMetadata,
 
     -- * Lenses
-    rrsmName,
     rrsmCreatedTimestamp,
+    rrsmName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.ReceiptRuleSetName as Types
 
 -- | Information about a receipt rule set.
 --
@@ -32,7 +33,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReceiptRuleSetMetadata' smart constructor.
 data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
-  { -- | The name of the receipt rule set. The name must:
+  { -- | The date and time the receipt rule set was created.
+    createdTimestamp :: Core.Maybe Core.UTCTime,
+    -- | The name of the receipt rule set. The name must:
     --
     --
     --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
@@ -42,35 +45,26 @@ data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
     --
     --
     --     * Contain less than 64 characters.
-    name :: Lude.Maybe Lude.Text,
-    -- | The date and time the receipt rule set was created.
-    createdTimestamp :: Lude.Maybe Lude.DateTime
+    name :: Core.Maybe Types.ReceiptRuleSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ReceiptRuleSetMetadata' with the minimum fields required to make a request.
---
--- * 'name' - The name of the receipt rule set. The name must:
---
---
---     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
---
---
---     * Start and end with a letter or number.
---
---
---     * Contain less than 64 characters.
---
---
--- * 'createdTimestamp' - The date and time the receipt rule set was created.
+-- | Creates a 'ReceiptRuleSetMetadata' value with any optional fields omitted.
 mkReceiptRuleSetMetadata ::
   ReceiptRuleSetMetadata
 mkReceiptRuleSetMetadata =
   ReceiptRuleSetMetadata'
-    { name = Lude.Nothing,
-      createdTimestamp = Lude.Nothing
+    { createdTimestamp = Core.Nothing,
+      name = Core.Nothing
     }
+
+-- | The date and time the receipt rule set was created.
+--
+-- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsmCreatedTimestamp :: Lens.Lens' ReceiptRuleSetMetadata (Core.Maybe Core.UTCTime)
+rrsmCreatedTimestamp = Lens.field @"createdTimestamp"
+{-# DEPRECATED rrsmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
 -- | The name of the receipt rule set. The name must:
 --
@@ -86,18 +80,11 @@ mkReceiptRuleSetMetadata =
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsmName :: Lens.Lens' ReceiptRuleSetMetadata (Lude.Maybe Lude.Text)
-rrsmName = Lens.lens (name :: ReceiptRuleSetMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ReceiptRuleSetMetadata)
+rrsmName :: Lens.Lens' ReceiptRuleSetMetadata (Core.Maybe Types.ReceiptRuleSetName)
+rrsmName = Lens.field @"name"
 {-# DEPRECATED rrsmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The date and time the receipt rule set was created.
---
--- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsmCreatedTimestamp :: Lens.Lens' ReceiptRuleSetMetadata (Lude.Maybe Lude.DateTime)
-rrsmCreatedTimestamp = Lens.lens (createdTimestamp :: ReceiptRuleSetMetadata -> Lude.Maybe Lude.DateTime) (\s a -> s {createdTimestamp = a} :: ReceiptRuleSetMetadata)
-{-# DEPRECATED rrsmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
-
-instance Lude.FromXML ReceiptRuleSetMetadata where
+instance Core.FromXML ReceiptRuleSetMetadata where
   parseXML x =
     ReceiptRuleSetMetadata'
-      Lude.<$> (x Lude..@? "Name") Lude.<*> (x Lude..@? "CreatedTimestamp")
+      Core.<$> (x Core..@? "CreatedTimestamp") Core.<*> (x Core..@? "Name")

@@ -17,66 +17,60 @@ module Network.AWS.Pinpoint.Types.SegmentGroupList
     mkSegmentGroupList,
 
     -- * Lenses
-    sglInclude,
     sglGroups,
+    sglInclude,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.Include
-import Network.AWS.Pinpoint.Types.SegmentGroup
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.Include as Types
+import qualified Network.AWS.Pinpoint.Types.SegmentGroup as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the settings that define the relationships between segment groups for a segment.
 --
 -- /See:/ 'mkSegmentGroupList' smart constructor.
 data SegmentGroupList = SegmentGroupList'
-  { -- | Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
-    include :: Lude.Maybe Include,
-    -- | An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
-    groups :: Lude.Maybe [SegmentGroup]
+  { -- | An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+    groups :: Core.Maybe [Types.SegmentGroup],
+    -- | Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
+    include :: Core.Maybe Types.Include
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SegmentGroupList' with the minimum fields required to make a request.
---
--- * 'include' - Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
--- * 'groups' - An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+-- | Creates a 'SegmentGroupList' value with any optional fields omitted.
 mkSegmentGroupList ::
   SegmentGroupList
 mkSegmentGroupList =
-  SegmentGroupList' {include = Lude.Nothing, groups = Lude.Nothing}
-
--- | Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
---
--- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sglInclude :: Lens.Lens' SegmentGroupList (Lude.Maybe Include)
-sglInclude = Lens.lens (include :: SegmentGroupList -> Lude.Maybe Include) (\s a -> s {include = a} :: SegmentGroupList)
-{-# DEPRECATED sglInclude "Use generic-lens or generic-optics with 'include' instead." #-}
+  SegmentGroupList' {groups = Core.Nothing, include = Core.Nothing}
 
 -- | An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 --
 -- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sglGroups :: Lens.Lens' SegmentGroupList (Lude.Maybe [SegmentGroup])
-sglGroups = Lens.lens (groups :: SegmentGroupList -> Lude.Maybe [SegmentGroup]) (\s a -> s {groups = a} :: SegmentGroupList)
+sglGroups :: Lens.Lens' SegmentGroupList (Core.Maybe [Types.SegmentGroup])
+sglGroups = Lens.field @"groups"
 {-# DEPRECATED sglGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
-instance Lude.FromJSON SegmentGroupList where
-  parseJSON =
-    Lude.withObject
-      "SegmentGroupList"
-      ( \x ->
-          SegmentGroupList'
-            Lude.<$> (x Lude..:? "Include")
-            Lude.<*> (x Lude..:? "Groups" Lude..!= Lude.mempty)
-      )
+-- | Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
+--
+-- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sglInclude :: Lens.Lens' SegmentGroupList (Core.Maybe Types.Include)
+sglInclude = Lens.field @"include"
+{-# DEPRECATED sglInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
-instance Lude.ToJSON SegmentGroupList where
-  toJSON SegmentGroupList' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Include" Lude..=) Lude.<$> include,
-            ("Groups" Lude..=) Lude.<$> groups
+instance Core.FromJSON SegmentGroupList where
+  toJSON SegmentGroupList {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Groups" Core..=) Core.<$> groups,
+            ("Include" Core..=) Core.<$> include
           ]
       )
+
+instance Core.FromJSON SegmentGroupList where
+  parseJSON =
+    Core.withObject "SegmentGroupList" Core.$
+      \x ->
+        SegmentGroupList'
+          Core.<$> (x Core..:? "Groups") Core.<*> (x Core..:? "Include")

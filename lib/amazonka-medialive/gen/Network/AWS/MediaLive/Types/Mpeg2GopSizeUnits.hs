@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Mpeg2GopSizeUnits
   ( Mpeg2GopSizeUnits
       ( Mpeg2GopSizeUnits',
-        MGSUFrames,
-        MGSUSeconds
+        Mpeg2GopSizeUnitsFrames,
+        Mpeg2GopSizeUnitsSeconds,
+        fromMpeg2GopSizeUnits
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Mpeg2 Gop Size Units
-newtype Mpeg2GopSizeUnits = Mpeg2GopSizeUnits' Lude.Text
+newtype Mpeg2GopSizeUnits = Mpeg2GopSizeUnits'
+  { fromMpeg2GopSizeUnits ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MGSUFrames :: Mpeg2GopSizeUnits
-pattern MGSUFrames = Mpeg2GopSizeUnits' "FRAMES"
+pattern Mpeg2GopSizeUnitsFrames :: Mpeg2GopSizeUnits
+pattern Mpeg2GopSizeUnitsFrames = Mpeg2GopSizeUnits' "FRAMES"
 
-pattern MGSUSeconds :: Mpeg2GopSizeUnits
-pattern MGSUSeconds = Mpeg2GopSizeUnits' "SECONDS"
+pattern Mpeg2GopSizeUnitsSeconds :: Mpeg2GopSizeUnits
+pattern Mpeg2GopSizeUnitsSeconds = Mpeg2GopSizeUnits' "SECONDS"
 
 {-# COMPLETE
-  MGSUFrames,
-  MGSUSeconds,
+  Mpeg2GopSizeUnitsFrames,
+  Mpeg2GopSizeUnitsSeconds,
   Mpeg2GopSizeUnits'
   #-}

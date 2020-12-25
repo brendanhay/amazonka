@@ -21,36 +21,34 @@ module Network.AWS.ECR.Types.LifecyclePolicyPreviewFilter
   )
 where
 
-import Network.AWS.ECR.Types.TagStatus
+import qualified Network.AWS.ECR.Types.TagStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The filter for the lifecycle policy preview.
 --
 -- /See:/ 'mkLifecyclePolicyPreviewFilter' smart constructor.
 newtype LifecyclePolicyPreviewFilter = LifecyclePolicyPreviewFilter'
   { -- | The tag status of the image.
-    tagStatus :: Lude.Maybe TagStatus
+    tagStatus :: Core.Maybe Types.TagStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LifecyclePolicyPreviewFilter' with the minimum fields required to make a request.
---
--- * 'tagStatus' - The tag status of the image.
+-- | Creates a 'LifecyclePolicyPreviewFilter' value with any optional fields omitted.
 mkLifecyclePolicyPreviewFilter ::
   LifecyclePolicyPreviewFilter
 mkLifecyclePolicyPreviewFilter =
-  LifecyclePolicyPreviewFilter' {tagStatus = Lude.Nothing}
+  LifecyclePolicyPreviewFilter' {tagStatus = Core.Nothing}
 
 -- | The tag status of the image.
 --
 -- /Note:/ Consider using 'tagStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lppfTagStatus :: Lens.Lens' LifecyclePolicyPreviewFilter (Lude.Maybe TagStatus)
-lppfTagStatus = Lens.lens (tagStatus :: LifecyclePolicyPreviewFilter -> Lude.Maybe TagStatus) (\s a -> s {tagStatus = a} :: LifecyclePolicyPreviewFilter)
+lppfTagStatus :: Lens.Lens' LifecyclePolicyPreviewFilter (Core.Maybe Types.TagStatus)
+lppfTagStatus = Lens.field @"tagStatus"
 {-# DEPRECATED lppfTagStatus "Use generic-lens or generic-optics with 'tagStatus' instead." #-}
 
-instance Lude.ToJSON LifecyclePolicyPreviewFilter where
-  toJSON LifecyclePolicyPreviewFilter' {..} =
-    Lude.object
-      (Lude.catMaybes [("tagStatus" Lude..=) Lude.<$> tagStatus])
+instance Core.FromJSON LifecyclePolicyPreviewFilter where
+  toJSON LifecyclePolicyPreviewFilter {..} =
+    Core.object
+      (Core.catMaybes [("tagStatus" Core..=) Core.<$> tagStatus])

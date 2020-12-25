@@ -22,52 +22,48 @@ module Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.ElasticsearchVersionString as Types
+import qualified Network.AWS.ElasticSearch.Types.SourceVersion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A map from an @'ElasticsearchVersion' @ to a list of compatible @'ElasticsearchVersion' @ s to which the domain can be upgraded.
 --
 -- /See:/ 'mkCompatibleVersionsMap' smart constructor.
 data CompatibleVersionsMap = CompatibleVersionsMap'
   { -- | The current version of Elasticsearch on which a domain is.
-    sourceVersion :: Lude.Maybe Lude.Text,
-    targetVersions :: Lude.Maybe [Lude.Text]
+    sourceVersion :: Core.Maybe Types.SourceVersion,
+    targetVersions :: Core.Maybe [Types.ElasticsearchVersionString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CompatibleVersionsMap' with the minimum fields required to make a request.
---
--- * 'sourceVersion' - The current version of Elasticsearch on which a domain is.
--- * 'targetVersions' -
+-- | Creates a 'CompatibleVersionsMap' value with any optional fields omitted.
 mkCompatibleVersionsMap ::
   CompatibleVersionsMap
 mkCompatibleVersionsMap =
   CompatibleVersionsMap'
-    { sourceVersion = Lude.Nothing,
-      targetVersions = Lude.Nothing
+    { sourceVersion = Core.Nothing,
+      targetVersions = Core.Nothing
     }
 
 -- | The current version of Elasticsearch on which a domain is.
 --
 -- /Note:/ Consider using 'sourceVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvmSourceVersion :: Lens.Lens' CompatibleVersionsMap (Lude.Maybe Lude.Text)
-cvmSourceVersion = Lens.lens (sourceVersion :: CompatibleVersionsMap -> Lude.Maybe Lude.Text) (\s a -> s {sourceVersion = a} :: CompatibleVersionsMap)
+cvmSourceVersion :: Lens.Lens' CompatibleVersionsMap (Core.Maybe Types.SourceVersion)
+cvmSourceVersion = Lens.field @"sourceVersion"
 {-# DEPRECATED cvmSourceVersion "Use generic-lens or generic-optics with 'sourceVersion' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'targetVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvmTargetVersions :: Lens.Lens' CompatibleVersionsMap (Lude.Maybe [Lude.Text])
-cvmTargetVersions = Lens.lens (targetVersions :: CompatibleVersionsMap -> Lude.Maybe [Lude.Text]) (\s a -> s {targetVersions = a} :: CompatibleVersionsMap)
+cvmTargetVersions :: Lens.Lens' CompatibleVersionsMap (Core.Maybe [Types.ElasticsearchVersionString])
+cvmTargetVersions = Lens.field @"targetVersions"
 {-# DEPRECATED cvmTargetVersions "Use generic-lens or generic-optics with 'targetVersions' instead." #-}
 
-instance Lude.FromJSON CompatibleVersionsMap where
+instance Core.FromJSON CompatibleVersionsMap where
   parseJSON =
-    Lude.withObject
-      "CompatibleVersionsMap"
-      ( \x ->
-          CompatibleVersionsMap'
-            Lude.<$> (x Lude..:? "SourceVersion")
-            Lude.<*> (x Lude..:? "TargetVersions" Lude..!= Lude.mempty)
-      )
+    Core.withObject "CompatibleVersionsMap" Core.$
+      \x ->
+        CompatibleVersionsMap'
+          Core.<$> (x Core..:? "SourceVersion") Core.<*> (x Core..:? "TargetVersions")

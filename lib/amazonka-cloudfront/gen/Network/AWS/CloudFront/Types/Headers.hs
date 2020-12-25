@@ -22,57 +22,50 @@ module Network.AWS.CloudFront.Types.Headers
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains a list of HTTP header names.
 --
 -- /See:/ 'mkHeaders' smart constructor.
 data Headers = Headers'
   { -- | The number of header names in the @Items@ list.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | A list of HTTP header names.
-    items :: Lude.Maybe [Lude.Text]
+    items :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Headers' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of header names in the @Items@ list.
--- * 'items' - A list of HTTP header names.
+-- | Creates a 'Headers' value with any optional fields omitted.
 mkHeaders ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   Headers
-mkHeaders pQuantity_ =
-  Headers' {quantity = pQuantity_, items = Lude.Nothing}
+mkHeaders quantity = Headers' {quantity, items = Core.Nothing}
 
 -- | The number of header names in the @Items@ list.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hQuantity :: Lens.Lens' Headers Lude.Int
-hQuantity = Lens.lens (quantity :: Headers -> Lude.Int) (\s a -> s {quantity = a} :: Headers)
+hQuantity :: Lens.Lens' Headers Core.Int
+hQuantity = Lens.field @"quantity"
 {-# DEPRECATED hQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A list of HTTP header names.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hItems :: Lens.Lens' Headers (Lude.Maybe [Lude.Text])
-hItems = Lens.lens (items :: Headers -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: Headers)
+hItems :: Lens.Lens' Headers (Core.Maybe [Types.String])
+hItems = Lens.field @"items"
 {-# DEPRECATED hItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML Headers where
+instance Core.ToXML Headers where
+  toXML Headers {..} =
+    Core.toXMLNode "Quantity" quantity
+      Core.<> Core.toXMLNode "Items" (Core.toXMLList "Name" Core.<$> items)
+
+instance Core.FromXML Headers where
   parseXML x =
     Headers'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Name")
-               )
-
-instance Lude.ToXML Headers where
-  toXML Headers' {..} =
-    Lude.mconcat
-      [ "Quantity" Lude.@= quantity,
-        "Items" Lude.@= Lude.toXML (Lude.toXMLList "Name" Lude.<$> items)
-      ]
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "Name")

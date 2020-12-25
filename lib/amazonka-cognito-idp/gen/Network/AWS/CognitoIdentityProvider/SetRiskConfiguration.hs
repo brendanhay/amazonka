@@ -22,187 +22,166 @@ module Network.AWS.CognitoIdentityProvider.SetRiskConfiguration
     mkSetRiskConfiguration,
 
     -- ** Request lenses
-    srcRiskExceptionConfiguration,
-    srcClientId,
-    srcAccountTakeoverRiskConfiguration,
     srcUserPoolId,
+    srcAccountTakeoverRiskConfiguration,
+    srcClientId,
     srcCompromisedCredentialsRiskConfiguration,
+    srcRiskExceptionConfiguration,
 
     -- * Destructuring the response
     SetRiskConfigurationResponse (..),
     mkSetRiskConfigurationResponse,
 
     -- ** Response lenses
-    srcrsRiskConfiguration,
-    srcrsResponseStatus,
+    srcrrsRiskConfiguration,
+    srcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetRiskConfiguration' smart constructor.
 data SetRiskConfiguration = SetRiskConfiguration'
-  { -- | The configuration to override the risk decision.
-    riskExceptionConfiguration :: Lude.Maybe RiskExceptionConfigurationType,
+  { -- | The user pool ID.
+    userPoolId :: Types.UserPoolId,
+    -- | The account takeover risk configuration.
+    accountTakeoverRiskConfiguration :: Core.Maybe Types.AccountTakeoverRiskConfigurationType,
     -- | The app client ID. If @ClientId@ is null, then the risk configuration is mapped to @userPoolId@ . When the client ID is null, the same risk configuration is applied to all the clients in the userPool.
     --
     -- Otherwise, @ClientId@ is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.
-    clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The account takeover risk configuration.
-    accountTakeoverRiskConfiguration :: Lude.Maybe AccountTakeoverRiskConfigurationType,
-    -- | The user pool ID.
-    userPoolId :: Lude.Text,
+    clientId :: Core.Maybe Types.ClientId,
     -- | The compromised credentials risk configuration.
-    compromisedCredentialsRiskConfiguration :: Lude.Maybe CompromisedCredentialsRiskConfigurationType
+    compromisedCredentialsRiskConfiguration :: Core.Maybe Types.CompromisedCredentialsRiskConfigurationType,
+    -- | The configuration to override the risk decision.
+    riskExceptionConfiguration :: Core.Maybe Types.RiskExceptionConfigurationType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetRiskConfiguration' with the minimum fields required to make a request.
---
--- * 'riskExceptionConfiguration' - The configuration to override the risk decision.
--- * 'clientId' - The app client ID. If @ClientId@ is null, then the risk configuration is mapped to @userPoolId@ . When the client ID is null, the same risk configuration is applied to all the clients in the userPool.
---
--- Otherwise, @ClientId@ is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.
--- * 'accountTakeoverRiskConfiguration' - The account takeover risk configuration.
--- * 'userPoolId' - The user pool ID.
--- * 'compromisedCredentialsRiskConfiguration' - The compromised credentials risk configuration.
+-- | Creates a 'SetRiskConfiguration' value with any optional fields omitted.
 mkSetRiskConfiguration ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   SetRiskConfiguration
-mkSetRiskConfiguration pUserPoolId_ =
+mkSetRiskConfiguration userPoolId =
   SetRiskConfiguration'
-    { riskExceptionConfiguration = Lude.Nothing,
-      clientId = Lude.Nothing,
-      accountTakeoverRiskConfiguration = Lude.Nothing,
-      userPoolId = pUserPoolId_,
-      compromisedCredentialsRiskConfiguration = Lude.Nothing
+    { userPoolId,
+      accountTakeoverRiskConfiguration = Core.Nothing,
+      clientId = Core.Nothing,
+      compromisedCredentialsRiskConfiguration = Core.Nothing,
+      riskExceptionConfiguration = Core.Nothing
     }
 
--- | The configuration to override the risk decision.
+-- | The user pool ID.
 --
--- /Note:/ Consider using 'riskExceptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcRiskExceptionConfiguration :: Lens.Lens' SetRiskConfiguration (Lude.Maybe RiskExceptionConfigurationType)
-srcRiskExceptionConfiguration = Lens.lens (riskExceptionConfiguration :: SetRiskConfiguration -> Lude.Maybe RiskExceptionConfigurationType) (\s a -> s {riskExceptionConfiguration = a} :: SetRiskConfiguration)
-{-# DEPRECATED srcRiskExceptionConfiguration "Use generic-lens or generic-optics with 'riskExceptionConfiguration' instead." #-}
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcUserPoolId :: Lens.Lens' SetRiskConfiguration Types.UserPoolId
+srcUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED srcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+-- | The account takeover risk configuration.
+--
+-- /Note:/ Consider using 'accountTakeoverRiskConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcAccountTakeoverRiskConfiguration :: Lens.Lens' SetRiskConfiguration (Core.Maybe Types.AccountTakeoverRiskConfigurationType)
+srcAccountTakeoverRiskConfiguration = Lens.field @"accountTakeoverRiskConfiguration"
+{-# DEPRECATED srcAccountTakeoverRiskConfiguration "Use generic-lens or generic-optics with 'accountTakeoverRiskConfiguration' instead." #-}
 
 -- | The app client ID. If @ClientId@ is null, then the risk configuration is mapped to @userPoolId@ . When the client ID is null, the same risk configuration is applied to all the clients in the userPool.
 --
 -- Otherwise, @ClientId@ is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.
 --
 -- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcClientId :: Lens.Lens' SetRiskConfiguration (Lude.Maybe (Lude.Sensitive Lude.Text))
-srcClientId = Lens.lens (clientId :: SetRiskConfiguration -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {clientId = a} :: SetRiskConfiguration)
+srcClientId :: Lens.Lens' SetRiskConfiguration (Core.Maybe Types.ClientId)
+srcClientId = Lens.field @"clientId"
 {-# DEPRECATED srcClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
--- | The account takeover risk configuration.
---
--- /Note:/ Consider using 'accountTakeoverRiskConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcAccountTakeoverRiskConfiguration :: Lens.Lens' SetRiskConfiguration (Lude.Maybe AccountTakeoverRiskConfigurationType)
-srcAccountTakeoverRiskConfiguration = Lens.lens (accountTakeoverRiskConfiguration :: SetRiskConfiguration -> Lude.Maybe AccountTakeoverRiskConfigurationType) (\s a -> s {accountTakeoverRiskConfiguration = a} :: SetRiskConfiguration)
-{-# DEPRECATED srcAccountTakeoverRiskConfiguration "Use generic-lens or generic-optics with 'accountTakeoverRiskConfiguration' instead." #-}
-
--- | The user pool ID.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcUserPoolId :: Lens.Lens' SetRiskConfiguration Lude.Text
-srcUserPoolId = Lens.lens (userPoolId :: SetRiskConfiguration -> Lude.Text) (\s a -> s {userPoolId = a} :: SetRiskConfiguration)
-{-# DEPRECATED srcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The compromised credentials risk configuration.
 --
 -- /Note:/ Consider using 'compromisedCredentialsRiskConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcCompromisedCredentialsRiskConfiguration :: Lens.Lens' SetRiskConfiguration (Lude.Maybe CompromisedCredentialsRiskConfigurationType)
-srcCompromisedCredentialsRiskConfiguration = Lens.lens (compromisedCredentialsRiskConfiguration :: SetRiskConfiguration -> Lude.Maybe CompromisedCredentialsRiskConfigurationType) (\s a -> s {compromisedCredentialsRiskConfiguration = a} :: SetRiskConfiguration)
+srcCompromisedCredentialsRiskConfiguration :: Lens.Lens' SetRiskConfiguration (Core.Maybe Types.CompromisedCredentialsRiskConfigurationType)
+srcCompromisedCredentialsRiskConfiguration = Lens.field @"compromisedCredentialsRiskConfiguration"
 {-# DEPRECATED srcCompromisedCredentialsRiskConfiguration "Use generic-lens or generic-optics with 'compromisedCredentialsRiskConfiguration' instead." #-}
 
-instance Lude.AWSRequest SetRiskConfiguration where
+-- | The configuration to override the risk decision.
+--
+-- /Note:/ Consider using 'riskExceptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcRiskExceptionConfiguration :: Lens.Lens' SetRiskConfiguration (Core.Maybe Types.RiskExceptionConfigurationType)
+srcRiskExceptionConfiguration = Lens.field @"riskExceptionConfiguration"
+{-# DEPRECATED srcRiskExceptionConfiguration "Use generic-lens or generic-optics with 'riskExceptionConfiguration' instead." #-}
+
+instance Core.FromJSON SetRiskConfiguration where
+  toJSON SetRiskConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            ("AccountTakeoverRiskConfiguration" Core..=)
+              Core.<$> accountTakeoverRiskConfiguration,
+            ("ClientId" Core..=) Core.<$> clientId,
+            ("CompromisedCredentialsRiskConfiguration" Core..=)
+              Core.<$> compromisedCredentialsRiskConfiguration,
+            ("RiskExceptionConfiguration" Core..=)
+              Core.<$> riskExceptionConfiguration
+          ]
+      )
+
+instance Core.AWSRequest SetRiskConfiguration where
   type Rs SetRiskConfiguration = SetRiskConfigurationResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.SetRiskConfiguration"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SetRiskConfigurationResponse'
-            Lude.<$> (x Lude..:> "RiskConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "RiskConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetRiskConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.SetRiskConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetRiskConfiguration where
-  toJSON SetRiskConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RiskExceptionConfiguration" Lude..=)
-              Lude.<$> riskExceptionConfiguration,
-            ("ClientId" Lude..=) Lude.<$> clientId,
-            ("AccountTakeoverRiskConfiguration" Lude..=)
-              Lude.<$> accountTakeoverRiskConfiguration,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
-            ("CompromisedCredentialsRiskConfiguration" Lude..=)
-              Lude.<$> compromisedCredentialsRiskConfiguration
-          ]
-      )
-
-instance Lude.ToPath SetRiskConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetRiskConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSetRiskConfigurationResponse' smart constructor.
 data SetRiskConfigurationResponse = SetRiskConfigurationResponse'
   { -- | The risk configuration.
-    riskConfiguration :: RiskConfigurationType,
+    riskConfiguration :: Types.RiskConfigurationType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SetRiskConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'riskConfiguration' - The risk configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetRiskConfigurationResponse' value with any optional fields omitted.
 mkSetRiskConfigurationResponse ::
   -- | 'riskConfiguration'
-  RiskConfigurationType ->
+  Types.RiskConfigurationType ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetRiskConfigurationResponse
-mkSetRiskConfigurationResponse pRiskConfiguration_ pResponseStatus_ =
-  SetRiskConfigurationResponse'
-    { riskConfiguration =
-        pRiskConfiguration_,
-      responseStatus = pResponseStatus_
-    }
+mkSetRiskConfigurationResponse riskConfiguration responseStatus =
+  SetRiskConfigurationResponse' {riskConfiguration, responseStatus}
 
 -- | The risk configuration.
 --
 -- /Note:/ Consider using 'riskConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcrsRiskConfiguration :: Lens.Lens' SetRiskConfigurationResponse RiskConfigurationType
-srcrsRiskConfiguration = Lens.lens (riskConfiguration :: SetRiskConfigurationResponse -> RiskConfigurationType) (\s a -> s {riskConfiguration = a} :: SetRiskConfigurationResponse)
-{-# DEPRECATED srcrsRiskConfiguration "Use generic-lens or generic-optics with 'riskConfiguration' instead." #-}
+srcrrsRiskConfiguration :: Lens.Lens' SetRiskConfigurationResponse Types.RiskConfigurationType
+srcrrsRiskConfiguration = Lens.field @"riskConfiguration"
+{-# DEPRECATED srcrrsRiskConfiguration "Use generic-lens or generic-optics with 'riskConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcrsResponseStatus :: Lens.Lens' SetRiskConfigurationResponse Lude.Int
-srcrsResponseStatus = Lens.lens (responseStatus :: SetRiskConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetRiskConfigurationResponse)
-{-# DEPRECATED srcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srcrrsResponseStatus :: Lens.Lens' SetRiskConfigurationResponse Core.Int
+srcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

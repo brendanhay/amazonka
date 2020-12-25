@@ -32,71 +32,62 @@ module Network.AWS.SageMaker.StopCompilationJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkStopCompilationJob' smart constructor.
 newtype StopCompilationJob = StopCompilationJob'
   { -- | The name of the model compilation job to stop.
-    compilationJobName :: Lude.Text
+    compilationJobName :: Types.EntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopCompilationJob' with the minimum fields required to make a request.
---
--- * 'compilationJobName' - The name of the model compilation job to stop.
+-- | Creates a 'StopCompilationJob' value with any optional fields omitted.
 mkStopCompilationJob ::
   -- | 'compilationJobName'
-  Lude.Text ->
+  Types.EntityName ->
   StopCompilationJob
-mkStopCompilationJob pCompilationJobName_ =
-  StopCompilationJob' {compilationJobName = pCompilationJobName_}
+mkStopCompilationJob compilationJobName =
+  StopCompilationJob' {compilationJobName}
 
 -- | The name of the model compilation job to stop.
 --
 -- /Note:/ Consider using 'compilationJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scjCompilationJobName :: Lens.Lens' StopCompilationJob Lude.Text
-scjCompilationJobName = Lens.lens (compilationJobName :: StopCompilationJob -> Lude.Text) (\s a -> s {compilationJobName = a} :: StopCompilationJob)
+scjCompilationJobName :: Lens.Lens' StopCompilationJob Types.EntityName
+scjCompilationJobName = Lens.field @"compilationJobName"
 {-# DEPRECATED scjCompilationJobName "Use generic-lens or generic-optics with 'compilationJobName' instead." #-}
 
-instance Lude.AWSRequest StopCompilationJob where
+instance Core.FromJSON StopCompilationJob where
+  toJSON StopCompilationJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CompilationJobName" Core..= compilationJobName)]
+      )
+
+instance Core.AWSRequest StopCompilationJob where
   type Rs StopCompilationJob = StopCompilationJobResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull StopCompilationJobResponse'
-
-instance Lude.ToHeaders StopCompilationJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.StopCompilationJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopCompilationJob where
-  toJSON StopCompilationJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("CompilationJobName" Lude..= compilationJobName)]
-      )
-
-instance Lude.ToPath StopCompilationJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopCompilationJob where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.StopCompilationJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopCompilationJobResponse'
 
 -- | /See:/ 'mkStopCompilationJobResponse' smart constructor.
 data StopCompilationJobResponse = StopCompilationJobResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopCompilationJobResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopCompilationJobResponse' value with any optional fields omitted.
 mkStopCompilationJobResponse ::
   StopCompilationJobResponse
 mkStopCompilationJobResponse = StopCompilationJobResponse'

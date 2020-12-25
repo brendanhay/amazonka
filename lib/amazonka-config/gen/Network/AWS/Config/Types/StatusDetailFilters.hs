@@ -17,20 +17,23 @@ module Network.AWS.Config.Types.StatusDetailFilters
     mkStatusDetailFilters,
 
     -- * Lenses
-    sdfMemberAccountRuleStatus,
     sdfAccountId,
+    sdfMemberAccountRuleStatus,
   )
 where
 
-import Network.AWS.Config.Types.MemberAccountRuleStatus
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.MemberAccountRuleStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Status filter object to filter results based on specific member account ID or status type for an organization config rule.
 --
 -- /See:/ 'mkStatusDetailFilters' smart constructor.
 data StatusDetailFilters = StatusDetailFilters'
-  { -- | Indicates deployment status for config rule in the member account. When master account calls @PutOrganizationConfigRule@ action for the first time, config rule status is created in the member account. When master account calls @PutOrganizationConfigRule@ action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes @OrganizationConfigRule@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
+  { -- | The 12-digit account ID of the member account within an organization.
+    accountId :: Core.Maybe Types.AccountId,
+    -- | Indicates deployment status for config rule in the member account. When master account calls @PutOrganizationConfigRule@ action for the first time, config rule status is created in the member account. When master account calls @PutOrganizationConfigRule@ action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes @OrganizationConfigRule@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
     --
     -- AWS Config sets the state of the rule to:
     --
@@ -59,54 +62,26 @@ data StatusDetailFilters = StatusDetailFilters'
     --
     --
     --     * @UPDATE_FAILED@ when config rule deletion has failed in the member account.
-    memberAccountRuleStatus :: Lude.Maybe MemberAccountRuleStatus,
-    -- | The 12-digit account ID of the member account within an organization.
-    accountId :: Lude.Maybe Lude.Text
+    memberAccountRuleStatus :: Core.Maybe Types.MemberAccountRuleStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StatusDetailFilters' with the minimum fields required to make a request.
---
--- * 'memberAccountRuleStatus' - Indicates deployment status for config rule in the member account. When master account calls @PutOrganizationConfigRule@ action for the first time, config rule status is created in the member account. When master account calls @PutOrganizationConfigRule@ action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes @OrganizationConfigRule@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
---
--- AWS Config sets the state of the rule to:
---
---     * @CREATE_SUCCESSFUL@ when config rule has been created in the member account.
---
---
---     * @CREATE_IN_PROGRESS@ when config rule is being created in the member account.
---
---
---     * @CREATE_FAILED@ when config rule creation has failed in the member account.
---
---
---     * @DELETE_FAILED@ when config rule deletion has failed in the member account.
---
---
---     * @DELETE_IN_PROGRESS@ when config rule is being deleted in the member account.
---
---
---     * @DELETE_SUCCESSFUL@ when config rule has been deleted in the member account.
---
---
---     * @UPDATE_SUCCESSFUL@ when config rule has been updated in the member account.
---
---
---     * @UPDATE_IN_PROGRESS@ when config rule is being updated in the member account.
---
---
---     * @UPDATE_FAILED@ when config rule deletion has failed in the member account.
---
---
--- * 'accountId' - The 12-digit account ID of the member account within an organization.
+-- | Creates a 'StatusDetailFilters' value with any optional fields omitted.
 mkStatusDetailFilters ::
   StatusDetailFilters
 mkStatusDetailFilters =
   StatusDetailFilters'
-    { memberAccountRuleStatus = Lude.Nothing,
-      accountId = Lude.Nothing
+    { accountId = Core.Nothing,
+      memberAccountRuleStatus = Core.Nothing
     }
+
+-- | The 12-digit account ID of the member account within an organization.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdfAccountId :: Lens.Lens' StatusDetailFilters (Core.Maybe Types.AccountId)
+sdfAccountId = Lens.field @"accountId"
+{-# DEPRECATED sdfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Indicates deployment status for config rule in the member account. When master account calls @PutOrganizationConfigRule@ action for the first time, config rule status is created in the member account. When master account calls @PutOrganizationConfigRule@ action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes @OrganizationConfigRule@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
 --
@@ -141,23 +116,16 @@ mkStatusDetailFilters =
 --
 --
 -- /Note:/ Consider using 'memberAccountRuleStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdfMemberAccountRuleStatus :: Lens.Lens' StatusDetailFilters (Lude.Maybe MemberAccountRuleStatus)
-sdfMemberAccountRuleStatus = Lens.lens (memberAccountRuleStatus :: StatusDetailFilters -> Lude.Maybe MemberAccountRuleStatus) (\s a -> s {memberAccountRuleStatus = a} :: StatusDetailFilters)
+sdfMemberAccountRuleStatus :: Lens.Lens' StatusDetailFilters (Core.Maybe Types.MemberAccountRuleStatus)
+sdfMemberAccountRuleStatus = Lens.field @"memberAccountRuleStatus"
 {-# DEPRECATED sdfMemberAccountRuleStatus "Use generic-lens or generic-optics with 'memberAccountRuleStatus' instead." #-}
 
--- | The 12-digit account ID of the member account within an organization.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdfAccountId :: Lens.Lens' StatusDetailFilters (Lude.Maybe Lude.Text)
-sdfAccountId = Lens.lens (accountId :: StatusDetailFilters -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: StatusDetailFilters)
-{-# DEPRECATED sdfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
-instance Lude.ToJSON StatusDetailFilters where
-  toJSON StatusDetailFilters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MemberAccountRuleStatus" Lude..=)
-              Lude.<$> memberAccountRuleStatus,
-            ("AccountId" Lude..=) Lude.<$> accountId
+instance Core.FromJSON StatusDetailFilters where
+  toJSON StatusDetailFilters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AccountId" Core..=) Core.<$> accountId,
+            ("MemberAccountRuleStatus" Core..=)
+              Core.<$> memberAccountRuleStatus
           ]
       )

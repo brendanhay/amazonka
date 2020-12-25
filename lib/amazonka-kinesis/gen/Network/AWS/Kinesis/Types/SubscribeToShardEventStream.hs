@@ -17,167 +17,153 @@ module Network.AWS.Kinesis.Types.SubscribeToShardEventStream
     mkSubscribeToShardEventStream,
 
     -- * Lenses
-    stsesKMSInvalidStateException,
-    stsesKMSThrottlingException,
-    stsesKMSOptInRequired,
-    stsesKMSNotFoundException,
-    stsesKMSDisabledException,
-    stsesInternalFailureException,
     stsesSubscribeToShardEvent,
-    stsesResourceNotFoundException,
+    stsesInternalFailureException,
     stsesKMSAccessDeniedException,
+    stsesKMSDisabledException,
+    stsesKMSInvalidStateException,
+    stsesKMSNotFoundException,
+    stsesKMSOptInRequired,
+    stsesKMSThrottlingException,
     stsesResourceInUseException,
+    stsesResourceNotFoundException,
   )
 where
 
-import Network.AWS.Kinesis.Types.InternalFailureException
-import Network.AWS.Kinesis.Types.KMSAccessDeniedException
-import Network.AWS.Kinesis.Types.KMSDisabledException
-import Network.AWS.Kinesis.Types.KMSInvalidStateException
-import Network.AWS.Kinesis.Types.KMSNotFoundException
-import Network.AWS.Kinesis.Types.KMSOptInRequired
-import Network.AWS.Kinesis.Types.KMSThrottlingException
-import Network.AWS.Kinesis.Types.ResourceInUseException
-import Network.AWS.Kinesis.Types.ResourceNotFoundException
-import Network.AWS.Kinesis.Types.SubscribeToShardEvent
+import qualified Network.AWS.Kinesis.Types.InternalFailureException as Types
+import qualified Network.AWS.Kinesis.Types.KMSAccessDeniedException as Types
+import qualified Network.AWS.Kinesis.Types.KMSDisabledException as Types
+import qualified Network.AWS.Kinesis.Types.KMSInvalidStateException as Types
+import qualified Network.AWS.Kinesis.Types.KMSNotFoundException as Types
+import qualified Network.AWS.Kinesis.Types.KMSOptInRequired as Types
+import qualified Network.AWS.Kinesis.Types.KMSThrottlingException as Types
+import qualified Network.AWS.Kinesis.Types.ResourceInUseException as Types
+import qualified Network.AWS.Kinesis.Types.ResourceNotFoundException as Types
+import qualified Network.AWS.Kinesis.Types.SubscribeToShardEvent as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This is a tagged union for all of the types of events an enhanced fan-out consumer can receive over HTTP/2 after a call to 'SubscribeToShard' .
 --
 -- /See:/ 'mkSubscribeToShardEventStream' smart constructor.
 data SubscribeToShardEventStream = SubscribeToShardEventStream'
-  { kmsInvalidStateException :: Lude.Maybe KMSInvalidStateException,
-    kmsThrottlingException :: Lude.Maybe KMSThrottlingException,
-    kmsOptInRequired :: Lude.Maybe KMSOptInRequired,
-    kmsNotFoundException :: Lude.Maybe KMSNotFoundException,
-    kmsDisabledException :: Lude.Maybe KMSDisabledException,
+  { -- | After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer. For an example of how to handle these events, see </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API> .
+    subscribeToShardEvent :: Types.SubscribeToShardEvent,
     -- | The processing of the request failed because of an unknown error, exception, or failure.
-    internalFailureException :: Lude.Maybe InternalFailureException,
-    -- | After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer. For an example of how to handle these events, see </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API> .
-    subscribeToShardEvent :: SubscribeToShardEvent,
-    resourceNotFoundException :: Lude.Maybe ResourceNotFoundException,
-    kmsAccessDeniedException :: Lude.Maybe KMSAccessDeniedException,
-    resourceInUseException :: Lude.Maybe ResourceInUseException
+    internalFailureException :: Core.Maybe Types.InternalFailureException,
+    kMSAccessDeniedException :: Core.Maybe Types.KMSAccessDeniedException,
+    kMSDisabledException :: Core.Maybe Types.KMSDisabledException,
+    kMSInvalidStateException :: Core.Maybe Types.KMSInvalidStateException,
+    kMSNotFoundException :: Core.Maybe Types.KMSNotFoundException,
+    kMSOptInRequired :: Core.Maybe Types.KMSOptInRequired,
+    kMSThrottlingException :: Core.Maybe Types.KMSThrottlingException,
+    resourceInUseException :: Core.Maybe Types.ResourceInUseException,
+    resourceNotFoundException :: Core.Maybe Types.ResourceNotFoundException
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SubscribeToShardEventStream' with the minimum fields required to make a request.
---
--- * 'kmsInvalidStateException' -
--- * 'kmsThrottlingException' -
--- * 'kmsOptInRequired' -
--- * 'kmsNotFoundException' -
--- * 'kmsDisabledException' -
--- * 'internalFailureException' - The processing of the request failed because of an unknown error, exception, or failure.
--- * 'subscribeToShardEvent' - After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer. For an example of how to handle these events, see </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API> .
--- * 'resourceNotFoundException' -
--- * 'kmsAccessDeniedException' -
--- * 'resourceInUseException' -
+-- | Creates a 'SubscribeToShardEventStream' value with any optional fields omitted.
 mkSubscribeToShardEventStream ::
   -- | 'subscribeToShardEvent'
-  SubscribeToShardEvent ->
+  Types.SubscribeToShardEvent ->
   SubscribeToShardEventStream
-mkSubscribeToShardEventStream pSubscribeToShardEvent_ =
+mkSubscribeToShardEventStream subscribeToShardEvent =
   SubscribeToShardEventStream'
-    { kmsInvalidStateException =
-        Lude.Nothing,
-      kmsThrottlingException = Lude.Nothing,
-      kmsOptInRequired = Lude.Nothing,
-      kmsNotFoundException = Lude.Nothing,
-      kmsDisabledException = Lude.Nothing,
-      internalFailureException = Lude.Nothing,
-      subscribeToShardEvent = pSubscribeToShardEvent_,
-      resourceNotFoundException = Lude.Nothing,
-      kmsAccessDeniedException = Lude.Nothing,
-      resourceInUseException = Lude.Nothing
+    { subscribeToShardEvent,
+      internalFailureException = Core.Nothing,
+      kMSAccessDeniedException = Core.Nothing,
+      kMSDisabledException = Core.Nothing,
+      kMSInvalidStateException = Core.Nothing,
+      kMSNotFoundException = Core.Nothing,
+      kMSOptInRequired = Core.Nothing,
+      kMSThrottlingException = Core.Nothing,
+      resourceInUseException = Core.Nothing,
+      resourceNotFoundException = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'kmsInvalidStateException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesKMSInvalidStateException :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe KMSInvalidStateException)
-stsesKMSInvalidStateException = Lens.lens (kmsInvalidStateException :: SubscribeToShardEventStream -> Lude.Maybe KMSInvalidStateException) (\s a -> s {kmsInvalidStateException = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesKMSInvalidStateException "Use generic-lens or generic-optics with 'kmsInvalidStateException' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'kmsThrottlingException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesKMSThrottlingException :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe KMSThrottlingException)
-stsesKMSThrottlingException = Lens.lens (kmsThrottlingException :: SubscribeToShardEventStream -> Lude.Maybe KMSThrottlingException) (\s a -> s {kmsThrottlingException = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesKMSThrottlingException "Use generic-lens or generic-optics with 'kmsThrottlingException' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'kmsOptInRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesKMSOptInRequired :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe KMSOptInRequired)
-stsesKMSOptInRequired = Lens.lens (kmsOptInRequired :: SubscribeToShardEventStream -> Lude.Maybe KMSOptInRequired) (\s a -> s {kmsOptInRequired = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesKMSOptInRequired "Use generic-lens or generic-optics with 'kmsOptInRequired' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'kmsNotFoundException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesKMSNotFoundException :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe KMSNotFoundException)
-stsesKMSNotFoundException = Lens.lens (kmsNotFoundException :: SubscribeToShardEventStream -> Lude.Maybe KMSNotFoundException) (\s a -> s {kmsNotFoundException = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesKMSNotFoundException "Use generic-lens or generic-optics with 'kmsNotFoundException' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'kmsDisabledException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesKMSDisabledException :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe KMSDisabledException)
-stsesKMSDisabledException = Lens.lens (kmsDisabledException :: SubscribeToShardEventStream -> Lude.Maybe KMSDisabledException) (\s a -> s {kmsDisabledException = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesKMSDisabledException "Use generic-lens or generic-optics with 'kmsDisabledException' instead." #-}
-
--- | The processing of the request failed because of an unknown error, exception, or failure.
---
--- /Note:/ Consider using 'internalFailureException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesInternalFailureException :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe InternalFailureException)
-stsesInternalFailureException = Lens.lens (internalFailureException :: SubscribeToShardEventStream -> Lude.Maybe InternalFailureException) (\s a -> s {internalFailureException = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesInternalFailureException "Use generic-lens or generic-optics with 'internalFailureException' instead." #-}
 
 -- | After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer. For an example of how to handle these events, see </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API> .
 --
 -- /Note:/ Consider using 'subscribeToShardEvent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesSubscribeToShardEvent :: Lens.Lens' SubscribeToShardEventStream SubscribeToShardEvent
-stsesSubscribeToShardEvent = Lens.lens (subscribeToShardEvent :: SubscribeToShardEventStream -> SubscribeToShardEvent) (\s a -> s {subscribeToShardEvent = a} :: SubscribeToShardEventStream)
+stsesSubscribeToShardEvent :: Lens.Lens' SubscribeToShardEventStream Types.SubscribeToShardEvent
+stsesSubscribeToShardEvent = Lens.field @"subscribeToShardEvent"
 {-# DEPRECATED stsesSubscribeToShardEvent "Use generic-lens or generic-optics with 'subscribeToShardEvent' instead." #-}
 
--- | Undocumented field.
+-- | The processing of the request failed because of an unknown error, exception, or failure.
 --
--- /Note:/ Consider using 'resourceNotFoundException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesResourceNotFoundException :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe ResourceNotFoundException)
-stsesResourceNotFoundException = Lens.lens (resourceNotFoundException :: SubscribeToShardEventStream -> Lude.Maybe ResourceNotFoundException) (\s a -> s {resourceNotFoundException = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesResourceNotFoundException "Use generic-lens or generic-optics with 'resourceNotFoundException' instead." #-}
+-- /Note:/ Consider using 'internalFailureException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesInternalFailureException :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.InternalFailureException)
+stsesInternalFailureException = Lens.field @"internalFailureException"
+{-# DEPRECATED stsesInternalFailureException "Use generic-lens or generic-optics with 'internalFailureException' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'kmsAccessDeniedException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesKMSAccessDeniedException :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe KMSAccessDeniedException)
-stsesKMSAccessDeniedException = Lens.lens (kmsAccessDeniedException :: SubscribeToShardEventStream -> Lude.Maybe KMSAccessDeniedException) (\s a -> s {kmsAccessDeniedException = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesKMSAccessDeniedException "Use generic-lens or generic-optics with 'kmsAccessDeniedException' instead." #-}
+-- /Note:/ Consider using 'kMSAccessDeniedException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesKMSAccessDeniedException :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.KMSAccessDeniedException)
+stsesKMSAccessDeniedException = Lens.field @"kMSAccessDeniedException"
+{-# DEPRECATED stsesKMSAccessDeniedException "Use generic-lens or generic-optics with 'kMSAccessDeniedException' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'kMSDisabledException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesKMSDisabledException :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.KMSDisabledException)
+stsesKMSDisabledException = Lens.field @"kMSDisabledException"
+{-# DEPRECATED stsesKMSDisabledException "Use generic-lens or generic-optics with 'kMSDisabledException' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'kMSInvalidStateException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesKMSInvalidStateException :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.KMSInvalidStateException)
+stsesKMSInvalidStateException = Lens.field @"kMSInvalidStateException"
+{-# DEPRECATED stsesKMSInvalidStateException "Use generic-lens or generic-optics with 'kMSInvalidStateException' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'kMSNotFoundException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesKMSNotFoundException :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.KMSNotFoundException)
+stsesKMSNotFoundException = Lens.field @"kMSNotFoundException"
+{-# DEPRECATED stsesKMSNotFoundException "Use generic-lens or generic-optics with 'kMSNotFoundException' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'kMSOptInRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesKMSOptInRequired :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.KMSOptInRequired)
+stsesKMSOptInRequired = Lens.field @"kMSOptInRequired"
+{-# DEPRECATED stsesKMSOptInRequired "Use generic-lens or generic-optics with 'kMSOptInRequired' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'kMSThrottlingException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesKMSThrottlingException :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.KMSThrottlingException)
+stsesKMSThrottlingException = Lens.field @"kMSThrottlingException"
+{-# DEPRECATED stsesKMSThrottlingException "Use generic-lens or generic-optics with 'kMSThrottlingException' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'resourceInUseException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesResourceInUseException :: Lens.Lens' SubscribeToShardEventStream (Lude.Maybe ResourceInUseException)
-stsesResourceInUseException = Lens.lens (resourceInUseException :: SubscribeToShardEventStream -> Lude.Maybe ResourceInUseException) (\s a -> s {resourceInUseException = a} :: SubscribeToShardEventStream)
+stsesResourceInUseException :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.ResourceInUseException)
+stsesResourceInUseException = Lens.field @"resourceInUseException"
 {-# DEPRECATED stsesResourceInUseException "Use generic-lens or generic-optics with 'resourceInUseException' instead." #-}
 
-instance Lude.FromJSON SubscribeToShardEventStream where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourceNotFoundException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesResourceNotFoundException :: Lens.Lens' SubscribeToShardEventStream (Core.Maybe Types.ResourceNotFoundException)
+stsesResourceNotFoundException = Lens.field @"resourceNotFoundException"
+{-# DEPRECATED stsesResourceNotFoundException "Use generic-lens or generic-optics with 'resourceNotFoundException' instead." #-}
+
+instance Core.FromJSON SubscribeToShardEventStream where
   parseJSON =
-    Lude.withObject
-      "SubscribeToShardEventStream"
-      ( \x ->
-          SubscribeToShardEventStream'
-            Lude.<$> (x Lude..:? "KMSInvalidStateException")
-            Lude.<*> (x Lude..:? "KMSThrottlingException")
-            Lude.<*> (x Lude..:? "KMSOptInRequired")
-            Lude.<*> (x Lude..:? "KMSNotFoundException")
-            Lude.<*> (x Lude..:? "KMSDisabledException")
-            Lude.<*> (x Lude..:? "InternalFailureException")
-            Lude.<*> (x Lude..: "SubscribeToShardEvent")
-            Lude.<*> (x Lude..:? "ResourceNotFoundException")
-            Lude.<*> (x Lude..:? "KMSAccessDeniedException")
-            Lude.<*> (x Lude..:? "ResourceInUseException")
-      )
+    Core.withObject "SubscribeToShardEventStream" Core.$
+      \x ->
+        SubscribeToShardEventStream'
+          Core.<$> (x Core..: "SubscribeToShardEvent")
+          Core.<*> (x Core..:? "InternalFailureException")
+          Core.<*> (x Core..:? "KMSAccessDeniedException")
+          Core.<*> (x Core..:? "KMSDisabledException")
+          Core.<*> (x Core..:? "KMSInvalidStateException")
+          Core.<*> (x Core..:? "KMSNotFoundException")
+          Core.<*> (x Core..:? "KMSOptInRequired")
+          Core.<*> (x Core..:? "KMSThrottlingException")
+          Core.<*> (x Core..:? "ResourceInUseException")
+          Core.<*> (x Core..:? "ResourceNotFoundException")

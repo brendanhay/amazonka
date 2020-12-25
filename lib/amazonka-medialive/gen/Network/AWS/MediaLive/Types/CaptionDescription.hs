@@ -18,113 +18,105 @@ module Network.AWS.MediaLive.Types.CaptionDescription
 
     -- * Lenses
     cdCaptionSelectorName,
-    cdLanguageCode,
-    cdDestinationSettings,
-    cdLanguageDescription,
     cdName,
+    cdDestinationSettings,
+    cdLanguageCode,
+    cdLanguageDescription,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.CaptionDestinationSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.CaptionDestinationSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Caption Description
 --
 -- /See:/ 'mkCaptionDescription' smart constructor.
 data CaptionDescription = CaptionDescription'
   { -- | Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
-    captionSelectorName :: Lude.Text,
-    -- | ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
-    languageCode :: Lude.Maybe Lude.Text,
-    -- | Additional settings for captions destination that depend on the destination type.
-    destinationSettings :: Lude.Maybe CaptionDestinationSettings,
-    -- | Human readable information to indicate captions available for players (eg. English, or Spanish).
-    languageDescription :: Lude.Maybe Lude.Text,
+    captionSelectorName :: Core.Text,
     -- | Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event.
-    name :: Lude.Text
+    name :: Core.Text,
+    -- | Additional settings for captions destination that depend on the destination type.
+    destinationSettings :: Core.Maybe Types.CaptionDestinationSettings,
+    -- | ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
+    languageCode :: Core.Maybe Core.Text,
+    -- | Human readable information to indicate captions available for players (eg. English, or Spanish).
+    languageDescription :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CaptionDescription' with the minimum fields required to make a request.
---
--- * 'captionSelectorName' - Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
--- * 'languageCode' - ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
--- * 'destinationSettings' - Additional settings for captions destination that depend on the destination type.
--- * 'languageDescription' - Human readable information to indicate captions available for players (eg. English, or Spanish).
--- * 'name' - Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event.
+-- | Creates a 'CaptionDescription' value with any optional fields omitted.
 mkCaptionDescription ::
   -- | 'captionSelectorName'
-  Lude.Text ->
+  Core.Text ->
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   CaptionDescription
-mkCaptionDescription pCaptionSelectorName_ pName_ =
+mkCaptionDescription captionSelectorName name =
   CaptionDescription'
-    { captionSelectorName = pCaptionSelectorName_,
-      languageCode = Lude.Nothing,
-      destinationSettings = Lude.Nothing,
-      languageDescription = Lude.Nothing,
-      name = pName_
+    { captionSelectorName,
+      name,
+      destinationSettings = Core.Nothing,
+      languageCode = Core.Nothing,
+      languageDescription = Core.Nothing
     }
 
 -- | Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
 --
 -- /Note:/ Consider using 'captionSelectorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCaptionSelectorName :: Lens.Lens' CaptionDescription Lude.Text
-cdCaptionSelectorName = Lens.lens (captionSelectorName :: CaptionDescription -> Lude.Text) (\s a -> s {captionSelectorName = a} :: CaptionDescription)
+cdCaptionSelectorName :: Lens.Lens' CaptionDescription Core.Text
+cdCaptionSelectorName = Lens.field @"captionSelectorName"
 {-# DEPRECATED cdCaptionSelectorName "Use generic-lens or generic-optics with 'captionSelectorName' instead." #-}
-
--- | ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdLanguageCode :: Lens.Lens' CaptionDescription (Lude.Maybe Lude.Text)
-cdLanguageCode = Lens.lens (languageCode :: CaptionDescription -> Lude.Maybe Lude.Text) (\s a -> s {languageCode = a} :: CaptionDescription)
-{-# DEPRECATED cdLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | Additional settings for captions destination that depend on the destination type.
---
--- /Note:/ Consider using 'destinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDestinationSettings :: Lens.Lens' CaptionDescription (Lude.Maybe CaptionDestinationSettings)
-cdDestinationSettings = Lens.lens (destinationSettings :: CaptionDescription -> Lude.Maybe CaptionDestinationSettings) (\s a -> s {destinationSettings = a} :: CaptionDescription)
-{-# DEPRECATED cdDestinationSettings "Use generic-lens or generic-optics with 'destinationSettings' instead." #-}
-
--- | Human readable information to indicate captions available for players (eg. English, or Spanish).
---
--- /Note:/ Consider using 'languageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdLanguageDescription :: Lens.Lens' CaptionDescription (Lude.Maybe Lude.Text)
-cdLanguageDescription = Lens.lens (languageDescription :: CaptionDescription -> Lude.Maybe Lude.Text) (\s a -> s {languageDescription = a} :: CaptionDescription)
-{-# DEPRECATED cdLanguageDescription "Use generic-lens or generic-optics with 'languageDescription' instead." #-}
 
 -- | Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdName :: Lens.Lens' CaptionDescription Lude.Text
-cdName = Lens.lens (name :: CaptionDescription -> Lude.Text) (\s a -> s {name = a} :: CaptionDescription)
+cdName :: Lens.Lens' CaptionDescription Core.Text
+cdName = Lens.field @"name"
 {-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON CaptionDescription where
-  parseJSON =
-    Lude.withObject
-      "CaptionDescription"
-      ( \x ->
-          CaptionDescription'
-            Lude.<$> (x Lude..: "captionSelectorName")
-            Lude.<*> (x Lude..:? "languageCode")
-            Lude.<*> (x Lude..:? "destinationSettings")
-            Lude.<*> (x Lude..:? "languageDescription")
-            Lude.<*> (x Lude..: "name")
-      )
+-- | Additional settings for captions destination that depend on the destination type.
+--
+-- /Note:/ Consider using 'destinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDestinationSettings :: Lens.Lens' CaptionDescription (Core.Maybe Types.CaptionDestinationSettings)
+cdDestinationSettings = Lens.field @"destinationSettings"
+{-# DEPRECATED cdDestinationSettings "Use generic-lens or generic-optics with 'destinationSettings' instead." #-}
 
-instance Lude.ToJSON CaptionDescription where
-  toJSON CaptionDescription' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("captionSelectorName" Lude..= captionSelectorName),
-            ("languageCode" Lude..=) Lude.<$> languageCode,
-            ("destinationSettings" Lude..=) Lude.<$> destinationSettings,
-            ("languageDescription" Lude..=) Lude.<$> languageDescription,
-            Lude.Just ("name" Lude..= name)
+-- | ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdLanguageCode :: Lens.Lens' CaptionDescription (Core.Maybe Core.Text)
+cdLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED cdLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | Human readable information to indicate captions available for players (eg. English, or Spanish).
+--
+-- /Note:/ Consider using 'languageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdLanguageDescription :: Lens.Lens' CaptionDescription (Core.Maybe Core.Text)
+cdLanguageDescription = Lens.field @"languageDescription"
+{-# DEPRECATED cdLanguageDescription "Use generic-lens or generic-optics with 'languageDescription' instead." #-}
+
+instance Core.FromJSON CaptionDescription where
+  toJSON CaptionDescription {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("captionSelectorName" Core..= captionSelectorName),
+            Core.Just ("name" Core..= name),
+            ("destinationSettings" Core..=) Core.<$> destinationSettings,
+            ("languageCode" Core..=) Core.<$> languageCode,
+            ("languageDescription" Core..=) Core.<$> languageDescription
           ]
       )
+
+instance Core.FromJSON CaptionDescription where
+  parseJSON =
+    Core.withObject "CaptionDescription" Core.$
+      \x ->
+        CaptionDescription'
+          Core.<$> (x Core..: "captionSelectorName")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..:? "destinationSettings")
+          Core.<*> (x Core..:? "languageCode")
+          Core.<*> (x Core..:? "languageDescription")

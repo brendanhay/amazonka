@@ -22,45 +22,43 @@ module Network.AWS.EC2.Types.PrefixListEntry
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a prefix list entry.
 --
 -- /See:/ 'mkPrefixListEntry' smart constructor.
 data PrefixListEntry = PrefixListEntry'
   { -- | The CIDR block.
-    cidr :: Lude.Maybe Lude.Text,
+    cidr :: Core.Maybe Types.String,
     -- | The description.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PrefixListEntry' with the minimum fields required to make a request.
---
--- * 'cidr' - The CIDR block.
--- * 'description' - The description.
+-- | Creates a 'PrefixListEntry' value with any optional fields omitted.
 mkPrefixListEntry ::
   PrefixListEntry
 mkPrefixListEntry =
-  PrefixListEntry' {cidr = Lude.Nothing, description = Lude.Nothing}
+  PrefixListEntry' {cidr = Core.Nothing, description = Core.Nothing}
 
 -- | The CIDR block.
 --
 -- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pleCidr :: Lens.Lens' PrefixListEntry (Lude.Maybe Lude.Text)
-pleCidr = Lens.lens (cidr :: PrefixListEntry -> Lude.Maybe Lude.Text) (\s a -> s {cidr = a} :: PrefixListEntry)
+pleCidr :: Lens.Lens' PrefixListEntry (Core.Maybe Types.String)
+pleCidr = Lens.field @"cidr"
 {-# DEPRECATED pleCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
 -- | The description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pleDescription :: Lens.Lens' PrefixListEntry (Lude.Maybe Lude.Text)
-pleDescription = Lens.lens (description :: PrefixListEntry -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PrefixListEntry)
+pleDescription :: Lens.Lens' PrefixListEntry (Core.Maybe Types.String)
+pleDescription = Lens.field @"description"
 {-# DEPRECATED pleDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML PrefixListEntry where
+instance Core.FromXML PrefixListEntry where
   parseXML x =
     PrefixListEntry'
-      Lude.<$> (x Lude..@? "cidr") Lude.<*> (x Lude..@? "description")
+      Core.<$> (x Core..@? "cidr") Core.<*> (x Core..@? "description")

@@ -32,106 +32,91 @@ module Network.AWS.Glue.CreateConnection
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
   { -- | A @ConnectionInput@ object defining the connection to create.
-    connectionInput :: ConnectionInput,
+    connectionInput :: Types.ConnectionInput,
     -- | The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
---
--- * 'connectionInput' - A @ConnectionInput@ object defining the connection to create.
--- * 'catalogId' - The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
+-- | Creates a 'CreateConnection' value with any optional fields omitted.
 mkCreateConnection ::
   -- | 'connectionInput'
-  ConnectionInput ->
+  Types.ConnectionInput ->
   CreateConnection
-mkCreateConnection pConnectionInput_ =
-  CreateConnection'
-    { connectionInput = pConnectionInput_,
-      catalogId = Lude.Nothing
-    }
+mkCreateConnection connectionInput =
+  CreateConnection' {connectionInput, catalogId = Core.Nothing}
 
 -- | A @ConnectionInput@ object defining the connection to create.
 --
 -- /Note:/ Consider using 'connectionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccConnectionInput :: Lens.Lens' CreateConnection ConnectionInput
-ccConnectionInput = Lens.lens (connectionInput :: CreateConnection -> ConnectionInput) (\s a -> s {connectionInput = a} :: CreateConnection)
+ccConnectionInput :: Lens.Lens' CreateConnection Types.ConnectionInput
+ccConnectionInput = Lens.field @"connectionInput"
 {-# DEPRECATED ccConnectionInput "Use generic-lens or generic-optics with 'connectionInput' instead." #-}
 
 -- | The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCatalogId :: Lens.Lens' CreateConnection (Lude.Maybe Lude.Text)
-ccCatalogId = Lens.lens (catalogId :: CreateConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateConnection)
+ccCatalogId :: Lens.Lens' CreateConnection (Core.Maybe Types.CatalogId)
+ccCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED ccCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
-instance Lude.AWSRequest CreateConnection where
+instance Core.FromJSON CreateConnection where
+  toJSON CreateConnection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConnectionInput" Core..= connectionInput),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest CreateConnection where
   type Rs CreateConnection = CreateConnectionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.CreateConnection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateConnectionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateConnectionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateConnection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.CreateConnection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateConnection where
-  toJSON CreateConnection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConnectionInput" Lude..= connectionInput),
-            ("CatalogId" Lude..=) Lude.<$> catalogId
-          ]
-      )
-
-instance Lude.ToPath CreateConnection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateConnection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateConnectionResponse' smart constructor.
 newtype CreateConnectionResponse = CreateConnectionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateConnectionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateConnectionResponse' value with any optional fields omitted.
 mkCreateConnectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateConnectionResponse
-mkCreateConnectionResponse pResponseStatus_ =
-  CreateConnectionResponse' {responseStatus = pResponseStatus_}
+mkCreateConnectionResponse responseStatus =
+  CreateConnectionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CreateConnectionResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CreateConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateConnectionResponse)
+crsResponseStatus :: Lens.Lens' CreateConnectionResponse Core.Int
+crsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

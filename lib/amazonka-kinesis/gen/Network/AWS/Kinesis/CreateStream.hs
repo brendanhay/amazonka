@@ -35,8 +35,8 @@ module Network.AWS.Kinesis.CreateStream
     mkCreateStream,
 
     -- ** Request lenses
-    csShardCount,
     csStreamName,
+    csShardCount,
 
     -- * Destructuring the response
     CreateStreamResponse (..),
@@ -44,91 +44,78 @@ module Network.AWS.Kinesis.CreateStream
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for @CreateStream@ .
 --
 -- /See:/ 'mkCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { -- | The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.
-    shardCount :: Lude.Natural,
-    -- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
-    streamName :: Lude.Text
+  { -- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
+    streamName :: Types.StreamName,
+    -- | The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.
+    shardCount :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStream' with the minimum fields required to make a request.
---
--- * 'shardCount' - The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.
--- * 'streamName' - A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
+-- | Creates a 'CreateStream' value with any optional fields omitted.
 mkCreateStream ::
-  -- | 'shardCount'
-  Lude.Natural ->
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
+  -- | 'shardCount'
+  Core.Natural ->
   CreateStream
-mkCreateStream pShardCount_ pStreamName_ =
-  CreateStream'
-    { shardCount = pShardCount_,
-      streamName = pStreamName_
-    }
-
--- | The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.
---
--- /Note:/ Consider using 'shardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csShardCount :: Lens.Lens' CreateStream Lude.Natural
-csShardCount = Lens.lens (shardCount :: CreateStream -> Lude.Natural) (\s a -> s {shardCount = a} :: CreateStream)
-{-# DEPRECATED csShardCount "Use generic-lens or generic-optics with 'shardCount' instead." #-}
+mkCreateStream streamName shardCount =
+  CreateStream' {streamName, shardCount}
 
 -- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csStreamName :: Lens.Lens' CreateStream Lude.Text
-csStreamName = Lens.lens (streamName :: CreateStream -> Lude.Text) (\s a -> s {streamName = a} :: CreateStream)
+csStreamName :: Lens.Lens' CreateStream Types.StreamName
+csStreamName = Lens.field @"streamName"
 {-# DEPRECATED csStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest CreateStream where
+-- | The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.
+--
+-- /Note:/ Consider using 'shardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csShardCount :: Lens.Lens' CreateStream Core.Natural
+csShardCount = Lens.field @"shardCount"
+{-# DEPRECATED csShardCount "Use generic-lens or generic-optics with 'shardCount' instead." #-}
+
+instance Core.FromJSON CreateStream where
+  toJSON CreateStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("ShardCount" Core..= shardCount)
+          ]
+      )
+
+instance Core.AWSRequest CreateStream where
   type Rs CreateStream = CreateStreamResponse
-  request = Req.postJSON kinesisService
-  response = Res.receiveNull CreateStreamResponse'
-
-instance Lude.ToHeaders CreateStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.CreateStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateStream where
-  toJSON CreateStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ShardCount" Lude..= shardCount),
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath CreateStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateStream where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.CreateStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull CreateStreamResponse'
 
 -- | /See:/ 'mkCreateStreamResponse' smart constructor.
 data CreateStreamResponse = CreateStreamResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStreamResponse' with the minimum fields required to make a request.
+-- | Creates a 'CreateStreamResponse' value with any optional fields omitted.
 mkCreateStreamResponse ::
   CreateStreamResponse
 mkCreateStreamResponse = CreateStreamResponse'

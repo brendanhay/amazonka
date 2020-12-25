@@ -23,9 +23,9 @@ module Network.AWS.Connect.CreateContactFlow
 
     -- ** Request lenses
     ccfInstanceId,
-    ccfContent,
     ccfName,
     ccfType,
+    ccfContent,
     ccfDescription,
     ccfTags,
 
@@ -34,191 +34,174 @@ module Network.AWS.Connect.CreateContactFlow
     mkCreateContactFlowResponse,
 
     -- ** Response lenses
-    ccfrsContactFlowARN,
-    ccfrsContactFlowId,
-    ccfrsResponseStatus,
+    ccfrrsContactFlowArn,
+    ccfrrsContactFlowId,
+    ccfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateContactFlow' smart constructor.
 data CreateContactFlow = CreateContactFlow'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The content of the contact flow.
-    content :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The name of the contact flow.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
-    type' :: ContactFlowType,
+    type' :: Types.ContactFlowType,
+    -- | The content of the contact flow.
+    content :: Types.Content,
     -- | The description of the contact flow.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.ContactFlowDescription,
     -- | One or more tags.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateContactFlow' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'content' - The content of the contact flow.
--- * 'name' - The name of the contact flow.
--- * 'type'' - The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
--- * 'description' - The description of the contact flow.
--- * 'tags' - One or more tags.
+-- | Creates a 'CreateContactFlow' value with any optional fields omitted.
 mkCreateContactFlow ::
   -- | 'instanceId'
-  Lude.Text ->
-  -- | 'content'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'name'
-  Lude.Text ->
-  -- | 'type''
-  ContactFlowType ->
+  Types.Name ->
+  -- | 'type\''
+  Types.ContactFlowType ->
+  -- | 'content'
+  Types.Content ->
   CreateContactFlow
-mkCreateContactFlow pInstanceId_ pContent_ pName_ pType_ =
+mkCreateContactFlow instanceId name type' content =
   CreateContactFlow'
-    { instanceId = pInstanceId_,
-      content = pContent_,
-      name = pName_,
-      type' = pType_,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { instanceId,
+      name,
+      type',
+      content,
+      description = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfInstanceId :: Lens.Lens' CreateContactFlow Lude.Text
-ccfInstanceId = Lens.lens (instanceId :: CreateContactFlow -> Lude.Text) (\s a -> s {instanceId = a} :: CreateContactFlow)
+ccfInstanceId :: Lens.Lens' CreateContactFlow Types.InstanceId
+ccfInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED ccfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The content of the contact flow.
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfContent :: Lens.Lens' CreateContactFlow Lude.Text
-ccfContent = Lens.lens (content :: CreateContactFlow -> Lude.Text) (\s a -> s {content = a} :: CreateContactFlow)
-{-# DEPRECATED ccfContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The name of the contact flow.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfName :: Lens.Lens' CreateContactFlow Lude.Text
-ccfName = Lens.lens (name :: CreateContactFlow -> Lude.Text) (\s a -> s {name = a} :: CreateContactFlow)
+ccfName :: Lens.Lens' CreateContactFlow Types.Name
+ccfName = Lens.field @"name"
 {-# DEPRECATED ccfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfType :: Lens.Lens' CreateContactFlow ContactFlowType
-ccfType = Lens.lens (type' :: CreateContactFlow -> ContactFlowType) (\s a -> s {type' = a} :: CreateContactFlow)
+ccfType :: Lens.Lens' CreateContactFlow Types.ContactFlowType
+ccfType = Lens.field @"type'"
 {-# DEPRECATED ccfType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The content of the contact flow.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfContent :: Lens.Lens' CreateContactFlow Types.Content
+ccfContent = Lens.field @"content"
+{-# DEPRECATED ccfContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The description of the contact flow.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfDescription :: Lens.Lens' CreateContactFlow (Lude.Maybe Lude.Text)
-ccfDescription = Lens.lens (description :: CreateContactFlow -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateContactFlow)
+ccfDescription :: Lens.Lens' CreateContactFlow (Core.Maybe Types.ContactFlowDescription)
+ccfDescription = Lens.field @"description"
 {-# DEPRECATED ccfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | One or more tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfTags :: Lens.Lens' CreateContactFlow (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ccfTags = Lens.lens (tags :: CreateContactFlow -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateContactFlow)
+ccfTags :: Lens.Lens' CreateContactFlow (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+ccfTags = Lens.field @"tags"
 {-# DEPRECATED ccfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateContactFlow where
+instance Core.FromJSON CreateContactFlow where
+  toJSON CreateContactFlow {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Type" Core..= type'),
+            Core.Just ("Content" Core..= content),
+            ("Description" Core..=) Core.<$> description,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateContactFlow where
   type Rs CreateContactFlow = CreateContactFlowResponse
-  request = Req.putJSON connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath ("/contact-flows/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateContactFlowResponse'
-            Lude.<$> (x Lude..?> "ContactFlowArn")
-            Lude.<*> (x Lude..?> "ContactFlowId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ContactFlowArn")
+            Core.<*> (x Core..:? "ContactFlowId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateContactFlow where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateContactFlow where
-  toJSON CreateContactFlow' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Content" Lude..= content),
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Type" Lude..= type'),
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateContactFlow where
-  toPath CreateContactFlow' {..} =
-    Lude.mconcat ["/contact-flows/", Lude.toBS instanceId]
-
-instance Lude.ToQuery CreateContactFlow where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateContactFlowResponse' smart constructor.
 data CreateContactFlowResponse = CreateContactFlowResponse'
   { -- | The Amazon Resource Name (ARN) of the contact flow.
-    contactFlowARN :: Lude.Maybe Lude.Text,
+    contactFlowArn :: Core.Maybe Types.ARN,
     -- | The identifier of the contact flow.
-    contactFlowId :: Lude.Maybe Lude.Text,
+    contactFlowId :: Core.Maybe Types.ContactFlowId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateContactFlowResponse' with the minimum fields required to make a request.
---
--- * 'contactFlowARN' - The Amazon Resource Name (ARN) of the contact flow.
--- * 'contactFlowId' - The identifier of the contact flow.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateContactFlowResponse' value with any optional fields omitted.
 mkCreateContactFlowResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateContactFlowResponse
-mkCreateContactFlowResponse pResponseStatus_ =
+mkCreateContactFlowResponse responseStatus =
   CreateContactFlowResponse'
-    { contactFlowARN = Lude.Nothing,
-      contactFlowId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { contactFlowArn = Core.Nothing,
+      contactFlowId = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the contact flow.
 --
--- /Note:/ Consider using 'contactFlowARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfrsContactFlowARN :: Lens.Lens' CreateContactFlowResponse (Lude.Maybe Lude.Text)
-ccfrsContactFlowARN = Lens.lens (contactFlowARN :: CreateContactFlowResponse -> Lude.Maybe Lude.Text) (\s a -> s {contactFlowARN = a} :: CreateContactFlowResponse)
-{-# DEPRECATED ccfrsContactFlowARN "Use generic-lens or generic-optics with 'contactFlowARN' instead." #-}
+-- /Note:/ Consider using 'contactFlowArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfrrsContactFlowArn :: Lens.Lens' CreateContactFlowResponse (Core.Maybe Types.ARN)
+ccfrrsContactFlowArn = Lens.field @"contactFlowArn"
+{-# DEPRECATED ccfrrsContactFlowArn "Use generic-lens or generic-optics with 'contactFlowArn' instead." #-}
 
 -- | The identifier of the contact flow.
 --
 -- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfrsContactFlowId :: Lens.Lens' CreateContactFlowResponse (Lude.Maybe Lude.Text)
-ccfrsContactFlowId = Lens.lens (contactFlowId :: CreateContactFlowResponse -> Lude.Maybe Lude.Text) (\s a -> s {contactFlowId = a} :: CreateContactFlowResponse)
-{-# DEPRECATED ccfrsContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
+ccfrrsContactFlowId :: Lens.Lens' CreateContactFlowResponse (Core.Maybe Types.ContactFlowId)
+ccfrrsContactFlowId = Lens.field @"contactFlowId"
+{-# DEPRECATED ccfrrsContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfrsResponseStatus :: Lens.Lens' CreateContactFlowResponse Lude.Int
-ccfrsResponseStatus = Lens.lens (responseStatus :: CreateContactFlowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateContactFlowResponse)
-{-# DEPRECATED ccfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccfrrsResponseStatus :: Lens.Lens' CreateContactFlowResponse Core.Int
+ccfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

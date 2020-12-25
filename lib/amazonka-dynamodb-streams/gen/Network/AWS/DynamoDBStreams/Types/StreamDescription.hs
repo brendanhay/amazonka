@@ -17,34 +17,46 @@ module Network.AWS.DynamoDBStreams.Types.StreamDescription
     mkStreamDescription,
 
     -- * Lenses
+    sdCreationRequestDateTime,
+    sdKeySchema,
     sdLastEvaluatedShardId,
+    sdShards,
+    sdStreamArn,
     sdStreamLabel,
     sdStreamStatus,
-    sdKeySchema,
     sdStreamViewType,
-    sdStreamARN,
-    sdShards,
     sdTableName,
-    sdCreationRequestDateTime,
   )
 where
 
-import Network.AWS.DynamoDBStreams.Types.KeySchemaElement
-import Network.AWS.DynamoDBStreams.Types.Shard
-import Network.AWS.DynamoDBStreams.Types.StreamStatus
-import Network.AWS.DynamoDBStreams.Types.StreamViewType
+import qualified Network.AWS.DynamoDBStreams.Types.KeySchemaElement as Types
+import qualified Network.AWS.DynamoDBStreams.Types.LastEvaluatedShardId as Types
+import qualified Network.AWS.DynamoDBStreams.Types.Shard as Types
+import qualified Network.AWS.DynamoDBStreams.Types.StreamArn as Types
+import qualified Network.AWS.DynamoDBStreams.Types.StreamLabel as Types
+import qualified Network.AWS.DynamoDBStreams.Types.StreamStatus as Types
+import qualified Network.AWS.DynamoDBStreams.Types.StreamViewType as Types
+import qualified Network.AWS.DynamoDBStreams.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents all of the data describing a particular stream.
 --
 -- /See:/ 'mkStreamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-  { -- | The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
+  { -- | The date and time when the request to create this stream was issued.
+    creationRequestDateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The key attribute(s) of the stream's DynamoDB table.
+    keySchema :: Core.Maybe (Core.NonEmpty Types.KeySchemaElement),
+    -- | The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
     --
     -- If @LastEvaluatedShardId@ is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved.
     -- If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
-    lastEvaluatedShardId :: Lude.Maybe Lude.Text,
+    lastEvaluatedShardId :: Core.Maybe Types.LastEvaluatedShardId,
+    -- | The shards that comprise the stream.
+    shards :: Core.Maybe [Types.Shard],
+    -- | The Amazon Resource Name (ARN) for the stream.
+    streamArn :: Core.Maybe Types.StreamArn,
     -- | A timestamp, in ISO 8601 format, for this stream.
     --
     -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
@@ -56,7 +68,7 @@ data StreamDescription = StreamDescription'
     --
     --
     --     * the @StreamLabel@
-    streamLabel :: Lude.Maybe Lude.Text,
+    streamLabel :: Core.Maybe Types.StreamLabel,
     -- | Indicates the current status of the stream:
     --
     --
@@ -70,9 +82,7 @@ data StreamDescription = StreamDescription'
     --
     --
     --     * @DISABLED@ - the stream is disabled.
-    streamStatus :: Lude.Maybe StreamStatus,
-    -- | The key attribute(s) of the stream's DynamoDB table.
-    keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    streamStatus :: Core.Maybe Types.StreamStatus,
     -- | Indicates the format of the records within this stream:
     --
     --
@@ -86,87 +96,42 @@ data StreamDescription = StreamDescription'
     --
     --
     --     * @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items from the table.
-    streamViewType :: Lude.Maybe StreamViewType,
-    -- | The Amazon Resource Name (ARN) for the stream.
-    streamARN :: Lude.Maybe Lude.Text,
-    -- | The shards that comprise the stream.
-    shards :: Lude.Maybe [Shard],
+    streamViewType :: Core.Maybe Types.StreamViewType,
     -- | The DynamoDB table with which the stream is associated.
-    tableName :: Lude.Maybe Lude.Text,
-    -- | The date and time when the request to create this stream was issued.
-    creationRequestDateTime :: Lude.Maybe Lude.Timestamp
+    tableName :: Core.Maybe Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
---
--- * 'lastEvaluatedShardId' - The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
---
--- If @LastEvaluatedShardId@ is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved.
--- If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
--- * 'streamLabel' - A timestamp, in ISO 8601 format, for this stream.
---
--- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
---
---     * the AWS customer ID.
---
---
---     * the table name
---
---
---     * the @StreamLabel@
---
---
--- * 'streamStatus' - Indicates the current status of the stream:
---
---
---     * @ENABLING@ - Streams is currently being enabled on the DynamoDB table.
---
---
---     * @ENABLED@ - the stream is enabled.
---
---
---     * @DISABLING@ - Streams is currently being disabled on the DynamoDB table.
---
---
---     * @DISABLED@ - the stream is disabled.
---
---
--- * 'keySchema' - The key attribute(s) of the stream's DynamoDB table.
--- * 'streamViewType' - Indicates the format of the records within this stream:
---
---
---     * @KEYS_ONLY@ - only the key attributes of items that were modified in the DynamoDB table.
---
---
---     * @NEW_IMAGE@ - entire items from the table, as they appeared after they were modified.
---
---
---     * @OLD_IMAGE@ - entire items from the table, as they appeared before they were modified.
---
---
---     * @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items from the table.
---
---
--- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
--- * 'shards' - The shards that comprise the stream.
--- * 'tableName' - The DynamoDB table with which the stream is associated.
--- * 'creationRequestDateTime' - The date and time when the request to create this stream was issued.
+-- | Creates a 'StreamDescription' value with any optional fields omitted.
 mkStreamDescription ::
   StreamDescription
 mkStreamDescription =
   StreamDescription'
-    { lastEvaluatedShardId = Lude.Nothing,
-      streamLabel = Lude.Nothing,
-      streamStatus = Lude.Nothing,
-      keySchema = Lude.Nothing,
-      streamViewType = Lude.Nothing,
-      streamARN = Lude.Nothing,
-      shards = Lude.Nothing,
-      tableName = Lude.Nothing,
-      creationRequestDateTime = Lude.Nothing
+    { creationRequestDateTime = Core.Nothing,
+      keySchema = Core.Nothing,
+      lastEvaluatedShardId = Core.Nothing,
+      shards = Core.Nothing,
+      streamArn = Core.Nothing,
+      streamLabel = Core.Nothing,
+      streamStatus = Core.Nothing,
+      streamViewType = Core.Nothing,
+      tableName = Core.Nothing
     }
+
+-- | The date and time when the request to create this stream was issued.
+--
+-- /Note:/ Consider using 'creationRequestDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdCreationRequestDateTime :: Lens.Lens' StreamDescription (Core.Maybe Core.NominalDiffTime)
+sdCreationRequestDateTime = Lens.field @"creationRequestDateTime"
+{-# DEPRECATED sdCreationRequestDateTime "Use generic-lens or generic-optics with 'creationRequestDateTime' instead." #-}
+
+-- | The key attribute(s) of the stream's DynamoDB table.
+--
+-- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdKeySchema :: Lens.Lens' StreamDescription (Core.Maybe (Core.NonEmpty Types.KeySchemaElement))
+sdKeySchema = Lens.field @"keySchema"
+{-# DEPRECATED sdKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
 
 -- | The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
 --
@@ -174,9 +139,23 @@ mkStreamDescription =
 -- If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
 --
 -- /Note:/ Consider using 'lastEvaluatedShardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdLastEvaluatedShardId :: Lens.Lens' StreamDescription (Lude.Maybe Lude.Text)
-sdLastEvaluatedShardId = Lens.lens (lastEvaluatedShardId :: StreamDescription -> Lude.Maybe Lude.Text) (\s a -> s {lastEvaluatedShardId = a} :: StreamDescription)
+sdLastEvaluatedShardId :: Lens.Lens' StreamDescription (Core.Maybe Types.LastEvaluatedShardId)
+sdLastEvaluatedShardId = Lens.field @"lastEvaluatedShardId"
 {-# DEPRECATED sdLastEvaluatedShardId "Use generic-lens or generic-optics with 'lastEvaluatedShardId' instead." #-}
+
+-- | The shards that comprise the stream.
+--
+-- /Note:/ Consider using 'shards' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdShards :: Lens.Lens' StreamDescription (Core.Maybe [Types.Shard])
+sdShards = Lens.field @"shards"
+{-# DEPRECATED sdShards "Use generic-lens or generic-optics with 'shards' instead." #-}
+
+-- | The Amazon Resource Name (ARN) for the stream.
+--
+-- /Note:/ Consider using 'streamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdStreamArn :: Lens.Lens' StreamDescription (Core.Maybe Types.StreamArn)
+sdStreamArn = Lens.field @"streamArn"
+{-# DEPRECATED sdStreamArn "Use generic-lens or generic-optics with 'streamArn' instead." #-}
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --
@@ -193,8 +172,8 @@ sdLastEvaluatedShardId = Lens.lens (lastEvaluatedShardId :: StreamDescription ->
 --
 --
 -- /Note:/ Consider using 'streamLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdStreamLabel :: Lens.Lens' StreamDescription (Lude.Maybe Lude.Text)
-sdStreamLabel = Lens.lens (streamLabel :: StreamDescription -> Lude.Maybe Lude.Text) (\s a -> s {streamLabel = a} :: StreamDescription)
+sdStreamLabel :: Lens.Lens' StreamDescription (Core.Maybe Types.StreamLabel)
+sdStreamLabel = Lens.field @"streamLabel"
 {-# DEPRECATED sdStreamLabel "Use generic-lens or generic-optics with 'streamLabel' instead." #-}
 
 -- | Indicates the current status of the stream:
@@ -214,16 +193,9 @@ sdStreamLabel = Lens.lens (streamLabel :: StreamDescription -> Lude.Maybe Lude.T
 --
 --
 -- /Note:/ Consider using 'streamStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdStreamStatus :: Lens.Lens' StreamDescription (Lude.Maybe StreamStatus)
-sdStreamStatus = Lens.lens (streamStatus :: StreamDescription -> Lude.Maybe StreamStatus) (\s a -> s {streamStatus = a} :: StreamDescription)
+sdStreamStatus :: Lens.Lens' StreamDescription (Core.Maybe Types.StreamStatus)
+sdStreamStatus = Lens.field @"streamStatus"
 {-# DEPRECATED sdStreamStatus "Use generic-lens or generic-optics with 'streamStatus' instead." #-}
-
--- | The key attribute(s) of the stream's DynamoDB table.
---
--- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdKeySchema :: Lens.Lens' StreamDescription (Lude.Maybe (Lude.NonEmpty KeySchemaElement))
-sdKeySchema = Lens.lens (keySchema :: StreamDescription -> Lude.Maybe (Lude.NonEmpty KeySchemaElement)) (\s a -> s {keySchema = a} :: StreamDescription)
-{-# DEPRECATED sdKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
 
 -- | Indicates the format of the records within this stream:
 --
@@ -242,51 +214,28 @@ sdKeySchema = Lens.lens (keySchema :: StreamDescription -> Lude.Maybe (Lude.NonE
 --
 --
 -- /Note:/ Consider using 'streamViewType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdStreamViewType :: Lens.Lens' StreamDescription (Lude.Maybe StreamViewType)
-sdStreamViewType = Lens.lens (streamViewType :: StreamDescription -> Lude.Maybe StreamViewType) (\s a -> s {streamViewType = a} :: StreamDescription)
+sdStreamViewType :: Lens.Lens' StreamDescription (Core.Maybe Types.StreamViewType)
+sdStreamViewType = Lens.field @"streamViewType"
 {-# DEPRECATED sdStreamViewType "Use generic-lens or generic-optics with 'streamViewType' instead." #-}
-
--- | The Amazon Resource Name (ARN) for the stream.
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdStreamARN :: Lens.Lens' StreamDescription (Lude.Maybe Lude.Text)
-sdStreamARN = Lens.lens (streamARN :: StreamDescription -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: StreamDescription)
-{-# DEPRECATED sdStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
-
--- | The shards that comprise the stream.
---
--- /Note:/ Consider using 'shards' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdShards :: Lens.Lens' StreamDescription (Lude.Maybe [Shard])
-sdShards = Lens.lens (shards :: StreamDescription -> Lude.Maybe [Shard]) (\s a -> s {shards = a} :: StreamDescription)
-{-# DEPRECATED sdShards "Use generic-lens or generic-optics with 'shards' instead." #-}
 
 -- | The DynamoDB table with which the stream is associated.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdTableName :: Lens.Lens' StreamDescription (Lude.Maybe Lude.Text)
-sdTableName = Lens.lens (tableName :: StreamDescription -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: StreamDescription)
+sdTableName :: Lens.Lens' StreamDescription (Core.Maybe Types.TableName)
+sdTableName = Lens.field @"tableName"
 {-# DEPRECATED sdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
--- | The date and time when the request to create this stream was issued.
---
--- /Note:/ Consider using 'creationRequestDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdCreationRequestDateTime :: Lens.Lens' StreamDescription (Lude.Maybe Lude.Timestamp)
-sdCreationRequestDateTime = Lens.lens (creationRequestDateTime :: StreamDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationRequestDateTime = a} :: StreamDescription)
-{-# DEPRECATED sdCreationRequestDateTime "Use generic-lens or generic-optics with 'creationRequestDateTime' instead." #-}
-
-instance Lude.FromJSON StreamDescription where
+instance Core.FromJSON StreamDescription where
   parseJSON =
-    Lude.withObject
-      "StreamDescription"
-      ( \x ->
-          StreamDescription'
-            Lude.<$> (x Lude..:? "LastEvaluatedShardId")
-            Lude.<*> (x Lude..:? "StreamLabel")
-            Lude.<*> (x Lude..:? "StreamStatus")
-            Lude.<*> (x Lude..:? "KeySchema")
-            Lude.<*> (x Lude..:? "StreamViewType")
-            Lude.<*> (x Lude..:? "StreamArn")
-            Lude.<*> (x Lude..:? "Shards" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "TableName")
-            Lude.<*> (x Lude..:? "CreationRequestDateTime")
-      )
+    Core.withObject "StreamDescription" Core.$
+      \x ->
+        StreamDescription'
+          Core.<$> (x Core..:? "CreationRequestDateTime")
+          Core.<*> (x Core..:? "KeySchema")
+          Core.<*> (x Core..:? "LastEvaluatedShardId")
+          Core.<*> (x Core..:? "Shards")
+          Core.<*> (x Core..:? "StreamArn")
+          Core.<*> (x Core..:? "StreamLabel")
+          Core.<*> (x Core..:? "StreamStatus")
+          Core.<*> (x Core..:? "StreamViewType")
+          Core.<*> (x Core..:? "TableName")

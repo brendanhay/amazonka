@@ -23,8 +23,8 @@ module Network.AWS.KinesisAnalytics.UpdateApplication
     mkUpdateApplication,
 
     -- ** Request lenses
-    uaCurrentApplicationVersionId,
     uaApplicationName,
+    uaCurrentApplicationVersionId,
     uaApplicationUpdate,
 
     -- * Destructuring the response
@@ -32,133 +32,120 @@ module Network.AWS.KinesisAnalytics.UpdateApplication
     mkUpdateApplicationResponse,
 
     -- ** Response lenses
-    uarsResponseStatus,
+    uarrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types
+import qualified Network.AWS.KinesisAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
-    currentApplicationVersionId :: Lude.Natural,
-    -- | Name of the Amazon Kinesis Analytics application to update.
-    applicationName :: Lude.Text,
+  { -- | Name of the Amazon Kinesis Analytics application to update.
+    applicationName :: Types.ApplicationName,
+    -- | The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
+    currentApplicationVersionId :: Core.Natural,
     -- | Describes application updates.
-    applicationUpdate :: ApplicationUpdate
+    applicationUpdate :: Types.ApplicationUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
---
--- * 'currentApplicationVersionId' - The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
--- * 'applicationName' - Name of the Amazon Kinesis Analytics application to update.
--- * 'applicationUpdate' - Describes application updates.
+-- | Creates a 'UpdateApplication' value with any optional fields omitted.
 mkUpdateApplication ::
-  -- | 'currentApplicationVersionId'
-  Lude.Natural ->
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
+  -- | 'currentApplicationVersionId'
+  Core.Natural ->
   -- | 'applicationUpdate'
-  ApplicationUpdate ->
+  Types.ApplicationUpdate ->
   UpdateApplication
 mkUpdateApplication
-  pCurrentApplicationVersionId_
-  pApplicationName_
-  pApplicationUpdate_ =
+  applicationName
+  currentApplicationVersionId
+  applicationUpdate =
     UpdateApplication'
-      { currentApplicationVersionId =
-          pCurrentApplicationVersionId_,
-        applicationName = pApplicationName_,
-        applicationUpdate = pApplicationUpdate_
+      { applicationName,
+        currentApplicationVersionId,
+        applicationUpdate
       }
-
--- | The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
---
--- /Note:/ Consider using 'currentApplicationVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaCurrentApplicationVersionId :: Lens.Lens' UpdateApplication Lude.Natural
-uaCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: UpdateApplication -> Lude.Natural) (\s a -> s {currentApplicationVersionId = a} :: UpdateApplication)
-{-# DEPRECATED uaCurrentApplicationVersionId "Use generic-lens or generic-optics with 'currentApplicationVersionId' instead." #-}
 
 -- | Name of the Amazon Kinesis Analytics application to update.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaApplicationName :: Lens.Lens' UpdateApplication Lude.Text
-uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplication)
+uaApplicationName :: Lens.Lens' UpdateApplication Types.ApplicationName
+uaApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED uaApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
+-- | The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
+--
+-- /Note:/ Consider using 'currentApplicationVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaCurrentApplicationVersionId :: Lens.Lens' UpdateApplication Core.Natural
+uaCurrentApplicationVersionId = Lens.field @"currentApplicationVersionId"
+{-# DEPRECATED uaCurrentApplicationVersionId "Use generic-lens or generic-optics with 'currentApplicationVersionId' instead." #-}
 
 -- | Describes application updates.
 --
 -- /Note:/ Consider using 'applicationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaApplicationUpdate :: Lens.Lens' UpdateApplication ApplicationUpdate
-uaApplicationUpdate = Lens.lens (applicationUpdate :: UpdateApplication -> ApplicationUpdate) (\s a -> s {applicationUpdate = a} :: UpdateApplication)
+uaApplicationUpdate :: Lens.Lens' UpdateApplication Types.ApplicationUpdate
+uaApplicationUpdate = Lens.field @"applicationUpdate"
 {-# DEPRECATED uaApplicationUpdate "Use generic-lens or generic-optics with 'applicationUpdate' instead." #-}
 
-instance Lude.AWSRequest UpdateApplication where
-  type Rs UpdateApplication = UpdateApplicationResponse
-  request = Req.postJSON kinesisAnalyticsService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UpdateApplicationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateApplication where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("KinesisAnalytics_20150814.UpdateApplication" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateApplication where
-  toJSON UpdateApplication' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON UpdateApplication where
+  toJSON UpdateApplication {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ApplicationName" Core..= applicationName),
+            Core.Just
               ( "CurrentApplicationVersionId"
-                  Lude..= currentApplicationVersionId
+                  Core..= currentApplicationVersionId
               ),
-            Lude.Just ("ApplicationName" Lude..= applicationName),
-            Lude.Just ("ApplicationUpdate" Lude..= applicationUpdate)
+            Core.Just ("ApplicationUpdate" Core..= applicationUpdate)
           ]
       )
 
-instance Lude.ToPath UpdateApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateApplication where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateApplication where
+  type Rs UpdateApplication = UpdateApplicationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "KinesisAnalytics_20150814.UpdateApplication")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateApplicationResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
 newtype UpdateApplicationResponse = UpdateApplicationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateApplicationResponse' value with any optional fields omitted.
 mkUpdateApplicationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateApplicationResponse
-mkUpdateApplicationResponse pResponseStatus_ =
-  UpdateApplicationResponse' {responseStatus = pResponseStatus_}
+mkUpdateApplicationResponse responseStatus =
+  UpdateApplicationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarsResponseStatus :: Lens.Lens' UpdateApplicationResponse Lude.Int
-uarsResponseStatus = Lens.lens (responseStatus :: UpdateApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApplicationResponse)
-{-# DEPRECATED uarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uarrsResponseStatus :: Lens.Lens' UpdateApplicationResponse Core.Int
+uarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,105 +17,98 @@ module Network.AWS.SWF.Types.ActivityTypeInfo
     mkActivityTypeInfo,
 
     -- * Lenses
-    atiStatus,
     atiActivityType,
-    atiDeprecationDate,
+    atiStatus,
     atiCreationDate,
+    atiDeprecationDate,
     atiDescription,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.ActivityType
-import Network.AWS.SWF.Types.RegistrationStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.ActivityType as Types
+import qualified Network.AWS.SWF.Types.Description as Types
+import qualified Network.AWS.SWF.Types.RegistrationStatus as Types
 
 -- | Detailed information about an activity type.
 --
 -- /See:/ 'mkActivityTypeInfo' smart constructor.
 data ActivityTypeInfo = ActivityTypeInfo'
-  { -- | The current status of the activity type.
-    status :: RegistrationStatus,
-    -- | The 'ActivityType' type structure representing the activity type.
-    activityType :: ActivityType,
-    -- | If DEPRECATED, the date and time 'DeprecateActivityType' was called.
-    deprecationDate :: Lude.Maybe Lude.Timestamp,
+  { -- | The 'ActivityType' type structure representing the activity type.
+    activityType :: Types.ActivityType,
+    -- | The current status of the activity type.
+    status :: Types.RegistrationStatus,
     -- | The date and time this activity type was created through 'RegisterActivityType' .
-    creationDate :: Lude.Timestamp,
+    creationDate :: Core.NominalDiffTime,
+    -- | If DEPRECATED, the date and time 'DeprecateActivityType' was called.
+    deprecationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the activity type provided in 'RegisterActivityType' .
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ActivityTypeInfo' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the activity type.
--- * 'activityType' - The 'ActivityType' type structure representing the activity type.
--- * 'deprecationDate' - If DEPRECATED, the date and time 'DeprecateActivityType' was called.
--- * 'creationDate' - The date and time this activity type was created through 'RegisterActivityType' .
--- * 'description' - The description of the activity type provided in 'RegisterActivityType' .
+-- | Creates a 'ActivityTypeInfo' value with any optional fields omitted.
 mkActivityTypeInfo ::
-  -- | 'status'
-  RegistrationStatus ->
   -- | 'activityType'
-  ActivityType ->
+  Types.ActivityType ->
+  -- | 'status'
+  Types.RegistrationStatus ->
   -- | 'creationDate'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   ActivityTypeInfo
-mkActivityTypeInfo pStatus_ pActivityType_ pCreationDate_ =
+mkActivityTypeInfo activityType status creationDate =
   ActivityTypeInfo'
-    { status = pStatus_,
-      activityType = pActivityType_,
-      deprecationDate = Lude.Nothing,
-      creationDate = pCreationDate_,
-      description = Lude.Nothing
+    { activityType,
+      status,
+      creationDate,
+      deprecationDate = Core.Nothing,
+      description = Core.Nothing
     }
-
--- | The current status of the activity type.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiStatus :: Lens.Lens' ActivityTypeInfo RegistrationStatus
-atiStatus = Lens.lens (status :: ActivityTypeInfo -> RegistrationStatus) (\s a -> s {status = a} :: ActivityTypeInfo)
-{-# DEPRECATED atiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The 'ActivityType' type structure representing the activity type.
 --
 -- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiActivityType :: Lens.Lens' ActivityTypeInfo ActivityType
-atiActivityType = Lens.lens (activityType :: ActivityTypeInfo -> ActivityType) (\s a -> s {activityType = a} :: ActivityTypeInfo)
+atiActivityType :: Lens.Lens' ActivityTypeInfo Types.ActivityType
+atiActivityType = Lens.field @"activityType"
 {-# DEPRECATED atiActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
 
--- | If DEPRECATED, the date and time 'DeprecateActivityType' was called.
+-- | The current status of the activity type.
 --
--- /Note:/ Consider using 'deprecationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiDeprecationDate :: Lens.Lens' ActivityTypeInfo (Lude.Maybe Lude.Timestamp)
-atiDeprecationDate = Lens.lens (deprecationDate :: ActivityTypeInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {deprecationDate = a} :: ActivityTypeInfo)
-{-# DEPRECATED atiDeprecationDate "Use generic-lens or generic-optics with 'deprecationDate' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atiStatus :: Lens.Lens' ActivityTypeInfo Types.RegistrationStatus
+atiStatus = Lens.field @"status"
+{-# DEPRECATED atiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date and time this activity type was created through 'RegisterActivityType' .
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiCreationDate :: Lens.Lens' ActivityTypeInfo Lude.Timestamp
-atiCreationDate = Lens.lens (creationDate :: ActivityTypeInfo -> Lude.Timestamp) (\s a -> s {creationDate = a} :: ActivityTypeInfo)
+atiCreationDate :: Lens.Lens' ActivityTypeInfo Core.NominalDiffTime
+atiCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED atiCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | If DEPRECATED, the date and time 'DeprecateActivityType' was called.
+--
+-- /Note:/ Consider using 'deprecationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atiDeprecationDate :: Lens.Lens' ActivityTypeInfo (Core.Maybe Core.NominalDiffTime)
+atiDeprecationDate = Lens.field @"deprecationDate"
+{-# DEPRECATED atiDeprecationDate "Use generic-lens or generic-optics with 'deprecationDate' instead." #-}
 
 -- | The description of the activity type provided in 'RegisterActivityType' .
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiDescription :: Lens.Lens' ActivityTypeInfo (Lude.Maybe Lude.Text)
-atiDescription = Lens.lens (description :: ActivityTypeInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ActivityTypeInfo)
+atiDescription :: Lens.Lens' ActivityTypeInfo (Core.Maybe Types.Description)
+atiDescription = Lens.field @"description"
 {-# DEPRECATED atiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON ActivityTypeInfo where
+instance Core.FromJSON ActivityTypeInfo where
   parseJSON =
-    Lude.withObject
-      "ActivityTypeInfo"
-      ( \x ->
-          ActivityTypeInfo'
-            Lude.<$> (x Lude..: "status")
-            Lude.<*> (x Lude..: "activityType")
-            Lude.<*> (x Lude..:? "deprecationDate")
-            Lude.<*> (x Lude..: "creationDate")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "ActivityTypeInfo" Core.$
+      \x ->
+        ActivityTypeInfo'
+          Core.<$> (x Core..: "activityType")
+          Core.<*> (x Core..: "status")
+          Core.<*> (x Core..: "creationDate")
+          Core.<*> (x Core..:? "deprecationDate")
+          Core.<*> (x Core..:? "description")

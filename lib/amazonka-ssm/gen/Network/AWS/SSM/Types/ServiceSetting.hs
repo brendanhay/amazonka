@@ -17,17 +17,20 @@ module Network.AWS.SSM.Types.ServiceSetting
     mkServiceSetting,
 
     -- * Lenses
-    ssStatus,
-    ssLastModifiedDate,
     ssARN,
-    ssSettingId,
+    ssLastModifiedDate,
     ssLastModifiedUser,
+    ssSettingId,
     ssSettingValue,
+    ssStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.SettingId as Types
+import qualified Network.AWS.SSM.Types.SettingValue as Types
+import qualified Network.AWS.SSM.Types.String as Types
 
 -- | The service setting data structure.
 --
@@ -36,7 +39,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceSetting' smart constructor.
 data ServiceSetting = ServiceSetting'
-  { -- | The status of the service setting. The value can be Default, Customized or PendingUpdate.
+  { -- | The ARN of the service setting.
+    arn :: Core.Maybe Types.String,
+    -- | The last time the service setting was modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The ARN of the last modified user. This field is populated only if the setting value was overwritten.
+    lastModifiedUser :: Core.Maybe Types.String,
+    -- | The ID of the service setting.
+    settingId :: Core.Maybe Types.SettingId,
+    -- | The value of the service setting.
+    settingValue :: Core.Maybe Types.SettingValue,
+    -- | The status of the service setting. The value can be Default, Customized or PendingUpdate.
     --
     --
     --     * Default: The current setting uses a default value provisioned by the AWS service team.
@@ -46,51 +59,58 @@ data ServiceSetting = ServiceSetting'
     --
     --
     --     * PendingUpdate: The current setting uses a default or custom value, but a setting change request is pending approval.
-    status :: Lude.Maybe Lude.Text,
-    -- | The last time the service setting was modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The ARN of the service setting.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The ID of the service setting.
-    settingId :: Lude.Maybe Lude.Text,
-    -- | The ARN of the last modified user. This field is populated only if the setting value was overwritten.
-    lastModifiedUser :: Lude.Maybe Lude.Text,
-    -- | The value of the service setting.
-    settingValue :: Lude.Maybe Lude.Text
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ServiceSetting' with the minimum fields required to make a request.
---
--- * 'status' - The status of the service setting. The value can be Default, Customized or PendingUpdate.
---
---
---     * Default: The current setting uses a default value provisioned by the AWS service team.
---
---
---     * Customized: The current setting use a custom value specified by the customer.
---
---
---     * PendingUpdate: The current setting uses a default or custom value, but a setting change request is pending approval.
---
---
--- * 'lastModifiedDate' - The last time the service setting was modified.
--- * 'arn' - The ARN of the service setting.
--- * 'settingId' - The ID of the service setting.
--- * 'lastModifiedUser' - The ARN of the last modified user. This field is populated only if the setting value was overwritten.
--- * 'settingValue' - The value of the service setting.
+-- | Creates a 'ServiceSetting' value with any optional fields omitted.
 mkServiceSetting ::
   ServiceSetting
 mkServiceSetting =
   ServiceSetting'
-    { status = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      arn = Lude.Nothing,
-      settingId = Lude.Nothing,
-      lastModifiedUser = Lude.Nothing,
-      settingValue = Lude.Nothing
+    { arn = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      lastModifiedUser = Core.Nothing,
+      settingId = Core.Nothing,
+      settingValue = Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | The ARN of the service setting.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssARN :: Lens.Lens' ServiceSetting (Core.Maybe Types.String)
+ssARN = Lens.field @"arn"
+{-# DEPRECATED ssARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The last time the service setting was modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssLastModifiedDate :: Lens.Lens' ServiceSetting (Core.Maybe Core.NominalDiffTime)
+ssLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED ssLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The ARN of the last modified user. This field is populated only if the setting value was overwritten.
+--
+-- /Note:/ Consider using 'lastModifiedUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssLastModifiedUser :: Lens.Lens' ServiceSetting (Core.Maybe Types.String)
+ssLastModifiedUser = Lens.field @"lastModifiedUser"
+{-# DEPRECATED ssLastModifiedUser "Use generic-lens or generic-optics with 'lastModifiedUser' instead." #-}
+
+-- | The ID of the service setting.
+--
+-- /Note:/ Consider using 'settingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssSettingId :: Lens.Lens' ServiceSetting (Core.Maybe Types.SettingId)
+ssSettingId = Lens.field @"settingId"
+{-# DEPRECATED ssSettingId "Use generic-lens or generic-optics with 'settingId' instead." #-}
+
+-- | The value of the service setting.
+--
+-- /Note:/ Consider using 'settingValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssSettingValue :: Lens.Lens' ServiceSetting (Core.Maybe Types.SettingValue)
+ssSettingValue = Lens.field @"settingValue"
+{-# DEPRECATED ssSettingValue "Use generic-lens or generic-optics with 'settingValue' instead." #-}
 
 -- | The status of the service setting. The value can be Default, Customized or PendingUpdate.
 --
@@ -106,55 +126,18 @@ mkServiceSetting =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStatus :: Lens.Lens' ServiceSetting (Lude.Maybe Lude.Text)
-ssStatus = Lens.lens (status :: ServiceSetting -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ServiceSetting)
+ssStatus :: Lens.Lens' ServiceSetting (Core.Maybe Types.String)
+ssStatus = Lens.field @"status"
 {-# DEPRECATED ssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The last time the service setting was modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssLastModifiedDate :: Lens.Lens' ServiceSetting (Lude.Maybe Lude.Timestamp)
-ssLastModifiedDate = Lens.lens (lastModifiedDate :: ServiceSetting -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: ServiceSetting)
-{-# DEPRECATED ssLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The ARN of the service setting.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssARN :: Lens.Lens' ServiceSetting (Lude.Maybe Lude.Text)
-ssARN = Lens.lens (arn :: ServiceSetting -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ServiceSetting)
-{-# DEPRECATED ssARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The ID of the service setting.
---
--- /Note:/ Consider using 'settingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSettingId :: Lens.Lens' ServiceSetting (Lude.Maybe Lude.Text)
-ssSettingId = Lens.lens (settingId :: ServiceSetting -> Lude.Maybe Lude.Text) (\s a -> s {settingId = a} :: ServiceSetting)
-{-# DEPRECATED ssSettingId "Use generic-lens or generic-optics with 'settingId' instead." #-}
-
--- | The ARN of the last modified user. This field is populated only if the setting value was overwritten.
---
--- /Note:/ Consider using 'lastModifiedUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssLastModifiedUser :: Lens.Lens' ServiceSetting (Lude.Maybe Lude.Text)
-ssLastModifiedUser = Lens.lens (lastModifiedUser :: ServiceSetting -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedUser = a} :: ServiceSetting)
-{-# DEPRECATED ssLastModifiedUser "Use generic-lens or generic-optics with 'lastModifiedUser' instead." #-}
-
--- | The value of the service setting.
---
--- /Note:/ Consider using 'settingValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSettingValue :: Lens.Lens' ServiceSetting (Lude.Maybe Lude.Text)
-ssSettingValue = Lens.lens (settingValue :: ServiceSetting -> Lude.Maybe Lude.Text) (\s a -> s {settingValue = a} :: ServiceSetting)
-{-# DEPRECATED ssSettingValue "Use generic-lens or generic-optics with 'settingValue' instead." #-}
-
-instance Lude.FromJSON ServiceSetting where
+instance Core.FromJSON ServiceSetting where
   parseJSON =
-    Lude.withObject
-      "ServiceSetting"
-      ( \x ->
-          ServiceSetting'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "ARN")
-            Lude.<*> (x Lude..:? "SettingId")
-            Lude.<*> (x Lude..:? "LastModifiedUser")
-            Lude.<*> (x Lude..:? "SettingValue")
-      )
+    Core.withObject "ServiceSetting" Core.$
+      \x ->
+        ServiceSetting'
+          Core.<$> (x Core..:? "ARN")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "LastModifiedUser")
+          Core.<*> (x Core..:? "SettingId")
+          Core.<*> (x Core..:? "SettingValue")
+          Core.<*> (x Core..:? "Status")

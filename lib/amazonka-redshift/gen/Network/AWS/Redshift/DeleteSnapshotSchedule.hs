@@ -29,64 +29,62 @@ module Network.AWS.Redshift.DeleteSnapshotSchedule
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSnapshotSchedule' smart constructor.
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
   { -- | A unique identifier of the snapshot schedule to delete.
-    scheduleIdentifier :: Lude.Text
+    scheduleIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSnapshotSchedule' with the minimum fields required to make a request.
---
--- * 'scheduleIdentifier' - A unique identifier of the snapshot schedule to delete.
+-- | Creates a 'DeleteSnapshotSchedule' value with any optional fields omitted.
 mkDeleteSnapshotSchedule ::
   -- | 'scheduleIdentifier'
-  Lude.Text ->
+  Types.String ->
   DeleteSnapshotSchedule
-mkDeleteSnapshotSchedule pScheduleIdentifier_ =
-  DeleteSnapshotSchedule'
-    { scheduleIdentifier =
-        pScheduleIdentifier_
-    }
+mkDeleteSnapshotSchedule scheduleIdentifier =
+  DeleteSnapshotSchedule' {scheduleIdentifier}
 
 -- | A unique identifier of the snapshot schedule to delete.
 --
 -- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dScheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Lude.Text
-dScheduleIdentifier = Lens.lens (scheduleIdentifier :: DeleteSnapshotSchedule -> Lude.Text) (\s a -> s {scheduleIdentifier = a} :: DeleteSnapshotSchedule)
+dScheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Types.String
+dScheduleIdentifier = Lens.field @"scheduleIdentifier"
 {-# DEPRECATED dScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
 
-instance Lude.AWSRequest DeleteSnapshotSchedule where
+instance Core.AWSRequest DeleteSnapshotSchedule where
   type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
-  request = Req.postQuery redshiftService
-  response = Res.receiveNull DeleteSnapshotScheduleResponse'
-
-instance Lude.ToHeaders DeleteSnapshotSchedule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteSnapshotSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSnapshotSchedule where
-  toQuery DeleteSnapshotSchedule' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteSnapshotSchedule" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ScheduleIdentifier" Lude.=: scheduleIdentifier
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteSnapshotSchedule")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ScheduleIdentifier" scheduleIdentifier)
+            )
+      }
+  response = Response.receiveNull DeleteSnapshotScheduleResponse'
 
 -- | /See:/ 'mkDeleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSnapshotScheduleResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteSnapshotScheduleResponse' value with any optional fields omitted.
 mkDeleteSnapshotScheduleResponse ::
   DeleteSnapshotScheduleResponse
 mkDeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'

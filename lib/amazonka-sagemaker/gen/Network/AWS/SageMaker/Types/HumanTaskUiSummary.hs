@@ -17,80 +17,73 @@ module Network.AWS.SageMaker.Types.HumanTaskUiSummary
     mkHumanTaskUiSummary,
 
     -- * Lenses
-    htusCreationTime,
     htusHumanTaskUiName,
-    htusHumanTaskUiARN,
+    htusHumanTaskUiArn,
+    htusCreationTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.HumanTaskUiArn as Types
+import qualified Network.AWS.SageMaker.Types.HumanTaskUiName as Types
 
 -- | Container for human task user interface information.
 --
 -- /See:/ 'mkHumanTaskUiSummary' smart constructor.
 data HumanTaskUiSummary = HumanTaskUiSummary'
-  { -- | A timestamp when SageMaker created the human task user interface.
-    creationTime :: Lude.Timestamp,
-    -- | The name of the human task user interface.
-    humanTaskUiName :: Lude.Text,
+  { -- | The name of the human task user interface.
+    humanTaskUiName :: Types.HumanTaskUiName,
     -- | The Amazon Resource Name (ARN) of the human task user interface.
-    humanTaskUiARN :: Lude.Text
+    humanTaskUiArn :: Types.HumanTaskUiArn,
+    -- | A timestamp when SageMaker created the human task user interface.
+    creationTime :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'HumanTaskUiSummary' with the minimum fields required to make a request.
---
--- * 'creationTime' - A timestamp when SageMaker created the human task user interface.
--- * 'humanTaskUiName' - The name of the human task user interface.
--- * 'humanTaskUiARN' - The Amazon Resource Name (ARN) of the human task user interface.
+-- | Creates a 'HumanTaskUiSummary' value with any optional fields omitted.
 mkHumanTaskUiSummary ::
-  -- | 'creationTime'
-  Lude.Timestamp ->
   -- | 'humanTaskUiName'
-  Lude.Text ->
-  -- | 'humanTaskUiARN'
-  Lude.Text ->
+  Types.HumanTaskUiName ->
+  -- | 'humanTaskUiArn'
+  Types.HumanTaskUiArn ->
+  -- | 'creationTime'
+  Core.NominalDiffTime ->
   HumanTaskUiSummary
-mkHumanTaskUiSummary
-  pCreationTime_
-  pHumanTaskUiName_
-  pHumanTaskUiARN_ =
-    HumanTaskUiSummary'
-      { creationTime = pCreationTime_,
-        humanTaskUiName = pHumanTaskUiName_,
-        humanTaskUiARN = pHumanTaskUiARN_
-      }
-
--- | A timestamp when SageMaker created the human task user interface.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htusCreationTime :: Lens.Lens' HumanTaskUiSummary Lude.Timestamp
-htusCreationTime = Lens.lens (creationTime :: HumanTaskUiSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: HumanTaskUiSummary)
-{-# DEPRECATED htusCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+mkHumanTaskUiSummary humanTaskUiName humanTaskUiArn creationTime =
+  HumanTaskUiSummary'
+    { humanTaskUiName,
+      humanTaskUiArn,
+      creationTime
+    }
 
 -- | The name of the human task user interface.
 --
 -- /Note:/ Consider using 'humanTaskUiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htusHumanTaskUiName :: Lens.Lens' HumanTaskUiSummary Lude.Text
-htusHumanTaskUiName = Lens.lens (humanTaskUiName :: HumanTaskUiSummary -> Lude.Text) (\s a -> s {humanTaskUiName = a} :: HumanTaskUiSummary)
+htusHumanTaskUiName :: Lens.Lens' HumanTaskUiSummary Types.HumanTaskUiName
+htusHumanTaskUiName = Lens.field @"humanTaskUiName"
 {-# DEPRECATED htusHumanTaskUiName "Use generic-lens or generic-optics with 'humanTaskUiName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the human task user interface.
 --
--- /Note:/ Consider using 'humanTaskUiARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htusHumanTaskUiARN :: Lens.Lens' HumanTaskUiSummary Lude.Text
-htusHumanTaskUiARN = Lens.lens (humanTaskUiARN :: HumanTaskUiSummary -> Lude.Text) (\s a -> s {humanTaskUiARN = a} :: HumanTaskUiSummary)
-{-# DEPRECATED htusHumanTaskUiARN "Use generic-lens or generic-optics with 'humanTaskUiARN' instead." #-}
+-- /Note:/ Consider using 'humanTaskUiArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htusHumanTaskUiArn :: Lens.Lens' HumanTaskUiSummary Types.HumanTaskUiArn
+htusHumanTaskUiArn = Lens.field @"humanTaskUiArn"
+{-# DEPRECATED htusHumanTaskUiArn "Use generic-lens or generic-optics with 'humanTaskUiArn' instead." #-}
 
-instance Lude.FromJSON HumanTaskUiSummary where
+-- | A timestamp when SageMaker created the human task user interface.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htusCreationTime :: Lens.Lens' HumanTaskUiSummary Core.NominalDiffTime
+htusCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED htusCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+instance Core.FromJSON HumanTaskUiSummary where
   parseJSON =
-    Lude.withObject
-      "HumanTaskUiSummary"
-      ( \x ->
-          HumanTaskUiSummary'
-            Lude.<$> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..: "HumanTaskUiName")
-            Lude.<*> (x Lude..: "HumanTaskUiArn")
-      )
+    Core.withObject "HumanTaskUiSummary" Core.$
+      \x ->
+        HumanTaskUiSummary'
+          Core.<$> (x Core..: "HumanTaskUiName")
+          Core.<*> (x Core..: "HumanTaskUiArn")
+          Core.<*> (x Core..: "CreationTime")

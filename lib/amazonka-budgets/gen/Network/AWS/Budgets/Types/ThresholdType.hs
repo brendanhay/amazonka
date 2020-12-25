@@ -13,47 +13,52 @@
 module Network.AWS.Budgets.Types.ThresholdType
   ( ThresholdType
       ( ThresholdType',
-        Percentage,
-        AbsoluteValue
+        ThresholdTypePercentage,
+        ThresholdTypeAbsoluteValue,
+        fromThresholdType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type of threshold for a notification.
-newtype ThresholdType = ThresholdType' Lude.Text
+newtype ThresholdType = ThresholdType'
+  { fromThresholdType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Percentage :: ThresholdType
-pattern Percentage = ThresholdType' "PERCENTAGE"
+pattern ThresholdTypePercentage :: ThresholdType
+pattern ThresholdTypePercentage = ThresholdType' "PERCENTAGE"
 
-pattern AbsoluteValue :: ThresholdType
-pattern AbsoluteValue = ThresholdType' "ABSOLUTE_VALUE"
+pattern ThresholdTypeAbsoluteValue :: ThresholdType
+pattern ThresholdTypeAbsoluteValue = ThresholdType' "ABSOLUTE_VALUE"
 
 {-# COMPLETE
-  Percentage,
-  AbsoluteValue,
+  ThresholdTypePercentage,
+  ThresholdTypeAbsoluteValue,
   ThresholdType'
   #-}

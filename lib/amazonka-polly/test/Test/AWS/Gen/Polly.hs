@@ -150,7 +150,7 @@ responseGetLexicon =
   res
     "GetLexiconResponse"
     "fixture/GetLexiconResponse.proto"
-    pollyService
+    mkServiceConfig
     (Proxy :: Proxy GetLexicon)
 
 responseGetSpeechSynthesisTask :: GetSpeechSynthesisTaskResponse -> TestTree
@@ -158,7 +158,7 @@ responseGetSpeechSynthesisTask =
   res
     "GetSpeechSynthesisTaskResponse"
     "fixture/GetSpeechSynthesisTaskResponse.proto"
-    pollyService
+    mkServiceConfig
     (Proxy :: Proxy GetSpeechSynthesisTask)
 
 responseDescribeVoices :: DescribeVoicesResponse -> TestTree
@@ -166,7 +166,7 @@ responseDescribeVoices =
   res
     "DescribeVoicesResponse"
     "fixture/DescribeVoicesResponse.proto"
-    pollyService
+    mkServiceConfig
     (Proxy :: Proxy DescribeVoices)
 
 responseListLexicons :: ListLexiconsResponse -> TestTree
@@ -174,7 +174,7 @@ responseListLexicons =
   res
     "ListLexiconsResponse"
     "fixture/ListLexiconsResponse.proto"
-    pollyService
+    mkServiceConfig
     (Proxy :: Proxy ListLexicons)
 
 responseListSpeechSynthesisTasks :: ListSpeechSynthesisTasksResponse -> TestTree
@@ -182,7 +182,7 @@ responseListSpeechSynthesisTasks =
   res
     "ListSpeechSynthesisTasksResponse"
     "fixture/ListSpeechSynthesisTasksResponse.proto"
-    pollyService
+    mkServiceConfig
     (Proxy :: Proxy ListSpeechSynthesisTasks)
 
 responsePutLexicon :: PutLexiconResponse -> TestTree
@@ -190,7 +190,7 @@ responsePutLexicon =
   res
     "PutLexiconResponse"
     "fixture/PutLexiconResponse.proto"
-    pollyService
+    mkServiceConfig
     (Proxy :: Proxy PutLexicon)
 
 responseDeleteLexicon :: DeleteLexiconResponse -> TestTree
@@ -198,7 +198,7 @@ responseDeleteLexicon =
   res
     "DeleteLexiconResponse"
     "fixture/DeleteLexiconResponse.proto"
-    pollyService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLexicon)
 
 responseStartSpeechSynthesisTask :: StartSpeechSynthesisTaskResponse -> TestTree
@@ -206,5 +206,5 @@ responseStartSpeechSynthesisTask =
   res
     "StartSpeechSynthesisTaskResponse"
     "fixture/StartSpeechSynthesisTaskResponse.proto"
-    pollyService
+    mkServiceConfig
     (Proxy :: Proxy StartSpeechSynthesisTask)

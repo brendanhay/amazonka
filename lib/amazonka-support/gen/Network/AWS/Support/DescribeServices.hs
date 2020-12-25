@@ -22,134 +22,120 @@ module Network.AWS.Support.DescribeServices
     mkDescribeServices,
 
     -- ** Request lenses
-    dsServiceCodeList,
     dsLanguage,
+    dsServiceCodeList,
 
     -- * Destructuring the response
     DescribeServicesResponse (..),
     mkDescribeServicesResponse,
 
     -- ** Response lenses
-    dsrsServices,
-    dsrsResponseStatus,
+    dsrrsServices,
+    dsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Support.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Support.Types as Types
 
 -- | /See:/ 'mkDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { -- | A JSON-formatted list of service codes available for AWS services.
-    serviceCodeList :: Lude.Maybe [Lude.Text],
-    -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
-    language :: Lude.Maybe Lude.Text
+  { -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+    language :: Core.Maybe Types.Language,
+    -- | A JSON-formatted list of service codes available for AWS services.
+    serviceCodeList :: Core.Maybe [Types.ServiceCode]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
---
--- * 'serviceCodeList' - A JSON-formatted list of service codes available for AWS services.
--- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+-- | Creates a 'DescribeServices' value with any optional fields omitted.
 mkDescribeServices ::
   DescribeServices
 mkDescribeServices =
   DescribeServices'
-    { serviceCodeList = Lude.Nothing,
-      language = Lude.Nothing
+    { language = Core.Nothing,
+      serviceCodeList = Core.Nothing
     }
-
--- | A JSON-formatted list of service codes available for AWS services.
---
--- /Note:/ Consider using 'serviceCodeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsServiceCodeList :: Lens.Lens' DescribeServices (Lude.Maybe [Lude.Text])
-dsServiceCodeList = Lens.lens (serviceCodeList :: DescribeServices -> Lude.Maybe [Lude.Text]) (\s a -> s {serviceCodeList = a} :: DescribeServices)
-{-# DEPRECATED dsServiceCodeList "Use generic-lens or generic-optics with 'serviceCodeList' instead." #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
 -- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsLanguage :: Lens.Lens' DescribeServices (Lude.Maybe Lude.Text)
-dsLanguage = Lens.lens (language :: DescribeServices -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: DescribeServices)
+dsLanguage :: Lens.Lens' DescribeServices (Core.Maybe Types.Language)
+dsLanguage = Lens.field @"language"
 {-# DEPRECATED dsLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
-instance Lude.AWSRequest DescribeServices where
+-- | A JSON-formatted list of service codes available for AWS services.
+--
+-- /Note:/ Consider using 'serviceCodeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsServiceCodeList :: Lens.Lens' DescribeServices (Core.Maybe [Types.ServiceCode])
+dsServiceCodeList = Lens.field @"serviceCodeList"
+{-# DEPRECATED dsServiceCodeList "Use generic-lens or generic-optics with 'serviceCodeList' instead." #-}
+
+instance Core.FromJSON DescribeServices where
+  toJSON DescribeServices {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("language" Core..=) Core.<$> language,
+            ("serviceCodeList" Core..=) Core.<$> serviceCodeList
+          ]
+      )
+
+instance Core.AWSRequest DescribeServices where
   type Rs DescribeServices = DescribeServicesResponse
-  request = Req.postJSON supportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSSupport_20130415.DescribeServices")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Lude.<$> (x Lude..?> "services" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "services") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeServices where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSSupport_20130415.DescribeServices" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeServices where
-  toJSON DescribeServices' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serviceCodeList" Lude..=) Lude.<$> serviceCodeList,
-            ("language" Lude..=) Lude.<$> language
-          ]
-      )
-
-instance Lude.ToPath DescribeServices where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeServices where
-  toQuery = Lude.const Lude.mempty
 
 -- | The list of AWS services returned by the 'DescribeServices' operation.
 --
 -- /See:/ 'mkDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
   { -- | A JSON-formatted list of AWS services.
-    services :: Lude.Maybe [SupportService],
+    services :: Core.Maybe [Types.SupportService],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
---
--- * 'services' - A JSON-formatted list of AWS services.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeServicesResponse' value with any optional fields omitted.
 mkDescribeServicesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeServicesResponse
-mkDescribeServicesResponse pResponseStatus_ =
+mkDescribeServicesResponse responseStatus =
   DescribeServicesResponse'
-    { services = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { services = Core.Nothing,
+      responseStatus
     }
 
 -- | A JSON-formatted list of AWS services.
 --
 -- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsServices :: Lens.Lens' DescribeServicesResponse (Lude.Maybe [SupportService])
-dsrsServices = Lens.lens (services :: DescribeServicesResponse -> Lude.Maybe [SupportService]) (\s a -> s {services = a} :: DescribeServicesResponse)
-{-# DEPRECATED dsrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
+dsrrsServices :: Lens.Lens' DescribeServicesResponse (Core.Maybe [Types.SupportService])
+dsrrsServices = Lens.field @"services"
+{-# DEPRECATED dsrrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DescribeServicesResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DescribeServicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServicesResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DescribeServicesResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

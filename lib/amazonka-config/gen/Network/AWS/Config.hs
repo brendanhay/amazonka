@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,163 @@
 -- You can access and manage AWS Config through the AWS Management Console, the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS SDKs for AWS Config. This reference guide contains documentation for the AWS Config API and the AWS CLI commands that you can use to manage AWS Config. The AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> . For detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see <https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is AWS Config> in the /AWS Config Developer Guide/ .
 module Network.AWS.Config
   ( -- * Service configuration
-    configService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** NoSuchRemediationConfigurationException
+    _NoSuchRemediationConfigurationException,
+
+    -- ** InvalidTimeRangeException
+    _InvalidTimeRangeException,
+
+    -- ** NoSuchOrganizationConformancePackException
+    _NoSuchOrganizationConformancePackException,
+
+    -- ** InvalidSNSTopicARNException
+    _InvalidSNSTopicARNException,
+
+    -- ** InvalidRecordingGroupException
+    _InvalidRecordingGroupException,
+
+    -- ** InvalidExpressionException
+    _InvalidExpressionException,
+
+    -- ** NoAvailableOrganizationException
+    _NoAvailableOrganizationException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** OrganizationAccessDeniedException
+    _OrganizationAccessDeniedException,
+
+    -- ** NoSuchConfigurationAggregatorException
+    _NoSuchConfigurationAggregatorException,
+
+    -- ** InvalidRoleException
+    _InvalidRoleException,
+
+    -- ** OversizedConfigurationItemException
+    _OversizedConfigurationItemException,
+
+    -- ** LastDeliveryChannelDeleteFailedException
+    _LastDeliveryChannelDeleteFailedException,
+
+    -- ** ConformancePackTemplateValidationException
+    _ConformancePackTemplateValidationException,
+
+    -- ** NoSuchRemediationExceptionException
+    _NoSuchRemediationExceptionException,
+
+    -- ** InvalidLimitException
+    _InvalidLimitException,
+
+    -- ** MaxNumberOfOrganizationConformancePacksExceededException
+    _MaxNumberOfOrganizationConformancePacksExceededException,
+
+    -- ** InvalidDeliveryChannelNameException
+    _InvalidDeliveryChannelNameException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** InvalidResultTokenException
+    _InvalidResultTokenException,
+
+    -- ** NoSuchConfigRuleInConformancePackException
+    _NoSuchConfigRuleInConformancePackException,
+
+    -- ** NoSuchOrganizationConfigRuleException
+    _NoSuchOrganizationConfigRuleException,
+
+    -- ** NoSuchDeliveryChannelException
+    _NoSuchDeliveryChannelException,
+
+    -- ** NoSuchConfigRuleException
+    _NoSuchConfigRuleException,
+
+    -- ** NoSuchConformancePackException
+    _NoSuchConformancePackException,
+
+    -- ** NoSuchRetentionConfigurationException
+    _NoSuchRetentionConfigurationException,
+
+    -- ** RemediationInProgressException
+    _RemediationInProgressException,
+
+    -- ** OrganizationAllFeaturesNotEnabledException
+    _OrganizationAllFeaturesNotEnabledException,
+
+    -- ** InsufficientPermissionsException
+    _InsufficientPermissionsException,
+
+    -- ** ResourceNotDiscoveredException
+    _ResourceNotDiscoveredException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** MaxNumberOfRetentionConfigurationsExceededException
+    _MaxNumberOfRetentionConfigurationsExceededException,
+
+    -- ** MaxNumberOfConformancePacksExceededException
+    _MaxNumberOfConformancePacksExceededException,
+
+    -- ** MaxNumberOfConfigRulesExceededException
+    _MaxNumberOfConfigRulesExceededException,
+
+    -- ** NoAvailableConfigurationRecorderException
+    _NoAvailableConfigurationRecorderException,
+
+    -- ** NoSuchBucketException
+    _NoSuchBucketException,
+
+    -- ** MaxActiveResourcesExceededException
+    _MaxActiveResourcesExceededException,
+
+    -- ** NoAvailableDeliveryChannelException
+    _NoAvailableDeliveryChannelException,
+
+    -- ** OrganizationConformancePackTemplateValidationException
+    _OrganizationConformancePackTemplateValidationException,
+
+    -- ** InvalidConfigurationRecorderNameException
+    _InvalidConfigurationRecorderNameException,
+
+    -- ** NoRunningConfigurationRecorderException
+    _NoRunningConfigurationRecorderException,
+
+    -- ** MaxNumberOfConfigurationRecordersExceededException
+    _MaxNumberOfConfigurationRecordersExceededException,
+
+    -- ** InsufficientDeliveryPolicyException
+    _InsufficientDeliveryPolicyException,
+
+    -- ** MaxNumberOfDeliveryChannelsExceededException
+    _MaxNumberOfDeliveryChannelsExceededException,
+
+    -- ** MaxNumberOfOrganizationConfigRulesExceededException
+    _MaxNumberOfOrganizationConfigRulesExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** NoSuchConfigurationRecorderException
+    _NoSuchConfigurationRecorderException,
+
+    -- ** InvalidS3KeyPrefixException
+    _InvalidS3KeyPrefixException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -267,419 +419,11 @@ module Network.AWS.Config
 
     -- * Types
 
-    -- ** AggregatedSourceStatusType
-    AggregatedSourceStatusType (..),
+    -- ** ConfigurationAggregatorArn
+    ConfigurationAggregatorArn (..),
 
-    -- ** AggregatedSourceType
-    AggregatedSourceType (..),
-
-    -- ** ChronologicalOrder
-    ChronologicalOrder (..),
-
-    -- ** ComplianceType
-    ComplianceType (..),
-
-    -- ** ConfigRuleComplianceSummaryGroupKey
-    ConfigRuleComplianceSummaryGroupKey (..),
-
-    -- ** ConfigRuleState
-    ConfigRuleState (..),
-
-    -- ** ConfigurationItemStatus
-    ConfigurationItemStatus (..),
-
-    -- ** ConformancePackComplianceType
-    ConformancePackComplianceType (..),
-
-    -- ** ConformancePackState
-    ConformancePackState (..),
-
-    -- ** DeliveryStatus
-    DeliveryStatus (..),
-
-    -- ** EventSource
-    EventSource (..),
-
-    -- ** MaximumExecutionFrequency
-    MaximumExecutionFrequency (..),
-
-    -- ** MemberAccountRuleStatus
-    MemberAccountRuleStatus (..),
-
-    -- ** MessageType
-    MessageType (..),
-
-    -- ** OrganizationConfigRuleTriggerType
-    OrganizationConfigRuleTriggerType (..),
-
-    -- ** OrganizationResourceDetailedStatus
-    OrganizationResourceDetailedStatus (..),
-
-    -- ** OrganizationResourceStatus
-    OrganizationResourceStatus (..),
-
-    -- ** OrganizationRuleStatus
-    OrganizationRuleStatus (..),
-
-    -- ** Owner
-    Owner (..),
-
-    -- ** RecorderStatus
-    RecorderStatus (..),
-
-    -- ** RemediationExecutionState
-    RemediationExecutionState (..),
-
-    -- ** RemediationExecutionStepState
-    RemediationExecutionStepState (..),
-
-    -- ** RemediationTargetType
-    RemediationTargetType (..),
-
-    -- ** ResourceCountGroupKey
-    ResourceCountGroupKey (..),
-
-    -- ** ResourceType
-    ResourceType (..),
-
-    -- ** ResourceValueType
-    ResourceValueType (..),
-
-    -- ** AccountAggregationSource
-    AccountAggregationSource (..),
-    mkAccountAggregationSource,
-    aasAccountIds,
-    aasAWSRegions,
-    aasAllAWSRegions,
-
-    -- ** AggregateComplianceByConfigRule
-    AggregateComplianceByConfigRule (..),
-    mkAggregateComplianceByConfigRule,
-    acbcrCompliance,
-    acbcrConfigRuleName,
-    acbcrAccountId,
-    acbcrAWSRegion,
-
-    -- ** AggregateComplianceCount
-    AggregateComplianceCount (..),
-    mkAggregateComplianceCount,
-    accGroupName,
-    accComplianceSummary,
-
-    -- ** AggregateEvaluationResult
-    AggregateEvaluationResult (..),
-    mkAggregateEvaluationResult,
-    aerEvaluationResultIdentifier,
-    aerAnnotation,
-    aerConfigRuleInvokedTime,
-    aerResultRecordedTime,
-    aerAccountId,
-    aerComplianceType,
-    aerAWSRegion,
-
-    -- ** AggregateResourceIdentifier
-    AggregateResourceIdentifier (..),
-    mkAggregateResourceIdentifier,
-    ariResourceId,
-    ariResourceType,
-    ariSourceRegion,
-    ariResourceName,
-    ariSourceAccountId,
-
-    -- ** AggregatedSourceStatus
-    AggregatedSourceStatus (..),
-    mkAggregatedSourceStatus,
-    assLastErrorCode,
-    assLastUpdateStatus,
-    assSourceType,
-    assSourceId,
-    assLastErrorMessage,
-    assAWSRegion,
-    assLastUpdateTime,
-
-    -- ** AggregationAuthorization
-    AggregationAuthorization (..),
-    mkAggregationAuthorization,
-    aaCreationTime,
-    aaAuthorizedAWSRegion,
-    aaAggregationAuthorizationARN,
-    aaAuthorizedAccountId,
-
-    -- ** BaseConfigurationItem
-    BaseConfigurationItem (..),
-    mkBaseConfigurationItem,
-    bciResourceId,
-    bciResourceType,
-    bciConfigurationStateId,
-    bciArn,
-    bciResourceName,
-    bciResourceCreationTime,
-    bciConfigurationItemStatus,
-    bciConfigurationItemCaptureTime,
-    bciAccountId,
-    bciSupplementaryConfiguration,
-    bciAvailabilityZone,
-    bciVersion,
-    bciAwsRegion,
-    bciConfiguration,
-
-    -- ** Compliance
-    Compliance (..),
-    mkCompliance,
-    cComplianceContributorCount,
-    cComplianceType,
-
-    -- ** ComplianceByConfigRule
-    ComplianceByConfigRule (..),
-    mkComplianceByConfigRule,
-    cbcrCompliance,
-    cbcrConfigRuleName,
-
-    -- ** ComplianceByResource
-    ComplianceByResource (..),
-    mkComplianceByResource,
-    cbrResourceId,
-    cbrResourceType,
-    cbrCompliance,
-
-    -- ** ComplianceContributorCount
-    ComplianceContributorCount (..),
-    mkComplianceContributorCount,
-    cccCappedCount,
-    cccCapExceeded,
-
-    -- ** ComplianceSummary
-    ComplianceSummary (..),
-    mkComplianceSummary,
-    csComplianceSummaryTimestamp,
-    csCompliantResourceCount,
-    csNonCompliantResourceCount,
-
-    -- ** ComplianceSummaryByResourceType
-    ComplianceSummaryByResourceType (..),
-    mkComplianceSummaryByResourceType,
-    csbrtResourceType,
-    csbrtComplianceSummary,
-
-    -- ** ConfigExportDeliveryInfo
-    ConfigExportDeliveryInfo (..),
-    mkConfigExportDeliveryInfo,
-    cediLastErrorCode,
-    cediLastAttemptTime,
-    cediLastSuccessfulTime,
-    cediLastStatus,
-    cediLastErrorMessage,
-    cediNextDeliveryTime,
-
-    -- ** ConfigRule
-    ConfigRule (..),
-    mkConfigRule,
-    crInputParameters,
-    crConfigRuleName,
-    crCreatedBy,
-    crMaximumExecutionFrequency,
-    crConfigRuleId,
-    crScope,
-    crSource,
-    crConfigRuleState,
-    crDescription,
-    crConfigRuleARN,
-
-    -- ** ConfigRuleComplianceFilters
-    ConfigRuleComplianceFilters (..),
-    mkConfigRuleComplianceFilters,
-    crcfConfigRuleName,
-    crcfAccountId,
-    crcfComplianceType,
-    crcfAWSRegion,
-
-    -- ** ConfigRuleComplianceSummaryFilters
-    ConfigRuleComplianceSummaryFilters (..),
-    mkConfigRuleComplianceSummaryFilters,
-    crcsfAccountId,
-    crcsfAWSRegion,
-
-    -- ** ConfigRuleEvaluationStatus
-    ConfigRuleEvaluationStatus (..),
-    mkConfigRuleEvaluationStatus,
-    cresLastErrorCode,
-    cresLastFailedEvaluationTime,
-    cresFirstActivatedTime,
-    cresLastSuccessfulEvaluationTime,
-    cresLastDeactivatedTime,
-    cresConfigRuleName,
-    cresLastErrorMessage,
-    cresConfigRuleId,
-    cresLastFailedInvocationTime,
-    cresFirstEvaluationStarted,
-    cresLastSuccessfulInvocationTime,
-    cresConfigRuleARN,
-
-    -- ** ConfigSnapshotDeliveryProperties
-    ConfigSnapshotDeliveryProperties (..),
-    mkConfigSnapshotDeliveryProperties,
-    csdpDeliveryFrequency,
-
-    -- ** ConfigStreamDeliveryInfo
-    ConfigStreamDeliveryInfo (..),
-    mkConfigStreamDeliveryInfo,
-    csdiLastErrorCode,
-    csdiLastStatusChangeTime,
-    csdiLastStatus,
-    csdiLastErrorMessage,
-
-    -- ** ConfigurationAggregator
-    ConfigurationAggregator (..),
-    mkConfigurationAggregator,
-    caConfigurationAggregatorARN,
-    caCreationTime,
-    caOrganizationAggregationSource,
-    caLastUpdatedTime,
-    caAccountAggregationSources,
-    caCreatedBy,
-    caConfigurationAggregatorName,
-
-    -- ** ConfigurationItem
-    ConfigurationItem (..),
-    mkConfigurationItem,
-    ciResourceId,
-    ciResourceType,
-    ciConfigurationStateId,
-    ciArn,
-    ciResourceName,
-    ciResourceCreationTime,
-    ciConfigurationItemStatus,
-    ciConfigurationItemCaptureTime,
-    ciAccountId,
-    ciSupplementaryConfiguration,
-    ciAvailabilityZone,
-    ciRelationships,
-    ciVersion,
-    ciAwsRegion,
-    ciRelatedEvents,
-    ciConfiguration,
-    ciConfigurationItemMD5Hash,
-    ciTags,
-
-    -- ** ConfigurationRecorder
-    ConfigurationRecorder (..),
-    mkConfigurationRecorder,
-    crName,
-    crRecordingGroup,
-    crRoleARN,
-
-    -- ** ConfigurationRecorderStatus
-    ConfigurationRecorderStatus (..),
-    mkConfigurationRecorderStatus,
-    crsLastErrorCode,
-    crsLastStopTime,
-    crsLastStatusChangeTime,
-    crsRecording,
-    crsLastStatus,
-    crsLastErrorMessage,
-    crsName,
-    crsLastStartTime,
-
-    -- ** ConformancePackComplianceFilters
-    ConformancePackComplianceFilters (..),
-    mkConformancePackComplianceFilters,
-    cpcfConfigRuleNames,
-    cpcfComplianceType,
-
-    -- ** ConformancePackComplianceSummary
-    ConformancePackComplianceSummary (..),
-    mkConformancePackComplianceSummary,
-    cpcsConformancePackName,
-    cpcsConformancePackComplianceStatus,
-
-    -- ** ConformancePackDetail
-    ConformancePackDetail (..),
-    mkConformancePackDetail,
-    cpdDeliveryS3Bucket,
-    cpdConformancePackName,
-    cpdDeliveryS3KeyPrefix,
-    cpdCreatedBy,
-    cpdLastUpdateRequestedTime,
-    cpdConformancePackId,
-    cpdConformancePackInputParameters,
-    cpdConformancePackARN,
-
-    -- ** ConformancePackEvaluationFilters
-    ConformancePackEvaluationFilters (..),
-    mkConformancePackEvaluationFilters,
-    cpefResourceIds,
-    cpefResourceType,
-    cpefConfigRuleNames,
-    cpefComplianceType,
-
-    -- ** ConformancePackEvaluationResult
-    ConformancePackEvaluationResult (..),
-    mkConformancePackEvaluationResult,
-    cperEvaluationResultIdentifier,
-    cperAnnotation,
-    cperConfigRuleInvokedTime,
-    cperResultRecordedTime,
-    cperComplianceType,
-
-    -- ** ConformancePackInputParameter
-    ConformancePackInputParameter (..),
-    mkConformancePackInputParameter,
-    cpipParameterValue,
-    cpipParameterName,
-
-    -- ** ConformancePackRuleCompliance
-    ConformancePackRuleCompliance (..),
-    mkConformancePackRuleCompliance,
-    cprcConfigRuleName,
-    cprcComplianceType,
-
-    -- ** ConformancePackStatusDetail
-    ConformancePackStatusDetail (..),
-    mkConformancePackStatusDetail,
-    cpsdConformancePackStatusReason,
-    cpsdStackARN,
-    cpsdLastUpdateCompletedTime,
-    cpsdConformancePackName,
-    cpsdLastUpdateRequestedTime,
-    cpsdConformancePackId,
-    cpsdConformancePackState,
-    cpsdConformancePackARN,
-
-    -- ** DeliveryChannel
-    DeliveryChannel (..),
-    mkDeliveryChannel,
-    dcS3KeyPrefix,
-    dcSnsTopicARN,
-    dcName,
-    dcConfigSnapshotDeliveryProperties,
-    dcS3BucketName,
-
-    -- ** DeliveryChannelStatus
-    DeliveryChannelStatus (..),
-    mkDeliveryChannelStatus,
-    dcsConfigSnapshotDeliveryInfo,
-    dcsConfigStreamDeliveryInfo,
-    dcsConfigHistoryDeliveryInfo,
-    dcsName,
-
-    -- ** Evaluation
-    Evaluation (..),
-    mkEvaluation,
-    eAnnotation,
-    eComplianceResourceType,
-    eComplianceResourceId,
-    eOrderingTimestamp,
-    eComplianceType,
-
-    -- ** EvaluationResult
-    EvaluationResult (..),
-    mkEvaluationResult,
-    erEvaluationResultIdentifier,
-    erAnnotation,
-    erConfigRuleInvokedTime,
-    erResultRecordedTime,
-    erResultToken,
-    erComplianceType,
+    -- ** StringWithCharLimit2048
+    StringWithCharLimit2048 (..),
 
     -- ** EvaluationResultIdentifier
     EvaluationResultIdentifier (..),
@@ -687,40 +431,106 @@ module Network.AWS.Config
     eriEvaluationResultQualifier,
     eriOrderingTimestamp,
 
-    -- ** EvaluationResultQualifier
-    EvaluationResultQualifier (..),
-    mkEvaluationResultQualifier,
-    erqResourceId,
-    erqResourceType,
-    erqConfigRuleName,
+    -- ** ConformancePackStatusReason
+    ConformancePackStatusReason (..),
 
-    -- ** ExecutionControls
-    ExecutionControls (..),
-    mkExecutionControls,
-    ecSsmControls,
+    -- ** SourceDetail
+    SourceDetail (..),
+    mkSourceDetail,
+    sdEventSource,
+    sdMaximumExecutionFrequency,
+    sdMessageType,
 
-    -- ** FailedDeleteRemediationExceptionsBatch
-    FailedDeleteRemediationExceptionsBatch (..),
-    mkFailedDeleteRemediationExceptionsBatch,
-    fdrebFailureMessage,
-    fdrebFailedItems,
+    -- ** ConfigExportDeliveryInfo
+    ConfigExportDeliveryInfo (..),
+    mkConfigExportDeliveryInfo,
+    cediLastAttemptTime,
+    cediLastErrorCode,
+    cediLastErrorMessage,
+    cediLastStatus,
+    cediLastSuccessfulTime,
+    cediNextDeliveryTime,
 
-    -- ** FailedRemediationBatch
-    FailedRemediationBatch (..),
-    mkFailedRemediationBatch,
-    frbFailureMessage,
-    frbFailedItems,
+    -- ** AggregatedSourceStatusType
+    AggregatedSourceStatusType (..),
 
-    -- ** FailedRemediationExceptionBatch
-    FailedRemediationExceptionBatch (..),
-    mkFailedRemediationExceptionBatch,
-    frebFailureMessage,
-    frebFailedItems,
+    -- ** SupplementaryConfigurationValue
+    SupplementaryConfigurationValue (..),
+
+    -- ** ConfigStreamDeliveryInfo
+    ConfigStreamDeliveryInfo (..),
+    mkConfigStreamDeliveryInfo,
+    csdiLastErrorCode,
+    csdiLastErrorMessage,
+    csdiLastStatus,
+    csdiLastStatusChangeTime,
+
+    -- ** Relationship
+    Relationship (..),
+    mkRelationship,
+    rRelationshipName,
+    rResourceId,
+    rResourceName,
+    rResourceType,
 
     -- ** FieldInfo
     FieldInfo (..),
     mkFieldInfo,
     fiName,
+
+    -- ** ConformancePackRuleCompliance
+    ConformancePackRuleCompliance (..),
+    mkConformancePackRuleCompliance,
+    cprcComplianceType,
+    cprcConfigRuleName,
+
+    -- ** EvaluationResultQualifier
+    EvaluationResultQualifier (..),
+    mkEvaluationResultQualifier,
+    erqConfigRuleName,
+    erqResourceId,
+    erqResourceType,
+
+    -- ** Annotation
+    Annotation (..),
+
+    -- ** ResourceTypeString
+    ResourceTypeString (..),
+
+    -- ** FailedRemediationExceptionBatch
+    FailedRemediationExceptionBatch (..),
+    mkFailedRemediationExceptionBatch,
+    frebFailedItems,
+    frebFailureMessage,
+
+    -- ** OrganizationConfigRule
+    OrganizationConfigRule (..),
+    mkOrganizationConfigRule,
+    ocrOrganizationConfigRuleName,
+    ocrOrganizationConfigRuleArn,
+    ocrExcludedAccounts,
+    ocrLastUpdateTime,
+    ocrOrganizationCustomRuleMetadata,
+    ocrOrganizationManagedRuleMetadata,
+
+    -- ** RemediationExecutionStep
+    RemediationExecutionStep (..),
+    mkRemediationExecutionStep,
+    resErrorMessage,
+    resName,
+    resStartTime,
+    resState,
+    resStopTime,
+
+    -- ** EvaluationResult
+    EvaluationResult (..),
+    mkEvaluationResult,
+    erAnnotation,
+    erComplianceType,
+    erConfigRuleInvokedTime,
+    erEvaluationResultIdentifier,
+    erResultRecordedTime,
+    erResultToken,
 
     -- ** GroupedResourceCount
     GroupedResourceCount (..),
@@ -728,113 +538,449 @@ module Network.AWS.Config
     grcGroupName,
     grcResourceCount,
 
-    -- ** MemberAccountStatus
-    MemberAccountStatus (..),
-    mkMemberAccountStatus,
-    masMemberAccountRuleStatus,
-    masConfigRuleName,
-    masAccountId,
-    masErrorCode,
-    masErrorMessage,
-    masLastUpdateTime,
+    -- ** ResourceId
+    ResourceId (..),
 
-    -- ** OrganizationAggregationSource
-    OrganizationAggregationSource (..),
-    mkOrganizationAggregationSource,
-    oasAWSRegions,
-    oasAllAWSRegions,
-    oasRoleARN,
+    -- ** AggregateComplianceCount
+    AggregateComplianceCount (..),
+    mkAggregateComplianceCount,
+    accComplianceSummary,
+    accGroupName,
 
-    -- ** OrganizationConfigRule
-    OrganizationConfigRule (..),
-    mkOrganizationConfigRule,
-    ocrOrganizationManagedRuleMetadata,
-    ocrOrganizationConfigRuleARN,
-    ocrOrganizationConfigRuleName,
-    ocrExcludedAccounts,
-    ocrOrganizationCustomRuleMetadata,
-    ocrLastUpdateTime,
-
-    -- ** OrganizationConfigRuleStatus
-    OrganizationConfigRuleStatus (..),
-    mkOrganizationConfigRuleStatus,
-    ocrsOrganizationRuleStatus,
-    ocrsErrorCode,
-    ocrsOrganizationConfigRuleName,
-    ocrsErrorMessage,
-    ocrsLastUpdateTime,
-
-    -- ** OrganizationConformancePack
-    OrganizationConformancePack (..),
-    mkOrganizationConformancePack,
-    ocpOrganizationConformancePackARN,
-    ocpDeliveryS3Bucket,
-    ocpOrganizationConformancePackName,
-    ocpDeliveryS3KeyPrefix,
-    ocpConformancePackInputParameters,
-    ocpExcludedAccounts,
-    ocpLastUpdateTime,
-
-    -- ** OrganizationConformancePackDetailedStatus
-    OrganizationConformancePackDetailedStatus (..),
-    mkOrganizationConformancePackDetailedStatus,
-    ocpdsStatus,
-    ocpdsConformancePackName,
-    ocpdsAccountId,
-    ocpdsErrorCode,
-    ocpdsErrorMessage,
-    ocpdsLastUpdateTime,
-
-    -- ** OrganizationConformancePackStatus
-    OrganizationConformancePackStatus (..),
-    mkOrganizationConformancePackStatus,
-    ocpsStatus,
-    ocpsOrganizationConformancePackName,
-    ocpsErrorCode,
-    ocpsErrorMessage,
-    ocpsLastUpdateTime,
-
-    -- ** OrganizationCustomRuleMetadata
-    OrganizationCustomRuleMetadata (..),
-    mkOrganizationCustomRuleMetadata,
-    ocrmInputParameters,
-    ocrmResourceIdScope,
-    ocrmLambdaFunctionARN,
-    ocrmTagValueScope,
-    ocrmMaximumExecutionFrequency,
-    ocrmOrganizationConfigRuleTriggerTypes,
-    ocrmTagKeyScope,
-    ocrmResourceTypesScope,
-    ocrmDescription,
-
-    -- ** OrganizationManagedRuleMetadata
-    OrganizationManagedRuleMetadata (..),
-    mkOrganizationManagedRuleMetadata,
-    omrmInputParameters,
-    omrmResourceIdScope,
-    omrmTagValueScope,
-    omrmMaximumExecutionFrequency,
-    omrmTagKeyScope,
-    omrmRuleIdentifier,
-    omrmResourceTypesScope,
-    omrmDescription,
-
-    -- ** OrganizationResourceDetailedStatusFilters
-    OrganizationResourceDetailedStatusFilters (..),
-    mkOrganizationResourceDetailedStatusFilters,
-    ordsfStatus,
-    ordsfAccountId,
+    -- ** DeliveryChannel
+    DeliveryChannel (..),
+    mkDeliveryChannel,
+    dcConfigSnapshotDeliveryProperties,
+    dcName,
+    dcS3BucketName,
+    dcS3KeyPrefix,
+    dcSnsTopicARN,
 
     -- ** PendingAggregationRequest
     PendingAggregationRequest (..),
     mkPendingAggregationRequest,
     parRequesterAccountId,
-    parRequesterAWSRegion,
+    parRequesterAwsRegion,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** OrganizationAggregationSource
+    OrganizationAggregationSource (..),
+    mkOrganizationAggregationSource,
+    oasRoleArn,
+    oasAllAwsRegions,
+    oasAwsRegions,
+
+    -- ** RemediationExecutionState
+    RemediationExecutionState (..),
+
+    -- ** ChronologicalOrder
+    ChronologicalOrder (..),
+
+    -- ** ConformancePackComplianceFilters
+    ConformancePackComplianceFilters (..),
+    mkConformancePackComplianceFilters,
+    cpcfComplianceType,
+    cpcfConfigRuleNames,
+
+    -- ** ConfigRuleComplianceFilters
+    ConfigRuleComplianceFilters (..),
+    mkConfigRuleComplianceFilters,
+    crcfAccountId,
+    crcfAwsRegion,
+    crcfComplianceType,
+    crcfConfigRuleName,
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** ParameterValue
+    ParameterValue (..),
+
+    -- ** ResourceCountFilters
+    ResourceCountFilters (..),
+    mkResourceCountFilters,
+    rcfAccountId,
+    rcfRegion,
+    rcfResourceType,
+
+    -- ** DeliveryS3Bucket
+    DeliveryS3Bucket (..),
+
+    -- ** BaseResourceId
+    BaseResourceId (..),
+
+    -- ** ConfigurationStateId
+    ConfigurationStateId (..),
+
+    -- ** RemediationExceptionResourceKey
+    RemediationExceptionResourceKey (..),
+    mkRemediationExceptionResourceKey,
+    rerkResourceId,
+    rerkResourceType,
+
+    -- ** ConformancePackDetail
+    ConformancePackDetail (..),
+    mkConformancePackDetail,
+    cpdConformancePackName,
+    cpdConformancePackArn,
+    cpdConformancePackId,
+    cpdConformancePackInputParameters,
+    cpdCreatedBy,
+    cpdDeliveryS3Bucket,
+    cpdDeliveryS3KeyPrefix,
+    cpdLastUpdateRequestedTime,
+
+    -- ** ComplianceContributorCount
+    ComplianceContributorCount (..),
+    mkComplianceContributorCount,
+    cccCapExceeded,
+    cccCappedCount,
+
+    -- ** FailedDeleteRemediationExceptionsBatch
+    FailedDeleteRemediationExceptionsBatch (..),
+    mkFailedDeleteRemediationExceptionsBatch,
+    fdrebFailedItems,
+    fdrebFailureMessage,
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** String
+    String (..),
+
+    -- ** ConformancePackComplianceSummary
+    ConformancePackComplianceSummary (..),
+    mkConformancePackComplianceSummary,
+    cpcsConformancePackName,
+    cpcsConformancePackComplianceStatus,
+
+    -- ** ResourceKey
+    ResourceKey (..),
+    mkResourceKey,
+    rkResourceType,
+    rkResourceId,
+
+    -- ** OrganizationResourceDetailedStatus
+    OrganizationResourceDetailedStatus (..),
+
+    -- ** StringWithCharLimit1024
+    StringWithCharLimit1024 (..),
+
+    -- ** Compliance
+    Compliance (..),
+    mkCompliance,
+    cComplianceContributorCount,
+    cComplianceType,
+
+    -- ** ConfigRuleComplianceSummaryGroupKey
+    ConfigRuleComplianceSummaryGroupKey (..),
+
+    -- ** OrganizationManagedRuleMetadata
+    OrganizationManagedRuleMetadata (..),
+    mkOrganizationManagedRuleMetadata,
+    omrmRuleIdentifier,
+    omrmDescription,
+    omrmInputParameters,
+    omrmMaximumExecutionFrequency,
+    omrmResourceIdScope,
+    omrmResourceTypesScope,
+    omrmTagKeyScope,
+    omrmTagValueScope,
+
+    -- ** ConfigurationItem
+    ConfigurationItem (..),
+    mkConfigurationItem,
+    ciAccountId,
+    ciArn,
+    ciAvailabilityZone,
+    ciAwsRegion,
+    ciConfiguration,
+    ciConfigurationItemCaptureTime,
+    ciConfigurationItemMD5Hash,
+    ciConfigurationItemStatus,
+    ciConfigurationStateId,
+    ciRelatedEvents,
+    ciRelationships,
+    ciResourceCreationTime,
+    ciResourceId,
+    ciResourceName,
+    ciResourceType,
+    ciSupplementaryConfiguration,
+    ciTags,
+    ciVersion,
+
+    -- ** OrganizationResourceStatus
+    OrganizationResourceStatus (..),
+
+    -- ** StringWithCharLimit64
+    StringWithCharLimit64 (..),
+
+    -- ** OrganizationConformancePackName
+    OrganizationConformancePackName (..),
+
+    -- ** RemediationException
+    RemediationException (..),
+    mkRemediationException,
+    reConfigRuleName,
+    reResourceType,
+    reResourceId,
+    reExpirationTime,
+    reMessage,
+
+    -- ** AggregatedSourceType
+    AggregatedSourceType (..),
+
+    -- ** DeliveryStatus
+    DeliveryStatus (..),
+
+    -- ** SupplementaryConfigurationName
+    SupplementaryConfigurationName (..),
+
+    -- ** RetentionConfigurationName
+    RetentionConfigurationName (..),
+
+    -- ** MemberAccountRuleStatus
+    MemberAccountRuleStatus (..),
+
+    -- ** StringWithCharLimit768
+    StringWithCharLimit768 (..),
+
+    -- ** StaticValue
+    StaticValue (..),
+    mkStaticValue,
+    svValues,
+
+    -- ** StackArn
+    StackArn (..),
+
+    -- ** DeliveryChannelStatus
+    DeliveryChannelStatus (..),
+    mkDeliveryChannelStatus,
+    dcsConfigHistoryDeliveryInfo,
+    dcsConfigSnapshotDeliveryInfo,
+    dcsConfigStreamDeliveryInfo,
+    dcsName,
+
+    -- ** MessageType
+    MessageType (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ConfigRuleName
+    ConfigRuleName (..),
+
+    -- ** ConformancePackName
+    ConformancePackName (..),
+
+    -- ** StringWithCharLimit256
+    StringWithCharLimit256 (..),
+
+    -- ** DeliveryS3KeyPrefix
+    DeliveryS3KeyPrefix (..),
+
+    -- ** OrganizationConfigRuleStatus
+    OrganizationConfigRuleStatus (..),
+    mkOrganizationConfigRuleStatus,
+    ocrsOrganizationConfigRuleName,
+    ocrsOrganizationRuleStatus,
+    ocrsErrorCode,
+    ocrsErrorMessage,
+    ocrsLastUpdateTime,
+
+    -- ** RemediationTargetType
+    RemediationTargetType (..),
+
+    -- ** ConfigRuleComplianceSummaryFilters
+    ConfigRuleComplianceSummaryFilters (..),
+    mkConfigRuleComplianceSummaryFilters,
+    crcsfAccountId,
+    crcsfAwsRegion,
+
+    -- ** OrganizationResourceDetailedStatusFilters
+    OrganizationResourceDetailedStatusFilters (..),
+    mkOrganizationResourceDetailedStatusFilters,
+    ordsfAccountId,
+    ordsfStatus,
+
+    -- ** ConfigRuleEvaluationStatus
+    ConfigRuleEvaluationStatus (..),
+    mkConfigRuleEvaluationStatus,
+    cresConfigRuleArn,
+    cresConfigRuleId,
+    cresConfigRuleName,
+    cresFirstActivatedTime,
+    cresFirstEvaluationStarted,
+    cresLastDeactivatedTime,
+    cresLastErrorCode,
+    cresLastErrorMessage,
+    cresLastFailedEvaluationTime,
+    cresLastFailedInvocationTime,
+    cresLastSuccessfulEvaluationTime,
+    cresLastSuccessfulInvocationTime,
+
+    -- ** ExecutionControls
+    ExecutionControls (..),
+    mkExecutionControls,
+    ecSsmControls,
+
+    -- ** SchemaVersionId
+    SchemaVersionId (..),
+
+    -- ** MaximumExecutionFrequency
+    MaximumExecutionFrequency (..),
+
+    -- ** TemplateS3Uri
+    TemplateS3Uri (..),
+
+    -- ** ConfigurationRecorderStatus
+    ConfigurationRecorderStatus (..),
+    mkConfigurationRecorderStatus,
+    crsLastErrorCode,
+    crsLastErrorMessage,
+    crsLastStartTime,
+    crsLastStatus,
+    crsLastStatusChangeTime,
+    crsLastStopTime,
+    crsName,
+    crsRecording,
+
+    -- ** ConformancePackStatusDetail
+    ConformancePackStatusDetail (..),
+    mkConformancePackStatusDetail,
+    cpsdConformancePackName,
+    cpsdConformancePackId,
+    cpsdConformancePackArn,
+    cpsdConformancePackState,
+    cpsdStackArn,
+    cpsdLastUpdateRequestedTime,
+    cpsdConformancePackStatusReason,
+    cpsdLastUpdateCompletedTime,
+
+    -- ** ResourceValueType
+    ResourceValueType (..),
+
+    -- ** ConformancePackId
+    ConformancePackId (..),
+
+    -- ** ConfigurationItemStatus
+    ConfigurationItemStatus (..),
+
+    -- ** Owner
+    Owner (..),
+
+    -- ** OrganizationRuleStatus
+    OrganizationRuleStatus (..),
+
+    -- ** ConformancePackComplianceType
+    ConformancePackComplianceType (..),
+
+    -- ** RetentionConfiguration
+    RetentionConfiguration (..),
+    mkRetentionConfiguration,
+    rcName,
+    rcRetentionPeriodInDays,
 
     -- ** QueryInfo
     QueryInfo (..),
     mkQueryInfo,
     qiSelectFields,
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** EmptiableStringWithCharLimit256
+    EmptiableStringWithCharLimit256 (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ComplianceByResource
+    ComplianceByResource (..),
+    mkComplianceByResource,
+    cbrCompliance,
+    cbrResourceId,
+    cbrResourceType,
+
+    -- ** ChannelName
+    ChannelName (..),
+
+    -- ** AggregatedSourceStatus
+    AggregatedSourceStatus (..),
+    mkAggregatedSourceStatus,
+    assAwsRegion,
+    assLastErrorCode,
+    assLastErrorMessage,
+    assLastUpdateStatus,
+    assLastUpdateTime,
+    assSourceId,
+    assSourceType,
+
+    -- ** ConfigRule
+    ConfigRule (..),
+    mkConfigRule,
+    crSource,
+    crConfigRuleArn,
+    crConfigRuleId,
+    crConfigRuleName,
+    crConfigRuleState,
+    crCreatedBy,
+    crDescription,
+    crInputParameters,
+    crMaximumExecutionFrequency,
+    crScope,
+
+    -- ** AggregationAuthorization
+    AggregationAuthorization (..),
+    mkAggregationAuthorization,
+    aaAggregationAuthorizationArn,
+    aaAuthorizedAccountId,
+    aaAuthorizedAwsRegion,
+    aaCreationTime,
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+
+    -- ** OrganizationConfigRuleTriggerType
+    OrganizationConfigRuleTriggerType (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** RemediationConfiguration
+    RemediationConfiguration (..),
+    mkRemediationConfiguration,
+    rcConfigRuleName,
+    rcTargetType,
+    rcTargetId,
+    rcArn,
+    rcAutomatic,
+    rcCreatedByService,
+    rcExecutionControls,
+    rcMaximumAutomaticAttempts,
+    rcParameters,
+    rcResourceType,
+    rcRetryAttemptSeconds,
+    rcTargetVersion,
+
+    -- ** OrganizationConformancePack
+    OrganizationConformancePack (..),
+    mkOrganizationConformancePack,
+    ocpOrganizationConformancePackName,
+    ocpOrganizationConformancePackArn,
+    ocpLastUpdateTime,
+    ocpConformancePackInputParameters,
+    ocpDeliveryS3Bucket,
+    ocpDeliveryS3KeyPrefix,
+    ocpExcludedAccounts,
 
     -- ** RecordingGroup
     RecordingGroup (..),
@@ -843,136 +989,249 @@ module Network.AWS.Config
     rgIncludeGlobalResourceTypes,
     rgResourceTypes,
 
-    -- ** Relationship
-    Relationship (..),
-    mkRelationship,
-    rResourceId,
-    rResourceType,
-    rResourceName,
-    rRelationshipName,
+    -- ** ComplianceByConfigRule
+    ComplianceByConfigRule (..),
+    mkComplianceByConfigRule,
+    cbcrCompliance,
+    cbcrConfigRuleName,
 
-    -- ** RemediationConfiguration
-    RemediationConfiguration (..),
-    mkRemediationConfiguration,
-    rcTargetId,
-    rcResourceType,
-    rcARN,
-    rcAutomatic,
-    rcConfigRuleName,
-    rcCreatedByService,
-    rcRetryAttemptSeconds,
-    rcExecutionControls,
-    rcTargetType,
-    rcParameters,
-    rcMaximumAutomaticAttempts,
-    rcTargetVersion,
-
-    -- ** RemediationException
-    RemediationException (..),
-    mkRemediationException,
-    reResourceId,
-    reResourceType,
-    reConfigRuleName,
-    reMessage,
-    reExpirationTime,
-
-    -- ** RemediationExceptionResourceKey
-    RemediationExceptionResourceKey (..),
-    mkRemediationExceptionResourceKey,
-    rerkResourceId,
-    rerkResourceType,
-
-    -- ** RemediationExecutionStatus
-    RemediationExecutionStatus (..),
-    mkRemediationExecutionStatus,
-    rState,
-    rLastUpdatedTime,
-    rResourceKey,
-    rStepDetails,
-    rInvocationTime,
-
-    -- ** RemediationExecutionStep
-    RemediationExecutionStep (..),
-    mkRemediationExecutionStep,
-    resState,
-    resStartTime,
-    resName,
-    resStopTime,
-    resErrorMessage,
-
-    -- ** RemediationParameterValue
-    RemediationParameterValue (..),
-    mkRemediationParameterValue,
-    rpvStaticValue,
-    rpvResourceValue,
-
-    -- ** ResourceCount
-    ResourceCount (..),
-    mkResourceCount,
-    rcgResourceType,
-    rcgCount,
-
-    -- ** ResourceCountFilters
-    ResourceCountFilters (..),
-    mkResourceCountFilters,
-    rcfResourceType,
-    rcfAccountId,
-    rcfRegion,
-
-    -- ** ResourceFilters
-    ResourceFilters (..),
-    mkResourceFilters,
-    rfResourceId,
-    rfResourceName,
-    rfAccountId,
-    rfRegion,
-
-    -- ** ResourceIdentifier
-    ResourceIdentifier (..),
-    mkResourceIdentifier,
-    riResourceId,
-    riResourceType,
-    riResourceName,
-    riResourceDeletionTime,
-
-    -- ** ResourceKey
-    ResourceKey (..),
-    mkResourceKey,
-    rkResourceId,
-    rkResourceType,
-
-    -- ** ResourceValue
-    ResourceValue (..),
-    mkResourceValue,
-    rvValue,
-
-    -- ** RetentionConfiguration
-    RetentionConfiguration (..),
-    mkRetentionConfiguration,
-    rcName,
-    rcRetentionPeriodInDays,
+    -- ** Version
+    Version (..),
 
     -- ** Scope
     Scope (..),
     mkScope,
-    sComplianceResourceTypes,
     sComplianceResourceId,
-    sTagValue,
+    sComplianceResourceTypes,
     sTagKey,
+    sTagValue,
+
+    -- ** Expression
+    Expression (..),
+
+    -- ** ConfigurationRecorder
+    ConfigurationRecorder (..),
+    mkConfigurationRecorder,
+    crName,
+    crRecordingGroup,
+    crRoleARN,
 
     -- ** Source
     Source (..),
     mkSource,
-    sSourceIdentifier,
     sOwner,
+    sSourceIdentifier,
     sSourceDetails,
 
-    -- ** SourceDetail
-    SourceDetail (..),
-    mkSourceDetail,
-    sdMessageType,
-    sdMaximumExecutionFrequency,
-    sdEventSource,
+    -- ** RecorderName
+    RecorderName (..),
+
+    -- ** RemediationParameterValue
+    RemediationParameterValue (..),
+    mkRemediationParameterValue,
+    rpvResourceValue,
+    rpvStaticValue,
+
+    -- ** ComplianceType
+    ComplianceType (..),
+
+    -- ** AwsRegion
+    AwsRegion (..),
+
+    -- ** MemberAccountStatus
+    MemberAccountStatus (..),
+    mkMemberAccountStatus,
+    masAccountId,
+    masConfigRuleName,
+    masMemberAccountRuleStatus,
+    masErrorCode,
+    masErrorMessage,
+    masLastUpdateTime,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** RemediationExecutionStepState
+    RemediationExecutionStepState (..),
+
+    -- ** BaseConfigurationItem
+    BaseConfigurationItem (..),
+    mkBaseConfigurationItem,
+    bciAccountId,
+    bciArn,
+    bciAvailabilityZone,
+    bciAwsRegion,
+    bciConfiguration,
+    bciConfigurationItemCaptureTime,
+    bciConfigurationItemStatus,
+    bciConfigurationStateId,
+    bciResourceCreationTime,
+    bciResourceId,
+    bciResourceName,
+    bciResourceType,
+    bciSupplementaryConfiguration,
+    bciVersion,
+
+    -- ** OrganizationConfigRuleName
+    OrganizationConfigRuleName (..),
+
+    -- ** AggregateResourceIdentifier
+    AggregateResourceIdentifier (..),
+    mkAggregateResourceIdentifier,
+    ariSourceAccountId,
+    ariSourceRegion,
+    ariResourceId,
+    ariResourceType,
+    ariResourceName,
+
+    -- ** Configuration
+    Configuration (..),
+
+    -- ** AccountAggregationSource
+    AccountAggregationSource (..),
+    mkAccountAggregationSource,
+    aasAccountIds,
+    aasAllAwsRegions,
+    aasAwsRegions,
+
+    -- ** TemplateBody
+    TemplateBody (..),
+
+    -- ** ComplianceSummaryByResourceType
+    ComplianceSummaryByResourceType (..),
+    mkComplianceSummaryByResourceType,
+    csbrtComplianceSummary,
+    csbrtResourceType,
+
+    -- ** FailedRemediationBatch
+    FailedRemediationBatch (..),
+    mkFailedRemediationBatch,
+    frbFailedItems,
+    frbFailureMessage,
+
+    -- ** ConformancePackInputParameter
+    ConformancePackInputParameter (..),
+    mkConformancePackInputParameter,
+    cpipParameterName,
+    cpipParameterValue,
+
+    -- ** ConfigurationItemMD5Hash
+    ConfigurationItemMD5Hash (..),
+
+    -- ** OrganizationCustomRuleMetadata
+    OrganizationCustomRuleMetadata (..),
+    mkOrganizationCustomRuleMetadata,
+    ocrmLambdaFunctionArn,
+    ocrmOrganizationConfigRuleTriggerTypes,
+    ocrmDescription,
+    ocrmInputParameters,
+    ocrmMaximumExecutionFrequency,
+    ocrmResourceIdScope,
+    ocrmResourceTypesScope,
+    ocrmTagKeyScope,
+    ocrmTagValueScope,
+
+    -- ** AggregateComplianceByConfigRule
+    AggregateComplianceByConfigRule (..),
+    mkAggregateComplianceByConfigRule,
+    acbcrAccountId,
+    acbcrAwsRegion,
+    acbcrCompliance,
+    acbcrConfigRuleName,
+
+    -- ** ConfigSnapshotDeliveryProperties
+    ConfigSnapshotDeliveryProperties (..),
+    mkConfigSnapshotDeliveryProperties,
+    csdpDeliveryFrequency,
+
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** ConformancePackEvaluationResult
+    ConformancePackEvaluationResult (..),
+    mkConformancePackEvaluationResult,
+    cperComplianceType,
+    cperEvaluationResultIdentifier,
+    cperConfigRuleInvokedTime,
+    cperResultRecordedTime,
+    cperAnnotation,
+
+    -- ** ConformancePackState
+    ConformancePackState (..),
+
+    -- ** ConfigRuleState
+    ConfigRuleState (..),
+
+    -- ** OrganizationConformancePackStatus
+    OrganizationConformancePackStatus (..),
+    mkOrganizationConformancePackStatus,
+    ocpsOrganizationConformancePackName,
+    ocpsStatus,
+    ocpsErrorCode,
+    ocpsErrorMessage,
+    ocpsLastUpdateTime,
+
+    -- ** RelationshipName
+    RelationshipName (..),
+
+    -- ** RelatedEvent
+    RelatedEvent (..),
+
+    -- ** OrganizationConformancePackDetailedStatus
+    OrganizationConformancePackDetailedStatus (..),
+    mkOrganizationConformancePackDetailedStatus,
+    ocpdsAccountId,
+    ocpdsConformancePackName,
+    ocpdsStatus,
+    ocpdsErrorCode,
+    ocpdsErrorMessage,
+    ocpdsLastUpdateTime,
+
+    -- ** ParameterName
+    ParameterName (..),
+
+    -- ** ConfigurationAggregatorName
+    ConfigurationAggregatorName (..),
+
+    -- ** Evaluation
+    Evaluation (..),
+    mkEvaluation,
+    eComplianceResourceType,
+    eComplianceResourceId,
+    eComplianceType,
+    eOrderingTimestamp,
+    eAnnotation,
+
+    -- ** StatusDetailFilters
+    StatusDetailFilters (..),
+    mkStatusDetailFilters,
+    sdfAccountId,
+    sdfMemberAccountRuleStatus,
+
+    -- ** AggregateEvaluationResult
+    AggregateEvaluationResult (..),
+    mkAggregateEvaluationResult,
+    aerAccountId,
+    aerAnnotation,
+    aerAwsRegion,
+    aerComplianceType,
+    aerConfigRuleInvokedTime,
+    aerEvaluationResultIdentifier,
+    aerResultRecordedTime,
+
+    -- ** RecorderStatus
+    RecorderStatus (..),
+
+    -- ** ResourceIdentifier
+    ResourceIdentifier (..),
+    mkResourceIdentifier,
+    riResourceDeletionTime,
+    riResourceId,
+    riResourceName,
+    riResourceType,
+
+    -- ** EventSource
+    EventSource (..),
 
     -- ** SsmControls
     SsmControls (..),
@@ -980,32 +1239,151 @@ module Network.AWS.Config
     scConcurrentExecutionRatePercentage,
     scErrorPercentage,
 
-    -- ** StaticValue
-    StaticValue (..),
-    mkStaticValue,
-    svValues,
+    -- ** ConfigurationAggregator
+    ConfigurationAggregator (..),
+    mkConfigurationAggregator,
+    caAccountAggregationSources,
+    caConfigurationAggregatorArn,
+    caConfigurationAggregatorName,
+    caCreatedBy,
+    caCreationTime,
+    caLastUpdatedTime,
+    caOrganizationAggregationSource,
 
-    -- ** StatusDetailFilters
-    StatusDetailFilters (..),
-    mkStatusDetailFilters,
-    sdfMemberAccountRuleStatus,
-    sdfAccountId,
+    -- ** ResourceFilters
+    ResourceFilters (..),
+    mkResourceFilters,
+    rfAccountId,
+    rfRegion,
+    rfResourceId,
+    rfResourceName,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** StringWithCharLimit128
+    StringWithCharLimit128 (..),
+
+    -- ** ResourceCount
+    ResourceCount (..),
+    mkResourceCount,
+    rcgCount,
+    rcgResourceType,
+
+    -- ** ResourceValue
+    ResourceValue (..),
+    mkResourceValue,
+    rvValue,
+
+    -- ** ComplianceSummary
+    ComplianceSummary (..),
+    mkComplianceSummary,
+    csComplianceSummaryTimestamp,
+    csCompliantResourceCount,
+    csNonCompliantResourceCount,
+
+    -- ** ConformancePackEvaluationFilters
+    ConformancePackEvaluationFilters (..),
+    mkConformancePackEvaluationFilters,
+    cpefComplianceType,
+    cpefConfigRuleNames,
+    cpefResourceIds,
+    cpefResourceType,
+
+    -- ** ResourceCountGroupKey
+    ResourceCountGroupKey (..),
+
+    -- ** ConformancePackArn
+    ConformancePackArn (..),
+
+    -- ** RemediationExecutionStatus
+    RemediationExecutionStatus (..),
+    mkRemediationExecutionStatus,
+    rInvocationTime,
+    rLastUpdatedTime,
+    rResourceKey,
+    rState,
+    rStepDetails,
+
+    -- ** LastErrorCode
+    LastErrorCode (..),
+
+    -- ** LastErrorMessage
+    LastErrorMessage (..),
+
+    -- ** FailureMessage
+    FailureMessage (..),
+
+    -- ** OrganizationConfigRuleArn
+    OrganizationConfigRuleArn (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** ResultToken
+    ResultToken (..),
+
+    -- ** GroupName
+    GroupName (..),
+
+    -- ** S3BucketName
+    S3BucketName (..),
+
+    -- ** S3KeyPrefix
+    S3KeyPrefix (..),
+
+    -- ** SnsTopicARN
+    SnsTopicARN (..),
+
+    -- ** RequesterAccountId
+    RequesterAccountId (..),
+
+    -- ** RequesterAwsRegion
+    RequesterAwsRegion (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** DeliveryChannelName
+    DeliveryChannelName (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** CreatedBy
+    CreatedBy (..),
+
+    -- ** RuleIdentifier
+    RuleIdentifier (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** ResourceIdScope
+    ResourceIdScope (..),
+
+    -- ** TagKeyScope
+    TagKeyScope (..),
+
+    -- ** TagValueScope
+    TagValueScope (..),
+
+    -- ** ConfigurationRecorderName
+    ConfigurationRecorderName (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** AuthorizedAwsRegion
+    AuthorizedAwsRegion (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

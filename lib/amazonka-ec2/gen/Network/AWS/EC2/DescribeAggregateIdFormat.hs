@@ -30,117 +30,111 @@ module Network.AWS.EC2.DescribeAggregateIdFormat
     mkDescribeAggregateIdFormatResponse,
 
     -- ** Response lenses
-    daifrsUseLongIdsAggregated,
-    daifrsStatuses,
-    daifrsResponseStatus,
+    daifrrsStatuses,
+    daifrrsUseLongIdsAggregated,
+    daifrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAggregateIdFormat' smart constructor.
 newtype DescribeAggregateIdFormat = DescribeAggregateIdFormat'
   { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAggregateIdFormat' with the minimum fields required to make a request.
---
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DescribeAggregateIdFormat' value with any optional fields omitted.
 mkDescribeAggregateIdFormat ::
   DescribeAggregateIdFormat
 mkDescribeAggregateIdFormat =
-  DescribeAggregateIdFormat' {dryRun = Lude.Nothing}
+  DescribeAggregateIdFormat' {dryRun = Core.Nothing}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daifDryRun :: Lens.Lens' DescribeAggregateIdFormat (Lude.Maybe Lude.Bool)
-daifDryRun = Lens.lens (dryRun :: DescribeAggregateIdFormat -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeAggregateIdFormat)
+daifDryRun :: Lens.Lens' DescribeAggregateIdFormat (Core.Maybe Core.Bool)
+daifDryRun = Lens.field @"dryRun"
 {-# DEPRECATED daifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DescribeAggregateIdFormat where
+instance Core.AWSRequest DescribeAggregateIdFormat where
   type
     Rs DescribeAggregateIdFormat =
       DescribeAggregateIdFormatResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAggregateIdFormat")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeAggregateIdFormatResponse'
-            Lude.<$> (x Lude..@? "useLongIdsAggregated")
-            Lude.<*> ( x Lude..@? "statusSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "statusSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "useLongIdsAggregated")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAggregateIdFormat where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAggregateIdFormat where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAggregateIdFormat where
-  toQuery DescribeAggregateIdFormat' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeAggregateIdFormat" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDescribeAggregateIdFormatResponse' smart constructor.
 data DescribeAggregateIdFormatResponse = DescribeAggregateIdFormatResponse'
-  { -- | Indicates whether all resource types in the Region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the Region.
-    useLongIdsAggregated :: Lude.Maybe Lude.Bool,
-    -- | Information about each resource's ID format.
-    statuses :: Lude.Maybe [IdFormat],
+  { -- | Information about each resource's ID format.
+    statuses :: Core.Maybe [Types.IdFormat],
+    -- | Indicates whether all resource types in the Region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the Region.
+    useLongIdsAggregated :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAggregateIdFormatResponse' with the minimum fields required to make a request.
---
--- * 'useLongIdsAggregated' - Indicates whether all resource types in the Region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the Region.
--- * 'statuses' - Information about each resource's ID format.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAggregateIdFormatResponse' value with any optional fields omitted.
 mkDescribeAggregateIdFormatResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAggregateIdFormatResponse
-mkDescribeAggregateIdFormatResponse pResponseStatus_ =
+mkDescribeAggregateIdFormatResponse responseStatus =
   DescribeAggregateIdFormatResponse'
-    { useLongIdsAggregated =
-        Lude.Nothing,
-      statuses = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { statuses = Core.Nothing,
+      useLongIdsAggregated = Core.Nothing,
+      responseStatus
     }
-
--- | Indicates whether all resource types in the Region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the Region.
---
--- /Note:/ Consider using 'useLongIdsAggregated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daifrsUseLongIdsAggregated :: Lens.Lens' DescribeAggregateIdFormatResponse (Lude.Maybe Lude.Bool)
-daifrsUseLongIdsAggregated = Lens.lens (useLongIdsAggregated :: DescribeAggregateIdFormatResponse -> Lude.Maybe Lude.Bool) (\s a -> s {useLongIdsAggregated = a} :: DescribeAggregateIdFormatResponse)
-{-# DEPRECATED daifrsUseLongIdsAggregated "Use generic-lens or generic-optics with 'useLongIdsAggregated' instead." #-}
 
 -- | Information about each resource's ID format.
 --
 -- /Note:/ Consider using 'statuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daifrsStatuses :: Lens.Lens' DescribeAggregateIdFormatResponse (Lude.Maybe [IdFormat])
-daifrsStatuses = Lens.lens (statuses :: DescribeAggregateIdFormatResponse -> Lude.Maybe [IdFormat]) (\s a -> s {statuses = a} :: DescribeAggregateIdFormatResponse)
-{-# DEPRECATED daifrsStatuses "Use generic-lens or generic-optics with 'statuses' instead." #-}
+daifrrsStatuses :: Lens.Lens' DescribeAggregateIdFormatResponse (Core.Maybe [Types.IdFormat])
+daifrrsStatuses = Lens.field @"statuses"
+{-# DEPRECATED daifrrsStatuses "Use generic-lens or generic-optics with 'statuses' instead." #-}
+
+-- | Indicates whether all resource types in the Region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the Region.
+--
+-- /Note:/ Consider using 'useLongIdsAggregated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daifrrsUseLongIdsAggregated :: Lens.Lens' DescribeAggregateIdFormatResponse (Core.Maybe Core.Bool)
+daifrrsUseLongIdsAggregated = Lens.field @"useLongIdsAggregated"
+{-# DEPRECATED daifrrsUseLongIdsAggregated "Use generic-lens or generic-optics with 'useLongIdsAggregated' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daifrsResponseStatus :: Lens.Lens' DescribeAggregateIdFormatResponse Lude.Int
-daifrsResponseStatus = Lens.lens (responseStatus :: DescribeAggregateIdFormatResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAggregateIdFormatResponse)
-{-# DEPRECATED daifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daifrrsResponseStatus :: Lens.Lens' DescribeAggregateIdFormatResponse Core.Int
+daifrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daifrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

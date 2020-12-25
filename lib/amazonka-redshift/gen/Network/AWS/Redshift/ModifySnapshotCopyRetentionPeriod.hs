@@ -20,36 +20,34 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     mkModifySnapshotCopyRetentionPeriod,
 
     -- ** Request lenses
-    mscrpManual,
     mscrpClusterIdentifier,
     mscrpRetentionPeriod,
+    mscrpManual,
 
     -- * Destructuring the response
     ModifySnapshotCopyRetentionPeriodResponse (..),
     mkModifySnapshotCopyRetentionPeriodResponse,
 
     -- ** Response lenses
-    mscrprsCluster,
-    mscrprsResponseStatus,
+    mscrprrsCluster,
+    mscrprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkModifySnapshotCopyRetentionPeriod' smart constructor.
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
-  { -- | Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
-    manual :: Lude.Maybe Lude.Bool,
-    -- | The unique identifier of the cluster for which you want to change the retention period for either automated or manual snapshots that are copied to a destination AWS Region.
+  { -- | The unique identifier of the cluster for which you want to change the retention period for either automated or manual snapshots that are copied to a destination AWS Region.
     --
     -- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
-    clusterIdentifier :: Lude.Text,
+    clusterIdentifier :: Types.String,
     -- | The number of days to retain automated snapshots in the destination AWS Region after they are copied from the source AWS Region.
     --
     -- By default, this only changes the retention period of copied automated snapshots.
@@ -58,54 +56,36 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
     -- If you specify the @manual@ option, only newly copied manual snapshots will have the new retention period.
     -- If you specify the value of -1 newly copied manual snapshots are retained indefinitely.
     -- Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.
-    retentionPeriod :: Lude.Int
+    retentionPeriod :: Core.Int,
+    -- | Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
+    manual :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifySnapshotCopyRetentionPeriod' with the minimum fields required to make a request.
---
--- * 'manual' - Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
--- * 'clusterIdentifier' - The unique identifier of the cluster for which you want to change the retention period for either automated or manual snapshots that are copied to a destination AWS Region.
---
--- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
--- * 'retentionPeriod' - The number of days to retain automated snapshots in the destination AWS Region after they are copied from the source AWS Region.
---
--- By default, this only changes the retention period of copied automated snapshots.
--- If you decrease the retention period for automated snapshots that are copied to a destination AWS Region, Amazon Redshift deletes any existing automated snapshots that were copied to the destination AWS Region and that fall outside of the new retention period.
--- Constraints: Must be at least 1 and no more than 35 for automated snapshots.
--- If you specify the @manual@ option, only newly copied manual snapshots will have the new retention period.
--- If you specify the value of -1 newly copied manual snapshots are retained indefinitely.
--- Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.
+-- | Creates a 'ModifySnapshotCopyRetentionPeriod' value with any optional fields omitted.
 mkModifySnapshotCopyRetentionPeriod ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   -- | 'retentionPeriod'
-  Lude.Int ->
+  Core.Int ->
   ModifySnapshotCopyRetentionPeriod
 mkModifySnapshotCopyRetentionPeriod
-  pClusterIdentifier_
-  pRetentionPeriod_ =
+  clusterIdentifier
+  retentionPeriod =
     ModifySnapshotCopyRetentionPeriod'
-      { manual = Lude.Nothing,
-        clusterIdentifier = pClusterIdentifier_,
-        retentionPeriod = pRetentionPeriod_
+      { clusterIdentifier,
+        retentionPeriod,
+        manual = Core.Nothing
       }
-
--- | Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
---
--- /Note:/ Consider using 'manual' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mscrpManual :: Lens.Lens' ModifySnapshotCopyRetentionPeriod (Lude.Maybe Lude.Bool)
-mscrpManual = Lens.lens (manual :: ModifySnapshotCopyRetentionPeriod -> Lude.Maybe Lude.Bool) (\s a -> s {manual = a} :: ModifySnapshotCopyRetentionPeriod)
-{-# DEPRECATED mscrpManual "Use generic-lens or generic-optics with 'manual' instead." #-}
 
 -- | The unique identifier of the cluster for which you want to change the retention period for either automated or manual snapshots that are copied to a destination AWS Region.
 --
 -- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mscrpClusterIdentifier :: Lens.Lens' ModifySnapshotCopyRetentionPeriod Lude.Text
-mscrpClusterIdentifier = Lens.lens (clusterIdentifier :: ModifySnapshotCopyRetentionPeriod -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ModifySnapshotCopyRetentionPeriod)
+mscrpClusterIdentifier :: Lens.Lens' ModifySnapshotCopyRetentionPeriod Types.String
+mscrpClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED mscrpClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | The number of days to retain automated snapshots in the destination AWS Region after they are copied from the source AWS Region.
@@ -118,74 +98,80 @@ mscrpClusterIdentifier = Lens.lens (clusterIdentifier :: ModifySnapshotCopyReten
 -- Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.
 --
 -- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mscrpRetentionPeriod :: Lens.Lens' ModifySnapshotCopyRetentionPeriod Lude.Int
-mscrpRetentionPeriod = Lens.lens (retentionPeriod :: ModifySnapshotCopyRetentionPeriod -> Lude.Int) (\s a -> s {retentionPeriod = a} :: ModifySnapshotCopyRetentionPeriod)
+mscrpRetentionPeriod :: Lens.Lens' ModifySnapshotCopyRetentionPeriod Core.Int
+mscrpRetentionPeriod = Lens.field @"retentionPeriod"
 {-# DEPRECATED mscrpRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
-instance Lude.AWSRequest ModifySnapshotCopyRetentionPeriod where
+-- | Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
+--
+-- /Note:/ Consider using 'manual' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mscrpManual :: Lens.Lens' ModifySnapshotCopyRetentionPeriod (Core.Maybe Core.Bool)
+mscrpManual = Lens.field @"manual"
+{-# DEPRECATED mscrpManual "Use generic-lens or generic-optics with 'manual' instead." #-}
+
+instance Core.AWSRequest ModifySnapshotCopyRetentionPeriod where
   type
     Rs ModifySnapshotCopyRetentionPeriod =
       ModifySnapshotCopyRetentionPeriodResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifySnapshotCopyRetentionPeriod")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" clusterIdentifier)
+                Core.<> (Core.toQueryValue "RetentionPeriod" retentionPeriod)
+                Core.<> (Core.toQueryValue "Manual" Core.<$> manual)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifySnapshotCopyRetentionPeriodResult"
       ( \s h x ->
           ModifySnapshotCopyRetentionPeriodResponse'
-            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifySnapshotCopyRetentionPeriod where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifySnapshotCopyRetentionPeriod where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifySnapshotCopyRetentionPeriod where
-  toQuery ModifySnapshotCopyRetentionPeriod' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ModifySnapshotCopyRetentionPeriod" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Manual" Lude.=: manual,
-        "ClusterIdentifier" Lude.=: clusterIdentifier,
-        "RetentionPeriod" Lude.=: retentionPeriod
-      ]
 
 -- | /See:/ 'mkModifySnapshotCopyRetentionPeriodResponse' smart constructor.
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
-  { cluster :: Lude.Maybe Cluster,
+  { cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ModifySnapshotCopyRetentionPeriodResponse' with the minimum fields required to make a request.
---
--- * 'cluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifySnapshotCopyRetentionPeriodResponse' value with any optional fields omitted.
 mkModifySnapshotCopyRetentionPeriodResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifySnapshotCopyRetentionPeriodResponse
-mkModifySnapshotCopyRetentionPeriodResponse pResponseStatus_ =
+mkModifySnapshotCopyRetentionPeriodResponse responseStatus =
   ModifySnapshotCopyRetentionPeriodResponse'
     { cluster =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mscrprsCluster :: Lens.Lens' ModifySnapshotCopyRetentionPeriodResponse (Lude.Maybe Cluster)
-mscrprsCluster = Lens.lens (cluster :: ModifySnapshotCopyRetentionPeriodResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: ModifySnapshotCopyRetentionPeriodResponse)
-{-# DEPRECATED mscrprsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+mscrprrsCluster :: Lens.Lens' ModifySnapshotCopyRetentionPeriodResponse (Core.Maybe Types.Cluster)
+mscrprrsCluster = Lens.field @"cluster"
+{-# DEPRECATED mscrprrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mscrprsResponseStatus :: Lens.Lens' ModifySnapshotCopyRetentionPeriodResponse Lude.Int
-mscrprsResponseStatus = Lens.lens (responseStatus :: ModifySnapshotCopyRetentionPeriodResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifySnapshotCopyRetentionPeriodResponse)
-{-# DEPRECATED mscrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mscrprrsResponseStatus :: Lens.Lens' ModifySnapshotCopyRetentionPeriodResponse Core.Int
+mscrprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mscrprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

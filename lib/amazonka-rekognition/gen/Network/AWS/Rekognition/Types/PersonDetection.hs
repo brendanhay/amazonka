@@ -23,8 +23,8 @@ module Network.AWS.Rekognition.Types.PersonDetection
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.PersonDetail
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.PersonDetail as Types
 
 -- | Details and path tracking information for a single time a person's path is tracked in a video. Amazon Rekognition operations that track people's paths return an array of @PersonDetection@ objects with elements for each time a person's path is tracked in a video.
 --
@@ -33,41 +33,36 @@ import Network.AWS.Rekognition.Types.PersonDetail
 -- /See:/ 'mkPersonDetection' smart constructor.
 data PersonDetection = PersonDetection'
   { -- | Details about a person whose path was tracked in a video.
-    person :: Lude.Maybe PersonDetail,
+    person :: Core.Maybe Types.PersonDetail,
     -- | The time, in milliseconds from the start of the video, that the person's path was tracked.
-    timestamp :: Lude.Maybe Lude.Integer
+    timestamp :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PersonDetection' with the minimum fields required to make a request.
---
--- * 'person' - Details about a person whose path was tracked in a video.
--- * 'timestamp' - The time, in milliseconds from the start of the video, that the person's path was tracked.
+-- | Creates a 'PersonDetection' value with any optional fields omitted.
 mkPersonDetection ::
   PersonDetection
 mkPersonDetection =
-  PersonDetection' {person = Lude.Nothing, timestamp = Lude.Nothing}
+  PersonDetection' {person = Core.Nothing, timestamp = Core.Nothing}
 
 -- | Details about a person whose path was tracked in a video.
 --
 -- /Note:/ Consider using 'person' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPerson :: Lens.Lens' PersonDetection (Lude.Maybe PersonDetail)
-pdPerson = Lens.lens (person :: PersonDetection -> Lude.Maybe PersonDetail) (\s a -> s {person = a} :: PersonDetection)
+pdPerson :: Lens.Lens' PersonDetection (Core.Maybe Types.PersonDetail)
+pdPerson = Lens.field @"person"
 {-# DEPRECATED pdPerson "Use generic-lens or generic-optics with 'person' instead." #-}
 
 -- | The time, in milliseconds from the start of the video, that the person's path was tracked.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdTimestamp :: Lens.Lens' PersonDetection (Lude.Maybe Lude.Integer)
-pdTimestamp = Lens.lens (timestamp :: PersonDetection -> Lude.Maybe Lude.Integer) (\s a -> s {timestamp = a} :: PersonDetection)
+pdTimestamp :: Lens.Lens' PersonDetection (Core.Maybe Core.Integer)
+pdTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED pdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON PersonDetection where
+instance Core.FromJSON PersonDetection where
   parseJSON =
-    Lude.withObject
-      "PersonDetection"
-      ( \x ->
-          PersonDetection'
-            Lude.<$> (x Lude..:? "Person") Lude.<*> (x Lude..:? "Timestamp")
-      )
+    Core.withObject "PersonDetection" Core.$
+      \x ->
+        PersonDetection'
+          Core.<$> (x Core..:? "Person") Core.<*> (x Core..:? "Timestamp")

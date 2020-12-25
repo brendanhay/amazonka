@@ -22,53 +22,47 @@ module Network.AWS.EC2.Types.GroupIdentifier
   )
 where
 
+import qualified Network.AWS.EC2.Types.GroupId as Types
+import qualified Network.AWS.EC2.Types.GroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a security group.
 --
 -- /See:/ 'mkGroupIdentifier' smart constructor.
 data GroupIdentifier = GroupIdentifier'
   { -- | The ID of the security group.
-    groupId :: Lude.Maybe Lude.Text,
+    groupId :: Core.Maybe Types.GroupId,
     -- | The name of the security group.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupIdentifier' with the minimum fields required to make a request.
---
--- * 'groupId' - The ID of the security group.
--- * 'groupName' - The name of the security group.
+-- | Creates a 'GroupIdentifier' value with any optional fields omitted.
 mkGroupIdentifier ::
   GroupIdentifier
 mkGroupIdentifier =
   GroupIdentifier'
-    { groupId = Lude.Nothing,
-      groupName = Lude.Nothing
+    { groupId = Core.Nothing,
+      groupName = Core.Nothing
     }
 
 -- | The ID of the security group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giGroupId :: Lens.Lens' GroupIdentifier (Lude.Maybe Lude.Text)
-giGroupId = Lens.lens (groupId :: GroupIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: GroupIdentifier)
+giGroupId :: Lens.Lens' GroupIdentifier (Core.Maybe Types.GroupId)
+giGroupId = Lens.field @"groupId"
 {-# DEPRECATED giGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The name of the security group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giGroupName :: Lens.Lens' GroupIdentifier (Lude.Maybe Lude.Text)
-giGroupName = Lens.lens (groupName :: GroupIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GroupIdentifier)
+giGroupName :: Lens.Lens' GroupIdentifier (Core.Maybe Types.GroupName)
+giGroupName = Lens.field @"groupName"
 {-# DEPRECATED giGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.FromXML GroupIdentifier where
+instance Core.FromXML GroupIdentifier where
   parseXML x =
     GroupIdentifier'
-      Lude.<$> (x Lude..@? "groupId") Lude.<*> (x Lude..@? "groupName")
-
-instance Lude.ToQuery GroupIdentifier where
-  toQuery GroupIdentifier' {..} =
-    Lude.mconcat
-      ["GroupId" Lude.=: groupId, "GroupName" Lude.=: groupName]
+      Core.<$> (x Core..@? "groupId") Core.<*> (x Core..@? "groupName")

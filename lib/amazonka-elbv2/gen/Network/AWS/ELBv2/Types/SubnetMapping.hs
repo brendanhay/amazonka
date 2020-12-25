@@ -17,81 +17,71 @@ module Network.AWS.ELBv2.Types.SubnetMapping
     mkSubnetMapping,
 
     -- * Lenses
-    smIPv6Address,
     smAllocationId,
+    smIPv6Address,
     smPrivateIPv4Address,
     smSubnetId,
   )
 where
 
+import qualified Network.AWS.ELBv2.Types.AllocationId as Types
+import qualified Network.AWS.ELBv2.Types.IPv6Address as Types
+import qualified Network.AWS.ELBv2.Types.PrivateIPv4Address as Types
+import qualified Network.AWS.ELBv2.Types.SubnetId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a subnet mapping.
 --
 -- /See:/ 'mkSubnetMapping' smart constructor.
 data SubnetMapping = SubnetMapping'
-  { -- | [Network Load Balancers] The IPv6 address.
-    ipv6Address :: Lude.Maybe Lude.Text,
-    -- | [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
-    allocationId :: Lude.Maybe Lude.Text,
+  { -- | [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
+    allocationId :: Core.Maybe Types.AllocationId,
+    -- | [Network Load Balancers] The IPv6 address.
+    iPv6Address :: Core.Maybe Types.IPv6Address,
     -- | [Network Load Balancers] The private IPv4 address for an internal load balancer.
-    privateIPv4Address :: Lude.Maybe Lude.Text,
+    privateIPv4Address :: Core.Maybe Types.PrivateIPv4Address,
     -- | The ID of the subnet.
-    subnetId :: Lude.Maybe Lude.Text
+    subnetId :: Core.Maybe Types.SubnetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubnetMapping' with the minimum fields required to make a request.
---
--- * 'ipv6Address' - [Network Load Balancers] The IPv6 address.
--- * 'allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
--- * 'privateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load balancer.
--- * 'subnetId' - The ID of the subnet.
+-- | Creates a 'SubnetMapping' value with any optional fields omitted.
 mkSubnetMapping ::
   SubnetMapping
 mkSubnetMapping =
   SubnetMapping'
-    { ipv6Address = Lude.Nothing,
-      allocationId = Lude.Nothing,
-      privateIPv4Address = Lude.Nothing,
-      subnetId = Lude.Nothing
+    { allocationId = Core.Nothing,
+      iPv6Address = Core.Nothing,
+      privateIPv4Address = Core.Nothing,
+      subnetId = Core.Nothing
     }
-
--- | [Network Load Balancers] The IPv6 address.
---
--- /Note:/ Consider using 'ipv6Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smIPv6Address :: Lens.Lens' SubnetMapping (Lude.Maybe Lude.Text)
-smIPv6Address = Lens.lens (ipv6Address :: SubnetMapping -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Address = a} :: SubnetMapping)
-{-# DEPRECATED smIPv6Address "Use generic-lens or generic-optics with 'ipv6Address' instead." #-}
 
 -- | [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
 --
 -- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smAllocationId :: Lens.Lens' SubnetMapping (Lude.Maybe Lude.Text)
-smAllocationId = Lens.lens (allocationId :: SubnetMapping -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: SubnetMapping)
+smAllocationId :: Lens.Lens' SubnetMapping (Core.Maybe Types.AllocationId)
+smAllocationId = Lens.field @"allocationId"
 {-# DEPRECATED smAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
+
+-- | [Network Load Balancers] The IPv6 address.
+--
+-- /Note:/ Consider using 'iPv6Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smIPv6Address :: Lens.Lens' SubnetMapping (Core.Maybe Types.IPv6Address)
+smIPv6Address = Lens.field @"iPv6Address"
+{-# DEPRECATED smIPv6Address "Use generic-lens or generic-optics with 'iPv6Address' instead." #-}
 
 -- | [Network Load Balancers] The private IPv4 address for an internal load balancer.
 --
 -- /Note:/ Consider using 'privateIPv4Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smPrivateIPv4Address :: Lens.Lens' SubnetMapping (Lude.Maybe Lude.Text)
-smPrivateIPv4Address = Lens.lens (privateIPv4Address :: SubnetMapping -> Lude.Maybe Lude.Text) (\s a -> s {privateIPv4Address = a} :: SubnetMapping)
+smPrivateIPv4Address :: Lens.Lens' SubnetMapping (Core.Maybe Types.PrivateIPv4Address)
+smPrivateIPv4Address = Lens.field @"privateIPv4Address"
 {-# DEPRECATED smPrivateIPv4Address "Use generic-lens or generic-optics with 'privateIPv4Address' instead." #-}
 
 -- | The ID of the subnet.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smSubnetId :: Lens.Lens' SubnetMapping (Lude.Maybe Lude.Text)
-smSubnetId = Lens.lens (subnetId :: SubnetMapping -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: SubnetMapping)
+smSubnetId :: Lens.Lens' SubnetMapping (Core.Maybe Types.SubnetId)
+smSubnetId = Lens.field @"subnetId"
 {-# DEPRECATED smSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
-instance Lude.ToQuery SubnetMapping where
-  toQuery SubnetMapping' {..} =
-    Lude.mconcat
-      [ "IPv6Address" Lude.=: ipv6Address,
-        "AllocationId" Lude.=: allocationId,
-        "PrivateIPv4Address" Lude.=: privateIPv4Address,
-        "SubnetId" Lude.=: subnetId
-      ]

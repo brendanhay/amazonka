@@ -13,76 +13,81 @@
 module Network.AWS.SMS.Types.ReplicationJobState
   ( ReplicationJobState
       ( ReplicationJobState',
-        RJSPending,
-        RJSActive,
-        RJSFailed,
-        RJSDeleting,
-        RJSDeleted,
-        RJSCompleted,
-        RJSPausedOnFailure,
-        RJSFailing
+        ReplicationJobStatePending,
+        ReplicationJobStateActive,
+        ReplicationJobStateFailed,
+        ReplicationJobStateDeleting,
+        ReplicationJobStateDeleted,
+        ReplicationJobStateCompleted,
+        ReplicationJobStatePausedOnFailure,
+        ReplicationJobStateFailing,
+        fromReplicationJobState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReplicationJobState = ReplicationJobState' Lude.Text
+newtype ReplicationJobState = ReplicationJobState'
+  { fromReplicationJobState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RJSPending :: ReplicationJobState
-pattern RJSPending = ReplicationJobState' "PENDING"
+pattern ReplicationJobStatePending :: ReplicationJobState
+pattern ReplicationJobStatePending = ReplicationJobState' "PENDING"
 
-pattern RJSActive :: ReplicationJobState
-pattern RJSActive = ReplicationJobState' "ACTIVE"
+pattern ReplicationJobStateActive :: ReplicationJobState
+pattern ReplicationJobStateActive = ReplicationJobState' "ACTIVE"
 
-pattern RJSFailed :: ReplicationJobState
-pattern RJSFailed = ReplicationJobState' "FAILED"
+pattern ReplicationJobStateFailed :: ReplicationJobState
+pattern ReplicationJobStateFailed = ReplicationJobState' "FAILED"
 
-pattern RJSDeleting :: ReplicationJobState
-pattern RJSDeleting = ReplicationJobState' "DELETING"
+pattern ReplicationJobStateDeleting :: ReplicationJobState
+pattern ReplicationJobStateDeleting = ReplicationJobState' "DELETING"
 
-pattern RJSDeleted :: ReplicationJobState
-pattern RJSDeleted = ReplicationJobState' "DELETED"
+pattern ReplicationJobStateDeleted :: ReplicationJobState
+pattern ReplicationJobStateDeleted = ReplicationJobState' "DELETED"
 
-pattern RJSCompleted :: ReplicationJobState
-pattern RJSCompleted = ReplicationJobState' "COMPLETED"
+pattern ReplicationJobStateCompleted :: ReplicationJobState
+pattern ReplicationJobStateCompleted = ReplicationJobState' "COMPLETED"
 
-pattern RJSPausedOnFailure :: ReplicationJobState
-pattern RJSPausedOnFailure = ReplicationJobState' "PAUSED_ON_FAILURE"
+pattern ReplicationJobStatePausedOnFailure :: ReplicationJobState
+pattern ReplicationJobStatePausedOnFailure = ReplicationJobState' "PAUSED_ON_FAILURE"
 
-pattern RJSFailing :: ReplicationJobState
-pattern RJSFailing = ReplicationJobState' "FAILING"
+pattern ReplicationJobStateFailing :: ReplicationJobState
+pattern ReplicationJobStateFailing = ReplicationJobState' "FAILING"
 
 {-# COMPLETE
-  RJSPending,
-  RJSActive,
-  RJSFailed,
-  RJSDeleting,
-  RJSDeleted,
-  RJSCompleted,
-  RJSPausedOnFailure,
-  RJSFailing,
+  ReplicationJobStatePending,
+  ReplicationJobStateActive,
+  ReplicationJobStateFailed,
+  ReplicationJobStateDeleting,
+  ReplicationJobStateDeleted,
+  ReplicationJobStateCompleted,
+  ReplicationJobStatePausedOnFailure,
+  ReplicationJobStateFailing,
   ReplicationJobState'
   #-}

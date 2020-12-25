@@ -31,108 +31,101 @@ module Network.AWS.IAM.CreateAccessKey
     mkCreateAccessKeyResponse,
 
     -- ** Response lenses
-    cakrsAccessKey,
-    cakrsResponseStatus,
+    cakrrsAccessKey,
+    cakrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateAccessKey' smart constructor.
 newtype CreateAccessKey = CreateAccessKey'
   { -- | The name of the IAM user that the new key will belong to.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Maybe Lude.Text
+    userName :: Core.Maybe Types.ExistingUserNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAccessKey' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the IAM user that the new key will belong to.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'CreateAccessKey' value with any optional fields omitted.
 mkCreateAccessKey ::
   CreateAccessKey
-mkCreateAccessKey = CreateAccessKey' {userName = Lude.Nothing}
+mkCreateAccessKey = CreateAccessKey' {userName = Core.Nothing}
 
 -- | The name of the IAM user that the new key will belong to.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cakUserName :: Lens.Lens' CreateAccessKey (Lude.Maybe Lude.Text)
-cakUserName = Lens.lens (userName :: CreateAccessKey -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: CreateAccessKey)
+cakUserName :: Lens.Lens' CreateAccessKey (Core.Maybe Types.ExistingUserNameType)
+cakUserName = Lens.field @"userName"
 {-# DEPRECATED cakUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance Lude.AWSRequest CreateAccessKey where
+instance Core.AWSRequest CreateAccessKey where
   type Rs CreateAccessKey = CreateAccessKeyResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateAccessKey")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" Core.<$> userName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateAccessKeyResult"
       ( \s h x ->
           CreateAccessKeyResponse'
-            Lude.<$> (x Lude..@ "AccessKey") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "AccessKey") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateAccessKey where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateAccessKey where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAccessKey where
-  toQuery CreateAccessKey' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateAccessKey" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName
-      ]
 
 -- | Contains the response to a successful 'CreateAccessKey' request.
 --
 -- /See:/ 'mkCreateAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
   { -- | A structure with details about the access key.
-    accessKey :: AccessKeyInfo,
+    accessKey :: Types.AccessKeyInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateAccessKeyResponse' with the minimum fields required to make a request.
---
--- * 'accessKey' - A structure with details about the access key.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAccessKeyResponse' value with any optional fields omitted.
 mkCreateAccessKeyResponse ::
   -- | 'accessKey'
-  AccessKeyInfo ->
+  Types.AccessKeyInfo ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAccessKeyResponse
-mkCreateAccessKeyResponse pAccessKey_ pResponseStatus_ =
-  CreateAccessKeyResponse'
-    { accessKey = pAccessKey_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateAccessKeyResponse accessKey responseStatus =
+  CreateAccessKeyResponse' {accessKey, responseStatus}
 
 -- | A structure with details about the access key.
 --
 -- /Note:/ Consider using 'accessKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cakrsAccessKey :: Lens.Lens' CreateAccessKeyResponse AccessKeyInfo
-cakrsAccessKey = Lens.lens (accessKey :: CreateAccessKeyResponse -> AccessKeyInfo) (\s a -> s {accessKey = a} :: CreateAccessKeyResponse)
-{-# DEPRECATED cakrsAccessKey "Use generic-lens or generic-optics with 'accessKey' instead." #-}
+cakrrsAccessKey :: Lens.Lens' CreateAccessKeyResponse Types.AccessKeyInfo
+cakrrsAccessKey = Lens.field @"accessKey"
+{-# DEPRECATED cakrrsAccessKey "Use generic-lens or generic-optics with 'accessKey' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cakrsResponseStatus :: Lens.Lens' CreateAccessKeyResponse Lude.Int
-cakrsResponseStatus = Lens.lens (responseStatus :: CreateAccessKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAccessKeyResponse)
-{-# DEPRECATED cakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cakrrsResponseStatus :: Lens.Lens' CreateAccessKeyResponse Core.Int
+cakrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cakrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

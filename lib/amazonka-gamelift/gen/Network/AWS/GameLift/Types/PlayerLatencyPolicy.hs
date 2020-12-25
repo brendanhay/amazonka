@@ -17,13 +17,13 @@ module Network.AWS.GameLift.Types.PlayerLatencyPolicy
     mkPlayerLatencyPolicy,
 
     -- * Lenses
-    plpPolicyDurationSeconds,
     plpMaximumIndividualPlayerLatencyMilliseconds,
+    plpPolicyDurationSeconds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Queue setting that determines the highest latency allowed for individual players when placing a game session. When a latency policy is in force, a game session cannot be placed with any fleet in a Region where a player reports latency higher than the cap. Latency policies are only enforced when the placement request contains player latency information.
 --
@@ -43,56 +43,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlayerLatencyPolicy' smart constructor.
 data PlayerLatencyPolicy = PlayerLatencyPolicy'
-  { -- | The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
-    policyDurationSeconds :: Lude.Maybe Lude.Natural,
-    -- | The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
-    maximumIndividualPlayerLatencyMilliseconds :: Lude.Maybe Lude.Natural
+  { -- | The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+    maximumIndividualPlayerLatencyMilliseconds :: Core.Maybe Core.Natural,
+    -- | The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
+    policyDurationSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlayerLatencyPolicy' with the minimum fields required to make a request.
---
--- * 'policyDurationSeconds' - The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
--- * 'maximumIndividualPlayerLatencyMilliseconds' - The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+-- | Creates a 'PlayerLatencyPolicy' value with any optional fields omitted.
 mkPlayerLatencyPolicy ::
   PlayerLatencyPolicy
 mkPlayerLatencyPolicy =
   PlayerLatencyPolicy'
-    { policyDurationSeconds = Lude.Nothing,
-      maximumIndividualPlayerLatencyMilliseconds = Lude.Nothing
+    { maximumIndividualPlayerLatencyMilliseconds =
+        Core.Nothing,
+      policyDurationSeconds = Core.Nothing
     }
-
--- | The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
---
--- /Note:/ Consider using 'policyDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plpPolicyDurationSeconds :: Lens.Lens' PlayerLatencyPolicy (Lude.Maybe Lude.Natural)
-plpPolicyDurationSeconds = Lens.lens (policyDurationSeconds :: PlayerLatencyPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {policyDurationSeconds = a} :: PlayerLatencyPolicy)
-{-# DEPRECATED plpPolicyDurationSeconds "Use generic-lens or generic-optics with 'policyDurationSeconds' instead." #-}
 
 -- | The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
 --
 -- /Note:/ Consider using 'maximumIndividualPlayerLatencyMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plpMaximumIndividualPlayerLatencyMilliseconds :: Lens.Lens' PlayerLatencyPolicy (Lude.Maybe Lude.Natural)
-plpMaximumIndividualPlayerLatencyMilliseconds = Lens.lens (maximumIndividualPlayerLatencyMilliseconds :: PlayerLatencyPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {maximumIndividualPlayerLatencyMilliseconds = a} :: PlayerLatencyPolicy)
+plpMaximumIndividualPlayerLatencyMilliseconds :: Lens.Lens' PlayerLatencyPolicy (Core.Maybe Core.Natural)
+plpMaximumIndividualPlayerLatencyMilliseconds = Lens.field @"maximumIndividualPlayerLatencyMilliseconds"
 {-# DEPRECATED plpMaximumIndividualPlayerLatencyMilliseconds "Use generic-lens or generic-optics with 'maximumIndividualPlayerLatencyMilliseconds' instead." #-}
 
-instance Lude.FromJSON PlayerLatencyPolicy where
-  parseJSON =
-    Lude.withObject
-      "PlayerLatencyPolicy"
-      ( \x ->
-          PlayerLatencyPolicy'
-            Lude.<$> (x Lude..:? "PolicyDurationSeconds")
-            Lude.<*> (x Lude..:? "MaximumIndividualPlayerLatencyMilliseconds")
-      )
+-- | The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
+--
+-- /Note:/ Consider using 'policyDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plpPolicyDurationSeconds :: Lens.Lens' PlayerLatencyPolicy (Core.Maybe Core.Natural)
+plpPolicyDurationSeconds = Lens.field @"policyDurationSeconds"
+{-# DEPRECATED plpPolicyDurationSeconds "Use generic-lens or generic-optics with 'policyDurationSeconds' instead." #-}
 
-instance Lude.ToJSON PlayerLatencyPolicy where
-  toJSON PlayerLatencyPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PolicyDurationSeconds" Lude..=) Lude.<$> policyDurationSeconds,
-            ("MaximumIndividualPlayerLatencyMilliseconds" Lude..=)
-              Lude.<$> maximumIndividualPlayerLatencyMilliseconds
+instance Core.FromJSON PlayerLatencyPolicy where
+  toJSON PlayerLatencyPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaximumIndividualPlayerLatencyMilliseconds" Core..=)
+              Core.<$> maximumIndividualPlayerLatencyMilliseconds,
+            ("PolicyDurationSeconds" Core..=) Core.<$> policyDurationSeconds
           ]
       )
+
+instance Core.FromJSON PlayerLatencyPolicy where
+  parseJSON =
+    Core.withObject "PlayerLatencyPolicy" Core.$
+      \x ->
+        PlayerLatencyPolicy'
+          Core.<$> (x Core..:? "MaximumIndividualPlayerLatencyMilliseconds")
+          Core.<*> (x Core..:? "PolicyDurationSeconds")

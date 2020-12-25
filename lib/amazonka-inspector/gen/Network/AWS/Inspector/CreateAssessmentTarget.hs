@@ -20,139 +20,124 @@ module Network.AWS.Inspector.CreateAssessmentTarget
     mkCreateAssessmentTarget,
 
     -- ** Request lenses
-    catResourceGroupARN,
     catAssessmentTargetName,
+    catResourceGroupArn,
 
     -- * Destructuring the response
     CreateAssessmentTargetResponse (..),
     mkCreateAssessmentTargetResponse,
 
     -- ** Response lenses
-    catrsAssessmentTargetARN,
-    catrsResponseStatus,
+    catrrsAssessmentTargetArn,
+    catrrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateAssessmentTarget' smart constructor.
 data CreateAssessmentTarget = CreateAssessmentTarget'
-  { -- | The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-    resourceGroupARN :: Lude.Maybe Lude.Text,
-    -- | The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account.
-    assessmentTargetName :: Lude.Text
+  { -- | The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account.
+    assessmentTargetName :: Types.AssessmentTargetName,
+    -- | The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+    resourceGroupArn :: Core.Maybe Types.ResourceGroupArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAssessmentTarget' with the minimum fields required to make a request.
---
--- * 'resourceGroupARN' - The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
--- * 'assessmentTargetName' - The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account.
+-- | Creates a 'CreateAssessmentTarget' value with any optional fields omitted.
 mkCreateAssessmentTarget ::
   -- | 'assessmentTargetName'
-  Lude.Text ->
+  Types.AssessmentTargetName ->
   CreateAssessmentTarget
-mkCreateAssessmentTarget pAssessmentTargetName_ =
+mkCreateAssessmentTarget assessmentTargetName =
   CreateAssessmentTarget'
-    { resourceGroupARN = Lude.Nothing,
-      assessmentTargetName = pAssessmentTargetName_
+    { assessmentTargetName,
+      resourceGroupArn = Core.Nothing
     }
-
--- | The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
---
--- /Note:/ Consider using 'resourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-catResourceGroupARN :: Lens.Lens' CreateAssessmentTarget (Lude.Maybe Lude.Text)
-catResourceGroupARN = Lens.lens (resourceGroupARN :: CreateAssessmentTarget -> Lude.Maybe Lude.Text) (\s a -> s {resourceGroupARN = a} :: CreateAssessmentTarget)
-{-# DEPRECATED catResourceGroupARN "Use generic-lens or generic-optics with 'resourceGroupARN' instead." #-}
 
 -- | The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account.
 --
 -- /Note:/ Consider using 'assessmentTargetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-catAssessmentTargetName :: Lens.Lens' CreateAssessmentTarget Lude.Text
-catAssessmentTargetName = Lens.lens (assessmentTargetName :: CreateAssessmentTarget -> Lude.Text) (\s a -> s {assessmentTargetName = a} :: CreateAssessmentTarget)
+catAssessmentTargetName :: Lens.Lens' CreateAssessmentTarget Types.AssessmentTargetName
+catAssessmentTargetName = Lens.field @"assessmentTargetName"
 {-# DEPRECATED catAssessmentTargetName "Use generic-lens or generic-optics with 'assessmentTargetName' instead." #-}
 
-instance Lude.AWSRequest CreateAssessmentTarget where
+-- | The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+--
+-- /Note:/ Consider using 'resourceGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+catResourceGroupArn :: Lens.Lens' CreateAssessmentTarget (Core.Maybe Types.ResourceGroupArn)
+catResourceGroupArn = Lens.field @"resourceGroupArn"
+{-# DEPRECATED catResourceGroupArn "Use generic-lens or generic-optics with 'resourceGroupArn' instead." #-}
+
+instance Core.FromJSON CreateAssessmentTarget where
+  toJSON CreateAssessmentTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("assessmentTargetName" Core..= assessmentTargetName),
+            ("resourceGroupArn" Core..=) Core.<$> resourceGroupArn
+          ]
+      )
+
+instance Core.AWSRequest CreateAssessmentTarget where
   type Rs CreateAssessmentTarget = CreateAssessmentTargetResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.CreateAssessmentTarget")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateAssessmentTargetResponse'
-            Lude.<$> (x Lude..:> "assessmentTargetArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "assessmentTargetArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateAssessmentTarget where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.CreateAssessmentTarget" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateAssessmentTarget where
-  toJSON CreateAssessmentTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("resourceGroupArn" Lude..=) Lude.<$> resourceGroupARN,
-            Lude.Just ("assessmentTargetName" Lude..= assessmentTargetName)
-          ]
-      )
-
-instance Lude.ToPath CreateAssessmentTarget where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAssessmentTarget where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateAssessmentTargetResponse' smart constructor.
 data CreateAssessmentTargetResponse = CreateAssessmentTargetResponse'
   { -- | The ARN that specifies the assessment target that is created.
-    assessmentTargetARN :: Lude.Text,
+    assessmentTargetArn :: Types.Arn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAssessmentTargetResponse' with the minimum fields required to make a request.
---
--- * 'assessmentTargetARN' - The ARN that specifies the assessment target that is created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAssessmentTargetResponse' value with any optional fields omitted.
 mkCreateAssessmentTargetResponse ::
-  -- | 'assessmentTargetARN'
-  Lude.Text ->
+  -- | 'assessmentTargetArn'
+  Types.Arn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAssessmentTargetResponse
-mkCreateAssessmentTargetResponse
-  pAssessmentTargetARN_
-  pResponseStatus_ =
-    CreateAssessmentTargetResponse'
-      { assessmentTargetARN =
-          pAssessmentTargetARN_,
-        responseStatus = pResponseStatus_
-      }
+mkCreateAssessmentTargetResponse assessmentTargetArn responseStatus =
+  CreateAssessmentTargetResponse'
+    { assessmentTargetArn,
+      responseStatus
+    }
 
 -- | The ARN that specifies the assessment target that is created.
 --
--- /Note:/ Consider using 'assessmentTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-catrsAssessmentTargetARN :: Lens.Lens' CreateAssessmentTargetResponse Lude.Text
-catrsAssessmentTargetARN = Lens.lens (assessmentTargetARN :: CreateAssessmentTargetResponse -> Lude.Text) (\s a -> s {assessmentTargetARN = a} :: CreateAssessmentTargetResponse)
-{-# DEPRECATED catrsAssessmentTargetARN "Use generic-lens or generic-optics with 'assessmentTargetARN' instead." #-}
+-- /Note:/ Consider using 'assessmentTargetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+catrrsAssessmentTargetArn :: Lens.Lens' CreateAssessmentTargetResponse Types.Arn
+catrrsAssessmentTargetArn = Lens.field @"assessmentTargetArn"
+{-# DEPRECATED catrrsAssessmentTargetArn "Use generic-lens or generic-optics with 'assessmentTargetArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-catrsResponseStatus :: Lens.Lens' CreateAssessmentTargetResponse Lude.Int
-catrsResponseStatus = Lens.lens (responseStatus :: CreateAssessmentTargetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAssessmentTargetResponse)
-{-# DEPRECATED catrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+catrrsResponseStatus :: Lens.Lens' CreateAssessmentTargetResponse Core.Int
+catrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED catrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

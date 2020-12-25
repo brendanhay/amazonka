@@ -13,112 +13,117 @@
 module Network.AWS.MediaConvert.Types.StatusUpdateInterval
   ( StatusUpdateInterval
       ( StatusUpdateInterval',
-        Seconds10,
-        Seconds12,
-        Seconds15,
-        Seconds20,
-        Seconds30,
-        Seconds60,
-        Seconds120,
-        Seconds180,
-        Seconds240,
-        Seconds300,
-        Seconds360,
-        Seconds420,
-        Seconds480,
-        Seconds540,
-        Seconds600
+        StatusUpdateIntervalSeconds10,
+        StatusUpdateIntervalSeconds12,
+        StatusUpdateIntervalSeconds15,
+        StatusUpdateIntervalSeconds20,
+        StatusUpdateIntervalSeconds30,
+        StatusUpdateIntervalSeconds60,
+        StatusUpdateIntervalSeconds120,
+        StatusUpdateIntervalSeconds180,
+        StatusUpdateIntervalSeconds240,
+        StatusUpdateIntervalSeconds300,
+        StatusUpdateIntervalSeconds360,
+        StatusUpdateIntervalSeconds420,
+        StatusUpdateIntervalSeconds480,
+        StatusUpdateIntervalSeconds540,
+        StatusUpdateIntervalSeconds600,
+        fromStatusUpdateInterval
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
-newtype StatusUpdateInterval = StatusUpdateInterval' Lude.Text
+newtype StatusUpdateInterval = StatusUpdateInterval'
+  { fromStatusUpdateInterval ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Seconds10 :: StatusUpdateInterval
-pattern Seconds10 = StatusUpdateInterval' "SECONDS_10"
+pattern StatusUpdateIntervalSeconds10 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds10 = StatusUpdateInterval' "SECONDS_10"
 
-pattern Seconds12 :: StatusUpdateInterval
-pattern Seconds12 = StatusUpdateInterval' "SECONDS_12"
+pattern StatusUpdateIntervalSeconds12 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds12 = StatusUpdateInterval' "SECONDS_12"
 
-pattern Seconds15 :: StatusUpdateInterval
-pattern Seconds15 = StatusUpdateInterval' "SECONDS_15"
+pattern StatusUpdateIntervalSeconds15 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds15 = StatusUpdateInterval' "SECONDS_15"
 
-pattern Seconds20 :: StatusUpdateInterval
-pattern Seconds20 = StatusUpdateInterval' "SECONDS_20"
+pattern StatusUpdateIntervalSeconds20 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds20 = StatusUpdateInterval' "SECONDS_20"
 
-pattern Seconds30 :: StatusUpdateInterval
-pattern Seconds30 = StatusUpdateInterval' "SECONDS_30"
+pattern StatusUpdateIntervalSeconds30 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds30 = StatusUpdateInterval' "SECONDS_30"
 
-pattern Seconds60 :: StatusUpdateInterval
-pattern Seconds60 = StatusUpdateInterval' "SECONDS_60"
+pattern StatusUpdateIntervalSeconds60 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds60 = StatusUpdateInterval' "SECONDS_60"
 
-pattern Seconds120 :: StatusUpdateInterval
-pattern Seconds120 = StatusUpdateInterval' "SECONDS_120"
+pattern StatusUpdateIntervalSeconds120 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds120 = StatusUpdateInterval' "SECONDS_120"
 
-pattern Seconds180 :: StatusUpdateInterval
-pattern Seconds180 = StatusUpdateInterval' "SECONDS_180"
+pattern StatusUpdateIntervalSeconds180 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds180 = StatusUpdateInterval' "SECONDS_180"
 
-pattern Seconds240 :: StatusUpdateInterval
-pattern Seconds240 = StatusUpdateInterval' "SECONDS_240"
+pattern StatusUpdateIntervalSeconds240 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds240 = StatusUpdateInterval' "SECONDS_240"
 
-pattern Seconds300 :: StatusUpdateInterval
-pattern Seconds300 = StatusUpdateInterval' "SECONDS_300"
+pattern StatusUpdateIntervalSeconds300 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds300 = StatusUpdateInterval' "SECONDS_300"
 
-pattern Seconds360 :: StatusUpdateInterval
-pattern Seconds360 = StatusUpdateInterval' "SECONDS_360"
+pattern StatusUpdateIntervalSeconds360 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds360 = StatusUpdateInterval' "SECONDS_360"
 
-pattern Seconds420 :: StatusUpdateInterval
-pattern Seconds420 = StatusUpdateInterval' "SECONDS_420"
+pattern StatusUpdateIntervalSeconds420 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds420 = StatusUpdateInterval' "SECONDS_420"
 
-pattern Seconds480 :: StatusUpdateInterval
-pattern Seconds480 = StatusUpdateInterval' "SECONDS_480"
+pattern StatusUpdateIntervalSeconds480 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds480 = StatusUpdateInterval' "SECONDS_480"
 
-pattern Seconds540 :: StatusUpdateInterval
-pattern Seconds540 = StatusUpdateInterval' "SECONDS_540"
+pattern StatusUpdateIntervalSeconds540 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds540 = StatusUpdateInterval' "SECONDS_540"
 
-pattern Seconds600 :: StatusUpdateInterval
-pattern Seconds600 = StatusUpdateInterval' "SECONDS_600"
+pattern StatusUpdateIntervalSeconds600 :: StatusUpdateInterval
+pattern StatusUpdateIntervalSeconds600 = StatusUpdateInterval' "SECONDS_600"
 
 {-# COMPLETE
-  Seconds10,
-  Seconds12,
-  Seconds15,
-  Seconds20,
-  Seconds30,
-  Seconds60,
-  Seconds120,
-  Seconds180,
-  Seconds240,
-  Seconds300,
-  Seconds360,
-  Seconds420,
-  Seconds480,
-  Seconds540,
-  Seconds600,
+  StatusUpdateIntervalSeconds10,
+  StatusUpdateIntervalSeconds12,
+  StatusUpdateIntervalSeconds15,
+  StatusUpdateIntervalSeconds20,
+  StatusUpdateIntervalSeconds30,
+  StatusUpdateIntervalSeconds60,
+  StatusUpdateIntervalSeconds120,
+  StatusUpdateIntervalSeconds180,
+  StatusUpdateIntervalSeconds240,
+  StatusUpdateIntervalSeconds300,
+  StatusUpdateIntervalSeconds360,
+  StatusUpdateIntervalSeconds420,
+  StatusUpdateIntervalSeconds480,
+  StatusUpdateIntervalSeconds540,
+  StatusUpdateIntervalSeconds600,
   StatusUpdateInterval'
   #-}

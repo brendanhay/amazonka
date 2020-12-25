@@ -30,67 +30,68 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLaunchConfiguration' smart constructor.
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
   { -- | The name of the launch configuration.
-    launchConfigurationName :: Lude.Text
+    launchConfigurationName :: Types.LaunchConfigurationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLaunchConfiguration' with the minimum fields required to make a request.
---
--- * 'launchConfigurationName' - The name of the launch configuration.
+-- | Creates a 'DeleteLaunchConfiguration' value with any optional fields omitted.
 mkDeleteLaunchConfiguration ::
   -- | 'launchConfigurationName'
-  Lude.Text ->
+  Types.LaunchConfigurationName ->
   DeleteLaunchConfiguration
-mkDeleteLaunchConfiguration pLaunchConfigurationName_ =
-  DeleteLaunchConfiguration'
-    { launchConfigurationName =
-        pLaunchConfigurationName_
-    }
+mkDeleteLaunchConfiguration launchConfigurationName =
+  DeleteLaunchConfiguration' {launchConfigurationName}
 
 -- | The name of the launch configuration.
 --
 -- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcLaunchConfigurationName :: Lens.Lens' DeleteLaunchConfiguration Lude.Text
-dlcLaunchConfigurationName = Lens.lens (launchConfigurationName :: DeleteLaunchConfiguration -> Lude.Text) (\s a -> s {launchConfigurationName = a} :: DeleteLaunchConfiguration)
+dlcLaunchConfigurationName :: Lens.Lens' DeleteLaunchConfiguration Types.LaunchConfigurationName
+dlcLaunchConfigurationName = Lens.field @"launchConfigurationName"
 {-# DEPRECATED dlcLaunchConfigurationName "Use generic-lens or generic-optics with 'launchConfigurationName' instead." #-}
 
-instance Lude.AWSRequest DeleteLaunchConfiguration where
+instance Core.AWSRequest DeleteLaunchConfiguration where
   type
     Rs DeleteLaunchConfiguration =
       DeleteLaunchConfigurationResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull DeleteLaunchConfigurationResponse'
-
-instance Lude.ToHeaders DeleteLaunchConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteLaunchConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLaunchConfiguration where
-  toQuery DeleteLaunchConfiguration' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteLaunchConfiguration" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "LaunchConfigurationName" Lude.=: launchConfigurationName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteLaunchConfiguration")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> ( Core.toQueryValue
+                            "LaunchConfigurationName"
+                            launchConfigurationName
+                        )
+            )
+      }
+  response = Response.receiveNull DeleteLaunchConfigurationResponse'
 
 -- | /See:/ 'mkDeleteLaunchConfigurationResponse' smart constructor.
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLaunchConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteLaunchConfigurationResponse' value with any optional fields omitted.
 mkDeleteLaunchConfigurationResponse ::
   DeleteLaunchConfigurationResponse
 mkDeleteLaunchConfigurationResponse =

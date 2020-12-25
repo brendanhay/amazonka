@@ -13,66 +13,71 @@
 module Network.AWS.Inspector.Types.FailedItemErrorCode
   ( FailedItemErrorCode
       ( FailedItemErrorCode',
-        FIECInvalidARN,
-        FIECDuplicateARN,
-        FIECItemDoesNotExist,
-        FIECAccessDenied,
-        FIECLimitExceeded,
-        FIECInternalError
+        FailedItemErrorCodeInvalidArn,
+        FailedItemErrorCodeDuplicateArn,
+        FailedItemErrorCodeItemDoesNotExist,
+        FailedItemErrorCodeAccessDenied,
+        FailedItemErrorCodeLimitExceeded,
+        FailedItemErrorCodeInternalError,
+        fromFailedItemErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FailedItemErrorCode = FailedItemErrorCode' Lude.Text
+newtype FailedItemErrorCode = FailedItemErrorCode'
+  { fromFailedItemErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FIECInvalidARN :: FailedItemErrorCode
-pattern FIECInvalidARN = FailedItemErrorCode' "INVALID_ARN"
+pattern FailedItemErrorCodeInvalidArn :: FailedItemErrorCode
+pattern FailedItemErrorCodeInvalidArn = FailedItemErrorCode' "INVALID_ARN"
 
-pattern FIECDuplicateARN :: FailedItemErrorCode
-pattern FIECDuplicateARN = FailedItemErrorCode' "DUPLICATE_ARN"
+pattern FailedItemErrorCodeDuplicateArn :: FailedItemErrorCode
+pattern FailedItemErrorCodeDuplicateArn = FailedItemErrorCode' "DUPLICATE_ARN"
 
-pattern FIECItemDoesNotExist :: FailedItemErrorCode
-pattern FIECItemDoesNotExist = FailedItemErrorCode' "ITEM_DOES_NOT_EXIST"
+pattern FailedItemErrorCodeItemDoesNotExist :: FailedItemErrorCode
+pattern FailedItemErrorCodeItemDoesNotExist = FailedItemErrorCode' "ITEM_DOES_NOT_EXIST"
 
-pattern FIECAccessDenied :: FailedItemErrorCode
-pattern FIECAccessDenied = FailedItemErrorCode' "ACCESS_DENIED"
+pattern FailedItemErrorCodeAccessDenied :: FailedItemErrorCode
+pattern FailedItemErrorCodeAccessDenied = FailedItemErrorCode' "ACCESS_DENIED"
 
-pattern FIECLimitExceeded :: FailedItemErrorCode
-pattern FIECLimitExceeded = FailedItemErrorCode' "LIMIT_EXCEEDED"
+pattern FailedItemErrorCodeLimitExceeded :: FailedItemErrorCode
+pattern FailedItemErrorCodeLimitExceeded = FailedItemErrorCode' "LIMIT_EXCEEDED"
 
-pattern FIECInternalError :: FailedItemErrorCode
-pattern FIECInternalError = FailedItemErrorCode' "INTERNAL_ERROR"
+pattern FailedItemErrorCodeInternalError :: FailedItemErrorCode
+pattern FailedItemErrorCodeInternalError = FailedItemErrorCode' "INTERNAL_ERROR"
 
 {-# COMPLETE
-  FIECInvalidARN,
-  FIECDuplicateARN,
-  FIECItemDoesNotExist,
-  FIECAccessDenied,
-  FIECLimitExceeded,
-  FIECInternalError,
+  FailedItemErrorCodeInvalidArn,
+  FailedItemErrorCodeDuplicateArn,
+  FailedItemErrorCodeItemDoesNotExist,
+  FailedItemErrorCodeAccessDenied,
+  FailedItemErrorCodeLimitExceeded,
+  FailedItemErrorCodeInternalError,
   FailedItemErrorCode'
   #-}

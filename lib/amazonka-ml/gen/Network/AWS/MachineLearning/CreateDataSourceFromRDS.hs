@@ -23,34 +23,32 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     mkCreateDataSourceFromRDS,
 
     -- ** Request lenses
-    cdsfrDataSourceName,
-    cdsfrDataSourceId,
-    cdsfrRDSData,
-    cdsfrComputeStatistics,
-    cdsfrRoleARN,
+    cdsfrdsDataSourceId,
+    cdsfrdsRDSData,
+    cdsfrdsRoleARN,
+    cdsfrdsComputeStatistics,
+    cdsfrdsDataSourceName,
 
     -- * Destructuring the response
     CreateDataSourceFromRDSResponse (..),
     mkCreateDataSourceFromRDSResponse,
 
     -- ** Response lenses
-    cdsfrrsDataSourceId,
-    cdsfrrsResponseStatus,
+    cdsfrdsrrsDataSourceId,
+    cdsfrdsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDataSourceFromRDS' smart constructor.
 data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
-  { -- | A user-supplied name or description of the @DataSource@ .
-    dataSourceName :: Lude.Maybe Lude.Text,
-    -- | A user-supplied ID that uniquely identifies the @DataSource@ . Typically, an Amazon Resource Number (ARN) becomes the ID for a @DataSource@ .
-    dataSourceId :: Lude.Text,
+  { -- | A user-supplied ID that uniquely identifies the @DataSource@ . Typically, an Amazon Resource Number (ARN) becomes the ID for a @DataSource@ .
+    dataSourceId :: Types.DataSourceId,
     -- | The data specification of an Amazon RDS @DataSource@ :
     --
     --
@@ -89,91 +87,41 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
     --     * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @Datasource@ .
     --
     -- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
-    rdsData :: RDSDataSpec,
-    -- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
-    computeStatistics :: Lude.Maybe Lude.Bool,
+    rDSData :: Types.RDSDataSpec,
     -- | The role that Amazon ML assumes on behalf of the user to create and activate a data pipeline in the user's account and copy data using the @SelectSqlQuery@ query from Amazon RDS to Amazon S3.
-    roleARN :: Lude.Text
+    roleARN :: Types.RoleARN,
+    -- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
+    computeStatistics :: Core.Maybe Core.Bool,
+    -- | A user-supplied name or description of the @DataSource@ .
+    dataSourceName :: Core.Maybe Types.DataSourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDataSourceFromRDS' with the minimum fields required to make a request.
---
--- * 'dataSourceName' - A user-supplied name or description of the @DataSource@ .
--- * 'dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@ . Typically, an Amazon Resource Number (ARN) becomes the ID for a @DataSource@ .
--- * 'rdsData' - The data specification of an Amazon RDS @DataSource@ :
---
---
---     * DatabaseInformation -
---     * @DatabaseName@ - The name of the Amazon RDS database.
---
---     * @InstanceIdentifier @ - A unique identifier for the Amazon RDS database instance.
---
---
---
---
---     * DatabaseCredentials - AWS Identity and Access Management (IAM) credentials that are used to connect to the Amazon RDS database.
---
---
---     * ResourceRole - A role (DataPipelineDefaultResourceRole) assumed by an EC2 instance to carry out the copy task from Amazon RDS to Amazon Simple Storage Service (Amazon S3). For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
---
---
---     * ServiceRole - A role (DataPipelineDefaultRole) assumed by the AWS Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
---
---
---     * SecurityInfo - The security information to use to access an RDS DB instance. You need to set up appropriate ingress rules for the security entity IDs provided to allow access to the Amazon RDS instance. Specify a [@SubnetId@ , @SecurityGroupIds@ ] pair for a VPC-based RDS DB instance.
---
---
---     * SelectSqlQuery - A query that is used to retrieve the observation data for the @Datasource@ .
---
---
---     * S3StagingLocation - The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon RDS using @SelectSqlQuery@ is stored in this location.
---
---
---     * DataSchemaUri - The Amazon S3 location of the @DataSchema@ .
---
---
---     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.
---
---
---     * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @Datasource@ .
---
--- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
---
---
--- * 'computeStatistics' - The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
--- * 'roleARN' - The role that Amazon ML assumes on behalf of the user to create and activate a data pipeline in the user's account and copy data using the @SelectSqlQuery@ query from Amazon RDS to Amazon S3.
+-- | Creates a 'CreateDataSourceFromRDS' value with any optional fields omitted.
 mkCreateDataSourceFromRDS ::
   -- | 'dataSourceId'
-  Lude.Text ->
-  -- | 'rdsData'
-  RDSDataSpec ->
+  Types.DataSourceId ->
+  -- | 'rDSData'
+  Types.RDSDataSpec ->
   -- | 'roleARN'
-  Lude.Text ->
+  Types.RoleARN ->
   CreateDataSourceFromRDS
-mkCreateDataSourceFromRDS pDataSourceId_ pRDSData_ pRoleARN_ =
+mkCreateDataSourceFromRDS dataSourceId rDSData roleARN =
   CreateDataSourceFromRDS'
-    { dataSourceName = Lude.Nothing,
-      dataSourceId = pDataSourceId_,
-      rdsData = pRDSData_,
-      computeStatistics = Lude.Nothing,
-      roleARN = pRoleARN_
+    { dataSourceId,
+      rDSData,
+      roleARN,
+      computeStatistics = Core.Nothing,
+      dataSourceName = Core.Nothing
     }
-
--- | A user-supplied name or description of the @DataSource@ .
---
--- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrDataSourceName :: Lens.Lens' CreateDataSourceFromRDS (Lude.Maybe Lude.Text)
-cdsfrDataSourceName = Lens.lens (dataSourceName :: CreateDataSourceFromRDS -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceName = a} :: CreateDataSourceFromRDS)
-{-# DEPRECATED cdsfrDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ . Typically, an Amazon Resource Number (ARN) becomes the ID for a @DataSource@ .
 --
 -- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrDataSourceId :: Lens.Lens' CreateDataSourceFromRDS Lude.Text
-cdsfrDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromRDS -> Lude.Text) (\s a -> s {dataSourceId = a} :: CreateDataSourceFromRDS)
-{-# DEPRECATED cdsfrDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
+cdsfrdsDataSourceId :: Lens.Lens' CreateDataSourceFromRDS Types.DataSourceId
+cdsfrdsDataSourceId = Lens.field @"dataSourceId"
+{-# DEPRECATED cdsfrdsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
 -- | The data specification of an Amazon RDS @DataSource@ :
 --
@@ -216,65 +164,66 @@ cdsfrDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromRDS -> Lude.T
 --
 --
 --
--- /Note:/ Consider using 'rdsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrRDSData :: Lens.Lens' CreateDataSourceFromRDS RDSDataSpec
-cdsfrRDSData = Lens.lens (rdsData :: CreateDataSourceFromRDS -> RDSDataSpec) (\s a -> s {rdsData = a} :: CreateDataSourceFromRDS)
-{-# DEPRECATED cdsfrRDSData "Use generic-lens or generic-optics with 'rdsData' instead." #-}
-
--- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
---
--- /Note:/ Consider using 'computeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrComputeStatistics :: Lens.Lens' CreateDataSourceFromRDS (Lude.Maybe Lude.Bool)
-cdsfrComputeStatistics = Lens.lens (computeStatistics :: CreateDataSourceFromRDS -> Lude.Maybe Lude.Bool) (\s a -> s {computeStatistics = a} :: CreateDataSourceFromRDS)
-{-# DEPRECATED cdsfrComputeStatistics "Use generic-lens or generic-optics with 'computeStatistics' instead." #-}
+-- /Note:/ Consider using 'rDSData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfrdsRDSData :: Lens.Lens' CreateDataSourceFromRDS Types.RDSDataSpec
+cdsfrdsRDSData = Lens.field @"rDSData"
+{-# DEPRECATED cdsfrdsRDSData "Use generic-lens or generic-optics with 'rDSData' instead." #-}
 
 -- | The role that Amazon ML assumes on behalf of the user to create and activate a data pipeline in the user's account and copy data using the @SelectSqlQuery@ query from Amazon RDS to Amazon S3.
 --
 --
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrRoleARN :: Lens.Lens' CreateDataSourceFromRDS Lude.Text
-cdsfrRoleARN = Lens.lens (roleARN :: CreateDataSourceFromRDS -> Lude.Text) (\s a -> s {roleARN = a} :: CreateDataSourceFromRDS)
-{-# DEPRECATED cdsfrRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+cdsfrdsRoleARN :: Lens.Lens' CreateDataSourceFromRDS Types.RoleARN
+cdsfrdsRoleARN = Lens.field @"roleARN"
+{-# DEPRECATED cdsfrdsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.AWSRequest CreateDataSourceFromRDS where
+-- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the DataSourceneeds to be used for @MLModel@ training.
+--
+-- /Note:/ Consider using 'computeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfrdsComputeStatistics :: Lens.Lens' CreateDataSourceFromRDS (Core.Maybe Core.Bool)
+cdsfrdsComputeStatistics = Lens.field @"computeStatistics"
+{-# DEPRECATED cdsfrdsComputeStatistics "Use generic-lens or generic-optics with 'computeStatistics' instead." #-}
+
+-- | A user-supplied name or description of the @DataSource@ .
+--
+-- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfrdsDataSourceName :: Lens.Lens' CreateDataSourceFromRDS (Core.Maybe Types.DataSourceName)
+cdsfrdsDataSourceName = Lens.field @"dataSourceName"
+{-# DEPRECATED cdsfrdsDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
+
+instance Core.FromJSON CreateDataSourceFromRDS where
+  toJSON CreateDataSourceFromRDS {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DataSourceId" Core..= dataSourceId),
+            Core.Just ("RDSData" Core..= rDSData),
+            Core.Just ("RoleARN" Core..= roleARN),
+            ("ComputeStatistics" Core..=) Core.<$> computeStatistics,
+            ("DataSourceName" Core..=) Core.<$> dataSourceName
+          ]
+      )
+
+instance Core.AWSRequest CreateDataSourceFromRDS where
   type Rs CreateDataSourceFromRDS = CreateDataSourceFromRDSResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonML_20141212.CreateDataSourceFromRDS")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateDataSourceFromRDSResponse'
-            Lude.<$> (x Lude..?> "DataSourceId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DataSourceId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDataSourceFromRDS where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.CreateDataSourceFromRDS" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateDataSourceFromRDS where
-  toJSON CreateDataSourceFromRDS' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DataSourceName" Lude..=) Lude.<$> dataSourceName,
-            Lude.Just ("DataSourceId" Lude..= dataSourceId),
-            Lude.Just ("RDSData" Lude..= rdsData),
-            ("ComputeStatistics" Lude..=) Lude.<$> computeStatistics,
-            Lude.Just ("RoleARN" Lude..= roleARN)
-          ]
-      )
-
-instance Lude.ToPath CreateDataSourceFromRDS where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDataSourceFromRDS where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @CreateDataSourceFromRDS@ operation, and is an acknowledgement that Amazon ML received the request.
 --
@@ -283,37 +232,34 @@ instance Lude.ToQuery CreateDataSourceFromRDS where
 -- /See:/ 'mkCreateDataSourceFromRDSResponse' smart constructor.
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
   { -- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
-    dataSourceId :: Lude.Maybe Lude.Text,
+    dataSourceId :: Core.Maybe Types.DataSourceId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDataSourceFromRDSResponse' with the minimum fields required to make a request.
---
--- * 'dataSourceId' - A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDataSourceFromRDSResponse' value with any optional fields omitted.
 mkCreateDataSourceFromRDSResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDataSourceFromRDSResponse
-mkCreateDataSourceFromRDSResponse pResponseStatus_ =
+mkCreateDataSourceFromRDSResponse responseStatus =
   CreateDataSourceFromRDSResponse'
-    { dataSourceId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dataSourceId = Core.Nothing,
+      responseStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
 --
 -- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrrsDataSourceId :: Lens.Lens' CreateDataSourceFromRDSResponse (Lude.Maybe Lude.Text)
-cdsfrrsDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromRDSResponse -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceId = a} :: CreateDataSourceFromRDSResponse)
-{-# DEPRECATED cdsfrrsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
+cdsfrdsrrsDataSourceId :: Lens.Lens' CreateDataSourceFromRDSResponse (Core.Maybe Types.DataSourceId)
+cdsfrdsrrsDataSourceId = Lens.field @"dataSourceId"
+{-# DEPRECATED cdsfrdsrrsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrrsResponseStatus :: Lens.Lens' CreateDataSourceFromRDSResponse Lude.Int
-cdsfrrsResponseStatus = Lens.lens (responseStatus :: CreateDataSourceFromRDSResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDataSourceFromRDSResponse)
-{-# DEPRECATED cdsfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdsfrdsrrsResponseStatus :: Lens.Lens' CreateDataSourceFromRDSResponse Core.Int
+cdsfrdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdsfrdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

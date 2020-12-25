@@ -13,56 +13,61 @@
 module Network.AWS.WorkMail.Types.MailboxExportJobState
   ( MailboxExportJobState
       ( MailboxExportJobState',
-        Running,
-        Completed,
-        Failed,
-        Cancelled
+        MailboxExportJobStateRunning,
+        MailboxExportJobStateCompleted,
+        MailboxExportJobStateFailed,
+        MailboxExportJobStateCancelled,
+        fromMailboxExportJobState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MailboxExportJobState = MailboxExportJobState' Lude.Text
+newtype MailboxExportJobState = MailboxExportJobState'
+  { fromMailboxExportJobState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Running :: MailboxExportJobState
-pattern Running = MailboxExportJobState' "RUNNING"
+pattern MailboxExportJobStateRunning :: MailboxExportJobState
+pattern MailboxExportJobStateRunning = MailboxExportJobState' "RUNNING"
 
-pattern Completed :: MailboxExportJobState
-pattern Completed = MailboxExportJobState' "COMPLETED"
+pattern MailboxExportJobStateCompleted :: MailboxExportJobState
+pattern MailboxExportJobStateCompleted = MailboxExportJobState' "COMPLETED"
 
-pattern Failed :: MailboxExportJobState
-pattern Failed = MailboxExportJobState' "FAILED"
+pattern MailboxExportJobStateFailed :: MailboxExportJobState
+pattern MailboxExportJobStateFailed = MailboxExportJobState' "FAILED"
 
-pattern Cancelled :: MailboxExportJobState
-pattern Cancelled = MailboxExportJobState' "CANCELLED"
+pattern MailboxExportJobStateCancelled :: MailboxExportJobState
+pattern MailboxExportJobStateCancelled = MailboxExportJobState' "CANCELLED"
 
 {-# COMPLETE
-  Running,
-  Completed,
-  Failed,
-  Cancelled,
+  MailboxExportJobStateRunning,
+  MailboxExportJobStateCompleted,
+  MailboxExportJobStateFailed,
+  MailboxExportJobStateCancelled,
   MailboxExportJobState'
   #-}

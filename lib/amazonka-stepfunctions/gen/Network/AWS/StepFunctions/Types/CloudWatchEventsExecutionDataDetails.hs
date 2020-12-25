@@ -22,38 +22,34 @@ module Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides details about execution input or output.
 --
 -- /See:/ 'mkCloudWatchEventsExecutionDataDetails' smart constructor.
 newtype CloudWatchEventsExecutionDataDetails = CloudWatchEventsExecutionDataDetails'
   { -- | Indicates whether input or output was included in the response. Always @true@ for API calls.
-    included :: Lude.Maybe Lude.Bool
+    included :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchEventsExecutionDataDetails' with the minimum fields required to make a request.
---
--- * 'included' - Indicates whether input or output was included in the response. Always @true@ for API calls.
+-- | Creates a 'CloudWatchEventsExecutionDataDetails' value with any optional fields omitted.
 mkCloudWatchEventsExecutionDataDetails ::
   CloudWatchEventsExecutionDataDetails
 mkCloudWatchEventsExecutionDataDetails =
-  CloudWatchEventsExecutionDataDetails' {included = Lude.Nothing}
+  CloudWatchEventsExecutionDataDetails' {included = Core.Nothing}
 
 -- | Indicates whether input or output was included in the response. Always @true@ for API calls.
 --
 -- /Note:/ Consider using 'included' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweeddIncluded :: Lens.Lens' CloudWatchEventsExecutionDataDetails (Lude.Maybe Lude.Bool)
-cweeddIncluded = Lens.lens (included :: CloudWatchEventsExecutionDataDetails -> Lude.Maybe Lude.Bool) (\s a -> s {included = a} :: CloudWatchEventsExecutionDataDetails)
+cweeddIncluded :: Lens.Lens' CloudWatchEventsExecutionDataDetails (Core.Maybe Core.Bool)
+cweeddIncluded = Lens.field @"included"
 {-# DEPRECATED cweeddIncluded "Use generic-lens or generic-optics with 'included' instead." #-}
 
-instance Lude.FromJSON CloudWatchEventsExecutionDataDetails where
+instance Core.FromJSON CloudWatchEventsExecutionDataDetails where
   parseJSON =
-    Lude.withObject
-      "CloudWatchEventsExecutionDataDetails"
-      ( \x ->
-          CloudWatchEventsExecutionDataDetails'
-            Lude.<$> (x Lude..:? "included")
-      )
+    Core.withObject "CloudWatchEventsExecutionDataDetails" Core.$
+      \x ->
+        CloudWatchEventsExecutionDataDetails'
+          Core.<$> (x Core..:? "included")

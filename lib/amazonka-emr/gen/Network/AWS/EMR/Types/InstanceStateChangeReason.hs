@@ -22,53 +22,49 @@ module Network.AWS.EMR.Types.InstanceStateChangeReason
   )
 where
 
-import Network.AWS.EMR.Types.InstanceStateChangeReasonCode
+import qualified Network.AWS.EMR.Types.InstanceStateChangeReasonCode as Types
+import qualified Network.AWS.EMR.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of the status change reason for the instance.
 --
 -- /See:/ 'mkInstanceStateChangeReason' smart constructor.
 data InstanceStateChangeReason = InstanceStateChangeReason'
   { -- | The programmable code for the state change reason.
-    code :: Lude.Maybe InstanceStateChangeReasonCode,
+    code :: Core.Maybe Types.InstanceStateChangeReasonCode,
     -- | The status change reason description.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.Message
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceStateChangeReason' with the minimum fields required to make a request.
---
--- * 'code' - The programmable code for the state change reason.
--- * 'message' - The status change reason description.
+-- | Creates a 'InstanceStateChangeReason' value with any optional fields omitted.
 mkInstanceStateChangeReason ::
   InstanceStateChangeReason
 mkInstanceStateChangeReason =
   InstanceStateChangeReason'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The programmable code for the state change reason.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscrCode :: Lens.Lens' InstanceStateChangeReason (Lude.Maybe InstanceStateChangeReasonCode)
-iscrCode = Lens.lens (code :: InstanceStateChangeReason -> Lude.Maybe InstanceStateChangeReasonCode) (\s a -> s {code = a} :: InstanceStateChangeReason)
+iscrCode :: Lens.Lens' InstanceStateChangeReason (Core.Maybe Types.InstanceStateChangeReasonCode)
+iscrCode = Lens.field @"code"
 {-# DEPRECATED iscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The status change reason description.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscrMessage :: Lens.Lens' InstanceStateChangeReason (Lude.Maybe Lude.Text)
-iscrMessage = Lens.lens (message :: InstanceStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: InstanceStateChangeReason)
+iscrMessage :: Lens.Lens' InstanceStateChangeReason (Core.Maybe Types.Message)
+iscrMessage = Lens.field @"message"
 {-# DEPRECATED iscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON InstanceStateChangeReason where
+instance Core.FromJSON InstanceStateChangeReason where
   parseJSON =
-    Lude.withObject
-      "InstanceStateChangeReason"
-      ( \x ->
-          InstanceStateChangeReason'
-            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "InstanceStateChangeReason" Core.$
+      \x ->
+        InstanceStateChangeReason'
+          Core.<$> (x Core..:? "Code") Core.<*> (x Core..:? "Message")

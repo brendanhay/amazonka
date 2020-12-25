@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.VideoSelectorColorSpace
   ( VideoSelectorColorSpace
       ( VideoSelectorColorSpace',
-        Follow,
-        Rec601,
-        Rec709
+        VideoSelectorColorSpaceFollow,
+        VideoSelectorColorSpaceRec601,
+        VideoSelectorColorSpaceRec709,
+        fromVideoSelectorColorSpace
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Video Selector Color Space
-newtype VideoSelectorColorSpace = VideoSelectorColorSpace' Lude.Text
+newtype VideoSelectorColorSpace = VideoSelectorColorSpace'
+  { fromVideoSelectorColorSpace ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Follow :: VideoSelectorColorSpace
-pattern Follow = VideoSelectorColorSpace' "FOLLOW"
+pattern VideoSelectorColorSpaceFollow :: VideoSelectorColorSpace
+pattern VideoSelectorColorSpaceFollow = VideoSelectorColorSpace' "FOLLOW"
 
-pattern Rec601 :: VideoSelectorColorSpace
-pattern Rec601 = VideoSelectorColorSpace' "REC_601"
+pattern VideoSelectorColorSpaceRec601 :: VideoSelectorColorSpace
+pattern VideoSelectorColorSpaceRec601 = VideoSelectorColorSpace' "REC_601"
 
-pattern Rec709 :: VideoSelectorColorSpace
-pattern Rec709 = VideoSelectorColorSpace' "REC_709"
+pattern VideoSelectorColorSpaceRec709 :: VideoSelectorColorSpace
+pattern VideoSelectorColorSpaceRec709 = VideoSelectorColorSpace' "REC_709"
 
 {-# COMPLETE
-  Follow,
-  Rec601,
-  Rec709,
+  VideoSelectorColorSpaceFollow,
+  VideoSelectorColorSpaceRec601,
+  VideoSelectorColorSpaceRec709,
   VideoSelectorColorSpace'
   #-}

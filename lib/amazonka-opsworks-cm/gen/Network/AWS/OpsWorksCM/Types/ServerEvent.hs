@@ -17,84 +17,78 @@ module Network.AWS.OpsWorksCM.Types.ServerEvent
     mkServerEvent,
 
     -- * Lenses
-    seLogURL,
-    seServerName,
     seCreatedAt,
+    seLogUrl,
     seMessage,
+    seServerName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorksCM.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | An event that is related to the server, such as the start of maintenance or backup.
 --
 -- /See:/ 'mkServerEvent' smart constructor.
 data ServerEvent = ServerEvent'
-  { -- | The Amazon S3 URL of the event's log file.
-    logURL :: Lude.Maybe Lude.Text,
-    -- | The name of the server on or for which the event occurred.
-    serverName :: Lude.Maybe Lude.Text,
-    -- | The time when the event occurred.
-    createdAt :: Lude.Maybe Lude.Timestamp,
+  { -- | The time when the event occurred.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon S3 URL of the event's log file.
+    logUrl :: Core.Maybe Types.String,
     -- | A human-readable informational or status message.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String,
+    -- | The name of the server on or for which the event occurred.
+    serverName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ServerEvent' with the minimum fields required to make a request.
---
--- * 'logURL' - The Amazon S3 URL of the event's log file.
--- * 'serverName' - The name of the server on or for which the event occurred.
--- * 'createdAt' - The time when the event occurred.
--- * 'message' - A human-readable informational or status message.
+-- | Creates a 'ServerEvent' value with any optional fields omitted.
 mkServerEvent ::
   ServerEvent
 mkServerEvent =
   ServerEvent'
-    { logURL = Lude.Nothing,
-      serverName = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      message = Lude.Nothing
+    { createdAt = Core.Nothing,
+      logUrl = Core.Nothing,
+      message = Core.Nothing,
+      serverName = Core.Nothing
     }
-
--- | The Amazon S3 URL of the event's log file.
---
--- /Note:/ Consider using 'logURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seLogURL :: Lens.Lens' ServerEvent (Lude.Maybe Lude.Text)
-seLogURL = Lens.lens (logURL :: ServerEvent -> Lude.Maybe Lude.Text) (\s a -> s {logURL = a} :: ServerEvent)
-{-# DEPRECATED seLogURL "Use generic-lens or generic-optics with 'logURL' instead." #-}
-
--- | The name of the server on or for which the event occurred.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seServerName :: Lens.Lens' ServerEvent (Lude.Maybe Lude.Text)
-seServerName = Lens.lens (serverName :: ServerEvent -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: ServerEvent)
-{-# DEPRECATED seServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | The time when the event occurred.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seCreatedAt :: Lens.Lens' ServerEvent (Lude.Maybe Lude.Timestamp)
-seCreatedAt = Lens.lens (createdAt :: ServerEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ServerEvent)
+seCreatedAt :: Lens.Lens' ServerEvent (Core.Maybe Core.NominalDiffTime)
+seCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED seCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The Amazon S3 URL of the event's log file.
+--
+-- /Note:/ Consider using 'logUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seLogUrl :: Lens.Lens' ServerEvent (Core.Maybe Types.String)
+seLogUrl = Lens.field @"logUrl"
+{-# DEPRECATED seLogUrl "Use generic-lens or generic-optics with 'logUrl' instead." #-}
 
 -- | A human-readable informational or status message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seMessage :: Lens.Lens' ServerEvent (Lude.Maybe Lude.Text)
-seMessage = Lens.lens (message :: ServerEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ServerEvent)
+seMessage :: Lens.Lens' ServerEvent (Core.Maybe Types.String)
+seMessage = Lens.field @"message"
 {-# DEPRECATED seMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON ServerEvent where
+-- | The name of the server on or for which the event occurred.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seServerName :: Lens.Lens' ServerEvent (Core.Maybe Types.String)
+seServerName = Lens.field @"serverName"
+{-# DEPRECATED seServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+
+instance Core.FromJSON ServerEvent where
   parseJSON =
-    Lude.withObject
-      "ServerEvent"
-      ( \x ->
-          ServerEvent'
-            Lude.<$> (x Lude..:? "LogUrl")
-            Lude.<*> (x Lude..:? "ServerName")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "ServerEvent" Core.$
+      \x ->
+        ServerEvent'
+          Core.<$> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "LogUrl")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "ServerName")

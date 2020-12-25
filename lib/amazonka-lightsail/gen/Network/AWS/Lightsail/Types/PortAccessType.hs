@@ -13,46 +13,51 @@
 module Network.AWS.Lightsail.Types.PortAccessType
   ( PortAccessType
       ( PortAccessType',
-        Public,
-        Private
+        PortAccessTypePublic,
+        PortAccessTypePrivate,
+        fromPortAccessType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PortAccessType = PortAccessType' Lude.Text
+newtype PortAccessType = PortAccessType'
+  { fromPortAccessType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Public :: PortAccessType
-pattern Public = PortAccessType' "Public"
+pattern PortAccessTypePublic :: PortAccessType
+pattern PortAccessTypePublic = PortAccessType' "Public"
 
-pattern Private :: PortAccessType
-pattern Private = PortAccessType' "Private"
+pattern PortAccessTypePrivate :: PortAccessType
+pattern PortAccessTypePrivate = PortAccessType' "Private"
 
 {-# COMPLETE
-  Public,
-  Private,
+  PortAccessTypePublic,
+  PortAccessTypePrivate,
   PortAccessType'
   #-}

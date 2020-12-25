@@ -17,125 +17,120 @@ module Network.AWS.AlexaBusiness.Types.ContactData
     mkContactData,
 
     -- * Lenses
-    cdLastName,
-    cdContactARN,
-    cdPhoneNumbers,
-    cdPhoneNumber,
-    cdSipAddresses,
-    cdFirstName,
+    cdContactArn,
     cdDisplayName,
+    cdFirstName,
+    cdLastName,
+    cdPhoneNumber,
+    cdPhoneNumbers,
+    cdSipAddresses,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.PhoneNumber
-import Network.AWS.AlexaBusiness.Types.SipAddress
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
+import qualified Network.AWS.AlexaBusiness.Types.DisplayName as Types
+import qualified Network.AWS.AlexaBusiness.Types.FirstName as Types
+import qualified Network.AWS.AlexaBusiness.Types.LastName as Types
+import qualified Network.AWS.AlexaBusiness.Types.PhoneNumber as Types
+import qualified Network.AWS.AlexaBusiness.Types.RawPhoneNumber as Types
+import qualified Network.AWS.AlexaBusiness.Types.SipAddress as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information related to a contact.
 --
 -- /See:/ 'mkContactData' smart constructor.
 data ContactData = ContactData'
-  { -- | The last name of the contact, used to call the contact on the device.
-    lastName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the contact.
-    contactARN :: Lude.Maybe Lude.Text,
-    -- | The list of phone numbers for the contact.
-    phoneNumbers :: Lude.Maybe [PhoneNumber],
-    -- | The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
-    phoneNumber :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The list of SIP addresses for the contact.
-    sipAddresses :: Lude.Maybe [SipAddress],
-    -- | The first name of the contact, used to call the contact on the device.
-    firstName :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the contact.
+    contactArn :: Core.Maybe Types.Arn,
     -- | The name of the contact to display on the console.
-    displayName :: Lude.Maybe Lude.Text
+    displayName :: Core.Maybe Types.DisplayName,
+    -- | The first name of the contact, used to call the contact on the device.
+    firstName :: Core.Maybe Types.FirstName,
+    -- | The last name of the contact, used to call the contact on the device.
+    lastName :: Core.Maybe Types.LastName,
+    -- | The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
+    phoneNumber :: Core.Maybe Types.RawPhoneNumber,
+    -- | The list of phone numbers for the contact.
+    phoneNumbers :: Core.Maybe [Types.PhoneNumber],
+    -- | The list of SIP addresses for the contact.
+    sipAddresses :: Core.Maybe [Types.SipAddress]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContactData' with the minimum fields required to make a request.
---
--- * 'lastName' - The last name of the contact, used to call the contact on the device.
--- * 'contactARN' - The ARN of the contact.
--- * 'phoneNumbers' - The list of phone numbers for the contact.
--- * 'phoneNumber' - The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
--- * 'sipAddresses' - The list of SIP addresses for the contact.
--- * 'firstName' - The first name of the contact, used to call the contact on the device.
--- * 'displayName' - The name of the contact to display on the console.
+-- | Creates a 'ContactData' value with any optional fields omitted.
 mkContactData ::
   ContactData
 mkContactData =
   ContactData'
-    { lastName = Lude.Nothing,
-      contactARN = Lude.Nothing,
-      phoneNumbers = Lude.Nothing,
-      phoneNumber = Lude.Nothing,
-      sipAddresses = Lude.Nothing,
-      firstName = Lude.Nothing,
-      displayName = Lude.Nothing
+    { contactArn = Core.Nothing,
+      displayName = Core.Nothing,
+      firstName = Core.Nothing,
+      lastName = Core.Nothing,
+      phoneNumber = Core.Nothing,
+      phoneNumbers = Core.Nothing,
+      sipAddresses = Core.Nothing
     }
-
--- | The last name of the contact, used to call the contact on the device.
---
--- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdLastName :: Lens.Lens' ContactData (Lude.Maybe Lude.Text)
-cdLastName = Lens.lens (lastName :: ContactData -> Lude.Maybe Lude.Text) (\s a -> s {lastName = a} :: ContactData)
-{-# DEPRECATED cdLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The ARN of the contact.
 --
--- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdContactARN :: Lens.Lens' ContactData (Lude.Maybe Lude.Text)
-cdContactARN = Lens.lens (contactARN :: ContactData -> Lude.Maybe Lude.Text) (\s a -> s {contactARN = a} :: ContactData)
-{-# DEPRECATED cdContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
-
--- | The list of phone numbers for the contact.
---
--- /Note:/ Consider using 'phoneNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdPhoneNumbers :: Lens.Lens' ContactData (Lude.Maybe [PhoneNumber])
-cdPhoneNumbers = Lens.lens (phoneNumbers :: ContactData -> Lude.Maybe [PhoneNumber]) (\s a -> s {phoneNumbers = a} :: ContactData)
-{-# DEPRECATED cdPhoneNumbers "Use generic-lens or generic-optics with 'phoneNumbers' instead." #-}
-
--- | The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
---
--- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdPhoneNumber :: Lens.Lens' ContactData (Lude.Maybe (Lude.Sensitive Lude.Text))
-cdPhoneNumber = Lens.lens (phoneNumber :: ContactData -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {phoneNumber = a} :: ContactData)
-{-# DEPRECATED cdPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
-
--- | The list of SIP addresses for the contact.
---
--- /Note:/ Consider using 'sipAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdSipAddresses :: Lens.Lens' ContactData (Lude.Maybe [SipAddress])
-cdSipAddresses = Lens.lens (sipAddresses :: ContactData -> Lude.Maybe [SipAddress]) (\s a -> s {sipAddresses = a} :: ContactData)
-{-# DEPRECATED cdSipAddresses "Use generic-lens or generic-optics with 'sipAddresses' instead." #-}
-
--- | The first name of the contact, used to call the contact on the device.
---
--- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdFirstName :: Lens.Lens' ContactData (Lude.Maybe Lude.Text)
-cdFirstName = Lens.lens (firstName :: ContactData -> Lude.Maybe Lude.Text) (\s a -> s {firstName = a} :: ContactData)
-{-# DEPRECATED cdFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
+-- /Note:/ Consider using 'contactArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdContactArn :: Lens.Lens' ContactData (Core.Maybe Types.Arn)
+cdContactArn = Lens.field @"contactArn"
+{-# DEPRECATED cdContactArn "Use generic-lens or generic-optics with 'contactArn' instead." #-}
 
 -- | The name of the contact to display on the console.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDisplayName :: Lens.Lens' ContactData (Lude.Maybe Lude.Text)
-cdDisplayName = Lens.lens (displayName :: ContactData -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: ContactData)
+cdDisplayName :: Lens.Lens' ContactData (Core.Maybe Types.DisplayName)
+cdDisplayName = Lens.field @"displayName"
 {-# DEPRECATED cdDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
-instance Lude.FromJSON ContactData where
+-- | The first name of the contact, used to call the contact on the device.
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdFirstName :: Lens.Lens' ContactData (Core.Maybe Types.FirstName)
+cdFirstName = Lens.field @"firstName"
+{-# DEPRECATED cdFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
+
+-- | The last name of the contact, used to call the contact on the device.
+--
+-- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdLastName :: Lens.Lens' ContactData (Core.Maybe Types.LastName)
+cdLastName = Lens.field @"lastName"
+{-# DEPRECATED cdLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
+
+-- | The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdPhoneNumber :: Lens.Lens' ContactData (Core.Maybe Types.RawPhoneNumber)
+cdPhoneNumber = Lens.field @"phoneNumber"
+{-# DEPRECATED cdPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
+
+-- | The list of phone numbers for the contact.
+--
+-- /Note:/ Consider using 'phoneNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdPhoneNumbers :: Lens.Lens' ContactData (Core.Maybe [Types.PhoneNumber])
+cdPhoneNumbers = Lens.field @"phoneNumbers"
+{-# DEPRECATED cdPhoneNumbers "Use generic-lens or generic-optics with 'phoneNumbers' instead." #-}
+
+-- | The list of SIP addresses for the contact.
+--
+-- /Note:/ Consider using 'sipAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSipAddresses :: Lens.Lens' ContactData (Core.Maybe [Types.SipAddress])
+cdSipAddresses = Lens.field @"sipAddresses"
+{-# DEPRECATED cdSipAddresses "Use generic-lens or generic-optics with 'sipAddresses' instead." #-}
+
+instance Core.FromJSON ContactData where
   parseJSON =
-    Lude.withObject
-      "ContactData"
-      ( \x ->
-          ContactData'
-            Lude.<$> (x Lude..:? "LastName")
-            Lude.<*> (x Lude..:? "ContactArn")
-            Lude.<*> (x Lude..:? "PhoneNumbers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "PhoneNumber")
-            Lude.<*> (x Lude..:? "SipAddresses" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "FirstName")
-            Lude.<*> (x Lude..:? "DisplayName")
-      )
+    Core.withObject "ContactData" Core.$
+      \x ->
+        ContactData'
+          Core.<$> (x Core..:? "ContactArn")
+          Core.<*> (x Core..:? "DisplayName")
+          Core.<*> (x Core..:? "FirstName")
+          Core.<*> (x Core..:? "LastName")
+          Core.<*> (x Core..:? "PhoneNumber")
+          Core.<*> (x Core..:? "PhoneNumbers")
+          Core.<*> (x Core..:? "SipAddresses")

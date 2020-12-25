@@ -13,47 +13,52 @@
 module Network.AWS.S3.Types.FilterRuleName
   ( FilterRuleName
       ( FilterRuleName',
-        Prefix,
-        Suffix
+        FilterRuleNamePrefix,
+        FilterRuleNameSuffix,
+        fromFilterRuleName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype FilterRuleName = FilterRuleName' Lude.Text
+newtype FilterRuleName = FilterRuleName'
+  { fromFilterRuleName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Prefix :: FilterRuleName
-pattern Prefix = FilterRuleName' "prefix"
+pattern FilterRuleNamePrefix :: FilterRuleName
+pattern FilterRuleNamePrefix = FilterRuleName' "prefix"
 
-pattern Suffix :: FilterRuleName
-pattern Suffix = FilterRuleName' "suffix"
+pattern FilterRuleNameSuffix :: FilterRuleName
+pattern FilterRuleNameSuffix = FilterRuleName' "suffix"
 
 {-# COMPLETE
-  Prefix,
-  Suffix,
+  FilterRuleNamePrefix,
+  FilterRuleNameSuffix,
   FilterRuleName'
   #-}

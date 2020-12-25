@@ -17,151 +17,143 @@ module Network.AWS.Connect.Types.InstanceSummary
     mkInstanceSummary,
 
     -- * Lenses
-    isARN,
+    isArn,
     isCreatedTime,
-    isOutboundCallsEnabled,
+    isId,
+    isIdentityManagementType,
     isInboundCallsEnabled,
     isInstanceAlias,
-    isId,
     isInstanceStatus,
-    isIdentityManagementType,
+    isOutboundCallsEnabled,
     isServiceRole,
   )
 where
 
-import Network.AWS.Connect.Types.DirectoryType
-import Network.AWS.Connect.Types.InstanceStatus
+import qualified Network.AWS.Connect.Types.Arn as Types
+import qualified Network.AWS.Connect.Types.DirectoryType as Types
+import qualified Network.AWS.Connect.Types.InstanceAlias as Types
+import qualified Network.AWS.Connect.Types.InstanceId as Types
+import qualified Network.AWS.Connect.Types.InstanceStatus as Types
+import qualified Network.AWS.Connect.Types.ServiceRole as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the instance.
 --
 -- /See:/ 'mkInstanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
   { -- | The Amazon Resource Name (ARN) of the instance.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | When the instance was created.
-    createdTime :: Lude.Maybe Lude.Timestamp,
-    -- | Whether outbound calls are enabled.
-    outboundCallsEnabled :: Lude.Maybe Lude.Bool,
-    -- | Whether inbound calls are enabled.
-    inboundCallsEnabled :: Lude.Maybe Lude.Bool,
-    -- | The alias of the instance.
-    instanceAlias :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    createdTime :: Core.Maybe Core.NominalDiffTime,
     -- | The identifier of the instance.
-    id :: Lude.Maybe Lude.Text,
-    -- | The state of the instance.
-    instanceStatus :: Lude.Maybe InstanceStatus,
+    id :: Core.Maybe Types.InstanceId,
     -- | The identity management type of the instance.
-    identityManagementType :: Lude.Maybe DirectoryType,
+    identityManagementType :: Core.Maybe Types.DirectoryType,
+    -- | Whether inbound calls are enabled.
+    inboundCallsEnabled :: Core.Maybe Core.Bool,
+    -- | The alias of the instance.
+    instanceAlias :: Core.Maybe Types.InstanceAlias,
+    -- | The state of the instance.
+    instanceStatus :: Core.Maybe Types.InstanceStatus,
+    -- | Whether outbound calls are enabled.
+    outboundCallsEnabled :: Core.Maybe Core.Bool,
     -- | The service role of the instance.
-    serviceRole :: Lude.Maybe Lude.Text
+    serviceRole :: Core.Maybe Types.ServiceRole
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceSummary' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the instance.
--- * 'createdTime' - When the instance was created.
--- * 'outboundCallsEnabled' - Whether outbound calls are enabled.
--- * 'inboundCallsEnabled' - Whether inbound calls are enabled.
--- * 'instanceAlias' - The alias of the instance.
--- * 'id' - The identifier of the instance.
--- * 'instanceStatus' - The state of the instance.
--- * 'identityManagementType' - The identity management type of the instance.
--- * 'serviceRole' - The service role of the instance.
+-- | Creates a 'InstanceSummary' value with any optional fields omitted.
 mkInstanceSummary ::
   InstanceSummary
 mkInstanceSummary =
   InstanceSummary'
-    { arn = Lude.Nothing,
-      createdTime = Lude.Nothing,
-      outboundCallsEnabled = Lude.Nothing,
-      inboundCallsEnabled = Lude.Nothing,
-      instanceAlias = Lude.Nothing,
-      id = Lude.Nothing,
-      instanceStatus = Lude.Nothing,
-      identityManagementType = Lude.Nothing,
-      serviceRole = Lude.Nothing
+    { arn = Core.Nothing,
+      createdTime = Core.Nothing,
+      id = Core.Nothing,
+      identityManagementType = Core.Nothing,
+      inboundCallsEnabled = Core.Nothing,
+      instanceAlias = Core.Nothing,
+      instanceStatus = Core.Nothing,
+      outboundCallsEnabled = Core.Nothing,
+      serviceRole = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isARN :: Lens.Lens' InstanceSummary (Lude.Maybe Lude.Text)
-isARN = Lens.lens (arn :: InstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: InstanceSummary)
-{-# DEPRECATED isARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+isArn :: Lens.Lens' InstanceSummary (Core.Maybe Types.Arn)
+isArn = Lens.field @"arn"
+{-# DEPRECATED isArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | When the instance was created.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isCreatedTime :: Lens.Lens' InstanceSummary (Lude.Maybe Lude.Timestamp)
-isCreatedTime = Lens.lens (createdTime :: InstanceSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: InstanceSummary)
+isCreatedTime :: Lens.Lens' InstanceSummary (Core.Maybe Core.NominalDiffTime)
+isCreatedTime = Lens.field @"createdTime"
 {-# DEPRECATED isCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
--- | Whether outbound calls are enabled.
+-- | The identifier of the instance.
 --
--- /Note:/ Consider using 'outboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isOutboundCallsEnabled :: Lens.Lens' InstanceSummary (Lude.Maybe Lude.Bool)
-isOutboundCallsEnabled = Lens.lens (outboundCallsEnabled :: InstanceSummary -> Lude.Maybe Lude.Bool) (\s a -> s {outboundCallsEnabled = a} :: InstanceSummary)
-{-# DEPRECATED isOutboundCallsEnabled "Use generic-lens or generic-optics with 'outboundCallsEnabled' instead." #-}
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isId :: Lens.Lens' InstanceSummary (Core.Maybe Types.InstanceId)
+isId = Lens.field @"id"
+{-# DEPRECATED isId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The identity management type of the instance.
+--
+-- /Note:/ Consider using 'identityManagementType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isIdentityManagementType :: Lens.Lens' InstanceSummary (Core.Maybe Types.DirectoryType)
+isIdentityManagementType = Lens.field @"identityManagementType"
+{-# DEPRECATED isIdentityManagementType "Use generic-lens or generic-optics with 'identityManagementType' instead." #-}
 
 -- | Whether inbound calls are enabled.
 --
 -- /Note:/ Consider using 'inboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isInboundCallsEnabled :: Lens.Lens' InstanceSummary (Lude.Maybe Lude.Bool)
-isInboundCallsEnabled = Lens.lens (inboundCallsEnabled :: InstanceSummary -> Lude.Maybe Lude.Bool) (\s a -> s {inboundCallsEnabled = a} :: InstanceSummary)
+isInboundCallsEnabled :: Lens.Lens' InstanceSummary (Core.Maybe Core.Bool)
+isInboundCallsEnabled = Lens.field @"inboundCallsEnabled"
 {-# DEPRECATED isInboundCallsEnabled "Use generic-lens or generic-optics with 'inboundCallsEnabled' instead." #-}
 
 -- | The alias of the instance.
 --
 -- /Note:/ Consider using 'instanceAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isInstanceAlias :: Lens.Lens' InstanceSummary (Lude.Maybe (Lude.Sensitive Lude.Text))
-isInstanceAlias = Lens.lens (instanceAlias :: InstanceSummary -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {instanceAlias = a} :: InstanceSummary)
+isInstanceAlias :: Lens.Lens' InstanceSummary (Core.Maybe Types.InstanceAlias)
+isInstanceAlias = Lens.field @"instanceAlias"
 {-# DEPRECATED isInstanceAlias "Use generic-lens or generic-optics with 'instanceAlias' instead." #-}
-
--- | The identifier of the instance.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isId :: Lens.Lens' InstanceSummary (Lude.Maybe Lude.Text)
-isId = Lens.lens (id :: InstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InstanceSummary)
-{-# DEPRECATED isId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The state of the instance.
 --
 -- /Note:/ Consider using 'instanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isInstanceStatus :: Lens.Lens' InstanceSummary (Lude.Maybe InstanceStatus)
-isInstanceStatus = Lens.lens (instanceStatus :: InstanceSummary -> Lude.Maybe InstanceStatus) (\s a -> s {instanceStatus = a} :: InstanceSummary)
+isInstanceStatus :: Lens.Lens' InstanceSummary (Core.Maybe Types.InstanceStatus)
+isInstanceStatus = Lens.field @"instanceStatus"
 {-# DEPRECATED isInstanceStatus "Use generic-lens or generic-optics with 'instanceStatus' instead." #-}
 
--- | The identity management type of the instance.
+-- | Whether outbound calls are enabled.
 --
--- /Note:/ Consider using 'identityManagementType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isIdentityManagementType :: Lens.Lens' InstanceSummary (Lude.Maybe DirectoryType)
-isIdentityManagementType = Lens.lens (identityManagementType :: InstanceSummary -> Lude.Maybe DirectoryType) (\s a -> s {identityManagementType = a} :: InstanceSummary)
-{-# DEPRECATED isIdentityManagementType "Use generic-lens or generic-optics with 'identityManagementType' instead." #-}
+-- /Note:/ Consider using 'outboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isOutboundCallsEnabled :: Lens.Lens' InstanceSummary (Core.Maybe Core.Bool)
+isOutboundCallsEnabled = Lens.field @"outboundCallsEnabled"
+{-# DEPRECATED isOutboundCallsEnabled "Use generic-lens or generic-optics with 'outboundCallsEnabled' instead." #-}
 
 -- | The service role of the instance.
 --
 -- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isServiceRole :: Lens.Lens' InstanceSummary (Lude.Maybe Lude.Text)
-isServiceRole = Lens.lens (serviceRole :: InstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: InstanceSummary)
+isServiceRole :: Lens.Lens' InstanceSummary (Core.Maybe Types.ServiceRole)
+isServiceRole = Lens.field @"serviceRole"
 {-# DEPRECATED isServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
-instance Lude.FromJSON InstanceSummary where
+instance Core.FromJSON InstanceSummary where
   parseJSON =
-    Lude.withObject
-      "InstanceSummary"
-      ( \x ->
-          InstanceSummary'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "CreatedTime")
-            Lude.<*> (x Lude..:? "OutboundCallsEnabled")
-            Lude.<*> (x Lude..:? "InboundCallsEnabled")
-            Lude.<*> (x Lude..:? "InstanceAlias")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "InstanceStatus")
-            Lude.<*> (x Lude..:? "IdentityManagementType")
-            Lude.<*> (x Lude..:? "ServiceRole")
-      )
+    Core.withObject "InstanceSummary" Core.$
+      \x ->
+        InstanceSummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "CreatedTime")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "IdentityManagementType")
+          Core.<*> (x Core..:? "InboundCallsEnabled")
+          Core.<*> (x Core..:? "InstanceAlias")
+          Core.<*> (x Core..:? "InstanceStatus")
+          Core.<*> (x Core..:? "OutboundCallsEnabled")
+          Core.<*> (x Core..:? "ServiceRole")

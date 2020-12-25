@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.BurnInTeletextGridControl
   ( BurnInTeletextGridControl
       ( BurnInTeletextGridControl',
-        BITGCFixed,
-        BITGCScaled
+        BurnInTeletextGridControlFixed,
+        BurnInTeletextGridControlScaled,
+        fromBurnInTeletextGridControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Burn In Teletext Grid Control
-newtype BurnInTeletextGridControl = BurnInTeletextGridControl' Lude.Text
+newtype BurnInTeletextGridControl = BurnInTeletextGridControl'
+  { fromBurnInTeletextGridControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BITGCFixed :: BurnInTeletextGridControl
-pattern BITGCFixed = BurnInTeletextGridControl' "FIXED"
+pattern BurnInTeletextGridControlFixed :: BurnInTeletextGridControl
+pattern BurnInTeletextGridControlFixed = BurnInTeletextGridControl' "FIXED"
 
-pattern BITGCScaled :: BurnInTeletextGridControl
-pattern BITGCScaled = BurnInTeletextGridControl' "SCALED"
+pattern BurnInTeletextGridControlScaled :: BurnInTeletextGridControl
+pattern BurnInTeletextGridControlScaled = BurnInTeletextGridControl' "SCALED"
 
 {-# COMPLETE
-  BITGCFixed,
-  BITGCScaled,
+  BurnInTeletextGridControlFixed,
+  BurnInTeletextGridControlScaled,
   BurnInTeletextGridControl'
   #-}

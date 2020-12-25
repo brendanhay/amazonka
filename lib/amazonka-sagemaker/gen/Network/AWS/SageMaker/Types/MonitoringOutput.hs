@@ -22,43 +22,39 @@ module Network.AWS.SageMaker.Types.MonitoringOutput
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.MonitoringS3Output
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.MonitoringS3Output as Types
 
 -- | The output object for a monitoring job.
 --
 -- /See:/ 'mkMonitoringOutput' smart constructor.
 newtype MonitoringOutput = MonitoringOutput'
   { -- | The Amazon S3 storage location where the results of a monitoring job are saved.
-    s3Output :: MonitoringS3Output
+    s3Output :: Types.MonitoringS3Output
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonitoringOutput' with the minimum fields required to make a request.
---
--- * 's3Output' - The Amazon S3 storage location where the results of a monitoring job are saved.
+-- | Creates a 'MonitoringOutput' value with any optional fields omitted.
 mkMonitoringOutput ::
   -- | 's3Output'
-  MonitoringS3Output ->
+  Types.MonitoringS3Output ->
   MonitoringOutput
-mkMonitoringOutput pS3Output_ =
-  MonitoringOutput' {s3Output = pS3Output_}
+mkMonitoringOutput s3Output = MonitoringOutput' {s3Output}
 
 -- | The Amazon S3 storage location where the results of a monitoring job are saved.
 --
 -- /Note:/ Consider using 's3Output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-moS3Output :: Lens.Lens' MonitoringOutput MonitoringS3Output
-moS3Output = Lens.lens (s3Output :: MonitoringOutput -> MonitoringS3Output) (\s a -> s {s3Output = a} :: MonitoringOutput)
+moS3Output :: Lens.Lens' MonitoringOutput Types.MonitoringS3Output
+moS3Output = Lens.field @"s3Output"
 {-# DEPRECATED moS3Output "Use generic-lens or generic-optics with 's3Output' instead." #-}
 
-instance Lude.FromJSON MonitoringOutput where
-  parseJSON =
-    Lude.withObject
-      "MonitoringOutput"
-      (\x -> MonitoringOutput' Lude.<$> (x Lude..: "S3Output"))
+instance Core.FromJSON MonitoringOutput where
+  toJSON MonitoringOutput {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("S3Output" Core..= s3Output)])
 
-instance Lude.ToJSON MonitoringOutput where
-  toJSON MonitoringOutput' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("S3Output" Lude..= s3Output)])
+instance Core.FromJSON MonitoringOutput where
+  parseJSON =
+    Core.withObject "MonitoringOutput" Core.$
+      \x -> MonitoringOutput' Core.<$> (x Core..: "S3Output")

@@ -61,126 +61,113 @@ module Network.AWS.DynamoDB.CreateGlobalTable
     mkCreateGlobalTableResponse,
 
     -- ** Response lenses
-    cgtrsGlobalTableDescription,
-    cgtrsResponseStatus,
+    cgtrrsGlobalTableDescription,
+    cgtrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateGlobalTable' smart constructor.
 data CreateGlobalTable = CreateGlobalTable'
   { -- | The global table name.
-    globalTableName :: Lude.Text,
+    globalTableName :: Types.GlobalTableName,
     -- | The Regions where the global table needs to be created.
-    replicationGroup :: [Replica]
+    replicationGroup :: [Types.Replica]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGlobalTable' with the minimum fields required to make a request.
---
--- * 'globalTableName' - The global table name.
--- * 'replicationGroup' - The Regions where the global table needs to be created.
+-- | Creates a 'CreateGlobalTable' value with any optional fields omitted.
 mkCreateGlobalTable ::
   -- | 'globalTableName'
-  Lude.Text ->
+  Types.GlobalTableName ->
   CreateGlobalTable
-mkCreateGlobalTable pGlobalTableName_ =
+mkCreateGlobalTable globalTableName =
   CreateGlobalTable'
-    { globalTableName = pGlobalTableName_,
-      replicationGroup = Lude.mempty
+    { globalTableName,
+      replicationGroup = Core.mempty
     }
 
 -- | The global table name.
 --
 -- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgtGlobalTableName :: Lens.Lens' CreateGlobalTable Lude.Text
-cgtGlobalTableName = Lens.lens (globalTableName :: CreateGlobalTable -> Lude.Text) (\s a -> s {globalTableName = a} :: CreateGlobalTable)
+cgtGlobalTableName :: Lens.Lens' CreateGlobalTable Types.GlobalTableName
+cgtGlobalTableName = Lens.field @"globalTableName"
 {-# DEPRECATED cgtGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
 -- | The Regions where the global table needs to be created.
 --
 -- /Note:/ Consider using 'replicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgtReplicationGroup :: Lens.Lens' CreateGlobalTable [Replica]
-cgtReplicationGroup = Lens.lens (replicationGroup :: CreateGlobalTable -> [Replica]) (\s a -> s {replicationGroup = a} :: CreateGlobalTable)
+cgtReplicationGroup :: Lens.Lens' CreateGlobalTable [Types.Replica]
+cgtReplicationGroup = Lens.field @"replicationGroup"
 {-# DEPRECATED cgtReplicationGroup "Use generic-lens or generic-optics with 'replicationGroup' instead." #-}
 
-instance Lude.AWSRequest CreateGlobalTable where
+instance Core.FromJSON CreateGlobalTable where
+  toJSON CreateGlobalTable {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GlobalTableName" Core..= globalTableName),
+            Core.Just ("ReplicationGroup" Core..= replicationGroup)
+          ]
+      )
+
+instance Core.AWSRequest CreateGlobalTable where
   type Rs CreateGlobalTable = CreateGlobalTableResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.CreateGlobalTable")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateGlobalTableResponse'
-            Lude.<$> (x Lude..?> "GlobalTableDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GlobalTableDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateGlobalTable where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.CreateGlobalTable" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateGlobalTable where
-  toJSON CreateGlobalTable' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GlobalTableName" Lude..= globalTableName),
-            Lude.Just ("ReplicationGroup" Lude..= replicationGroup)
-          ]
-      )
-
-instance Lude.ToPath CreateGlobalTable where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateGlobalTable where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateGlobalTableResponse' smart constructor.
 data CreateGlobalTableResponse = CreateGlobalTableResponse'
   { -- | Contains the details of the global table.
-    globalTableDescription :: Lude.Maybe GlobalTableDescription,
+    globalTableDescription :: Core.Maybe Types.GlobalTableDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateGlobalTableResponse' with the minimum fields required to make a request.
---
--- * 'globalTableDescription' - Contains the details of the global table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateGlobalTableResponse' value with any optional fields omitted.
 mkCreateGlobalTableResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateGlobalTableResponse
-mkCreateGlobalTableResponse pResponseStatus_ =
+mkCreateGlobalTableResponse responseStatus =
   CreateGlobalTableResponse'
-    { globalTableDescription = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { globalTableDescription = Core.Nothing,
+      responseStatus
     }
 
 -- | Contains the details of the global table.
 --
 -- /Note:/ Consider using 'globalTableDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgtrsGlobalTableDescription :: Lens.Lens' CreateGlobalTableResponse (Lude.Maybe GlobalTableDescription)
-cgtrsGlobalTableDescription = Lens.lens (globalTableDescription :: CreateGlobalTableResponse -> Lude.Maybe GlobalTableDescription) (\s a -> s {globalTableDescription = a} :: CreateGlobalTableResponse)
-{-# DEPRECATED cgtrsGlobalTableDescription "Use generic-lens or generic-optics with 'globalTableDescription' instead." #-}
+cgtrrsGlobalTableDescription :: Lens.Lens' CreateGlobalTableResponse (Core.Maybe Types.GlobalTableDescription)
+cgtrrsGlobalTableDescription = Lens.field @"globalTableDescription"
+{-# DEPRECATED cgtrrsGlobalTableDescription "Use generic-lens or generic-optics with 'globalTableDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgtrsResponseStatus :: Lens.Lens' CreateGlobalTableResponse Lude.Int
-cgtrsResponseStatus = Lens.lens (responseStatus :: CreateGlobalTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGlobalTableResponse)
-{-# DEPRECATED cgtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cgtrrsResponseStatus :: Lens.Lens' CreateGlobalTableResponse Core.Int
+cgtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cgtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

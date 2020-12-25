@@ -13,51 +13,56 @@
 module Network.AWS.Athena.Types.EncryptionOption
   ( EncryptionOption
       ( EncryptionOption',
-        SseS3,
-        SseKMS,
-        CseKMS
+        EncryptionOptionSseS3,
+        EncryptionOptionSseKms,
+        EncryptionOptionCseKms,
+        fromEncryptionOption
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EncryptionOption = EncryptionOption' Lude.Text
+newtype EncryptionOption = EncryptionOption'
+  { fromEncryptionOption ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SseS3 :: EncryptionOption
-pattern SseS3 = EncryptionOption' "SSE_S3"
+pattern EncryptionOptionSseS3 :: EncryptionOption
+pattern EncryptionOptionSseS3 = EncryptionOption' "SSE_S3"
 
-pattern SseKMS :: EncryptionOption
-pattern SseKMS = EncryptionOption' "SSE_KMS"
+pattern EncryptionOptionSseKms :: EncryptionOption
+pattern EncryptionOptionSseKms = EncryptionOption' "SSE_KMS"
 
-pattern CseKMS :: EncryptionOption
-pattern CseKMS = EncryptionOption' "CSE_KMS"
+pattern EncryptionOptionCseKms :: EncryptionOption
+pattern EncryptionOptionCseKms = EncryptionOption' "CSE_KMS"
 
 {-# COMPLETE
-  SseS3,
-  SseKMS,
-  CseKMS,
+  EncryptionOptionSseS3,
+  EncryptionOptionSseKms,
+  EncryptionOptionCseKms,
   EncryptionOption'
   #-}

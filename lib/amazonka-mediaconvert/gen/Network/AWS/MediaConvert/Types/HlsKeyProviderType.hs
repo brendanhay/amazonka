@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsKeyProviderType
   ( HlsKeyProviderType
       ( HlsKeyProviderType',
-        HKPTSpeke,
-        HKPTStaticKey
+        HlsKeyProviderTypeSpeke,
+        HlsKeyProviderTypeStaticKey,
+        fromHlsKeyProviderType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
-newtype HlsKeyProviderType = HlsKeyProviderType' Lude.Text
+newtype HlsKeyProviderType = HlsKeyProviderType'
+  { fromHlsKeyProviderType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HKPTSpeke :: HlsKeyProviderType
-pattern HKPTSpeke = HlsKeyProviderType' "SPEKE"
+pattern HlsKeyProviderTypeSpeke :: HlsKeyProviderType
+pattern HlsKeyProviderTypeSpeke = HlsKeyProviderType' "SPEKE"
 
-pattern HKPTStaticKey :: HlsKeyProviderType
-pattern HKPTStaticKey = HlsKeyProviderType' "STATIC_KEY"
+pattern HlsKeyProviderTypeStaticKey :: HlsKeyProviderType
+pattern HlsKeyProviderTypeStaticKey = HlsKeyProviderType' "STATIC_KEY"
 
 {-# COMPLETE
-  HKPTSpeke,
-  HKPTStaticKey,
+  HlsKeyProviderTypeSpeke,
+  HlsKeyProviderTypeStaticKey,
   HlsKeyProviderType'
   #-}

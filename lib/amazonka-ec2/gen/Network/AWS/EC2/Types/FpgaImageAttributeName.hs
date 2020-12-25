@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.FpgaImageAttributeName
   ( FpgaImageAttributeName
       ( FpgaImageAttributeName',
-        FIANDescription,
-        FIANName,
-        FIANLoadPermission,
-        FIANProductCodes
+        FpgaImageAttributeNameDescription,
+        FpgaImageAttributeNameName,
+        FpgaImageAttributeNameLoadPermission,
+        FpgaImageAttributeNameProductCodes,
+        fromFpgaImageAttributeName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FpgaImageAttributeName = FpgaImageAttributeName' Lude.Text
+newtype FpgaImageAttributeName = FpgaImageAttributeName'
+  { fromFpgaImageAttributeName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FIANDescription :: FpgaImageAttributeName
-pattern FIANDescription = FpgaImageAttributeName' "description"
+pattern FpgaImageAttributeNameDescription :: FpgaImageAttributeName
+pattern FpgaImageAttributeNameDescription = FpgaImageAttributeName' "description"
 
-pattern FIANName :: FpgaImageAttributeName
-pattern FIANName = FpgaImageAttributeName' "name"
+pattern FpgaImageAttributeNameName :: FpgaImageAttributeName
+pattern FpgaImageAttributeNameName = FpgaImageAttributeName' "name"
 
-pattern FIANLoadPermission :: FpgaImageAttributeName
-pattern FIANLoadPermission = FpgaImageAttributeName' "loadPermission"
+pattern FpgaImageAttributeNameLoadPermission :: FpgaImageAttributeName
+pattern FpgaImageAttributeNameLoadPermission = FpgaImageAttributeName' "loadPermission"
 
-pattern FIANProductCodes :: FpgaImageAttributeName
-pattern FIANProductCodes = FpgaImageAttributeName' "productCodes"
+pattern FpgaImageAttributeNameProductCodes :: FpgaImageAttributeName
+pattern FpgaImageAttributeNameProductCodes = FpgaImageAttributeName' "productCodes"
 
 {-# COMPLETE
-  FIANDescription,
-  FIANName,
-  FIANLoadPermission,
-  FIANProductCodes,
+  FpgaImageAttributeNameDescription,
+  FpgaImageAttributeNameName,
+  FpgaImageAttributeNameLoadPermission,
+  FpgaImageAttributeNameProductCodes,
   FpgaImageAttributeName'
   #-}

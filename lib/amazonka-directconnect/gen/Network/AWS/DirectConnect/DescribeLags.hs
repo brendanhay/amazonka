@@ -27,105 +27,89 @@ module Network.AWS.DirectConnect.DescribeLags
     mkDescribeLagsResponse,
 
     -- ** Response lenses
-    dlsrsLags,
-    dlsrsResponseStatus,
+    dlrfrsLags,
+    dlrfrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLags' smart constructor.
 newtype DescribeLags = DescribeLags'
   { -- | The ID of the LAG.
-    lagId :: Lude.Maybe Lude.Text
+    lagId :: Core.Maybe Types.LagId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLags' with the minimum fields required to make a request.
---
--- * 'lagId' - The ID of the LAG.
+-- | Creates a 'DescribeLags' value with any optional fields omitted.
 mkDescribeLags ::
   DescribeLags
-mkDescribeLags = DescribeLags' {lagId = Lude.Nothing}
+mkDescribeLags = DescribeLags' {lagId = Core.Nothing}
 
 -- | The ID of the LAG.
 --
 -- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlLagId :: Lens.Lens' DescribeLags (Lude.Maybe Lude.Text)
-dlLagId = Lens.lens (lagId :: DescribeLags -> Lude.Maybe Lude.Text) (\s a -> s {lagId = a} :: DescribeLags)
+dlLagId :: Lens.Lens' DescribeLags (Core.Maybe Types.LagId)
+dlLagId = Lens.field @"lagId"
 {-# DEPRECATED dlLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
-instance Lude.AWSRequest DescribeLags where
+instance Core.FromJSON DescribeLags where
+  toJSON DescribeLags {..} =
+    Core.object (Core.catMaybes [("lagId" Core..=) Core.<$> lagId])
+
+instance Core.AWSRequest DescribeLags where
   type Rs DescribeLags = DescribeLagsResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.DescribeLags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeLagsResponse'
-            Lude.<$> (x Lude..?> "lags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "lags") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeLags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.DescribeLags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeLags where
-  toJSON DescribeLags' {..} =
-    Lude.object (Lude.catMaybes [("lagId" Lude..=) Lude.<$> lagId])
-
-instance Lude.ToPath DescribeLags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLags where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeLagsResponse' smart constructor.
 data DescribeLagsResponse = DescribeLagsResponse'
   { -- | The LAGs.
-    lags :: Lude.Maybe [Lag],
+    lags :: Core.Maybe [Types.Lag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeLagsResponse' with the minimum fields required to make a request.
---
--- * 'lags' - The LAGs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLagsResponse' value with any optional fields omitted.
 mkDescribeLagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLagsResponse
-mkDescribeLagsResponse pResponseStatus_ =
-  DescribeLagsResponse'
-    { lags = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeLagsResponse responseStatus =
+  DescribeLagsResponse' {lags = Core.Nothing, responseStatus}
 
 -- | The LAGs.
 --
 -- /Note:/ Consider using 'lags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsLags :: Lens.Lens' DescribeLagsResponse (Lude.Maybe [Lag])
-dlsrsLags = Lens.lens (lags :: DescribeLagsResponse -> Lude.Maybe [Lag]) (\s a -> s {lags = a} :: DescribeLagsResponse)
-{-# DEPRECATED dlsrsLags "Use generic-lens or generic-optics with 'lags' instead." #-}
+dlrfrsLags :: Lens.Lens' DescribeLagsResponse (Core.Maybe [Types.Lag])
+dlrfrsLags = Lens.field @"lags"
+{-# DEPRECATED dlrfrsLags "Use generic-lens or generic-optics with 'lags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsResponseStatus :: Lens.Lens' DescribeLagsResponse Lude.Int
-dlsrsResponseStatus = Lens.lens (responseStatus :: DescribeLagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLagsResponse)
-{-# DEPRECATED dlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlrfrsResponseStatus :: Lens.Lens' DescribeLagsResponse Core.Int
+dlrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

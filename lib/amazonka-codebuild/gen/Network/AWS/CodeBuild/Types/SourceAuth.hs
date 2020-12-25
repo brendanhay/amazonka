@@ -17,14 +17,15 @@ module Network.AWS.CodeBuild.Types.SourceAuth
     mkSourceAuth,
 
     -- * Lenses
-    saResource,
     saType,
+    saResource,
   )
 where
 
-import Network.AWS.CodeBuild.Types.SourceAuthType
+import qualified Network.AWS.CodeBuild.Types.SourceAuthType as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the authorization settings for AWS CodeBuild to access the source code to be built.
 --
@@ -32,53 +33,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceAuth' smart constructor.
 data SourceAuth = SourceAuth'
-  { -- | The resource value that applies to the specified authorization type.
-    resource :: Lude.Maybe Lude.Text,
-    -- | The authorization type to use. The only valid value is @OAUTH@ , which represents the OAuth authorization type.
-    type' :: SourceAuthType
+  { -- | The authorization type to use. The only valid value is @OAUTH@ , which represents the OAuth authorization type.
+    type' :: Types.SourceAuthType,
+    -- | The resource value that applies to the specified authorization type.
+    resource :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SourceAuth' with the minimum fields required to make a request.
---
--- * 'resource' - The resource value that applies to the specified authorization type.
--- * 'type'' - The authorization type to use. The only valid value is @OAUTH@ , which represents the OAuth authorization type.
+-- | Creates a 'SourceAuth' value with any optional fields omitted.
 mkSourceAuth ::
-  -- | 'type''
-  SourceAuthType ->
+  -- | 'type\''
+  Types.SourceAuthType ->
   SourceAuth
-mkSourceAuth pType_ =
-  SourceAuth' {resource = Lude.Nothing, type' = pType_}
-
--- | The resource value that applies to the specified authorization type.
---
--- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saResource :: Lens.Lens' SourceAuth (Lude.Maybe Lude.Text)
-saResource = Lens.lens (resource :: SourceAuth -> Lude.Maybe Lude.Text) (\s a -> s {resource = a} :: SourceAuth)
-{-# DEPRECATED saResource "Use generic-lens or generic-optics with 'resource' instead." #-}
+mkSourceAuth type' = SourceAuth' {type', resource = Core.Nothing}
 
 -- | The authorization type to use. The only valid value is @OAUTH@ , which represents the OAuth authorization type.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saType :: Lens.Lens' SourceAuth SourceAuthType
-saType = Lens.lens (type' :: SourceAuth -> SourceAuthType) (\s a -> s {type' = a} :: SourceAuth)
+saType :: Lens.Lens' SourceAuth Types.SourceAuthType
+saType = Lens.field @"type'"
 {-# DEPRECATED saType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON SourceAuth where
-  parseJSON =
-    Lude.withObject
-      "SourceAuth"
-      ( \x ->
-          SourceAuth'
-            Lude.<$> (x Lude..:? "resource") Lude.<*> (x Lude..: "type")
-      )
+-- | The resource value that applies to the specified authorization type.
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saResource :: Lens.Lens' SourceAuth (Core.Maybe Types.String)
+saResource = Lens.field @"resource"
+{-# DEPRECATED saResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.ToJSON SourceAuth where
-  toJSON SourceAuth' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("resource" Lude..=) Lude.<$> resource,
-            Lude.Just ("type" Lude..= type')
+instance Core.FromJSON SourceAuth where
+  toJSON SourceAuth {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("type" Core..= type'),
+            ("resource" Core..=) Core.<$> resource
           ]
       )
+
+instance Core.FromJSON SourceAuth where
+  parseJSON =
+    Core.withObject "SourceAuth" Core.$
+      \x ->
+        SourceAuth'
+          Core.<$> (x Core..: "type") Core.<*> (x Core..:? "resource")

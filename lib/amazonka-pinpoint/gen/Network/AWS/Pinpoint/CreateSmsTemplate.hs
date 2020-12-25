@@ -20,135 +20,122 @@ module Network.AWS.Pinpoint.CreateSmsTemplate
     mkCreateSmsTemplate,
 
     -- ** Request lenses
-    cstSMSTemplateRequest,
     cstTemplateName,
+    cstSMSTemplateRequest,
 
     -- * Destructuring the response
     CreateSmsTemplateResponse (..),
     mkCreateSmsTemplateResponse,
 
     -- ** Response lenses
-    cstrsCreateTemplateMessageBody,
-    cstrsResponseStatus,
+    cstrrsCreateTemplateMessageBody,
+    cstrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateSmsTemplate' smart constructor.
 data CreateSmsTemplate = CreateSmsTemplate'
-  { sMSTemplateRequest :: SMSTemplateRequest,
-    -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-    templateName :: Lude.Text
+  { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+    templateName :: Core.Text,
+    sMSTemplateRequest :: Types.SMSTemplateRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSmsTemplate' with the minimum fields required to make a request.
---
--- * 'sMSTemplateRequest' -
--- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- | Creates a 'CreateSmsTemplate' value with any optional fields omitted.
 mkCreateSmsTemplate ::
-  -- | 'sMSTemplateRequest'
-  SMSTemplateRequest ->
   -- | 'templateName'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'sMSTemplateRequest'
+  Types.SMSTemplateRequest ->
   CreateSmsTemplate
-mkCreateSmsTemplate pSMSTemplateRequest_ pTemplateName_ =
-  CreateSmsTemplate'
-    { sMSTemplateRequest = pSMSTemplateRequest_,
-      templateName = pTemplateName_
-    }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'sMSTemplateRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cstSMSTemplateRequest :: Lens.Lens' CreateSmsTemplate SMSTemplateRequest
-cstSMSTemplateRequest = Lens.lens (sMSTemplateRequest :: CreateSmsTemplate -> SMSTemplateRequest) (\s a -> s {sMSTemplateRequest = a} :: CreateSmsTemplate)
-{-# DEPRECATED cstSMSTemplateRequest "Use generic-lens or generic-optics with 'sMSTemplateRequest' instead." #-}
+mkCreateSmsTemplate templateName sMSTemplateRequest =
+  CreateSmsTemplate' {templateName, sMSTemplateRequest}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cstTemplateName :: Lens.Lens' CreateSmsTemplate Lude.Text
-cstTemplateName = Lens.lens (templateName :: CreateSmsTemplate -> Lude.Text) (\s a -> s {templateName = a} :: CreateSmsTemplate)
+cstTemplateName :: Lens.Lens' CreateSmsTemplate Core.Text
+cstTemplateName = Lens.field @"templateName"
 {-# DEPRECATED cstTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance Lude.AWSRequest CreateSmsTemplate where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'sMSTemplateRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstSMSTemplateRequest :: Lens.Lens' CreateSmsTemplate Types.SMSTemplateRequest
+cstSMSTemplateRequest = Lens.field @"sMSTemplateRequest"
+{-# DEPRECATED cstSMSTemplateRequest "Use generic-lens or generic-optics with 'sMSTemplateRequest' instead." #-}
+
+instance Core.FromJSON CreateSmsTemplate where
+  toJSON CreateSmsTemplate {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SMSTemplateRequest" Core..= sMSTemplateRequest)]
+      )
+
+instance Core.AWSRequest CreateSmsTemplate where
   type Rs CreateSmsTemplate = CreateSmsTemplateResponse
-  request = Req.postJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/templates/" Core.<> (Core.toText templateName)
+                Core.<> ("/sms")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateSmsTemplateResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSmsTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateSmsTemplate where
-  toJSON CreateSmsTemplate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("SMSTemplateRequest" Lude..= sMSTemplateRequest)]
-      )
-
-instance Lude.ToPath CreateSmsTemplate where
-  toPath CreateSmsTemplate' {..} =
-    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/sms"]
-
-instance Lude.ToQuery CreateSmsTemplate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateSmsTemplateResponse' smart constructor.
 data CreateSmsTemplateResponse = CreateSmsTemplateResponse'
-  { createTemplateMessageBody :: CreateTemplateMessageBody,
+  { createTemplateMessageBody :: Types.CreateTemplateMessageBody,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSmsTemplateResponse' with the minimum fields required to make a request.
---
--- * 'createTemplateMessageBody' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSmsTemplateResponse' value with any optional fields omitted.
 mkCreateSmsTemplateResponse ::
   -- | 'createTemplateMessageBody'
-  CreateTemplateMessageBody ->
+  Types.CreateTemplateMessageBody ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSmsTemplateResponse
 mkCreateSmsTemplateResponse
-  pCreateTemplateMessageBody_
-  pResponseStatus_ =
+  createTemplateMessageBody
+  responseStatus =
     CreateSmsTemplateResponse'
-      { createTemplateMessageBody =
-          pCreateTemplateMessageBody_,
-        responseStatus = pResponseStatus_
+      { createTemplateMessageBody,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'createTemplateMessageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cstrsCreateTemplateMessageBody :: Lens.Lens' CreateSmsTemplateResponse CreateTemplateMessageBody
-cstrsCreateTemplateMessageBody = Lens.lens (createTemplateMessageBody :: CreateSmsTemplateResponse -> CreateTemplateMessageBody) (\s a -> s {createTemplateMessageBody = a} :: CreateSmsTemplateResponse)
-{-# DEPRECATED cstrsCreateTemplateMessageBody "Use generic-lens or generic-optics with 'createTemplateMessageBody' instead." #-}
+cstrrsCreateTemplateMessageBody :: Lens.Lens' CreateSmsTemplateResponse Types.CreateTemplateMessageBody
+cstrrsCreateTemplateMessageBody = Lens.field @"createTemplateMessageBody"
+{-# DEPRECATED cstrrsCreateTemplateMessageBody "Use generic-lens or generic-optics with 'createTemplateMessageBody' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cstrsResponseStatus :: Lens.Lens' CreateSmsTemplateResponse Lude.Int
-cstrsResponseStatus = Lens.lens (responseStatus :: CreateSmsTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSmsTemplateResponse)
-{-# DEPRECATED cstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cstrrsResponseStatus :: Lens.Lens' CreateSmsTemplateResponse Core.Int
+cstrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cstrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

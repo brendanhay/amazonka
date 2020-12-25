@@ -22,38 +22,33 @@ module Network.AWS.ServiceCatalog.Types.ParameterConstraints
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.AllowedValue as Types
 
 -- | The constraints that the administrator has put on the parameter.
 --
 -- /See:/ 'mkParameterConstraints' smart constructor.
 newtype ParameterConstraints = ParameterConstraints'
   { -- | The values that the administrator has allowed for the parameter.
-    allowedValues :: Lude.Maybe [Lude.Text]
+    allowedValues :: Core.Maybe [Types.AllowedValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterConstraints' with the minimum fields required to make a request.
---
--- * 'allowedValues' - The values that the administrator has allowed for the parameter.
+-- | Creates a 'ParameterConstraints' value with any optional fields omitted.
 mkParameterConstraints ::
   ParameterConstraints
 mkParameterConstraints =
-  ParameterConstraints' {allowedValues = Lude.Nothing}
+  ParameterConstraints' {allowedValues = Core.Nothing}
 
 -- | The values that the administrator has allowed for the parameter.
 --
 -- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcAllowedValues :: Lens.Lens' ParameterConstraints (Lude.Maybe [Lude.Text])
-pcAllowedValues = Lens.lens (allowedValues :: ParameterConstraints -> Lude.Maybe [Lude.Text]) (\s a -> s {allowedValues = a} :: ParameterConstraints)
+pcAllowedValues :: Lens.Lens' ParameterConstraints (Core.Maybe [Types.AllowedValue])
+pcAllowedValues = Lens.field @"allowedValues"
 {-# DEPRECATED pcAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
-instance Lude.FromJSON ParameterConstraints where
+instance Core.FromJSON ParameterConstraints where
   parseJSON =
-    Lude.withObject
-      "ParameterConstraints"
-      ( \x ->
-          ParameterConstraints'
-            Lude.<$> (x Lude..:? "AllowedValues" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ParameterConstraints" Core.$
+      \x -> ParameterConstraints' Core.<$> (x Core..:? "AllowedValues")

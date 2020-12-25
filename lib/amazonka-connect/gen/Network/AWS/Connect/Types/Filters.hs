@@ -17,55 +17,53 @@ module Network.AWS.Connect.Types.Filters
     mkFilters,
 
     -- * Lenses
-    fQueues,
     fChannels,
+    fQueues,
   )
 where
 
-import Network.AWS.Connect.Types.Channel
+import qualified Network.AWS.Connect.Types.Channel as Types
+import qualified Network.AWS.Connect.Types.QueueId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the filter to apply when retrieving metrics.
 --
 -- /See:/ 'mkFilters' smart constructor.
 data Filters = Filters'
-  { -- | The queues to use to filter the metrics. You can specify up to 100 queues per request.
-    queues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The channel to use to filter the metrics.
-    channels :: Lude.Maybe [Channel]
+  { -- | The channel to use to filter the metrics.
+    channels :: Core.Maybe [Types.Channel],
+    -- | The queues to use to filter the metrics. You can specify up to 100 queues per request.
+    queues :: Core.Maybe (Core.NonEmpty Types.QueueId)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Filters' with the minimum fields required to make a request.
---
--- * 'queues' - The queues to use to filter the metrics. You can specify up to 100 queues per request.
--- * 'channels' - The channel to use to filter the metrics.
+-- | Creates a 'Filters' value with any optional fields omitted.
 mkFilters ::
   Filters
 mkFilters =
-  Filters' {queues = Lude.Nothing, channels = Lude.Nothing}
-
--- | The queues to use to filter the metrics. You can specify up to 100 queues per request.
---
--- /Note:/ Consider using 'queues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fQueues :: Lens.Lens' Filters (Lude.Maybe (Lude.NonEmpty Lude.Text))
-fQueues = Lens.lens (queues :: Filters -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {queues = a} :: Filters)
-{-# DEPRECATED fQueues "Use generic-lens or generic-optics with 'queues' instead." #-}
+  Filters' {channels = Core.Nothing, queues = Core.Nothing}
 
 -- | The channel to use to filter the metrics.
 --
 -- /Note:/ Consider using 'channels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fChannels :: Lens.Lens' Filters (Lude.Maybe [Channel])
-fChannels = Lens.lens (channels :: Filters -> Lude.Maybe [Channel]) (\s a -> s {channels = a} :: Filters)
+fChannels :: Lens.Lens' Filters (Core.Maybe [Types.Channel])
+fChannels = Lens.field @"channels"
 {-# DEPRECATED fChannels "Use generic-lens or generic-optics with 'channels' instead." #-}
 
-instance Lude.ToJSON Filters where
-  toJSON Filters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Queues" Lude..=) Lude.<$> queues,
-            ("Channels" Lude..=) Lude.<$> channels
+-- | The queues to use to filter the metrics. You can specify up to 100 queues per request.
+--
+-- /Note:/ Consider using 'queues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fQueues :: Lens.Lens' Filters (Core.Maybe (Core.NonEmpty Types.QueueId))
+fQueues = Lens.field @"queues"
+{-# DEPRECATED fQueues "Use generic-lens or generic-optics with 'queues' instead." #-}
+
+instance Core.FromJSON Filters where
+  toJSON Filters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Channels" Core..=) Core.<$> channels,
+            ("Queues" Core..=) Core.<$> queues
           ]
       )

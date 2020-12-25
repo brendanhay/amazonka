@@ -22,169 +22,167 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     mkAuthorizeDBSecurityGroupIngress,
 
     -- ** Request lenses
-    adsgiEC2SecurityGroupOwnerId,
-    adsgiEC2SecurityGroupName,
-    adsgiCIdRIP,
-    adsgiDBSecurityGroupName,
-    adsgiEC2SecurityGroupId,
+    adbsgiDBSecurityGroupName,
+    adbsgiCIDRIP,
+    adbsgiEC2SecurityGroupId,
+    adbsgiEC2SecurityGroupName,
+    adbsgiEC2SecurityGroupOwnerId,
 
     -- * Destructuring the response
     AuthorizeDBSecurityGroupIngressResponse (..),
     mkAuthorizeDBSecurityGroupIngressResponse,
 
     -- ** Response lenses
-    adsgirsDBSecurityGroup,
-    adsgirsResponseStatus,
+    adbsgirrsDBSecurityGroup,
+    adbsgirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkAuthorizeDBSecurityGroupIngress' smart constructor.
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
-  { -- | AWS account number of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn't an acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-    ec2SecurityGroupOwnerId :: Lude.Maybe Lude.Text,
-    -- | Name of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-    ec2SecurityGroupName :: Lude.Maybe Lude.Text,
+  { -- | The name of the DB security group to add authorization to.
+    dBSecurityGroupName :: Types.String,
     -- | The IP range to authorize.
-    cIdRIP :: Lude.Maybe Lude.Text,
-    -- | The name of the DB security group to add authorization to.
-    dbSecurityGroupName :: Lude.Text,
+    cidrip :: Core.Maybe Types.String,
     -- | Id of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-    ec2SecurityGroupId :: Lude.Maybe Lude.Text
+    eC2SecurityGroupId :: Core.Maybe Types.String,
+    -- | Name of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+    eC2SecurityGroupName :: Core.Maybe Types.String,
+    -- | AWS account number of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn't an acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+    eC2SecurityGroupOwnerId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthorizeDBSecurityGroupIngress' with the minimum fields required to make a request.
---
--- * 'ec2SecurityGroupOwnerId' - AWS account number of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn't an acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
--- * 'ec2SecurityGroupName' - Name of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
--- * 'cIdRIP' - The IP range to authorize.
--- * 'dbSecurityGroupName' - The name of the DB security group to add authorization to.
--- * 'ec2SecurityGroupId' - Id of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+-- | Creates a 'AuthorizeDBSecurityGroupIngress' value with any optional fields omitted.
 mkAuthorizeDBSecurityGroupIngress ::
-  -- | 'dbSecurityGroupName'
-  Lude.Text ->
+  -- | 'dBSecurityGroupName'
+  Types.String ->
   AuthorizeDBSecurityGroupIngress
-mkAuthorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
+mkAuthorizeDBSecurityGroupIngress dBSecurityGroupName =
   AuthorizeDBSecurityGroupIngress'
-    { ec2SecurityGroupOwnerId =
-        Lude.Nothing,
-      ec2SecurityGroupName = Lude.Nothing,
-      cIdRIP = Lude.Nothing,
-      dbSecurityGroupName = pDBSecurityGroupName_,
-      ec2SecurityGroupId = Lude.Nothing
+    { dBSecurityGroupName,
+      cidrip = Core.Nothing,
+      eC2SecurityGroupId = Core.Nothing,
+      eC2SecurityGroupName = Core.Nothing,
+      eC2SecurityGroupOwnerId = Core.Nothing
     }
-
--- | AWS account number of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn't an acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
---
--- /Note:/ Consider using 'ec2SecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsgiEC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Lude.Maybe Lude.Text)
-adsgiEC2SecurityGroupOwnerId = Lens.lens (ec2SecurityGroupOwnerId :: AuthorizeDBSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupOwnerId = a} :: AuthorizeDBSecurityGroupIngress)
-{-# DEPRECATED adsgiEC2SecurityGroupOwnerId "Use generic-lens or generic-optics with 'ec2SecurityGroupOwnerId' instead." #-}
-
--- | Name of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
---
--- /Note:/ Consider using 'ec2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsgiEC2SecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Lude.Maybe Lude.Text)
-adsgiEC2SecurityGroupName = Lens.lens (ec2SecurityGroupName :: AuthorizeDBSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupName = a} :: AuthorizeDBSecurityGroupIngress)
-{-# DEPRECATED adsgiEC2SecurityGroupName "Use generic-lens or generic-optics with 'ec2SecurityGroupName' instead." #-}
-
--- | The IP range to authorize.
---
--- /Note:/ Consider using 'cIdRIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsgiCIdRIP :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Lude.Maybe Lude.Text)
-adsgiCIdRIP = Lens.lens (cIdRIP :: AuthorizeDBSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {cIdRIP = a} :: AuthorizeDBSecurityGroupIngress)
-{-# DEPRECATED adsgiCIdRIP "Use generic-lens or generic-optics with 'cIdRIP' instead." #-}
 
 -- | The name of the DB security group to add authorization to.
 --
--- /Note:/ Consider using 'dbSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsgiDBSecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress Lude.Text
-adsgiDBSecurityGroupName = Lens.lens (dbSecurityGroupName :: AuthorizeDBSecurityGroupIngress -> Lude.Text) (\s a -> s {dbSecurityGroupName = a} :: AuthorizeDBSecurityGroupIngress)
-{-# DEPRECATED adsgiDBSecurityGroupName "Use generic-lens or generic-optics with 'dbSecurityGroupName' instead." #-}
+-- /Note:/ Consider using 'dBSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adbsgiDBSecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress Types.String
+adbsgiDBSecurityGroupName = Lens.field @"dBSecurityGroupName"
+{-# DEPRECATED adbsgiDBSecurityGroupName "Use generic-lens or generic-optics with 'dBSecurityGroupName' instead." #-}
+
+-- | The IP range to authorize.
+--
+-- /Note:/ Consider using 'cidrip' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adbsgiCIDRIP :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Core.Maybe Types.String)
+adbsgiCIDRIP = Lens.field @"cidrip"
+{-# DEPRECATED adbsgiCIDRIP "Use generic-lens or generic-optics with 'cidrip' instead." #-}
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
 --
--- /Note:/ Consider using 'ec2SecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsgiEC2SecurityGroupId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Lude.Maybe Lude.Text)
-adsgiEC2SecurityGroupId = Lens.lens (ec2SecurityGroupId :: AuthorizeDBSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupId = a} :: AuthorizeDBSecurityGroupIngress)
-{-# DEPRECATED adsgiEC2SecurityGroupId "Use generic-lens or generic-optics with 'ec2SecurityGroupId' instead." #-}
+-- /Note:/ Consider using 'eC2SecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adbsgiEC2SecurityGroupId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Core.Maybe Types.String)
+adbsgiEC2SecurityGroupId = Lens.field @"eC2SecurityGroupId"
+{-# DEPRECATED adbsgiEC2SecurityGroupId "Use generic-lens or generic-optics with 'eC2SecurityGroupId' instead." #-}
 
-instance Lude.AWSRequest AuthorizeDBSecurityGroupIngress where
+-- | Name of the EC2 security group to authorize. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+--
+-- /Note:/ Consider using 'eC2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adbsgiEC2SecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Core.Maybe Types.String)
+adbsgiEC2SecurityGroupName = Lens.field @"eC2SecurityGroupName"
+{-# DEPRECATED adbsgiEC2SecurityGroupName "Use generic-lens or generic-optics with 'eC2SecurityGroupName' instead." #-}
+
+-- | AWS account number of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ parameter. The AWS access key ID isn't an acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+--
+-- /Note:/ Consider using 'eC2SecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adbsgiEC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Core.Maybe Types.String)
+adbsgiEC2SecurityGroupOwnerId = Lens.field @"eC2SecurityGroupOwnerId"
+{-# DEPRECATED adbsgiEC2SecurityGroupOwnerId "Use generic-lens or generic-optics with 'eC2SecurityGroupOwnerId' instead." #-}
+
+instance Core.AWSRequest AuthorizeDBSecurityGroupIngress where
   type
     Rs AuthorizeDBSecurityGroupIngress =
       AuthorizeDBSecurityGroupIngressResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AuthorizeDBSecurityGroupIngress")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBSecurityGroupName" dBSecurityGroupName)
+                Core.<> (Core.toQueryValue "CIDRIP" Core.<$> cidrip)
+                Core.<> ( Core.toQueryValue "EC2SecurityGroupId"
+                            Core.<$> eC2SecurityGroupId
+                        )
+                Core.<> ( Core.toQueryValue "EC2SecurityGroupName"
+                            Core.<$> eC2SecurityGroupName
+                        )
+                Core.<> ( Core.toQueryValue "EC2SecurityGroupOwnerId"
+                            Core.<$> eC2SecurityGroupOwnerId
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "AuthorizeDBSecurityGroupIngressResult"
       ( \s h x ->
           AuthorizeDBSecurityGroupIngressResponse'
-            Lude.<$> (x Lude..@? "DBSecurityGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBSecurityGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AuthorizeDBSecurityGroupIngress where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AuthorizeDBSecurityGroupIngress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AuthorizeDBSecurityGroupIngress where
-  toQuery AuthorizeDBSecurityGroupIngress' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("AuthorizeDBSecurityGroupIngress" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "EC2SecurityGroupOwnerId" Lude.=: ec2SecurityGroupOwnerId,
-        "EC2SecurityGroupName" Lude.=: ec2SecurityGroupName,
-        "CIDRIP" Lude.=: cIdRIP,
-        "DBSecurityGroupName" Lude.=: dbSecurityGroupName,
-        "EC2SecurityGroupId" Lude.=: ec2SecurityGroupId
-      ]
 
 -- | /See:/ 'mkAuthorizeDBSecurityGroupIngressResponse' smart constructor.
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
-  { dbSecurityGroup :: Lude.Maybe DBSecurityGroup,
+  { dBSecurityGroup :: Core.Maybe Types.DBSecurityGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthorizeDBSecurityGroupIngressResponse' with the minimum fields required to make a request.
---
--- * 'dbSecurityGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AuthorizeDBSecurityGroupIngressResponse' value with any optional fields omitted.
 mkAuthorizeDBSecurityGroupIngressResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AuthorizeDBSecurityGroupIngressResponse
-mkAuthorizeDBSecurityGroupIngressResponse pResponseStatus_ =
+mkAuthorizeDBSecurityGroupIngressResponse responseStatus =
   AuthorizeDBSecurityGroupIngressResponse'
-    { dbSecurityGroup =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBSecurityGroup =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbSecurityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsgirsDBSecurityGroup :: Lens.Lens' AuthorizeDBSecurityGroupIngressResponse (Lude.Maybe DBSecurityGroup)
-adsgirsDBSecurityGroup = Lens.lens (dbSecurityGroup :: AuthorizeDBSecurityGroupIngressResponse -> Lude.Maybe DBSecurityGroup) (\s a -> s {dbSecurityGroup = a} :: AuthorizeDBSecurityGroupIngressResponse)
-{-# DEPRECATED adsgirsDBSecurityGroup "Use generic-lens or generic-optics with 'dbSecurityGroup' instead." #-}
+-- /Note:/ Consider using 'dBSecurityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adbsgirrsDBSecurityGroup :: Lens.Lens' AuthorizeDBSecurityGroupIngressResponse (Core.Maybe Types.DBSecurityGroup)
+adbsgirrsDBSecurityGroup = Lens.field @"dBSecurityGroup"
+{-# DEPRECATED adbsgirrsDBSecurityGroup "Use generic-lens or generic-optics with 'dBSecurityGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adsgirsResponseStatus :: Lens.Lens' AuthorizeDBSecurityGroupIngressResponse Lude.Int
-adsgirsResponseStatus = Lens.lens (responseStatus :: AuthorizeDBSecurityGroupIngressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AuthorizeDBSecurityGroupIngressResponse)
-{-# DEPRECATED adsgirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+adbsgirrsResponseStatus :: Lens.Lens' AuthorizeDBSecurityGroupIngressResponse Core.Int
+adbsgirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED adbsgirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

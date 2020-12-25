@@ -20,11 +20,11 @@ module Network.AWS.IoT.CreateSecurityProfile
     mkCreateSecurityProfile,
 
     -- ** Request lenses
-    cspAlertTargets,
-    cspAdditionalMetricsToRetainV2,
-    cspBehaviors,
     cspSecurityProfileName,
     cspAdditionalMetricsToRetain,
+    cspAdditionalMetricsToRetainV2,
+    cspAlertTargets,
+    cspBehaviors,
     cspSecurityProfileDescription,
     cspTags,
 
@@ -33,92 +33,61 @@ module Network.AWS.IoT.CreateSecurityProfile
     mkCreateSecurityProfileResponse,
 
     -- ** Response lenses
-    csprsSecurityProfileName,
-    csprsSecurityProfileARN,
-    csprsResponseStatus,
+    csprrsSecurityProfileArn,
+    csprrsSecurityProfileName,
+    csprrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateSecurityProfile' smart constructor.
 data CreateSecurityProfile = CreateSecurityProfile'
-  { -- | Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
-    alertTargets :: Lude.Maybe (Lude.HashMap AlertTargetType (AlertTarget)),
-    -- | A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
-    additionalMetricsToRetainV2 :: Lude.Maybe [MetricToRetain],
-    -- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
-    behaviors :: Lude.Maybe [Behavior],
-    -- | The name you are giving to the security profile.
-    securityProfileName :: Lude.Text,
+  { -- | The name you are giving to the security profile.
+    securityProfileName :: Types.SecurityProfileName,
     -- | /Please use 'CreateSecurityProfileRequest$additionalMetricsToRetainV2' instead./
     --
     -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
-    additionalMetricsToRetain :: Lude.Maybe [Lude.Text],
+    additionalMetricsToRetain :: Core.Maybe [Types.BehaviorMetric],
+    -- | A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
+    additionalMetricsToRetainV2 :: Core.Maybe [Types.MetricToRetain],
+    -- | Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
+    alertTargets :: Core.Maybe (Core.HashMap Types.AlertTargetType Types.AlertTarget),
+    -- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
+    behaviors :: Core.Maybe [Types.Behavior],
     -- | A description of the security profile.
-    securityProfileDescription :: Lude.Maybe Lude.Text,
+    securityProfileDescription :: Core.Maybe Types.SecurityProfileDescription,
     -- | Metadata that can be used to manage the security profile.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSecurityProfile' with the minimum fields required to make a request.
---
--- * 'alertTargets' - Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
--- * 'additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
--- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
--- * 'securityProfileName' - The name you are giving to the security profile.
--- * 'additionalMetricsToRetain' - /Please use 'CreateSecurityProfileRequest$additionalMetricsToRetainV2' instead./
---
--- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
--- * 'securityProfileDescription' - A description of the security profile.
--- * 'tags' - Metadata that can be used to manage the security profile.
+-- | Creates a 'CreateSecurityProfile' value with any optional fields omitted.
 mkCreateSecurityProfile ::
   -- | 'securityProfileName'
-  Lude.Text ->
+  Types.SecurityProfileName ->
   CreateSecurityProfile
-mkCreateSecurityProfile pSecurityProfileName_ =
+mkCreateSecurityProfile securityProfileName =
   CreateSecurityProfile'
-    { alertTargets = Lude.Nothing,
-      additionalMetricsToRetainV2 = Lude.Nothing,
-      behaviors = Lude.Nothing,
-      securityProfileName = pSecurityProfileName_,
-      additionalMetricsToRetain = Lude.Nothing,
-      securityProfileDescription = Lude.Nothing,
-      tags = Lude.Nothing
+    { securityProfileName,
+      additionalMetricsToRetain = Core.Nothing,
+      additionalMetricsToRetainV2 = Core.Nothing,
+      alertTargets = Core.Nothing,
+      behaviors = Core.Nothing,
+      securityProfileDescription = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
---
--- /Note:/ Consider using 'alertTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspAlertTargets :: Lens.Lens' CreateSecurityProfile (Lude.Maybe (Lude.HashMap AlertTargetType (AlertTarget)))
-cspAlertTargets = Lens.lens (alertTargets :: CreateSecurityProfile -> Lude.Maybe (Lude.HashMap AlertTargetType (AlertTarget))) (\s a -> s {alertTargets = a} :: CreateSecurityProfile)
-{-# DEPRECATED cspAlertTargets "Use generic-lens or generic-optics with 'alertTargets' instead." #-}
-
--- | A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
---
--- /Note:/ Consider using 'additionalMetricsToRetainV2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspAdditionalMetricsToRetainV2 :: Lens.Lens' CreateSecurityProfile (Lude.Maybe [MetricToRetain])
-cspAdditionalMetricsToRetainV2 = Lens.lens (additionalMetricsToRetainV2 :: CreateSecurityProfile -> Lude.Maybe [MetricToRetain]) (\s a -> s {additionalMetricsToRetainV2 = a} :: CreateSecurityProfile)
-{-# DEPRECATED cspAdditionalMetricsToRetainV2 "Use generic-lens or generic-optics with 'additionalMetricsToRetainV2' instead." #-}
-
--- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
---
--- /Note:/ Consider using 'behaviors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspBehaviors :: Lens.Lens' CreateSecurityProfile (Lude.Maybe [Behavior])
-cspBehaviors = Lens.lens (behaviors :: CreateSecurityProfile -> Lude.Maybe [Behavior]) (\s a -> s {behaviors = a} :: CreateSecurityProfile)
-{-# DEPRECATED cspBehaviors "Use generic-lens or generic-optics with 'behaviors' instead." #-}
 
 -- | The name you are giving to the security profile.
 --
 -- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspSecurityProfileName :: Lens.Lens' CreateSecurityProfile Lude.Text
-cspSecurityProfileName = Lens.lens (securityProfileName :: CreateSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: CreateSecurityProfile)
+cspSecurityProfileName :: Lens.Lens' CreateSecurityProfile Types.SecurityProfileName
+cspSecurityProfileName = Lens.field @"securityProfileName"
 {-# DEPRECATED cspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | /Please use 'CreateSecurityProfileRequest$additionalMetricsToRetainV2' instead./
@@ -126,109 +95,124 @@ cspSecurityProfileName = Lens.lens (securityProfileName :: CreateSecurityProfile
 -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
 --
 -- /Note:/ Consider using 'additionalMetricsToRetain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspAdditionalMetricsToRetain :: Lens.Lens' CreateSecurityProfile (Lude.Maybe [Lude.Text])
-cspAdditionalMetricsToRetain = Lens.lens (additionalMetricsToRetain :: CreateSecurityProfile -> Lude.Maybe [Lude.Text]) (\s a -> s {additionalMetricsToRetain = a} :: CreateSecurityProfile)
+cspAdditionalMetricsToRetain :: Lens.Lens' CreateSecurityProfile (Core.Maybe [Types.BehaviorMetric])
+cspAdditionalMetricsToRetain = Lens.field @"additionalMetricsToRetain"
 {-# DEPRECATED cspAdditionalMetricsToRetain "Use generic-lens or generic-optics with 'additionalMetricsToRetain' instead." #-}
+
+-- | A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
+--
+-- /Note:/ Consider using 'additionalMetricsToRetainV2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspAdditionalMetricsToRetainV2 :: Lens.Lens' CreateSecurityProfile (Core.Maybe [Types.MetricToRetain])
+cspAdditionalMetricsToRetainV2 = Lens.field @"additionalMetricsToRetainV2"
+{-# DEPRECATED cspAdditionalMetricsToRetainV2 "Use generic-lens or generic-optics with 'additionalMetricsToRetainV2' instead." #-}
+
+-- | Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
+--
+-- /Note:/ Consider using 'alertTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspAlertTargets :: Lens.Lens' CreateSecurityProfile (Core.Maybe (Core.HashMap Types.AlertTargetType Types.AlertTarget))
+cspAlertTargets = Lens.field @"alertTargets"
+{-# DEPRECATED cspAlertTargets "Use generic-lens or generic-optics with 'alertTargets' instead." #-}
+
+-- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
+--
+-- /Note:/ Consider using 'behaviors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspBehaviors :: Lens.Lens' CreateSecurityProfile (Core.Maybe [Types.Behavior])
+cspBehaviors = Lens.field @"behaviors"
+{-# DEPRECATED cspBehaviors "Use generic-lens or generic-optics with 'behaviors' instead." #-}
 
 -- | A description of the security profile.
 --
 -- /Note:/ Consider using 'securityProfileDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspSecurityProfileDescription :: Lens.Lens' CreateSecurityProfile (Lude.Maybe Lude.Text)
-cspSecurityProfileDescription = Lens.lens (securityProfileDescription :: CreateSecurityProfile -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileDescription = a} :: CreateSecurityProfile)
+cspSecurityProfileDescription :: Lens.Lens' CreateSecurityProfile (Core.Maybe Types.SecurityProfileDescription)
+cspSecurityProfileDescription = Lens.field @"securityProfileDescription"
 {-# DEPRECATED cspSecurityProfileDescription "Use generic-lens or generic-optics with 'securityProfileDescription' instead." #-}
 
 -- | Metadata that can be used to manage the security profile.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspTags :: Lens.Lens' CreateSecurityProfile (Lude.Maybe [Tag])
-cspTags = Lens.lens (tags :: CreateSecurityProfile -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSecurityProfile)
+cspTags :: Lens.Lens' CreateSecurityProfile (Core.Maybe [Types.Tag])
+cspTags = Lens.field @"tags"
 {-# DEPRECATED cspTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateSecurityProfile where
-  type Rs CreateSecurityProfile = CreateSecurityProfileResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateSecurityProfileResponse'
-            Lude.<$> (x Lude..?> "securityProfileName")
-            Lude.<*> (x Lude..?> "securityProfileArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateSecurityProfile where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateSecurityProfile where
-  toJSON CreateSecurityProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("alertTargets" Lude..=) Lude.<$> alertTargets,
-            ("additionalMetricsToRetainV2" Lude..=)
-              Lude.<$> additionalMetricsToRetainV2,
-            ("behaviors" Lude..=) Lude.<$> behaviors,
-            ("additionalMetricsToRetain" Lude..=)
-              Lude.<$> additionalMetricsToRetain,
-            ("securityProfileDescription" Lude..=)
-              Lude.<$> securityProfileDescription,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateSecurityProfile where
+  toJSON CreateSecurityProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("additionalMetricsToRetain" Core..=)
+              Core.<$> additionalMetricsToRetain,
+            ("additionalMetricsToRetainV2" Core..=)
+              Core.<$> additionalMetricsToRetainV2,
+            ("alertTargets" Core..=) Core.<$> alertTargets,
+            ("behaviors" Core..=) Core.<$> behaviors,
+            ("securityProfileDescription" Core..=)
+              Core.<$> securityProfileDescription,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateSecurityProfile where
-  toPath CreateSecurityProfile' {..} =
-    Lude.mconcat
-      ["/security-profiles/", Lude.toBS securityProfileName]
-
-instance Lude.ToQuery CreateSecurityProfile where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateSecurityProfile where
+  type Rs CreateSecurityProfile = CreateSecurityProfileResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/security-profiles/" Core.<> (Core.toText securityProfileName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateSecurityProfileResponse'
+            Core.<$> (x Core..:? "securityProfileArn")
+            Core.<*> (x Core..:? "securityProfileName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateSecurityProfileResponse' smart constructor.
 data CreateSecurityProfileResponse = CreateSecurityProfileResponse'
-  { -- | The name you gave to the security profile.
-    securityProfileName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the security profile.
-    securityProfileARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the security profile.
+    securityProfileArn :: Core.Maybe Types.SecurityProfileArn,
+    -- | The name you gave to the security profile.
+    securityProfileName :: Core.Maybe Types.SecurityProfileName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSecurityProfileResponse' with the minimum fields required to make a request.
---
--- * 'securityProfileName' - The name you gave to the security profile.
--- * 'securityProfileARN' - The ARN of the security profile.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSecurityProfileResponse' value with any optional fields omitted.
 mkCreateSecurityProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSecurityProfileResponse
-mkCreateSecurityProfileResponse pResponseStatus_ =
+mkCreateSecurityProfileResponse responseStatus =
   CreateSecurityProfileResponse'
-    { securityProfileName =
-        Lude.Nothing,
-      securityProfileARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { securityProfileArn = Core.Nothing,
+      securityProfileName = Core.Nothing,
+      responseStatus
     }
+
+-- | The ARN of the security profile.
+--
+-- /Note:/ Consider using 'securityProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csprrsSecurityProfileArn :: Lens.Lens' CreateSecurityProfileResponse (Core.Maybe Types.SecurityProfileArn)
+csprrsSecurityProfileArn = Lens.field @"securityProfileArn"
+{-# DEPRECATED csprrsSecurityProfileArn "Use generic-lens or generic-optics with 'securityProfileArn' instead." #-}
 
 -- | The name you gave to the security profile.
 --
 -- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csprsSecurityProfileName :: Lens.Lens' CreateSecurityProfileResponse (Lude.Maybe Lude.Text)
-csprsSecurityProfileName = Lens.lens (securityProfileName :: CreateSecurityProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileName = a} :: CreateSecurityProfileResponse)
-{-# DEPRECATED csprsSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
-
--- | The ARN of the security profile.
---
--- /Note:/ Consider using 'securityProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csprsSecurityProfileARN :: Lens.Lens' CreateSecurityProfileResponse (Lude.Maybe Lude.Text)
-csprsSecurityProfileARN = Lens.lens (securityProfileARN :: CreateSecurityProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileARN = a} :: CreateSecurityProfileResponse)
-{-# DEPRECATED csprsSecurityProfileARN "Use generic-lens or generic-optics with 'securityProfileARN' instead." #-}
+csprrsSecurityProfileName :: Lens.Lens' CreateSecurityProfileResponse (Core.Maybe Types.SecurityProfileName)
+csprrsSecurityProfileName = Lens.field @"securityProfileName"
+{-# DEPRECATED csprrsSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csprsResponseStatus :: Lens.Lens' CreateSecurityProfileResponse Lude.Int
-csprsResponseStatus = Lens.lens (responseStatus :: CreateSecurityProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSecurityProfileResponse)
-{-# DEPRECATED csprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csprrsResponseStatus :: Lens.Lens' CreateSecurityProfileResponse Core.Int
+csprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

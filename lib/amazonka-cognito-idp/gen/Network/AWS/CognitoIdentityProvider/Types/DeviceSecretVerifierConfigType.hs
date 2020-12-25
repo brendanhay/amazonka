@@ -22,52 +22,51 @@ module Network.AWS.CognitoIdentityProvider.Types.DeviceSecretVerifierConfigType
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.PasswordVerifier as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.Salt as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The device verifier against which it will be authenticated.
 --
 -- /See:/ 'mkDeviceSecretVerifierConfigType' smart constructor.
 data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
   { -- | The password verifier.
-    passwordVerifier :: Lude.Maybe Lude.Text,
+    passwordVerifier :: Core.Maybe Types.PasswordVerifier,
     -- | The salt.
-    salt :: Lude.Maybe Lude.Text
+    salt :: Core.Maybe Types.Salt
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeviceSecretVerifierConfigType' with the minimum fields required to make a request.
---
--- * 'passwordVerifier' - The password verifier.
--- * 'salt' - The salt.
+-- | Creates a 'DeviceSecretVerifierConfigType' value with any optional fields omitted.
 mkDeviceSecretVerifierConfigType ::
   DeviceSecretVerifierConfigType
 mkDeviceSecretVerifierConfigType =
   DeviceSecretVerifierConfigType'
-    { passwordVerifier = Lude.Nothing,
-      salt = Lude.Nothing
+    { passwordVerifier = Core.Nothing,
+      salt = Core.Nothing
     }
 
 -- | The password verifier.
 --
 -- /Note:/ Consider using 'passwordVerifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsvctPasswordVerifier :: Lens.Lens' DeviceSecretVerifierConfigType (Lude.Maybe Lude.Text)
-dsvctPasswordVerifier = Lens.lens (passwordVerifier :: DeviceSecretVerifierConfigType -> Lude.Maybe Lude.Text) (\s a -> s {passwordVerifier = a} :: DeviceSecretVerifierConfigType)
+dsvctPasswordVerifier :: Lens.Lens' DeviceSecretVerifierConfigType (Core.Maybe Types.PasswordVerifier)
+dsvctPasswordVerifier = Lens.field @"passwordVerifier"
 {-# DEPRECATED dsvctPasswordVerifier "Use generic-lens or generic-optics with 'passwordVerifier' instead." #-}
 
 -- | The salt.
 --
 -- /Note:/ Consider using 'salt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsvctSalt :: Lens.Lens' DeviceSecretVerifierConfigType (Lude.Maybe Lude.Text)
-dsvctSalt = Lens.lens (salt :: DeviceSecretVerifierConfigType -> Lude.Maybe Lude.Text) (\s a -> s {salt = a} :: DeviceSecretVerifierConfigType)
+dsvctSalt :: Lens.Lens' DeviceSecretVerifierConfigType (Core.Maybe Types.Salt)
+dsvctSalt = Lens.field @"salt"
 {-# DEPRECATED dsvctSalt "Use generic-lens or generic-optics with 'salt' instead." #-}
 
-instance Lude.ToJSON DeviceSecretVerifierConfigType where
-  toJSON DeviceSecretVerifierConfigType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PasswordVerifier" Lude..=) Lude.<$> passwordVerifier,
-            ("Salt" Lude..=) Lude.<$> salt
+instance Core.FromJSON DeviceSecretVerifierConfigType where
+  toJSON DeviceSecretVerifierConfigType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("PasswordVerifier" Core..=) Core.<$> passwordVerifier,
+            ("Salt" Core..=) Core.<$> salt
           ]
       )

@@ -17,49 +17,47 @@ module Network.AWS.RDS.Types.IPRange
     mkIPRange,
 
     -- * Lenses
-    irStatus,
-    irCIdRIP,
+    iprCIDRIP,
+    iprStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | This data type is used as a response element in the @DescribeDBSecurityGroups@ action.
 --
 -- /See:/ 'mkIPRange' smart constructor.
 data IPRange = IPRange'
-  { -- | Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
-    status :: Lude.Maybe Lude.Text,
-    -- | Specifies the IP range.
-    cIdRIP :: Lude.Maybe Lude.Text
+  { -- | Specifies the IP range.
+    cidrip :: Core.Maybe Types.String,
+    -- | Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IPRange' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
--- * 'cIdRIP' - Specifies the IP range.
+-- | Creates a 'IPRange' value with any optional fields omitted.
 mkIPRange ::
   IPRange
-mkIPRange = IPRange' {status = Lude.Nothing, cIdRIP = Lude.Nothing}
+mkIPRange = IPRange' {cidrip = Core.Nothing, status = Core.Nothing}
+
+-- | Specifies the IP range.
+--
+-- /Note:/ Consider using 'cidrip' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iprCIDRIP :: Lens.Lens' IPRange (Core.Maybe Types.String)
+iprCIDRIP = Lens.field @"cidrip"
+{-# DEPRECATED iprCIDRIP "Use generic-lens or generic-optics with 'cidrip' instead." #-}
 
 -- | Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irStatus :: Lens.Lens' IPRange (Lude.Maybe Lude.Text)
-irStatus = Lens.lens (status :: IPRange -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: IPRange)
-{-# DEPRECATED irStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+iprStatus :: Lens.Lens' IPRange (Core.Maybe Types.String)
+iprStatus = Lens.field @"status"
+{-# DEPRECATED iprStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | Specifies the IP range.
---
--- /Note:/ Consider using 'cIdRIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irCIdRIP :: Lens.Lens' IPRange (Lude.Maybe Lude.Text)
-irCIdRIP = Lens.lens (cIdRIP :: IPRange -> Lude.Maybe Lude.Text) (\s a -> s {cIdRIP = a} :: IPRange)
-{-# DEPRECATED irCIdRIP "Use generic-lens or generic-optics with 'cIdRIP' instead." #-}
-
-instance Lude.FromXML IPRange where
+instance Core.FromXML IPRange where
   parseXML x =
     IPRange'
-      Lude.<$> (x Lude..@? "Status") Lude.<*> (x Lude..@? "CIDRIP")
+      Core.<$> (x Core..@? "CIDRIP") Core.<*> (x Core..@? "Status")

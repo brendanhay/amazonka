@@ -29,101 +29,100 @@ module Network.AWS.CloudWatch.DeleteInsightRules
     mkDeleteInsightRulesResponse,
 
     -- ** Response lenses
-    dirrsFailures,
-    dirrsResponseStatus,
+    drsFailures,
+    drsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteInsightRules' smart constructor.
 newtype DeleteInsightRules = DeleteInsightRules'
   { -- | An array of the rule names to delete. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
-    ruleNames :: [Lude.Text]
+    ruleNames :: [Types.InsightRuleName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInsightRules' with the minimum fields required to make a request.
---
--- * 'ruleNames' - An array of the rule names to delete. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
+-- | Creates a 'DeleteInsightRules' value with any optional fields omitted.
 mkDeleteInsightRules ::
   DeleteInsightRules
-mkDeleteInsightRules = DeleteInsightRules' {ruleNames = Lude.mempty}
+mkDeleteInsightRules = DeleteInsightRules' {ruleNames = Core.mempty}
 
 -- | An array of the rule names to delete. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
 --
 -- /Note:/ Consider using 'ruleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRuleNames :: Lens.Lens' DeleteInsightRules [Lude.Text]
-dRuleNames = Lens.lens (ruleNames :: DeleteInsightRules -> [Lude.Text]) (\s a -> s {ruleNames = a} :: DeleteInsightRules)
+dRuleNames :: Lens.Lens' DeleteInsightRules [Types.InsightRuleName]
+dRuleNames = Lens.field @"ruleNames"
 {-# DEPRECATED dRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
 
-instance Lude.AWSRequest DeleteInsightRules where
+instance Core.AWSRequest DeleteInsightRules where
   type Rs DeleteInsightRules = DeleteInsightRulesResponse
-  request = Req.postQuery cloudWatchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteInsightRules")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> ( Core.toQueryValue
+                            "RuleNames"
+                            (Core.toQueryList "member" ruleNames)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteInsightRulesResult"
       ( \s h x ->
           DeleteInsightRulesResponse'
-            Lude.<$> ( x Lude..@? "Failures" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Failures" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteInsightRules where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteInsightRules where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteInsightRules where
-  toQuery DeleteInsightRules' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteInsightRules" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "RuleNames" Lude.=: Lude.toQueryList "member" ruleNames
-      ]
 
 -- | /See:/ 'mkDeleteInsightRulesResponse' smart constructor.
 data DeleteInsightRulesResponse = DeleteInsightRulesResponse'
   { -- | An array listing the rules that could not be deleted. You cannot delete built-in rules.
-    failures :: Lude.Maybe [PartialFailure],
+    failures :: Core.Maybe [Types.PartialFailure],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInsightRulesResponse' with the minimum fields required to make a request.
---
--- * 'failures' - An array listing the rules that could not be deleted. You cannot delete built-in rules.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteInsightRulesResponse' value with any optional fields omitted.
 mkDeleteInsightRulesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteInsightRulesResponse
-mkDeleteInsightRulesResponse pResponseStatus_ =
+mkDeleteInsightRulesResponse responseStatus =
   DeleteInsightRulesResponse'
-    { failures = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failures = Core.Nothing,
+      responseStatus
     }
 
 -- | An array listing the rules that could not be deleted. You cannot delete built-in rules.
 --
 -- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirrsFailures :: Lens.Lens' DeleteInsightRulesResponse (Lude.Maybe [PartialFailure])
-dirrsFailures = Lens.lens (failures :: DeleteInsightRulesResponse -> Lude.Maybe [PartialFailure]) (\s a -> s {failures = a} :: DeleteInsightRulesResponse)
-{-# DEPRECATED dirrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
+drsFailures :: Lens.Lens' DeleteInsightRulesResponse (Core.Maybe [Types.PartialFailure])
+drsFailures = Lens.field @"failures"
+{-# DEPRECATED drsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirrsResponseStatus :: Lens.Lens' DeleteInsightRulesResponse Lude.Int
-dirrsResponseStatus = Lens.lens (responseStatus :: DeleteInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInsightRulesResponse)
-{-# DEPRECATED dirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DeleteInsightRulesResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

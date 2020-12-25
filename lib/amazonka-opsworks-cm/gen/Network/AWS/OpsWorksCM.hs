@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -66,10 +65,28 @@
 -- All API operations allow for five requests per second with a burst of 10 requests per second.
 module Network.AWS.OpsWorksCM
   ( -- * Service configuration
-    opsWorksCMService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -139,113 +156,174 @@ module Network.AWS.OpsWorksCM
 
     -- * Types
 
-    -- ** BackupStatus
-    BackupStatus (..),
+    -- ** ServiceRoleArn
+    ServiceRoleArn (..),
 
-    -- ** BackupType
-    BackupType (..),
+    -- ** TimeWindowDefinition
+    TimeWindowDefinition (..),
 
-    -- ** MaintenanceStatus
-    MaintenanceStatus (..),
+    -- ** InstanceProfileArn
+    InstanceProfileArn (..),
 
-    -- ** NodeAssociationStatus
-    NodeAssociationStatus (..),
-
-    -- ** ServerStatus
-    ServerStatus (..),
-
-    -- ** AccountAttribute
-    AccountAttribute (..),
-    mkAccountAttribute,
-    aaUsed,
-    aaMaximum,
-    aaName,
-
-    -- ** Backup
-    Backup (..),
-    mkBackup,
-    bEngineVersion,
-    bServiceRoleARN,
-    bStatus,
-    bInstanceProfileARN,
-    bSecurityGroupIds,
-    bStatusDescription,
-    bServerName,
-    bSubnetIds,
-    bKeyPair,
-    bCreatedAt,
-    bBackupId,
-    bEngine,
-    bInstanceType,
-    bEngineModel,
-    bPreferredMaintenanceWindow,
-    bUserARN,
-    bPreferredBackupWindow,
-    bS3LogURL,
-    bS3DataSize,
-    bBackupARN,
-    bS3DataURL,
-    bDescription,
-    bBackupType,
-    bToolsVersion,
-
-    -- ** EngineAttribute
-    EngineAttribute (..),
-    mkEngineAttribute,
-    eaValue,
-    eaName,
-
-    -- ** Server
-    Server (..),
-    mkServer,
-    sEngineVersion,
-    sServiceRoleARN,
-    sDisableAutomatedBackup,
-    sStatus,
-    sInstanceProfileARN,
-    sSecurityGroupIds,
-    sAssociatePublicIPAddress,
-    sServerName,
-    sSubnetIds,
-    sKeyPair,
-    sCreatedAt,
-    sServerARN,
-    sCustomDomain,
-    sEngine,
-    sMaintenanceStatus,
-    sInstanceType,
-    sEngineModel,
-    sEngineAttributes,
-    sPreferredMaintenanceWindow,
-    sPreferredBackupWindow,
-    sStatusReason,
-    sEndpoint,
-    sCloudFormationStackARN,
-    sBackupRetentionCount,
-
-    -- ** ServerEvent
-    ServerEvent (..),
-    mkServerEvent,
-    seLogURL,
-    seServerName,
-    seCreatedAt,
-    seMessage,
+    -- ** AttributeValue
+    AttributeValue (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** ServerName
+    ServerName (..),
+
+    -- ** EngineAttributeName
+    EngineAttributeName (..),
+
+    -- ** String
+    String (..),
+
+    -- ** KeyPair
+    KeyPair (..),
+
+    -- ** BackupId
+    BackupId (..),
+
+    -- ** CustomDomain
+    CustomDomain (..),
+
+    -- ** Backup
+    Backup (..),
+    mkBackup,
+    bBackupArn,
+    bBackupId,
+    bBackupType,
+    bCreatedAt,
+    bDescription,
+    bEngine,
+    bEngineModel,
+    bEngineVersion,
+    bInstanceProfileArn,
+    bInstanceType,
+    bKeyPair,
+    bPreferredBackupWindow,
+    bPreferredMaintenanceWindow,
+    bS3DataSize,
+    bS3DataUrl,
+    bS3LogUrl,
+    bSecurityGroupIds,
+    bServerName,
+    bServiceRoleArn,
+    bStatus,
+    bStatusDescription,
+    bSubnetIds,
+    bToolsVersion,
+    bUserArn,
+
+    -- ** MaintenanceStatus
+    MaintenanceStatus (..),
+
+    -- ** CustomPrivateKey
+    CustomPrivateKey (..),
+
+    -- ** ServerEvent
+    ServerEvent (..),
+    mkServerEvent,
+    seCreatedAt,
+    seLogUrl,
+    seMessage,
+    seServerName,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** NodeName
+    NodeName (..),
+
+    -- ** BackupStatus
+    BackupStatus (..),
+
+    -- ** EngineAttribute
+    EngineAttribute (..),
+    mkEngineAttribute,
+    eaName,
+    eaValue,
+
+    -- ** AWSOpsWorksCMResourceArn
+    AWSOpsWorksCMResourceArn (..),
+
+    -- ** NodeAssociationStatus
+    NodeAssociationStatus (..),
+
+    -- ** AccountAttribute
+    AccountAttribute (..),
+    mkAccountAttribute,
+    aaMaximum,
+    aaName,
+    aaUsed,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Server
+    Server (..),
+    mkServer,
+    sAssociatePublicIpAddress,
+    sBackupRetentionCount,
+    sCloudFormationStackArn,
+    sCreatedAt,
+    sCustomDomain,
+    sDisableAutomatedBackup,
+    sEndpoint,
+    sEngine,
+    sEngineAttributes,
+    sEngineModel,
+    sEngineVersion,
+    sInstanceProfileArn,
+    sInstanceType,
+    sKeyPair,
+    sMaintenanceStatus,
+    sPreferredBackupWindow,
+    sPreferredMaintenanceWindow,
+    sSecurityGroupIds,
+    sServerArn,
+    sServerName,
+    sServiceRoleArn,
+    sStatus,
+    sStatusReason,
+    sSubnetIds,
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** CustomCertificate
+    CustomCertificate (..),
+
+    -- ** NodeAssociationStatusToken
+    NodeAssociationStatusToken (..),
+
+    -- ** BackupType
+    BackupType (..),
+
+    -- ** ServerStatus
+    ServerStatus (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.AddressStatus
   ( AddressStatus
       ( AddressStatus',
-        MoveInProgress,
-        InVPC,
-        InClassic
+        AddressStatusMoveInProgress,
+        AddressStatusInVpc,
+        AddressStatusInClassic,
+        fromAddressStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AddressStatus = AddressStatus' Lude.Text
+newtype AddressStatus = AddressStatus'
+  { fromAddressStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MoveInProgress :: AddressStatus
-pattern MoveInProgress = AddressStatus' "MoveInProgress"
+pattern AddressStatusMoveInProgress :: AddressStatus
+pattern AddressStatusMoveInProgress = AddressStatus' "MoveInProgress"
 
-pattern InVPC :: AddressStatus
-pattern InVPC = AddressStatus' "InVpc"
+pattern AddressStatusInVpc :: AddressStatus
+pattern AddressStatusInVpc = AddressStatus' "InVpc"
 
-pattern InClassic :: AddressStatus
-pattern InClassic = AddressStatus' "InClassic"
+pattern AddressStatusInClassic :: AddressStatus
+pattern AddressStatusInClassic = AddressStatus' "InClassic"
 
 {-# COMPLETE
-  MoveInProgress,
-  InVPC,
-  InClassic,
+  AddressStatusMoveInProgress,
+  AddressStatusInVpc,
+  AddressStatusInClassic,
   AddressStatus'
   #-}

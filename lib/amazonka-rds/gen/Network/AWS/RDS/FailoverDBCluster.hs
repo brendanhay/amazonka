@@ -24,24 +24,24 @@ module Network.AWS.RDS.FailoverDBCluster
     mkFailoverDBCluster,
 
     -- ** Request lenses
-    fdcDBClusterIdentifier,
-    fdcTargetDBInstanceIdentifier,
+    fdbcDBClusterIdentifier,
+    fdbcTargetDBInstanceIdentifier,
 
     -- * Destructuring the response
     FailoverDBClusterResponse (..),
     mkFailoverDBClusterResponse,
 
     -- ** Response lenses
-    fdcrsDBCluster,
-    fdcrsResponseStatus,
+    fdbcrrsDBCluster,
+    fdbcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -52,35 +52,24 @@ data FailoverDBCluster = FailoverDBCluster'
     -- Constraints:
     --
     --     * Must match the identifier of an existing DBCluster.
-    dbClusterIdentifier :: Lude.Text,
+    dBClusterIdentifier :: Types.String,
     -- | The name of the instance to promote to the primary instance.
     --
     -- You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
-    targetDBInstanceIdentifier :: Lude.Maybe Lude.Text
+    targetDBInstanceIdentifier :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailoverDBCluster' with the minimum fields required to make a request.
---
--- * 'dbClusterIdentifier' - A DB cluster identifier to force a failover for. This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBCluster.
---
---
--- * 'targetDBInstanceIdentifier' - The name of the instance to promote to the primary instance.
---
--- You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
+-- | Creates a 'FailoverDBCluster' value with any optional fields omitted.
 mkFailoverDBCluster ::
-  -- | 'dbClusterIdentifier'
-  Lude.Text ->
+  -- | 'dBClusterIdentifier'
+  Types.String ->
   FailoverDBCluster
-mkFailoverDBCluster pDBClusterIdentifier_ =
+mkFailoverDBCluster dBClusterIdentifier =
   FailoverDBCluster'
-    { dbClusterIdentifier = pDBClusterIdentifier_,
-      targetDBInstanceIdentifier = Lude.Nothing
+    { dBClusterIdentifier,
+      targetDBInstanceIdentifier = Core.Nothing
     }
 
 -- | A DB cluster identifier to force a failover for. This parameter isn't case-sensitive.
@@ -91,79 +80,81 @@ mkFailoverDBCluster pDBClusterIdentifier_ =
 --
 --
 --
--- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdcDBClusterIdentifier :: Lens.Lens' FailoverDBCluster Lude.Text
-fdcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: FailoverDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: FailoverDBCluster)
-{-# DEPRECATED fdcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdbcDBClusterIdentifier :: Lens.Lens' FailoverDBCluster Types.String
+fdbcDBClusterIdentifier = Lens.field @"dBClusterIdentifier"
+{-# DEPRECATED fdbcDBClusterIdentifier "Use generic-lens or generic-optics with 'dBClusterIdentifier' instead." #-}
 
 -- | The name of the instance to promote to the primary instance.
 --
 -- You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
 --
 -- /Note:/ Consider using 'targetDBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdcTargetDBInstanceIdentifier :: Lens.Lens' FailoverDBCluster (Lude.Maybe Lude.Text)
-fdcTargetDBInstanceIdentifier = Lens.lens (targetDBInstanceIdentifier :: FailoverDBCluster -> Lude.Maybe Lude.Text) (\s a -> s {targetDBInstanceIdentifier = a} :: FailoverDBCluster)
-{-# DEPRECATED fdcTargetDBInstanceIdentifier "Use generic-lens or generic-optics with 'targetDBInstanceIdentifier' instead." #-}
+fdbcTargetDBInstanceIdentifier :: Lens.Lens' FailoverDBCluster (Core.Maybe Types.String)
+fdbcTargetDBInstanceIdentifier = Lens.field @"targetDBInstanceIdentifier"
+{-# DEPRECATED fdbcTargetDBInstanceIdentifier "Use generic-lens or generic-optics with 'targetDBInstanceIdentifier' instead." #-}
 
-instance Lude.AWSRequest FailoverDBCluster where
+instance Core.AWSRequest FailoverDBCluster where
   type Rs FailoverDBCluster = FailoverDBClusterResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "FailoverDBCluster")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBClusterIdentifier" dBClusterIdentifier)
+                Core.<> ( Core.toQueryValue "TargetDBInstanceIdentifier"
+                            Core.<$> targetDBInstanceIdentifier
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "FailoverDBClusterResult"
       ( \s h x ->
           FailoverDBClusterResponse'
-            Lude.<$> (x Lude..@? "DBCluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBCluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders FailoverDBCluster where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath FailoverDBCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery FailoverDBCluster where
-  toQuery FailoverDBCluster' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("FailoverDBCluster" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
-        "TargetDBInstanceIdentifier" Lude.=: targetDBInstanceIdentifier
-      ]
 
 -- | /See:/ 'mkFailoverDBClusterResponse' smart constructor.
 data FailoverDBClusterResponse = FailoverDBClusterResponse'
-  { dbCluster :: Lude.Maybe DBCluster,
+  { dBCluster :: Core.Maybe Types.DBCluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FailoverDBClusterResponse' with the minimum fields required to make a request.
---
--- * 'dbCluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'FailoverDBClusterResponse' value with any optional fields omitted.
 mkFailoverDBClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   FailoverDBClusterResponse
-mkFailoverDBClusterResponse pResponseStatus_ =
+mkFailoverDBClusterResponse responseStatus =
   FailoverDBClusterResponse'
-    { dbCluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBCluster = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdcrsDBCluster :: Lens.Lens' FailoverDBClusterResponse (Lude.Maybe DBCluster)
-fdcrsDBCluster = Lens.lens (dbCluster :: FailoverDBClusterResponse -> Lude.Maybe DBCluster) (\s a -> s {dbCluster = a} :: FailoverDBClusterResponse)
-{-# DEPRECATED fdcrsDBCluster "Use generic-lens or generic-optics with 'dbCluster' instead." #-}
+-- /Note:/ Consider using 'dBCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdbcrrsDBCluster :: Lens.Lens' FailoverDBClusterResponse (Core.Maybe Types.DBCluster)
+fdbcrrsDBCluster = Lens.field @"dBCluster"
+{-# DEPRECATED fdbcrrsDBCluster "Use generic-lens or generic-optics with 'dBCluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdcrsResponseStatus :: Lens.Lens' FailoverDBClusterResponse Lude.Int
-fdcrsResponseStatus = Lens.lens (responseStatus :: FailoverDBClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: FailoverDBClusterResponse)
-{-# DEPRECATED fdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+fdbcrrsResponseStatus :: Lens.Lens' FailoverDBClusterResponse Core.Int
+fdbcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED fdbcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

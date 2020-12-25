@@ -42,79 +42,76 @@ module Network.AWS.IAM.TagUser
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagUser' smart constructor.
 data TagUser = TagUser'
   { -- | The name of the user that you want to add tags to.
     --
     -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
-    userName :: Lude.Text,
+    userName :: Types.UserName,
     -- | The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagUser' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the user that you want to add tags to.
---
--- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
--- * 'tags' - The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
+-- | Creates a 'TagUser' value with any optional fields omitted.
 mkTagUser ::
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
   TagUser
-mkTagUser pUserName_ =
-  TagUser' {userName = pUserName_, tags = Lude.mempty}
+mkTagUser userName = TagUser' {userName, tags = Core.mempty}
 
 -- | The name of the user that you want to add tags to.
 --
 -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tuUserName :: Lens.Lens' TagUser Lude.Text
-tuUserName = Lens.lens (userName :: TagUser -> Lude.Text) (\s a -> s {userName = a} :: TagUser)
+tuUserName :: Lens.Lens' TagUser Types.UserName
+tuUserName = Lens.field @"userName"
 {-# DEPRECATED tuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tuTags :: Lens.Lens' TagUser [Tag]
-tuTags = Lens.lens (tags :: TagUser -> [Tag]) (\s a -> s {tags = a} :: TagUser)
+tuTags :: Lens.Lens' TagUser [Types.Tag]
+tuTags = Lens.field @"tags"
 {-# DEPRECATED tuTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagUser where
+instance Core.AWSRequest TagUser where
   type Rs TagUser = TagUserResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull TagUserResponse'
-
-instance Lude.ToHeaders TagUser where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath TagUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagUser where
-  toQuery TagUser' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("TagUser" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "Tags" Lude.=: Lude.toQueryList "member" tags
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "TagUser")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "member" tags))
+            )
+      }
+  response = Response.receiveNull TagUserResponse'
 
 -- | /See:/ 'mkTagUserResponse' smart constructor.
 data TagUserResponse = TagUserResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagUserResponse' with the minimum fields required to make a request.
+-- | Creates a 'TagUserResponse' value with any optional fields omitted.
 mkTagUserResponse ::
   TagUserResponse
 mkTagUserResponse = TagUserResponse'

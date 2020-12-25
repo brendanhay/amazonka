@@ -18,107 +18,101 @@ module Network.AWS.Redshift.Types.DataTransferProgress
 
     -- * Lenses
     dtpCurrentRateInMegaBytesPerSecond,
-    dtpStatus,
-    dtpEstimatedTimeToCompletionInSeconds,
     dtpDataTransferredInMegaBytes,
-    dtpTotalDataInMegaBytes,
     dtpElapsedTimeInSeconds,
+    dtpEstimatedTimeToCompletionInSeconds,
+    dtpStatus,
+    dtpTotalDataInMegaBytes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes the status of a cluster while it is in the process of resizing with an incremental resize.
 --
 -- /See:/ 'mkDataTransferProgress' smart constructor.
 data DataTransferProgress = DataTransferProgress'
   { -- | Describes the data transfer rate in MB's per second.
-    currentRateInMegaBytesPerSecond :: Lude.Maybe Lude.Double,
-    -- | Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
-    status :: Lude.Maybe Lude.Text,
-    -- | Describes the estimated number of seconds remaining to complete the transfer.
-    estimatedTimeToCompletionInSeconds :: Lude.Maybe Lude.Integer,
+    currentRateInMegaBytesPerSecond :: Core.Maybe Core.Double,
     -- | Describes the total amount of data that has been transfered in MB's.
-    dataTransferredInMegaBytes :: Lude.Maybe Lude.Integer,
-    -- | Describes the total amount of data to be transfered in megabytes.
-    totalDataInMegaBytes :: Lude.Maybe Lude.Integer,
+    dataTransferredInMegaBytes :: Core.Maybe Core.Integer,
     -- | Describes the number of seconds that have elapsed during the data transfer.
-    elapsedTimeInSeconds :: Lude.Maybe Lude.Integer
+    elapsedTimeInSeconds :: Core.Maybe Core.Integer,
+    -- | Describes the estimated number of seconds remaining to complete the transfer.
+    estimatedTimeToCompletionInSeconds :: Core.Maybe Core.Integer,
+    -- | Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
+    status :: Core.Maybe Types.String,
+    -- | Describes the total amount of data to be transfered in megabytes.
+    totalDataInMegaBytes :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DataTransferProgress' with the minimum fields required to make a request.
---
--- * 'currentRateInMegaBytesPerSecond' - Describes the data transfer rate in MB's per second.
--- * 'status' - Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
--- * 'estimatedTimeToCompletionInSeconds' - Describes the estimated number of seconds remaining to complete the transfer.
--- * 'dataTransferredInMegaBytes' - Describes the total amount of data that has been transfered in MB's.
--- * 'totalDataInMegaBytes' - Describes the total amount of data to be transfered in megabytes.
--- * 'elapsedTimeInSeconds' - Describes the number of seconds that have elapsed during the data transfer.
+-- | Creates a 'DataTransferProgress' value with any optional fields omitted.
 mkDataTransferProgress ::
   DataTransferProgress
 mkDataTransferProgress =
   DataTransferProgress'
     { currentRateInMegaBytesPerSecond =
-        Lude.Nothing,
-      status = Lude.Nothing,
-      estimatedTimeToCompletionInSeconds = Lude.Nothing,
-      dataTransferredInMegaBytes = Lude.Nothing,
-      totalDataInMegaBytes = Lude.Nothing,
-      elapsedTimeInSeconds = Lude.Nothing
+        Core.Nothing,
+      dataTransferredInMegaBytes = Core.Nothing,
+      elapsedTimeInSeconds = Core.Nothing,
+      estimatedTimeToCompletionInSeconds = Core.Nothing,
+      status = Core.Nothing,
+      totalDataInMegaBytes = Core.Nothing
     }
 
 -- | Describes the data transfer rate in MB's per second.
 --
 -- /Note:/ Consider using 'currentRateInMegaBytesPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpCurrentRateInMegaBytesPerSecond :: Lens.Lens' DataTransferProgress (Lude.Maybe Lude.Double)
-dtpCurrentRateInMegaBytesPerSecond = Lens.lens (currentRateInMegaBytesPerSecond :: DataTransferProgress -> Lude.Maybe Lude.Double) (\s a -> s {currentRateInMegaBytesPerSecond = a} :: DataTransferProgress)
+dtpCurrentRateInMegaBytesPerSecond :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Double)
+dtpCurrentRateInMegaBytesPerSecond = Lens.field @"currentRateInMegaBytesPerSecond"
 {-# DEPRECATED dtpCurrentRateInMegaBytesPerSecond "Use generic-lens or generic-optics with 'currentRateInMegaBytesPerSecond' instead." #-}
-
--- | Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpStatus :: Lens.Lens' DataTransferProgress (Lude.Maybe Lude.Text)
-dtpStatus = Lens.lens (status :: DataTransferProgress -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DataTransferProgress)
-{-# DEPRECATED dtpStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Describes the estimated number of seconds remaining to complete the transfer.
---
--- /Note:/ Consider using 'estimatedTimeToCompletionInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpEstimatedTimeToCompletionInSeconds :: Lens.Lens' DataTransferProgress (Lude.Maybe Lude.Integer)
-dtpEstimatedTimeToCompletionInSeconds = Lens.lens (estimatedTimeToCompletionInSeconds :: DataTransferProgress -> Lude.Maybe Lude.Integer) (\s a -> s {estimatedTimeToCompletionInSeconds = a} :: DataTransferProgress)
-{-# DEPRECATED dtpEstimatedTimeToCompletionInSeconds "Use generic-lens or generic-optics with 'estimatedTimeToCompletionInSeconds' instead." #-}
 
 -- | Describes the total amount of data that has been transfered in MB's.
 --
 -- /Note:/ Consider using 'dataTransferredInMegaBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpDataTransferredInMegaBytes :: Lens.Lens' DataTransferProgress (Lude.Maybe Lude.Integer)
-dtpDataTransferredInMegaBytes = Lens.lens (dataTransferredInMegaBytes :: DataTransferProgress -> Lude.Maybe Lude.Integer) (\s a -> s {dataTransferredInMegaBytes = a} :: DataTransferProgress)
+dtpDataTransferredInMegaBytes :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Integer)
+dtpDataTransferredInMegaBytes = Lens.field @"dataTransferredInMegaBytes"
 {-# DEPRECATED dtpDataTransferredInMegaBytes "Use generic-lens or generic-optics with 'dataTransferredInMegaBytes' instead." #-}
-
--- | Describes the total amount of data to be transfered in megabytes.
---
--- /Note:/ Consider using 'totalDataInMegaBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpTotalDataInMegaBytes :: Lens.Lens' DataTransferProgress (Lude.Maybe Lude.Integer)
-dtpTotalDataInMegaBytes = Lens.lens (totalDataInMegaBytes :: DataTransferProgress -> Lude.Maybe Lude.Integer) (\s a -> s {totalDataInMegaBytes = a} :: DataTransferProgress)
-{-# DEPRECATED dtpTotalDataInMegaBytes "Use generic-lens or generic-optics with 'totalDataInMegaBytes' instead." #-}
 
 -- | Describes the number of seconds that have elapsed during the data transfer.
 --
 -- /Note:/ Consider using 'elapsedTimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpElapsedTimeInSeconds :: Lens.Lens' DataTransferProgress (Lude.Maybe Lude.Integer)
-dtpElapsedTimeInSeconds = Lens.lens (elapsedTimeInSeconds :: DataTransferProgress -> Lude.Maybe Lude.Integer) (\s a -> s {elapsedTimeInSeconds = a} :: DataTransferProgress)
+dtpElapsedTimeInSeconds :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Integer)
+dtpElapsedTimeInSeconds = Lens.field @"elapsedTimeInSeconds"
 {-# DEPRECATED dtpElapsedTimeInSeconds "Use generic-lens or generic-optics with 'elapsedTimeInSeconds' instead." #-}
 
-instance Lude.FromXML DataTransferProgress where
+-- | Describes the estimated number of seconds remaining to complete the transfer.
+--
+-- /Note:/ Consider using 'estimatedTimeToCompletionInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpEstimatedTimeToCompletionInSeconds :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Integer)
+dtpEstimatedTimeToCompletionInSeconds = Lens.field @"estimatedTimeToCompletionInSeconds"
+{-# DEPRECATED dtpEstimatedTimeToCompletionInSeconds "Use generic-lens or generic-optics with 'estimatedTimeToCompletionInSeconds' instead." #-}
+
+-- | Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpStatus :: Lens.Lens' DataTransferProgress (Core.Maybe Types.String)
+dtpStatus = Lens.field @"status"
+{-# DEPRECATED dtpStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | Describes the total amount of data to be transfered in megabytes.
+--
+-- /Note:/ Consider using 'totalDataInMegaBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpTotalDataInMegaBytes :: Lens.Lens' DataTransferProgress (Core.Maybe Core.Integer)
+dtpTotalDataInMegaBytes = Lens.field @"totalDataInMegaBytes"
+{-# DEPRECATED dtpTotalDataInMegaBytes "Use generic-lens or generic-optics with 'totalDataInMegaBytes' instead." #-}
+
+instance Core.FromXML DataTransferProgress where
   parseXML x =
     DataTransferProgress'
-      Lude.<$> (x Lude..@? "CurrentRateInMegaBytesPerSecond")
-      Lude.<*> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "EstimatedTimeToCompletionInSeconds")
-      Lude.<*> (x Lude..@? "DataTransferredInMegaBytes")
-      Lude.<*> (x Lude..@? "TotalDataInMegaBytes")
-      Lude.<*> (x Lude..@? "ElapsedTimeInSeconds")
+      Core.<$> (x Core..@? "CurrentRateInMegaBytesPerSecond")
+      Core.<*> (x Core..@? "DataTransferredInMegaBytes")
+      Core.<*> (x Core..@? "ElapsedTimeInSeconds")
+      Core.<*> (x Core..@? "EstimatedTimeToCompletionInSeconds")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "TotalDataInMegaBytes")

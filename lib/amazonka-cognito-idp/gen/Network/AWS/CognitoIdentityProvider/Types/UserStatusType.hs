@@ -13,71 +13,76 @@
 module Network.AWS.CognitoIdentityProvider.Types.UserStatusType
   ( UserStatusType
       ( UserStatusType',
-        Unconfirmed,
-        Confirmed,
-        Archived,
-        Compromised,
-        Unknown,
-        ResetRequired,
-        ForceChangePassword
+        UserStatusTypeUnconfirmed,
+        UserStatusTypeConfirmed,
+        UserStatusTypeArchived,
+        UserStatusTypeCompromised,
+        UserStatusTypeUnknown,
+        UserStatusTypeResetRequired,
+        UserStatusTypeForceChangePassword,
+        fromUserStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserStatusType = UserStatusType' Lude.Text
+newtype UserStatusType = UserStatusType'
+  { fromUserStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Unconfirmed :: UserStatusType
-pattern Unconfirmed = UserStatusType' "UNCONFIRMED"
+pattern UserStatusTypeUnconfirmed :: UserStatusType
+pattern UserStatusTypeUnconfirmed = UserStatusType' "UNCONFIRMED"
 
-pattern Confirmed :: UserStatusType
-pattern Confirmed = UserStatusType' "CONFIRMED"
+pattern UserStatusTypeConfirmed :: UserStatusType
+pattern UserStatusTypeConfirmed = UserStatusType' "CONFIRMED"
 
-pattern Archived :: UserStatusType
-pattern Archived = UserStatusType' "ARCHIVED"
+pattern UserStatusTypeArchived :: UserStatusType
+pattern UserStatusTypeArchived = UserStatusType' "ARCHIVED"
 
-pattern Compromised :: UserStatusType
-pattern Compromised = UserStatusType' "COMPROMISED"
+pattern UserStatusTypeCompromised :: UserStatusType
+pattern UserStatusTypeCompromised = UserStatusType' "COMPROMISED"
 
-pattern Unknown :: UserStatusType
-pattern Unknown = UserStatusType' "UNKNOWN"
+pattern UserStatusTypeUnknown :: UserStatusType
+pattern UserStatusTypeUnknown = UserStatusType' "UNKNOWN"
 
-pattern ResetRequired :: UserStatusType
-pattern ResetRequired = UserStatusType' "RESET_REQUIRED"
+pattern UserStatusTypeResetRequired :: UserStatusType
+pattern UserStatusTypeResetRequired = UserStatusType' "RESET_REQUIRED"
 
-pattern ForceChangePassword :: UserStatusType
-pattern ForceChangePassword = UserStatusType' "FORCE_CHANGE_PASSWORD"
+pattern UserStatusTypeForceChangePassword :: UserStatusType
+pattern UserStatusTypeForceChangePassword = UserStatusType' "FORCE_CHANGE_PASSWORD"
 
 {-# COMPLETE
-  Unconfirmed,
-  Confirmed,
-  Archived,
-  Compromised,
-  Unknown,
-  ResetRequired,
-  ForceChangePassword,
+  UserStatusTypeUnconfirmed,
+  UserStatusTypeConfirmed,
+  UserStatusTypeArchived,
+  UserStatusTypeCompromised,
+  UserStatusTypeUnknown,
+  UserStatusTypeResetRequired,
+  UserStatusTypeForceChangePassword,
   UserStatusType'
   #-}

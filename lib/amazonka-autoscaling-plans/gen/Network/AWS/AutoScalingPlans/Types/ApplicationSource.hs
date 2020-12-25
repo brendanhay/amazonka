@@ -17,69 +17,65 @@ module Network.AWS.AutoScalingPlans.Types.ApplicationSource
     mkApplicationSource,
 
     -- * Lenses
-    asTagFilters,
     asCloudFormationStackARN,
+    asTagFilters,
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types.TagFilter
+import qualified Network.AWS.AutoScalingPlans.Types.TagFilter as Types
+import qualified Network.AWS.AutoScalingPlans.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an application source.
 --
 -- /See:/ 'mkApplicationSource' smart constructor.
 data ApplicationSource = ApplicationSource'
-  { -- | A set of tags (up to 50).
-    tagFilters :: Lude.Maybe [TagFilter],
-    -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-    cloudFormationStackARN :: Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+    cloudFormationStackARN :: Core.Maybe Types.XmlString,
+    -- | A set of tags (up to 50).
+    tagFilters :: Core.Maybe [Types.TagFilter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationSource' with the minimum fields required to make a request.
---
--- * 'tagFilters' - A set of tags (up to 50).
--- * 'cloudFormationStackARN' - The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+-- | Creates a 'ApplicationSource' value with any optional fields omitted.
 mkApplicationSource ::
   ApplicationSource
 mkApplicationSource =
   ApplicationSource'
-    { tagFilters = Lude.Nothing,
-      cloudFormationStackARN = Lude.Nothing
+    { cloudFormationStackARN = Core.Nothing,
+      tagFilters = Core.Nothing
     }
-
--- | A set of tags (up to 50).
---
--- /Note:/ Consider using 'tagFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asTagFilters :: Lens.Lens' ApplicationSource (Lude.Maybe [TagFilter])
-asTagFilters = Lens.lens (tagFilters :: ApplicationSource -> Lude.Maybe [TagFilter]) (\s a -> s {tagFilters = a} :: ApplicationSource)
-{-# DEPRECATED asTagFilters "Use generic-lens or generic-optics with 'tagFilters' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
 --
 -- /Note:/ Consider using 'cloudFormationStackARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asCloudFormationStackARN :: Lens.Lens' ApplicationSource (Lude.Maybe Lude.Text)
-asCloudFormationStackARN = Lens.lens (cloudFormationStackARN :: ApplicationSource -> Lude.Maybe Lude.Text) (\s a -> s {cloudFormationStackARN = a} :: ApplicationSource)
+asCloudFormationStackARN :: Lens.Lens' ApplicationSource (Core.Maybe Types.XmlString)
+asCloudFormationStackARN = Lens.field @"cloudFormationStackARN"
 {-# DEPRECATED asCloudFormationStackARN "Use generic-lens or generic-optics with 'cloudFormationStackARN' instead." #-}
 
-instance Lude.FromJSON ApplicationSource where
-  parseJSON =
-    Lude.withObject
-      "ApplicationSource"
-      ( \x ->
-          ApplicationSource'
-            Lude.<$> (x Lude..:? "TagFilters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CloudFormationStackARN")
-      )
+-- | A set of tags (up to 50).
+--
+-- /Note:/ Consider using 'tagFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asTagFilters :: Lens.Lens' ApplicationSource (Core.Maybe [Types.TagFilter])
+asTagFilters = Lens.field @"tagFilters"
+{-# DEPRECATED asTagFilters "Use generic-lens or generic-optics with 'tagFilters' instead." #-}
 
-instance Lude.ToJSON ApplicationSource where
-  toJSON ApplicationSource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TagFilters" Lude..=) Lude.<$> tagFilters,
-            ("CloudFormationStackARN" Lude..=)
-              Lude.<$> cloudFormationStackARN
+instance Core.FromJSON ApplicationSource where
+  toJSON ApplicationSource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CloudFormationStackARN" Core..=)
+              Core.<$> cloudFormationStackARN,
+            ("TagFilters" Core..=) Core.<$> tagFilters
           ]
       )
+
+instance Core.FromJSON ApplicationSource where
+  parseJSON =
+    Core.withObject "ApplicationSource" Core.$
+      \x ->
+        ApplicationSource'
+          Core.<$> (x Core..:? "CloudFormationStackARN")
+          Core.<*> (x Core..:? "TagFilters")

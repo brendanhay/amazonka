@@ -22,44 +22,40 @@ module Network.AWS.MediaPackage.Types.MssEncryption
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.SpekeKeyProvider
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaPackage.Types.SpekeKeyProvider as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A Microsoft Smooth Streaming (MSS) encryption configuration.
 --
 -- /See:/ 'mkMssEncryption' smart constructor.
 newtype MssEncryption = MssEncryption'
-  { spekeKeyProvider :: SpekeKeyProvider
+  { spekeKeyProvider :: Types.SpekeKeyProvider
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MssEncryption' with the minimum fields required to make a request.
---
--- * 'spekeKeyProvider' -
+-- | Creates a 'MssEncryption' value with any optional fields omitted.
 mkMssEncryption ::
   -- | 'spekeKeyProvider'
-  SpekeKeyProvider ->
+  Types.SpekeKeyProvider ->
   MssEncryption
-mkMssEncryption pSpekeKeyProvider_ =
-  MssEncryption' {spekeKeyProvider = pSpekeKeyProvider_}
+mkMssEncryption spekeKeyProvider = MssEncryption' {spekeKeyProvider}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'spekeKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meSpekeKeyProvider :: Lens.Lens' MssEncryption SpekeKeyProvider
-meSpekeKeyProvider = Lens.lens (spekeKeyProvider :: MssEncryption -> SpekeKeyProvider) (\s a -> s {spekeKeyProvider = a} :: MssEncryption)
+meSpekeKeyProvider :: Lens.Lens' MssEncryption Types.SpekeKeyProvider
+meSpekeKeyProvider = Lens.field @"spekeKeyProvider"
 {-# DEPRECATED meSpekeKeyProvider "Use generic-lens or generic-optics with 'spekeKeyProvider' instead." #-}
 
-instance Lude.FromJSON MssEncryption where
-  parseJSON =
-    Lude.withObject
-      "MssEncryption"
-      (\x -> MssEncryption' Lude.<$> (x Lude..: "spekeKeyProvider"))
-
-instance Lude.ToJSON MssEncryption where
-  toJSON MssEncryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("spekeKeyProvider" Lude..= spekeKeyProvider)]
+instance Core.FromJSON MssEncryption where
+  toJSON MssEncryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("spekeKeyProvider" Core..= spekeKeyProvider)]
       )
+
+instance Core.FromJSON MssEncryption where
+  parseJSON =
+    Core.withObject "MssEncryption" Core.$
+      \x -> MssEncryption' Core.<$> (x Core..: "spekeKeyProvider")

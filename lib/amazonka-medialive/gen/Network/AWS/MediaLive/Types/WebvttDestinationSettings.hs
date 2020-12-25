@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.WebvttDestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Webvtt Destination Settings
 --
 -- /See:/ 'mkWebvttDestinationSettings' smart constructor.
 data WebvttDestinationSettings = WebvttDestinationSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WebvttDestinationSettings' with the minimum fields required to make a request.
+-- | Creates a 'WebvttDestinationSettings' value with any optional fields omitted.
 mkWebvttDestinationSettings ::
   WebvttDestinationSettings
 mkWebvttDestinationSettings = WebvttDestinationSettings'
 
-instance Lude.FromJSON WebvttDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "WebvttDestinationSettings"
-      (\x -> Lude.pure WebvttDestinationSettings')
+instance Core.FromJSON WebvttDestinationSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON WebvttDestinationSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON WebvttDestinationSettings where
+  parseJSON =
+    Core.withObject "WebvttDestinationSettings" Core.$
+      \x -> Core.pure WebvttDestinationSettings'

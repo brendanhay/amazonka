@@ -17,72 +17,67 @@ module Network.AWS.CodeBuild.Types.ResolvedArtifact
     mkResolvedArtifact,
 
     -- * Lenses
-    raLocation,
     raIdentifier,
+    raLocation,
     raType,
   )
 where
 
-import Network.AWS.CodeBuild.Types.ArtifactsType
+import qualified Network.AWS.CodeBuild.Types.ArtifactsType as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a resolved build artifact. A resolve artifact is an artifact that is built and deployed to the destination, such as Amazon Simple Storage Service (Amazon S3).
 --
 -- /See:/ 'mkResolvedArtifact' smart constructor.
 data ResolvedArtifact = ResolvedArtifact'
-  { -- | The location of the artifact.
-    location :: Lude.Maybe Lude.Text,
-    -- | The identifier of the artifact.
-    identifier :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the artifact.
+    identifier :: Core.Maybe Types.String,
+    -- | The location of the artifact.
+    location :: Core.Maybe Types.String,
     -- | Specifies the type of artifact.
-    type' :: Lude.Maybe ArtifactsType
+    type' :: Core.Maybe Types.ArtifactsType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResolvedArtifact' with the minimum fields required to make a request.
---
--- * 'location' - The location of the artifact.
--- * 'identifier' - The identifier of the artifact.
--- * 'type'' - Specifies the type of artifact.
+-- | Creates a 'ResolvedArtifact' value with any optional fields omitted.
 mkResolvedArtifact ::
   ResolvedArtifact
 mkResolvedArtifact =
   ResolvedArtifact'
-    { location = Lude.Nothing,
-      identifier = Lude.Nothing,
-      type' = Lude.Nothing
+    { identifier = Core.Nothing,
+      location = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The location of the artifact.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raLocation :: Lens.Lens' ResolvedArtifact (Lude.Maybe Lude.Text)
-raLocation = Lens.lens (location :: ResolvedArtifact -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: ResolvedArtifact)
-{-# DEPRECATED raLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The identifier of the artifact.
 --
 -- /Note:/ Consider using 'identifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raIdentifier :: Lens.Lens' ResolvedArtifact (Lude.Maybe Lude.Text)
-raIdentifier = Lens.lens (identifier :: ResolvedArtifact -> Lude.Maybe Lude.Text) (\s a -> s {identifier = a} :: ResolvedArtifact)
+raIdentifier :: Lens.Lens' ResolvedArtifact (Core.Maybe Types.String)
+raIdentifier = Lens.field @"identifier"
 {-# DEPRECATED raIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
+
+-- | The location of the artifact.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raLocation :: Lens.Lens' ResolvedArtifact (Core.Maybe Types.String)
+raLocation = Lens.field @"location"
+{-# DEPRECATED raLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | Specifies the type of artifact.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raType :: Lens.Lens' ResolvedArtifact (Lude.Maybe ArtifactsType)
-raType = Lens.lens (type' :: ResolvedArtifact -> Lude.Maybe ArtifactsType) (\s a -> s {type' = a} :: ResolvedArtifact)
+raType :: Lens.Lens' ResolvedArtifact (Core.Maybe Types.ArtifactsType)
+raType = Lens.field @"type'"
 {-# DEPRECATED raType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON ResolvedArtifact where
+instance Core.FromJSON ResolvedArtifact where
   parseJSON =
-    Lude.withObject
-      "ResolvedArtifact"
-      ( \x ->
-          ResolvedArtifact'
-            Lude.<$> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "identifier")
-            Lude.<*> (x Lude..:? "type")
-      )
+    Core.withObject "ResolvedArtifact" Core.$
+      \x ->
+        ResolvedArtifact'
+          Core.<$> (x Core..:? "identifier")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "type")

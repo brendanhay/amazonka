@@ -17,327 +17,314 @@ module Network.AWS.SSM.Types.DocumentDescription
     mkDocumentDescription,
 
     -- * Lenses
-    ddStatus,
+    ddAttachmentsInformation,
+    ddCreatedDate,
+    ddDefaultVersion,
+    ddDescription,
+    ddDocumentFormat,
     ddDocumentType,
+    ddDocumentVersion,
     ddHash,
-    ddVersionName,
+    ddHashType,
+    ddLatestVersion,
+    ddName,
+    ddOwner,
+    ddParameters,
+    ddPlatformTypes,
+    ddRequires,
     ddSchemaVersion,
     ddSha1,
-    ddAttachmentsInformation,
-    ddDefaultVersion,
-    ddTargetType,
-    ddOwner,
-    ddPlatformTypes,
-    ddCreatedDate,
-    ddDocumentFormat,
-    ddName,
-    ddHashType,
-    ddParameters,
-    ddDocumentVersion,
+    ddStatus,
     ddStatusInformation,
-    ddDescription,
-    ddRequires,
     ddTags,
-    ddLatestVersion,
+    ddTargetType,
+    ddVersionName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.AttachmentInformation
-import Network.AWS.SSM.Types.DocumentFormat
-import Network.AWS.SSM.Types.DocumentHashType
-import Network.AWS.SSM.Types.DocumentParameter
-import Network.AWS.SSM.Types.DocumentRequires
-import Network.AWS.SSM.Types.DocumentStatus
-import Network.AWS.SSM.Types.DocumentType
-import Network.AWS.SSM.Types.PlatformType
-import Network.AWS.SSM.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AttachmentInformation as Types
+import qualified Network.AWS.SSM.Types.DefaultVersion as Types
+import qualified Network.AWS.SSM.Types.Description as Types
+import qualified Network.AWS.SSM.Types.DocumentARN as Types
+import qualified Network.AWS.SSM.Types.DocumentFormat as Types
+import qualified Network.AWS.SSM.Types.DocumentHashType as Types
+import qualified Network.AWS.SSM.Types.DocumentParameter as Types
+import qualified Network.AWS.SSM.Types.DocumentRequires as Types
+import qualified Network.AWS.SSM.Types.DocumentSchemaVersion as Types
+import qualified Network.AWS.SSM.Types.DocumentStatus as Types
+import qualified Network.AWS.SSM.Types.DocumentType as Types
+import qualified Network.AWS.SSM.Types.DocumentVersion as Types
+import qualified Network.AWS.SSM.Types.DocumentVersionName as Types
+import qualified Network.AWS.SSM.Types.Hash as Types
+import qualified Network.AWS.SSM.Types.LatestVersion as Types
+import qualified Network.AWS.SSM.Types.Owner as Types
+import qualified Network.AWS.SSM.Types.PlatformType as Types
+import qualified Network.AWS.SSM.Types.Sha1 as Types
+import qualified Network.AWS.SSM.Types.StatusInformation as Types
+import qualified Network.AWS.SSM.Types.Tag as Types
+import qualified Network.AWS.SSM.Types.TargetType as Types
 
 -- | Describes a Systems Manager document.
 --
 -- /See:/ 'mkDocumentDescription' smart constructor.
 data DocumentDescription = DocumentDescription'
-  { -- | The status of the Systems Manager document.
-    status :: Lude.Maybe DocumentStatus,
-    -- | The type of document.
-    documentType :: Lude.Maybe DocumentType,
-    -- | The Sha256 or Sha1 hash created by the system when the document was created.
-    hash :: Lude.Maybe Lude.Text,
-    -- | The version of the artifact associated with the document.
-    versionName :: Lude.Maybe Lude.Text,
-    -- | The schema version.
-    schemaVersion :: Lude.Maybe Lude.Text,
-    -- | The SHA1 hash of the document, which you can use for verification.
-    sha1 :: Lude.Maybe Lude.Text,
-    -- | Details about the document attachments, including names, locations, sizes, and so on.
-    attachmentsInformation :: Lude.Maybe [AttachmentInformation],
-    -- | The default version.
-    defaultVersion :: Lude.Maybe Lude.Text,
-    -- | The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
-    targetType :: Lude.Maybe Lude.Text,
-    -- | The AWS user account that created the document.
-    owner :: Lude.Maybe Lude.Text,
-    -- | The list of OS platforms compatible with this Systems Manager document.
-    platformTypes :: Lude.Maybe [PlatformType],
+  { -- | Details about the document attachments, including names, locations, sizes, and so on.
+    attachmentsInformation :: Core.Maybe [Types.AttachmentInformation],
     -- | The date when the document was created.
-    createdDate :: Lude.Maybe Lude.Timestamp,
-    -- | The document format, either JSON or YAML.
-    documentFormat :: Lude.Maybe DocumentFormat,
-    -- | The name of the Systems Manager document.
-    name :: Lude.Maybe Lude.Text,
-    -- | The hash type of the document. Valid values include @Sha256@ or @Sha1@ .
-    hashType :: Lude.Maybe DocumentHashType,
-    -- | A description of the parameters for a document.
-    parameters :: Lude.Maybe [DocumentParameter],
-    -- | The document version.
-    documentVersion :: Lude.Maybe Lude.Text,
-    -- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
-    statusInformation :: Lude.Maybe Lude.Text,
+    createdDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The default version.
+    defaultVersion :: Core.Maybe Types.DefaultVersion,
     -- | A description of the document.
-    description :: Lude.Maybe Lude.Text,
-    -- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
-    requires :: Lude.Maybe (Lude.NonEmpty DocumentRequires),
-    -- | The tags, or metadata, that have been applied to the document.
-    tags :: Lude.Maybe [Tag],
+    description :: Core.Maybe Types.Description,
+    -- | The document format, either JSON or YAML.
+    documentFormat :: Core.Maybe Types.DocumentFormat,
+    -- | The type of document.
+    documentType :: Core.Maybe Types.DocumentType,
+    -- | The document version.
+    documentVersion :: Core.Maybe Types.DocumentVersion,
+    -- | The Sha256 or Sha1 hash created by the system when the document was created.
+    hash :: Core.Maybe Types.Hash,
+    -- | The hash type of the document. Valid values include @Sha256@ or @Sha1@ .
+    hashType :: Core.Maybe Types.DocumentHashType,
     -- | The latest version of the document.
-    latestVersion :: Lude.Maybe Lude.Text
+    latestVersion :: Core.Maybe Types.LatestVersion,
+    -- | The name of the Systems Manager document.
+    name :: Core.Maybe Types.DocumentARN,
+    -- | The AWS user account that created the document.
+    owner :: Core.Maybe Types.Owner,
+    -- | A description of the parameters for a document.
+    parameters :: Core.Maybe [Types.DocumentParameter],
+    -- | The list of OS platforms compatible with this Systems Manager document.
+    platformTypes :: Core.Maybe [Types.PlatformType],
+    -- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
+    requires :: Core.Maybe (Core.NonEmpty Types.DocumentRequires),
+    -- | The schema version.
+    schemaVersion :: Core.Maybe Types.DocumentSchemaVersion,
+    -- | The SHA1 hash of the document, which you can use for verification.
+    sha1 :: Core.Maybe Types.Sha1,
+    -- | The status of the Systems Manager document.
+    status :: Core.Maybe Types.DocumentStatus,
+    -- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
+    statusInformation :: Core.Maybe Types.StatusInformation,
+    -- | The tags, or metadata, that have been applied to the document.
+    tags :: Core.Maybe [Types.Tag],
+    -- | The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
+    targetType :: Core.Maybe Types.TargetType,
+    -- | The version of the artifact associated with the document.
+    versionName :: Core.Maybe Types.DocumentVersionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DocumentDescription' with the minimum fields required to make a request.
---
--- * 'status' - The status of the Systems Manager document.
--- * 'documentType' - The type of document.
--- * 'hash' - The Sha256 or Sha1 hash created by the system when the document was created.
--- * 'versionName' - The version of the artifact associated with the document.
--- * 'schemaVersion' - The schema version.
--- * 'sha1' - The SHA1 hash of the document, which you can use for verification.
--- * 'attachmentsInformation' - Details about the document attachments, including names, locations, sizes, and so on.
--- * 'defaultVersion' - The default version.
--- * 'targetType' - The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
--- * 'owner' - The AWS user account that created the document.
--- * 'platformTypes' - The list of OS platforms compatible with this Systems Manager document.
--- * 'createdDate' - The date when the document was created.
--- * 'documentFormat' - The document format, either JSON or YAML.
--- * 'name' - The name of the Systems Manager document.
--- * 'hashType' - The hash type of the document. Valid values include @Sha256@ or @Sha1@ .
--- * 'parameters' - A description of the parameters for a document.
--- * 'documentVersion' - The document version.
--- * 'statusInformation' - A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
--- * 'description' - A description of the document.
--- * 'requires' - A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
--- * 'tags' - The tags, or metadata, that have been applied to the document.
--- * 'latestVersion' - The latest version of the document.
+-- | Creates a 'DocumentDescription' value with any optional fields omitted.
 mkDocumentDescription ::
   DocumentDescription
 mkDocumentDescription =
   DocumentDescription'
-    { status = Lude.Nothing,
-      documentType = Lude.Nothing,
-      hash = Lude.Nothing,
-      versionName = Lude.Nothing,
-      schemaVersion = Lude.Nothing,
-      sha1 = Lude.Nothing,
-      attachmentsInformation = Lude.Nothing,
-      defaultVersion = Lude.Nothing,
-      targetType = Lude.Nothing,
-      owner = Lude.Nothing,
-      platformTypes = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      documentFormat = Lude.Nothing,
-      name = Lude.Nothing,
-      hashType = Lude.Nothing,
-      parameters = Lude.Nothing,
-      documentVersion = Lude.Nothing,
-      statusInformation = Lude.Nothing,
-      description = Lude.Nothing,
-      requires = Lude.Nothing,
-      tags = Lude.Nothing,
-      latestVersion = Lude.Nothing
+    { attachmentsInformation = Core.Nothing,
+      createdDate = Core.Nothing,
+      defaultVersion = Core.Nothing,
+      description = Core.Nothing,
+      documentFormat = Core.Nothing,
+      documentType = Core.Nothing,
+      documentVersion = Core.Nothing,
+      hash = Core.Nothing,
+      hashType = Core.Nothing,
+      latestVersion = Core.Nothing,
+      name = Core.Nothing,
+      owner = Core.Nothing,
+      parameters = Core.Nothing,
+      platformTypes = Core.Nothing,
+      requires = Core.Nothing,
+      schemaVersion = Core.Nothing,
+      sha1 = Core.Nothing,
+      status = Core.Nothing,
+      statusInformation = Core.Nothing,
+      tags = Core.Nothing,
+      targetType = Core.Nothing,
+      versionName = Core.Nothing
     }
 
--- | The status of the Systems Manager document.
+-- | Details about the document attachments, including names, locations, sizes, and so on.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddStatus :: Lens.Lens' DocumentDescription (Lude.Maybe DocumentStatus)
-ddStatus = Lens.lens (status :: DocumentDescription -> Lude.Maybe DocumentStatus) (\s a -> s {status = a} :: DocumentDescription)
-{-# DEPRECATED ddStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'attachmentsInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddAttachmentsInformation :: Lens.Lens' DocumentDescription (Core.Maybe [Types.AttachmentInformation])
+ddAttachmentsInformation = Lens.field @"attachmentsInformation"
+{-# DEPRECATED ddAttachmentsInformation "Use generic-lens or generic-optics with 'attachmentsInformation' instead." #-}
+
+-- | The date when the document was created.
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddCreatedDate :: Lens.Lens' DocumentDescription (Core.Maybe Core.NominalDiffTime)
+ddCreatedDate = Lens.field @"createdDate"
+{-# DEPRECATED ddCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
+
+-- | The default version.
+--
+-- /Note:/ Consider using 'defaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDefaultVersion :: Lens.Lens' DocumentDescription (Core.Maybe Types.DefaultVersion)
+ddDefaultVersion = Lens.field @"defaultVersion"
+{-# DEPRECATED ddDefaultVersion "Use generic-lens or generic-optics with 'defaultVersion' instead." #-}
+
+-- | A description of the document.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDescription :: Lens.Lens' DocumentDescription (Core.Maybe Types.Description)
+ddDescription = Lens.field @"description"
+{-# DEPRECATED ddDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The document format, either JSON or YAML.
+--
+-- /Note:/ Consider using 'documentFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDocumentFormat :: Lens.Lens' DocumentDescription (Core.Maybe Types.DocumentFormat)
+ddDocumentFormat = Lens.field @"documentFormat"
+{-# DEPRECATED ddDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
 
 -- | The type of document.
 --
 -- /Note:/ Consider using 'documentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDocumentType :: Lens.Lens' DocumentDescription (Lude.Maybe DocumentType)
-ddDocumentType = Lens.lens (documentType :: DocumentDescription -> Lude.Maybe DocumentType) (\s a -> s {documentType = a} :: DocumentDescription)
+ddDocumentType :: Lens.Lens' DocumentDescription (Core.Maybe Types.DocumentType)
+ddDocumentType = Lens.field @"documentType"
 {-# DEPRECATED ddDocumentType "Use generic-lens or generic-optics with 'documentType' instead." #-}
+
+-- | The document version.
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDocumentVersion :: Lens.Lens' DocumentDescription (Core.Maybe Types.DocumentVersion)
+ddDocumentVersion = Lens.field @"documentVersion"
+{-# DEPRECATED ddDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 -- | The Sha256 or Sha1 hash created by the system when the document was created.
 --
 -- /Note:/ Consider using 'hash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddHash :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddHash = Lens.lens (hash :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {hash = a} :: DocumentDescription)
+ddHash :: Lens.Lens' DocumentDescription (Core.Maybe Types.Hash)
+ddHash = Lens.field @"hash"
 {-# DEPRECATED ddHash "Use generic-lens or generic-optics with 'hash' instead." #-}
 
--- | The version of the artifact associated with the document.
+-- | The hash type of the document. Valid values include @Sha256@ or @Sha1@ .
 --
--- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddVersionName :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddVersionName = Lens.lens (versionName :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: DocumentDescription)
-{-# DEPRECATED ddVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
+-- /Note:/ Consider using 'hashType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddHashType :: Lens.Lens' DocumentDescription (Core.Maybe Types.DocumentHashType)
+ddHashType = Lens.field @"hashType"
+{-# DEPRECATED ddHashType "Use generic-lens or generic-optics with 'hashType' instead." #-}
+
+-- | The latest version of the document.
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddLatestVersion :: Lens.Lens' DocumentDescription (Core.Maybe Types.LatestVersion)
+ddLatestVersion = Lens.field @"latestVersion"
+{-# DEPRECATED ddLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+
+-- | The name of the Systems Manager document.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddName :: Lens.Lens' DocumentDescription (Core.Maybe Types.DocumentARN)
+ddName = Lens.field @"name"
+{-# DEPRECATED ddName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The AWS user account that created the document.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddOwner :: Lens.Lens' DocumentDescription (Core.Maybe Types.Owner)
+ddOwner = Lens.field @"owner"
+{-# DEPRECATED ddOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
+-- | A description of the parameters for a document.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddParameters :: Lens.Lens' DocumentDescription (Core.Maybe [Types.DocumentParameter])
+ddParameters = Lens.field @"parameters"
+{-# DEPRECATED ddParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | The list of OS platforms compatible with this Systems Manager document.
+--
+-- /Note:/ Consider using 'platformTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddPlatformTypes :: Lens.Lens' DocumentDescription (Core.Maybe [Types.PlatformType])
+ddPlatformTypes = Lens.field @"platformTypes"
+{-# DEPRECATED ddPlatformTypes "Use generic-lens or generic-optics with 'platformTypes' instead." #-}
+
+-- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
+--
+-- /Note:/ Consider using 'requires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddRequires :: Lens.Lens' DocumentDescription (Core.Maybe (Core.NonEmpty Types.DocumentRequires))
+ddRequires = Lens.field @"requires"
+{-# DEPRECATED ddRequires "Use generic-lens or generic-optics with 'requires' instead." #-}
 
 -- | The schema version.
 --
 -- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddSchemaVersion :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddSchemaVersion = Lens.lens (schemaVersion :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersion = a} :: DocumentDescription)
+ddSchemaVersion :: Lens.Lens' DocumentDescription (Core.Maybe Types.DocumentSchemaVersion)
+ddSchemaVersion = Lens.field @"schemaVersion"
 {-# DEPRECATED ddSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
 
 -- | The SHA1 hash of the document, which you can use for verification.
 --
 -- /Note:/ Consider using 'sha1' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddSha1 :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddSha1 = Lens.lens (sha1 :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {sha1 = a} :: DocumentDescription)
+ddSha1 :: Lens.Lens' DocumentDescription (Core.Maybe Types.Sha1)
+ddSha1 = Lens.field @"sha1"
 {-# DEPRECATED ddSha1 "Use generic-lens or generic-optics with 'sha1' instead." #-}
 
--- | Details about the document attachments, including names, locations, sizes, and so on.
+-- | The status of the Systems Manager document.
 --
--- /Note:/ Consider using 'attachmentsInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddAttachmentsInformation :: Lens.Lens' DocumentDescription (Lude.Maybe [AttachmentInformation])
-ddAttachmentsInformation = Lens.lens (attachmentsInformation :: DocumentDescription -> Lude.Maybe [AttachmentInformation]) (\s a -> s {attachmentsInformation = a} :: DocumentDescription)
-{-# DEPRECATED ddAttachmentsInformation "Use generic-lens or generic-optics with 'attachmentsInformation' instead." #-}
-
--- | The default version.
---
--- /Note:/ Consider using 'defaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDefaultVersion :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddDefaultVersion = Lens.lens (defaultVersion :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {defaultVersion = a} :: DocumentDescription)
-{-# DEPRECATED ddDefaultVersion "Use generic-lens or generic-optics with 'defaultVersion' instead." #-}
-
--- | The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
---
--- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddTargetType :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddTargetType = Lens.lens (targetType :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {targetType = a} :: DocumentDescription)
-{-# DEPRECATED ddTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
-
--- | The AWS user account that created the document.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddOwner :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddOwner = Lens.lens (owner :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: DocumentDescription)
-{-# DEPRECATED ddOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
-
--- | The list of OS platforms compatible with this Systems Manager document.
---
--- /Note:/ Consider using 'platformTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddPlatformTypes :: Lens.Lens' DocumentDescription (Lude.Maybe [PlatformType])
-ddPlatformTypes = Lens.lens (platformTypes :: DocumentDescription -> Lude.Maybe [PlatformType]) (\s a -> s {platformTypes = a} :: DocumentDescription)
-{-# DEPRECATED ddPlatformTypes "Use generic-lens or generic-optics with 'platformTypes' instead." #-}
-
--- | The date when the document was created.
---
--- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddCreatedDate :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Timestamp)
-ddCreatedDate = Lens.lens (createdDate :: DocumentDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: DocumentDescription)
-{-# DEPRECATED ddCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
-
--- | The document format, either JSON or YAML.
---
--- /Note:/ Consider using 'documentFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDocumentFormat :: Lens.Lens' DocumentDescription (Lude.Maybe DocumentFormat)
-ddDocumentFormat = Lens.lens (documentFormat :: DocumentDescription -> Lude.Maybe DocumentFormat) (\s a -> s {documentFormat = a} :: DocumentDescription)
-{-# DEPRECATED ddDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
-
--- | The name of the Systems Manager document.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddName :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddName = Lens.lens (name :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DocumentDescription)
-{-# DEPRECATED ddName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The hash type of the document. Valid values include @Sha256@ or @Sha1@ .
---
--- /Note:/ Consider using 'hashType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddHashType :: Lens.Lens' DocumentDescription (Lude.Maybe DocumentHashType)
-ddHashType = Lens.lens (hashType :: DocumentDescription -> Lude.Maybe DocumentHashType) (\s a -> s {hashType = a} :: DocumentDescription)
-{-# DEPRECATED ddHashType "Use generic-lens or generic-optics with 'hashType' instead." #-}
-
--- | A description of the parameters for a document.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddParameters :: Lens.Lens' DocumentDescription (Lude.Maybe [DocumentParameter])
-ddParameters = Lens.lens (parameters :: DocumentDescription -> Lude.Maybe [DocumentParameter]) (\s a -> s {parameters = a} :: DocumentDescription)
-{-# DEPRECATED ddParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | The document version.
---
--- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDocumentVersion :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddDocumentVersion = Lens.lens (documentVersion :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: DocumentDescription)
-{-# DEPRECATED ddDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddStatus :: Lens.Lens' DocumentDescription (Core.Maybe Types.DocumentStatus)
+ddStatus = Lens.field @"status"
+{-# DEPRECATED ddStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
 --
 -- /Note:/ Consider using 'statusInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddStatusInformation :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddStatusInformation = Lens.lens (statusInformation :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {statusInformation = a} :: DocumentDescription)
+ddStatusInformation :: Lens.Lens' DocumentDescription (Core.Maybe Types.StatusInformation)
+ddStatusInformation = Lens.field @"statusInformation"
 {-# DEPRECATED ddStatusInformation "Use generic-lens or generic-optics with 'statusInformation' instead." #-}
-
--- | A description of the document.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDescription :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddDescription = Lens.lens (description :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DocumentDescription)
-{-# DEPRECATED ddDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
---
--- /Note:/ Consider using 'requires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddRequires :: Lens.Lens' DocumentDescription (Lude.Maybe (Lude.NonEmpty DocumentRequires))
-ddRequires = Lens.lens (requires :: DocumentDescription -> Lude.Maybe (Lude.NonEmpty DocumentRequires)) (\s a -> s {requires = a} :: DocumentDescription)
-{-# DEPRECATED ddRequires "Use generic-lens or generic-optics with 'requires' instead." #-}
 
 -- | The tags, or metadata, that have been applied to the document.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddTags :: Lens.Lens' DocumentDescription (Lude.Maybe [Tag])
-ddTags = Lens.lens (tags :: DocumentDescription -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DocumentDescription)
+ddTags :: Lens.Lens' DocumentDescription (Core.Maybe [Types.Tag])
+ddTags = Lens.field @"tags"
 {-# DEPRECATED ddTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The latest version of the document.
+-- | The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
 --
--- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddLatestVersion :: Lens.Lens' DocumentDescription (Lude.Maybe Lude.Text)
-ddLatestVersion = Lens.lens (latestVersion :: DocumentDescription -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: DocumentDescription)
-{-# DEPRECATED ddLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddTargetType :: Lens.Lens' DocumentDescription (Core.Maybe Types.TargetType)
+ddTargetType = Lens.field @"targetType"
+{-# DEPRECATED ddTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
-instance Lude.FromJSON DocumentDescription where
+-- | The version of the artifact associated with the document.
+--
+-- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddVersionName :: Lens.Lens' DocumentDescription (Core.Maybe Types.DocumentVersionName)
+ddVersionName = Lens.field @"versionName"
+{-# DEPRECATED ddVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
+
+instance Core.FromJSON DocumentDescription where
   parseJSON =
-    Lude.withObject
-      "DocumentDescription"
-      ( \x ->
-          DocumentDescription'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "DocumentType")
-            Lude.<*> (x Lude..:? "Hash")
-            Lude.<*> (x Lude..:? "VersionName")
-            Lude.<*> (x Lude..:? "SchemaVersion")
-            Lude.<*> (x Lude..:? "Sha1")
-            Lude.<*> (x Lude..:? "AttachmentsInformation" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "DefaultVersion")
-            Lude.<*> (x Lude..:? "TargetType")
-            Lude.<*> (x Lude..:? "Owner")
-            Lude.<*> (x Lude..:? "PlatformTypes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CreatedDate")
-            Lude.<*> (x Lude..:? "DocumentFormat")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "HashType")
-            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "DocumentVersion")
-            Lude.<*> (x Lude..:? "StatusInformation")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "Requires")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LatestVersion")
-      )
+    Core.withObject "DocumentDescription" Core.$
+      \x ->
+        DocumentDescription'
+          Core.<$> (x Core..:? "AttachmentsInformation")
+          Core.<*> (x Core..:? "CreatedDate")
+          Core.<*> (x Core..:? "DefaultVersion")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "DocumentFormat")
+          Core.<*> (x Core..:? "DocumentType")
+          Core.<*> (x Core..:? "DocumentVersion")
+          Core.<*> (x Core..:? "Hash")
+          Core.<*> (x Core..:? "HashType")
+          Core.<*> (x Core..:? "LatestVersion")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Owner")
+          Core.<*> (x Core..:? "Parameters")
+          Core.<*> (x Core..:? "PlatformTypes")
+          Core.<*> (x Core..:? "Requires")
+          Core.<*> (x Core..:? "SchemaVersion")
+          Core.<*> (x Core..:? "Sha1")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "StatusInformation")
+          Core.<*> (x Core..:? "Tags")
+          Core.<*> (x Core..:? "TargetType")
+          Core.<*> (x Core..:? "VersionName")

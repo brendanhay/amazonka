@@ -17,63 +17,57 @@ module Network.AWS.WAF.Types.GeoMatchSetUpdate
     mkGeoMatchSetUpdate,
 
     -- * Lenses
-    gmsuGeoMatchConstraint,
     gmsuAction,
+    gmsuGeoMatchConstraint,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.ChangeAction
-import Network.AWS.WAF.Types.GeoMatchConstraint
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.ChangeAction as Types
+import qualified Network.AWS.WAF.Types.GeoMatchConstraint as Types
 
 -- | Specifies the type of update to perform to an 'GeoMatchSet' with 'UpdateGeoMatchSet' .
 --
 -- /See:/ 'mkGeoMatchSetUpdate' smart constructor.
 data GeoMatchSetUpdate = GeoMatchSetUpdate'
-  { -- | The country from which web requests originate that you want AWS WAF to search for.
-    geoMatchConstraint :: GeoMatchConstraint,
-    -- | Specifies whether to insert or delete a country with 'UpdateGeoMatchSet' .
-    action :: ChangeAction
+  { -- | Specifies whether to insert or delete a country with 'UpdateGeoMatchSet' .
+    action :: Types.ChangeAction,
+    -- | The country from which web requests originate that you want AWS WAF to search for.
+    geoMatchConstraint :: Types.GeoMatchConstraint
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GeoMatchSetUpdate' with the minimum fields required to make a request.
---
--- * 'geoMatchConstraint' - The country from which web requests originate that you want AWS WAF to search for.
--- * 'action' - Specifies whether to insert or delete a country with 'UpdateGeoMatchSet' .
+-- | Creates a 'GeoMatchSetUpdate' value with any optional fields omitted.
 mkGeoMatchSetUpdate ::
-  -- | 'geoMatchConstraint'
-  GeoMatchConstraint ->
   -- | 'action'
-  ChangeAction ->
+  Types.ChangeAction ->
+  -- | 'geoMatchConstraint'
+  Types.GeoMatchConstraint ->
   GeoMatchSetUpdate
-mkGeoMatchSetUpdate pGeoMatchConstraint_ pAction_ =
-  GeoMatchSetUpdate'
-    { geoMatchConstraint = pGeoMatchConstraint_,
-      action = pAction_
-    }
-
--- | The country from which web requests originate that you want AWS WAF to search for.
---
--- /Note:/ Consider using 'geoMatchConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsuGeoMatchConstraint :: Lens.Lens' GeoMatchSetUpdate GeoMatchConstraint
-gmsuGeoMatchConstraint = Lens.lens (geoMatchConstraint :: GeoMatchSetUpdate -> GeoMatchConstraint) (\s a -> s {geoMatchConstraint = a} :: GeoMatchSetUpdate)
-{-# DEPRECATED gmsuGeoMatchConstraint "Use generic-lens or generic-optics with 'geoMatchConstraint' instead." #-}
+mkGeoMatchSetUpdate action geoMatchConstraint =
+  GeoMatchSetUpdate' {action, geoMatchConstraint}
 
 -- | Specifies whether to insert or delete a country with 'UpdateGeoMatchSet' .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsuAction :: Lens.Lens' GeoMatchSetUpdate ChangeAction
-gmsuAction = Lens.lens (action :: GeoMatchSetUpdate -> ChangeAction) (\s a -> s {action = a} :: GeoMatchSetUpdate)
+gmsuAction :: Lens.Lens' GeoMatchSetUpdate Types.ChangeAction
+gmsuAction = Lens.field @"action"
 {-# DEPRECATED gmsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance Lude.ToJSON GeoMatchSetUpdate where
-  toJSON GeoMatchSetUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GeoMatchConstraint" Lude..= geoMatchConstraint),
-            Lude.Just ("Action" Lude..= action)
+-- | The country from which web requests originate that you want AWS WAF to search for.
+--
+-- /Note:/ Consider using 'geoMatchConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsuGeoMatchConstraint :: Lens.Lens' GeoMatchSetUpdate Types.GeoMatchConstraint
+gmsuGeoMatchConstraint = Lens.field @"geoMatchConstraint"
+{-# DEPRECATED gmsuGeoMatchConstraint "Use generic-lens or generic-optics with 'geoMatchConstraint' instead." #-}
+
+instance Core.FromJSON GeoMatchSetUpdate where
+  toJSON GeoMatchSetUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("GeoMatchConstraint" Core..= geoMatchConstraint)
           ]
       )

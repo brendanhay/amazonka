@@ -46,14 +46,14 @@ module Network.AWS.SWF.RegisterWorkflowType
     mkRegisterWorkflowType,
 
     -- ** Request lenses
-    rwtDefaultLambdaRole,
     rwtDomain,
+    rwtName,
+    rwtVersion,
     rwtDefaultChildPolicy,
+    rwtDefaultExecutionStartToCloseTimeout,
+    rwtDefaultLambdaRole,
     rwtDefaultTaskList,
     rwtDefaultTaskPriority,
-    rwtName,
-    rwtDefaultExecutionStartToCloseTimeout,
-    rwtVersion,
     rwtDefaultTaskStartToCloseTimeout,
     rwtDescription,
 
@@ -64,17 +64,23 @@ module Network.AWS.SWF.RegisterWorkflowType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkRegisterWorkflowType' smart constructor.
 data RegisterWorkflowType = RegisterWorkflowType'
-  { -- | The default IAM role attached to this workflow type.
-    defaultLambdaRole :: Lude.Maybe Lude.Text,
-    -- | The name of the domain in which to register the workflow type.
-    domain :: Lude.Text,
+  { -- | The name of the domain in which to register the workflow type.
+    domain :: Types.Domain,
+    -- | The name of the workflow type.
+    --
+    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
+    name :: Types.Name,
+    -- | The version of the workflow type.
+    --
+    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
+    version :: Types.Version,
     -- | If set, specifies the default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ 'Decision' .
     --
     -- The supported child policies are:
@@ -86,104 +92,76 @@ data RegisterWorkflowType = RegisterWorkflowType'
     --
     --
     --     * @ABANDON@ – No action is taken. The child executions continue to run.
-    defaultChildPolicy :: Lude.Maybe ChildPolicy,
-    -- | If set, specifies the default task list to use for scheduling decision tasks for executions of this workflow type. This default is used only if a task list isn't provided when starting the execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
-    defaultTaskList :: Lude.Maybe TaskList,
-    -- | The default task priority to assign to the workflow type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
-    --
-    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
-    defaultTaskPriority :: Lude.Maybe Lude.Text,
-    -- | The name of the workflow type.
-    --
-    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
-    name :: Lude.Text,
+    defaultChildPolicy :: Core.Maybe Types.ChildPolicy,
     -- | If set, specifies the default maximum duration for executions of this workflow type. You can override this default when starting an execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
     --
     -- The duration is specified in seconds; an integer greater than or equal to 0. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for @defaultExecutionStartToCloseTimeout@ ; there is a one-year max limit on the time that a workflow execution can run. Exceeding this limit always causes the workflow execution to time out.
-    defaultExecutionStartToCloseTimeout :: Lude.Maybe Lude.Text,
-    -- | The version of the workflow type.
+    defaultExecutionStartToCloseTimeout :: Core.Maybe Types.DurationInSecondsOptional,
+    -- | The default IAM role attached to this workflow type.
+    defaultLambdaRole :: Core.Maybe Types.Arn,
+    -- | If set, specifies the default task list to use for scheduling decision tasks for executions of this workflow type. This default is used only if a task list isn't provided when starting the execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
+    defaultTaskList :: Core.Maybe Types.TaskList,
+    -- | The default task priority to assign to the workflow type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
     --
-    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
-    version :: Lude.Text,
+    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+    defaultTaskPriority :: Core.Maybe Types.DefaultTaskPriority,
     -- | If set, specifies the default maximum duration of decision tasks for this workflow type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ 'Decision' .
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    defaultTaskStartToCloseTimeout :: Lude.Maybe Lude.Text,
+    defaultTaskStartToCloseTimeout :: Core.Maybe Types.DurationInSecondsOptional,
     -- | Textual description of the workflow type.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterWorkflowType' with the minimum fields required to make a request.
---
--- * 'defaultLambdaRole' - The default IAM role attached to this workflow type.
--- * 'domain' - The name of the domain in which to register the workflow type.
--- * 'defaultChildPolicy' - If set, specifies the default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ 'Decision' .
---
--- The supported child policies are:
---
---     * @TERMINATE@ – The child executions are terminated.
---
---
---     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
---
---
---     * @ABANDON@ – No action is taken. The child executions continue to run.
---
---
--- * 'defaultTaskList' - If set, specifies the default task list to use for scheduling decision tasks for executions of this workflow type. This default is used only if a task list isn't provided when starting the execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
--- * 'defaultTaskPriority' - The default task priority to assign to the workflow type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
--- * 'name' - The name of the workflow type.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
--- * 'defaultExecutionStartToCloseTimeout' - If set, specifies the default maximum duration for executions of this workflow type. You can override this default when starting an execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
---
--- The duration is specified in seconds; an integer greater than or equal to 0. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for @defaultExecutionStartToCloseTimeout@ ; there is a one-year max limit on the time that a workflow execution can run. Exceeding this limit always causes the workflow execution to time out.
--- * 'version' - The version of the workflow type.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
--- * 'defaultTaskStartToCloseTimeout' - If set, specifies the default maximum duration of decision tasks for this workflow type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ 'Decision' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'description' - Textual description of the workflow type.
+-- | Creates a 'RegisterWorkflowType' value with any optional fields omitted.
 mkRegisterWorkflowType ::
   -- | 'domain'
-  Lude.Text ->
+  Types.Domain ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   -- | 'version'
-  Lude.Text ->
+  Types.Version ->
   RegisterWorkflowType
-mkRegisterWorkflowType pDomain_ pName_ pVersion_ =
+mkRegisterWorkflowType domain name version =
   RegisterWorkflowType'
-    { defaultLambdaRole = Lude.Nothing,
-      domain = pDomain_,
-      defaultChildPolicy = Lude.Nothing,
-      defaultTaskList = Lude.Nothing,
-      defaultTaskPriority = Lude.Nothing,
-      name = pName_,
-      defaultExecutionStartToCloseTimeout = Lude.Nothing,
-      version = pVersion_,
-      defaultTaskStartToCloseTimeout = Lude.Nothing,
-      description = Lude.Nothing
+    { domain,
+      name,
+      version,
+      defaultChildPolicy = Core.Nothing,
+      defaultExecutionStartToCloseTimeout = Core.Nothing,
+      defaultLambdaRole = Core.Nothing,
+      defaultTaskList = Core.Nothing,
+      defaultTaskPriority = Core.Nothing,
+      defaultTaskStartToCloseTimeout = Core.Nothing,
+      description = Core.Nothing
     }
-
--- | The default IAM role attached to this workflow type.
---
--- /Note:/ Consider using 'defaultLambdaRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtDefaultLambdaRole :: Lens.Lens' RegisterWorkflowType (Lude.Maybe Lude.Text)
-rwtDefaultLambdaRole = Lens.lens (defaultLambdaRole :: RegisterWorkflowType -> Lude.Maybe Lude.Text) (\s a -> s {defaultLambdaRole = a} :: RegisterWorkflowType)
-{-# DEPRECATED rwtDefaultLambdaRole "Use generic-lens or generic-optics with 'defaultLambdaRole' instead." #-}
 
 -- | The name of the domain in which to register the workflow type.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtDomain :: Lens.Lens' RegisterWorkflowType Lude.Text
-rwtDomain = Lens.lens (domain :: RegisterWorkflowType -> Lude.Text) (\s a -> s {domain = a} :: RegisterWorkflowType)
+rwtDomain :: Lens.Lens' RegisterWorkflowType Types.Domain
+rwtDomain = Lens.field @"domain"
 {-# DEPRECATED rwtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
+-- | The name of the workflow type.
+--
+-- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwtName :: Lens.Lens' RegisterWorkflowType Types.Name
+rwtName = Lens.field @"name"
+{-# DEPRECATED rwtName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The version of the workflow type.
+--
+-- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwtVersion :: Lens.Lens' RegisterWorkflowType Types.Version
+rwtVersion = Lens.field @"version"
+{-# DEPRECATED rwtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | If set, specifies the default policy to use for the child workflow executions when a workflow execution of this type is terminated, by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ 'Decision' .
 --
@@ -200,15 +178,31 @@ rwtDomain = Lens.lens (domain :: RegisterWorkflowType -> Lude.Text) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'defaultChildPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtDefaultChildPolicy :: Lens.Lens' RegisterWorkflowType (Lude.Maybe ChildPolicy)
-rwtDefaultChildPolicy = Lens.lens (defaultChildPolicy :: RegisterWorkflowType -> Lude.Maybe ChildPolicy) (\s a -> s {defaultChildPolicy = a} :: RegisterWorkflowType)
+rwtDefaultChildPolicy :: Lens.Lens' RegisterWorkflowType (Core.Maybe Types.ChildPolicy)
+rwtDefaultChildPolicy = Lens.field @"defaultChildPolicy"
 {-# DEPRECATED rwtDefaultChildPolicy "Use generic-lens or generic-optics with 'defaultChildPolicy' instead." #-}
+
+-- | If set, specifies the default maximum duration for executions of this workflow type. You can override this default when starting an execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
+--
+-- The duration is specified in seconds; an integer greater than or equal to 0. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for @defaultExecutionStartToCloseTimeout@ ; there is a one-year max limit on the time that a workflow execution can run. Exceeding this limit always causes the workflow execution to time out.
+--
+-- /Note:/ Consider using 'defaultExecutionStartToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwtDefaultExecutionStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Core.Maybe Types.DurationInSecondsOptional)
+rwtDefaultExecutionStartToCloseTimeout = Lens.field @"defaultExecutionStartToCloseTimeout"
+{-# DEPRECATED rwtDefaultExecutionStartToCloseTimeout "Use generic-lens or generic-optics with 'defaultExecutionStartToCloseTimeout' instead." #-}
+
+-- | The default IAM role attached to this workflow type.
+--
+-- /Note:/ Consider using 'defaultLambdaRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwtDefaultLambdaRole :: Lens.Lens' RegisterWorkflowType (Core.Maybe Types.Arn)
+rwtDefaultLambdaRole = Lens.field @"defaultLambdaRole"
+{-# DEPRECATED rwtDefaultLambdaRole "Use generic-lens or generic-optics with 'defaultLambdaRole' instead." #-}
 
 -- | If set, specifies the default task list to use for scheduling decision tasks for executions of this workflow type. This default is used only if a task list isn't provided when starting the execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
 --
 -- /Note:/ Consider using 'defaultTaskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtDefaultTaskList :: Lens.Lens' RegisterWorkflowType (Lude.Maybe TaskList)
-rwtDefaultTaskList = Lens.lens (defaultTaskList :: RegisterWorkflowType -> Lude.Maybe TaskList) (\s a -> s {defaultTaskList = a} :: RegisterWorkflowType)
+rwtDefaultTaskList :: Lens.Lens' RegisterWorkflowType (Core.Maybe Types.TaskList)
+rwtDefaultTaskList = Lens.field @"defaultTaskList"
 {-# DEPRECATED rwtDefaultTaskList "Use generic-lens or generic-optics with 'defaultTaskList' instead." #-}
 
 -- | The default task priority to assign to the workflow type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
@@ -216,100 +210,67 @@ rwtDefaultTaskList = Lens.lens (defaultTaskList :: RegisterWorkflowType -> Lude.
 -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
 --
 -- /Note:/ Consider using 'defaultTaskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtDefaultTaskPriority :: Lens.Lens' RegisterWorkflowType (Lude.Maybe Lude.Text)
-rwtDefaultTaskPriority = Lens.lens (defaultTaskPriority :: RegisterWorkflowType -> Lude.Maybe Lude.Text) (\s a -> s {defaultTaskPriority = a} :: RegisterWorkflowType)
+rwtDefaultTaskPriority :: Lens.Lens' RegisterWorkflowType (Core.Maybe Types.DefaultTaskPriority)
+rwtDefaultTaskPriority = Lens.field @"defaultTaskPriority"
 {-# DEPRECATED rwtDefaultTaskPriority "Use generic-lens or generic-optics with 'defaultTaskPriority' instead." #-}
-
--- | The name of the workflow type.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtName :: Lens.Lens' RegisterWorkflowType Lude.Text
-rwtName = Lens.lens (name :: RegisterWorkflowType -> Lude.Text) (\s a -> s {name = a} :: RegisterWorkflowType)
-{-# DEPRECATED rwtName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | If set, specifies the default maximum duration for executions of this workflow type. You can override this default when starting an execution through the 'StartWorkflowExecution' Action or @StartChildWorkflowExecution@ 'Decision' .
---
--- The duration is specified in seconds; an integer greater than or equal to 0. Unlike some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for @defaultExecutionStartToCloseTimeout@ ; there is a one-year max limit on the time that a workflow execution can run. Exceeding this limit always causes the workflow execution to time out.
---
--- /Note:/ Consider using 'defaultExecutionStartToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtDefaultExecutionStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Lude.Maybe Lude.Text)
-rwtDefaultExecutionStartToCloseTimeout = Lens.lens (defaultExecutionStartToCloseTimeout :: RegisterWorkflowType -> Lude.Maybe Lude.Text) (\s a -> s {defaultExecutionStartToCloseTimeout = a} :: RegisterWorkflowType)
-{-# DEPRECATED rwtDefaultExecutionStartToCloseTimeout "Use generic-lens or generic-optics with 'defaultExecutionStartToCloseTimeout' instead." #-}
-
--- | The version of the workflow type.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtVersion :: Lens.Lens' RegisterWorkflowType Lude.Text
-rwtVersion = Lens.lens (version :: RegisterWorkflowType -> Lude.Text) (\s a -> s {version = a} :: RegisterWorkflowType)
-{-# DEPRECATED rwtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | If set, specifies the default maximum duration of decision tasks for this workflow type. This default can be overridden when starting a workflow execution using the 'StartWorkflowExecution' action or the @StartChildWorkflowExecution@ 'Decision' .
 --
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'defaultTaskStartToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtDefaultTaskStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Lude.Maybe Lude.Text)
-rwtDefaultTaskStartToCloseTimeout = Lens.lens (defaultTaskStartToCloseTimeout :: RegisterWorkflowType -> Lude.Maybe Lude.Text) (\s a -> s {defaultTaskStartToCloseTimeout = a} :: RegisterWorkflowType)
+rwtDefaultTaskStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Core.Maybe Types.DurationInSecondsOptional)
+rwtDefaultTaskStartToCloseTimeout = Lens.field @"defaultTaskStartToCloseTimeout"
 {-# DEPRECATED rwtDefaultTaskStartToCloseTimeout "Use generic-lens or generic-optics with 'defaultTaskStartToCloseTimeout' instead." #-}
 
 -- | Textual description of the workflow type.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwtDescription :: Lens.Lens' RegisterWorkflowType (Lude.Maybe Lude.Text)
-rwtDescription = Lens.lens (description :: RegisterWorkflowType -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegisterWorkflowType)
+rwtDescription :: Lens.Lens' RegisterWorkflowType (Core.Maybe Types.Description)
+rwtDescription = Lens.field @"description"
 {-# DEPRECATED rwtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest RegisterWorkflowType where
+instance Core.FromJSON RegisterWorkflowType where
+  toJSON RegisterWorkflowType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("name" Core..= name),
+            Core.Just ("version" Core..= version),
+            ("defaultChildPolicy" Core..=) Core.<$> defaultChildPolicy,
+            ("defaultExecutionStartToCloseTimeout" Core..=)
+              Core.<$> defaultExecutionStartToCloseTimeout,
+            ("defaultLambdaRole" Core..=) Core.<$> defaultLambdaRole,
+            ("defaultTaskList" Core..=) Core.<$> defaultTaskList,
+            ("defaultTaskPriority" Core..=) Core.<$> defaultTaskPriority,
+            ("defaultTaskStartToCloseTimeout" Core..=)
+              Core.<$> defaultTaskStartToCloseTimeout,
+            ("description" Core..=) Core.<$> description
+          ]
+      )
+
+instance Core.AWSRequest RegisterWorkflowType where
   type Rs RegisterWorkflowType = RegisterWorkflowTypeResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull RegisterWorkflowTypeResponse'
-
-instance Lude.ToHeaders RegisterWorkflowType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SimpleWorkflowService.RegisterWorkflowType" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RegisterWorkflowType where
-  toJSON RegisterWorkflowType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("defaultLambdaRole" Lude..=) Lude.<$> defaultLambdaRole,
-            Lude.Just ("domain" Lude..= domain),
-            ("defaultChildPolicy" Lude..=) Lude.<$> defaultChildPolicy,
-            ("defaultTaskList" Lude..=) Lude.<$> defaultTaskList,
-            ("defaultTaskPriority" Lude..=) Lude.<$> defaultTaskPriority,
-            Lude.Just ("name" Lude..= name),
-            ("defaultExecutionStartToCloseTimeout" Lude..=)
-              Lude.<$> defaultExecutionStartToCloseTimeout,
-            Lude.Just ("version" Lude..= version),
-            ("defaultTaskStartToCloseTimeout" Lude..=)
-              Lude.<$> defaultTaskStartToCloseTimeout,
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath RegisterWorkflowType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterWorkflowType where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.RegisterWorkflowType")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RegisterWorkflowTypeResponse'
 
 -- | /See:/ 'mkRegisterWorkflowTypeResponse' smart constructor.
 data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterWorkflowTypeResponse' with the minimum fields required to make a request.
+-- | Creates a 'RegisterWorkflowTypeResponse' value with any optional fields omitted.
 mkRegisterWorkflowTypeResponse ::
   RegisterWorkflowTypeResponse
 mkRegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse'

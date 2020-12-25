@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmafWriteHLSManifest
   ( CmafWriteHLSManifest
       ( CmafWriteHLSManifest',
-        CWHLSMDisabled,
-        CWHLSMEnabled
+        CmafWriteHLSManifestDisabled,
+        CmafWriteHLSManifestEnabled,
+        fromCmafWriteHLSManifest
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When set to ENABLED, an Apple HLS manifest will be generated for this output.
-newtype CmafWriteHLSManifest = CmafWriteHLSManifest' Lude.Text
+newtype CmafWriteHLSManifest = CmafWriteHLSManifest'
+  { fromCmafWriteHLSManifest ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CWHLSMDisabled :: CmafWriteHLSManifest
-pattern CWHLSMDisabled = CmafWriteHLSManifest' "DISABLED"
+pattern CmafWriteHLSManifestDisabled :: CmafWriteHLSManifest
+pattern CmafWriteHLSManifestDisabled = CmafWriteHLSManifest' "DISABLED"
 
-pattern CWHLSMEnabled :: CmafWriteHLSManifest
-pattern CWHLSMEnabled = CmafWriteHLSManifest' "ENABLED"
+pattern CmafWriteHLSManifestEnabled :: CmafWriteHLSManifest
+pattern CmafWriteHLSManifestEnabled = CmafWriteHLSManifest' "ENABLED"
 
 {-# COMPLETE
-  CWHLSMDisabled,
-  CWHLSMEnabled,
+  CmafWriteHLSManifestDisabled,
+  CmafWriteHLSManifestEnabled,
   CmafWriteHLSManifest'
   #-}

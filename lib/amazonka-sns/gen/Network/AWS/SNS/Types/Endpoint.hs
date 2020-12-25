@@ -18,52 +18,50 @@ module Network.AWS.SNS.Types.Endpoint
 
     -- * Lenses
     eAttributes,
-    eEndpointARN,
+    eEndpointArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SNS.Types.String as Types
 
 -- | Endpoint for mobile app and device.
 --
 -- /See:/ 'mkEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | Attributes for endpoint.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    attributes :: Core.Maybe (Core.HashMap Types.String Types.String),
     -- | EndpointArn for mobile app and device.
-    endpointARN :: Lude.Maybe Lude.Text
+    endpointArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
---
--- * 'attributes' - Attributes for endpoint.
--- * 'endpointARN' - EndpointArn for mobile app and device.
+-- | Creates a 'Endpoint' value with any optional fields omitted.
 mkEndpoint ::
   Endpoint
 mkEndpoint =
-  Endpoint' {attributes = Lude.Nothing, endpointARN = Lude.Nothing}
+  Endpoint' {attributes = Core.Nothing, endpointArn = Core.Nothing}
 
 -- | Attributes for endpoint.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eAttributes :: Lens.Lens' Endpoint (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-eAttributes = Lens.lens (attributes :: Endpoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: Endpoint)
+eAttributes :: Lens.Lens' Endpoint (Core.Maybe (Core.HashMap Types.String Types.String))
+eAttributes = Lens.field @"attributes"
 {-# DEPRECATED eAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | EndpointArn for mobile app and device.
 --
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEndpointARN :: Lens.Lens' Endpoint (Lude.Maybe Lude.Text)
-eEndpointARN = Lens.lens (endpointARN :: Endpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpointARN = a} :: Endpoint)
-{-# DEPRECATED eEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEndpointArn :: Lens.Lens' Endpoint (Core.Maybe Types.String)
+eEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED eEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
-instance Lude.FromXML Endpoint where
+instance Core.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Lude.<$> ( x Lude..@? "Attributes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+      Core.<$> ( x Core..@? "Attributes"
+                   Core..<@> Core.parseXMLMap "entry" "key" "value"
                )
-      Lude.<*> (x Lude..@? "EndpointArn")
+      Core.<*> (x Core..@? "EndpointArn")

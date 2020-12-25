@@ -29,83 +29,72 @@ module Network.AWS.Connect.DisassociateApprovedOrigin
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateApprovedOrigin' smart constructor.
 data DisassociateApprovedOrigin = DisassociateApprovedOrigin'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The domain URL of the integrated application.
-    origin :: Lude.Text
+    origin :: Types.Origin
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateApprovedOrigin' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'origin' - The domain URL of the integrated application.
+-- | Creates a 'DisassociateApprovedOrigin' value with any optional fields omitted.
 mkDisassociateApprovedOrigin ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'origin'
-  Lude.Text ->
+  Types.Origin ->
   DisassociateApprovedOrigin
-mkDisassociateApprovedOrigin pInstanceId_ pOrigin_ =
-  DisassociateApprovedOrigin'
-    { instanceId = pInstanceId_,
-      origin = pOrigin_
-    }
+mkDisassociateApprovedOrigin instanceId origin =
+  DisassociateApprovedOrigin' {instanceId, origin}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoInstanceId :: Lens.Lens' DisassociateApprovedOrigin Lude.Text
-daoInstanceId = Lens.lens (instanceId :: DisassociateApprovedOrigin -> Lude.Text) (\s a -> s {instanceId = a} :: DisassociateApprovedOrigin)
+daoInstanceId :: Lens.Lens' DisassociateApprovedOrigin Types.InstanceId
+daoInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED daoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The domain URL of the integrated application.
 --
 -- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daoOrigin :: Lens.Lens' DisassociateApprovedOrigin Lude.Text
-daoOrigin = Lens.lens (origin :: DisassociateApprovedOrigin -> Lude.Text) (\s a -> s {origin = a} :: DisassociateApprovedOrigin)
+daoOrigin :: Lens.Lens' DisassociateApprovedOrigin Types.Origin
+daoOrigin = Lens.field @"origin"
 {-# DEPRECATED daoOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
 
-instance Lude.AWSRequest DisassociateApprovedOrigin where
+instance Core.AWSRequest DisassociateApprovedOrigin where
   type
     Rs DisassociateApprovedOrigin =
       DisassociateApprovedOriginResponse
-  request = Req.delete connectService
-  response = Res.receiveNull DisassociateApprovedOriginResponse'
-
-instance Lude.ToHeaders DisassociateApprovedOrigin where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DisassociateApprovedOrigin where
-  toPath DisassociateApprovedOrigin' {..} =
-    Lude.mconcat
-      ["/instance/", Lude.toBS instanceId, "/approved-origin"]
-
-instance Lude.ToQuery DisassociateApprovedOrigin where
-  toQuery DisassociateApprovedOrigin' {..} =
-    Lude.mconcat ["origin" Lude.=: origin]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/instance/" Core.<> (Core.toText instanceId)
+                Core.<> ("/approved-origin")
+            ),
+        Core._rqQuery = Core.toQueryValue "origin" origin,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DisassociateApprovedOriginResponse'
 
 -- | /See:/ 'mkDisassociateApprovedOriginResponse' smart constructor.
 data DisassociateApprovedOriginResponse = DisassociateApprovedOriginResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateApprovedOriginResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateApprovedOriginResponse' value with any optional fields omitted.
 mkDisassociateApprovedOriginResponse ::
   DisassociateApprovedOriginResponse
 mkDisassociateApprovedOriginResponse =

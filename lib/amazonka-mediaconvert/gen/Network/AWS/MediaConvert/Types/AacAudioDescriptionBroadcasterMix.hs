@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
   ( AacAudioDescriptionBroadcasterMix
       ( AacAudioDescriptionBroadcasterMix',
-        AADBMBroadcasterMixedAd,
-        AADBMNormal
+        AacAudioDescriptionBroadcasterMixBroadcasterMixedAd,
+        AacAudioDescriptionBroadcasterMixNormal,
+        fromAacAudioDescriptionBroadcasterMix
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and  FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
-newtype AacAudioDescriptionBroadcasterMix = AacAudioDescriptionBroadcasterMix' Lude.Text
+newtype AacAudioDescriptionBroadcasterMix = AacAudioDescriptionBroadcasterMix'
+  { fromAacAudioDescriptionBroadcasterMix ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AADBMBroadcasterMixedAd :: AacAudioDescriptionBroadcasterMix
-pattern AADBMBroadcasterMixedAd = AacAudioDescriptionBroadcasterMix' "BROADCASTER_MIXED_AD"
+pattern AacAudioDescriptionBroadcasterMixBroadcasterMixedAd :: AacAudioDescriptionBroadcasterMix
+pattern AacAudioDescriptionBroadcasterMixBroadcasterMixedAd = AacAudioDescriptionBroadcasterMix' "BROADCASTER_MIXED_AD"
 
-pattern AADBMNormal :: AacAudioDescriptionBroadcasterMix
-pattern AADBMNormal = AacAudioDescriptionBroadcasterMix' "NORMAL"
+pattern AacAudioDescriptionBroadcasterMixNormal :: AacAudioDescriptionBroadcasterMix
+pattern AacAudioDescriptionBroadcasterMixNormal = AacAudioDescriptionBroadcasterMix' "NORMAL"
 
 {-# COMPLETE
-  AADBMBroadcasterMixedAd,
-  AADBMNormal,
+  AacAudioDescriptionBroadcasterMixBroadcasterMixedAd,
+  AacAudioDescriptionBroadcasterMixNormal,
   AacAudioDescriptionBroadcasterMix'
   #-}

@@ -18,13 +18,16 @@ module Network.AWS.ElasticBeanstalk.Types.SearchFilter
 
     -- * Lenses
     sfAttribute,
-    sfValues,
     sfOperator,
+    sfValues,
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.Attribute as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Operator as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.SearchFilterValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes criteria to restrict a list of results.
 --
@@ -35,55 +38,42 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSearchFilter' smart constructor.
 data SearchFilter = SearchFilter'
   { -- | The result attribute to which the filter values are applied. Valid values vary by API action.
-    attribute :: Lude.Maybe Lude.Text,
-    -- | The list of values applied to the @Attribute@ and @Operator@ attributes. Number of values and valid values vary by @Attribute@ .
-    values :: Lude.Maybe [Lude.Text],
+    attribute :: Core.Maybe Types.Attribute,
     -- | The operator to apply to the @Attribute@ with each of the @Values@ . Valid values vary by @Attribute@ .
-    operator :: Lude.Maybe Lude.Text
+    operator :: Core.Maybe Types.Operator,
+    -- | The list of values applied to the @Attribute@ and @Operator@ attributes. Number of values and valid values vary by @Attribute@ .
+    values :: Core.Maybe [Types.SearchFilterValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchFilter' with the minimum fields required to make a request.
---
--- * 'attribute' - The result attribute to which the filter values are applied. Valid values vary by API action.
--- * 'values' - The list of values applied to the @Attribute@ and @Operator@ attributes. Number of values and valid values vary by @Attribute@ .
--- * 'operator' - The operator to apply to the @Attribute@ with each of the @Values@ . Valid values vary by @Attribute@ .
+-- | Creates a 'SearchFilter' value with any optional fields omitted.
 mkSearchFilter ::
   SearchFilter
 mkSearchFilter =
   SearchFilter'
-    { attribute = Lude.Nothing,
-      values = Lude.Nothing,
-      operator = Lude.Nothing
+    { attribute = Core.Nothing,
+      operator = Core.Nothing,
+      values = Core.Nothing
     }
 
 -- | The result attribute to which the filter values are applied. Valid values vary by API action.
 --
 -- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfAttribute :: Lens.Lens' SearchFilter (Lude.Maybe Lude.Text)
-sfAttribute = Lens.lens (attribute :: SearchFilter -> Lude.Maybe Lude.Text) (\s a -> s {attribute = a} :: SearchFilter)
+sfAttribute :: Lens.Lens' SearchFilter (Core.Maybe Types.Attribute)
+sfAttribute = Lens.field @"attribute"
 {-# DEPRECATED sfAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
-
--- | The list of values applied to the @Attribute@ and @Operator@ attributes. Number of values and valid values vary by @Attribute@ .
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfValues :: Lens.Lens' SearchFilter (Lude.Maybe [Lude.Text])
-sfValues = Lens.lens (values :: SearchFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: SearchFilter)
-{-# DEPRECATED sfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The operator to apply to the @Attribute@ with each of the @Values@ . Valid values vary by @Attribute@ .
 --
 -- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfOperator :: Lens.Lens' SearchFilter (Lude.Maybe Lude.Text)
-sfOperator = Lens.lens (operator :: SearchFilter -> Lude.Maybe Lude.Text) (\s a -> s {operator = a} :: SearchFilter)
+sfOperator :: Lens.Lens' SearchFilter (Core.Maybe Types.Operator)
+sfOperator = Lens.field @"operator"
 {-# DEPRECATED sfOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
 
-instance Lude.ToQuery SearchFilter where
-  toQuery SearchFilter' {..} =
-    Lude.mconcat
-      [ "Attribute" Lude.=: attribute,
-        "Values"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> values),
-        "Operator" Lude.=: operator
-      ]
+-- | The list of values applied to the @Attribute@ and @Operator@ attributes. Number of values and valid values vary by @Attribute@ .
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfValues :: Lens.Lens' SearchFilter (Core.Maybe [Types.SearchFilterValue])
+sfValues = Lens.field @"values"
+{-# DEPRECATED sfValues "Use generic-lens or generic-optics with 'values' instead." #-}

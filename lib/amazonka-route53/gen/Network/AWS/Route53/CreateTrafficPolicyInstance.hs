@@ -20,207 +20,192 @@ module Network.AWS.Route53.CreateTrafficPolicyInstance
     mkCreateTrafficPolicyInstance,
 
     -- ** Request lenses
-    ctpiTTL,
-    ctpiTrafficPolicyVersion,
     ctpiHostedZoneId,
     ctpiName,
+    ctpiTTL,
     ctpiTrafficPolicyId,
+    ctpiTrafficPolicyVersion,
 
     -- * Destructuring the response
     CreateTrafficPolicyInstanceResponse (..),
     mkCreateTrafficPolicyInstanceResponse,
 
     -- ** Response lenses
-    ctpirsLocation,
-    ctpirsTrafficPolicyInstance,
-    ctpirsResponseStatus,
+    ctpirrsTrafficPolicyInstance,
+    ctpirrsLocation,
+    ctpirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains information about the resource record sets that you want to create based on a specified traffic policy.
 --
 -- /See:/ 'mkCreateTrafficPolicyInstance' smart constructor.
 data CreateTrafficPolicyInstance = CreateTrafficPolicyInstance'
-  { -- | (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
-    tTL :: Lude.Natural,
-    -- | The version of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-    trafficPolicyVersion :: Lude.Natural,
-    -- | The ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-    hostedZoneId :: ResourceId,
+  { -- | The ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+    hostedZoneId :: Types.ResourceId,
     -- | The domain name (such as example.com) or subdomain name (such as www.example.com) for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-    name :: Lude.Text,
+    name :: Types.DNSName,
+    -- | (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
+    ttl :: Core.Natural,
     -- | The ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-    trafficPolicyId :: Lude.Text
+    trafficPolicyId :: Types.TrafficPolicyId,
+    -- | The version of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+    trafficPolicyVersion :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrafficPolicyInstance' with the minimum fields required to make a request.
---
--- * 'tTL' - (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
--- * 'trafficPolicyVersion' - The version of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
--- * 'hostedZoneId' - The ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
--- * 'name' - The domain name (such as example.com) or subdomain name (such as www.example.com) for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
--- * 'trafficPolicyId' - The ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+-- | Creates a 'CreateTrafficPolicyInstance' value with any optional fields omitted.
 mkCreateTrafficPolicyInstance ::
-  -- | 'tTL'
-  Lude.Natural ->
-  -- | 'trafficPolicyVersion'
-  Lude.Natural ->
   -- | 'hostedZoneId'
-  ResourceId ->
+  Types.ResourceId ->
   -- | 'name'
-  Lude.Text ->
+  Types.DNSName ->
+  -- | 'ttl'
+  Core.Natural ->
   -- | 'trafficPolicyId'
-  Lude.Text ->
+  Types.TrafficPolicyId ->
+  -- | 'trafficPolicyVersion'
+  Core.Natural ->
   CreateTrafficPolicyInstance
 mkCreateTrafficPolicyInstance
-  pTTL_
-  pTrafficPolicyVersion_
-  pHostedZoneId_
-  pName_
-  pTrafficPolicyId_ =
+  hostedZoneId
+  name
+  ttl
+  trafficPolicyId
+  trafficPolicyVersion =
     CreateTrafficPolicyInstance'
-      { tTL = pTTL_,
-        trafficPolicyVersion = pTrafficPolicyVersion_,
-        hostedZoneId = pHostedZoneId_,
-        name = pName_,
-        trafficPolicyId = pTrafficPolicyId_
+      { hostedZoneId,
+        name,
+        ttl,
+        trafficPolicyId,
+        trafficPolicyVersion
       }
-
--- | (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
---
--- /Note:/ Consider using 'tTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpiTTL :: Lens.Lens' CreateTrafficPolicyInstance Lude.Natural
-ctpiTTL = Lens.lens (tTL :: CreateTrafficPolicyInstance -> Lude.Natural) (\s a -> s {tTL = a} :: CreateTrafficPolicyInstance)
-{-# DEPRECATED ctpiTTL "Use generic-lens or generic-optics with 'tTL' instead." #-}
-
--- | The version of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
---
--- /Note:/ Consider using 'trafficPolicyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpiTrafficPolicyVersion :: Lens.Lens' CreateTrafficPolicyInstance Lude.Natural
-ctpiTrafficPolicyVersion = Lens.lens (trafficPolicyVersion :: CreateTrafficPolicyInstance -> Lude.Natural) (\s a -> s {trafficPolicyVersion = a} :: CreateTrafficPolicyInstance)
-{-# DEPRECATED ctpiTrafficPolicyVersion "Use generic-lens or generic-optics with 'trafficPolicyVersion' instead." #-}
 
 -- | The ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
 --
 -- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpiHostedZoneId :: Lens.Lens' CreateTrafficPolicyInstance ResourceId
-ctpiHostedZoneId = Lens.lens (hostedZoneId :: CreateTrafficPolicyInstance -> ResourceId) (\s a -> s {hostedZoneId = a} :: CreateTrafficPolicyInstance)
+ctpiHostedZoneId :: Lens.Lens' CreateTrafficPolicyInstance Types.ResourceId
+ctpiHostedZoneId = Lens.field @"hostedZoneId"
 {-# DEPRECATED ctpiHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | The domain name (such as example.com) or subdomain name (such as www.example.com) for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpiName :: Lens.Lens' CreateTrafficPolicyInstance Lude.Text
-ctpiName = Lens.lens (name :: CreateTrafficPolicyInstance -> Lude.Text) (\s a -> s {name = a} :: CreateTrafficPolicyInstance)
+ctpiName :: Lens.Lens' CreateTrafficPolicyInstance Types.DNSName
+ctpiName = Lens.field @"name"
 {-# DEPRECATED ctpiName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
+--
+-- /Note:/ Consider using 'ttl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpiTTL :: Lens.Lens' CreateTrafficPolicyInstance Core.Natural
+ctpiTTL = Lens.field @"ttl"
+{-# DEPRECATED ctpiTTL "Use generic-lens or generic-optics with 'ttl' instead." #-}
 
 -- | The ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
 --
 -- /Note:/ Consider using 'trafficPolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpiTrafficPolicyId :: Lens.Lens' CreateTrafficPolicyInstance Lude.Text
-ctpiTrafficPolicyId = Lens.lens (trafficPolicyId :: CreateTrafficPolicyInstance -> Lude.Text) (\s a -> s {trafficPolicyId = a} :: CreateTrafficPolicyInstance)
+ctpiTrafficPolicyId :: Lens.Lens' CreateTrafficPolicyInstance Types.TrafficPolicyId
+ctpiTrafficPolicyId = Lens.field @"trafficPolicyId"
 {-# DEPRECATED ctpiTrafficPolicyId "Use generic-lens or generic-optics with 'trafficPolicyId' instead." #-}
 
-instance Lude.AWSRequest CreateTrafficPolicyInstance where
+-- | The version of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+--
+-- /Note:/ Consider using 'trafficPolicyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpiTrafficPolicyVersion :: Lens.Lens' CreateTrafficPolicyInstance Core.Natural
+ctpiTrafficPolicyVersion = Lens.field @"trafficPolicyVersion"
+{-# DEPRECATED ctpiTrafficPolicyVersion "Use generic-lens or generic-optics with 'trafficPolicyVersion' instead." #-}
+
+instance Core.ToXML CreateTrafficPolicyInstance where
+  toXML CreateTrafficPolicyInstance {..} =
+    Core.toXMLNode "HostedZoneId" hostedZoneId
+      Core.<> Core.toXMLNode "Name" name
+      Core.<> Core.toXMLNode "TTL" ttl
+      Core.<> Core.toXMLNode "TrafficPolicyId" trafficPolicyId
+      Core.<> Core.toXMLNode "TrafficPolicyVersion" trafficPolicyVersion
+  toXMLDocument =
+    Core.mkXMLElement
+      "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyInstanceRequest"
+
+instance Core.AWSRequest CreateTrafficPolicyInstance where
   type
     Rs CreateTrafficPolicyInstance =
       CreateTrafficPolicyInstanceResponse
-  request = Req.postXML route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2013-04-01/trafficpolicyinstance",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateTrafficPolicyInstanceResponse'
-            Lude.<$> (h Lude..# "Location")
-            Lude.<*> (x Lude..@ "TrafficPolicyInstance")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "TrafficPolicyInstance")
+            Core.<*> (Core.parseHeader "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement CreateTrafficPolicyInstance where
-  toElement =
-    Lude.mkElement
-      "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyInstanceRequest"
-
-instance Lude.ToHeaders CreateTrafficPolicyInstance where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTrafficPolicyInstance where
-  toPath = Lude.const "/2013-04-01/trafficpolicyinstance"
-
-instance Lude.ToQuery CreateTrafficPolicyInstance where
-  toQuery = Lude.const Lude.mempty
-
-instance Lude.ToXML CreateTrafficPolicyInstance where
-  toXML CreateTrafficPolicyInstance' {..} =
-    Lude.mconcat
-      [ "TTL" Lude.@= tTL,
-        "TrafficPolicyVersion" Lude.@= trafficPolicyVersion,
-        "HostedZoneId" Lude.@= hostedZoneId,
-        "Name" Lude.@= name,
-        "TrafficPolicyId" Lude.@= trafficPolicyId
-      ]
 
 -- | A complex type that contains the response information for the @CreateTrafficPolicyInstance@ request.
 --
 -- /See:/ 'mkCreateTrafficPolicyInstanceResponse' smart constructor.
 data CreateTrafficPolicyInstanceResponse = CreateTrafficPolicyInstanceResponse'
-  { -- | A unique URL that represents a new traffic policy instance.
-    location :: Lude.Text,
-    -- | A complex type that contains settings for the new traffic policy instance.
-    trafficPolicyInstance :: TrafficPolicyInstance,
+  { -- | A complex type that contains settings for the new traffic policy instance.
+    trafficPolicyInstance :: Types.TrafficPolicyInstance,
+    -- | A unique URL that represents a new traffic policy instance.
+    location :: Types.ResourceURI,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrafficPolicyInstanceResponse' with the minimum fields required to make a request.
---
--- * 'location' - A unique URL that represents a new traffic policy instance.
--- * 'trafficPolicyInstance' - A complex type that contains settings for the new traffic policy instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTrafficPolicyInstanceResponse' value with any optional fields omitted.
 mkCreateTrafficPolicyInstanceResponse ::
-  -- | 'location'
-  Lude.Text ->
   -- | 'trafficPolicyInstance'
-  TrafficPolicyInstance ->
+  Types.TrafficPolicyInstance ->
+  -- | 'location'
+  Types.ResourceURI ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTrafficPolicyInstanceResponse
 mkCreateTrafficPolicyInstanceResponse
-  pLocation_
-  pTrafficPolicyInstance_
-  pResponseStatus_ =
+  trafficPolicyInstance
+  location
+  responseStatus =
     CreateTrafficPolicyInstanceResponse'
-      { location = pLocation_,
-        trafficPolicyInstance = pTrafficPolicyInstance_,
-        responseStatus = pResponseStatus_
+      { trafficPolicyInstance,
+        location,
+        responseStatus
       }
-
--- | A unique URL that represents a new traffic policy instance.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpirsLocation :: Lens.Lens' CreateTrafficPolicyInstanceResponse Lude.Text
-ctpirsLocation = Lens.lens (location :: CreateTrafficPolicyInstanceResponse -> Lude.Text) (\s a -> s {location = a} :: CreateTrafficPolicyInstanceResponse)
-{-# DEPRECATED ctpirsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | A complex type that contains settings for the new traffic policy instance.
 --
 -- /Note:/ Consider using 'trafficPolicyInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpirsTrafficPolicyInstance :: Lens.Lens' CreateTrafficPolicyInstanceResponse TrafficPolicyInstance
-ctpirsTrafficPolicyInstance = Lens.lens (trafficPolicyInstance :: CreateTrafficPolicyInstanceResponse -> TrafficPolicyInstance) (\s a -> s {trafficPolicyInstance = a} :: CreateTrafficPolicyInstanceResponse)
-{-# DEPRECATED ctpirsTrafficPolicyInstance "Use generic-lens or generic-optics with 'trafficPolicyInstance' instead." #-}
+ctpirrsTrafficPolicyInstance :: Lens.Lens' CreateTrafficPolicyInstanceResponse Types.TrafficPolicyInstance
+ctpirrsTrafficPolicyInstance = Lens.field @"trafficPolicyInstance"
+{-# DEPRECATED ctpirrsTrafficPolicyInstance "Use generic-lens or generic-optics with 'trafficPolicyInstance' instead." #-}
+
+-- | A unique URL that represents a new traffic policy instance.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpirrsLocation :: Lens.Lens' CreateTrafficPolicyInstanceResponse Types.ResourceURI
+ctpirrsLocation = Lens.field @"location"
+{-# DEPRECATED ctpirrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpirsResponseStatus :: Lens.Lens' CreateTrafficPolicyInstanceResponse Lude.Int
-ctpirsResponseStatus = Lens.lens (responseStatus :: CreateTrafficPolicyInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTrafficPolicyInstanceResponse)
-{-# DEPRECATED ctpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctpirrsResponseStatus :: Lens.Lens' CreateTrafficPolicyInstanceResponse Core.Int
+ctpirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctpirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

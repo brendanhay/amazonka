@@ -13,71 +13,76 @@
 module Network.AWS.DynamoDB.Types.ReplicaStatus
   ( ReplicaStatus
       ( ReplicaStatus',
-        RSCreating,
-        RSCreationFailed,
-        RSUpdating,
-        RSDeleting,
-        RSActive,
-        RSRegionDisabled,
-        RSInaccessibleEncryptionCredentials
+        ReplicaStatusCreating,
+        ReplicaStatusCreationFailed,
+        ReplicaStatusUpdating,
+        ReplicaStatusDeleting,
+        ReplicaStatusActive,
+        ReplicaStatusRegionDisabled,
+        ReplicaStatusInaccessibleEncryptionCredentials,
+        fromReplicaStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReplicaStatus = ReplicaStatus' Lude.Text
+newtype ReplicaStatus = ReplicaStatus'
+  { fromReplicaStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSCreating :: ReplicaStatus
-pattern RSCreating = ReplicaStatus' "CREATING"
+pattern ReplicaStatusCreating :: ReplicaStatus
+pattern ReplicaStatusCreating = ReplicaStatus' "CREATING"
 
-pattern RSCreationFailed :: ReplicaStatus
-pattern RSCreationFailed = ReplicaStatus' "CREATION_FAILED"
+pattern ReplicaStatusCreationFailed :: ReplicaStatus
+pattern ReplicaStatusCreationFailed = ReplicaStatus' "CREATION_FAILED"
 
-pattern RSUpdating :: ReplicaStatus
-pattern RSUpdating = ReplicaStatus' "UPDATING"
+pattern ReplicaStatusUpdating :: ReplicaStatus
+pattern ReplicaStatusUpdating = ReplicaStatus' "UPDATING"
 
-pattern RSDeleting :: ReplicaStatus
-pattern RSDeleting = ReplicaStatus' "DELETING"
+pattern ReplicaStatusDeleting :: ReplicaStatus
+pattern ReplicaStatusDeleting = ReplicaStatus' "DELETING"
 
-pattern RSActive :: ReplicaStatus
-pattern RSActive = ReplicaStatus' "ACTIVE"
+pattern ReplicaStatusActive :: ReplicaStatus
+pattern ReplicaStatusActive = ReplicaStatus' "ACTIVE"
 
-pattern RSRegionDisabled :: ReplicaStatus
-pattern RSRegionDisabled = ReplicaStatus' "REGION_DISABLED"
+pattern ReplicaStatusRegionDisabled :: ReplicaStatus
+pattern ReplicaStatusRegionDisabled = ReplicaStatus' "REGION_DISABLED"
 
-pattern RSInaccessibleEncryptionCredentials :: ReplicaStatus
-pattern RSInaccessibleEncryptionCredentials = ReplicaStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+pattern ReplicaStatusInaccessibleEncryptionCredentials :: ReplicaStatus
+pattern ReplicaStatusInaccessibleEncryptionCredentials = ReplicaStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
 
 {-# COMPLETE
-  RSCreating,
-  RSCreationFailed,
-  RSUpdating,
-  RSDeleting,
-  RSActive,
-  RSRegionDisabled,
-  RSInaccessibleEncryptionCredentials,
+  ReplicaStatusCreating,
+  ReplicaStatusCreationFailed,
+  ReplicaStatusUpdating,
+  ReplicaStatusDeleting,
+  ReplicaStatusActive,
+  ReplicaStatusRegionDisabled,
+  ReplicaStatusInaccessibleEncryptionCredentials,
   ReplicaStatus'
   #-}

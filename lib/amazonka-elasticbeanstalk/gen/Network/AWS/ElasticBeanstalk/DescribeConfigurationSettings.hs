@@ -25,159 +25,150 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     mkDescribeConfigurationSettings,
 
     -- ** Request lenses
-    dcsTemplateName,
-    dcsEnvironmentName,
     dcsApplicationName,
+    dcsEnvironmentName,
+    dcsTemplateName,
 
     -- * Destructuring the response
     DescribeConfigurationSettingsResponse (..),
     mkDescribeConfigurationSettingsResponse,
 
     -- ** Response lenses
-    dcsrsConfigurationSettings,
-    dcsrsResponseStatus,
+    dcsrrsConfigurationSettings,
+    dcsrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Result message containing all of the configuration settings for a specified solution stack or configuration template.
 --
 -- /See:/ 'mkDescribeConfigurationSettings' smart constructor.
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-  { -- | The name of the configuration template to describe.
-    --
-    -- Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
-    templateName :: Lude.Maybe Lude.Text,
+  { -- | The application for the environment or configuration template.
+    applicationName :: Types.ApplicationName,
     -- | The name of the environment to describe.
     --
     -- Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | The application for the environment or configuration template.
-    applicationName :: Lude.Text
+    environmentName :: Core.Maybe Types.EnvironmentName,
+    -- | The name of the configuration template to describe.
+    --
+    -- Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+    templateName :: Core.Maybe Types.TemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConfigurationSettings' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the configuration template to describe.
---
--- Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
--- * 'environmentName' - The name of the environment to describe.
---
--- Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'applicationName' - The application for the environment or configuration template.
+-- | Creates a 'DescribeConfigurationSettings' value with any optional fields omitted.
 mkDescribeConfigurationSettings ::
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
   DescribeConfigurationSettings
-mkDescribeConfigurationSettings pApplicationName_ =
+mkDescribeConfigurationSettings applicationName =
   DescribeConfigurationSettings'
-    { templateName = Lude.Nothing,
-      environmentName = Lude.Nothing,
-      applicationName = pApplicationName_
+    { applicationName,
+      environmentName = Core.Nothing,
+      templateName = Core.Nothing
     }
 
--- | The name of the configuration template to describe.
+-- | The application for the environment or configuration template.
 --
--- Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsTemplateName :: Lens.Lens' DescribeConfigurationSettings (Lude.Maybe Lude.Text)
-dcsTemplateName = Lens.lens (templateName :: DescribeConfigurationSettings -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: DescribeConfigurationSettings)
-{-# DEPRECATED dcsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsApplicationName :: Lens.Lens' DescribeConfigurationSettings Types.ApplicationName
+dcsApplicationName = Lens.field @"applicationName"
+{-# DEPRECATED dcsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The name of the environment to describe.
 --
 -- Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsEnvironmentName :: Lens.Lens' DescribeConfigurationSettings (Lude.Maybe Lude.Text)
-dcsEnvironmentName = Lens.lens (environmentName :: DescribeConfigurationSettings -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeConfigurationSettings)
+dcsEnvironmentName :: Lens.Lens' DescribeConfigurationSettings (Core.Maybe Types.EnvironmentName)
+dcsEnvironmentName = Lens.field @"environmentName"
 {-# DEPRECATED dcsEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
--- | The application for the environment or configuration template.
+-- | The name of the configuration template to describe.
 --
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsApplicationName :: Lens.Lens' DescribeConfigurationSettings Lude.Text
-dcsApplicationName = Lens.lens (applicationName :: DescribeConfigurationSettings -> Lude.Text) (\s a -> s {applicationName = a} :: DescribeConfigurationSettings)
-{-# DEPRECATED dcsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+-- Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsTemplateName :: Lens.Lens' DescribeConfigurationSettings (Core.Maybe Types.TemplateName)
+dcsTemplateName = Lens.field @"templateName"
+{-# DEPRECATED dcsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance Lude.AWSRequest DescribeConfigurationSettings where
+instance Core.AWSRequest DescribeConfigurationSettings where
   type
     Rs DescribeConfigurationSettings =
       DescribeConfigurationSettingsResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeConfigurationSettings")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ApplicationName" applicationName)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+                Core.<> (Core.toQueryValue "TemplateName" Core.<$> templateName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeConfigurationSettingsResult"
       ( \s h x ->
           DescribeConfigurationSettingsResponse'
-            Lude.<$> ( x Lude..@? "ConfigurationSettings" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "ConfigurationSettings"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeConfigurationSettings where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeConfigurationSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConfigurationSettings where
-  toQuery DescribeConfigurationSettings' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeConfigurationSettings" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "TemplateName" Lude.=: templateName,
-        "EnvironmentName" Lude.=: environmentName,
-        "ApplicationName" Lude.=: applicationName
-      ]
 
 -- | The results from a request to change the configuration settings of an environment.
 --
 -- /See:/ 'mkDescribeConfigurationSettingsResponse' smart constructor.
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
   { -- | A list of 'ConfigurationSettingsDescription' .
-    configurationSettings :: Lude.Maybe [ConfigurationSettingsDescription],
+    configurationSettings :: Core.Maybe [Types.ConfigurationSettingsDescription],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeConfigurationSettingsResponse' with the minimum fields required to make a request.
---
--- * 'configurationSettings' - A list of 'ConfigurationSettingsDescription' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeConfigurationSettingsResponse' value with any optional fields omitted.
 mkDescribeConfigurationSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeConfigurationSettingsResponse
-mkDescribeConfigurationSettingsResponse pResponseStatus_ =
+mkDescribeConfigurationSettingsResponse responseStatus =
   DescribeConfigurationSettingsResponse'
     { configurationSettings =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of 'ConfigurationSettingsDescription' .
 --
 -- /Note:/ Consider using 'configurationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsConfigurationSettings :: Lens.Lens' DescribeConfigurationSettingsResponse (Lude.Maybe [ConfigurationSettingsDescription])
-dcsrsConfigurationSettings = Lens.lens (configurationSettings :: DescribeConfigurationSettingsResponse -> Lude.Maybe [ConfigurationSettingsDescription]) (\s a -> s {configurationSettings = a} :: DescribeConfigurationSettingsResponse)
-{-# DEPRECATED dcsrsConfigurationSettings "Use generic-lens or generic-optics with 'configurationSettings' instead." #-}
+dcsrrsConfigurationSettings :: Lens.Lens' DescribeConfigurationSettingsResponse (Core.Maybe [Types.ConfigurationSettingsDescription])
+dcsrrsConfigurationSettings = Lens.field @"configurationSettings"
+{-# DEPRECATED dcsrrsConfigurationSettings "Use generic-lens or generic-optics with 'configurationSettings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsResponseStatus :: Lens.Lens' DescribeConfigurationSettingsResponse Lude.Int
-dcsrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationSettingsResponse)
-{-# DEPRECATED dcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcsrrsResponseStatus :: Lens.Lens' DescribeConfigurationSettingsResponse Core.Int
+dcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

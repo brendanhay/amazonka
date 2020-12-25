@@ -31,116 +31,101 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
     mkTerminateWorkspacesResponse,
 
     -- ** Response lenses
-    twrsFailedRequests,
-    twrsResponseStatus,
+    twrrsFailedRequests,
+    twrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkTerminateWorkspaces' smart constructor.
 newtype TerminateWorkspaces = TerminateWorkspaces'
   { -- | The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.
-    terminateWorkspaceRequests :: Lude.NonEmpty TerminateRequest
+    terminateWorkspaceRequests :: Core.NonEmpty Types.TerminateRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateWorkspaces' with the minimum fields required to make a request.
---
--- * 'terminateWorkspaceRequests' - The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.
+-- | Creates a 'TerminateWorkspaces' value with any optional fields omitted.
 mkTerminateWorkspaces ::
   -- | 'terminateWorkspaceRequests'
-  Lude.NonEmpty TerminateRequest ->
+  Core.NonEmpty Types.TerminateRequest ->
   TerminateWorkspaces
-mkTerminateWorkspaces pTerminateWorkspaceRequests_ =
-  TerminateWorkspaces'
-    { terminateWorkspaceRequests =
-        pTerminateWorkspaceRequests_
-    }
+mkTerminateWorkspaces terminateWorkspaceRequests =
+  TerminateWorkspaces' {terminateWorkspaceRequests}
 
 -- | The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.
 --
 -- /Note:/ Consider using 'terminateWorkspaceRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twTerminateWorkspaceRequests :: Lens.Lens' TerminateWorkspaces (Lude.NonEmpty TerminateRequest)
-twTerminateWorkspaceRequests = Lens.lens (terminateWorkspaceRequests :: TerminateWorkspaces -> Lude.NonEmpty TerminateRequest) (\s a -> s {terminateWorkspaceRequests = a} :: TerminateWorkspaces)
+twTerminateWorkspaceRequests :: Lens.Lens' TerminateWorkspaces (Core.NonEmpty Types.TerminateRequest)
+twTerminateWorkspaceRequests = Lens.field @"terminateWorkspaceRequests"
 {-# DEPRECATED twTerminateWorkspaceRequests "Use generic-lens or generic-optics with 'terminateWorkspaceRequests' instead." #-}
 
-instance Lude.AWSRequest TerminateWorkspaces where
+instance Core.FromJSON TerminateWorkspaces where
+  toJSON TerminateWorkspaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TerminateWorkspaceRequests" Core..= terminateWorkspaceRequests)
+          ]
+      )
+
+instance Core.AWSRequest TerminateWorkspaces where
   type Rs TerminateWorkspaces = TerminateWorkspacesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkspacesService.TerminateWorkspaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TerminateWorkspacesResponse'
-            Lude.<$> (x Lude..?> "FailedRequests" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedRequests")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TerminateWorkspaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.TerminateWorkspaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TerminateWorkspaces where
-  toJSON TerminateWorkspaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("TerminateWorkspaceRequests" Lude..= terminateWorkspaceRequests)
-          ]
-      )
-
-instance Lude.ToPath TerminateWorkspaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TerminateWorkspaces where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTerminateWorkspacesResponse' smart constructor.
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
   { -- | Information about the WorkSpaces that could not be terminated.
-    failedRequests :: Lude.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Core.Maybe [Types.FailedWorkspaceChangeRequest],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateWorkspacesResponse' with the minimum fields required to make a request.
---
--- * 'failedRequests' - Information about the WorkSpaces that could not be terminated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TerminateWorkspacesResponse' value with any optional fields omitted.
 mkTerminateWorkspacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TerminateWorkspacesResponse
-mkTerminateWorkspacesResponse pResponseStatus_ =
+mkTerminateWorkspacesResponse responseStatus =
   TerminateWorkspacesResponse'
-    { failedRequests = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedRequests = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the WorkSpaces that could not be terminated.
 --
 -- /Note:/ Consider using 'failedRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twrsFailedRequests :: Lens.Lens' TerminateWorkspacesResponse (Lude.Maybe [FailedWorkspaceChangeRequest])
-twrsFailedRequests = Lens.lens (failedRequests :: TerminateWorkspacesResponse -> Lude.Maybe [FailedWorkspaceChangeRequest]) (\s a -> s {failedRequests = a} :: TerminateWorkspacesResponse)
-{-# DEPRECATED twrsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
+twrrsFailedRequests :: Lens.Lens' TerminateWorkspacesResponse (Core.Maybe [Types.FailedWorkspaceChangeRequest])
+twrrsFailedRequests = Lens.field @"failedRequests"
+{-# DEPRECATED twrrsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twrsResponseStatus :: Lens.Lens' TerminateWorkspacesResponse Lude.Int
-twrsResponseStatus = Lens.lens (responseStatus :: TerminateWorkspacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateWorkspacesResponse)
-{-# DEPRECATED twrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+twrrsResponseStatus :: Lens.Lens' TerminateWorkspacesResponse Core.Int
+twrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED twrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

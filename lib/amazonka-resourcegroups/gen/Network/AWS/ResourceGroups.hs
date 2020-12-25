@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,10 +32,31 @@
 --     * Searching AWS resources based on a resource query
 module Network.AWS.ResourceGroups
   ( -- * Service configuration
-    resourceGroupsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** MethodNotAllowedException
+    _MethodNotAllowedException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -91,72 +111,105 @@ module Network.AWS.ResourceGroups
 
     -- * Types
 
-    -- ** GroupConfigurationStatus
-    GroupConfigurationStatus (..),
+    -- ** GroupFilterValue
+    GroupFilterValue (..),
 
-    -- ** GroupFilterName
-    GroupFilterName (..),
+    -- ** GroupIdentifier
+    GroupIdentifier (..),
+    mkGroupIdentifier,
+    giGroupArn,
+    giGroupName,
 
     -- ** QueryErrorCode
     QueryErrorCode (..),
 
-    -- ** QueryType
-    QueryType (..),
-
-    -- ** ResourceFilterName
-    ResourceFilterName (..),
-
-    -- ** FailedResource
-    FailedResource (..),
-    mkFailedResource,
-    frResourceARN,
-    frErrorCode,
-    frErrorMessage,
-
     -- ** Group
     Group (..),
     mkGroup,
+    gGroupArn,
     gName,
-    gGroupARN,
     gDescription,
 
     -- ** GroupConfiguration
     GroupConfiguration (..),
     mkGroupConfiguration,
-    gcStatus,
+    gcConfiguration,
     gcFailureReason,
     gcProposedConfiguration,
-    gcConfiguration,
+    gcStatus,
 
-    -- ** GroupConfigurationItem
-    GroupConfigurationItem (..),
-    mkGroupConfigurationItem,
-    gciParameters,
-    gciType,
+    -- ** ResourceFilter
+    ResourceFilter (..),
+    mkResourceFilter,
+    rfName,
+    rfValues,
 
-    -- ** GroupConfigurationParameter
-    GroupConfigurationParameter (..),
-    mkGroupConfigurationParameter,
-    gcpValues,
-    gcpName,
+    -- ** ResourceType
+    ResourceType (..),
 
-    -- ** GroupFilter
-    GroupFilter (..),
-    mkGroupFilter,
-    gfValues,
-    gfName,
+    -- ** QueryType
+    QueryType (..),
 
-    -- ** GroupIdentifier
-    GroupIdentifier (..),
-    mkGroupIdentifier,
-    giGroupARN,
-    giGroupName,
+    -- ** GroupString
+    GroupString (..),
 
     -- ** GroupQuery
     GroupQuery (..),
     mkGroupQuery,
-    gqResourceQuery,
     gqGroupName,
+    gqResourceQuery,
+
+    -- ** GroupConfigurationParameterValue
+    GroupConfigurationParameterValue (..),
+
+    -- ** GroupFilterName
+    GroupFilterName (..),
+
+    -- ** ResourceQuery
+    ResourceQuery (..),
+    mkResourceQuery,
+    rqType,
+    rqSearchQuery,
+
+    -- ** GroupConfigurationStatus
+    GroupConfigurationStatus (..),
+
+    -- ** FailedResource
+    FailedResource (..),
+    mkFailedResource,
+    frErrorCode,
+    frErrorMessage,
+    frResourceArn,
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** QueryErrorMessage
+    QueryErrorMessage (..),
+
+    -- ** ResourceFilterValue
+    ResourceFilterValue (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** GroupFilter
+    GroupFilter (..),
+    mkGroupFilter,
+    gfName,
+    gfValues,
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** GroupConfigurationType
+    GroupConfigurationType (..),
+
+    -- ** GroupConfigurationItem
+    GroupConfigurationItem (..),
+    mkGroupConfigurationItem,
+    gciType,
+    gciParameters,
 
     -- ** QueryError
     QueryError (..),
@@ -164,33 +217,58 @@ module Network.AWS.ResourceGroups
     qeErrorCode,
     qeMessage,
 
-    -- ** ResourceFilter
-    ResourceFilter (..),
-    mkResourceFilter,
-    rfValues,
-    rfName,
+    -- ** Query
+    Query (..),
+
+    -- ** GroupArn
+    GroupArn (..),
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** ResourceFilterName
+    ResourceFilterName (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** GroupName
+    GroupName (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** GroupConfigurationParameter
+    GroupConfigurationParameter (..),
+    mkGroupConfigurationParameter,
+    gcpName,
+    gcpValues,
 
     -- ** ResourceIdentifier
     ResourceIdentifier (..),
     mkResourceIdentifier,
+    riResourceArn,
     riResourceType,
-    riResourceARN,
 
-    -- ** ResourceQuery
-    ResourceQuery (..),
-    mkResourceQuery,
-    rqSearchQuery,
-    rqType,
+    -- ** Name
+    Name (..),
+
+    -- ** FailureReason
+    FailureReason (..),
+
+    -- ** Arn
+    Arn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

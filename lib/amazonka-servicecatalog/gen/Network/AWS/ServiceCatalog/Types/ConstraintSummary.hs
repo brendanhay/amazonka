@@ -17,19 +17,23 @@ module Network.AWS.ServiceCatalog.Types.ConstraintSummary
     mkConstraintSummary,
 
     -- * Lenses
-    csType,
     csDescription,
+    csType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.ConstraintDescription as Types
+import qualified Network.AWS.ServiceCatalog.Types.ConstraintType as Types
 
 -- | Summary information about a constraint.
 --
 -- /See:/ 'mkConstraintSummary' smart constructor.
 data ConstraintSummary = ConstraintSummary'
-  { -- | The type of constraint.
+  { -- | The description of the constraint.
+    description :: Core.Maybe Types.ConstraintDescription,
+    -- | The type of constraint.
     --
     --
     --     * @LAUNCH@
@@ -42,38 +46,26 @@ data ConstraintSummary = ConstraintSummary'
     --
     --
     --     * @TEMPLATE@
-    type' :: Lude.Maybe Lude.Text,
-    -- | The description of the constraint.
-    description :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.ConstraintType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConstraintSummary' with the minimum fields required to make a request.
---
--- * 'type'' - The type of constraint.
---
---
---     * @LAUNCH@
---
---
---     * @NOTIFICATION@
---
---
---     * STACKSET
---
---
---     * @TEMPLATE@
---
---
--- * 'description' - The description of the constraint.
+-- | Creates a 'ConstraintSummary' value with any optional fields omitted.
 mkConstraintSummary ::
   ConstraintSummary
 mkConstraintSummary =
   ConstraintSummary'
-    { type' = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      type' = Core.Nothing
     }
+
+-- | The description of the constraint.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDescription :: Lens.Lens' ConstraintSummary (Core.Maybe Types.ConstraintDescription)
+csDescription = Lens.field @"description"
+{-# DEPRECATED csDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The type of constraint.
 --
@@ -92,22 +84,13 @@ mkConstraintSummary =
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csType :: Lens.Lens' ConstraintSummary (Lude.Maybe Lude.Text)
-csType = Lens.lens (type' :: ConstraintSummary -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ConstraintSummary)
+csType :: Lens.Lens' ConstraintSummary (Core.Maybe Types.ConstraintType)
+csType = Lens.field @"type'"
 {-# DEPRECATED csType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The description of the constraint.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csDescription :: Lens.Lens' ConstraintSummary (Lude.Maybe Lude.Text)
-csDescription = Lens.lens (description :: ConstraintSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ConstraintSummary)
-{-# DEPRECATED csDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromJSON ConstraintSummary where
+instance Core.FromJSON ConstraintSummary where
   parseJSON =
-    Lude.withObject
-      "ConstraintSummary"
-      ( \x ->
-          ConstraintSummary'
-            Lude.<$> (x Lude..:? "Type") Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "ConstraintSummary" Core.$
+      \x ->
+        ConstraintSummary'
+          Core.<$> (x Core..:? "Description") Core.<*> (x Core..:? "Type")

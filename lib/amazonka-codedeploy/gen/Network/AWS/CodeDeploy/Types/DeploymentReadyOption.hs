@@ -22,9 +22,9 @@ module Network.AWS.CodeDeploy.Types.DeploymentReadyOption
   )
 where
 
-import Network.AWS.CodeDeploy.Types.DeploymentReadyAction
+import qualified Network.AWS.CodeDeploy.Types.DeploymentReadyAction as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about how traffic is rerouted to instances in a replacement environment in a blue/green deployment.
 --
@@ -37,31 +37,20 @@ data DeploymentReadyOption = DeploymentReadyOption'
     --
     --
     --     * STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using 'ContinueDeployment' . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
-    actionOnTimeout :: Lude.Maybe DeploymentReadyAction,
+    actionOnTimeout :: Core.Maybe Types.DeploymentReadyAction,
     -- | The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@ .
-    waitTimeInMinutes :: Lude.Maybe Lude.Int
+    waitTimeInMinutes :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeploymentReadyOption' with the minimum fields required to make a request.
---
--- * 'actionOnTimeout' - Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
---
---
---     * CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
---
---
---     * STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using 'ContinueDeployment' . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
---
---
--- * 'waitTimeInMinutes' - The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@ .
+-- | Creates a 'DeploymentReadyOption' value with any optional fields omitted.
 mkDeploymentReadyOption ::
   DeploymentReadyOption
 mkDeploymentReadyOption =
   DeploymentReadyOption'
-    { actionOnTimeout = Lude.Nothing,
-      waitTimeInMinutes = Lude.Nothing
+    { actionOnTimeout = Core.Nothing,
+      waitTimeInMinutes = Core.Nothing
     }
 
 -- | Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
@@ -75,32 +64,30 @@ mkDeploymentReadyOption =
 --
 --
 -- /Note:/ Consider using 'actionOnTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-droActionOnTimeout :: Lens.Lens' DeploymentReadyOption (Lude.Maybe DeploymentReadyAction)
-droActionOnTimeout = Lens.lens (actionOnTimeout :: DeploymentReadyOption -> Lude.Maybe DeploymentReadyAction) (\s a -> s {actionOnTimeout = a} :: DeploymentReadyOption)
+droActionOnTimeout :: Lens.Lens' DeploymentReadyOption (Core.Maybe Types.DeploymentReadyAction)
+droActionOnTimeout = Lens.field @"actionOnTimeout"
 {-# DEPRECATED droActionOnTimeout "Use generic-lens or generic-optics with 'actionOnTimeout' instead." #-}
 
 -- | The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@ .
 --
 -- /Note:/ Consider using 'waitTimeInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-droWaitTimeInMinutes :: Lens.Lens' DeploymentReadyOption (Lude.Maybe Lude.Int)
-droWaitTimeInMinutes = Lens.lens (waitTimeInMinutes :: DeploymentReadyOption -> Lude.Maybe Lude.Int) (\s a -> s {waitTimeInMinutes = a} :: DeploymentReadyOption)
+droWaitTimeInMinutes :: Lens.Lens' DeploymentReadyOption (Core.Maybe Core.Int)
+droWaitTimeInMinutes = Lens.field @"waitTimeInMinutes"
 {-# DEPRECATED droWaitTimeInMinutes "Use generic-lens or generic-optics with 'waitTimeInMinutes' instead." #-}
 
-instance Lude.FromJSON DeploymentReadyOption where
-  parseJSON =
-    Lude.withObject
-      "DeploymentReadyOption"
-      ( \x ->
-          DeploymentReadyOption'
-            Lude.<$> (x Lude..:? "actionOnTimeout")
-            Lude.<*> (x Lude..:? "waitTimeInMinutes")
-      )
-
-instance Lude.ToJSON DeploymentReadyOption where
-  toJSON DeploymentReadyOption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("actionOnTimeout" Lude..=) Lude.<$> actionOnTimeout,
-            ("waitTimeInMinutes" Lude..=) Lude.<$> waitTimeInMinutes
+instance Core.FromJSON DeploymentReadyOption where
+  toJSON DeploymentReadyOption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("actionOnTimeout" Core..=) Core.<$> actionOnTimeout,
+            ("waitTimeInMinutes" Core..=) Core.<$> waitTimeInMinutes
           ]
       )
+
+instance Core.FromJSON DeploymentReadyOption where
+  parseJSON =
+    Core.withObject "DeploymentReadyOption" Core.$
+      \x ->
+        DeploymentReadyOption'
+          Core.<$> (x Core..:? "actionOnTimeout")
+          Core.<*> (x Core..:? "waitTimeInMinutes")

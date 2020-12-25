@@ -20,146 +20,129 @@ module Network.AWS.CodeCommit.DeletePullRequestApprovalRule
     mkDeletePullRequestApprovalRule,
 
     -- ** Request lenses
-    dprarApprovalRuleName,
     dprarPullRequestId,
+    dprarApprovalRuleName,
 
     -- * Destructuring the response
     DeletePullRequestApprovalRuleResponse (..),
     mkDeletePullRequestApprovalRuleResponse,
 
     -- ** Response lenses
-    dprarrsApprovalRuleId,
-    dprarrsResponseStatus,
+    dprarrrsApprovalRuleId,
+    dprarrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePullRequestApprovalRule' smart constructor.
 data DeletePullRequestApprovalRule = DeletePullRequestApprovalRule'
-  { -- | The name of the approval rule you want to delete.
-    approvalRuleName :: Lude.Text,
-    -- | The system-generated ID of the pull request that contains the approval rule you want to delete.
-    pullRequestId :: Lude.Text
+  { -- | The system-generated ID of the pull request that contains the approval rule you want to delete.
+    pullRequestId :: Types.PullRequestId,
+    -- | The name of the approval rule you want to delete.
+    approvalRuleName :: Types.ApprovalRuleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePullRequestApprovalRule' with the minimum fields required to make a request.
---
--- * 'approvalRuleName' - The name of the approval rule you want to delete.
--- * 'pullRequestId' - The system-generated ID of the pull request that contains the approval rule you want to delete.
+-- | Creates a 'DeletePullRequestApprovalRule' value with any optional fields omitted.
 mkDeletePullRequestApprovalRule ::
-  -- | 'approvalRuleName'
-  Lude.Text ->
   -- | 'pullRequestId'
-  Lude.Text ->
+  Types.PullRequestId ->
+  -- | 'approvalRuleName'
+  Types.ApprovalRuleName ->
   DeletePullRequestApprovalRule
-mkDeletePullRequestApprovalRule pApprovalRuleName_ pPullRequestId_ =
-  DeletePullRequestApprovalRule'
-    { approvalRuleName =
-        pApprovalRuleName_,
-      pullRequestId = pPullRequestId_
-    }
-
--- | The name of the approval rule you want to delete.
---
--- /Note:/ Consider using 'approvalRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprarApprovalRuleName :: Lens.Lens' DeletePullRequestApprovalRule Lude.Text
-dprarApprovalRuleName = Lens.lens (approvalRuleName :: DeletePullRequestApprovalRule -> Lude.Text) (\s a -> s {approvalRuleName = a} :: DeletePullRequestApprovalRule)
-{-# DEPRECATED dprarApprovalRuleName "Use generic-lens or generic-optics with 'approvalRuleName' instead." #-}
+mkDeletePullRequestApprovalRule pullRequestId approvalRuleName =
+  DeletePullRequestApprovalRule' {pullRequestId, approvalRuleName}
 
 -- | The system-generated ID of the pull request that contains the approval rule you want to delete.
 --
 -- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprarPullRequestId :: Lens.Lens' DeletePullRequestApprovalRule Lude.Text
-dprarPullRequestId = Lens.lens (pullRequestId :: DeletePullRequestApprovalRule -> Lude.Text) (\s a -> s {pullRequestId = a} :: DeletePullRequestApprovalRule)
+dprarPullRequestId :: Lens.Lens' DeletePullRequestApprovalRule Types.PullRequestId
+dprarPullRequestId = Lens.field @"pullRequestId"
 {-# DEPRECATED dprarPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
-instance Lude.AWSRequest DeletePullRequestApprovalRule where
+-- | The name of the approval rule you want to delete.
+--
+-- /Note:/ Consider using 'approvalRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprarApprovalRuleName :: Lens.Lens' DeletePullRequestApprovalRule Types.ApprovalRuleName
+dprarApprovalRuleName = Lens.field @"approvalRuleName"
+{-# DEPRECATED dprarApprovalRuleName "Use generic-lens or generic-optics with 'approvalRuleName' instead." #-}
+
+instance Core.FromJSON DeletePullRequestApprovalRule where
+  toJSON DeletePullRequestApprovalRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pullRequestId" Core..= pullRequestId),
+            Core.Just ("approvalRuleName" Core..= approvalRuleName)
+          ]
+      )
+
+instance Core.AWSRequest DeletePullRequestApprovalRule where
   type
     Rs DeletePullRequestApprovalRule =
       DeletePullRequestApprovalRuleResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeCommit_20150413.DeletePullRequestApprovalRule"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeletePullRequestApprovalRuleResponse'
-            Lude.<$> (x Lude..:> "approvalRuleId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "approvalRuleId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePullRequestApprovalRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.DeletePullRequestApprovalRule" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeletePullRequestApprovalRule where
-  toJSON DeletePullRequestApprovalRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("approvalRuleName" Lude..= approvalRuleName),
-            Lude.Just ("pullRequestId" Lude..= pullRequestId)
-          ]
-      )
-
-instance Lude.ToPath DeletePullRequestApprovalRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePullRequestApprovalRule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeletePullRequestApprovalRuleResponse' smart constructor.
 data DeletePullRequestApprovalRuleResponse = DeletePullRequestApprovalRuleResponse'
   { -- | The ID of the deleted approval rule.
-    approvalRuleId :: Lude.Text,
+    approvalRuleId :: Types.ApprovalRuleId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePullRequestApprovalRuleResponse' with the minimum fields required to make a request.
---
--- * 'approvalRuleId' - The ID of the deleted approval rule.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePullRequestApprovalRuleResponse' value with any optional fields omitted.
 mkDeletePullRequestApprovalRuleResponse ::
   -- | 'approvalRuleId'
-  Lude.Text ->
+  Types.ApprovalRuleId ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePullRequestApprovalRuleResponse
 mkDeletePullRequestApprovalRuleResponse
-  pApprovalRuleId_
-  pResponseStatus_ =
+  approvalRuleId
+  responseStatus =
     DeletePullRequestApprovalRuleResponse'
-      { approvalRuleId =
-          pApprovalRuleId_,
-        responseStatus = pResponseStatus_
+      { approvalRuleId,
+        responseStatus
       }
 
 -- | The ID of the deleted approval rule.
 --
 -- /Note:/ Consider using 'approvalRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprarrsApprovalRuleId :: Lens.Lens' DeletePullRequestApprovalRuleResponse Lude.Text
-dprarrsApprovalRuleId = Lens.lens (approvalRuleId :: DeletePullRequestApprovalRuleResponse -> Lude.Text) (\s a -> s {approvalRuleId = a} :: DeletePullRequestApprovalRuleResponse)
-{-# DEPRECATED dprarrsApprovalRuleId "Use generic-lens or generic-optics with 'approvalRuleId' instead." #-}
+dprarrrsApprovalRuleId :: Lens.Lens' DeletePullRequestApprovalRuleResponse Types.ApprovalRuleId
+dprarrrsApprovalRuleId = Lens.field @"approvalRuleId"
+{-# DEPRECATED dprarrrsApprovalRuleId "Use generic-lens or generic-optics with 'approvalRuleId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprarrsResponseStatus :: Lens.Lens' DeletePullRequestApprovalRuleResponse Lude.Int
-dprarrsResponseStatus = Lens.lens (responseStatus :: DeletePullRequestApprovalRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePullRequestApprovalRuleResponse)
-{-# DEPRECATED dprarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprarrrsResponseStatus :: Lens.Lens' DeletePullRequestApprovalRuleResponse Core.Int
+dprarrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprarrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

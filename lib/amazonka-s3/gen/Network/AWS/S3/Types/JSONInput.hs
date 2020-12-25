@@ -17,38 +17,36 @@ module Network.AWS.S3.Types.JSONInput
     mkJSONInput,
 
     -- * Lenses
-    jiType,
+    jsoniType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.JSONType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.JSONType as Types
 
 -- | Specifies JSON as object's input serialization format.
 --
 -- /See:/ 'mkJSONInput' smart constructor.
 newtype JSONInput = JSONInput'
   { -- | The type of JSON. Valid values: Document, Lines.
-    type' :: Lude.Maybe JSONType
+    type' :: Core.Maybe Types.JSONType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JSONInput' with the minimum fields required to make a request.
---
--- * 'type'' - The type of JSON. Valid values: Document, Lines.
+-- | Creates a 'JSONInput' value with any optional fields omitted.
 mkJSONInput ::
   JSONInput
-mkJSONInput = JSONInput' {type' = Lude.Nothing}
+mkJSONInput = JSONInput' {type' = Core.Nothing}
 
 -- | The type of JSON. Valid values: Document, Lines.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jiType :: Lens.Lens' JSONInput (Lude.Maybe JSONType)
-jiType = Lens.lens (type' :: JSONInput -> Lude.Maybe JSONType) (\s a -> s {type' = a} :: JSONInput)
-{-# DEPRECATED jiType "Use generic-lens or generic-optics with 'type'' instead." #-}
+jsoniType :: Lens.Lens' JSONInput (Core.Maybe Types.JSONType)
+jsoniType = Lens.field @"type'"
+{-# DEPRECATED jsoniType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToXML JSONInput where
-  toXML JSONInput' {..} = Lude.mconcat ["Type" Lude.@= type']
+instance Core.ToXML JSONInput where
+  toXML JSONInput {..} = Core.toXMLNode "Type" Core.<$> type'

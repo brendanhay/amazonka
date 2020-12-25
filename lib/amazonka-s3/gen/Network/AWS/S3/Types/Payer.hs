@@ -13,47 +13,49 @@
 module Network.AWS.S3.Types.Payer
   ( Payer
       ( Payer',
-        PRequester,
-        PBucketOwner
+        PayerRequester,
+        PayerBucketOwner,
+        fromPayer
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype Payer = Payer' Lude.Text
+newtype Payer = Payer' {fromPayer :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PRequester :: Payer
-pattern PRequester = Payer' "Requester"
+pattern PayerRequester :: Payer
+pattern PayerRequester = Payer' "Requester"
 
-pattern PBucketOwner :: Payer
-pattern PBucketOwner = Payer' "BucketOwner"
+pattern PayerBucketOwner :: Payer
+pattern PayerBucketOwner = Payer' "BucketOwner"
 
 {-# COMPLETE
-  PRequester,
-  PBucketOwner,
+  PayerRequester,
+  PayerBucketOwner,
   Payer'
   #-}

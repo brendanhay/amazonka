@@ -702,7 +702,7 @@ responseDescribeStackSetOperation =
   res
     "DescribeStackSetOperationResponse"
     "fixture/DescribeStackSetOperationResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackSetOperation)
 
 responseDeleteStack :: DeleteStackResponse -> TestTree
@@ -710,7 +710,7 @@ responseDeleteStack =
   res
     "DeleteStackResponse"
     "fixture/DeleteStackResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStack)
 
 responseUpdateStack :: UpdateStackResponse -> TestTree
@@ -718,7 +718,7 @@ responseUpdateStack =
   res
     "UpdateStackResponse"
     "fixture/UpdateStackResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStack)
 
 responseGetTemplateSummary :: GetTemplateSummaryResponse -> TestTree
@@ -726,7 +726,7 @@ responseGetTemplateSummary =
   res
     "GetTemplateSummaryResponse"
     "fixture/GetTemplateSummaryResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy GetTemplateSummary)
 
 responseListChangeSets :: ListChangeSetsResponse -> TestTree
@@ -734,7 +734,7 @@ responseListChangeSets =
   res
     "ListChangeSetsResponse"
     "fixture/ListChangeSetsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListChangeSets)
 
 responseListStackResources :: ListStackResourcesResponse -> TestTree
@@ -742,7 +742,7 @@ responseListStackResources =
   res
     "ListStackResourcesResponse"
     "fixture/ListStackResourcesResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListStackResources)
 
 responseUpdateStackInstances :: UpdateStackInstancesResponse -> TestTree
@@ -750,7 +750,7 @@ responseUpdateStackInstances =
   res
     "UpdateStackInstancesResponse"
     "fixture/UpdateStackInstancesResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStackInstances)
 
 responseDeleteStackInstances :: DeleteStackInstancesResponse -> TestTree
@@ -758,7 +758,7 @@ responseDeleteStackInstances =
   res
     "DeleteStackInstancesResponse"
     "fixture/DeleteStackInstancesResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStackInstances)
 
 responseDescribeType :: DescribeTypeResponse -> TestTree
@@ -766,7 +766,7 @@ responseDescribeType =
   res
     "DescribeTypeResponse"
     "fixture/DescribeTypeResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeType)
 
 responseCreateStackInstances :: CreateStackInstancesResponse -> TestTree
@@ -774,7 +774,7 @@ responseCreateStackInstances =
   res
     "CreateStackInstancesResponse"
     "fixture/CreateStackInstancesResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy CreateStackInstances)
 
 responseListTypeRegistrations :: ListTypeRegistrationsResponse -> TestTree
@@ -782,7 +782,7 @@ responseListTypeRegistrations =
   res
     "ListTypeRegistrationsResponse"
     "fixture/ListTypeRegistrationsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListTypeRegistrations)
 
 responseGetStackPolicy :: GetStackPolicyResponse -> TestTree
@@ -790,7 +790,7 @@ responseGetStackPolicy =
   res
     "GetStackPolicyResponse"
     "fixture/GetStackPolicyResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy GetStackPolicy)
 
 responseDescribeStacks :: DescribeStacksResponse -> TestTree
@@ -798,7 +798,7 @@ responseDescribeStacks =
   res
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStacks)
 
 responseCreateChangeSet :: CreateChangeSetResponse -> TestTree
@@ -806,7 +806,7 @@ responseCreateChangeSet =
   res
     "CreateChangeSetResponse"
     "fixture/CreateChangeSetResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy CreateChangeSet)
 
 responseListStackSetOperations :: ListStackSetOperationsResponse -> TestTree
@@ -814,7 +814,7 @@ responseListStackSetOperations =
   res
     "ListStackSetOperationsResponse"
     "fixture/ListStackSetOperationsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListStackSetOperations)
 
 responseExecuteChangeSet :: ExecuteChangeSetResponse -> TestTree
@@ -822,7 +822,7 @@ responseExecuteChangeSet =
   res
     "ExecuteChangeSetResponse"
     "fixture/ExecuteChangeSetResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ExecuteChangeSet)
 
 responseListStackInstances :: ListStackInstancesResponse -> TestTree
@@ -830,7 +830,7 @@ responseListStackInstances =
   res
     "ListStackInstancesResponse"
     "fixture/ListStackInstancesResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListStackInstances)
 
 responseContinueUpdateRollback :: ContinueUpdateRollbackResponse -> TestTree
@@ -838,7 +838,7 @@ responseContinueUpdateRollback =
   res
     "ContinueUpdateRollbackResponse"
     "fixture/ContinueUpdateRollbackResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ContinueUpdateRollback)
 
 responseValidateTemplate :: ValidateTemplateResponse -> TestTree
@@ -846,7 +846,7 @@ responseValidateTemplate =
   res
     "ValidateTemplateResponse"
     "fixture/ValidateTemplateResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ValidateTemplate)
 
 responseCancelUpdateStack :: CancelUpdateStackResponse -> TestTree
@@ -854,7 +854,7 @@ responseCancelUpdateStack =
   res
     "CancelUpdateStackResponse"
     "fixture/CancelUpdateStackResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy CancelUpdateStack)
 
 responseListTypes :: ListTypesResponse -> TestTree
@@ -862,7 +862,7 @@ responseListTypes =
   res
     "ListTypesResponse"
     "fixture/ListTypesResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListTypes)
 
 responseDescribeTypeRegistration :: DescribeTypeRegistrationResponse -> TestTree
@@ -870,7 +870,7 @@ responseDescribeTypeRegistration =
   res
     "DescribeTypeRegistrationResponse"
     "fixture/DescribeTypeRegistrationResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTypeRegistration)
 
 responseDetectStackDrift :: DetectStackDriftResponse -> TestTree
@@ -878,7 +878,7 @@ responseDetectStackDrift =
   res
     "DetectStackDriftResponse"
     "fixture/DetectStackDriftResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DetectStackDrift)
 
 responseDescribeStackEvents :: DescribeStackEventsResponse -> TestTree
@@ -886,7 +886,7 @@ responseDescribeStackEvents =
   res
     "DescribeStackEventsResponse"
     "fixture/DescribeStackEventsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackEvents)
 
 responseSignalResource :: SignalResourceResponse -> TestTree
@@ -894,7 +894,7 @@ responseSignalResource =
   res
     "SignalResourceResponse"
     "fixture/SignalResourceResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy SignalResource)
 
 responseSetStackPolicy :: SetStackPolicyResponse -> TestTree
@@ -902,7 +902,7 @@ responseSetStackPolicy =
   res
     "SetStackPolicyResponse"
     "fixture/SetStackPolicyResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy SetStackPolicy)
 
 responseListImports :: ListImportsResponse -> TestTree
@@ -910,7 +910,7 @@ responseListImports =
   res
     "ListImportsResponse"
     "fixture/ListImportsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListImports)
 
 responseDescribeStackResourceDrifts :: DescribeStackResourceDriftsResponse -> TestTree
@@ -918,7 +918,7 @@ responseDescribeStackResourceDrifts =
   res
     "DescribeStackResourceDriftsResponse"
     "fixture/DescribeStackResourceDriftsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackResourceDrifts)
 
 responseListStacks :: ListStacksResponse -> TestTree
@@ -926,7 +926,7 @@ responseListStacks =
   res
     "ListStacksResponse"
     "fixture/ListStacksResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListStacks)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
@@ -934,7 +934,7 @@ responseDescribeAccountLimits =
   res
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountLimits)
 
 responseDescribeStackResources :: DescribeStackResourcesResponse -> TestTree
@@ -942,7 +942,7 @@ responseDescribeStackResources =
   res
     "DescribeStackResourcesResponse"
     "fixture/DescribeStackResourcesResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackResources)
 
 responseDescribeStackInstance :: DescribeStackInstanceResponse -> TestTree
@@ -950,7 +950,7 @@ responseDescribeStackInstance =
   res
     "DescribeStackInstanceResponse"
     "fixture/DescribeStackInstanceResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackInstance)
 
 responseCreateStack :: CreateStackResponse -> TestTree
@@ -958,7 +958,7 @@ responseCreateStack =
   res
     "CreateStackResponse"
     "fixture/CreateStackResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy CreateStack)
 
 responseUpdateStackSet :: UpdateStackSetResponse -> TestTree
@@ -966,7 +966,7 @@ responseUpdateStackSet =
   res
     "UpdateStackSetResponse"
     "fixture/UpdateStackSetResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStackSet)
 
 responseDeleteStackSet :: DeleteStackSetResponse -> TestTree
@@ -974,7 +974,7 @@ responseDeleteStackSet =
   res
     "DeleteStackSetResponse"
     "fixture/DeleteStackSetResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStackSet)
 
 responseEstimateTemplateCost :: EstimateTemplateCostResponse -> TestTree
@@ -982,7 +982,7 @@ responseEstimateTemplateCost =
   res
     "EstimateTemplateCostResponse"
     "fixture/EstimateTemplateCostResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy EstimateTemplateCost)
 
 responseDeleteChangeSet :: DeleteChangeSetResponse -> TestTree
@@ -990,7 +990,7 @@ responseDeleteChangeSet =
   res
     "DeleteChangeSetResponse"
     "fixture/DeleteChangeSetResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DeleteChangeSet)
 
 responseListStackSets :: ListStackSetsResponse -> TestTree
@@ -998,7 +998,7 @@ responseListStackSets =
   res
     "ListStackSetsResponse"
     "fixture/ListStackSetsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListStackSets)
 
 responseListExports :: ListExportsResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseListExports =
   res
     "ListExportsResponse"
     "fixture/ListExportsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListExports)
 
 responseDescribeStackDriftDetectionStatus :: DescribeStackDriftDetectionStatusResponse -> TestTree
@@ -1014,7 +1014,7 @@ responseDescribeStackDriftDetectionStatus =
   res
     "DescribeStackDriftDetectionStatusResponse"
     "fixture/DescribeStackDriftDetectionStatusResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackDriftDetectionStatus)
 
 responseCreateStackSet :: CreateStackSetResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseCreateStackSet =
   res
     "CreateStackSetResponse"
     "fixture/CreateStackSetResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy CreateStackSet)
 
 responseDeregisterType :: DeregisterTypeResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseDeregisterType =
   res
     "DeregisterTypeResponse"
     "fixture/DeregisterTypeResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterType)
 
 responseRecordHandlerProgress :: RecordHandlerProgressResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseRecordHandlerProgress =
   res
     "RecordHandlerProgressResponse"
     "fixture/RecordHandlerProgressResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy RecordHandlerProgress)
 
 responseListTypeVersions :: ListTypeVersionsResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseListTypeVersions =
   res
     "ListTypeVersionsResponse"
     "fixture/ListTypeVersionsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListTypeVersions)
 
 responseSetTypeDefaultVersion :: SetTypeDefaultVersionResponse -> TestTree
@@ -1054,7 +1054,7 @@ responseSetTypeDefaultVersion =
   res
     "SetTypeDefaultVersionResponse"
     "fixture/SetTypeDefaultVersionResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy SetTypeDefaultVersion)
 
 responseUpdateTerminationProtection :: UpdateTerminationProtectionResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseUpdateTerminationProtection =
   res
     "UpdateTerminationProtectionResponse"
     "fixture/UpdateTerminationProtectionResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTerminationProtection)
 
 responseGetTemplate :: GetTemplateResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseGetTemplate =
   res
     "GetTemplateResponse"
     "fixture/GetTemplateResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy GetTemplate)
 
 responseDetectStackSetDrift :: DetectStackSetDriftResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseDetectStackSetDrift =
   res
     "DetectStackSetDriftResponse"
     "fixture/DetectStackSetDriftResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DetectStackSetDrift)
 
 responseDetectStackResourceDrift :: DetectStackResourceDriftResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseDetectStackResourceDrift =
   res
     "DetectStackResourceDriftResponse"
     "fixture/DetectStackResourceDriftResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DetectStackResourceDrift)
 
 responseDescribeChangeSet :: DescribeChangeSetResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseDescribeChangeSet =
   res
     "DescribeChangeSetResponse"
     "fixture/DescribeChangeSetResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeChangeSet)
 
 responseDescribeStackSet :: DescribeStackSetResponse -> TestTree
@@ -1102,7 +1102,7 @@ responseDescribeStackSet =
   res
     "DescribeStackSetResponse"
     "fixture/DescribeStackSetResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackSet)
 
 responseListStackSetOperationResults :: ListStackSetOperationResultsResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseListStackSetOperationResults =
   res
     "ListStackSetOperationResultsResponse"
     "fixture/ListStackSetOperationResultsResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy ListStackSetOperationResults)
 
 responseRegisterType :: RegisterTypeResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseRegisterType =
   res
     "RegisterTypeResponse"
     "fixture/RegisterTypeResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy RegisterType)
 
 responseStopStackSetOperation :: StopStackSetOperationResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseStopStackSetOperation =
   res
     "StopStackSetOperationResponse"
     "fixture/StopStackSetOperationResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy StopStackSetOperation)
 
 responseDescribeStackResource :: DescribeStackResourceResponse -> TestTree
@@ -1134,5 +1134,5 @@ responseDescribeStackResource =
   res
     "DescribeStackResourceResponse"
     "fixture/DescribeStackResourceResponse.proto"
-    cloudFormationService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStackResource)

@@ -22,42 +22,40 @@ module Network.AWS.S3.Types.AbortIncompleteMultipartUpload
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /See:/ 'mkAbortIncompleteMultipartUpload' smart constructor.
 newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
   { -- | Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
-    daysAfterInitiation :: Lude.Maybe Lude.Int
+    daysAfterInitiation :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AbortIncompleteMultipartUpload' with the minimum fields required to make a request.
---
--- * 'daysAfterInitiation' - Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+-- | Creates a 'AbortIncompleteMultipartUpload' value with any optional fields omitted.
 mkAbortIncompleteMultipartUpload ::
   AbortIncompleteMultipartUpload
 mkAbortIncompleteMultipartUpload =
   AbortIncompleteMultipartUpload'
     { daysAfterInitiation =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
 --
 -- /Note:/ Consider using 'daysAfterInitiation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aimuDaysAfterInitiation :: Lens.Lens' AbortIncompleteMultipartUpload (Lude.Maybe Lude.Int)
-aimuDaysAfterInitiation = Lens.lens (daysAfterInitiation :: AbortIncompleteMultipartUpload -> Lude.Maybe Lude.Int) (\s a -> s {daysAfterInitiation = a} :: AbortIncompleteMultipartUpload)
+aimuDaysAfterInitiation :: Lens.Lens' AbortIncompleteMultipartUpload (Core.Maybe Core.Int)
+aimuDaysAfterInitiation = Lens.field @"daysAfterInitiation"
 {-# DEPRECATED aimuDaysAfterInitiation "Use generic-lens or generic-optics with 'daysAfterInitiation' instead." #-}
 
-instance Lude.FromXML AbortIncompleteMultipartUpload where
+instance Core.ToXML AbortIncompleteMultipartUpload where
+  toXML AbortIncompleteMultipartUpload {..} =
+    Core.toXMLNode "DaysAfterInitiation" Core.<$> daysAfterInitiation
+
+instance Core.FromXML AbortIncompleteMultipartUpload where
   parseXML x =
     AbortIncompleteMultipartUpload'
-      Lude.<$> (x Lude..@? "DaysAfterInitiation")
-
-instance Lude.ToXML AbortIncompleteMultipartUpload where
-  toXML AbortIncompleteMultipartUpload' {..} =
-    Lude.mconcat ["DaysAfterInitiation" Lude.@= daysAfterInitiation]
+      Core.<$> (x Core..@? "DaysAfterInitiation")

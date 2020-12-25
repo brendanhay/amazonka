@@ -50,6 +50,7 @@ import qualified Data.Text.Encoding as Text.Encoding
 import qualified Network.AWS.Data.Text as AWS.Text
 import Network.HTTP.Types (HeaderName)
 import qualified Network.HTTP.Types as HTTP.Types
+import Prelude
 
 type QueryBuilder = DList (ByteString, ByteString)
 

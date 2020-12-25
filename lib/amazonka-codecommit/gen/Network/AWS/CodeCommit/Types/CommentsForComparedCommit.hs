@@ -17,125 +17,118 @@ module Network.AWS.CodeCommit.Types.CommentsForComparedCommit
     mkCommentsForComparedCommit,
 
     -- * Lenses
-    cfccBeforeBlobId,
-    cfccLocation,
-    cfccAfterCommitId,
     cfccAfterBlobId,
+    cfccAfterCommitId,
+    cfccBeforeBlobId,
     cfccBeforeCommitId,
-    cfccRepositoryName,
     cfccComments,
+    cfccLocation,
+    cfccRepositoryName,
   )
 where
 
-import Network.AWS.CodeCommit.Types.Comment
-import Network.AWS.CodeCommit.Types.Location
+import qualified Network.AWS.CodeCommit.Types.Comment as Types
+import qualified Network.AWS.CodeCommit.Types.CommitId as Types
+import qualified Network.AWS.CodeCommit.Types.Location as Types
+import qualified Network.AWS.CodeCommit.Types.ObjectId as Types
+import qualified Network.AWS.CodeCommit.Types.RepositoryName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about comments on the comparison between two commits.
 --
 -- /See:/ 'mkCommentsForComparedCommit' smart constructor.
 data CommentsForComparedCommit = CommentsForComparedCommit'
-  { -- | The full blob ID of the commit used to establish the before of the comparison.
-    beforeBlobId :: Lude.Maybe Lude.Text,
-    -- | Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is BEFORE or AFTER.
-    location :: Lude.Maybe Location,
+  { -- | The full blob ID of the commit used to establish the after of the comparison.
+    afterBlobId :: Core.Maybe Types.ObjectId,
     -- | The full commit ID of the commit used to establish the after of the comparison.
-    afterCommitId :: Lude.Maybe Lude.Text,
-    -- | The full blob ID of the commit used to establish the after of the comparison.
-    afterBlobId :: Lude.Maybe Lude.Text,
+    afterCommitId :: Core.Maybe Types.CommitId,
+    -- | The full blob ID of the commit used to establish the before of the comparison.
+    beforeBlobId :: Core.Maybe Types.ObjectId,
     -- | The full commit ID of the commit used to establish the before of the comparison.
-    beforeCommitId :: Lude.Maybe Lude.Text,
-    -- | The name of the repository that contains the compared commits.
-    repositoryName :: Lude.Maybe Lude.Text,
+    beforeCommitId :: Core.Maybe Types.CommitId,
     -- | An array of comment objects. Each comment object contains information about a comment on the comparison between commits.
-    comments :: Lude.Maybe [Comment]
+    comments :: Core.Maybe [Types.Comment],
+    -- | Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is BEFORE or AFTER.
+    location :: Core.Maybe Types.Location,
+    -- | The name of the repository that contains the compared commits.
+    repositoryName :: Core.Maybe Types.RepositoryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CommentsForComparedCommit' with the minimum fields required to make a request.
---
--- * 'beforeBlobId' - The full blob ID of the commit used to establish the before of the comparison.
--- * 'location' - Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is BEFORE or AFTER.
--- * 'afterCommitId' - The full commit ID of the commit used to establish the after of the comparison.
--- * 'afterBlobId' - The full blob ID of the commit used to establish the after of the comparison.
--- * 'beforeCommitId' - The full commit ID of the commit used to establish the before of the comparison.
--- * 'repositoryName' - The name of the repository that contains the compared commits.
--- * 'comments' - An array of comment objects. Each comment object contains information about a comment on the comparison between commits.
+-- | Creates a 'CommentsForComparedCommit' value with any optional fields omitted.
 mkCommentsForComparedCommit ::
   CommentsForComparedCommit
 mkCommentsForComparedCommit =
   CommentsForComparedCommit'
-    { beforeBlobId = Lude.Nothing,
-      location = Lude.Nothing,
-      afterCommitId = Lude.Nothing,
-      afterBlobId = Lude.Nothing,
-      beforeCommitId = Lude.Nothing,
-      repositoryName = Lude.Nothing,
-      comments = Lude.Nothing
+    { afterBlobId = Core.Nothing,
+      afterCommitId = Core.Nothing,
+      beforeBlobId = Core.Nothing,
+      beforeCommitId = Core.Nothing,
+      comments = Core.Nothing,
+      location = Core.Nothing,
+      repositoryName = Core.Nothing
     }
-
--- | The full blob ID of the commit used to establish the before of the comparison.
---
--- /Note:/ Consider using 'beforeBlobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfccBeforeBlobId :: Lens.Lens' CommentsForComparedCommit (Lude.Maybe Lude.Text)
-cfccBeforeBlobId = Lens.lens (beforeBlobId :: CommentsForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {beforeBlobId = a} :: CommentsForComparedCommit)
-{-# DEPRECATED cfccBeforeBlobId "Use generic-lens or generic-optics with 'beforeBlobId' instead." #-}
-
--- | Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is BEFORE or AFTER.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfccLocation :: Lens.Lens' CommentsForComparedCommit (Lude.Maybe Location)
-cfccLocation = Lens.lens (location :: CommentsForComparedCommit -> Lude.Maybe Location) (\s a -> s {location = a} :: CommentsForComparedCommit)
-{-# DEPRECATED cfccLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | The full commit ID of the commit used to establish the after of the comparison.
---
--- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfccAfterCommitId :: Lens.Lens' CommentsForComparedCommit (Lude.Maybe Lude.Text)
-cfccAfterCommitId = Lens.lens (afterCommitId :: CommentsForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {afterCommitId = a} :: CommentsForComparedCommit)
-{-# DEPRECATED cfccAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
 
 -- | The full blob ID of the commit used to establish the after of the comparison.
 --
 -- /Note:/ Consider using 'afterBlobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfccAfterBlobId :: Lens.Lens' CommentsForComparedCommit (Lude.Maybe Lude.Text)
-cfccAfterBlobId = Lens.lens (afterBlobId :: CommentsForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {afterBlobId = a} :: CommentsForComparedCommit)
+cfccAfterBlobId :: Lens.Lens' CommentsForComparedCommit (Core.Maybe Types.ObjectId)
+cfccAfterBlobId = Lens.field @"afterBlobId"
 {-# DEPRECATED cfccAfterBlobId "Use generic-lens or generic-optics with 'afterBlobId' instead." #-}
+
+-- | The full commit ID of the commit used to establish the after of the comparison.
+--
+-- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfccAfterCommitId :: Lens.Lens' CommentsForComparedCommit (Core.Maybe Types.CommitId)
+cfccAfterCommitId = Lens.field @"afterCommitId"
+{-# DEPRECATED cfccAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
+
+-- | The full blob ID of the commit used to establish the before of the comparison.
+--
+-- /Note:/ Consider using 'beforeBlobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfccBeforeBlobId :: Lens.Lens' CommentsForComparedCommit (Core.Maybe Types.ObjectId)
+cfccBeforeBlobId = Lens.field @"beforeBlobId"
+{-# DEPRECATED cfccBeforeBlobId "Use generic-lens or generic-optics with 'beforeBlobId' instead." #-}
 
 -- | The full commit ID of the commit used to establish the before of the comparison.
 --
 -- /Note:/ Consider using 'beforeCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfccBeforeCommitId :: Lens.Lens' CommentsForComparedCommit (Lude.Maybe Lude.Text)
-cfccBeforeCommitId = Lens.lens (beforeCommitId :: CommentsForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {beforeCommitId = a} :: CommentsForComparedCommit)
+cfccBeforeCommitId :: Lens.Lens' CommentsForComparedCommit (Core.Maybe Types.CommitId)
+cfccBeforeCommitId = Lens.field @"beforeCommitId"
 {-# DEPRECATED cfccBeforeCommitId "Use generic-lens or generic-optics with 'beforeCommitId' instead." #-}
-
--- | The name of the repository that contains the compared commits.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfccRepositoryName :: Lens.Lens' CommentsForComparedCommit (Lude.Maybe Lude.Text)
-cfccRepositoryName = Lens.lens (repositoryName :: CommentsForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: CommentsForComparedCommit)
-{-# DEPRECATED cfccRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | An array of comment objects. Each comment object contains information about a comment on the comparison between commits.
 --
 -- /Note:/ Consider using 'comments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfccComments :: Lens.Lens' CommentsForComparedCommit (Lude.Maybe [Comment])
-cfccComments = Lens.lens (comments :: CommentsForComparedCommit -> Lude.Maybe [Comment]) (\s a -> s {comments = a} :: CommentsForComparedCommit)
+cfccComments :: Lens.Lens' CommentsForComparedCommit (Core.Maybe [Types.Comment])
+cfccComments = Lens.field @"comments"
 {-# DEPRECATED cfccComments "Use generic-lens or generic-optics with 'comments' instead." #-}
 
-instance Lude.FromJSON CommentsForComparedCommit where
+-- | Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is BEFORE or AFTER.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfccLocation :: Lens.Lens' CommentsForComparedCommit (Core.Maybe Types.Location)
+cfccLocation = Lens.field @"location"
+{-# DEPRECATED cfccLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The name of the repository that contains the compared commits.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfccRepositoryName :: Lens.Lens' CommentsForComparedCommit (Core.Maybe Types.RepositoryName)
+cfccRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED cfccRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+instance Core.FromJSON CommentsForComparedCommit where
   parseJSON =
-    Lude.withObject
-      "CommentsForComparedCommit"
-      ( \x ->
-          CommentsForComparedCommit'
-            Lude.<$> (x Lude..:? "beforeBlobId")
-            Lude.<*> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "afterCommitId")
-            Lude.<*> (x Lude..:? "afterBlobId")
-            Lude.<*> (x Lude..:? "beforeCommitId")
-            Lude.<*> (x Lude..:? "repositoryName")
-            Lude.<*> (x Lude..:? "comments" Lude..!= Lude.mempty)
-      )
+    Core.withObject "CommentsForComparedCommit" Core.$
+      \x ->
+        CommentsForComparedCommit'
+          Core.<$> (x Core..:? "afterBlobId")
+          Core.<*> (x Core..:? "afterCommitId")
+          Core.<*> (x Core..:? "beforeBlobId")
+          Core.<*> (x Core..:? "beforeCommitId")
+          Core.<*> (x Core..:? "comments")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "repositoryName")

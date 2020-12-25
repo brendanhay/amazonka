@@ -30,127 +30,111 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
     mkDescribeIdentityUsageResponse,
 
     -- ** Response lenses
-    diursIdentityUsage,
-    diursResponseStatus,
+    diurrsIdentityUsage,
+    diurrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.CognitoSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request for information about the usage of an identity pool.
 --
 -- /See:/ 'mkDescribeIdentityUsage' smart constructor.
 data DescribeIdentityUsage = DescribeIdentityUsage'
   { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-    identityPoolId :: Lude.Text,
+    identityPoolId :: Types.IdentityPoolId,
     -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-    identityId :: Lude.Text
+    identityId :: Types.IdentityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeIdentityUsage' with the minimum fields required to make a request.
---
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
--- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- | Creates a 'DescribeIdentityUsage' value with any optional fields omitted.
 mkDescribeIdentityUsage ::
   -- | 'identityPoolId'
-  Lude.Text ->
+  Types.IdentityPoolId ->
   -- | 'identityId'
-  Lude.Text ->
+  Types.IdentityId ->
   DescribeIdentityUsage
-mkDescribeIdentityUsage pIdentityPoolId_ pIdentityId_ =
-  DescribeIdentityUsage'
-    { identityPoolId = pIdentityPoolId_,
-      identityId = pIdentityId_
-    }
+mkDescribeIdentityUsage identityPoolId identityId =
+  DescribeIdentityUsage' {identityPoolId, identityId}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diuIdentityPoolId :: Lens.Lens' DescribeIdentityUsage Lude.Text
-diuIdentityPoolId = Lens.lens (identityPoolId :: DescribeIdentityUsage -> Lude.Text) (\s a -> s {identityPoolId = a} :: DescribeIdentityUsage)
+diuIdentityPoolId :: Lens.Lens' DescribeIdentityUsage Types.IdentityPoolId
+diuIdentityPoolId = Lens.field @"identityPoolId"
 {-# DEPRECATED diuIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diuIdentityId :: Lens.Lens' DescribeIdentityUsage Lude.Text
-diuIdentityId = Lens.lens (identityId :: DescribeIdentityUsage -> Lude.Text) (\s a -> s {identityId = a} :: DescribeIdentityUsage)
+diuIdentityId :: Lens.Lens' DescribeIdentityUsage Types.IdentityId
+diuIdentityId = Lens.field @"identityId"
 {-# DEPRECATED diuIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
-instance Lude.AWSRequest DescribeIdentityUsage where
+instance Core.AWSRequest DescribeIdentityUsage where
   type Rs DescribeIdentityUsage = DescribeIdentityUsageResponse
-  request = Req.get cognitoSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/identitypools/" Core.<> (Core.toText identityPoolId)
+                Core.<> ("/identities/")
+                Core.<> (Core.toText identityId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeIdentityUsageResponse'
-            Lude.<$> (x Lude..?> "IdentityUsage")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "IdentityUsage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeIdentityUsage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeIdentityUsage where
-  toPath DescribeIdentityUsage' {..} =
-    Lude.mconcat
-      [ "/identitypools/",
-        Lude.toBS identityPoolId,
-        "/identities/",
-        Lude.toBS identityId
-      ]
-
-instance Lude.ToQuery DescribeIdentityUsage where
-  toQuery = Lude.const Lude.mempty
 
 -- | The response to a successful DescribeIdentityUsage request.
 --
 -- /See:/ 'mkDescribeIdentityUsageResponse' smart constructor.
 data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
   { -- | Usage information for the identity.
-    identityUsage :: Lude.Maybe IdentityUsage,
+    identityUsage :: Core.Maybe Types.IdentityUsage,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeIdentityUsageResponse' with the minimum fields required to make a request.
---
--- * 'identityUsage' - Usage information for the identity.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeIdentityUsageResponse' value with any optional fields omitted.
 mkDescribeIdentityUsageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeIdentityUsageResponse
-mkDescribeIdentityUsageResponse pResponseStatus_ =
+mkDescribeIdentityUsageResponse responseStatus =
   DescribeIdentityUsageResponse'
-    { identityUsage = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { identityUsage = Core.Nothing,
+      responseStatus
     }
 
 -- | Usage information for the identity.
 --
 -- /Note:/ Consider using 'identityUsage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diursIdentityUsage :: Lens.Lens' DescribeIdentityUsageResponse (Lude.Maybe IdentityUsage)
-diursIdentityUsage = Lens.lens (identityUsage :: DescribeIdentityUsageResponse -> Lude.Maybe IdentityUsage) (\s a -> s {identityUsage = a} :: DescribeIdentityUsageResponse)
-{-# DEPRECATED diursIdentityUsage "Use generic-lens or generic-optics with 'identityUsage' instead." #-}
+diurrsIdentityUsage :: Lens.Lens' DescribeIdentityUsageResponse (Core.Maybe Types.IdentityUsage)
+diurrsIdentityUsage = Lens.field @"identityUsage"
+{-# DEPRECATED diurrsIdentityUsage "Use generic-lens or generic-optics with 'identityUsage' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diursResponseStatus :: Lens.Lens' DescribeIdentityUsageResponse Lude.Int
-diursResponseStatus = Lens.lens (responseStatus :: DescribeIdentityUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIdentityUsageResponse)
-{-# DEPRECATED diursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+diurrsResponseStatus :: Lens.Lens' DescribeIdentityUsageResponse Core.Int
+diurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED diurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

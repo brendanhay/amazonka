@@ -17,54 +17,51 @@ module Network.AWS.EC2.Types.InstanceCount
     mkInstanceCount,
 
     -- * Lenses
-    icState,
     icInstanceCount,
+    icState,
   )
 where
 
-import Network.AWS.EC2.Types.ListingState
+import qualified Network.AWS.EC2.Types.ListingState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Reserved Instance listing state.
 --
 -- /See:/ 'mkInstanceCount' smart constructor.
 data InstanceCount = InstanceCount'
-  { -- | The states of the listed Reserved Instances.
-    state :: Lude.Maybe ListingState,
-    -- | The number of listed Reserved Instances in the state specified by the @state@ .
-    instanceCount :: Lude.Maybe Lude.Int
+  { -- | The number of listed Reserved Instances in the state specified by the @state@ .
+    instanceCount :: Core.Maybe Core.Int,
+    -- | The states of the listed Reserved Instances.
+    state :: Core.Maybe Types.ListingState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceCount' with the minimum fields required to make a request.
---
--- * 'state' - The states of the listed Reserved Instances.
--- * 'instanceCount' - The number of listed Reserved Instances in the state specified by the @state@ .
+-- | Creates a 'InstanceCount' value with any optional fields omitted.
 mkInstanceCount ::
   InstanceCount
 mkInstanceCount =
   InstanceCount'
-    { state = Lude.Nothing,
-      instanceCount = Lude.Nothing
+    { instanceCount = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The states of the listed Reserved Instances.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icState :: Lens.Lens' InstanceCount (Lude.Maybe ListingState)
-icState = Lens.lens (state :: InstanceCount -> Lude.Maybe ListingState) (\s a -> s {state = a} :: InstanceCount)
-{-# DEPRECATED icState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The number of listed Reserved Instances in the state specified by the @state@ .
 --
 -- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icInstanceCount :: Lens.Lens' InstanceCount (Lude.Maybe Lude.Int)
-icInstanceCount = Lens.lens (instanceCount :: InstanceCount -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: InstanceCount)
+icInstanceCount :: Lens.Lens' InstanceCount (Core.Maybe Core.Int)
+icInstanceCount = Lens.field @"instanceCount"
 {-# DEPRECATED icInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
-instance Lude.FromXML InstanceCount where
+-- | The states of the listed Reserved Instances.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icState :: Lens.Lens' InstanceCount (Core.Maybe Types.ListingState)
+icState = Lens.field @"state"
+{-# DEPRECATED icState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromXML InstanceCount where
   parseXML x =
     InstanceCount'
-      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "instanceCount")
+      Core.<$> (x Core..@? "instanceCount") Core.<*> (x Core..@? "state")

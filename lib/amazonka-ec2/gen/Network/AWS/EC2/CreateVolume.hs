@@ -25,68 +25,61 @@ module Network.AWS.EC2.CreateVolume
     mkCreateVolume,
 
     -- ** Request lenses
-    cvMultiAttachEnabled,
-    cvSize,
-    cvIOPS,
-    cvOutpostARN,
-    cvEncrypted,
-    cvTagSpecifications,
-    cvKMSKeyId,
-    cvAvailabilityZone,
-    cvVolumeType,
-    cvDryRun,
-    cvSnapshotId,
+    cvfAvailabilityZone,
+    cvfDryRun,
+    cvfEncrypted,
+    cvfIops,
+    cvfKmsKeyId,
+    cvfMultiAttachEnabled,
+    cvfOutpostArn,
+    cvfSize,
+    cvfSnapshotId,
+    cvfTagSpecifications,
+    cvfVolumeType,
 
     -- * Destructuring the response
-    Volume (..),
-    mkVolume,
+    Types.Volume (..),
+    Types.mkVolume,
 
     -- ** Response lenses
-    vFastRestored,
-    vState,
-    vMultiAttachEnabled,
-    vAttachments,
-    vSize,
-    vIOPS,
-    vOutpostARN,
-    vEncrypted,
-    vKMSKeyId,
-    vAvailabilityZone,
-    vVolumeId,
-    vVolumeType,
-    vCreateTime,
-    vTags,
-    vSnapshotId,
+    Types.vAttachments,
+    Types.vAvailabilityZone,
+    Types.vCreateTime,
+    Types.vEncrypted,
+    Types.vFastRestored,
+    Types.vIops,
+    Types.vKmsKeyId,
+    Types.vMultiAttachEnabled,
+    Types.vOutpostArn,
+    Types.vSize,
+    Types.vSnapshotId,
+    Types.vState,
+    Types.vTags,
+    Types.vVolumeId,
+    Types.vVolumeType,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateVolume' smart constructor.
 data CreateVolume = CreateVolume'
-  { -- | Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> in the same Availability Zone. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach> in the /Amazon Elastic Compute Cloud User Guide/ .
-    multiAttachEnabled :: Lude.Maybe Lude.Bool,
-    -- | The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
-    --
-    -- Constraints: 1-16,384 for @gp2@ , 4-16,384 for @io1@ and @io2@ , 500-16,384 for @st1@ , 500-16,384 for @sc1@ , and 1-1,024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
-    -- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
-    size :: Lude.Maybe Lude.Int,
-    -- | The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types> in the /Amazon Elastic Compute Cloud User Guide/ .
-    --
-    -- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
-    iops :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostARN :: Lude.Maybe Lude.Text,
+  { -- | The Availability Zone in which to create the volume.
+    availabilityZone :: Types.String,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | Specifies whether the volume should be encrypted. The effect of setting the encryption state to @true@ depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default Encryption by default> in the /Amazon Elastic Compute Cloud User Guide/ .
     --
     -- Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types> .
-    encrypted :: Lude.Maybe Lude.Bool,
-    -- | The tags to apply to the volume during creation.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+    encrypted :: Core.Maybe Core.Bool,
+    -- | The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    --
+    -- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
+    iops :: Core.Maybe Core.Int,
     -- | The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
     --
     -- You can specify the CMK using any of the following:
@@ -104,126 +97,79 @@ data CreateVolume = CreateVolume'
     --
     --
     -- AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    -- | The Availability Zone in which to create the volume.
-    availabilityZone :: Lude.Text,
+    kmsKeyId :: Core.Maybe Types.KmsKeyId,
+    -- | Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> in the same Availability Zone. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach> in the /Amazon Elastic Compute Cloud User Guide/ .
+    multiAttachEnabled :: Core.Maybe Core.Bool,
+    -- | The Amazon Resource Name (ARN) of the Outpost.
+    outpostArn :: Core.Maybe Types.String,
+    -- | The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+    --
+    -- Constraints: 1-16,384 for @gp2@ , 4-16,384 for @io1@ and @io2@ , 500-16,384 for @st1@ , 500-16,384 for @sc1@ , and 1-1,024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
+    -- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+    size :: Core.Maybe Core.Int,
+    -- | The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+    snapshotId :: Core.Maybe Types.SnapshotId,
+    -- | The tags to apply to the volume during creation.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification],
     -- | The volume type. This can be @gp2@ for General Purpose SSD, @io1@ or @io2@ for Provisioned IOPS SSD, @st1@ for Throughput Optimized HDD, @sc1@ for Cold HDD, or @standard@ for Magnetic volumes.
     --
     -- Default: @gp2@
-    volumeType :: Lude.Maybe VolumeType,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
-    snapshotId :: Lude.Maybe Lude.Text
+    volumeType :: Core.Maybe Types.VolumeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateVolume' with the minimum fields required to make a request.
---
--- * 'multiAttachEnabled' - Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> in the same Availability Zone. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'size' - The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
---
--- Constraints: 1-16,384 for @gp2@ , 4-16,384 for @io1@ and @io2@ , 500-16,384 for @st1@ , 500-16,384 for @sc1@ , and 1-1,024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
--- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
--- * 'iops' - The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
--- * 'encrypted' - Specifies whether the volume should be encrypted. The effect of setting the encryption state to @true@ depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default Encryption by default> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types> .
--- * 'tagSpecifications' - The tags to apply to the volume during creation.
--- * 'kmsKeyId' - The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
---
--- You can specify the CMK using any of the following:
---
---     * Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
---
---
---     * Key alias. For example, alias/ExampleAlias.
---
---
---     * Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
---
---
---     * Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
---
---
--- AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.
--- * 'availabilityZone' - The Availability Zone in which to create the volume.
--- * 'volumeType' - The volume type. This can be @gp2@ for General Purpose SSD, @io1@ or @io2@ for Provisioned IOPS SSD, @st1@ for Throughput Optimized HDD, @sc1@ for Cold HDD, or @standard@ for Magnetic volumes.
---
--- Default: @gp2@
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'snapshotId' - The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+-- | Creates a 'CreateVolume' value with any optional fields omitted.
 mkCreateVolume ::
   -- | 'availabilityZone'
-  Lude.Text ->
+  Types.String ->
   CreateVolume
-mkCreateVolume pAvailabilityZone_ =
+mkCreateVolume availabilityZone =
   CreateVolume'
-    { multiAttachEnabled = Lude.Nothing,
-      size = Lude.Nothing,
-      iops = Lude.Nothing,
-      outpostARN = Lude.Nothing,
-      encrypted = Lude.Nothing,
-      tagSpecifications = Lude.Nothing,
-      kmsKeyId = Lude.Nothing,
-      availabilityZone = pAvailabilityZone_,
-      volumeType = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      snapshotId = Lude.Nothing
+    { availabilityZone,
+      dryRun = Core.Nothing,
+      encrypted = Core.Nothing,
+      iops = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      multiAttachEnabled = Core.Nothing,
+      outpostArn = Core.Nothing,
+      size = Core.Nothing,
+      snapshotId = Core.Nothing,
+      tagSpecifications = Core.Nothing,
+      volumeType = Core.Nothing
     }
 
--- | Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> in the same Availability Zone. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | The Availability Zone in which to create the volume.
 --
--- /Note:/ Consider using 'multiAttachEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvMultiAttachEnabled :: Lens.Lens' CreateVolume (Lude.Maybe Lude.Bool)
-cvMultiAttachEnabled = Lens.lens (multiAttachEnabled :: CreateVolume -> Lude.Maybe Lude.Bool) (\s a -> s {multiAttachEnabled = a} :: CreateVolume)
-{-# DEPRECATED cvMultiAttachEnabled "Use generic-lens or generic-optics with 'multiAttachEnabled' instead." #-}
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfAvailabilityZone :: Lens.Lens' CreateVolume Types.String
+cvfAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED cvfAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- Constraints: 1-16,384 for @gp2@ , 4-16,384 for @io1@ and @io2@ , 500-16,384 for @st1@ , 500-16,384 for @sc1@ , and 1-1,024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
--- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvSize :: Lens.Lens' CreateVolume (Lude.Maybe Lude.Int)
-cvSize = Lens.lens (size :: CreateVolume -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: CreateVolume)
-{-# DEPRECATED cvSize "Use generic-lens or generic-optics with 'size' instead." #-}
-
--- | The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
---
--- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvIOPS :: Lens.Lens' CreateVolume (Lude.Maybe Lude.Int)
-cvIOPS = Lens.lens (iops :: CreateVolume -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: CreateVolume)
-{-# DEPRECATED cvIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Outpost.
---
--- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvOutpostARN :: Lens.Lens' CreateVolume (Lude.Maybe Lude.Text)
-cvOutpostARN = Lens.lens (outpostARN :: CreateVolume -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: CreateVolume)
-{-# DEPRECATED cvOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfDryRun :: Lens.Lens' CreateVolume (Core.Maybe Core.Bool)
+cvfDryRun = Lens.field @"dryRun"
+{-# DEPRECATED cvfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | Specifies whether the volume should be encrypted. The effect of setting the encryption state to @true@ depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default Encryption by default> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types> .
 --
 -- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvEncrypted :: Lens.Lens' CreateVolume (Lude.Maybe Lude.Bool)
-cvEncrypted = Lens.lens (encrypted :: CreateVolume -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: CreateVolume)
-{-# DEPRECATED cvEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
+cvfEncrypted :: Lens.Lens' CreateVolume (Core.Maybe Core.Bool)
+cvfEncrypted = Lens.field @"encrypted"
+{-# DEPRECATED cvfEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
--- | The tags to apply to the volume during creation.
+-- | The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvTagSpecifications :: Lens.Lens' CreateVolume (Lude.Maybe [TagSpecification])
-cvTagSpecifications = Lens.lens (tagSpecifications :: CreateVolume -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateVolume)
-{-# DEPRECATED cvTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+-- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfIops :: Lens.Lens' CreateVolume (Core.Maybe Core.Int)
+cvfIops = Lens.field @"iops"
+{-# DEPRECATED cvfIops "Use generic-lens or generic-optics with 'iops' instead." #-}
 
 -- | The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
 --
@@ -244,66 +190,87 @@ cvTagSpecifications = Lens.lens (tagSpecifications :: CreateVolume -> Lude.Maybe
 -- AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvKMSKeyId :: Lens.Lens' CreateVolume (Lude.Maybe Lude.Text)
-cvKMSKeyId = Lens.lens (kmsKeyId :: CreateVolume -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateVolume)
-{-# DEPRECATED cvKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+cvfKmsKeyId :: Lens.Lens' CreateVolume (Core.Maybe Types.KmsKeyId)
+cvfKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED cvfKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | The Availability Zone in which to create the volume.
+-- | Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> in the same Availability Zone. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvAvailabilityZone :: Lens.Lens' CreateVolume Lude.Text
-cvAvailabilityZone = Lens.lens (availabilityZone :: CreateVolume -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateVolume)
-{-# DEPRECATED cvAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+-- /Note:/ Consider using 'multiAttachEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfMultiAttachEnabled :: Lens.Lens' CreateVolume (Core.Maybe Core.Bool)
+cvfMultiAttachEnabled = Lens.field @"multiAttachEnabled"
+{-# DEPRECATED cvfMultiAttachEnabled "Use generic-lens or generic-optics with 'multiAttachEnabled' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Outpost.
+--
+-- /Note:/ Consider using 'outpostArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfOutpostArn :: Lens.Lens' CreateVolume (Core.Maybe Types.String)
+cvfOutpostArn = Lens.field @"outpostArn"
+{-# DEPRECATED cvfOutpostArn "Use generic-lens or generic-optics with 'outpostArn' instead." #-}
+
+-- | The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+--
+-- Constraints: 1-16,384 for @gp2@ , 4-16,384 for @io1@ and @io2@ , 500-16,384 for @st1@ , 500-16,384 for @sc1@ , and 1-1,024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.
+-- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfSize :: Lens.Lens' CreateVolume (Core.Maybe Core.Int)
+cvfSize = Lens.field @"size"
+{-# DEPRECATED cvfSize "Use generic-lens or generic-optics with 'size' instead." #-}
+
+-- | The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfSnapshotId :: Lens.Lens' CreateVolume (Core.Maybe Types.SnapshotId)
+cvfSnapshotId = Lens.field @"snapshotId"
+{-# DEPRECATED cvfSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+
+-- | The tags to apply to the volume during creation.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvfTagSpecifications :: Lens.Lens' CreateVolume (Core.Maybe [Types.TagSpecification])
+cvfTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED cvfTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The volume type. This can be @gp2@ for General Purpose SSD, @io1@ or @io2@ for Provisioned IOPS SSD, @st1@ for Throughput Optimized HDD, @sc1@ for Cold HDD, or @standard@ for Magnetic volumes.
 --
 -- Default: @gp2@
 --
 -- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvVolumeType :: Lens.Lens' CreateVolume (Lude.Maybe VolumeType)
-cvVolumeType = Lens.lens (volumeType :: CreateVolume -> Lude.Maybe VolumeType) (\s a -> s {volumeType = a} :: CreateVolume)
-{-# DEPRECATED cvVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
+cvfVolumeType :: Lens.Lens' CreateVolume (Core.Maybe Types.VolumeType)
+cvfVolumeType = Lens.field @"volumeType"
+{-# DEPRECATED cvfVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvDryRun :: Lens.Lens' CreateVolume (Lude.Maybe Lude.Bool)
-cvDryRun = Lens.lens (dryRun :: CreateVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVolume)
-{-# DEPRECATED cvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
---
--- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvSnapshotId :: Lens.Lens' CreateVolume (Lude.Maybe Lude.Text)
-cvSnapshotId = Lens.lens (snapshotId :: CreateVolume -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateVolume)
-{-# DEPRECATED cvSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
-
-instance Lude.AWSRequest CreateVolume where
-  type Rs CreateVolume = Volume
-  request = Req.postQuery ec2Service
-  response = Res.receiveXML (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders CreateVolume where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateVolume where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateVolume where
-  toQuery CreateVolume' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateVolume" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "MultiAttachEnabled" Lude.=: multiAttachEnabled,
-        "Size" Lude.=: size,
-        "Iops" Lude.=: iops,
-        "OutpostArn" Lude.=: outpostARN,
-        "Encrypted" Lude.=: encrypted,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "KmsKeyId" Lude.=: kmsKeyId,
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "VolumeType" Lude.=: volumeType,
-        "DryRun" Lude.=: dryRun,
-        "SnapshotId" Lude.=: snapshotId
-      ]
+instance Core.AWSRequest CreateVolume where
+  type Rs CreateVolume = Types.Volume
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateVolume")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AvailabilityZone" availabilityZone)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "Encrypted" Core.<$> encrypted)
+                Core.<> (Core.toQueryValue "Iops" Core.<$> iops)
+                Core.<> (Core.toQueryValue "KmsKeyId" Core.<$> kmsKeyId)
+                Core.<> ( Core.toQueryValue "MultiAttachEnabled"
+                            Core.<$> multiAttachEnabled
+                        )
+                Core.<> (Core.toQueryValue "OutpostArn" Core.<$> outpostArn)
+                Core.<> (Core.toQueryValue "Size" Core.<$> size)
+                Core.<> (Core.toQueryValue "SnapshotId" Core.<$> snapshotId)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+                Core.<> (Core.toQueryValue "VolumeType" Core.<$> volumeType)
+            )
+      }
+  response = Response.receiveXML (\s h x -> Core.parseXML x)

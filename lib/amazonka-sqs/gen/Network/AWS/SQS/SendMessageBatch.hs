@@ -30,144 +30,138 @@ module Network.AWS.SQS.SendMessageBatch
     mkSendMessageBatch,
 
     -- ** Request lenses
+    smbQueueUrl,
     smbEntries,
-    smbQueueURL,
 
     -- * Destructuring the response
     SendMessageBatchResponse (..),
     mkSendMessageBatchResponse,
 
     -- ** Response lenses
-    smbrsSuccessful,
-    smbrsFailed,
-    smbrsResponseStatus,
+    smbrrsSuccessful,
+    smbrrsFailed,
+    smbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- |
 --
 -- /See:/ 'mkSendMessageBatch' smart constructor.
 data SendMessageBatch = SendMessageBatch'
-  { -- | A list of @'SendMessageBatchRequestEntry' @ items.
-    entries :: [SendMessageBatchRequestEntry],
-    -- | The URL of the Amazon SQS queue to which batched messages are sent.
+  { -- | The URL of the Amazon SQS queue to which batched messages are sent.
     --
     -- Queue URLs and names are case-sensitive.
-    queueURL :: Lude.Text
+    queueUrl :: Types.String,
+    -- | A list of @'SendMessageBatchRequestEntry' @ items.
+    entries :: [Types.SendMessageBatchRequestEntry]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendMessageBatch' with the minimum fields required to make a request.
---
--- * 'entries' - A list of @'SendMessageBatchRequestEntry' @ items.
--- * 'queueURL' - The URL of the Amazon SQS queue to which batched messages are sent.
---
--- Queue URLs and names are case-sensitive.
+-- | Creates a 'SendMessageBatch' value with any optional fields omitted.
 mkSendMessageBatch ::
-  -- | 'queueURL'
-  Lude.Text ->
+  -- | 'queueUrl'
+  Types.String ->
   SendMessageBatch
-mkSendMessageBatch pQueueURL_ =
-  SendMessageBatch' {entries = Lude.mempty, queueURL = pQueueURL_}
-
--- | A list of @'SendMessageBatchRequestEntry' @ items.
---
--- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smbEntries :: Lens.Lens' SendMessageBatch [SendMessageBatchRequestEntry]
-smbEntries = Lens.lens (entries :: SendMessageBatch -> [SendMessageBatchRequestEntry]) (\s a -> s {entries = a} :: SendMessageBatch)
-{-# DEPRECATED smbEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
+mkSendMessageBatch queueUrl =
+  SendMessageBatch' {queueUrl, entries = Core.mempty}
 
 -- | The URL of the Amazon SQS queue to which batched messages are sent.
 --
 -- Queue URLs and names are case-sensitive.
 --
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smbQueueURL :: Lens.Lens' SendMessageBatch Lude.Text
-smbQueueURL = Lens.lens (queueURL :: SendMessageBatch -> Lude.Text) (\s a -> s {queueURL = a} :: SendMessageBatch)
-{-# DEPRECATED smbQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbQueueUrl :: Lens.Lens' SendMessageBatch Types.String
+smbQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED smbQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
-instance Lude.AWSRequest SendMessageBatch where
+-- | A list of @'SendMessageBatchRequestEntry' @ items.
+--
+-- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbEntries :: Lens.Lens' SendMessageBatch [Types.SendMessageBatchRequestEntry]
+smbEntries = Lens.field @"entries"
+{-# DEPRECATED smbEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
+
+instance Core.AWSRequest SendMessageBatch where
   type Rs SendMessageBatch = SendMessageBatchResponse
-  request = Req.postQuery sqsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SendMessageBatch")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+                Core.<> (Core.toQueryList "SendMessageBatchRequestEntry" entries)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SendMessageBatchResult"
       ( \s h x ->
           SendMessageBatchResponse'
-            Lude.<$> (Lude.parseXMLList "SendMessageBatchResultEntry" x)
-            Lude.<*> (Lude.parseXMLList "BatchResultErrorEntry" x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "SendMessageBatchResultEntry" Core..@! Core.mempty)
+            Core.<*> (x Core..@? "BatchResultErrorEntry" Core..@! Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SendMessageBatch where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SendMessageBatch where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SendMessageBatch where
-  toQuery SendMessageBatch' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SendMessageBatch" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        Lude.toQueryList "SendMessageBatchRequestEntry" entries,
-        "QueueUrl" Lude.=: queueURL
-      ]
 
 -- | For each message in the batch, the response contains a @'SendMessageBatchResultEntry' @ tag if the message succeeds or a @'BatchResultErrorEntry' @ tag if the message fails.
 --
 -- /See:/ 'mkSendMessageBatchResponse' smart constructor.
 data SendMessageBatchResponse = SendMessageBatchResponse'
   { -- | A list of @'SendMessageBatchResultEntry' @ items.
-    successful :: [SendMessageBatchResultEntry],
+    successful :: [Types.SendMessageBatchResultEntry],
     -- | A list of @'BatchResultErrorEntry' @ items with error details about each message that can't be enqueued.
-    failed :: [BatchResultErrorEntry],
+    failed :: [Types.BatchResultErrorEntry],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendMessageBatchResponse' with the minimum fields required to make a request.
---
--- * 'successful' - A list of @'SendMessageBatchResultEntry' @ items.
--- * 'failed' - A list of @'BatchResultErrorEntry' @ items with error details about each message that can't be enqueued.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SendMessageBatchResponse' value with any optional fields omitted.
 mkSendMessageBatchResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SendMessageBatchResponse
-mkSendMessageBatchResponse pResponseStatus_ =
+mkSendMessageBatchResponse responseStatus =
   SendMessageBatchResponse'
-    { successful = Lude.mempty,
-      failed = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { successful = Core.mempty,
+      failed = Core.mempty,
+      responseStatus
     }
 
 -- | A list of @'SendMessageBatchResultEntry' @ items.
 --
 -- /Note:/ Consider using 'successful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smbrsSuccessful :: Lens.Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
-smbrsSuccessful = Lens.lens (successful :: SendMessageBatchResponse -> [SendMessageBatchResultEntry]) (\s a -> s {successful = a} :: SendMessageBatchResponse)
-{-# DEPRECATED smbrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
+smbrrsSuccessful :: Lens.Lens' SendMessageBatchResponse [Types.SendMessageBatchResultEntry]
+smbrrsSuccessful = Lens.field @"successful"
+{-# DEPRECATED smbrrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
 
 -- | A list of @'BatchResultErrorEntry' @ items with error details about each message that can't be enqueued.
 --
 -- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smbrsFailed :: Lens.Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-smbrsFailed = Lens.lens (failed :: SendMessageBatchResponse -> [BatchResultErrorEntry]) (\s a -> s {failed = a} :: SendMessageBatchResponse)
-{-# DEPRECATED smbrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
+smbrrsFailed :: Lens.Lens' SendMessageBatchResponse [Types.BatchResultErrorEntry]
+smbrrsFailed = Lens.field @"failed"
+{-# DEPRECATED smbrrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smbrsResponseStatus :: Lens.Lens' SendMessageBatchResponse Lude.Int
-smbrsResponseStatus = Lens.lens (responseStatus :: SendMessageBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendMessageBatchResponse)
-{-# DEPRECATED smbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+smbrrsResponseStatus :: Lens.Lens' SendMessageBatchResponse Core.Int
+smbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED smbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

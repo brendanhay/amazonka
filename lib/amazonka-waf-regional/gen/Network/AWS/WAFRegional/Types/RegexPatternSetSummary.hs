@@ -17,67 +17,59 @@ module Network.AWS.WAFRegional.Types.RegexPatternSetSummary
     mkRegexPatternSetSummary,
 
     -- * Lenses
-    rpssName,
     rpssRegexPatternSetId,
+    rpssName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.ResourceId as Types
+import qualified Network.AWS.WAFRegional.Types.ResourceName as Types
 
 -- | Returned by 'ListRegexPatternSets' . Each @RegexPatternSetSummary@ object includes the @Name@ and @RegexPatternSetId@ for one 'RegexPatternSet' .
 --
 -- /See:/ 'mkRegexPatternSetSummary' smart constructor.
 data RegexPatternSetSummary = RegexPatternSetSummary'
-  { -- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
-    name :: Lude.Text,
-    -- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF.
+  { -- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF.
     --
     -- @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
-    regexPatternSetId :: Lude.Text
+    regexPatternSetId :: Types.ResourceId,
+    -- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+    name :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegexPatternSetSummary' with the minimum fields required to make a request.
---
--- * 'name' - A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
--- * 'regexPatternSetId' - The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF.
---
--- @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+-- | Creates a 'RegexPatternSetSummary' value with any optional fields omitted.
 mkRegexPatternSetSummary ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'regexPatternSetId'
-  Lude.Text ->
+  Types.ResourceId ->
+  -- | 'name'
+  Types.ResourceName ->
   RegexPatternSetSummary
-mkRegexPatternSetSummary pName_ pRegexPatternSetId_ =
-  RegexPatternSetSummary'
-    { name = pName_,
-      regexPatternSetId = pRegexPatternSetId_
-    }
-
--- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpssName :: Lens.Lens' RegexPatternSetSummary Lude.Text
-rpssName = Lens.lens (name :: RegexPatternSetSummary -> Lude.Text) (\s a -> s {name = a} :: RegexPatternSetSummary)
-{-# DEPRECATED rpssName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkRegexPatternSetSummary regexPatternSetId name =
+  RegexPatternSetSummary' {regexPatternSetId, name}
 
 -- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF.
 --
 -- @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
 --
 -- /Note:/ Consider using 'regexPatternSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpssRegexPatternSetId :: Lens.Lens' RegexPatternSetSummary Lude.Text
-rpssRegexPatternSetId = Lens.lens (regexPatternSetId :: RegexPatternSetSummary -> Lude.Text) (\s a -> s {regexPatternSetId = a} :: RegexPatternSetSummary)
+rpssRegexPatternSetId :: Lens.Lens' RegexPatternSetSummary Types.ResourceId
+rpssRegexPatternSetId = Lens.field @"regexPatternSetId"
 {-# DEPRECATED rpssRegexPatternSetId "Use generic-lens or generic-optics with 'regexPatternSetId' instead." #-}
 
-instance Lude.FromJSON RegexPatternSetSummary where
+-- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpssName :: Lens.Lens' RegexPatternSetSummary Types.ResourceName
+rpssName = Lens.field @"name"
+{-# DEPRECATED rpssName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON RegexPatternSetSummary where
   parseJSON =
-    Lude.withObject
-      "RegexPatternSetSummary"
-      ( \x ->
-          RegexPatternSetSummary'
-            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "RegexPatternSetId")
-      )
+    Core.withObject "RegexPatternSetSummary" Core.$
+      \x ->
+        RegexPatternSetSummary'
+          Core.<$> (x Core..: "RegexPatternSetId") Core.<*> (x Core..: "Name")

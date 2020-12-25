@@ -13,61 +13,66 @@
 module Network.AWS.Translate.Types.ParallelDataStatus
   ( ParallelDataStatus
       ( ParallelDataStatus',
-        Creating,
-        Updating,
-        Active,
-        Deleting,
-        Failed
+        ParallelDataStatusCreating,
+        ParallelDataStatusUpdating,
+        ParallelDataStatusActive,
+        ParallelDataStatusDeleting,
+        ParallelDataStatusFailed,
+        fromParallelDataStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ParallelDataStatus = ParallelDataStatus' Lude.Text
+newtype ParallelDataStatus = ParallelDataStatus'
+  { fromParallelDataStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Creating :: ParallelDataStatus
-pattern Creating = ParallelDataStatus' "CREATING"
+pattern ParallelDataStatusCreating :: ParallelDataStatus
+pattern ParallelDataStatusCreating = ParallelDataStatus' "CREATING"
 
-pattern Updating :: ParallelDataStatus
-pattern Updating = ParallelDataStatus' "UPDATING"
+pattern ParallelDataStatusUpdating :: ParallelDataStatus
+pattern ParallelDataStatusUpdating = ParallelDataStatus' "UPDATING"
 
-pattern Active :: ParallelDataStatus
-pattern Active = ParallelDataStatus' "ACTIVE"
+pattern ParallelDataStatusActive :: ParallelDataStatus
+pattern ParallelDataStatusActive = ParallelDataStatus' "ACTIVE"
 
-pattern Deleting :: ParallelDataStatus
-pattern Deleting = ParallelDataStatus' "DELETING"
+pattern ParallelDataStatusDeleting :: ParallelDataStatus
+pattern ParallelDataStatusDeleting = ParallelDataStatus' "DELETING"
 
-pattern Failed :: ParallelDataStatus
-pattern Failed = ParallelDataStatus' "FAILED"
+pattern ParallelDataStatusFailed :: ParallelDataStatus
+pattern ParallelDataStatusFailed = ParallelDataStatus' "FAILED"
 
 {-# COMPLETE
-  Creating,
-  Updating,
-  Active,
-  Deleting,
-  Failed,
+  ParallelDataStatusCreating,
+  ParallelDataStatusUpdating,
+  ParallelDataStatusActive,
+  ParallelDataStatusDeleting,
+  ParallelDataStatusFailed,
   ParallelDataStatus'
   #-}

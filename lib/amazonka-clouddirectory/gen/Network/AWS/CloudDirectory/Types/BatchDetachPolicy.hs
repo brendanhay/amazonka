@@ -22,57 +22,51 @@ module Network.AWS.CloudDirectory.Types.BatchDetachPolicy
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Detaches the specified policy from the specified directory inside a 'BatchWrite' operation. For more information, see 'DetachPolicy' and 'BatchWriteRequest$Operations' .
 --
 -- /See:/ 'mkBatchDetachPolicy' smart constructor.
 data BatchDetachPolicy = BatchDetachPolicy'
   { -- | Reference that identifies the policy object.
-    policyReference :: ObjectReference,
+    policyReference :: Types.ObjectReference,
     -- | Reference that identifies the object whose policy object will be detached.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetachPolicy' with the minimum fields required to make a request.
---
--- * 'policyReference' - Reference that identifies the policy object.
--- * 'objectReference' - Reference that identifies the object whose policy object will be detached.
+-- | Creates a 'BatchDetachPolicy' value with any optional fields omitted.
 mkBatchDetachPolicy ::
   -- | 'policyReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchDetachPolicy
-mkBatchDetachPolicy pPolicyReference_ pObjectReference_ =
-  BatchDetachPolicy'
-    { policyReference = pPolicyReference_,
-      objectReference = pObjectReference_
-    }
+mkBatchDetachPolicy policyReference objectReference =
+  BatchDetachPolicy' {policyReference, objectReference}
 
 -- | Reference that identifies the policy object.
 --
 -- /Note:/ Consider using 'policyReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdpPolicyReference :: Lens.Lens' BatchDetachPolicy ObjectReference
-bdpPolicyReference = Lens.lens (policyReference :: BatchDetachPolicy -> ObjectReference) (\s a -> s {policyReference = a} :: BatchDetachPolicy)
+bdpPolicyReference :: Lens.Lens' BatchDetachPolicy Types.ObjectReference
+bdpPolicyReference = Lens.field @"policyReference"
 {-# DEPRECATED bdpPolicyReference "Use generic-lens or generic-optics with 'policyReference' instead." #-}
 
 -- | Reference that identifies the object whose policy object will be detached.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdpObjectReference :: Lens.Lens' BatchDetachPolicy ObjectReference
-bdpObjectReference = Lens.lens (objectReference :: BatchDetachPolicy -> ObjectReference) (\s a -> s {objectReference = a} :: BatchDetachPolicy)
+bdpObjectReference :: Lens.Lens' BatchDetachPolicy Types.ObjectReference
+bdpObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED bdpObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.ToJSON BatchDetachPolicy where
-  toJSON BatchDetachPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyReference" Lude..= policyReference),
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+instance Core.FromJSON BatchDetachPolicy where
+  toJSON BatchDetachPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyReference" Core..= policyReference),
+            Core.Just ("ObjectReference" Core..= objectReference)
           ]
       )

@@ -20,8 +20,8 @@ module Network.AWS.CloudFront.DeletePublicKey
     mkDeletePublicKey,
 
     -- ** Request lenses
-    dpkIfMatch,
     dpkId,
+    dpkIfMatch,
 
     -- * Destructuring the response
     DeletePublicKeyResponse (..),
@@ -29,69 +29,63 @@ module Network.AWS.CloudFront.DeletePublicKey
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePublicKey' smart constructor.
 data DeletePublicKey = DeletePublicKey'
-  { -- | The value of the @ETag@ header that you received when retrieving the public key identity to delete. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | The ID of the public key you want to remove from CloudFront.
-    id :: Lude.Text
+  { -- | The ID of the public key you want to remove from CloudFront.
+    id :: Types.String,
+    -- | The value of the @ETag@ header that you received when retrieving the public key identity to delete. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePublicKey' with the minimum fields required to make a request.
---
--- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the public key identity to delete. For example: @E2QWRUHAPOMQZL@ .
--- * 'id' - The ID of the public key you want to remove from CloudFront.
+-- | Creates a 'DeletePublicKey' value with any optional fields omitted.
 mkDeletePublicKey ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   DeletePublicKey
-mkDeletePublicKey pId_ =
-  DeletePublicKey' {ifMatch = Lude.Nothing, id = pId_}
-
--- | The value of the @ETag@ header that you received when retrieving the public key identity to delete. For example: @E2QWRUHAPOMQZL@ .
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpkIfMatch :: Lens.Lens' DeletePublicKey (Lude.Maybe Lude.Text)
-dpkIfMatch = Lens.lens (ifMatch :: DeletePublicKey -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: DeletePublicKey)
-{-# DEPRECATED dpkIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+mkDeletePublicKey id = DeletePublicKey' {id, ifMatch = Core.Nothing}
 
 -- | The ID of the public key you want to remove from CloudFront.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpkId :: Lens.Lens' DeletePublicKey Lude.Text
-dpkId = Lens.lens (id :: DeletePublicKey -> Lude.Text) (\s a -> s {id = a} :: DeletePublicKey)
+dpkId :: Lens.Lens' DeletePublicKey Types.String
+dpkId = Lens.field @"id"
 {-# DEPRECATED dpkId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeletePublicKey where
+-- | The value of the @ETag@ header that you received when retrieving the public key identity to delete. For example: @E2QWRUHAPOMQZL@ .
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpkIfMatch :: Lens.Lens' DeletePublicKey (Core.Maybe Types.String)
+dpkIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED dpkIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+
+instance Core.AWSRequest DeletePublicKey where
   type Rs DeletePublicKey = DeletePublicKeyResponse
-  request = Req.delete cloudFrontService
-  response = Res.receiveNull DeletePublicKeyResponse'
-
-instance Lude.ToHeaders DeletePublicKey where
-  toHeaders DeletePublicKey' {..} =
-    Lude.mconcat ["If-Match" Lude.=# ifMatch]
-
-instance Lude.ToPath DeletePublicKey where
-  toPath DeletePublicKey' {..} =
-    Lude.mconcat ["/2020-05-31/public-key/", Lude.toBS id]
-
-instance Lude.ToQuery DeletePublicKey where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/2020-05-31/public-key/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeletePublicKeyResponse'
 
 -- | /See:/ 'mkDeletePublicKeyResponse' smart constructor.
 data DeletePublicKeyResponse = DeletePublicKeyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePublicKeyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePublicKeyResponse' value with any optional fields omitted.
 mkDeletePublicKeyResponse ::
   DeletePublicKeyResponse
 mkDeletePublicKeyResponse = DeletePublicKeyResponse'

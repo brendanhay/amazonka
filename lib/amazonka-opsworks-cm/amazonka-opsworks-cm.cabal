@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.OpsWorksCM
     Network.AWS.OpsWorksCM.AssociateNode
@@ -91,16 +97,37 @@ library
 
   other-modules:
     Network.AWS.OpsWorksCM.Types.AccountAttribute
+    Network.AWS.OpsWorksCM.Types.AttributeName
+    Network.AWS.OpsWorksCM.Types.AttributeValue
+    Network.AWS.OpsWorksCM.Types.AWSOpsWorksCMResourceArn
     Network.AWS.OpsWorksCM.Types.Backup
+    Network.AWS.OpsWorksCM.Types.BackupId
     Network.AWS.OpsWorksCM.Types.BackupStatus
     Network.AWS.OpsWorksCM.Types.BackupType
+    Network.AWS.OpsWorksCM.Types.CustomCertificate
+    Network.AWS.OpsWorksCM.Types.CustomDomain
+    Network.AWS.OpsWorksCM.Types.CustomPrivateKey
     Network.AWS.OpsWorksCM.Types.EngineAttribute
+    Network.AWS.OpsWorksCM.Types.EngineAttributeName
+    Network.AWS.OpsWorksCM.Types.InstanceProfileArn
+    Network.AWS.OpsWorksCM.Types.Key
+    Network.AWS.OpsWorksCM.Types.KeyPair
     Network.AWS.OpsWorksCM.Types.MaintenanceStatus
+    Network.AWS.OpsWorksCM.Types.NextToken
     Network.AWS.OpsWorksCM.Types.NodeAssociationStatus
+    Network.AWS.OpsWorksCM.Types.NodeAssociationStatusToken
+    Network.AWS.OpsWorksCM.Types.NodeName
+    Network.AWS.OpsWorksCM.Types.ResourceArn
     Network.AWS.OpsWorksCM.Types.Server
     Network.AWS.OpsWorksCM.Types.ServerEvent
+    Network.AWS.OpsWorksCM.Types.ServerName
     Network.AWS.OpsWorksCM.Types.ServerStatus
+    Network.AWS.OpsWorksCM.Types.ServiceRoleArn
+    Network.AWS.OpsWorksCM.Types.String
     Network.AWS.OpsWorksCM.Types.Tag
+    Network.AWS.OpsWorksCM.Types.TagKey
+    Network.AWS.OpsWorksCM.Types.TimeWindowDefinition
+    Network.AWS.OpsWorksCM.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

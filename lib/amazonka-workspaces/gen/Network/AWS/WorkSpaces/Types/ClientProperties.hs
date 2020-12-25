@@ -22,43 +22,40 @@ module Network.AWS.WorkSpaces.Types.ClientProperties
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkSpaces.Types.ReconnectEnum
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.ReconnectEnum as Types
 
 -- | Describes an Amazon WorkSpaces client.
 --
 -- /See:/ 'mkClientProperties' smart constructor.
 newtype ClientProperties = ClientProperties'
   { -- | Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
-    reconnectEnabled :: Lude.Maybe ReconnectEnum
+    reconnectEnabled :: Core.Maybe Types.ReconnectEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClientProperties' with the minimum fields required to make a request.
---
--- * 'reconnectEnabled' - Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
+-- | Creates a 'ClientProperties' value with any optional fields omitted.
 mkClientProperties ::
   ClientProperties
 mkClientProperties =
-  ClientProperties' {reconnectEnabled = Lude.Nothing}
+  ClientProperties' {reconnectEnabled = Core.Nothing}
 
 -- | Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
 --
 -- /Note:/ Consider using 'reconnectEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpReconnectEnabled :: Lens.Lens' ClientProperties (Lude.Maybe ReconnectEnum)
-cpReconnectEnabled = Lens.lens (reconnectEnabled :: ClientProperties -> Lude.Maybe ReconnectEnum) (\s a -> s {reconnectEnabled = a} :: ClientProperties)
+cpReconnectEnabled :: Lens.Lens' ClientProperties (Core.Maybe Types.ReconnectEnum)
+cpReconnectEnabled = Lens.field @"reconnectEnabled"
 {-# DEPRECATED cpReconnectEnabled "Use generic-lens or generic-optics with 'reconnectEnabled' instead." #-}
 
-instance Lude.FromJSON ClientProperties where
-  parseJSON =
-    Lude.withObject
-      "ClientProperties"
-      (\x -> ClientProperties' Lude.<$> (x Lude..:? "ReconnectEnabled"))
-
-instance Lude.ToJSON ClientProperties where
-  toJSON ClientProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("ReconnectEnabled" Lude..=) Lude.<$> reconnectEnabled]
+instance Core.FromJSON ClientProperties where
+  toJSON ClientProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [("ReconnectEnabled" Core..=) Core.<$> reconnectEnabled]
       )
+
+instance Core.FromJSON ClientProperties where
+  parseJSON =
+    Core.withObject "ClientProperties" Core.$
+      \x -> ClientProperties' Core.<$> (x Core..:? "ReconnectEnabled")

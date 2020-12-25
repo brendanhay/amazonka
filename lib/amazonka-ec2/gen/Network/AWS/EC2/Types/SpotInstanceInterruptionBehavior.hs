@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.SpotInstanceInterruptionBehavior
   ( SpotInstanceInterruptionBehavior
       ( SpotInstanceInterruptionBehavior',
-        SIIBHibernate,
-        SIIBStop,
-        SIIBTerminate
+        SpotInstanceInterruptionBehaviorHibernate,
+        SpotInstanceInterruptionBehaviorStop,
+        SpotInstanceInterruptionBehaviorTerminate,
+        fromSpotInstanceInterruptionBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SpotInstanceInterruptionBehavior = SpotInstanceInterruptionBehavior' Lude.Text
+newtype SpotInstanceInterruptionBehavior = SpotInstanceInterruptionBehavior'
+  { fromSpotInstanceInterruptionBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SIIBHibernate :: SpotInstanceInterruptionBehavior
-pattern SIIBHibernate = SpotInstanceInterruptionBehavior' "hibernate"
+pattern SpotInstanceInterruptionBehaviorHibernate :: SpotInstanceInterruptionBehavior
+pattern SpotInstanceInterruptionBehaviorHibernate = SpotInstanceInterruptionBehavior' "hibernate"
 
-pattern SIIBStop :: SpotInstanceInterruptionBehavior
-pattern SIIBStop = SpotInstanceInterruptionBehavior' "stop"
+pattern SpotInstanceInterruptionBehaviorStop :: SpotInstanceInterruptionBehavior
+pattern SpotInstanceInterruptionBehaviorStop = SpotInstanceInterruptionBehavior' "stop"
 
-pattern SIIBTerminate :: SpotInstanceInterruptionBehavior
-pattern SIIBTerminate = SpotInstanceInterruptionBehavior' "terminate"
+pattern SpotInstanceInterruptionBehaviorTerminate :: SpotInstanceInterruptionBehavior
+pattern SpotInstanceInterruptionBehaviorTerminate = SpotInstanceInterruptionBehavior' "terminate"
 
 {-# COMPLETE
-  SIIBHibernate,
-  SIIBStop,
-  SIIBTerminate,
+  SpotInstanceInterruptionBehaviorHibernate,
+  SpotInstanceInterruptionBehaviorStop,
+  SpotInstanceInterruptionBehaviorTerminate,
   SpotInstanceInterruptionBehavior'
   #-}

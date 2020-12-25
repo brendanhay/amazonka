@@ -23,8 +23,8 @@ module Network.AWS.MarketplaceMetering.Types.UsageAllocation
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceMetering.Types.Tag
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MarketplaceMetering.Types.Tag as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Usage allocations allow you to split usage into buckets by tags.
 --
@@ -33,57 +33,48 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkUsageAllocation' smart constructor.
 data UsageAllocation = UsageAllocation'
   { -- | The total quantity allocated to this bucket of usage.
-    allocatedUsageQuantity :: Lude.Natural,
+    allocatedUsageQuantity :: Core.Natural,
     -- | The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UsageAllocation' with the minimum fields required to make a request.
---
--- * 'allocatedUsageQuantity' - The total quantity allocated to this bucket of usage.
--- * 'tags' - The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.
+-- | Creates a 'UsageAllocation' value with any optional fields omitted.
 mkUsageAllocation ::
   -- | 'allocatedUsageQuantity'
-  Lude.Natural ->
+  Core.Natural ->
   UsageAllocation
-mkUsageAllocation pAllocatedUsageQuantity_ =
-  UsageAllocation'
-    { allocatedUsageQuantity =
-        pAllocatedUsageQuantity_,
-      tags = Lude.Nothing
-    }
+mkUsageAllocation allocatedUsageQuantity =
+  UsageAllocation' {allocatedUsageQuantity, tags = Core.Nothing}
 
 -- | The total quantity allocated to this bucket of usage.
 --
 -- /Note:/ Consider using 'allocatedUsageQuantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaAllocatedUsageQuantity :: Lens.Lens' UsageAllocation Lude.Natural
-uaAllocatedUsageQuantity = Lens.lens (allocatedUsageQuantity :: UsageAllocation -> Lude.Natural) (\s a -> s {allocatedUsageQuantity = a} :: UsageAllocation)
+uaAllocatedUsageQuantity :: Lens.Lens' UsageAllocation Core.Natural
+uaAllocatedUsageQuantity = Lens.field @"allocatedUsageQuantity"
 {-# DEPRECATED uaAllocatedUsageQuantity "Use generic-lens or generic-optics with 'allocatedUsageQuantity' instead." #-}
 
 -- | The set of tags that define the bucket of usage. For the bucket of items with no tags, this parameter can be left out.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaTags :: Lens.Lens' UsageAllocation (Lude.Maybe (Lude.NonEmpty Tag))
-uaTags = Lens.lens (tags :: UsageAllocation -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: UsageAllocation)
+uaTags :: Lens.Lens' UsageAllocation (Core.Maybe (Core.NonEmpty Types.Tag))
+uaTags = Lens.field @"tags"
 {-# DEPRECATED uaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON UsageAllocation where
-  parseJSON =
-    Lude.withObject
-      "UsageAllocation"
-      ( \x ->
-          UsageAllocation'
-            Lude.<$> (x Lude..: "AllocatedUsageQuantity") Lude.<*> (x Lude..:? "Tags")
-      )
-
-instance Lude.ToJSON UsageAllocation where
-  toJSON UsageAllocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("AllocatedUsageQuantity" Lude..= allocatedUsageQuantity),
-            ("Tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON UsageAllocation where
+  toJSON UsageAllocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("AllocatedUsageQuantity" Core..= allocatedUsageQuantity),
+            ("Tags" Core..=) Core.<$> tags
           ]
       )
+
+instance Core.FromJSON UsageAllocation where
+  parseJSON =
+    Core.withObject "UsageAllocation" Core.$
+      \x ->
+        UsageAllocation'
+          Core.<$> (x Core..: "AllocatedUsageQuantity") Core.<*> (x Core..:? "Tags")

@@ -22,34 +22,32 @@ module Network.AWS.XRay.Types.InstanceIdDetail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | A list of EC2 instance IDs corresponding to the segments in a trace.
 --
 -- /See:/ 'mkInstanceIdDetail' smart constructor.
 newtype InstanceIdDetail = InstanceIdDetail'
   { -- | The ID of a corresponding EC2 instance.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceIdDetail' with the minimum fields required to make a request.
---
--- * 'id' - The ID of a corresponding EC2 instance.
+-- | Creates a 'InstanceIdDetail' value with any optional fields omitted.
 mkInstanceIdDetail ::
   InstanceIdDetail
-mkInstanceIdDetail = InstanceIdDetail' {id = Lude.Nothing}
+mkInstanceIdDetail = InstanceIdDetail' {id = Core.Nothing}
 
 -- | The ID of a corresponding EC2 instance.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iidId :: Lens.Lens' InstanceIdDetail (Lude.Maybe Lude.Text)
-iidId = Lens.lens (id :: InstanceIdDetail -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InstanceIdDetail)
+iidId :: Lens.Lens' InstanceIdDetail (Core.Maybe Types.String)
+iidId = Lens.field @"id"
 {-# DEPRECATED iidId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON InstanceIdDetail where
+instance Core.FromJSON InstanceIdDetail where
   parseJSON =
-    Lude.withObject
-      "InstanceIdDetail"
-      (\x -> InstanceIdDetail' Lude.<$> (x Lude..:? "Id"))
+    Core.withObject "InstanceIdDetail" Core.$
+      \x -> InstanceIdDetail' Core.<$> (x Core..:? "Id")

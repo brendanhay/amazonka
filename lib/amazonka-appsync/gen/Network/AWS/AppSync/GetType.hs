@@ -20,8 +20,8 @@ module Network.AWS.AppSync.GetType
     mkGetType,
 
     -- ** Request lenses
-    gtTypeName,
     gtApiId,
+    gtTypeName,
     gtFormat,
 
     -- * Destructuring the response
@@ -29,131 +29,112 @@ module Network.AWS.AppSync.GetType
     mkGetTypeResponse,
 
     -- ** Response lenses
-    gtrsType,
-    gtrsResponseStatus,
+    gtrrsType,
+    gtrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppSync.Types
+import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetType' smart constructor.
 data GetType = GetType'
-  { -- | The type name.
-    typeName :: Lude.Text,
-    -- | The API ID.
-    apiId :: Lude.Text,
+  { -- | The API ID.
+    apiId :: Types.String,
+    -- | The type name.
+    typeName :: Types.ResourceName,
     -- | The type format: SDL or JSON.
-    format :: TypeDefinitionFormat
+    format :: Types.TypeDefinitionFormat
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetType' with the minimum fields required to make a request.
---
--- * 'typeName' - The type name.
--- * 'apiId' - The API ID.
--- * 'format' - The type format: SDL or JSON.
+-- | Creates a 'GetType' value with any optional fields omitted.
 mkGetType ::
-  -- | 'typeName'
-  Lude.Text ->
   -- | 'apiId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'typeName'
+  Types.ResourceName ->
   -- | 'format'
-  TypeDefinitionFormat ->
+  Types.TypeDefinitionFormat ->
   GetType
-mkGetType pTypeName_ pApiId_ pFormat_ =
-  GetType'
-    { typeName = pTypeName_,
-      apiId = pApiId_,
-      format = pFormat_
-    }
-
--- | The type name.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtTypeName :: Lens.Lens' GetType Lude.Text
-gtTypeName = Lens.lens (typeName :: GetType -> Lude.Text) (\s a -> s {typeName = a} :: GetType)
-{-# DEPRECATED gtTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+mkGetType apiId typeName format = GetType' {apiId, typeName, format}
 
 -- | The API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtApiId :: Lens.Lens' GetType Lude.Text
-gtApiId = Lens.lens (apiId :: GetType -> Lude.Text) (\s a -> s {apiId = a} :: GetType)
+gtApiId :: Lens.Lens' GetType Types.String
+gtApiId = Lens.field @"apiId"
 {-# DEPRECATED gtApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
+
+-- | The type name.
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtTypeName :: Lens.Lens' GetType Types.ResourceName
+gtTypeName = Lens.field @"typeName"
+{-# DEPRECATED gtTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The type format: SDL or JSON.
 --
 -- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtFormat :: Lens.Lens' GetType TypeDefinitionFormat
-gtFormat = Lens.lens (format :: GetType -> TypeDefinitionFormat) (\s a -> s {format = a} :: GetType)
+gtFormat :: Lens.Lens' GetType Types.TypeDefinitionFormat
+gtFormat = Lens.field @"format"
 {-# DEPRECATED gtFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
-instance Lude.AWSRequest GetType where
+instance Core.AWSRequest GetType where
   type Rs GetType = GetTypeResponse
-  request = Req.get appSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/types/")
+                Core.<> (Core.toText typeName)
+            ),
+        Core._rqQuery = Core.toQueryValue "format" format,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTypeResponse'
-            Lude.<$> (x Lude..?> "type") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "type") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetType where
-  toPath GetType' {..} =
-    Lude.mconcat
-      ["/v1/apis/", Lude.toBS apiId, "/types/", Lude.toBS typeName]
-
-instance Lude.ToQuery GetType where
-  toQuery GetType' {..} = Lude.mconcat ["format" Lude.=: format]
 
 -- | /See:/ 'mkGetTypeResponse' smart constructor.
 data GetTypeResponse = GetTypeResponse'
   { -- | The @Type@ object.
-    type' :: Lude.Maybe Type,
+    type' :: Core.Maybe Types.Type,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTypeResponse' with the minimum fields required to make a request.
---
--- * 'type'' - The @Type@ object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTypeResponse' value with any optional fields omitted.
 mkGetTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTypeResponse
-mkGetTypeResponse pResponseStatus_ =
-  GetTypeResponse'
-    { type' = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetTypeResponse responseStatus =
+  GetTypeResponse' {type' = Core.Nothing, responseStatus}
 
 -- | The @Type@ object.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsType :: Lens.Lens' GetTypeResponse (Lude.Maybe Type)
-gtrsType = Lens.lens (type' :: GetTypeResponse -> Lude.Maybe Type) (\s a -> s {type' = a} :: GetTypeResponse)
-{-# DEPRECATED gtrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+gtrrsType :: Lens.Lens' GetTypeResponse (Core.Maybe Types.Type)
+gtrrsType = Lens.field @"type'"
+{-# DEPRECATED gtrrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsResponseStatus :: Lens.Lens' GetTypeResponse Lude.Int
-gtrsResponseStatus = Lens.lens (responseStatus :: GetTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTypeResponse)
-{-# DEPRECATED gtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtrrsResponseStatus :: Lens.Lens' GetTypeResponse Core.Int
+gtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

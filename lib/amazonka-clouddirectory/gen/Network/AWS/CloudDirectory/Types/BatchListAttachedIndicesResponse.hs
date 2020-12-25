@@ -17,60 +17,55 @@ module Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse
     mkBatchListAttachedIndicesResponse,
 
     -- * Lenses
-    blaiIndexAttachments,
-    blaiNextToken,
+    blairIndexAttachments,
+    blairNextToken,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.IndexAttachment
+import qualified Network.AWS.CloudDirectory.Types.IndexAttachment as Types
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'ListAttachedIndices' response operation.
 --
 -- /See:/ 'mkBatchListAttachedIndicesResponse' smart constructor.
 data BatchListAttachedIndicesResponse = BatchListAttachedIndicesResponse'
   { -- | The indices attached to the specified object.
-    indexAttachments :: Lude.Maybe [IndexAttachment],
+    indexAttachments :: Core.Maybe [Types.IndexAttachment],
     -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchListAttachedIndicesResponse' with the minimum fields required to make a request.
---
--- * 'indexAttachments' - The indices attached to the specified object.
--- * 'nextToken' - The pagination token.
+-- | Creates a 'BatchListAttachedIndicesResponse' value with any optional fields omitted.
 mkBatchListAttachedIndicesResponse ::
   BatchListAttachedIndicesResponse
 mkBatchListAttachedIndicesResponse =
   BatchListAttachedIndicesResponse'
     { indexAttachments =
-        Lude.Nothing,
-      nextToken = Lude.Nothing
+        Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The indices attached to the specified object.
 --
 -- /Note:/ Consider using 'indexAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blaiIndexAttachments :: Lens.Lens' BatchListAttachedIndicesResponse (Lude.Maybe [IndexAttachment])
-blaiIndexAttachments = Lens.lens (indexAttachments :: BatchListAttachedIndicesResponse -> Lude.Maybe [IndexAttachment]) (\s a -> s {indexAttachments = a} :: BatchListAttachedIndicesResponse)
-{-# DEPRECATED blaiIndexAttachments "Use generic-lens or generic-optics with 'indexAttachments' instead." #-}
+blairIndexAttachments :: Lens.Lens' BatchListAttachedIndicesResponse (Core.Maybe [Types.IndexAttachment])
+blairIndexAttachments = Lens.field @"indexAttachments"
+{-# DEPRECATED blairIndexAttachments "Use generic-lens or generic-optics with 'indexAttachments' instead." #-}
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blaiNextToken :: Lens.Lens' BatchListAttachedIndicesResponse (Lude.Maybe Lude.Text)
-blaiNextToken = Lens.lens (nextToken :: BatchListAttachedIndicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListAttachedIndicesResponse)
-{-# DEPRECATED blaiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+blairNextToken :: Lens.Lens' BatchListAttachedIndicesResponse (Core.Maybe Types.NextToken)
+blairNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blairNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.FromJSON BatchListAttachedIndicesResponse where
+instance Core.FromJSON BatchListAttachedIndicesResponse where
   parseJSON =
-    Lude.withObject
-      "BatchListAttachedIndicesResponse"
-      ( \x ->
-          BatchListAttachedIndicesResponse'
-            Lude.<$> (x Lude..:? "IndexAttachments" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NextToken")
-      )
+    Core.withObject "BatchListAttachedIndicesResponse" Core.$
+      \x ->
+        BatchListAttachedIndicesResponse'
+          Core.<$> (x Core..:? "IndexAttachments") Core.<*> (x Core..:? "NextToken")

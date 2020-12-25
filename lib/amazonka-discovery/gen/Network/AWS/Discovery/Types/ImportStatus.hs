@@ -13,91 +13,93 @@
 module Network.AWS.Discovery.Types.ImportStatus
   ( ImportStatus
       ( ImportStatus',
-        ImportInProgress,
-        ImportComplete,
-        ImportCompleteWithErrors,
-        ImportFailed,
-        ImportFailedServerLimitExceeded,
-        ImportFailedRecordLimitExceeded,
-        DeleteInProgress,
-        DeleteComplete,
-        DeleteFailed,
-        DeleteFailedLimitExceeded,
-        InternalError
+        ImportStatusImportInProgress,
+        ImportStatusImportComplete,
+        ImportStatusImportCompleteWithErrors,
+        ImportStatusImportFailed,
+        ImportStatusImportFailedServerLimitExceeded,
+        ImportStatusImportFailedRecordLimitExceeded,
+        ImportStatusDeleteInProgress,
+        ImportStatusDeleteComplete,
+        ImportStatusDeleteFailed,
+        ImportStatusDeleteFailedLimitExceeded,
+        ImportStatusInternalError,
+        fromImportStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ImportStatus = ImportStatus' Lude.Text
+newtype ImportStatus = ImportStatus' {fromImportStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ImportInProgress :: ImportStatus
-pattern ImportInProgress = ImportStatus' "IMPORT_IN_PROGRESS"
+pattern ImportStatusImportInProgress :: ImportStatus
+pattern ImportStatusImportInProgress = ImportStatus' "IMPORT_IN_PROGRESS"
 
-pattern ImportComplete :: ImportStatus
-pattern ImportComplete = ImportStatus' "IMPORT_COMPLETE"
+pattern ImportStatusImportComplete :: ImportStatus
+pattern ImportStatusImportComplete = ImportStatus' "IMPORT_COMPLETE"
 
-pattern ImportCompleteWithErrors :: ImportStatus
-pattern ImportCompleteWithErrors = ImportStatus' "IMPORT_COMPLETE_WITH_ERRORS"
+pattern ImportStatusImportCompleteWithErrors :: ImportStatus
+pattern ImportStatusImportCompleteWithErrors = ImportStatus' "IMPORT_COMPLETE_WITH_ERRORS"
 
-pattern ImportFailed :: ImportStatus
-pattern ImportFailed = ImportStatus' "IMPORT_FAILED"
+pattern ImportStatusImportFailed :: ImportStatus
+pattern ImportStatusImportFailed = ImportStatus' "IMPORT_FAILED"
 
-pattern ImportFailedServerLimitExceeded :: ImportStatus
-pattern ImportFailedServerLimitExceeded = ImportStatus' "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED"
+pattern ImportStatusImportFailedServerLimitExceeded :: ImportStatus
+pattern ImportStatusImportFailedServerLimitExceeded = ImportStatus' "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED"
 
-pattern ImportFailedRecordLimitExceeded :: ImportStatus
-pattern ImportFailedRecordLimitExceeded = ImportStatus' "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED"
+pattern ImportStatusImportFailedRecordLimitExceeded :: ImportStatus
+pattern ImportStatusImportFailedRecordLimitExceeded = ImportStatus' "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED"
 
-pattern DeleteInProgress :: ImportStatus
-pattern DeleteInProgress = ImportStatus' "DELETE_IN_PROGRESS"
+pattern ImportStatusDeleteInProgress :: ImportStatus
+pattern ImportStatusDeleteInProgress = ImportStatus' "DELETE_IN_PROGRESS"
 
-pattern DeleteComplete :: ImportStatus
-pattern DeleteComplete = ImportStatus' "DELETE_COMPLETE"
+pattern ImportStatusDeleteComplete :: ImportStatus
+pattern ImportStatusDeleteComplete = ImportStatus' "DELETE_COMPLETE"
 
-pattern DeleteFailed :: ImportStatus
-pattern DeleteFailed = ImportStatus' "DELETE_FAILED"
+pattern ImportStatusDeleteFailed :: ImportStatus
+pattern ImportStatusDeleteFailed = ImportStatus' "DELETE_FAILED"
 
-pattern DeleteFailedLimitExceeded :: ImportStatus
-pattern DeleteFailedLimitExceeded = ImportStatus' "DELETE_FAILED_LIMIT_EXCEEDED"
+pattern ImportStatusDeleteFailedLimitExceeded :: ImportStatus
+pattern ImportStatusDeleteFailedLimitExceeded = ImportStatus' "DELETE_FAILED_LIMIT_EXCEEDED"
 
-pattern InternalError :: ImportStatus
-pattern InternalError = ImportStatus' "INTERNAL_ERROR"
+pattern ImportStatusInternalError :: ImportStatus
+pattern ImportStatusInternalError = ImportStatus' "INTERNAL_ERROR"
 
 {-# COMPLETE
-  ImportInProgress,
-  ImportComplete,
-  ImportCompleteWithErrors,
-  ImportFailed,
-  ImportFailedServerLimitExceeded,
-  ImportFailedRecordLimitExceeded,
-  DeleteInProgress,
-  DeleteComplete,
-  DeleteFailed,
-  DeleteFailedLimitExceeded,
-  InternalError,
+  ImportStatusImportInProgress,
+  ImportStatusImportComplete,
+  ImportStatusImportCompleteWithErrors,
+  ImportStatusImportFailed,
+  ImportStatusImportFailedServerLimitExceeded,
+  ImportStatusImportFailedRecordLimitExceeded,
+  ImportStatusDeleteInProgress,
+  ImportStatusDeleteComplete,
+  ImportStatusDeleteFailed,
+  ImportStatusDeleteFailedLimitExceeded,
+  ImportStatusInternalError,
   ImportStatus'
   #-}

@@ -39,92 +39,81 @@ module Network.AWS.KMS.ConnectCustomKeyStore
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkConnectCustomKeyStore' smart constructor.
 newtype ConnectCustomKeyStore = ConnectCustomKeyStore'
   { -- | Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
-    customKeyStoreId :: Lude.Text
+    customKeyStoreId :: Types.CustomKeyStoreId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectCustomKeyStore' with the minimum fields required to make a request.
---
--- * 'customKeyStoreId' - Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+-- | Creates a 'ConnectCustomKeyStore' value with any optional fields omitted.
 mkConnectCustomKeyStore ::
   -- | 'customKeyStoreId'
-  Lude.Text ->
+  Types.CustomKeyStoreId ->
   ConnectCustomKeyStore
-mkConnectCustomKeyStore pCustomKeyStoreId_ =
-  ConnectCustomKeyStore' {customKeyStoreId = pCustomKeyStoreId_}
+mkConnectCustomKeyStore customKeyStoreId =
+  ConnectCustomKeyStore' {customKeyStoreId}
 
 -- | Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
 --
 -- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksCustomKeyStoreId :: Lens.Lens' ConnectCustomKeyStore Lude.Text
-ccksCustomKeyStoreId = Lens.lens (customKeyStoreId :: ConnectCustomKeyStore -> Lude.Text) (\s a -> s {customKeyStoreId = a} :: ConnectCustomKeyStore)
+ccksCustomKeyStoreId :: Lens.Lens' ConnectCustomKeyStore Types.CustomKeyStoreId
+ccksCustomKeyStoreId = Lens.field @"customKeyStoreId"
 {-# DEPRECATED ccksCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
-instance Lude.AWSRequest ConnectCustomKeyStore where
+instance Core.FromJSON ConnectCustomKeyStore where
+  toJSON ConnectCustomKeyStore {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CustomKeyStoreId" Core..= customKeyStoreId)]
+      )
+
+instance Core.AWSRequest ConnectCustomKeyStore where
   type Rs ConnectCustomKeyStore = ConnectCustomKeyStoreResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.ConnectCustomKeyStore")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ConnectCustomKeyStoreResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ConnectCustomKeyStore where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.ConnectCustomKeyStore" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ConnectCustomKeyStore where
-  toJSON ConnectCustomKeyStore' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("CustomKeyStoreId" Lude..= customKeyStoreId)]
-      )
-
-instance Lude.ToPath ConnectCustomKeyStore where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ConnectCustomKeyStore where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkConnectCustomKeyStoreResponse' smart constructor.
 newtype ConnectCustomKeyStoreResponse = ConnectCustomKeyStoreResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectCustomKeyStoreResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ConnectCustomKeyStoreResponse' value with any optional fields omitted.
 mkConnectCustomKeyStoreResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ConnectCustomKeyStoreResponse
-mkConnectCustomKeyStoreResponse pResponseStatus_ =
-  ConnectCustomKeyStoreResponse' {responseStatus = pResponseStatus_}
+mkConnectCustomKeyStoreResponse responseStatus =
+  ConnectCustomKeyStoreResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' ConnectCustomKeyStoreResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: ConnectCustomKeyStoreResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConnectCustomKeyStoreResponse)
+crsResponseStatus :: Lens.Lens' ConnectCustomKeyStoreResponse Core.Int
+crsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

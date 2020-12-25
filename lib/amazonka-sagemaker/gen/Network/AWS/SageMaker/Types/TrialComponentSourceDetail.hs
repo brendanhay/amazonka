@@ -17,87 +17,81 @@ module Network.AWS.SageMaker.Types.TrialComponentSourceDetail
     mkTrialComponentSourceDetail,
 
     -- * Lenses
-    tcsdTrainingJob,
-    tcsdSourceARN,
     tcsdProcessingJob,
+    tcsdSourceArn,
+    tcsdTrainingJob,
     tcsdTransformJob,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ProcessingJob
-import Network.AWS.SageMaker.Types.TrainingJob
-import Network.AWS.SageMaker.Types.TransformJob
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ProcessingJob as Types
+import qualified Network.AWS.SageMaker.Types.SourceArn as Types
+import qualified Network.AWS.SageMaker.Types.TrainingJob as Types
+import qualified Network.AWS.SageMaker.Types.TransformJob as Types
 
 -- | Detailed information about the source of a trial component. Either @ProcessingJob@ or @TrainingJob@ is returned.
 --
 -- /See:/ 'mkTrialComponentSourceDetail' smart constructor.
 data TrialComponentSourceDetail = TrialComponentSourceDetail'
-  { -- | Information about a training job that's the source of a trial component.
-    trainingJob :: Lude.Maybe TrainingJob,
+  { -- | Information about a processing job that's the source of a trial component.
+    processingJob :: Core.Maybe Types.ProcessingJob,
     -- | The Amazon Resource Name (ARN) of the source.
-    sourceARN :: Lude.Maybe Lude.Text,
-    -- | Information about a processing job that's the source of a trial component.
-    processingJob :: Lude.Maybe ProcessingJob,
+    sourceArn :: Core.Maybe Types.SourceArn,
+    -- | Information about a training job that's the source of a trial component.
+    trainingJob :: Core.Maybe Types.TrainingJob,
     -- | Information about a transform job that's the source of a trial component.
-    transformJob :: Lude.Maybe TransformJob
+    transformJob :: Core.Maybe Types.TransformJob
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TrialComponentSourceDetail' with the minimum fields required to make a request.
---
--- * 'trainingJob' - Information about a training job that's the source of a trial component.
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
--- * 'processingJob' - Information about a processing job that's the source of a trial component.
--- * 'transformJob' - Information about a transform job that's the source of a trial component.
+-- | Creates a 'TrialComponentSourceDetail' value with any optional fields omitted.
 mkTrialComponentSourceDetail ::
   TrialComponentSourceDetail
 mkTrialComponentSourceDetail =
   TrialComponentSourceDetail'
-    { trainingJob = Lude.Nothing,
-      sourceARN = Lude.Nothing,
-      processingJob = Lude.Nothing,
-      transformJob = Lude.Nothing
+    { processingJob = Core.Nothing,
+      sourceArn = Core.Nothing,
+      trainingJob = Core.Nothing,
+      transformJob = Core.Nothing
     }
-
--- | Information about a training job that's the source of a trial component.
---
--- /Note:/ Consider using 'trainingJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsdTrainingJob :: Lens.Lens' TrialComponentSourceDetail (Lude.Maybe TrainingJob)
-tcsdTrainingJob = Lens.lens (trainingJob :: TrialComponentSourceDetail -> Lude.Maybe TrainingJob) (\s a -> s {trainingJob = a} :: TrialComponentSourceDetail)
-{-# DEPRECATED tcsdTrainingJob "Use generic-lens or generic-optics with 'trainingJob' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the source.
---
--- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsdSourceARN :: Lens.Lens' TrialComponentSourceDetail (Lude.Maybe Lude.Text)
-tcsdSourceARN = Lens.lens (sourceARN :: TrialComponentSourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {sourceARN = a} :: TrialComponentSourceDetail)
-{-# DEPRECATED tcsdSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
 
 -- | Information about a processing job that's the source of a trial component.
 --
 -- /Note:/ Consider using 'processingJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsdProcessingJob :: Lens.Lens' TrialComponentSourceDetail (Lude.Maybe ProcessingJob)
-tcsdProcessingJob = Lens.lens (processingJob :: TrialComponentSourceDetail -> Lude.Maybe ProcessingJob) (\s a -> s {processingJob = a} :: TrialComponentSourceDetail)
+tcsdProcessingJob :: Lens.Lens' TrialComponentSourceDetail (Core.Maybe Types.ProcessingJob)
+tcsdProcessingJob = Lens.field @"processingJob"
 {-# DEPRECATED tcsdProcessingJob "Use generic-lens or generic-optics with 'processingJob' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the source.
+--
+-- /Note:/ Consider using 'sourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsdSourceArn :: Lens.Lens' TrialComponentSourceDetail (Core.Maybe Types.SourceArn)
+tcsdSourceArn = Lens.field @"sourceArn"
+{-# DEPRECATED tcsdSourceArn "Use generic-lens or generic-optics with 'sourceArn' instead." #-}
+
+-- | Information about a training job that's the source of a trial component.
+--
+-- /Note:/ Consider using 'trainingJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsdTrainingJob :: Lens.Lens' TrialComponentSourceDetail (Core.Maybe Types.TrainingJob)
+tcsdTrainingJob = Lens.field @"trainingJob"
+{-# DEPRECATED tcsdTrainingJob "Use generic-lens or generic-optics with 'trainingJob' instead." #-}
 
 -- | Information about a transform job that's the source of a trial component.
 --
 -- /Note:/ Consider using 'transformJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsdTransformJob :: Lens.Lens' TrialComponentSourceDetail (Lude.Maybe TransformJob)
-tcsdTransformJob = Lens.lens (transformJob :: TrialComponentSourceDetail -> Lude.Maybe TransformJob) (\s a -> s {transformJob = a} :: TrialComponentSourceDetail)
+tcsdTransformJob :: Lens.Lens' TrialComponentSourceDetail (Core.Maybe Types.TransformJob)
+tcsdTransformJob = Lens.field @"transformJob"
 {-# DEPRECATED tcsdTransformJob "Use generic-lens or generic-optics with 'transformJob' instead." #-}
 
-instance Lude.FromJSON TrialComponentSourceDetail where
+instance Core.FromJSON TrialComponentSourceDetail where
   parseJSON =
-    Lude.withObject
-      "TrialComponentSourceDetail"
-      ( \x ->
-          TrialComponentSourceDetail'
-            Lude.<$> (x Lude..:? "TrainingJob")
-            Lude.<*> (x Lude..:? "SourceArn")
-            Lude.<*> (x Lude..:? "ProcessingJob")
-            Lude.<*> (x Lude..:? "TransformJob")
-      )
+    Core.withObject "TrialComponentSourceDetail" Core.$
+      \x ->
+        TrialComponentSourceDetail'
+          Core.<$> (x Core..:? "ProcessingJob")
+          Core.<*> (x Core..:? "SourceArn")
+          Core.<*> (x Core..:? "TrainingJob")
+          Core.<*> (x Core..:? "TransformJob")

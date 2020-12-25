@@ -13,96 +13,101 @@
 module Network.AWS.DeviceFarm.Types.DeviceFilterAttribute
   ( DeviceFilterAttribute
       ( DeviceFilterAttribute',
-        DFAARN,
-        DFAPlatform,
-        DFAOSVersion,
-        DFAModel,
-        DFAAvailability,
-        DFAFormFactor,
-        DFAManufacturer,
-        DFARemoteAccessEnabled,
-        DFARemoteDebugEnabled,
-        DFAInstanceARN,
-        DFAInstanceLabels,
-        DFAFleetType
+        DeviceFilterAttributeArn,
+        DeviceFilterAttributePlatform,
+        DeviceFilterAttributeOsVersion,
+        DeviceFilterAttributeModel,
+        DeviceFilterAttributeAvailability,
+        DeviceFilterAttributeFormFactor,
+        DeviceFilterAttributeManufacturer,
+        DeviceFilterAttributeRemoteAccessEnabled,
+        DeviceFilterAttributeRemoteDebugEnabled,
+        DeviceFilterAttributeInstanceArn,
+        DeviceFilterAttributeInstanceLabels,
+        DeviceFilterAttributeFleetType,
+        fromDeviceFilterAttribute
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeviceFilterAttribute = DeviceFilterAttribute' Lude.Text
+newtype DeviceFilterAttribute = DeviceFilterAttribute'
+  { fromDeviceFilterAttribute ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DFAARN :: DeviceFilterAttribute
-pattern DFAARN = DeviceFilterAttribute' "ARN"
+pattern DeviceFilterAttributeArn :: DeviceFilterAttribute
+pattern DeviceFilterAttributeArn = DeviceFilterAttribute' "ARN"
 
-pattern DFAPlatform :: DeviceFilterAttribute
-pattern DFAPlatform = DeviceFilterAttribute' "PLATFORM"
+pattern DeviceFilterAttributePlatform :: DeviceFilterAttribute
+pattern DeviceFilterAttributePlatform = DeviceFilterAttribute' "PLATFORM"
 
-pattern DFAOSVersion :: DeviceFilterAttribute
-pattern DFAOSVersion = DeviceFilterAttribute' "OS_VERSION"
+pattern DeviceFilterAttributeOsVersion :: DeviceFilterAttribute
+pattern DeviceFilterAttributeOsVersion = DeviceFilterAttribute' "OS_VERSION"
 
-pattern DFAModel :: DeviceFilterAttribute
-pattern DFAModel = DeviceFilterAttribute' "MODEL"
+pattern DeviceFilterAttributeModel :: DeviceFilterAttribute
+pattern DeviceFilterAttributeModel = DeviceFilterAttribute' "MODEL"
 
-pattern DFAAvailability :: DeviceFilterAttribute
-pattern DFAAvailability = DeviceFilterAttribute' "AVAILABILITY"
+pattern DeviceFilterAttributeAvailability :: DeviceFilterAttribute
+pattern DeviceFilterAttributeAvailability = DeviceFilterAttribute' "AVAILABILITY"
 
-pattern DFAFormFactor :: DeviceFilterAttribute
-pattern DFAFormFactor = DeviceFilterAttribute' "FORM_FACTOR"
+pattern DeviceFilterAttributeFormFactor :: DeviceFilterAttribute
+pattern DeviceFilterAttributeFormFactor = DeviceFilterAttribute' "FORM_FACTOR"
 
-pattern DFAManufacturer :: DeviceFilterAttribute
-pattern DFAManufacturer = DeviceFilterAttribute' "MANUFACTURER"
+pattern DeviceFilterAttributeManufacturer :: DeviceFilterAttribute
+pattern DeviceFilterAttributeManufacturer = DeviceFilterAttribute' "MANUFACTURER"
 
-pattern DFARemoteAccessEnabled :: DeviceFilterAttribute
-pattern DFARemoteAccessEnabled = DeviceFilterAttribute' "REMOTE_ACCESS_ENABLED"
+pattern DeviceFilterAttributeRemoteAccessEnabled :: DeviceFilterAttribute
+pattern DeviceFilterAttributeRemoteAccessEnabled = DeviceFilterAttribute' "REMOTE_ACCESS_ENABLED"
 
-pattern DFARemoteDebugEnabled :: DeviceFilterAttribute
-pattern DFARemoteDebugEnabled = DeviceFilterAttribute' "REMOTE_DEBUG_ENABLED"
+pattern DeviceFilterAttributeRemoteDebugEnabled :: DeviceFilterAttribute
+pattern DeviceFilterAttributeRemoteDebugEnabled = DeviceFilterAttribute' "REMOTE_DEBUG_ENABLED"
 
-pattern DFAInstanceARN :: DeviceFilterAttribute
-pattern DFAInstanceARN = DeviceFilterAttribute' "INSTANCE_ARN"
+pattern DeviceFilterAttributeInstanceArn :: DeviceFilterAttribute
+pattern DeviceFilterAttributeInstanceArn = DeviceFilterAttribute' "INSTANCE_ARN"
 
-pattern DFAInstanceLabels :: DeviceFilterAttribute
-pattern DFAInstanceLabels = DeviceFilterAttribute' "INSTANCE_LABELS"
+pattern DeviceFilterAttributeInstanceLabels :: DeviceFilterAttribute
+pattern DeviceFilterAttributeInstanceLabels = DeviceFilterAttribute' "INSTANCE_LABELS"
 
-pattern DFAFleetType :: DeviceFilterAttribute
-pattern DFAFleetType = DeviceFilterAttribute' "FLEET_TYPE"
+pattern DeviceFilterAttributeFleetType :: DeviceFilterAttribute
+pattern DeviceFilterAttributeFleetType = DeviceFilterAttribute' "FLEET_TYPE"
 
 {-# COMPLETE
-  DFAARN,
-  DFAPlatform,
-  DFAOSVersion,
-  DFAModel,
-  DFAAvailability,
-  DFAFormFactor,
-  DFAManufacturer,
-  DFARemoteAccessEnabled,
-  DFARemoteDebugEnabled,
-  DFAInstanceARN,
-  DFAInstanceLabels,
-  DFAFleetType,
+  DeviceFilterAttributeArn,
+  DeviceFilterAttributePlatform,
+  DeviceFilterAttributeOsVersion,
+  DeviceFilterAttributeModel,
+  DeviceFilterAttributeAvailability,
+  DeviceFilterAttributeFormFactor,
+  DeviceFilterAttributeManufacturer,
+  DeviceFilterAttributeRemoteAccessEnabled,
+  DeviceFilterAttributeRemoteDebugEnabled,
+  DeviceFilterAttributeInstanceArn,
+  DeviceFilterAttributeInstanceLabels,
+  DeviceFilterAttributeFleetType,
   DeviceFilterAttribute'
   #-}

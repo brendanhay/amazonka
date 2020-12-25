@@ -29,128 +29,113 @@ module Network.AWS.CloudFront.CreateKeyGroup
     mkCreateKeyGroupResponse,
 
     -- ** Response lenses
-    ckgrsETag,
-    ckgrsLocation,
-    ckgrsKeyGroup,
-    ckgrsResponseStatus,
+    ckgrrsETag,
+    ckgrrsKeyGroup,
+    ckgrrsLocation,
+    ckgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateKeyGroup' smart constructor.
 newtype CreateKeyGroup = CreateKeyGroup'
   { -- | A key group configuration.
-    keyGroupConfig :: KeyGroupConfig
+    keyGroupConfig :: Types.KeyGroupConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateKeyGroup' with the minimum fields required to make a request.
---
--- * 'keyGroupConfig' - A key group configuration.
+-- | Creates a 'CreateKeyGroup' value with any optional fields omitted.
 mkCreateKeyGroup ::
   -- | 'keyGroupConfig'
-  KeyGroupConfig ->
+  Types.KeyGroupConfig ->
   CreateKeyGroup
-mkCreateKeyGroup pKeyGroupConfig_ =
-  CreateKeyGroup' {keyGroupConfig = pKeyGroupConfig_}
+mkCreateKeyGroup keyGroupConfig = CreateKeyGroup' {keyGroupConfig}
 
 -- | A key group configuration.
 --
 -- /Note:/ Consider using 'keyGroupConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckgKeyGroupConfig :: Lens.Lens' CreateKeyGroup KeyGroupConfig
-ckgKeyGroupConfig = Lens.lens (keyGroupConfig :: CreateKeyGroup -> KeyGroupConfig) (\s a -> s {keyGroupConfig = a} :: CreateKeyGroup)
+ckgKeyGroupConfig :: Lens.Lens' CreateKeyGroup Types.KeyGroupConfig
+ckgKeyGroupConfig = Lens.field @"keyGroupConfig"
 {-# DEPRECATED ckgKeyGroupConfig "Use generic-lens or generic-optics with 'keyGroupConfig' instead." #-}
 
-instance Lude.AWSRequest CreateKeyGroup where
+instance Core.AWSRequest CreateKeyGroup where
   type Rs CreateKeyGroup = CreateKeyGroupResponse
-  request = Req.postXML cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2020-05-31/key-group",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateKeyGroupResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (h Lude..#? "Location")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.parseHeaderMaybe "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement CreateKeyGroup where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}KeyGroupConfig"
-      Lude.. keyGroupConfig
-
-instance Lude.ToHeaders CreateKeyGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateKeyGroup where
-  toPath = Lude.const "/2020-05-31/key-group"
-
-instance Lude.ToQuery CreateKeyGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateKeyGroupResponse' smart constructor.
 data CreateKeyGroupResponse = CreateKeyGroupResponse'
   { -- | The identifier for this version of the key group.
-    eTag :: Lude.Maybe Lude.Text,
-    -- | The URL of the key group.
-    location :: Lude.Maybe Lude.Text,
+    eTag :: Core.Maybe Types.String,
     -- | The key group that was just created.
-    keyGroup :: Lude.Maybe KeyGroup,
+    keyGroup :: Core.Maybe Types.KeyGroup,
+    -- | The URL of the key group.
+    location :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateKeyGroupResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The identifier for this version of the key group.
--- * 'location' - The URL of the key group.
--- * 'keyGroup' - The key group that was just created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateKeyGroupResponse' value with any optional fields omitted.
 mkCreateKeyGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateKeyGroupResponse
-mkCreateKeyGroupResponse pResponseStatus_ =
+mkCreateKeyGroupResponse responseStatus =
   CreateKeyGroupResponse'
-    { eTag = Lude.Nothing,
-      location = Lude.Nothing,
-      keyGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      keyGroup = Core.Nothing,
+      location = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier for this version of the key group.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckgrsETag :: Lens.Lens' CreateKeyGroupResponse (Lude.Maybe Lude.Text)
-ckgrsETag = Lens.lens (eTag :: CreateKeyGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: CreateKeyGroupResponse)
-{-# DEPRECATED ckgrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
-
--- | The URL of the key group.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckgrsLocation :: Lens.Lens' CreateKeyGroupResponse (Lude.Maybe Lude.Text)
-ckgrsLocation = Lens.lens (location :: CreateKeyGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateKeyGroupResponse)
-{-# DEPRECATED ckgrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+ckgrrsETag :: Lens.Lens' CreateKeyGroupResponse (Core.Maybe Types.String)
+ckgrrsETag = Lens.field @"eTag"
+{-# DEPRECATED ckgrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The key group that was just created.
 --
 -- /Note:/ Consider using 'keyGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckgrsKeyGroup :: Lens.Lens' CreateKeyGroupResponse (Lude.Maybe KeyGroup)
-ckgrsKeyGroup = Lens.lens (keyGroup :: CreateKeyGroupResponse -> Lude.Maybe KeyGroup) (\s a -> s {keyGroup = a} :: CreateKeyGroupResponse)
-{-# DEPRECATED ckgrsKeyGroup "Use generic-lens or generic-optics with 'keyGroup' instead." #-}
+ckgrrsKeyGroup :: Lens.Lens' CreateKeyGroupResponse (Core.Maybe Types.KeyGroup)
+ckgrrsKeyGroup = Lens.field @"keyGroup"
+{-# DEPRECATED ckgrrsKeyGroup "Use generic-lens or generic-optics with 'keyGroup' instead." #-}
+
+-- | The URL of the key group.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckgrrsLocation :: Lens.Lens' CreateKeyGroupResponse (Core.Maybe Types.String)
+ckgrrsLocation = Lens.field @"location"
+{-# DEPRECATED ckgrrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckgrsResponseStatus :: Lens.Lens' CreateKeyGroupResponse Lude.Int
-ckgrsResponseStatus = Lens.lens (responseStatus :: CreateKeyGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateKeyGroupResponse)
-{-# DEPRECATED ckgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ckgrrsResponseStatus :: Lens.Lens' CreateKeyGroupResponse Core.Int
+ckgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ckgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

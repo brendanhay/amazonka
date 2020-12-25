@@ -17,66 +17,61 @@ module Network.AWS.IoTAnalytics.Types.RetentionPeriod
     mkRetentionPeriod,
 
     -- * Lenses
-    rpUnlimited,
     rpNumberOfDays,
+    rpUnlimited,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | How long, in days, message data is kept.
 --
 -- /See:/ 'mkRetentionPeriod' smart constructor.
 data RetentionPeriod = RetentionPeriod'
-  { -- | If true, message data is kept indefinitely.
-    unlimited :: Lude.Maybe Lude.Bool,
-    -- | The number of days that message data is kept. The @unlimited@ parameter must be false.
-    numberOfDays :: Lude.Maybe Lude.Natural
+  { -- | The number of days that message data is kept. The @unlimited@ parameter must be false.
+    numberOfDays :: Core.Maybe Core.Natural,
+    -- | If true, message data is kept indefinitely.
+    unlimited :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetentionPeriod' with the minimum fields required to make a request.
---
--- * 'unlimited' - If true, message data is kept indefinitely.
--- * 'numberOfDays' - The number of days that message data is kept. The @unlimited@ parameter must be false.
+-- | Creates a 'RetentionPeriod' value with any optional fields omitted.
 mkRetentionPeriod ::
   RetentionPeriod
 mkRetentionPeriod =
   RetentionPeriod'
-    { unlimited = Lude.Nothing,
-      numberOfDays = Lude.Nothing
+    { numberOfDays = Core.Nothing,
+      unlimited = Core.Nothing
     }
-
--- | If true, message data is kept indefinitely.
---
--- /Note:/ Consider using 'unlimited' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpUnlimited :: Lens.Lens' RetentionPeriod (Lude.Maybe Lude.Bool)
-rpUnlimited = Lens.lens (unlimited :: RetentionPeriod -> Lude.Maybe Lude.Bool) (\s a -> s {unlimited = a} :: RetentionPeriod)
-{-# DEPRECATED rpUnlimited "Use generic-lens or generic-optics with 'unlimited' instead." #-}
 
 -- | The number of days that message data is kept. The @unlimited@ parameter must be false.
 --
 -- /Note:/ Consider using 'numberOfDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpNumberOfDays :: Lens.Lens' RetentionPeriod (Lude.Maybe Lude.Natural)
-rpNumberOfDays = Lens.lens (numberOfDays :: RetentionPeriod -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfDays = a} :: RetentionPeriod)
+rpNumberOfDays :: Lens.Lens' RetentionPeriod (Core.Maybe Core.Natural)
+rpNumberOfDays = Lens.field @"numberOfDays"
 {-# DEPRECATED rpNumberOfDays "Use generic-lens or generic-optics with 'numberOfDays' instead." #-}
 
-instance Lude.FromJSON RetentionPeriod where
-  parseJSON =
-    Lude.withObject
-      "RetentionPeriod"
-      ( \x ->
-          RetentionPeriod'
-            Lude.<$> (x Lude..:? "unlimited") Lude.<*> (x Lude..:? "numberOfDays")
-      )
+-- | If true, message data is kept indefinitely.
+--
+-- /Note:/ Consider using 'unlimited' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpUnlimited :: Lens.Lens' RetentionPeriod (Core.Maybe Core.Bool)
+rpUnlimited = Lens.field @"unlimited"
+{-# DEPRECATED rpUnlimited "Use generic-lens or generic-optics with 'unlimited' instead." #-}
 
-instance Lude.ToJSON RetentionPeriod where
-  toJSON RetentionPeriod' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("unlimited" Lude..=) Lude.<$> unlimited,
-            ("numberOfDays" Lude..=) Lude.<$> numberOfDays
+instance Core.FromJSON RetentionPeriod where
+  toJSON RetentionPeriod {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("numberOfDays" Core..=) Core.<$> numberOfDays,
+            ("unlimited" Core..=) Core.<$> unlimited
           ]
       )
+
+instance Core.FromJSON RetentionPeriod where
+  parseJSON =
+    Core.withObject "RetentionPeriod" Core.$
+      \x ->
+        RetentionPeriod'
+          Core.<$> (x Core..:? "numberOfDays") Core.<*> (x Core..:? "unlimited")

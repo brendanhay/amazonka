@@ -17,95 +17,90 @@ module Network.AWS.ElasticBeanstalk.Types.ManagedAction
     mkManagedAction,
 
     -- * Lenses
-    maStatus,
-    maActionId,
-    maWindowStartTime,
     maActionDescription,
+    maActionId,
     maActionType,
+    maStatus,
+    maWindowStartTime,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.ActionStatus
-import Network.AWS.ElasticBeanstalk.Types.ActionType
+import qualified Network.AWS.ElasticBeanstalk.Types.ActionStatus as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ActionType as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The record of an upcoming or in-progress managed action.
 --
 -- /See:/ 'mkManagedAction' smart constructor.
 data ManagedAction = ManagedAction'
-  { -- | The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
-    status :: Lude.Maybe ActionStatus,
+  { -- | A description of the managed action.
+    actionDescription :: Core.Maybe Types.String,
     -- | A unique identifier for the managed action.
-    actionId :: Lude.Maybe Lude.Text,
-    -- | The start time of the maintenance window in which the managed action will execute.
-    windowStartTime :: Lude.Maybe Lude.DateTime,
-    -- | A description of the managed action.
-    actionDescription :: Lude.Maybe Lude.Text,
+    actionId :: Core.Maybe Types.String,
     -- | The type of managed action.
-    actionType :: Lude.Maybe ActionType
+    actionType :: Core.Maybe Types.ActionType,
+    -- | The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
+    status :: Core.Maybe Types.ActionStatus,
+    -- | The start time of the maintenance window in which the managed action will execute.
+    windowStartTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ManagedAction' with the minimum fields required to make a request.
---
--- * 'status' - The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
--- * 'actionId' - A unique identifier for the managed action.
--- * 'windowStartTime' - The start time of the maintenance window in which the managed action will execute.
--- * 'actionDescription' - A description of the managed action.
--- * 'actionType' - The type of managed action.
+-- | Creates a 'ManagedAction' value with any optional fields omitted.
 mkManagedAction ::
   ManagedAction
 mkManagedAction =
   ManagedAction'
-    { status = Lude.Nothing,
-      actionId = Lude.Nothing,
-      windowStartTime = Lude.Nothing,
-      actionDescription = Lude.Nothing,
-      actionType = Lude.Nothing
+    { actionDescription = Core.Nothing,
+      actionId = Core.Nothing,
+      actionType = Core.Nothing,
+      status = Core.Nothing,
+      windowStartTime = Core.Nothing
     }
-
--- | The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maStatus :: Lens.Lens' ManagedAction (Lude.Maybe ActionStatus)
-maStatus = Lens.lens (status :: ManagedAction -> Lude.Maybe ActionStatus) (\s a -> s {status = a} :: ManagedAction)
-{-# DEPRECATED maStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | A unique identifier for the managed action.
---
--- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maActionId :: Lens.Lens' ManagedAction (Lude.Maybe Lude.Text)
-maActionId = Lens.lens (actionId :: ManagedAction -> Lude.Maybe Lude.Text) (\s a -> s {actionId = a} :: ManagedAction)
-{-# DEPRECATED maActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
-
--- | The start time of the maintenance window in which the managed action will execute.
---
--- /Note:/ Consider using 'windowStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maWindowStartTime :: Lens.Lens' ManagedAction (Lude.Maybe Lude.DateTime)
-maWindowStartTime = Lens.lens (windowStartTime :: ManagedAction -> Lude.Maybe Lude.DateTime) (\s a -> s {windowStartTime = a} :: ManagedAction)
-{-# DEPRECATED maWindowStartTime "Use generic-lens or generic-optics with 'windowStartTime' instead." #-}
 
 -- | A description of the managed action.
 --
 -- /Note:/ Consider using 'actionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maActionDescription :: Lens.Lens' ManagedAction (Lude.Maybe Lude.Text)
-maActionDescription = Lens.lens (actionDescription :: ManagedAction -> Lude.Maybe Lude.Text) (\s a -> s {actionDescription = a} :: ManagedAction)
+maActionDescription :: Lens.Lens' ManagedAction (Core.Maybe Types.String)
+maActionDescription = Lens.field @"actionDescription"
 {-# DEPRECATED maActionDescription "Use generic-lens or generic-optics with 'actionDescription' instead." #-}
+
+-- | A unique identifier for the managed action.
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maActionId :: Lens.Lens' ManagedAction (Core.Maybe Types.String)
+maActionId = Lens.field @"actionId"
+{-# DEPRECATED maActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | The type of managed action.
 --
 -- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maActionType :: Lens.Lens' ManagedAction (Lude.Maybe ActionType)
-maActionType = Lens.lens (actionType :: ManagedAction -> Lude.Maybe ActionType) (\s a -> s {actionType = a} :: ManagedAction)
+maActionType :: Lens.Lens' ManagedAction (Core.Maybe Types.ActionType)
+maActionType = Lens.field @"actionType"
 {-# DEPRECATED maActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
-instance Lude.FromXML ManagedAction where
+-- | The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maStatus :: Lens.Lens' ManagedAction (Core.Maybe Types.ActionStatus)
+maStatus = Lens.field @"status"
+{-# DEPRECATED maStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The start time of the maintenance window in which the managed action will execute.
+--
+-- /Note:/ Consider using 'windowStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maWindowStartTime :: Lens.Lens' ManagedAction (Core.Maybe Core.UTCTime)
+maWindowStartTime = Lens.field @"windowStartTime"
+{-# DEPRECATED maWindowStartTime "Use generic-lens or generic-optics with 'windowStartTime' instead." #-}
+
+instance Core.FromXML ManagedAction where
   parseXML x =
     ManagedAction'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "ActionId")
-      Lude.<*> (x Lude..@? "WindowStartTime")
-      Lude.<*> (x Lude..@? "ActionDescription")
-      Lude.<*> (x Lude..@? "ActionType")
+      Core.<$> (x Core..@? "ActionDescription")
+      Core.<*> (x Core..@? "ActionId")
+      Core.<*> (x Core..@? "ActionType")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "WindowStartTime")

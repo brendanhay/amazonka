@@ -17,13 +17,14 @@ module Network.AWS.ECS.Types.SystemControl
     mkSystemControl,
 
     -- * Lenses
-    scValue,
     scNamespace,
+    scValue,
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of namespaced kernel parameters to set in the container. This parameter maps to @Sysctls@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the @--sysctl@ option to <https://docs.docker.com/engine/reference/run/#security-configuration docker run> .
 --
@@ -38,51 +39,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSystemControl' smart constructor.
 data SystemControl = SystemControl'
-  { -- | The value for the namespaced kernel parameter specified in @namespace@ .
-    value :: Lude.Maybe Lude.Text,
-    -- | The namespaced kernel parameter for which to set a @value@ .
-    namespace :: Lude.Maybe Lude.Text
+  { -- | The namespaced kernel parameter for which to set a @value@ .
+    namespace :: Core.Maybe Types.String,
+    -- | The value for the namespaced kernel parameter specified in @namespace@ .
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SystemControl' with the minimum fields required to make a request.
---
--- * 'value' - The value for the namespaced kernel parameter specified in @namespace@ .
--- * 'namespace' - The namespaced kernel parameter for which to set a @value@ .
+-- | Creates a 'SystemControl' value with any optional fields omitted.
 mkSystemControl ::
   SystemControl
 mkSystemControl =
-  SystemControl' {value = Lude.Nothing, namespace = Lude.Nothing}
-
--- | The value for the namespaced kernel parameter specified in @namespace@ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scValue :: Lens.Lens' SystemControl (Lude.Maybe Lude.Text)
-scValue = Lens.lens (value :: SystemControl -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: SystemControl)
-{-# DEPRECATED scValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  SystemControl' {namespace = Core.Nothing, value = Core.Nothing}
 
 -- | The namespaced kernel parameter for which to set a @value@ .
 --
 -- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scNamespace :: Lens.Lens' SystemControl (Lude.Maybe Lude.Text)
-scNamespace = Lens.lens (namespace :: SystemControl -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: SystemControl)
+scNamespace :: Lens.Lens' SystemControl (Core.Maybe Types.String)
+scNamespace = Lens.field @"namespace"
 {-# DEPRECATED scNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
-instance Lude.FromJSON SystemControl where
-  parseJSON =
-    Lude.withObject
-      "SystemControl"
-      ( \x ->
-          SystemControl'
-            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "namespace")
-      )
+-- | The value for the namespaced kernel parameter specified in @namespace@ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scValue :: Lens.Lens' SystemControl (Core.Maybe Types.String)
+scValue = Lens.field @"value"
+{-# DEPRECATED scValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON SystemControl where
-  toJSON SystemControl' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("value" Lude..=) Lude.<$> value,
-            ("namespace" Lude..=) Lude.<$> namespace
+instance Core.FromJSON SystemControl where
+  toJSON SystemControl {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("namespace" Core..=) Core.<$> namespace,
+            ("value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON SystemControl where
+  parseJSON =
+    Core.withObject "SystemControl" Core.$
+      \x ->
+        SystemControl'
+          Core.<$> (x Core..:? "namespace") Core.<*> (x Core..:? "value")

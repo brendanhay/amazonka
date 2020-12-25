@@ -17,57 +17,52 @@ module Network.AWS.MediaLive.Types.MultiplexProgramSummary
     mkMultiplexProgramSummary,
 
     -- * Lenses
-    mpsProgramName,
     mpsChannelId,
+    mpsProgramName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for MultiplexProgramSummary
 --
 -- /See:/ 'mkMultiplexProgramSummary' smart constructor.
 data MultiplexProgramSummary = MultiplexProgramSummary'
-  { -- | The name of the multiplex program.
-    programName :: Lude.Maybe Lude.Text,
-    -- | The MediaLive Channel associated with the program.
-    channelId :: Lude.Maybe Lude.Text
+  { -- | The MediaLive Channel associated with the program.
+    channelId :: Core.Maybe Core.Text,
+    -- | The name of the multiplex program.
+    programName :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiplexProgramSummary' with the minimum fields required to make a request.
---
--- * 'programName' - The name of the multiplex program.
--- * 'channelId' - The MediaLive Channel associated with the program.
+-- | Creates a 'MultiplexProgramSummary' value with any optional fields omitted.
 mkMultiplexProgramSummary ::
   MultiplexProgramSummary
 mkMultiplexProgramSummary =
   MultiplexProgramSummary'
-    { programName = Lude.Nothing,
-      channelId = Lude.Nothing
+    { channelId = Core.Nothing,
+      programName = Core.Nothing
     }
-
--- | The name of the multiplex program.
---
--- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsProgramName :: Lens.Lens' MultiplexProgramSummary (Lude.Maybe Lude.Text)
-mpsProgramName = Lens.lens (programName :: MultiplexProgramSummary -> Lude.Maybe Lude.Text) (\s a -> s {programName = a} :: MultiplexProgramSummary)
-{-# DEPRECATED mpsProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
 -- | The MediaLive Channel associated with the program.
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsChannelId :: Lens.Lens' MultiplexProgramSummary (Lude.Maybe Lude.Text)
-mpsChannelId = Lens.lens (channelId :: MultiplexProgramSummary -> Lude.Maybe Lude.Text) (\s a -> s {channelId = a} :: MultiplexProgramSummary)
+mpsChannelId :: Lens.Lens' MultiplexProgramSummary (Core.Maybe Core.Text)
+mpsChannelId = Lens.field @"channelId"
 {-# DEPRECATED mpsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
-instance Lude.FromJSON MultiplexProgramSummary where
+-- | The name of the multiplex program.
+--
+-- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsProgramName :: Lens.Lens' MultiplexProgramSummary (Core.Maybe Core.Text)
+mpsProgramName = Lens.field @"programName"
+{-# DEPRECATED mpsProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
+
+instance Core.FromJSON MultiplexProgramSummary where
   parseJSON =
-    Lude.withObject
-      "MultiplexProgramSummary"
-      ( \x ->
-          MultiplexProgramSummary'
-            Lude.<$> (x Lude..:? "programName") Lude.<*> (x Lude..:? "channelId")
-      )
+    Core.withObject "MultiplexProgramSummary" Core.$
+      \x ->
+        MultiplexProgramSummary'
+          Core.<$> (x Core..:? "channelId") Core.<*> (x Core..:? "programName")

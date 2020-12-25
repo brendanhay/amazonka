@@ -27,111 +27,103 @@ module Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
     mkStartElasticsearchServiceSoftwareUpdateResponse,
 
     -- ** Response lenses
-    sessursServiceSoftwareOptions,
-    sessursResponseStatus,
+    sessurrsServiceSoftwareOptions,
+    sessurrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'StartElasticsearchServiceSoftwareUpdate' @ operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.
 --
 -- /See:/ 'mkStartElasticsearchServiceSoftwareUpdate' smart constructor.
 newtype StartElasticsearchServiceSoftwareUpdate = StartElasticsearchServiceSoftwareUpdate'
   { -- | The name of the domain that you want to update to the latest service software.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartElasticsearchServiceSoftwareUpdate' with the minimum fields required to make a request.
---
--- * 'domainName' - The name of the domain that you want to update to the latest service software.
+-- | Creates a 'StartElasticsearchServiceSoftwareUpdate' value with any optional fields omitted.
 mkStartElasticsearchServiceSoftwareUpdate ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   StartElasticsearchServiceSoftwareUpdate
-mkStartElasticsearchServiceSoftwareUpdate pDomainName_ =
-  StartElasticsearchServiceSoftwareUpdate'
-    { domainName =
-        pDomainName_
-    }
+mkStartElasticsearchServiceSoftwareUpdate domainName =
+  StartElasticsearchServiceSoftwareUpdate' {domainName}
 
 -- | The name of the domain that you want to update to the latest service software.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sessuDomainName :: Lens.Lens' StartElasticsearchServiceSoftwareUpdate Lude.Text
-sessuDomainName = Lens.lens (domainName :: StartElasticsearchServiceSoftwareUpdate -> Lude.Text) (\s a -> s {domainName = a} :: StartElasticsearchServiceSoftwareUpdate)
+sessuDomainName :: Lens.Lens' StartElasticsearchServiceSoftwareUpdate Types.DomainName
+sessuDomainName = Lens.field @"domainName"
 {-# DEPRECATED sessuDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest StartElasticsearchServiceSoftwareUpdate where
+instance Core.FromJSON StartElasticsearchServiceSoftwareUpdate where
+  toJSON StartElasticsearchServiceSoftwareUpdate {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DomainName" Core..= domainName)])
+
+instance Core.AWSRequest StartElasticsearchServiceSoftwareUpdate where
   type
     Rs StartElasticsearchServiceSoftwareUpdate =
       StartElasticsearchServiceSoftwareUpdateResponse
-  request = Req.postJSON elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/2015-01-01/es/serviceSoftwareUpdate/start",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartElasticsearchServiceSoftwareUpdateResponse'
-            Lude.<$> (x Lude..?> "ServiceSoftwareOptions")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ServiceSoftwareOptions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartElasticsearchServiceSoftwareUpdate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON StartElasticsearchServiceSoftwareUpdate where
-  toJSON StartElasticsearchServiceSoftwareUpdate' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DomainName" Lude..= domainName)])
-
-instance Lude.ToPath StartElasticsearchServiceSoftwareUpdate where
-  toPath = Lude.const "/2015-01-01/es/serviceSoftwareUpdate/start"
-
-instance Lude.ToQuery StartElasticsearchServiceSoftwareUpdate where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @StartElasticsearchServiceSoftwareUpdate@ operation. Contains the status of the update.
 --
 -- /See:/ 'mkStartElasticsearchServiceSoftwareUpdateResponse' smart constructor.
 data StartElasticsearchServiceSoftwareUpdateResponse = StartElasticsearchServiceSoftwareUpdateResponse'
   { -- | The current status of the Elasticsearch service software update.
-    serviceSoftwareOptions :: Lude.Maybe ServiceSoftwareOptions,
+    serviceSoftwareOptions :: Core.Maybe Types.ServiceSoftwareOptions,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartElasticsearchServiceSoftwareUpdateResponse' with the minimum fields required to make a request.
---
--- * 'serviceSoftwareOptions' - The current status of the Elasticsearch service software update.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartElasticsearchServiceSoftwareUpdateResponse' value with any optional fields omitted.
 mkStartElasticsearchServiceSoftwareUpdateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartElasticsearchServiceSoftwareUpdateResponse
-mkStartElasticsearchServiceSoftwareUpdateResponse pResponseStatus_ =
+mkStartElasticsearchServiceSoftwareUpdateResponse responseStatus =
   StartElasticsearchServiceSoftwareUpdateResponse'
     { serviceSoftwareOptions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The current status of the Elasticsearch service software update.
 --
 -- /Note:/ Consider using 'serviceSoftwareOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sessursServiceSoftwareOptions :: Lens.Lens' StartElasticsearchServiceSoftwareUpdateResponse (Lude.Maybe ServiceSoftwareOptions)
-sessursServiceSoftwareOptions = Lens.lens (serviceSoftwareOptions :: StartElasticsearchServiceSoftwareUpdateResponse -> Lude.Maybe ServiceSoftwareOptions) (\s a -> s {serviceSoftwareOptions = a} :: StartElasticsearchServiceSoftwareUpdateResponse)
-{-# DEPRECATED sessursServiceSoftwareOptions "Use generic-lens or generic-optics with 'serviceSoftwareOptions' instead." #-}
+sessurrsServiceSoftwareOptions :: Lens.Lens' StartElasticsearchServiceSoftwareUpdateResponse (Core.Maybe Types.ServiceSoftwareOptions)
+sessurrsServiceSoftwareOptions = Lens.field @"serviceSoftwareOptions"
+{-# DEPRECATED sessurrsServiceSoftwareOptions "Use generic-lens or generic-optics with 'serviceSoftwareOptions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sessursResponseStatus :: Lens.Lens' StartElasticsearchServiceSoftwareUpdateResponse Lude.Int
-sessursResponseStatus = Lens.lens (responseStatus :: StartElasticsearchServiceSoftwareUpdateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartElasticsearchServiceSoftwareUpdateResponse)
-{-# DEPRECATED sessursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sessurrsResponseStatus :: Lens.Lens' StartElasticsearchServiceSoftwareUpdateResponse Core.Int
+sessurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sessurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

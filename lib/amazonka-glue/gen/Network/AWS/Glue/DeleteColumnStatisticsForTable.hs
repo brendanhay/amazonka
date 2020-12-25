@@ -22,157 +22,138 @@ module Network.AWS.Glue.DeleteColumnStatisticsForTable
     mkDeleteColumnStatisticsForTable,
 
     -- ** Request lenses
-    dcsftCatalogId,
     dcsftDatabaseName,
     dcsftTableName,
     dcsftColumnName,
+    dcsftCatalogId,
 
     -- * Destructuring the response
     DeleteColumnStatisticsForTableResponse (..),
     mkDeleteColumnStatisticsForTableResponse,
 
     -- ** Response lenses
-    dcsftrsResponseStatus,
+    dcsftrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteColumnStatisticsForTable' smart constructor.
 data DeleteColumnStatisticsForTable = DeleteColumnStatisticsForTable'
-  { -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the catalog database where the partitions reside.
-    databaseName :: Lude.Text,
+  { -- | The name of the catalog database where the partitions reside.
+    databaseName :: Types.NameString,
     -- | The name of the partitions' table.
-    tableName :: Lude.Text,
+    tableName :: Types.NameString,
     -- | The name of the column.
-    columnName :: Lude.Text
+    columnName :: Types.NameString,
+    -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+    catalogId :: Core.Maybe Types.CatalogIdString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteColumnStatisticsForTable' with the minimum fields required to make a request.
---
--- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
--- * 'databaseName' - The name of the catalog database where the partitions reside.
--- * 'tableName' - The name of the partitions' table.
--- * 'columnName' - The name of the column.
+-- | Creates a 'DeleteColumnStatisticsForTable' value with any optional fields omitted.
 mkDeleteColumnStatisticsForTable ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.NameString ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.NameString ->
   -- | 'columnName'
-  Lude.Text ->
+  Types.NameString ->
   DeleteColumnStatisticsForTable
-mkDeleteColumnStatisticsForTable
-  pDatabaseName_
-  pTableName_
-  pColumnName_ =
-    DeleteColumnStatisticsForTable'
-      { catalogId = Lude.Nothing,
-        databaseName = pDatabaseName_,
-        tableName = pTableName_,
-        columnName = pColumnName_
-      }
-
--- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsftCatalogId :: Lens.Lens' DeleteColumnStatisticsForTable (Lude.Maybe Lude.Text)
-dcsftCatalogId = Lens.lens (catalogId :: DeleteColumnStatisticsForTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DeleteColumnStatisticsForTable)
-{-# DEPRECATED dcsftCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+mkDeleteColumnStatisticsForTable databaseName tableName columnName =
+  DeleteColumnStatisticsForTable'
+    { databaseName,
+      tableName,
+      columnName,
+      catalogId = Core.Nothing
+    }
 
 -- | The name of the catalog database where the partitions reside.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsftDatabaseName :: Lens.Lens' DeleteColumnStatisticsForTable Lude.Text
-dcsftDatabaseName = Lens.lens (databaseName :: DeleteColumnStatisticsForTable -> Lude.Text) (\s a -> s {databaseName = a} :: DeleteColumnStatisticsForTable)
+dcsftDatabaseName :: Lens.Lens' DeleteColumnStatisticsForTable Types.NameString
+dcsftDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED dcsftDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the partitions' table.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsftTableName :: Lens.Lens' DeleteColumnStatisticsForTable Lude.Text
-dcsftTableName = Lens.lens (tableName :: DeleteColumnStatisticsForTable -> Lude.Text) (\s a -> s {tableName = a} :: DeleteColumnStatisticsForTable)
+dcsftTableName :: Lens.Lens' DeleteColumnStatisticsForTable Types.NameString
+dcsftTableName = Lens.field @"tableName"
 {-# DEPRECATED dcsftTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The name of the column.
 --
 -- /Note:/ Consider using 'columnName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsftColumnName :: Lens.Lens' DeleteColumnStatisticsForTable Lude.Text
-dcsftColumnName = Lens.lens (columnName :: DeleteColumnStatisticsForTable -> Lude.Text) (\s a -> s {columnName = a} :: DeleteColumnStatisticsForTable)
+dcsftColumnName :: Lens.Lens' DeleteColumnStatisticsForTable Types.NameString
+dcsftColumnName = Lens.field @"columnName"
 {-# DEPRECATED dcsftColumnName "Use generic-lens or generic-optics with 'columnName' instead." #-}
 
-instance Lude.AWSRequest DeleteColumnStatisticsForTable where
+-- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsftCatalogId :: Lens.Lens' DeleteColumnStatisticsForTable (Core.Maybe Types.CatalogIdString)
+dcsftCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED dcsftCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON DeleteColumnStatisticsForTable where
+  toJSON DeleteColumnStatisticsForTable {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("ColumnName" Core..= columnName),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest DeleteColumnStatisticsForTable where
   type
     Rs DeleteColumnStatisticsForTable =
       DeleteColumnStatisticsForTableResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSGlue.DeleteColumnStatisticsForTable")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteColumnStatisticsForTableResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteColumnStatisticsForTable where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeleteColumnStatisticsForTable" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteColumnStatisticsForTable where
-  toJSON DeleteColumnStatisticsForTable' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("ColumnName" Lude..= columnName)
-          ]
-      )
-
-instance Lude.ToPath DeleteColumnStatisticsForTable where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteColumnStatisticsForTable where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteColumnStatisticsForTableResponse' smart constructor.
 newtype DeleteColumnStatisticsForTableResponse = DeleteColumnStatisticsForTableResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteColumnStatisticsForTableResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteColumnStatisticsForTableResponse' value with any optional fields omitted.
 mkDeleteColumnStatisticsForTableResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteColumnStatisticsForTableResponse
-mkDeleteColumnStatisticsForTableResponse pResponseStatus_ =
-  DeleteColumnStatisticsForTableResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteColumnStatisticsForTableResponse responseStatus =
+  DeleteColumnStatisticsForTableResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsftrsResponseStatus :: Lens.Lens' DeleteColumnStatisticsForTableResponse Lude.Int
-dcsftrsResponseStatus = Lens.lens (responseStatus :: DeleteColumnStatisticsForTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteColumnStatisticsForTableResponse)
-{-# DEPRECATED dcsftrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcsftrrsResponseStatus :: Lens.Lens' DeleteColumnStatisticsForTableResponse Core.Int
+dcsftrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcsftrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

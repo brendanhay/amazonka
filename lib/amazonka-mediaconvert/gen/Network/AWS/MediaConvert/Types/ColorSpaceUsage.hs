@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.ColorSpaceUsage
   ( ColorSpaceUsage
       ( ColorSpaceUsage',
-        Force,
-        Fallback
+        ColorSpaceUsageForce,
+        ColorSpaceUsageFallback,
+        fromColorSpaceUsage
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | There are two sources for color metadata, the input file and the job input settings Color space (ColorSpace) and HDR master display information settings(Hdr10Metadata). The Color space usage setting determines which takes precedence. Choose Force (FORCE) to use color metadata from the input job settings. If you don't specify values for those settings, the service defaults to using metadata from your input. FALLBACK - Choose Fallback (FALLBACK) to use color metadata from the source when it is present. If there's no color metadata in your input file, the service defaults to using values you specify in the input settings.
-newtype ColorSpaceUsage = ColorSpaceUsage' Lude.Text
+newtype ColorSpaceUsage = ColorSpaceUsage'
+  { fromColorSpaceUsage ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Force :: ColorSpaceUsage
-pattern Force = ColorSpaceUsage' "FORCE"
+pattern ColorSpaceUsageForce :: ColorSpaceUsage
+pattern ColorSpaceUsageForce = ColorSpaceUsage' "FORCE"
 
-pattern Fallback :: ColorSpaceUsage
-pattern Fallback = ColorSpaceUsage' "FALLBACK"
+pattern ColorSpaceUsageFallback :: ColorSpaceUsage
+pattern ColorSpaceUsageFallback = ColorSpaceUsage' "FALLBACK"
 
 {-# COMPLETE
-  Force,
-  Fallback,
+  ColorSpaceUsageForce,
+  ColorSpaceUsageFallback,
   ColorSpaceUsage'
   #-}

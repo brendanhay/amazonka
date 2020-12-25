@@ -13,56 +13,58 @@
 module Network.AWS.Polly.Types.OutputFormat
   ( OutputFormat
       ( OutputFormat',
-        JSON,
-        MP3,
-        OggVorbis,
-        Pcm
+        OutputFormatJson,
+        OutputFormatMP3,
+        OutputFormatOggVorbis,
+        OutputFormatPcm,
+        fromOutputFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OutputFormat = OutputFormat' Lude.Text
+newtype OutputFormat = OutputFormat' {fromOutputFormat :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JSON :: OutputFormat
-pattern JSON = OutputFormat' "json"
+pattern OutputFormatJson :: OutputFormat
+pattern OutputFormatJson = OutputFormat' "json"
 
-pattern MP3 :: OutputFormat
-pattern MP3 = OutputFormat' "mp3"
+pattern OutputFormatMP3 :: OutputFormat
+pattern OutputFormatMP3 = OutputFormat' "mp3"
 
-pattern OggVorbis :: OutputFormat
-pattern OggVorbis = OutputFormat' "ogg_vorbis"
+pattern OutputFormatOggVorbis :: OutputFormat
+pattern OutputFormatOggVorbis = OutputFormat' "ogg_vorbis"
 
-pattern Pcm :: OutputFormat
-pattern Pcm = OutputFormat' "pcm"
+pattern OutputFormatPcm :: OutputFormat
+pattern OutputFormatPcm = OutputFormat' "pcm"
 
 {-# COMPLETE
-  JSON,
-  MP3,
-  OggVorbis,
-  Pcm,
+  OutputFormatJson,
+  OutputFormatMP3,
+  OutputFormatOggVorbis,
+  OutputFormatPcm,
   OutputFormat'
   #-}

@@ -40,241 +40,216 @@ module Network.AWS.Route53.ListHostedZonesByName
     mkListHostedZonesByName,
 
     -- ** Request lenses
+    lhzbnDNSName,
     lhzbnHostedZoneId,
     lhzbnMaxItems,
-    lhzbnDNSName,
 
     -- * Destructuring the response
     ListHostedZonesByNameResponse (..),
     mkListHostedZonesByNameResponse,
 
     -- ** Response lenses
-    lhzbnrsHostedZoneId,
-    lhzbnrsNextHostedZoneId,
-    lhzbnrsHostedZones,
-    lhzbnrsMaxItems,
-    lhzbnrsIsTruncated,
-    lhzbnrsDNSName,
-    lhzbnrsNextDNSName,
-    lhzbnrsResponseStatus,
+    lhzbnrrsHostedZones,
+    lhzbnrrsIsTruncated,
+    lhzbnrrsMaxItems,
+    lhzbnrrsDNSName,
+    lhzbnrrsHostedZoneId,
+    lhzbnrrsNextDNSName,
+    lhzbnrrsNextHostedZoneId,
+    lhzbnrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | Retrieves a list of the public and private hosted zones that are associated with the current AWS account in ASCII order by domain name.
 --
 -- /See:/ 'mkListHostedZonesByName' smart constructor.
 data ListHostedZonesByName = ListHostedZonesByName'
-  { -- | (Optional) For your first request to @ListHostedZonesByName@ , do not include the @hostedzoneid@ parameter.
+  { -- | (Optional) For your first request to @ListHostedZonesByName@ , include the @dnsname@ parameter only if you want to specify the name of the first hosted zone in the response. If you don't include the @dnsname@ parameter, Amazon Route 53 returns all of the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both @dnsname@ and @hostedzoneid@ parameters. For @dnsname@ , specify the value of @NextDNSName@ from the previous response.
+    dNSName :: Core.Maybe Types.DNSName,
+    -- | (Optional) For your first request to @ListHostedZonesByName@ , do not include the @hostedzoneid@ parameter.
     --
     -- If you have more hosted zones than the value of @maxitems@ , @ListHostedZonesByName@ returns only the first @maxitems@ hosted zones. To get the next group of @maxitems@ hosted zones, submit another request to @ListHostedZonesByName@ and include both @dnsname@ and @hostedzoneid@ parameters. For the value of @hostedzoneid@ , specify the value of the @NextHostedZoneId@ element from the previous response.
-    hostedZoneId :: Lude.Maybe ResourceId,
+    hostedZoneId :: Core.Maybe Types.ResourceId,
     -- | The maximum number of hosted zones to be included in the response body for this request. If you have more than @maxitems@ hosted zones, then the value of the @IsTruncated@ element in the response is true, and the values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted zone in the next group of @maxitems@ hosted zones.
-    maxItems :: Lude.Maybe Lude.Text,
-    -- | (Optional) For your first request to @ListHostedZonesByName@ , include the @dnsname@ parameter only if you want to specify the name of the first hosted zone in the response. If you don't include the @dnsname@ parameter, Amazon Route 53 returns all of the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both @dnsname@ and @hostedzoneid@ parameters. For @dnsname@ , specify the value of @NextDNSName@ from the previous response.
-    dnsName :: Lude.Maybe Lude.Text
+    maxItems :: Core.Maybe Types.MaxItems
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHostedZonesByName' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - (Optional) For your first request to @ListHostedZonesByName@ , do not include the @hostedzoneid@ parameter.
---
--- If you have more hosted zones than the value of @maxitems@ , @ListHostedZonesByName@ returns only the first @maxitems@ hosted zones. To get the next group of @maxitems@ hosted zones, submit another request to @ListHostedZonesByName@ and include both @dnsname@ and @hostedzoneid@ parameters. For the value of @hostedzoneid@ , specify the value of the @NextHostedZoneId@ element from the previous response.
--- * 'maxItems' - The maximum number of hosted zones to be included in the response body for this request. If you have more than @maxitems@ hosted zones, then the value of the @IsTruncated@ element in the response is true, and the values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted zone in the next group of @maxitems@ hosted zones.
--- * 'dnsName' - (Optional) For your first request to @ListHostedZonesByName@ , include the @dnsname@ parameter only if you want to specify the name of the first hosted zone in the response. If you don't include the @dnsname@ parameter, Amazon Route 53 returns all of the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both @dnsname@ and @hostedzoneid@ parameters. For @dnsname@ , specify the value of @NextDNSName@ from the previous response.
+-- | Creates a 'ListHostedZonesByName' value with any optional fields omitted.
 mkListHostedZonesByName ::
   ListHostedZonesByName
 mkListHostedZonesByName =
   ListHostedZonesByName'
-    { hostedZoneId = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      dnsName = Lude.Nothing
+    { dNSName = Core.Nothing,
+      hostedZoneId = Core.Nothing,
+      maxItems = Core.Nothing
     }
+
+-- | (Optional) For your first request to @ListHostedZonesByName@ , include the @dnsname@ parameter only if you want to specify the name of the first hosted zone in the response. If you don't include the @dnsname@ parameter, Amazon Route 53 returns all of the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both @dnsname@ and @hostedzoneid@ parameters. For @dnsname@ , specify the value of @NextDNSName@ from the previous response.
+--
+-- /Note:/ Consider using 'dNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbnDNSName :: Lens.Lens' ListHostedZonesByName (Core.Maybe Types.DNSName)
+lhzbnDNSName = Lens.field @"dNSName"
+{-# DEPRECATED lhzbnDNSName "Use generic-lens or generic-optics with 'dNSName' instead." #-}
 
 -- | (Optional) For your first request to @ListHostedZonesByName@ , do not include the @hostedzoneid@ parameter.
 --
 -- If you have more hosted zones than the value of @maxitems@ , @ListHostedZonesByName@ returns only the first @maxitems@ hosted zones. To get the next group of @maxitems@ hosted zones, submit another request to @ListHostedZonesByName@ and include both @dnsname@ and @hostedzoneid@ parameters. For the value of @hostedzoneid@ , specify the value of the @NextHostedZoneId@ element from the previous response.
 --
 -- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnHostedZoneId :: Lens.Lens' ListHostedZonesByName (Lude.Maybe ResourceId)
-lhzbnHostedZoneId = Lens.lens (hostedZoneId :: ListHostedZonesByName -> Lude.Maybe ResourceId) (\s a -> s {hostedZoneId = a} :: ListHostedZonesByName)
+lhzbnHostedZoneId :: Lens.Lens' ListHostedZonesByName (Core.Maybe Types.ResourceId)
+lhzbnHostedZoneId = Lens.field @"hostedZoneId"
 {-# DEPRECATED lhzbnHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | The maximum number of hosted zones to be included in the response body for this request. If you have more than @maxitems@ hosted zones, then the value of the @IsTruncated@ element in the response is true, and the values of @NextDNSName@ and @NextHostedZoneId@ specify the first hosted zone in the next group of @maxitems@ hosted zones.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnMaxItems :: Lens.Lens' ListHostedZonesByName (Lude.Maybe Lude.Text)
-lhzbnMaxItems = Lens.lens (maxItems :: ListHostedZonesByName -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListHostedZonesByName)
+lhzbnMaxItems :: Lens.Lens' ListHostedZonesByName (Core.Maybe Types.MaxItems)
+lhzbnMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED lhzbnMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | (Optional) For your first request to @ListHostedZonesByName@ , include the @dnsname@ parameter only if you want to specify the name of the first hosted zone in the response. If you don't include the @dnsname@ parameter, Amazon Route 53 returns all of the hosted zones that were created by the current AWS account, in ASCII order. For subsequent requests, include both @dnsname@ and @hostedzoneid@ parameters. For @dnsname@ , specify the value of @NextDNSName@ from the previous response.
---
--- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnDNSName :: Lens.Lens' ListHostedZonesByName (Lude.Maybe Lude.Text)
-lhzbnDNSName = Lens.lens (dnsName :: ListHostedZonesByName -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: ListHostedZonesByName)
-{-# DEPRECATED lhzbnDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
-
-instance Lude.AWSRequest ListHostedZonesByName where
+instance Core.AWSRequest ListHostedZonesByName where
   type Rs ListHostedZonesByName = ListHostedZonesByNameResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2013-04-01/hostedzonesbyname",
+        Core._rqQuery =
+          Core.toQueryValue "dnsname" Core.<$> dNSName
+            Core.<> (Core.toQueryValue "hostedzoneid" Core.<$> hostedZoneId)
+            Core.<> (Core.toQueryValue "maxitems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListHostedZonesByNameResponse'
-            Lude.<$> (x Lude..@? "HostedZoneId")
-            Lude.<*> (x Lude..@? "NextHostedZoneId")
-            Lude.<*> ( x Lude..@? "HostedZones" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "HostedZone"
+            Core.<$> ( x Core..@? "HostedZones" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "HostedZone"
                      )
-            Lude.<*> (x Lude..@ "MaxItems")
-            Lude.<*> (x Lude..@ "IsTruncated")
-            Lude.<*> (x Lude..@? "DNSName")
-            Lude.<*> (x Lude..@? "NextDNSName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@ "IsTruncated")
+            Core.<*> (x Core..@ "MaxItems")
+            Core.<*> (x Core..@? "DNSName")
+            Core.<*> (x Core..@? "HostedZoneId")
+            Core.<*> (x Core..@? "NextDNSName")
+            Core.<*> (x Core..@? "NextHostedZoneId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListHostedZonesByName where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListHostedZonesByName where
-  toPath = Lude.const "/2013-04-01/hostedzonesbyname"
-
-instance Lude.ToQuery ListHostedZonesByName where
-  toQuery ListHostedZonesByName' {..} =
-    Lude.mconcat
-      [ "hostedzoneid" Lude.=: hostedZoneId,
-        "maxitems" Lude.=: maxItems,
-        "dnsname" Lude.=: dnsName
-      ]
 
 -- | A complex type that contains the response information for the request.
 --
 -- /See:/ 'mkListHostedZonesByNameResponse' smart constructor.
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
-  { -- | The ID that Amazon Route 53 assigned to the hosted zone when you created it.
-    hostedZoneId :: Lude.Maybe ResourceId,
-    -- | If @IsTruncated@ is @true@ , the value of @NextHostedZoneId@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively.
-    --
-    -- This element is present only if @IsTruncated@ is @true@ .
-    nextHostedZoneId :: Lude.Maybe ResourceId,
-    -- | A complex type that contains general information about the hosted zone.
-    hostedZones :: [HostedZone],
-    -- | The value that you specified for the @maxitems@ parameter in the call to @ListHostedZonesByName@ that produced the current response.
-    maxItems :: Lude.Text,
+  { -- | A complex type that contains general information about the hosted zone.
+    hostedZones :: [Types.HostedZone],
     -- | A flag that indicates whether there are more hosted zones to be listed. If the response was truncated, you can get the next group of @maxitems@ hosted zones by calling @ListHostedZonesByName@ again and specifying the values of @NextDNSName@ and @NextHostedZoneId@ elements in the @dnsname@ and @hostedzoneid@ parameters.
-    isTruncated :: Lude.Bool,
+    isTruncated :: Core.Bool,
+    -- | The value that you specified for the @maxitems@ parameter in the call to @ListHostedZonesByName@ that produced the current response.
+    maxItems :: Types.MaxItems,
     -- | For the second and subsequent calls to @ListHostedZonesByName@ , @DNSName@ is the value that you specified for the @dnsname@ parameter in the request that produced the current response.
-    dnsName :: Lude.Maybe Lude.Text,
+    dNSName :: Core.Maybe Types.DNSName,
+    -- | The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+    hostedZoneId :: Core.Maybe Types.ResourceId,
     -- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively.
     --
     -- This element is present only if @IsTruncated@ is @true@ .
-    nextDNSName :: Lude.Maybe Lude.Text,
+    nextDNSName :: Core.Maybe Types.NextDNSName,
+    -- | If @IsTruncated@ is @true@ , the value of @NextHostedZoneId@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively.
+    --
+    -- This element is present only if @IsTruncated@ is @true@ .
+    nextHostedZoneId :: Core.Maybe Types.ResourceId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListHostedZonesByNameResponse' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - The ID that Amazon Route 53 assigned to the hosted zone when you created it.
--- * 'nextHostedZoneId' - If @IsTruncated@ is @true@ , the value of @NextHostedZoneId@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively.
---
--- This element is present only if @IsTruncated@ is @true@ .
--- * 'hostedZones' - A complex type that contains general information about the hosted zone.
--- * 'maxItems' - The value that you specified for the @maxitems@ parameter in the call to @ListHostedZonesByName@ that produced the current response.
--- * 'isTruncated' - A flag that indicates whether there are more hosted zones to be listed. If the response was truncated, you can get the next group of @maxitems@ hosted zones by calling @ListHostedZonesByName@ again and specifying the values of @NextDNSName@ and @NextHostedZoneId@ elements in the @dnsname@ and @hostedzoneid@ parameters.
--- * 'dnsName' - For the second and subsequent calls to @ListHostedZonesByName@ , @DNSName@ is the value that you specified for the @dnsname@ parameter in the request that produced the current response.
--- * 'nextDNSName' - If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively.
---
--- This element is present only if @IsTruncated@ is @true@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListHostedZonesByNameResponse' value with any optional fields omitted.
 mkListHostedZonesByNameResponse ::
-  -- | 'maxItems'
-  Lude.Text ->
   -- | 'isTruncated'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'maxItems'
+  Types.MaxItems ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListHostedZonesByNameResponse
-mkListHostedZonesByNameResponse
-  pMaxItems_
-  pIsTruncated_
-  pResponseStatus_ =
-    ListHostedZonesByNameResponse'
-      { hostedZoneId = Lude.Nothing,
-        nextHostedZoneId = Lude.Nothing,
-        hostedZones = Lude.mempty,
-        maxItems = pMaxItems_,
-        isTruncated = pIsTruncated_,
-        dnsName = Lude.Nothing,
-        nextDNSName = Lude.Nothing,
-        responseStatus = pResponseStatus_
-      }
-
--- | The ID that Amazon Route 53 assigned to the hosted zone when you created it.
---
--- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnrsHostedZoneId :: Lens.Lens' ListHostedZonesByNameResponse (Lude.Maybe ResourceId)
-lhzbnrsHostedZoneId = Lens.lens (hostedZoneId :: ListHostedZonesByNameResponse -> Lude.Maybe ResourceId) (\s a -> s {hostedZoneId = a} :: ListHostedZonesByNameResponse)
-{-# DEPRECATED lhzbnrsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
-
--- | If @IsTruncated@ is @true@ , the value of @NextHostedZoneId@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively.
---
--- This element is present only if @IsTruncated@ is @true@ .
---
--- /Note:/ Consider using 'nextHostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnrsNextHostedZoneId :: Lens.Lens' ListHostedZonesByNameResponse (Lude.Maybe ResourceId)
-lhzbnrsNextHostedZoneId = Lens.lens (nextHostedZoneId :: ListHostedZonesByNameResponse -> Lude.Maybe ResourceId) (\s a -> s {nextHostedZoneId = a} :: ListHostedZonesByNameResponse)
-{-# DEPRECATED lhzbnrsNextHostedZoneId "Use generic-lens or generic-optics with 'nextHostedZoneId' instead." #-}
+mkListHostedZonesByNameResponse isTruncated maxItems responseStatus =
+  ListHostedZonesByNameResponse'
+    { hostedZones = Core.mempty,
+      isTruncated,
+      maxItems,
+      dNSName = Core.Nothing,
+      hostedZoneId = Core.Nothing,
+      nextDNSName = Core.Nothing,
+      nextHostedZoneId = Core.Nothing,
+      responseStatus
+    }
 
 -- | A complex type that contains general information about the hosted zone.
 --
 -- /Note:/ Consider using 'hostedZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnrsHostedZones :: Lens.Lens' ListHostedZonesByNameResponse [HostedZone]
-lhzbnrsHostedZones = Lens.lens (hostedZones :: ListHostedZonesByNameResponse -> [HostedZone]) (\s a -> s {hostedZones = a} :: ListHostedZonesByNameResponse)
-{-# DEPRECATED lhzbnrsHostedZones "Use generic-lens or generic-optics with 'hostedZones' instead." #-}
-
--- | The value that you specified for the @maxitems@ parameter in the call to @ListHostedZonesByName@ that produced the current response.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnrsMaxItems :: Lens.Lens' ListHostedZonesByNameResponse Lude.Text
-lhzbnrsMaxItems = Lens.lens (maxItems :: ListHostedZonesByNameResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListHostedZonesByNameResponse)
-{-# DEPRECATED lhzbnrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+lhzbnrrsHostedZones :: Lens.Lens' ListHostedZonesByNameResponse [Types.HostedZone]
+lhzbnrrsHostedZones = Lens.field @"hostedZones"
+{-# DEPRECATED lhzbnrrsHostedZones "Use generic-lens or generic-optics with 'hostedZones' instead." #-}
 
 -- | A flag that indicates whether there are more hosted zones to be listed. If the response was truncated, you can get the next group of @maxitems@ hosted zones by calling @ListHostedZonesByName@ again and specifying the values of @NextDNSName@ and @NextHostedZoneId@ elements in the @dnsname@ and @hostedzoneid@ parameters.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnrsIsTruncated :: Lens.Lens' ListHostedZonesByNameResponse Lude.Bool
-lhzbnrsIsTruncated = Lens.lens (isTruncated :: ListHostedZonesByNameResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListHostedZonesByNameResponse)
-{-# DEPRECATED lhzbnrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+lhzbnrrsIsTruncated :: Lens.Lens' ListHostedZonesByNameResponse Core.Bool
+lhzbnrrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED lhzbnrrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
+-- | The value that you specified for the @maxitems@ parameter in the call to @ListHostedZonesByName@ that produced the current response.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbnrrsMaxItems :: Lens.Lens' ListHostedZonesByNameResponse Types.MaxItems
+lhzbnrrsMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED lhzbnrrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | For the second and subsequent calls to @ListHostedZonesByName@ , @DNSName@ is the value that you specified for the @dnsname@ parameter in the request that produced the current response.
 --
--- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnrsDNSName :: Lens.Lens' ListHostedZonesByNameResponse (Lude.Maybe Lude.Text)
-lhzbnrsDNSName = Lens.lens (dnsName :: ListHostedZonesByNameResponse -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: ListHostedZonesByNameResponse)
-{-# DEPRECATED lhzbnrsDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
+-- /Note:/ Consider using 'dNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbnrrsDNSName :: Lens.Lens' ListHostedZonesByNameResponse (Core.Maybe Types.DNSName)
+lhzbnrrsDNSName = Lens.field @"dNSName"
+{-# DEPRECATED lhzbnrrsDNSName "Use generic-lens or generic-optics with 'dNSName' instead." #-}
+
+-- | The ID that Amazon Route 53 assigned to the hosted zone when you created it.
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbnrrsHostedZoneId :: Lens.Lens' ListHostedZonesByNameResponse (Core.Maybe Types.ResourceId)
+lhzbnrrsHostedZoneId = Lens.field @"hostedZoneId"
+{-# DEPRECATED lhzbnrrsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | If @IsTruncated@ is true, the value of @NextDNSName@ is the name of the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively.
 --
 -- This element is present only if @IsTruncated@ is @true@ .
 --
 -- /Note:/ Consider using 'nextDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnrsNextDNSName :: Lens.Lens' ListHostedZonesByNameResponse (Lude.Maybe Lude.Text)
-lhzbnrsNextDNSName = Lens.lens (nextDNSName :: ListHostedZonesByNameResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextDNSName = a} :: ListHostedZonesByNameResponse)
-{-# DEPRECATED lhzbnrsNextDNSName "Use generic-lens or generic-optics with 'nextDNSName' instead." #-}
+lhzbnrrsNextDNSName :: Lens.Lens' ListHostedZonesByNameResponse (Core.Maybe Types.NextDNSName)
+lhzbnrrsNextDNSName = Lens.field @"nextDNSName"
+{-# DEPRECATED lhzbnrrsNextDNSName "Use generic-lens or generic-optics with 'nextDNSName' instead." #-}
+
+-- | If @IsTruncated@ is @true@ , the value of @NextHostedZoneId@ identifies the first hosted zone in the next group of @maxitems@ hosted zones. Call @ListHostedZonesByName@ again and specify the value of @NextDNSName@ and @NextHostedZoneId@ in the @dnsname@ and @hostedzoneid@ parameters, respectively.
+--
+-- This element is present only if @IsTruncated@ is @true@ .
+--
+-- /Note:/ Consider using 'nextHostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzbnrrsNextHostedZoneId :: Lens.Lens' ListHostedZonesByNameResponse (Core.Maybe Types.ResourceId)
+lhzbnrrsNextHostedZoneId = Lens.field @"nextHostedZoneId"
+{-# DEPRECATED lhzbnrrsNextHostedZoneId "Use generic-lens or generic-optics with 'nextHostedZoneId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhzbnrsResponseStatus :: Lens.Lens' ListHostedZonesByNameResponse Lude.Int
-lhzbnrsResponseStatus = Lens.lens (responseStatus :: ListHostedZonesByNameResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHostedZonesByNameResponse)
-{-# DEPRECATED lhzbnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lhzbnrrsResponseStatus :: Lens.Lens' ListHostedZonesByNameResponse Core.Int
+lhzbnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lhzbnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

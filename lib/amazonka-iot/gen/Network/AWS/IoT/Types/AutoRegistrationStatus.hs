@@ -13,46 +13,51 @@
 module Network.AWS.IoT.Types.AutoRegistrationStatus
   ( AutoRegistrationStatus
       ( AutoRegistrationStatus',
-        Enable,
-        Disable
+        AutoRegistrationStatusEnable,
+        AutoRegistrationStatusDisable,
+        fromAutoRegistrationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AutoRegistrationStatus = AutoRegistrationStatus' Lude.Text
+newtype AutoRegistrationStatus = AutoRegistrationStatus'
+  { fromAutoRegistrationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enable :: AutoRegistrationStatus
-pattern Enable = AutoRegistrationStatus' "ENABLE"
+pattern AutoRegistrationStatusEnable :: AutoRegistrationStatus
+pattern AutoRegistrationStatusEnable = AutoRegistrationStatus' "ENABLE"
 
-pattern Disable :: AutoRegistrationStatus
-pattern Disable = AutoRegistrationStatus' "DISABLE"
+pattern AutoRegistrationStatusDisable :: AutoRegistrationStatus
+pattern AutoRegistrationStatusDisable = AutoRegistrationStatus' "DISABLE"
 
 {-# COMPLETE
-  Enable,
-  Disable,
+  AutoRegistrationStatusEnable,
+  AutoRegistrationStatusDisable,
   AutoRegistrationStatus'
   #-}

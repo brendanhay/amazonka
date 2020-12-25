@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,7 +27,7 @@
 --     * AWS VPN: <http://aws.amazon.com/vpn AWS VPN product page> , <http://aws.amazon.com/documentation/vpn AWS VPN documentation>
 module Network.AWS.EC2
   ( -- * Service configuration
-    ec2Service,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
@@ -57,8 +56,8 @@ module Network.AWS.EC2
     -- ** KeyPairExists
     mkKeyPairExists,
 
-    -- ** SystemStatusOK
-    mkSystemStatusOK,
+    -- ** SystemStatusOk
+    mkSystemStatusOk,
 
     -- ** CustomerGatewayAvailable
     mkCustomerGatewayAvailable,
@@ -84,17 +83,17 @@ module Network.AWS.EC2
     -- ** SpotInstanceRequestFulfilled
     mkSpotInstanceRequestFulfilled,
 
-    -- ** VPCAvailable
-    mkVPCAvailable,
+    -- ** VpcAvailable
+    mkVpcAvailable,
 
     -- ** ExportTaskCompleted
     mkExportTaskCompleted,
 
-    -- ** VPCPeeringConnectionDeleted
-    mkVPCPeeringConnectionDeleted,
+    -- ** VpcPeeringConnectionDeleted
+    mkVpcPeeringConnectionDeleted,
 
-    -- ** VPNConnectionAvailable
-    mkVPNConnectionAvailable,
+    -- ** VpnConnectionAvailable
+    mkVpnConnectionAvailable,
 
     -- ** ExportTaskCancelled
     mkExportTaskCancelled,
@@ -102,14 +101,14 @@ module Network.AWS.EC2
     -- ** VolumeDeleted
     mkVolumeDeleted,
 
-    -- ** VPCExists
-    mkVPCExists,
+    -- ** VpcExists
+    mkVpcExists,
 
     -- ** BundleTaskComplete
     mkBundleTaskComplete,
 
-    -- ** VPNConnectionDeleted
-    mkVPNConnectionDeleted,
+    -- ** VpnConnectionDeleted
+    mkVpnConnectionDeleted,
 
     -- ** ConversionTaskCancelled
     mkConversionTaskCancelled,
@@ -117,8 +116,8 @@ module Network.AWS.EC2
     -- ** ImageAvailable
     mkImageAvailable,
 
-    -- ** VPCPeeringConnectionExists
-    mkVPCPeeringConnectionExists,
+    -- ** VpcPeeringConnectionExists
+    mkVpcPeeringConnectionExists,
 
     -- ** SnapshotCompleted
     mkSnapshotCompleted,
@@ -126,8 +125,8 @@ module Network.AWS.EC2
     -- ** InstanceExists
     mkInstanceExists,
 
-    -- ** InstanceStatusOK
-    mkInstanceStatusOK,
+    -- ** InstanceStatusOk
+    mkInstanceStatusOk,
 
     -- ** VolumeAvailable
     mkVolumeAvailable,
@@ -138,8 +137,8 @@ module Network.AWS.EC2
     -- ** ModifyCapacityReservation
     module Network.AWS.EC2.ModifyCapacityReservation,
 
-    -- ** GetAssociatedIPv6PoolCidrs (Paginated)
-    module Network.AWS.EC2.GetAssociatedIPv6PoolCidrs,
+    -- ** GetAssociatedIpv6PoolCidrs (Paginated)
+    module Network.AWS.EC2.GetAssociatedIpv6PoolCidrs,
 
     -- ** ImportInstance
     module Network.AWS.EC2.ImportInstance,
@@ -156,14 +155,14 @@ module Network.AWS.EC2
     -- ** DeleteLaunchTemplate
     module Network.AWS.EC2.DeleteLaunchTemplate,
 
-    -- ** RejectVPCEndpointConnections
-    module Network.AWS.EC2.RejectVPCEndpointConnections,
+    -- ** RejectVpcEndpointConnections
+    module Network.AWS.EC2.RejectVpcEndpointConnections,
 
-    -- ** CreateVPNGateway
-    module Network.AWS.EC2.CreateVPNGateway,
+    -- ** CreateVpnGateway
+    module Network.AWS.EC2.CreateVpnGateway,
 
-    -- ** CreateNetworkACL
-    module Network.AWS.EC2.CreateNetworkACL,
+    -- ** CreateNetworkAcl
+    module Network.AWS.EC2.CreateNetworkAcl,
 
     -- ** DeleteKeyPair
     module Network.AWS.EC2.DeleteKeyPair,
@@ -195,20 +194,20 @@ module Network.AWS.EC2
     -- ** DetachInternetGateway
     module Network.AWS.EC2.DetachInternetGateway,
 
-    -- ** DeleteVPCEndpoints
-    module Network.AWS.EC2.DeleteVPCEndpoints,
+    -- ** DeleteVpcEndpoints
+    module Network.AWS.EC2.DeleteVpcEndpoints,
 
-    -- ** DescribeClientVPNEndpoints (Paginated)
-    module Network.AWS.EC2.DescribeClientVPNEndpoints,
+    -- ** DescribeClientVpnEndpoints (Paginated)
+    module Network.AWS.EC2.DescribeClientVpnEndpoints,
 
     -- ** DeleteFlowLogs
     module Network.AWS.EC2.DeleteFlowLogs,
 
-    -- ** DescribeVPCClassicLink
-    module Network.AWS.EC2.DescribeVPCClassicLink,
+    -- ** DescribeVpcClassicLink
+    module Network.AWS.EC2.DescribeVpcClassicLink,
 
-    -- ** GetAssociatedEnclaveCertificateIAMRoles
-    module Network.AWS.EC2.GetAssociatedEnclaveCertificateIAMRoles,
+    -- ** GetAssociatedEnclaveCertificateIamRoles
+    module Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles,
 
     -- ** AssociateTransitGatewayMulticastDomain
     module Network.AWS.EC2.AssociateTransitGatewayMulticastDomain,
@@ -240,8 +239,8 @@ module Network.AWS.EC2
     -- ** CreateInternetGateway
     module Network.AWS.EC2.CreateInternetGateway,
 
-    -- ** DeleteVPNConnection
-    module Network.AWS.EC2.DeleteVPNConnection,
+    -- ** DeleteVpnConnection
+    module Network.AWS.EC2.DeleteVpnConnection,
 
     -- ** DescribeBundleTasks
     module Network.AWS.EC2.DescribeBundleTasks,
@@ -255,8 +254,8 @@ module Network.AWS.EC2
     -- ** DeregisterImage
     module Network.AWS.EC2.DeregisterImage,
 
-    -- ** DeleteVPCEndpointConnectionNotifications
-    module Network.AWS.EC2.DeleteVPCEndpointConnectionNotifications,
+    -- ** DeleteVpcEndpointConnectionNotifications
+    module Network.AWS.EC2.DeleteVpcEndpointConnectionNotifications,
 
     -- ** DescribeCoipPools (Paginated)
     module Network.AWS.EC2.DescribeCoipPools,
@@ -264,23 +263,23 @@ module Network.AWS.EC2
     -- ** GetTransitGatewayMulticastDomainAssociations (Paginated)
     module Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations,
 
-    -- ** DeleteLocalGatewayRouteTableVPCAssociation
-    module Network.AWS.EC2.DeleteLocalGatewayRouteTableVPCAssociation,
+    -- ** DeleteLocalGatewayRouteTableVpcAssociation
+    module Network.AWS.EC2.DeleteLocalGatewayRouteTableVpcAssociation,
 
     -- ** ModifyNetworkInterfaceAttribute
     module Network.AWS.EC2.ModifyNetworkInterfaceAttribute,
 
-    -- ** ModifyVPCTenancy
-    module Network.AWS.EC2.ModifyVPCTenancy,
+    -- ** ModifyVpcTenancy
+    module Network.AWS.EC2.ModifyVpcTenancy,
 
     -- ** DescribeInstanceTypes (Paginated)
     module Network.AWS.EC2.DescribeInstanceTypes,
 
-    -- ** DescribeClientVPNAuthorizationRules (Paginated)
-    module Network.AWS.EC2.DescribeClientVPNAuthorizationRules,
+    -- ** DescribeClientVpnAuthorizationRules (Paginated)
+    module Network.AWS.EC2.DescribeClientVpnAuthorizationRules,
 
-    -- ** DeleteTransitGatewayVPCAttachment
-    module Network.AWS.EC2.DeleteTransitGatewayVPCAttachment,
+    -- ** DeleteTransitGatewayVpcAttachment
+    module Network.AWS.EC2.DeleteTransitGatewayVpcAttachment,
 
     -- ** DeleteTransitGatewayMulticastDomain
     module Network.AWS.EC2.DeleteTransitGatewayMulticastDomain,
@@ -288,14 +287,14 @@ module Network.AWS.EC2
     -- ** CancelReservedInstancesListing
     module Network.AWS.EC2.CancelReservedInstancesListing,
 
-    -- ** AttachClassicLinkVPC
-    module Network.AWS.EC2.AttachClassicLinkVPC,
+    -- ** AttachClassicLinkVpc
+    module Network.AWS.EC2.AttachClassicLinkVpc,
 
     -- ** DisableTransitGatewayRouteTablePropagation
     module Network.AWS.EC2.DisableTransitGatewayRouteTablePropagation,
 
-    -- ** DescribeVPCClassicLinkDNSSupport (Paginated)
-    module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport,
+    -- ** DescribeVpcClassicLinkDnsSupport (Paginated)
+    module Network.AWS.EC2.DescribeVpcClassicLinkDnsSupport,
 
     -- ** AssociateSubnetCidrBlock
     module Network.AWS.EC2.AssociateSubnetCidrBlock,
@@ -315,26 +314,26 @@ module Network.AWS.EC2
     -- ** DescribeSpotPriceHistory (Paginated)
     module Network.AWS.EC2.DescribeSpotPriceHistory,
 
-    -- ** DescribeDHCPOptions (Paginated)
-    module Network.AWS.EC2.DescribeDHCPOptions,
+    -- ** DescribeDhcpOptions (Paginated)
+    module Network.AWS.EC2.DescribeDhcpOptions,
 
     -- ** ImportImage
     module Network.AWS.EC2.ImportImage,
 
-    -- ** CreateLocalGatewayRouteTableVPCAssociation
-    module Network.AWS.EC2.CreateLocalGatewayRouteTableVPCAssociation,
+    -- ** CreateLocalGatewayRouteTableVpcAssociation
+    module Network.AWS.EC2.CreateLocalGatewayRouteTableVpcAssociation,
 
     -- ** CopyFpgaImage
     module Network.AWS.EC2.CopyFpgaImage,
 
-    -- ** ImportClientVPNClientCertificateRevocationList
-    module Network.AWS.EC2.ImportClientVPNClientCertificateRevocationList,
+    -- ** ImportClientVpnClientCertificateRevocationList
+    module Network.AWS.EC2.ImportClientVpnClientCertificateRevocationList,
 
     -- ** StopInstances
     module Network.AWS.EC2.StopInstances,
 
-    -- ** EnableEBSEncryptionByDefault
-    module Network.AWS.EC2.EnableEBSEncryptionByDefault,
+    -- ** EnableEbsEncryptionByDefault
+    module Network.AWS.EC2.EnableEbsEncryptionByDefault,
 
     -- ** DeregisterTransitGatewayMulticastGroupSources
     module Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources,
@@ -342,14 +341,14 @@ module Network.AWS.EC2
     -- ** ModifyLaunchTemplate
     module Network.AWS.EC2.ModifyLaunchTemplate,
 
-    -- ** ModifyVPCEndpointConnectionNotification
-    module Network.AWS.EC2.ModifyVPCEndpointConnectionNotification,
+    -- ** ModifyVpcEndpointConnectionNotification
+    module Network.AWS.EC2.ModifyVpcEndpointConnectionNotification,
 
     -- ** DescribeInternetGateways (Paginated)
     module Network.AWS.EC2.DescribeInternetGateways,
 
-    -- ** DisableVPCClassicLink
-    module Network.AWS.EC2.DisableVPCClassicLink,
+    -- ** DisableVpcClassicLink
+    module Network.AWS.EC2.DisableVpcClassicLink,
 
     -- ** GetGroupsForCapacityReservation (Paginated)
     module Network.AWS.EC2.GetGroupsForCapacityReservation,
@@ -363,8 +362,8 @@ module Network.AWS.EC2
     -- ** DescribeNetworkInterfaces (Paginated)
     module Network.AWS.EC2.DescribeNetworkInterfaces,
 
-    -- ** ReplaceNetworkACLAssociation
-    module Network.AWS.EC2.ReplaceNetworkACLAssociation,
+    -- ** ReplaceNetworkAclAssociation
+    module Network.AWS.EC2.ReplaceNetworkAclAssociation,
 
     -- ** DescribeNatGateways (Paginated)
     module Network.AWS.EC2.DescribeNatGateways,
@@ -384,8 +383,8 @@ module Network.AWS.EC2
     -- ** ReplaceRoute
     module Network.AWS.EC2.ReplaceRoute,
 
-    -- ** DescribeVPCEndpointServices (Paginated)
-    module Network.AWS.EC2.DescribeVPCEndpointServices,
+    -- ** DescribeVpcEndpointServices (Paginated)
+    module Network.AWS.EC2.DescribeVpcEndpointServices,
 
     -- ** DeleteLocalGatewayRoute
     module Network.AWS.EC2.DeleteLocalGatewayRoute,
@@ -393,8 +392,8 @@ module Network.AWS.EC2
     -- ** AuthorizeSecurityGroupIngress
     module Network.AWS.EC2.AuthorizeSecurityGroupIngress,
 
-    -- ** CreateVPCPeeringConnection
-    module Network.AWS.EC2.CreateVPCPeeringConnection,
+    -- ** CreateVpcPeeringConnection
+    module Network.AWS.EC2.CreateVpcPeeringConnection,
 
     -- ** DescribeSubnets (Paginated)
     module Network.AWS.EC2.DescribeSubnets,
@@ -408,14 +407,14 @@ module Network.AWS.EC2
     -- ** PurchaseReservedInstancesOffering
     module Network.AWS.EC2.PurchaseReservedInstancesOffering,
 
-    -- ** DeleteNetworkACLEntry
-    module Network.AWS.EC2.DeleteNetworkACLEntry,
+    -- ** DeleteNetworkAclEntry
+    module Network.AWS.EC2.DeleteNetworkAclEntry,
 
     -- ** ResetSnapshotAttribute
     module Network.AWS.EC2.ResetSnapshotAttribute,
 
-    -- ** DescribeVPNConnections
-    module Network.AWS.EC2.DescribeVPNConnections,
+    -- ** DescribeVpnConnections
+    module Network.AWS.EC2.DescribeVpnConnections,
 
     -- ** ModifyInstanceEventStartTime
     module Network.AWS.EC2.ModifyInstanceEventStartTime,
@@ -423,11 +422,11 @@ module Network.AWS.EC2
     -- ** DeleteRoute
     module Network.AWS.EC2.DeleteRoute,
 
-    -- ** ReplaceNetworkACLEntry
-    module Network.AWS.EC2.ReplaceNetworkACLEntry,
+    -- ** ReplaceNetworkAclEntry
+    module Network.AWS.EC2.ReplaceNetworkAclEntry,
 
-    -- ** DescribeVPCEndpoints (Paginated)
-    module Network.AWS.EC2.DescribeVPCEndpoints,
+    -- ** DescribeVpcEndpoints (Paginated)
+    module Network.AWS.EC2.DescribeVpcEndpoints,
 
     -- ** CreateTrafficMirrorFilter
     module Network.AWS.EC2.CreateTrafficMirrorFilter,
@@ -474,14 +473,14 @@ module Network.AWS.EC2
     -- ** DeleteSecurityGroup
     module Network.AWS.EC2.DeleteSecurityGroup,
 
-    -- ** DescribePublicIPv4Pools (Paginated)
-    module Network.AWS.EC2.DescribePublicIPv4Pools,
+    -- ** DescribePublicIpv4Pools (Paginated)
+    module Network.AWS.EC2.DescribePublicIpv4Pools,
 
-    -- ** DescribeClientVPNTargetNetworks (Paginated)
-    module Network.AWS.EC2.DescribeClientVPNTargetNetworks,
+    -- ** DescribeClientVpnTargetNetworks (Paginated)
+    module Network.AWS.EC2.DescribeClientVpnTargetNetworks,
 
-    -- ** DeleteVPCPeeringConnection
-    module Network.AWS.EC2.DeleteVPCPeeringConnection,
+    -- ** DeleteVpcPeeringConnection
+    module Network.AWS.EC2.DeleteVpcPeeringConnection,
 
     -- ** AttachInternetGateway
     module Network.AWS.EC2.AttachInternetGateway,
@@ -495,11 +494,11 @@ module Network.AWS.EC2
     -- ** DescribeLocalGatewayVirtualInterfaceGroups (Paginated)
     module Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups,
 
-    -- ** DescribeLocalGatewayRouteTableVPCAssociations (Paginated)
-    module Network.AWS.EC2.DescribeLocalGatewayRouteTableVPCAssociations,
+    -- ** DescribeLocalGatewayRouteTableVpcAssociations (Paginated)
+    module Network.AWS.EC2.DescribeLocalGatewayRouteTableVpcAssociations,
 
-    -- ** DescribeVPCEndpointConnectionNotifications (Paginated)
-    module Network.AWS.EC2.DescribeVPCEndpointConnectionNotifications,
+    -- ** DescribeVpcEndpointConnectionNotifications (Paginated)
+    module Network.AWS.EC2.DescribeVpcEndpointConnectionNotifications,
 
     -- ** GetManagedPrefixListEntries (Paginated)
     module Network.AWS.EC2.GetManagedPrefixListEntries,
@@ -510,8 +509,8 @@ module Network.AWS.EC2
     -- ** CreateSnapshots
     module Network.AWS.EC2.CreateSnapshots,
 
-    -- ** AssociateDHCPOptions
-    module Network.AWS.EC2.AssociateDHCPOptions,
+    -- ** AssociateDhcpOptions
+    module Network.AWS.EC2.AssociateDhcpOptions,
 
     -- ** DeleteTrafficMirrorFilterRule
     module Network.AWS.EC2.DeleteTrafficMirrorFilterRule,
@@ -522,8 +521,8 @@ module Network.AWS.EC2
     -- ** DescribeIdFormat
     module Network.AWS.EC2.DescribeIdFormat,
 
-    -- ** DescribeVPCs (Paginated)
-    module Network.AWS.EC2.DescribeVPCs,
+    -- ** DescribeVpcs (Paginated)
+    module Network.AWS.EC2.DescribeVpcs,
 
     -- ** DescribeConversionTasks
     module Network.AWS.EC2.DescribeConversionTasks,
@@ -534,11 +533,11 @@ module Network.AWS.EC2
     -- ** GetManagedPrefixListAssociations (Paginated)
     module Network.AWS.EC2.GetManagedPrefixListAssociations,
 
-    -- ** DisableVPCClassicLinkDNSSupport
-    module Network.AWS.EC2.DisableVPCClassicLinkDNSSupport,
+    -- ** DisableVpcClassicLinkDnsSupport
+    module Network.AWS.EC2.DisableVpcClassicLinkDnsSupport,
 
-    -- ** ApplySecurityGroupsToClientVPNTargetNetwork
-    module Network.AWS.EC2.ApplySecurityGroupsToClientVPNTargetNetwork,
+    -- ** ApplySecurityGroupsToClientVpnTargetNetwork
+    module Network.AWS.EC2.ApplySecurityGroupsToClientVpnTargetNetwork,
 
     -- ** DescribeTrafficMirrorTargets (Paginated)
     module Network.AWS.EC2.DescribeTrafficMirrorTargets,
@@ -552,11 +551,11 @@ module Network.AWS.EC2
     -- ** CreateFpgaImage
     module Network.AWS.EC2.CreateFpgaImage,
 
-    -- ** AcceptVPCEndpointConnections
-    module Network.AWS.EC2.AcceptVPCEndpointConnections,
+    -- ** AcceptVpcEndpointConnections
+    module Network.AWS.EC2.AcceptVpcEndpointConnections,
 
-    -- ** DeleteClientVPNEndpoint
-    module Network.AWS.EC2.DeleteClientVPNEndpoint,
+    -- ** DeleteClientVpnEndpoint
+    module Network.AWS.EC2.DeleteClientVpnEndpoint,
 
     -- ** SearchTransitGatewayRoutes
     module Network.AWS.EC2.SearchTransitGatewayRoutes,
@@ -567,8 +566,8 @@ module Network.AWS.EC2
     -- ** AllocateAddress
     module Network.AWS.EC2.AllocateAddress,
 
-    -- ** AcceptTransitGatewayVPCAttachment
-    module Network.AWS.EC2.AcceptTransitGatewayVPCAttachment,
+    -- ** AcceptTransitGatewayVpcAttachment
+    module Network.AWS.EC2.AcceptTransitGatewayVpcAttachment,
 
     -- ** CancelConversionTask
     module Network.AWS.EC2.CancelConversionTask,
@@ -600,8 +599,8 @@ module Network.AWS.EC2
     -- ** ResetFpgaImageAttribute
     module Network.AWS.EC2.ResetFpgaImageAttribute,
 
-    -- ** ModifyVPNConnection
-    module Network.AWS.EC2.ModifyVPNConnection,
+    -- ** ModifyVpnConnection
+    module Network.AWS.EC2.ModifyVpnConnection,
 
     -- ** CreateTrafficMirrorFilterRule
     module Network.AWS.EC2.CreateTrafficMirrorFilterRule,
@@ -609,26 +608,26 @@ module Network.AWS.EC2
     -- ** DeleteTransitGateway
     module Network.AWS.EC2.DeleteTransitGateway,
 
-    -- ** StartVPCEndpointServicePrivateDNSVerification
-    module Network.AWS.EC2.StartVPCEndpointServicePrivateDNSVerification,
+    -- ** StartVpcEndpointServicePrivateDnsVerification
+    module Network.AWS.EC2.StartVpcEndpointServicePrivateDnsVerification,
 
     -- ** DescribeVolumes (Paginated)
     module Network.AWS.EC2.DescribeVolumes,
 
-    -- ** RejectVPCPeeringConnection
-    module Network.AWS.EC2.RejectVPCPeeringConnection,
+    -- ** RejectVpcPeeringConnection
+    module Network.AWS.EC2.RejectVpcPeeringConnection,
 
-    -- ** DescribeClientVPNRoutes (Paginated)
-    module Network.AWS.EC2.DescribeClientVPNRoutes,
+    -- ** DescribeClientVpnRoutes (Paginated)
+    module Network.AWS.EC2.DescribeClientVpnRoutes,
 
-    -- ** DeleteVPNConnectionRoute
-    module Network.AWS.EC2.DeleteVPNConnectionRoute,
+    -- ** DeleteVpnConnectionRoute
+    module Network.AWS.EC2.DeleteVpnConnectionRoute,
 
-    -- ** AssociateEnclaveCertificateIAMRole
-    module Network.AWS.EC2.AssociateEnclaveCertificateIAMRole,
+    -- ** AssociateEnclaveCertificateIamRole
+    module Network.AWS.EC2.AssociateEnclaveCertificateIamRole,
 
-    -- ** ModifyVPCEndpoint
-    module Network.AWS.EC2.ModifyVPCEndpoint,
+    -- ** ModifyVpcEndpoint
+    module Network.AWS.EC2.ModifyVpcEndpoint,
 
     -- ** DescribeFpgaImageAttribute
     module Network.AWS.EC2.DescribeFpgaImageAttribute,
@@ -636,8 +635,8 @@ module Network.AWS.EC2
     -- ** AllocateHosts
     module Network.AWS.EC2.AllocateHosts,
 
-    -- ** CreateClientVPNEndpoint
-    module Network.AWS.EC2.CreateClientVPNEndpoint,
+    -- ** CreateClientVpnEndpoint
+    module Network.AWS.EC2.CreateClientVpnEndpoint,
 
     -- ** CreateTrafficMirrorSession
     module Network.AWS.EC2.CreateTrafficMirrorSession,
@@ -654,8 +653,8 @@ module Network.AWS.EC2
     -- ** RevokeSecurityGroupIngress
     module Network.AWS.EC2.RevokeSecurityGroupIngress,
 
-    -- ** GetEBSDefaultKMSKeyId
-    module Network.AWS.EC2.GetEBSDefaultKMSKeyId,
+    -- ** GetEbsDefaultKmsKeyId
+    module Network.AWS.EC2.GetEbsDefaultKmsKeyId,
 
     -- ** DescribeHostReservations (Paginated)
     module Network.AWS.EC2.DescribeHostReservations,
@@ -663,11 +662,11 @@ module Network.AWS.EC2
     -- ** UpdateSecurityGroupRuleDescriptionsEgress
     module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsEgress,
 
-    -- ** EnableVPCClassicLinkDNSSupport
-    module Network.AWS.EC2.EnableVPCClassicLinkDNSSupport,
+    -- ** EnableVpcClassicLinkDnsSupport
+    module Network.AWS.EC2.EnableVpcClassicLinkDnsSupport,
 
-    -- ** DescribeVPCEndpointConnections (Paginated)
-    module Network.AWS.EC2.DescribeVPCEndpointConnections,
+    -- ** DescribeVpcEndpointConnections (Paginated)
+    module Network.AWS.EC2.DescribeVpcEndpointConnections,
 
     -- ** ModifyReservedInstances
     module Network.AWS.EC2.ModifyReservedInstances,
@@ -690,8 +689,8 @@ module Network.AWS.EC2
     -- ** DescribeSpotFleetRequests (Paginated)
     module Network.AWS.EC2.DescribeSpotFleetRequests,
 
-    -- ** MoveAddressToVPC
-    module Network.AWS.EC2.MoveAddressToVPC,
+    -- ** MoveAddressToVpc
+    module Network.AWS.EC2.MoveAddressToVpc,
 
     -- ** DescribeFleetInstances
     module Network.AWS.EC2.DescribeFleetInstances,
@@ -708,8 +707,8 @@ module Network.AWS.EC2
     -- ** DescribeTransitGateways (Paginated)
     module Network.AWS.EC2.DescribeTransitGateways,
 
-    -- ** DeleteNetworkACL
-    module Network.AWS.EC2.DeleteNetworkACL,
+    -- ** DeleteNetworkAcl
+    module Network.AWS.EC2.DeleteNetworkAcl,
 
     -- ** DisassociateTransitGatewayMulticastDomain
     module Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain,
@@ -720,14 +719,14 @@ module Network.AWS.EC2
     -- ** CreateLaunchTemplate
     module Network.AWS.EC2.CreateLaunchTemplate,
 
-    -- ** CreateVPCEndpointConnectionNotification
-    module Network.AWS.EC2.CreateVPCEndpointConnectionNotification,
+    -- ** CreateVpcEndpointConnectionNotification
+    module Network.AWS.EC2.CreateVpcEndpointConnectionNotification,
 
     -- ** DeleteNetworkInterfacePermission
     module Network.AWS.EC2.DeleteNetworkInterfacePermission,
 
-    -- ** DeleteVPNGateway
-    module Network.AWS.EC2.DeleteVPNGateway,
+    -- ** DeleteVpnGateway
+    module Network.AWS.EC2.DeleteVpnGateway,
 
     -- ** CreateTrafficMirrorTarget
     module Network.AWS.EC2.CreateTrafficMirrorTarget,
@@ -747,11 +746,11 @@ module Network.AWS.EC2
     -- ** GetPasswordData
     module Network.AWS.EC2.GetPasswordData,
 
-    -- ** CreateVPC
-    module Network.AWS.EC2.CreateVPC,
+    -- ** CreateVpc
+    module Network.AWS.EC2.CreateVpc,
 
-    -- ** ModifyVPCPeeringConnectionOptions
-    module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions,
+    -- ** ModifyVpcPeeringConnectionOptions
+    module Network.AWS.EC2.ModifyVpcPeeringConnectionOptions,
 
     -- ** DescribeFpgaImages (Paginated)
     module Network.AWS.EC2.DescribeFpgaImages,
@@ -771,14 +770,14 @@ module Network.AWS.EC2
     -- ** DescribeEgressOnlyInternetGateways (Paginated)
     module Network.AWS.EC2.DescribeEgressOnlyInternetGateways,
 
-    -- ** DeleteVPC
-    module Network.AWS.EC2.DeleteVPC,
+    -- ** DeleteVpc
+    module Network.AWS.EC2.DeleteVpc,
 
     -- ** CreateInstanceExportTask
     module Network.AWS.EC2.CreateInstanceExportTask,
 
-    -- ** RejectTransitGatewayVPCAttachment
-    module Network.AWS.EC2.RejectTransitGatewayVPCAttachment,
+    -- ** RejectTransitGatewayVpcAttachment
+    module Network.AWS.EC2.RejectTransitGatewayVpcAttachment,
 
     -- ** DescribeTrafficMirrorSessions (Paginated)
     module Network.AWS.EC2.DescribeTrafficMirrorSessions,
@@ -786,11 +785,11 @@ module Network.AWS.EC2
     -- ** GetTransitGatewayRouteTableAssociations (Paginated)
     module Network.AWS.EC2.GetTransitGatewayRouteTableAssociations,
 
-    -- ** AssociateVPCCidrBlock
-    module Network.AWS.EC2.AssociateVPCCidrBlock,
+    -- ** AssociateVpcCidrBlock
+    module Network.AWS.EC2.AssociateVpcCidrBlock,
 
-    -- ** DescribeVPCAttribute
-    module Network.AWS.EC2.DescribeVPCAttribute,
+    -- ** DescribeVpcAttribute
+    module Network.AWS.EC2.DescribeVpcAttribute,
 
     -- ** CreateVolume
     module Network.AWS.EC2.CreateVolume,
@@ -801,17 +800,17 @@ module Network.AWS.EC2
     -- ** DescribeScheduledInstanceAvailability (Paginated)
     module Network.AWS.EC2.DescribeScheduledInstanceAvailability,
 
-    -- ** DisassociateClientVPNTargetNetwork
-    module Network.AWS.EC2.DisassociateClientVPNTargetNetwork,
+    -- ** DisassociateClientVpnTargetNetwork
+    module Network.AWS.EC2.DisassociateClientVpnTargetNetwork,
 
-    -- ** CreateClientVPNRoute
-    module Network.AWS.EC2.CreateClientVPNRoute,
+    -- ** CreateClientVpnRoute
+    module Network.AWS.EC2.CreateClientVpnRoute,
 
     -- ** ModifyVolumeAttribute
     module Network.AWS.EC2.ModifyVolumeAttribute,
 
-    -- ** ExportClientVPNClientConfiguration
-    module Network.AWS.EC2.ExportClientVPNClientConfiguration,
+    -- ** ExportClientVpnClientConfiguration
+    module Network.AWS.EC2.ExportClientVpnClientConfiguration,
 
     -- ** DeleteTrafficMirrorTarget
     module Network.AWS.EC2.DeleteTrafficMirrorTarget,
@@ -849,8 +848,8 @@ module Network.AWS.EC2
     -- ** DeleteTransitGatewayRoute
     module Network.AWS.EC2.DeleteTransitGatewayRoute,
 
-    -- ** DisableEBSEncryptionByDefault
-    module Network.AWS.EC2.DisableEBSEncryptionByDefault,
+    -- ** DisableEbsEncryptionByDefault
+    module Network.AWS.EC2.DisableEbsEncryptionByDefault,
 
     -- ** DeregisterTransitGatewayMulticastGroupMembers
     module Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupMembers,
@@ -867,8 +866,8 @@ module Network.AWS.EC2
     -- ** GetCapacityReservationUsage
     module Network.AWS.EC2.GetCapacityReservationUsage,
 
-    -- ** CreateTransitGatewayVPCAttachment
-    module Network.AWS.EC2.CreateTransitGatewayVPCAttachment,
+    -- ** CreateTransitGatewayVpcAttachment
+    module Network.AWS.EC2.CreateTransitGatewayVpcAttachment,
 
     -- ** DescribeExportTasks
     module Network.AWS.EC2.DescribeExportTasks,
@@ -876,8 +875,8 @@ module Network.AWS.EC2
     -- ** ModifySpotFleetRequest
     module Network.AWS.EC2.ModifySpotFleetRequest,
 
-    -- ** DetachVPNGateway
-    module Network.AWS.EC2.DetachVPNGateway,
+    -- ** DetachVpnGateway
+    module Network.AWS.EC2.DetachVpnGateway,
 
     -- ** ModifyManagedPrefixList
     module Network.AWS.EC2.ModifyManagedPrefixList,
@@ -897,20 +896,20 @@ module Network.AWS.EC2
     -- ** DescribeLocalGatewayVirtualInterfaces (Paginated)
     module Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaces,
 
-    -- ** DescribeVPCPeeringConnections (Paginated)
-    module Network.AWS.EC2.DescribeVPCPeeringConnections,
+    -- ** DescribeVpcPeeringConnections (Paginated)
+    module Network.AWS.EC2.DescribeVpcPeeringConnections,
 
     -- ** CancelExportTask
     module Network.AWS.EC2.CancelExportTask,
 
-    -- ** CreateVPCEndpointServiceConfiguration
-    module Network.AWS.EC2.CreateVPCEndpointServiceConfiguration,
+    -- ** CreateVpcEndpointServiceConfiguration
+    module Network.AWS.EC2.CreateVpcEndpointServiceConfiguration,
 
-    -- ** CreateDefaultVPC
-    module Network.AWS.EC2.CreateDefaultVPC,
+    -- ** CreateDefaultVpc
+    module Network.AWS.EC2.CreateDefaultVpc,
 
-    -- ** DisassociateVPCCidrBlock
-    module Network.AWS.EC2.DisassociateVPCCidrBlock,
+    -- ** DisassociateVpcCidrBlock
+    module Network.AWS.EC2.DisassociateVpcCidrBlock,
 
     -- ** DescribeTrafficMirrorFilters (Paginated)
     module Network.AWS.EC2.DescribeTrafficMirrorFilters,
@@ -942,8 +941,8 @@ module Network.AWS.EC2
     -- ** DescribeCapacityReservations (Paginated)
     module Network.AWS.EC2.DescribeCapacityReservations,
 
-    -- ** ModifyClientVPNEndpoint
-    module Network.AWS.EC2.ModifyClientVPNEndpoint,
+    -- ** ModifyClientVpnEndpoint
+    module Network.AWS.EC2.ModifyClientVpnEndpoint,
 
     -- ** ModifyInstanceCapacityReservationAttributes
     module Network.AWS.EC2.ModifyInstanceCapacityReservationAttributes,
@@ -963,11 +962,11 @@ module Network.AWS.EC2
     -- ** DescribeNetworkInterfaceAttribute
     module Network.AWS.EC2.DescribeNetworkInterfaceAttribute,
 
-    -- ** ReplaceIAMInstanceProfileAssociation
-    module Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation,
+    -- ** ReplaceIamInstanceProfileAssociation
+    module Network.AWS.EC2.ReplaceIamInstanceProfileAssociation,
 
-    -- ** AssociateClientVPNTargetNetwork
-    module Network.AWS.EC2.AssociateClientVPNTargetNetwork,
+    -- ** AssociateClientVpnTargetNetwork
+    module Network.AWS.EC2.AssociateClientVpnTargetNetwork,
 
     -- ** ReleaseHosts
     module Network.AWS.EC2.ReleaseHosts,
@@ -981,8 +980,8 @@ module Network.AWS.EC2
     -- ** DescribeReservedInstancesListings
     module Network.AWS.EC2.DescribeReservedInstancesListings,
 
-    -- ** CreateVPNConnection
-    module Network.AWS.EC2.CreateVPNConnection,
+    -- ** CreateVpnConnection
+    module Network.AWS.EC2.CreateVpnConnection,
 
     -- ** ReplaceTransitGatewayRoute
     module Network.AWS.EC2.ReplaceTransitGatewayRoute,
@@ -1008,8 +1007,8 @@ module Network.AWS.EC2
     -- ** CopyImage
     module Network.AWS.EC2.CopyImage,
 
-    -- ** CreateVPCEndpoint
-    module Network.AWS.EC2.CreateVPCEndpoint,
+    -- ** CreateVpcEndpoint
+    module Network.AWS.EC2.CreateVpcEndpoint,
 
     -- ** ModifyTrafficMirrorSession
     module Network.AWS.EC2.ModifyTrafficMirrorSession,
@@ -1032,14 +1031,14 @@ module Network.AWS.EC2
     -- ** UnmonitorInstances
     module Network.AWS.EC2.UnmonitorInstances,
 
-    -- ** DescribeTransitGatewayVPCAttachments (Paginated)
-    module Network.AWS.EC2.DescribeTransitGatewayVPCAttachments,
+    -- ** DescribeTransitGatewayVpcAttachments (Paginated)
+    module Network.AWS.EC2.DescribeTransitGatewayVpcAttachments,
 
     -- ** CreateSecurityGroup
     module Network.AWS.EC2.CreateSecurityGroup,
 
-    -- ** GetEBSEncryptionByDefault
-    module Network.AWS.EC2.GetEBSEncryptionByDefault,
+    -- ** GetEbsEncryptionByDefault
+    module Network.AWS.EC2.GetEbsEncryptionByDefault,
 
     -- ** ImportVolume
     module Network.AWS.EC2.ImportVolume,
@@ -1047,14 +1046,14 @@ module Network.AWS.EC2
     -- ** DeleteCarrierGateway
     module Network.AWS.EC2.DeleteCarrierGateway,
 
-    -- ** DisableVGWRoutePropagation
-    module Network.AWS.EC2.DisableVGWRoutePropagation,
+    -- ** DisableVgwRoutePropagation
+    module Network.AWS.EC2.DisableVgwRoutePropagation,
 
     -- ** DeleteTrafficMirrorFilter
     module Network.AWS.EC2.DeleteTrafficMirrorFilter,
 
-    -- ** ModifyVPNTunnelCertificate
-    module Network.AWS.EC2.ModifyVPNTunnelCertificate,
+    -- ** ModifyVpnTunnelCertificate
+    module Network.AWS.EC2.ModifyVpnTunnelCertificate,
 
     -- ** CreateSpotDatafeedSubscription
     module Network.AWS.EC2.CreateSpotDatafeedSubscription,
@@ -1065,17 +1064,17 @@ module Network.AWS.EC2
     -- ** CreateRoute
     module Network.AWS.EC2.CreateRoute,
 
-    -- ** DescribeVPCEndpointServiceConfigurations (Paginated)
-    module Network.AWS.EC2.DescribeVPCEndpointServiceConfigurations,
+    -- ** DescribeVpcEndpointServiceConfigurations (Paginated)
+    module Network.AWS.EC2.DescribeVpcEndpointServiceConfigurations,
 
     -- ** DeleteSnapshot
     module Network.AWS.EC2.DeleteSnapshot,
 
-    -- ** AssignPrivateIPAddresses
-    module Network.AWS.EC2.AssignPrivateIPAddresses,
+    -- ** AssignPrivateIpAddresses
+    module Network.AWS.EC2.AssignPrivateIpAddresses,
 
-    -- ** AuthorizeClientVPNIngress
-    module Network.AWS.EC2.AuthorizeClientVPNIngress,
+    -- ** AuthorizeClientVpnIngress
+    module Network.AWS.EC2.AuthorizeClientVpnIngress,
 
     -- ** DeleteTransitGatewayPeeringAttachment
     module Network.AWS.EC2.DeleteTransitGatewayPeeringAttachment,
@@ -1086,11 +1085,11 @@ module Network.AWS.EC2
     -- ** DeleteCustomerGateway
     module Network.AWS.EC2.DeleteCustomerGateway,
 
-    -- ** DisassociateIAMInstanceProfile
-    module Network.AWS.EC2.DisassociateIAMInstanceProfile,
+    -- ** DisassociateIamInstanceProfile
+    module Network.AWS.EC2.DisassociateIamInstanceProfile,
 
-    -- ** TerminateClientVPNConnections
-    module Network.AWS.EC2.TerminateClientVPNConnections,
+    -- ** TerminateClientVpnConnections
+    module Network.AWS.EC2.TerminateClientVpnConnections,
 
     -- ** DisassociateRouteTable
     module Network.AWS.EC2.DisassociateRouteTable,
@@ -1098,17 +1097,17 @@ module Network.AWS.EC2
     -- ** GetConsoleScreenshot
     module Network.AWS.EC2.GetConsoleScreenshot,
 
-    -- ** ResetEBSDefaultKMSKeyId
-    module Network.AWS.EC2.ResetEBSDefaultKMSKeyId,
+    -- ** ResetEbsDefaultKmsKeyId
+    module Network.AWS.EC2.ResetEbsDefaultKmsKeyId,
 
-    -- ** AssignIPv6Addresses
-    module Network.AWS.EC2.AssignIPv6Addresses,
+    -- ** AssignIpv6Addresses
+    module Network.AWS.EC2.AssignIpv6Addresses,
 
-    -- ** ModifyVPNTunnelOptions
-    module Network.AWS.EC2.ModifyVPNTunnelOptions,
+    -- ** ModifyVpnTunnelOptions
+    module Network.AWS.EC2.ModifyVpnTunnelOptions,
 
-    -- ** ModifyEBSDefaultKMSKeyId
-    module Network.AWS.EC2.ModifyEBSDefaultKMSKeyId,
+    -- ** ModifyEbsDefaultKmsKeyId
+    module Network.AWS.EC2.ModifyEbsDefaultKmsKeyId,
 
     -- ** DeleteSpotDatafeedSubscription
     module Network.AWS.EC2.DeleteSpotDatafeedSubscription,
@@ -1116,8 +1115,8 @@ module Network.AWS.EC2
     -- ** ModifyVolume
     module Network.AWS.EC2.ModifyVolume,
 
-    -- ** EnableVPCClassicLink
-    module Network.AWS.EC2.EnableVPCClassicLink,
+    -- ** EnableVpcClassicLink
+    module Network.AWS.EC2.EnableVpcClassicLink,
 
     -- ** DescribePlacementGroups
     module Network.AWS.EC2.DescribePlacementGroups,
@@ -1125,8 +1124,8 @@ module Network.AWS.EC2
     -- ** ProvisionByoipCidr
     module Network.AWS.EC2.ProvisionByoipCidr,
 
-    -- ** DisassociateEnclaveCertificateIAMRole
-    module Network.AWS.EC2.DisassociateEnclaveCertificateIAMRole,
+    -- ** DisassociateEnclaveCertificateIamRole
+    module Network.AWS.EC2.DisassociateEnclaveCertificateIamRole,
 
     -- ** ModifyAvailabilityZoneGroup
     module Network.AWS.EC2.ModifyAvailabilityZoneGroup,
@@ -1143,8 +1142,8 @@ module Network.AWS.EC2
     -- ** PurchaseScheduledInstances
     module Network.AWS.EC2.PurchaseScheduledInstances,
 
-    -- ** EnableVGWRoutePropagation
-    module Network.AWS.EC2.EnableVGWRoutePropagation,
+    -- ** EnableVgwRoutePropagation
+    module Network.AWS.EC2.EnableVgwRoutePropagation,
 
     -- ** DescribeSpotFleetRequestHistory
     module Network.AWS.EC2.DescribeSpotFleetRequestHistory,
@@ -1152,8 +1151,8 @@ module Network.AWS.EC2
     -- ** ModifySnapshotAttribute
     module Network.AWS.EC2.ModifySnapshotAttribute,
 
-    -- ** DescribeIAMInstanceProfileAssociations (Paginated)
-    module Network.AWS.EC2.DescribeIAMInstanceProfileAssociations,
+    -- ** DescribeIamInstanceProfileAssociations (Paginated)
+    module Network.AWS.EC2.DescribeIamInstanceProfileAssociations,
 
     -- ** CreateSnapshot
     module Network.AWS.EC2.CreateSnapshot,
@@ -1161,8 +1160,8 @@ module Network.AWS.EC2
     -- ** CreateLocalGatewayRoute
     module Network.AWS.EC2.CreateLocalGatewayRoute,
 
-    -- ** CreateNetworkACLEntry
-    module Network.AWS.EC2.CreateNetworkACLEntry,
+    -- ** CreateNetworkAclEntry
+    module Network.AWS.EC2.CreateNetworkAclEntry,
 
     -- ** DescribeTransitGatewayAttachments (Paginated)
     module Network.AWS.EC2.DescribeTransitGatewayAttachments,
@@ -1170,23 +1169,23 @@ module Network.AWS.EC2
     -- ** CreateReservedInstancesListing
     module Network.AWS.EC2.CreateReservedInstancesListing,
 
-    -- ** DescribeIPv6Pools (Paginated)
-    module Network.AWS.EC2.DescribeIPv6Pools,
+    -- ** DescribeIpv6Pools (Paginated)
+    module Network.AWS.EC2.DescribeIpv6Pools,
 
-    -- ** AttachVPNGateway
-    module Network.AWS.EC2.AttachVPNGateway,
+    -- ** AttachVpnGateway
+    module Network.AWS.EC2.AttachVpnGateway,
 
     -- ** DescribeLocalGateways (Paginated)
     module Network.AWS.EC2.DescribeLocalGateways,
 
-    -- ** ModifyVPCEndpointServicePermissions
-    module Network.AWS.EC2.ModifyVPCEndpointServicePermissions,
+    -- ** ModifyVpcEndpointServicePermissions
+    module Network.AWS.EC2.ModifyVpcEndpointServicePermissions,
 
-    -- ** ExportClientVPNClientCertificateRevocationList
-    module Network.AWS.EC2.ExportClientVPNClientCertificateRevocationList,
+    -- ** ExportClientVpnClientCertificateRevocationList
+    module Network.AWS.EC2.ExportClientVpnClientCertificateRevocationList,
 
-    -- ** CreateDHCPOptions
-    module Network.AWS.EC2.CreateDHCPOptions,
+    -- ** CreateDhcpOptions
+    module Network.AWS.EC2.CreateDhcpOptions,
 
     -- ** RegisterTransitGatewayMulticastGroupSources
     module Network.AWS.EC2.RegisterTransitGatewayMulticastGroupSources,
@@ -1206,14 +1205,14 @@ module Network.AWS.EC2
     -- ** RebootInstances
     module Network.AWS.EC2.RebootInstances,
 
-    -- ** ModifyVPCEndpointServiceConfiguration
-    module Network.AWS.EC2.ModifyVPCEndpointServiceConfiguration,
+    -- ** ModifyVpcEndpointServiceConfiguration
+    module Network.AWS.EC2.ModifyVpcEndpointServiceConfiguration,
 
     -- ** CreateTransitGateway
     module Network.AWS.EC2.CreateTransitGateway,
 
-    -- ** UnassignIPv6Addresses
-    module Network.AWS.EC2.UnassignIPv6Addresses,
+    -- ** UnassignIpv6Addresses
+    module Network.AWS.EC2.UnassignIpv6Addresses,
 
     -- ** DeleteTrafficMirrorSession
     module Network.AWS.EC2.DeleteTrafficMirrorSession,
@@ -1221,8 +1220,8 @@ module Network.AWS.EC2
     -- ** CreateManagedPrefixList
     module Network.AWS.EC2.CreateManagedPrefixList,
 
-    -- ** AssociateIAMInstanceProfile
-    module Network.AWS.EC2.AssociateIAMInstanceProfile,
+    -- ** AssociateIamInstanceProfile
+    module Network.AWS.EC2.AssociateIamInstanceProfile,
 
     -- ** ModifyDefaultCreditSpecification
     module Network.AWS.EC2.ModifyDefaultCreditSpecification,
@@ -1233,8 +1232,8 @@ module Network.AWS.EC2
     -- ** PurchaseHostReservation
     module Network.AWS.EC2.PurchaseHostReservation,
 
-    -- ** ModifyTransitGatewayVPCAttachment
-    module Network.AWS.EC2.ModifyTransitGatewayVPCAttachment,
+    -- ** ModifyTransitGatewayVpcAttachment
+    module Network.AWS.EC2.ModifyTransitGatewayVpcAttachment,
 
     -- ** CreateImage
     module Network.AWS.EC2.CreateImage,
@@ -1257,17 +1256,17 @@ module Network.AWS.EC2
     -- ** DescribeLaunchTemplates (Paginated)
     module Network.AWS.EC2.DescribeLaunchTemplates,
 
-    -- ** CreateVPNConnectionRoute
-    module Network.AWS.EC2.CreateVPNConnectionRoute,
+    -- ** CreateVpnConnectionRoute
+    module Network.AWS.EC2.CreateVpnConnectionRoute,
 
     -- ** AssociateRouteTable
     module Network.AWS.EC2.AssociateRouteTable,
 
-    -- ** DescribeVPNGateways
-    module Network.AWS.EC2.DescribeVPNGateways,
+    -- ** DescribeVpnGateways
+    module Network.AWS.EC2.DescribeVpnGateways,
 
-    -- ** ModifyVPNConnectionOptions
-    module Network.AWS.EC2.ModifyVPNConnectionOptions,
+    -- ** ModifyVpnConnectionOptions
+    module Network.AWS.EC2.ModifyVpnConnectionOptions,
 
     -- ** GetConsoleOutput
     module Network.AWS.EC2.GetConsoleOutput,
@@ -1308,11 +1307,11 @@ module Network.AWS.EC2
     -- ** DescribeSpotInstanceRequests (Paginated)
     module Network.AWS.EC2.DescribeSpotInstanceRequests,
 
-    -- ** RevokeClientVPNIngress
-    module Network.AWS.EC2.RevokeClientVPNIngress,
+    -- ** RevokeClientVpnIngress
+    module Network.AWS.EC2.RevokeClientVpnIngress,
 
-    -- ** UnassignPrivateIPAddresses
-    module Network.AWS.EC2.UnassignPrivateIPAddresses,
+    -- ** UnassignPrivateIpAddresses
+    module Network.AWS.EC2.UnassignPrivateIpAddresses,
 
     -- ** DescribeNetworkInterfacePermissions (Paginated)
     module Network.AWS.EC2.DescribeNetworkInterfacePermissions,
@@ -1320,23 +1319,23 @@ module Network.AWS.EC2
     -- ** EnableFastSnapshotRestores
     module Network.AWS.EC2.EnableFastSnapshotRestores,
 
-    -- ** DescribeVPCEndpointServicePermissions (Paginated)
-    module Network.AWS.EC2.DescribeVPCEndpointServicePermissions,
+    -- ** DescribeVpcEndpointServicePermissions (Paginated)
+    module Network.AWS.EC2.DescribeVpcEndpointServicePermissions,
 
-    -- ** DeleteDHCPOptions
-    module Network.AWS.EC2.DeleteDHCPOptions,
+    -- ** DeleteDhcpOptions
+    module Network.AWS.EC2.DeleteDhcpOptions,
 
     -- ** RegisterInstanceEventNotificationAttributes
     module Network.AWS.EC2.RegisterInstanceEventNotificationAttributes,
 
-    -- ** DescribeNetworkACLs (Paginated)
-    module Network.AWS.EC2.DescribeNetworkACLs,
+    -- ** DescribeNetworkAcls (Paginated)
+    module Network.AWS.EC2.DescribeNetworkAcls,
 
     -- ** CancelImportTask
     module Network.AWS.EC2.CancelImportTask,
 
-    -- ** DetachClassicLinkVPC
-    module Network.AWS.EC2.DetachClassicLinkVPC,
+    -- ** DetachClassicLinkVpc
+    module Network.AWS.EC2.DetachClassicLinkVpc,
 
     -- ** DescribeRegions
     module Network.AWS.EC2.DescribeRegions,
@@ -1347,11 +1346,11 @@ module Network.AWS.EC2
     -- ** SearchLocalGatewayRoutes (Paginated)
     module Network.AWS.EC2.SearchLocalGatewayRoutes,
 
-    -- ** DeleteClientVPNRoute
-    module Network.AWS.EC2.DeleteClientVPNRoute,
+    -- ** DeleteClientVpnRoute
+    module Network.AWS.EC2.DeleteClientVpnRoute,
 
-    -- ** AcceptVPCPeeringConnection
-    module Network.AWS.EC2.AcceptVPCPeeringConnection,
+    -- ** AcceptVpcPeeringConnection
+    module Network.AWS.EC2.AcceptVpcPeeringConnection,
 
     -- ** ImportSnapshot
     module Network.AWS.EC2.ImportSnapshot,
@@ -1365,11 +1364,11 @@ module Network.AWS.EC2
     -- ** DescribeAvailabilityZones
     module Network.AWS.EC2.DescribeAvailabilityZones,
 
-    -- ** ModifyVPCAttribute
-    module Network.AWS.EC2.ModifyVPCAttribute,
+    -- ** ModifyVpcAttribute
+    module Network.AWS.EC2.ModifyVpcAttribute,
 
-    -- ** DescribeClientVPNConnections (Paginated)
-    module Network.AWS.EC2.DescribeClientVPNConnections,
+    -- ** DescribeClientVpnConnections (Paginated)
+    module Network.AWS.EC2.DescribeClientVpnConnections,
 
     -- ** DescribeFleetHistory
     module Network.AWS.EC2.DescribeFleetHistory,
@@ -1398,2204 +1397,25 @@ module Network.AWS.EC2
     -- ** DeprovisionByoipCidr
     module Network.AWS.EC2.DeprovisionByoipCidr,
 
-    -- ** DeleteVPCEndpointServiceConfigurations
-    module Network.AWS.EC2.DeleteVPCEndpointServiceConfigurations,
+    -- ** DeleteVpcEndpointServiceConfigurations
+    module Network.AWS.EC2.DeleteVpcEndpointServiceConfigurations,
 
     -- ** DescribeSpotFleetInstances (Paginated)
     module Network.AWS.EC2.DescribeSpotFleetInstances,
 
     -- * Types
 
-    -- ** AccountAttributeName
-    AccountAttributeName (..),
-
-    -- ** ActivityStatus
-    ActivityStatus (..),
-
-    -- ** AddressStatus
-    AddressStatus (..),
-
-    -- ** Affinity
-    Affinity (..),
-
-    -- ** AllocationState
-    AllocationState (..),
-
-    -- ** AllocationStrategy
-    AllocationStrategy (..),
-
-    -- ** AllowsMultipleInstanceTypes
-    AllowsMultipleInstanceTypes (..),
-
-    -- ** ApplianceModeSupportValue
-    ApplianceModeSupportValue (..),
-
-    -- ** ArchitectureType
-    ArchitectureType (..),
-
-    -- ** ArchitectureValues
-    ArchitectureValues (..),
-
-    -- ** AssociatedNetworkType
-    AssociatedNetworkType (..),
-
-    -- ** AssociationStatusCode
-    AssociationStatusCode (..),
-
-    -- ** AttachmentStatus
-    AttachmentStatus (..),
-
-    -- ** AutoAcceptSharedAttachmentsValue
-    AutoAcceptSharedAttachmentsValue (..),
-
-    -- ** AutoPlacement
-    AutoPlacement (..),
-
-    -- ** AvailabilityZoneOptInStatus
-    AvailabilityZoneOptInStatus (..),
-
-    -- ** AvailabilityZoneState
-    AvailabilityZoneState (..),
-
-    -- ** BatchState
-    BatchState (..),
-
-    -- ** BundleTaskState
-    BundleTaskState (..),
-
-    -- ** ByoipCidrState
-    ByoipCidrState (..),
-
-    -- ** CancelBatchErrorCode
-    CancelBatchErrorCode (..),
-
-    -- ** CancelSpotInstanceRequestState
-    CancelSpotInstanceRequestState (..),
-
-    -- ** CapacityReservationInstancePlatform
-    CapacityReservationInstancePlatform (..),
-
-    -- ** CapacityReservationPreference
-    CapacityReservationPreference (..),
-
-    -- ** CapacityReservationState
-    CapacityReservationState (..),
-
-    -- ** CapacityReservationTenancy
-    CapacityReservationTenancy (..),
-
-    -- ** CarrierGatewayState
-    CarrierGatewayState (..),
-
-    -- ** ClientCertificateRevocationListStatusCode
-    ClientCertificateRevocationListStatusCode (..),
-
-    -- ** ClientVPNAuthenticationType
-    ClientVPNAuthenticationType (..),
-
-    -- ** ClientVPNAuthorizationRuleStatusCode
-    ClientVPNAuthorizationRuleStatusCode (..),
-
-    -- ** ClientVPNConnectionStatusCode
-    ClientVPNConnectionStatusCode (..),
-
-    -- ** ClientVPNEndpointAttributeStatusCode
-    ClientVPNEndpointAttributeStatusCode (..),
-
-    -- ** ClientVPNEndpointStatusCode
-    ClientVPNEndpointStatusCode (..),
-
-    -- ** ClientVPNRouteStatusCode
-    ClientVPNRouteStatusCode (..),
-
-    -- ** ConnectionNotificationState
-    ConnectionNotificationState (..),
-
-    -- ** ConnectionNotificationType
-    ConnectionNotificationType (..),
-
-    -- ** ContainerFormat
-    ContainerFormat (..),
-
-    -- ** ConversionTaskState
-    ConversionTaskState (..),
-
-    -- ** CopyTagsFromSource
-    CopyTagsFromSource (..),
-
-    -- ** CurrencyCodeValues
-    CurrencyCodeValues (..),
-
-    -- ** DNSNameState
-    DNSNameState (..),
-
-    -- ** DNSSupportValue
-    DNSSupportValue (..),
-
-    -- ** DatafeedSubscriptionState
-    DatafeedSubscriptionState (..),
-
-    -- ** DefaultRouteTableAssociationValue
-    DefaultRouteTableAssociationValue (..),
-
-    -- ** DefaultRouteTablePropagationValue
-    DefaultRouteTablePropagationValue (..),
-
-    -- ** DefaultTargetCapacityType
-    DefaultTargetCapacityType (..),
-
-    -- ** DeleteFleetErrorCode
-    DeleteFleetErrorCode (..),
-
-    -- ** DeleteQueuedReservedInstancesErrorCode
-    DeleteQueuedReservedInstancesErrorCode (..),
-
-    -- ** DeviceType
-    DeviceType (..),
-
-    -- ** DiskImageFormat
-    DiskImageFormat (..),
-
-    -- ** DiskType
-    DiskType (..),
-
-    -- ** DomainType
-    DomainType (..),
-
-    -- ** EBSEncryptionSupport
-    EBSEncryptionSupport (..),
-
-    -- ** EBSNvmeSupport
-    EBSNvmeSupport (..),
-
-    -- ** EBSOptimizedSupport
-    EBSOptimizedSupport (..),
-
-    -- ** ElasticGpuState
-    ElasticGpuState (..),
-
-    -- ** ElasticGpuStatus
-    ElasticGpuStatus (..),
-
-    -- ** EnaSupport
-    EnaSupport (..),
-
-    -- ** EndDateType
-    EndDateType (..),
-
-    -- ** EphemeralNvmeSupport
-    EphemeralNvmeSupport (..),
-
-    -- ** EventCode
-    EventCode (..),
-
-    -- ** EventType
-    EventType (..),
-
-    -- ** ExcessCapacityTerminationPolicy
-    ExcessCapacityTerminationPolicy (..),
-
-    -- ** ExportEnvironment
-    ExportEnvironment (..),
-
-    -- ** ExportTaskState
-    ExportTaskState (..),
-
-    -- ** FastSnapshotRestoreStateCode
-    FastSnapshotRestoreStateCode (..),
-
-    -- ** FleetActivityStatus
-    FleetActivityStatus (..),
-
-    -- ** FleetCapacityReservationUsageStrategy
-    FleetCapacityReservationUsageStrategy (..),
-
-    -- ** FleetEventType
-    FleetEventType (..),
-
-    -- ** FleetExcessCapacityTerminationPolicy
-    FleetExcessCapacityTerminationPolicy (..),
-
-    -- ** FleetOnDemandAllocationStrategy
-    FleetOnDemandAllocationStrategy (..),
-
-    -- ** FleetReplacementStrategy
-    FleetReplacementStrategy (..),
-
-    -- ** FleetStateCode
-    FleetStateCode (..),
-
-    -- ** FleetType
-    FleetType (..),
-
-    -- ** FlowLogsResourceType
-    FlowLogsResourceType (..),
-
-    -- ** FpgaImageAttributeName
-    FpgaImageAttributeName (..),
-
-    -- ** FpgaImageStateCode
-    FpgaImageStateCode (..),
-
-    -- ** GatewayType
-    GatewayType (..),
-
-    -- ** HTTPTokensState
-    HTTPTokensState (..),
-
-    -- ** HostRecovery
-    HostRecovery (..),
-
-    -- ** HostTenancy
-    HostTenancy (..),
-
-    -- ** HypervisorType
-    HypervisorType (..),
-
-    -- ** IAMInstanceProfileAssociationState
-    IAMInstanceProfileAssociationState (..),
-
-    -- ** IPv6SupportValue
-    IPv6SupportValue (..),
-
-    -- ** ImageAttributeName
-    ImageAttributeName (..),
-
-    -- ** ImageState
-    ImageState (..),
-
-    -- ** ImageTypeValues
-    ImageTypeValues (..),
-
-    -- ** InstanceAttributeName
-    InstanceAttributeName (..),
-
-    -- ** InstanceHealthStatus
-    InstanceHealthStatus (..),
-
-    -- ** InstanceInterruptionBehavior
-    InstanceInterruptionBehavior (..),
-
-    -- ** InstanceLifecycle
-    InstanceLifecycle (..),
-
-    -- ** InstanceLifecycleType
-    InstanceLifecycleType (..),
-
-    -- ** InstanceMatchCriteria
-    InstanceMatchCriteria (..),
-
-    -- ** InstanceMetadataEndpointState
-    InstanceMetadataEndpointState (..),
-
-    -- ** InstanceMetadataOptionsState
-    InstanceMetadataOptionsState (..),
-
-    -- ** InstanceStateName
-    InstanceStateName (..),
-
-    -- ** InstanceType
-    InstanceType (..),
-
-    -- ** InstanceTypeHypervisor
-    InstanceTypeHypervisor (..),
-
-    -- ** InterfacePermissionType
-    InterfacePermissionType (..),
-
-    -- ** LaunchTemplateErrorCode
-    LaunchTemplateErrorCode (..),
-
-    -- ** LaunchTemplateHTTPTokensState
-    LaunchTemplateHTTPTokensState (..),
-
-    -- ** LaunchTemplateInstanceMetadataEndpointState
-    LaunchTemplateInstanceMetadataEndpointState (..),
-
-    -- ** LaunchTemplateInstanceMetadataOptionsState
-    LaunchTemplateInstanceMetadataOptionsState (..),
-
-    -- ** ListingState
-    ListingState (..),
-
-    -- ** ListingStatus
-    ListingStatus (..),
-
-    -- ** LocalGatewayRouteState
-    LocalGatewayRouteState (..),
-
-    -- ** LocalGatewayRouteType
-    LocalGatewayRouteType (..),
-
-    -- ** LocationType
-    LocationType (..),
-
-    -- ** LogDestinationType
-    LogDestinationType (..),
-
-    -- ** MarketType
-    MarketType (..),
-
-    -- ** MembershipType
-    MembershipType (..),
-
-    -- ** ModifyAvailabilityZoneOptInStatus
-    ModifyAvailabilityZoneOptInStatus (..),
-
-    -- ** MonitoringState
-    MonitoringState (..),
-
-    -- ** MoveStatus
-    MoveStatus (..),
-
-    -- ** MulticastSupportValue
-    MulticastSupportValue (..),
-
-    -- ** NatGatewayState
-    NatGatewayState (..),
-
-    -- ** NetworkInterfaceAttribute
-    NetworkInterfaceAttribute (..),
-
-    -- ** NetworkInterfaceCreationType
-    NetworkInterfaceCreationType (..),
-
-    -- ** NetworkInterfacePermissionStateCode
-    NetworkInterfacePermissionStateCode (..),
-
-    -- ** NetworkInterfaceStatus
-    NetworkInterfaceStatus (..),
-
-    -- ** NetworkInterfaceType
-    NetworkInterfaceType (..),
-
-    -- ** OfferingClassType
-    OfferingClassType (..),
-
-    -- ** OfferingTypeValues
-    OfferingTypeValues (..),
-
-    -- ** OnDemandAllocationStrategy
-    OnDemandAllocationStrategy (..),
-
-    -- ** OperationType
-    OperationType (..),
-
-    -- ** PaymentOption
-    PaymentOption (..),
-
-    -- ** PermissionGroup
-    PermissionGroup (..),
-
-    -- ** PlacementGroupState
-    PlacementGroupState (..),
-
-    -- ** PlacementGroupStrategy
-    PlacementGroupStrategy (..),
-
-    -- ** PlacementStrategy
-    PlacementStrategy (..),
-
-    -- ** PlatformValues
-    PlatformValues (..),
-
-    -- ** PrefixListState
-    PrefixListState (..),
-
-    -- ** PrincipalType
-    PrincipalType (..),
-
-    -- ** ProductCodeValues
-    ProductCodeValues (..),
-
-    -- ** RIProductDescription
-    RIProductDescription (..),
-
-    -- ** RecurringChargeFrequency
-    RecurringChargeFrequency (..),
-
-    -- ** ReplacementStrategy
-    ReplacementStrategy (..),
-
-    -- ** ReportInstanceReasonCodes
-    ReportInstanceReasonCodes (..),
-
-    -- ** ReportStatusType
-    ReportStatusType (..),
-
-    -- ** ReservationState
-    ReservationState (..),
-
-    -- ** ReservedInstanceState
-    ReservedInstanceState (..),
-
-    -- ** ResetFpgaImageAttributeName
-    ResetFpgaImageAttributeName (..),
-
-    -- ** ResetImageAttributeName
-    ResetImageAttributeName (..),
-
-    -- ** ResourceType
-    ResourceType (..),
-
-    -- ** RootDeviceType
-    RootDeviceType (..),
-
-    -- ** RouteOrigin
-    RouteOrigin (..),
-
-    -- ** RouteState
-    RouteState (..),
-
-    -- ** RouteTableAssociationStateCode
-    RouteTableAssociationStateCode (..),
-
-    -- ** RuleAction
-    RuleAction (..),
-
-    -- ** Scope
-    Scope (..),
-
-    -- ** SelfServicePortal
-    SelfServicePortal (..),
-
-    -- ** ServiceState
-    ServiceState (..),
-
-    -- ** ServiceType
-    ServiceType (..),
-
-    -- ** ShutdownBehavior
-    ShutdownBehavior (..),
-
-    -- ** SnapshotAttributeName
-    SnapshotAttributeName (..),
-
-    -- ** SnapshotState
-    SnapshotState (..),
-
-    -- ** SpotAllocationStrategy
-    SpotAllocationStrategy (..),
-
-    -- ** SpotInstanceInterruptionBehavior
-    SpotInstanceInterruptionBehavior (..),
-
-    -- ** SpotInstanceState
-    SpotInstanceState (..),
-
-    -- ** SpotInstanceType
-    SpotInstanceType (..),
-
-    -- ** State
-    State (..),
-
-    -- ** StatusName
-    StatusName (..),
-
-    -- ** StatusType
-    StatusType (..),
-
-    -- ** SubnetCidrBlockStateCode
-    SubnetCidrBlockStateCode (..),
-
-    -- ** SubnetState
-    SubnetState (..),
-
-    -- ** SummaryStatus
-    SummaryStatus (..),
-
-    -- ** TelemetryStatus
-    TelemetryStatus (..),
-
-    -- ** Tenancy
-    Tenancy (..),
-
-    -- ** TrafficDirection
-    TrafficDirection (..),
-
-    -- ** TrafficMirrorFilterRuleField
-    TrafficMirrorFilterRuleField (..),
-
-    -- ** TrafficMirrorNetworkService
-    TrafficMirrorNetworkService (..),
-
-    -- ** TrafficMirrorRuleAction
-    TrafficMirrorRuleAction (..),
-
-    -- ** TrafficMirrorSessionField
-    TrafficMirrorSessionField (..),
-
-    -- ** TrafficMirrorTargetType
-    TrafficMirrorTargetType (..),
-
-    -- ** TrafficType
-    TrafficType (..),
-
-    -- ** TransitGatewayAssociationState
-    TransitGatewayAssociationState (..),
-
-    -- ** TransitGatewayAttachmentResourceType
-    TransitGatewayAttachmentResourceType (..),
-
-    -- ** TransitGatewayAttachmentState
-    TransitGatewayAttachmentState (..),
-
-    -- ** TransitGatewayMulitcastDomainAssociationState
-    TransitGatewayMulitcastDomainAssociationState (..),
-
-    -- ** TransitGatewayMulticastDomainState
-    TransitGatewayMulticastDomainState (..),
-
-    -- ** TransitGatewayPrefixListReferenceState
-    TransitGatewayPrefixListReferenceState (..),
-
-    -- ** TransitGatewayPropagationState
-    TransitGatewayPropagationState (..),
-
-    -- ** TransitGatewayRouteState
-    TransitGatewayRouteState (..),
-
-    -- ** TransitGatewayRouteTableState
-    TransitGatewayRouteTableState (..),
-
-    -- ** TransitGatewayRouteType
-    TransitGatewayRouteType (..),
-
-    -- ** TransitGatewayState
-    TransitGatewayState (..),
-
-    -- ** TransportProtocol
-    TransportProtocol (..),
-
-    -- ** TunnelInsideIPVersion
-    TunnelInsideIPVersion (..),
-
-    -- ** UnlimitedSupportedInstanceFamily
-    UnlimitedSupportedInstanceFamily (..),
-
-    -- ** UnsuccessfulInstanceCreditSpecificationErrorCode
-    UnsuccessfulInstanceCreditSpecificationErrorCode (..),
-
-    -- ** UsageClassType
-    UsageClassType (..),
-
-    -- ** VPCAttributeName
-    VPCAttributeName (..),
-
-    -- ** VPCCidrBlockStateCode
-    VPCCidrBlockStateCode (..),
-
-    -- ** VPCEndpointType
-    VPCEndpointType (..),
-
-    -- ** VPCPeeringConnectionStateReasonCode
-    VPCPeeringConnectionStateReasonCode (..),
-
-    -- ** VPCState
-    VPCState (..),
-
-    -- ** VPCTenancy
-    VPCTenancy (..),
-
-    -- ** VPNEcmpSupportValue
-    VPNEcmpSupportValue (..),
-
-    -- ** VPNProtocol
-    VPNProtocol (..),
-
-    -- ** VPNState
-    VPNState (..),
-
-    -- ** VPNStaticRouteSource
-    VPNStaticRouteSource (..),
-
-    -- ** VirtualizationType
-    VirtualizationType (..),
-
-    -- ** VolumeAttachmentState
-    VolumeAttachmentState (..),
-
-    -- ** VolumeAttributeName
-    VolumeAttributeName (..),
-
-    -- ** VolumeModificationState
-    VolumeModificationState (..),
-
-    -- ** VolumeState
-    VolumeState (..),
-
-    -- ** VolumeStatusInfoStatus
-    VolumeStatusInfoStatus (..),
-
-    -- ** VolumeStatusName
-    VolumeStatusName (..),
-
-    -- ** VolumeType
-    VolumeType (..),
-
-    -- ** AccountAttribute
-    AccountAttribute (..),
-    mkAccountAttribute,
-    aaAttributeValues,
-    aaAttributeName,
-
-    -- ** AccountAttributeValue
-    AccountAttributeValue (..),
-    mkAccountAttributeValue,
-    aavAttributeValue,
-
-    -- ** ActiveInstance
-    ActiveInstance (..),
-    mkActiveInstance,
-    aiInstanceId,
-    aiInstanceHealth,
-    aiInstanceType,
-    aiSpotInstanceRequestId,
-
-    -- ** AddPrefixListEntry
-    AddPrefixListEntry (..),
-    mkAddPrefixListEntry,
-    apleCidr,
-    apleDescription,
-
-    -- ** Address
-    Address (..),
-    mkAddress,
-    aAssociationId,
-    aInstanceId,
-    aNetworkInterfaceOwnerId,
-    aAllocationId,
-    aCarrierIP,
-    aNetworkBorderGroup,
-    aDomain,
-    aNetworkInterfaceId,
-    aPublicIPv4Pool,
-    aCustomerOwnedIPv4Pool,
-    aCustomerOwnedIP,
-    aPrivateIPAddress,
-    aPublicIP,
-    aTags,
-
-    -- ** AllowedPrincipal
-    AllowedPrincipal (..),
-    mkAllowedPrincipal,
-    apPrincipalType,
-    apPrincipal,
-
-    -- ** AssignedPrivateIPAddress
-    AssignedPrivateIPAddress (..),
-    mkAssignedPrivateIPAddress,
-    apiaPrivateIPAddress,
-
-    -- ** AssociatedRole
-    AssociatedRole (..),
-    mkAssociatedRole,
-    arCertificateS3BucketName,
-    arCertificateS3ObjectKey,
-    arEncryptionKMSKeyId,
-    arAssociatedRoleARN,
-
-    -- ** AssociatedTargetNetwork
-    AssociatedTargetNetwork (..),
-    mkAssociatedTargetNetwork,
-    atnNetworkId,
-    atnNetworkType,
-
-    -- ** AssociationStatus
-    AssociationStatus (..),
-    mkAssociationStatus,
-    asCode,
-    asMessage,
-
-    -- ** AttributeBooleanValue
-    AttributeBooleanValue (..),
-    mkAttributeBooleanValue,
-    abvValue,
-
-    -- ** AttributeValue
-    AttributeValue (..),
-    mkAttributeValue,
-    avValue,
-
-    -- ** AuthorizationRule
-    AuthorizationRule (..),
-    mkAuthorizationRule,
-    arStatus,
-    arAccessAll,
-    arClientVPNEndpointId,
-    arGroupId,
-    arDestinationCidr,
-    arDescription,
-
-    -- ** AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azState,
-    azParentZoneId,
-    azRegionName,
-    azParentZoneName,
-    azNetworkBorderGroup,
-    azZoneId,
-    azZoneName,
-    azOptInStatus,
-    azMessages,
-    azGroupName,
-    azZoneType,
-
-    -- ** AvailabilityZoneMessage
-    AvailabilityZoneMessage (..),
-    mkAvailabilityZoneMessage,
-    azmMessage,
-
-    -- ** AvailableCapacity
-    AvailableCapacity (..),
-    mkAvailableCapacity,
-    acAvailableInstanceCapacity,
-    acAvailableVCPUs,
-
-    -- ** BlobAttributeValue
-    BlobAttributeValue (..),
-    mkBlobAttributeValue,
-    bavValue,
-
-    -- ** BlockDeviceMapping
-    BlockDeviceMapping (..),
-    mkBlockDeviceMapping,
-    bdmVirtualName,
-    bdmNoDevice,
-    bdmEBS,
-    bdmDeviceName,
-
-    -- ** BundleTask
-    BundleTask (..),
-    mkBundleTask,
-    btInstanceId,
-    btState,
-    btProgress,
-    btStartTime,
-    btBundleId,
-    btStorage,
-    btUpdateTime,
-    btBundleTaskError,
-
-    -- ** BundleTaskError
-    BundleTaskError (..),
-    mkBundleTaskError,
-    bteCode,
-    bteMessage,
-
-    -- ** ByoipCidr
-    ByoipCidr (..),
-    mkByoipCidr,
-    bcState,
-    bcCidr,
-    bcStatusMessage,
-    bcDescription,
-
-    -- ** CPUOptions
-    CPUOptions (..),
-    mkCPUOptions,
-    coCoreCount,
-    coThreadsPerCore,
-
-    -- ** CPUOptionsRequest
-    CPUOptionsRequest (..),
-    mkCPUOptionsRequest,
-    corCoreCount,
-    corThreadsPerCore,
-
-    -- ** CancelSpotFleetRequestsError
-    CancelSpotFleetRequestsError (..),
-    mkCancelSpotFleetRequestsError,
-    csfreCode,
-    csfreMessage,
-
-    -- ** CancelSpotFleetRequestsErrorItem
-    CancelSpotFleetRequestsErrorItem (..),
-    mkCancelSpotFleetRequestsErrorItem,
-    csfreiError,
-    csfreiSpotFleetRequestId,
-
-    -- ** CancelSpotFleetRequestsSuccessItem
-    CancelSpotFleetRequestsSuccessItem (..),
-    mkCancelSpotFleetRequestsSuccessItem,
-    csfrsiCurrentSpotFleetRequestState,
-    csfrsiSpotFleetRequestId,
-    csfrsiPreviousSpotFleetRequestState,
-
-    -- ** CancelledSpotInstanceRequest
-    CancelledSpotInstanceRequest (..),
-    mkCancelledSpotInstanceRequest,
-    csirState,
-    csirSpotInstanceRequestId,
-
-    -- ** CapacityReservation
-    CapacityReservation (..),
-    mkCapacityReservation,
-    crState,
-    crAvailabilityZoneId,
-    crCreateDate,
-    crEndDate,
-    crAvailableInstanceCount,
-    crEphemeralStorage,
-    crInstancePlatform,
-    crInstanceMatchCriteria,
-    crCapacityReservationId,
-    crInstanceType,
-    crEBSOptimized,
-    crOwnerId,
-    crAvailabilityZone,
-    crTenancy,
-    crTotalInstanceCount,
-    crEndDateType,
-    crTags,
-    crCapacityReservationARN,
-
-    -- ** CapacityReservationGroup
-    CapacityReservationGroup (..),
-    mkCapacityReservationGroup,
-    crgOwnerId,
-    crgGroupARN,
-
-    -- ** CapacityReservationOptions
-    CapacityReservationOptions (..),
-    mkCapacityReservationOptions,
-    croUsageStrategy,
-
-    -- ** CapacityReservationOptionsRequest
-    CapacityReservationOptionsRequest (..),
-    mkCapacityReservationOptionsRequest,
-    crorUsageStrategy,
-
-    -- ** CapacityReservationSpecification
-    CapacityReservationSpecification (..),
-    mkCapacityReservationSpecification,
-    cCapacityReservationTarget,
-    cCapacityReservationPreference,
-
-    -- ** CapacityReservationSpecificationResponse
-    CapacityReservationSpecificationResponse (..),
-    mkCapacityReservationSpecificationResponse,
-    crsCapacityReservationTarget,
-    crsCapacityReservationPreference,
-
-    -- ** CapacityReservationTarget
-    CapacityReservationTarget (..),
-    mkCapacityReservationTarget,
-    crtCapacityReservationId,
-    crtCapacityReservationResourceGroupARN,
-
-    -- ** CapacityReservationTargetResponse
-    CapacityReservationTargetResponse (..),
-    mkCapacityReservationTargetResponse,
-    cCapacityReservationId,
-    cCapacityReservationResourceGroupARN,
-
     -- ** CarrierGateway
     CarrierGateway (..),
     mkCarrierGateway,
-    cgState,
-    cgVPCId,
-    cgOwnerId,
-    cgTags,
     cgCarrierGatewayId,
-
-    -- ** CertificateAuthentication
-    CertificateAuthentication (..),
-    mkCertificateAuthentication,
-    caClientRootCertificateChain,
-
-    -- ** CertificateAuthenticationRequest
-    CertificateAuthenticationRequest (..),
-    mkCertificateAuthenticationRequest,
-    carClientRootCertificateChainARN,
-
-    -- ** CidrAuthorizationContext
-    CidrAuthorizationContext (..),
-    mkCidrAuthorizationContext,
-    cacSignature,
-    cacMessage,
-
-    -- ** CidrBlock
-    CidrBlock (..),
-    mkCidrBlock,
-    cbCidrBlock,
-
-    -- ** ClassicLinkDNSSupport
-    ClassicLinkDNSSupport (..),
-    mkClassicLinkDNSSupport,
-    cldsVPCId,
-    cldsClassicLinkDNSSupported,
-
-    -- ** ClassicLinkInstance
-    ClassicLinkInstance (..),
-    mkClassicLinkInstance,
-    cliInstanceId,
-    cliGroups,
-    cliVPCId,
-    cliTags,
-
-    -- ** ClassicLoadBalancer
-    ClassicLoadBalancer (..),
-    mkClassicLoadBalancer,
-    clbName,
-
-    -- ** ClassicLoadBalancersConfig
-    ClassicLoadBalancersConfig (..),
-    mkClassicLoadBalancersConfig,
-    clbcClassicLoadBalancers,
-
-    -- ** ClientCertificateRevocationListStatus
-    ClientCertificateRevocationListStatus (..),
-    mkClientCertificateRevocationListStatus,
-    ccrlsCode,
-    ccrlsMessage,
-
-    -- ** ClientConnectOptions
-    ClientConnectOptions (..),
-    mkClientConnectOptions,
-    ccoEnabled,
-    ccoLambdaFunctionARN,
-
-    -- ** ClientConnectResponseOptions
-    ClientConnectResponseOptions (..),
-    mkClientConnectResponseOptions,
-    ccroStatus,
-    ccroEnabled,
-    ccroLambdaFunctionARN,
-
-    -- ** ClientData
-    ClientData (..),
-    mkClientData,
-    cdUploadStart,
-    cdUploadSize,
-    cdUploadEnd,
-    cdComment,
-
-    -- ** ClientVPNAuthentication
-    ClientVPNAuthentication (..),
-    mkClientVPNAuthentication,
-    cvaActiveDirectory,
-    cvaFederatedAuthentication,
-    cvaMutualAuthentication,
-    cvaType,
-
-    -- ** ClientVPNAuthenticationRequest
-    ClientVPNAuthenticationRequest (..),
-    mkClientVPNAuthenticationRequest,
-    cvarActiveDirectory,
-    cvarFederatedAuthentication,
-    cvarMutualAuthentication,
-    cvarType,
-
-    -- ** ClientVPNAuthorizationRuleStatus
-    ClientVPNAuthorizationRuleStatus (..),
-    mkClientVPNAuthorizationRuleStatus,
-    cvarsCode,
-    cvarsMessage,
-
-    -- ** ClientVPNConnection
-    ClientVPNConnection (..),
-    mkClientVPNConnection,
-    cvcIngressPackets,
-    cvcStatus,
-    cvcConnectionEndTime,
-    cvcCommonName,
-    cvcPostureComplianceStatuses,
-    cvcConnectionEstablishedTime,
-    cvcConnectionId,
-    cvcIngressBytes,
-    cvcUsername,
-    cvcEgressBytes,
-    cvcClientVPNEndpointId,
-    cvcClientIP,
-    cvcEgressPackets,
-    cvcTimestamp,
-
-    -- ** ClientVPNConnectionStatus
-    ClientVPNConnectionStatus (..),
-    mkClientVPNConnectionStatus,
-    cvcsCode,
-    cvcsMessage,
-
-    -- ** ClientVPNEndpoint
-    ClientVPNEndpoint (..),
-    mkClientVPNEndpoint,
-    cveCreationTime,
-    cveStatus,
-    cveAssociatedTargetNetworks,
-    cveSecurityGroupIds,
-    cveConnectionLogOptions,
-    cveSplitTunnel,
-    cveTransportProtocol,
-    cveVPCId,
-    cveVPNPort,
-    cveDeletionTime,
-    cveClientCidrBlock,
-    cveDNSServers,
-    cveClientVPNEndpointId,
-    cveClientConnectOptions,
-    cveServerCertificateARN,
-    cveAuthenticationOptions,
-    cveSelfServicePortalURL,
-    cveDescription,
-    cveDNSName,
-    cveVPNProtocol,
-    cveTags,
-
-    -- ** ClientVPNEndpointAttributeStatus
-    ClientVPNEndpointAttributeStatus (..),
-    mkClientVPNEndpointAttributeStatus,
-    cveasCode,
-    cveasMessage,
-
-    -- ** ClientVPNEndpointStatus
-    ClientVPNEndpointStatus (..),
-    mkClientVPNEndpointStatus,
-    cvesCode,
-    cvesMessage,
-
-    -- ** ClientVPNRoute
-    ClientVPNRoute (..),
-    mkClientVPNRoute,
-    cvrStatus,
-    cvrOrigin,
-    cvrClientVPNEndpointId,
-    cvrTargetSubnet,
-    cvrDestinationCidr,
-    cvrType,
-    cvrDescription,
-
-    -- ** ClientVPNRouteStatus
-    ClientVPNRouteStatus (..),
-    mkClientVPNRouteStatus,
-    cvrsCode,
-    cvrsMessage,
-
-    -- ** CoipAddressUsage
-    CoipAddressUsage (..),
-    mkCoipAddressUsage,
-    cauAllocationId,
-    cauAWSAccountId,
-    cauCoIP,
-    cauAWSService,
-
-    -- ** CoipPool
-    CoipPool (..),
-    mkCoipPool,
-    cpPoolId,
-    cpLocalGatewayRouteTableId,
-    cpPoolCidrs,
-    cpTags,
-    cpPoolARN,
-
-    -- ** ConnectionLogOptions
-    ConnectionLogOptions (..),
-    mkConnectionLogOptions,
-    cloEnabled,
-    cloCloudwatchLogStream,
-    cloCloudwatchLogGroup,
-
-    -- ** ConnectionLogResponseOptions
-    ConnectionLogResponseOptions (..),
-    mkConnectionLogResponseOptions,
-    clroEnabled,
-    clroCloudwatchLogStream,
-    clroCloudwatchLogGroup,
-
-    -- ** ConnectionNotification
-    ConnectionNotification (..),
-    mkConnectionNotification,
-    cnConnectionNotificationState,
-    cnConnectionNotificationType,
-    cnConnectionEvents,
-    cnServiceId,
-    cnVPCEndpointId,
-    cnConnectionNotificationId,
-    cnConnectionNotificationARN,
-
-    -- ** ConversionTask
-    ConversionTask (..),
-    mkConversionTask,
-    cImportInstance,
-    cState,
-    cStatusMessage,
-    cImportVolume,
-    cConversionTaskId,
-    cExpirationTime,
-    cTags,
-
-    -- ** CreateFleetError
-    CreateFleetError (..),
-    mkCreateFleetError,
-    cfeLifecycle,
-    cfeLaunchTemplateAndOverrides,
-    cfeErrorCode,
-    cfeErrorMessage,
-
-    -- ** CreateFleetInstance
-    CreateFleetInstance (..),
-    mkCreateFleetInstance,
-    cfiPlatform,
-    cfiLifecycle,
-    cfiLaunchTemplateAndOverrides,
-    cfiInstanceType,
-    cfiInstanceIds,
-
-    -- ** CreateTransitGatewayVPCAttachmentRequestOptions
-    CreateTransitGatewayVPCAttachmentRequestOptions (..),
-    mkCreateTransitGatewayVPCAttachmentRequestOptions,
-    ctgvaroIPv6Support,
-    ctgvaroApplianceModeSupport,
-    ctgvaroDNSSupport,
-
-    -- ** CreateVolumePermission
-    CreateVolumePermission (..),
-    mkCreateVolumePermission,
-    cvpGroup,
-    cvpUserId,
-
-    -- ** CreateVolumePermissionModifications
-    CreateVolumePermissionModifications (..),
-    mkCreateVolumePermissionModifications,
-    cvpmRemove,
-    cvpmAdd,
-
-    -- ** CreditSpecification
-    CreditSpecification (..),
-    mkCreditSpecification,
-    csCPUCredits,
-
-    -- ** CreditSpecificationRequest
-    CreditSpecificationRequest (..),
-    mkCreditSpecificationRequest,
-    csrCPUCredits,
-
-    -- ** CustomerGateway
-    CustomerGateway (..),
-    mkCustomerGateway,
-    cgfState,
-    cgfIPAddress,
-    cgfCertificateARN,
-    cgfBGPASN,
-    cgfCustomerGatewayId,
-    cgfDeviceName,
-    cgfType,
-    cgfTags,
-
-    -- ** DHCPConfiguration
-    DHCPConfiguration (..),
-    mkDHCPConfiguration,
-    dcValues,
-    dcKey,
-
-    -- ** DHCPOptions
-    DHCPOptions (..),
-    mkDHCPOptions,
-    doDHCPConfigurations,
-    doOwnerId,
-    doDHCPOptionsId,
-    doTags,
-
-    -- ** DNSEntry
-    DNSEntry (..),
-    mkDNSEntry,
-    deHostedZoneId,
-    deDNSName,
-
-    -- ** DNSServersOptionsModifyStructure
-    DNSServersOptionsModifyStructure (..),
-    mkDNSServersOptionsModifyStructure,
-    dsomsEnabled,
-    dsomsCustomDNSServers,
-
-    -- ** DeleteFleetError
-    DeleteFleetError (..),
-    mkDeleteFleetError,
-    dfeCode,
-    dfeMessage,
-
-    -- ** DeleteFleetErrorItem
-    DeleteFleetErrorItem (..),
-    mkDeleteFleetErrorItem,
-    dfeiError,
-    dfeiFleetId,
-
-    -- ** DeleteFleetSuccessItem
-    DeleteFleetSuccessItem (..),
-    mkDeleteFleetSuccessItem,
-    dfsiCurrentFleetState,
-    dfsiPreviousFleetState,
-    dfsiFleetId,
-
-    -- ** DeleteLaunchTemplateVersionsResponseErrorItem
-    DeleteLaunchTemplateVersionsResponseErrorItem (..),
-    mkDeleteLaunchTemplateVersionsResponseErrorItem,
-    dltvreiLaunchTemplateName,
-    dltvreiLaunchTemplateId,
-    dltvreiVersionNumber,
-    dltvreiResponseError,
-
-    -- ** DeleteLaunchTemplateVersionsResponseSuccessItem
-    DeleteLaunchTemplateVersionsResponseSuccessItem (..),
-    mkDeleteLaunchTemplateVersionsResponseSuccessItem,
-    dltvrsiLaunchTemplateName,
-    dltvrsiLaunchTemplateId,
-    dltvrsiVersionNumber,
-
-    -- ** DeleteQueuedReservedInstancesError
-    DeleteQueuedReservedInstancesError (..),
-    mkDeleteQueuedReservedInstancesError,
-    dqrieCode,
-    dqrieMessage,
-
-    -- ** DeregisterInstanceTagAttributeRequest
-    DeregisterInstanceTagAttributeRequest (..),
-    mkDeregisterInstanceTagAttributeRequest,
-    ditarIncludeAllTagsOfInstance,
-    ditarInstanceTagKeys,
-
-    -- ** DescribeFastSnapshotRestoreSuccessItem
-    DescribeFastSnapshotRestoreSuccessItem (..),
-    mkDescribeFastSnapshotRestoreSuccessItem,
-    dfsrsiDisablingTime,
-    dfsrsiState,
-    dfsrsiOwnerAlias,
-    dfsrsiDisabledTime,
-    dfsrsiEnabledTime,
-    dfsrsiOptimizingTime,
-    dfsrsiOwnerId,
-    dfsrsiStateTransitionReason,
-    dfsrsiAvailabilityZone,
-    dfsrsiSnapshotId,
-    dfsrsiEnablingTime,
-
-    -- ** DescribeFleetError
-    DescribeFleetError (..),
-    mkDescribeFleetError,
-    dfeLifecycle,
-    dfeLaunchTemplateAndOverrides,
-    dfeErrorCode,
-    dfeErrorMessage,
-
-    -- ** DescribeFleetsInstances
-    DescribeFleetsInstances (..),
-    mkDescribeFleetsInstances,
-    dfiPlatform,
-    dfiLifecycle,
-    dfiLaunchTemplateAndOverrides,
-    dfiInstanceType,
-    dfiInstanceIds,
-
-    -- ** DirectoryServiceAuthentication
-    DirectoryServiceAuthentication (..),
-    mkDirectoryServiceAuthentication,
-    dsaDirectoryId,
-
-    -- ** DirectoryServiceAuthenticationRequest
-    DirectoryServiceAuthenticationRequest (..),
-    mkDirectoryServiceAuthenticationRequest,
-    dsarDirectoryId,
-
-    -- ** DisableFastSnapshotRestoreErrorItem
-    DisableFastSnapshotRestoreErrorItem (..),
-    mkDisableFastSnapshotRestoreErrorItem,
-    dfsreiFastSnapshotRestoreStateErrors,
-    dfsreiSnapshotId,
-
-    -- ** DisableFastSnapshotRestoreStateError
-    DisableFastSnapshotRestoreStateError (..),
-    mkDisableFastSnapshotRestoreStateError,
-    dfsrseCode,
-    dfsrseMessage,
-
-    -- ** DisableFastSnapshotRestoreStateErrorItem
-    DisableFastSnapshotRestoreStateErrorItem (..),
-    mkDisableFastSnapshotRestoreStateErrorItem,
-    dfsrseiError,
-    dfsrseiAvailabilityZone,
-
-    -- ** DisableFastSnapshotRestoreSuccessItem
-    DisableFastSnapshotRestoreSuccessItem (..),
-    mkDisableFastSnapshotRestoreSuccessItem,
-    dDisablingTime,
-    dState,
-    dOwnerAlias,
-    dDisabledTime,
-    dEnabledTime,
-    dOptimizingTime,
-    dOwnerId,
-    dStateTransitionReason,
-    dAvailabilityZone,
-    dSnapshotId,
-    dEnablingTime,
-
-    -- ** DiskImage
-    DiskImage (..),
-    mkDiskImage,
-    diImage,
-    diVolume,
-    diDescription,
-
-    -- ** DiskImageDescription
-    DiskImageDescription (..),
-    mkDiskImageDescription,
-    didSize,
-    didChecksum,
-    didFormat,
-    didImportManifestURL,
-
-    -- ** DiskImageDetail
-    DiskImageDetail (..),
-    mkDiskImageDetail,
-    dFormat,
-    dImportManifestURL,
-    dBytes,
-
-    -- ** DiskImageVolumeDescription
-    DiskImageVolumeDescription (..),
-    mkDiskImageVolumeDescription,
-    divdSize,
-    divdId,
-
-    -- ** DiskInfo
-    DiskInfo (..),
-    mkDiskInfo,
-    diCount,
-    diSizeInGB,
-    diType,
-
-    -- ** EBSBlockDevice
-    EBSBlockDevice (..),
-    mkEBSBlockDevice,
-    ebdDeleteOnTermination,
-    ebdVolumeSize,
-    ebdIOPS,
-    ebdEncrypted,
-    ebdKMSKeyId,
-    ebdVolumeType,
-    ebdSnapshotId,
-
-    -- ** EBSInfo
-    EBSInfo (..),
-    mkEBSInfo,
-    eiEBSOptimizedInfo,
-    eiEncryptionSupport,
-    eiEBSOptimizedSupport,
-    eiNvmeSupport,
-
-    -- ** EBSInstanceBlockDevice
-    EBSInstanceBlockDevice (..),
-    mkEBSInstanceBlockDevice,
-    eibdStatus,
-    eibdDeleteOnTermination,
-    eibdVolumeId,
-    eibdAttachTime,
-
-    -- ** EBSInstanceBlockDeviceSpecification
-    EBSInstanceBlockDeviceSpecification (..),
-    mkEBSInstanceBlockDeviceSpecification,
-    eibdsDeleteOnTermination,
-    eibdsVolumeId,
-
-    -- ** EBSOptimizedInfo
-    EBSOptimizedInfo (..),
-    mkEBSOptimizedInfo,
-    eoiMaximumIOPS,
-    eoiBaselineIOPS,
-    eoiMaximumThroughputInMBps,
-    eoiMaximumBandwidthInMbps,
-    eoiBaselineBandwidthInMbps,
-    eoiBaselineThroughputInMBps,
-
-    -- ** EgressOnlyInternetGateway
-    EgressOnlyInternetGateway (..),
-    mkEgressOnlyInternetGateway,
-    eoigEgressOnlyInternetGatewayId,
-    eoigAttachments,
-    eoigTags,
-
-    -- ** ElasticGpuAssociation
-    ElasticGpuAssociation (..),
-    mkElasticGpuAssociation,
-    egaElasticGpuId,
-    egaElasticGpuAssociationId,
-    egaElasticGpuAssociationTime,
-    egaElasticGpuAssociationState,
-
-    -- ** ElasticGpuHealth
-    ElasticGpuHealth (..),
-    mkElasticGpuHealth,
-    eghStatus,
-
-    -- ** ElasticGpuSpecification
-    ElasticGpuSpecification (..),
-    mkElasticGpuSpecification,
-    egsType,
-
-    -- ** ElasticGpuSpecificationResponse
-    ElasticGpuSpecificationResponse (..),
-    mkElasticGpuSpecificationResponse,
-    eType,
-
-    -- ** ElasticGpus
-    ElasticGpus (..),
-    mkElasticGpus,
-    egInstanceId,
-    egElasticGpuType,
-    egElasticGpuId,
-    egElasticGpuState,
-    egElasticGpuHealth,
-    egAvailabilityZone,
-    egTags,
-
-    -- ** ElasticInferenceAccelerator
-    ElasticInferenceAccelerator (..),
-    mkElasticInferenceAccelerator,
-    eiaCount,
-    eiaType,
-
-    -- ** ElasticInferenceAcceleratorAssociation
-    ElasticInferenceAcceleratorAssociation (..),
-    mkElasticInferenceAcceleratorAssociation,
-    eiaaElasticInferenceAcceleratorAssociationState,
-    eiaaElasticInferenceAcceleratorAssociationTime,
-    eiaaElasticInferenceAcceleratorARN,
-    eiaaElasticInferenceAcceleratorAssociationId,
-
-    -- ** EnableFastSnapshotRestoreErrorItem
-    EnableFastSnapshotRestoreErrorItem (..),
-    mkEnableFastSnapshotRestoreErrorItem,
-    efsreiFastSnapshotRestoreStateErrors,
-    efsreiSnapshotId,
-
-    -- ** EnableFastSnapshotRestoreStateError
-    EnableFastSnapshotRestoreStateError (..),
-    mkEnableFastSnapshotRestoreStateError,
-    efsrseCode,
-    efsrseMessage,
-
-    -- ** EnableFastSnapshotRestoreStateErrorItem
-    EnableFastSnapshotRestoreStateErrorItem (..),
-    mkEnableFastSnapshotRestoreStateErrorItem,
-    efsrseiError,
-    efsrseiAvailabilityZone,
-
-    -- ** EnableFastSnapshotRestoreSuccessItem
-    EnableFastSnapshotRestoreSuccessItem (..),
-    mkEnableFastSnapshotRestoreSuccessItem,
-    efsrsiDisablingTime,
-    efsrsiState,
-    efsrsiOwnerAlias,
-    efsrsiDisabledTime,
-    efsrsiEnabledTime,
-    efsrsiOptimizingTime,
-    efsrsiOwnerId,
-    efsrsiStateTransitionReason,
-    efsrsiAvailabilityZone,
-    efsrsiSnapshotId,
-    efsrsiEnablingTime,
-
-    -- ** EnclaveOptions
-    EnclaveOptions (..),
-    mkEnclaveOptions,
-    eoEnabled,
-
-    -- ** EnclaveOptionsRequest
-    EnclaveOptionsRequest (..),
-    mkEnclaveOptionsRequest,
-    eorEnabled,
-
-    -- ** EventInformation
-    EventInformation (..),
-    mkEventInformation,
-    eiInstanceId,
-    eiEventDescription,
-    eiEventSubType,
-
-    -- ** ExportImageTask
-    ExportImageTask (..),
-    mkExportImageTask,
-    eitStatus,
-    eitProgress,
-    eitExportImageTaskId,
-    eitStatusMessage,
-    eitImageId,
-    eitDescription,
-    eitTags,
-    eitS3ExportLocation,
-
-    -- ** ExportTask
-    ExportTask (..),
-    mkExportTask,
-    etExportTaskId,
-    etState,
-    etExportToS3Task,
-    etInstanceExportDetails,
-    etStatusMessage,
-    etDescription,
-    etTags,
-
-    -- ** ExportTaskS3Location
-    ExportTaskS3Location (..),
-    mkExportTaskS3Location,
-    etslS3Prefix,
-    etslS3Bucket,
-
-    -- ** ExportTaskS3LocationRequest
-    ExportTaskS3LocationRequest (..),
-    mkExportTaskS3LocationRequest,
-    etslrS3Prefix,
-    etslrS3Bucket,
-
-    -- ** ExportToS3Task
-    ExportToS3Task (..),
-    mkExportToS3Task,
-    etstS3Key,
-    etstContainerFormat,
-    etstS3Bucket,
-    etstDiskImageFormat,
-
-    -- ** ExportToS3TaskSpecification
-    ExportToS3TaskSpecification (..),
-    mkExportToS3TaskSpecification,
-    etstsContainerFormat,
-    etstsS3Prefix,
-    etstsS3Bucket,
-    etstsDiskImageFormat,
-
-    -- ** FailedQueuedPurchaseDeletion
-    FailedQueuedPurchaseDeletion (..),
-    mkFailedQueuedPurchaseDeletion,
-    fqpdError,
-    fqpdReservedInstancesId,
-
-    -- ** FederatedAuthentication
-    FederatedAuthentication (..),
-    mkFederatedAuthentication,
-    faSamlProviderARN,
-    faSelfServiceSamlProviderARN,
-
-    -- ** FederatedAuthenticationRequest
-    FederatedAuthenticationRequest (..),
-    mkFederatedAuthenticationRequest,
-    farSAMLProviderARN,
-    farSelfServiceSAMLProviderARN,
-
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fName,
-
-    -- ** FleetData
-    FleetData (..),
-    mkFleetData,
-    fdClientToken,
-    fdTargetCapacitySpecification,
-    fdSpotOptions,
-    fdExcessCapacityTerminationPolicy,
-    fdOnDemandOptions,
-    fdFleetState,
-    fdLaunchTemplateConfigs,
-    fdValidUntil,
-    fdTerminateInstancesWithExpiration,
-    fdInstances,
-    fdFulfilledCapacity,
-    fdType,
-    fdValidFrom,
-    fdReplaceUnhealthyInstances,
-    fdFulfilledOnDemandCapacity,
-    fdFleetId,
-    fdErrors,
-    fdCreateTime,
-    fdTags,
-    fdActivityStatus,
-
-    -- ** FleetLaunchTemplateConfig
-    FleetLaunchTemplateConfig (..),
-    mkFleetLaunchTemplateConfig,
-    fltcOverrides,
-    fltcLaunchTemplateSpecification,
-
-    -- ** FleetLaunchTemplateConfigRequest
-    FleetLaunchTemplateConfigRequest (..),
-    mkFleetLaunchTemplateConfigRequest,
-    fltcrOverrides,
-    fltcrLaunchTemplateSpecification,
-
-    -- ** FleetLaunchTemplateOverrides
-    FleetLaunchTemplateOverrides (..),
-    mkFleetLaunchTemplateOverrides,
-    fltoPriority,
-    fltoWeightedCapacity,
-    fltoSubnetId,
-    fltoInstanceType,
-    fltoAvailabilityZone,
-    fltoPlacement,
-    fltoMaxPrice,
-
-    -- ** FleetLaunchTemplateOverridesRequest
-    FleetLaunchTemplateOverridesRequest (..),
-    mkFleetLaunchTemplateOverridesRequest,
-    fltorPriority,
-    fltorWeightedCapacity,
-    fltorSubnetId,
-    fltorInstanceType,
-    fltorAvailabilityZone,
-    fltorPlacement,
-    fltorMaxPrice,
-
-    -- ** FleetLaunchTemplateSpecification
-    FleetLaunchTemplateSpecification (..),
-    mkFleetLaunchTemplateSpecification,
-    fltsLaunchTemplateName,
-    fltsLaunchTemplateId,
-    fltsVersion,
-
-    -- ** FleetLaunchTemplateSpecificationRequest
-    FleetLaunchTemplateSpecificationRequest (..),
-    mkFleetLaunchTemplateSpecificationRequest,
-    fltsrLaunchTemplateName,
-    fltsrLaunchTemplateId,
-    fltsrVersion,
-
-    -- ** FleetSpotCapacityRebalance
-    FleetSpotCapacityRebalance (..),
-    mkFleetSpotCapacityRebalance,
-    fscrReplacementStrategy,
-
-    -- ** FleetSpotCapacityRebalanceRequest
-    FleetSpotCapacityRebalanceRequest (..),
-    mkFleetSpotCapacityRebalanceRequest,
-    fscrrReplacementStrategy,
-
-    -- ** FleetSpotMaintenanceStrategies
-    FleetSpotMaintenanceStrategies (..),
-    mkFleetSpotMaintenanceStrategies,
-    fsmsCapacityRebalance,
-
-    -- ** FleetSpotMaintenanceStrategiesRequest
-    FleetSpotMaintenanceStrategiesRequest (..),
-    mkFleetSpotMaintenanceStrategiesRequest,
-    fsmsrCapacityRebalance,
-
-    -- ** FlowLog
-    FlowLog (..),
-    mkFlowLog,
-    flCreationTime,
-    flLogFormat,
-    flMaxAggregationInterval,
-    flResourceId,
-    flFlowLogStatus,
-    flTrafficType,
-    flLogDestination,
-    flDeliverLogsStatus,
-    flDeliverLogsErrorMessage,
-    flLogGroupName,
-    flDeliverLogsPermissionARN,
-    flLogDestinationType,
-    flFlowLogId,
-    flTags,
-
-    -- ** FpgaDeviceInfo
-    FpgaDeviceInfo (..),
-    mkFpgaDeviceInfo,
-    fdiMemoryInfo,
-    fdiManufacturer,
-    fdiCount,
-    fdiName,
-
-    -- ** FpgaDeviceMemoryInfo
-    FpgaDeviceMemoryInfo (..),
-    mkFpgaDeviceMemoryInfo,
-    fdmiSizeInMiB,
-
-    -- ** FpgaImage
-    FpgaImage (..),
-    mkFpgaImage,
-    fiShellVersion,
-    fiPciId,
-    fiState,
-    fiOwnerAlias,
-    fiFpgaImageId,
-    fiDataRetentionSupport,
-    fiOwnerId,
-    fiUpdateTime,
-    fiName,
-    fiProductCodes,
-    fiDescription,
-    fiCreateTime,
-    fiTags,
-    fiPublic,
-    fiFpgaImageGlobalId,
-
-    -- ** FpgaImageAttribute
-    FpgaImageAttribute (..),
-    mkFpgaImageAttribute,
-    fiaFpgaImageId,
-    fiaName,
-    fiaProductCodes,
-    fiaDescription,
-    fiaLoadPermissions,
-
-    -- ** FpgaImageState
-    FpgaImageState (..),
-    mkFpgaImageState,
-    fisCode,
-    fisMessage,
-
-    -- ** FpgaInfo
-    FpgaInfo (..),
-    mkFpgaInfo,
-    fiTotalFpgaMemoryInMiB,
-    fiFpgas,
-
-    -- ** GpuDeviceInfo
-    GpuDeviceInfo (..),
-    mkGpuDeviceInfo,
-    gdiMemoryInfo,
-    gdiManufacturer,
-    gdiCount,
-    gdiName,
-
-    -- ** GpuDeviceMemoryInfo
-    GpuDeviceMemoryInfo (..),
-    mkGpuDeviceMemoryInfo,
-    gdmiSizeInMiB,
-
-    -- ** GpuInfo
-    GpuInfo (..),
-    mkGpuInfo,
-    giTotalGpuMemoryInMiB,
-    giGpus,
-
-    -- ** GroupIdentifier
-    GroupIdentifier (..),
-    mkGroupIdentifier,
-    giGroupId,
-    giGroupName,
-
-    -- ** HibernationOptions
-    HibernationOptions (..),
-    mkHibernationOptions,
-    hoConfigured,
-
-    -- ** HibernationOptionsRequest
-    HibernationOptionsRequest (..),
-    mkHibernationOptionsRequest,
-    horConfigured,
-
-    -- ** HistoryRecord
-    HistoryRecord (..),
-    mkHistoryRecord,
-    hrEventType,
-    hrEventInformation,
-    hrTimestamp,
-
-    -- ** HistoryRecordEntry
-    HistoryRecordEntry (..),
-    mkHistoryRecordEntry,
-    hreEventType,
-    hreEventInformation,
-    hreTimestamp,
-
-    -- ** Host
-    Host (..),
-    mkHost,
-    hReleaseTime,
-    hState,
-    hClientToken,
-    hAvailabilityZoneId,
-    hHostId,
-    hAvailableCapacity,
-    hHostReservationId,
-    hAllowsMultipleInstanceTypes,
-    hHostProperties,
-    hOwnerId,
-    hAvailabilityZone,
-    hInstances,
-    hAllocationTime,
-    hMemberOfServiceLinkedResourceGroup,
-    hHostRecovery,
-    hAutoPlacement,
-    hTags,
-
-    -- ** HostInstance
-    HostInstance (..),
-    mkHostInstance,
-    hiInstanceId,
-    hiInstanceType,
-    hiOwnerId,
-
-    -- ** HostOffering
-    HostOffering (..),
-    mkHostOffering,
-    hoInstanceFamily,
-    hoCurrencyCode,
-    hoHourlyPrice,
-    hoUpfrontPrice,
-    hoOfferingId,
-    hoDuration,
-    hoPaymentOption,
-
-    -- ** HostProperties
-    HostProperties (..),
-    mkHostProperties,
-    hpInstanceFamily,
-    hpInstanceType,
-    hpTotalVCPUs,
-    hpCores,
-    hpSockets,
-
-    -- ** HostReservation
-    HostReservation (..),
-    mkHostReservation,
-    hrState,
-    hrInstanceFamily,
-    hrCurrencyCode,
-    hrHostReservationId,
-    hrStart,
-    hrHourlyPrice,
-    hrCount,
-    hrUpfrontPrice,
-    hrEnd,
-    hrHostIdSet,
-    hrOfferingId,
-    hrDuration,
-    hrTags,
-    hrPaymentOption,
-
-    -- ** IAMInstanceProfile
-    IAMInstanceProfile (..),
-    mkIAMInstanceProfile,
-    iapARN,
-    iapId,
-
-    -- ** IAMInstanceProfileAssociation
-    IAMInstanceProfileAssociation (..),
-    mkIAMInstanceProfileAssociation,
-    iapaAssociationId,
-    iapaInstanceId,
-    iapaState,
-    iapaIAMInstanceProfile,
-    iapaTimestamp,
-
-    -- ** IAMInstanceProfileSpecification
-    IAMInstanceProfileSpecification (..),
-    mkIAMInstanceProfileSpecification,
-    iapsARN,
-    iapsName,
-
-    -- ** ICMPTypeCode
-    ICMPTypeCode (..),
-    mkICMPTypeCode,
-    itcCode,
-    itcType,
-
-    -- ** IKEVersionsListValue
-    IKEVersionsListValue (..),
-    mkIKEVersionsListValue,
-    ikevlvValue,
-
-    -- ** IKEVersionsRequestListValue
-    IKEVersionsRequestListValue (..),
-    mkIKEVersionsRequestListValue,
-    ikevrlvValue,
-
-    -- ** IPPermission
-    IPPermission (..),
-    mkIPPermission,
-    ipFromPort,
-    ipUserIdGroupPairs,
-    ipPrefixListIds,
-    ipIPProtocol,
-    ipToPort,
-    ipIPv6Ranges,
-    ipIPRanges,
-
-    -- ** IPRange
-    IPRange (..),
-    mkIPRange,
-    iprCidrIP,
-    iprDescription,
-
-    -- ** IPv6CidrAssociation
-    IPv6CidrAssociation (..),
-    mkIPv6CidrAssociation,
-    icaAssociatedResource,
-    icaIPv6Cidr,
-
-    -- ** IPv6CidrBlock
-    IPv6CidrBlock (..),
-    mkIPv6CidrBlock,
-    icbIPv6CidrBlock,
-
-    -- ** IPv6Pool
-    IPv6Pool (..),
-    mkIPv6Pool,
-    ipPoolCidrBlocks,
-    ipPoolId,
-    ipDescription,
-    ipTags,
-
-    -- ** IPv6Range
-    IPv6Range (..),
-    mkIPv6Range,
-    irCidrIPv6,
-    irDescription,
-
-    -- ** IdFormat
-    IdFormat (..),
-    mkIdFormat,
-    ifUseLongIds,
-    ifDeadline,
-    ifResource,
-
-    -- ** Image
-    Image (..),
-    mkImage,
-    iState,
-    iVirtualizationType,
-    iHypervisor,
-    iPlatform,
-    iImageLocation,
-    iPlatformDetails,
-    iEnaSupport,
-    iImageOwnerAlias,
-    iUsageOperation,
-    iRAMDiskId,
-    iKernelId,
-    iRootDeviceName,
-    iSRIOVNetSupport,
-    iOwnerId,
-    iImageType,
-    iName,
-    iImageId,
-    iArchitecture,
-    iCreationDate,
-    iProductCodes,
-    iStateReason,
-    iRootDeviceType,
-    iDescription,
-    iBlockDeviceMappings,
-    iTags,
-    iPublic,
-
-    -- ** ImageDiskContainer
-    ImageDiskContainer (..),
-    mkImageDiskContainer,
-    idcFormat,
-    idcURL,
-    idcDeviceName,
-    idcUserBucket,
-    idcDescription,
-    idcSnapshotId,
-
-    -- ** ImportImageLicenseConfigurationRequest
-    ImportImageLicenseConfigurationRequest (..),
-    mkImportImageLicenseConfigurationRequest,
-    iilcrLicenseConfigurationARN,
-
-    -- ** ImportImageLicenseConfigurationResponse
-    ImportImageLicenseConfigurationResponse (..),
-    mkImportImageLicenseConfigurationResponse,
-    iilcLicenseConfigurationARN,
-
-    -- ** ImportImageTask
-    ImportImageTask (..),
-    mkImportImageTask,
-    iitStatus,
-    iitHypervisor,
-    iitPlatform,
-    iitProgress,
-    iitLicenseSpecifications,
-    iitLicenseType,
-    iitSnapshotDetails,
-    iitEncrypted,
-    iitKMSKeyId,
-    iitStatusMessage,
-    iitImageId,
-    iitImportTaskId,
-    iitArchitecture,
-    iitDescription,
-    iitTags,
-
-    -- ** ImportInstanceLaunchSpecification
-    ImportInstanceLaunchSpecification (..),
-    mkImportInstanceLaunchSpecification,
-    iilsAdditionalInfo,
-    iilsGroupNames,
-    iilsSubnetId,
-    iilsInstanceType,
-    iilsGroupIds,
-    iilsUserData,
-    iilsMonitoring,
-    iilsPrivateIPAddress,
-    iilsInstanceInitiatedShutdownBehavior,
-    iilsArchitecture,
-    iilsPlacement,
-
-    -- ** ImportInstanceTaskDetails
-    ImportInstanceTaskDetails (..),
-    mkImportInstanceTaskDetails,
-    iitdInstanceId,
-    iitdPlatform,
-    iitdVolumes,
-    iitdDescription,
-
-    -- ** ImportInstanceVolumeDetailItem
-    ImportInstanceVolumeDetailItem (..),
-    mkImportInstanceVolumeDetailItem,
-    iivdiStatus,
-    iivdiBytesConverted,
-    iivdiImage,
-    iivdiVolume,
-    iivdiAvailabilityZone,
-    iivdiStatusMessage,
-    iivdiDescription,
-
-    -- ** ImportSnapshotTask
-    ImportSnapshotTask (..),
-    mkImportSnapshotTask,
-    istSnapshotTaskDetail,
-    istImportTaskId,
-    istDescription,
-    istTags,
-
-    -- ** ImportVolumeTaskDetails
-    ImportVolumeTaskDetails (..),
-    mkImportVolumeTaskDetails,
-    ivtdBytesConverted,
-    ivtdImage,
-    ivtdVolume,
-    ivtdAvailabilityZone,
-    ivtdDescription,
-
-    -- ** InferenceAcceleratorInfo
-    InferenceAcceleratorInfo (..),
-    mkInferenceAcceleratorInfo,
-    iaiAccelerators,
-
-    -- ** InferenceDeviceInfo
-    InferenceDeviceInfo (..),
-    mkInferenceDeviceInfo,
-    idiManufacturer,
-    idiCount,
-    idiName,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    ifInstanceId,
-    ifState,
-    ifVirtualizationType,
-    ifPublicDNSName,
-    ifHypervisor,
-    ifPlatform,
-    ifSecurityGroups,
-    ifClientToken,
-    ifEnaSupport,
-    ifSourceDestCheck,
-    ifElasticGpuAssociations,
-    ifVPCId,
-    ifKeyName,
-    ifLaunchTime,
-    ifNetworkInterfaces,
-    ifOutpostARN,
-    ifEnclaveOptions,
-    ifRAMDiskId,
-    ifCPUOptions,
-    ifSubnetId,
-    ifKernelId,
-    ifRootDeviceName,
-    ifCapacityReservationId,
-    ifInstanceType,
-    ifCapacityReservationSpecification,
-    ifSRIOVNetSupport,
-    ifEBSOptimized,
-    ifMonitoring,
-    ifStateTransitionReason,
-    ifHibernationOptions,
-    ifInstanceLifecycle,
-    ifIAMInstanceProfile,
-    ifImageId,
-    ifPrivateIPAddress,
-    ifMetadataOptions,
-    ifArchitecture,
-    ifProductCodes,
-    ifSpotInstanceRequestId,
-    ifLicenses,
-    ifElasticInferenceAcceleratorAssociations,
-    ifPrivateDNSName,
-    ifStateReason,
-    ifRootDeviceType,
-    ifBlockDeviceMappings,
-    ifAMILaunchIndex,
-    ifPublicIPAddress,
-    ifPlacement,
-    ifTags,
-
-    -- ** InstanceBlockDeviceMapping
-    InstanceBlockDeviceMapping (..),
-    mkInstanceBlockDeviceMapping,
-    ibdmEBS,
-    ibdmDeviceName,
-
-    -- ** InstanceBlockDeviceMappingSpecification
-    InstanceBlockDeviceMappingSpecification (..),
-    mkInstanceBlockDeviceMappingSpecification,
-    ibdmsVirtualName,
-    ibdmsNoDevice,
-    ibdmsEBS,
-    ibdmsDeviceName,
-
-    -- ** InstanceCapacity
-    InstanceCapacity (..),
-    mkInstanceCapacity,
-    icAvailableCapacity,
-    icInstanceType,
-    icTotalCapacity,
-
-    -- ** InstanceCount
-    InstanceCount (..),
-    mkInstanceCount,
-    icState,
-    icInstanceCount,
-
-    -- ** InstanceCreditSpecification
-    InstanceCreditSpecification (..),
-    mkInstanceCreditSpecification,
-    icsInstanceId,
-    icsCPUCredits,
-
-    -- ** InstanceCreditSpecificationRequest
-    InstanceCreditSpecificationRequest (..),
-    mkInstanceCreditSpecificationRequest,
-    icsrInstanceId,
-    icsrCPUCredits,
-
-    -- ** InstanceExportDetails
-    InstanceExportDetails (..),
-    mkInstanceExportDetails,
-    iedTargetEnvironment,
-    iedInstanceId,
-
-    -- ** InstanceFamilyCreditSpecification
-    InstanceFamilyCreditSpecification (..),
-    mkInstanceFamilyCreditSpecification,
-    ifcsInstanceFamily,
-    ifcsCPUCredits,
-
-    -- ** InstanceIPv6Address
-    InstanceIPv6Address (..),
-    mkInstanceIPv6Address,
-    iiaIPv6Address,
-
-    -- ** InstanceIPv6AddressRequest
-    InstanceIPv6AddressRequest (..),
-    mkInstanceIPv6AddressRequest,
-    iiarIPv6Address,
+    cgOwnerId,
+    cgState,
+    cgTags,
+    cgVpcId,
+
+    -- ** FleetCapacityReservationUsageStrategy
+    FleetCapacityReservationUsageStrategy (..),
 
     -- ** InstanceMarketOptionsRequest
     InstanceMarketOptionsRequest (..),
@@ -3603,1962 +1423,51 @@ module Network.AWS.EC2
     imorMarketType,
     imorSpotOptions,
 
-    -- ** InstanceMetadataOptionsRequest
-    InstanceMetadataOptionsRequest (..),
-    mkInstanceMetadataOptionsRequest,
-    imorHTTPEndpoint,
-    imorHTTPPutResponseHopLimit,
-    imorHTTPTokens,
-
-    -- ** InstanceMetadataOptionsResponse
-    InstanceMetadataOptionsResponse (..),
-    mkInstanceMetadataOptionsResponse,
-    imoState,
-    imoHTTPEndpoint,
-    imoHTTPPutResponseHopLimit,
-    imoHTTPTokens,
-
-    -- ** InstanceMonitoring
-    InstanceMonitoring (..),
-    mkInstanceMonitoring,
-    imInstanceId,
-    imMonitoring,
-
-    -- ** InstanceNetworkInterface
-    InstanceNetworkInterface (..),
-    mkInstanceNetworkInterface,
-    iniGroups,
-    iniStatus,
-    iniPrivateIPAddresses,
-    iniSourceDestCheck,
-    iniInterfaceType,
-    iniVPCId,
-    iniNetworkInterfaceId,
-    iniSubnetId,
-    iniMACAddress,
-    iniAttachment,
-    iniOwnerId,
-    iniPrivateIPAddress,
-    iniPrivateDNSName,
-    iniDescription,
-    iniAssociation,
-    iniIPv6Addresses,
-
-    -- ** InstanceNetworkInterfaceAssociation
-    InstanceNetworkInterfaceAssociation (..),
-    mkInstanceNetworkInterfaceAssociation,
-    iniaPublicDNSName,
-    iniaCarrierIP,
-    iniaIPOwnerId,
-    iniaPublicIP,
-
-    -- ** InstanceNetworkInterfaceAttachment
-    InstanceNetworkInterfaceAttachment (..),
-    mkInstanceNetworkInterfaceAttachment,
-    iniaStatus,
-    iniaDeleteOnTermination,
-    iniaAttachmentId,
-    iniaNetworkCardIndex,
-    iniaAttachTime,
-    iniaDeviceIndex,
-
-    -- ** InstanceNetworkInterfaceSpecification
-    InstanceNetworkInterfaceSpecification (..),
-    mkInstanceNetworkInterfaceSpecification,
-    inisGroups,
-    inisPrivateIPAddresses,
-    inisDeleteOnTermination,
-    inisAssociateCarrierIPAddress,
-    inisAssociatePublicIPAddress,
-    inisInterfaceType,
-    inisNetworkInterfaceId,
-    inisSubnetId,
-    inisIPv6AddressCount,
-    inisNetworkCardIndex,
-    inisPrivateIPAddress,
-    inisSecondaryPrivateIPAddressCount,
-    inisDescription,
-    inisDeviceIndex,
-    inisIPv6Addresses,
-
-    -- ** InstancePrivateIPAddress
-    InstancePrivateIPAddress (..),
-    mkInstancePrivateIPAddress,
-    ipiaPrimary,
-    ipiaPrivateIPAddress,
-    ipiaPrivateDNSName,
-    ipiaAssociation,
-
-    -- ** InstanceSpecification
-    InstanceSpecification (..),
-    mkInstanceSpecification,
-    isInstanceId,
-    isExcludeBootVolume,
-
-    -- ** InstanceState
-    InstanceState (..),
-    mkInstanceState,
-    isName,
-    isCode,
-
-    -- ** InstanceStateChange
-    InstanceStateChange (..),
-    mkInstanceStateChange,
-    iscInstanceId,
-    iscCurrentState,
-    iscPreviousState,
-
-    -- ** InstanceStatus
-    InstanceStatus (..),
-    mkInstanceStatus,
-    iInstanceId,
-    iOutpostARN,
-    iSystemStatus,
-    iEvents,
-    iAvailabilityZone,
-    iInstanceStatus,
-    iInstanceState,
-
-    -- ** InstanceStatusDetails
-    InstanceStatusDetails (..),
-    mkInstanceStatusDetails,
-    isdStatus,
-    isdImpairedSince,
-    isdName,
-
-    -- ** InstanceStatusEvent
-    InstanceStatusEvent (..),
-    mkInstanceStatusEvent,
-    iseNotBefore,
-    iseCode,
-    iseInstanceEventId,
-    iseDescription,
-    iseNotBeforeDeadline,
-    iseNotAfter,
-
-    -- ** InstanceStatusSummary
-    InstanceStatusSummary (..),
-    mkInstanceStatusSummary,
-    issStatus,
-    issDetails,
-
-    -- ** InstanceStorageInfo
-    InstanceStorageInfo (..),
-    mkInstanceStorageInfo,
-    isiTotalSizeInGB,
-    isiNvmeSupport,
-    isiDisks,
-
-    -- ** InstanceTagNotificationAttribute
-    InstanceTagNotificationAttribute (..),
-    mkInstanceTagNotificationAttribute,
-    itnaIncludeAllTagsOfInstance,
-    itnaInstanceTagKeys,
-
-    -- ** InstanceTypeInfo
-    InstanceTypeInfo (..),
-    mkInstanceTypeInfo,
-    itiHypervisor,
-    itiCurrentGeneration,
-    itiMemoryInfo,
-    itiPlacementGroupInfo,
-    itiSupportedRootDeviceTypes,
-    itiSupportedUsageClasses,
-    itiInstanceStorageSupported,
-    itiFpgaInfo,
-    itiBurstablePerformanceSupported,
-    itiInstanceType,
-    itiGpuInfo,
-    itiSupportedVirtualizationTypes,
-    itiEBSInfo,
-    itiAutoRecoverySupported,
-    itiInferenceAcceleratorInfo,
-    itiBareMetal,
-    itiNetworkInfo,
-    itiProcessorInfo,
-    itiFreeTierEligible,
-    itiVCPUInfo,
-    itiInstanceStorageInfo,
-    itiDedicatedHostsSupported,
-    itiHibernationSupported,
-
-    -- ** InstanceTypeOffering
-    InstanceTypeOffering (..),
-    mkInstanceTypeOffering,
-    itoLocation,
-    itoInstanceType,
-    itoLocationType,
-
-    -- ** InstanceUsage
-    InstanceUsage (..),
-    mkInstanceUsage,
-    iuAccountId,
-    iuUsedInstanceCount,
-
-    -- ** InternetGateway
-    InternetGateway (..),
-    mkInternetGateway,
-    igAttachments,
-    igOwnerId,
-    igInternetGatewayId,
-    igTags,
-
-    -- ** InternetGatewayAttachment
-    InternetGatewayAttachment (..),
-    mkInternetGatewayAttachment,
-    igaState,
-    igaVPCId,
-
-    -- ** KeyPairInfo
-    KeyPairInfo (..),
-    mkKeyPairInfo,
-    kpiKeyFingerprint,
-    kpiKeyName,
-    kpiKeyPairId,
-    kpiTags,
-
-    -- ** LastError
-    LastError (..),
-    mkLastError,
-    leCode,
-    leMessage,
-
-    -- ** LaunchPermission
-    LaunchPermission (..),
-    mkLaunchPermission,
-    lGroup,
-    lUserId,
-
-    -- ** LaunchPermissionModifications
-    LaunchPermissionModifications (..),
-    mkLaunchPermissionModifications,
-    lpmRemove,
-    lpmAdd,
-
-    -- ** LaunchSpecification
-    LaunchSpecification (..),
-    mkLaunchSpecification,
-    lsSecurityGroups,
-    lsKeyName,
-    lsNetworkInterfaces,
-    lsRAMDiskId,
-    lsSubnetId,
-    lsKernelId,
-    lsInstanceType,
-    lsEBSOptimized,
-    lsUserData,
-    lsMonitoring,
-    lsIAMInstanceProfile,
-    lsImageId,
-    lsAddressingType,
-    lsBlockDeviceMappings,
-    lsPlacement,
-
-    -- ** LaunchTemplate
-    LaunchTemplate (..),
-    mkLaunchTemplate,
-    ltLaunchTemplateName,
-    ltLatestVersionNumber,
-    ltLaunchTemplateId,
-    ltCreatedBy,
-    ltDefaultVersionNumber,
-    ltCreateTime,
-    ltTags,
-
-    -- ** LaunchTemplateAndOverridesResponse
-    LaunchTemplateAndOverridesResponse (..),
-    mkLaunchTemplateAndOverridesResponse,
-    ltaoOverrides,
-    ltaoLaunchTemplateSpecification,
-
-    -- ** LaunchTemplateBlockDeviceMapping
-    LaunchTemplateBlockDeviceMapping (..),
-    mkLaunchTemplateBlockDeviceMapping,
-    ltbdmVirtualName,
-    ltbdmNoDevice,
-    ltbdmEBS,
-    ltbdmDeviceName,
-
-    -- ** LaunchTemplateBlockDeviceMappingRequest
-    LaunchTemplateBlockDeviceMappingRequest (..),
-    mkLaunchTemplateBlockDeviceMappingRequest,
-    ltbdmrVirtualName,
-    ltbdmrNoDevice,
-    ltbdmrEBS,
-    ltbdmrDeviceName,
-
-    -- ** LaunchTemplateCPUOptions
-    LaunchTemplateCPUOptions (..),
-    mkLaunchTemplateCPUOptions,
-    ltcoCoreCount,
-    ltcoThreadsPerCore,
-
-    -- ** LaunchTemplateCPUOptionsRequest
-    LaunchTemplateCPUOptionsRequest (..),
-    mkLaunchTemplateCPUOptionsRequest,
-    ltcorCoreCount,
-    ltcorThreadsPerCore,
-
-    -- ** LaunchTemplateCapacityReservationSpecificationRequest
-    LaunchTemplateCapacityReservationSpecificationRequest (..),
-    mkLaunchTemplateCapacityReservationSpecificationRequest,
-    ltcrsrCapacityReservationTarget,
-    ltcrsrCapacityReservationPreference,
-
-    -- ** LaunchTemplateCapacityReservationSpecificationResponse
-    LaunchTemplateCapacityReservationSpecificationResponse (..),
-    mkLaunchTemplateCapacityReservationSpecificationResponse,
-    ltcrsCapacityReservationTarget,
-    ltcrsCapacityReservationPreference,
-
-    -- ** LaunchTemplateConfig
-    LaunchTemplateConfig (..),
-    mkLaunchTemplateConfig,
-    ltcOverrides,
-    ltcLaunchTemplateSpecification,
-
-    -- ** LaunchTemplateEBSBlockDevice
-    LaunchTemplateEBSBlockDevice (..),
-    mkLaunchTemplateEBSBlockDevice,
-    ltebdDeleteOnTermination,
-    ltebdVolumeSize,
-    ltebdIOPS,
-    ltebdEncrypted,
-    ltebdKMSKeyId,
-    ltebdVolumeType,
-    ltebdSnapshotId,
-
-    -- ** LaunchTemplateEBSBlockDeviceRequest
-    LaunchTemplateEBSBlockDeviceRequest (..),
-    mkLaunchTemplateEBSBlockDeviceRequest,
-    ltebdrDeleteOnTermination,
-    ltebdrVolumeSize,
-    ltebdrIOPS,
-    ltebdrEncrypted,
-    ltebdrKMSKeyId,
-    ltebdrVolumeType,
-    ltebdrSnapshotId,
-
-    -- ** LaunchTemplateElasticInferenceAccelerator
-    LaunchTemplateElasticInferenceAccelerator (..),
-    mkLaunchTemplateElasticInferenceAccelerator,
-    lteiaCount,
-    lteiaType,
-
-    -- ** LaunchTemplateElasticInferenceAcceleratorResponse
-    LaunchTemplateElasticInferenceAcceleratorResponse (..),
-    mkLaunchTemplateElasticInferenceAcceleratorResponse,
-    lCount,
-    lType,
-
-    -- ** LaunchTemplateEnclaveOptions
-    LaunchTemplateEnclaveOptions (..),
-    mkLaunchTemplateEnclaveOptions,
-    lteoEnabled,
-
-    -- ** LaunchTemplateEnclaveOptionsRequest
-    LaunchTemplateEnclaveOptionsRequest (..),
-    mkLaunchTemplateEnclaveOptionsRequest,
-    lteorEnabled,
-
-    -- ** LaunchTemplateHibernationOptions
-    LaunchTemplateHibernationOptions (..),
-    mkLaunchTemplateHibernationOptions,
-    lthoConfigured,
-
-    -- ** LaunchTemplateHibernationOptionsRequest
-    LaunchTemplateHibernationOptionsRequest (..),
-    mkLaunchTemplateHibernationOptionsRequest,
-    lthorConfigured,
-
-    -- ** LaunchTemplateIAMInstanceProfileSpecification
-    LaunchTemplateIAMInstanceProfileSpecification (..),
-    mkLaunchTemplateIAMInstanceProfileSpecification,
-    ltiapsARN,
-    ltiapsName,
-
-    -- ** LaunchTemplateIAMInstanceProfileSpecificationRequest
-    LaunchTemplateIAMInstanceProfileSpecificationRequest (..),
-    mkLaunchTemplateIAMInstanceProfileSpecificationRequest,
-    ltiapsrARN,
-    ltiapsrName,
-
-    -- ** LaunchTemplateInstanceMarketOptions
-    LaunchTemplateInstanceMarketOptions (..),
-    mkLaunchTemplateInstanceMarketOptions,
-    ltimoMarketType,
-    ltimoSpotOptions,
-
-    -- ** LaunchTemplateInstanceMarketOptionsRequest
-    LaunchTemplateInstanceMarketOptionsRequest (..),
-    mkLaunchTemplateInstanceMarketOptionsRequest,
-    ltimorMarketType,
-    ltimorSpotOptions,
-
-    -- ** LaunchTemplateInstanceMetadataOptions
-    LaunchTemplateInstanceMetadataOptions (..),
-    mkLaunchTemplateInstanceMetadataOptions,
-    ltimoState,
-    ltimoHTTPEndpoint,
-    ltimoHTTPPutResponseHopLimit,
-    ltimoHTTPTokens,
-
-    -- ** LaunchTemplateInstanceMetadataOptionsRequest
-    LaunchTemplateInstanceMetadataOptionsRequest (..),
-    mkLaunchTemplateInstanceMetadataOptionsRequest,
-    ltimorHTTPEndpoint,
-    ltimorHTTPPutResponseHopLimit,
-    ltimorHTTPTokens,
-
-    -- ** LaunchTemplateInstanceNetworkInterfaceSpecification
-    LaunchTemplateInstanceNetworkInterfaceSpecification (..),
-    mkLaunchTemplateInstanceNetworkInterfaceSpecification,
-    ltinisGroups,
-    ltinisPrivateIPAddresses,
-    ltinisDeleteOnTermination,
-    ltinisAssociateCarrierIPAddress,
-    ltinisAssociatePublicIPAddress,
-    ltinisInterfaceType,
-    ltinisNetworkInterfaceId,
-    ltinisSubnetId,
-    ltinisIPv6AddressCount,
-    ltinisNetworkCardIndex,
-    ltinisPrivateIPAddress,
-    ltinisSecondaryPrivateIPAddressCount,
-    ltinisDescription,
-    ltinisDeviceIndex,
-    ltinisIPv6Addresses,
-
-    -- ** LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
-    LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (..),
-    mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
-    ltinisrGroups,
-    ltinisrPrivateIPAddresses,
-    ltinisrDeleteOnTermination,
-    ltinisrAssociateCarrierIPAddress,
-    ltinisrAssociatePublicIPAddress,
-    ltinisrInterfaceType,
-    ltinisrNetworkInterfaceId,
-    ltinisrSubnetId,
-    ltinisrIPv6AddressCount,
-    ltinisrNetworkCardIndex,
-    ltinisrPrivateIPAddress,
-    ltinisrSecondaryPrivateIPAddressCount,
-    ltinisrDescription,
-    ltinisrDeviceIndex,
-    ltinisrIPv6Addresses,
-
-    -- ** LaunchTemplateLicenseConfiguration
-    LaunchTemplateLicenseConfiguration (..),
-    mkLaunchTemplateLicenseConfiguration,
-    ltlcLicenseConfigurationARN,
-
-    -- ** LaunchTemplateLicenseConfigurationRequest
-    LaunchTemplateLicenseConfigurationRequest (..),
-    mkLaunchTemplateLicenseConfigurationRequest,
-    ltlcrLicenseConfigurationARN,
-
-    -- ** LaunchTemplateOverrides
-    LaunchTemplateOverrides (..),
-    mkLaunchTemplateOverrides,
-    ltoPriority,
-    ltoSpotPrice,
-    ltoWeightedCapacity,
-    ltoSubnetId,
-    ltoInstanceType,
-    ltoAvailabilityZone,
-
-    -- ** LaunchTemplatePlacement
-    LaunchTemplatePlacement (..),
-    mkLaunchTemplatePlacement,
-    ltpAffinity,
-    ltpHostId,
-    ltpPartitionNumber,
-    ltpSpreadDomain,
-    ltpAvailabilityZone,
-    ltpTenancy,
-    ltpGroupName,
-    ltpHostResourceGroupARN,
-
-    -- ** LaunchTemplatePlacementRequest
-    LaunchTemplatePlacementRequest (..),
-    mkLaunchTemplatePlacementRequest,
-    ltprAffinity,
-    ltprHostId,
-    ltprPartitionNumber,
-    ltprSpreadDomain,
-    ltprAvailabilityZone,
-    ltprTenancy,
-    ltprGroupName,
-    ltprHostResourceGroupARN,
-
-    -- ** LaunchTemplateSpecification
-    LaunchTemplateSpecification (..),
-    mkLaunchTemplateSpecification,
-    ltsLaunchTemplateName,
-    ltsLaunchTemplateId,
-    ltsVersion,
-
-    -- ** LaunchTemplateSpotMarketOptions
-    LaunchTemplateSpotMarketOptions (..),
-    mkLaunchTemplateSpotMarketOptions,
-    ltsmoBlockDurationMinutes,
-    ltsmoInstanceInterruptionBehavior,
-    ltsmoValidUntil,
-    ltsmoSpotInstanceType,
-    ltsmoMaxPrice,
-
-    -- ** LaunchTemplateSpotMarketOptionsRequest
-    LaunchTemplateSpotMarketOptionsRequest (..),
-    mkLaunchTemplateSpotMarketOptionsRequest,
-    ltsmorBlockDurationMinutes,
-    ltsmorInstanceInterruptionBehavior,
-    ltsmorValidUntil,
-    ltsmorSpotInstanceType,
-    ltsmorMaxPrice,
-
-    -- ** LaunchTemplateTagSpecification
-    LaunchTemplateTagSpecification (..),
-    mkLaunchTemplateTagSpecification,
-    lttsResourceType,
-    lttsTags,
-
-    -- ** LaunchTemplateTagSpecificationRequest
-    LaunchTemplateTagSpecificationRequest (..),
-    mkLaunchTemplateTagSpecificationRequest,
-    lttsrResourceType,
-    lttsrTags,
-
-    -- ** LaunchTemplateVersion
-    LaunchTemplateVersion (..),
-    mkLaunchTemplateVersion,
-    ltvLaunchTemplateName,
-    ltvLaunchTemplateId,
-    ltvCreatedBy,
-    ltvDefaultVersion,
-    ltvVersionNumber,
-    ltvVersionDescription,
-    ltvLaunchTemplateData,
-    ltvCreateTime,
-
-    -- ** LaunchTemplatesMonitoring
-    LaunchTemplatesMonitoring (..),
-    mkLaunchTemplatesMonitoring,
-    ltmEnabled,
-
-    -- ** LaunchTemplatesMonitoringRequest
-    LaunchTemplatesMonitoringRequest (..),
-    mkLaunchTemplatesMonitoringRequest,
-    ltmrEnabled,
-
-    -- ** LicenseConfiguration
-    LicenseConfiguration (..),
-    mkLicenseConfiguration,
-    lcLicenseConfigurationARN,
-
-    -- ** LicenseConfigurationRequest
-    LicenseConfigurationRequest (..),
-    mkLicenseConfigurationRequest,
-    lcrLicenseConfigurationARN,
-
-    -- ** LoadBalancersConfig
-    LoadBalancersConfig (..),
-    mkLoadBalancersConfig,
-    lbcClassicLoadBalancersConfig,
-    lbcTargetGroupsConfig,
-
-    -- ** LoadPermission
-    LoadPermission (..),
-    mkLoadPermission,
-    lpGroup,
-    lpUserId,
-
-    -- ** LoadPermissionModifications
-    LoadPermissionModifications (..),
-    mkLoadPermissionModifications,
-    lRemove,
-    lAdd,
-
-    -- ** LoadPermissionRequest
-    LoadPermissionRequest (..),
-    mkLoadPermissionRequest,
-    lprGroup,
-    lprUserId,
-
-    -- ** LocalGateway
-    LocalGateway (..),
-    mkLocalGateway,
-    lgState,
-    lgLocalGatewayId,
-    lgOutpostARN,
-    lgOwnerId,
-    lgTags,
-
-    -- ** LocalGatewayRoute
-    LocalGatewayRoute (..),
-    mkLocalGatewayRoute,
-    lgrState,
-    lgrLocalGatewayRouteTableARN,
-    lgrOwnerId,
-    lgrLocalGatewayRouteTableId,
-    lgrType,
-    lgrLocalGatewayVirtualInterfaceGroupId,
-    lgrDestinationCidrBlock,
-
-    -- ** LocalGatewayRouteTable
-    LocalGatewayRouteTable (..),
-    mkLocalGatewayRouteTable,
-    lgrtState,
-    lgrtLocalGatewayRouteTableARN,
-    lgrtLocalGatewayId,
-    lgrtOutpostARN,
-    lgrtOwnerId,
-    lgrtLocalGatewayRouteTableId,
-    lgrtTags,
-
-    -- ** LocalGatewayRouteTableVPCAssociation
-    LocalGatewayRouteTableVPCAssociation (..),
-    mkLocalGatewayRouteTableVPCAssociation,
-    lgrtvaState,
-    lgrtvaLocalGatewayRouteTableARN,
-    lgrtvaVPCId,
-    lgrtvaLocalGatewayId,
-    lgrtvaLocalGatewayRouteTableVPCAssociationId,
-    lgrtvaOwnerId,
-    lgrtvaLocalGatewayRouteTableId,
-    lgrtvaTags,
-
-    -- ** LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociation (..),
-    mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-    lgrtvigaState,
-    lgrtvigaLocalGatewayRouteTableARN,
-    lgrtvigaLocalGatewayId,
-    lgrtvigaOwnerId,
-    lgrtvigaLocalGatewayRouteTableId,
-    lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId,
-    lgrtvigaLocalGatewayVirtualInterfaceGroupId,
-    lgrtvigaTags,
-
-    -- ** LocalGatewayVirtualInterface
-    LocalGatewayVirtualInterface (..),
-    mkLocalGatewayVirtualInterface,
-    lgviLocalGatewayVirtualInterfaceId,
-    lgviLocalBGPASN,
-    lgviVLAN,
-    lgviLocalGatewayId,
-    lgviLocalAddress,
-    lgviPeerBGPASN,
-    lgviOwnerId,
-    lgviPeerAddress,
-    lgviTags,
-
-    -- ** LocalGatewayVirtualInterfaceGroup
-    LocalGatewayVirtualInterfaceGroup (..),
-    mkLocalGatewayVirtualInterfaceGroup,
-    lgvigLocalGatewayId,
-    lgvigOwnerId,
-    lgvigLocalGatewayVirtualInterfaceIds,
-    lgvigLocalGatewayVirtualInterfaceGroupId,
-    lgvigTags,
-
-    -- ** ManagedPrefixList
-    ManagedPrefixList (..),
-    mkManagedPrefixList,
-    mplStateMessage,
-    mplState,
-    mplPrefixListARN,
-    mplAddressFamily,
-    mplOwnerId,
-    mplPrefixListId,
-    mplVersion,
-    mplPrefixListName,
-    mplMaxEntries,
-    mplTags,
-
-    -- ** MemoryInfo
-    MemoryInfo (..),
-    mkMemoryInfo,
-    miSizeInMiB,
-
-    -- ** ModifyTransitGatewayOptions
-    ModifyTransitGatewayOptions (..),
-    mkModifyTransitGatewayOptions,
-    mtgoVPNEcmpSupport,
-    mtgoAutoAcceptSharedAttachments,
-    mtgoPropagationDefaultRouteTableId,
-    mtgoDefaultRouteTableAssociation,
-    mtgoAssociationDefaultRouteTableId,
-    mtgoDefaultRouteTablePropagation,
-    mtgoDNSSupport,
-
-    -- ** ModifyTransitGatewayVPCAttachmentRequestOptions
-    ModifyTransitGatewayVPCAttachmentRequestOptions (..),
-    mkModifyTransitGatewayVPCAttachmentRequestOptions,
-    mtgvaroIPv6Support,
-    mtgvaroApplianceModeSupport,
-    mtgvaroDNSSupport,
-
-    -- ** ModifyVPNTunnelOptionsSpecification
-    ModifyVPNTunnelOptionsSpecification (..),
-    mkModifyVPNTunnelOptionsSpecification,
-    mvtosReplayWindowSize,
-    mvtosDPDTimeoutAction,
-    mvtosRekeyFuzzPercentage,
-    mvtosPhase1LifetimeSeconds,
-    mvtosIKEVersions,
-    mvtosPhase2IntegrityAlgorithms,
-    mvtosPhase2LifetimeSeconds,
-    mvtosPhase1EncryptionAlgorithms,
-    mvtosPhase1DHGroupNumbers,
-    mvtosPhase1IntegrityAlgorithms,
-    mvtosRekeyMarginTimeSeconds,
-    mvtosDPDTimeoutSeconds,
-    mvtosTunnelInsideCidr,
-    mvtosStartupAction,
-    mvtosPhase2EncryptionAlgorithms,
-    mvtosPhase2DHGroupNumbers,
-    mvtosPreSharedKey,
-    mvtosTunnelInsideIPv6Cidr,
-
-    -- ** Monitoring
-    Monitoring (..),
-    mkMonitoring,
-    mState,
-
-    -- ** MovingAddressStatus
-    MovingAddressStatus (..),
-    mkMovingAddressStatus,
-    masMoveStatus,
-    masPublicIP,
-
-    -- ** NatGateway
-    NatGateway (..),
-    mkNatGateway,
-    ngState,
-    ngFailureCode,
-    ngVPCId,
-    ngFailureMessage,
-    ngNatGatewayId,
-    ngSubnetId,
-    ngDeleteTime,
-    ngProvisionedBandwidth,
-    ngNatGatewayAddresses,
-    ngCreateTime,
-    ngTags,
-
-    -- ** NatGatewayAddress
-    NatGatewayAddress (..),
-    mkNatGatewayAddress,
-    ngaPrivateIP,
-    ngaAllocationId,
-    ngaNetworkInterfaceId,
-    ngaPublicIP,
-
-    -- ** NetworkACL
-    NetworkACL (..),
-    mkNetworkACL,
-    naEntries,
-    naNetworkACLId,
-    naVPCId,
-    naOwnerId,
-    naAssociations,
-    naTags,
-    naIsDefault,
-
-    -- ** NetworkACLAssociation
-    NetworkACLAssociation (..),
-    mkNetworkACLAssociation,
-    naaNetworkACLId,
-    naaSubnetId,
-    naaNetworkACLAssociationId,
-
-    -- ** NetworkACLEntry
-    NetworkACLEntry (..),
-    mkNetworkACLEntry,
-    naeIPv6CidrBlock,
-    naeICMPTypeCode,
-    naeRuleNumber,
-    naeRuleAction,
-    naeProtocol,
-    naePortRange,
-    naeCidrBlock,
-    naeEgress,
-
-    -- ** NetworkCardInfo
-    NetworkCardInfo (..),
-    mkNetworkCardInfo,
-    nciMaximumNetworkInterfaces,
-    nciNetworkPerformance,
-    nciNetworkCardIndex,
-
-    -- ** NetworkInfo
-    NetworkInfo (..),
-    mkNetworkInfo,
-    niEfaSupported,
-    niIPv6Supported,
-    niEnaSupport,
-    niMaximumNetworkInterfaces,
-    niIPv6AddressesPerInterface,
-    niNetworkPerformance,
-    niMaximumNetworkCards,
-    niNetworkCards,
-    niDefaultNetworkCardIndex,
-    niIPv4AddressesPerInterface,
-
-    -- ** NetworkInterface
-    NetworkInterface (..),
-    mkNetworkInterface,
-    niGroups,
-    niStatus,
-    niPrivateIPAddresses,
-    niSourceDestCheck,
-    niInterfaceType,
-    niVPCId,
-    niTagSet,
-    niRequesterManaged,
-    niOutpostARN,
-    niNetworkInterfaceId,
-    niSubnetId,
-    niMACAddress,
-    niAttachment,
-    niOwnerId,
-    niAvailabilityZone,
-    niPrivateIPAddress,
-    niPrivateDNSName,
-    niRequesterId,
-    niDescription,
-    niAssociation,
-    niIPv6Addresses,
-
-    -- ** NetworkInterfaceAssociation
-    NetworkInterfaceAssociation (..),
-    mkNetworkInterfaceAssociation,
-    niaAssociationId,
-    niaPublicDNSName,
-    niaAllocationId,
-    niaCarrierIP,
-    niaIPOwnerId,
-    niaCustomerOwnedIP,
-    niaPublicIP,
-
-    -- ** NetworkInterfaceAttachment
-    NetworkInterfaceAttachment (..),
-    mkNetworkInterfaceAttachment,
-    niaInstanceId,
-    niaStatus,
-    niaDeleteOnTermination,
-    niaAttachmentId,
-    niaNetworkCardIndex,
-    niaInstanceOwnerId,
-    niaAttachTime,
-    niaDeviceIndex,
-
-    -- ** NetworkInterfaceAttachmentChanges
-    NetworkInterfaceAttachmentChanges (..),
-    mkNetworkInterfaceAttachmentChanges,
-    niacDeleteOnTermination,
-    niacAttachmentId,
-
-    -- ** NetworkInterfaceIPv6Address
-    NetworkInterfaceIPv6Address (..),
-    mkNetworkInterfaceIPv6Address,
-    niiaIPv6Address,
-
-    -- ** NetworkInterfacePermission
-    NetworkInterfacePermission (..),
-    mkNetworkInterfacePermission,
-    nipPermissionState,
-    nipNetworkInterfacePermissionId,
-    nipNetworkInterfaceId,
-    nipAWSAccountId,
-    nipAWSService,
-    nipPermission,
-
-    -- ** NetworkInterfacePermissionState
-    NetworkInterfacePermissionState (..),
-    mkNetworkInterfacePermissionState,
-    nipsState,
-    nipsStatusMessage,
-
-    -- ** NetworkInterfacePrivateIPAddress
-    NetworkInterfacePrivateIPAddress (..),
-    mkNetworkInterfacePrivateIPAddress,
-    nipiaPrimary,
-    nipiaPrivateIPAddress,
-    nipiaPrivateDNSName,
-    nipiaAssociation,
-
-    -- ** NewDHCPConfiguration
-    NewDHCPConfiguration (..),
-    mkNewDHCPConfiguration,
-    ndcValues,
-    ndcKey,
-
-    -- ** OnDemandOptions
-    OnDemandOptions (..),
-    mkOnDemandOptions,
-    odoCapacityReservationOptions,
-    odoSingleAvailabilityZone,
-    odoMaxTotalPrice,
-    odoMinTargetCapacity,
-    odoSingleInstanceType,
-    odoAllocationStrategy,
-
-    -- ** OnDemandOptionsRequest
-    OnDemandOptionsRequest (..),
-    mkOnDemandOptionsRequest,
-    odorCapacityReservationOptions,
-    odorSingleAvailabilityZone,
-    odorMaxTotalPrice,
-    odorMinTargetCapacity,
-    odorSingleInstanceType,
-    odorAllocationStrategy,
-
-    -- ** PciId
-    PciId (..),
-    mkPciId,
-    piSubsystemId,
-    piDeviceId,
-    piSubsystemVendorId,
-    piVendorId,
-
-    -- ** PeeringAttachmentStatus
-    PeeringAttachmentStatus (..),
-    mkPeeringAttachmentStatus,
-    pasCode,
-    pasMessage,
-
-    -- ** PeeringConnectionOptions
-    PeeringConnectionOptions (..),
-    mkPeeringConnectionOptions,
-    pcoAllowEgressFromLocalVPCToRemoteClassicLink,
-    pcoAllowEgressFromLocalClassicLinkToRemoteVPC,
-    pcoAllowDNSResolutionFromRemoteVPC,
-
-    -- ** PeeringConnectionOptionsRequest
-    PeeringConnectionOptionsRequest (..),
-    mkPeeringConnectionOptionsRequest,
-    pcorAllowEgressFromLocalVPCToRemoteClassicLink,
-    pcorAllowEgressFromLocalClassicLinkToRemoteVPC,
-    pcorAllowDNSResolutionFromRemoteVPC,
-
-    -- ** PeeringTgwInfo
-    PeeringTgwInfo (..),
-    mkPeeringTgwInfo,
-    ptiOwnerId,
-    ptiTransitGatewayId,
-    ptiRegion,
-
-    -- ** Phase1DHGroupNumbersListValue
-    Phase1DHGroupNumbersListValue (..),
-    mkPhase1DHGroupNumbersListValue,
-    pdhgnlvValue,
-
-    -- ** Phase1DHGroupNumbersRequestListValue
-    Phase1DHGroupNumbersRequestListValue (..),
-    mkPhase1DHGroupNumbersRequestListValue,
-    pdhgnrlvValue,
-
-    -- ** Phase1EncryptionAlgorithmsListValue
-    Phase1EncryptionAlgorithmsListValue (..),
-    mkPhase1EncryptionAlgorithmsListValue,
-    pealvfValue,
-
-    -- ** Phase1EncryptionAlgorithmsRequestListValue
-    Phase1EncryptionAlgorithmsRequestListValue (..),
-    mkPhase1EncryptionAlgorithmsRequestListValue,
-    pearlvValue,
-
-    -- ** Phase1IntegrityAlgorithmsListValue
-    Phase1IntegrityAlgorithmsListValue (..),
-    mkPhase1IntegrityAlgorithmsListValue,
-    pialvValue,
-
-    -- ** Phase1IntegrityAlgorithmsRequestListValue
-    Phase1IntegrityAlgorithmsRequestListValue (..),
-    mkPhase1IntegrityAlgorithmsRequestListValue,
-    piarlvfValue,
-
-    -- ** Phase2DHGroupNumbersListValue
-    Phase2DHGroupNumbersListValue (..),
-    mkPhase2DHGroupNumbersListValue,
-    pValue,
-
-    -- ** Phase2DHGroupNumbersRequestListValue
-    Phase2DHGroupNumbersRequestListValue (..),
-    mkPhase2DHGroupNumbersRequestListValue,
-    pdhgnrlvfValue,
-
-    -- ** Phase2EncryptionAlgorithmsListValue
-    Phase2EncryptionAlgorithmsListValue (..),
-    mkPhase2EncryptionAlgorithmsListValue,
-    pealvValue,
-
-    -- ** Phase2EncryptionAlgorithmsRequestListValue
-    Phase2EncryptionAlgorithmsRequestListValue (..),
-    mkPhase2EncryptionAlgorithmsRequestListValue,
-    pearlvfValue,
-
-    -- ** Phase2IntegrityAlgorithmsListValue
-    Phase2IntegrityAlgorithmsListValue (..),
-    mkPhase2IntegrityAlgorithmsListValue,
-    pialvfValue,
-
-    -- ** Phase2IntegrityAlgorithmsRequestListValue
-    Phase2IntegrityAlgorithmsRequestListValue (..),
-    mkPhase2IntegrityAlgorithmsRequestListValue,
-    piarlvValue,
-
-    -- ** Placement
-    Placement (..),
-    mkPlacement,
-    pfAffinity,
-    pfHostId,
-    pfPartitionNumber,
-    pfSpreadDomain,
-    pfAvailabilityZone,
-    pfTenancy,
-    pfGroupName,
-    pfHostResourceGroupARN,
-
-    -- ** PlacementGroup
-    PlacementGroup (..),
-    mkPlacementGroup,
-    pgState,
-    pgStrategy,
-    pgGroupId,
-    pgGroupName,
-    pgPartitionCount,
-    pgTags,
-
-    -- ** PlacementGroupInfo
-    PlacementGroupInfo (..),
-    mkPlacementGroupInfo,
-    pgiSupportedStrategies,
-
-    -- ** PlacementResponse
-    PlacementResponse (..),
-    mkPlacementResponse,
-    pGroupName,
-
-    -- ** PoolCidrBlock
-    PoolCidrBlock (..),
-    mkPoolCidrBlock,
-    pcbCidr,
-
-    -- ** PortRange
-    PortRange (..),
-    mkPortRange,
-    prTo,
-    prFrom,
-
-    -- ** PrefixList
-    PrefixList (..),
-    mkPrefixList,
-    plCidrs,
-    plPrefixListId,
-    plPrefixListName,
-
-    -- ** PrefixListAssociation
-    PrefixListAssociation (..),
-    mkPrefixListAssociation,
-    plaResourceId,
-    plaResourceOwner,
-
-    -- ** PrefixListEntry
-    PrefixListEntry (..),
-    mkPrefixListEntry,
-    pleCidr,
-    pleDescription,
-
-    -- ** PrefixListId
-    PrefixListId (..),
-    mkPrefixListId,
-    pliPrefixListId,
-    pliDescription,
-
-    -- ** PriceSchedule
-    PriceSchedule (..),
-    mkPriceSchedule,
-    psCurrencyCode,
-    psTerm,
-    psActive,
-    psPrice,
-
-    -- ** PriceScheduleSpecification
-    PriceScheduleSpecification (..),
-    mkPriceScheduleSpecification,
-    pssCurrencyCode,
-    pssTerm,
-    pssPrice,
-
-    -- ** PricingDetail
-    PricingDetail (..),
-    mkPricingDetail,
-    pdCount,
-    pdPrice,
+    -- ** ImageAttributeName
+    ImageAttributeName (..),
+
+    -- ** VpcPeeringConnectionId
+    VpcPeeringConnectionId (..),
+
+    -- ** FleetLaunchTemplateOverrides
+    FleetLaunchTemplateOverrides (..),
+    mkFleetLaunchTemplateOverrides,
+    fltoAvailabilityZone,
+    fltoInstanceType,
+    fltoMaxPrice,
+    fltoPlacement,
+    fltoPriority,
+    fltoSubnetId,
+    fltoWeightedCapacity,
+
+    -- ** ExportTaskS3Location
+    ExportTaskS3Location (..),
+    mkExportTaskS3Location,
+    etslS3Bucket,
+    etslS3Prefix,
 
     -- ** PrincipalIdFormat
     PrincipalIdFormat (..),
     mkPrincipalIdFormat,
-    pifARN,
+    pifArn,
     pifStatuses,
 
-    -- ** PrivateDNSDetails
-    PrivateDNSDetails (..),
-    mkPrivateDNSDetails,
-    pddPrivateDNSName,
+    -- ** Ipv6CidrBlock
+    Ipv6CidrBlock (..),
+    mkIpv6CidrBlock,
+    icbIpv6CidrBlock,
 
-    -- ** PrivateDNSNameConfiguration
-    PrivateDNSNameConfiguration (..),
-    mkPrivateDNSNameConfiguration,
-    pdncState,
-    pdncValue,
-    pdncName,
-    pdncType,
+    -- ** PermissionGroup
+    PermissionGroup (..),
 
-    -- ** PrivateIPAddressSpecification
-    PrivateIPAddressSpecification (..),
-    mkPrivateIPAddressSpecification,
-    piasPrimary,
-    piasPrivateIPAddress,
+    -- ** MarketType
+    MarketType (..),
 
-    -- ** ProcessorInfo
-    ProcessorInfo (..),
-    mkProcessorInfo,
-    piSupportedArchitectures,
-    piSustainedClockSpeedInGhz,
+    -- ** LocalGatewayVirtualInterfaceId
+    LocalGatewayVirtualInterfaceId (..),
 
-    -- ** ProductCode
-    ProductCode (..),
-    mkProductCode,
-    pcProductCodeType,
-    pcProductCodeId,
-
-    -- ** PropagatingVGW
-    PropagatingVGW (..),
-    mkPropagatingVGW,
-    pvGatewayId,
-
-    -- ** ProvisionedBandwidth
-    ProvisionedBandwidth (..),
-    mkProvisionedBandwidth,
-    pbStatus,
-    pbRequested,
-    pbProvisioned,
-    pbRequestTime,
-    pbProvisionTime,
-
-    -- ** PublicIPv4Pool
-    PublicIPv4Pool (..),
-    mkPublicIPv4Pool,
-    pipTotalAddressCount,
-    pipNetworkBorderGroup,
-    pipTotalAvailableAddressCount,
-    pipPoolAddressRanges,
-    pipPoolId,
-    pipDescription,
-    pipTags,
-
-    -- ** PublicIPv4PoolRange
-    PublicIPv4PoolRange (..),
-    mkPublicIPv4PoolRange,
-    piprAvailableAddressCount,
-    piprLastAddress,
-    piprFirstAddress,
-    piprAddressCount,
-
-    -- ** Purchase
-    Purchase (..),
-    mkPurchase,
-    pInstanceFamily,
-    pCurrencyCode,
-    pHostReservationId,
-    pHourlyPrice,
-    pUpfrontPrice,
-    pHostIdSet,
-    pDuration,
-    pPaymentOption,
-
-    -- ** PurchaseRequest
-    PurchaseRequest (..),
-    mkPurchaseRequest,
-    prInstanceCount,
-    prPurchaseToken,
-
-    -- ** RecurringCharge
-    RecurringCharge (..),
-    mkRecurringCharge,
-    rcAmount,
-    rcFrequency,
-
-    -- ** RegionInfo
-    RegionInfo (..),
-    mkRegionInfo,
-    riRegionName,
-    riOptInStatus,
-    riEndpoint,
-
-    -- ** RegisterInstanceTagAttributeRequest
-    RegisterInstanceTagAttributeRequest (..),
-    mkRegisterInstanceTagAttributeRequest,
-    ritarIncludeAllTagsOfInstance,
-    ritarInstanceTagKeys,
-
-    -- ** RemovePrefixListEntry
-    RemovePrefixListEntry (..),
-    mkRemovePrefixListEntry,
-    rpleCidr,
-
-    -- ** RequestLaunchTemplateData
-    RequestLaunchTemplateData (..),
-    mkRequestLaunchTemplateData,
-    rltdSecurityGroupIds,
-    rltdSecurityGroups,
-    rltdElasticInferenceAccelerators,
-    rltdInstanceMarketOptions,
-    rltdLicenseSpecifications,
-    rltdDisableAPITermination,
-    rltdKeyName,
-    rltdNetworkInterfaces,
-    rltdEnclaveOptions,
-    rltdCPUOptions,
-    rltdRamDiskId,
-    rltdKernelId,
-    rltdElasticGpuSpecifications,
-    rltdInstanceType,
-    rltdCapacityReservationSpecification,
-    rltdEBSOptimized,
-    rltdUserData,
-    rltdMonitoring,
-    rltdTagSpecifications,
-    rltdHibernationOptions,
-    rltdIAMInstanceProfile,
-    rltdImageId,
-    rltdInstanceInitiatedShutdownBehavior,
-    rltdMetadataOptions,
-    rltdCreditSpecification,
-    rltdBlockDeviceMappings,
-    rltdPlacement,
-
-    -- ** RequestSpotLaunchSpecification
-    RequestSpotLaunchSpecification (..),
-    mkRequestSpotLaunchSpecification,
-    rslsSecurityGroupIds,
-    rslsSecurityGroups,
-    rslsKeyName,
-    rslsNetworkInterfaces,
-    rslsRAMDiskId,
-    rslsSubnetId,
-    rslsKernelId,
-    rslsInstanceType,
-    rslsEBSOptimized,
-    rslsUserData,
-    rslsMonitoring,
-    rslsIAMInstanceProfile,
-    rslsImageId,
-    rslsAddressingType,
-    rslsBlockDeviceMappings,
-    rslsPlacement,
-
-    -- ** Reservation
-    Reservation (..),
-    mkReservation,
-    rGroups,
-    rOwnerId,
-    rInstances,
-    rReservationId,
-    rRequesterId,
-
-    -- ** ReservationValue
-    ReservationValue (..),
-    mkReservationValue,
-    rvHourlyPrice,
-    rvRemainingTotalValue,
-    rvRemainingUpfrontValue,
-
-    -- ** ReservedInstanceLimitPrice
-    ReservedInstanceLimitPrice (..),
-    mkReservedInstanceLimitPrice,
-    rilpAmount,
-    rilpCurrencyCode,
-
-    -- ** ReservedInstanceReservationValue
-    ReservedInstanceReservationValue (..),
-    mkReservedInstanceReservationValue,
-    rirvReservationValue,
-    rirvReservedInstanceId,
-
-    -- ** ReservedInstances
-    ReservedInstances (..),
-    mkReservedInstances,
-    riState,
-    riCurrencyCode,
-    riInstanceCount,
-    riProductDescription,
-    riStart,
-    riInstanceType,
-    riEnd,
-    riAvailabilityZone,
-    riScope,
-    riRecurringCharges,
-    riOfferingType,
-    riUsagePrice,
-    riFixedPrice,
-    riReservedInstancesId,
-    riInstanceTenancy,
-    riOfferingClass,
-    riDuration,
-    riTags,
-
-    -- ** ReservedInstancesConfiguration
-    ReservedInstancesConfiguration (..),
-    mkReservedInstancesConfiguration,
-    ricPlatform,
-    ricInstanceCount,
-    ricInstanceType,
-    ricAvailabilityZone,
-    ricScope,
-
-    -- ** ReservedInstancesId
-    ReservedInstancesId (..),
-    mkReservedInstancesId,
-    riiReservedInstancesId,
-
-    -- ** ReservedInstancesListing
-    ReservedInstancesListing (..),
-    mkReservedInstancesListing,
-    rilStatus,
-    rilClientToken,
-    rilUpdateDate,
-    rilCreateDate,
-    rilPriceSchedules,
-    rilStatusMessage,
-    rilReservedInstancesId,
-    rilTags,
-    rilInstanceCounts,
-    rilReservedInstancesListingId,
-
-    -- ** ReservedInstancesModification
-    ReservedInstancesModification (..),
-    mkReservedInstancesModification,
-    rimModificationResults,
-    rimStatus,
-    rimClientToken,
-    rimUpdateDate,
-    rimCreateDate,
-    rimEffectiveDate,
-    rimStatusMessage,
-    rimReservedInstancesModificationId,
-    rimReservedInstancesIds,
-
-    -- ** ReservedInstancesModificationResult
-    ReservedInstancesModificationResult (..),
-    mkReservedInstancesModificationResult,
-    rimrReservedInstancesId,
-    rimrTargetConfiguration,
-
-    -- ** ReservedInstancesOffering
-    ReservedInstancesOffering (..),
-    mkReservedInstancesOffering,
-    rioMarketplace,
-    rioCurrencyCode,
-    rioProductDescription,
-    rioInstanceType,
-    rioAvailabilityZone,
-    rioPricingDetails,
-    rioScope,
-    rioRecurringCharges,
-    rioOfferingType,
-    rioUsagePrice,
-    rioFixedPrice,
-    rioInstanceTenancy,
-    rioReservedInstancesOfferingId,
-    rioOfferingClass,
-    rioDuration,
-
-    -- ** ResponseError
-    ResponseError (..),
-    mkResponseError,
-    reCode,
-    reMessage,
-
-    -- ** ResponseLaunchTemplateData
-    ResponseLaunchTemplateData (..),
-    mkResponseLaunchTemplateData,
-    rSecurityGroupIds,
-    rSecurityGroups,
-    rElasticInferenceAccelerators,
-    rInstanceMarketOptions,
-    rLicenseSpecifications,
-    rDisableAPITermination,
-    rKeyName,
-    rNetworkInterfaces,
-    rEnclaveOptions,
-    rCPUOptions,
-    rRamDiskId,
-    rKernelId,
-    rElasticGpuSpecifications,
-    rInstanceType,
-    rCapacityReservationSpecification,
-    rEBSOptimized,
-    rUserData,
-    rMonitoring,
-    rTagSpecifications,
-    rHibernationOptions,
-    rIAMInstanceProfile,
-    rImageId,
-    rInstanceInitiatedShutdownBehavior,
-    rMetadataOptions,
-    rCreditSpecification,
-    rBlockDeviceMappings,
-    rPlacement,
-
-    -- ** Route
-    Route (..),
-    mkRoute,
-    rVPCPeeringConnectionId,
-    rInstanceId,
-    rOrigin,
-    rState,
-    rEgressOnlyInternetGatewayId,
-    rDestinationIPv6CidrBlock,
-    rLocalGatewayId,
-    rNatGatewayId,
-    rNetworkInterfaceId,
-    rTransitGatewayId,
-    rGatewayId,
-    rInstanceOwnerId,
-    rDestinationPrefixListId,
-    rCarrierGatewayId,
-    rDestinationCidrBlock,
-
-    -- ** RouteTable
-    RouteTable (..),
-    mkRouteTable,
-    rtRouteTableId,
-    rtRoutes,
-    rtVPCId,
-    rtPropagatingVGWs,
-    rtOwnerId,
-    rtAssociations,
-    rtTags,
-
-    -- ** RouteTableAssociation
-    RouteTableAssociation (..),
-    mkRouteTableAssociation,
-    rtaRouteTableId,
-    rtaRouteTableAssociationId,
-    rtaMain,
-    rtaSubnetId,
-    rtaGatewayId,
-    rtaAssociationState,
-
-    -- ** RouteTableAssociationState
-    RouteTableAssociationState (..),
-    mkRouteTableAssociationState,
-    rtasState,
-    rtasStatusMessage,
-
-    -- ** RunInstancesMonitoringEnabled
-    RunInstancesMonitoringEnabled (..),
-    mkRunInstancesMonitoringEnabled,
-    rimeEnabled,
-
-    -- ** S3Storage
-    S3Storage (..),
-    mkS3Storage,
-    ssPrefix,
-    ssUploadPolicy,
-    ssBucket,
-    ssUploadPolicySignature,
-    ssAWSAccessKeyId,
-
-    -- ** ScheduledInstance
-    ScheduledInstance (..),
-    mkScheduledInstance,
-    siPreviousSlotEndTime,
-    siPlatform,
-    siTermStartDate,
-    siInstanceCount,
-    siScheduledInstanceId,
-    siHourlyPrice,
-    siCreateDate,
-    siSlotDurationInHours,
-    siTotalScheduledInstanceHours,
-    siInstanceType,
-    siRecurrence,
-    siAvailabilityZone,
-    siTermEndDate,
-    siNextSlotStartTime,
-    siNetworkPlatform,
-
-    -- ** ScheduledInstanceAvailability
-    ScheduledInstanceAvailability (..),
-    mkScheduledInstanceAvailability,
-    siaMaxTermDurationInDays,
-    siaPlatform,
-    siaPurchaseToken,
-    siaHourlyPrice,
-    siaAvailableInstanceCount,
-    siaSlotDurationInHours,
-    siaTotalScheduledInstanceHours,
-    siaInstanceType,
-    siaRecurrence,
-    siaAvailabilityZone,
-    siaMinTermDurationInDays,
-    siaFirstSlotStartTime,
-    siaNetworkPlatform,
-
-    -- ** ScheduledInstanceRecurrence
-    ScheduledInstanceRecurrence (..),
-    mkScheduledInstanceRecurrence,
-    sirFrequency,
-    sirOccurrenceRelativeToEnd,
-    sirOccurrenceUnit,
-    sirInterval,
-    sirOccurrenceDaySet,
-
-    -- ** ScheduledInstanceRecurrenceRequest
-    ScheduledInstanceRecurrenceRequest (..),
-    mkScheduledInstanceRecurrenceRequest,
-    sirrFrequency,
-    sirrOccurrenceRelativeToEnd,
-    sirrOccurrenceDays,
-    sirrOccurrenceUnit,
-    sirrInterval,
-
-    -- ** ScheduledInstancesBlockDeviceMapping
-    ScheduledInstancesBlockDeviceMapping (..),
-    mkScheduledInstancesBlockDeviceMapping,
-    sibdmVirtualName,
-    sibdmNoDevice,
-    sibdmEBS,
-    sibdmDeviceName,
-
-    -- ** ScheduledInstancesEBS
-    ScheduledInstancesEBS (..),
-    mkScheduledInstancesEBS,
-    sieDeleteOnTermination,
-    sieVolumeSize,
-    sieIOPS,
-    sieEncrypted,
-    sieVolumeType,
-    sieSnapshotId,
-
-    -- ** ScheduledInstancesIAMInstanceProfile
-    ScheduledInstancesIAMInstanceProfile (..),
-    mkScheduledInstancesIAMInstanceProfile,
-    siiapARN,
-    siiapName,
-
-    -- ** ScheduledInstancesIPv6Address
-    ScheduledInstancesIPv6Address (..),
-    mkScheduledInstancesIPv6Address,
-    siiaIPv6Address,
-
-    -- ** ScheduledInstancesLaunchSpecification
-    ScheduledInstancesLaunchSpecification (..),
-    mkScheduledInstancesLaunchSpecification,
-    silsSecurityGroupIds,
-    silsKeyName,
-    silsNetworkInterfaces,
-    silsRAMDiskId,
-    silsSubnetId,
-    silsKernelId,
-    silsInstanceType,
-    silsEBSOptimized,
-    silsUserData,
-    silsMonitoring,
-    silsIAMInstanceProfile,
-    silsImageId,
-    silsBlockDeviceMappings,
-    silsPlacement,
-
-    -- ** ScheduledInstancesMonitoring
-    ScheduledInstancesMonitoring (..),
-    mkScheduledInstancesMonitoring,
-    simEnabled,
-
-    -- ** ScheduledInstancesNetworkInterface
-    ScheduledInstancesNetworkInterface (..),
-    mkScheduledInstancesNetworkInterface,
-    siniGroups,
-    siniDeleteOnTermination,
-    siniAssociatePublicIPAddress,
-    siniPrivateIPAddressConfigs,
-    siniNetworkInterfaceId,
-    siniSubnetId,
-    siniIPv6AddressCount,
-    siniPrivateIPAddress,
-    siniSecondaryPrivateIPAddressCount,
-    siniDescription,
-    siniDeviceIndex,
-    siniIPv6Addresses,
-
-    -- ** ScheduledInstancesPlacement
-    ScheduledInstancesPlacement (..),
-    mkScheduledInstancesPlacement,
-    sipAvailabilityZone,
-    sipGroupName,
-
-    -- ** ScheduledInstancesPrivateIPAddressConfig
-    ScheduledInstancesPrivateIPAddressConfig (..),
-    mkScheduledInstancesPrivateIPAddressConfig,
-    sipiacPrimary,
-    sipiacPrivateIPAddress,
-
-    -- ** SecurityGroup
-    SecurityGroup (..),
-    mkSecurityGroup,
-    sgVPCId,
-    sgIPPermissions,
-    sgOwnerId,
-    sgIPPermissionsEgress,
-    sgGroupId,
-    sgGroupName,
-    sgDescription,
-    sgTags,
-
-    -- ** SecurityGroupIdentifier
-    SecurityGroupIdentifier (..),
-    mkSecurityGroupIdentifier,
-    sgiGroupId,
-    sgiGroupName,
-
-    -- ** SecurityGroupReference
-    SecurityGroupReference (..),
-    mkSecurityGroupReference,
-    sgrVPCPeeringConnectionId,
-    sgrReferencingVPCId,
-    sgrGroupId,
-
-    -- ** ServiceConfiguration
-    ServiceConfiguration (..),
-    mkServiceConfiguration,
-    scNetworkLoadBalancerARNs,
-    scBaseEndpointDNSNames,
-    scAvailabilityZones,
-    scGatewayLoadBalancerARNs,
-    scManagesVPCEndpoints,
-    scServiceName,
-    scServiceState,
-    scServiceType,
-    scAcceptanceRequired,
-    scServiceId,
-    scPrivateDNSName,
-    scPrivateDNSNameConfiguration,
-    scTags,
-
-    -- ** ServiceDetail
-    ServiceDetail (..),
-    mkServiceDetail,
-    sdPrivateDNSNameVerificationState,
-    sdVPCEndpointPolicySupported,
-    sdBaseEndpointDNSNames,
-    sdOwner,
-    sdAvailabilityZones,
-    sdManagesVPCEndpoints,
-    sdServiceName,
-    sdServiceType,
-    sdAcceptanceRequired,
-    sdPrivateDNSNames,
-    sdServiceId,
-    sdPrivateDNSName,
-    sdTags,
-
-    -- ** ServiceTypeDetail
-    ServiceTypeDetail (..),
-    mkServiceTypeDetail,
-    stdServiceType,
-
-    -- ** SlotDateTimeRangeRequest
-    SlotDateTimeRangeRequest (..),
-    mkSlotDateTimeRangeRequest,
-    sdtrrLatestTime,
-    sdtrrEarliestTime,
-
-    -- ** SlotStartTimeRangeRequest
-    SlotStartTimeRangeRequest (..),
-    mkSlotStartTimeRangeRequest,
-    sstrrLatestTime,
-    sstrrEarliestTime,
-
-    -- ** Snapshot
-    Snapshot (..),
-    mkSnapshot,
-    sfStateMessage,
-    sfState,
-    sfOwnerAlias,
-    sfProgress,
-    sfStartTime,
-    sfVolumeSize,
-    sfDataEncryptionKeyId,
-    sfEncrypted,
-    sfOwnerId,
-    sfKMSKeyId,
-    sfVolumeId,
-    sfDescription,
-    sfTags,
-    sfSnapshotId,
-
-    -- ** SnapshotDetail
-    SnapshotDetail (..),
-    mkSnapshotDetail,
-    sdStatus,
-    sdProgress,
-    sdFormat,
-    sdURL,
-    sdDeviceName,
-    sdStatusMessage,
-    sdUserBucket,
-    sdDiskImageSize,
-    sdDescription,
-    sdSnapshotId,
-
-    -- ** SnapshotDiskContainer
-    SnapshotDiskContainer (..),
-    mkSnapshotDiskContainer,
-    sdcFormat,
-    sdcURL,
-    sdcUserBucket,
-    sdcDescription,
-
-    -- ** SnapshotInfo
-    SnapshotInfo (..),
-    mkSnapshotInfo,
-    siState,
-    siProgress,
-    siStartTime,
-    siVolumeSize,
-    siEncrypted,
-    siOwnerId,
-    siVolumeId,
-    siDescription,
-    siTags,
-    siSnapshotId,
-
-    -- ** SnapshotTaskDetail
-    SnapshotTaskDetail (..),
-    mkSnapshotTaskDetail,
-    stdStatus,
-    stdProgress,
-    stdFormat,
-    stdURL,
-    stdEncrypted,
-    stdKMSKeyId,
-    stdStatusMessage,
-    stdUserBucket,
-    stdDiskImageSize,
-    stdDescription,
-    stdSnapshotId,
-
-    -- ** SpotCapacityRebalance
-    SpotCapacityRebalance (..),
-    mkSpotCapacityRebalance,
-    scrReplacementStrategy,
-
-    -- ** SpotDatafeedSubscription
-    SpotDatafeedSubscription (..),
-    mkSpotDatafeedSubscription,
-    sdsState,
-    sdsPrefix,
-    sdsBucket,
-    sdsOwnerId,
-    sdsFault,
-
-    -- ** SpotFleetLaunchSpecification
-    SpotFleetLaunchSpecification (..),
-    mkSpotFleetLaunchSpecification,
-    sflsSecurityGroups,
-    sflsSpotPrice,
-    sflsWeightedCapacity,
-    sflsKeyName,
-    sflsNetworkInterfaces,
-    sflsRAMDiskId,
-    sflsSubnetId,
-    sflsKernelId,
-    sflsInstanceType,
-    sflsEBSOptimized,
-    sflsUserData,
-    sflsMonitoring,
-    sflsTagSpecifications,
-    sflsIAMInstanceProfile,
-    sflsImageId,
-    sflsAddressingType,
-    sflsBlockDeviceMappings,
-    sflsPlacement,
-
-    -- ** SpotFleetMonitoring
-    SpotFleetMonitoring (..),
-    mkSpotFleetMonitoring,
-    sfmEnabled,
-
-    -- ** SpotFleetRequestConfig
-    SpotFleetRequestConfig (..),
-    mkSpotFleetRequestConfig,
-    sfrcSpotFleetRequestConfig,
-    sfrcSpotFleetRequestId,
-    sfrcSpotFleetRequestState,
-    sfrcCreateTime,
-    sfrcTags,
-    sfrcActivityStatus,
-
-    -- ** SpotFleetRequestConfigData
-    SpotFleetRequestConfigData (..),
-    mkSpotFleetRequestConfigData,
-    sfrcdIAMFleetRole,
-    sfrcdClientToken,
-    sfrcdInstanceInterruptionBehavior,
-    sfrcdOnDemandMaxTotalPrice,
-    sfrcdTargetCapacity,
-    sfrcdSpotPrice,
-    sfrcdSpotMaintenanceStrategies,
-    sfrcdLoadBalancersConfig,
-    sfrcdExcessCapacityTerminationPolicy,
-    sfrcdOnDemandTargetCapacity,
-    sfrcdLaunchTemplateConfigs,
-    sfrcdTagSpecifications,
-    sfrcdValidUntil,
-    sfrcdTerminateInstancesWithExpiration,
-    sfrcdOnDemandAllocationStrategy,
-    sfrcdInstancePoolsToUseCount,
-    sfrcdFulfilledCapacity,
-    sfrcdType,
-    sfrcdValidFrom,
-    sfrcdReplaceUnhealthyInstances,
-    sfrcdLaunchSpecifications,
-    sfrcdOnDemandFulfilledCapacity,
-    sfrcdSpotMaxTotalPrice,
-    sfrcdAllocationStrategy,
-
-    -- ** SpotFleetTagSpecification
-    SpotFleetTagSpecification (..),
-    mkSpotFleetTagSpecification,
-    sftsResourceType,
-    sftsTags,
-
-    -- ** SpotInstanceRequest
-    SpotInstanceRequest (..),
-    mkSpotInstanceRequest,
-    sirInstanceId,
-    sirStatus,
-    sirState,
-    sirActualBlockHourlyPrice,
-    sirBlockDurationMinutes,
-    sirInstanceInterruptionBehavior,
-    sirProductDescription,
-    sirSpotPrice,
-    sirLaunchSpecification,
-    sirAvailabilityZoneGroup,
-    sirLaunchedAvailabilityZone,
-    sirValidUntil,
-    sirLaunchGroup,
-    sirFault,
-    sirSpotInstanceRequestId,
-    sirType,
-    sirValidFrom,
-    sirCreateTime,
-    sirTags,
-
-    -- ** SpotInstanceStateFault
-    SpotInstanceStateFault (..),
-    mkSpotInstanceStateFault,
-    sisfCode,
-    sisfMessage,
-
-    -- ** SpotInstanceStatus
-    SpotInstanceStatus (..),
-    mkSpotInstanceStatus,
-    sisUpdateTime,
-    sisCode,
-    sisMessage,
-
-    -- ** SpotMaintenanceStrategies
-    SpotMaintenanceStrategies (..),
-    mkSpotMaintenanceStrategies,
-    smsCapacityRebalance,
-
-    -- ** SpotMarketOptions
-    SpotMarketOptions (..),
-    mkSpotMarketOptions,
-    smoBlockDurationMinutes,
-    smoInstanceInterruptionBehavior,
-    smoValidUntil,
-    smoSpotInstanceType,
-    smoMaxPrice,
-
-    -- ** SpotOptions
-    SpotOptions (..),
-    mkSpotOptions,
-    soInstanceInterruptionBehavior,
-    soSingleAvailabilityZone,
-    soMaxTotalPrice,
-    soMinTargetCapacity,
-    soInstancePoolsToUseCount,
-    soMaintenanceStrategies,
-    soSingleInstanceType,
-    soAllocationStrategy,
-
-    -- ** SpotOptionsRequest
-    SpotOptionsRequest (..),
-    mkSpotOptionsRequest,
-    sorInstanceInterruptionBehavior,
-    sorSingleAvailabilityZone,
-    sorMaxTotalPrice,
-    sorMinTargetCapacity,
-    sorInstancePoolsToUseCount,
-    sorMaintenanceStrategies,
-    sorSingleInstanceType,
-    sorAllocationStrategy,
-
-    -- ** SpotPlacement
-    SpotPlacement (..),
-    mkSpotPlacement,
-    spAvailabilityZone,
-    spTenancy,
-    spGroupName,
-
-    -- ** SpotPrice
-    SpotPrice (..),
-    mkSpotPrice,
-    spfProductDescription,
-    spfSpotPrice,
-    spfInstanceType,
-    spfAvailabilityZone,
-    spfTimestamp,
-
-    -- ** StaleIPPermission
-    StaleIPPermission (..),
-    mkStaleIPPermission,
-    sipFromPort,
-    sipUserIdGroupPairs,
-    sipPrefixListIds,
-    sipIPProtocol,
-    sipToPort,
-    sipIPRanges,
-
-    -- ** StaleSecurityGroup
-    StaleSecurityGroup (..),
-    mkStaleSecurityGroup,
-    ssgVPCId,
-    ssgGroupId,
-    ssgGroupName,
-    ssgStaleIPPermissionsEgress,
-    ssgStaleIPPermissions,
-    ssgDescription,
-
-    -- ** StateReason
-    StateReason (..),
-    mkStateReason,
-    srCode,
-    srMessage,
-
-    -- ** Storage
-    Storage (..),
-    mkStorage,
-    sS3,
+    -- ** TransitGatewayAttachmentResourceType
+    TransitGatewayAttachmentResourceType (..),
 
     -- ** StorageLocation
     StorageLocation (..),
@@ -5566,268 +1475,654 @@ module Network.AWS.EC2
     slBucket,
     slKey,
 
-    -- ** Subnet
-    Subnet (..),
-    mkSubnet,
-    sState,
-    sIPv6CidrBlockAssociationSet,
-    sAvailabilityZoneId,
-    sAvailableIPAddressCount,
-    sVPCId,
-    sOutpostARN,
-    sAssignIPv6AddressOnCreation,
-    sSubnetId,
-    sSubnetARN,
+    -- ** InstanceId
+    InstanceId (..),
+
+    -- ** LoadPermissionRequest
+    LoadPermissionRequest (..),
+    mkLoadPermissionRequest,
+    lprGroup,
+    lprUserId,
+
+    -- ** RouteTableAssociationStateCode
+    RouteTableAssociationStateCode (..),
+
+    -- ** ClientVpnRouteStatus
+    ClientVpnRouteStatus (..),
+    mkClientVpnRouteStatus,
+    cvrsCode,
+    cvrsMessage,
+
+    -- ** ExportTaskId
+    ExportTaskId (..),
+
+    -- ** AddressStatus
+    AddressStatus (..),
+
+    -- ** NetworkAclEntry
+    NetworkAclEntry (..),
+    mkNetworkAclEntry,
+    naeCidrBlock,
+    naeEgress,
+    naeIcmpTypeCode,
+    naeIpv6CidrBlock,
+    naePortRange,
+    naeProtocol,
+    naeRuleAction,
+    naeRuleNumber,
+
+    -- ** CapacityReservationOptions
+    CapacityReservationOptions (..),
+    mkCapacityReservationOptions,
+    croUsageStrategy,
+
+    -- ** Phase1DHGroupNumbersListValue
+    Phase1DHGroupNumbersListValue (..),
+    mkPhase1DHGroupNumbersListValue,
+    pdhgnlvValue,
+
+    -- ** BlobAttributeValue
+    BlobAttributeValue (..),
+    mkBlobAttributeValue,
+    bavValue,
+
+    -- ** Phase1IntegrityAlgorithmsListValue
+    Phase1IntegrityAlgorithmsListValue (..),
+    mkPhase1IntegrityAlgorithmsListValue,
+    pialvValue,
+
+    -- ** ServiceTypeDetail
+    ServiceTypeDetail (..),
+    mkServiceTypeDetail,
+    stdServiceType,
+
+    -- ** LaunchTemplateElasticInferenceAccelerator
+    LaunchTemplateElasticInferenceAccelerator (..),
+    mkLaunchTemplateElasticInferenceAccelerator,
+    lteiaType,
+    lteiaCount,
+
+    -- ** TransitGatewayPrefixListAttachment
+    TransitGatewayPrefixListAttachment (..),
+    mkTransitGatewayPrefixListAttachment,
+    tgplaResourceId,
+    tgplaResourceType,
+    tgplaTransitGatewayAttachmentId,
+
+    -- ** ImportInstanceLaunchSpecification
+    ImportInstanceLaunchSpecification (..),
+    mkImportInstanceLaunchSpecification,
+    iilsAdditionalInfo,
+    iilsArchitecture,
+    iilsGroupIds,
+    iilsGroupNames,
+    iilsInstanceInitiatedShutdownBehavior,
+    iilsInstanceType,
+    iilsMonitoring,
+    iilsPlacement,
+    iilsPrivateIpAddress,
+    iilsSubnetId,
+    iilsUserData,
+
+    -- ** RequestLaunchTemplateData
+    RequestLaunchTemplateData (..),
+    mkRequestLaunchTemplateData,
+    rltdBlockDeviceMappings,
+    rltdCapacityReservationSpecification,
+    rltdCpuOptions,
+    rltdCreditSpecification,
+    rltdDisableApiTermination,
+    rltdEbsOptimized,
+    rltdElasticGpuSpecifications,
+    rltdElasticInferenceAccelerators,
+    rltdEnclaveOptions,
+    rltdHibernationOptions,
+    rltdIamInstanceProfile,
+    rltdImageId,
+    rltdInstanceInitiatedShutdownBehavior,
+    rltdInstanceMarketOptions,
+    rltdInstanceType,
+    rltdKernelId,
+    rltdKeyName,
+    rltdLicenseSpecifications,
+    rltdMetadataOptions,
+    rltdMonitoring,
+    rltdNetworkInterfaces,
+    rltdPlacement,
+    rltdRamDiskId,
+    rltdSecurityGroupIds,
+    rltdSecurityGroups,
+    rltdTagSpecifications,
+    rltdUserData,
+
+    -- ** Snapshot
+    Snapshot (..),
+    mkSnapshot,
+    sDataEncryptionKeyId,
+    sDescription,
+    sEncrypted,
+    sKmsKeyId,
+    sOwnerAlias,
     sOwnerId,
-    sCustomerOwnedIPv4Pool,
-    sAvailabilityZone,
-    sMapCustomerOwnedIPOnLaunch,
-    sCidrBlock,
-    sMapPublicIPOnLaunch,
-    sDefaultForAz,
+    sProgress,
+    sSnapshotId,
+    sStartTime,
+    sState,
+    sStateMessage,
     sTags,
+    sVolumeId,
+    sVolumeSize,
 
-    -- ** SubnetAssociation
-    SubnetAssociation (..),
-    mkSubnetAssociation,
-    saState,
-    saSubnetId,
+    -- ** ConnectionNotificationState
+    ConnectionNotificationState (..),
 
-    -- ** SubnetCidrBlockState
-    SubnetCidrBlockState (..),
-    mkSubnetCidrBlockState,
-    scbsState,
-    scbsStatusMessage,
+    -- ** SpotInstanceStateFault
+    SpotInstanceStateFault (..),
+    mkSpotInstanceStateFault,
+    sisfCode,
+    sisfMessage,
 
-    -- ** SubnetIPv6CidrBlockAssociation
-    SubnetIPv6CidrBlockAssociation (..),
-    mkSubnetIPv6CidrBlockAssociation,
-    sicbaAssociationId,
-    sicbaIPv6CidrBlock,
-    sicbaIPv6CidrBlockState,
+    -- ** InferenceDeviceName
+    InferenceDeviceName (..),
 
-    -- ** SuccessfulInstanceCreditSpecificationItem
-    SuccessfulInstanceCreditSpecificationItem (..),
-    mkSuccessfulInstanceCreditSpecificationItem,
-    sicsiInstanceId,
+    -- ** PeeringConnectionOptions
+    PeeringConnectionOptions (..),
+    mkPeeringConnectionOptions,
+    pcoAllowDnsResolutionFromRemoteVpc,
+    pcoAllowEgressFromLocalClassicLinkToRemoteVpc,
+    pcoAllowEgressFromLocalVpcToRemoteClassicLink,
 
-    -- ** SuccessfulQueuedPurchaseDeletion
-    SuccessfulQueuedPurchaseDeletion (..),
-    mkSuccessfulQueuedPurchaseDeletion,
-    sqpdReservedInstancesId,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ClientConnectResponseOptions
+    ClientConnectResponseOptions (..),
+    mkClientConnectResponseOptions,
+    ccroEnabled,
+    ccroLambdaFunctionArn,
+    ccroStatus,
 
     -- ** TagDescription
     TagDescription (..),
     mkTagDescription,
+    tdKey,
     tdResourceId,
     tdResourceType,
     tdValue,
-    tdKey,
 
-    -- ** TagSpecification
-    TagSpecification (..),
-    mkTagSpecification,
-    tsResourceType,
-    tsTags,
+    -- ** ImportSnapshotTask
+    ImportSnapshotTask (..),
+    mkImportSnapshotTask,
+    istDescription,
+    istImportTaskId,
+    istSnapshotTaskDetail,
+    istTags,
 
-    -- ** TargetCapacitySpecification
-    TargetCapacitySpecification (..),
-    mkTargetCapacitySpecification,
-    tcsOnDemandTargetCapacity,
-    tcsDefaultTargetCapacityType,
-    tcsTotalTargetCapacity,
-    tcsSpotTargetCapacity,
+    -- ** GroupIdentifier
+    GroupIdentifier (..),
+    mkGroupIdentifier,
+    giGroupId,
+    giGroupName,
 
-    -- ** TargetCapacitySpecificationRequest
-    TargetCapacitySpecificationRequest (..),
-    mkTargetCapacitySpecificationRequest,
-    tcsrOnDemandTargetCapacity,
-    tcsrDefaultTargetCapacityType,
-    tcsrTotalTargetCapacity,
-    tcsrSpotTargetCapacity,
+    -- ** RouteGatewayId
+    RouteGatewayId (..),
 
-    -- ** TargetConfiguration
-    TargetConfiguration (..),
-    mkTargetConfiguration,
-    tcInstanceCount,
-    tcOfferingId,
+    -- ** VpnStaticRouteSource
+    VpnStaticRouteSource (..),
 
-    -- ** TargetConfigurationRequest
-    TargetConfigurationRequest (..),
-    mkTargetConfigurationRequest,
-    tcrInstanceCount,
-    tcrOfferingId,
+    -- ** ScheduledInstanceRecurrence
+    ScheduledInstanceRecurrence (..),
+    mkScheduledInstanceRecurrence,
+    sirFrequency,
+    sirInterval,
+    sirOccurrenceDaySet,
+    sirOccurrenceRelativeToEnd,
+    sirOccurrenceUnit,
 
-    -- ** TargetGroup
-    TargetGroup (..),
-    mkTargetGroup,
-    tgARN,
+    -- ** LocalGatewayRoute
+    LocalGatewayRoute (..),
+    mkLocalGatewayRoute,
+    lgrDestinationCidrBlock,
+    lgrLocalGatewayRouteTableArn,
+    lgrLocalGatewayRouteTableId,
+    lgrLocalGatewayVirtualInterfaceGroupId,
+    lgrOwnerId,
+    lgrState,
+    lgrType,
 
-    -- ** TargetGroupsConfig
-    TargetGroupsConfig (..),
-    mkTargetGroupsConfig,
-    tgcTargetGroups,
+    -- ** TrafficMirrorRuleAction
+    TrafficMirrorRuleAction (..),
 
-    -- ** TargetNetwork
-    TargetNetwork (..),
-    mkTargetNetwork,
-    tnAssociationId,
-    tnStatus,
-    tnSecurityGroups,
-    tnTargetNetworkId,
-    tnVPCId,
-    tnClientVPNEndpointId,
+    -- ** Phase1EncryptionAlgorithmsListValue
+    Phase1EncryptionAlgorithmsListValue (..),
+    mkPhase1EncryptionAlgorithmsListValue,
+    pealvfValue,
 
-    -- ** TargetReservationValue
-    TargetReservationValue (..),
-    mkTargetReservationValue,
-    trvReservationValue,
-    trvTargetConfiguration,
+    -- ** DirectoryServiceAuthentication
+    DirectoryServiceAuthentication (..),
+    mkDirectoryServiceAuthentication,
+    dsaDirectoryId,
 
-    -- ** TerminateConnectionStatus
-    TerminateConnectionStatus (..),
-    mkTerminateConnectionStatus,
-    tcsCurrentStatus,
-    tcsConnectionId,
-    tcsPreviousStatus,
+    -- ** AssociatedRole
+    AssociatedRole (..),
+    mkAssociatedRole,
+    arAssociatedRoleArn,
+    arCertificateS3BucketName,
+    arCertificateS3ObjectKey,
+    arEncryptionKmsKeyId,
 
-    -- ** TrafficMirrorFilter
-    TrafficMirrorFilter (..),
-    mkTrafficMirrorFilter,
-    tmfTrafficMirrorFilterId,
-    tmfIngressFilterRules,
-    tmfNetworkServices,
-    tmfEgressFilterRules,
-    tmfDescription,
-    tmfTags,
+    -- ** ReservedInstancesListing
+    ReservedInstancesListing (..),
+    mkReservedInstancesListing,
+    rilClientToken,
+    rilCreateDate,
+    rilInstanceCounts,
+    rilPriceSchedules,
+    rilReservedInstancesId,
+    rilReservedInstancesListingId,
+    rilStatus,
+    rilStatusMessage,
+    rilTags,
+    rilUpdateDate,
 
-    -- ** TrafficMirrorFilterRule
-    TrafficMirrorFilterRule (..),
-    mkTrafficMirrorFilterRule,
-    tmfrRuleNumber,
-    tmfrTrafficDirection,
-    tmfrRuleAction,
-    tmfrProtocol,
-    tmfrTrafficMirrorFilterId,
-    tmfrTrafficMirrorFilterRuleId,
-    tmfrDestinationPortRange,
-    tmfrSourceCidrBlock,
-    tmfrSourcePortRange,
-    tmfrDescription,
-    tmfrDestinationCidrBlock,
+    -- ** AssociatedTargetNetwork
+    AssociatedTargetNetwork (..),
+    mkAssociatedTargetNetwork,
+    atnNetworkId,
+    atnNetworkType,
 
-    -- ** TrafficMirrorPortRange
-    TrafficMirrorPortRange (..),
-    mkTrafficMirrorPortRange,
-    tmprFromPort,
-    tmprToPort,
+    -- ** PciId
+    PciId (..),
+    mkPciId,
+    piDeviceId,
+    piSubsystemId,
+    piSubsystemVendorId,
+    piVendorId,
 
-    -- ** TrafficMirrorPortRangeRequest
-    TrafficMirrorPortRangeRequest (..),
-    mkTrafficMirrorPortRangeRequest,
-    tmprrFromPort,
-    tmprrToPort,
+    -- ** InstanceLifecycleType
+    InstanceLifecycleType (..),
 
-    -- ** TrafficMirrorSession
-    TrafficMirrorSession (..),
-    mkTrafficMirrorSession,
-    tmsTrafficMirrorTargetId,
-    tmsNetworkInterfaceId,
-    tmsTrafficMirrorFilterId,
-    tmsPacketLength,
-    tmsOwnerId,
-    tmsTrafficMirrorSessionId,
-    tmsVirtualNetworkId,
-    tmsSessionNumber,
-    tmsDescription,
-    tmsTags,
+    -- ** ExportVmTaskId
+    ExportVmTaskId (..),
 
-    -- ** TrafficMirrorTarget
-    TrafficMirrorTarget (..),
-    mkTrafficMirrorTarget,
-    tmtTrafficMirrorTargetId,
-    tmtNetworkInterfaceId,
-    tmtNetworkLoadBalancerARN,
-    tmtOwnerId,
-    tmtType,
-    tmtDescription,
-    tmtTags,
+    -- ** RegisterInstanceTagAttributeRequest
+    RegisterInstanceTagAttributeRequest (..),
+    mkRegisterInstanceTagAttributeRequest,
+    ritarIncludeAllTagsOfInstance,
+    ritarInstanceTagKeys,
+
+    -- ** ManagedPrefixList
+    ManagedPrefixList (..),
+    mkManagedPrefixList,
+    mplAddressFamily,
+    mplMaxEntries,
+    mplOwnerId,
+    mplPrefixListArn,
+    mplPrefixListId,
+    mplPrefixListName,
+    mplState,
+    mplStateMessage,
+    mplTags,
+    mplVersion,
+
+    -- ** State
+    State (..),
+
+    -- ** EbsOptimizedInfo
+    EbsOptimizedInfo (..),
+    mkEbsOptimizedInfo,
+    eoiBaselineBandwidthInMbps,
+    eoiBaselineIops,
+    eoiBaselineThroughputInMBps,
+    eoiMaximumBandwidthInMbps,
+    eoiMaximumIops,
+    eoiMaximumThroughputInMBps,
+
+    -- ** VirtualizationType
+    VirtualizationType (..),
+
+    -- ** PeeringAttachmentStatus
+    PeeringAttachmentStatus (..),
+    mkPeeringAttachmentStatus,
+    pasCode,
+    pasMessage,
+
+    -- ** NetworkInterfaceStatus
+    NetworkInterfaceStatus (..),
+
+    -- ** PlatformValues
+    PlatformValues (..),
+
+    -- ** Phase2EncryptionAlgorithmsListValue
+    Phase2EncryptionAlgorithmsListValue (..),
+    mkPhase2EncryptionAlgorithmsListValue,
+    pealvValue,
+
+    -- ** VpcPeeringConnectionOptionsDescription
+    VpcPeeringConnectionOptionsDescription (..),
+    mkVpcPeeringConnectionOptionsDescription,
+    vpcodAllowDnsResolutionFromRemoteVpc,
+    vpcodAllowEgressFromLocalClassicLinkToRemoteVpc,
+    vpcodAllowEgressFromLocalVpcToRemoteClassicLink,
+
+    -- ** EgressOnlyInternetGatewayId
+    EgressOnlyInternetGatewayId (..),
+
+    -- ** EnclaveOptionsRequest
+    EnclaveOptionsRequest (..),
+    mkEnclaveOptionsRequest,
+    eorEnabled,
+
+    -- ** TunnelInsideIpVersion
+    TunnelInsideIpVersion (..),
+
+    -- ** AutoAcceptSharedAttachmentsValue
+    AutoAcceptSharedAttachmentsValue (..),
+
+    -- ** VpnEcmpSupportValue
+    VpnEcmpSupportValue (..),
+
+    -- ** TransitGatewayOptions
+    TransitGatewayOptions (..),
+    mkTransitGatewayOptions,
+    tgoAmazonSideAsn,
+    tgoAssociationDefaultRouteTableId,
+    tgoAutoAcceptSharedAttachments,
+    tgoDefaultRouteTableAssociation,
+    tgoDefaultRouteTablePropagation,
+    tgoDnsSupport,
+    tgoMulticastSupport,
+    tgoPropagationDefaultRouteTableId,
+    tgoVpnEcmpSupport,
+
+    -- ** CreateVolumePermission
+    CreateVolumePermission (..),
+    mkCreateVolumePermission,
+    cvpGroup,
+    cvpUserId,
+
+    -- ** InstanceFamilyCreditSpecification
+    InstanceFamilyCreditSpecification (..),
+    mkInstanceFamilyCreditSpecification,
+    ifcsCpuCredits,
+    ifcsInstanceFamily,
+
+    -- ** EnableFastSnapshotRestoreStateErrorItem
+    EnableFastSnapshotRestoreStateErrorItem (..),
+    mkEnableFastSnapshotRestoreStateErrorItem,
+    efsrseiAvailabilityZone,
+    efsrseiError,
+
+    -- ** NetworkInterfaceAttachmentChanges
+    NetworkInterfaceAttachmentChanges (..),
+    mkNetworkInterfaceAttachmentChanges,
+    niacAttachmentId,
+    niacDeleteOnTermination,
+
+    -- ** MemoryInfo
+    MemoryInfo (..),
+    mkMemoryInfo,
+    miSizeInMiB,
+
+    -- ** RecurringChargeFrequency
+    RecurringChargeFrequency (..),
+
+    -- ** ScheduledInstancesEbs
+    ScheduledInstancesEbs (..),
+    mkScheduledInstancesEbs,
+    sieDeleteOnTermination,
+    sieEncrypted,
+    sieIops,
+    sieSnapshotId,
+    sieVolumeSize,
+    sieVolumeType,
+
+    -- ** ModifyAvailabilityZoneOptInStatus
+    ModifyAvailabilityZoneOptInStatus (..),
+
+    -- ** DhcpOptions
+    DhcpOptions (..),
+    mkDhcpOptions,
+    doDhcpConfigurations,
+    doDhcpOptionsId,
+    doOwnerId,
+    doTags,
+
+    -- ** SlotStartTimeRangeRequest
+    SlotStartTimeRangeRequest (..),
+    mkSlotStartTimeRangeRequest,
+    sstrrEarliestTime,
+    sstrrLatestTime,
+
+    -- ** InstanceNetworkInterfaceSpecification
+    InstanceNetworkInterfaceSpecification (..),
+    mkInstanceNetworkInterfaceSpecification,
+    inisAssociateCarrierIpAddress,
+    inisAssociatePublicIpAddress,
+    inisDeleteOnTermination,
+    inisDescription,
+    inisDeviceIndex,
+    inisGroups,
+    inisInterfaceType,
+    inisIpv6AddressCount,
+    inisIpv6Addresses,
+    inisNetworkCardIndex,
+    inisNetworkInterfaceId,
+    inisPrivateIpAddress,
+    inisPrivateIpAddresses,
+    inisSecondaryPrivateIpAddressCount,
+    inisSubnetId,
+
+    -- ** FleetLaunchTemplateSpecificationRequest
+    FleetLaunchTemplateSpecificationRequest (..),
+    mkFleetLaunchTemplateSpecificationRequest,
+    fltsrLaunchTemplateId,
+    fltsrLaunchTemplateName,
+    fltsrVersion,
+
+    -- ** OnDemandOptionsRequest
+    OnDemandOptionsRequest (..),
+    mkOnDemandOptionsRequest,
+    odorAllocationStrategy,
+    odorCapacityReservationOptions,
+    odorMaxTotalPrice,
+    odorMinTargetCapacity,
+    odorSingleAvailabilityZone,
+    odorSingleInstanceType,
+
+    -- ** InstanceTypeInfo
+    InstanceTypeInfo (..),
+    mkInstanceTypeInfo,
+    itiAutoRecoverySupported,
+    itiBareMetal,
+    itiBurstablePerformanceSupported,
+    itiCurrentGeneration,
+    itiDedicatedHostsSupported,
+    itiEbsInfo,
+    itiFpgaInfo,
+    itiFreeTierEligible,
+    itiGpuInfo,
+    itiHibernationSupported,
+    itiHypervisor,
+    itiInferenceAcceleratorInfo,
+    itiInstanceStorageInfo,
+    itiInstanceStorageSupported,
+    itiInstanceType,
+    itiMemoryInfo,
+    itiNetworkInfo,
+    itiPlacementGroupInfo,
+    itiProcessorInfo,
+    itiSupportedRootDeviceTypes,
+    itiSupportedUsageClasses,
+    itiSupportedVirtualizationTypes,
+    itiVCpuInfo,
+
+    -- ** Phase2DHGroupNumbersListValue
+    Phase2DHGroupNumbersListValue (..),
+    mkPhase2DHGroupNumbersListValue,
+    pValue,
+
+    -- ** ReservationState
+    ReservationState (..),
+
+    -- ** FpgaDeviceName
+    FpgaDeviceName (..),
 
     -- ** TransitGateway
     TransitGateway (..),
     mkTransitGateway,
     tgCreationTime,
-    tgState,
-    tgOwnerId,
-    tgTransitGatewayARN,
-    tgTransitGatewayId,
-    tgOptions,
     tgDescription,
+    tgOptions,
+    tgOwnerId,
+    tgState,
     tgTags,
+    tgTransitGatewayArn,
+    tgTransitGatewayId,
 
-    -- ** TransitGatewayAssociation
-    TransitGatewayAssociation (..),
-    mkTransitGatewayAssociation,
-    tgafState,
-    tgafResourceId,
-    tgafResourceType,
-    tgafTransitGatewayRouteTableId,
-    tgafTransitGatewayAttachmentId,
+    -- ** VolumeState
+    VolumeState (..),
 
-    -- ** TransitGatewayAttachment
-    TransitGatewayAttachment (..),
-    mkTransitGatewayAttachment,
-    tgaCreationTime,
-    tgaState,
-    tgaResourceId,
-    tgaResourceType,
-    tgaTransitGatewayOwnerId,
-    tgaTransitGatewayId,
-    tgaTransitGatewayAttachmentId,
-    tgaResourceOwnerId,
-    tgaTags,
-    tgaAssociation,
+    -- ** AddPrefixListEntry
+    AddPrefixListEntry (..),
+    mkAddPrefixListEntry,
+    apleCidr,
+    apleDescription,
 
-    -- ** TransitGatewayAttachmentAssociation
-    TransitGatewayAttachmentAssociation (..),
-    mkTransitGatewayAttachmentAssociation,
-    tgaaState,
-    tgaaTransitGatewayRouteTableId,
+    -- ** CpuOptionsRequest
+    CpuOptionsRequest (..),
+    mkCpuOptionsRequest,
+    corCoreCount,
+    corThreadsPerCore,
 
-    -- ** TransitGatewayAttachmentPropagation
-    TransitGatewayAttachmentPropagation (..),
-    mkTransitGatewayAttachmentPropagation,
-    tgapState,
-    tgapTransitGatewayRouteTableId,
+    -- ** ClientCertificateRevocationListStatusCode
+    ClientCertificateRevocationListStatusCode (..),
 
-    -- ** TransitGatewayMulticastDeregisteredGroupMembers
-    TransitGatewayMulticastDeregisteredGroupMembers (..),
-    mkTransitGatewayMulticastDeregisteredGroupMembers,
-    tgmdgmDeregisteredNetworkInterfaceIds,
-    tgmdgmTransitGatewayMulticastDomainId,
-    tgmdgmGroupIPAddress,
+    -- ** TransitGatewayMulticastRegisteredGroupMembers
+    TransitGatewayMulticastRegisteredGroupMembers (..),
+    mkTransitGatewayMulticastRegisteredGroupMembers,
+    tgmrgmGroupIpAddress,
+    tgmrgmRegisteredNetworkInterfaceIds,
+    tgmrgmTransitGatewayMulticastDomainId,
 
-    -- ** TransitGatewayMulticastDeregisteredGroupSources
-    TransitGatewayMulticastDeregisteredGroupSources (..),
-    mkTransitGatewayMulticastDeregisteredGroupSources,
-    tgmdgsDeregisteredNetworkInterfaceIds,
-    tgmdgsTransitGatewayMulticastDomainId,
-    tgmdgsGroupIPAddress,
+    -- ** VpcPeeringConnectionStateReasonCode
+    VpcPeeringConnectionStateReasonCode (..),
 
-    -- ** TransitGatewayMulticastDomain
-    TransitGatewayMulticastDomain (..),
-    mkTransitGatewayMulticastDomain,
-    tgmdCreationTime,
-    tgmdState,
-    tgmdTransitGatewayMulticastDomainId,
-    tgmdTransitGatewayId,
-    tgmdTags,
+    -- ** AttributeValue
+    AttributeValue (..),
+    mkAttributeValue,
+    avValue,
+
+    -- ** LaunchTemplateElasticInferenceAcceleratorResponse
+    LaunchTemplateElasticInferenceAcceleratorResponse (..),
+    mkLaunchTemplateElasticInferenceAcceleratorResponse,
+    lteiarCount,
+    lteiarType,
+
+    -- ** ClientVpnConnection
+    ClientVpnConnection (..),
+    mkClientVpnConnection,
+    cvcClientIp,
+    cvcClientVpnEndpointId,
+    cvcCommonName,
+    cvcConnectionEndTime,
+    cvcConnectionEstablishedTime,
+    cvcConnectionId,
+    cvcEgressBytes,
+    cvcEgressPackets,
+    cvcIngressBytes,
+    cvcIngressPackets,
+    cvcPostureComplianceStatuses,
+    cvcStatus,
+    cvcTimestamp,
+    cvcUsername,
+
+    -- ** PrivateIpAddressSpecification
+    PrivateIpAddressSpecification (..),
+    mkPrivateIpAddressSpecification,
+    piasPrimary,
+    piasPrivateIpAddress,
+
+    -- ** Ipv6Address
+    Ipv6Address (..),
+
+    -- ** DeleteQueuedReservedInstancesErrorCode
+    DeleteQueuedReservedInstancesErrorCode (..),
+
+    -- ** Image
+    Image (..),
+    mkImage,
+    ifArchitecture,
+    ifBlockDeviceMappings,
+    ifCreationDate,
+    ifDescription,
+    ifEnaSupport,
+    ifHypervisor,
+    ifImageId,
+    ifImageLocation,
+    ifImageOwnerAlias,
+    ifImageType,
+    ifKernelId,
+    ifName,
+    ifOwnerId,
+    ifPlatform,
+    ifPlatformDetails,
+    ifProductCodes,
+    ifPublic,
+    ifRamdiskId,
+    ifRootDeviceName,
+    ifRootDeviceType,
+    ifSriovNetSupport,
+    ifState,
+    ifStateReason,
+    ifTags,
+    ifUsageOperation,
+    ifVirtualizationType,
+
+    -- ** DhcpConfiguration
+    DhcpConfiguration (..),
+    mkDhcpConfiguration,
+    dcKey,
+    dcValues,
+
+    -- ** CancelSpotFleetRequestsError
+    CancelSpotFleetRequestsError (..),
+    mkCancelSpotFleetRequestsError,
+    csfreCode,
+    csfreMessage,
+
+    -- ** InstanceTagNotificationAttribute
+    InstanceTagNotificationAttribute (..),
+    mkInstanceTagNotificationAttribute,
+    itnaIncludeAllTagsOfInstance,
+    itnaInstanceTagKeys,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** CapacityReservationSpecificationResponse
+    CapacityReservationSpecificationResponse (..),
+    mkCapacityReservationSpecificationResponse,
+    crsrCapacityReservationPreference,
+    crsrCapacityReservationTarget,
+
+    -- ** NetworkInterfacePermissionStateCode
+    NetworkInterfacePermissionStateCode (..),
+
+    -- ** DeleteFleetErrorItem
+    DeleteFleetErrorItem (..),
+    mkDeleteFleetErrorItem,
+    dfeiError,
+    dfeiFleetId,
+
+    -- ** AccountAttributeName
+    AccountAttributeName (..),
+
+    -- ** LaunchTemplateAndOverridesResponse
+    LaunchTemplateAndOverridesResponse (..),
+    mkLaunchTemplateAndOverridesResponse,
+    ltaorLaunchTemplateSpecification,
+    ltaorOverrides,
 
     -- ** TransitGatewayMulticastDomainAssociation
     TransitGatewayMulticastDomainAssociation (..),
@@ -5837,112 +2132,2331 @@ module Network.AWS.EC2
     tgmdaSubnet,
     tgmdaTransitGatewayAttachmentId,
 
-    -- ** TransitGatewayMulticastDomainAssociations
-    TransitGatewayMulticastDomainAssociations (..),
-    mkTransitGatewayMulticastDomainAssociations,
-    tResourceId,
-    tResourceType,
-    tSubnets,
-    tTransitGatewayMulticastDomainId,
-    tTransitGatewayAttachmentId,
+    -- ** LaunchTemplateHibernationOptions
+    LaunchTemplateHibernationOptions (..),
+    mkLaunchTemplateHibernationOptions,
+    lthoConfigured,
 
-    -- ** TransitGatewayMulticastGroup
-    TransitGatewayMulticastGroup (..),
-    mkTransitGatewayMulticastGroup,
-    tgmgResourceId,
-    tgmgResourceType,
-    tgmgSourceType,
-    tgmgMemberType,
-    tgmgNetworkInterfaceId,
-    tgmgSubnetId,
-    tgmgGroupMember,
-    tgmgGroupSource,
-    tgmgGroupIPAddress,
-    tgmgTransitGatewayAttachmentId,
+    -- ** NetworkInterfaceAttachment
+    NetworkInterfaceAttachment (..),
+    mkNetworkInterfaceAttachment,
+    niaAttachTime,
+    niaAttachmentId,
+    niaDeleteOnTermination,
+    niaDeviceIndex,
+    niaInstanceId,
+    niaInstanceOwnerId,
+    niaNetworkCardIndex,
+    niaStatus,
 
-    -- ** TransitGatewayMulticastRegisteredGroupMembers
-    TransitGatewayMulticastRegisteredGroupMembers (..),
-    mkTransitGatewayMulticastRegisteredGroupMembers,
-    tgmrgmTransitGatewayMulticastDomainId,
-    tgmrgmRegisteredNetworkInterfaceIds,
-    tgmrgmGroupIPAddress,
+    -- ** ConnectionLogOptions
+    ConnectionLogOptions (..),
+    mkConnectionLogOptions,
+    cloCloudwatchLogGroup,
+    cloCloudwatchLogStream,
+    cloEnabled,
 
-    -- ** TransitGatewayMulticastRegisteredGroupSources
-    TransitGatewayMulticastRegisteredGroupSources (..),
-    mkTransitGatewayMulticastRegisteredGroupSources,
-    tgmrgsTransitGatewayMulticastDomainId,
-    tgmrgsRegisteredNetworkInterfaceIds,
-    tgmrgsGroupIPAddress,
+    -- ** SpotFleetMonitoring
+    SpotFleetMonitoring (..),
+    mkSpotFleetMonitoring,
+    sfmEnabled,
 
-    -- ** TransitGatewayOptions
-    TransitGatewayOptions (..),
-    mkTransitGatewayOptions,
-    tgoVPNEcmpSupport,
-    tgoAutoAcceptSharedAttachments,
-    tgoPropagationDefaultRouteTableId,
-    tgoDefaultRouteTableAssociation,
-    tgoAssociationDefaultRouteTableId,
-    tgoAmazonSideASN,
-    tgoDefaultRouteTablePropagation,
-    tgoMulticastSupport,
-    tgoDNSSupport,
+    -- ** RunInstancesMonitoringEnabled
+    RunInstancesMonitoringEnabled (..),
+    mkRunInstancesMonitoringEnabled,
+    rimeEnabled,
 
-    -- ** TransitGatewayPeeringAttachment
-    TransitGatewayPeeringAttachment (..),
-    mkTransitGatewayPeeringAttachment,
-    tgpaCreationTime,
-    tgpaRequesterTgwInfo,
-    tgpaStatus,
-    tgpaState,
-    tgpaAccepterTgwInfo,
-    tgpaTransitGatewayAttachmentId,
-    tgpaTags,
+    -- ** VolumeStatusInfo
+    VolumeStatusInfo (..),
+    mkVolumeStatusInfo,
+    vsiDetails,
+    vsiStatus,
 
-    -- ** TransitGatewayPrefixListAttachment
-    TransitGatewayPrefixListAttachment (..),
-    mkTransitGatewayPrefixListAttachment,
-    tgplaResourceId,
-    tgplaResourceType,
-    tgplaTransitGatewayAttachmentId,
+    -- ** RouteTableId
+    RouteTableId (..),
+
+    -- ** CapacityReservationInstancePlatform
+    CapacityReservationInstancePlatform (..),
+
+    -- ** NetworkInterfaceAssociation
+    NetworkInterfaceAssociation (..),
+    mkNetworkInterfaceAssociation,
+    niaAllocationId,
+    niaAssociationId,
+    niaCarrierIp,
+    niaCustomerOwnedIp,
+    niaIpOwnerId,
+    niaPublicDnsName,
+    niaPublicIp,
+
+    -- ** LaunchTemplateOverrides
+    LaunchTemplateOverrides (..),
+    mkLaunchTemplateOverrides,
+    ltoAvailabilityZone,
+    ltoInstanceType,
+    ltoPriority,
+    ltoSpotPrice,
+    ltoSubnetId,
+    ltoWeightedCapacity,
+
+    -- ** SecurityGroupIdentifier
+    SecurityGroupIdentifier (..),
+    mkSecurityGroupIdentifier,
+    sgiGroupId,
+    sgiGroupName,
+
+    -- ** TrafficMirrorSession
+    TrafficMirrorSession (..),
+    mkTrafficMirrorSession,
+    tmsDescription,
+    tmsNetworkInterfaceId,
+    tmsOwnerId,
+    tmsPacketLength,
+    tmsSessionNumber,
+    tmsTags,
+    tmsTrafficMirrorFilterId,
+    tmsTrafficMirrorSessionId,
+    tmsTrafficMirrorTargetId,
+    tmsVirtualNetworkId,
+
+    -- ** DisableFastSnapshotRestoreStateErrorItem
+    DisableFastSnapshotRestoreStateErrorItem (..),
+    mkDisableFastSnapshotRestoreStateErrorItem,
+    dfsrseiAvailabilityZone,
+    dfsrseiError,
+
+    -- ** CreateVolumePermissionModifications
+    CreateVolumePermissionModifications (..),
+    mkCreateVolumePermissionModifications,
+    cvpmAdd,
+    cvpmRemove,
+
+    -- ** SubnetAssociation
+    SubnetAssociation (..),
+    mkSubnetAssociation,
+    saState,
+    saSubnetId,
+
+    -- ** SnapshotInfo
+    SnapshotInfo (..),
+    mkSnapshotInfo,
+    siDescription,
+    siEncrypted,
+    siOwnerId,
+    siProgress,
+    siSnapshotId,
+    siStartTime,
+    siState,
+    siTags,
+    siVolumeId,
+    siVolumeSize,
+
+    -- ** ScheduledInstancesPlacement
+    ScheduledInstancesPlacement (..),
+    mkScheduledInstancesPlacement,
+    sipAvailabilityZone,
+    sipGroupName,
+
+    -- ** LocalGatewayRouteTable
+    LocalGatewayRouteTable (..),
+    mkLocalGatewayRouteTable,
+    lgrtLocalGatewayId,
+    lgrtLocalGatewayRouteTableArn,
+    lgrtLocalGatewayRouteTableId,
+    lgrtOutpostArn,
+    lgrtOwnerId,
+    lgrtState,
+    lgrtTags,
+
+    -- ** ModifyTransitGatewayVpcAttachmentRequestOptions
+    ModifyTransitGatewayVpcAttachmentRequestOptions (..),
+    mkModifyTransitGatewayVpcAttachmentRequestOptions,
+    mtgvaroApplianceModeSupport,
+    mtgvaroDnsSupport,
+    mtgvaroIpv6Support,
+
+    -- ** ElasticGpuId
+    ElasticGpuId (..),
+
+    -- ** LaunchTemplateName
+    LaunchTemplateName (..),
+
+    -- ** VpcState
+    VpcState (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** ReportStatusType
+    ReportStatusType (..),
+
+    -- ** ImportImageTaskId
+    ImportImageTaskId (..),
+
+    -- ** TrafficMirrorFilterRule
+    TrafficMirrorFilterRule (..),
+    mkTrafficMirrorFilterRule,
+    tmfrDescription,
+    tmfrDestinationCidrBlock,
+    tmfrDestinationPortRange,
+    tmfrProtocol,
+    tmfrRuleAction,
+    tmfrRuleNumber,
+    tmfrSourceCidrBlock,
+    tmfrSourcePortRange,
+    tmfrTrafficDirection,
+    tmfrTrafficMirrorFilterId,
+    tmfrTrafficMirrorFilterRuleId,
+
+    -- ** Affinity
+    Affinity (..),
+
+    -- ** CurrencyCodeValues
+    CurrencyCodeValues (..),
+
+    -- ** FleetSpotCapacityRebalanceRequest
+    FleetSpotCapacityRebalanceRequest (..),
+    mkFleetSpotCapacityRebalanceRequest,
+    fscrrReplacementStrategy,
+
+    -- ** IcmpTypeCode
+    IcmpTypeCode (..),
+    mkIcmpTypeCode,
+    itcCode,
+    itcType,
+
+    -- ** LaunchTemplateCpuOptionsRequest
+    LaunchTemplateCpuOptionsRequest (..),
+    mkLaunchTemplateCpuOptionsRequest,
+    ltcorCoreCount,
+    ltcorThreadsPerCore,
+
+    -- ** DeleteFleetErrorCode
+    DeleteFleetErrorCode (..),
+
+    -- ** LaunchTemplateInstanceNetworkInterfaceSpecification
+    LaunchTemplateInstanceNetworkInterfaceSpecification (..),
+    mkLaunchTemplateInstanceNetworkInterfaceSpecification,
+    ltinisAssociateCarrierIpAddress,
+    ltinisAssociatePublicIpAddress,
+    ltinisDeleteOnTermination,
+    ltinisDescription,
+    ltinisDeviceIndex,
+    ltinisGroups,
+    ltinisInterfaceType,
+    ltinisIpv6AddressCount,
+    ltinisIpv6Addresses,
+    ltinisNetworkCardIndex,
+    ltinisNetworkInterfaceId,
+    ltinisPrivateIpAddress,
+    ltinisPrivateIpAddresses,
+    ltinisSecondaryPrivateIpAddressCount,
+    ltinisSubnetId,
+
+    -- ** AllowedPrincipal
+    AllowedPrincipal (..),
+    mkAllowedPrincipal,
+    apPrincipal,
+    apPrincipalType,
+
+    -- ** LaunchTemplatesMonitoring
+    LaunchTemplatesMonitoring (..),
+    mkLaunchTemplatesMonitoring,
+    ltmEnabled,
+
+    -- ** PrincipalType
+    PrincipalType (..),
+
+    -- ** LaunchTemplateTagSpecification
+    LaunchTemplateTagSpecification (..),
+    mkLaunchTemplateTagSpecification,
+    lttsResourceType,
+    lttsTags,
+
+    -- ** ClientVpnEndpoint
+    ClientVpnEndpoint (..),
+    mkClientVpnEndpoint,
+    cveAssociatedTargetNetworks,
+    cveAuthenticationOptions,
+    cveClientCidrBlock,
+    cveClientConnectOptions,
+    cveClientVpnEndpointId,
+    cveConnectionLogOptions,
+    cveCreationTime,
+    cveDeletionTime,
+    cveDescription,
+    cveDnsName,
+    cveDnsServers,
+    cveSecurityGroupIds,
+    cveSelfServicePortalUrl,
+    cveServerCertificateArn,
+    cveSplitTunnel,
+    cveStatus,
+    cveTags,
+    cveTransportProtocol,
+    cveVpcId,
+    cveVpnPort,
+    cveVpnProtocol,
+
+    -- ** HostTenancy
+    HostTenancy (..),
+
+    -- ** GpuDeviceManufacturerName
+    GpuDeviceManufacturerName (..),
+
+    -- ** FpgaImageId
+    FpgaImageId (..),
+
+    -- ** InstanceCount
+    InstanceCount (..),
+    mkInstanceCount,
+    icInstanceCount,
+    icState,
+
+    -- ** ClientVpnEndpointAttributeStatus
+    ClientVpnEndpointAttributeStatus (..),
+    mkClientVpnEndpointAttributeStatus,
+    cveasCode,
+    cveasMessage,
+
+    -- ** ExportToS3Task
+    ExportToS3Task (..),
+    mkExportToS3Task,
+    etstContainerFormat,
+    etstDiskImageFormat,
+    etstS3Bucket,
+    etstS3Key,
+
+    -- ** VpcCidrBlockStateCode
+    VpcCidrBlockStateCode (..),
+
+    -- ** PrefixList
+    PrefixList (..),
+    mkPrefixList,
+    plCidrs,
+    plPrefixListId,
+    plPrefixListName,
+
+    -- ** LaunchTemplateEnclaveOptionsRequest
+    LaunchTemplateEnclaveOptionsRequest (..),
+    mkLaunchTemplateEnclaveOptionsRequest,
+    lteorEnabled,
+
+    -- ** InstanceInterruptionBehavior
+    InstanceInterruptionBehavior (..),
+
+    -- ** Location
+    Location (..),
+
+    -- ** FleetExcessCapacityTerminationPolicy
+    FleetExcessCapacityTerminationPolicy (..),
+
+    -- ** InstanceMetadataOptionsRequest
+    InstanceMetadataOptionsRequest (..),
+    mkInstanceMetadataOptionsRequest,
+    iHttpEndpoint,
+    iHttpPutResponseHopLimit,
+    iHttpTokens,
+
+    -- ** ClientVpnAuthorizationRuleStatusCode
+    ClientVpnAuthorizationRuleStatusCode (..),
+
+    -- ** BlockDeviceMapping
+    BlockDeviceMapping (..),
+    mkBlockDeviceMapping,
+    bdmDeviceName,
+    bdmEbs,
+    bdmNoDevice,
+    bdmVirtualName,
+
+    -- ** InstanceCapacity
+    InstanceCapacity (..),
+    mkInstanceCapacity,
+    icAvailableCapacity,
+    icInstanceType,
+    icTotalCapacity,
+
+    -- ** TransitGatewayRouteTableId
+    TransitGatewayRouteTableId (..),
+
+    -- ** DnsSupportValue
+    DnsSupportValue (..),
+
+    -- ** NetworkAclId
+    NetworkAclId (..),
+
+    -- ** LaunchTemplateInstanceMetadataEndpointState
+    LaunchTemplateInstanceMetadataEndpointState (..),
+
+    -- ** AllocationId
+    AllocationId (..),
+
+    -- ** SensitiveUserData
+    SensitiveUserData (..),
+
+    -- ** ConversionTask
+    ConversionTask (..),
+    mkConversionTask,
+    ctConversionTaskId,
+    ctExpirationTime,
+    ctImportInstance,
+    ctImportVolume,
+    ctState,
+    ctStatusMessage,
+    ctTags,
+
+    -- ** AttachmentStatus
+    AttachmentStatus (..),
+
+    -- ** SpotCapacityRebalance
+    SpotCapacityRebalance (..),
+    mkSpotCapacityRebalance,
+    scrReplacementStrategy,
+
+    -- ** GpuDeviceName
+    GpuDeviceName (..),
+
+    -- ** FederatedAuthenticationRequest
+    FederatedAuthenticationRequest (..),
+    mkFederatedAuthenticationRequest,
+    farSAMLProviderArn,
+    farSelfServiceSAMLProviderArn,
+
+    -- ** ClassicLinkInstance
+    ClassicLinkInstance (..),
+    mkClassicLinkInstance,
+    cliGroups,
+    cliInstanceId,
+    cliTags,
+    cliVpcId,
+
+    -- ** String
+    String (..),
+
+    -- ** TransportProtocol
+    TransportProtocol (..),
+
+    -- ** RouteOrigin
+    RouteOrigin (..),
+
+    -- ** PrefixListState
+    PrefixListState (..),
+
+    -- ** ListingState
+    ListingState (..),
+
+    -- ** SpotPrice
+    SpotPrice (..),
+    mkSpotPrice,
+    sAvailabilityZone,
+    sInstanceType,
+    sProductDescription,
+    sSpotPrice,
+    sTimestamp,
+
+    -- ** ActiveInstance
+    ActiveInstance (..),
+    mkActiveInstance,
+    aiInstanceHealth,
+    aiInstanceId,
+    aiInstanceType,
+    aiSpotInstanceRequestId,
+
+    -- ** TrafficType
+    TrafficType (..),
+
+    -- ** LaunchTemplatePlacementRequest
+    LaunchTemplatePlacementRequest (..),
+    mkLaunchTemplatePlacementRequest,
+    ltprAffinity,
+    ltprAvailabilityZone,
+    ltprGroupName,
+    ltprHostId,
+    ltprHostResourceGroupArn,
+    ltprPartitionNumber,
+    ltprSpreadDomain,
+    ltprTenancy,
+
+    -- ** LaunchTemplateCapacityReservationSpecificationRequest
+    LaunchTemplateCapacityReservationSpecificationRequest (..),
+    mkLaunchTemplateCapacityReservationSpecificationRequest,
+    ltcrsrCapacityReservationPreference,
+    ltcrsrCapacityReservationTarget,
+
+    -- ** VpnGatewayId
+    VpnGatewayId (..),
+
+    -- ** SpotFleetRequestConfigData
+    SpotFleetRequestConfigData (..),
+    mkSpotFleetRequestConfigData,
+    sfrcdIamFleetRole,
+    sfrcdTargetCapacity,
+    sfrcdAllocationStrategy,
+    sfrcdClientToken,
+    sfrcdExcessCapacityTerminationPolicy,
+    sfrcdFulfilledCapacity,
+    sfrcdInstanceInterruptionBehavior,
+    sfrcdInstancePoolsToUseCount,
+    sfrcdLaunchSpecifications,
+    sfrcdLaunchTemplateConfigs,
+    sfrcdLoadBalancersConfig,
+    sfrcdOnDemandAllocationStrategy,
+    sfrcdOnDemandFulfilledCapacity,
+    sfrcdOnDemandMaxTotalPrice,
+    sfrcdOnDemandTargetCapacity,
+    sfrcdReplaceUnhealthyInstances,
+    sfrcdSpotMaintenanceStrategies,
+    sfrcdSpotMaxTotalPrice,
+    sfrcdSpotPrice,
+    sfrcdTagSpecifications,
+    sfrcdTerminateInstancesWithExpiration,
+    sfrcdType,
+    sfrcdValidFrom,
+    sfrcdValidUntil,
+
+    -- ** ReplacementStrategy
+    ReplacementStrategy (..),
+
+    -- ** ArchitectureType
+    ArchitectureType (..),
+
+    -- ** EnaSupport
+    EnaSupport (..),
+
+    -- ** AvailableCapacity
+    AvailableCapacity (..),
+    mkAvailableCapacity,
+    acAvailableInstanceCapacity,
+    acAvailableVCpus,
+
+    -- ** NatGatewayAddress
+    NatGatewayAddress (..),
+    mkNatGatewayAddress,
+    ngaAllocationId,
+    ngaNetworkInterfaceId,
+    ngaPrivateIp,
+    ngaPublicIp,
+
+    -- ** InstanceMonitoring
+    InstanceMonitoring (..),
+    mkInstanceMonitoring,
+    imInstanceId,
+    imMonitoring,
+
+    -- ** ScheduledInstanceId
+    ScheduledInstanceId (..),
+
+    -- ** HostReservationId
+    HostReservationId (..),
+
+    -- ** PlacementGroupStrategy
+    PlacementGroupStrategy (..),
+
+    -- ** TrafficMirrorTargetType
+    TrafficMirrorTargetType (..),
+
+    -- ** CapacityReservationTarget
+    CapacityReservationTarget (..),
+    mkCapacityReservationTarget,
+    crtCapacityReservationId,
+    crtCapacityReservationResourceGroupArn,
+
+    -- ** ModifyVpnTunnelOptionsSpecification
+    ModifyVpnTunnelOptionsSpecification (..),
+    mkModifyVpnTunnelOptionsSpecification,
+    mvtosDPDTimeoutAction,
+    mvtosDPDTimeoutSeconds,
+    mvtosIKEVersions,
+    mvtosPhase1DHGroupNumbers,
+    mvtosPhase1EncryptionAlgorithms,
+    mvtosPhase1IntegrityAlgorithms,
+    mvtosPhase1LifetimeSeconds,
+    mvtosPhase2DHGroupNumbers,
+    mvtosPhase2EncryptionAlgorithms,
+    mvtosPhase2IntegrityAlgorithms,
+    mvtosPhase2LifetimeSeconds,
+    mvtosPreSharedKey,
+    mvtosRekeyFuzzPercentage,
+    mvtosRekeyMarginTimeSeconds,
+    mvtosReplayWindowSize,
+    mvtosStartupAction,
+    mvtosTunnelInsideCidr,
+    mvtosTunnelInsideIpv6Cidr,
+
+    -- ** ServiceConfiguration
+    ServiceConfiguration (..),
+    mkServiceConfiguration,
+    scAcceptanceRequired,
+    scAvailabilityZones,
+    scBaseEndpointDnsNames,
+    scGatewayLoadBalancerArns,
+    scManagesVpcEndpoints,
+    scNetworkLoadBalancerArns,
+    scPrivateDnsName,
+    scPrivateDnsNameConfiguration,
+    scServiceId,
+    scServiceName,
+    scServiceState,
+    scServiceType,
+    scTags,
+
+    -- ** LoadPermission
+    LoadPermission (..),
+    mkLoadPermission,
+    lpGroup,
+    lpUserId,
+
+    -- ** NetworkInterfacePermissionId
+    NetworkInterfacePermissionId (..),
+
+    -- ** PriceScheduleSpecification
+    PriceScheduleSpecification (..),
+    mkPriceScheduleSpecification,
+    pssCurrencyCode,
+    pssPrice,
+    pssTerm,
+
+    -- ** StaleIpPermission
+    StaleIpPermission (..),
+    mkStaleIpPermission,
+    sipFromPort,
+    sipIpProtocol,
+    sipIpRanges,
+    sipPrefixListIds,
+    sipToPort,
+    sipUserIdGroupPairs,
+
+    -- ** SpotFleetRequestConfig
+    SpotFleetRequestConfig (..),
+    mkSpotFleetRequestConfig,
+    sfrcActivityStatus,
+    sfrcCreateTime,
+    sfrcSpotFleetRequestConfig,
+    sfrcSpotFleetRequestId,
+    sfrcSpotFleetRequestState,
+    sfrcTags,
+
+    -- ** PrefixListResourceId
+    PrefixListResourceId (..),
+
+    -- ** SpotInstanceStatus
+    SpotInstanceStatus (..),
+    mkSpotInstanceStatus,
+    sisCode,
+    sisMessage,
+    sisUpdateTime,
+
+    -- ** ElasticGpuState
+    ElasticGpuState (..),
+
+    -- ** TargetCapacitySpecification
+    TargetCapacitySpecification (..),
+    mkTargetCapacitySpecification,
+    tcsDefaultTargetCapacityType,
+    tcsOnDemandTargetCapacity,
+    tcsSpotTargetCapacity,
+    tcsTotalTargetCapacity,
+
+    -- ** SnapshotTaskDetail
+    SnapshotTaskDetail (..),
+    mkSnapshotTaskDetail,
+    stdDescription,
+    stdDiskImageSize,
+    stdEncrypted,
+    stdFormat,
+    stdKmsKeyId,
+    stdProgress,
+    stdSnapshotId,
+    stdStatus,
+    stdStatusMessage,
+    stdUrl,
+    stdUserBucket,
+
+    -- ** VpcIpv6CidrBlockAssociation
+    VpcIpv6CidrBlockAssociation (..),
+    mkVpcIpv6CidrBlockAssociation,
+    vicbaAssociationId,
+    vicbaIpv6CidrBlock,
+    vicbaIpv6CidrBlockState,
+    vicbaIpv6Pool,
+    vicbaNetworkBorderGroup,
+
+    -- ** EnableFastSnapshotRestoreErrorItem
+    EnableFastSnapshotRestoreErrorItem (..),
+    mkEnableFastSnapshotRestoreErrorItem,
+    efsreiFastSnapshotRestoreStateErrors,
+    efsreiSnapshotId,
+
+    -- ** TrafficMirrorSessionField
+    TrafficMirrorSessionField (..),
+
+    -- ** SpotOptions
+    SpotOptions (..),
+    mkSpotOptions,
+    soAllocationStrategy,
+    soInstanceInterruptionBehavior,
+    soInstancePoolsToUseCount,
+    soMaintenanceStrategies,
+    soMaxTotalPrice,
+    soMinTargetCapacity,
+    soSingleAvailabilityZone,
+    soSingleInstanceType,
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** AvailabilityZoneState
+    AvailabilityZoneState (..),
+
+    -- ** AllowsMultipleInstanceTypes
+    AllowsMultipleInstanceTypes (..),
+
+    -- ** InstanceMetadataEndpointState
+    InstanceMetadataEndpointState (..),
+
+    -- ** ElasticInferenceAcceleratorAssociation
+    ElasticInferenceAcceleratorAssociation (..),
+    mkElasticInferenceAcceleratorAssociation,
+    eiaaElasticInferenceAcceleratorArn,
+    eiaaElasticInferenceAcceleratorAssociationId,
+    eiaaElasticInferenceAcceleratorAssociationState,
+    eiaaElasticInferenceAcceleratorAssociationTime,
+
+    -- ** SpotInstanceRequest
+    SpotInstanceRequest (..),
+    mkSpotInstanceRequest,
+    sirActualBlockHourlyPrice,
+    sirAvailabilityZoneGroup,
+    sirBlockDurationMinutes,
+    sirCreateTime,
+    sirFault,
+    sirInstanceId,
+    sirInstanceInterruptionBehavior,
+    sirLaunchGroup,
+    sirLaunchSpecification,
+    sirLaunchedAvailabilityZone,
+    sirProductDescription,
+    sirSpotInstanceRequestId,
+    sirSpotPrice,
+    sirState,
+    sirStatus,
+    sirTags,
+    sirType,
+    sirValidFrom,
+    sirValidUntil,
+
+    -- ** LaunchTemplateId
+    LaunchTemplateId (..),
+
+    -- ** AssociationStatusCode
+    AssociationStatusCode (..),
+
+    -- ** RemovePrefixListEntry
+    RemovePrefixListEntry (..),
+    mkRemovePrefixListEntry,
+    rpleCidr,
+
+    -- ** PeeringTgwInfo
+    PeeringTgwInfo (..),
+    mkPeeringTgwInfo,
+    ptiOwnerId,
+    ptiRegion,
+    ptiTransitGatewayId,
+
+    -- ** ScheduledInstancesNetworkInterface
+    ScheduledInstancesNetworkInterface (..),
+    mkScheduledInstancesNetworkInterface,
+    siniAssociatePublicIpAddress,
+    siniDeleteOnTermination,
+    siniDescription,
+    siniDeviceIndex,
+    siniGroups,
+    siniIpv6AddressCount,
+    siniIpv6Addresses,
+    siniNetworkInterfaceId,
+    siniPrivateIpAddress,
+    siniPrivateIpAddressConfigs,
+    siniSecondaryPrivateIpAddressCount,
+    siniSubnetId,
+
+    -- ** LaunchSpecification
+    LaunchSpecification (..),
+    mkLaunchSpecification,
+    lsAddressingType,
+    lsBlockDeviceMappings,
+    lsEbsOptimized,
+    lsIamInstanceProfile,
+    lsImageId,
+    lsInstanceType,
+    lsKernelId,
+    lsKeyName,
+    lsMonitoring,
+    lsNetworkInterfaces,
+    lsPlacement,
+    lsRamdiskId,
+    lsSecurityGroups,
+    lsSubnetId,
+    lsUserData,
+
+    -- ** TrafficDirection
+    TrafficDirection (..),
+
+    -- ** VolumeStatusEvent
+    VolumeStatusEvent (..),
+    mkVolumeStatusEvent,
+    vseDescription,
+    vseEventId,
+    vseEventType,
+    vseInstanceId,
+    vseNotAfter,
+    vseNotBefore,
+
+    -- ** SpotMaintenanceStrategies
+    SpotMaintenanceStrategies (..),
+    mkSpotMaintenanceStrategies,
+    smsCapacityRebalance,
+
+    -- ** Volume
+    Volume (..),
+    mkVolume,
+    vAttachments,
+    vAvailabilityZone,
+    vCreateTime,
+    vEncrypted,
+    vFastRestored,
+    vIops,
+    vKmsKeyId,
+    vMultiAttachEnabled,
+    vOutpostArn,
+    vSize,
+    vSnapshotId,
+    vState,
+    vTags,
+    vVolumeId,
+    vVolumeType,
+
+    -- ** Reservation
+    Reservation (..),
+    mkReservation,
+    rGroups,
+    rInstances,
+    rOwnerId,
+    rRequesterId,
+    rReservationId,
+
+    -- ** TrafficMirrorTargetId
+    TrafficMirrorTargetId (..),
+
+    -- ** PlacementGroupInfo
+    PlacementGroupInfo (..),
+    mkPlacementGroupInfo,
+    pgiSupportedStrategies,
+
+    -- ** FpgaDeviceManufacturerName
+    FpgaDeviceManufacturerName (..),
+
+    -- ** CidrAuthorizationContext
+    CidrAuthorizationContext (..),
+    mkCidrAuthorizationContext,
+    cacMessage,
+    cacSignature,
+
+    -- ** ClientVpnRoute
+    ClientVpnRoute (..),
+    mkClientVpnRoute,
+    cvrClientVpnEndpointId,
+    cvrDescription,
+    cvrDestinationCidr,
+    cvrOrigin,
+    cvrStatus,
+    cvrTargetSubnet,
+    cvrType,
+
+    -- ** LaunchTemplateInstanceMarketOptions
+    LaunchTemplateInstanceMarketOptions (..),
+    mkLaunchTemplateInstanceMarketOptions,
+    ltimoMarketType,
+    ltimoSpotOptions,
+
+    -- ** TrafficMirrorFilterRuleField
+    TrafficMirrorFilterRuleField (..),
+
+    -- ** LoadPermissionModifications
+    LoadPermissionModifications (..),
+    mkLoadPermissionModifications,
+    lpmAdd,
+    lpmRemove,
+
+    -- ** LaunchTemplateEbsBlockDevice
+    LaunchTemplateEbsBlockDevice (..),
+    mkLaunchTemplateEbsBlockDevice,
+    ltebdDeleteOnTermination,
+    ltebdEncrypted,
+    ltebdIops,
+    ltebdKmsKeyId,
+    ltebdSnapshotId,
+    ltebdVolumeSize,
+    ltebdVolumeType,
+
+    -- ** FpgaImageState
+    FpgaImageState (..),
+    mkFpgaImageState,
+    fisCode,
+    fisMessage,
+
+    -- ** EphemeralNvmeSupport
+    EphemeralNvmeSupport (..),
+
+    -- ** MulticastSupportValue
+    MulticastSupportValue (..),
+
+    -- ** ImportInstanceVolumeDetailItem
+    ImportInstanceVolumeDetailItem (..),
+    mkImportInstanceVolumeDetailItem,
+    iivdiAvailabilityZone,
+    iivdiBytesConverted,
+    iivdiDescription,
+    iivdiImage,
+    iivdiStatus,
+    iivdiStatusMessage,
+    iivdiVolume,
+
+    -- ** LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    LocalGatewayRouteTableVirtualInterfaceGroupAssociation (..),
+    mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+    lgrtvigaLocalGatewayId,
+    lgrtvigaLocalGatewayRouteTableArn,
+    lgrtvigaLocalGatewayRouteTableId,
+    lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId,
+    lgrtvigaLocalGatewayVirtualInterfaceGroupId,
+    lgrtvigaOwnerId,
+    lgrtvigaState,
+    lgrtvigaTags,
+
+    -- ** LocalGatewayId
+    LocalGatewayId (..),
+
+    -- ** SummaryStatus
+    SummaryStatus (..),
+
+    -- ** ReservedInstancesModification
+    ReservedInstancesModification (..),
+    mkReservedInstancesModification,
+    rimClientToken,
+    rimCreateDate,
+    rimEffectiveDate,
+    rimModificationResults,
+    rimReservedInstancesIds,
+    rimReservedInstancesModificationId,
+    rimStatus,
+    rimStatusMessage,
+    rimUpdateDate,
+
+    -- ** TransitGatewayAttachmentPropagation
+    TransitGatewayAttachmentPropagation (..),
+    mkTransitGatewayAttachmentPropagation,
+    tgapState,
+    tgapTransitGatewayRouteTableId,
+
+    -- ** RuleAction
+    RuleAction (..),
+
+    -- ** CarrierGatewayState
+    CarrierGatewayState (..),
+
+    -- ** IamInstanceProfileAssociationId
+    IamInstanceProfileAssociationId (..),
+
+    -- ** BatchState
+    BatchState (..),
+
+    -- ** DiskInfo
+    DiskInfo (..),
+    mkDiskInfo,
+    diCount,
+    diSizeInGB,
+    diType,
+
+    -- ** LocalGatewayRouteTableVpcAssociationId
+    LocalGatewayRouteTableVpcAssociationId (..),
+
+    -- ** SubnetCidrAssociationId
+    SubnetCidrAssociationId (..),
+
+    -- ** ConnectionNotificationType
+    ConnectionNotificationType (..),
+
+    -- ** NetworkInterface
+    NetworkInterface (..),
+    mkNetworkInterface,
+    niAssociation,
+    niAttachment,
+    niAvailabilityZone,
+    niDescription,
+    niGroups,
+    niInterfaceType,
+    niIpv6Addresses,
+    niMacAddress,
+    niNetworkInterfaceId,
+    niOutpostArn,
+    niOwnerId,
+    niPrivateDnsName,
+    niPrivateIpAddress,
+    niPrivateIpAddresses,
+    niRequesterId,
+    niRequesterManaged,
+    niSourceDestCheck,
+    niStatus,
+    niSubnetId,
+    niTagSet,
+    niVpcId,
+
+    -- ** EbsNvmeSupport
+    EbsNvmeSupport (..),
+
+    -- ** ClientVpnConnectionStatus
+    ClientVpnConnectionStatus (..),
+    mkClientVpnConnectionStatus,
+    cvcsCode,
+    cvcsMessage,
+
+    -- ** InferenceDeviceManufacturerName
+    InferenceDeviceManufacturerName (..),
+
+    -- ** ExportImageTaskId
+    ExportImageTaskId (..),
+
+    -- ** EnableFastSnapshotRestoreSuccessItem
+    EnableFastSnapshotRestoreSuccessItem (..),
+    mkEnableFastSnapshotRestoreSuccessItem,
+    efsrsiAvailabilityZone,
+    efsrsiDisabledTime,
+    efsrsiDisablingTime,
+    efsrsiEnabledTime,
+    efsrsiEnablingTime,
+    efsrsiOptimizingTime,
+    efsrsiOwnerAlias,
+    efsrsiOwnerId,
+    efsrsiSnapshotId,
+    efsrsiState,
+    efsrsiStateTransitionReason,
+
+    -- ** TransitAssociationGatewayId
+    TransitAssociationGatewayId (..),
+
+    -- ** TelemetryStatus
+    TelemetryStatus (..),
+
+    -- ** LaunchTemplateCpuOptions
+    LaunchTemplateCpuOptions (..),
+    mkLaunchTemplateCpuOptions,
+    ltcoCoreCount,
+    ltcoThreadsPerCore,
+
+    -- ** FleetSpotCapacityRebalance
+    FleetSpotCapacityRebalance (..),
+    mkFleetSpotCapacityRebalance,
+    fscrReplacementStrategy,
+
+    -- ** RouteTableAssociationId
+    RouteTableAssociationId (..),
+
+    -- ** Subnet
+    Subnet (..),
+    mkSubnet,
+    sfAssignIpv6AddressOnCreation,
+    sfAvailabilityZone,
+    sfAvailabilityZoneId,
+    sfAvailableIpAddressCount,
+    sfCidrBlock,
+    sfCustomerOwnedIpv4Pool,
+    sfDefaultForAz,
+    sfIpv6CidrBlockAssociationSet,
+    sfMapCustomerOwnedIpOnLaunch,
+    sfMapPublicIpOnLaunch,
+    sfOutpostArn,
+    sfOwnerId,
+    sfState,
+    sfSubnetArn,
+    sfSubnetId,
+    sfTags,
+    sfVpcId,
+
+    -- ** LocalGatewayRouteState
+    LocalGatewayRouteState (..),
+
+    -- ** TerminateConnectionStatus
+    TerminateConnectionStatus (..),
+    mkTerminateConnectionStatus,
+    tcsConnectionId,
+    tcsCurrentStatus,
+    tcsPreviousStatus,
+
+    -- ** CreateFleetInstance
+    CreateFleetInstance (..),
+    mkCreateFleetInstance,
+    cfiInstanceIds,
+    cfiInstanceType,
+    cfiLaunchTemplateAndOverrides,
+    cfiLifecycle,
+    cfiPlatform,
+
+    -- ** FpgaImageAttribute
+    FpgaImageAttribute (..),
+    mkFpgaImageAttribute,
+    fiaDescription,
+    fiaFpgaImageId,
+    fiaLoadPermissions,
+    fiaName,
+    fiaProductCodes,
+
+    -- ** KeyPairInfo
+    KeyPairInfo (..),
+    mkKeyPairInfo,
+    kpiKeyFingerprint,
+    kpiKeyName,
+    kpiKeyPairId,
+    kpiTags,
+
+    -- ** LaunchTemplateEnclaveOptions
+    LaunchTemplateEnclaveOptions (..),
+    mkLaunchTemplateEnclaveOptions,
+    lteoEnabled,
+
+    -- ** TransitGatewayMulticastDomain
+    TransitGatewayMulticastDomain (..),
+    mkTransitGatewayMulticastDomain,
+    tgmdCreationTime,
+    tgmdState,
+    tgmdTags,
+    tgmdTransitGatewayId,
+    tgmdTransitGatewayMulticastDomainId,
+
+    -- ** NatGateway
+    NatGateway (..),
+    mkNatGateway,
+    ngCreateTime,
+    ngDeleteTime,
+    ngFailureCode,
+    ngFailureMessage,
+    ngNatGatewayAddresses,
+    ngNatGatewayId,
+    ngProvisionedBandwidth,
+    ngState,
+    ngSubnetId,
+    ngTags,
+    ngVpcId,
+
+    -- ** LaunchPermissionModifications
+    LaunchPermissionModifications (..),
+    mkLaunchPermissionModifications,
+    lAdd,
+    lRemove,
+
+    -- ** TrafficMirrorPortRangeRequest
+    TrafficMirrorPortRangeRequest (..),
+    mkTrafficMirrorPortRangeRequest,
+    tmprrFromPort,
+    tmprrToPort,
+
+    -- ** TransitGatewayVpcAttachmentOptions
+    TransitGatewayVpcAttachmentOptions (..),
+    mkTransitGatewayVpcAttachmentOptions,
+    tgvaoApplianceModeSupport,
+    tgvaoDnsSupport,
+    tgvaoIpv6Support,
+
+    -- ** ElasticGpuHealth
+    ElasticGpuHealth (..),
+    mkElasticGpuHealth,
+    eghStatus,
+
+    -- ** LoadBalancersConfig
+    LoadBalancersConfig (..),
+    mkLoadBalancersConfig,
+    lbcClassicLoadBalancersConfig,
+    lbcTargetGroupsConfig,
+
+    -- ** ExcessCapacityTerminationPolicy
+    ExcessCapacityTerminationPolicy (..),
+
+    -- ** SnapshotState
+    SnapshotState (..),
+
+    -- ** InstanceNetworkInterfaceAssociation
+    InstanceNetworkInterfaceAssociation (..),
+    mkInstanceNetworkInterfaceAssociation,
+    iniaCarrierIp,
+    iniaIpOwnerId,
+    iniaPublicDnsName,
+    iniaPublicIp,
+
+    -- ** ReservationValue
+    ReservationValue (..),
+    mkReservationValue,
+    rvHourlyPrice,
+    rvRemainingTotalValue,
+    rvRemainingUpfrontValue,
+
+    -- ** FleetReplacementStrategy
+    FleetReplacementStrategy (..),
+
+    -- ** DiskImageDetail
+    DiskImageDetail (..),
+    mkDiskImageDetail,
+    dBytes,
+    dFormat,
+    dImportManifestUrl,
+
+    -- ** ValidationError
+    ValidationError (..),
+    mkValidationError,
+    veCode,
+    veMessage,
+
+    -- ** TransitGatewayVpcAttachment
+    TransitGatewayVpcAttachment (..),
+    mkTransitGatewayVpcAttachment,
+    tgvaCreationTime,
+    tgvaOptions,
+    tgvaState,
+    tgvaSubnetIds,
+    tgvaTags,
+    tgvaTransitGatewayAttachmentId,
+    tgvaTransitGatewayId,
+    tgvaVpcId,
+    tgvaVpcOwnerId,
+
+    -- ** SpotAllocationStrategy
+    SpotAllocationStrategy (..),
+
+    -- ** UnsuccessfulInstanceCreditSpecificationItemError
+    UnsuccessfulInstanceCreditSpecificationItemError (..),
+    mkUnsuccessfulInstanceCreditSpecificationItemError,
+    uicsieCode,
+    uicsieMessage,
+
+    -- ** InstancePrivateIpAddress
+    InstancePrivateIpAddress (..),
+    mkInstancePrivateIpAddress,
+    ipiaAssociation,
+    ipiaPrimary,
+    ipiaPrivateDnsName,
+    ipiaPrivateIpAddress,
+
+    -- ** CancelledSpotInstanceRequest
+    CancelledSpotInstanceRequest (..),
+    mkCancelledSpotInstanceRequest,
+    csirSpotInstanceRequestId,
+    csirState,
+
+    -- ** VpnConnectionOptionsSpecification
+    VpnConnectionOptionsSpecification (..),
+    mkVpnConnectionOptionsSpecification,
+    vcosEnableAcceleration,
+    vcosLocalIpv4NetworkCidr,
+    vcosLocalIpv6NetworkCidr,
+    vcosRemoteIpv4NetworkCidr,
+    vcosRemoteIpv6NetworkCidr,
+    vcosStaticRoutesOnly,
+    vcosTunnelInsideIpVersion,
+    vcosTunnelOptions,
+
+    -- ** Address
+    Address (..),
+    mkAddress,
+    aAllocationId,
+    aAssociationId,
+    aCarrierIp,
+    aCustomerOwnedIp,
+    aCustomerOwnedIpv4Pool,
+    aDomain,
+    aInstanceId,
+    aNetworkBorderGroup,
+    aNetworkInterfaceId,
+    aNetworkInterfaceOwnerId,
+    aPrivateIpAddress,
+    aPublicIp,
+    aPublicIpv4Pool,
+    aTags,
+
+    -- ** NatGatewayId
+    NatGatewayId (..),
+
+    -- ** FleetType
+    FleetType (..),
 
     -- ** TransitGatewayPrefixListReference
     TransitGatewayPrefixListReference (..),
     mkTransitGatewayPrefixListReference,
-    tgplrState,
-    tgplrTransitGatewayRouteTableId,
-    tgplrPrefixListOwnerId,
     tgplrBlackhole,
     tgplrPrefixListId,
+    tgplrPrefixListOwnerId,
+    tgplrState,
     tgplrTransitGatewayAttachment,
+    tgplrTransitGatewayRouteTableId,
 
-    -- ** TransitGatewayPropagation
-    TransitGatewayPropagation (..),
-    mkTransitGatewayPropagation,
-    tgpState,
-    tgpResourceId,
-    tgpResourceType,
-    tgpTransitGatewayRouteTableId,
-    tgpTransitGatewayAttachmentId,
+    -- ** VolumeAttachmentState
+    VolumeAttachmentState (..),
+
+    -- ** TransitGatewayMulticastDomainId
+    TransitGatewayMulticastDomainId (..),
+
+    -- ** IamInstanceProfileAssociation
+    IamInstanceProfileAssociation (..),
+    mkIamInstanceProfileAssociation,
+    iipaAssociationId,
+    iipaIamInstanceProfile,
+    iipaInstanceId,
+    iipaState,
+    iipaTimestamp,
+
+    -- ** EnclaveOptions
+    EnclaveOptions (..),
+    mkEnclaveOptions,
+    eoEnabled,
+
+    -- ** PrivateDnsDetails
+    PrivateDnsDetails (..),
+    mkPrivateDnsDetails,
+    pddPrivateDnsName,
+
+    -- ** CoipAddressUsage
+    CoipAddressUsage (..),
+    mkCoipAddressUsage,
+    cauAllocationId,
+    cauAwsAccountId,
+    cauAwsService,
+    cauCoIp,
+
+    -- ** AssociatedNetworkType
+    AssociatedNetworkType (..),
+
+    -- ** NetworkInterfaceId
+    NetworkInterfaceId (..),
+
+    -- ** MovingAddressStatus
+    MovingAddressStatus (..),
+    mkMovingAddressStatus,
+    masMoveStatus,
+    masPublicIp,
+
+    -- ** LaunchPermission
+    LaunchPermission (..),
+    mkLaunchPermission,
+    lGroup,
+    lUserId,
+
+    -- ** NetworkPerformance
+    NetworkPerformance (..),
+
+    -- ** RouteState
+    RouteState (..),
+
+    -- ** DefaultRouteTableAssociationValue
+    DefaultRouteTableAssociationValue (..),
+
+    -- ** OfferingClassType
+    OfferingClassType (..),
+
+    -- ** InterfacePermissionType
+    InterfacePermissionType (..),
+
+    -- ** SecurityGroupName
+    SecurityGroupName (..),
+
+    -- ** ExportImageTask
+    ExportImageTask (..),
+    mkExportImageTask,
+    eitDescription,
+    eitExportImageTaskId,
+    eitImageId,
+    eitProgress,
+    eitS3ExportLocation,
+    eitStatus,
+    eitStatusMessage,
+    eitTags,
+
+    -- ** RouteTableAssociation
+    RouteTableAssociation (..),
+    mkRouteTableAssociation,
+    rtaAssociationState,
+    rtaGatewayId,
+    rtaMain,
+    rtaRouteTableAssociationId,
+    rtaRouteTableId,
+    rtaSubnetId,
+
+    -- ** VpcEndpointType
+    VpcEndpointType (..),
+
+    -- ** RamdiskId
+    RamdiskId (..),
 
     -- ** TransitGatewayRequestOptions
     TransitGatewayRequestOptions (..),
     mkTransitGatewayRequestOptions,
-    tgroVPNEcmpSupport,
+    tgroAmazonSideAsn,
     tgroAutoAcceptSharedAttachments,
     tgroDefaultRouteTableAssociation,
-    tgroAmazonSideASN,
     tgroDefaultRouteTablePropagation,
+    tgroDnsSupport,
     tgroMulticastSupport,
-    tgroDNSSupport,
+    tgroVpnEcmpSupport,
+
+    -- ** LocalGatewayRouteTableVpcAssociation
+    LocalGatewayRouteTableVpcAssociation (..),
+    mkLocalGatewayRouteTableVpcAssociation,
+    lgrtvaLocalGatewayId,
+    lgrtvaLocalGatewayRouteTableArn,
+    lgrtvaLocalGatewayRouteTableId,
+    lgrtvaLocalGatewayRouteTableVpcAssociationId,
+    lgrtvaOwnerId,
+    lgrtvaState,
+    lgrtvaTags,
+    lgrtvaVpcId,
+
+    -- ** FpgaDeviceInfo
+    FpgaDeviceInfo (..),
+    mkFpgaDeviceInfo,
+    fdiCount,
+    fdiManufacturer,
+    fdiMemoryInfo,
+    fdiName,
+
+    -- ** CpuOptions
+    CpuOptions (..),
+    mkCpuOptions,
+    coCoreCount,
+    coThreadsPerCore,
+
+    -- ** VpcEndpointServiceId
+    VpcEndpointServiceId (..),
+
+    -- ** BundleTaskState
+    BundleTaskState (..),
+
+    -- ** LaunchTemplateIamInstanceProfileSpecificationRequest
+    LaunchTemplateIamInstanceProfileSpecificationRequest (..),
+    mkLaunchTemplateIamInstanceProfileSpecificationRequest,
+    ltiipsrArn,
+    ltiipsrName,
+
+    -- ** FleetLaunchTemplateSpecification
+    FleetLaunchTemplateSpecification (..),
+    mkFleetLaunchTemplateSpecification,
+    fltsLaunchTemplateId,
+    fltsLaunchTemplateName,
+    fltsVersion,
+
+    -- ** OnDemandOptions
+    OnDemandOptions (..),
+    mkOnDemandOptions,
+    odoAllocationStrategy,
+    odoCapacityReservationOptions,
+    odoMaxTotalPrice,
+    odoMinTargetCapacity,
+    odoSingleAvailabilityZone,
+    odoSingleInstanceType,
 
     -- ** TransitGatewayRoute
     TransitGatewayRoute (..),
     mkTransitGatewayRoute,
-    tgrState,
+    tgrDestinationCidrBlock,
     tgrPrefixListId,
+    tgrState,
     tgrTransitGatewayAttachments,
     tgrType,
-    tgrDestinationCidrBlock,
+
+    -- ** DeregisterInstanceTagAttributeRequest
+    DeregisterInstanceTagAttributeRequest (..),
+    mkDeregisterInstanceTagAttributeRequest,
+    ditarIncludeAllTagsOfInstance,
+    ditarInstanceTagKeys,
+
+    -- ** HibernationOptionsRequest
+    HibernationOptionsRequest (..),
+    mkHibernationOptionsRequest,
+    horConfigured,
+
+    -- ** PortRange
+    PortRange (..),
+    mkPortRange,
+    prFrom,
+    prTo,
+
+    -- ** VpcAttributeName
+    VpcAttributeName (..),
+
+    -- ** TransitGatewayRouteTablePropagation
+    TransitGatewayRouteTablePropagation (..),
+    mkTransitGatewayRouteTablePropagation,
+    tgrtpResourceId,
+    tgrtpResourceType,
+    tgrtpState,
+    tgrtpTransitGatewayAttachmentId,
+
+    -- ** IdFormat
+    IdFormat (..),
+    mkIdFormat,
+    ifDeadline,
+    ifResource,
+    ifUseLongIds,
+
+    -- ** SubnetIpv6CidrBlockAssociation
+    SubnetIpv6CidrBlockAssociation (..),
+    mkSubnetIpv6CidrBlockAssociation,
+    sicbaAssociationId,
+    sicbaIpv6CidrBlock,
+    sicbaIpv6CidrBlockState,
+
+    -- ** ReservedInstancesConfiguration
+    ReservedInstancesConfiguration (..),
+    mkReservedInstancesConfiguration,
+    ricAvailabilityZone,
+    ricInstanceCount,
+    ricInstanceType,
+    ricPlatform,
+    ricScope,
+
+    -- ** EbsOptimizedSupport
+    EbsOptimizedSupport (..),
+
+    -- ** IKEVersionsRequestListValue
+    IKEVersionsRequestListValue (..),
+    mkIKEVersionsRequestListValue,
+    ikevrlvValue,
+
+    -- ** FpgaInfo
+    FpgaInfo (..),
+    mkFpgaInfo,
+    fiFpgas,
+    fiTotalFpgaMemoryInMiB,
+
+    -- ** PublicIpv4Pool
+    PublicIpv4Pool (..),
+    mkPublicIpv4Pool,
+    pipDescription,
+    pipNetworkBorderGroup,
+    pipPoolAddressRanges,
+    pipPoolId,
+    pipTags,
+    pipTotalAddressCount,
+    pipTotalAvailableAddressCount,
+
+    -- ** DefaultTargetCapacityType
+    DefaultTargetCapacityType (..),
+
+    -- ** DisableFastSnapshotRestoreSuccessItem
+    DisableFastSnapshotRestoreSuccessItem (..),
+    mkDisableFastSnapshotRestoreSuccessItem,
+    dAvailabilityZone,
+    dDisabledTime,
+    dDisablingTime,
+    dEnabledTime,
+    dEnablingTime,
+    dOptimizingTime,
+    dOwnerAlias,
+    dOwnerId,
+    dSnapshotId,
+    dState,
+    dStateTransitionReason,
+
+    -- ** ResponseLaunchTemplateData
+    ResponseLaunchTemplateData (..),
+    mkResponseLaunchTemplateData,
+    rBlockDeviceMappings,
+    rCapacityReservationSpecification,
+    rCpuOptions,
+    rCreditSpecification,
+    rDisableApiTermination,
+    rEbsOptimized,
+    rElasticGpuSpecifications,
+    rElasticInferenceAccelerators,
+    rEnclaveOptions,
+    rHibernationOptions,
+    rIamInstanceProfile,
+    rImageId,
+    rInstanceInitiatedShutdownBehavior,
+    rInstanceMarketOptions,
+    rInstanceType,
+    rKernelId,
+    rKeyName,
+    rLicenseSpecifications,
+    rMetadataOptions,
+    rMonitoring,
+    rNetworkInterfaces,
+    rPlacement,
+    rRamDiskId,
+    rSecurityGroupIds,
+    rSecurityGroups,
+    rTagSpecifications,
+    rUserData,
+
+    -- ** ElasticGpuAssociation
+    ElasticGpuAssociation (..),
+    mkElasticGpuAssociation,
+    egaElasticGpuAssociationId,
+    egaElasticGpuAssociationState,
+    egaElasticGpuAssociationTime,
+    egaElasticGpuId,
+
+    -- ** VpcFlowLogId
+    VpcFlowLogId (..),
+
+    -- ** VolumeStatusDetails
+    VolumeStatusDetails (..),
+    mkVolumeStatusDetails,
+    vsdName,
+    vsdStatus,
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** SpotInstanceState
+    SpotInstanceState (..),
+
+    -- ** VpnConnectionOptions
+    VpnConnectionOptions (..),
+    mkVpnConnectionOptions,
+    vcoEnableAcceleration,
+    vcoLocalIpv4NetworkCidr,
+    vcoLocalIpv6NetworkCidr,
+    vcoRemoteIpv4NetworkCidr,
+    vcoRemoteIpv6NetworkCidr,
+    vcoStaticRoutesOnly,
+    vcoTunnelInsideIpVersion,
+    vcoTunnelOptions,
+
+    -- ** SpotFleetLaunchSpecification
+    SpotFleetLaunchSpecification (..),
+    mkSpotFleetLaunchSpecification,
+    sflsAddressingType,
+    sflsBlockDeviceMappings,
+    sflsEbsOptimized,
+    sflsIamInstanceProfile,
+    sflsImageId,
+    sflsInstanceType,
+    sflsKernelId,
+    sflsKeyName,
+    sflsMonitoring,
+    sflsNetworkInterfaces,
+    sflsPlacement,
+    sflsRamdiskId,
+    sflsSecurityGroups,
+    sflsSpotPrice,
+    sflsSubnetId,
+    sflsTagSpecifications,
+    sflsUserData,
+    sflsWeightedCapacity,
+
+    -- ** ClientVpnConnectionStatusCode
+    ClientVpnConnectionStatusCode (..),
+
+    -- ** PrefixListEntry
+    PrefixListEntry (..),
+    mkPrefixListEntry,
+    pleCidr,
+    pleDescription,
+
+    -- ** Phase2IntegrityAlgorithmsRequestListValue
+    Phase2IntegrityAlgorithmsRequestListValue (..),
+    mkPhase2IntegrityAlgorithmsRequestListValue,
+    piarlvValue,
+
+    -- ** KernelId
+    KernelId (..),
+
+    -- ** ClientVpnAuthenticationType
+    ClientVpnAuthenticationType (..),
+
+    -- ** InstanceMatchCriteria
+    InstanceMatchCriteria (..),
+
+    -- ** VolumeModificationState
+    VolumeModificationState (..),
+
+    -- ** UserIdGroupPair
+    UserIdGroupPair (..),
+    mkUserIdGroupPair,
+    uigpDescription,
+    uigpGroupId,
+    uigpGroupName,
+    uigpPeeringStatus,
+    uigpUserId,
+    uigpVpcId,
+    uigpVpcPeeringConnectionId,
+
+    -- ** InstanceStatusSummary
+    InstanceStatusSummary (..),
+    mkInstanceStatusSummary,
+    issDetails,
+    issStatus,
+
+    -- ** InstanceHealthStatus
+    InstanceHealthStatus (..),
+
+    -- ** SpotPlacement
+    SpotPlacement (..),
+    mkSpotPlacement,
+    spAvailabilityZone,
+    spGroupName,
+    spTenancy,
+
+    -- ** PoolCidrBlock
+    PoolCidrBlock (..),
+    mkPoolCidrBlock,
+    pcbCidr,
+
+    -- ** EbsInstanceBlockDeviceSpecification
+    EbsInstanceBlockDeviceSpecification (..),
+    mkEbsInstanceBlockDeviceSpecification,
+    eibdsDeleteOnTermination,
+    eibdsVolumeId,
+
+    -- ** CapacityReservationId
+    CapacityReservationId (..),
+
+    -- ** NetworkAclAssociation
+    NetworkAclAssociation (..),
+    mkNetworkAclAssociation,
+    naaNetworkAclAssociationId,
+    naaNetworkAclId,
+    naaSubnetId,
+
+    -- ** DeleteFleetSuccessItem
+    DeleteFleetSuccessItem (..),
+    mkDeleteFleetSuccessItem,
+    dfsiCurrentFleetState,
+    dfsiFleetId,
+    dfsiPreviousFleetState,
+
+    -- ** InstanceTypeOffering
+    InstanceTypeOffering (..),
+    mkInstanceTypeOffering,
+    itoInstanceType,
+    itoLocation,
+    itoLocationType,
+
+    -- ** BundleTask
+    BundleTask (..),
+    mkBundleTask,
+    btBundleId,
+    btBundleTaskError,
+    btInstanceId,
+    btProgress,
+    btStartTime,
+    btState,
+    btStorage,
+    btUpdateTime,
+
+    -- ** ElasticInferenceAccelerator
+    ElasticInferenceAccelerator (..),
+    mkElasticInferenceAccelerator,
+    eiaType,
+    eiaCount,
+
+    -- ** InstanceStatusEvent
+    InstanceStatusEvent (..),
+    mkInstanceStatusEvent,
+    iseCode,
+    iseDescription,
+    iseInstanceEventId,
+    iseNotAfter,
+    iseNotBefore,
+    iseNotBeforeDeadline,
+
+    -- ** SubnetCidrBlockState
+    SubnetCidrBlockState (..),
+    mkSubnetCidrBlockState,
+    scbsState,
+    scbsStatusMessage,
+
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** TrafficMirrorFilterId
+    TrafficMirrorFilterId (..),
+
+    -- ** HostInstance
+    HostInstance (..),
+    mkHostInstance,
+    hiInstanceId,
+    hiInstanceType,
+    hiOwnerId,
+
+    -- ** CapacityReservationSpecification
+    CapacityReservationSpecification (..),
+    mkCapacityReservationSpecification,
+    crsCapacityReservationPreference,
+    crsCapacityReservationTarget,
+
+    -- ** CoipPool
+    CoipPool (..),
+    mkCoipPool,
+    cpLocalGatewayRouteTableId,
+    cpPoolArn,
+    cpPoolCidrs,
+    cpPoolId,
+    cpTags,
+
+    -- ** Route
+    Route (..),
+    mkRoute,
+    rCarrierGatewayId,
+    rDestinationCidrBlock,
+    rDestinationIpv6CidrBlock,
+    rDestinationPrefixListId,
+    rEgressOnlyInternetGatewayId,
+    rGatewayId,
+    rInstanceId,
+    rInstanceOwnerId,
+    rLocalGatewayId,
+    rNatGatewayId,
+    rNetworkInterfaceId,
+    rOrigin,
+    rState,
+    rTransitGatewayId,
+    rVpcPeeringConnectionId,
+
+    -- ** DnsNameState
+    DnsNameState (..),
+
+    -- ** SpotDatafeedSubscription
+    SpotDatafeedSubscription (..),
+    mkSpotDatafeedSubscription,
+    sdsBucket,
+    sdsFault,
+    sdsOwnerId,
+    sdsPrefix,
+    sdsState,
+
+    -- ** CreditSpecificationRequest
+    CreditSpecificationRequest (..),
+    mkCreditSpecificationRequest,
+    csrCpuCredits,
+
+    -- ** TransitGatewayRouteTableAssociation
+    TransitGatewayRouteTableAssociation (..),
+    mkTransitGatewayRouteTableAssociation,
+    tgrtaResourceId,
+    tgrtaResourceType,
+    tgrtaState,
+    tgrtaTransitGatewayAttachmentId,
+
+    -- ** HostProperties
+    HostProperties (..),
+    mkHostProperties,
+    hpCores,
+    hpInstanceFamily,
+    hpInstanceType,
+    hpSockets,
+    hpTotalVCpus,
+
+    -- ** VolumeStatusAttachmentStatus
+    VolumeStatusAttachmentStatus (..),
+    mkVolumeStatusAttachmentStatus,
+    vsasInstanceId,
+    vsasIoPerformance,
+
+    -- ** LaunchTemplateBlockDeviceMappingRequest
+    LaunchTemplateBlockDeviceMappingRequest (..),
+    mkLaunchTemplateBlockDeviceMappingRequest,
+    ltbdmrDeviceName,
+    ltbdmrEbs,
+    ltbdmrNoDevice,
+    ltbdmrVirtualName,
+
+    -- ** SpotFleetTagSpecification
+    SpotFleetTagSpecification (..),
+    mkSpotFleetTagSpecification,
+    sftsResourceType,
+    sftsTags,
+
+    -- ** BundleId
+    BundleId (..),
+
+    -- ** VpcCidrBlockAssociation
+    VpcCidrBlockAssociation (..),
+    mkVpcCidrBlockAssociation,
+    vcbaAssociationId,
+    vcbaCidrBlock,
+    vcbaCidrBlockState,
+
+    -- ** Storage
+    Storage (..),
+    mkStorage,
+    sS3,
+
+    -- ** SecurityGroup
+    SecurityGroup (..),
+    mkSecurityGroup,
+    sgDescription,
+    sgGroupId,
+    sgGroupName,
+    sgIpPermissions,
+    sgIpPermissionsEgress,
+    sgOwnerId,
+    sgTags,
+    sgVpcId,
+
+    -- ** CancelSpotInstanceRequestState
+    CancelSpotInstanceRequestState (..),
+
+    -- ** FlowLogResourceId
+    FlowLogResourceId (..),
+
+    -- ** TransitGatewayAttachmentState
+    TransitGatewayAttachmentState (..),
+
+    -- ** PlacementGroupState
+    PlacementGroupState (..),
+
+    -- ** ReservedInstancesModificationResult
+    ReservedInstancesModificationResult (..),
+    mkReservedInstancesModificationResult,
+    rimrReservedInstancesId,
+    rimrTargetConfiguration,
+
+    -- ** InstanceBlockDeviceMappingSpecification
+    InstanceBlockDeviceMappingSpecification (..),
+    mkInstanceBlockDeviceMappingSpecification,
+    ibdmsDeviceName,
+    ibdmsEbs,
+    ibdmsNoDevice,
+    ibdmsVirtualName,
+
+    -- ** PublicIpv4PoolRange
+    PublicIpv4PoolRange (..),
+    mkPublicIpv4PoolRange,
+    piprAddressCount,
+    piprAvailableAddressCount,
+    piprFirstAddress,
+    piprLastAddress,
+
+    -- ** ExportEnvironment
+    ExportEnvironment (..),
+
+    -- ** CustomerGatewayId
+    CustomerGatewayId (..),
+
+    -- ** UserData
+    UserData (..),
+    mkUserData,
+    udData,
+
+    -- ** ResetFpgaImageAttributeName
+    ResetFpgaImageAttributeName (..),
+
+    -- ** FailedQueuedPurchaseDeletion
+    FailedQueuedPurchaseDeletion (..),
+    mkFailedQueuedPurchaseDeletion,
+    fqpdError,
+    fqpdReservedInstancesId,
+
+    -- ** TransitGatewayAssociationState
+    TransitGatewayAssociationState (..),
+
+    -- ** VolumeAttachment
+    VolumeAttachment (..),
+    mkVolumeAttachment,
+    vaAttachTime,
+    vaDeleteOnTermination,
+    vaDevice,
+    vaInstanceId,
+    vaState,
+    vaVolumeId,
+
+    -- ** ScheduledInstancesIpv6Address
+    ScheduledInstancesIpv6Address (..),
+    mkScheduledInstancesIpv6Address,
+    siiaIpv6Address,
+
+    -- ** FpgaImageAttributeName
+    FpgaImageAttributeName (..),
+
+    -- ** GpuInfo
+    GpuInfo (..),
+    mkGpuInfo,
+    giGpus,
+    giTotalGpuMemoryInMiB,
+
+    -- ** SecurityGroupId
+    SecurityGroupId (..),
+
+    -- ** NatGatewayState
+    NatGatewayState (..),
+
+    -- ** CustomerGateway
+    CustomerGateway (..),
+    mkCustomerGateway,
+    cBgpAsn,
+    cCertificateArn,
+    cCustomerGatewayId,
+    cDeviceName,
+    cIpAddress,
+    cState,
+    cTags,
+    cType,
+
+    -- ** TransitGatewayMulticastDomainState
+    TransitGatewayMulticastDomainState (..),
+
+    -- ** TransitGatewayPeeringAttachment
+    TransitGatewayPeeringAttachment (..),
+    mkTransitGatewayPeeringAttachment,
+    tgpaAccepterTgwInfo,
+    tgpaCreationTime,
+    tgpaRequesterTgwInfo,
+    tgpaState,
+    tgpaStatus,
+    tgpaTags,
+    tgpaTransitGatewayAttachmentId,
+
+    -- ** InstanceUsage
+    InstanceUsage (..),
+    mkInstanceUsage,
+    iuAccountId,
+    iuUsedInstanceCount,
+
+    -- ** EbsInstanceBlockDevice
+    EbsInstanceBlockDevice (..),
+    mkEbsInstanceBlockDevice,
+    eibdAttachTime,
+    eibdDeleteOnTermination,
+    eibdStatus,
+    eibdVolumeId,
+
+    -- ** CertificateAuthenticationRequest
+    CertificateAuthenticationRequest (..),
+    mkCertificateAuthenticationRequest,
+    carClientRootCertificateChainArn,
+
+    -- ** Ipv6CidrAssociation
+    Ipv6CidrAssociation (..),
+    mkIpv6CidrAssociation,
+    icaAssociatedResource,
+    icaIpv6Cidr,
+
+    -- ** SubnetCidrBlockStateCode
+    SubnetCidrBlockStateCode (..),
+
+    -- ** ShutdownBehavior
+    ShutdownBehavior (..),
+
+    -- ** DiskImageDescription
+    DiskImageDescription (..),
+    mkDiskImageDescription,
+    didChecksum,
+    didFormat,
+    didImportManifestUrl,
+    didSize,
+
+    -- ** ElasticGpus
+    ElasticGpus (..),
+    mkElasticGpus,
+    egAvailabilityZone,
+    egElasticGpuHealth,
+    egElasticGpuId,
+    egElasticGpuState,
+    egElasticGpuType,
+    egInstanceId,
+    egTags,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** DiskImageVolumeDescription
+    DiskImageVolumeDescription (..),
+    mkDiskImageVolumeDescription,
+    divdId,
+    divdSize,
+
+    -- ** Monitoring
+    Monitoring (..),
+    mkMonitoring,
+    mState,
+
+    -- ** CapacityReservation
+    CapacityReservation (..),
+    mkCapacityReservation,
+    crAvailabilityZone,
+    crAvailabilityZoneId,
+    crAvailableInstanceCount,
+    crCapacityReservationArn,
+    crCapacityReservationId,
+    crCreateDate,
+    crEbsOptimized,
+    crEndDate,
+    crEndDateType,
+    crEphemeralStorage,
+    crInstanceMatchCriteria,
+    crInstancePlatform,
+    crInstanceType,
+    crOwnerId,
+    crState,
+    crTags,
+    crTenancy,
+    crTotalInstanceCount,
+
+    -- ** SubnetState
+    SubnetState (..),
+
+    -- ** VersionDescription
+    VersionDescription (..),
+
+    -- ** CancelSpotFleetRequestsSuccessItem
+    CancelSpotFleetRequestsSuccessItem (..),
+    mkCancelSpotFleetRequestsSuccessItem,
+    csfrsiCurrentSpotFleetRequestState,
+    csfrsiPreviousSpotFleetRequestState,
+    csfrsiSpotFleetRequestId,
+
+    -- ** FederatedAuthentication
+    FederatedAuthentication (..),
+    mkFederatedAuthentication,
+    faSamlProviderArn,
+    faSelfServiceSamlProviderArn,
+
+    -- ** NetworkCardInfo
+    NetworkCardInfo (..),
+    mkNetworkCardInfo,
+    nciMaximumNetworkInterfaces,
+    nciNetworkCardIndex,
+    nciNetworkPerformance,
+
+    -- ** ContainerFormat
+    ContainerFormat (..),
+
+    -- ** TrafficMirrorFilter
+    TrafficMirrorFilter (..),
+    mkTrafficMirrorFilter,
+    tmfDescription,
+    tmfEgressFilterRules,
+    tmfIngressFilterRules,
+    tmfNetworkServices,
+    tmfTags,
+    tmfTrafficMirrorFilterId,
+
+    -- ** AvailabilityZoneMessage
+    AvailabilityZoneMessage (..),
+    mkAvailabilityZoneMessage,
+    azmMessage,
+
+    -- ** TransitGatewayMulticastGroup
+    TransitGatewayMulticastGroup (..),
+    mkTransitGatewayMulticastGroup,
+    tgmgGroupIpAddress,
+    tgmgGroupMember,
+    tgmgGroupSource,
+    tgmgMemberType,
+    tgmgNetworkInterfaceId,
+    tgmgResourceId,
+    tgmgResourceType,
+    tgmgSourceType,
+    tgmgSubnetId,
+    tgmgTransitGatewayAttachmentId,
+
+    -- ** VpcAttachment
+    VpcAttachment (..),
+    mkVpcAttachment,
+    vafState,
+    vafVpcId,
+
+    -- ** EbsEncryptionSupport
+    EbsEncryptionSupport (..),
+
+    -- ** ScheduledInstancesIamInstanceProfile
+    ScheduledInstancesIamInstanceProfile (..),
+    mkScheduledInstancesIamInstanceProfile,
+    siiipArn,
+    siiipName,
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** LaunchTemplatePlacement
+    LaunchTemplatePlacement (..),
+    mkLaunchTemplatePlacement,
+    ltpAffinity,
+    ltpAvailabilityZone,
+    ltpGroupName,
+    ltpHostId,
+    ltpHostResourceGroupArn,
+    ltpPartitionNumber,
+    ltpSpreadDomain,
+    ltpTenancy,
+
+    -- ** LocalGatewayRouteType
+    LocalGatewayRouteType (..),
+
+    -- ** GpuDeviceInfo
+    GpuDeviceInfo (..),
+    mkGpuDeviceInfo,
+    gdiCount,
+    gdiManufacturer,
+    gdiMemoryInfo,
+    gdiName,
+
+    -- ** InstanceBlockDeviceMapping
+    InstanceBlockDeviceMapping (..),
+    mkInstanceBlockDeviceMapping,
+    ibdmDeviceName,
+    ibdmEbs,
+
+    -- ** FleetStateCode
+    FleetStateCode (..),
+
+    -- ** SpotMarketOptions
+    SpotMarketOptions (..),
+    mkSpotMarketOptions,
+    smoBlockDurationMinutes,
+    smoInstanceInterruptionBehavior,
+    smoMaxPrice,
+    smoSpotInstanceType,
+    smoValidUntil,
+
+    -- ** CoipPoolId
+    CoipPoolId (..),
+
+    -- ** ServiceDetail
+    ServiceDetail (..),
+    mkServiceDetail,
+    sdAcceptanceRequired,
+    sdAvailabilityZones,
+    sdBaseEndpointDnsNames,
+    sdManagesVpcEndpoints,
+    sdOwner,
+    sdPrivateDnsName,
+    sdPrivateDnsNameVerificationState,
+    sdPrivateDnsNames,
+    sdServiceId,
+    sdServiceName,
+    sdServiceType,
+    sdTags,
+    sdVpcEndpointPolicySupported,
+
+    -- ** Ipv6PoolEc2Id
+    Ipv6PoolEc2Id (..),
+
+    -- ** InstanceSpecification
+    InstanceSpecification (..),
+    mkInstanceSpecification,
+    isExcludeBootVolume,
+    isInstanceId,
+
+    -- ** StatusType
+    StatusType (..),
+
+    -- ** NetworkInterfaceIpv6Address
+    NetworkInterfaceIpv6Address (..),
+    mkNetworkInterfaceIpv6Address,
+    niiaIpv6Address,
+
+    -- ** ExportToS3TaskSpecification
+    ExportToS3TaskSpecification (..),
+    mkExportToS3TaskSpecification,
+    etstsContainerFormat,
+    etstsDiskImageFormat,
+    etstsS3Bucket,
+    etstsS3Prefix,
+
+    -- ** InstanceMetadataOptionsResponse
+    InstanceMetadataOptionsResponse (..),
+    mkInstanceMetadataOptionsResponse,
+    imorHttpEndpoint,
+    imorHttpPutResponseHopLimit,
+    imorHttpTokens,
+    imorState,
+
+    -- ** NetworkInterfacePermissionState
+    NetworkInterfacePermissionState (..),
+    mkNetworkInterfacePermissionState,
+    nipsState,
+    nipsStatusMessage,
+
+    -- ** FleetSpotMaintenanceStrategiesRequest
+    FleetSpotMaintenanceStrategiesRequest (..),
+    mkFleetSpotMaintenanceStrategiesRequest,
+    fsmsrCapacityRebalance,
+
+    -- ** LaunchTemplateIamInstanceProfileSpecification
+    LaunchTemplateIamInstanceProfileSpecification (..),
+    mkLaunchTemplateIamInstanceProfileSpecification,
+    ltiipsArn,
+    ltiipsName,
+
+    -- ** CancelBatchErrorCode
+    CancelBatchErrorCode (..),
+
+    -- ** FlowLogsResourceType
+    FlowLogsResourceType (..),
+
+    -- ** VpcCidrBlockState
+    VpcCidrBlockState (..),
+    mkVpcCidrBlockState,
+    vcbsState,
+    vcbsStatusMessage,
+
+    -- ** HttpTokensState
+    HttpTokensState (..),
+
+    -- ** TrafficMirrorFilterRuleId
+    TrafficMirrorFilterRuleId (..),
+
+    -- ** TagSpecification
+    TagSpecification (..),
+    mkTagSpecification,
+    tsResourceType,
+    tsTags,
+
+    -- ** AvailabilityZoneOptInStatus
+    AvailabilityZoneOptInStatus (..),
+
+    -- ** InstanceIpv6AddressRequest
+    InstanceIpv6AddressRequest (..),
+    mkInstanceIpv6AddressRequest,
+    iiarIpv6Address,
+
+    -- ** PrefixListId
+    PrefixListId (..),
+    mkPrefixListId,
+    pliDescription,
+    pliPrefixListId,
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** CopyTagsFromSource
+    CopyTagsFromSource (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** NetworkInterfaceAttribute
+    NetworkInterfaceAttribute (..),
+
+    -- ** Phase2IntegrityAlgorithmsListValue
+    Phase2IntegrityAlgorithmsListValue (..),
+    mkPhase2IntegrityAlgorithmsListValue,
+    pialvfValue,
+
+    -- ** LaunchTemplateVersion
+    LaunchTemplateVersion (..),
+    mkLaunchTemplateVersion,
+    ltvCreateTime,
+    ltvCreatedBy,
+    ltvDefaultVersion,
+    ltvLaunchTemplateData,
+    ltvLaunchTemplateId,
+    ltvLaunchTemplateName,
+    ltvVersionDescription,
+    ltvVersionNumber,
+
+    -- ** ClassicLoadBalancersConfig
+    ClassicLoadBalancersConfig (..),
+    mkClassicLoadBalancersConfig,
+    clbcClassicLoadBalancers,
 
     -- ** TransitGatewayRouteAttachment
     TransitGatewayRouteAttachment (..),
@@ -5951,93 +4465,377 @@ module Network.AWS.EC2
     tgraResourceType,
     tgraTransitGatewayAttachmentId,
 
-    -- ** TransitGatewayRouteTable
-    TransitGatewayRouteTable (..),
-    mkTransitGatewayRouteTable,
-    tgrtCreationTime,
-    tgrtState,
-    tgrtDefaultPropagationRouteTable,
-    tgrtTransitGatewayRouteTableId,
-    tgrtTransitGatewayId,
-    tgrtDefaultAssociationRouteTable,
-    tgrtTags,
+    -- ** ModifyTransitGatewayOptions
+    ModifyTransitGatewayOptions (..),
+    mkModifyTransitGatewayOptions,
+    mtgoAssociationDefaultRouteTableId,
+    mtgoAutoAcceptSharedAttachments,
+    mtgoDefaultRouteTableAssociation,
+    mtgoDefaultRouteTablePropagation,
+    mtgoDnsSupport,
+    mtgoPropagationDefaultRouteTableId,
+    mtgoVpnEcmpSupport,
 
-    -- ** TransitGatewayRouteTableAssociation
-    TransitGatewayRouteTableAssociation (..),
-    mkTransitGatewayRouteTableAssociation,
-    tgrtaState,
-    tgrtaResourceId,
-    tgrtaResourceType,
-    tgrtaTransitGatewayAttachmentId,
+    -- ** ScheduledInstancesMonitoring
+    ScheduledInstancesMonitoring (..),
+    mkScheduledInstancesMonitoring,
+    simEnabled,
 
-    -- ** TransitGatewayRouteTablePropagation
-    TransitGatewayRouteTablePropagation (..),
-    mkTransitGatewayRouteTablePropagation,
-    tgrtpState,
-    tgrtpResourceId,
-    tgrtpResourceType,
-    tgrtpTransitGatewayAttachmentId,
+    -- ** ImageTypeValues
+    ImageTypeValues (..),
 
-    -- ** TransitGatewayVPCAttachment
-    TransitGatewayVPCAttachment (..),
-    mkTransitGatewayVPCAttachment,
-    tgvaCreationTime,
-    tgvaState,
-    tgvaSubnetIds,
-    tgvaVPCId,
-    tgvaTransitGatewayId,
-    tgvaOptions,
-    tgvaTransitGatewayAttachmentId,
-    tgvaTags,
-    tgvaVPCOwnerId,
+    -- ** InstanceExportDetails
+    InstanceExportDetails (..),
+    mkInstanceExportDetails,
+    iedInstanceId,
+    iedTargetEnvironment,
 
-    -- ** TransitGatewayVPCAttachmentOptions
-    TransitGatewayVPCAttachmentOptions (..),
-    mkTransitGatewayVPCAttachmentOptions,
-    tgvaoIPv6Support,
-    tgvaoApplianceModeSupport,
-    tgvaoDNSSupport,
+    -- ** SnapshotAttributeName
+    SnapshotAttributeName (..),
 
-    -- ** TunnelOption
-    TunnelOption (..),
-    mkTunnelOption,
-    toOutsideIPAddress,
-    toReplayWindowSize,
-    toDpdTimeoutAction,
-    toRekeyFuzzPercentage,
-    toPhase1LifetimeSeconds,
-    toIkeVersions,
-    toPhase2IntegrityAlgorithms,
-    toPhase2LifetimeSeconds,
-    toPhase1EncryptionAlgorithms,
-    toPhase1DHGroupNumbers,
-    toPhase1IntegrityAlgorithms,
-    toRekeyMarginTimeSeconds,
-    toDpdTimeoutSeconds,
-    toTunnelInsideCidr,
-    toStartupAction,
-    toPhase2EncryptionAlgorithms,
-    toPhase2DHGroupNumbers,
-    toPreSharedKey,
-    toTunnelInsideIPv6Cidr,
+    -- ** HibernationOptions
+    HibernationOptions (..),
+    mkHibernationOptions,
+    hoConfigured,
 
-    -- ** UnsuccessfulInstanceCreditSpecificationItem
-    UnsuccessfulInstanceCreditSpecificationItem (..),
-    mkUnsuccessfulInstanceCreditSpecificationItem,
-    uicsiInstanceId,
-    uicsiError,
+    -- ** FpgaImage
+    FpgaImage (..),
+    mkFpgaImage,
+    fiCreateTime,
+    fiDataRetentionSupport,
+    fiDescription,
+    fiFpgaImageGlobalId,
+    fiFpgaImageId,
+    fiName,
+    fiOwnerAlias,
+    fiOwnerId,
+    fiPciId,
+    fiProductCodes,
+    fiPublic,
+    fiShellVersion,
+    fiState,
+    fiTags,
+    fiUpdateTime,
 
-    -- ** UnsuccessfulInstanceCreditSpecificationItemError
-    UnsuccessfulInstanceCreditSpecificationItemError (..),
-    mkUnsuccessfulInstanceCreditSpecificationItemError,
-    uicsieCode,
-    uicsieMessage,
+    -- ** FpgaDeviceMemoryInfo
+    FpgaDeviceMemoryInfo (..),
+    mkFpgaDeviceMemoryInfo,
+    fdmiSizeInMiB,
+
+    -- ** CapacityReservationPreference
+    CapacityReservationPreference (..),
+
+    -- ** LocalGatewayRoutetableId
+    LocalGatewayRoutetableId (..),
+
+    -- ** NetworkInterfaceAttachmentId
+    NetworkInterfaceAttachmentId (..),
+
+    -- ** IKEVersionsListValue
+    IKEVersionsListValue (..),
+    mkIKEVersionsListValue,
+    ikevlvValue,
+
+    -- ** DescribeFastSnapshotRestoreSuccessItem
+    DescribeFastSnapshotRestoreSuccessItem (..),
+    mkDescribeFastSnapshotRestoreSuccessItem,
+    dfsrsiAvailabilityZone,
+    dfsrsiDisabledTime,
+    dfsrsiDisablingTime,
+    dfsrsiEnabledTime,
+    dfsrsiEnablingTime,
+    dfsrsiOptimizingTime,
+    dfsrsiOwnerAlias,
+    dfsrsiOwnerId,
+    dfsrsiSnapshotId,
+    dfsrsiState,
+    dfsrsiStateTransitionReason,
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azGroupName,
+    azMessages,
+    azNetworkBorderGroup,
+    azOptInStatus,
+    azParentZoneId,
+    azParentZoneName,
+    azRegionName,
+    azState,
+    azZoneId,
+    azZoneName,
+    azZoneType,
+
+    -- ** TargetNetwork
+    TargetNetwork (..),
+    mkTargetNetwork,
+    tnAssociationId,
+    tnClientVpnEndpointId,
+    tnSecurityGroups,
+    tnStatus,
+    tnTargetNetworkId,
+    tnVpcId,
+
+    -- ** TransitGatewayAttachmentAssociation
+    TransitGatewayAttachmentAssociation (..),
+    mkTransitGatewayAttachmentAssociation,
+    tgaaState,
+    tgaaTransitGatewayRouteTableId,
+
+    -- ** DisableFastSnapshotRestoreStateError
+    DisableFastSnapshotRestoreStateError (..),
+    mkDisableFastSnapshotRestoreStateError,
+    dfsrseCode,
+    dfsrseMessage,
+
+    -- ** InstanceLifecycle
+    InstanceLifecycle (..),
+
+    -- ** HistoryRecord
+    HistoryRecord (..),
+    mkHistoryRecord,
+    hrEventInformation,
+    hrEventType,
+    hrTimestamp,
+
+    -- ** ClientVpnEndpointAttributeStatusCode
+    ClientVpnEndpointAttributeStatusCode (..),
+
+    -- ** ImportImageTask
+    ImportImageTask (..),
+    mkImportImageTask,
+    iitArchitecture,
+    iitDescription,
+    iitEncrypted,
+    iitHypervisor,
+    iitImageId,
+    iitImportTaskId,
+    iitKmsKeyId,
+    iitLicenseSpecifications,
+    iitLicenseType,
+    iitPlatform,
+    iitProgress,
+    iitSnapshotDetails,
+    iitStatus,
+    iitStatusMessage,
+    iitTags,
+
+    -- ** LaunchTemplateLicenseConfigurationRequest
+    LaunchTemplateLicenseConfigurationRequest (..),
+    mkLaunchTemplateLicenseConfigurationRequest,
+    ltlcrLicenseConfigurationArn,
+
+    -- ** VpnState
+    VpnState (..),
+
+    -- ** DeleteFleetError
+    DeleteFleetError (..),
+    mkDeleteFleetError,
+    dfeCode,
+    dfeMessage,
+
+    -- ** RouteTable
+    RouteTable (..),
+    mkRouteTable,
+    rtAssociations,
+    rtOwnerId,
+    rtPropagatingVgws,
+    rtRouteTableId,
+    rtRoutes,
+    rtTags,
+    rtVpcId,
+
+    -- ** UserBucket
+    UserBucket (..),
+    mkUserBucket,
+    ubS3Bucket,
+    ubS3Key,
+
+    -- ** TrafficMirrorSessionId
+    TrafficMirrorSessionId (..),
+
+    -- ** HypervisorType
+    HypervisorType (..),
+
+    -- ** TargetGroupsConfig
+    TargetGroupsConfig (..),
+    mkTargetGroupsConfig,
+    tgcTargetGroups,
+
+    -- ** AllocationState
+    AllocationState (..),
+
+    -- ** VpcTenancy
+    VpcTenancy (..),
+
+    -- ** CancelSpotFleetRequestsErrorItem
+    CancelSpotFleetRequestsErrorItem (..),
+    mkCancelSpotFleetRequestsErrorItem,
+    csfreiError,
+    csfreiSpotFleetRequestId,
+
+    -- ** InstanceStatusDetails
+    InstanceStatusDetails (..),
+    mkInstanceStatusDetails,
+    isdImpairedSince,
+    isdName,
+    isdStatus,
+
+    -- ** ProvisionedBandwidth
+    ProvisionedBandwidth (..),
+    mkProvisionedBandwidth,
+    pbProvisionTime,
+    pbProvisioned,
+    pbRequestTime,
+    pbRequested,
+    pbStatus,
+
+    -- ** FleetActivityStatus
+    FleetActivityStatus (..),
+
+    -- ** ClientVpnEndpointId
+    ClientVpnEndpointId (..),
+
+    -- ** IamInstanceProfile
+    IamInstanceProfile (..),
+    mkIamInstanceProfile,
+    iipArn,
+    iipId,
+
+    -- ** ClientConnectOptions
+    ClientConnectOptions (..),
+    mkClientConnectOptions,
+    ccoEnabled,
+    ccoLambdaFunctionArn,
+
+    -- ** LaunchTemplateConfig
+    LaunchTemplateConfig (..),
+    mkLaunchTemplateConfig,
+    ltcLaunchTemplateSpecification,
+    ltcOverrides,
+
+    -- ** TrafficMirrorNetworkService
+    TrafficMirrorNetworkService (..),
+
+    -- ** TransitGatewayRouteTableState
+    TransitGatewayRouteTableState (..),
+
+    -- ** LaunchTemplateCapacityReservationSpecificationResponse
+    LaunchTemplateCapacityReservationSpecificationResponse (..),
+    mkLaunchTemplateCapacityReservationSpecificationResponse,
+    lCapacityReservationPreference,
+    lCapacityReservationTarget,
 
     -- ** UnsuccessfulItem
     UnsuccessfulItem (..),
     mkUnsuccessfulItem,
-    uiResourceId,
     uiError,
+    uiResourceId,
+
+    -- ** ImportImageLicenseConfigurationResponse
+    ImportImageLicenseConfigurationResponse (..),
+    mkImportImageLicenseConfigurationResponse,
+    iLicenseConfigurationArn,
+
+    -- ** ElasticGpuSpecification
+    ElasticGpuSpecification (..),
+    mkElasticGpuSpecification,
+    egsType,
+
+    -- ** InternetGatewayAttachment
+    InternetGatewayAttachment (..),
+    mkInternetGatewayAttachment,
+    igaState,
+    igaVpcId,
+
+    -- ** Scope
+    Scope (..),
+
+    -- ** ImageId
+    ImageId (..),
+
+    -- ** LicenseConfigurationRequest
+    LicenseConfigurationRequest (..),
+    mkLicenseConfigurationRequest,
+    lcrLicenseConfigurationArn,
+
+    -- ** PurchaseRequest
+    PurchaseRequest (..),
+    mkPurchaseRequest,
+    prInstanceCount,
+    prPurchaseToken,
+
+    -- ** EbsInfo
+    EbsInfo (..),
+    mkEbsInfo,
+    eiEbsOptimizedInfo,
+    eiEbsOptimizedSupport,
+    eiEncryptionSupport,
+    eiNvmeSupport,
+
+    -- ** ReservedInstanceState
+    ReservedInstanceState (..),
+
+    -- ** InstanceAttributeName
+    InstanceAttributeName (..),
+
+    -- ** IpPermission
+    IpPermission (..),
+    mkIpPermission,
+    ipFromPort,
+    ipIpProtocol,
+    ipIpRanges,
+    ipIpv6Ranges,
+    ipPrefixListIds,
+    ipToPort,
+    ipUserIdGroupPairs,
+
+    -- ** TrafficMirrorPortRange
+    TrafficMirrorPortRange (..),
+    mkTrafficMirrorPortRange,
+    tmprFromPort,
+    tmprToPort,
+
+    -- ** DeleteQueuedReservedInstancesError
+    DeleteQueuedReservedInstancesError (..),
+    mkDeleteQueuedReservedInstancesError,
+    dqrieCode,
+    dqrieMessage,
+
+    -- ** ConversionTaskState
+    ConversionTaskState (..),
+
+    -- ** DiskImage
+    DiskImage (..),
+    mkDiskImage,
+    diDescription,
+    diImage,
+    diVolume,
+
+    -- ** ApplianceModeSupportValue
+    ApplianceModeSupportValue (..),
+
+    -- ** NetworkInterfaceCreationType
+    NetworkInterfaceCreationType (..),
+
+    -- ** Tenancy
+    Tenancy (..),
+
+    -- ** ClientCertificateRevocationListStatus
+    ClientCertificateRevocationListStatus (..),
+    mkClientCertificateRevocationListStatus,
+    ccrlsCode,
+    ccrlsMessage,
+
+    -- ** SecurityGroupReference
+    SecurityGroupReference (..),
+    mkSecurityGroupReference,
+    sgrGroupId,
+    sgrReferencingVpcId,
+    sgrVpcPeeringConnectionId,
+
+    -- ** SpotInstanceInterruptionBehavior
+    SpotInstanceInterruptionBehavior (..),
 
     -- ** UnsuccessfulItemError
     UnsuccessfulItemError (..),
@@ -6045,396 +4843,2303 @@ module Network.AWS.EC2
     uieCode,
     uieMessage,
 
-    -- ** UserBucket
-    UserBucket (..),
-    mkUserBucket,
-    ubS3Key,
-    ubS3Bucket,
+    -- ** InferenceAcceleratorInfo
+    InferenceAcceleratorInfo (..),
+    mkInferenceAcceleratorInfo,
+    iaiAccelerators,
+
+    -- ** DhcpOptionsId
+    DhcpOptionsId (..),
+
+    -- ** ClassicLinkDnsSupport
+    ClassicLinkDnsSupport (..),
+    mkClassicLinkDnsSupport,
+    cldsClassicLinkDnsSupported,
+    cldsVpcId,
+
+    -- ** KeyPairName
+    KeyPairName (..),
+
+    -- ** EgressOnlyInternetGateway
+    EgressOnlyInternetGateway (..),
+    mkEgressOnlyInternetGateway,
+    eoigAttachments,
+    eoigEgressOnlyInternetGatewayId,
+    eoigTags,
+
+    -- ** EnableFastSnapshotRestoreStateError
+    EnableFastSnapshotRestoreStateError (..),
+    mkEnableFastSnapshotRestoreStateError,
+    efsrseCode,
+    efsrseMessage,
+
+    -- ** CreateFleetError
+    CreateFleetError (..),
+    mkCreateFleetError,
+    cfeErrorCode,
+    cfeErrorMessage,
+    cfeLaunchTemplateAndOverrides,
+    cfeLifecycle,
+
+    -- ** VpcPeeringConnectionStateReason
+    VpcPeeringConnectionStateReason (..),
+    mkVpcPeeringConnectionStateReason,
+    vpcsrCode,
+    vpcsrMessage,
+
+    -- ** LaunchTemplateHttpTokensState
+    LaunchTemplateHttpTokensState (..),
+
+    -- ** IamInstanceProfileSpecification
+    IamInstanceProfileSpecification (..),
+    mkIamInstanceProfileSpecification,
+    iipsArn,
+    iipsName,
+
+    -- ** ImportVolumeTaskDetails
+    ImportVolumeTaskDetails (..),
+    mkImportVolumeTaskDetails,
+    ivtdAvailabilityZone,
+    ivtdBytesConverted,
+    ivtdDescription,
+    ivtdImage,
+    ivtdVolume,
+
+    -- ** LastError
+    LastError (..),
+    mkLastError,
+    leCode,
+    leMessage,
+
+    -- ** PlacementStrategy
+    PlacementStrategy (..),
+
+    -- ** DescribeFleetsInstances
+    DescribeFleetsInstances (..),
+    mkDescribeFleetsInstances,
+    dfiInstanceIds,
+    dfiInstanceType,
+    dfiLaunchTemplateAndOverrides,
+    dfiLifecycle,
+    dfiPlatform,
+
+    -- ** DnsServersOptionsModifyStructure
+    DnsServersOptionsModifyStructure (..),
+    mkDnsServersOptionsModifyStructure,
+    dsomsCustomDnsServers,
+    dsomsEnabled,
+
+    -- ** InstanceNetworkInterface
+    InstanceNetworkInterface (..),
+    mkInstanceNetworkInterface,
+    iniAssociation,
+    iniAttachment,
+    iniDescription,
+    iniGroups,
+    iniInterfaceType,
+    iniIpv6Addresses,
+    iniMacAddress,
+    iniNetworkInterfaceId,
+    iniOwnerId,
+    iniPrivateDnsName,
+    iniPrivateIpAddress,
+    iniPrivateIpAddresses,
+    iniSourceDestCheck,
+    iniStatus,
+    iniSubnetId,
+    iniVpcId,
+
+    -- ** AssignedPrivateIpAddress
+    AssignedPrivateIpAddress (..),
+    mkAssignedPrivateIpAddress,
+    apiaPrivateIpAddress,
+
+    -- ** TargetReservationValue
+    TargetReservationValue (..),
+    mkTargetReservationValue,
+    trvReservationValue,
+    trvTargetConfiguration,
+
+    -- ** SpotFleetRequestId
+    SpotFleetRequestId (..),
+
+    -- ** MembershipType
+    MembershipType (..),
+
+    -- ** VolumeStatusAction
+    VolumeStatusAction (..),
+    mkVolumeStatusAction,
+    vsaCode,
+    vsaDescription,
+    vsaEventId,
+    vsaEventType,
+
+    -- ** PlacementResponse
+    PlacementResponse (..),
+    mkPlacementResponse,
+    prGroupName,
+
+    -- ** TransitGatewayId
+    TransitGatewayId (..),
+
+    -- ** VpcPeeringConnectionVpcInfo
+    VpcPeeringConnectionVpcInfo (..),
+    mkVpcPeeringConnectionVpcInfo,
+    vpcviCidrBlock,
+    vpcviCidrBlockSet,
+    vpcviIpv6CidrBlockSet,
+    vpcviOwnerId,
+    vpcviPeeringOptions,
+    vpcviRegion,
+    vpcviVpcId,
+
+    -- ** ServiceState
+    ServiceState (..),
+
+    -- ** TransitGatewayMulticastRegisteredGroupSources
+    TransitGatewayMulticastRegisteredGroupSources (..),
+    mkTransitGatewayMulticastRegisteredGroupSources,
+    tgmrgsGroupIpAddress,
+    tgmrgsRegisteredNetworkInterfaceIds,
+    tgmrgsTransitGatewayMulticastDomainId,
+
+    -- ** FleetEventType
+    FleetEventType (..),
+
+    -- ** Phase1IntegrityAlgorithmsRequestListValue
+    Phase1IntegrityAlgorithmsRequestListValue (..),
+    mkPhase1IntegrityAlgorithmsRequestListValue,
+    piarlvfValue,
+
+    -- ** ReservationId
+    ReservationId (..),
+
+    -- ** ServiceType
+    ServiceType (..),
+
+    -- ** ExportTaskS3LocationRequest
+    ExportTaskS3LocationRequest (..),
+    mkExportTaskS3LocationRequest,
+    etslrS3Bucket,
+    etslrS3Prefix,
 
     -- ** UserBucketDetails
     UserBucketDetails (..),
     mkUserBucketDetails,
-    ubdS3Key,
     ubdS3Bucket,
+    ubdS3Key,
 
-    -- ** UserData
-    UserData (..),
-    mkUserData,
-    udData,
+    -- ** VolumeId
+    VolumeId (..),
 
-    -- ** UserIdGroupPair
-    UserIdGroupPair (..),
-    mkUserIdGroupPair,
-    uigpVPCPeeringConnectionId,
-    uigpVPCId,
-    uigpUserId,
-    uigpGroupId,
-    uigpGroupName,
-    uigpDescription,
-    uigpPeeringStatus,
+    -- ** OfferingId
+    OfferingId (..),
 
-    -- ** VCPUInfo
-    VCPUInfo (..),
-    mkVCPUInfo,
-    vciValidThreadsPerCore,
-    vciDefaultThreadsPerCore,
-    vciDefaultVCPUs,
-    vciDefaultCores,
-    vciValidCores,
+    -- ** SelfServicePortal
+    SelfServicePortal (..),
 
-    -- ** VGWTelemetry
-    VGWTelemetry (..),
-    mkVGWTelemetry,
-    vtStatus,
-    vtOutsideIPAddress,
-    vtCertificateARN,
-    vtLastStatusChange,
-    vtAcceptedRouteCount,
-    vtStatusMessage,
+    -- ** DisableFastSnapshotRestoreErrorItem
+    DisableFastSnapshotRestoreErrorItem (..),
+    mkDisableFastSnapshotRestoreErrorItem,
+    dfsreiFastSnapshotRestoreStateErrors,
+    dfsreiSnapshotId,
 
-    -- ** VPC
-    VPC (..),
-    mkVPC,
-    vfState,
-    vfIPv6CidrBlockAssociationSet,
-    vfVPCId,
-    vfCidrBlockAssociationSet,
-    vfOwnerId,
-    vfDHCPOptionsId,
+    -- ** CidrBlock
+    CidrBlock (..),
+    mkCidrBlock,
+    cbCidrBlock,
+
+    -- ** ReservedInstancesModificationId
+    ReservedInstancesModificationId (..),
+
+    -- ** LaunchTemplate
+    LaunchTemplate (..),
+    mkLaunchTemplate,
+    ltCreateTime,
+    ltCreatedBy,
+    ltDefaultVersionNumber,
+    ltLatestVersionNumber,
+    ltLaunchTemplateId,
+    ltLaunchTemplateName,
+    ltTags,
+
+    -- ** ReservedInstanceLimitPrice
+    ReservedInstanceLimitPrice (..),
+    mkReservedInstanceLimitPrice,
+    rilpAmount,
+    rilpCurrencyCode,
+
+    -- ** DnsEntry
+    DnsEntry (..),
+    mkDnsEntry,
+    deDnsName,
+    deHostedZoneId,
+
+    -- ** AssociationStatus
+    AssociationStatus (..),
+    mkAssociationStatus,
+    asCode,
+    asMessage,
+
+    -- ** DiskType
+    DiskType (..),
+
+    -- ** Vpc
+    Vpc (..),
+    mkVpc,
     vfCidrBlock,
+    vfCidrBlockAssociationSet,
+    vfDhcpOptionsId,
     vfInstanceTenancy,
-    vfTags,
+    vfIpv6CidrBlockAssociationSet,
     vfIsDefault,
+    vfOwnerId,
+    vfState,
+    vfTags,
+    vfVpcId,
 
-    -- ** VPCAttachment
-    VPCAttachment (..),
-    mkVPCAttachment,
-    vaState,
-    vaVPCId,
+    -- ** AuthorizationRule
+    AuthorizationRule (..),
+    mkAuthorizationRule,
+    arAccessAll,
+    arClientVpnEndpointId,
+    arDescription,
+    arDestinationCidr,
+    arGroupId,
+    arStatus,
 
-    -- ** VPCCidrBlockAssociation
-    VPCCidrBlockAssociation (..),
-    mkVPCCidrBlockAssociation,
-    vcbaAssociationId,
-    vcbaCidrBlockState,
-    vcbaCidrBlock,
+    -- ** DirectoryServiceAuthenticationRequest
+    DirectoryServiceAuthenticationRequest (..),
+    mkDirectoryServiceAuthenticationRequest,
+    dsarDirectoryId,
 
-    -- ** VPCCidrBlockState
-    VPCCidrBlockState (..),
-    mkVPCCidrBlockState,
-    vcbsState,
-    vcbsStatusMessage,
+    -- ** ImageDiskContainer
+    ImageDiskContainer (..),
+    mkImageDiskContainer,
+    idcDescription,
+    idcDeviceName,
+    idcFormat,
+    idcSnapshotId,
+    idcUrl,
+    idcUserBucket,
 
-    -- ** VPCClassicLink
-    VPCClassicLink (..),
-    mkVPCClassicLink,
-    vclVPCId,
-    vclTags,
-    vclClassicLinkEnabled,
+    -- ** Ipv6Pool
+    Ipv6Pool (..),
+    mkIpv6Pool,
+    ipDescription,
+    ipPoolCidrBlocks,
+    ipPoolId,
+    ipTags,
 
-    -- ** VPCEndpoint
-    VPCEndpoint (..),
-    mkVPCEndpoint,
-    veGroups,
-    veState,
-    vePolicyDocument,
-    veSubnetIds,
-    veNetworkInterfaceIds,
-    veVPCId,
-    veRequesterManaged,
-    veDNSEntries,
-    veVPCEndpointType,
-    vePrivateDNSEnabled,
-    veOwnerId,
-    veCreationTimestamp,
-    veServiceName,
-    veLastError,
-    veVPCEndpointId,
-    veTags,
-    veRouteTableIds,
+    -- ** OperationType
+    OperationType (..),
 
-    -- ** VPCEndpointConnection
-    VPCEndpointConnection (..),
-    mkVPCEndpointConnection,
-    vecVPCEndpointOwner,
-    vecNetworkLoadBalancerARNs,
-    vecDNSEntries,
-    vecVPCEndpointState,
-    vecGatewayLoadBalancerARNs,
-    vecCreationTimestamp,
-    vecServiceId,
-    vecVPCEndpointId,
+    -- ** LocalGatewayRouteTableVirtualInterfaceGroupAssociationId
+    LocalGatewayRouteTableVirtualInterfaceGroupAssociationId (..),
 
-    -- ** VPCIPv6CidrBlockAssociation
-    VPCIPv6CidrBlockAssociation (..),
-    mkVPCIPv6CidrBlockAssociation,
-    vicbaAssociationId,
-    vicbaIPv6CidrBlock,
-    vicbaNetworkBorderGroup,
-    vicbaIPv6CidrBlockState,
-    vicbaIPv6Pool,
+    -- ** CertificateAuthentication
+    CertificateAuthentication (..),
+    mkCertificateAuthentication,
+    caClientRootCertificateChain,
 
-    -- ** VPCPeeringConnection
-    VPCPeeringConnection (..),
-    mkVPCPeeringConnection,
-    vpcVPCPeeringConnectionId,
-    vpcStatus,
-    vpcAccepterVPCInfo,
-    vpcRequesterVPCInfo,
-    vpcExpirationTime,
-    vpcTags,
+    -- ** InferenceDeviceInfo
+    InferenceDeviceInfo (..),
+    mkInferenceDeviceInfo,
+    idiCount,
+    idiManufacturer,
+    idiName,
 
-    -- ** VPCPeeringConnectionOptionsDescription
-    VPCPeeringConnectionOptionsDescription (..),
-    mkVPCPeeringConnectionOptionsDescription,
-    vpcodAllowEgressFromLocalVPCToRemoteClassicLink,
-    vpcodAllowEgressFromLocalClassicLinkToRemoteVPC,
-    vpcodAllowDNSResolutionFromRemoteVPC,
+    -- ** ImportTaskId
+    ImportTaskId (..),
 
-    -- ** VPCPeeringConnectionStateReason
-    VPCPeeringConnectionStateReason (..),
-    mkVPCPeeringConnectionStateReason,
-    vpcsrCode,
-    vpcsrMessage,
+    -- ** OnDemandAllocationStrategy
+    OnDemandAllocationStrategy (..),
 
-    -- ** VPCPeeringConnectionVPCInfo
-    VPCPeeringConnectionVPCInfo (..),
-    mkVPCPeeringConnectionVPCInfo,
-    vpcviCidrBlockSet,
-    vpcviVPCId,
-    vpcviOwnerId,
-    vpcviPeeringOptions,
-    vpcviCidrBlock,
-    vpcviRegion,
-    vpcviIPv6CidrBlockSet,
+    -- ** TrafficMirrorTarget
+    TrafficMirrorTarget (..),
+    mkTrafficMirrorTarget,
+    tmtDescription,
+    tmtNetworkInterfaceId,
+    tmtNetworkLoadBalancerArn,
+    tmtOwnerId,
+    tmtTags,
+    tmtTrafficMirrorTargetId,
+    tmtType,
 
-    -- ** VPNConnection
-    VPNConnection (..),
-    mkVPNConnection,
-    vcCustomerGatewayConfiguration,
-    vcState,
-    vcRoutes,
-    vcVPNGatewayId,
-    vcCategory,
-    vcCustomerGatewayId,
-    vcTransitGatewayId,
-    vcType,
-    vcOptions,
-    vcVPNConnectionId,
-    vcTags,
-    vcVGWTelemetry,
+    -- ** Phase1EncryptionAlgorithmsRequestListValue
+    Phase1EncryptionAlgorithmsRequestListValue (..),
+    mkPhase1EncryptionAlgorithmsRequestListValue,
+    pearlvValue,
 
-    -- ** VPNConnectionOptions
-    VPNConnectionOptions (..),
-    mkVPNConnectionOptions,
-    vcoTunnelInsideIPVersion,
-    vcoRemoteIPv4NetworkCidr,
-    vcoEnableAcceleration,
-    vcoLocalIPv4NetworkCidr,
-    vcoRemoteIPv6NetworkCidr,
-    vcoTunnelOptions,
-    vcoLocalIPv6NetworkCidr,
-    vcoStaticRoutesOnly,
+    -- ** InstanceStatus
+    InstanceStatus (..),
+    mkInstanceStatus,
+    issAvailabilityZone,
+    issEvents,
+    issInstanceId,
+    issInstanceState,
+    issInstanceStatus,
+    issOutpostArn,
+    issSystemStatus,
 
-    -- ** VPNConnectionOptionsSpecification
-    VPNConnectionOptionsSpecification (..),
-    mkVPNConnectionOptionsSpecification,
-    vcosTunnelInsideIPVersion,
-    vcosRemoteIPv4NetworkCidr,
-    vcosEnableAcceleration,
-    vcosLocalIPv4NetworkCidr,
-    vcosRemoteIPv6NetworkCidr,
-    vcosTunnelOptions,
-    vcosLocalIPv6NetworkCidr,
-    vcosStaticRoutesOnly,
+    -- ** TransitGatewayMulitcastDomainAssociationState
+    TransitGatewayMulitcastDomainAssociationState (..),
 
-    -- ** VPNGateway
-    VPNGateway (..),
-    mkVPNGateway,
-    vgState,
-    vgVPCAttachments,
-    vgVPNGatewayId,
-    vgAmazonSideASN,
-    vgAvailabilityZone,
-    vgType,
-    vgTags,
+    -- ** CapacityReservationOptionsRequest
+    CapacityReservationOptionsRequest (..),
+    mkCapacityReservationOptionsRequest,
+    crorUsageStrategy,
 
-    -- ** VPNStaticRoute
-    VPNStaticRoute (..),
-    mkVPNStaticRoute,
-    vsrState,
-    vsrSource,
-    vsrDestinationCidrBlock,
+    -- ** GpuDeviceMemoryInfo
+    GpuDeviceMemoryInfo (..),
+    mkGpuDeviceMemoryInfo,
+    gdmiSizeInMiB,
 
-    -- ** VPNTunnelOptionsSpecification
-    VPNTunnelOptionsSpecification (..),
-    mkVPNTunnelOptionsSpecification,
-    vtosReplayWindowSize,
+    -- ** ArchitectureValues
+    ArchitectureValues (..),
+
+    -- ** ReportInstanceReasonCodes
+    ReportInstanceReasonCodes (..),
+
+    -- ** LocationType
+    LocationType (..),
+
+    -- ** PeeringConnectionOptionsRequest
+    PeeringConnectionOptionsRequest (..),
+    mkPeeringConnectionOptionsRequest,
+    pcorAllowDnsResolutionFromRemoteVpc,
+    pcorAllowEgressFromLocalClassicLinkToRemoteVpc,
+    pcorAllowEgressFromLocalVpcToRemoteClassicLink,
+
+    -- ** MoveStatus
+    MoveStatus (..),
+
+    -- ** EbsBlockDevice
+    EbsBlockDevice (..),
+    mkEbsBlockDevice,
+    ebdDeleteOnTermination,
+    ebdEncrypted,
+    ebdIops,
+    ebdKmsKeyId,
+    ebdSnapshotId,
+    ebdVolumeSize,
+    ebdVolumeType,
+
+    -- ** VpnTunnelOptionsSpecification
+    VpnTunnelOptionsSpecification (..),
+    mkVpnTunnelOptionsSpecification,
     vtosDPDTimeoutAction,
-    vtosRekeyFuzzPercentage,
-    vtosPhase1LifetimeSeconds,
+    vtosDPDTimeoutSeconds,
     vtosIKEVersions,
+    vtosPhase1DHGroupNumbers,
+    vtosPhase1EncryptionAlgorithms,
+    vtosPhase1IntegrityAlgorithms,
+    vtosPhase1LifetimeSeconds,
+    vtosPhase2DHGroupNumbers,
+    vtosPhase2EncryptionAlgorithms,
     vtosPhase2IntegrityAlgorithms,
     vtosPhase2LifetimeSeconds,
-    vtosPhase1EncryptionAlgorithms,
-    vtosPhase1DHGroupNumbers,
-    vtosPhase1IntegrityAlgorithms,
-    vtosRekeyMarginTimeSeconds,
-    vtosDPDTimeoutSeconds,
-    vtosTunnelInsideCidr,
-    vtosStartupAction,
-    vtosPhase2EncryptionAlgorithms,
-    vtosPhase2DHGroupNumbers,
     vtosPreSharedKey,
-    vtosTunnelInsideIPv6Cidr,
+    vtosRekeyFuzzPercentage,
+    vtosRekeyMarginTimeSeconds,
+    vtosReplayWindowSize,
+    vtosStartupAction,
+    vtosTunnelInsideCidr,
+    vtosTunnelInsideIpv6Cidr,
 
-    -- ** ValidationError
-    ValidationError (..),
-    mkValidationError,
-    veCode,
-    veMessage,
+    -- ** FleetLaunchTemplateOverridesRequest
+    FleetLaunchTemplateOverridesRequest (..),
+    mkFleetLaunchTemplateOverridesRequest,
+    fltorAvailabilityZone,
+    fltorInstanceType,
+    fltorMaxPrice,
+    fltorPlacement,
+    fltorPriority,
+    fltorSubnetId,
+    fltorWeightedCapacity,
+
+    -- ** LocalGateway
+    LocalGateway (..),
+    mkLocalGateway,
+    lgLocalGatewayId,
+    lgOutpostArn,
+    lgOwnerId,
+    lgState,
+    lgTags,
+
+    -- ** AccountAttribute
+    AccountAttribute (..),
+    mkAccountAttribute,
+    aaAttributeName,
+    aaAttributeValues,
+
+    -- ** FpgaImageStateCode
+    FpgaImageStateCode (..),
+
+    -- ** Ipv6SupportValue
+    Ipv6SupportValue (..),
+
+    -- ** Phase1DHGroupNumbersRequestListValue
+    Phase1DHGroupNumbersRequestListValue (..),
+    mkPhase1DHGroupNumbersRequestListValue,
+    pdhgnrlvValue,
+
+    -- ** SnapshotDetail
+    SnapshotDetail (..),
+    mkSnapshotDetail,
+    sdDescription,
+    sdDeviceName,
+    sdDiskImageSize,
+    sdFormat,
+    sdProgress,
+    sdSnapshotId,
+    sdStatus,
+    sdStatusMessage,
+    sdUrl,
+    sdUserBucket,
+
+    -- ** SpotInstanceRequestId
+    SpotInstanceRequestId (..),
+
+    -- ** ScheduledInstanceRecurrenceRequest
+    ScheduledInstanceRecurrenceRequest (..),
+    mkScheduledInstanceRecurrenceRequest,
+    sirrFrequency,
+    sirrInterval,
+    sirrOccurrenceDays,
+    sirrOccurrenceRelativeToEnd,
+    sirrOccurrenceUnit,
+
+    -- ** VpcEndpointConnection
+    VpcEndpointConnection (..),
+    mkVpcEndpointConnection,
+    vecCreationTimestamp,
+    vecDnsEntries,
+    vecGatewayLoadBalancerArns,
+    vecNetworkLoadBalancerArns,
+    vecServiceId,
+    vecVpcEndpointId,
+    vecVpcEndpointOwner,
+    vecVpcEndpointState,
+
+    -- ** PriceSchedule
+    PriceSchedule (..),
+    mkPriceSchedule,
+    psActive,
+    psCurrencyCode,
+    psPrice,
+    psTerm,
+
+    -- ** DeviceType
+    DeviceType (..),
+
+    -- ** DomainType
+    DomainType (..),
+
+    -- ** RegionInfo
+    RegionInfo (..),
+    mkRegionInfo,
+    riEndpoint,
+    riOptInStatus,
+    riRegionName,
+
+    -- ** TransitGatewayState
+    TransitGatewayState (..),
+
+    -- ** CreditSpecification
+    CreditSpecification (..),
+    mkCreditSpecification,
+    csCpuCredits,
+
+    -- ** DeleteLaunchTemplateVersionsResponseSuccessItem
+    DeleteLaunchTemplateVersionsResponseSuccessItem (..),
+    mkDeleteLaunchTemplateVersionsResponseSuccessItem,
+    dltvrsiLaunchTemplateId,
+    dltvrsiLaunchTemplateName,
+    dltvrsiVersionNumber,
+
+    -- ** TransitGatewayRouteTable
+    TransitGatewayRouteTable (..),
+    mkTransitGatewayRouteTable,
+    tgrtCreationTime,
+    tgrtDefaultAssociationRouteTable,
+    tgrtDefaultPropagationRouteTable,
+    tgrtState,
+    tgrtTags,
+    tgrtTransitGatewayId,
+    tgrtTransitGatewayRouteTableId,
+
+    -- ** ImportImageLicenseConfigurationRequest
+    ImportImageLicenseConfigurationRequest (..),
+    mkImportImageLicenseConfigurationRequest,
+    iilcrLicenseConfigurationArn,
+
+    -- ** NetworkInfo
+    NetworkInfo (..),
+    mkNetworkInfo,
+    niDefaultNetworkCardIndex,
+    niEfaSupported,
+    niEnaSupport,
+    niIpv4AddressesPerInterface,
+    niIpv6AddressesPerInterface,
+    niIpv6Supported,
+    niMaximumNetworkCards,
+    niMaximumNetworkInterfaces,
+    niNetworkCards,
+    niNetworkPerformance,
+
+    -- ** LaunchTemplateSpecification
+    LaunchTemplateSpecification (..),
+    mkLaunchTemplateSpecification,
+    ltsLaunchTemplateId,
+    ltsLaunchTemplateName,
+    ltsVersion,
+
+    -- ** LaunchTemplateBlockDeviceMapping
+    LaunchTemplateBlockDeviceMapping (..),
+    mkLaunchTemplateBlockDeviceMapping,
+    ltbdmDeviceName,
+    ltbdmEbs,
+    ltbdmNoDevice,
+    ltbdmVirtualName,
+
+    -- ** InstanceEventId
+    InstanceEventId (..),
+
+    -- ** InstanceCreditSpecificationRequest
+    InstanceCreditSpecificationRequest (..),
+    mkInstanceCreditSpecificationRequest,
+    icsrCpuCredits,
+    icsrInstanceId,
+
+    -- ** Host
+    Host (..),
+    mkHost,
+    hAllocationTime,
+    hAllowsMultipleInstanceTypes,
+    hAutoPlacement,
+    hAvailabilityZone,
+    hAvailabilityZoneId,
+    hAvailableCapacity,
+    hClientToken,
+    hHostId,
+    hHostProperties,
+    hHostRecovery,
+    hHostReservationId,
+    hInstances,
+    hMemberOfServiceLinkedResourceGroup,
+    hOwnerId,
+    hReleaseTime,
+    hState,
+    hTags,
+
+    -- ** PropagatingVgw
+    PropagatingVgw (..),
+    mkPropagatingVgw,
+    pvGatewayId,
+
+    -- ** ProcessorInfo
+    ProcessorInfo (..),
+    mkProcessorInfo,
+    piSupportedArchitectures,
+    piSustainedClockSpeedInGhz,
+
+    -- ** ClientVpnAuthenticationRequest
+    ClientVpnAuthenticationRequest (..),
+    mkClientVpnAuthenticationRequest,
+    cvarActiveDirectory,
+    cvarFederatedAuthentication,
+    cvarMutualAuthentication,
+    cvarType,
+
+    -- ** OfferingTypeValues
+    OfferingTypeValues (..),
+
+    -- ** TargetConfigurationRequest
+    TargetConfigurationRequest (..),
+    mkTargetConfigurationRequest,
+    tcrOfferingId,
+    tcrInstanceCount,
+
+    -- ** ScheduledInstance
+    ScheduledInstance (..),
+    mkScheduledInstance,
+    siAvailabilityZone,
+    siCreateDate,
+    siHourlyPrice,
+    siInstanceCount,
+    siInstanceType,
+    siNetworkPlatform,
+    siNextSlotStartTime,
+    siPlatform,
+    siPreviousSlotEndTime,
+    siRecurrence,
+    siScheduledInstanceId,
+    siSlotDurationInHours,
+    siTermEndDate,
+    siTermStartDate,
+    siTotalScheduledInstanceHours,
+
+    -- ** HostReservation
+    HostReservation (..),
+    mkHostReservation,
+    hrCount,
+    hrCurrencyCode,
+    hrDuration,
+    hrEnd,
+    hrHostIdSet,
+    hrHostReservationId,
+    hrHourlyPrice,
+    hrInstanceFamily,
+    hrOfferingId,
+    hrPaymentOption,
+    hrStart,
+    hrState,
+    hrTags,
+    hrUpfrontPrice,
+
+    -- ** NetworkInterfacePermission
+    NetworkInterfacePermission (..),
+    mkNetworkInterfacePermission,
+    nipAwsAccountId,
+    nipAwsService,
+    nipNetworkInterfaceId,
+    nipNetworkInterfacePermissionId,
+    nipPermission,
+    nipPermissionState,
+
+    -- ** FleetLaunchTemplateConfigRequest
+    FleetLaunchTemplateConfigRequest (..),
+    mkFleetLaunchTemplateConfigRequest,
+    fltcrLaunchTemplateSpecification,
+    fltcrOverrides,
+
+    -- ** VpnGateway
+    VpnGateway (..),
+    mkVpnGateway,
+    vgAmazonSideAsn,
+    vgAvailabilityZone,
+    vgState,
+    vgTags,
+    vgType,
+    vgVpcAttachments,
+    vgVpnGatewayId,
+
+    -- ** EventInformation
+    EventInformation (..),
+    mkEventInformation,
+    eiEventDescription,
+    eiEventSubType,
+    eiInstanceId,
+
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fName,
+    fValues,
+
+    -- ** LaunchTemplateErrorCode
+    LaunchTemplateErrorCode (..),
+
+    -- ** LaunchTemplateSpotMarketOptionsRequest
+    LaunchTemplateSpotMarketOptionsRequest (..),
+    mkLaunchTemplateSpotMarketOptionsRequest,
+    ltsmorBlockDurationMinutes,
+    ltsmorInstanceInterruptionBehavior,
+    ltsmorMaxPrice,
+    ltsmorSpotInstanceType,
+    ltsmorValidUntil,
+
+    -- ** VolumeType
+    VolumeType (..),
+
+    -- ** ConversionTaskId
+    ConversionTaskId (..),
+
+    -- ** InstanceStateChange
+    InstanceStateChange (..),
+    mkInstanceStateChange,
+    iscCurrentState,
+    iscInstanceId,
+    iscPreviousState,
+
+    -- ** NetworkAcl
+    NetworkAcl (..),
+    mkNetworkAcl,
+    naAssociations,
+    naEntries,
+    naIsDefault,
+    naNetworkAclId,
+    naOwnerId,
+    naTags,
+    naVpcId,
+
+    -- ** LogDestinationType
+    LogDestinationType (..),
+
+    -- ** ImageState
+    ImageState (..),
+
+    -- ** HostOffering
+    HostOffering (..),
+    mkHostOffering,
+    hoCurrencyCode,
+    hoDuration,
+    hoHourlyPrice,
+    hoInstanceFamily,
+    hoOfferingId,
+    hoPaymentOption,
+    hoUpfrontPrice,
+
+    -- ** SuccessfulInstanceCreditSpecificationItem
+    SuccessfulInstanceCreditSpecificationItem (..),
+    mkSuccessfulInstanceCreditSpecificationItem,
+    sicsiInstanceId,
+
+    -- ** TaggableResourceId
+    TaggableResourceId (..),
+
+    -- ** ClientVpnAuthorizationRuleStatus
+    ClientVpnAuthorizationRuleStatus (..),
+    mkClientVpnAuthorizationRuleStatus,
+    cvarsCode,
+    cvarsMessage,
+
+    -- ** GatewayType
+    GatewayType (..),
+
+    -- ** KeyPairId
+    KeyPairId (..),
+
+    -- ** LaunchTemplateInstanceMetadataOptionsRequest
+    LaunchTemplateInstanceMetadataOptionsRequest (..),
+    mkLaunchTemplateInstanceMetadataOptionsRequest,
+    ltimorHttpEndpoint,
+    ltimorHttpPutResponseHopLimit,
+    ltimorHttpTokens,
+
+    -- ** UnsuccessfulInstanceCreditSpecificationErrorCode
+    UnsuccessfulInstanceCreditSpecificationErrorCode (..),
+
+    -- ** InstanceNetworkInterfaceAttachment
+    InstanceNetworkInterfaceAttachment (..),
+    mkInstanceNetworkInterfaceAttachment,
+    iniaAttachTime,
+    iniaAttachmentId,
+    iniaDeleteOnTermination,
+    iniaDeviceIndex,
+    iniaNetworkCardIndex,
+    iniaStatus,
+
+    -- ** UnsuccessfulInstanceCreditSpecificationItem
+    UnsuccessfulInstanceCreditSpecificationItem (..),
+    mkUnsuccessfulInstanceCreditSpecificationItem,
+    uicsiError,
+    uicsiInstanceId,
+
+    -- ** EndDateType
+    EndDateType (..),
+
+    -- ** VpnConnectionId
+    VpnConnectionId (..),
+
+    -- ** AttributeBooleanValue
+    AttributeBooleanValue (..),
+    mkAttributeBooleanValue,
+    abvValue,
+
+    -- ** NetworkInterfaceType
+    NetworkInterfaceType (..),
+
+    -- ** TunnelOption
+    TunnelOption (..),
+    mkTunnelOption,
+    toDpdTimeoutAction,
+    toDpdTimeoutSeconds,
+    toIkeVersions,
+    toOutsideIpAddress,
+    toPhase1DHGroupNumbers,
+    toPhase1EncryptionAlgorithms,
+    toPhase1IntegrityAlgorithms,
+    toPhase1LifetimeSeconds,
+    toPhase2DHGroupNumbers,
+    toPhase2EncryptionAlgorithms,
+    toPhase2IntegrityAlgorithms,
+    toPhase2LifetimeSeconds,
+    toPreSharedKey,
+    toRekeyFuzzPercentage,
+    toRekeyMarginTimeSeconds,
+    toReplayWindowSize,
+    toStartupAction,
+    toTunnelInsideCidr,
+    toTunnelInsideIpv6Cidr,
+
+    -- ** DeleteLaunchTemplateVersionsResponseErrorItem
+    DeleteLaunchTemplateVersionsResponseErrorItem (..),
+    mkDeleteLaunchTemplateVersionsResponseErrorItem,
+    dltvreiLaunchTemplateId,
+    dltvreiLaunchTemplateName,
+    dltvreiResponseError,
+    dltvreiVersionNumber,
+
+    -- ** RecurringCharge
+    RecurringCharge (..),
+    mkRecurringCharge,
+    rcAmount,
+    rcFrequency,
+
+    -- ** ScheduledInstancesLaunchSpecification
+    ScheduledInstancesLaunchSpecification (..),
+    mkScheduledInstancesLaunchSpecification,
+    silsImageId,
+    silsBlockDeviceMappings,
+    silsEbsOptimized,
+    silsIamInstanceProfile,
+    silsInstanceType,
+    silsKernelId,
+    silsKeyName,
+    silsMonitoring,
+    silsNetworkInterfaces,
+    silsPlacement,
+    silsRamdiskId,
+    silsSecurityGroupIds,
+    silsSubnetId,
+    silsUserData,
+
+    -- ** ConnectionNotification
+    ConnectionNotification (..),
+    mkConnectionNotification,
+    cnConnectionEvents,
+    cnConnectionNotificationArn,
+    cnConnectionNotificationId,
+    cnConnectionNotificationState,
+    cnConnectionNotificationType,
+    cnServiceId,
+    cnVpcEndpointId,
+
+    -- ** LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
+    LaunchTemplateInstanceNetworkInterfaceSpecificationRequest (..),
+    mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
+    ltinisrAssociateCarrierIpAddress,
+    ltinisrAssociatePublicIpAddress,
+    ltinisrDeleteOnTermination,
+    ltinisrDescription,
+    ltinisrDeviceIndex,
+    ltinisrGroups,
+    ltinisrInterfaceType,
+    ltinisrIpv6AddressCount,
+    ltinisrIpv6Addresses,
+    ltinisrNetworkCardIndex,
+    ltinisrNetworkInterfaceId,
+    ltinisrPrivateIpAddress,
+    ltinisrPrivateIpAddresses,
+    ltinisrSecondaryPrivateIpAddressCount,
+    ltinisrSubnetId,
+
+    -- ** UsageClassType
+    UsageClassType (..),
+
+    -- ** LocalGatewayVirtualInterfaceGroupId
+    LocalGatewayVirtualInterfaceGroupId (..),
+
+    -- ** LaunchTemplatesMonitoringRequest
+    LaunchTemplatesMonitoringRequest (..),
+    mkLaunchTemplatesMonitoringRequest,
+    ltmrEnabled,
+
+    -- ** NewDhcpConfiguration
+    NewDhcpConfiguration (..),
+    mkNewDhcpConfiguration,
+    ndcKey,
+    ndcValues,
+
+    -- ** InstanceMetadataOptionsState
+    InstanceMetadataOptionsState (..),
+
+    -- ** StateReason
+    StateReason (..),
+    mkStateReason,
+    srCode,
+    srMessage,
+
+    -- ** CapacityReservationState
+    CapacityReservationState (..),
+
+    -- ** MonitoringState
+    MonitoringState (..),
+
+    -- ** ElasticGpuStatus
+    ElasticGpuStatus (..),
+
+    -- ** LicenseConfiguration
+    LicenseConfiguration (..),
+    mkLicenseConfiguration,
+    lcLicenseConfigurationArn,
+
+    -- ** HostRecovery
+    HostRecovery (..),
+
+    -- ** FleetOnDemandAllocationStrategy
+    FleetOnDemandAllocationStrategy (..),
+
+    -- ** SlotDateTimeRangeRequest
+    SlotDateTimeRangeRequest (..),
+    mkSlotDateTimeRangeRequest,
+    sdtrrEarliestTime,
+    sdtrrLatestTime,
+
+    -- ** Purchase
+    Purchase (..),
+    mkPurchase,
+    pCurrencyCode,
+    pDuration,
+    pHostIdSet,
+    pHostReservationId,
+    pHourlyPrice,
+    pInstanceFamily,
+    pPaymentOption,
+    pUpfrontPrice,
+
+    -- ** ScheduledInstancesPrivateIpAddressConfig
+    ScheduledInstancesPrivateIpAddressConfig (..),
+    mkScheduledInstancesPrivateIpAddressConfig,
+    sipiacPrimary,
+    sipiacPrivateIpAddress,
+
+    -- ** LaunchTemplateHibernationOptionsRequest
+    LaunchTemplateHibernationOptionsRequest (..),
+    mkLaunchTemplateHibernationOptionsRequest,
+    lthorConfigured,
+
+    -- ** TransitGatewayAttachmentId
+    TransitGatewayAttachmentId (..),
+
+    -- ** PrefixListAssociation
+    PrefixListAssociation (..),
+    mkPrefixListAssociation,
+    plaResourceId,
+    plaResourceOwner,
+
+    -- ** FleetId
+    FleetId (..),
+
+    -- ** ReservedInstancesId
+    ReservedInstancesId (..),
+    mkReservedInstancesId,
+    riiReservedInstancesId,
+
+    -- ** StatusName
+    StatusName (..),
+
+    -- ** InternetGateway
+    InternetGateway (..),
+    mkInternetGateway,
+    igAttachments,
+    igInternetGatewayId,
+    igOwnerId,
+    igTags,
+
+    -- ** PlacementGroupId
+    PlacementGroupId (..),
+
+    -- ** HistoryRecordEntry
+    HistoryRecordEntry (..),
+    mkHistoryRecordEntry,
+    hreEventInformation,
+    hreEventType,
+    hreTimestamp,
+
+    -- ** ResponseError
+    ResponseError (..),
+    mkResponseError,
+    reCode,
+    reMessage,
+
+    -- ** VolumeStatusName
+    VolumeStatusName (..),
+
+    -- ** ReservedInstancesOfferingId
+    ReservedInstancesOfferingId (..),
+
+    -- ** AllocationStrategy
+    AllocationStrategy (..),
+
+    -- ** DescribeFleetError
+    DescribeFleetError (..),
+    mkDescribeFleetError,
+    dfeErrorCode,
+    dfeErrorMessage,
+    dfeLaunchTemplateAndOverrides,
+    dfeLifecycle,
+
+    -- ** CapacityReservationGroup
+    CapacityReservationGroup (..),
+    mkCapacityReservationGroup,
+    crgGroupArn,
+    crgOwnerId,
+
+    -- ** VolumeAttributeName
+    VolumeAttributeName (..),
+
+    -- ** VpcEndpointId
+    VpcEndpointId (..),
+
+    -- ** TransitGatewayMulticastDeregisteredGroupSources
+    TransitGatewayMulticastDeregisteredGroupSources (..),
+    mkTransitGatewayMulticastDeregisteredGroupSources,
+    tgmdgsDeregisteredNetworkInterfaceIds,
+    tgmdgsGroupIpAddress,
+    tgmdgsTransitGatewayMulticastDomainId,
+
+    -- ** LaunchTemplateTagSpecificationRequest
+    LaunchTemplateTagSpecificationRequest (..),
+    mkLaunchTemplateTagSpecificationRequest,
+    lttsrResourceType,
+    lttsrTags,
+
+    -- ** PrivateDnsNameConfiguration
+    PrivateDnsNameConfiguration (..),
+    mkPrivateDnsNameConfiguration,
+    pdncName,
+    pdncState,
+    pdncType,
+    pdncValue,
+
+    -- ** ImportInstanceTaskDetails
+    ImportInstanceTaskDetails (..),
+    mkImportInstanceTaskDetails,
+    iitdDescription,
+    iitdInstanceId,
+    iitdPlatform,
+    iitdVolumes,
+
+    -- ** ClientVpnEndpointStatusCode
+    ClientVpnEndpointStatusCode (..),
+
+    -- ** PlacementGroup
+    PlacementGroup (..),
+    mkPlacementGroup,
+    pgGroupId,
+    pgGroupName,
+    pgPartitionCount,
+    pgState,
+    pgStrategy,
+    pgTags,
+
+    -- ** UnlimitedSupportedInstanceFamily
+    UnlimitedSupportedInstanceFamily (..),
+
+    -- ** AutoPlacement
+    AutoPlacement (..),
+
+    -- ** RootDeviceType
+    RootDeviceType (..),
+
+    -- ** ByoipCidrState
+    ByoipCidrState (..),
+
+    -- ** VolumeModification
+    VolumeModification (..),
+    mkVolumeModification,
+    vmEndTime,
+    vmModificationState,
+    vmOriginalIops,
+    vmOriginalSize,
+    vmOriginalVolumeType,
+    vmProgress,
+    vmStartTime,
+    vmStatusMessage,
+    vmTargetIops,
+    vmTargetSize,
+    vmTargetVolumeType,
+    vmVolumeId,
+
+    -- ** TransitGatewayRouteType
+    TransitGatewayRouteType (..),
+
+    -- ** FleetSpotMaintenanceStrategies
+    FleetSpotMaintenanceStrategies (..),
+    mkFleetSpotMaintenanceStrategies,
+    fsmsCapacityRebalance,
+
+    -- ** ProductCode
+    ProductCode (..),
+    mkProductCode,
+    pcProductCodeId,
+    pcProductCodeType,
+
+    -- ** TransitGatewayMulticastDeregisteredGroupMembers
+    TransitGatewayMulticastDeregisteredGroupMembers (..),
+    mkTransitGatewayMulticastDeregisteredGroupMembers,
+    tgmdgmDeregisteredNetworkInterfaceIds,
+    tgmdgmGroupIpAddress,
+    tgmdgmTransitGatewayMulticastDomainId,
+
+    -- ** FlowLog
+    FlowLog (..),
+    mkFlowLog,
+    flCreationTime,
+    flDeliverLogsErrorMessage,
+    flDeliverLogsPermissionArn,
+    flDeliverLogsStatus,
+    flFlowLogId,
+    flFlowLogStatus,
+    flLogDestination,
+    flLogDestinationType,
+    flLogFormat,
+    flLogGroupName,
+    flMaxAggregationInterval,
+    flResourceId,
+    flTags,
+    flTrafficType,
+
+    -- ** VCpuInfo
+    VCpuInfo (..),
+    mkVCpuInfo,
+    vciDefaultCores,
+    vciDefaultThreadsPerCore,
+    vciDefaultVCpus,
+    vciValidCores,
+    vciValidThreadsPerCore,
+
+    -- ** StaleSecurityGroup
+    StaleSecurityGroup (..),
+    mkStaleSecurityGroup,
+    ssgDescription,
+    ssgGroupId,
+    ssgGroupName,
+    ssgStaleIpPermissions,
+    ssgStaleIpPermissionsEgress,
+    ssgVpcId,
+
+    -- ** LaunchTemplateLicenseConfiguration
+    LaunchTemplateLicenseConfiguration (..),
+    mkLaunchTemplateLicenseConfiguration,
+    ltlcLicenseConfigurationArn,
+
+    -- ** ListingStatus
+    ListingStatus (..),
+
+    -- ** CreateTransitGatewayVpcAttachmentRequestOptions
+    CreateTransitGatewayVpcAttachmentRequestOptions (..),
+    mkCreateTransitGatewayVpcAttachmentRequestOptions,
+    ctgvaroApplianceModeSupport,
+    ctgvaroDnsSupport,
+    ctgvaroIpv6Support,
+
+    -- ** Ipv4PoolEc2Id
+    Ipv4PoolEc2Id (..),
+
+    -- ** Phase2EncryptionAlgorithmsRequestListValue
+    Phase2EncryptionAlgorithmsRequestListValue (..),
+    mkPhase2EncryptionAlgorithmsRequestListValue,
+    pearlvfValue,
+
+    -- ** IpRange
+    IpRange (..),
+    mkIpRange,
+    iCidrIp,
+    iDescription,
+
+    -- ** LocalGatewayVirtualInterfaceGroup
+    LocalGatewayVirtualInterfaceGroup (..),
+    mkLocalGatewayVirtualInterfaceGroup,
+    lgvigLocalGatewayId,
+    lgvigLocalGatewayVirtualInterfaceGroupId,
+    lgvigLocalGatewayVirtualInterfaceIds,
+    lgvigOwnerId,
+    lgvigTags,
+
+    -- ** VolumeStatusInfoStatus
+    VolumeStatusInfoStatus (..),
+
+    -- ** AccountAttributeValue
+    AccountAttributeValue (..),
+    mkAccountAttributeValue,
+    aavAttributeValue,
+
+    -- ** TransitGatewayAttachment
+    TransitGatewayAttachment (..),
+    mkTransitGatewayAttachment,
+    tgaAssociation,
+    tgaCreationTime,
+    tgaResourceId,
+    tgaResourceOwnerId,
+    tgaResourceType,
+    tgaState,
+    tgaTags,
+    tgaTransitGatewayAttachmentId,
+    tgaTransitGatewayId,
+    tgaTransitGatewayOwnerId,
+
+    -- ** SnapshotDiskContainer
+    SnapshotDiskContainer (..),
+    mkSnapshotDiskContainer,
+    sdcDescription,
+    sdcFormat,
+    sdcUrl,
+    sdcUserBucket,
+
+    -- ** Ipv6Range
+    Ipv6Range (..),
+    mkIpv6Range,
+    irCidrIpv6,
+    irDescription,
+
+    -- ** ReservedInstanceReservationValue
+    ReservedInstanceReservationValue (..),
+    mkReservedInstanceReservationValue,
+    rirvReservationValue,
+    rirvReservedInstanceId,
+
+    -- ** ConnectionNotificationId
+    ConnectionNotificationId (..),
+
+    -- ** LaunchTemplateInstanceMetadataOptionsState
+    LaunchTemplateInstanceMetadataOptionsState (..),
+
+    -- ** InstanceStorageInfo
+    InstanceStorageInfo (..),
+    mkInstanceStorageInfo,
+    isiDisks,
+    isiNvmeSupport,
+    isiTotalSizeInGB,
+
+    -- ** FastSnapshotRestoreStateCode
+    FastSnapshotRestoreStateCode (..),
+
+    -- ** ClientVpnEndpointStatus
+    ClientVpnEndpointStatus (..),
+    mkClientVpnEndpointStatus,
+    cvesCode,
+    cvesMessage,
+
+    -- ** RIProductDescription
+    RIProductDescription (..),
+
+    -- ** ReservedInstancesOffering
+    ReservedInstancesOffering (..),
+    mkReservedInstancesOffering,
+    rioAvailabilityZone,
+    rioCurrencyCode,
+    rioDuration,
+    rioFixedPrice,
+    rioInstanceTenancy,
+    rioInstanceType,
+    rioMarketplace,
+    rioOfferingClass,
+    rioOfferingType,
+    rioPricingDetails,
+    rioProductDescription,
+    rioRecurringCharges,
+    rioReservedInstancesOfferingId,
+    rioScope,
+    rioUsagePrice,
+
+    -- ** TransitGatewayAssociation
+    TransitGatewayAssociation (..),
+    mkTransitGatewayAssociation,
+    tResourceId,
+    tResourceType,
+    tState,
+    tTransitGatewayAttachmentId,
+    tTransitGatewayRouteTableId,
+
+    -- ** InstanceTypeHypervisor
+    InstanceTypeHypervisor (..),
+
+    -- ** VpnProtocol
+    VpnProtocol (..),
+
+    -- ** ClassicLoadBalancer
+    ClassicLoadBalancer (..),
+    mkClassicLoadBalancer,
+    clbName,
+
+    -- ** InstanceIpv6Address
+    InstanceIpv6Address (..),
+    mkInstanceIpv6Address,
+    iiaIpv6Address,
+
+    -- ** Phase2DHGroupNumbersRequestListValue
+    Phase2DHGroupNumbersRequestListValue (..),
+    mkPhase2DHGroupNumbersRequestListValue,
+    pdhgnrlvfValue,
+
+    -- ** ReservedInstances
+    ReservedInstances (..),
+    mkReservedInstances,
+    riAvailabilityZone,
+    riCurrencyCode,
+    riDuration,
+    riEnd,
+    riFixedPrice,
+    riInstanceCount,
+    riInstanceTenancy,
+    riInstanceType,
+    riOfferingClass,
+    riOfferingType,
+    riProductDescription,
+    riRecurringCharges,
+    riReservedInstancesId,
+    riScope,
+    riStart,
+    riState,
+    riTags,
+    riUsagePrice,
+
+    -- ** FleetData
+    FleetData (..),
+    mkFleetData,
+    fdActivityStatus,
+    fdClientToken,
+    fdCreateTime,
+    fdErrors,
+    fdExcessCapacityTerminationPolicy,
+    fdFleetId,
+    fdFleetState,
+    fdFulfilledCapacity,
+    fdFulfilledOnDemandCapacity,
+    fdInstances,
+    fdLaunchTemplateConfigs,
+    fdOnDemandOptions,
+    fdReplaceUnhealthyInstances,
+    fdSpotOptions,
+    fdTags,
+    fdTargetCapacitySpecification,
+    fdTerminateInstancesWithExpiration,
+    fdType,
+    fdValidFrom,
+    fdValidUntil,
+
+    -- ** TransitGatewayPropagationState
+    TransitGatewayPropagationState (..),
+
+    -- ** DedicatedHostId
+    DedicatedHostId (..),
+
+    -- ** DatafeedSubscriptionState
+    DatafeedSubscriptionState (..),
+
+    -- ** ExportTaskState
+    ExportTaskState (..),
+
+    -- ** ProductCodeValues
+    ProductCodeValues (..),
+
+    -- ** CapacityReservationTargetResponse
+    CapacityReservationTargetResponse (..),
+    mkCapacityReservationTargetResponse,
+    crtrCapacityReservationId,
+    crtrCapacityReservationResourceGroupArn,
+
+    -- ** ScheduledInstancesBlockDeviceMapping
+    ScheduledInstancesBlockDeviceMapping (..),
+    mkScheduledInstancesBlockDeviceMapping,
+    sibdmDeviceName,
+    sibdmEbs,
+    sibdmNoDevice,
+    sibdmVirtualName,
+
+    -- ** VpnConnection
+    VpnConnection (..),
+    mkVpnConnection,
+    vcCategory,
+    vcCustomerGatewayConfiguration,
+    vcCustomerGatewayId,
+    vcOptions,
+    vcRoutes,
+    vcState,
+    vcTags,
+    vcTransitGatewayId,
+    vcType,
+    vcVgwTelemetry,
+    vcVpnConnectionId,
+    vcVpnGatewayId,
+
+    -- ** CapacityReservationTenancy
+    CapacityReservationTenancy (..),
+
+    -- ** InstanceState
+    InstanceState (..),
+    mkInstanceState,
+    isCode,
+    isName,
+
+    -- ** InternetGatewayId
+    InternetGatewayId (..),
+
+    -- ** VpcEndpoint
+    VpcEndpoint (..),
+    mkVpcEndpoint,
+    veCreationTimestamp,
+    veDnsEntries,
+    veGroups,
+    veLastError,
+    veNetworkInterfaceIds,
+    veOwnerId,
+    vePolicyDocument,
+    vePrivateDnsEnabled,
+    veRequesterManaged,
+    veRouteTableIds,
+    veServiceName,
+    veState,
+    veSubnetIds,
+    veTags,
+    veVpcEndpointId,
+    veVpcEndpointType,
+    veVpcId,
+
+    -- ** PublicIpAddress
+    PublicIpAddress (..),
+
+    -- ** TargetGroup
+    TargetGroup (..),
+    mkTargetGroup,
+    tgArn,
+
+    -- ** SuccessfulQueuedPurchaseDeletion
+    SuccessfulQueuedPurchaseDeletion (..),
+    mkSuccessfulQueuedPurchaseDeletion,
+    sqpdReservedInstancesId,
+
+    -- ** LaunchTemplateInstanceMarketOptionsRequest
+    LaunchTemplateInstanceMarketOptionsRequest (..),
+    mkLaunchTemplateInstanceMarketOptionsRequest,
+    ltimorMarketType,
+    ltimorSpotOptions,
+
+    -- ** ConnectionLogResponseOptions
+    ConnectionLogResponseOptions (..),
+    mkConnectionLogResponseOptions,
+    clroCloudwatchLogGroup,
+    clroCloudwatchLogStream,
+    clroEnabled,
+
+    -- ** TransitGatewayPropagation
+    TransitGatewayPropagation (..),
+    mkTransitGatewayPropagation,
+    tgpResourceId,
+    tgpResourceType,
+    tgpState,
+    tgpTransitGatewayAttachmentId,
+    tgpTransitGatewayRouteTableId,
+
+    -- ** ClientData
+    ClientData (..),
+    mkClientData,
+    cdComment,
+    cdUploadEnd,
+    cdUploadSize,
+    cdUploadStart,
+
+    -- ** Placement
+    Placement (..),
+    mkPlacement,
+    pAffinity,
+    pAvailabilityZone,
+    pGroupName,
+    pHostId,
+    pHostResourceGroupArn,
+    pPartitionNumber,
+    pSpreadDomain,
+    pTenancy,
+
+    -- ** TransitGatewayMulticastDomainAssociations
+    TransitGatewayMulticastDomainAssociations (..),
+    mkTransitGatewayMulticastDomainAssociations,
+    tgmdasResourceId,
+    tgmdasResourceType,
+    tgmdasSubnets,
+    tgmdasTransitGatewayAttachmentId,
+    tgmdasTransitGatewayMulticastDomainId,
+
+    -- ** EventCode
+    EventCode (..),
+
+    -- ** SpotInstanceType
+    SpotInstanceType (..),
+
+    -- ** VpcPeeringConnection
+    VpcPeeringConnection (..),
+    mkVpcPeeringConnection,
+    vpcAccepterVpcInfo,
+    vpcExpirationTime,
+    vpcRequesterVpcInfo,
+    vpcStatus,
+    vpcTags,
+    vpcVpcPeeringConnectionId,
+
+    -- ** LaunchTemplateInstanceMetadataOptions
+    LaunchTemplateInstanceMetadataOptions (..),
+    mkLaunchTemplateInstanceMetadataOptions,
+    ltimoHttpEndpoint,
+    ltimoHttpPutResponseHopLimit,
+    ltimoHttpTokens,
+    ltimoState,
+
+    -- ** LaunchTemplateSpotMarketOptions
+    LaunchTemplateSpotMarketOptions (..),
+    mkLaunchTemplateSpotMarketOptions,
+    ltsmoBlockDurationMinutes,
+    ltsmoInstanceInterruptionBehavior,
+    ltsmoMaxPrice,
+    ltsmoSpotInstanceType,
+    ltsmoValidUntil,
+
+    -- ** ByoipCidr
+    ByoipCidr (..),
+    mkByoipCidr,
+    bcCidr,
+    bcDescription,
+    bcState,
+    bcStatusMessage,
+
+    -- ** TargetCapacitySpecificationRequest
+    TargetCapacitySpecificationRequest (..),
+    mkTargetCapacitySpecificationRequest,
+    tcsrTotalTargetCapacity,
+    tcsrDefaultTargetCapacityType,
+    tcsrOnDemandTargetCapacity,
+    tcsrSpotTargetCapacity,
+
+    -- ** S3Storage
+    S3Storage (..),
+    mkS3Storage,
+    ssAWSAccessKeyId,
+    ssBucket,
+    ssPrefix,
+    ssUploadPolicy,
+    ssUploadPolicySignature,
+
+    -- ** DefaultRouteTablePropagationValue
+    DefaultRouteTablePropagationValue (..),
+
+    -- ** PlacementGroupName
+    PlacementGroupName (..),
+
+    -- ** VgwTelemetry
+    VgwTelemetry (..),
+    mkVgwTelemetry,
+    vtAcceptedRouteCount,
+    vtCertificateArn,
+    vtLastStatusChange,
+    vtOutsideIpAddress,
+    vtStatus,
+    vtStatusMessage,
+
+    -- ** VpnStaticRoute
+    VpnStaticRoute (..),
+    mkVpnStaticRoute,
+    vsrDestinationCidrBlock,
+    vsrSource,
+    vsrState,
+
+    -- ** InstanceStateName
+    InstanceStateName (..),
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iAmiLaunchIndex,
+    iArchitecture,
+    iBlockDeviceMappings,
+    iCapacityReservationId,
+    iCapacityReservationSpecification,
+    iClientToken,
+    iCpuOptions,
+    iEbsOptimized,
+    iElasticGpuAssociations,
+    iElasticInferenceAcceleratorAssociations,
+    iEnaSupport,
+    iEnclaveOptions,
+    iHibernationOptions,
+    iHypervisor,
+    iIamInstanceProfile,
+    iImageId,
+    iInstanceId,
+    iInstanceLifecycle,
+    iInstanceType,
+    iKernelId,
+    iKeyName,
+    iLaunchTime,
+    iLicenses,
+    iMetadataOptions,
+    iMonitoring,
+    iNetworkInterfaces,
+    iOutpostArn,
+    iPlacement,
+    iPlatform,
+    iPrivateDnsName,
+    iPrivateIpAddress,
+    iProductCodes,
+    iPublicDnsName,
+    iPublicIpAddress,
+    iRamdiskId,
+    iRootDeviceName,
+    iRootDeviceType,
+    iSecurityGroups,
+    iSourceDestCheck,
+    iSpotInstanceRequestId,
+    iSriovNetSupport,
+    iState,
+    iStateReason,
+    iStateTransitionReason,
+    iSubnetId,
+    iTags,
+    iVirtualizationType,
+    iVpcId,
+
+    -- ** RouteTableAssociationState
+    RouteTableAssociationState (..),
+    mkRouteTableAssociationState,
+    rtasState,
+    rtasStatusMessage,
+
+    -- ** ImportSnapshotTaskId
+    ImportSnapshotTaskId (..),
+
+    -- ** ExportTask
+    ExportTask (..),
+    mkExportTask,
+    etDescription,
+    etExportTaskId,
+    etExportToS3Task,
+    etInstanceExportDetails,
+    etState,
+    etStatusMessage,
+    etTags,
+
+    -- ** InstanceCreditSpecification
+    InstanceCreditSpecification (..),
+    mkInstanceCreditSpecification,
+    icsCpuCredits,
+    icsInstanceId,
+
+    -- ** LaunchTemplateEbsBlockDeviceRequest
+    LaunchTemplateEbsBlockDeviceRequest (..),
+    mkLaunchTemplateEbsBlockDeviceRequest,
+    ltebdrDeleteOnTermination,
+    ltebdrEncrypted,
+    ltebdrIops,
+    ltebdrKmsKeyId,
+    ltebdrSnapshotId,
+    ltebdrVolumeSize,
+    ltebdrVolumeType,
+
+    -- ** CarrierGatewayId
+    CarrierGatewayId (..),
+
+    -- ** ResetImageAttributeName
+    ResetImageAttributeName (..),
+
+    -- ** RequestSpotLaunchSpecification
+    RequestSpotLaunchSpecification (..),
+    mkRequestSpotLaunchSpecification,
+    rslsAddressingType,
+    rslsBlockDeviceMappings,
+    rslsEbsOptimized,
+    rslsIamInstanceProfile,
+    rslsImageId,
+    rslsInstanceType,
+    rslsKernelId,
+    rslsKeyName,
+    rslsMonitoring,
+    rslsNetworkInterfaces,
+    rslsPlacement,
+    rslsRamdiskId,
+    rslsSecurityGroupIds,
+    rslsSecurityGroups,
+    rslsSubnetId,
+    rslsUserData,
+
+    -- ** ClientVpnRouteStatusCode
+    ClientVpnRouteStatusCode (..),
+
+    -- ** LocalGatewayVirtualInterface
+    LocalGatewayVirtualInterface (..),
+    mkLocalGatewayVirtualInterface,
+    lgviLocalAddress,
+    lgviLocalBgpAsn,
+    lgviLocalGatewayId,
+    lgviLocalGatewayVirtualInterfaceId,
+    lgviOwnerId,
+    lgviPeerAddress,
+    lgviPeerBgpAsn,
+    lgviTags,
+    lgviVlan,
 
     -- ** ValidationWarning
     ValidationWarning (..),
     mkValidationWarning,
     vwErrors,
 
-    -- ** Volume
-    Volume (..),
-    mkVolume,
-    vFastRestored,
-    vState,
-    vMultiAttachEnabled,
-    vAttachments,
-    vSize,
-    vIOPS,
-    vOutpostARN,
-    vEncrypted,
-    vKMSKeyId,
-    vAvailabilityZone,
-    vVolumeId,
-    vVolumeType,
-    vCreateTime,
-    vTags,
-    vSnapshotId,
-
-    -- ** VolumeAttachment
-    VolumeAttachment (..),
-    mkVolumeAttachment,
-    vafInstanceId,
-    vafDeleteOnTermination,
-    vafState,
-    vafDevice,
-    vafVolumeId,
-    vafAttachTime,
+    -- ** SnapshotId
+    SnapshotId (..),
 
     -- ** VolumeDetail
     VolumeDetail (..),
     mkVolumeDetail,
     vdSize,
 
-    -- ** VolumeModification
-    VolumeModification (..),
-    mkVolumeModification,
-    vmProgress,
-    vmStartTime,
-    vmModificationState,
-    vmTargetVolumeType,
-    vmOriginalVolumeType,
-    vmTargetSize,
-    vmTargetIOPS,
-    vmOriginalSize,
-    vmOriginalIOPS,
-    vmStatusMessage,
-    vmEndTime,
-    vmVolumeId,
+    -- ** TargetConfiguration
+    TargetConfiguration (..),
+    mkTargetConfiguration,
+    tcInstanceCount,
+    tcOfferingId,
 
-    -- ** VolumeStatusAction
-    VolumeStatusAction (..),
-    mkVolumeStatusAction,
-    vsaEventType,
-    vsaCode,
-    vsaDescription,
-    vsaEventId,
+    -- ** PaymentOption
+    PaymentOption (..),
 
-    -- ** VolumeStatusAttachmentStatus
-    VolumeStatusAttachmentStatus (..),
-    mkVolumeStatusAttachmentStatus,
-    vsasInstanceId,
-    vsasIOPerformance,
+    -- ** PricingDetail
+    PricingDetail (..),
+    mkPricingDetail,
+    pdCount,
+    pdPrice,
 
-    -- ** VolumeStatusDetails
-    VolumeStatusDetails (..),
-    mkVolumeStatusDetails,
-    vsdStatus,
-    vsdName,
+    -- ** ClientVpnAuthentication
+    ClientVpnAuthentication (..),
+    mkClientVpnAuthentication,
+    cvaActiveDirectory,
+    cvaFederatedAuthentication,
+    cvaMutualAuthentication,
+    cvaType,
 
-    -- ** VolumeStatusEvent
-    VolumeStatusEvent (..),
-    mkVolumeStatusEvent,
-    vseInstanceId,
-    vseNotBefore,
-    vseEventType,
-    vseDescription,
-    vseNotAfter,
-    vseEventId,
+    -- ** TransitGatewayPrefixListReferenceState
+    TransitGatewayPrefixListReferenceState (..),
 
-    -- ** VolumeStatusInfo
-    VolumeStatusInfo (..),
-    mkVolumeStatusInfo,
-    vsiStatus,
-    vsiDetails,
+    -- ** IamInstanceProfileAssociationState
+    IamInstanceProfileAssociationState (..),
+
+    -- ** ReservedInstancesListingId
+    ReservedInstancesListingId (..),
+
+    -- ** NetworkInterfacePrivateIpAddress
+    NetworkInterfacePrivateIpAddress (..),
+    mkNetworkInterfacePrivateIpAddress,
+    nipiaAssociation,
+    nipiaPrimary,
+    nipiaPrivateDnsName,
+    nipiaPrivateIpAddress,
+
+    -- ** DiskImageFormat
+    DiskImageFormat (..),
+
+    -- ** ActivityStatus
+    ActivityStatus (..),
+
+    -- ** TransitGatewayRouteState
+    TransitGatewayRouteState (..),
+
+    -- ** FleetLaunchTemplateConfig
+    FleetLaunchTemplateConfig (..),
+    mkFleetLaunchTemplateConfig,
+    fltcLaunchTemplateSpecification,
+    fltcOverrides,
+
+    -- ** BundleTaskError
+    BundleTaskError (..),
+    mkBundleTaskError,
+    bteCode,
+    bteMessage,
+
+    -- ** VpcClassicLink
+    VpcClassicLink (..),
+    mkVpcClassicLink,
+    vclClassicLinkEnabled,
+    vclTags,
+    vclVpcId,
+
+    -- ** SpotOptionsRequest
+    SpotOptionsRequest (..),
+    mkSpotOptionsRequest,
+    sorAllocationStrategy,
+    sorInstanceInterruptionBehavior,
+    sorInstancePoolsToUseCount,
+    sorMaintenanceStrategies,
+    sorMaxTotalPrice,
+    sorMinTargetCapacity,
+    sorSingleAvailabilityZone,
+    sorSingleInstanceType,
 
     -- ** VolumeStatusItem
     VolumeStatusItem (..),
     mkVolumeStatusItem,
-    vsiVolumeStatus,
     vsiActions,
-    vsiOutpostARN,
-    vsiEvents,
-    vsiAvailabilityZone,
-    vsiVolumeId,
     vsiAttachmentStatuses,
+    vsiAvailabilityZone,
+    vsiEvents,
+    vsiOutpostArn,
+    vsiVolumeId,
+    vsiVolumeStatus,
+
+    -- ** ScheduledInstanceAvailability
+    ScheduledInstanceAvailability (..),
+    mkScheduledInstanceAvailability,
+    siaAvailabilityZone,
+    siaAvailableInstanceCount,
+    siaFirstSlotStartTime,
+    siaHourlyPrice,
+    siaInstanceType,
+    siaMaxTermDurationInDays,
+    siaMinTermDurationInDays,
+    siaNetworkPlatform,
+    siaPlatform,
+    siaPurchaseToken,
+    siaRecurrence,
+    siaSlotDurationInHours,
+    siaTotalScheduledInstanceHours,
+
+    -- ** ElasticGpuSpecificationResponse
+    ElasticGpuSpecificationResponse (..),
+    mkElasticGpuSpecificationResponse,
+    egsrType,
+
+    -- ** OwnerId
+    OwnerId (..),
+
+    -- ** DestinationCidrBlock
+    DestinationCidrBlock (..),
+
+    -- ** DestinationIpv6CidrBlock
+    DestinationIpv6CidrBlock (..),
+
+    -- ** DestinationPrefixListId
+    DestinationPrefixListId (..),
+
+    -- ** GatewayId
+    GatewayId (..),
+
+    -- ** PrincipalArn
+    PrincipalArn (..),
+
+    -- ** Resource
+    Resource (..),
+
+    -- ** MaxPrice
+    MaxPrice (..),
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** S3Prefix
+    S3Prefix (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** AssociationId
+    AssociationId (..),
+
+    -- ** NewAssociationId
+    NewAssociationId (..),
+
+    -- ** Bucket
+    Bucket (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** UserId
+    UserId (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** Protocol
+    Protocol (..),
+
+    -- ** ClientToken
+    ClientToken (..),
+
+    -- ** DefaultVersion
+    DefaultVersion (..),
+
+    -- ** ConnectionNotificationArn
+    ConnectionNotificationArn (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** AdditionalInfo
+    AdditionalInfo (..),
+
+    -- ** PrivateIpAddress
+    PrivateIpAddress (..),
+
+    -- ** KeyName
+    KeyName (..),
+
+    -- ** RamDiskId
+    RamDiskId (..),
+
+    -- ** DataEncryptionKeyId
+    DataEncryptionKeyId (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** OwnerAlias
+    OwnerAlias (..),
+
+    -- ** Progress
+    Progress (..),
+
+    -- ** StateMessage
+    StateMessage (..),
+
+    -- ** CidrIp
+    CidrIp (..),
+
+    -- ** GroupId
+    GroupId (..),
+
+    -- ** GroupName
+    GroupName (..),
+
+    -- ** IpProtocol
+    IpProtocol (..),
+
+    -- ** SourceSecurityGroupName
+    SourceSecurityGroupName (..),
+
+    -- ** SourceSecurityGroupOwnerId
+    SourceSecurityGroupOwnerId (..),
+
+    -- ** PeerOwnerId
+    PeerOwnerId (..),
+
+    -- ** PeerRegion
+    PeerRegion (..),
+
+    -- ** PeerVpcId
+    PeerVpcId (..),
+
+    -- ** Code
+    Code (..),
+
+    -- ** LambdaFunctionArn
+    LambdaFunctionArn (..),
+
+    -- ** Frequency
+    Frequency (..),
+
+    -- ** OccurrenceUnit
+    OccurrenceUnit (..),
+
+    -- ** LocalGatewayRouteTableArn
+    LocalGatewayRouteTableArn (..),
+
+    -- ** LocalGatewayRouteTableId
+    LocalGatewayRouteTableId (..),
+
+    -- ** DirectoryId
+    DirectoryId (..),
+
+    -- ** AssociatedRoleArn
+    AssociatedRoleArn (..),
+
+    -- ** CertificateS3BucketName
+    CertificateS3BucketName (..),
+
+    -- ** CertificateS3ObjectKey
+    CertificateS3ObjectKey (..),
+
+    -- ** EncryptionKmsKeyId
+    EncryptionKmsKeyId (..),
+
+    -- ** StatusMessage
+    StatusMessage (..),
+
+    -- ** NetworkId
+    NetworkId (..),
+
+    -- ** DeviceId
+    DeviceId (..),
+
+    -- ** SubsystemId
+    SubsystemId (..),
+
+    -- ** SubsystemVendorId
+    SubsystemVendorId (..),
+
+    -- ** VendorId
+    VendorId (..),
+
+    -- ** AddressFamily
+    AddressFamily (..),
+
+    -- ** PrefixListArn
+    PrefixListArn (..),
+
+    -- ** PrefixListName
+    PrefixListName (..),
+
+    -- ** SourceCidrBlock
+    SourceCidrBlock (..),
+
+    -- ** ReasonMessage
+    ReasonMessage (..),
+
+    -- ** AssociationDefaultRouteTableId
+    AssociationDefaultRouteTableId (..),
+
+    -- ** PropagationDefaultRouteTableId
+    PropagationDefaultRouteTableId (..),
+
+    -- ** CpuCredits
+    CpuCredits (..),
+
+    -- ** AttachmentId
+    AttachmentId (..),
+
+    -- ** PreviousState
+    PreviousState (..),
+
+    -- ** InstanceFamily
+    InstanceFamily (..),
+
+    -- ** Cidr
+    Cidr (..),
+
+    -- ** InterfaceType
+    InterfaceType (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** ImageLocation
+    ImageLocation (..),
+
+    -- ** RootDeviceName
+    RootDeviceName (..),
+
+    -- ** SriovNetSupport
+    SriovNetSupport (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** MaxTotalPrice
+    MaxTotalPrice (..),
+
+    -- ** TransitGatewayArn
+    TransitGatewayArn (..),
+
+    -- ** Output
+    Output (..),
+
+    -- ** ServiceId
+    ServiceId (..),
+
+    -- ** GroupIpAddress
+    GroupIpAddress (..),
+
+    -- ** CertificateArn
+    CertificateArn (..),
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** PolicyDocument
+    PolicyDocument (..),
+
+    -- ** ClientIp
+    ClientIp (..),
+
+    -- ** CommonName
+    CommonName (..),
+
+    -- ** ConnectionEndTime
+    ConnectionEndTime (..),
+
+    -- ** ConnectionEstablishedTime
+    ConnectionEstablishedTime (..),
+
+    -- ** ConnectionId
+    ConnectionId (..),
+
+    -- ** EgressBytes
+    EgressBytes (..),
+
+    -- ** EgressPackets
+    EgressPackets (..),
+
+    -- ** IngressBytes
+    IngressBytes (..),
+
+    -- ** IngressPackets
+    IngressPackets (..),
+
+    -- ** Timestamp
+    Timestamp (..),
+
+    -- ** Username
+    Username (..),
+
+    -- ** CreationDate
+    CreationDate (..),
+
+    -- ** ImageOwnerAlias
+    ImageOwnerAlias (..),
+
+    -- ** PlatformDetails
+    PlatformDetails (..),
+
+    -- ** UsageOperation
+    UsageOperation (..),
+
+    -- ** ClientCidrBlock
+    ClientCidrBlock (..),
+
+    -- ** ServerCertificateArn
+    ServerCertificateArn (..),
+
+    -- ** CarrierIp
+    CarrierIp (..),
+
+    -- ** CustomerOwnedIp
+    CustomerOwnedIp (..),
+
+    -- ** CustomerOwnedIpv4Pool
+    CustomerOwnedIpv4Pool (..),
+
+    -- ** NetworkBorderGroup
+    NetworkBorderGroup (..),
+
+    -- ** PublicIp
+    PublicIp (..),
+
+    -- ** RoleName
+    RoleName (..),
+
+    -- ** InstanceOwnerId
+    InstanceOwnerId (..),
+
+    -- ** CloudwatchLogGroup
+    CloudwatchLogGroup (..),
+
+    -- ** CloudwatchLogStream
+    CloudwatchLogStream (..),
+
+    -- ** FpgaImageGlobalId
+    FpgaImageGlobalId (..),
+
+    -- ** AvailabilityZoneGroup
+    AvailabilityZoneGroup (..),
+
+    -- ** LaunchGroup
+    LaunchGroup (..),
+
+    -- ** Device
+    Device (..),
+
+    -- ** IpOwnerId
+    IpOwnerId (..),
+
+    -- ** PublicDnsName
+    PublicDnsName (..),
+
+    -- ** OutpostArn
+    OutpostArn (..),
+
+    -- ** Attribute
+    Attribute (..),
+
+    -- ** Principal
+    Principal (..),
+
+    -- ** SourceVersion
+    SourceVersion (..),
+
+    -- ** CreationTime
+    CreationTime (..),
+
+    -- ** DeletionTime
+    DeletionTime (..),
+
+    -- ** DnsName
+    DnsName (..),
+
+    -- ** SelfServicePortalUrl
+    SelfServicePortalUrl (..),
+
+    -- ** S3Key
+    S3Key (..),
+
+    -- ** DeviceName
+    DeviceName (..),
+
+    -- ** NoDevice
+    NoDevice (..),
+
+    -- ** VirtualName
+    VirtualName (..),
+
+    -- ** TargetVpcSubnetId
+    TargetVpcSubnetId (..),
+
+    -- ** ExpirationTime
+    ExpirationTime (..),
+
+    -- ** SAMLProviderArn
+    SAMLProviderArn (..),
+
+    -- ** SelfServiceSAMLProviderArn
+    SelfServiceSAMLProviderArn (..),
+
+    -- ** HostId
+    HostId (..),
+
+    -- ** PoolId
+    PoolId (..),
+
+    -- ** PoolArn
+    PoolArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
 import Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
 import Network.AWS.EC2.AcceptTransitGatewayPeeringAttachment
-import Network.AWS.EC2.AcceptTransitGatewayVPCAttachment
-import Network.AWS.EC2.AcceptVPCEndpointConnections
-import Network.AWS.EC2.AcceptVPCPeeringConnection
+import Network.AWS.EC2.AcceptTransitGatewayVpcAttachment
+import Network.AWS.EC2.AcceptVpcEndpointConnections
+import Network.AWS.EC2.AcceptVpcPeeringConnection
 import Network.AWS.EC2.AdvertiseByoipCidr
 import Network.AWS.EC2.AllocateAddress
 import Network.AWS.EC2.AllocateHosts
-import Network.AWS.EC2.ApplySecurityGroupsToClientVPNTargetNetwork
-import Network.AWS.EC2.AssignIPv6Addresses
-import Network.AWS.EC2.AssignPrivateIPAddresses
+import Network.AWS.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
+import Network.AWS.EC2.AssignIpv6Addresses
+import Network.AWS.EC2.AssignPrivateIpAddresses
 import Network.AWS.EC2.AssociateAddress
-import Network.AWS.EC2.AssociateClientVPNTargetNetwork
-import Network.AWS.EC2.AssociateDHCPOptions
-import Network.AWS.EC2.AssociateEnclaveCertificateIAMRole
-import Network.AWS.EC2.AssociateIAMInstanceProfile
+import Network.AWS.EC2.AssociateClientVpnTargetNetwork
+import Network.AWS.EC2.AssociateDhcpOptions
+import Network.AWS.EC2.AssociateEnclaveCertificateIamRole
+import Network.AWS.EC2.AssociateIamInstanceProfile
 import Network.AWS.EC2.AssociateRouteTable
 import Network.AWS.EC2.AssociateSubnetCidrBlock
 import Network.AWS.EC2.AssociateTransitGatewayMulticastDomain
 import Network.AWS.EC2.AssociateTransitGatewayRouteTable
-import Network.AWS.EC2.AssociateVPCCidrBlock
-import Network.AWS.EC2.AttachClassicLinkVPC
+import Network.AWS.EC2.AssociateVpcCidrBlock
+import Network.AWS.EC2.AttachClassicLinkVpc
 import Network.AWS.EC2.AttachInternetGateway
 import Network.AWS.EC2.AttachNetworkInterface
-import Network.AWS.EC2.AttachVPNGateway
 import Network.AWS.EC2.AttachVolume
-import Network.AWS.EC2.AuthorizeClientVPNIngress
+import Network.AWS.EC2.AttachVpnGateway
+import Network.AWS.EC2.AuthorizeClientVpnIngress
 import Network.AWS.EC2.AuthorizeSecurityGroupEgress
 import Network.AWS.EC2.AuthorizeSecurityGroupIngress
 import Network.AWS.EC2.BundleInstance
@@ -6452,12 +7157,12 @@ import Network.AWS.EC2.CopyImage
 import Network.AWS.EC2.CopySnapshot
 import Network.AWS.EC2.CreateCapacityReservation
 import Network.AWS.EC2.CreateCarrierGateway
-import Network.AWS.EC2.CreateClientVPNEndpoint
-import Network.AWS.EC2.CreateClientVPNRoute
+import Network.AWS.EC2.CreateClientVpnEndpoint
+import Network.AWS.EC2.CreateClientVpnRoute
 import Network.AWS.EC2.CreateCustomerGateway
-import Network.AWS.EC2.CreateDHCPOptions
 import Network.AWS.EC2.CreateDefaultSubnet
-import Network.AWS.EC2.CreateDefaultVPC
+import Network.AWS.EC2.CreateDefaultVpc
+import Network.AWS.EC2.CreateDhcpOptions
 import Network.AWS.EC2.CreateEgressOnlyInternetGateway
 import Network.AWS.EC2.CreateFleet
 import Network.AWS.EC2.CreateFlowLogs
@@ -6469,11 +7174,11 @@ import Network.AWS.EC2.CreateKeyPair
 import Network.AWS.EC2.CreateLaunchTemplate
 import Network.AWS.EC2.CreateLaunchTemplateVersion
 import Network.AWS.EC2.CreateLocalGatewayRoute
-import Network.AWS.EC2.CreateLocalGatewayRouteTableVPCAssociation
+import Network.AWS.EC2.CreateLocalGatewayRouteTableVpcAssociation
 import Network.AWS.EC2.CreateManagedPrefixList
 import Network.AWS.EC2.CreateNatGateway
-import Network.AWS.EC2.CreateNetworkACL
-import Network.AWS.EC2.CreateNetworkACLEntry
+import Network.AWS.EC2.CreateNetworkAcl
+import Network.AWS.EC2.CreateNetworkAclEntry
 import Network.AWS.EC2.CreateNetworkInterface
 import Network.AWS.EC2.CreateNetworkInterfacePermission
 import Network.AWS.EC2.CreatePlacementGroup
@@ -6496,21 +7201,21 @@ import Network.AWS.EC2.CreateTransitGatewayPeeringAttachment
 import Network.AWS.EC2.CreateTransitGatewayPrefixListReference
 import Network.AWS.EC2.CreateTransitGatewayRoute
 import Network.AWS.EC2.CreateTransitGatewayRouteTable
-import Network.AWS.EC2.CreateTransitGatewayVPCAttachment
-import Network.AWS.EC2.CreateVPC
-import Network.AWS.EC2.CreateVPCEndpoint
-import Network.AWS.EC2.CreateVPCEndpointConnectionNotification
-import Network.AWS.EC2.CreateVPCEndpointServiceConfiguration
-import Network.AWS.EC2.CreateVPCPeeringConnection
-import Network.AWS.EC2.CreateVPNConnection
-import Network.AWS.EC2.CreateVPNConnectionRoute
-import Network.AWS.EC2.CreateVPNGateway
+import Network.AWS.EC2.CreateTransitGatewayVpcAttachment
 import Network.AWS.EC2.CreateVolume
+import Network.AWS.EC2.CreateVpc
+import Network.AWS.EC2.CreateVpcEndpoint
+import Network.AWS.EC2.CreateVpcEndpointConnectionNotification
+import Network.AWS.EC2.CreateVpcEndpointServiceConfiguration
+import Network.AWS.EC2.CreateVpcPeeringConnection
+import Network.AWS.EC2.CreateVpnConnection
+import Network.AWS.EC2.CreateVpnConnectionRoute
+import Network.AWS.EC2.CreateVpnGateway
 import Network.AWS.EC2.DeleteCarrierGateway
-import Network.AWS.EC2.DeleteClientVPNEndpoint
-import Network.AWS.EC2.DeleteClientVPNRoute
+import Network.AWS.EC2.DeleteClientVpnEndpoint
+import Network.AWS.EC2.DeleteClientVpnRoute
 import Network.AWS.EC2.DeleteCustomerGateway
-import Network.AWS.EC2.DeleteDHCPOptions
+import Network.AWS.EC2.DeleteDhcpOptions
 import Network.AWS.EC2.DeleteEgressOnlyInternetGateway
 import Network.AWS.EC2.DeleteFleets
 import Network.AWS.EC2.DeleteFlowLogs
@@ -6520,11 +7225,11 @@ import Network.AWS.EC2.DeleteKeyPair
 import Network.AWS.EC2.DeleteLaunchTemplate
 import Network.AWS.EC2.DeleteLaunchTemplateVersions
 import Network.AWS.EC2.DeleteLocalGatewayRoute
-import Network.AWS.EC2.DeleteLocalGatewayRouteTableVPCAssociation
+import Network.AWS.EC2.DeleteLocalGatewayRouteTableVpcAssociation
 import Network.AWS.EC2.DeleteManagedPrefixList
 import Network.AWS.EC2.DeleteNatGateway
-import Network.AWS.EC2.DeleteNetworkACL
-import Network.AWS.EC2.DeleteNetworkACLEntry
+import Network.AWS.EC2.DeleteNetworkAcl
+import Network.AWS.EC2.DeleteNetworkAclEntry
 import Network.AWS.EC2.DeleteNetworkInterface
 import Network.AWS.EC2.DeleteNetworkInterfacePermission
 import Network.AWS.EC2.DeletePlacementGroup
@@ -6546,16 +7251,16 @@ import Network.AWS.EC2.DeleteTransitGatewayPeeringAttachment
 import Network.AWS.EC2.DeleteTransitGatewayPrefixListReference
 import Network.AWS.EC2.DeleteTransitGatewayRoute
 import Network.AWS.EC2.DeleteTransitGatewayRouteTable
-import Network.AWS.EC2.DeleteTransitGatewayVPCAttachment
-import Network.AWS.EC2.DeleteVPC
-import Network.AWS.EC2.DeleteVPCEndpointConnectionNotifications
-import Network.AWS.EC2.DeleteVPCEndpointServiceConfigurations
-import Network.AWS.EC2.DeleteVPCEndpoints
-import Network.AWS.EC2.DeleteVPCPeeringConnection
-import Network.AWS.EC2.DeleteVPNConnection
-import Network.AWS.EC2.DeleteVPNConnectionRoute
-import Network.AWS.EC2.DeleteVPNGateway
+import Network.AWS.EC2.DeleteTransitGatewayVpcAttachment
 import Network.AWS.EC2.DeleteVolume
+import Network.AWS.EC2.DeleteVpc
+import Network.AWS.EC2.DeleteVpcEndpointConnectionNotifications
+import Network.AWS.EC2.DeleteVpcEndpointServiceConfigurations
+import Network.AWS.EC2.DeleteVpcEndpoints
+import Network.AWS.EC2.DeleteVpcPeeringConnection
+import Network.AWS.EC2.DeleteVpnConnection
+import Network.AWS.EC2.DeleteVpnConnectionRoute
+import Network.AWS.EC2.DeleteVpnGateway
 import Network.AWS.EC2.DeprovisionByoipCidr
 import Network.AWS.EC2.DeregisterImage
 import Network.AWS.EC2.DeregisterInstanceEventNotificationAttributes
@@ -6570,15 +7275,15 @@ import Network.AWS.EC2.DescribeByoipCidrs
 import Network.AWS.EC2.DescribeCapacityReservations
 import Network.AWS.EC2.DescribeCarrierGateways
 import Network.AWS.EC2.DescribeClassicLinkInstances
-import Network.AWS.EC2.DescribeClientVPNAuthorizationRules
-import Network.AWS.EC2.DescribeClientVPNConnections
-import Network.AWS.EC2.DescribeClientVPNEndpoints
-import Network.AWS.EC2.DescribeClientVPNRoutes
-import Network.AWS.EC2.DescribeClientVPNTargetNetworks
+import Network.AWS.EC2.DescribeClientVpnAuthorizationRules
+import Network.AWS.EC2.DescribeClientVpnConnections
+import Network.AWS.EC2.DescribeClientVpnEndpoints
+import Network.AWS.EC2.DescribeClientVpnRoutes
+import Network.AWS.EC2.DescribeClientVpnTargetNetworks
 import Network.AWS.EC2.DescribeCoipPools
 import Network.AWS.EC2.DescribeConversionTasks
 import Network.AWS.EC2.DescribeCustomerGateways
-import Network.AWS.EC2.DescribeDHCPOptions
+import Network.AWS.EC2.DescribeDhcpOptions
 import Network.AWS.EC2.DescribeEgressOnlyInternetGateways
 import Network.AWS.EC2.DescribeElasticGpus
 import Network.AWS.EC2.DescribeExportImageTasks
@@ -6593,8 +7298,7 @@ import Network.AWS.EC2.DescribeFpgaImages
 import Network.AWS.EC2.DescribeHostReservationOfferings
 import Network.AWS.EC2.DescribeHostReservations
 import Network.AWS.EC2.DescribeHosts
-import Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
-import Network.AWS.EC2.DescribeIPv6Pools
+import Network.AWS.EC2.DescribeIamInstanceProfileAssociations
 import Network.AWS.EC2.DescribeIdFormat
 import Network.AWS.EC2.DescribeIdentityIdFormat
 import Network.AWS.EC2.DescribeImageAttribute
@@ -6609,11 +7313,12 @@ import Network.AWS.EC2.DescribeInstanceTypeOfferings
 import Network.AWS.EC2.DescribeInstanceTypes
 import Network.AWS.EC2.DescribeInstances
 import Network.AWS.EC2.DescribeInternetGateways
+import Network.AWS.EC2.DescribeIpv6Pools
 import Network.AWS.EC2.DescribeKeyPairs
 import Network.AWS.EC2.DescribeLaunchTemplateVersions
 import Network.AWS.EC2.DescribeLaunchTemplates
-import Network.AWS.EC2.DescribeLocalGatewayRouteTableVPCAssociations
 import Network.AWS.EC2.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
+import Network.AWS.EC2.DescribeLocalGatewayRouteTableVpcAssociations
 import Network.AWS.EC2.DescribeLocalGatewayRouteTables
 import Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups
 import Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaces
@@ -6621,14 +7326,14 @@ import Network.AWS.EC2.DescribeLocalGateways
 import Network.AWS.EC2.DescribeManagedPrefixLists
 import Network.AWS.EC2.DescribeMovingAddresses
 import Network.AWS.EC2.DescribeNatGateways
-import Network.AWS.EC2.DescribeNetworkACLs
+import Network.AWS.EC2.DescribeNetworkAcls
 import Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 import Network.AWS.EC2.DescribeNetworkInterfacePermissions
 import Network.AWS.EC2.DescribeNetworkInterfaces
 import Network.AWS.EC2.DescribePlacementGroups
 import Network.AWS.EC2.DescribePrefixLists
 import Network.AWS.EC2.DescribePrincipalIdFormat
-import Network.AWS.EC2.DescribePublicIPv4Pools
+import Network.AWS.EC2.DescribePublicIpv4Pools
 import Network.AWS.EC2.DescribeRegions
 import Network.AWS.EC2.DescribeReservedInstances
 import Network.AWS.EC2.DescribeReservedInstancesListings
@@ -6657,65 +7362,65 @@ import Network.AWS.EC2.DescribeTransitGatewayAttachments
 import Network.AWS.EC2.DescribeTransitGatewayMulticastDomains
 import Network.AWS.EC2.DescribeTransitGatewayPeeringAttachments
 import Network.AWS.EC2.DescribeTransitGatewayRouteTables
-import Network.AWS.EC2.DescribeTransitGatewayVPCAttachments
+import Network.AWS.EC2.DescribeTransitGatewayVpcAttachments
 import Network.AWS.EC2.DescribeTransitGateways
-import Network.AWS.EC2.DescribeVPCAttribute
-import Network.AWS.EC2.DescribeVPCClassicLink
-import Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
-import Network.AWS.EC2.DescribeVPCEndpointConnectionNotifications
-import Network.AWS.EC2.DescribeVPCEndpointConnections
-import Network.AWS.EC2.DescribeVPCEndpointServiceConfigurations
-import Network.AWS.EC2.DescribeVPCEndpointServicePermissions
-import Network.AWS.EC2.DescribeVPCEndpointServices
-import Network.AWS.EC2.DescribeVPCEndpoints
-import Network.AWS.EC2.DescribeVPCPeeringConnections
-import Network.AWS.EC2.DescribeVPCs
-import Network.AWS.EC2.DescribeVPNConnections
-import Network.AWS.EC2.DescribeVPNGateways
 import Network.AWS.EC2.DescribeVolumeAttribute
 import Network.AWS.EC2.DescribeVolumeStatus
 import Network.AWS.EC2.DescribeVolumes
 import Network.AWS.EC2.DescribeVolumesModifications
-import Network.AWS.EC2.DetachClassicLinkVPC
+import Network.AWS.EC2.DescribeVpcAttribute
+import Network.AWS.EC2.DescribeVpcClassicLink
+import Network.AWS.EC2.DescribeVpcClassicLinkDnsSupport
+import Network.AWS.EC2.DescribeVpcEndpointConnectionNotifications
+import Network.AWS.EC2.DescribeVpcEndpointConnections
+import Network.AWS.EC2.DescribeVpcEndpointServiceConfigurations
+import Network.AWS.EC2.DescribeVpcEndpointServicePermissions
+import Network.AWS.EC2.DescribeVpcEndpointServices
+import Network.AWS.EC2.DescribeVpcEndpoints
+import Network.AWS.EC2.DescribeVpcPeeringConnections
+import Network.AWS.EC2.DescribeVpcs
+import Network.AWS.EC2.DescribeVpnConnections
+import Network.AWS.EC2.DescribeVpnGateways
+import Network.AWS.EC2.DetachClassicLinkVpc
 import Network.AWS.EC2.DetachInternetGateway
 import Network.AWS.EC2.DetachNetworkInterface
-import Network.AWS.EC2.DetachVPNGateway
 import Network.AWS.EC2.DetachVolume
-import Network.AWS.EC2.DisableEBSEncryptionByDefault
+import Network.AWS.EC2.DetachVpnGateway
+import Network.AWS.EC2.DisableEbsEncryptionByDefault
 import Network.AWS.EC2.DisableFastSnapshotRestores
 import Network.AWS.EC2.DisableTransitGatewayRouteTablePropagation
-import Network.AWS.EC2.DisableVGWRoutePropagation
-import Network.AWS.EC2.DisableVPCClassicLink
-import Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
+import Network.AWS.EC2.DisableVgwRoutePropagation
+import Network.AWS.EC2.DisableVpcClassicLink
+import Network.AWS.EC2.DisableVpcClassicLinkDnsSupport
 import Network.AWS.EC2.DisassociateAddress
-import Network.AWS.EC2.DisassociateClientVPNTargetNetwork
-import Network.AWS.EC2.DisassociateEnclaveCertificateIAMRole
-import Network.AWS.EC2.DisassociateIAMInstanceProfile
+import Network.AWS.EC2.DisassociateClientVpnTargetNetwork
+import Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
+import Network.AWS.EC2.DisassociateIamInstanceProfile
 import Network.AWS.EC2.DisassociateRouteTable
 import Network.AWS.EC2.DisassociateSubnetCidrBlock
 import Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain
 import Network.AWS.EC2.DisassociateTransitGatewayRouteTable
-import Network.AWS.EC2.DisassociateVPCCidrBlock
-import Network.AWS.EC2.EnableEBSEncryptionByDefault
+import Network.AWS.EC2.DisassociateVpcCidrBlock
+import Network.AWS.EC2.EnableEbsEncryptionByDefault
 import Network.AWS.EC2.EnableFastSnapshotRestores
 import Network.AWS.EC2.EnableTransitGatewayRouteTablePropagation
-import Network.AWS.EC2.EnableVGWRoutePropagation
-import Network.AWS.EC2.EnableVPCClassicLink
-import Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
+import Network.AWS.EC2.EnableVgwRoutePropagation
 import Network.AWS.EC2.EnableVolumeIO
-import Network.AWS.EC2.ExportClientVPNClientCertificateRevocationList
-import Network.AWS.EC2.ExportClientVPNClientConfiguration
+import Network.AWS.EC2.EnableVpcClassicLink
+import Network.AWS.EC2.EnableVpcClassicLinkDnsSupport
+import Network.AWS.EC2.ExportClientVpnClientCertificateRevocationList
+import Network.AWS.EC2.ExportClientVpnClientConfiguration
 import Network.AWS.EC2.ExportImage
 import Network.AWS.EC2.ExportTransitGatewayRoutes
-import Network.AWS.EC2.GetAssociatedEnclaveCertificateIAMRoles
-import Network.AWS.EC2.GetAssociatedIPv6PoolCidrs
+import Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles
+import Network.AWS.EC2.GetAssociatedIpv6PoolCidrs
 import Network.AWS.EC2.GetCapacityReservationUsage
 import Network.AWS.EC2.GetCoipPoolUsage
 import Network.AWS.EC2.GetConsoleOutput
 import Network.AWS.EC2.GetConsoleScreenshot
 import Network.AWS.EC2.GetDefaultCreditSpecification
-import Network.AWS.EC2.GetEBSDefaultKMSKeyId
-import Network.AWS.EC2.GetEBSEncryptionByDefault
+import Network.AWS.EC2.GetEbsDefaultKmsKeyId
+import Network.AWS.EC2.GetEbsEncryptionByDefault
 import Network.AWS.EC2.GetGroupsForCapacityReservation
 import Network.AWS.EC2.GetHostReservationPurchasePreview
 import Network.AWS.EC2.GetLaunchTemplateData
@@ -6728,7 +7433,7 @@ import Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
 import Network.AWS.EC2.GetTransitGatewayPrefixListReferences
 import Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
 import Network.AWS.EC2.GetTransitGatewayRouteTablePropagations
-import Network.AWS.EC2.ImportClientVPNClientCertificateRevocationList
+import Network.AWS.EC2.ImportClientVpnClientCertificateRevocationList
 import Network.AWS.EC2.ImportImage
 import Network.AWS.EC2.ImportInstance
 import Network.AWS.EC2.ImportKeyPair
@@ -6736,9 +7441,9 @@ import Network.AWS.EC2.ImportSnapshot
 import Network.AWS.EC2.ImportVolume
 import Network.AWS.EC2.ModifyAvailabilityZoneGroup
 import Network.AWS.EC2.ModifyCapacityReservation
-import Network.AWS.EC2.ModifyClientVPNEndpoint
+import Network.AWS.EC2.ModifyClientVpnEndpoint
 import Network.AWS.EC2.ModifyDefaultCreditSpecification
-import Network.AWS.EC2.ModifyEBSDefaultKMSKeyId
+import Network.AWS.EC2.ModifyEbsDefaultKmsKeyId
 import Network.AWS.EC2.ModifyFleet
 import Network.AWS.EC2.ModifyFpgaImageAttribute
 import Network.AWS.EC2.ModifyHosts
@@ -6763,22 +7468,22 @@ import Network.AWS.EC2.ModifyTrafficMirrorFilterRule
 import Network.AWS.EC2.ModifyTrafficMirrorSession
 import Network.AWS.EC2.ModifyTransitGateway
 import Network.AWS.EC2.ModifyTransitGatewayPrefixListReference
-import Network.AWS.EC2.ModifyTransitGatewayVPCAttachment
-import Network.AWS.EC2.ModifyVPCAttribute
-import Network.AWS.EC2.ModifyVPCEndpoint
-import Network.AWS.EC2.ModifyVPCEndpointConnectionNotification
-import Network.AWS.EC2.ModifyVPCEndpointServiceConfiguration
-import Network.AWS.EC2.ModifyVPCEndpointServicePermissions
-import Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
-import Network.AWS.EC2.ModifyVPCTenancy
-import Network.AWS.EC2.ModifyVPNConnection
-import Network.AWS.EC2.ModifyVPNConnectionOptions
-import Network.AWS.EC2.ModifyVPNTunnelCertificate
-import Network.AWS.EC2.ModifyVPNTunnelOptions
+import Network.AWS.EC2.ModifyTransitGatewayVpcAttachment
 import Network.AWS.EC2.ModifyVolume
 import Network.AWS.EC2.ModifyVolumeAttribute
+import Network.AWS.EC2.ModifyVpcAttribute
+import Network.AWS.EC2.ModifyVpcEndpoint
+import Network.AWS.EC2.ModifyVpcEndpointConnectionNotification
+import Network.AWS.EC2.ModifyVpcEndpointServiceConfiguration
+import Network.AWS.EC2.ModifyVpcEndpointServicePermissions
+import Network.AWS.EC2.ModifyVpcPeeringConnectionOptions
+import Network.AWS.EC2.ModifyVpcTenancy
+import Network.AWS.EC2.ModifyVpnConnection
+import Network.AWS.EC2.ModifyVpnConnectionOptions
+import Network.AWS.EC2.ModifyVpnTunnelCertificate
+import Network.AWS.EC2.ModifyVpnTunnelOptions
 import Network.AWS.EC2.MonitorInstances
-import Network.AWS.EC2.MoveAddressToVPC
+import Network.AWS.EC2.MoveAddressToVpc
 import Network.AWS.EC2.ProvisionByoipCidr
 import Network.AWS.EC2.PurchaseHostReservation
 import Network.AWS.EC2.PurchaseReservedInstancesOffering
@@ -6789,21 +7494,21 @@ import Network.AWS.EC2.RegisterInstanceEventNotificationAttributes
 import Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers
 import Network.AWS.EC2.RegisterTransitGatewayMulticastGroupSources
 import Network.AWS.EC2.RejectTransitGatewayPeeringAttachment
-import Network.AWS.EC2.RejectTransitGatewayVPCAttachment
-import Network.AWS.EC2.RejectVPCEndpointConnections
-import Network.AWS.EC2.RejectVPCPeeringConnection
+import Network.AWS.EC2.RejectTransitGatewayVpcAttachment
+import Network.AWS.EC2.RejectVpcEndpointConnections
+import Network.AWS.EC2.RejectVpcPeeringConnection
 import Network.AWS.EC2.ReleaseAddress
 import Network.AWS.EC2.ReleaseHosts
-import Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation
-import Network.AWS.EC2.ReplaceNetworkACLAssociation
-import Network.AWS.EC2.ReplaceNetworkACLEntry
+import Network.AWS.EC2.ReplaceIamInstanceProfileAssociation
+import Network.AWS.EC2.ReplaceNetworkAclAssociation
+import Network.AWS.EC2.ReplaceNetworkAclEntry
 import Network.AWS.EC2.ReplaceRoute
 import Network.AWS.EC2.ReplaceRouteTableAssociation
 import Network.AWS.EC2.ReplaceTransitGatewayRoute
 import Network.AWS.EC2.ReportInstanceStatus
 import Network.AWS.EC2.RequestSpotFleet
 import Network.AWS.EC2.RequestSpotInstances
-import Network.AWS.EC2.ResetEBSDefaultKMSKeyId
+import Network.AWS.EC2.ResetEbsDefaultKmsKeyId
 import Network.AWS.EC2.ResetFpgaImageAttribute
 import Network.AWS.EC2.ResetImageAttribute
 import Network.AWS.EC2.ResetInstanceAttribute
@@ -6811,7 +7516,7 @@ import Network.AWS.EC2.ResetNetworkInterfaceAttribute
 import Network.AWS.EC2.ResetSnapshotAttribute
 import Network.AWS.EC2.RestoreAddressToClassic
 import Network.AWS.EC2.RestoreManagedPrefixListVersion
-import Network.AWS.EC2.RevokeClientVPNIngress
+import Network.AWS.EC2.RevokeClientVpnIngress
 import Network.AWS.EC2.RevokeSecurityGroupEgress
 import Network.AWS.EC2.RevokeSecurityGroupIngress
 import Network.AWS.EC2.RunInstances
@@ -6821,13 +7526,13 @@ import Network.AWS.EC2.SearchTransitGatewayMulticastGroups
 import Network.AWS.EC2.SearchTransitGatewayRoutes
 import Network.AWS.EC2.SendDiagnosticInterrupt
 import Network.AWS.EC2.StartInstances
-import Network.AWS.EC2.StartVPCEndpointServicePrivateDNSVerification
+import Network.AWS.EC2.StartVpcEndpointServicePrivateDnsVerification
 import Network.AWS.EC2.StopInstances
-import Network.AWS.EC2.TerminateClientVPNConnections
+import Network.AWS.EC2.TerminateClientVpnConnections
 import Network.AWS.EC2.TerminateInstances
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.UnassignIPv6Addresses
-import Network.AWS.EC2.UnassignPrivateIPAddresses
+import Network.AWS.EC2.UnassignIpv6Addresses
+import Network.AWS.EC2.UnassignPrivateIpAddresses
 import Network.AWS.EC2.UnmonitorInstances
 import Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsEgress
 import Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress

@@ -22,41 +22,38 @@ module Network.AWS.MediaLive.Types.CdiInputSpecification
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.CdiInputResolution
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.CdiInputResolution as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for CdiInputSpecification
 --
 -- /See:/ 'mkCdiInputSpecification' smart constructor.
 newtype CdiInputSpecification = CdiInputSpecification'
   { -- | Maximum CDI input resolution
-    resolution :: Lude.Maybe CdiInputResolution
+    resolution :: Core.Maybe Types.CdiInputResolution
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CdiInputSpecification' with the minimum fields required to make a request.
---
--- * 'resolution' - Maximum CDI input resolution
+-- | Creates a 'CdiInputSpecification' value with any optional fields omitted.
 mkCdiInputSpecification ::
   CdiInputSpecification
 mkCdiInputSpecification =
-  CdiInputSpecification' {resolution = Lude.Nothing}
+  CdiInputSpecification' {resolution = Core.Nothing}
 
 -- | Maximum CDI input resolution
 --
 -- /Note:/ Consider using 'resolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisResolution :: Lens.Lens' CdiInputSpecification (Lude.Maybe CdiInputResolution)
-cisResolution = Lens.lens (resolution :: CdiInputSpecification -> Lude.Maybe CdiInputResolution) (\s a -> s {resolution = a} :: CdiInputSpecification)
+cisResolution :: Lens.Lens' CdiInputSpecification (Core.Maybe Types.CdiInputResolution)
+cisResolution = Lens.field @"resolution"
 {-# DEPRECATED cisResolution "Use generic-lens or generic-optics with 'resolution' instead." #-}
 
-instance Lude.FromJSON CdiInputSpecification where
-  parseJSON =
-    Lude.withObject
-      "CdiInputSpecification"
-      (\x -> CdiInputSpecification' Lude.<$> (x Lude..:? "resolution"))
+instance Core.FromJSON CdiInputSpecification where
+  toJSON CdiInputSpecification {..} =
+    Core.object
+      (Core.catMaybes [("resolution" Core..=) Core.<$> resolution])
 
-instance Lude.ToJSON CdiInputSpecification where
-  toJSON CdiInputSpecification' {..} =
-    Lude.object
-      (Lude.catMaybes [("resolution" Lude..=) Lude.<$> resolution])
+instance Core.FromJSON CdiInputSpecification where
+  parseJSON =
+    Core.withObject "CdiInputSpecification" Core.$
+      \x -> CdiInputSpecification' Core.<$> (x Core..:? "resolution")

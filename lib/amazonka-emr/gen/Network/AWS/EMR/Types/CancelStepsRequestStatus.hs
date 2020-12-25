@@ -13,46 +13,51 @@
 module Network.AWS.EMR.Types.CancelStepsRequestStatus
   ( CancelStepsRequestStatus
       ( CancelStepsRequestStatus',
-        CSRSSubmitted,
-        CSRSFailed
+        CancelStepsRequestStatusSubmitted,
+        CancelStepsRequestStatusFailed,
+        fromCancelStepsRequestStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CancelStepsRequestStatus = CancelStepsRequestStatus' Lude.Text
+newtype CancelStepsRequestStatus = CancelStepsRequestStatus'
+  { fromCancelStepsRequestStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSRSSubmitted :: CancelStepsRequestStatus
-pattern CSRSSubmitted = CancelStepsRequestStatus' "SUBMITTED"
+pattern CancelStepsRequestStatusSubmitted :: CancelStepsRequestStatus
+pattern CancelStepsRequestStatusSubmitted = CancelStepsRequestStatus' "SUBMITTED"
 
-pattern CSRSFailed :: CancelStepsRequestStatus
-pattern CSRSFailed = CancelStepsRequestStatus' "FAILED"
+pattern CancelStepsRequestStatusFailed :: CancelStepsRequestStatus
+pattern CancelStepsRequestStatusFailed = CancelStepsRequestStatus' "FAILED"
 
 {-# COMPLETE
-  CSRSSubmitted,
-  CSRSFailed,
+  CancelStepsRequestStatusSubmitted,
+  CancelStepsRequestStatusFailed,
   CancelStepsRequestStatus'
   #-}

@@ -21,126 +21,117 @@ module Network.AWS.Greengrass.AssociateRoleToGroup
 
     -- ** Request lenses
     artgGroupId,
-    artgRoleARN,
+    artgRoleArn,
 
     -- * Destructuring the response
     AssociateRoleToGroupResponse (..),
     mkAssociateRoleToGroupResponse,
 
     -- ** Response lenses
-    artgrsAssociatedAt,
-    artgrsResponseStatus,
+    artgrrsAssociatedAt,
+    artgrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateRoleToGroup' smart constructor.
 data AssociateRoleToGroup = AssociateRoleToGroup'
   { -- | The ID of the Greengrass group.
-    groupId :: Lude.Text,
+    groupId :: Core.Text,
     -- | The ARN of the role you wish to associate with this group. The existence of the role is not validated.
-    roleARN :: Lude.Text
+    roleArn :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateRoleToGroup' with the minimum fields required to make a request.
---
--- * 'groupId' - The ID of the Greengrass group.
--- * 'roleARN' - The ARN of the role you wish to associate with this group. The existence of the role is not validated.
+-- | Creates a 'AssociateRoleToGroup' value with any optional fields omitted.
 mkAssociateRoleToGroup ::
   -- | 'groupId'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'roleArn'
+  Core.Text ->
   AssociateRoleToGroup
-mkAssociateRoleToGroup pGroupId_ pRoleARN_ =
-  AssociateRoleToGroup' {groupId = pGroupId_, roleARN = pRoleARN_}
+mkAssociateRoleToGroup groupId roleArn =
+  AssociateRoleToGroup' {groupId, roleArn}
 
 -- | The ID of the Greengrass group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artgGroupId :: Lens.Lens' AssociateRoleToGroup Lude.Text
-artgGroupId = Lens.lens (groupId :: AssociateRoleToGroup -> Lude.Text) (\s a -> s {groupId = a} :: AssociateRoleToGroup)
+artgGroupId :: Lens.Lens' AssociateRoleToGroup Core.Text
+artgGroupId = Lens.field @"groupId"
 {-# DEPRECATED artgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The ARN of the role you wish to associate with this group. The existence of the role is not validated.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artgRoleARN :: Lens.Lens' AssociateRoleToGroup Lude.Text
-artgRoleARN = Lens.lens (roleARN :: AssociateRoleToGroup -> Lude.Text) (\s a -> s {roleARN = a} :: AssociateRoleToGroup)
-{-# DEPRECATED artgRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artgRoleArn :: Lens.Lens' AssociateRoleToGroup Core.Text
+artgRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED artgRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest AssociateRoleToGroup where
+instance Core.FromJSON AssociateRoleToGroup where
+  toJSON AssociateRoleToGroup {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RoleArn" Core..= roleArn)])
+
+instance Core.AWSRequest AssociateRoleToGroup where
   type Rs AssociateRoleToGroup = AssociateRoleToGroupResponse
-  request = Req.putJSON greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/groups/" Core.<> (Core.toText groupId)
+                Core.<> ("/role")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AssociateRoleToGroupResponse'
-            Lude.<$> (x Lude..?> "AssociatedAt") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AssociatedAt") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateRoleToGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateRoleToGroup where
-  toJSON AssociateRoleToGroup' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RoleArn" Lude..= roleARN)])
-
-instance Lude.ToPath AssociateRoleToGroup where
-  toPath AssociateRoleToGroup' {..} =
-    Lude.mconcat ["/greengrass/groups/", Lude.toBS groupId, "/role"]
-
-instance Lude.ToQuery AssociateRoleToGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateRoleToGroupResponse' smart constructor.
 data AssociateRoleToGroupResponse = AssociateRoleToGroupResponse'
   { -- | The time, in milliseconds since the epoch, when the role ARN was associated with the group.
-    associatedAt :: Lude.Maybe Lude.Text,
+    associatedAt :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateRoleToGroupResponse' with the minimum fields required to make a request.
---
--- * 'associatedAt' - The time, in milliseconds since the epoch, when the role ARN was associated with the group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateRoleToGroupResponse' value with any optional fields omitted.
 mkAssociateRoleToGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateRoleToGroupResponse
-mkAssociateRoleToGroupResponse pResponseStatus_ =
+mkAssociateRoleToGroupResponse responseStatus =
   AssociateRoleToGroupResponse'
-    { associatedAt = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { associatedAt = Core.Nothing,
+      responseStatus
     }
 
 -- | The time, in milliseconds since the epoch, when the role ARN was associated with the group.
 --
 -- /Note:/ Consider using 'associatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artgrsAssociatedAt :: Lens.Lens' AssociateRoleToGroupResponse (Lude.Maybe Lude.Text)
-artgrsAssociatedAt = Lens.lens (associatedAt :: AssociateRoleToGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {associatedAt = a} :: AssociateRoleToGroupResponse)
-{-# DEPRECATED artgrsAssociatedAt "Use generic-lens or generic-optics with 'associatedAt' instead." #-}
+artgrrsAssociatedAt :: Lens.Lens' AssociateRoleToGroupResponse (Core.Maybe Core.Text)
+artgrrsAssociatedAt = Lens.field @"associatedAt"
+{-# DEPRECATED artgrrsAssociatedAt "Use generic-lens or generic-optics with 'associatedAt' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artgrsResponseStatus :: Lens.Lens' AssociateRoleToGroupResponse Lude.Int
-artgrsResponseStatus = Lens.lens (responseStatus :: AssociateRoleToGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateRoleToGroupResponse)
-{-# DEPRECATED artgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+artgrrsResponseStatus :: Lens.Lens' AssociateRoleToGroupResponse Core.Int
+artgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED artgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

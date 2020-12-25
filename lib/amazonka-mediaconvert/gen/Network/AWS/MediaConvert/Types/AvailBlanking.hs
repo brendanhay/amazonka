@@ -22,41 +22,38 @@ module Network.AWS.MediaConvert.Types.AvailBlanking
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for Avail Blanking
 --
 -- /See:/ 'mkAvailBlanking' smart constructor.
 newtype AvailBlanking = AvailBlanking'
   { -- | Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
-    availBlankingImage :: Lude.Maybe Lude.Text
+    availBlankingImage :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AvailBlanking' with the minimum fields required to make a request.
---
--- * 'availBlankingImage' - Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
+-- | Creates a 'AvailBlanking' value with any optional fields omitted.
 mkAvailBlanking ::
   AvailBlanking
-mkAvailBlanking = AvailBlanking' {availBlankingImage = Lude.Nothing}
+mkAvailBlanking = AvailBlanking' {availBlankingImage = Core.Nothing}
 
 -- | Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
 --
 -- /Note:/ Consider using 'availBlankingImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abAvailBlankingImage :: Lens.Lens' AvailBlanking (Lude.Maybe Lude.Text)
-abAvailBlankingImage = Lens.lens (availBlankingImage :: AvailBlanking -> Lude.Maybe Lude.Text) (\s a -> s {availBlankingImage = a} :: AvailBlanking)
+abAvailBlankingImage :: Lens.Lens' AvailBlanking (Core.Maybe Core.Text)
+abAvailBlankingImage = Lens.field @"availBlankingImage"
 {-# DEPRECATED abAvailBlankingImage "Use generic-lens or generic-optics with 'availBlankingImage' instead." #-}
 
-instance Lude.FromJSON AvailBlanking where
-  parseJSON =
-    Lude.withObject
-      "AvailBlanking"
-      (\x -> AvailBlanking' Lude.<$> (x Lude..:? "availBlankingImage"))
-
-instance Lude.ToJSON AvailBlanking where
-  toJSON AvailBlanking' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("availBlankingImage" Lude..=) Lude.<$> availBlankingImage]
+instance Core.FromJSON AvailBlanking where
+  toJSON AvailBlanking {..} =
+    Core.object
+      ( Core.catMaybes
+          [("availBlankingImage" Core..=) Core.<$> availBlankingImage]
       )
+
+instance Core.FromJSON AvailBlanking where
+  parseJSON =
+    Core.withObject "AvailBlanking" Core.$
+      \x -> AvailBlanking' Core.<$> (x Core..:? "availBlankingImage")

@@ -51,127 +51,111 @@ module Network.AWS.GameLift.DescribeGameServer
     mkDescribeGameServerResponse,
 
     -- ** Response lenses
-    dgsrsGameServer,
-    dgsrsResponseStatus,
+    drsGameServer,
+    drsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeGameServer' smart constructor.
 data DescribeGameServer = DescribeGameServer'
   { -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
-    gameServerGroupName :: Lude.Text,
+    gameServerGroupName :: Types.GameServerGroupNameOrArn,
     -- | A custom string that uniquely identifies the game server information to be retrieved.
-    gameServerId :: Lude.Text
+    gameServerId :: Types.GameServerId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeGameServer' with the minimum fields required to make a request.
---
--- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
--- * 'gameServerId' - A custom string that uniquely identifies the game server information to be retrieved.
+-- | Creates a 'DescribeGameServer' value with any optional fields omitted.
 mkDescribeGameServer ::
   -- | 'gameServerGroupName'
-  Lude.Text ->
+  Types.GameServerGroupNameOrArn ->
   -- | 'gameServerId'
-  Lude.Text ->
+  Types.GameServerId ->
   DescribeGameServer
-mkDescribeGameServer pGameServerGroupName_ pGameServerId_ =
-  DescribeGameServer'
-    { gameServerGroupName = pGameServerGroupName_,
-      gameServerId = pGameServerId_
-    }
+mkDescribeGameServer gameServerGroupName gameServerId =
+  DescribeGameServer' {gameServerGroupName, gameServerId}
 
 -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGameServerGroupName :: Lens.Lens' DescribeGameServer Lude.Text
-dGameServerGroupName = Lens.lens (gameServerGroupName :: DescribeGameServer -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DescribeGameServer)
+dGameServerGroupName :: Lens.Lens' DescribeGameServer Types.GameServerGroupNameOrArn
+dGameServerGroupName = Lens.field @"gameServerGroupName"
 {-# DEPRECATED dGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 -- | A custom string that uniquely identifies the game server information to be retrieved.
 --
 -- /Note:/ Consider using 'gameServerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGameServerId :: Lens.Lens' DescribeGameServer Lude.Text
-dGameServerId = Lens.lens (gameServerId :: DescribeGameServer -> Lude.Text) (\s a -> s {gameServerId = a} :: DescribeGameServer)
+dGameServerId :: Lens.Lens' DescribeGameServer Types.GameServerId
+dGameServerId = Lens.field @"gameServerId"
 {-# DEPRECATED dGameServerId "Use generic-lens or generic-optics with 'gameServerId' instead." #-}
 
-instance Lude.AWSRequest DescribeGameServer where
+instance Core.FromJSON DescribeGameServer where
+  toJSON DescribeGameServer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GameServerGroupName" Core..= gameServerGroupName),
+            Core.Just ("GameServerId" Core..= gameServerId)
+          ]
+      )
+
+instance Core.AWSRequest DescribeGameServer where
   type Rs DescribeGameServer = DescribeGameServerResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribeGameServer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeGameServerResponse'
-            Lude.<$> (x Lude..?> "GameServer") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GameServer") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeGameServer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribeGameServer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeGameServer where
-  toJSON DescribeGameServer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
-            Lude.Just ("GameServerId" Lude..= gameServerId)
-          ]
-      )
-
-instance Lude.ToPath DescribeGameServer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeGameServer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeGameServerResponse' smart constructor.
 data DescribeGameServerResponse = DescribeGameServerResponse'
   { -- | Object that describes the requested game server.
-    gameServer :: Lude.Maybe GameServer,
+    gameServer :: Core.Maybe Types.GameServer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeGameServerResponse' with the minimum fields required to make a request.
---
--- * 'gameServer' - Object that describes the requested game server.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeGameServerResponse' value with any optional fields omitted.
 mkDescribeGameServerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeGameServerResponse
-mkDescribeGameServerResponse pResponseStatus_ =
+mkDescribeGameServerResponse responseStatus =
   DescribeGameServerResponse'
-    { gameServer = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gameServer = Core.Nothing,
+      responseStatus
     }
 
 -- | Object that describes the requested game server.
 --
 -- /Note:/ Consider using 'gameServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsrsGameServer :: Lens.Lens' DescribeGameServerResponse (Lude.Maybe GameServer)
-dgsrsGameServer = Lens.lens (gameServer :: DescribeGameServerResponse -> Lude.Maybe GameServer) (\s a -> s {gameServer = a} :: DescribeGameServerResponse)
-{-# DEPRECATED dgsrsGameServer "Use generic-lens or generic-optics with 'gameServer' instead." #-}
+drsGameServer :: Lens.Lens' DescribeGameServerResponse (Core.Maybe Types.GameServer)
+drsGameServer = Lens.field @"gameServer"
+{-# DEPRECATED drsGameServer "Use generic-lens or generic-optics with 'gameServer' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsrsResponseStatus :: Lens.Lens' DescribeGameServerResponse Lude.Int
-dgsrsResponseStatus = Lens.lens (responseStatus :: DescribeGameServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameServerResponse)
-{-# DEPRECATED dgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeGameServerResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

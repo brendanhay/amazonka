@@ -17,189 +17,176 @@ module Network.AWS.IoTAnalytics.Types.PipelineActivity
     mkPipelineActivity,
 
     -- * Lenses
-    paSelectAttributes,
-    paChannel,
     paAddAttributes,
-    paDeviceRegistryEnrich,
-    paRemoveAttributes,
-    paLambda,
+    paChannel,
     paDatastore,
+    paDeviceRegistryEnrich,
     paDeviceShadowEnrich,
     paFilter,
+    paLambda,
     paMath,
+    paRemoveAttributes,
+    paSelectAttributes,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.AddAttributesActivity
-import Network.AWS.IoTAnalytics.Types.ChannelActivity
-import Network.AWS.IoTAnalytics.Types.DatastoreActivity
-import Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity
-import Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity
-import Network.AWS.IoTAnalytics.Types.FilterActivity
-import Network.AWS.IoTAnalytics.Types.LambdaActivity
-import Network.AWS.IoTAnalytics.Types.MathActivity
-import Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity
-import Network.AWS.IoTAnalytics.Types.SelectAttributesActivity
+import qualified Network.AWS.IoTAnalytics.Types.AddAttributesActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.ChannelActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.DatastoreActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.FilterActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.LambdaActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.MathActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity as Types
+import qualified Network.AWS.IoTAnalytics.Types.SelectAttributesActivity as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An activity that performs a transformation on a message.
 --
 -- /See:/ 'mkPipelineActivity' smart constructor.
 data PipelineActivity = PipelineActivity'
-  { -- | Creates a new message using only the specified attributes from the original message.
-    selectAttributes :: Lude.Maybe SelectAttributesActivity,
+  { -- | Adds other attributes based on existing attributes in the message.
+    addAttributes :: Core.Maybe Types.AddAttributesActivity,
     -- | Determines the source of the messages to be processed.
-    channel :: Lude.Maybe ChannelActivity,
-    -- | Adds other attributes based on existing attributes in the message.
-    addAttributes :: Lude.Maybe AddAttributesActivity,
-    -- | Adds data from the AWS IoT device registry to your message.
-    deviceRegistryEnrich :: Lude.Maybe DeviceRegistryEnrichActivity,
-    -- | Removes attributes from a message.
-    removeAttributes :: Lude.Maybe RemoveAttributesActivity,
-    -- | Runs a Lambda function to modify the message.
-    lambda :: Lude.Maybe LambdaActivity,
+    channel :: Core.Maybe Types.ChannelActivity,
     -- | Specifies where to store the processed message data.
-    datastore :: Lude.Maybe DatastoreActivity,
+    datastore :: Core.Maybe Types.DatastoreActivity,
+    -- | Adds data from the AWS IoT device registry to your message.
+    deviceRegistryEnrich :: Core.Maybe Types.DeviceRegistryEnrichActivity,
     -- | Adds information from the AWS IoT Device Shadow service to a message.
-    deviceShadowEnrich :: Lude.Maybe DeviceShadowEnrichActivity,
+    deviceShadowEnrich :: Core.Maybe Types.DeviceShadowEnrichActivity,
     -- | Filters a message based on its attributes.
-    filter :: Lude.Maybe FilterActivity,
+    filter :: Core.Maybe Types.FilterActivity,
+    -- | Runs a Lambda function to modify the message.
+    lambda :: Core.Maybe Types.LambdaActivity,
     -- | Computes an arithmetic expression using the message's attributes and adds it to the message.
-    math :: Lude.Maybe MathActivity
+    math :: Core.Maybe Types.MathActivity,
+    -- | Removes attributes from a message.
+    removeAttributes :: Core.Maybe Types.RemoveAttributesActivity,
+    -- | Creates a new message using only the specified attributes from the original message.
+    selectAttributes :: Core.Maybe Types.SelectAttributesActivity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PipelineActivity' with the minimum fields required to make a request.
---
--- * 'selectAttributes' - Creates a new message using only the specified attributes from the original message.
--- * 'channel' - Determines the source of the messages to be processed.
--- * 'addAttributes' - Adds other attributes based on existing attributes in the message.
--- * 'deviceRegistryEnrich' - Adds data from the AWS IoT device registry to your message.
--- * 'removeAttributes' - Removes attributes from a message.
--- * 'lambda' - Runs a Lambda function to modify the message.
--- * 'datastore' - Specifies where to store the processed message data.
--- * 'deviceShadowEnrich' - Adds information from the AWS IoT Device Shadow service to a message.
--- * 'filter' - Filters a message based on its attributes.
--- * 'math' - Computes an arithmetic expression using the message's attributes and adds it to the message.
+-- | Creates a 'PipelineActivity' value with any optional fields omitted.
 mkPipelineActivity ::
   PipelineActivity
 mkPipelineActivity =
   PipelineActivity'
-    { selectAttributes = Lude.Nothing,
-      channel = Lude.Nothing,
-      addAttributes = Lude.Nothing,
-      deviceRegistryEnrich = Lude.Nothing,
-      removeAttributes = Lude.Nothing,
-      lambda = Lude.Nothing,
-      datastore = Lude.Nothing,
-      deviceShadowEnrich = Lude.Nothing,
-      filter = Lude.Nothing,
-      math = Lude.Nothing
+    { addAttributes = Core.Nothing,
+      channel = Core.Nothing,
+      datastore = Core.Nothing,
+      deviceRegistryEnrich = Core.Nothing,
+      deviceShadowEnrich = Core.Nothing,
+      filter = Core.Nothing,
+      lambda = Core.Nothing,
+      math = Core.Nothing,
+      removeAttributes = Core.Nothing,
+      selectAttributes = Core.Nothing
     }
-
--- | Creates a new message using only the specified attributes from the original message.
---
--- /Note:/ Consider using 'selectAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paSelectAttributes :: Lens.Lens' PipelineActivity (Lude.Maybe SelectAttributesActivity)
-paSelectAttributes = Lens.lens (selectAttributes :: PipelineActivity -> Lude.Maybe SelectAttributesActivity) (\s a -> s {selectAttributes = a} :: PipelineActivity)
-{-# DEPRECATED paSelectAttributes "Use generic-lens or generic-optics with 'selectAttributes' instead." #-}
-
--- | Determines the source of the messages to be processed.
---
--- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paChannel :: Lens.Lens' PipelineActivity (Lude.Maybe ChannelActivity)
-paChannel = Lens.lens (channel :: PipelineActivity -> Lude.Maybe ChannelActivity) (\s a -> s {channel = a} :: PipelineActivity)
-{-# DEPRECATED paChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
 
 -- | Adds other attributes based on existing attributes in the message.
 --
 -- /Note:/ Consider using 'addAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paAddAttributes :: Lens.Lens' PipelineActivity (Lude.Maybe AddAttributesActivity)
-paAddAttributes = Lens.lens (addAttributes :: PipelineActivity -> Lude.Maybe AddAttributesActivity) (\s a -> s {addAttributes = a} :: PipelineActivity)
+paAddAttributes :: Lens.Lens' PipelineActivity (Core.Maybe Types.AddAttributesActivity)
+paAddAttributes = Lens.field @"addAttributes"
 {-# DEPRECATED paAddAttributes "Use generic-lens or generic-optics with 'addAttributes' instead." #-}
 
--- | Adds data from the AWS IoT device registry to your message.
+-- | Determines the source of the messages to be processed.
 --
--- /Note:/ Consider using 'deviceRegistryEnrich' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paDeviceRegistryEnrich :: Lens.Lens' PipelineActivity (Lude.Maybe DeviceRegistryEnrichActivity)
-paDeviceRegistryEnrich = Lens.lens (deviceRegistryEnrich :: PipelineActivity -> Lude.Maybe DeviceRegistryEnrichActivity) (\s a -> s {deviceRegistryEnrich = a} :: PipelineActivity)
-{-# DEPRECATED paDeviceRegistryEnrich "Use generic-lens or generic-optics with 'deviceRegistryEnrich' instead." #-}
-
--- | Removes attributes from a message.
---
--- /Note:/ Consider using 'removeAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paRemoveAttributes :: Lens.Lens' PipelineActivity (Lude.Maybe RemoveAttributesActivity)
-paRemoveAttributes = Lens.lens (removeAttributes :: PipelineActivity -> Lude.Maybe RemoveAttributesActivity) (\s a -> s {removeAttributes = a} :: PipelineActivity)
-{-# DEPRECATED paRemoveAttributes "Use generic-lens or generic-optics with 'removeAttributes' instead." #-}
-
--- | Runs a Lambda function to modify the message.
---
--- /Note:/ Consider using 'lambda' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paLambda :: Lens.Lens' PipelineActivity (Lude.Maybe LambdaActivity)
-paLambda = Lens.lens (lambda :: PipelineActivity -> Lude.Maybe LambdaActivity) (\s a -> s {lambda = a} :: PipelineActivity)
-{-# DEPRECATED paLambda "Use generic-lens or generic-optics with 'lambda' instead." #-}
+-- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paChannel :: Lens.Lens' PipelineActivity (Core.Maybe Types.ChannelActivity)
+paChannel = Lens.field @"channel"
+{-# DEPRECATED paChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
 
 -- | Specifies where to store the processed message data.
 --
 -- /Note:/ Consider using 'datastore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paDatastore :: Lens.Lens' PipelineActivity (Lude.Maybe DatastoreActivity)
-paDatastore = Lens.lens (datastore :: PipelineActivity -> Lude.Maybe DatastoreActivity) (\s a -> s {datastore = a} :: PipelineActivity)
+paDatastore :: Lens.Lens' PipelineActivity (Core.Maybe Types.DatastoreActivity)
+paDatastore = Lens.field @"datastore"
 {-# DEPRECATED paDatastore "Use generic-lens or generic-optics with 'datastore' instead." #-}
+
+-- | Adds data from the AWS IoT device registry to your message.
+--
+-- /Note:/ Consider using 'deviceRegistryEnrich' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paDeviceRegistryEnrich :: Lens.Lens' PipelineActivity (Core.Maybe Types.DeviceRegistryEnrichActivity)
+paDeviceRegistryEnrich = Lens.field @"deviceRegistryEnrich"
+{-# DEPRECATED paDeviceRegistryEnrich "Use generic-lens or generic-optics with 'deviceRegistryEnrich' instead." #-}
 
 -- | Adds information from the AWS IoT Device Shadow service to a message.
 --
 -- /Note:/ Consider using 'deviceShadowEnrich' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paDeviceShadowEnrich :: Lens.Lens' PipelineActivity (Lude.Maybe DeviceShadowEnrichActivity)
-paDeviceShadowEnrich = Lens.lens (deviceShadowEnrich :: PipelineActivity -> Lude.Maybe DeviceShadowEnrichActivity) (\s a -> s {deviceShadowEnrich = a} :: PipelineActivity)
+paDeviceShadowEnrich :: Lens.Lens' PipelineActivity (Core.Maybe Types.DeviceShadowEnrichActivity)
+paDeviceShadowEnrich = Lens.field @"deviceShadowEnrich"
 {-# DEPRECATED paDeviceShadowEnrich "Use generic-lens or generic-optics with 'deviceShadowEnrich' instead." #-}
 
 -- | Filters a message based on its attributes.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paFilter :: Lens.Lens' PipelineActivity (Lude.Maybe FilterActivity)
-paFilter = Lens.lens (filter :: PipelineActivity -> Lude.Maybe FilterActivity) (\s a -> s {filter = a} :: PipelineActivity)
+paFilter :: Lens.Lens' PipelineActivity (Core.Maybe Types.FilterActivity)
+paFilter = Lens.field @"filter"
 {-# DEPRECATED paFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
+-- | Runs a Lambda function to modify the message.
+--
+-- /Note:/ Consider using 'lambda' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paLambda :: Lens.Lens' PipelineActivity (Core.Maybe Types.LambdaActivity)
+paLambda = Lens.field @"lambda"
+{-# DEPRECATED paLambda "Use generic-lens or generic-optics with 'lambda' instead." #-}
 
 -- | Computes an arithmetic expression using the message's attributes and adds it to the message.
 --
 -- /Note:/ Consider using 'math' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paMath :: Lens.Lens' PipelineActivity (Lude.Maybe MathActivity)
-paMath = Lens.lens (math :: PipelineActivity -> Lude.Maybe MathActivity) (\s a -> s {math = a} :: PipelineActivity)
+paMath :: Lens.Lens' PipelineActivity (Core.Maybe Types.MathActivity)
+paMath = Lens.field @"math"
 {-# DEPRECATED paMath "Use generic-lens or generic-optics with 'math' instead." #-}
 
-instance Lude.FromJSON PipelineActivity where
-  parseJSON =
-    Lude.withObject
-      "PipelineActivity"
-      ( \x ->
-          PipelineActivity'
-            Lude.<$> (x Lude..:? "selectAttributes")
-            Lude.<*> (x Lude..:? "channel")
-            Lude.<*> (x Lude..:? "addAttributes")
-            Lude.<*> (x Lude..:? "deviceRegistryEnrich")
-            Lude.<*> (x Lude..:? "removeAttributes")
-            Lude.<*> (x Lude..:? "lambda")
-            Lude.<*> (x Lude..:? "datastore")
-            Lude.<*> (x Lude..:? "deviceShadowEnrich")
-            Lude.<*> (x Lude..:? "filter")
-            Lude.<*> (x Lude..:? "math")
-      )
+-- | Removes attributes from a message.
+--
+-- /Note:/ Consider using 'removeAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paRemoveAttributes :: Lens.Lens' PipelineActivity (Core.Maybe Types.RemoveAttributesActivity)
+paRemoveAttributes = Lens.field @"removeAttributes"
+{-# DEPRECATED paRemoveAttributes "Use generic-lens or generic-optics with 'removeAttributes' instead." #-}
 
-instance Lude.ToJSON PipelineActivity where
-  toJSON PipelineActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("selectAttributes" Lude..=) Lude.<$> selectAttributes,
-            ("channel" Lude..=) Lude.<$> channel,
-            ("addAttributes" Lude..=) Lude.<$> addAttributes,
-            ("deviceRegistryEnrich" Lude..=) Lude.<$> deviceRegistryEnrich,
-            ("removeAttributes" Lude..=) Lude.<$> removeAttributes,
-            ("lambda" Lude..=) Lude.<$> lambda,
-            ("datastore" Lude..=) Lude.<$> datastore,
-            ("deviceShadowEnrich" Lude..=) Lude.<$> deviceShadowEnrich,
-            ("filter" Lude..=) Lude.<$> filter,
-            ("math" Lude..=) Lude.<$> math
+-- | Creates a new message using only the specified attributes from the original message.
+--
+-- /Note:/ Consider using 'selectAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paSelectAttributes :: Lens.Lens' PipelineActivity (Core.Maybe Types.SelectAttributesActivity)
+paSelectAttributes = Lens.field @"selectAttributes"
+{-# DEPRECATED paSelectAttributes "Use generic-lens or generic-optics with 'selectAttributes' instead." #-}
+
+instance Core.FromJSON PipelineActivity where
+  toJSON PipelineActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("addAttributes" Core..=) Core.<$> addAttributes,
+            ("channel" Core..=) Core.<$> channel,
+            ("datastore" Core..=) Core.<$> datastore,
+            ("deviceRegistryEnrich" Core..=) Core.<$> deviceRegistryEnrich,
+            ("deviceShadowEnrich" Core..=) Core.<$> deviceShadowEnrich,
+            ("filter" Core..=) Core.<$> filter,
+            ("lambda" Core..=) Core.<$> lambda,
+            ("math" Core..=) Core.<$> math,
+            ("removeAttributes" Core..=) Core.<$> removeAttributes,
+            ("selectAttributes" Core..=) Core.<$> selectAttributes
           ]
       )
+
+instance Core.FromJSON PipelineActivity where
+  parseJSON =
+    Core.withObject "PipelineActivity" Core.$
+      \x ->
+        PipelineActivity'
+          Core.<$> (x Core..:? "addAttributes")
+          Core.<*> (x Core..:? "channel")
+          Core.<*> (x Core..:? "datastore")
+          Core.<*> (x Core..:? "deviceRegistryEnrich")
+          Core.<*> (x Core..:? "deviceShadowEnrich")
+          Core.<*> (x Core..:? "filter")
+          Core.<*> (x Core..:? "lambda")
+          Core.<*> (x Core..:? "math")
+          Core.<*> (x Core..:? "removeAttributes")
+          Core.<*> (x Core..:? "selectAttributes")

@@ -20,129 +20,115 @@ module Network.AWS.CodeBuild.BatchGetReports
     mkBatchGetReports,
 
     -- ** Request lenses
-    bgrReportARNs,
+    bgrReportArns,
 
     -- * Destructuring the response
     BatchGetReportsResponse (..),
     mkBatchGetReportsResponse,
 
     -- ** Response lenses
-    bgrrsReports,
-    bgrrsReportsNotFound,
-    bgrrsResponseStatus,
+    bgrrrsReports,
+    bgrrrsReportsNotFound,
+    bgrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchGetReports' smart constructor.
 newtype BatchGetReports = BatchGetReports'
   { -- | An array of ARNs that identify the @Report@ objects to return.
-    reportARNs :: Lude.NonEmpty Lude.Text
+    reportArns :: Core.NonEmpty Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetReports' with the minimum fields required to make a request.
---
--- * 'reportARNs' - An array of ARNs that identify the @Report@ objects to return.
+-- | Creates a 'BatchGetReports' value with any optional fields omitted.
 mkBatchGetReports ::
-  -- | 'reportARNs'
-  Lude.NonEmpty Lude.Text ->
+  -- | 'reportArns'
+  Core.NonEmpty Types.NonEmptyString ->
   BatchGetReports
-mkBatchGetReports pReportARNs_ =
-  BatchGetReports' {reportARNs = pReportARNs_}
+mkBatchGetReports reportArns = BatchGetReports' {reportArns}
 
 -- | An array of ARNs that identify the @Report@ objects to return.
 --
--- /Note:/ Consider using 'reportARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrReportARNs :: Lens.Lens' BatchGetReports (Lude.NonEmpty Lude.Text)
-bgrReportARNs = Lens.lens (reportARNs :: BatchGetReports -> Lude.NonEmpty Lude.Text) (\s a -> s {reportARNs = a} :: BatchGetReports)
-{-# DEPRECATED bgrReportARNs "Use generic-lens or generic-optics with 'reportARNs' instead." #-}
+-- /Note:/ Consider using 'reportArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgrReportArns :: Lens.Lens' BatchGetReports (Core.NonEmpty Types.NonEmptyString)
+bgrReportArns = Lens.field @"reportArns"
+{-# DEPRECATED bgrReportArns "Use generic-lens or generic-optics with 'reportArns' instead." #-}
 
-instance Lude.AWSRequest BatchGetReports where
+instance Core.FromJSON BatchGetReports where
+  toJSON BatchGetReports {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("reportArns" Core..= reportArns)])
+
+instance Core.AWSRequest BatchGetReports where
   type Rs BatchGetReports = BatchGetReportsResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.BatchGetReports")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetReportsResponse'
-            Lude.<$> (x Lude..?> "reports")
-            Lude.<*> (x Lude..?> "reportsNotFound")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "reports")
+            Core.<*> (x Core..:? "reportsNotFound")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetReports where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.BatchGetReports" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetReports where
-  toJSON BatchGetReports' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("reportArns" Lude..= reportARNs)])
-
-instance Lude.ToPath BatchGetReports where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetReports where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchGetReportsResponse' smart constructor.
 data BatchGetReportsResponse = BatchGetReportsResponse'
   { -- | The array of @Report@ objects returned by @BatchGetReports@ .
-    reports :: Lude.Maybe (Lude.NonEmpty Report),
+    reports :: Core.Maybe (Core.NonEmpty Types.Report),
     -- | An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @Report@ .
-    reportsNotFound :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    reportsNotFound :: Core.Maybe (Core.NonEmpty Types.NonEmptyString),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetReportsResponse' with the minimum fields required to make a request.
---
--- * 'reports' - The array of @Report@ objects returned by @BatchGetReports@ .
--- * 'reportsNotFound' - An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @Report@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetReportsResponse' value with any optional fields omitted.
 mkBatchGetReportsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetReportsResponse
-mkBatchGetReportsResponse pResponseStatus_ =
+mkBatchGetReportsResponse responseStatus =
   BatchGetReportsResponse'
-    { reports = Lude.Nothing,
-      reportsNotFound = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { reports = Core.Nothing,
+      reportsNotFound = Core.Nothing,
+      responseStatus
     }
 
 -- | The array of @Report@ objects returned by @BatchGetReports@ .
 --
 -- /Note:/ Consider using 'reports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrrsReports :: Lens.Lens' BatchGetReportsResponse (Lude.Maybe (Lude.NonEmpty Report))
-bgrrsReports = Lens.lens (reports :: BatchGetReportsResponse -> Lude.Maybe (Lude.NonEmpty Report)) (\s a -> s {reports = a} :: BatchGetReportsResponse)
-{-# DEPRECATED bgrrsReports "Use generic-lens or generic-optics with 'reports' instead." #-}
+bgrrrsReports :: Lens.Lens' BatchGetReportsResponse (Core.Maybe (Core.NonEmpty Types.Report))
+bgrrrsReports = Lens.field @"reports"
+{-# DEPRECATED bgrrrsReports "Use generic-lens or generic-optics with 'reports' instead." #-}
 
 -- | An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @Report@ .
 --
 -- /Note:/ Consider using 'reportsNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrrsReportsNotFound :: Lens.Lens' BatchGetReportsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-bgrrsReportsNotFound = Lens.lens (reportsNotFound :: BatchGetReportsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {reportsNotFound = a} :: BatchGetReportsResponse)
-{-# DEPRECATED bgrrsReportsNotFound "Use generic-lens or generic-optics with 'reportsNotFound' instead." #-}
+bgrrrsReportsNotFound :: Lens.Lens' BatchGetReportsResponse (Core.Maybe (Core.NonEmpty Types.NonEmptyString))
+bgrrrsReportsNotFound = Lens.field @"reportsNotFound"
+{-# DEPRECATED bgrrrsReportsNotFound "Use generic-lens or generic-optics with 'reportsNotFound' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrrsResponseStatus :: Lens.Lens' BatchGetReportsResponse Lude.Int
-bgrrsResponseStatus = Lens.lens (responseStatus :: BatchGetReportsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetReportsResponse)
-{-# DEPRECATED bgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgrrrsResponseStatus :: Lens.Lens' BatchGetReportsResponse Core.Int
+bgrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

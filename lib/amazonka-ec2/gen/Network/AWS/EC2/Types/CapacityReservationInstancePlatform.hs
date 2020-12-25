@@ -13,91 +13,96 @@
 module Network.AWS.EC2.Types.CapacityReservationInstancePlatform
   ( CapacityReservationInstancePlatform
       ( CapacityReservationInstancePlatform',
-        CRIPLinuxUnix,
-        CRIPRedHatEnterpriseLinux,
-        CRIPSuseLinux,
-        CRIPWindows,
-        CRIPWindowsWithSqlServer,
-        CRIPWindowsWithSqlServerEnterprise,
-        CRIPWindowsWithSqlServerStandard,
-        CRIPWindowsWithSqlServerWeb,
-        CRIPLinuxWithSqlServerStandard,
-        CRIPLinuxWithSqlServerWeb,
-        CRIPLinuxWithSqlServerEnterprise
+        CapacityReservationInstancePlatformLinuxUnix,
+        CapacityReservationInstancePlatformRedHatEnterpriseLinux,
+        CapacityReservationInstancePlatformSuseLinux,
+        CapacityReservationInstancePlatformWindows,
+        CapacityReservationInstancePlatformWindowsWithSqlServer,
+        CapacityReservationInstancePlatformWindowsWithSqlServerEnterprise,
+        CapacityReservationInstancePlatformWindowsWithSqlServerStandard,
+        CapacityReservationInstancePlatformWindowsWithSqlServerWeb,
+        CapacityReservationInstancePlatformLinuxWithSqlServerStandard,
+        CapacityReservationInstancePlatformLinuxWithSqlServerWeb,
+        CapacityReservationInstancePlatformLinuxWithSqlServerEnterprise,
+        fromCapacityReservationInstancePlatform
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CapacityReservationInstancePlatform = CapacityReservationInstancePlatform' Lude.Text
+newtype CapacityReservationInstancePlatform = CapacityReservationInstancePlatform'
+  { fromCapacityReservationInstancePlatform ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CRIPLinuxUnix :: CapacityReservationInstancePlatform
-pattern CRIPLinuxUnix = CapacityReservationInstancePlatform' "Linux/UNIX"
+pattern CapacityReservationInstancePlatformLinuxUnix :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformLinuxUnix = CapacityReservationInstancePlatform' "Linux/UNIX"
 
-pattern CRIPRedHatEnterpriseLinux :: CapacityReservationInstancePlatform
-pattern CRIPRedHatEnterpriseLinux = CapacityReservationInstancePlatform' "Red Hat Enterprise Linux"
+pattern CapacityReservationInstancePlatformRedHatEnterpriseLinux :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformRedHatEnterpriseLinux = CapacityReservationInstancePlatform' "Red Hat Enterprise Linux"
 
-pattern CRIPSuseLinux :: CapacityReservationInstancePlatform
-pattern CRIPSuseLinux = CapacityReservationInstancePlatform' "SUSE Linux"
+pattern CapacityReservationInstancePlatformSuseLinux :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformSuseLinux = CapacityReservationInstancePlatform' "SUSE Linux"
 
-pattern CRIPWindows :: CapacityReservationInstancePlatform
-pattern CRIPWindows = CapacityReservationInstancePlatform' "Windows"
+pattern CapacityReservationInstancePlatformWindows :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformWindows = CapacityReservationInstancePlatform' "Windows"
 
-pattern CRIPWindowsWithSqlServer :: CapacityReservationInstancePlatform
-pattern CRIPWindowsWithSqlServer = CapacityReservationInstancePlatform' "Windows with SQL Server"
+pattern CapacityReservationInstancePlatformWindowsWithSqlServer :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformWindowsWithSqlServer = CapacityReservationInstancePlatform' "Windows with SQL Server"
 
-pattern CRIPWindowsWithSqlServerEnterprise :: CapacityReservationInstancePlatform
-pattern CRIPWindowsWithSqlServerEnterprise = CapacityReservationInstancePlatform' "Windows with SQL Server Enterprise"
+pattern CapacityReservationInstancePlatformWindowsWithSqlServerEnterprise :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformWindowsWithSqlServerEnterprise = CapacityReservationInstancePlatform' "Windows with SQL Server Enterprise"
 
-pattern CRIPWindowsWithSqlServerStandard :: CapacityReservationInstancePlatform
-pattern CRIPWindowsWithSqlServerStandard = CapacityReservationInstancePlatform' "Windows with SQL Server Standard"
+pattern CapacityReservationInstancePlatformWindowsWithSqlServerStandard :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformWindowsWithSqlServerStandard = CapacityReservationInstancePlatform' "Windows with SQL Server Standard"
 
-pattern CRIPWindowsWithSqlServerWeb :: CapacityReservationInstancePlatform
-pattern CRIPWindowsWithSqlServerWeb = CapacityReservationInstancePlatform' "Windows with SQL Server Web"
+pattern CapacityReservationInstancePlatformWindowsWithSqlServerWeb :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformWindowsWithSqlServerWeb = CapacityReservationInstancePlatform' "Windows with SQL Server Web"
 
-pattern CRIPLinuxWithSqlServerStandard :: CapacityReservationInstancePlatform
-pattern CRIPLinuxWithSqlServerStandard = CapacityReservationInstancePlatform' "Linux with SQL Server Standard"
+pattern CapacityReservationInstancePlatformLinuxWithSqlServerStandard :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformLinuxWithSqlServerStandard = CapacityReservationInstancePlatform' "Linux with SQL Server Standard"
 
-pattern CRIPLinuxWithSqlServerWeb :: CapacityReservationInstancePlatform
-pattern CRIPLinuxWithSqlServerWeb = CapacityReservationInstancePlatform' "Linux with SQL Server Web"
+pattern CapacityReservationInstancePlatformLinuxWithSqlServerWeb :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformLinuxWithSqlServerWeb = CapacityReservationInstancePlatform' "Linux with SQL Server Web"
 
-pattern CRIPLinuxWithSqlServerEnterprise :: CapacityReservationInstancePlatform
-pattern CRIPLinuxWithSqlServerEnterprise = CapacityReservationInstancePlatform' "Linux with SQL Server Enterprise"
+pattern CapacityReservationInstancePlatformLinuxWithSqlServerEnterprise :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatformLinuxWithSqlServerEnterprise = CapacityReservationInstancePlatform' "Linux with SQL Server Enterprise"
 
 {-# COMPLETE
-  CRIPLinuxUnix,
-  CRIPRedHatEnterpriseLinux,
-  CRIPSuseLinux,
-  CRIPWindows,
-  CRIPWindowsWithSqlServer,
-  CRIPWindowsWithSqlServerEnterprise,
-  CRIPWindowsWithSqlServerStandard,
-  CRIPWindowsWithSqlServerWeb,
-  CRIPLinuxWithSqlServerStandard,
-  CRIPLinuxWithSqlServerWeb,
-  CRIPLinuxWithSqlServerEnterprise,
+  CapacityReservationInstancePlatformLinuxUnix,
+  CapacityReservationInstancePlatformRedHatEnterpriseLinux,
+  CapacityReservationInstancePlatformSuseLinux,
+  CapacityReservationInstancePlatformWindows,
+  CapacityReservationInstancePlatformWindowsWithSqlServer,
+  CapacityReservationInstancePlatformWindowsWithSqlServerEnterprise,
+  CapacityReservationInstancePlatformWindowsWithSqlServerStandard,
+  CapacityReservationInstancePlatformWindowsWithSqlServerWeb,
+  CapacityReservationInstancePlatformLinuxWithSqlServerStandard,
+  CapacityReservationInstancePlatformLinuxWithSqlServerWeb,
+  CapacityReservationInstancePlatformLinuxWithSqlServerEnterprise,
   CapacityReservationInstancePlatform'
   #-}

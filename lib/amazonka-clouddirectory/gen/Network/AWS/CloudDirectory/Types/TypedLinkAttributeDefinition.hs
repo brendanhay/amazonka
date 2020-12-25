@@ -17,133 +17,126 @@ module Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
     mkTypedLinkAttributeDefinition,
 
     -- * Lenses
-    tladRules,
     tladName,
+    tladType,
     tladRequiredBehavior,
     tladDefaultValue,
     tladIsImmutable,
-    tladType,
+    tladRules,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.FacetAttributeType
-import Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
-import Network.AWS.CloudDirectory.Types.Rule
-import Network.AWS.CloudDirectory.Types.TypedAttributeValue
+import qualified Network.AWS.CloudDirectory.Types.FacetAttributeType as Types
+import qualified Network.AWS.CloudDirectory.Types.Name as Types
+import qualified Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior as Types
+import qualified Network.AWS.CloudDirectory.Types.Rule as Types
+import qualified Network.AWS.CloudDirectory.Types.RuleKey as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedAttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A typed link attribute definition.
 --
 -- /See:/ 'mkTypedLinkAttributeDefinition' smart constructor.
 data TypedLinkAttributeDefinition = TypedLinkAttributeDefinition'
-  { -- | Validation rules that are attached to the attribute definition.
-    rules :: Lude.Maybe (Lude.HashMap Lude.Text (Rule)),
-    -- | The unique name of the typed link attribute.
-    name :: Lude.Text,
-    -- | The required behavior of the @TypedLinkAttributeDefinition@ .
-    requiredBehavior :: RequiredAttributeBehavior,
-    -- | The default value of the attribute (if configured).
-    defaultValue :: Lude.Maybe TypedAttributeValue,
-    -- | Whether the attribute is mutable or not.
-    isImmutable :: Lude.Maybe Lude.Bool,
+  { -- | The unique name of the typed link attribute.
+    name :: Types.Name,
     -- | The type of the attribute.
-    type' :: FacetAttributeType
+    type' :: Types.FacetAttributeType,
+    -- | The required behavior of the @TypedLinkAttributeDefinition@ .
+    requiredBehavior :: Types.RequiredAttributeBehavior,
+    -- | The default value of the attribute (if configured).
+    defaultValue :: Core.Maybe Types.TypedAttributeValue,
+    -- | Whether the attribute is mutable or not.
+    isImmutable :: Core.Maybe Core.Bool,
+    -- | Validation rules that are attached to the attribute definition.
+    rules :: Core.Maybe (Core.HashMap Types.RuleKey Types.Rule)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TypedLinkAttributeDefinition' with the minimum fields required to make a request.
---
--- * 'rules' - Validation rules that are attached to the attribute definition.
--- * 'name' - The unique name of the typed link attribute.
--- * 'requiredBehavior' - The required behavior of the @TypedLinkAttributeDefinition@ .
--- * 'defaultValue' - The default value of the attribute (if configured).
--- * 'isImmutable' - Whether the attribute is mutable or not.
--- * 'type'' - The type of the attribute.
+-- | Creates a 'TypedLinkAttributeDefinition' value with any optional fields omitted.
 mkTypedLinkAttributeDefinition ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'type\''
+  Types.FacetAttributeType ->
   -- | 'requiredBehavior'
-  RequiredAttributeBehavior ->
-  -- | 'type''
-  FacetAttributeType ->
+  Types.RequiredAttributeBehavior ->
   TypedLinkAttributeDefinition
-mkTypedLinkAttributeDefinition pName_ pRequiredBehavior_ pType_ =
+mkTypedLinkAttributeDefinition name type' requiredBehavior =
   TypedLinkAttributeDefinition'
-    { rules = Lude.Nothing,
-      name = pName_,
-      requiredBehavior = pRequiredBehavior_,
-      defaultValue = Lude.Nothing,
-      isImmutable = Lude.Nothing,
-      type' = pType_
+    { name,
+      type',
+      requiredBehavior,
+      defaultValue = Core.Nothing,
+      isImmutable = Core.Nothing,
+      rules = Core.Nothing
     }
-
--- | Validation rules that are attached to the attribute definition.
---
--- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tladRules :: Lens.Lens' TypedLinkAttributeDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Rule)))
-tladRules = Lens.lens (rules :: TypedLinkAttributeDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Rule))) (\s a -> s {rules = a} :: TypedLinkAttributeDefinition)
-{-# DEPRECATED tladRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The unique name of the typed link attribute.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tladName :: Lens.Lens' TypedLinkAttributeDefinition Lude.Text
-tladName = Lens.lens (name :: TypedLinkAttributeDefinition -> Lude.Text) (\s a -> s {name = a} :: TypedLinkAttributeDefinition)
+tladName :: Lens.Lens' TypedLinkAttributeDefinition Types.Name
+tladName = Lens.field @"name"
 {-# DEPRECATED tladName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The type of the attribute.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tladType :: Lens.Lens' TypedLinkAttributeDefinition Types.FacetAttributeType
+tladType = Lens.field @"type'"
+{-# DEPRECATED tladType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The required behavior of the @TypedLinkAttributeDefinition@ .
 --
 -- /Note:/ Consider using 'requiredBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tladRequiredBehavior :: Lens.Lens' TypedLinkAttributeDefinition RequiredAttributeBehavior
-tladRequiredBehavior = Lens.lens (requiredBehavior :: TypedLinkAttributeDefinition -> RequiredAttributeBehavior) (\s a -> s {requiredBehavior = a} :: TypedLinkAttributeDefinition)
+tladRequiredBehavior :: Lens.Lens' TypedLinkAttributeDefinition Types.RequiredAttributeBehavior
+tladRequiredBehavior = Lens.field @"requiredBehavior"
 {-# DEPRECATED tladRequiredBehavior "Use generic-lens or generic-optics with 'requiredBehavior' instead." #-}
 
 -- | The default value of the attribute (if configured).
 --
 -- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tladDefaultValue :: Lens.Lens' TypedLinkAttributeDefinition (Lude.Maybe TypedAttributeValue)
-tladDefaultValue = Lens.lens (defaultValue :: TypedLinkAttributeDefinition -> Lude.Maybe TypedAttributeValue) (\s a -> s {defaultValue = a} :: TypedLinkAttributeDefinition)
+tladDefaultValue :: Lens.Lens' TypedLinkAttributeDefinition (Core.Maybe Types.TypedAttributeValue)
+tladDefaultValue = Lens.field @"defaultValue"
 {-# DEPRECATED tladDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | Whether the attribute is mutable or not.
 --
 -- /Note:/ Consider using 'isImmutable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tladIsImmutable :: Lens.Lens' TypedLinkAttributeDefinition (Lude.Maybe Lude.Bool)
-tladIsImmutable = Lens.lens (isImmutable :: TypedLinkAttributeDefinition -> Lude.Maybe Lude.Bool) (\s a -> s {isImmutable = a} :: TypedLinkAttributeDefinition)
+tladIsImmutable :: Lens.Lens' TypedLinkAttributeDefinition (Core.Maybe Core.Bool)
+tladIsImmutable = Lens.field @"isImmutable"
 {-# DEPRECATED tladIsImmutable "Use generic-lens or generic-optics with 'isImmutable' instead." #-}
 
--- | The type of the attribute.
+-- | Validation rules that are attached to the attribute definition.
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tladType :: Lens.Lens' TypedLinkAttributeDefinition FacetAttributeType
-tladType = Lens.lens (type' :: TypedLinkAttributeDefinition -> FacetAttributeType) (\s a -> s {type' = a} :: TypedLinkAttributeDefinition)
-{-# DEPRECATED tladType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tladRules :: Lens.Lens' TypedLinkAttributeDefinition (Core.Maybe (Core.HashMap Types.RuleKey Types.Rule))
+tladRules = Lens.field @"rules"
+{-# DEPRECATED tladRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance Lude.FromJSON TypedLinkAttributeDefinition where
-  parseJSON =
-    Lude.withObject
-      "TypedLinkAttributeDefinition"
-      ( \x ->
-          TypedLinkAttributeDefinition'
-            Lude.<$> (x Lude..:? "Rules" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "RequiredBehavior")
-            Lude.<*> (x Lude..:? "DefaultValue")
-            Lude.<*> (x Lude..:? "IsImmutable")
-            Lude.<*> (x Lude..: "Type")
-      )
-
-instance Lude.ToJSON TypedLinkAttributeDefinition where
-  toJSON TypedLinkAttributeDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Rules" Lude..=) Lude.<$> rules,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("RequiredBehavior" Lude..= requiredBehavior),
-            ("DefaultValue" Lude..=) Lude.<$> defaultValue,
-            ("IsImmutable" Lude..=) Lude.<$> isImmutable,
-            Lude.Just ("Type" Lude..= type')
+instance Core.FromJSON TypedLinkAttributeDefinition where
+  toJSON TypedLinkAttributeDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Type" Core..= type'),
+            Core.Just ("RequiredBehavior" Core..= requiredBehavior),
+            ("DefaultValue" Core..=) Core.<$> defaultValue,
+            ("IsImmutable" Core..=) Core.<$> isImmutable,
+            ("Rules" Core..=) Core.<$> rules
           ]
       )
+
+instance Core.FromJSON TypedLinkAttributeDefinition where
+  parseJSON =
+    Core.withObject "TypedLinkAttributeDefinition" Core.$
+      \x ->
+        TypedLinkAttributeDefinition'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..: "Type")
+          Core.<*> (x Core..: "RequiredBehavior")
+          Core.<*> (x Core..:? "DefaultValue")
+          Core.<*> (x Core..:? "IsImmutable")
+          Core.<*> (x Core..:? "Rules")

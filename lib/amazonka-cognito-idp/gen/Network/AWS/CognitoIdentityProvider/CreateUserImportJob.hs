@@ -20,160 +20,140 @@ module Network.AWS.CognitoIdentityProvider.CreateUserImportJob
     mkCreateUserImportJob,
 
     -- ** Request lenses
-    cuijUserPoolId,
     cuijJobName,
-    cuijCloudWatchLogsRoleARN,
+    cuijUserPoolId,
+    cuijCloudWatchLogsRoleArn,
 
     -- * Destructuring the response
     CreateUserImportJobResponse (..),
     mkCreateUserImportJobResponse,
 
     -- ** Response lenses
-    cuijrsUserImportJob,
-    cuijrsResponseStatus,
+    cuijrrsUserImportJob,
+    cuijrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to create the user import job.
 --
 -- /See:/ 'mkCreateUserImportJob' smart constructor.
 data CreateUserImportJob = CreateUserImportJob'
-  { -- | The user pool ID for the user pool that the users are being imported into.
-    userPoolId :: Lude.Text,
-    -- | The job name for the user import job.
-    jobName :: Lude.Text,
+  { -- | The job name for the user import job.
+    jobName :: Types.UserImportJobNameType,
+    -- | The user pool ID for the user pool that the users are being imported into.
+    userPoolId :: Types.UserPoolId,
     -- | The role ARN for the Amazon CloudWatch Logging role for the user import job.
-    cloudWatchLogsRoleARN :: Lude.Text
+    cloudWatchLogsRoleArn :: Types.CloudWatchLogsRoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUserImportJob' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool that the users are being imported into.
--- * 'jobName' - The job name for the user import job.
--- * 'cloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job.
+-- | Creates a 'CreateUserImportJob' value with any optional fields omitted.
 mkCreateUserImportJob ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'jobName'
-  Lude.Text ->
-  -- | 'cloudWatchLogsRoleARN'
-  Lude.Text ->
+  Types.UserImportJobNameType ->
+  -- | 'userPoolId'
+  Types.UserPoolId ->
+  -- | 'cloudWatchLogsRoleArn'
+  Types.CloudWatchLogsRoleArn ->
   CreateUserImportJob
-mkCreateUserImportJob
-  pUserPoolId_
-  pJobName_
-  pCloudWatchLogsRoleARN_ =
-    CreateUserImportJob'
-      { userPoolId = pUserPoolId_,
-        jobName = pJobName_,
-        cloudWatchLogsRoleARN = pCloudWatchLogsRoleARN_
-      }
-
--- | The user pool ID for the user pool that the users are being imported into.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuijUserPoolId :: Lens.Lens' CreateUserImportJob Lude.Text
-cuijUserPoolId = Lens.lens (userPoolId :: CreateUserImportJob -> Lude.Text) (\s a -> s {userPoolId = a} :: CreateUserImportJob)
-{-# DEPRECATED cuijUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+mkCreateUserImportJob jobName userPoolId cloudWatchLogsRoleArn =
+  CreateUserImportJob' {jobName, userPoolId, cloudWatchLogsRoleArn}
 
 -- | The job name for the user import job.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuijJobName :: Lens.Lens' CreateUserImportJob Lude.Text
-cuijJobName = Lens.lens (jobName :: CreateUserImportJob -> Lude.Text) (\s a -> s {jobName = a} :: CreateUserImportJob)
+cuijJobName :: Lens.Lens' CreateUserImportJob Types.UserImportJobNameType
+cuijJobName = Lens.field @"jobName"
 {-# DEPRECATED cuijJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+
+-- | The user pool ID for the user pool that the users are being imported into.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuijUserPoolId :: Lens.Lens' CreateUserImportJob Types.UserPoolId
+cuijUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED cuijUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The role ARN for the Amazon CloudWatch Logging role for the user import job.
 --
--- /Note:/ Consider using 'cloudWatchLogsRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuijCloudWatchLogsRoleARN :: Lens.Lens' CreateUserImportJob Lude.Text
-cuijCloudWatchLogsRoleARN = Lens.lens (cloudWatchLogsRoleARN :: CreateUserImportJob -> Lude.Text) (\s a -> s {cloudWatchLogsRoleARN = a} :: CreateUserImportJob)
-{-# DEPRECATED cuijCloudWatchLogsRoleARN "Use generic-lens or generic-optics with 'cloudWatchLogsRoleARN' instead." #-}
+-- /Note:/ Consider using 'cloudWatchLogsRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuijCloudWatchLogsRoleArn :: Lens.Lens' CreateUserImportJob Types.CloudWatchLogsRoleArn
+cuijCloudWatchLogsRoleArn = Lens.field @"cloudWatchLogsRoleArn"
+{-# DEPRECATED cuijCloudWatchLogsRoleArn "Use generic-lens or generic-optics with 'cloudWatchLogsRoleArn' instead." #-}
 
-instance Lude.AWSRequest CreateUserImportJob where
+instance Core.FromJSON CreateUserImportJob where
+  toJSON CreateUserImportJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobName" Core..= jobName),
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("CloudWatchLogsRoleArn" Core..= cloudWatchLogsRoleArn)
+          ]
+      )
+
+instance Core.AWSRequest CreateUserImportJob where
   type Rs CreateUserImportJob = CreateUserImportJobResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.CreateUserImportJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateUserImportJobResponse'
-            Lude.<$> (x Lude..?> "UserImportJob")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "UserImportJob")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateUserImportJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.CreateUserImportJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateUserImportJob where
-  toJSON CreateUserImportJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("JobName" Lude..= jobName),
-            Lude.Just ("CloudWatchLogsRoleArn" Lude..= cloudWatchLogsRoleARN)
-          ]
-      )
-
-instance Lude.ToPath CreateUserImportJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateUserImportJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server to the request to create the user import job.
 --
 -- /See:/ 'mkCreateUserImportJobResponse' smart constructor.
 data CreateUserImportJobResponse = CreateUserImportJobResponse'
   { -- | The job object that represents the user import job.
-    userImportJob :: Lude.Maybe UserImportJobType,
+    userImportJob :: Core.Maybe Types.UserImportJobType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateUserImportJobResponse' with the minimum fields required to make a request.
---
--- * 'userImportJob' - The job object that represents the user import job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateUserImportJobResponse' value with any optional fields omitted.
 mkCreateUserImportJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateUserImportJobResponse
-mkCreateUserImportJobResponse pResponseStatus_ =
+mkCreateUserImportJobResponse responseStatus =
   CreateUserImportJobResponse'
-    { userImportJob = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { userImportJob = Core.Nothing,
+      responseStatus
     }
 
 -- | The job object that represents the user import job.
 --
 -- /Note:/ Consider using 'userImportJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuijrsUserImportJob :: Lens.Lens' CreateUserImportJobResponse (Lude.Maybe UserImportJobType)
-cuijrsUserImportJob = Lens.lens (userImportJob :: CreateUserImportJobResponse -> Lude.Maybe UserImportJobType) (\s a -> s {userImportJob = a} :: CreateUserImportJobResponse)
-{-# DEPRECATED cuijrsUserImportJob "Use generic-lens or generic-optics with 'userImportJob' instead." #-}
+cuijrrsUserImportJob :: Lens.Lens' CreateUserImportJobResponse (Core.Maybe Types.UserImportJobType)
+cuijrrsUserImportJob = Lens.field @"userImportJob"
+{-# DEPRECATED cuijrrsUserImportJob "Use generic-lens or generic-optics with 'userImportJob' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuijrsResponseStatus :: Lens.Lens' CreateUserImportJobResponse Lude.Int
-cuijrsResponseStatus = Lens.lens (responseStatus :: CreateUserImportJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserImportJobResponse)
-{-# DEPRECATED cuijrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cuijrrsResponseStatus :: Lens.Lens' CreateUserImportJobResponse Core.Int
+cuijrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cuijrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

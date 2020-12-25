@@ -17,20 +17,22 @@ module Network.AWS.Translate.Types.InputDataConfig
     mkInputDataConfig,
 
     -- * Lenses
-    idcS3URI,
+    idcS3Uri,
     idcContentType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Translate.Types.ContentType as Types
+import qualified Network.AWS.Translate.Types.S3Uri as Types
 
 -- | The input configuration properties for requesting a batch translation job.
 --
 -- /See:/ 'mkInputDataConfig' smart constructor.
 data InputDataConfig = InputDataConfig'
   { -- | The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.
-    s3URI :: Lude.Text,
+    s3Uri :: Types.S3Uri,
     -- | Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:
     --
     --
@@ -50,48 +52,27 @@ data InputDataConfig = InputDataConfig'
     --
     --
     -- /Important:/ If you structure your input data as HTML, ensure that you set this parameter to @text/html@ . By doing so, you cut costs by limiting the translation to the contents of the @html@ element in each file. Otherwise, if you set this parameter to @text/plain@ , your costs will cover the translation of every character.
-    contentType :: Lude.Text
+    contentType :: Types.ContentType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputDataConfig' with the minimum fields required to make a request.
---
--- * 's3URI' - The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.
--- * 'contentType' - Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:
---
---
---     * @text/html@ : The input data consists of one or more HTML files. Amazon Translate translates only the text that resides in the @html@ element in each file.
---
---
---     * @text/plain@ : The input data consists of one or more unformatted text files. Amazon Translate translates every character in this type of input.
---
---
---     * @application/vnd.openxmlformats-officedocument.wordprocessingml.document@ : The input data consists of one or more Word documents (.docx).
---
---
---     * @application/vnd.openxmlformats-officedocument.presentationml.presentation@ : The input data consists of one or more PowerPoint Presentation files (.pptx).
---
---
---     * @application/vnd.openxmlformats-officedocument.spreadsheetml.sheet@ : The input data consists of one or more Excel Workbook files (.xlsx).
---
---
--- /Important:/ If you structure your input data as HTML, ensure that you set this parameter to @text/html@ . By doing so, you cut costs by limiting the translation to the contents of the @html@ element in each file. Otherwise, if you set this parameter to @text/plain@ , your costs will cover the translation of every character.
+-- | Creates a 'InputDataConfig' value with any optional fields omitted.
 mkInputDataConfig ::
-  -- | 's3URI'
-  Lude.Text ->
+  -- | 's3Uri'
+  Types.S3Uri ->
   -- | 'contentType'
-  Lude.Text ->
+  Types.ContentType ->
   InputDataConfig
-mkInputDataConfig pS3URI_ pContentType_ =
-  InputDataConfig' {s3URI = pS3URI_, contentType = pContentType_}
+mkInputDataConfig s3Uri contentType =
+  InputDataConfig' {s3Uri, contentType}
 
 -- | The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.
 --
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idcS3URI :: Lens.Lens' InputDataConfig Lude.Text
-idcS3URI = Lens.lens (s3URI :: InputDataConfig -> Lude.Text) (\s a -> s {s3URI = a} :: InputDataConfig)
-{-# DEPRECATED idcS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+-- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idcS3Uri :: Lens.Lens' InputDataConfig Types.S3Uri
+idcS3Uri = Lens.field @"s3Uri"
+{-# DEPRECATED idcS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
 
 -- | Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:
 --
@@ -114,24 +95,22 @@ idcS3URI = Lens.lens (s3URI :: InputDataConfig -> Lude.Text) (\s a -> s {s3URI =
 -- /Important:/ If you structure your input data as HTML, ensure that you set this parameter to @text/html@ . By doing so, you cut costs by limiting the translation to the contents of the @html@ element in each file. Otherwise, if you set this parameter to @text/plain@ , your costs will cover the translation of every character.
 --
 -- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idcContentType :: Lens.Lens' InputDataConfig Lude.Text
-idcContentType = Lens.lens (contentType :: InputDataConfig -> Lude.Text) (\s a -> s {contentType = a} :: InputDataConfig)
+idcContentType :: Lens.Lens' InputDataConfig Types.ContentType
+idcContentType = Lens.field @"contentType"
 {-# DEPRECATED idcContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
-instance Lude.FromJSON InputDataConfig where
-  parseJSON =
-    Lude.withObject
-      "InputDataConfig"
-      ( \x ->
-          InputDataConfig'
-            Lude.<$> (x Lude..: "S3Uri") Lude.<*> (x Lude..: "ContentType")
-      )
-
-instance Lude.ToJSON InputDataConfig where
-  toJSON InputDataConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("S3Uri" Lude..= s3URI),
-            Lude.Just ("ContentType" Lude..= contentType)
+instance Core.FromJSON InputDataConfig where
+  toJSON InputDataConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3Uri" Core..= s3Uri),
+            Core.Just ("ContentType" Core..= contentType)
           ]
       )
+
+instance Core.FromJSON InputDataConfig where
+  parseJSON =
+    Core.withObject "InputDataConfig" Core.$
+      \x ->
+        InputDataConfig'
+          Core.<$> (x Core..: "S3Uri") Core.<*> (x Core..: "ContentType")

@@ -24,79 +24,71 @@ module Network.AWS.SMS.DeleteServerCatalog
     mkDeleteServerCatalogResponse,
 
     -- ** Response lenses
-    dscrsResponseStatus,
+    dscrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkDeleteServerCatalog' smart constructor.
 data DeleteServerCatalog = DeleteServerCatalog'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteServerCatalog' with the minimum fields required to make a request.
+-- | Creates a 'DeleteServerCatalog' value with any optional fields omitted.
 mkDeleteServerCatalog ::
   DeleteServerCatalog
 mkDeleteServerCatalog = DeleteServerCatalog'
 
-instance Lude.AWSRequest DeleteServerCatalog where
+instance Core.FromJSON DeleteServerCatalog where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DeleteServerCatalog where
   type Rs DeleteServerCatalog = DeleteServerCatalogResponse
-  request = Req.postJSON smsService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteServerCatalogResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteServerCatalog where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteServerCatalog where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DeleteServerCatalog where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteServerCatalog where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteServerCatalogResponse' smart constructor.
 newtype DeleteServerCatalogResponse = DeleteServerCatalogResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteServerCatalogResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteServerCatalogResponse' value with any optional fields omitted.
 mkDeleteServerCatalogResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteServerCatalogResponse
-mkDeleteServerCatalogResponse pResponseStatus_ =
-  DeleteServerCatalogResponse' {responseStatus = pResponseStatus_}
+mkDeleteServerCatalogResponse responseStatus =
+  DeleteServerCatalogResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DeleteServerCatalogResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DeleteServerCatalogResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServerCatalogResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscrrsResponseStatus :: Lens.Lens' DeleteServerCatalogResponse Core.Int
+dscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,84 +17,78 @@ module Network.AWS.ElasticSearch.Types.VPCDerivedInfo
     mkVPCDerivedInfo,
 
     -- * Lenses
-    vdiSecurityGroupIds,
-    vdiSubnetIds,
-    vdiVPCId,
-    vdiAvailabilityZones,
+    vpcdiAvailabilityZones,
+    vpcdiSecurityGroupIds,
+    vpcdiSubnetIds,
+    vpcdiVPCId,
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
 --
 -- /See:/ 'mkVPCDerivedInfo' smart constructor.
 data VPCDerivedInfo = VPCDerivedInfo'
-  { -- | Specifies the security groups for VPC endpoint.
-    securityGroupIds :: Lude.Maybe [Lude.Text],
+  { -- | The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+    availabilityZones :: Core.Maybe [Types.String],
+    -- | Specifies the security groups for VPC endpoint.
+    securityGroupIds :: Core.Maybe [Types.String],
     -- | Specifies the subnets for VPC endpoint.
-    subnetIds :: Lude.Maybe [Lude.Text],
+    subnetIds :: Core.Maybe [Types.String],
     -- | The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
-    availabilityZones :: Lude.Maybe [Lude.Text]
+    vPCId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VPCDerivedInfo' with the minimum fields required to make a request.
---
--- * 'securityGroupIds' - Specifies the security groups for VPC endpoint.
--- * 'subnetIds' - Specifies the subnets for VPC endpoint.
--- * 'vpcId' - The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
--- * 'availabilityZones' - The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+-- | Creates a 'VPCDerivedInfo' value with any optional fields omitted.
 mkVPCDerivedInfo ::
   VPCDerivedInfo
 mkVPCDerivedInfo =
   VPCDerivedInfo'
-    { securityGroupIds = Lude.Nothing,
-      subnetIds = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      availabilityZones = Lude.Nothing
+    { availabilityZones = Core.Nothing,
+      securityGroupIds = Core.Nothing,
+      subnetIds = Core.Nothing,
+      vPCId = Core.Nothing
     }
-
--- | Specifies the security groups for VPC endpoint.
---
--- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdiSecurityGroupIds :: Lens.Lens' VPCDerivedInfo (Lude.Maybe [Lude.Text])
-vdiSecurityGroupIds = Lens.lens (securityGroupIds :: VPCDerivedInfo -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: VPCDerivedInfo)
-{-# DEPRECATED vdiSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
-
--- | Specifies the subnets for VPC endpoint.
---
--- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdiSubnetIds :: Lens.Lens' VPCDerivedInfo (Lude.Maybe [Lude.Text])
-vdiSubnetIds = Lens.lens (subnetIds :: VPCDerivedInfo -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: VPCDerivedInfo)
-{-# DEPRECATED vdiSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
-
--- | The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdiVPCId :: Lens.Lens' VPCDerivedInfo (Lude.Maybe Lude.Text)
-vdiVPCId = Lens.lens (vpcId :: VPCDerivedInfo -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: VPCDerivedInfo)
-{-# DEPRECATED vdiVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdiAvailabilityZones :: Lens.Lens' VPCDerivedInfo (Lude.Maybe [Lude.Text])
-vdiAvailabilityZones = Lens.lens (availabilityZones :: VPCDerivedInfo -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: VPCDerivedInfo)
-{-# DEPRECATED vdiAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+vpcdiAvailabilityZones :: Lens.Lens' VPCDerivedInfo (Core.Maybe [Types.String])
+vpcdiAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED vpcdiAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
-instance Lude.FromJSON VPCDerivedInfo where
+-- | Specifies the security groups for VPC endpoint.
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcdiSecurityGroupIds :: Lens.Lens' VPCDerivedInfo (Core.Maybe [Types.String])
+vpcdiSecurityGroupIds = Lens.field @"securityGroupIds"
+{-# DEPRECATED vpcdiSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
+
+-- | Specifies the subnets for VPC endpoint.
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcdiSubnetIds :: Lens.Lens' VPCDerivedInfo (Core.Maybe [Types.String])
+vpcdiSubnetIds = Lens.field @"subnetIds"
+{-# DEPRECATED vpcdiSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+
+-- | The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+--
+-- /Note:/ Consider using 'vPCId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcdiVPCId :: Lens.Lens' VPCDerivedInfo (Core.Maybe Types.String)
+vpcdiVPCId = Lens.field @"vPCId"
+{-# DEPRECATED vpcdiVPCId "Use generic-lens or generic-optics with 'vPCId' instead." #-}
+
+instance Core.FromJSON VPCDerivedInfo where
   parseJSON =
-    Lude.withObject
-      "VPCDerivedInfo"
-      ( \x ->
-          VPCDerivedInfo'
-            Lude.<$> (x Lude..:? "SecurityGroupIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "VPCId")
-            Lude.<*> (x Lude..:? "AvailabilityZones" Lude..!= Lude.mempty)
-      )
+    Core.withObject "VPCDerivedInfo" Core.$
+      \x ->
+        VPCDerivedInfo'
+          Core.<$> (x Core..:? "AvailabilityZones")
+          Core.<*> (x Core..:? "SecurityGroupIds")
+          Core.<*> (x Core..:? "SubnetIds")
+          Core.<*> (x Core..:? "VPCId")

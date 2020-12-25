@@ -17,84 +17,80 @@ module Network.AWS.Translate.Types.TextTranslationJobFilter
     mkTextTranslationJobFilter,
 
     -- * Lenses
-    ttjfSubmittedBeforeTime,
-    ttjfSubmittedAfterTime,
     ttjfJobName,
     ttjfJobStatus,
+    ttjfSubmittedAfterTime,
+    ttjfSubmittedBeforeTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Translate.Types.JobStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Translate.Types.JobName as Types
+import qualified Network.AWS.Translate.Types.JobStatus as Types
 
 -- | Provides information for filtering a list of translation jobs. For more information, see 'ListTextTranslationJobs' .
 --
 -- /See:/ 'mkTextTranslationJobFilter' smart constructor.
 data TextTranslationJobFilter = TextTranslationJobFilter'
-  { -- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
-    submittedBeforeTime :: Lude.Maybe Lude.Timestamp,
-    -- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
-    submittedAfterTime :: Lude.Maybe Lude.Timestamp,
-    -- | Filters the list of jobs by name.
-    jobName :: Lude.Maybe Lude.Text,
+  { -- | Filters the list of jobs by name.
+    jobName :: Core.Maybe Types.JobName,
     -- | Filters the list of jobs based by job status.
-    jobStatus :: Lude.Maybe JobStatus
+    jobStatus :: Core.Maybe Types.JobStatus,
+    -- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
+    submittedAfterTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+    submittedBeforeTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TextTranslationJobFilter' with the minimum fields required to make a request.
---
--- * 'submittedBeforeTime' - Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
--- * 'submittedAfterTime' - Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
--- * 'jobName' - Filters the list of jobs by name.
--- * 'jobStatus' - Filters the list of jobs based by job status.
+-- | Creates a 'TextTranslationJobFilter' value with any optional fields omitted.
 mkTextTranslationJobFilter ::
   TextTranslationJobFilter
 mkTextTranslationJobFilter =
   TextTranslationJobFilter'
-    { submittedBeforeTime = Lude.Nothing,
-      submittedAfterTime = Lude.Nothing,
-      jobName = Lude.Nothing,
-      jobStatus = Lude.Nothing
+    { jobName = Core.Nothing,
+      jobStatus = Core.Nothing,
+      submittedAfterTime = Core.Nothing,
+      submittedBeforeTime = Core.Nothing
     }
-
--- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
---
--- /Note:/ Consider using 'submittedBeforeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttjfSubmittedBeforeTime :: Lens.Lens' TextTranslationJobFilter (Lude.Maybe Lude.Timestamp)
-ttjfSubmittedBeforeTime = Lens.lens (submittedBeforeTime :: TextTranslationJobFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {submittedBeforeTime = a} :: TextTranslationJobFilter)
-{-# DEPRECATED ttjfSubmittedBeforeTime "Use generic-lens or generic-optics with 'submittedBeforeTime' instead." #-}
-
--- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
---
--- /Note:/ Consider using 'submittedAfterTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttjfSubmittedAfterTime :: Lens.Lens' TextTranslationJobFilter (Lude.Maybe Lude.Timestamp)
-ttjfSubmittedAfterTime = Lens.lens (submittedAfterTime :: TextTranslationJobFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {submittedAfterTime = a} :: TextTranslationJobFilter)
-{-# DEPRECATED ttjfSubmittedAfterTime "Use generic-lens or generic-optics with 'submittedAfterTime' instead." #-}
 
 -- | Filters the list of jobs by name.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttjfJobName :: Lens.Lens' TextTranslationJobFilter (Lude.Maybe Lude.Text)
-ttjfJobName = Lens.lens (jobName :: TextTranslationJobFilter -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: TextTranslationJobFilter)
+ttjfJobName :: Lens.Lens' TextTranslationJobFilter (Core.Maybe Types.JobName)
+ttjfJobName = Lens.field @"jobName"
 {-# DEPRECATED ttjfJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Filters the list of jobs based by job status.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttjfJobStatus :: Lens.Lens' TextTranslationJobFilter (Lude.Maybe JobStatus)
-ttjfJobStatus = Lens.lens (jobStatus :: TextTranslationJobFilter -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: TextTranslationJobFilter)
+ttjfJobStatus :: Lens.Lens' TextTranslationJobFilter (Core.Maybe Types.JobStatus)
+ttjfJobStatus = Lens.field @"jobStatus"
 {-# DEPRECATED ttjfJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
-instance Lude.ToJSON TextTranslationJobFilter where
-  toJSON TextTranslationJobFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SubmittedBeforeTime" Lude..=) Lude.<$> submittedBeforeTime,
-            ("SubmittedAfterTime" Lude..=) Lude.<$> submittedAfterTime,
-            ("JobName" Lude..=) Lude.<$> jobName,
-            ("JobStatus" Lude..=) Lude.<$> jobStatus
+-- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
+--
+-- /Note:/ Consider using 'submittedAfterTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjfSubmittedAfterTime :: Lens.Lens' TextTranslationJobFilter (Core.Maybe Core.NominalDiffTime)
+ttjfSubmittedAfterTime = Lens.field @"submittedAfterTime"
+{-# DEPRECATED ttjfSubmittedAfterTime "Use generic-lens or generic-optics with 'submittedAfterTime' instead." #-}
+
+-- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+--
+-- /Note:/ Consider using 'submittedBeforeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttjfSubmittedBeforeTime :: Lens.Lens' TextTranslationJobFilter (Core.Maybe Core.NominalDiffTime)
+ttjfSubmittedBeforeTime = Lens.field @"submittedBeforeTime"
+{-# DEPRECATED ttjfSubmittedBeforeTime "Use generic-lens or generic-optics with 'submittedBeforeTime' instead." #-}
+
+instance Core.FromJSON TextTranslationJobFilter where
+  toJSON TextTranslationJobFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("JobName" Core..=) Core.<$> jobName,
+            ("JobStatus" Core..=) Core.<$> jobStatus,
+            ("SubmittedAfterTime" Core..=) Core.<$> submittedAfterTime,
+            ("SubmittedBeforeTime" Core..=) Core.<$> submittedBeforeTime
           ]
       )

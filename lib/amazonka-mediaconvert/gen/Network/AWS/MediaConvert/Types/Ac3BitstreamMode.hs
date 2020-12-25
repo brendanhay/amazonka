@@ -13,77 +13,82 @@
 module Network.AWS.MediaConvert.Types.Ac3BitstreamMode
   ( Ac3BitstreamMode
       ( Ac3BitstreamMode',
-        ABMCompleteMain,
-        ABMCommentary,
-        ABMDialogue,
-        ABMEmergency,
-        ABMHearingImpaired,
-        ABMMusicAndEffects,
-        ABMVisuallyImpaired,
-        ABMVoiceOver
+        Ac3BitstreamModeCompleteMain,
+        Ac3BitstreamModeCommentary,
+        Ac3BitstreamModeDialogue,
+        Ac3BitstreamModeEmergency,
+        Ac3BitstreamModeHearingImpaired,
+        Ac3BitstreamModeMusicAndEffects,
+        Ac3BitstreamModeVisuallyImpaired,
+        Ac3BitstreamModeVoiceOver,
+        fromAc3BitstreamMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify the bitstream mode for the AC-3 stream that the encoder emits. For more information about the AC3 bitstream mode, see ATSC A/52-2012 (Annex E).
-newtype Ac3BitstreamMode = Ac3BitstreamMode' Lude.Text
+newtype Ac3BitstreamMode = Ac3BitstreamMode'
+  { fromAc3BitstreamMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ABMCompleteMain :: Ac3BitstreamMode
-pattern ABMCompleteMain = Ac3BitstreamMode' "COMPLETE_MAIN"
+pattern Ac3BitstreamModeCompleteMain :: Ac3BitstreamMode
+pattern Ac3BitstreamModeCompleteMain = Ac3BitstreamMode' "COMPLETE_MAIN"
 
-pattern ABMCommentary :: Ac3BitstreamMode
-pattern ABMCommentary = Ac3BitstreamMode' "COMMENTARY"
+pattern Ac3BitstreamModeCommentary :: Ac3BitstreamMode
+pattern Ac3BitstreamModeCommentary = Ac3BitstreamMode' "COMMENTARY"
 
-pattern ABMDialogue :: Ac3BitstreamMode
-pattern ABMDialogue = Ac3BitstreamMode' "DIALOGUE"
+pattern Ac3BitstreamModeDialogue :: Ac3BitstreamMode
+pattern Ac3BitstreamModeDialogue = Ac3BitstreamMode' "DIALOGUE"
 
-pattern ABMEmergency :: Ac3BitstreamMode
-pattern ABMEmergency = Ac3BitstreamMode' "EMERGENCY"
+pattern Ac3BitstreamModeEmergency :: Ac3BitstreamMode
+pattern Ac3BitstreamModeEmergency = Ac3BitstreamMode' "EMERGENCY"
 
-pattern ABMHearingImpaired :: Ac3BitstreamMode
-pattern ABMHearingImpaired = Ac3BitstreamMode' "HEARING_IMPAIRED"
+pattern Ac3BitstreamModeHearingImpaired :: Ac3BitstreamMode
+pattern Ac3BitstreamModeHearingImpaired = Ac3BitstreamMode' "HEARING_IMPAIRED"
 
-pattern ABMMusicAndEffects :: Ac3BitstreamMode
-pattern ABMMusicAndEffects = Ac3BitstreamMode' "MUSIC_AND_EFFECTS"
+pattern Ac3BitstreamModeMusicAndEffects :: Ac3BitstreamMode
+pattern Ac3BitstreamModeMusicAndEffects = Ac3BitstreamMode' "MUSIC_AND_EFFECTS"
 
-pattern ABMVisuallyImpaired :: Ac3BitstreamMode
-pattern ABMVisuallyImpaired = Ac3BitstreamMode' "VISUALLY_IMPAIRED"
+pattern Ac3BitstreamModeVisuallyImpaired :: Ac3BitstreamMode
+pattern Ac3BitstreamModeVisuallyImpaired = Ac3BitstreamMode' "VISUALLY_IMPAIRED"
 
-pattern ABMVoiceOver :: Ac3BitstreamMode
-pattern ABMVoiceOver = Ac3BitstreamMode' "VOICE_OVER"
+pattern Ac3BitstreamModeVoiceOver :: Ac3BitstreamMode
+pattern Ac3BitstreamModeVoiceOver = Ac3BitstreamMode' "VOICE_OVER"
 
 {-# COMPLETE
-  ABMCompleteMain,
-  ABMCommentary,
-  ABMDialogue,
-  ABMEmergency,
-  ABMHearingImpaired,
-  ABMMusicAndEffects,
-  ABMVisuallyImpaired,
-  ABMVoiceOver,
+  Ac3BitstreamModeCompleteMain,
+  Ac3BitstreamModeCommentary,
+  Ac3BitstreamModeDialogue,
+  Ac3BitstreamModeEmergency,
+  Ac3BitstreamModeHearingImpaired,
+  Ac3BitstreamModeMusicAndEffects,
+  Ac3BitstreamModeVisuallyImpaired,
+  Ac3BitstreamModeVoiceOver,
   Ac3BitstreamMode'
   #-}

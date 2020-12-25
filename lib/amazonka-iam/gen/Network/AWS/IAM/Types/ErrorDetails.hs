@@ -17,13 +17,15 @@ module Network.AWS.IAM.Types.ErrorDetails
     mkErrorDetails,
 
     -- * Lenses
-    edCode,
     edMessage,
+    edCode,
   )
 where
 
+import qualified Network.AWS.IAM.Types.Code as Types
+import qualified Network.AWS.IAM.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the reason that the operation failed.
 --
@@ -31,42 +33,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-  { -- | The error code associated with the operation failure.
-    code :: Lude.Text,
-    -- | Detailed information about the reason that the operation failed.
-    message :: Lude.Text
+  { -- | Detailed information about the reason that the operation failed.
+    message :: Types.Message,
+    -- | The error code associated with the operation failure.
+    code :: Types.Code
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ErrorDetails' with the minimum fields required to make a request.
---
--- * 'code' - The error code associated with the operation failure.
--- * 'message' - Detailed information about the reason that the operation failed.
+-- | Creates a 'ErrorDetails' value with any optional fields omitted.
 mkErrorDetails ::
-  -- | 'code'
-  Lude.Text ->
   -- | 'message'
-  Lude.Text ->
+  Types.Message ->
+  -- | 'code'
+  Types.Code ->
   ErrorDetails
-mkErrorDetails pCode_ pMessage_ =
-  ErrorDetails' {code = pCode_, message = pMessage_}
-
--- | The error code associated with the operation failure.
---
--- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edCode :: Lens.Lens' ErrorDetails Lude.Text
-edCode = Lens.lens (code :: ErrorDetails -> Lude.Text) (\s a -> s {code = a} :: ErrorDetails)
-{-# DEPRECATED edCode "Use generic-lens or generic-optics with 'code' instead." #-}
+mkErrorDetails message code = ErrorDetails' {message, code}
 
 -- | Detailed information about the reason that the operation failed.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edMessage :: Lens.Lens' ErrorDetails Lude.Text
-edMessage = Lens.lens (message :: ErrorDetails -> Lude.Text) (\s a -> s {message = a} :: ErrorDetails)
+edMessage :: Lens.Lens' ErrorDetails Types.Message
+edMessage = Lens.field @"message"
 {-# DEPRECATED edMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML ErrorDetails where
+-- | The error code associated with the operation failure.
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edCode :: Lens.Lens' ErrorDetails Types.Code
+edCode = Lens.field @"code"
+{-# DEPRECATED edCode "Use generic-lens or generic-optics with 'code' instead." #-}
+
+instance Core.FromXML ErrorDetails where
   parseXML x =
     ErrorDetails'
-      Lude.<$> (x Lude..@ "Code") Lude.<*> (x Lude..@ "Message")
+      Core.<$> (x Core..@ "Message") Core.<*> (x Core..@ "Code")

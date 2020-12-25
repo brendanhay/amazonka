@@ -22,165 +22,150 @@ module Network.AWS.Config.DescribeOrganizationConfigRules
     mkDescribeOrganizationConfigRules,
 
     -- ** Request lenses
-    docrOrganizationConfigRuleNames,
-    docrNextToken,
     docrLimit,
+    docrNextToken,
+    docrOrganizationConfigRuleNames,
 
     -- * Destructuring the response
     DescribeOrganizationConfigRulesResponse (..),
     mkDescribeOrganizationConfigRulesResponse,
 
     -- ** Response lenses
-    docrrsOrganizationConfigRules,
-    docrrsNextToken,
-    docrrsResponseStatus,
+    docrrrsNextToken,
+    docrrrsOrganizationConfigRules,
+    docrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeOrganizationConfigRules' smart constructor.
 data DescribeOrganizationConfigRules = DescribeOrganizationConfigRules'
-  { -- | The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.
-    organizationConfigRuleNames :: Lude.Maybe [Lude.Text],
+  { -- | The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
+    limit :: Core.Maybe Core.Natural,
     -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
-    limit :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.String,
+    -- | The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.
+    organizationConfigRuleNames :: Core.Maybe [Types.StringWithCharLimit64]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeOrganizationConfigRules' with the minimum fields required to make a request.
---
--- * 'organizationConfigRuleNames' - The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'limit' - The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
+-- | Creates a 'DescribeOrganizationConfigRules' value with any optional fields omitted.
 mkDescribeOrganizationConfigRules ::
   DescribeOrganizationConfigRules
 mkDescribeOrganizationConfigRules =
   DescribeOrganizationConfigRules'
-    { organizationConfigRuleNames =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing
+    { limit = Core.Nothing,
+      nextToken = Core.Nothing,
+      organizationConfigRuleNames = Core.Nothing
     }
-
--- | The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.
---
--- /Note:/ Consider using 'organizationConfigRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-docrOrganizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRules (Lude.Maybe [Lude.Text])
-docrOrganizationConfigRuleNames = Lens.lens (organizationConfigRuleNames :: DescribeOrganizationConfigRules -> Lude.Maybe [Lude.Text]) (\s a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRules)
-{-# DEPRECATED docrOrganizationConfigRuleNames "Use generic-lens or generic-optics with 'organizationConfigRuleNames' instead." #-}
-
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-docrNextToken :: Lens.Lens' DescribeOrganizationConfigRules (Lude.Maybe Lude.Text)
-docrNextToken = Lens.lens (nextToken :: DescribeOrganizationConfigRules -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeOrganizationConfigRules)
-{-# DEPRECATED docrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-docrLimit :: Lens.Lens' DescribeOrganizationConfigRules (Lude.Maybe Lude.Natural)
-docrLimit = Lens.lens (limit :: DescribeOrganizationConfigRules -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeOrganizationConfigRules)
+docrLimit :: Lens.Lens' DescribeOrganizationConfigRules (Core.Maybe Core.Natural)
+docrLimit = Lens.field @"limit"
 {-# DEPRECATED docrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
-instance Lude.AWSRequest DescribeOrganizationConfigRules where
-  type
-    Rs DescribeOrganizationConfigRules =
-      DescribeOrganizationConfigRulesResponse
-  request = Req.postJSON configService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribeOrganizationConfigRulesResponse'
-            Lude.<$> (x Lude..?> "OrganizationConfigRules" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeOrganizationConfigRules where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DescribeOrganizationConfigRules" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeOrganizationConfigRules where
-  toJSON DescribeOrganizationConfigRules' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("OrganizationConfigRuleNames" Lude..=)
-              Lude.<$> organizationConfigRuleNames,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeOrganizationConfigRules where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeOrganizationConfigRules where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkDescribeOrganizationConfigRulesResponse' smart constructor.
-data DescribeOrganizationConfigRulesResponse = DescribeOrganizationConfigRulesResponse'
-  { -- | Returns a list of @OrganizationConfigRule@ objects.
-    organizationConfigRules :: Lude.Maybe [OrganizationConfigRule],
-    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'DescribeOrganizationConfigRulesResponse' with the minimum fields required to make a request.
---
--- * 'organizationConfigRules' - Returns a list of @OrganizationConfigRule@ objects.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'responseStatus' - The response status code.
-mkDescribeOrganizationConfigRulesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  DescribeOrganizationConfigRulesResponse
-mkDescribeOrganizationConfigRulesResponse pResponseStatus_ =
-  DescribeOrganizationConfigRulesResponse'
-    { organizationConfigRules =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | Returns a list of @OrganizationConfigRule@ objects.
---
--- /Note:/ Consider using 'organizationConfigRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-docrrsOrganizationConfigRules :: Lens.Lens' DescribeOrganizationConfigRulesResponse (Lude.Maybe [OrganizationConfigRule])
-docrrsOrganizationConfigRules = Lens.lens (organizationConfigRules :: DescribeOrganizationConfigRulesResponse -> Lude.Maybe [OrganizationConfigRule]) (\s a -> s {organizationConfigRules = a} :: DescribeOrganizationConfigRulesResponse)
-{-# DEPRECATED docrrsOrganizationConfigRules "Use generic-lens or generic-optics with 'organizationConfigRules' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-docrrsNextToken :: Lens.Lens' DescribeOrganizationConfigRulesResponse (Lude.Maybe Lude.Text)
-docrrsNextToken = Lens.lens (nextToken :: DescribeOrganizationConfigRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeOrganizationConfigRulesResponse)
-{-# DEPRECATED docrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+docrNextToken :: Lens.Lens' DescribeOrganizationConfigRules (Core.Maybe Types.String)
+docrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED docrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.
+--
+-- /Note:/ Consider using 'organizationConfigRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docrOrganizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRules (Core.Maybe [Types.StringWithCharLimit64])
+docrOrganizationConfigRuleNames = Lens.field @"organizationConfigRuleNames"
+{-# DEPRECATED docrOrganizationConfigRuleNames "Use generic-lens or generic-optics with 'organizationConfigRuleNames' instead." #-}
+
+instance Core.FromJSON DescribeOrganizationConfigRules where
+  toJSON DescribeOrganizationConfigRules {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("OrganizationConfigRuleNames" Core..=)
+              Core.<$> organizationConfigRuleNames
+          ]
+      )
+
+instance Core.AWSRequest DescribeOrganizationConfigRules where
+  type
+    Rs DescribeOrganizationConfigRules =
+      DescribeOrganizationConfigRulesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DescribeOrganizationConfigRules"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeOrganizationConfigRulesResponse'
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "OrganizationConfigRules")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkDescribeOrganizationConfigRulesResponse' smart constructor.
+data DescribeOrganizationConfigRulesResponse = DescribeOrganizationConfigRulesResponse'
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Returns a list of @OrganizationConfigRule@ objects.
+    organizationConfigRules :: Core.Maybe [Types.OrganizationConfigRule],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'DescribeOrganizationConfigRulesResponse' value with any optional fields omitted.
+mkDescribeOrganizationConfigRulesResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  DescribeOrganizationConfigRulesResponse
+mkDescribeOrganizationConfigRulesResponse responseStatus =
+  DescribeOrganizationConfigRulesResponse'
+    { nextToken =
+        Core.Nothing,
+      organizationConfigRules = Core.Nothing,
+      responseStatus
+    }
+
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docrrrsNextToken :: Lens.Lens' DescribeOrganizationConfigRulesResponse (Core.Maybe Types.NextToken)
+docrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED docrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Returns a list of @OrganizationConfigRule@ objects.
+--
+-- /Note:/ Consider using 'organizationConfigRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+docrrrsOrganizationConfigRules :: Lens.Lens' DescribeOrganizationConfigRulesResponse (Core.Maybe [Types.OrganizationConfigRule])
+docrrrsOrganizationConfigRules = Lens.field @"organizationConfigRules"
+{-# DEPRECATED docrrrsOrganizationConfigRules "Use generic-lens or generic-optics with 'organizationConfigRules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-docrrsResponseStatus :: Lens.Lens' DescribeOrganizationConfigRulesResponse Lude.Int
-docrrsResponseStatus = Lens.lens (responseStatus :: DescribeOrganizationConfigRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrganizationConfigRulesResponse)
-{-# DEPRECATED docrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+docrrrsResponseStatus :: Lens.Lens' DescribeOrganizationConfigRulesResponse Core.Int
+docrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED docrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

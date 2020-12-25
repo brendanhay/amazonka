@@ -17,74 +17,70 @@ module Network.AWS.CertificateManager.Types.ResourceRecord
     mkResourceRecord,
 
     -- * Lenses
-    rrValue,
     rrName,
     rrType,
+    rrValue,
   )
 where
 
-import Network.AWS.CertificateManager.Types.RecordType
+import qualified Network.AWS.CertificateManager.Types.Name as Types
+import qualified Network.AWS.CertificateManager.Types.RecordType as Types
+import qualified Network.AWS.CertificateManager.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains a DNS record value that you can use to can use to validate ownership or control of a domain. This is used by the 'DescribeCertificate' action.
 --
 -- /See:/ 'mkResourceRecord' smart constructor.
 data ResourceRecord = ResourceRecord'
-  { -- | The value of the CNAME record to add to your DNS database. This is supplied by ACM.
-    value :: Lude.Text,
-    -- | The name of the DNS record to create in your domain. This is supplied by ACM.
-    name :: Lude.Text,
+  { -- | The name of the DNS record to create in your domain. This is supplied by ACM.
+    name :: Types.Name,
     -- | The type of DNS record. Currently this can be @CNAME@ .
-    type' :: RecordType
+    type' :: Types.RecordType,
+    -- | The value of the CNAME record to add to your DNS database. This is supplied by ACM.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceRecord' with the minimum fields required to make a request.
---
--- * 'value' - The value of the CNAME record to add to your DNS database. This is supplied by ACM.
--- * 'name' - The name of the DNS record to create in your domain. This is supplied by ACM.
--- * 'type'' - The type of DNS record. Currently this can be @CNAME@ .
+-- | Creates a 'ResourceRecord' value with any optional fields omitted.
 mkResourceRecord ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
-  -- | 'type''
-  RecordType ->
+  Types.Name ->
+  -- | 'type\''
+  Types.RecordType ->
+  -- | 'value'
+  Types.Value ->
   ResourceRecord
-mkResourceRecord pValue_ pName_ pType_ =
-  ResourceRecord' {value = pValue_, name = pName_, type' = pType_}
-
--- | The value of the CNAME record to add to your DNS database. This is supplied by ACM.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrValue :: Lens.Lens' ResourceRecord Lude.Text
-rrValue = Lens.lens (value :: ResourceRecord -> Lude.Text) (\s a -> s {value = a} :: ResourceRecord)
-{-# DEPRECATED rrValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkResourceRecord name type' value =
+  ResourceRecord' {name, type', value}
 
 -- | The name of the DNS record to create in your domain. This is supplied by ACM.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrName :: Lens.Lens' ResourceRecord Lude.Text
-rrName = Lens.lens (name :: ResourceRecord -> Lude.Text) (\s a -> s {name = a} :: ResourceRecord)
+rrName :: Lens.Lens' ResourceRecord Types.Name
+rrName = Lens.field @"name"
 {-# DEPRECATED rrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of DNS record. Currently this can be @CNAME@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrType :: Lens.Lens' ResourceRecord RecordType
-rrType = Lens.lens (type' :: ResourceRecord -> RecordType) (\s a -> s {type' = a} :: ResourceRecord)
+rrType :: Lens.Lens' ResourceRecord Types.RecordType
+rrType = Lens.field @"type'"
 {-# DEPRECATED rrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON ResourceRecord where
+-- | The value of the CNAME record to add to your DNS database. This is supplied by ACM.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrValue :: Lens.Lens' ResourceRecord Types.Value
+rrValue = Lens.field @"value"
+{-# DEPRECATED rrValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ResourceRecord where
   parseJSON =
-    Lude.withObject
-      "ResourceRecord"
-      ( \x ->
-          ResourceRecord'
-            Lude.<$> (x Lude..: "Value")
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "Type")
-      )
+    Core.withObject "ResourceRecord" Core.$
+      \x ->
+        ResourceRecord'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..: "Type")
+          Core.<*> (x Core..: "Value")

@@ -21,49 +21,43 @@ module Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig
   )
 where
 
-import Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus
+import qualified Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A subscription configuration for additional CloudWatch metrics.
 --
 -- /See:/ 'mkRealtimeMetricsSubscriptionConfig' smart constructor.
 newtype RealtimeMetricsSubscriptionConfig = RealtimeMetricsSubscriptionConfig'
   { -- | A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-    realtimeMetricsSubscriptionStatus :: RealtimeMetricsSubscriptionStatus
+    realtimeMetricsSubscriptionStatus :: Types.RealtimeMetricsSubscriptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RealtimeMetricsSubscriptionConfig' with the minimum fields required to make a request.
---
--- * 'realtimeMetricsSubscriptionStatus' - A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+-- | Creates a 'RealtimeMetricsSubscriptionConfig' value with any optional fields omitted.
 mkRealtimeMetricsSubscriptionConfig ::
   -- | 'realtimeMetricsSubscriptionStatus'
-  RealtimeMetricsSubscriptionStatus ->
+  Types.RealtimeMetricsSubscriptionStatus ->
   RealtimeMetricsSubscriptionConfig
 mkRealtimeMetricsSubscriptionConfig
-  pRealtimeMetricsSubscriptionStatus_ =
-    RealtimeMetricsSubscriptionConfig'
-      { realtimeMetricsSubscriptionStatus =
-          pRealtimeMetricsSubscriptionStatus_
-      }
+  realtimeMetricsSubscriptionStatus =
+    RealtimeMetricsSubscriptionConfig' {realtimeMetricsSubscriptionStatus}
 
 -- | A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 --
 -- /Note:/ Consider using 'realtimeMetricsSubscriptionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmscRealtimeMetricsSubscriptionStatus :: Lens.Lens' RealtimeMetricsSubscriptionConfig RealtimeMetricsSubscriptionStatus
-rmscRealtimeMetricsSubscriptionStatus = Lens.lens (realtimeMetricsSubscriptionStatus :: RealtimeMetricsSubscriptionConfig -> RealtimeMetricsSubscriptionStatus) (\s a -> s {realtimeMetricsSubscriptionStatus = a} :: RealtimeMetricsSubscriptionConfig)
+rmscRealtimeMetricsSubscriptionStatus :: Lens.Lens' RealtimeMetricsSubscriptionConfig Types.RealtimeMetricsSubscriptionStatus
+rmscRealtimeMetricsSubscriptionStatus = Lens.field @"realtimeMetricsSubscriptionStatus"
 {-# DEPRECATED rmscRealtimeMetricsSubscriptionStatus "Use generic-lens or generic-optics with 'realtimeMetricsSubscriptionStatus' instead." #-}
 
-instance Lude.FromXML RealtimeMetricsSubscriptionConfig where
+instance Core.ToXML RealtimeMetricsSubscriptionConfig where
+  toXML RealtimeMetricsSubscriptionConfig {..} =
+    Core.toXMLNode
+      "RealtimeMetricsSubscriptionStatus"
+      realtimeMetricsSubscriptionStatus
+
+instance Core.FromXML RealtimeMetricsSubscriptionConfig where
   parseXML x =
     RealtimeMetricsSubscriptionConfig'
-      Lude.<$> (x Lude..@ "RealtimeMetricsSubscriptionStatus")
-
-instance Lude.ToXML RealtimeMetricsSubscriptionConfig where
-  toXML RealtimeMetricsSubscriptionConfig' {..} =
-    Lude.mconcat
-      [ "RealtimeMetricsSubscriptionStatus"
-          Lude.@= realtimeMetricsSubscriptionStatus
-      ]
+      Core.<$> (x Core..@ "RealtimeMetricsSubscriptionStatus")

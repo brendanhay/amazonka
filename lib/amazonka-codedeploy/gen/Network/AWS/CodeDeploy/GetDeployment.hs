@@ -27,113 +27,100 @@ module Network.AWS.CodeDeploy.GetDeployment
     mkGetDeploymentResponse,
 
     -- ** Response lenses
-    gdrsDeploymentInfo,
-    gdrsResponseStatus,
+    gdrrsDeploymentInfo,
+    gdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @GetDeployment@ operation.
 --
 -- /See:/ 'mkGetDeployment' smart constructor.
 newtype GetDeployment = GetDeployment'
   { -- | The unique ID of a deployment associated with the IAM user or AWS account.
-    deploymentId :: Lude.Text
+    deploymentId :: Types.DeploymentId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDeployment' with the minimum fields required to make a request.
---
--- * 'deploymentId' - The unique ID of a deployment associated with the IAM user or AWS account.
+-- | Creates a 'GetDeployment' value with any optional fields omitted.
 mkGetDeployment ::
   -- | 'deploymentId'
-  Lude.Text ->
+  Types.DeploymentId ->
   GetDeployment
-mkGetDeployment pDeploymentId_ =
-  GetDeployment' {deploymentId = pDeploymentId_}
+mkGetDeployment deploymentId = GetDeployment' {deploymentId}
 
 -- | The unique ID of a deployment associated with the IAM user or AWS account.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdDeploymentId :: Lens.Lens' GetDeployment Lude.Text
-gdDeploymentId = Lens.lens (deploymentId :: GetDeployment -> Lude.Text) (\s a -> s {deploymentId = a} :: GetDeployment)
+gdDeploymentId :: Lens.Lens' GetDeployment Types.DeploymentId
+gdDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED gdDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
-instance Lude.AWSRequest GetDeployment where
+instance Core.FromJSON GetDeployment where
+  toJSON GetDeployment {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("deploymentId" Core..= deploymentId)])
+
+instance Core.AWSRequest GetDeployment where
   type Rs GetDeployment = GetDeploymentResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeDeploy_20141006.GetDeployment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDeploymentResponse'
-            Lude.<$> (x Lude..?> "deploymentInfo")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deploymentInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDeployment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.GetDeployment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDeployment where
-  toJSON GetDeployment' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("deploymentId" Lude..= deploymentId)])
-
-instance Lude.ToPath GetDeployment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDeployment where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetDeployment@ operation.
 --
 -- /See:/ 'mkGetDeploymentResponse' smart constructor.
 data GetDeploymentResponse = GetDeploymentResponse'
   { -- | Information about the deployment.
-    deploymentInfo :: Lude.Maybe DeploymentInfo,
+    deploymentInfo :: Core.Maybe Types.DeploymentInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetDeploymentResponse' with the minimum fields required to make a request.
---
--- * 'deploymentInfo' - Information about the deployment.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDeploymentResponse' value with any optional fields omitted.
 mkGetDeploymentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDeploymentResponse
-mkGetDeploymentResponse pResponseStatus_ =
+mkGetDeploymentResponse responseStatus =
   GetDeploymentResponse'
-    { deploymentInfo = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deploymentInfo = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the deployment.
 --
 -- /Note:/ Consider using 'deploymentInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsDeploymentInfo :: Lens.Lens' GetDeploymentResponse (Lude.Maybe DeploymentInfo)
-gdrsDeploymentInfo = Lens.lens (deploymentInfo :: GetDeploymentResponse -> Lude.Maybe DeploymentInfo) (\s a -> s {deploymentInfo = a} :: GetDeploymentResponse)
-{-# DEPRECATED gdrsDeploymentInfo "Use generic-lens or generic-optics with 'deploymentInfo' instead." #-}
+gdrrsDeploymentInfo :: Lens.Lens' GetDeploymentResponse (Core.Maybe Types.DeploymentInfo)
+gdrrsDeploymentInfo = Lens.field @"deploymentInfo"
+{-# DEPRECATED gdrrsDeploymentInfo "Use generic-lens or generic-optics with 'deploymentInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsResponseStatus :: Lens.Lens' GetDeploymentResponse Lude.Int
-gdrsResponseStatus = Lens.lens (responseStatus :: GetDeploymentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeploymentResponse)
-{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdrrsResponseStatus :: Lens.Lens' GetDeploymentResponse Core.Int
+gdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

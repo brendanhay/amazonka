@@ -13,56 +13,61 @@
 module Network.AWS.SSM.Types.MaintenanceWindowTaskType
   ( MaintenanceWindowTaskType
       ( MaintenanceWindowTaskType',
-        RunCommand,
-        Automation,
-        StepFunctions,
-        Lambda
+        MaintenanceWindowTaskTypeRunCommand,
+        MaintenanceWindowTaskTypeAutomation,
+        MaintenanceWindowTaskTypeStepFunctions,
+        MaintenanceWindowTaskTypeLambda,
+        fromMaintenanceWindowTaskType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MaintenanceWindowTaskType = MaintenanceWindowTaskType' Lude.Text
+newtype MaintenanceWindowTaskType = MaintenanceWindowTaskType'
+  { fromMaintenanceWindowTaskType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RunCommand :: MaintenanceWindowTaskType
-pattern RunCommand = MaintenanceWindowTaskType' "RUN_COMMAND"
+pattern MaintenanceWindowTaskTypeRunCommand :: MaintenanceWindowTaskType
+pattern MaintenanceWindowTaskTypeRunCommand = MaintenanceWindowTaskType' "RUN_COMMAND"
 
-pattern Automation :: MaintenanceWindowTaskType
-pattern Automation = MaintenanceWindowTaskType' "AUTOMATION"
+pattern MaintenanceWindowTaskTypeAutomation :: MaintenanceWindowTaskType
+pattern MaintenanceWindowTaskTypeAutomation = MaintenanceWindowTaskType' "AUTOMATION"
 
-pattern StepFunctions :: MaintenanceWindowTaskType
-pattern StepFunctions = MaintenanceWindowTaskType' "STEP_FUNCTIONS"
+pattern MaintenanceWindowTaskTypeStepFunctions :: MaintenanceWindowTaskType
+pattern MaintenanceWindowTaskTypeStepFunctions = MaintenanceWindowTaskType' "STEP_FUNCTIONS"
 
-pattern Lambda :: MaintenanceWindowTaskType
-pattern Lambda = MaintenanceWindowTaskType' "LAMBDA"
+pattern MaintenanceWindowTaskTypeLambda :: MaintenanceWindowTaskType
+pattern MaintenanceWindowTaskTypeLambda = MaintenanceWindowTaskType' "LAMBDA"
 
 {-# COMPLETE
-  RunCommand,
-  Automation,
-  StepFunctions,
-  Lambda,
+  MaintenanceWindowTaskTypeRunCommand,
+  MaintenanceWindowTaskTypeAutomation,
+  MaintenanceWindowTaskTypeStepFunctions,
+  MaintenanceWindowTaskTypeLambda,
   MaintenanceWindowTaskType'
   #-}

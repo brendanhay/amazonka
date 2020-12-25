@@ -22,57 +22,50 @@ module Network.AWS.CloudFront.Types.Aliases
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 --
 -- /See:/ 'mkAliases' smart constructor.
 data Aliases = Aliases'
   { -- | The number of CNAME aliases, if any, that you want to associate with this distribution.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | A complex type that contains the CNAME aliases, if any, that you want to associate with this distribution.
-    items :: Lude.Maybe [Lude.Text]
+    items :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Aliases' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of CNAME aliases, if any, that you want to associate with this distribution.
--- * 'items' - A complex type that contains the CNAME aliases, if any, that you want to associate with this distribution.
+-- | Creates a 'Aliases' value with any optional fields omitted.
 mkAliases ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   Aliases
-mkAliases pQuantity_ =
-  Aliases' {quantity = pQuantity_, items = Lude.Nothing}
+mkAliases quantity = Aliases' {quantity, items = Core.Nothing}
 
 -- | The number of CNAME aliases, if any, that you want to associate with this distribution.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aQuantity :: Lens.Lens' Aliases Lude.Int
-aQuantity = Lens.lens (quantity :: Aliases -> Lude.Int) (\s a -> s {quantity = a} :: Aliases)
+aQuantity :: Lens.Lens' Aliases Core.Int
+aQuantity = Lens.field @"quantity"
 {-# DEPRECATED aQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A complex type that contains the CNAME aliases, if any, that you want to associate with this distribution.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aItems :: Lens.Lens' Aliases (Lude.Maybe [Lude.Text])
-aItems = Lens.lens (items :: Aliases -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: Aliases)
+aItems :: Lens.Lens' Aliases (Core.Maybe [Types.String])
+aItems = Lens.field @"items"
 {-# DEPRECATED aItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML Aliases where
+instance Core.ToXML Aliases where
+  toXML Aliases {..} =
+    Core.toXMLNode "Quantity" quantity
+      Core.<> Core.toXMLNode "Items" (Core.toXMLList "CNAME" Core.<$> items)
+
+instance Core.FromXML Aliases where
   parseXML x =
     Aliases'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "CNAME")
-               )
-
-instance Lude.ToXML Aliases where
-  toXML Aliases' {..} =
-    Lude.mconcat
-      [ "Quantity" Lude.@= quantity,
-        "Items" Lude.@= Lude.toXML (Lude.toXMLList "CNAME" Lude.<$> items)
-      ]
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "CNAME")

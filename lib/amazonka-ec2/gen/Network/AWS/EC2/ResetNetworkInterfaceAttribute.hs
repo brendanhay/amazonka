@@ -20,9 +20,9 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     mkResetNetworkInterfaceAttribute,
 
     -- ** Request lenses
-    rniaSourceDestCheck,
     rniaNetworkInterfaceId,
     rniaDryRun,
+    rniaSourceDestCheck,
 
     -- * Destructuring the response
     ResetNetworkInterfaceAttributeResponse (..),
@@ -30,93 +30,92 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ResetNetworkInterfaceAttribute.
 --
 -- /See:/ 'mkResetNetworkInterfaceAttribute' smart constructor.
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
-  { -- | The source/destination checking attribute. Resets the value to @true@ .
-    sourceDestCheck :: Lude.Maybe Lude.Text,
-    -- | The ID of the network interface.
-    networkInterfaceId :: Lude.Text,
+  { -- | The ID of the network interface.
+    networkInterfaceId :: Types.NetworkInterfaceId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The source/destination checking attribute. Resets the value to @true@ .
+    sourceDestCheck :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetNetworkInterfaceAttribute' with the minimum fields required to make a request.
---
--- * 'sourceDestCheck' - The source/destination checking attribute. Resets the value to @true@ .
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ResetNetworkInterfaceAttribute' value with any optional fields omitted.
 mkResetNetworkInterfaceAttribute ::
   -- | 'networkInterfaceId'
-  Lude.Text ->
+  Types.NetworkInterfaceId ->
   ResetNetworkInterfaceAttribute
-mkResetNetworkInterfaceAttribute pNetworkInterfaceId_ =
+mkResetNetworkInterfaceAttribute networkInterfaceId =
   ResetNetworkInterfaceAttribute'
-    { sourceDestCheck = Lude.Nothing,
-      networkInterfaceId = pNetworkInterfaceId_,
-      dryRun = Lude.Nothing
+    { networkInterfaceId,
+      dryRun = Core.Nothing,
+      sourceDestCheck = Core.Nothing
     }
-
--- | The source/destination checking attribute. Resets the value to @true@ .
---
--- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rniaSourceDestCheck :: Lens.Lens' ResetNetworkInterfaceAttribute (Lude.Maybe Lude.Text)
-rniaSourceDestCheck = Lens.lens (sourceDestCheck :: ResetNetworkInterfaceAttribute -> Lude.Maybe Lude.Text) (\s a -> s {sourceDestCheck = a} :: ResetNetworkInterfaceAttribute)
-{-# DEPRECATED rniaSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
 
 -- | The ID of the network interface.
 --
 -- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rniaNetworkInterfaceId :: Lens.Lens' ResetNetworkInterfaceAttribute Lude.Text
-rniaNetworkInterfaceId = Lens.lens (networkInterfaceId :: ResetNetworkInterfaceAttribute -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: ResetNetworkInterfaceAttribute)
+rniaNetworkInterfaceId :: Lens.Lens' ResetNetworkInterfaceAttribute Types.NetworkInterfaceId
+rniaNetworkInterfaceId = Lens.field @"networkInterfaceId"
 {-# DEPRECATED rniaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rniaDryRun :: Lens.Lens' ResetNetworkInterfaceAttribute (Lude.Maybe Lude.Bool)
-rniaDryRun = Lens.lens (dryRun :: ResetNetworkInterfaceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetNetworkInterfaceAttribute)
+rniaDryRun :: Lens.Lens' ResetNetworkInterfaceAttribute (Core.Maybe Core.Bool)
+rniaDryRun = Lens.field @"dryRun"
 {-# DEPRECATED rniaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ResetNetworkInterfaceAttribute where
+-- | The source/destination checking attribute. Resets the value to @true@ .
+--
+-- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rniaSourceDestCheck :: Lens.Lens' ResetNetworkInterfaceAttribute (Core.Maybe Types.String)
+rniaSourceDestCheck = Lens.field @"sourceDestCheck"
+{-# DEPRECATED rniaSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
+
+instance Core.AWSRequest ResetNetworkInterfaceAttribute where
   type
     Rs ResetNetworkInterfaceAttribute =
       ResetNetworkInterfaceAttributeResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull ResetNetworkInterfaceAttributeResponse'
-
-instance Lude.ToHeaders ResetNetworkInterfaceAttribute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ResetNetworkInterfaceAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResetNetworkInterfaceAttribute where
-  toQuery ResetNetworkInterfaceAttribute' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ResetNetworkInterfaceAttribute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "SourceDestCheck" Lude.=: sourceDestCheck,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ResetNetworkInterfaceAttribute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "NetworkInterfaceId" networkInterfaceId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "SourceDestCheck" Core.<$> sourceDestCheck)
+            )
+      }
+  response =
+    Response.receiveNull ResetNetworkInterfaceAttributeResponse'
 
 -- | /See:/ 'mkResetNetworkInterfaceAttributeResponse' smart constructor.
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
+-- | Creates a 'ResetNetworkInterfaceAttributeResponse' value with any optional fields omitted.
 mkResetNetworkInterfaceAttributeResponse ::
   ResetNetworkInterfaceAttributeResponse
 mkResetNetworkInterfaceAttributeResponse =

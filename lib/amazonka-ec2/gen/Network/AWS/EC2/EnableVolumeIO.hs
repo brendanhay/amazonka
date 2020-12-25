@@ -29,73 +29,73 @@ module Network.AWS.EC2.EnableVolumeIO
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableVolumeIO' smart constructor.
 data EnableVolumeIO = EnableVolumeIO'
   { -- | The ID of the volume.
-    volumeId :: Lude.Text,
+    volumeId :: Types.VolumeId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableVolumeIO' with the minimum fields required to make a request.
---
--- * 'volumeId' - The ID of the volume.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'EnableVolumeIO' value with any optional fields omitted.
 mkEnableVolumeIO ::
   -- | 'volumeId'
-  Lude.Text ->
+  Types.VolumeId ->
   EnableVolumeIO
-mkEnableVolumeIO pVolumeId_ =
-  EnableVolumeIO' {volumeId = pVolumeId_, dryRun = Lude.Nothing}
+mkEnableVolumeIO volumeId =
+  EnableVolumeIO' {volumeId, dryRun = Core.Nothing}
 
 -- | The ID of the volume.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evioVolumeId :: Lens.Lens' EnableVolumeIO Lude.Text
-evioVolumeId = Lens.lens (volumeId :: EnableVolumeIO -> Lude.Text) (\s a -> s {volumeId = a} :: EnableVolumeIO)
+evioVolumeId :: Lens.Lens' EnableVolumeIO Types.VolumeId
+evioVolumeId = Lens.field @"volumeId"
 {-# DEPRECATED evioVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evioDryRun :: Lens.Lens' EnableVolumeIO (Lude.Maybe Lude.Bool)
-evioDryRun = Lens.lens (dryRun :: EnableVolumeIO -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: EnableVolumeIO)
+evioDryRun :: Lens.Lens' EnableVolumeIO (Core.Maybe Core.Bool)
+evioDryRun = Lens.field @"dryRun"
 {-# DEPRECATED evioDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest EnableVolumeIO where
+instance Core.AWSRequest EnableVolumeIO where
   type Rs EnableVolumeIO = EnableVolumeIOResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull EnableVolumeIOResponse'
-
-instance Lude.ToHeaders EnableVolumeIO where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath EnableVolumeIO where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableVolumeIO where
-  toQuery EnableVolumeIO' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("EnableVolumeIO" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "VolumeId" Lude.=: volumeId,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "EnableVolumeIO")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "VolumeId" volumeId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull EnableVolumeIOResponse'
 
 -- | /See:/ 'mkEnableVolumeIOResponse' smart constructor.
 data EnableVolumeIOResponse = EnableVolumeIOResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableVolumeIOResponse' with the minimum fields required to make a request.
+-- | Creates a 'EnableVolumeIOResponse' value with any optional fields omitted.
 mkEnableVolumeIOResponse ::
   EnableVolumeIOResponse
 mkEnableVolumeIOResponse = EnableVolumeIOResponse'

@@ -20,121 +20,107 @@ module Network.AWS.CodeBuild.DeleteReportGroup
     mkDeleteReportGroup,
 
     -- ** Request lenses
-    drgDeleteReports,
     drgArn,
+    drgDeleteReports,
 
     -- * Destructuring the response
     DeleteReportGroupResponse (..),
     mkDeleteReportGroupResponse,
 
     -- ** Response lenses
-    drgrsResponseStatus,
+    drgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteReportGroup' smart constructor.
 data DeleteReportGroup = DeleteReportGroup'
-  { -- | If @true@ , deletes any reports that belong to a report group before deleting the report group.
+  { -- | The ARN of the report group to delete.
+    arn :: Types.NonEmptyString,
+    -- | If @true@ , deletes any reports that belong to a report group before deleting the report group.
     --
     -- If @false@ , you must delete any reports in the report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html ListReportsForReportGroup> to get the reports in a report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html DeleteReport> to delete the reports. If you call @DeleteReportGroup@ for a report group that contains one or more reports, an exception is thrown.
-    deleteReports :: Lude.Maybe Lude.Bool,
-    -- | The ARN of the report group to delete.
-    arn :: Lude.Text
+    deleteReports :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReportGroup' with the minimum fields required to make a request.
---
--- * 'deleteReports' - If @true@ , deletes any reports that belong to a report group before deleting the report group.
---
--- If @false@ , you must delete any reports in the report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html ListReportsForReportGroup> to get the reports in a report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html DeleteReport> to delete the reports. If you call @DeleteReportGroup@ for a report group that contains one or more reports, an exception is thrown.
--- * 'arn' - The ARN of the report group to delete.
+-- | Creates a 'DeleteReportGroup' value with any optional fields omitted.
 mkDeleteReportGroup ::
   -- | 'arn'
-  Lude.Text ->
+  Types.NonEmptyString ->
   DeleteReportGroup
-mkDeleteReportGroup pArn_ =
-  DeleteReportGroup' {deleteReports = Lude.Nothing, arn = pArn_}
+mkDeleteReportGroup arn =
+  DeleteReportGroup' {arn, deleteReports = Core.Nothing}
+
+-- | The ARN of the report group to delete.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgArn :: Lens.Lens' DeleteReportGroup Types.NonEmptyString
+drgArn = Lens.field @"arn"
+{-# DEPRECATED drgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | If @true@ , deletes any reports that belong to a report group before deleting the report group.
 --
 -- If @false@ , you must delete any reports in the report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html ListReportsForReportGroup> to get the reports in a report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html DeleteReport> to delete the reports. If you call @DeleteReportGroup@ for a report group that contains one or more reports, an exception is thrown.
 --
 -- /Note:/ Consider using 'deleteReports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgDeleteReports :: Lens.Lens' DeleteReportGroup (Lude.Maybe Lude.Bool)
-drgDeleteReports = Lens.lens (deleteReports :: DeleteReportGroup -> Lude.Maybe Lude.Bool) (\s a -> s {deleteReports = a} :: DeleteReportGroup)
+drgDeleteReports :: Lens.Lens' DeleteReportGroup (Core.Maybe Core.Bool)
+drgDeleteReports = Lens.field @"deleteReports"
 {-# DEPRECATED drgDeleteReports "Use generic-lens or generic-optics with 'deleteReports' instead." #-}
 
--- | The ARN of the report group to delete.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgArn :: Lens.Lens' DeleteReportGroup Lude.Text
-drgArn = Lens.lens (arn :: DeleteReportGroup -> Lude.Text) (\s a -> s {arn = a} :: DeleteReportGroup)
-{-# DEPRECATED drgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+instance Core.FromJSON DeleteReportGroup where
+  toJSON DeleteReportGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("arn" Core..= arn),
+            ("deleteReports" Core..=) Core.<$> deleteReports
+          ]
+      )
 
-instance Lude.AWSRequest DeleteReportGroup where
+instance Core.AWSRequest DeleteReportGroup where
   type Rs DeleteReportGroup = DeleteReportGroupResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.DeleteReportGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteReportGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteReportGroupResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteReportGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.DeleteReportGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteReportGroup where
-  toJSON DeleteReportGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("deleteReports" Lude..=) Lude.<$> deleteReports,
-            Lude.Just ("arn" Lude..= arn)
-          ]
-      )
-
-instance Lude.ToPath DeleteReportGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteReportGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteReportGroupResponse' smart constructor.
 newtype DeleteReportGroupResponse = DeleteReportGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReportGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteReportGroupResponse' value with any optional fields omitted.
 mkDeleteReportGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteReportGroupResponse
-mkDeleteReportGroupResponse pResponseStatus_ =
-  DeleteReportGroupResponse' {responseStatus = pResponseStatus_}
+mkDeleteReportGroupResponse responseStatus =
+  DeleteReportGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgrsResponseStatus :: Lens.Lens' DeleteReportGroupResponse Lude.Int
-drgrsResponseStatus = Lens.lens (responseStatus :: DeleteReportGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReportGroupResponse)
-{-# DEPRECATED drgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drgrrsResponseStatus :: Lens.Lens' DeleteReportGroupResponse Core.Int
+drgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

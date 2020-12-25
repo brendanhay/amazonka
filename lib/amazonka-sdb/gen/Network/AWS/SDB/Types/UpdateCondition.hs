@@ -18,67 +18,56 @@ module Network.AWS.SDB.Types.UpdateCondition
 
     -- * Lenses
     ucExists,
-    ucValue,
     ucName,
+    ucValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SDB.Types.String as Types
 
 -- | Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist.
 --
 -- /See:/ 'mkUpdateCondition' smart constructor.
 data UpdateCondition = UpdateCondition'
   { -- | A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
-    exists :: Lude.Maybe Lude.Bool,
-    -- | The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
-    value :: Lude.Maybe Lude.Text,
+    exists :: Core.Maybe Core.Bool,
     -- | The name of the attribute involved in the condition.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.String,
+    -- | The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCondition' with the minimum fields required to make a request.
---
--- * 'exists' - A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
--- * 'value' - The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
--- * 'name' - The name of the attribute involved in the condition.
+-- | Creates a 'UpdateCondition' value with any optional fields omitted.
 mkUpdateCondition ::
   UpdateCondition
 mkUpdateCondition =
   UpdateCondition'
-    { exists = Lude.Nothing,
-      value = Lude.Nothing,
-      name = Lude.Nothing
+    { exists = Core.Nothing,
+      name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
 --
 -- /Note:/ Consider using 'exists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucExists :: Lens.Lens' UpdateCondition (Lude.Maybe Lude.Bool)
-ucExists = Lens.lens (exists :: UpdateCondition -> Lude.Maybe Lude.Bool) (\s a -> s {exists = a} :: UpdateCondition)
+ucExists :: Lens.Lens' UpdateCondition (Core.Maybe Core.Bool)
+ucExists = Lens.field @"exists"
 {-# DEPRECATED ucExists "Use generic-lens or generic-optics with 'exists' instead." #-}
-
--- | The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucValue :: Lens.Lens' UpdateCondition (Lude.Maybe Lude.Text)
-ucValue = Lens.lens (value :: UpdateCondition -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: UpdateCondition)
-{-# DEPRECATED ucValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The name of the attribute involved in the condition.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucName :: Lens.Lens' UpdateCondition (Lude.Maybe Lude.Text)
-ucName = Lens.lens (name :: UpdateCondition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateCondition)
+ucName :: Lens.Lens' UpdateCondition (Core.Maybe Types.String)
+ucName = Lens.field @"name"
 {-# DEPRECATED ucName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery UpdateCondition where
-  toQuery UpdateCondition' {..} =
-    Lude.mconcat
-      [ "Exists" Lude.=: exists,
-        "Value" Lude.=: value,
-        "Name" Lude.=: name
-      ]
+-- | The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucValue :: Lens.Lens' UpdateCondition (Core.Maybe Types.String)
+ucValue = Lens.field @"value"
+{-# DEPRECATED ucValue "Use generic-lens or generic-optics with 'value' instead." #-}

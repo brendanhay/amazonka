@@ -29,66 +29,67 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteClusterSubnetGroup' smart constructor.
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
   { -- | The name of the cluster subnet group name to be deleted.
-    clusterSubnetGroupName :: Lude.Text
+    clusterSubnetGroupName :: Types.ClusterSubnetGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClusterSubnetGroup' with the minimum fields required to make a request.
---
--- * 'clusterSubnetGroupName' - The name of the cluster subnet group name to be deleted.
+-- | Creates a 'DeleteClusterSubnetGroup' value with any optional fields omitted.
 mkDeleteClusterSubnetGroup ::
   -- | 'clusterSubnetGroupName'
-  Lude.Text ->
+  Types.ClusterSubnetGroupName ->
   DeleteClusterSubnetGroup
-mkDeleteClusterSubnetGroup pClusterSubnetGroupName_ =
-  DeleteClusterSubnetGroup'
-    { clusterSubnetGroupName =
-        pClusterSubnetGroupName_
-    }
+mkDeleteClusterSubnetGroup clusterSubnetGroupName =
+  DeleteClusterSubnetGroup' {clusterSubnetGroupName}
 
 -- | The name of the cluster subnet group name to be deleted.
 --
 -- /Note:/ Consider using 'clusterSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgClusterSubnetGroupName :: Lens.Lens' DeleteClusterSubnetGroup Lude.Text
-dcsgClusterSubnetGroupName = Lens.lens (clusterSubnetGroupName :: DeleteClusterSubnetGroup -> Lude.Text) (\s a -> s {clusterSubnetGroupName = a} :: DeleteClusterSubnetGroup)
+dcsgClusterSubnetGroupName :: Lens.Lens' DeleteClusterSubnetGroup Types.ClusterSubnetGroupName
+dcsgClusterSubnetGroupName = Lens.field @"clusterSubnetGroupName"
 {-# DEPRECATED dcsgClusterSubnetGroupName "Use generic-lens or generic-optics with 'clusterSubnetGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteClusterSubnetGroup where
+instance Core.AWSRequest DeleteClusterSubnetGroup where
   type Rs DeleteClusterSubnetGroup = DeleteClusterSubnetGroupResponse
-  request = Req.postQuery redshiftService
-  response = Res.receiveNull DeleteClusterSubnetGroupResponse'
-
-instance Lude.ToHeaders DeleteClusterSubnetGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteClusterSubnetGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteClusterSubnetGroup where
-  toQuery DeleteClusterSubnetGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteClusterSubnetGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ClusterSubnetGroupName" Lude.=: clusterSubnetGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteClusterSubnetGroup")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "ClusterSubnetGroupName"
+                            clusterSubnetGroupName
+                        )
+            )
+      }
+  response = Response.receiveNull DeleteClusterSubnetGroupResponse'
 
 -- | /See:/ 'mkDeleteClusterSubnetGroupResponse' smart constructor.
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClusterSubnetGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteClusterSubnetGroupResponse' value with any optional fields omitted.
 mkDeleteClusterSubnetGroupResponse ::
   DeleteClusterSubnetGroupResponse
 mkDeleteClusterSubnetGroupResponse =

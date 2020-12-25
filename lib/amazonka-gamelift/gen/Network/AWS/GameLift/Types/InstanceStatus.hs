@@ -13,51 +13,56 @@
 module Network.AWS.GameLift.Types.InstanceStatus
   ( InstanceStatus
       ( InstanceStatus',
-        ISPending,
-        ISActive,
-        ISTerminating
+        InstanceStatusPending,
+        InstanceStatusActive,
+        InstanceStatusTerminating,
+        fromInstanceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceStatus = InstanceStatus' Lude.Text
+newtype InstanceStatus = InstanceStatus'
+  { fromInstanceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISPending :: InstanceStatus
-pattern ISPending = InstanceStatus' "PENDING"
+pattern InstanceStatusPending :: InstanceStatus
+pattern InstanceStatusPending = InstanceStatus' "PENDING"
 
-pattern ISActive :: InstanceStatus
-pattern ISActive = InstanceStatus' "ACTIVE"
+pattern InstanceStatusActive :: InstanceStatus
+pattern InstanceStatusActive = InstanceStatus' "ACTIVE"
 
-pattern ISTerminating :: InstanceStatus
-pattern ISTerminating = InstanceStatus' "TERMINATING"
+pattern InstanceStatusTerminating :: InstanceStatus
+pattern InstanceStatusTerminating = InstanceStatus' "TERMINATING"
 
 {-# COMPLETE
-  ISPending,
-  ISActive,
-  ISTerminating,
+  InstanceStatusPending,
+  InstanceStatusActive,
+  InstanceStatusTerminating,
   InstanceStatus'
   #-}

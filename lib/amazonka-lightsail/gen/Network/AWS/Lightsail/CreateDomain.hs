@@ -22,8 +22,8 @@ module Network.AWS.Lightsail.CreateDomain
     mkCreateDomain,
 
     -- ** Request lenses
-    cDomainName,
-    cTags,
+    cdfDomainName,
+    cdfTags,
 
     -- * Destructuring the response
     CreateDomainResponse (..),
@@ -36,122 +36,104 @@ module Network.AWS.Lightsail.CreateDomain
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
   { -- | The domain name to manage (e.g., @example.com@ ).
-    domainName :: Lude.Text,
+    domainName :: Types.DomainName,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it's created.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
---
--- * 'domainName' - The domain name to manage (e.g., @example.com@ ).
--- * 'tags' - The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it's created.
+-- | Creates a 'CreateDomain' value with any optional fields omitted.
 mkCreateDomain ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   CreateDomain
-mkCreateDomain pDomainName_ =
-  CreateDomain' {domainName = pDomainName_, tags = Lude.Nothing}
+mkCreateDomain domainName =
+  CreateDomain' {domainName, tags = Core.Nothing}
 
 -- | The domain name to manage (e.g., @example.com@ ).
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDomainName :: Lens.Lens' CreateDomain Lude.Text
-cDomainName = Lens.lens (domainName :: CreateDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomain)
-{-# DEPRECATED cDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+cdfDomainName :: Lens.Lens' CreateDomain Types.DomainName
+cdfDomainName = Lens.field @"domainName"
+{-# DEPRECATED cdfDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' CreateDomain (Lude.Maybe [Tag])
-cTags = Lens.lens (tags :: CreateDomain -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDomain)
-{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cdfTags :: Lens.Lens' CreateDomain (Core.Maybe [Types.Tag])
+cdfTags = Lens.field @"tags"
+{-# DEPRECATED cdfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDomain where
+instance Core.FromJSON CreateDomain where
+  toJSON CreateDomain {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domainName" Core..= domainName),
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateDomain where
   type Rs CreateDomain = CreateDomainResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.CreateDomain")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateDomainResponse'
-            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDomain where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.CreateDomain" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateDomain where
-  toJSON CreateDomain' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domainName" Lude..= domainName),
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDomain where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operation :: Lude.Maybe Operation,
+    operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
---
--- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDomainResponse' value with any optional fields omitted.
 mkCreateDomainResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDomainResponse
-mkCreateDomainResponse pResponseStatus_ =
-  CreateDomainResponse'
-    { operation = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateDomainResponse responseStatus =
+  CreateDomainResponse' {operation = Core.Nothing, responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsOperation :: Lens.Lens' CreateDomainResponse (Lude.Maybe Operation)
-crsOperation = Lens.lens (operation :: CreateDomainResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: CreateDomainResponse)
+crsOperation :: Lens.Lens' CreateDomainResponse (Core.Maybe Types.Operation)
+crsOperation = Lens.field @"operation"
 {-# DEPRECATED crsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CreateDomainResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CreateDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDomainResponse)
+crsResponseStatus :: Lens.Lens' CreateDomainResponse Core.Int
+crsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

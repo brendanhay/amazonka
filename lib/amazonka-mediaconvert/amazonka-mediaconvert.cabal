@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MediaConvert
     Network.AWS.MediaConvert.AssociateCertificate
@@ -494,7 +500,7 @@ library
     Network.AWS.MediaConvert.Types.S3DestinationAccessControl
     Network.AWS.MediaConvert.Types.S3DestinationSettings
     Network.AWS.MediaConvert.Types.S3EncryptionSettings
-    Network.AWS.MediaConvert.Types.S3ObjectCannedACL
+    Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
     Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType
     Network.AWS.MediaConvert.Types.ScalingBehavior
     Network.AWS.MediaConvert.Types.SccDestinationFramerate

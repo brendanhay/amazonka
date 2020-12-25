@@ -25,10 +25,10 @@ module Network.AWS.SQS.AddPermission
     mkAddPermission,
 
     -- ** Request lenses
+    apQueueUrl,
+    apLabel,
     apAWSAccountIds,
     apActions,
-    apQueueURL,
-    apLabel,
 
     -- * Destructuring the response
     AddPermissionResponse (..),
@@ -37,63 +37,69 @@ module Network.AWS.SQS.AddPermission
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- |
 --
 -- /See:/ 'mkAddPermission' smart constructor.
 data AddPermission = AddPermission'
-  { -- | The AWS account number of the <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers> in the /Amazon Simple Queue Service Developer Guide/ .
-    awsAccountIds :: [Lude.Text],
+  { -- | The URL of the Amazon SQS queue to which permissions are added.
+    --
+    -- Queue URLs and names are case-sensitive.
+    queueUrl :: Types.String,
+    -- | The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
+    label :: Types.String,
+    -- | The AWS account number of the <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers> in the /Amazon Simple Queue Service Developer Guide/ .
+    aWSAccountIds :: [Types.String],
     -- | The action the client wants to allow for the specified principal. Valid values: the name of any action or @*@ .
     --
     -- For more information about these actions, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource> in the /Amazon Simple Queue Service Developer Guide/ .
     -- Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
-    actions :: [Lude.Text],
-    -- | The URL of the Amazon SQS queue to which permissions are added.
-    --
-    -- Queue URLs and names are case-sensitive.
-    queueURL :: Lude.Text,
-    -- | The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
-    label :: Lude.Text
+    actions :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
---
--- * 'awsAccountIds' - The AWS account number of the <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers> in the /Amazon Simple Queue Service Developer Guide/ .
--- * 'actions' - The action the client wants to allow for the specified principal. Valid values: the name of any action or @*@ .
---
--- For more information about these actions, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource> in the /Amazon Simple Queue Service Developer Guide/ .
--- Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
--- * 'queueURL' - The URL of the Amazon SQS queue to which permissions are added.
+-- | Creates a 'AddPermission' value with any optional fields omitted.
+mkAddPermission ::
+  -- | 'queueUrl'
+  Types.String ->
+  -- | 'label'
+  Types.String ->
+  AddPermission
+mkAddPermission queueUrl label =
+  AddPermission'
+    { queueUrl,
+      label,
+      aWSAccountIds = Core.mempty,
+      actions = Core.mempty
+    }
+
+-- | The URL of the Amazon SQS queue to which permissions are added.
 --
 -- Queue URLs and names are case-sensitive.
--- * 'label' - The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
-mkAddPermission ::
-  -- | 'queueURL'
-  Lude.Text ->
-  -- | 'label'
-  Lude.Text ->
-  AddPermission
-mkAddPermission pQueueURL_ pLabel_ =
-  AddPermission'
-    { awsAccountIds = Lude.mempty,
-      actions = Lude.mempty,
-      queueURL = pQueueURL_,
-      label = pLabel_
-    }
+--
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apQueueUrl :: Lens.Lens' AddPermission Types.String
+apQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED apQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
+
+-- | The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apLabel :: Lens.Lens' AddPermission Types.String
+apLabel = Lens.field @"label"
+{-# DEPRECATED apLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
 -- | The AWS account number of the <https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your AWS Identifiers> in the /Amazon Simple Queue Service Developer Guide/ .
 --
--- /Note:/ Consider using 'awsAccountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apAWSAccountIds :: Lens.Lens' AddPermission [Lude.Text]
-apAWSAccountIds = Lens.lens (awsAccountIds :: AddPermission -> [Lude.Text]) (\s a -> s {awsAccountIds = a} :: AddPermission)
-{-# DEPRECATED apAWSAccountIds "Use generic-lens or generic-optics with 'awsAccountIds' instead." #-}
+-- /Note:/ Consider using 'aWSAccountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apAWSAccountIds :: Lens.Lens' AddPermission [Types.String]
+apAWSAccountIds = Lens.field @"aWSAccountIds"
+{-# DEPRECATED apAWSAccountIds "Use generic-lens or generic-optics with 'aWSAccountIds' instead." #-}
 
 -- | The action the client wants to allow for the specified principal. Valid values: the name of any action or @*@ .
 --
@@ -101,54 +107,41 @@ apAWSAccountIds = Lens.lens (awsAccountIds :: AddPermission -> [Lude.Text]) (\s 
 -- Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apActions :: Lens.Lens' AddPermission [Lude.Text]
-apActions = Lens.lens (actions :: AddPermission -> [Lude.Text]) (\s a -> s {actions = a} :: AddPermission)
+apActions :: Lens.Lens' AddPermission [Types.String]
+apActions = Lens.field @"actions"
 {-# DEPRECATED apActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
--- | The URL of the Amazon SQS queue to which permissions are added.
---
--- Queue URLs and names are case-sensitive.
---
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apQueueURL :: Lens.Lens' AddPermission Lude.Text
-apQueueURL = Lens.lens (queueURL :: AddPermission -> Lude.Text) (\s a -> s {queueURL = a} :: AddPermission)
-{-# DEPRECATED apQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
-
--- | The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
---
--- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apLabel :: Lens.Lens' AddPermission Lude.Text
-apLabel = Lens.lens (label :: AddPermission -> Lude.Text) (\s a -> s {label = a} :: AddPermission)
-{-# DEPRECATED apLabel "Use generic-lens or generic-optics with 'label' instead." #-}
-
-instance Lude.AWSRequest AddPermission where
+instance Core.AWSRequest AddPermission where
   type Rs AddPermission = AddPermissionResponse
-  request = Req.postQuery sqsService
-  response = Res.receiveNull AddPermissionResponse'
-
-instance Lude.ToHeaders AddPermission where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AddPermission where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddPermission where
-  toQuery AddPermission' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AddPermission" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        Lude.toQueryList "AWSAccountId" awsAccountIds,
-        Lude.toQueryList "ActionName" actions,
-        "QueueUrl" Lude.=: queueURL,
-        "Label" Lude.=: label
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AddPermission")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+                Core.<> (Core.toQueryValue "Label" label)
+                Core.<> (Core.toQueryList "AWSAccountId" aWSAccountIds)
+                Core.<> (Core.toQueryList "ActionName" actions)
+            )
+      }
+  response = Response.receiveNull AddPermissionResponse'
 
 -- | /See:/ 'mkAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
+-- | Creates a 'AddPermissionResponse' value with any optional fields omitted.
 mkAddPermissionResponse ::
   AddPermissionResponse
 mkAddPermissionResponse = AddPermissionResponse'

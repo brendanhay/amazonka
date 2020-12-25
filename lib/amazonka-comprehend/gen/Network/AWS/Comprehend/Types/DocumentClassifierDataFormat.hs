@@ -13,46 +13,51 @@
 module Network.AWS.Comprehend.Types.DocumentClassifierDataFormat
   ( DocumentClassifierDataFormat
       ( DocumentClassifierDataFormat',
-        DCDFComprehendCSV,
-        DCDFAugmentedManifest
+        DocumentClassifierDataFormatComprehendCsv,
+        DocumentClassifierDataFormatAugmentedManifest,
+        fromDocumentClassifierDataFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DocumentClassifierDataFormat = DocumentClassifierDataFormat' Lude.Text
+newtype DocumentClassifierDataFormat = DocumentClassifierDataFormat'
+  { fromDocumentClassifierDataFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DCDFComprehendCSV :: DocumentClassifierDataFormat
-pattern DCDFComprehendCSV = DocumentClassifierDataFormat' "COMPREHEND_CSV"
+pattern DocumentClassifierDataFormatComprehendCsv :: DocumentClassifierDataFormat
+pattern DocumentClassifierDataFormatComprehendCsv = DocumentClassifierDataFormat' "COMPREHEND_CSV"
 
-pattern DCDFAugmentedManifest :: DocumentClassifierDataFormat
-pattern DCDFAugmentedManifest = DocumentClassifierDataFormat' "AUGMENTED_MANIFEST"
+pattern DocumentClassifierDataFormatAugmentedManifest :: DocumentClassifierDataFormat
+pattern DocumentClassifierDataFormatAugmentedManifest = DocumentClassifierDataFormat' "AUGMENTED_MANIFEST"
 
 {-# COMPLETE
-  DCDFComprehendCSV,
-  DCDFAugmentedManifest,
+  DocumentClassifierDataFormatComprehendCsv,
+  DocumentClassifierDataFormatAugmentedManifest,
   DocumentClassifierDataFormat'
   #-}

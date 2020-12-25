@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.AutoMLJobStatus
   ( AutoMLJobStatus
       ( AutoMLJobStatus',
-        AMLJSCompleted,
-        AMLJSInProgress,
-        AMLJSFailed,
-        AMLJSStopped,
-        AMLJSStopping
+        AutoMLJobStatusCompleted,
+        AutoMLJobStatusInProgress,
+        AutoMLJobStatusFailed,
+        AutoMLJobStatusStopped,
+        AutoMLJobStatusStopping,
+        fromAutoMLJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AutoMLJobStatus = AutoMLJobStatus' Lude.Text
+newtype AutoMLJobStatus = AutoMLJobStatus'
+  { fromAutoMLJobStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AMLJSCompleted :: AutoMLJobStatus
-pattern AMLJSCompleted = AutoMLJobStatus' "Completed"
+pattern AutoMLJobStatusCompleted :: AutoMLJobStatus
+pattern AutoMLJobStatusCompleted = AutoMLJobStatus' "Completed"
 
-pattern AMLJSInProgress :: AutoMLJobStatus
-pattern AMLJSInProgress = AutoMLJobStatus' "InProgress"
+pattern AutoMLJobStatusInProgress :: AutoMLJobStatus
+pattern AutoMLJobStatusInProgress = AutoMLJobStatus' "InProgress"
 
-pattern AMLJSFailed :: AutoMLJobStatus
-pattern AMLJSFailed = AutoMLJobStatus' "Failed"
+pattern AutoMLJobStatusFailed :: AutoMLJobStatus
+pattern AutoMLJobStatusFailed = AutoMLJobStatus' "Failed"
 
-pattern AMLJSStopped :: AutoMLJobStatus
-pattern AMLJSStopped = AutoMLJobStatus' "Stopped"
+pattern AutoMLJobStatusStopped :: AutoMLJobStatus
+pattern AutoMLJobStatusStopped = AutoMLJobStatus' "Stopped"
 
-pattern AMLJSStopping :: AutoMLJobStatus
-pattern AMLJSStopping = AutoMLJobStatus' "Stopping"
+pattern AutoMLJobStatusStopping :: AutoMLJobStatus
+pattern AutoMLJobStatusStopping = AutoMLJobStatus' "Stopping"
 
 {-# COMPLETE
-  AMLJSCompleted,
-  AMLJSInProgress,
-  AMLJSFailed,
-  AMLJSStopped,
-  AMLJSStopping,
+  AutoMLJobStatusCompleted,
+  AutoMLJobStatusInProgress,
+  AutoMLJobStatusFailed,
+  AutoMLJobStatusStopped,
+  AutoMLJobStatusStopping,
   AutoMLJobStatus'
   #-}

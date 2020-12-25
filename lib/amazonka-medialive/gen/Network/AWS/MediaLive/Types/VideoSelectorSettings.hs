@@ -17,68 +17,63 @@ module Network.AWS.MediaLive.Types.VideoSelectorSettings
     mkVideoSelectorSettings,
 
     -- * Lenses
-    vssVideoSelectorProgramId,
     vssVideoSelectorPid,
+    vssVideoSelectorProgramId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.VideoSelectorPid
-import Network.AWS.MediaLive.Types.VideoSelectorProgramId
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.VideoSelectorPid as Types
+import qualified Network.AWS.MediaLive.Types.VideoSelectorProgramId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Video Selector Settings
 --
 -- /See:/ 'mkVideoSelectorSettings' smart constructor.
 data VideoSelectorSettings = VideoSelectorSettings'
-  { videoSelectorProgramId :: Lude.Maybe VideoSelectorProgramId,
-    videoSelectorPid :: Lude.Maybe VideoSelectorPid
+  { videoSelectorPid :: Core.Maybe Types.VideoSelectorPid,
+    videoSelectorProgramId :: Core.Maybe Types.VideoSelectorProgramId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VideoSelectorSettings' with the minimum fields required to make a request.
---
--- * 'videoSelectorProgramId' -
--- * 'videoSelectorPid' -
+-- | Creates a 'VideoSelectorSettings' value with any optional fields omitted.
 mkVideoSelectorSettings ::
   VideoSelectorSettings
 mkVideoSelectorSettings =
   VideoSelectorSettings'
-    { videoSelectorProgramId = Lude.Nothing,
-      videoSelectorPid = Lude.Nothing
+    { videoSelectorPid = Core.Nothing,
+      videoSelectorProgramId = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'videoSelectorProgramId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vssVideoSelectorProgramId :: Lens.Lens' VideoSelectorSettings (Lude.Maybe VideoSelectorProgramId)
-vssVideoSelectorProgramId = Lens.lens (videoSelectorProgramId :: VideoSelectorSettings -> Lude.Maybe VideoSelectorProgramId) (\s a -> s {videoSelectorProgramId = a} :: VideoSelectorSettings)
-{-# DEPRECATED vssVideoSelectorProgramId "Use generic-lens or generic-optics with 'videoSelectorProgramId' instead." #-}
+-- /Note:/ Consider using 'videoSelectorPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vssVideoSelectorPid :: Lens.Lens' VideoSelectorSettings (Core.Maybe Types.VideoSelectorPid)
+vssVideoSelectorPid = Lens.field @"videoSelectorPid"
+{-# DEPRECATED vssVideoSelectorPid "Use generic-lens or generic-optics with 'videoSelectorPid' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'videoSelectorPid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vssVideoSelectorPid :: Lens.Lens' VideoSelectorSettings (Lude.Maybe VideoSelectorPid)
-vssVideoSelectorPid = Lens.lens (videoSelectorPid :: VideoSelectorSettings -> Lude.Maybe VideoSelectorPid) (\s a -> s {videoSelectorPid = a} :: VideoSelectorSettings)
-{-# DEPRECATED vssVideoSelectorPid "Use generic-lens or generic-optics with 'videoSelectorPid' instead." #-}
+-- /Note:/ Consider using 'videoSelectorProgramId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vssVideoSelectorProgramId :: Lens.Lens' VideoSelectorSettings (Core.Maybe Types.VideoSelectorProgramId)
+vssVideoSelectorProgramId = Lens.field @"videoSelectorProgramId"
+{-# DEPRECATED vssVideoSelectorProgramId "Use generic-lens or generic-optics with 'videoSelectorProgramId' instead." #-}
 
-instance Lude.FromJSON VideoSelectorSettings where
-  parseJSON =
-    Lude.withObject
-      "VideoSelectorSettings"
-      ( \x ->
-          VideoSelectorSettings'
-            Lude.<$> (x Lude..:? "videoSelectorProgramId")
-            Lude.<*> (x Lude..:? "videoSelectorPid")
-      )
-
-instance Lude.ToJSON VideoSelectorSettings where
-  toJSON VideoSelectorSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("videoSelectorProgramId" Lude..=)
-              Lude.<$> videoSelectorProgramId,
-            ("videoSelectorPid" Lude..=) Lude.<$> videoSelectorPid
+instance Core.FromJSON VideoSelectorSettings where
+  toJSON VideoSelectorSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("videoSelectorPid" Core..=) Core.<$> videoSelectorPid,
+            ("videoSelectorProgramId" Core..=)
+              Core.<$> videoSelectorProgramId
           ]
       )
+
+instance Core.FromJSON VideoSelectorSettings where
+  parseJSON =
+    Core.withObject "VideoSelectorSettings" Core.$
+      \x ->
+        VideoSelectorSettings'
+          Core.<$> (x Core..:? "videoSelectorPid")
+          Core.<*> (x Core..:? "videoSelectorProgramId")

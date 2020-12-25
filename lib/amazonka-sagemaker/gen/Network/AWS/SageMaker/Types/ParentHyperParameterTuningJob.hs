@@ -22,50 +22,47 @@ module Network.AWS.SageMaker.Types.ParentHyperParameterTuningJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.HyperParameterTuningJobName as Types
 
 -- | A previously completed or stopped hyperparameter tuning job to be used as a starting point for a new hyperparameter tuning job.
 --
 -- /See:/ 'mkParentHyperParameterTuningJob' smart constructor.
 newtype ParentHyperParameterTuningJob = ParentHyperParameterTuningJob'
   { -- | The name of the hyperparameter tuning job to be used as a starting point for a new hyperparameter tuning job.
-    hyperParameterTuningJobName :: Lude.Maybe Lude.Text
+    hyperParameterTuningJobName :: Core.Maybe Types.HyperParameterTuningJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParentHyperParameterTuningJob' with the minimum fields required to make a request.
---
--- * 'hyperParameterTuningJobName' - The name of the hyperparameter tuning job to be used as a starting point for a new hyperparameter tuning job.
+-- | Creates a 'ParentHyperParameterTuningJob' value with any optional fields omitted.
 mkParentHyperParameterTuningJob ::
   ParentHyperParameterTuningJob
 mkParentHyperParameterTuningJob =
   ParentHyperParameterTuningJob'
     { hyperParameterTuningJobName =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the hyperparameter tuning job to be used as a starting point for a new hyperparameter tuning job.
 --
 -- /Note:/ Consider using 'hyperParameterTuningJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-phptjHyperParameterTuningJobName :: Lens.Lens' ParentHyperParameterTuningJob (Lude.Maybe Lude.Text)
-phptjHyperParameterTuningJobName = Lens.lens (hyperParameterTuningJobName :: ParentHyperParameterTuningJob -> Lude.Maybe Lude.Text) (\s a -> s {hyperParameterTuningJobName = a} :: ParentHyperParameterTuningJob)
+phptjHyperParameterTuningJobName :: Lens.Lens' ParentHyperParameterTuningJob (Core.Maybe Types.HyperParameterTuningJobName)
+phptjHyperParameterTuningJobName = Lens.field @"hyperParameterTuningJobName"
 {-# DEPRECATED phptjHyperParameterTuningJobName "Use generic-lens or generic-optics with 'hyperParameterTuningJobName' instead." #-}
 
-instance Lude.FromJSON ParentHyperParameterTuningJob where
-  parseJSON =
-    Lude.withObject
-      "ParentHyperParameterTuningJob"
-      ( \x ->
-          ParentHyperParameterTuningJob'
-            Lude.<$> (x Lude..:? "HyperParameterTuningJobName")
-      )
-
-instance Lude.ToJSON ParentHyperParameterTuningJob where
-  toJSON ParentHyperParameterTuningJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("HyperParameterTuningJobName" Lude..=)
-              Lude.<$> hyperParameterTuningJobName
+instance Core.FromJSON ParentHyperParameterTuningJob where
+  toJSON ParentHyperParameterTuningJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("HyperParameterTuningJobName" Core..=)
+              Core.<$> hyperParameterTuningJobName
           ]
       )
+
+instance Core.FromJSON ParentHyperParameterTuningJob where
+  parseJSON =
+    Core.withObject "ParentHyperParameterTuningJob" Core.$
+      \x ->
+        ParentHyperParameterTuningJob'
+          Core.<$> (x Core..:? "HyperParameterTuningJobName")

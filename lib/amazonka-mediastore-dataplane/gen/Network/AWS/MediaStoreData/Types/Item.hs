@@ -17,111 +17,105 @@ module Network.AWS.MediaStoreData.Types.Item
     mkItem,
 
     -- * Lenses
-    iETag,
     iContentLength,
+    iContentType,
+    iETag,
+    iLastModified,
     iName,
     iType,
-    iLastModified,
-    iContentType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStoreData.Types.ItemType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaStoreData.Types.ContentType as Types
+import qualified Network.AWS.MediaStoreData.Types.ETag as Types
+import qualified Network.AWS.MediaStoreData.Types.ItemName as Types
+import qualified Network.AWS.MediaStoreData.Types.ItemType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A metadata entry for a folder or object.
 --
 -- /See:/ 'mkItem' smart constructor.
 data Item = Item'
-  { -- | The ETag that represents a unique instance of the item.
-    eTag :: Lude.Maybe Lude.Text,
-    -- | The length of the item in bytes.
-    contentLength :: Lude.Maybe Lude.Natural,
-    -- | The name of the item.
-    name :: Lude.Maybe Lude.Text,
-    -- | The item type (folder or object).
-    type' :: Lude.Maybe ItemType,
-    -- | The date and time that the item was last modified.
-    lastModified :: Lude.Maybe Lude.Timestamp,
+  { -- | The length of the item in bytes.
+    contentLength :: Core.Maybe Core.Natural,
     -- | The content type of the item.
-    contentType :: Lude.Maybe Lude.Text
+    contentType :: Core.Maybe Types.ContentType,
+    -- | The ETag that represents a unique instance of the item.
+    eTag :: Core.Maybe Types.ETag,
+    -- | The date and time that the item was last modified.
+    lastModified :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the item.
+    name :: Core.Maybe Types.ItemName,
+    -- | The item type (folder or object).
+    type' :: Core.Maybe Types.ItemType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Item' with the minimum fields required to make a request.
---
--- * 'eTag' - The ETag that represents a unique instance of the item.
--- * 'contentLength' - The length of the item in bytes.
--- * 'name' - The name of the item.
--- * 'type'' - The item type (folder or object).
--- * 'lastModified' - The date and time that the item was last modified.
--- * 'contentType' - The content type of the item.
+-- | Creates a 'Item' value with any optional fields omitted.
 mkItem ::
   Item
 mkItem =
   Item'
-    { eTag = Lude.Nothing,
-      contentLength = Lude.Nothing,
-      name = Lude.Nothing,
-      type' = Lude.Nothing,
-      lastModified = Lude.Nothing,
-      contentType = Lude.Nothing
+    { contentLength = Core.Nothing,
+      contentType = Core.Nothing,
+      eTag = Core.Nothing,
+      lastModified = Core.Nothing,
+      name = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The ETag that represents a unique instance of the item.
---
--- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iETag :: Lens.Lens' Item (Lude.Maybe Lude.Text)
-iETag = Lens.lens (eTag :: Item -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: Item)
-{-# DEPRECATED iETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The length of the item in bytes.
 --
 -- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iContentLength :: Lens.Lens' Item (Lude.Maybe Lude.Natural)
-iContentLength = Lens.lens (contentLength :: Item -> Lude.Maybe Lude.Natural) (\s a -> s {contentLength = a} :: Item)
+iContentLength :: Lens.Lens' Item (Core.Maybe Core.Natural)
+iContentLength = Lens.field @"contentLength"
 {-# DEPRECATED iContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
+
+-- | The content type of the item.
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iContentType :: Lens.Lens' Item (Core.Maybe Types.ContentType)
+iContentType = Lens.field @"contentType"
+{-# DEPRECATED iContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+
+-- | The ETag that represents a unique instance of the item.
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iETag :: Lens.Lens' Item (Core.Maybe Types.ETag)
+iETag = Lens.field @"eTag"
+{-# DEPRECATED iETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+
+-- | The date and time that the item was last modified.
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLastModified :: Lens.Lens' Item (Core.Maybe Core.NominalDiffTime)
+iLastModified = Lens.field @"lastModified"
+{-# DEPRECATED iLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | The name of the item.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iName :: Lens.Lens' Item (Lude.Maybe Lude.Text)
-iName = Lens.lens (name :: Item -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Item)
+iName :: Lens.Lens' Item (Core.Maybe Types.ItemName)
+iName = Lens.field @"name"
 {-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The item type (folder or object).
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iType :: Lens.Lens' Item (Lude.Maybe ItemType)
-iType = Lens.lens (type' :: Item -> Lude.Maybe ItemType) (\s a -> s {type' = a} :: Item)
+iType :: Lens.Lens' Item (Core.Maybe Types.ItemType)
+iType = Lens.field @"type'"
 {-# DEPRECATED iType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The date and time that the item was last modified.
---
--- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iLastModified :: Lens.Lens' Item (Lude.Maybe Lude.Timestamp)
-iLastModified = Lens.lens (lastModified :: Item -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModified = a} :: Item)
-{-# DEPRECATED iLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
-
--- | The content type of the item.
---
--- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iContentType :: Lens.Lens' Item (Lude.Maybe Lude.Text)
-iContentType = Lens.lens (contentType :: Item -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: Item)
-{-# DEPRECATED iContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
-
-instance Lude.FromJSON Item where
+instance Core.FromJSON Item where
   parseJSON =
-    Lude.withObject
-      "Item"
-      ( \x ->
-          Item'
-            Lude.<$> (x Lude..:? "ETag")
-            Lude.<*> (x Lude..:? "ContentLength")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "LastModified")
-            Lude.<*> (x Lude..:? "ContentType")
-      )
+    Core.withObject "Item" Core.$
+      \x ->
+        Item'
+          Core.<$> (x Core..:? "ContentLength")
+          Core.<*> (x Core..:? "ContentType")
+          Core.<*> (x Core..:? "ETag")
+          Core.<*> (x Core..:? "LastModified")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Type")

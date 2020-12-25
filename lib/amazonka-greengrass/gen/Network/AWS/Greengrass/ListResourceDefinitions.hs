@@ -22,146 +22,136 @@ module Network.AWS.Greengrass.ListResourceDefinitions
     mkListResourceDefinitions,
 
     -- ** Request lenses
-    lrdNextToken,
     lrdMaxResults,
+    lrdNextToken,
 
     -- * Destructuring the response
     ListResourceDefinitionsResponse (..),
     mkListResourceDefinitionsResponse,
 
     -- ** Response lenses
-    lrdrsNextToken,
-    lrdrsDefinitions,
-    lrdrsResponseStatus,
+    lrdrrsDefinitions,
+    lrdrrsNextToken,
+    lrdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListResourceDefinitions' smart constructor.
 data ListResourceDefinitions = ListResourceDefinitions'
-  { -- | The token for the next set of results, or ''null'' if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Lude.Maybe Lude.Text
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Core.Maybe Core.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListResourceDefinitions' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'maxResults' - The maximum number of results to be returned per request.
+-- | Creates a 'ListResourceDefinitions' value with any optional fields omitted.
 mkListResourceDefinitions ::
   ListResourceDefinitions
 mkListResourceDefinitions =
   ListResourceDefinitions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token for the next set of results, or ''null'' if there are no additional results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrdNextToken :: Lens.Lens' ListResourceDefinitions (Lude.Maybe Lude.Text)
-lrdNextToken = Lens.lens (nextToken :: ListResourceDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResourceDefinitions)
-{-# DEPRECATED lrdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrdMaxResults :: Lens.Lens' ListResourceDefinitions (Lude.Maybe Lude.Text)
-lrdMaxResults = Lens.lens (maxResults :: ListResourceDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListResourceDefinitions)
+lrdMaxResults :: Lens.Lens' ListResourceDefinitions (Core.Maybe Core.Text)
+lrdMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lrdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListResourceDefinitions where
-  page rq rs
-    | Page.stop (rs Lens.^. lrdrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrdrsDefinitions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lrdNextToken Lens..~ rs Lens.^. lrdrsNextToken
-
-instance Lude.AWSRequest ListResourceDefinitions where
-  type Rs ListResourceDefinitions = ListResourceDefinitionsResponse
-  request = Req.get greengrassService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListResourceDefinitionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Definitions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListResourceDefinitions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListResourceDefinitions where
-  toPath = Lude.const "/greengrass/definition/resources"
-
-instance Lude.ToQuery ListResourceDefinitions where
-  toQuery ListResourceDefinitions' {..} =
-    Lude.mconcat
-      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
-
--- | /See:/ 'mkListResourceDefinitionsResponse' smart constructor.
-data ListResourceDefinitionsResponse = ListResourceDefinitionsResponse'
-  { -- | The token for the next set of results, or ''null'' if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about a definition.
-    definitions :: Lude.Maybe [DefinitionInformation],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListResourceDefinitionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'definitions' - Information about a definition.
--- * 'responseStatus' - The response status code.
-mkListResourceDefinitionsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListResourceDefinitionsResponse
-mkListResourceDefinitionsResponse pResponseStatus_ =
-  ListResourceDefinitionsResponse'
-    { nextToken = Lude.Nothing,
-      definitions = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrdrsNextToken :: Lens.Lens' ListResourceDefinitionsResponse (Lude.Maybe Lude.Text)
-lrdrsNextToken = Lens.lens (nextToken :: ListResourceDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResourceDefinitionsResponse)
-{-# DEPRECATED lrdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lrdNextToken :: Lens.Lens' ListResourceDefinitions (Core.Maybe Core.Text)
+lrdNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest ListResourceDefinitions where
+  type Rs ListResourceDefinitions = ListResourceDefinitionsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/greengrass/definition/resources",
+        Core._rqQuery =
+          Core.toQueryValue "MaxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListResourceDefinitionsResponse'
+            Core.<$> (x Core..:? "Definitions")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListResourceDefinitions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"definitions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListResourceDefinitionsResponse' smart constructor.
+data ListResourceDefinitionsResponse = ListResourceDefinitionsResponse'
+  { -- | Information about a definition.
+    definitions :: Core.Maybe [Types.DefinitionInformation],
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Core.Maybe Core.Text,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'ListResourceDefinitionsResponse' value with any optional fields omitted.
+mkListResourceDefinitionsResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListResourceDefinitionsResponse
+mkListResourceDefinitionsResponse responseStatus =
+  ListResourceDefinitionsResponse'
+    { definitions = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | Information about a definition.
 --
 -- /Note:/ Consider using 'definitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrdrsDefinitions :: Lens.Lens' ListResourceDefinitionsResponse (Lude.Maybe [DefinitionInformation])
-lrdrsDefinitions = Lens.lens (definitions :: ListResourceDefinitionsResponse -> Lude.Maybe [DefinitionInformation]) (\s a -> s {definitions = a} :: ListResourceDefinitionsResponse)
-{-# DEPRECATED lrdrsDefinitions "Use generic-lens or generic-optics with 'definitions' instead." #-}
+lrdrrsDefinitions :: Lens.Lens' ListResourceDefinitionsResponse (Core.Maybe [Types.DefinitionInformation])
+lrdrrsDefinitions = Lens.field @"definitions"
+{-# DEPRECATED lrdrrsDefinitions "Use generic-lens or generic-optics with 'definitions' instead." #-}
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdrrsNextToken :: Lens.Lens' ListResourceDefinitionsResponse (Core.Maybe Core.Text)
+lrdrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrdrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrdrsResponseStatus :: Lens.Lens' ListResourceDefinitionsResponse Lude.Int
-lrdrsResponseStatus = Lens.lens (responseStatus :: ListResourceDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourceDefinitionsResponse)
-{-# DEPRECATED lrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrdrrsResponseStatus :: Lens.Lens' ListResourceDefinitionsResponse Core.Int
+lrdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

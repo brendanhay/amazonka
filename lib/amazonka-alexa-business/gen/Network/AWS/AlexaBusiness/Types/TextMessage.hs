@@ -22,54 +22,51 @@ module Network.AWS.AlexaBusiness.Types.TextMessage
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.Locale
+import qualified Network.AWS.AlexaBusiness.Types.Locale as Types
+import qualified Network.AWS.AlexaBusiness.Types.TextValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The text message.
 --
 -- /See:/ 'mkTextMessage' smart constructor.
 data TextMessage = TextMessage'
   { -- | The locale of the text message. Currently, en-US is supported.
-    locale :: Locale,
+    locale :: Types.Locale,
     -- | The value of the text message.
-    value :: Lude.Text
+    value :: Types.TextValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TextMessage' with the minimum fields required to make a request.
---
--- * 'locale' - The locale of the text message. Currently, en-US is supported.
--- * 'value' - The value of the text message.
+-- | Creates a 'TextMessage' value with any optional fields omitted.
 mkTextMessage ::
   -- | 'locale'
-  Locale ->
+  Types.Locale ->
   -- | 'value'
-  Lude.Text ->
+  Types.TextValue ->
   TextMessage
-mkTextMessage pLocale_ pValue_ =
-  TextMessage' {locale = pLocale_, value = pValue_}
+mkTextMessage locale value = TextMessage' {locale, value}
 
 -- | The locale of the text message. Currently, en-US is supported.
 --
 -- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmLocale :: Lens.Lens' TextMessage Locale
-tmLocale = Lens.lens (locale :: TextMessage -> Locale) (\s a -> s {locale = a} :: TextMessage)
+tmLocale :: Lens.Lens' TextMessage Types.Locale
+tmLocale = Lens.field @"locale"
 {-# DEPRECATED tmLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | The value of the text message.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmValue :: Lens.Lens' TextMessage Lude.Text
-tmValue = Lens.lens (value :: TextMessage -> Lude.Text) (\s a -> s {value = a} :: TextMessage)
+tmValue :: Lens.Lens' TextMessage Types.TextValue
+tmValue = Lens.field @"value"
 {-# DEPRECATED tmValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON TextMessage where
-  toJSON TextMessage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Locale" Lude..= locale),
-            Lude.Just ("Value" Lude..= value)
+instance Core.FromJSON TextMessage where
+  toJSON TextMessage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Locale" Core..= locale),
+            Core.Just ("Value" Core..= value)
           ]
       )

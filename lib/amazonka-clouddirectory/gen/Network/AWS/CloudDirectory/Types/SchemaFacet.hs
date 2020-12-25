@@ -18,62 +18,59 @@ module Network.AWS.CloudDirectory.Types.SchemaFacet
 
     -- * Lenses
     sfFacetName,
-    sfSchemaARN,
+    sfSchemaArn,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.FacetName as Types
+import qualified Network.AWS.CloudDirectory.Types.SchemaArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A facet.
 --
 -- /See:/ 'mkSchemaFacet' smart constructor.
 data SchemaFacet = SchemaFacet'
   { -- | The name of the facet.
-    facetName :: Lude.Maybe Lude.Text,
+    facetName :: Core.Maybe Types.FacetName,
     -- | The ARN of the schema that contains the facet with no minor component. See 'arns' and <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
-    schemaARN :: Lude.Maybe Lude.Text
+    schemaArn :: Core.Maybe Types.SchemaArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SchemaFacet' with the minimum fields required to make a request.
---
--- * 'facetName' - The name of the facet.
--- * 'schemaARN' - The ARN of the schema that contains the facet with no minor component. See 'arns' and <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
+-- | Creates a 'SchemaFacet' value with any optional fields omitted.
 mkSchemaFacet ::
   SchemaFacet
 mkSchemaFacet =
-  SchemaFacet' {facetName = Lude.Nothing, schemaARN = Lude.Nothing}
+  SchemaFacet' {facetName = Core.Nothing, schemaArn = Core.Nothing}
 
 -- | The name of the facet.
 --
 -- /Note:/ Consider using 'facetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfFacetName :: Lens.Lens' SchemaFacet (Lude.Maybe Lude.Text)
-sfFacetName = Lens.lens (facetName :: SchemaFacet -> Lude.Maybe Lude.Text) (\s a -> s {facetName = a} :: SchemaFacet)
+sfFacetName :: Lens.Lens' SchemaFacet (Core.Maybe Types.FacetName)
+sfFacetName = Lens.field @"facetName"
 {-# DEPRECATED sfFacetName "Use generic-lens or generic-optics with 'facetName' instead." #-}
 
 -- | The ARN of the schema that contains the facet with no minor component. See 'arns' and <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfSchemaARN :: Lens.Lens' SchemaFacet (Lude.Maybe Lude.Text)
-sfSchemaARN = Lens.lens (schemaARN :: SchemaFacet -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: SchemaFacet)
-{-# DEPRECATED sfSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfSchemaArn :: Lens.Lens' SchemaFacet (Core.Maybe Types.SchemaArn)
+sfSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED sfSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
-instance Lude.FromJSON SchemaFacet where
-  parseJSON =
-    Lude.withObject
-      "SchemaFacet"
-      ( \x ->
-          SchemaFacet'
-            Lude.<$> (x Lude..:? "FacetName") Lude.<*> (x Lude..:? "SchemaArn")
-      )
-
-instance Lude.ToJSON SchemaFacet where
-  toJSON SchemaFacet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("FacetName" Lude..=) Lude.<$> facetName,
-            ("SchemaArn" Lude..=) Lude.<$> schemaARN
+instance Core.FromJSON SchemaFacet where
+  toJSON SchemaFacet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("FacetName" Core..=) Core.<$> facetName,
+            ("SchemaArn" Core..=) Core.<$> schemaArn
           ]
       )
+
+instance Core.FromJSON SchemaFacet where
+  parseJSON =
+    Core.withObject "SchemaFacet" Core.$
+      \x ->
+        SchemaFacet'
+          Core.<$> (x Core..:? "FacetName") Core.<*> (x Core..:? "SchemaArn")

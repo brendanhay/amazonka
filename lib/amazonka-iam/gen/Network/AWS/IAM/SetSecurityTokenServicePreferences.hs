@@ -32,75 +32,73 @@ module Network.AWS.IAM.SetSecurityTokenServicePreferences
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetSecurityTokenServicePreferences' smart constructor.
 newtype SetSecurityTokenServicePreferences = SetSecurityTokenServicePreferences'
   { -- | The version of the global endpoint token. Version 1 tokens are valid only in AWS Regions that are available by default. These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might affect systems where you temporarily store tokens.
     --
     -- For information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating STS in an AWS Region> in the /IAM User Guide/ .
-    globalEndpointTokenVersion :: GlobalEndpointTokenVersion
+    globalEndpointTokenVersion :: Types.GlobalEndpointTokenVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetSecurityTokenServicePreferences' with the minimum fields required to make a request.
---
--- * 'globalEndpointTokenVersion' - The version of the global endpoint token. Version 1 tokens are valid only in AWS Regions that are available by default. These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might affect systems where you temporarily store tokens.
---
--- For information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating STS in an AWS Region> in the /IAM User Guide/ .
+-- | Creates a 'SetSecurityTokenServicePreferences' value with any optional fields omitted.
 mkSetSecurityTokenServicePreferences ::
   -- | 'globalEndpointTokenVersion'
-  GlobalEndpointTokenVersion ->
+  Types.GlobalEndpointTokenVersion ->
   SetSecurityTokenServicePreferences
-mkSetSecurityTokenServicePreferences pGlobalEndpointTokenVersion_ =
-  SetSecurityTokenServicePreferences'
-    { globalEndpointTokenVersion =
-        pGlobalEndpointTokenVersion_
-    }
+mkSetSecurityTokenServicePreferences globalEndpointTokenVersion =
+  SetSecurityTokenServicePreferences' {globalEndpointTokenVersion}
 
 -- | The version of the global endpoint token. Version 1 tokens are valid only in AWS Regions that are available by default. These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might affect systems where you temporarily store tokens.
 --
 -- For information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating STS in an AWS Region> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'globalEndpointTokenVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sstspGlobalEndpointTokenVersion :: Lens.Lens' SetSecurityTokenServicePreferences GlobalEndpointTokenVersion
-sstspGlobalEndpointTokenVersion = Lens.lens (globalEndpointTokenVersion :: SetSecurityTokenServicePreferences -> GlobalEndpointTokenVersion) (\s a -> s {globalEndpointTokenVersion = a} :: SetSecurityTokenServicePreferences)
+sstspGlobalEndpointTokenVersion :: Lens.Lens' SetSecurityTokenServicePreferences Types.GlobalEndpointTokenVersion
+sstspGlobalEndpointTokenVersion = Lens.field @"globalEndpointTokenVersion"
 {-# DEPRECATED sstspGlobalEndpointTokenVersion "Use generic-lens or generic-optics with 'globalEndpointTokenVersion' instead." #-}
 
-instance Lude.AWSRequest SetSecurityTokenServicePreferences where
+instance Core.AWSRequest SetSecurityTokenServicePreferences where
   type
     Rs SetSecurityTokenServicePreferences =
       SetSecurityTokenServicePreferencesResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetSecurityTokenServicePreferences")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> ( Core.toQueryValue
+                            "GlobalEndpointTokenVersion"
+                            globalEndpointTokenVersion
+                        )
+            )
+      }
   response =
-    Res.receiveNull SetSecurityTokenServicePreferencesResponse'
-
-instance Lude.ToHeaders SetSecurityTokenServicePreferences where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetSecurityTokenServicePreferences where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetSecurityTokenServicePreferences where
-  toQuery SetSecurityTokenServicePreferences' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("SetSecurityTokenServicePreferences" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "GlobalEndpointTokenVersion" Lude.=: globalEndpointTokenVersion
-      ]
+    Response.receiveNull SetSecurityTokenServicePreferencesResponse'
 
 -- | /See:/ 'mkSetSecurityTokenServicePreferencesResponse' smart constructor.
 data SetSecurityTokenServicePreferencesResponse = SetSecurityTokenServicePreferencesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetSecurityTokenServicePreferencesResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetSecurityTokenServicePreferencesResponse' value with any optional fields omitted.
 mkSetSecurityTokenServicePreferencesResponse ::
   SetSecurityTokenServicePreferencesResponse
 mkSetSecurityTokenServicePreferencesResponse =

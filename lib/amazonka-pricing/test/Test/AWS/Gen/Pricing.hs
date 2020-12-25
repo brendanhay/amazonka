@@ -78,7 +78,7 @@ responseGetAttributeValues =
   res
     "GetAttributeValuesResponse"
     "fixture/GetAttributeValuesResponse.proto"
-    pricingService
+    mkServiceConfig
     (Proxy :: Proxy GetAttributeValues)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
@@ -86,7 +86,7 @@ responseDescribeServices =
   res
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse.proto"
-    pricingService
+    mkServiceConfig
     (Proxy :: Proxy DescribeServices)
 
 responseGetProducts :: GetProductsResponse -> TestTree
@@ -94,5 +94,5 @@ responseGetProducts =
   res
     "GetProductsResponse"
     "fixture/GetProductsResponse.proto"
-    pricingService
+    mkServiceConfig
     (Proxy :: Proxy GetProducts)

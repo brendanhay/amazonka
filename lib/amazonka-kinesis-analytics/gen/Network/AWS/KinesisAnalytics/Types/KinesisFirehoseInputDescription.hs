@@ -22,52 +22,49 @@ module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.ResourceARN as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Amazon Kinesis Firehose delivery stream that is configured as the streaming source in the application input configuration.
 --
 -- /See:/ 'mkKinesisFirehoseInputDescription' smart constructor.
 data KinesisFirehoseInputDescription = KinesisFirehoseInputDescription'
   { -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
-    resourceARN :: Lude.Maybe Lude.Text,
+    resourceARN :: Core.Maybe Types.ResourceARN,
     -- | ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream.
-    roleARN :: Lude.Maybe Lude.Text
+    roleARN :: Core.Maybe Types.RoleARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisFirehoseInputDescription' with the minimum fields required to make a request.
---
--- * 'resourceARN' - Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
--- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream.
+-- | Creates a 'KinesisFirehoseInputDescription' value with any optional fields omitted.
 mkKinesisFirehoseInputDescription ::
   KinesisFirehoseInputDescription
 mkKinesisFirehoseInputDescription =
   KinesisFirehoseInputDescription'
-    { resourceARN = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { resourceARN = Core.Nothing,
+      roleARN = Core.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kfidResourceARN :: Lens.Lens' KinesisFirehoseInputDescription (Lude.Maybe Lude.Text)
-kfidResourceARN = Lens.lens (resourceARN :: KinesisFirehoseInputDescription -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: KinesisFirehoseInputDescription)
+kfidResourceARN :: Lens.Lens' KinesisFirehoseInputDescription (Core.Maybe Types.ResourceARN)
+kfidResourceARN = Lens.field @"resourceARN"
 {-# DEPRECATED kfidResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kfidRoleARN :: Lens.Lens' KinesisFirehoseInputDescription (Lude.Maybe Lude.Text)
-kfidRoleARN = Lens.lens (roleARN :: KinesisFirehoseInputDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: KinesisFirehoseInputDescription)
+kfidRoleARN :: Lens.Lens' KinesisFirehoseInputDescription (Core.Maybe Types.RoleARN)
+kfidRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED kfidRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.FromJSON KinesisFirehoseInputDescription where
+instance Core.FromJSON KinesisFirehoseInputDescription where
   parseJSON =
-    Lude.withObject
-      "KinesisFirehoseInputDescription"
-      ( \x ->
-          KinesisFirehoseInputDescription'
-            Lude.<$> (x Lude..:? "ResourceARN") Lude.<*> (x Lude..:? "RoleARN")
-      )
+    Core.withObject "KinesisFirehoseInputDescription" Core.$
+      \x ->
+        KinesisFirehoseInputDescription'
+          Core.<$> (x Core..:? "ResourceARN") Core.<*> (x Core..:? "RoleARN")

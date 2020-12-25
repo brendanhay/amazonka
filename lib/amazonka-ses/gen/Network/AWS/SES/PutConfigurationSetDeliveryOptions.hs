@@ -28,112 +28,105 @@ module Network.AWS.SES.PutConfigurationSetDeliveryOptions
     mkPutConfigurationSetDeliveryOptionsResponse,
 
     -- ** Response lenses
-    pcsdorsResponseStatus,
+    pcsdorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | A request to modify the delivery options for a configuration set.
 --
 -- /See:/ 'mkPutConfigurationSetDeliveryOptions' smart constructor.
 data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
   { -- | The name of the configuration set that you want to specify the delivery options for.
-    configurationSetName :: Lude.Text,
+    configurationSetName :: Types.ConfigurationSetName,
     -- | Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
-    deliveryOptions :: Lude.Maybe DeliveryOptions
+    deliveryOptions :: Core.Maybe Types.DeliveryOptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutConfigurationSetDeliveryOptions' with the minimum fields required to make a request.
---
--- * 'configurationSetName' - The name of the configuration set that you want to specify the delivery options for.
--- * 'deliveryOptions' - Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+-- | Creates a 'PutConfigurationSetDeliveryOptions' value with any optional fields omitted.
 mkPutConfigurationSetDeliveryOptions ::
   -- | 'configurationSetName'
-  Lude.Text ->
+  Types.ConfigurationSetName ->
   PutConfigurationSetDeliveryOptions
-mkPutConfigurationSetDeliveryOptions pConfigurationSetName_ =
+mkPutConfigurationSetDeliveryOptions configurationSetName =
   PutConfigurationSetDeliveryOptions'
-    { configurationSetName =
-        pConfigurationSetName_,
-      deliveryOptions = Lude.Nothing
+    { configurationSetName,
+      deliveryOptions = Core.Nothing
     }
 
 -- | The name of the configuration set that you want to specify the delivery options for.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsdoConfigurationSetName :: Lens.Lens' PutConfigurationSetDeliveryOptions Lude.Text
-pcsdoConfigurationSetName = Lens.lens (configurationSetName :: PutConfigurationSetDeliveryOptions -> Lude.Text) (\s a -> s {configurationSetName = a} :: PutConfigurationSetDeliveryOptions)
+pcsdoConfigurationSetName :: Lens.Lens' PutConfigurationSetDeliveryOptions Types.ConfigurationSetName
+pcsdoConfigurationSetName = Lens.field @"configurationSetName"
 {-# DEPRECATED pcsdoConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 -- | Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
 --
 -- /Note:/ Consider using 'deliveryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsdoDeliveryOptions :: Lens.Lens' PutConfigurationSetDeliveryOptions (Lude.Maybe DeliveryOptions)
-pcsdoDeliveryOptions = Lens.lens (deliveryOptions :: PutConfigurationSetDeliveryOptions -> Lude.Maybe DeliveryOptions) (\s a -> s {deliveryOptions = a} :: PutConfigurationSetDeliveryOptions)
+pcsdoDeliveryOptions :: Lens.Lens' PutConfigurationSetDeliveryOptions (Core.Maybe Types.DeliveryOptions)
+pcsdoDeliveryOptions = Lens.field @"deliveryOptions"
 {-# DEPRECATED pcsdoDeliveryOptions "Use generic-lens or generic-optics with 'deliveryOptions' instead." #-}
 
-instance Lude.AWSRequest PutConfigurationSetDeliveryOptions where
+instance Core.AWSRequest PutConfigurationSetDeliveryOptions where
   type
     Rs PutConfigurationSetDeliveryOptions =
       PutConfigurationSetDeliveryOptionsResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PutConfigurationSetDeliveryOptions")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ConfigurationSetName" configurationSetName)
+                Core.<> (Core.toQueryValue "DeliveryOptions" Core.<$> deliveryOptions)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "PutConfigurationSetDeliveryOptionsResult"
       ( \s h x ->
           PutConfigurationSetDeliveryOptionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutConfigurationSetDeliveryOptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutConfigurationSetDeliveryOptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutConfigurationSetDeliveryOptions where
-  toQuery PutConfigurationSetDeliveryOptions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("PutConfigurationSetDeliveryOptions" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ConfigurationSetName" Lude.=: configurationSetName,
-        "DeliveryOptions" Lude.=: deliveryOptions
-      ]
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the request fails.
 --
 -- /See:/ 'mkPutConfigurationSetDeliveryOptionsResponse' smart constructor.
 newtype PutConfigurationSetDeliveryOptionsResponse = PutConfigurationSetDeliveryOptionsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutConfigurationSetDeliveryOptionsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutConfigurationSetDeliveryOptionsResponse' value with any optional fields omitted.
 mkPutConfigurationSetDeliveryOptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutConfigurationSetDeliveryOptionsResponse
-mkPutConfigurationSetDeliveryOptionsResponse pResponseStatus_ =
-  PutConfigurationSetDeliveryOptionsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkPutConfigurationSetDeliveryOptionsResponse responseStatus =
+  PutConfigurationSetDeliveryOptionsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsdorsResponseStatus :: Lens.Lens' PutConfigurationSetDeliveryOptionsResponse Lude.Int
-pcsdorsResponseStatus = Lens.lens (responseStatus :: PutConfigurationSetDeliveryOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutConfigurationSetDeliveryOptionsResponse)
-{-# DEPRECATED pcsdorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pcsdorrsResponseStatus :: Lens.Lens' PutConfigurationSetDeliveryOptionsResponse Core.Int
+pcsdorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pcsdorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

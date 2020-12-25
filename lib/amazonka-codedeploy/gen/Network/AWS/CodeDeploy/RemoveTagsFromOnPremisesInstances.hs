@@ -20,8 +20,8 @@ module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     mkRemoveTagsFromOnPremisesInstances,
 
     -- ** Request lenses
-    rtfopiInstanceNames,
     rtfopiTags,
+    rtfopiInstanceNames,
 
     -- * Destructuring the response
     RemoveTagsFromOnPremisesInstancesResponse (..),
@@ -29,92 +29,83 @@ module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @RemoveTagsFromOnPremisesInstances@ operation.
 --
 -- /See:/ 'mkRemoveTagsFromOnPremisesInstances' smart constructor.
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
-  { -- | The names of the on-premises instances from which to remove tags.
-    instanceNames :: [Lude.Text],
-    -- | The tag key-value pairs to remove from the on-premises instances.
-    tags :: [Tag]
+  { -- | The tag key-value pairs to remove from the on-premises instances.
+    tags :: [Types.Tag],
+    -- | The names of the on-premises instances from which to remove tags.
+    instanceNames :: [Types.InstanceName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromOnPremisesInstances' with the minimum fields required to make a request.
---
--- * 'instanceNames' - The names of the on-premises instances from which to remove tags.
--- * 'tags' - The tag key-value pairs to remove from the on-premises instances.
+-- | Creates a 'RemoveTagsFromOnPremisesInstances' value with any optional fields omitted.
 mkRemoveTagsFromOnPremisesInstances ::
   RemoveTagsFromOnPremisesInstances
 mkRemoveTagsFromOnPremisesInstances =
   RemoveTagsFromOnPremisesInstances'
-    { instanceNames = Lude.mempty,
-      tags = Lude.mempty
+    { tags = Core.mempty,
+      instanceNames = Core.mempty
     }
-
--- | The names of the on-premises instances from which to remove tags.
---
--- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfopiInstanceNames :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Lude.Text]
-rtfopiInstanceNames = Lens.lens (instanceNames :: RemoveTagsFromOnPremisesInstances -> [Lude.Text]) (\s a -> s {instanceNames = a} :: RemoveTagsFromOnPremisesInstances)
-{-# DEPRECATED rtfopiInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
 -- | The tag key-value pairs to remove from the on-premises instances.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfopiTags :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Tag]
-rtfopiTags = Lens.lens (tags :: RemoveTagsFromOnPremisesInstances -> [Tag]) (\s a -> s {tags = a} :: RemoveTagsFromOnPremisesInstances)
+rtfopiTags :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Types.Tag]
+rtfopiTags = Lens.field @"tags"
 {-# DEPRECATED rtfopiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest RemoveTagsFromOnPremisesInstances where
+-- | The names of the on-premises instances from which to remove tags.
+--
+-- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfopiInstanceNames :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Types.InstanceName]
+rtfopiInstanceNames = Lens.field @"instanceNames"
+{-# DEPRECATED rtfopiInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
+
+instance Core.FromJSON RemoveTagsFromOnPremisesInstances where
+  toJSON RemoveTagsFromOnPremisesInstances {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("tags" Core..= tags),
+            Core.Just ("instanceNames" Core..= instanceNames)
+          ]
+      )
+
+instance Core.AWSRequest RemoveTagsFromOnPremisesInstances where
   type
     Rs RemoveTagsFromOnPremisesInstances =
       RemoveTagsFromOnPremisesInstancesResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveNull RemoveTagsFromOnPremisesInstancesResponse'
-
-instance Lude.ToHeaders RemoveTagsFromOnPremisesInstances where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveTagsFromOnPremisesInstances where
-  toJSON RemoveTagsFromOnPremisesInstances' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("instanceNames" Lude..= instanceNames),
-            Lude.Just ("tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath RemoveTagsFromOnPremisesInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveTagsFromOnPremisesInstances where
-  toQuery = Lude.const Lude.mempty
+    Response.receiveNull RemoveTagsFromOnPremisesInstancesResponse'
 
 -- | /See:/ 'mkRemoveTagsFromOnPremisesInstancesResponse' smart constructor.
 data RemoveTagsFromOnPremisesInstancesResponse = RemoveTagsFromOnPremisesInstancesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromOnPremisesInstancesResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveTagsFromOnPremisesInstancesResponse' value with any optional fields omitted.
 mkRemoveTagsFromOnPremisesInstancesResponse ::
   RemoveTagsFromOnPremisesInstancesResponse
 mkRemoveTagsFromOnPremisesInstancesResponse =

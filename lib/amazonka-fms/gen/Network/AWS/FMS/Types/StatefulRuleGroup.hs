@@ -22,52 +22,49 @@ module Network.AWS.FMS.Types.StatefulRuleGroup
   )
 where
 
+import qualified Network.AWS.FMS.Types.ResourceId as Types
+import qualified Network.AWS.FMS.Types.RuleGroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | AWS Network Firewall stateful rule group, used in a 'NetworkFirewallPolicyDescription' .
 --
 -- /See:/ 'mkStatefulRuleGroup' smart constructor.
 data StatefulRuleGroup = StatefulRuleGroup'
   { -- | The resource ID of the rule group.
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.ResourceId,
     -- | The name of the rule group.
-    ruleGroupName :: Lude.Maybe Lude.Text
+    ruleGroupName :: Core.Maybe Types.RuleGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StatefulRuleGroup' with the minimum fields required to make a request.
---
--- * 'resourceId' - The resource ID of the rule group.
--- * 'ruleGroupName' - The name of the rule group.
+-- | Creates a 'StatefulRuleGroup' value with any optional fields omitted.
 mkStatefulRuleGroup ::
   StatefulRuleGroup
 mkStatefulRuleGroup =
   StatefulRuleGroup'
-    { resourceId = Lude.Nothing,
-      ruleGroupName = Lude.Nothing
+    { resourceId = Core.Nothing,
+      ruleGroupName = Core.Nothing
     }
 
 -- | The resource ID of the rule group.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srgResourceId :: Lens.Lens' StatefulRuleGroup (Lude.Maybe Lude.Text)
-srgResourceId = Lens.lens (resourceId :: StatefulRuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: StatefulRuleGroup)
+srgResourceId :: Lens.Lens' StatefulRuleGroup (Core.Maybe Types.ResourceId)
+srgResourceId = Lens.field @"resourceId"
 {-# DEPRECATED srgResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The name of the rule group.
 --
 -- /Note:/ Consider using 'ruleGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srgRuleGroupName :: Lens.Lens' StatefulRuleGroup (Lude.Maybe Lude.Text)
-srgRuleGroupName = Lens.lens (ruleGroupName :: StatefulRuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {ruleGroupName = a} :: StatefulRuleGroup)
+srgRuleGroupName :: Lens.Lens' StatefulRuleGroup (Core.Maybe Types.RuleGroupName)
+srgRuleGroupName = Lens.field @"ruleGroupName"
 {-# DEPRECATED srgRuleGroupName "Use generic-lens or generic-optics with 'ruleGroupName' instead." #-}
 
-instance Lude.FromJSON StatefulRuleGroup where
+instance Core.FromJSON StatefulRuleGroup where
   parseJSON =
-    Lude.withObject
-      "StatefulRuleGroup"
-      ( \x ->
-          StatefulRuleGroup'
-            Lude.<$> (x Lude..:? "ResourceId") Lude.<*> (x Lude..:? "RuleGroupName")
-      )
+    Core.withObject "StatefulRuleGroup" Core.$
+      \x ->
+        StatefulRuleGroup'
+          Core.<$> (x Core..:? "ResourceId") Core.<*> (x Core..:? "RuleGroupName")

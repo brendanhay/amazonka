@@ -27,120 +27,107 @@ module Network.AWS.Mobile.DeleteProject
     mkDeleteProjectResponse,
 
     -- ** Response lenses
-    dprsDeletedResources,
-    dprsOrphanedResources,
-    dprsResponseStatus,
+    dprrsDeletedResources,
+    dprrsOrphanedResources,
+    dprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Mobile.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Mobile.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request structure used to request a project be deleted.
 --
 -- /See:/ 'mkDeleteProject' smart constructor.
 newtype DeleteProject = DeleteProject'
   { -- | Unique project identifier.
-    projectId :: Lude.Text
+    projectId :: Types.ProjectId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
---
--- * 'projectId' - Unique project identifier.
+-- | Creates a 'DeleteProject' value with any optional fields omitted.
 mkDeleteProject ::
   -- | 'projectId'
-  Lude.Text ->
+  Types.ProjectId ->
   DeleteProject
-mkDeleteProject pProjectId_ =
-  DeleteProject' {projectId = pProjectId_}
+mkDeleteProject projectId = DeleteProject' {projectId}
 
 -- | Unique project identifier.
 --
 -- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpProjectId :: Lens.Lens' DeleteProject Lude.Text
-dpProjectId = Lens.lens (projectId :: DeleteProject -> Lude.Text) (\s a -> s {projectId = a} :: DeleteProject)
+dpProjectId :: Lens.Lens' DeleteProject Types.ProjectId
+dpProjectId = Lens.field @"projectId"
 {-# DEPRECATED dpProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
-instance Lude.AWSRequest DeleteProject where
+instance Core.AWSRequest DeleteProject where
   type Rs DeleteProject = DeleteProjectResponse
-  request = Req.delete mobileService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/projects/" Core.<> (Core.toText projectId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteProjectResponse'
-            Lude.<$> (x Lude..?> "deletedResources" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "orphanedResources" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deletedResources")
+            Core.<*> (x Core..:? "orphanedResources")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteProject where
-  toPath DeleteProject' {..} =
-    Lude.mconcat ["/projects/", Lude.toBS projectId]
-
-instance Lude.ToQuery DeleteProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | Result structure used in response to request to delete a project.
 --
 -- /See:/ 'mkDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
   { -- | Resources which were deleted.
-    deletedResources :: Lude.Maybe [Resource],
+    deletedResources :: Core.Maybe [Types.Resource],
     -- | Resources which were not deleted, due to a risk of losing potentially important data or files.
-    orphanedResources :: Lude.Maybe [Resource],
+    orphanedResources :: Core.Maybe [Types.Resource],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.
---
--- * 'deletedResources' - Resources which were deleted.
--- * 'orphanedResources' - Resources which were not deleted, due to a risk of losing potentially important data or files.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProjectResponse' value with any optional fields omitted.
 mkDeleteProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProjectResponse
-mkDeleteProjectResponse pResponseStatus_ =
+mkDeleteProjectResponse responseStatus =
   DeleteProjectResponse'
-    { deletedResources = Lude.Nothing,
-      orphanedResources = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deletedResources = Core.Nothing,
+      orphanedResources = Core.Nothing,
+      responseStatus
     }
 
 -- | Resources which were deleted.
 --
 -- /Note:/ Consider using 'deletedResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsDeletedResources :: Lens.Lens' DeleteProjectResponse (Lude.Maybe [Resource])
-dprsDeletedResources = Lens.lens (deletedResources :: DeleteProjectResponse -> Lude.Maybe [Resource]) (\s a -> s {deletedResources = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsDeletedResources "Use generic-lens or generic-optics with 'deletedResources' instead." #-}
+dprrsDeletedResources :: Lens.Lens' DeleteProjectResponse (Core.Maybe [Types.Resource])
+dprrsDeletedResources = Lens.field @"deletedResources"
+{-# DEPRECATED dprrsDeletedResources "Use generic-lens or generic-optics with 'deletedResources' instead." #-}
 
 -- | Resources which were not deleted, due to a risk of losing potentially important data or files.
 --
 -- /Note:/ Consider using 'orphanedResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsOrphanedResources :: Lens.Lens' DeleteProjectResponse (Lude.Maybe [Resource])
-dprsOrphanedResources = Lens.lens (orphanedResources :: DeleteProjectResponse -> Lude.Maybe [Resource]) (\s a -> s {orphanedResources = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsOrphanedResources "Use generic-lens or generic-optics with 'orphanedResources' instead." #-}
+dprrsOrphanedResources :: Lens.Lens' DeleteProjectResponse (Core.Maybe [Types.Resource])
+dprrsOrphanedResources = Lens.field @"orphanedResources"
+{-# DEPRECATED dprrsOrphanedResources "Use generic-lens or generic-optics with 'orphanedResources' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DeleteProjectResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DeleteProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DeleteProjectResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

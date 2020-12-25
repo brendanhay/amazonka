@@ -26,94 +26,91 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     mkDescribeTerminationPolicyTypesResponse,
 
     -- ** Response lenses
-    dtptrsTerminationPolicyTypes,
-    dtptrsResponseStatus,
+    dtptrrsTerminationPolicyTypes,
+    dtptrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTerminationPolicyTypes' smart constructor.
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTerminationPolicyTypes' with the minimum fields required to make a request.
+-- | Creates a 'DescribeTerminationPolicyTypes' value with any optional fields omitted.
 mkDescribeTerminationPolicyTypes ::
   DescribeTerminationPolicyTypes
 mkDescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
 
-instance Lude.AWSRequest DescribeTerminationPolicyTypes where
+instance Core.AWSRequest DescribeTerminationPolicyTypes where
   type
     Rs DescribeTerminationPolicyTypes =
       DescribeTerminationPolicyTypesResponse
-  request = Req.postQuery autoScalingService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeTerminationPolicyTypes")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeTerminationPolicyTypesResult"
       ( \s h x ->
           DescribeTerminationPolicyTypesResponse'
-            Lude.<$> ( x Lude..@? "TerminationPolicyTypes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "TerminationPolicyTypes"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeTerminationPolicyTypes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeTerminationPolicyTypes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTerminationPolicyTypes where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action"
-              Lude.=: ("DescribeTerminationPolicyTypes" :: Lude.ByteString),
-            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
-          ]
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | /See:/ 'mkDescribeTerminationPolicyTypesResponse' smart constructor.
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
   { -- | The termination policies supported by Amazon EC2 Auto Scaling: @OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , @Default@ , @OldestLaunchTemplate@ , and @AllocationStrategy@ .
-    terminationPolicyTypes :: Lude.Maybe [Lude.Text],
+    terminationPolicyTypes :: Core.Maybe [Types.XmlStringMaxLen1600],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTerminationPolicyTypesResponse' with the minimum fields required to make a request.
---
--- * 'terminationPolicyTypes' - The termination policies supported by Amazon EC2 Auto Scaling: @OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , @Default@ , @OldestLaunchTemplate@ , and @AllocationStrategy@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTerminationPolicyTypesResponse' value with any optional fields omitted.
 mkDescribeTerminationPolicyTypesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTerminationPolicyTypesResponse
-mkDescribeTerminationPolicyTypesResponse pResponseStatus_ =
+mkDescribeTerminationPolicyTypesResponse responseStatus =
   DescribeTerminationPolicyTypesResponse'
     { terminationPolicyTypes =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The termination policies supported by Amazon EC2 Auto Scaling: @OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , @Default@ , @OldestLaunchTemplate@ , and @AllocationStrategy@ .
 --
 -- /Note:/ Consider using 'terminationPolicyTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtptrsTerminationPolicyTypes :: Lens.Lens' DescribeTerminationPolicyTypesResponse (Lude.Maybe [Lude.Text])
-dtptrsTerminationPolicyTypes = Lens.lens (terminationPolicyTypes :: DescribeTerminationPolicyTypesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {terminationPolicyTypes = a} :: DescribeTerminationPolicyTypesResponse)
-{-# DEPRECATED dtptrsTerminationPolicyTypes "Use generic-lens or generic-optics with 'terminationPolicyTypes' instead." #-}
+dtptrrsTerminationPolicyTypes :: Lens.Lens' DescribeTerminationPolicyTypesResponse (Core.Maybe [Types.XmlStringMaxLen1600])
+dtptrrsTerminationPolicyTypes = Lens.field @"terminationPolicyTypes"
+{-# DEPRECATED dtptrrsTerminationPolicyTypes "Use generic-lens or generic-optics with 'terminationPolicyTypes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtptrsResponseStatus :: Lens.Lens' DescribeTerminationPolicyTypesResponse Lude.Int
-dtptrsResponseStatus = Lens.lens (responseStatus :: DescribeTerminationPolicyTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTerminationPolicyTypesResponse)
-{-# DEPRECATED dtptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtptrrsResponseStatus :: Lens.Lens' DescribeTerminationPolicyTypesResponse Core.Int
+dtptrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

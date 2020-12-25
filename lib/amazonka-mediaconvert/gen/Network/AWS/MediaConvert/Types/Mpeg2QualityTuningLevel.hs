@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Mpeg2QualityTuningLevel
   ( Mpeg2QualityTuningLevel
       ( Mpeg2QualityTuningLevel',
-        MQTLSinglePass,
-        MQTLMultiPass
+        Mpeg2QualityTuningLevelSinglePass,
+        Mpeg2QualityTuningLevelMultiPass,
+        fromMpeg2QualityTuningLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
-newtype Mpeg2QualityTuningLevel = Mpeg2QualityTuningLevel' Lude.Text
+newtype Mpeg2QualityTuningLevel = Mpeg2QualityTuningLevel'
+  { fromMpeg2QualityTuningLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MQTLSinglePass :: Mpeg2QualityTuningLevel
-pattern MQTLSinglePass = Mpeg2QualityTuningLevel' "SINGLE_PASS"
+pattern Mpeg2QualityTuningLevelSinglePass :: Mpeg2QualityTuningLevel
+pattern Mpeg2QualityTuningLevelSinglePass = Mpeg2QualityTuningLevel' "SINGLE_PASS"
 
-pattern MQTLMultiPass :: Mpeg2QualityTuningLevel
-pattern MQTLMultiPass = Mpeg2QualityTuningLevel' "MULTI_PASS"
+pattern Mpeg2QualityTuningLevelMultiPass :: Mpeg2QualityTuningLevel
+pattern Mpeg2QualityTuningLevelMultiPass = Mpeg2QualityTuningLevel' "MULTI_PASS"
 
 {-# COMPLETE
-  MQTLSinglePass,
-  MQTLMultiPass,
+  Mpeg2QualityTuningLevelSinglePass,
+  Mpeg2QualityTuningLevelMultiPass,
   Mpeg2QualityTuningLevel'
   #-}

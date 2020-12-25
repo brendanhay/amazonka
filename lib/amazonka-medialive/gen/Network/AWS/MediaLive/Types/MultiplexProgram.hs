@@ -17,100 +17,92 @@ module Network.AWS.MediaLive.Types.MultiplexProgram
     mkMultiplexProgram,
 
     -- * Lenses
+    mpChannelId,
+    mpMultiplexProgramSettings,
     mpPacketIdentifiersMap,
     mpPipelineDetails,
     mpProgramName,
-    mpChannelId,
-    mpMultiplexProgramSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
-import Network.AWS.MediaLive.Types.MultiplexProgramPipelineDetail
-import Network.AWS.MediaLive.Types.MultiplexProgramSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.MultiplexProgramPacketIdentifiersMap as Types
+import qualified Network.AWS.MediaLive.Types.MultiplexProgramPipelineDetail as Types
+import qualified Network.AWS.MediaLive.Types.MultiplexProgramSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The multiplex program object.
 --
 -- /See:/ 'mkMultiplexProgram' smart constructor.
 data MultiplexProgram = MultiplexProgram'
-  { -- | The packet identifier map for this multiplex program.
-    packetIdentifiersMap :: Lude.Maybe MultiplexProgramPacketIdentifiersMap,
-    -- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
-    pipelineDetails :: Lude.Maybe [MultiplexProgramPipelineDetail],
-    -- | The name of the multiplex program.
-    programName :: Lude.Maybe Lude.Text,
-    -- | The MediaLive channel associated with the program.
-    channelId :: Lude.Maybe Lude.Text,
+  { -- | The MediaLive channel associated with the program.
+    channelId :: Core.Maybe Core.Text,
     -- | The settings for this multiplex program.
-    multiplexProgramSettings :: Lude.Maybe MultiplexProgramSettings
+    multiplexProgramSettings :: Core.Maybe Types.MultiplexProgramSettings,
+    -- | The packet identifier map for this multiplex program.
+    packetIdentifiersMap :: Core.Maybe Types.MultiplexProgramPacketIdentifiersMap,
+    -- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+    pipelineDetails :: Core.Maybe [Types.MultiplexProgramPipelineDetail],
+    -- | The name of the multiplex program.
+    programName :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiplexProgram' with the minimum fields required to make a request.
---
--- * 'packetIdentifiersMap' - The packet identifier map for this multiplex program.
--- * 'pipelineDetails' - Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
--- * 'programName' - The name of the multiplex program.
--- * 'channelId' - The MediaLive channel associated with the program.
--- * 'multiplexProgramSettings' - The settings for this multiplex program.
+-- | Creates a 'MultiplexProgram' value with any optional fields omitted.
 mkMultiplexProgram ::
   MultiplexProgram
 mkMultiplexProgram =
   MultiplexProgram'
-    { packetIdentifiersMap = Lude.Nothing,
-      pipelineDetails = Lude.Nothing,
-      programName = Lude.Nothing,
-      channelId = Lude.Nothing,
-      multiplexProgramSettings = Lude.Nothing
+    { channelId = Core.Nothing,
+      multiplexProgramSettings = Core.Nothing,
+      packetIdentifiersMap = Core.Nothing,
+      pipelineDetails = Core.Nothing,
+      programName = Core.Nothing
     }
-
--- | The packet identifier map for this multiplex program.
---
--- /Note:/ Consider using 'packetIdentifiersMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpPacketIdentifiersMap :: Lens.Lens' MultiplexProgram (Lude.Maybe MultiplexProgramPacketIdentifiersMap)
-mpPacketIdentifiersMap = Lens.lens (packetIdentifiersMap :: MultiplexProgram -> Lude.Maybe MultiplexProgramPacketIdentifiersMap) (\s a -> s {packetIdentifiersMap = a} :: MultiplexProgram)
-{-# DEPRECATED mpPacketIdentifiersMap "Use generic-lens or generic-optics with 'packetIdentifiersMap' instead." #-}
-
--- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
---
--- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpPipelineDetails :: Lens.Lens' MultiplexProgram (Lude.Maybe [MultiplexProgramPipelineDetail])
-mpPipelineDetails = Lens.lens (pipelineDetails :: MultiplexProgram -> Lude.Maybe [MultiplexProgramPipelineDetail]) (\s a -> s {pipelineDetails = a} :: MultiplexProgram)
-{-# DEPRECATED mpPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
-
--- | The name of the multiplex program.
---
--- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpProgramName :: Lens.Lens' MultiplexProgram (Lude.Maybe Lude.Text)
-mpProgramName = Lens.lens (programName :: MultiplexProgram -> Lude.Maybe Lude.Text) (\s a -> s {programName = a} :: MultiplexProgram)
-{-# DEPRECATED mpProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
 -- | The MediaLive channel associated with the program.
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpChannelId :: Lens.Lens' MultiplexProgram (Lude.Maybe Lude.Text)
-mpChannelId = Lens.lens (channelId :: MultiplexProgram -> Lude.Maybe Lude.Text) (\s a -> s {channelId = a} :: MultiplexProgram)
+mpChannelId :: Lens.Lens' MultiplexProgram (Core.Maybe Core.Text)
+mpChannelId = Lens.field @"channelId"
 {-# DEPRECATED mpChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
 -- | The settings for this multiplex program.
 --
 -- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpMultiplexProgramSettings :: Lens.Lens' MultiplexProgram (Lude.Maybe MultiplexProgramSettings)
-mpMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: MultiplexProgram -> Lude.Maybe MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: MultiplexProgram)
+mpMultiplexProgramSettings :: Lens.Lens' MultiplexProgram (Core.Maybe Types.MultiplexProgramSettings)
+mpMultiplexProgramSettings = Lens.field @"multiplexProgramSettings"
 {-# DEPRECATED mpMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
 
-instance Lude.FromJSON MultiplexProgram where
+-- | The packet identifier map for this multiplex program.
+--
+-- /Note:/ Consider using 'packetIdentifiersMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpPacketIdentifiersMap :: Lens.Lens' MultiplexProgram (Core.Maybe Types.MultiplexProgramPacketIdentifiersMap)
+mpPacketIdentifiersMap = Lens.field @"packetIdentifiersMap"
+{-# DEPRECATED mpPacketIdentifiersMap "Use generic-lens or generic-optics with 'packetIdentifiersMap' instead." #-}
+
+-- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+--
+-- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpPipelineDetails :: Lens.Lens' MultiplexProgram (Core.Maybe [Types.MultiplexProgramPipelineDetail])
+mpPipelineDetails = Lens.field @"pipelineDetails"
+{-# DEPRECATED mpPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
+
+-- | The name of the multiplex program.
+--
+-- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpProgramName :: Lens.Lens' MultiplexProgram (Core.Maybe Core.Text)
+mpProgramName = Lens.field @"programName"
+{-# DEPRECATED mpProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
+
+instance Core.FromJSON MultiplexProgram where
   parseJSON =
-    Lude.withObject
-      "MultiplexProgram"
-      ( \x ->
-          MultiplexProgram'
-            Lude.<$> (x Lude..:? "packetIdentifiersMap")
-            Lude.<*> (x Lude..:? "pipelineDetails" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "programName")
-            Lude.<*> (x Lude..:? "channelId")
-            Lude.<*> (x Lude..:? "multiplexProgramSettings")
-      )
+    Core.withObject "MultiplexProgram" Core.$
+      \x ->
+        MultiplexProgram'
+          Core.<$> (x Core..:? "channelId")
+          Core.<*> (x Core..:? "multiplexProgramSettings")
+          Core.<*> (x Core..:? "packetIdentifiersMap")
+          Core.<*> (x Core..:? "pipelineDetails")
+          Core.<*> (x Core..:? "programName")

@@ -13,66 +13,71 @@
 module Network.AWS.CodeDeploy.Types.DeploymentCreator
   ( DeploymentCreator
       ( DeploymentCreator',
-        User,
-        Autoscaling,
-        CodeDeployRollback,
-        CodeDeploy,
-        CloudFormation,
-        CloudFormationRollback
+        DeploymentCreatorUser,
+        DeploymentCreatorAutoscaling,
+        DeploymentCreatorCodeDeployRollback,
+        DeploymentCreatorCodeDeploy,
+        DeploymentCreatorCloudFormation,
+        DeploymentCreatorCloudFormationRollback,
+        fromDeploymentCreator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeploymentCreator = DeploymentCreator' Lude.Text
+newtype DeploymentCreator = DeploymentCreator'
+  { fromDeploymentCreator ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern User :: DeploymentCreator
-pattern User = DeploymentCreator' "user"
+pattern DeploymentCreatorUser :: DeploymentCreator
+pattern DeploymentCreatorUser = DeploymentCreator' "user"
 
-pattern Autoscaling :: DeploymentCreator
-pattern Autoscaling = DeploymentCreator' "autoscaling"
+pattern DeploymentCreatorAutoscaling :: DeploymentCreator
+pattern DeploymentCreatorAutoscaling = DeploymentCreator' "autoscaling"
 
-pattern CodeDeployRollback :: DeploymentCreator
-pattern CodeDeployRollback = DeploymentCreator' "codeDeployRollback"
+pattern DeploymentCreatorCodeDeployRollback :: DeploymentCreator
+pattern DeploymentCreatorCodeDeployRollback = DeploymentCreator' "codeDeployRollback"
 
-pattern CodeDeploy :: DeploymentCreator
-pattern CodeDeploy = DeploymentCreator' "CodeDeploy"
+pattern DeploymentCreatorCodeDeploy :: DeploymentCreator
+pattern DeploymentCreatorCodeDeploy = DeploymentCreator' "CodeDeploy"
 
-pattern CloudFormation :: DeploymentCreator
-pattern CloudFormation = DeploymentCreator' "CloudFormation"
+pattern DeploymentCreatorCloudFormation :: DeploymentCreator
+pattern DeploymentCreatorCloudFormation = DeploymentCreator' "CloudFormation"
 
-pattern CloudFormationRollback :: DeploymentCreator
-pattern CloudFormationRollback = DeploymentCreator' "CloudFormationRollback"
+pattern DeploymentCreatorCloudFormationRollback :: DeploymentCreator
+pattern DeploymentCreatorCloudFormationRollback = DeploymentCreator' "CloudFormationRollback"
 
 {-# COMPLETE
-  User,
-  Autoscaling,
-  CodeDeployRollback,
-  CodeDeploy,
-  CloudFormation,
-  CloudFormationRollback,
+  DeploymentCreatorUser,
+  DeploymentCreatorAutoscaling,
+  DeploymentCreatorCodeDeployRollback,
+  DeploymentCreatorCodeDeploy,
+  DeploymentCreatorCloudFormation,
+  DeploymentCreatorCloudFormationRollback,
   DeploymentCreator'
   #-}

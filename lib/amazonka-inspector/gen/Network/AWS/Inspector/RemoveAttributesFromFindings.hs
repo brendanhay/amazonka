@@ -20,7 +20,7 @@ module Network.AWS.Inspector.RemoveAttributesFromFindings
     mkRemoveAttributesFromFindings,
 
     -- ** Request lenses
-    raffFindingARNs,
+    raffFindingArns,
     raffAttributeKeys,
 
     -- * Destructuring the response
@@ -28,130 +28,116 @@ module Network.AWS.Inspector.RemoveAttributesFromFindings
     mkRemoveAttributesFromFindingsResponse,
 
     -- ** Response lenses
-    raffrsFailedItems,
-    raffrsResponseStatus,
+    raffrrsFailedItems,
+    raffrrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveAttributesFromFindings' smart constructor.
 data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
   { -- | The ARNs that specify the findings that you want to remove attributes from.
-    findingARNs :: Lude.NonEmpty Lude.Text,
+    findingArns :: Core.NonEmpty Types.Arn,
     -- | The array of attribute keys that you want to remove from specified findings.
-    attributeKeys :: [Lude.Text]
+    attributeKeys :: [Types.AttributeKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveAttributesFromFindings' with the minimum fields required to make a request.
---
--- * 'findingARNs' - The ARNs that specify the findings that you want to remove attributes from.
--- * 'attributeKeys' - The array of attribute keys that you want to remove from specified findings.
+-- | Creates a 'RemoveAttributesFromFindings' value with any optional fields omitted.
 mkRemoveAttributesFromFindings ::
-  -- | 'findingARNs'
-  Lude.NonEmpty Lude.Text ->
+  -- | 'findingArns'
+  Core.NonEmpty Types.Arn ->
   RemoveAttributesFromFindings
-mkRemoveAttributesFromFindings pFindingARNs_ =
+mkRemoveAttributesFromFindings findingArns =
   RemoveAttributesFromFindings'
-    { findingARNs = pFindingARNs_,
-      attributeKeys = Lude.mempty
+    { findingArns,
+      attributeKeys = Core.mempty
     }
 
 -- | The ARNs that specify the findings that you want to remove attributes from.
 --
--- /Note:/ Consider using 'findingARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raffFindingARNs :: Lens.Lens' RemoveAttributesFromFindings (Lude.NonEmpty Lude.Text)
-raffFindingARNs = Lens.lens (findingARNs :: RemoveAttributesFromFindings -> Lude.NonEmpty Lude.Text) (\s a -> s {findingARNs = a} :: RemoveAttributesFromFindings)
-{-# DEPRECATED raffFindingARNs "Use generic-lens or generic-optics with 'findingARNs' instead." #-}
+-- /Note:/ Consider using 'findingArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raffFindingArns :: Lens.Lens' RemoveAttributesFromFindings (Core.NonEmpty Types.Arn)
+raffFindingArns = Lens.field @"findingArns"
+{-# DEPRECATED raffFindingArns "Use generic-lens or generic-optics with 'findingArns' instead." #-}
 
 -- | The array of attribute keys that you want to remove from specified findings.
 --
 -- /Note:/ Consider using 'attributeKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raffAttributeKeys :: Lens.Lens' RemoveAttributesFromFindings [Lude.Text]
-raffAttributeKeys = Lens.lens (attributeKeys :: RemoveAttributesFromFindings -> [Lude.Text]) (\s a -> s {attributeKeys = a} :: RemoveAttributesFromFindings)
+raffAttributeKeys :: Lens.Lens' RemoveAttributesFromFindings [Types.AttributeKey]
+raffAttributeKeys = Lens.field @"attributeKeys"
 {-# DEPRECATED raffAttributeKeys "Use generic-lens or generic-optics with 'attributeKeys' instead." #-}
 
-instance Lude.AWSRequest RemoveAttributesFromFindings where
+instance Core.FromJSON RemoveAttributesFromFindings where
+  toJSON RemoveAttributesFromFindings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("findingArns" Core..= findingArns),
+            Core.Just ("attributeKeys" Core..= attributeKeys)
+          ]
+      )
+
+instance Core.AWSRequest RemoveAttributesFromFindings where
   type
     Rs RemoveAttributesFromFindings =
       RemoveAttributesFromFindingsResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.RemoveAttributesFromFindings")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RemoveAttributesFromFindingsResponse'
-            Lude.<$> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "failedItems" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RemoveAttributesFromFindings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "InspectorService.RemoveAttributesFromFindings" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RemoveAttributesFromFindings where
-  toJSON RemoveAttributesFromFindings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("findingArns" Lude..= findingARNs),
-            Lude.Just ("attributeKeys" Lude..= attributeKeys)
-          ]
-      )
-
-instance Lude.ToPath RemoveAttributesFromFindings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveAttributesFromFindings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRemoveAttributesFromFindingsResponse' smart constructor.
 data RemoveAttributesFromFindingsResponse = RemoveAttributesFromFindingsResponse'
   { -- | Attributes details that cannot be described. An error code is provided for each failed item.
-    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    failedItems :: Core.HashMap Types.Arn Types.FailedItemDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveAttributesFromFindingsResponse' with the minimum fields required to make a request.
---
--- * 'failedItems' - Attributes details that cannot be described. An error code is provided for each failed item.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RemoveAttributesFromFindingsResponse' value with any optional fields omitted.
 mkRemoveAttributesFromFindingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RemoveAttributesFromFindingsResponse
-mkRemoveAttributesFromFindingsResponse pResponseStatus_ =
+mkRemoveAttributesFromFindingsResponse responseStatus =
   RemoveAttributesFromFindingsResponse'
-    { failedItems = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { failedItems = Core.mempty,
+      responseStatus
     }
 
 -- | Attributes details that cannot be described. An error code is provided for each failed item.
 --
 -- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raffrsFailedItems :: Lens.Lens' RemoveAttributesFromFindingsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
-raffrsFailedItems = Lens.lens (failedItems :: RemoveAttributesFromFindingsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: RemoveAttributesFromFindingsResponse)
-{-# DEPRECATED raffrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
+raffrrsFailedItems :: Lens.Lens' RemoveAttributesFromFindingsResponse (Core.HashMap Types.Arn Types.FailedItemDetails)
+raffrrsFailedItems = Lens.field @"failedItems"
+{-# DEPRECATED raffrrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raffrsResponseStatus :: Lens.Lens' RemoveAttributesFromFindingsResponse Lude.Int
-raffrsResponseStatus = Lens.lens (responseStatus :: RemoveAttributesFromFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveAttributesFromFindingsResponse)
-{-# DEPRECATED raffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+raffrrsResponseStatus :: Lens.Lens' RemoveAttributesFromFindingsResponse Core.Int
+raffrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED raffrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

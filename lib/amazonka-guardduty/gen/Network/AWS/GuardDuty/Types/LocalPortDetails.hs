@@ -17,54 +17,50 @@ module Network.AWS.GuardDuty.Types.LocalPortDetails
     mkLocalPortDetails,
 
     -- * Lenses
-    lpdPortName,
     lpdPort,
+    lpdPortName,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the port for the local connection.
 --
 -- /See:/ 'mkLocalPortDetails' smart constructor.
 data LocalPortDetails = LocalPortDetails'
-  { -- | The port name of the local connection.
-    portName :: Lude.Maybe Lude.Text,
-    -- | The port number of the local connection.
-    port :: Lude.Maybe Lude.Int
+  { -- | The port number of the local connection.
+    port :: Core.Maybe Core.Int,
+    -- | The port name of the local connection.
+    portName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LocalPortDetails' with the minimum fields required to make a request.
---
--- * 'portName' - The port name of the local connection.
--- * 'port' - The port number of the local connection.
+-- | Creates a 'LocalPortDetails' value with any optional fields omitted.
 mkLocalPortDetails ::
   LocalPortDetails
 mkLocalPortDetails =
-  LocalPortDetails' {portName = Lude.Nothing, port = Lude.Nothing}
-
--- | The port name of the local connection.
---
--- /Note:/ Consider using 'portName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpdPortName :: Lens.Lens' LocalPortDetails (Lude.Maybe Lude.Text)
-lpdPortName = Lens.lens (portName :: LocalPortDetails -> Lude.Maybe Lude.Text) (\s a -> s {portName = a} :: LocalPortDetails)
-{-# DEPRECATED lpdPortName "Use generic-lens or generic-optics with 'portName' instead." #-}
+  LocalPortDetails' {port = Core.Nothing, portName = Core.Nothing}
 
 -- | The port number of the local connection.
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpdPort :: Lens.Lens' LocalPortDetails (Lude.Maybe Lude.Int)
-lpdPort = Lens.lens (port :: LocalPortDetails -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: LocalPortDetails)
+lpdPort :: Lens.Lens' LocalPortDetails (Core.Maybe Core.Int)
+lpdPort = Lens.field @"port"
 {-# DEPRECATED lpdPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.FromJSON LocalPortDetails where
+-- | The port name of the local connection.
+--
+-- /Note:/ Consider using 'portName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpdPortName :: Lens.Lens' LocalPortDetails (Core.Maybe Types.String)
+lpdPortName = Lens.field @"portName"
+{-# DEPRECATED lpdPortName "Use generic-lens or generic-optics with 'portName' instead." #-}
+
+instance Core.FromJSON LocalPortDetails where
   parseJSON =
-    Lude.withObject
-      "LocalPortDetails"
-      ( \x ->
-          LocalPortDetails'
-            Lude.<$> (x Lude..:? "portName") Lude.<*> (x Lude..:? "port")
-      )
+    Core.withObject "LocalPortDetails" Core.$
+      \x ->
+        LocalPortDetails'
+          Core.<$> (x Core..:? "port") Core.<*> (x Core..:? "portName")

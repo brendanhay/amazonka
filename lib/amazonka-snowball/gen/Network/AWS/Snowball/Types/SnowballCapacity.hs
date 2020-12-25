@@ -13,71 +13,76 @@
 module Network.AWS.Snowball.Types.SnowballCapacity
   ( SnowballCapacity
       ( SnowballCapacity',
-        T50,
-        T80,
-        T100,
-        T42,
-        T98,
-        T8,
-        NoPreference
+        SnowballCapacityT50,
+        SnowballCapacityT80,
+        SnowballCapacityT100,
+        SnowballCapacityT42,
+        SnowballCapacityT98,
+        SnowballCapacityT8,
+        SnowballCapacityNoPreference,
+        fromSnowballCapacity
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SnowballCapacity = SnowballCapacity' Lude.Text
+newtype SnowballCapacity = SnowballCapacity'
+  { fromSnowballCapacity ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern T50 :: SnowballCapacity
-pattern T50 = SnowballCapacity' "T50"
+pattern SnowballCapacityT50 :: SnowballCapacity
+pattern SnowballCapacityT50 = SnowballCapacity' "T50"
 
-pattern T80 :: SnowballCapacity
-pattern T80 = SnowballCapacity' "T80"
+pattern SnowballCapacityT80 :: SnowballCapacity
+pattern SnowballCapacityT80 = SnowballCapacity' "T80"
 
-pattern T100 :: SnowballCapacity
-pattern T100 = SnowballCapacity' "T100"
+pattern SnowballCapacityT100 :: SnowballCapacity
+pattern SnowballCapacityT100 = SnowballCapacity' "T100"
 
-pattern T42 :: SnowballCapacity
-pattern T42 = SnowballCapacity' "T42"
+pattern SnowballCapacityT42 :: SnowballCapacity
+pattern SnowballCapacityT42 = SnowballCapacity' "T42"
 
-pattern T98 :: SnowballCapacity
-pattern T98 = SnowballCapacity' "T98"
+pattern SnowballCapacityT98 :: SnowballCapacity
+pattern SnowballCapacityT98 = SnowballCapacity' "T98"
 
-pattern T8 :: SnowballCapacity
-pattern T8 = SnowballCapacity' "T8"
+pattern SnowballCapacityT8 :: SnowballCapacity
+pattern SnowballCapacityT8 = SnowballCapacity' "T8"
 
-pattern NoPreference :: SnowballCapacity
-pattern NoPreference = SnowballCapacity' "NoPreference"
+pattern SnowballCapacityNoPreference :: SnowballCapacity
+pattern SnowballCapacityNoPreference = SnowballCapacity' "NoPreference"
 
 {-# COMPLETE
-  T50,
-  T80,
-  T100,
-  T42,
-  T98,
-  T8,
-  NoPreference,
+  SnowballCapacityT50,
+  SnowballCapacityT80,
+  SnowballCapacityT100,
+  SnowballCapacityT42,
+  SnowballCapacityT98,
+  SnowballCapacityT8,
+  SnowballCapacityNoPreference,
   SnowballCapacity'
   #-}

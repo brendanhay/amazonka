@@ -13,47 +13,52 @@
 module Network.AWS.Route53.Types.TagResourceType
   ( TagResourceType
       ( TagResourceType',
-        Healthcheck,
-        Hostedzone
+        TagResourceTypeHealthcheck,
+        TagResourceTypeHostedzone,
+        fromTagResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
 
-newtype TagResourceType = TagResourceType' Lude.Text
+newtype TagResourceType = TagResourceType'
+  { fromTagResourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Healthcheck :: TagResourceType
-pattern Healthcheck = TagResourceType' "healthcheck"
+pattern TagResourceTypeHealthcheck :: TagResourceType
+pattern TagResourceTypeHealthcheck = TagResourceType' "healthcheck"
 
-pattern Hostedzone :: TagResourceType
-pattern Hostedzone = TagResourceType' "hostedzone"
+pattern TagResourceTypeHostedzone :: TagResourceType
+pattern TagResourceTypeHostedzone = TagResourceType' "hostedzone"
 
 {-# COMPLETE
-  Healthcheck,
-  Hostedzone,
+  TagResourceTypeHealthcheck,
+  TagResourceTypeHostedzone,
   TagResourceType'
   #-}

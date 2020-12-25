@@ -22,53 +22,49 @@ module Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason
   )
 where
 
-import Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
+import qualified Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode as Types
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The reason for an 'AutoScalingPolicyStatus' change.
 --
 -- /See:/ 'mkAutoScalingPolicyStateChangeReason' smart constructor.
 data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
   { -- | The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
-    code :: Lude.Maybe AutoScalingPolicyStateChangeReasonCode,
+    code :: Core.Maybe Types.AutoScalingPolicyStateChangeReasonCode,
     -- | A friendly, more verbose message that accompanies an automatic scaling policy state change.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoScalingPolicyStateChangeReason' with the minimum fields required to make a request.
---
--- * 'code' - The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
--- * 'message' - A friendly, more verbose message that accompanies an automatic scaling policy state change.
+-- | Creates a 'AutoScalingPolicyStateChangeReason' value with any optional fields omitted.
 mkAutoScalingPolicyStateChangeReason ::
   AutoScalingPolicyStateChangeReason
 mkAutoScalingPolicyStateChangeReason =
   AutoScalingPolicyStateChangeReason'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspscrCode :: Lens.Lens' AutoScalingPolicyStateChangeReason (Lude.Maybe AutoScalingPolicyStateChangeReasonCode)
-aspscrCode = Lens.lens (code :: AutoScalingPolicyStateChangeReason -> Lude.Maybe AutoScalingPolicyStateChangeReasonCode) (\s a -> s {code = a} :: AutoScalingPolicyStateChangeReason)
+aspscrCode :: Lens.Lens' AutoScalingPolicyStateChangeReason (Core.Maybe Types.AutoScalingPolicyStateChangeReasonCode)
+aspscrCode = Lens.field @"code"
 {-# DEPRECATED aspscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A friendly, more verbose message that accompanies an automatic scaling policy state change.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspscrMessage :: Lens.Lens' AutoScalingPolicyStateChangeReason (Lude.Maybe Lude.Text)
-aspscrMessage = Lens.lens (message :: AutoScalingPolicyStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: AutoScalingPolicyStateChangeReason)
+aspscrMessage :: Lens.Lens' AutoScalingPolicyStateChangeReason (Core.Maybe Types.String)
+aspscrMessage = Lens.field @"message"
 {-# DEPRECATED aspscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON AutoScalingPolicyStateChangeReason where
+instance Core.FromJSON AutoScalingPolicyStateChangeReason where
   parseJSON =
-    Lude.withObject
-      "AutoScalingPolicyStateChangeReason"
-      ( \x ->
-          AutoScalingPolicyStateChangeReason'
-            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "AutoScalingPolicyStateChangeReason" Core.$
+      \x ->
+        AutoScalingPolicyStateChangeReason'
+          Core.<$> (x Core..:? "Code") Core.<*> (x Core..:? "Message")

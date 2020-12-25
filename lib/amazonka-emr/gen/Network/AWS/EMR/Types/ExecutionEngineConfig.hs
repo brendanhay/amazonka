@@ -17,86 +17,80 @@ module Network.AWS.EMR.Types.ExecutionEngineConfig
     mkExecutionEngineConfig,
 
     -- * Lenses
-    eecMasterInstanceSecurityGroupId,
     eecId,
+    eecMasterInstanceSecurityGroupId,
     eecType,
   )
 where
 
-import Network.AWS.EMR.Types.ExecutionEngineType
+import qualified Network.AWS.EMR.Types.ExecutionEngineType as Types
+import qualified Network.AWS.EMR.Types.XmlStringMaxLen256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the execution engine (cluster) to run the notebook and perform the notebook execution, for example, an EMR cluster.
 --
 -- /See:/ 'mkExecutionEngineConfig' smart constructor.
 data ExecutionEngineConfig = ExecutionEngineConfig'
-  { -- | An optional unique ID of an EC2 security group to associate with the master instance of the EMR cluster for this notebook execution. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
-    masterInstanceSecurityGroupId :: Lude.Maybe Lude.Text,
-    -- | The unique identifier of the execution engine. For an EMR cluster, this is the cluster ID.
-    id :: Lude.Text,
+  { -- | The unique identifier of the execution engine. For an EMR cluster, this is the cluster ID.
+    id :: Types.XmlStringMaxLen256,
+    -- | An optional unique ID of an EC2 security group to associate with the master instance of the EMR cluster for this notebook execution. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
+    masterInstanceSecurityGroupId :: Core.Maybe Types.XmlStringMaxLen256,
     -- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.
-    type' :: Lude.Maybe ExecutionEngineType
+    type' :: Core.Maybe Types.ExecutionEngineType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExecutionEngineConfig' with the minimum fields required to make a request.
---
--- * 'masterInstanceSecurityGroupId' - An optional unique ID of an EC2 security group to associate with the master instance of the EMR cluster for this notebook execution. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
--- * 'id' - The unique identifier of the execution engine. For an EMR cluster, this is the cluster ID.
--- * 'type'' - The type of execution engine. A value of @EMR@ specifies an EMR cluster.
+-- | Creates a 'ExecutionEngineConfig' value with any optional fields omitted.
 mkExecutionEngineConfig ::
   -- | 'id'
-  Lude.Text ->
+  Types.XmlStringMaxLen256 ->
   ExecutionEngineConfig
-mkExecutionEngineConfig pId_ =
+mkExecutionEngineConfig id =
   ExecutionEngineConfig'
-    { masterInstanceSecurityGroupId =
-        Lude.Nothing,
-      id = pId_,
-      type' = Lude.Nothing
+    { id,
+      masterInstanceSecurityGroupId = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | An optional unique ID of an EC2 security group to associate with the master instance of the EMR cluster for this notebook execution. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
---
--- /Note:/ Consider using 'masterInstanceSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eecMasterInstanceSecurityGroupId :: Lens.Lens' ExecutionEngineConfig (Lude.Maybe Lude.Text)
-eecMasterInstanceSecurityGroupId = Lens.lens (masterInstanceSecurityGroupId :: ExecutionEngineConfig -> Lude.Maybe Lude.Text) (\s a -> s {masterInstanceSecurityGroupId = a} :: ExecutionEngineConfig)
-{-# DEPRECATED eecMasterInstanceSecurityGroupId "Use generic-lens or generic-optics with 'masterInstanceSecurityGroupId' instead." #-}
 
 -- | The unique identifier of the execution engine. For an EMR cluster, this is the cluster ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eecId :: Lens.Lens' ExecutionEngineConfig Lude.Text
-eecId = Lens.lens (id :: ExecutionEngineConfig -> Lude.Text) (\s a -> s {id = a} :: ExecutionEngineConfig)
+eecId :: Lens.Lens' ExecutionEngineConfig Types.XmlStringMaxLen256
+eecId = Lens.field @"id"
 {-# DEPRECATED eecId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | An optional unique ID of an EC2 security group to associate with the master instance of the EMR cluster for this notebook execution. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
+--
+-- /Note:/ Consider using 'masterInstanceSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eecMasterInstanceSecurityGroupId :: Lens.Lens' ExecutionEngineConfig (Core.Maybe Types.XmlStringMaxLen256)
+eecMasterInstanceSecurityGroupId = Lens.field @"masterInstanceSecurityGroupId"
+{-# DEPRECATED eecMasterInstanceSecurityGroupId "Use generic-lens or generic-optics with 'masterInstanceSecurityGroupId' instead." #-}
 
 -- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eecType :: Lens.Lens' ExecutionEngineConfig (Lude.Maybe ExecutionEngineType)
-eecType = Lens.lens (type' :: ExecutionEngineConfig -> Lude.Maybe ExecutionEngineType) (\s a -> s {type' = a} :: ExecutionEngineConfig)
+eecType :: Lens.Lens' ExecutionEngineConfig (Core.Maybe Types.ExecutionEngineType)
+eecType = Lens.field @"type'"
 {-# DEPRECATED eecType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON ExecutionEngineConfig where
-  parseJSON =
-    Lude.withObject
-      "ExecutionEngineConfig"
-      ( \x ->
-          ExecutionEngineConfig'
-            Lude.<$> (x Lude..:? "MasterInstanceSecurityGroupId")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..:? "Type")
-      )
-
-instance Lude.ToJSON ExecutionEngineConfig where
-  toJSON ExecutionEngineConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MasterInstanceSecurityGroupId" Lude..=)
-              Lude.<$> masterInstanceSecurityGroupId,
-            Lude.Just ("Id" Lude..= id),
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON ExecutionEngineConfig where
+  toJSON ExecutionEngineConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            ("MasterInstanceSecurityGroupId" Core..=)
+              Core.<$> masterInstanceSecurityGroupId,
+            ("Type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON ExecutionEngineConfig where
+  parseJSON =
+    Core.withObject "ExecutionEngineConfig" Core.$
+      \x ->
+        ExecutionEngineConfig'
+          Core.<$> (x Core..: "Id")
+          Core.<*> (x Core..:? "MasterInstanceSecurityGroupId")
+          Core.<*> (x Core..:? "Type")

@@ -18,70 +18,67 @@ module Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest
 
     -- * Lenses
     fwcrErrorCode,
-    fwcrWorkspaceId,
     fwcrErrorMessage,
+    fwcrWorkspaceId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.ErrorCode as Types
+import qualified Network.AWS.WorkSpaces.Types.ErrorMessage as Types
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceId as Types
 
 -- | Describes a WorkSpace that could not be rebooted. ('RebootWorkspaces' ), rebuilt ('RebuildWorkspaces' ), restored ('RestoreWorkspace' ), terminated ('TerminateWorkspaces' ), started ('StartWorkspaces' ), or stopped ('StopWorkspaces' ).
 --
 -- /See:/ 'mkFailedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
   { -- | The error code that is returned if the WorkSpace cannot be rebooted.
-    errorCode :: Lude.Maybe Lude.Text,
-    -- | The identifier of the WorkSpace.
-    workspaceId :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | The text of the error message that is returned if the WorkSpace cannot be rebooted.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.ErrorMessage,
+    -- | The identifier of the WorkSpace.
+    workspaceId :: Core.Maybe Types.WorkspaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailedWorkspaceChangeRequest' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error code that is returned if the WorkSpace cannot be rebooted.
--- * 'workspaceId' - The identifier of the WorkSpace.
--- * 'errorMessage' - The text of the error message that is returned if the WorkSpace cannot be rebooted.
+-- | Creates a 'FailedWorkspaceChangeRequest' value with any optional fields omitted.
 mkFailedWorkspaceChangeRequest ::
   FailedWorkspaceChangeRequest
 mkFailedWorkspaceChangeRequest =
   FailedWorkspaceChangeRequest'
-    { errorCode = Lude.Nothing,
-      workspaceId = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      workspaceId = Core.Nothing
     }
 
 -- | The error code that is returned if the WorkSpace cannot be rebooted.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fwcrErrorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Lude.Maybe Lude.Text)
-fwcrErrorCode = Lens.lens (errorCode :: FailedWorkspaceChangeRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: FailedWorkspaceChangeRequest)
+fwcrErrorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Types.ErrorCode)
+fwcrErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED fwcrErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
-
--- | The identifier of the WorkSpace.
---
--- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fwcrWorkspaceId :: Lens.Lens' FailedWorkspaceChangeRequest (Lude.Maybe Lude.Text)
-fwcrWorkspaceId = Lens.lens (workspaceId :: FailedWorkspaceChangeRequest -> Lude.Maybe Lude.Text) (\s a -> s {workspaceId = a} :: FailedWorkspaceChangeRequest)
-{-# DEPRECATED fwcrWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
 -- | The text of the error message that is returned if the WorkSpace cannot be rebooted.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fwcrErrorMessage :: Lens.Lens' FailedWorkspaceChangeRequest (Lude.Maybe Lude.Text)
-fwcrErrorMessage = Lens.lens (errorMessage :: FailedWorkspaceChangeRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FailedWorkspaceChangeRequest)
+fwcrErrorMessage :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Types.ErrorMessage)
+fwcrErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED fwcrErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON FailedWorkspaceChangeRequest where
+-- | The identifier of the WorkSpace.
+--
+-- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fwcrWorkspaceId :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Types.WorkspaceId)
+fwcrWorkspaceId = Lens.field @"workspaceId"
+{-# DEPRECATED fwcrWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
+
+instance Core.FromJSON FailedWorkspaceChangeRequest where
   parseJSON =
-    Lude.withObject
-      "FailedWorkspaceChangeRequest"
-      ( \x ->
-          FailedWorkspaceChangeRequest'
-            Lude.<$> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "WorkspaceId")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "FailedWorkspaceChangeRequest" Core.$
+      \x ->
+        FailedWorkspaceChangeRequest'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "WorkspaceId")

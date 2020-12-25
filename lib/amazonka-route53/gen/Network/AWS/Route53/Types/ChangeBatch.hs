@@ -23,50 +23,46 @@ module Network.AWS.Route53.Types.ChangeBatch
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
-import Network.AWS.Route53.Types.Change
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
+import qualified Network.AWS.Route53.Types.Change as Types
+import qualified Network.AWS.Route53.Types.ResourceDescription as Types
 
 -- | The information for a change request.
 --
 -- /See:/ 'mkChangeBatch' smart constructor.
 data ChangeBatch = ChangeBatch'
   { -- | Information about the changes to make to the record sets.
-    changes :: Lude.NonEmpty Change,
+    changes :: Core.NonEmpty Types.Change,
     -- | /Optional:/ Any comments you want to include about a change batch request.
-    comment :: Lude.Maybe Lude.Text
+    comment :: Core.Maybe Types.ResourceDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangeBatch' with the minimum fields required to make a request.
---
--- * 'changes' - Information about the changes to make to the record sets.
--- * 'comment' - /Optional:/ Any comments you want to include about a change batch request.
+-- | Creates a 'ChangeBatch' value with any optional fields omitted.
 mkChangeBatch ::
   -- | 'changes'
-  Lude.NonEmpty Change ->
+  Core.NonEmpty Types.Change ->
   ChangeBatch
-mkChangeBatch pChanges_ =
-  ChangeBatch' {changes = pChanges_, comment = Lude.Nothing}
+mkChangeBatch changes =
+  ChangeBatch' {changes, comment = Core.Nothing}
 
 -- | Information about the changes to make to the record sets.
 --
 -- /Note:/ Consider using 'changes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbChanges :: Lens.Lens' ChangeBatch (Lude.NonEmpty Change)
-cbChanges = Lens.lens (changes :: ChangeBatch -> Lude.NonEmpty Change) (\s a -> s {changes = a} :: ChangeBatch)
+cbChanges :: Lens.Lens' ChangeBatch (Core.NonEmpty Types.Change)
+cbChanges = Lens.field @"changes"
 {-# DEPRECATED cbChanges "Use generic-lens or generic-optics with 'changes' instead." #-}
 
 -- | /Optional:/ Any comments you want to include about a change batch request.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbComment :: Lens.Lens' ChangeBatch (Lude.Maybe Lude.Text)
-cbComment = Lens.lens (comment :: ChangeBatch -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ChangeBatch)
+cbComment :: Lens.Lens' ChangeBatch (Core.Maybe Types.ResourceDescription)
+cbComment = Lens.field @"comment"
 {-# DEPRECATED cbComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.ToXML ChangeBatch where
-  toXML ChangeBatch' {..} =
-    Lude.mconcat
-      [ "Changes" Lude.@= Lude.toXMLList "Change" changes,
-        "Comment" Lude.@= comment
-      ]
+instance Core.ToXML ChangeBatch where
+  toXML ChangeBatch {..} =
+    Core.toXMLNode "Changes" (Core.toXMLList "Change" changes)
+      Core.<> Core.toXMLNode "Comment" Core.<$> comment

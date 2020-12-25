@@ -17,99 +17,93 @@ module Network.AWS.DeviceFarm.Types.OfferingTransaction
     mkOfferingTransaction,
 
     -- * Lenses
-    otOfferingStatus,
     otCost,
-    otTransactionId,
-    otOfferingPromotionId,
     otCreatedOn,
+    otOfferingPromotionId,
+    otOfferingStatus,
+    otTransactionId,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.MonetaryAmount
-import Network.AWS.DeviceFarm.Types.OfferingStatus
+import qualified Network.AWS.DeviceFarm.Types.MonetaryAmount as Types
+import qualified Network.AWS.DeviceFarm.Types.OfferingPromotionId as Types
+import qualified Network.AWS.DeviceFarm.Types.OfferingStatus as Types
+import qualified Network.AWS.DeviceFarm.Types.TransactionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the metadata of an offering transaction.
 --
 -- /See:/ 'mkOfferingTransaction' smart constructor.
 data OfferingTransaction = OfferingTransaction'
-  { -- | The status of an offering transaction.
-    offeringStatus :: Lude.Maybe OfferingStatus,
-    -- | The cost of an offering transaction.
-    cost :: Lude.Maybe MonetaryAmount,
-    -- | The transaction ID of the offering transaction.
-    transactionId :: Lude.Maybe Lude.Text,
-    -- | The ID that corresponds to a device offering promotion.
-    offeringPromotionId :: Lude.Maybe Lude.Text,
+  { -- | The cost of an offering transaction.
+    cost :: Core.Maybe Types.MonetaryAmount,
     -- | The date on which an offering transaction was created.
-    createdOn :: Lude.Maybe Lude.Timestamp
+    createdOn :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID that corresponds to a device offering promotion.
+    offeringPromotionId :: Core.Maybe Types.OfferingPromotionId,
+    -- | The status of an offering transaction.
+    offeringStatus :: Core.Maybe Types.OfferingStatus,
+    -- | The transaction ID of the offering transaction.
+    transactionId :: Core.Maybe Types.TransactionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OfferingTransaction' with the minimum fields required to make a request.
---
--- * 'offeringStatus' - The status of an offering transaction.
--- * 'cost' - The cost of an offering transaction.
--- * 'transactionId' - The transaction ID of the offering transaction.
--- * 'offeringPromotionId' - The ID that corresponds to a device offering promotion.
--- * 'createdOn' - The date on which an offering transaction was created.
+-- | Creates a 'OfferingTransaction' value with any optional fields omitted.
 mkOfferingTransaction ::
   OfferingTransaction
 mkOfferingTransaction =
   OfferingTransaction'
-    { offeringStatus = Lude.Nothing,
-      cost = Lude.Nothing,
-      transactionId = Lude.Nothing,
-      offeringPromotionId = Lude.Nothing,
-      createdOn = Lude.Nothing
+    { cost = Core.Nothing,
+      createdOn = Core.Nothing,
+      offeringPromotionId = Core.Nothing,
+      offeringStatus = Core.Nothing,
+      transactionId = Core.Nothing
     }
-
--- | The status of an offering transaction.
---
--- /Note:/ Consider using 'offeringStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otOfferingStatus :: Lens.Lens' OfferingTransaction (Lude.Maybe OfferingStatus)
-otOfferingStatus = Lens.lens (offeringStatus :: OfferingTransaction -> Lude.Maybe OfferingStatus) (\s a -> s {offeringStatus = a} :: OfferingTransaction)
-{-# DEPRECATED otOfferingStatus "Use generic-lens or generic-optics with 'offeringStatus' instead." #-}
 
 -- | The cost of an offering transaction.
 --
 -- /Note:/ Consider using 'cost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otCost :: Lens.Lens' OfferingTransaction (Lude.Maybe MonetaryAmount)
-otCost = Lens.lens (cost :: OfferingTransaction -> Lude.Maybe MonetaryAmount) (\s a -> s {cost = a} :: OfferingTransaction)
+otCost :: Lens.Lens' OfferingTransaction (Core.Maybe Types.MonetaryAmount)
+otCost = Lens.field @"cost"
 {-# DEPRECATED otCost "Use generic-lens or generic-optics with 'cost' instead." #-}
-
--- | The transaction ID of the offering transaction.
---
--- /Note:/ Consider using 'transactionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otTransactionId :: Lens.Lens' OfferingTransaction (Lude.Maybe Lude.Text)
-otTransactionId = Lens.lens (transactionId :: OfferingTransaction -> Lude.Maybe Lude.Text) (\s a -> s {transactionId = a} :: OfferingTransaction)
-{-# DEPRECATED otTransactionId "Use generic-lens or generic-optics with 'transactionId' instead." #-}
-
--- | The ID that corresponds to a device offering promotion.
---
--- /Note:/ Consider using 'offeringPromotionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otOfferingPromotionId :: Lens.Lens' OfferingTransaction (Lude.Maybe Lude.Text)
-otOfferingPromotionId = Lens.lens (offeringPromotionId :: OfferingTransaction -> Lude.Maybe Lude.Text) (\s a -> s {offeringPromotionId = a} :: OfferingTransaction)
-{-# DEPRECATED otOfferingPromotionId "Use generic-lens or generic-optics with 'offeringPromotionId' instead." #-}
 
 -- | The date on which an offering transaction was created.
 --
 -- /Note:/ Consider using 'createdOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otCreatedOn :: Lens.Lens' OfferingTransaction (Lude.Maybe Lude.Timestamp)
-otCreatedOn = Lens.lens (createdOn :: OfferingTransaction -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdOn = a} :: OfferingTransaction)
+otCreatedOn :: Lens.Lens' OfferingTransaction (Core.Maybe Core.NominalDiffTime)
+otCreatedOn = Lens.field @"createdOn"
 {-# DEPRECATED otCreatedOn "Use generic-lens or generic-optics with 'createdOn' instead." #-}
 
-instance Lude.FromJSON OfferingTransaction where
+-- | The ID that corresponds to a device offering promotion.
+--
+-- /Note:/ Consider using 'offeringPromotionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otOfferingPromotionId :: Lens.Lens' OfferingTransaction (Core.Maybe Types.OfferingPromotionId)
+otOfferingPromotionId = Lens.field @"offeringPromotionId"
+{-# DEPRECATED otOfferingPromotionId "Use generic-lens or generic-optics with 'offeringPromotionId' instead." #-}
+
+-- | The status of an offering transaction.
+--
+-- /Note:/ Consider using 'offeringStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otOfferingStatus :: Lens.Lens' OfferingTransaction (Core.Maybe Types.OfferingStatus)
+otOfferingStatus = Lens.field @"offeringStatus"
+{-# DEPRECATED otOfferingStatus "Use generic-lens or generic-optics with 'offeringStatus' instead." #-}
+
+-- | The transaction ID of the offering transaction.
+--
+-- /Note:/ Consider using 'transactionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otTransactionId :: Lens.Lens' OfferingTransaction (Core.Maybe Types.TransactionId)
+otTransactionId = Lens.field @"transactionId"
+{-# DEPRECATED otTransactionId "Use generic-lens or generic-optics with 'transactionId' instead." #-}
+
+instance Core.FromJSON OfferingTransaction where
   parseJSON =
-    Lude.withObject
-      "OfferingTransaction"
-      ( \x ->
-          OfferingTransaction'
-            Lude.<$> (x Lude..:? "offeringStatus")
-            Lude.<*> (x Lude..:? "cost")
-            Lude.<*> (x Lude..:? "transactionId")
-            Lude.<*> (x Lude..:? "offeringPromotionId")
-            Lude.<*> (x Lude..:? "createdOn")
-      )
+    Core.withObject "OfferingTransaction" Core.$
+      \x ->
+        OfferingTransaction'
+          Core.<$> (x Core..:? "cost")
+          Core.<*> (x Core..:? "createdOn")
+          Core.<*> (x Core..:? "offeringPromotionId")
+          Core.<*> (x Core..:? "offeringStatus")
+          Core.<*> (x Core..:? "transactionId")

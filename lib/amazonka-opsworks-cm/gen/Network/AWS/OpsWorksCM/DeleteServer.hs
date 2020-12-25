@@ -23,100 +23,88 @@ module Network.AWS.OpsWorksCM.DeleteServer
     mkDeleteServer,
 
     -- ** Request lenses
-    dServerName,
+    dsServerName,
 
     -- * Destructuring the response
     DeleteServerResponse (..),
     mkDeleteServerResponse,
 
     -- ** Response lenses
-    dsrsResponseStatus,
+    dsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteServer' smart constructor.
 newtype DeleteServer = DeleteServer'
   { -- | The ID of the server to delete.
-    serverName :: Lude.Text
+    serverName :: Types.ServerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteServer' with the minimum fields required to make a request.
---
--- * 'serverName' - The ID of the server to delete.
+-- | Creates a 'DeleteServer' value with any optional fields omitted.
 mkDeleteServer ::
   -- | 'serverName'
-  Lude.Text ->
+  Types.ServerName ->
   DeleteServer
-mkDeleteServer pServerName_ =
-  DeleteServer' {serverName = pServerName_}
+mkDeleteServer serverName = DeleteServer' {serverName}
 
 -- | The ID of the server to delete.
 --
 -- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dServerName :: Lens.Lens' DeleteServer Lude.Text
-dServerName = Lens.lens (serverName :: DeleteServer -> Lude.Text) (\s a -> s {serverName = a} :: DeleteServer)
-{-# DEPRECATED dServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+dsServerName :: Lens.Lens' DeleteServer Types.ServerName
+dsServerName = Lens.field @"serverName"
+{-# DEPRECATED dsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
-instance Lude.AWSRequest DeleteServer where
+instance Core.FromJSON DeleteServer where
+  toJSON DeleteServer {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ServerName" Core..= serverName)])
+
+instance Core.AWSRequest DeleteServer where
   type Rs DeleteServer = DeleteServerResponse
-  request = Req.postJSON opsWorksCMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorksCM_V2016_11_01.DeleteServer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteServerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteServerResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteServer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorksCM_V2016_11_01.DeleteServer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteServer where
-  toJSON DeleteServer' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ServerName" Lude..= serverName)])
-
-instance Lude.ToPath DeleteServer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteServer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteServerResponse' smart constructor.
 newtype DeleteServerResponse = DeleteServerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteServerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteServerResponse' value with any optional fields omitted.
 mkDeleteServerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteServerResponse
-mkDeleteServerResponse pResponseStatus_ =
-  DeleteServerResponse' {responseStatus = pResponseStatus_}
+mkDeleteServerResponse responseStatus =
+  DeleteServerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DeleteServerResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DeleteServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServerResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DeleteServerResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

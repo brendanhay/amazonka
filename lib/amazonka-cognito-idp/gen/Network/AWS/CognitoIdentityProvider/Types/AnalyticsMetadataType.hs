@@ -21,8 +21,9 @@ module Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.StringType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An Amazon Pinpoint analytics endpoint.
 --
@@ -31,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkAnalyticsMetadataType' smart constructor.
 newtype AnalyticsMetadataType = AnalyticsMetadataType'
   { -- | The endpoint ID.
-    analyticsEndpointId :: Lude.Maybe Lude.Text
+    analyticsEndpointId :: Core.Maybe Types.StringType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnalyticsMetadataType' with the minimum fields required to make a request.
---
--- * 'analyticsEndpointId' - The endpoint ID.
+-- | Creates a 'AnalyticsMetadataType' value with any optional fields omitted.
 mkAnalyticsMetadataType ::
   AnalyticsMetadataType
 mkAnalyticsMetadataType =
-  AnalyticsMetadataType' {analyticsEndpointId = Lude.Nothing}
+  AnalyticsMetadataType' {analyticsEndpointId = Core.Nothing}
 
 -- | The endpoint ID.
 --
 -- /Note:/ Consider using 'analyticsEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amtAnalyticsEndpointId :: Lens.Lens' AnalyticsMetadataType (Lude.Maybe Lude.Text)
-amtAnalyticsEndpointId = Lens.lens (analyticsEndpointId :: AnalyticsMetadataType -> Lude.Maybe Lude.Text) (\s a -> s {analyticsEndpointId = a} :: AnalyticsMetadataType)
+amtAnalyticsEndpointId :: Lens.Lens' AnalyticsMetadataType (Core.Maybe Types.StringType)
+amtAnalyticsEndpointId = Lens.field @"analyticsEndpointId"
 {-# DEPRECATED amtAnalyticsEndpointId "Use generic-lens or generic-optics with 'analyticsEndpointId' instead." #-}
 
-instance Lude.ToJSON AnalyticsMetadataType where
-  toJSON AnalyticsMetadataType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("AnalyticsEndpointId" Lude..=) Lude.<$> analyticsEndpointId]
+instance Core.FromJSON AnalyticsMetadataType where
+  toJSON AnalyticsMetadataType {..} =
+    Core.object
+      ( Core.catMaybes
+          [("AnalyticsEndpointId" Core..=) Core.<$> analyticsEndpointId]
       )

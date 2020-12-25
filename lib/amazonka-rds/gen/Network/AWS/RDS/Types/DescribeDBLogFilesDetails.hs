@@ -17,67 +17,64 @@ module Network.AWS.RDS.Types.DescribeDBLogFilesDetails
     mkDescribeDBLogFilesDetails,
 
     -- * Lenses
-    ddlfdLastWritten,
-    ddlfdSize,
-    ddlfdLogFileName,
+    ddblfdLastWritten,
+    ddblfdLogFileName,
+    ddblfdSize,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | This data type is used as a response element to @DescribeDBLogFiles@ .
 --
 -- /See:/ 'mkDescribeDBLogFilesDetails' smart constructor.
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
   { -- | A POSIX timestamp when the last log entry was written.
-    lastWritten :: Lude.Maybe Lude.Integer,
-    -- | The size, in bytes, of the log file for the specified DB instance.
-    size :: Lude.Maybe Lude.Integer,
+    lastWritten :: Core.Maybe Core.Integer,
     -- | The name of the log file for the specified DB instance.
-    logFileName :: Lude.Maybe Lude.Text
+    logFileName :: Core.Maybe Types.String,
+    -- | The size, in bytes, of the log file for the specified DB instance.
+    size :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBLogFilesDetails' with the minimum fields required to make a request.
---
--- * 'lastWritten' - A POSIX timestamp when the last log entry was written.
--- * 'size' - The size, in bytes, of the log file for the specified DB instance.
--- * 'logFileName' - The name of the log file for the specified DB instance.
+-- | Creates a 'DescribeDBLogFilesDetails' value with any optional fields omitted.
 mkDescribeDBLogFilesDetails ::
   DescribeDBLogFilesDetails
 mkDescribeDBLogFilesDetails =
   DescribeDBLogFilesDetails'
-    { lastWritten = Lude.Nothing,
-      size = Lude.Nothing,
-      logFileName = Lude.Nothing
+    { lastWritten = Core.Nothing,
+      logFileName = Core.Nothing,
+      size = Core.Nothing
     }
 
 -- | A POSIX timestamp when the last log entry was written.
 --
 -- /Note:/ Consider using 'lastWritten' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfdLastWritten :: Lens.Lens' DescribeDBLogFilesDetails (Lude.Maybe Lude.Integer)
-ddlfdLastWritten = Lens.lens (lastWritten :: DescribeDBLogFilesDetails -> Lude.Maybe Lude.Integer) (\s a -> s {lastWritten = a} :: DescribeDBLogFilesDetails)
-{-# DEPRECATED ddlfdLastWritten "Use generic-lens or generic-optics with 'lastWritten' instead." #-}
-
--- | The size, in bytes, of the log file for the specified DB instance.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfdSize :: Lens.Lens' DescribeDBLogFilesDetails (Lude.Maybe Lude.Integer)
-ddlfdSize = Lens.lens (size :: DescribeDBLogFilesDetails -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: DescribeDBLogFilesDetails)
-{-# DEPRECATED ddlfdSize "Use generic-lens or generic-optics with 'size' instead." #-}
+ddblfdLastWritten :: Lens.Lens' DescribeDBLogFilesDetails (Core.Maybe Core.Integer)
+ddblfdLastWritten = Lens.field @"lastWritten"
+{-# DEPRECATED ddblfdLastWritten "Use generic-lens or generic-optics with 'lastWritten' instead." #-}
 
 -- | The name of the log file for the specified DB instance.
 --
 -- /Note:/ Consider using 'logFileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfdLogFileName :: Lens.Lens' DescribeDBLogFilesDetails (Lude.Maybe Lude.Text)
-ddlfdLogFileName = Lens.lens (logFileName :: DescribeDBLogFilesDetails -> Lude.Maybe Lude.Text) (\s a -> s {logFileName = a} :: DescribeDBLogFilesDetails)
-{-# DEPRECATED ddlfdLogFileName "Use generic-lens or generic-optics with 'logFileName' instead." #-}
+ddblfdLogFileName :: Lens.Lens' DescribeDBLogFilesDetails (Core.Maybe Types.String)
+ddblfdLogFileName = Lens.field @"logFileName"
+{-# DEPRECATED ddblfdLogFileName "Use generic-lens or generic-optics with 'logFileName' instead." #-}
 
-instance Lude.FromXML DescribeDBLogFilesDetails where
+-- | The size, in bytes, of the log file for the specified DB instance.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddblfdSize :: Lens.Lens' DescribeDBLogFilesDetails (Core.Maybe Core.Integer)
+ddblfdSize = Lens.field @"size"
+{-# DEPRECATED ddblfdSize "Use generic-lens or generic-optics with 'size' instead." #-}
+
+instance Core.FromXML DescribeDBLogFilesDetails where
   parseXML x =
     DescribeDBLogFilesDetails'
-      Lude.<$> (x Lude..@? "LastWritten")
-      Lude.<*> (x Lude..@? "Size")
-      Lude.<*> (x Lude..@? "LogFileName")
+      Core.<$> (x Core..@? "LastWritten")
+      Core.<*> (x Core..@? "LogFileName")
+      Core.<*> (x Core..@? "Size")

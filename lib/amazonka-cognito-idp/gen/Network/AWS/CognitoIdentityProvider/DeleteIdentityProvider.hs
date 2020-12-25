@@ -20,8 +20,8 @@ module Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
     mkDeleteIdentityProvider,
 
     -- ** Request lenses
-    dipUserPoolId,
-    dipProviderName,
+    dipfUserPoolId,
+    dipfProviderName,
 
     -- * Destructuring the response
     DeleteIdentityProviderResponse (..),
@@ -29,91 +29,79 @@ module Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteIdentityProvider' smart constructor.
 data DeleteIdentityProvider = DeleteIdentityProvider'
   { -- | The user pool ID.
-    userPoolId :: Lude.Text,
+    userPoolId :: Types.UserPoolId,
     -- | The identity provider name.
-    providerName :: Lude.Text
+    providerName :: Types.ProviderNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIdentityProvider' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID.
--- * 'providerName' - The identity provider name.
+-- | Creates a 'DeleteIdentityProvider' value with any optional fields omitted.
 mkDeleteIdentityProvider ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'providerName'
-  Lude.Text ->
+  Types.ProviderNameType ->
   DeleteIdentityProvider
-mkDeleteIdentityProvider pUserPoolId_ pProviderName_ =
-  DeleteIdentityProvider'
-    { userPoolId = pUserPoolId_,
-      providerName = pProviderName_
-    }
+mkDeleteIdentityProvider userPoolId providerName =
+  DeleteIdentityProvider' {userPoolId, providerName}
 
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipUserPoolId :: Lens.Lens' DeleteIdentityProvider Lude.Text
-dipUserPoolId = Lens.lens (userPoolId :: DeleteIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteIdentityProvider)
-{-# DEPRECATED dipUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+dipfUserPoolId :: Lens.Lens' DeleteIdentityProvider Types.UserPoolId
+dipfUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED dipfUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identity provider name.
 --
 -- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipProviderName :: Lens.Lens' DeleteIdentityProvider Lude.Text
-dipProviderName = Lens.lens (providerName :: DeleteIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: DeleteIdentityProvider)
-{-# DEPRECATED dipProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
+dipfProviderName :: Lens.Lens' DeleteIdentityProvider Types.ProviderNameType
+dipfProviderName = Lens.field @"providerName"
+{-# DEPRECATED dipfProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
-instance Lude.AWSRequest DeleteIdentityProvider where
+instance Core.FromJSON DeleteIdentityProvider where
+  toJSON DeleteIdentityProvider {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("ProviderName" Core..= providerName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteIdentityProvider where
   type Rs DeleteIdentityProvider = DeleteIdentityProviderResponse
-  request = Req.postJSON cognitoIdentityProviderService
-  response = Res.receiveNull DeleteIdentityProviderResponse'
-
-instance Lude.ToHeaders DeleteIdentityProvider where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.DeleteIdentityProvider" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteIdentityProvider where
-  toJSON DeleteIdentityProvider' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("ProviderName" Lude..= providerName)
-          ]
-      )
-
-instance Lude.ToPath DeleteIdentityProvider where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteIdentityProvider where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.DeleteIdentityProvider"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteIdentityProviderResponse'
 
 -- | /See:/ 'mkDeleteIdentityProviderResponse' smart constructor.
 data DeleteIdentityProviderResponse = DeleteIdentityProviderResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIdentityProviderResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteIdentityProviderResponse' value with any optional fields omitted.
 mkDeleteIdentityProviderResponse ::
   DeleteIdentityProviderResponse
 mkDeleteIdentityProviderResponse = DeleteIdentityProviderResponse'

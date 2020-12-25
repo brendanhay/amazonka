@@ -17,13 +17,14 @@ module Network.AWS.Transcribe.Types.Transcript
     mkTranscript,
 
     -- * Lenses
-    tRedactedTranscriptFileURI,
-    tTranscriptFileURI,
+    tRedactedTranscriptFileUri,
+    tTranscriptFileUri,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.Uri as Types
 
 -- | Identifies the location of a transcription.
 --
@@ -32,55 +33,46 @@ data Transcript = Transcript'
   { -- | The S3 object location of the redacted transcript.
     --
     -- Use this URI to access the redacted transcript. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
-    redactedTranscriptFileURI :: Lude.Maybe Lude.Text,
+    redactedTranscriptFileUri :: Core.Maybe Types.Uri,
     -- | The S3 object location of the transcript.
     --
     -- Use this URI to access the transcript. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
-    transcriptFileURI :: Lude.Maybe Lude.Text
+    transcriptFileUri :: Core.Maybe Types.Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Transcript' with the minimum fields required to make a request.
---
--- * 'redactedTranscriptFileURI' - The S3 object location of the redacted transcript.
---
--- Use this URI to access the redacted transcript. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
--- * 'transcriptFileURI' - The S3 object location of the transcript.
---
--- Use this URI to access the transcript. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
+-- | Creates a 'Transcript' value with any optional fields omitted.
 mkTranscript ::
   Transcript
 mkTranscript =
   Transcript'
-    { redactedTranscriptFileURI = Lude.Nothing,
-      transcriptFileURI = Lude.Nothing
+    { redactedTranscriptFileUri = Core.Nothing,
+      transcriptFileUri = Core.Nothing
     }
 
 -- | The S3 object location of the redacted transcript.
 --
 -- Use this URI to access the redacted transcript. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
 --
--- /Note:/ Consider using 'redactedTranscriptFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tRedactedTranscriptFileURI :: Lens.Lens' Transcript (Lude.Maybe Lude.Text)
-tRedactedTranscriptFileURI = Lens.lens (redactedTranscriptFileURI :: Transcript -> Lude.Maybe Lude.Text) (\s a -> s {redactedTranscriptFileURI = a} :: Transcript)
-{-# DEPRECATED tRedactedTranscriptFileURI "Use generic-lens or generic-optics with 'redactedTranscriptFileURI' instead." #-}
+-- /Note:/ Consider using 'redactedTranscriptFileUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tRedactedTranscriptFileUri :: Lens.Lens' Transcript (Core.Maybe Types.Uri)
+tRedactedTranscriptFileUri = Lens.field @"redactedTranscriptFileUri"
+{-# DEPRECATED tRedactedTranscriptFileUri "Use generic-lens or generic-optics with 'redactedTranscriptFileUri' instead." #-}
 
 -- | The S3 object location of the transcript.
 --
 -- Use this URI to access the transcript. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
 --
--- /Note:/ Consider using 'transcriptFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTranscriptFileURI :: Lens.Lens' Transcript (Lude.Maybe Lude.Text)
-tTranscriptFileURI = Lens.lens (transcriptFileURI :: Transcript -> Lude.Maybe Lude.Text) (\s a -> s {transcriptFileURI = a} :: Transcript)
-{-# DEPRECATED tTranscriptFileURI "Use generic-lens or generic-optics with 'transcriptFileURI' instead." #-}
+-- /Note:/ Consider using 'transcriptFileUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTranscriptFileUri :: Lens.Lens' Transcript (Core.Maybe Types.Uri)
+tTranscriptFileUri = Lens.field @"transcriptFileUri"
+{-# DEPRECATED tTranscriptFileUri "Use generic-lens or generic-optics with 'transcriptFileUri' instead." #-}
 
-instance Lude.FromJSON Transcript where
+instance Core.FromJSON Transcript where
   parseJSON =
-    Lude.withObject
-      "Transcript"
-      ( \x ->
-          Transcript'
-            Lude.<$> (x Lude..:? "RedactedTranscriptFileUri")
-            Lude.<*> (x Lude..:? "TranscriptFileUri")
-      )
+    Core.withObject "Transcript" Core.$
+      \x ->
+        Transcript'
+          Core.<$> (x Core..:? "RedactedTranscriptFileUri")
+          Core.<*> (x Core..:? "TranscriptFileUri")

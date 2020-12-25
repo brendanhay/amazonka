@@ -18,57 +18,54 @@ module Network.AWS.Config.Types.PendingAggregationRequest
 
     -- * Lenses
     parRequesterAccountId,
-    parRequesterAWSRegion,
+    parRequesterAwsRegion,
   )
 where
 
+import qualified Network.AWS.Config.Types.RequesterAccountId as Types
+import qualified Network.AWS.Config.Types.RequesterAwsRegion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that represents the account ID and region of an aggregator account that is requesting authorization but is not yet authorized.
 --
 -- /See:/ 'mkPendingAggregationRequest' smart constructor.
 data PendingAggregationRequest = PendingAggregationRequest'
   { -- | The 12-digit account ID of the account requesting to aggregate data.
-    requesterAccountId :: Lude.Maybe Lude.Text,
+    requesterAccountId :: Core.Maybe Types.RequesterAccountId,
     -- | The region requesting to aggregate data.
-    requesterAWSRegion :: Lude.Maybe Lude.Text
+    requesterAwsRegion :: Core.Maybe Types.RequesterAwsRegion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PendingAggregationRequest' with the minimum fields required to make a request.
---
--- * 'requesterAccountId' - The 12-digit account ID of the account requesting to aggregate data.
--- * 'requesterAWSRegion' - The region requesting to aggregate data.
+-- | Creates a 'PendingAggregationRequest' value with any optional fields omitted.
 mkPendingAggregationRequest ::
   PendingAggregationRequest
 mkPendingAggregationRequest =
   PendingAggregationRequest'
-    { requesterAccountId = Lude.Nothing,
-      requesterAWSRegion = Lude.Nothing
+    { requesterAccountId = Core.Nothing,
+      requesterAwsRegion = Core.Nothing
     }
 
 -- | The 12-digit account ID of the account requesting to aggregate data.
 --
 -- /Note:/ Consider using 'requesterAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parRequesterAccountId :: Lens.Lens' PendingAggregationRequest (Lude.Maybe Lude.Text)
-parRequesterAccountId = Lens.lens (requesterAccountId :: PendingAggregationRequest -> Lude.Maybe Lude.Text) (\s a -> s {requesterAccountId = a} :: PendingAggregationRequest)
+parRequesterAccountId :: Lens.Lens' PendingAggregationRequest (Core.Maybe Types.RequesterAccountId)
+parRequesterAccountId = Lens.field @"requesterAccountId"
 {-# DEPRECATED parRequesterAccountId "Use generic-lens or generic-optics with 'requesterAccountId' instead." #-}
 
 -- | The region requesting to aggregate data.
 --
--- /Note:/ Consider using 'requesterAWSRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parRequesterAWSRegion :: Lens.Lens' PendingAggregationRequest (Lude.Maybe Lude.Text)
-parRequesterAWSRegion = Lens.lens (requesterAWSRegion :: PendingAggregationRequest -> Lude.Maybe Lude.Text) (\s a -> s {requesterAWSRegion = a} :: PendingAggregationRequest)
-{-# DEPRECATED parRequesterAWSRegion "Use generic-lens or generic-optics with 'requesterAWSRegion' instead." #-}
+-- /Note:/ Consider using 'requesterAwsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parRequesterAwsRegion :: Lens.Lens' PendingAggregationRequest (Core.Maybe Types.RequesterAwsRegion)
+parRequesterAwsRegion = Lens.field @"requesterAwsRegion"
+{-# DEPRECATED parRequesterAwsRegion "Use generic-lens or generic-optics with 'requesterAwsRegion' instead." #-}
 
-instance Lude.FromJSON PendingAggregationRequest where
+instance Core.FromJSON PendingAggregationRequest where
   parseJSON =
-    Lude.withObject
-      "PendingAggregationRequest"
-      ( \x ->
-          PendingAggregationRequest'
-            Lude.<$> (x Lude..:? "RequesterAccountId")
-            Lude.<*> (x Lude..:? "RequesterAwsRegion")
-      )
+    Core.withObject "PendingAggregationRequest" Core.$
+      \x ->
+        PendingAggregationRequest'
+          Core.<$> (x Core..:? "RequesterAccountId")
+          Core.<*> (x Core..:? "RequesterAwsRegion")

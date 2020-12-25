@@ -20,147 +20,131 @@ module Network.AWS.Comprehend.BatchDetectKeyPhrases
     mkBatchDetectKeyPhrases,
 
     -- ** Request lenses
-    bdkpLanguageCode,
     bdkpTextList,
+    bdkpLanguageCode,
 
     -- * Destructuring the response
     BatchDetectKeyPhrasesResponse (..),
     mkBatchDetectKeyPhrasesResponse,
 
     -- ** Response lenses
-    bdkprsErrorList,
-    bdkprsResultList,
-    bdkprsResponseStatus,
+    bdkprrsResultList,
+    bdkprrsErrorList,
+    bdkprrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchDetectKeyPhrases' smart constructor.
 data BatchDetectKeyPhrases = BatchDetectKeyPhrases'
-  { -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-    languageCode :: LanguageCode,
-    -- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-    textList :: [Lude.Sensitive Lude.Text]
+  { -- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+    textList :: [Types.CustomerInputString],
+    -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+    languageCode :: Types.LanguageCode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetectKeyPhrases' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
--- * 'textList' - A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+-- | Creates a 'BatchDetectKeyPhrases' value with any optional fields omitted.
 mkBatchDetectKeyPhrases ::
   -- | 'languageCode'
-  LanguageCode ->
+  Types.LanguageCode ->
   BatchDetectKeyPhrases
-mkBatchDetectKeyPhrases pLanguageCode_ =
-  BatchDetectKeyPhrases'
-    { languageCode = pLanguageCode_,
-      textList = Lude.mempty
-    }
-
--- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdkpLanguageCode :: Lens.Lens' BatchDetectKeyPhrases LanguageCode
-bdkpLanguageCode = Lens.lens (languageCode :: BatchDetectKeyPhrases -> LanguageCode) (\s a -> s {languageCode = a} :: BatchDetectKeyPhrases)
-{-# DEPRECATED bdkpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+mkBatchDetectKeyPhrases languageCode =
+  BatchDetectKeyPhrases' {textList = Core.mempty, languageCode}
 
 -- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 --
 -- /Note:/ Consider using 'textList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdkpTextList :: Lens.Lens' BatchDetectKeyPhrases [Lude.Sensitive Lude.Text]
-bdkpTextList = Lens.lens (textList :: BatchDetectKeyPhrases -> [Lude.Sensitive Lude.Text]) (\s a -> s {textList = a} :: BatchDetectKeyPhrases)
+bdkpTextList :: Lens.Lens' BatchDetectKeyPhrases [Types.CustomerInputString]
+bdkpTextList = Lens.field @"textList"
 {-# DEPRECATED bdkpTextList "Use generic-lens or generic-optics with 'textList' instead." #-}
 
-instance Lude.AWSRequest BatchDetectKeyPhrases where
+-- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdkpLanguageCode :: Lens.Lens' BatchDetectKeyPhrases Types.LanguageCode
+bdkpLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED bdkpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+instance Core.FromJSON BatchDetectKeyPhrases where
+  toJSON BatchDetectKeyPhrases {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TextList" Core..= textList),
+            Core.Just ("LanguageCode" Core..= languageCode)
+          ]
+      )
+
+instance Core.AWSRequest BatchDetectKeyPhrases where
   type Rs BatchDetectKeyPhrases = BatchDetectKeyPhrasesResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Comprehend_20171127.BatchDetectKeyPhrases")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchDetectKeyPhrasesResponse'
-            Lude.<$> (x Lude..?> "ErrorList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "ResultList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ResultList" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ErrorList" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchDetectKeyPhrases where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Comprehend_20171127.BatchDetectKeyPhrases" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchDetectKeyPhrases where
-  toJSON BatchDetectKeyPhrases' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LanguageCode" Lude..= languageCode),
-            Lude.Just ("TextList" Lude..= textList)
-          ]
-      )
-
-instance Lude.ToPath BatchDetectKeyPhrases where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchDetectKeyPhrases where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchDetectKeyPhrasesResponse' smart constructor.
 data BatchDetectKeyPhrasesResponse = BatchDetectKeyPhrasesResponse'
-  { -- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-    errorList :: [BatchItemError],
-    -- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
-    resultList :: [BatchDetectKeyPhrasesItemResult],
+  { -- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
+    resultList :: [Types.BatchDetectKeyPhrasesItemResult],
+    -- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
+    errorList :: [Types.BatchItemError],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetectKeyPhrasesResponse' with the minimum fields required to make a request.
---
--- * 'errorList' - A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
--- * 'resultList' - A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchDetectKeyPhrasesResponse' value with any optional fields omitted.
 mkBatchDetectKeyPhrasesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchDetectKeyPhrasesResponse
-mkBatchDetectKeyPhrasesResponse pResponseStatus_ =
+mkBatchDetectKeyPhrasesResponse responseStatus =
   BatchDetectKeyPhrasesResponse'
-    { errorList = Lude.mempty,
-      resultList = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { resultList = Core.mempty,
+      errorList = Core.mempty,
+      responseStatus
     }
-
--- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
---
--- /Note:/ Consider using 'errorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdkprsErrorList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchItemError]
-bdkprsErrorList = Lens.lens (errorList :: BatchDetectKeyPhrasesResponse -> [BatchItemError]) (\s a -> s {errorList = a} :: BatchDetectKeyPhrasesResponse)
-{-# DEPRECATED bdkprsErrorList "Use generic-lens or generic-optics with 'errorList' instead." #-}
 
 -- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
 --
 -- /Note:/ Consider using 'resultList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdkprsResultList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchDetectKeyPhrasesItemResult]
-bdkprsResultList = Lens.lens (resultList :: BatchDetectKeyPhrasesResponse -> [BatchDetectKeyPhrasesItemResult]) (\s a -> s {resultList = a} :: BatchDetectKeyPhrasesResponse)
-{-# DEPRECATED bdkprsResultList "Use generic-lens or generic-optics with 'resultList' instead." #-}
+bdkprrsResultList :: Lens.Lens' BatchDetectKeyPhrasesResponse [Types.BatchDetectKeyPhrasesItemResult]
+bdkprrsResultList = Lens.field @"resultList"
+{-# DEPRECATED bdkprrsResultList "Use generic-lens or generic-optics with 'resultList' instead." #-}
+
+-- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
+--
+-- /Note:/ Consider using 'errorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdkprrsErrorList :: Lens.Lens' BatchDetectKeyPhrasesResponse [Types.BatchItemError]
+bdkprrsErrorList = Lens.field @"errorList"
+{-# DEPRECATED bdkprrsErrorList "Use generic-lens or generic-optics with 'errorList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdkprsResponseStatus :: Lens.Lens' BatchDetectKeyPhrasesResponse Lude.Int
-bdkprsResponseStatus = Lens.lens (responseStatus :: BatchDetectKeyPhrasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDetectKeyPhrasesResponse)
-{-# DEPRECATED bdkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bdkprrsResponseStatus :: Lens.Lens' BatchDetectKeyPhrasesResponse Core.Int
+bdkprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bdkprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

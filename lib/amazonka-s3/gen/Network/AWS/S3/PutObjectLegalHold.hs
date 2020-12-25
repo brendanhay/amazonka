@@ -25,118 +25,85 @@ module Network.AWS.S3.PutObjectLegalHold
     mkPutObjectLegalHold,
 
     -- ** Request lenses
-    polhLegalHold,
-    polhVersionId,
     polhBucket,
-    polhRequestPayer,
     polhKey,
     polhContentMD5,
     polhExpectedBucketOwner,
+    polhLegalHold,
+    polhRequestPayer,
+    polhVersionId,
 
     -- * Destructuring the response
     PutObjectLegalHoldResponse (..),
     mkPutObjectLegalHoldResponse,
 
     -- ** Response lenses
-    polhrsRequestCharged,
-    polhrsResponseStatus,
+    polhrrsRequestCharged,
+    polhrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutObjectLegalHold' smart constructor.
 data PutObjectLegalHold = PutObjectLegalHold'
-  { -- | Container element for the Legal Hold configuration you want to apply to the specified object.
-    legalHold :: Lude.Maybe ObjectLockLegalHold,
-    -- | The version ID of the object that you want to place a Legal Hold on.
-    versionId :: Lude.Maybe ObjectVersionId,
-    -- | The bucket name containing the object that you want to place a Legal Hold on.
+  { -- | The bucket name containing the object that you want to place a Legal Hold on.
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
-    requestPayer :: Lude.Maybe RequestPayer,
+    bucket :: Types.BucketName,
     -- | The key name for the object that you want to place a Legal Hold on.
-    key :: ObjectKey,
+    key :: Types.ObjectKey,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
-    contentMD5 :: Lude.Maybe Lude.Text,
+    contentMD5 :: Core.Maybe Types.ContentMD5,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.AccountId,
+    -- | Container element for the Legal Hold configuration you want to apply to the specified object.
+    legalHold :: Core.Maybe Types.ObjectLockLegalHold,
+    requestPayer :: Core.Maybe Types.RequestPayer,
+    -- | The version ID of the object that you want to place a Legal Hold on.
+    versionId :: Core.Maybe Types.ObjectVersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutObjectLegalHold' with the minimum fields required to make a request.
---
--- * 'legalHold' - Container element for the Legal Hold configuration you want to apply to the specified object.
--- * 'versionId' - The version ID of the object that you want to place a Legal Hold on.
--- * 'bucket' - The bucket name containing the object that you want to place a Legal Hold on.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'requestPayer' -
--- * 'key' - The key name for the object that you want to place a Legal Hold on.
--- * 'contentMD5' - The MD5 hash for the request body.
---
--- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'PutObjectLegalHold' value with any optional fields omitted.
 mkPutObjectLegalHold ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'key'
-  ObjectKey ->
+  Types.ObjectKey ->
   PutObjectLegalHold
-mkPutObjectLegalHold pBucket_ pKey_ =
+mkPutObjectLegalHold bucket key =
   PutObjectLegalHold'
-    { legalHold = Lude.Nothing,
-      versionId = Lude.Nothing,
-      bucket = pBucket_,
-      requestPayer = Lude.Nothing,
-      key = pKey_,
-      contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      key,
+      contentMD5 = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      legalHold = Core.Nothing,
+      requestPayer = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | Container element for the Legal Hold configuration you want to apply to the specified object.
---
--- /Note:/ Consider using 'legalHold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhLegalHold :: Lens.Lens' PutObjectLegalHold (Lude.Maybe ObjectLockLegalHold)
-polhLegalHold = Lens.lens (legalHold :: PutObjectLegalHold -> Lude.Maybe ObjectLockLegalHold) (\s a -> s {legalHold = a} :: PutObjectLegalHold)
-{-# DEPRECATED polhLegalHold "Use generic-lens or generic-optics with 'legalHold' instead." #-}
-
--- | The version ID of the object that you want to place a Legal Hold on.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhVersionId :: Lens.Lens' PutObjectLegalHold (Lude.Maybe ObjectVersionId)
-polhVersionId = Lens.lens (versionId :: PutObjectLegalHold -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: PutObjectLegalHold)
-{-# DEPRECATED polhVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The bucket name containing the object that you want to place a Legal Hold on.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhBucket :: Lens.Lens' PutObjectLegalHold BucketName
-polhBucket = Lens.lens (bucket :: PutObjectLegalHold -> BucketName) (\s a -> s {bucket = a} :: PutObjectLegalHold)
+polhBucket :: Lens.Lens' PutObjectLegalHold Types.BucketName
+polhBucket = Lens.field @"bucket"
 {-# DEPRECATED polhBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhRequestPayer :: Lens.Lens' PutObjectLegalHold (Lude.Maybe RequestPayer)
-polhRequestPayer = Lens.lens (requestPayer :: PutObjectLegalHold -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: PutObjectLegalHold)
-{-# DEPRECATED polhRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | The key name for the object that you want to place a Legal Hold on.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhKey :: Lens.Lens' PutObjectLegalHold ObjectKey
-polhKey = Lens.lens (key :: PutObjectLegalHold -> ObjectKey) (\s a -> s {key = a} :: PutObjectLegalHold)
+polhKey :: Lens.Lens' PutObjectLegalHold Types.ObjectKey
+polhKey = Lens.field @"key"
 {-# DEPRECATED polhKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The MD5 hash for the request body.
@@ -144,83 +111,96 @@ polhKey = Lens.lens (key :: PutObjectLegalHold -> ObjectKey) (\s a -> s {key = a
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 --
 -- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhContentMD5 :: Lens.Lens' PutObjectLegalHold (Lude.Maybe Lude.Text)
-polhContentMD5 = Lens.lens (contentMD5 :: PutObjectLegalHold -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutObjectLegalHold)
+polhContentMD5 :: Lens.Lens' PutObjectLegalHold (Core.Maybe Types.ContentMD5)
+polhContentMD5 = Lens.field @"contentMD5"
 {-# DEPRECATED polhContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhExpectedBucketOwner :: Lens.Lens' PutObjectLegalHold (Lude.Maybe Lude.Text)
-polhExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutObjectLegalHold -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutObjectLegalHold)
+polhExpectedBucketOwner :: Lens.Lens' PutObjectLegalHold (Core.Maybe Types.AccountId)
+polhExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED polhExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest PutObjectLegalHold where
+-- | Container element for the Legal Hold configuration you want to apply to the specified object.
+--
+-- /Note:/ Consider using 'legalHold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+polhLegalHold :: Lens.Lens' PutObjectLegalHold (Core.Maybe Types.ObjectLockLegalHold)
+polhLegalHold = Lens.field @"legalHold"
+{-# DEPRECATED polhLegalHold "Use generic-lens or generic-optics with 'legalHold' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+polhRequestPayer :: Lens.Lens' PutObjectLegalHold (Core.Maybe Types.RequestPayer)
+polhRequestPayer = Lens.field @"requestPayer"
+{-# DEPRECATED polhRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
+-- | The version ID of the object that you want to place a Legal Hold on.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+polhVersionId :: Lens.Lens' PutObjectLegalHold (Core.Maybe Types.ObjectVersionId)
+polhVersionId = Lens.field @"versionId"
+{-# DEPRECATED polhVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.AWSRequest PutObjectLegalHold where
   type Rs PutObjectLegalHold = PutObjectLegalHoldResponse
-  request = Req.putXML s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText bucket) Core.<> ("/")
+                Core.<> (Core.toText key)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "versionId" Core.<$> versionId
+            Core.<> (Core.pure ("legal-hold", "")),
+        Core._rqHeaders =
+          Core.toHeaders "Content-MD5" contentMD5
+            Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner)
+            Core.<> (Core.toHeaders "x-amz-request-payer" requestPayer),
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutObjectLegalHoldResponse'
-            Lude.<$> (h Lude..#? "x-amz-request-charged")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "x-amz-request-charged" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement PutObjectLegalHold where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}LegalHold"
-      Lude.. legalHold
-
-instance Lude.ToHeaders PutObjectLegalHold where
-  toHeaders PutObjectLegalHold' {..} =
-    Lude.mconcat
-      [ "x-amz-request-payer" Lude.=# requestPayer,
-        "Content-MD5" Lude.=# contentMD5,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath PutObjectLegalHold where
-  toPath PutObjectLegalHold' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
-
-instance Lude.ToQuery PutObjectLegalHold where
-  toQuery PutObjectLegalHold' {..} =
-    Lude.mconcat ["versionId" Lude.=: versionId, "legal-hold"]
 
 -- | /See:/ 'mkPutObjectLegalHoldResponse' smart constructor.
 data PutObjectLegalHoldResponse = PutObjectLegalHoldResponse'
-  { requestCharged :: Lude.Maybe RequestCharged,
+  { requestCharged :: Core.Maybe Types.RequestCharged,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutObjectLegalHoldResponse' with the minimum fields required to make a request.
---
--- * 'requestCharged' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutObjectLegalHoldResponse' value with any optional fields omitted.
 mkPutObjectLegalHoldResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutObjectLegalHoldResponse
-mkPutObjectLegalHoldResponse pResponseStatus_ =
+mkPutObjectLegalHoldResponse responseStatus =
   PutObjectLegalHoldResponse'
-    { requestCharged = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { requestCharged = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhrsRequestCharged :: Lens.Lens' PutObjectLegalHoldResponse (Lude.Maybe RequestCharged)
-polhrsRequestCharged = Lens.lens (requestCharged :: PutObjectLegalHoldResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: PutObjectLegalHoldResponse)
-{-# DEPRECATED polhrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
+polhrrsRequestCharged :: Lens.Lens' PutObjectLegalHoldResponse (Core.Maybe Types.RequestCharged)
+polhrrsRequestCharged = Lens.field @"requestCharged"
+{-# DEPRECATED polhrrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polhrsResponseStatus :: Lens.Lens' PutObjectLegalHoldResponse Lude.Int
-polhrsResponseStatus = Lens.lens (responseStatus :: PutObjectLegalHoldResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutObjectLegalHoldResponse)
-{-# DEPRECATED polhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+polhrrsResponseStatus :: Lens.Lens' PutObjectLegalHoldResponse Core.Int
+polhrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED polhrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

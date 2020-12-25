@@ -21,39 +21,33 @@ module Network.AWS.Athena.Types.ResultSetMetadata
   )
 where
 
-import Network.AWS.Athena.Types.ColumnInfo
+import qualified Network.AWS.Athena.Types.ColumnInfo as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The metadata that describes the column structure and data types of a table of query results. To return a @ResultSetMetadata@ object, use 'GetQueryResults' .
 --
 -- /See:/ 'mkResultSetMetadata' smart constructor.
 newtype ResultSetMetadata = ResultSetMetadata'
   { -- | Information about the columns returned in a query result metadata.
-    columnInfo :: Lude.Maybe [ColumnInfo]
+    columnInfo :: Core.Maybe [Types.ColumnInfo]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResultSetMetadata' with the minimum fields required to make a request.
---
--- * 'columnInfo' - Information about the columns returned in a query result metadata.
+-- | Creates a 'ResultSetMetadata' value with any optional fields omitted.
 mkResultSetMetadata ::
   ResultSetMetadata
-mkResultSetMetadata = ResultSetMetadata' {columnInfo = Lude.Nothing}
+mkResultSetMetadata = ResultSetMetadata' {columnInfo = Core.Nothing}
 
 -- | Information about the columns returned in a query result metadata.
 --
 -- /Note:/ Consider using 'columnInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsmColumnInfo :: Lens.Lens' ResultSetMetadata (Lude.Maybe [ColumnInfo])
-rsmColumnInfo = Lens.lens (columnInfo :: ResultSetMetadata -> Lude.Maybe [ColumnInfo]) (\s a -> s {columnInfo = a} :: ResultSetMetadata)
+rsmColumnInfo :: Lens.Lens' ResultSetMetadata (Core.Maybe [Types.ColumnInfo])
+rsmColumnInfo = Lens.field @"columnInfo"
 {-# DEPRECATED rsmColumnInfo "Use generic-lens or generic-optics with 'columnInfo' instead." #-}
 
-instance Lude.FromJSON ResultSetMetadata where
+instance Core.FromJSON ResultSetMetadata where
   parseJSON =
-    Lude.withObject
-      "ResultSetMetadata"
-      ( \x ->
-          ResultSetMetadata'
-            Lude.<$> (x Lude..:? "ColumnInfo" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ResultSetMetadata" Core.$
+      \x -> ResultSetMetadata' Core.<$> (x Core..:? "ColumnInfo")

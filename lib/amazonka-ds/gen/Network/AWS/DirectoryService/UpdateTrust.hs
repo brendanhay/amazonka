@@ -20,143 +20,129 @@ module Network.AWS.DirectoryService.UpdateTrust
     mkUpdateTrust,
 
     -- ** Request lenses
-    utSelectiveAuth,
     utTrustId,
+    utSelectiveAuth,
 
     -- * Destructuring the response
     UpdateTrustResponse (..),
     mkUpdateTrustResponse,
 
     -- ** Response lenses
-    utrsRequestId,
-    utrsTrustId,
-    utrsResponseStatus,
+    utrrsRequestId,
+    utrrsTrustId,
+    utrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTrust' smart constructor.
 data UpdateTrust = UpdateTrust'
-  { -- | Updates selective authentication for the trust.
-    selectiveAuth :: Lude.Maybe SelectiveAuth,
-    -- | Identifier of the trust relationship.
-    trustId :: Lude.Text
+  { -- | Identifier of the trust relationship.
+    trustId :: Types.TrustId,
+    -- | Updates selective authentication for the trust.
+    selectiveAuth :: Core.Maybe Types.SelectiveAuth
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTrust' with the minimum fields required to make a request.
---
--- * 'selectiveAuth' - Updates selective authentication for the trust.
--- * 'trustId' - Identifier of the trust relationship.
+-- | Creates a 'UpdateTrust' value with any optional fields omitted.
 mkUpdateTrust ::
   -- | 'trustId'
-  Lude.Text ->
+  Types.TrustId ->
   UpdateTrust
-mkUpdateTrust pTrustId_ =
-  UpdateTrust' {selectiveAuth = Lude.Nothing, trustId = pTrustId_}
-
--- | Updates selective authentication for the trust.
---
--- /Note:/ Consider using 'selectiveAuth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utSelectiveAuth :: Lens.Lens' UpdateTrust (Lude.Maybe SelectiveAuth)
-utSelectiveAuth = Lens.lens (selectiveAuth :: UpdateTrust -> Lude.Maybe SelectiveAuth) (\s a -> s {selectiveAuth = a} :: UpdateTrust)
-{-# DEPRECATED utSelectiveAuth "Use generic-lens or generic-optics with 'selectiveAuth' instead." #-}
+mkUpdateTrust trustId =
+  UpdateTrust' {trustId, selectiveAuth = Core.Nothing}
 
 -- | Identifier of the trust relationship.
 --
 -- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utTrustId :: Lens.Lens' UpdateTrust Lude.Text
-utTrustId = Lens.lens (trustId :: UpdateTrust -> Lude.Text) (\s a -> s {trustId = a} :: UpdateTrust)
+utTrustId :: Lens.Lens' UpdateTrust Types.TrustId
+utTrustId = Lens.field @"trustId"
 {-# DEPRECATED utTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
-instance Lude.AWSRequest UpdateTrust where
+-- | Updates selective authentication for the trust.
+--
+-- /Note:/ Consider using 'selectiveAuth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utSelectiveAuth :: Lens.Lens' UpdateTrust (Core.Maybe Types.SelectiveAuth)
+utSelectiveAuth = Lens.field @"selectiveAuth"
+{-# DEPRECATED utSelectiveAuth "Use generic-lens or generic-optics with 'selectiveAuth' instead." #-}
+
+instance Core.FromJSON UpdateTrust where
+  toJSON UpdateTrust {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TrustId" Core..= trustId),
+            ("SelectiveAuth" Core..=) Core.<$> selectiveAuth
+          ]
+      )
+
+instance Core.AWSRequest UpdateTrust where
   type Rs UpdateTrust = UpdateTrustResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DirectoryService_20150416.UpdateTrust")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateTrustResponse'
-            Lude.<$> (x Lude..?> "RequestId")
-            Lude.<*> (x Lude..?> "TrustId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RequestId")
+            Core.<*> (x Core..:? "TrustId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTrust where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.UpdateTrust" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTrust where
-  toJSON UpdateTrust' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SelectiveAuth" Lude..=) Lude.<$> selectiveAuth,
-            Lude.Just ("TrustId" Lude..= trustId)
-          ]
-      )
-
-instance Lude.ToPath UpdateTrust where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTrust where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTrustResponse' smart constructor.
 data UpdateTrustResponse = UpdateTrustResponse'
-  { requestId :: Lude.Maybe Lude.Text,
+  { requestId :: Core.Maybe Types.RequestId,
     -- | Identifier of the trust relationship.
-    trustId :: Lude.Maybe Lude.Text,
+    trustId :: Core.Maybe Types.TrustId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTrustResponse' with the minimum fields required to make a request.
---
--- * 'requestId' -
--- * 'trustId' - Identifier of the trust relationship.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTrustResponse' value with any optional fields omitted.
 mkUpdateTrustResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTrustResponse
-mkUpdateTrustResponse pResponseStatus_ =
+mkUpdateTrustResponse responseStatus =
   UpdateTrustResponse'
-    { requestId = Lude.Nothing,
-      trustId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { requestId = Core.Nothing,
+      trustId = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsRequestId :: Lens.Lens' UpdateTrustResponse (Lude.Maybe Lude.Text)
-utrsRequestId = Lens.lens (requestId :: UpdateTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: UpdateTrustResponse)
-{-# DEPRECATED utrsRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
+utrrsRequestId :: Lens.Lens' UpdateTrustResponse (Core.Maybe Types.RequestId)
+utrrsRequestId = Lens.field @"requestId"
+{-# DEPRECATED utrrsRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | Identifier of the trust relationship.
 --
 -- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsTrustId :: Lens.Lens' UpdateTrustResponse (Lude.Maybe Lude.Text)
-utrsTrustId = Lens.lens (trustId :: UpdateTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {trustId = a} :: UpdateTrustResponse)
-{-# DEPRECATED utrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
+utrrsTrustId :: Lens.Lens' UpdateTrustResponse (Core.Maybe Types.TrustId)
+utrrsTrustId = Lens.field @"trustId"
+{-# DEPRECATED utrrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsResponseStatus :: Lens.Lens' UpdateTrustResponse Lude.Int
-utrsResponseStatus = Lens.lens (responseStatus :: UpdateTrustResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTrustResponse)
-{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrrsResponseStatus :: Lens.Lens' UpdateTrustResponse Core.Int
+utrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

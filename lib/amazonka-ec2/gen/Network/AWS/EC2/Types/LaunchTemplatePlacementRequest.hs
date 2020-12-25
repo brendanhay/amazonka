@@ -18,133 +18,114 @@ module Network.AWS.EC2.Types.LaunchTemplatePlacementRequest
 
     -- * Lenses
     ltprAffinity,
+    ltprAvailabilityZone,
+    ltprGroupName,
     ltprHostId,
+    ltprHostResourceGroupArn,
     ltprPartitionNumber,
     ltprSpreadDomain,
-    ltprAvailabilityZone,
     ltprTenancy,
-    ltprGroupName,
-    ltprHostResourceGroupARN,
   )
 where
 
-import Network.AWS.EC2.Types.Tenancy
+import qualified Network.AWS.EC2.Types.GroupName as Types
+import qualified Network.AWS.EC2.Types.HostId as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tenancy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the placement of an instance.
 --
 -- /See:/ 'mkLaunchTemplatePlacementRequest' smart constructor.
 data LaunchTemplatePlacementRequest = LaunchTemplatePlacementRequest'
   { -- | The affinity setting for an instance on a Dedicated Host.
-    affinity :: Lude.Maybe Lude.Text,
-    -- | The ID of the Dedicated Host for the instance.
-    hostId :: Lude.Maybe Lude.Text,
-    -- | The number of the partition the instance should launch in. Valid only if the placement group strategy is set to @partition@ .
-    partitionNumber :: Lude.Maybe Lude.Int,
-    -- | Reserved for future use.
-    spreadDomain :: Lude.Maybe Lude.Text,
+    affinity :: Core.Maybe Types.String,
     -- | The Availability Zone for the instance.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
-    tenancy :: Lude.Maybe Tenancy,
+    availabilityZone :: Core.Maybe Types.String,
     -- | The name of the placement group for the instance.
-    groupName :: Lude.Maybe Lude.Text,
+    groupName :: Core.Maybe Types.GroupName,
+    -- | The ID of the Dedicated Host for the instance.
+    hostId :: Core.Maybe Types.HostId,
     -- | The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the __Tenancy__ parameter or set it to @host@ .
-    hostResourceGroupARN :: Lude.Maybe Lude.Text
+    hostResourceGroupArn :: Core.Maybe Types.String,
+    -- | The number of the partition the instance should launch in. Valid only if the placement group strategy is set to @partition@ .
+    partitionNumber :: Core.Maybe Core.Int,
+    -- | Reserved for future use.
+    spreadDomain :: Core.Maybe Types.String,
+    -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+    tenancy :: Core.Maybe Types.Tenancy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplatePlacementRequest' with the minimum fields required to make a request.
---
--- * 'affinity' - The affinity setting for an instance on a Dedicated Host.
--- * 'hostId' - The ID of the Dedicated Host for the instance.
--- * 'partitionNumber' - The number of the partition the instance should launch in. Valid only if the placement group strategy is set to @partition@ .
--- * 'spreadDomain' - Reserved for future use.
--- * 'availabilityZone' - The Availability Zone for the instance.
--- * 'tenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
--- * 'groupName' - The name of the placement group for the instance.
--- * 'hostResourceGroupARN' - The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the __Tenancy__ parameter or set it to @host@ .
+-- | Creates a 'LaunchTemplatePlacementRequest' value with any optional fields omitted.
 mkLaunchTemplatePlacementRequest ::
   LaunchTemplatePlacementRequest
 mkLaunchTemplatePlacementRequest =
   LaunchTemplatePlacementRequest'
-    { affinity = Lude.Nothing,
-      hostId = Lude.Nothing,
-      partitionNumber = Lude.Nothing,
-      spreadDomain = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      tenancy = Lude.Nothing,
-      groupName = Lude.Nothing,
-      hostResourceGroupARN = Lude.Nothing
+    { affinity = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      groupName = Core.Nothing,
+      hostId = Core.Nothing,
+      hostResourceGroupArn = Core.Nothing,
+      partitionNumber = Core.Nothing,
+      spreadDomain = Core.Nothing,
+      tenancy = Core.Nothing
     }
 
 -- | The affinity setting for an instance on a Dedicated Host.
 --
 -- /Note:/ Consider using 'affinity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprAffinity :: Lens.Lens' LaunchTemplatePlacementRequest (Lude.Maybe Lude.Text)
-ltprAffinity = Lens.lens (affinity :: LaunchTemplatePlacementRequest -> Lude.Maybe Lude.Text) (\s a -> s {affinity = a} :: LaunchTemplatePlacementRequest)
+ltprAffinity :: Lens.Lens' LaunchTemplatePlacementRequest (Core.Maybe Types.String)
+ltprAffinity = Lens.field @"affinity"
 {-# DEPRECATED ltprAffinity "Use generic-lens or generic-optics with 'affinity' instead." #-}
+
+-- | The Availability Zone for the instance.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltprAvailabilityZone :: Lens.Lens' LaunchTemplatePlacementRequest (Core.Maybe Types.String)
+ltprAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED ltprAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | The name of the placement group for the instance.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltprGroupName :: Lens.Lens' LaunchTemplatePlacementRequest (Core.Maybe Types.GroupName)
+ltprGroupName = Lens.field @"groupName"
+{-# DEPRECATED ltprGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The ID of the Dedicated Host for the instance.
 --
 -- /Note:/ Consider using 'hostId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprHostId :: Lens.Lens' LaunchTemplatePlacementRequest (Lude.Maybe Lude.Text)
-ltprHostId = Lens.lens (hostId :: LaunchTemplatePlacementRequest -> Lude.Maybe Lude.Text) (\s a -> s {hostId = a} :: LaunchTemplatePlacementRequest)
+ltprHostId :: Lens.Lens' LaunchTemplatePlacementRequest (Core.Maybe Types.HostId)
+ltprHostId = Lens.field @"hostId"
 {-# DEPRECATED ltprHostId "Use generic-lens or generic-optics with 'hostId' instead." #-}
+
+-- | The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the __Tenancy__ parameter or set it to @host@ .
+--
+-- /Note:/ Consider using 'hostResourceGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltprHostResourceGroupArn :: Lens.Lens' LaunchTemplatePlacementRequest (Core.Maybe Types.String)
+ltprHostResourceGroupArn = Lens.field @"hostResourceGroupArn"
+{-# DEPRECATED ltprHostResourceGroupArn "Use generic-lens or generic-optics with 'hostResourceGroupArn' instead." #-}
 
 -- | The number of the partition the instance should launch in. Valid only if the placement group strategy is set to @partition@ .
 --
 -- /Note:/ Consider using 'partitionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprPartitionNumber :: Lens.Lens' LaunchTemplatePlacementRequest (Lude.Maybe Lude.Int)
-ltprPartitionNumber = Lens.lens (partitionNumber :: LaunchTemplatePlacementRequest -> Lude.Maybe Lude.Int) (\s a -> s {partitionNumber = a} :: LaunchTemplatePlacementRequest)
+ltprPartitionNumber :: Lens.Lens' LaunchTemplatePlacementRequest (Core.Maybe Core.Int)
+ltprPartitionNumber = Lens.field @"partitionNumber"
 {-# DEPRECATED ltprPartitionNumber "Use generic-lens or generic-optics with 'partitionNumber' instead." #-}
 
 -- | Reserved for future use.
 --
 -- /Note:/ Consider using 'spreadDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprSpreadDomain :: Lens.Lens' LaunchTemplatePlacementRequest (Lude.Maybe Lude.Text)
-ltprSpreadDomain = Lens.lens (spreadDomain :: LaunchTemplatePlacementRequest -> Lude.Maybe Lude.Text) (\s a -> s {spreadDomain = a} :: LaunchTemplatePlacementRequest)
+ltprSpreadDomain :: Lens.Lens' LaunchTemplatePlacementRequest (Core.Maybe Types.String)
+ltprSpreadDomain = Lens.field @"spreadDomain"
 {-# DEPRECATED ltprSpreadDomain "Use generic-lens or generic-optics with 'spreadDomain' instead." #-}
-
--- | The Availability Zone for the instance.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprAvailabilityZone :: Lens.Lens' LaunchTemplatePlacementRequest (Lude.Maybe Lude.Text)
-ltprAvailabilityZone = Lens.lens (availabilityZone :: LaunchTemplatePlacementRequest -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: LaunchTemplatePlacementRequest)
-{-# DEPRECATED ltprAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
 --
 -- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprTenancy :: Lens.Lens' LaunchTemplatePlacementRequest (Lude.Maybe Tenancy)
-ltprTenancy = Lens.lens (tenancy :: LaunchTemplatePlacementRequest -> Lude.Maybe Tenancy) (\s a -> s {tenancy = a} :: LaunchTemplatePlacementRequest)
+ltprTenancy :: Lens.Lens' LaunchTemplatePlacementRequest (Core.Maybe Types.Tenancy)
+ltprTenancy = Lens.field @"tenancy"
 {-# DEPRECATED ltprTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
-
--- | The name of the placement group for the instance.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprGroupName :: Lens.Lens' LaunchTemplatePlacementRequest (Lude.Maybe Lude.Text)
-ltprGroupName = Lens.lens (groupName :: LaunchTemplatePlacementRequest -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: LaunchTemplatePlacementRequest)
-{-# DEPRECATED ltprGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the __Tenancy__ parameter or set it to @host@ .
---
--- /Note:/ Consider using 'hostResourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprHostResourceGroupARN :: Lens.Lens' LaunchTemplatePlacementRequest (Lude.Maybe Lude.Text)
-ltprHostResourceGroupARN = Lens.lens (hostResourceGroupARN :: LaunchTemplatePlacementRequest -> Lude.Maybe Lude.Text) (\s a -> s {hostResourceGroupARN = a} :: LaunchTemplatePlacementRequest)
-{-# DEPRECATED ltprHostResourceGroupARN "Use generic-lens or generic-optics with 'hostResourceGroupARN' instead." #-}
-
-instance Lude.ToQuery LaunchTemplatePlacementRequest where
-  toQuery LaunchTemplatePlacementRequest' {..} =
-    Lude.mconcat
-      [ "Affinity" Lude.=: affinity,
-        "HostId" Lude.=: hostId,
-        "PartitionNumber" Lude.=: partitionNumber,
-        "SpreadDomain" Lude.=: spreadDomain,
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "Tenancy" Lude.=: tenancy,
-        "GroupName" Lude.=: groupName,
-        "HostResourceGroupArn" Lude.=: hostResourceGroupARN
-      ]

@@ -22,40 +22,35 @@ module Network.AWS.Redshift.Types.ResumeClusterMessage
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes a resume cluster operation. For example, a scheduled action to run the @ResumeCluster@ API operation.
 --
 -- /See:/ 'mkResumeClusterMessage' smart constructor.
 newtype ResumeClusterMessage = ResumeClusterMessage'
   { -- | The identifier of the cluster to be resumed.
-    clusterIdentifier :: Lude.Text
+    clusterIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResumeClusterMessage' with the minimum fields required to make a request.
---
--- * 'clusterIdentifier' - The identifier of the cluster to be resumed.
+-- | Creates a 'ResumeClusterMessage' value with any optional fields omitted.
 mkResumeClusterMessage ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   ResumeClusterMessage
-mkResumeClusterMessage pClusterIdentifier_ =
-  ResumeClusterMessage' {clusterIdentifier = pClusterIdentifier_}
+mkResumeClusterMessage clusterIdentifier =
+  ResumeClusterMessage' {clusterIdentifier}
 
 -- | The identifier of the cluster to be resumed.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rClusterIdentifier :: Lens.Lens' ResumeClusterMessage Lude.Text
-rClusterIdentifier = Lens.lens (clusterIdentifier :: ResumeClusterMessage -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ResumeClusterMessage)
+rClusterIdentifier :: Lens.Lens' ResumeClusterMessage Types.String
+rClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED rClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance Lude.FromXML ResumeClusterMessage where
+instance Core.FromXML ResumeClusterMessage where
   parseXML x =
-    ResumeClusterMessage' Lude.<$> (x Lude..@ "ClusterIdentifier")
-
-instance Lude.ToQuery ResumeClusterMessage where
-  toQuery ResumeClusterMessage' {..} =
-    Lude.mconcat ["ClusterIdentifier" Lude.=: clusterIdentifier]
+    ResumeClusterMessage' Core.<$> (x Core..@ "ClusterIdentifier")

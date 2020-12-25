@@ -17,82 +17,76 @@ module Network.AWS.Pinpoint.Types.StartCondition
     mkStartCondition,
 
     -- * Lenses
-    scSegmentStartCondition,
-    scEventStartCondition,
     scDescription,
+    scEventStartCondition,
+    scSegmentStartCondition,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EventStartCondition
-import Network.AWS.Pinpoint.Types.SegmentCondition
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EventStartCondition as Types
+import qualified Network.AWS.Pinpoint.Types.SegmentCondition as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the conditions for the first activity in a journey. This activity and its conditions determine which users are participants in a journey.
 --
 -- /See:/ 'mkStartCondition' smart constructor.
 data StartCondition = StartCondition'
-  { -- | The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.
-    segmentStartCondition :: Lude.Maybe SegmentCondition,
-    eventStartCondition :: Lude.Maybe EventStartCondition,
-    -- | The custom description of the condition.
-    description :: Lude.Maybe Lude.Text
+  { -- | The custom description of the condition.
+    description :: Core.Maybe Core.Text,
+    eventStartCondition :: Core.Maybe Types.EventStartCondition,
+    -- | The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.
+    segmentStartCondition :: Core.Maybe Types.SegmentCondition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartCondition' with the minimum fields required to make a request.
---
--- * 'segmentStartCondition' - The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.
--- * 'eventStartCondition' -
--- * 'description' - The custom description of the condition.
+-- | Creates a 'StartCondition' value with any optional fields omitted.
 mkStartCondition ::
   StartCondition
 mkStartCondition =
   StartCondition'
-    { segmentStartCondition = Lude.Nothing,
-      eventStartCondition = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      eventStartCondition = Core.Nothing,
+      segmentStartCondition = Core.Nothing
     }
-
--- | The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.
---
--- /Note:/ Consider using 'segmentStartCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scSegmentStartCondition :: Lens.Lens' StartCondition (Lude.Maybe SegmentCondition)
-scSegmentStartCondition = Lens.lens (segmentStartCondition :: StartCondition -> Lude.Maybe SegmentCondition) (\s a -> s {segmentStartCondition = a} :: StartCondition)
-{-# DEPRECATED scSegmentStartCondition "Use generic-lens or generic-optics with 'segmentStartCondition' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'eventStartCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scEventStartCondition :: Lens.Lens' StartCondition (Lude.Maybe EventStartCondition)
-scEventStartCondition = Lens.lens (eventStartCondition :: StartCondition -> Lude.Maybe EventStartCondition) (\s a -> s {eventStartCondition = a} :: StartCondition)
-{-# DEPRECATED scEventStartCondition "Use generic-lens or generic-optics with 'eventStartCondition' instead." #-}
 
 -- | The custom description of the condition.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scDescription :: Lens.Lens' StartCondition (Lude.Maybe Lude.Text)
-scDescription = Lens.lens (description :: StartCondition -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartCondition)
+scDescription :: Lens.Lens' StartCondition (Core.Maybe Core.Text)
+scDescription = Lens.field @"description"
 {-# DEPRECATED scDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON StartCondition where
-  parseJSON =
-    Lude.withObject
-      "StartCondition"
-      ( \x ->
-          StartCondition'
-            Lude.<$> (x Lude..:? "SegmentStartCondition")
-            Lude.<*> (x Lude..:? "EventStartCondition")
-            Lude.<*> (x Lude..:? "Description")
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'eventStartCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scEventStartCondition :: Lens.Lens' StartCondition (Core.Maybe Types.EventStartCondition)
+scEventStartCondition = Lens.field @"eventStartCondition"
+{-# DEPRECATED scEventStartCondition "Use generic-lens or generic-optics with 'eventStartCondition' instead." #-}
 
-instance Lude.ToJSON StartCondition where
-  toJSON StartCondition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SegmentStartCondition" Lude..=) Lude.<$> segmentStartCondition,
-            ("EventStartCondition" Lude..=) Lude.<$> eventStartCondition,
-            ("Description" Lude..=) Lude.<$> description
+-- | The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.
+--
+-- /Note:/ Consider using 'segmentStartCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scSegmentStartCondition :: Lens.Lens' StartCondition (Core.Maybe Types.SegmentCondition)
+scSegmentStartCondition = Lens.field @"segmentStartCondition"
+{-# DEPRECATED scSegmentStartCondition "Use generic-lens or generic-optics with 'segmentStartCondition' instead." #-}
+
+instance Core.FromJSON StartCondition where
+  toJSON StartCondition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            ("EventStartCondition" Core..=) Core.<$> eventStartCondition,
+            ("SegmentStartCondition" Core..=) Core.<$> segmentStartCondition
           ]
       )
+
+instance Core.FromJSON StartCondition where
+  parseJSON =
+    Core.withObject "StartCondition" Core.$
+      \x ->
+        StartCondition'
+          Core.<$> (x Core..:? "Description")
+          Core.<*> (x Core..:? "EventStartCondition")
+          Core.<*> (x Core..:? "SegmentStartCondition")

@@ -17,70 +17,66 @@ module Network.AWS.Glue.Types.DataCatalogEncryptionSettings
     mkDataCatalogEncryptionSettings,
 
     -- * Lenses
-    dcesEncryptionAtRest,
     dcesConnectionPasswordEncryption,
+    dcesEncryptionAtRest,
   )
 where
 
-import Network.AWS.Glue.Types.ConnectionPasswordEncryption
-import Network.AWS.Glue.Types.EncryptionAtRest
+import qualified Network.AWS.Glue.Types.ConnectionPasswordEncryption as Types
+import qualified Network.AWS.Glue.Types.EncryptionAtRest as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains configuration information for maintaining Data Catalog security.
 --
 -- /See:/ 'mkDataCatalogEncryptionSettings' smart constructor.
 data DataCatalogEncryptionSettings = DataCatalogEncryptionSettings'
-  { -- | Specifies the encryption-at-rest configuration for the Data Catalog.
-    encryptionAtRest :: Lude.Maybe EncryptionAtRest,
-    -- | When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of @CreateConnection@ or @UpdateConnection@ and store it in the @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable catalog encryption or only password encryption.
-    connectionPasswordEncryption :: Lude.Maybe ConnectionPasswordEncryption
+  { -- | When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of @CreateConnection@ or @UpdateConnection@ and store it in the @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable catalog encryption or only password encryption.
+    connectionPasswordEncryption :: Core.Maybe Types.ConnectionPasswordEncryption,
+    -- | Specifies the encryption-at-rest configuration for the Data Catalog.
+    encryptionAtRest :: Core.Maybe Types.EncryptionAtRest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DataCatalogEncryptionSettings' with the minimum fields required to make a request.
---
--- * 'encryptionAtRest' - Specifies the encryption-at-rest configuration for the Data Catalog.
--- * 'connectionPasswordEncryption' - When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of @CreateConnection@ or @UpdateConnection@ and store it in the @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable catalog encryption or only password encryption.
+-- | Creates a 'DataCatalogEncryptionSettings' value with any optional fields omitted.
 mkDataCatalogEncryptionSettings ::
   DataCatalogEncryptionSettings
 mkDataCatalogEncryptionSettings =
   DataCatalogEncryptionSettings'
-    { encryptionAtRest = Lude.Nothing,
-      connectionPasswordEncryption = Lude.Nothing
+    { connectionPasswordEncryption =
+        Core.Nothing,
+      encryptionAtRest = Core.Nothing
     }
-
--- | Specifies the encryption-at-rest configuration for the Data Catalog.
---
--- /Note:/ Consider using 'encryptionAtRest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcesEncryptionAtRest :: Lens.Lens' DataCatalogEncryptionSettings (Lude.Maybe EncryptionAtRest)
-dcesEncryptionAtRest = Lens.lens (encryptionAtRest :: DataCatalogEncryptionSettings -> Lude.Maybe EncryptionAtRest) (\s a -> s {encryptionAtRest = a} :: DataCatalogEncryptionSettings)
-{-# DEPRECATED dcesEncryptionAtRest "Use generic-lens or generic-optics with 'encryptionAtRest' instead." #-}
 
 -- | When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of @CreateConnection@ or @UpdateConnection@ and store it in the @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable catalog encryption or only password encryption.
 --
 -- /Note:/ Consider using 'connectionPasswordEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcesConnectionPasswordEncryption :: Lens.Lens' DataCatalogEncryptionSettings (Lude.Maybe ConnectionPasswordEncryption)
-dcesConnectionPasswordEncryption = Lens.lens (connectionPasswordEncryption :: DataCatalogEncryptionSettings -> Lude.Maybe ConnectionPasswordEncryption) (\s a -> s {connectionPasswordEncryption = a} :: DataCatalogEncryptionSettings)
+dcesConnectionPasswordEncryption :: Lens.Lens' DataCatalogEncryptionSettings (Core.Maybe Types.ConnectionPasswordEncryption)
+dcesConnectionPasswordEncryption = Lens.field @"connectionPasswordEncryption"
 {-# DEPRECATED dcesConnectionPasswordEncryption "Use generic-lens or generic-optics with 'connectionPasswordEncryption' instead." #-}
 
-instance Lude.FromJSON DataCatalogEncryptionSettings where
-  parseJSON =
-    Lude.withObject
-      "DataCatalogEncryptionSettings"
-      ( \x ->
-          DataCatalogEncryptionSettings'
-            Lude.<$> (x Lude..:? "EncryptionAtRest")
-            Lude.<*> (x Lude..:? "ConnectionPasswordEncryption")
-      )
+-- | Specifies the encryption-at-rest configuration for the Data Catalog.
+--
+-- /Note:/ Consider using 'encryptionAtRest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcesEncryptionAtRest :: Lens.Lens' DataCatalogEncryptionSettings (Core.Maybe Types.EncryptionAtRest)
+dcesEncryptionAtRest = Lens.field @"encryptionAtRest"
+{-# DEPRECATED dcesEncryptionAtRest "Use generic-lens or generic-optics with 'encryptionAtRest' instead." #-}
 
-instance Lude.ToJSON DataCatalogEncryptionSettings where
-  toJSON DataCatalogEncryptionSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EncryptionAtRest" Lude..=) Lude.<$> encryptionAtRest,
-            ("ConnectionPasswordEncryption" Lude..=)
-              Lude.<$> connectionPasswordEncryption
+instance Core.FromJSON DataCatalogEncryptionSettings where
+  toJSON DataCatalogEncryptionSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectionPasswordEncryption" Core..=)
+              Core.<$> connectionPasswordEncryption,
+            ("EncryptionAtRest" Core..=) Core.<$> encryptionAtRest
           ]
       )
+
+instance Core.FromJSON DataCatalogEncryptionSettings where
+  parseJSON =
+    Core.withObject "DataCatalogEncryptionSettings" Core.$
+      \x ->
+        DataCatalogEncryptionSettings'
+          Core.<$> (x Core..:? "ConnectionPasswordEncryption")
+          Core.<*> (x Core..:? "EncryptionAtRest")

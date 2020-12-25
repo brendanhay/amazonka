@@ -22,114 +22,105 @@ module Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes
     mkUpdateVirtualInterfaceAttributes,
 
     -- ** Request lenses
-    uviaMtu,
     uviaVirtualInterfaceId,
+    uviaMtu,
 
     -- * Destructuring the response
-    VirtualInterface (..),
-    mkVirtualInterface,
+    Types.VirtualInterface (..),
+    Types.mkVirtualInterface,
 
     -- ** Response lenses
-    viBgpPeers,
-    viVirtualGatewayId,
-    viMtu,
-    viRouteFilterPrefixes,
-    viCustomerAddress,
-    viVlan,
-    viLocation,
-    viAmazonAddress,
-    viAddressFamily,
-    viVirtualInterfaceState,
-    viConnectionId,
-    viDirectConnectGatewayId,
-    viAmazonSideASN,
-    viVirtualInterfaceType,
-    viAsn,
-    viAuthKey,
-    viJumboFrameCapable,
-    viCustomerRouterConfig,
-    viOwnerAccount,
-    viRegion,
-    viVirtualInterfaceName,
-    viAwsDeviceV2,
-    viVirtualInterfaceId,
-    viTags,
+    Types.viAddressFamily,
+    Types.viAmazonAddress,
+    Types.viAmazonSideAsn,
+    Types.viAsn,
+    Types.viAuthKey,
+    Types.viAwsDeviceV2,
+    Types.viBgpPeers,
+    Types.viConnectionId,
+    Types.viCustomerAddress,
+    Types.viCustomerRouterConfig,
+    Types.viDirectConnectGatewayId,
+    Types.viJumboFrameCapable,
+    Types.viLocation,
+    Types.viMtu,
+    Types.viOwnerAccount,
+    Types.viRegion,
+    Types.viRouteFilterPrefixes,
+    Types.viTags,
+    Types.viVirtualGatewayId,
+    Types.viVirtualInterfaceId,
+    Types.viVirtualInterfaceName,
+    Types.viVirtualInterfaceState,
+    Types.viVirtualInterfaceType,
+    Types.viVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateVirtualInterfaceAttributes' smart constructor.
 data UpdateVirtualInterfaceAttributes = UpdateVirtualInterfaceAttributes'
-  { -- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
-    mtu :: Lude.Maybe Lude.Int,
-    -- | The ID of the virtual private interface.
-    virtualInterfaceId :: Lude.Text
+  { -- | The ID of the virtual private interface.
+    virtualInterfaceId :: Types.VirtualInterfaceId,
+    -- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+    mtu :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateVirtualInterfaceAttributes' with the minimum fields required to make a request.
---
--- * 'mtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
--- * 'virtualInterfaceId' - The ID of the virtual private interface.
+-- | Creates a 'UpdateVirtualInterfaceAttributes' value with any optional fields omitted.
 mkUpdateVirtualInterfaceAttributes ::
   -- | 'virtualInterfaceId'
-  Lude.Text ->
+  Types.VirtualInterfaceId ->
   UpdateVirtualInterfaceAttributes
-mkUpdateVirtualInterfaceAttributes pVirtualInterfaceId_ =
+mkUpdateVirtualInterfaceAttributes virtualInterfaceId =
   UpdateVirtualInterfaceAttributes'
-    { mtu = Lude.Nothing,
-      virtualInterfaceId = pVirtualInterfaceId_
+    { virtualInterfaceId,
+      mtu = Core.Nothing
     }
-
--- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
---
--- /Note:/ Consider using 'mtu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uviaMtu :: Lens.Lens' UpdateVirtualInterfaceAttributes (Lude.Maybe Lude.Int)
-uviaMtu = Lens.lens (mtu :: UpdateVirtualInterfaceAttributes -> Lude.Maybe Lude.Int) (\s a -> s {mtu = a} :: UpdateVirtualInterfaceAttributes)
-{-# DEPRECATED uviaMtu "Use generic-lens or generic-optics with 'mtu' instead." #-}
 
 -- | The ID of the virtual private interface.
 --
 -- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uviaVirtualInterfaceId :: Lens.Lens' UpdateVirtualInterfaceAttributes Lude.Text
-uviaVirtualInterfaceId = Lens.lens (virtualInterfaceId :: UpdateVirtualInterfaceAttributes -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: UpdateVirtualInterfaceAttributes)
+uviaVirtualInterfaceId :: Lens.Lens' UpdateVirtualInterfaceAttributes Types.VirtualInterfaceId
+uviaVirtualInterfaceId = Lens.field @"virtualInterfaceId"
 {-# DEPRECATED uviaVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance Lude.AWSRequest UpdateVirtualInterfaceAttributes where
-  type Rs UpdateVirtualInterfaceAttributes = VirtualInterface
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+--
+-- /Note:/ Consider using 'mtu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uviaMtu :: Lens.Lens' UpdateVirtualInterfaceAttributes (Core.Maybe Core.Int)
+uviaMtu = Lens.field @"mtu"
+{-# DEPRECATED uviaMtu "Use generic-lens or generic-optics with 'mtu' instead." #-}
 
-instance Lude.ToHeaders UpdateVirtualInterfaceAttributes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OvertureService.UpdateVirtualInterfaceAttributes" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON UpdateVirtualInterfaceAttributes where
+  toJSON UpdateVirtualInterfaceAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("virtualInterfaceId" Core..= virtualInterfaceId),
+            ("mtu" Core..=) Core.<$> mtu
           ]
       )
 
-instance Lude.ToJSON UpdateVirtualInterfaceAttributes where
-  toJSON UpdateVirtualInterfaceAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("mtu" Lude..=) Lude.<$> mtu,
-            Lude.Just ("virtualInterfaceId" Lude..= virtualInterfaceId)
-          ]
-      )
-
-instance Lude.ToPath UpdateVirtualInterfaceAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateVirtualInterfaceAttributes where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateVirtualInterfaceAttributes where
+  type Rs UpdateVirtualInterfaceAttributes = Types.VirtualInterface
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "OvertureService.UpdateVirtualInterfaceAttributes"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

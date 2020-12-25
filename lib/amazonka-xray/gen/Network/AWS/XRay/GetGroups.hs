@@ -29,121 +29,116 @@ module Network.AWS.XRay.GetGroups
     mkGetGroupsResponse,
 
     -- ** Response lenses
-    grsGroups,
-    grsNextToken,
-    grsResponseStatus,
+    ggrrsGroups,
+    ggrrsNextToken,
+    ggrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkGetGroups' smart constructor.
 newtype GetGroups = GetGroups'
   { -- | Pagination token.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroups' with the minimum fields required to make a request.
---
--- * 'nextToken' - Pagination token.
+-- | Creates a 'GetGroups' value with any optional fields omitted.
 mkGetGroups ::
   GetGroups
-mkGetGroups = GetGroups' {nextToken = Lude.Nothing}
+mkGetGroups = GetGroups' {nextToken = Core.Nothing}
 
 -- | Pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggNextToken :: Lens.Lens' GetGroups (Lude.Maybe Lude.Text)
-ggNextToken = Lens.lens (nextToken :: GetGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetGroups)
+ggNextToken :: Lens.Lens' GetGroups (Core.Maybe Types.NextToken)
+ggNextToken = Lens.field @"nextToken"
 {-# DEPRECATED ggNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager GetGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. grsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. grsGroups) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ggNextToken Lens..~ rs Lens.^. grsNextToken
+instance Core.FromJSON GetGroups where
+  toJSON GetGroups {..} =
+    Core.object
+      (Core.catMaybes [("NextToken" Core..=) Core.<$> nextToken])
 
-instance Lude.AWSRequest GetGroups where
+instance Core.AWSRequest GetGroups where
   type Rs GetGroups = GetGroupsResponse
-  request = Req.postJSON xRayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/Groups",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetGroupsResponse'
-            Lude.<$> (x Lude..?> "Groups" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Groups")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetGroups where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetGroups where
-  toJSON GetGroups' {..} =
-    Lude.object
-      (Lude.catMaybes [("NextToken" Lude..=) Lude.<$> nextToken])
-
-instance Lude.ToPath GetGroups where
-  toPath = Lude.const "/Groups"
-
-instance Lude.ToQuery GetGroups where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"groups" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetGroupsResponse' smart constructor.
 data GetGroupsResponse = GetGroupsResponse'
   { -- | The collection of all active groups.
-    groups :: Lude.Maybe [GroupSummary],
+    groups :: Core.Maybe [Types.GroupSummary],
     -- | Pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupsResponse' with the minimum fields required to make a request.
---
--- * 'groups' - The collection of all active groups.
--- * 'nextToken' - Pagination token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetGroupsResponse' value with any optional fields omitted.
 mkGetGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetGroupsResponse
-mkGetGroupsResponse pResponseStatus_ =
+mkGetGroupsResponse responseStatus =
   GetGroupsResponse'
-    { groups = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { groups = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The collection of all active groups.
 --
 -- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsGroups :: Lens.Lens' GetGroupsResponse (Lude.Maybe [GroupSummary])
-grsGroups = Lens.lens (groups :: GetGroupsResponse -> Lude.Maybe [GroupSummary]) (\s a -> s {groups = a} :: GetGroupsResponse)
-{-# DEPRECATED grsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+ggrrsGroups :: Lens.Lens' GetGroupsResponse (Core.Maybe [Types.GroupSummary])
+ggrrsGroups = Lens.field @"groups"
+{-# DEPRECATED ggrrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | Pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsNextToken :: Lens.Lens' GetGroupsResponse (Lude.Maybe Lude.Text)
-grsNextToken = Lens.lens (nextToken :: GetGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetGroupsResponse)
-{-# DEPRECATED grsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ggrrsNextToken :: Lens.Lens' GetGroupsResponse (Core.Maybe Types.String)
+ggrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ggrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetGroupsResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupsResponse)
-{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ggrrsResponseStatus :: Lens.Lens' GetGroupsResponse Core.Int
+ggrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ggrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

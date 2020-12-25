@@ -17,13 +17,15 @@ module Network.AWS.SWF.Types.FailWorkflowExecutionDecisionAttributes
     mkFailWorkflowExecutionDecisionAttributes,
 
     -- * Lenses
-    fwedaReason,
     fwedaDetails,
+    fwedaReason,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.FailureReason as Types
 
 -- | Provides the details of the @FailWorkflowExecution@ decision.
 --
@@ -43,45 +45,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailWorkflowExecutionDecisionAttributes' smart constructor.
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes'
-  { -- | A descriptive reason for the failure that may help in diagnostics.
-    reason :: Lude.Maybe Lude.Text,
-    -- | Details of the failure.
-    details :: Lude.Maybe Lude.Text
+  { -- | Details of the failure.
+    details :: Core.Maybe Types.Data,
+    -- | A descriptive reason for the failure that may help in diagnostics.
+    reason :: Core.Maybe Types.FailureReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'reason' - A descriptive reason for the failure that may help in diagnostics.
--- * 'details' - Details of the failure.
+-- | Creates a 'FailWorkflowExecutionDecisionAttributes' value with any optional fields omitted.
 mkFailWorkflowExecutionDecisionAttributes ::
   FailWorkflowExecutionDecisionAttributes
 mkFailWorkflowExecutionDecisionAttributes =
   FailWorkflowExecutionDecisionAttributes'
-    { reason = Lude.Nothing,
-      details = Lude.Nothing
+    { details = Core.Nothing,
+      reason = Core.Nothing
     }
-
--- | A descriptive reason for the failure that may help in diagnostics.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fwedaReason :: Lens.Lens' FailWorkflowExecutionDecisionAttributes (Lude.Maybe Lude.Text)
-fwedaReason = Lens.lens (reason :: FailWorkflowExecutionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: FailWorkflowExecutionDecisionAttributes)
-{-# DEPRECATED fwedaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | Details of the failure.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fwedaDetails :: Lens.Lens' FailWorkflowExecutionDecisionAttributes (Lude.Maybe Lude.Text)
-fwedaDetails = Lens.lens (details :: FailWorkflowExecutionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: FailWorkflowExecutionDecisionAttributes)
+fwedaDetails :: Lens.Lens' FailWorkflowExecutionDecisionAttributes (Core.Maybe Types.Data)
+fwedaDetails = Lens.field @"details"
 {-# DEPRECATED fwedaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance Lude.ToJSON FailWorkflowExecutionDecisionAttributes where
-  toJSON FailWorkflowExecutionDecisionAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("reason" Lude..=) Lude.<$> reason,
-            ("details" Lude..=) Lude.<$> details
+-- | A descriptive reason for the failure that may help in diagnostics.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fwedaReason :: Lens.Lens' FailWorkflowExecutionDecisionAttributes (Core.Maybe Types.FailureReason)
+fwedaReason = Lens.field @"reason"
+{-# DEPRECATED fwedaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromJSON FailWorkflowExecutionDecisionAttributes where
+  toJSON FailWorkflowExecutionDecisionAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("details" Core..=) Core.<$> details,
+            ("reason" Core..=) Core.<$> reason
           ]
       )

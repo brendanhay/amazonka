@@ -28,127 +28,107 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     mkTestMetricFilterResponse,
 
     -- ** Response lenses
-    tmfrsMatches,
-    tmfrsResponseStatus,
+    tmfrrsMatches,
+    tmfrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTestMetricFilter' smart constructor.
 data TestMetricFilter = TestMetricFilter'
-  { filterPattern :: Lude.Text,
+  { filterPattern :: Types.FilterPattern,
     -- | The log event messages to test.
-    logEventMessages :: Lude.NonEmpty Lude.Text
+    logEventMessages :: Core.NonEmpty Types.EventMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestMetricFilter' with the minimum fields required to make a request.
---
--- * 'filterPattern' -
--- * 'logEventMessages' - The log event messages to test.
+-- | Creates a 'TestMetricFilter' value with any optional fields omitted.
 mkTestMetricFilter ::
   -- | 'filterPattern'
-  Lude.Text ->
+  Types.FilterPattern ->
   -- | 'logEventMessages'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.EventMessage ->
   TestMetricFilter
-mkTestMetricFilter pFilterPattern_ pLogEventMessages_ =
-  TestMetricFilter'
-    { filterPattern = pFilterPattern_,
-      logEventMessages = pLogEventMessages_
-    }
+mkTestMetricFilter filterPattern logEventMessages =
+  TestMetricFilter' {filterPattern, logEventMessages}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'filterPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfFilterPattern :: Lens.Lens' TestMetricFilter Lude.Text
-tmfFilterPattern = Lens.lens (filterPattern :: TestMetricFilter -> Lude.Text) (\s a -> s {filterPattern = a} :: TestMetricFilter)
+tmfFilterPattern :: Lens.Lens' TestMetricFilter Types.FilterPattern
+tmfFilterPattern = Lens.field @"filterPattern"
 {-# DEPRECATED tmfFilterPattern "Use generic-lens or generic-optics with 'filterPattern' instead." #-}
 
 -- | The log event messages to test.
 --
 -- /Note:/ Consider using 'logEventMessages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfLogEventMessages :: Lens.Lens' TestMetricFilter (Lude.NonEmpty Lude.Text)
-tmfLogEventMessages = Lens.lens (logEventMessages :: TestMetricFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {logEventMessages = a} :: TestMetricFilter)
+tmfLogEventMessages :: Lens.Lens' TestMetricFilter (Core.NonEmpty Types.EventMessage)
+tmfLogEventMessages = Lens.field @"logEventMessages"
 {-# DEPRECATED tmfLogEventMessages "Use generic-lens or generic-optics with 'logEventMessages' instead." #-}
 
-instance Lude.AWSRequest TestMetricFilter where
+instance Core.FromJSON TestMetricFilter where
+  toJSON TestMetricFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("filterPattern" Core..= filterPattern),
+            Core.Just ("logEventMessages" Core..= logEventMessages)
+          ]
+      )
+
+instance Core.AWSRequest TestMetricFilter where
   type Rs TestMetricFilter = TestMetricFilterResponse
-  request = Req.postJSON cloudWatchLogsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.TestMetricFilter")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TestMetricFilterResponse'
-            Lude.<$> (x Lude..?> "matches" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "matches") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TestMetricFilter where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.TestMetricFilter" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TestMetricFilter where
-  toJSON TestMetricFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("filterPattern" Lude..= filterPattern),
-            Lude.Just ("logEventMessages" Lude..= logEventMessages)
-          ]
-      )
-
-instance Lude.ToPath TestMetricFilter where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TestMetricFilter where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTestMetricFilterResponse' smart constructor.
 data TestMetricFilterResponse = TestMetricFilterResponse'
   { -- | The matched events.
-    matches :: Lude.Maybe [MetricFilterMatchRecord],
+    matches :: Core.Maybe [Types.MetricFilterMatchRecord],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestMetricFilterResponse' with the minimum fields required to make a request.
---
--- * 'matches' - The matched events.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TestMetricFilterResponse' value with any optional fields omitted.
 mkTestMetricFilterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TestMetricFilterResponse
-mkTestMetricFilterResponse pResponseStatus_ =
-  TestMetricFilterResponse'
-    { matches = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkTestMetricFilterResponse responseStatus =
+  TestMetricFilterResponse' {matches = Core.Nothing, responseStatus}
 
 -- | The matched events.
 --
 -- /Note:/ Consider using 'matches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfrsMatches :: Lens.Lens' TestMetricFilterResponse (Lude.Maybe [MetricFilterMatchRecord])
-tmfrsMatches = Lens.lens (matches :: TestMetricFilterResponse -> Lude.Maybe [MetricFilterMatchRecord]) (\s a -> s {matches = a} :: TestMetricFilterResponse)
-{-# DEPRECATED tmfrsMatches "Use generic-lens or generic-optics with 'matches' instead." #-}
+tmfrrsMatches :: Lens.Lens' TestMetricFilterResponse (Core.Maybe [Types.MetricFilterMatchRecord])
+tmfrrsMatches = Lens.field @"matches"
+{-# DEPRECATED tmfrrsMatches "Use generic-lens or generic-optics with 'matches' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmfrsResponseStatus :: Lens.Lens' TestMetricFilterResponse Lude.Int
-tmfrsResponseStatus = Lens.lens (responseStatus :: TestMetricFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestMetricFilterResponse)
-{-# DEPRECATED tmfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tmfrrsResponseStatus :: Lens.Lens' TestMetricFilterResponse Core.Int
+tmfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tmfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

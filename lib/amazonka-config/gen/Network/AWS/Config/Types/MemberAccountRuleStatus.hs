@@ -13,81 +13,86 @@
 module Network.AWS.Config.Types.MemberAccountRuleStatus
   ( MemberAccountRuleStatus
       ( MemberAccountRuleStatus',
-        MARSCreateSuccessful,
-        MARSCreateInProgress,
-        MARSCreateFailed,
-        MARSDeleteSuccessful,
-        MARSDeleteFailed,
-        MARSDeleteInProgress,
-        MARSUpdateSuccessful,
-        MARSUpdateInProgress,
-        MARSUpdateFailed
+        MemberAccountRuleStatusCreateSuccessful,
+        MemberAccountRuleStatusCreateInProgress,
+        MemberAccountRuleStatusCreateFailed,
+        MemberAccountRuleStatusDeleteSuccessful,
+        MemberAccountRuleStatusDeleteFailed,
+        MemberAccountRuleStatusDeleteInProgress,
+        MemberAccountRuleStatusUpdateSuccessful,
+        MemberAccountRuleStatusUpdateInProgress,
+        MemberAccountRuleStatusUpdateFailed,
+        fromMemberAccountRuleStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MemberAccountRuleStatus = MemberAccountRuleStatus' Lude.Text
+newtype MemberAccountRuleStatus = MemberAccountRuleStatus'
+  { fromMemberAccountRuleStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MARSCreateSuccessful :: MemberAccountRuleStatus
-pattern MARSCreateSuccessful = MemberAccountRuleStatus' "CREATE_SUCCESSFUL"
+pattern MemberAccountRuleStatusCreateSuccessful :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusCreateSuccessful = MemberAccountRuleStatus' "CREATE_SUCCESSFUL"
 
-pattern MARSCreateInProgress :: MemberAccountRuleStatus
-pattern MARSCreateInProgress = MemberAccountRuleStatus' "CREATE_IN_PROGRESS"
+pattern MemberAccountRuleStatusCreateInProgress :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusCreateInProgress = MemberAccountRuleStatus' "CREATE_IN_PROGRESS"
 
-pattern MARSCreateFailed :: MemberAccountRuleStatus
-pattern MARSCreateFailed = MemberAccountRuleStatus' "CREATE_FAILED"
+pattern MemberAccountRuleStatusCreateFailed :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusCreateFailed = MemberAccountRuleStatus' "CREATE_FAILED"
 
-pattern MARSDeleteSuccessful :: MemberAccountRuleStatus
-pattern MARSDeleteSuccessful = MemberAccountRuleStatus' "DELETE_SUCCESSFUL"
+pattern MemberAccountRuleStatusDeleteSuccessful :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusDeleteSuccessful = MemberAccountRuleStatus' "DELETE_SUCCESSFUL"
 
-pattern MARSDeleteFailed :: MemberAccountRuleStatus
-pattern MARSDeleteFailed = MemberAccountRuleStatus' "DELETE_FAILED"
+pattern MemberAccountRuleStatusDeleteFailed :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusDeleteFailed = MemberAccountRuleStatus' "DELETE_FAILED"
 
-pattern MARSDeleteInProgress :: MemberAccountRuleStatus
-pattern MARSDeleteInProgress = MemberAccountRuleStatus' "DELETE_IN_PROGRESS"
+pattern MemberAccountRuleStatusDeleteInProgress :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusDeleteInProgress = MemberAccountRuleStatus' "DELETE_IN_PROGRESS"
 
-pattern MARSUpdateSuccessful :: MemberAccountRuleStatus
-pattern MARSUpdateSuccessful = MemberAccountRuleStatus' "UPDATE_SUCCESSFUL"
+pattern MemberAccountRuleStatusUpdateSuccessful :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusUpdateSuccessful = MemberAccountRuleStatus' "UPDATE_SUCCESSFUL"
 
-pattern MARSUpdateInProgress :: MemberAccountRuleStatus
-pattern MARSUpdateInProgress = MemberAccountRuleStatus' "UPDATE_IN_PROGRESS"
+pattern MemberAccountRuleStatusUpdateInProgress :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusUpdateInProgress = MemberAccountRuleStatus' "UPDATE_IN_PROGRESS"
 
-pattern MARSUpdateFailed :: MemberAccountRuleStatus
-pattern MARSUpdateFailed = MemberAccountRuleStatus' "UPDATE_FAILED"
+pattern MemberAccountRuleStatusUpdateFailed :: MemberAccountRuleStatus
+pattern MemberAccountRuleStatusUpdateFailed = MemberAccountRuleStatus' "UPDATE_FAILED"
 
 {-# COMPLETE
-  MARSCreateSuccessful,
-  MARSCreateInProgress,
-  MARSCreateFailed,
-  MARSDeleteSuccessful,
-  MARSDeleteFailed,
-  MARSDeleteInProgress,
-  MARSUpdateSuccessful,
-  MARSUpdateInProgress,
-  MARSUpdateFailed,
+  MemberAccountRuleStatusCreateSuccessful,
+  MemberAccountRuleStatusCreateInProgress,
+  MemberAccountRuleStatusCreateFailed,
+  MemberAccountRuleStatusDeleteSuccessful,
+  MemberAccountRuleStatusDeleteFailed,
+  MemberAccountRuleStatusDeleteInProgress,
+  MemberAccountRuleStatusUpdateSuccessful,
+  MemberAccountRuleStatusUpdateInProgress,
+  MemberAccountRuleStatusUpdateFailed,
   MemberAccountRuleStatus'
   #-}

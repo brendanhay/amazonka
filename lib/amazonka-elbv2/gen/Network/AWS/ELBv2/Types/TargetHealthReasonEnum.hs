@@ -13,96 +13,101 @@
 module Network.AWS.ELBv2.Types.TargetHealthReasonEnum
   ( TargetHealthReasonEnum
       ( TargetHealthReasonEnum',
-        Elb_RegistrationInProgress,
-        Elb_InitialHealthChecking,
-        Target_ResponseCodeMismatch,
-        Target_Timeout,
-        Target_FailedHealthChecks,
-        Target_NotRegistered,
-        Target_NotInUse,
-        Target_DeregistrationInProgress,
-        Target_InvalidState,
-        Target_IPUnusable,
-        Target_HealthCheckDisabled,
-        Elb_InternalError
+        TargetHealthReasonEnumElb_RegistrationInProgress,
+        TargetHealthReasonEnumElb_InitialHealthChecking,
+        TargetHealthReasonEnumTarget_ResponseCodeMismatch,
+        TargetHealthReasonEnumTarget_Timeout,
+        TargetHealthReasonEnumTarget_FailedHealthChecks,
+        TargetHealthReasonEnumTarget_NotRegistered,
+        TargetHealthReasonEnumTarget_NotInUse,
+        TargetHealthReasonEnumTarget_DeregistrationInProgress,
+        TargetHealthReasonEnumTarget_InvalidState,
+        TargetHealthReasonEnumTarget_IpUnusable,
+        TargetHealthReasonEnumTarget_HealthCheckDisabled,
+        TargetHealthReasonEnumElb_InternalError,
+        fromTargetHealthReasonEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetHealthReasonEnum = TargetHealthReasonEnum' Lude.Text
+newtype TargetHealthReasonEnum = TargetHealthReasonEnum'
+  { fromTargetHealthReasonEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Elb_RegistrationInProgress :: TargetHealthReasonEnum
-pattern Elb_RegistrationInProgress = TargetHealthReasonEnum' "Elb.RegistrationInProgress"
+pattern TargetHealthReasonEnumElb_RegistrationInProgress :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumElb_RegistrationInProgress = TargetHealthReasonEnum' "Elb.RegistrationInProgress"
 
-pattern Elb_InitialHealthChecking :: TargetHealthReasonEnum
-pattern Elb_InitialHealthChecking = TargetHealthReasonEnum' "Elb.InitialHealthChecking"
+pattern TargetHealthReasonEnumElb_InitialHealthChecking :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumElb_InitialHealthChecking = TargetHealthReasonEnum' "Elb.InitialHealthChecking"
 
-pattern Target_ResponseCodeMismatch :: TargetHealthReasonEnum
-pattern Target_ResponseCodeMismatch = TargetHealthReasonEnum' "Target.ResponseCodeMismatch"
+pattern TargetHealthReasonEnumTarget_ResponseCodeMismatch :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_ResponseCodeMismatch = TargetHealthReasonEnum' "Target.ResponseCodeMismatch"
 
-pattern Target_Timeout :: TargetHealthReasonEnum
-pattern Target_Timeout = TargetHealthReasonEnum' "Target.Timeout"
+pattern TargetHealthReasonEnumTarget_Timeout :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_Timeout = TargetHealthReasonEnum' "Target.Timeout"
 
-pattern Target_FailedHealthChecks :: TargetHealthReasonEnum
-pattern Target_FailedHealthChecks = TargetHealthReasonEnum' "Target.FailedHealthChecks"
+pattern TargetHealthReasonEnumTarget_FailedHealthChecks :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_FailedHealthChecks = TargetHealthReasonEnum' "Target.FailedHealthChecks"
 
-pattern Target_NotRegistered :: TargetHealthReasonEnum
-pattern Target_NotRegistered = TargetHealthReasonEnum' "Target.NotRegistered"
+pattern TargetHealthReasonEnumTarget_NotRegistered :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_NotRegistered = TargetHealthReasonEnum' "Target.NotRegistered"
 
-pattern Target_NotInUse :: TargetHealthReasonEnum
-pattern Target_NotInUse = TargetHealthReasonEnum' "Target.NotInUse"
+pattern TargetHealthReasonEnumTarget_NotInUse :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_NotInUse = TargetHealthReasonEnum' "Target.NotInUse"
 
-pattern Target_DeregistrationInProgress :: TargetHealthReasonEnum
-pattern Target_DeregistrationInProgress = TargetHealthReasonEnum' "Target.DeregistrationInProgress"
+pattern TargetHealthReasonEnumTarget_DeregistrationInProgress :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_DeregistrationInProgress = TargetHealthReasonEnum' "Target.DeregistrationInProgress"
 
-pattern Target_InvalidState :: TargetHealthReasonEnum
-pattern Target_InvalidState = TargetHealthReasonEnum' "Target.InvalidState"
+pattern TargetHealthReasonEnumTarget_InvalidState :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_InvalidState = TargetHealthReasonEnum' "Target.InvalidState"
 
-pattern Target_IPUnusable :: TargetHealthReasonEnum
-pattern Target_IPUnusable = TargetHealthReasonEnum' "Target.IpUnusable"
+pattern TargetHealthReasonEnumTarget_IpUnusable :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_IpUnusable = TargetHealthReasonEnum' "Target.IpUnusable"
 
-pattern Target_HealthCheckDisabled :: TargetHealthReasonEnum
-pattern Target_HealthCheckDisabled = TargetHealthReasonEnum' "Target.HealthCheckDisabled"
+pattern TargetHealthReasonEnumTarget_HealthCheckDisabled :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumTarget_HealthCheckDisabled = TargetHealthReasonEnum' "Target.HealthCheckDisabled"
 
-pattern Elb_InternalError :: TargetHealthReasonEnum
-pattern Elb_InternalError = TargetHealthReasonEnum' "Elb.InternalError"
+pattern TargetHealthReasonEnumElb_InternalError :: TargetHealthReasonEnum
+pattern TargetHealthReasonEnumElb_InternalError = TargetHealthReasonEnum' "Elb.InternalError"
 
 {-# COMPLETE
-  Elb_RegistrationInProgress,
-  Elb_InitialHealthChecking,
-  Target_ResponseCodeMismatch,
-  Target_Timeout,
-  Target_FailedHealthChecks,
-  Target_NotRegistered,
-  Target_NotInUse,
-  Target_DeregistrationInProgress,
-  Target_InvalidState,
-  Target_IPUnusable,
-  Target_HealthCheckDisabled,
-  Elb_InternalError,
+  TargetHealthReasonEnumElb_RegistrationInProgress,
+  TargetHealthReasonEnumElb_InitialHealthChecking,
+  TargetHealthReasonEnumTarget_ResponseCodeMismatch,
+  TargetHealthReasonEnumTarget_Timeout,
+  TargetHealthReasonEnumTarget_FailedHealthChecks,
+  TargetHealthReasonEnumTarget_NotRegistered,
+  TargetHealthReasonEnumTarget_NotInUse,
+  TargetHealthReasonEnumTarget_DeregistrationInProgress,
+  TargetHealthReasonEnumTarget_InvalidState,
+  TargetHealthReasonEnumTarget_IpUnusable,
+  TargetHealthReasonEnumTarget_HealthCheckDisabled,
+  TargetHealthReasonEnumElb_InternalError,
   TargetHealthReasonEnum'
   #-}

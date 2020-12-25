@@ -22,10 +22,10 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicyHeadersConfig
   )
 where
 
-import Network.AWS.CloudFront.Types.Headers
-import Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior
+import qualified Network.AWS.CloudFront.Types.Headers as Types
+import qualified Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
 --
@@ -44,39 +44,21 @@ data OriginRequestPolicyHeadersConfig = OriginRequestPolicyHeadersConfig'
     --
     --
     --     * @allViewerAndWhitelistCloudFront@ – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the @Headers@ type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
-    headerBehavior :: OriginRequestPolicyHeaderBehavior,
-    headers :: Lude.Maybe Headers
+    headerBehavior :: Types.OriginRequestPolicyHeaderBehavior,
+    headers :: Core.Maybe Types.Headers
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OriginRequestPolicyHeadersConfig' with the minimum fields required to make a request.
---
--- * 'headerBehavior' - Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
---
---
---     * @none@ – HTTP headers are not included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any headers that are listed in a @CachePolicy@ /are/ included in origin requests.
---
---
---     * @whitelist@ – The HTTP headers that are listed in the @Headers@ type are included in requests that CloudFront sends to the origin.
---
---
---     * @allViewer@ – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
---
---
---     * @allViewerAndWhitelistCloudFront@ – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the @Headers@ type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
---
---
--- * 'headers' -
+-- | Creates a 'OriginRequestPolicyHeadersConfig' value with any optional fields omitted.
 mkOriginRequestPolicyHeadersConfig ::
   -- | 'headerBehavior'
-  OriginRequestPolicyHeaderBehavior ->
+  Types.OriginRequestPolicyHeaderBehavior ->
   OriginRequestPolicyHeadersConfig
-mkOriginRequestPolicyHeadersConfig pHeaderBehavior_ =
+mkOriginRequestPolicyHeadersConfig headerBehavior =
   OriginRequestPolicyHeadersConfig'
-    { headerBehavior =
-        pHeaderBehavior_,
-      headers = Lude.Nothing
+    { headerBehavior,
+      headers = Core.Nothing
     }
 
 -- | Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
@@ -96,25 +78,23 @@ mkOriginRequestPolicyHeadersConfig pHeaderBehavior_ =
 --
 --
 -- /Note:/ Consider using 'headerBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orphcHeaderBehavior :: Lens.Lens' OriginRequestPolicyHeadersConfig OriginRequestPolicyHeaderBehavior
-orphcHeaderBehavior = Lens.lens (headerBehavior :: OriginRequestPolicyHeadersConfig -> OriginRequestPolicyHeaderBehavior) (\s a -> s {headerBehavior = a} :: OriginRequestPolicyHeadersConfig)
+orphcHeaderBehavior :: Lens.Lens' OriginRequestPolicyHeadersConfig Types.OriginRequestPolicyHeaderBehavior
+orphcHeaderBehavior = Lens.field @"headerBehavior"
 {-# DEPRECATED orphcHeaderBehavior "Use generic-lens or generic-optics with 'headerBehavior' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orphcHeaders :: Lens.Lens' OriginRequestPolicyHeadersConfig (Lude.Maybe Headers)
-orphcHeaders = Lens.lens (headers :: OriginRequestPolicyHeadersConfig -> Lude.Maybe Headers) (\s a -> s {headers = a} :: OriginRequestPolicyHeadersConfig)
+orphcHeaders :: Lens.Lens' OriginRequestPolicyHeadersConfig (Core.Maybe Types.Headers)
+orphcHeaders = Lens.field @"headers"
 {-# DEPRECATED orphcHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
-instance Lude.FromXML OriginRequestPolicyHeadersConfig where
+instance Core.ToXML OriginRequestPolicyHeadersConfig where
+  toXML OriginRequestPolicyHeadersConfig {..} =
+    Core.toXMLNode "HeaderBehavior" headerBehavior
+      Core.<> Core.toXMLNode "Headers" Core.<$> headers
+
+instance Core.FromXML OriginRequestPolicyHeadersConfig where
   parseXML x =
     OriginRequestPolicyHeadersConfig'
-      Lude.<$> (x Lude..@ "HeaderBehavior") Lude.<*> (x Lude..@? "Headers")
-
-instance Lude.ToXML OriginRequestPolicyHeadersConfig where
-  toXML OriginRequestPolicyHeadersConfig' {..} =
-    Lude.mconcat
-      [ "HeaderBehavior" Lude.@= headerBehavior,
-        "Headers" Lude.@= headers
-      ]
+      Core.<$> (x Core..@ "HeaderBehavior") Core.<*> (x Core..@? "Headers")

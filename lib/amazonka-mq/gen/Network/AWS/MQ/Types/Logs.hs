@@ -23,56 +23,50 @@ module Network.AWS.MQ.Types.Logs
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The list of information about logs to be enabled for the specified broker.
 --
 -- /See:/ 'mkLogs' smart constructor.
 data Logs = Logs'
   { -- | Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-    audit :: Lude.Maybe Lude.Bool,
+    audit :: Core.Maybe Core.Bool,
     -- | Enables general logging.
-    general :: Lude.Maybe Lude.Bool
+    general :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Logs' with the minimum fields required to make a request.
---
--- * 'audit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
--- * 'general' - Enables general logging.
+-- | Creates a 'Logs' value with any optional fields omitted.
 mkLogs ::
   Logs
-mkLogs = Logs' {audit = Lude.Nothing, general = Lude.Nothing}
+mkLogs = Logs' {audit = Core.Nothing, general = Core.Nothing}
 
 -- | Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
 --
 -- /Note:/ Consider using 'audit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lAudit :: Lens.Lens' Logs (Lude.Maybe Lude.Bool)
-lAudit = Lens.lens (audit :: Logs -> Lude.Maybe Lude.Bool) (\s a -> s {audit = a} :: Logs)
+lAudit :: Lens.Lens' Logs (Core.Maybe Core.Bool)
+lAudit = Lens.field @"audit"
 {-# DEPRECATED lAudit "Use generic-lens or generic-optics with 'audit' instead." #-}
 
 -- | Enables general logging.
 --
 -- /Note:/ Consider using 'general' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lGeneral :: Lens.Lens' Logs (Lude.Maybe Lude.Bool)
-lGeneral = Lens.lens (general :: Logs -> Lude.Maybe Lude.Bool) (\s a -> s {general = a} :: Logs)
+lGeneral :: Lens.Lens' Logs (Core.Maybe Core.Bool)
+lGeneral = Lens.field @"general"
 {-# DEPRECATED lGeneral "Use generic-lens or generic-optics with 'general' instead." #-}
 
-instance Lude.FromJSON Logs where
-  parseJSON =
-    Lude.withObject
-      "Logs"
-      ( \x ->
-          Logs'
-            Lude.<$> (x Lude..:? "audit") Lude.<*> (x Lude..:? "general")
-      )
-
-instance Lude.ToJSON Logs where
-  toJSON Logs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("audit" Lude..=) Lude.<$> audit,
-            ("general" Lude..=) Lude.<$> general
+instance Core.FromJSON Logs where
+  toJSON Logs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("audit" Core..=) Core.<$> audit,
+            ("general" Core..=) Core.<$> general
           ]
       )
+
+instance Core.FromJSON Logs where
+  parseJSON =
+    Core.withObject "Logs" Core.$
+      \x ->
+        Logs' Core.<$> (x Core..:? "audit") Core.<*> (x Core..:? "general")

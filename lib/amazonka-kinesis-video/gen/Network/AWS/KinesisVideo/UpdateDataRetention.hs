@@ -28,8 +28,8 @@ module Network.AWS.KinesisVideo.UpdateDataRetention
     mkUpdateDataRetention,
 
     -- ** Request lenses
-    udrOperation,
     udrCurrentVersion,
+    udrOperation,
     udrDataRetentionChangeInHours,
     udrStreamARN,
     udrStreamName,
@@ -39,147 +39,138 @@ module Network.AWS.KinesisVideo.UpdateDataRetention
     mkUpdateDataRetentionResponse,
 
     -- ** Response lenses
-    udrrsResponseStatus,
+    udrrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideo.Types
+import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateDataRetention' smart constructor.
 data UpdateDataRetention = UpdateDataRetention'
-  { -- | Indicates whether you want to increase or decrease the retention period.
-    operation :: UpdateDataRetentionOperation,
-    -- | The version of the stream whose retention period you want to change. To get the version, call either the @DescribeStream@ or the @ListStreams@ API.
-    currentVersion :: Lude.Text,
+  { -- | The version of the stream whose retention period you want to change. To get the version, call either the @DescribeStream@ or the @ListStreams@ API.
+    currentVersion :: Types.CurrentVersion,
+    -- | Indicates whether you want to increase or decrease the retention period.
+    operation :: Types.UpdateDataRetentionOperation,
     -- | The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).
-    dataRetentionChangeInHours :: Lude.Natural,
+    dataRetentionChangeInHours :: Core.Natural,
     -- | The Amazon Resource Name (ARN) of the stream whose retention period you want to change.
-    streamARN :: Lude.Maybe Lude.Text,
+    streamARN :: Core.Maybe Types.StreamARN,
     -- | The name of the stream whose retention period you want to change.
-    streamName :: Lude.Maybe Lude.Text
+    streamName :: Core.Maybe Types.StreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDataRetention' with the minimum fields required to make a request.
---
--- * 'operation' - Indicates whether you want to increase or decrease the retention period.
--- * 'currentVersion' - The version of the stream whose retention period you want to change. To get the version, call either the @DescribeStream@ or the @ListStreams@ API.
--- * 'dataRetentionChangeInHours' - The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).
--- * 'streamARN' - The Amazon Resource Name (ARN) of the stream whose retention period you want to change.
--- * 'streamName' - The name of the stream whose retention period you want to change.
+-- | Creates a 'UpdateDataRetention' value with any optional fields omitted.
 mkUpdateDataRetention ::
-  -- | 'operation'
-  UpdateDataRetentionOperation ->
   -- | 'currentVersion'
-  Lude.Text ->
+  Types.CurrentVersion ->
+  -- | 'operation'
+  Types.UpdateDataRetentionOperation ->
   -- | 'dataRetentionChangeInHours'
-  Lude.Natural ->
+  Core.Natural ->
   UpdateDataRetention
 mkUpdateDataRetention
-  pOperation_
-  pCurrentVersion_
-  pDataRetentionChangeInHours_ =
+  currentVersion
+  operation
+  dataRetentionChangeInHours =
     UpdateDataRetention'
-      { operation = pOperation_,
-        currentVersion = pCurrentVersion_,
-        dataRetentionChangeInHours = pDataRetentionChangeInHours_,
-        streamARN = Lude.Nothing,
-        streamName = Lude.Nothing
+      { currentVersion,
+        operation,
+        dataRetentionChangeInHours,
+        streamARN = Core.Nothing,
+        streamName = Core.Nothing
       }
-
--- | Indicates whether you want to increase or decrease the retention period.
---
--- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrOperation :: Lens.Lens' UpdateDataRetention UpdateDataRetentionOperation
-udrOperation = Lens.lens (operation :: UpdateDataRetention -> UpdateDataRetentionOperation) (\s a -> s {operation = a} :: UpdateDataRetention)
-{-# DEPRECATED udrOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The version of the stream whose retention period you want to change. To get the version, call either the @DescribeStream@ or the @ListStreams@ API.
 --
 -- /Note:/ Consider using 'currentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrCurrentVersion :: Lens.Lens' UpdateDataRetention Lude.Text
-udrCurrentVersion = Lens.lens (currentVersion :: UpdateDataRetention -> Lude.Text) (\s a -> s {currentVersion = a} :: UpdateDataRetention)
+udrCurrentVersion :: Lens.Lens' UpdateDataRetention Types.CurrentVersion
+udrCurrentVersion = Lens.field @"currentVersion"
 {-# DEPRECATED udrCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
+
+-- | Indicates whether you want to increase or decrease the retention period.
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrOperation :: Lens.Lens' UpdateDataRetention Types.UpdateDataRetentionOperation
+udrOperation = Lens.field @"operation"
+{-# DEPRECATED udrOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).
 --
 -- /Note:/ Consider using 'dataRetentionChangeInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrDataRetentionChangeInHours :: Lens.Lens' UpdateDataRetention Lude.Natural
-udrDataRetentionChangeInHours = Lens.lens (dataRetentionChangeInHours :: UpdateDataRetention -> Lude.Natural) (\s a -> s {dataRetentionChangeInHours = a} :: UpdateDataRetention)
+udrDataRetentionChangeInHours :: Lens.Lens' UpdateDataRetention Core.Natural
+udrDataRetentionChangeInHours = Lens.field @"dataRetentionChangeInHours"
 {-# DEPRECATED udrDataRetentionChangeInHours "Use generic-lens or generic-optics with 'dataRetentionChangeInHours' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the stream whose retention period you want to change.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrStreamARN :: Lens.Lens' UpdateDataRetention (Lude.Maybe Lude.Text)
-udrStreamARN = Lens.lens (streamARN :: UpdateDataRetention -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: UpdateDataRetention)
+udrStreamARN :: Lens.Lens' UpdateDataRetention (Core.Maybe Types.StreamARN)
+udrStreamARN = Lens.field @"streamARN"
 {-# DEPRECATED udrStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream whose retention period you want to change.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrStreamName :: Lens.Lens' UpdateDataRetention (Lude.Maybe Lude.Text)
-udrStreamName = Lens.lens (streamName :: UpdateDataRetention -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: UpdateDataRetention)
+udrStreamName :: Lens.Lens' UpdateDataRetention (Core.Maybe Types.StreamName)
+udrStreamName = Lens.field @"streamName"
 {-# DEPRECATED udrStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest UpdateDataRetention where
-  type Rs UpdateDataRetention = UpdateDataRetentionResponse
-  request = Req.postJSON kinesisVideoService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UpdateDataRetentionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateDataRetention where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateDataRetention where
-  toJSON UpdateDataRetention' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Operation" Lude..= operation),
-            Lude.Just ("CurrentVersion" Lude..= currentVersion),
-            Lude.Just
-              ("DataRetentionChangeInHours" Lude..= dataRetentionChangeInHours),
-            ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("StreamName" Lude..=) Lude.<$> streamName
+instance Core.FromJSON UpdateDataRetention where
+  toJSON UpdateDataRetention {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CurrentVersion" Core..= currentVersion),
+            Core.Just ("Operation" Core..= operation),
+            Core.Just
+              ("DataRetentionChangeInHours" Core..= dataRetentionChangeInHours),
+            ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName
           ]
       )
 
-instance Lude.ToPath UpdateDataRetention where
-  toPath = Lude.const "/updateDataRetention"
-
-instance Lude.ToQuery UpdateDataRetention where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateDataRetention where
+  type Rs UpdateDataRetention = UpdateDataRetentionResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/updateDataRetention",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateDataRetentionResponse'
+            Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateDataRetentionResponse' smart constructor.
 newtype UpdateDataRetentionResponse = UpdateDataRetentionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDataRetentionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDataRetentionResponse' value with any optional fields omitted.
 mkUpdateDataRetentionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDataRetentionResponse
-mkUpdateDataRetentionResponse pResponseStatus_ =
-  UpdateDataRetentionResponse' {responseStatus = pResponseStatus_}
+mkUpdateDataRetentionResponse responseStatus =
+  UpdateDataRetentionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrrsResponseStatus :: Lens.Lens' UpdateDataRetentionResponse Lude.Int
-udrrsResponseStatus = Lens.lens (responseStatus :: UpdateDataRetentionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDataRetentionResponse)
-{-# DEPRECATED udrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udrrrsResponseStatus :: Lens.Lens' UpdateDataRetentionResponse Core.Int
+udrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

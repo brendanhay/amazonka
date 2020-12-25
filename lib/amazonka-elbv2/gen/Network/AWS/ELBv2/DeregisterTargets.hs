@@ -20,7 +20,7 @@ module Network.AWS.ELBv2.DeregisterTargets
     mkDeregisterTargets,
 
     -- ** Request lenses
-    dtTargetGroupARN,
+    dtTargetGroupArn,
     dtTargets,
 
     -- * Destructuring the response
@@ -28,100 +28,95 @@ module Network.AWS.ELBv2.DeregisterTargets
     mkDeregisterTargetsResponse,
 
     -- ** Response lenses
-    dtrsResponseStatus,
+    dtrfrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeregisterTargets' smart constructor.
 data DeregisterTargets = DeregisterTargets'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupARN :: Lude.Text,
+    targetGroupArn :: Types.TargetGroupArn,
     -- | The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
-    targets :: [TargetDescription]
+    targets :: [Types.TargetDescription]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterTargets' with the minimum fields required to make a request.
---
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
--- * 'targets' - The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
+-- | Creates a 'DeregisterTargets' value with any optional fields omitted.
 mkDeregisterTargets ::
-  -- | 'targetGroupARN'
-  Lude.Text ->
+  -- | 'targetGroupArn'
+  Types.TargetGroupArn ->
   DeregisterTargets
-mkDeregisterTargets pTargetGroupARN_ =
-  DeregisterTargets'
-    { targetGroupARN = pTargetGroupARN_,
-      targets = Lude.mempty
-    }
+mkDeregisterTargets targetGroupArn =
+  DeregisterTargets' {targetGroupArn, targets = Core.mempty}
 
 -- | The Amazon Resource Name (ARN) of the target group.
 --
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTargetGroupARN :: Lens.Lens' DeregisterTargets Lude.Text
-dtTargetGroupARN = Lens.lens (targetGroupARN :: DeregisterTargets -> Lude.Text) (\s a -> s {targetGroupARN = a} :: DeregisterTargets)
-{-# DEPRECATED dtTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTargetGroupArn :: Lens.Lens' DeregisterTargets Types.TargetGroupArn
+dtTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED dtTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
 
 -- | The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
 --
 -- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTargets :: Lens.Lens' DeregisterTargets [TargetDescription]
-dtTargets = Lens.lens (targets :: DeregisterTargets -> [TargetDescription]) (\s a -> s {targets = a} :: DeregisterTargets)
+dtTargets :: Lens.Lens' DeregisterTargets [Types.TargetDescription]
+dtTargets = Lens.field @"targets"
 {-# DEPRECATED dtTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
-instance Lude.AWSRequest DeregisterTargets where
+instance Core.AWSRequest DeregisterTargets where
   type Rs DeregisterTargets = DeregisterTargetsResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeregisterTargets")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "TargetGroupArn" targetGroupArn)
+                Core.<> (Core.toQueryValue "Targets" (Core.toQueryList "member" targets))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeregisterTargetsResult"
       ( \s h x ->
-          DeregisterTargetsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeregisterTargetsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeregisterTargets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeregisterTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterTargets where
-  toQuery DeregisterTargets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeregisterTargets" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "TargetGroupArn" Lude.=: targetGroupARN,
-        "Targets" Lude.=: Lude.toQueryList "member" targets
-      ]
 
 -- | /See:/ 'mkDeregisterTargetsResponse' smart constructor.
 newtype DeregisterTargetsResponse = DeregisterTargetsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterTargetsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeregisterTargetsResponse' value with any optional fields omitted.
 mkDeregisterTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeregisterTargetsResponse
-mkDeregisterTargetsResponse pResponseStatus_ =
-  DeregisterTargetsResponse' {responseStatus = pResponseStatus_}
+mkDeregisterTargetsResponse responseStatus =
+  DeregisterTargetsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DeregisterTargetsResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DeregisterTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTargetsResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrfrsResponseStatus :: Lens.Lens' DeregisterTargetsResponse Core.Int
+dtrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,9 +20,9 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     mkSetSubscriptionAttributes,
 
     -- ** Request lenses
-    ssaAttributeValue,
+    ssaSubscriptionArn,
     ssaAttributeName,
-    ssaSubscriptionARN,
+    ssaAttributeValue,
 
     -- * Destructuring the response
     SetSubscriptionAttributesResponse (..),
@@ -31,17 +31,17 @@ module Network.AWS.SNS.SetSubscriptionAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for SetSubscriptionAttributes action.
 --
 -- /See:/ 'mkSetSubscriptionAttributes' smart constructor.
 data SetSubscriptionAttributes = SetSubscriptionAttributes'
-  { -- | The new value for the attribute in JSON format.
-    attributeValue :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the subscription to modify.
+    subscriptionArn :: Types.SubscriptionArn,
     -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special request parameters that this action uses:
@@ -56,52 +56,33 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes'
     --
     --
     --     * @RedrivePolicy@ – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.
-    attributeName :: Lude.Text,
-    -- | The ARN of the subscription to modify.
-    subscriptionARN :: Lude.Text
+    attributeName :: Types.AttributeName,
+    -- | The new value for the attribute in JSON format.
+    attributeValue :: Core.Maybe Types.AttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetSubscriptionAttributes' with the minimum fields required to make a request.
---
--- * 'attributeValue' - The new value for the attribute in JSON format.
--- * 'attributeName' - A map of attributes with their corresponding values.
---
--- The following lists the names, descriptions, and values of the special request parameters that this action uses:
---
---     * @DeliveryPolicy@ – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
---
---
---     * @FilterPolicy@ – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.
---
---
---     * @RawMessageDelivery@ – When set to @true@ , enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.
---
---
---     * @RedrivePolicy@ – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.
---
---
--- * 'subscriptionARN' - The ARN of the subscription to modify.
+-- | Creates a 'SetSubscriptionAttributes' value with any optional fields omitted.
 mkSetSubscriptionAttributes ::
+  -- | 'subscriptionArn'
+  Types.SubscriptionArn ->
   -- | 'attributeName'
-  Lude.Text ->
-  -- | 'subscriptionARN'
-  Lude.Text ->
+  Types.AttributeName ->
   SetSubscriptionAttributes
-mkSetSubscriptionAttributes pAttributeName_ pSubscriptionARN_ =
+mkSetSubscriptionAttributes subscriptionArn attributeName =
   SetSubscriptionAttributes'
-    { attributeValue = Lude.Nothing,
-      attributeName = pAttributeName_,
-      subscriptionARN = pSubscriptionARN_
+    { subscriptionArn,
+      attributeName,
+      attributeValue = Core.Nothing
     }
 
--- | The new value for the attribute in JSON format.
+-- | The ARN of the subscription to modify.
 --
--- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssaAttributeValue :: Lens.Lens' SetSubscriptionAttributes (Lude.Maybe Lude.Text)
-ssaAttributeValue = Lens.lens (attributeValue :: SetSubscriptionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: SetSubscriptionAttributes)
-{-# DEPRECATED ssaAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
+-- /Note:/ Consider using 'subscriptionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssaSubscriptionArn :: Lens.Lens' SetSubscriptionAttributes Types.SubscriptionArn
+ssaSubscriptionArn = Lens.field @"subscriptionArn"
+{-# DEPRECATED ssaSubscriptionArn "Use generic-lens or generic-optics with 'subscriptionArn' instead." #-}
 
 -- | A map of attributes with their corresponding values.
 --
@@ -121,46 +102,49 @@ ssaAttributeValue = Lens.lens (attributeValue :: SetSubscriptionAttributes -> Lu
 --
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssaAttributeName :: Lens.Lens' SetSubscriptionAttributes Lude.Text
-ssaAttributeName = Lens.lens (attributeName :: SetSubscriptionAttributes -> Lude.Text) (\s a -> s {attributeName = a} :: SetSubscriptionAttributes)
+ssaAttributeName :: Lens.Lens' SetSubscriptionAttributes Types.AttributeName
+ssaAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED ssaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
--- | The ARN of the subscription to modify.
+-- | The new value for the attribute in JSON format.
 --
--- /Note:/ Consider using 'subscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssaSubscriptionARN :: Lens.Lens' SetSubscriptionAttributes Lude.Text
-ssaSubscriptionARN = Lens.lens (subscriptionARN :: SetSubscriptionAttributes -> Lude.Text) (\s a -> s {subscriptionARN = a} :: SetSubscriptionAttributes)
-{-# DEPRECATED ssaSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssaAttributeValue :: Lens.Lens' SetSubscriptionAttributes (Core.Maybe Types.AttributeValue)
+ssaAttributeValue = Lens.field @"attributeValue"
+{-# DEPRECATED ssaAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
-instance Lude.AWSRequest SetSubscriptionAttributes where
+instance Core.AWSRequest SetSubscriptionAttributes where
   type
     Rs SetSubscriptionAttributes =
       SetSubscriptionAttributesResponse
-  request = Req.postQuery snsService
-  response = Res.receiveNull SetSubscriptionAttributesResponse'
-
-instance Lude.ToHeaders SetSubscriptionAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetSubscriptionAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetSubscriptionAttributes where
-  toQuery SetSubscriptionAttributes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetSubscriptionAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "AttributeValue" Lude.=: attributeValue,
-        "AttributeName" Lude.=: attributeName,
-        "SubscriptionArn" Lude.=: subscriptionARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetSubscriptionAttributes")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "SubscriptionArn" subscriptionArn)
+                Core.<> (Core.toQueryValue "AttributeName" attributeName)
+                Core.<> (Core.toQueryValue "AttributeValue" Core.<$> attributeValue)
+            )
+      }
+  response = Response.receiveNull SetSubscriptionAttributesResponse'
 
 -- | /See:/ 'mkSetSubscriptionAttributesResponse' smart constructor.
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetSubscriptionAttributesResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetSubscriptionAttributesResponse' value with any optional fields omitted.
 mkSetSubscriptionAttributesResponse ::
   SetSubscriptionAttributesResponse
 mkSetSubscriptionAttributesResponse =

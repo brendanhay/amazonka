@@ -18,98 +18,94 @@ module Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileConfig
 
     -- * Lenses
     flepcName,
+    flepcCallerReference,
     flepcEncryptionEntities,
     flepcComment,
-    flepcCallerReference,
   )
 where
 
-import Network.AWS.CloudFront.Types.EncryptionEntities
+import qualified Network.AWS.CloudFront.Types.CallerReference as Types
+import qualified Network.AWS.CloudFront.Types.Comment as Types
+import qualified Network.AWS.CloudFront.Types.EncryptionEntities as Types
+import qualified Network.AWS.CloudFront.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex data type of profiles for the field-level encryption.
 --
 -- /See:/ 'mkFieldLevelEncryptionProfileConfig' smart constructor.
 data FieldLevelEncryptionProfileConfig = FieldLevelEncryptionProfileConfig'
   { -- | Profile name for the field-level encryption profile.
-    name :: Lude.Text,
-    -- | A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key.
-    encryptionEntities :: EncryptionEntities,
-    -- | An optional comment for the field-level encryption profile.
-    comment :: Lude.Maybe Lude.Text,
+    name :: Types.Name,
     -- | A unique number that ensures that the request can't be replayed.
-    callerReference :: Lude.Text
+    callerReference :: Types.CallerReference,
+    -- | A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key.
+    encryptionEntities :: Types.EncryptionEntities,
+    -- | An optional comment for the field-level encryption profile.
+    comment :: Core.Maybe Types.Comment
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FieldLevelEncryptionProfileConfig' with the minimum fields required to make a request.
---
--- * 'name' - Profile name for the field-level encryption profile.
--- * 'encryptionEntities' - A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key.
--- * 'comment' - An optional comment for the field-level encryption profile.
--- * 'callerReference' - A unique number that ensures that the request can't be replayed.
+-- | Creates a 'FieldLevelEncryptionProfileConfig' value with any optional fields omitted.
 mkFieldLevelEncryptionProfileConfig ::
   -- | 'name'
-  Lude.Text ->
-  -- | 'encryptionEntities'
-  EncryptionEntities ->
+  Types.Name ->
   -- | 'callerReference'
-  Lude.Text ->
+  Types.CallerReference ->
+  -- | 'encryptionEntities'
+  Types.EncryptionEntities ->
   FieldLevelEncryptionProfileConfig
 mkFieldLevelEncryptionProfileConfig
-  pName_
-  pEncryptionEntities_
-  pCallerReference_ =
+  name
+  callerReference
+  encryptionEntities =
     FieldLevelEncryptionProfileConfig'
-      { name = pName_,
-        encryptionEntities = pEncryptionEntities_,
-        comment = Lude.Nothing,
-        callerReference = pCallerReference_
+      { name,
+        callerReference,
+        encryptionEntities,
+        comment = Core.Nothing
       }
 
 -- | Profile name for the field-level encryption profile.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepcName :: Lens.Lens' FieldLevelEncryptionProfileConfig Lude.Text
-flepcName = Lens.lens (name :: FieldLevelEncryptionProfileConfig -> Lude.Text) (\s a -> s {name = a} :: FieldLevelEncryptionProfileConfig)
+flepcName :: Lens.Lens' FieldLevelEncryptionProfileConfig Types.Name
+flepcName = Lens.field @"name"
 {-# DEPRECATED flepcName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A unique number that ensures that the request can't be replayed.
+--
+-- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flepcCallerReference :: Lens.Lens' FieldLevelEncryptionProfileConfig Types.CallerReference
+flepcCallerReference = Lens.field @"callerReference"
+{-# DEPRECATED flepcCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
 -- | A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and field patterns for specifying which fields to encrypt with this key.
 --
 -- /Note:/ Consider using 'encryptionEntities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepcEncryptionEntities :: Lens.Lens' FieldLevelEncryptionProfileConfig EncryptionEntities
-flepcEncryptionEntities = Lens.lens (encryptionEntities :: FieldLevelEncryptionProfileConfig -> EncryptionEntities) (\s a -> s {encryptionEntities = a} :: FieldLevelEncryptionProfileConfig)
+flepcEncryptionEntities :: Lens.Lens' FieldLevelEncryptionProfileConfig Types.EncryptionEntities
+flepcEncryptionEntities = Lens.field @"encryptionEntities"
 {-# DEPRECATED flepcEncryptionEntities "Use generic-lens or generic-optics with 'encryptionEntities' instead." #-}
 
 -- | An optional comment for the field-level encryption profile.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepcComment :: Lens.Lens' FieldLevelEncryptionProfileConfig (Lude.Maybe Lude.Text)
-flepcComment = Lens.lens (comment :: FieldLevelEncryptionProfileConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: FieldLevelEncryptionProfileConfig)
+flepcComment :: Lens.Lens' FieldLevelEncryptionProfileConfig (Core.Maybe Types.Comment)
+flepcComment = Lens.field @"comment"
 {-# DEPRECATED flepcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
--- | A unique number that ensures that the request can't be replayed.
---
--- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flepcCallerReference :: Lens.Lens' FieldLevelEncryptionProfileConfig Lude.Text
-flepcCallerReference = Lens.lens (callerReference :: FieldLevelEncryptionProfileConfig -> Lude.Text) (\s a -> s {callerReference = a} :: FieldLevelEncryptionProfileConfig)
-{-# DEPRECATED flepcCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
+instance Core.ToXML FieldLevelEncryptionProfileConfig where
+  toXML FieldLevelEncryptionProfileConfig {..} =
+    Core.toXMLNode "Name" name
+      Core.<> Core.toXMLNode "CallerReference" callerReference
+      Core.<> Core.toXMLNode "EncryptionEntities" encryptionEntities
+      Core.<> Core.toXMLNode "Comment" Core.<$> comment
 
-instance Lude.FromXML FieldLevelEncryptionProfileConfig where
+instance Core.FromXML FieldLevelEncryptionProfileConfig where
   parseXML x =
     FieldLevelEncryptionProfileConfig'
-      Lude.<$> (x Lude..@ "Name")
-      Lude.<*> (x Lude..@ "EncryptionEntities")
-      Lude.<*> (x Lude..@? "Comment")
-      Lude.<*> (x Lude..@ "CallerReference")
-
-instance Lude.ToXML FieldLevelEncryptionProfileConfig where
-  toXML FieldLevelEncryptionProfileConfig' {..} =
-    Lude.mconcat
-      [ "Name" Lude.@= name,
-        "EncryptionEntities" Lude.@= encryptionEntities,
-        "Comment" Lude.@= comment,
-        "CallerReference" Lude.@= callerReference
-      ]
+      Core.<$> (x Core..@ "Name")
+      Core.<*> (x Core..@ "CallerReference")
+      Core.<*> (x Core..@ "EncryptionEntities")
+      Core.<*> (x Core..@? "Comment")

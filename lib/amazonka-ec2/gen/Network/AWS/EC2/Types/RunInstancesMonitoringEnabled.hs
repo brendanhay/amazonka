@@ -22,39 +22,33 @@ module Network.AWS.EC2.Types.RunInstancesMonitoringEnabled
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the monitoring of an instance.
 --
 -- /See:/ 'mkRunInstancesMonitoringEnabled' smart constructor.
 newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'
   { -- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-    enabled :: Lude.Bool
+    enabled :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RunInstancesMonitoringEnabled' with the minimum fields required to make a request.
---
--- * 'enabled' - Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+-- | Creates a 'RunInstancesMonitoringEnabled' value with any optional fields omitted.
 mkRunInstancesMonitoringEnabled ::
   -- | 'enabled'
-  Lude.Bool ->
+  Core.Bool ->
   RunInstancesMonitoringEnabled
-mkRunInstancesMonitoringEnabled pEnabled_ =
-  RunInstancesMonitoringEnabled' {enabled = pEnabled_}
+mkRunInstancesMonitoringEnabled enabled =
+  RunInstancesMonitoringEnabled' {enabled}
 
 -- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rimeEnabled :: Lens.Lens' RunInstancesMonitoringEnabled Lude.Bool
-rimeEnabled = Lens.lens (enabled :: RunInstancesMonitoringEnabled -> Lude.Bool) (\s a -> s {enabled = a} :: RunInstancesMonitoringEnabled)
+rimeEnabled :: Lens.Lens' RunInstancesMonitoringEnabled Core.Bool
+rimeEnabled = Lens.field @"enabled"
 {-# DEPRECATED rimeEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromXML RunInstancesMonitoringEnabled where
+instance Core.FromXML RunInstancesMonitoringEnabled where
   parseXML x =
-    RunInstancesMonitoringEnabled' Lude.<$> (x Lude..@ "enabled")
-
-instance Lude.ToQuery RunInstancesMonitoringEnabled where
-  toQuery RunInstancesMonitoringEnabled' {..} =
-    Lude.mconcat ["Enabled" Lude.=: enabled]
+    RunInstancesMonitoringEnabled' Core.<$> (x Core..@ "enabled")

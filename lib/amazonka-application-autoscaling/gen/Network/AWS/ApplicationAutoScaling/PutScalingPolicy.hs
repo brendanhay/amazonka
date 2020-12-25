@@ -25,34 +25,82 @@ module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
     mkPutScalingPolicy,
 
     -- ** Request lenses
-    pspScalableDimension,
-    pspResourceId,
     pspPolicyName,
-    pspPolicyType,
-    pspTargetTrackingScalingPolicyConfiguration,
     pspServiceNamespace,
+    pspResourceId,
+    pspScalableDimension,
+    pspPolicyType,
     pspStepScalingPolicyConfiguration,
+    pspTargetTrackingScalingPolicyConfiguration,
 
     -- * Destructuring the response
     PutScalingPolicyResponse (..),
     mkPutScalingPolicyResponse,
 
     -- ** Response lenses
-    psprsPolicyARN,
-    psprsAlarms,
-    psprsResponseStatus,
+    psprrsPolicyARN,
+    psprrsAlarms,
+    psprrsResponseStatus,
   )
 where
 
-import Network.AWS.ApplicationAutoScaling.Types
+import qualified Network.AWS.ApplicationAutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { -- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+  { -- | The name of the scaling policy.
+    policyName :: Types.PolicyName,
+    -- | The namespace of the AWS service that provides the resource. For a resource provided by your own application or service, use @custom-resource@ instead.
+    serviceNamespace :: Types.ServiceNamespace,
+    -- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
+    --
+    --
+    --     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .
+    --
+    --
+    --     * Spot Fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot Fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+    --
+    --
+    --     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+    --
+    --
+    --     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .
+    --
+    --
+    --     * DynamoDB table - The resource type is @table@ and the unique identifier is the table name. Example: @table/my-table@ .
+    --
+    --
+    --     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the index name. Example: @table/my-table/index/my-table-index@ .
+    --
+    --
+    --     * Aurora DB cluster - The resource type is @cluster@ and the unique identifier is the cluster name. Example: @cluster:my-db-cluster@ .
+    --
+    --
+    --     * Amazon SageMaker endpoint variant - The resource type is @variant@ and the unique identifier is the resource ID. Example: @endpoint/my-end-point/variant/KMeansClustering@ .
+    --
+    --
+    --     * Custom resources are not supported with a resource type. This parameter must specify the @OutputValue@ from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information is available in our <https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository> .
+    --
+    --
+    --     * Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE@ .
+    --
+    --
+    --     * Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE@ .
+    --
+    --
+    --     * Lambda provisioned concurrency - The resource type is @function@ and the unique identifier is the function name with a function version or alias name suffix that is not @> LATEST@ . Example: @function:my-function:prod@ or @function:my-function:1@ .
+    --
+    --
+    --     * Amazon Keyspaces table - The resource type is @table@ and the unique identifier is the table name. Example: @keyspace/mykeyspace/table/mytable@ .
+    --
+    --
+    --     * Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: @arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@ .
+    resourceId :: Types.ResourceIdMaxLen1600,
+    -- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
     --
     --
     --     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.
@@ -104,131 +152,67 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     --
     --     * @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
-    scalableDimension :: ScalableDimension,
-    -- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
-    --
-    --
-    --     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .
-    --
-    --
-    --     * Spot Fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot Fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
-    --
-    --
-    --     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
-    --
-    --
-    --     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .
-    --
-    --
-    --     * DynamoDB table - The resource type is @table@ and the unique identifier is the table name. Example: @table/my-table@ .
-    --
-    --
-    --     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the index name. Example: @table/my-table/index/my-table-index@ .
-    --
-    --
-    --     * Aurora DB cluster - The resource type is @cluster@ and the unique identifier is the cluster name. Example: @cluster:my-db-cluster@ .
-    --
-    --
-    --     * Amazon SageMaker endpoint variant - The resource type is @variant@ and the unique identifier is the resource ID. Example: @endpoint/my-end-point/variant/KMeansClustering@ .
-    --
-    --
-    --     * Custom resources are not supported with a resource type. This parameter must specify the @OutputValue@ from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information is available in our <https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository> .
-    --
-    --
-    --     * Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE@ .
-    --
-    --
-    --     * Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE@ .
-    --
-    --
-    --     * Lambda provisioned concurrency - The resource type is @function@ and the unique identifier is the function name with a function version or alias name suffix that is not @> LATEST@ . Example: @function:my-function:prod@ or @function:my-function:1@ .
-    --
-    --
-    --     * Amazon Keyspaces table - The resource type is @table@ and the unique identifier is the table name. Example: @keyspace/mykeyspace/table/mytable@ .
-    --
-    --
-    --     * Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: @arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@ .
-    resourceId :: Lude.Text,
-    -- | The name of the scaling policy.
-    policyName :: Lude.Text,
+    scalableDimension :: Types.ScalableDimension,
     -- | The policy type. This parameter is required if you are creating a scaling policy.
     --
     -- The following policy types are supported:
     -- @TargetTrackingScaling@ —Not supported for Amazon EMR
     -- @StepScaling@ —Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces (for Apache Cassandra), or Amazon MSK.
     -- For more information, see <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target Tracking Scaling Policies> and <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step Scaling Policies> in the /Application Auto Scaling User Guide/ .
-    policyType :: Lude.Maybe PolicyType,
-    -- | A target tracking scaling policy. Includes support for predefined or customized metrics.
-    --
-    -- This parameter is required if you are creating a policy and the policy type is @TargetTrackingScaling@ .
-    targetTrackingScalingPolicyConfiguration :: Lude.Maybe TargetTrackingScalingPolicyConfiguration,
-    -- | The namespace of the AWS service that provides the resource. For a resource provided by your own application or service, use @custom-resource@ instead.
-    serviceNamespace :: ServiceNamespace,
+    policyType :: Core.Maybe Types.PolicyType,
     -- | A step scaling policy.
     --
     -- This parameter is required if you are creating a policy and the policy type is @StepScaling@ .
-    stepScalingPolicyConfiguration :: Lude.Maybe StepScalingPolicyConfiguration
+    stepScalingPolicyConfiguration :: Core.Maybe Types.StepScalingPolicyConfiguration,
+    -- | A target tracking scaling policy. Includes support for predefined or customized metrics.
+    --
+    -- This parameter is required if you are creating a policy and the policy type is @TargetTrackingScaling@ .
+    targetTrackingScalingPolicyConfiguration :: Core.Maybe Types.TargetTrackingScalingPolicyConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
+-- | Creates a 'PutScalingPolicy' value with any optional fields omitted.
+mkPutScalingPolicy ::
+  -- | 'policyName'
+  Types.PolicyName ->
+  -- | 'serviceNamespace'
+  Types.ServiceNamespace ->
+  -- | 'resourceId'
+  Types.ResourceIdMaxLen1600 ->
+  -- | 'scalableDimension'
+  Types.ScalableDimension ->
+  PutScalingPolicy
+mkPutScalingPolicy
+  policyName
+  serviceNamespace
+  resourceId
+  scalableDimension =
+    PutScalingPolicy'
+      { policyName,
+        serviceNamespace,
+        resourceId,
+        scalableDimension,
+        policyType = Core.Nothing,
+        stepScalingPolicyConfiguration = Core.Nothing,
+        targetTrackingScalingPolicyConfiguration = Core.Nothing
+      }
+
+-- | The name of the scaling policy.
 --
--- * 'scalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pspPolicyName :: Lens.Lens' PutScalingPolicy Types.PolicyName
+pspPolicyName = Lens.field @"policyName"
+{-# DEPRECATED pspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The namespace of the AWS service that provides the resource. For a resource provided by your own application or service, use @custom-resource@ instead.
 --
---
---     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.
---
---
---     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot Fleet request.
---
---
---     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
---
---
---     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.
---
---
---     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.
---
---
---     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.
---
---
---     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.
---
---
---     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
---
---
---     * @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
---
---
---     * @sagemaker:variant:DesiredInstanceCount@ - The number of EC2 instances for an Amazon SageMaker model endpoint variant.
---
---
---     * @custom-resource:ResourceType:Property@ - The scalable dimension for a custom resource provided by your own application or service.
---
---
---     * @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ - The number of inference units for an Amazon Comprehend document classification endpoint.
---
---
---     * @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
---
---
---     * @lambda:function:ProvisionedConcurrency@ - The provisioned concurrency for a Lambda function.
---
---
---     * @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity for an Amazon Keyspaces table.
---
---
---     * @cassandra:table:WriteCapacityUnits@ - The provisioned write capacity for an Amazon Keyspaces table.
---
---
---     * @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
---
---
--- * 'resourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
+-- /Note:/ Consider using 'serviceNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pspServiceNamespace :: Lens.Lens' PutScalingPolicy Types.ServiceNamespace
+pspServiceNamespace = Lens.field @"serviceNamespace"
+{-# DEPRECATED pspServiceNamespace "Use generic-lens or generic-optics with 'serviceNamespace' instead." #-}
+
+-- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
 --
 --
 --     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .
@@ -273,44 +257,11 @@ data PutScalingPolicy = PutScalingPolicy'
 --     * Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: @arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@ .
 --
 --
--- * 'policyName' - The name of the scaling policy.
--- * 'policyType' - The policy type. This parameter is required if you are creating a scaling policy.
 --
--- The following policy types are supported:
--- @TargetTrackingScaling@ —Not supported for Amazon EMR
--- @StepScaling@ —Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces (for Apache Cassandra), or Amazon MSK.
--- For more information, see <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target Tracking Scaling Policies> and <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step Scaling Policies> in the /Application Auto Scaling User Guide/ .
--- * 'targetTrackingScalingPolicyConfiguration' - A target tracking scaling policy. Includes support for predefined or customized metrics.
---
--- This parameter is required if you are creating a policy and the policy type is @TargetTrackingScaling@ .
--- * 'serviceNamespace' - The namespace of the AWS service that provides the resource. For a resource provided by your own application or service, use @custom-resource@ instead.
--- * 'stepScalingPolicyConfiguration' - A step scaling policy.
---
--- This parameter is required if you are creating a policy and the policy type is @StepScaling@ .
-mkPutScalingPolicy ::
-  -- | 'scalableDimension'
-  ScalableDimension ->
-  -- | 'resourceId'
-  Lude.Text ->
-  -- | 'policyName'
-  Lude.Text ->
-  -- | 'serviceNamespace'
-  ServiceNamespace ->
-  PutScalingPolicy
-mkPutScalingPolicy
-  pScalableDimension_
-  pResourceId_
-  pPolicyName_
-  pServiceNamespace_ =
-    PutScalingPolicy'
-      { scalableDimension = pScalableDimension_,
-        resourceId = pResourceId_,
-        policyName = pPolicyName_,
-        policyType = Lude.Nothing,
-        targetTrackingScalingPolicyConfiguration = Lude.Nothing,
-        serviceNamespace = pServiceNamespace_,
-        stepScalingPolicyConfiguration = Lude.Nothing
-      }
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pspResourceId :: Lens.Lens' PutScalingPolicy Types.ResourceIdMaxLen1600
+pspResourceId = Lens.field @"resourceId"
+{-# DEPRECATED pspResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
 --
@@ -368,67 +319,9 @@ mkPutScalingPolicy
 --
 --
 -- /Note:/ Consider using 'scalableDimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspScalableDimension :: Lens.Lens' PutScalingPolicy ScalableDimension
-pspScalableDimension = Lens.lens (scalableDimension :: PutScalingPolicy -> ScalableDimension) (\s a -> s {scalableDimension = a} :: PutScalingPolicy)
+pspScalableDimension :: Lens.Lens' PutScalingPolicy Types.ScalableDimension
+pspScalableDimension = Lens.field @"scalableDimension"
 {-# DEPRECATED pspScalableDimension "Use generic-lens or generic-optics with 'scalableDimension' instead." #-}
-
--- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
---
---
---     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .
---
---
---     * Spot Fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot Fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
---
---
---     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
---
---
---     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .
---
---
---     * DynamoDB table - The resource type is @table@ and the unique identifier is the table name. Example: @table/my-table@ .
---
---
---     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the index name. Example: @table/my-table/index/my-table-index@ .
---
---
---     * Aurora DB cluster - The resource type is @cluster@ and the unique identifier is the cluster name. Example: @cluster:my-db-cluster@ .
---
---
---     * Amazon SageMaker endpoint variant - The resource type is @variant@ and the unique identifier is the resource ID. Example: @endpoint/my-end-point/variant/KMeansClustering@ .
---
---
---     * Custom resources are not supported with a resource type. This parameter must specify the @OutputValue@ from the CloudFormation template stack used to access the resources. The unique identifier is defined by the service provider. More information is available in our <https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository> .
---
---
---     * Amazon Comprehend document classification endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE@ .
---
---
---     * Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier are specified using the endpoint ARN. Example: @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE@ .
---
---
---     * Lambda provisioned concurrency - The resource type is @function@ and the unique identifier is the function name with a function version or alias name suffix that is not @> LATEST@ . Example: @function:my-function:prod@ or @function:my-function:1@ .
---
---
---     * Amazon Keyspaces table - The resource type is @table@ and the unique identifier is the table name. Example: @keyspace/mykeyspace/table/mytable@ .
---
---
---     * Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: @arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@ .
---
---
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspResourceId :: Lens.Lens' PutScalingPolicy Lude.Text
-pspResourceId = Lens.lens (resourceId :: PutScalingPolicy -> Lude.Text) (\s a -> s {resourceId = a} :: PutScalingPolicy)
-{-# DEPRECATED pspResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | The name of the scaling policy.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspPolicyName :: Lens.Lens' PutScalingPolicy Lude.Text
-pspPolicyName = Lens.lens (policyName :: PutScalingPolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutScalingPolicy)
-{-# DEPRECATED pspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy type. This parameter is required if you are creating a scaling policy.
 --
@@ -438,127 +331,110 @@ pspPolicyName = Lens.lens (policyName :: PutScalingPolicy -> Lude.Text) (\s a ->
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target Tracking Scaling Policies> and <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step Scaling Policies> in the /Application Auto Scaling User Guide/ .
 --
 -- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspPolicyType :: Lens.Lens' PutScalingPolicy (Lude.Maybe PolicyType)
-pspPolicyType = Lens.lens (policyType :: PutScalingPolicy -> Lude.Maybe PolicyType) (\s a -> s {policyType = a} :: PutScalingPolicy)
+pspPolicyType :: Lens.Lens' PutScalingPolicy (Core.Maybe Types.PolicyType)
+pspPolicyType = Lens.field @"policyType"
 {-# DEPRECATED pspPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
-
--- | A target tracking scaling policy. Includes support for predefined or customized metrics.
---
--- This parameter is required if you are creating a policy and the policy type is @TargetTrackingScaling@ .
---
--- /Note:/ Consider using 'targetTrackingScalingPolicyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspTargetTrackingScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Lude.Maybe TargetTrackingScalingPolicyConfiguration)
-pspTargetTrackingScalingPolicyConfiguration = Lens.lens (targetTrackingScalingPolicyConfiguration :: PutScalingPolicy -> Lude.Maybe TargetTrackingScalingPolicyConfiguration) (\s a -> s {targetTrackingScalingPolicyConfiguration = a} :: PutScalingPolicy)
-{-# DEPRECATED pspTargetTrackingScalingPolicyConfiguration "Use generic-lens or generic-optics with 'targetTrackingScalingPolicyConfiguration' instead." #-}
-
--- | The namespace of the AWS service that provides the resource. For a resource provided by your own application or service, use @custom-resource@ instead.
---
--- /Note:/ Consider using 'serviceNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspServiceNamespace :: Lens.Lens' PutScalingPolicy ServiceNamespace
-pspServiceNamespace = Lens.lens (serviceNamespace :: PutScalingPolicy -> ServiceNamespace) (\s a -> s {serviceNamespace = a} :: PutScalingPolicy)
-{-# DEPRECATED pspServiceNamespace "Use generic-lens or generic-optics with 'serviceNamespace' instead." #-}
 
 -- | A step scaling policy.
 --
 -- This parameter is required if you are creating a policy and the policy type is @StepScaling@ .
 --
 -- /Note:/ Consider using 'stepScalingPolicyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspStepScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Lude.Maybe StepScalingPolicyConfiguration)
-pspStepScalingPolicyConfiguration = Lens.lens (stepScalingPolicyConfiguration :: PutScalingPolicy -> Lude.Maybe StepScalingPolicyConfiguration) (\s a -> s {stepScalingPolicyConfiguration = a} :: PutScalingPolicy)
+pspStepScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Core.Maybe Types.StepScalingPolicyConfiguration)
+pspStepScalingPolicyConfiguration = Lens.field @"stepScalingPolicyConfiguration"
 {-# DEPRECATED pspStepScalingPolicyConfiguration "Use generic-lens or generic-optics with 'stepScalingPolicyConfiguration' instead." #-}
 
-instance Lude.AWSRequest PutScalingPolicy where
+-- | A target tracking scaling policy. Includes support for predefined or customized metrics.
+--
+-- This parameter is required if you are creating a policy and the policy type is @TargetTrackingScaling@ .
+--
+-- /Note:/ Consider using 'targetTrackingScalingPolicyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pspTargetTrackingScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Core.Maybe Types.TargetTrackingScalingPolicyConfiguration)
+pspTargetTrackingScalingPolicyConfiguration = Lens.field @"targetTrackingScalingPolicyConfiguration"
+{-# DEPRECATED pspTargetTrackingScalingPolicyConfiguration "Use generic-lens or generic-optics with 'targetTrackingScalingPolicyConfiguration' instead." #-}
+
+instance Core.FromJSON PutScalingPolicy where
+  toJSON PutScalingPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyName" Core..= policyName),
+            Core.Just ("ServiceNamespace" Core..= serviceNamespace),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("ScalableDimension" Core..= scalableDimension),
+            ("PolicyType" Core..=) Core.<$> policyType,
+            ("StepScalingPolicyConfiguration" Core..=)
+              Core.<$> stepScalingPolicyConfiguration,
+            ("TargetTrackingScalingPolicyConfiguration" Core..=)
+              Core.<$> targetTrackingScalingPolicyConfiguration
+          ]
+      )
+
+instance Core.AWSRequest PutScalingPolicy where
   type Rs PutScalingPolicy = PutScalingPolicyResponse
-  request = Req.postJSON applicationAutoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AnyScaleFrontendService.PutScalingPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutScalingPolicyResponse'
-            Lude.<$> (x Lude..:> "PolicyARN")
-            Lude.<*> (x Lude..?> "Alarms" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "PolicyARN")
+            Core.<*> (x Core..:? "Alarms")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutScalingPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AnyScaleFrontendService.PutScalingPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutScalingPolicy where
-  toJSON PutScalingPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ScalableDimension" Lude..= scalableDimension),
-            Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("PolicyName" Lude..= policyName),
-            ("PolicyType" Lude..=) Lude.<$> policyType,
-            ("TargetTrackingScalingPolicyConfiguration" Lude..=)
-              Lude.<$> targetTrackingScalingPolicyConfiguration,
-            Lude.Just ("ServiceNamespace" Lude..= serviceNamespace),
-            ("StepScalingPolicyConfiguration" Lude..=)
-              Lude.<$> stepScalingPolicyConfiguration
-          ]
-      )
-
-instance Lude.ToPath PutScalingPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutScalingPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
   { -- | The Amazon Resource Name (ARN) of the resulting scaling policy.
-    policyARN :: Lude.Text,
+    policyARN :: Types.PolicyARN,
     -- | The CloudWatch alarms created for the target tracking scaling policy.
-    alarms :: Lude.Maybe [Alarm],
+    alarms :: Core.Maybe [Types.Alarm],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
---
--- * 'policyARN' - The Amazon Resource Name (ARN) of the resulting scaling policy.
--- * 'alarms' - The CloudWatch alarms created for the target tracking scaling policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutScalingPolicyResponse' value with any optional fields omitted.
 mkPutScalingPolicyResponse ::
   -- | 'policyARN'
-  Lude.Text ->
+  Types.PolicyARN ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutScalingPolicyResponse
-mkPutScalingPolicyResponse pPolicyARN_ pResponseStatus_ =
+mkPutScalingPolicyResponse policyARN responseStatus =
   PutScalingPolicyResponse'
-    { policyARN = pPolicyARN_,
-      alarms = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { policyARN,
+      alarms = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the resulting scaling policy.
 --
 -- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psprsPolicyARN :: Lens.Lens' PutScalingPolicyResponse Lude.Text
-psprsPolicyARN = Lens.lens (policyARN :: PutScalingPolicyResponse -> Lude.Text) (\s a -> s {policyARN = a} :: PutScalingPolicyResponse)
-{-# DEPRECATED psprsPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+psprrsPolicyARN :: Lens.Lens' PutScalingPolicyResponse Types.PolicyARN
+psprrsPolicyARN = Lens.field @"policyARN"
+{-# DEPRECATED psprrsPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
 -- | The CloudWatch alarms created for the target tracking scaling policy.
 --
 -- /Note:/ Consider using 'alarms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psprsAlarms :: Lens.Lens' PutScalingPolicyResponse (Lude.Maybe [Alarm])
-psprsAlarms = Lens.lens (alarms :: PutScalingPolicyResponse -> Lude.Maybe [Alarm]) (\s a -> s {alarms = a} :: PutScalingPolicyResponse)
-{-# DEPRECATED psprsAlarms "Use generic-lens or generic-optics with 'alarms' instead." #-}
+psprrsAlarms :: Lens.Lens' PutScalingPolicyResponse (Core.Maybe [Types.Alarm])
+psprrsAlarms = Lens.field @"alarms"
+{-# DEPRECATED psprrsAlarms "Use generic-lens or generic-optics with 'alarms' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psprsResponseStatus :: Lens.Lens' PutScalingPolicyResponse Lude.Int
-psprsResponseStatus = Lens.lens (responseStatus :: PutScalingPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutScalingPolicyResponse)
-{-# DEPRECATED psprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+psprrsResponseStatus :: Lens.Lens' PutScalingPolicyResponse Core.Int
+psprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED psprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

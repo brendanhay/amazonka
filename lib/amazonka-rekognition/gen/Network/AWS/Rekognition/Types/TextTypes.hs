@@ -13,46 +13,48 @@
 module Network.AWS.Rekognition.Types.TextTypes
   ( TextTypes
       ( TextTypes',
-        Line,
-        Word
+        TextTypesLine,
+        TextTypesWord,
+        fromTextTypes
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TextTypes = TextTypes' Lude.Text
+newtype TextTypes = TextTypes' {fromTextTypes :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Line :: TextTypes
-pattern Line = TextTypes' "LINE"
+pattern TextTypesLine :: TextTypes
+pattern TextTypesLine = TextTypes' "LINE"
 
-pattern Word :: TextTypes
-pattern Word = TextTypes' "WORD"
+pattern TextTypesWord :: TextTypes
+pattern TextTypesWord = TextTypes' "WORD"
 
 {-# COMPLETE
-  Line,
-  Word,
+  TextTypesLine,
+  TextTypesWord,
   TextTypes'
   #-}

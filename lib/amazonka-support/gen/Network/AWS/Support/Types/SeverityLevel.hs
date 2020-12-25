@@ -17,66 +17,59 @@ module Network.AWS.Support.Types.SeverityLevel
     mkSeverityLevel,
 
     -- * Lenses
-    slName,
     slCode,
+    slName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Support.Types.SeverityLevelCode as Types
+import qualified Network.AWS.Support.Types.SeverityLevelName as Types
 
 -- | A code and name pair that represents the severity level of a support case. The available values depend on the support plan for the account. For more information, see <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity> in the /AWS Support User Guide/ .
 --
 -- /See:/ 'mkSeverityLevel' smart constructor.
 data SeverityLevel = SeverityLevel'
-  { -- | The name of the severity level that corresponds to the severity level code.
-    --
-    -- For more information, see <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity> in the /AWS Support User Guide/ .
-    name :: Lude.Maybe Lude.Text,
-    -- | The code for case severity level.
+  { -- | The code for case severity level.
     --
     -- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
-    code :: Lude.Maybe Lude.Text
+    code :: Core.Maybe Types.SeverityLevelCode,
+    -- | The name of the severity level that corresponds to the severity level code.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity> in the /AWS Support User Guide/ .
+    name :: Core.Maybe Types.SeverityLevelName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SeverityLevel' with the minimum fields required to make a request.
---
--- * 'name' - The name of the severity level that corresponds to the severity level code.
---
--- For more information, see <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity> in the /AWS Support User Guide/ .
--- * 'code' - The code for case severity level.
---
--- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
+-- | Creates a 'SeverityLevel' value with any optional fields omitted.
 mkSeverityLevel ::
   SeverityLevel
 mkSeverityLevel =
-  SeverityLevel' {name = Lude.Nothing, code = Lude.Nothing}
-
--- | The name of the severity level that corresponds to the severity level code.
---
--- For more information, see <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity> in the /AWS Support User Guide/ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slName :: Lens.Lens' SeverityLevel (Lude.Maybe Lude.Text)
-slName = Lens.lens (name :: SeverityLevel -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SeverityLevel)
-{-# DEPRECATED slName "Use generic-lens or generic-optics with 'name' instead." #-}
+  SeverityLevel' {code = Core.Nothing, name = Core.Nothing}
 
 -- | The code for case severity level.
 --
 -- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slCode :: Lens.Lens' SeverityLevel (Lude.Maybe Lude.Text)
-slCode = Lens.lens (code :: SeverityLevel -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: SeverityLevel)
+slCode :: Lens.Lens' SeverityLevel (Core.Maybe Types.SeverityLevelCode)
+slCode = Lens.field @"code"
 {-# DEPRECATED slCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance Lude.FromJSON SeverityLevel where
+-- | The name of the severity level that corresponds to the severity level code.
+--
+-- For more information, see <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity> in the /AWS Support User Guide/ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slName :: Lens.Lens' SeverityLevel (Core.Maybe Types.SeverityLevelName)
+slName = Lens.field @"name"
+{-# DEPRECATED slName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON SeverityLevel where
   parseJSON =
-    Lude.withObject
-      "SeverityLevel"
-      ( \x ->
-          SeverityLevel'
-            Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "code")
-      )
+    Core.withObject "SeverityLevel" Core.$
+      \x ->
+        SeverityLevel'
+          Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "name")

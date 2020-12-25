@@ -29,16 +29,16 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     mkDisableSnapshotCopyResponse,
 
     -- ** Response lenses
-    dscrsCluster,
-    dscrsResponseStatus,
+    dscrrsCluster,
+    dscrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -47,90 +47,86 @@ newtype DisableSnapshotCopy = DisableSnapshotCopy'
   { -- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.
     --
     -- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
-    clusterIdentifier :: Lude.Text
+    clusterIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableSnapshotCopy' with the minimum fields required to make a request.
---
--- * 'clusterIdentifier' - The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.
---
--- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
+-- | Creates a 'DisableSnapshotCopy' value with any optional fields omitted.
 mkDisableSnapshotCopy ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   DisableSnapshotCopy
-mkDisableSnapshotCopy pClusterIdentifier_ =
-  DisableSnapshotCopy' {clusterIdentifier = pClusterIdentifier_}
+mkDisableSnapshotCopy clusterIdentifier =
+  DisableSnapshotCopy' {clusterIdentifier}
 
 -- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.
 --
 -- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscClusterIdentifier :: Lens.Lens' DisableSnapshotCopy Lude.Text
-dscClusterIdentifier = Lens.lens (clusterIdentifier :: DisableSnapshotCopy -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: DisableSnapshotCopy)
+dscClusterIdentifier :: Lens.Lens' DisableSnapshotCopy Types.String
+dscClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED dscClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance Lude.AWSRequest DisableSnapshotCopy where
+instance Core.AWSRequest DisableSnapshotCopy where
   type Rs DisableSnapshotCopy = DisableSnapshotCopyResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DisableSnapshotCopy")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" clusterIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DisableSnapshotCopyResult"
       ( \s h x ->
           DisableSnapshotCopyResponse'
-            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisableSnapshotCopy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DisableSnapshotCopy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisableSnapshotCopy where
-  toQuery DisableSnapshotCopy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DisableSnapshotCopy" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ClusterIdentifier" Lude.=: clusterIdentifier
-      ]
 
 -- | /See:/ 'mkDisableSnapshotCopyResponse' smart constructor.
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
-  { cluster :: Lude.Maybe Cluster,
+  { cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DisableSnapshotCopyResponse' with the minimum fields required to make a request.
---
--- * 'cluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisableSnapshotCopyResponse' value with any optional fields omitted.
 mkDisableSnapshotCopyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisableSnapshotCopyResponse
-mkDisableSnapshotCopyResponse pResponseStatus_ =
+mkDisableSnapshotCopyResponse responseStatus =
   DisableSnapshotCopyResponse'
-    { cluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { cluster = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsCluster :: Lens.Lens' DisableSnapshotCopyResponse (Lude.Maybe Cluster)
-dscrsCluster = Lens.lens (cluster :: DisableSnapshotCopyResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: DisableSnapshotCopyResponse)
-{-# DEPRECATED dscrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+dscrrsCluster :: Lens.Lens' DisableSnapshotCopyResponse (Core.Maybe Types.Cluster)
+dscrrsCluster = Lens.field @"cluster"
+{-# DEPRECATED dscrrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DisableSnapshotCopyResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DisableSnapshotCopyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableSnapshotCopyResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscrrsResponseStatus :: Lens.Lens' DisableSnapshotCopyResponse Core.Int
+dscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

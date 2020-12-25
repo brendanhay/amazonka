@@ -22,55 +22,48 @@ module Network.AWS.SageMaker.Types.HumanLoopActivationConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig as Types
 
 -- | Provides information about how and under what conditions SageMaker creates a human loop. If @HumanLoopActivationConfig@ is not given, then all requests go to humans.
 --
 -- /See:/ 'mkHumanLoopActivationConfig' smart constructor.
 newtype HumanLoopActivationConfig = HumanLoopActivationConfig'
   { -- | Container structure for defining under what conditions SageMaker creates a human loop.
-    humanLoopActivationConditionsConfig :: HumanLoopActivationConditionsConfig
+    humanLoopActivationConditionsConfig :: Types.HumanLoopActivationConditionsConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HumanLoopActivationConfig' with the minimum fields required to make a request.
---
--- * 'humanLoopActivationConditionsConfig' - Container structure for defining under what conditions SageMaker creates a human loop.
+-- | Creates a 'HumanLoopActivationConfig' value with any optional fields omitted.
 mkHumanLoopActivationConfig ::
   -- | 'humanLoopActivationConditionsConfig'
-  HumanLoopActivationConditionsConfig ->
+  Types.HumanLoopActivationConditionsConfig ->
   HumanLoopActivationConfig
-mkHumanLoopActivationConfig pHumanLoopActivationConditionsConfig_ =
-  HumanLoopActivationConfig'
-    { humanLoopActivationConditionsConfig =
-        pHumanLoopActivationConditionsConfig_
-    }
+mkHumanLoopActivationConfig humanLoopActivationConditionsConfig =
+  HumanLoopActivationConfig' {humanLoopActivationConditionsConfig}
 
 -- | Container structure for defining under what conditions SageMaker creates a human loop.
 --
 -- /Note:/ Consider using 'humanLoopActivationConditionsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hlacHumanLoopActivationConditionsConfig :: Lens.Lens' HumanLoopActivationConfig HumanLoopActivationConditionsConfig
-hlacHumanLoopActivationConditionsConfig = Lens.lens (humanLoopActivationConditionsConfig :: HumanLoopActivationConfig -> HumanLoopActivationConditionsConfig) (\s a -> s {humanLoopActivationConditionsConfig = a} :: HumanLoopActivationConfig)
+hlacHumanLoopActivationConditionsConfig :: Lens.Lens' HumanLoopActivationConfig Types.HumanLoopActivationConditionsConfig
+hlacHumanLoopActivationConditionsConfig = Lens.field @"humanLoopActivationConditionsConfig"
 {-# DEPRECATED hlacHumanLoopActivationConditionsConfig "Use generic-lens or generic-optics with 'humanLoopActivationConditionsConfig' instead." #-}
 
-instance Lude.FromJSON HumanLoopActivationConfig where
-  parseJSON =
-    Lude.withObject
-      "HumanLoopActivationConfig"
-      ( \x ->
-          HumanLoopActivationConfig'
-            Lude.<$> (x Lude..: "HumanLoopActivationConditionsConfig")
-      )
-
-instance Lude.ToJSON HumanLoopActivationConfig where
-  toJSON HumanLoopActivationConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON HumanLoopActivationConfig where
+  toJSON HumanLoopActivationConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "HumanLoopActivationConditionsConfig"
-                  Lude..= humanLoopActivationConditionsConfig
+                  Core..= humanLoopActivationConditionsConfig
               )
           ]
       )
+
+instance Core.FromJSON HumanLoopActivationConfig where
+  parseJSON =
+    Core.withObject "HumanLoopActivationConfig" Core.$
+      \x ->
+        HumanLoopActivationConfig'
+          Core.<$> (x Core..: "HumanLoopActivationConditionsConfig")

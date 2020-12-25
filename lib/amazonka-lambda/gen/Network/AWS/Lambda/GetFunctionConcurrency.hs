@@ -20,23 +20,23 @@ module Network.AWS.Lambda.GetFunctionConcurrency
     mkGetFunctionConcurrency,
 
     -- ** Request lenses
-    gfcFunctionName,
+    gFunctionName,
 
     -- * Destructuring the response
     GetFunctionConcurrencyResponse (..),
     mkGetFunctionConcurrencyResponse,
 
     -- ** Response lenses
-    gfcrsReservedConcurrentExecutions,
-    gfcrsResponseStatus,
+    gfcrrsReservedConcurrentExecutions,
+    gfcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetFunctionConcurrency' smart constructor.
 newtype GetFunctionConcurrency = GetFunctionConcurrency'
@@ -54,33 +54,18 @@ newtype GetFunctionConcurrency = GetFunctionConcurrency'
     --
     --
     -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Lude.Text
+    functionName :: Types.FunctionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFunctionConcurrency' with the minimum fields required to make a request.
---
--- * 'functionName' - The name of the Lambda function.
---
--- __Name formats__
---
---     * __Function name__ - @my-function@ .
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
---
---
---     * __Partial ARN__ - @123456789012:function:my-function@ .
---
---
--- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | Creates a 'GetFunctionConcurrency' value with any optional fields omitted.
 mkGetFunctionConcurrency ::
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
   GetFunctionConcurrency
-mkGetFunctionConcurrency pFunctionName_ =
-  GetFunctionConcurrency' {functionName = pFunctionName_}
+mkGetFunctionConcurrency functionName =
+  GetFunctionConcurrency' {functionName}
 
 -- | The name of the Lambda function.
 --
@@ -98,67 +83,65 @@ mkGetFunctionConcurrency pFunctionName_ =
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfcFunctionName :: Lens.Lens' GetFunctionConcurrency Lude.Text
-gfcFunctionName = Lens.lens (functionName :: GetFunctionConcurrency -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionConcurrency)
-{-# DEPRECATED gfcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+gFunctionName :: Lens.Lens' GetFunctionConcurrency Types.FunctionName
+gFunctionName = Lens.field @"functionName"
+{-# DEPRECATED gFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance Lude.AWSRequest GetFunctionConcurrency where
+instance Core.AWSRequest GetFunctionConcurrency where
   type Rs GetFunctionConcurrency = GetFunctionConcurrencyResponse
-  request = Req.get lambdaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2019-09-30/functions/" Core.<> (Core.toText functionName)
+                Core.<> ("/concurrency")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetFunctionConcurrencyResponse'
-            Lude.<$> (x Lude..?> "ReservedConcurrentExecutions")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ReservedConcurrentExecutions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetFunctionConcurrency where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetFunctionConcurrency where
-  toPath GetFunctionConcurrency' {..} =
-    Lude.mconcat
-      ["/2019-09-30/functions/", Lude.toBS functionName, "/concurrency"]
-
-instance Lude.ToQuery GetFunctionConcurrency where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetFunctionConcurrencyResponse' smart constructor.
 data GetFunctionConcurrencyResponse = GetFunctionConcurrencyResponse'
   { -- | The number of simultaneous executions that are reserved for the function.
-    reservedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    reservedConcurrentExecutions :: Core.Maybe Core.Natural,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFunctionConcurrencyResponse' with the minimum fields required to make a request.
---
--- * 'reservedConcurrentExecutions' - The number of simultaneous executions that are reserved for the function.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetFunctionConcurrencyResponse' value with any optional fields omitted.
 mkGetFunctionConcurrencyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetFunctionConcurrencyResponse
-mkGetFunctionConcurrencyResponse pResponseStatus_ =
+mkGetFunctionConcurrencyResponse responseStatus =
   GetFunctionConcurrencyResponse'
     { reservedConcurrentExecutions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The number of simultaneous executions that are reserved for the function.
 --
 -- /Note:/ Consider using 'reservedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfcrsReservedConcurrentExecutions :: Lens.Lens' GetFunctionConcurrencyResponse (Lude.Maybe Lude.Natural)
-gfcrsReservedConcurrentExecutions = Lens.lens (reservedConcurrentExecutions :: GetFunctionConcurrencyResponse -> Lude.Maybe Lude.Natural) (\s a -> s {reservedConcurrentExecutions = a} :: GetFunctionConcurrencyResponse)
-{-# DEPRECATED gfcrsReservedConcurrentExecutions "Use generic-lens or generic-optics with 'reservedConcurrentExecutions' instead." #-}
+gfcrrsReservedConcurrentExecutions :: Lens.Lens' GetFunctionConcurrencyResponse (Core.Maybe Core.Natural)
+gfcrrsReservedConcurrentExecutions = Lens.field @"reservedConcurrentExecutions"
+{-# DEPRECATED gfcrrsReservedConcurrentExecutions "Use generic-lens or generic-optics with 'reservedConcurrentExecutions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfcrsResponseStatus :: Lens.Lens' GetFunctionConcurrencyResponse Lude.Int
-gfcrsResponseStatus = Lens.lens (responseStatus :: GetFunctionConcurrencyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFunctionConcurrencyResponse)
-{-# DEPRECATED gfcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gfcrrsResponseStatus :: Lens.Lens' GetFunctionConcurrencyResponse Core.Int
+gfcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gfcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

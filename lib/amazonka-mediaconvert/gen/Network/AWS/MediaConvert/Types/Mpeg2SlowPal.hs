@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.Mpeg2SlowPal
   ( Mpeg2SlowPal
       ( Mpeg2SlowPal',
-        MSPDisabled,
-        MSPEnabled
+        Mpeg2SlowPalDisabled,
+        Mpeg2SlowPalEnabled,
+        fromMpeg2SlowPal
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25. In your JSON job specification, set (framerateControl) to (SPECIFIED), (framerateNumerator) to 25 and (framerateDenominator) to 1.
-newtype Mpeg2SlowPal = Mpeg2SlowPal' Lude.Text
+newtype Mpeg2SlowPal = Mpeg2SlowPal' {fromMpeg2SlowPal :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MSPDisabled :: Mpeg2SlowPal
-pattern MSPDisabled = Mpeg2SlowPal' "DISABLED"
+pattern Mpeg2SlowPalDisabled :: Mpeg2SlowPal
+pattern Mpeg2SlowPalDisabled = Mpeg2SlowPal' "DISABLED"
 
-pattern MSPEnabled :: Mpeg2SlowPal
-pattern MSPEnabled = Mpeg2SlowPal' "ENABLED"
+pattern Mpeg2SlowPalEnabled :: Mpeg2SlowPal
+pattern Mpeg2SlowPalEnabled = Mpeg2SlowPal' "ENABLED"
 
 {-# COMPLETE
-  MSPDisabled,
-  MSPEnabled,
+  Mpeg2SlowPalDisabled,
+  Mpeg2SlowPalEnabled,
   Mpeg2SlowPal'
   #-}

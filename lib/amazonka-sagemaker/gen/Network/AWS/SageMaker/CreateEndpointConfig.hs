@@ -24,10 +24,10 @@ module Network.AWS.SageMaker.CreateEndpointConfig
     mkCreateEndpointConfig,
 
     -- ** Request lenses
-    cecProductionVariants,
-    cecKMSKeyId,
     cecEndpointConfigName,
+    cecProductionVariants,
     cecDataCaptureConfig,
+    cecKmsKeyId,
     cecTags,
 
     -- * Destructuring the response
@@ -35,21 +35,24 @@ module Network.AWS.SageMaker.CreateEndpointConfig
     mkCreateEndpointConfigResponse,
 
     -- ** Response lenses
-    cecrsEndpointConfigARN,
-    cecrsResponseStatus,
+    cecrrsEndpointConfigArn,
+    cecrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateEndpointConfig' smart constructor.
 data CreateEndpointConfig = CreateEndpointConfig'
-  { -- | An list of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
-    productionVariants :: Lude.NonEmpty ProductionVariant,
+  { -- | The name of the endpoint configuration. You specify this name in a 'CreateEndpoint' request.
+    endpointConfigName :: Types.EndpointConfigName,
+    -- | An list of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
+    productionVariants :: Core.NonEmpty Types.ProductionVariant,
+    dataCaptureConfig :: Core.Maybe Types.DataCaptureConfig,
     -- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
     --
     -- The KmsKeyId can be any of the following formats:
@@ -67,60 +70,49 @@ data CreateEndpointConfig = CreateEndpointConfig'
     --
     --
     -- The KMS key policy must grant permission to the IAM role that you specify in your @CreateEndpoint@ , @UpdateEndpoint@ requests. For more information, refer to the AWS Key Management Service section<https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS >
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    -- | The name of the endpoint configuration. You specify this name in a 'CreateEndpoint' request.
-    endpointConfigName :: Lude.Text,
-    dataCaptureConfig :: Lude.Maybe DataCaptureConfig,
+    kmsKeyId :: Core.Maybe Types.KmsKeyId,
     -- | A list of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEndpointConfig' with the minimum fields required to make a request.
---
--- * 'productionVariants' - An list of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
--- * 'kmsKeyId' - The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
---
--- The KmsKeyId can be any of the following formats:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Alias name: @alias/ExampleAlias@
---
---
---     * Alias name ARN: @arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias@
---
---
--- The KMS key policy must grant permission to the IAM role that you specify in your @CreateEndpoint@ , @UpdateEndpoint@ requests. For more information, refer to the AWS Key Management Service section<https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS >
--- * 'endpointConfigName' - The name of the endpoint configuration. You specify this name in a 'CreateEndpoint' request.
--- * 'dataCaptureConfig' -
--- * 'tags' - A list of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- | Creates a 'CreateEndpointConfig' value with any optional fields omitted.
 mkCreateEndpointConfig ::
-  -- | 'productionVariants'
-  Lude.NonEmpty ProductionVariant ->
   -- | 'endpointConfigName'
-  Lude.Text ->
+  Types.EndpointConfigName ->
+  -- | 'productionVariants'
+  Core.NonEmpty Types.ProductionVariant ->
   CreateEndpointConfig
-mkCreateEndpointConfig pProductionVariants_ pEndpointConfigName_ =
+mkCreateEndpointConfig endpointConfigName productionVariants =
   CreateEndpointConfig'
-    { productionVariants = pProductionVariants_,
-      kmsKeyId = Lude.Nothing,
-      endpointConfigName = pEndpointConfigName_,
-      dataCaptureConfig = Lude.Nothing,
-      tags = Lude.Nothing
+    { endpointConfigName,
+      productionVariants,
+      dataCaptureConfig = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      tags = Core.Nothing
     }
+
+-- | The name of the endpoint configuration. You specify this name in a 'CreateEndpoint' request.
+--
+-- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cecEndpointConfigName :: Lens.Lens' CreateEndpointConfig Types.EndpointConfigName
+cecEndpointConfigName = Lens.field @"endpointConfigName"
+{-# DEPRECATED cecEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
 -- | An list of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
 --
 -- /Note:/ Consider using 'productionVariants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cecProductionVariants :: Lens.Lens' CreateEndpointConfig (Lude.NonEmpty ProductionVariant)
-cecProductionVariants = Lens.lens (productionVariants :: CreateEndpointConfig -> Lude.NonEmpty ProductionVariant) (\s a -> s {productionVariants = a} :: CreateEndpointConfig)
+cecProductionVariants :: Lens.Lens' CreateEndpointConfig (Core.NonEmpty Types.ProductionVariant)
+cecProductionVariants = Lens.field @"productionVariants"
 {-# DEPRECATED cecProductionVariants "Use generic-lens or generic-optics with 'productionVariants' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dataCaptureConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cecDataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Core.Maybe Types.DataCaptureConfig)
+cecDataCaptureConfig = Lens.field @"dataCaptureConfig"
+{-# DEPRECATED cecDataCaptureConfig "Use generic-lens or generic-optics with 'dataCaptureConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 --
@@ -141,108 +133,80 @@ cecProductionVariants = Lens.lens (productionVariants :: CreateEndpointConfig ->
 -- The KMS key policy must grant permission to the IAM role that you specify in your @CreateEndpoint@ , @UpdateEndpoint@ requests. For more information, refer to the AWS Key Management Service section<https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS >
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cecKMSKeyId :: Lens.Lens' CreateEndpointConfig (Lude.Maybe Lude.Text)
-cecKMSKeyId = Lens.lens (kmsKeyId :: CreateEndpointConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateEndpointConfig)
-{-# DEPRECATED cecKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
-
--- | The name of the endpoint configuration. You specify this name in a 'CreateEndpoint' request.
---
--- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cecEndpointConfigName :: Lens.Lens' CreateEndpointConfig Lude.Text
-cecEndpointConfigName = Lens.lens (endpointConfigName :: CreateEndpointConfig -> Lude.Text) (\s a -> s {endpointConfigName = a} :: CreateEndpointConfig)
-{-# DEPRECATED cecEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'dataCaptureConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cecDataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Lude.Maybe DataCaptureConfig)
-cecDataCaptureConfig = Lens.lens (dataCaptureConfig :: CreateEndpointConfig -> Lude.Maybe DataCaptureConfig) (\s a -> s {dataCaptureConfig = a} :: CreateEndpointConfig)
-{-# DEPRECATED cecDataCaptureConfig "Use generic-lens or generic-optics with 'dataCaptureConfig' instead." #-}
+cecKmsKeyId :: Lens.Lens' CreateEndpointConfig (Core.Maybe Types.KmsKeyId)
+cecKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED cecKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | A list of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cecTags :: Lens.Lens' CreateEndpointConfig (Lude.Maybe [Tag])
-cecTags = Lens.lens (tags :: CreateEndpointConfig -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEndpointConfig)
+cecTags :: Lens.Lens' CreateEndpointConfig (Core.Maybe [Types.Tag])
+cecTags = Lens.field @"tags"
 {-# DEPRECATED cecTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateEndpointConfig where
+instance Core.FromJSON CreateEndpointConfig where
+  toJSON CreateEndpointConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EndpointConfigName" Core..= endpointConfigName),
+            Core.Just ("ProductionVariants" Core..= productionVariants),
+            ("DataCaptureConfig" Core..=) Core.<$> dataCaptureConfig,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateEndpointConfig where
   type Rs CreateEndpointConfig = CreateEndpointConfigResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateEndpointConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateEndpointConfigResponse'
-            Lude.<$> (x Lude..:> "EndpointConfigArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "EndpointConfigArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateEndpointConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateEndpointConfig" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateEndpointConfig where
-  toJSON CreateEndpointConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ProductionVariants" Lude..= productionVariants),
-            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
-            Lude.Just ("EndpointConfigName" Lude..= endpointConfigName),
-            ("DataCaptureConfig" Lude..=) Lude.<$> dataCaptureConfig,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateEndpointConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateEndpointConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateEndpointConfigResponse' smart constructor.
 data CreateEndpointConfigResponse = CreateEndpointConfigResponse'
   { -- | The Amazon Resource Name (ARN) of the endpoint configuration.
-    endpointConfigARN :: Lude.Text,
+    endpointConfigArn :: Types.EndpointConfigArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEndpointConfigResponse' with the minimum fields required to make a request.
---
--- * 'endpointConfigARN' - The Amazon Resource Name (ARN) of the endpoint configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateEndpointConfigResponse' value with any optional fields omitted.
 mkCreateEndpointConfigResponse ::
-  -- | 'endpointConfigARN'
-  Lude.Text ->
+  -- | 'endpointConfigArn'
+  Types.EndpointConfigArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateEndpointConfigResponse
-mkCreateEndpointConfigResponse pEndpointConfigARN_ pResponseStatus_ =
-  CreateEndpointConfigResponse'
-    { endpointConfigARN =
-        pEndpointConfigARN_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateEndpointConfigResponse endpointConfigArn responseStatus =
+  CreateEndpointConfigResponse' {endpointConfigArn, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the endpoint configuration.
 --
--- /Note:/ Consider using 'endpointConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cecrsEndpointConfigARN :: Lens.Lens' CreateEndpointConfigResponse Lude.Text
-cecrsEndpointConfigARN = Lens.lens (endpointConfigARN :: CreateEndpointConfigResponse -> Lude.Text) (\s a -> s {endpointConfigARN = a} :: CreateEndpointConfigResponse)
-{-# DEPRECATED cecrsEndpointConfigARN "Use generic-lens or generic-optics with 'endpointConfigARN' instead." #-}
+-- /Note:/ Consider using 'endpointConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cecrrsEndpointConfigArn :: Lens.Lens' CreateEndpointConfigResponse Types.EndpointConfigArn
+cecrrsEndpointConfigArn = Lens.field @"endpointConfigArn"
+{-# DEPRECATED cecrrsEndpointConfigArn "Use generic-lens or generic-optics with 'endpointConfigArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cecrsResponseStatus :: Lens.Lens' CreateEndpointConfigResponse Lude.Int
-cecrsResponseStatus = Lens.lens (responseStatus :: CreateEndpointConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEndpointConfigResponse)
-{-# DEPRECATED cecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cecrrsResponseStatus :: Lens.Lens' CreateEndpointConfigResponse Core.Int
+cecrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cecrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,9 +20,9 @@ module Network.AWS.IoT.CreateDimension
     mkCreateDimension,
 
     -- ** Request lenses
-    cdStringValues,
     cdName,
     cdType,
+    cdStringValues,
     cdClientRequestToken,
     cdTags,
 
@@ -31,173 +31,162 @@ module Network.AWS.IoT.CreateDimension
     mkCreateDimensionResponse,
 
     -- ** Response lenses
-    cdrsArn,
-    cdrsName,
-    cdrsResponseStatus,
+    cdrrsArn,
+    cdrrsName,
+    cdrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDimension' smart constructor.
 data CreateDimension = CreateDimension'
-  { -- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
-    stringValues :: Lude.NonEmpty Lude.Text,
-    -- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
-    name :: Lude.Text,
+  { -- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
+    name :: Types.Name,
     -- | Specifies the type of dimension. Supported types: @TOPIC_FILTER.@
-    type' :: DimensionType,
+    type' :: Types.DimensionType,
+    -- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
+    stringValues :: Core.NonEmpty Types.DimensionStringValue,
     -- | Each dimension must have a unique client request token. If you try to create a new dimension with the same token as a dimension that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-    clientRequestToken :: Lude.Text,
+    clientRequestToken :: Types.ClientRequestToken,
     -- | Metadata that can be used to manage the dimension.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDimension' with the minimum fields required to make a request.
---
--- * 'stringValues' - Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
--- * 'name' - A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
--- * 'type'' - Specifies the type of dimension. Supported types: @TOPIC_FILTER.@
--- * 'clientRequestToken' - Each dimension must have a unique client request token. If you try to create a new dimension with the same token as a dimension that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
--- * 'tags' - Metadata that can be used to manage the dimension.
+-- | Creates a 'CreateDimension' value with any optional fields omitted.
 mkCreateDimension ::
-  -- | 'stringValues'
-  Lude.NonEmpty Lude.Text ->
   -- | 'name'
-  Lude.Text ->
-  -- | 'type''
-  DimensionType ->
+  Types.Name ->
+  -- | 'type\''
+  Types.DimensionType ->
+  -- | 'stringValues'
+  Core.NonEmpty Types.DimensionStringValue ->
   -- | 'clientRequestToken'
-  Lude.Text ->
+  Types.ClientRequestToken ->
   CreateDimension
-mkCreateDimension pStringValues_ pName_ pType_ pClientRequestToken_ =
+mkCreateDimension name type' stringValues clientRequestToken =
   CreateDimension'
-    { stringValues = pStringValues_,
-      name = pName_,
-      type' = pType_,
-      clientRequestToken = pClientRequestToken_,
-      tags = Lude.Nothing
+    { name,
+      type',
+      stringValues,
+      clientRequestToken,
+      tags = Core.Nothing
     }
-
--- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
---
--- /Note:/ Consider using 'stringValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdStringValues :: Lens.Lens' CreateDimension (Lude.NonEmpty Lude.Text)
-cdStringValues = Lens.lens (stringValues :: CreateDimension -> Lude.NonEmpty Lude.Text) (\s a -> s {stringValues = a} :: CreateDimension)
-{-# DEPRECATED cdStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
 
 -- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdName :: Lens.Lens' CreateDimension Lude.Text
-cdName = Lens.lens (name :: CreateDimension -> Lude.Text) (\s a -> s {name = a} :: CreateDimension)
+cdName :: Lens.Lens' CreateDimension Types.Name
+cdName = Lens.field @"name"
 {-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specifies the type of dimension. Supported types: @TOPIC_FILTER.@
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdType :: Lens.Lens' CreateDimension DimensionType
-cdType = Lens.lens (type' :: CreateDimension -> DimensionType) (\s a -> s {type' = a} :: CreateDimension)
+cdType :: Lens.Lens' CreateDimension Types.DimensionType
+cdType = Lens.field @"type'"
 {-# DEPRECATED cdType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
+--
+-- /Note:/ Consider using 'stringValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdStringValues :: Lens.Lens' CreateDimension (Core.NonEmpty Types.DimensionStringValue)
+cdStringValues = Lens.field @"stringValues"
+{-# DEPRECATED cdStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
 
 -- | Each dimension must have a unique client request token. If you try to create a new dimension with the same token as a dimension that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdClientRequestToken :: Lens.Lens' CreateDimension Lude.Text
-cdClientRequestToken = Lens.lens (clientRequestToken :: CreateDimension -> Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateDimension)
+cdClientRequestToken :: Lens.Lens' CreateDimension Types.ClientRequestToken
+cdClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED cdClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | Metadata that can be used to manage the dimension.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdTags :: Lens.Lens' CreateDimension (Lude.Maybe [Tag])
-cdTags = Lens.lens (tags :: CreateDimension -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDimension)
+cdTags :: Lens.Lens' CreateDimension (Core.Maybe [Types.Tag])
+cdTags = Lens.field @"tags"
 {-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDimension where
-  type Rs CreateDimension = CreateDimensionResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateDimensionResponse'
-            Lude.<$> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateDimension where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateDimension where
-  toJSON CreateDimension' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("stringValues" Lude..= stringValues),
-            Lude.Just ("type" Lude..= type'),
-            Lude.Just ("clientRequestToken" Lude..= clientRequestToken),
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateDimension where
+  toJSON CreateDimension {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("type" Core..= type'),
+            Core.Just ("stringValues" Core..= stringValues),
+            Core.Just ("clientRequestToken" Core..= clientRequestToken),
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateDimension where
-  toPath CreateDimension' {..} =
-    Lude.mconcat ["/dimensions/", Lude.toBS name]
-
-instance Lude.ToQuery CreateDimension where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateDimension where
+  type Rs CreateDimension = CreateDimensionResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath ("/dimensions/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDimensionResponse'
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateDimensionResponse' smart constructor.
 data CreateDimensionResponse = CreateDimensionResponse'
   { -- | The ARN (Amazon resource name) of the created dimension.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.DimensionArn,
     -- | A unique identifier for the dimension.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.DimensionName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDimensionResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN (Amazon resource name) of the created dimension.
--- * 'name' - A unique identifier for the dimension.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDimensionResponse' value with any optional fields omitted.
 mkCreateDimensionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDimensionResponse
-mkCreateDimensionResponse pResponseStatus_ =
+mkCreateDimensionResponse responseStatus =
   CreateDimensionResponse'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN (Amazon resource name) of the created dimension.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsArn :: Lens.Lens' CreateDimensionResponse (Lude.Maybe Lude.Text)
-cdrsArn = Lens.lens (arn :: CreateDimensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateDimensionResponse)
-{-# DEPRECATED cdrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+cdrrsArn :: Lens.Lens' CreateDimensionResponse (Core.Maybe Types.DimensionArn)
+cdrrsArn = Lens.field @"arn"
+{-# DEPRECATED cdrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A unique identifier for the dimension.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsName :: Lens.Lens' CreateDimensionResponse (Lude.Maybe Lude.Text)
-cdrsName = Lens.lens (name :: CreateDimensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateDimensionResponse)
-{-# DEPRECATED cdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+cdrrsName :: Lens.Lens' CreateDimensionResponse (Core.Maybe Types.DimensionName)
+cdrrsName = Lens.field @"name"
+{-# DEPRECATED cdrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsResponseStatus :: Lens.Lens' CreateDimensionResponse Lude.Int
-cdrsResponseStatus = Lens.lens (responseStatus :: CreateDimensionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDimensionResponse)
-{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrrsResponseStatus :: Lens.Lens' CreateDimensionResponse Core.Int
+cdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

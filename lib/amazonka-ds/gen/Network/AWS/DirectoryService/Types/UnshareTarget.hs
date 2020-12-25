@@ -22,52 +22,49 @@ module Network.AWS.DirectoryService.Types.UnshareTarget
   )
 where
 
-import Network.AWS.DirectoryService.Types.TargetType
+import qualified Network.AWS.DirectoryService.Types.TargetId as Types
+import qualified Network.AWS.DirectoryService.Types.TargetType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifier that contains details about the directory consumer account with whom the directory is being unshared.
 --
 -- /See:/ 'mkUnshareTarget' smart constructor.
 data UnshareTarget = UnshareTarget'
   { -- | Identifier of the directory consumer account.
-    id :: Lude.Text,
+    id :: Types.TargetId,
     -- | Type of identifier to be used in the /Id/ field.
-    type' :: TargetType
+    type' :: Types.TargetType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnshareTarget' with the minimum fields required to make a request.
---
--- * 'id' - Identifier of the directory consumer account.
--- * 'type'' - Type of identifier to be used in the /Id/ field.
+-- | Creates a 'UnshareTarget' value with any optional fields omitted.
 mkUnshareTarget ::
   -- | 'id'
-  Lude.Text ->
-  -- | 'type''
-  TargetType ->
+  Types.TargetId ->
+  -- | 'type\''
+  Types.TargetType ->
   UnshareTarget
-mkUnshareTarget pId_ pType_ =
-  UnshareTarget' {id = pId_, type' = pType_}
+mkUnshareTarget id type' = UnshareTarget' {id, type'}
 
 -- | Identifier of the directory consumer account.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utId :: Lens.Lens' UnshareTarget Lude.Text
-utId = Lens.lens (id :: UnshareTarget -> Lude.Text) (\s a -> s {id = a} :: UnshareTarget)
+utId :: Lens.Lens' UnshareTarget Types.TargetId
+utId = Lens.field @"id"
 {-# DEPRECATED utId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Type of identifier to be used in the /Id/ field.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utType :: Lens.Lens' UnshareTarget TargetType
-utType = Lens.lens (type' :: UnshareTarget -> TargetType) (\s a -> s {type' = a} :: UnshareTarget)
+utType :: Lens.Lens' UnshareTarget Types.TargetType
+utType = Lens.field @"type'"
 {-# DEPRECATED utType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON UnshareTarget where
-  toJSON UnshareTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("Id" Lude..= id), Lude.Just ("Type" Lude..= type')]
+instance Core.FromJSON UnshareTarget where
+  toJSON UnshareTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Id" Core..= id), Core.Just ("Type" Core..= type')]
       )

@@ -38,72 +38,66 @@ module Network.AWS.S3.DeleteBucketEncryption
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkDeleteBucketEncryption' smart constructor.
 data DeleteBucketEncryption = DeleteBucketEncryption'
   { -- | The name of the bucket containing the server-side encryption configuration to delete.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketEncryption' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket containing the server-side encryption configuration to delete.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'DeleteBucketEncryption' value with any optional fields omitted.
 mkDeleteBucketEncryption ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   DeleteBucketEncryption
-mkDeleteBucketEncryption pBucket_ =
+mkDeleteBucketEncryption bucket =
   DeleteBucketEncryption'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the bucket containing the server-side encryption configuration to delete.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbeBucket :: Lens.Lens' DeleteBucketEncryption BucketName
-dbeBucket = Lens.lens (bucket :: DeleteBucketEncryption -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketEncryption)
+dbeBucket :: Lens.Lens' DeleteBucketEncryption Types.BucketName
+dbeBucket = Lens.field @"bucket"
 {-# DEPRECATED dbeBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbeExpectedBucketOwner :: Lens.Lens' DeleteBucketEncryption (Lude.Maybe Lude.Text)
-dbeExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketEncryption -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketEncryption)
+dbeExpectedBucketOwner :: Lens.Lens' DeleteBucketEncryption (Core.Maybe Types.ExpectedBucketOwner)
+dbeExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED dbeExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest DeleteBucketEncryption where
+instance Core.AWSRequest DeleteBucketEncryption where
   type Rs DeleteBucketEncryption = DeleteBucketEncryptionResponse
-  request = Req.delete s3Service
-  response = Res.receiveNull DeleteBucketEncryptionResponse'
-
-instance Lude.ToHeaders DeleteBucketEncryption where
-  toHeaders DeleteBucketEncryption' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath DeleteBucketEncryption where
-  toPath DeleteBucketEncryption' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery DeleteBucketEncryption where
-  toQuery = Lude.const (Lude.mconcat ["encryption"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("encryption", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteBucketEncryptionResponse'
 
 -- | /See:/ 'mkDeleteBucketEncryptionResponse' smart constructor.
 data DeleteBucketEncryptionResponse = DeleteBucketEncryptionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketEncryptionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBucketEncryptionResponse' value with any optional fields omitted.
 mkDeleteBucketEncryptionResponse ::
   DeleteBucketEncryptionResponse
 mkDeleteBucketEncryptionResponse = DeleteBucketEncryptionResponse'

@@ -22,34 +22,32 @@ module Network.AWS.WorkSpaces.Types.UserStorage
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.NonEmptyString as Types
 
 -- | Describes the user storage for a WorkSpace bundle.
 --
 -- /See:/ 'mkUserStorage' smart constructor.
 newtype UserStorage = UserStorage'
   { -- | The size of the user storage.
-    capacity :: Lude.Maybe Lude.Text
+    capacity :: Core.Maybe Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserStorage' with the minimum fields required to make a request.
---
--- * 'capacity' - The size of the user storage.
+-- | Creates a 'UserStorage' value with any optional fields omitted.
 mkUserStorage ::
   UserStorage
-mkUserStorage = UserStorage' {capacity = Lude.Nothing}
+mkUserStorage = UserStorage' {capacity = Core.Nothing}
 
 -- | The size of the user storage.
 --
 -- /Note:/ Consider using 'capacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usCapacity :: Lens.Lens' UserStorage (Lude.Maybe Lude.Text)
-usCapacity = Lens.lens (capacity :: UserStorage -> Lude.Maybe Lude.Text) (\s a -> s {capacity = a} :: UserStorage)
+usCapacity :: Lens.Lens' UserStorage (Core.Maybe Types.NonEmptyString)
+usCapacity = Lens.field @"capacity"
 {-# DEPRECATED usCapacity "Use generic-lens or generic-optics with 'capacity' instead." #-}
 
-instance Lude.FromJSON UserStorage where
+instance Core.FromJSON UserStorage where
   parseJSON =
-    Lude.withObject
-      "UserStorage"
-      (\x -> UserStorage' Lude.<$> (x Lude..:? "Capacity"))
+    Core.withObject "UserStorage" Core.$
+      \x -> UserStorage' Core.<$> (x Core..:? "Capacity")

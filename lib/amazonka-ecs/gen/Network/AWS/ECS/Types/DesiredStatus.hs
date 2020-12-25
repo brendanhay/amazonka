@@ -13,51 +13,56 @@
 module Network.AWS.ECS.Types.DesiredStatus
   ( DesiredStatus
       ( DesiredStatus',
-        Running,
-        Pending,
-        Stopped
+        DesiredStatusRunning,
+        DesiredStatusPending,
+        DesiredStatusStopped,
+        fromDesiredStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DesiredStatus = DesiredStatus' Lude.Text
+newtype DesiredStatus = DesiredStatus'
+  { fromDesiredStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Running :: DesiredStatus
-pattern Running = DesiredStatus' "RUNNING"
+pattern DesiredStatusRunning :: DesiredStatus
+pattern DesiredStatusRunning = DesiredStatus' "RUNNING"
 
-pattern Pending :: DesiredStatus
-pattern Pending = DesiredStatus' "PENDING"
+pattern DesiredStatusPending :: DesiredStatus
+pattern DesiredStatusPending = DesiredStatus' "PENDING"
 
-pattern Stopped :: DesiredStatus
-pattern Stopped = DesiredStatus' "STOPPED"
+pattern DesiredStatusStopped :: DesiredStatus
+pattern DesiredStatusStopped = DesiredStatus' "STOPPED"
 
 {-# COMPLETE
-  Running,
-  Pending,
-  Stopped,
+  DesiredStatusRunning,
+  DesiredStatusPending,
+  DesiredStatusStopped,
   DesiredStatus'
   #-}

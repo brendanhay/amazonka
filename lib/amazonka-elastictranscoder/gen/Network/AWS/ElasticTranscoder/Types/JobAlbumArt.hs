@@ -17,20 +17,23 @@ module Network.AWS.ElasticTranscoder.Types.JobAlbumArt
     mkJobAlbumArt,
 
     -- * Lenses
-    jaaMergePolicy,
     jaaArtwork,
+    jaaMergePolicy,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types.Artwork
+import qualified Network.AWS.ElasticTranscoder.Types.Artwork as Types
+import qualified Network.AWS.ElasticTranscoder.Types.MergePolicy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The .jpg or .png file associated with an audio file.
 --
 -- /See:/ 'mkJobAlbumArt' smart constructor.
 data JobAlbumArt = JobAlbumArt'
-  { -- | A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.
+  { -- | The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are @.jpg@ and @.png@
+    artwork :: Core.Maybe [Types.Artwork],
+    -- | A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.
     --
     --
     --     * @Replace:@ The specified album art replaces any existing album art.
@@ -43,35 +46,23 @@ data JobAlbumArt = JobAlbumArt'
     --
     --
     --     * @Fallback:@ If the original input file contains artwork, Elastic Transcoder uses that artwork for the output. If the original input does not contain artwork, Elastic Transcoder uses the specified album art file.
-    mergePolicy :: Lude.Maybe Lude.Text,
-    -- | The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are @.jpg@ and @.png@
-    artwork :: Lude.Maybe [Artwork]
+    mergePolicy :: Core.Maybe Types.MergePolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobAlbumArt' with the minimum fields required to make a request.
---
--- * 'mergePolicy' - A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.
---
---
---     * @Replace:@ The specified album art replaces any existing album art.
---
---
---     * @Prepend:@ The specified album art is placed in front of any existing album art.
---
---
---     * @Append:@ The specified album art is placed after any existing album art.
---
---
---     * @Fallback:@ If the original input file contains artwork, Elastic Transcoder uses that artwork for the output. If the original input does not contain artwork, Elastic Transcoder uses the specified album art file.
---
---
--- * 'artwork' - The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are @.jpg@ and @.png@
+-- | Creates a 'JobAlbumArt' value with any optional fields omitted.
 mkJobAlbumArt ::
   JobAlbumArt
 mkJobAlbumArt =
-  JobAlbumArt' {mergePolicy = Lude.Nothing, artwork = Lude.Nothing}
+  JobAlbumArt' {artwork = Core.Nothing, mergePolicy = Core.Nothing}
+
+-- | The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are @.jpg@ and @.png@
+--
+-- /Note:/ Consider using 'artwork' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jaaArtwork :: Lens.Lens' JobAlbumArt (Core.Maybe [Types.Artwork])
+jaaArtwork = Lens.field @"artwork"
+{-# DEPRECATED jaaArtwork "Use generic-lens or generic-optics with 'artwork' instead." #-}
 
 -- | A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.
 --
@@ -90,32 +81,22 @@ mkJobAlbumArt =
 --
 --
 -- /Note:/ Consider using 'mergePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jaaMergePolicy :: Lens.Lens' JobAlbumArt (Lude.Maybe Lude.Text)
-jaaMergePolicy = Lens.lens (mergePolicy :: JobAlbumArt -> Lude.Maybe Lude.Text) (\s a -> s {mergePolicy = a} :: JobAlbumArt)
+jaaMergePolicy :: Lens.Lens' JobAlbumArt (Core.Maybe Types.MergePolicy)
+jaaMergePolicy = Lens.field @"mergePolicy"
 {-# DEPRECATED jaaMergePolicy "Use generic-lens or generic-optics with 'mergePolicy' instead." #-}
 
--- | The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20. Valid formats are @.jpg@ and @.png@
---
--- /Note:/ Consider using 'artwork' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jaaArtwork :: Lens.Lens' JobAlbumArt (Lude.Maybe [Artwork])
-jaaArtwork = Lens.lens (artwork :: JobAlbumArt -> Lude.Maybe [Artwork]) (\s a -> s {artwork = a} :: JobAlbumArt)
-{-# DEPRECATED jaaArtwork "Use generic-lens or generic-optics with 'artwork' instead." #-}
-
-instance Lude.FromJSON JobAlbumArt where
-  parseJSON =
-    Lude.withObject
-      "JobAlbumArt"
-      ( \x ->
-          JobAlbumArt'
-            Lude.<$> (x Lude..:? "MergePolicy")
-            Lude.<*> (x Lude..:? "Artwork" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON JobAlbumArt where
-  toJSON JobAlbumArt' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MergePolicy" Lude..=) Lude.<$> mergePolicy,
-            ("Artwork" Lude..=) Lude.<$> artwork
+instance Core.FromJSON JobAlbumArt where
+  toJSON JobAlbumArt {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Artwork" Core..=) Core.<$> artwork,
+            ("MergePolicy" Core..=) Core.<$> mergePolicy
           ]
       )
+
+instance Core.FromJSON JobAlbumArt where
+  parseJSON =
+    Core.withObject "JobAlbumArt" Core.$
+      \x ->
+        JobAlbumArt'
+          Core.<$> (x Core..:? "Artwork") Core.<*> (x Core..:? "MergePolicy")

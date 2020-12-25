@@ -21,8 +21,9 @@ module Network.AWS.CloudFront.Types.S3OriginConfig
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the @CustomOriginConfig@ element instead.
 --
@@ -36,27 +37,18 @@ newtype S3OriginConfig = S3OriginConfig'
     -- To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element.
     -- To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
     -- For more information about the origin access identity, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
-    originAccessIdentity :: Lude.Text
+    originAccessIdentity :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3OriginConfig' with the minimum fields required to make a request.
---
--- * 'originAccessIdentity' - The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can /only/ access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
---
--- origin-access-identity/cloudfront//ID-of-origin-access-identity/
--- where @/ID-of-origin-access-identity/ @ is the value that CloudFront returned in the @ID@ element when you created the origin access identity.
--- If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element.
--- To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element.
--- To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
--- For more information about the origin access identity, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
+-- | Creates a 'S3OriginConfig' value with any optional fields omitted.
 mkS3OriginConfig ::
   -- | 'originAccessIdentity'
-  Lude.Text ->
+  Types.String ->
   S3OriginConfig
-mkS3OriginConfig pOriginAccessIdentity_ =
-  S3OriginConfig' {originAccessIdentity = pOriginAccessIdentity_}
+mkS3OriginConfig originAccessIdentity =
+  S3OriginConfig' {originAccessIdentity}
 
 -- | The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can /only/ access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
 --
@@ -68,15 +60,14 @@ mkS3OriginConfig pOriginAccessIdentity_ =
 -- For more information about the origin access identity, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
 --
 -- /Note:/ Consider using 'originAccessIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-socOriginAccessIdentity :: Lens.Lens' S3OriginConfig Lude.Text
-socOriginAccessIdentity = Lens.lens (originAccessIdentity :: S3OriginConfig -> Lude.Text) (\s a -> s {originAccessIdentity = a} :: S3OriginConfig)
+socOriginAccessIdentity :: Lens.Lens' S3OriginConfig Types.String
+socOriginAccessIdentity = Lens.field @"originAccessIdentity"
 {-# DEPRECATED socOriginAccessIdentity "Use generic-lens or generic-optics with 'originAccessIdentity' instead." #-}
 
-instance Lude.FromXML S3OriginConfig where
-  parseXML x =
-    S3OriginConfig' Lude.<$> (x Lude..@ "OriginAccessIdentity")
+instance Core.ToXML S3OriginConfig where
+  toXML S3OriginConfig {..} =
+    Core.toXMLNode "OriginAccessIdentity" originAccessIdentity
 
-instance Lude.ToXML S3OriginConfig where
-  toXML S3OriginConfig' {..} =
-    Lude.mconcat
-      ["OriginAccessIdentity" Lude.@= originAccessIdentity]
+instance Core.FromXML S3OriginConfig where
+  parseXML x =
+    S3OriginConfig' Core.<$> (x Core..@ "OriginAccessIdentity")

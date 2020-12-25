@@ -17,71 +17,63 @@ module Network.AWS.IoTAnalytics.Types.ResourceConfiguration
     mkResourceConfiguration,
 
     -- * Lenses
-    rcVolumeSizeInGB,
     rcComputeType,
+    rcVolumeSizeInGB,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.ComputeType
+import qualified Network.AWS.IoTAnalytics.Types.ComputeType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configuration of the resource used to execute the @containerAction@ .
 --
 -- /See:/ 'mkResourceConfiguration' smart constructor.
 data ResourceConfiguration = ResourceConfiguration'
-  { -- | The size, in GB, of the persistent storage available to the resource instance used to execute the @containerAction@ (min: 1, max: 50).
-    volumeSizeInGB :: Lude.Natural,
-    -- | The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
-    computeType :: ComputeType
+  { -- | The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
+    computeType :: Types.ComputeType,
+    -- | The size, in GB, of the persistent storage available to the resource instance used to execute the @containerAction@ (min: 1, max: 50).
+    volumeSizeInGB :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceConfiguration' with the minimum fields required to make a request.
---
--- * 'volumeSizeInGB' - The size, in GB, of the persistent storage available to the resource instance used to execute the @containerAction@ (min: 1, max: 50).
--- * 'computeType' - The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
+-- | Creates a 'ResourceConfiguration' value with any optional fields omitted.
 mkResourceConfiguration ::
-  -- | 'volumeSizeInGB'
-  Lude.Natural ->
   -- | 'computeType'
-  ComputeType ->
+  Types.ComputeType ->
+  -- | 'volumeSizeInGB'
+  Core.Natural ->
   ResourceConfiguration
-mkResourceConfiguration pVolumeSizeInGB_ pComputeType_ =
-  ResourceConfiguration'
-    { volumeSizeInGB = pVolumeSizeInGB_,
-      computeType = pComputeType_
-    }
-
--- | The size, in GB, of the persistent storage available to the resource instance used to execute the @containerAction@ (min: 1, max: 50).
---
--- /Note:/ Consider using 'volumeSizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcVolumeSizeInGB :: Lens.Lens' ResourceConfiguration Lude.Natural
-rcVolumeSizeInGB = Lens.lens (volumeSizeInGB :: ResourceConfiguration -> Lude.Natural) (\s a -> s {volumeSizeInGB = a} :: ResourceConfiguration)
-{-# DEPRECATED rcVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
+mkResourceConfiguration computeType volumeSizeInGB =
+  ResourceConfiguration' {computeType, volumeSizeInGB}
 
 -- | The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
 --
 -- /Note:/ Consider using 'computeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcComputeType :: Lens.Lens' ResourceConfiguration ComputeType
-rcComputeType = Lens.lens (computeType :: ResourceConfiguration -> ComputeType) (\s a -> s {computeType = a} :: ResourceConfiguration)
+rcComputeType :: Lens.Lens' ResourceConfiguration Types.ComputeType
+rcComputeType = Lens.field @"computeType"
 {-# DEPRECATED rcComputeType "Use generic-lens or generic-optics with 'computeType' instead." #-}
 
-instance Lude.FromJSON ResourceConfiguration where
-  parseJSON =
-    Lude.withObject
-      "ResourceConfiguration"
-      ( \x ->
-          ResourceConfiguration'
-            Lude.<$> (x Lude..: "volumeSizeInGB") Lude.<*> (x Lude..: "computeType")
-      )
+-- | The size, in GB, of the persistent storage available to the resource instance used to execute the @containerAction@ (min: 1, max: 50).
+--
+-- /Note:/ Consider using 'volumeSizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcVolumeSizeInGB :: Lens.Lens' ResourceConfiguration Core.Natural
+rcVolumeSizeInGB = Lens.field @"volumeSizeInGB"
+{-# DEPRECATED rcVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
 
-instance Lude.ToJSON ResourceConfiguration where
-  toJSON ResourceConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("volumeSizeInGB" Lude..= volumeSizeInGB),
-            Lude.Just ("computeType" Lude..= computeType)
+instance Core.FromJSON ResourceConfiguration where
+  toJSON ResourceConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("computeType" Core..= computeType),
+            Core.Just ("volumeSizeInGB" Core..= volumeSizeInGB)
           ]
       )
+
+instance Core.FromJSON ResourceConfiguration where
+  parseJSON =
+    Core.withObject "ResourceConfiguration" Core.$
+      \x ->
+        ResourceConfiguration'
+          Core.<$> (x Core..: "computeType") Core.<*> (x Core..: "volumeSizeInGB")

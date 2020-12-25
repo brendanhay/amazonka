@@ -24,42 +24,44 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     mkDescribeSpotPriceHistory,
 
     -- ** Request lenses
-    dsphInstanceTypes,
-    dsphStartTime,
-    dsphFilters,
-    dsphNextToken,
     dsphAvailabilityZone,
-    dsphEndTime,
-    dsphProductDescriptions,
     dsphDryRun,
+    dsphEndTime,
+    dsphFilters,
+    dsphInstanceTypes,
     dsphMaxResults,
+    dsphNextToken,
+    dsphProductDescriptions,
+    dsphStartTime,
 
     -- * Destructuring the response
     DescribeSpotPriceHistoryResponse (..),
     mkDescribeSpotPriceHistoryResponse,
 
     -- ** Response lenses
-    dsphrsNextToken,
-    dsphrsSpotPriceHistory,
-    dsphrsResponseStatus,
+    dsphrrsNextToken,
+    dsphrrsSpotPriceHistory,
+    dsphrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeSpotPriceHistory.
 --
 -- /See:/ 'mkDescribeSpotPriceHistory' smart constructor.
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-  { -- | Filters the results by the specified instance types.
-    instanceTypes :: Lude.Maybe [InstanceType],
-    -- | The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-    startTime :: Lude.Maybe Lude.DateTime,
+  { -- | Filters the results by the specified Availability Zone.
+    availabilityZone :: Core.Maybe Types.String,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    endTime :: Core.Maybe Core.UTCTime,
     -- | One or more filters.
     --
     --
@@ -76,79 +78,57 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
     --
     --
     --     * @timestamp@ - The time stamp of the Spot price history, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). You can use wildcards (* and ?). Greater than or less than comparison is not supported.
-    filters :: Lude.Maybe [Filter],
-    -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Filters the results by the specified Availability Zone.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-    endTime :: Lude.Maybe Lude.DateTime,
-    -- | Filters the results by the specified basic product descriptions.
-    productDescriptions :: Lude.Maybe [Lude.Text],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
+    -- | Filters the results by the specified instance types.
+    instanceTypes :: Core.Maybe [Types.InstanceType],
     -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.String,
+    -- | Filters the results by the specified basic product descriptions.
+    productDescriptions :: Core.Maybe [Types.String],
+    -- | The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    startTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSpotPriceHistory' with the minimum fields required to make a request.
---
--- * 'instanceTypes' - Filters the results by the specified instance types.
--- * 'startTime' - The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
--- * 'filters' - One or more filters.
---
---
---     * @availability-zone@ - The Availability Zone for which prices should be returned.
---
---
---     * @instance-type@ - The type of instance (for example, @m3.medium@ ).
---
---
---     * @product-description@ - The product description for the Spot price (@Linux/UNIX@ | @Red Hat Enterprise Linux@ | @SUSE Linux@ | @Windows@ | @Linux/UNIX (Amazon VPC)@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@ | @Windows (Amazon VPC)@ ).
---
---
---     * @spot-price@ - The Spot price. The value must match exactly (or use wildcards; greater than or less than comparison is not supported).
---
---
---     * @timestamp@ - The time stamp of the Spot price history, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). You can use wildcards (* and ?). Greater than or less than comparison is not supported.
---
---
--- * 'nextToken' - The token for the next set of results.
--- * 'availabilityZone' - Filters the results by the specified Availability Zone.
--- * 'endTime' - The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
--- * 'productDescriptions' - Filters the results by the specified basic product descriptions.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- | Creates a 'DescribeSpotPriceHistory' value with any optional fields omitted.
 mkDescribeSpotPriceHistory ::
   DescribeSpotPriceHistory
 mkDescribeSpotPriceHistory =
   DescribeSpotPriceHistory'
-    { instanceTypes = Lude.Nothing,
-      startTime = Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      endTime = Lude.Nothing,
-      productDescriptions = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      dryRun = Core.Nothing,
+      endTime = Core.Nothing,
+      filters = Core.Nothing,
+      instanceTypes = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      productDescriptions = Core.Nothing,
+      startTime = Core.Nothing
     }
 
--- | Filters the results by the specified instance types.
+-- | Filters the results by the specified Availability Zone.
 --
--- /Note:/ Consider using 'instanceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphInstanceTypes :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe [InstanceType])
-dsphInstanceTypes = Lens.lens (instanceTypes :: DescribeSpotPriceHistory -> Lude.Maybe [InstanceType]) (\s a -> s {instanceTypes = a} :: DescribeSpotPriceHistory)
-{-# DEPRECATED dsphInstanceTypes "Use generic-lens or generic-optics with 'instanceTypes' instead." #-}
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsphAvailabilityZone :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Types.String)
+dsphAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED dsphAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphStartTime :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.DateTime)
-dsphStartTime = Lens.lens (startTime :: DescribeSpotPriceHistory -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeSpotPriceHistory)
-{-# DEPRECATED dsphStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsphDryRun :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.Bool)
+dsphDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dsphDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsphEndTime :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.UTCTime)
+dsphEndTime = Lens.field @"endTime"
+{-# DEPRECATED dsphEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | One or more filters.
 --
@@ -170,148 +150,141 @@ dsphStartTime = Lens.lens (startTime :: DescribeSpotPriceHistory -> Lude.Maybe L
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphFilters :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe [Filter])
-dsphFilters = Lens.lens (filters :: DescribeSpotPriceHistory -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeSpotPriceHistory)
+dsphFilters :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe [Types.Filter])
+dsphFilters = Lens.field @"filters"
 {-# DEPRECATED dsphFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | The token for the next set of results.
+-- | Filters the results by the specified instance types.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphNextToken :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.Text)
-dsphNextToken = Lens.lens (nextToken :: DescribeSpotPriceHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSpotPriceHistory)
-{-# DEPRECATED dsphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Filters the results by the specified Availability Zone.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphAvailabilityZone :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.Text)
-dsphAvailabilityZone = Lens.lens (availabilityZone :: DescribeSpotPriceHistory -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: DescribeSpotPriceHistory)
-{-# DEPRECATED dsphAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphEndTime :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.DateTime)
-dsphEndTime = Lens.lens (endTime :: DescribeSpotPriceHistory -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeSpotPriceHistory)
-{-# DEPRECATED dsphEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | Filters the results by the specified basic product descriptions.
---
--- /Note:/ Consider using 'productDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphProductDescriptions :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe [Lude.Text])
-dsphProductDescriptions = Lens.lens (productDescriptions :: DescribeSpotPriceHistory -> Lude.Maybe [Lude.Text]) (\s a -> s {productDescriptions = a} :: DescribeSpotPriceHistory)
-{-# DEPRECATED dsphProductDescriptions "Use generic-lens or generic-optics with 'productDescriptions' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphDryRun :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.Bool)
-dsphDryRun = Lens.lens (dryRun :: DescribeSpotPriceHistory -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSpotPriceHistory)
-{-# DEPRECATED dsphDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'instanceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsphInstanceTypes :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe [Types.InstanceType])
+dsphInstanceTypes = Lens.field @"instanceTypes"
+{-# DEPRECATED dsphInstanceTypes "Use generic-lens or generic-optics with 'instanceTypes' instead." #-}
 
 -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphMaxResults :: Lens.Lens' DescribeSpotPriceHistory (Lude.Maybe Lude.Int)
-dsphMaxResults = Lens.lens (maxResults :: DescribeSpotPriceHistory -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeSpotPriceHistory)
+dsphMaxResults :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.Int)
+dsphMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dsphMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeSpotPriceHistory where
-  page rq rs
-    | Page.stop (rs Lens.^. dsphrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsphrsSpotPriceHistory) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsphNextToken Lens..~ rs Lens.^. dsphrsNextToken
+-- | The token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsphNextToken :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Types.String)
+dsphNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeSpotPriceHistory where
+-- | Filters the results by the specified basic product descriptions.
+--
+-- /Note:/ Consider using 'productDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsphProductDescriptions :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe [Types.String])
+dsphProductDescriptions = Lens.field @"productDescriptions"
+{-# DEPRECATED dsphProductDescriptions "Use generic-lens or generic-optics with 'productDescriptions' instead." #-}
+
+-- | The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsphStartTime :: Lens.Lens' DescribeSpotPriceHistory (Core.Maybe Core.UTCTime)
+dsphStartTime = Lens.field @"startTime"
+{-# DEPRECATED dsphStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+instance Core.AWSRequest DescribeSpotPriceHistory where
   type Rs DescribeSpotPriceHistory = DescribeSpotPriceHistoryResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeSpotPriceHistory")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AvailabilityZone" Core.<$> availabilityZone)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "EndTime" Core.<$> endTime)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryList "InstanceType" Core.<$> instanceTypes)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> ( Core.toQueryList "ProductDescription"
+                            Core.<$> productDescriptions
+                        )
+                Core.<> (Core.toQueryValue "StartTime" Core.<$> startTime)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeSpotPriceHistoryResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "spotPriceHistorySet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "spotPriceHistorySet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSpotPriceHistory where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeSpotPriceHistory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSpotPriceHistory where
-  toQuery DescribeSpotPriceHistory' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeSpotPriceHistory" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          (Lude.toQueryList "InstanceType" Lude.<$> instanceTypes),
-        "StartTime" Lude.=: startTime,
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "EndTime" Lude.=: endTime,
-        Lude.toQuery
-          ( Lude.toQueryList "ProductDescription"
-              Lude.<$> productDescriptions
-          ),
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeSpotPriceHistory where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"spotPriceHistory" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Contains the output of DescribeSpotPriceHistory.
 --
 -- /See:/ 'mkDescribeSpotPriceHistoryResponse' smart constructor.
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
   { -- | The token required to retrieve the next set of results. This value is null or an empty string when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The historical Spot prices.
-    spotPriceHistory :: Lude.Maybe [SpotPrice],
+    spotPriceHistory :: Core.Maybe [Types.SpotPrice],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSpotPriceHistoryResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token required to retrieve the next set of results. This value is null or an empty string when there are no more results to return.
--- * 'spotPriceHistory' - The historical Spot prices.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSpotPriceHistoryResponse' value with any optional fields omitted.
 mkDescribeSpotPriceHistoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSpotPriceHistoryResponse
-mkDescribeSpotPriceHistoryResponse pResponseStatus_ =
+mkDescribeSpotPriceHistoryResponse responseStatus =
   DescribeSpotPriceHistoryResponse'
-    { nextToken = Lude.Nothing,
-      spotPriceHistory = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      spotPriceHistory = Core.Nothing,
+      responseStatus
     }
 
 -- | The token required to retrieve the next set of results. This value is null or an empty string when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphrsNextToken :: Lens.Lens' DescribeSpotPriceHistoryResponse (Lude.Maybe Lude.Text)
-dsphrsNextToken = Lens.lens (nextToken :: DescribeSpotPriceHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSpotPriceHistoryResponse)
-{-# DEPRECATED dsphrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsphrrsNextToken :: Lens.Lens' DescribeSpotPriceHistoryResponse (Core.Maybe Types.String)
+dsphrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsphrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The historical Spot prices.
 --
 -- /Note:/ Consider using 'spotPriceHistory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphrsSpotPriceHistory :: Lens.Lens' DescribeSpotPriceHistoryResponse (Lude.Maybe [SpotPrice])
-dsphrsSpotPriceHistory = Lens.lens (spotPriceHistory :: DescribeSpotPriceHistoryResponse -> Lude.Maybe [SpotPrice]) (\s a -> s {spotPriceHistory = a} :: DescribeSpotPriceHistoryResponse)
-{-# DEPRECATED dsphrsSpotPriceHistory "Use generic-lens or generic-optics with 'spotPriceHistory' instead." #-}
+dsphrrsSpotPriceHistory :: Lens.Lens' DescribeSpotPriceHistoryResponse (Core.Maybe [Types.SpotPrice])
+dsphrrsSpotPriceHistory = Lens.field @"spotPriceHistory"
+{-# DEPRECATED dsphrrsSpotPriceHistory "Use generic-lens or generic-optics with 'spotPriceHistory' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsphrsResponseStatus :: Lens.Lens' DescribeSpotPriceHistoryResponse Lude.Int
-dsphrsResponseStatus = Lens.lens (responseStatus :: DescribeSpotPriceHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSpotPriceHistoryResponse)
-{-# DEPRECATED dsphrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsphrrsResponseStatus :: Lens.Lens' DescribeSpotPriceHistoryResponse Core.Int
+dsphrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsphrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

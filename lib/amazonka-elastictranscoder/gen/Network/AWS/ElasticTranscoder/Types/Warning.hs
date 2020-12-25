@@ -22,8 +22,9 @@ module Network.AWS.ElasticTranscoder.Types.Warning
   )
 where
 
+import qualified Network.AWS.ElasticTranscoder.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
 --
@@ -32,40 +33,35 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkWarning' smart constructor.
 data Warning = Warning'
   { -- | The code of the cross-regional warning.
-    code :: Lude.Maybe Lude.Text,
+    code :: Core.Maybe Types.String,
     -- | The message explaining what resources are in a different region from the pipeline.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Warning' with the minimum fields required to make a request.
---
--- * 'code' - The code of the cross-regional warning.
--- * 'message' - The message explaining what resources are in a different region from the pipeline.
+-- | Creates a 'Warning' value with any optional fields omitted.
 mkWarning ::
   Warning
-mkWarning = Warning' {code = Lude.Nothing, message = Lude.Nothing}
+mkWarning = Warning' {code = Core.Nothing, message = Core.Nothing}
 
 -- | The code of the cross-regional warning.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wCode :: Lens.Lens' Warning (Lude.Maybe Lude.Text)
-wCode = Lens.lens (code :: Warning -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: Warning)
+wCode :: Lens.Lens' Warning (Core.Maybe Types.String)
+wCode = Lens.field @"code"
 {-# DEPRECATED wCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The message explaining what resources are in a different region from the pipeline.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wMessage :: Lens.Lens' Warning (Lude.Maybe Lude.Text)
-wMessage = Lens.lens (message :: Warning -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Warning)
+wMessage :: Lens.Lens' Warning (Core.Maybe Types.String)
+wMessage = Lens.field @"message"
 {-# DEPRECATED wMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON Warning where
+instance Core.FromJSON Warning where
   parseJSON =
-    Lude.withObject
-      "Warning"
-      ( \x ->
-          Warning'
-            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "Warning" Core.$
+      \x ->
+        Warning'
+          Core.<$> (x Core..:? "Code") Core.<*> (x Core..:? "Message")

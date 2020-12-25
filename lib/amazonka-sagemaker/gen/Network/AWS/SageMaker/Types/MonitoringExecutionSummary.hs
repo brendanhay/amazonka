@@ -17,152 +17,145 @@ module Network.AWS.SageMaker.Types.MonitoringExecutionSummary
     mkMonitoringExecutionSummary,
 
     -- * Lenses
+    mesMonitoringScheduleName,
     mesScheduledTime,
     mesCreationTime,
-    mesFailureReason,
-    mesEndpointName,
-    mesMonitoringExecutionStatus,
     mesLastModifiedTime,
-    mesMonitoringScheduleName,
-    mesProcessingJobARN,
+    mesMonitoringExecutionStatus,
+    mesEndpointName,
+    mesFailureReason,
+    mesProcessingJobArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ExecutionStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.EndpointName as Types
+import qualified Network.AWS.SageMaker.Types.ExecutionStatus as Types
+import qualified Network.AWS.SageMaker.Types.FailureReason as Types
+import qualified Network.AWS.SageMaker.Types.MonitoringScheduleName as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingJobArn as Types
 
 -- | Summary of information about the last monitoring job to run.
 --
 -- /See:/ 'mkMonitoringExecutionSummary' smart constructor.
 data MonitoringExecutionSummary = MonitoringExecutionSummary'
-  { -- | The time the monitoring job was scheduled.
-    scheduledTime :: Lude.Timestamp,
+  { -- | The name of the monitoring schedule.
+    monitoringScheduleName :: Types.MonitoringScheduleName,
+    -- | The time the monitoring job was scheduled.
+    scheduledTime :: Core.NominalDiffTime,
     -- | The time at which the monitoring job was created.
-    creationTime :: Lude.Timestamp,
-    -- | Contains the reason a monitoring job failed, if it failed.
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | The name of teh endpoint used to run the monitoring job.
-    endpointName :: Lude.Maybe Lude.Text,
-    -- | The status of the monitoring job.
-    monitoringExecutionStatus :: ExecutionStatus,
+    creationTime :: Core.NominalDiffTime,
     -- | A timestamp that indicates the last time the monitoring job was modified.
-    lastModifiedTime :: Lude.Timestamp,
-    -- | The name of the monitoring schedule.
-    monitoringScheduleName :: Lude.Text,
+    lastModifiedTime :: Core.NominalDiffTime,
+    -- | The status of the monitoring job.
+    monitoringExecutionStatus :: Types.ExecutionStatus,
+    -- | The name of teh endpoint used to run the monitoring job.
+    endpointName :: Core.Maybe Types.EndpointName,
+    -- | Contains the reason a monitoring job failed, if it failed.
+    failureReason :: Core.Maybe Types.FailureReason,
     -- | The Amazon Resource Name (ARN) of the monitoring job.
-    processingJobARN :: Lude.Maybe Lude.Text
+    processingJobArn :: Core.Maybe Types.ProcessingJobArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MonitoringExecutionSummary' with the minimum fields required to make a request.
---
--- * 'scheduledTime' - The time the monitoring job was scheduled.
--- * 'creationTime' - The time at which the monitoring job was created.
--- * 'failureReason' - Contains the reason a monitoring job failed, if it failed.
--- * 'endpointName' - The name of teh endpoint used to run the monitoring job.
--- * 'monitoringExecutionStatus' - The status of the monitoring job.
--- * 'lastModifiedTime' - A timestamp that indicates the last time the monitoring job was modified.
--- * 'monitoringScheduleName' - The name of the monitoring schedule.
--- * 'processingJobARN' - The Amazon Resource Name (ARN) of the monitoring job.
+-- | Creates a 'MonitoringExecutionSummary' value with any optional fields omitted.
 mkMonitoringExecutionSummary ::
-  -- | 'scheduledTime'
-  Lude.Timestamp ->
-  -- | 'creationTime'
-  Lude.Timestamp ->
-  -- | 'monitoringExecutionStatus'
-  ExecutionStatus ->
-  -- | 'lastModifiedTime'
-  Lude.Timestamp ->
   -- | 'monitoringScheduleName'
-  Lude.Text ->
+  Types.MonitoringScheduleName ->
+  -- | 'scheduledTime'
+  Core.NominalDiffTime ->
+  -- | 'creationTime'
+  Core.NominalDiffTime ->
+  -- | 'lastModifiedTime'
+  Core.NominalDiffTime ->
+  -- | 'monitoringExecutionStatus'
+  Types.ExecutionStatus ->
   MonitoringExecutionSummary
 mkMonitoringExecutionSummary
-  pScheduledTime_
-  pCreationTime_
-  pMonitoringExecutionStatus_
-  pLastModifiedTime_
-  pMonitoringScheduleName_ =
+  monitoringScheduleName
+  scheduledTime
+  creationTime
+  lastModifiedTime
+  monitoringExecutionStatus =
     MonitoringExecutionSummary'
-      { scheduledTime = pScheduledTime_,
-        creationTime = pCreationTime_,
-        failureReason = Lude.Nothing,
-        endpointName = Lude.Nothing,
-        monitoringExecutionStatus = pMonitoringExecutionStatus_,
-        lastModifiedTime = pLastModifiedTime_,
-        monitoringScheduleName = pMonitoringScheduleName_,
-        processingJobARN = Lude.Nothing
+      { monitoringScheduleName,
+        scheduledTime,
+        creationTime,
+        lastModifiedTime,
+        monitoringExecutionStatus,
+        endpointName = Core.Nothing,
+        failureReason = Core.Nothing,
+        processingJobArn = Core.Nothing
       }
+
+-- | The name of the monitoring schedule.
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesMonitoringScheduleName :: Lens.Lens' MonitoringExecutionSummary Types.MonitoringScheduleName
+mesMonitoringScheduleName = Lens.field @"monitoringScheduleName"
+{-# DEPRECATED mesMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
 -- | The time the monitoring job was scheduled.
 --
 -- /Note:/ Consider using 'scheduledTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mesScheduledTime :: Lens.Lens' MonitoringExecutionSummary Lude.Timestamp
-mesScheduledTime = Lens.lens (scheduledTime :: MonitoringExecutionSummary -> Lude.Timestamp) (\s a -> s {scheduledTime = a} :: MonitoringExecutionSummary)
+mesScheduledTime :: Lens.Lens' MonitoringExecutionSummary Core.NominalDiffTime
+mesScheduledTime = Lens.field @"scheduledTime"
 {-# DEPRECATED mesScheduledTime "Use generic-lens or generic-optics with 'scheduledTime' instead." #-}
 
 -- | The time at which the monitoring job was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mesCreationTime :: Lens.Lens' MonitoringExecutionSummary Lude.Timestamp
-mesCreationTime = Lens.lens (creationTime :: MonitoringExecutionSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: MonitoringExecutionSummary)
+mesCreationTime :: Lens.Lens' MonitoringExecutionSummary Core.NominalDiffTime
+mesCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED mesCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | Contains the reason a monitoring job failed, if it failed.
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mesFailureReason :: Lens.Lens' MonitoringExecutionSummary (Lude.Maybe Lude.Text)
-mesFailureReason = Lens.lens (failureReason :: MonitoringExecutionSummary -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: MonitoringExecutionSummary)
-{-# DEPRECATED mesFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | The name of teh endpoint used to run the monitoring job.
---
--- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mesEndpointName :: Lens.Lens' MonitoringExecutionSummary (Lude.Maybe Lude.Text)
-mesEndpointName = Lens.lens (endpointName :: MonitoringExecutionSummary -> Lude.Maybe Lude.Text) (\s a -> s {endpointName = a} :: MonitoringExecutionSummary)
-{-# DEPRECATED mesEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
-
--- | The status of the monitoring job.
---
--- /Note:/ Consider using 'monitoringExecutionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mesMonitoringExecutionStatus :: Lens.Lens' MonitoringExecutionSummary ExecutionStatus
-mesMonitoringExecutionStatus = Lens.lens (monitoringExecutionStatus :: MonitoringExecutionSummary -> ExecutionStatus) (\s a -> s {monitoringExecutionStatus = a} :: MonitoringExecutionSummary)
-{-# DEPRECATED mesMonitoringExecutionStatus "Use generic-lens or generic-optics with 'monitoringExecutionStatus' instead." #-}
 
 -- | A timestamp that indicates the last time the monitoring job was modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mesLastModifiedTime :: Lens.Lens' MonitoringExecutionSummary Lude.Timestamp
-mesLastModifiedTime = Lens.lens (lastModifiedTime :: MonitoringExecutionSummary -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: MonitoringExecutionSummary)
+mesLastModifiedTime :: Lens.Lens' MonitoringExecutionSummary Core.NominalDiffTime
+mesLastModifiedTime = Lens.field @"lastModifiedTime"
 {-# DEPRECATED mesLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
--- | The name of the monitoring schedule.
+-- | The status of the monitoring job.
 --
--- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mesMonitoringScheduleName :: Lens.Lens' MonitoringExecutionSummary Lude.Text
-mesMonitoringScheduleName = Lens.lens (monitoringScheduleName :: MonitoringExecutionSummary -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: MonitoringExecutionSummary)
-{-# DEPRECATED mesMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
+-- /Note:/ Consider using 'monitoringExecutionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesMonitoringExecutionStatus :: Lens.Lens' MonitoringExecutionSummary Types.ExecutionStatus
+mesMonitoringExecutionStatus = Lens.field @"monitoringExecutionStatus"
+{-# DEPRECATED mesMonitoringExecutionStatus "Use generic-lens or generic-optics with 'monitoringExecutionStatus' instead." #-}
+
+-- | The name of teh endpoint used to run the monitoring job.
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesEndpointName :: Lens.Lens' MonitoringExecutionSummary (Core.Maybe Types.EndpointName)
+mesEndpointName = Lens.field @"endpointName"
+{-# DEPRECATED mesEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
+
+-- | Contains the reason a monitoring job failed, if it failed.
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesFailureReason :: Lens.Lens' MonitoringExecutionSummary (Core.Maybe Types.FailureReason)
+mesFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED mesFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the monitoring job.
 --
--- /Note:/ Consider using 'processingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mesProcessingJobARN :: Lens.Lens' MonitoringExecutionSummary (Lude.Maybe Lude.Text)
-mesProcessingJobARN = Lens.lens (processingJobARN :: MonitoringExecutionSummary -> Lude.Maybe Lude.Text) (\s a -> s {processingJobARN = a} :: MonitoringExecutionSummary)
-{-# DEPRECATED mesProcessingJobARN "Use generic-lens or generic-optics with 'processingJobARN' instead." #-}
+-- /Note:/ Consider using 'processingJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesProcessingJobArn :: Lens.Lens' MonitoringExecutionSummary (Core.Maybe Types.ProcessingJobArn)
+mesProcessingJobArn = Lens.field @"processingJobArn"
+{-# DEPRECATED mesProcessingJobArn "Use generic-lens or generic-optics with 'processingJobArn' instead." #-}
 
-instance Lude.FromJSON MonitoringExecutionSummary where
+instance Core.FromJSON MonitoringExecutionSummary where
   parseJSON =
-    Lude.withObject
-      "MonitoringExecutionSummary"
-      ( \x ->
-          MonitoringExecutionSummary'
-            Lude.<$> (x Lude..: "ScheduledTime")
-            Lude.<*> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..:? "EndpointName")
-            Lude.<*> (x Lude..: "MonitoringExecutionStatus")
-            Lude.<*> (x Lude..: "LastModifiedTime")
-            Lude.<*> (x Lude..: "MonitoringScheduleName")
-            Lude.<*> (x Lude..:? "ProcessingJobArn")
-      )
+    Core.withObject "MonitoringExecutionSummary" Core.$
+      \x ->
+        MonitoringExecutionSummary'
+          Core.<$> (x Core..: "MonitoringScheduleName")
+          Core.<*> (x Core..: "ScheduledTime")
+          Core.<*> (x Core..: "CreationTime")
+          Core.<*> (x Core..: "LastModifiedTime")
+          Core.<*> (x Core..: "MonitoringExecutionStatus")
+          Core.<*> (x Core..:? "EndpointName")
+          Core.<*> (x Core..:? "FailureReason")
+          Core.<*> (x Core..:? "ProcessingJobArn")

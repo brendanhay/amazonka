@@ -30,118 +30,110 @@ module Network.AWS.ELBv2.DescribeLoadBalancerAttributes
     mkDescribeLoadBalancerAttributes,
 
     -- ** Request lenses
-    dlbaLoadBalancerARN,
+    dlbaLoadBalancerArn,
 
     -- * Destructuring the response
     DescribeLoadBalancerAttributesResponse (..),
     mkDescribeLoadBalancerAttributesResponse,
 
     -- ** Response lenses
-    dlbarsAttributes,
-    dlbarsResponseStatus,
+    dlbarrsAttributes,
+    dlbarrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLoadBalancerAttributes' smart constructor.
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
   { -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerARN :: Lude.Text
+    loadBalancerArn :: Types.LoadBalancerArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBalancerAttributes' with the minimum fields required to make a request.
---
--- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+-- | Creates a 'DescribeLoadBalancerAttributes' value with any optional fields omitted.
 mkDescribeLoadBalancerAttributes ::
-  -- | 'loadBalancerARN'
-  Lude.Text ->
+  -- | 'loadBalancerArn'
+  Types.LoadBalancerArn ->
   DescribeLoadBalancerAttributes
-mkDescribeLoadBalancerAttributes pLoadBalancerARN_ =
-  DescribeLoadBalancerAttributes'
-    { loadBalancerARN =
-        pLoadBalancerARN_
-    }
+mkDescribeLoadBalancerAttributes loadBalancerArn =
+  DescribeLoadBalancerAttributes' {loadBalancerArn}
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 --
--- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbaLoadBalancerARN :: Lens.Lens' DescribeLoadBalancerAttributes Lude.Text
-dlbaLoadBalancerARN = Lens.lens (loadBalancerARN :: DescribeLoadBalancerAttributes -> Lude.Text) (\s a -> s {loadBalancerARN = a} :: DescribeLoadBalancerAttributes)
-{-# DEPRECATED dlbaLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
+-- /Note:/ Consider using 'loadBalancerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbaLoadBalancerArn :: Lens.Lens' DescribeLoadBalancerAttributes Types.LoadBalancerArn
+dlbaLoadBalancerArn = Lens.field @"loadBalancerArn"
+{-# DEPRECATED dlbaLoadBalancerArn "Use generic-lens or generic-optics with 'loadBalancerArn' instead." #-}
 
-instance Lude.AWSRequest DescribeLoadBalancerAttributes where
+instance Core.AWSRequest DescribeLoadBalancerAttributes where
   type
     Rs DescribeLoadBalancerAttributes =
       DescribeLoadBalancerAttributesResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLoadBalancerAttributes")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerArn" loadBalancerArn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeLoadBalancerAttributesResult"
       ( \s h x ->
           DescribeLoadBalancerAttributesResponse'
-            Lude.<$> ( x Lude..@? "Attributes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Attributes" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeLoadBalancerAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLoadBalancerAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLoadBalancerAttributes where
-  toQuery DescribeLoadBalancerAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeLoadBalancerAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "LoadBalancerArn" Lude.=: loadBalancerARN
-      ]
 
 -- | /See:/ 'mkDescribeLoadBalancerAttributesResponse' smart constructor.
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
   { -- | Information about the load balancer attributes.
-    attributes :: Lude.Maybe [LoadBalancerAttribute],
+    attributes :: Core.Maybe [Types.LoadBalancerAttribute],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBalancerAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributes' - Information about the load balancer attributes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLoadBalancerAttributesResponse' value with any optional fields omitted.
 mkDescribeLoadBalancerAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLoadBalancerAttributesResponse
-mkDescribeLoadBalancerAttributesResponse pResponseStatus_ =
+mkDescribeLoadBalancerAttributesResponse responseStatus =
   DescribeLoadBalancerAttributesResponse'
     { attributes =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the load balancer attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbarsAttributes :: Lens.Lens' DescribeLoadBalancerAttributesResponse (Lude.Maybe [LoadBalancerAttribute])
-dlbarsAttributes = Lens.lens (attributes :: DescribeLoadBalancerAttributesResponse -> Lude.Maybe [LoadBalancerAttribute]) (\s a -> s {attributes = a} :: DescribeLoadBalancerAttributesResponse)
-{-# DEPRECATED dlbarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+dlbarrsAttributes :: Lens.Lens' DescribeLoadBalancerAttributesResponse (Core.Maybe [Types.LoadBalancerAttribute])
+dlbarrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED dlbarrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbarsResponseStatus :: Lens.Lens' DescribeLoadBalancerAttributesResponse Lude.Int
-dlbarsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancerAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancerAttributesResponse)
-{-# DEPRECATED dlbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbarrsResponseStatus :: Lens.Lens' DescribeLoadBalancerAttributesResponse Core.Int
+dlbarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,55 +22,50 @@ module Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.ChallengeName
-import Network.AWS.CognitoIdentityProvider.Types.ChallengeResponse
+import qualified Network.AWS.CognitoIdentityProvider.Types.ChallengeName as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.ChallengeResponse as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The challenge response type.
 --
 -- /See:/ 'mkChallengeResponseType' smart constructor.
 data ChallengeResponseType = ChallengeResponseType'
   { -- | The challenge name
-    challengeName :: Lude.Maybe ChallengeName,
+    challengeName :: Core.Maybe Types.ChallengeName,
     -- | The challenge response.
-    challengeResponse :: Lude.Maybe ChallengeResponse
+    challengeResponse :: Core.Maybe Types.ChallengeResponse
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChallengeResponseType' with the minimum fields required to make a request.
---
--- * 'challengeName' - The challenge name
--- * 'challengeResponse' - The challenge response.
+-- | Creates a 'ChallengeResponseType' value with any optional fields omitted.
 mkChallengeResponseType ::
   ChallengeResponseType
 mkChallengeResponseType =
   ChallengeResponseType'
-    { challengeName = Lude.Nothing,
-      challengeResponse = Lude.Nothing
+    { challengeName = Core.Nothing,
+      challengeResponse = Core.Nothing
     }
 
 -- | The challenge name
 --
 -- /Note:/ Consider using 'challengeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crtChallengeName :: Lens.Lens' ChallengeResponseType (Lude.Maybe ChallengeName)
-crtChallengeName = Lens.lens (challengeName :: ChallengeResponseType -> Lude.Maybe ChallengeName) (\s a -> s {challengeName = a} :: ChallengeResponseType)
+crtChallengeName :: Lens.Lens' ChallengeResponseType (Core.Maybe Types.ChallengeName)
+crtChallengeName = Lens.field @"challengeName"
 {-# DEPRECATED crtChallengeName "Use generic-lens or generic-optics with 'challengeName' instead." #-}
 
 -- | The challenge response.
 --
 -- /Note:/ Consider using 'challengeResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crtChallengeResponse :: Lens.Lens' ChallengeResponseType (Lude.Maybe ChallengeResponse)
-crtChallengeResponse = Lens.lens (challengeResponse :: ChallengeResponseType -> Lude.Maybe ChallengeResponse) (\s a -> s {challengeResponse = a} :: ChallengeResponseType)
+crtChallengeResponse :: Lens.Lens' ChallengeResponseType (Core.Maybe Types.ChallengeResponse)
+crtChallengeResponse = Lens.field @"challengeResponse"
 {-# DEPRECATED crtChallengeResponse "Use generic-lens or generic-optics with 'challengeResponse' instead." #-}
 
-instance Lude.FromJSON ChallengeResponseType where
+instance Core.FromJSON ChallengeResponseType where
   parseJSON =
-    Lude.withObject
-      "ChallengeResponseType"
-      ( \x ->
-          ChallengeResponseType'
-            Lude.<$> (x Lude..:? "ChallengeName")
-            Lude.<*> (x Lude..:? "ChallengeResponse")
-      )
+    Core.withObject "ChallengeResponseType" Core.$
+      \x ->
+        ChallengeResponseType'
+          Core.<$> (x Core..:? "ChallengeName")
+          Core.<*> (x Core..:? "ChallengeResponse")

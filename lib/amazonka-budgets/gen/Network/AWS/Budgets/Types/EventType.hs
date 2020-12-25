@@ -13,61 +13,63 @@
 module Network.AWS.Budgets.Types.EventType
   ( EventType
       ( EventType',
-        System,
-        CreateAction,
-        DeleteAction,
-        UpdateAction,
-        ExecuteAction
+        EventTypeSystem,
+        EventTypeCreateAction,
+        EventTypeDeleteAction,
+        EventTypeUpdateAction,
+        EventTypeExecuteAction,
+        fromEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventType = EventType' Lude.Text
+newtype EventType = EventType' {fromEventType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern System :: EventType
-pattern System = EventType' "SYSTEM"
+pattern EventTypeSystem :: EventType
+pattern EventTypeSystem = EventType' "SYSTEM"
 
-pattern CreateAction :: EventType
-pattern CreateAction = EventType' "CREATE_ACTION"
+pattern EventTypeCreateAction :: EventType
+pattern EventTypeCreateAction = EventType' "CREATE_ACTION"
 
-pattern DeleteAction :: EventType
-pattern DeleteAction = EventType' "DELETE_ACTION"
+pattern EventTypeDeleteAction :: EventType
+pattern EventTypeDeleteAction = EventType' "DELETE_ACTION"
 
-pattern UpdateAction :: EventType
-pattern UpdateAction = EventType' "UPDATE_ACTION"
+pattern EventTypeUpdateAction :: EventType
+pattern EventTypeUpdateAction = EventType' "UPDATE_ACTION"
 
-pattern ExecuteAction :: EventType
-pattern ExecuteAction = EventType' "EXECUTE_ACTION"
+pattern EventTypeExecuteAction :: EventType
+pattern EventTypeExecuteAction = EventType' "EXECUTE_ACTION"
 
 {-# COMPLETE
-  System,
-  CreateAction,
-  DeleteAction,
-  UpdateAction,
-  ExecuteAction,
+  EventTypeSystem,
+  EventTypeCreateAction,
+  EventTypeDeleteAction,
+  EventTypeUpdateAction,
+  EventTypeExecuteAction,
   EventType'
   #-}

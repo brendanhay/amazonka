@@ -17,98 +17,92 @@ module Network.AWS.EC2.Types.CoipPool
     mkCoipPool,
 
     -- * Lenses
-    cpPoolId,
     cpLocalGatewayRouteTableId,
+    cpPoolArn,
     cpPoolCidrs,
+    cpPoolId,
     cpTags,
-    cpPoolARN,
   )
 where
 
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.LocalGatewayRouteTableId as Types
+import qualified Network.AWS.EC2.Types.PoolArn as Types
+import qualified Network.AWS.EC2.Types.PoolId as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a customer-owned address pool.
 --
 -- /See:/ 'mkCoipPool' smart constructor.
 data CoipPool = CoipPool'
-  { -- | The ID of the address pool.
-    poolId :: Lude.Maybe Lude.Text,
-    -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Lude.Maybe Lude.Text,
-    -- | The address ranges of the address pool.
-    poolCidrs :: Lude.Maybe [Lude.Text],
-    -- | The tags.
-    tags :: Lude.Maybe [Tag],
+  { -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Core.Maybe Types.LocalGatewayRouteTableId,
     -- | The ARN of the address pool.
-    poolARN :: Lude.Maybe Lude.Text
+    poolArn :: Core.Maybe Types.PoolArn,
+    -- | The address ranges of the address pool.
+    poolCidrs :: Core.Maybe [Types.String],
+    -- | The ID of the address pool.
+    poolId :: Core.Maybe Types.PoolId,
+    -- | The tags.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CoipPool' with the minimum fields required to make a request.
---
--- * 'poolId' - The ID of the address pool.
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
--- * 'poolCidrs' - The address ranges of the address pool.
--- * 'tags' - The tags.
--- * 'poolARN' - The ARN of the address pool.
+-- | Creates a 'CoipPool' value with any optional fields omitted.
 mkCoipPool ::
   CoipPool
 mkCoipPool =
   CoipPool'
-    { poolId = Lude.Nothing,
-      localGatewayRouteTableId = Lude.Nothing,
-      poolCidrs = Lude.Nothing,
-      tags = Lude.Nothing,
-      poolARN = Lude.Nothing
+    { localGatewayRouteTableId = Core.Nothing,
+      poolArn = Core.Nothing,
+      poolCidrs = Core.Nothing,
+      poolId = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The ID of the address pool.
---
--- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPoolId :: Lens.Lens' CoipPool (Lude.Maybe Lude.Text)
-cpPoolId = Lens.lens (poolId :: CoipPool -> Lude.Maybe Lude.Text) (\s a -> s {poolId = a} :: CoipPool)
-{-# DEPRECATED cpPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 -- | The ID of the local gateway route table.
 --
 -- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpLocalGatewayRouteTableId :: Lens.Lens' CoipPool (Lude.Maybe Lude.Text)
-cpLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: CoipPool -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: CoipPool)
+cpLocalGatewayRouteTableId :: Lens.Lens' CoipPool (Core.Maybe Types.LocalGatewayRouteTableId)
+cpLocalGatewayRouteTableId = Lens.field @"localGatewayRouteTableId"
 {-# DEPRECATED cpLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
+
+-- | The ARN of the address pool.
+--
+-- /Note:/ Consider using 'poolArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPoolArn :: Lens.Lens' CoipPool (Core.Maybe Types.PoolArn)
+cpPoolArn = Lens.field @"poolArn"
+{-# DEPRECATED cpPoolArn "Use generic-lens or generic-optics with 'poolArn' instead." #-}
 
 -- | The address ranges of the address pool.
 --
 -- /Note:/ Consider using 'poolCidrs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPoolCidrs :: Lens.Lens' CoipPool (Lude.Maybe [Lude.Text])
-cpPoolCidrs = Lens.lens (poolCidrs :: CoipPool -> Lude.Maybe [Lude.Text]) (\s a -> s {poolCidrs = a} :: CoipPool)
+cpPoolCidrs :: Lens.Lens' CoipPool (Core.Maybe [Types.String])
+cpPoolCidrs = Lens.field @"poolCidrs"
 {-# DEPRECATED cpPoolCidrs "Use generic-lens or generic-optics with 'poolCidrs' instead." #-}
+
+-- | The ID of the address pool.
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPoolId :: Lens.Lens' CoipPool (Core.Maybe Types.PoolId)
+cpPoolId = Lens.field @"poolId"
+{-# DEPRECATED cpPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 -- | The tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpTags :: Lens.Lens' CoipPool (Lude.Maybe [Tag])
-cpTags = Lens.lens (tags :: CoipPool -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CoipPool)
+cpTags :: Lens.Lens' CoipPool (Core.Maybe [Types.Tag])
+cpTags = Lens.field @"tags"
 {-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The ARN of the address pool.
---
--- /Note:/ Consider using 'poolARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPoolARN :: Lens.Lens' CoipPool (Lude.Maybe Lude.Text)
-cpPoolARN = Lens.lens (poolARN :: CoipPool -> Lude.Maybe Lude.Text) (\s a -> s {poolARN = a} :: CoipPool)
-{-# DEPRECATED cpPoolARN "Use generic-lens or generic-optics with 'poolARN' instead." #-}
-
-instance Lude.FromXML CoipPool where
+instance Core.FromXML CoipPool where
   parseXML x =
     CoipPool'
-      Lude.<$> (x Lude..@? "poolId")
-      Lude.<*> (x Lude..@? "localGatewayRouteTableId")
-      Lude.<*> ( x Lude..@? "poolCidrSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "poolArn")
+      Core.<$> (x Core..@? "localGatewayRouteTableId")
+      Core.<*> (x Core..@? "poolArn")
+      Core.<*> (x Core..@? "poolCidrSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "poolId")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

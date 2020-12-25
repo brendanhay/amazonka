@@ -20,164 +20,148 @@ module Network.AWS.Glue.BatchUpdatePartition
     mkBatchUpdatePartition,
 
     -- ** Request lenses
-    bupEntries,
-    bupCatalogId,
     bupDatabaseName,
     bupTableName,
+    bupEntries,
+    bupCatalogId,
 
     -- * Destructuring the response
     BatchUpdatePartitionResponse (..),
     mkBatchUpdatePartitionResponse,
 
     -- ** Response lenses
-    buprsErrors,
-    buprsResponseStatus,
+    buprrsErrors,
+    buprrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchUpdatePartition' smart constructor.
 data BatchUpdatePartition = BatchUpdatePartition'
-  { -- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
-    entries :: Lude.NonEmpty BatchUpdatePartitionRequestEntry,
-    -- | The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the metadata database in which the partition is to be updated.
-    databaseName :: Lude.Text,
+  { -- | The name of the metadata database in which the partition is to be updated.
+    databaseName :: Types.DatabaseName,
     -- | The name of the metadata table in which the partition is to be updated.
-    tableName :: Lude.Text
+    tableName :: Types.TableName,
+    -- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
+    entries :: Core.NonEmpty Types.BatchUpdatePartitionRequestEntry,
+    -- | The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchUpdatePartition' with the minimum fields required to make a request.
---
--- * 'entries' - A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
--- * 'catalogId' - The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.
--- * 'databaseName' - The name of the metadata database in which the partition is to be updated.
--- * 'tableName' - The name of the metadata table in which the partition is to be updated.
+-- | Creates a 'BatchUpdatePartition' value with any optional fields omitted.
 mkBatchUpdatePartition ::
-  -- | 'entries'
-  Lude.NonEmpty BatchUpdatePartitionRequestEntry ->
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
+  -- | 'entries'
+  Core.NonEmpty Types.BatchUpdatePartitionRequestEntry ->
   BatchUpdatePartition
-mkBatchUpdatePartition pEntries_ pDatabaseName_ pTableName_ =
+mkBatchUpdatePartition databaseName tableName entries =
   BatchUpdatePartition'
-    { entries = pEntries_,
-      catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      tableName = pTableName_
+    { databaseName,
+      tableName,
+      entries,
+      catalogId = Core.Nothing
     }
-
--- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
---
--- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bupEntries :: Lens.Lens' BatchUpdatePartition (Lude.NonEmpty BatchUpdatePartitionRequestEntry)
-bupEntries = Lens.lens (entries :: BatchUpdatePartition -> Lude.NonEmpty BatchUpdatePartitionRequestEntry) (\s a -> s {entries = a} :: BatchUpdatePartition)
-{-# DEPRECATED bupEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
-
--- | The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bupCatalogId :: Lens.Lens' BatchUpdatePartition (Lude.Maybe Lude.Text)
-bupCatalogId = Lens.lens (catalogId :: BatchUpdatePartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: BatchUpdatePartition)
-{-# DEPRECATED bupCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the metadata database in which the partition is to be updated.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bupDatabaseName :: Lens.Lens' BatchUpdatePartition Lude.Text
-bupDatabaseName = Lens.lens (databaseName :: BatchUpdatePartition -> Lude.Text) (\s a -> s {databaseName = a} :: BatchUpdatePartition)
+bupDatabaseName :: Lens.Lens' BatchUpdatePartition Types.DatabaseName
+bupDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED bupDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the metadata table in which the partition is to be updated.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bupTableName :: Lens.Lens' BatchUpdatePartition Lude.Text
-bupTableName = Lens.lens (tableName :: BatchUpdatePartition -> Lude.Text) (\s a -> s {tableName = a} :: BatchUpdatePartition)
+bupTableName :: Lens.Lens' BatchUpdatePartition Types.TableName
+bupTableName = Lens.field @"tableName"
 {-# DEPRECATED bupTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest BatchUpdatePartition where
+-- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
+--
+-- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bupEntries :: Lens.Lens' BatchUpdatePartition (Core.NonEmpty Types.BatchUpdatePartitionRequestEntry)
+bupEntries = Lens.field @"entries"
+{-# DEPRECATED bupEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
+
+-- | The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bupCatalogId :: Lens.Lens' BatchUpdatePartition (Core.Maybe Types.CatalogId)
+bupCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED bupCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON BatchUpdatePartition where
+  toJSON BatchUpdatePartition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("Entries" Core..= entries),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest BatchUpdatePartition where
   type Rs BatchUpdatePartition = BatchUpdatePartitionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.BatchUpdatePartition")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchUpdatePartitionResponse'
-            Lude.<$> (x Lude..?> "Errors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Errors") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchUpdatePartition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.BatchUpdatePartition" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchUpdatePartition where
-  toJSON BatchUpdatePartition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Entries" Lude..= entries),
-            ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath BatchUpdatePartition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchUpdatePartition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchUpdatePartitionResponse' smart constructor.
 data BatchUpdatePartitionResponse = BatchUpdatePartitionResponse'
   { -- | The errors encountered when trying to update the requested partitions. A list of @BatchUpdatePartitionFailureEntry@ objects.
-    errors :: Lude.Maybe [BatchUpdatePartitionFailureEntry],
+    errors :: Core.Maybe [Types.BatchUpdatePartitionFailureEntry],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchUpdatePartitionResponse' with the minimum fields required to make a request.
---
--- * 'errors' - The errors encountered when trying to update the requested partitions. A list of @BatchUpdatePartitionFailureEntry@ objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchUpdatePartitionResponse' value with any optional fields omitted.
 mkBatchUpdatePartitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchUpdatePartitionResponse
-mkBatchUpdatePartitionResponse pResponseStatus_ =
+mkBatchUpdatePartitionResponse responseStatus =
   BatchUpdatePartitionResponse'
-    { errors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { errors = Core.Nothing,
+      responseStatus
     }
 
 -- | The errors encountered when trying to update the requested partitions. A list of @BatchUpdatePartitionFailureEntry@ objects.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-buprsErrors :: Lens.Lens' BatchUpdatePartitionResponse (Lude.Maybe [BatchUpdatePartitionFailureEntry])
-buprsErrors = Lens.lens (errors :: BatchUpdatePartitionResponse -> Lude.Maybe [BatchUpdatePartitionFailureEntry]) (\s a -> s {errors = a} :: BatchUpdatePartitionResponse)
-{-# DEPRECATED buprsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+buprrsErrors :: Lens.Lens' BatchUpdatePartitionResponse (Core.Maybe [Types.BatchUpdatePartitionFailureEntry])
+buprrsErrors = Lens.field @"errors"
+{-# DEPRECATED buprrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-buprsResponseStatus :: Lens.Lens' BatchUpdatePartitionResponse Lude.Int
-buprsResponseStatus = Lens.lens (responseStatus :: BatchUpdatePartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchUpdatePartitionResponse)
-{-# DEPRECATED buprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+buprrsResponseStatus :: Lens.Lens' BatchUpdatePartitionResponse Core.Int
+buprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED buprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

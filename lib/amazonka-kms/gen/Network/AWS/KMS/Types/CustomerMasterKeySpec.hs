@@ -13,76 +13,81 @@
 module Network.AWS.KMS.Types.CustomerMasterKeySpec
   ( CustomerMasterKeySpec
       ( CustomerMasterKeySpec',
-        CMKSRsa2048,
-        CMKSRsa3072,
-        CMKSRsa4096,
-        CMKSEccNistP256,
-        CMKSEccNistP384,
-        CMKSEccNistP521,
-        CMKSEccSecgP256K1,
-        CMKSSymmetricDefault
+        CustomerMasterKeySpecRsa2048,
+        CustomerMasterKeySpecRsa3072,
+        CustomerMasterKeySpecRsa4096,
+        CustomerMasterKeySpecEccNistP256,
+        CustomerMasterKeySpecEccNistP384,
+        CustomerMasterKeySpecEccNistP521,
+        CustomerMasterKeySpecEccSecgP256K1,
+        CustomerMasterKeySpecSymmetricDefault,
+        fromCustomerMasterKeySpec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CustomerMasterKeySpec = CustomerMasterKeySpec' Lude.Text
+newtype CustomerMasterKeySpec = CustomerMasterKeySpec'
+  { fromCustomerMasterKeySpec ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CMKSRsa2048 :: CustomerMasterKeySpec
-pattern CMKSRsa2048 = CustomerMasterKeySpec' "RSA_2048"
+pattern CustomerMasterKeySpecRsa2048 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpecRsa2048 = CustomerMasterKeySpec' "RSA_2048"
 
-pattern CMKSRsa3072 :: CustomerMasterKeySpec
-pattern CMKSRsa3072 = CustomerMasterKeySpec' "RSA_3072"
+pattern CustomerMasterKeySpecRsa3072 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpecRsa3072 = CustomerMasterKeySpec' "RSA_3072"
 
-pattern CMKSRsa4096 :: CustomerMasterKeySpec
-pattern CMKSRsa4096 = CustomerMasterKeySpec' "RSA_4096"
+pattern CustomerMasterKeySpecRsa4096 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpecRsa4096 = CustomerMasterKeySpec' "RSA_4096"
 
-pattern CMKSEccNistP256 :: CustomerMasterKeySpec
-pattern CMKSEccNistP256 = CustomerMasterKeySpec' "ECC_NIST_P256"
+pattern CustomerMasterKeySpecEccNistP256 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpecEccNistP256 = CustomerMasterKeySpec' "ECC_NIST_P256"
 
-pattern CMKSEccNistP384 :: CustomerMasterKeySpec
-pattern CMKSEccNistP384 = CustomerMasterKeySpec' "ECC_NIST_P384"
+pattern CustomerMasterKeySpecEccNistP384 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpecEccNistP384 = CustomerMasterKeySpec' "ECC_NIST_P384"
 
-pattern CMKSEccNistP521 :: CustomerMasterKeySpec
-pattern CMKSEccNistP521 = CustomerMasterKeySpec' "ECC_NIST_P521"
+pattern CustomerMasterKeySpecEccNistP521 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpecEccNistP521 = CustomerMasterKeySpec' "ECC_NIST_P521"
 
-pattern CMKSEccSecgP256K1 :: CustomerMasterKeySpec
-pattern CMKSEccSecgP256K1 = CustomerMasterKeySpec' "ECC_SECG_P256K1"
+pattern CustomerMasterKeySpecEccSecgP256K1 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpecEccSecgP256K1 = CustomerMasterKeySpec' "ECC_SECG_P256K1"
 
-pattern CMKSSymmetricDefault :: CustomerMasterKeySpec
-pattern CMKSSymmetricDefault = CustomerMasterKeySpec' "SYMMETRIC_DEFAULT"
+pattern CustomerMasterKeySpecSymmetricDefault :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpecSymmetricDefault = CustomerMasterKeySpec' "SYMMETRIC_DEFAULT"
 
 {-# COMPLETE
-  CMKSRsa2048,
-  CMKSRsa3072,
-  CMKSRsa4096,
-  CMKSEccNistP256,
-  CMKSEccNistP384,
-  CMKSEccNistP521,
-  CMKSEccSecgP256K1,
-  CMKSSymmetricDefault,
+  CustomerMasterKeySpecRsa2048,
+  CustomerMasterKeySpecRsa3072,
+  CustomerMasterKeySpecRsa4096,
+  CustomerMasterKeySpecEccNistP256,
+  CustomerMasterKeySpecEccNistP384,
+  CustomerMasterKeySpecEccNistP521,
+  CustomerMasterKeySpecEccSecgP256K1,
+  CustomerMasterKeySpecSymmetricDefault,
   CustomerMasterKeySpec'
   #-}

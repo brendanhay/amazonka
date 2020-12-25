@@ -13,51 +13,56 @@
 module Network.AWS.Batch.Types.CRAllocationStrategy
   ( CRAllocationStrategy
       ( CRAllocationStrategy',
-        BestFit,
-        BestFitProgressive,
-        SpotCapacityOptimized
+        CRAllocationStrategyBestFit,
+        CRAllocationStrategyBestFitProgressive,
+        CRAllocationStrategySpotCapacityOptimized,
+        fromCRAllocationStrategy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CRAllocationStrategy = CRAllocationStrategy' Lude.Text
+newtype CRAllocationStrategy = CRAllocationStrategy'
+  { fromCRAllocationStrategy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BestFit :: CRAllocationStrategy
-pattern BestFit = CRAllocationStrategy' "BEST_FIT"
+pattern CRAllocationStrategyBestFit :: CRAllocationStrategy
+pattern CRAllocationStrategyBestFit = CRAllocationStrategy' "BEST_FIT"
 
-pattern BestFitProgressive :: CRAllocationStrategy
-pattern BestFitProgressive = CRAllocationStrategy' "BEST_FIT_PROGRESSIVE"
+pattern CRAllocationStrategyBestFitProgressive :: CRAllocationStrategy
+pattern CRAllocationStrategyBestFitProgressive = CRAllocationStrategy' "BEST_FIT_PROGRESSIVE"
 
-pattern SpotCapacityOptimized :: CRAllocationStrategy
-pattern SpotCapacityOptimized = CRAllocationStrategy' "SPOT_CAPACITY_OPTIMIZED"
+pattern CRAllocationStrategySpotCapacityOptimized :: CRAllocationStrategy
+pattern CRAllocationStrategySpotCapacityOptimized = CRAllocationStrategy' "SPOT_CAPACITY_OPTIMIZED"
 
 {-# COMPLETE
-  BestFit,
-  BestFitProgressive,
-  SpotCapacityOptimized,
+  CRAllocationStrategyBestFit,
+  CRAllocationStrategyBestFitProgressive,
+  CRAllocationStrategySpotCapacityOptimized,
   CRAllocationStrategy'
   #-}

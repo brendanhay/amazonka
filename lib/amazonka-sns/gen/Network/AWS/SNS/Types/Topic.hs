@@ -17,36 +17,35 @@ module Network.AWS.SNS.Types.Topic
     mkTopic,
 
     -- * Lenses
-    tTopicARN,
+    tTopicArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SNS.Types.TopicArn as Types
 
 -- | A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use @GetTopicAttributes@ .
 --
 -- /See:/ 'mkTopic' smart constructor.
 newtype Topic = Topic'
   { -- | The topic's ARN.
-    topicARN :: Lude.Maybe Lude.Text
+    topicArn :: Core.Maybe Types.TopicArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Topic' with the minimum fields required to make a request.
---
--- * 'topicARN' - The topic's ARN.
+-- | Creates a 'Topic' value with any optional fields omitted.
 mkTopic ::
   Topic
-mkTopic = Topic' {topicARN = Lude.Nothing}
+mkTopic = Topic' {topicArn = Core.Nothing}
 
 -- | The topic's ARN.
 --
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTopicARN :: Lens.Lens' Topic (Lude.Maybe Lude.Text)
-tTopicARN = Lens.lens (topicARN :: Topic -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: Topic)
-{-# DEPRECATED tTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTopicArn :: Lens.Lens' Topic (Core.Maybe Types.TopicArn)
+tTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED tTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
 
-instance Lude.FromXML Topic where
-  parseXML x = Topic' Lude.<$> (x Lude..@? "TopicArn")
+instance Core.FromXML Topic where
+  parseXML x = Topic' Core.<$> (x Core..@? "TopicArn")

@@ -17,57 +17,54 @@ module Network.AWS.ResourceGroups.Types.ResourceIdentifier
     mkResourceIdentifier,
 
     -- * Lenses
+    riResourceArn,
     riResourceType,
-    riResourceARN,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.ResourceArn as Types
+import qualified Network.AWS.ResourceGroups.Types.ResourceType as Types
 
 -- | The ARN of a resource, and its resource type.
 --
 -- /See:/ 'mkResourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-  { -- | The resource type of a resource, such as @AWS::EC2::Instance@ .
-    resourceType :: Lude.Maybe Lude.Text,
-    -- | The ARN of a resource.
-    resourceARN :: Lude.Maybe Lude.Text
+  { -- | The ARN of a resource.
+    resourceArn :: Core.Maybe Types.ResourceArn,
+    -- | The resource type of a resource, such as @AWS::EC2::Instance@ .
+    resourceType :: Core.Maybe Types.ResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
---
--- * 'resourceType' - The resource type of a resource, such as @AWS::EC2::Instance@ .
--- * 'resourceARN' - The ARN of a resource.
+-- | Creates a 'ResourceIdentifier' value with any optional fields omitted.
 mkResourceIdentifier ::
   ResourceIdentifier
 mkResourceIdentifier =
   ResourceIdentifier'
-    { resourceType = Lude.Nothing,
-      resourceARN = Lude.Nothing
+    { resourceArn = Core.Nothing,
+      resourceType = Core.Nothing
     }
+
+-- | The ARN of a resource.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riResourceArn :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.ResourceArn)
+riResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED riResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The resource type of a resource, such as @AWS::EC2::Instance@ .
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riResourceType :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riResourceType = Lens.lens (resourceType :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ResourceIdentifier)
+riResourceType :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.ResourceType)
+riResourceType = Lens.field @"resourceType"
 {-# DEPRECATED riResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | The ARN of a resource.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riResourceARN :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riResourceARN = Lens.lens (resourceARN :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: ResourceIdentifier)
-{-# DEPRECATED riResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
-
-instance Lude.FromJSON ResourceIdentifier where
+instance Core.FromJSON ResourceIdentifier where
   parseJSON =
-    Lude.withObject
-      "ResourceIdentifier"
-      ( \x ->
-          ResourceIdentifier'
-            Lude.<$> (x Lude..:? "ResourceType") Lude.<*> (x Lude..:? "ResourceArn")
-      )
+    Core.withObject "ResourceIdentifier" Core.$
+      \x ->
+        ResourceIdentifier'
+          Core.<$> (x Core..:? "ResourceArn") Core.<*> (x Core..:? "ResourceType")

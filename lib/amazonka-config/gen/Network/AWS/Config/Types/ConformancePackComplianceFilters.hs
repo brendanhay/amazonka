@@ -17,64 +17,60 @@ module Network.AWS.Config.Types.ConformancePackComplianceFilters
     mkConformancePackComplianceFilters,
 
     -- * Lenses
-    cpcfConfigRuleNames,
     cpcfComplianceType,
+    cpcfConfigRuleNames,
   )
 where
 
-import Network.AWS.Config.Types.ConformancePackComplianceType
+import qualified Network.AWS.Config.Types.ConformancePackComplianceType as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit64 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filters the conformance pack by compliance types and AWS Config rule names.
 --
 -- /See:/ 'mkConformancePackComplianceFilters' smart constructor.
 data ConformancePackComplianceFilters = ConformancePackComplianceFilters'
-  { -- | Filters the results by AWS Config rule names.
-    configRuleNames :: Lude.Maybe [Lude.Text],
-    -- | Filters the results by compliance.
+  { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
-    complianceType :: Lude.Maybe ConformancePackComplianceType
+    complianceType :: Core.Maybe Types.ConformancePackComplianceType,
+    -- | Filters the results by AWS Config rule names.
+    configRuleNames :: Core.Maybe [Types.StringWithCharLimit64]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConformancePackComplianceFilters' with the minimum fields required to make a request.
---
--- * 'configRuleNames' - Filters the results by AWS Config rule names.
--- * 'complianceType' - Filters the results by compliance.
---
--- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+-- | Creates a 'ConformancePackComplianceFilters' value with any optional fields omitted.
 mkConformancePackComplianceFilters ::
   ConformancePackComplianceFilters
 mkConformancePackComplianceFilters =
   ConformancePackComplianceFilters'
-    { configRuleNames = Lude.Nothing,
-      complianceType = Lude.Nothing
+    { complianceType = Core.Nothing,
+      configRuleNames = Core.Nothing
     }
-
--- | Filters the results by AWS Config rule names.
---
--- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcfConfigRuleNames :: Lens.Lens' ConformancePackComplianceFilters (Lude.Maybe [Lude.Text])
-cpcfConfigRuleNames = Lens.lens (configRuleNames :: ConformancePackComplianceFilters -> Lude.Maybe [Lude.Text]) (\s a -> s {configRuleNames = a} :: ConformancePackComplianceFilters)
-{-# DEPRECATED cpcfConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
 
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
 --
 -- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcfComplianceType :: Lens.Lens' ConformancePackComplianceFilters (Lude.Maybe ConformancePackComplianceType)
-cpcfComplianceType = Lens.lens (complianceType :: ConformancePackComplianceFilters -> Lude.Maybe ConformancePackComplianceType) (\s a -> s {complianceType = a} :: ConformancePackComplianceFilters)
+cpcfComplianceType :: Lens.Lens' ConformancePackComplianceFilters (Core.Maybe Types.ConformancePackComplianceType)
+cpcfComplianceType = Lens.field @"complianceType"
 {-# DEPRECATED cpcfComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
-instance Lude.ToJSON ConformancePackComplianceFilters where
-  toJSON ConformancePackComplianceFilters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ConfigRuleNames" Lude..=) Lude.<$> configRuleNames,
-            ("ComplianceType" Lude..=) Lude.<$> complianceType
+-- | Filters the results by AWS Config rule names.
+--
+-- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcfConfigRuleNames :: Lens.Lens' ConformancePackComplianceFilters (Core.Maybe [Types.StringWithCharLimit64])
+cpcfConfigRuleNames = Lens.field @"configRuleNames"
+{-# DEPRECATED cpcfConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
+
+instance Core.FromJSON ConformancePackComplianceFilters where
+  toJSON ConformancePackComplianceFilters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ComplianceType" Core..=) Core.<$> complianceType,
+            ("ConfigRuleNames" Core..=) Core.<$> configRuleNames
           ]
       )

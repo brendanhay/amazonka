@@ -28,111 +28,97 @@ module Network.AWS.DataPipeline.AddTags
     mkAddTagsResponse,
 
     -- ** Response lenses
-    atrsResponseStatus,
+    atrrsResponseStatus,
   )
 where
 
-import Network.AWS.DataPipeline.Types
+import qualified Network.AWS.DataPipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for AddTags.
 --
 -- /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | The ID of the pipeline.
-    pipelineId :: Lude.Text,
+    pipelineId :: Types.Id,
     -- | The tags to add, as key/value pairs.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTags' with the minimum fields required to make a request.
---
--- * 'pipelineId' - The ID of the pipeline.
--- * 'tags' - The tags to add, as key/value pairs.
+-- | Creates a 'AddTags' value with any optional fields omitted.
 mkAddTags ::
   -- | 'pipelineId'
-  Lude.Text ->
+  Types.Id ->
   AddTags
-mkAddTags pPipelineId_ =
-  AddTags' {pipelineId = pPipelineId_, tags = Lude.mempty}
+mkAddTags pipelineId = AddTags' {pipelineId, tags = Core.mempty}
 
 -- | The ID of the pipeline.
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atPipelineId :: Lens.Lens' AddTags Lude.Text
-atPipelineId = Lens.lens (pipelineId :: AddTags -> Lude.Text) (\s a -> s {pipelineId = a} :: AddTags)
+atPipelineId :: Lens.Lens' AddTags Types.Id
+atPipelineId = Lens.field @"pipelineId"
 {-# DEPRECATED atPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The tags to add, as key/value pairs.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atTags :: Lens.Lens' AddTags [Tag]
-atTags = Lens.lens (tags :: AddTags -> [Tag]) (\s a -> s {tags = a} :: AddTags)
+atTags :: Lens.Lens' AddTags [Types.Tag]
+atTags = Lens.field @"tags"
 {-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest AddTags where
+instance Core.FromJSON AddTags where
+  toJSON AddTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineId" Core..= pipelineId),
+            Core.Just ("tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
-  request = Req.postJSON dataPipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DataPipeline.AddTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          AddTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AddTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DataPipeline.AddTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddTags where
-  toJSON AddTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("pipelineId" Lude..= pipelineId),
-            Lude.Just ("tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath AddTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of AddTags.
 --
 -- /See:/ 'mkAddTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddTagsResponse' value with any optional fields omitted.
 mkAddTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddTagsResponse
-mkAddTagsResponse pResponseStatus_ =
-  AddTagsResponse' {responseStatus = pResponseStatus_}
+mkAddTagsResponse responseStatus = AddTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrsResponseStatus :: Lens.Lens' AddTagsResponse Lude.Int
-atrsResponseStatus = Lens.lens (responseStatus :: AddTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsResponse)
-{-# DEPRECATED atrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atrrsResponseStatus :: Lens.Lens' AddTagsResponse Core.Int
+atrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

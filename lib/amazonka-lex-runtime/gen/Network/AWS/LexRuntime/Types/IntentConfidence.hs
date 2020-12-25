@@ -22,34 +22,31 @@ module Network.AWS.LexRuntime.Types.IntentConfidence
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides a score that indicates the confidence that Amazon Lex has that an intent is the one that satisfies the user's intent.
 --
 -- /See:/ 'mkIntentConfidence' smart constructor.
 newtype IntentConfidence = IntentConfidence'
   { -- | A score that indicates how confident Amazon Lex is that an intent satisfies the user's intent. Ranges between 0.00 and 1.00. Higher scores indicate higher confidence.
-    score :: Lude.Maybe Lude.Double
+    score :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IntentConfidence' with the minimum fields required to make a request.
---
--- * 'score' - A score that indicates how confident Amazon Lex is that an intent satisfies the user's intent. Ranges between 0.00 and 1.00. Higher scores indicate higher confidence.
+-- | Creates a 'IntentConfidence' value with any optional fields omitted.
 mkIntentConfidence ::
   IntentConfidence
-mkIntentConfidence = IntentConfidence' {score = Lude.Nothing}
+mkIntentConfidence = IntentConfidence' {score = Core.Nothing}
 
 -- | A score that indicates how confident Amazon Lex is that an intent satisfies the user's intent. Ranges between 0.00 and 1.00. Higher scores indicate higher confidence.
 --
 -- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icScore :: Lens.Lens' IntentConfidence (Lude.Maybe Lude.Double)
-icScore = Lens.lens (score :: IntentConfidence -> Lude.Maybe Lude.Double) (\s a -> s {score = a} :: IntentConfidence)
+icScore :: Lens.Lens' IntentConfidence (Core.Maybe Core.Double)
+icScore = Lens.field @"score"
 {-# DEPRECATED icScore "Use generic-lens or generic-optics with 'score' instead." #-}
 
-instance Lude.FromJSON IntentConfidence where
+instance Core.FromJSON IntentConfidence where
   parseJSON =
-    Lude.withObject
-      "IntentConfidence"
-      (\x -> IntentConfidence' Lude.<$> (x Lude..:? "score"))
+    Core.withObject "IntentConfidence" Core.$
+      \x -> IntentConfidence' Core.<$> (x Core..:? "score")

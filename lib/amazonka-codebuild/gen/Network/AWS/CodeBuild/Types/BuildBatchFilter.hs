@@ -21,34 +21,32 @@ module Network.AWS.CodeBuild.Types.BuildBatchFilter
   )
 where
 
-import Network.AWS.CodeBuild.Types.StatusType
+import qualified Network.AWS.CodeBuild.Types.StatusType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies filters when retrieving batch builds.
 --
 -- /See:/ 'mkBuildBatchFilter' smart constructor.
 newtype BuildBatchFilter = BuildBatchFilter'
   { -- | The status of the batch builds to retrieve. Only batch builds that have this status will be retrieved.
-    status :: Lude.Maybe StatusType
+    status :: Core.Maybe Types.StatusType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BuildBatchFilter' with the minimum fields required to make a request.
---
--- * 'status' - The status of the batch builds to retrieve. Only batch builds that have this status will be retrieved.
+-- | Creates a 'BuildBatchFilter' value with any optional fields omitted.
 mkBuildBatchFilter ::
   BuildBatchFilter
-mkBuildBatchFilter = BuildBatchFilter' {status = Lude.Nothing}
+mkBuildBatchFilter = BuildBatchFilter' {status = Core.Nothing}
 
 -- | The status of the batch builds to retrieve. Only batch builds that have this status will be retrieved.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bbfStatus :: Lens.Lens' BuildBatchFilter (Lude.Maybe StatusType)
-bbfStatus = Lens.lens (status :: BuildBatchFilter -> Lude.Maybe StatusType) (\s a -> s {status = a} :: BuildBatchFilter)
+bbfStatus :: Lens.Lens' BuildBatchFilter (Core.Maybe Types.StatusType)
+bbfStatus = Lens.field @"status"
 {-# DEPRECATED bbfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.ToJSON BuildBatchFilter where
-  toJSON BuildBatchFilter' {..} =
-    Lude.object (Lude.catMaybes [("status" Lude..=) Lude.<$> status])
+instance Core.FromJSON BuildBatchFilter where
+  toJSON BuildBatchFilter {..} =
+    Core.object (Core.catMaybes [("status" Core..=) Core.<$> status])

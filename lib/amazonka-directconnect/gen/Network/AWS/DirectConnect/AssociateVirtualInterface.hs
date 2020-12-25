@@ -23,114 +23,102 @@ module Network.AWS.DirectConnect.AssociateVirtualInterface
     mkAssociateVirtualInterface,
 
     -- ** Request lenses
-    aviConnectionId,
     aviVirtualInterfaceId,
+    aviConnectionId,
 
     -- * Destructuring the response
-    VirtualInterface (..),
-    mkVirtualInterface,
+    Types.VirtualInterface (..),
+    Types.mkVirtualInterface,
 
     -- ** Response lenses
-    viBgpPeers,
-    viVirtualGatewayId,
-    viMtu,
-    viRouteFilterPrefixes,
-    viCustomerAddress,
-    viVlan,
-    viLocation,
-    viAmazonAddress,
-    viAddressFamily,
-    viVirtualInterfaceState,
-    viConnectionId,
-    viDirectConnectGatewayId,
-    viAmazonSideASN,
-    viVirtualInterfaceType,
-    viAsn,
-    viAuthKey,
-    viJumboFrameCapable,
-    viCustomerRouterConfig,
-    viOwnerAccount,
-    viRegion,
-    viVirtualInterfaceName,
-    viAwsDeviceV2,
-    viVirtualInterfaceId,
-    viTags,
+    Types.viAddressFamily,
+    Types.viAmazonAddress,
+    Types.viAmazonSideAsn,
+    Types.viAsn,
+    Types.viAuthKey,
+    Types.viAwsDeviceV2,
+    Types.viBgpPeers,
+    Types.viConnectionId,
+    Types.viCustomerAddress,
+    Types.viCustomerRouterConfig,
+    Types.viDirectConnectGatewayId,
+    Types.viJumboFrameCapable,
+    Types.viLocation,
+    Types.viMtu,
+    Types.viOwnerAccount,
+    Types.viRegion,
+    Types.viRouteFilterPrefixes,
+    Types.viTags,
+    Types.viVirtualGatewayId,
+    Types.viVirtualInterfaceId,
+    Types.viVirtualInterfaceName,
+    Types.viVirtualInterfaceState,
+    Types.viVirtualInterfaceType,
+    Types.viVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateVirtualInterface' smart constructor.
 data AssociateVirtualInterface = AssociateVirtualInterface'
-  { -- | The ID of the LAG or connection.
-    connectionId :: Lude.Text,
-    -- | The ID of the virtual interface.
-    virtualInterfaceId :: Lude.Text
+  { -- | The ID of the virtual interface.
+    virtualInterfaceId :: Types.VirtualInterfaceId,
+    -- | The ID of the LAG or connection.
+    connectionId :: Types.ConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateVirtualInterface' with the minimum fields required to make a request.
---
--- * 'connectionId' - The ID of the LAG or connection.
--- * 'virtualInterfaceId' - The ID of the virtual interface.
+-- | Creates a 'AssociateVirtualInterface' value with any optional fields omitted.
 mkAssociateVirtualInterface ::
-  -- | 'connectionId'
-  Lude.Text ->
   -- | 'virtualInterfaceId'
-  Lude.Text ->
+  Types.VirtualInterfaceId ->
+  -- | 'connectionId'
+  Types.ConnectionId ->
   AssociateVirtualInterface
-mkAssociateVirtualInterface pConnectionId_ pVirtualInterfaceId_ =
-  AssociateVirtualInterface'
-    { connectionId = pConnectionId_,
-      virtualInterfaceId = pVirtualInterfaceId_
-    }
-
--- | The ID of the LAG or connection.
---
--- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aviConnectionId :: Lens.Lens' AssociateVirtualInterface Lude.Text
-aviConnectionId = Lens.lens (connectionId :: AssociateVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateVirtualInterface)
-{-# DEPRECATED aviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
+mkAssociateVirtualInterface virtualInterfaceId connectionId =
+  AssociateVirtualInterface' {virtualInterfaceId, connectionId}
 
 -- | The ID of the virtual interface.
 --
 -- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aviVirtualInterfaceId :: Lens.Lens' AssociateVirtualInterface Lude.Text
-aviVirtualInterfaceId = Lens.lens (virtualInterfaceId :: AssociateVirtualInterface -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: AssociateVirtualInterface)
+aviVirtualInterfaceId :: Lens.Lens' AssociateVirtualInterface Types.VirtualInterfaceId
+aviVirtualInterfaceId = Lens.field @"virtualInterfaceId"
 {-# DEPRECATED aviVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance Lude.AWSRequest AssociateVirtualInterface where
-  type Rs AssociateVirtualInterface = VirtualInterface
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The ID of the LAG or connection.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aviConnectionId :: Lens.Lens' AssociateVirtualInterface Types.ConnectionId
+aviConnectionId = Lens.field @"connectionId"
+{-# DEPRECATED aviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance Lude.ToHeaders AssociateVirtualInterface where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.AssociateVirtualInterface" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON AssociateVirtualInterface where
+  toJSON AssociateVirtualInterface {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("virtualInterfaceId" Core..= virtualInterfaceId),
+            Core.Just ("connectionId" Core..= connectionId)
           ]
       )
 
-instance Lude.ToJSON AssociateVirtualInterface where
-  toJSON AssociateVirtualInterface' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("connectionId" Lude..= connectionId),
-            Lude.Just ("virtualInterfaceId" Lude..= virtualInterfaceId)
-          ]
-      )
-
-instance Lude.ToPath AssociateVirtualInterface where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateVirtualInterface where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest AssociateVirtualInterface where
+  type Rs AssociateVirtualInterface = Types.VirtualInterface
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.AssociateVirtualInterface")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

@@ -13,56 +13,58 @@
 module Network.AWS.EFS.Types.Status
   ( Status
       ( Status',
-        Enabled,
-        Enabling,
-        Disabled,
-        Disabling
+        StatusEnabled,
+        StatusEnabling,
+        StatusDisabled,
+        StatusDisabling,
+        fromStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Status = Status' Lude.Text
+newtype Status = Status' {fromStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabled :: Status
-pattern Enabled = Status' "ENABLED"
+pattern StatusEnabled :: Status
+pattern StatusEnabled = Status' "ENABLED"
 
-pattern Enabling :: Status
-pattern Enabling = Status' "ENABLING"
+pattern StatusEnabling :: Status
+pattern StatusEnabling = Status' "ENABLING"
 
-pattern Disabled :: Status
-pattern Disabled = Status' "DISABLED"
+pattern StatusDisabled :: Status
+pattern StatusDisabled = Status' "DISABLED"
 
-pattern Disabling :: Status
-pattern Disabling = Status' "DISABLING"
+pattern StatusDisabling :: Status
+pattern StatusDisabling = Status' "DISABLING"
 
 {-# COMPLETE
-  Enabled,
-  Enabling,
-  Disabled,
-  Disabling,
+  StatusEnabled,
+  StatusEnabling,
+  StatusDisabled,
+  StatusDisabling,
   Status'
   #-}

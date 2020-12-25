@@ -20,7 +20,7 @@ module Network.AWS.Inspector.RegisterCrossAccountAccessRole
     mkRegisterCrossAccountAccessRole,
 
     -- ** Request lenses
-    rcaarRoleARN,
+    rcaarRoleArn,
 
     -- * Destructuring the response
     RegisterCrossAccountAccessRoleResponse (..),
@@ -28,74 +28,65 @@ module Network.AWS.Inspector.RegisterCrossAccountAccessRole
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterCrossAccountAccessRole' smart constructor.
 newtype RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
   { -- | The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to perform security assessments.
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterCrossAccountAccessRole' with the minimum fields required to make a request.
---
--- * 'roleARN' - The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to perform security assessments.
+-- | Creates a 'RegisterCrossAccountAccessRole' value with any optional fields omitted.
 mkRegisterCrossAccountAccessRole ::
-  -- | 'roleARN'
-  Lude.Text ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   RegisterCrossAccountAccessRole
-mkRegisterCrossAccountAccessRole pRoleARN_ =
-  RegisterCrossAccountAccessRole' {roleARN = pRoleARN_}
+mkRegisterCrossAccountAccessRole roleArn =
+  RegisterCrossAccountAccessRole' {roleArn}
 
 -- | The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to perform security assessments.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcaarRoleARN :: Lens.Lens' RegisterCrossAccountAccessRole Lude.Text
-rcaarRoleARN = Lens.lens (roleARN :: RegisterCrossAccountAccessRole -> Lude.Text) (\s a -> s {roleARN = a} :: RegisterCrossAccountAccessRole)
-{-# DEPRECATED rcaarRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcaarRoleArn :: Lens.Lens' RegisterCrossAccountAccessRole Types.RoleArn
+rcaarRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED rcaarRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest RegisterCrossAccountAccessRole where
+instance Core.FromJSON RegisterCrossAccountAccessRole where
+  toJSON RegisterCrossAccountAccessRole {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("roleArn" Core..= roleArn)])
+
+instance Core.AWSRequest RegisterCrossAccountAccessRole where
   type
     Rs RegisterCrossAccountAccessRole =
       RegisterCrossAccountAccessRoleResponse
-  request = Req.postJSON inspectorService
-  response = Res.receiveNull RegisterCrossAccountAccessRoleResponse'
-
-instance Lude.ToHeaders RegisterCrossAccountAccessRole where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "InspectorService.RegisterCrossAccountAccessRole" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RegisterCrossAccountAccessRole where
-  toJSON RegisterCrossAccountAccessRole' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("roleArn" Lude..= roleARN)])
-
-instance Lude.ToPath RegisterCrossAccountAccessRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterCrossAccountAccessRole where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.RegisterCrossAccountAccessRole")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull RegisterCrossAccountAccessRoleResponse'
 
 -- | /See:/ 'mkRegisterCrossAccountAccessRoleResponse' smart constructor.
 data RegisterCrossAccountAccessRoleResponse = RegisterCrossAccountAccessRoleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterCrossAccountAccessRoleResponse' with the minimum fields required to make a request.
+-- | Creates a 'RegisterCrossAccountAccessRoleResponse' value with any optional fields omitted.
 mkRegisterCrossAccountAccessRoleResponse ::
   RegisterCrossAccountAccessRoleResponse
 mkRegisterCrossAccountAccessRoleResponse =

@@ -20,116 +20,101 @@ module Network.AWS.GuardDuty.DeleteThreatIntelSet
     mkDeleteThreatIntelSet,
 
     -- ** Request lenses
-    dtisThreatIntelSetId,
     dtisDetectorId,
+    dtisThreatIntelSetId,
 
     -- * Destructuring the response
     DeleteThreatIntelSetResponse (..),
     mkDeleteThreatIntelSetResponse,
 
     -- ** Response lenses
-    dtisrsResponseStatus,
+    dtisrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteThreatIntelSet' smart constructor.
 data DeleteThreatIntelSet = DeleteThreatIntelSet'
-  { -- | The unique ID of the threatIntelSet that you want to delete.
-    threatIntelSetId :: Lude.Text,
-    -- | The unique ID of the detector that the threatIntelSet is associated with.
-    detectorId :: Lude.Text
+  { -- | The unique ID of the detector that the threatIntelSet is associated with.
+    detectorId :: Types.DetectorId,
+    -- | The unique ID of the threatIntelSet that you want to delete.
+    threatIntelSetId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteThreatIntelSet' with the minimum fields required to make a request.
---
--- * 'threatIntelSetId' - The unique ID of the threatIntelSet that you want to delete.
--- * 'detectorId' - The unique ID of the detector that the threatIntelSet is associated with.
+-- | Creates a 'DeleteThreatIntelSet' value with any optional fields omitted.
 mkDeleteThreatIntelSet ::
-  -- | 'threatIntelSetId'
-  Lude.Text ->
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
+  -- | 'threatIntelSetId'
+  Types.String ->
   DeleteThreatIntelSet
-mkDeleteThreatIntelSet pThreatIntelSetId_ pDetectorId_ =
-  DeleteThreatIntelSet'
-    { threatIntelSetId = pThreatIntelSetId_,
-      detectorId = pDetectorId_
-    }
-
--- | The unique ID of the threatIntelSet that you want to delete.
---
--- /Note:/ Consider using 'threatIntelSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtisThreatIntelSetId :: Lens.Lens' DeleteThreatIntelSet Lude.Text
-dtisThreatIntelSetId = Lens.lens (threatIntelSetId :: DeleteThreatIntelSet -> Lude.Text) (\s a -> s {threatIntelSetId = a} :: DeleteThreatIntelSet)
-{-# DEPRECATED dtisThreatIntelSetId "Use generic-lens or generic-optics with 'threatIntelSetId' instead." #-}
+mkDeleteThreatIntelSet detectorId threatIntelSetId =
+  DeleteThreatIntelSet' {detectorId, threatIntelSetId}
 
 -- | The unique ID of the detector that the threatIntelSet is associated with.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtisDetectorId :: Lens.Lens' DeleteThreatIntelSet Lude.Text
-dtisDetectorId = Lens.lens (detectorId :: DeleteThreatIntelSet -> Lude.Text) (\s a -> s {detectorId = a} :: DeleteThreatIntelSet)
+dtisDetectorId :: Lens.Lens' DeleteThreatIntelSet Types.DetectorId
+dtisDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED dtisDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest DeleteThreatIntelSet where
+-- | The unique ID of the threatIntelSet that you want to delete.
+--
+-- /Note:/ Consider using 'threatIntelSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtisThreatIntelSetId :: Lens.Lens' DeleteThreatIntelSet Types.String
+dtisThreatIntelSetId = Lens.field @"threatIntelSetId"
+{-# DEPRECATED dtisThreatIntelSetId "Use generic-lens or generic-optics with 'threatIntelSetId' instead." #-}
+
+instance Core.AWSRequest DeleteThreatIntelSet where
   type Rs DeleteThreatIntelSet = DeleteThreatIntelSetResponse
-  request = Req.delete guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/threatintelset/")
+                Core.<> (Core.toText threatIntelSetId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteThreatIntelSetResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteThreatIntelSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteThreatIntelSet where
-  toPath DeleteThreatIntelSet' {..} =
-    Lude.mconcat
-      [ "/detector/",
-        Lude.toBS detectorId,
-        "/threatintelset/",
-        Lude.toBS threatIntelSetId
-      ]
-
-instance Lude.ToQuery DeleteThreatIntelSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteThreatIntelSetResponse' smart constructor.
 newtype DeleteThreatIntelSetResponse = DeleteThreatIntelSetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteThreatIntelSetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteThreatIntelSetResponse' value with any optional fields omitted.
 mkDeleteThreatIntelSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteThreatIntelSetResponse
-mkDeleteThreatIntelSetResponse pResponseStatus_ =
-  DeleteThreatIntelSetResponse' {responseStatus = pResponseStatus_}
+mkDeleteThreatIntelSetResponse responseStatus =
+  DeleteThreatIntelSetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtisrsResponseStatus :: Lens.Lens' DeleteThreatIntelSetResponse Lude.Int
-dtisrsResponseStatus = Lens.lens (responseStatus :: DeleteThreatIntelSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteThreatIntelSetResponse)
-{-# DEPRECATED dtisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtisrrsResponseStatus :: Lens.Lens' DeleteThreatIntelSetResponse Core.Int
+dtisrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

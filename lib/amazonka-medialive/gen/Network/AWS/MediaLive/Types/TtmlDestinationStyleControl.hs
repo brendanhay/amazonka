@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.TtmlDestinationStyleControl
   ( TtmlDestinationStyleControl
       ( TtmlDestinationStyleControl',
-        TDSCPassthrough,
-        TDSCUseConfigured
+        TtmlDestinationStyleControlPassthrough,
+        TtmlDestinationStyleControlUseConfigured,
+        fromTtmlDestinationStyleControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Ttml Destination Style Control
-newtype TtmlDestinationStyleControl = TtmlDestinationStyleControl' Lude.Text
+newtype TtmlDestinationStyleControl = TtmlDestinationStyleControl'
+  { fromTtmlDestinationStyleControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TDSCPassthrough :: TtmlDestinationStyleControl
-pattern TDSCPassthrough = TtmlDestinationStyleControl' "PASSTHROUGH"
+pattern TtmlDestinationStyleControlPassthrough :: TtmlDestinationStyleControl
+pattern TtmlDestinationStyleControlPassthrough = TtmlDestinationStyleControl' "PASSTHROUGH"
 
-pattern TDSCUseConfigured :: TtmlDestinationStyleControl
-pattern TDSCUseConfigured = TtmlDestinationStyleControl' "USE_CONFIGURED"
+pattern TtmlDestinationStyleControlUseConfigured :: TtmlDestinationStyleControl
+pattern TtmlDestinationStyleControlUseConfigured = TtmlDestinationStyleControl' "USE_CONFIGURED"
 
 {-# COMPLETE
-  TDSCPassthrough,
-  TDSCUseConfigured,
+  TtmlDestinationStyleControlPassthrough,
+  TtmlDestinationStyleControlUseConfigured,
   TtmlDestinationStyleControl'
   #-}

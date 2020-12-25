@@ -20,8 +20,8 @@ module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     mkPutDestinationPolicy,
 
     -- ** Request lenses
-    pdpAccessPolicy,
     pdpDestinationName,
+    pdpAccessPolicy,
 
     -- * Destructuring the response
     PutDestinationPolicyResponse (..),
@@ -29,89 +29,76 @@ module Network.AWS.CloudWatchLogs.PutDestinationPolicy
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutDestinationPolicy' smart constructor.
 data PutDestinationPolicy = PutDestinationPolicy'
-  { -- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
-    accessPolicy :: Lude.Text,
-    -- | A name for an existing destination.
-    destinationName :: Lude.Text
+  { -- | A name for an existing destination.
+    destinationName :: Types.DestinationName,
+    -- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
+    accessPolicy :: Types.AccessPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutDestinationPolicy' with the minimum fields required to make a request.
---
--- * 'accessPolicy' - An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
--- * 'destinationName' - A name for an existing destination.
+-- | Creates a 'PutDestinationPolicy' value with any optional fields omitted.
 mkPutDestinationPolicy ::
-  -- | 'accessPolicy'
-  Lude.Text ->
   -- | 'destinationName'
-  Lude.Text ->
+  Types.DestinationName ->
+  -- | 'accessPolicy'
+  Types.AccessPolicy ->
   PutDestinationPolicy
-mkPutDestinationPolicy pAccessPolicy_ pDestinationName_ =
-  PutDestinationPolicy'
-    { accessPolicy = pAccessPolicy_,
-      destinationName = pDestinationName_
-    }
-
--- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
---
--- /Note:/ Consider using 'accessPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdpAccessPolicy :: Lens.Lens' PutDestinationPolicy Lude.Text
-pdpAccessPolicy = Lens.lens (accessPolicy :: PutDestinationPolicy -> Lude.Text) (\s a -> s {accessPolicy = a} :: PutDestinationPolicy)
-{-# DEPRECATED pdpAccessPolicy "Use generic-lens or generic-optics with 'accessPolicy' instead." #-}
+mkPutDestinationPolicy destinationName accessPolicy =
+  PutDestinationPolicy' {destinationName, accessPolicy}
 
 -- | A name for an existing destination.
 --
 -- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdpDestinationName :: Lens.Lens' PutDestinationPolicy Lude.Text
-pdpDestinationName = Lens.lens (destinationName :: PutDestinationPolicy -> Lude.Text) (\s a -> s {destinationName = a} :: PutDestinationPolicy)
+pdpDestinationName :: Lens.Lens' PutDestinationPolicy Types.DestinationName
+pdpDestinationName = Lens.field @"destinationName"
 {-# DEPRECATED pdpDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
-instance Lude.AWSRequest PutDestinationPolicy where
+-- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
+--
+-- /Note:/ Consider using 'accessPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdpAccessPolicy :: Lens.Lens' PutDestinationPolicy Types.AccessPolicy
+pdpAccessPolicy = Lens.field @"accessPolicy"
+{-# DEPRECATED pdpAccessPolicy "Use generic-lens or generic-optics with 'accessPolicy' instead." #-}
+
+instance Core.FromJSON PutDestinationPolicy where
+  toJSON PutDestinationPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("destinationName" Core..= destinationName),
+            Core.Just ("accessPolicy" Core..= accessPolicy)
+          ]
+      )
+
+instance Core.AWSRequest PutDestinationPolicy where
   type Rs PutDestinationPolicy = PutDestinationPolicyResponse
-  request = Req.postJSON cloudWatchLogsService
-  response = Res.receiveNull PutDestinationPolicyResponse'
-
-instance Lude.ToHeaders PutDestinationPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.PutDestinationPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutDestinationPolicy where
-  toJSON PutDestinationPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("accessPolicy" Lude..= accessPolicy),
-            Lude.Just ("destinationName" Lude..= destinationName)
-          ]
-      )
-
-instance Lude.ToPath PutDestinationPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutDestinationPolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.PutDestinationPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull PutDestinationPolicyResponse'
 
 -- | /See:/ 'mkPutDestinationPolicyResponse' smart constructor.
 data PutDestinationPolicyResponse = PutDestinationPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutDestinationPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutDestinationPolicyResponse' value with any optional fields omitted.
 mkPutDestinationPolicyResponse ::
   PutDestinationPolicyResponse
 mkPutDestinationPolicyResponse = PutDestinationPolicyResponse'

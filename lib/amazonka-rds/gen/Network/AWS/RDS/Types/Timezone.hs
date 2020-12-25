@@ -22,31 +22,30 @@ module Network.AWS.RDS.Types.Timezone
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | A time zone associated with a @DBInstance@ or a @DBSnapshot@ . This data type is an element in the response to the @DescribeDBInstances@ , the @DescribeDBSnapshots@ , and the @DescribeDBEngineVersions@ actions.
 --
 -- /See:/ 'mkTimezone' smart constructor.
 newtype Timezone = Timezone'
   { -- | The name of the time zone.
-    timezoneName :: Lude.Maybe Lude.Text
+    timezoneName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Timezone' with the minimum fields required to make a request.
---
--- * 'timezoneName' - The name of the time zone.
+-- | Creates a 'Timezone' value with any optional fields omitted.
 mkTimezone ::
   Timezone
-mkTimezone = Timezone' {timezoneName = Lude.Nothing}
+mkTimezone = Timezone' {timezoneName = Core.Nothing}
 
 -- | The name of the time zone.
 --
 -- /Note:/ Consider using 'timezoneName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTimezoneName :: Lens.Lens' Timezone (Lude.Maybe Lude.Text)
-tTimezoneName = Lens.lens (timezoneName :: Timezone -> Lude.Maybe Lude.Text) (\s a -> s {timezoneName = a} :: Timezone)
+tTimezoneName :: Lens.Lens' Timezone (Core.Maybe Types.String)
+tTimezoneName = Lens.field @"timezoneName"
 {-# DEPRECATED tTimezoneName "Use generic-lens or generic-optics with 'timezoneName' instead." #-}
 
-instance Lude.FromXML Timezone where
-  parseXML x = Timezone' Lude.<$> (x Lude..@? "TimezoneName")
+instance Core.FromXML Timezone where
+  parseXML x = Timezone' Core.<$> (x Core..@? "TimezoneName")

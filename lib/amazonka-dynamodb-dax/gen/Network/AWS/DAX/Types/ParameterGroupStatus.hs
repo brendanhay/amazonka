@@ -23,65 +23,62 @@ module Network.AWS.DAX.Types.ParameterGroupStatus
   )
 where
 
+import qualified Network.AWS.DAX.Types.ParameterApplyStatus as Types
+import qualified Network.AWS.DAX.Types.ParameterGroupName as Types
+import qualified Network.AWS.DAX.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of a parameter group.
 --
 -- /See:/ 'mkParameterGroupStatus' smart constructor.
 data ParameterGroupStatus = ParameterGroupStatus'
   { -- | The node IDs of one or more nodes to be rebooted.
-    nodeIdsToReboot :: Lude.Maybe [Lude.Text],
+    nodeIdsToReboot :: Core.Maybe [Types.String],
     -- | The status of parameter updates.
-    parameterApplyStatus :: Lude.Maybe Lude.Text,
+    parameterApplyStatus :: Core.Maybe Types.ParameterApplyStatus,
     -- | The name of the parameter group.
-    parameterGroupName :: Lude.Maybe Lude.Text
+    parameterGroupName :: Core.Maybe Types.ParameterGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterGroupStatus' with the minimum fields required to make a request.
---
--- * 'nodeIdsToReboot' - The node IDs of one or more nodes to be rebooted.
--- * 'parameterApplyStatus' - The status of parameter updates.
--- * 'parameterGroupName' - The name of the parameter group.
+-- | Creates a 'ParameterGroupStatus' value with any optional fields omitted.
 mkParameterGroupStatus ::
   ParameterGroupStatus
 mkParameterGroupStatus =
   ParameterGroupStatus'
-    { nodeIdsToReboot = Lude.Nothing,
-      parameterApplyStatus = Lude.Nothing,
-      parameterGroupName = Lude.Nothing
+    { nodeIdsToReboot = Core.Nothing,
+      parameterApplyStatus = Core.Nothing,
+      parameterGroupName = Core.Nothing
     }
 
 -- | The node IDs of one or more nodes to be rebooted.
 --
 -- /Note:/ Consider using 'nodeIdsToReboot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgsNodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Lude.Maybe [Lude.Text])
-pgsNodeIdsToReboot = Lens.lens (nodeIdsToReboot :: ParameterGroupStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus)
+pgsNodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Core.Maybe [Types.String])
+pgsNodeIdsToReboot = Lens.field @"nodeIdsToReboot"
 {-# DEPRECATED pgsNodeIdsToReboot "Use generic-lens or generic-optics with 'nodeIdsToReboot' instead." #-}
 
 -- | The status of parameter updates.
 --
 -- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgsParameterApplyStatus :: Lens.Lens' ParameterGroupStatus (Lude.Maybe Lude.Text)
-pgsParameterApplyStatus = Lens.lens (parameterApplyStatus :: ParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: ParameterGroupStatus)
+pgsParameterApplyStatus :: Lens.Lens' ParameterGroupStatus (Core.Maybe Types.ParameterApplyStatus)
+pgsParameterApplyStatus = Lens.field @"parameterApplyStatus"
 {-# DEPRECATED pgsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
 -- | The name of the parameter group.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgsParameterGroupName :: Lens.Lens' ParameterGroupStatus (Lude.Maybe Lude.Text)
-pgsParameterGroupName = Lens.lens (parameterGroupName :: ParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: ParameterGroupStatus)
+pgsParameterGroupName :: Lens.Lens' ParameterGroupStatus (Core.Maybe Types.ParameterGroupName)
+pgsParameterGroupName = Lens.field @"parameterGroupName"
 {-# DEPRECATED pgsParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance Lude.FromJSON ParameterGroupStatus where
+instance Core.FromJSON ParameterGroupStatus where
   parseJSON =
-    Lude.withObject
-      "ParameterGroupStatus"
-      ( \x ->
-          ParameterGroupStatus'
-            Lude.<$> (x Lude..:? "NodeIdsToReboot" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ParameterApplyStatus")
-            Lude.<*> (x Lude..:? "ParameterGroupName")
-      )
+    Core.withObject "ParameterGroupStatus" Core.$
+      \x ->
+        ParameterGroupStatus'
+          Core.<$> (x Core..:? "NodeIdsToReboot")
+          Core.<*> (x Core..:? "ParameterApplyStatus")
+          Core.<*> (x Core..:? "ParameterGroupName")

@@ -22,50 +22,47 @@ module Network.AWS.EFS.Types.FileSystemPolicyDescription
   )
 where
 
+import qualified Network.AWS.EFS.Types.FileSystemId as Types
+import qualified Network.AWS.EFS.Types.Policy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkFileSystemPolicyDescription' smart constructor.
 data FileSystemPolicyDescription = FileSystemPolicyDescription'
   { -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
-    fileSystemId :: Lude.Maybe Lude.Text,
+    fileSystemId :: Core.Maybe Types.FileSystemId,
     -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
-    policy :: Lude.Maybe Lude.Text
+    policy :: Core.Maybe Types.Policy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FileSystemPolicyDescription' with the minimum fields required to make a request.
---
--- * 'fileSystemId' - Specifies the EFS file system to which the @FileSystemPolicy@ applies.
--- * 'policy' - The JSON formatted @FileSystemPolicy@ for the EFS file system.
+-- | Creates a 'FileSystemPolicyDescription' value with any optional fields omitted.
 mkFileSystemPolicyDescription ::
   FileSystemPolicyDescription
 mkFileSystemPolicyDescription =
   FileSystemPolicyDescription'
-    { fileSystemId = Lude.Nothing,
-      policy = Lude.Nothing
+    { fileSystemId = Core.Nothing,
+      policy = Core.Nothing
     }
 
 -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fspdFileSystemId :: Lens.Lens' FileSystemPolicyDescription (Lude.Maybe Lude.Text)
-fspdFileSystemId = Lens.lens (fileSystemId :: FileSystemPolicyDescription -> Lude.Maybe Lude.Text) (\s a -> s {fileSystemId = a} :: FileSystemPolicyDescription)
+fspdFileSystemId :: Lens.Lens' FileSystemPolicyDescription (Core.Maybe Types.FileSystemId)
+fspdFileSystemId = Lens.field @"fileSystemId"
 {-# DEPRECATED fspdFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fspdPolicy :: Lens.Lens' FileSystemPolicyDescription (Lude.Maybe Lude.Text)
-fspdPolicy = Lens.lens (policy :: FileSystemPolicyDescription -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: FileSystemPolicyDescription)
+fspdPolicy :: Lens.Lens' FileSystemPolicyDescription (Core.Maybe Types.Policy)
+fspdPolicy = Lens.field @"policy"
 {-# DEPRECATED fspdPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance Lude.FromJSON FileSystemPolicyDescription where
+instance Core.FromJSON FileSystemPolicyDescription where
   parseJSON =
-    Lude.withObject
-      "FileSystemPolicyDescription"
-      ( \x ->
-          FileSystemPolicyDescription'
-            Lude.<$> (x Lude..:? "FileSystemId") Lude.<*> (x Lude..:? "Policy")
-      )
+    Core.withObject "FileSystemPolicyDescription" Core.$
+      \x ->
+        FileSystemPolicyDescription'
+          Core.<$> (x Core..:? "FileSystemId") Core.<*> (x Core..:? "Policy")

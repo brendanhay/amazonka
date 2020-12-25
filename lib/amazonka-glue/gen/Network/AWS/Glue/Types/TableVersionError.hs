@@ -17,72 +17,68 @@ module Network.AWS.Glue.Types.TableVersionError
     mkTableVersionError,
 
     -- * Lenses
-    tveVersionId,
-    tveTableName,
     tveErrorDetail,
+    tveTableName,
+    tveVersionId,
   )
 where
 
-import Network.AWS.Glue.Types.ErrorDetail
+import qualified Network.AWS.Glue.Types.ErrorDetail as Types
+import qualified Network.AWS.Glue.Types.TableName as Types
+import qualified Network.AWS.Glue.Types.VersionString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An error record for table-version operations.
 --
 -- /See:/ 'mkTableVersionError' smart constructor.
 data TableVersionError = TableVersionError'
-  { -- | The ID value of the version in question. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
-    versionId :: Lude.Maybe Lude.Text,
+  { -- | The details about the error.
+    errorDetail :: Core.Maybe Types.ErrorDetail,
     -- | The name of the table in question.
-    tableName :: Lude.Maybe Lude.Text,
-    -- | The details about the error.
-    errorDetail :: Lude.Maybe ErrorDetail
+    tableName :: Core.Maybe Types.TableName,
+    -- | The ID value of the version in question. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
+    versionId :: Core.Maybe Types.VersionString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TableVersionError' with the minimum fields required to make a request.
---
--- * 'versionId' - The ID value of the version in question. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
--- * 'tableName' - The name of the table in question.
--- * 'errorDetail' - The details about the error.
+-- | Creates a 'TableVersionError' value with any optional fields omitted.
 mkTableVersionError ::
   TableVersionError
 mkTableVersionError =
   TableVersionError'
-    { versionId = Lude.Nothing,
-      tableName = Lude.Nothing,
-      errorDetail = Lude.Nothing
+    { errorDetail = Core.Nothing,
+      tableName = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | The ID value of the version in question. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tveVersionId :: Lens.Lens' TableVersionError (Lude.Maybe Lude.Text)
-tveVersionId = Lens.lens (versionId :: TableVersionError -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: TableVersionError)
-{-# DEPRECATED tveVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The name of the table in question.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tveTableName :: Lens.Lens' TableVersionError (Lude.Maybe Lude.Text)
-tveTableName = Lens.lens (tableName :: TableVersionError -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: TableVersionError)
-{-# DEPRECATED tveTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The details about the error.
 --
 -- /Note:/ Consider using 'errorDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tveErrorDetail :: Lens.Lens' TableVersionError (Lude.Maybe ErrorDetail)
-tveErrorDetail = Lens.lens (errorDetail :: TableVersionError -> Lude.Maybe ErrorDetail) (\s a -> s {errorDetail = a} :: TableVersionError)
+tveErrorDetail :: Lens.Lens' TableVersionError (Core.Maybe Types.ErrorDetail)
+tveErrorDetail = Lens.field @"errorDetail"
 {-# DEPRECATED tveErrorDetail "Use generic-lens or generic-optics with 'errorDetail' instead." #-}
 
-instance Lude.FromJSON TableVersionError where
+-- | The name of the table in question.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tveTableName :: Lens.Lens' TableVersionError (Core.Maybe Types.TableName)
+tveTableName = Lens.field @"tableName"
+{-# DEPRECATED tveTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+
+-- | The ID value of the version in question. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tveVersionId :: Lens.Lens' TableVersionError (Core.Maybe Types.VersionString)
+tveVersionId = Lens.field @"versionId"
+{-# DEPRECATED tveVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.FromJSON TableVersionError where
   parseJSON =
-    Lude.withObject
-      "TableVersionError"
-      ( \x ->
-          TableVersionError'
-            Lude.<$> (x Lude..:? "VersionId")
-            Lude.<*> (x Lude..:? "TableName")
-            Lude.<*> (x Lude..:? "ErrorDetail")
-      )
+    Core.withObject "TableVersionError" Core.$
+      \x ->
+        TableVersionError'
+          Core.<$> (x Core..:? "ErrorDetail")
+          Core.<*> (x Core..:? "TableName")
+          Core.<*> (x Core..:? "VersionId")

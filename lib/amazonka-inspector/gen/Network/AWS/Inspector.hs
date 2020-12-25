@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,43 @@
 -- Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide> .
 module Network.AWS.Inspector
   ( -- * Service configuration
-    inspectorService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** AssessmentRunInProgressException
+    _AssessmentRunInProgressException,
+
+    -- ** NoSuchEntityException
+    _NoSuchEntityException,
+
+    -- ** UnsupportedFeatureException
+    _UnsupportedFeatureException,
+
+    -- ** PreviewGenerationInProgressException
+    _PreviewGenerationInProgressException,
+
+    -- ** AgentsAlreadyRunningAssessmentException
+    _AgentsAlreadyRunningAssessmentException,
+
+    -- ** InvalidCrossAccountRoleException
+    _InvalidCrossAccountRoleException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** InternalException
+    _InternalException,
+
+    -- ** ServiceTemporarilyUnavailableException
+    _ServiceTemporarilyUnavailableException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -140,288 +172,66 @@ module Network.AWS.Inspector
 
     -- * Types
 
-    -- ** AgentHealth
-    AgentHealth (..),
+    -- ** Exclusion
+    Exclusion (..),
+    mkExclusion,
+    eArn,
+    eTitle,
+    eDescription,
+    eRecommendation,
+    eScopes,
+    eAttributes,
 
-    -- ** AgentHealthCode
-    AgentHealthCode (..),
+    -- ** Attribute
+    Attribute (..),
+    mkAttribute,
+    aKey,
+    aValue,
 
-    -- ** AssessmentRunNotificationSNSStatusCode
-    AssessmentRunNotificationSNSStatusCode (..),
+    -- ** PrivateIp
+    PrivateIp (..),
+    mkPrivateIp,
+    piPrivateDnsName,
+    piPrivateIpAddress,
 
-    -- ** AssessmentRunState
-    AssessmentRunState (..),
+    -- ** PaginationToken
+    PaginationToken (..),
 
-    -- ** AssetType
-    AssetType (..),
+    -- ** NamePattern
+    NamePattern (..),
 
-    -- ** FailedItemErrorCode
-    FailedItemErrorCode (..),
+    -- ** Hostname
+    Hostname (..),
 
-    -- ** InspectorEvent
-    InspectorEvent (..),
-
-    -- ** Locale
-    Locale (..),
-
-    -- ** PreviewStatus
-    PreviewStatus (..),
-
-    -- ** ReportFileFormat
-    ReportFileFormat (..),
-
-    -- ** ReportStatus
-    ReportStatus (..),
-
-    -- ** ReportType
-    ReportType (..),
-
-    -- ** ScopeType
-    ScopeType (..),
-
-    -- ** Severity
-    Severity (..),
-
-    -- ** StopAction
-    StopAction (..),
-
-    -- ** AgentFilter
-    AgentFilter (..),
-    mkAgentFilter,
-    afAgentHealths,
-    afAgentHealthCodes,
-
-    -- ** AgentPreview
-    AgentPreview (..),
-    mkAgentPreview,
-    apHostname,
-    apAutoScalingGroup,
-    apOperatingSystem,
-    apAgentVersion,
-    apKernelVersion,
-    apAgentId,
-    apAgentHealth,
-    apIpv4Address,
-
-    -- ** AssessmentRun
-    AssessmentRun (..),
-    mkAssessmentRun,
-    arDataCollected,
-    arState,
-    arArn,
-    arCreatedAt,
-    arFindingCounts,
-    arUserAttributesForFindings,
-    arRulesPackageARNs,
-    arStartedAt,
-    arName,
-    arDurationInSeconds,
-    arStateChanges,
-    arCompletedAt,
-    arStateChangedAt,
-    arAssessmentTemplateARN,
-    arNotifications,
-
-    -- ** AssessmentRunAgent
-    AssessmentRunAgent (..),
-    mkAssessmentRunAgent,
-    araAutoScalingGroup,
-    araAgentHealthCode,
-    araAgentId,
-    araAgentHealthDetails,
-    araTelemetryMetadata,
-    araAssessmentRunARN,
-    araAgentHealth,
-
-    -- ** AssessmentRunFilter
-    AssessmentRunFilter (..),
-    mkAssessmentRunFilter,
-    arfStates,
-    arfNamePattern,
-    arfStartTimeRange,
-    arfStateChangeTimeRange,
-    arfRulesPackageARNs,
-    arfCompletionTimeRange,
-    arfDurationRange,
-
-    -- ** AssessmentRunNotification
-    AssessmentRunNotification (..),
-    mkAssessmentRunNotification,
-    arnEvent,
-    arnSnsTopicARN,
-    arnError,
-    arnSnsPublishStatusCode,
-    arnDate,
-    arnMessage,
-
-    -- ** AssessmentRunStateChange
-    AssessmentRunStateChange (..),
-    mkAssessmentRunStateChange,
-    arscState,
-    arscStateChangedAt,
-
-    -- ** AssessmentTarget
-    AssessmentTarget (..),
-    mkAssessmentTarget,
-    aArn,
-    aCreatedAt,
-    aResourceGroupARN,
-    aName,
-    aUpdatedAt,
+    -- ** ResourceGroupTag
+    ResourceGroupTag (..),
+    mkResourceGroupTag,
+    rgtKey,
+    rgtValue,
 
     -- ** AssessmentTargetFilter
     AssessmentTargetFilter (..),
     mkAssessmentTargetFilter,
     atfAssessmentTargetNamePattern,
 
-    -- ** AssessmentTemplate
-    AssessmentTemplate (..),
-    mkAssessmentTemplate,
-    atAssessmentTargetARN,
-    atArn,
-    atCreatedAt,
-    atLastAssessmentRunARN,
-    atUserAttributesForFindings,
-    atRulesPackageARNs,
-    atAssessmentRunCount,
-    atName,
-    atDurationInSeconds,
-
-    -- ** AssessmentTemplateFilter
-    AssessmentTemplateFilter (..),
-    mkAssessmentTemplateFilter,
-    atfNamePattern,
-    atfRulesPackageARNs,
-    atfDurationRange,
-
-    -- ** AssetAttributes
-    AssetAttributes (..),
-    mkAssetAttributes,
-    aaHostname,
-    aaAutoScalingGroup,
-    aaNetworkInterfaces,
-    aaIpv4Addresses,
-    aaSchemaVersion,
-    aaAgentId,
-    aaAmiId,
-    aaTags,
-
-    -- ** Attribute
-    Attribute (..),
-    mkAttribute,
-    aValue,
-    aKey,
-
-    -- ** DurationRange
-    DurationRange (..),
-    mkDurationRange,
-    drMinSeconds,
-    drMaxSeconds,
-
-    -- ** EventSubscription
-    EventSubscription (..),
-    mkEventSubscription,
-    esEvent,
-    esSubscribedAt,
-
-    -- ** Exclusion
-    Exclusion (..),
-    mkExclusion,
-    eArn,
-    eScopes,
-    eAttributes,
-    eTitle,
-    eDescription,
-    eRecommendation,
-
-    -- ** ExclusionPreview
-    ExclusionPreview (..),
-    mkExclusionPreview,
-    epScopes,
-    epAttributes,
-    epTitle,
-    epDescription,
-    epRecommendation,
-
-    -- ** FailedItemDetails
-    FailedItemDetails (..),
-    mkFailedItemDetails,
-    fidFailureCode,
-    fidRetryable,
-
-    -- ** Finding
-    Finding (..),
-    mkFinding,
-    fArn,
-    fCreatedAt,
-    fService,
-    fSeverity,
-    fSchemaVersion,
-    fUserAttributes,
-    fConfidence,
-    fAssetAttributes,
-    fAttributes,
-    fServiceAttributes,
-    fId,
-    fNumericSeverity,
-    fUpdatedAt,
-    fAssetType,
-    fTitle,
-    fIndicatorOfCompromise,
-    fDescription,
-    fRecommendation,
-
-    -- ** FindingFilter
-    FindingFilter (..),
-    mkFindingFilter,
-    ffAgentIds,
-    ffRuleNames,
-    ffUserAttributes,
-    ffRulesPackageARNs,
-    ffAttributes,
-    ffSeverities,
-    ffCreationTimeRange,
-    ffAutoScalingGroups,
-
-    -- ** InspectorServiceAttributes
-    InspectorServiceAttributes (..),
-    mkInspectorServiceAttributes,
-    isaSchemaVersion,
-    isaRulesPackageARN,
-    isaAssessmentRunARN,
-
-    -- ** NetworkInterface
-    NetworkInterface (..),
-    mkNetworkInterface,
-    niPrivateIPAddresses,
-    niPublicDNSName,
-    niSecurityGroups,
-    niVpcId,
-    niSubnetId,
-    niNetworkInterfaceId,
-    niPrivateIPAddress,
-    niPublicIP,
-    niPrivateDNSName,
-    niIpv6Addresses,
-
-    -- ** PrivateIP
-    PrivateIP (..),
-    mkPrivateIP,
-    piPrivateIPAddress,
-    piPrivateDNSName,
-
-    -- ** ResourceGroup
-    ResourceGroup (..),
-    mkResourceGroup,
-    rgArn,
-    rgCreatedAt,
-    rgTags,
-
-    -- ** ResourceGroupTag
-    ResourceGroupTag (..),
-    mkResourceGroupTag,
-    rgtValue,
-    rgtKey,
+    -- ** AssessmentRun
+    AssessmentRun (..),
+    mkAssessmentRun,
+    arArn,
+    arName,
+    arAssessmentTemplateArn,
+    arState,
+    arDurationInSeconds,
+    arRulesPackageArns,
+    arUserAttributesForFindings,
+    arCreatedAt,
+    arStateChangedAt,
+    arDataCollected,
+    arStateChanges,
+    arNotifications,
+    arFindingCounts,
+    arCompletedAt,
+    arStartedAt,
 
     -- ** RulesPackage
     RulesPackage (..),
@@ -429,14 +239,157 @@ module Network.AWS.Inspector
     rpArn,
     rpName,
     rpVersion,
-    rpDescription,
     rpProvider,
+    rpDescription,
 
-    -- ** Scope
-    Scope (..),
-    mkScope,
-    sValue,
-    sKey,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** ScopeType
+    ScopeType (..),
+
+    -- ** AssessmentRunNotification
+    AssessmentRunNotification (..),
+    mkAssessmentRunNotification,
+    arnDate,
+    arnEvent,
+    arnError,
+    arnMessage,
+    arnSnsPublishStatusCode,
+    arnSnsTopicArn,
+
+    -- ** AutoScalingGroup
+    AutoScalingGroup (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** Text
+    Text (..),
+
+    -- ** Finding
+    Finding (..),
+    mkFinding,
+    fArn,
+    fAttributes,
+    fUserAttributes,
+    fCreatedAt,
+    fUpdatedAt,
+    fAssetAttributes,
+    fAssetType,
+    fConfidence,
+    fDescription,
+    fId,
+    fIndicatorOfCompromise,
+    fNumericSeverity,
+    fRecommendation,
+    fSchemaVersion,
+    fService,
+    fServiceAttributes,
+    fSeverity,
+    fTitle,
+
+    -- ** AssessmentRunNotificationSnsStatusCode
+    AssessmentRunNotificationSnsStatusCode (..),
+
+    -- ** AssessmentTargetName
+    AssessmentTargetName (..),
+
+    -- ** OperatingSystem
+    OperatingSystem (..),
+
+    -- ** Locale
+    Locale (..),
+
+    -- ** AgentHealthCode
+    AgentHealthCode (..),
+
+    -- ** AgentPreview
+    AgentPreview (..),
+    mkAgentPreview,
+    apAgentId,
+    apAgentHealth,
+    apAgentVersion,
+    apAutoScalingGroup,
+    apHostname,
+    apIpv4Address,
+    apKernelVersion,
+    apOperatingSystem,
+
+    -- ** Severity
+    Severity (..),
+
+    -- ** NetworkInterface
+    NetworkInterface (..),
+    mkNetworkInterface,
+    niIpv6Addresses,
+    niNetworkInterfaceId,
+    niPrivateDnsName,
+    niPrivateIpAddress,
+    niPrivateIpAddresses,
+    niPublicDnsName,
+    niPublicIp,
+    niSecurityGroups,
+    niSubnetId,
+    niVpcId,
+
+    -- ** AgentVersion
+    AgentVersion (..),
+
+    -- ** Url
+    Url (..),
+
+    -- ** MessageType
+    MessageType (..),
+
+    -- ** AssessmentTemplate
+    AssessmentTemplate (..),
+    mkAssessmentTemplate,
+    atArn,
+    atName,
+    atAssessmentTargetArn,
+    atDurationInSeconds,
+    atRulesPackageArns,
+    atUserAttributesForFindings,
+    atAssessmentRunCount,
+    atCreatedAt,
+    atLastAssessmentRunArn,
+
+    -- ** ExclusionPreview
+    ExclusionPreview (..),
+    mkExclusionPreview,
+    epTitle,
+    epDescription,
+    epRecommendation,
+    epScopes,
+    epAttributes,
+
+    -- ** AssessmentRunAgent
+    AssessmentRunAgent (..),
+    mkAssessmentRunAgent,
+    araAgentId,
+    araAssessmentRunArn,
+    araAgentHealth,
+    araAgentHealthCode,
+    araTelemetryMetadata,
+    araAgentHealthDetails,
+    araAutoScalingGroup,
+
+    -- ** PreviewStatus
+    PreviewStatus (..),
+
+    -- ** InspectorServiceAttributes
+    InspectorServiceAttributes (..),
+    mkInspectorServiceAttributes,
+    isaSchemaVersion,
+    isaAssessmentRunArn,
+    isaRulesPackageArn,
+
+    -- ** RuleName
+    RuleName (..),
 
     -- ** SecurityGroup
     SecurityGroup (..),
@@ -444,41 +397,241 @@ module Network.AWS.Inspector
     sgGroupId,
     sgGroupName,
 
-    -- ** Subscription
-    Subscription (..),
-    mkSubscription,
-    sTopicARN,
-    sEventSubscriptions,
-    sResourceARN,
+    -- ** KernelVersion
+    KernelVersion (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** AssessmentTemplateName
+    AssessmentTemplateName (..),
+
+    -- ** AgentId
+    AgentId (..),
+
+    -- ** FailedItemDetails
+    FailedItemDetails (..),
+    mkFailedItemDetails,
+    fidFailureCode,
+    fidRetryable,
+
+    -- ** InspectorEvent
+    InspectorEvent (..),
+
+    -- ** AssetAttributes
+    AssetAttributes (..),
+    mkAssetAttributes,
+    aaSchemaVersion,
+    aaAgentId,
+    aaAmiId,
+    aaAutoScalingGroup,
+    aaHostname,
+    aaIpv4Addresses,
+    aaNetworkInterfaces,
+    aaTags,
+
+    -- ** AssessmentRunFilter
+    AssessmentRunFilter (..),
+    mkAssessmentRunFilter,
+    arfCompletionTimeRange,
+    arfDurationRange,
+    arfNamePattern,
+    arfRulesPackageArns,
+    arfStartTimeRange,
+    arfStateChangeTimeRange,
+    arfStates,
+
+    -- ** EventSubscription
+    EventSubscription (..),
+    mkEventSubscription,
+    esEvent,
+    esSubscribedAt,
+
+    -- ** AssessmentTarget
+    AssessmentTarget (..),
+    mkAssessmentTarget,
+    aArn,
+    aName,
+    aCreatedAt,
+    aUpdatedAt,
+    aResourceGroupArn,
 
     -- ** TelemetryMetadata
     TelemetryMetadata (..),
     mkTelemetryMetadata,
-    tmDataSize,
     tmMessageType,
     tmCount,
+    tmDataSize,
+
+    -- ** ReportStatus
+    ReportStatus (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** Scope
+    Scope (..),
+    mkScope,
+    sKey,
+    sValue,
+
+    -- ** FindingFilter
+    FindingFilter (..),
+    mkFindingFilter,
+    ffAgentIds,
+    ffAttributes,
+    ffAutoScalingGroups,
+    ffCreationTimeRange,
+    ffRuleNames,
+    ffRulesPackageArns,
+    ffSeverities,
+    ffUserAttributes,
+
+    -- ** AgentHealth
+    AgentHealth (..),
+
+    -- ** ResourceGroup
+    ResourceGroup (..),
+    mkResourceGroup,
+    rgArn,
+    rgTags,
+    rgCreatedAt,
+
+    -- ** Ipv4Address
+    Ipv4Address (..),
+
+    -- ** AssetType
+    AssetType (..),
+
+    -- ** AssessmentRunState
+    AssessmentRunState (..),
+
+    -- ** AssessmentRunName
+    AssessmentRunName (..),
+
+    -- ** AmiId
+    AmiId (..),
+
+    -- ** AttributeKey
+    AttributeKey (..),
+
+    -- ** Subscription
+    Subscription (..),
+    mkSubscription,
+    sResourceArn,
+    sTopicArn,
+    sEventSubscriptions,
+
+    -- ** Message
+    Message (..),
+
+    -- ** ReportFileFormat
+    ReportFileFormat (..),
+
+    -- ** FailedItemErrorCode
+    FailedItemErrorCode (..),
+
+    -- ** AssessmentTemplateFilter
+    AssessmentTemplateFilter (..),
+    mkAssessmentTemplateFilter,
+    atfDurationRange,
+    atfNamePattern,
+    atfRulesPackageArns,
+
+    -- ** StopAction
+    StopAction (..),
+
+    -- ** ReportType
+    ReportType (..),
+
+    -- ** AssessmentRunStateChange
+    AssessmentRunStateChange (..),
+    mkAssessmentRunStateChange,
+    arscStateChangedAt,
+    arscState,
+
+    -- ** DurationRange
+    DurationRange (..),
+    mkDurationRange,
+    drMaxSeconds,
+    drMinSeconds,
+
+    -- ** AgentFilter
+    AgentFilter (..),
+    mkAgentFilter,
+    afAgentHealths,
+    afAgentHealthCodes,
 
     -- ** TimestampRange
     TimestampRange (..),
     mkTimestampRange,
-    trEndDate,
     trBeginDate,
+    trEndDate,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Title
+    Title (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Recommendation
+    Recommendation (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** AssessmentRunArn
+    AssessmentRunArn (..),
+
+    -- ** PrivateDnsName
+    PrivateDnsName (..),
+
+    -- ** PrivateIpAddress
+    PrivateIpAddress (..),
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** AssessmentTemplateArn
+    AssessmentTemplateArn (..),
+
+    -- ** Provider
+    Provider (..),
+
+    -- ** ResourceGroupArn
+    ResourceGroupArn (..),
+
+    -- ** PreviewToken
+    PreviewToken (..),
+
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** Service
+    Service (..),
+
+    -- ** AgentHealthDetails
+    AgentHealthDetails (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

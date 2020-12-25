@@ -30,151 +30,139 @@ module Network.AWS.EMR.ListInstanceGroups
     mkListInstanceGroupsResponse,
 
     -- ** Response lenses
-    ligrsMarker,
-    ligrsInstanceGroups,
-    ligrsResponseStatus,
+    ligrrsInstanceGroups,
+    ligrrsMarker,
+    ligrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This input determines which instance groups to retrieve.
 --
 -- /See:/ 'mkListInstanceGroups' smart constructor.
 data ListInstanceGroups = ListInstanceGroups'
   { -- | The identifier of the cluster for which to list the instance groups.
-    clusterId :: Lude.Text,
+    clusterId :: Types.ClusterId,
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInstanceGroups' with the minimum fields required to make a request.
---
--- * 'clusterId' - The identifier of the cluster for which to list the instance groups.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- | Creates a 'ListInstanceGroups' value with any optional fields omitted.
 mkListInstanceGroups ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   ListInstanceGroups
-mkListInstanceGroups pClusterId_ =
-  ListInstanceGroups'
-    { clusterId = pClusterId_,
-      marker = Lude.Nothing
-    }
+mkListInstanceGroups clusterId =
+  ListInstanceGroups' {clusterId, marker = Core.Nothing}
 
 -- | The identifier of the cluster for which to list the instance groups.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ligClusterId :: Lens.Lens' ListInstanceGroups Lude.Text
-ligClusterId = Lens.lens (clusterId :: ListInstanceGroups -> Lude.Text) (\s a -> s {clusterId = a} :: ListInstanceGroups)
+ligClusterId :: Lens.Lens' ListInstanceGroups Types.ClusterId
+ligClusterId = Lens.field @"clusterId"
 {-# DEPRECATED ligClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ligMarker :: Lens.Lens' ListInstanceGroups (Lude.Maybe Lude.Text)
-ligMarker = Lens.lens (marker :: ListInstanceGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceGroups)
+ligMarker :: Lens.Lens' ListInstanceGroups (Core.Maybe Types.Marker)
+ligMarker = Lens.field @"marker"
 {-# DEPRECATED ligMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Page.AWSPager ListInstanceGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. ligrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ligrsInstanceGroups) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& ligMarker Lens..~ rs Lens.^. ligrsMarker
+instance Core.FromJSON ListInstanceGroups where
+  toJSON ListInstanceGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
 
-instance Lude.AWSRequest ListInstanceGroups where
+instance Core.AWSRequest ListInstanceGroups where
   type Rs ListInstanceGroups = ListInstanceGroupsResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ListInstanceGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListInstanceGroupsResponse'
-            Lude.<$> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "InstanceGroups" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InstanceGroups")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListInstanceGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ListInstanceGroups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListInstanceGroups where
-  toJSON ListInstanceGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClusterId" Lude..= clusterId),
-            ("Marker" Lude..=) Lude.<$> marker
-          ]
-      )
-
-instance Lude.ToPath ListInstanceGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListInstanceGroups where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListInstanceGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"instanceGroups" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | This input determines which instance groups to retrieve.
 --
 -- /See:/ 'mkListInstanceGroupsResponse' smart constructor.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-  { -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The list of instance groups for the cluster and given filters.
-    instanceGroups :: Lude.Maybe [InstanceGroup],
+  { -- | The list of instance groups for the cluster and given filters.
+    instanceGroups :: Core.Maybe [Types.InstanceGroup],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListInstanceGroupsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
--- * 'instanceGroups' - The list of instance groups for the cluster and given filters.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListInstanceGroupsResponse' value with any optional fields omitted.
 mkListInstanceGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListInstanceGroupsResponse
-mkListInstanceGroupsResponse pResponseStatus_ =
+mkListInstanceGroupsResponse responseStatus =
   ListInstanceGroupsResponse'
-    { marker = Lude.Nothing,
-      instanceGroups = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceGroups = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
-
--- | The pagination token that indicates the next set of results to retrieve.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ligrsMarker :: Lens.Lens' ListInstanceGroupsResponse (Lude.Maybe Lude.Text)
-ligrsMarker = Lens.lens (marker :: ListInstanceGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceGroupsResponse)
-{-# DEPRECATED ligrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The list of instance groups for the cluster and given filters.
 --
 -- /Note:/ Consider using 'instanceGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ligrsInstanceGroups :: Lens.Lens' ListInstanceGroupsResponse (Lude.Maybe [InstanceGroup])
-ligrsInstanceGroups = Lens.lens (instanceGroups :: ListInstanceGroupsResponse -> Lude.Maybe [InstanceGroup]) (\s a -> s {instanceGroups = a} :: ListInstanceGroupsResponse)
-{-# DEPRECATED ligrsInstanceGroups "Use generic-lens or generic-optics with 'instanceGroups' instead." #-}
+ligrrsInstanceGroups :: Lens.Lens' ListInstanceGroupsResponse (Core.Maybe [Types.InstanceGroup])
+ligrrsInstanceGroups = Lens.field @"instanceGroups"
+{-# DEPRECATED ligrrsInstanceGroups "Use generic-lens or generic-optics with 'instanceGroups' instead." #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ligrrsMarker :: Lens.Lens' ListInstanceGroupsResponse (Core.Maybe Types.Marker)
+ligrrsMarker = Lens.field @"marker"
+{-# DEPRECATED ligrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ligrsResponseStatus :: Lens.Lens' ListInstanceGroupsResponse Lude.Int
-ligrsResponseStatus = Lens.lens (responseStatus :: ListInstanceGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstanceGroupsResponse)
-{-# DEPRECATED ligrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ligrrsResponseStatus :: Lens.Lens' ListInstanceGroupsResponse Core.Int
+ligrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ligrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

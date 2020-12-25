@@ -30,108 +30,96 @@ module Network.AWS.Glue.StartMLEvaluationTaskRun
     mkStartMLEvaluationTaskRunResponse,
 
     -- ** Response lenses
-    smletrrsTaskRunId,
-    smletrrsResponseStatus,
+    smletrrrsTaskRunId,
+    smletrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartMLEvaluationTaskRun' smart constructor.
 newtype StartMLEvaluationTaskRun = StartMLEvaluationTaskRun'
   { -- | The unique identifier of the machine learning transform.
-    transformId :: Lude.Text
+    transformId :: Types.HashString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartMLEvaluationTaskRun' with the minimum fields required to make a request.
---
--- * 'transformId' - The unique identifier of the machine learning transform.
+-- | Creates a 'StartMLEvaluationTaskRun' value with any optional fields omitted.
 mkStartMLEvaluationTaskRun ::
   -- | 'transformId'
-  Lude.Text ->
+  Types.HashString ->
   StartMLEvaluationTaskRun
-mkStartMLEvaluationTaskRun pTransformId_ =
-  StartMLEvaluationTaskRun' {transformId = pTransformId_}
+mkStartMLEvaluationTaskRun transformId =
+  StartMLEvaluationTaskRun' {transformId}
 
 -- | The unique identifier of the machine learning transform.
 --
 -- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smletrTransformId :: Lens.Lens' StartMLEvaluationTaskRun Lude.Text
-smletrTransformId = Lens.lens (transformId :: StartMLEvaluationTaskRun -> Lude.Text) (\s a -> s {transformId = a} :: StartMLEvaluationTaskRun)
+smletrTransformId :: Lens.Lens' StartMLEvaluationTaskRun Types.HashString
+smletrTransformId = Lens.field @"transformId"
 {-# DEPRECATED smletrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
-instance Lude.AWSRequest StartMLEvaluationTaskRun where
+instance Core.FromJSON StartMLEvaluationTaskRun where
+  toJSON StartMLEvaluationTaskRun {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TransformId" Core..= transformId)])
+
+instance Core.AWSRequest StartMLEvaluationTaskRun where
   type Rs StartMLEvaluationTaskRun = StartMLEvaluationTaskRunResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.StartMLEvaluationTaskRun")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartMLEvaluationTaskRunResponse'
-            Lude.<$> (x Lude..?> "TaskRunId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TaskRunId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartMLEvaluationTaskRun where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.StartMLEvaluationTaskRun" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartMLEvaluationTaskRun where
-  toJSON StartMLEvaluationTaskRun' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TransformId" Lude..= transformId)])
-
-instance Lude.ToPath StartMLEvaluationTaskRun where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartMLEvaluationTaskRun where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartMLEvaluationTaskRunResponse' smart constructor.
 data StartMLEvaluationTaskRunResponse = StartMLEvaluationTaskRunResponse'
   { -- | The unique identifier associated with this run.
-    taskRunId :: Lude.Maybe Lude.Text,
+    taskRunId :: Core.Maybe Types.HashString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartMLEvaluationTaskRunResponse' with the minimum fields required to make a request.
---
--- * 'taskRunId' - The unique identifier associated with this run.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartMLEvaluationTaskRunResponse' value with any optional fields omitted.
 mkStartMLEvaluationTaskRunResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartMLEvaluationTaskRunResponse
-mkStartMLEvaluationTaskRunResponse pResponseStatus_ =
+mkStartMLEvaluationTaskRunResponse responseStatus =
   StartMLEvaluationTaskRunResponse'
-    { taskRunId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { taskRunId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier associated with this run.
 --
 -- /Note:/ Consider using 'taskRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smletrrsTaskRunId :: Lens.Lens' StartMLEvaluationTaskRunResponse (Lude.Maybe Lude.Text)
-smletrrsTaskRunId = Lens.lens (taskRunId :: StartMLEvaluationTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskRunId = a} :: StartMLEvaluationTaskRunResponse)
-{-# DEPRECATED smletrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
+smletrrrsTaskRunId :: Lens.Lens' StartMLEvaluationTaskRunResponse (Core.Maybe Types.HashString)
+smletrrrsTaskRunId = Lens.field @"taskRunId"
+{-# DEPRECATED smletrrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smletrrsResponseStatus :: Lens.Lens' StartMLEvaluationTaskRunResponse Lude.Int
-smletrrsResponseStatus = Lens.lens (responseStatus :: StartMLEvaluationTaskRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartMLEvaluationTaskRunResponse)
-{-# DEPRECATED smletrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+smletrrrsResponseStatus :: Lens.Lens' StartMLEvaluationTaskRunResponse Core.Int
+smletrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED smletrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

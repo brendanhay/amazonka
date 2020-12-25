@@ -13,61 +13,63 @@
 module Network.AWS.IoT.Types.TaskStatus
   ( TaskStatus
       ( TaskStatus',
-        InProgress,
-        Completed,
-        Failed,
-        Cancelled,
-        Cancelling
+        TaskStatusInProgress,
+        TaskStatusCompleted,
+        TaskStatusFailed,
+        TaskStatusCancelled,
+        TaskStatusCancelling,
+        fromTaskStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TaskStatus = TaskStatus' Lude.Text
+newtype TaskStatus = TaskStatus' {fromTaskStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InProgress :: TaskStatus
-pattern InProgress = TaskStatus' "InProgress"
+pattern TaskStatusInProgress :: TaskStatus
+pattern TaskStatusInProgress = TaskStatus' "InProgress"
 
-pattern Completed :: TaskStatus
-pattern Completed = TaskStatus' "Completed"
+pattern TaskStatusCompleted :: TaskStatus
+pattern TaskStatusCompleted = TaskStatus' "Completed"
 
-pattern Failed :: TaskStatus
-pattern Failed = TaskStatus' "Failed"
+pattern TaskStatusFailed :: TaskStatus
+pattern TaskStatusFailed = TaskStatus' "Failed"
 
-pattern Cancelled :: TaskStatus
-pattern Cancelled = TaskStatus' "Cancelled"
+pattern TaskStatusCancelled :: TaskStatus
+pattern TaskStatusCancelled = TaskStatus' "Cancelled"
 
-pattern Cancelling :: TaskStatus
-pattern Cancelling = TaskStatus' "Cancelling"
+pattern TaskStatusCancelling :: TaskStatus
+pattern TaskStatusCancelling = TaskStatus' "Cancelling"
 
 {-# COMPLETE
-  InProgress,
-  Completed,
-  Failed,
-  Cancelled,
-  Cancelling,
+  TaskStatusInProgress,
+  TaskStatusCompleted,
+  TaskStatusFailed,
+  TaskStatusCancelled,
+  TaskStatusCancelling,
   TaskStatus'
   #-}

@@ -13,51 +13,56 @@
 module Network.AWS.Lambda.Types.LastUpdateStatus
   ( LastUpdateStatus
       ( LastUpdateStatus',
-        LUSSuccessful,
-        LUSFailed,
-        LUSInProgress
+        LastUpdateStatusSuccessful,
+        LastUpdateStatusFailed,
+        LastUpdateStatusInProgress,
+        fromLastUpdateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LastUpdateStatus = LastUpdateStatus' Lude.Text
+newtype LastUpdateStatus = LastUpdateStatus'
+  { fromLastUpdateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LUSSuccessful :: LastUpdateStatus
-pattern LUSSuccessful = LastUpdateStatus' "Successful"
+pattern LastUpdateStatusSuccessful :: LastUpdateStatus
+pattern LastUpdateStatusSuccessful = LastUpdateStatus' "Successful"
 
-pattern LUSFailed :: LastUpdateStatus
-pattern LUSFailed = LastUpdateStatus' "Failed"
+pattern LastUpdateStatusFailed :: LastUpdateStatus
+pattern LastUpdateStatusFailed = LastUpdateStatus' "Failed"
 
-pattern LUSInProgress :: LastUpdateStatus
-pattern LUSInProgress = LastUpdateStatus' "InProgress"
+pattern LastUpdateStatusInProgress :: LastUpdateStatus
+pattern LastUpdateStatusInProgress = LastUpdateStatus' "InProgress"
 
 {-# COMPLETE
-  LUSSuccessful,
-  LUSFailed,
-  LUSInProgress,
+  LastUpdateStatusSuccessful,
+  LastUpdateStatusFailed,
+  LastUpdateStatusInProgress,
   LastUpdateStatus'
   #-}

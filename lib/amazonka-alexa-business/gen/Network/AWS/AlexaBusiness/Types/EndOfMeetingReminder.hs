@@ -23,66 +23,60 @@ module Network.AWS.AlexaBusiness.Types.EndOfMeetingReminder
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType
+import qualified Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending.
 --
 -- /See:/ 'mkEndOfMeetingReminder' smart constructor.
 data EndOfMeetingReminder = EndOfMeetingReminder'
   { -- | Whether an end of meeting reminder is enabled or not.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | A range of 3 to 15 minutes that determines when the reminder begins.
-    reminderAtMinutes :: Lude.Maybe (Lude.NonEmpty Lude.Int),
+    reminderAtMinutes :: Core.Maybe (Core.NonEmpty Core.Int),
     -- | The type of sound that users hear during the end of meeting reminder.
-    reminderType :: Lude.Maybe EndOfMeetingReminderType
+    reminderType :: Core.Maybe Types.EndOfMeetingReminderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndOfMeetingReminder' with the minimum fields required to make a request.
---
--- * 'enabled' - Whether an end of meeting reminder is enabled or not.
--- * 'reminderAtMinutes' - A range of 3 to 15 minutes that determines when the reminder begins.
--- * 'reminderType' - The type of sound that users hear during the end of meeting reminder.
+-- | Creates a 'EndOfMeetingReminder' value with any optional fields omitted.
 mkEndOfMeetingReminder ::
   EndOfMeetingReminder
 mkEndOfMeetingReminder =
   EndOfMeetingReminder'
-    { enabled = Lude.Nothing,
-      reminderAtMinutes = Lude.Nothing,
-      reminderType = Lude.Nothing
+    { enabled = Core.Nothing,
+      reminderAtMinutes = Core.Nothing,
+      reminderType = Core.Nothing
     }
 
 -- | Whether an end of meeting reminder is enabled or not.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eomrEnabled :: Lens.Lens' EndOfMeetingReminder (Lude.Maybe Lude.Bool)
-eomrEnabled = Lens.lens (enabled :: EndOfMeetingReminder -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: EndOfMeetingReminder)
+eomrEnabled :: Lens.Lens' EndOfMeetingReminder (Core.Maybe Core.Bool)
+eomrEnabled = Lens.field @"enabled"
 {-# DEPRECATED eomrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | A range of 3 to 15 minutes that determines when the reminder begins.
 --
 -- /Note:/ Consider using 'reminderAtMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eomrReminderAtMinutes :: Lens.Lens' EndOfMeetingReminder (Lude.Maybe (Lude.NonEmpty Lude.Int))
-eomrReminderAtMinutes = Lens.lens (reminderAtMinutes :: EndOfMeetingReminder -> Lude.Maybe (Lude.NonEmpty Lude.Int)) (\s a -> s {reminderAtMinutes = a} :: EndOfMeetingReminder)
+eomrReminderAtMinutes :: Lens.Lens' EndOfMeetingReminder (Core.Maybe (Core.NonEmpty Core.Int))
+eomrReminderAtMinutes = Lens.field @"reminderAtMinutes"
 {-# DEPRECATED eomrReminderAtMinutes "Use generic-lens or generic-optics with 'reminderAtMinutes' instead." #-}
 
 -- | The type of sound that users hear during the end of meeting reminder.
 --
 -- /Note:/ Consider using 'reminderType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eomrReminderType :: Lens.Lens' EndOfMeetingReminder (Lude.Maybe EndOfMeetingReminderType)
-eomrReminderType = Lens.lens (reminderType :: EndOfMeetingReminder -> Lude.Maybe EndOfMeetingReminderType) (\s a -> s {reminderType = a} :: EndOfMeetingReminder)
+eomrReminderType :: Lens.Lens' EndOfMeetingReminder (Core.Maybe Types.EndOfMeetingReminderType)
+eomrReminderType = Lens.field @"reminderType"
 {-# DEPRECATED eomrReminderType "Use generic-lens or generic-optics with 'reminderType' instead." #-}
 
-instance Lude.FromJSON EndOfMeetingReminder where
+instance Core.FromJSON EndOfMeetingReminder where
   parseJSON =
-    Lude.withObject
-      "EndOfMeetingReminder"
-      ( \x ->
-          EndOfMeetingReminder'
-            Lude.<$> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "ReminderAtMinutes")
-            Lude.<*> (x Lude..:? "ReminderType")
-      )
+    Core.withObject "EndOfMeetingReminder" Core.$
+      \x ->
+        EndOfMeetingReminder'
+          Core.<$> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "ReminderAtMinutes")
+          Core.<*> (x Core..:? "ReminderType")

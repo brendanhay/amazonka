@@ -17,57 +17,50 @@ module Network.AWS.Lambda.Types.AllowedPublishers
     mkAllowedPublishers,
 
     -- * Lenses
-    apSigningProfileVersionARNs,
+    apSigningProfileVersionArns,
   )
 where
 
+import qualified Network.AWS.Lambda.Types.Arn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | List of signing profiles that can sign a code package.
 --
 -- /See:/ 'mkAllowedPublishers' smart constructor.
 newtype AllowedPublishers = AllowedPublishers'
   { -- | The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-    signingProfileVersionARNs :: Lude.NonEmpty Lude.Text
+    signingProfileVersionArns :: Core.NonEmpty Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AllowedPublishers' with the minimum fields required to make a request.
---
--- * 'signingProfileVersionARNs' - The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+-- | Creates a 'AllowedPublishers' value with any optional fields omitted.
 mkAllowedPublishers ::
-  -- | 'signingProfileVersionARNs'
-  Lude.NonEmpty Lude.Text ->
+  -- | 'signingProfileVersionArns'
+  Core.NonEmpty Types.Arn ->
   AllowedPublishers
-mkAllowedPublishers pSigningProfileVersionARNs_ =
-  AllowedPublishers'
-    { signingProfileVersionARNs =
-        pSigningProfileVersionARNs_
-    }
+mkAllowedPublishers signingProfileVersionArns =
+  AllowedPublishers' {signingProfileVersionArns}
 
 -- | The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 --
--- /Note:/ Consider using 'signingProfileVersionARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apSigningProfileVersionARNs :: Lens.Lens' AllowedPublishers (Lude.NonEmpty Lude.Text)
-apSigningProfileVersionARNs = Lens.lens (signingProfileVersionARNs :: AllowedPublishers -> Lude.NonEmpty Lude.Text) (\s a -> s {signingProfileVersionARNs = a} :: AllowedPublishers)
-{-# DEPRECATED apSigningProfileVersionARNs "Use generic-lens or generic-optics with 'signingProfileVersionARNs' instead." #-}
+-- /Note:/ Consider using 'signingProfileVersionArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apSigningProfileVersionArns :: Lens.Lens' AllowedPublishers (Core.NonEmpty Types.Arn)
+apSigningProfileVersionArns = Lens.field @"signingProfileVersionArns"
+{-# DEPRECATED apSigningProfileVersionArns "Use generic-lens or generic-optics with 'signingProfileVersionArns' instead." #-}
 
-instance Lude.FromJSON AllowedPublishers where
-  parseJSON =
-    Lude.withObject
-      "AllowedPublishers"
-      ( \x ->
-          AllowedPublishers'
-            Lude.<$> (x Lude..: "SigningProfileVersionArns")
-      )
-
-instance Lude.ToJSON AllowedPublishers where
-  toJSON AllowedPublishers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("SigningProfileVersionArns" Lude..= signingProfileVersionARNs)
+instance Core.FromJSON AllowedPublishers where
+  toJSON AllowedPublishers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("SigningProfileVersionArns" Core..= signingProfileVersionArns)
           ]
       )
+
+instance Core.FromJSON AllowedPublishers where
+  parseJSON =
+    Core.withObject "AllowedPublishers" Core.$
+      \x ->
+        AllowedPublishers' Core.<$> (x Core..: "SigningProfileVersionArns")

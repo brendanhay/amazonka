@@ -20,123 +20,110 @@ module Network.AWS.Connect.DescribeUser
     mkDescribeUser,
 
     -- ** Request lenses
-    duInstanceId,
     duUserId,
+    duInstanceId,
 
     -- * Destructuring the response
     DescribeUserResponse (..),
     mkDescribeUserResponse,
 
     -- ** Response lenses
-    dursUser,
-    dursResponseStatus,
+    durrsUser,
+    durrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeUser' smart constructor.
 data DescribeUser = DescribeUser'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The identifier of the user account.
-    userId :: Lude.Text
+  { -- | The identifier of the user account.
+    userId :: Types.UserId,
+    -- | The identifier of the Amazon Connect instance.
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUser' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'userId' - The identifier of the user account.
+-- | Creates a 'DescribeUser' value with any optional fields omitted.
 mkDescribeUser ::
-  -- | 'instanceId'
-  Lude.Text ->
   -- | 'userId'
-  Lude.Text ->
+  Types.UserId ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   DescribeUser
-mkDescribeUser pInstanceId_ pUserId_ =
-  DescribeUser' {instanceId = pInstanceId_, userId = pUserId_}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duInstanceId :: Lens.Lens' DescribeUser Lude.Text
-duInstanceId = Lens.lens (instanceId :: DescribeUser -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeUser)
-{-# DEPRECATED duInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+mkDescribeUser userId instanceId =
+  DescribeUser' {userId, instanceId}
 
 -- | The identifier of the user account.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duUserId :: Lens.Lens' DescribeUser Lude.Text
-duUserId = Lens.lens (userId :: DescribeUser -> Lude.Text) (\s a -> s {userId = a} :: DescribeUser)
+duUserId :: Lens.Lens' DescribeUser Types.UserId
+duUserId = Lens.field @"userId"
 {-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.AWSRequest DescribeUser where
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duInstanceId :: Lens.Lens' DescribeUser Types.InstanceId
+duInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED duInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.AWSRequest DescribeUser where
   type Rs DescribeUser = DescribeUserResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/users/" Core.<> (Core.toText instanceId) Core.<> ("/")
+                Core.<> (Core.toText userId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Lude.<$> (x Lude..?> "User") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "User") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeUser where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeUser where
-  toPath DescribeUser' {..} =
-    Lude.mconcat
-      ["/users/", Lude.toBS instanceId, "/", Lude.toBS userId]
-
-instance Lude.ToQuery DescribeUser where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
   { -- | Information about the user account and configuration settings.
-    user :: Lude.Maybe User,
+    user :: Core.Maybe Types.User,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUserResponse' with the minimum fields required to make a request.
---
--- * 'user' - Information about the user account and configuration settings.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUserResponse' value with any optional fields omitted.
 mkDescribeUserResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUserResponse
-mkDescribeUserResponse pResponseStatus_ =
-  DescribeUserResponse'
-    { user = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeUserResponse responseStatus =
+  DescribeUserResponse' {user = Core.Nothing, responseStatus}
 
 -- | Information about the user account and configuration settings.
 --
 -- /Note:/ Consider using 'user' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursUser :: Lens.Lens' DescribeUserResponse (Lude.Maybe User)
-dursUser = Lens.lens (user :: DescribeUserResponse -> Lude.Maybe User) (\s a -> s {user = a} :: DescribeUserResponse)
-{-# DEPRECATED dursUser "Use generic-lens or generic-optics with 'user' instead." #-}
+durrsUser :: Lens.Lens' DescribeUserResponse (Core.Maybe Types.User)
+durrsUser = Lens.field @"user"
+{-# DEPRECATED durrsUser "Use generic-lens or generic-optics with 'user' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursResponseStatus :: Lens.Lens' DescribeUserResponse Lude.Int
-dursResponseStatus = Lens.lens (responseStatus :: DescribeUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserResponse)
-{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+durrsResponseStatus :: Lens.Lens' DescribeUserResponse Core.Int
+durrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED durrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

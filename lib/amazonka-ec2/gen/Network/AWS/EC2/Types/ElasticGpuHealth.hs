@@ -21,33 +21,31 @@ module Network.AWS.EC2.Types.ElasticGpuHealth
   )
 where
 
-import Network.AWS.EC2.Types.ElasticGpuStatus
+import qualified Network.AWS.EC2.Types.ElasticGpuStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the status of an Elastic Graphics accelerator.
 --
 -- /See:/ 'mkElasticGpuHealth' smart constructor.
 newtype ElasticGpuHealth = ElasticGpuHealth'
   { -- | The health status.
-    status :: Lude.Maybe ElasticGpuStatus
+    status :: Core.Maybe Types.ElasticGpuStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticGpuHealth' with the minimum fields required to make a request.
---
--- * 'status' - The health status.
+-- | Creates a 'ElasticGpuHealth' value with any optional fields omitted.
 mkElasticGpuHealth ::
   ElasticGpuHealth
-mkElasticGpuHealth = ElasticGpuHealth' {status = Lude.Nothing}
+mkElasticGpuHealth = ElasticGpuHealth' {status = Core.Nothing}
 
 -- | The health status.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eghStatus :: Lens.Lens' ElasticGpuHealth (Lude.Maybe ElasticGpuStatus)
-eghStatus = Lens.lens (status :: ElasticGpuHealth -> Lude.Maybe ElasticGpuStatus) (\s a -> s {status = a} :: ElasticGpuHealth)
+eghStatus :: Lens.Lens' ElasticGpuHealth (Core.Maybe Types.ElasticGpuStatus)
+eghStatus = Lens.field @"status"
 {-# DEPRECATED eghStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromXML ElasticGpuHealth where
-  parseXML x = ElasticGpuHealth' Lude.<$> (x Lude..@? "status")
+instance Core.FromXML ElasticGpuHealth where
+  parseXML x = ElasticGpuHealth' Core.<$> (x Core..@? "status")

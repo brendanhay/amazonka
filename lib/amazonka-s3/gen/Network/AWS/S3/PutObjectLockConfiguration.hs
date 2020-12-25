@@ -24,185 +24,163 @@ module Network.AWS.S3.PutObjectLockConfiguration
     mkPutObjectLockConfiguration,
 
     -- ** Request lenses
-    polcToken,
     polcBucket,
-    polcObjectLockConfiguration,
-    polcRequestPayer,
     polcContentMD5,
     polcExpectedBucketOwner,
+    polcObjectLockConfiguration,
+    polcRequestPayer,
+    polcToken,
 
     -- * Destructuring the response
     PutObjectLockConfigurationResponse (..),
     mkPutObjectLockConfigurationResponse,
 
     -- ** Response lenses
-    polcrsRequestCharged,
-    polcrsResponseStatus,
+    polcrrsRequestCharged,
+    polcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutObjectLockConfiguration' smart constructor.
 data PutObjectLockConfiguration = PutObjectLockConfiguration'
-  { -- | A token to allow Object Lock to be enabled for an existing bucket.
-    token :: Lude.Maybe Lude.Text,
-    -- | The bucket whose Object Lock configuration you want to create or replace.
-    bucket :: BucketName,
-    -- | The Object Lock configuration that you want to apply to the specified bucket.
-    objectLockConfiguration :: Lude.Maybe ObjectLockConfiguration,
-    requestPayer :: Lude.Maybe RequestPayer,
+  { -- | The bucket whose Object Lock configuration you want to create or replace.
+    bucket :: Types.BucketName,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
-    contentMD5 :: Lude.Maybe Lude.Text,
+    contentMD5 :: Core.Maybe Types.ContentMD5,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    -- | The Object Lock configuration that you want to apply to the specified bucket.
+    objectLockConfiguration :: Core.Maybe Types.ObjectLockConfiguration,
+    requestPayer :: Core.Maybe Types.RequestPayer,
+    -- | A token to allow Object Lock to be enabled for an existing bucket.
+    token :: Core.Maybe Types.ObjectLockToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutObjectLockConfiguration' with the minimum fields required to make a request.
---
--- * 'token' - A token to allow Object Lock to be enabled for an existing bucket.
--- * 'bucket' - The bucket whose Object Lock configuration you want to create or replace.
--- * 'objectLockConfiguration' - The Object Lock configuration that you want to apply to the specified bucket.
--- * 'requestPayer' -
--- * 'contentMD5' - The MD5 hash for the request body.
---
--- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'PutObjectLockConfiguration' value with any optional fields omitted.
 mkPutObjectLockConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   PutObjectLockConfiguration
-mkPutObjectLockConfiguration pBucket_ =
+mkPutObjectLockConfiguration bucket =
   PutObjectLockConfiguration'
-    { token = Lude.Nothing,
-      bucket = pBucket_,
-      objectLockConfiguration = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      contentMD5 = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      objectLockConfiguration = Core.Nothing,
+      requestPayer = Core.Nothing,
+      token = Core.Nothing
     }
-
--- | A token to allow Object Lock to be enabled for an existing bucket.
---
--- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polcToken :: Lens.Lens' PutObjectLockConfiguration (Lude.Maybe Lude.Text)
-polcToken = Lens.lens (token :: PutObjectLockConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: PutObjectLockConfiguration)
-{-# DEPRECATED polcToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The bucket whose Object Lock configuration you want to create or replace.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polcBucket :: Lens.Lens' PutObjectLockConfiguration BucketName
-polcBucket = Lens.lens (bucket :: PutObjectLockConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutObjectLockConfiguration)
+polcBucket :: Lens.Lens' PutObjectLockConfiguration Types.BucketName
+polcBucket = Lens.field @"bucket"
 {-# DEPRECATED polcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | The Object Lock configuration that you want to apply to the specified bucket.
---
--- /Note:/ Consider using 'objectLockConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polcObjectLockConfiguration :: Lens.Lens' PutObjectLockConfiguration (Lude.Maybe ObjectLockConfiguration)
-polcObjectLockConfiguration = Lens.lens (objectLockConfiguration :: PutObjectLockConfiguration -> Lude.Maybe ObjectLockConfiguration) (\s a -> s {objectLockConfiguration = a} :: PutObjectLockConfiguration)
-{-# DEPRECATED polcObjectLockConfiguration "Use generic-lens or generic-optics with 'objectLockConfiguration' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polcRequestPayer :: Lens.Lens' PutObjectLockConfiguration (Lude.Maybe RequestPayer)
-polcRequestPayer = Lens.lens (requestPayer :: PutObjectLockConfiguration -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: PutObjectLockConfiguration)
-{-# DEPRECATED polcRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | The MD5 hash for the request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 --
 -- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polcContentMD5 :: Lens.Lens' PutObjectLockConfiguration (Lude.Maybe Lude.Text)
-polcContentMD5 = Lens.lens (contentMD5 :: PutObjectLockConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutObjectLockConfiguration)
+polcContentMD5 :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe Types.ContentMD5)
+polcContentMD5 = Lens.field @"contentMD5"
 {-# DEPRECATED polcContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polcExpectedBucketOwner :: Lens.Lens' PutObjectLockConfiguration (Lude.Maybe Lude.Text)
-polcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutObjectLockConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutObjectLockConfiguration)
+polcExpectedBucketOwner :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe Types.ExpectedBucketOwner)
+polcExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED polcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest PutObjectLockConfiguration where
+-- | The Object Lock configuration that you want to apply to the specified bucket.
+--
+-- /Note:/ Consider using 'objectLockConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+polcObjectLockConfiguration :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe Types.ObjectLockConfiguration)
+polcObjectLockConfiguration = Lens.field @"objectLockConfiguration"
+{-# DEPRECATED polcObjectLockConfiguration "Use generic-lens or generic-optics with 'objectLockConfiguration' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+polcRequestPayer :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe Types.RequestPayer)
+polcRequestPayer = Lens.field @"requestPayer"
+{-# DEPRECATED polcRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
+-- | A token to allow Object Lock to be enabled for an existing bucket.
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+polcToken :: Lens.Lens' PutObjectLockConfiguration (Core.Maybe Types.ObjectLockToken)
+polcToken = Lens.field @"token"
+{-# DEPRECATED polcToken "Use generic-lens or generic-optics with 'token' instead." #-}
+
+instance Core.AWSRequest PutObjectLockConfiguration where
   type
     Rs PutObjectLockConfiguration =
       PutObjectLockConfigurationResponse
-  request = Req.putXML s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("object-lock", ""),
+        Core._rqHeaders =
+          Core.toHeaders "Content-MD5" contentMD5
+            Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner)
+            Core.<> (Core.toHeaders "x-amz-request-payer" requestPayer)
+            Core.<> (Core.toHeaders "x-amz-bucket-object-lock-token" token),
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutObjectLockConfigurationResponse'
-            Lude.<$> (h Lude..#? "x-amz-request-charged")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "x-amz-request-charged" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement PutObjectLockConfiguration where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}ObjectLockConfiguration"
-      Lude.. objectLockConfiguration
-
-instance Lude.ToHeaders PutObjectLockConfiguration where
-  toHeaders PutObjectLockConfiguration' {..} =
-    Lude.mconcat
-      [ "x-amz-bucket-object-lock-token" Lude.=# token,
-        "x-amz-request-payer" Lude.=# requestPayer,
-        "Content-MD5" Lude.=# contentMD5,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath PutObjectLockConfiguration where
-  toPath PutObjectLockConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutObjectLockConfiguration where
-  toQuery = Lude.const (Lude.mconcat ["object-lock"])
 
 -- | /See:/ 'mkPutObjectLockConfigurationResponse' smart constructor.
 data PutObjectLockConfigurationResponse = PutObjectLockConfigurationResponse'
-  { requestCharged :: Lude.Maybe RequestCharged,
+  { requestCharged :: Core.Maybe Types.RequestCharged,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutObjectLockConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'requestCharged' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutObjectLockConfigurationResponse' value with any optional fields omitted.
 mkPutObjectLockConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutObjectLockConfigurationResponse
-mkPutObjectLockConfigurationResponse pResponseStatus_ =
+mkPutObjectLockConfigurationResponse responseStatus =
   PutObjectLockConfigurationResponse'
     { requestCharged =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polcrsRequestCharged :: Lens.Lens' PutObjectLockConfigurationResponse (Lude.Maybe RequestCharged)
-polcrsRequestCharged = Lens.lens (requestCharged :: PutObjectLockConfigurationResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: PutObjectLockConfigurationResponse)
-{-# DEPRECATED polcrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
+polcrrsRequestCharged :: Lens.Lens' PutObjectLockConfigurationResponse (Core.Maybe Types.RequestCharged)
+polcrrsRequestCharged = Lens.field @"requestCharged"
+{-# DEPRECATED polcrrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-polcrsResponseStatus :: Lens.Lens' PutObjectLockConfigurationResponse Lude.Int
-polcrsResponseStatus = Lens.lens (responseStatus :: PutObjectLockConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutObjectLockConfigurationResponse)
-{-# DEPRECATED polcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+polcrrsResponseStatus :: Lens.Lens' PutObjectLockConfigurationResponse Core.Int
+polcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED polcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,61 +13,66 @@
 module Network.AWS.DynamoDB.Types.DestinationStatus
   ( DestinationStatus
       ( DestinationStatus',
-        DSEnabling,
-        DSActive,
-        DSDisabling,
-        DSDisabled,
-        DSEnableFailed
+        DestinationStatusEnabling,
+        DestinationStatusActive,
+        DestinationStatusDisabling,
+        DestinationStatusDisabled,
+        DestinationStatusEnableFailed,
+        fromDestinationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DestinationStatus = DestinationStatus' Lude.Text
+newtype DestinationStatus = DestinationStatus'
+  { fromDestinationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSEnabling :: DestinationStatus
-pattern DSEnabling = DestinationStatus' "ENABLING"
+pattern DestinationStatusEnabling :: DestinationStatus
+pattern DestinationStatusEnabling = DestinationStatus' "ENABLING"
 
-pattern DSActive :: DestinationStatus
-pattern DSActive = DestinationStatus' "ACTIVE"
+pattern DestinationStatusActive :: DestinationStatus
+pattern DestinationStatusActive = DestinationStatus' "ACTIVE"
 
-pattern DSDisabling :: DestinationStatus
-pattern DSDisabling = DestinationStatus' "DISABLING"
+pattern DestinationStatusDisabling :: DestinationStatus
+pattern DestinationStatusDisabling = DestinationStatus' "DISABLING"
 
-pattern DSDisabled :: DestinationStatus
-pattern DSDisabled = DestinationStatus' "DISABLED"
+pattern DestinationStatusDisabled :: DestinationStatus
+pattern DestinationStatusDisabled = DestinationStatus' "DISABLED"
 
-pattern DSEnableFailed :: DestinationStatus
-pattern DSEnableFailed = DestinationStatus' "ENABLE_FAILED"
+pattern DestinationStatusEnableFailed :: DestinationStatus
+pattern DestinationStatusEnableFailed = DestinationStatus' "ENABLE_FAILED"
 
 {-# COMPLETE
-  DSEnabling,
-  DSActive,
-  DSDisabling,
-  DSDisabled,
-  DSEnableFailed,
+  DestinationStatusEnabling,
+  DestinationStatusActive,
+  DestinationStatusDisabling,
+  DestinationStatusDisabled,
+  DestinationStatusEnableFailed,
   DestinationStatus'
   #-}

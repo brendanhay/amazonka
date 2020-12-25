@@ -22,49 +22,46 @@ module Network.AWS.DeviceFarm.Types.ProblemDetail
   )
 where
 
+import qualified Network.AWS.DeviceFarm.Types.Arn as Types
+import qualified Network.AWS.DeviceFarm.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a problem detail.
 --
 -- /See:/ 'mkProblemDetail' smart constructor.
 data ProblemDetail = ProblemDetail'
   { -- | The problem detail's ARN.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The problem detail's name.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProblemDetail' with the minimum fields required to make a request.
---
--- * 'arn' - The problem detail's ARN.
--- * 'name' - The problem detail's name.
+-- | Creates a 'ProblemDetail' value with any optional fields omitted.
 mkProblemDetail ::
   ProblemDetail
 mkProblemDetail =
-  ProblemDetail' {arn = Lude.Nothing, name = Lude.Nothing}
+  ProblemDetail' {arn = Core.Nothing, name = Core.Nothing}
 
 -- | The problem detail's ARN.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdArn :: Lens.Lens' ProblemDetail (Lude.Maybe Lude.Text)
-pdArn = Lens.lens (arn :: ProblemDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ProblemDetail)
+pdArn :: Lens.Lens' ProblemDetail (Core.Maybe Types.Arn)
+pdArn = Lens.field @"arn"
 {-# DEPRECATED pdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The problem detail's name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdName :: Lens.Lens' ProblemDetail (Lude.Maybe Lude.Text)
-pdName = Lens.lens (name :: ProblemDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProblemDetail)
+pdName :: Lens.Lens' ProblemDetail (Core.Maybe Types.Name)
+pdName = Lens.field @"name"
 {-# DEPRECATED pdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ProblemDetail where
+instance Core.FromJSON ProblemDetail where
   parseJSON =
-    Lude.withObject
-      "ProblemDetail"
-      ( \x ->
-          ProblemDetail'
-            Lude.<$> (x Lude..:? "arn") Lude.<*> (x Lude..:? "name")
-      )
+    Core.withObject "ProblemDetail" Core.$
+      \x ->
+        ProblemDetail'
+          Core.<$> (x Core..:? "arn") Core.<*> (x Core..:? "name")

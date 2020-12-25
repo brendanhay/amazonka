@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MarketplaceAnalytics
     Network.AWS.MarketplaceAnalytics.GenerateDataSet
@@ -73,7 +79,14 @@ library
     Network.AWS.MarketplaceAnalytics.Waiters
 
   other-modules:
+    Network.AWS.MarketplaceAnalytics.Types.DataSetRequestId
     Network.AWS.MarketplaceAnalytics.Types.DataSetType
+    Network.AWS.MarketplaceAnalytics.Types.DestinationS3BucketName
+    Network.AWS.MarketplaceAnalytics.Types.DestinationS3Prefix
+    Network.AWS.MarketplaceAnalytics.Types.OptionalKey
+    Network.AWS.MarketplaceAnalytics.Types.OptionalValue
+    Network.AWS.MarketplaceAnalytics.Types.RoleNameArn
+    Network.AWS.MarketplaceAnalytics.Types.SnsTopicArn
     Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType
 
   build-depends:   amazonka-core ==2.0.0.0.*

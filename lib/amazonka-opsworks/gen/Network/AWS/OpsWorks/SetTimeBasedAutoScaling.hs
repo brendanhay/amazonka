@@ -32,86 +32,77 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetTimeBasedAutoScaling' smart constructor.
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
   { -- | The instance ID.
-    instanceId :: Lude.Text,
+    instanceId :: Types.String,
     -- | An @AutoScalingSchedule@ with the instance schedule.
-    autoScalingSchedule :: Lude.Maybe WeeklyAutoScalingSchedule
+    autoScalingSchedule :: Core.Maybe Types.WeeklyAutoScalingSchedule
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetTimeBasedAutoScaling' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID.
--- * 'autoScalingSchedule' - An @AutoScalingSchedule@ with the instance schedule.
+-- | Creates a 'SetTimeBasedAutoScaling' value with any optional fields omitted.
 mkSetTimeBasedAutoScaling ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.String ->
   SetTimeBasedAutoScaling
-mkSetTimeBasedAutoScaling pInstanceId_ =
+mkSetTimeBasedAutoScaling instanceId =
   SetTimeBasedAutoScaling'
-    { instanceId = pInstanceId_,
-      autoScalingSchedule = Lude.Nothing
+    { instanceId,
+      autoScalingSchedule = Core.Nothing
     }
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stbasInstanceId :: Lens.Lens' SetTimeBasedAutoScaling Lude.Text
-stbasInstanceId = Lens.lens (instanceId :: SetTimeBasedAutoScaling -> Lude.Text) (\s a -> s {instanceId = a} :: SetTimeBasedAutoScaling)
+stbasInstanceId :: Lens.Lens' SetTimeBasedAutoScaling Types.String
+stbasInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED stbasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | An @AutoScalingSchedule@ with the instance schedule.
 --
 -- /Note:/ Consider using 'autoScalingSchedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stbasAutoScalingSchedule :: Lens.Lens' SetTimeBasedAutoScaling (Lude.Maybe WeeklyAutoScalingSchedule)
-stbasAutoScalingSchedule = Lens.lens (autoScalingSchedule :: SetTimeBasedAutoScaling -> Lude.Maybe WeeklyAutoScalingSchedule) (\s a -> s {autoScalingSchedule = a} :: SetTimeBasedAutoScaling)
+stbasAutoScalingSchedule :: Lens.Lens' SetTimeBasedAutoScaling (Core.Maybe Types.WeeklyAutoScalingSchedule)
+stbasAutoScalingSchedule = Lens.field @"autoScalingSchedule"
 {-# DEPRECATED stbasAutoScalingSchedule "Use generic-lens or generic-optics with 'autoScalingSchedule' instead." #-}
 
-instance Lude.AWSRequest SetTimeBasedAutoScaling where
+instance Core.FromJSON SetTimeBasedAutoScaling where
+  toJSON SetTimeBasedAutoScaling {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            ("AutoScalingSchedule" Core..=) Core.<$> autoScalingSchedule
+          ]
+      )
+
+instance Core.AWSRequest SetTimeBasedAutoScaling where
   type Rs SetTimeBasedAutoScaling = SetTimeBasedAutoScalingResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull SetTimeBasedAutoScalingResponse'
-
-instance Lude.ToHeaders SetTimeBasedAutoScaling where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.SetTimeBasedAutoScaling" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetTimeBasedAutoScaling where
-  toJSON SetTimeBasedAutoScaling' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            ("AutoScalingSchedule" Lude..=) Lude.<$> autoScalingSchedule
-          ]
-      )
-
-instance Lude.ToPath SetTimeBasedAutoScaling where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetTimeBasedAutoScaling where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OpsWorks_20130218.SetTimeBasedAutoScaling")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetTimeBasedAutoScalingResponse'
 
 -- | /See:/ 'mkSetTimeBasedAutoScalingResponse' smart constructor.
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetTimeBasedAutoScalingResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetTimeBasedAutoScalingResponse' value with any optional fields omitted.
 mkSetTimeBasedAutoScalingResponse ::
   SetTimeBasedAutoScalingResponse
 mkSetTimeBasedAutoScalingResponse =

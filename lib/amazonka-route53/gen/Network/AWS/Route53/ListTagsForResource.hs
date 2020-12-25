@@ -22,71 +22,52 @@ module Network.AWS.Route53.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
-    lResourceId,
-    lResourceType,
+    ltfrResourceType,
+    ltfrResourceId,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
     mkListTagsForResourceResponse,
 
     -- ** Response lenses
-    ltfrrsResourceTagSet,
-    ltfrrsResponseStatus,
+    ltfrrrsResourceTagSet,
+    ltfrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type containing information about a request for a list of the tags that are associated with an individual resource.
 --
 -- /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The ID of the resource for which you want to retrieve tags.
-    resourceId :: Lude.Text,
-    -- | The type of the resource.
+  { -- | The type of the resource.
     --
     --
     --     * The resource type for health checks is @healthcheck@ .
     --
     --
     --     * The resource type for hosted zones is @hostedzone@ .
-    resourceType :: TagResourceType
+    resourceType :: Types.TagResourceType,
+    -- | The ID of the resource for which you want to retrieve tags.
+    resourceId :: Types.TagResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource for which you want to retrieve tags.
--- * 'resourceType' - The type of the resource.
---
---
---     * The resource type for health checks is @healthcheck@ .
---
---
---     * The resource type for hosted zones is @hostedzone@ .
+-- | Creates a 'ListTagsForResource' value with any optional fields omitted.
 mkListTagsForResource ::
-  -- | 'resourceId'
-  Lude.Text ->
   -- | 'resourceType'
-  TagResourceType ->
+  Types.TagResourceType ->
+  -- | 'resourceId'
+  Types.TagResourceId ->
   ListTagsForResource
-mkListTagsForResource pResourceId_ pResourceType_ =
-  ListTagsForResource'
-    { resourceId = pResourceId_,
-      resourceType = pResourceType_
-    }
-
--- | The ID of the resource for which you want to retrieve tags.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lResourceId :: Lens.Lens' ListTagsForResource Lude.Text
-lResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListTagsForResource)
-{-# DEPRECATED lResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+mkListTagsForResource resourceType resourceId =
+  ListTagsForResource' {resourceType, resourceId}
 
 -- | The type of the resource.
 --
@@ -99,74 +80,73 @@ lResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -
 --
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lResourceType :: Lens.Lens' ListTagsForResource TagResourceType
-lResourceType = Lens.lens (resourceType :: ListTagsForResource -> TagResourceType) (\s a -> s {resourceType = a} :: ListTagsForResource)
-{-# DEPRECATED lResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+ltfrResourceType :: Lens.Lens' ListTagsForResource Types.TagResourceType
+ltfrResourceType = Lens.field @"resourceType"
+{-# DEPRECATED ltfrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
-instance Lude.AWSRequest ListTagsForResource where
+-- | The ID of the resource for which you want to retrieve tags.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceId :: Lens.Lens' ListTagsForResource Types.TagResourceId
+ltfrResourceId = Lens.field @"resourceId"
+{-# DEPRECATED ltfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+instance Core.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2013-04-01/tags/" Core.<> (Core.toText resourceType)
+                Core.<> ("/")
+                Core.<> (Core.toText resourceId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListTagsForResourceResponse'
-            Lude.<$> (x Lude..@ "ResourceTagSet")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "ResourceTagSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTagsForResource where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListTagsForResource where
-  toPath ListTagsForResource' {..} =
-    Lude.mconcat
-      [ "/2013-04-01/tags/",
-        Lude.toBS resourceType,
-        "/",
-        Lude.toBS resourceId
-      ]
-
-instance Lude.ToQuery ListTagsForResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains information about the health checks or hosted zones for which you want to list tags.
 --
 -- /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | A @ResourceTagSet@ containing tags associated with the specified resource.
-    resourceTagSet :: ResourceTagSet,
+    resourceTagSet :: Types.ResourceTagSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
---
--- * 'resourceTagSet' - A @ResourceTagSet@ containing tags associated with the specified resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTagsForResourceResponse' value with any optional fields omitted.
 mkListTagsForResourceResponse ::
   -- | 'resourceTagSet'
-  ResourceTagSet ->
+  Types.ResourceTagSet ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTagsForResourceResponse
-mkListTagsForResourceResponse pResourceTagSet_ pResponseStatus_ =
-  ListTagsForResourceResponse'
-    { resourceTagSet = pResourceTagSet_,
-      responseStatus = pResponseStatus_
-    }
+mkListTagsForResourceResponse resourceTagSet responseStatus =
+  ListTagsForResourceResponse' {resourceTagSet, responseStatus}
 
 -- | A @ResourceTagSet@ containing tags associated with the specified resource.
 --
 -- /Note:/ Consider using 'resourceTagSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsResourceTagSet :: Lens.Lens' ListTagsForResourceResponse ResourceTagSet
-ltfrrsResourceTagSet = Lens.lens (resourceTagSet :: ListTagsForResourceResponse -> ResourceTagSet) (\s a -> s {resourceTagSet = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsResourceTagSet "Use generic-lens or generic-optics with 'resourceTagSet' instead." #-}
+ltfrrrsResourceTagSet :: Lens.Lens' ListTagsForResourceResponse Types.ResourceTagSet
+ltfrrrsResourceTagSet = Lens.field @"resourceTagSet"
+{-# DEPRECATED ltfrrrsResourceTagSet "Use generic-lens or generic-optics with 'resourceTagSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
-ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltfrrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
+ltfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

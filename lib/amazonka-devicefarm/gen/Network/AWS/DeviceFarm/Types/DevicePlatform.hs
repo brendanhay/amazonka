@@ -13,46 +13,51 @@
 module Network.AWS.DeviceFarm.Types.DevicePlatform
   ( DevicePlatform
       ( DevicePlatform',
-        Android,
-        IOS
+        DevicePlatformAndroid,
+        DevicePlatformIos,
+        fromDevicePlatform
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DevicePlatform = DevicePlatform' Lude.Text
+newtype DevicePlatform = DevicePlatform'
+  { fromDevicePlatform ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Android :: DevicePlatform
-pattern Android = DevicePlatform' "ANDROID"
+pattern DevicePlatformAndroid :: DevicePlatform
+pattern DevicePlatformAndroid = DevicePlatform' "ANDROID"
 
-pattern IOS :: DevicePlatform
-pattern IOS = DevicePlatform' "IOS"
+pattern DevicePlatformIos :: DevicePlatform
+pattern DevicePlatformIos = DevicePlatform' "IOS"
 
 {-# COMPLETE
-  Android,
-  IOS,
+  DevicePlatformAndroid,
+  DevicePlatformIos,
   DevicePlatform'
   #-}

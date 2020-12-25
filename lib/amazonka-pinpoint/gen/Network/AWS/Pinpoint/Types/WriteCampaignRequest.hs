@@ -17,247 +17,230 @@ module Network.AWS.Pinpoint.Types.WriteCampaignRequest
     mkWriteCampaignRequest,
 
     -- * Lenses
-    wcrCustomDeliveryConfiguration,
-    wcrSchedule,
-    wcrTemplateConfiguration,
-    wcrHook,
-    wcrTreatmentName,
-    wcrLimits,
-    wcrIsPaused,
-    wcrName,
-    wcrHoldoutPercent,
-    wcrTreatmentDescription,
-    wcrMessageConfiguration,
-    wcrDescription,
-    wcrSegmentId,
     wcrAdditionalTreatments,
-    wcrTags,
+    wcrCustomDeliveryConfiguration,
+    wcrDescription,
+    wcrHoldoutPercent,
+    wcrHook,
+    wcrIsPaused,
+    wcrLimits,
+    wcrMessageConfiguration,
+    wcrName,
+    wcrSchedule,
+    wcrSegmentId,
     wcrSegmentVersion,
+    wcrTemplateConfiguration,
+    wcrTreatmentDescription,
+    wcrTreatmentName,
+    wcrTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.CampaignHook
-import Network.AWS.Pinpoint.Types.CampaignLimits
-import Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration
-import Network.AWS.Pinpoint.Types.MessageConfiguration
-import Network.AWS.Pinpoint.Types.Schedule
-import Network.AWS.Pinpoint.Types.TemplateConfiguration
-import Network.AWS.Pinpoint.Types.WriteTreatmentResource
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.CampaignHook as Types
+import qualified Network.AWS.Pinpoint.Types.CampaignLimits as Types
+import qualified Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration as Types
+import qualified Network.AWS.Pinpoint.Types.MessageConfiguration as Types
+import qualified Network.AWS.Pinpoint.Types.Schedule as Types
+import qualified Network.AWS.Pinpoint.Types.TemplateConfiguration as Types
+import qualified Network.AWS.Pinpoint.Types.WriteTreatmentResource as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the configuration and other settings for a campaign.
 --
 -- /See:/ 'mkWriteCampaignRequest' smart constructor.
 data WriteCampaignRequest = WriteCampaignRequest'
-  { -- | The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.
-    customDeliveryConfiguration :: Lude.Maybe CustomDeliveryConfiguration,
-    -- | The schedule settings for the campaign.
-    schedule :: Lude.Maybe Schedule,
-    -- | The message template to use for the campaign.
-    templateConfiguration :: Lude.Maybe TemplateConfiguration,
-    -- | The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
-    hook :: Lude.Maybe CampaignHook,
-    -- | A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
-    treatmentName :: Lude.Maybe Lude.Text,
-    -- | The messaging limits for the campaign.
-    limits :: Lude.Maybe CampaignLimits,
-    -- | Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
-    isPaused :: Lude.Maybe Lude.Bool,
-    -- | A custom name for the campaign.
-    name :: Lude.Maybe Lude.Text,
-    -- | The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
-    holdoutPercent :: Lude.Maybe Lude.Int,
-    -- | A custom description of the default treatment for the campaign.
-    treatmentDescription :: Lude.Maybe Lude.Text,
-    -- | The message configuration settings for the campaign.
-    messageConfiguration :: Lude.Maybe MessageConfiguration,
+  { -- | An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
+    additionalTreatments :: Core.Maybe [Types.WriteTreatmentResource],
+    -- | The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.
+    customDeliveryConfiguration :: Core.Maybe Types.CustomDeliveryConfiguration,
     -- | A custom description of the campaign.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Core.Text,
+    -- | The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
+    holdoutPercent :: Core.Maybe Core.Int,
+    -- | The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
+    hook :: Core.Maybe Types.CampaignHook,
+    -- | Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
+    isPaused :: Core.Maybe Core.Bool,
+    -- | The messaging limits for the campaign.
+    limits :: Core.Maybe Types.CampaignLimits,
+    -- | The message configuration settings for the campaign.
+    messageConfiguration :: Core.Maybe Types.MessageConfiguration,
+    -- | A custom name for the campaign.
+    name :: Core.Maybe Core.Text,
+    -- | The schedule settings for the campaign.
+    schedule :: Core.Maybe Types.Schedule,
     -- | The unique identifier for the segment to associate with the campaign.
-    segmentId :: Lude.Maybe Lude.Text,
-    -- | An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
-    additionalTreatments :: Lude.Maybe [WriteTreatmentResource],
-    -- | A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    segmentId :: Core.Maybe Core.Text,
     -- | The version of the segment to associate with the campaign.
-    segmentVersion :: Lude.Maybe Lude.Int
+    segmentVersion :: Core.Maybe Core.Int,
+    -- | The message template to use for the campaign.
+    templateConfiguration :: Core.Maybe Types.TemplateConfiguration,
+    -- | A custom description of the default treatment for the campaign.
+    treatmentDescription :: Core.Maybe Core.Text,
+    -- | A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
+    treatmentName :: Core.Maybe Core.Text,
+    -- | A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WriteCampaignRequest' with the minimum fields required to make a request.
---
--- * 'customDeliveryConfiguration' - The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.
--- * 'schedule' - The schedule settings for the campaign.
--- * 'templateConfiguration' - The message template to use for the campaign.
--- * 'hook' - The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
--- * 'treatmentName' - A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
--- * 'limits' - The messaging limits for the campaign.
--- * 'isPaused' - Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
--- * 'name' - A custom name for the campaign.
--- * 'holdoutPercent' - The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
--- * 'treatmentDescription' - A custom description of the default treatment for the campaign.
--- * 'messageConfiguration' - The message configuration settings for the campaign.
--- * 'description' - A custom description of the campaign.
--- * 'segmentId' - The unique identifier for the segment to associate with the campaign.
--- * 'additionalTreatments' - An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
--- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
--- * 'segmentVersion' - The version of the segment to associate with the campaign.
+-- | Creates a 'WriteCampaignRequest' value with any optional fields omitted.
 mkWriteCampaignRequest ::
   WriteCampaignRequest
 mkWriteCampaignRequest =
   WriteCampaignRequest'
-    { customDeliveryConfiguration = Lude.Nothing,
-      schedule = Lude.Nothing,
-      templateConfiguration = Lude.Nothing,
-      hook = Lude.Nothing,
-      treatmentName = Lude.Nothing,
-      limits = Lude.Nothing,
-      isPaused = Lude.Nothing,
-      name = Lude.Nothing,
-      holdoutPercent = Lude.Nothing,
-      treatmentDescription = Lude.Nothing,
-      messageConfiguration = Lude.Nothing,
-      description = Lude.Nothing,
-      segmentId = Lude.Nothing,
-      additionalTreatments = Lude.Nothing,
-      tags = Lude.Nothing,
-      segmentVersion = Lude.Nothing
+    { additionalTreatments = Core.Nothing,
+      customDeliveryConfiguration = Core.Nothing,
+      description = Core.Nothing,
+      holdoutPercent = Core.Nothing,
+      hook = Core.Nothing,
+      isPaused = Core.Nothing,
+      limits = Core.Nothing,
+      messageConfiguration = Core.Nothing,
+      name = Core.Nothing,
+      schedule = Core.Nothing,
+      segmentId = Core.Nothing,
+      segmentVersion = Core.Nothing,
+      templateConfiguration = Core.Nothing,
+      treatmentDescription = Core.Nothing,
+      treatmentName = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.
---
--- /Note:/ Consider using 'customDeliveryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrCustomDeliveryConfiguration :: Lens.Lens' WriteCampaignRequest (Lude.Maybe CustomDeliveryConfiguration)
-wcrCustomDeliveryConfiguration = Lens.lens (customDeliveryConfiguration :: WriteCampaignRequest -> Lude.Maybe CustomDeliveryConfiguration) (\s a -> s {customDeliveryConfiguration = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrCustomDeliveryConfiguration "Use generic-lens or generic-optics with 'customDeliveryConfiguration' instead." #-}
-
--- | The schedule settings for the campaign.
---
--- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrSchedule :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Schedule)
-wcrSchedule = Lens.lens (schedule :: WriteCampaignRequest -> Lude.Maybe Schedule) (\s a -> s {schedule = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
-
--- | The message template to use for the campaign.
---
--- /Note:/ Consider using 'templateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrTemplateConfiguration :: Lens.Lens' WriteCampaignRequest (Lude.Maybe TemplateConfiguration)
-wcrTemplateConfiguration = Lens.lens (templateConfiguration :: WriteCampaignRequest -> Lude.Maybe TemplateConfiguration) (\s a -> s {templateConfiguration = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrTemplateConfiguration "Use generic-lens or generic-optics with 'templateConfiguration' instead." #-}
-
--- | The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
---
--- /Note:/ Consider using 'hook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrHook :: Lens.Lens' WriteCampaignRequest (Lude.Maybe CampaignHook)
-wcrHook = Lens.lens (hook :: WriteCampaignRequest -> Lude.Maybe CampaignHook) (\s a -> s {hook = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrHook "Use generic-lens or generic-optics with 'hook' instead." #-}
-
--- | A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
---
--- /Note:/ Consider using 'treatmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrTreatmentName :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Lude.Text)
-wcrTreatmentName = Lens.lens (treatmentName :: WriteCampaignRequest -> Lude.Maybe Lude.Text) (\s a -> s {treatmentName = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrTreatmentName "Use generic-lens or generic-optics with 'treatmentName' instead." #-}
-
--- | The messaging limits for the campaign.
---
--- /Note:/ Consider using 'limits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrLimits :: Lens.Lens' WriteCampaignRequest (Lude.Maybe CampaignLimits)
-wcrLimits = Lens.lens (limits :: WriteCampaignRequest -> Lude.Maybe CampaignLimits) (\s a -> s {limits = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
-
--- | Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
---
--- /Note:/ Consider using 'isPaused' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrIsPaused :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Lude.Bool)
-wcrIsPaused = Lens.lens (isPaused :: WriteCampaignRequest -> Lude.Maybe Lude.Bool) (\s a -> s {isPaused = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrIsPaused "Use generic-lens or generic-optics with 'isPaused' instead." #-}
-
--- | A custom name for the campaign.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrName :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Lude.Text)
-wcrName = Lens.lens (name :: WriteCampaignRequest -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
---
--- /Note:/ Consider using 'holdoutPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrHoldoutPercent :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Lude.Int)
-wcrHoldoutPercent = Lens.lens (holdoutPercent :: WriteCampaignRequest -> Lude.Maybe Lude.Int) (\s a -> s {holdoutPercent = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrHoldoutPercent "Use generic-lens or generic-optics with 'holdoutPercent' instead." #-}
-
--- | A custom description of the default treatment for the campaign.
---
--- /Note:/ Consider using 'treatmentDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrTreatmentDescription :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Lude.Text)
-wcrTreatmentDescription = Lens.lens (treatmentDescription :: WriteCampaignRequest -> Lude.Maybe Lude.Text) (\s a -> s {treatmentDescription = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrTreatmentDescription "Use generic-lens or generic-optics with 'treatmentDescription' instead." #-}
-
--- | The message configuration settings for the campaign.
---
--- /Note:/ Consider using 'messageConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrMessageConfiguration :: Lens.Lens' WriteCampaignRequest (Lude.Maybe MessageConfiguration)
-wcrMessageConfiguration = Lens.lens (messageConfiguration :: WriteCampaignRequest -> Lude.Maybe MessageConfiguration) (\s a -> s {messageConfiguration = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrMessageConfiguration "Use generic-lens or generic-optics with 'messageConfiguration' instead." #-}
-
--- | A custom description of the campaign.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrDescription :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Lude.Text)
-wcrDescription = Lens.lens (description :: WriteCampaignRequest -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The unique identifier for the segment to associate with the campaign.
---
--- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrSegmentId :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Lude.Text)
-wcrSegmentId = Lens.lens (segmentId :: WriteCampaignRequest -> Lude.Maybe Lude.Text) (\s a -> s {segmentId = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
 --
 -- /Note:/ Consider using 'additionalTreatments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrAdditionalTreatments :: Lens.Lens' WriteCampaignRequest (Lude.Maybe [WriteTreatmentResource])
-wcrAdditionalTreatments = Lens.lens (additionalTreatments :: WriteCampaignRequest -> Lude.Maybe [WriteTreatmentResource]) (\s a -> s {additionalTreatments = a} :: WriteCampaignRequest)
+wcrAdditionalTreatments :: Lens.Lens' WriteCampaignRequest (Core.Maybe [Types.WriteTreatmentResource])
+wcrAdditionalTreatments = Lens.field @"additionalTreatments"
 {-# DEPRECATED wcrAdditionalTreatments "Use generic-lens or generic-optics with 'additionalTreatments' instead." #-}
 
--- | A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
+-- | The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrTags :: Lens.Lens' WriteCampaignRequest (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wcrTags = Lens.lens (tags :: WriteCampaignRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: WriteCampaignRequest)
-{-# DEPRECATED wcrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'customDeliveryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrCustomDeliveryConfiguration :: Lens.Lens' WriteCampaignRequest (Core.Maybe Types.CustomDeliveryConfiguration)
+wcrCustomDeliveryConfiguration = Lens.field @"customDeliveryConfiguration"
+{-# DEPRECATED wcrCustomDeliveryConfiguration "Use generic-lens or generic-optics with 'customDeliveryConfiguration' instead." #-}
+
+-- | A custom description of the campaign.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrDescription :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+wcrDescription = Lens.field @"description"
+{-# DEPRECATED wcrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
+--
+-- /Note:/ Consider using 'holdoutPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrHoldoutPercent :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Int)
+wcrHoldoutPercent = Lens.field @"holdoutPercent"
+{-# DEPRECATED wcrHoldoutPercent "Use generic-lens or generic-optics with 'holdoutPercent' instead." #-}
+
+-- | The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
+--
+-- /Note:/ Consider using 'hook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrHook :: Lens.Lens' WriteCampaignRequest (Core.Maybe Types.CampaignHook)
+wcrHook = Lens.field @"hook"
+{-# DEPRECATED wcrHook "Use generic-lens or generic-optics with 'hook' instead." #-}
+
+-- | Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
+--
+-- /Note:/ Consider using 'isPaused' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrIsPaused :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Bool)
+wcrIsPaused = Lens.field @"isPaused"
+{-# DEPRECATED wcrIsPaused "Use generic-lens or generic-optics with 'isPaused' instead." #-}
+
+-- | The messaging limits for the campaign.
+--
+-- /Note:/ Consider using 'limits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrLimits :: Lens.Lens' WriteCampaignRequest (Core.Maybe Types.CampaignLimits)
+wcrLimits = Lens.field @"limits"
+{-# DEPRECATED wcrLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
+
+-- | The message configuration settings for the campaign.
+--
+-- /Note:/ Consider using 'messageConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrMessageConfiguration :: Lens.Lens' WriteCampaignRequest (Core.Maybe Types.MessageConfiguration)
+wcrMessageConfiguration = Lens.field @"messageConfiguration"
+{-# DEPRECATED wcrMessageConfiguration "Use generic-lens or generic-optics with 'messageConfiguration' instead." #-}
+
+-- | A custom name for the campaign.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrName :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+wcrName = Lens.field @"name"
+{-# DEPRECATED wcrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The schedule settings for the campaign.
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrSchedule :: Lens.Lens' WriteCampaignRequest (Core.Maybe Types.Schedule)
+wcrSchedule = Lens.field @"schedule"
+{-# DEPRECATED wcrSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
+
+-- | The unique identifier for the segment to associate with the campaign.
+--
+-- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrSegmentId :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+wcrSegmentId = Lens.field @"segmentId"
+{-# DEPRECATED wcrSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | The version of the segment to associate with the campaign.
 --
 -- /Note:/ Consider using 'segmentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wcrSegmentVersion :: Lens.Lens' WriteCampaignRequest (Lude.Maybe Lude.Int)
-wcrSegmentVersion = Lens.lens (segmentVersion :: WriteCampaignRequest -> Lude.Maybe Lude.Int) (\s a -> s {segmentVersion = a} :: WriteCampaignRequest)
+wcrSegmentVersion :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Int)
+wcrSegmentVersion = Lens.field @"segmentVersion"
 {-# DEPRECATED wcrSegmentVersion "Use generic-lens or generic-optics with 'segmentVersion' instead." #-}
 
-instance Lude.ToJSON WriteCampaignRequest where
-  toJSON WriteCampaignRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CustomDeliveryConfiguration" Lude..=)
-              Lude.<$> customDeliveryConfiguration,
-            ("Schedule" Lude..=) Lude.<$> schedule,
-            ("TemplateConfiguration" Lude..=) Lude.<$> templateConfiguration,
-            ("Hook" Lude..=) Lude.<$> hook,
-            ("TreatmentName" Lude..=) Lude.<$> treatmentName,
-            ("Limits" Lude..=) Lude.<$> limits,
-            ("IsPaused" Lude..=) Lude.<$> isPaused,
-            ("Name" Lude..=) Lude.<$> name,
-            ("HoldoutPercent" Lude..=) Lude.<$> holdoutPercent,
-            ("TreatmentDescription" Lude..=) Lude.<$> treatmentDescription,
-            ("MessageConfiguration" Lude..=) Lude.<$> messageConfiguration,
-            ("Description" Lude..=) Lude.<$> description,
-            ("SegmentId" Lude..=) Lude.<$> segmentId,
-            ("AdditionalTreatments" Lude..=) Lude.<$> additionalTreatments,
-            ("tags" Lude..=) Lude.<$> tags,
-            ("SegmentVersion" Lude..=) Lude.<$> segmentVersion
+-- | The message template to use for the campaign.
+--
+-- /Note:/ Consider using 'templateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrTemplateConfiguration :: Lens.Lens' WriteCampaignRequest (Core.Maybe Types.TemplateConfiguration)
+wcrTemplateConfiguration = Lens.field @"templateConfiguration"
+{-# DEPRECATED wcrTemplateConfiguration "Use generic-lens or generic-optics with 'templateConfiguration' instead." #-}
+
+-- | A custom description of the default treatment for the campaign.
+--
+-- /Note:/ Consider using 'treatmentDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrTreatmentDescription :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+wcrTreatmentDescription = Lens.field @"treatmentDescription"
+{-# DEPRECATED wcrTreatmentDescription "Use generic-lens or generic-optics with 'treatmentDescription' instead." #-}
+
+-- | A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
+--
+-- /Note:/ Consider using 'treatmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrTreatmentName :: Lens.Lens' WriteCampaignRequest (Core.Maybe Core.Text)
+wcrTreatmentName = Lens.field @"treatmentName"
+{-# DEPRECATED wcrTreatmentName "Use generic-lens or generic-optics with 'treatmentName' instead." #-}
+
+-- | A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcrTags :: Lens.Lens' WriteCampaignRequest (Core.Maybe (Core.HashMap Core.Text Core.Text))
+wcrTags = Lens.field @"tags"
+{-# DEPRECATED wcrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.FromJSON WriteCampaignRequest where
+  toJSON WriteCampaignRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AdditionalTreatments" Core..=) Core.<$> additionalTreatments,
+            ("CustomDeliveryConfiguration" Core..=)
+              Core.<$> customDeliveryConfiguration,
+            ("Description" Core..=) Core.<$> description,
+            ("HoldoutPercent" Core..=) Core.<$> holdoutPercent,
+            ("Hook" Core..=) Core.<$> hook,
+            ("IsPaused" Core..=) Core.<$> isPaused,
+            ("Limits" Core..=) Core.<$> limits,
+            ("MessageConfiguration" Core..=) Core.<$> messageConfiguration,
+            ("Name" Core..=) Core.<$> name,
+            ("Schedule" Core..=) Core.<$> schedule,
+            ("SegmentId" Core..=) Core.<$> segmentId,
+            ("SegmentVersion" Core..=) Core.<$> segmentVersion,
+            ("TemplateConfiguration" Core..=) Core.<$> templateConfiguration,
+            ("TreatmentDescription" Core..=) Core.<$> treatmentDescription,
+            ("TreatmentName" Core..=) Core.<$> treatmentName,
+            ("tags" Core..=) Core.<$> tags
           ]
       )

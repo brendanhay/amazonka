@@ -54,11 +54,11 @@ module Network.AWS.GameLift.UpdateFleetAttributes
     mkUpdateFleetAttributes,
 
     -- ** Request lenses
-    ufaNewGameSessionProtectionPolicy,
-    ufaName,
-    ufaMetricGroups,
     ufaFleetId,
     ufaDescription,
+    ufaMetricGroups,
+    ufaName,
+    ufaNewGameSessionProtectionPolicy,
     ufaResourceCreationLimitPolicy,
 
     -- * Destructuring the response
@@ -66,73 +66,85 @@ module Network.AWS.GameLift.UpdateFleetAttributes
     mkUpdateFleetAttributesResponse,
 
     -- ** Response lenses
-    ufarsFleetId,
-    ufarsResponseStatus,
+    ufarrsFleetId,
+    ufarrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkUpdateFleetAttributes' smart constructor.
 data UpdateFleetAttributes = UpdateFleetAttributes'
-  { -- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .
+  { -- | A unique identifier for a fleet to update attribute metadata for. You can use either the fleet ID or ARN value.
+    fleetId :: Types.FleetIdOrArn,
+    -- | Human-readable description of a fleet.
+    description :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric group is to aggregate metrics from multiple fleets. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+    metricGroups :: Core.Maybe [Types.MetricGroup],
+    -- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+    name :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .
     --
     --
     --     * __NoProtection__ -- The game session can be terminated during a scale-down event.
     --
     --
     --     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
-    newGameSessionProtectionPolicy :: Lude.Maybe ProtectionPolicy,
-    -- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
-    name :: Lude.Maybe Lude.Text,
-    -- | Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric group is to aggregate metrics from multiple fleets. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
-    metricGroups :: Lude.Maybe [Lude.Text],
-    -- | A unique identifier for a fleet to update attribute metadata for. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text,
-    -- | Human-readable description of a fleet.
-    description :: Lude.Maybe Lude.Text,
+    newGameSessionProtectionPolicy :: Core.Maybe Types.ProtectionPolicy,
     -- | Policy that limits the number of game sessions an individual player can create over a span of time.
-    resourceCreationLimitPolicy :: Lude.Maybe ResourceCreationLimitPolicy
+    resourceCreationLimitPolicy :: Core.Maybe Types.ResourceCreationLimitPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFleetAttributes' with the minimum fields required to make a request.
---
--- * 'newGameSessionProtectionPolicy' - Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .
---
---
---     * __NoProtection__ -- The game session can be terminated during a scale-down event.
---
---
---     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
---
---
--- * 'name' - A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
--- * 'metricGroups' - Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric group is to aggregate metrics from multiple fleets. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
--- * 'fleetId' - A unique identifier for a fleet to update attribute metadata for. You can use either the fleet ID or ARN value.
--- * 'description' - Human-readable description of a fleet.
--- * 'resourceCreationLimitPolicy' - Policy that limits the number of game sessions an individual player can create over a span of time.
+-- | Creates a 'UpdateFleetAttributes' value with any optional fields omitted.
 mkUpdateFleetAttributes ::
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
   UpdateFleetAttributes
-mkUpdateFleetAttributes pFleetId_ =
+mkUpdateFleetAttributes fleetId =
   UpdateFleetAttributes'
-    { newGameSessionProtectionPolicy =
-        Lude.Nothing,
-      name = Lude.Nothing,
-      metricGroups = Lude.Nothing,
-      fleetId = pFleetId_,
-      description = Lude.Nothing,
-      resourceCreationLimitPolicy = Lude.Nothing
+    { fleetId,
+      description = Core.Nothing,
+      metricGroups = Core.Nothing,
+      name = Core.Nothing,
+      newGameSessionProtectionPolicy = Core.Nothing,
+      resourceCreationLimitPolicy = Core.Nothing
     }
+
+-- | A unique identifier for a fleet to update attribute metadata for. You can use either the fleet ID or ARN value.
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufaFleetId :: Lens.Lens' UpdateFleetAttributes Types.FleetIdOrArn
+ufaFleetId = Lens.field @"fleetId"
+{-# DEPRECATED ufaFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+
+-- | Human-readable description of a fleet.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufaDescription :: Lens.Lens' UpdateFleetAttributes (Core.Maybe Types.NonZeroAndMaxString)
+ufaDescription = Lens.field @"description"
+{-# DEPRECATED ufaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric group is to aggregate metrics from multiple fleets. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+--
+-- /Note:/ Consider using 'metricGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufaMetricGroups :: Lens.Lens' UpdateFleetAttributes (Core.Maybe [Types.MetricGroup])
+ufaMetricGroups = Lens.field @"metricGroups"
+{-# DEPRECATED ufaMetricGroups "Use generic-lens or generic-optics with 'metricGroups' instead." #-}
+
+-- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufaName :: Lens.Lens' UpdateFleetAttributes (Core.Maybe Types.NonZeroAndMaxString)
+ufaName = Lens.field @"name"
+{-# DEPRECATED ufaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .
 --
@@ -145,123 +157,85 @@ mkUpdateFleetAttributes pFleetId_ =
 --
 --
 -- /Note:/ Consider using 'newGameSessionProtectionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufaNewGameSessionProtectionPolicy :: Lens.Lens' UpdateFleetAttributes (Lude.Maybe ProtectionPolicy)
-ufaNewGameSessionProtectionPolicy = Lens.lens (newGameSessionProtectionPolicy :: UpdateFleetAttributes -> Lude.Maybe ProtectionPolicy) (\s a -> s {newGameSessionProtectionPolicy = a} :: UpdateFleetAttributes)
+ufaNewGameSessionProtectionPolicy :: Lens.Lens' UpdateFleetAttributes (Core.Maybe Types.ProtectionPolicy)
+ufaNewGameSessionProtectionPolicy = Lens.field @"newGameSessionProtectionPolicy"
 {-# DEPRECATED ufaNewGameSessionProtectionPolicy "Use generic-lens or generic-optics with 'newGameSessionProtectionPolicy' instead." #-}
-
--- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufaName :: Lens.Lens' UpdateFleetAttributes (Lude.Maybe Lude.Text)
-ufaName = Lens.lens (name :: UpdateFleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateFleetAttributes)
-{-# DEPRECATED ufaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric group is to aggregate metrics from multiple fleets. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
---
--- /Note:/ Consider using 'metricGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufaMetricGroups :: Lens.Lens' UpdateFleetAttributes (Lude.Maybe [Lude.Text])
-ufaMetricGroups = Lens.lens (metricGroups :: UpdateFleetAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {metricGroups = a} :: UpdateFleetAttributes)
-{-# DEPRECATED ufaMetricGroups "Use generic-lens or generic-optics with 'metricGroups' instead." #-}
-
--- | A unique identifier for a fleet to update attribute metadata for. You can use either the fleet ID or ARN value.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufaFleetId :: Lens.Lens' UpdateFleetAttributes Lude.Text
-ufaFleetId = Lens.lens (fleetId :: UpdateFleetAttributes -> Lude.Text) (\s a -> s {fleetId = a} :: UpdateFleetAttributes)
-{-# DEPRECATED ufaFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
-
--- | Human-readable description of a fleet.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufaDescription :: Lens.Lens' UpdateFleetAttributes (Lude.Maybe Lude.Text)
-ufaDescription = Lens.lens (description :: UpdateFleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateFleetAttributes)
-{-# DEPRECATED ufaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Policy that limits the number of game sessions an individual player can create over a span of time.
 --
 -- /Note:/ Consider using 'resourceCreationLimitPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufaResourceCreationLimitPolicy :: Lens.Lens' UpdateFleetAttributes (Lude.Maybe ResourceCreationLimitPolicy)
-ufaResourceCreationLimitPolicy = Lens.lens (resourceCreationLimitPolicy :: UpdateFleetAttributes -> Lude.Maybe ResourceCreationLimitPolicy) (\s a -> s {resourceCreationLimitPolicy = a} :: UpdateFleetAttributes)
+ufaResourceCreationLimitPolicy :: Lens.Lens' UpdateFleetAttributes (Core.Maybe Types.ResourceCreationLimitPolicy)
+ufaResourceCreationLimitPolicy = Lens.field @"resourceCreationLimitPolicy"
 {-# DEPRECATED ufaResourceCreationLimitPolicy "Use generic-lens or generic-optics with 'resourceCreationLimitPolicy' instead." #-}
 
-instance Lude.AWSRequest UpdateFleetAttributes where
+instance Core.FromJSON UpdateFleetAttributes where
+  toJSON UpdateFleetAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            ("Description" Core..=) Core.<$> description,
+            ("MetricGroups" Core..=) Core.<$> metricGroups,
+            ("Name" Core..=) Core.<$> name,
+            ("NewGameSessionProtectionPolicy" Core..=)
+              Core.<$> newGameSessionProtectionPolicy,
+            ("ResourceCreationLimitPolicy" Core..=)
+              Core.<$> resourceCreationLimitPolicy
+          ]
+      )
+
+instance Core.AWSRequest UpdateFleetAttributes where
   type Rs UpdateFleetAttributes = UpdateFleetAttributesResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.UpdateFleetAttributes")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateFleetAttributesResponse'
-            Lude.<$> (x Lude..?> "FleetId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FleetId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateFleetAttributes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.UpdateFleetAttributes" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateFleetAttributes where
-  toJSON UpdateFleetAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NewGameSessionProtectionPolicy" Lude..=)
-              Lude.<$> newGameSessionProtectionPolicy,
-            ("Name" Lude..=) Lude.<$> name,
-            ("MetricGroups" Lude..=) Lude.<$> metricGroups,
-            Lude.Just ("FleetId" Lude..= fleetId),
-            ("Description" Lude..=) Lude.<$> description,
-            ("ResourceCreationLimitPolicy" Lude..=)
-              Lude.<$> resourceCreationLimitPolicy
-          ]
-      )
-
-instance Lude.ToPath UpdateFleetAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateFleetAttributes where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkUpdateFleetAttributesResponse' smart constructor.
 data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
   { -- | A unique identifier for a fleet that was updated. Use either the fleet ID or ARN value.
-    fleetId :: Lude.Maybe Lude.Text,
+    fleetId :: Core.Maybe Types.FleetId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFleetAttributesResponse' with the minimum fields required to make a request.
---
--- * 'fleetId' - A unique identifier for a fleet that was updated. Use either the fleet ID or ARN value.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateFleetAttributesResponse' value with any optional fields omitted.
 mkUpdateFleetAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateFleetAttributesResponse
-mkUpdateFleetAttributesResponse pResponseStatus_ =
+mkUpdateFleetAttributesResponse responseStatus =
   UpdateFleetAttributesResponse'
-    { fleetId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fleetId = Core.Nothing,
+      responseStatus
     }
 
 -- | A unique identifier for a fleet that was updated. Use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufarsFleetId :: Lens.Lens' UpdateFleetAttributesResponse (Lude.Maybe Lude.Text)
-ufarsFleetId = Lens.lens (fleetId :: UpdateFleetAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: UpdateFleetAttributesResponse)
-{-# DEPRECATED ufarsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+ufarrsFleetId :: Lens.Lens' UpdateFleetAttributesResponse (Core.Maybe Types.FleetId)
+ufarrsFleetId = Lens.field @"fleetId"
+{-# DEPRECATED ufarrsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufarsResponseStatus :: Lens.Lens' UpdateFleetAttributesResponse Lude.Int
-ufarsResponseStatus = Lens.lens (responseStatus :: UpdateFleetAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFleetAttributesResponse)
-{-# DEPRECATED ufarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ufarrsResponseStatus :: Lens.Lens' UpdateFleetAttributesResponse Core.Int
+ufarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ufarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

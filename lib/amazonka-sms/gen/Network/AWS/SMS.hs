@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +20,46 @@
 --     * <https://docs.aws.amazon.com/server-migration-service/latest/userguide/ AWS Server Migration Service User Guide>
 module Network.AWS.SMS
   ( -- * Service configuration
-    smsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ReplicationRunLimitExceededException
+    _ReplicationRunLimitExceededException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** NoConnectorsAvailableException
+    _NoConnectorsAvailableException,
+
+    -- ** ReplicationJobNotFoundException
+    _ReplicationJobNotFoundException,
+
+    -- ** ServerCannotBeReplicatedException
+    _ServerCannotBeReplicatedException,
+
+    -- ** DryRunOperationException
+    _DryRunOperationException,
+
+    -- ** InternalError
+    _InternalError,
+
+    -- ** ReplicationJobAlreadyExistsException
+    _ReplicationJobAlreadyExistsException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** TemporarilyUnavailableException
+    _TemporarilyUnavailableException,
+
+    -- ** MissingRequiredParameterException
+    _MissingRequiredParameterException,
+
+    -- ** UnauthorizedOperationException
+    _UnauthorizedOperationException,
 
     -- * Waiters
     -- $waiters
@@ -139,119 +174,322 @@ module Network.AWS.SMS
 
     -- * Types
 
-    -- ** AppLaunchConfigurationStatus
-    AppLaunchConfigurationStatus (..),
+    -- ** ReplicationJobStatusMessage
+    ReplicationJobStatusMessage (..),
 
-    -- ** AppLaunchStatus
-    AppLaunchStatus (..),
+    -- ** InstanceId
+    InstanceId (..),
 
-    -- ** AppReplicationConfigurationStatus
-    AppReplicationConfigurationStatus (..),
+    -- ** NonEmptyStringWithMaxLen255
+    NonEmptyStringWithMaxLen255 (..),
 
-    -- ** AppReplicationStatus
-    AppReplicationStatus (..),
+    -- ** ValidationOutput
+    ValidationOutput (..),
+    mkValidationOutput,
+    voAppValidationOutput,
+    voLatestValidationTime,
+    voName,
+    voServerValidationOutput,
+    voStatus,
+    voStatusMessage,
+    voValidationId,
 
-    -- ** AppStatus
-    AppStatus (..),
+    -- ** ReplicationRunStageProgress
+    ReplicationRunStageProgress (..),
 
-    -- ** AppValidationStrategy
-    AppValidationStrategy (..),
+    -- ** EC2KeyName
+    EC2KeyName (..),
 
-    -- ** ConnectorCapability
-    ConnectorCapability (..),
+    -- ** Command
+    Command (..),
+
+    -- ** LaunchDetails
+    LaunchDetails (..),
+    mkLaunchDetails,
+    ldLatestLaunchTime,
+    ldStackId,
+    ldStackName,
 
     -- ** ConnectorStatus
     ConnectorStatus (..),
 
-    -- ** LicenseType
-    LicenseType (..),
+    -- ** VmManagerName
+    VmManagerName (..),
 
-    -- ** OutputFormat
-    OutputFormat (..),
+    -- ** ServerGroupLaunchConfiguration
+    ServerGroupLaunchConfiguration (..),
+    mkServerGroupLaunchConfiguration,
+    sglcLaunchOrder,
+    sglcServerGroupId,
+    sglcServerLaunchConfigurations,
 
-    -- ** ReplicationJobState
-    ReplicationJobState (..),
+    -- ** IpAddress
+    IpAddress (..),
 
-    -- ** ReplicationRunState
-    ReplicationRunState (..),
+    -- ** SSMOutput
+    SSMOutput (..),
+    mkSSMOutput,
+    ssmoS3Location,
 
-    -- ** ReplicationRunType
-    ReplicationRunType (..),
-
-    -- ** ScriptType
-    ScriptType (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** ServerCatalogStatus
     ServerCatalogStatus (..),
 
-    -- ** ServerType
-    ServerType (..),
+    -- ** AppReplicationStatusMessage
+    AppReplicationStatusMessage (..),
 
-    -- ** ServerValidationStrategy
-    ServerValidationStrategy (..),
+    -- ** ServerGroup
+    ServerGroup (..),
+    mkServerGroup,
+    sgName,
+    sgServerGroupId,
+    sgServerList,
 
-    -- ** VMManagerType
-    VMManagerType (..),
+    -- ** ReplicationRunState
+    ReplicationRunState (..),
 
-    -- ** ValidationStatus
-    ValidationStatus (..),
-
-    -- ** AppSummary
-    AppSummary (..),
-    mkAppSummary,
-    asCreationTime,
-    asTotalServers,
-    asStatus,
-    asLaunchDetails,
-    asLaunchStatusMessage,
-    asReplicationConfigurationStatus,
-    asReplicationStatusMessage,
-    asTotalServerGroups,
-    asRoleName,
-    asLaunchConfigurationStatus,
-    asLaunchStatus,
-    asAppId,
-    asName,
-    asStatusMessage,
-    asLatestReplicationTime,
-    asImportedAppId,
-    asReplicationStatus,
-    asLastModified,
-    asDescription,
+    -- ** ClientToken
+    ClientToken (..),
 
     -- ** AppValidationConfiguration
     AppValidationConfiguration (..),
     mkAppValidationConfiguration,
-    avcSsmValidationParameters,
-    avcName,
-    avcValidationId,
     avcAppValidationStrategy,
+    avcName,
+    avcSsmValidationParameters,
+    avcValidationId,
+
+    -- ** VmManagerId
+    VmManagerId (..),
+
+    -- ** ReplicationRunType
+    ReplicationRunType (..),
+
+    -- ** ServerValidationStrategy
+    ServerValidationStrategy (..),
+
+    -- ** AppStatus
+    AppStatus (..),
+
+    -- ** ServerType
+    ServerType (..),
+
+    -- ** AppIdWithValidation
+    AppIdWithValidation (..),
 
     -- ** AppValidationOutput
     AppValidationOutput (..),
     mkAppValidationOutput,
     avoSsmOutput,
 
+    -- ** ServerLaunchConfiguration
+    ServerLaunchConfiguration (..),
+    mkServerLaunchConfiguration,
+    slcAssociatePublicIpAddress,
+    slcConfigureScript,
+    slcConfigureScriptType,
+    slcEc2KeyName,
+    slcIamInstanceProfileName,
+    slcInstanceType,
+    slcLogicalId,
+    slcSecurityGroup,
+    slcServer,
+    slcSubnet,
+    slcUserData,
+    slcVpc,
+
+    -- ** ServerId
+    ServerId (..),
+
+    -- ** VmManagerType
+    VmManagerType (..),
+
+    -- ** VmServerAddress
+    VmServerAddress (..),
+    mkVmServerAddress,
+    vsaVmId,
+    vsaVmManagerId,
+
+    -- ** AppLaunchStatus
+    AppLaunchStatus (..),
+
+    -- ** UserDataValidationParameters
+    UserDataValidationParameters (..),
+    mkUserDataValidationParameters,
+    udvpScriptType,
+    udvpSource,
+
+    -- ** ReplicationRunId
+    ReplicationRunId (..),
+
+    -- ** ReplicationJob
+    ReplicationJob (..),
+    mkReplicationJob,
+    rjDescription,
+    rjEncrypted,
+    rjFrequency,
+    rjKmsKeyId,
+    rjLatestAmiId,
+    rjLicenseType,
+    rjNextReplicationRunStartTime,
+    rjNumberOfRecentAmisToKeep,
+    rjReplicationJobId,
+    rjReplicationRunList,
+    rjRoleName,
+    rjRunOnce,
+    rjSeedReplicationTime,
+    rjServerId,
+    rjServerType,
+    rjState,
+    rjStatusMessage,
+    rjVmServer,
+
+    -- ** LicenseType
+    LicenseType (..),
+
+    -- ** Subnet
+    Subnet (..),
+
+    -- ** ReplicationRunStageDetails
+    ReplicationRunStageDetails (..),
+    mkReplicationRunStageDetails,
+    rrsdStage,
+    rrsdStageProgress,
+
+    -- ** ServerReplicationParameters
+    ServerReplicationParameters (..),
+    mkServerReplicationParameters,
+    srpEncrypted,
+    srpFrequency,
+    srpKmsKeyId,
+    srpLicenseType,
+    srpNumberOfRecentAmisToKeep,
+    srpRunOnce,
+    srpSeedTime,
+
+    -- ** RoleName
+    RoleName (..),
+
     -- ** Connector
     Connector (..),
     mkConnector,
-    cStatus,
-    cVmManagerName,
-    cIpAddress,
-    cVmManagerId,
-    cVmManagerType,
-    cConnectorId,
     cAssociatedOn,
-    cMacAddress,
-    cVersion,
     cCapabilityList,
+    cConnectorId,
+    cIpAddress,
+    cMacAddress,
+    cStatus,
+    cVersion,
+    cVmManagerId,
+    cVmManagerName,
+    cVmManagerType,
 
-    -- ** LaunchDetails
-    LaunchDetails (..),
-    mkLaunchDetails,
-    ldStackId,
-    ldLatestLaunchTime,
-    ldStackName,
+    -- ** AppName
+    AppName (..),
+
+    -- ** VmId
+    VmId (..),
+
+    -- ** VmServer
+    VmServer (..),
+    mkVmServer,
+    vsVmManagerName,
+    vsVmManagerType,
+    vsVmName,
+    vsVmPath,
+    vsVmServerAddress,
+
+    -- ** ServerValidationConfiguration
+    ServerValidationConfiguration (..),
+    mkServerValidationConfiguration,
+    svcName,
+    svcServer,
+    svcServerValidationStrategy,
+    svcUserDataValidationParameters,
+    svcValidationId,
+
+    -- ** LogicalId
+    LogicalId (..),
+
+    -- ** ConnectorId
+    ConnectorId (..),
+
+    -- ** ReplicationJobId
+    ReplicationJobId (..),
+
+    -- ** MacAddress
+    MacAddress (..),
+
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** AppReplicationStatus
+    AppReplicationStatus (..),
+
+    -- ** SecurityGroup
+    SecurityGroup (..),
+
+    -- ** AppReplicationConfigurationStatus
+    AppReplicationConfigurationStatus (..),
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** UserData
+    UserData (..),
+    mkUserData,
+    udS3Location,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** SSMValidationParameters
+    SSMValidationParameters (..),
+    mkSSMValidationParameters,
+    ssmvpCommand,
+    ssmvpExecutionTimeoutSeconds,
+    ssmvpInstanceId,
+    ssmvpOutputS3BucketName,
+    ssmvpScriptType,
+    ssmvpSource,
+
+    -- ** OutputFormat
+    OutputFormat (..),
+
+    -- ** ValidationStatusMessage
+    ValidationStatusMessage (..),
+
+    -- ** AppId
+    AppId (..),
+
+    -- ** ReplicationJobState
+    ReplicationJobState (..),
+
+    -- ** VmName
+    VmName (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** ValidationStatus
+    ValidationStatus (..),
+
+    -- ** ScriptType
+    ScriptType (..),
+
+    -- ** AppDescription
+    AppDescription (..),
+
+    -- ** ServerGroupId
+    ServerGroupId (..),
+
+    -- ** ReplicationRunStatusMessage
+    ReplicationRunStatusMessage (..),
 
     -- ** NotificationContext
     NotificationContext (..),
@@ -260,48 +498,48 @@ module Network.AWS.SMS
     ncStatusMessage,
     ncValidationId,
 
-    -- ** ReplicationJob
-    ReplicationJob (..),
-    mkReplicationJob,
-    rjFrequency,
-    rjNumberOfRecentAMIsToKeep,
-    rjState,
-    rjServerType,
-    rjServerId,
-    rjLicenseType,
-    rjRoleName,
-    rjVmServer,
-    rjEncrypted,
-    rjReplicationJobId,
-    rjReplicationRunList,
-    rjNextReplicationRunStartTime,
-    rjStatusMessage,
-    rjKmsKeyId,
-    rjLatestAMIId,
-    rjSeedReplicationTime,
-    rjRunOnce,
-    rjDescription,
+    -- ** Source
+    Source (..),
+    mkSource,
+    sS3Location,
 
     -- ** ReplicationRun
     ReplicationRun (..),
     mkReplicationRun,
-    rrState,
-    rrReplicationRunId,
-    rrEncrypted,
-    rrStageDetails,
-    rrScheduledStartTime,
-    rrStatusMessage,
-    rrKmsKeyId,
-    rrCompletedTime,
     rrAmiId,
-    rrType,
+    rrCompletedTime,
     rrDescription,
+    rrEncrypted,
+    rrKmsKeyId,
+    rrReplicationRunId,
+    rrScheduledStartTime,
+    rrStageDetails,
+    rrState,
+    rrStatusMessage,
+    rrType,
 
-    -- ** ReplicationRunStageDetails
-    ReplicationRunStageDetails (..),
-    mkReplicationRunStageDetails,
-    rrsdStage,
-    rrsdStageProgress,
+    -- ** AppSummary
+    AppSummary (..),
+    mkAppSummary,
+    asAppId,
+    asCreationTime,
+    asDescription,
+    asImportedAppId,
+    asLastModified,
+    asLatestReplicationTime,
+    asLaunchConfigurationStatus,
+    asLaunchDetails,
+    asLaunchStatus,
+    asLaunchStatusMessage,
+    asName,
+    asReplicationConfigurationStatus,
+    asReplicationStatus,
+    asReplicationStatusMessage,
+    asRoleName,
+    asStatus,
+    asStatusMessage,
+    asTotalServerGroups,
+    asTotalServers,
 
     -- ** S3Location
     S3Location (..),
@@ -309,43 +547,38 @@ module Network.AWS.SMS
     slBucket,
     slKey,
 
-    -- ** SSMOutput
-    SSMOutput (..),
-    mkSSMOutput,
-    ssmoS3Location,
-
-    -- ** SSMValidationParameters
-    SSMValidationParameters (..),
-    mkSSMValidationParameters,
-    ssmvpInstanceId,
-    ssmvpCommand,
-    ssmvpExecutionTimeoutSeconds,
-    ssmvpScriptType,
-    ssmvpSource,
-    ssmvpOutputS3BucketName,
-
     -- ** Server
     Server (..),
     mkServer,
-    sServerType,
-    sServerId,
-    sReplicationJobTerminated,
-    sVmServer,
     sReplicationJobId,
+    sReplicationJobTerminated,
+    sServerId,
+    sServerType,
+    sVmServer,
 
-    -- ** ServerGroup
-    ServerGroup (..),
-    mkServerGroup,
-    sgServerList,
-    sgName,
-    sgServerGroupId,
+    -- ** AppLaunchConfigurationStatus
+    AppLaunchConfigurationStatus (..),
 
-    -- ** ServerGroupLaunchConfiguration
-    ServerGroupLaunchConfiguration (..),
-    mkServerGroupLaunchConfiguration,
-    sglcServerGroupId,
-    sglcLaunchOrder,
-    sglcServerLaunchConfigurations,
+    -- ** AmiId
+    AmiId (..),
+
+    -- ** ImportedAppId
+    ImportedAppId (..),
+
+    -- ** ConnectorCapability
+    ConnectorCapability (..),
+
+    -- ** StackId
+    StackId (..),
+
+    -- ** ValidationId
+    ValidationId (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** VmPath
+    VmPath (..),
 
     -- ** ServerGroupReplicationConfiguration
     ServerGroupReplicationConfiguration (..),
@@ -353,116 +586,69 @@ module Network.AWS.SMS
     sgrcServerGroupId,
     sgrcServerReplicationConfigurations,
 
-    -- ** ServerGroupValidationConfiguration
-    ServerGroupValidationConfiguration (..),
-    mkServerGroupValidationConfiguration,
-    sgvcServerValidationConfigurations,
-    sgvcServerGroupId,
-
-    -- ** ServerLaunchConfiguration
-    ServerLaunchConfiguration (..),
-    mkServerLaunchConfiguration,
-    slcEc2KeyName,
-    slcConfigureScriptType,
-    slcAssociatePublicIPAddress,
-    slcIamInstanceProfileName,
-    slcSubnet,
-    slcLogicalId,
-    slcSecurityGroup,
-    slcUserData,
-    slcInstanceType,
-    slcConfigureScript,
-    slcServer,
-    slcVpc,
-
     -- ** ServerReplicationConfiguration
     ServerReplicationConfiguration (..),
     mkServerReplicationConfiguration,
-    srcServerReplicationParameters,
     srcServer,
+    srcServerReplicationParameters,
 
-    -- ** ServerReplicationParameters
-    ServerReplicationParameters (..),
-    mkServerReplicationParameters,
-    srpFrequency,
-    srpNumberOfRecentAMIsToKeep,
-    srpSeedTime,
-    srpLicenseType,
-    srpEncrypted,
-    srpKmsKeyId,
-    srpRunOnce,
+    -- ** StackName
+    StackName (..),
 
-    -- ** ServerValidationConfiguration
-    ServerValidationConfiguration (..),
-    mkServerValidationConfiguration,
-    svcServerValidationStrategy,
-    svcUserDataValidationParameters,
-    svcName,
-    svcServer,
-    svcValidationId,
+    -- ** ServerGroupValidationConfiguration
+    ServerGroupValidationConfiguration (..),
+    mkServerGroupValidationConfiguration,
+    sgvcServerGroupId,
+    sgvcServerValidationConfigurations,
+
+    -- ** AppValidationStrategy
+    AppValidationStrategy (..),
 
     -- ** ServerValidationOutput
     ServerValidationOutput (..),
     mkServerValidationOutput,
     svoServer,
 
-    -- ** Source
-    Source (..),
-    mkSource,
-    sS3Location,
+    -- ** StatusMessage
+    StatusMessage (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** Key
+    Key (..),
 
-    -- ** UserData
-    UserData (..),
-    mkUserData,
-    udS3Location,
+    -- ** Value
+    Value (..),
 
-    -- ** UserDataValidationParameters
-    UserDataValidationParameters (..),
-    mkUserDataValidationParameters,
-    udvpScriptType,
-    udvpSource,
+    -- ** Name
+    Name (..),
 
-    -- ** VMServer
-    VMServer (..),
-    mkVMServer,
-    vmsVmManagerName,
-    vmsVmManagerType,
-    vmsVmServerAddress,
-    vmsVmName,
-    vmsVmPath,
+    -- ** IamInstanceProfileName
+    IamInstanceProfileName (..),
 
-    -- ** VMServerAddress
-    VMServerAddress (..),
-    mkVMServerAddress,
-    vmsaVmManagerId,
-    vmsaVmId,
+    -- ** Vpc
+    Vpc (..),
 
-    -- ** ValidationOutput
-    ValidationOutput (..),
-    mkValidationOutput,
-    voStatus,
-    voAppValidationOutput,
-    voLatestValidationTime,
-    voName,
-    voStatusMessage,
-    voValidationId,
-    voServerValidationOutput,
+    -- ** LatestAmiId
+    LatestAmiId (..),
+
+    -- ** Stage
+    Stage (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** LaunchStatusMessage
+    LaunchStatusMessage (..),
+
+    -- ** Bucket
+    Bucket (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
